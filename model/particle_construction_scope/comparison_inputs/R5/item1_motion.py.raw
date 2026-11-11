@@ -1,0 +1,77 @@
+"""Item 1, executed with the reference engine: a packet in a constant field strength.
+
+(a) acceleration on a line: time-like link phase exp(-i phi), phi = -F (x - x0) (uniform force F); relativistic
+    hyperbolic motion x(t) = x0 + (E(p0 + F t) - E(p0))/F with E(p) = sqrt(p^2 + theta^2);
+    the same with the exact dispersion of the tick, cos E = cos(theta) cos(p).
+(b) cyclotron motion on a plane: links of axis 2 exp(-i B (x_1 - c_1)), packet with kinetic momentum p0 along axis 1,
+    semiclassical regime n* = p0^2/(2B) = 16; relativistic orbit radius p0/B, angular frequency B/E,
+    z(t) = z0 - i (pi/B)(1 - exp(-i B t/E(pi))) averaged over the momentum distribution of the packet.
+"""
+import json, sys, time
+import numpy as np
+from r5lib import Routing, tick, positive_coin
+
+out = {}; t0 = time.time()
+# ---- (a) acceleration ---------------------------------------------------------------------------------------------
+L, th, x0 = 2048, 0.157935, 500.0
+F = 2 * np.pi / L
+x = np.arange(L)
+phi = (-F * (x - x0)).reshape(L, 1, 1)
+eng = Routing((L, 1, 1))
+def coin(p):
+    U2 = (np.cos(th) * np.eye(2) - 1j * np.sin(th) * np.array([[0, -1j], [1j, 0]])) @ (np.cos(p[0]) * np.eye(2) - 1j * np.sin(p[0]) * np.array([[0, 1], [1, 0]]))
+    lam, v = np.linalg.eig(U2); r = v[:, int(np.argmax(-np.angle(lam)))]; r = r * np.exp(-1j * np.angle(r[0])) / np.linalg.norm(r)
+    return np.kron(r, np.array([1, 1]) / np.sqrt(2))
+psi = np.roll(eng.packet(0, 8.0, coin), int(x0), axis=0)        # momentum width 2 pi 8/L = 0.0245, p0 = 0
+rows = []
+for t in range(0, 241):
+    if t % 40 == 0:
+        w = np.sum(np.abs(psi) ** 2, axis=(1, 2, 3, 4)); xm = float(np.sum(w * x))
+        p = F * t
+        rel = x0 + (np.hypot(p, th) - th) / F
+        lat = x0 + (np.arccos(np.cos(th) * np.cos(p)) - th) / F
+        rows.append(dict(t=t, kinetic_momentum=p, x_measured=xm, x_relativistic=float(rel), x_tick_dispersion=float(lat),
+                         velocity_relativistic=float(p / np.hypot(p, th))))
+        print(f'(a) t={t:3d} p={p:.4f}  x measured {xm:9.3f}  relativistic {rel:9.3f}  with the tick dispersion {lat:9.3f}')
+    psi = tick(eng, psi, th, phi)
+out['acceleration'] = dict(L=L, theta=th, F=F, rows=rows,
+                           max_abs_measured_minus_relativistic=max(abs(r['x_measured'] - r['x_relativistic']) for r in rows),
+                           max_abs_measured_minus_tick_dispersion=max(abs(r['x_measured'] - r['x_tick_dispersion']) for r in rows))
+print('(a) max |measured - relativistic| = %.3f cells, max |measured - tick dispersion| = %.3f cells over a displacement of %.1f cells'
+      % (out['acceleration']['max_abs_measured_minus_relativistic'], out['acceleration']['max_abs_measured_minus_tick_dispersion'], rows[-1]['x_measured'] - x0))
+
+# ---- (b) cyclotron ------------------------------------------------------------------------------------------------
+L, B, p0, th = 400, 0.005, 0.4, 0.087847
+c1 = c2 = L / 2; lB = 1 / np.sqrt(B)
+X1, X2 = np.meshgrid(np.arange(L), np.arange(L), indexing='ij')
+eng = Routing((L, L, 1), [np.ones((L, L, 1), complex), np.exp(-1j * B * (X1 - c1))[..., None], np.ones((L, L, 1), complex)])
+g = np.exp(-((X1 - c1) ** 2 + (X2 - c2) ** 2) / (4 * lB ** 2)) * np.exp(1j * p0 * (X1 - c1)) * np.exp(0.5j * B * (X1 - c1) * (X2 - c2))
+psi = g[..., None, None, None] * positive_coin((p0, 0.0, 0.0), th).reshape(2, 2); psi /= np.linalg.norm(psi)
+E0 = np.hypot(p0, th); T = int(round(2 * np.pi * E0 / B))
+rng = np.random.default_rng(0); sk = np.sqrt(B) / 2
+pis = p0 + sk * (rng.normal(size=200000) + 1j * rng.normal(size=200000)); Es = np.sqrt(np.abs(pis) ** 2 + th ** 2)
+traj = []
+for t in range(T + 1):
+    if t % 8 == 0:
+        w = np.sum(np.abs(psi) ** 2, axis=(2, 3, 4)); z = complex(np.sum(w * X1), np.sum(w * X2))
+        single = complex(c1, c2) - 1j * (p0 / B) * (1 - np.exp(-1j * B * t / E0))
+        ens = complex(c1, c2) - 1j * np.mean(pis * (1 - np.exp(-1j * B * t / Es))) / B
+        traj.append(dict(t=t, measured=[z.real, z.imag], single_orbit=[single.real, single.imag], ensemble=[ens.real, ens.imag]))
+    psi = tick(eng, psi, th, reverse=(t % 2 == 1))
+zm = np.array([complex(*r['measured']) for r in traj]); ze = np.array([complex(*r['ensemble']) for r in traj]); zs = np.array([complex(*r['single_orbit']) for r in traj])
+tt = np.array([r['t'] for r in traj])
+half = tt <= T // 2
+# angular frequency from the direction of the velocity over the first quarter period
+vel = np.diff(zm) / 8; ang = np.unwrap(np.angle(vel)); q = tt[:-1] <= T // 4
+omega = -np.polyfit(tt[:-1][q] + 4, ang[q], 1)[0]
+res = dict(L=L, B=B, p0=p0, theta=th, n_star=p0 ** 2 / (2 * B), ticks=T, radius_relativistic_p0_over_B=p0 / B, omega_relativistic_B_over_E=B / E0,
+           omega_measured_first_quarter=float(omega),
+           omega_ensemble_first_quarter=float(-np.polyfit(tt[:-1][q] + 4, np.unwrap(np.angle(np.diff(ze)))[q], 1)[0]),
+           max_distance_from_start_over_2_measured=float(np.abs(zm - zm[0]).max() / 2), max_distance_over_2_ensemble=float(np.abs(ze - ze[0]).max() / 2),
+           max_dev_measured_vs_ensemble_first_half_period=float(np.abs(zm - ze)[half].max()), max_dev_measured_vs_ensemble_full_period=float(np.abs(zm - ze).max()),
+           max_dev_measured_vs_single_orbit_first_half_period=float(np.abs(zm - zs)[half].max()), trajectory=traj, norm=float(np.linalg.norm(psi)))
+out['cyclotron'] = res
+print('(b) ' + ', '.join(f'{k} = {v:.5g}' for k, v in res.items() if k != 'trajectory'))
+for r in traj[::8]: print('    t=%3d measured (%.2f, %.2f)  ensemble (%.2f, %.2f)  single orbit (%.2f, %.2f)' % (r['t'], *r['measured'], *r['ensemble'], *r['single_orbit']))
+out['seconds'] = time.time() - t0
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 'item1_motion.json', 'w'), indent=1)

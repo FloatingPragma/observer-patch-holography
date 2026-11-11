@@ -1,0 +1,148 @@
+"""Fixed-point multiprecision linear algebra on numpy object arrays of Python integers (scale 2^P).
+
+The cap modular generator K = log((1 - C)/C) needs the spectrum of the restricted correlation matrix C to
+relative accuracy for eigenvalues as small as exp(-beta_max E_max); double precision stops at exp(-34).
+This module gives a cyclic Jacobi eigen-solver, the fermionic modular generator and helpers, all with P bits
+after the binary point. Results are converted to float64 only at the end (entries of K are O(1) to O(100)).
+"""
+from __future__ import annotations
+
+from math import isqrt
+
+import mpmath as mp
+import numpy as np
+
+
+class FP:
+    def __init__(self, bits: int = 384):
+        self.P = bits
+        self.ONE = 1 << bits
+        mp.mp.prec = bits + 96
+
+    # scalars
+    def from_mp(self, x) -> int:
+        return int(mp.floor(mp.mpf(x) * self.ONE + mp.mpf(1) / 2))
+
+    def to_mp(self, a: int):
+        return mp.mpf(a) / self.ONE
+
+    def to_float(self, a: int) -> float:
+        return a / self.ONE
+
+    def mul(self, a, b):
+        return (a * b) >> self.P
+
+    def sqrt_half(self) -> int:
+        return isqrt(self.ONE * self.ONE // 2)
+
+    # arrays
+    def arr_to_float(self, A: np.ndarray) -> np.ndarray:
+        one = self.ONE
+        return np.array([[x / one for x in row] for row in A], dtype=float) if A.ndim == 2 else np.array([x / one for x in A], dtype=float)
+
+    def dot(self, A: np.ndarray, B: np.ndarray) -> np.ndarray:
+        return np.dot(A, B) >> self.P
+
+    def jacobi(self, A_in: np.ndarray, guard: int = 40, max_sweeps: int = 60):
+        """Cyclic Jacobi for a real symmetric fixed-point matrix. Returns (eigenvalues, V) with A = V diag V^T."""
+        P, ONE = self.P, self.ONE
+        A = A_in.copy()
+        n = A.shape[0]
+        V = np.empty((n, n), dtype=object)
+        V[:, :] = 0
+        for i in range(n):
+            V[i, i] = ONE
+        thr = 1 << guard
+        skip = 1 << (guard - 8)
+        sweeps = 0
+        for sweep in range(max_sweeps):
+            off = 0
+            for p in range(n - 1):
+                row = A[p]
+                for q in range(p + 1, n):
+                    apq = row[q]
+                    aa = -apq if apq < 0 else apq
+                    if aa > off:
+                        off = aa
+                    if aa < skip:
+                        continue
+                    app, aqq = A[p, p], A[q, q]
+                    num = aqq - app
+                    den = 2 * apq
+                    r = isqrt(num * num + den * den)
+                    t = (den << P) // (num + r) if num >= 0 else -((den << P) // (r - num))
+                    c = (ONE * ONE) // isqrt(ONE * ONE + t * t)
+                    s = (t * c) >> P
+                    Ap = A[p].copy(); Aq = A[q].copy()
+                    newp = (c * Ap - s * Aq) >> P
+                    newq = (s * Ap + c * Aq) >> P
+                    A[p] = newp; A[q] = newq; A[:, p] = newp; A[:, q] = newq
+                    tapq = (t * apq) >> P
+                    A[p, p] = app - tapq; A[q, q] = aqq + tapq
+                    A[p, q] = 0; A[q, p] = 0
+                    Vp = V[:, p].copy(); Vq = V[:, q].copy()
+                    V[:, p] = (c * Vp - s * Vq) >> P
+                    V[:, q] = (s * Vp + c * Vq) >> P
+                    row = A[p]
+            sweeps += 1
+            if off < thr:
+                break
+        d = np.array([A[i, i] for i in range(n)], dtype=object)
+        return d, V, sweeps
+
+    def fermi_K(self, C: np.ndarray):
+        """K = log((1 - C)/C) for a fixed-point correlation matrix. Returns K (float64), eps (float64),
+        the smallest distance of the spectrum from {0, 1} as a float exponent (log10), and the sweep count."""
+        d, V, sweeps = self.jacobi(C)
+        ONE = self.ONE
+        eps_fp, eps_f, margin = [], [], 0.0
+        for x in d:
+            if x <= 0 or x >= ONE:
+                raise ArithmeticError('correlation eigenvalue outside (0, 1) at this precision; raise the precision')
+            e = mp.log(mp.mpf(ONE - x) / mp.mpf(x))
+            eps_fp.append(self.from_mp(e)); eps_f.append(float(e))
+            margin = max(margin, abs(float(e)))
+        E = np.array(eps_fp, dtype=object)
+        VE = (V * E[None, :]) >> self.P
+        K = np.dot(VE, V.T) >> self.P
+        return self.arr_to_float(K), np.array(eps_f), margin, sweeps
+
+
+def symmetry_blocks(perms: list, n: int):
+    """Real symmetry-adapted orthogonal basis for an abelian group of commuting involutions acting on n sites by
+    the permutations `perms` (the generators). Returns a list of (characters, columns), columns as a list of
+    (dict site -> +-1, norm_squared) vectors."""
+    from itertools import product
+    gens = [np.asarray(p) for p in perms]
+    # group elements as (word bits, permutation)
+    elems = []
+    for bits in product((0, 1), repeat=len(gens)):
+        perm = np.arange(n)
+        for b, g in zip(bits, gens):
+            if b:
+                perm = g[perm]
+        elems.append((bits, perm))
+    blocks = []
+    for chi in product((1, -1), repeat=len(gens)):
+        cols, seen = [], set()
+        for x in range(n):
+            if x in seen:
+                continue
+            orbit = sorted({int(perm[x]) for _, perm in elems})
+            seen.update(orbit)
+            vec = {}
+            for bits, perm in elems:
+                ch = 1
+                for b, c in zip(bits, chi):
+                    if b:
+                        ch *= c
+                y = int(perm[x])
+                vec[y] = vec.get(y, 0) + ch
+            vec = {k: v for k, v in vec.items() if v != 0}
+            if vec:
+                g = np.gcd.reduce(np.abs(list(vec.values())))
+                vec = {k: v // int(g) for k, v in vec.items()}
+                cols.append((vec, sum(v * v for v in vec.values())))
+        blocks.append((chi, cols))
+    assert sum(len(c) for _, c in blocks) == n
+    return blocks

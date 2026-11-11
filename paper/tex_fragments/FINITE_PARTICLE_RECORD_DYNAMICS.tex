@@ -1,0 +1,157 @@
+\subsection{Complete cycles and controlled lepton rates}
+\label{sec:complete-lepton-cycles}
+
+The finite lepton instrument can be composed without discarding a return failure.
+Prepare each cell's sixty-address register in the uniform state $u$, and let
+$S=u\otimes u$. A Householder unitary gives an explicit map from a blank address
+basis vector to $u$. The blank double loads, independent fresh cells and this
+preparation service are declared inputs. After the native forward tick, the
+exclusive-read kick and the inverse tick, the joint state has the form
+\[
+ S\otimes\psi+X\otimes(U_h-I)\psi,
+ \qquad U_h=e^{-ihJ},\quad J=\operatorname{diag}(-1,0,1),
+ \quad \langle S,X\rangle=\|X\|^2=p=\frac29.
+\]
+The two return tests have four outcomes. Their complete Kraus operators are
+\[
+ A_{11}=(1-p)I+pU_h,\quad
+ A_{01}=\sqrt{\frac{11}{324}}(U_h-I),\quad
+ A_{10}=\sqrt{\frac{125}{1296}}(U_h-I),\quad
+ A_{00}=\sqrt{\frac{55}{1296}}(U_h-I).
+\]
+The first outcome includes interference with the standing source. The sum of
+the four effects is identity, and the unconditional register channel is
+\[
+ \Phi_h(\rho)=(1-p)\rho+pU_h\rho U_h^*.
+\]
+Exchanging the old source pair with an independently prepared fresh pair resets
+the active apparatus. The old pair, its flag and all its correlations are
+exported. This unitary exchange supplies the reset while retaining every
+outcome; it does not erase an unknown quantum state. It requires fresh storage
+and a preparation independent of the continuing register and reference.
+
+The mass-read analyzer gives a separate complete channel. In the three Fourier
+characters its compressed effect is $E=\operatorname{diag}(e_k)$, where
+\[
+ e_k=\left[\sqrt{\frac5{108}}+
+       2\sqrt{\frac5{216}}\cos\left(\theta+\frac{2\pi k}{3}\right)\right]^2,
+ \qquad \operatorname{tr}E=\frac5{18}.
+\]
+The pulled-back analyzer vectors $X_k$ satisfy
+$\langle X_l,X_k\rangle=\delta_{kl}e_k$, by the equal three-character weights
+and $1+\omega+\omega^2=0$. The sum of their nonreturn Gram matrices is
+$\operatorname{diag}(e)-ee^{\mathsf T}$, positive by weighted Cauchy--Schwarz.
+It has rank three at $\theta=2/9$, so a single scalar failure operator does
+not reproduce the source environment. With $z=e^{-ih}$, the complete mass
+channel fixes populations and, for $k\ne l$, obeys
+\[
+ \Psi_h(\rho)_{kl}
+   =\bigl[1+(z-1)e_k+(\bar z-1)e_l\bigr]\rho_{kl}.
+\]
+The double-load rates have common factor $5/4$ relative to the native-pair
+rates of total $2/9$. Their ratios agree; their clock normalization is explicit.
+
+For $N$ independent fresh-source cycles with $h=t/N$, finite channel estimates
+give
+\begin{align*}
+ \frac12\|\Phi_{t/N}^{N}-\operatorname{Ad}(e^{-itpJ})\|_\diamond
+   &\le \frac{14t^2}{81N},\\
+ \frac12\|\Psi_{t/N}^{N}-\operatorname{Ad}(e^{-itE})\|_\diamond
+   &\le \frac{349t^2}{1296N}.
+\end{align*}
+The first estimate centers the binomial kick count and uses the spectral
+diameter $D(J)=2$. The second compares the Taylor remainders of the source
+projector, of diameter one, and its compression, whose diameter is at most
+$5/18$. Channel contraction and telescoping extend both estimates to arbitrary
+untouched references. At $t=1$, the conservative ideal cycle counts for error
+at most $10^{-6}$ are $172{,}840$ and $269{,}291$. Per-cycle channel error
+$\epsilon$ and independent preparation error $\eta$ add at most
+$N(\epsilon+\eta)$. Marginal preparation fidelity alone does not bound
+correlations with the register. Diagonal densities are stationary, including
+a faithful uniform density; this does not select a unique reference. The
+exported history grows. No physical duration or mass-pole interpretation is
+provided by these finite estimates.
+
+The spectrum's parameter dependence can be calculated separately. For the
+shape $1+c\cos(\theta+2\pi k/3)$, the positive chamber gives
+$Q=1/3+c^2/6$. At $(\theta,c)=(2/9,\sqrt2)$, the Jacobian of the logarithmic
+muon/electron and tau/electron ratios is
+\[
+ \begin{pmatrix}56.14388&32.61133\\51.22679&34.45440\end{pmatrix},
+ \qquad \det=263.82944.
+\]
+The two shape parameters are locally identifiable from the two ratios; the
+common normalization cancels. The rounded comparison value $206.768283$
+leaves a muon/electron residual of $+9.83213$ parts per million. No parameter
+or round count is adjusted to cancel it. Fixed individual flag marginals
+$1/12$ and $1/6$ permit an exclusive phase anywhere in $[1/12,1/4]$;
+independence fixes their joint probability to $1/72$ and the phase to $2/9$.
+Thus the full preparation, rather than the marginals alone, supplies that
+phase premise. The executable source arrays, complete instruments and
+finite-history checks are in \texttt{model/lepton\_cycle} \cite{ophrepo}.
+
+\subsection{An exact finite population and its symmetry}
+\label{sec:finite-population-dynamics}
+
+A closed triangular cell supplies a finite test of persistent populations.
+It has three loads in $\{0,\ldots,5\}$ and two oppositely oriented face
+classes $(k,-k)$ in $\mathbb Z_6$. Each attempt selects one of the three
+oriented seams uniformly and a fair balancing coin. It uses the same native
+load repair and class-acceptance functions as the federation. The state space
+has $1296$ elements and the complete instrument has $7776$ input-event
+branches, including load-only and no-operation events. The geometry is a
+declared two-face cell; no transfer of its population to the full federation
+is asserted.
+
+With class cost $c=(0,5,8,10,8,5)$ and $\kappa=5$, the quantity
+\[
+ V(x,k)=\kappa\sum_{a=0}^{2}x_a^2+2\bigl[c(k)+c(-k)\bigr]
+\]
+does not increase on any branch. An accepted current $j$ changes the load
+square by $-2j(d-j)$ and the register cost by at most $\kappa j(d-j)$.
+Rejected twists retain only the nonpositive load contribution. The complete
+kernel conserves total load and total face class. Its finite harmonic
+absorption equations determine the persistent occupied-face probability
+from every initial state. For independent uniform initial loads and zero
+initial flux, their exact average is
+\[
+ \Pr(\text{persistent occupied faces})=\frac{1007}{13824}
+       =0.0728443287037\ldots.
+\]
+The full distribution after 128 attempts bounds this limiting share in an interval of width less than
+$5.86\times10^{-10}$. These probabilities describe operational repair events,
+without a physical temperature, cooling law or species-abundance dictionary.
+For every initial distribution on all $1296$ states, the probability of
+remaining outside the terminal set after $n$ attempts is at most
+$25^{-\lfloor n/32\rfloor}$, from the exact all-state 32-attempt
+absorption bound.
+
+The native law also has an exact conjugation. Send every load $x$ to $5-x$,
+every face class and integer lift to its negative, and every coin to its
+complement. The repaired current changes from $j$ to $-j$ while the release
+$j(d-j)$ and the class-cost comparison are unchanged. Exhaustive enumeration
+checks all $2592$ local load/class/coin branches; the same identity verifies
+all $7776$ branches of the population cell. It extends pathwise on the closed
+federation with an equivariant seam schedule.
+
+For a finite kernel $K$ and conjugation $C$, the conditions
+$K(Cx,Cy)=K(x,y)$ and $\mu(Cx)=\mu(x)$ imply
+$(\mu K^n)(Cx)=(\mu K^n)(x)$ for every finite $n$.
+Every odd observable $f(Cx)=-f(x)$ then has zero expectation. These finite-sum
+identities are formalized in the Lean dynamics library; the native branch
+checker supplies the source-specific premises. The signed class differences
+are odd, though single histories can fluctuate. If the initial symmetry
+defect is $a_0$ in total variation and the complete kernel at attempt $r$
+has equivariance defect at most $\varepsilon_r$, maximal coupling gives
+\[
+ |\mathbb E f|\le
+ 1-(1-a_0)\prod_{r=1}^{n}(1-\varepsilon_r),\qquad |f|\le1.
+\]
+A coin of probability $p_r$ contributes at most $|2p_r-1|$ to that defect.
+Conjugation-even selection of probability $q$ can amplify the bound by at
+most $1/q$; asymmetric selection can produce a conditional imbalance from
+an exactly symmetric law. The complete records therefore distinguish
+dynamical asymmetry from selection. Class conjugation alone does not identify
+baryon number or predict the baryon-to-photon ratio. Reproduction is supplied
+by \texttt{model/native\_abundance\_epochs} and
+\texttt{model/charge\_conjugation\_dynamics} \cite{ophrepo}.

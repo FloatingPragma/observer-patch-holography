@@ -1,0 +1,3442 @@
+{
+ "files": {
+  "F": {
+   "note": "Wiring F on the honeycomb: up port TOP[k] glued to down port TOP[k]. Embedding: glue face parallel to the screen, port k tilted towards neighbour k.",
+   "rows": [
+    {
+     "comparison": "chart_S",
+     "kind": "chart",
+     "rule": "S",
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 1,
+     "reading": "phase",
+     "defined": true,
+     "angles_deg": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": 1.2434497875801753e-14,
+     "levels_minus_l0_at_q0": [
+      1.6653345369377348e-15,
+      2.4424906541753444e-15,
+      0.07410018932361928,
+      0.6672261542687111
+     ],
+     "splitting_of_two_lowest": 7.771561172376096e-16,
+     "gradient_band0_band1": [
+      2.7200464103316335e-10,
+      2.7755575615628914e-10
+     ],
+     "flat_bands_at_l0": 1,
+     "spectrum_bottom_minus_l0": -3.219646771412954e-15,
+     "lowest_pair_two_band": {
+      "b": 3.885780586188048e-16,
+      "v": 0.00014967040389453345,
+      "residual": 2.9984380401267656,
+      "note": null
+     }
+    },
+    {
+     "comparison": "chart_S",
+     "kind": "chart",
+     "rule": "S",
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 1,
+     "reading": "modulus",
+     "defined": true,
+     "angles_deg": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": null,
+     "levels_minus_l0_at_q0": [
+      1.6653345369377348e-15,
+      2.4424906541753444e-15,
+      0.07410018932361928,
+      0.6672261542687111
+     ],
+     "splitting_of_two_lowest": 7.771561172376096e-16,
+     "gradient_band0_band1": [
+      2.7200464103316335e-10,
+      2.7755575615628914e-10
+     ],
+     "flat_bands_at_l0": 1,
+     "spectrum_bottom_minus_l0": -3.219646771412954e-15,
+     "lowest_pair_two_band": {
+      "b": 3.885780586188048e-16,
+      "v": 0.00014967040389453345,
+      "residual": 2.9984380401267656,
+      "note": null
+     }
+    },
+    {
+     "comparison": "chart_S",
+     "kind": "chart",
+     "rule": "S",
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 2,
+     "reading": "phase",
+     "defined": true,
+     "angles_deg": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": 1.0658141036401503e-14,
+     "levels_minus_l0_at_q0": [
+      -2.220446049250313e-15,
+      -6.661338147750939e-16,
+      0.0,
+      0.011193441851588437,
+      0.20025992035949391,
+      0.9657261482830815
+     ],
+     "splitting_of_two_lowest": 1.5543122344752192e-15,
+     "gradient_band0_band1": [
+      9.992007221626408e-11,
+      7.771561172376096e-11
+     ],
+     "flat_bands_at_l0": 3,
+     "spectrum_bottom_minus_l0": -3.9968028886505635e-15,
+     "lowest_pair_two_band": {
+      "b": 7.771561172376096e-16,
+      "v": 3.0128972442725573e-14,
+      "residual": 6.758620689655173,
+      "note": null
+     }
+    },
+    {
+     "comparison": "chart_S",
+     "kind": "chart",
+     "rule": "S",
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 2,
+     "reading": "modulus",
+     "defined": true,
+     "angles_deg": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": null,
+     "levels_minus_l0_at_q0": [
+      -2.220446049250313e-15,
+      -6.661338147750939e-16,
+      0.0,
+      0.011193441851588437,
+      0.20025992035949391,
+      0.9657261482830815
+     ],
+     "splitting_of_two_lowest": 1.5543122344752192e-15,
+     "gradient_band0_band1": [
+      9.992007221626408e-11,
+      7.771561172376096e-11
+     ],
+     "flat_bands_at_l0": 3,
+     "spectrum_bottom_minus_l0": -3.9968028886505635e-15,
+     "lowest_pair_two_band": {
+      "b": 7.771561172376096e-16,
+      "v": 3.0128972442725573e-14,
+      "residual": 6.758620689655173,
+      "note": null
+     }
+    },
+    {
+     "comparison": "ambient",
+     "kind": "ambient",
+     "rule": null,
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 1,
+     "reading": "phase",
+     "defined": true,
+     "angles_deg": [
+      74.754736281,
+      74.754736281,
+      74.754736281
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": 3.907985046680551e-13,
+     "levels_minus_l0_at_q0": [
+      -1.3322676295501878e-15,
+      4.440892098500626e-16,
+      0.07410018932357587,
+      0.6672261542688124
+     ],
+     "splitting_of_two_lowest": 1.7763568394002505e-15,
+     "gradient_band0_band1": [
+      3.0531133177191805e-10,
+      2.3869795029440866e-10
+     ],
+     "flat_bands_at_l0": 1,
+     "spectrum_bottom_minus_l0": -4.107825191113079e-15,
+     "lowest_pair_two_band": {
+      "b": 8.881784197001252e-16,
+      "v": 0.00014967040388412511,
+      "residual": 2.9984380398300017,
+      "note": null
+     }
+    },
+    {
+     "comparison": "ambient",
+     "kind": "ambient",
+     "rule": null,
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 1,
+     "reading": "modulus",
+     "defined": true,
+     "angles_deg": [
+      74.754736281,
+      74.754736281,
+      74.754736281
+     ],
+     "glue_modulus": [
+      0.794654472292,
+      0.794654472292,
+      0.794654472292
+     ],
+     "glue_phases_units_of_2pi": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": null,
+     "levels_minus_l0_at_q0": [
+      0.01014559258631531,
+      0.06846959543529152,
+      0.08946606314365946,
+      0.6172619649534595
+     ],
+     "splitting_of_two_lowest": 0.05832400284897621,
+     "gradient_band0_band1": [
+      3.1086244689504383e-10,
+      3.5527136788005004e-10
+     ],
+     "flat_bands_at_l0": 0,
+     "spectrum_bottom_minus_l0": 0.01014559258631531,
+     "lowest_pair_two_band": {
+      "b": 0.029162001424488104,
+      "v": null,
+      "residual": null,
+      "note": "no positive slope: the half splitting does not grow linearly"
+     }
+    },
+    {
+     "comparison": "ambient",
+     "kind": "ambient",
+     "rule": null,
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 2,
+     "reading": "phase",
+     "defined": true,
+     "angles_deg": [
+      74.754736281,
+      74.754736281,
+      74.754736281
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": 1.4530598946294049e-12,
+     "levels_minus_l0_at_q0": [
+      2.6645352591003757e-15,
+      2.1871393585115584e-13,
+      1.453948073049105e-12,
+      0.011193441851680364,
+      0.20025992036086016,
+      0.9657261482833199
+     ],
+     "splitting_of_two_lowest": 2.1604940059205546e-13,
+     "gradient_band0_band1": [
+      1.3322676295501878e-10,
+      1.3322676295501878e-10
+     ],
+     "flat_bands_at_l0": 3,
+     "spectrum_bottom_minus_l0": 2.6645352591003757e-15,
+     "lowest_pair_two_band": {
+      "b": 1.0802470029602773e-13,
+      "v": 3.08798710176226e-13,
+      "residual": 0.9000043307007602,
+      "note": null
+     }
+    },
+    {
+     "comparison": "ambient",
+     "kind": "ambient",
+     "rule": null,
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 2,
+     "reading": "modulus",
+     "defined": true,
+     "angles_deg": [
+      74.754736281,
+      74.754736281,
+      74.754736281
+     ],
+     "glue_modulus": [
+      0.6314757303336771,
+      0.6314757303336771,
+      0.6314757303336771
+     ],
+     "glue_phases_units_of_2pi": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": null,
+     "levels_minus_l0_at_q0": [
+      0.0027081101458177326,
+      0.009651161864752567,
+      0.047700025509952004,
+      0.17235336088363362,
+      0.21456320334282308,
+      0.8240709050548545
+     ],
+     "splitting_of_two_lowest": 0.006943051718934834,
+     "gradient_band0_band1": [
+      2.1094237467877972e-10,
+      2.3314683517128287e-10
+     ],
+     "flat_bands_at_l0": 0,
+     "spectrum_bottom_minus_l0": 0.0027081101458177326,
+     "lowest_pair_two_band": {
+      "b": 0.003471525859467417,
+      "v": null,
+      "residual": null,
+      "note": "no positive slope: the half splitting does not grow linearly"
+     }
+    },
+    {
+     "comparison": "chart_R0",
+     "kind": "chart",
+     "rule": "R0",
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 1,
+     "reading": "phase",
+     "defined": true,
+     "angles_deg": [
+      116.565051177,
+      116.565051177,
+      116.565051177
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      -0.25,
+      -0.25,
+      -0.25
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": 1.1546319456101628e-14,
+     "levels_minus_l0_at_q0": [
+      -9.992007221626409e-16,
+      1.3322676295501878e-15,
+      0.07410018932362139,
+      0.66722615426871
+     ],
+     "splitting_of_two_lowest": 2.3314683517128287e-15,
+     "gradient_band0_band1": [
+      3.0531133177191805e-10,
+      2.7200464103316335e-10
+     ],
+     "flat_bands_at_l0": 1,
+     "spectrum_bottom_minus_l0": -2.7755575615628914e-15,
+     "lowest_pair_two_band": {
+      "b": 1.1657341758564144e-15,
+      "v": 0.00014967040389025446,
+      "residual": 2.998438040021656,
+      "note": null
+     }
+    },
+    {
+     "comparison": "chart_R0",
+     "kind": "chart",
+     "rule": "R0",
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 1,
+     "reading": "modulus",
+     "defined": true,
+     "angles_deg": [
+      116.565051177,
+      116.565051177,
+      116.565051177
+     ],
+     "glue_modulus": [
+      0.525731112119,
+      0.525731112119,
+      0.525731112119
+     ],
+     "glue_phases_units_of_2pi": [
+      -0.25,
+      -0.25,
+      -0.25
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": null,
+     "levels_minus_l0_at_q0": [
+      0.022328525640259667,
+      0.060563270175582606,
+      0.19869592214683873,
+      0.5462980995230634
+     ],
+     "splitting_of_two_lowest": 0.03823474453532294,
+     "gradient_band0_band1": [
+      2.3314683517128287e-10,
+      2.4424906541753444e-10
+     ],
+     "flat_bands_at_l0": 0,
+     "spectrum_bottom_minus_l0": 0.022328525640259667,
+     "lowest_pair_two_band": {
+      "b": 0.01911737226766147,
+      "v": null,
+      "residual": null,
+      "note": "no positive slope: the half splitting does not grow linearly"
+     }
+    },
+    {
+     "comparison": "chart_R0",
+     "kind": "chart",
+     "rule": "R0",
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 2,
+     "reading": "phase",
+     "defined": true,
+     "angles_deg": [
+      116.565051177,
+      116.565051177,
+      116.565051177
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      -0.5,
+      -0.5,
+      0.5
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": 1.0658141036401503e-14,
+     "levels_minus_l0_at_q0": [
+      -2.220446049250313e-15,
+      -6.661338147750939e-16,
+      0.0,
+      0.011193441851588437,
+      0.20025992035949391,
+      0.9657261482830815
+     ],
+     "splitting_of_two_lowest": 1.5543122344752192e-15,
+     "gradient_band0_band1": [
+      9.992007221626408e-11,
+      7.771561172376096e-11
+     ],
+     "flat_bands_at_l0": 3,
+     "spectrum_bottom_minus_l0": -3.9968028886505635e-15,
+     "lowest_pair_two_band": {
+      "b": 7.771561172376096e-16,
+      "v": 3.0128972442725573e-14,
+      "residual": 6.758620689655173,
+      "note": null
+     }
+    },
+    {
+     "comparison": "chart_R0",
+     "kind": "chart",
+     "rule": "R0",
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 2,
+     "reading": "modulus",
+     "defined": true,
+     "angles_deg": [
+      116.565051177,
+      116.565051177,
+      116.565051177
+     ],
+     "glue_modulus": [
+      0.27639320224988057,
+      0.27639320224988057,
+      0.27639320224988057
+     ],
+     "glue_phases_units_of_2pi": [
+      -0.5,
+      -0.5,
+      0.5
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": null,
+     "levels_minus_l0_at_q0": [
+      0.004978695793491639,
+      0.007988990416933905,
+      0.08817500645926923,
+      0.14231585650742917,
+      0.40578407272931094,
+      0.6724827269068498
+     ],
+     "splitting_of_two_lowest": 0.0030102946234422667,
+     "gradient_band0_band1": [
+      2.2204460492503128e-10,
+      2.2204460492503128e-10
+     ],
+     "flat_bands_at_l0": 0,
+     "spectrum_bottom_minus_l0": 0.004978695793491639,
+     "lowest_pair_two_band": {
+      "b": 0.0015051473117211334,
+      "v": null,
+      "residual": null,
+      "note": "no positive slope: the half splitting does not grow linearly"
+     }
+    },
+    {
+     "comparison": "chart_R1",
+     "kind": "chart",
+     "rule": "R1",
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 1,
+     "reading": "phase",
+     "defined": true,
+     "angles_deg": [
+      63.434948823,
+      63.434948823,
+      63.434948823
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      0.25,
+      0.25,
+      0.25
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": 1.1546319456101628e-14,
+     "levels_minus_l0_at_q0": [
+      -9.992007221626409e-16,
+      1.3322676295501878e-15,
+      0.07410018932362139,
+      0.66722615426871
+     ],
+     "splitting_of_two_lowest": 2.3314683517128287e-15,
+     "gradient_band0_band1": [
+      3.0531133177191805e-10,
+      2.7200464103316335e-10
+     ],
+     "flat_bands_at_l0": 1,
+     "spectrum_bottom_minus_l0": -2.7755575615628914e-15,
+     "lowest_pair_two_band": {
+      "b": 1.1657341758564144e-15,
+      "v": 0.00014967040389025446,
+      "residual": 2.998438040021656,
+      "note": null
+     }
+    },
+    {
+     "comparison": "chart_R1",
+     "kind": "chart",
+     "rule": "R1",
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 1,
+     "reading": "modulus",
+     "defined": true,
+     "angles_deg": [
+      63.434948823,
+      63.434948823,
+      63.434948823
+     ],
+     "glue_modulus": [
+      0.850650808352,
+      0.850650808352,
+      0.850650808352
+     ],
+     "glue_phases_units_of_2pi": [
+      0.25,
+      0.25,
+      0.25
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": null,
+     "levels_minus_l0_at_q0": [
+      0.007455468557424183,
+      0.0655956401790716,
+      0.07003833686638439,
+      0.6312365261867537
+     ],
+     "splitting_of_two_lowest": 0.05814017162164742,
+     "gradient_band0_band1": [
+      3.996802888650563e-10,
+      3.7747582837255317e-10
+     ],
+     "flat_bands_at_l0": 0,
+     "spectrum_bottom_minus_l0": 0.007455468557424183,
+     "lowest_pair_two_band": {
+      "b": 0.02907008581082371,
+      "v": null,
+      "residual": null,
+      "note": "no positive slope: the half splitting does not grow linearly"
+     }
+    },
+    {
+     "comparison": "chart_R1",
+     "kind": "chart",
+     "rule": "R1",
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 2,
+     "reading": "phase",
+     "defined": true,
+     "angles_deg": [
+      63.434948823,
+      63.434948823,
+      63.434948823
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      0.5,
+      0.5,
+      0.5
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": 1.0658141036401503e-14,
+     "levels_minus_l0_at_q0": [
+      -2.220446049250313e-15,
+      -6.661338147750939e-16,
+      0.0,
+      0.011193441851588437,
+      0.20025992035949391,
+      0.9657261482830815
+     ],
+     "splitting_of_two_lowest": 1.5543122344752192e-15,
+     "gradient_band0_band1": [
+      9.992007221626408e-11,
+      7.771561172376096e-11
+     ],
+     "flat_bands_at_l0": 3,
+     "spectrum_bottom_minus_l0": -3.9968028886505635e-15,
+     "lowest_pair_two_band": {
+      "b": 7.771561172376096e-16,
+      "v": 3.0128972442725573e-14,
+      "residual": 6.758620689655173,
+      "note": null
+     }
+    },
+    {
+     "comparison": "chart_R1",
+     "kind": "chart",
+     "rule": "R1",
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 2,
+     "reading": "modulus",
+     "defined": true,
+     "angles_deg": [
+      63.434948823,
+      63.434948823,
+      63.434948823
+     ],
+     "glue_modulus": [
+      0.7236067977499111,
+      0.7236067977499111,
+      0.7236067977499111
+     ],
+     "glue_phases_units_of_2pi": [
+      0.5,
+      -0.5,
+      -0.5
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": null,
+     "levels_minus_l0_at_q0": [
+      0.0020675616118219775,
+      0.01005300273499743,
+      0.03635555359855491,
+      0.1624378879091568,
+      0.1796228587548241,
+      0.8609504222848128
+     ],
+     "splitting_of_two_lowest": 0.007985441123175452,
+     "gradient_band0_band1": [
+      1.8873791418627659e-10,
+      2.886579864025407e-10
+     ],
+     "flat_bands_at_l0": 0,
+     "spectrum_bottom_minus_l0": 0.0020675616118219775,
+     "lowest_pair_two_band": {
+      "b": 0.003992720561587726,
+      "v": null,
+      "residual": null,
+      "note": "no positive slope: the half splitting does not grow linearly"
+     }
+    },
+    {
+     "comparison": "chart_R2",
+     "kind": "chart",
+     "rule": "R2",
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 1,
+     "reading": "phase",
+     "defined": true,
+     "angles_deg": [
+      63.434948823,
+      63.434948823,
+      63.434948823
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      -0.25,
+      -0.25,
+      -0.25
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": 1.1546319456101628e-14,
+     "levels_minus_l0_at_q0": [
+      -9.992007221626409e-16,
+      1.3322676295501878e-15,
+      0.07410018932362139,
+      0.66722615426871
+     ],
+     "splitting_of_two_lowest": 2.3314683517128287e-15,
+     "gradient_band0_band1": [
+      3.0531133177191805e-10,
+      2.7200464103316335e-10
+     ],
+     "flat_bands_at_l0": 1,
+     "spectrum_bottom_minus_l0": -2.7755575615628914e-15,
+     "lowest_pair_two_band": {
+      "b": 1.1657341758564144e-15,
+      "v": 0.00014967040389025446,
+      "residual": 2.998438040021656,
+      "note": null
+     }
+    },
+    {
+     "comparison": "chart_R2",
+     "kind": "chart",
+     "rule": "R2",
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 1,
+     "reading": "modulus",
+     "defined": true,
+     "angles_deg": [
+      63.434948823,
+      63.434948823,
+      63.434948823
+     ],
+     "glue_modulus": [
+      0.850650808352,
+      0.850650808352,
+      0.850650808352
+     ],
+     "glue_phases_units_of_2pi": [
+      -0.25,
+      -0.25,
+      -0.25
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": null,
+     "levels_minus_l0_at_q0": [
+      0.007455468557424183,
+      0.0655956401790716,
+      0.07003833686638439,
+      0.6312365261867537
+     ],
+     "splitting_of_two_lowest": 0.05814017162164742,
+     "gradient_band0_band1": [
+      3.996802888650563e-10,
+      3.7747582837255317e-10
+     ],
+     "flat_bands_at_l0": 0,
+     "spectrum_bottom_minus_l0": 0.007455468557424183,
+     "lowest_pair_two_band": {
+      "b": 0.02907008581082371,
+      "v": null,
+      "residual": null,
+      "note": "no positive slope: the half splitting does not grow linearly"
+     }
+    },
+    {
+     "comparison": "chart_R2",
+     "kind": "chart",
+     "rule": "R2",
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 2,
+     "reading": "phase",
+     "defined": true,
+     "angles_deg": [
+      63.434948823,
+      63.434948823,
+      63.434948823
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      -0.5,
+      0.5,
+      -0.5
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": 1.0658141036401503e-14,
+     "levels_minus_l0_at_q0": [
+      -2.220446049250313e-15,
+      -6.661338147750939e-16,
+      0.0,
+      0.011193441851588437,
+      0.20025992035949391,
+      0.9657261482830815
+     ],
+     "splitting_of_two_lowest": 1.5543122344752192e-15,
+     "gradient_band0_band1": [
+      9.992007221626408e-11,
+      7.771561172376096e-11
+     ],
+     "flat_bands_at_l0": 3,
+     "spectrum_bottom_minus_l0": -3.9968028886505635e-15,
+     "lowest_pair_two_band": {
+      "b": 7.771561172376096e-16,
+      "v": 3.0128972442725573e-14,
+      "residual": 6.758620689655173,
+      "note": null
+     }
+    },
+    {
+     "comparison": "chart_R2",
+     "kind": "chart",
+     "rule": "R2",
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 2,
+     "reading": "modulus",
+     "defined": true,
+     "angles_deg": [
+      63.434948823,
+      63.434948823,
+      63.434948823
+     ],
+     "glue_modulus": [
+      0.7236067977499111,
+      0.7236067977499111,
+      0.7236067977499111
+     ],
+     "glue_phases_units_of_2pi": [
+      -0.5,
+      0.5,
+      -0.5
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": null,
+     "levels_minus_l0_at_q0": [
+      0.0020675616118219775,
+      0.01005300273499743,
+      0.03635555359855491,
+      0.1624378879091568,
+      0.1796228587548241,
+      0.8609504222848128
+     ],
+     "splitting_of_two_lowest": 0.007985441123175452,
+     "gradient_band0_band1": [
+      1.8873791418627659e-10,
+      2.886579864025407e-10
+     ],
+     "flat_bands_at_l0": 0,
+     "spectrum_bottom_minus_l0": 0.0020675616118219775,
+     "lowest_pair_two_band": {
+      "b": 0.003992720561587726,
+      "v": null,
+      "residual": null,
+      "note": "no positive slope: the half splitting does not grow linearly"
+     }
+    }
+   ]
+  },
+  "face_axis": {
+   "note": "Flat form of the control gluing face_axis (oph_defects.bloch honeycomb3): up belt port P[k] glued to down belt port P[k], P = (4, 1, 10).",
+   "rows": [
+    {
+     "comparison": "chart_S",
+     "kind": "chart",
+     "rule": "S",
+     "ports_up": [
+      4,
+      1,
+      10
+     ],
+     "ports_down": [
+      4,
+      1,
+      10
+     ],
+     "k": 1,
+     "reading": "phase",
+     "defined": true,
+     "angles_deg": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": 1.0658141036401503e-14,
+     "levels_minus_l0_at_q0": [
+      6.661338147750939e-16,
+      2.4424906541753444e-15,
+      0.30281378954855775,
+      0.47274749269296257
+     ],
+     "splitting_of_two_lowest": 1.7763568394002505e-15,
+     "gradient_band0_band1": [
+      1.5543122344752192e-10,
+      1.6653345369377346e-10
+     ],
+     "flat_bands_at_l0": 1,
+     "spectrum_bottom_minus_l0": -2.4424906541753444e-15,
+     "lowest_pair_two_band": {
+      "b": 8.881784197001252e-16,
+      "v": 0.00013887271148408745,
+      "residual": 2.9998186438528722,
+      "note": null
+     }
+    },
+    {
+     "comparison": "chart_S",
+     "kind": "chart",
+     "rule": "S",
+     "ports_up": [
+      4,
+      1,
+      10
+     ],
+     "ports_down": [
+      4,
+      1,
+      10
+     ],
+     "k": 1,
+     "reading": "modulus",
+     "defined": true,
+     "angles_deg": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": null,
+     "levels_minus_l0_at_q0": [
+      6.661338147750939e-16,
+      2.4424906541753444e-15,
+      0.30281378954855775,
+      0.47274749269296257
+     ],
+     "splitting_of_two_lowest": 1.7763568394002505e-15,
+     "gradient_band0_band1": [
+      1.5543122344752192e-10,
+      1.6653345369377346e-10
+     ],
+     "flat_bands_at_l0": 1,
+     "spectrum_bottom_minus_l0": -2.4424906541753444e-15,
+     "lowest_pair_two_band": {
+      "b": 8.881784197001252e-16,
+      "v": 0.00013887271148408745,
+      "residual": 2.9998186438528722,
+      "note": null
+     }
+    },
+    {
+     "comparison": "chart_S",
+     "kind": "chart",
+     "rule": "S",
+     "ports_up": [
+      4,
+      1,
+      10
+     ],
+     "ports_down": [
+      4,
+      1,
+      10
+     ],
+     "k": 2,
+     "reading": "phase",
+     "defined": true,
+     "angles_deg": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": 1.0658141036401503e-14,
+     "levels_minus_l0_at_q0": [
+      -3.1086244689504383e-15,
+      -1.3322676295501878e-15,
+      3.3306690738754696e-15,
+      0.17100933902630233,
+      0.39487618856695006,
+      0.5766146928921321
+     ],
+     "splitting_of_two_lowest": 1.7763568394002505e-15,
+     "gradient_band0_band1": [
+      1.5543122344752192e-10,
+      1.7763568394002502e-10
+     ],
+     "flat_bands_at_l0": 3,
+     "spectrum_bottom_minus_l0": -5.329070518200751e-15,
+     "lowest_pair_two_band": {
+      "b": 8.881784197001252e-16,
+      "v": 4.295393912929258e-14,
+      "residual": 14.571120689655173,
+      "note": null
+     }
+    },
+    {
+     "comparison": "chart_S",
+     "kind": "chart",
+     "rule": "S",
+     "ports_up": [
+      4,
+      1,
+      10
+     ],
+     "ports_down": [
+      4,
+      1,
+      10
+     ],
+     "k": 2,
+     "reading": "modulus",
+     "defined": true,
+     "angles_deg": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": null,
+     "levels_minus_l0_at_q0": [
+      -3.1086244689504383e-15,
+      -1.3322676295501878e-15,
+      3.3306690738754696e-15,
+      0.17100933902630233,
+      0.39487618856695006,
+      0.5766146928921321
+     ],
+     "splitting_of_two_lowest": 1.7763568394002505e-15,
+     "gradient_band0_band1": [
+      1.5543122344752192e-10,
+      1.7763568394002502e-10
+     ],
+     "flat_bands_at_l0": 3,
+     "spectrum_bottom_minus_l0": -5.329070518200751e-15,
+     "lowest_pair_two_band": {
+      "b": 8.881784197001252e-16,
+      "v": 4.295393912929258e-14,
+      "residual": 14.571120689655173,
+      "note": null
+     }
+    },
+    {
+     "comparison": "ambient",
+     "kind": "ambient",
+     "rule": null,
+     "ports_up": [
+      4,
+      1,
+      10
+     ],
+     "ports_down": [
+      4,
+      1,
+      10
+     ],
+     "k": 1,
+     "reading": "phase",
+     "defined": true,
+     "angles_deg": [
+      158.375366073,
+      158.375366073,
+      158.375366073
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": 5.897504706808832e-13,
+     "levels_minus_l0_at_q0": [
+      -4.440892098500626e-15,
+      2.220446049250313e-16,
+      0.3028137895485088,
+      0.4727474926929751
+     ],
+     "splitting_of_two_lowest": 4.6629367034256575e-15,
+     "gradient_band0_band1": [
+      2.831068712794149e-10,
+      2.4424906541753444e-10
+     ],
+     "flat_bands_at_l0": 1,
+     "spectrum_bottom_minus_l0": -4.440892098500626e-15,
+     "lowest_pair_two_band": {
+      "b": 2.3314683517128287e-15,
+      "v": 0.0001388727114949584,
+      "residual": 2.999818644665646,
+      "note": null
+     }
+    },
+    {
+     "comparison": "ambient",
+     "kind": "ambient",
+     "rule": null,
+     "ports_up": [
+      4,
+      1,
+      10
+     ],
+     "ports_down": [
+      4,
+      1,
+      10
+     ],
+     "k": 1,
+     "reading": "modulus",
+     "defined": true,
+     "angles_deg": [
+      158.375366073,
+      158.375366073,
+      158.375366073
+     ],
+     "glue_modulus": [
+      0.187592474085,
+      0.187592474085,
+      0.187592474085
+     ],
+     "glue_phases_units_of_2pi": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": null,
+     "levels_minus_l0_at_q0": [
+      0.14553101406237778,
+      0.20132842255321237,
+      0.21941143172751632,
+      0.30727500155933996
+     ],
+     "splitting_of_two_lowest": 0.05579740849083459,
+     "gradient_band0_band1": [
+      2.3314683517128287e-10,
+      1.831867990631508e-10
+     ],
+     "flat_bands_at_l0": 0,
+     "spectrum_bottom_minus_l0": 0.14553101406237778,
+     "lowest_pair_two_band": {
+      "b": 0.027898704245417294,
+      "v": null,
+      "residual": null,
+      "note": "no positive slope: the half splitting does not grow linearly"
+     }
+    },
+    {
+     "comparison": "ambient",
+     "kind": "ambient",
+     "rule": null,
+     "ports_up": [
+      4,
+      1,
+      10
+     ],
+     "ports_down": [
+      4,
+      1,
+      10
+     ],
+     "k": 2,
+     "reading": "phase",
+     "defined": true,
+     "angles_deg": [
+      158.375366073,
+      158.375366073,
+      158.375366073
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": 1.4583889651476056e-12,
+     "levels_minus_l0_at_q0": [
+      0.0,
+      2.1471713296250527e-13,
+      1.4523937608146298e-12,
+      0.1710093390263503,
+      0.39487618856708906,
+      0.576614692893676
+     ],
+     "splitting_of_two_lowest": 2.1471713296250527e-13,
+     "gradient_band0_band1": [
+      1.6653345369377346e-10,
+      2.6645352591003757e-10
+     ],
+     "flat_bands_at_l0": 3,
+     "spectrum_bottom_minus_l0": 0.0,
+     "lowest_pair_two_band": {
+      "b": 1.0735856648125264e-13,
+      "v": 6.360146396108485e-13,
+      "residual": 0.8069702456129846,
+      "note": null
+     }
+    },
+    {
+     "comparison": "ambient",
+     "kind": "ambient",
+     "rule": null,
+     "ports_up": [
+      4,
+      1,
+      10
+     ],
+     "ports_down": [
+      4,
+      1,
+      10
+     ],
+     "k": 2,
+     "reading": "modulus",
+     "defined": true,
+     "angles_deg": [
+      158.375366073,
+      158.375366073,
+      158.375366073
+     ],
+     "glue_modulus": [
+      0.03519093633333139,
+      0.03519093633333139,
+      0.03519093633333139
+     ],
+     "glue_phases_units_of_2pi": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": null,
+     "levels_minus_l0_at_q0": [
+      0.0985252317149401,
+      0.10435303718655509,
+      0.2204904866118449,
+      0.2341478873845877,
+      0.31259539791152613,
+      0.33271696027864817
+     ],
+     "splitting_of_two_lowest": 0.0058278054716149885,
+     "gradient_band0_band1": [
+      1.9984014443252815e-10,
+      2.7755575615628914e-10
+     ],
+     "flat_bands_at_l0": 0,
+     "spectrum_bottom_minus_l0": 0.0985252317149401,
+     "lowest_pair_two_band": {
+      "b": 0.0029139027358074943,
+      "v": null,
+      "residual": null,
+      "note": "no positive slope: the half splitting does not grow linearly"
+     }
+    },
+    {
+     "comparison": "chart_roll",
+     "kind": "chart",
+     "rule": "roll (half turn about the top-face seam under the mesh edge)",
+     "ports_up": [
+      4,
+      1,
+      10
+     ],
+     "ports_down": [
+      4,
+      1,
+      10
+     ],
+     "k": 1,
+     "reading": "phase",
+     "defined": true,
+     "angles_deg": [
+      116.565051177,
+      116.565051177,
+      116.565051177
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      -0.25,
+      -0.25,
+      -0.25
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": 9.769962616701378e-15,
+     "levels_minus_l0_at_q0": [
+      7.771561172376096e-16,
+      4.551914400963142e-15,
+      0.30281378954855265,
+      0.47274749269296257
+     ],
+     "splitting_of_two_lowest": 3.774758283725532e-15,
+     "gradient_band0_band1": [
+      9.436895709313829e-11,
+      1.4988010832439613e-10
+     ],
+     "flat_bands_at_l0": 1,
+     "spectrum_bottom_minus_l0": -2.55351295663786e-15,
+     "lowest_pair_two_band": {
+      "b": 1.887379141862766e-15,
+      "v": 0.0001388727114938019,
+      "residual": 2.999818643852885,
+      "note": null
+     }
+    },
+    {
+     "comparison": "chart_roll",
+     "kind": "chart",
+     "rule": "roll (half turn about the top-face seam under the mesh edge)",
+     "ports_up": [
+      4,
+      1,
+      10
+     ],
+     "ports_down": [
+      4,
+      1,
+      10
+     ],
+     "k": 1,
+     "reading": "modulus",
+     "defined": true,
+     "angles_deg": [
+      116.565051177,
+      116.565051177,
+      116.565051177
+     ],
+     "glue_modulus": [
+      0.525731112119,
+      0.525731112119,
+      0.525731112119
+     ],
+     "glue_phases_units_of_2pi": [
+      -0.25,
+      -0.25,
+      -0.25
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": null,
+     "levels_minus_l0_at_q0": [
+      0.08942693053427686,
+      0.13320321292531134,
+      0.2465054228555501,
+      0.38001979983935186
+     ],
+     "splitting_of_two_lowest": 0.04377628239103448,
+     "gradient_band0_band1": [
+      2.498001805406602e-10,
+      2.0539125955565393e-10
+     ],
+     "flat_bands_at_l0": 0,
+     "spectrum_bottom_minus_l0": 0.08942693053427686,
+     "lowest_pair_two_band": {
+      "b": 0.02188814119551724,
+      "v": null,
+      "residual": null,
+      "note": "no positive slope: the half splitting does not grow linearly"
+     }
+    },
+    {
+     "comparison": "chart_roll",
+     "kind": "chart",
+     "rule": "roll (half turn about the top-face seam under the mesh edge)",
+     "ports_up": [
+      4,
+      1,
+      10
+     ],
+     "ports_down": [
+      4,
+      1,
+      10
+     ],
+     "k": 2,
+     "reading": "phase",
+     "defined": true,
+     "angles_deg": [
+      116.565051177,
+      116.565051177,
+      116.565051177
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      -0.5,
+      -0.5,
+      0.5
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": 1.0658141036401503e-14,
+     "levels_minus_l0_at_q0": [
+      -3.1086244689504383e-15,
+      -1.3322676295501878e-15,
+      3.3306690738754696e-15,
+      0.17100933902630233,
+      0.39487618856695006,
+      0.5766146928921321
+     ],
+     "splitting_of_two_lowest": 1.7763568394002505e-15,
+     "gradient_band0_band1": [
+      1.5543122344752192e-10,
+      1.7763568394002502e-10
+     ],
+     "flat_bands_at_l0": 3,
+     "spectrum_bottom_minus_l0": -5.329070518200751e-15,
+     "lowest_pair_two_band": {
+      "b": 8.881784197001252e-16,
+      "v": 4.295393912929258e-14,
+      "residual": 14.571120689655173,
+      "note": null
+     }
+    },
+    {
+     "comparison": "chart_roll",
+     "kind": "chart",
+     "rule": "roll (half turn about the top-face seam under the mesh edge)",
+     "ports_up": [
+      4,
+      1,
+      10
+     ],
+     "ports_down": [
+      4,
+      1,
+      10
+     ],
+     "k": 2,
+     "reading": "modulus",
+     "defined": true,
+     "angles_deg": [
+      116.565051177,
+      116.565051177,
+      116.565051177
+     ],
+     "glue_modulus": [
+      0.27639320224988057,
+      0.27639320224988057,
+      0.27639320224988057
+     ],
+     "glue_phases_units_of_2pi": [
+      -0.5,
+      -0.5,
+      0.5
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": null,
+     "levels_minus_l0_at_q0": [
+      0.07732713992054063,
+      0.12320972289629051,
+      0.171381307106514,
+      0.24100017867854517,
+      0.2787895530466491,
+      0.39913863762845914
+     ],
+     "splitting_of_two_lowest": 0.045882582975749875,
+     "gradient_band0_band1": [
+      2.886579864025407e-10,
+      4.1078251911130787e-10
+     ],
+     "flat_bands_at_l0": 0,
+     "spectrum_bottom_minus_l0": 0.07732713992054063,
+     "lowest_pair_two_band": {
+      "b": 0.022941291487874937,
+      "v": null,
+      "residual": null,
+      "note": "no positive slope: the half splitting does not grow linearly"
+     }
+    },
+    {
+     "comparison": "chart_R0",
+     "kind": "chart",
+     "rule": "R0",
+     "ports_up": [
+      4,
+      1,
+      10
+     ],
+     "ports_down": [
+      4,
+      1,
+      10
+     ],
+     "k": 1,
+     "reading": "phase",
+     "defined": true,
+     "angles_deg": [
+      63.434948823,
+      63.434948823,
+      63.434948823
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      0.25,
+      0.25,
+      0.25
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": 9.769962616701378e-15,
+     "levels_minus_l0_at_q0": [
+      7.771561172376096e-16,
+      4.551914400963142e-15,
+      0.30281378954855265,
+      0.47274749269296257
+     ],
+     "splitting_of_two_lowest": 3.774758283725532e-15,
+     "gradient_band0_band1": [
+      9.436895709313829e-11,
+      1.4988010832439613e-10
+     ],
+     "flat_bands_at_l0": 1,
+     "spectrum_bottom_minus_l0": -2.55351295663786e-15,
+     "lowest_pair_two_band": {
+      "b": 1.887379141862766e-15,
+      "v": 0.0001388727114938019,
+      "residual": 2.999818643852885,
+      "note": null
+     }
+    },
+    {
+     "comparison": "chart_R0",
+     "kind": "chart",
+     "rule": "R0",
+     "ports_up": [
+      4,
+      1,
+      10
+     ],
+     "ports_down": [
+      4,
+      1,
+      10
+     ],
+     "k": 1,
+     "reading": "modulus",
+     "defined": true,
+     "angles_deg": [
+      63.434948823,
+      63.434948823,
+      63.434948823
+     ],
+     "glue_modulus": [
+      0.850650808352,
+      0.850650808352,
+      0.850650808352
+     ],
+     "glue_phases_units_of_2pi": [
+      0.25,
+      0.25,
+      0.25
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": null,
+     "levels_minus_l0_at_q0": [
+      0.02962292192291116,
+      0.04357010773745207,
+      0.285900277725169,
+      0.44465232804275
+     ],
+     "splitting_of_two_lowest": 0.013947185814540908,
+     "gradient_band0_band1": [
+      4.385380947269368e-10,
+      2.3869795029440866e-10
+     ],
+     "flat_bands_at_l0": 0,
+     "spectrum_bottom_minus_l0": 0.02962292192291116,
+     "lowest_pair_two_band": {
+      "b": 0.006973592907270454,
+      "v": 0.0034241504936362447,
+      "residual": 0.546791924273443,
+      "note": null
+     }
+    },
+    {
+     "comparison": "chart_R0",
+     "kind": "chart",
+     "rule": "R0",
+     "ports_up": [
+      4,
+      1,
+      10
+     ],
+     "ports_down": [
+      4,
+      1,
+      10
+     ],
+     "k": 2,
+     "reading": "phase",
+     "defined": true,
+     "angles_deg": [
+      63.434948823,
+      63.434948823,
+      63.434948823
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      0.5,
+      0.5,
+      0.5
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": 1.0658141036401503e-14,
+     "levels_minus_l0_at_q0": [
+      -3.1086244689504383e-15,
+      -1.3322676295501878e-15,
+      3.3306690738754696e-15,
+      0.17100933902630233,
+      0.39487618856695006,
+      0.5766146928921321
+     ],
+     "splitting_of_two_lowest": 1.7763568394002505e-15,
+     "gradient_band0_band1": [
+      1.5543122344752192e-10,
+      1.7763568394002502e-10
+     ],
+     "flat_bands_at_l0": 3,
+     "spectrum_bottom_minus_l0": -5.329070518200751e-15,
+     "lowest_pair_two_band": {
+      "b": 8.881784197001252e-16,
+      "v": 4.295393912929258e-14,
+      "residual": 14.571120689655173,
+      "note": null
+     }
+    },
+    {
+     "comparison": "chart_R0",
+     "kind": "chart",
+     "rule": "R0",
+     "ports_up": [
+      4,
+      1,
+      10
+     ],
+     "ports_down": [
+      4,
+      1,
+      10
+     ],
+     "k": 2,
+     "reading": "modulus",
+     "defined": true,
+     "angles_deg": [
+      63.434948823,
+      63.434948823,
+      63.434948823
+     ],
+     "glue_modulus": [
+      0.7236067977499111,
+      0.7236067977499111,
+      0.7236067977499111
+     ],
+     "glue_phases_units_of_2pi": [
+      0.5,
+      -0.5,
+      0.5
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": null,
+     "levels_minus_l0_at_q0": [
+      0.032277416894167965,
+      0.07004307750625993,
+      0.09689073092302314,
+      0.15413707212757943,
+      0.3534429486901536,
+      0.5124760521047296
+     ],
+     "splitting_of_two_lowest": 0.03776566061209197,
+     "gradient_band0_band1": [
+      2.4424906541753444e-10,
+      1.8873791418627659e-10
+     ],
+     "flat_bands_at_l0": 0,
+     "spectrum_bottom_minus_l0": 0.032277416894167965,
+     "lowest_pair_two_band": {
+      "b": 0.018882830306045983,
+      "v": null,
+      "residual": null,
+      "note": "no positive slope: the half splitting does not grow linearly"
+     }
+    },
+    {
+     "comparison": "chart_R1",
+     "kind": "chart",
+     "rule": "R1",
+     "ports_up": [
+      4,
+      1,
+      10
+     ],
+     "ports_down": [
+      4,
+      1,
+      10
+     ],
+     "k": 1,
+     "reading": "phase",
+     "defined": true,
+     "angles_deg": [
+      116.565051177,
+      116.565051177,
+      116.565051177
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      -0.25,
+      -0.25,
+      -0.25
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": 9.769962616701378e-15,
+     "levels_minus_l0_at_q0": [
+      7.771561172376096e-16,
+      4.551914400963142e-15,
+      0.30281378954855265,
+      0.47274749269296257
+     ],
+     "splitting_of_two_lowest": 3.774758283725532e-15,
+     "gradient_band0_band1": [
+      9.436895709313829e-11,
+      1.4988010832439613e-10
+     ],
+     "flat_bands_at_l0": 1,
+     "spectrum_bottom_minus_l0": -2.55351295663786e-15,
+     "lowest_pair_two_band": {
+      "b": 1.887379141862766e-15,
+      "v": 0.0001388727114938019,
+      "residual": 2.999818643852885,
+      "note": null
+     }
+    },
+    {
+     "comparison": "chart_R1",
+     "kind": "chart",
+     "rule": "R1",
+     "ports_up": [
+      4,
+      1,
+      10
+     ],
+     "ports_down": [
+      4,
+      1,
+      10
+     ],
+     "k": 1,
+     "reading": "modulus",
+     "defined": true,
+     "angles_deg": [
+      116.565051177,
+      116.565051177,
+      116.565051177
+     ],
+     "glue_modulus": [
+      0.525731112119,
+      0.525731112119,
+      0.525731112119
+     ],
+     "glue_phases_units_of_2pi": [
+      -0.25,
+      -0.25,
+      -0.25
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": null,
+     "levels_minus_l0_at_q0": [
+      0.08942693053427686,
+      0.13320321292531134,
+      0.2465054228555501,
+      0.38001979983935186
+     ],
+     "splitting_of_two_lowest": 0.04377628239103448,
+     "gradient_band0_band1": [
+      2.498001805406602e-10,
+      2.0539125955565393e-10
+     ],
+     "flat_bands_at_l0": 0,
+     "spectrum_bottom_minus_l0": 0.08942693053427686,
+     "lowest_pair_two_band": {
+      "b": 0.02188814119551724,
+      "v": null,
+      "residual": null,
+      "note": "no positive slope: the half splitting does not grow linearly"
+     }
+    },
+    {
+     "comparison": "chart_R1",
+     "kind": "chart",
+     "rule": "R1",
+     "ports_up": [
+      4,
+      1,
+      10
+     ],
+     "ports_down": [
+      4,
+      1,
+      10
+     ],
+     "k": 2,
+     "reading": "phase",
+     "defined": true,
+     "angles_deg": [
+      116.565051177,
+      116.565051177,
+      116.565051177
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      -0.5,
+      -0.5,
+      0.5
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": 1.0658141036401503e-14,
+     "levels_minus_l0_at_q0": [
+      -3.1086244689504383e-15,
+      -1.3322676295501878e-15,
+      3.3306690738754696e-15,
+      0.17100933902630233,
+      0.39487618856695006,
+      0.5766146928921321
+     ],
+     "splitting_of_two_lowest": 1.7763568394002505e-15,
+     "gradient_band0_band1": [
+      1.5543122344752192e-10,
+      1.7763568394002502e-10
+     ],
+     "flat_bands_at_l0": 3,
+     "spectrum_bottom_minus_l0": -5.329070518200751e-15,
+     "lowest_pair_two_band": {
+      "b": 8.881784197001252e-16,
+      "v": 4.295393912929258e-14,
+      "residual": 14.571120689655173,
+      "note": null
+     }
+    },
+    {
+     "comparison": "chart_R1",
+     "kind": "chart",
+     "rule": "R1",
+     "ports_up": [
+      4,
+      1,
+      10
+     ],
+     "ports_down": [
+      4,
+      1,
+      10
+     ],
+     "k": 2,
+     "reading": "modulus",
+     "defined": true,
+     "angles_deg": [
+      116.565051177,
+      116.565051177,
+      116.565051177
+     ],
+     "glue_modulus": [
+      0.27639320224988057,
+      0.27639320224988057,
+      0.27639320224988057
+     ],
+     "glue_phases_units_of_2pi": [
+      -0.5,
+      -0.5,
+      0.5
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": null,
+     "levels_minus_l0_at_q0": [
+      0.07732713992054063,
+      0.12320972289629051,
+      0.171381307106514,
+      0.24100017867854517,
+      0.2787895530466491,
+      0.39913863762845914
+     ],
+     "splitting_of_two_lowest": 0.045882582975749875,
+     "gradient_band0_band1": [
+      2.886579864025407e-10,
+      4.1078251911130787e-10
+     ],
+     "flat_bands_at_l0": 0,
+     "spectrum_bottom_minus_l0": 0.07732713992054063,
+     "lowest_pair_two_band": {
+      "b": 0.022941291487874937,
+      "v": null,
+      "residual": null,
+      "note": "no positive slope: the half splitting does not grow linearly"
+     }
+    },
+    {
+     "comparison": "chart_R2",
+     "kind": "chart",
+     "rule": "R2",
+     "ports_up": [
+      4,
+      1,
+      10
+     ],
+     "ports_down": [
+      4,
+      1,
+      10
+     ],
+     "k": 1,
+     "reading": "phase",
+     "defined": true,
+     "angles_deg": [
+      116.565051177,
+      116.565051177,
+      116.565051177
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      0.25,
+      0.25,
+      0.25
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": 9.769962616701378e-15,
+     "levels_minus_l0_at_q0": [
+      7.771561172376096e-16,
+      4.551914400963142e-15,
+      0.30281378954855265,
+      0.47274749269296257
+     ],
+     "splitting_of_two_lowest": 3.774758283725532e-15,
+     "gradient_band0_band1": [
+      9.436895709313829e-11,
+      1.4988010832439613e-10
+     ],
+     "flat_bands_at_l0": 1,
+     "spectrum_bottom_minus_l0": -2.55351295663786e-15,
+     "lowest_pair_two_band": {
+      "b": 1.887379141862766e-15,
+      "v": 0.0001388727114938019,
+      "residual": 2.999818643852885,
+      "note": null
+     }
+    },
+    {
+     "comparison": "chart_R2",
+     "kind": "chart",
+     "rule": "R2",
+     "ports_up": [
+      4,
+      1,
+      10
+     ],
+     "ports_down": [
+      4,
+      1,
+      10
+     ],
+     "k": 1,
+     "reading": "modulus",
+     "defined": true,
+     "angles_deg": [
+      116.565051177,
+      116.565051177,
+      116.565051177
+     ],
+     "glue_modulus": [
+      0.525731112119,
+      0.525731112119,
+      0.525731112119
+     ],
+     "glue_phases_units_of_2pi": [
+      0.25,
+      0.25,
+      0.25
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": null,
+     "levels_minus_l0_at_q0": [
+      0.08942693053427686,
+      0.13320321292531134,
+      0.2465054228555501,
+      0.38001979983935186
+     ],
+     "splitting_of_two_lowest": 0.04377628239103448,
+     "gradient_band0_band1": [
+      2.498001805406602e-10,
+      2.0539125955565393e-10
+     ],
+     "flat_bands_at_l0": 0,
+     "spectrum_bottom_minus_l0": 0.08942693053427686,
+     "lowest_pair_two_band": {
+      "b": 0.02188814119551724,
+      "v": null,
+      "residual": null,
+      "note": "no positive slope: the half splitting does not grow linearly"
+     }
+    },
+    {
+     "comparison": "chart_R2",
+     "kind": "chart",
+     "rule": "R2",
+     "ports_up": [
+      4,
+      1,
+      10
+     ],
+     "ports_down": [
+      4,
+      1,
+      10
+     ],
+     "k": 2,
+     "reading": "phase",
+     "defined": true,
+     "angles_deg": [
+      116.565051177,
+      116.565051177,
+      116.565051177
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      0.5,
+      0.5,
+      0.5
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": 1.0658141036401503e-14,
+     "levels_minus_l0_at_q0": [
+      -3.1086244689504383e-15,
+      -1.3322676295501878e-15,
+      3.3306690738754696e-15,
+      0.17100933902630233,
+      0.39487618856695006,
+      0.5766146928921321
+     ],
+     "splitting_of_two_lowest": 1.7763568394002505e-15,
+     "gradient_band0_band1": [
+      1.5543122344752192e-10,
+      1.7763568394002502e-10
+     ],
+     "flat_bands_at_l0": 3,
+     "spectrum_bottom_minus_l0": -5.329070518200751e-15,
+     "lowest_pair_two_band": {
+      "b": 8.881784197001252e-16,
+      "v": 4.295393912929258e-14,
+      "residual": 14.571120689655173,
+      "note": null
+     }
+    },
+    {
+     "comparison": "chart_R2",
+     "kind": "chart",
+     "rule": "R2",
+     "ports_up": [
+      4,
+      1,
+      10
+     ],
+     "ports_down": [
+      4,
+      1,
+      10
+     ],
+     "k": 2,
+     "reading": "modulus",
+     "defined": true,
+     "angles_deg": [
+      116.565051177,
+      116.565051177,
+      116.565051177
+     ],
+     "glue_modulus": [
+      0.27639320224988057,
+      0.27639320224988057,
+      0.27639320224988057
+     ],
+     "glue_phases_units_of_2pi": [
+      0.5,
+      -0.5,
+      -0.5
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": null,
+     "levels_minus_l0_at_q0": [
+      0.07732713992054063,
+      0.12320972289629051,
+      0.171381307106514,
+      0.24100017867854517,
+      0.2787895530466491,
+      0.39913863762845914
+     ],
+     "splitting_of_two_lowest": 0.045882582975749875,
+     "gradient_band0_band1": [
+      2.886579864025407e-10,
+      4.1078251911130787e-10
+     ],
+     "flat_bands_at_l0": 0,
+     "spectrum_bottom_minus_l0": 0.07732713992054063,
+     "lowest_pair_two_band": {
+      "b": 0.022941291487874937,
+      "v": null,
+      "residual": null,
+      "note": "no positive slope: the half splitting does not grow linearly"
+     }
+    }
+   ]
+  },
+  "port_pair": {
+   "note": "Declared router on the flat lattice (oph_defects.bloch.pinned_ports): both carriers sit in the tangent frame, template z along the normal; the mesh is turned by gamma against the frame. gamma = 15 degrees is listed; the ports for other gamma are in gamma_scan.",
+   "rows": [
+    {
+     "comparison": "ambient",
+     "ports_up": [
+      1,
+      10,
+      3
+     ],
+     "ports_down": [
+      2,
+      8,
+      0
+     ],
+     "angles_deg": [
+      180.0,
+      116.565051177,
+      180.0
+     ],
+     "defined": false,
+     "note": "a glued pair of axes is antipodal: the overlap vanishes and the recharting phase is undefined"
+    }
+   ]
+  },
+  "rolling": {
+   "note": "Wiring F with the rolling transport R1 (primary): the carrier sits with its glue face on the cell, glue port k at the first end of mesh edge k, and rolls over the shared edge. No common frame exists (a fifth of a turn around every mesh vertex). With a two-carrier cell the lift has the short (order 10) holonomy.",
+   "rows": [
+    {
+     "comparison": "chart_R0",
+     "kind": "chart",
+     "rule": "R0",
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 1,
+     "reading": "phase",
+     "defined": true,
+     "angles_deg": [
+      116.565051177,
+      116.565051177,
+      116.565051177
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      -0.25,
+      -0.25,
+      -0.25
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": 1.1546319456101628e-14,
+     "levels_minus_l0_at_q0": [
+      -9.992007221626409e-16,
+      1.3322676295501878e-15,
+      0.07410018932362139,
+      0.66722615426871
+     ],
+     "splitting_of_two_lowest": 2.3314683517128287e-15,
+     "gradient_band0_band1": [
+      3.0531133177191805e-10,
+      2.7200464103316335e-10
+     ],
+     "flat_bands_at_l0": 1,
+     "spectrum_bottom_minus_l0": -2.7755575615628914e-15,
+     "lowest_pair_two_band": {
+      "b": 1.1657341758564144e-15,
+      "v": 0.00014967040389025446,
+      "residual": 2.998438040021656,
+      "note": null
+     }
+    },
+    {
+     "comparison": "chart_R0",
+     "kind": "chart",
+     "rule": "R0",
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 1,
+     "reading": "modulus",
+     "defined": true,
+     "angles_deg": [
+      116.565051177,
+      116.565051177,
+      116.565051177
+     ],
+     "glue_modulus": [
+      0.525731112119,
+      0.525731112119,
+      0.525731112119
+     ],
+     "glue_phases_units_of_2pi": [
+      -0.25,
+      -0.25,
+      -0.25
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": null,
+     "levels_minus_l0_at_q0": [
+      0.022328525640259667,
+      0.060563270175582606,
+      0.19869592214683873,
+      0.5462980995230634
+     ],
+     "splitting_of_two_lowest": 0.03823474453532294,
+     "gradient_band0_band1": [
+      2.3314683517128287e-10,
+      2.4424906541753444e-10
+     ],
+     "flat_bands_at_l0": 0,
+     "spectrum_bottom_minus_l0": 0.022328525640259667,
+     "lowest_pair_two_band": {
+      "b": 0.01911737226766147,
+      "v": null,
+      "residual": null,
+      "note": "no positive slope: the half splitting does not grow linearly"
+     }
+    },
+    {
+     "comparison": "chart_R0",
+     "kind": "chart",
+     "rule": "R0",
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 2,
+     "reading": "phase",
+     "defined": true,
+     "angles_deg": [
+      116.565051177,
+      116.565051177,
+      116.565051177
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      -0.5,
+      -0.5,
+      0.5
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": 1.0658141036401503e-14,
+     "levels_minus_l0_at_q0": [
+      -2.220446049250313e-15,
+      -6.661338147750939e-16,
+      0.0,
+      0.011193441851588437,
+      0.20025992035949391,
+      0.9657261482830815
+     ],
+     "splitting_of_two_lowest": 1.5543122344752192e-15,
+     "gradient_band0_band1": [
+      9.992007221626408e-11,
+      7.771561172376096e-11
+     ],
+     "flat_bands_at_l0": 3,
+     "spectrum_bottom_minus_l0": -3.9968028886505635e-15,
+     "lowest_pair_two_band": {
+      "b": 7.771561172376096e-16,
+      "v": 3.0128972442725573e-14,
+      "residual": 6.758620689655173,
+      "note": null
+     }
+    },
+    {
+     "comparison": "chart_R0",
+     "kind": "chart",
+     "rule": "R0",
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 2,
+     "reading": "modulus",
+     "defined": true,
+     "angles_deg": [
+      116.565051177,
+      116.565051177,
+      116.565051177
+     ],
+     "glue_modulus": [
+      0.27639320224988057,
+      0.27639320224988057,
+      0.27639320224988057
+     ],
+     "glue_phases_units_of_2pi": [
+      -0.5,
+      -0.5,
+      0.5
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": null,
+     "levels_minus_l0_at_q0": [
+      0.004978695793491639,
+      0.007988990416933905,
+      0.08817500645926923,
+      0.14231585650742917,
+      0.40578407272931094,
+      0.6724827269068498
+     ],
+     "splitting_of_two_lowest": 0.0030102946234422667,
+     "gradient_band0_band1": [
+      2.2204460492503128e-10,
+      2.2204460492503128e-10
+     ],
+     "flat_bands_at_l0": 0,
+     "spectrum_bottom_minus_l0": 0.004978695793491639,
+     "lowest_pair_two_band": {
+      "b": 0.0015051473117211334,
+      "v": null,
+      "residual": null,
+      "note": "no positive slope: the half splitting does not grow linearly"
+     }
+    },
+    {
+     "comparison": "chart_R1",
+     "kind": "chart",
+     "rule": "R1",
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 1,
+     "reading": "phase",
+     "defined": true,
+     "angles_deg": [
+      63.434948823,
+      63.434948823,
+      63.434948823
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      0.25,
+      0.25,
+      0.25
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": 1.1546319456101628e-14,
+     "levels_minus_l0_at_q0": [
+      -9.992007221626409e-16,
+      1.3322676295501878e-15,
+      0.07410018932362139,
+      0.66722615426871
+     ],
+     "splitting_of_two_lowest": 2.3314683517128287e-15,
+     "gradient_band0_band1": [
+      3.0531133177191805e-10,
+      2.7200464103316335e-10
+     ],
+     "flat_bands_at_l0": 1,
+     "spectrum_bottom_minus_l0": -2.7755575615628914e-15,
+     "lowest_pair_two_band": {
+      "b": 1.1657341758564144e-15,
+      "v": 0.00014967040389025446,
+      "residual": 2.998438040021656,
+      "note": null
+     }
+    },
+    {
+     "comparison": "chart_R1",
+     "kind": "chart",
+     "rule": "R1",
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 1,
+     "reading": "modulus",
+     "defined": true,
+     "angles_deg": [
+      63.434948823,
+      63.434948823,
+      63.434948823
+     ],
+     "glue_modulus": [
+      0.850650808352,
+      0.850650808352,
+      0.850650808352
+     ],
+     "glue_phases_units_of_2pi": [
+      0.25,
+      0.25,
+      0.25
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": null,
+     "levels_minus_l0_at_q0": [
+      0.007455468557424183,
+      0.0655956401790716,
+      0.07003833686638439,
+      0.6312365261867537
+     ],
+     "splitting_of_two_lowest": 0.05814017162164742,
+     "gradient_band0_band1": [
+      3.996802888650563e-10,
+      3.7747582837255317e-10
+     ],
+     "flat_bands_at_l0": 0,
+     "spectrum_bottom_minus_l0": 0.007455468557424183,
+     "lowest_pair_two_band": {
+      "b": 0.02907008581082371,
+      "v": null,
+      "residual": null,
+      "note": "no positive slope: the half splitting does not grow linearly"
+     }
+    },
+    {
+     "comparison": "chart_R1",
+     "kind": "chart",
+     "rule": "R1",
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 2,
+     "reading": "phase",
+     "defined": true,
+     "angles_deg": [
+      63.434948823,
+      63.434948823,
+      63.434948823
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      0.5,
+      0.5,
+      0.5
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": 1.0658141036401503e-14,
+     "levels_minus_l0_at_q0": [
+      -2.220446049250313e-15,
+      -6.661338147750939e-16,
+      0.0,
+      0.011193441851588437,
+      0.20025992035949391,
+      0.9657261482830815
+     ],
+     "splitting_of_two_lowest": 1.5543122344752192e-15,
+     "gradient_band0_band1": [
+      9.992007221626408e-11,
+      7.771561172376096e-11
+     ],
+     "flat_bands_at_l0": 3,
+     "spectrum_bottom_minus_l0": -3.9968028886505635e-15,
+     "lowest_pair_two_band": {
+      "b": 7.771561172376096e-16,
+      "v": 3.0128972442725573e-14,
+      "residual": 6.758620689655173,
+      "note": null
+     }
+    },
+    {
+     "comparison": "chart_R1",
+     "kind": "chart",
+     "rule": "R1",
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 2,
+     "reading": "modulus",
+     "defined": true,
+     "angles_deg": [
+      63.434948823,
+      63.434948823,
+      63.434948823
+     ],
+     "glue_modulus": [
+      0.7236067977499111,
+      0.7236067977499111,
+      0.7236067977499111
+     ],
+     "glue_phases_units_of_2pi": [
+      0.5,
+      -0.5,
+      -0.5
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": null,
+     "levels_minus_l0_at_q0": [
+      0.0020675616118219775,
+      0.01005300273499743,
+      0.03635555359855491,
+      0.1624378879091568,
+      0.1796228587548241,
+      0.8609504222848128
+     ],
+     "splitting_of_two_lowest": 0.007985441123175452,
+     "gradient_band0_band1": [
+      1.8873791418627659e-10,
+      2.886579864025407e-10
+     ],
+     "flat_bands_at_l0": 0,
+     "spectrum_bottom_minus_l0": 0.0020675616118219775,
+     "lowest_pair_two_band": {
+      "b": 0.003992720561587726,
+      "v": null,
+      "residual": null,
+      "note": "no positive slope: the half splitting does not grow linearly"
+     }
+    },
+    {
+     "comparison": "chart_R2",
+     "kind": "chart",
+     "rule": "R2",
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 1,
+     "reading": "phase",
+     "defined": true,
+     "angles_deg": [
+      63.434948823,
+      63.434948823,
+      63.434948823
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      -0.25,
+      -0.25,
+      -0.25
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": 1.1546319456101628e-14,
+     "levels_minus_l0_at_q0": [
+      -9.992007221626409e-16,
+      1.3322676295501878e-15,
+      0.07410018932362139,
+      0.66722615426871
+     ],
+     "splitting_of_two_lowest": 2.3314683517128287e-15,
+     "gradient_band0_band1": [
+      3.0531133177191805e-10,
+      2.7200464103316335e-10
+     ],
+     "flat_bands_at_l0": 1,
+     "spectrum_bottom_minus_l0": -2.7755575615628914e-15,
+     "lowest_pair_two_band": {
+      "b": 1.1657341758564144e-15,
+      "v": 0.00014967040389025446,
+      "residual": 2.998438040021656,
+      "note": null
+     }
+    },
+    {
+     "comparison": "chart_R2",
+     "kind": "chart",
+     "rule": "R2",
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 1,
+     "reading": "modulus",
+     "defined": true,
+     "angles_deg": [
+      63.434948823,
+      63.434948823,
+      63.434948823
+     ],
+     "glue_modulus": [
+      0.850650808352,
+      0.850650808352,
+      0.850650808352
+     ],
+     "glue_phases_units_of_2pi": [
+      -0.25,
+      -0.25,
+      -0.25
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": null,
+     "levels_minus_l0_at_q0": [
+      0.007455468557424183,
+      0.0655956401790716,
+      0.07003833686638439,
+      0.6312365261867537
+     ],
+     "splitting_of_two_lowest": 0.05814017162164742,
+     "gradient_band0_band1": [
+      3.996802888650563e-10,
+      3.7747582837255317e-10
+     ],
+     "flat_bands_at_l0": 0,
+     "spectrum_bottom_minus_l0": 0.007455468557424183,
+     "lowest_pair_two_band": {
+      "b": 0.02907008581082371,
+      "v": null,
+      "residual": null,
+      "note": "no positive slope: the half splitting does not grow linearly"
+     }
+    },
+    {
+     "comparison": "chart_R2",
+     "kind": "chart",
+     "rule": "R2",
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 2,
+     "reading": "phase",
+     "defined": true,
+     "angles_deg": [
+      63.434948823,
+      63.434948823,
+      63.434948823
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      -0.5,
+      0.5,
+      -0.5
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": 1.0658141036401503e-14,
+     "levels_minus_l0_at_q0": [
+      -2.220446049250313e-15,
+      -6.661338147750939e-16,
+      0.0,
+      0.011193441851588437,
+      0.20025992035949391,
+      0.9657261482830815
+     ],
+     "splitting_of_two_lowest": 1.5543122344752192e-15,
+     "gradient_band0_band1": [
+      9.992007221626408e-11,
+      7.771561172376096e-11
+     ],
+     "flat_bands_at_l0": 3,
+     "spectrum_bottom_minus_l0": -3.9968028886505635e-15,
+     "lowest_pair_two_band": {
+      "b": 7.771561172376096e-16,
+      "v": 3.0128972442725573e-14,
+      "residual": 6.758620689655173,
+      "note": null
+     }
+    },
+    {
+     "comparison": "chart_R2",
+     "kind": "chart",
+     "rule": "R2",
+     "ports_up": [
+      0,
+      11,
+      5
+     ],
+     "ports_down": [
+      0,
+      11,
+      5
+     ],
+     "k": 2,
+     "reading": "modulus",
+     "defined": true,
+     "angles_deg": [
+      63.434948823,
+      63.434948823,
+      63.434948823
+     ],
+     "glue_modulus": [
+      0.7236067977499111,
+      0.7236067977499111,
+      0.7236067977499111
+     ],
+     "glue_phases_units_of_2pi": [
+      -0.5,
+      0.5,
+      -0.5
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": null,
+     "levels_minus_l0_at_q0": [
+      0.0020675616118219775,
+      0.01005300273499743,
+      0.03635555359855491,
+      0.1624378879091568,
+      0.1796228587548241,
+      0.8609504222848128
+     ],
+     "splitting_of_two_lowest": 0.007985441123175452,
+     "gradient_band0_band1": [
+      1.8873791418627659e-10,
+      2.886579864025407e-10
+     ],
+     "flat_bands_at_l0": 0,
+     "spectrum_bottom_minus_l0": 0.0020675616118219775,
+     "lowest_pair_two_band": {
+      "b": 0.003992720561587726,
+      "v": null,
+      "residual": null,
+      "note": "no positive slope: the half splitting does not grow linearly"
+     }
+    },
+    {
+     "comparison": "face_axis_chart_roll",
+     "kind": "chart",
+     "rule": "roll (half turn about the top-face seam under the mesh edge)",
+     "ports_up": [
+      4,
+      1,
+      10
+     ],
+     "ports_down": [
+      4,
+      1,
+      10
+     ],
+     "k": 1,
+     "reading": "phase",
+     "defined": true,
+     "angles_deg": [
+      116.565051177,
+      116.565051177,
+      116.565051177
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      -0.25,
+      -0.25,
+      -0.25
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": 9.769962616701378e-15,
+     "levels_minus_l0_at_q0": [
+      7.771561172376096e-16,
+      4.551914400963142e-15,
+      0.30281378954855265,
+      0.47274749269296257
+     ],
+     "splitting_of_two_lowest": 3.774758283725532e-15,
+     "gradient_band0_band1": [
+      9.436895709313829e-11,
+      1.4988010832439613e-10
+     ],
+     "flat_bands_at_l0": 1,
+     "spectrum_bottom_minus_l0": -2.55351295663786e-15,
+     "lowest_pair_two_band": {
+      "b": 1.887379141862766e-15,
+      "v": 0.0001388727114938019,
+      "residual": 2.999818643852885,
+      "note": null
+     }
+    },
+    {
+     "comparison": "face_axis_chart_roll",
+     "kind": "chart",
+     "rule": "roll (half turn about the top-face seam under the mesh edge)",
+     "ports_up": [
+      4,
+      1,
+      10
+     ],
+     "ports_down": [
+      4,
+      1,
+      10
+     ],
+     "k": 1,
+     "reading": "modulus",
+     "defined": true,
+     "angles_deg": [
+      116.565051177,
+      116.565051177,
+      116.565051177
+     ],
+     "glue_modulus": [
+      0.525731112119,
+      0.525731112119,
+      0.525731112119
+     ],
+     "glue_phases_units_of_2pi": [
+      -0.25,
+      -0.25,
+      -0.25
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": null,
+     "levels_minus_l0_at_q0": [
+      0.08942693053427686,
+      0.13320321292531134,
+      0.2465054228555501,
+      0.38001979983935186
+     ],
+     "splitting_of_two_lowest": 0.04377628239103448,
+     "gradient_band0_band1": [
+      2.498001805406602e-10,
+      2.0539125955565393e-10
+     ],
+     "flat_bands_at_l0": 0,
+     "spectrum_bottom_minus_l0": 0.08942693053427686,
+     "lowest_pair_two_band": {
+      "b": 0.02188814119551724,
+      "v": null,
+      "residual": null,
+      "note": "no positive slope: the half splitting does not grow linearly"
+     }
+    },
+    {
+     "comparison": "face_axis_chart_roll",
+     "kind": "chart",
+     "rule": "roll (half turn about the top-face seam under the mesh edge)",
+     "ports_up": [
+      4,
+      1,
+      10
+     ],
+     "ports_down": [
+      4,
+      1,
+      10
+     ],
+     "k": 2,
+     "reading": "phase",
+     "defined": true,
+     "angles_deg": [
+      116.565051177,
+      116.565051177,
+      116.565051177
+     ],
+     "glue_modulus": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "glue_phases_units_of_2pi": [
+      -0.5,
+      -0.5,
+      0.5
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": 1.0658141036401503e-14,
+     "levels_minus_l0_at_q0": [
+      -3.1086244689504383e-15,
+      -1.3322676295501878e-15,
+      3.3306690738754696e-15,
+      0.17100933902630233,
+      0.39487618856695006,
+      0.5766146928921321
+     ],
+     "splitting_of_two_lowest": 1.7763568394002505e-15,
+     "gradient_band0_band1": [
+      1.5543122344752192e-10,
+      1.7763568394002502e-10
+     ],
+     "flat_bands_at_l0": 3,
+     "spectrum_bottom_minus_l0": -5.329070518200751e-15,
+     "lowest_pair_two_band": {
+      "b": 8.881784197001252e-16,
+      "v": 4.295393912929258e-14,
+      "residual": 14.571120689655173,
+      "note": null
+     }
+    },
+    {
+     "comparison": "face_axis_chart_roll",
+     "kind": "chart",
+     "rule": "roll (half turn about the top-face seam under the mesh edge)",
+     "ports_up": [
+      4,
+      1,
+      10
+     ],
+     "ports_down": [
+      4,
+      1,
+      10
+     ],
+     "k": 2,
+     "reading": "modulus",
+     "defined": true,
+     "angles_deg": [
+      116.565051177,
+      116.565051177,
+      116.565051177
+     ],
+     "glue_modulus": [
+      0.27639320224988057,
+      0.27639320224988057,
+      0.27639320224988057
+     ],
+     "glue_phases_units_of_2pi": [
+      -0.5,
+      -0.5,
+      0.5
+     ],
+     "three_phases_equal": true,
+     "q0_point": "Gamma",
+     "max_band_difference_to_rule_a_after_shift": null,
+     "levels_minus_l0_at_q0": [
+      0.07732713992054063,
+      0.12320972289629051,
+      0.171381307106514,
+      0.24100017867854517,
+      0.2787895530466491,
+      0.39913863762845914
+     ],
+     "splitting_of_two_lowest": 0.045882582975749875,
+     "gradient_band0_band1": [
+      2.886579864025407e-10,
+      4.1078251911130787e-10
+     ],
+     "flat_bands_at_l0": 0,
+     "spectrum_bottom_minus_l0": 0.07732713992054063,
+     "lowest_pair_two_band": {
+      "b": 0.022941291487874937,
+      "v": null,
+      "residual": null,
+      "note": "no positive slope: the half splitting does not grow linearly"
+     }
+    }
+   ]
+  }
+ },
+ "port_pair_bands_any_phases": [
+  {
+   "k": 1,
+   "ports_up": [
+    1,
+    10,
+    3
+   ],
+   "ports_down": [
+    2,
+    8,
+    0
+   ],
+   "flat_bands_at_l0_per_cell": 1,
+   "predicted_2d_minus_3": 1,
+   "first_dispersive_band_min_minus_l0_on_grid_24": 0.00020300005336892912,
+   "first_dispersive_band_max_minus_l0": 0.142072671383361,
+   "random_glue_phases_equal_shifted_bands_max_diff": 1.0658141036401503e-14
+  },
+  {
+   "k": 2,
+   "ports_up": [
+    1,
+    10,
+    3
+   ],
+   "ports_down": [
+    2,
+    8,
+    0
+   ],
+   "flat_bands_at_l0_per_cell": 3,
+   "predicted_2d_minus_3": 3,
+   "first_dispersive_band_min_minus_l0_on_grid_24": 0.17105165150255663,
+   "first_dispersive_band_max_minus_l0": 0.2781950963433615,
+   "random_glue_phases_equal_shifted_bands_max_diff": 1.0658141036401503e-14
+  }
+ ]
+}

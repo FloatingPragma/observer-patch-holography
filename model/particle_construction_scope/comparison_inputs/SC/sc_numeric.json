@@ -1,0 +1,408 @@
+{
+ "inputs": {
+  "P_fwd": 1.6309720958588974,
+  "alpha_U_D10_at_P_fwd": 0.04112424744181668,
+  "measured_values_read": "none"
+ },
+ "alpha_cut": {
+  "P_fwd": {
+   "alpha": 0.06155627294861436,
+   "inv_alpha": 16.245298035421587,
+   "t": 2.4301442496332086
+  },
+  "phi": {
+   "alpha": 0.06176957520920222,
+   "inv_alpha": 16.189199887050922,
+   "t": 2.438565085352649
+  }
+ },
+ "declared_R": {
+  "P_fwd": 5.957067830590499,
+  "phi": 5.962377423806517
+ },
+ "A2_pairwise_meeting_R": {
+  "5-trace Euclidean": {
+   "inv_alpha_MS_at_E_cell": [
+    12.789548081051228,
+    12.287991184033615,
+    10.152257143370933
+   ],
+   "K1 links only": {
+    "R_12": -0.42973294446213417,
+    "R_23": -3.6597852939095583,
+    "R_13": -1.5064170609446093
+   },
+   "B": {
+    "R_12": -0.4336754485397684,
+    "R_23": -3.5006641941743606,
+    "R_13": -1.4928457360712344
+   },
+   "SM": {
+    "R_12": -0.43367544853976847,
+    "R_23": -3.5006641941743606,
+    "R_13": -1.4928457360712344
+   },
+   "K3(1,3)": {
+    "R_12": -0.4336754485397684,
+    "R_23": -3.5006641941743606,
+    "R_13": -1.4928457360712344
+   },
+   "MSSM (declared, reference)": {
+    "R_12": -0.5627455225099376,
+    "R_23": -3.354803186083762,
+    "R_13": -1.7261028823323648
+   },
+   "A3H": {
+    "R_12": -0.44178153169004447,
+    "R_23": -3.220611058640412,
+    "R_13": -1.4664236876451946
+   }
+  },
+  "Hamiltonian tadpoles": {
+   "inv_alpha_MS_at_E_cell": [
+    10.744659257879768,
+    12.009142708146598,
+    10.028324487421147
+   ],
+   "K1 links only": {
+    "R_12": 1.0834068867120406,
+    "R_23": -3.394322165633391,
+    "R_13": -0.40916946406977
+   },
+   "B": {
+    "R_12": 1.0933463994341692,
+    "R_23": -3.246742941040635,
+    "R_13": -0.4054832526817541
+   },
+   "SM": {
+    "R_12": 1.0933463994341694,
+    "R_23": -3.246742941040635,
+    "R_13": -0.4054832526817541
+   },
+   "K3(1,3)": {
+    "R_12": 1.0933463994341692,
+    "R_23": -3.246742941040635,
+    "R_13": -0.4054832526817541
+   },
+   "MSSM (declared, reference)": {
+    "R_12": 1.4187471135514818,
+    "R_23": -3.111461985163942,
+    "R_13": -0.46884001091327815
+   },
+   "A3H": {
+    "R_12": 1.1137827807320042,
+    "R_23": -2.9870035057573845,
+    "R_13": -0.39830655794402386
+   }
+  },
+  "15-trace Euclidean": {
+   "inv_alpha_MS_at_E_cell": [
+    12.475386851113836,
+    9.460555831224388,
+    8.895618117356605
+   ],
+   "K1 links only": {
+    "R_12": -2.5831011774270847,
+    "R_23": -0.9680750027033672,
+    "R_13": -2.044759119185846
+   },
+   "B": {
+    "R_12": -2.6067993533667826,
+    "R_23": -0.9259847851945253,
+    "R_13": -2.026337865859847
+   },
+   "SM": {
+    "R_12": -2.606799353366783,
+    "R_23": -0.9259847851945252,
+    "R_13": -2.026337865859847
+   },
+   "K3(1,3)": {
+    "R_12": -2.6067993533667826,
+    "R_23": -0.9259847851945252,
+    "R_13": -2.026337865859847
+   },
+   "MSSM (declared, reference)": {
+    "R_12": -3.382632494249754,
+    "R_23": -0.88740208581142,
+    "R_13": -2.3429531574004487
+   },
+   "A3H": {
+    "R_12": -2.6555245749250407,
+    "R_23": -0.8519060023789633,
+    "R_13": -1.9904734788534781
+   }
+  }
+ },
+ "A3_Lambda_matching": {
+  "SU(2)": {
+   "Lambda_MS_over_Lambda_L": 19.823294203254175,
+   "R": -2.9868577211080125
+  },
+  "SU(3)": {
+   "Lambda_MS_over_Lambda_L": 28.809533960763247,
+   "R": -3.3607063726644277
+  },
+  "SU(5)": {
+   "Lambda_MS_over_Lambda_L": 34.88709123947279,
+   "R": -3.5521168822613123
+  },
+  "source": "IMPORTED from GL (Hasenfratz and Hasenfratz 1980; Dashen and Gross 1981; from memory, unchecked)"
+ },
+ "A4_A5_modular_family": {
+  "A4a E_ref = E_cell (c = 0)": {
+   "c": 0.0,
+   "R_P_fwd": 6.283185307179586,
+   "R_phi": 6.283185307179586,
+   "R_minus_declared_P_fwd": 0.3261174765890873
+  },
+  "A4b E_ref = E* (c = 1/2)": {
+   "c": 0.5,
+   "R_P_fwd": 6.0385971997377705,
+   "R_phi": 6.042579394649785,
+   "R_minus_declared_P_fwd": 0.0815293691472716
+  },
+  "A4c E_ref = sqrt(E* E_cell) (c = 1/4)": {
+   "c": 0.25,
+   "R_P_fwd": 6.160891253458678,
+   "R_phi": 6.1628823509146855,
+   "R_minus_declared_P_fwd": 0.20382342286817945
+  },
+  "A5a mu_b = exp(-pi) E_cell (c = 0)": {
+   "c": 0.0,
+   "R_P_fwd": 6.283185307179586,
+   "R_phi": 6.283185307179586,
+   "R_minus_declared_P_fwd": 0.3261174765890873
+  },
+  "A5b mu_b = exp(-pi) E* (c = 1)": {
+   "c": 1.0,
+   "R_P_fwd": 5.794009092295955,
+   "R_phi": 5.801973482119982,
+   "R_minus_declared_P_fwd": -0.1630587382945441
+  },
+  "A5c mu_b = exp(-pi) sqrt(E* E_cell) (c = 1/2)": {
+   "c": 0.5,
+   "R_P_fwd": 6.0385971997377705,
+   "R_phi": 6.042579394649785,
+   "R_minus_declared_P_fwd": 0.0815293691472716
+  },
+  "A5d thin link, Planck cross-section (c = 2/3)": {
+   "c": 0.6666666666666666,
+   "R_P_fwd": 5.957067830590499,
+   "R_phi": 5.962377423806517,
+   "R_minus_declared_P_fwd": 0.0
+  },
+  "A5d under C1 (cross-section = cell face) (c = 0)": {
+   "c": 0.0,
+   "R_P_fwd": 6.283185307179586,
+   "R_phi": 6.283185307179586,
+   "R_minus_declared_P_fwd": 0.3261174765890873
+  }
+ },
+ "A6_heat_kernel_equalization": {
+  "t_cell": 2.4301442496332086,
+  "t_eq": {
+   "SU(2)": 0.9241962407465937,
+   "SU(3)": 0.8239592165010823
+  },
+  "t_half": {
+   "SU(2)": 1.3087222645833974,
+   "SU(3)": 1.4968428794314015
+  },
+  "t_x_crossings": [
+   2.7679430999506582
+  ],
+  "fundamental_over_trivial_weight_at_cell": {
+   "SU(2)": 0.3232074161257038,
+   "SU(3)": 0.11746908995993142
+  },
+  "2D_area_reading_R": {
+   "t_eq SU(2)": -0.48339073285473105,
+   "t_eq SU(3)": -0.5407924312073303,
+   "t_half SU(2)": -0.30944966344846375,
+   "t_half SU(3)": -0.24229623730505312,
+   "t_x = 2.767943": 0.06507693179417595
+  },
+  "4D_running_reading_R": {
+   "K1 links only": {
+    "t_eq SU(2)": "no scale below E_cell (x = -22.68)",
+    "t_half SU(2)": "no scale below E_cell (x = -11.93)",
+    "t_eq SU(3)": "no scale below E_cell (x = -18.09)",
+    "t_half SU(3)": "no scale below E_cell (x = -5.786)"
+   },
+   "B": {
+    "t_eq SU(2)": "no scale below E_cell (x = -142.6)",
+    "t_half SU(2)": "no scale below E_cell (x = -74.97)",
+    "t_eq SU(3)": "no scale below E_cell (x = -39.79)",
+    "t_half SU(3)": "no scale below E_cell (x = -12.73)"
+   },
+   "SM": {
+    "t_eq SU(2)": "no scale below E_cell (x = -52.52)",
+    "t_half SU(2)": "no scale below E_cell (x = -27.62)",
+    "t_eq SU(3)": "no scale below E_cell (x = -28.42)",
+    "t_half SU(3)": "no scale below E_cell (x = -9.092)"
+   },
+   "K3(1,3)": {
+    "t_eq SU(2)": 199.5880700300204,
+    "t_half SU(2)": 104.95674965762873,
+    "t_eq SU(3)": "no scale below E_cell (x = -66.32)",
+    "t_half SU(3)": "no scale below E_cell (x = -21.21)"
+   },
+   "MSSM (declared, reference)": {
+    "t_eq SU(2)": 166.32339169168367,
+    "t_half SU(2)": 87.46395804802395,
+    "t_eq SU(3)": "no scale below E_cell (x = -66.32)",
+    "t_half SU(3)": "no scale below E_cell (x = -21.21)"
+   },
+   "A3H": {
+    "t_eq SU(2)": "no scale below E_cell (x = -58.7)",
+    "t_half SU(2)": "no scale below E_cell (x = -30.87)",
+    "t_eq SU(3)": "no scale below E_cell (x = -28.42)",
+    "t_half SU(3)": "no scale below E_cell (x = -9.092)"
+   }
+  }
+ },
+ "B": {
+  "B1 instanton fourth root, unit prefactor, alpha_cut": {
+   "exponent": 25.51805448172858,
+   "v_over_Estar": 6.47778432511676e-12
+  },
+  "B2 prefactor SU(2), no fermions": {
+   "C_N": 0.01621903632443897,
+   "prefactor": 1760577.928778561,
+   "prefactor_fourth_root": 36.42619542812633,
+   "v_over_Estar": 2.3596103776795647e-10,
+   "with_massless_source_fermions": 0.0
+  },
+  "B2 prefactor SU(3), no fermions": {
+   "C_N": 0.0015129153027538466,
+   "prefactor": 1711039067.055128,
+   "prefactor_fourth_root": 203.38315561885193,
+   "v_over_Estar": 1.3174722174605817e-09,
+   "with_massless_source_fermions": 0.0
+  },
+  "B3 Villain flux, unified alpha_cut": {
+   "exponent": 25.51805448172858,
+   "v_over_Estar": 6.47778432511676e-12
+  },
+  "B3 Villain flux, alpha_Y = (3/5) alpha_cut": {
+   "exponent": 42.53009080288097,
+   "v_over_Estar": 2.6496772935503203e-19
+  },
+  "B3 Villain flux, alpha_em = (3/8) alpha_cut": {
+   "exponent": 68.04814528460956,
+   "v_over_Estar": 2.1920110229035372e-30
+  },
+  "B3 Villain flux, alpha_2 + alpha_Y = (8/5) alpha_cut": {
+   "exponent": 15.948784051080361,
+   "v_over_Estar": 9.274869936999742e-08
+  },
+  "B5_B6a_Lambda_from_cut_coupling": {
+   "K1 links only SU(2) (b = -7.33333)": {
+    "exponent": 13.91893880821559,
+    "Lambda_over_Estar": 7.060873261601137e-07
+   },
+   "K1 links only SU(3) (b = -11)": {
+    "exponent": 9.279292538810394,
+    "Lambda_over_Estar": 7.308549437571265e-05
+   },
+   "B SU(2) (b = -1.16667)": {
+    "exponent": 87.49047250878371,
+    "Lambda_over_Estar": 7.891277302529809e-39
+   },
+   "B SU(3) (b = -5)": {
+    "exponent": 20.414443585382863,
+    "Lambda_over_Estar": 1.0663420472556229e-09
+   },
+   "SM SU(2) (b = -3.16667)": {
+    "exponent": 32.23333197692031,
+    "Lambda_over_Estar": 7.852691274450293e-15
+   },
+   "SM SU(3) (b = -7)": {
+    "exponent": 14.581745418130618,
+    "Lambda_over_Estar": 3.639193624535609e-07
+   },
+   "K3(1,3) SU(2) (b = 0.833333)": "infrared free: no Lambda below E_cell",
+   "K3(1,3) SU(3) (b = -3)": {
+    "exponent": 34.02407264230478,
+    "Lambda_over_Estar": 1.3101159505470453e-15
+   },
+   "MSSM (declared, reference) SU(2) (b = 1)": "infrared free: no Lambda below E_cell",
+   "MSSM (declared, reference) SU(3) (b = -3)": {
+    "exponent": 34.02407264230478,
+    "Lambda_over_Estar": 1.3101159505470453e-15
+   },
+   "A3H SU(2) (b = -2.83333)": {
+    "exponent": 36.025488680087406,
+    "Lambda_over_Estar": 1.770540204626448e-16
+   },
+   "A3H SU(3) (b = -7)": {
+    "exponent": 14.581745418130618,
+    "Lambda_over_Estar": 3.639193624535609e-07
+   },
+   "B6a links + class-3 content SU(2) (b = -35/6)": {
+    "exponent": 17.498094501756743,
+    "Lambda_over_Estar": 1.9699302474826084e-08
+   }
+  },
+  "B9 beta = 8/3 (target-informed)": {
+   "exponent": 38.277081722592875,
+   "v_over_Estar": 1.8631651794949907e-17
+  },
+  "B10_self_consistent": {
+   "K1 links only (b_2 = -7.33333)": {
+    "x = ln(E_cell/v)": 9.006372170021853,
+    "v_over_Estar": 9.60194025075968e-05,
+    "inv_alpha_2_at_v": 5.73363460073703
+   },
+   "B (b_2 = -1.16667)": {
+    "x = ln(E_cell/v)": 19.755913147144707,
+    "v_over_Estar": 2.060120718627297e-09,
+    "inv_alpha_2_at_v": 12.57700493064897
+   },
+   "SM (b_2 = -3.16667)": {
+    "x = ln(E_cell/v)": 14.24263505956944,
+    "v_over_Estar": 5.108329710468338e-07,
+    "inv_alpha_2_at_v": 9.06714308953763
+   },
+   "K3(1,3) (b_2 = 0.833333)": {
+    "x = ln(E_cell/v)": 32.23333197692031,
+    "v_over_Estar": 7.852691274450293e-15,
+    "inv_alpha_2_at_v": 20.52037646579569
+   },
+   "MSSM (declared, reference) (b_2 = 1)": {
+    "x = ln(E_cell/v)": 34.02407264230477,
+    "v_over_Estar": 1.3101159505470545e-15,
+    "inv_alpha_2_at_v": 21.660397380562117
+   },
+   "A3H (b_2 = -2.83333)": {
+    "x = ln(E_cell/v)": 14.937397745402095,
+    "v_over_Estar": 2.5500419196519473e-07,
+    "inv_alpha_2_at_v": 9.509442752441906
+   },
+   "b_2 = 4/3 (target-informed)": {
+    "x = ln(E_cell/v)": 38.27708172259287,
+    "v_over_Estar": 1.863165179495004e-17
+   }
+  },
+  "reference_D10_law": {
+   "exponent": 38.19635432884911,
+   "v_over_Estar": 2.019811407857628e-17,
+   "ratio_D10_exponent_to_cell_exponent": 1.496836459699482,
+   "beta_with_alpha_cut_that_gives_D10_exponent": 2.6723026246989434
+  },
+  "B11_closure_multiplier": {
+   "t_D10": 1.6235202141729668,
+   "k_needed_for_D10_coupling_at_cell": 2.1386998314678944,
+   "k = 1/2": {
+    "alpha": 0.08017905699956032,
+    "inv_alpha": 12.472084823914601,
+    "v_over_Estar_law_beta4": 2.4292260304358342e-09
+   },
+   "k = 2": {
+    "alpha": 0.04292855790320042,
+    "inv_alpha": 23.29451649074491,
+    "v_over_Estar_law_beta4": 1.0058494841451533e-16
+   }
+  }
+ }
+}

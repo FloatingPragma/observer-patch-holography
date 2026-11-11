@@ -1,0 +1,407 @@
+"""Exact objects of worker T5 (step E4: mass matrices on the family band).
+
+Arithmetic: Q(sqrt5, i) through the library of worker KD (`RL/work/KD/kdlib.py`, imported by path, unchanged), and its
+quadratic extension by s = sqrt(phi + 2), the length of a raw port vector, which the spin-one coherent projector of a
+port needs. No floating point enters an identity; floats are printed only as readable values of exact numbers.
+
+Band coordinates. The public family band (cost 5 - sqrt5 of the seam Laplacian, `RER/Lean/Screen/A5FamilyBand.lean`)
+is the image of the raw port frame: a coordinate vector c in C^3 is the load f(p) = v_p . c on the twelve ports. An
+operator O on the load space acts on the band as  V^T O V / (4 (phi + 2))  (V the 12 x 3 frame, V^T V = 4 (phi + 2) 1).
+A rotation g of the carrier acts as the 3 x 3 matrix R(g) with R v_p = v_g(p).
+
+Run from RER:
+  cd RER && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:RL/work/KD:RL/work/T5 nice -n 10 /tmp/oph-completion-venv/bin/python RL/work/T5/<script>
+"""
+import json
+import math
+import os
+from fractions import Fraction as F
+from functools import lru_cache
+
+import kdlib as kd
+from kdlib import K, ZERO, ONE, I, R5, PHI
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+RL = os.path.dirname(os.path.dirname(HERE))
+W = PHI + K(2)                       # |v_p|^2 = phi + 2 for every raw port vector
+SW = math.sqrt((5 + 5 ** 0.5) / 2)   # float value of s = sqrt(phi + 2), for printing only
+IDP = tuple(range(12))
+
+
+# ----------------------------------------------------------------------------------------------------------------
+# the field E = Q(sqrt5, i)(s), s^2 = phi + 2
+# ----------------------------------------------------------------------------------------------------------------
+class E:
+    """x + y s with x, y in Q(sqrt5, i) and s = sqrt(phi + 2) > 0."""
+    __slots__ = ('x', 'y')
+
+    def __init__(self, x=0, y=0):
+        self.x = K.lift(x)
+        self.y = K.lift(y)
+
+    @staticmethod
+    def lift(v):
+        return v if isinstance(v, E) else E(K.lift(v))
+
+    def __add__(self, o):
+        o = E.lift(o)
+        return E(self.x + o.x, self.y + o.y)
+    __radd__ = __add__
+
+    def __neg__(self):
+        return E(-self.x, -self.y)
+
+    def __sub__(self, o):
+        o = E.lift(o)
+        return E(self.x - o.x, self.y - o.y)
+
+    def __rsub__(self, o):
+        return E.lift(o) - self
+
+    def __mul__(self, o):
+        o = E.lift(o)
+        return E(self.x * o.x + W * self.y * o.y, self.x * o.y + self.y * o.x)
+    __rmul__ = __mul__
+
+    def conj(self):
+        return E(self.x.conj(), self.y.conj())
+
+    def inv(self):
+        d = (self.x * self.x - W * self.y * self.y).inv()
+        return E(self.x * d, -(self.y * d))
+
+    def __truediv__(self, o):
+        return self * E.lift(o).inv()
+
+    def __eq__(self, o):
+        o = E.lift(o)
+        return self.x == o.x and self.y == o.y
+
+    def __hash__(self):
+        return hash((self.x, self.y))
+
+    def is_zero(self):
+        return self.x.is_zero() and self.y.is_zero()
+
+    def in_K(self):
+        return self.y.is_zero()
+
+    def is_real(self):
+        return self.x.is_real() and self.y.is_real()
+
+    def real_K(self):
+        """The element as a real number of Q(sqrt5); asserts that it is one."""
+        assert self.y.is_zero() and self.x.is_real(), self
+        return self.x
+
+    def __complex__(self):
+        return complex(self.x) + complex(self.y) * SW
+
+    def __float__(self):
+        assert self.is_real()
+        return float(self.x) + float(self.y) * SW
+
+    def __repr__(self):
+        if self.y.is_zero():
+            return repr(self.x)
+        if self.x.is_zero():
+            return f'({self.y!r})*s'
+        return f'{self.x!r}+({self.y!r})*s'
+
+
+EZ, EO, EI, ES = E(0), E(1), E(I), E(0, 1)
+
+
+def emat(rows):
+    return tuple(tuple(E.lift(x) for x in r) for r in rows)
+
+
+def eeye(n=3):
+    return tuple(tuple(EO if i == j else EZ for j in range(n)) for i in range(n))
+
+
+def ezeros(n=3, m=None):
+    m = n if m is None else m
+    return tuple(tuple(EZ for _ in range(m)) for _ in range(n))
+
+
+def emm(*ms):
+    out = ms[0]
+    for B in ms[1:]:
+        A = out
+        cols = list(zip(*B))
+        out = tuple(tuple(sum((a * b for a, b in zip(row, col) if not (a.is_zero() or b.is_zero())), EZ)
+                          for col in cols) for row in A)
+    return out
+
+
+def eadd(*ms):
+    out = ms[0]
+    for B in ms[1:]:
+        out = tuple(tuple(x + y for x, y in zip(r, s)) for r, s in zip(out, B))
+    return out
+
+
+def esub(A, B):
+    return tuple(tuple(x - y for x, y in zip(r, s)) for r, s in zip(A, B))
+
+
+def escale(c, A):
+    c = E.lift(c)
+    return tuple(tuple(c * x for x in r) for r in A)
+
+
+def edag(A):
+    return tuple(tuple(A[i][j].conj() for i in range(len(A))) for j in range(len(A[0])))
+
+
+def etr(A):
+    return sum((A[i][i] for i in range(len(A))), EZ)
+
+
+def edet3(A):
+    (a, b, c), (d, e, f), (g, h, i) = A
+    return a * (e * i - f * h) - b * (d * i - f * g) + c * (d * h - e * g)
+
+
+def eeq(A, B):
+    return len(A) == len(B) and all(x == y for r, s in zip(A, B) for x, y in zip(r, s))
+
+
+def ezero(A):
+    return all(x.is_zero() for r in A for x in r)
+
+
+def ecomm(A, B):
+    return esub(emm(A, B), emm(B, A))
+
+
+def eherm(A):
+    return eeq(A, edag(A))
+
+
+def evec(v):
+    """column vector (3 x 1) from a triple"""
+    return tuple((E.lift(x),) for x in v)
+
+
+def eouter(u, v):
+    """u v^dagger for two triples"""
+    return tuple(tuple(E.lift(a) * E.lift(b).conj() for b in v) for a in u)
+
+
+def edot(u, v):
+    """<u|v> = sum conj(u_i) v_i"""
+    return sum((E.lift(a).conj() * E.lift(b) for a, b in zip(u, v)), EZ)
+
+
+def eapply(A, v):
+    return tuple(sum((A[i][j] * E.lift(v[j]) for j in range(len(v))), EZ) for i in range(len(A)))
+
+
+def overlap2(u, v):
+    """|<u|v>|^2 / (<u|u><v|v>), an exact real number of Q(sqrt5)."""
+    num = edot(u, v) * edot(v, u)
+    den = edot(u, u) * edot(v, v)
+    return (num / den).real_K()
+
+
+def kstr(x):
+    """Readable exact form of a real element of Q(sqrt5) (accepts K or E)."""
+    if isinstance(x, E):
+        x = x.real_K()
+    x = K.lift(x)
+    assert x.is_real(), x
+    a, b = x.a, x.b
+    if b == 0:
+        return str(a)
+    if a == 0:
+        return f'({b})*sqrt5'
+    return f'{a} + ({b})*sqrt5'
+
+
+def kfl(x):
+    if isinstance(x, E):
+        return float(x)
+    return float(K.lift(x))
+
+
+# ----------------------------------------------------------------------------------------------------------------
+# carrier geometry
+# ----------------------------------------------------------------------------------------------------------------
+def order(g):
+    n, h = 1, g
+    while h != IDP:
+        h = kd.compose(g, h)
+        n += 1
+    return n
+
+
+@lru_cache(maxsize=1)
+def geometry():
+    from model.common_source import slow_geometry
+    car = kd.carrier()
+    V, seams, rots = car['V'], car['seams'], car['rotations']
+    faces = tuple(tuple(int(v) for v in f) for f in slow_geometry.source().oriented_faces())
+    antipode = tuple(next(q for q in range(12) if all((a + b).is_zero() for a, b in zip(V[p], V[q])))
+                     for p in range(12))
+    assert all(kd.vdot(v, v) == W for v in V)
+    frames = []
+    for fr in kd.frames():
+        klein = (IDP,) + tuple(h['perm'] for h in fr['half_turns'])
+        match = set(fr['matching'])
+        stab = tuple(g for g in rots if {tuple(sorted((g[a], g[b]))) for a, b in match} == match)
+        assert len(stab) == 12
+        axes = tuple(h['axis'] for h in fr['half_turns'])
+        coord = all(sum(1 for x in ax if not x.is_zero()) == 1 for ax in axes)
+        frames.append({'matching': fr['matching'], 'klein': klein, 'stabilizer': stab, 'axes': axes,
+                       'half_turns': fr['half_turns'], 'coordinate_frame': coord})
+    assert sum(1 for f in frames if f['coordinate_frame']) == 1
+    return {'V': V, 'seams': seams, 'rotations': rots, 'faces': faces, 'antipode': antipode, 'frames': frames}
+
+
+def rot(g):
+    """R(g) on the band, exact over Q(sqrt5), as an E matrix."""
+    return emat(kd.rotation_matrix(g))
+
+
+def unit_axis_data(v):
+    """For a raw port vector v: (v v^T / w, [v]_x) as E matrices (entries in Q(sqrt5))."""
+    outer = emat([[v[i] * v[j] * W.inv() for j in range(3)] for i in range(3)])
+    x, y, z = v
+    cross = emat([[ZERO, -z, y], [z, ZERO, -x], [-y, x, ZERO]])
+    return outer, cross
+
+
+def load_projector(p):
+    """Compression to the band of the port projector delta_p delta_p^T:  v_p v_p^T / (4 w) = (1/4) n n^T."""
+    outer, _ = unit_axis_data(geometry()['V'][p])
+    return escale(K(F(1, 4)), outer)
+
+
+def coherent_projector(p):
+    """Spin-one coherent projector of port p (the triplet part of the public code response is half of it):
+    P_p = (1 - n n^T + i [n]_x) / 2 with n = v_p / s. Rank one, projects on the circular state e_+ about n."""
+    outer, cross = unit_axis_data(geometry()['V'][p])
+    sinv = E(0, W.inv())                                    # 1/s = s / w
+    return escale(K(F(1, 2)), eadd(esub(eeye(), outer), escale(EI * sinv, cross)))
+
+
+def band_compress(O):
+    """Band matrix V^T O V / (4 w) of a 12 x 12 integer or rational load-space operator O (list of lists)."""
+    V = geometry()['V']
+    out = [[ZERO] * 3 for _ in range(3)]
+    for p in range(12):
+        for q in range(12):
+            o = O[p][q]
+            if o == 0:
+                continue
+            for i in range(3):
+                for j in range(3):
+                    out[i][j] = out[i][j] + V[p][i] * V[q][j] * K(o)
+    c = (K(4) * W).inv()
+    return emat([[x * c for x in row] for row in out])
+
+
+def commutant_dims(mats):
+    """(complex dimension of the commutant of the given 3 x 3 matrices over Q(sqrt5),
+        dimension of the real symmetric matrices commuting with them). Exact ranks."""
+    def units(sym):
+        out = []
+        for i in range(3):
+            for j in range(i if sym else 0, 3):
+                X = [[ZERO] * 3 for _ in range(3)]
+                X[i][j] = ONE
+                if sym:
+                    X[j][i] = ONE
+                out.append(kd.mat(X))
+        return out
+    res = []
+    for sym in (False, True):
+        basis = units(sym)
+        cols = []
+        for X in basis:
+            col = []
+            for R in mats:
+                C = kd.comm(R, X)
+                col.extend(x for row in C for x in row)
+            cols.append(tuple(col))
+        res.append(kd.nullity_of_linear_map(cols))
+    return tuple(res)
+
+
+def kmat(A):
+    """E matrix with entries in Q(sqrt5, i) -> K matrix"""
+    assert all(x.in_K() for r in A for x in r)
+    return tuple(tuple(x.x for x in r) for r in A)
+
+
+def circulant_parameters(C, with_axis=None):
+    """For a Hermitian 3 x 3 matrix C: a = tr C / 3, |b|^2 = (tr C^2 - 3 a^2) / 6, det(C - a) = 2 |b|^3 cos(3 delta).
+    Returns exact (a, |b|^2, det(C - a)) in Q(sqrt5), |b| when it lies in Q(sqrt5), cos(3 delta) when |b| does,
+    and the Koide quotient tr C^2 / (tr C)^2 = 1/3 + (2/3) |b|^2 / a^2."""
+    assert eherm(C)
+    t1 = etr(C).real_K()
+    t2 = etr(emm(C, C)).real_K()
+    a = t1 * K(F(1, 3))
+    b2 = (t2 - K(3) * a * a) * K(F(1, 6))
+    Ca = esub(C, escale(a, eeye()))
+    d = edet3(Ca).real_K()
+    out = {'a': a, 'b2': b2, 'det_centered': d, 'tr': t1, 'tr2': t2, 'det': edet3(C).real_K()}
+    b = kd.real_sqrt(b2) if b2.sign() >= 0 else None
+    out['b'] = b
+    if b is not None and not b.is_zero():
+        out['cos3delta'] = d / (K(2) * b * b * b)
+    else:
+        out['cos3delta'] = None
+    out['Q'] = (t2 / (t1 * t1)) if not t1.is_zero() else None
+    return out
+
+
+def spectrum_float(C):
+    """Eigenvalues of a Hermitian E matrix in float64 (for display), ascending."""
+    import numpy as np
+    M = np.array([[complex(x) for x in r] for r in C])
+    assert np.abs(M - M.conj().T).max() < 1e-12
+    return [float(x) for x in np.linalg.eigvalsh(M)]
+
+
+def dump(obj, path):
+    def default(o):
+        if isinstance(o, (K, E)):
+            try:
+                return kstr(o)
+            except AssertionError:
+                return repr(o)
+        if isinstance(o, F):
+            return str(o)
+        try:
+            return float(o)
+        except Exception:
+            return str(o)
+    with open(path, 'w') as fh:
+        json.dump(obj, fh, indent=1, default=default)
+
+
+def axial(C, u):
+    """C commutes with the rotations about u: eigenvalue x on u, y + k and y - k on the two circular states.
+    Returns exact x, y, k^2 in Q(sqrt5); checks C u = x u and det C = x (y^2 - k^2)."""
+    Cu = eapply(C, u)
+    x = (edot(u, Cu) / edot(u, u)).real_K()
+    assert all((a - E.lift(x) * E.lift(b)).is_zero() for a, b in zip(Cu, u)), 'u is not an eigenvector'
+    tr, tr2 = etr(C).real_K(), etr(emm(C, C)).real_K()
+    y = (tr - x) * K(F(1, 2))
+    k2 = (tr2 - x * x - K(2) * y * y) * K(F(1, 2))
+    assert edet3(C).real_K() == x * (y * y - k2)
+    return x, y, k2
+
+
+def response_sum(ports):
+    """Sum of the port responses P_p over a set of ports (E matrix)."""
+    ports = tuple(ports)
+    return eadd(*[coherent_projector(p) for p in ports]) if len(ports) > 1 else coherent_projector(ports[0])
+
+
+def load_sum(ports):
+    ports = tuple(ports)
+    return eadd(*[load_projector(p) for p in ports]) if len(ports) > 1 else load_projector(ports[0])

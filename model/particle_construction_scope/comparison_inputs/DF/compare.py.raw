@@ -1,0 +1,165 @@
+"""NOT BLIND comparison of the DF candidates (values.json) with measured quark data.
+
+Measured inputs, read only here and only after values.json exists:
+  - Yukawa couplings at M_Z (MSbar SM) and the CKM sines: RER/model/common_source/calibrated_matter_results.json
+  - the exact current-family sigma target: RER/code/particles/runs/flavor/quark_current_family_exact_sigma_target.json
+  - circulant coordinates at Q0 (pro/Particles/04 RESULTS.md, T2): typed in below with their source
+Verdict rule (CANDIDATES.md): a ratio passes within 10 percent (|ln(pred/meas)| <= 0.1); a mixing sine passes within
+10 percent; an exact zero, one or equality fails when the measurement excludes it.
+Run: cd RL/work/DF && /tmp/oph-completion-venv/bin/python -B compare.py
+"""
+import json
+import math
+import os
+
+import numpy as np
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+RER = 'WORKSPACE/reverse-engineering-reality'
+vals = json.load(open(os.path.join(HERE, 'values.json')))
+assert vals['measured_values_read'] is False
+
+cal = json.load(open(os.path.join(RER, 'model/common_source/calibrated_matter_results.json')))['calibration']
+yuk = cal['matched_SM']['yukawa']
+ckm = cal['CKM']
+sig_t = json.load(open(os.path.join(RER, 'code/particles/runs/flavor/quark_current_family_exact_sigma_target.json')))
+
+
+def meas_sector(ys):
+    y = np.sort(np.array([float(v) for v in ys]))
+    return {'y': y.tolist(), 'y1_over_y3': y[0] / y[2], 'y2_over_y3': y[1] / y[2],
+            'sigma_MZ': 0.5 * math.log(y[2] / y[0]), 'rho_MZ': math.log(y[1] / y[0]) / math.log(y[2] / y[1]),
+            'koide_Q_MZ': y.sum() / np.sqrt(y).sum() ** 2}
+
+
+M = {s: meas_sector(yuk[s]) for s in ('up', 'down', 'charged_lepton')}
+import itertools
+W3 = complex(-0.5, 3 ** 0.5 / 2)
+for s_name, m in M.items():
+    sq = np.sqrt(np.array(m['y']))
+    best = None
+    for perm in itertools.permutations(range(3)):
+        z = sum(sq[perm[k]] * W3 ** (-k) for k in range(3)) * 2 / (3 * sq.mean())
+        d = math.atan2(z.imag, z.real)
+        if 0 <= d <= math.pi / 3 + 1e-12:
+            best = (abs(z), d)
+    m['circulant_r'], m['circulant_delta'] = best
+    m['circulant_x'] = best[0] ** 2 / 4
+# sigma target of the RER audit surface (compare-only)
+SIG = {'sigma_u_target': sig_t['unique_exact_sigma_target']['sigma_u_target'],
+       'sigma_d_target': sig_t['unique_exact_sigma_target']['sigma_d_target'],
+       'scale_note': 'audit surface convention of RER (sigma = half log span); differs from the M_Z value by running'}
+Q0 = {'source': 'pro/Particles/04/RESULTS.md T2 (SMDR reference Yukawas at Q0), typed in',
+      'up': {'x': 0.8316, 'delta': 0.0518, 'Q': 0.8877}, 'down': {'x': 0.6217, 'delta': 0.1002, 'Q': 0.7478},
+      'charged_lepton_pole': {'x': 0.5000, 'delta': 0.2222, 'Q': 0.666664}}
+CKM = {'s12': float(ckm['sin_theta12']), 's23': float(ckm['sin_theta23']), 's13': float(ckm['sin_theta13'])}
+
+
+def ratio_verdict(pred, meas):
+    if pred is None or meas is None or pred <= 0 or meas <= 0:
+        return 'fails (zero or undefined)'
+    d = math.log(pred / meas)
+    return ('passes' if abs(d) <= 0.1 else 'fails') + f' (ln pred/meas = {d:+.3f}, factor {math.exp(abs(d)):.3g})'
+
+
+def score(name, pred, sectors=('up', 'down')):
+    rows = {}
+    for s in sectors:
+        m = M[s]
+        p = pred[s] if s in pred else pred['both']
+        rows[s] = {'y1_over_y3': [p.get('y1_over_y3'), m['y1_over_y3'], ratio_verdict(p.get('y1_over_y3'), m['y1_over_y3'])],
+                   'y2_over_y3': [p.get('y2_over_y3'), m['y2_over_y3'], ratio_verdict(p.get('y2_over_y3'), m['y2_over_y3'])],
+                   'koide_Q': [p.get('koide_Q'), m['koide_Q_MZ'], ratio_verdict(p.get('koide_Q'), m['koide_Q_MZ'])],
+                   'sigma': [p.get('sigma'), m['sigma_MZ'], ratio_verdict(p.get('sigma'), m['sigma_MZ'])
+                             if isinstance(p.get('sigma'), float) else 'fails (infinite)'],
+                   'rho': [p.get('rho'), m['rho_MZ'], ratio_verdict(p.get('rho'), m['rho_MZ'])
+                           if isinstance(p.get('rho'), float) else 'fails (undefined)']}
+    return rows
+
+
+out = {'NOT_BLIND': True, 'measured': {'MZ': M, 'Q0_circulant': Q0, 'CKM_sines': CKM, 'sigma_target_audit': SIG},
+       'verdicts': {}}
+d1 = vals['DF-1']['readings']
+for key, r in d1.items():
+    out['verdicts']['DF-' + key] = score(key, {'both': r})
+out['verdicts']['DF-2'] = score('2', {'both': vals['DF-2']})
+for key in ('3a', '3b'):
+    out['verdicts']['DF-' + key] = score(key, {'both': vals['DF-3'][key]})
+for key in ('4a', '4b'):
+    out['verdicts']['DF-' + key] = score(key, {'up': vals['DF-4'][key]['up'], 'down': vals['DF-4'][key]['down']})
+# DF-5: shape only (rho); sigma free
+r5 = {}
+for key in ('5a', '5b'):
+    rv = vals['DF-5'][key]['rho_value']
+    r5[key] = {s: [rv, M[s]['rho_MZ'], ratio_verdict(rv, M[s]['rho_MZ'])] for s in ('up', 'down')}
+    # N that would reproduce the measured sigma (a fit, reported as such)
+    r5[key]['N_fit_to_sigma_MZ'] = {s: M[s]['sigma_MZ'] / vals['DF-5'][key]['sigma_over_N_value'] for s in ('up', 'down')}
+out['verdicts']['DF-5'] = r5
+# DF-6 mixing
+V4b = np.array(vals['DF-4']['4b']['V_CKM_abs'])
+out['verdicts']['DF-6'] = {
+    '6a_identity': {k: [0.0, v, 'fails (exact zero excluded)'] for k, v in CKM.items()},
+    '6b_4b': {'s12': [V4b[0, 1], CKM['s12'], 'fails (exact zero excluded)' if V4b[0, 1] < 1e-9 else ratio_verdict(V4b[0, 1], CKM['s12'])],
+              's23': [V4b[1, 2], CKM['s23'], 'fails (exact zero excluded)' if V4b[1, 2] < 1e-9 else ratio_verdict(V4b[1, 2], CKM['s23'])],
+              's13': [V4b[0, 2], CKM['s13'], 'fails (exact zero excluded)' if V4b[0, 2] < 1e-9 else ratio_verdict(V4b[0, 2], CKM['s13'])]},
+    '6b_4a': 'left frame degenerate: V_CKM not fixed in the degenerate pair',
+    '6c_T5_B2': 'sines 0.526, 0.707, 0 against 0.225, 0.0418, 0.0037: fails (T5)'}
+# DF-1 against the circulant coordinates at Q0: required x and the bound
+out['verdicts']['DF-1a_bound'] = {
+    s: {'Q_measured_Q0': Q0[s]['Q'], 'Q_bound_native': 2 / 3, 'x_required': Q0[s]['x'],
+        'verdict': 'fails: the measured Q exceeds the bound 2/3 that holds for every phase'} for s in ('up', 'down')}
+out['verdicts']['DF-7'] = {s: {'x_measured_Q0': Q0[s]['x'], 'x_gate_max': 0.5,
+                               'verdict': 'fails: the gate gives x <= 1/2, the sector needs x > 1/2'} for s in ('up', 'down')}
+out['verdicts']['Z6_up_down'] = {'sigma_u_over_sigma_d_measured_MZ': M['up']['sigma_MZ'] / M['down']['sigma_MZ'],
+                                 'rho_u_measured': M['up']['rho_MZ'], 'rho_d_measured': M['down']['rho_MZ'],
+                                 'Z6_prediction': 'sigma_u = sigma_d, rho_u = rho_d', 'verdict': 'fails'}
+
+v8p = os.path.join(HERE, 'values8.json')
+if os.path.exists(v8p):
+    v8 = json.load(open(v8p))
+    assert v8['measured_values_read'] is False
+    d8 = v8['DF-8']
+    out['verdicts']['DF-8'] = score('8', {'up': d8['up'], 'down': d8['down']})
+    V8 = np.array(d8['V_CKM_abs'])
+    out['verdicts']['DF-8']['V_CKM'] = {
+        's12': [V8[0, 1], CKM['s12'], 'fails (exact zero excluded)' if V8[0, 1] < 1e-9 else ratio_verdict(V8[0, 1], CKM['s12'])],
+        's23': [V8[1, 2], CKM['s23'], 'fails (exact zero excluded)' if V8[1, 2] < 1e-9 else ratio_verdict(V8[1, 2], CKM['s23'])],
+        's13': [V8[0, 2], CKM['s13'], 'fails (exact zero excluded)' if V8[0, 2] < 1e-9 else ratio_verdict(V8[0, 2], CKM['s13'])]}
+v9p = os.path.join(HERE, 'values9.json')
+if os.path.exists(v9p):
+    v9 = json.load(open(v9p))
+    assert v9['measured_values_read'] is False
+    r9 = {}
+    for name, r in v9['DF-9']['readings'].items():
+        sec = 'up' if r['Q6'] == 4 else ('down' if r['Q6'] == -2 else 'both')
+        sectors = ('up', 'down') if sec == 'both' else (sec,)
+        r9[name] = score(name, {'both': r}, sectors=sectors)
+    out['verdicts']['DF-9'] = r9
+    r10 = {}
+    for m, e in v9['DF-10']['readings'].items():
+        if m == 'm0':
+            continue
+        for key in ('10A', '10F'):
+            r10[f'{m}-{key}'] = score(m, {'both': e[key]})
+    out['verdicts']['DF-10'] = r10
+    out['verdicts']['DF-10_note'] = 'physical rows: left quark m1, right quark m2 (as m4 = -2), lepton m3 (ambiguous)'
+# RG-stable light-pair ratio y1/y2 (one-loop gauge running is flavour universal; first two generations)
+out['verdicts']['light_pair_ratio_y1_over_y2'] = {
+    'measured_MZ': {s: M[s]['y'][0] / M[s]['y'][1] for s in ('up', 'down', 'charged_lepton')},
+    'DF-1b': vals['DF-1']['readings']['1b']['y1_over_y3'] / vals['DF-1']['readings']['1b']['y2_over_y3']}
+
+with open(os.path.join(HERE, 'compare.json'), 'w') as fh:
+    json.dump(out, fh, indent=1, sort_keys=True)
+
+print('measured MZ', {s: {k: (round(v, 6) if isinstance(v, float) else v) for k, v in M[s].items() if k != 'y'} for s in M})
+print('sigma target (audit)', SIG)
+for k, v in out['verdicts'].items():
+    if k.startswith('DF-1c') or k in ('DF-1b', 'DF-2', 'DF-3a', 'DF-3b', 'DF-4a', 'DF-4b'):
+        for s in ('up', 'down'):
+            r = v[s]
+            print(k, s, 'y1/y3', '%.3e' % (r['y1_over_y3'][0] or 0), 'vs %.3e' % r['y1_over_y3'][1], r['y1_over_y3'][2][:5],
+                  '| y2/y3', '%.3e' % (r['y2_over_y3'][0] or 0), 'vs %.3e' % r['y2_over_y3'][1], r['y2_over_y3'][2][:5],
+                  '| Q %.4f vs %.4f' % (r['koide_Q'][0], r['koide_Q'][1]))
+print('DF-5', json.dumps(out['verdicts']['DF-5'], indent=0)[:900])
+print('DF-6 4b', out['verdicts']['DF-6']['6b_4b'])
+print('Z6', out['verdicts']['Z6_up_down'])

@@ -1,0 +1,78 @@
+"""Unit cell tables of the edge-sharing cubic federation (for the simulation session, worker CUB).
+
+Units: seam length 2, lattice constant 2 phi. Cell offsets are integer triples. A port class is a port modulo
+lattice translations (six classes). A carrier 'at cell R' is the translate of the home carrier by R.
+"""
+import json, sys
+import numpy as np
+import cubic_fed as cf
+
+PHI = cf.PHI
+classes = []
+for c in range(6):
+    plus = next(p for p in range(12) if cf.CLS[p] == c and cf.OFF[p].tolist() == [0, 0, 0])
+    minus = next(p for p in range(12) if cf.CLS[p] == c and cf.OFF[p].tolist() != [0, 0, 0])
+    mu = cf.AXIS[plus]
+    classes.append({'class': c, 'axis_of_shared_seam': int(mu),
+                    'position_in_cell_0': [float(x) for x in cf.V[plus]],
+                    'held_by': [{'carrier_cell': [0, 0, 0], 'home_vertex': int(plus),
+                                 'radial_direction': [float(x) for x in cf.U[plus]]},
+                                {'carrier_cell': [int(-x) for x in cf.OFF[minus]], 'home_vertex': int(minus),
+                                 'radial_direction': [float(x) for x in cf.U[minus]]}]})
+seams = {}
+for a, b in cf.EDGES:
+    ca, cb = cf.CLS[a], cf.CLS[b]
+    rel = (cf.OFF[b] - cf.OFF[a]).astype(int)
+    carrier = (-cf.OFF[a]).astype(int)                 # owning carrier when endpoint a sits in cell 0
+    key = (ca, cb, tuple(rel))
+    if ca > cb or (ca == cb and tuple(rel) < tuple(-rel)):
+        key = (cb, ca, tuple(-rel)); carrier = (-cf.OFF[b]).astype(int)
+    seams.setdefault(key, []).append([int(x) for x in carrier])
+table = [{'from_class': k[0], 'to_class': k[1], 'cell_offset_of_to': list(map(int, k[2])),
+          'owning_carrier_cells': v, 'shared': len(v) == 2} for k, v in sorted(seams.items())]
+assert len(table) == 27 and sum(r['shared'] for r in table) == 3
+deg = np.zeros(6, int)
+for r in table:
+    deg[r['from_class']] += 1; deg[r['to_class']] += 1
+assert (deg == 9).all()
+
+def bloch_from_table(kvec, twice):
+    H = np.zeros((6, 6), complex)
+    for r in table:
+        w = 2 if (r['shared'] and twice) else 1
+        i, j = r['from_class'], r['to_class']
+        ph = np.exp(1j * np.dot(kvec, r['cell_offset_of_to']))
+        H[i, i] += w; H[j, j] += w; H[i, j] -= w * ph; H[j, i] -= w * np.conj(ph)
+    return H
+worst = 0
+rng = np.random.default_rng(1)
+for _ in range(20):
+    kv = rng.uniform(-np.pi, np.pi, 3)
+    for twice in (True, False):
+        a = np.linalg.eigvalsh(bloch_from_table(kv, twice)); b = np.linalg.eigvalsh(cf.bloch(kv, 0, twice))
+        worst = max(worst, np.abs(a - b).max())
+# load branch: curvature and the order-four anisotropy, lambda = D q^2 - (E + F * cubic harmonic) q^4
+def lowest(kv, twice): return np.linalg.eigvalsh(bloch_from_table(kv, twice))[0]
+out_curv = {}
+for twice in (True, False):
+    res = {}
+    for name, d in (('100', np.array([1.0, 0, 0])), ('110', np.array([1.0, 1, 0]) / 2 ** .5), ('111', np.ones(3) / 3 ** .5)):
+        qs = np.array([0.02, 0.04, 0.08])
+        lam = np.array([lowest(q * d, twice) for q in qs])
+        # fit lam = D q^2 + C q^4
+        M = np.array([qs ** 2, qs ** 4]).T
+        Dc, Cc = np.linalg.lstsq(M, lam, rcond=None)[0]
+        res[name] = {'curvature_D': float(Dc), 'quartic_C': float(Cc)}
+    NA = 120 if twice else 118
+    D0 = res['100']['curvature_D']
+    res['walk'] = {'address_register': NA, 'kernel': f'1 - L/{NA}', 'speed_in_lattice_constants_per_tick': float(np.sqrt(2 * D0 / NA)),
+                   'note': 'cos(omega) = 1 - lambda/NA; the quantum uses the oriented seams of the two carriers that hold its port'}
+    out_curv['shared_seam_counted_twice' if twice else 'shared_seam_counted_once'] = res
+out = {'units': 'seam length 2, lattice constant 2*phi; wave vector in radians per lattice constant',
+       'port_classes': classes, 'seams': table, 'ports_per_cell': 6, 'seams_per_cell': 27, 'port_degree': 9,
+       'table_against_cubic_fed_max_difference': float(worst), 'load_branch': out_curv,
+       'frame': 'home carrier vertices (0,+-1,+-phi), (+-1,+-phi,0), (+-phi,0,+-1); shared seams centred on the coordinate axes'}
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 'cubic_tables.json', 'w'), indent=1)
+print('table check against cubic_fed:', worst)
+for k, v in out_curv.items():
+    print(k, {n: (round(x['curvature_D'], 6), round(x['quartic_C'], 6)) for n, x in v.items() if n != 'walk'}, v['walk']['speed_in_lattice_constants_per_tick'])

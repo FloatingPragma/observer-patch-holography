@@ -1,0 +1,366 @@
+"""Run H4 (task MA): classical Monte Carlo of static Z_N link fields on a periodic cubic lattice.
+
+Weight exp(kappa * sum_p Re W_p), W_p = U_mu(x) U_nu(x+mu) U_mu(x+nu)^* U_nu(x)^*, links U = omega^n, omega = exp(2 pi i/N),
+stored as integers n in 0..N-1 (array n[mu, x0, x1, x2]: the link from x to x + e_mu, the convention of cf1_lib.Engine).
+Heat bath, checkerboard by direction: links of direction mu whose transverse coordinate sum has parity par share no
+plaquette, so they are drawn together from their exact conditional distribution. Two implementations: numpy (vectorised,
+used for local tests) and numba (sequential loop over the same checkerboard set, used on the box); they are compared in
+gauge_selftest.py.
+Measurements: plaquette flux (share of nontrivial plaquettes, mean Re W), Wilson loops W(R, T), Polyakov loops, flux
+clusters on the dual lattice. Nothing here is tuned to a target.
+"""
+import numpy as np
+
+try:
+    import numba
+    HAVE_NUMBA = True
+except ImportError:                                   # local machine: numpy path only
+    HAVE_NUMBA = False
+
+PLANES = ((0, 1), (0, 2), (1, 2))                     # plane index k <-> (mu, nu); its normal is 3 - mu - nu
+
+
+def cos_table(N):
+    return np.cos(2 * np.pi * np.arange(N) / N)
+
+
+def cold(shape):
+    return np.zeros((3,) + tuple(shape), np.int16)
+
+
+def hot(shape, N, rng):
+    return rng.integers(0, N, (3,) + tuple(shape)).astype(np.int16)
+
+
+# ---------------------------------------------------------------------------------------------------------------------
+# heat bath, numpy
+def masks(shape):
+    g = np.indices(shape)
+    return [[((g[(mu + 1) % 3] + g[(mu + 2) % 3]) % 2 == par) for par in (0, 1)] for mu in range(3)]
+
+
+def staples_np(n, N, mu):
+    S = []
+    for nu in range(3):
+        if nu == mu:
+            continue
+        S.append((np.roll(n[nu], -1, mu) - np.roll(n[mu], -1, nu) - n[nu]) % N)          # forward plaquette
+        nnu_m = np.roll(n[nu], 1, nu)                                                       # n_nu(x - nu)
+        nmu_m = np.roll(n[mu], 1, nu)                                                       # n_mu(x - nu)
+        nnu_mp = np.roll(nnu_m, -1, mu)                                                     # n_nu(x - nu + mu)
+        S.append((-nnu_mp - nmu_m + nnu_m) % N)                                             # backward plaquette, conjugated
+    return np.stack(S)
+
+
+def sweep_np(n, N, kappa, rng, M=None):
+    if M is None:
+        M = masks(n.shape[1:])
+    ct = cos_table(N)
+    for mu in range(3):
+        for par in range(2):
+            m = M[mu][par]
+            S = staples_np(n, N, mu)[:, m]
+            E = np.stack([kappa * ct[(g + S) % N].sum(0) for g in range(N)])
+            E -= E.max(0)
+            c = np.cumsum(np.exp(E), 0)
+            r = rng.random(c.shape[1]) * c[-1]
+            n[mu][m] = (r[None, :] > c).sum(0)
+    return n
+
+
+# ---------------------------------------------------------------------------------------------------------------------
+# heat bath, numba
+if HAVE_NUMBA:
+    @numba.njit(cache=True)
+    def _seed(s):
+        np.random.seed(s)
+
+    @numba.njit(cache=True, inline='always')
+    def _sh(x0, x1, x2, d, s, L0, L1, L2):
+        if d == 0:
+            return (x0 + s + L0) % L0, x1, x2
+        elif d == 1:
+            return x0, (x1 + s + L1) % L1, x2
+        return x0, x1, (x2 + s + L2) % L2
+
+    @numba.njit(cache=True)
+    def _plaq_nb(n, N, ct):
+        L0, L1, L2 = n.shape[1], n.shape[2], n.shape[3]
+        cnt = 0; tot = 0.0
+        for mu in range(3):
+            for nu in range(mu + 1, 3):
+                for x0 in range(L0):
+                    for x1 in range(L1):
+                        for x2 in range(L2):
+                            a0, a1, a2 = _sh(x0, x1, x2, mu, 1, L0, L1, L2)
+                            b0, b1, b2 = _sh(x0, x1, x2, nu, 1, L0, L1, L2)
+                            p = (np.int64(n[mu, x0, x1, x2]) + n[nu, a0, a1, a2] - n[mu, b0, b1, b2] - n[nu, x0, x1, x2] + 4 * N) % N
+                            if p != 0:
+                                cnt += 1
+                            tot += ct[p]
+        V = 3.0 * L0 * L1 * L2
+        return cnt / V, tot / V
+
+    @numba.njit(cache=True)
+    def _sweep_nb(n, N, kappa, ct, nsweep):
+        L0, L1, L2 = n.shape[1], n.shape[2], n.shape[3]
+        e = np.empty(N)
+        for _ in range(nsweep):
+            for mu in range(3):
+                for par in range(2):
+                    for x0 in range(L0):
+                        for x1 in range(L1):
+                            for x2 in range(L2):
+                                if mu == 0:
+                                    t = x1 + x2
+                                elif mu == 1:
+                                    t = x0 + x2
+                                else:
+                                    t = x0 + x1
+                                if t % 2 != par:
+                                    continue
+                                for g in range(N):
+                                    e[g] = 0.0
+                                for nu in range(3):
+                                    if nu == mu:
+                                        continue
+                                    a0, a1, a2 = _sh(x0, x1, x2, mu, 1, L0, L1, L2)          # x + mu
+                                    b0, b1, b2 = _sh(x0, x1, x2, nu, 1, L0, L1, L2)          # x + nu
+                                    c0, c1, c2 = _sh(x0, x1, x2, nu, -1, L0, L1, L2)         # x - nu
+                                    d0, d1, d2 = _sh(c0, c1, c2, mu, 1, L0, L1, L2)          # x - nu + mu
+                                    sf = np.int64(n[nu, a0, a1, a2]) - n[mu, b0, b1, b2] - n[nu, x0, x1, x2]
+                                    sb = -np.int64(n[nu, d0, d1, d2]) - n[mu, c0, c1, c2] + n[nu, c0, c1, c2]
+                                    for g in range(N):
+                                        e[g] += ct[(g + sf + 4 * N) % N] + ct[(g + sb + 4 * N) % N]
+                                emax = kappa * e[0]
+                                for g in range(1, N):
+                                    if kappa * e[g] > emax:
+                                        emax = kappa * e[g]
+                                tot = 0.0
+                                for g in range(N):
+                                    e[g] = np.exp(kappa * e[g] - emax)
+                                    tot += e[g]
+                                r = np.random.random() * tot
+                                acc = 0.0
+                                new = N - 1
+                                for g in range(N):
+                                    acc += e[g]
+                                    if r <= acc:
+                                        new = g
+                                        break
+                                n[mu, x0, x1, x2] = new
+
+
+class HeatBath:
+    """sweeps(n_sweeps) updates self.n in place; engine 'numba' if available else 'numpy'"""
+
+    def __init__(self, n, N, kappa, seed, engine=None):
+        self.n, self.N, self.kappa = n, N, float(kappa)
+        self.engine = engine or ('numba' if HAVE_NUMBA else 'numpy')
+        self.rng = np.random.default_rng(seed)
+        if self.engine == 'numba':
+            _seed(int(seed) % (2 ** 31))
+            self.ct = cos_table(N)
+        else:
+            self.M = masks(n.shape[1:])
+
+    def sweeps(self, k=1):
+        if self.engine == 'numba':
+            _sweep_nb(self.n, self.N, self.kappa, self.ct, k)
+        else:
+            for _ in range(k):
+                sweep_np(self.n, self.N, self.kappa, self.rng, self.M)
+
+
+# ---------------------------------------------------------------------------------------------------------------------
+# measurements
+def plaquette_ints(n, N):
+    return np.stack([(n[mu] + np.roll(n[nu], -1, mu) - np.roll(n[mu], -1, nu) - n[nu]) % N for mu, nu in PLANES])
+
+
+def plaquette_obs(n, N):
+    if HAVE_NUMBA:
+        f, e = _plaq_nb(n, N, cos_table(N))
+        return float(f), float(e)
+    p = plaquette_ints(n, N)
+    return float(np.mean(p != 0)), float(np.mean(cos_table(N)[p]))      # share of nontrivial plaquettes, mean Re W
+
+
+def line_sums(n, N, Rmax):
+    """Ls[mu][R] = sum of n_mu over R links from x along mu (mod N), R = 0..Rmax"""
+    out = []
+    for mu in range(3):
+        acc = np.zeros_like(n[mu]); rows = [acc.copy()]
+        for R in range(Rmax):
+            acc = (acc + np.roll(n[mu], -R, mu)) % N
+            rows.append(acc.copy())
+        out.append(rows)
+    return out
+
+
+def wilson_loops(n, N, Rmax):
+    """W[R, T] for R, T = 1..Rmax (index R-1, T-1): mean of Re W over all positions, all three planes, both orientations"""
+    ct = cos_table(N); Ls = line_sums(n, N, Rmax); W = np.zeros((Rmax, Rmax))
+    for mu in range(3):
+        for nu in range(3):
+            if mu == nu:
+                continue
+            for R in range(1, Rmax + 1):
+                LR = Ls[mu][R]
+                for T in range(1, Rmax + 1):
+                    LT = Ls[nu][T]
+                    w = (LR + np.roll(LT, -R, mu) - np.roll(LR, -T, nu) - LT) % N
+                    W[R - 1, T - 1] += ct[w].mean()
+    return W / 6
+
+
+def polyakov(n, N):
+    """spatial mean of the Polyakov loop along each axis (complex), three numbers"""
+    out = []
+    for mu in range(3):
+        h = n[mu].sum(axis=mu) % N
+        out.append(complex(np.mean(np.exp(2j * np.pi * h / N))))
+    return out
+
+
+def flux_clusters(n, N, wrap_check=True):
+    """connected clusters of nontrivial plaquettes on the dual lattice. A plaquette in plane (mu, nu) at x is the dual
+    link between the cubes x and x - e_rho (rho the normal; cube labelled by its lowest corner). Cluster size = number
+    of nontrivial plaquettes. Returns a dict with counts, size histogram and wrapping of the large clusters."""
+    from scipy.sparse import coo_matrix
+    from scipy.sparse.csgraph import connected_components
+    shape = n.shape[1:]; V = int(np.prod(shape)); p = plaquette_ints(n, N)
+    src, dst, rho_of = [], [], []
+    for k, (mu, nu) in enumerate(PLANES):
+        rho = 3 - mu - nu
+        idx = np.argwhere(p[k] != 0)
+        if len(idx) == 0:
+            continue
+        a = np.ravel_multi_index(idx.T, shape)
+        j = idx.copy(); j[:, rho] = (j[:, rho] - 1) % shape[rho]
+        b = np.ravel_multi_index(j.T, shape)
+        src.append(a); dst.append(b); rho_of.append(np.full(len(a), rho))
+    if not src:
+        return {'flux_plaquettes': 0, 'clusters': 0}
+    src = np.concatenate(src); dst = np.concatenate(dst); rho_of = np.concatenate(rho_of)
+    G = coo_matrix((np.ones(len(src)), (src, dst)), shape=(V, V)).tocsr()
+    G = G + G.T
+    ncomp, lab = connected_components(G, directed=False)
+    elab = lab[src]
+    uniq, sizes = np.unique(elab, return_counts=True)
+    order = np.argsort(-sizes); uniq, sizes = uniq[order], sizes[order]
+    E = len(src)
+    bins = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072, 262144, 10 ** 9]
+    hist_c, _ = np.histogram(sizes, bins=bins)
+    hist_f, _ = np.histogram(sizes, bins=bins, weights=sizes)
+    res = {'flux_plaquettes': int(E), 'clusters': int(len(sizes)), 'clusters_per_carrier': len(sizes) / V,
+           'mean_size': float(sizes.mean()), 'largest': [int(s) for s in sizes[:5]], 'largest_share_of_flux': float(sizes[0] / E),
+           'size_bins_lower_edges': bins[:-1], 'clusters_by_size_bin': [int(x) for x in hist_c],
+           'flux_share_by_size_bin': [float(x / E) for x in hist_f],
+           'size_counts_small': {int(s): int(c) for s, c in zip(*np.unique(sizes[sizes <= 16], return_counts=True))}}
+    if wrap_check:
+        wraps = []; wrap_flux = 0
+        for cl, sz in zip(uniq, sizes):
+            if sz < min(shape):
+                break
+            w = _wraps(src[elab == cl], dst[elab == cl], rho_of[elab == cl], shape)
+            wraps.append({'size': int(sz), 'wraps_axes': w})
+            if any(w):
+                wrap_flux += int(sz)
+        res['large_clusters'] = wraps[:10]
+        res['flux_share_in_wrapping_clusters'] = wrap_flux / E
+    return res
+
+
+def _wraps(a, b, rho, shape):
+    """BFS with unwrapped coordinates over the dual links (a -> b is a step of -1 along rho); a cluster wraps along an
+    axis if two paths reach the same cube with unwrapped coordinates differing by a nonzero multiple of L"""
+    from collections import defaultdict, deque
+    adj = defaultdict(list)
+    for x, y, r in zip(a.tolist(), b.tolist(), rho.tolist()):
+        adj[x].append((y, r, -1)); adj[y].append((x, r, +1))
+    pos = {}; start = int(a[0]); pos[start] = (0, 0, 0); q = deque([start]); wr = [False, False, False]
+    while q:
+        x = q.popleft(); px = pos[x]
+        for y, r, s in adj[x]:
+            py = list(px); py[r] += s; py = tuple(py)
+            if y not in pos:
+                pos[y] = py; q.append(y)
+            else:
+                d = [py[i] - pos[y][i] for i in range(3)]
+                for i in range(3):
+                    if d[i] != 0:
+                        wr[i] = True
+    return wr
+
+
+def axial_tree_gauge(n, N):
+    """complete axial gauge (maximal tree): links along axis 0 trivial except those leaving x0 = L0 - 1, on the plane
+    x0 = 0 links along axis 1 trivial except at x1 = L1 - 1, on the line x0 = x1 = 0 links along axis 2 trivial except
+    at x2 = L2 - 1. Removes the gauge-random part of a Monte Carlo field; the flux is then carried by the non-tree links."""
+    n = n.astype(np.int64); shape = n.shape[1:]
+    g2 = np.concatenate([[0], np.cumsum(n[2][0, 0, :-1])])                                                     # g(0, 0, x2)
+    g1 = g2[None, :] + np.concatenate([np.zeros((1, shape[2]), np.int64), np.cumsum(n[1][0, :-1, :], 0)], 0)   # g(0, x1, x2)
+    g = (g1[None, :, :] + np.concatenate([np.zeros((1,) + shape[1:], np.int64), np.cumsum(n[0][:-1], 0)], 0)) % N
+    return np.stack([(n[mu] + g - np.roll(g, -1, mu)) % N for mu in range(3)])
+
+
+def landau_gauge(n, N, max_iter=5000, anneal=(0.5, 6.0, 1000), seed=0):
+    """gauge transformation n_mu(x) -> n_mu(x) + g(x) - g(x + mu) that maximises sum over links of Re U as far as an
+    annealing reaches (Z_N Landau gauge: links as close to 1 as possible). Start: complete axial gauge. Then a heat bath
+    on the site variables g with weight exp(b * sum Re U), b rising geometrically from anneal[0] to anneal[1] over
+    anneal[2] sweeps, then greedy sweeps until nothing changes (g = 0 kept on ties). Sites of equal parity of
+    x0 + x1 + x2 share no link and are updated together. Returns the fixed links, sweeps, share of nontrivial links."""
+    n = axial_tree_gauge(n, N); shape = n.shape[1:]; ct = cos_table(N); rng = np.random.default_rng(seed)
+    par = np.indices(shape).sum(0) % 2
+    def objective():
+        obj = np.zeros((N,) + shape)
+        for g in range(N):
+            for mu in range(3):
+                obj[g] += ct[(n[mu] + g) % N] + ct[(np.roll(n[mu], 1, mu) - g) % N]
+        return obj
+    def apply(g):
+        for mu in range(3):
+            n[mu] = (n[mu] + g - np.roll(g, -1, mu)) % N
+    b0, b1, ns = anneal; sweeps = 0
+    for b in (b0 * (b1 / b0) ** (np.arange(ns) / max(ns - 1, 1)) if ns else []):
+        for p in (0, 1):
+            obj = b * objective(); obj -= obj.max(0); c = np.cumsum(np.exp(obj), 0)
+            g = (rng.random(shape) * c[-1] > c).sum(0) * (par == p)
+            apply(g)
+        sweeps += 1
+    for it in range(max_iter):
+        changed = 0
+        for p in (0, 1):
+            g = np.argmax(objective(), 0) * (par == p)
+            if g.any():
+                changed += int(g.astype(bool).sum()); apply(g)
+        sweeps += 1
+        if changed == 0:
+            break
+    return n.astype(np.int16), sweeps, float(np.mean(n != 0))
+
+
+# ---------------------------------------------------------------------------------------------------------------------
+# statistics
+def binned(x, nbins=20):
+    """mean and error from nbins block means of a time series"""
+    x = np.asarray(x, float); m = len(x) // nbins
+    if m == 0:
+        return float(np.mean(x)), float('nan')
+    b = x[:m * nbins].reshape(nbins, m).mean(1)
+    return float(b.mean()), float(b.std(ddof=1) / np.sqrt(nbins))
+
+
+def tau_int(x, wmax=None):
+    """integrated autocorrelation time with the automatic window (Sokal, c = 6)"""
+    x = np.asarray(x, float) - np.mean(x); n = len(x)
+    if n < 10 or np.var(x) == 0:
+        return float('nan')
+    f = np.fft.rfft(x, 2 * n); acf = np.fft.irfft(f * np.conj(f))[:n] / np.arange(n, 0, -1); acf /= acf[0]
+    tau = 0.5
+    for w in range(1, (wmax or n // 2)):
+        tau += acf[w]
+        if w >= 6 * tau:
+            break
+    return float(tau)

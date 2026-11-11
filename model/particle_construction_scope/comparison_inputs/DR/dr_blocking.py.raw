@@ -1,0 +1,96 @@
+"""Worker DR (S5), row D11: link blocking in the two-cell three-family clock, order y^2 h^4, by the exact
+two-parameter Rayleigh-Schroedinger recursion (floating point on exact integer and i/4 coefficients).
+
+Run from an RER checkout (read only, no byte code):
+  cd <RER> && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:<DR> /tmp/oph-completion-venv/bin/python -B \
+      <DR>/dr_blocking.py <DR>/blocking.json
+No measured value is read.
+"""
+import json
+import sys
+from collections import defaultdict
+from pathlib import Path
+
+from mpmath import mp, mpf, sqrt as msqrt, cos as mcos, pi as mpi, log as mlog
+
+import dr_lib as L
+from model.coherent_defect_wave.chiral_joint.two_cell import symmetries as periodic
+
+OUT = Path(sys.argv[1])
+out = {}
+
+# check: dr_lib family 0 with y = 1 equals the repository's periodic column on the reachable columns of two seeds
+parts1 = L.make_parts((1, 0, 0))
+bad, n = 0, 0
+for seed in ((0, 0, 0, 0, 0), (1 << L.mode(0, 0, 0, 0), 0, 0, 0, 0)):
+    front, seen = [seed], {seed}
+    for depth in range(3):
+        nxt = []
+        for k in front:
+            h0, vy, vh = parts1(k)
+            mine = defaultdict(complex)
+            if h0:
+                mine[k] += h0
+            for d in (vy, vh):
+                for t, v in d.items():
+                    mine[t] += v
+            conv = lambda key: ((key[0] & 63) | ((key[0] >> 18) << 6),) + key[1:]
+            mine = {conv(t): v for t, v in mine.items() if abs(v) > 0}
+            rep = {t: complex(v) for t, v in periodic.periodic_column(conv(k)).items()}
+            n += 1
+            bad += int(set(mine) != set(rep) or any(abs(mine[t] - rep[t]) > 1e-15 for t in rep))
+            for t in list(vy) + list(vh):
+                if t not in seen:
+                    seen.add(t); nxt.append(t)
+        front = nxt
+out['check_dr_lib_equals_periodic_column'] = {'columns': n, 'mismatches': bad}
+assert bad == 0
+
+VAC = (0, 0, 0, 0, 0)
+LINE0 = (1 << L.mode(0, 0, 0, 0), 0, 0, 0, 0)    # e^c, family 0, spin 0, left cell
+
+
+def run(ys, amax, bmax):
+    parts = L.make_parts(ys)
+    ev, sv = L.rs_recursion(VAC, parts, amax, bmax)
+    el, sl = L.rs_recursion(LINE0, parts, amax, bmax)
+    return ev, el, max(sv.values()), max(sl.values())
+
+
+res = {}
+for name, ys in (('cross_other_family_y1', (0, 1, 0)), ('own_family_y0', (1, 0, 0))):
+    ev, el, nv, nl = run(ys, 2, 4)
+    res[name] = {'vacuum': {f'{a},{b}': [ev[a, b].real, ev[a, b].imag] for (a, b) in ev if abs(ev[a, b]) > 1e-14},
+                 'line': {f'{a},{b}': [el[a, b].real, el[a, b].imag] for (a, b) in el if abs(el[a, b]) > 1e-14},
+                 'mass_line_minus_vacuum': {f'{a},{b}': (el[a, b] - ev[a, b]).real for (a, b) in el
+                                            if abs(el[a, b] - ev[a, b]) > 1e-14},
+                 'largest_vector_size': [nv, nl]}
+out['rs_orders'] = res
+# consistency with dr_clock.json (own family: mass y^2 = 2, y^2h^2 = 0.4375; link h^2 = -1/16; cross y^2h^2 = 0)
+mo = res['own_family_y0']['mass_line_minus_vacuum']; mc = res['cross_other_family_y1']['mass_line_minus_vacuum']
+out['consistency'] = {'own_2_0': mo.get('2,0'), 'own_2_2': mo.get('2,2'), 'link_0_2': mo.get('0,2'),
+                      'cross_2_2': mc.get('2,2', 0.0)}
+assert abs(mo['2,0'] - 2) < 1e-12 and abs(mo['2,2'] - 0.4375) < 1e-12 and abs(mo['0,2'] + 0.0625) < 1e-12
+assert abs(mc.get('2,2', 0.0)) < 1e-12
+
+c_cross = mc.get('2,4', 0.0)        # per unit y_{f'}^2 of one other family, h = 1 (coefficient i/4 inside)
+c_own = mo.get('2,4', 0.0) - mc.get('2,4', 0.0) * 0   # own-family y^2 h^4 term (multiplicative on the own mass)
+link_h4 = mo.get('0,4', 0.0)        # pure link order h^4 of the line (additive universal, cell scale)
+
+# D11 row with the circulant weights (no data): y_f = y lambda_f, sum lambda^2 = 1; masses at h = 1
+mp.dps = 40
+p, q = mpf(1) / 12, mpf(1) / 6
+th = p + q - 2 * p * q
+lam = [msqrt(q) + 2 * msqrt(p) * mcos(th + 2 * mpi * k / 3) for k in range(3)]     # tau, e, mu
+l2 = [x ** 2 for x in lam]
+own = 2 + mpf(mo['2,2']) + mpf(mo.get('2,4', 0.0))     # universal factor on y_f^2 through order y^2 h^4
+m_base = [own * x for x in l2]
+m_d11 = [own * l2[f] + mpf(c_cross) * (sum(l2) - l2[f]) for f in range(3)]
+dln = lambda m: (mlog(m[2] / m[1]), mlog(m[0] / m[1]))
+b0, b1 = dln(m_base), dln(m_d11)
+out['D11'] = {'c_cross_per_unit_y2_h4': c_cross, 'own_family_y2h4': mo.get('2,4'), 'line_link_h4': link_h4,
+              'Delta_e_over_m_e': str(mpf(c_cross) * (1 - l2[1]) / (own * l2[1])),
+              'dln_mu_e': str(b1[0] - b0[0]), 'dln_tau_e': str(b1[1] - b0[1]),
+              'sign_note': 'positive Delta raises the light masses relatively: the target sign if c_cross > 0'}
+OUT.write_text(json.dumps(out, indent=1, default=str))
+print(json.dumps(out, indent=1, default=str))

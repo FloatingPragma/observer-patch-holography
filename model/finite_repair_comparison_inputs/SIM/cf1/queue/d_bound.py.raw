@@ -1,0 +1,160 @@
+"""Run D (QUEUE_BRIEF.md): bound states in a cavity of the flux gas.
+
+Background rest angle theta0 = 0.171237 in every cell, a cavity at theta = 0.
+3D: L^3 lattice (L = 24 as requested, L = 32 as a size check), cubic cavity of side s = 1..4 at the centre. Two-tick
+  operator U2 (alternating order) as a matrix-free operator from the engine; the Hermitian A = (U2 + U2^dagger)/2 has the
+  eigenvalues cos(2E); its top eigenvalues (Lanczos, scipy eigsh 'LA') are the smallest |E|. Every state with |E| < theta0
+  is listed with its multiplicity and the mean weight inside the cavity over its eigenspace (basis independent).
+  Exact multiplicities (ARGUED from exact symmetries): the staggering (-1)^{x_i} along each axis maps the tick to minus
+  itself and commutes with any local rest angle, so every eigenphase of U2 appears for the 8 corners p in {0, pi}^3.
+1D: line of 256 cells (shape (256,1,1): axes 2 and 3 act trivially), cavity of n = 1..8 cells. Dense one-tick matrix
+  (1024 x 1024, built by applying the engine to the basis), Schur form, all eigenphases E in (-pi, pi]; bound states
+  are |E| < theta0 (and their staggered copies at pi - |E|).
+Continuum references (ARGUED): 1D Dirac particle with mass theta0 outside and 0 inside a well of width a = n:
+  even states tan(E a/2) = sqrt((m-E)/(m+E)), odd states cot(E a/2) = -sqrt((m-E)/(m+E)). 3D: sphere of the cavity's
+  volume, lowest s-wave state j1(ER)/j0(ER) = sqrt((m-E)/(m+E)) (1 + 1/(mu R)), mu = sqrt(m^2 - E^2); threshold
+  tan(mR) = 2 mR, mR = 1.1656.
+`python d_bound.py out.json [quick]`
+"""
+import json, sys, time
+import numpy as np
+from multiprocessing import Pool
+from scipy.sparse.linalg import LinearOperator, eigsh
+from scipy.optimize import brentq
+from scipy.linalg import schur
+from cq_common import EngineC
+
+TH0 = 0.171237
+QUICK = len(sys.argv) > 2 and sys.argv[2] == 'quick'
+
+
+def cavity_theta(L, s, dims=3):
+    th = np.full((L, L, L) if dims == 3 else (L, 1, 1), TH0)
+    c = L // 2 - s // 2
+    if dims == 3: th[c:c + s, c:c + s, c:c + s] = 0.0
+    else: th[c:c + s, 0, 0] = 0.0
+    return th, c
+
+
+def job3d(args):
+    L, s = args
+    t0 = time.time()
+    shape = (L, L, L); e = EngineC(shape)
+    th, c = cavity_theta(L, s)
+    n = L ** 3 * 4
+    def mv(v):
+        psi = v.reshape(shape + (2, 2))
+        return (0.5 * (e.two_ticks(psi, th) + e.two_ticks_inverse(psi, th))).reshape(-1)
+    A = LinearOperator((n, n), matvec=mv, dtype=complex)
+    k = 80
+    vals, vecs = eigsh(A, k=k, which='LA', tol=1e-12, ncv=240, v0=np.random.default_rng(7).normal(size=n) + 0j)
+    order = np.argsort(-vals); vals = vals[order]; vecs = vecs[:, order]
+    E = np.arccos(np.clip(vals, -1, 1)) / 2
+    mask = np.zeros(shape + (2, 2), bool); mask[c:c + s, c:c + s, c:c + s] = True; mask = mask.reshape(-1)
+    wcav = np.sum(np.abs(vecs[mask, :]) ** 2, axis=0)
+    # residual check of the eigenpairs against the executed two-tick operator: U2 v = e^{-2iE} v holds only inside a +-E pair
+    res = float(max(np.linalg.norm(mv(vecs[:, j]) - vals[j] * vecs[:, j]) for j in range(k)))
+    clusters = []
+    j = 0
+    while j < k:
+        jj = j
+        while jj + 1 < k and abs(E[jj + 1] - E[j]) < 1e-7: jj += 1
+        clusters.append({'abs_phase': float(E[j:jj + 1].mean()), 'multiplicity_in_A': jj - j + 1, 'mean_weight_in_cavity': float(wcav[j:jj + 1].mean()),
+                         'below_theta0': bool(E[j:jj + 1].mean() < TH0 - 1e-9), 'complete': jj + 1 < k})
+        j = jj + 1
+    below = [q for q in clusters if q['below_theta0']]
+    cells = [(x, y, z) for x in range(c, c + s) for y in range(c, c + s) for z in range(c, c + s)]
+    subl = {}
+    for (x, y, z) in cells:
+        key = f'{(x - y) % 2}{(y - z) % 2}'; subl[key] = subl.get(key, 0) + 1
+    return {'L': L, 'side': s, 'cavity_corner': [c] * 3, 'cavity_cells_per_sublattice_(x1-x2)%2,(x2-x3)%2': subl, 'cavity_volume_fraction': s ** 3 / L ** 3, 'clusters': clusters,
+            'states_below_theta0': below, 'eigen_residual_A': res, 'seconds': time.time() - t0}
+
+
+def one_tick_dense(L, th):
+    e = EngineC((L, 1, 1))
+    n = L * 4; M = np.zeros((n, n), complex)
+    for j in range(n):
+        v = np.zeros(n, complex); v[j] = 1
+        M[:, j] = e.step(v.reshape(L, 1, 1, 2, 2), th, 'Y', 0).reshape(-1)
+    return M
+
+
+def cont1d(n, m=TH0):
+    f = lambda E: np.sqrt((m - E) / (m + E))
+    out = []
+    try: out.append(('even', brentq(lambda E: np.tan(E * n / 2) - f(E), 1e-12, min(m - 1e-12, np.pi / n - 1e-9))))
+    except ValueError: pass
+    if np.pi / n < m:
+        try: out.append(('odd', brentq(lambda E: 1 / np.tan(E * n / 2) + f(E), np.pi / n + 1e-9, min(m - 1e-12, 2 * np.pi / n - 1e-9))))
+        except ValueError: pass
+    return out
+
+
+def cont3d_sphere(R, m=TH0):
+    j0 = lambda x: np.sin(x) / x; j1 = lambda x: np.sin(x) / x ** 2 - np.cos(x) / x
+    def g(E):
+        mu = np.sqrt(m * m - E * E)
+        return j1(E * R) / j0(E * R) - np.sqrt((m - E) / (m + E)) * (1 + 1 / (mu * R))
+    Es = np.linspace(1e-6, m - 1e-9, 4000); v = [g(x) for x in Es]
+    for a, b, va, vb in zip(Es[:-1], Es[1:], v[:-1], v[1:]):
+        if np.sign(va) != np.sign(vb) and abs(va) < 10 and abs(vb) < 10:
+            return float(brentq(g, a, b))
+    return None
+
+
+if __name__ == '__main__':
+    t_start = time.time()
+    out = {'run': 'D', 'brief': 'repair-law/work/SIM/cf1/QUEUE_BRIEF.md', 'program': 'CF-1 routing tick, alternating order, mass option M1 (kind Y)',
+           'theta0': TH0, 'units': 'cells and ticks; phases in radians per tick', 'seed': 'Lanczos start vector default_rng(7)',
+           'clock': '3D: two-tick operator (time independent), phases halved; 1D: one tick',
+           'preparation': 'none: eigenstates of the tick (no preparation); Lanczos start vector fills all four sublattices',
+           'sublattices': 'a quantum moves by (+-1,+-1,+-1) per tick: (x1-x2) mod 2 and (x2-x3) mod 2 are conserved, four invariant body-centred sublattices; the eigenvectors are computed on the full space, the cavity cells per sublattice are listed per job; on the line (256,1,1) axes 2 and 3 are trivial and there is one sublattice'}
+    # 1D line
+    line = []
+    L1 = 256
+    for n in range(1, 9):
+        th, c = cavity_theta(L1, n, dims=1)
+        U = one_tick_dense(L1, th)
+        T, Z = schur(U, output='complex')
+        E = -np.angle(np.diag(T))
+        unit = float(np.abs(U.conj().T @ U - np.eye(4 * L1)).max())
+        cav = np.zeros((L1, 1, 1, 2, 2), bool); cav[c:c + n] = True; cav = cav.reshape(-1)
+        wc = np.sum(np.abs(Z[cav, :]) ** 2, axis=0)
+        sel = np.abs(E) < TH0 - 1e-12
+        vals = sorted({round(abs(float(x)), 9) for x in E[sel]})
+        states = []
+        for v in vals:
+            m_ = sel & (np.abs(np.abs(E) - v) < 1e-8)
+            states.append({'abs_phase': v, 'multiplicity': int(m_.sum()), 'mean_weight_in_cavity': float(wc[m_].mean()),
+                           'staggered_copies_at_pi_minus_abs_phase': int((np.abs(np.abs(E) - (np.pi - v)) < 1e-8).sum())})
+        cont = cont1d(n)
+        # width a that would put the continuum even state on the measured lowest phase (diagnostic, not used anywhere)
+        a_eff = None
+        if states:
+            E0 = states[0]['abs_phase']
+            try: a_eff = float(2 / E0 * np.arctan(np.sqrt((TH0 - E0) / (TH0 + E0))))
+            except Exception: pass
+        line.append({'cells': n, 'unitarity': unit, 'bound_states': states,
+                     'continuum_dirac_width_n': [{'parity': p, 'E': float(x)} for p, x in cont],
+                     'relative_error_lowest_vs_continuum_even': (states[0]['abs_phase'] / cont[0][1] - 1) if (states and cont) else None,
+                     'binding_lowest_theta0_minus_E': (TH0 - states[0]['abs_phase']) if states else None,
+                     'continuum_width_reproducing_lowest_phase': a_eff})
+        print('line', n, [(q['abs_phase'], q['multiplicity'], round(q['mean_weight_in_cavity'], 4)) for q in states], 'continuum', cont, 'a_eff', a_eff, flush=True)
+    out['line_256'] = line
+    # 3D
+    sides = (1, 2, 3, 4)
+    Ls = (12,) if QUICK else (24, 32)
+    jobs = [(L, s) for L in Ls for s in sides] + [(L, 0) for L in Ls]
+    with Pool(len(jobs)) as pool:
+        res = pool.map(job3d, jobs)
+    for r in res:
+        print('3D L', r['L'], 's', r['side'], 'below theta0:', [(round(q['abs_phase'], 9), q['multiplicity_in_A'], round(q['mean_weight_in_cavity'], 6)) for q in r['states_below_theta0']],
+              'next:', [(round(q['abs_phase'], 6), q['multiplicity_in_A']) for q in r['clusters'] if not q['below_theta0']][:2], 'res', r['eigen_residual_A'], flush=True)
+    out['cube'] = res
+    out['cube_continuum_sphere_reference'] = [{'side': s, 'equal_volume_radius': float(s * (3 / (4 * np.pi)) ** (1 / 3)),
+                                               'm_R': float(TH0 * s * (3 / (4 * np.pi)) ** (1 / 3)), 'threshold_m_R': 1.1656,
+                                               'continuum_bound_state_E': cont3d_sphere(s * (3 / (4 * np.pi)) ** (1 / 3))} for s in sides]
+    out['seconds'] = time.time() - t_start
+    json.dump(out, open(sys.argv[1], 'w'), indent=1)
+    print('written', sys.argv[1], out['seconds'])

@@ -1,0 +1,38 @@
+#!/usr/bin/env python3
+"""Worker DC: the single NOT BLIND comparison, run after dc_numeric.json was written.
+
+Measured values (read here and nowhere else): G_F = 1.1663788e-5 GeV^-2 (PDG), hence v = (sqrt2 G_F)^(-1/2);
+Planck energy E* = 1.220890e19 GeV (CODATA 2022); sin^2 theta_W(m_Z) MSbar = 0.23122 and alpha_em^-1(m_Z) MSbar =
+127.951 (PDG); alpha^-1(0) = 137.035999177 (CODATA 2022). Writes dc_not_blind.json.
+"""
+import json
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+src = json.loads((HERE / "dc_numeric.json").read_text())
+GF, ESTAR = 1.1663788e-5, 1.220890e19
+v_meas = (2 ** 0.5 * GF) ** -0.5
+r_meas = v_meas / ESTAR
+rows = {}
+for tag in ("phi", "P_fwd"):
+    s5 = src["cut_scale_closure"][f"S2_dR_logd@{tag}"]["S5_v_over_Estar_with_MU_eq_Ecell"]
+    rows[f"S5@{tag}"] = {"v_over_Estar_source": s5, "v_over_Estar_measured": r_meas, "ratio": s5 / r_meas}
+rows["D10_code_chain@P_fwd"] = {"v_over_Estar_source": 2.0198114078576330e-17, "v_over_Estar_measured": r_meas,
+                                "ratio": 2.0198114078576330e-17 / r_meas}
+u1b = json.loads((HERE / "dc_u1b.json").read_text())["P_fwd"]
+RER = next((p for p in (Path("WORKSPACE/repair-law/reverse-engineering-reality"),
+                        Path("WORKSPACE/reverse-engineering-reality")) if p.is_dir()))
+code = json.loads((RER / "code/P_derivation/runtime/full_p_alpha_report_current.json").read_text())
+meas = {"sin2w_mz": 0.23122, "alpha_em_inv_mz": 127.951, "alpha_inv_0": 137.035999177}
+rows["U1b_MU_eq_Ecell@P_fwd"] = {
+    "v_over_Estar": [float(u1b["v_over_Estar"]), r_meas],
+    "sin2w_mz": [float(u1b["sin2w_mz"]), meas["sin2w_mz"]],
+    "alpha_em_inv_mz": [float(u1b["alpha_em_inv_mz"]), meas["alpha_em_inv_mz"]],
+    "outer_map_alpha_inv_at_P_fwd": [float(u1b["outer_map_alpha_inv"]), meas["alpha_inv_0"]]}
+rows["declared_form_code_chain@P_fwd"] = {
+    "sin2w_mz": [float(code["d10"]["sin2w_mz"][:20]), meas["sin2w_mz"]],
+    "alpha_em_inv_mz": [float(code["d10"]["alpha_em_inv_mz"][:20]), meas["alpha_em_inv_mz"]],
+    "outer_map_alpha_inv_fixed_point": [float(code["alpha_inv"][:20]), meas["alpha_inv_0"]]}
+out = {"label": "NOT BLIND", "pairs_are": "[source value, measured value]", "v_measured_GeV": v_meas, "rows": rows}
+(HERE / "dc_not_blind.json").write_text(json.dumps(out, indent=1) + "\n")
+print(json.dumps(out, indent=1))

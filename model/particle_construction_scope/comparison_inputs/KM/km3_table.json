@@ -1,0 +1,219 @@
+{
+ "rows": [
+  {
+   "program": "plain walk; fibre level, flat links",
+   "family": "loads, constant (consensus)",
+   "level_lambda": 0.0,
+   "exact": "0",
+   "multiplicity": 1,
+   "p_rest": 0.0,
+   "rest_phase": 0.0,
+   "sqrt_2p": 0.0
+  },
+  {
+   "program": "plain walk; fibre level, flat links",
+   "family": "loads, triplet 3",
+   "level_lambda": 2.76393202250021,
+   "exact": "5 - sqrt(5)",
+   "multiplicity": 3,
+   "p_rest": 0.04606553370833684,
+   "rest_phase": 0.3047084373702735,
+   "sqrt_2p": 0.30353099910334314
+  },
+  {
+   "program": "plain walk; fibre level, flat links",
+   "family": "loads, quintet 5",
+   "level_lambda": 6.0,
+   "exact": "6",
+   "multiplicity": 5,
+   "p_rest": 0.1,
+   "rest_phase": 0.45102681179626236,
+   "sqrt_2p": 0.4472135954999579
+  },
+  {
+   "program": "plain walk; fibre level, flat links",
+   "family": "loads, triplet 3'",
+   "level_lambda": 7.23606797749979,
+   "exact": "sqrt(5) + 5",
+   "multiplicity": 3,
+   "p_rest": 0.12060113295832983,
+   "rest_phase": 0.4961982595020731,
+   "sqrt_2p": 0.49112347318842303
+  },
+  {
+   "program": "walk with link phases (local(G))",
+   "family": "sections, spinor doublet 2 (flux 1; L13, L17)",
+   "level_lambda": 0.7467459582398004,
+   "exact": "-2*sqrt(5)*sqrt(sqrt(5)/8 + 5/8) + 5",
+   "multiplicity": 2,
+   "p_rest": 0.01244576597066334,
+   "rest_phase": 0.1579345951796957,
+   "sqrt_2p": 0.15777050402824566
+  },
+  {
+   "program": "walk with link phases (local(G))",
+   "family": "sections, vector triplet 3 (flux 2; L13, L17)",
+   "level_lambda": 1.381966011250105,
+   "exact": "5/2 - sqrt(5)/2",
+   "multiplicity": 3,
+   "p_rest": 0.02303276685416842,
+   "rest_phase": 0.21504293541573508,
+   "sqrt_2p": 0.2146288277663018
+  },
+  {
+   "program": "walk with link phases (local(G))",
+   "family": "sections, conjugate doublet 2' (flux 7; L17)",
+   "level_lambda": 2.371344439404332,
+   "exact": "-(5 - sqrt(5))*sqrt(sqrt(5)/8 + 5/8) + 5",
+   "multiplicity": 2,
+   "p_rest": 0.039522407323405534,
+   "rest_phase": 0.2820834033624713,
+   "sqrt_2p": 0.2811490968273081
+  },
+  {
+   "program": "plain walk, record-one discriminant",
+   "family": "record-one block, flux 10 (sign kernel), 3-prime",
+   "level_lambda": 2.76393202250021,
+   "exact": "5 - sqrt(5)",
+   "multiplicity": 3,
+   "p_rest": 0.04606553370833684,
+   "rest_phase": 0.3047084373702735,
+   "sqrt_2p": 0.30353099910334314
+  },
+  {
+   "program": "fibre 5, central link (0,1)",
+   "family": "triplet levels 0..2: loads, constant",
+   "level_lambda": 0.0,
+   "exact": "0",
+   "multiplicity": 1,
+   "p_rest": 0.0,
+   "rest_phase": 0.0,
+   "sqrt_2p": 0.0
+  },
+  {
+   "program": "fibre 5, central link (0,1)",
+   "family": "doublet levels 3, 4: lowest level (frustrated consensus)",
+   "level_lambda": 0.23136163187600403,
+   "exact": "root of x**4 - 18*x**3 + 104*x**2 - 196*x + 40",
+   "multiplicity": 1,
+   "p_rest": 0.0038560271979334007,
+   "rest_phase": 0.08784654696624322,
+   "sqrt_2p": 0.08781830330783441
+  },
+  {
+   "program": "fibre 5, central link (0,1)",
+   "family": "doublet levels 3, 4: second level",
+   "level_lambda": 2.2907246405630772,
+   "exact": "float",
+   "multiplicity": 1,
+   "p_rest": 0.03817874400938462,
+   "rest_phase": 0.2772153826675547,
+   "sqrt_2p": 0.27632858704587415
+  },
+  {
+   "program": "joint program (10 words)",
+   "family": "walker at one port: endpoint, centre, outside (JOIN.md)",
+   "level_lambda": 5.0,
+   "exact": "5 (degree)",
+   "multiplicity": 1,
+   "p_rest": 0.08333333333333333,
+   "rest_phase": 0.4111378623223478,
+   "sqrt_2p": 0.408248290463863
+  },
+  {
+   "program": "joint program (10 words)",
+   "family": "doublet level, lowest level, flux faces at dual distance 1",
+   "level_lambda": 0.23136163187600173,
+   "exact": "float (DIRAC table)",
+   "multiplicity": 1,
+   "p_rest": 0.003856027197933362,
+   "rest_phase": 0.08784654696624196,
+   "sqrt_2p": 0.08781830330783398
+  },
+  {
+   "program": "joint program (10 words)",
+   "family": "doublet level, lowest level, flux faces at dual distance 2",
+   "level_lambda": 0.36629189017262104,
+   "exact": "float (DIRAC table)",
+   "multiplicity": 1,
+   "p_rest": 0.006104864836210351,
+   "rest_phase": 0.11055393734047589,
+   "sqrt_2p": 0.11049764555148088
+  },
+  {
+   "program": "joint program (10 words)",
+   "family": "doublet level, lowest level, flux faces at dual distance 3",
+   "level_lambda": 0.5248320062715082,
+   "exact": "float (DIRAC table)",
+   "multiplicity": 1,
+   "p_rest": 0.008747200104525137,
+   "rest_phase": 0.13236300227603684,
+   "sqrt_2p": 0.13226639863945142
+  },
+  {
+   "program": "one link phase exp(2 pi i alpha)",
+   "family": "flat level, alpha = 1/6, adjacent flux faces",
+   "level_lambda": 0.05388125680781617,
+   "exact": "float",
+   "multiplicity": 1,
+   "p_rest": 0.0008980209467969361,
+   "rest_phase": 0.04238290659994328,
+   "sqrt_2p": 0.042379734468185055
+  },
+  {
+   "program": "one link phase exp(2 pi i alpha)",
+   "family": "flat level, alpha = 1/3, adjacent flux faces",
+   "level_lambda": 0.1691777231861188,
+   "exact": "float",
+   "multiplicity": 1,
+   "p_rest": 0.0028196287197686464,
+   "rest_phase": 0.07511264564637833,
+   "sqrt_2p": 0.0750949894436193
+  },
+  {
+   "program": "one link phase exp(2 pi i alpha)",
+   "family": "flat level, alpha = 1/2, adjacent flux faces",
+   "level_lambda": 0.23136163187600492,
+   "exact": "float",
+   "multiplicity": 1,
+   "p_rest": 0.0038560271979334155,
+   "rest_phase": 0.08784654696624322,
+   "sqrt_2p": 0.08781830330783459
+  }
+ ],
+ "signed_laplacian_charpoly": "(x - 6)**3*(x**2 - 10*x + 20)*(x**3 - 14*x**2 + 60*x - 76)*(x**4 - 18*x**3 + 104*x**2 - 196*x + 40)",
+ "signed_laplacian_det": "13132800",
+ "lambda_min_signed_30_digits": "0.231361631876004035285215149430",
+ "signed_levels": [
+  0.23136163187600403,
+  2.2907246405630772,
+  2.76393202250021,
+  3.355147572322919,
+  4.806063433525369,
+  6.0,
+  6.0,
+  6.0,
+  6.568349712251695,
+  6.903211925911553,
+  7.23606797749979,
+  7.8451410835493816
+ ],
+ "minimal_factor": "x**4 - 18*x**3 + 104*x**2 - 196*x + 40",
+ "reference_check": {
+  "1/6": {
+   "lambda_min": 0.05388125680781617,
+   "reference": 0.05388125680781681,
+   "difference": 6.38378239159465e-16
+  },
+  "1/3": {
+   "lambda_min": 0.1691777231861188,
+   "reference": 0.16917772318611493,
+   "difference": 3.858025010572419e-15
+  },
+  "1/2": {
+   "lambda_min": 0.23136163187600492,
+   "reference": 0.23136163187600173,
+   "difference": 3.191891195797325e-15
+  }
+ }
+}

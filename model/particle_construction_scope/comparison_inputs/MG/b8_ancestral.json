@@ -1,0 +1,916 @@
+{
+ "base_level_0_rule_R1": {
+  "0": {
+   "group_order": 1,
+   "group": "trivial",
+   "vertex_holonomy": {
+    "5": {
+     "identity": 12
+    },
+    "6": {}
+   },
+   "vertices_with_curvature": 0,
+   "vertices": 12,
+   "glued_port_distance_after_transport_counts": {
+    "1": 30
+   },
+   "lift_parity_obstruction": 0,
+   "plaquette_flux_units": {
+    "5": {
+     "0.0": 12
+    },
+    "6": {}
+   }
+  },
+  "1": {
+   "group_order": 1,
+   "group": "trivial",
+   "vertex_holonomy": {
+    "5": {
+     "identity": 12
+    },
+    "6": {
+     "identity": 30
+    }
+   },
+   "vertices_with_curvature": 0,
+   "vertices": 42,
+   "glued_port_distance_after_transport_counts": {
+    "1": 120
+   },
+   "fine_transport_equals_ancestry_image_on_every_seam": true,
+   "lift_parity_obstruction": 0,
+   "plaquette_flux_units": {
+    "5": {
+     "0.0": 12
+    },
+    "6": {
+     "2.0": 30
+    }
+   }
+  },
+  "2": {
+   "group_order": 1,
+   "group": "trivial",
+   "vertex_holonomy": {
+    "5": {
+     "identity": 12
+    },
+    "6": {
+     "identity": 150
+    }
+   },
+   "vertices_with_curvature": 0,
+   "vertices": 162,
+   "glued_port_distance_after_transport_counts": {
+    "1": 480
+   },
+   "fine_transport_equals_ancestry_image_on_every_seam": true,
+   "lift_parity_obstruction": 0,
+   "plaquette_flux_units": {
+    "5": {
+     "0.0": 12
+    },
+    "6": {
+     "2.0": 150
+    }
+   },
+   "lowest_eigenvalues_polarization_transfer": [
+    -2.1820923973986384e-16,
+    -2.1524123629268477e-16,
+    -2.143196644460721e-16,
+    0.002760104321548535,
+    0.0027601043215485415,
+    0.0027601043215485475
+   ],
+   "decay_rate_per_sweep": 0.0,
+   "carriers_times_lowest": -6.982695671675643e-14
+  },
+  "3": {
+   "group_order": 1,
+   "group": "trivial",
+   "vertex_holonomy": {
+    "5": {
+     "identity": 12
+    },
+    "6": {
+     "identity": 630
+    }
+   },
+   "vertices_with_curvature": 0,
+   "vertices": 642,
+   "glued_port_distance_after_transport_counts": {
+    "1": 1920
+   },
+   "fine_transport_equals_ancestry_image_on_every_seam": true,
+   "lift_parity_obstruction": 0,
+   "plaquette_flux_units": {
+    "5": {
+     "0.0": 12
+    },
+    "6": {
+     "2.0": 630
+    }
+   },
+   "lowest_eigenvalues_polarization_transfer": [
+    -1.7088381491087157e-16,
+    -1.7053144920481378e-16,
+    -1.6973185010260572e-16,
+    0.000690278079572106,
+    0.0006902780795721141,
+    0.0006902780795721194
+   ],
+   "decay_rate_per_sweep": 0.0,
+   "carriers_times_lowest": -2.187312830859156e-13
+  },
+  "4": {
+   "group_order": 1,
+   "group": "trivial",
+   "vertex_holonomy": {
+    "5": {
+     "identity": 12
+    },
+    "6": {
+     "identity": 2550
+    }
+   },
+   "vertices_with_curvature": 0,
+   "vertices": 2562,
+   "glued_port_distance_after_transport_counts": {
+    "1": 7680
+   },
+   "fine_transport_equals_ancestry_image_on_every_seam": true,
+   "lift_parity_obstruction": 0,
+   "plaquette_flux_units": {
+    "5": {
+     "0.0": 12
+    },
+    "6": {
+     "2.0": 2550
+    }
+   },
+   "lowest_eigenvalues_polarization_transfer": [
+    -1.95197048628859e-16,
+    -1.9518349610170294e-16,
+    -1.950208657758301e-16,
+    0.00017261547570012484,
+    0.00017261547570012934,
+    0.00017261547570013362
+   ],
+   "decay_rate_per_sweep": 0.0,
+   "carriers_times_lowest": -9.994088889797581e-13
+  }
+ },
+ "base_level_0_rule_S": {
+  "0": {
+   "group_order": 3,
+   "group": "Z3",
+   "vertex_holonomy": {
+    "5": {
+     "C3 (third of a turn)": 12
+    },
+    "6": {}
+   },
+   "vertices_with_curvature": 12,
+   "vertices": 12,
+   "glued_port_distance_after_transport_counts": {
+    "0": 30
+   },
+   "lift_parity_obstruction": 0,
+   "plaquette_flux_units": {
+    "5": {
+     "-5.0": 12
+    },
+    "6": {}
+   }
+  },
+  "1": {
+   "group_order": 3,
+   "group": "Z3",
+   "vertex_holonomy": {
+    "5": {
+     "C3 (third of a turn)": 12
+    },
+    "6": {
+     "identity": 30
+    }
+   },
+   "vertices_with_curvature": 12,
+   "vertices": 42,
+   "glued_port_distance_after_transport_counts": {
+    "0": 60,
+    "1": 60
+   },
+   "fine_transport_equals_ancestry_image_on_every_seam": true,
+   "lift_parity_obstruction": 0,
+   "plaquette_flux_units": {
+    "5": {
+     "-5.0": 12
+    },
+    "6": {
+     "2.0": 30
+    }
+   }
+  },
+  "2": {
+   "group_order": 3,
+   "group": "Z3",
+   "vertex_holonomy": {
+    "5": {
+     "C3 (third of a turn)": 12
+    },
+    "6": {
+     "identity": 150
+    }
+   },
+   "vertices_with_curvature": 12,
+   "vertices": 162,
+   "glued_port_distance_after_transport_counts": {
+    "0": 120,
+    "1": 360
+   },
+   "fine_transport_equals_ancestry_image_on_every_seam": true,
+   "lift_parity_obstruction": 0,
+   "plaquette_flux_units": {
+    "5": {
+     "-5.0": 12
+    },
+    "6": {
+     "2.0": 150
+    }
+   },
+   "lowest_eigenvalues_polarization_transfer": [
+    -1.6032639625629397e-16,
+    0.0027601043215485874,
+    0.0027601043215485987,
+    0.002760104321548605,
+    0.004296363938169611,
+    0.004296363938169634
+   ],
+   "decay_rate_per_sweep": 0.0,
+   "carriers_times_lowest": -5.130444680201407e-14
+  },
+  "3": {
+   "group_order": 3,
+   "group": "Z3",
+   "vertex_holonomy": {
+    "5": {
+     "C3 (third of a turn)": 12
+    },
+    "6": {
+     "identity": 630
+    }
+   },
+   "vertices_with_curvature": 12,
+   "vertices": 642,
+   "glued_port_distance_after_transport_counts": {
+    "0": 240,
+    "1": 1680
+   },
+   "fine_transport_equals_ancestry_image_on_every_seam": true,
+   "lift_parity_obstruction": 0,
+   "plaquette_flux_units": {
+    "5": {
+     "-5.0": 12
+    },
+    "6": {
+     "2.0": 630
+    }
+   },
+   "lowest_eigenvalues_polarization_transfer": [
+    -1.7719929256559963e-16,
+    0.0006902780795721081,
+    0.0006902780795721136,
+    0.000690278079572126,
+    0.0011692305034757655,
+    0.00116923050347578
+   ],
+   "decay_rate_per_sweep": 0.0,
+   "carriers_times_lowest": -2.2681509448396753e-13
+  },
+  "4": {
+   "group_order": 3,
+   "group": "Z3",
+   "vertex_holonomy": {
+    "5": {
+     "C3 (third of a turn)": 12
+    },
+    "6": {
+     "identity": 2550
+    }
+   },
+   "vertices_with_curvature": 12,
+   "vertices": 2562,
+   "glued_port_distance_after_transport_counts": {
+    "0": 480,
+    "1": 7200
+   },
+   "fine_transport_equals_ancestry_image_on_every_seam": true,
+   "lift_parity_obstruction": 0,
+   "plaquette_flux_units": {
+    "5": {
+     "-5.0": 12
+    },
+    "6": {
+     "2.0": 2550
+    }
+   },
+   "lowest_eigenvalues_polarization_transfer": [
+    -2.012821333219339e-16,
+    0.0001726154757001153,
+    0.00017261547570011644,
+    0.0001726154757001307,
+    0.0003064150770158982,
+    0.00030641507701590715
+   ],
+   "decay_rate_per_sweep": 0.0,
+   "carriers_times_lowest": -1.0305645226083016e-12
+  }
+ },
+ "base_level_1_rule_R1": {
+  "1": {
+   "group_order": 60,
+   "group": "A5 (all 60 rotations)",
+   "vertex_holonomy": {
+    "5": {
+     "identity": 12
+    },
+    "6": {
+     "C5 (fifth of a turn, 72 deg)": 30
+    }
+   },
+   "vertices_with_curvature": 30,
+   "vertices": 42,
+   "glued_port_distance_after_transport_counts": {
+    "1": 120
+   },
+   "lift_parity_obstruction": 0,
+   "plaquette_flux_units": {
+    "5": {
+     "0.0": 12
+    },
+    "6": {
+     "-8.0": 30
+    }
+   }
+  },
+  "2": {
+   "group_order": 60,
+   "group": "A5 (all 60 rotations)",
+   "vertex_holonomy": {
+    "5": {
+     "identity": 12
+    },
+    "6": {
+     "identity": 120,
+     "C5 (fifth of a turn, 72 deg)": 30
+    }
+   },
+   "vertices_with_curvature": 30,
+   "vertices": 162,
+   "glued_port_distance_after_transport_counts": {
+    "1": 480
+   },
+   "fine_transport_equals_ancestry_image_on_every_seam": true,
+   "lift_parity_obstruction": 0,
+   "plaquette_flux_units": {
+    "5": {
+     "0.0": 12
+    },
+    "6": {
+     "-8.0": 30,
+     "2.0": 120
+    }
+   },
+   "lowest_eigenvalues_polarization_transfer": [
+    0.0024772512846139424,
+    0.002477251284613946,
+    0.0024772512846139468,
+    0.0024772512846139507,
+    0.0025956743589166946,
+    0.002595674358916697
+   ],
+   "decay_rate_per_sweep": 0.0012386256423069712,
+   "carriers_times_lowest": 0.7927204110764616
+  },
+  "3": {
+   "group_order": 60,
+   "group": "A5 (all 60 rotations)",
+   "vertex_holonomy": {
+    "5": {
+     "identity": 12
+    },
+    "6": {
+     "identity": 600,
+     "C5 (fifth of a turn, 72 deg)": 30
+    }
+   },
+   "vertices_with_curvature": 30,
+   "vertices": 642,
+   "glued_port_distance_after_transport_counts": {
+    "1": 1920
+   },
+   "fine_transport_equals_ancestry_image_on_every_seam": true,
+   "lift_parity_obstruction": 0,
+   "plaquette_flux_units": {
+    "5": {
+     "0.0": 12
+    },
+    "6": {
+     "-8.0": 30,
+     "2.0": 600
+    }
+   },
+   "lowest_eigenvalues_polarization_transfer": [
+    0.000701190185437699,
+    0.0007011901854376996,
+    0.0007011901854377005,
+    0.0007011901854377043,
+    0.0007011901854377062,
+    0.0007300271426162981
+   ],
+   "decay_rate_per_sweep": 0.0003505950927188495,
+   "carriers_times_lowest": 0.8975234373602547
+  },
+  "4": {
+   "group_order": 60,
+   "group": "A5 (all 60 rotations)",
+   "vertex_holonomy": {
+    "5": {
+     "identity": 12
+    },
+    "6": {
+     "identity": 2520,
+     "C5 (fifth of a turn, 72 deg)": 30
+    }
+   },
+   "vertices_with_curvature": 30,
+   "vertices": 2562,
+   "glued_port_distance_after_transport_counts": {
+    "1": 7680
+   },
+   "fine_transport_equals_ancestry_image_on_every_seam": true,
+   "lift_parity_obstruction": 0,
+   "plaquette_flux_units": {
+    "5": {
+     "0.0": 12
+    },
+    "6": {
+     "-8.0": 30,
+     "2.0": 2520
+    }
+   },
+   "lowest_eigenvalues_polarization_transfer": [
+    0.00019182895303368296,
+    0.00019182895303368366,
+    0.00019182895303368605,
+    0.00019182895303368643,
+    0.00020068308352897443,
+    0.00020068308352897551
+   ],
+   "decay_rate_per_sweep": 9.591447651684148e-05,
+   "carriers_times_lowest": 0.9821642395324568
+  }
+ },
+ "base_level_1_rule_R0": {
+  "1": {
+   "group_order": 60,
+   "group": "A5 (all 60 rotations)",
+   "vertex_holonomy": {
+    "5": {
+     "identity": 12
+    },
+    "6": {
+     "C5 (fifth of a turn, 72 deg)": 30
+    }
+   },
+   "vertices_with_curvature": 30,
+   "vertices": 42,
+   "glued_port_distance_after_transport_counts": {
+    "2": 120
+   },
+   "lift_parity_obstruction": 0,
+   "plaquette_flux_units": {
+    "5": {
+     "0.0": 12
+    },
+    "6": {
+     "-8.0": 30
+    }
+   }
+  },
+  "2": {
+   "group_order": 60,
+   "group": "A5 (all 60 rotations)",
+   "vertex_holonomy": {
+    "5": {
+     "identity": 12
+    },
+    "6": {
+     "identity": 120,
+     "C5 (fifth of a turn, 72 deg)": 30
+    }
+   },
+   "vertices_with_curvature": 30,
+   "vertices": 162,
+   "glued_port_distance_after_transport_counts": {
+    "1": 240,
+    "2": 240
+   },
+   "fine_transport_equals_ancestry_image_on_every_seam": true,
+   "lift_parity_obstruction": 0,
+   "plaquette_flux_units": {
+    "5": {
+     "0.0": 12
+    },
+    "6": {
+     "-8.0": 30,
+     "2.0": 120
+    }
+   },
+   "lowest_eigenvalues_polarization_transfer": [
+    0.0024772512846139415,
+    0.0024772512846139433,
+    0.0024772512846139515,
+    0.002477251284613956,
+    0.002595674358916699,
+    0.0025956743589167
+   ],
+   "decay_rate_per_sweep": 0.0012386256423069708,
+   "carriers_times_lowest": 0.7927204110764613
+  },
+  "3": {
+   "group_order": 60,
+   "group": "A5 (all 60 rotations)",
+   "vertex_holonomy": {
+    "5": {
+     "identity": 12
+    },
+    "6": {
+     "identity": 600,
+     "C5 (fifth of a turn, 72 deg)": 30
+    }
+   },
+   "vertices_with_curvature": 30,
+   "vertices": 642,
+   "glued_port_distance_after_transport_counts": {
+    "1": 1440,
+    "2": 480
+   },
+   "fine_transport_equals_ancestry_image_on_every_seam": true,
+   "lift_parity_obstruction": 0,
+   "plaquette_flux_units": {
+    "5": {
+     "0.0": 12
+    },
+    "6": {
+     "-8.0": 30,
+     "2.0": 600
+    }
+   },
+   "lowest_eigenvalues_polarization_transfer": [
+    0.0007011901854377042,
+    0.0007011901854377062,
+    0.0007011901854377079,
+    0.000730027142616303,
+    0.0007300271426163037,
+    0.000730027142616304
+   ],
+   "decay_rate_per_sweep": 0.0003505950927188521,
+   "carriers_times_lowest": 0.8975234373602614
+  },
+  "4": {
+   "group_order": 60,
+   "group": "A5 (all 60 rotations)",
+   "vertex_holonomy": {
+    "5": {
+     "identity": 12
+    },
+    "6": {
+     "identity": 2520,
+     "C5 (fifth of a turn, 72 deg)": 30
+    }
+   },
+   "vertices_with_curvature": 30,
+   "vertices": 2562,
+   "glued_port_distance_after_transport_counts": {
+    "1": 6720,
+    "2": 960
+   },
+   "fine_transport_equals_ancestry_image_on_every_seam": true,
+   "lift_parity_obstruction": 0,
+   "plaquette_flux_units": {
+    "5": {
+     "0.0": 12
+    },
+    "6": {
+     "-8.0": 30,
+     "2.0": 2520
+    }
+   },
+   "lowest_eigenvalues_polarization_transfer": [
+    0.00019182895303368155,
+    0.0001918289530336847,
+    0.00019182895303368767,
+    0.00019182895303368843,
+    0.0002006830835289746,
+    0.0002006830835289754
+   ],
+   "decay_rate_per_sweep": 9.591447651684077e-05,
+   "carriers_times_lowest": 0.9821642395324495
+  }
+ },
+ "base_level_1_rule_R2": {
+  "1": {
+   "group_order": 60,
+   "group": "A5 (all 60 rotations)",
+   "vertex_holonomy": {
+    "5": {
+     "identity": 12
+    },
+    "6": {
+     "C5 (fifth of a turn, 72 deg)": 30
+    }
+   },
+   "vertices_with_curvature": 30,
+   "vertices": 42,
+   "glued_port_distance_after_transport_counts": {
+    "1": 120
+   },
+   "lift_parity_obstruction": 0,
+   "plaquette_flux_units": {
+    "5": {
+     "0.0": 12
+    },
+    "6": {
+     "-8.0": 30
+    }
+   }
+  },
+  "2": {
+   "group_order": 60,
+   "group": "A5 (all 60 rotations)",
+   "vertex_holonomy": {
+    "5": {
+     "identity": 12
+    },
+    "6": {
+     "identity": 120,
+     "C5 (fifth of a turn, 72 deg)": 30
+    }
+   },
+   "vertices_with_curvature": 30,
+   "vertices": 162,
+   "glued_port_distance_after_transport_counts": {
+    "1": 480
+   },
+   "fine_transport_equals_ancestry_image_on_every_seam": true,
+   "lift_parity_obstruction": 0,
+   "plaquette_flux_units": {
+    "5": {
+     "0.0": 12
+    },
+    "6": {
+     "-8.0": 30,
+     "2.0": 120
+    }
+   },
+   "lowest_eigenvalues_polarization_transfer": [
+    0.0024772512846139433,
+    0.002477251284613949,
+    0.002477251284613951,
+    0.0024772512846139563,
+    0.002595674358916701,
+    0.0025956743589167016
+   ],
+   "decay_rate_per_sweep": 0.0012386256423069716,
+   "carriers_times_lowest": 0.7927204110764619
+  },
+  "3": {
+   "group_order": 60,
+   "group": "A5 (all 60 rotations)",
+   "vertex_holonomy": {
+    "5": {
+     "identity": 12
+    },
+    "6": {
+     "identity": 600,
+     "C5 (fifth of a turn, 72 deg)": 30
+    }
+   },
+   "vertices_with_curvature": 30,
+   "vertices": 642,
+   "glued_port_distance_after_transport_counts": {
+    "1": 1920
+   },
+   "fine_transport_equals_ancestry_image_on_every_seam": true,
+   "lift_parity_obstruction": 0,
+   "plaquette_flux_units": {
+    "5": {
+     "0.0": 12
+    },
+    "6": {
+     "-8.0": 30,
+     "2.0": 600
+    }
+   },
+   "lowest_eigenvalues_polarization_transfer": [
+    0.0007011901854376988,
+    0.0007011901854377024,
+    0.0007011901854377051,
+    0.0007011901854377067,
+    0.000730027142616296,
+    0.0007300271426163015
+   ],
+   "decay_rate_per_sweep": 0.0003505950927188494,
+   "carriers_times_lowest": 0.8975234373602545
+  },
+  "4": {
+   "group_order": 60,
+   "group": "A5 (all 60 rotations)",
+   "vertex_holonomy": {
+    "5": {
+     "identity": 12
+    },
+    "6": {
+     "identity": 2520,
+     "C5 (fifth of a turn, 72 deg)": 30
+    }
+   },
+   "vertices_with_curvature": 30,
+   "vertices": 2562,
+   "glued_port_distance_after_transport_counts": {
+    "1": 7680
+   },
+   "fine_transport_equals_ancestry_image_on_every_seam": true,
+   "lift_parity_obstruction": 0,
+   "plaquette_flux_units": {
+    "5": {
+     "0.0": 12
+    },
+    "6": {
+     "-8.0": 30,
+     "2.0": 2520
+    }
+   },
+   "lowest_eigenvalues_polarization_transfer": [
+    0.00019182895303368296,
+    0.00019182895303368317,
+    0.000191828953033686,
+    0.00019182895303368632,
+    0.00020068308352897302,
+    0.00020068308352897448
+   ],
+   "decay_rate_per_sweep": 9.591447651684148e-05,
+   "carriers_times_lowest": 0.9821642395324568
+  }
+ },
+ "base_level_2_rule_R1": {
+  "2": {
+   "group_order": 60,
+   "group": "A5 (all 60 rotations)",
+   "vertex_holonomy": {
+    "5": {
+     "identity": 12
+    },
+    "6": {
+     "C5 (fifth of a turn, 72 deg)": 150
+    }
+   },
+   "vertices_with_curvature": 150,
+   "vertices": 162,
+   "glued_port_distance_after_transport_counts": {
+    "1": 480
+   },
+   "lift_parity_obstruction": 0,
+   "plaquette_flux_units": {
+    "5": {
+     "0.0": 12
+    },
+    "6": {
+     "-8.0": 150
+    }
+   },
+   "lowest_eigenvalues_polarization_transfer": [
+    0.009281132259426665,
+    0.009281132259426691,
+    0.009281132259426696,
+    0.009347607704288139,
+    0.009347607704288179,
+    0.009347607704288186
+   ],
+   "decay_rate_per_sweep": 0.004640566129713333,
+   "carriers_times_lowest": 2.969962323016533
+  },
+  "3": {
+   "group_order": 60,
+   "group": "A5 (all 60 rotations)",
+   "vertex_holonomy": {
+    "5": {
+     "identity": 12
+    },
+    "6": {
+     "identity": 480,
+     "C5 (fifth of a turn, 72 deg)": 150
+    }
+   },
+   "vertices_with_curvature": 150,
+   "vertices": 642,
+   "glued_port_distance_after_transport_counts": {
+    "1": 1920
+   },
+   "fine_transport_equals_ancestry_image_on_every_seam": true,
+   "lift_parity_obstruction": 0,
+   "plaquette_flux_units": {
+    "5": {
+     "0.0": 12
+    },
+    "6": {
+     "-8.0": 150,
+     "2.0": 480
+    }
+   },
+   "lowest_eigenvalues_polarization_transfer": [
+    0.0027783723613185735,
+    0.00277837236131858,
+    0.0028596885805550615,
+    0.002859688580555069,
+    0.0029403808929640077,
+    0.002940380892964013
+   ],
+   "decay_rate_per_sweep": 0.0013891861806592867,
+   "carriers_times_lowest": 3.556316622487774
+  },
+  "4": {
+   "group_order": 60,
+   "group": "A5 (all 60 rotations)",
+   "vertex_holonomy": {
+    "5": {
+     "identity": 12
+    },
+    "6": {
+     "identity": 2400,
+     "C5 (fifth of a turn, 72 deg)": 150
+    }
+   },
+   "vertices_with_curvature": 150,
+   "vertices": 2562,
+   "glued_port_distance_after_transport_counts": {
+    "1": 7680
+   },
+   "fine_transport_equals_ancestry_image_on_every_seam": true,
+   "lift_parity_obstruction": 0,
+   "plaquette_flux_units": {
+    "5": {
+     "0.0": 12
+    },
+    "6": {
+     "-8.0": 150,
+     "2.0": 2400
+    }
+   },
+   "lowest_eigenvalues_polarization_transfer": [
+    0.0007913562021722056,
+    0.0007913562021722067,
+    0.0007913562021722097,
+    0.0007913562021722108,
+    0.0008155256476927348,
+    0.0008155256476927393
+   ],
+   "decay_rate_per_sweep": 0.0003956781010861028,
+   "carriers_times_lowest": 4.051743755121693
+  }
+ },
+ "global_chart": {
+  "0": {
+   "glue_seams": 30,
+   "global_label_distance_of_glued_ports": {
+    "1": 30
+   }
+  },
+  "1": {
+   "glue_seams": 120,
+   "global_label_distance_of_glued_ports": {
+    "1": 120
+   }
+  },
+  "2": {
+   "glue_seams": 480,
+   "global_label_distance_of_glued_ports": {
+    "1": 480
+   }
+  },
+  "3": {
+   "glue_seams": 1920,
+   "global_label_distance_of_glued_ports": {
+    "1": 1920
+   }
+  },
+  "4": {
+   "glue_seams": 7680,
+   "global_label_distance_of_glued_ports": {
+    "1": 7680
+   }
+  }
+ }
+}

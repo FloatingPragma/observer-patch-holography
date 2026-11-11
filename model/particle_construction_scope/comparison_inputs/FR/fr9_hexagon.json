@@ -1,0 +1,476 @@
+{
+ "task": "FR round 3: two-load hexagon walk and double-load emission",
+ "provenance": {
+  "repository_root_used": "WORKSPACE/repair-law/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "H1_discriminant": {
+  "FN": {
+   "symmetric": true,
+   "multiplicity_eigenvalue_+1 (84 states, float)": 50,
+   "multiplicity_eigenvalue_-1 (float)": 0,
+   "sector (distinct ports, records 0,1) closed": true,
+   "distinct eigenvalues on that sector (30 states)": [
+    0.073074531,
+    0.188966956,
+    0.701792647,
+    0.760258802,
+    0.833333333,
+    0.94257373,
+    1.0
+   ],
+   "walk phases arccos on that sector": [
+    1.497657,
+    1.380686,
+    0.792886,
+    0.707085,
+    0.585686,
+    0.340542,
+    0.0
+   ],
+   "uniform distinct-port blank state is fixed by D (exact)": true,
+   "weight of the E-kept dimer on it": "1/15",
+   "min/max eigenvalue (84 states)": [
+    0.073074531,
+    1.0
+   ]
+  },
+  "FS": {
+   "symmetric": true,
+   "multiplicity_eigenvalue_+1 (84 states, float)": 48,
+   "multiplicity_eigenvalue_-1 (float)": 0,
+   "sector (distinct ports, records 0,1) closed": true,
+   "distinct eigenvalues on that sector (30 states)": [
+    0.396994335,
+    0.563661002,
+    0.769672331,
+    0.936338998,
+    1.0
+   ],
+   "walk phases arccos on that sector": [
+    1.162557,
+    0.971985,
+    0.692469,
+    0.358743,
+    0.0
+   ],
+   "uniform distinct-port blank state is fixed by D (exact)": true,
+   "weight of the E-kept dimer on it": "1/15",
+   "min/max eigenvalue (84 states)": [
+    0.396994335,
+    1.0
+   ]
+  },
+  "FP": {
+   "symmetric": true,
+   "multiplicity_eigenvalue_+1 (84 states, float)": 39,
+   "multiplicity_eigenvalue_-1 (float)": 0,
+   "sector (distinct ports, records 0,1) closed": true,
+   "distinct eigenvalues on that sector (30 states)": [
+    0.396994335,
+    0.536537266,
+    0.583333333,
+    0.666666667,
+    0.75,
+    0.769672331,
+    0.833333333,
+    0.880129401,
+    0.916666667,
+    1.0
+   ],
+   "walk phases arccos on that sector": [
+    1.162557,
+    1.004468,
+    0.94797,
+    0.841069,
+    0.722734,
+    0.692469,
+    0.585686,
+    0.494662,
+    0.411138,
+    0.0
+   ],
+   "uniform distinct-port blank state is fixed by D (exact)": true,
+   "weight of the E-kept dimer on it": "1/15",
+   "min/max eigenvalue (84 states)": [
+    0.396994335,
+    1.0
+   ]
+  }
+ },
+ "H2_dimer_return_and_native_index_compression": {
+  "FN": {
+   "1": {
+    "return <A d0|W^n|A d0>": "5/6",
+    "to d1": "0",
+    "to d2": "0"
+   },
+   "2": {
+    "return <A d0|W^n|A d0>": "4/9",
+    "to d1": "0",
+    "to d2": "0"
+   },
+   "3": {
+    "return <A d0|W^n|A d0>": "1/27",
+    "to d1": "0",
+    "to d2": "0"
+   },
+   "4": {
+    "return <A d0|W^n|A d0>": "-23/81",
+    "to d1": "1/162",
+    "to d2": "1/162"
+   },
+   "5": {
+    "return <A d0|W^n|A d0>": "-1/2",
+    "to d1": "1/27",
+    "to d2": "1/27"
+   },
+   "6": {
+    "return <A d0|W^n|A d0>": "-5/9",
+    "to d1": "77/729",
+    "to d2": "77/729"
+   },
+   "7": {
+    "return <A d0|W^n|A d0>": "-187/486",
+    "to d1": "139/729",
+    "to d2": "139/729"
+   },
+   "8": {
+    "return <A d0|W^n|A d0>": "-41/729",
+    "to d1": "1085/4374",
+    "to d2": "1085/4374"
+   }
+  },
+  "FP": {
+   "1": {
+    "return <A d0|W^n|A d0>": "5/6",
+    "to d1": "0",
+    "to d2": "0"
+   },
+   "2": {
+    "return <A d0|W^n|A d0>": "5/12",
+    "to d1": "0",
+    "to d2": "0"
+   },
+   "3": {
+    "return <A d0|W^n|A d0>": "-1/18",
+    "to d1": "0",
+    "to d2": "0"
+   },
+   "4": {
+    "return <A d0|W^n|A d0>": "-259/648",
+    "to d1": "1/432",
+    "to d2": "1/432"
+   },
+   "5": {
+    "return <A d0|W^n|A d0>": "-2089/3888",
+    "to d1": "133/7776",
+    "to d2": "133/7776"
+   },
+   "6": {
+    "return <A d0|W^n|A d0>": "-11687/23328",
+    "to d1": "109/1728",
+    "to d2": "109/1728"
+   },
+   "7": {
+    "return <A d0|W^n|A d0>": "-25879/69984",
+    "to d1": "7157/46656",
+    "to d2": "7157/46656"
+   },
+   "8": {
+    "return <A d0|W^n|A d0>": "-170083/839808",
+    "to d1": "152257/559872",
+    "to d2": "152257/559872"
+   }
+  }
+ },
+ "H3_H4_ticks_from_the_E_kept_dimer": {
+  "FN": {
+   "1": {
+    "a_H": "sqrt(6)/6",
+    "b_forward (flag R+)": "sqrt(3)*y/6",
+    "b_backward (flag R-)": "-sqrt(3)/(6*y)",
+    "return to A|d0>, blank": "5/6",
+    "class_weights": {
+     "C seam (0, 10) record 0": "1/12",
+     "C seam (0, 10) record 1": "1/12",
+     "C seam (2, 3) record 0": "1/12",
+     "C seam (2, 3) record 1": "1/12",
+     "C seam (9, 1) record 0": "1/6",
+     "E seam (1, 0) record 0": "1/6",
+     "E seam (10, 2) record 0": "1/6",
+     "E seam (3, 9) record 0": "1/6"
+    },
+    "read_counts": {
+     "P(H)": "1/6",
+     "P(R+)": "1/12",
+     "P(R-)": "1/12",
+     "P(record 1)": "1/6",
+     "P(R+ xor H) (exclusive reads)": "1/4",
+     "P(exactly one of H, R+, R-) = tr(M^dag M) for the three-flag analyzer": "1/3",
+     "two-object value for comparison": "2/9"
+    }
+   },
+   "2": {
+    "a_H": "sqrt(6)/9",
+    "b_forward (flag R+)": "sqrt(3)*y/4",
+    "b_backward (flag R-)": "-sqrt(3)/(4*y)",
+    "return to A|d0>, blank": "-5*y/72 + 7/12 - 5/(72*y)"
+   },
+   "3": {
+    "a_H": "-5*sqrt(6)*y/216 + sqrt(6)/12 - 5*sqrt(6)/(216*y)",
+    "b_forward (flag R+)": "sqrt(3)*y**2/12 + 5*sqrt(3)*y/36",
+    "b_backward (flag R-)": "-5*sqrt(3)/(36*y) - sqrt(3)/(12*y**2)",
+    "return to A|d0>, blank": "-11*y/54 + 4/9 - 11/(54*y)"
+   },
+   "4": {
+    "a_H": "-29*sqrt(6)*y/648 + 7*sqrt(6)/108 - 29*sqrt(6)/(648*y)",
+    "b_forward (flag R+)": "5*sqrt(3)*y**2/108 + 11*sqrt(3)*y/108",
+    "b_backward (flag R-)": "-11*sqrt(3)/(108*y) - 5*sqrt(3)/(108*y**2)",
+    "return to A|d0>, blank": "-23*y**2/648 - 181*y/648 + 28/81 - 181/(648*y) - 23/(648*y**2)"
+   },
+   "5": {
+    "a_H": "-23*sqrt(6)*y**2/1944 - 47*sqrt(6)*y/972 + 49*sqrt(6)/972 - 47*sqrt(6)/(972*y) - 23*sqrt(6)/(1944*y**2)",
+    "b_forward (flag R+)": "13*sqrt(3)*y**3/324 - 31*sqrt(3)*y**2/648 + 29*sqrt(3)*y/324 - 19*sqrt(3)/1944 + sqrt(3)/(972*y)",
+    "b_backward (flag R-)": "-sqrt(3)*y/972 + 19*sqrt(3)/1944 - 29*sqrt(3)/(324*y) + 31*sqrt(3)/(648*y**2) - 13*sqrt(3)/(324*y**3)",
+    "return to A|d0>, blank": "y**3/1944 - 271*y**2/3888 - 67*y/216 + 503/1944 - 67/(216*y) - 271/(3888*y**2) + 1/(1944*y**3)"
+   }
+  },
+  "FS": {
+   "1": {
+    "a_H": "sqrt(6)/6",
+    "b_forward (flag R+)": "sqrt(3)*y/6",
+    "b_backward (flag R-)": "-sqrt(3)/(6*y)",
+    "return to A|d0>, blank": "5/6",
+    "class_weights": {
+     "C seam (0, 10) record 0": "1/12",
+     "C seam (0, 10) record 1": "1/12",
+     "C seam (2, 3) record 0": "1/12",
+     "C seam (2, 3) record 1": "1/12",
+     "C seam (9, 1) record 0": "1/6",
+     "E seam (1, 0) record 0": "1/6",
+     "E seam (10, 2) record 0": "1/6",
+     "E seam (3, 9) record 0": "1/6"
+    },
+    "read_counts": {
+     "P(H)": "1/6",
+     "P(R+)": "1/12",
+     "P(R-)": "1/12",
+     "P(record 1)": "1/6",
+     "P(R+ xor H) (exclusive reads)": "1/4",
+     "P(exactly one of H, R+, R-) = tr(M^dag M) for the three-flag analyzer": "1/3",
+     "two-object value for comparison": "2/9"
+    }
+   },
+   "2": {
+    "a_H": "sqrt(6)/9",
+    "b_forward (flag R+)": "sqrt(3)*y/4",
+    "b_backward (flag R-)": "-sqrt(3)/(4*y)",
+    "return to A|d0>, blank": "-5*y/72 + 7/12 - 5/(72*y)"
+   },
+   "3": {
+    "a_H": "-5*sqrt(6)*y/216 + sqrt(6)/12 - 5*sqrt(6)/(216*y)",
+    "b_forward (flag R+)": "7*sqrt(3)*y**2/108 + 5*sqrt(3)*y/36",
+    "b_backward (flag R-)": "-5*sqrt(3)/(36*y) - 7*sqrt(3)/(108*y**2)",
+    "return to A|d0>, blank": "-7*y/36 + 25/54 - 7/(36*y)"
+   },
+   "4": {
+    "a_H": "-sqrt(6)*y/24 + 23*sqrt(6)/324 - sqrt(6)/(24*y)",
+    "b_forward (flag R+)": "-5*sqrt(3)*y**2/324 + 29*sqrt(3)*y/324 + sqrt(3)/162",
+    "b_backward (flag R-)": "-sqrt(3)/162 - 29*sqrt(3)/(324*y) + 5*sqrt(3)/(324*y**2)",
+    "return to A|d0>, blank": "-y**2/36 - 151*y/648 + 137/324 - 151/(648*y) - 1/(36*y**2)"
+   },
+   "5": {
+    "a_H": "-sqrt(6)*y**2/108 - 35*sqrt(6)*y/972 + 17*sqrt(6)/243 - 35*sqrt(6)/(972*y) - sqrt(6)/(108*y**2)",
+    "b_forward (flag R+)": "25*sqrt(3)*y**3/972 - 509*sqrt(3)*y**2/3888 + 137*sqrt(3)*y/1944 + 43*sqrt(3)/3888 + sqrt(3)/(972*y)",
+    "b_backward (flag R-)": "-sqrt(3)*y/972 - 43*sqrt(3)/3888 - 137*sqrt(3)/(1944*y) + 509*sqrt(3)/(3888*y**2) - 25*sqrt(3)/(972*y**3)",
+    "return to A|d0>, blank": "y**3/1944 - 121*y**2/3888 - 11*y/54 + 767/1944 - 11/(54*y) - 121/(3888*y**2) + 1/(1944*y**3)"
+   }
+  },
+  "FP": {
+   "1": {
+    "a_H": "sqrt(6)/6",
+    "b_forward (flag R+)": "0",
+    "b_backward (flag R-)": "0",
+    "return to A|d0>, blank": "5/6",
+    "class_weights": {
+     "C seam (0, 10) record 0": "1/12",
+     "C seam (0, 10) record 1": "1/12",
+     "C seam (2, 3) record 0": "1/12",
+     "C seam (2, 3) record 1": "1/12",
+     "C seam (9, 1) record 0": "1/6",
+     "E seam (1, 0) record 0": "1/6",
+     "E seam (10, 2) record 0": "1/6",
+     "E seam (3, 9) record 0": "1/6"
+    },
+    "read_counts": {
+     "P(H)": "1/6",
+     "P(R+)": "1/12",
+     "P(R-)": "1/12",
+     "P(record 1)": "1/6",
+     "P(R+ xor H) (exclusive reads)": "1/4",
+     "P(exactly one of H, R+, R-) = tr(M^dag M) for the three-flag analyzer": "1/3",
+     "two-object value for comparison": "2/9"
+    }
+   },
+   "2": {
+    "a_H": "sqrt(6)/9",
+    "b_forward (flag R+)": "0",
+    "b_backward (flag R-)": "0",
+    "return to A|d0>, blank": "-y/12 + 7/12 - 1/(12*y)"
+   },
+   "3": {
+    "a_H": "-sqrt(6)*y/36 + sqrt(6)/12 - sqrt(6)/(36*y)",
+    "b_forward (flag R+)": "0",
+    "b_backward (flag R-)": "0",
+    "return to A|d0>, blank": "-y/4 + 4/9 - 1/(4*y)"
+   },
+   "4": {
+    "a_H": "-sqrt(6)*y/18 + 7*sqrt(6)/108 - sqrt(6)/(18*y)",
+    "b_forward (flag R+)": "0",
+    "b_backward (flag R-)": "0",
+    "return to A|d0>, blank": "-y**2/18 - 71*y/216 + 239/648 - 71/(216*y) - 1/(18*y**2)"
+   },
+   "5": {
+    "a_H": "-sqrt(6)*y**2/54 - 35*sqrt(6)*y/648 + 113*sqrt(6)/1944 - 35*sqrt(6)/(648*y) - sqrt(6)/(54*y**2)",
+    "b_forward (flag R+)": "0",
+    "b_backward (flag R-)": "0",
+    "return to A|d0>, blank": "-7*y**2/54 - 23*y/72 + 1403/3888 - 23/(72*y) - 7/(54*y**2)"
+   }
+  }
+ },
+ "E1_E2_emission_from_port_2": {
+  "FN": {
+   "E1_one_tick_weights": {
+    "loads [2, 10] rec 2": "1/6",
+    "loads [2, 2] rec 0": "2/3",
+    "loads [2, 3] rec 2": "1/6"
+   },
+   "E1_one_tick_branches (moved loads only)": {
+    "loads [2, 3] rec 2 address (2, 3)+": "sqrt(3)/6",
+    "loads [2, 3] rec 2 address (2, 3)-": "sqrt(3)/6",
+    "loads [2, 10] rec 2 address (10, 2)+": "sqrt(3)/6",
+    "loads [2, 10] rec 2 address (10, 2)-": "sqrt(3)/6"
+   },
+   "E2_two_tick_weights": {
+    "loads [2, 10] rec 2": "7/18",
+    "loads [2, 2] rec 0": "2/9",
+    "loads [2, 3] rec 2": "7/18"
+   },
+   "E2_two_tick_return_amplitude_to_the_double_load": "0"
+  },
+  "FP": {
+   "E1_one_tick_weights": {
+    "loads [2, 10] rec 2": "1/12",
+    "loads [2, 10] rec 3": "1/12",
+    "loads [2, 2] rec 0": "2/3",
+    "loads [2, 3] rec 2": "1/12",
+    "loads [2, 3] rec 3": "1/12"
+   },
+   "E1_one_tick_branches (moved loads only)": {
+    "loads [2, 3] rec 2 address (2, 3)+": "sqrt(3)/6",
+    "loads [2, 3] rec 3 address (2, 3)-": "sqrt(3)/6",
+    "loads [2, 10] rec 3 address (10, 2)+": "sqrt(3)/6",
+    "loads [2, 10] rec 2 address (10, 2)-": "sqrt(3)/6"
+   },
+   "E2_two_tick_weights": {
+    "loads [10, 10] rec 0": "1/216",
+    "loads [2, 10] rec 2": "37/216",
+    "loads [2, 10] rec 3": "37/216",
+    "loads [2, 2] rec 0": "11/36",
+    "loads [2, 3] rec 2": "37/216",
+    "loads [2, 3] rec 3": "37/216",
+    "loads [3, 3] rec 0": "1/216"
+   },
+   "E2_two_tick_return_amplitude_to_the_double_load": "-1/18"
+  }
+ },
+ "E3_symmetric_double_state": {
+  "FN": {
+   "one_tick_weights": {
+    "loads [0, 10] rec 3": "1/12",
+    "loads [10, 10] rec 0": "1/3",
+    "loads [2, 10] rec 2": "1/12",
+    "loads [2, 10] rec 3": "1/12",
+    "loads [2, 2] rec 0": "1/3",
+    "loads [2, 3] rec 2": "1/12"
+   },
+   "signs_of_all_emission_amplitudes": [
+    "+"
+   ],
+   "three_flag_amplitude": "y/6 + sqrt(2)/6 + 1/(6*y)",
+   "equals C(theta)/sqrt3 in sector y": true,
+   "two_tick_weights": {
+    "loads [0, 10] rec 3": "7/36",
+    "loads [10, 10] rec 0": "1/9",
+    "loads [2, 10] rec 2": "7/36",
+    "loads [2, 10] rec 3": "7/36",
+    "loads [2, 2] rec 0": "1/9",
+    "loads [2, 3] rec 2": "7/36"
+   }
+  },
+  "FS": {
+   "one_tick_weights": {
+    "loads [0, 10] rec 3": "1/12",
+    "loads [10, 10] rec 0": "1/3",
+    "loads [2, 10] rec 2": "1/12",
+    "loads [2, 10] rec 3": "1/12",
+    "loads [2, 2] rec 0": "1/3",
+    "loads [2, 3] rec 2": "1/12"
+   },
+   "signs_of_all_emission_amplitudes": [
+    "+"
+   ],
+   "three_flag_amplitude": "y/6 + sqrt(2)/6 + 1/(6*y)",
+   "equals C(theta)/sqrt3 in sector y": true,
+   "two_tick_weights": {
+    "loads [0, 10] rec 3": "7/36",
+    "loads [10, 10] rec 0": "1/9",
+    "loads [2, 10] rec 2": "7/36",
+    "loads [2, 10] rec 3": "7/36",
+    "loads [2, 2] rec 0": "1/9",
+    "loads [2, 3] rec 2": "7/36"
+   }
+  },
+  "FP": {
+   "one_tick_weights": {
+    "loads [0, 10] rec 2": "1/24",
+    "loads [0, 10] rec 3": "1/24",
+    "loads [10, 10] rec 0": "1/3",
+    "loads [2, 10] rec 2": "1/12",
+    "loads [2, 10] rec 3": "1/12",
+    "loads [2, 2] rec 0": "1/3",
+    "loads [2, 3] rec 2": "1/24",
+    "loads [2, 3] rec 3": "1/24"
+   },
+   "signs_of_all_emission_amplitudes": [
+    "+"
+   ],
+   "three_flag_amplitude": "y/6 + sqrt(2)/6 + 1/(6*y)",
+   "equals C(theta)/sqrt3 in sector y": true,
+   "two_tick_weights": {
+    "loads [0, 0] rec 0": "1/432",
+    "loads [0, 10] rec 2": "37/432",
+    "loads [0, 10] rec 3": "37/432",
+    "loads [10, 10] rec 0": "19/144",
+    "loads [2, 10] rec 2": "7/36",
+    "loads [2, 10] rec 3": "7/36",
+    "loads [2, 2] rec 0": "19/144",
+    "loads [2, 3] rec 2": "37/432",
+    "loads [2, 3] rec 3": "37/432",
+    "loads [3, 3] rec 0": "1/432"
+   }
+  }
+ },
+ "E4_holonomy": {
+  "R_t^3 = -1": true,
+  "one charged load: eigenvalues a + 2b cos(theta + (2k+1) pi/3)": true,
+  "pair of loads (charge two, Z2 link): link sign squared = +1, eigenvalues a + 2b cos(theta + 2 pi k/3)": true,
+  "reading": "the dimer index of a single emitted load sees the class-3 holonomy of the hexagon (round 1 G2: -1) and turns projectively; the index of a pair of loads does not"
+ },
+ "seconds": 1.77
+}

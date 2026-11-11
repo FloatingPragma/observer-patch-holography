@@ -1,0 +1,248 @@
+"""T6, item 2: the neutral block executed on the CF-1 engines (float64; every number carries its printed defect).
+
+Engines imported by path and not modified: work/DIRAC/routing.py, work/R1/cf1.py.
+One-body amplitude of the neutral block: Psi[x1, x2, x3, r, s, f], record r, spin s, species label f (0: 1111, 1: 0000).
+Handedness = arrow state of the record, X_r = -(-1)^N (report R8): X_r = -1 left. Patterns: nu_L = (f 0, -),
+N = (f 0, +), N^c = (f 1, -), nu_L^c = (f 1, +). The routing acts on every f alike; the mass steps act on (r, f).
+
+    python t6_engine.py [out.json] [items: lattice plain gauss cell mixing]
+"""
+import importlib.util, json, os, sys, time
+import numpy as np
+
+RL = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+_spec = importlib.util.spec_from_file_location('cf1', os.path.join(RL, 'work', 'R1', 'cf1.py'))
+cf1 = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(cf1)
+Routing, SIG = cf1.Routing, cf1.SIG
+
+X = SIG[0]; Y = SIG[1]; Z = SIG[2]; I2 = np.eye(2, dtype=complex)
+Pp, Pm = (I2 + X) / 2, (I2 - X) / 2
+Eab = np.array([[0, 1], [0, 0]], complex); Eba = Eab.T.copy()
+# generators on (record, label), index 2 r + f
+HD4 = np.kron(Z, I2)
+HM4 = np.kron(Pm @ Z, Eba) + np.kron(Pp @ Z, Eab)              # N = (f 0, +) <-> N^c = (f 1, -)
+HT4 = np.kron(Pp @ Z, Eba) + np.kron(Pm @ Z, Eab)              # nu_L = (f 0, -) <-> nu_L^c = (f 1, +)
+
+
+def expi(H, theta):
+    w, v = np.linalg.eigh(H)
+    return (v * np.exp(-1j * theta * w)) @ v.conj().T
+
+
+def mass_matrix(thD, thM, thT=0.0, order='palindromic'):
+    MD, MDh, MM, MT = expi(HD4, thD), expi(HD4, thD / 2), expi(HM4, thM), expi(HT4, thT)
+    if order == 'palindromic': return MDh @ MM @ MDh
+    if order == 'plain': return MM @ MD
+    if order == 'dirac': return MD
+    if order == 'pairing': return MM
+    if order == 'doublet': return MT
+    raise ValueError(order)
+
+
+def apply_mass(Psi, M4):
+    """Psi[..., r, s, f]; M4 on index 2 r + f"""
+    M = M4.reshape(2, 2, 2, 2)                                   # [r', f', r, f]
+    return np.einsum('afbg,...bsg->...asf', M, Psi)
+
+
+def closed(thD, thM):
+    A = np.arccos(np.cos(thD) * np.cos(thM / 2))
+    return A - thM / 2, A + thM / 2
+
+
+def period_phase(p, theta):
+    return float(np.arccos(np.clip(np.cos(theta) ** 2 * np.prod(np.cos(2 * np.asarray(p, float))) - np.sin(theta) ** 2, -1, 1)))
+
+
+def symbol8(p, M4, t):
+    S = cf1.symbol(p, 0.0, 'Y', t)                               # 4 x 4 on (r, s): the routing of tick t
+    S8 = np.kron(S, I2)                                          # (r, s, f)
+    M8 = np.einsum('afbg,st->asfbtg', M4.reshape(2, 2, 2, 2), I2).reshape(8, 8)
+    return M8 @ S8
+
+
+out = {}
+items = sys.argv[2:] or ['lattice', 'plain', 'gauss', 'cell', 'mixing']
+thD, thM = 0.157935, float(np.arccos(0.9))                       # examples: section 4 item 6 and the tower (quintet, blank)
+tl, th = closed(thD, thM)
+
+if 'lattice' in items:
+    t0 = time.process_time()
+    shape = (5, 4, 3); w = Routing(shape); ncell = int(np.prod(shape)); n = 8 * ncell
+    M4 = mass_matrix(thD, thM)
+
+    def tick(Psi, t):
+        routed = np.stack([w.tick(Psi[..., f], 0.0, reverse=bool(t % 2)) for f in (0, 1)], axis=-1)
+        return apply_mass(routed, M4)
+
+    U = []
+    for t in (0, 1):
+        D = np.empty((n, n), complex)
+        for k in range(n):
+            e = np.zeros(n, complex); e[k] = 1
+            D[:, k] = tick(e.reshape(shape + (2, 2, 2)), t).ravel()
+        U.append(D)
+    U2 = U[1] @ U[0]
+    unit = float(np.abs(U2 @ U2.conj().T - np.eye(n)).max())
+    got = np.sort(np.abs(np.angle(np.linalg.eigvals(U2))))
+    want = []
+    for m in np.ndindex(*shape):
+        p = 2 * np.pi * np.array(m) / np.array(shape)
+        for theta in (tl, th): want += [period_phase(p, theta)] * 4
+    want = np.sort(np.array(want))
+    # conjugation C = (Y_r sigma_2 tau_x) K per cell
+    C8 = np.kron(np.kron(Y, Y), X); Cfull = np.kron(np.eye(ncell), C8)
+    cdef = max(float(np.abs(Cfull @ D.conj() @ Cfull.conj().T - D).max()) for D in U)
+    # the same lattice with the Dirac step alone and the pairing step alone
+    rows = {}
+    for name, (a, b) in (('Dirac step alone', (thD, 0.0)), ('pairing step alone', (0.0, thM))):
+        Mx = mass_matrix(a, b); l_, h_ = closed(a, b)
+        psi = None; worst = 0.0
+        for m in ((1, 0, 0), (1, 1, 1), (2, 1, 0)):
+            p = 2 * np.pi * np.array(m) / np.array(shape)
+            ph = np.sort(np.abs(np.angle(np.linalg.eigvals(symbol8(p, Mx, 1) @ symbol8(p, Mx, 0)))))
+            wt = np.sort([period_phase(p, l_)] * 4 + [period_phase(p, h_)] * 4)
+            worst = max(worst, float(np.abs(ph - wt).max()))
+        rows[name] = {'rest_phases': [l_, h_], 'period_phases_against_closed_form_at_three_momenta': worst}
+    out['lattice'] = {'shape': list(shape), 'one_body_dimension': n, 'theta_D': thD, 'theta_M': thM,
+                      'rest_phase_light': tl, 'rest_phase_heavy': th,
+                      'period_unitarity_defect': unit,
+                      'period_phases_engine_against_closed_form_max_abs': float(np.abs(got - want).max()),
+                      'conjugation_defect_of_both_ticks': cdef, 'single_steps': rows,
+                      'cpu_seconds': round(time.process_time() - t0, 2)}
+    print('lattice', json.dumps(out['lattice'], indent=1))
+
+if 'plain' in items:
+    rows = []
+    for p in ((0.1, 0.1, 0.1), (0.1, 0.23, -0.17), (0.3, 0.0, 0.0), (0.02, 0.01, -0.015)):
+        row = {'p': list(p), 'closed_form_light_per_tick': period_phase(p, tl) / 2, 'closed_form_heavy_per_tick': period_phase(p, th) / 2,
+               'massless_per_tick': period_phase(p, 0.0) / 2}
+        for order in ('palindromic', 'plain'):
+            M4 = mass_matrix(thD, thM, order=order)
+            ph = np.sort(np.abs(np.angle(np.linalg.eigvals(symbol8(p, M4, 1) @ symbol8(p, M4, 0))))) / 2
+            row[order + '_light_per_tick'] = [float(ph[0]), float(ph[3])]
+            row[order + '_heavy_per_tick'] = [float(ph[4]), float(ph[7])]
+        rows.append(row)
+    out['order_of_the_mass_steps'] = {
+        'theta_D': thD, 'theta_M': thM, 'rows': rows,
+        'reading': 'palindromic order: the closed form to rounding. Plain order M_M M_D S: same rest phases, different phases at p != 0, '
+                   'both helicities degenerate'}
+    print('plain', json.dumps(rows, indent=1))
+
+if 'mixing' in items:
+    # light left-handed state of the palindromic step: components on (nu_L, N^c)
+    rows = []
+    for a in (1e-3, 1e-2, thD):
+        M4 = mass_matrix(a, thM); l_, h_ = closed(a, thM)
+        # left block: arrow - on (f 0, f 1); arrow - = (|0> - |1>)/sqrt2 on the record
+        plus = np.array([1, -1]) / np.sqrt(2)
+        B = np.array([[np.kron(plus, np.eye(2)[i]).conj() @ M4 @ np.kron(plus, np.eye(2)[j]) for j in range(2)] for i in range(2)])
+        wv, vv = np.linalg.eig(B)
+        k = int(np.argmin(np.abs(wv - np.cos(l_))))
+        ratio = abs(vv[1, k] / vv[0, k])
+        rows.append({'theta_D': a, 'light_phase': l_, 'left_block_eigenvalue_minus_cos_light': float(abs(wv[k] - np.cos(l_))),
+                     'amplitude_ratio_Nc_over_nuL': float(ratio), 'light_over_theta_D': l_ / a,
+                     'half_theta_D_cot_half_theta_M': a / 2 / np.tan(thM / 2)})
+    out['mixing'] = {'theta_M': thM, 'rows': rows}
+    print('mixing', json.dumps(rows, indent=1))
+
+if 'cell' in items:
+    # occupations of one cell (modes nu_L up, nu_L down, N up, N down): many-body phases against sums of the two rest phases
+    def ann(m, nm=4):
+        A = np.zeros((2 ** nm, 2 ** nm))
+        for s in range(2 ** nm):
+            if (s >> m) & 1: A[s ^ (1 << m), s] = (-1) ** bin(s & ((1 << m) - 1)).count('1')
+        return A
+    c = [ann(m) for m in range(4)]
+    hop = sum(c[i].T @ c[i + 2] + c[i + 2].T @ c[i] for i in (0, 1))
+    pair = c[2] @ c[3] + c[3].T @ c[2].T
+    UF = expi(pair, thM) @ expi(hop, thD)
+    got = np.sort(np.angle(np.linalg.eigvals(UF)))
+    want = np.sort([(n1 + n2 - 1) * tl + (n3 + n4 - 1) * th for n1 in (0, 1) for n2 in (0, 1) for n3 in (0, 1) for n4 in (0, 1)])
+    # the eigenvalue of the step is exp(-i E): compare the sets of E
+    got_E = np.sort(-got)
+    vac = np.zeros(16); vac[0] = 1
+    out['one_cell_occupations'] = {'states': 16, 'many_body_phases_against_sums_of_rest_phases_max_abs': float(np.abs(got_E - want).max()),
+                                   'empty_state_survival_amplitude': float(abs(vac @ UF @ vac)), 'cos_theta_M': float(np.cos(thM)),
+                                   'reading': 'phases (n1 + n2 - 1) th_l + (n3 + n4 - 1) th_h: a reference state and four excitations with rest phases th_l, th_l, th_h, th_h'}
+    print('cell', json.dumps(out['one_cell_occupations'], indent=1))
+
+if 'gauss' in items:
+    # one quantum of the neutral block with quantum Z2 links: [U, G_x] for each mass step.
+    # Z2 charge of a pattern = n2 mod 2: nu_L and nu_L^c charged, N and N^c neutral. The link sign acts on the charged
+    # arrow component of each label (the routing commutes with X_r, so the split is preserved).
+    t0 = time.process_time()
+    eps, kappa = 0.3, 0.2
+    spc = cf1.Species('charged arrow', theta=0.0, charged=True)
+    J = cf1.Joint((2, 2, 1), [spc], eps, kappa)                       # engine: lattice, link words, field step, routing per link word
+    lat = J.lat; shape = lat.shape; NZ = lat.NZ; n1 = J.n                # n1 = 4 cells x (r, s) = 16
+    Dc = [J.one_body(spc, np.arange(NZ), t) for t in (0, 1)]          # routing of tick t in every link word (mass angle 0)
+    D0 = [cf1.dense(lambda q, t=t: Routing(shape).tick(q, 0.0, reverse=bool(t)), shape) for t in (0, 1)]
+    Xr = np.kron(np.eye(lat.N), np.kron(X, I2)); Pa = {+1: (np.eye(n1) + Xr) / 2, -1: (np.eye(n1) - Xr) / 2}
+    assert max(np.abs(Dc[t][z] @ Xr - Xr @ Dc[t][z]).max() for t in (0, 1) for z in (0, 5, NZ - 1)) < 1e-12   # arrows are conserved
+
+    def route(Psi, t):                                                 # Psi[z, n1, f]
+        res = np.empty_like(Psi)
+        for f in (0, 1):
+            ch = -1 if f == 0 else +1                                  # charged arrow: - for label 1111 (nu_L), + for 0000 (nu_L^c)
+            res[..., f] = np.einsum('zab,zb->za', Dc[t], Psi[..., f] @ Pa[ch].T) + (Psi[..., f] @ Pa[-ch].T) @ D0[t].T
+        return res
+
+    def mass(Psi, M4):                                                 # M4 on (r, f); n1 index = 4 cell + 2 r + s
+        P = Psi.reshape(NZ, lat.N, 2, 2, 2)
+        return apply_mass(P, M4).reshape(Psi.shape)
+
+    def field(Psi):
+        return np.stack([J.field(Psi[..., f]) for f in (0, 1)], axis=-1)
+
+    def tick(Psi, M4, t=0):
+        return field(mass(route(Psi, t), M4))
+
+    def gauss(Psi, ci):
+        o = np.empty_like(Psi); o[np.arange(NZ) ^ lat.star[ci]] = Psi
+        sel = np.zeros(n1); sel[4 * ci: 4 * ci + 4] = 1
+        for f in (0, 1):
+            ch = -1 if f == 0 else +1
+            comp = (o[..., f] @ Pa[ch].T) * sel                        # charged arrow component at this cell
+            o[..., f] = o[..., f] - 2 * comp
+        return o
+
+    rng = np.random.default_rng(3)
+    Psi = rng.normal(size=(NZ, n1, 2)) + 1j * rng.normal(size=(NZ, n1, 2)); Psi /= np.linalg.norm(Psi)
+    res = {}
+    cases = {'routing and field step alone': np.eye(4), 'Dirac step': mass_matrix(thD, 0, order='dirac'),
+             'pairing step (neutral singlet)': mass_matrix(0, thM, order='pairing'), 'doublet step (left neutrino)': expi(HT4, 0.2),
+             'pairing and doublet steps': expi(HT4, 0.2) @ expi(HM4, thM)}
+    for name, M4 in cases.items():
+        o = tick(Psi, M4)
+        worst = max(float(np.linalg.norm(tick(gauss(Psi, ci), M4) - gauss(o, ci))) for ci in range(lat.N))
+        res[name] = {'commutator_norm_on_a_random_state_max_over_cells': worst, 'norm_defect': float(abs(np.linalg.norm(o) - 1))}
+    g2 = max(float(np.linalg.norm(gauss(gauss(Psi, ci), ci) - Psi)) for ci in range(lat.N))
+    # one-cell operator norms: g = sign of the Z2 charge on (r, f)
+    g4 = -(np.kron(Pm, np.diag([1.0, 0.0])) + np.kron(Pp, np.diag([0.0, 1.0]))) * 2 + np.eye(4)
+    opn = {nm: float(np.linalg.norm(M @ g4 - g4 @ M, 2)) for nm, M in (('Dirac step', expi(HD4, thD)), ('pairing step', expi(HM4, thM)), ('doublet step', expi(HT4, 0.2)))}
+    # Z6 classes: phase exp(2 pi i k Q6 / 6), Q6 = -3, 0, 0, +3 on nu_L, N, N^c, nu_L^c
+    z6 = {}
+    for k in range(1, 6):
+        ph = {0: np.exp(2j * np.pi * k * (-3) / 6), 1: 1.0, 2: 1.0, 3: np.exp(2j * np.pi * k * 3 / 6)}   # nu_L, N, N^c, nu_L^c
+        g = np.kron(Pm, np.diag([ph[0], ph[2]])) + np.kron(Pp, np.diag([ph[1], ph[3]]))
+        z6[str(k)] = {nm: float(np.linalg.norm(M @ g - g @ M, 2)) for nm, M in (('Dirac step', expi(HD4, thD)), ('pairing step', expi(HM4, thM)), ('doublet step', expi(HT4, 0.2)))}
+    # the record-independent charge (-1)^(n_s1) read as a function on all 32 patterns: -1 on label 1111, +1 on label 0000
+    gp = np.kron(I2, np.diag([-1.0, 1.0]))
+    rec_indep = {nm: float(np.linalg.norm(M @ gp - gp @ M, 2)) for nm, M in (('Dirac step', expi(HD4, thD)), ('pairing step', expi(HM4, thM)), ('doublet step', expi(HT4, 0.2)))}
+    out['gauss'] = {'lattice': list(shape), 'quantum_links': lat.NL, 'amplitudes': int(Psi.size), 'eps': eps, 'kappa': kappa,
+                    'record_independent_charge_as_a_function_on_32_independent_patterns_one_cell_commutator_norms': rec_indep,
+                    'two_sin_theta_M': float(2 * np.sin(thM)),
+                    'charge': 'n2 mod 2 of the pattern (nu_L, nu_L^c charged; N, N^c neutral)',
+                    'full_tick': res, 'gauss_operator_squares_to_one_defect': g2,
+                    'one_cell_operator_norm_of_the_commutator_with_the_charge_sign': opn, 'two_sin_theta_D': float(2 * np.sin(thD)),
+                    'Z6_classes_one_cell_commutator_norms': z6, 'cpu_seconds': round(time.process_time() - t0, 2)}
+    print('gauss', json.dumps(out['gauss'], indent=1))
+
+if len(sys.argv) > 1 and sys.argv[1] != '-':
+    prev = {}
+    if os.path.exists(sys.argv[1]):
+        try: prev = json.load(open(sys.argv[1]))
+        except Exception: prev = {}
+    prev.update(out)
+    json.dump(prev, open(sys.argv[1], 'w'), indent=1)

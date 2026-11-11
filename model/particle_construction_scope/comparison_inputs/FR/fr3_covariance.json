@@ -1,0 +1,280 @@
+{
+ "task": "FR item 3: Gauss compatibility and rotation covariance",
+ "provenance": {
+  "repository_root_used": "/private/tmp/claude-501/lew_repo",
+  "canonical_checkout_present": false,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "G1_classical_links": {
+  "pairs_checked": 36,
+  "pairs_with_compression_equal_to_primary": 36
+ },
+ "G2_face_defect": {
+  "0": {
+   "hexagon_holonomy_screen_sense_(units pi/3)": 0,
+   "link_label_C_seam": 0,
+   "link_label_E_seam": 0,
+   "all_link_phases_real": true,
+   "compression_equals_primary": true
+  },
+  "1": {
+   "hexagon_holonomy_screen_sense_(units pi/3)": 1,
+   "link_label_C_seam": 0,
+   "link_label_E_seam": 0,
+   "all_link_phases_real": false,
+   "compression_equals_primary": true
+  },
+  "2": {
+   "hexagon_holonomy_screen_sense_(units pi/3)": 2,
+   "link_label_C_seam": 0,
+   "link_label_E_seam": 0,
+   "all_link_phases_real": false,
+   "compression_equals_primary": true
+  },
+  "3": {
+   "hexagon_holonomy_screen_sense_(units pi/3)": 3,
+   "link_label_C_seam": 0,
+   "link_label_E_seam": 0,
+   "all_link_phases_real": true,
+   "compression_equals_primary": true
+  },
+  "4": {
+   "hexagon_holonomy_screen_sense_(units pi/3)": 4,
+   "link_label_C_seam": 0,
+   "link_label_E_seam": 0,
+   "all_link_phases_real": false,
+   "compression_equals_primary": true
+  },
+  "5": {
+   "hexagon_holonomy_screen_sense_(units pi/3)": 5,
+   "link_label_C_seam": 0,
+   "link_label_E_seam": 0,
+   "all_link_phases_real": false,
+   "compression_equals_primary": true
+  }
+ },
+ "G2b_string_through_the_register_seams": {
+  "through C seam (2,3), k=1": {
+   "class_of_f": 1,
+   "hexagon_holonomy": 1,
+   "link_label_C": 1,
+   "link_label_E": 0,
+   "compression_equals_primary": true
+  },
+  "through C seam (2,3), k=3": {
+   "class_of_f": 3,
+   "hexagon_holonomy": 3,
+   "link_label_C": 3,
+   "link_label_E": 0,
+   "compression_equals_primary": true
+  },
+  "through E seam (2,10), k=1": {
+   "class_of_f": 1,
+   "hexagon_holonomy": 1,
+   "link_label_C": 0,
+   "link_label_E": 1,
+   "compression_equals_primary": true
+  },
+  "through E seam (2,10), k=3": {
+   "class_of_f": 3,
+   "hexagon_holonomy": 3,
+   "link_label_C": 0,
+   "link_label_E": 3,
+   "compression_equals_primary": true
+  }
+ },
+ "G3_quantum_link": {
+  "tick_factor_unitary_(2W)^dag(2W)=4I": true,
+  "[2 Q R_2, G_tail] = 0": true,
+  "[2 Q R_2, G_head] = 0": true,
+  "[2 Q R_2, Z_link] = 0 (link register and face classes conserved)": true,
+  "control_[2 Q R_2, G_tail with the wrong shift] = 0": false,
+  "records_addresses_F": "V, T, K act on (r_C, o_C, F) and E on (r_E, o_E); G acts on loads and links only; the factors act on different tensor factors and commute"
+ },
+ "R1_equivariance": {
+  "rotations": 60,
+  "rho_hf = h rho_f h^-1": 60,
+  "screen orientations and tails transported": 60,
+  "F basis transported (x_j -> h x_j)": 60,
+  "consequence": "the compression built from the rotated inputs is the same matrix in the transported basis (the construction reads the geometry only through these data)"
+ },
+ "R2_half_turn_sign": {
+  "half_turns_mapping_f_to_fprime": {
+   "[(0, 1), (2, 3), (4, 6), (5, 7), (8, 11), (9, 10)]": {
+    "is_gC": true,
+    "is_gE": false,
+    "rho_f' = g": true,
+    "rho_f = g^-1": true,
+    "h maps the f screen tail of C to the f' screen tail of h(C)": true,
+    "C seam screen orientation for f, for f'": [
+     [
+      2,
+      3
+     ],
+     [
+      3,
+      2
+     ]
+    ]
+   },
+   "[(0, 3), (1, 9), (2, 10), (4, 7), (5, 8), (6, 11)]": {
+    "is_gC": false,
+    "is_gE": true,
+    "rho_f' = g": true,
+    "rho_f = g^-1": true,
+    "h maps the f screen tail of C to the f' screen tail of h(C)": true,
+    "C seam screen orientation for f, for f'": [
+     [
+      2,
+      3
+     ],
+     [
+      3,
+      2
+     ]
+    ]
+   },
+   "[(0, 10), (1, 2), (3, 9), (4, 8), (5, 6), (7, 11)]": {
+    "is_gC": false,
+    "is_gE": false,
+    "rho_f' = g": true,
+    "rho_f = g^-1": true,
+    "h maps the f screen tail of C to the f' screen tail of h(C)": true,
+    "C seam screen orientation for f, for f'": [
+     [
+      2,
+      3
+     ],
+     [
+      3,
+      2
+     ]
+    ]
+   }
+  },
+  "eigenvalues_on_g_characters": {
+   "f": [
+    "sqrt(3)*cos(theta)/3 + sqrt(6)/6",
+    "-sqrt(3)*cos(theta + pi/3)/3 + sqrt(6)/6",
+    "-sqrt(3)*sin(theta + pi/6)/3 + sqrt(6)/6"
+   ],
+   "f'": [
+    "sqrt(3)*cos(theta)/3 + sqrt(6)/6",
+    "-sqrt(3)*sin(theta + pi/6)/3 + sqrt(6)/6",
+    "-sqrt(3)*cos(theta + pi/3)/3 + sqrt(6)/6"
+   ]
+  },
+  "verified_on_matrices": true,
+  "theta_2/9": {
+   "f": {
+    "lambda_on_g_characters_k=0,1,2_at_theta=2/9": [
+     0.9714015658337364,
+     0.23687052450698748,
+     0.016472781050865186
+    ],
+    "electron_mu_tau_as_g_character_k": [
+     2,
+     1,
+     0
+    ]
+   },
+   "f'": {
+    "lambda_on_g_characters_k=0,1,2_at_theta=2/9": [
+     0.9714015658337364,
+     0.016472781050865186,
+     0.23687052450698748
+    ],
+    "electron_mu_tau_as_g_character_k": [
+     1,
+     2,
+     0
+    ]
+   }
+  },
+  "reading": "lambda^f_k(theta) = lambda^f'_k(-theta): the sign of the clock phase relative to g is the outward normal of the defect face; the half-turns gC and gE exchange the two faces and reverse it; the spectrum is the same, the generation labels k <-> -k are exchanged"
+ },
+ "R3_dimer_reading": {
+  "E_type_hexagon_seams (dimers)": [
+   [
+    2,
+    10
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    3,
+    9
+   ]
+  ],
+  "rho_f_cycles_dimers": true,
+  "C_joins": [
+   {
+    "C_seam_screen": [
+     2,
+     3
+    ],
+    "from_dimer": [
+     2,
+     10
+    ],
+    "to_dimer": [
+     3,
+     9
+    ],
+    "to_dimer == rho_f(from)": true
+   },
+   {
+    "C_seam_screen": [
+     0,
+     10
+    ],
+    "from_dimer": [
+     0,
+     1
+    ],
+    "to_dimer": [
+     2,
+     10
+    ],
+    "to_dimer == rho_f(from)": true
+   },
+   {
+    "C_seam_screen": [
+     9,
+     1
+    ],
+    "from_dimer": [
+     3,
+     9
+    ],
+    "to_dimer": [
+     0,
+     1
+    ],
+    "to_dimer == rho_f(from)": true
+   }
+  ],
+  "reading": "F = index of the E dimer that the screen-oriented current has reached; a forward C repair advances it by rho_f, a backward one by rho_f^-1, the E agreeing half keeps it; a full circuit of the hexagon crosses three C seams and returns F to its start"
+ },
+ "R4_native_conventions": {
+  "native C seam tuple": [
+   2,
+   3
+  ],
+  "native current +1 record (coin 0, raw 1)": "load at 2 moves to 3 (LNAT Q1)",
+  "f screen orientation of the C seam": [
+   2,
+   3
+  ],
+  "native reset port (native_family_record_memory.RESET)": 2,
+  "f screen tail of the C seam": 2,
+  "f' screen tail of the C seam": 3,
+  "reading": "the sign convention of the native current record and the native reset port agree with the screen orientation of f and disagree with that of f'"
+ },
+ "seconds": 56.18
+}

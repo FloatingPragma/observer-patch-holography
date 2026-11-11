@@ -1,0 +1,246 @@
+{
+ "reference": {
+  "v": 246.22,
+  "m_Z": 91.188,
+  "m_W": 80.37,
+  "inv_alpha_2": 29.58,
+  "alpha_s": 0.118,
+  "sin2": 0.23122,
+  "inv_alpha_em": 127.95
+ },
+ "rows": {
+  "V14-H5 SA": {
+   "variant": "one doublet, m = 2; equal bare couplings at M_U, BF shifts (5-trace Hamiltonian); law reads the bare coupling",
+   "status": "source action plus computed matching",
+   "percent": {
+    "v": -99.92064414569131,
+    "m_Z": -99.92375432512176,
+    "m_W": -99.92210741848822,
+    "inv_alpha_2": 3.460880058375748,
+    "alpha_s": 123.42575600386417,
+    "sin2": -18.14134478626879,
+    "inv_alpha_em": 26.370017361502974
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "V14-H5w SA": {
+   "variant": "one doublet, m = 2; equal bare couplings at M_U, BF shifts (5-trace Hamiltonian); law reads 1/alpha_2(M_U)",
+   "status": "source action plus computed matching",
+   "percent": {
+    "v": -78.01626256702338,
+    "m_Z": -78.61504178209921,
+    "m_W": -78.32647012464564,
+    "inv_alpha_2": 2.554371981061876,
+    "alpha_s": 21.697237541767798,
+    "sin2": -12.599291369529587,
+    "inv_alpha_em": 17.319906501735094
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "V14-H15 SA": {
+   "variant": "one doublet, m = 2; equal bare couplings at M_U, BF shifts (15-trace Hamiltonian); law reads the bare coupling",
+   "status": "source action plus computed matching",
+   "percent": {
+    "v": -99.99574048600057,
+    "m_Z": -99.9959323693485,
+    "m_W": -99.99581905871334,
+    "inv_alpha_2": 3.4623605149946224,
+    "alpha_s": 160.3175870565537,
+    "sin2": -22.449277721679838,
+    "inv_alpha_em": 33.3917647610128
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "V14-H15w SA": {
+   "variant": "one doublet, m = 2; equal bare couplings at M_U, BF shifts (15-trace Hamiltonian); law reads 1/alpha_2(M_U)",
+   "status": "source action plus computed matching",
+   "percent": {
+    "v": -57.62074814551652,
+    "m_Z": -58.538749477522686,
+    "m_W": -57.86611492674911,
+    "inv_alpha_2": 0.8449091067704639,
+    "alpha_s": 4.468756586537936,
+    "sin2": -14.460251337167463,
+    "inv_alpha_em": 17.87412762989078
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "V14-H5 SB": {
+   "variant": "two doublets, m = 1; equal bare couplings at M_U, BF shifts (5-trace Hamiltonian); law reads the bare coupling",
+   "status": "source action plus computed matching",
+   "percent": {
+    "v": -99.8248499827734,
+    "m_Z": -99.8314403212174,
+    "m_W": -99.82808088930511,
+    "inv_alpha_2": 3.462383010265069,
+    "alpha_s": 162.65376368586737,
+    "sin2": -16.996090953676422,
+    "inv_alpha_em": 24.628226203183278
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "V14-H5w SB": {
+   "variant": "two doublets, m = 1; equal bare couplings at M_U, BF shifts (5-trace Hamiltonian); law reads 1/alpha_2(M_U)",
+   "status": "source action plus computed matching",
+   "percent": {
+    "v": -65.43060102764298,
+    "m_Z": -66.38890243925081,
+    "m_W": -65.98620701615773,
+    "inv_alpha_2": 2.9636547840788063,
+    "alpha_s": 31.386687097563602,
+    "sin2": -11.56964919301905,
+    "inv_alpha_em": 16.416646419065305
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "V14-H15 SB": {
+   "variant": "two doublets, m = 1; equal bare couplings at M_U, BF shifts (15-trace Hamiltonian); law reads the bare coupling",
+   "status": "source action plus computed matching",
+   "percent": {
+    "v": -99.98962856331596,
+    "m_Z": -99.99007986331908,
+    "m_W": -99.9898198869703,
+    "inv_alpha_2": 3.4625221357177605,
+    "alpha_s": 217.00340315811988,
+    "sin2": -21.310824037512177,
+    "inv_alpha_em": 31.46209419816044
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "V14-H15w SB": {
+   "variant": "two doublets, m = 1; equal bare couplings at M_U, BF shifts (15-trace Hamiltonian); law reads 1/alpha_2(M_U)",
+   "status": "source action plus computed matching",
+   "percent": {
+    "v": -45.10708243938532,
+    "m_Z": -46.452047640744595,
+    "m_W": -45.65959052111296,
+    "inv_alpha_2": 1.7178648261184426,
+    "alpha_s": 11.094908500143097,
+    "sin2": -13.488466417416012,
+    "inv_alpha_em": 17.558952335789435
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "V15 m=2 c_Y=5/3": {
+   "variant": "no doublet below M_U, prefactor 2, c_Y = 5/3",
+   "status": "the register's induced mass read as a threshold above M_U",
+   "percent": {
+    "v": -66.62081686064292,
+    "m_Z": -66.85979639012565,
+    "m_W": -66.40088219827705,
+    "inv_alpha_2": -1.6201671985468402,
+    "alpha_s": -6.4810029398961415,
+    "sin2": -12.840072809329383,
+    "inv_alpha_em": 12.855233569551515
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "V15 m=2 c_Y=1": {
+   "variant": "no doublet below M_U, prefactor 2, c_Y = 1",
+   "status": "the register's induced mass read as a threshold above M_U",
+   "percent": {
+    "v": -66.40079250223694,
+    "m_Z": -66.0609349723664,
+    "m_W": -66.17550831511403,
+    "inv_alpha_2": -1.642851265035583,
+    "alpha_s": -6.555149236404856,
+    "sin2": -1.206667551526186,
+    "inv_alpha_em": -0.456987903329098
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "V15 m=1 c_Y=5/3": {
+   "variant": "no doublet below M_U, prefactor 1, c_Y = 5/3",
+   "status": "the register's induced mass read as a threshold above M_U",
+   "percent": {
+    "v": -86.9844447934604,
+    "m_Z": -87.14848580948872,
+    "m_W": -86.9565563049838,
+    "inv_alpha_2": -0.7452540842295963,
+    "alpha_s": -3.345101519371707,
+    "sin2": -13.580776546226092,
+    "inv_alpha_em": 14.834770032443867
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "V15 m=1 c_Y=1": {
+   "variant": "no doublet below M_U, prefactor 1, c_Y = 1",
+   "status": "the register's induced mass read as a threshold above M_U",
+   "percent": {
+    "v": -86.91156361087707,
+    "m_Z": -86.85716092801673,
+    "m_W": -86.88219342297174,
+    "inv_alpha_2": -0.76531218610979,
+    "alpha_s": -3.423832238604596,
+    "sin2": -2.192589002127343,
+    "inv_alpha_em": 1.4435005700387027
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "V16 SA": {
+   "variant": "one doublet, m = 2; trace N10, c = (0.6 x 4/5, 1, 9/10)",
+   "status": "native link sectors of the fifteen-state module",
+   "percent": {
+    "v": -80.71090549572087,
+    "m_Z": -80.78610878436066,
+    "m_W": -81.01355951562637,
+    "inv_alpha_2": 2.8838002457042267,
+    "alpha_s": 28.987457848100195,
+    "sin2": 4.435845331608901,
+    "inv_alpha_em": -1.5014371984202635
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "V16 SB": {
+   "variant": "two doublets, m = 1; trace N10, c = (0.6 x 4/5, 1, 9/10)",
+   "status": "native link sectors of the fifteen-state module",
+   "percent": {
+    "v": -67.7703060450956,
+    "m_Z": -67.89314608596193,
+    "m_W": -68.31529370170404,
+    "inv_alpha_2": 3.139117697915461,
+    "alpha_s": 38.38405275401902,
+    "sin2": 5.305316039845942,
+    "inv_alpha_em": -2.072290040163627
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "FA'": {
+   "variant": "one doublet, m = 2; c_Y fitted on the declared 1/alpha_1(m_Z) = 59.22182",
+   "status": "fit",
+   "percent": {
+    "v": -9.066522773393771,
+    "m_Z": -8.368211207482922,
+    "m_W": -8.683551689632985,
+    "inv_alpha_2": -1.1537963496769388,
+    "alpha_s": -4.881099893706919,
+    "sin2": -1.162784775270509,
+    "inv_alpha_em": -0.006452492898578743
+   },
+   "passes_registered_rule": false,
+   "carries_weight": false
+  }
+ },
+ "passing_with_weight": [],
+ "passing_without_weight": [],
+ "count": {
+  "comparison_run": 3,
+  "rows_compared": 15,
+  "rows_with_weight": 14,
+  "passing_with_weight": 0
+ }
+}

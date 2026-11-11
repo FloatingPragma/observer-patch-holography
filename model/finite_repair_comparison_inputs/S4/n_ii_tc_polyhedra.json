@@ -1,0 +1,1392 @@
+{
+ "polyhedra": [
+  {
+   "solid": "tetrahedron",
+   "sector": "vacuum",
+   "total": 1,
+   "reachable": 4,
+   "class_size": 4,
+   "stationary_level": 0.0,
+   "gap_Re_E1": 1.9999999999999996,
+   "vacuum_gap_lambda1_over_2": 1.9999999999999982,
+   "lowest_levels": [
+    [
+     1.9999999999999996,
+     0.0
+    ],
+    [
+     2.0,
+     -6.197723454295698e-18
+    ],
+    [
+     2.0,
+     6.197723454295698e-18
+    ]
+   ],
+   "complex_levels_found": 0,
+   "levels_found": 4,
+   "leading_complex_levels_Re_Im": [],
+   "max_quality_Im_over_Re": 0.0,
+   "R5_release_per_sweep": 0.0,
+   "R5_exact_half_dbar2": "0",
+   "R5_exact_float": 0.0,
+   "mean_contrast_error": 5.551115123125783e-17,
+   "odd_seams_mean": 3.0,
+   "seam_potential_mean_half_sum_d2": 1.5,
+   "half_q_Dplus_q": 0.0
+  },
+  {
+   "solid": "tetrahedron",
+   "sector": "pair of charge 1 at dual distance 1",
+   "total": 0,
+   "reachable": 15,
+   "class_size": 15,
+   "stationary_level": 2.6645352591003757e-15,
+   "gap_Re_E1": 1.4743128791344837,
+   "vacuum_gap_lambda1_over_2": 1.9999999999999982,
+   "lowest_levels": [
+    [
+     1.4743128791344837,
+     0.0
+    ],
+    [
+     2.0,
+     0.0
+    ],
+    [
+     2.0000000000000018,
+     0.0
+    ],
+    [
+     2.0000000000000018,
+     0.0
+    ],
+    [
+     2.9999999999999973,
+     0.0
+    ],
+    [
+     3.0000000000000013,
+     0.0
+    ],
+    [
+     3.000000000000004,
+     0.0
+    ],
+    [
+     3.2586520225041467,
+     0.0
+    ]
+   ],
+   "complex_levels_found": 0,
+   "levels_found": 15,
+   "leading_complex_levels_Re_Im": [],
+   "max_quality_Im_over_Re": 0.0,
+   "R5_release_per_sweep": 0.24999999999999986,
+   "R5_exact_half_dbar2": "1/4",
+   "R5_exact_float": 0.25,
+   "mean_contrast_error": 2.220446049250313e-16,
+   "odd_seams_mean": 2.1544715447154466,
+   "seam_potential_mean_half_sum_d2": 1.577235772357723,
+   "half_q_Dplus_q": 0.25
+  },
+  {
+   "solid": "tetrahedron",
+   "sector": "pair of charge 1 at dual distance 1",
+   "total": 1,
+   "reachable": 19,
+   "class_size": 19,
+   "stationary_level": 3.9968028886505635e-15,
+   "gap_Re_E1": 1.930968893163288,
+   "vacuum_gap_lambda1_over_2": 1.9999999999999982,
+   "lowest_levels": [
+    [
+     1.930968893163288,
+     0.0
+    ],
+    [
+     1.9999999999999962,
+     0.0
+    ],
+    [
+     1.9999999999999976,
+     0.0
+    ],
+    [
+     2.000000000000001,
+     0.0
+    ],
+    [
+     2.4999999999999947,
+     0.0
+    ],
+    [
+     2.8285384586114155,
+     0.0
+    ],
+    [
+     2.9999999999999885,
+     0.0
+    ],
+    [
+     3.0,
+     0.0
+    ]
+   ],
+   "complex_levels_found": 1,
+   "levels_found": 19,
+   "leading_complex_levels_Re_Im": [
+    [
+     4.247023111209842,
+     0.06551152592675455
+    ]
+   ],
+   "max_quality_Im_over_Re": 0.015425281240838928,
+   "R5_release_per_sweep": 0.25,
+   "R5_exact_half_dbar2": "1/4",
+   "R5_exact_float": 0.25,
+   "mean_contrast_error": 1.6653345369377348e-16,
+   "odd_seams_mean": 2.952936600544535,
+   "seam_potential_mean_half_sum_d2": 1.9764683002722676,
+   "half_q_Dplus_q": 0.25
+  },
+  {
+   "solid": "tetrahedron",
+   "sector": "pair of charge 1 at dual distance 1",
+   "total": 2,
+   "reachable": 8,
+   "class_size": 8,
+   "stationary_level": -5.329070518200751e-15,
+   "gap_Re_E1": 2.000000000000001,
+   "vacuum_gap_lambda1_over_2": 1.9999999999999982,
+   "lowest_levels": [
+    [
+     2.000000000000001,
+     -9.44351202594968e-16
+    ],
+    [
+     2.000000000000001,
+     9.44351202594968e-16
+    ],
+    [
+     2.000000000000001,
+     0.0
+    ],
+    [
+     2.9999999846882335,
+     0.0
+    ],
+    [
+     2.999999999999999,
+     0.0
+    ],
+    [
+     3.0,
+     0.0
+    ],
+    [
+     3.0000000153117705,
+     0.0
+    ]
+   ],
+   "complex_levels_found": 0,
+   "levels_found": 8,
+   "leading_complex_levels_Re_Im": [],
+   "max_quality_Im_over_Re": 0.0,
+   "R5_release_per_sweep": 0.2500000000000003,
+   "R5_exact_half_dbar2": "1/4",
+   "R5_exact_float": 0.25,
+   "mean_contrast_error": 7.216449660063518e-16,
+   "odd_seams_mean": 3.4444444444444438,
+   "seam_potential_mean_half_sum_d2": 2.2222222222222223,
+   "half_q_Dplus_q": 0.25
+  },
+  {
+   "solid": "tetrahedron",
+   "sector": "pair of charge 1 at dual distance 1",
+   "total": 3,
+   "reachable": 19,
+   "class_size": 19,
+   "stationary_level": 2.6645352591003757e-15,
+   "gap_Re_E1": 1.930968893163288,
+   "vacuum_gap_lambda1_over_2": 1.9999999999999982,
+   "lowest_levels": [
+    [
+     1.930968893163288,
+     0.0
+    ],
+    [
+     1.999999999999997,
+     0.0
+    ],
+    [
+     2.000000000000002,
+     -1.3283703562576165e-15
+    ],
+    [
+     2.000000000000002,
+     1.3283703562576165e-15
+    ],
+    [
+     2.500000000000006,
+     0.0
+    ],
+    [
+     2.8285384586114164,
+     0.0
+    ],
+    [
+     2.9999999999999885,
+     0.0
+    ],
+    [
+     2.9999999999999982,
+     0.0
+    ]
+   ],
+   "complex_levels_found": 1,
+   "levels_found": 19,
+   "leading_complex_levels_Re_Im": [
+    [
+     4.2470231112098435,
+     0.06551152592675528
+    ]
+   ],
+   "max_quality_Im_over_Re": 0.015425281240839094,
+   "R5_release_per_sweep": 0.2500000000000002,
+   "R5_exact_half_dbar2": "1/4",
+   "R5_exact_float": 0.25,
+   "mean_contrast_error": 3.3306690738754696e-16,
+   "odd_seams_mean": 2.9529366005445348,
+   "seam_potential_mean_half_sum_d2": 1.9764683002722678,
+   "half_q_Dplus_q": 0.25
+  },
+  {
+   "solid": "tetrahedron",
+   "sector": "pair of charge 2 at dual distance 1",
+   "total": 0,
+   "reachable": 21,
+   "class_size": 21,
+   "stationary_level": -7.993605777301127e-15,
+   "gap_Re_E1": 1.741521356127613,
+   "vacuum_gap_lambda1_over_2": 1.9999999999999982,
+   "lowest_levels": [
+    [
+     1.741521356127613,
+     0.0
+    ],
+    [
+     1.999999999999995,
+     0.0
+    ],
+    [
+     2.000000000000001,
+     0.0
+    ],
+    [
+     2.0000000000000044,
+     0.0
+    ],
+    [
+     2.9999999999999956,
+     0.0
+    ],
+    [
+     2.9999999999999982,
+     0.0
+    ],
+    [
+     3.0000000000000013,
+     0.0
+    ],
+    [
+     3.0000000000000013,
+     0.0
+    ]
+   ],
+   "complex_levels_found": 2,
+   "levels_found": 21,
+   "leading_complex_levels_Re_Im": [
+    [
+     3.1511366172644273,
+     0.4999936226795953
+    ],
+    [
+     4.25,
+     0.6614378277661476
+    ]
+   ],
+   "max_quality_Im_over_Re": 0.1586708808308194,
+   "R5_release_per_sweep": 0.9999999999999998,
+   "R5_exact_half_dbar2": "1",
+   "R5_exact_float": 1.0,
+   "mean_contrast_error": 2.220446049250313e-16,
+   "odd_seams_mean": 2.582278481012658,
+   "seam_potential_mean_half_sum_d2": 3.2911392405063284,
+   "half_q_Dplus_q": 1.0
+  },
+  {
+   "solid": "tetrahedron",
+   "sector": "pair of charge 2 at dual distance 1",
+   "total": 1,
+   "reachable": 36,
+   "class_size": 36,
+   "stationary_level": -5.329070518200751e-15,
+   "gap_Re_E1": 1.9999999999999982,
+   "vacuum_gap_lambda1_over_2": 1.9999999999999982,
+   "lowest_levels": [
+    [
+     1.9999999999999982,
+     0.0
+    ],
+    [
+     1.9999999999999982,
+     0.0
+    ],
+    [
+     2.0000000000000036,
+     -1.0345628704990141e-15
+    ],
+    [
+     2.0000000000000036,
+     1.0345628704990141e-15
+    ],
+    [
+     2.5000000000000018,
+     0.0
+    ],
+    [
+     2.7459742746041886,
+     0.0
+    ],
+    [
+     2.772437845696912,
+     -0.024950613632532058
+    ],
+    [
+     2.772437845696912,
+     0.024950613632532058
+    ]
+   ],
+   "complex_levels_found": 7,
+   "levels_found": 36,
+   "leading_complex_levels_Re_Im": [
+    [
+     2.772437845696912,
+     0.024950613632532058
+    ],
+    [
+     3.3794808943979353,
+     0.425088908206057
+    ],
+    [
+     3.7980572837353366,
+     0.37826632832075263
+    ]
+   ],
+   "max_quality_Im_over_Re": 0.1362331191500496,
+   "R5_release_per_sweep": 1.0000000000000004,
+   "R5_exact_half_dbar2": "1",
+   "R5_exact_float": 1.0,
+   "mean_contrast_error": 6.106226635438361e-16,
+   "odd_seams_mean": 2.999999999999999,
+   "seam_potential_mean_half_sum_d2": 3.500000000000001,
+   "half_q_Dplus_q": 1.0
+  },
+  {
+   "solid": "tetrahedron",
+   "sector": "pair of charge 2 at dual distance 1",
+   "total": 2,
+   "reachable": 32,
+   "class_size": 32,
+   "stationary_level": 6.661338147750939e-15,
+   "gap_Re_E1": 1.9999999999999936,
+   "vacuum_gap_lambda1_over_2": 1.9999999999999982,
+   "lowest_levels": [
+    [
+     1.9999999999999936,
+     0.0
+    ],
+    [
+     1.999999999999999,
+     0.0
+    ],
+    [
+     1.9999999999999996,
+     0.0
+    ],
+    [
+     2.174549697733104,
+     0.0
+    ],
+    [
+     2.411650784687078,
+     0.0
+    ],
+    [
+     2.7806577804488315,
+     0.0
+    ],
+    [
+     2.9999999999999973,
+     0.0
+    ],
+    [
+     2.999999999999999,
+     0.0
+    ]
+   ],
+   "complex_levels_found": 4,
+   "levels_found": 32,
+   "leading_complex_levels_Re_Im": [
+    [
+     3.2690499819806984,
+     0.7075249801952544
+    ],
+    [
+     4.379891662759622,
+     0.5785516937101095
+    ],
+    [
+     4.8659255068724105,
+     0.6615452450765396
+    ]
+   ],
+   "max_quality_Im_over_Re": 0.21643137428157924,
+   "R5_release_per_sweep": 1.0000000000000009,
+   "R5_exact_half_dbar2": "1",
+   "R5_exact_float": 1.0,
+   "mean_contrast_error": 6.661338147750939e-16,
+   "odd_seams_mean": 3.260450557686374,
+   "seam_potential_mean_half_sum_d2": 3.6302252788431884,
+   "half_q_Dplus_q": 1.0
+  },
+  {
+   "solid": "tetrahedron",
+   "sector": "pair of charge 2 at dual distance 1",
+   "total": 3,
+   "reachable": 36,
+   "class_size": 36,
+   "stationary_level": 1.0658141036401503e-14,
+   "gap_Re_E1": 1.9999999999999962,
+   "vacuum_gap_lambda1_over_2": 1.9999999999999982,
+   "lowest_levels": [
+    [
+     1.9999999999999962,
+     0.0
+    ],
+    [
+     1.9999999999999982,
+     0.0
+    ],
+    [
+     1.999999999999999,
+     0.0
+    ],
+    [
+     2.0,
+     0.0
+    ],
+    [
+     2.5000000000000053,
+     0.0
+    ],
+    [
+     2.745974274604192,
+     0.0
+    ],
+    [
+     2.7724378456968988,
+     -0.02495061363253618
+    ],
+    [
+     2.7724378456968988,
+     0.02495061363253618
+    ]
+   ],
+   "complex_levels_found": 7,
+   "levels_found": 36,
+   "leading_complex_levels_Re_Im": [
+    [
+     2.7724378456968988,
+     0.02495061363253618
+    ],
+    [
+     3.3794808943979384,
+     0.42508890820605916
+    ],
+    [
+     3.798057283735341,
+     0.37826632832075163
+    ]
+   ],
+   "max_quality_Im_over_Re": 0.13623311915005057,
+   "R5_release_per_sweep": 1.000000000000001,
+   "R5_exact_half_dbar2": "1",
+   "R5_exact_float": 1.0,
+   "mean_contrast_error": 9.992007221626409e-16,
+   "odd_seams_mean": 2.9999999999999996,
+   "seam_potential_mean_half_sum_d2": 3.5000000000000027,
+   "half_q_Dplus_q": 1.0
+  },
+  {
+   "solid": "octahedron",
+   "sector": "vacuum",
+   "total": 1,
+   "reachable": 6,
+   "class_size": 6,
+   "stationary_level": 5.329070518200751e-15,
+   "gap_Re_E1": 1.999999999999993,
+   "vacuum_gap_lambda1_over_2": 2.0,
+   "lowest_levels": [
+    [
+     1.999999999999993,
+     0.0
+    ],
+    [
+     2.0000000000000036,
+     0.0
+    ],
+    [
+     2.0000000000000036,
+     0.0
+    ],
+    [
+     3.0000000000000027,
+     0.0
+    ],
+    [
+     3.0000000000000053,
+     0.0
+    ]
+   ],
+   "complex_levels_found": 0,
+   "levels_found": 6,
+   "leading_complex_levels_Re_Im": [],
+   "max_quality_Im_over_Re": 0.0,
+   "R5_release_per_sweep": 0.0,
+   "R5_exact_half_dbar2": "0",
+   "R5_exact_float": 0.0,
+   "mean_contrast_error": 1.6375789613221059e-15,
+   "odd_seams_mean": 4.0,
+   "seam_potential_mean_half_sum_d2": 2.0,
+   "half_q_Dplus_q": 0.0
+  },
+  {
+   "solid": "octahedron",
+   "sector": "pair of charge 1 at dual distance 1",
+   "total": 0,
+   "reachable": 147,
+   "class_size": 147,
+   "stationary_level": 0.0,
+   "gap_Re_E1": 1.1913627232317952,
+   "vacuum_gap_lambda1_over_2": 2.0,
+   "lowest_levels": [
+    [
+     1.1913627232317952,
+     0.0
+    ],
+    [
+     1.999999999999985,
+     0.0
+    ],
+    [
+     1.999999999999985,
+     0.0
+    ],
+    [
+     1.9999999999999916,
+     0.0
+    ],
+    [
+     3.0000000000000266,
+     0.0
+    ],
+    [
+     3.0000000000000413,
+     0.0
+    ],
+    [
+     3.071692681181119,
+     0.0
+    ],
+    [
+     3.116157248184394,
+     0.0
+    ]
+   ],
+   "complex_levels_found": 36,
+   "levels_found": 147,
+   "leading_complex_levels_Re_Im": [
+    [
+     3.129695499656811,
+     0.14221953183173516
+    ],
+    [
+     3.466587127875437,
+     0.10411059534111969
+    ],
+    [
+     4.612391344588043,
+     0.24374392082961177
+    ]
+   ],
+   "max_quality_Im_over_Re": 0.05992150060209509,
+   "R5_release_per_sweep": 0.29166666666667523,
+   "R5_exact_half_dbar2": "7/24",
+   "R5_exact_float": 0.2916666666666667,
+   "mean_contrast_error": 3.858025010572419e-15,
+   "odd_seams_mean": 3.3753531953320657,
+   "seam_potential_mean_half_sum_d2": 2.2710099309993836,
+   "half_q_Dplus_q": 0.29166666666666663
+  },
+  {
+   "solid": "octahedron",
+   "sector": "pair of charge 1 at dual distance 1",
+   "total": 1,
+   "reachable": 384,
+   "class_size": 384,
+   "stationary_level": 0.0,
+   "gap_Re_E1": 1.7071420566445354,
+   "vacuum_gap_lambda1_over_2": 2.0,
+   "lowest_levels": [
+    [
+     1.7071420566445354,
+     0.0
+    ],
+    [
+     1.9999999999999076,
+     0.0
+    ],
+    [
+     2.000000000000002,
+     0.0
+    ],
+    [
+     2.000000000000013,
+     0.0
+    ],
+    [
+     2.695039450520051,
+     -0.05871348060326678
+    ],
+    [
+     2.695039450520051,
+     0.05871348060326678
+    ],
+    [
+     2.8028684150546286,
+     0.0
+    ],
+    [
+     2.999999999999896,
+     0.0
+    ]
+   ],
+   "complex_levels_found": 132,
+   "levels_found": 384,
+   "leading_complex_levels_Re_Im": [
+    [
+     2.695039450520051,
+     0.05871348060326678
+    ],
+    [
+     3.470762253543814,
+     0.12167728646030364
+    ],
+    [
+     4.214398602096276,
+     0.0836319437241684
+    ]
+   ],
+   "max_quality_Im_over_Re": 0.06839215440628314,
+   "R5_release_per_sweep": 0.2916666666666766,
+   "R5_exact_half_dbar2": "7/24",
+   "R5_exact_float": 0.2916666666666667,
+   "mean_contrast_error": 3.823330541052883e-15,
+   "odd_seams_mean": 4.796915665314103,
+   "seam_potential_mean_half_sum_d2": 2.981791165990405,
+   "half_q_Dplus_q": 0.29166666666666663
+  },
+  {
+   "solid": "octahedron",
+   "sector": "pair of charge 2 at dual distance 1",
+   "total": 0,
+   "reachable": 1293,
+   "class_size": 1293,
+   "stationary_level": -5.3290705182007514e-14,
+   "gap_Re_E1": 1.5400216062371084,
+   "vacuum_gap_lambda1_over_2": 2.0,
+   "lowest_levels": [
+    [
+     1.5400216062371084,
+     0.0
+    ],
+    [
+     1.9999999999999303,
+     0.0
+    ],
+    [
+     1.9999999999999556,
+     0.0
+    ],
+    [
+     2.000000000000002,
+     0.0
+    ],
+    [
+     2.999999999999819,
+     0.0
+    ],
+    [
+     2.9999999999999427,
+     0.0
+    ],
+    [
+     3.1508943753728746,
+     0.0
+    ],
+    [
+     3.2386821739800222,
+     -0.05346869982963085
+    ]
+   ],
+   "complex_levels_found": 490,
+   "levels_found": 1293,
+   "leading_complex_levels_Re_Im": [
+    [
+     3.2386821739800222,
+     0.05346869982963085
+    ],
+    [
+     3.4218206702079215,
+     0.07477940834660719
+    ],
+    [
+     4.084338677334711,
+     0.5453934427872967
+    ]
+   ],
+   "max_quality_Im_over_Re": 0.22465107913810495,
+   "R5_release_per_sweep": 1.1666666666666834,
+   "R5_exact_half_dbar2": "7/6",
+   "R5_exact_float": 1.1666666666666667,
+   "mean_contrast_error": 4.385380947269368e-15,
+   "odd_seams_mean": 4.518134420132775,
+   "seam_potential_mean_half_sum_d2": 4.592400543399754,
+   "half_q_Dplus_q": 1.1666666666666665
+  },
+  {
+   "solid": "octahedron",
+   "sector": "pair of charge 2 at dual distance 1",
+   "total": 1,
+   "reachable": 1487,
+   "class_size": 1487,
+   "stationary_level": -3.730349362740526e-14,
+   "gap_Re_E1": 1.8998076810426299,
+   "vacuum_gap_lambda1_over_2": 2.0,
+   "lowest_levels": [
+    [
+     1.8998076810426299,
+     0.0
+    ],
+    [
+     1.9999999999998863,
+     0.0
+    ],
+    [
+     1.999999999999905,
+     0.0
+    ],
+    [
+     2.0000000000000315,
+     0.0
+    ],
+    [
+     2.6786092813749613,
+     0.0
+    ],
+    [
+     2.9999999999999414,
+     0.0
+    ],
+    [
+     3.0000000000013363,
+     0.0
+    ],
+    [
+     3.0038478729556526,
+     0.0
+    ]
+   ],
+   "complex_levels_found": 589,
+   "levels_found": 1487,
+   "leading_complex_levels_Re_Im": [
+    [
+     3.2960613054529575,
+     0.08001967983057362
+    ],
+    [
+     3.475334650604222,
+     0.03701578914181355
+    ],
+    [
+     3.5669920251535783,
+     0.05166843350349224
+    ]
+   ],
+   "max_quality_Im_over_Re": 0.1712238217888045,
+   "R5_release_per_sweep": 1.1666666666666843,
+   "R5_exact_half_dbar2": "7/6",
+   "R5_exact_float": 1.1666666666666667,
+   "mean_contrast_error": 4.551914400963142e-15,
+   "odd_seams_mean": 5.26036157109557,
+   "seam_potential_mean_half_sum_d2": 4.963514118881154,
+   "half_q_Dplus_q": 1.1666666666666665
+  },
+  {
+   "solid": "octahedron",
+   "sector": "pair of charge 1 at dual distance 2",
+   "total": 0,
+   "reachable": 1011,
+   "class_size": 1011,
+   "stationary_level": -7.460698725481052e-14,
+   "gap_Re_E1": 1.5798729315177629,
+   "vacuum_gap_lambda1_over_2": 2.0,
+   "lowest_levels": [
+    [
+     1.5798729315177629,
+     0.0
+    ],
+    [
+     1.999999999999877,
+     0.0
+    ],
+    [
+     1.9999999999999596,
+     0.0
+    ],
+    [
+     1.9999999999999756,
+     0.0
+    ],
+    [
+     2.947009476904455,
+     -0.06398096241015207
+    ],
+    [
+     2.947009476904455,
+     0.06398096241015207
+    ],
+    [
+     2.999999999999912,
+     0.0
+    ],
+    [
+     3.000000000000072,
+     0.0
+    ]
+   ],
+   "complex_levels_found": 365,
+   "levels_found": 1011,
+   "leading_complex_levels_Re_Im": [
+    [
+     2.947009476904455,
+     0.06398096241015207
+    ],
+    [
+     3.334396381902331,
+     0.20674846646869086
+    ],
+    [
+     4.416565727709458,
+     0.02925427443160846
+    ]
+   ],
+   "max_quality_Im_over_Re": 0.0972551382407799,
+   "R5_release_per_sweep": 0.37500000000001743,
+   "R5_exact_half_dbar2": "3/8",
+   "R5_exact_float": 0.375,
+   "mean_contrast_error": 4.9960036108132044e-15,
+   "odd_seams_mean": 4.687639290490906,
+   "seam_potential_mean_half_sum_d2": 3.093819645245488,
+   "half_q_Dplus_q": 0.3750000000000004
+  },
+  {
+   "solid": "octahedron",
+   "sector": "pair of charge 1 at dual distance 2",
+   "total": 1,
+   "reachable": 545,
+   "class_size": 545,
+   "stationary_level": -6.394884621840902e-14,
+   "gap_Re_E1": 1.999999999999977,
+   "vacuum_gap_lambda1_over_2": 2.0,
+   "lowest_levels": [
+    [
+     1.999999999999977,
+     -8.510537593298773e-15
+    ],
+    [
+     1.999999999999977,
+     8.510537593298773e-15
+    ],
+    [
+     2.0000000000000155,
+     0.0
+    ],
+    [
+     2.040263503388852,
+     0.0
+    ],
+    [
+     2.719435922533299,
+     0.0
+    ],
+    [
+     3.0000000000000253,
+     0.0
+    ],
+    [
+     3.0000000000000613,
+     0.0
+    ],
+    [
+     3.047682361724867,
+     0.0
+    ]
+   ],
+   "complex_levels_found": 198,
+   "levels_found": 545,
+   "leading_complex_levels_Re_Im": [
+    [
+     3.3048340537133742,
+     0.2866475934912427
+    ],
+    [
+     3.3936263515182135,
+     0.06377571272566145
+    ],
+    [
+     3.475405033405897,
+     0.08313726303470675
+    ]
+   ],
+   "max_quality_Im_over_Re": 0.1079081999770017,
+   "R5_release_per_sweep": 0.37500000000001166,
+   "R5_exact_half_dbar2": "3/8",
+   "R5_exact_float": 0.375,
+   "mean_contrast_error": 4.6629367034256575e-15,
+   "odd_seams_mean": 5.656902186016258,
+   "seam_potential_mean_half_sum_d2": 3.5784510930081517,
+   "half_q_Dplus_q": 0.3750000000000004
+  },
+  {
+   "solid": "octahedron",
+   "sector": "pair of charge 2 at dual distance 2",
+   "total": 0,
+   "reachable": 1659,
+   "class_size": 1659,
+   "stationary_level": -5.329070518200751e-15,
+   "gap_Re_E1": 1.9999999999998277,
+   "vacuum_gap_lambda1_over_2": 2.0,
+   "lowest_levels": [
+    [
+     1.9999999999998277,
+     0.0
+    ],
+    [
+     1.9999999999999676,
+     0.0
+    ],
+    [
+     1.999999999999977,
+     0.0
+    ],
+    [
+     2.17010931911907,
+     0.0
+    ],
+    [
+     2.999999999999827,
+     0.0
+    ],
+    [
+     2.999999999999896,
+     0.0
+    ],
+    [
+     3.1472724942896964,
+     0.0
+    ],
+    [
+     3.3491034725835602,
+     0.0
+    ]
+   ],
+   "complex_levels_found": 715,
+   "levels_found": 1659,
+   "leading_complex_levels_Re_Im": [
+    [
+     3.380128411106946,
+     0.35061161223063353
+    ],
+    [
+     3.4149035520804074,
+     0.07821815699538333
+    ],
+    [
+     3.5235304438920556,
+     0.08043046175421044
+    ]
+   ],
+   "max_quality_Im_over_Re": 0.29283621073640353,
+   "R5_release_per_sweep": 1.5000000000000129,
+   "R5_exact_half_dbar2": "3/2",
+   "R5_exact_float": 1.5,
+   "mean_contrast_error": 3.3306690738754696e-15,
+   "odd_seams_mean": 5.750310970497805,
+   "seam_potential_mean_half_sum_d2": 5.8751554852489285,
+   "half_q_Dplus_q": 1.5000000000000016
+  },
+  {
+   "solid": "octahedron",
+   "sector": "pair of charge 2 at dual distance 2",
+   "total": 1,
+   "reachable": 1707,
+   "class_size": 1707,
+   "stationary_level": -1.5987211554602254e-14,
+   "gap_Re_E1": 1.9999999999999423,
+   "vacuum_gap_lambda1_over_2": 2.0,
+   "lowest_levels": [
+    [
+     1.9999999999999423,
+     0.0
+    ],
+    [
+     1.9999999999999956,
+     0.0
+    ],
+    [
+     2.000000000000021,
+     0.0
+    ],
+    [
+     2.4395073145452693,
+     0.0
+    ],
+    [
+     2.9999999999999027,
+     0.0
+    ],
+    [
+     2.99999999999994,
+     0.0
+    ],
+    [
+     3.062556865418376,
+     0.0
+    ],
+    [
+     3.199921874808827,
+     0.0
+    ]
+   ],
+   "complex_levels_found": 719,
+   "levels_found": 1707,
+   "leading_complex_levels_Re_Im": [
+    [
+     3.292795230861894,
+     0.2820961662916531
+    ],
+    [
+     3.494094876178871,
+     0.04874349973344112
+    ],
+    [
+     3.6776776172781114,
+     0.03174044973598944
+    ]
+   ],
+   "max_quality_Im_over_Re": 0.2563425420685741,
+   "R5_release_per_sweep": 1.5000000000000118,
+   "R5_exact_half_dbar2": "3/2",
+   "R5_exact_float": 1.5,
+   "mean_contrast_error": 3.885780586188048e-15,
+   "odd_seams_mean": 6.068593137136805,
+   "seam_potential_mean_half_sum_d2": 6.034296568568426,
+   "half_q_Dplus_q": 1.5000000000000016
+  },
+  {
+   "solid": "octahedron",
+   "sector": "pair of charge 1 at dual distance 3",
+   "total": 0,
+   "reachable": 686,
+   "class_size": 686,
+   "stationary_level": -2.6645352591003757e-14,
+   "gap_Re_E1": 1.9991361545883621,
+   "vacuum_gap_lambda1_over_2": 2.0,
+   "lowest_levels": [
+    [
+     1.9991361545883621,
+     0.0
+    ],
+    [
+     1.999999999999913,
+     0.0
+    ],
+    [
+     1.999999999999977,
+     0.0
+    ],
+    [
+     2.0000000000002847,
+     0.0
+    ],
+    [
+     2.9921155153203727,
+     0.0
+    ],
+    [
+     2.9999999999995937,
+     0.0
+    ],
+    [
+     2.9999999999999494,
+     0.0
+    ],
+    [
+     3.0288108760062777,
+     0.0
+    ]
+   ],
+   "complex_levels_found": 260,
+   "levels_found": 686,
+   "leading_complex_levels_Re_Im": [
+    [
+     3.270014221433128,
+     0.1696064779756345
+    ],
+    [
+     3.3504497842613814,
+     0.3110718717118376
+    ],
+    [
+     3.3966129844549195,
+     0.014792259309584999
+    ]
+   ],
+   "max_quality_Im_over_Re": 0.10601980627966988,
+   "R5_release_per_sweep": 0.4166666666666772,
+   "R5_exact_half_dbar2": "5/12",
+   "R5_exact_float": 0.4166666666666667,
+   "mean_contrast_error": 4.524158825347513e-15,
+   "odd_seams_mean": 5.67307904688506,
+   "seam_potential_mean_half_sum_d2": 3.669872856775884,
+   "half_q_Dplus_q": 0.4166666666666667
+  },
+  {
+   "solid": "octahedron",
+   "sector": "pair of charge 1 at dual distance 3",
+   "total": 1,
+   "reachable": 686,
+   "class_size": 686,
+   "stationary_level": 0.0,
+   "gap_Re_E1": 1.9991361545948876,
+   "vacuum_gap_lambda1_over_2": 2.0,
+   "lowest_levels": [
+    [
+     1.9991361545948876,
+     0.0
+    ],
+    [
+     1.999999999993738,
+     0.0
+    ],
+    [
+     1.9999999999999383,
+     0.0
+    ],
+    [
+     2.000000000000022,
+     0.0
+    ],
+    [
+     2.992115515319816,
+     0.0
+    ],
+    [
+     2.9999999999999667,
+     0.0
+    ],
+    [
+     3.0000000000004063,
+     0.0
+    ],
+    [
+     3.028810876006026,
+     0.0
+    ]
+   ],
+   "complex_levels_found": 260,
+   "levels_found": 686,
+   "leading_complex_levels_Re_Im": [
+    [
+     3.2700142214332253,
+     0.1696064779756112
+    ],
+    [
+     3.350449784261424,
+     0.3110718717118458
+    ],
+    [
+     3.396612984454949,
+     0.014792259309577597
+    ]
+   ],
+   "max_quality_Im_over_Re": 0.10601980627966959,
+   "R5_release_per_sweep": 0.4166666666666796,
+   "R5_exact_half_dbar2": "5/12",
+   "R5_exact_float": 0.4166666666666667,
+   "mean_contrast_error": 4.9682480351975755e-15,
+   "odd_seams_mean": 5.6730790468850625,
+   "seam_potential_mean_half_sum_d2": 3.669872856775891,
+   "half_q_Dplus_q": 0.4166666666666667
+  },
+  {
+   "solid": "octahedron",
+   "sector": "pair of charge 2 at dual distance 3",
+   "total": 0,
+   "reachable": 1536,
+   "class_size": 1536,
+   "stationary_level": -2.6645352591003757e-15,
+   "gap_Re_E1": 1.9999999999999583,
+   "vacuum_gap_lambda1_over_2": 2.0,
+   "lowest_levels": [
+    [
+     1.9999999999999583,
+     0.0
+    ],
+    [
+     1.9999999999999796,
+     0.0
+    ],
+    [
+     1.9999999999999982,
+     0.0
+    ],
+    [
+     2.5569978911856643,
+     0.0
+    ],
+    [
+     2.9999999999999227,
+     0.0
+    ],
+    [
+     2.999999999999952,
+     0.0
+    ],
+    [
+     3.025308059883641,
+     0.0
+    ],
+    [
+     3.309348812838915,
+     0.0
+    ]
+   ],
+   "complex_levels_found": 619,
+   "levels_found": 1536,
+   "leading_complex_levels_Re_Im": [
+    [
+     3.405989958805714,
+     0.37398438926084654
+    ],
+    [
+     3.5465108325008314,
+     0.05061091979825219
+    ],
+    [
+     3.61681895273923,
+     0.2742154294000829
+    ]
+   ],
+   "max_quality_Im_over_Re": 0.342395111809223,
+   "R5_release_per_sweep": 1.6666666666666918,
+   "R5_exact_half_dbar2": "5/3",
+   "R5_exact_float": 1.6666666666666667,
+   "mean_contrast_error": 7.438494264988549e-15,
+   "odd_seams_mean": 6.0362905133738325,
+   "seam_potential_mean_half_sum_d2": 6.3514785900202995,
+   "half_q_Dplus_q": 1.6666666666666667
+  },
+  {
+   "solid": "octahedron",
+   "sector": "pair of charge 2 at dual distance 3",
+   "total": 1,
+   "reachable": 2048,
+   "class_size": 2048,
+   "stationary_level": 2.398081733190338e-14,
+   "gap_Re_E1": 1.9999999999998463,
+   "vacuum_gap_lambda1_over_2": 2.0,
+   "lowest_levels": [
+    [
+     1.9999999999998463,
+     0.0
+    ],
+    [
+     1.9999999999999476,
+     0.0
+    ],
+    [
+     1.9999999999999623,
+     0.0
+    ],
+    [
+     2.5305024347055003,
+     0.0
+    ],
+    [
+     2.999999999999791,
+     0.0
+    ],
+    [
+     2.999999999999808,
+     0.0
+    ],
+    [
+     3.127722032414253,
+     0.0
+    ],
+    [
+     3.230977526337979,
+     0.0
+    ]
+   ],
+   "complex_levels_found": 840,
+   "levels_found": 2048,
+   "leading_complex_levels_Re_Im": [
+    [
+     3.4252158200188814,
+     0.2451594212951869
+    ],
+    [
+     3.544923905620377,
+     0.27752495632529756
+    ],
+    [
+     3.744351084248253,
+     0.16255989555552944
+    ]
+   ],
+   "max_quality_Im_over_Re": 0.31183143067692104,
+   "R5_release_per_sweep": 1.6666666666666892,
+   "R5_exact_half_dbar2": "5/3",
+   "R5_exact_float": 1.6666666666666667,
+   "mean_contrast_error": 7.771561172376096e-15,
+   "odd_seams_mean": 6.03628313034849,
+   "seam_potential_mean_half_sum_d2": 6.351474898507624,
+   "half_q_Dplus_q": 1.6666666666666667
+  }
+ ]
+}

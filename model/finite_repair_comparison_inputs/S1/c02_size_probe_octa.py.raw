@@ -1,0 +1,31 @@
+"""Size probe: static-law closed classes on the octahedron for one unit pair, per dual distance and label."""
+import sys, time
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import s1lib as S
+C = S.octahedron()
+print('dual distances from face 0:', C.ddist[0])
+tot = 0
+for g in (C.ddist[0].index(1), C.ddist[0].index(2), C.ddist[0].index(3)):
+    for m in range(6):
+        x = tuple(1 if p < m else 0 for p in range(C.P))
+        b = C.string(0, g)
+        d0 = tuple(a - o for a, o in zip(C.grad(x), b))
+        seen = {d0}; frontier = [d0]; t0 = time.time()
+        while frontier:
+            nxt = []
+            for d in frontier:
+                for e in range(C.M):
+                    de = d[e]
+                    if de == 0: continue
+                    for c in (0, 1):
+                        j = S.ref(de, c)
+                        if j == 0: continue
+                        t = C.apply(d, e, j, 0)
+                        if t not in seen:
+                            seen.add(t); nxt.append(t)
+            frontier = nxt
+        maxd = max(max(abs(v) for v in d) for d in seen)
+        tot += len(seen)
+        print(dict(dist=C.ddist[0][g], m=m, states=len(seen), maxd=maxd, sec=round(time.time()-t0, 2)), flush=True)
+print('sum', tot)

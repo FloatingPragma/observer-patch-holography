@@ -1,0 +1,283 @@
+"""Block 1: checks of the family definition on small instances.
+
+  python b1_definition.py            -> b1_definition.json
+
+1. one isolated carrier, glue addresses removed (register of sixty addresses): the family step is the public walk.
+   Exact rational arithmetic: return 11/12, 643/900; committed chain 101/120; one flipped link, charged level:
+   three-step return amplitude changes by -1/6750, probability by -9353/91125000; uncharged level: no change.
+   The compiled kernel reproduces the same numbers and the receipts of the joint program (1/120, 0, defect moves
+   with probability 1, return 1 and 1/2, four histories of 1/4, Gauss weight 1/2).
+2. the flat unit cell (one up and one down carrier, Bloch phase q): for every type and both gluings the step is
+   unitary, Q and R are Hermitian involutions, A*QA = diag(1 - L_G/S, 1 - (Deg + A_G)/S), S = 66 (bridge) or
+   72 (shared seam), and the spectrum of (W + W*)/2 is the doubled spectrum of A*QA plus eigenvalues +1 and -1.
+   For the scalar at q = 0 the discriminant identity is checked in exact integer arithmetic.
+3. the sphere federation at level 1 (80 carriers) with the compiled kernel: reversibility, norm, the discriminant
+   rows at bridge ports (degree six) and ordinary ports, and the recurrence A* W^t A = T_t(A*QA) for t <= 6.
+"""
+import json
+import sys
+import time
+from fractions import Fraction as F
+from multiprocessing import Pool
+
+import numpy as np
+
+import mv_lib as M
+import mv_walk as W
+import mv_defect as D
+
+OUT = {}
+T0 = time.time()
+
+
+def log(*a):
+    print(f'[{time.time() - T0:7.1f}s]', *a, flush=True)
+
+
+# ------------------------------------------------------------------------------------------------ 1. exact, one carrier
+def exact_one_carrier(steps, start=0, flipped=(), charged=False):
+    """Public walk on one carrier in rational arithmetic. State x[p][r][k] = sqrt(60) * amplitude."""
+    x = [[[F(0)] * 60 for _ in range(2)] for _ in range(12)]
+    for k in range(60):
+        x[start][0][k] = F(1)
+    hist = []
+    for _ in range(steps):
+        for p in range(12):                                   # R
+            for r in range(2):
+                s = sum(x[p][r], F(0)) / 30
+                x[p][r] = [s - v for v in x[p][r]]
+        for k in range(60):                                   # Q
+            a, b = int(M.TA60[k]), int(M.TB60[k])
+            g = -1 if (charged and (k % 30) in flipped) else 1
+            cc = ((x[a][0][k] - g * x[b][0][k]) - (x[a][1][k] + g * x[b][1][k])) / 2
+            x[a][0][k] -= cc; x[b][0][k] += g * cc; x[a][1][k] += cc; x[b][1][k] += g * cc
+        pop = [sum(v * v for r in range(2) for v in x[p][r]) / 60 for p in range(12)]
+        amp = sum(x[start][0], F(0)) / 60                     # <A start| W^t |A start>
+        hist.append((pop, amp))
+    return hist
+
+
+def part1():
+    res = {}
+    h = exact_one_carrier(2)
+    res['exact_return_after_1_step'] = str(h[0][0][0]); res['exact_return_after_2_steps'] = str(h[1][0][0])
+    res['exact_norm_after_2_steps'] = str(sum(h[1][0]))
+    assert h[0][0][0] == F(11, 12) and h[1][0][0] == F(643, 900) and sum(h[1][0]) == 1
+    # first blank-record event: populations are the row of 1 - L/60
+    assert h[0][0] == [F(11, 12) if p == 0 else (F(1, 60) if p in M.NBR[0] else F(0)) for p in range(12)]
+    p = [F(1) if q == 0 else F(0) for q in range(12)]
+    for _ in range(2):
+        p = [p[q] * F(55, 60) + sum(p[s] for s in M.NBR[q]) / 60 for q in range(12)]
+    res['committed_return_after_2_attempts'] = str(p[0]); assert p[0] == F(101, 120)
+    e01 = M.SIDX[(0, 1)]
+    flat = exact_one_carrier(3)[2][1]
+    flux = exact_one_carrier(3, flipped=(e01,), charged=True)[2][1]
+    unch = exact_one_carrier(3, flipped=(e01,), charged=False)[2][1]
+    res['charged_level_three_step_return_amplitude_change'] = str(flux - flat)
+    res['charged_level_three_step_return_probability_change'] = str(flux * flux - flat * flat)
+    res['uncharged_level_change'] = str(unch - flat)
+    assert flux - flat == F(-1, 6750) and flux * flux - flat * flat == F(-9353, 91125000) and unch == flat
+    # compiled kernel on the same instance
+    fed = W.one_carrier(); one = np.ones(60, complex)
+    psi = W.new_state(fed); W.embed(psi, 0)
+    pp = np.zeros(12)
+    W.step(psi, fed, one); W.port_prob(psi, pp); r1 = pp[0]
+    W.step(psi, fed, one); W.port_prob(psi, pp); r2 = pp[0]
+    res['kernel_return_1_minus_11_12'] = float(r1 - 11 / 12); res['kernel_return_2_minus_643_900'] = float(r2 - 643 / 900)
+    assert abs(r1 - 11 / 12) < 1e-14 and abs(r2 - 643 / 900) < 1e-14
+
+    def amp3(flip, charged):
+        f = W.one_carrier()
+        if flip:
+            f['sgn'][0, e01] = -1
+        s = W.new_state(f); W.embed(s, 0)
+        for _ in range(3):
+            W.step(s, f, one, charged)
+        return W.embedded_overlap(s, 0)
+    d = amp3(True, True) - amp3(False, True)
+    res['kernel_charged_amplitude_change_plus_1_6750'] = float(abs(d + 1 / 6750)); assert abs(d + 1 / 6750) < 1e-14
+    assert abs(amp3(True, False) - amp3(False, False)) < 1e-15
+    # joint program receipts (public links: no recharting phase, charged level)
+    def joint(word0=1):
+        return D.Joint(W.one_carrier(), one, True, c1=0, centre=5, word0=1)
+    J = joint(); res['reachable_link_words'] = J.words
+    assert J.nw == 10 and J.reg['interior'] == [M.SIDX[e] for e in ((0, 5), (1, 5), (4, 5), (5, 9), (5, 11))]
+    out = {}
+    for w in (1, 3):
+        J = joint(); g = J.words.index(w)
+        W.embed(J.psi[g], 0, 2 ** -0.5); W.embed(J.psi[g], 5, 2 ** -0.5)
+        J.tick()
+        k = M.addr_index(0, 5)
+        out[w] = float(sum(abs(J.psi[h, 0, 0, k]) ** 2 for h in range(J.nw)))
+    res['wave_record_link_word_1'] = out[1]; res['wave_record_link_word_3'] = out[3]
+    assert abs(out[1] - 1 / 120) < 1e-15 and abs(out[3]) < 1e-15
+    faces = {}
+    for port in (5, 6):
+        J = joint(); g = J.words.index(1)
+        W.embed(J.psi[g], port)
+        J.wave(inverse=True); J.tick()
+        fp = J.face_prob()
+        faces[port] = {','.join(map(str, sorted(M.FACES[f]))): round(float(v), 12) for f, v in zip(J.reg['faces'], fp)}
+    res['defect_after_tick_wave_arriving_at_port_5'] = faces[5]; res['defect_after_tick_wave_arriving_at_port_6'] = faces[6]
+    assert abs(faces[5]['4,5,11'] - 1) < 1e-12 and abs(faces[6]['0,1,5'] - 1) < 1e-12
+    # Gauss sector receipts
+    ref = np.zeros((12, 2, 60), complex); W.embed(ref, 5, 2 ** -0.5); W.embed(ref, 6, 2 ** -0.5)
+
+    def prep():
+        J = joint(); g = J.words.index(1)
+        J.psi[g] = ref.copy(); J.wave(inverse=True)
+        w = J.norm2(); J.gauss_project(1); wp = J.norm2() / w
+        J.psi /= np.sqrt(J.norm2())
+        return J, wp
+    J, wp = prep(); J.tick(); J.moves(inverse=True)
+    res['gauss_weight_of_definite_word'] = wp
+    res['return_without_record'] = J.return_probability(ref)
+    J, _ = prep(); J.tick()
+    hist = []; total = 0.0
+    for f in J.reg['faces']:
+        br = D.Joint(W.one_carrier(), one, True); br.psi = J.face_branch(f)
+        pf = br.norm2()
+        if pf < 1e-14:
+            continue
+        br.moves(inverse=True); r = br.return_probability(ref); total += r
+        hist.append({'face': sorted(M.FACES[f]), 'yes': round(r, 12), 'no': round(pf - r, 12)})
+    res['return_after_face_readout'] = total; res['face_return_histories'] = hist
+    assert abs(wp - 0.5) < 1e-12 and abs(res['return_without_record'] - 1) < 1e-12 and abs(total - 0.5) < 1e-12
+    assert sorted(round(v, 9) for h in hist for v in (h['yes'], h['no'])) == [0.25] * 4
+    # Gamma commutes with the tick on a state that is not gauge invariant
+    J = joint(); rng = np.random.default_rng(1)
+    J.psi = rng.normal(size=J.psi.shape) + 1j * rng.normal(size=J.psi.shape)
+    a = J.psi.copy(); J.tick(); ua = J.psi.copy(); gua = J.gauss(ua)
+    J.psi = J.gauss(a); J.tick()
+    res['commutator_U_Gamma_max'] = float(abs(J.psi - gua).max()); assert res['commutator_U_Gamma_max'] < 1e-12
+    return res
+
+
+# ------------------------------------------------------------------------------------------------ 2. flat unit cell
+def cell_check(args):
+    name, gluing, rule, qv = args
+    q = np.array(qv, float)
+    links = M.flat_links(name, gluing, rule)
+    Wm, Q, R, A = M.bloch_walk(q, links)
+    S = M.register_size(gluing); dim = Wm.shape[0]
+    I = np.eye(dim)
+    r = {'type': name, 'gluing': gluing, 'rule': rule, 'q': list(map(float, q)), 'register': S, 'dimension': dim}
+    r['unitarity_defect'] = float(abs(Wm.conj().T @ Wm - I).max())
+    r['Q_involution_defect'] = float(max(abs(Q @ Q - I).max(), abs(Q - Q.conj().T).max()))
+    r['R_involution_defect'] = float(max(abs(R @ R - I).max(), abs(R - R.conj().T).max()))
+    L, AG, deg = M.kernel_L(q, links)
+    disc = A.conj().T @ Q @ A                                   # ordering (port, parity)
+    blank = disc[0::2, 0::2]; sign = disc[1::2, 1::2]; cross = disc[0::2, 1::2]
+    r['discriminant_blank_defect'] = float(abs(blank - (np.eye(24) - L / S)).max())
+    r['discriminant_parity_one_defect'] = float(abs(sign - (np.eye(24) - (np.diag(deg) + AG) / S)).max())
+    r['discriminant_cross_parity_max'] = float(abs(cross).max())
+    r['degrees'] = sorted(set(int(v) for v in deg))
+    lam = np.concatenate([np.linalg.eigvalsh(np.eye(24) - L / S), np.linalg.eigvalsh(np.eye(24) - (np.diag(deg) + AG) / S)])
+    cosw = np.linalg.eigvalsh((Wm + Wm.conj().T) / 2)
+    inner = np.sort(cosw[(cosw > -1 + 1e-9) & (cosw < 1 - 1e-9)])
+    lam_in = lam[(lam > -1 + 1e-9) & (lam < 1 - 1e-9)]
+    want = np.sort(np.concatenate([lam_in, lam_in]))
+    r['oscillatory_dimension'] = int(inner.size); r['expected_oscillatory_dimension'] = int(want.size)
+    r['spectral_mapping_defect'] = float(abs(inner - want).max()) if inner.size == want.size else None
+    r['plus_one_multiplicity'] = int((cosw >= 1 - 1e-9).sum()); r['minus_one_multiplicity'] = int((cosw <= -1 + 1e-9).sum())
+    r['kernel_levels_lowest'] = np.linalg.eigvalsh(L)[:6].tolist()
+    return r
+
+
+def exact_scalar_discriminant(gluing):
+    """S * A*QA at q = 0 for the scalar in integers: 2 Q is an integer matrix."""
+    links = M.flat_links('scalar', gluing, 'template')
+    Wm, Q, R, A = M.bloch_walk(np.zeros(2), links)
+    S = M.register_size(gluing)
+    Q2 = np.rint(2 * Q.real).astype(np.int64)
+    assert abs(2 * Q - Q2).max() < 1e-12
+    blocks = Q2.reshape(48, S, 48, S).sum(axis=(1, 3))          # 2 S A*QA
+    L, AG, deg = M.kernel_L(np.zeros(2), links)
+    Li = np.rint(L.real).astype(np.int64); Ai = np.rint(AG.real).astype(np.int64); Di = np.rint(deg).astype(np.int64)
+    ok = (blocks[0::2, 0::2] == 2 * (S * np.eye(24, dtype=np.int64) - Li)).all()
+    ok &= (blocks[1::2, 1::2] == 2 * (S * np.eye(24, dtype=np.int64) - np.diag(Di) - Ai)).all()
+    ok &= (blocks[0::2, 1::2] == 0).all()
+    # Q^2 = 1 in integers: (2Q)(2Q) = 4
+    ok &= ((Q2 @ Q2) == 4 * np.eye(Q2.shape[0], dtype=np.int64)).all()
+    return bool(ok)
+
+
+# ------------------------------------------------------------------------------------------------ 3. sphere, level 1
+def part3():
+    res = {}
+    fed = W.from_fedgeom(1)
+    n = 12 * fed['ncar']; S = fed['S']
+    rng = np.random.default_rng(5)
+    for name in ('scalar', 'spinor', 'vector', 'spinor_g'):
+        z60 = M.template_links(name)
+        charged = M.TYPES[name]['charged']
+        f = dict(fed); f['sgn'] = fed['sgn'].copy(); f['gsg'] = fed['gsg'].copy()
+        if charged:                                               # some static flipped links, to test the general case
+            f['sgn'][3, 7] = -1; f['sgn'][11, 0] = -1; f['gsg'][5] = -1
+        # dense kernel from the graph
+        A = np.zeros((n, n), complex); deg = np.zeros(n)
+        for c in range(fed['ncar']):
+            for k in range(30):
+                a, b = 12 * c + int(M.TA60[k]), 12 * c + int(M.TB60[k])
+                g = z60[k] * (f['sgn'][c, k] if charged else 1)
+                A[b, a] += g; A[a, b] += np.conj(g); deg[a] += 1; deg[b] += 1
+        for s in range(fed['ga'].size):
+            a, b = int(fed['ga'][s]), int(fed['gb'][s])
+            g = fed['gz'][s] * (f['gsg'][s] if charged else 1)
+            A[b, a] += g; A[a, b] += np.conj(g); deg[a] += 1; deg[b] += 1
+        K = np.eye(n) - (np.diag(deg) - A) / S
+        psi = rng.normal(size=(n, 2, S)) + 1j * rng.normal(size=(n, 2, S)); psi /= np.linalg.norm(psi)
+        ref = psi.copy()
+        W.step(psi, f, z60, charged); nrm = float(np.linalg.norm(psi))
+        W.unstep(psi, f, z60, charged); back = float(abs(psi - ref).max())
+        ports = [int(fed['ga'][0]), int(fed['gb'][0]), 12 * 7 + 0, 12 * 40 + 6]     # two bridge ports, two ordinary
+        worst = 0.0; cheb = 0.0
+        for x in ports:
+            psi = W.new_state(fed); W.embed(psi, x)
+            t0 = np.zeros(n, complex); t0[x] = 1; t1 = K @ t0
+            for t in range(1, 7):
+                W.step(psi, f, z60, charged)
+                amp = psi[:, 0, :].sum(axis=1) / np.sqrt(S)          # A* W^t A e_x, blank block
+                if t == 1:
+                    worst = max(worst, float(abs(amp - K[:, x]).max()))
+                    pp = np.zeros(n); W.port_prob(psi, pp)
+                    worst = max(worst, float(abs(pp - abs(K[:, x])).max()))   # first-event populations = kernel row
+                    cur = t1
+                else:
+                    cur = 2 * K @ t1 - t0; t0, t1 = t1, cur
+                cheb = max(cheb, float(abs(amp - cur).max()))
+        res[name] = {'norm_after_step_minus_1': nrm - 1, 'reversibility_defect': back, 'discriminant_row_defect': worst,
+                     'chebyshev_recurrence_defect_t_le_6': cheb, 'degrees': sorted(set(int(v) for v in deg)),
+                     'kernel_diagonal_bridge_port': float(K[ports[0], ports[0]].real), 'kernel_diagonal_ordinary_port': float(K[ports[2], ports[2]].real),
+                     'lowest_kernel_levels': np.linalg.eigvalsh(np.diag(deg) - A)[:6].tolist()}
+        log('sphere level 1', name, res[name])
+    return res
+
+
+if __name__ == '__main__':
+    OUT['template'] = {}
+    for name in M.TYPES:
+        z = M.template_links(name)
+        fl = M.face_flux(z)
+        rho, n, ang = M.third_turn(M.TYPES[name]['axes'])
+        inv = max(abs(z[M.addr_index(rho[int(M.TA60[k])], rho[int(M.TB60[k])])] - z[k]) for k in range(60))
+        units = fl / (2 * np.pi / 20)
+        OUT['template'][name] = {'face_flux_in_units_of_2pi_over_20': sorted(set(np.round(units, 9).tolist())),
+                                 'links_invariant_under_third_turn_defect': float(inv)}
+        log('template', name, OUT['template'][name])
+    OUT['one_carrier'] = part1(); log('one carrier', json.dumps(OUT['one_carrier'])[:900])
+    OUT['exact_scalar_discriminant'] = {g: exact_scalar_discriminant(g) for g in ('bridge', 'seam')}
+    log('exact scalar discriminant', OUT['exact_scalar_discriminant'])
+    jobs = []
+    for gluing in ('bridge', 'seam'):
+        for name in ('scalar', 'spinor', 'vector', 'spinor_g', 'vector_g'):
+            for qv in ((0.0, 0.0), (0.37, -0.21)):
+                jobs.append((name, gluing, 'template', qv))
+    with Pool(10) as pool:
+        OUT['flat_cell'] = pool.map(cell_check, jobs)
+    for r in OUT['flat_cell']:
+        log(r['type'], r['gluing'], r['q'], 'unit', f"{r['unitarity_defect']:.1e}", 'disc', f"{r['discriminant_blank_defect']:.1e}", f"{r['discriminant_parity_one_defect']:.1e}",
+            'cross', f"{r['discriminant_cross_parity_max']:.1e}", 'map', r['spectral_mapping_defect'], 'osc', r['oscillatory_dimension'], '+1', r['plus_one_multiplicity'], '-1', r['minus_one_multiplicity'], 'deg', r['degrees'])
+    OUT['sphere_level_1'] = part3()
+    json.dump(OUT, open('b1_definition.json', 'w'), indent=1)
+    log('done')

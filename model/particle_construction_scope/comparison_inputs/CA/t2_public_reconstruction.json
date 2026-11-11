@@ -1,0 +1,385 @@
+{
+ "schema": "repair_law.CA.t2.v1",
+ "projection_form": {
+  "hermitian": 4.004216773978728e-14,
+  "involution": 2.482534153247273e-16,
+  "mean": 4.1050811260440686e-16
+ },
+ "bounds": {
+  "min_eigenvalue": 0.6884678901430038,
+  "max_eigenvalue_nontrivial": 0.9754680495548936,
+  "lowest_by_k": [
+   0.7721918938562016,
+   0.771084850904358,
+   0.766898866167447,
+   0.7598571699718942,
+   0.7644681337276196,
+   0.7595197324280093,
+   0.7463942639003689,
+   0.7342390992955877,
+   0.7153772338014466,
+   0.7153920860789222,
+   0.6884678901430038,
+   0.7153920860789222,
+   0.7153772338014465,
+   0.734239099295588,
+   0.7463942639003697,
+   0.7595197324280096,
+   0.7644681337276203,
+   0.7598571699718942,
+   0.7668988661674474,
+   0.771084850904359
+  ],
+  "highest_by_k": [
+   0.9999999999999997,
+   0.9754680495548936,
+   0.9578860797717152,
+   0.9416590541242726,
+   0.930723250876012,
+   0.9275304934492944,
+   0.928083863135803,
+   0.9258773674729497,
+   0.9229410713331833,
+   0.9173744188629831,
+   0.9183664545864547,
+   0.9173744188629828,
+   0.9229410713331831,
+   0.9258773674729499,
+   0.9280838631358029,
+   0.9275304934492945,
+   0.9307232508760119,
+   0.9416590541242724,
+   0.9578860797717156,
+   0.9754680495548927
+  ]
+ },
+ "path_dependence": [
+  {
+   "k": 0,
+   "direct": [
+    0.00118036322284932,
+    0.0
+   ],
+   "via": [
+    0.0011803632228493198,
+    0.0
+   ],
+   "ratio_phase_units": 0.0,
+   "triangle_word_phase_units": 0.0
+  },
+  {
+   "k": 1,
+   "direct": [
+    0.0011767938593791622,
+    -2.238451905223976e-21
+   ],
+   "via": [
+    0.0011191974682986747,
+    0.0003636493014242432
+   ],
+   "ratio_phase_units": 1.0000000000000002,
+   "triangle_word_phase_units": 0.9999999999999998
+  },
+  {
+   "k": 5,
+   "direct": [
+    0.0011110029516940058,
+    1.893947443138803e-19
+   ],
+   "via": [
+    -1.144659596165492e-19,
+    0.0011110029516940058
+   ],
+   "ratio_phase_units": 5.0,
+   "triangle_word_phase_units": 5.0
+  }
+ ],
+ "reference": [
+  {
+   "k": 0,
+   "L": 1,
+   "min_eigenvalue": 0.013789140961717896,
+   "max_imaginary_entry": 0.0,
+   "return_normalizer_r": 0.8484848484848485,
+   "m_lambda1_L_over_66": 0.015151515151515142,
+   "trace_distance_to_projector_over_m": 1.9642857142857149,
+   "conjugation_defect": 0.0,
+   "diagonal_min_max": [
+    0.01488095238095238,
+    0.015476190476190477
+   ]
+  },
+  {
+   "k": 0,
+   "L": 4,
+   "min_eigenvalue": 0.010151842080121574,
+   "max_imaginary_entry": 0.0,
+   "return_normalizer_r": 0.5306548821548825,
+   "m_lambda1_L_over_66": 0.01515151515151511,
+   "trace_distance_to_projector_over_m": 1.942895031550496,
+   "conjugation_defect": 0.0,
+   "diagonal_min_max": [
+    0.01410942157954457,
+    0.016398414314876104
+   ]
+  },
+  {
+   "k": 0,
+   "L": 64,
+   "min_eigenvalue": 5.5499861257752476e-08,
+   "max_imaginary_entry": 0.0,
+   "return_normalizer_r": 0.017806534944475445,
+   "m_lambda1_L_over_66": 0.015151515151514505,
+   "trace_distance_to_projector_over_m": 0.29820734929497034,
+   "conjugation_defect": 0.0,
+   "diagonal_min_max": [
+    0.01323933580800077,
+    0.0163772857355878
+   ]
+  },
+  {
+   "k": 0,
+   "L": 256,
+   "min_eigenvalue": -2.3596864331150576e-16,
+   "max_imaginary_entry": 0.0,
+   "return_normalizer_r": 0.015151774777755615,
+   "m_lambda1_L_over_66": 0.015151515151512567,
+   "trace_distance_to_projector_over_m": 3.427007643256117e-05,
+   "conjugation_defect": 0.0,
+   "diagonal_min_max": [
+    0.015151255539176303,
+    0.015151668827437261
+   ]
+  },
+  {
+   "k": 1,
+   "L": 1,
+   "min_eigenvalue": 0.013769372337577822,
+   "max_imaginary_entry": 0.0002976190476190475,
+   "return_normalizer_r": 0.8484848484848485,
+   "m_lambda1_L_over_66": 0.044339456797949706,
+   "trace_distance_to_projector_over_m": 1.8954855661191183,
+   "conjugation_defect": 5.813007352681156e-18,
+   "diagonal_min_max": [
+    0.01488095238095238,
+    0.015476190476190477
+   ]
+  },
+  {
+   "k": 1,
+   "L": 4,
+   "min_eigenvalue": 0.010094028555174928,
+   "max_imaginary_entry": 0.0013169063080298153,
+   "return_normalizer_r": 0.5306402866510913,
+   "m_lambda1_L_over_66": 0.04115565477360552,
+   "trace_distance_to_projector_over_m": 1.8448830373082223,
+   "conjugation_defect": 2.5363843327027973e-17,
+   "diagonal_min_max": [
+    0.014109361508732206,
+    0.01639849143416204
+   ]
+  },
+  {
+   "k": 1,
+   "L": 64,
+   "min_eigenvalue": 9.072253952658873e-08,
+   "max_imaginary_entry": 0.01551102580679471,
+   "return_normalizer_r": 0.00993756084118955,
+   "m_lambda1_L_over_66": 0.0092728334921962,
+   "trace_distance_to_projector_over_m": 0.13378078577155234,
+   "conjugation_defect": 4.705682061186714e-16,
+   "diagonal_min_max": [
+    0.010422311226093378,
+    0.018178005512522636
+   ]
+  },
+  {
+   "k": 1,
+   "L": 256,
+   "min_eigenvalue": -9.274990362363348e-17,
+   "max_imaginary_entry": 0.01579835718291518,
+   "return_normalizer_r": 7.872604069554798e-05,
+   "m_lambda1_L_over_66": 7.87259460414759e-05,
+   "trace_distance_to_projector_over_m": 2.4046446501783765e-06,
+   "conjugation_defect": 2.0290927108896926e-15,
+   "diagonal_min_max": [
+    0.010630252669374956,
+    0.017835559295435937
+   ]
+  },
+  {
+   "k": 2,
+   "L": 1,
+   "min_eigenvalue": 0.01369462261013298,
+   "max_imaginary_entry": 0.00028305253461165274,
+   "return_normalizer_r": 0.8484848484848485,
+   "m_lambda1_L_over_66": 0.014513425451086592,
+   "trace_distance_to_projector_over_m": 1.9657897828652946,
+   "conjugation_defect": 5.50332735251468e-18,
+   "diagonal_min_max": [
+    0.01488095238095238,
+    0.015476190476190477
+   ]
+  },
+  {
+   "k": 2,
+   "L": 4,
+   "min_eigenvalue": 0.009877402404588809,
+   "max_imaginary_entry": 0.001242089579223213,
+   "return_normalizer_r": 0.5305981115236305,
+   "m_lambda1_L_over_66": 0.012755911944436257,
+   "trace_distance_to_projector_over_m": 1.9519187435182999,
+   "conjugation_defect": 2.356487919189166e-17,
+   "diagonal_min_max": [
+    0.014109187081888014,
+    0.016398714881153673
+   ]
+  },
+  {
+   "k": 2,
+   "L": 64,
+   "min_eigenvalue": 1.2365755850951972e-07,
+   "max_imaginary_entry": 0.013479217597494134,
+   "return_normalizer_r": 0.005146044299250718,
+   "m_lambda1_L_over_66": 0.0009650353777102981,
+   "trace_distance_to_projector_over_m": 1.6249408976713084,
+   "conjugation_defect": 5.074936616312461e-16,
+   "diagonal_min_max": [
+    0.010854493546146688,
+    0.018741029091514927
+   ]
+  },
+  {
+   "k": 2,
+   "L": 256,
+   "min_eigenvalue": -4.263966011895162e-17,
+   "max_imaginary_entry": 0.011430764442181367,
+   "return_normalizer_r": 8.023380791777305e-07,
+   "m_lambda1_L_over_66": 2.493473432405674e-07,
+   "trace_distance_to_projector_over_m": 1.378448188583712,
+   "conjugation_defect": 1.993562552211287e-15,
+   "diagonal_min_max": [
+    0.013832507623790865,
+    0.01652407509927971
+   ]
+  },
+  {
+   "k": 7,
+   "L": 1,
+   "min_eigenvalue": 0.01311141248742121,
+   "max_imaginary_entry": 0.00029761904761904683,
+   "return_normalizer_r": 0.8484848484848485,
+   "m_lambda1_L_over_66": 0.0420853348851341,
+   "trace_distance_to_projector_over_m": 1.9007988534850409,
+   "conjugation_defect": 3.787731319904571e-18,
+   "diagonal_min_max": [
+    0.01488095238095238,
+    0.015476190476190477
+   ]
+  },
+  {
+   "k": 7,
+   "L": 4,
+   "min_eigenvalue": 0.008305545096897425,
+   "max_imaginary_entry": 0.0012059287927109312,
+   "return_normalizer_r": 0.5301978400616553,
+   "m_lambda1_L_over_66": 0.03340343981195817,
+   "trace_distance_to_projector_over_m": 1.8739963187776334,
+   "conjugation_defect": 1.5470315117263052e-17,
+   "diagonal_min_max": [
+    0.014107464340431145,
+    0.016400883468163485
+   ]
+  },
+  {
+   "k": 7,
+   "L": 64,
+   "min_eigenvalue": 4.4166723168481995e-08,
+   "max_imaginary_entry": 0.010066233118938785,
+   "return_normalizer_r": 0.0008891220305884926,
+   "m_lambda1_L_over_66": 0.0003288510864776697,
+   "trace_distance_to_projector_over_m": 1.2602790726937585,
+   "conjugation_defect": 2.878826312345176e-16,
+   "diagonal_min_max": [
+    0.006670652718470976,
+    0.022318076127634395
+   ]
+  },
+  {
+   "k": 7,
+   "L": 256,
+   "min_eigenvalue": -2.4214994838131305e-17,
+   "max_imaginary_entry": 0.013305832921832047,
+   "return_normalizer_r": 1.4266502628550738e-10,
+   "m_lambda1_L_over_66": 1.245274705550442e-10,
+   "trace_distance_to_projector_over_m": 0.2542677235298653,
+   "conjugation_defect": 1.0026653127105166e-15,
+   "diagonal_min_max": [
+    0.006048929829207339,
+    0.01887228906600049
+   ]
+  }
+ ],
+ "normalizer_floor": {
+  "public_floor": 0.015151515151515152,
+  "floor_all_characters_L_le_10": 0.017341529915832606,
+  "holds_up_to_L": 10
+ },
+ "generator": [
+  {
+   "k": 0,
+   "ground_level": 3.33066907387547e-16,
+   "ground_multiplicity": 1,
+   "next_level": 0.0471603035079737,
+   "norm_one_minus_P": 0.22780810614379843
+  },
+  {
+   "k": 1,
+   "ground_level": 0.02483787234629305,
+   "ground_multiplicity": 3,
+   "next_level": 0.08026497377808871,
+   "norm_one_minus_P": 0.22891514909564203
+  },
+  {
+   "k": 2,
+   "ground_level": 0.04302642272548676,
+   "ground_multiplicity": 1,
+   "next_level": 0.04620199534911852,
+   "norm_one_minus_P": 0.23310113383255304
+  },
+  {
+   "k": 7,
+   "ground_level": 0.07701348564053165,
+   "ground_multiplicity": 3,
+   "next_level": 0.08681702937764103,
+   "norm_one_minus_P": 0.2657609007044123
+  }
+ ],
+ "interaction_contrast": [
+  {
+   "k": 0,
+   "contrast_J": -0.06666666666666665,
+   "contrast_H": -0.07938250370446506
+  },
+  {
+   "k": 1,
+   "contrast_J": -0.06666666666666665,
+   "contrast_H": -0.07938378464428406
+  },
+  {
+   "k": 2,
+   "contrast_J": -0.06666666666666665,
+   "contrast_H": -0.07938749538220755
+  },
+  {
+   "k": 7,
+   "contrast_J": -0.06666666666666665,
+   "contrast_H": -0.07942455732793219
+  }
+ ],
+ "cap_link": {
+  "defect": 1.0991211310695418e-14,
+  "sign": -1
+ },
+ "seconds": 0.24
+}

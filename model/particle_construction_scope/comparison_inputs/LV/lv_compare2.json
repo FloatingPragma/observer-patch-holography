@@ -1,0 +1,349 @@
+{
+ "N_rows_fixed_coupling_24.3166": {
+  "N1_cartan_one_tick_(c_E=1,m=2)": {
+   "v_GeV_fixed_coupling": 493.193466001598,
+   "ln(v/v_measured)": 0.6946774993050041
+  },
+  "N2_full_link_one_tick_(weights_d^2)": {
+   "v_GeV_fixed_coupling": 37183.19138077892,
+   "ln(v/v_measured)": 5.017388069820503
+  },
+  "N3a_collar_law_weights_d_at_t2(mZ)": {
+   "v_GeV_fixed_coupling": 2.168140253394309e+18,
+   "ln(v/v_measured)": 36.714177424177315
+  },
+  "N3b_collar_law_weights_d_at_tU": {
+   "v_GeV_fixed_coupling": 2.871611377242976e+18,
+   "ln(v/v_measured)": 36.995180977867065
+  },
+  "N4_weights_d^2_at_full_modular_period_tU": {
+   "v_GeV_fixed_coupling": 4.88589421823735e+17,
+   "ln(v/v_measured)": 35.224074879802586
+  },
+  "N5_link_vacuum_continuous_time": {
+   "v_GeV_fixed_coupling": 1200227.151983542,
+   "ln(v/v_measured)": 8.491797366438643
+  },
+  "N6_link_vacuum_two_field_steps": {
+   "v_GeV_fixed_coupling": 1650152840.3008733,
+   "ln(v/v_measured)": 15.717909727328855
+  },
+  "N7a_one_plaquette_harmonic": {
+   "v_GeV_fixed_coupling": 97106944755.79875,
+   "ln(v/v_measured)": 19.79285470764756
+  },
+  "N7b_one_plaquette_exact_ground_state": {
+   "v_GeV_fixed_coupling": 355771252784.81366,
+   "ln(v/v_measured)": 21.091329789193026
+  },
+  "N8_euclidean_d3": {
+   "v_GeV_fixed_coupling": 166919073.30244306,
+   "ln(v/v_measured)": 13.426795638200044
+  },
+  "N8_euclidean_d4": {
+   "v_GeV_fixed_coupling": 97106944755.79875,
+   "ln(v/v_measured)": 19.79285470764756
+  }
+ },
+ "N_rows_chain": {
+  "declared_(33/5,1,-3)": {
+   "N1": [
+    {
+     "v_GeV": 578.4083795425379,
+     "ln(v/v_measured)": 0.8540561344666484
+    }
+   ],
+   "N2": [
+    {
+     "v_GeV": 226352.2344334231,
+     "ln(v/v_measured)": 6.823623600675596
+    }
+   ],
+   "N5": [
+    {
+     "v_GeV": 19429332.513902705,
+     "ln(v/v_measured)": 11.276070443661965
+    }
+   ],
+   "N8_d3": [
+    {
+     "v_GeV": 9156604997.646235,
+     "ln(v/v_measured)": 17.43151728976068
+    }
+   ]
+  },
+  "source_one_doublet_(81/10,5/6,-3)": {
+   "N1": [
+    {
+     "v_GeV": 222.85880219222403,
+     "ln(v/v_measured)": -0.09968562683059612
+    }
+   ],
+   "N2": [
+    {
+     "v_GeV": 115128.97608373547,
+     "ln(v/v_measured)": 6.147584286336582
+    }
+   ],
+   "N5": [
+    {
+     "v_GeV": 13124061.395081231,
+     "ln(v/v_measured)": 10.883733827403603
+    }
+   ],
+   "N8_d3": [
+    {
+     "v_GeV": 7440488000.721798,
+     "ln(v/v_measured)": 17.223978251409765
+    }
+   ]
+  },
+  "source_two_doublets_(41/5,1,-3)": {
+   "N1": [
+    {
+     "v_GeV": 576.25660312013,
+     "ln(v/v_measured)": 0.8503290292965204
+    }
+   ],
+   "N2": [
+    {
+     "v_GeV": 224724.35703826175,
+     "ln(v/v_measured)": 6.816405826607391
+    }
+   ],
+   "N5": [
+    {
+     "v_GeV": 19306044.42619591,
+     "ln(v/v_measured)": 11.269704763822615
+    }
+   ],
+   "N8_d3": [
+    {
+     "v_GeV": 9108766059.151245,
+     "ln(v/v_measured)": 17.426279066268386
+    }
+   ]
+  }
+ },
+ "N1_with_bare_factors_chain": {
+  "declared_(33/5,1,-3)": {
+   "unit|m=2": [
+    {
+     "1/alpha_U": 24.215090863584674,
+     "v_GeV": 578.4083795425379,
+     "ln(v/v_measured)": 0.8540561344666484
+    }
+   ],
+   "unit|m=1": [
+    {
+     "1/alpha_U": 24.31655445402154,
+     "v_GeV": 246.59673300079723,
+     "ln(v/v_measured)": 0.0015303187450516629
+    }
+   ],
+   "theta_0=g/(2sqrt2)|m=2": [
+    {
+     "1/alpha_U": 24.21150841788071,
+     "v_GeV": 594.5869440628433,
+     "ln(v/v_measured)": 0.8816429290845657
+    }
+   ],
+   "theta_0=g/(2sqrt2)|m=1": [
+    {
+     "1/alpha_U": 24.31370025949374,
+     "v_GeV": 253.18070535103362,
+     "ln(v/v_measured)": 0.02787946044595537
+    }
+   ],
+   "theta_0=g|m=2": [
+    {
+     "1/alpha_U": 23.978549017088625,
+     "v_GeV": 2896.8236911297,
+     "ln(v/v_measured)": 2.4651461130719916
+    }
+   ],
+   "theta_0=g|m=1": [
+    {
+     "1/alpha_U": 24.119606007754705,
+     "v_GeV": 1158.9973828486004,
+     "ln(v/v_measured)": 1.5490865615000697
+    }
+   ],
+   "theta_0=pi/4|m=2": [
+    {
+     "1/alpha_U": 23.951435186736557,
+     "v_GeV": 3417.458063624503,
+     "ln(v/v_measured)": 2.630428273729152
+    }
+   ],
+   "theta_0=pi/4|m=1": [
+    {
+     "1/alpha_U": 24.09540739401656,
+     "v_GeV": 1366.9682470445468,
+     "ln(v/v_measured)": 1.7141265845242577
+    }
+   ]
+  },
+  "source_one_doublet_(81/10,5/6,-3)": {
+   "unit|m=2": [
+    {
+     "1/alpha_U": 24.822261726559184,
+     "v_GeV": 222.85880219222403,
+     "ln(v/v_measured)": -0.09968562683059612
+    }
+   ],
+   "unit|m=1": [
+    {
+     "1/alpha_U": 24.95096621542362,
+     "v_GeV": 91.03305460545327,
+     "ln(v/v_measured)": -0.995001345740813
+    }
+   ],
+   "theta_0=g/(2sqrt2)|m=2": [
+    {
+     "1/alpha_U": 24.817930925368334,
+     "v_GeV": 229.23691556514478,
+     "ln(v/v_measured)": -0.07146798917894866
+    }
+   ],
+   "theta_0=g/(2sqrt2)|m=1": [
+    {
+     "1/alpha_U": 24.94734575111787,
+     "v_GeV": 93.52340861837,
+     "ln(v/v_measured)": -0.9680122592108077
+    }
+   ],
+   "theta_0=g|m=2": [
+    {
+     "1/alpha_U": 24.539206172673914,
+     "v_GeV": 1194.4824061762276,
+     "ln(v/v_measured)": 1.5792442139040517
+    }
+   ],
+   "theta_0=g|m=1": [
+    {
+     "1/alpha_U": 24.706786329809386,
+     "v_GeV": 458.32484310702193,
+     "ln(v/v_measured)": 0.6213541734053694
+    }
+   ],
+   "theta_0=pi/4|m=2": [
+    {
+     "1/alpha_U": 24.503118839422953,
+     "v_GeV": 1453.1018007819544,
+     "ln(v/v_measured)": 1.7752316998695148
+    }
+   ],
+   "theta_0=pi/4|m=1": [
+    {
+     "1/alpha_U": 24.6737065589608,
+     "v_GeV": 557.6987029656431,
+     "ln(v/v_measured)": 0.8175948339826192
+    }
+   ]
+  },
+  "source_two_doublets_(41/5,1,-3)": {
+   "unit|m=2": [
+    {
+     "1/alpha_U": 24.217463612429672,
+     "v_GeV": 576.25660312013,
+     "ln(v/v_measured)": 0.8503290292965204
+    }
+   ],
+   "unit|m=1": [
+    {
+     "1/alpha_U": 24.318452207564345,
+     "v_GeV": 245.8627265870651,
+     "ln(v/v_measured)": -0.0014506655491455976
+    }
+   ],
+   "theta_0=g/(2sqrt2)|m=2": [
+    {
+     "1/alpha_U": 24.213896357592855,
+     "v_GeV": 592.3595430543876,
+     "ln(v/v_measured)": 0.8778897630450253
+    }
+   ],
+   "theta_0=g/(2sqrt2)|m=1": [
+    {
+     "1/alpha_U": 24.315613388632123,
+     "v_GeV": 252.42056396817614,
+     "ln(v/v_measured)": 0.024872577347714617
+    }
+   ],
+   "theta_0=g|m=2": [
+    {
+     "1/alpha_U": 23.981735731778652,
+     "v_GeV": 2882.2714803025856,
+     "ln(v/v_measured)": 2.460109946975849
+    }
+   ],
+   "theta_0=g|m=1": [
+    {
+     "1/alpha_U": 24.122346640681943,
+     "v_GeV": 1153.9887999837845,
+     "ln(v/v_measured)": 1.5447557179087938
+    }
+   ],
+   "theta_0=pi/4|m=2": [
+    {
+     "1/alpha_U": 23.95467620435442,
+     "v_GeV": 3400.3341065782247,
+     "ln(v/v_measured)": 2.625404948691572
+    }
+   ],
+   "theta_0=pi/4|m=1": [
+    {
+     "1/alpha_U": 24.098214886687902,
+     "v_GeV": 1361.0324750270472,
+     "ln(v/v_measured)": 1.7097748397927024
+    }
+   ]
+  }
+ },
+ "needs": {
+  "product_(bare factor x multiplicity)_at_c_E=1_fixed_coupling": 0.9985422882060925,
+  "c_E_needed_for_multiplicity_2_and_unit_bare_factor_fixed_coupling": 1.0181851034066425,
+  "<A>_needed_with_unit_bare_factor": 2.5755467597733368e-17
+ },
+ "count": {
+  "near_or_pass": [
+   [
+    "declared_(33/5,1,-3)",
+    "unit|m=1",
+    246.6,
+    0.0015
+   ],
+   [
+    "declared_(33/5,1,-3)",
+    "theta_0=g/(2sqrt2)|m=1",
+    253.18,
+    0.0279
+   ],
+   [
+    "source_one_doublet_(81/10,5/6,-3)",
+    "unit|m=2",
+    222.86,
+    -0.0997
+   ],
+   [
+    "source_one_doublet_(81/10,5/6,-3)",
+    "theta_0=g/(2sqrt2)|m=2",
+    229.24,
+    -0.0715
+   ],
+   [
+    "source_two_doublets_(41/5,1,-3)",
+    "unit|m=1",
+    245.86,
+    -0.0015
+   ],
+   [
+    "source_two_doublets_(41/5,1,-3)",
+    "theta_0=g/(2sqrt2)|m=1",
+    252.42,
+    0.0249
+   ]
+  ]
+ }
+}

@@ -1,0 +1,170 @@
+{
+ "flux_1": {
+  "largest_candidates": [
+   [
+    1.0,
+    "secular 1"
+   ],
+   [
+    0.9686061079559636,
+    "secular 3"
+   ],
+   [
+    0.9539344662916631,
+    "secular 3"
+   ],
+   [
+    0.9491777813897112,
+    "secular 1"
+   ],
+   [
+    0.916329942829426,
+    "bare 5/6 + (1/40 + 1/120*sqrt5)*r"
+   ]
+  ],
+  "native_slow_value_(55+sqrt5)/60": {
+   "exact_root_of_secular": [
+    "3"
+   ],
+   "exact_bare_value": false
+  },
+  "second_eigenvalue": "0.9686061079559635966432175854308400465131",
+  "isolating_interval": [
+   "968606107955963/1000000000000000",
+   "242151526988991/250000000000000"
+  ],
+  "quartic_in_lambda_monic_low_to_high": [
+   "(38867/81000 + 1061/648000*sqrt5) + (187/6480 + 83/8640*sqrt5)*r",
+   "(-665/288 + -17/4320*sqrt5) + (-281/2700 + -749/21600*sqrt5)*r",
+   "(1199/288 + 17/7200*sqrt5) + (1/8 + 1/24*sqrt5)*r",
+   "-10/3 + (-1/20 + -1/60*sqrt5)*r",
+   "1"
+  ],
+  "quartic_in_mu=60(1-lambda)_monic_low_to_high": [
+   "(8720 + 820*sqrt5) + (-2800 + -900*sqrt5)*r",
+   "(-3750 + -170*sqrt5) + (880 + 290*sqrt5)*r",
+   "(1175/2 + 17/2*sqrt5) + (-90 + -30*sqrt5)*r",
+   "-40 + (3 + 1*sqrt5)*r",
+   "1"
+  ],
+  "quartic_roots_lambda": [
+   0.9686061079559636,
+   0.8884321905072995,
+   0.8551089777380272,
+   0.7871792761242284
+  ],
+  "rate_mu_2": "1.88363352264218420140694487415",
+  "norm_polynomial_degree": 16,
+  "norm_polynomial_irreducible_over_Q": true,
+  "norm_polynomial_in_mu_integer_coefficients_high_to_low": [
+   "1",
+   "-160",
+   "11850",
+   "-539000",
+   "16843015",
+   "-383161800",
+   "6559204650",
+   "-86113865000",
+   "875351925825",
+   "-6903646066000",
+   "42039014948000",
+   "-195206484480000",
+   "675986064688000",
+   "-1682438587520000",
+   "2826511880040000",
+   "-2847268896800000",
+   "1284519116960000"
+  ]
+ },
+ "flux_2": {
+  "largest_candidates": [
+   [
+    1.0,
+    "secular 1"
+   ],
+   [
+    0.9539344662916631,
+    "bare (11/12 + 1/60*sqrt5)"
+   ],
+   [
+    0.9512691276598725,
+    "secular 5"
+   ],
+   [
+    0.939897260232363,
+    "secular 3"
+   ],
+   [
+    0.9155577267990238,
+    "secular 1"
+   ]
+  ],
+  "native_slow_value_(55+sqrt5)/60": {
+   "exact_root_of_secular": [],
+   "exact_bare_value": true
+  },
+  "second_eigenvalue": "(55 + sqrt5)/60 = 0.953934466291663161606819561146"
+ },
+ "flux_3": {
+  "largest_candidates": [
+   [
+    1.0,
+    "secular 1"
+   ],
+   [
+    0.9539344662916631,
+    "secular 3"
+   ],
+   [
+    0.9359227845725084,
+    "bare 5/6 + (1/60 + 1/60*sqrt5)*r"
+   ],
+   [
+    0.9338353906745676,
+    "secular 3'"
+   ],
+   [
+    0.929533985692345,
+    "secular 5"
+   ]
+  ],
+  "native_slow_value_(55+sqrt5)/60": {
+   "exact_root_of_secular": [
+    "3"
+   ],
+   "exact_bare_value": false
+  },
+  "second_eigenvalue": "(55 + sqrt5)/60 = 0.953934466291663161606819561146"
+ },
+ "flux_7": {
+  "largest_candidates": [
+   [
+    1.0,
+    "secular 1"
+   ],
+   [
+    0.9539344662916631,
+    "secular 3"
+   ],
+   [
+    0.9166306670591913,
+    "secular 3'"
+   ],
+   [
+    0.9099920979035463,
+    "secular 1"
+   ],
+   [
+    0.9,
+    "secular 5"
+   ]
+  ],
+  "native_slow_value_(55+sqrt5)/60": {
+   "exact_root_of_secular": [
+    "3"
+   ],
+   "exact_bare_value": false
+  },
+  "second_eigenvalue": "(55 + sqrt5)/60 = 0.953934466291663161606819561146"
+ }
+}

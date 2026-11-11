@@ -1,0 +1,2764 @@
+{
+ "load_curvature": 0.5555555446790083,
+ "walk_addresses": 120,
+ "load_speed": 0.09622504392300099,
+ "private_seams": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23,
+  24,
+  25,
+  26
+ ],
+ "dense_check": [
+  {
+   "n": 1,
+   "dense": 0.5968757625671524,
+   "secular": null
+  },
+  {
+   "n": 2,
+   "dense": 0.06707583611438248,
+   "secular": 0.06707583611438804
+  },
+  {
+   "n": 3,
+   "dense": 0.01922306635711106,
+   "secular": 0.0192230663571133
+  },
+  {
+   "n": 4,
+   "dense": 0.00797473775738856,
+   "secular": 0.007974737757381195
+  }
+ ],
+ "rows": [
+  {
+   "n": 2,
+   "seam": 0,
+   "seam_row": {
+    "from_class": 0,
+    "to_class": 1,
+    "cell_offset_of_to": [
+     0,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 8,
+   "E0": 0.06707583611438804,
+   "p0": 0.0005589653009532337,
+   "omega0": 0.03343702685400942,
+   "first_order_E": 0.08333333333333333,
+   "E0_over_first_order": 0.8049100333726565,
+   "N_E0": 0.5366066889151043,
+   "weight_on_seam_ends_relative_to_uniform": 0.6465927615938009,
+   "overlap_with_uniform": 0.9980129037651873,
+   "curvature_tensor_eigenvalues": [
+    0.5359563057514788,
+    0.5537589634723726,
+    0.554747698183035
+   ],
+   "curvature_mean": 0.5481543224689621,
+   "curvature_over_load": 0.9866777997610978,
+   "anisotropy": 0.03428120815852961,
+   "v_over_v0": 0.9934091203658314,
+   "compton_length_lattice_constants": 2.858831817137164,
+   "compton_length_over_defect_spacing": 1.429415908568582,
+   "defects_per_compton_volume": 2.920625237684823,
+   "seconds": 0.029873132705688477
+  },
+  {
+   "n": 3,
+   "seam": 0,
+   "seam_row": {
+    "from_class": 0,
+    "to_class": 1,
+    "cell_offset_of_to": [
+     0,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 27,
+   "E0": 0.0192230663571133,
+   "p0": 0.00016019221964261085,
+   "omega0": 0.017899524951787694,
+   "first_order_E": 0.024691358024691357,
+   "E0_over_first_order": 0.7785341874630888,
+   "N_E0": 0.5190227916420591,
+   "weight_on_seam_ends_relative_to_uniform": 0.605572196215224,
+   "overlap_with_uniform": 0.999103661182438,
+   "curvature_tensor_eigenvalues": [
+    0.5496331396277202,
+    0.5547736195865286,
+    0.5550708069198979
+   ],
+   "curvature_mean": 0.5531591887113823,
+   "curvature_over_load": 0.9956865591738255,
+   "anisotropy": 0.009830203317864113,
+   "v_over_v0": 0.9978675912468722,
+   "compton_length_lattice_constants": 5.364379951741658,
+   "compton_length_over_defect_spacing": 1.7881266505805529,
+   "defects_per_compton_volume": 5.717350642483359,
+   "seconds": 0.03885507583618164
+  },
+  {
+   "n": 4,
+   "seam": 0,
+   "seam_row": {
+    "from_class": 0,
+    "to_class": 1,
+    "cell_offset_of_to": [
+     0,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 64,
+   "E0": 0.007974737757381195,
+   "p0": 6.645614797817663e-05,
+   "omega0": 0.011528823362438722,
+   "first_order_E": 0.010416666666666666,
+   "E0_over_first_order": 0.7655748247085947,
+   "N_E0": 0.5103832164723965,
+   "weight_on_seam_ends_relative_to_uniform": 0.5858077817315834,
+   "overlap_with_uniform": 0.9994932126646707,
+   "curvature_tensor_eigenvalues": [
+    0.5529873582653246,
+    0.5551241420174348,
+    0.5552507483217605
+   ],
+   "curvature_mean": 0.5544540828681733,
+   "curvature_over_load": 0.9980173687016816,
+   "anisotropy": 0.004082195670248089,
+   "v_over_v0": 0.9990192577820344,
+   "compton_length_lattice_constants": 8.33828994840852,
+   "compton_length_over_defect_spacing": 2.08457248710213,
+   "defects_per_compton_volume": 9.058389783858857,
+   "seconds": 0.05281996726989746
+  },
+  {
+   "n": 5,
+   "seam": 0,
+   "seam_row": {
+    "from_class": 0,
+    "to_class": 1,
+    "cell_offset_of_to": [
+     0,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 125,
+   "E0": 0.004042182940185439,
+   "p0": 3.368485783487866e-05,
+   "omega0": 0.008207928721442898,
+   "first_order_E": 0.005333333333333333,
+   "E0_over_first_order": 0.7579093012847699,
+   "N_E0": 0.5052728675231799,
+   "weight_on_seam_ends_relative_to_uniform": 0.5742398315283943,
+   "overlap_with_uniform": 0.9996750194452089,
+   "curvature_tensor_eigenvalues": [
+    0.5541996520433723,
+    0.5552834687373129,
+    0.5553487104860385
+   ],
+   "curvature_mean": 0.5549439437555747,
+   "curvature_over_load": 0.9988991183162667,
+   "anisotropy": 0.0020705847060695573,
+   "v_over_v0": 0.999455018693849,
+   "compton_length_lattice_constants": 11.717036823386657,
+   "compton_length_over_defect_spacing": 2.3434073646773315,
+   "defects_per_compton_volume": 12.868957640782538,
+   "seconds": 0.07866621017456055
+  },
+  {
+   "n": 6,
+   "seam": 0,
+   "seam_row": {
+    "from_class": 0,
+    "to_class": 1,
+    "cell_offset_of_to": [
+     0,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 216,
+   "E0": 0.002323621809905868,
+   "p0": 1.93635150825489e-05,
+   "omega0": 0.006223114585777377,
+   "first_order_E": 0.0030864197530864196,
+   "E0_over_first_order": 0.7528534664095013,
+   "N_E0": 0.5019023109396675,
+   "weight_on_seam_ends_relative_to_uniform": 0.5666603345435485,
+   "overlap_with_uniform": 0.9997741531859526,
+   "curvature_tensor_eigenvalues": [
+    0.5547454768032629,
+    0.5553686666423826,
+    0.5554066166208995
+   ],
+   "curvature_mean": 0.5551735866888484,
+   "curvature_over_load": 0.9993124756042521,
+   "anisotropy": 0.0011908704475293123,
+   "v_over_v0": 0.9996594048582791,
+   "compton_length_lattice_constants": 15.457255175787965,
+   "compton_length_over_defect_spacing": 2.576209195964661,
+   "defects_per_compton_volume": 17.097923846894027,
+   "seconds": 0.11289453506469727
+  },
+  {
+   "n": 8,
+   "seam": 0,
+   "seam_row": {
+    "from_class": 0,
+    "to_class": 1,
+    "cell_offset_of_to": [
+     0,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 512,
+   "E0": 0.0009721340801971972,
+   "p0": 8.101117334976644e-06,
+   "omega0": 0.004025202671418746,
+   "first_order_E": 0.0013020833333333333,
+   "E0_over_first_order": 0.7465989735914476,
+   "N_E0": 0.497732649060965,
+   "weight_on_seam_ends_relative_to_uniform": 0.5573391976740388,
+   "overlap_with_uniform": 0.9998729307147557,
+   "curvature_tensor_eigenvalues": [
+    0.5551912545541667,
+    0.5554519945288671,
+    0.5554681425317533
+   ],
+   "curvature_mean": 0.5553704638715956,
+   "curvature_over_load": 0.999666854540135,
+   "anisotropy": 0.0004985644639008621,
+   "v_over_v0": 0.9998347633592816,
+   "compton_length_lattice_constants": 23.90168939892901,
+   "compton_length_over_defect_spacing": 2.987711174866126,
+   "defects_per_compton_volume": 26.669559002594273,
+   "seconds": 0.23546767234802246
+  },
+  {
+   "n": 10,
+   "seam": 0,
+   "seam_row": {
+    "from_class": 0,
+    "to_class": 1,
+    "cell_offset_of_to": [
+     0,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 1000,
+   "E0": 0.0004952546787312115,
+   "p0": 4.127122322760096e-06,
+   "omega0": 0.002873021114312604,
+   "first_order_E": 0.0006666666666666666,
+   "E0_over_first_order": 0.7428820180968173,
+   "N_E0": 0.49525467873121154,
+   "weight_on_seam_ends_relative_to_uniform": 0.5518288219035252,
+   "overlap_with_uniform": 0.9999186935187155,
+   "curvature_tensor_eigenvalues": [
+    0.5553571078147822,
+    0.5554899142581403,
+    0.5554982444792521
+   ],
+   "curvature_mean": 0.5554484221840584,
+   "curvature_over_load": 0.9998071795053153,
+   "anisotropy": 0.0002540949957422714,
+   "v_over_v0": 0.9999042728930417,
+   "compton_length_lattice_constants": 33.48942759195482,
+   "compton_length_over_defect_spacing": 3.348942759195482,
+   "defects_per_compton_volume": 37.55979157750125,
+   "seconds": 0.42061686515808105
+  },
+  {
+   "n": 12,
+   "seam": 0,
+   "seam_row": {
+    "from_class": 0,
+    "to_class": 1,
+    "cell_offset_of_to": [
+     0,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 1728,
+   "E0": 0.0002856555354714209,
+   "p0": 2.380462795595174e-06,
+   "omega0": 0.002181954967446674,
+   "first_order_E": 0.00038580246913580245,
+   "E0_over_first_order": 0.740419147941923,
+   "N_E0": 0.4936127652946153,
+   "weight_on_seam_ends_relative_to_uniform": 0.5481895697314093,
+   "overlap_with_uniform": 0.9999435539043001,
+   "curvature_tensor_eigenvalues": [
+    0.5554337018281446,
+    0.5555102769157729,
+    0.5555151316301626
+   ],
+   "curvature_mean": 0.5554863701246932,
+   "curvature_over_load": 0.9998754857997951,
+   "anisotropy": 0.0001465918992752348,
+   "v_over_v0": 0.9999381376812011,
+   "compton_length_lattice_constants": 44.09765217622849,
+   "compton_length_over_defect_spacing": 3.674804348019041,
+   "defects_per_compton_volume": 49.62524509017016,
+   "seconds": 0.7012453079223633
+  },
+  {
+   "n": 16,
+   "seam": 0,
+   "seam_row": {
+    "from_class": 0,
+    "to_class": 1,
+    "cell_offset_of_to": [
+     0,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 4096,
+   "E0": 0.00012001264380621082,
+   "p0": 1.0001053650517567e-06,
+   "omega0": 0.0014142881826421435,
+   "first_order_E": 0.00016276041666666666,
+   "E0_over_first_order": 0.7373576835453594,
+   "N_E0": 0.4915717890302395,
+   "weight_on_seam_ends_relative_to_uniform": 0.5436790998826386,
+   "overlap_with_uniform": 0.9999682661091445,
+   "curvature_tensor_eigenvalues": [
+    0.5554981634364564,
+    0.5555303073770355,
+    0.5555323831613609
+   ],
+   "curvature_mean": 0.5555202846582844,
+   "curvature_over_load": 0.9999365319614545,
+   "anisotropy": 6.159941562803826e-05,
+   "v_over_v0": 0.9999684321561779,
+   "compton_length_lattice_constants": 68.03564329165414,
+   "compton_length_over_defect_spacing": 4.252227705728384,
+   "defects_per_compton_volume": 76.88640208929053,
+   "seconds": 1.652968168258667
+  },
+  {
+   "n": 20,
+   "seam": 0,
+   "seam_row": {
+    "from_class": 0,
+    "to_class": 1,
+    "cell_offset_of_to": [
+     0,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 8000,
+   "E0": 6.12941657049523e-05,
+   "p0": 5.107847142079358e-07,
+   "omega0": 0.0010107272210395312,
+   "first_order_E": 8.333333333333333e-05,
+   "E0_over_first_order": 0.7355299884594275,
+   "N_E0": 0.49035332563961836,
+   "weight_on_seam_ends_relative_to_uniform": 0.5409933807622394,
+   "overlap_with_uniform": 0.999979698572484,
+   "curvature_tensor_eigenvalues": [
+    0.5555230829736427,
+    0.5555394835944715,
+    0.5555405604430119
+   ],
+   "curvature_mean": 0.5555343756703753,
+   "curvature_over_load": 0.9999618957837147,
+   "anisotropy": 3.146064426365641e-05,
+   "v_over_v0": 0.9999810328395401,
+   "compton_length_lattice_constants": 95.20196627155964,
+   "compton_length_over_defect_spacing": 4.760098313577982,
+   "defects_per_compton_volume": 107.85685878719859,
+   "seconds": 3.243434429168701
+  },
+  {
+   "n": 24,
+   "seam": 0,
+   "seam_row": {
+    "from_class": 0,
+    "to_class": 1,
+    "cell_offset_of_to": [
+     0,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 13824,
+   "E0": 3.541258526732098e-05,
+   "p0": 2.9510487722767483e-07,
+   "omega0": 0.0007682511200330354,
+   "first_order_E": 4.8225308641975306e-05,
+   "E0_over_first_order": 0.7343153681031679,
+   "N_E0": 0.48954357873544524,
+   "weight_on_seam_ends_relative_to_uniform": 0.5392114600909079,
+   "overlap_with_uniform": 0.9999859060219681,
+   "curvature_tensor_eigenvalues": [
+    0.5555349696822346,
+    0.5555444352033707,
+    0.5555450663927414
+   ],
+   "curvature_mean": 0.5555414904261154,
+   "curvature_over_load": 0.9999747023442976,
+   "anisotropy": 1.8174539041242563e-05,
+   "v_over_v0": 0.99998740027568,
+   "compton_length_lattice_constants": 125.25049297661575,
+   "compton_length_over_defect_spacing": 5.218770540692323,
+   "defects_per_compton_volume": 142.1361692723328,
+   "seconds": 5.7256903648376465
+  },
+  {
+   "n": 32,
+   "seam": 0,
+   "seam_row": {
+    "from_class": 0,
+    "to_class": 1,
+    "cell_offset_of_to": [
+     0,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 32768,
+   "E0": 1.490888324846944e-05,
+   "p0": 1.2424069373724533e-07,
+   "omega0": 0.0004984790794117296,
+   "first_order_E": 2.0345052083333332e-05,
+   "E0_over_first_order": 0.7328014294287699,
+   "N_E0": 0.4885342862858466,
+   "weight_on_seam_ends_relative_to_uniform": 0.5369936793126905,
+   "overlap_with_uniform": 0.9999920750902762,
+   "curvature_tensor_eigenvalues": [
+    0.5555453530530141,
+    0.5555493291022094,
+    0.5555496024058436
+   ],
+   "curvature_mean": 0.555548094853689,
+   "curvature_over_load": 0.9999865903141627,
+   "anisotropy": 7.648937812699526e-06,
+   "v_over_v0": 0.999993315841248,
+   "compton_length_lattice_constants": 193.03598629071624,
+   "compton_length_over_defect_spacing": 6.032374571584882,
+   "defects_per_compton_volume": 219.51535369530842,
+   "seconds": 14.584103345870972
+  },
+  {
+   "n": 40,
+   "seam": 0,
+   "seam_row": {
+    "from_class": 0,
+    "to_class": 1,
+    "cell_offset_of_to": [
+     0,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 64000,
+   "E0": 7.623910258187331e-06,
+   "p0": 6.353258548489442e-08,
+   "omega0": 0.00035646202097434974,
+   "first_order_E": 1.0416666666666666e-05,
+   "E0_over_first_order": 0.7318953847859838,
+   "N_E0": 0.4879302565239892,
+   "weight_on_seam_ends_relative_to_uniform": 0.5356681377193893,
+   "overlap_with_uniform": 0.9999949286924747,
+   "curvature_tensor_eigenvalues": [
+    0.5555495525195482,
+    0.555551582035171,
+    0.5555517247871458
+   ],
+   "curvature_mean": 0.5555509531139551,
+   "curvature_over_load": 0.9999917351827425,
+   "anisotropy": 3.91011406856886e-06,
+   "v_over_v0": 0.9999958781715536,
+   "compton_length_lattice_constants": 269.943617097996,
+   "compton_length_over_defect_spacing": 6.7485904274499005,
+   "defects_per_compton_volume": 307.35424428387677,
+   "seconds": 29.106738090515137
+  },
+  {
+   "n": 48,
+   "seam": 0,
+   "seam_row": {
+    "from_class": 0,
+    "to_class": 1,
+    "cell_offset_of_to": [
+     0,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 110592,
+   "E0": 4.408349748590374e-06,
+   "p0": 3.673624790491978e-08,
+   "omega0": 0.0002710581050530324,
+   "first_order_E": 6.028163580246913e-06,
+   "E0_over_first_order": 0.7312923230941599,
+   "N_E0": 0.48752821539610663,
+   "weight_on_seam_ends_relative_to_uniform": 0.5347865781531653,
+   "overlap_with_uniform": 0.9999964777413437,
+   "curvature_tensor_eigenvalues": [
+    0.555551630444965,
+    0.5555528010467251,
+    0.5555528861905664
+   ],
+   "curvature_mean": 0.5555524392274189,
+   "curvature_over_load": 0.9999944101870297,
+   "anisotropy": 2.260354761717997e-06,
+   "v_over_v0": 0.9999972112123,
+   "compton_length_lattice_constants": 354.9968577879482,
+   "compton_length_over_defect_spacing": 7.3957678705822545,
+   "defects_per_compton_volume": 404.5291433258623,
+   "seconds": 50.51561093330383
+  },
+  {
+   "n": 64,
+   "seam": 0,
+   "seam_row": {
+    "from_class": 0,
+    "to_class": 1,
+    "cell_offset_of_to": [
+     0,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 262144,
+   "E0": 1.8578582434526439e-06,
+   "p0": 1.5482152028772033e-08,
+   "omega0": 0.00017596676984484174,
+   "first_order_E": 2.5431315104166665e-06,
+   "E0_over_first_order": 0.7305395870574749,
+   "N_E0": 0.4870263913716499,
+   "weight_on_seam_ends_relative_to_uniform": 0.5336870292003401,
+   "overlap_with_uniform": 0.9999980155866517,
+   "curvature_tensor_eigenvalues": [
+    0.5555535191886971,
+    0.5555540090369978,
+    0.5555540474716706
+   ],
+   "curvature_mean": 0.5555538585657885,
+   "curvature_over_load": 0.9999969649961451,
+   "anisotropy": 9.509122568987859e-07,
+   "v_over_v0": 0.999998485077276,
+   "compton_length_lattice_constants": 546.8356226254615,
+   "compton_length_over_defect_spacing": 8.544306603522836,
+   "defects_per_compton_volume": 623.7786017062166,
+   "seconds": 111.71320915222168
+  },
+  {
+   "n": 80,
+   "seam": 0,
+   "seam_row": {
+    "from_class": 0,
+    "to_class": 1,
+    "cell_offset_of_to": [
+     0,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 512000,
+   "E0": 9.506361051245937e-07,
+   "p0": 7.921967542704947e-09,
+   "omega0": 0.00012587269391630386,
+   "first_order_E": 1.3020833333333333e-06,
+   "E0_over_first_order": 0.730088528735688,
+   "N_E0": 0.486725685823792,
+   "weight_on_seam_ends_relative_to_uniform": 0.533028579589064,
+   "overlap_with_uniform": 0.999998723892985,
+   "curvature_tensor_eigenvalues": [
+    0.5555543160539346,
+    0.5555545658829928,
+    0.555554589088101
+   ],
+   "curvature_mean": 0.5555544903416761,
+   "curvature_over_load": 0.9999981021927651,
+   "anisotropy": 4.914624418193427e-07,
+   "v_over_v0": 0.9999990524162591,
+   "compton_length_lattice_constants": 764.4624878347043,
+   "compton_length_over_defect_spacing": 9.555781097933805,
+   "defects_per_compton_volume": 872.5665844604575,
+   "seconds": 209.46091532707214
+  },
+  {
+   "n": 96,
+   "seam": 0,
+   "seam_row": {
+    "from_class": 0,
+    "to_class": 1,
+    "cell_offset_of_to": [
+     0,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 884736,
+   "E0": 5.499102311437946e-07,
+   "p0": 4.582585259531622e-09,
+   "omega0": 9.573489765721953e-05,
+   "first_order_E": 7.535204475308642e-07,
+   "E0_over_first_order": 0.7297880673918544,
+   "N_E0": 0.48652537826123626,
+   "weight_on_seam_ends_relative_to_uniform": 0.5325901462426257,
+   "overlap_with_uniform": 0.9999991042558924,
+   "curvature_tensor_eigenvalues": [
+    0.5555547244057419,
+    0.5555548693001306,
+    0.5555548784921986
+   ],
+   "curvature_mean": 0.5555548240660237,
+   "curvature_over_load": 0.9999987028966025,
+   "anisotropy": 2.773559872586109e-07,
+   "v_over_v0": 0.9999993522118548,
+   "compton_length_lattice_constants": 1005.1191774821078,
+   "compton_length_over_defect_spacing": 10.46999143210529,
+   "defects_per_compton_volume": 1147.728005341318,
+   "seconds": 381.39698553085327
+  },
+  {
+   "n": 4,
+   "seam": 1,
+   "seam_row": {
+    "from_class": 0,
+    "to_class": 1,
+    "cell_offset_of_to": [
+     0,
+     0,
+     1
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      1
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 64,
+   "E0": 0.007974737757381193,
+   "p0": 6.645614797817662e-05,
+   "omega0": 0.011528823362438722,
+   "first_order_E": 0.010416666666666666,
+   "E0_over_first_order": 0.7655748247085946,
+   "N_E0": 0.5103832164723964,
+   "weight_on_seam_ends_relative_to_uniform": 0.5858077817315833,
+   "overlap_with_uniform": 0.999493212664671,
+   "curvature_tensor_eigenvalues": [
+    0.5529848843787082,
+    0.5551261413425622,
+    0.5552512228832562
+   ],
+   "curvature_mean": 0.5544540828681755,
+   "curvature_over_load": 0.9980173687016856,
+   "anisotropy": 0.004087513420091241,
+   "v_over_v0": 0.9990192577820364,
+   "compton_length_lattice_constants": 8.338289948408537,
+   "compton_length_over_defect_spacing": 2.0845724871021343,
+   "defects_per_compton_volume": 9.058389783858914,
+   "seconds": 0.05300712585449219
+  },
+  {
+   "n": 8,
+   "seam": 1,
+   "seam_row": {
+    "from_class": 0,
+    "to_class": 1,
+    "cell_offset_of_to": [
+     0,
+     0,
+     1
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      1
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 512,
+   "E0": 0.000972134080197197,
+   "p0": 8.101117334976642e-06,
+   "omega0": 0.004025202671418746,
+   "first_order_E": 0.0013020833333333333,
+   "E0_over_first_order": 0.7465989735914473,
+   "N_E0": 0.49773264906096487,
+   "weight_on_seam_ends_relative_to_uniform": 0.5573391976740388,
+   "overlap_with_uniform": 0.999872930714755,
+   "curvature_tensor_eigenvalues": [
+    0.5551906173738782,
+    0.5554525199979767,
+    0.5554682542429197
+   ],
+   "curvature_mean": 0.5553704638715916,
+   "curvature_over_load": 0.9996668545401278,
+   "anisotropy": 0.000499912917777472,
+   "v_over_v0": 0.9998347633592779,
+   "compton_length_lattice_constants": 23.901689398928923,
+   "compton_length_over_defect_spacing": 2.9877111748661154,
+   "defects_per_compton_volume": 26.669559002593985,
+   "seconds": 0.23259687423706055
+  },
+  {
+   "n": 4,
+   "seam": 2,
+   "seam_row": {
+    "from_class": 0,
+    "to_class": 2,
+    "cell_offset_of_to": [
+     -1,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 64,
+   "E0": 0.007974737757381195,
+   "p0": 6.645614797817663e-05,
+   "omega0": 0.011528823362438722,
+   "first_order_E": 0.010416666666666666,
+   "E0_over_first_order": 0.7655748247085947,
+   "N_E0": 0.5103832164723965,
+   "weight_on_seam_ends_relative_to_uniform": 0.5858077817315839,
+   "overlap_with_uniform": 0.9994932126646714,
+   "curvature_tensor_eigenvalues": [
+    0.5529848843778514,
+    0.5551261413441915,
+    0.5552512228824795
+   ],
+   "curvature_mean": 0.554454082868174,
+   "curvature_over_load": 0.9980173687016828,
+   "anisotropy": 0.004087513420235624,
+   "v_over_v0": 0.9990192577820349,
+   "compton_length_lattice_constants": 8.338289948408525,
+   "compton_length_over_defect_spacing": 2.084572487102131,
+   "defects_per_compton_volume": 9.058389783858875,
+   "seconds": 0.05310797691345215
+  },
+  {
+   "n": 8,
+   "seam": 2,
+   "seam_row": {
+    "from_class": 0,
+    "to_class": 2,
+    "cell_offset_of_to": [
+     -1,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 512,
+   "E0": 0.000972134080197197,
+   "p0": 8.101117334976642e-06,
+   "omega0": 0.004025202671418746,
+   "first_order_E": 0.0013020833333333333,
+   "E0_over_first_order": 0.7465989735914473,
+   "N_E0": 0.49773264906096487,
+   "weight_on_seam_ends_relative_to_uniform": 0.5573391976740384,
+   "overlap_with_uniform": 0.9998729307147557,
+   "curvature_tensor_eigenvalues": [
+    0.5551906173615377,
+    0.5554525200175457,
+    0.555468254235691
+   ],
+   "curvature_mean": 0.5553704638715916,
+   "curvature_over_load": 0.9996668545401278,
+   "anisotropy": 0.0004999129269817783,
+   "v_over_v0": 0.9998347633592779,
+   "compton_length_lattice_constants": 23.901689398928923,
+   "compton_length_over_defect_spacing": 2.9877111748661154,
+   "defects_per_compton_volume": 26.669559002593985,
+   "seconds": 0.22957062721252441
+  },
+  {
+   "n": 4,
+   "seam": 3,
+   "seam_row": {
+    "from_class": 0,
+    "to_class": 2,
+    "cell_offset_of_to": [
+     0,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 64,
+   "E0": 0.007974737757381195,
+   "p0": 6.645614797817663e-05,
+   "omega0": 0.011528823362438722,
+   "first_order_E": 0.010416666666666666,
+   "E0_over_first_order": 0.7655748247085947,
+   "N_E0": 0.5103832164723965,
+   "weight_on_seam_ends_relative_to_uniform": 0.5858077817315841,
+   "overlap_with_uniform": 0.9994932126646716,
+   "curvature_tensor_eigenvalues": [
+    0.5529873582657515,
+    0.5551241420166795,
+    0.5552507483220923
+   ],
+   "curvature_mean": 0.5544540828681744,
+   "curvature_over_load": 0.9980173687016836,
+   "anisotropy": 0.004082195670076678,
+   "v_over_v0": 0.9990192577820354,
+   "compton_length_lattice_constants": 8.338289948408528,
+   "compton_length_over_defect_spacing": 2.084572487102132,
+   "defects_per_compton_volume": 9.058389783858885,
+   "seconds": 0.052796363830566406
+  },
+  {
+   "n": 8,
+   "seam": 3,
+   "seam_row": {
+    "from_class": 0,
+    "to_class": 2,
+    "cell_offset_of_to": [
+     0,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 512,
+   "E0": 0.0009721340801971971,
+   "p0": 8.101117334976642e-06,
+   "omega0": 0.004025202671418746,
+   "first_order_E": 0.0013020833333333333,
+   "E0_over_first_order": 0.7465989735914474,
+   "N_E0": 0.4977326490609649,
+   "weight_on_seam_ends_relative_to_uniform": 0.5573391976740392,
+   "overlap_with_uniform": 0.9998729307147558,
+   "curvature_tensor_eigenvalues": [
+    0.5551912545688461,
+    0.5554519945109494,
+    0.5554681425349939
+   ],
+   "curvature_mean": 0.5553704638715965,
+   "curvature_over_load": 0.9996668545401366,
+   "anisotropy": 0.0004985644433042693,
+   "v_over_v0": 0.9998347633592823,
+   "compton_length_lattice_constants": 23.901689398929026,
+   "compton_length_over_defect_spacing": 2.9877111748661282,
+   "defects_per_compton_volume": 26.66955900259433,
+   "seconds": 0.23089241981506348
+  },
+  {
+   "n": 4,
+   "seam": 4,
+   "seam_row": {
+    "from_class": 0,
+    "to_class": 3,
+    "cell_offset_of_to": [
+     -1,
+     0,
+     1
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      1
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 64,
+   "E0": 0.007974737757381195,
+   "p0": 6.645614797817663e-05,
+   "omega0": 0.011528823362438722,
+   "first_order_E": 0.010416666666666666,
+   "E0_over_first_order": 0.7655748247085947,
+   "N_E0": 0.5103832164723965,
+   "weight_on_seam_ends_relative_to_uniform": 0.5858077817315837,
+   "overlap_with_uniform": 0.9994932126646714,
+   "curvature_tensor_eigenvalues": [
+    0.5529870331946657,
+    0.5551246509558714,
+    0.5552505644539775
+   ],
+   "curvature_mean": 0.5544540828681714,
+   "curvature_over_load": 0.9980173687016782,
+   "anisotropy": 0.004082450340346692,
+   "v_over_v0": 0.9990192577820326,
+   "compton_length_lattice_constants": 8.338289948408505,
+   "compton_length_over_defect_spacing": 2.0845724871021263,
+   "defects_per_compton_volume": 9.05838978385881,
+   "seconds": 0.05257153511047363
+  },
+  {
+   "n": 8,
+   "seam": 4,
+   "seam_row": {
+    "from_class": 0,
+    "to_class": 3,
+    "cell_offset_of_to": [
+     -1,
+     0,
+     1
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      1
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 512,
+   "E0": 0.0009721340801971968,
+   "p0": 8.10111733497664e-06,
+   "omega0": 0.004025202671418746,
+   "first_order_E": 0.0013020833333333333,
+   "E0_over_first_order": 0.7465989735914472,
+   "N_E0": 0.49773264906096476,
+   "weight_on_seam_ends_relative_to_uniform": 0.5573391976740397,
+   "overlap_with_uniform": 0.9998729307147557,
+   "curvature_tensor_eigenvalues": [
+    0.5551911782946947,
+    0.5554521297347507,
+    0.5554680835853292
+   ],
+   "curvature_mean": 0.5553704638715917,
+   "curvature_over_load": 0.999666854540128,
+   "anisotropy": 0.0004985956377733012,
+   "v_over_v0": 0.999834763359278,
+   "compton_length_lattice_constants": 23.901689398928927,
+   "compton_length_over_defect_spacing": 2.987711174866116,
+   "defects_per_compton_volume": 26.669559002594,
+   "seconds": 0.23283767700195312
+  },
+  {
+   "n": 4,
+   "seam": 5,
+   "seam_row": {
+    "from_class": 0,
+    "to_class": 3,
+    "cell_offset_of_to": [
+     0,
+     0,
+     1
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      1
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 64,
+   "E0": 0.007974737757381192,
+   "p0": 6.64561479781766e-05,
+   "omega0": 0.011528823362438722,
+   "first_order_E": 0.010416666666666666,
+   "E0_over_first_order": 0.7655748247085944,
+   "N_E0": 0.5103832164723963,
+   "weight_on_seam_ends_relative_to_uniform": 0.5858077817315834,
+   "overlap_with_uniform": 0.9994932126646716,
+   "curvature_tensor_eigenvalues": [
+    0.5529862139077263,
+    0.5551262298246037,
+    0.555249804872191
+   ],
+   "curvature_mean": 0.5544540828681737,
+   "curvature_over_load": 0.9980173687016822,
+   "anisotropy": 0.004082558023119294,
+   "v_over_v0": 0.9990192577820346,
+   "compton_length_lattice_constants": 8.338289948408523,
+   "compton_length_over_defect_spacing": 2.0845724871021307,
+   "defects_per_compton_volume": 9.058389783858868,
+   "seconds": 0.05318760871887207
+  },
+  {
+   "n": 8,
+   "seam": 5,
+   "seam_row": {
+    "from_class": 0,
+    "to_class": 3,
+    "cell_offset_of_to": [
+     0,
+     0,
+     1
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      1
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 512,
+   "E0": 0.0009721340801971965,
+   "p0": 8.101117334976637e-06,
+   "omega0": 0.004025202671418746,
+   "first_order_E": 0.0013020833333333333,
+   "E0_over_first_order": 0.7465989735914469,
+   "N_E0": 0.4977326490609646,
+   "weight_on_seam_ends_relative_to_uniform": 0.557339197674039,
+   "overlap_with_uniform": 0.9998729307147555,
+   "curvature_tensor_eigenvalues": [
+    0.5551909540802379,
+    0.555452546355134,
+    0.5554678911794223
+   ],
+   "curvature_mean": 0.555370463871598,
+   "curvature_over_load": 0.9996668545401394,
+   "anisotropy": 0.0004986529122449759,
+   "v_over_v0": 0.9998347633592838,
+   "compton_length_lattice_constants": 23.901689398929058,
+   "compton_length_over_defect_spacing": 2.9877111748661322,
+   "defects_per_compton_volume": 26.669559002594436,
+   "seconds": 0.23301100730895996
+  },
+  {
+   "n": 4,
+   "seam": 7,
+   "seam_row": {
+    "from_class": 0,
+    "to_class": 5,
+    "cell_offset_of_to": [
+     0,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 64,
+   "E0": 0.007974737757381193,
+   "p0": 6.645614797817662e-05,
+   "omega0": 0.011528823362438722,
+   "first_order_E": 0.010416666666666666,
+   "E0_over_first_order": 0.7655748247085946,
+   "N_E0": 0.5103832164723964,
+   "weight_on_seam_ends_relative_to_uniform": 0.5858077817315834,
+   "overlap_with_uniform": 0.9994932126646711,
+   "curvature_tensor_eigenvalues": [
+    0.5529870331929951,
+    0.5551246509569149,
+    0.5552505644546089
+   ],
+   "curvature_mean": 0.5544540828681729,
+   "curvature_over_load": 0.9980173687016808,
+   "anisotropy": 0.004082450344498398,
+   "v_over_v0": 0.9990192577820339,
+   "compton_length_lattice_constants": 8.338289948408518,
+   "compton_length_over_defect_spacing": 2.0845724871021294,
+   "defects_per_compton_volume": 9.058389783858852,
+   "seconds": 0.053906917572021484
+  },
+  {
+   "n": 8,
+   "seam": 7,
+   "seam_row": {
+    "from_class": 0,
+    "to_class": 5,
+    "cell_offset_of_to": [
+     0,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 512,
+   "E0": 0.0009721340801971971,
+   "p0": 8.101117334976642e-06,
+   "omega0": 0.004025202671418746,
+   "first_order_E": 0.0013020833333333333,
+   "E0_over_first_order": 0.7465989735914474,
+   "N_E0": 0.4977326490609649,
+   "weight_on_seam_ends_relative_to_uniform": 0.5573391976740387,
+   "overlap_with_uniform": 0.9998729307147557,
+   "curvature_tensor_eigenvalues": [
+    0.5551911782736387,
+    0.5554521297583317,
+    0.5554680835828034
+   ],
+   "curvature_mean": 0.5553704638715912,
+   "curvature_over_load": 0.999666854540127,
+   "anisotropy": 0.0004985956711387373,
+   "v_over_v0": 0.9998347633592776,
+   "compton_length_lattice_constants": 23.901689398928912,
+   "compton_length_over_defect_spacing": 2.987711174866114,
+   "defects_per_compton_volume": 26.66955900259395,
+   "seconds": 0.2311098575592041
+  },
+  {
+   "n": 4,
+   "seam": 8,
+   "seam_row": {
+    "from_class": 0,
+    "to_class": 5,
+    "cell_offset_of_to": [
+     0,
+     0,
+     1
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      1
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 64,
+   "E0": 0.007974737757381197,
+   "p0": 6.645614797817664e-05,
+   "omega0": 0.011528823362438722,
+   "first_order_E": 0.010416666666666666,
+   "E0_over_first_order": 0.765574824708595,
+   "N_E0": 0.5103832164723966,
+   "weight_on_seam_ends_relative_to_uniform": 0.5858077817315838,
+   "overlap_with_uniform": 0.9994932126646711,
+   "curvature_tensor_eigenvalues": [
+    0.5529862139097893,
+    0.5551262298226514,
+    0.5552498048720723
+   ],
+   "curvature_mean": 0.5544540828681711,
+   "curvature_over_load": 0.9980173687016776,
+   "anisotropy": 0.004082558019184453,
+   "v_over_v0": 0.9990192577820324,
+   "compton_length_lattice_constants": 8.338289948408503,
+   "compton_length_over_defect_spacing": 2.084572487102126,
+   "defects_per_compton_volume": 9.058389783858804,
+   "seconds": 0.05390119552612305
+  },
+  {
+   "n": 8,
+   "seam": 8,
+   "seam_row": {
+    "from_class": 0,
+    "to_class": 5,
+    "cell_offset_of_to": [
+     0,
+     0,
+     1
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      1
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 512,
+   "E0": 0.0009721340801971973,
+   "p0": 8.101117334976644e-06,
+   "omega0": 0.004025202671418746,
+   "first_order_E": 0.0013020833333333333,
+   "E0_over_first_order": 0.7465989735914476,
+   "N_E0": 0.49773264906096504,
+   "weight_on_seam_ends_relative_to_uniform": 0.5573391976740397,
+   "overlap_with_uniform": 0.9998729307147557,
+   "curvature_tensor_eigenvalues": [
+    0.5551909541080651,
+    0.5554525463354889,
+    0.555467891171216
+   ],
+   "curvature_mean": 0.5553704638715901,
+   "curvature_over_load": 0.999666854540125,
+   "anisotropy": 0.0004986528473630496,
+   "v_over_v0": 0.9998347633592766,
+   "compton_length_lattice_constants": 23.901689398928887,
+   "compton_length_over_defect_spacing": 2.987711174866111,
+   "defects_per_compton_volume": 26.669559002593868,
+   "seconds": 0.22650599479675293
+  },
+  {
+   "n": 4,
+   "seam": 9,
+   "seam_row": {
+    "from_class": 1,
+    "to_class": 2,
+    "cell_offset_of_to": [
+     0,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 64,
+   "E0": 0.007974737757381185,
+   "p0": 6.645614797817654e-05,
+   "omega0": 0.011528823362438722,
+   "first_order_E": 0.010416666666666666,
+   "E0_over_first_order": 0.7655748247085937,
+   "N_E0": 0.5103832164723958,
+   "weight_on_seam_ends_relative_to_uniform": 0.5858077817315824,
+   "overlap_with_uniform": 0.9994932126646714,
+   "curvature_tensor_eigenvalues": [
+    0.5529873582637931,
+    0.5551241420172979,
+    0.5552507483234559
+   ],
+   "curvature_mean": 0.5544540828681822,
+   "curvature_over_load": 0.9980173687016975,
+   "anisotropy": 0.004082195676068117,
+   "v_over_v0": 0.9990192577820424,
+   "compton_length_lattice_constants": 8.338289948408587,
+   "compton_length_over_defect_spacing": 2.0845724871021467,
+   "defects_per_compton_volume": 9.058389783859077,
+   "seconds": 0.05323052406311035
+  },
+  {
+   "n": 8,
+   "seam": 9,
+   "seam_row": {
+    "from_class": 1,
+    "to_class": 2,
+    "cell_offset_of_to": [
+     0,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 512,
+   "E0": 0.0009721340801971958,
+   "p0": 8.101117334976632e-06,
+   "omega0": 0.004025202671418746,
+   "first_order_E": 0.0013020833333333333,
+   "E0_over_first_order": 0.7465989735914464,
+   "N_E0": 0.49773264906096426,
+   "weight_on_seam_ends_relative_to_uniform": 0.5573391976740385,
+   "overlap_with_uniform": 0.9998729307147574,
+   "curvature_tensor_eigenvalues": [
+    0.555191254549065,
+    0.5554519945197893,
+    0.5554681425459337
+   ],
+   "curvature_mean": 0.5553704638715958,
+   "curvature_over_load": 0.9996668545401354,
+   "anisotropy": 0.0004985644986202658,
+   "v_over_v0": 0.9998347633592818,
+   "compton_length_lattice_constants": 23.901689398929015,
+   "compton_length_over_defect_spacing": 2.987711174866127,
+   "defects_per_compton_volume": 26.669559002594294,
+   "seconds": 0.23092985153198242
+  },
+  {
+   "n": 4,
+   "seam": 10,
+   "seam_row": {
+    "from_class": 1,
+    "to_class": 2,
+    "cell_offset_of_to": [
+     0,
+     1,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      1,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 64,
+   "E0": 0.007974737757381183,
+   "p0": 6.645614797817652e-05,
+   "omega0": 0.011528823362438722,
+   "first_order_E": 0.010416666666666666,
+   "E0_over_first_order": 0.7655748247085936,
+   "N_E0": 0.5103832164723957,
+   "weight_on_seam_ends_relative_to_uniform": 0.5858077817315825,
+   "overlap_with_uniform": 0.999493212664672,
+   "curvature_tensor_eigenvalues": [
+    0.5529848843784436,
+    0.5551261413420457,
+    0.5552512228840555
+   ],
+   "curvature_mean": 0.5544540828681815,
+   "curvature_over_load": 0.9980173687016964,
+   "anisotropy": 0.00408751342200987,
+   "v_over_v0": 0.9990192577820417,
+   "compton_length_lattice_constants": 8.338289948408582,
+   "compton_length_over_defect_spacing": 2.0845724871021454,
+   "defects_per_compton_volume": 9.05838978385906,
+   "seconds": 0.05286073684692383
+  },
+  {
+   "n": 8,
+   "seam": 10,
+   "seam_row": {
+    "from_class": 1,
+    "to_class": 2,
+    "cell_offset_of_to": [
+     0,
+     1,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      1,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 512,
+   "E0": 0.0009721340801971957,
+   "p0": 8.10111733497663e-06,
+   "omega0": 0.004025202671418746,
+   "first_order_E": 0.0013020833333333333,
+   "E0_over_first_order": 0.7465989735914463,
+   "N_E0": 0.4977326490609642,
+   "weight_on_seam_ends_relative_to_uniform": 0.5573391976740388,
+   "overlap_with_uniform": 0.9998729307147567,
+   "curvature_tensor_eigenvalues": [
+    0.5551906173718595,
+    0.5554525200000923,
+    0.5554682542428356
+   ],
+   "curvature_mean": 0.5553704638715958,
+   "curvature_over_load": 0.9996668545401354,
+   "anisotropy": 0.0004999129212610432,
+   "v_over_v0": 0.9998347633592818,
+   "compton_length_lattice_constants": 23.901689398929015,
+   "compton_length_over_defect_spacing": 2.987711174866127,
+   "defects_per_compton_volume": 26.669559002594294,
+   "seconds": 0.22999143600463867
+  },
+  {
+   "n": 4,
+   "seam": 11,
+   "seam_row": {
+    "from_class": 1,
+    "to_class": 3,
+    "cell_offset_of_to": [
+     0,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 64,
+   "E0": 0.007974737757381186,
+   "p0": 6.645614797817655e-05,
+   "omega0": 0.011528823362438722,
+   "first_order_E": 0.010416666666666666,
+   "E0_over_first_order": 0.765574824708594,
+   "N_E0": 0.5103832164723959,
+   "weight_on_seam_ends_relative_to_uniform": 0.5858077817315827,
+   "overlap_with_uniform": 0.999493212664672,
+   "curvature_tensor_eigenvalues": [
+    0.5529870331934427,
+    0.555124650956943,
+    0.5552505644541557
+   ],
+   "curvature_mean": 0.5544540828681804,
+   "curvature_over_load": 0.9980173687016944,
+   "anisotropy": 0.004082450342873819,
+   "v_over_v0": 0.9990192577820407,
+   "compton_length_lattice_constants": 8.338289948408573,
+   "compton_length_over_defect_spacing": 2.084572487102143,
+   "defects_per_compton_volume": 9.058389783859031,
+   "seconds": 0.05396246910095215
+  },
+  {
+   "n": 8,
+   "seam": 11,
+   "seam_row": {
+    "from_class": 1,
+    "to_class": 3,
+    "cell_offset_of_to": [
+     0,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 512,
+   "E0": 0.0009721340801972005,
+   "p0": 8.101117334976671e-06,
+   "omega0": 0.004025202671418746,
+   "first_order_E": 0.0013020833333333333,
+   "E0_over_first_order": 0.74659897359145,
+   "N_E0": 0.49773264906096665,
+   "weight_on_seam_ends_relative_to_uniform": 0.5573391976740375,
+   "overlap_with_uniform": 0.9998729307147561,
+   "curvature_tensor_eigenvalues": [
+    0.5551911782935856,
+    0.5554521297487296,
+    0.5554680835724494
+   ],
+   "curvature_mean": 0.5553704638715881,
+   "curvature_over_load": 0.9996668545401214,
+   "anisotropy": 0.0004985956165789913,
+   "v_over_v0": 0.9998347633592748,
+   "compton_length_lattice_constants": 23.901689398928845,
+   "compton_length_over_defect_spacing": 2.9877111748661056,
+   "defects_per_compton_volume": 26.669559002593726,
+   "seconds": 0.22579097747802734
+  },
+  {
+   "n": 4,
+   "seam": 12,
+   "seam_row": {
+    "from_class": 1,
+    "to_class": 3,
+    "cell_offset_of_to": [
+     0,
+     1,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      1,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 64,
+   "E0": 0.007974737757381186,
+   "p0": 6.645614797817655e-05,
+   "omega0": 0.011528823362438722,
+   "first_order_E": 0.010416666666666666,
+   "E0_over_first_order": 0.765574824708594,
+   "N_E0": 0.5103832164723959,
+   "weight_on_seam_ends_relative_to_uniform": 0.5858077817315827,
+   "overlap_with_uniform": 0.999493212664672,
+   "curvature_tensor_eigenvalues": [
+    0.5529862139091106,
+    0.5551262298229095,
+    0.555249804872521
+   ],
+   "curvature_mean": 0.5544540828681804,
+   "curvature_over_load": 0.9980173687016944,
+   "anisotropy": 0.004082558021217592,
+   "v_over_v0": 0.9990192577820407,
+   "compton_length_lattice_constants": 8.338289948408573,
+   "compton_length_over_defect_spacing": 2.084572487102143,
+   "defects_per_compton_volume": 9.058389783859031,
+   "seconds": 0.05307960510253906
+  },
+  {
+   "n": 8,
+   "seam": 12,
+   "seam_row": {
+    "from_class": 1,
+    "to_class": 3,
+    "cell_offset_of_to": [
+     0,
+     1,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      1,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 512,
+   "E0": 0.0009721340801972007,
+   "p0": 8.101117334976673e-06,
+   "omega0": 0.004025202671418746,
+   "first_order_E": 0.0013020833333333333,
+   "E0_over_first_order": 0.7465989735914502,
+   "N_E0": 0.49773264906096676,
+   "weight_on_seam_ends_relative_to_uniform": 0.5573391976740382,
+   "overlap_with_uniform": 0.9998729307147568,
+   "curvature_tensor_eigenvalues": [
+    0.555190954094886,
+    0.5554525463466041,
+    0.555467891173257
+   ],
+   "curvature_mean": 0.5553704638715823,
+   "curvature_over_load": 0.9996668545401111,
+   "anisotropy": 0.0004986528747684723,
+   "v_over_v0": 0.9998347633592696,
+   "compton_length_lattice_constants": 23.90168939892872,
+   "compton_length_over_defect_spacing": 2.98771117486609,
+   "defects_per_compton_volume": 26.669559002593306,
+   "seconds": 0.2256162166595459
+  },
+  {
+   "n": 4,
+   "seam": 13,
+   "seam_row": {
+    "from_class": 1,
+    "to_class": 4,
+    "cell_offset_of_to": [
+     0,
+     1,
+     -1
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      1,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 64,
+   "E0": 0.007974737757381183,
+   "p0": 6.645614797817652e-05,
+   "omega0": 0.011528823362438722,
+   "first_order_E": 0.010416666666666666,
+   "E0_over_first_order": 0.7655748247085936,
+   "N_E0": 0.5103832164723957,
+   "weight_on_seam_ends_relative_to_uniform": 0.5858077817315825,
+   "overlap_with_uniform": 0.999493212664672,
+   "curvature_tensor_eigenvalues": [
+    0.552987033193002,
+    0.5551246509569262,
+    0.5552505644546218
+   ],
+   "curvature_mean": 0.5544540828681833,
+   "curvature_over_load": 0.9980173687016995,
+   "anisotropy": 0.004082450344509335,
+   "v_over_v0": 0.9990192577820434,
+   "compton_length_lattice_constants": 8.338289948408596,
+   "compton_length_over_defect_spacing": 2.084572487102149,
+   "defects_per_compton_volume": 9.058389783859106,
+   "seconds": 0.05265974998474121
+  },
+  {
+   "n": 8,
+   "seam": 13,
+   "seam_row": {
+    "from_class": 1,
+    "to_class": 4,
+    "cell_offset_of_to": [
+     0,
+     1,
+     -1
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      1,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 512,
+   "E0": 0.0009721340801971959,
+   "p0": 8.101117334976632e-06,
+   "omega0": 0.004025202671418746,
+   "first_order_E": 0.0013020833333333333,
+   "E0_over_first_order": 0.7465989735914466,
+   "N_E0": 0.4977326490609643,
+   "weight_on_seam_ends_relative_to_uniform": 0.5573391976740385,
+   "overlap_with_uniform": 0.9998729307147564,
+   "curvature_tensor_eigenvalues": [
+    0.5551911782736402,
+    0.5554521297583327,
+    0.5554680835828227
+   ],
+   "curvature_mean": 0.5553704638715986,
+   "curvature_over_load": 0.9996668545401404,
+   "anisotropy": 0.0004985956711709155,
+   "v_over_v0": 0.9998347633592842,
+   "compton_length_lattice_constants": 23.901689398929072,
+   "compton_length_over_defect_spacing": 2.987711174866134,
+   "defects_per_compton_volume": 26.669559002594486,
+   "seconds": 0.2305774688720703
+  },
+  {
+   "n": 4,
+   "seam": 14,
+   "seam_row": {
+    "from_class": 1,
+    "to_class": 4,
+    "cell_offset_of_to": [
+     0,
+     1,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      1,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 64,
+   "E0": 0.007974737757381186,
+   "p0": 6.645614797817655e-05,
+   "omega0": 0.011528823362438722,
+   "first_order_E": 0.010416666666666666,
+   "E0_over_first_order": 0.765574824708594,
+   "N_E0": 0.5103832164723959,
+   "weight_on_seam_ends_relative_to_uniform": 0.5858077817315829,
+   "overlap_with_uniform": 0.9994932126646717,
+   "curvature_tensor_eigenvalues": [
+    0.5529862139097992,
+    0.5551262298226585,
+    0.5552498048720833
+   ],
+   "curvature_mean": 0.5544540828681804,
+   "curvature_over_load": 0.9980173687016944,
+   "anisotropy": 0.004082558019186387,
+   "v_over_v0": 0.9990192577820407,
+   "compton_length_lattice_constants": 8.338289948408573,
+   "compton_length_over_defect_spacing": 2.084572487102143,
+   "defects_per_compton_volume": 9.058389783859031,
+   "seconds": 0.05218100547790527
+  },
+  {
+   "n": 8,
+   "seam": 14,
+   "seam_row": {
+    "from_class": 1,
+    "to_class": 4,
+    "cell_offset_of_to": [
+     0,
+     1,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      1,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 512,
+   "E0": 0.0009721340801971958,
+   "p0": 8.101117334976632e-06,
+   "omega0": 0.004025202671418746,
+   "first_order_E": 0.0013020833333333333,
+   "E0_over_first_order": 0.7465989735914464,
+   "N_E0": 0.49773264906096426,
+   "weight_on_seam_ends_relative_to_uniform": 0.5573391976740394,
+   "overlap_with_uniform": 0.9998729307147574,
+   "curvature_tensor_eigenvalues": [
+    0.5551909541080756,
+    0.5554525463354903,
+    0.5554678911712314
+   ],
+   "curvature_mean": 0.5553704638715992,
+   "curvature_over_load": 0.9996668545401414,
+   "anisotropy": 0.0004986528473718373,
+   "v_over_v0": 0.9998347633592848,
+   "compton_length_lattice_constants": 23.901689398929083,
+   "compton_length_over_defect_spacing": 2.9877111748661354,
+   "defects_per_compton_volume": 26.66955900259452,
+   "seconds": 0.22813773155212402
+  },
+  {
+   "n": 4,
+   "seam": 17,
+   "seam_row": {
+    "from_class": 2,
+    "to_class": 4,
+    "cell_offset_of_to": [
+     0,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 64,
+   "E0": 0.00797473775738119,
+   "p0": 6.645614797817658e-05,
+   "omega0": 0.011528823362438722,
+   "first_order_E": 0.010416666666666666,
+   "E0_over_first_order": 0.7655748247085943,
+   "N_E0": 0.5103832164723962,
+   "weight_on_seam_ends_relative_to_uniform": 0.5858077817315832,
+   "overlap_with_uniform": 0.9994932126646717,
+   "curvature_tensor_eigenvalues": [
+    0.5529870331946807,
+    0.5551246509558736,
+    0.5552505644539816
+   ],
+   "curvature_mean": 0.5544540828681784,
+   "curvature_over_load": 0.9980173687016908,
+   "anisotropy": 0.004082450340327017,
+   "v_over_v0": 0.9990192577820389,
+   "compton_length_lattice_constants": 8.338289948408558,
+   "compton_length_over_defect_spacing": 2.0845724871021396,
+   "defects_per_compton_volume": 9.058389783858985,
+   "seconds": 0.05292940139770508
+  },
+  {
+   "n": 8,
+   "seam": 17,
+   "seam_row": {
+    "from_class": 2,
+    "to_class": 4,
+    "cell_offset_of_to": [
+     0,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 512,
+   "E0": 0.0009721340801971959,
+   "p0": 8.101117334976632e-06,
+   "omega0": 0.004025202671418746,
+   "first_order_E": 0.0013020833333333333,
+   "E0_over_first_order": 0.7465989735914466,
+   "N_E0": 0.4977326490609643,
+   "weight_on_seam_ends_relative_to_uniform": 0.5573391976740392,
+   "overlap_with_uniform": 0.9998729307147564,
+   "curvature_tensor_eigenvalues": [
+    0.5551911782947092,
+    0.5554521297347398,
+    0.5554680835853341
+   ],
+   "curvature_mean": 0.5553704638715945,
+   "curvature_over_load": 0.999666854540133,
+   "anisotropy": 0.0004985956377559068,
+   "v_over_v0": 0.9998347633592806,
+   "compton_length_lattice_constants": 23.901689398928983,
+   "compton_length_over_defect_spacing": 2.987711174866123,
+   "defects_per_compton_volume": 26.669559002594188,
+   "seconds": 0.22556257247924805
+  },
+  {
+   "n": 4,
+   "seam": 18,
+   "seam_row": {
+    "from_class": 2,
+    "to_class": 4,
+    "cell_offset_of_to": [
+     1,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      1,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 64,
+   "E0": 0.007974737757381188,
+   "p0": 6.645614797817656e-05,
+   "omega0": 0.011528823362438722,
+   "first_order_E": 0.010416666666666666,
+   "E0_over_first_order": 0.7655748247085941,
+   "N_E0": 0.510383216472396,
+   "weight_on_seam_ends_relative_to_uniform": 0.5858077817315829,
+   "overlap_with_uniform": 0.9994932126646713,
+   "curvature_tensor_eigenvalues": [
+    0.5529862139077323,
+    0.5551262298246155,
+    0.5552498048721892
+   ],
+   "curvature_mean": 0.5544540828681789,
+   "curvature_over_load": 0.9980173687016916,
+   "anisotropy": 0.004082558023105239,
+   "v_over_v0": 0.9990192577820394,
+   "compton_length_lattice_constants": 8.338289948408562,
+   "compton_length_over_defect_spacing": 2.0845724871021405,
+   "defects_per_compton_volume": 9.058389783858996,
+   "seconds": 0.05396103858947754
+  },
+  {
+   "n": 8,
+   "seam": 18,
+   "seam_row": {
+    "from_class": 2,
+    "to_class": 4,
+    "cell_offset_of_to": [
+     1,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      1,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 512,
+   "E0": 0.0009721340801971966,
+   "p0": 8.101117334976639e-06,
+   "omega0": 0.004025202671418746,
+   "first_order_E": 0.0013020833333333333,
+   "E0_over_first_order": 0.746598973591447,
+   "N_E0": 0.49773264906096465,
+   "weight_on_seam_ends_relative_to_uniform": 0.5573391976740388,
+   "overlap_with_uniform": 0.9998729307147565,
+   "curvature_tensor_eigenvalues": [
+    0.5551909540802372,
+    0.555452546355114,
+    0.5554678911794273
+   ],
+   "curvature_mean": 0.5553704638715927,
+   "curvature_over_load": 0.9996668545401298,
+   "anisotropy": 0.000498652912255176,
+   "v_over_v0": 0.9998347633592789,
+   "compton_length_lattice_constants": 23.901689398928944,
+   "compton_length_over_defect_spacing": 2.987711174866118,
+   "defects_per_compton_volume": 26.669559002594056,
+   "seconds": 0.22870659828186035
+  },
+  {
+   "n": 4,
+   "seam": 19,
+   "seam_row": {
+    "from_class": 2,
+    "to_class": 5,
+    "cell_offset_of_to": [
+     1,
+     -1,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      1,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 64,
+   "E0": 0.007974737757381188,
+   "p0": 6.645614797817656e-05,
+   "omega0": 0.011528823362438722,
+   "first_order_E": 0.010416666666666666,
+   "E0_over_first_order": 0.7655748247085941,
+   "N_E0": 0.510383216472396,
+   "weight_on_seam_ends_relative_to_uniform": 0.5858077817315825,
+   "overlap_with_uniform": 0.9994932126646714,
+   "curvature_tensor_eigenvalues": [
+    0.5529870331934383,
+    0.555124650956941,
+    0.5552505644541516
+   ],
+   "curvature_mean": 0.554454082868177,
+   "curvature_over_load": 0.9980173687016882,
+   "anisotropy": 0.004082450342874245,
+   "v_over_v0": 0.9990192577820376,
+   "compton_length_lattice_constants": 8.338289948408548,
+   "compton_length_over_defect_spacing": 2.084572487102137,
+   "defects_per_compton_volume": 9.05838978385895,
+   "seconds": 0.05351877212524414
+  },
+  {
+   "n": 8,
+   "seam": 19,
+   "seam_row": {
+    "from_class": 2,
+    "to_class": 5,
+    "cell_offset_of_to": [
+     1,
+     -1,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      1,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 512,
+   "E0": 0.0009721340801971957,
+   "p0": 8.10111733497663e-06,
+   "omega0": 0.004025202671418746,
+   "first_order_E": 0.0013020833333333333,
+   "E0_over_first_order": 0.7465989735914463,
+   "N_E0": 0.4977326490609642,
+   "weight_on_seam_ends_relative_to_uniform": 0.5573391976740393,
+   "overlap_with_uniform": 0.9998729307147568,
+   "curvature_tensor_eigenvalues": [
+    0.5551911782935905,
+    0.5554521297487344,
+    0.5554680835724628
+   ],
+   "curvature_mean": 0.555370463871596,
+   "curvature_over_load": 0.9996668545401358,
+   "anisotropy": 0.0004985956165941771,
+   "v_over_v0": 0.9998347633592819,
+   "compton_length_lattice_constants": 23.90168939892902,
+   "compton_length_over_defect_spacing": 2.9877111748661274,
+   "defects_per_compton_volume": 26.66955900259431,
+   "seconds": 0.22990059852600098
+  },
+  {
+   "n": 4,
+   "seam": 20,
+   "seam_row": {
+    "from_class": 2,
+    "to_class": 5,
+    "cell_offset_of_to": [
+     1,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      1,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 64,
+   "E0": 0.007974737757381186,
+   "p0": 6.645614797817655e-05,
+   "omega0": 0.011528823362438722,
+   "first_order_E": 0.010416666666666666,
+   "E0_over_first_order": 0.765574824708594,
+   "N_E0": 0.5103832164723959,
+   "weight_on_seam_ends_relative_to_uniform": 0.5858077817315832,
+   "overlap_with_uniform": 0.9994932126646722,
+   "curvature_tensor_eigenvalues": [
+    0.5529862139091111,
+    0.5551262298229009,
+    0.5552498048725202
+   ],
+   "curvature_mean": 0.5544540828681774,
+   "curvature_over_load": 0.998017368701689,
+   "anisotropy": 0.004082558021215411,
+   "v_over_v0": 0.999019257782038,
+   "compton_length_lattice_constants": 8.338289948408551,
+   "compton_length_over_defect_spacing": 2.084572487102138,
+   "defects_per_compton_volume": 9.05838978385896,
+   "seconds": 0.05283355712890625
+  },
+  {
+   "n": 8,
+   "seam": 20,
+   "seam_row": {
+    "from_class": 2,
+    "to_class": 5,
+    "cell_offset_of_to": [
+     1,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      1,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 512,
+   "E0": 0.0009721340801971959,
+   "p0": 8.101117334976632e-06,
+   "omega0": 0.004025202671418746,
+   "first_order_E": 0.0013020833333333333,
+   "E0_over_first_order": 0.7465989735914466,
+   "N_E0": 0.4977326490609643,
+   "weight_on_seam_ends_relative_to_uniform": 0.5573391976740398,
+   "overlap_with_uniform": 0.9998729307147567,
+   "curvature_tensor_eigenvalues": [
+    0.5551909540948954,
+    0.5554525463466189,
+    0.5554678911732711
+   ],
+   "curvature_mean": 0.5553704638715949,
+   "curvature_over_load": 0.9996668545401338,
+   "anisotropy": 0.0004986528747768571,
+   "v_over_v0": 0.9998347633592809,
+   "compton_length_lattice_constants": 23.901689398928994,
+   "compton_length_over_defect_spacing": 2.9877111748661243,
+   "defects_per_compton_volume": 26.669559002594223,
+   "seconds": 0.23004984855651855
+  },
+  {
+   "n": 4,
+   "seam": 21,
+   "seam_row": {
+    "from_class": 3,
+    "to_class": 4,
+    "cell_offset_of_to": [
+     0,
+     0,
+     -1
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 64,
+   "E0": 0.007974737757381185,
+   "p0": 6.645614797817654e-05,
+   "omega0": 0.011528823362438722,
+   "first_order_E": 0.010416666666666666,
+   "E0_over_first_order": 0.7655748247085937,
+   "N_E0": 0.5103832164723958,
+   "weight_on_seam_ends_relative_to_uniform": 0.5858077817315825,
+   "overlap_with_uniform": 0.999493212664672,
+   "curvature_tensor_eigenvalues": [
+    0.5529848843778604,
+    0.5551261413441988,
+    0.5552512228824823
+   ],
+   "curvature_mean": 0.5544540828681804,
+   "curvature_over_load": 0.9980173687016944,
+   "anisotropy": 0.004087513420224363,
+   "v_over_v0": 0.9990192577820407,
+   "compton_length_lattice_constants": 8.338289948408573,
+   "compton_length_over_defect_spacing": 2.084572487102143,
+   "defects_per_compton_volume": 9.058389783859031,
+   "seconds": 0.05327296257019043
+  },
+  {
+   "n": 8,
+   "seam": 21,
+   "seam_row": {
+    "from_class": 3,
+    "to_class": 4,
+    "cell_offset_of_to": [
+     0,
+     0,
+     -1
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 512,
+   "E0": 0.000972134080197196,
+   "p0": 8.101117334976634e-06,
+   "omega0": 0.004025202671418746,
+   "first_order_E": 0.0013020833333333333,
+   "E0_over_first_order": 0.7465989735914466,
+   "N_E0": 0.49773264906096437,
+   "weight_on_seam_ends_relative_to_uniform": 0.5573391976740386,
+   "overlap_with_uniform": 0.9998729307147561,
+   "curvature_tensor_eigenvalues": [
+    0.5551906173615387,
+    0.555452520017549,
+    0.5554682542356958
+   ],
+   "curvature_mean": 0.5553704638715945,
+   "curvature_over_load": 0.999666854540133,
+   "anisotropy": 0.0004999129269885725,
+   "v_over_v0": 0.9998347633592806,
+   "compton_length_lattice_constants": 23.901689398928983,
+   "compton_length_over_defect_spacing": 2.987711174866123,
+   "defects_per_compton_volume": 26.669559002594188,
+   "seconds": 0.2311253547668457
+  },
+  {
+   "n": 4,
+   "seam": 22,
+   "seam_row": {
+    "from_class": 3,
+    "to_class": 4,
+    "cell_offset_of_to": [
+     1,
+     0,
+     -1
+    ],
+    "owning_carrier_cells": [
+     [
+      1,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 64,
+   "E0": 0.007974737757381188,
+   "p0": 6.645614797817656e-05,
+   "omega0": 0.011528823362438722,
+   "first_order_E": 0.010416666666666666,
+   "E0_over_first_order": 0.7655748247085941,
+   "N_E0": 0.510383216472396,
+   "weight_on_seam_ends_relative_to_uniform": 0.5858077817315828,
+   "overlap_with_uniform": 0.9994932126646716,
+   "curvature_tensor_eigenvalues": [
+    0.5529873582657596,
+    0.5551241420166845,
+    0.5552507483220924
+   ],
+   "curvature_mean": 0.5544540828681789,
+   "curvature_over_load": 0.9980173687016916,
+   "anisotropy": 0.004082195670062228,
+   "v_over_v0": 0.9990192577820394,
+   "compton_length_lattice_constants": 8.338289948408562,
+   "compton_length_over_defect_spacing": 2.0845724871021405,
+   "defects_per_compton_volume": 9.058389783858996,
+   "seconds": 0.052893638610839844
+  },
+  {
+   "n": 8,
+   "seam": 22,
+   "seam_row": {
+    "from_class": 3,
+    "to_class": 4,
+    "cell_offset_of_to": [
+     1,
+     0,
+     -1
+    ],
+    "owning_carrier_cells": [
+     [
+      1,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 512,
+   "E0": 0.0009721340801971961,
+   "p0": 8.101117334976634e-06,
+   "omega0": 0.004025202671418746,
+   "first_order_E": 0.0013020833333333333,
+   "E0_over_first_order": 0.7465989735914467,
+   "N_E0": 0.4977326490609644,
+   "weight_on_seam_ends_relative_to_uniform": 0.5573391976740388,
+   "overlap_with_uniform": 0.999872930714756,
+   "curvature_tensor_eigenvalues": [
+    0.5551912545688333,
+    0.5554519945109687,
+    0.55546814253498
+   ],
+   "curvature_mean": 0.5553704638715941,
+   "curvature_over_load": 0.9996668545401322,
+   "anisotropy": 0.0004985644433022724,
+   "v_over_v0": 0.9998347633592801,
+   "compton_length_lattice_constants": 23.901689398928976,
+   "compton_length_over_defect_spacing": 2.987711174866122,
+   "defects_per_compton_volume": 26.669559002594163,
+   "seconds": 0.23001480102539062
+  },
+  {
+   "n": 4,
+   "seam": 23,
+   "seam_row": {
+    "from_class": 3,
+    "to_class": 5,
+    "cell_offset_of_to": [
+     1,
+     -1,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      1,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 64,
+   "E0": 0.00797473775738119,
+   "p0": 6.645614797817658e-05,
+   "omega0": 0.011528823362438722,
+   "first_order_E": 0.010416666666666666,
+   "E0_over_first_order": 0.7655748247085943,
+   "N_E0": 0.5103832164723962,
+   "weight_on_seam_ends_relative_to_uniform": 0.5858077817315831,
+   "overlap_with_uniform": 0.999493212664672,
+   "curvature_tensor_eigenvalues": [
+    0.552987358263787,
+    0.5551241420172931,
+    0.555250748323449
+   ],
+   "curvature_mean": 0.5544540828681762,
+   "curvature_over_load": 0.9980173687016868,
+   "anisotropy": 0.004082195676066759,
+   "v_over_v0": 0.9990192577820369,
+   "compton_length_lattice_constants": 8.33828994840854,
+   "compton_length_over_defect_spacing": 2.084572487102135,
+   "defects_per_compton_volume": 9.058389783858926,
+   "seconds": 0.05299258232116699
+  },
+  {
+   "n": 8,
+   "seam": 23,
+   "seam_row": {
+    "from_class": 3,
+    "to_class": 5,
+    "cell_offset_of_to": [
+     1,
+     -1,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      1,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 512,
+   "E0": 0.0009721340801971958,
+   "p0": 8.101117334976632e-06,
+   "omega0": 0.004025202671418746,
+   "first_order_E": 0.0013020833333333333,
+   "E0_over_first_order": 0.7465989735914464,
+   "N_E0": 0.49773264906096426,
+   "weight_on_seam_ends_relative_to_uniform": 0.5573391976740389,
+   "overlap_with_uniform": 0.9998729307147565,
+   "curvature_tensor_eigenvalues": [
+    0.5551912545490751,
+    0.5554519945197899,
+    0.5554681425459367
+   ],
+   "curvature_mean": 0.5553704638716005,
+   "curvature_over_load": 0.9996668545401438,
+   "anisotropy": 0.0004985644986074675,
+   "v_over_v0": 0.9998347633592859,
+   "compton_length_lattice_constants": 23.901689398929115,
+   "compton_length_over_defect_spacing": 2.9877111748661394,
+   "defects_per_compton_volume": 26.669559002594628,
+   "seconds": 0.22725820541381836
+  },
+  {
+   "n": 4,
+   "seam": 24,
+   "seam_row": {
+    "from_class": 3,
+    "to_class": 5,
+    "cell_offset_of_to": [
+     1,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      1,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 64,
+   "E0": 0.00797473775738119,
+   "p0": 6.645614797817658e-05,
+   "omega0": 0.011528823362438722,
+   "first_order_E": 0.010416666666666666,
+   "E0_over_first_order": 0.7655748247085943,
+   "N_E0": 0.5103832164723962,
+   "weight_on_seam_ends_relative_to_uniform": 0.585807781731583,
+   "overlap_with_uniform": 0.999493212664672,
+   "curvature_tensor_eigenvalues": [
+    0.5529848843784353,
+    0.5551261413420467,
+    0.5552512228840483
+   ],
+   "curvature_mean": 0.5544540828681767,
+   "curvature_over_load": 0.9980173687016876,
+   "anisotropy": 0.004087513422011908,
+   "v_over_v0": 0.9990192577820374,
+   "compton_length_lattice_constants": 8.338289948408544,
+   "compton_length_over_defect_spacing": 2.084572487102136,
+   "defects_per_compton_volume": 9.058389783858937,
+   "seconds": 0.05370926856994629
+  },
+  {
+   "n": 8,
+   "seam": 24,
+   "seam_row": {
+    "from_class": 3,
+    "to_class": 5,
+    "cell_offset_of_to": [
+     1,
+     0,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      1,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 512,
+   "E0": 0.0009721340801971958,
+   "p0": 8.101117334976632e-06,
+   "omega0": 0.004025202671418746,
+   "first_order_E": 0.0013020833333333333,
+   "E0_over_first_order": 0.7465989735914464,
+   "N_E0": 0.49773264906096426,
+   "weight_on_seam_ends_relative_to_uniform": 0.5573391976740393,
+   "overlap_with_uniform": 0.9998729307147571,
+   "curvature_tensor_eigenvalues": [
+    0.5551906173718604,
+    0.5554525200000935,
+    0.5554682542428342
+   ],
+   "curvature_mean": 0.5553704638715958,
+   "curvature_over_load": 0.9996668545401354,
+   "anisotropy": 0.000499912921256845,
+   "v_over_v0": 0.9998347633592818,
+   "compton_length_lattice_constants": 23.901689398929015,
+   "compton_length_over_defect_spacing": 2.987711174866127,
+   "defects_per_compton_volume": 26.669559002594294,
+   "seconds": 0.2269420623779297
+  },
+  {
+   "n": 4,
+   "seam": 25,
+   "seam_row": {
+    "from_class": 4,
+    "to_class": 5,
+    "cell_offset_of_to": [
+     0,
+     -1,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 64,
+   "E0": 0.007974737757381185,
+   "p0": 6.645614797817654e-05,
+   "omega0": 0.011528823362438722,
+   "first_order_E": 0.010416666666666666,
+   "E0_over_first_order": 0.7655748247085937,
+   "N_E0": 0.5103832164723958,
+   "weight_on_seam_ends_relative_to_uniform": 0.5858077817315825,
+   "overlap_with_uniform": 0.999493212664672,
+   "curvature_tensor_eigenvalues": [
+    0.5529848843787107,
+    0.5551261413425655,
+    0.5552512228832616
+   ],
+   "curvature_mean": 0.5544540828681793,
+   "curvature_over_load": 0.9980173687016924,
+   "anisotropy": 0.004087513420096219,
+   "v_over_v0": 0.9990192577820397,
+   "compton_length_lattice_constants": 8.338289948408564,
+   "compton_length_over_defect_spacing": 2.084572487102141,
+   "defects_per_compton_volume": 9.058389783859,
+   "seconds": 0.05302071571350098
+  },
+  {
+   "n": 8,
+   "seam": 25,
+   "seam_row": {
+    "from_class": 4,
+    "to_class": 5,
+    "cell_offset_of_to": [
+     0,
+     -1,
+     0
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 512,
+   "E0": 0.0009721340801971965,
+   "p0": 8.101117334976637e-06,
+   "omega0": 0.004025202671418746,
+   "first_order_E": 0.0013020833333333333,
+   "E0_over_first_order": 0.7465989735914469,
+   "N_E0": 0.4977326490609646,
+   "weight_on_seam_ends_relative_to_uniform": 0.5573391976740393,
+   "overlap_with_uniform": 0.9998729307147564,
+   "curvature_tensor_eigenvalues": [
+    0.5551906173738769,
+    0.5554525199979756,
+    0.5554682542429403
+   ],
+   "curvature_mean": 0.5553704638715976,
+   "curvature_over_load": 0.9996668545401386,
+   "anisotropy": 0.0004999129178170481,
+   "v_over_v0": 0.9998347633592833,
+   "compton_length_lattice_constants": 23.90168939892905,
+   "compton_length_over_defect_spacing": 2.9877111748661314,
+   "defects_per_compton_volume": 26.669559002594415,
+   "seconds": 0.22919011116027832
+  },
+  {
+   "n": 4,
+   "seam": 26,
+   "seam_row": {
+    "from_class": 4,
+    "to_class": 5,
+    "cell_offset_of_to": [
+     0,
+     -1,
+     1
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      1
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 64,
+   "E0": 0.007974737757381185,
+   "p0": 6.645614797817654e-05,
+   "omega0": 0.011528823362438722,
+   "first_order_E": 0.010416666666666666,
+   "E0_over_first_order": 0.7655748247085937,
+   "N_E0": 0.5103832164723958,
+   "weight_on_seam_ends_relative_to_uniform": 0.5858077817315823,
+   "overlap_with_uniform": 0.9994932126646717,
+   "curvature_tensor_eigenvalues": [
+    0.5529873582653309,
+    0.5551241420174398,
+    0.5552507483217708
+   ],
+   "curvature_mean": 0.5544540828681804,
+   "curvature_over_load": 0.9980173687016944,
+   "anisotropy": 0.004082195670255445,
+   "v_over_v0": 0.9990192577820407,
+   "compton_length_lattice_constants": 8.338289948408573,
+   "compton_length_over_defect_spacing": 2.084572487102143,
+   "defects_per_compton_volume": 9.058389783859031,
+   "seconds": 0.05347037315368652
+  },
+  {
+   "n": 8,
+   "seam": 26,
+   "seam_row": {
+    "from_class": 4,
+    "to_class": 5,
+    "cell_offset_of_to": [
+     0,
+     -1,
+     1
+    ],
+    "owning_carrier_cells": [
+     [
+      0,
+      0,
+      1
+     ]
+    ],
+    "shared": false
+   },
+   "N_carriers_per_defect": 512,
+   "E0": 0.0009721340801971965,
+   "p0": 8.101117334976637e-06,
+   "omega0": 0.004025202671418746,
+   "first_order_E": 0.0013020833333333333,
+   "E0_over_first_order": 0.7465989735914469,
+   "N_E0": 0.4977326490609646,
+   "weight_on_seam_ends_relative_to_uniform": 0.5573391976740392,
+   "overlap_with_uniform": 0.999872930714756,
+   "curvature_tensor_eigenvalues": [
+    0.5551912545541617,
+    0.5554519945288743,
+    0.5554681425317404
+   ],
+   "curvature_mean": 0.5553704638715921,
+   "curvature_over_load": 0.9996668545401286,
+   "anisotropy": 0.000498564463886672,
+   "v_over_v0": 0.9998347633592783,
+   "compton_length_lattice_constants": 23.90168939892893,
+   "compton_length_over_defect_spacing": 2.9877111748661163,
+   "defects_per_compton_volume": 26.66955900259401,
+   "seconds": 0.22829270362854004
+  }
+ ]
+}

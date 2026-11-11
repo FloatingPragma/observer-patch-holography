@@ -1,0 +1,24 @@
+"""D3: bound-mode triples in DF2's variables (y1/y3, y2/y3, Q = sum m/(sum sqrt m)^2, x = (3Q - 1)/2).
+Usage: python df2_compare.py > df2_compare.txt   (reads native_flux.json, item3_table.json in this directory)"""
+import json, numpy as np
+def qx(m):
+    m = np.sort(np.asarray(m, float)); s = np.sqrt(m)
+    Q = m.sum() / s.sum() ** 2; return m[0] / m[2], m[1] / m[2], Q, (3 * Q - 1) / 2
+rows = [('native, pair splittings, xi_c=0, no flux', [0.0016004, 0.0077811, 0.0082133]),     # r2c_cluster.json / i3_cluster.json
+        ('native, pair splittings, xi_c=1, no flux', [0.001461, 0.0090658, 0.0092815]),
+        ('native, pair splittings, xi_c=2, no flux', [0.0003865, 0.0008725, 0.0027094]),
+        ('native, pair splittings, xi_c=3, no flux', [0.0001928, 0.0002751, 0.0003779])]
+for r in json.load(open('native_flux.json'))['results']:
+    c = r['config']
+    if c['xi_c'] != 0.0: continue
+    cr = [x for x in r['classes'][0]['cores'] if x['core'] == 0][0]
+    rows.append((f"native, pair splittings, xi_c=0, class flux m={round(c['flux'] / (2 * np.pi / 6))}", sorted(abs(x) for x in cr['near_zero_group']['phases_per_tick'])[::2]))
+for e in json.load(open('item3_table.json'))['rows']:
+    if e['class'] != [0, 0]: continue
+    for o in e['overlaps']:
+        if o['offset'] == 0.0 and o['width'] in (0.75, 1.5): rows.append((f"core overlap (right comp.), xi_c={e['xi_c']}, w={o['width']}", o['R']))
+print(f"{'triple':58s} y1/y3     y2/y3     Q        x=(3Q-1)/2")
+for name, m in rows:
+    a, b, Q, x = qx(m); print(f"{name:58s} {a:.3e} {b:.3e} {Q:.4f}   {x:.4f}")
+print('targets (DF2, M_Z): up x = 0.8316 (Q 0.888), down x = 0.6217 (Q 0.748); native branch weights x = 1/2 (Q = 2/3)')
+print('member B (one handedness, index protected): all three at zero phase (|E| <= 1.2e-17) for m = 0, 1, 2, 3: no ratio defined')

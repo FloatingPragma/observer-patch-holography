@@ -1,0 +1,629 @@
+{
+ "definition": "values on the three copies of the triplet second index, ordered slow, middle, fast; r with the values sorted ascending",
+ "rows": {
+  "triplet second index, flux 0": {
+   "adjacency_levels": [
+    "sqrt(5)",
+    "-1",
+    "-sqrt(5)"
+   ],
+   "functions": {
+    "H0 kernel K": {
+     "function": "K = 1 - (5 - A)/60",
+     "values_slow_middle_fast_exact": [
+      "sqrt(5)/60 + 11/12",
+      "9/10",
+      "11/12 - sqrt(5)/60"
+     ],
+     "values": [
+      0.953934466291663,
+      0.9,
+      0.87939886704167
+     ],
+     "largest_over_smallest": 1.08475744288907,
+     "r = log(m3/m2)/log(m2/m1), ascending": 2.51337546506878,
+     "note": "the levels"
+    },
+    "H0c correction probability 1 - K": {
+     "function": "1 - K = (5 - A)/60",
+     "values_slow_middle_fast_exact": [
+      "1/12 - sqrt(5)/60",
+      "1/10",
+      "sqrt(5)/60 + 1/12"
+     ],
+     "values": [
+      0.0460655337083368,
+      0.1,
+      0.12060113295833
+     ],
+     "largest_over_smallest": 2.61803398874989,
+     "r = log(m3/m2)/log(m2/m1), ascending": 0.241668489486173,
+     "note": "seam cost / 60"
+    },
+    "H0w rest phase arccos K": {
+     "function": "arccos K",
+     "values_slow_middle_fast_exact": [
+      null,
+      null,
+      null
+     ],
+     "values": [
+      0.304708437370273,
+      0.451026811796262,
+      0.496198259502073
+     ],
+     "largest_over_smallest": 1.62843623164628,
+     "r = log(m3/m2)/log(m2/m1), ascending": 0.243385350170046,
+     "note": "CF-1 option M3 mass angle per tick"
+    },
+    "H1 powers K^n": {
+     "function": "K^n, any n >= 1",
+     "values_slow_middle_fast_exact": [
+      "sqrt(5)/60 + 11/12",
+      "9/10",
+      "11/12 - sqrt(5)/60"
+     ],
+     "values": [
+      0.953934466291663,
+      0.9,
+      0.87939886704167
+     ],
+     "largest_over_smallest": 1.08475744288907,
+     "r = log(m3/m2)/log(m2/m1), ascending": 2.51337546506878,
+     "note": "r is the same for every n; the spread is (largest/smallest)^n; n = 1 printed"
+    },
+    "H1 powers K^10": {
+     "function": "K^10",
+     "values_slow_middle_fast_exact": [
+      null,
+      null,
+      null
+     ],
+     "values": [
+      0.624001170333672,
+      0.3486784401,
+      0.276604357612398
+     ],
+     "largest_over_smallest": 2.25593398354221,
+     "r = log(m3/m2)/log(m2/m1), ascending": 2.51337546506878,
+     "note": "10 events"
+    },
+    "H1 powers K^100": {
+     "function": "K^100",
+     "values_slow_middle_fast_exact": [
+      null,
+      null,
+      null
+     ],
+     "values": [
+      0.00895063901609836,
+      2.65613988875875e-05,
+      2.62174336042829e-06
+     ],
+     "largest_over_smallest": 3414.00274000739,
+     "r = log(m3/m2)/log(m2/m1), ascending": 2.51337546506878,
+     "note": "100 events"
+    },
+    "H1i inverse powers K^-n": {
+     "function": "K^-n, any n >= 1",
+     "values_slow_middle_fast_exact": [
+      "165/151 - 3*sqrt(5)/151",
+      "10/9",
+      "3*sqrt(5)/151 + 165/151"
+     ],
+     "values": [
+      1.04829004018212,
+      1.11111111111111,
+      1.13714042339404
+     ],
+     "largest_over_smallest": 1.08475744288907,
+     "r = log(m3/m2)/log(m2/m1), ascending": 0.397871314452668,
+     "note": "r(K^-n) = 1/r(K^n)"
+    },
+    "H1r rates -log K": {
+     "function": "-log K",
+     "values_slow_middle_fast_exact": [
+      null,
+      null,
+      null
+     ],
+     "values": [
+      0.0471603035079738,
+      0.105360515657826,
+      0.128516710567312
+     ],
+     "largest_over_smallest": 2.72510355124375,
+     "r = log(m3/m2)/log(m2/m1), ascending": 0.247153804836687,
+     "note": "exponents of H1 per event"
+    },
+    "H2 resolvent (5 - A)^-1": {
+     "function": "(5 - A)^-1 on the second index",
+     "values_slow_middle_fast_exact": [
+      "sqrt(5)/20 + 1/4",
+      "1/6",
+      "1/4 - sqrt(5)/20"
+     ],
+     "values": [
+      0.361803398874989,
+      0.166666666666667,
+      0.138196601125011
+     ],
+     "largest_over_smallest": 2.61803398874989,
+     "r = log(m3/m2)/log(m2/m1), ascending": 4.13789982353995,
+     "note": "CAP stationary state (lead L25: normalized Green function of the twisted Laplacian), unnormalized"
+    },
+    "H3 log(5 - A)": {
+     "function": "log(5 - A) = -log of the resolvent up to the normalization constant",
+     "values_slow_middle_fast_exact": [
+      null,
+      null,
+      null
+     ],
+     "values": [
+      1.01665431171739,
+      1.79175946922806,
+      1.9790779618366
+     ],
+     "largest_over_smallest": 1.94665771740389,
+     "r = log(m3/m2)/log(m2/m1), ascending": 0.175465547062581,
+     "note": "the additive constant is not fixed by the second index; gaps are canonical"
+    },
+    "H3n -log of the resolvent normalized on the second index": {
+     "function": "-log((5 - A)^-1 / trace over the second index)",
+     "values_slow_middle_fast_exact": [
+      null,
+      null,
+      null
+     ],
+     "values": [
+      0.611189203609228,
+      1.38629436111989,
+      1.57361285372843
+     ],
+     "largest_over_smallest": 2.57467383984509,
+     "r = log(m3/m2)/log(m2/m1), ascending": 0.154752787024567,
+     "note": "normalization over the three copies"
+    },
+    "H4 projector on the slowest level": {
+     "function": "projector on the copy with the largest kernel level",
+     "values": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "largest_over_smallest": null,
+     "r = log(m3/m2)/log(m2/m1), ascending": null,
+     "note": "rank one: two levels vanish exactly; r undefined"
+    }
+   }
+  },
+  "triplet second index, flux 2": {
+   "adjacency_levels": [
+    "sqrt(5)/2 + 5/2",
+    "-3/2 + sqrt(5)/2",
+    "-sqrt(5)"
+   ],
+   "functions": {
+    "H0 kernel K": {
+     "function": "K = 1 - (5 - A)/60",
+     "values_slow_middle_fast_exact": [
+      "sqrt(5)/120 + 23/24",
+      "sqrt(5)/120 + 107/120",
+      "11/12 - sqrt(5)/60"
+     ],
+     "values": [
+      0.976967233145832,
+      0.910300566479165,
+      0.87939886704167
+     ],
+     "largest_over_smallest": 1.11094893314155,
+     "r = log(m3/m2)/log(m2/m1), ascending": 2.04649421240783,
+     "note": "the levels"
+    },
+    "H0c correction probability 1 - K": {
+     "function": "1 - K = (5 - A)/60",
+     "values_slow_middle_fast_exact": [
+      "1/24 - sqrt(5)/120",
+      "13/120 - sqrt(5)/120",
+      "sqrt(5)/60 + 1/12"
+     ],
+     "values": [
+      0.0230327668541684,
+      0.0896994335208351,
+      0.12060113295833
+     ],
+     "largest_over_smallest": 5.23606797749979,
+     "r = log(m3/m2)/log(m2/m1), ascending": 0.217737460075988,
+     "note": "seam cost / 60"
+    },
+    "H0w rest phase arccos K": {
+     "function": "arccos K",
+     "values_slow_middle_fast_exact": [
+      null,
+      null,
+      null
+     ],
+     "values": [
+      0.215042935415735,
+      0.426786746318426,
+      0.496198259502073
+     ],
+     "largest_over_smallest": 2.30743808692339,
+     "r = log(m3/m2)/log(m2/m1), ascending": 0.21984362258264,
+     "note": "CF-1 option M3 mass angle per tick"
+    },
+    "H1 powers K^n": {
+     "function": "K^n, any n >= 1",
+     "values_slow_middle_fast_exact": [
+      "sqrt(5)/120 + 23/24",
+      "sqrt(5)/120 + 107/120",
+      "11/12 - sqrt(5)/60"
+     ],
+     "values": [
+      0.976967233145832,
+      0.910300566479165,
+      0.87939886704167
+     ],
+     "largest_over_smallest": 1.11094893314155,
+     "r = log(m3/m2)/log(m2/m1), ascending": 2.04649421240783,
+     "note": "r is the same for every n; the spread is (largest/smallest)^n; n = 1 printed"
+    },
+    "H1 powers K^10": {
+     "function": "K^10",
+     "values_slow_middle_fast_exact": [
+      null,
+      null,
+      null
+     ],
+     "values": [
+      0.792136417760412,
+      0.390704245058447,
+      0.276604357612398
+     ],
+     "largest_over_smallest": 2.86378864236991,
+     "r = log(m3/m2)/log(m2/m1), ascending": 2.04649421240783,
+     "note": "10 events"
+    },
+    "H1 powers K^100": {
+     "function": "K^100",
+     "values_slow_middle_fast_exact": [
+      null,
+      null,
+      null
+     ],
+     "values": [
+      0.0972746776876222,
+      8.2886022469119e-05,
+      2.62174336042829e-06
+     ],
+     "largest_over_smallest": 37103.0510292706,
+     "r = log(m3/m2)/log(m2/m1), ascending": 2.04649421240783,
+     "note": "100 events"
+    },
+    "H1i inverse powers K^-n": {
+     "function": "K^-n, any n >= 1",
+     "values_slow_middle_fast_exact": [
+      "690/661 - 6*sqrt(5)/661",
+      "3210/2861 - 30*sqrt(5)/2861",
+      "3*sqrt(5)/151 + 165/151"
+     ],
+     "values": [
+      1.0235757823525,
+      1.09853825958581,
+      1.13714042339404
+     ],
+     "largest_over_smallest": 1.11094893314155,
+     "r = log(m3/m2)/log(m2/m1), ascending": 0.488640521892039,
+     "note": "r(K^-n) = 1/r(K^n)"
+    },
+    "H1r rates -log K": {
+     "function": "-log K",
+     "values_slow_middle_fast_exact": [
+      null,
+      null,
+      null
+     ],
+     "values": [
+      0.0233021657353133,
+      0.0939804411716644,
+      0.128516710567312
+     ],
+     "largest_over_smallest": 5.51522601062577,
+     "r = log(m3/m2)/log(m2/m1), ascending": 0.22442681139388,
+     "note": "exponents of H1 per event"
+    },
+    "H2 resolvent (5 - A)^-1": {
+     "function": "(5 - A)^-1 on the second index",
+     "values_slow_middle_fast_exact": [
+      "sqrt(5)/10 + 1/2",
+      "sqrt(5)/82 + 13/82",
+      "1/4 - sqrt(5)/20"
+     ],
+     "values": [
+      0.723606797749979,
+      0.18580570704268,
+      0.138196601125011
+     ],
+     "largest_over_smallest": 5.23606797749979,
+     "r = log(m3/m2)/log(m2/m1), ascending": 4.59268698941841,
+     "note": "CAP stationary state (lead L25: normalized Green function of the twisted Laplacian), unnormalized"
+    },
+    "H3 log(5 - A)": {
+     "function": "log(5 - A) = -log of the resolvent up to the normalization constant",
+     "values_slow_middle_fast_exact": [
+      null,
+      null,
+      null
+     ],
+     "values": [
+      0.323507131157447,
+      1.68305373702095,
+      1.9790779618366
+     ],
+     "largest_over_smallest": 6.1175713646739,
+     "r = log(m3/m2)/log(m2/m1), ascending": 0.0982456473105851,
+     "note": "the additive constant is not fixed by the second index; gaps are canonical"
+    },
+    "H3n -log of the resolvent normalized on the second index": {
+     "function": "-log((5 - A)^-1 / trace over the second index)",
+     "values_slow_middle_fast_exact": [
+      null,
+      null,
+      null
+     ],
+     "values": [
+      0.370017656941451,
+      1.72956426280495,
+      2.0255884876206
+     ],
+     "largest_over_smallest": 5.47430223834189,
+     "r = log(m3/m2)/log(m2/m1), ascending": 0.102453421776829,
+     "note": "normalization over the three copies"
+    },
+    "H4 projector on the slowest level": {
+     "function": "projector on the copy with the largest kernel level",
+     "values": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "largest_over_smallest": null,
+     "r = log(m3/m2)/log(m2/m1), ascending": null,
+     "note": "rank one: two levels vanish exactly; r undefined"
+    }
+   }
+  },
+  "triplet second index, flux 4": {
+   "adjacency_levels": [
+    "sqrt(5)/2 + 3/2",
+    "-5/2 + sqrt(5)/2",
+    "-sqrt(5)"
+   ],
+   "functions": {
+    "H0 kernel K": {
+     "function": "K = 1 - (5 - A)/60",
+     "values_slow_middle_fast_exact": [
+      "sqrt(5)/120 + 113/120",
+      "sqrt(5)/120 + 7/8",
+      "11/12 - sqrt(5)/60"
+     ],
+     "values": [
+      0.960300566479165,
+      0.893633899812498,
+      0.87939886704167
+     ],
+     "largest_over_smallest": 1.09199659275165,
+     "r = log(m3/m2)/log(m2/m1), ascending": 4.48074903788454,
+     "note": "the levels"
+    },
+    "H0c correction probability 1 - K": {
+     "function": "1 - K = (5 - A)/60",
+     "values_slow_middle_fast_exact": [
+      "7/120 - sqrt(5)/120",
+      "1/8 - sqrt(5)/120",
+      "sqrt(5)/60 + 1/12"
+     ],
+     "values": [
+      0.0396994335208351,
+      0.106366100187502,
+      0.12060113295833
+     ],
+     "largest_over_smallest": 3.03785526045443,
+     "r = log(m3/m2)/log(m2/m1), ascending": 0.127443315589254,
+     "note": "seam cost / 60"
+    },
+    "H0w rest phase arccos K": {
+     "function": "arccos K",
+     "values_slow_middle_fast_exact": [
+      null,
+      null,
+      null
+     ],
+     "values": [
+      0.282718674616381,
+      0.465418327503957,
+      0.496198259502073
+     ],
+     "largest_over_smallest": 1.75509545018687,
+     "r = log(m3/m2)/log(m2/m1), ascending": 0.128467300088773,
+     "note": "CF-1 option M3 mass angle per tick"
+    },
+    "H1 powers K^n": {
+     "function": "K^n, any n >= 1",
+     "values_slow_middle_fast_exact": [
+      "sqrt(5)/120 + 113/120",
+      "sqrt(5)/120 + 7/8",
+      "11/12 - sqrt(5)/60"
+     ],
+     "values": [
+      0.960300566479165,
+      0.893633899812498,
+      0.87939886704167
+     ],
+     "largest_over_smallest": 1.09199659275165,
+     "r = log(m3/m2)/log(m2/m1), ascending": 4.48074903788454,
+     "note": "r is the same for every n; the spread is (largest/smallest)^n; n = 1 printed"
+    },
+    "H1 powers K^10": {
+     "function": "K^10",
+     "values_slow_middle_fast_exact": [
+      null,
+      null,
+      null
+     ],
+     "values": [
+      0.666917096161441,
+      0.324785291277245,
+      0.276604357612398
+     ],
+     "largest_over_smallest": 2.41108673022419,
+     "r = log(m3/m2)/log(m2/m1), ascending": 4.48074903788454,
+     "note": "10 events"
+    },
+    "H1 powers K^100": {
+     "function": "K^100",
+     "values_slow_middle_fast_exact": [
+      null,
+      null,
+      null
+     ],
+     "values": [
+      0.0174067826015955,
+      1.30606120340332e-05,
+      2.62174336042829e-06
+     ],
+     "largest_over_smallest": 6639.39227016939,
+     "r = log(m3/m2)/log(m2/m1), ascending": 4.48074903788454,
+     "note": "100 events"
+    },
+    "H1i inverse powers K^-n": {
+     "function": "K^-n, any n >= 1",
+     "values_slow_middle_fast_exact": [
+      "3390/3191 - 30*sqrt(5)/3191",
+      "630/551 - 6*sqrt(5)/551",
+      "3*sqrt(5)/151 + 165/151"
+     ],
+     "values": [
+      1.04134063324193,
+      1.11902648300363,
+      1.13714042339404
+     ],
+     "largest_over_smallest": 1.09199659275165,
+     "r = log(m3/m2)/log(m2/m1), ascending": 0.223176971427108,
+     "note": "r(K^-n) = 1/r(K^n)"
+    },
+    "H1r rates -log K": {
+     "function": "-log K",
+     "values_slow_middle_fast_exact": [
+      null,
+      null,
+      null
+     ],
+     "values": [
+      0.0405089534402637,
+      0.112459095719649,
+      0.128516710567312
+     ],
+     "largest_over_smallest": 3.17255074873333,
+     "r = log(m3/m2)/log(m2/m1), ascending": 0.130715650839747,
+     "note": "exponents of H1 per event"
+    },
+    "H2 resolvent (5 - A)^-1": {
+     "function": "(5 - A)^-1 on the second index",
+     "values_slow_middle_fast_exact": [
+      "sqrt(5)/22 + 7/22",
+      "sqrt(5)/110 + 3/22",
+      "1/4 - sqrt(5)/20"
+     ],
+     "values": [
+      0.419821271704536,
+      0.15669152706818,
+      0.138196601125011
+     ],
+     "largest_over_smallest": 3.03785526045443,
+     "r = log(m3/m2)/log(m2/m1), ascending": 7.84662573612701,
+     "note": "CAP stationary state (lead L25: normalized Green function of the twisted Laplacian), unnormalized"
+    },
+    "H3 log(5 - A)": {
+     "function": "log(5 - A) = -log of the resolvent up to the normalization constant",
+     "values_slow_middle_fast_exact": [
+      null,
+      null,
+      null
+     ],
+     "values": [
+      0.867926201834708,
+      1.85347620212111,
+      1.9790779618366
+     ],
+     "largest_over_smallest": 2.28023760275128,
+     "r = log(m3/m2)/log(m2/m1), ascending": 0.0864204073816265,
+     "note": "the additive constant is not fixed by the second index; gaps are canonical"
+    },
+    "H3n -log of the resolvent normalized on the second index": {
+     "function": "-log((5 - A)^-1 / trace over the second index)",
+     "values_slow_middle_fast_exact": [
+      null,
+      null,
+      null
+     ],
+     "values": [
+      0.532046949220539,
+      1.51759694950694,
+      1.64319870922243
+     ],
+     "largest_over_smallest": 3.08844682152535,
+     "r = log(m3/m2)/log(m2/m1), ascending": 0.0758636819252652,
+     "note": "normalization over the three copies"
+    },
+    "H4 projector on the slowest level": {
+     "function": "projector on the copy with the largest kernel level",
+     "values": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "largest_over_smallest": null,
+     "r = log(m3/m2)/log(m2/m1), ascending": null,
+     "note": "rank one: two levels vanish exactly; r undefined"
+    }
+   }
+  },
+  "singlets, flux 0 (uniform, 1prime, 1second)": {
+   "adjacency_levels": [
+    "5",
+    "-1",
+    "-1"
+   ],
+   "functions": {
+    "H0 kernel K": {
+     "values": [
+      1.0,
+      0.9,
+      0.9
+     ],
+     "r = log(m3/m2)/log(m2/m1), ascending": null,
+     "note": "two levels coincide exactly (1prime = 1second): every function has a degenerate pair"
+    },
+    "H2 resolvent": {
+     "values": [
+      null,
+      0.16666666666666666,
+      0.16666666666666666
+     ],
+     "note": "the uniform state is the zero mode of 5 - A"
+    }
+   }
+  }
+ },
+ "powers_shape": {
+  "rates_c = -log K (slow, middle, fast)": [
+   0.0471603035079738,
+   0.105360515657826,
+   0.128516710567312
+  ],
+  "r for masses proportional to K^n (slow heaviest)": 2.51337546506878,
+  "r for masses proportional to K^-n (slow lightest)": 0.397871314452668,
+  "note": "K^n = exp(-n c): the spread grows without bound, the shape r is fixed by the three rates"
+ }
+}

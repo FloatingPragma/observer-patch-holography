@@ -1,0 +1,256 @@
+{
+ "lattice": {
+  "shape": [
+   5,
+   4,
+   3
+  ],
+  "one_body_dimension": 480,
+  "theta_D": 0.157935,
+  "theta_M": 0.45102681179626236,
+  "rest_phase_light": 0.049031267930002675,
+  "rest_phase_heavy": 0.500058079726265,
+  "period_unitarity_defect": 3.1087320602941212e-15,
+  "period_phases_engine_against_closed_form_max_abs": 7.105427357601002e-15,
+  "conjugation_defect_of_both_ticks": 2.0630814761166827e-16,
+  "single_steps": {
+   "Dirac step alone": {
+    "rest_phases": [
+     0.15793499999999977,
+     0.15793499999999977
+    ],
+    "period_phases_against_closed_form_at_three_momenta": 4.440892098500626e-16
+   },
+   "pairing step alone": {
+    "rest_phases": [
+     -2.220446049250313e-16,
+     0.45102681179626214
+    ],
+    "period_phases_against_closed_form_at_three_momenta": 4.440892098500626e-16
+   }
+  },
+  "cpu_seconds": 1.62
+ },
+ "order_of_the_mass_steps": {
+  "theta_D": 0.157935,
+  "theta_M": 0.45102681179626236,
+  "rows": [
+   {
+    "p": [
+     0.1,
+     0.1,
+     0.1
+    ],
+    "closed_form_light_per_tick": 0.17882745733016273,
+    "closed_form_heavy_per_tick": 0.5264438511210012,
+    "massless_per_tick": 0.17204349525098117,
+    "palindromic_light_per_tick": [
+     0.17882745733016273,
+     0.17882745733016295
+    ],
+    "palindromic_heavy_per_tick": [
+     0.5264438511210014,
+     0.5264438511210019
+    ],
+    "plain_light_per_tick": [
+     0.17711766225147224,
+     0.17711766225147235
+    ],
+    "plain_heavy_per_tick": [
+     0.5270459585154845,
+     0.5270459585154849
+    ]
+   },
+   {
+    "p": [
+     0.1,
+     0.23,
+     -0.17
+    ],
+    "closed_form_light_per_tick": 0.3015970831282406,
+    "closed_form_heavy_per_tick": 0.5754398068127394,
+    "massless_per_tick": 0.2977048746185423,
+    "palindromic_light_per_tick": [
+     0.30159708312824046,
+     0.3015970831282406
+    ],
+    "palindromic_heavy_per_tick": [
+     0.5754398068127395,
+     0.5754398068127398
+    ],
+    "plain_light_per_tick": [
+     0.2985151096832993,
+     0.2985151096832996
+    ],
+    "plain_heavy_per_tick": [
+     0.577111567056568,
+     0.5771115670565682
+    ]
+   },
+   {
+    "p": [
+     0.3,
+     0.0,
+     0.0
+    ],
+    "closed_form_light_per_tick": 0.30386098045756144,
+    "closed_form_heavy_per_tick": 0.5765285550928329,
+    "massless_per_tick": 0.3,
+    "palindromic_light_per_tick": [
+     0.3038609804575613,
+     0.30386098045756155
+    ],
+    "palindromic_heavy_per_tick": [
+     0.5765285550928329,
+     0.5765285550928331
+    ],
+    "plain_light_per_tick": [
+     0.3007535301794127,
+     0.30075353017941314
+    ],
+    "plain_heavy_per_tick": [
+     0.5782235257358619,
+     0.5782235257358623
+    ]
+   },
+   {
+    "p": [
+     0.02,
+     0.01,
+     -0.015
+    ],
+    "closed_form_light_per_tick": 0.05593103736520168,
+    "closed_form_heavy_per_tick": 0.5007209117783482,
+    "massless_per_tick": 0.02692204759228547,
+    "palindromic_light_per_tick": [
+     0.05593103736520172,
+     0.055931037365202184
+    ],
+    "palindromic_heavy_per_tick": [
+     0.5007209117783484,
+     0.5007209117783487
+    ],
+    "plain_light_per_tick": [
+     0.05579860807644087,
+     0.05579860807644112
+    ],
+    "plain_heavy_per_tick": [
+     0.5007363144714136,
+     0.5007363144714138
+    ]
+   }
+  ],
+  "reading": "palindromic order: the closed form to rounding. Plain order M_M M_D S: same rest phases, different phases at p != 0, both helicities degenerate"
+ },
+ "mixing": {
+  "theta_M": 0.45102681179626236,
+  "rows": [
+   {
+    "theta_D": 0.001,
+    "light_phase": 2.1794389375995316e-06,
+    "left_block_eigenvalue_minus_cos_light": 5.531058573875739e-17,
+    "amplitude_ratio_Nc_over_nuL": 0.002179438756246178,
+    "light_over_theta_D": 0.0021794389375995316,
+    "half_theta_D_cot_half_theta_M": 0.002179449471770337
+   },
+   {
+    "theta_D": 0.01,
+    "light_phase": 0.00021783970880071002,
+    "left_block_eigenvalue_minus_cos_light": 7.790197195226004e-16,
+    "amplitude_ratio_Nc_over_nuL": 0.02178378943284111,
+    "light_over_theta_D": 0.021783970880071002,
+    "half_theta_D_cot_half_theta_M": 0.021794494717703373
+   },
+   {
+    "theta_D": 0.157935,
+    "light_phase": 0.049031267930002675,
+    "left_block_eigenvalue_minus_cos_light": 3.331414288528668e-16,
+    "amplitude_ratio_Nc_over_nuL": 0.3098686982406244,
+    "light_over_theta_D": 0.31045219824613085,
+    "half_theta_D_cot_half_theta_M": 0.3442113523240482
+   }
+  ]
+ },
+ "one_cell_occupations": {
+  "states": 16,
+  "many_body_phases_against_sums_of_rest_phases_max_abs": 1.2212453270876722e-15,
+  "empty_state_survival_amplitude": 0.8999999999999999,
+  "cos_theta_M": 0.9,
+  "reading": "phases (n1 + n2 - 1) th_l + (n3 + n4 - 1) th_h: a reference state and four excitations with rest phases th_l, th_l, th_h, th_h"
+ },
+ "gauss": {
+  "lattice": [
+   2,
+   2,
+   1
+  ],
+  "quantum_links": 8,
+  "amplitudes": 8192,
+  "eps": 0.3,
+  "kappa": 0.2,
+  "record_independent_charge_as_a_function_on_32_independent_patterns_one_cell_commutator_norms": {
+   "Dirac step": 0.0,
+   "pairing step": 0.8717797887081342,
+   "doublet step": 0.3973386615901222
+  },
+  "two_sin_theta_M": 0.8717797887081346,
+  "charge": "n2 mod 2 of the pattern (nu_L, nu_L^c charged; N, N^c neutral)",
+  "full_tick": {
+   "routing and field step alone": {
+    "commutator_norm_on_a_random_state_max_over_cells": 7.169802464316227e-17,
+    "norm_defect": 1.1102230246251565e-15
+   },
+   "Dirac step": {
+    "commutator_norm_on_a_random_state_max_over_cells": 0.15905180090063165,
+    "norm_defect": 6.661338147750939e-16
+   },
+   "pairing step (neutral singlet)": {
+    "commutator_norm_on_a_random_state_max_over_cells": 2.8664919303580013e-16,
+    "norm_defect": 9.992007221626409e-16
+   },
+   "doublet step (left neutrino)": {
+    "commutator_norm_on_a_random_state_max_over_cells": 2.6307928903308965e-16,
+    "norm_defect": 9.992007221626409e-16
+   },
+   "pairing and doublet steps": {
+    "commutator_norm_on_a_random_state_max_over_cells": 4.3790846322860887e-16,
+    "norm_defect": 1.5543122344752192e-15
+   }
+  },
+  "gauss_operator_squares_to_one_defect": 3.501763031230149e-17,
+  "one_cell_operator_norm_of_the_commutator_with_the_charge_sign": {
+   "Dirac step": 0.3145584880774294,
+   "pairing step": 6.585364190007696e-16,
+   "doublet step": 6.026367786510358e-16
+  },
+  "two_sin_theta_D": 0.3145584880774294,
+  "Z6_classes_one_cell_commutator_norms": {
+   "1": {
+    "Dirac step": 0.3145584880774294,
+    "pairing step": 6.585364190007695e-16,
+    "doublet step": 6.046004966686719e-16
+   },
+   "2": {
+    "Dirac step": 3.852230455686548e-17,
+    "pairing step": 8.435517326663132e-32,
+    "doublet step": 9.731990401876734e-17
+   },
+   "3": {
+    "Dirac step": 0.3145584880774294,
+    "pairing step": 6.585364190007695e-16,
+    "doublet step": 6.200853717273719e-16
+   },
+   "4": {
+    "Dirac step": 7.704460911373096e-17,
+    "pairing step": 1.7281558675174617e-31,
+    "doublet step": 1.9463980803753458e-16
+   },
+   "5": {
+    "Dirac step": 0.3145584880774294,
+    "pairing step": 6.585364190007697e-16,
+    "doublet step": 1.1244141566577548e-15
+   }
+  },
+  "cpu_seconds": 0.22
+ }
+}

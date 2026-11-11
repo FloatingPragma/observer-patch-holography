@@ -1,0 +1,70 @@
+"""Worker HR: finite-size diagnostic. Polyakov lines of the weak links and of the hypercharge angle in the four
+directions on the symmetric side (lambda_L = 0), and the lowest momentum they leave to the doublet.
+
+For each direction mu: P_weak = mean over lines of (1/2) tr prod V along mu; P_hyper = mean over lines of
+exp(3 i sum a) along mu. A weak line near -1 or a hypercharge line with phase w shifts the doublet's momenta in that
+direction by pi/L or w/L, which lowers the largest eigenvalue of the hop matrix by 2 - 2 cos(shift).
+Usage: python hr_toron.py <model su2|u1> <L> <seed> <kappa_H> <sweeps> [lambda_L] [tag]
+Writes toron_<model>_L<L>_s<seed>[_tag].json.
+"""
+import json
+import sys
+import time
+
+import numpy as np
+
+import hr_lib as H
+import hr_u1 as HU
+from hr_lib import qmul
+
+model, L, seed, kap, nsw = sys.argv[1], int(sys.argv[2]), int(sys.argv[3]), float(sys.argv[4]), int(sys.argv[5])
+t0 = time.time()
+lam = float(sys.argv[6]) if len(sys.argv) > 6 else 0.0
+tag = ("_" + sys.argv[7]) if len(sys.argv) > 7 else ""
+lat = (HU.LatticeU1 if model == "u1" else H.Lattice)(L, 5.171, kap, lam, seed=seed)
+idx = np.arange(lat.V).reshape(lat.dims)
+
+
+def lines(lat):
+    out = []
+    for m in range(4):
+        base = np.take(idx, 0, axis=m).ravel()            # one site per line
+        prod = np.zeros((base.size, 4)); prod[:, 0] = 1.0
+        ang = np.zeros(base.size)
+        x = base.copy()
+        for _ in range(lat.dims[m]):
+            prod = qmul(prod, lat.U[m][x])
+            if model == "u1":
+                ang += lat.a[m][x]
+            x = lat.up[m][x]
+        pw = float(prod[:, 0].mean())
+        ph = complex(np.exp(3j * ang).mean()) if model == "u1" else 1.0 + 0j
+        out.append((pw, abs(ph), float(np.angle(ph))))
+    return out
+
+
+rows = []
+for sw in range(nsw):
+    lat.sweep()
+    if sw % 10 == 9:
+        ln = lines(lat)
+        rows.append({"sweep": sw + 1, "rho2": float((lat.phi ** 2).sum(1).mean()),
+                     "P_weak": [round(v[0], 4) for v in ln], "abs_P_hyper": [round(v[1], 4) for v in ln],
+                     "phase_P_hyper": [round(v[2], 4) for v in ln]})
+    if time.time() - t0 > 90:
+        break
+pw = np.array([r["P_weak"] for r in rows]); ph = np.array([r["phase_P_hyper"] for r in rows]); ah = np.array([r["abs_P_hyper"] for r in rows])
+half = len(rows) // 2
+shift = 2 - 2 * np.cos(ph[half:] / L)
+summary = {"model": model, "L": L, "seed": seed, "kappa_H": kap, "lambda_L": lam, "sweeps": rows[-1]["sweep"],
+           "rho2_every_50_sweeps": [round(r["rho2"], 2) for r in rows[4::5]],
+           "P_weak_every_50_sweeps": [r["P_weak"] for r in rows[4::5]],
+           "mean_P_weak_per_direction_second_half": pw[half:].mean(0).tolist(),
+           "min_P_weak_seen": float(pw.min()),
+           "mean_abs_P_hyper_per_direction": ah[half:].mean(0).tolist(),
+           "rms_phase_P_hyper_per_direction": np.sqrt((ph[half:] ** 2).mean(0)).tolist(),
+           "mean_reduction_of_the_largest_hop_eigenvalue_from_the_hypercharge_lines": float(shift.sum(1).mean()),
+           "unpinned_value_8_minus_8_sin(pi/L)/(pi/L)": float(8 - 8 * np.sin(np.pi / L) / (np.pi / L)),
+           "rho2_second_half": float(np.mean([r["rho2"] for r in rows[half:]]))}
+json.dump({"summary": summary, "rows": rows}, open(f"toron_{model}_L{L}_s{seed}{tag}.json", "w"), indent=1)
+print(json.dumps(summary, indent=1))

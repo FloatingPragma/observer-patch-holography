@@ -1,0 +1,211 @@
+"""R6 helpers (worker R6, round 4).
+
+Routing operations: the reference engine work/DIRAC/routing.py, imported by path and not modified. Added here, as
+CF1.md section 8 defines them: the mass step with one angle per cell, M = exp(-i theta(x) Y_r); the alternating
+order of the axes; the instruments (clock-register phase estimation, record and position readouts), samplers and
+estimators. Every probability table comes from the engine's amplitudes; every sample has a declared seed.
+"""
+import importlib.util
+import numpy as np
+from scipy.optimize import minimize, minimize_scalar, brentq
+
+import os
+_REF = 'WORKSPACE/repair-law/work/DIRAC/routing.py'
+# on box B the repository is absent: there a byte-identical copy (routing_ref_copy.py, sha256 recorded in every result) is loaded
+ENGINE = _REF if os.path.exists(_REF) else os.path.join(os.path.dirname(os.path.abspath(__file__)), 'routing_ref_copy.py')
+_spec = importlib.util.spec_from_file_location('routing_ref', ENGINE)
+routing = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(routing)
+Routing = routing.Routing
+
+
+class Field:
+    """CF-1 one-body tick with a rest angle per cell (option M1), alternating order (tick 0 forward, tick 1 reverse)."""
+
+    def __init__(self, shape, theta=0.0, links=None, direct=False):
+        self.shape = tuple(shape); self.w = Routing(self.shape, links)
+        self.theta = np.broadcast_to(np.asarray(theta, float), self.shape).copy()
+        self.axes = [i for i in range(3) if self.shape[i] > 1]     # the engine's shift is the identity on a one-cell axis (checks.py)
+        self._shift = self.w.shift_direct if direct else self.w.shift
+        self._cs = {}
+
+    def mass(self, psi, f=1.0):
+        """exp(-i f theta(x) Y_r)"""
+        if f not in self._cs: self._cs[f] = (np.cos(f * self.theta)[..., None], np.sin(f * self.theta)[..., None])
+        c, s = self._cs[f]
+        out = np.empty_like(psi)
+        out[..., 0, :] = c * psi[..., 0, :] - s * psi[..., 1, :]
+        out[..., 1, :] = s * psi[..., 0, :] + c * psi[..., 1, :]
+        return out
+
+    def route(self, psi, reverse=False):
+        for i in (self.axes[::-1] if reverse else self.axes): psi = self._shift(psi, i)
+        return psi
+
+    def tick(self, psi, t=0):
+        return self.mass(self.route(psi, reverse=(t % 2 == 1)))
+
+    def run(self, psi, n, t0=0):
+        for t in range(t0, t0 + n): psi = self.tick(psi, t)
+        return psi
+
+    def sym(self, psi):
+        """one step in the symmetric frame: M^1/2 S M^1/2 (one tick) on a line, M^1/2 S_rev M S_fwd M^1/2 (two ticks)
+        otherwise. Equal to M^-1/2 (ticks) M^1/2."""
+        psi = self.mass(psi, 0.5)
+        psi = self.route(psi)
+        if len(self.axes) > 1: psi = self.route(self.mass(psi), reverse=True)
+        return self.mass(psi, 0.5)
+
+    def blank(self, chi):
+        psi = np.zeros(self.shape + (2, 2), complex); psi[..., 0, :] = chi
+        return psi
+
+    def C(self, chi):
+        """blank-return operator P0 U_s P0 on blank-record states chi[x, spin]; Hermitian, eigenvalues cos(phase)"""
+        return self.sym(self.blank(chi))[..., 0, :]
+
+    def gaussian(self, centre, sigma, coin=(1, 0, 0, 0)):
+        """packet at rest, |psi|^2 Gaussian of standard deviation sigma cells around centre"""
+        g = np.ones(self.shape)
+        for i in self.axes:
+            x = np.arange(self.shape[i]); d = (x - centre[i] + self.shape[i] / 2) % self.shape[i] - self.shape[i] / 2
+            sh = [1, 1, 1]; sh[i] = -1
+            g = g * np.exp(-d * d / (4 * sigma ** 2)).reshape(sh)
+        psi = g[..., None, None] * np.asarray(coin, complex).reshape(2, 2)
+        return psi / np.linalg.norm(psi)
+
+
+def dense(apply, shape, inner=(2, 2)):
+    dim = int(np.prod(shape)) * int(np.prod(inner)); M = np.empty((dim, dim), complex)
+    for j in range(dim):
+        e = np.zeros(dim, complex); e[j] = 1
+        M[:, j] = apply(e.reshape(tuple(shape) + tuple(inner))).ravel()
+    return M
+
+
+# ---------------------------------------------------------------- clock-register phase estimation
+def autocorr(step, psi0, T):
+    """c[tau] = <psi0| U^tau psi0>, tau = 0..T-1, for a step function psi -> U psi (the same U every step)"""
+    c = np.empty(T, complex); psi = psi0
+    for tau in range(T):
+        c[tau] = np.vdot(psi0, psi)
+        if tau < T - 1: psi = step(psi)
+    return c
+
+
+def qpe_probs(c, offsets=(0.0,)):
+    """Clock register of T levels, uniform, controlled U^t, read in the Fourier basis shifted by a declared offset
+    (a phase ramp on the clock before the transform). Outcome (offset j/G, k) <-> phase 2 pi (k + j/G) / T, stored at
+    index G k + j; each record draws its offset uniformly. For one offset
+    P(k) = || (1/T) sum_t e^{i E_k t} U^t psi ||^2 = (1/T) sum_tau (1 - |tau|/T) e^{i E_k tau} c(tau)."""
+    T = len(c); tau = np.arange(T); a = (1 - tau / T) * c; G = len(offsets); P = np.empty(T * G)
+    for j, off in enumerate(offsets):
+        assert abs(off - j / G) < 1e-12
+        P[j::G] = (2 * np.real(np.fft.ifft(a * np.exp(2j * np.pi * off * tau / T)) * T) - a[0].real) / (T * G)
+    neg = float(-P[P < 0].sum()) if np.any(P < 0) else 0.0
+    P = np.clip(P, 0, None)
+    return P / P.sum(), {'negative_mass_clipped': neg}
+
+
+def fejer(delta, T):
+    d = np.asarray(delta, float); s = np.sin(d / 2)
+    with np.errstate(divide='ignore', invalid='ignore'):
+        out = (np.sin(T * d / 2) / (T * s)) ** 2
+    return np.where(np.abs(s) < 1e-13, 1.0, out)
+
+
+def lineshape(Ek, E, gamma, T):
+    """Clock distribution of one spectral line at E with decay rate gamma (autocorrelation e^{-iE tau - gamma|tau|/2}):
+    (1/T) sum_tau (1 - |tau|/T) q^tau, q = exp(i(E_k - E) - gamma/2). gamma = 0 is the Fejer kernel."""
+    if gamma <= 0: return fejer(np.asarray(Ek) - E, T)
+    q = np.exp(1j * (np.asarray(Ek) - E) - gamma / 2)
+    S = q / (1 - q) - q * (1 - q ** T) / (T * (1 - q) ** 2)
+    return (1 + 2 * np.real(S)) / T
+
+
+def _hess(f, x, h):
+    n = len(x); H = np.empty((n, n))
+    for i in range(n):
+        for j in range(i, n):
+            ei = np.zeros(n); ei[i] = h[i]; ej = np.zeros(n); ej[j] = h[j]
+            H[i, j] = H[j, i] = (f(x + ei + ej) - f(x + ei - ej) - f(x - ei + ej) + f(x - ei - ej)) / (4 * h[i] * h[j])
+    return H
+
+
+def fit_line(counts, T, E_lo, E_hi, halfwidth=10, gamma_free=False, per_clock=1, limit=False):
+    """Estimate a line from clock records alone. counts: histogram over the G T outcomes of qpe_probs (G offsets).
+    The modal outcome in the declared search range of clock phases [E_lo, E_hi] fixes a window of +-halfwidth clock
+    bins (clipped to the range); inside it the Poisson likelihood of (N/G) (w lineshape + b) is maximised. Returns
+    the phase per tick (clock phase / per_clock) with its standard error from the observed information; with
+    gamma_free the decay rate per tick; with limit the 95% upper limit on the decay rate (likelihood ratio 2.71)."""
+    counts = np.asarray(counts, float); N = counts.sum(); G = len(counts) // T; fb = 2 * np.pi / (T * G); bin_ = 2 * np.pi / T
+    k_lo, k_hi = int(np.ceil(E_lo / fb)), int(np.floor(E_hi / fb))
+    k0 = k_lo + int(np.argmax(counts[k_lo:k_hi + 1]))
+    ks = np.arange(max(k_lo, k0 - halfwidth * G), min(k_hi, k0 + halfwidth * G) + 1); n = counts[ks]; Ek = fb * ks
+    w0 = max(n.sum() / N, 1e-6)
+
+    def nll(x, g=None):
+        gam = (np.exp(x[3]) if gamma_free else 0.0) if g is None else g
+        mu = np.maximum(N / G * (np.exp(x[1]) * lineshape(Ek, x[0], gam, T) + np.exp(x[2])), 1e-300)
+        return float(np.sum(mu - n * np.log(mu)))
+    opts = {'xatol': 1e-10, 'fatol': 1e-10, 'maxiter': 8000, 'maxfev': 8000}
+    x0 = [k0 * fb, np.log(w0), np.log(max(w0 / len(ks) / 50, 1e-9))] + ([np.log(bin_)] if gamma_free else [])
+    best = None
+    for dE in (0.0, 0.3, -0.3):
+        for dg in ((0.0, -2.0) if gamma_free else (0.0,)):
+            st = list(x0); st[0] += dE * bin_
+            if gamma_free: st[3] += dg
+            r = minimize(nll, st, method='Nelder-Mead', options=opts)
+            if best is None or r.fun < best.fun: best = r
+    x = best.x; h = np.array([0.02 * bin_, 0.02, 0.05] + ([0.05] if gamma_free else []))
+    se = np.full(len(x), np.nan); se_note = 'all parameters'
+    H = _hess(nll, x, h)
+    ok = np.all(np.isfinite(H)) and np.all(np.linalg.eigvalsh((H + H.T) / 2) > 0) if np.all(np.isfinite(H)) else False
+    if ok:
+        se = np.sqrt(np.diag(np.linalg.inv(H)))
+    else:                                   # background at its lower boundary: flat direction, removed
+        keep = [i for i in range(len(x)) if i != 2]; xk = x.copy()
+        def nk(y):
+            z = xk.copy(); z[keep] = y; return nll(z)
+        Hk = _hess(nk, x[keep], h[keep]); se[keep] = np.sqrt(np.abs(np.diag(np.linalg.inv(Hk)))); se_note = 'background fixed at its fitted value (flat direction)'
+    out = {'se_from': se_note, 'phase': float(x[0] / per_clock), 'se': float(se[0] / per_clock), 'weight': float(np.exp(x[1])),
+           'background_per_clock_bin': float(np.exp(x[2])), 'modal_phase': float(k0 * fb / per_clock),
+           'window_phase': [float(Ek[0] / per_clock), float(Ek[-1] / per_clock)], 'window_index': [int(ks[0]), int(ks[-1])],
+           'records_in_window': int(n.sum()), 'records': int(N), 'clock_bin_per_tick': float(bin_ / per_clock)}
+    if gamma_free:
+        g = float(np.exp(x[3])); out['gamma'] = g * per_clock; out['gamma_se'] = float(g * se[3]) * per_clock
+    if limit:
+        f0 = best.fun; prev = (0.0, 0.0); lim = None
+        for g in bin_ * np.geomspace(1e-3, 30, 40):
+            r = minimize(lambda y: nll(y, g), x[:3], method='Nelder-Mead', options=opts); d = 2 * (r.fun - f0)
+            if d > 2.71:
+                lim = prev[0] + (g - prev[0]) * (2.71 - prev[1]) / (d - prev[1]); break
+            prev = (g, d)
+        out['gamma_upper_95'] = None if lim is None else float(lim * per_clock)
+    return out
+
+
+def sample(P, N, seed):
+    """N independent records from the exact outcome distribution P (any shape); returns the histogram of all outcomes"""
+    rng = np.random.default_rng(seed); p = np.asarray(P, float).ravel(); p = p / p.sum()
+    return rng.multinomial(N, p).reshape(np.shape(P))
+
+
+def first_write(f, chi0, m_max):
+    """First-write-time instrument (symmetric frame): prepare the blank state chi0, then repeat [one step U_s; read
+    the record] until it reads 1. Complete outcome set: m = 1..m_max (first write at read m) and 'none'. Returns
+    the exact distribution [P(1), ..., P(m_max), P(none)] and the survival s_m = ||C^m chi0||^2."""
+    chi = chi0 / np.linalg.norm(chi0); s = [1.0]
+    for m in range(m_max):
+        chi = f.C(chi); s.append(float(np.sum(np.abs(chi) ** 2)))
+    s = np.array(s)
+    return np.append(s[:-1] - s[1:], s[-1]), s
+
+
+def hazard_estimate(h, m1):
+    """late hazard from first-write records h (histogram over m = 1..m_max, none): writes at reads m >= m1 divided by
+    the number of reads made at m >= m1. Returns (phase bound arcsin sqrt(hazard), standard error, hazard, reads)."""
+    h = np.asarray(h, float); m_max = len(h) - 1; at_risk = h[::-1].cumsum()[::-1]      # at_risk[m-1]: runs still blank before read m
+    writes = h[m1 - 1:m_max].sum(); reads = at_risk[m1 - 1:m_max].sum()
+    hz = writes / reads
+    return float(np.arcsin(np.sqrt(hz))), float(1 / (2 * np.sqrt(reads))), float(hz), float(reads)

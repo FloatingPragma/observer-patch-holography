@@ -1,0 +1,25 @@
+"""Independent changed-H and finite-exponential controls."""
+from fractions import Fraction as F
+from pathlib import Path
+import importlib.util
+
+spec=importlib.util.spec_from_file_location('coulomb_mobile_independent_tests',Path(__file__).with_name('mobile_audit.py'))
+audit=importlib.util.module_from_spec(spec);spec.loader.exec_module(audit)
+
+
+def test_all_full_kinematic_columns_and_current_factorization():
+    assert audit.literal_full_kinematic_hopping()['physical_CAR_embedding_exact']
+
+
+def test_changed_ground_and_complete_rational_records():
+    result=audit.universal_analytic_bounds()
+    assert result['unconditional_neighbor_arrival_lower']=='2209/339738624'
+    assert result['unconditional_neighbor_and_nonvacuum_lower']=='169/347892350976'
+
+
+def test_independent_actual_cone_finite_exponential():
+    for edge,x in ((0,0),(12,2)):
+        result=audit.independent_first_integral(edge,1,x,F(1,4))
+        assert result['frequency_shell_occupation_configurations']==165
+        assert F(result['unconditional_arrival_probability_lower'])>F(2209,339738624)
+        assert F(result['unconditional_nonvacuum_arrival_probability_lower'])>0

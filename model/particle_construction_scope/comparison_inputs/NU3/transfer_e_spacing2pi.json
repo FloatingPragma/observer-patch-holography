@@ -1,0 +1,114 @@
+{
+ "couplings": {
+  "y_u": 0,
+  "y_d": 0,
+  "y_e": 1
+ },
+ "spacing": "2*pi",
+ "source_image_census": {
+  "first": {
+   "(0, 0)": 3,
+   "(2, 0)": 56,
+   "(1, 1)": 24
+  },
+  "first_P_keys": 0,
+  "second": {
+   "(1, 0)": 86,
+   "(0, 1)": 90,
+   "(3, 0)": 672,
+   "(2, 1)": 1632,
+   "(1, 2)": 240
+  },
+  "second_terms": 2720
+ },
+ "targets": {
+  "0": {
+   "bare_V_moments_k0_to_k4": [
+    "0",
+    "0",
+    "0",
+    "0",
+    "0"
+   ],
+   "bare_V_moment_k5": "0",
+   "diagonal_H0_term_in_middle": "0",
+   "tagged_fifth_V_moment": "0",
+   "RS_fifth_order_amplitude": "0",
+   "target_image_census": {
+    "first": {
+     "(2, 0)": 56,
+     "(0, 0)": 3,
+     "(1, 1)": 24
+    },
+    "first_P_keys": 0,
+    "second": {
+     "(3, 0)": 672,
+     "(1, 0)": 86,
+     "(2, 1)": 1632,
+     "(0, 1)": 90,
+     "(1, 2)": 240
+    },
+    "second_terms": 2720
+   },
+   "nonzero_middle_kinetic_summands": []
+  },
+  "1": {
+   "bare_V_moments_k0_to_k4": [
+    "0",
+    "0",
+    "0",
+    "0",
+    "0"
+   ],
+   "bare_V_moment_k5": "-31*I/256",
+   "diagonal_H0_term_in_middle": "0",
+   "tagged_fifth_V_moment": "-9*I*r_0_0**2*r_0_1**2/128 - 3*I*r_0_0*r_0_1**2*r_1_1/64 - I*r_0_1**2*r_1_1**2/256",
+   "RS_fifth_order_amplitude": "-I*(18*Delta_l**2 - 12*Delta_l*Delta_s + Delta_s**2)/(256*Delta_l**2*Delta_s**2*(Delta_l - Delta_s)**2)",
+   "target_image_census": {
+    "first": {
+     "(2, 0)": 56,
+     "(0, 0)": 3,
+     "(1, 1)": 24
+    },
+    "first_P_keys": 0,
+    "second": {
+     "(3, 0)": 672,
+     "(1, 0)": 86,
+     "(2, 1)": 1632,
+     "(0, 1)": 90,
+     "(1, 2)": 240
+    },
+    "second_terms": 2720
+   },
+   "nonzero_middle_kinetic_summands": [
+    {
+     "path": [
+      0
+     ],
+     "contribution": "-31*I/512",
+     "middle_fields_bare": {
+      "-4": "0",
+      "1": "0",
+      "6": "-13*I/512",
+      "-3": "-9*I/256",
+      "2": "0"
+     }
+    },
+    {
+     "path": [
+      12
+     ],
+     "contribution": "-31*I/512",
+     "middle_fields_bare": {
+      "-4": "0",
+      "1": "0",
+      "6": "-13*I/512",
+      "-3": "-9*I/256",
+      "2": "0"
+     }
+    }
+   ]
+  }
+ },
+ "seconds": 9.2
+}

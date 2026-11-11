@@ -1,0 +1,98 @@
+"""Fits of the supercell results (item 4): correction probability at rest against the defect density.
+
+Inputs (this directory): km4_scan_A.json (sparse and dense diagonalization, families H and T, m <= 64),
+km4_tm_{T,H}_{bridge,seam}.json (lattice Green function, up to n = 1024), km4_cubic.json (cubic family).
+
+Honeycomb federation (two space dimensions). Model, from the secular equation of one flipped seam per supercell:
+    1 / (N E0) = alpha + beta ln N,    beta = sqrt(3) / (16 pi D0)     (D0 = load curvature, area of a cell sqrt(3)/2),
+so p0 = E0/NA = 1 / (NA N (alpha + beta ln N)) and omega0^2 = 2 p0 (small p0).
+Cubic federation (three dimensions): 1 / (N E0) = alpha3 + gamma / n, N = n^3: p0 proportional to the density.
+"""
+import json, os, sys
+import numpy as np
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+load = lambda f: json.load(open(os.path.join(HERE, f))) if os.path.exists(os.path.join(HERE, f)) else None
+out = {}
+scan = load('km4_scan_A.json')
+D0 = scan['load_curvature']
+NAd = {'bridge': 66, 'seam': 72}
+print('load curvature D0:', D0)
+for g in ('bridge', 'seam'):
+    beta_pred = 3 ** 0.5 / (16 * np.pi * D0[g])
+    for fam in ('H', 'T'):
+        rows = {r['m']: r for r in scan['rows'] if r['gluing'] == g and r['family'] == fam}
+        tm = load(f'km4_tm_{fam}_{g}.json')
+        agree = []
+        if tm:
+            for r in tm['rows']:
+                if r['m'] in rows:
+                    a = rows[r['m']]
+                    agree.append((r['m'], abs(r['E0'] / a['E0'] - 1), abs(r['curvature_over_load'] - a['curvature_over_load']),
+                                  abs(r['weight_relative_to_uniform'] - a['weight_relative_to_uniform']), abs(r['overlap_with_uniform'] - a['overlap_with_uniform'])))
+                else:
+                    rows[r['m']] = r
+        ms = sorted(rows)
+        N = np.array([rows[m]['N_carriers_per_defect'] for m in ms]); E0 = np.array([rows[m]['E0'] for m in ms])
+        y = 1 / (N * E0); x = np.log(N)
+        sel = N >= 64
+        A = np.vstack([np.ones(sel.sum()), x[sel]]).T
+        (al, be), *_ = np.linalg.lstsq(A, y[sel], rcond=None)
+        al_fixed = float(np.mean(y[sel] - beta_pred * x[sel]))
+        res_fixed = float(np.abs(y[sel] - al_fixed - beta_pred * x[sel]).max())
+        # local slope between the two largest sizes
+        loc = float((y[-1] - y[-2]) / (x[-1] - x[-2]))
+        DD = np.array([rows[m]['curvature_over_load'] for m in ms]); wd = np.array([rows[m]['weight_relative_to_uniform'] for m in ms])
+        ov = np.array([rows[m]['overlap_with_uniform'] for m in ms]); vv = np.array([rows[m]['v_over_v0'] for m in ms])
+        qc = np.array([rows[m]['compton_wavenumber_over_qM'] for m in ms])
+        cD = (1 - DD[sel]) / (N[sel] * E0[sel]) ** 2; cW = wd[sel] / (N[sel] * E0[sel]) ** 2
+        NA = NAd[g]
+        key = f'{g}|{fam}'
+        out[key] = {'beta_predicted': beta_pred, 'alpha_fit': float(al), 'beta_fit': float(be), 'alpha_with_predicted_beta': al_fixed,
+                    'max_residual_with_predicted_beta_N>=64': res_fixed, 'local_slope_last_two_sizes': loc,
+                    'N_max': float(N[-1]), 'methods_agree': {'sizes': [a[0] for a in agree], 'max_relative_E0': max((a[1] for a in agree), default=None),
+                                                             'max_curvature_ratio_difference': max((a[2] for a in agree), default=None),
+                                                             'max_weight_difference': max((a[3] for a in agree), default=None), 'max_overlap_difference': max((a[4] for a in agree), default=None)},
+                    'curvature_deficit_over_(N E0)^2': [float(cD.min()), float(cD.max())], 'defect_weight_over_(N E0)^2': [float(cW.min()), float(cW.max())],
+                    'table': [{'m': int(m), 'N': float(n_), 'E0': float(e), 'p0': float(e / NA), 'omega0': float(np.arccos(1 - e / NA)), 'first_order_p': float(4 / (12 * n_ * NA)),
+                               'one_over_N_E0': float(1 / (n_ * e)), 'model_p0': float(1 / (NA * n_ * (al_fixed + beta_pred * np.log(n_)))),
+                               'curvature_over_load': float(d_), 'v_over_v0': float(v_), 'weight_relative_to_uniform': float(w_), 'overlap_with_uniform': float(o_), 'qC_over_qM': float(q_)}
+                              for m, n_, e, d_, v_, w_, o_, q_ in zip(ms, N, E0, DD, vv, wd, ov, qc)]}
+        print(f'\n{g} gluing, family {fam}: {len(ms)} sizes up to N = {N[-1]:.0f}; fit over N >= 64: 1/(N E0) = {al:.4f} + {be:.4f} ln N; predicted slope {beta_pred:.4f}; '
+              f'with the predicted slope alpha = {al_fixed:.4f}, max residual {res_fixed:.4f}; slope between the two largest sizes {loc:.4f}')
+        if agree:
+            print(f'   two methods at sizes {[a[0] for a in agree]}: max relative difference of E0 {max(a[1] for a in agree):.1e}, of D/D0 {max(a[2] for a in agree):.1e}, of the defect weight {max(a[3] for a in agree):.1e}, of the overlap {max(a[4] for a in agree):.1e}')
+        print(f'   (1 - D/D0)/(N E0)^2 in [{cD.min():.3f}, {cD.max():.3f}];  defect-carrier weight / uniform share / (N E0)^2 in [{cW.min():.2f}, {cW.max():.2f}]')
+        print('     m        N           E0          p0      omega0   p0/first   1/(N E0)   model p0    D/D0    v/v0   wdef/unif  overlap  qC/qM')
+        show = [m for m in ms if m <= 8 or m in (12, 16, 24, 32, 48, 64, 96, 128, 192, 256, 384, 512, 768, 1024)]
+        for t in out[key]['table']:
+            if t['m'] in show:
+                print(f"  {t['m']:4d} {t['N']:9.0f} {t['E0']:.6e} {t['p0']:.4e} {t['omega0']:.3e} {t['p0'] / t['first_order_p']:8.4f} {t['one_over_N_E0']:9.4f} {t['model_p0']:.4e} "
+                      f"{t['curvature_over_load']:.5f} {t['v_over_v0']:.5f} {t['weight_relative_to_uniform']:8.4f} {t['overlap_with_uniform']:.4f} {t['qC_over_qM']:.3f}")
+cub = load('km4_cubic.json')
+if cub and 'rows' in cub:
+    rows = sorted([r for r in cub['rows'] if r['seam'] == cub['private_seams'][0]], key=lambda r: r['n'])
+    n = np.array([r['n'] for r in rows], float); N = n ** 3; E0 = np.array([r['E0'] for r in rows])
+    y = 1 / (N * E0)
+    sel = n >= 8
+    A = np.vstack([np.ones(sel.sum()), 1 / n[sel]]).T
+    (a3, g3), *_ = np.linalg.lstsq(A, y[sel], rcond=None)
+    res = float(np.abs(y[sel] - a3 - g3 / n[sel]).max())
+    NA = cub['walk_addresses']
+    out['cubic'] = {'alpha3': float(a3), 'gamma': float(g3), 'max_residual_n>=8': res, 'N_E0_limit': float(1 / a3), 'p0_times_N_limit': float(1 / (a3 * NA)),
+                    'first_order_N_E0': 2 / 3, 'ratio_to_first_order_limit': float(1.5 / a3), 'load_curvature': cub['load_curvature'], 'load_speed': cub['load_speed'],
+                    'table': [{'n': int(r['n']), 'N': int(r['N_carriers_per_defect']), 'E0': r['E0'], 'p0': r['p0'], 'omega0': r['omega0'], 'N_E0': r['N_E0'],
+                               'curvature_over_load': r['curvature_over_load'], 'v_over_v0': r['v_over_v0'], 'anisotropy': r['anisotropy'],
+                               'compton_over_spacing': r['compton_length_over_defect_spacing'], 'defects_per_compton_volume': r['defects_per_compton_volume'],
+                               'overlap_with_uniform': r['overlap_with_uniform']} for r in rows]}
+    print(f'\ncubic family: fit over n >= 8: 1/(N E0) = {a3:.5f} + {g3:.5f}/n (max residual {res:.1e}); N E0 -> {1 / a3:.5f} (first order 0.66667), p0 N -> {1 / (a3 * NA):.6e}')
+    print('     n         N           E0          p0      omega0     N E0     D/D0      v/v0    Compton/spacing  defects per Compton volume  overlap')
+    for t in out['cubic']['table']:
+        print(f"  {t['n']:4d} {t['N']:9d} {t['E0']:.6e} {t['p0']:.4e} {t['omega0']:.3e} {t['N_E0']:.5f} {t['curvature_over_load']:.6f} {t['v_over_v0']:.6f} {t['compton_over_spacing']:10.3f} {t['defects_per_compton_volume']:14.2f} {t['overlap_with_uniform']:.5f}")
+    others = [r for r in cub['rows'] if r['seam'] != cub['private_seams'][0]]
+    if others:
+        for nn in sorted({r['n'] for r in others}):
+            vals = sorted(r['N_E0'] for r in cub['rows'] if r['n'] == nn)
+            print(f'   all {len(vals)} private seams at n = {nn}: N E0 in [{vals[0]:.5f}, {vals[-1]:.5f}], distinct values {sorted(set(np.round(vals, 6)))}')
+            out['cubic'][f'private_seams_n{nn}'] = vals
+json.dump(out, open(os.path.join(HERE, 'km4_fit.json'), 'w'), indent=1)

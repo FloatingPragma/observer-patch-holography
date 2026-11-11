@@ -1,0 +1,115 @@
+"""Assemble an authority only from completed owner executions and fixed retained inputs."""
+from pathlib import Path
+import copy, hashlib, json, re, subprocess
+from tools import strict_json
+from tools import renew_canonical_live_receipts as live
+from model.completion import field_current_records_custody as custody
+from model.completion import field_current_records_navigation as nav
+ROOT=Path.cwd(); ARCH=custody.ARCHIVE; CHECKPOINT='a0367dc26b07ad959c915054dbfcb3f9828af295'
+WORK=ROOT.parent/'work/CODEX_JOIN_QUANTUM/field_current_records'
+sha=lambda p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()
+read=lambda p:json.loads((ROOT/p).read_text())
+def write(p,v): (ROOT/p).write_text(json.dumps(v,indent=2,sort_keys=True)+'\n')
+def archive(p):
+ raw=subprocess.check_output(['git','show',CHECKPOINT+':'+p],cwd=ROOT);q=ROOT/(ARCH+p);q.parent.mkdir(parents=True,exist_ok=True)
+ if q.exists(): assert q.read_bytes()==raw,p
+ else:q.write_bytes(raw)
+ return ARCH+p
+cat=live.load_catalog(); baseline=read('model/completion/source_records_custody_authority.json')
+actual=json.loads(Path('/tmp/oph-r2064-common-source-owners.json').read_text())
+for n in set(cat)-{'chiral_candidate','hierarchy_diagnosis','full_repair_response','particle_completion'}|{'charged_lepton_response'}:
+ actual[n]=json.loads(Path('/tmp/oph-r2064-owner-graph/'+n+'.json').read_text())
+actual.update(json.loads(Path('/tmp/oph-r2064-readout-parent-replay.json').read_text()))
+actual.update(json.loads(Path('/tmp/oph-r2064-final-readouts.json').read_text()))
+actual.update(read('model/completion/field_current_documentary_replays.json')['executed'])
+actual.update(json.loads(Path('/tmp/oph-r2064-secondary-owner-replay.json').read_text()))
+actual['protected_particle_readout']={'receipt':'model/protected_particle_readout/results.json','current_sha256':sha('model/protected_particle_readout/results.json'),'actual_cold_numerical_successor_execution':read('model/completion/field_current_numerical_replay.json')}
+control=json.loads(Path('/tmp/oph-r2064-native-control-owners.json').read_text())
+for path,h in control['canonical_control']['current_outputs'].items():
+ actual[path]={'receipt':path,'current_sha256':h,'actual_unchanged_producer_executed':True,'source_record':control}
+actual['native_live_control']=control['live_control']
+assert Path('/tmp/oph-r2064-local-family-replay.log').read_text().strip()=='Local C/E family: complete instruments, fixed faithful reference, covariance and scope verified.'
+actual['local_repair_family']={'receipt':'model/local_repair_family/results.json','current_sha256':sha('model/local_repair_family/results.json'),'actual_unchanged_producer_executed':'model.local_repair_family.local_bias --check'}
+pointer_specs=read('tools/field_current_pointer_owner_authority.json')['owners']
+rows={}
+for name,execution in actual.items():
+ path=execution['receipt'];h=execution.get('current_sha256',execution.get('fresh_sha256'));assert h==sha(path),(name,h,sha(path))
+ retained=archive(path);old=read(retained);current=read(path)
+ row={'actual_owner_executed':True,'canonical_scientific_payload_exactly_preserved':True,'retained_path':retained,'retained_sha256':sha(retained),'current_sha256':h}
+ pointers=copy.deepcopy(pointer_specs.get(name,{}).get('reviewed_nested_receipt_pointers',cat.get(name,{}).get('reviewed_receipt_pointers',[])))
+ if path=='model/completion/campaign.json':pointers=[{'json_path':['retained_controls',0,'sha256'],'target':'model/common_source/native_defect_decision_results.json'}]
+ for p in pointers:
+  p['retained_path']=archive(p['target']);p['retained_sha256']=sha(p['retained_path']);assert live.at_path(old,p['json_path'])==p['retained_sha256']
+ if pointers:row['reviewed_receipt_pointers']=pointers
+ scope=execution.get('reviewed_source_scope_append',{})
+ if scope:row['reviewed_source_scope_append']=scope
+ if path=='model/completion/campaign.json':
+  projected=copy.deepcopy(old);live.set_path(projected,pointers[0]['json_path'],sha(pointers[0]['target']))
+ else:projected=live.carry_metadata(path,old,current,scope_append=scope,pointers=pointers,root=ROOT)
+ assert live.canonical(projected)==live.canonical(current),path
+ rows[path]=row
+write('model/completion/field_current_records_replays.json',{'schema':'oph.field_current_records_executed_replays.v1','actual_owner_execution_required_before_metadata_write':True,'executed':actual})
+# Seven existing artifact slots; no new inventory entry and no science rewrite.
+manifest=read('tools/source_record_manifest_authority.json');manifest['schema']='oph.field_current_records_manifest_transition.v1'
+manifest['executed_owner_replays']={'path':'model/completion/field_current_records_replays.json','sha256':sha('model/completion/field_current_records_replays.json')}
+for row in manifest['only_live_artifact_entries']:
+ path=row['target'];row['executed_current_sha256']=sha(path);row['retained_pointer_sha256']=read(archive(row['manifest']))['files'][row['artifact_key']]
+manifest['retained_canonical_receipt_sha256']={p:sha(archive(p))for p in manifest['retained_canonical_receipt_sha256']}
+manifest['retained_manifests']={p:{'path':archive(p),'sha256':sha(archive(p))}for p in manifest['retained_manifests']}
+write('tools/field_current_record_manifest_authority.json',manifest)
+p=ROOT/'tools/renew_field_current_record_manifests.py';p.write_text(re.sub(r"AUTHORITY_SHA256='[a-f0-9]{64}'", "AUTHORITY_SHA256='"+sha('tools/field_current_record_manifest_authority.json')+"'",p.read_text()))
+# The three old configurations admit exactly their campaign and interpreter slots.
+for p in baseline['integration_configurations']:
+ old=read(archive(p));value=read(p)
+ expected=copy.deepcopy(old)
+ for target in ('model/completion/campaign.json',custody.INTERPRETER):expected['source_bindings'][target]=sha(target)
+ assert value in (old,expected),p
+ write(p,expected)
+# Collect only the reviewed live custody delta, with fixed path inventory.
+maintenance=[
+'model/completion/FIELD_CURRENT_CUSTODY.md','model/completion/field_current_historical_tests.json',
+'model/completion/field_current_records_navigation.py','model/completion/field_current_records_navigation_authority.json',
+'model/completion/field_current_records_custody.py','model/completion/test_field_current_records_navigation.py','model/completion/test_field_current_records_custody.py',
+'model/completion/field_current_records_replays.json','model/completion/field_current_documentary_replays.json','model/completion/field_current_science_replays.json',
+'model/completion/field_current_numerical_replay.json','model/completion/field_current_measurement.py','model/completion/test_field_current_measurement.py','model/completion/test_field_current_measurement_consumers.py','model/completion/field_current_measurement_replay.json',
+ 'tools/renew_field_current_secondary_owners.py','tools/field_current_secondary_owners.json','tools/renew_field_current_class_consumers.py','tools/renew_field_current_interface_parents.py','tools/field_current_interface_parents.json',
+'tools/renew_field_current_documentary_owners.py','tools/field_current_documentary_owners.json','tools/test_field_current_documentary_owners.py',
+'tools/renew_field_current_pointer_owners.py','tools/field_current_pointer_owner_authority.json','tools/test_field_current_pointer_owners.py',
+'tools/renew_field_current_record_manifests.py','tools/field_current_record_manifest_authority.json','tools/test_field_current_record_manifests.py',
+'tools/check_retained_source_records_custody.py','tools/test_retained_source_records_custody.py','model/verify_current.py','model/test_verify_current.py','model/test_verify_shards.py','pytest.ini','.github/workflows/observer-model.yml']
+# Exact seven-file Python closure of the already certified numerical route.
+for path in ['model/protected_particle_readout/identification.py', 'model/protected_particle_readout/packet.py', 'model/protected_readout_numerics/__init__.py', 'model/protected_readout_numerics/arithmetic.py', 'model/protected_readout_numerics/interval_replay.py', 'model/protected_readout_numerics/kernel.py', 'model/protected_readout_numerics/model.py']:
+ assert read('model/protected_readout_numerics/results.json')['input_sha256'][path]==sha(path)
+ maintenance.append(path)
+additions=[p for p in maintenance if p not in read(ARCH+custody.INTERFACES)['source_bindings']]
+original_documents={p:read(ARCH+p)for p in custody.FILES}
+program_scope=[[list(path),target]for path,target in custody.pointers(original_documents[custody.PROGRAM])]
+renewable=set(rows)|set(baseline['integration_configurations'])|set(custody.FILES)|{nav.REGISTRY,nav.TRACKING,nav.DICTIONARY,'model/completion/theorem_navigation_current.json','model/protected_particle_readout/results.json','model/resolved_particle_spectrum/results.json'}
+# Every current binding target is either a named executed output, the exact navigation,
+# a typed configuration, or a prior unchanged source. This rejects arbitrary additions.
+for name in (custody.INTERFACES,custody.MAP,custody.REVIEW):
+ for target,h in original_documents[name]['source_bindings'].items():
+  assert h==sha(target) or target in renewable,('unreviewed binding',name,target)
+current_paths=(set(rows)|set(maintenance)|set(baseline['integration_configurations'])|{custody.INTERFACES,custody.MAP,'model/completion/theorem_navigation_current.json','model/protected_readout_numerics/results.json','model/protected_readout_numerics/live_projection.json','model/protected_readout_numerics/contract.json','paper/release_info.tex','paper/paper_release_manifest.json'})-{custody.CLASS,custody.REVIEW,custody.PROGRAM}
+historical={str(p.relative_to(ROOT)):sha(str(p.relative_to(ROOT)))for p in (ROOT/ARCH).rglob('*')if p.is_file()}
+for p,h in baseline['historical_sha256'].items():assert sha(p)==h;historical[p]=h
+for p in ('model/completion/source_records_custody.py','model/completion/source_records_custody_authority.json','model/completion/source_records_custody_current.json','model/completion/source_records_navigation.py','model/completion/source_records_navigation_authority.json','model/completion/test_source_records_custody.py','model/completion/test_source_records_navigation.py'):
+ raw=subprocess.check_output(['git','show',CHECKPOINT+':'+p]);assert hashlib.sha256(raw).hexdigest()==sha(p);historical[p]=sha(p)
+value={
+'schema':'oph.field_current_records_custody_authority.v1','role':'Typed current field and charged-current record custody; no physical gate promotion',
+'immutable_checkpoint':CHECKPOINT,'historical_sha256':historical,'unchanged_executable_sha256':baseline['unchanged_executable_sha256'],
+'maintenance_source_sha256':{p:sha(p)for p in maintenance if p!='model/completion/field_current_records_custody.py'},
+'field_navigation_authority_sha256':nav.AUTHORITY_SHA256,'executed_live_receipts':dict(sorted(rows.items())),
+'integration_configurations':baseline['integration_configurations'],'maintenance_input_scope_append':additions,
+'renewable_targets':sorted(renewable),'current_binding_paths':sorted(current_paths),
+'program_pointer_schema':{'locations':len(program_scope),'targets':len({x[1]for x in program_scope}),'sha256':nav.digest(program_scope)},
+'canonical_numerical_payloads_and_npz_bytes_preserved':True,'physical_error_bound_claimed_by_binary64_owner_replay':False,
+'release_transition_scope':{'identity':read(nav.AUTHORITY)['release_identity_transition'],'reviewed_release_source_sha256':read(nav.AUTHORITY)['actual_release_identity_sha256']},
+'exact_current_replay_routes':[[list(a),list(b)]for a,b in __import__('model.verify_current',fromlist=['ROUTES']).ROUTES.items()],
+'late_class_dependent_owners':['model/regional_clock/results.json','model/particle_identification/completion_results.json'],
+'late_internal_parent_closure':{n:row['receipt']for n,row in read('tools/field_current_interface_parents.json')['owners'].items()},
+'late_owner_order':'Current class is sealed first. Original owners replay on its exact bytes; their records bind the class, not conversely, avoiding a circular receipt hash.',
+'validator_template_sha256':hashlib.sha256(re.sub(r"AUTHORITY_SHA256 = '[a-f0-9]{64}'","AUTHORITY_SHA256 = '<AUTHORITY_DIGEST>'",(ROOT/'model/completion/field_current_records_custody.py').read_text()).encode()).hexdigest()}
+write(custody.AUTHORITY,value)
+p=ROOT/'model/completion/field_current_records_custody.py';p.write_text(re.sub(r"AUTHORITY_SHA256 = '[a-f0-9]{64}'","AUTHORITY_SHA256 = '"+sha(custody.AUTHORITY)+"'",p.read_text()))
+print('authority',sha(custody.AUTHORITY),'executed',len(rows))

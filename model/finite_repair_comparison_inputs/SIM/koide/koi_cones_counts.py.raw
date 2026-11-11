@@ -1,0 +1,92 @@
+"""Task KOI, part G-b, addition: every set of point sources with equal angles, to first order.
+
+The first-order copy matrix depends on a source cell only through its class (parity, kind): s(x) = +- s(representative),
+so a set of equal-angle point sources is a count vector n in Z>=0^8 and M = sum_c n_c M_c. All entries of the M_c are
+Gaussian integers (units theta/N), so traces are integers and Q is an exact rational:
+  axis cones (origin cone deleted, 6 x 6 block B, eigenvalues in spin pairs): Q3 = 2 tr B^2 / (tr B)^2;
+  four cones: Q4 = 2 tr M^2 / (tr M)^2.
+Scan: all n with sum n <= 12 (50,387 vectors). For every Q3 = 2/3 the rank of B and delta are recorded.
+Also: unequal angles on one even and one odd source, Q3 = 1 - (4/3) t_E t_O / (t_E + t_O)^2 (exact formula, checked).
+Output: koide.json key 'G-b counts'.
+"""
+import itertools, json, math
+from fractions import Fraction as Fr
+import numpy as np
+from koide_lib import save, koide_from_eigs
+
+s1 = np.array([[0, 1], [1, 0]], complex); s2 = np.array([[0, -1j], [1j, 0]]); s3 = np.diag([1.0, -1.0]).astype(complex)
+aK = [np.eye(2, dtype=complex), 1j * s1, -1j * s2, 1j * s3]
+KP = [(0, 0, 0), (0, 1, 1), (1, 0, 1), (1, 1, 0)]
+def kind(x):
+    par = x[0] % 2; m = [(xi - par) // 2 % 2 for xi in x]
+    return par, (0 if m[0] == m[1] == m[2] else (1 if m[1] == m[2] else (2 if m[0] == m[2] else 3)))
+
+
+rep = {}
+for x in itertools.product(range(8), repeat=3):
+    if (x[0] - x[1]) % 2 == 0 and (x[1] - x[2]) % 2 == 0: rep.setdefault(kind(x), x)
+assert len(rep) == 8
+
+
+def slot_matrix(x):
+    s = np.array([round(np.cos(np.pi / 2 * np.dot(k, x))) for k in KP])
+    if x[0] % 2 == 0: return np.kron(np.outer(s, s), np.eye(2))
+    w = np.zeros((8, 2), complex)
+    for K in range(4): w[2 * K:2 * K + 2] = s[K] * aK[K].conj().T
+    return w @ w.conj().T
+
+
+slots = sorted(rep)
+Ms = [slot_matrix(rep[c]) for c in slots]
+Bs = [M[2:, 2:] for M in Ms]
+G3 = np.array([[np.trace(a @ b).real for b in Bs] for a in Bs]); t3 = np.array([np.trace(b).real for b in Bs])
+G4 = np.array([[np.trace(a @ b).real for b in Ms] for a in Ms]); t4 = np.array([np.trace(m).real for m in Ms])
+assert np.allclose(G3, np.rint(G3)) and np.allclose(G4, np.rint(G4))
+G3, t3, G4, t4 = np.rint(G3).astype(np.int64), np.rint(t3).astype(np.int64), np.rint(G4).astype(np.int64), np.rint(t4).astype(np.int64)
+print('slot traces (axis block):', t3.tolist(), '| Gram tr(B_c B_d):\n', G3)
+# enumerate compositions of total <= 12 into 8 parts
+def comps(total, parts):
+    if parts == 1:
+        yield (total,); return
+    for k in range(total + 1):
+        for rest in comps(total - k, parts - 1): yield (k,) + rest
+N = np.array([c for tot in range(1, 13) for c in comps(tot, 8)], dtype=np.int64)
+qa_num = 2 * np.einsum('si,ij,sj->s', N, G3, N); qa_den = (N @ t3) ** 2
+hit = np.where(3 * qa_num == 2 * qa_den)[0]
+q4_num = 2 * np.einsum('si,ij,sj->s', N, G4, N); q4_den = (N @ t4) ** 2
+hit4 = np.where(2 * q4_num == q4_den)[0]                                   # four-copy balance Q4 = 1/2
+print('vectors:', len(N), '| Q3 = 2/3:', len(hit), '| Q4 = 1/2:', len(hit4))
+rank_hist, delta_set, examples = {}, {}, []
+Bstack = np.array(Bs)
+BH = np.einsum('sc,cij->sij', N[hit].astype(complex), Bstack)
+EV = np.sort(np.linalg.eigvalsh(BH), axis=1)[:, 0::2]
+for s_i, s in enumerate(hit):
+    ev = EV[s_i]
+    rank = int(np.sum(ev > 1e-9 * ev.max()))
+    a = ev.mean(); d = ev - a; b = np.sqrt(np.sum(d * d) / 6)
+    delta = float(np.arccos(np.clip(np.sum(d ** 3) / (6 * b ** 3), -1, 1)) / 3)
+    key = (rank, round(delta, 9))
+    rank_hist[rank] = rank_hist.get(rank, 0) + 1
+    delta_set.setdefault(key, []).append(N[s].tolist())
+for key, lst in sorted(delta_set.items()):
+    n0 = lst[0]
+    B = sum(n0[c] * Bs[c] for c in range(8)); ev = np.sort(np.linalg.eigvalsh(B))[0::2]
+    examples.append({'rank': key[0], 'delta': key[1], 'count': len(lst), 'example_counts (E0..E3, O0..O3)': n0, 'levels': ev.tolist(),
+                     'smallest_total': int(min(sum(x) for x in lst))})
+    print('  Q3 = 2/3: rank', key[0], 'delta', key[1], 'vectors', len(lst), 'example', n0, 'levels', np.round(ev, 6).tolist())
+rank3 = [N[s] for s_i, s in enumerate(hit) if np.sum(EV[s_i] > 1e-9 * EV[s_i].max()) == 3]
+# unequal angles on one even and one odd source
+check = []
+for tE, tO in ((1.0, 1.0), (1.0, 2.0), (0.157935, 0.215043), (0.042383, 0.171237)):
+    B = tE * Bs[slots.index((0, 0))] + tO * Bs[slots.index((1, 0))]
+    ev = np.sort(np.linalg.eigvalsh(B))[0::2]
+    Q = float(np.sum(ev ** 2) / np.sum(ev) ** 2)
+    check.append({'t_E': tE, 't_O': tO, 'Q3': Q, 'formula': 1 - 4 / 3 * tE * tO / (tE + tO) ** 2, 'levels': ev.tolist()})
+out = {'method': __doc__.split('\n\n')[0], 'vectors_scanned': int(len(N)), 'Q3_two_thirds': int(len(hit)), 'rank_histogram_of_Q3_two_thirds': rank_hist,
+       'Q3_two_thirds_classes': examples, 'rank_three_solutions_with_sum_at_most_12': len(rank3),
+       'four_copy_balance_Q4_1/2': int(len(hit4)), 'gram_axis_block': G3.tolist(), 'slot_traces_axis_block': t3.tolist(),
+       'unequal_angles_even_odd_pair': check,
+       'rank_two_lemma': 'Q = 2/3 with one zero eigenvalue forces l_2/l_3 = 2 - sqrt3 and delta = pi/12 (EXACT: l^2 - 4 l l\' + l\'^2 = 0)',
+       'label': 'EXACT (integer traces); eigenvalues float64'}
+save('G-b counts', out)
+print('rank-3 solutions:', len(rank3), '| unequal angles:', [(c['t_E'], c['t_O'], round(c['Q3'], 6), round(c['formula'], 6)) for c in check])

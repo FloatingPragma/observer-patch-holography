@@ -1,0 +1,1207 @@
+{
+ "custody": {
+  "protocol_sha256": "ccb7c6d24d172b37e8a8f072d85b8985180dd502d0ae65d422bccf221c295b33",
+  "inputs_sha256": {
+   "CF1.md": "7064e1c237924e873c8c8daee055ddecd83eba4742b87788038db20d3d967079",
+   "routing.py": "692285e9ecef2542d290c720e8bfd7af53d2d908086b45e4205e4febf5719891",
+   "defect_phases.json": "a7a8f02197503c9c846e486c2904b36550e381661b9d0bd4e3956367399c3df8",
+   "generations.json": "c86d9d4c7a4dc3b943ba46a7802faba96d0c99707d10302171fa488f62add55b",
+   "particle_map.json": "5161f7811334a6b0e5d22a248df9ef0b17eefc1a446624b4840d0ee4564b284c",
+   "reference_values.json": "4be774c393a46957f97decbe83e11b4f42525e451a4d5293fd146e33cadef0cc",
+   "observations.json": "44a8e4615c3497542c114d600ddde99973a9eb9400c379c6117c010204dabf1c",
+   "neutrino_README.md": "8f4354c5b2cd41a5bfa3ad3c6e9334ec3c289ff61eb82d3046ac7141e4fab09a",
+   "RESULTS_STATUS.md": "e4c4d63fc291e3cdcb8198b01b7efdc006f62af74db6427cc12bda62c2659ed1",
+   "calibrated_neutrino_parameters.json": "ccd5d6d675ae781a0c881031a7f908cbef8bd0f905cb03cc250f78bb5b526351",
+   "clock_source_energy_closure_audit.json": "1409c61e043dbc242b679d2f4d6f408b5ecdce8fefda89badd9ec3fc861f8ff4"
+  }
+ },
+ "reference": {
+  "m_e_GeV": 0.00051099895069,
+  "m_u_GeV": 0.00216,
+  "m_d_GeV": 0.0047,
+  "m_mu_GeV": 0.1056583755,
+  "m_t_GeV": 172.6,
+  "M_W_GeV": 80.3625,
+  "M_Z_GeV": 91.1879,
+  "m_beta_bound_eV": 0.45,
+  "positron_bound": 8e-09,
+  "mixing_degrees_value_plus_minus": {
+   "theta12": [
+    33.68,
+    0.73,
+    0.7
+   ],
+   "theta23": [
+    43.3,
+    1.0,
+    0.9
+   ],
+   "theta13": [
+    8.56,
+    0.11,
+    0.11
+   ]
+  },
+  "nufit61_sin2": {
+   "sin2_theta12": "0.3088",
+   "sin2_theta23": "0.470",
+   "sin2_theta13": "0.02248",
+   "delta_degrees": "212",
+   "delta_m21_squared_eV2": "0.00007537",
+   "delta_m31_squared_eV2": "0.002511"
+  },
+  "reduced_compton_e_m": 3.8615926743656247e-13,
+  "hbar_over_mec2_s": 1.2880886664485817e-21,
+  "dictionary": {
+   "electron": {
+    "charged_lepton_left": {
+     "Q": "-1",
+     "T3": "-1/2",
+     "color_representation": "1",
+     "comparison_convention": "all-left-Weyl internal representation",
+     "physical_chirality_derived": false,
+     "q6Y": "-3",
+     "source_masks": [
+      23
+     ]
+    },
+    "charged_lepton_right_conjugate": {
+     "Q": "1",
+     "T3": "0",
+     "color_representation": "1",
+     "comparison_convention": "all-left-Weyl internal representation",
+     "physical_chirality_derived": false,
+     "q6Y": "6",
+     "source_masks": [
+      24
+     ]
+    }
+   },
+   "up": {
+    "up_left": {
+     "Q": "2/3",
+     "T3": "1/2",
+     "color_representation": "3",
+     "comparison_convention": "all-left-Weyl internal representation",
+     "physical_chirality_derived": false,
+     "q6Y": "1",
+     "source_masks": [
+      9,
+      10,
+      12
+     ]
+    },
+    "up_right_conjugate": {
+     "Q": "-2/3",
+     "T3": "0",
+     "color_representation": "3bar",
+     "comparison_convention": "all-left-Weyl internal representation",
+     "physical_chirality_derived": false,
+     "q6Y": "-4",
+     "source_masks": [
+      3,
+      5,
+      6
+     ]
+    }
+   },
+   "down": {
+    "down_left": {
+     "Q": "-1/3",
+     "T3": "-1/2",
+     "color_representation": "3",
+     "comparison_convention": "all-left-Weyl internal representation",
+     "physical_chirality_derived": false,
+     "q6Y": "1",
+     "source_masks": [
+      17,
+      18,
+      20
+     ]
+    },
+    "down_right_conjugate": {
+     "Q": "1/3",
+     "T3": "0",
+     "color_representation": "3bar",
+     "comparison_convention": "all-left-Weyl internal representation",
+     "physical_chirality_derived": false,
+     "q6Y": "2",
+     "source_masks": [
+      27,
+      29,
+      30
+     ]
+    }
+   },
+   "electron_neutrino": {
+    "neutrino_left": {
+     "Q": "0",
+     "T3": "1/2",
+     "color_representation": "1",
+     "comparison_convention": "all-left-Weyl internal representation",
+     "physical_chirality_derived": false,
+     "q6Y": "-3",
+     "source_masks": [
+      15
+     ]
+    }
+   }
+  }
+ },
+ "chart": {
+  "e_L": {
+   "n3": 3,
+   "n2": 1,
+   "six_Y": -3,
+   "T3": "-1/2",
+   "Q": "-1",
+   "C_su3": "0",
+   "C_su2": "3/4",
+   "left": true,
+   "Z2": 1,
+   "Q6_mod_6": 3
+  },
+  "e_R": {
+   "n3": 3,
+   "n2": 0,
+   "six_Y": -6,
+   "T3": "0",
+   "Q": "-1",
+   "C_su3": "0",
+   "C_su2": "0",
+   "left": false,
+   "Z2": 0,
+   "Q6_mod_6": 0
+  },
+  "nu_L": {
+   "n3": 3,
+   "n2": 1,
+   "six_Y": -3,
+   "T3": "1/2",
+   "Q": "0",
+   "C_su3": "0",
+   "C_su2": "3/4",
+   "left": true,
+   "Z2": 1,
+   "Q6_mod_6": 3
+  },
+  "nu_R": {
+   "n3": 3,
+   "n2": 2,
+   "six_Y": 0,
+   "T3": "0",
+   "Q": "0",
+   "C_su3": "0",
+   "C_su2": "0",
+   "left": false,
+   "Z2": 0,
+   "Q6_mod_6": 0
+  },
+  "u_L": {
+   "n3": 1,
+   "n2": 1,
+   "six_Y": 1,
+   "T3": "1/2",
+   "Q": "2/3",
+   "C_su3": "4/3",
+   "C_su2": "3/4",
+   "left": true,
+   "Z2": 1,
+   "Q6_mod_6": 1
+  },
+  "d_L": {
+   "n3": 1,
+   "n2": 1,
+   "six_Y": 1,
+   "T3": "-1/2",
+   "Q": "-1/3",
+   "C_su3": "4/3",
+   "C_su2": "3/4",
+   "left": true,
+   "Z2": 1,
+   "Q6_mod_6": 1
+  },
+  "u_R": {
+   "n3": 1,
+   "n2": 2,
+   "six_Y": 4,
+   "T3": "0",
+   "Q": "2/3",
+   "C_su3": "4/3",
+   "C_su2": "0",
+   "left": false,
+   "Z2": 0,
+   "Q6_mod_6": 4
+  },
+  "d_R": {
+   "n3": 1,
+   "n2": 0,
+   "six_Y": -2,
+   "T3": "0",
+   "Q": "-1/3",
+   "C_su3": "4/3",
+   "C_su2": "0",
+   "left": false,
+   "Z2": 0,
+   "Q6_mod_6": 4
+  }
+ },
+ "C0": {
+  "symbol_commutator_with_X_r": 0.0,
+  "symbol_commutator_with_Z_r": 0.723230863929924,
+  "two_abs_sin_p": 0.723230863929924,
+  "engine_shift_commutator_with_X_r": 6.206335383118183e-17,
+  "engine_shift_commutator_with_Z_r": 1.4732490580340778,
+  "mass_step_anticommutes_with_X_r": {
+   "Y_r": 0.0,
+   "Z_r": 0.0
+  },
+  "gauss": {
+   "V": {
+    "massless_routing_commutator": 0.0,
+    "mass_step_commutator_over_amplitude_at_the_cell": 0.0,
+    "routing_unitary": 8.881784197001252e-16
+   },
+   "C": {
+    "massless_routing_commutator": 1.5515838457795457e-17,
+    "mass_step_commutator_over_amplitude_at_the_cell": 0.17546811261721137,
+    "routing_unitary": 7.771561172376096e-16
+   },
+   "two_abs_sin_theta": 0.17546811261721132,
+   "lattice": "2 x 2 x 1, eight link bits, dimension 4096"
+  },
+  "two_tick_spectrum_asymmetry_max_over_200": 3.3306690738754696e-16
+ },
+ "R7_spin": {
+  "rest_phases": [
+   -0.087847,
+   -0.087847,
+   0.087847,
+   0.087847
+  ],
+  "rest_degeneracy_two": true,
+  "leak_out_of_chirality_sector": [
+   2.2463161964190524e-16,
+   2.2463161964190524e-16
+  ],
+  "massless_positive_branch": {
+   "X_r=+1": {
+    "E_per_tick": 0.0499729216426125,
+    "abs_p": 0.05,
+    "helicity_expectation": 0.9999990604098552
+   },
+   "X_r=-1": {
+    "E_per_tick": 0.04997292164261248,
+    "abs_p": 0.05,
+    "helicity_expectation": -0.9999990604098552
+   }
+  },
+  "spinor_square": 0.0,
+  "pass": true
+ },
+ "R6_chirality": {
+  "V_components_of_the_electron": 8,
+  "V_each_class_holds_both_chiralities": true,
+  "C_components_of_the_electron": 4,
+  "C_class_is_the_X_r_eigenvalue": true,
+  "identification_right_handed_class": "X_r = +1 (positive helicity on the positive branch)"
+ },
+ "measured_ratios": {
+  "m_beta_bound_over_m_e": 8.806280314125239e-07,
+  "m_u_over_m_e": 4.2270145507801145,
+  "m_d_over_m_e": 9.197670550308583,
+  "m_u_over_m_d": 0.4595744680851064,
+  "sigma_m_u_over_m_d": 0.009964230585703783,
+  "half_width_90_m_u_over_m_d": 0.016391159313482728
+ },
+ "V": {
+  "classes_scanned": 25,
+  "classes_with_a_Dirac_electron": 0,
+  "classes_with_theta_e_R_nonzero": 0,
+  "classes_with_a_Dirac_neutrino": 0,
+  "classes_with_Dirac_up_and_down": [
+   [
+    2,
+    1
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    2,
+    4
+   ],
+   [
+    2,
+    5
+   ],
+   [
+    4,
+    1
+   ],
+   [
+    4,
+    2
+   ],
+   [
+    4,
+    3
+   ],
+   [
+    4,
+    4
+   ],
+   [
+    4,
+    5
+   ]
+  ],
+  "alpha_sixths_by_k": {
+   "1": {
+    "e_L": 3,
+    "e_R": 0,
+    "nu_L": 3,
+    "nu_R": 0,
+    "Q_L": 1,
+    "u_R": 2,
+    "d_R": 2
+   },
+   "2": {
+    "e_L": 0,
+    "e_R": 0,
+    "nu_L": 0,
+    "nu_R": 0,
+    "Q_L": 2,
+    "u_R": 2,
+    "d_R": 2
+   },
+   "3": {
+    "e_L": 3,
+    "e_R": 0,
+    "nu_L": 3,
+    "nu_R": 0,
+    "Q_L": 3,
+    "u_R": 0,
+    "d_R": 0
+   },
+   "4": {
+    "e_L": 0,
+    "e_R": 0,
+    "nu_L": 0,
+    "nu_R": 0,
+    "Q_L": 2,
+    "u_R": 2,
+    "d_R": 2
+   },
+   "5": {
+    "e_L": 3,
+    "e_R": 0,
+    "nu_L": 3,
+    "nu_R": 0,
+    "Q_L": 1,
+    "u_R": 2,
+    "d_R": 2
+   }
+  },
+  "pattern_ratios_with_the_doublet_pattern_as_anchor": [
+   {
+    "k": 1,
+    "d": 1,
+    "theta_e_L": 0.08784654696624196,
+    "theta_e_R": 0.0,
+    "nu_L_over_e_L": 1.0,
+    "Q_L_over_e_L": 0.4824652540552375,
+    "u_R_over_e_L": 0.8550438035457778,
+    "d_R_over_e_L": 0.8550438035457778,
+    "Q_L_MeV": 0.2465392385666106,
+    "u_R_MeV": 0.4369264864058789,
+    "d_R_MeV": 0.4369264864058789,
+    "cell_m": 3.392275822331558e-14,
+    "tick_s": 1.131541415338593e-22,
+    "ceiling_MeV": 18.274486646546364
+   },
+   {
+    "k": 1,
+    "d": 2,
+    "theta_e_L": 0.11055393734047589,
+    "theta_e_R": 0.0,
+    "nu_L_over_e_L": 1.0,
+    "Q_L_over_e_L": 0.46144126994614015,
+    "u_R_over_e_L": 0.8393000156227017,
+    "d_R_over_e_L": 0.8393000156227017,
+    "Q_L_MeV": 0.23579600474753862,
+    "u_R_MeV": 0.4288814272973011,
+    "d_R_MeV": 0.4288814272973011,
+    "cell_m": 4.2691427455625796e-14,
+    "tick_s": 1.4240327371953365e-22,
+    "ceiling_MeV": 14.52097128423166
+   },
+   {
+    "k": 1,
+    "d": 3,
+    "theta_e_L": 0.13236300227603684,
+    "theta_e_R": 0.0,
+    "nu_L_over_e_L": 1.0,
+    "Q_L_over_e_L": 0.42464627550870326,
+    "u_R_over_e_L": 0.8039701142807216,
+    "d_R_over_e_L": 0.8039701142807216,
+    "Q_L_MeV": 0.21699380119936398,
+    "u_R_MeV": 0.410827884783568,
+    "d_R_MeV": 0.410827884783568,
+    "cell_m": 5.1113199994618436e-14,
+    "tick_s": 1.7049528308887087e-22,
+    "ceiling_MeV": 12.128393296277107
+   },
+   {
+    "k": 1,
+    "d": 4,
+    "theta_e_L": 0.1477868288892269,
+    "theta_e_R": 0.0,
+    "nu_L_over_e_L": 1.0,
+    "Q_L_over_e_L": 0.3943429245658719,
+    "u_R_over_e_L": 0.7651562241456286,
+    "d_R_over_e_L": 0.7651562241456286,
+    "Q_L_MeV": 0.20150882066518633,
+    "u_R_MeV": 0.39099402765233854,
+    "d_R_MeV": 0.39099402765233854,
+    "cell_m": 5.706925358063647e-14,
+    "tick_s": 1.90362539342589e-22,
+    "ceiling_MeV": 10.862609080563475
+   },
+   {
+    "k": 1,
+    "d": 5,
+    "theta_e_L": 0.17123678913697477,
+    "theta_e_R": 0.0,
+    "nu_L_over_e_L": 1.0,
+    "Q_L_over_e_L": 0.3464315890855524,
+    "u_R_over_e_L": 0.6828011210029199,
+    "d_R_over_e_L": 0.6828011210029199,
+    "Q_L_MeV": 0.17702617850858648,
+    "u_R_MeV": 0.3489106563624477,
+    "d_R_MeV": 0.3489106563624477,
+    "cell_m": 6.612467305132329e-14,
+    "tick_s": 2.205681673663828e-22,
+    "ceiling_MeV": 9.375033002958574
+   },
+   {
+    "k": 3,
+    "d": 1,
+    "theta_e_L": 0.08784654696624196,
+    "theta_e_R": 0.0,
+    "nu_L_over_e_L": 1.0,
+    "Q_L_over_e_L": 1.0,
+    "u_R_over_e_L": 0.0,
+    "d_R_over_e_L": 0.0,
+    "Q_L_MeV": 0.5109989506899999,
+    "u_R_MeV": 0.0,
+    "d_R_MeV": 0.0,
+    "cell_m": 3.392275822331558e-14,
+    "tick_s": 1.131541415338593e-22,
+    "ceiling_MeV": 18.274486646546364
+   },
+   {
+    "k": 3,
+    "d": 2,
+    "theta_e_L": 0.11055393734047589,
+    "theta_e_R": 0.0,
+    "nu_L_over_e_L": 1.0,
+    "Q_L_over_e_L": 1.0,
+    "u_R_over_e_L": 0.0,
+    "d_R_over_e_L": 0.0,
+    "Q_L_MeV": 0.5109989506899999,
+    "u_R_MeV": 0.0,
+    "d_R_MeV": 0.0,
+    "cell_m": 4.2691427455625796e-14,
+    "tick_s": 1.4240327371953365e-22,
+    "ceiling_MeV": 14.52097128423166
+   },
+   {
+    "k": 3,
+    "d": 3,
+    "theta_e_L": 0.13236300227603684,
+    "theta_e_R": 0.0,
+    "nu_L_over_e_L": 1.0,
+    "Q_L_over_e_L": 1.0,
+    "u_R_over_e_L": 0.0,
+    "d_R_over_e_L": 0.0,
+    "Q_L_MeV": 0.5109989506899999,
+    "u_R_MeV": 0.0,
+    "d_R_MeV": 0.0,
+    "cell_m": 5.1113199994618436e-14,
+    "tick_s": 1.7049528308887087e-22,
+    "ceiling_MeV": 12.128393296277107
+   },
+   {
+    "k": 3,
+    "d": 4,
+    "theta_e_L": 0.1477868288892269,
+    "theta_e_R": 0.0,
+    "nu_L_over_e_L": 1.0,
+    "Q_L_over_e_L": 1.0,
+    "u_R_over_e_L": 0.0,
+    "d_R_over_e_L": 0.0,
+    "Q_L_MeV": 0.5109989506899999,
+    "u_R_MeV": 0.0,
+    "d_R_MeV": 0.0,
+    "cell_m": 5.706925358063647e-14,
+    "tick_s": 1.90362539342589e-22,
+    "ceiling_MeV": 10.862609080563475
+   },
+   {
+    "k": 3,
+    "d": 5,
+    "theta_e_L": 0.17123678913697477,
+    "theta_e_R": 0.0,
+    "nu_L_over_e_L": 1.0,
+    "Q_L_over_e_L": 1.0,
+    "u_R_over_e_L": 0.0,
+    "d_R_over_e_L": 0.0,
+    "Q_L_MeV": 0.5109989506899999,
+    "u_R_MeV": 0.0,
+    "d_R_MeV": 0.0,
+    "cell_m": 6.612467305132329e-14,
+    "tick_s": 2.205681673663828e-22,
+    "ceiling_MeV": 9.375033002958574
+   },
+   {
+    "k": 5,
+    "d": 1,
+    "theta_e_L": 0.08784654696624196,
+    "theta_e_R": 0.0,
+    "nu_L_over_e_L": 1.0,
+    "Q_L_over_e_L": 0.4824652540552375,
+    "u_R_over_e_L": 0.8550438035457778,
+    "d_R_over_e_L": 0.8550438035457778,
+    "Q_L_MeV": 0.2465392385666106,
+    "u_R_MeV": 0.4369264864058789,
+    "d_R_MeV": 0.4369264864058789,
+    "cell_m": 3.392275822331558e-14,
+    "tick_s": 1.131541415338593e-22,
+    "ceiling_MeV": 18.274486646546364
+   },
+   {
+    "k": 5,
+    "d": 2,
+    "theta_e_L": 0.11055393734047589,
+    "theta_e_R": 0.0,
+    "nu_L_over_e_L": 1.0,
+    "Q_L_over_e_L": 0.46144126994614015,
+    "u_R_over_e_L": 0.8393000156227017,
+    "d_R_over_e_L": 0.8393000156227017,
+    "Q_L_MeV": 0.23579600474753862,
+    "u_R_MeV": 0.4288814272973011,
+    "d_R_MeV": 0.4288814272973011,
+    "cell_m": 4.2691427455625796e-14,
+    "tick_s": 1.4240327371953365e-22,
+    "ceiling_MeV": 14.52097128423166
+   },
+   {
+    "k": 5,
+    "d": 3,
+    "theta_e_L": 0.13236300227603684,
+    "theta_e_R": 0.0,
+    "nu_L_over_e_L": 1.0,
+    "Q_L_over_e_L": 0.42464627550870326,
+    "u_R_over_e_L": 0.8039701142807216,
+    "d_R_over_e_L": 0.8039701142807216,
+    "Q_L_MeV": 0.21699380119936398,
+    "u_R_MeV": 0.410827884783568,
+    "d_R_MeV": 0.410827884783568,
+    "cell_m": 5.1113199994618436e-14,
+    "tick_s": 1.7049528308887087e-22,
+    "ceiling_MeV": 12.128393296277107
+   },
+   {
+    "k": 5,
+    "d": 4,
+    "theta_e_L": 0.1477868288892269,
+    "theta_e_R": 0.0,
+    "nu_L_over_e_L": 1.0,
+    "Q_L_over_e_L": 0.3943429245658719,
+    "u_R_over_e_L": 0.7651562241456286,
+    "d_R_over_e_L": 0.7651562241456286,
+    "Q_L_MeV": 0.20150882066518633,
+    "u_R_MeV": 0.39099402765233854,
+    "d_R_MeV": 0.39099402765233854,
+    "cell_m": 5.706925358063647e-14,
+    "tick_s": 1.90362539342589e-22,
+    "ceiling_MeV": 10.862609080563475
+   },
+   {
+    "k": 5,
+    "d": 5,
+    "theta_e_L": 0.17123678913697477,
+    "theta_e_R": 0.0,
+    "nu_L_over_e_L": 1.0,
+    "Q_L_over_e_L": 0.3464315890855524,
+    "u_R_over_e_L": 0.6828011210029199,
+    "d_R_over_e_L": 0.6828011210029199,
+    "Q_L_MeV": 0.17702617850858648,
+    "u_R_MeV": 0.3489106563624477,
+    "d_R_MeV": 0.3489106563624477,
+    "cell_m": 6.612467305132329e-14,
+    "tick_s": 2.205681673663828e-22,
+    "ceiling_MeV": 9.375033002958574
+   }
+  ],
+  "up_over_down_where_both_are_Dirac": [
+   1.0
+  ],
+  "R15_conjugate_patterns_equal_angles": true,
+  "R16": {
+   "ceiling_MeV_min": 9.375033002958574,
+   "ceiling_MeV_max": 18.274486646546364,
+   "muon_MeV": 105.6583755,
+   "top_MeV": 172600.0,
+   "pass": false
+  }
+ },
+ "V4": {
+  "classes_scanned": 25,
+  "classes_with_theta_e_nonzero": 0,
+  "classes_with_neutrino_massive_and_electron_massless": 15,
+  "u_over_d": [
+   {
+    "k": 1,
+    "d": 1,
+    "u_over_d": 0.5642579386629132,
+    "sigma_from_measured": 10.50592614024828,
+    "half_widths_from_measured": 6.386581240272508,
+    "R14_pass": false
+   },
+   {
+    "k": 1,
+    "d": 2,
+    "u_over_d": 0.5497929957784918,
+    "sigma_from_measured": 9.05423925283572,
+    "half_widths_from_measured": 5.504096810234479,
+    "R14_pass": false
+   },
+   {
+    "k": 1,
+    "d": 3,
+    "u_over_d": 0.5281866427194455,
+    "sigma_from_measured": 6.885847737484185,
+    "half_widths_from_measured": 4.185925676282178,
+    "R14_pass": false
+   },
+   {
+    "k": 1,
+    "d": 4,
+    "u_over_d": 0.5153756999182673,
+    "sigma_from_measured": 5.600154608346971,
+    "half_widths_from_measured": 3.4043493059859995,
+    "R14_pass": false
+   },
+   {
+    "k": 1,
+    "d": 5,
+    "u_over_d": 0.5073682195727838,
+    "sigma_from_measured": 4.7965320630224735,
+    "half_widths_from_measured": 2.915824962323691,
+    "R14_pass": false
+   },
+   {
+    "k": 2,
+    "d": 1,
+    "u_over_d": 1.0,
+    "sigma_from_measured": 54.23655416909672,
+    "half_widths_from_measured": 32.9705496468673,
+    "R14_pass": false
+   },
+   {
+    "k": 2,
+    "d": 2,
+    "u_over_d": 1.0,
+    "sigma_from_measured": 54.23655416909672,
+    "half_widths_from_measured": 32.9705496468673,
+    "R14_pass": false
+   },
+   {
+    "k": 2,
+    "d": 3,
+    "u_over_d": 1.0,
+    "sigma_from_measured": 54.23655416909672,
+    "half_widths_from_measured": 32.9705496468673,
+    "R14_pass": false
+   },
+   {
+    "k": 2,
+    "d": 4,
+    "u_over_d": 1.0,
+    "sigma_from_measured": 54.23655416909672,
+    "half_widths_from_measured": 32.9705496468673,
+    "R14_pass": false
+   },
+   {
+    "k": 2,
+    "d": 5,
+    "u_over_d": 1.0,
+    "sigma_from_measured": 54.23655416909672,
+    "half_widths_from_measured": 32.9705496468673,
+    "R14_pass": false
+   },
+   {
+    "k": 4,
+    "d": 1,
+    "u_over_d": 1.0,
+    "sigma_from_measured": 54.23655416909672,
+    "half_widths_from_measured": 32.9705496468673,
+    "R14_pass": false
+   },
+   {
+    "k": 4,
+    "d": 2,
+    "u_over_d": 1.0,
+    "sigma_from_measured": 54.23655416909672,
+    "half_widths_from_measured": 32.9705496468673,
+    "R14_pass": false
+   },
+   {
+    "k": 4,
+    "d": 3,
+    "u_over_d": 1.0,
+    "sigma_from_measured": 54.23655416909672,
+    "half_widths_from_measured": 32.9705496468673,
+    "R14_pass": false
+   },
+   {
+    "k": 4,
+    "d": 4,
+    "u_over_d": 1.0,
+    "sigma_from_measured": 54.23655416909672,
+    "half_widths_from_measured": 32.9705496468673,
+    "R14_pass": false
+   },
+   {
+    "k": 4,
+    "d": 5,
+    "u_over_d": 1.0,
+    "sigma_from_measured": 54.23655416909672,
+    "half_widths_from_measured": 32.9705496468673,
+    "R14_pass": false
+   },
+   {
+    "k": 5,
+    "d": 1,
+    "u_over_d": 0.5642579386629132,
+    "sigma_from_measured": 10.50592614024828,
+    "half_widths_from_measured": 6.386581240272508,
+    "R14_pass": false
+   },
+   {
+    "k": 5,
+    "d": 2,
+    "u_over_d": 0.5497929957784918,
+    "sigma_from_measured": 9.05423925283572,
+    "half_widths_from_measured": 5.504096810234479,
+    "R14_pass": false
+   },
+   {
+    "k": 5,
+    "d": 3,
+    "u_over_d": 0.5281866427194455,
+    "sigma_from_measured": 6.885847737484185,
+    "half_widths_from_measured": 4.185925676282178,
+    "R14_pass": false
+   },
+   {
+    "k": 5,
+    "d": 4,
+    "u_over_d": 0.5153756999182673,
+    "sigma_from_measured": 5.600154608346971,
+    "half_widths_from_measured": 3.4043493059859995,
+    "R14_pass": false
+   },
+   {
+    "k": 5,
+    "d": 5,
+    "u_over_d": 0.5073682195727838,
+    "sigma_from_measured": 4.7965320630224735,
+    "half_widths_from_measured": 2.915824962323691,
+    "R14_pass": false
+   }
+  ],
+  "classes_passing_R14_alone": []
+ },
+ "C": {
+  "m_nu_over_m_e": 1.0,
+  "R12_pass": false,
+  "orders_of_magnitude_above_the_bound": 6.055207494558957,
+  "m_u_over_m_e": 1.0,
+  "pred_over_meas_u": 0.23657358828240738,
+  "R13_up_pass": false,
+  "m_d_over_m_e": 1.0,
+  "pred_over_meas_d": 0.10872318099787232,
+  "R13_down_pass": false,
+  "m_u_over_m_d": 1.0,
+  "R14_sigma": 54.23655416909672,
+  "R14_half_widths": 32.9705496468673,
+  "R14_pass": false,
+  "positron_difference": 0.0,
+  "R15_pass": true,
+  "R16_theta_upper_bound_from_top": 9.300988119813422e-06,
+  "R16_cell_upper_bound_m": 3.591662758783321e-18,
+  "R16_theta_upper_bound_from_muon": 0.015193784135738455
+ },
+ "anchor": {
+  "relation": "tick = theta_e hbar/(m_e c^2); cell = theta_e x reduced Compton wavelength; ceiling = pi m_e c^2/theta_e",
+  "table": [
+   {
+    "class": "flux pair, alpha = 1/6, separation 1",
+    "theta": 0.04238290659994328,
+    "electron_doublet_pattern_takes_it_for_odd_k": false,
+    "tick_s": 5.459294164253573e-23,
+    "cell_m": 1.6366552164466347e-14,
+    "ceiling_MeV": 37.87731135650675
+   },
+   {
+    "class": "flux pair, alpha = 1/6, separation 2",
+    "theta": 0.0510141492439352,
+    "electron_doublet_pattern_takes_it_for_odd_k": false,
+    "tick_s": 6.571074746962941e-23,
+    "cell_m": 1.9699586500937485e-14,
+    "ceiling_MeV": 31.468731190702904
+   },
+   {
+    "class": "flux pair, alpha = 1/6, separation 3",
+    "theta": 0.05620745593166906,
+    "electron_doublet_pattern_takes_it_for_odd_k": false,
+    "tick_s": 7.240018695549101e-23,
+    "cell_m": 2.1705030007046192e-14,
+    "ceiling_MeV": 28.561167248548095
+   },
+   {
+    "class": "flux pair, alpha = 1/6, separation 4",
+    "theta": 0.05827869031649382,
+    "electron_doublet_pattern_takes_it_for_odd_k": false,
+    "tick_s": 7.506812049214239e-23,
+    "cell_m": 2.250485635977954e-14,
+    "ceiling_MeV": 27.546098595586596
+   },
+   {
+    "class": "flux pair, alpha = 1/6, separation 5",
+    "theta": 0.059321832970629824,
+    "electron_doublet_pattern_takes_it_for_odd_k": false,
+    "tick_s": 7.641178072242407e-23,
+    "cell_m": 2.2907675562932533e-14,
+    "ceiling_MeV": 27.061715208203427
+   },
+   {
+    "class": "flux pair, alpha = 2/6, separation 1",
+    "theta": 0.07511264564637833,
+    "electron_doublet_pattern_takes_it_for_odd_k": false,
+    "tick_s": 9.675174756406833e-23,
+    "cell_m": 2.900544421802756e-14,
+    "ceiling_MeV": 21.372573628115852
+   },
+   {
+    "class": "flux pair, alpha = 2/6, separation 2",
+    "theta": 0.09278792133701261,
+    "electron_doublet_pattern_takes_it_for_odd_k": false,
+    "tick_s": 1.1951906985752846e-22,
+    "cell_m": 3.583091573046217e-14,
+    "ceiling_MeV": 17.301287994684614
+   },
+   {
+    "class": "flux pair, alpha = 2/6, separation 3",
+    "theta": 0.10641589806640475,
+    "electron_doublet_pattern_takes_it_for_odd_k": false,
+    "tick_s": 1.370731122292835e-22,
+    "cell_m": 4.109348524092676e-14,
+    "ceiling_MeV": 15.085627041159201
+   },
+   {
+    "class": "flux pair, alpha = 2/6, separation 4",
+    "theta": 0.11308001197133695,
+    "electron_doublet_pattern_takes_it_for_odd_k": false,
+    "tick_s": 1.4565708182214905e-22,
+    "cell_m": 4.366689458456919e-14,
+    "ceiling_MeV": 14.19658984371804
+   },
+   {
+    "class": "flux pair, alpha = 2/6, separation 5",
+    "theta": 0.11692067157966698,
+    "electron_doublet_pattern_takes_it_for_odd_k": false,
+    "tick_s": 1.5060419193532583e-22,
+    "cell_m": 4.515000088539511e-14,
+    "ceiling_MeV": 13.730254263771899
+   },
+   {
+    "class": "flux pair, alpha = 3/6, separation 1",
+    "theta": 0.08784654696624196,
+    "electron_doublet_pattern_takes_it_for_odd_k": true,
+    "tick_s": 1.131541415338593e-22,
+    "cell_m": 3.392275822331558e-14,
+    "ceiling_MeV": 18.274486646546364
+   },
+   {
+    "class": "flux pair, alpha = 3/6, separation 2",
+    "theta": 0.11055393734047589,
+    "electron_doublet_pattern_takes_it_for_odd_k": true,
+    "tick_s": 1.4240327371953365e-22,
+    "cell_m": 4.2691427455625796e-14,
+    "ceiling_MeV": 14.52097128423166
+   },
+   {
+    "class": "flux pair, alpha = 3/6, separation 3",
+    "theta": 0.13236300227603684,
+    "electron_doublet_pattern_takes_it_for_odd_k": true,
+    "tick_s": 1.7049528308887087e-22,
+    "cell_m": 5.1113199994618436e-14,
+    "ceiling_MeV": 12.128393296277107
+   },
+   {
+    "class": "flux pair, alpha = 3/6, separation 4",
+    "theta": 0.1477868288892269,
+    "electron_doublet_pattern_takes_it_for_odd_k": true,
+    "tick_s": 1.90362539342589e-22,
+    "cell_m": 5.706925358063647e-14,
+    "ceiling_MeV": 10.862609080563475
+   },
+   {
+    "class": "flux pair, alpha = 3/6, separation 5",
+    "theta": 0.17123678913697477,
+    "electron_doublet_pattern_takes_it_for_odd_k": true,
+    "tick_s": 2.205681673663828e-22,
+    "cell_m": 6.612467305132329e-14,
+    "ceiling_MeV": 9.375033002958574
+   },
+   {
+    "class": "uniform flux, doublet sector",
+    "theta": 0.157935,
+    "electron_doublet_pattern_takes_it_for_odd_k": false,
+    "tick_s": 2.0343428353555675e-22,
+    "cell_m": 6.09880639025935e-14,
+    "ceiling_MeV": 10.164628166522915
+   },
+   {
+    "class": "uniform flux, triplet sector",
+    "theta": 0.215043,
+    "electron_doublet_pattern_takes_it_for_odd_k": false,
+    "tick_s": 2.769944510991024e-22,
+    "cell_m": 8.304084734736071e-14,
+    "ceiling_MeV": 7.465253691028289
+   }
+  ],
+  "M0": "no nonzero rest angle: the unit is not fixed by any single measured value",
+  "C": "theta free: the anchor fixes cell/theta only"
+ },
+ "R17": {
+  "chart": 0.375,
+  "on_shell_from_shipped_W_and_Z": 0.22333729871365948,
+  "sigma": 0.0001526826346572147,
+  "difference": 0.15166270128634052,
+  "difference_in_sigma": 993.3199124238063,
+  "face_value_pass": false
+ },
+ "R18": {
+  "theta12": {
+   "predicted_deg": 31.717474411461005,
+   "measured_deg": 33.68,
+   "uncertainty_used_deg": 0.7,
+   "pull": -2.8036079836271357,
+   "pass": true,
+   "predicted_sin2": 0.276393202250021,
+   "measured_sin2_from_angle": 0.30753012436196026,
+   "nufit61_sin2": 0.3088
+  },
+  "theta23": {
+   "predicted_deg": 45.0,
+   "measured_deg": 43.3,
+   "uncertainty_used_deg": 1.0,
+   "pull": 1.7000000000000028,
+   "pass": true,
+   "predicted_sin2": 0.4999999999999999,
+   "measured_sin2_from_angle": 0.47034681321201904,
+   "nufit61_sin2": 0.47
+  },
+  "theta13": {
+   "predicted_deg": 0.0,
+   "measured_deg": 8.56,
+   "uncertainty_used_deg": 0.11,
+   "pull": -77.81818181818183,
+   "pass": false,
+   "predicted_sin2": 0.0,
+   "measured_sin2_from_angle": 0.022154841433002035,
+   "nufit61_sin2": 0.02248
+  },
+  "pattern_pass": false
+ },
+ "E1": {
+  "reduction_check": 2.1000903724951385e-16,
+  "theta": 0.087847,
+  "rows": [
+   {
+    "L": 64,
+    "B": 0.09817477042468103,
+    "k_2": 0.0,
+    "E0": 0.08784699999999927,
+    "E0_minus_theta": -7.216449660063518e-16,
+    "g_eff": 2.0000000000000027,
+    "first_levels": [
+     0.08784699999999927,
+     0.44138076215148064,
+     0.4419233386213908
+    ],
+    "E1_squared_minus_theta_squared_over_2B": 0.9528918732331723,
+    "unitarity_defect": 1.9984014443252818e-15,
+    "smallest_abs_E_negative_side": 0.08784699999999931
+   },
+   {
+    "L": 128,
+    "B": 0.04908738521234052,
+    "k_2": 0.0,
+    "E0": 0.08784699999999843,
+    "E0_minus_theta": -1.5681900222830336e-15,
+    "g_eff": 2.000000000000011,
+    "first_levels": [
+     0.08784699999999843,
+     0.32222703400139796,
+     0.4429857716859218
+    ],
+    "E1_squared_minus_theta_squared_over_2B": 0.9790006700965541,
+    "unitarity_defect": 1.9984014443252818e-15,
+    "smallest_abs_E_negative_side": 0.0878469999999989
+   },
+   {
+    "L": 256,
+    "B": 0.02454369260617026,
+    "k_2": 0.0,
+    "E0": 0.08784699999999873,
+    "E0_minus_theta": -1.2628786905111156e-15,
+    "g_eff": 2.000000000000018,
+    "first_levels": [
+     0.08784699999999873,
+     0.23717673325238767,
+     0.3223825685490792
+    ],
+    "E1_squared_minus_theta_squared_over_2B": 0.9887613116347543,
+    "unitarity_defect": 1.9984014443252818e-15,
+    "smallest_abs_E_negative_side": 0.08784699999999902
+   }
+  ],
+  "independence_of_k_2_at_L_128": -1.942890293094024e-16,
+  "consistent_with_tree_value": true
+ },
+ "scoreboard": [
+  {
+   "property": "R1 electric charge, label",
+   "status_of_the_CF1_output": "exact on a declared chart",
+   "V_vector_like_M1": "MATCH-LABEL",
+   "C_chiral_M2": "MATCH-LABEL"
+  },
+  {
+   "property": "R2 electric charge, coupling",
+   "status_of_the_CF1_output": "not available (Z2 and centre registers only; they differ on e_L and e_R)",
+   "V_vector_like_M1": "NC: no U(1) link coupled to Q",
+   "C_chiral_M2": "NC: no U(1) link coupled to Q"
+  },
+  {
+   "property": "R3 colour",
+   "status_of_the_CF1_output": "exact on a declared chart",
+   "V_vector_like_M1": "MATCH-LABEL",
+   "C_chiral_M2": "MATCH-LABEL"
+  },
+  {
+   "property": "R4 weak isospin, both classes",
+   "status_of_the_CF1_output": "exact on a declared chart",
+   "V_vector_like_M1": "MATCH-LABEL",
+   "C_chiral_M2": "MATCH-LABEL"
+  },
+  {
+   "property": "R5 hypercharge, both classes",
+   "status_of_the_CF1_output": "exact on a declared chart",
+   "V_vector_like_M1": "MATCH-LABEL",
+   "C_chiral_M2": "MATCH-LABEL"
+  },
+  {
+   "property": "R6 handedness as chirality",
+   "status_of_the_CF1_output": "computed",
+   "V_vector_like_M1": "FAIL: 8 components, both chiralities in each class",
+   "C_chiral_M2": "MATCH-DECL in the corrected form (class = X_r eigenvalue)"
+  },
+  {
+   "property": "R7 spin",
+   "status_of_the_CF1_output": "representation exact, pointer declared",
+   "V_vector_like_M1": "MATCH-DECL",
+   "C_chiral_M2": "MATCH-DECL"
+  },
+  {
+   "property": "R8 statistics",
+   "status_of_the_CF1_output": "declared",
+   "V_vector_like_M1": "MATCH-DECL",
+   "C_chiral_M2": "MATCH-DECL"
+  },
+  {
+   "property": "R9 stability",
+   "status_of_the_CF1_output": "exact by construction (no vertex)",
+   "V_vector_like_M1": "NC: no species-changing vertex; no shipped bound",
+   "C_chiral_M2": "NC: no species-changing vertex; no shipped bound"
+  },
+  {
+   "property": "R10 magnetic moment, tree level",
+   "status_of_the_CF1_output": "not available",
+   "V_vector_like_M1": "NC: no U(1) link coupled to Q; measured g not shipped",
+   "C_chiral_M2": "NC: no U(1) link coupled to Q; measured g not shipped"
+  },
+  {
+   "property": "R11 mass of the electron",
+   "status_of_the_CF1_output": "V declared; C angle not fixed",
+   "V_vector_like_M1": "FAIL: Dirac electron in 0 of 25 classes; theta(e_R) = 0 in all",
+   "C_chiral_M2": "NC: angle not fixed; mass step fails the Gauss constraint (0.1755 = 2 sin theta)"
+  },
+  {
+   "property": "R12 neutrino against electron",
+   "status_of_the_CF1_output": "as R11",
+   "V_vector_like_M1": "FAIL: doublet pattern gives ratio 1; no Dirac neutrino",
+   "C_chiral_M2": "FAIL: ratio 1 against bound 8.8e-07"
+  },
+  {
+   "property": "R13 up, down against electron",
+   "status_of_the_CF1_output": "as R11",
+   "V_vector_like_M1": "FAIL: no class passes R11",
+   "C_chiral_M2": "FAIL: predicted/measured 0.237 and 0.109"
+  },
+  {
+   "property": "R14 up against down",
+   "status_of_the_CF1_output": "as R11",
+   "V_vector_like_M1": "FAIL: 1 where both are Dirac (k = 2, 4); those classes fail R11",
+   "C_chiral_M2": "FAIL: 1 against 0.4596, 54 sigma"
+  },
+  {
+   "property": "R15 positron against electron",
+   "status_of_the_CF1_output": "exact",
+   "V_vector_like_M1": "MATCH (0 against bound 8e-09)",
+   "C_chiral_M2": "MATCH (0 against bound 8e-09)"
+  },
+  {
+   "property": "R16 one clock for heavier rest energies",
+   "status_of_the_CF1_output": "consequence of the anchor",
+   "V_vector_like_M1": "FAIL: ceiling 9.4 to 18.3 MeV, muon 105.7 MeV",
+   "C_chiral_M2": "no verdict: requires theta < 9.30e-06, cell < 3.59e-18 m"
+  },
+  {
+   "property": "R17 sum T3^2 / sum Q^2 = 3/8",
+   "status_of_the_CF1_output": "exact on a declared chart",
+   "V_vector_like_M1": "NC without running and a breaking mechanism; face value fails (0.2233)",
+   "C_chiral_M2": "NC without running and a breaking mechanism; face value fails (0.2233)"
+  },
+  {
+   "property": "R18 golden-ratio mixing",
+   "status_of_the_CF1_output": "closed forms of a declared reading",
+   "V_vector_like_M1": "FAIL: theta13 = 0 against 8.56 deg (78 uncertainties); theta12 pull -2.8",
+   "C_chiral_M2": "FAIL: theta13 = 0 against 8.56 deg (78 uncertainties); theta12 pull -2.8"
+  }
+ ],
+ "scoreboard_marked_lines": {
+  "M0": "R11 FAIL: theta = 0 for every species; the unit cannot be anchored",
+  "V4": "R11 FAIL: theta_e = 0 in 25 of 25 classes; neutrino massive with electron massless in 15"
+ }
+}

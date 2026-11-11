@@ -1,0 +1,324 @@
+{
+  "status": "EXACT template Gram + MEASURED magnetic-band attachment",
+  "raw_load_template": {
+    "charges": [
+      1,
+      1
+    ],
+    "gram_eigenvalues": {
+      "1": {
+        "multiplicity": 1,
+        "gram_eigenvalue": "5/12"
+      },
+      "3": {
+        "multiplicity": 3,
+        "gram_eigenvalue": "1/8"
+      },
+      "3prime": {
+        "multiplicity": 3,
+        "gram_eigenvalue": "1/18"
+      },
+      "5": {
+        "multiplicity": 5,
+        "gram_eigenvalue": "1/40"
+      }
+    },
+    "exact_rank": 12,
+    "sum_generator_over_i": [
+      1,
+      1
+    ],
+    "trace_of_each_generator_over_i": "5/12",
+    "trace_balanced": false
+  },
+  "charge_weighted_template": {
+    "charges": [
+      2,
+      -3
+    ],
+    "gram_eigenvalues": {
+      "1": {
+        "multiplicity": 1,
+        "gram_eigenvalue": "5/2"
+      },
+      "3": {
+        "multiplicity": 3,
+        "gram_eigenvalue": "1/2"
+      },
+      "3prime": {
+        "multiplicity": 3,
+        "gram_eigenvalue": "1/2"
+      },
+      "5": {
+        "multiplicity": 5,
+        "gram_eigenvalue": "1/10"
+      }
+    },
+    "exact_rank": 12,
+    "sum_generator_over_i": [
+      2,
+      -3
+    ],
+    "trace_of_each_generator_over_i": "0",
+    "trace_balanced": true
+  },
+  "magnetic_bands": [
+    {
+      "flux_label": 2,
+      "band_dimension": 3,
+      "eigenvalue": 3.6180339887498945,
+      "band_residual": 3.98677725562176e-15,
+      "one_step_local_port_leakage_max": 0.4330127018922194
+    },
+    {
+      "flux_label": 3,
+      "band_dimension": 2,
+      "eigenvalue": -2.628655560595668,
+      "band_residual": 3.1517190171364563e-15,
+      "one_step_local_port_leakage_max": 0.3726779962499651
+    }
+  ],
+  "actual_band_Gram_vs_exact_template_error": 1.8041124150158794e-16,
+  "actual_generator_smallest_singular_value": 0.1581138830084188,
+  "actual_commutator_span_max_residual": 1.2732996856458426e-16,
+  "exact_native_band_leakage": {
+    "triplet": "sqrt(3)/4",
+    "doublet": "sqrt(5)/6"
+  },
+  "edge_difference_rank": 11,
+  "edge_sum_rank": 12,
+  "exact_dimension_center_counterexample": {
+    "algebra": "su(2)^4",
+    "dimension": 12,
+    "centre": 0,
+    "qualifies_for_full_A5_inner_port_hypotheses": false
+  },
+  "face_edge_incidence_rank": 19,
+  "flux_label_alias_2_22_face_holonomy_error": 5.984761196985638e-14,
+  "common_base_flux_top_band_scan": {
+    "charges": [
+      -4,
+      -3,
+      1,
+      2,
+      6
+    ],
+    "target_dimensions": [
+      3,
+      2,
+      6,
+      3,
+      1
+    ],
+    "rows": [
+      {
+        "base_flux": 0,
+        "top_band_dimensions": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "base_flux": 1,
+        "top_band_dimensions": [
+          5,
+          4,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "base_flux": 2,
+        "top_band_dimensions": [
+          4,
+          4,
+          3,
+          5,
+          4
+        ]
+      },
+      {
+        "base_flux": 3,
+        "top_band_dimensions": [
+          4,
+          6,
+          4,
+          4,
+          3
+        ]
+      },
+      {
+        "base_flux": 4,
+        "top_band_dimensions": [
+          5,
+          4,
+          5,
+          4,
+          5
+        ]
+      },
+      {
+        "base_flux": 5,
+        "top_band_dimensions": [
+          1,
+          6,
+          6,
+          3,
+          3
+        ]
+      },
+      {
+        "base_flux": 6,
+        "top_band_dimensions": [
+          5,
+          3,
+          4,
+          4,
+          5
+        ]
+      },
+      {
+        "base_flux": 7,
+        "top_band_dimensions": [
+          4,
+          2,
+          2,
+          4,
+          3
+        ]
+      },
+      {
+        "base_flux": 8,
+        "top_band_dimensions": [
+          4,
+          5,
+          4,
+          5,
+          4
+        ]
+      },
+      {
+        "base_flux": 9,
+        "top_band_dimensions": [
+          5,
+          2,
+          6,
+          3,
+          4
+        ]
+      },
+      {
+        "base_flux": 10,
+        "top_band_dimensions": [
+          1,
+          3,
+          3,
+          1,
+          1
+        ]
+      },
+      {
+        "base_flux": 11,
+        "top_band_dimensions": [
+          5,
+          2,
+          6,
+          3,
+          4
+        ]
+      },
+      {
+        "base_flux": 12,
+        "top_band_dimensions": [
+          4,
+          5,
+          4,
+          5,
+          4
+        ]
+      },
+      {
+        "base_flux": 13,
+        "top_band_dimensions": [
+          4,
+          2,
+          2,
+          4,
+          3
+        ]
+      },
+      {
+        "base_flux": 14,
+        "top_band_dimensions": [
+          5,
+          3,
+          4,
+          4,
+          5
+        ]
+      },
+      {
+        "base_flux": 15,
+        "top_band_dimensions": [
+          1,
+          6,
+          6,
+          3,
+          3
+        ]
+      },
+      {
+        "base_flux": 16,
+        "top_band_dimensions": [
+          5,
+          4,
+          5,
+          4,
+          5
+        ]
+      },
+      {
+        "base_flux": 17,
+        "top_band_dimensions": [
+          4,
+          6,
+          4,
+          4,
+          3
+        ]
+      },
+      {
+        "base_flux": 18,
+        "top_band_dimensions": [
+          4,
+          4,
+          3,
+          5,
+          4
+        ]
+      },
+      {
+        "base_flux": 19,
+        "top_band_dimensions": [
+          5,
+          4,
+          2,
+          3,
+          4
+        ]
+      }
+    ],
+    "complete_matches": [],
+    "status": "MEASURED eigenvalue multiplicities; exact local algebra proof is separate"
+  },
+  "scope": {
+    "native_band_selection_proved": false,
+    "local_port_operations_preserve_selected_bands": false,
+    "source_owned_endogenous_closed_histories_proved": false,
+    "physical_gauge_field_or_species_identified": false
+  }
+}

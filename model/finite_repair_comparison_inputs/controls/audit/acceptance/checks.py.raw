@@ -1,0 +1,79 @@
+"""Exact counterchecks for the repair-law acceptance specification.
+
+Run from oph-meta with PYTHONPATH=reverse-engineering-reality.
+Only this audit directory is written. Existing producers are read-only.
+"""
+from collections import Counter
+from fractions import Fraction as F
+from pathlib import Path
+import hashlib
+import json
+import sympy as s
+
+from model.observer import native
+from model.common_source import slow_geometry
+
+HERE = Path(__file__).resolve().parent
+ROOT = HERE.parents[2]
+RER = ROOT / 'reverse-engineering-reality'
+
+
+def run():
+    seams = slow_geometry.source().seams()
+    states = native.states(binary=True)
+    counts = []
+    for x in states:
+        n = sum(native.native(x, e, c)[0] != x for e in seams for c in (0, 1))
+        counts.append(n)
+        cut = sum(x[a] != x[b] for a, b in seams)
+        assert n == cut
+    assert len(states) == 66 and len(seams) == 30
+    assert Counter(counts) == {8:30, 10:36}
+    # Any immutable transcript of t independent two-valued coins has 2**t
+    # distinguishable histories; a b-bit carrier cannot retain it for t>b.
+    memory_checks = [dict(bits=b, steps=b+1, histories=2**(b+1), states=2**b)
+                     for b in (0,1,2,8,16)]
+    assert all(r['histories'] > r['states'] for r in memory_checks)
+    # More-than-diagonal effects do not suffice for complex tomography.
+    I=s.eye(2);X=s.Matrix([[0,1],[1,0]]);Y=s.Matrix([[0,-s.I],[s.I,0]])
+    Z=s.diag(1,-1)
+    effects=[(I+sign*A)/2 for A in (X,Z) for sign in (1,-1)]
+    span=s.Matrix.hstack(*(E.reshape(4,1) for E in effects)).rank()
+    rp=(I+Y/2)/2;rm=(I-Y/2)/2
+    assert span==3 and X*Z-Z*X != s.zeros(2)
+    assert all(s.trace((rp-rm)*E)==0 for E in effects)
+    py=(I+Y)/2
+    assert s.trace(rp*py)==s.Rational(3,4) and s.trace(rm*py)==s.Rational(1,4)
+    # Finite invertibility forbids a strict invariant subspace inclusion:
+    # rank(e|S)=dim(S), hence e(S) subset S implies equality.
+    # This is the exact dimension proof, not a claim that tests establish it.
+    inputs=[RER/'model/observer/native.py', RER/'model/common_source/slow_geometry.py',
+            Path(slow_geometry.source().__file__),
+            RER/'Lean/QFT/FiniteModularInclusion.lean',
+            RER/'paper/tex_fragments/PREMISE_BASIS.tex',HERE/'checks.py']
+    return {
+        'schema':'oph.repair_law.acceptance_audit.v1',
+        'native_binary_total_two':{
+            'states':66,'seams':30,'branches_per_state':60,
+            'moving_branch_counts':dict(sorted(Counter(counts).items())),
+            'minimum_move_probability':str(F(min(counts),60)),
+            'maximum_move_probability':str(F(max(counts),60)),
+            'absorbing_states':0,
+            'scope':'native load chain; retained-tape halt and quantum consensus are distinct claims'},
+        'finite_memory_pigeonhole_controls':memory_checks,
+        'effect_counterexample':{'Hermitian_dimension':4,'accessible_span_dimension':int(span),
+            'noncommuting_accessible_effects':True,
+            'two_distinct_faithful_states_agree_on_all_accessible_effects':True,
+            'unavailable_Y_effect_probabilities':['3/4','1/4']},
+        'finite_modular_inclusion':{'status':'EXACT dimension argument',
+            'existing_Lean_theorem':'OPH.QFT.FiniteModularInclusion.image_eq',
+            'strict_finite_half_sided_inclusion_possible':False},
+        'any_replacement_law_accepted':False,
+        'source_sha256':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()
+                          for p in inputs}}
+
+
+if __name__=='__main__':
+    result=run()
+    (HERE/'results.json').write_text(json.dumps(result,indent=2,sort_keys=True)+'\n')
+    print('PASS: 66 exact native configurations, finite-memory pigeonhole and incomplete-effect counterexample')

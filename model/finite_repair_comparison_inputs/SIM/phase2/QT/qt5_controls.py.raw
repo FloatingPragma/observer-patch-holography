@@ -1,0 +1,107 @@
+"""QT controls added after the hash of the result files (no candidate, no row; nothing here is compared with a
+measured value).
+
+K1  Law T-A6: the agreeing-state pump with separate record values 4 and 5 for the triple in place of 2 and 3.
+    Consensus counts and lowest A on the blank cyclic subspaces against law T-A (hexagon: all content types;
+    carrier: the triple components).
+K2  The record-1 fixed vector of the hexagon double+single block: the graph of the 30 double+single configurations
+    under the one-load moves of the shell and one-load pumps (a hop of the single to an empty neighbour, the exchange
+    of the double with an adjacent single) and the winding of its cycle.
+Writes qt5_controls.json.
+"""
+from __future__ import annotations
+
+import json
+import sys
+import time
+
+import qt_common as Q
+import qt_analysis as QA
+
+OUT = 'qt5_controls.json'
+TYPES = ('triple', 'double+single', 'separated')
+
+
+def main():
+    t0 = time.time()
+    out = {'task': 'QT controls after the hash', 'provenance': Q.FC.provenance()}
+    # ---------------- K1
+    ref_h = json.load(open('qt1_hexagon.json'))['laws']['T-A']
+    ref_c = json.load(open('qt1_carrier_A.json'))['laws']['T-A']
+    law = Q.Law('T-A6')
+    k1 = {'hexagon': {}, 'carrier (triple components)': {}}
+    same = True
+    for k in range(6):
+        res = QA.analyse(Q.hexagon(law, k), exact_limit=200)
+        row = {}
+        for t in TYPES:
+            a, b = res['by type'][t], ref_h[f'class {k}']['by type'][t]
+            row[t] = {'consensus states (exact)': a['consensus states on the blank cyclic subspace (exact)'],
+                      'T-A': b['consensus states on the blank cyclic subspace (exact)'],
+                      'lowest A': a['lowest A on the cyclic subspace'], 'T-A lowest A': b['lowest A on the cyclic subspace']}
+            same &= (row[t]['consensus states (exact)'] == row[t]['T-A']
+                     and abs(row[t]['lowest A'] - row[t]['T-A lowest A']) < 1e-9)
+        k1['hexagon'][f'class {k}'] = row
+        res = QA.analyse(Q.carrier(law, k), types=('triple',), exact_limit=160)
+        a, b = res['by type']['triple'], ref_c[f'class {k}']['by type']['triple']
+        row = {'consensus states (exact)': a['consensus states on the blank cyclic subspace (exact)'],
+               'T-A': b['consensus states on the blank cyclic subspace (exact)'],
+               'lowest A': a['lowest A on the cyclic subspace'], 'T-A lowest A': b['lowest A on the cyclic subspace']}
+        same &= row['consensus states (exact)'] == row['T-A'] and abs(row['lowest A'] - row['T-A lowest A']) < 1e-9
+        k1['carrier (triple components)'][f'class {k}'] = row
+        print('K1 class', k, k1['hexagon'][f'class {k}'], row, flush=True)
+    k1['equal to law T-A in every entry'] = bool(same)
+    out['K1_separate_record_values'] = k1
+    print('K1 equal to T-A:', same)
+
+    # ---------------- K2
+    n = 6
+    verts = [(d, s) for d in range(n) for s in range(n) if s != d]
+    edges = {}                                   # undirected edge -> signed crossing count of the seam (5 -> 0) in the listed direction
+    for d, s in verts:
+        for step in (1, -1):
+            t = (s + step) % n
+            if t != d:                           # hop of the single to an empty neighbour
+                a, b = (d, s), (d, t)
+            else:                                # exchange: one load moves from the double's port to the single's port
+                a, b = (d, s), (s, d)
+            key = frozenset((a, b))
+            edges.setdefault(key, None)
+    adj = {v: [] for v in verts}
+    for key in edges:
+        a, b = tuple(key)
+        adj[a].append(b)
+        adj[b].append(a)
+    degrees = sorted({len(v) for v in adj.values()})
+    # walk the cycle from one vertex and count the load crossings of the seam between ring positions 5 and 0
+    start = verts[0]
+    prev, cur, length, winding = None, start, 0, 0
+    while True:
+        nxt = [x for x in adj[cur] if x != prev][0]
+        # which load moved, and across which seam
+        (d0, s0), (d1, s1) = cur, nxt
+        if d0 == d1:                             # the single moved s0 -> s1
+            frm, to = s0, s1
+        else:                                    # exchange: one load moved from the double's port d0 to the port s0
+            frm, to = d0, s0
+        if (frm, to) == (n - 1, 0):
+            winding += 1
+        elif (frm, to) == (0, n - 1):
+            winding -= 1
+        prev, cur, length = cur, nxt, length + 1
+        if cur == start:
+            break
+    out['K2_cycle_of_the_double_and_single_block'] = {
+        'configurations': len(verts), 'moves (edges)': len(edges), 'degrees': degrees, 'length of the cycle through one vertex': length,
+        'one cycle through all configurations': length == len(verts) and degrees == [2],
+        'net load crossings of one seam along the cycle (absolute value)': abs(winding),
+        'reading': ('a record-1 state that changes sign at every move and carries the link phase of the moved load closes when '
+                    '(-1)^30 s^3 = 1, classes 0, 2 and 4; the emission pairs of the double do not act on record 1')}
+    print('K2', out['K2_cycle_of_the_double_and_single_block'])
+    out['seconds'] = round(time.time() - t0, 2)
+    Q.jdump(out, OUT)
+    print('written', OUT, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

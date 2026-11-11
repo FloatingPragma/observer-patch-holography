@@ -1,0 +1,130 @@
+"""R1, R2, R4: assemble the computed amplitudes into effective quantities and ratios (no measured input).
+
+Reads transfer_e/d/u.json, transfer_ue.json, transfer_e_spacing2pi.json, three_e/d.json,
+onsite_charged.json, partner_111.json; writes effective.json.
+"""
+import json
+
+import sympy as s
+
+DS, DL, h = s.symbols('Delta_s Delta_l h', positive=True)
+ye, yd, yu = s.symbols('y_e y_d y_u', real=True)
+
+
+def load(name):
+    with open(name) as handle:
+        return json.load(handle)
+
+
+def parse(text):
+    return s.sympify(text, locals={'Delta_s': DS, 'Delta_l': DL})
+
+
+rs = {c: parse(load('transfer_%s.json' % c)['targets']['1']['RS_fifth_order_amplitude']) for c in 'edu'}
+bare = {c: parse(load('transfer_%s.json' % c)['targets']['1']['bare_V_moment_k5']) for c in 'edu'}
+cross = parse(load('transfer_ue.json')['targets']['1']['RS_fifth_order_amplitude'])
+assert s.simplify(cross - rs['u'] - rs['e']) == 0
+assert s.simplify(sum(bare.values()) + 151 * s.I / 32) == 0
+scale_check = parse(load('transfer_e_spacing2pi.json')['targets']['1']['bare_V_moment_k5'])
+assert s.simplify(scale_check - bare['e'] / 8) == 0
+
+# All amplitudes were computed at h = 1/4; every fifth-order word carries three kinetic factors.
+factor5 = (4 * h) ** 3
+t_nu_total = factor5 * (ye ** 2 * rs['e'] + yd ** 2 * rs['d'] + yu ** 2 * rs['u'])
+t_nu_edge = t_nu_total / 2            # two edges join the pair on the side-two torus
+bare_edge = factor5 * (ye ** 2 * bare['e'] + yd ** 2 * bare['d'] + yu ** 2 * bare['u']) / 2
+rs3 = {c: parse(load('three_%s.json' % c)['targets']['1']['RS_third_order_amplitude']) for c in 'ed'}
+assert s.simplify(rs3['e'] - rs3['d']) == 0
+t3_edge = (4 * h) ** 3 * rs3['e'] / 2
+mix = {c: parse(load('three_%s.json' % c)['first_order_mixing_norm_squared_<s3|V|s>^2']) for c in 'ed'}
+hop = load('onsite_charged.json')['C1_elementary_hop_cell0_to_cell4']
+t_el_edge = h  # |i/4| per edge at h = 1/4 (checked: two entries of modulus 1/4 for e^c)
+assert parse(hop['e^c index 9']['sum_abs_squared']) == s.Rational(1, 8)
+
+eps_K = s.simplify(s.Abs(t_nu_edge) / t_el_edge)
+eps_3 = s.simplify(s.Abs(t3_edge) / t_el_edge)
+
+# Cross-check between two independent runs: the r00^2 r01^2 coefficient of the tagged fifth moment equals
+# (first-order mixing with the three-fermion singlet) x (bare third-order three-fermion transfer).
+r00, r01 = s.Symbol('r_0_0', real=True), s.Symbol('r_0_1', real=True)
+leading_check = {}
+for c in 'ed':
+    tagged5 = s.sympify(load('transfer_%s.json' % c)['targets']['1']['tagged_fifth_V_moment'],
+                        locals={'r_0_0': r00, 'r_0_1': r01})
+    coefficient = s.Poly(tagged5, r00, r01).coeff_monomial(r00 ** 2 * r01 ** 2)
+    bare3 = s.sympify(load('three_%s.json' % c)['targets']['1']['bare_V_moments_k0_to_k3'][3])
+    assert s.simplify(coefficient - mix[c] * bare3) == 0
+    leading_check[c] = '%s = %s x %s' % (coefficient, mix[c], bare3)
+
+# Vacuum-relative second-order onsite energy of HL. The (2,0) class collects the seven other cells' pair
+# fluctuations; the vacuum has the same fluctuation on all eight cells (per-cell weight = (2,0) weight / 7).
+weights = load('onsite_charged.json')['N3_second_order_onsite_shift_of_HL']
+ycoef = {'e': ye ** 2, 'd': yd ** 2, 'u': yu ** 2}
+relative = s.Integer(0)
+for c, row in weights.items():
+    w = {k: parse(v) for k, v in row['weights_by_class'].items()}
+    per_cell = w['(2, 0)'] / 7
+    relative += ycoef[c] * (w.get('(0, 0)', 0) / DS - w['(2, 0)'] / DS + 8 * per_cell / DS)
+hop_weight = parse(weights['e']['weights_by_class']['(1, 1)'])   # the L hop, identical in every run
+relative += -hop_weight * (4 * h) ** 2 / DL
+relative_shift = s.simplify(relative)
+
+partner = load('partner_111.json')
+f3 = s.sqrt(parse(partner['F3_spin0']['norm_squared']))      # bare, h = 1/4, y_u = y_e = 1, x neighbour
+charged_vertex = s.sqrt(parse(load('onsite_charged.json')['C2_charged_mass_vertex_norm_squared'].replace('y_e', '1')))
+
+
+def evaluate(expr, **values):
+    sub = {DS: values.get('Ds', 1), DL: values.get('Dl', 1), h: values.get('h', s.Rational(1, 4)),
+           ye: values.get('y', 1), yd: values.get('y', 1), yu: values.get('y', 1)}
+    value = s.simplify(expr.subs(sub))
+    return str(value), float(s.N(value)) if value.is_finite else None
+
+
+points = []
+for ds_, dl_ in ((1, 1), (1, 2), (2, 1), (1, 4), (4, 1), (1, 10)):
+    if ds_ == dl_:
+        points.append({'Delta_s': ds_, 'Delta_l': dl_, 'eps_K': 'pole (Delta_l - Delta_s)^2 in the e and d channels'})
+        continue
+    points.append({'Delta_s': ds_, 'Delta_l': dl_, 'eps_K': evaluate(eps_K, Ds=ds_, Dl=dl_),
+                   'eps_three_fermion': evaluate(eps_3, Ds=ds_, Dl=dl_)})
+
+# Large-gap forms
+lead_l = s.limit(s.simplify(t_nu_total * DS ** 2 * DL ** 2), DL, s.oo)
+lead_s = s.limit(s.simplify(t_nu_total * DS ** 2 * DL ** 2), DS, s.oo)
+
+# Coupling/gap ratio kappa needed for eps_K = 1e-7 with y = h = kappa*Delta_s, Delta_l = 2 Delta_s
+kappa = s.symbols('kappa', positive=True)
+eps_scaled = s.simplify(eps_K.subs({h: kappa, ye: kappa, yd: kappa, yu: kappa, DS: 1, DL: 2}))
+kappa_needed = s.nsolve(eps_scaled - s.Rational(1, 10 ** 7), kappa, 0.01)
+
+result = {
+    'bare_fifth_moment_per_channel_h_1_4': {c: str(v) for c, v in bare.items()},
+    'bare_fifth_moment_general': str(s.factor(sum((4 * h) ** 3 * y ** 2 * bare[c]
+                                                  for c, y in (('e', ye), ('d', yd), ('u', yu))))),
+    'cross_terms': 'absent (exact for u,e; counting argument for the others; per-channel sum equals the audit total)',
+    'RS_fifth_order_per_channel_h_1_4': {c: str(v) for c, v in rs.items()},
+    'RS_fifth_order_total_both_edges': str(t_nu_total),
+    'RS_leading_form_Delta_l_to_infinity': str(s.factor(lead_l)) + ' / (Delta_s^2 Delta_l^2)',
+    'RS_leading_form_Delta_s_to_infinity': str(s.factor(lead_s)) + ' / (Delta_s^2 Delta_l^2)',
+    'pole_at_audit_point': 'e and d channels carry (Delta_l - Delta_s)^-2; the audit sets Delta_s = Delta_l = 1',
+    'three_fermion_RS_third_order_both_edges': str((4 * h) ** 3 * rs3['e']),
+    'three_fermion_first_order_mixing_norm_squared': {c: str(v) for c, v in mix.items()},
+    'elementary_hop_per_edge': 'h (e^c: two entries of modulus 1/4 at h = 1/4)',
+    'eps_K_definition': '|t_nu per edge| / h',
+    'eps_K_general': str(eps_K),
+    'eps_three_fermion_general': str(eps_3),
+    'sample_points_unit_couplings_h_1_4': points,
+    'kappa_for_eps_K_1e-7_at_Delta_l_2Delta_s': str(kappa_needed),
+    'leading_term_equals_mixing_times_three_fermion_hop': leading_check,
+    'vacuum_relative_second_order_onsite_shift_of_HL': str(relative_shift),
+    'vacuum_relative_shift_at_unit_couplings_h_1_4': str(relative_shift.subs(
+        {ye: 1, yd: 1, yu: 1, h: s.Rational(1, 4), DS: 1, DL: 1})),
+    'partner_vertex_bare_norm_x_neighbour_unit': str(f3),
+    'charged_mass_vertex_norm_unit': str(charged_vertex),
+    'partner_to_charged_vertex_bare_ratio_unit': str(s.nsimplify(f3 / charged_vertex)),
+}
+with open('effective.json', 'w') as handle:
+    json.dump(result, handle, indent=1)
+for key, value in result.items():
+    print(key, ':', value)

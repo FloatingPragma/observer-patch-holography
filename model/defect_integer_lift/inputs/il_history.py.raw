@@ -1,0 +1,107 @@
+"""Twist history of a universe run, regenerated from the declared preparation with the public engine.
+
+    python il_history.py --sim <simulator checkout> --level 5 --sweeps 600 --out history_L5.npz
+
+The simulator is imported read only. The run is rebuilt from its declared inputs: the federation of the level,
+the preparation exact06, schedule 1, law C, the register with cost table "binding" and kappa 5. For every applied
+twist the script keeps the sweep, the position in the sweep, the seam, the integer current j and the causal depth.
+It also keeps the free sum of every nonzero current per seam (null model N1) and the end state.
+
+Nothing here computes a face value. The lift is built from this file by il_lift.py.
+"""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import platform
+import sys
+import time
+from pathlib import Path
+
+import numpy as np
+
+ENGINE_FILES = ('oph_defects/universe.py', 'oph_defects/kernels.py', 'oph_defects/fedgeom.py', 'oph_defects/tracking.py',
+                'oph_exact/carrier.py', 'oph_fpe/core/icosahedral.py', 'oph_fpe/core/screen_ports.py')
+
+
+def sha256(path: Path) -> str:
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument('--sim', required=True, help='simulator checkout (read only)')
+    ap.add_argument('--level', type=int, required=True)
+    ap.add_argument('--sweeps', type=int, required=True)
+    ap.add_argument('--schedule', type=int, default=1)
+    ap.add_argument('--out', required=True)
+    args = ap.parse_args()
+    sim = Path(args.sim).resolve()
+    sys.path.insert(0, str(sim))
+    from oph_defects import fedgeom as FG
+    from oph_defects import kernels as K
+    from oph_defects.universe import COSTS, Engine, prepare_loads, schedule_seed
+
+    t0 = time.time()
+    geo = FG.build(args.level)
+    loads, prep = prepare_loads('exact06', args.level, geo.ports)
+    seed = schedule_seed(args.level, args.schedule)
+    eng = Engine(geo, loads, seed, COSTS['binding'], 5, track_intra=False, backend='sequential', register=True,
+                 currents=True, track=False)
+    S = geo.seams
+    total = int(loads.astype(np.int64).sum())
+    q = total // geo.ports
+    cols = {k: [] for k in ('sweep', 'pos', 'seam', 'j', 'depth')}
+    per_sweep = {k: [] for k in ('applied', 'blocked', 'nonzero', 'unsettled', 'depth_max', 'jabs_max')}
+    for s in range(args.sweeps):
+        seq, coin = eng.draw()
+        applied = blocked = nonzero = 0
+        jmax = 0
+        for lo in range(0, S, eng.chunk):
+            hi = min(S, lo + eng.chunk)
+            n = eng.run_chunk(seq[lo:hi], coin[lo:hi], lo, s)
+            tw = eng.o_twist[:n]
+            cur = eng.o_cur[:n]
+            idx = np.flatnonzero(tw > 0)
+            cols['sweep'].append(np.full(idx.size, s, np.int16))
+            cols['pos'].append((lo + idx).astype(np.int32))
+            cols['seam'].append(seq[lo:hi][idx].astype(np.int32))
+            cols['j'].append(cur[idx].astype(np.int8))
+            cols['depth'].append(eng.o_dep[:n][idx].astype(np.int32))
+            applied += int(idx.size)
+            blocked += int(np.count_nonzero(tw < 0))
+            nonzero += int(np.count_nonzero(cur))
+            if idx.size:
+                jmax = max(jmax, int(np.abs(cur[idx]).max()))
+        per_sweep['applied'].append(applied)
+        per_sweep['blocked'].append(blocked)
+        per_sweep['nonzero'].append(nonzero)
+        per_sweep['unsettled'].append(int(np.count_nonzero((eng.x != q) & (eng.x != q + 1))))
+        per_sweep['depth_max'].append(int(eng.dsyn[:geo.ports].max()))
+        per_sweep['jabs_max'].append(jmax)
+        if s < 3 or s % 50 == 0 or s == args.sweeps - 1:
+            print(f'sweep {s}: applied {applied} blocked {blocked} unsettled {per_sweep["unsettled"][-1]} '
+                  f'depth {per_sweep["depth_max"][-1]} t={time.time() - t0:.0f}s', flush=True)
+    ev = {k: np.concatenate(v) for k, v in cols.items()}
+    meta = {
+        'schema': 'il.history.v1', 'level': args.level, 'sweeps': args.sweeps, 'schedule': args.schedule, 'seed': int(seed),
+        'preparation': prep, 'cost': list(COSTS['binding']), 'kappa': 5, 'band': [int(q), int(q) + 1],
+        'carriers': int(geo.carriers), 'ports': int(geo.ports), 'seams': int(S), 'intra_seams': int(geo.intra_seams),
+        'faces': int(geo.faces), 'intra_faces': int(geo.intra_faces), 'applied_twists': int(ev['j'].size),
+        'geometry_source_sha256': geo.source_sha256, 'kernel_core_sha256': K.CORE_SHA256, 'kernel_c_sha256': K.C_SHA256,
+        'engine_files_sha256': {rel: sha256(sim / rel) for rel in ENGINE_FILES},
+        'numpy': np.__version__, 'python': sys.version.split()[0], 'platform': platform.platform(),
+        'seconds': round(time.time() - t0, 1)}
+    np.savez_compressed(
+        args.out, ev_sweep=ev['sweep'], ev_pos=ev['pos'], ev_seam=ev['seam'], ev_j=ev['j'], ev_depth=ev['depth'],
+        free_current=eng.jsum.astype(np.int32), final_classes=eng.cls.astype(np.int8), final_register=eng.reg.astype(np.int8),
+        final_loads=eng.x.astype(np.int8), initial_loads=loads.astype(np.int8),
+        **{'sweep_' + k: np.asarray(v, np.int64) for k, v in per_sweep.items()},
+        meta=np.frombuffer(json.dumps(meta).encode(), dtype=np.uint8))
+    print(json.dumps(meta))
+    return 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())

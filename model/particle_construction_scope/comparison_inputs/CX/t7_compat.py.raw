@@ -1,0 +1,91 @@
+"""Task 7 and two certificates used in PROOFS.md (flux 1, one load).
+
+1. Certificate that the bare value tau_22 = 1 - 2 l_2/60 is NOT an eigenvalue of the channel (rank 144 modulo a
+   prime with a 20th root of unity), and that the eigenvalue one is simple (rank 143). With the secular theorem this
+   makes the second eigenvalue exact.
+2. Exact numbers entering the compatibility equations of audit/state_geometry/COMPATIBILITY.md for the Zeno join
+   (item 5) and the walk join (item 6).
+"""
+import json, sys, time
+from fractions import Fraction as F
+import mpmath
+import numpy as np
+from cyc import Cyc, ZERO, ONE, Z, SQRT5, R18, q5, mat, eye, mmul, madd, mscale, dagger, mtrace, meq, prime_with_zeta, to_fp
+import carrier_exact as ce
+import oneload as ol
+
+n = 12; k = 1
+out = {}
+A = ce.twisted_adjacency(k)
+spec = ol.spectrum(A); P = ol.projectors(A, spec)
+ell = [Cyc.of(5) - a for a, _ in spec]; mult = [m for _, m in spec]
+Zn = sum((Cyc.of(m) / l for m, l in zip(mult, ell)), ZERO)
+rho = mat(n, n)
+for l, Pj in zip(ell, P):
+    rho = madd(rho, mscale(Pj, (l * Zn).inv()))
+
+# ---- 1. rank certificates
+p, zp = prime_with_zeta()
+d2 = n * n
+S = np.zeros((d2, d2), dtype=np.int64)
+for seam in ce.SEAMS:
+    for label, K in ce.instrument(seam, 1, k):
+        ent = [(i, j, to_fp(v, p, zp), to_fp(v.conj(), p, zp)) for (i, j), v in K.items()]
+        for (i, j, v, vc) in ent:                       # Schroedinger picture: (K X K^dagger)_{i i2} = K_{ij} X_{j j2} conj(K_{i2 j2})
+            for (i2, j2, w, wc) in ent:
+                S[i * n + i2, j * n + j2] = (S[i * n + i2, j * n + j2] + v * wc) % p
+S = (S * pow(30, -1, p)) % p
+
+
+def rank_mod(Mx):
+    A_ = Mx.copy() % p; r = 0
+    for c in range(A_.shape[1]):
+        nz = np.nonzero(A_[r:, c])[0]
+        if nz.size == 0:
+            continue
+        piv = r + nz[0]
+        if piv != r:
+            A_[[r, piv]] = A_[[piv, r]]
+        A_[r] = (A_[r] * pow(int(A_[r, c]), -1, p)) % p
+        f = A_[r + 1:, c].copy()
+        if f.any():
+            A_[r + 1:] = (A_[r + 1:] - f[:, None] * A_[r][None, :]) % p
+        r += 1
+        if r == A_.shape[0]:
+            break
+    return r
+
+
+certs = {}
+tau22 = ONE - ell[0] * 2 / 60
+for name, val in (('one', ONE), ('tau_22 = 5/6 + sqrt5 r/30', tau22), ('native slow value (55 + sqrt5)/60', q5(F(11, 12), F(1, 60)))):
+    Mx = S.copy(); t = to_fp(val, p, zp)
+    Mx[np.arange(d2), np.arange(d2)] = (Mx[np.arange(d2), np.arange(d2)] - t) % p
+    certs[name] = int(rank_mod(Mx))
+out['rank_of_(Phi - x)_modulo_p_lower_bounds'] = {'prime': p, **certs}
+assert certs['one'] == 143 and certs['tau_22 = 5/6 + sqrt5 r/30'] == 144
+print('rank certificates (lower bounds, prime %d):' % p, certs)
+
+# ---- 2. numbers for the compatibility equations
+# pulse generator N_0 against the reference and against the band
+comm = madd(mmul([[ONE if (i == j == 0) else ZERO for j in range(n)] for i in range(n)], rho), mmul(rho, [[ONE if (i == j == 0) else ZERO for j in range(n)] for i in range(n)]), -1)
+cn = max(mpmath.svd_c(mpmath.matrix([[x.mp(40) for x in row] for row in comm]), compute_uv=False))
+nb = ce.NBR[0][0]
+d2nb = next(q for q in range(n) if q not in ce.NBR[0] and q not in (0, ce.ANTIPODE[0]))
+band_w = (ell[0] * Zn).inv() * 2
+flip = (Zn * 5).inv()
+out['zeno_join'] = {
+    'reference_entries': {'adjacent (modulus)': float(abs(complex(rho[0][nb]))), 'distance two (modulus)': float(abs(complex(rho[0][d2nb]))),
+                          'antipode': str(rho[0][ce.ANTIPODE[0]])},
+    'commutator_norm_[N_0, rho]': float(cn),
+    'band_weight_of_reference_exact': ol.show(band_w), 'band_weight_of_reference_float': float(band_w.mp(30).real),
+    'pulse_leakage_|(1-P) N_p P| = sqrt(p(1-p))': 'sqrt5/6',
+}
+out['walk_join'] = {
+    'record_flip_probability_first_step_from_embedded_CAP_reference = 1/(5 Tr L^-1)': ol.show(flip),
+    'float': float(flip.mp(30).real),
+    'return_amplitude_Tr(rho T_k)': ol.show(ONE - flip),
+}
+print('zeno join: |[N_0, rho]| =', mpmath.nstr(cn, 10), '; band weight of the reference', ol.show(band_w), '=', float(band_w.mp(30).real))
+print('walk join: first walk step from the embedded CAP reference flips the record with probability', ol.show(flip), '=', float(flip.mp(30).real))
+json.dump(out, open(sys.argv[1], 'w'), indent=1)

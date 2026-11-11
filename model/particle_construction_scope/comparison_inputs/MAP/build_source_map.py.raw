@@ -1,0 +1,112 @@
+"""Full source map, version 1: every Standard Model particle type beside its object in the candidate program CF-1.
+
+Convention (simulation chart, audit's CANDIDATES.md): five internal levels v1, v2, v3 (vector) and s1, s2 (spinor);
+hypercharge 6Y = 3 n2 - 2 n3; weak isospin T3 = +1/2 on s1, -1/2 on s2, acting on patterns with exactly one spinor
+level occupied; electric charge Q = T3 + Y; left-handed = even number of occupied levels.
+Everything in this file is computed from that convention; nothing is typed in.
+"""
+import itertools, json, sys
+from fractions import Fraction as F
+
+LEVELS = ('v1', 'v2', 'v3', 's1', 's2')
+def info(occ):
+    n3 = sum(occ[:3]); n2 = sum(occ[3:])
+    sixY = 3 * n2 - 2 * n3
+    T3 = F(occ[3] - occ[4], 2)
+    Q = T3 + F(sixY, 6)
+    colour = {0: 'singlet', 1: 'triplet', 2: 'antitriplet', 3: 'singlet'}[n3]
+    weak = 'doublet' if n2 == 1 else 'singlet'
+    hand = 'left' if (n3 + n2) % 2 == 0 else 'right'
+    return dict(n3=n3, n2=n2, six_Y=sixY, T3=str(T3), Q=str(Q), colour=colour, weak=weak, handedness=hand,
+                Q6_mod_6=sixY % 6, Z2_charge=n2 % 2, Z3_charge=(-2 * n3) % 3,
+                levels=[l for l, o in zip(LEVELS, occ) if o])
+def toggle(occ):
+    o = list(occ); o[4] = 1 - o[4]; return tuple(o)
+def conj(occ): return tuple(1 - o for o in occ)
+def seen(sixY):
+    """phase a pattern of charge sixY gets from a centre flux of class k: exp(2 pi i k sixY / 6), as a fraction of a turn"""
+    return {str(k): str(F(k * sixY, 6) % 1) for k in range(1, 6)}
+
+# fermion types: species label = occupation of (v1, v2, v3, s1); the two handedness classes differ by s2
+species = []
+def add(name, symbol, core, family_group):
+    """core: occupation of (v1, v2, v3, s1) for one colour representative"""
+    a = tuple(core) + (0,); b = tuple(core) + (1,)
+    ia, ib = info(a), info(b)
+    left, right = (a, b) if ia['handedness'] == 'left' else (b, a)
+    il, ir = info(left), info(right)
+    assert il['Q'] == ir['Q'], name
+    ncol = 3 if il['n3'] in (1, 2) else 1
+    species.append(dict(name=name, symbol=symbol, group=family_group, colours=ncol,
+                        electric_charge=il['Q'], spin='1/2 (frame cover; declared pointer)',
+                        statistics='antisymmetric (declared; forced only with the filled reference)',
+                        left=dict(pattern=il, weak_partner=None), right=dict(pattern=ir),
+                        mass_link='toggle of the neutral doublet level s2 joins left and right',
+                        antiparticle_left=info(conj(right)), antiparticle_right=info(conj(left)),
+                        flux_seen_left=seen(il['six_Y']), flux_seen_right=seen(ir['six_Y'])))
+add('up-type quark', 'u', (1, 0, 0, 1), 'quark')
+add('down-type quark', 'd', (1, 0, 0, 0), 'quark')
+add('neutrino', 'nu', (1, 1, 1, 1), 'lepton')
+add('charged lepton', 'e', (1, 1, 1, 0), 'lepton')
+checks = {}
+by = {s['symbol']: s for s in species}
+checks['charges'] = {k: by[k]['electric_charge'] for k in by}
+assert checks['charges'] == {'u': '2/3', 'd': '-1/3', 'nu': '0', 'e': '-1'}
+# weak doublets: the left patterns of u and d (and of nu and e) differ by s1 <-> s2
+for up, dn in (('u', 'd'), ('nu', 'e')):
+    lu, ld = by[up]['left']['pattern'], by[dn]['left']['pattern']
+    assert lu['n3'] == ld['n3'] and lu['n2'] == ld['n2'] == 1 and lu['six_Y'] == ld['six_Y']
+    by[up]['left']['weak_partner'] = dn; by[dn]['left']['weak_partner'] = up
+    assert by[up]['right']['pattern']['weak'] == 'singlet' and by[dn]['right']['pattern']['weak'] == 'singlet'
+checks['left_doublets_right_singlets'] = True
+# all 32 patterns are used exactly once by the eight types (with colour) and their antiparticles
+used = set()
+for s in species:
+    for core in ([(1,0,0),(0,1,0),(0,0,1)] if s['colours'] == 3 else [tuple(s['left']['pattern']['levels'].count(v) for v in ('v1','v2','v3'))]):
+        s1 = 1 if 's1' in s['left']['pattern']['levels'] else 0
+        for s2 in (0, 1):
+            occ = tuple(core) + (s1, s2)
+            used.add(occ); used.add(conj(occ))
+checks['patterns_covered'] = len(used)
+assert len(used) == 32
+# anomaly sums over the left-handed description of one generation (left patterns and conjugates of right patterns)
+gen = [occ for occ in itertools.product((0, 1), repeat=5) if sum(occ) % 2 == 0]
+Y = [F(info(o)['six_Y'], 6) for o in gen]
+checks['anomaly_sums'] = {'sum_Y': str(sum(Y)), 'sum_Y3': str(sum(y ** 3 for y in Y)),
+                          'doublets_Y': str(sum(y for o, y in zip(gen, Y) if info(o)['n2'] == 1)),
+                          'triplets_Y': str(sum(y for o, y in zip(gen, Y) if info(o)['n3'] in (1, 2)))}
+T3sq = sum(F(o[3] - o[4], 2) ** 2 for o in gen); Qsq = sum((F(o[3] - o[4], 2) + F(info(o)['six_Y'], 6)) ** 2 for o in gen)
+checks['sum_T3sq_over_sum_Qsq'] = str(T3sq / Qsq)
+bosons = [
+ dict(name='gluon', count=8, source='the eight traceless combinations of the port responses on the three vector levels', charge='0', colour='octet',
+      acts_on='patterns with n3 = 1 or 2', travelling_excitation='open (worker X5): needs a link variable in the colour group', mass='zero by gauge invariance, if it travels'),
+ dict(name='W+', count=1, source='the response that moves a quantum from s2 to s1 (weak raising)', charge='+1', colour='singlet',
+      acts_on='left-handed patterns only (exactly one spinor level occupied); annihilates right-handed ones', travelling_excitation='open (X5)', mass='from the state that fixes the neutral doublet level (open, R8)'),
+ dict(name='W-', count=1, source='the response that moves a quantum from s1 to s2 (weak lowering)', charge='-1', colour='singlet',
+      acts_on='left-handed patterns only', travelling_excitation='open (X5)', mass='as W+'),
+ dict(name='Z', count=1, source='the neutral combination of T3 and Y orthogonal to the electric charge', charge='0', colour='singlet',
+      acts_on='every pattern with T3 or Y', travelling_excitation='open (X5)', mass='from the same state; mixing angle open (representation level: sum T3^2 / sum Q^2 = 3/8)'),
+ dict(name='photon', count=1, source='the electric charge Q = T3 + Y, the combination the neutral toggle leaves unbroken', charge='0', colour='singlet',
+      acts_on='every charged pattern, equally on both handedness classes', travelling_excitation='open (X5): needs a U(1) link phase; with one, the lowest Landau level sits at the rest phase (g = 2)', mass='zero'),
+ dict(name='Higgs', count=1, source='the two spinor levels as a multiplet (charges of a doublet with 6Y = 3); its neutral member s2 is the toggle that joins left and right', charge='0', colour='singlet',
+      acts_on='every fermion type through the toggle', travelling_excitation='open (R8, X5): the excitation of the register that takes the toggled charge', mass='open'),
+]
+generations = dict(
+ required='three copies of every fermion type with identical charges and different masses',
+ public_theorem='Lean/Screen/A5FamilyBand.lean and the gauge-structure paper, Proposition "conditional screen-band selection": the twelve-port load space has bands of ranks 1, 3, 3, 5 with costs 5 - sqrt5 < 6 < 5 + sqrt5; if one faithful band carries the families and lower cost selects, it is the rank-three band of cost 5 - sqrt5; tensored with the fifteen states of a generation it is a conditional rank-45 candidate',
+ candidates=[
+  dict(id='G-a', label='the rank-three load band resolved along the three axes of the gauge-fixed cubic frame', status='best guess; uses the public theorem; the three axes carry three different characters of the frame half-turns; masses equal unless the symmetry between the axes is broken'),
+  dict(id='G-b', label='the three further cones of the routing tick, labelled by the frame axes ((0,pi/2,pi/2), (pi/2,0,pi/2), (pi/2,pi/2,0) in two-tick wave number)', status='exact objects of the tick (workers R3, R4); two of them are mirror copies; the tick treats axis 2 differently from axes 1 and 3'),
+  dict(id='G-c', label='the three characters of the Z3 holonomy of the port-to-port frame rule on the spherical federation', status='two of the three are complex conjugates and degenerate'),
+  dict(id='G-d', label='separation classes of a flux pair carried by the quantum', status='four classes occur (2 to 5), not three')],
+ mixing='between a port basis and a frame basis the squared overlaps are 0.7236, 0.2764, 0 and 0.1382, 0.3618, 1/2 (lead L32); third angle zero',
+ owner='worker X4 scores the candidates; T5 computes the mass matrices they allow')
+out = dict(version='1', date='2026-11-10', convention='6Y = 3 n2 - 2 n3; T3 = +1/2 on s1, -1/2 on s2; Q = T3 + Y; left = even occupation',
+           program='candidate CF-1 (repair-law/candidates/CF1.md)', fermion_types=species, bosons=bosons, generations=generations, checks=checks,
+           status_note='Best-guess map. Labels are exact; spin and statistics are declared; no mass is derived; no particle is identified by a measurement.')
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 'source_map.json', 'w'), indent=1)
+print(json.dumps(checks, indent=1))
+for s in species:
+    print(s['symbol'], 'Q', s['electric_charge'], '| left', s['left']['pattern']['levels'], (s['left']['pattern']['n3'], s['left']['pattern']['n2']), '6Y', s['left']['pattern']['six_Y'],
+          '| right', s['right']['pattern']['levels'], (s['right']['pattern']['n3'], s['right']['pattern']['n2']), '6Y', s['right']['pattern']['six_Y'],
+          '| sees (left)', s['flux_seen_left'], '| sees (right)', s['flux_seen_right'])

@@ -1,0 +1,173 @@
+{
+ "multiplets": [
+  {
+   "n3": 0,
+   "n2": 0,
+   "degree": 0,
+   "rep": "(1,1)_0",
+   "dim": 1,
+   "k": 0,
+   "native_rest_phase": "0",
+   "COMP_statistics": "fermion",
+   "NAT_statistics": "boson"
+  },
+  {
+   "n3": 0,
+   "n2": 1,
+   "degree": 1,
+   "rep": "(1,2)_1/2",
+   "dim": 2,
+   "k": 3,
+   "native_rest_phase": "pi",
+   "COMP_statistics": "boson",
+   "NAT_statistics": "fermion"
+  },
+  {
+   "n3": 1,
+   "n2": 0,
+   "degree": 1,
+   "rep": "(3,1)_-1/3",
+   "dim": 3,
+   "k": 4,
+   "native_rest_phase": "pi",
+   "COMP_statistics": "boson",
+   "NAT_statistics": "fermion"
+  },
+  {
+   "n3": 0,
+   "n2": 2,
+   "degree": 2,
+   "rep": "(1,1)_1",
+   "dim": 1,
+   "k": 0,
+   "native_rest_phase": "0",
+   "COMP_statistics": "fermion",
+   "NAT_statistics": "boson"
+  },
+  {
+   "n3": 1,
+   "n2": 1,
+   "degree": 2,
+   "rep": "(3,2)_1/6",
+   "dim": 6,
+   "k": 1,
+   "native_rest_phase": "0",
+   "COMP_statistics": "fermion",
+   "NAT_statistics": "boson"
+  },
+  {
+   "n3": 2,
+   "n2": 0,
+   "degree": 2,
+   "rep": "(3b,1)_-2/3",
+   "dim": 3,
+   "k": 2,
+   "native_rest_phase": "0",
+   "COMP_statistics": "fermion",
+   "NAT_statistics": "boson"
+  },
+  {
+   "n3": 1,
+   "n2": 2,
+   "degree": 3,
+   "rep": "(3,1)_2/3",
+   "dim": 3,
+   "k": 4,
+   "native_rest_phase": "pi",
+   "COMP_statistics": "boson",
+   "NAT_statistics": "fermion"
+  },
+  {
+   "n3": 2,
+   "n2": 1,
+   "degree": 3,
+   "rep": "(3b,2)_-1/6",
+   "dim": 6,
+   "k": 5,
+   "native_rest_phase": "pi",
+   "COMP_statistics": "boson",
+   "NAT_statistics": "fermion"
+  },
+  {
+   "n3": 3,
+   "n2": 0,
+   "degree": 3,
+   "rep": "(1,1)_-1",
+   "dim": 1,
+   "k": 0,
+   "native_rest_phase": "pi",
+   "COMP_statistics": "boson",
+   "NAT_statistics": "fermion"
+  },
+  {
+   "n3": 2,
+   "n2": 2,
+   "degree": 4,
+   "rep": "(3b,1)_1/3",
+   "dim": 3,
+   "k": 2,
+   "native_rest_phase": "0",
+   "COMP_statistics": "fermion",
+   "NAT_statistics": "boson"
+  },
+  {
+   "n3": 3,
+   "n2": 1,
+   "degree": 4,
+   "rep": "(1,2)_-1/2",
+   "dim": 2,
+   "k": 3,
+   "native_rest_phase": "0",
+   "COMP_statistics": "fermion",
+   "NAT_statistics": "boson"
+  },
+  {
+   "n3": 3,
+   "n2": 2,
+   "degree": 5,
+   "rep": "(1,1)_0",
+   "dim": 1,
+   "k": 0,
+   "native_rest_phase": "pi",
+   "COMP_statistics": "boson",
+   "NAT_statistics": "fermion"
+  }
+ ],
+ "index_sums_even": {
+  "T3": "2",
+  "T2": "2",
+  "DY2": "10/3"
+ },
+ "index_sums_odd": {
+  "T3": "2",
+  "T2": "2",
+  "DY2": "10/3"
+ },
+ "per_copy_contribution": {
+  "R15_declared_chiral_source": [
+   "4/3",
+   "4/3",
+   "4/3"
+  ],
+  "COMP_odd_flux_all_clouds": [
+   "2",
+   "2",
+   "2"
+  ],
+  "NAT_even_flux_all_clouds": [
+   "2",
+   "2",
+   "2"
+  ]
+ },
+ "adjoint_states_in_one_object": 0,
+ "class3_states_per_copy": 4,
+ "receipt_fields": {
+  "native_U_on_dark_module_degrees_2_4": "+I",
+  "bare_flux_current_representation": "trivial",
+  "flux_to_R15_intertwiner_dimension": 0,
+  "pure_face_current_constraint_rank": 24,
+  "chiral_source_families": 1,
+  "chiral_source_grading": "odd, declared"
+ }
+}

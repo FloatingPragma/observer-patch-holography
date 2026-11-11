@@ -1,0 +1,12 @@
+import numpy as np
+from model.common_source import slow_geometry
+src = slow_geometry.source()
+seams = [tuple(int(v) for v in s) for s in src.seams()]
+faces = [tuple(int(v) for v in f) for f in src.oriented_faces()]
+rots = [tuple(int(v) for v in r) for r in src.rotations()]
+print(len(seams), seams[:6])
+print(len(faces), faces[:6])
+print(len(rots), rots[:3])
+fr = slow_geometry.raw_frame()
+print(fr[0], type(fr[0][0]))
+print([n for n in dir(src) if not n.startswith('_')])

@@ -1,0 +1,97 @@
+"""String tension from the smeared Wilson loops (su3_sigma.py output). Writes sigma.json.
+
+    python sigma_analyze.py data/sym "sigma_b5.6925_s*.npz" sigma.json [N_t]
+
+Plan of CANDIDATES.md (12:52): primary = 12 smearing steps, V(R) from T = 3, fit V0 + sigma R - e/R over R = 2..6.
+"""
+import glob, json, os, sys
+import numpy as np
+
+BLOCK = 20
+
+
+def load(ddir, pat):
+    blocks = []; n = 0; metas = []
+    for f in sorted(glob.glob(os.path.join(ddir, pat))):
+        d = np.load(f); W = d['W']; m = json.loads(str(d['meta'])); metas.append(dict(file=os.path.basename(f), done=m['done'], seed=m['seed']))
+        nb = len(W) // BLOCK
+        for i in range(nb):
+            blocks.append(W[i * BLOCK:(i + 1) * BLOCK].mean(0))
+        n += nb * BLOCK
+    return np.array(blocks), n, metas
+
+
+def potential(Wm, lev, T):
+    """V(R), R = 1..6, from ln W(R, T)/W(R, T+1)"""
+    w = Wm[lev]
+    return np.log(w[:, T - 1] / w[:, T])
+
+
+def fit(V, err, Rs, e_fixed=None):
+    R = np.array(Rs, float); y = V[[r - 1 for r in Rs]]; w = 1.0 / err[[r - 1 for r in Rs]] ** 2
+    if e_fixed is None:
+        X = np.vstack([np.ones_like(R), R, -1.0 / R]).T
+    else:
+        X = np.vstack([np.ones_like(R), R]).T; y = y + e_fixed / R
+    sol = np.linalg.solve(X.T @ (X * w[:, None]), X.T @ (w * y))
+    chi2 = float((w * (y - X @ sol) ** 2).sum())
+    return sol, chi2
+
+
+def main():
+    ddir, pat, outf = sys.argv[1], sys.argv[2], sys.argv[3]
+    nt = int(sys.argv[4]) if len(sys.argv) > 4 else 4
+    B, n, metas = load(ddir, pat); nb = len(B)
+    full = B.mean(0); jks = np.array([np.delete(B, i, axis=0).mean(0) for i in range(nb)])
+    je = lambda v: np.sqrt((nb - 1) * np.mean((v - v.mean(0)) ** 2, axis=0))
+    out = dict(measurements=n, blocks=nb, block_size=BLOCK, runs=metas, levels=[6, 12], c_ape=0.4, potentials={}, fits={})
+    pots = {}
+    for lev, name in ((1, '12 steps'), (0, '6 steps')):
+        for T in (2, 3, 4):
+            V = potential(full, lev, T); Vj = np.array([potential(j, lev, T) for j in jks]); E = je(Vj)
+            pots[(lev, T)] = (V, Vj, E)
+            out['potentials'][f'{name}, T={T}'] = dict(V=[float(v) for v in V], err=[float(e) for e in E])
+
+    def run_fit(lev, T, Rs, e_fixed=None):
+        V, Vj, E = pots[(lev, T)]
+        if not np.all(np.isfinite(V[[r - 1 for r in Rs]])) or not np.all(np.isfinite(Vj[:, [r - 1 for r in Rs]])):
+            return None
+        sol, chi2 = fit(V, E, Rs, e_fixed); sj = np.array([fit(v, E, Rs, e_fixed)[0] for v in Vj]); se = je(sj)
+        sig = sol[1]; a = np.sqrt(sig) if sig > 0 else float('nan')
+        r = dict(V0=float(sol[0]), V0_err=float(se[0]), sigma_a2=float(sig), sigma_a2_err=float(se[1]), a_sqrt_sigma=float(a),
+                 a_sqrt_sigma_err=float(se[1] / (2 * a)), chi2=chi2, dof=len(Rs) - len(sol), R=list(Rs))
+        if e_fixed is None:
+            r['e'] = float(sol[2]); r['e_err'] = float(se[2])
+        else:
+            r['e_fixed'] = e_fixed
+        return r
+
+    F = {'primary: 12 steps, T=3, R=2..6, three parameters': run_fit(1, 3, (2, 3, 4, 5, 6)),
+         'check: T=2': run_fit(1, 2, (2, 3, 4, 5, 6)),
+         'check: 6 steps, T=3': run_fit(0, 3, (2, 3, 4, 5, 6)),
+         'check: e = pi/12 fixed, R=3..6': run_fit(1, 3, (3, 4, 5, 6), np.pi / 12),
+         'check: R=2..5': run_fit(1, 3, (2, 3, 4, 5)),
+         'extra: T=4': run_fit(1, 4, (2, 3, 4, 5, 6))}
+    out['fits'] = F
+    P = F['primary: 12 steps, T=3, R=2..6, three parameters']
+    if P:
+        checks = [F[k] for k in F if k.startswith('check') and F[k]]
+        sys_ = max(abs(c['a_sqrt_sigma'] - P['a_sqrt_sigma']) for c in checks) if checks else float('nan')
+        a = P['a_sqrt_sigma']; st = P['a_sqrt_sigma_err']; tot = float(np.hypot(st, sys_))
+        out['result'] = dict(beta=5.6925, lattice='12^4', a_sqrt_sigma=a, err_stat=st, err_sys=float(sys_), err=tot,
+                             N_t=nt, Tc_over_sqrt_sigma=1 / (nt * a), Tc_err_stat=st / (nt * a * a), Tc_err_sys=float(sys_) / (nt * a * a),
+                             Tc_err=tot / (nt * a * a))
+        # overlap of the smeared state: W(R, T) / exp(-V T) at T = 3
+        V = pots[(1, 3)][0]; out['overlap_T3'] = [float(full[1][r, 2] * np.exp(3 * V[r])) for r in range(6)]
+    json.dump(out, open(outf, 'w'), indent=1)
+    for k, v in out['potentials'].items():
+        print(k, ' '.join(f'{a:.4f}({b:.4f})' for a, b in zip(v['V'], v['err'])))
+    for k, v in F.items():
+        if v:
+            print(f"{k}: sigma a^2 = {v['sigma_a2']:.4f}({v['sigma_a2_err']:.4f}) a sqrt(sigma) = {v['a_sqrt_sigma']:.4f}({v['a_sqrt_sigma_err']:.4f}) "
+                  f"e = {v.get('e', v.get('e_fixed')):.3f} chi2/dof = {v['chi2']:.2f}/{v['dof']}")
+    print(json.dumps(out.get('result'), indent=1)); print('overlap', out.get('overlap_T3'))
+
+
+if __name__ == '__main__':
+    main()

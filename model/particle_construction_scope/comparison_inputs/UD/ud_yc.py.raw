@@ -1,0 +1,28 @@
+"""UD: third-family masses at Q0 with worker YC's cell Yukawa y = g/2 (reports/YC.md), in the readings B1 (one amplitude
+on every leg) and F2 (equal total leg weight, y_tau = sqrt 3 y_quark). Reads no measured value. Writes yc_rows.json.
+Run: cd RL/work/UD && PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B ud_yc.py
+YC's values: source g = 0.8795 gives y = 0.43976; g_2(E_cell) = 0.5062 on the declared chart gives y = 0.2531.
+F2 under YC's sum rule (sum over Dirac species of y^2, colour counted, = 2 g^2, four legs of equal weight):
+y_quark = g/sqrt 6, y_lepton = g/sqrt 2.
+"""
+import json
+import math
+import os
+
+import ud_rge as R
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+G_SRC = math.sqrt(4 * math.pi / 16.2453)
+rows = {}
+for label, g in (('source g = %.4f' % G_SRC, G_SRC), ('declared chart g_2(E_cell) = 0.5062', 0.5062)):
+    for reading, yc in (('B1: y = g/2 on t, b, tau', [g / 2] * 3),
+                        ('F2 with the sum rule: y_t = y_b = g/sqrt 6, y_tau = g/sqrt 2', [g / math.sqrt(6)] * 2 + [g / math.sqrt(2)]),
+                        ('F2 on the quark value: y_t = y_b = g/2, y_tau = sqrt 3 g/2', [g / 2, g / 2, math.sqrt(3) * g / 2])):
+        d = R.down_from_cell(yc, 1)
+        d2 = R.shoot(lambda top, yc=yc: [math.log(top[3 + i] / yc[i]) for i in range(3)], 3, d['y_Q0'], 2) if d else None
+        rows[f'{label} | {reading}'] = {'y_cell': yc, 'one_loop': R.row(d['y_Q0']) if d else None,
+                                        'two_loop': R.row(d2['y_Q0']) if d2 else None}
+        r = rows[f'{label} | {reading}']['two_loop'] or rows[f'{label} | {reading}']['one_loop']
+        print(f"{label:38s} {reading:62s} m_t={r['m_t_Q0_GeV']:.1f} m_b={r['m_b_Q0_GeV']:.1f} m_tau={r['m_tau_Q0_GeV']:.1f} "
+              f"t/b={r['y_t_over_y_b']:.4f} b/tau={r['y_b_over_y_tau']:.4f}")
+json.dump({'measured_values_read': False, 'rows': rows}, open(os.path.join(HERE, 'yc_rows.json'), 'w'), indent=1)

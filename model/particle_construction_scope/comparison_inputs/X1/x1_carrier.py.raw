@@ -1,0 +1,369 @@
+"""Worker X1: exact checks on one carrier for the catalogue of protected objects of the working law.
+
+Run from RER:
+  PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:RL/work/X1 python RL/work/X1/x1_carrier.py RL/work/X1/carrier_checks.json
+
+What is computed here (everything else in the catalogue is cited, see CANDIDATES.md):
+  1. the public scalar walk W = Q R on 1440 dimensions as 60 W in integers (float64 holding exact integers);
+     its invariance under all 120 symmetries of the carrier; the content of its spectral sectors under the 60 rotations
+  2. the thirty-bit link register: GF(2) ranks, flux classes, pair classes by separation, rotation content
+  3. the 2I (cover of order 120) content of the twelve occupation patterns of the five-level code
+  4. the charges of the twelve patterns, anomaly sums, counts of charged states
+  5. rest phase of a doublet level on a carrier with one Z2 flux pair, by separation (cross-check of CF-1 item 6)
+  6. the Z2 and Z3 shadows of the stored census of the universe runs (level 10, sweep 300)
+Tags: EXACT = integer, rational or Q(sqrt5) arithmetic; MEASURED = float64 with the printed defect.
+"""
+import itertools, json, sys
+from collections import Counter, deque
+from fractions import Fraction as Fr
+import numpy as np
+import sympy as sp
+from model.common_source import slow_geometry
+
+OUT = sys.argv[1]
+RL = 'WORKSPACE/repair-law'
+res = {}
+
+# ---------------------------------------------------------------- carrier
+seams = [tuple(sorted(int(v) for v in e)) for e in slow_geometry.source().seams()]
+n, M = 12, len(seams); D = 2 * M
+assert M == 30 and len(set(seams)) == 30
+adj = np.zeros((n, n), int)
+for a, b in seams: adj[a, b] = adj[b, a] = 1
+assert (adj.sum(1) == 5).all()
+addresses = [(a, b) for e in seams for a, b in (e, e[::-1])]
+addr_index = {ab: k for k, ab in enumerate(addresses)}
+faces = [t for t in itertools.combinations(range(n), 3) if adj[t[0], t[1]] and adj[t[1], t[2]] and adj[t[0], t[2]]]
+assert len(faces) == 20
+face_index = {f: i for i, f in enumerate(faces)}
+eidx = {e: i for i, e in enumerate(seams)}
+
+# port directions: the eigenspace of the adjacency at +sqrt5 (the port frame); used only to enumerate symmetries
+w, v = np.linalg.eigh(adj.astype(float))
+N1 = v[:, np.abs(w - 5 ** .5) < 1e-9] * 2.0
+assert N1.shape == (12, 3) and np.allclose(np.linalg.norm(N1, axis=1), 1)
+p0, p1, p2 = faces[0]
+Binv = np.linalg.inv(np.array([N1[p0], N1[p1], N1[p2]]).T)
+auts = []
+for q0 in range(n):
+    for q1 in np.flatnonzero(adj[q0]):
+        for q2 in np.flatnonzero(adj[q0] & adj[q1]):
+            O = np.array([N1[q0], N1[q1], N1[q2]]).T @ Binv
+            img = (N1 @ O.T) @ N1.T
+            perm = img.argmax(axis=1)
+            assert np.allclose(img[np.arange(n), perm], 1, atol=1e-9) and sorted(perm) == list(range(n))
+            assert all(adj[perm[a], perm[b]] for a, b in seams)          # exact: a graph automorphism
+            auts.append((tuple(int(x) for x in perm), O))
+assert len({p for p, _ in auts}) == 120
+PHI = (1 + 5 ** .5) / 2
+CLASSES = ['e', 'c2', 'c3', 'c5', 'c5b']                 # identity, half-turns, third-turns, fifth-turns, two-fifth-turns
+SIZE = dict(e=1, c2=15, c3=20, c5=12, c5b=12)
+def cls(O):
+    t = np.trace(O)
+    for name, val in (('e', 3), ('c2', -1), ('c3', 0), ('c5', PHI), ('c5b', 1 - PHI)):
+        if abs(t - val) < 1e-6: return name
+    raise ValueError(t)
+rots = [(p, O, cls(O)) for p, O in auts if np.linalg.det(O) > 0]
+assert Counter(c for _, _, c in rots) == Counter(SIZE)
+antipode = next(p for p, O in auts if np.allclose(O, -np.eye(3)))
+s5 = sp.sqrt(5); phi = (1 + s5) / 2
+A5 = {'1': [1, 1, 1, 1, 1], '3': [3, -1, 0, phi, 1 - phi], "3'": [3, -1, 0, 1 - phi, phi], '4': [4, 0, 1, -1, -1],
+      '5': [5, 1, -1, 0, 0]}
+for a_, b_ in itertools.product(A5, A5):                  # exact orthonormality of the table used
+    ip = sp.simplify(sp.Rational(1, 60) * sum(SIZE[c] * A5[a_][i] * A5[b_][i] for i, c in enumerate(CLASSES)))
+    assert ip == (1 if a_ == b_ else 0), (a_, b_, ip)
+def decompose(char):
+    """char: dict class -> exact number; returns the multiplicity of each A5 irrep (exact)."""
+    out = {}
+    for name, ch in A5.items():
+        m = sp.nsimplify(sp.simplify(sp.Rational(1, 60) * sum(SIZE[c] * ch[i] * char[c] for i, c in enumerate(CLASSES))))
+        assert m.is_integer and m >= 0, (name, m)
+        out[name] = int(m)
+    return out
+def class_function(fn):
+    """fn(perm) -> exact number; checks that it is constant on the classes of the 60 rotations."""
+    vals = {}
+    for p, _, c in rots:
+        x = fn(p)
+        assert vals.setdefault(c, x) == x
+    return vals
+res['carrier'] = {'ports': n, 'seams': M, 'faces': len(faces), 'oriented_addresses': D, 'symmetries': len(auts),
+                  'rotations': len(rots), 'tag': 'EXACT'}
+
+# ---------------------------------------------------------------- 1. scalar walk, 60 W in integers
+dim = 2 * n * D
+def idx(a, r, k): return (2 * a + r) * D + k
+Q2 = 2 * np.eye(dim)
+for k, (a, b) in enumerate(addresses):
+    sites = [idx(a, 0, k), idx(b, 0, k), idx(a, 1, k), idx(b, 1, k)]; signs = [1, -1, -1, -1]
+    for i, si in zip(sites, signs):
+        for j, sj in zip(sites, signs): Q2[i, j] -= si * sj
+R30 = np.kron(np.eye(2 * n), np.ones((D, D)) - 30 * np.eye(D))
+W60 = Q2 @ R30
+assert np.array_equal(W60, np.rint(W60)) and np.abs(W60).max() < 2 ** 40
+checks = {'Q_involution': bool(np.array_equal(Q2 @ Q2, 4 * np.eye(dim))),
+          'R_involution': bool(np.array_equal(R30 @ R30, 900 * np.eye(dim))),
+          'W_orthogonal': bool(np.array_equal(W60 @ W60.T, 3600 * np.eye(dim))),
+          'trace_W': str(Fr(int(np.trace(W60)), 60))}
+assert checks['Q_involution'] and checks['R_involution'] and checks['W_orthogonal'] and checks['trace_W'] == '-1276'
+def walk_perm(perm):
+    p = np.empty(dim, int)
+    for a in range(n):
+        for r in range(2):
+            for k, (x, y) in enumerate(addresses):
+                p[idx(a, r, k)] = idx(perm[a], r, addr_index[(perm[x], perm[y])])
+    return p
+wperms = {p: walk_perm(p) for p, _ in auts}
+checks['W_commutes_with_all_120_symmetries'] = all(np.array_equal(W60[np.ix_(wp, wp)], W60) for wp in wperms.values())
+# record parity is not conserved: [W, Z_r] != 0 (the counterexample that makes "record value" a non-label)
+Zr = np.kron(np.eye(n), np.kron(np.diag([1.0, -1.0]), np.eye(D)))
+checks['max_abs_entry_of_60_times_commutator_W_Zr'] = int(np.abs(W60 @ Zr - Zr @ W60).max())
+assert checks['W_commutes_with_all_120_symmetries'] and checks['max_abs_entry_of_60_times_commutator_W_Zr'] > 0
+
+# rotation content of the spectral sectors (exact characters)
+chi_tot = class_function(lambda p: sp.Integer(int((wperms[p] == np.arange(dim)).sum())))
+tr_gW = class_function(lambda p: sp.Rational(int(W60[np.arange(dim), wperms[p]].sum()), 60))
+a_, b_ = sp.Rational(11, 12) + s5 / 60, sp.Rational(11, 12) - s5 / 60
+SECTORS = [  # (name, record block, A5 irrep, kernel eigenvalue)
+    ('slow triplet, blank', 'blank', '3', a_), ('fast triplet, blank', 'blank', "3'", b_),
+    ('quintet, blank', 'blank', '5', sp.Rational(9, 10)),
+    ('uniform, recorded', 'recorded', '1', sp.Rational(5, 6)), ('fast triplet, recorded', 'recorded', '3', b_),
+    ('slow triplet, recorded', 'recorded', "3'", a_), ('quintet, recorded', 'recorded', '5', sp.Rational(14, 15))]
+ci = {c: i for i, c in enumerate(CLASSES)}
+chi_osc = {c: sum(2 * A5[rho][ci[c]] for _, _, rho, _ in SECTORS) for c in CLASSES}
+t_osc = {c: sp.simplify(sum(2 * lam * A5[rho][ci[c]] for _, _, rho, lam in SECTORS)) for c in CLASSES}
+chi_plus = {c: sp.simplify((chi_tot[c] - chi_osc[c] + tr_gW[c] - t_osc[c]) / 2) for c in CLASSES}
+chi_minus = {c: sp.simplify((chi_tot[c] - chi_osc[c] - tr_gW[c] + t_osc[c]) / 2) for c in CLASSES}
+dec_tot, dec_plus, dec_minus = decompose(chi_tot), decompose(chi_plus), decompose(chi_minus)
+assert chi_plus['e'] == 38 and chi_minus['e'] == 1356 and chi_osc['e'] == 46
+# float cross-check of the sector assignment: spectral projectors of (W + W^T)/2
+ev, evec = np.linalg.eigh((W60 + W60.T) / 120)
+reps = {c: next(p for p, _, cc in rots if cc == c) for c in CLASSES}
+def sector_char(lo, hi):
+    V = evec[:, (ev > lo) & (ev < hi)]
+    return V.shape[1], {c: float(np.einsum('ij,ij->', V[wperms[reps[c]], :], V)) for c in CLASSES}
+worst = 0.0; sector_rows = []
+groups = [('stationary +1', 1 - 1e-9, 1 + 1e-9, dec_plus), ('stationary -1', -1 - 1e-9, -1 + 1e-9, dec_minus)]
+for lam in sorted({l for *_, l in SECTORS}, key=float, reverse=True):
+    members = [s for s in SECTORS if s[3] == lam]
+    content = Counter()
+    for _, _, rho, _ in members: content[rho] += 2
+    groups.append((' + '.join(s[0] for s in members), float(lam) - 1e-9, float(lam) + 1e-9, dict(content)))
+for name, lo, hi, content in groups:
+    d_float, ch = sector_char(lo, hi)
+    want = {c: float(sum(m * sp.N(A5[rho][ci[c]]) for rho, m in content.items())) for c in CLASSES}
+    defect = max(abs(ch[c] - want[c]) for c in CLASSES); worst = max(worst, defect)
+    d_exact = sum(m * int(A5[rho][0]) for rho, m in content.items())
+    assert d_float == d_exact and defect < 1e-8, (name, d_float, d_exact, defect)
+    sector_rows.append({'sector': name, 'dimension': d_exact, 'rotation_content': {k: v for k, v in content.items() if v}})
+# parity of the kernel multiplets under the antipodal map (port vectors)
+Pa = np.zeros((n, n)); Pa[list(antipode), np.arange(n)] = 1
+par = {}
+for name, val in (('uniform', 5.0), ('port-frame triplet 3', 5 ** .5), ("conjugate triplet 3'", -5 ** .5), ('quintet', -1.0)):
+    V = v[:, np.abs(w - val) < 1e-9]; par[name] = int(round(np.trace(V.T @ Pa @ V) / V.shape[1]))
+res['scalar_walk'] = {
+    'tag': 'EXACT (integers, Q(sqrt5) characters); the sector assignment cross-checked in float64',
+    'dimension': dim, 'checks': checks,
+    'rotation_content_total': dec_tot, 'stationary_plus_one': {'dimension': 38, 'rotation_content': dec_plus},
+    'stationary_minus_one': {'dimension': 1356, 'rotation_content': dec_minus},
+    'oscillatory': [{'sector': nm, 'record_block': blk, 'rotation_irrep': rho, 'dimension': 2 * int(A5[rho][0]),
+                     'kernel_eigenvalue': str(lam), 'rest_phase': round(float(sp.acos(lam)), 6)} for nm, blk, rho, lam in SECTORS],
+    'oscillatory_dimension': 46, 'sector_table': sector_rows, 'float_character_defect': worst,
+    'antipodal_parity_of_kernel_multiplets': par}
+
+# ---------------------------------------------------------------- 2. link register
+def rank2(rows):
+    piv = {}
+    for r in rows:
+        while r:
+            h = r.bit_length() - 1
+            if h in piv: r ^= piv[h]
+            else: piv[h] = r; break
+    return len(piv)
+stars = [sum(1 << eidx[e] for e in seams if vtx in e) for vtx in range(n)]
+fmask = [sum(1 << eidx[tuple(sorted(e))] for e in itertools.combinations(f, 2)) for f in faces]
+rg, rf = rank2(stars), rank2(fmask)
+assert (rg, rf) == (11, 19) and all(sum(m >> i & 1 for m in fmask) == 2 for i in range(30))     # every link in two faces
+fadj = [[g for g in range(20) if g != f and len(set(faces[f]) & set(faces[g])) == 2] for f in range(20)]
+assert all(len(x) == 3 for x in fadj)
+def bfs(src):
+    dist = {src: 0}; par_ = {src: None}; dq = deque([src])
+    while dq:
+        x = dq.popleft()
+        for y in fadj[x]:
+            if y not in dist: dist[y] = dist[x] + 1; par_[y] = x; dq.append(y)
+    return dist, par_
+BF = [bfs(f) for f in range(20)]
+pairs = list(itertools.combinations(range(20), 2))
+by_sep = Counter(BF[f][0][g] for f, g in pairs)
+def fperm(perm): return [face_index[tuple(sorted(perm[x] for x in f))] for f in faces]
+fp = {p: fperm(p) for p, _, _ in rots}
+pair_set = {pr: i for i, pr in enumerate(pairs)}
+content_faces = decompose(class_function(lambda p: sp.Integer(sum(fp[p][f] == f for f in range(20)))))
+fix_pairs = class_function(lambda p: sp.Integer(sum(tuple(sorted((fp[p][f], fp[p][g]))) == (f, g) for f, g in pairs)))
+content_pairs = decompose(fix_pairs)
+content_by_sep = {}
+for d in range(1, 6):
+    sel = [pr for pr in pairs if BF[pr[0]][0][pr[1]] == d]
+    content_by_sep[d] = decompose(class_function(lambda p: sp.Integer(sum(tuple(sorted((fp[p][f], fp[p][g]))) == (f, g) for f, g in sel))))
+res['link_register'] = {
+    'tag': 'EXACT (GF(2) ranks, counts)', 'link_bits': 30, 'rank_vertex_stars': rg, 'rank_face_boundaries': rf,
+    'gauge_copies_per_flux_pattern': 2 ** rg, 'flux_patterns': 2 ** rf,
+    'flux_patterns_by_number_of_defect_faces': {str(2 * m): int(sp.binomial(20, 2 * m)) for m in range(0, 11)},
+    'pairs': len(pairs), 'pairs_by_separation': {str(d): by_sep[d] for d in range(1, 6)},
+    'link_words_of_the_one_pair_sector': len(pairs) * 2 ** rg,
+    'rotation_content_of_the_20_faces': content_faces, 'rotation_content_of_the_190_pairs': content_pairs,
+    'rotation_content_of_pairs_by_separation': {str(d): c for d, c in content_by_sep.items()},
+    'pairs_fixed_by_a_half_turn': int(fix_pairs['c2'])}
+assert sum(int(sp.binomial(20, 2 * m)) for m in range(11)) == 2 ** 19
+
+# ---------------------------------------------------------------- 3. cover content of the patterns
+tv = [(sp.Integer(2), 1), (sp.Integer(-2), 1), (sp.Integer(0), 30), (sp.Integer(1), 20), (sp.Integer(-1), 20),
+      (phi, 12), (-phi, 12), (phi - 1, 12), (1 - phi, 12)]
+gal = lambda x: sp.simplify(sp.sympify(x).subs(s5, -s5))
+T = [t for t, _ in tv]; TP = [gal(t) for t in T]; SZ = [s for _, s in tv]
+assert sum(SZ) == 120
+I2 = {'1': [sp.Integer(1)] * 9, '2': T, "2'": TP, '3': [t ** 2 - 1 for t in T], "3'": [t ** 2 - 1 for t in TP],
+      '4': [t * u for t, u in zip(T, TP)], '4s': [t ** 3 - 2 * t for t in T], '5': [t ** 4 - 3 * t ** 2 + 1 for t in T],
+      '6': [t ** 5 - 4 * t ** 3 + 3 * t for t in T]}
+for x, y in itertools.product(I2, I2):
+    ip = sp.simplify(sp.Rational(1, 120) * sum(s * a * b for s, a, b in zip(SZ, I2[x], I2[y])))
+    assert ip == (1 if x == y else 0), (x, y, ip)
+def dec2I(char):
+    out = {}
+    for name, ch in I2.items():
+        m = sp.nsimplify(sp.simplify(sp.Rational(1, 120) * sum(s * a * b for s, a, b in zip(SZ, ch, char))))
+        assert m.is_integer and m >= 0
+        if m: out[name] = int(m)
+    return out
+L3 = [I2['1'], I2['3'], I2['3'], I2['1']]; L2 = [I2['1'], I2["2'"], I2['1']]
+SU3 = ['1', '3', '3bar', '1']; SU2 = ['1', '2', '1']
+patterns = []
+for n3 in range(4):
+    for n2 in range(3):
+        char = [sp.simplify(x * y) for x, y in zip(L3[n3], L2[n2])]
+        dimension = int(char[0]); central = int(sp.simplify(char[1] / char[0]))
+        Q6 = 3 * n2 - 2 * n3; Y = Fr(Q6, 6)
+        T3 = [Fr(1, 2), Fr(-1, 2)] if n2 == 1 else [Fr(0)]
+        patterns.append({
+            'n3': n3, 'n2': n2, 'N': n3 + n2, 'states': dimension, 'SU3': SU3[n3], 'SU2': SU2[n2], 'Q6': Q6,
+            'Q5_public_sign': -Q6, 'Y': str(Y), 'electric_charges': [str(t + Y) for t in T3],
+            'handedness_class_convention': 'left' if (n3 + n2) % 2 == 0 else 'right',
+            'Z2_link_charge': n2 % 2, 'triality': n3 % 3,
+            'centre_flux_classes_seen': [k for k in range(1, 6) if (k * Q6) % 6],
+            'cover_content_of_internal_factor': dec2I(char), 'sign_under_cover_centre': central,
+            'conjugate': [3 - n3, 2 - n2]})
+        assert central == (-1) ** n2 and dimension == sp.binomial(3, n3) * sp.binomial(2, n2)
+# ---------------------------------------------------------------- 4. sums and counts
+def anomaly(rows):
+    st = lambda r: r['states']; Yf = lambda r: Fr(r['Q6'], 6)
+    d3 = lambda r: 3 if r['SU3'] != '1' else 1; d2 = lambda r: 2 if r['SU2'] == '2' else 1
+    sgn3 = lambda r: {'3': 1, '3bar': -1, '1': 0}[r['SU3']]
+    return {'sum_Y': str(sum(st(r) * Yf(r) for r in rows)), 'sum_Y_cubed': str(sum(st(r) * Yf(r) ** 3 for r in rows)),
+            'SU2_SU2_Y': str(sum(d3(r) * Yf(r) for r in rows if d2(r) == 2)),
+            'SU3_SU3_Y': str(sum(d2(r) * Yf(r) for r in rows if d3(r) == 3)),
+            'SU3_cubed_(triplets_minus_antitriplets)': str(sum(d2(r) * sgn3(r) for r in rows)),
+            'states': sum(st(r) for r in rows),
+            'sum_T3_squared_over_sum_Q_squared': str(Fr(sum(d3(r) * 2 * Fr(1, 4) for r in rows if d2(r) == 2)) /
+                                                     sum((d3(r) * Fr(q) ** 2 for r in rows for q in r['electric_charges']), Fr(0)))}
+even = [r for r in patterns if r['N'] % 2 == 0]; odd = [r for r in patterns if r['N'] % 2 == 1]
+counts = {'states': sum(r['states'] for r in patterns),
+          'Z2_odd_states': sum(r['states'] for r in patterns if r['Z2_link_charge']),
+          'states_with_Q6_nonzero': sum(r['states'] for r in patterns if r['Q6'] != 0),
+          'states_with_Q6_nonzero_modulo_6': sum(r['states'] for r in patterns if r['Q6'] % 6),
+          'states_with_nonzero_triality': sum(r['states'] for r in patterns if r['triality']),
+          'patterns_blind_to_every_centre_flux': [[r['n3'], r['n2']] for r in patterns if not r['centre_flux_classes_seen']],
+          'by_total_occupation_N (the U(5) multiplets of flat links)': {str(N): sum(r['states'] for r in patterns if r['N'] == N) for N in range(6)}}
+res['patterns'] = {'tag': 'EXACT (Q(sqrt5) characters of the cover of order 120, rationals)', 'rows': patterns,
+                   'anomaly_sums_even_class': anomaly(even), 'anomaly_sums_odd_class': anomaly(odd), 'counts': counts,
+                   'cover_irreps': {k: int(vv[0]) for k, vv in I2.items()},
+                   'spinorial_cover_irreps': [k for k, vv in I2.items() if sp.simplify(vv[1] / vv[0]) == -1]}
+
+# ---------------------------------------------------------------- 5. doublet level on a carrier with one Z2 flux pair
+def rest_phase_pair(f, g):
+    A = adj.astype(float).copy(); x = g; par_ = BF[f][1]
+    while par_[x] is not None:
+        y = par_[x]; e = tuple(sorted(set(faces[x]) & set(faces[y]))); A[e[0], e[1]] *= -1; A[e[1], e[0]] *= -1; x = y
+    flux = [int(round(np.prod([A[a, b] for a, b in itertools.combinations(fc, 2)]))) for fc in faces]
+    assert [i for i, s in enumerate(flux) if s == -1] == sorted((f, g))
+    lam = np.linalg.eigvalsh(5 * np.eye(n) - A)[0]
+    return float(np.arccos(1 - lam / 60)), float(lam)
+ph = {}
+for f, g in pairs:
+    ph.setdefault(BF[f][0][g], []).append(rest_phase_pair(f, g))
+ref = {int(r['separation']): r['rest_phase'] for r in json.load(open(RL + '/work/DIRAC/defect_phases.json'))['rows'] if r['alpha'] == '1/2'}
+rows5 = []
+for d in range(1, 6):
+    vals = [x for x, _ in ph[d]]
+    rows5.append({'separation': d, 'pairs': len(vals), 'rest_phase': round(float(np.mean(vals)), 6), 'spread_over_pairs': float(np.ptp(vals)),
+                  'lambda_min': round(ph[d][0][1], 9), 'CF1_item6_value': round(ref[d], 6), 'difference': abs(float(np.mean(vals)) - ref[d])})
+res['doublet_level_with_one_Z2_flux_pair'] = {'tag': 'MEASURED (float64 eigenvalues of the signed 12 x 12 Laplacian)', 'rows': rows5,
+                                             'triplet_level': 'blind to the Z2 link: rest phase 0 (the flat kernel)'}
+
+# ---------------------------------------------------------------- 6. shadows of the stored census (level 10, sweep 300)
+H = json.load(open(RL + '/work/SIM/cf1/runs/H_background_from_runs.json'))['part_a_densities']['checkpoint_composition']['L10_000300']
+tot = H['carriers']; cfg = H['all_configurations']
+assert sum(c['carriers'] for c in cfg) == tot and len(cfg) == H['n_distinct_configurations']
+z2 = Counter(); z3 = Counter(); both = Counter()
+for c in cfg:
+    k2 = sum(1 for x in c['multiset'] if x % 2); k3 = sum(1 for x in c['multiset'] if x % 3)
+    z2[k2] += c['carriers']; z3[k3] += c['carriers']; both[(k2 > 0, k3 > 0)] += c['carriers']
+assert all(k % 2 == 0 for k in z2)
+faces_tot = {k: H['faces_per_carrier'][k]['total'] for k in '12345'}
+res['census_shadows_L10_sweep300'] = {
+    'tag': 'EXACT counts of stored data; inherits the declared register rule of the runs',
+    'carriers': tot, 'distinct_configurations': len(cfg),
+    'carriers_by_number_of_Z2_odd_faces (classes 1, 3, 5)': {str(k): z2[k] for k in sorted(z2)},
+    'share_of_carriers_with_a_Z2_flux': round(1 - z2[0] / tot, 6),
+    'share_of_carriers_with_exactly_two_Z2_odd_faces': round(z2[2] / tot, 6),
+    'carriers_by_number_of_Z3_nonzero_faces (classes 1, 2, 4, 5)': {str(k): z3[k] for k in sorted(z3)},
+    'share_of_carriers_with_a_Z3_flux': round(1 - z3[0] / tot, 6),
+    'carriers_(Z2 flux, Z3 flux)': {f'{a},{b}': both[(a, b)] for a in (False, True) for b in (False, True)},
+    'share_with_defects_but_flat_in_Z2 (invisible to the working register)': round(both[(False, True)] / tot, 6),
+    'share_of_defect_carriers_flat_in_Z2': round(both[(False, True)] / H['carriers_with_defects'], 6),
+    'Z2_odd_faces_per_carrier': round((faces_tot['1'] + faces_tot['3'] + faces_tot['5']) / tot, 6),
+    'of_which_class_3': round(faces_tot['3'] / tot, 6),
+    'Z3_nonzero_faces_per_carrier': round((faces_tot['1'] + faces_tot['2'] + faces_tot['4'] + faces_tot['5']) / tot, 6),
+    'share_of_defect_carriers_by_composition': {','.join(map(str, c['multiset'])): round(c['carriers'] / H['carriers_with_defects'], 4)
+                                               for c in cfg[1:10]}}
+# ---------------------------------------------------------------- 7. what separates three levels from two (public local reflector)
+from model.coherent_seam_repair.gauge_walk import local
+U_flat = local(sp.eye(5))[0]; U_link = local(sp.diag(1, 1, 1, -1, -1))[0]; U_one = local(sp.eye(1))[0]
+def lift(V):                                   # fibre operator on the local space: source (2) x fibre (5) x record (2)
+    return sp.kronecker_product(sp.eye(2), V, sp.eye(2))
+swap = sp.eye(5); swap[0, 0] = swap[3, 3] = 0; swap[0, 3] = swap[3, 0] = 1     # exchange a vector level with a spinor level
+flat_is_scalar = all(U_flat[(s_ * 5 + j) * 2 + r, (t_ * 5 + k) * 2 + q] == (U_one[s_ * 2 + r, t_ * 2 + q] if j == k else 0)
+                     for s_ in range(2) for t_ in range(2) for j in range(5) for k in range(5) for r in range(2) for q in range(2))
+res['three_plus_two_split'] = {
+    'tag': 'EXACT (sympy, the public function gauge_walk.local)',
+    'flat_reflector_is_the_scalar_reflector_times_identity_on_the_code': bool(flat_is_scalar),
+    'level_swap_commutes_with_flat_reflector': bool(lift(swap) * U_flat == U_flat * lift(swap)),
+    'level_swap_commutes_with_central_link_reflector': bool(lift(swap) * U_link == U_link * lift(swap)),
+    'Q5_commutes_with_central_link_reflector': bool(lift(sp.diag(2, 2, 2, -3, -3)) * U_link == U_link * lift(sp.diag(2, 2, 2, -3, -3))),
+    'every_level_projector_commutes_with_central_link_reflector': all(
+        lift(sp.diag(*[1 if i == j else 0 for i in range(5)])) * U_link == U_link * lift(sp.diag(*[1 if i == j else 0 for i in range(5)])) for j in range(5)),
+    'reading': 'with flat links the code is a spectator (symmetry U(5)); the central link sign alone separates the three vector levels from the two spinor levels'}
+t = res['three_plus_two_split']
+assert t['flat_reflector_is_the_scalar_reflector_times_identity_on_the_code'] and t['level_swap_commutes_with_flat_reflector']
+assert not t['level_swap_commutes_with_central_link_reflector'] and t['Q5_commutes_with_central_link_reflector'] and t['every_level_projector_commutes_with_central_link_reflector']
+json.dump(res, open(OUT, 'w'), indent=1, default=str)
+
+# ---------------------------------------------------------------- print
+print('carrier:', res['carrier'])
+print('walk checks:', checks)
+print('walk content total:', dec_tot, '| +1:', dec_plus, '| -1:', dec_minus, '| float character defect', f'{worst:.1e}')
+for r in res['scalar_walk']['oscillatory']: print('  ', r)
+print('antipodal parity of kernel multiplets:', par)
+lr = res['link_register']
+print('link register: ranks', rg, rf, '| flux patterns', lr['flux_patterns'], '| pairs by separation', lr['pairs_by_separation'],
+      '| one-pair link words', lr['link_words_of_the_one_pair_sector'])
+print('  faces:', content_faces, '| 190 pairs:', content_pairs, '| half-turn fixes', lr['pairs_fixed_by_a_half_turn'], 'pairs')
+print('  pairs by separation:', lr['rotation_content_of_pairs_by_separation'])
+for r in patterns:
+    print(f"  ({r['n3']},{r['n2']}) dim {r['states']} {r['SU3']:>4s} {r['SU2']} Q6 {r['Q6']:+d} Q {r['electric_charges']} sees {r['centre_flux_classes_seen']}"
+          f" cover {r['cover_content_of_internal_factor']} centre {r['sign_under_cover_centre']:+d}")
+print('anomaly even:', res['patterns']['anomaly_sums_even_class']); print('anomaly odd:', res['patterns']['anomaly_sums_odd_class'])
+print('counts:', counts)
+for r in rows5: print('  doublet level, Z2 pair:', r)
+print('census shadows:', json.dumps(res['census_shadows_L10_sweep300'])[:600])
+print('three plus two:', res['three_plus_two_split'])

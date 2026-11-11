@@ -1,0 +1,204 @@
+{
+  "schema": "lew.t3_vev_attachment.v1",
+  "loops_for_v_running": 5,
+  "pixels": {
+    "P_fwd": {
+      "A1": {
+        "rule": "A1",
+        "attachment_scale_GeV": 91.58832749908593,
+        "r_v(Q)_over_v(Q0)": 1.0,
+        "eta_v(Q0)_over_v_source": 1.0,
+        "v_Q0_GeV": 246.59675497393056,
+        "outputs_GeV": {
+          "H": 124.84087215303943,
+          "t": 170.60949626156471,
+          "W": 79.85529243123125,
+          "W_BW_noshift": 79.85529075416446,
+          "Z": 90.58327097645206,
+          "Z_BW_noshift": 90.58325788185077,
+          "GF_local": 1.1829827378199708e-05
+        },
+        "residual_percent_compare_only": {
+          "W": -0.6311495644968135,
+          "Z": -0.6630583921199418,
+          "H": -0.23106197311640875,
+          "t": -0.8660684128037666
+        }
+      },
+      "A2": {
+        "rule": "A2",
+        "attachment_scale_GeV": 162.00835141101015,
+        "r_v(Q)_over_v(Q0)": 0.993575404348231,
+        "eta_v(Q0)_over_v_source": 1.0064661379736783,
+        "v_Q0_GeV": 248.19128361545336,
+        "outputs_GeV": {
+          "H": 125.58504381440397,
+          "t": 171.63106933618235,
+          "W": 80.36209047108353,
+          "W_BW_noshift": 80.36208900312278,
+          "Z": 91.16034043083873,
+          "Z_BW_noshift": 91.16032750254786,
+          "GF_local": 1.1679854946741767e-05
+        },
+        "iterations": 9,
+        "yt_at_Qt": 0.9291055261752792,
+        "fixed_point_residual_GeV": 9.350742402602918e-12,
+        "residual_percent_compare_only": {
+          "W": -0.0005096020114669919,
+          "Z": -0.03022283566270767,
+          "H": 0.36365684840085066,
+          "t": -0.2724756907714343
+        }
+      },
+      "A3": {
+        "rule": "A3",
+        "attachment_scale_GeV": 246.59675497393056,
+        "r_v(Q)_over_v(Q0)": 0.9893034956479966,
+        "eta_v(Q0)_over_v_source": 1.0108121566324773,
+        "v_Q0_GeV": 249.26299771376932,
+        "outputs_GeV": {
+          "H": 126.08504759952784,
+          "t": 172.31745713731172,
+          "W": 80.70268961949657,
+          "W_BW_noshift": 80.70268829290113,
+          "Z": 91.54817418438216,
+          "Z_BW_noshift": 91.54816136880255,
+          "GF_local": 1.1580656858974986e-05
+        },
+        "residual_percent_compare_only": {
+          "W": 0.42331886078279535,
+          "Z": 0.3950899016011533,
+          "H": 0.7632443055445082,
+          "t": 0.12635510593359545
+        }
+      },
+      "C1": {
+        "rule": "C1",
+        "attachment_scale_GeV": 172.4,
+        "r_v(Q)_over_v(Q0)": 0.9929201092230164,
+        "eta_v(Q0)_over_v_source": 1.0071303730393009,
+        "v_Q0_GeV": 248.35508182717578,
+        "outputs_GeV": {
+          "H": 125.66147193936514,
+          "t": 171.735987222177,
+          "W": 80.4141483741472,
+          "W_BW_noshift": 80.41414692774975,
+          "Z": 91.21961736009297,
+          "Z_BW_noshift": 91.21960444898028,
+          "GF_local": 1.1664611189798969e-05
+        },
+        "residual_percent_compare_only": {
+          "W": 0.0642692476555684,
+          "Z": 0.034782421892565196,
+          "H": 0.424735826232836,
+          "t": -0.2115123636391658
+        }
+      },
+      "decision": {
+        "A1_vs_A2_ratio_minus_one": 0.006424595651769005,
+        "threshold": 1e-05,
+        "source_fixes_attachment": false,
+        "verdict": "two source statements attach the same v at different scales; under the MSbar dictionary they differ by the factor above, so the attachment is DECLARED, not fixed by the source"
+      }
+    },
+    "P_br": {
+      "A1": {
+        "rule": "A1",
+        "attachment_scale_GeV": 91.58958701476675,
+        "r_v(Q)_over_v(Q0)": 1.0,
+        "eta_v(Q0)_over_v_source": 1.0,
+        "v_Q0_GeV": 246.6001007675421,
+        "outputs_GeV": {
+          "H": 124.84258153183792,
+          "t": 170.61183621362113,
+          "W": 79.85639026354626,
+          "W_BW_noshift": 79.85638858645733,
+          "Z": 90.58451645393794,
+          "Z_BW_noshift": 90.58450335915758,
+          "GF_local": 1.182950641792436e-05
+        },
+        "residual_percent_compare_only": {
+          "W": -0.6297834642448152,
+          "Z": -0.6616925557689779,
+          "H": -0.2296958908032276,
+          "t": -0.8647087660539565
+        }
+      },
+      "A2": {
+        "rule": "A2",
+        "attachment_scale_GeV": 162.0105708164468,
+        "r_v(Q)_over_v(Q0)": 0.9935754034600867,
+        "eta_v(Q0)_over_v_source": 1.0064661388733456,
+        "v_Q0_GeV": 248.19465126528607,
+        "outputs_GeV": {
+          "H": 125.5867634703229,
+          "t": 171.63342342176176,
+          "W": 80.3631953388577,
+          "W_BW_noshift": 80.36319387087771,
+          "Z": 91.16159392096665,
+          "Z_BW_noshift": 91.16158099249904,
+          "GF_local": 1.1679538035092239e-05
+        },
+        "iterations": 9,
+        "yt_at_Qt": 0.9291056483079746,
+        "fixed_point_residual_GeV": 9.350742402602918e-12,
+        "residual_percent_compare_only": {
+          "W": 0.0008652528949326665,
+          "Z": -0.02884821235421553,
+          "H": 0.3650311438686993,
+          "t": -0.271107831631745
+        }
+      },
+      "A3": {
+        "rule": "A3",
+        "attachment_scale_GeV": 246.6001007675421,
+        "r_v(Q)_over_v(Q0)": 0.9893034951614956,
+        "eta_v(Q0)_over_v_source": 1.0108121571295554,
+        "v_Q0_GeV": 249.26637980520493,
+        "outputs_GeV": {
+          "H": 126.08677404464902,
+          "t": 172.31982055502073,
+          "W": 80.70379913599034,
+          "W_BW_noshift": 80.7037978093776,
+          "Z": 91.54943296970842,
+          "Z_BW_noshift": 91.54942015395363,
+          "GF_local": 1.1580342648317706e-05
+        },
+        "residual_percent_compare_only": {
+          "W": 0.4246995003768461,
+          "Z": 0.39647033181859914,
+          "H": 0.7646240267314086,
+          "t": 0.12772838757741933
+        }
+      },
+      "C1": {
+        "rule": "C1",
+        "attachment_scale_GeV": 172.4,
+        "r_v(Q)_over_v(Q0)": 0.9929202516745834,
+        "eta_v(Q0)_over_v_source": 1.0071302285490464,
+        "v_Q0_GeV": 248.3584158462326,
+        "outputs_GeV": {
+          "H": 125.66317591141049,
+          "t": 171.7383197777811,
+          "W": 80.4152425623736,
+          "W_BW_noshift": 80.41524111595251,
+          "Z": 91.22085869018474,
+          "Z_BW_noshift": 91.22084577889177,
+          "GF_local": 1.1664298025044913e-05
+        },
+        "residual_percent_compare_only": {
+          "W": 0.06563081334405307,
+          "Z": 0.03614371005884465,
+          "H": 0.42609758763725303,
+          "t": -0.21015701465362246
+        }
+      },
+      "decision": {
+        "A1_vs_A2_ratio_minus_one": 0.006424596539913341,
+        "threshold": 1e-05,
+        "source_fixes_attachment": false,
+        "verdict": "two source statements attach the same v at different scales; under the MSbar dictionary they differ by the factor above, so the attachment is DECLARED, not fixed by the source"
+      }
+    }
+  }
+}

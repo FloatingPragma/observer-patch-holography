@@ -1,0 +1,3444 @@
+{
+ "run": "M",
+ "request": "coordinator queue change 2026-11-10 (theory session): mass option M3, CF1.md section 10, reports/KD.md",
+ "program": "internal register = public coherent seam walk (Observer(fibre=1), 1440 states) x spin doublet; tick = W per cell, then S_i with alpha_i = R x sigma_i, alternating order",
+ "readings": [
+  "a hop carries the whole internal register (port, record, address) and the spin unchanged to the neighbouring carrier",
+  "S_i = P+ T + P- T*, P+- = (1 +- R x sigma_i)/2, T translation by +1 cell; R = Observer.reflect on the address register",
+  "tick order W first, then shifts (conjugate to the CF-1 engine order shifts-then-mass; same phases)"
+ ],
+ "lattice": [
+  8,
+  8,
+  8
+ ],
+ "units": "cells and ticks; phases in radians per tick",
+ "seed": "check vector default_rng(5); random eigenspace vector default_rng(11)",
+ "clock": "return amplitude every two ticks, 96 ticks; phases halved",
+ "preparation": "plane wave (fills all four sublattices) x embedded rest state x spin up or down",
+ "sublattices": "plane waves fill all four sublattices",
+ "matrix_against_public_Observer": {
+  "W_max_abs_diff": 2.220446049250313e-15,
+  "R_max_abs_diff": 1.3322676295501878e-15
+ },
+ "W_orthogonal": 2.220446049250313e-15,
+ "RWRW_minus_1": 4.884981308350689e-15,
+ "W_spectrum_counts": {
+  "plus_one": 38,
+  "minus_one": 1356,
+  "other": 46
+ },
+ "W_distinct_phases_other": [
+  0.304708437,
+  0.367208021,
+  0.451026812,
+  0.49619826,
+  0.585685543
+ ],
+ "part1_sectors": [
+  {
+   "sector": "uniform load",
+   "mu": 5.0,
+   "record": 0,
+   "multiplicity": 1,
+   "lambda_values": [
+    0.9999999999999996
+   ],
+   "lambda_spread": 0.0,
+   "plane_dimension_total": 1,
+   "mass_angle_arccos_lambda": 2.9802322387695312e-08,
+   "invariance_residual_W": 2.8744570507129018e-15,
+   "invariance_residual_R": 2.8303389081482985e-15,
+   "R_on_e_minus_e": 1.3877787807814457e-17,
+   "W_phases_on_span": [
+    0.0
+   ],
+   "max_abs_phase_minus_pm_omega": 2.9802322387695312e-08,
+   "R_eigenvalues_on_span": [
+    0.9999999999999976
+   ],
+   "RWRW_minus_1_on_span": 9.992007221626409e-15
+  },
+  {
+   "sector": "uniform load",
+   "mu": 5.0,
+   "record": 1,
+   "multiplicity": 1,
+   "lambda_values": [
+    0.833333333333333
+   ],
+   "lambda_spread": 0.0,
+   "plane_dimension_total": 2,
+   "mass_angle_arccos_lambda": 0.5856855434571515,
+   "invariance_residual_W": 6.004690857117556e-15,
+   "invariance_residual_R": 1.7980950074234847e-15,
+   "R_on_e_minus_e": 1.3877787807814457e-17,
+   "W_phases_on_span": [
+    -0.5856855434571516,
+    0.5856855434571516
+   ],
+   "max_abs_phase_minus_pm_omega": 1.1102230246251565e-16,
+   "R_eigenvalues_on_span": [
+    -1.0000000000000009,
+    0.9999999999999982
+   ],
+   "RWRW_minus_1_on_span": 3.645330155120503e-15
+  },
+  {
+   "sector": "triplet mu=+sqrt5",
+   "mu": 2.23606797749979,
+   "record": 0,
+   "multiplicity": 3,
+   "lambda_values": [
+    0.9539344662916651,
+    0.9539344662916618,
+    0.9539344662916686
+   ],
+   "lambda_spread": 6.772360450213455e-15,
+   "plane_dimension_total": 6,
+   "mass_angle_arccos_lambda": 0.30470843737026676,
+   "invariance_residual_W": 1.2537711694299165e-14,
+   "invariance_residual_R": 1.0467578460159614e-14,
+   "R_on_e_minus_e": 1.1102230246251565e-16,
+   "W_phases_on_span": [
+    -0.30470843737027414,
+    -0.3047084373702723,
+    -0.3047084373702721,
+    0.3047084373702721,
+    0.3047084373702723,
+    0.30470843737027414
+   ],
+   "max_abs_phase_minus_pm_omega": 7.382983113757291e-15,
+   "R_eigenvalues_on_span": [
+    -1.0000000000000009,
+    -1.0000000000000007,
+    -0.9999999999999992,
+    0.9999999999999932,
+    1.0,
+    1.0000000000000056
+   ],
+   "RWRW_minus_1_on_span": 2.475797344914099e-14
+  },
+  {
+   "sector": "triplet mu=+sqrt5",
+   "mu": 2.23606797749979,
+   "record": 1,
+   "multiplicity": 3,
+   "lambda_values": [
+    0.8793988670416722,
+    0.8793988670416678,
+    0.8793988670416759
+   ],
+   "lambda_spread": 8.104628079763643e-15,
+   "plane_dimension_total": 6,
+   "mass_angle_arccos_lambda": 0.4961982595020691,
+   "invariance_residual_W": 1.1828938810682843e-14,
+   "invariance_residual_R": 9.56750193492638e-15,
+   "R_on_e_minus_e": 1.3877787807814457e-16,
+   "W_phases_on_span": [
+    -0.49619825950207247,
+    -0.4961982595020719,
+    -0.4961982595020703,
+    0.4961982595020703,
+    0.4961982595020719,
+    0.49619825950207247
+   ],
+   "max_abs_phase_minus_pm_omega": 3.3861802251067274e-15,
+   "R_eigenvalues_on_span": [
+    -0.9999999999999999,
+    -0.9999999999999986,
+    -0.9999999999999979,
+    0.9999999999999998,
+    1.0000000000000033,
+    1.0000000000000042
+   ],
+   "RWRW_minus_1_on_span": 9.992007221626409e-15
+  },
+  {
+   "sector": "quintet",
+   "mu": -1.0,
+   "record": 0,
+   "multiplicity": 5,
+   "lambda_values": [
+    0.9000000000000056,
+    0.9000000000000087,
+    0.9000000000000077,
+    0.9000000000000017,
+    0.9000000000000038
+   ],
+   "lambda_spread": 6.994405055138486e-15,
+   "plane_dimension_total": 10,
+   "mass_angle_arccos_lambda": 0.4510268117962499,
+   "invariance_residual_W": 2.6053093915522894e-14,
+   "invariance_residual_R": 1.1774939768358542e-14,
+   "R_on_e_minus_e": 1.8735013540549517e-16,
+   "W_phases_on_span": [
+    -0.45102681179626436,
+    -0.45102681179626314,
+    -0.45102681179626286,
+    -0.4510268117962626,
+    -0.45102681179626175,
+    0.45102681179626175,
+    0.4510268117962626,
+    0.45102681179626286,
+    0.45102681179626314,
+    0.45102681179626436
+   ],
+   "max_abs_phase_minus_pm_omega": 1.4432899320127035e-14,
+   "R_eigenvalues_on_span": [
+    -1.0000000000000013,
+    -1.0000000000000007,
+    -1.0,
+    -0.9999999999999993,
+    -0.9999999999999986,
+    0.999999999999994,
+    0.9999999999999947,
+    0.999999999999997,
+    0.9999999999999987,
+    1.000000000000001
+   ],
+   "RWRW_minus_1_on_span": 1.6986412276764895e-14
+  },
+  {
+   "sector": "quintet",
+   "mu": -1.0,
+   "record": 1,
+   "multiplicity": 5,
+   "lambda_values": [
+    0.9333333333333378,
+    0.9333333333333416,
+    0.9333333333333408,
+    0.9333333333333357,
+    0.9333333333333367
+   ],
+   "lambda_spread": 5.88418203051333e-15,
+   "plane_dimension_total": 10,
+   "mass_angle_arccos_lambda": 0.36720802055782253,
+   "invariance_residual_W": 2.5013754770297637e-14,
+   "invariance_residual_R": 1.764514790665058e-14,
+   "R_on_e_minus_e": 1.8735013540549517e-16,
+   "W_phases_on_span": [
+    -0.3672080205578383,
+    -0.3672080205578381,
+    -0.3672080205578376,
+    -0.3672080205578373,
+    -0.36720802055783625,
+    0.36720802055783625,
+    0.3672080205578373,
+    0.3672080205578376,
+    0.3672080205578381,
+    0.3672080205578383
+   ],
+   "max_abs_phase_minus_pm_omega": 1.5765166949677223e-14,
+   "R_eigenvalues_on_span": [
+    -1.0000000000000004,
+    -1.0000000000000004,
+    -1.0,
+    -0.9999999999999993,
+    -0.9999999999999989,
+    0.9999999999999868,
+    0.9999999999999949,
+    0.9999999999999974,
+    1.0000000000000038,
+    1.0000000000000067
+   ],
+   "RWRW_minus_1_on_span": 4.4297898682543746e-14
+  },
+  {
+   "sector": "triplet mu=-sqrt5",
+   "mu": -2.23606797749979,
+   "record": 0,
+   "multiplicity": 3,
+   "lambda_values": [
+    0.879398867041675,
+    0.8793988670416752,
+    0.8793988670416714
+   ],
+   "lambda_spread": 3.885780586188048e-15,
+   "plane_dimension_total": 6,
+   "mass_angle_arccos_lambda": 0.49619825950206536,
+   "invariance_residual_W": 1.3676073563641172e-14,
+   "invariance_residual_R": 1.007347458142044e-14,
+   "R_on_e_minus_e": 1.5959455978986625e-16,
+   "W_phases_on_span": [
+    -0.49619825950207525,
+    -0.496198259502073,
+    -0.4961982595020728,
+    0.4961982595020728,
+    0.496198259502073,
+    0.49619825950207525
+   ],
+   "max_abs_phase_minus_pm_omega": 9.880984919163893e-15,
+   "R_eigenvalues_on_span": [
+    -1.000000000000002,
+    -1.0000000000000004,
+    -0.9999999999999988,
+    0.999999999999996,
+    0.9999999999999987,
+    1.0000000000000013
+   ],
+   "RWRW_minus_1_on_span": 9.769962616701378e-15
+  },
+  {
+   "sector": "triplet mu=-sqrt5",
+   "mu": -2.23606797749979,
+   "record": 1,
+   "multiplicity": 3,
+   "lambda_values": [
+    0.953934466291667,
+    0.9539344662916673,
+    0.9539344662916633
+   ],
+   "lambda_spread": 3.9968028886505635e-15,
+   "plane_dimension_total": 6,
+   "mass_angle_arccos_lambda": 0.3047084373702642,
+   "invariance_residual_W": 1.8894198030481516e-14,
+   "invariance_residual_R": 1.2789831866388025e-14,
+   "R_on_e_minus_e": 1.5959455978986625e-16,
+   "W_phases_on_span": [
+    -0.3047084373702735,
+    -0.3047084373702717,
+    -0.304708437370271,
+    0.304708437370271,
+    0.3047084373702717,
+    0.3047084373702735
+   ],
+   "max_abs_phase_minus_pm_omega": 9.270362255620057e-15,
+   "R_eigenvalues_on_span": [
+    -1.000000000000001,
+    -1.0000000000000002,
+    -0.9999999999999993,
+    0.9999999999999989,
+    1.000000000000005,
+    1.0000000000000069
+   ],
+   "RWRW_minus_1_on_span": 2.5091040356528538e-14
+  }
+ ],
+ "part2_lattice": [
+  {
+   "sector": "uniform load",
+   "mu": 5.0,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    0,
+    0,
+    0
+   ],
+   "p": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.9999999999999974,
+   "theta_arccos_lambda": 7.146345858741881e-08,
+   "phases_estimated": [
+    0.0
+   ],
+   "phases_symbol_alternating": [
+    7.146345853970032e-08,
+    7.146345858133364e-08
+   ],
+   "closed_form_on_axis": 7.146345858741881e-08,
+   "max_abs_estimated_minus_symbol": 7.146345853970032e-08,
+   "max_leak_outside_plane": 2.6645352591003757e-15,
+   "norm_drift": 6.217248937900877e-15
+  },
+  {
+   "sector": "uniform load",
+   "mu": 5.0,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    0,
+    0,
+    0
+   ],
+   "p": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.9999999999999974,
+   "theta_arccos_lambda": 7.146345858741881e-08,
+   "phases_estimated": [
+    0.0
+   ],
+   "phases_symbol_alternating": [
+    7.146345853970032e-08,
+    7.146345858133364e-08
+   ],
+   "closed_form_on_axis": 7.146345858741881e-08,
+   "max_abs_estimated_minus_symbol": 7.146345853970032e-08,
+   "max_leak_outside_plane": 2.6645352591003757e-15,
+   "norm_drift": 6.217248937900877e-15
+  },
+  {
+   "sector": "uniform load",
+   "mu": 5.0,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    1,
+    0,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.0,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.9999999999999974,
+   "theta_arccos_lambda": 7.146345858741881e-08,
+   "phases_estimated": [
+    0.7853981634
+   ],
+   "phases_symbol_alternating": [
+    0.7853981633974507,
+    0.7853981633974508
+   ],
+   "closed_form_on_axis": 0.7853981633974507,
+   "max_abs_estimated_minus_symbol": 2.549183086841822e-12,
+   "max_leak_outside_plane": 1.3322676295501878e-15,
+   "norm_drift": 6.661338147750939e-16
+  },
+  {
+   "sector": "uniform load",
+   "mu": 5.0,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    1,
+    0,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.0,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.9999999999999974,
+   "theta_arccos_lambda": 7.146345858741881e-08,
+   "phases_estimated": [
+    0.7853981634
+   ],
+   "phases_symbol_alternating": [
+    0.7853981633974507,
+    0.7853981633974508
+   ],
+   "closed_form_on_axis": 0.7853981633974507,
+   "max_abs_estimated_minus_symbol": 2.549183086841822e-12,
+   "max_leak_outside_plane": 1.3322676295501878e-15,
+   "norm_drift": 6.661338147750939e-16
+  },
+  {
+   "sector": "uniform load",
+   "mu": 5.0,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    2,
+    0,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.0,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.9999999999999974,
+   "theta_arccos_lambda": 7.146345858741881e-08,
+   "phases_estimated": [
+    1.5707963268
+   ],
+   "phases_symbol_alternating": [
+    1.5707963267948966,
+    1.5707963267948966
+   ],
+   "closed_form_on_axis": 1.5707963267948966,
+   "max_abs_estimated_minus_symbol": 5.1034731995969196e-12,
+   "max_leak_outside_plane": 1.1102230246251565e-15,
+   "norm_drift": 5.995204332975845e-15
+  },
+  {
+   "sector": "uniform load",
+   "mu": 5.0,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    2,
+    0,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.0,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.9999999999999974,
+   "theta_arccos_lambda": 7.146345858741881e-08,
+   "phases_estimated": [
+    1.5707963268
+   ],
+   "phases_symbol_alternating": [
+    1.5707963267948966,
+    1.5707963267948966
+   ],
+   "closed_form_on_axis": 1.5707963267948966,
+   "max_abs_estimated_minus_symbol": 5.1034731995969196e-12,
+   "max_leak_outside_plane": 1.1102230246251565e-15,
+   "norm_drift": 5.995204332975845e-15
+  },
+  {
+   "sector": "uniform load",
+   "mu": 5.0,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.9999999999999974,
+   "theta_arccos_lambda": 7.146345858741881e-08,
+   "phases_estimated": [
+    0.7853981634
+   ],
+   "phases_symbol_alternating": [
+    0.7853981633974508,
+    0.7853981633974508
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 2.549183086841822e-12,
+   "max_leak_outside_plane": 1.887379141862766e-15,
+   "norm_drift": 0.0
+  },
+  {
+   "sector": "uniform load",
+   "mu": 5.0,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.9999999999999974,
+   "theta_arccos_lambda": 7.146345858741881e-08,
+   "phases_estimated": [
+    0.7853981634
+   ],
+   "phases_symbol_alternating": [
+    0.7853981633974508,
+    0.7853981633974508
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 2.549183086841822e-12,
+   "max_leak_outside_plane": 1.5543122344752192e-15,
+   "norm_drift": 0.0
+  },
+  {
+   "sector": "uniform load",
+   "mu": 5.0,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    1
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.7853981633974483
+   ],
+   "spin": "up",
+   "lambda": 0.9999999999999974,
+   "theta_arccos_lambda": 7.146345858741881e-08,
+   "phases_estimated": [
+    0.7853981634
+   ],
+   "phases_symbol_alternating": [
+    0.7853981633974508,
+    0.7853981633974508
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 2.549183086841822e-12,
+   "max_leak_outside_plane": 1.1102230246251565e-15,
+   "norm_drift": 0.0
+  },
+  {
+   "sector": "uniform load",
+   "mu": 5.0,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    1
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.7853981633974483
+   ],
+   "spin": "down",
+   "lambda": 0.9999999999999974,
+   "theta_arccos_lambda": 7.146345858741881e-08,
+   "phases_estimated": [
+    0.7853981634
+   ],
+   "phases_symbol_alternating": [
+    0.7853981633974508,
+    0.7853981633974508
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 2.549183086841822e-12,
+   "max_leak_outside_plane": 1.1102230246251565e-15,
+   "norm_drift": 0.0
+  },
+  {
+   "sector": "uniform load",
+   "mu": 5.0,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    2,
+    1,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.9999999999999974,
+   "theta_arccos_lambda": 7.146345858741881e-08,
+   "phases_estimated": [
+    0.7853981634
+   ],
+   "phases_symbol_alternating": [
+    0.7853981633974508,
+    0.7853981633974509
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 2.5490720645393594e-12,
+   "max_leak_outside_plane": 1.9984014443252818e-15,
+   "norm_drift": 0.0
+  },
+  {
+   "sector": "uniform load",
+   "mu": 5.0,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    2,
+    1,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.9999999999999974,
+   "theta_arccos_lambda": 7.146345858741881e-08,
+   "phases_estimated": [
+    0.7853981634
+   ],
+   "phases_symbol_alternating": [
+    0.7853981633974508,
+    0.7853981633974509
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 2.5490720645393594e-12,
+   "max_leak_outside_plane": 1.9984014443252818e-15,
+   "norm_drift": 0.0
+  },
+  {
+   "sector": "uniform load",
+   "mu": 5.0,
+   "record": 0,
+   "internal_vector": "random",
+   "n": [
+    1,
+    1,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.9999999999999974,
+   "theta_arccos_lambda": 7.146345858741881e-08,
+   "phases_estimated": [
+    0.7853981634
+   ],
+   "phases_symbol_alternating": [
+    0.7853981633974508,
+    0.7853981633974508
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 2.549183086841822e-12,
+   "max_leak_outside_plane": 1.887379141862766e-15,
+   "norm_drift": 0.0
+  },
+  {
+   "sector": "uniform load",
+   "mu": 5.0,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    0,
+    0,
+    0
+   ],
+   "p": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.8333333333333314,
+   "theta_arccos_lambda": 0.5856855434571545,
+   "phases_estimated": [
+    0.5856855435
+   ],
+   "phases_symbol_alternating": [
+    0.5856855434571544,
+    0.5856855434571545
+   ],
+   "closed_form_on_axis": 0.5856855434571545,
+   "max_abs_estimated_minus_symbol": 4.2845504921729116e-11,
+   "max_leak_outside_plane": 6.661338147750939e-15,
+   "norm_drift": 3.552713678800501e-15
+  },
+  {
+   "sector": "uniform load",
+   "mu": 5.0,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    0,
+    0,
+    0
+   ],
+   "p": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.8333333333333314,
+   "theta_arccos_lambda": 0.5856855434571545,
+   "phases_estimated": [
+    0.5856855435
+   ],
+   "phases_symbol_alternating": [
+    0.5856855434571544,
+    0.5856855434571545
+   ],
+   "closed_form_on_axis": 0.5856855434571545,
+   "max_abs_estimated_minus_symbol": 4.2845504921729116e-11,
+   "max_leak_outside_plane": 6.661338147750939e-15,
+   "norm_drift": 3.552713678800501e-15
+  },
+  {
+   "sector": "uniform load",
+   "mu": 5.0,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    1,
+    0,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.0,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.8333333333333314,
+   "theta_arccos_lambda": 0.5856855434571545,
+   "phases_estimated": [
+    0.9406590807
+   ],
+   "phases_symbol_alternating": [
+    0.9406590807303338,
+    0.9406590807303339
+   ],
+   "closed_form_on_axis": 0.9406590807303338,
+   "max_abs_estimated_minus_symbol": 3.033373552341345e-11,
+   "max_leak_outside_plane": 4.440892098500626e-15,
+   "norm_drift": 5.10702591327572e-15
+  },
+  {
+   "sector": "uniform load",
+   "mu": 5.0,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    1,
+    0,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.0,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.8333333333333314,
+   "theta_arccos_lambda": 0.5856855434571545,
+   "phases_estimated": [
+    0.9406590807
+   ],
+   "phases_symbol_alternating": [
+    0.9406590807303338,
+    0.9406590807303339
+   ],
+   "closed_form_on_axis": 0.9406590807303338,
+   "max_abs_estimated_minus_symbol": 3.033373552341345e-11,
+   "max_leak_outside_plane": 4.440892098500626e-15,
+   "norm_drift": 5.10702591327572e-15
+  },
+  {
+   "sector": "uniform load",
+   "mu": 5.0,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    2,
+    0,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.0,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.8333333333333314,
+   "theta_arccos_lambda": 0.5856855434571545,
+   "phases_estimated": [
+    1.5707963268
+   ],
+   "phases_symbol_alternating": [
+    1.5707963267948966,
+    1.5707963267948966
+   ],
+   "closed_form_on_axis": 1.5707963267948966,
+   "max_abs_estimated_minus_symbol": 5.1034731995969196e-12,
+   "max_leak_outside_plane": 4.884981308350689e-15,
+   "norm_drift": 6.217248937900877e-15
+  },
+  {
+   "sector": "uniform load",
+   "mu": 5.0,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    2,
+    0,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.0,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.8333333333333314,
+   "theta_arccos_lambda": 0.5856855434571545,
+   "phases_estimated": [
+    1.5707963268
+   ],
+   "phases_symbol_alternating": [
+    1.5707963267948966,
+    1.5707963267948966
+   ],
+   "closed_form_on_axis": 1.5707963267948966,
+   "max_abs_estimated_minus_symbol": 5.1034731995969196e-12,
+   "max_leak_outside_plane": 4.884981308350689e-15,
+   "norm_drift": 6.217248937900877e-15
+  },
+  {
+   "sector": "uniform load",
+   "mu": 5.0,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.8333333333333314,
+   "theta_arccos_lambda": 0.5856855434571545,
+   "phases_estimated": [
+    0.9406590807
+   ],
+   "phases_symbol_alternating": [
+    0.9406590807303339,
+    0.9406590807303339
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 3.0333846545715915e-11,
+   "max_leak_outside_plane": 4.440892098500626e-15,
+   "norm_drift": 2.886579864025407e-15
+  },
+  {
+   "sector": "uniform load",
+   "mu": 5.0,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.8333333333333314,
+   "theta_arccos_lambda": 0.5856855434571545,
+   "phases_estimated": [
+    0.9406590807
+   ],
+   "phases_symbol_alternating": [
+    0.9406590807303339,
+    0.9406590807303339
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 3.0333846545715915e-11,
+   "max_leak_outside_plane": 4.440892098500626e-15,
+   "norm_drift": 1.5543122344752192e-15
+  },
+  {
+   "sector": "uniform load",
+   "mu": 5.0,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    1
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.7853981633974483
+   ],
+   "spin": "up",
+   "lambda": 0.8333333333333314,
+   "theta_arccos_lambda": 0.5856855434571545,
+   "phases_estimated": [
+    0.9406590807
+   ],
+   "phases_symbol_alternating": [
+    0.9406590807303339,
+    0.9406590807303339
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 3.0333846545715915e-11,
+   "max_leak_outside_plane": 3.774758283725532e-15,
+   "norm_drift": 1.7763568394002505e-15
+  },
+  {
+   "sector": "uniform load",
+   "mu": 5.0,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    1
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.7853981633974483
+   ],
+   "spin": "down",
+   "lambda": 0.8333333333333314,
+   "theta_arccos_lambda": 0.5856855434571545,
+   "phases_estimated": [
+    0.9406590807
+   ],
+   "phases_symbol_alternating": [
+    0.9406590807303339,
+    0.9406590807303339
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 3.0333846545715915e-11,
+   "max_leak_outside_plane": 3.9968028886505635e-15,
+   "norm_drift": 4.3298697960381105e-15
+  },
+  {
+   "sector": "uniform load",
+   "mu": 5.0,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    2,
+    1,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.8333333333333314,
+   "theta_arccos_lambda": 0.5856855434571545,
+   "phases_estimated": [
+    0.9406590807
+   ],
+   "phases_symbol_alternating": [
+    0.940659080730334,
+    0.940659080730334
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 3.033395756801838e-11,
+   "max_leak_outside_plane": 4.440892098500626e-15,
+   "norm_drift": 3.9968028886505635e-15
+  },
+  {
+   "sector": "uniform load",
+   "mu": 5.0,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    2,
+    1,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.8333333333333314,
+   "theta_arccos_lambda": 0.5856855434571545,
+   "phases_estimated": [
+    0.9406590807
+   ],
+   "phases_symbol_alternating": [
+    0.940659080730334,
+    0.940659080730334
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 3.033395756801838e-11,
+   "max_leak_outside_plane": 4.551914400963142e-15,
+   "norm_drift": 4.551914400963142e-15
+  },
+  {
+   "sector": "uniform load",
+   "mu": 5.0,
+   "record": 1,
+   "internal_vector": "random",
+   "n": [
+    1,
+    1,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.8333333333333314,
+   "theta_arccos_lambda": 0.5856855434571545,
+   "phases_estimated": [
+    0.9406590807
+   ],
+   "phases_symbol_alternating": [
+    0.9406590807303339,
+    0.9406590807303339
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 3.0333846545715915e-11,
+   "max_leak_outside_plane": 4.440892098500626e-15,
+   "norm_drift": 2.886579864025407e-15
+  },
+  {
+   "sector": "triplet mu=+sqrt5",
+   "mu": 2.23606797749979,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    0,
+    0,
+    0
+   ],
+   "p": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.9539344662916639,
+   "theta_arccos_lambda": 0.30470843737027087,
+   "phases_estimated": [
+    0.3047084374
+   ],
+   "phases_symbol_alternating": [
+    0.3047084373702708,
+    0.30470843737027087
+   ],
+   "closed_form_on_axis": 0.30470843737027087,
+   "max_abs_estimated_minus_symbol": 2.972910806420259e-11,
+   "max_leak_outside_plane": 7.882583474838611e-15,
+   "norm_drift": 1.1102230246251565e-15
+  },
+  {
+   "sector": "triplet mu=+sqrt5",
+   "mu": 2.23606797749979,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    0,
+    0,
+    0
+   ],
+   "p": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.9539344662916639,
+   "theta_arccos_lambda": 0.30470843737027087,
+   "phases_estimated": [
+    0.3047084374
+   ],
+   "phases_symbol_alternating": [
+    0.3047084373702708,
+    0.30470843737027087
+   ],
+   "closed_form_on_axis": 0.30470843737027087,
+   "max_abs_estimated_minus_symbol": 2.972910806420259e-11,
+   "max_leak_outside_plane": 7.882583474838611e-15,
+   "norm_drift": 1.1102230246251565e-15
+  },
+  {
+   "sector": "triplet mu=+sqrt5",
+   "mu": 2.23606797749979,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    1,
+    0,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.0,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.9539344662916639,
+   "theta_arccos_lambda": 0.30470843737027087,
+   "phases_estimated": [
+    0.8304636713
+   ],
+   "phases_symbol_alternating": [
+    0.8304636713228069,
+    0.8304636713228071
+   ],
+   "closed_form_on_axis": 0.830463671322807,
+   "max_abs_estimated_minus_symbol": 2.280686750566474e-11,
+   "max_leak_outside_plane": 2.3314683517128287e-15,
+   "norm_drift": 1.1102230246251565e-14
+  },
+  {
+   "sector": "triplet mu=+sqrt5",
+   "mu": 2.23606797749979,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    1,
+    0,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.0,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.9539344662916639,
+   "theta_arccos_lambda": 0.30470843737027087,
+   "phases_estimated": [
+    0.8304636713
+   ],
+   "phases_symbol_alternating": [
+    0.8304636713228069,
+    0.8304636713228071
+   ],
+   "closed_form_on_axis": 0.830463671322807,
+   "max_abs_estimated_minus_symbol": 2.280686750566474e-11,
+   "max_leak_outside_plane": 2.3314683517128287e-15,
+   "norm_drift": 1.1102230246251565e-14
+  },
+  {
+   "sector": "triplet mu=+sqrt5",
+   "mu": 2.23606797749979,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    2,
+    0,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.0,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.9539344662916639,
+   "theta_arccos_lambda": 0.30470843737027087,
+   "phases_estimated": [
+    1.5707963268
+   ],
+   "phases_symbol_alternating": [
+    1.5707963267948966,
+    1.5707963267948966
+   ],
+   "closed_form_on_axis": 1.5707963267948966,
+   "max_abs_estimated_minus_symbol": 5.1034731995969196e-12,
+   "max_leak_outside_plane": 1.9984014443252818e-15,
+   "norm_drift": 2.3314683517128287e-15
+  },
+  {
+   "sector": "triplet mu=+sqrt5",
+   "mu": 2.23606797749979,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    2,
+    0,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.0,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.9539344662916639,
+   "theta_arccos_lambda": 0.30470843737027087,
+   "phases_estimated": [
+    1.5707963268
+   ],
+   "phases_symbol_alternating": [
+    1.5707963267948966,
+    1.5707963267948966
+   ],
+   "closed_form_on_axis": 1.5707963267948966,
+   "max_abs_estimated_minus_symbol": 5.1034731995969196e-12,
+   "max_leak_outside_plane": 1.9984014443252818e-15,
+   "norm_drift": 2.3314683517128287e-15
+  },
+  {
+   "sector": "triplet mu=+sqrt5",
+   "mu": 2.23606797749979,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.9539344662916639,
+   "theta_arccos_lambda": 0.30470843737027087,
+   "phases_estimated": [
+    0.8304636713
+   ],
+   "phases_symbol_alternating": [
+    0.8304636713228071,
+    0.8304636713228071
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 2.2807089550269666e-11,
+   "max_leak_outside_plane": 6.661338147750939e-16,
+   "norm_drift": 1.0658141036401503e-14
+  },
+  {
+   "sector": "triplet mu=+sqrt5",
+   "mu": 2.23606797749979,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.9539344662916639,
+   "theta_arccos_lambda": 0.30470843737027087,
+   "phases_estimated": [
+    0.8304636713
+   ],
+   "phases_symbol_alternating": [
+    0.8304636713228071,
+    0.8304636713228071
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 2.2807089550269666e-11,
+   "max_leak_outside_plane": 8.881784197001252e-16,
+   "norm_drift": 8.659739592076221e-15
+  },
+  {
+   "sector": "triplet mu=+sqrt5",
+   "mu": 2.23606797749979,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    1
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.7853981633974483
+   ],
+   "spin": "up",
+   "lambda": 0.9539344662916639,
+   "theta_arccos_lambda": 0.30470843737027087,
+   "phases_estimated": [
+    0.8304636713
+   ],
+   "phases_symbol_alternating": [
+    0.8304636713228071,
+    0.8304636713228071
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 2.2807089550269666e-11,
+   "max_leak_outside_plane": 5.551115123125783e-16,
+   "norm_drift": 1.0103029524088925e-14
+  },
+  {
+   "sector": "triplet mu=+sqrt5",
+   "mu": 2.23606797749979,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    1
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.7853981633974483
+   ],
+   "spin": "down",
+   "lambda": 0.9539344662916639,
+   "theta_arccos_lambda": 0.30470843737027087,
+   "phases_estimated": [
+    0.8304636713
+   ],
+   "phases_symbol_alternating": [
+    0.8304636713228071,
+    0.8304636713228071
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 2.2807089550269666e-11,
+   "max_leak_outside_plane": 7.771561172376096e-16,
+   "norm_drift": 9.880984919163893e-15
+  },
+  {
+   "sector": "triplet mu=+sqrt5",
+   "mu": 2.23606797749979,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    2,
+    1,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.9539344662916639,
+   "theta_arccos_lambda": 0.30470843737027087,
+   "phases_estimated": [
+    0.8304636713
+   ],
+   "phases_symbol_alternating": [
+    0.8304636713228072,
+    0.8304636713228072
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 2.2807200572572128e-11,
+   "max_leak_outside_plane": 1.1102230246251565e-15,
+   "norm_drift": 1.0658141036401503e-14
+  },
+  {
+   "sector": "triplet mu=+sqrt5",
+   "mu": 2.23606797749979,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    2,
+    1,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.9539344662916639,
+   "theta_arccos_lambda": 0.30470843737027087,
+   "phases_estimated": [
+    0.8304636713
+   ],
+   "phases_symbol_alternating": [
+    0.8304636713228072,
+    0.8304636713228072
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 2.2807200572572128e-11,
+   "max_leak_outside_plane": 1.2212453270876722e-15,
+   "norm_drift": 1.1546319456101628e-14
+  },
+  {
+   "sector": "triplet mu=+sqrt5",
+   "mu": 2.23606797749979,
+   "record": 0,
+   "internal_vector": "random",
+   "n": [
+    1,
+    1,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.9539344662916646,
+   "theta_arccos_lambda": 0.30470843737026865,
+   "phases_estimated": [
+    0.8304636713
+   ],
+   "phases_symbol_alternating": [
+    0.8304636713228065,
+    0.8304636713228065
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 2.2806534438757353e-11,
+   "max_leak_outside_plane": 1.7763568394002505e-15,
+   "norm_drift": 7.66053886991358e-15
+  },
+  {
+   "sector": "triplet mu=+sqrt5",
+   "mu": 2.23606797749979,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    0,
+    0,
+    0
+   ],
+   "p": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.8793988670416706,
+   "theta_arccos_lambda": 0.49619825950207214,
+   "phases_estimated": [
+    0.4961982595
+   ],
+   "phases_symbol_alternating": [
+    0.4961982595020722,
+    0.49619825950207225
+   ],
+   "closed_form_on_axis": 0.49619825950207214,
+   "max_abs_estimated_minus_symbol": 2.0721757643116234e-12,
+   "max_leak_outside_plane": 4.884981308350689e-15,
+   "norm_drift": 3.9968028886505635e-15
+  },
+  {
+   "sector": "triplet mu=+sqrt5",
+   "mu": 2.23606797749979,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    0,
+    0,
+    0
+   ],
+   "p": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.8793988670416706,
+   "theta_arccos_lambda": 0.49619825950207214,
+   "phases_estimated": [
+    0.4961982595
+   ],
+   "phases_symbol_alternating": [
+    0.4961982595020722,
+    0.49619825950207225
+   ],
+   "closed_form_on_axis": 0.49619825950207214,
+   "max_abs_estimated_minus_symbol": 2.0721757643116234e-12,
+   "max_leak_outside_plane": 4.884981308350689e-15,
+   "norm_drift": 3.9968028886505635e-15
+  },
+  {
+   "sector": "triplet mu=+sqrt5",
+   "mu": 2.23606797749979,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    1,
+    0,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.0,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.8793988670416706,
+   "theta_arccos_lambda": 0.49619825950207214,
+   "phases_estimated": [
+    0.8997204765
+   ],
+   "phases_symbol_alternating": [
+    0.8997204765128429,
+    0.899720476512843
+   ],
+   "closed_form_on_axis": 0.8997204765128429,
+   "max_abs_estimated_minus_symbol": 1.2842948926561348e-11,
+   "max_leak_outside_plane": 3.3306690738754696e-16,
+   "norm_drift": 7.549516567451064e-15
+  },
+  {
+   "sector": "triplet mu=+sqrt5",
+   "mu": 2.23606797749979,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    1,
+    0,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.0,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.8793988670416706,
+   "theta_arccos_lambda": 0.49619825950207214,
+   "phases_estimated": [
+    0.8997204765
+   ],
+   "phases_symbol_alternating": [
+    0.8997204765128429,
+    0.899720476512843
+   ],
+   "closed_form_on_axis": 0.8997204765128429,
+   "max_abs_estimated_minus_symbol": 1.2842948926561348e-11,
+   "max_leak_outside_plane": 3.3306690738754696e-16,
+   "norm_drift": 7.549516567451064e-15
+  },
+  {
+   "sector": "triplet mu=+sqrt5",
+   "mu": 2.23606797749979,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    2,
+    0,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.0,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.8793988670416706,
+   "theta_arccos_lambda": 0.49619825950207214,
+   "phases_estimated": [
+    1.5707963268
+   ],
+   "phases_symbol_alternating": [
+    1.5707963267948966,
+    1.5707963267948966
+   ],
+   "closed_form_on_axis": 1.5707963267948966,
+   "max_abs_estimated_minus_symbol": 5.1034731995969196e-12,
+   "max_leak_outside_plane": 2.220446049250313e-16,
+   "norm_drift": 2.6645352591003757e-15
+  },
+  {
+   "sector": "triplet mu=+sqrt5",
+   "mu": 2.23606797749979,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    2,
+    0,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.0,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.8793988670416706,
+   "theta_arccos_lambda": 0.49619825950207214,
+   "phases_estimated": [
+    1.5707963268
+   ],
+   "phases_symbol_alternating": [
+    1.5707963267948966,
+    1.5707963267948966
+   ],
+   "closed_form_on_axis": 1.5707963267948966,
+   "max_abs_estimated_minus_symbol": 5.1034731995969196e-12,
+   "max_leak_outside_plane": 2.220446049250313e-16,
+   "norm_drift": 2.6645352591003757e-15
+  },
+  {
+   "sector": "triplet mu=+sqrt5",
+   "mu": 2.23606797749979,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.8793988670416706,
+   "theta_arccos_lambda": 0.49619825950207214,
+   "phases_estimated": [
+    0.8997204765
+   ],
+   "phases_symbol_alternating": [
+    0.899720476512843,
+    0.899720476512843
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 1.2843059948863811e-11,
+   "max_leak_outside_plane": 2.220446049250313e-16,
+   "norm_drift": 8.659739592076221e-15
+  },
+  {
+   "sector": "triplet mu=+sqrt5",
+   "mu": 2.23606797749979,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.8793988670416706,
+   "theta_arccos_lambda": 0.49619825950207214,
+   "phases_estimated": [
+    0.8997204765
+   ],
+   "phases_symbol_alternating": [
+    0.899720476512843,
+    0.899720476512843
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 1.2843059948863811e-11,
+   "max_leak_outside_plane": 2.220446049250313e-16,
+   "norm_drift": 7.993605777301127e-15
+  },
+  {
+   "sector": "triplet mu=+sqrt5",
+   "mu": 2.23606797749979,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    1
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.7853981633974483
+   ],
+   "spin": "up",
+   "lambda": 0.8793988670416706,
+   "theta_arccos_lambda": 0.49619825950207214,
+   "phases_estimated": [
+    0.8997204765
+   ],
+   "phases_symbol_alternating": [
+    0.899720476512843,
+    0.8997204765128431
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 1.2843059948863811e-11,
+   "max_leak_outside_plane": 8.881784197001252e-16,
+   "norm_drift": 8.215650382226158e-15
+  },
+  {
+   "sector": "triplet mu=+sqrt5",
+   "mu": 2.23606797749979,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    1
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.7853981633974483
+   ],
+   "spin": "down",
+   "lambda": 0.8793988670416706,
+   "theta_arccos_lambda": 0.49619825950207214,
+   "phases_estimated": [
+    0.8997204765
+   ],
+   "phases_symbol_alternating": [
+    0.899720476512843,
+    0.8997204765128431
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 1.2843059948863811e-11,
+   "max_leak_outside_plane": 4.440892098500626e-16,
+   "norm_drift": 8.659739592076221e-15
+  },
+  {
+   "sector": "triplet mu=+sqrt5",
+   "mu": 2.23606797749979,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    2,
+    1,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.8793988670416706,
+   "theta_arccos_lambda": 0.49619825950207214,
+   "phases_estimated": [
+    0.8997204765
+   ],
+   "phases_symbol_alternating": [
+    0.8997204765128431,
+    0.8997204765128431
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 1.2843170971166273e-11,
+   "max_leak_outside_plane": 2.220446049250313e-16,
+   "norm_drift": 9.325873406851315e-15
+  },
+  {
+   "sector": "triplet mu=+sqrt5",
+   "mu": 2.23606797749979,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    2,
+    1,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.8793988670416706,
+   "theta_arccos_lambda": 0.49619825950207214,
+   "phases_estimated": [
+    0.8997204765
+   ],
+   "phases_symbol_alternating": [
+    0.8997204765128431,
+    0.8997204765128431
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 1.2843170971166273e-11,
+   "max_leak_outside_plane": 0.0,
+   "norm_drift": 9.103828801926284e-15
+  },
+  {
+   "sector": "triplet mu=+sqrt5",
+   "mu": 2.23606797749979,
+   "record": 1,
+   "internal_vector": "random",
+   "n": [
+    1,
+    1,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.8793988670416711,
+   "theta_arccos_lambda": 0.49619825950207097,
+   "phases_estimated": [
+    0.8997204765
+   ],
+   "phases_symbol_alternating": [
+    0.8997204765128425,
+    0.8997204765128425
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 1.2842504837351498e-11,
+   "max_leak_outside_plane": 1.5543122344752192e-15,
+   "norm_drift": 8.659739592076221e-15
+  },
+  {
+   "sector": "quintet",
+   "mu": -1.0,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    0,
+    0,
+    0
+   ],
+   "p": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.8999999999999986,
+   "theta_arccos_lambda": 0.4510268117962657,
+   "phases_estimated": [
+    0.4510268118
+   ],
+   "phases_symbol_alternating": [
+    0.4510268117962657,
+    0.4510268117962657
+   ],
+   "closed_form_on_axis": 0.4510268117962657,
+   "max_abs_estimated_minus_symbol": 3.734290654477945e-12,
+   "max_leak_outside_plane": 2.0317081350640365e-14,
+   "norm_drift": 1.2656542480726785e-14
+  },
+  {
+   "sector": "quintet",
+   "mu": -1.0,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    0,
+    0,
+    0
+   ],
+   "p": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.8999999999999986,
+   "theta_arccos_lambda": 0.4510268117962657,
+   "phases_estimated": [
+    0.4510268118
+   ],
+   "phases_symbol_alternating": [
+    0.4510268117962657,
+    0.4510268117962657
+   ],
+   "closed_form_on_axis": 0.4510268117962657,
+   "max_abs_estimated_minus_symbol": 3.734290654477945e-12,
+   "max_leak_outside_plane": 2.0317081350640365e-14,
+   "norm_drift": 1.2656542480726785e-14
+  },
+  {
+   "sector": "quintet",
+   "mu": -1.0,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    1,
+    0,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.0,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.8999999999999986,
+   "theta_arccos_lambda": 0.4510268117962657,
+   "phases_estimated": [
+    0.8809792367
+   ],
+   "phases_symbol_alternating": [
+    0.8809792366629793,
+    0.8809792366629794
+   ],
+   "closed_form_on_axis": 0.8809792366629793,
+   "max_abs_estimated_minus_symbol": 3.702060880073077e-11,
+   "max_leak_outside_plane": 8.104628079763643e-15,
+   "norm_drift": 4.440892098500626e-16
+  },
+  {
+   "sector": "quintet",
+   "mu": -1.0,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    1,
+    0,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.0,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.8999999999999986,
+   "theta_arccos_lambda": 0.4510268117962657,
+   "phases_estimated": [
+    0.8809792367
+   ],
+   "phases_symbol_alternating": [
+    0.8809792366629793,
+    0.8809792366629794
+   ],
+   "closed_form_on_axis": 0.8809792366629793,
+   "max_abs_estimated_minus_symbol": 3.702060880073077e-11,
+   "max_leak_outside_plane": 8.104628079763643e-15,
+   "norm_drift": 4.440892098500626e-16
+  },
+  {
+   "sector": "quintet",
+   "mu": -1.0,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    2,
+    0,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.0,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.8999999999999986,
+   "theta_arccos_lambda": 0.4510268117962657,
+   "phases_estimated": [
+    1.5707963268
+   ],
+   "phases_symbol_alternating": [
+    1.5707963267948966,
+    1.5707963267948966
+   ],
+   "closed_form_on_axis": 1.5707963267948966,
+   "max_abs_estimated_minus_symbol": 5.1034731995969196e-12,
+   "max_leak_outside_plane": 8.992806499463768e-15,
+   "norm_drift": 7.105427357601002e-15
+  },
+  {
+   "sector": "quintet",
+   "mu": -1.0,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    2,
+    0,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.0,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.8999999999999986,
+   "theta_arccos_lambda": 0.4510268117962657,
+   "phases_estimated": [
+    1.5707963268
+   ],
+   "phases_symbol_alternating": [
+    1.5707963267948966,
+    1.5707963267948966
+   ],
+   "closed_form_on_axis": 1.5707963267948966,
+   "max_abs_estimated_minus_symbol": 5.1034731995969196e-12,
+   "max_leak_outside_plane": 8.992806499463768e-15,
+   "norm_drift": 7.105427357601002e-15
+  },
+  {
+   "sector": "quintet",
+   "mu": -1.0,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.8999999999999986,
+   "theta_arccos_lambda": 0.4510268117962657,
+   "phases_estimated": [
+    0.8809792367
+   ],
+   "phases_symbol_alternating": [
+    0.8809792366629793,
+    0.8809792366629794
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 3.702060880073077e-11,
+   "max_leak_outside_plane": 7.549516567451064e-15,
+   "norm_drift": 1.1657341758564144e-14
+  },
+  {
+   "sector": "quintet",
+   "mu": -1.0,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.8999999999999986,
+   "theta_arccos_lambda": 0.4510268117962657,
+   "phases_estimated": [
+    0.8809792367
+   ],
+   "phases_symbol_alternating": [
+    0.8809792366629793,
+    0.8809792366629794
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 3.702060880073077e-11,
+   "max_leak_outside_plane": 7.549516567451064e-15,
+   "norm_drift": 1.4432899320127035e-14
+  },
+  {
+   "sector": "quintet",
+   "mu": -1.0,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    1
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.7853981633974483
+   ],
+   "spin": "up",
+   "lambda": 0.8999999999999986,
+   "theta_arccos_lambda": 0.4510268117962657,
+   "phases_estimated": [
+    0.8809792367
+   ],
+   "phases_symbol_alternating": [
+    0.8809792366629794,
+    0.8809792366629794
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 3.702060880073077e-11,
+   "max_leak_outside_plane": 1.0547118733938987e-14,
+   "norm_drift": 1.2212453270876722e-14
+  },
+  {
+   "sector": "quintet",
+   "mu": -1.0,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    1
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.7853981633974483
+   ],
+   "spin": "down",
+   "lambda": 0.8999999999999986,
+   "theta_arccos_lambda": 0.4510268117962657,
+   "phases_estimated": [
+    0.8809792367
+   ],
+   "phases_symbol_alternating": [
+    0.8809792366629794,
+    0.8809792366629794
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 3.702060880073077e-11,
+   "max_leak_outside_plane": 1.0436096431476471e-14,
+   "norm_drift": 1.2323475573339238e-14
+  },
+  {
+   "sector": "quintet",
+   "mu": -1.0,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    2,
+    1,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.8999999999999986,
+   "theta_arccos_lambda": 0.4510268117962657,
+   "phases_estimated": [
+    0.8809792367
+   ],
+   "phases_symbol_alternating": [
+    0.8809792366629794,
+    0.8809792366629795
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 3.702049777842831e-11,
+   "max_leak_outside_plane": 7.216449660063518e-15,
+   "norm_drift": 1.6986412276764895e-14
+  },
+  {
+   "sector": "quintet",
+   "mu": -1.0,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    2,
+    1,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.8999999999999986,
+   "theta_arccos_lambda": 0.4510268117962657,
+   "phases_estimated": [
+    0.8809792367
+   ],
+   "phases_symbol_alternating": [
+    0.8809792366629794,
+    0.8809792366629795
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 3.702049777842831e-11,
+   "max_leak_outside_plane": 7.771561172376096e-15,
+   "norm_drift": 1.787459069646502e-14
+  },
+  {
+   "sector": "quintet",
+   "mu": -1.0,
+   "record": 0,
+   "internal_vector": "random",
+   "n": [
+    1,
+    1,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.8999999999999999,
+   "theta_arccos_lambda": 0.45102681179626264,
+   "phases_estimated": [
+    0.8809792367
+   ],
+   "phases_symbol_alternating": [
+    0.8809792366629782,
+    0.8809792366629783
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 3.7021719023755395e-11,
+   "max_leak_outside_plane": 4.773959005888173e-15,
+   "norm_drift": 4.440892098500626e-15
+  },
+  {
+   "sector": "quintet",
+   "mu": -1.0,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    0,
+    0,
+    0
+   ],
+   "p": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.9333333333333319,
+   "theta_arccos_lambda": 0.36720802055784113,
+   "phases_estimated": [
+    0.3672080206
+   ],
+   "phases_symbol_alternating": [
+    0.36720802055784113,
+    0.36720802055784124
+   ],
+   "closed_form_on_axis": 0.36720802055784113,
+   "max_abs_estimated_minus_symbol": 4.2158776469847226e-11,
+   "max_leak_outside_plane": 1.2989609388114332e-14,
+   "norm_drift": 2.2093438190040615e-14
+  },
+  {
+   "sector": "quintet",
+   "mu": -1.0,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    0,
+    0,
+    0
+   ],
+   "p": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.9333333333333319,
+   "theta_arccos_lambda": 0.36720802055784113,
+   "phases_estimated": [
+    0.3672080206
+   ],
+   "phases_symbol_alternating": [
+    0.36720802055784113,
+    0.36720802055784124
+   ],
+   "closed_form_on_axis": 0.36720802055784113,
+   "max_abs_estimated_minus_symbol": 4.2158776469847226e-11,
+   "max_leak_outside_plane": 1.2989609388114332e-14,
+   "norm_drift": 2.2093438190040615e-14
+  },
+  {
+   "sector": "quintet",
+   "mu": -1.0,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    1,
+    0,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.0,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.9333333333333319,
+   "theta_arccos_lambda": 0.36720802055784113,
+   "phases_estimated": [
+    0.8500223839
+   ],
+   "phases_symbol_alternating": [
+    0.8500223839355929,
+    0.8500223839355932
+   ],
+   "closed_form_on_axis": 0.8500223839355932,
+   "max_abs_estimated_minus_symbol": 3.559297301336528e-11,
+   "max_leak_outside_plane": 1.0103029524088925e-14,
+   "norm_drift": 1.887379141862766e-14
+  },
+  {
+   "sector": "quintet",
+   "mu": -1.0,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    1,
+    0,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.0,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.9333333333333319,
+   "theta_arccos_lambda": 0.36720802055784113,
+   "phases_estimated": [
+    0.8500223839
+   ],
+   "phases_symbol_alternating": [
+    0.8500223839355929,
+    0.8500223839355932
+   ],
+   "closed_form_on_axis": 0.8500223839355932,
+   "max_abs_estimated_minus_symbol": 3.559297301336528e-11,
+   "max_leak_outside_plane": 1.0103029524088925e-14,
+   "norm_drift": 1.887379141862766e-14
+  },
+  {
+   "sector": "quintet",
+   "mu": -1.0,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    2,
+    0,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.0,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.9333333333333319,
+   "theta_arccos_lambda": 0.36720802055784113,
+   "phases_estimated": [
+    1.5707963268
+   ],
+   "phases_symbol_alternating": [
+    1.5707963267948966,
+    1.5707963267948966
+   ],
+   "closed_form_on_axis": 1.5707963267948966,
+   "max_abs_estimated_minus_symbol": 5.1034731995969196e-12,
+   "max_leak_outside_plane": 2.55351295663786e-15,
+   "norm_drift": 6.106226635438361e-15
+  },
+  {
+   "sector": "quintet",
+   "mu": -1.0,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    2,
+    0,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.0,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.9333333333333319,
+   "theta_arccos_lambda": 0.36720802055784113,
+   "phases_estimated": [
+    1.5707963268
+   ],
+   "phases_symbol_alternating": [
+    1.5707963267948966,
+    1.5707963267948966
+   ],
+   "closed_form_on_axis": 1.5707963267948966,
+   "max_abs_estimated_minus_symbol": 5.1034731995969196e-12,
+   "max_leak_outside_plane": 2.55351295663786e-15,
+   "norm_drift": 6.106226635438361e-15
+  },
+  {
+   "sector": "quintet",
+   "mu": -1.0,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.9333333333333319,
+   "theta_arccos_lambda": 0.36720802055784113,
+   "phases_estimated": [
+    0.8500223839
+   ],
+   "phases_symbol_alternating": [
+    0.8500223839355932,
+    0.8500223839355932
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 3.5593195057970206e-11,
+   "max_leak_outside_plane": 1.0436096431476471e-14,
+   "norm_drift": 1.9984014443252818e-14
+  },
+  {
+   "sector": "quintet",
+   "mu": -1.0,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.9333333333333319,
+   "theta_arccos_lambda": 0.36720802055784113,
+   "phases_estimated": [
+    0.8500223839
+   ],
+   "phases_symbol_alternating": [
+    0.8500223839355932,
+    0.8500223839355932
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 3.5593195057970206e-11,
+   "max_leak_outside_plane": 9.769962616701378e-15,
+   "norm_drift": 1.509903313490213e-14
+  },
+  {
+   "sector": "quintet",
+   "mu": -1.0,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    1
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.7853981633974483
+   ],
+   "spin": "up",
+   "lambda": 0.9333333333333319,
+   "theta_arccos_lambda": 0.36720802055784113,
+   "phases_estimated": [
+    0.8500223839
+   ],
+   "phases_symbol_alternating": [
+    0.8500223839355932,
+    0.8500223839355932
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 3.5593195057970206e-11,
+   "max_leak_outside_plane": 8.992806499463768e-15,
+   "norm_drift": 1.687538997430238e-14
+  },
+  {
+   "sector": "quintet",
+   "mu": -1.0,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    1
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.7853981633974483
+   ],
+   "spin": "down",
+   "lambda": 0.9333333333333319,
+   "theta_arccos_lambda": 0.36720802055784113,
+   "phases_estimated": [
+    0.8500223839
+   ],
+   "phases_symbol_alternating": [
+    0.8500223839355932,
+    0.8500223839355932
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 3.5593195057970206e-11,
+   "max_leak_outside_plane": 8.992806499463768e-15,
+   "norm_drift": 1.554312234475219e-14
+  },
+  {
+   "sector": "quintet",
+   "mu": -1.0,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    2,
+    1,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.9333333333333319,
+   "theta_arccos_lambda": 0.36720802055784113,
+   "phases_estimated": [
+    0.8500223839
+   ],
+   "phases_symbol_alternating": [
+    0.8500223839355932,
+    0.8500223839355933
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 3.5593195057970206e-11,
+   "max_leak_outside_plane": 9.547918011776346e-15,
+   "norm_drift": 1.021405182655144e-14
+  },
+  {
+   "sector": "quintet",
+   "mu": -1.0,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    2,
+    1,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.9333333333333319,
+   "theta_arccos_lambda": 0.36720802055784113,
+   "phases_estimated": [
+    0.8500223839
+   ],
+   "phases_symbol_alternating": [
+    0.8500223839355932,
+    0.8500223839355933
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 3.5593195057970206e-11,
+   "max_leak_outside_plane": 9.547918011776346e-15,
+   "norm_drift": 1.6764367671839864e-14
+  },
+  {
+   "sector": "quintet",
+   "mu": -1.0,
+   "record": 1,
+   "internal_vector": "random",
+   "n": [
+    1,
+    1,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.9333333333333335,
+   "theta_arccos_lambda": 0.3672080205578368,
+   "phases_estimated": [
+    0.8500223839
+   ],
+   "phases_symbol_alternating": [
+    0.8500223839355916,
+    0.8500223839355917
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 3.559164074573573e-11,
+   "max_leak_outside_plane": 3.219646771412954e-15,
+   "norm_drift": 1.0880185641326534e-14
+  },
+  {
+   "sector": "triplet mu=-sqrt5",
+   "mu": -2.23606797749979,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    0,
+    0,
+    0
+   ],
+   "p": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.8793988670416701,
+   "theta_arccos_lambda": 0.4961982595020731,
+   "phases_estimated": [
+    0.4961982595
+   ],
+   "phases_symbol_alternating": [
+    0.4961982595020731,
+    0.49619825950207314
+   ],
+   "closed_form_on_axis": 0.4961982595020731,
+   "max_abs_estimated_minus_symbol": 2.0730639427313236e-12,
+   "max_leak_outside_plane": 5.440092820663267e-15,
+   "norm_drift": 4.3298697960381105e-15
+  },
+  {
+   "sector": "triplet mu=-sqrt5",
+   "mu": -2.23606797749979,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    0,
+    0,
+    0
+   ],
+   "p": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.8793988670416701,
+   "theta_arccos_lambda": 0.4961982595020731,
+   "phases_estimated": [
+    0.4961982595
+   ],
+   "phases_symbol_alternating": [
+    0.4961982595020731,
+    0.49619825950207314
+   ],
+   "closed_form_on_axis": 0.4961982595020731,
+   "max_abs_estimated_minus_symbol": 2.0730639427313236e-12,
+   "max_leak_outside_plane": 5.440092820663267e-15,
+   "norm_drift": 4.3298697960381105e-15
+  },
+  {
+   "sector": "triplet mu=-sqrt5",
+   "mu": -2.23606797749979,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    1,
+    0,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.0,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.8793988670416701,
+   "theta_arccos_lambda": 0.4961982595020731,
+   "phases_estimated": [
+    0.8997204765
+   ],
+   "phases_symbol_alternating": [
+    0.8997204765128433,
+    0.8997204765128434
+   ],
+   "closed_form_on_axis": 0.8997204765128434,
+   "max_abs_estimated_minus_symbol": 1.2843281993468736e-11,
+   "max_leak_outside_plane": 1.9984014443252818e-15,
+   "norm_drift": 4.440892098500626e-15
+  },
+  {
+   "sector": "triplet mu=-sqrt5",
+   "mu": -2.23606797749979,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    1,
+    0,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.0,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.8793988670416701,
+   "theta_arccos_lambda": 0.4961982595020731,
+   "phases_estimated": [
+    0.8997204765
+   ],
+   "phases_symbol_alternating": [
+    0.8997204765128433,
+    0.8997204765128434
+   ],
+   "closed_form_on_axis": 0.8997204765128434,
+   "max_abs_estimated_minus_symbol": 1.2843281993468736e-11,
+   "max_leak_outside_plane": 1.9984014443252818e-15,
+   "norm_drift": 4.440892098500626e-15
+  },
+  {
+   "sector": "triplet mu=-sqrt5",
+   "mu": -2.23606797749979,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    2,
+    0,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.0,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.8793988670416701,
+   "theta_arccos_lambda": 0.4961982595020731,
+   "phases_estimated": [
+    1.5707963268
+   ],
+   "phases_symbol_alternating": [
+    1.5707963267948966,
+    1.5707963267948966
+   ],
+   "closed_form_on_axis": 1.5707963267948966,
+   "max_abs_estimated_minus_symbol": 5.1034731995969196e-12,
+   "max_leak_outside_plane": 0.0,
+   "norm_drift": 1.9984014443252818e-15
+  },
+  {
+   "sector": "triplet mu=-sqrt5",
+   "mu": -2.23606797749979,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    2,
+    0,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.0,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.8793988670416701,
+   "theta_arccos_lambda": 0.4961982595020731,
+   "phases_estimated": [
+    1.5707963268
+   ],
+   "phases_symbol_alternating": [
+    1.5707963267948966,
+    1.5707963267948966
+   ],
+   "closed_form_on_axis": 1.5707963267948966,
+   "max_abs_estimated_minus_symbol": 5.1034731995969196e-12,
+   "max_leak_outside_plane": 0.0,
+   "norm_drift": 1.9984014443252818e-15
+  },
+  {
+   "sector": "triplet mu=-sqrt5",
+   "mu": -2.23606797749979,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.8793988670416701,
+   "theta_arccos_lambda": 0.4961982595020731,
+   "phases_estimated": [
+    0.8997204765
+   ],
+   "phases_symbol_alternating": [
+    0.8997204765128434,
+    0.8997204765128435
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 1.2843393015771198e-11,
+   "max_leak_outside_plane": 1.7763568394002505e-15,
+   "norm_drift": 6.328271240363392e-15
+  },
+  {
+   "sector": "triplet mu=-sqrt5",
+   "mu": -2.23606797749979,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.8793988670416701,
+   "theta_arccos_lambda": 0.4961982595020731,
+   "phases_estimated": [
+    0.8997204765
+   ],
+   "phases_symbol_alternating": [
+    0.8997204765128434,
+    0.8997204765128435
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 1.2843393015771198e-11,
+   "max_leak_outside_plane": 1.5543122344752192e-15,
+   "norm_drift": 5.218048215738236e-15
+  },
+  {
+   "sector": "triplet mu=-sqrt5",
+   "mu": -2.23606797749979,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    1
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.7853981633974483
+   ],
+   "spin": "up",
+   "lambda": 0.8793988670416701,
+   "theta_arccos_lambda": 0.4961982595020731,
+   "phases_estimated": [
+    0.8997204765
+   ],
+   "phases_symbol_alternating": [
+    0.8997204765128435,
+    0.8997204765128435
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 1.2843504038073661e-11,
+   "max_leak_outside_plane": 1.3322676295501878e-15,
+   "norm_drift": 8.215650382226158e-15
+  },
+  {
+   "sector": "triplet mu=-sqrt5",
+   "mu": -2.23606797749979,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    1
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.7853981633974483
+   ],
+   "spin": "down",
+   "lambda": 0.8793988670416701,
+   "theta_arccos_lambda": 0.4961982595020731,
+   "phases_estimated": [
+    0.8997204765
+   ],
+   "phases_symbol_alternating": [
+    0.8997204765128435,
+    0.8997204765128435
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 1.2843504038073661e-11,
+   "max_leak_outside_plane": 1.4432899320127035e-15,
+   "norm_drift": 9.2148511043888e-15
+  },
+  {
+   "sector": "triplet mu=-sqrt5",
+   "mu": -2.23606797749979,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    2,
+    1,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.8793988670416701,
+   "theta_arccos_lambda": 0.4961982595020731,
+   "phases_estimated": [
+    0.8997204765
+   ],
+   "phases_symbol_alternating": [
+    0.8997204765128435,
+    0.8997204765128435
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 1.2843504038073661e-11,
+   "max_leak_outside_plane": 1.9984014443252818e-15,
+   "norm_drift": 8.215650382226158e-15
+  },
+  {
+   "sector": "triplet mu=-sqrt5",
+   "mu": -2.23606797749979,
+   "record": 0,
+   "internal_vector": "first",
+   "n": [
+    2,
+    1,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.8793988670416701,
+   "theta_arccos_lambda": 0.4961982595020731,
+   "phases_estimated": [
+    0.8997204765
+   ],
+   "phases_symbol_alternating": [
+    0.8997204765128435,
+    0.8997204765128435
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 1.2843504038073661e-11,
+   "max_leak_outside_plane": 1.5543122344752192e-15,
+   "norm_drift": 7.993605777301127e-15
+  },
+  {
+   "sector": "triplet mu=-sqrt5",
+   "mu": -2.23606797749979,
+   "record": 0,
+   "internal_vector": "random",
+   "n": [
+    1,
+    1,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.8793988670416693,
+   "theta_arccos_lambda": 0.4961982595020749,
+   "phases_estimated": [
+    0.8997204765
+   ],
+   "phases_symbol_alternating": [
+    0.8997204765128441,
+    0.8997204765128443
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 1.2844170171888436e-11,
+   "max_leak_outside_plane": 4.884981308350689e-15,
+   "norm_drift": 7.216449660063518e-15
+  },
+  {
+   "sector": "triplet mu=-sqrt5",
+   "mu": -2.23606797749979,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    0,
+    0,
+    0
+   ],
+   "p": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.9539344662916628,
+   "theta_arccos_lambda": 0.30470843737027453,
+   "phases_estimated": [
+    0.3047084374
+   ],
+   "phases_symbol_alternating": [
+    0.3047084373702745,
+    0.30470843737027453
+   ],
+   "closed_form_on_axis": 0.30470843737027453,
+   "max_abs_estimated_minus_symbol": 2.972544432822133e-11,
+   "max_leak_outside_plane": 6.8833827526759706e-15,
+   "norm_drift": 9.547918011776346e-15
+  },
+  {
+   "sector": "triplet mu=-sqrt5",
+   "mu": -2.23606797749979,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    0,
+    0,
+    0
+   ],
+   "p": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.9539344662916628,
+   "theta_arccos_lambda": 0.30470843737027453,
+   "phases_estimated": [
+    0.3047084374
+   ],
+   "phases_symbol_alternating": [
+    0.3047084373702745,
+    0.30470843737027453
+   ],
+   "closed_form_on_axis": 0.30470843737027453,
+   "max_abs_estimated_minus_symbol": 2.972544432822133e-11,
+   "max_leak_outside_plane": 6.8833827526759706e-15,
+   "norm_drift": 9.547918011776346e-15
+  },
+  {
+   "sector": "triplet mu=-sqrt5",
+   "mu": -2.23606797749979,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    1,
+    0,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.0,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.9539344662916628,
+   "theta_arccos_lambda": 0.30470843737027453,
+   "phases_estimated": [
+    0.8304636713
+   ],
+   "phases_symbol_alternating": [
+    0.8304636713228082,
+    0.8304636713228082
+   ],
+   "closed_form_on_axis": 0.8304636713228082,
+   "max_abs_estimated_minus_symbol": 2.280819977329429e-11,
+   "max_leak_outside_plane": 2.4424906541753444e-15,
+   "norm_drift": 8.770761894538737e-15
+  },
+  {
+   "sector": "triplet mu=-sqrt5",
+   "mu": -2.23606797749979,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    1,
+    0,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.0,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.9539344662916628,
+   "theta_arccos_lambda": 0.30470843737027453,
+   "phases_estimated": [
+    0.8304636713
+   ],
+   "phases_symbol_alternating": [
+    0.8304636713228082,
+    0.8304636713228082
+   ],
+   "closed_form_on_axis": 0.8304636713228082,
+   "max_abs_estimated_minus_symbol": 2.280819977329429e-11,
+   "max_leak_outside_plane": 2.4424906541753444e-15,
+   "norm_drift": 8.770761894538737e-15
+  },
+  {
+   "sector": "triplet mu=-sqrt5",
+   "mu": -2.23606797749979,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    2,
+    0,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.0,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.9539344662916628,
+   "theta_arccos_lambda": 0.30470843737027453,
+   "phases_estimated": [
+    1.5707963268
+   ],
+   "phases_symbol_alternating": [
+    1.5707963267948966,
+    1.5707963267948966
+   ],
+   "closed_form_on_axis": 1.5707963267948966,
+   "max_abs_estimated_minus_symbol": 5.1034731995969196e-12,
+   "max_leak_outside_plane": 4.3298697960381105e-15,
+   "norm_drift": 1.7763568394002505e-15
+  },
+  {
+   "sector": "triplet mu=-sqrt5",
+   "mu": -2.23606797749979,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    2,
+    0,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.0,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.9539344662916628,
+   "theta_arccos_lambda": 0.30470843737027453,
+   "phases_estimated": [
+    1.5707963268
+   ],
+   "phases_symbol_alternating": [
+    1.5707963267948966,
+    1.5707963267948966
+   ],
+   "closed_form_on_axis": 1.5707963267948966,
+   "max_abs_estimated_minus_symbol": 5.1034731995969196e-12,
+   "max_leak_outside_plane": 4.3298697960381105e-15,
+   "norm_drift": 1.7763568394002505e-15
+  },
+  {
+   "sector": "triplet mu=-sqrt5",
+   "mu": -2.23606797749979,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.9539344662916628,
+   "theta_arccos_lambda": 0.30470843737027453,
+   "phases_estimated": [
+    0.8304636713
+   ],
+   "phases_symbol_alternating": [
+    0.8304636713228081,
+    0.8304636713228082
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 2.280808875099183e-11,
+   "max_leak_outside_plane": 2.1094237467877974e-15,
+   "norm_drift": 1.1213252548714081e-14
+  },
+  {
+   "sector": "triplet mu=-sqrt5",
+   "mu": -2.23606797749979,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.9539344662916628,
+   "theta_arccos_lambda": 0.30470843737027453,
+   "phases_estimated": [
+    0.8304636713
+   ],
+   "phases_symbol_alternating": [
+    0.8304636713228081,
+    0.8304636713228082
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 2.280808875099183e-11,
+   "max_leak_outside_plane": 2.1094237467877974e-15,
+   "norm_drift": 9.547918011776346e-15
+  },
+  {
+   "sector": "triplet mu=-sqrt5",
+   "mu": -2.23606797749979,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    1
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.7853981633974483
+   ],
+   "spin": "up",
+   "lambda": 0.9539344662916628,
+   "theta_arccos_lambda": 0.30470843737027453,
+   "phases_estimated": [
+    0.8304636713
+   ],
+   "phases_symbol_alternating": [
+    0.8304636713228082,
+    0.8304636713228082
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 2.280819977329429e-11,
+   "max_leak_outside_plane": 1.9984014443252818e-15,
+   "norm_drift": 1.0880185641326534e-14
+  },
+  {
+   "sector": "triplet mu=-sqrt5",
+   "mu": -2.23606797749979,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    1,
+    1,
+    1
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.7853981633974483
+   ],
+   "spin": "down",
+   "lambda": 0.9539344662916628,
+   "theta_arccos_lambda": 0.30470843737027453,
+   "phases_estimated": [
+    0.8304636713
+   ],
+   "phases_symbol_alternating": [
+    0.8304636713228082,
+    0.8304636713228082
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 2.280819977329429e-11,
+   "max_leak_outside_plane": 2.220446049250313e-15,
+   "norm_drift": 1.0658141036401503e-14
+  },
+  {
+   "sector": "triplet mu=-sqrt5",
+   "mu": -2.23606797749979,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    2,
+    1,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.9539344662916628,
+   "theta_arccos_lambda": 0.30470843737027453,
+   "phases_estimated": [
+    0.8304636713
+   ],
+   "phases_symbol_alternating": [
+    0.8304636713228082,
+    0.8304636713228082
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 2.280819977329429e-11,
+   "max_leak_outside_plane": 1.9984014443252818e-15,
+   "norm_drift": 9.992007221626409e-15
+  },
+  {
+   "sector": "triplet mu=-sqrt5",
+   "mu": -2.23606797749979,
+   "record": 1,
+   "internal_vector": "first",
+   "n": [
+    2,
+    1,
+    0
+   ],
+   "p": [
+    1.5707963267948966,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "down",
+   "lambda": 0.9539344662916628,
+   "theta_arccos_lambda": 0.30470843737027453,
+   "phases_estimated": [
+    0.8304636713
+   ],
+   "phases_symbol_alternating": [
+    0.8304636713228082,
+    0.8304636713228082
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 2.280819977329429e-11,
+   "max_leak_outside_plane": 2.1094237467877974e-15,
+   "norm_drift": 1.1324274851176597e-14
+  },
+  {
+   "sector": "triplet mu=-sqrt5",
+   "mu": -2.23606797749979,
+   "record": 1,
+   "internal_vector": "random",
+   "n": [
+    1,
+    1,
+    0
+   ],
+   "p": [
+    0.7853981633974483,
+    0.7853981633974483,
+    0.0
+   ],
+   "spin": "up",
+   "lambda": 0.9539344662916628,
+   "theta_arccos_lambda": 0.30470843737027453,
+   "phases_estimated": [
+    0.8304636713
+   ],
+   "phases_symbol_alternating": [
+    0.8304636713228081,
+    0.8304636713228082
+   ],
+   "closed_form_on_axis": null,
+   "max_abs_estimated_minus_symbol": 2.280808875099183e-11,
+   "max_leak_outside_plane": 2.3314683517128287e-15,
+   "norm_drift": 1.2434497875801753e-14
+  }
+ ],
+ "part2_worst_abs_estimated_minus_symbol": 7.146345853970032e-08,
+ "part2_worst_leak": 2.0317081350640365e-14,
+ "seconds": 310.0364098548889,
+ "frame": "option M3 tick: W on every cell, then the shifts (its own frame, conjugate by W to shifts-then-W)"
+}

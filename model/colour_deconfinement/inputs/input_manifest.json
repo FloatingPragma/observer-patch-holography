@@ -1,0 +1,666 @@
+{
+  "schema": "oph.scientific_comparison_inputs.v1",
+  "scope": "Source and numerical comparison inputs. Checksum admission does not validate their physical interpretations or transfer their construction to the owning source. Source text is inert .raw data; executable verified results are linked in README.md.",
+  "files": [
+    {
+      "path": "QCD/analysis_reg.json",
+      "source": "work/SIM/phase2/QCD/analysis_reg.json",
+      "sha256": "fcdddd4bbaac52766fc93847b1c2808993bcaa0dc6677d1c5923d63ce3ab1ba3",
+      "bytes": 219689
+    },
+    {
+      "path": "QCD/analysis_su3_nt4.json",
+      "source": "work/SIM/phase2/QCD/analysis_su3_nt4.json",
+      "sha256": "f002af7280ca642a536dd5ea68f8c217d3cd7035064f74300db25b2a371acfac",
+      "bytes": 138054
+    },
+    {
+      "path": "QCD/analyze.py.raw",
+      "source": "work/SIM/phase2/QCD/analyze.py",
+      "sha256": "7ffdf036e494b973e83c59d4e9b1c83e2440e5da19c8d72842145b07408762b7",
+      "bytes": 17076
+    },
+    {
+      "path": "QCD/data/nt4/N12_b5.6860_hot_s2025.npz",
+      "source": "work/SIM/phase2/QCD/data/nt4/N12_b5.6860_hot_s2025.npz",
+      "sha256": "065316624f62c5614b782ff348661e054902d1b8b3986ea5386e04388d4e2cc1",
+      "bytes": 513524
+    },
+    {
+      "path": "QCD/data/nt4/N12_b5.6890_cold_s2020.npz",
+      "source": "work/SIM/phase2/QCD/data/nt4/N12_b5.6890_cold_s2020.npz",
+      "sha256": "b5852e63ea1a28c25b6355a3482203aaec69f53e5e55a54a17b4267e27163789",
+      "bytes": 513524
+    },
+    {
+      "path": "QCD/data/nt4/N12_b5.6890_hot_s2014.npz",
+      "source": "work/SIM/phase2/QCD/data/nt4/N12_b5.6890_hot_s2014.npz",
+      "sha256": "b21e240cf2106a14e61a02ff231cd716856d4530774bc35f1fc8219836466e55",
+      "bytes": 513520
+    },
+    {
+      "path": "QCD/data/nt4/N12_b5.6920_cold_s2121.npz",
+      "source": "work/SIM/phase2/QCD/data/nt4/N12_b5.6920_cold_s2121.npz",
+      "sha256": "77abaa23d48bd183d9cec49fb04ce8cf8bb2558c5ea834b0d2a5b990a895850e",
+      "bytes": 449528
+    },
+    {
+      "path": "QCD/data/nt4/N12_b5.6960_cold_s2026.npz",
+      "source": "work/SIM/phase2/QCD/data/nt4/N12_b5.6960_cold_s2026.npz",
+      "sha256": "f212670272a5767b69d8ff1b12201f42a4fe0c354f6fbfe794a4722b86fe222e",
+      "bytes": 449528
+    },
+    {
+      "path": "QCD/data/nt4/N12_b5.7020_cold_s2122.npz",
+      "source": "work/SIM/phase2/QCD/data/nt4/N12_b5.7020_cold_s2122.npz",
+      "sha256": "6d4ec4c6e2266118a53a467c85f620520b39fcf8eb56f4e47c50effa3111e80d",
+      "bytes": 78316
+    },
+    {
+      "path": "QCD/data/nt4/N12_b5.8000_cold_s2131.npz",
+      "source": "work/SIM/phase2/QCD/data/nt4/N12_b5.8000_cold_s2131.npz",
+      "sha256": "4929c4bf7a654ab0baf7467d475b2f779cf2d61c43d2d4f55d78d9bc8f55ab76",
+      "bytes": 81508
+    },
+    {
+      "path": "QCD/data/nt4/N12_b5.8000_hot_s7000.npz",
+      "source": "work/SIM/phase2/QCD/data/nt4/N12_b5.8000_hot_s7000.npz",
+      "sha256": "f00c4b8dace3e75e3a72b5eee65424c91e05f64fca49acd06539b6364c638d9c",
+      "bytes": 33504
+    },
+    {
+      "path": "QCD/data/nt4/N12_b5.8000_hot_s7001.npz",
+      "source": "work/SIM/phase2/QCD/data/nt4/N12_b5.8000_hot_s7001.npz",
+      "sha256": "85cbcf9e2cd8d0560df69149b52c9539027818b6f17d2cc561911c70e5d276a1",
+      "bytes": 33504
+    },
+    {
+      "path": "QCD/data/nt4/N12_b5.8000_hot_s7002.npz",
+      "source": "work/SIM/phase2/QCD/data/nt4/N12_b5.8000_hot_s7002.npz",
+      "sha256": "232fd66ae8eaacc88c612067e59a85752ace64a0a9934412cd1f1bb91bfd7dc2",
+      "bytes": 33504
+    },
+    {
+      "path": "QCD/data/nt4/N12_b5.8000_hot_s7003.npz",
+      "source": "work/SIM/phase2/QCD/data/nt4/N12_b5.8000_hot_s7003.npz",
+      "sha256": "870bdd1898396f338a2592ff7ef2c9fea75d2005df8c7208088205e481da5dc1",
+      "bytes": 33508
+    },
+    {
+      "path": "QCD/data/nt4/N12_b5.8000_hot_s7004.npz",
+      "source": "work/SIM/phase2/QCD/data/nt4/N12_b5.8000_hot_s7004.npz",
+      "sha256": "29a52f7aa9b85189a01b423ba138faf9ccdc22fe346759bf7f4671b4cbd4cbef",
+      "bytes": 7896
+    },
+    {
+      "path": "QCD/data/nt4/N16_b5.6800_hot_s2007.npz",
+      "source": "work/SIM/phase2/QCD/data/nt4/N16_b5.6800_hot_s2007.npz",
+      "sha256": "37fa7ebdc6d6cef1fd676200f2e7bee3f8b7f626bbe52ebd586bc08e618cf13e",
+      "bytes": 20708
+    },
+    {
+      "path": "QCD/data/nt4/N16_b5.6870_hot_s2001.npz",
+      "source": "work/SIM/phase2/QCD/data/nt4/N16_b5.6870_hot_s2001.npz",
+      "sha256": "9e2f02b8284e5f86777161c008891e039b1c2affae3fd23473da2e8aa23b5f41",
+      "bytes": 484724
+    },
+    {
+      "path": "QCD/data/nt4/N16_b5.6890_hot_s2002.npz",
+      "source": "work/SIM/phase2/QCD/data/nt4/N16_b5.6890_hot_s2002.npz",
+      "sha256": "382a44e48500dfe8136cf679534fdd9529dcc345a9e04f3d5a6541fa52d02591",
+      "bytes": 462324
+    },
+    {
+      "path": "QCD/data/nt4/N16_b5.6910_cold_s2004.npz",
+      "source": "work/SIM/phase2/QCD/data/nt4/N16_b5.6910_cold_s2004.npz",
+      "sha256": "5c68d0a4007058d843450d86b989a5457cf4a1e93ea4543e0566619f6c4607a4",
+      "bytes": 475124
+    },
+    {
+      "path": "QCD/data/nt4/N16_b5.6910_hot_s2003.npz",
+      "source": "work/SIM/phase2/QCD/data/nt4/N16_b5.6910_hot_s2003.npz",
+      "sha256": "350501587e7d827bacfe3acf00f3d85fc197c9bdffbaa73e39afe9334d369ee1",
+      "bytes": 465524
+    },
+    {
+      "path": "QCD/data/nt4/N16_b5.6940_cold_s2005.npz",
+      "source": "work/SIM/phase2/QCD/data/nt4/N16_b5.6940_cold_s2005.npz",
+      "sha256": "aed2fab95626daf6bd4b74c06e5dd5979f6a07b6a4144e2107f2a37f005cc3b4",
+      "bytes": 455928
+    },
+    {
+      "path": "QCD/data/nt4/N16_b5.7000_cold_s2006.npz",
+      "source": "work/SIM/phase2/QCD/data/nt4/N16_b5.7000_cold_s2006.npz",
+      "sha256": "48cb2fc392930c66475a066d2ffc5feeecbdc3e534cf668ad07c6054ed6f826a",
+      "bytes": 193508
+    },
+    {
+      "path": "QCD/data/nt4/N8_b5.5500_hot_s2044.npz",
+      "source": "work/SIM/phase2/QCD/data/nt4/N8_b5.5500_hot_s2044.npz",
+      "sha256": "8563857e4570452ca51e8144b5fce6671c0b90941dd9b1a3cf959479fc8b1e8a",
+      "bytes": 97504
+    },
+    {
+      "path": "QCD/data/nt4/N8_b5.6000_hot_s2043.npz",
+      "source": "work/SIM/phase2/QCD/data/nt4/N8_b5.6000_hot_s2043.npz",
+      "sha256": "fc4af550404da7f4c4e3a72e6c22ae0247f1a702f3db9b1be9270923c43a53b8",
+      "bytes": 97500
+    },
+    {
+      "path": "QCD/data/nt4/N8_b5.6500_hot_s2040.npz",
+      "source": "work/SIM/phase2/QCD/data/nt4/N8_b5.6500_hot_s2040.npz",
+      "sha256": "009d069ce7f6783c29fd3c5e8fe23d8528d33ef6ca318b3376f194fa1a4e642d",
+      "bytes": 385516
+    },
+    {
+      "path": "QCD/data/nt4/N8_b5.6600_hot_s2038.npz",
+      "source": "work/SIM/phase2/QCD/data/nt4/N8_b5.6600_hot_s2038.npz",
+      "sha256": "bc5f1206089387409b504307891ed8872945ea908aafa26844de27afa5452aa7",
+      "bytes": 481512
+    },
+    {
+      "path": "QCD/data/nt4/N8_b5.6700_hot_s2035.npz",
+      "source": "work/SIM/phase2/QCD/data/nt4/N8_b5.6700_hot_s2035.npz",
+      "sha256": "6176ad0df0d66cbd0ea218e7e1bdee589b4463a33001d9abe4dec8da8de1e095",
+      "bytes": 481504
+    },
+    {
+      "path": "QCD/data/nt4/N8_b5.6800_hot_s2036.npz",
+      "source": "work/SIM/phase2/QCD/data/nt4/N8_b5.6800_hot_s2036.npz",
+      "sha256": "455c1a8f6f7370dcd94fee8d57caae2b825bcfbaa7d5e35b19a268a5db841e55",
+      "bytes": 481516
+    },
+    {
+      "path": "QCD/data/nt4/N8_b5.6900_cold_s2037.npz",
+      "source": "work/SIM/phase2/QCD/data/nt4/N8_b5.6900_cold_s2037.npz",
+      "sha256": "b9b42f258d469bc96d594993409330b13a32200c02502f5435f71aeefeb19914",
+      "bytes": 481512
+    },
+    {
+      "path": "QCD/data/nt4/N8_b5.7000_cold_s2039.npz",
+      "source": "work/SIM/phase2/QCD/data/nt4/N8_b5.7000_cold_s2039.npz",
+      "sha256": "3001f4d6e54cbcd818ee7dbef18fcf275075f921318b239969fe809ffe5e8750",
+      "bytes": 385516
+    },
+    {
+      "path": "QCD/data/nt4/N8_b5.7200_cold_s2041.npz",
+      "source": "work/SIM/phase2/QCD/data/nt4/N8_b5.7200_cold_s2041.npz",
+      "sha256": "cc896d4e9fb3d56e90dbd6643f351dedbc66eb99d7b89d5849c8a0805252d079",
+      "bytes": 257508
+    },
+    {
+      "path": "QCD/data/nt4/N8_b5.7500_cold_s2046.npz",
+      "source": "work/SIM/phase2/QCD/data/nt4/N8_b5.7500_cold_s2046.npz",
+      "sha256": "ddd9d49e2e3caa60226cb9639424f74cd909252d0fb707bc6f2ae017aca79fe7",
+      "bytes": 97508
+    },
+    {
+      "path": "QCD/data/nt4/N8_b5.8000_cold_s2047.npz",
+      "source": "work/SIM/phase2/QCD/data/nt4/N8_b5.8000_cold_s2047.npz",
+      "sha256": "f25822a666b99e9d70eab171e23468a99a9f9f2045a2ad6c5cf1d991b9414d3f",
+      "bytes": 97504
+    },
+    {
+      "path": "QCD/data/nt4/N8_b5.9000_cold_s2048.npz",
+      "source": "work/SIM/phase2/QCD/data/nt4/N8_b5.9000_cold_s2048.npz",
+      "sha256": "b2defa6b9c642934af91d378ef144e349526f625988d5cf3899f0de77e5154d8",
+      "bytes": 97500
+    },
+    {
+      "path": "QCD/data/reg/Z2_L12_k0.7200.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z2_L12_k0.7200.npz",
+      "sha256": "8002482365b76be65fc19d7ceeed0eac04bc62471d83eba6eb9f155c31a6b751",
+      "bytes": 513198
+    },
+    {
+      "path": "QCD/data/reg/Z2_L12_k0.7350.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z2_L12_k0.7350.npz",
+      "sha256": "e02effc3900e1116260fd09f7caa46fca5715ef81adba9eabd0b4e9509996d9a",
+      "bytes": 513202
+    },
+    {
+      "path": "QCD/data/reg/Z2_L12_k0.7450.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z2_L12_k0.7450.npz",
+      "sha256": "c619ba50aa54c56c1b4fc5fe45fa25df0972b60a52580ec7851e9723b7e13612",
+      "bytes": 513202
+    },
+    {
+      "path": "QCD/data/reg/Z2_L12_k0.7520.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z2_L12_k0.7520.npz",
+      "sha256": "bf902c369bb5b70654b77ddfcb191b085c3942d56ad4c479b2398a21e1b89f55",
+      "bytes": 513202
+    },
+    {
+      "path": "QCD/data/reg/Z2_L12_k0.7600.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z2_L12_k0.7600.npz",
+      "sha256": "3061ad5cb1810d90428fb548aece53758d74f1c9f42ae9794c28bf1915a005d6",
+      "bytes": 513198
+    },
+    {
+      "path": "QCD/data/reg/Z2_L12_k0.7700.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z2_L12_k0.7700.npz",
+      "sha256": "d923f07b250cf45687ebbaf7197614b752feedff550e679b70fa8de6054f685f",
+      "bytes": 513198
+    },
+    {
+      "path": "QCD/data/reg/Z2_L16_k0.7350.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z2_L16_k0.7350.npz",
+      "sha256": "7a687944f69e355704949d89ffa7c1a33b6c499996bea7762a4c901c8b21044e",
+      "bytes": 513202
+    },
+    {
+      "path": "QCD/data/reg/Z2_L16_k0.7450.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z2_L16_k0.7450.npz",
+      "sha256": "00f74b08c6bcc15e3bb866793e6c490c85c120c39924dcc92fe442a3a2c70cd4",
+      "bytes": 513194
+    },
+    {
+      "path": "QCD/data/reg/Z2_L16_k0.7500.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z2_L16_k0.7500.npz",
+      "sha256": "6bca11b583761428179fd336d5169de5810378c08f69399997c7d4311e15c342",
+      "bytes": 513198
+    },
+    {
+      "path": "QCD/data/reg/Z2_L16_k0.7540.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z2_L16_k0.7540.npz",
+      "sha256": "293abe2586f8b8ced994e3716c7dbe9bc07be93f6c2201e02633235079192327",
+      "bytes": 513202
+    },
+    {
+      "path": "QCD/data/reg/Z2_L16_k0.7580.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z2_L16_k0.7580.npz",
+      "sha256": "1352ff2aff3f2e34a132d594cde9926041d69d8ded4f0aaf40c8ae7a999ab4c0",
+      "bytes": 513198
+    },
+    {
+      "path": "QCD/data/reg/Z2_L16_k0.7650.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z2_L16_k0.7650.npz",
+      "sha256": "5474180fd6f1ac38309d93038a247f198a8bd9860f1ec286a52525d78f7ae41b",
+      "bytes": 513206
+    },
+    {
+      "path": "QCD/data/reg/Z2_L24_k0.7450.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z2_L24_k0.7450.npz",
+      "sha256": "a9c6dd4d7cfea2510678c8718be02cfa95ce06cd3f2dbbb818e1c381f74b23ef",
+      "bytes": 385202
+    },
+    {
+      "path": "QCD/data/reg/Z2_L24_k0.7510.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z2_L24_k0.7510.npz",
+      "sha256": "06d18d8e12fbb36a5e6b0663947c81c2cbf6550856d10c69d108f79686b0e92a",
+      "bytes": 385198
+    },
+    {
+      "path": "QCD/data/reg/Z2_L24_k0.7540.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z2_L24_k0.7540.npz",
+      "sha256": "e0e007c1aeffc438c694704b9cb26b13a049fc7e6f622bbe087db42814592c1e",
+      "bytes": 385202
+    },
+    {
+      "path": "QCD/data/reg/Z2_L24_k0.7570.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z2_L24_k0.7570.npz",
+      "sha256": "beb6e1ea40223ec85c03c44ba45965596fb55725abbcfa0eb4a2e10434d2dbde",
+      "bytes": 385202
+    },
+    {
+      "path": "QCD/data/reg/Z2_L24_k0.7600.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z2_L24_k0.7600.npz",
+      "sha256": "3026fd6f00f78c857c7edc83137b394f809a08337b16674ec960367ac9ee3bbc",
+      "bytes": 385190
+    },
+    {
+      "path": "QCD/data/reg/Z2_L24_k0.7650.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z2_L24_k0.7650.npz",
+      "sha256": "0135f21eeef294c37dbfeec7848b9917f8ce48376f79fe7353be75be2a299f34",
+      "bytes": 385202
+    },
+    {
+      "path": "QCD/data/reg/Z2_L32_k0.7540.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z2_L32_k0.7540.npz",
+      "sha256": "53d96fab6b78f93c2532698fad7e767c3375f770d21ee366cb3faab2887eb779",
+      "bytes": 385198
+    },
+    {
+      "path": "QCD/data/reg/Z2_L32_k0.7560.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z2_L32_k0.7560.npz",
+      "sha256": "6eeb0ce2ff32472e91def06242d851406f95bac4e19f2c400225205aa9498496",
+      "bytes": 385198
+    },
+    {
+      "path": "QCD/data/reg/Z2_L32_k0.7580.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z2_L32_k0.7580.npz",
+      "sha256": "650db34357cbf7b01bf113ff1d3c986871fe62854415a805b5ba8d67d84f04c8",
+      "bytes": 385198
+    },
+    {
+      "path": "QCD/data/reg/Z2_L32_k0.7600.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z2_L32_k0.7600.npz",
+      "sha256": "54d25ef29ea7fa7d068e5ced1c29930cee2787b2e1dc1b3cbfad7e5bdf76383f",
+      "bytes": 385194
+    },
+    {
+      "path": "QCD/data/reg/Z2_L8_k0.7000.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z2_L8_k0.7000.npz",
+      "sha256": "2e58f98fbae13b5d928964113cde6a5f6baf99f9012b7c5aee8fda13aefafa68",
+      "bytes": 513190
+    },
+    {
+      "path": "QCD/data/reg/Z2_L8_k0.7200.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z2_L8_k0.7200.npz",
+      "sha256": "4c326f2a803d250fb274d80aa8092248f23063686c3469a47e44e97d86bf31d5",
+      "bytes": 513190
+    },
+    {
+      "path": "QCD/data/reg/Z2_L8_k0.7350.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z2_L8_k0.7350.npz",
+      "sha256": "83d7878be046c81d322824631a5db66bb393891178b47943f79806895314bab0",
+      "bytes": 513194
+    },
+    {
+      "path": "QCD/data/reg/Z2_L8_k0.7450.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z2_L8_k0.7450.npz",
+      "sha256": "db7e73fbb8e54c4b8a83bf02e4215d10766bbde730f8b275032df9bb27ac3dc1",
+      "bytes": 513190
+    },
+    {
+      "path": "QCD/data/reg/Z2_L8_k0.7550.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z2_L8_k0.7550.npz",
+      "sha256": "03c5d04186d6926849fd6e31f7cb7668295deda20c72a3654fc91f5c2ca94609",
+      "bytes": 513198
+    },
+    {
+      "path": "QCD/data/reg/Z2_L8_k0.7700.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z2_L8_k0.7700.npz",
+      "sha256": "eaa4e024ef2ad0761ed1018f45edb8c04aafca7b54feb2f34403e57ae79bef9d",
+      "bytes": 513198
+    },
+    {
+      "path": "QCD/data/reg/Z3_L12_k1.0600.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z3_L12_k1.0600.npz",
+      "sha256": "798c5b10d41ffd2468294028519f3904425f0dfac6ef6b055d8f36740d1ba8be",
+      "bytes": 513194
+    },
+    {
+      "path": "QCD/data/reg/Z3_L12_k1.0700.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z3_L12_k1.0700.npz",
+      "sha256": "933ebbadc5bb387aa46aa2b6b4f822a9ac14e43591791f1f5c48179aead1fae4",
+      "bytes": 513194
+    },
+    {
+      "path": "QCD/data/reg/Z3_L12_k1.0760.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z3_L12_k1.0760.npz",
+      "sha256": "b6a3d7190c11813983c7c39fa478a7b90dbba62c6d84c4457cb997b8b89a9e9c",
+      "bytes": 513198
+    },
+    {
+      "path": "QCD/data/reg/Z3_L12_k1.0800.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z3_L12_k1.0800.npz",
+      "sha256": "4735408f4b58f217e52605169a35577413c133409c8573227d18f93d751baf1f",
+      "bytes": 513190
+    },
+    {
+      "path": "QCD/data/reg/Z3_L12_k1.0840.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z3_L12_k1.0840.npz",
+      "sha256": "206abcee434efc10cafc74de45ff7595ad09f283d3df997cb6e6558c73b18e86",
+      "bytes": 513198
+    },
+    {
+      "path": "QCD/data/reg/Z3_L12_k1.0900.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z3_L12_k1.0900.npz",
+      "sha256": "0c7f4e8c92aad234ab3c1ec9866454cd0f13003b8c6652ff5ca0644553891c39",
+      "bytes": 513194
+    },
+    {
+      "path": "QCD/data/reg/Z3_L16_k1.0700.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z3_L16_k1.0700.npz",
+      "sha256": "4e29010aca4670a20a549007974c37bd7cba129acfb2c44bca77f65cfaf408be",
+      "bytes": 513194
+    },
+    {
+      "path": "QCD/data/reg/Z3_L16_k1.0760.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z3_L16_k1.0760.npz",
+      "sha256": "dfee73827cbb7e5d8ae138a89764684ef9d77704adeaba76d822a7523e27dc3e",
+      "bytes": 513194
+    },
+    {
+      "path": "QCD/data/reg/Z3_L16_k1.0800.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z3_L16_k1.0800.npz",
+      "sha256": "2be52c13b2fc8bbfcfbe8c6c52d8fd3e1512c716d47667c99c89a5b1844da6ca",
+      "bytes": 513194
+    },
+    {
+      "path": "QCD/data/reg/Z3_L16_k1.0830.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z3_L16_k1.0830.npz",
+      "sha256": "4d7254b4d830df140aa399e46832f093e7b7f4cc3187b56ab0f022413c0be830",
+      "bytes": 513198
+    },
+    {
+      "path": "QCD/data/reg/Z3_L16_k1.0860.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z3_L16_k1.0860.npz",
+      "sha256": "e6538801fe29e084f551fef19a644aaa2979a3f878a805cd797779f16d304f53",
+      "bytes": 513198
+    },
+    {
+      "path": "QCD/data/reg/Z3_L16_k1.0900.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z3_L16_k1.0900.npz",
+      "sha256": "581c924ea7507cc694010acf2e96da02bc36bf18766f51bbb43004498e6fc868",
+      "bytes": 513202
+    },
+    {
+      "path": "QCD/data/reg/Z3_L24_k1.0780.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z3_L24_k1.0780.npz",
+      "sha256": "fe8ece561a00d7f8f4d9ec5bcceec7dd135998f8fb8ad63829582a578d6e26dc",
+      "bytes": 641202
+    },
+    {
+      "path": "QCD/data/reg/Z3_L24_k1.0810.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z3_L24_k1.0810.npz",
+      "sha256": "b56e224d4876344e90b4b1f37d6829d26a70fe2f4f55382dce35ffdf0f1c9951",
+      "bytes": 641202
+    },
+    {
+      "path": "QCD/data/reg/Z3_L24_k1.0830.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z3_L24_k1.0830.npz",
+      "sha256": "210001385b7ada19d96a21fbc611aaa437a2b5ae8a5c88567bd036f06e82e6e1",
+      "bytes": 641198
+    },
+    {
+      "path": "QCD/data/reg/Z3_L24_k1.0845.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z3_L24_k1.0845.npz",
+      "sha256": "3a626a8103a1c9feea484f372dc121744255f4fac27b0c975bd6d34158e57ca4",
+      "bytes": 641202
+    },
+    {
+      "path": "QCD/data/reg/Z3_L24_k1.0860.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z3_L24_k1.0860.npz",
+      "sha256": "6e79aa1965717627ea596e2ac5447321ac9f8daa175e8c0da640deb57e715406",
+      "bytes": 641206
+    },
+    {
+      "path": "QCD/data/reg/Z3_L24_k1.0880.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z3_L24_k1.0880.npz",
+      "sha256": "5f72406f639b245625d212f1c58ba21856e1a0c03b2ec25c1b99d8961e79db86",
+      "bytes": 641198
+    },
+    {
+      "path": "QCD/data/reg/Z3_L32_k1.0830.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z3_L32_k1.0830.npz",
+      "sha256": "df93a39907f989bf5c23af5fba3f7158c44542efef12c73e583ecf4a6e42adde",
+      "bytes": 641190
+    },
+    {
+      "path": "QCD/data/reg/Z3_L32_k1.0840.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z3_L32_k1.0840.npz",
+      "sha256": "0ba1bab48aff9631db27eab294a943ddf366f0e5c374eb751cfadfeeb8229857",
+      "bytes": 641198
+    },
+    {
+      "path": "QCD/data/reg/Z3_L32_k1.0850.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z3_L32_k1.0850.npz",
+      "sha256": "ffd1e7417d0d780fb3d85bfde4302c31ffe969ff5749ca80eb31ac0ee1d83014",
+      "bytes": 641202
+    },
+    {
+      "path": "QCD/data/reg/Z3_L8_k1.0400.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z3_L8_k1.0400.npz",
+      "sha256": "965735c9f71abcd88b94d5744013e88bc48f467f533c67f60216b07b1367fcd2",
+      "bytes": 513186
+    },
+    {
+      "path": "QCD/data/reg/Z3_L8_k1.0550.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z3_L8_k1.0550.npz",
+      "sha256": "7cc623df1cfe94af7a1b5dd5755b02e0babbc9359e29c7b421217e8073c2104b",
+      "bytes": 513194
+    },
+    {
+      "path": "QCD/data/reg/Z3_L8_k1.0650.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z3_L8_k1.0650.npz",
+      "sha256": "5b64e5c9dde8120b1a06d0d0f91aabb30bd445e30d5e3ac001a6b29b403def82",
+      "bytes": 513194
+    },
+    {
+      "path": "QCD/data/reg/Z3_L8_k1.0750.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z3_L8_k1.0750.npz",
+      "sha256": "31e736577018f1590ae5798dae791ea54552c001c74629de64a5502c73e960c7",
+      "bytes": 513194
+    },
+    {
+      "path": "QCD/data/reg/Z3_L8_k1.0850.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z3_L8_k1.0850.npz",
+      "sha256": "322305d024901523a97b4177dc884f00b63e1417ce9f3cf01636adb81ff30d60",
+      "bytes": 513198
+    },
+    {
+      "path": "QCD/data/reg/Z3_L8_k1.1000.npz",
+      "source": "work/SIM/phase2/QCD/data/reg/Z3_L8_k1.1000.npz",
+      "sha256": "3963ae781a23d8f1812788da10650668a8a9f6bf36598e38f227b3d995708747",
+      "bytes": 513190
+    },
+    {
+      "path": "QCD/data/sym/N12x12_b5.6925_wl.npz",
+      "source": "work/SIM/phase2/QCD/data/sym/N12x12_b5.6925_wl.npz",
+      "sha256": "670e07de4aed245adee9dfcfce337911e127258528eef3354163e8483f668374",
+      "bytes": 219354
+    },
+    {
+      "path": "QCD/data/sym/N12x12_b6.0000.npz",
+      "source": "work/SIM/phase2/QCD/data/sym/N12x12_b6.0000.npz",
+      "sha256": "96abc44c669cdf528146139baf47ea3dc3eb6b60639c930463af4ef15fb0ec38",
+      "bytes": 27108
+    },
+    {
+      "path": "QCD/data/sym/sigma_b5.6925_s4101.npz",
+      "source": "work/SIM/phase2/QCD/data/sym/sigma_b5.6925_s4101.npz",
+      "sha256": "5ba48e0e01a9647908f2ec0384e2bfbcf3f2bf20923c42c6acd801528bdbe8a2",
+      "bytes": 340088
+    },
+    {
+      "path": "QCD/data/sym/sigma_b5.6925_s4110.npz",
+      "source": "work/SIM/phase2/QCD/data/sym/sigma_b5.6925_s4110.npz",
+      "sha256": "0c2cb5cf66dfd688de89b3caa297e0d4ee90ebaed9f5bfa9326effae36ec00d0",
+      "bytes": 328408
+    },
+    {
+      "path": "QCD/data/sym/t0scan_8.json",
+      "source": "work/SIM/phase2/QCD/data/sym/t0scan_8.json",
+      "sha256": "85e8188462d1c8f6c648a5033eadb326290e34dd14981cdf2a2c845f9b5cfc14",
+      "bytes": 61420
+    },
+    {
+      "path": "QCD/final_numbers.py.raw",
+      "source": "work/SIM/phase2/QCD/final_numbers.py",
+      "sha256": "36b3c02ab3bb7871e6868cf63d5011ed544fa74f22fba5da1f4dfadf769c96e9",
+      "bytes": 2867
+    },
+    {
+      "path": "QCD/gates.json",
+      "source": "work/SIM/phase2/QCD/gates.json",
+      "sha256": "ff7ebaea2bd7980a9801363333b1183238c6ef2c9f6e526f115d03517858cef9",
+      "bytes": 2695
+    },
+    {
+      "path": "QCD/gates_smear.json",
+      "source": "work/SIM/phase2/QCD/gates_smear.json",
+      "sha256": "2c395251aafe4bf469418242b42c233eac1a4ac36bbb900ef7bf885184c22b25",
+      "bytes": 613
+    },
+    {
+      "path": "QCD/reg_fss.py.raw",
+      "source": "work/SIM/phase2/QCD/reg_fss.py",
+      "sha256": "514bf855fada94f5a49121caac7295bbc272ff1b3cfe3a37a1710fddbfbbb7ba",
+      "bytes": 2716
+    },
+    {
+      "path": "QCD/reg_long.py.raw",
+      "source": "work/SIM/phase2/QCD/reg_long.py",
+      "sha256": "ca3216daf301afca4ce6c0a515b006284340c9e0b0047b6202d9be2c4e34a7e8",
+      "bytes": 1314
+    },
+    {
+      "path": "QCD/scale.json",
+      "source": "work/SIM/phase2/QCD/scale.json",
+      "sha256": "29938c1105fdbb06d22af267751cb1a795fa40a9a012c1e24f97994c28c5f01f",
+      "bytes": 3302
+    },
+    {
+      "path": "QCD/scale.py.raw",
+      "source": "work/SIM/phase2/QCD/scale.py",
+      "sha256": "4a36a7a0c71f8b80c999f567a67bff3e6457ad7c4128bb582aa4e3f6a746e87b",
+      "bytes": 3475
+    },
+    {
+      "path": "QCD/sigma.json",
+      "source": "work/SIM/phase2/QCD/sigma.json",
+      "sha256": "c8a2e9343717837fc22a3cf6668562913122adf95c6995389c77372392691d67",
+      "bytes": 5411
+    },
+    {
+      "path": "QCD/sigma_analyze.py.raw",
+      "source": "work/SIM/phase2/QCD/sigma_analyze.py",
+      "sha256": "1f2c0eb3e3730f9e725cce8fe951fdf2ec5e470a2605949559aca4e7db922cce",
+      "bytes": 4806
+    },
+    {
+      "path": "QCD/su3_gates.py.raw",
+      "source": "work/SIM/phase2/QCD/su3_gates.py",
+      "sha256": "63671a804650612acb98a58cd2a596c0a0fb0f396ac86288babfc807a26604cb",
+      "bytes": 6480
+    },
+    {
+      "path": "QCD/su3_lib.py.raw",
+      "source": "work/SIM/phase2/QCD/su3_lib.py",
+      "sha256": "cbfe5ebebe952c046bb3ad1978ba4b804e6185da6a4cc4f08f8c96114d3f435a",
+      "bytes": 15446
+    },
+    {
+      "path": "QCD/su3_run.py.raw",
+      "source": "work/SIM/phase2/QCD/su3_run.py",
+      "sha256": "1aa7127f9e1417ef121b2ee49216b0dfc47f96df4fe830c074dd7aaeef89269e",
+      "bytes": 1971
+    },
+    {
+      "path": "QCD/su3_sigma.py.raw",
+      "source": "work/SIM/phase2/QCD/su3_sigma.py",
+      "sha256": "4307e9b2420c81488453ccc428e075f101eda39923ad1193b015a879850d9195",
+      "bytes": 3407
+    },
+    {
+      "path": "QCD/su3_smear.py.raw",
+      "source": "work/SIM/phase2/QCD/su3_smear.py",
+      "sha256": "2429bdc1384cb6843d50be42d68e3a35c3c7faf3cea1ccb102e0d56b2dd7ceff",
+      "bytes": 6348
+    },
+    {
+      "path": "QCD/su3_t0scan.py.raw",
+      "source": "work/SIM/phase2/QCD/su3_t0scan.py",
+      "sha256": "1b453e1006d13e123d309fd005173fbc7cc6636ba894a1798a400e88d4f94896",
+      "bytes": 1611
+    },
+    {
+      "path": "QCD/summary.json",
+      "source": "work/SIM/phase2/QCD/summary.json",
+      "sha256": "aebba15591afd16e06f37a38b9cd52356f17042db554b5badc3d98c3ef428645",
+      "bytes": 9235
+    }
+  ]
+}

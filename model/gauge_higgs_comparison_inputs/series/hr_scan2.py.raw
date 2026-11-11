@@ -1,0 +1,113 @@
+"""Worker HR: hysteresis branch of the hop coefficient kappa_H as a chain of jobs under a wall-time budget.
+
+Usage:
+  python hr_scan2.py <tag> <model> <beta_G> <lambda_L> <L> <kappa_start> <kappa_stop> <npoints> <ntherm> <nmeas> <seed>
+                     <mode> [budget_seconds] [T]
+  T: extent of direction 0 (default L); the temperature of the ensemble is 1/T in cell units
+  model: su2 or u1 (weak factor with the hypercharge angle, hr_u1.py)
+  mode:  up (ascending from a symmetric start) or down (descending from a Higgs start: unit links, uniform doublet
+         with rho0^2 = max(9, (8 kappa - 1 + 2 lambda)/(2 lambda)))
+Each call runs as many points as fit into the budget (default 95 s), stores the configuration in state_<tag>.npz and
+exits with code 3 when points remain; `hr_chain.sh` repeats the call until the scan is complete (exit code 0).
+Output: scan_<tag>.json with the same fields as hr_scan.py. Reads no measured value.
+"""
+import json
+import os
+import sys
+import time
+
+import numpy as np
+
+import hr_lib as H
+import hr_u1 as HU
+
+t0 = time.time()
+tag, model = sys.argv[1], sys.argv[2]
+beta, lam, L = float(sys.argv[3]), float(sys.argv[4]), int(sys.argv[5])
+k0, k1, npts = float(sys.argv[6]), float(sys.argv[7]), int(sys.argv[8])
+ntherm, nmeas, seed = int(sys.argv[9]), int(sys.argv[10]), int(sys.argv[11])
+mode = sys.argv[12]
+budget = float(sys.argv[13]) if len(sys.argv) > 13 else 95.0
+T = int(sys.argv[14]) if len(sys.argv) > 14 else L
+kappas = np.linspace(k0, k1, npts)
+order = kappas if mode == "up" else kappas[::-1]
+sfile, jfile = f"state_{tag}.npz", f"scan_{tag}.json"
+
+if os.path.exists(sfile):
+    st = np.load(sfile)
+    nxt, call = int(st["nxt"]), int(st["call"]) + 1
+    out = json.load(open(jfile))
+else:
+    nxt, call = 0, 0
+    out = {"tag": tag, "model": model, "beta_G": beta, "lambda_L": lam, "L": L, "T": T, "ntherm": ntherm, "nmeas": nmeas,
+           "seed": seed, "mode": mode, "points": [], "seconds_per_call": [], "complete": False}
+cls = HU.LatticeU1 if model == "u1" else H.Lattice
+lat = cls(L, beta, float(order[0]), lam, seed=seed + 7919 * call, T=T)
+if call > 0:
+    lat.U[:] = st["U"]; lat.phi[:] = st["phi"]
+    if model == "u1":
+        lat.a[:] = st["a"]
+else:
+    if mode == "down":
+        rho0sq = max(9.0, (8.0 * order[0] - 1.0 + 2.0 * lam) / (2.0 * lam)) if lam > 0 else 9.0
+        lat.phi[:] = 0.0
+        lat.phi[:, 0] = np.sqrt(rho0sq)
+    for _ in range(100):
+        lat.sweep()
+
+# time per sweep with measurement, from a short probe (smallest of four single sweeps)
+probe = []
+for _ in range(4):
+    tp = time.time()
+    lat.sweep(); lat.measure()
+    probe.append(time.time() - tp)
+per = min(probe)
+done_any = False
+while nxt < npts:
+    need = (ntherm + nmeas) * per
+    if done_any and time.time() - t0 + need > budget:
+        break
+    kap = float(order[nxt])
+    lat.kappa = kap
+    lat.acc_scale = [0, 0]; lat.acc_phi = [0, 0]
+    tq = time.time()
+    # a point that does not fit the budget is shortened: thermalization and measurements stop at the budget,
+    # with at least 40 measurement sweeps; the sweeps done are recorded with the point
+    t_end = t0 + budget
+    nth = 0
+    while nth < ntherm and (time.time() < t_end - 40 * per or nth < 20):
+        lat.sweep(); nth += 1
+    rws = []
+    while len(rws) < nmeas and (time.time() < t_end or len(rws) < 40):
+        lat.sweep(); rws.append(lat.measure())
+    rows = np.array(rws)
+    res = H.summarize(rows, lat)
+    res["ntherm_done"] = nth
+    per = (time.time() - tq) / (nth + len(rws))
+    nmeas_done = len(rws)
+    res["branch"] = mode
+    res["series_L_phi"] = np.round(rows[:, 1], 5).tolist()
+    res["series_rho2"] = np.round(rows[:, 3], 5).tolist()
+    res["drift_rho2_second_half_minus_first"] = float(rows[nmeas_done // 2:, 3].mean() - rows[:nmeas_done // 2, 3].mean())
+    if model == "u1":
+        res["plaquettes_(weak_term, trV/2, cos2a, cos3a)"] = list(lat.plaquettes())
+        res["acc_u1"] = lat.acc_u1[0] / max(1, lat.acc_u1[1])
+    out["points"].append(res)
+    nxt += 1
+    done_any = True
+    print(f"{mode:4s} kappa {kap:.5f} plaq {res['plaq']:.5f} L_phi {res['L_phi']:9.4f} L_alpha {res['L_alpha']:.4f} "
+          f"rho2 {res['rho2']:9.4f} chi_Lphi {res['chi_L_phi']:10.3f} chi_La {res['chi_L_alpha']:8.4f} "
+          f"sd {res['sd_residual']:+.4f}({res['sd_residual_err']:.4f}) t {time.time() - t0:.0f}s", flush=True)
+
+out["seconds_per_call"].append(time.time() - t0)
+out["complete"] = nxt >= npts
+json.dump(out, open(jfile, "w"))
+if nxt >= npts:
+    if os.path.exists(sfile):
+        os.remove(sfile)
+    print("complete", sum(out["seconds_per_call"]))
+    sys.exit(0)
+extra = {"a": lat.a} if model == "u1" else {}
+np.savez(sfile, U=lat.U, phi=lat.phi, nxt=nxt, call=call, **extra)
+print("paused at point", nxt, "of", npts, "after", round(time.time() - t0, 1), "s")
+sys.exit(3)

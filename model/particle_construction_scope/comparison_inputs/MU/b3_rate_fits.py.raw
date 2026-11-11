@@ -1,0 +1,28 @@
+"""Convergence of the measured flow rates to the 2 pi normalization (reads the flow_circle and flow_edge files).
+Writes rate_fits.json.
+"""
+import glob, json
+import numpy as np
+from scipy.optimize import least_squares
+
+out = {}
+# circle control, band-edge packets, N = 4 (k + 1)
+ks, sl = [], []
+for k, N in ((15, 64), (31, 128), (63, 256), (127, 512), (255, 1024)):
+    d = json.load(open(f'flow_circle_k{k}_N{N}.json'))
+    ks.append(k); sl.append(abs(d['packets']['upper_edge']['slope_over_2pi']))
+ks, sl = np.array(ks, float), np.array(sl)
+out['circle'] = {'k': ks.tolist(), 'slope_over_2pi': sl.tolist(), 'deficit_times_k': ((1 - sl) * ks).tolist(),
+                 'richardson_127_255': float(2 * sl[-1] - sl[-2]),
+                 'all_modes_slope_max_abs': max(abs(json.load(open(f))['packets']['all_modes']['slope_over_2pi']) for f in glob.glob('flow_circle_k*.json'))}
+# half-filled sections, edge packets
+x = np.array([15, 31, 63, 127, 255, 511], float)
+out['edge'] = {'two_j': x.tolist()}
+for name in ('edge_depth_small', 'edge_depth_medium', 'edge_depth_large', 'port_on_the_equator'):
+    s = np.array([abs(json.load(open(f'flow_edge_j{int(v)}.json'))['packets'][name]['slope_over_2pi']) for v in x])
+    r = least_squares(lambda p: p[0] - p[1] * x ** (-p[2]) - s, [1, 2, 0.4])
+    loc = np.diff(np.log(1 - s)) / np.diff(np.log(x))
+    out['edge'][name] = {'slope_over_2pi': s.tolist(), 'local_exponent_of_deficit': loc.tolist(),
+                         'free_limit_fit': {'limit': float(r.x[0]), 'c': float(r.x[1]), 'p': float(r.x[2]), 'rms': float(np.sqrt(np.mean(r.fun ** 2)))}}
+json.dump(out, open('rate_fits.json', 'w'), indent=1)
+print(json.dumps(out, indent=1))

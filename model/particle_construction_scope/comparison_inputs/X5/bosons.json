@@ -1,0 +1,959 @@
+{
+ "task": "X5, issue 7 of MAP.md: gauge bosons and the Higgs as travelling excitations",
+ "date": "2026-11-10",
+ "status": "best guess table; every number from the result files of this directory",
+ "native_means": "built from the carrier's port directions with the audit's five-level code (the code itself is declared architecture of the audit)",
+ "correction_to_CF1_section_8": "with a link phase, one field step per tick cannot give the routing speed: eps kappa = 1 is linearly unstable on 0.7867 of the zone; use n = 2 field steps per tick with eps kappa = 1/4",
+ "field_step": {
+  "link_variable": "phase theta_l in [0, 2 pi) per link of the cubic lattice of carriers, conjugate integer E_l (DECLARED)",
+  "step": "F = prod_links exp(-i eps E_l^2 / 2) . prod_plaquettes exp(-i kappa (1 - cos B_p)); n such steps per tick",
+  "relation_to_section_8": "clock form of a Z_N link, exp(-i eps_N cos(2 pi E/N)) and exp(-i kappa_N cos B); N = 2 is section 8; N to infinity: eps = -(2 pi/N)^2 eps_N, kappa = -kappa_N, up to a global phase",
+  "matter_coupling": "pattern of integer charge q routes with z_l = exp(i q theta_l) (routing.py, argument links)",
+  "gauss": "G_x(a) = exp(i a (div E - q N_x)); executed for Z_N, N = 2, 3, 4, 6 (alphabets.json) and as gauge covariance for U(1)",
+  "symbol_small_fields": "cos(omega) = 1 - 2 eps kappa sum_i sin^2(k_i/2), i.e. sin^2(omega/2) = eps kappa sum_i sin^2(k_i/2)",
+  "polarizations": 2,
+  "speed_per_field_step": "sqrt(eps kappa) cells",
+  "stability": "all wave vectors stable iff 3 eps kappa <= 1 (per field step)",
+  "speed_equal_to_routing": {
+   "one_step_per_tick": "eps kappa = 1: exact on the axes (omega = |k|), linearly unstable on the share of the zone below",
+   "unstable_share_at_eps_kappa_1": 0.7866726243095106,
+   "largest_growth_factor_per_step_at_eps_kappa_1": 9.898979485566356,
+   "corrected": "n >= 2 field steps per tick with eps kappa = 1/n^2; recommended n = 2, eps kappa = 1/4",
+   "omega_per_tick_n_2": "4 arcsin(sqrt(sum_i sin^2(k_i/2)) / 2)"
+  },
+  "coupling": "sqrt(eps/kappa) = g^2 of the unit link charge; fine-structure constant of that charge = sqrt(eps/kappa) / (4 pi)",
+  "illustration": {
+   "alpha_imported": 0.007297352573756914,
+   "unit_link_charge": "e/3 (pattern charge 3Q = 3 n_s1 - n3)",
+   "sqrt(eps/kappa) = 4 pi alpha / 9": 0.01018902632727524,
+   "two_field_steps_per_tick": {
+    "eps": 0.00509451316363762,
+    "kappa": 49.07240240036857,
+    "eps_kappa": 0.25
+   },
+   "status": "lattice Coulomb law (phase eps / (4 pi r) per field step between unit charges) MEASURED in coulomb_check.json; the identification with alpha is ARGUED and the bare value at the lattice scale is not alpha",
+   "coulomb_check": [
+    {
+     "r1": 4,
+     "r2": 8,
+     "G(r1) - G(r2)": 0.010296977859489999,
+     "(1/r1 - 1/r2) / (4 pi)": 0.009947183943243459,
+     "ratio": 1.035165119921617
+    },
+    {
+     "r1": 8,
+     "r2": 16,
+     "G(r1) - G(r2)": 0.004993840838963169,
+     "(1/r1 - 1/r2) / (4 pi)": 0.0049735919716217296,
+     "ratio": 1.0040712763445363
+    },
+    {
+     "r1": 6,
+     "r2": 12,
+     "G(r1) - G(r2)": 0.006712764143773731,
+     "(1/r1 - 1/r2) / (4 pi)": 0.006631455962162305,
+     "ratio": 1.0122609849293056
+    }
+   ]
+  },
+  "validation": {
+   "line_256_cells_60_ticks_p0": 0.2945243112740431,
+   "matter_massless_packet_velocity": 0.9999999992393508,
+   "field_packet_velocity_eps_kappa_1_one_step": 0.9999999992393508,
+   "field_packet_velocity_eps_kappa_1/4_two_steps": 0.9915870463758855,
+   "its_prediction_d_omega_dk_over_packet": 0.9915917897211788,
+   "field_packet_velocity_eps_kappa_1/3_one_step": 0.5730259517941837,
+   "lattice_step_against_symbol_defect": 3.483199782139859e-14,
+   "compact_step_from_noise": {
+    "eps_kappa_1": {
+     "linear_step_rms_plaquette_angle_growth_per_step_at_steps_14_to_16": [
+      9.444647514455495,
+      9.473733088589674
+     ],
+     "predicted_exp_arccosh_5": 9.898979485566356,
+     "compact_step_after_300_steps_from_1e-3": {
+      "mean_1_minus_cos_B": 1.0069265789137296,
+      "value_for_uniformly_random_angles": 1.0
+     }
+    },
+    "eps_kappa_1/3_600_steps_from_1e-3": {
+     "rms_plaquette_angle_first_last_max": [
+      0.0030780910794934004,
+      0.005304485937740284,
+      0.01277617053935945
+     ],
+     "mean_1_minus_cos_B": 1.406871587878898e-05
+    },
+    "eps_kappa_1/4_600_steps_from_1e-3": {
+     "rms_plaquette_angle_first_last_max": [
+      0.0018843291368235906,
+      0.002099037141231399,
+      0.002292432295400561
+     ],
+     "mean_1_minus_cos_B": 2.202976033597539e-06
+    }
+   },
+   "kicked_quantum_mode": {
+    "eps": 0.5,
+    "kappa_s": 0.6,
+    "omega_closed_form": 0.5548110329800715,
+    "quasi_energy_spacings_of_the_eight_lowest_states": [
+     0.5548110329800728,
+     0.554811032980069,
+     0.5548110329800702,
+     0.5548110329800748,
+     0.5548110329800724,
+     0.5548110329800728,
+     0.5548110329800706
+    ],
+    "ground_phase_over_omega": 0.4999999999999982
+   }
+  }
+ },
+ "alphabets": [
+  {
+   "alphabet": "Z2",
+   "native": true,
+   "origin": "image of -1 of the cover: diag(1,1,1,-1,-1) on the levels; CF-1 section 8",
+   "pattern_charge": "n2 mod 2",
+   "smallest_flux_loop_kappa": 8.0,
+   "smallest_electric_loop_eps": 8.0,
+   "wave": false,
+   "excitations": "closed flux loops, closed electric loops, charges at string ends",
+   "standard_model_boson": null
+  },
+  {
+   "alphabet": "Z6",
+   "native": true,
+   "origin": "sixth roots of the total port response exp(i (pi k/3) sum_p X_p) = centre of SU(3) x SU(2); the register classes",
+   "pattern_charge": "Q6 mod 6",
+   "smallest_flux_loop_kappa": {
+    "clock": 2.0,
+    "reflection": 8.0
+   },
+   "smallest_electric_loop_eps": {
+    "clock": 2.0,
+    "reflection": 8.0
+   },
+   "wave": false,
+   "note": "no small-field regime (spacing 2 pi/6 = 1.0472 rad); gapped in both solvable limits (eps -> 0, kappa -> 0). A massless window of the clock form between them is reported in the literature for cyclic alphabets of five or more values: IMPORTED, as remembered, not checked here, not established for a unitary tick. Even then it is not the B boson: rows neutral under Z6 = conj nu_R, conj e_R, e_R, nu_R",
+   "standard_model_boson": null
+  },
+  {
+   "alphabet": "cover of order 120",
+   "native": true,
+   "origin": "the audit's lift controller; acts as (rotation on the triplet, conjugate spinor on the doublet)",
+   "classes": 9,
+   "smallest_flux_loop_kappa": {
+    "plaquette function trace/5": 2.211145618000168,
+    "reflection": 8.0
+   },
+   "wave": false,
+   "intersections": {
+    "SU3_colour (identity on the doublet)": 3,
+    "SU2_weak (identity on the triplet)": 2,
+    "U1_Y = diag(e^-2ia 1_3, e^3ia 1_2)": 6,
+    "U1_em = diag(e^-2ia 1_3, e^6ia, 1)": 3
+   },
+   "note": "colour and weak frames are rotated together by one group element; no nontrivial element is close to the identity on both blocks (smallest max cost 0.690983); its only elements inside SU(3), SU(2), U(1)_Y, U(1)_em are central",
+   "standard_model_boson": null
+  },
+  {
+   "alphabet": "U(1) phase per generator",
+   "native": false,
+   "origin": "DECLARED continuous link variable",
+   "smallest_flux_loop_kappa": 0.0,
+   "wave": true,
+   "polarizations": 2,
+   "standard_model_boson": "photon, B; each component of W, Z and gluons at linear order"
+  }
+ ],
+ "generators": {
+  "convention": "levels (v1, v2, v3, s1, s2); port response X_p of audit/gauge/ENCODED_OVERLAP.md; n_p port direction, n'_p conjugate direction; D_p = second quantization of X_p on the 32 patterns",
+  "B (hypercharge Y)": {
+   "port_weights": "-1/6 for every port",
+   "carrier_representation": "trivial (1)",
+   "levels": [
+    -0.3333333333333333,
+    -0.3333333333333333,
+    -0.3333333333333333,
+    0.5,
+    0.5
+   ],
+   "integer_link_charge_of_a_pattern": "Q6 = 3 n2 - 2 n3"
+  },
+  "W (T_a, a = 1, 2, 3)": {
+   "port_weights": "-(1/2) n'_p . a",
+   "carrier_representation": "conjugate triplet (3')",
+   "levels": "a . sigma / 2 on (s1, s2)",
+   "integer_link_charge_of_a_pattern (T3)": "2 T3 = n_s1 - n_s2"
+  },
+  "gluons, rotations (3)": {
+   "port_weights": "n_p . a",
+   "carrier_representation": "triplet (3)",
+   "levels": "i [a]_x on (v1, v2, v3)"
+  },
+  "gluons, quadrupoles (5)": {
+   "port_weights": "-(5/2) n_p^T S n_p, S symmetric traceless",
+   "carrier_representation": "quintet (5)",
+   "levels": "S on (v1, v2, v3)"
+  },
+  "photon (Q = T3 + Y)": {
+   "port_weights": "-(1/6 + n'_p . a3 / 2)",
+   "levels": [
+    -0.3333333333333333,
+    -0.3333333333333333,
+    -0.3333333333333333,
+    1,
+    0
+   ],
+   "integer_link_charge_of_a_pattern": "3Q = 3 n_s1 - n3",
+   "declared": "the isospin axis a3 (which doublet level is neutral; fixed by the toggle)"
+  },
+  "Z (T3 - s2 Q)": {
+   "port_weights": "s2/6 - (1 - s2) n'_p . a3 / 2",
+   "levels": "diag(s2/3, s2/3, s2/3, 1/2 - s2, -1/2)",
+   "s2": "sin^2 of the mixing angle: DECLARED ratio of two field-step couplings; 3/8 if one normalization is used for all twelve components (sum T3^2 / sum Q^2 = 3/8 on the family half)"
+  },
+  "checks": {
+   "exact_moments": {
+    "norms": true,
+    "first_moments_vanish": true,
+    "second_moment_is_4_norm2_identity": true,
+    "mixed_second_moment_vanishes": true,
+    "fourth_moment_is_(4/5)_norm4_(dd+dd+dd)": true,
+    "third_moments_vanish": true,
+    "five_neighbours_each": true,
+    "port_vectors_have_adjacency_eigenvalue_sqrt5_conjugates_minus_sqrt5": true
+   },
+   "carrier_defects": {
+    "sum = diag(2,2,2,-3,-3)": 8.881784197001252e-16,
+    "sum (n_conj.a) X = -a.sigma on the doublet": 6.661338147750939e-16,
+    "sum (n.a) X = i[a]x on the triplet": 9.992970910418892e-16,
+    "sum (n^T S n) X = -(2/5) S on the triplet": 1.3322676295501878e-15,
+    "the twelve weight vectors are mutually orthogonal": 4.9960036108132044e-15,
+    "photon weights give diag(-1/3,-1/3,-1/3,1,0)": 4.440892098500626e-16,
+    "T3 weights give diag(0,0,0,1/2,-1/2)": 3.3306690738754696e-16,
+    "sum_p w_p D_p is diagonal with the electric charge of every pattern": 6.661338147750939e-16,
+    "uniform weights give Q6/6 on every pattern": 3.3306690738754696e-16
+   },
+   "first_order_change_of_the_tick_under_a_link_phase_is_charge_times_link_current_defect": 7.214179253978159e-11
+  },
+  "pattern_charges": [
+   {
+    "row": "conj nu_R",
+    "n3": 0,
+    "n2": 0,
+    "Q6": 0,
+    "Z6_class": 0,
+    "Z2_class": 0,
+    "Z3_class": 0,
+    "six_times_electric_charge_of_members": [
+     0
+    ],
+    "six_Q_mod_6_of_members": [
+     0
+    ]
+   },
+   {
+    "row": "conj L_L",
+    "n3": 0,
+    "n2": 1,
+    "Q6": 3,
+    "Z6_class": 3,
+    "Z2_class": 1,
+    "Z3_class": 0,
+    "six_times_electric_charge_of_members": [
+     0,
+     6
+    ],
+    "six_Q_mod_6_of_members": [
+     0
+    ]
+   },
+   {
+    "row": "conj e_R",
+    "n3": 0,
+    "n2": 2,
+    "Q6": 6,
+    "Z6_class": 0,
+    "Z2_class": 0,
+    "Z3_class": 0,
+    "six_times_electric_charge_of_members": [
+     6
+    ],
+    "six_Q_mod_6_of_members": [
+     0
+    ]
+   },
+   {
+    "row": "d_R",
+    "n3": 1,
+    "n2": 0,
+    "Q6": -2,
+    "Z6_class": 4,
+    "Z2_class": 0,
+    "Z3_class": 1,
+    "six_times_electric_charge_of_members": [
+     -2
+    ],
+    "six_Q_mod_6_of_members": [
+     4
+    ]
+   },
+   {
+    "row": "Q_L",
+    "n3": 1,
+    "n2": 1,
+    "Q6": 1,
+    "Z6_class": 1,
+    "Z2_class": 1,
+    "Z3_class": 1,
+    "six_times_electric_charge_of_members": [
+     -2,
+     4
+    ],
+    "six_Q_mod_6_of_members": [
+     4
+    ]
+   },
+   {
+    "row": "u_R",
+    "n3": 1,
+    "n2": 2,
+    "Q6": 4,
+    "Z6_class": 4,
+    "Z2_class": 0,
+    "Z3_class": 1,
+    "six_times_electric_charge_of_members": [
+     4
+    ],
+    "six_Q_mod_6_of_members": [
+     4
+    ]
+   },
+   {
+    "row": "conj u_R",
+    "n3": 2,
+    "n2": 0,
+    "Q6": -4,
+    "Z6_class": 2,
+    "Z2_class": 0,
+    "Z3_class": 2,
+    "six_times_electric_charge_of_members": [
+     -4
+    ],
+    "six_Q_mod_6_of_members": [
+     2
+    ]
+   },
+   {
+    "row": "conj Q_L",
+    "n3": 2,
+    "n2": 1,
+    "Q6": -1,
+    "Z6_class": 5,
+    "Z2_class": 1,
+    "Z3_class": 2,
+    "six_times_electric_charge_of_members": [
+     -4,
+     2
+    ],
+    "six_Q_mod_6_of_members": [
+     2
+    ]
+   },
+   {
+    "row": "conj d_R",
+    "n3": 2,
+    "n2": 2,
+    "Q6": 2,
+    "Z6_class": 2,
+    "Z2_class": 0,
+    "Z3_class": 2,
+    "six_times_electric_charge_of_members": [
+     2
+    ],
+    "six_Q_mod_6_of_members": [
+     2
+    ]
+   },
+   {
+    "row": "e_R",
+    "n3": 3,
+    "n2": 0,
+    "Q6": -6,
+    "Z6_class": 0,
+    "Z2_class": 0,
+    "Z3_class": 0,
+    "six_times_electric_charge_of_members": [
+     -6
+    ],
+    "six_Q_mod_6_of_members": [
+     0
+    ]
+   },
+   {
+    "row": "L_L",
+    "n3": 3,
+    "n2": 1,
+    "Q6": -3,
+    "Z6_class": 3,
+    "Z2_class": 1,
+    "Z3_class": 0,
+    "six_times_electric_charge_of_members": [
+     -6,
+     0
+    ],
+    "six_Q_mod_6_of_members": [
+     0
+    ]
+   },
+   {
+    "row": "nu_R",
+    "n3": 3,
+    "n2": 2,
+    "Q6": 0,
+    "Z6_class": 0,
+    "Z2_class": 0,
+    "Z3_class": 0,
+    "six_times_electric_charge_of_members": [
+     0
+    ],
+    "six_Q_mod_6_of_members": [
+     0
+    ]
+   }
+  ]
+ },
+ "bosons": [
+  {
+   "boson": "photon",
+   "states": 1,
+   "excitation": "wave of the link phase that gauges Q = T3 + Y",
+   "travels": true,
+   "polarizations": 2,
+   "speed_cells_per_tick": "n sqrt(eps kappa); 1 at long wavelength for eps kappa = 1/n^2, n >= 2",
+   "mass": "zero",
+   "mass_reason": "Q annihilates the register quantum (higgs.json D; R8: the toggle commutes with su(3) + u(1)_em)",
+   "native": [
+    "generator and current: sum_p w_p D_p, w_p = -(1/6 + n'_p.a3/2)"
+   ],
+   "exact_in_CF1": [
+    "coupling through the routing link",
+    "Gauss constraint"
+   ],
+   "declared": [
+    "continuous link variable",
+    "field step and its two parameters per simple factor",
+    "number of field steps per tick",
+    "isospin axis a3"
+   ],
+   "native_alphabet_can_carry_it": false,
+   "why_not_native": "U(1)_em meets the native alphabets in the colour centre only (order 3); electron and neutrino are not separated by any central class",
+   "status": "symbol EXACT, lattice and packets MEASURED, native/declared split EXACT at representation level; best guess for the map"
+  },
+  {
+   "boson": "Z",
+   "states": 1,
+   "excitation": "wave of the link phase for T3 - s2 Q on a phase-coherent register",
+   "travels": true,
+   "polarizations": 3,
+   "speed_cells_per_tick": "transverse n sqrt(eps kappa) at short wavelength; longitudinal n sqrt(u rho)",
+   "mass": "open",
+   "mass_formula": "rest phase per field step: cos(omega_0) = 1 - eps rho q^2 / 2 (rho stiffness, q register charge); mZ^2/mW^2 = (g^2 + g'^2)/g^2",
+   "native": [
+    "generator weights",
+    "mixing value 3/8 at one normalization"
+   ],
+   "declared": [
+    "continuous link variable",
+    "field step and its two parameters per simple factor",
+    "number of field steps per tick",
+    "register phase stiffness rho and number cost u",
+    "ratio of the two couplings"
+   ],
+   "native_alphabet_can_carry_it": false,
+   "status": "symbol with register EXACT; representation level"
+  },
+  {
+   "boson": "W+, W-",
+   "states": 2,
+   "excitation": "wave of the link components along T1 +- i T2 (a link matrix on the doublet levels)",
+   "travels": true,
+   "polarizations": 3,
+   "speed_cells_per_tick": "as Z",
+   "mass": "open",
+   "mass_formula": "mW^2/mZ^2 = g^2/(g^2 + g'^2); 5/8 at one normalization",
+   "native": [
+    "generators: weights -(1/2) n'_p.(a1 +- i a2), conjugate triplet of the carrier group"
+   ],
+   "declared": [
+    "continuous link variable",
+    "field step and its two parameters per simple factor",
+    "number of field steps per tick",
+    "link matrices in the routing (the engine routes with phases only)",
+    "register"
+   ],
+   "native_alphabet_can_carry_it": false,
+   "why_not_native": "the native alphabets meet SU(2) in its centre only (order 2)",
+   "status": "representation level; linear order only; not executed on the engine"
+  },
+  {
+   "boson": "gluons",
+   "states": 8,
+   "excitation": "waves of the link components along the triplet (3 rotations) and quintet (5 quadrupoles) of port weights",
+   "travels": "at linear order",
+   "polarizations": 2,
+   "speed_cells_per_tick": "n sqrt(eps_3 kappa_3)",
+   "mass": "zero at linear order; confinement and the bound-state scale open",
+   "native": [
+    "generators: weights n_p.a and -(5/2) n_p^T S n_p"
+   ],
+   "declared": [
+    "continuous link variable",
+    "field step and its two parameters per simple factor",
+    "number of field steps per tick",
+    "link matrices in the routing"
+   ],
+   "native_alphabet_can_carry_it": false,
+   "why_not_native": "the native alphabets meet SU(3) in its centre only (order 3): colour-centre flux loops, not gluons",
+   "status": "representation level; linear order only; not executed on the engine"
+  },
+  {
+   "boson": "B (before mixing)",
+   "states": 1,
+   "excitation": "wave of the link phase that gauges Y: the uniform combination of the twelve responses",
+   "travels": true,
+   "polarizations": 2,
+   "speed_cells_per_tick": "n sqrt(eps_1 kappa_1)",
+   "mass": "zero without a register",
+   "native": [
+    "generator = -(1/6) sum_p D_p; the Z6 classes are its six central points"
+   ],
+   "declared": [
+    "continuous link variable",
+    "field step and its two parameters per simple factor",
+    "number of field steps per tick"
+   ],
+   "native_alphabet_can_carry_it": false,
+   "why_not_native": "a Z6 link sees Q6 mod 6: the right-handed electron (Q6 = -6) would be neutral",
+   "status": "as photon"
+  },
+  {
+   "boson": "Higgs",
+   "states": 1,
+   "excitation": "R8 register quantum (Z2 charge 1, 6Y = 3, T3 = -1/2, Q = 0, colour singlet); as a wave: the amplitude mode of the register",
+   "travels": false,
+   "travels_detail": {
+    "R8 tick": "the register word is never shifted: static, no rest phase; it moves only bound to a quantum (toggle)",
+    "declared exchange with link sign (Gauss-compatible, executed)": "one quantum on an empty register: rest phase 3 lambda per tick, largest group velocity sin(lambda) per axis, omega = 3 lambda - tan(lambda)|k|^2/2 near rest; lambda = pi/2: one cell per tick per axis along a diagonal fixed by the sublattice",
+    "phase-coherent register": "its one mode (phase, number) is the third polarization of the massive link wave if the link is a continuous phase; with a native finite alphabet it stays a massless scalar wave of speed n sqrt(u rho) that the Standard Model does not have (ARGUED)",
+    "neutral scalar wave": "needs a second canonical pair per cell (DECLARED): cos(omega) = 1 - u_h (m^2 + rho_h s)/2, speed sqrt(u_h rho_h)"
+   },
+   "speed_cells_per_tick": "0 in the R8 tick",
+   "mass": "open",
+   "native": [
+    "charges of the register quantum (R8)",
+    "the toggle as the only charge- and colour-conserving linear operator (L31)"
+   ],
+   "declared": [
+    "register",
+    "its reference state",
+    "its exchange step and parameters",
+    "a second pair for the amplitude"
+   ],
+   "native_alphabet_can_carry_it": null,
+   "status": "static: EXACT by construction of the R8 tick; exchange MEASURED (defects printed) with exact closed form; mode count ARGUED with exact symbol"
+  }
+ ],
+ "travelling_objects_without_a_standard_model_boson": [
+  {
+   "object": "flux loop of the Z2 link (weak-centre flux, class 3)",
+   "native": true,
+   "travels": "by the link step only, at second order in eps (ARGUED); not a wave",
+   "mass": "lattice scale: 8 kappa per tick for the smallest loop (eps -> 0)",
+   "standard_model_boson": null
+  },
+  {
+   "object": "flux loops of the Z6 link (classes 1, 5; colour part 2, 4)",
+   "native": true,
+   "travels": "by the link step only; not a wave",
+   "mass": "lattice scale: 2 kappa (clock) or 8 kappa (reflection)",
+   "standard_model_boson": null
+  },
+  {
+   "object": "flux and electric loops of the cover of order 120",
+   "native": true,
+   "travels": "by the link step only",
+   "mass": "lattice scale: 2.211146 kappa (trace/5)",
+   "standard_model_boson": null
+  },
+  {
+   "object": "the twelve responses D_p acting on the empty vacuum of R1",
+   "native": true,
+   "travels": "no: D_p annihilates the empty vacuum (EXACT: a one-body operator on no quanta)",
+   "mass": null,
+   "standard_model_boson": null
+  },
+  {
+   "object": "pair of routed quanta, pattern and conjugate pattern (alternative carrier of a boson)",
+   "native": true,
+   "travels": "at the routing speed; collinear massless pair has omega = |k| on an axis (cos E = cos p)",
+   "mass": "zero; a threshold of a two-quantum continuum, no bound state shown (ARGUED, not executed)",
+   "standard_model_boson": "kept as alternative only"
+  }
+ ],
+ "executed_checks": {
+  "ZN_gauss_rows": [
+   {
+    "N": 2,
+    "lattice": [
+     3,
+     2,
+     1
+    ],
+    "links": 12,
+    "plaquettes": 6,
+    "charge_q": 1,
+    "form": "clock",
+    "matter": true,
+    "amplitudes": 98304,
+    "unitarity": 4.440892098500626e-16,
+    "commutator_with_Gauss": 1.0631817190634495e-17,
+    "control_commutator_of_link_shift_without_charge_phase": 0.021888722539429275,
+    "Gauss_to_the_power_N_is_one": 2.4532694666933987e-18
+   },
+   {
+    "N": 3,
+    "lattice": [
+     2,
+     2,
+     1
+    ],
+    "links": 8,
+    "plaquettes": 4,
+    "charge_q": 1,
+    "form": "clock",
+    "matter": true,
+    "amplitudes": 104976,
+    "unitarity": 1.7763568394002505e-15,
+    "commutator_with_Gauss": 1.3239702322734433e-17,
+    "control_commutator_of_link_shift_without_charge_phase": 0.01797342746716844,
+    "Gauss_to_the_power_N_is_one": 5.898697549827395e-18
+   },
+   {
+    "N": 3,
+    "lattice": [
+     2,
+     2,
+     1
+    ],
+    "links": 8,
+    "plaquettes": 4,
+    "charge_q": 2,
+    "form": "reflection",
+    "matter": true,
+    "amplitudes": 104976,
+    "unitarity": 1.1102230246251565e-15,
+    "commutator_with_Gauss": 1.7541305574877886e-17,
+    "control_commutator_of_link_shift_without_charge_phase": 0.018770032621833167,
+    "Gauss_to_the_power_N_is_one": 9.889445383256551e-18
+   },
+   {
+    "N": 4,
+    "lattice": [
+     2,
+     2,
+     1
+    ],
+    "links": 8,
+    "plaquettes": 4,
+    "charge_q": 1,
+    "form": "clock",
+    "matter": true,
+    "amplitudes": 1048576,
+    "unitarity": 4.440892098500626e-16,
+    "commutator_with_Gauss": 3.043500531374954e-18,
+    "control_commutator_of_link_shift_without_charge_phase": 0.005189028069212986,
+    "Gauss_to_the_power_N_is_one": 1.2266347333466993e-18
+   },
+   {
+    "N": 6,
+    "lattice": [
+     3,
+     1,
+     1
+    ],
+    "links": 3,
+    "plaquettes": 0,
+    "charge_q": 1,
+    "form": "clock",
+    "matter": true,
+    "amplitudes": 2592,
+    "unitarity": 4.440892098500626e-16,
+    "commutator_with_Gauss": 5.1577036902917074e-17,
+    "control_commutator_of_link_shift_without_charge_phase": 0.056143630682368904,
+    "Gauss_to_the_power_N_is_one": 3.8163916471489756e-17
+   },
+   {
+    "N": 6,
+    "lattice": [
+     3,
+     1,
+     1
+    ],
+    "links": 3,
+    "plaquettes": 0,
+    "charge_q": 3,
+    "form": "reflection",
+    "matter": true,
+    "amplitudes": 2592,
+    "unitarity": 4.440892098500626e-16,
+    "commutator_with_Gauss": 1.1666015375944028e-16,
+    "control_commutator_of_link_shift_without_charge_phase": 0.10842655807908354,
+    "Gauss_to_the_power_N_is_one": 1.1210126175528405e-16
+   },
+   {
+    "N": 6,
+    "lattice": [
+     3,
+     1,
+     1
+    ],
+    "links": 3,
+    "plaquettes": 0,
+    "charge_q": 4,
+    "form": "clock",
+    "matter": true,
+    "amplitudes": 2592,
+    "unitarity": 3.3306690738754696e-16,
+    "commutator_with_Gauss": 1.7772239894833365e-16,
+    "control_commutator_of_link_shift_without_charge_phase": 0.09085137210509847,
+    "Gauss_to_the_power_N_is_one": 1.8054463245622663e-16
+   },
+   {
+    "N": 6,
+    "lattice": [
+     2,
+     2,
+     1
+    ],
+    "links": 8,
+    "plaquettes": 4,
+    "charge_q": null,
+    "form": "clock",
+    "matter": false,
+    "amplitudes": 1679616,
+    "unitarity": 1.2212453270876722e-15,
+    "commutator_with_Gauss": 3.511543213478341e-18
+   },
+   {
+    "N": 6,
+    "lattice": [
+     2,
+     2,
+     1
+    ],
+    "links": 8,
+    "plaquettes": 4,
+    "charge_q": null,
+    "form": "reflection",
+    "matter": false,
+    "amplitudes": 1679616,
+    "unitarity": 5.329070518200751e-15,
+    "commutator_with_Gauss": 3.302815098613731e-18
+   }
+  ],
+  "U1_gauge_covariance_of_the_routing_tick": 1.235434935934258e-16,
+  "higgs_exchange": {
+   "dimension": 256,
+   "unitarity": 2.9976021664879227e-15,
+   "commutator_with_extended_Gauss": 0.0,
+   "control_without_link_sign": 0.5975307420655154,
+   "number_of_register_quanta_conserved": 0.0,
+   "public_reflector_on_two_bits_is_the_exchange": 2.220446049250313e-16,
+   "eps_mu_lambda": [
+    0.3,
+    0.2,
+    0.4
+   ]
+  },
+  "higgs_one_quantum": {
+   "closed_form": "two ticks (even links, then odd links): cos(Omega) = cos^2(lambda) - sin^2(lambda) cos(2k); three axes: the phases add; near rest omega = 3 lambda - tan(lambda) |k|^2 / 2 per tick",
+   "rows": [
+    {
+     "lambda": 0.3,
+     "ring": 64,
+     "eigenphases_against_closed_form": 2.4771851236948805e-15,
+     "rest_phase_per_tick_and_axis": 0.3000000000000001,
+     "curvature_d2omega_dk2_at_rest": -0.3093362165307312,
+     "minus_tan_lambda": -0.3093362496096232,
+     "largest_group_velocity_cells_per_tick": 0.2955202445236771,
+     "closed_form_sin_lambda": 0.29552020666133955
+    },
+    {
+     "lambda": 1.0,
+     "ring": 64,
+     "eigenphases_against_closed_form": 1.005048508972395e-15,
+     "rest_phase_per_tick_and_axis": 0.9999999999999999,
+     "curvature_d2omega_dk2_at_rest": -1.5574066501988781,
+     "minus_tan_lambda": -1.557407724654902,
+     "largest_group_velocity_cells_per_tick": 0.8414710053357074,
+     "closed_form_sin_lambda": 0.8414709848078965
+    },
+    {
+     "lambda": 1.5707963267948966,
+     "ring": 64,
+     "eigenphases_against_closed_form": 8.881784197001252e-16,
+     "rest_phase_per_tick_and_axis": 1.5707963267948966,
+     "curvature_d2omega_dk2_at_rest": null,
+     "minus_tan_lambda": null,
+     "largest_group_velocity_cells_per_tick": 1.0000000371307227,
+     "closed_form_sin_lambda": 1.0
+    }
+   ]
+  },
+  "link_wave_with_register": {
+   "gauge_direction_is_null": true,
+   "trace_of_TH": true,
+   "charpoly_of_the_8x8_tick_at_three_rational_points": true,
+   "transverse (2 polarizations)": "cos(omega) = 1 - eps (kappa s + rho q^2) / 2",
+   "longitudinal (1 polarization)": "cos(omega) = 1 - rho (eps q^2 + u s) / 2",
+   "gauge and Gauss pair": "eigenvalue 1 twice",
+   "independent scalar branch": "none: 8 phase-space dimensions = 2 (gauge) + 6 (three polarizations)",
+   "rest_phase": "cos(omega_0) = 1 - eps rho q^2 / 2 for all three",
+   "speeds": "transverse sqrt(eps kappa), longitudinal sqrt(u rho)",
+   "q = 0": "the link wave keeps two polarizations and no rest phase; the register phase is then a separate massless scalar with speed sqrt(u rho)"
+  },
+  "electroweak_mass_matrix": {
+   "matrix": "[[g**2/4, 0, 0, 0], [0, g**2/4, 0, 0], [0, 0, g**2/4, -g*gprime/4], [0, 0, -g*gprime/4, gprime**2/4]]",
+   "eigenvalues": {
+    "g**2/4": 2,
+    "(g**2 + gprime**2)/4": 1,
+    "0": 1
+   },
+   "massless_direction_is_g_prime_W3_plus_g_B": true,
+   "its_generator_annihilates_the_register_quantum": true,
+   "mW2_over_mZ2": "g^2 / (g^2 + g'^2)",
+   "at_equal_normalization_sin2_3/8": "5/8"
+  },
+  "cover_120_classes": [
+   {
+    "real_part": 1.0,
+    "size": 1,
+    "order": 1,
+    "trace_triplet": 3.0,
+    "trace_doublet_conjugate_frame": 2.0,
+    "trace_five_levels": 5.0,
+    "trace_five_levels_exact": "5",
+    "one_minus_trace_over_five": 0.0,
+    "cost_triplet": 0.0,
+    "cost_doublet": 0.0
+   },
+   {
+    "real_part": 0.8090169943749475,
+    "size": 12,
+    "order": 10,
+    "trace_triplet": 1.618033988749895,
+    "trace_doublet_conjugate_frame": -0.6180339887498949,
+    "trace_five_levels": 1.0,
+    "trace_five_levels_exact": "1",
+    "one_minus_trace_over_five": 0.8,
+    "cost_triplet": 0.46065533708336837,
+    "cost_doublet": 1.3090169943749475
+   },
+   {
+    "real_part": 0.5,
+    "size": 20,
+    "order": 6,
+    "trace_triplet": 0.0,
+    "trace_doublet_conjugate_frame": 1.0,
+    "trace_five_levels": 1.0,
+    "trace_five_levels_exact": "1",
+    "one_minus_trace_over_five": 0.8,
+    "cost_triplet": 1.0,
+    "cost_doublet": 0.5
+   },
+   {
+    "real_part": 0.30901699437494745,
+    "size": 12,
+    "order": 5,
+    "trace_triplet": -0.6180339887498949,
+    "trace_doublet_conjugate_frame": -1.618033988749895,
+    "trace_five_levels": -2.23606797749979,
+    "trace_five_levels_exact": "0+-1r5",
+    "one_minus_trace_over_five": 1.4472135954999579,
+    "cost_triplet": 1.2060113295832984,
+    "cost_doublet": 1.8090169943749475
+   },
+   {
+    "real_part": 0.0,
+    "size": 30,
+    "order": 4,
+    "trace_triplet": -1.0,
+    "trace_doublet_conjugate_frame": 0.0,
+    "trace_five_levels": -1.0,
+    "trace_five_levels_exact": "-1",
+    "one_minus_trace_over_five": 1.2,
+    "cost_triplet": 1.3333333333333333,
+    "cost_doublet": 1.0
+   },
+   {
+    "real_part": -0.30901699437494745,
+    "size": 12,
+    "order": 10,
+    "trace_triplet": -0.6180339887498949,
+    "trace_doublet_conjugate_frame": 1.618033988749895,
+    "trace_five_levels": 1.0,
+    "trace_five_levels_exact": "1",
+    "one_minus_trace_over_five": 0.8,
+    "cost_triplet": 1.2060113295832984,
+    "cost_doublet": 0.19098300562505255
+   },
+   {
+    "real_part": -0.5,
+    "size": 20,
+    "order": 3,
+    "trace_triplet": 0.0,
+    "trace_doublet_conjugate_frame": -1.0,
+    "trace_five_levels": -1.0,
+    "trace_five_levels_exact": "-1",
+    "one_minus_trace_over_five": 1.2,
+    "cost_triplet": 1.0,
+    "cost_doublet": 1.5
+   },
+   {
+    "real_part": -0.8090169943749475,
+    "size": 12,
+    "order": 5,
+    "trace_triplet": 1.618033988749895,
+    "trace_doublet_conjugate_frame": 0.6180339887498949,
+    "trace_five_levels": 2.23606797749979,
+    "trace_five_levels_exact": "0+1r5",
+    "one_minus_trace_over_five": 0.552786404500042,
+    "cost_triplet": 0.46065533708336837,
+    "cost_doublet": 0.6909830056250525
+   },
+   {
+    "real_part": -1.0,
+    "size": 1,
+    "order": 2,
+    "trace_triplet": 3.0,
+    "trace_doublet_conjugate_frame": -2.0,
+    "trace_five_levels": 1.0,
+    "trace_five_levels_exact": "1",
+    "one_minus_trace_over_five": 0.8,
+    "cost_triplet": 0.0,
+    "cost_doublet": 2.0
+   }
+  ]
+ },
+ "sources": {
+  "field_symbol.py": "WORKSPACE/repair-law/work/X5/field_symbol.py",
+  "alphabets.py": "WORKSPACE/repair-law/work/X5/alphabets.py",
+  "currents.py": "WORKSPACE/repair-law/work/X5/currents.py",
+  "higgs.py": "WORKSPACE/repair-law/work/X5/higgs.py",
+  "build_bosons.py": "WORKSPACE/repair-law/work/X5/build_bosons.py"
+ }
+}

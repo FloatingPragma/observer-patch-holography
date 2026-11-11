@@ -1,0 +1,84 @@
+{
+ "schema": "repair_law.CA.t7.v1",
+ "checks": {
+  "1a the 19 face boundaries (outside face dropped) are a primitive set: Smith form all ones": true,
+  "1b the cycle lattice has rank 19 = 30 - 11, so Z_1 = boundaries = Z^20 / Z (1,...,1)": true,
+  "2a every rotation maps oriented faces to oriented faces (orientation preserved)": true,
+  "2b Z^20 / (span{m - g m} + Z 1) is cyclic of order 20: coinvariants of the cycle lattice under the rotations": {
+   "pass": true,
+   "detail": {
+    "smith": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     20
+    ]
+   }
+  },
+  "2c the area class (sum of the coefficients of a filling, modulo 20) is the quotient map: it vanishes on m - g m and on (1,...,1), and takes the value 1 on a face boundary": true,
+  "3 the antipodal map reverses the orientation of every face: area -> -area, character k -> -k": true,
+  "4a the audit uses the same seam and oriented-face lists": true,
+  "4b on closed histories both deck records are z(c) = H^-1 Z^T c, integer, onto Z^4 (tree gauge cancels)": true,
+  "4c area classes of cycles with zero even deck record: multiples of 5 only; with zero odd deck record: all 20": true,
+  "5a area = t . z_even modulo 5 for exactly one t in (Z/5)^4": {
+   "pass": true,
+   "detail": {
+    "t": [
+     [
+      3,
+      3,
+      3,
+      3
+     ]
+    ]
+   }
+  },
+  "5b area modulo 2 and modulo 4 are not linear forms of the eight deck coordinates": true,
+  "6 (float64) for j = 0..4 and loads one and two: spectrum of P_(k=4j) = spectrum of the audit even Bloch transfer at momentum 2 pi j t / 5": {
+   "pass": true,
+   "detail": {
+    "defect": 1.3322676295501878e-15
+   }
+  }
+ },
+ "area_on_deck_kernels": {
+  "even deck": {
+   "kernel_rank": 15,
+   "area_classes_on_kernel_generated_by": 5,
+   "subgroup_order": 4
+  },
+  "odd deck": {
+   "kernel_rank": 15,
+   "area_classes_on_kernel_generated_by": 1,
+   "subgroup_order": 20
+  },
+  "both decks": {
+   "kernel_rank": 11,
+   "area_classes_on_kernel_generated_by": 5,
+   "subgroup_order": 4
+  }
+ },
+ "t_mod_5": [
+  3,
+  3,
+  3,
+  3
+ ],
+ "seconds": 0.51
+}

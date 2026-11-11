@@ -1,0 +1,213 @@
+"""Worker LY, X12, X13 and the third-family table of addendum B: running between Q0 and M_U in five contents.
+
+Reads no measured value. Imports work/UD/ud_rge.py read only (chart of the declared chain at Q0).
+  cd RL/work/LY && PYTHONDONTWRITEBYTECODE=1 nice -n 10 /tmp/oph-completion-venv/bin/python -B ly_run2.py
+Writes run2.json.
+
+Contents:
+  S-SM   UD's chart, Standard Model, two loops and one loop.
+  S-CH1  the chain's gauge lines (declared slopes (33/5, 1, -3) through the chart's values at Q0), one-loop Yukawa
+         equations of one doublet.
+  S-CH2  the same lines, type II two-doublet Yukawa equations (Yukawas against the full v).
+  S-MS   the same lines, supersymmetric one-loop Yukawa equations (Yukawas against the full v).
+  S-SRC  gauge lines with the source's slopes for two doublets (41/5, 1, -3) from 1/alpha_U = 24.3185 at M_U,
+         one-doublet Yukawa equations.
+"""
+from __future__ import annotations
+
+import json
+import math
+import os
+import sys
+
+import numpy as np
+from scipy.integrate import solve_ivp
+from scipy.optimize import brentq, fsolve
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(HERE, '..', 'UD'))
+import ud_rge as U  # noqa: E402
+
+K1 = 1.0 / (16.0 * math.pi ** 2)
+M_U = 2.4736e16
+INV_ALPHA_U = 24.3166
+G_U = math.sqrt(4 * math.pi / INV_ALPHA_U)
+T_U = math.log(M_U / U.Q0)
+LAMBDA_MAX_SQ = 0.2096935560 / (2.0 / 9.0)
+SLOPES_DECLARED = (33.0 / 5.0, 1.0, -3.0)
+SLOPES_SOURCE = (41.0 / 5.0, 1.0, -3.0)
+
+
+def gauge_lines(slopes, anchor):
+    """Return g_i^2(t) for one-loop lines. anchor = ('Q0', inverse alphas at Q0) or ('MU', inverse alpha_U)."""
+    if anchor[0] == 'Q0':
+        ia0 = anchor[1]
+
+        def gs(t):
+            return [4 * math.pi / (ia0[i] - slopes[i] * t / (2 * math.pi)) for i in range(3)]
+    else:
+        iau = anchor[1]
+
+        def gs(t):
+            return [4 * math.pi / (iau + slopes[i] * (T_U - t) / (2 * math.pi)) for i in range(3)]
+    return gs
+
+
+def yukawa_beta(form):
+    def f(t, y, gs):
+        yt, yb, yl = y
+        g1, g2, g3 = gs(t)
+        a, b, c = yt * yt, yb * yb, yl * yl
+        if form == 'one_doublet':
+            return [K1 * yt * (4.5 * a + 1.5 * b + c - (17 / 20) * g1 - 2.25 * g2 - 8 * g3),
+                    K1 * yb * (4.5 * b + 1.5 * a + c - 0.25 * g1 - 2.25 * g2 - 8 * g3),
+                    K1 * yl * (2.5 * c + 3 * a + 3 * b - 2.25 * g1 - 2.25 * g2)]
+        if form == 'type_II':
+            return [K1 * yt * (4.5 * a + 0.5 * b - (17 / 20) * g1 - 2.25 * g2 - 8 * g3),
+                    K1 * yb * (4.5 * b + 0.5 * a + c - 0.25 * g1 - 2.25 * g2 - 8 * g3),
+                    K1 * yl * (2.5 * c + 3 * b - 2.25 * g1 - 2.25 * g2)]
+        if form == 'supersymmetric':
+            return [K1 * yt * (6 * a + b - (13 / 15) * g1 - 3 * g2 - (16 / 3) * g3),
+                    K1 * yb * (6 * b + a + c - (7 / 15) * g1 - 3 * g2 - (16 / 3) * g3),
+                    K1 * yl * (4 * c + 3 * b - (9 / 5) * g1 - 3 * g2)]
+        raise ValueError(form)
+    return f
+
+
+def integrate(form, gs, y0, t0, t1):
+    sol = solve_ivp(yukawa_beta(form), (t0, t1), list(y0), args=(gs,), method='DOP853', rtol=1e-11, atol=1e-15)
+    return sol.y[:, -1] if sol.status == 0 else None
+
+
+def chain_up(form, gs, ytau_q0=0.01, k_top=1.0):
+    """y_t(Q0) of the chart, small y_tau, y_b(M_U) = y_tau(M_U)."""
+    def f(lyb):
+        top = integrate(form, gs, [U.YT_Q0, math.exp(lyb), ytau_q0], 0.0, T_U)
+        return math.log(top[1] / top[2]) - math.log(k_top)
+    lyb = brentq(f, math.log(1e-7), math.log(0.5), xtol=1e-13)
+    top = integrate(form, gs, [U.YT_Q0, math.exp(lyb), ytau_q0], 0.0, T_U)
+    g = gs(T_U)
+    return {'factor_Q0_over_MU': ytau_q0 / float(top[2]), 'y_t_MU': float(top[0]), 'y_b_Q0': math.exp(lyb),
+            'g_MU': [math.sqrt(x) for x in g], 'm_b_over_m_tau_Q0_if_equal_at_MU': math.exp(lyb) / ytau_q0}
+
+
+def sm_up(loops, ytau_q0=0.01):
+    def f(lyb):
+        top = U.up([U.YT_Q0, math.exp(lyb), ytau_q0], loops, T_U)
+        return math.log(top[4] / top[5])
+    lyb = brentq(f, math.log(1e-7), math.log(0.5), xtol=1e-13)
+    top = U.up([U.YT_Q0, math.exp(lyb), ytau_q0], loops, T_U)
+    return {'factor_Q0_over_MU': ytau_q0 / float(top[5]), 'y_t_MU': float(top[3]), 'y_b_Q0': math.exp(lyb),
+            'g_MU': [float(x) for x in top[:3]], 'm_b_over_m_tau_Q0_if_equal_at_MU': math.exp(lyb) / ytau_q0}
+
+
+def sm_down(y_mu, loops=2):
+    """(y_t, y_b, y_tau) at Q0 for given values at M_U on UD's chart (gauge and quartic fixed at Q0)."""
+    def res(lv):
+        y = [math.exp(v) for v in lv]
+        top = U.up(y, loops, T_U)
+        if top is None or min(top[3:6]) <= 0:
+            return [50.0] * 3
+        return [math.log(top[3 + i] / y_mu[i]) for i in range(3)]
+    guess = [math.log(min(1.2, 2.4 * y_mu[0] + 0.05)), math.log(min(1.2, 2.4 * y_mu[1] + 0.05)), math.log(y_mu[2] * 1.07)]
+    best = None
+    for scale in (1.0, 0.8, 1.2, 0.6):
+        g = [guess[0] + math.log(scale), guess[1] + math.log(scale), guess[2]]
+        sol, info, ier, msg = fsolve(res, g, full_output=True, xtol=1e-12)
+        r = res(sol)
+        if ier == 1 and max(abs(x) for x in r) < 1e-7:
+            best = [math.exp(v) for v in sol]
+            break
+    return best
+
+
+def chain_down(form, gs, y_mu):
+    bot = integrate(form, gs, y_mu, T_U, 0.0)
+    return [float(x) for x in bot] if bot is not None else None
+
+
+def x13():
+    """Cone p Z with the weak-kick generator h y X and with the onsite functional (1 - cos h) y I."""
+    rows = []
+    for h in (1e-3, 1e-2, 0.1):
+        y = 0.2096935560
+        gap_kick = 2 * h * y                                  # eigenvalues +-sqrt(p^2 + h^2 y^2); gap at p = 0
+        e_on = (1 - math.cos(h)) * y
+        rows.append({'h': h, 'weak_kick_gap_between_branches_at_p_0': gap_kick, 'weak_kick_rest_energy': h * y,
+                     'onsite_shift_of_both_branches': e_on, 'onsite_gap_between_branches_at_p_0': 0.0,
+                     'ratio_onsite_over_kick': e_on / (h * y)})
+    return {'cone': 'H(p) = p Z on the two handedness states',
+            'weak_kick': 'H = p Z + h y X, spectrum +-sqrt(p^2 + h^2 y^2), rest energy h y, anticommutes with Z at p = 0',
+            'onsite': 'H = p Z + (1 - cos h) y I, spectrum (1 - cos h) y +- p, no gap, commutes with Z',
+            'derivative_of_rest_energy_in_h': {'weak_kick': 'y (linear; d ln m / d ln h = 1)',
+                                               'onsite': 'y sin h (quadratic at small h; d ln m / d ln h = 2)'},
+            'rows': rows}
+
+
+def main():
+    out = {'measured_values_read': False, 'M_U_GeV': M_U, 'inverse_alpha_U': INV_ALPHA_U, 'g_U': G_U,
+           'g_U_over_2': G_U / 2, 't_U': T_U, 'Q0_GeV': U.Q0, 'lambda_max_sq': LAMBDA_MAX_SQ}
+    ia0 = [4 * math.pi / (g * g) for g in U.G_Q0]
+    out['inverse_alpha_Q0_chart'] = ia0
+    lines_decl = gauge_lines(SLOPES_DECLARED, ('Q0', ia0))
+    out['declared_lines_at_MU_inverse_alpha'] = [4 * math.pi / x for x in lines_decl(T_U)]
+    lines_src = gauge_lines(SLOPES_SOURCE, ('MU', 24.3185))
+    out['source_lines_at_Q0_g'] = [math.sqrt(x) for x in lines_src(0.0)]
+    contents = {}
+    contents['S-SM two loops'] = sm_up(2)
+    contents['S-SM one loop'] = sm_up(1)
+    contents['S-CH1'] = chain_up('one_doublet', lines_decl)
+    contents['S-CH2'] = chain_up('type_II', lines_decl)
+    contents['S-MS'] = chain_up('supersymmetric', lines_decl)
+    contents['S-SRC'] = chain_up('one_doublet', lines_src)
+    out['X12_contents'] = contents
+    for k, v in contents.items():
+        print(f"{k:16s} factor y_J(Q0)/y_J(M_U) = {v['factor_Q0_over_MU']:.5f}  y_t(M_U) = {v['y_t_MU']:.5f}  "
+              f"g(M_U) = {[round(x, 5) for x in v['g_MU']]}  m_b/m_tau(Q0) if equal at M_U = {v['m_b_over_m_tau_Q0_if_equal_at_MU']:.4f}")
+    out['X13_nambu'] = x13()
+
+    # third-family table of section 6.4 (A = exp(-2))
+    A = math.exp(-2.0)
+    half = G_U / 2
+    reg = (2.0 / 9.0) * LAMBDA_MAX_SQ
+    readings = {'Q-A': [reg * half, reg * half, reg * half * A],
+                'Q-B': [half, half, half * A],
+                'Q-C': [half, half, reg * half * A]}
+    table = {}
+    for name, y_mu in readings.items():
+        row = {'y_MU_t_b_tau': y_mu}
+        row['S-SM two loops'] = sm_down(y_mu, 2)
+        row['S-CH1'] = chain_down('one_doublet', lines_decl, y_mu)
+        table[name] = row
+        print(name, 'y(M_U)', [round(x, 6) for x in y_mu], 'S-SM y(Q0)', row['S-SM two loops'], 'S-CH1 y(Q0)', row['S-CH1'])
+    out['third_family_table'] = table
+    # a top alone at g_U/2 with small bottom (the up-type leg only), for the top value without the equal bottom
+    alone = {'y_MU_t_b_tau': [half, 1e-6, reg * half * A]}
+    alone['S-SM two loops'] = sm_down([half, 1e-6, reg * half * A], 2)
+    alone['S-CH1'] = chain_down('one_doublet', lines_decl, [half, 1e-6, reg * half * A])
+    out['top_alone_at_g_U_over_2'] = alone
+    print('top alone', alone)
+    # the rule of section 7.2 at the cell on UD's chart: quark toggle g_2(cell)/2, lepton toggle times sqrt(<K>)
+    try:
+        v1 = json.load(open(os.path.join(HERE, 'values.json')))
+        run1 = json.load(open(os.path.join(HERE, 'run.json')))
+        g2c = run1['rows']['2_loop|y_b_equals_y_tau']['g_upper'][1]
+        amp = math.sqrt(v1['structure']['K_placement_mean'])
+        ytau_c = reg * 0.5 * g2c * amp
+        cell = {'g_2_cell': g2c, 'sqrt_mean_K': amp}
+        for name, yc in (('quark legs at g_2/2 (top and bottom), register count on the lepton', [0.5 * g2c, 0.5 * g2c, ytau_c]),
+                         ('top alone at g_2/2, bottom negligible', [0.5 * g2c, 1e-6, ytau_c]),
+                         ('register count on both vertices', [reg * 0.5 * g2c, reg * 0.5 * g2c, ytau_c])):
+            d = U.down_from_cell(yc, 2)
+            cell[name] = {'y_cell_t_b_tau': yc, 'y_Q0_t_b_tau': d['y_Q0'] if d else None}
+            print('cell rule:', name, [round(x, 6) for x in yc], '->', d['y_Q0'] if d else None)
+        out['cell_rule_table'] = cell
+    except FileNotFoundError:
+        pass
+    with open(os.path.join(HERE, 'run2.json'), 'w') as fh:
+        json.dump(out, fh, indent=1)
+        fh.write('\n')
+
+
+if __name__ == '__main__':
+    main()

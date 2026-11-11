@@ -1,0 +1,274 @@
+"""Exact certificates for CF-1 (worker R1): integer arithmetic over the Gaussian integers, and one symbolic identity.
+
+    python cf1_exact.py [exact.json]
+
+Matrices are (re + i im) / den with int64 arrays re, im and a Python integer den; every product is guarded against
+overflow. The operators are built from their definitions (DEFINITION.md), independently of routing.py:
+  S_i(z) = P_i^+ (zT_i) + P_i^- (zT_i)^dagger,  P_i^(+-) = (1 +- X_r sigma_i)/2,  (zT_i)|x> = z_(x,i) |x + e_i>
+  Q_i(z) = 1 - sum over links (x, i) and spin +-1 along axis i of  P(sigma_i = +-) (x) v v^T,
+           v = (a0 - z b0 - a1 - z b1)/sqrt2, (a, b) = (x, x + e_i) for spin +1 and (x + e_i, x) for spin -1
+  R = Z_r,  M1 = exp(-i theta Y_r),  M2 = exp(-i theta Z_r) at the rational point cos theta = 143/145, sin theta = 24/145
+"""
+import itertools, json, sys, time
+from math import gcd
+import numpy as np
+from cf1 import Lattice
+
+
+class GZ:
+    def __init__(self, re, im=None, den=1):
+        self.re = np.array(re, dtype=np.int64)
+        self.im = np.zeros_like(self.re) if im is None else np.array(im, dtype=np.int64)
+        self.den = int(den)
+
+    def red(self):
+        g = gcd(self.den, int(np.gcd.reduce(np.abs(self.re), axis=None)), int(np.gcd.reduce(np.abs(self.im), axis=None)))
+        return GZ(self.re // g, self.im // g, self.den // g) if g > 1 else self
+
+    def __matmul__(self, o):
+        ma = max(int(np.abs(self.re).max()), int(np.abs(self.im).max()), 1)
+        mb = max(int(np.abs(o.re).max()), int(np.abs(o.im).max()), 1)
+        assert 2 * ma * mb * self.re.shape[-1] < 2 ** 62, 'overflow guard'
+        return GZ(self.re @ o.re - self.im @ o.im, self.re @ o.im + self.im @ o.re, self.den * o.den).red()
+
+    def __add__(self, o): return GZ(self.re * o.den + o.re * self.den, self.im * o.den + o.im * self.den, self.den * o.den).red()
+    def __sub__(self, o): return GZ(self.re * o.den - o.re * self.den, self.im * o.den - o.im * self.den, self.den * o.den).red()
+    def __eq__(self, o): return bool(np.all(self.re * o.den == o.re * self.den) and np.all(self.im * o.den == o.im * self.den))
+    def dag(self): return GZ(np.swapaxes(self.re, -1, -2), -np.swapaxes(self.im, -1, -2), self.den)
+    def scale(self, k, den=1): return GZ(self.re * k, self.im * k, self.den * den).red()
+    def __getitem__(self, idx): return GZ(self.re[idx], self.im[idx], self.den)
+    def reshape(self, *s): return GZ(self.re.reshape(*s), self.im.reshape(*s), self.den)
+    def nonzero(self): return bool(self.re.any() or self.im.any())
+
+
+def kron(*ms):
+    out = ms[0]
+    for m in ms[1:]:
+        out = GZ(np.kron(out.re, m.re) - np.kron(out.im, m.im), np.kron(out.re, m.im) + np.kron(out.im, m.re), out.den * m.den)
+    return out
+
+
+def stack(ms):
+    L = 1
+    for m in ms: L = L * m.den // gcd(L, m.den)
+    return GZ(np.stack([m.re * (L // m.den) for m in ms]), np.stack([m.im * (L // m.den) for m in ms]), L)
+
+
+def eye(n): return GZ(np.eye(n, dtype=np.int64))
+I2 = eye(2); X = GZ([[0, 1], [1, 0]]); Z = GZ([[1, 0], [0, -1]]); Y = GZ([[0, 0], [0, 0]], [[0, -1], [1, 0]])
+SIGMA = [X, Y, Z]
+MASS = (143, 24, 145)                                    # cos, sin, denominator: theta = 2 arctan(1/12) = 0.16628
+
+
+class Exact:
+    def __init__(self, shape):
+        self.lat = lat = Lattice(shape); self.N = lat.N; self.n = 4 * lat.N
+
+    def sign(self, z, c, i):
+        k = self.lat.lid.get((c, i)); return 1 if k is None or not (z >> k) & 1 else -1
+
+    def S(self, i, z=0):
+        lat = self.lat; T = np.zeros((self.N, self.N), dtype=np.int64)
+        for c in lat.cells: T[lat.cid[lat.step(c, i)], lat.cid[c]] += self.sign(z, c, i)
+        T = GZ(T); Tt = GZ(T.re.T)
+        return (kron(T + Tt, I2, I2) + kron(T - Tt, X, SIGMA[i])).scale(1, 2)
+
+    def Q(self, i, z=0):
+        lat = self.lat; acc = GZ(np.zeros((self.n, self.n), dtype=np.int64))
+        for c in lat.cells:
+            x0, x1 = lat.cid[c], lat.cid[lat.step(c, i)]; zz = self.sign(z, c, i)
+            for sgn, (a, b) in ((1, (x0, x1)), (-1, (x1, x0))):
+                u = np.zeros(2 * self.N, dtype=np.int64)
+                u[2 * a] += 1; u[2 * b] += -zz; u[2 * a + 1] += -1; u[2 * b + 1] += -zz
+                acc = acc + kron(GZ(np.outer(u, u)), I2 + SIGMA[i].scale(sgn))
+        return eye(self.n) - acc.scale(1, 4)
+
+    def R(self): return kron(eye(self.N), Z, I2)
+
+    def M(self, kind='Y', inverse=False):
+        c, s, d = MASS; s = -s if inverse else s
+        m = GZ([[c, -s], [s, c]], den=d) if kind == 'Y' else GZ([[c, 0], [0, c]], [[-s, 0], [0, s]], den=d)
+        return kron(eye(self.N), m, I2)
+
+    def beta_other(self, kind):                           # the record operator anticommuting with X_r and with the mass
+        return kron(eye(self.N), Z if kind == 'Y' else Y, I2)
+
+    def word(self, i, combo):
+        z = 0
+        for b, k in enumerate(self.lat.axis_ids[i]):
+            if (combo >> b) & 1: z |= 1 << k
+        return z
+
+    def S_all(self, i):
+        return stack([self.S(i, self.word(i, c)) for c in range(1 << len(self.lat.axis_ids[i]))])
+
+    def route_all(self, t=0):
+        """S_t(z) for every link word, shape (NZ, n, n)"""
+        a = [self.S_all(i) for i in range(3)]
+        b = [GZ(a[i].re.reshape([a[i].re.shape[0] if j == 2 - i else 1 for j in range(3)] + [self.n, self.n]),
+                a[i].im.reshape([a[i].im.shape[0] if j == 2 - i else 1 for j in range(3)] + [self.n, self.n]), a[i].den) for i in range(3)]
+        out = (b[0] @ b[1] @ b[2]) if t % 2 else (b[2] @ b[1] @ b[0])
+        return out.reshape(-1, self.n, self.n)
+
+    def translate_word(self, z, a):
+        out = 0
+        for (c, i), k in self.lat.lid.items():
+            if (z >> k) & 1: out |= 1 << self.lat.lid[(self.lat.shift_cell(c, a), i)]
+        return out
+
+    def perm(self, f):
+        """permutation matrix of the cells, cell c -> f(c), on the one-body space"""
+        P = np.zeros((self.N, self.N), dtype=np.int64)
+        for c in self.lat.cells: P[self.lat.cid[f(c)], self.lat.cid[c]] = 1
+        return GZ(P)
+
+
+def instance(shape, whole_words=True):
+    ex = Exact(shape); lat = ex.lat; n = ex.n; ONE = eye(n); R = ex.R(); res = {'shape': list(shape), 'links': lat.NL, 'link_words': lat.NZ}
+    ok = {k: True for k in ('Q_involution', 'QR_equals_conditional_shift', 'S_unitary', 'S_gauge_covariant', 'S_translation_covariant')}
+    count = 0
+    units = [tuple(int(j == i) for j in range(3)) for i in lat.axes]
+    for i in lat.axes:
+        for combo in range(1 << len(lat.axis_ids[i])):
+            z = ex.word(i, combo); Q = ex.Q(i, z); S = ex.S(i, z); count += 1
+            ok['Q_involution'] &= (Q @ Q == ONE)
+            ok['QR_equals_conditional_shift'] &= (Q @ R == S)
+            ok['S_unitary'] &= (S.dag() @ S == ONE)
+            for ci in range(lat.N):
+                h = np.ones(n, dtype=np.int64); h[4 * ci: 4 * ci + 4] = -1
+                S2 = ex.S(i, z ^ lat.star[ci])
+                ok['S_gauge_covariant'] &= (S2 == GZ(S.re * h[:, None] * h[None, :], S.im * h[:, None] * h[None, :], S.den))
+            for a in units:
+                P = kron(ex.perm(lambda c: lat.shift_cell(c, a)), I2, I2)
+                ok['S_translation_covariant'] &= (P @ S @ P.dag() == ex.S(i, ex.translate_word(z, a)))
+    res['axis_link_assignments_checked'] = count
+    res.update(ok)
+    # field step and constraint bookkeeping (integers)
+    res['plaquettes'] = len(lat.plaq)
+    res['plaquette_holonomies_invariant_under_every_star'] = all(bin(lat.star[ci] & sum(1 << b for b in p)).count('1') % 2 == 0
+                                                             for ci in range(lat.N) for p in lat.plaq)
+    x = 0
+    for m in lat.star: x ^= m
+    res['product_of_all_stars_is_identity_on_links'] = (x == 0)
+    res['every_star_has_an_even_number_of_links'] = all(bin(m).count('1') % 2 == 0 for m in lat.star)
+    if whole_words:
+        Sf, Sr = ex.route_all(0), ex.route_all(1); Rb = R.reshape(1, n, n); ONEb = ONE.reshape(1, n, n)
+        res['inverse_routing_Sfwd_R_Srev_R_is_1_all_words'] = (Sf @ Rb @ Sr @ Rb == ONEb)
+        z = np.arange(lat.NZ)
+        for kind in ('Y', 'Z'):
+            M = ex.M(kind).reshape(1, n, n); Df, Dr = M @ Sf, M @ Sr
+            res[f'D_unitary_all_words_{kind}'] = (Df.dag() @ Df == ONEb) and (Dr.dag() @ Dr == ONEb)
+            V = (ex.beta_other(kind) @ ex.M(kind, inverse=True)).reshape(1, n, n)
+            res[f'inverse_tick_V_Drev_Vdag_Dfwd_is_1_all_words_{kind}'] = (V @ Dr @ V.dag() @ Df == ONEb)
+            g = True
+            for ci in range(lat.N):
+                h = np.ones(n, dtype=np.int64); h[4 * ci: 4 * ci + 4] = -1; hh = h[:, None] * h[None, :]
+                g &= bool(np.all(Df.re[z ^ lat.star[ci]] == Df.re * hh) and np.all(Df.im[z ^ lat.star[ci]] == Df.im * hh))
+            res[f'D_gauge_covariant_all_words_all_cells_{kind}'] = g
+            tr = True
+            for a in units:
+                pz, pm = lat.word_perm(a), lat.mode_perm(a)
+                tr &= bool(np.all(Df.re[pz][:, pm[:, None], pm[None, :]] == Df.re) and np.all(Df.im[pz][:, pm[:, None], pm[None, :]] == Df.im))
+            res[f'D_translation_covariant_all_words_{kind}'] = tr
+    return res
+
+
+def rotations():
+    """the 24 rotations of the cubic lattice with an unnormalized spin lift u (u sigma_i u^dagger = nu sum_j g_ji sigma_j)"""
+    out = []
+    quats = [q for q in itertools.product((-1, 0, 1), repeat=4) if any(q)]
+    for perm in itertools.permutations(range(3)):
+        for sg in itertools.product((1, -1), repeat=3):
+            g = np.zeros((3, 3), dtype=np.int64)
+            for i in range(3): g[perm[i], i] = sg[i]                 # e_i -> sg_i e_perm(i)
+            if round(np.linalg.det(g)) != 1: continue
+            for (a, b, c, d) in quats:
+                # u = a + i (b sigma_1 + c sigma_2 + d sigma_3); i sigma_2 = [[0, 1], [-1, 0]] is real
+                u = GZ(np.array([[a, c], [-c, a]]), np.array([[d, b], [b, -d]]))
+                nu = a * a + b * b + c * c + d * d
+                if all(u @ SIGMA[i] @ u.dag() == (SIGMA[perm[i]].scale(sg[i] * nu)) for i in range(3)):
+                    out.append({'perm': perm, 'signs': sg, 'g': g, 'u': u, 'nu': nu}); break
+            else:
+                raise ArithmeticError('no lift found')
+    return out
+
+
+def rotation_table(L=3):
+    ex = Exact((L, L, L)); lat = ex.lat; n = ex.n
+    S = [ex.S(i) for i in range(3)]
+    rows = []
+    ticks = {}
+    for name, M in (('M0', eye(n)), ('M1', ex.M('Y')), ('M2', ex.M('Z'))):
+        Df, Dr = M @ S[2] @ S[1] @ S[0], M @ S[0] @ S[1] @ S[2]
+        ticks[name] = (Df, Dr @ Df)
+    for rot in rotations():
+        g = rot['g']
+        P = ex.perm(lambda c: tuple(int(v) % L for v in g @ np.array(c)))
+        W = kron(P, I2, rot['u']); nu = rot['nu']
+        row = {'axis_map': [f"{'+' if rot['signs'][i] > 0 else '-'}{rot['perm'][i] + 1}" for i in range(3)],
+               'lift_norm': nu, 'even_axis_permutation_(carrier_rotation_of_the_frame)': rot['perm'] in ((0, 1, 2), (1, 2, 0), (2, 0, 1)),
+               'maps_S_i_to_S_perm(i)': all(W @ S[i] @ W.dag() == S[rot['perm'][i]].scale(nu) for i in range(3))}
+        for name, (Df, U2) in ticks.items():
+            row[f'commutes_with_ordered_tick_{name}'] = (W @ Df @ W.dag() == Df.scale(nu))
+            row[f'commutes_with_two_tick_product_{name}'] = (W @ U2 @ W.dag() == U2.scale(nu))
+        rows.append(row)
+    # parity: inversion of the cells times the mass matrix beta on the record
+    Pinv = ex.perm(lambda c: tuple((-v) % L for v in c))
+    par = {}
+    for name, beta in (('M0_with_Z', Z), ('M0_with_Y', Y), ('M1_with_Y', Y), ('M2_with_Z', Z)):
+        W = kron(Pinv, beta, I2); U2 = ticks[name[:2]][1]
+        par[name] = (W @ U2 @ W.dag() == U2)
+    par['M1_with_Z_(wrong_matrix)'] = (kron(Pinv, Z, I2) @ ticks['M1'][1] @ kron(Pinv, Z, I2).dag() == ticks['M1'][1])
+    # the S_i do not commute (the reason the schedule matters)
+    c01 = S[0] @ S[1] - S[1] @ S[0]
+    return {'lattice': [L, L, L], 'rotations': rows, 'parity_commutes_with_two_tick_product': par,
+            'S_1_S_2_commute': not c01.nonzero(),
+            'commuting_with_two_tick_product': {k: [r['axis_map'] for r in rows if r[f'commutes_with_two_tick_product_{k}']] for k in ticks},
+            'commuting_with_ordered_tick': {k: [r['axis_map'] for r in rows if r[f'commutes_with_ordered_tick_{k}']] for k in ticks}}
+
+
+def symbol_identity():
+    """U2(p) + U2(p)^dagger = 2 (cos^2 theta prod_i cos 2 p_i - sin^2 theta) 1 for U2 = M e1 e2 e3 M e3 e2 e1,
+    e_i = exp(-i p_i alpha_i), M = exp(-i theta beta), beta = Y_r or Z_r: polynomial identity modulo c^2 + s^2 = 1."""
+    import sympy as sp
+    c = sp.symbols('c1:4', real=True); s = sp.symbols('s1:4', real=True); ct, st = sp.symbols('ct st', real=True)
+    Xs = sp.Matrix([[0, 1], [1, 0]]); Ys = sp.Matrix([[0, -sp.I], [sp.I, 0]]); Zs = sp.diag(1, -1); sig = [Xs, Ys, Zs]
+    kr = sp.kronecker_product; one = sp.eye(4)
+    e = [c[i] * one - sp.I * s[i] * kr(Xs, sig[i]) for i in range(3)]
+    target = 2 * (ct ** 2 * sp.prod([2 * c[i] ** 2 - 1 for i in range(3)]) - (1 - ct ** 2))
+    out = {}
+    for name, beta in (('Y', kr(Ys, sp.eye(2))), ('Z', kr(Zs, sp.eye(2)))):
+        M = ct * one - sp.I * st * beta
+        U = M
+        for f in (e[0], e[1], e[2], M, e[2], e[1], e[0]): U = (U * f).applyfunc(sp.expand)
+        D = (U + U.H - target * one).applyfunc(sp.expand)
+        ok = True
+        for entry in D:
+            for sv, cv in list(zip(s, c)) + [(st, ct)]:
+                entry = sp.rem(sp.expand(entry), sv ** 2 + cv ** 2 - 1, sv)
+            ok &= (sp.expand(entry) == 0)
+        out[name] = bool(ok)
+    return out
+
+
+if __name__ == '__main__':
+    t0 = time.time(); out = {'arithmetic': 'Gaussian integers over an integer denominator (int64, overflow guarded); sympy for the symbol',
+                             'mass_point': {'cos': '143/145', 'sin': '24/145'}}
+    out['instances'] = [instance((4, 1, 1)), instance((6, 1, 1)), instance((2, 2, 1)), instance((3, 2, 1), whole_words=False),
+                        instance((2, 2, 2), whole_words=False)]          # three active axes: six links at every cell
+    print('instances', round(time.time() - t0, 1), 's')
+    out['rotations'] = rotation_table(3)
+    print('rotations', round(time.time() - t0, 1), 's')
+    out['symbol_identity_U2_plus_U2dagger'] = symbol_identity()
+    print('symbol', round(time.time() - t0, 1), 's')
+    for inst in out['instances']:
+        bad = [k for k, v in inst.items() if v is False]
+        print(inst['shape'], 'links', inst['links'], 'assignments', inst['axis_link_assignments_checked'], 'failed:', bad)
+    r = out['rotations']
+    print('S_1 S_2 commute:', r['S_1_S_2_commute'])
+    for k in ('M0', 'M1', 'M2'):
+        print(k, 'two-tick product commutes with', r['commuting_with_two_tick_product'][k], '| ordered tick with', r['commuting_with_ordered_tick'][k])
+    print('covariance S_i -> S_perm(i) for all 24:', all(x['maps_S_i_to_S_perm(i)'] for x in r['rotations']))
+    print('parity:', r['parity_commutes_with_two_tick_product'])
+    print('symbol identity:', out['symbol_identity_U2_plus_U2dagger'])
+    json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 'exact.json', 'w'), indent=1, default=lambda o: o.tolist() if hasattr(o, 'tolist') else str(o))

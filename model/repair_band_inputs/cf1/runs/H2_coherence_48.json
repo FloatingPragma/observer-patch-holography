@@ -1,0 +1,410 @@
+{
+ "run": "H2",
+ "label": "candidate CF-1, routing in a static gauge field between carriers, no rest angle",
+ "lattice": [
+  96,
+  48,
+  48
+ ],
+ "seed": 20261110,
+ "clock": "tick of CF-1, alternating order",
+ "placement": "independent random links: Z3 phase with probability q3, sign with probability q2",
+ "q3": 0.0223,
+ "q2": 0.003408333333333333,
+ "nontrivial_plaquettes_per_carrier": {
+  "Z3": 0.25947627314814814,
+  "Z2": 0.038872612847222224
+ },
+ "target_per_carrier": {
+  "Z3": 0.2676,
+  "Z2": 0.0409
+ },
+ "species": [
+  {
+   "name": "quark doublets",
+   "charge_phases": [
+    0.3333333333333333,
+    0.5
+   ],
+   "series": [
+    {
+     "t": 4,
+     "ballistic_probability": 0.9835265487972863,
+     "mean_advance_cells": 2.1657206079837183,
+     "norm": 1.000000000000189
+    },
+    {
+     "t": 8,
+     "ballistic_probability": 0.9089813063249167,
+     "mean_advance_cells": 3.181496655934828,
+     "norm": 1.000000000000189
+    },
+    {
+     "t": 12,
+     "ballistic_probability": 0.7393601374667265,
+     "mean_advance_cells": 3.871682239106557,
+     "norm": 1.000000000000189
+    },
+    {
+     "t": 16,
+     "ballistic_probability": 0.5142803825987806,
+     "mean_advance_cells": 4.406661836412684,
+     "norm": 1.0000000000001887
+    },
+    {
+     "t": 20,
+     "ballistic_probability": 0.33151504961272454,
+     "mean_advance_cells": 4.8321801726570826,
+     "norm": 1.000000000000189
+    },
+    {
+     "t": 24,
+     "ballistic_probability": 0.21822382102712917,
+     "mean_advance_cells": 5.134126212515642,
+     "norm": 1.0000000000001887
+    },
+    {
+     "t": 28,
+     "ballistic_probability": 0.15140552457954373,
+     "mean_advance_cells": 5.353360085614719,
+     "norm": 1.0000000000001887
+    },
+    {
+     "t": 32,
+     "ballistic_probability": 0.09874760472022066,
+     "mean_advance_cells": 5.518001083903184,
+     "norm": 1.0000000000001887
+    },
+    {
+     "t": 36,
+     "ballistic_probability": 0.055242077098309424,
+     "mean_advance_cells": 5.635131261252831,
+     "norm": 1.0000000000001887
+    },
+    {
+     "t": 40,
+     "ballistic_probability": 0.0312957148392729,
+     "mean_advance_cells": 5.723844220630843,
+     "norm": 1.0000000000001887
+    },
+    {
+     "t": 44,
+     "ballistic_probability": 0.018520566071331908,
+     "mean_advance_cells": 5.795647681324289,
+     "norm": 1.0000000000001885
+    },
+    {
+     "t": 48,
+     "ballistic_probability": 0.011055355688852957,
+     "mean_advance_cells": 5.844861248814032,
+     "norm": 1.0000000000001885
+    }
+   ],
+   "mean_free_path_cells": 10.391816142923233,
+   "ballistic_share_relative_to_free": [
+    0.9973030125150852,
+    0.9564448089598407,
+    0.8003466440503479,
+    0.5680911409695675,
+    0.37719693214899536,
+    0.25802350409498187,
+    0.18732071681844822,
+    0.12844934271358008,
+    0.07577442511745786,
+    0.045308536194325684,
+    0.02813524665762228,
+    0.0172566150946237
+   ]
+  },
+  {
+   "name": "quark singlets",
+   "charge_phases": [
+    0.3333333333333333,
+    0.0
+   ],
+   "series": [
+    {
+     "t": 4,
+     "ballistic_probability": 0.9839299408260216,
+     "mean_advance_cells": 2.241478976196708,
+     "norm": 1.000000000000189
+    },
+    {
+     "t": 8,
+     "ballistic_probability": 0.9119361234541802,
+     "mean_advance_cells": 3.3544316210351948,
+     "norm": 1.000000000000189
+    },
+    {
+     "t": 12,
+     "ballistic_probability": 0.7478975842441918,
+     "mean_advance_cells": 4.125896123531895,
+     "norm": 1.000000000000189
+    },
+    {
+     "t": 16,
+     "ballistic_probability": 0.5335609825145247,
+     "mean_advance_cells": 4.74733789565922,
+     "norm": 1.000000000000189
+    },
+    {
+     "t": 20,
+     "ballistic_probability": 0.3530822355439661,
+     "mean_advance_cells": 5.262288275007453,
+     "norm": 1.0000000000001887
+    },
+    {
+     "t": 24,
+     "ballistic_probability": 0.2410106235698515,
+     "mean_advance_cells": 5.656789813028637,
+     "norm": 1.0000000000001887
+    },
+    {
+     "t": 28,
+     "ballistic_probability": 0.17313400279872823,
+     "mean_advance_cells": 5.96798990636287,
+     "norm": 1.0000000000001887
+    },
+    {
+     "t": 32,
+     "ballistic_probability": 0.1205110956096844,
+     "mean_advance_cells": 6.201403016348753,
+     "norm": 1.0000000000001887
+    },
+    {
+     "t": 36,
+     "ballistic_probability": 0.07666298556997926,
+     "mean_advance_cells": 6.3803990328511935,
+     "norm": 1.0000000000001885
+    },
+    {
+     "t": 40,
+     "ballistic_probability": 0.046728119223829134,
+     "mean_advance_cells": 6.507281644855146,
+     "norm": 1.0000000000001887
+    },
+    {
+     "t": 44,
+     "ballistic_probability": 0.029244858643529235,
+     "mean_advance_cells": 6.602909377986883,
+     "norm": 1.0000000000001885
+    },
+    {
+     "t": 48,
+     "ballistic_probability": 0.018918474694416525,
+     "mean_advance_cells": 6.658099261810118,
+     "norm": 1.0000000000001887
+    }
+   ],
+   "mean_free_path_cells": 11.98205289548797,
+   "ballistic_share_relative_to_free": [
+    0.9977120549410109,
+    0.9595539152583366,
+    0.8095883065783205,
+    0.5893891301119182,
+    0.40173601831674155,
+    0.2849661660441681,
+    0.21420344865201038,
+    0.1567589519220773,
+    0.10515704630394722,
+    0.06765088102377459,
+    0.04442689862901255,
+    0.02953037832225526
+   ]
+  },
+  {
+   "name": "lepton doublets",
+   "charge_phases": [
+    0.0,
+    0.5
+   ],
+   "series": [
+    {
+     "t": 4,
+     "ballistic_probability": 0.9857882669080813,
+     "mean_advance_cells": 3.0413082270110405,
+     "norm": 1.000000000000189
+    },
+    {
+     "t": 8,
+     "ballistic_probability": 0.9448654267735495,
+     "mean_advance_cells": 5.959444282861073,
+     "norm": 1.0000000000001892
+    },
+    {
+     "t": 12,
+     "ballistic_probability": 0.8985860004965992,
+     "mean_advance_cells": 8.79478251220379,
+     "norm": 1.000000000000189
+    },
+    {
+     "t": 16,
+     "ballistic_probability": 0.8564418848931519,
+     "mean_advance_cells": 11.567936237744382,
+     "norm": 1.0000000000001892
+    },
+    {
+     "t": 20,
+     "ballistic_probability": 0.8124643077596438,
+     "mean_advance_cells": 14.202790160800832,
+     "norm": 1.000000000000189
+    },
+    {
+     "t": 24,
+     "ballistic_probability": 0.7635405539039727,
+     "mean_advance_cells": 16.70451259344987,
+     "norm": 1.000000000000189
+    },
+    {
+     "t": 28,
+     "ballistic_probability": 0.7050846835262959,
+     "mean_advance_cells": 19.094087795174172,
+     "norm": 1.000000000000189
+    },
+    {
+     "t": 32,
+     "ballistic_probability": 0.6415709335166677,
+     "mean_advance_cells": 21.396412057430624,
+     "norm": 1.0000000000001892
+    },
+    {
+     "t": 36,
+     "ballistic_probability": 0.5802642716146723,
+     "mean_advance_cells": 23.605557797957005,
+     "norm": 1.0000000000001892
+    },
+    {
+     "t": 40,
+     "ballistic_probability": 0.5325198206996545,
+     "mean_advance_cells": 25.60595362634143,
+     "norm": 1.0000000000001892
+    },
+    {
+     "t": 44,
+     "ballistic_probability": 0.4894740457739031,
+     "mean_advance_cells": 26.299714812627162,
+     "norm": 1.0000000000001892
+    },
+    {
+     "t": 48,
+     "ballistic_probability": 0.45063673561041734,
+     "mean_advance_cells": 22.162551882706772,
+     "norm": 1.000000000000189
+    }
+   ],
+   "mean_free_path_cells": 122.8534315138004,
+   "ballistic_share_relative_to_free": [
+    0.9995964109882776,
+    0.9942026599611421,
+    0.9727063354432505,
+    0.9460540670528607,
+    0.9244197050043427,
+    0.9027951591610813,
+    0.8723391613524998,
+    0.8345454550299475,
+    0.7959366104130036,
+    0.7709583786240392,
+    0.7435773268113011,
+    0.7034115330877718
+   ]
+  },
+  {
+   "name": "lepton and neutrino singlets",
+   "charge_phases": [
+    0.0,
+    0.0
+   ],
+   "series": [
+    {
+     "t": 4,
+     "ballistic_probability": 0.9861862808545456,
+     "mean_advance_cells": 3.187208551857997,
+     "norm": 1.000000000000189
+    },
+    {
+     "t": 8,
+     "ballistic_probability": 0.9503750742433932,
+     "mean_advance_cells": 6.45772662147024,
+     "norm": 1.0000000000001892
+    },
+    {
+     "t": 12,
+     "ballistic_probability": 0.9237998846662435,
+     "mean_advance_cells": 9.663485822286157,
+     "norm": 1.000000000000189
+    },
+    {
+     "t": 16,
+     "ballistic_probability": 0.9052779483958376,
+     "mean_advance_cells": 12.886288457573844,
+     "norm": 1.0000000000001892
+    },
+    {
+     "t": 20,
+     "ballistic_probability": 0.8788911609752272,
+     "mean_advance_cells": 16.109296655660707,
+     "norm": 1.000000000000189
+    },
+    {
+     "t": 24,
+     "ballistic_probability": 0.8457517147228498,
+     "mean_advance_cells": 19.330401128197177,
+     "norm": 1.0000000000001892
+    },
+    {
+     "t": 28,
+     "ballistic_probability": 0.8082689792730529,
+     "mean_advance_cells": 22.55188592266626,
+     "norm": 1.0000000000001892
+    },
+    {
+     "t": 32,
+     "ballistic_probability": 0.7687669133536232,
+     "mean_advance_cells": 25.77367758468464,
+     "norm": 1.0000000000001892
+    },
+    {
+     "t": 36,
+     "ballistic_probability": 0.7290332722772721,
+     "mean_advance_cells": 28.980175824253646,
+     "norm": 1.0000000000001892
+    },
+    {
+     "t": 40,
+     "ballistic_probability": 0.6907244741928408,
+     "mean_advance_cells": 31.764451478625322,
+     "norm": 1.0000000000001892
+    },
+    {
+     "t": 44,
+     "ballistic_probability": 0.6582691915485446,
+     "mean_advance_cells": 30.770917755495034,
+     "norm": 1.0000000000001892
+    },
+    {
+     "t": 48,
+     "ballistic_probability": 0.6406445081050254,
+     "mean_advance_cells": 18.291685356251957,
+     "norm": 1.000000000000189
+    }
+   ],
+   "mean_free_path_cells": null,
+   "ballistic_share_relative_to_free": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "composite_of_three_quark_doublets": "charge phases (0, 1/2): the same link variable as the lepton doublets, so the same run; a test with three separate quanta needs a binding interaction",
+ "seconds": 48.819284200668335
+}

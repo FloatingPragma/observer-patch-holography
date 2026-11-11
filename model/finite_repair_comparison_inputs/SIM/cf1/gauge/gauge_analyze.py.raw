@@ -1,0 +1,197 @@
+"""Run H4 (task MA): analysis of the scans (out/validate, out/scan) and of the draws (out/draw).
+
+    python gauge_analyze.py scan  ../runs/H4_scan.json ../runs/H4_kstar.json
+    python gauge_analyze.py draw  ../runs/H4_kstar.json ../runs/H4_draw.json
+
+scan: validation tables (Z2: specific-heat peaks and Polyakov Binder cumulants on 24^3, 32^3, 48^3, hot/cold; Z3: hot/cold
+hysteresis and the plaquette histogram), the curve f(kappa) on 48^3, Wilson-loop readouts (Creutz ratios, V(R), area-law
+fit) at every point, flux-cluster statistics, and the couplings kappa* where the nontrivial-plaquette density equals the
+two census densities in two normalisations. Writes kstar.json with the draw points for gauge_draw.py.
+draw: the same Wilson-loop and cluster readouts on the 96 x 48 x 48 draws at kappa*.
+"""
+import glob, json, os, sys
+import numpy as np
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+TARGETS = {'Z3': 0.2678, 'Z2': 0.0403}       # census densities (repair-law/reports/CH.md), nontrivial pairs per carrier
+
+
+def load(plan):
+    return [json.load(open(f)) for f in sorted(glob.glob(os.path.join(HERE, 'out', plan, '*.json')))]
+
+
+def wilson_readout(W, We, nsig=3.0):
+    """Creutz ratios chi(R, R), static potential V(R) = ln W(R, T-1) / W(R, T) at the largest T with signal, and a
+    weighted fit ln W = -sigma R T - mu (R + T) - c over R, T >= 2 with W > nsig * err"""
+    W = np.asarray(W); We = np.asarray(We); Rmax = W.shape[0]
+    ok = (W > nsig * We) & (W > 0)
+    lw = np.where(ok, np.log(np.where(W > 0, W, 1)), np.nan); le = np.where(ok, We / np.where(W > 0, W, 1), np.nan)
+    creutz = []
+    for R in range(2, Rmax + 1):
+        i = R - 1
+        if ok[i, i] and ok[i - 1, i - 1] and ok[i, i - 1] and ok[i - 1, i]:
+            c = -(lw[i, i] + lw[i - 1, i - 1] - lw[i, i - 1] - lw[i - 1, i])
+            e = np.sqrt(le[i, i] ** 2 + le[i - 1, i - 1] ** 2 + le[i, i - 1] ** 2 + le[i - 1, i] ** 2)
+            creutz.append({'R': R, 'chi': float(c), 'err_uncorrelated': float(e)})
+    V = []
+    for R in range(1, Rmax + 1):
+        Ts = [T for T in range(2, Rmax + 1) if ok[R - 1, T - 1] and ok[R - 1, T - 2]]
+        if Ts:
+            T = max(Ts)
+            V.append({'R': R, 'T': T, 'V': float(lw[R - 1, T - 2] - lw[R - 1, T - 1]),
+                      'err_uncorrelated': float(np.hypot(le[R - 1, T - 2], le[R - 1, T - 1]))})
+    rows = [(R, T, lw[R - 1, T - 1], le[R - 1, T - 1]) for R in range(2, Rmax + 1) for T in range(2, Rmax + 1) if ok[R - 1, T - 1]]
+    fit = None
+    if len(rows) >= 5 and len({(min(r[0], r[1]), max(r[0], r[1])) for r in rows}) >= 4:
+        A = np.array([[-R * T, -(R + T), -1.0] for R, T, _, _ in rows]); y = np.array([r[2] for r in rows]); s = np.array([max(r[3], 1e-12) for r in rows])
+        Aw = A / s[:, None]; yw = y / s
+        p, res, rk, sv = np.linalg.lstsq(Aw, yw, rcond=None)
+        cov = np.linalg.pinv(Aw.T @ Aw); chi2 = float(np.sum((Aw @ p - yw) ** 2)); dof = len(rows) - 3
+        scale = max(1.0, chi2 / dof) if dof > 0 else 1.0
+        err = np.sqrt(np.abs(np.diag(cov)) * scale)
+        fit = {'sigma': float(p[0]), 'sigma_err': float(err[0]), 'mu': float(p[1]), 'mu_err': float(err[1]), 'c': float(p[2]),
+               'chi2_per_dof': chi2 / dof if dof > 0 else None, 'points': len(rows), 'loops_used': [[int(r[0]), int(r[1])] for r in rows]}
+        fit['law'] = 'area' if p[0] > 3 * err[0] else 'perimeter (sigma consistent with 0 or below 3 errors)'
+        fit['sigma_upper_bound_2err'] = float(max(p[0], 0) + 2 * err[0])
+        if p[0] > 0:
+            fit['sqrt_sigma'] = float(np.sqrt(p[0]))
+    Vr = None
+    if V:
+        V1 = V[0]['V'] if V[0]['R'] == 1 else None
+        Vr = [{'R': v['R'], 'V_minus_V1': (v['V'] - V1) if V1 is not None else None, 'err': float(np.hypot(v['err_uncorrelated'], V[0]['err_uncorrelated']))} for v in V]
+    # string tension from the Creutz ratios at the largest loops: weighted mean over R >= 5 (or the three largest R)
+    big = [c for c in creutz if c['R'] >= 5] or creutz[-3:]
+    sc = None
+    if big:
+        w = np.array([1 / c['err_uncorrelated'] ** 2 for c in big]); x = np.array([c['chi'] for c in big])
+        m = float((w * x).sum() / w.sum()); e = float(max(1 / np.sqrt(w.sum()), x.std(ddof=1) / np.sqrt(len(x)) if len(x) > 1 else 0))
+        sc = {'R_used': [c['R'] for c in big], 'sigma': m, 'err': e, 'law': 'area' if m > 3 * e else 'perimeter (no area term resolved)',
+              'sigma_upper_bound': float(max(m, 0) + 2 * e)}
+    return {'creutz_sigma_large_loops': sc, 'creutz_RR': creutz, 'V': V, 'V_minus_V1': Vr, 'area_fit': fit, 'loops_with_signal': int(ok.sum()), 'loops_total': int(ok.size)}
+
+
+def peak(ks, ys):
+    """position of the maximum by a parabola through the largest point and its two neighbours"""
+    ks = np.asarray(ks); ys = np.asarray(ys); i = int(np.argmax(ys))
+    if i == 0 or i == len(ks) - 1:
+        return float(ks[i])
+    p = np.polyfit(ks[i - 1:i + 2], ys[i - 1:i + 2], 2)
+    return float(-p[1] / (2 * p[0])) if p[0] < 0 else float(ks[i])
+
+
+def crossing(k, a, b):
+    """kappa where curves a and b (same kappa grid) cross, linear interpolation; None if no sign change"""
+    d = np.asarray(a) - np.asarray(b); out = []
+    for i in range(len(k) - 1):
+        if d[i] == 0 or d[i] * d[i + 1] < 0:
+            out.append(float(k[i] - d[i] * (k[i + 1] - k[i]) / (d[i + 1] - d[i])))
+    return out
+
+
+def solve_kappa(rows, target):
+    """kappa where f (plaquette share) equals target: linear interpolation of log f between the bracketing points of a
+    curve sorted by kappa (f decreases with kappa). Returns kappa, the bracket, and the slope dlogf/dkappa there."""
+    rows = sorted(rows, key=lambda r: r['kappa']); k = np.array([r['kappa'] for r in rows]); f = np.array([r['f'] for r in rows])
+    for i in range(len(k) - 1):
+        if (f[i] - target) * (f[i + 1] - target) <= 0:
+            s = (np.log(f[i + 1]) - np.log(f[i])) / (k[i + 1] - k[i])
+            return {'kappa': float(k[i] + (np.log(target) - np.log(f[i])) / s), 'bracket': [float(k[i]), float(k[i + 1])],
+                    'f_bracket': [float(f[i]), float(f[i + 1])], 'dlogf_dkappa': float(s)}
+    return None
+
+
+def scan():
+    R_ = load('refine'); V = load('validate') + R_; S = load('scan') + load('kstar'); allp = V + S
+    out = {'run': 'H4 scan', 'action': 'weight exp(kappa sum_p Re W_p); Z2 links +-1, Z3 links 1, w, w^2', 'targets_per_carrier': TARGETS}
+    # ---- Z2 validation
+    z2 = {}
+    for L in (24, 32, 48):
+        rr = sorted([p for p in V if p['N'] == 2 and p['L'] == L and p['start'] == 'cold'], key=lambda p: p['kappa'])
+        if not rr:
+            continue
+        ks = [p['kappa'] for p in rr]
+        z2[L] = {'kappa': ks, 'mean_ReW': [p['mean_ReW'] for p in rr], 'f_plaquette': [p['f_plaquette'] for p in rr],
+                 'specific_heat': [p['specific_heat_3V_var_e'] for p in rr], 'polyakov_binder': [p['polyakov_binder'] for p in rr],
+                 'tau_int_e': [p['tau_int_e_sweeps'] for p in rr], 'C_peak_kappa': peak(ks, [p['specific_heat_3V_var_e'][0] for p in rr]),
+                 'C_peak_value': max(p['specific_heat_3V_var_e'][0] for p in rr)}
+    hc = []
+    for p in V:
+        if p['N'] == 2 and p['L'] == 48 and p['start'] == 'hot':
+            q = [r for r in V if r['N'] == 2 and r['L'] == 48 and r['start'] == 'cold' and r['kappa'] == p['kappa']]
+            if q:
+                hc.append({'kappa': p['kappa'], 'ReW_hot': p['mean_ReW'], 'ReW_cold': q[0]['mean_ReW']})
+    xs = {}
+    Ls = sorted(z2)
+    for a in range(len(Ls)):
+        for b in range(a + 1, len(Ls)):
+            A, B = z2[Ls[a]], z2[Ls[b]]
+            if A['kappa'] == B['kappa']:
+                xs[f'{Ls[a]}-{Ls[b]}'] = crossing(A['kappa'], [x[0] for x in A['polyakov_binder']], [x[0] for x in B['polyakov_binder']])
+    # duality: <U_p> at beta_c = tanh(beta_c) + (1 - u_c) / sinh(2 beta_c), u_c = 3D Ising bond energy at K_c
+    Kc = 0.22165463; bc = -0.5 * np.log(np.tanh(Kc)); uc = 0.330
+    out['Z2_validation'] = {'kappa_c_literature': float(bc), 'source': 'dual of the 3D Ising model, K_c = 0.22165463, tanh K_c = exp(-2 kappa_c)',
+                            'ReW_at_kappa_c_from_duality': float(np.tanh(bc) + (1 - uc) / np.sinh(2 * bc)),
+                            'duality_note': 'u_c = 0.330 (3D Ising nearest-neighbour correlation at K_c, literature value); <U_p> = tanh k + (1 - u) / sinh 2k (EXACT given the duality)',
+                            'by_size': {str(L): z2[L] for L in z2}, 'C_peak_kappa_by_size': {str(L): z2[L]['C_peak_kappa'] for L in z2},
+                            'polyakov_binder_crossings': xs, 'hot_vs_cold_48': sorted(hc, key=lambda r: r['kappa'])}
+    # ---- Z3 hysteresis
+    z3 = []
+    for p in sorted([p for p in V if p['N'] == 3], key=lambda p: (p['L'], p['kappa'], p['start'])):
+        z3.append({'L': p['L'], 'kappa': p['kappa'], 'start': p['start'], 'mean_ReW': p['mean_ReW'], 'f_plaquette': p['f_plaquette'],
+                   'first_half_vs_second_half': p['first_half_vs_second_half_e'], 'specific_heat': p['specific_heat_3V_var_e'],
+                   'polyakov_abs_mean': p['polyakov_abs_mean'], 'tau_int_e': p['tau_int_e_sweeps'], 'e_histogram': p['e_histogram']})
+    out['Z3_transition'] = {'kappa_c_duality_estimate': float(np.log(1 + 3 / (np.exp(0.550565) - 1)) / 1.5),
+                            'source': 'dual of the 3D three-state Potts model (first order), K_c(Potts, delta coupling) = 0.550565 (literature); Kramers-Wannier (e^K - 1)(e^K* - 1) = 3; Re W in {1, -1/2} so K* = 3 kappa / 2',
+                            'runs': z3}
+    # ---- curves on 48^3 and readouts at every point
+    curves = {}
+    for N in (2, 3):
+        pts = [p for p in allp if p['N'] == N and p['L'] == 48]
+        rows = []
+        for p in sorted(pts, key=lambda p: (p['kappa'], p['start'])):
+            rows.append({'kappa': p['kappa'], 'start': p['start'], 'f': p['f_plaquette'][0], 'f_err': p['f_plaquette'][1],
+                         'f_per_carrier': p['f_per_carrier'], 'mean_ReW': p['mean_ReW'], 'tau_int_e': p['tau_int_e_sweeps'],
+                         'polyakov_abs_mean': p['polyakov_abs_mean'], 'wilson': wilson_readout(p['W'], p['W_err']), 'clusters': p.get('clusters')})
+        curves[f'Z{N}'] = rows
+    out['curves_48'] = curves
+    # ---- kappa*
+    kst = {}; draw = []
+    for G_, N in (('Z3', 3), ('Z2', 2)):
+        rows = curves[G_]
+        for norm, target in (('carrier', TARGETS[G_] / 3), ('plaquette', TARGETS[G_])):
+            res = {}
+            for st in ('cold', 'hot'):
+                # one curve per start; where only one start exists at a kappa, it is used for both
+                by_k = {}
+                for r in rows:
+                    if r['start'] == st or r['kappa'] not in by_k:
+                        by_k[r['kappa']] = r
+                res[st] = solve_kappa(list(by_k.values()), target)
+            kst[f'{G_}_{norm}'] = {'target_f_per_plaquette': target, 'target_per_carrier': 3 * target, 'solutions': res}
+            sol = res['cold'] or res['hot']
+            if sol:
+                draw.append({'label': f'{G_}_{norm}', 'N': N, 'normalisation': norm, 'kappa': round(sol['kappa'], 4), 'target_f': target,
+                             'start': 'cold' if sol['kappa'] > (0.7613 if N == 2 else 1.084) else 'hot'})
+    out['kappa_star_interpolated'] = kst
+    return out, {'draw_points': draw}
+
+
+if __name__ == '__main__':
+    mode = sys.argv[1]
+    if mode == 'scan':
+        out, K = scan()
+        json.dump(out, open(sys.argv[2], 'w'), indent=1); json.dump(K, open(sys.argv[3], 'w'), indent=1)
+        print(json.dumps(K, indent=1))
+    elif mode == 'draw':
+        K = json.load(open(sys.argv[2])); res = []
+        for p in K['draw_points']:
+            f = os.path.join(HERE, 'out', 'draw', p['label'] + '.json')
+            if not os.path.exists(f):
+                continue
+            d = json.load(open(f))
+            res.append({'label': p['label'], 'kappa': d['kappa'], 'start': d['start'], 'f_plaquette': d['f_plaquette'], 'f_per_carrier': d['f_per_carrier'],
+                        'target_f': p['target_f'], 'f_at_draws': d['f_at_draws'], 'tau_int_f': d['tau_int_f_sweeps'], 'mean_ReW': d['mean_ReW'],
+                        'wilson': wilson_readout(d['W'], d['W_err']), 'W': d['W'], 'W_err': d['W_err'],
+                        'clusters_at_draws': d['clusters_at_draws']})
+        json.dump({'run': 'H4 draws at kappa*', 'shape': [96, 48, 48], 'points': res}, open(sys.argv[3], 'w'), indent=1)
+        print('written', sys.argv[3])

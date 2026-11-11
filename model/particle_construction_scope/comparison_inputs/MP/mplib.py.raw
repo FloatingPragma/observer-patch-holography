@@ -1,0 +1,372 @@
+"""Shared tools of worker MP (steps 3 and 7 on one carrier).
+
+Everything is built on the public objects: the pinned carrier of model.common_source.slow_geometry, the public
+24-dimensional local involution model.coherent_seam_repair.common.local_repair_unitary and the committed reference
+rule model.observer.native.native. The two public packages (commit 4af32419c) live in ./pubmodel and are attached to
+the `model` package of the box copy.
+"""
+import itertools
+import pathlib
+from fractions import Fraction as F
+
+import numpy as np
+
+import model
+
+_P = str(pathlib.Path(__file__).resolve().parent / 'pubmodel')
+if _P not in list(model.__path__):
+    model.__path__.append(_P)
+
+from model.common_source import slow_geometry            # noqa: E402
+from model.observer import native as NATIVE              # noqa: E402
+from model.coherent_seam_repair.common import local_repair_unitary, local_pump_kraus   # noqa: E402
+
+SRC = slow_geometry.source()
+SEAMS = tuple(tuple(int(x) for x in e) for e in SRC.seams())
+assert len(SEAMS) == 30 and all(a < b for a, b in SEAMS)
+ADDR = tuple(pair for e in SEAMS for pair in (e, e[::-1]))      # the sixty oriented seam addresses, public order
+NA = 60
+ADJ = np.zeros((12, 12), dtype=np.int64)
+for _a, _b in SEAMS:
+    ADJ[_a, _b] = ADJ[_b, _a] = 1
+NBR = [[int(q) for q in np.nonzero(ADJ[p])[0]] for p in range(12)]
+LAP = 5 * np.eye(12, dtype=np.int64) - ADJ
+PHI = (1 + 5 ** 0.5) / 2
+V = np.array([[SRC.q5_float(x) for x in row] for row in slow_geometry.raw_frame()])    # public port chart
+NRM = V / np.linalg.norm(V, axis=1)[:, None]
+FACES = []
+for _a, _b, _c in itertools.combinations(range(12), 3):
+    if ADJ[_a, _b] and ADJ[_b, _c] and ADJ[_a, _c]:
+        _n = np.cross(V[_b] - V[_a], V[_c] - V[_a])
+        FACES.append((_a, _b, _c) if _n @ (V[_a] + V[_b] + V[_c]) > 0 else (_a, _c, _b))   # counter-clockwise from outside
+assert len(FACES) == 20
+ANTI = [int(np.argmin(np.linalg.norm(V + V[p], axis=1))) for p in range(12)]
+
+# ---------------------------------------------------------------------------------------------------------------
+# symmetry group of the carrier graph: 120 automorphisms, 60 proper and 60 improper
+
+
+def _automorphisms():
+    out = []
+
+    def extend(perm):
+        i = len(perm)
+        if i == 12:
+            out.append(tuple(perm))
+            return
+        for q in range(12):
+            if q not in perm and all(ADJ[i, j] == ADJ[q, perm[j]] for j in range(i)):
+                extend(perm + [q])
+    extend([])
+    return out
+
+
+def _classify(perm):
+    O = (V[list(perm)].T @ V) @ np.linalg.inv(V.T @ V)          # O V[p] = V[perm[p]]
+    assert np.allclose(O @ O.T, np.eye(3), atol=1e-9) and np.allclose(V @ O.T, V[list(perm)], atol=1e-9)
+    det = int(round(np.linalg.det(O)))
+    tr = float(np.trace(O * det))                                # trace of the proper part R = det * O
+    for name, val in (('E', 3.0), ('C5', PHI), ('C5b', 1 - PHI), ('C3', 0.0), ('C2', -1.0)):
+        if abs(tr - val) < 1e-6:
+            return name, det, O
+    raise ArithmeticError('unclassified automorphism')
+
+
+AUT = []            # list of dicts: perm (perm[p] = image of p), cls, det, O
+for _perm in _automorphisms():
+    _cls, _det, _O = _classify(_perm)
+    AUT.append({'perm': _perm, 'cls': _cls, 'det': _det, 'O': _O})
+assert len(AUT) == 120 and sum(g['det'] == 1 for g in AUT) == 60
+CHAR = {'A': {'E': 1, 'C5': 1, 'C5b': 1, 'C3': 1, 'C2': 1},
+        'T1': {'E': 3, 'C5': PHI, 'C5b': 1 - PHI, 'C3': 0, 'C2': -1},
+        'T2': {'E': 3, 'C5': 1 - PHI, 'C5b': PHI, 'C3': 0, 'C2': -1},
+        'G': {'E': 4, 'C5': -1, 'C5b': -1, 'C3': 1, 'C2': 0},
+        'H': {'E': 5, 'C5': 0, 'C5b': 0, 'C3': -1, 'C2': 1}}
+IRREPS = [(n, p) for p in ('g', 'u') for n in ('A', 'T1', 'T2', 'G', 'H')]
+IRDIM = {'A': 1, 'T1': 3, 'T2': 3, 'G': 4, 'H': 5}
+
+
+def character(irrep, g):
+    name, par = irrep
+    return CHAR[name][g['cls']] * (1 if (g['det'] == 1 or par == 'g') else -1)
+
+
+def decompose(traces):
+    """traces[i] = trace of AUT[i] on an invariant space; returns {irrep label: multiplicity}."""
+    out = {}
+    for ir in IRREPS:
+        m = sum(character(ir, g) * t for g, t in zip(AUT, traces)) / 120
+        assert abs(m.imag if isinstance(m, complex) else 0) < 1e-6
+        m = m.real if isinstance(m, complex) else m
+        assert abs(m - round(m)) < 1e-6, (ir, m)
+        if round(m):
+            out[ir[0] + ir[1]] = int(round(m))
+    return out
+
+
+def label_levels(Dmat, action, tol=1e-9):
+    """Eigen-levels of a real symmetric matrix commuting with the group; action(g) -> index array idx with
+    (P_g x)[idx[i]] = x[i] (permutation action) or a dense matrix. Returns list of (eigenvalue, dim, irreps)."""
+    w, U = np.linalg.eigh(Dmat)
+    levels, i = [], 0
+    acts = [action(g) for g in AUT]
+    while i < len(w):
+        j = i
+        while j + 1 < len(w) and abs(w[j + 1] - w[i]) < tol:
+            j += 1
+        B = U[:, i:j + 1]
+        traces = []
+        for a in acts:
+            if a.ndim == 1:
+                PB = np.zeros_like(B)
+                PB[a, :] = B
+            else:
+                PB = a @ B
+            traces.append(float(np.sum(B * PB)))
+        levels.append((float(np.mean(w[i:j + 1])), j - i + 1, decompose(traces)))
+        i = j + 1
+    return levels
+
+# ---------------------------------------------------------------------------------------------------------------
+# two quanta: the 78 load configurations and the public local involution
+
+
+PAIRS = [(x, y) for x in range(12) for y in range(x + 1, 12)]
+CONF = PAIRS + [(x, x) for x in range(12)]              # 66 binary, then 12 double loads
+CIDX = {c: i for i, c in enumerate(CONF)}
+ADJPAIR = [c for c in PAIRS if ADJ[c[0], c[1]]]
+
+
+def cidx(x, y):
+    return CIDX[(x, y) if x <= y else (y, x)]
+
+
+def loads(c):
+    out = [0] * 12
+    out[c[0]] += 1
+    out[c[1]] += 1
+    return tuple(out)
+
+
+LOADIDX = {loads(c): i for i, c in enumerate(CONF)}
+LOCAL = [(0, 0), (1, 0), (0, 1), (1, 1), (2, 0), (0, 2)]      # public source order 00,10,01,11,20,02
+
+
+def public_local_T():
+    """2 * (public 24-dimensional involution), integer, index 4 * source + record."""
+    U = local_repair_unitary()
+    T = np.array([[int(2 * U[i, j]) for j in range(24)] for i in range(24)], dtype=np.int64)
+    assert all((2 * U[i, j]).is_integer for i in range(24) for j in range(24))
+    return T
+
+
+def two_quanta_T():
+    """The sixty integer matrices T_k = 2 U_k on (78 configurations) x (4 record values), index 4 * c + r:
+    the public local involution on the addressed seam, identity on the other ten ports."""
+    TL = public_local_T()
+    out = []
+    for a, b in ADDR:
+        T = np.zeros((312, 312), dtype=np.int64)
+        groups = {}
+        for ci, c in enumerate(CONF):
+            ld = list(loads(c))
+            local = (ld[a], ld[b])
+            ld[a] = ld[b] = 0
+            groups.setdefault(tuple(ld), []).append((ci, LOCAL.index(local)))
+        for members in groups.values():
+            for ci, li in members:
+                for cj, lj in members:
+                    T[4 * ci:4 * ci + 4, 4 * cj:4 * cj + 4] = TL[4 * li:4 * li + 4, 4 * lj:4 * lj + 4]
+        out.append(T)
+    return out
+
+
+def two_quanta_T_direct():
+    """Independent construction from the three displayed rows (no use of the public matrix)."""
+    out = []
+    for a, b in ADDR:
+        T = 2 * np.eye(312, dtype=np.int64)
+        for y in range(12):
+            if y in (a, b):
+                continue
+            w = np.zeros(312, dtype=np.int64)
+            w[4 * cidx(a, y)] = 1
+            w[4 * cidx(b, y)] = -1
+            w[4 * cidx(a, y) + 1] = -1
+            w[4 * cidx(b, y) + 1] = -1
+            T -= np.outer(w, w)
+        for dbl, rec in ((a, 2), (b, 3)):
+            w = np.zeros(312, dtype=np.int64)
+            w[4 * cidx(dbl, dbl)] = 1
+            w[4 * cidx(a, b) + rec] = -1
+            T -= 2 * np.outer(w, w)
+        out.append(T)
+    return out
+
+
+def native_kernel():
+    """Committed reference rule on the 78 configurations: uniform seam, fair coin. K[c', c] as Fractions."""
+    K = [[F(0)] * 78 for _ in range(78)]
+    for ci, c in enumerate(CONF):
+        for seam in SEAMS:
+            for coin in (0, 1):
+                out, _ = NATIVE.native(loads(c), seam, coin)
+                K[LOADIDX[out]][ci] += F(1, 60)
+    return K
+
+
+def conf_action(g):
+    """Index array of the permutation action of an automorphism on the 78 configurations."""
+    p = g['perm']
+    return np.array([cidx(p[c[0]], p[c[1]]) for c in CONF])
+
+
+def port_perm_matrix(g):
+    P = np.zeros((12, 12))
+    for q in range(12):
+        P[g['perm'][q], q] = 1
+    return P
+
+# ---------------------------------------------------------------------------------------------------------------
+# one quantum: public walk with a fibre of dimension f and unitary links
+
+
+def one_quantum_U(link=None, f=1, dtype=float):
+    """Sixty matrices U_k on (12 ports x f levels) x (2 parity values), index ((p * f + j) * 2 + r).
+    link(a, b) -> f x f unitary G from a to b (public rule m(h) = (|a>h - |b>Gh)/sqrt2, p(h) = (|a>h + |b>Gh)/sqrt2;
+    exchange m(h)|0> <-> p(h)|1>). The reversed address uses link(b, a), which must equal G^dagger."""
+    n = 12 * f * 2
+    out = []
+    for a, b in ADDR:
+        G = np.eye(f, dtype=dtype) if link is None else np.asarray(link(a, b), dtype=dtype)
+        U = np.eye(n, dtype=dtype)
+        for h in range(f):
+            v = np.zeros(n, dtype=dtype)
+            v[(a * f + h) * 2 + 0] += 1
+            v[(a * f + h) * 2 + 1] -= 1
+            for j in range(f):
+                v[(b * f + j) * 2 + 0] -= G[j, h]
+                v[(b * f + j) * 2 + 1] -= G[j, h]
+            U -= np.outer(v, v.conj()) / 2
+        out.append(U)
+    return out
+
+
+def apply_W(x, Us):
+    """One step W = Q R on an amplitude array of shape (n, 60) (n = source x record)."""
+    y = 2 * x.mean(axis=1, keepdims=True) - x
+    return np.stack([Us[k] @ y[:, k] for k in range(NA)], axis=1)
+
+
+def apply_Winv(x, Us):
+    y = np.stack([Us[k] @ x[:, k] for k in range(NA)], axis=1)
+    return 2 * y.mean(axis=1, keepdims=True) - y
+
+
+def dense_W(Us):
+    n = Us[0].shape[0]
+    R = 2 * np.ones((NA, NA)) / NA - np.eye(NA)
+    W = np.zeros((n, NA, n, NA), dtype=Us[0].dtype)
+    for k in range(NA):
+        W[:, k, :, :] = Us[k][:, :, None] * R[k][None, None, :]
+    return W.reshape(n * NA, n * NA)
+
+
+def discriminant(Us):
+    return sum(Us) / NA
+
+
+def central_link(edge=(0, 1)):
+    """The public static background: Z = diag(I3, -I2) on one seam, identity elsewhere."""
+    e = tuple(sorted(edge))
+    Z = np.diag([1.0, 1, 1, -1, -1])
+
+    def link(a, b):
+        return Z if tuple(sorted((a, b))) == e else np.eye(5)
+    return link
+
+
+def frac(x, maxden=10 ** 7):
+    return str(F(x).limit_denominator(maxden))
+
+
+def time_average(Us, e0, tol=1e-9):
+    """Exact long-time (Cesaro) average of the source-record populations for psi_0 = A e0 under W = Q R.
+    For an eigenvector e of D = A*QA with eigenvalue cos(om): W A e = Q A e, W Q A e = 2 cos(om) Q A e - A e, so the
+    plane span{A e, Q A e} carries the phases +-om with eigenvectors Q A e - exp(-+ i om) A e. Returns (p, stationary)
+    with p[s] = average of sum_k |psi_t(s, k)|^2 and stationary = weight of psi_0 on the fixed vectors of W."""
+    Us = [np.asarray(u, dtype=float) for u in Us]
+    D = sum(Us) / NA
+    w, E = np.linalg.eigh(D)
+    n = len(w)
+    p = np.zeros(n)
+    stat = 0.0
+    i = 0
+    while i < n:
+        j = i
+        while j + 1 < n and abs(w[j + 1] - w[i]) < tol:
+            j += 1
+        B = E[:, i:j + 1]
+        Ev = B @ (B.T @ e0)
+        lam = float(np.mean(w[i:j + 1]))
+        if np.linalg.norm(Ev) > 1e-13:
+            if abs(abs(lam) - 1) < tol:
+                p += Ev ** 2
+                if lam > 0:
+                    stat += float(Ev @ Ev)
+            else:
+                om = np.arccos(lam)
+                for k in range(NA):
+                    z = Us[k] @ Ev - np.exp(-1j * om) * Ev
+                    p += 2 * np.abs(z) ** 2 / (4 * np.sin(om) ** 2 * NA)
+        i = j + 1
+    return p, stat
+
+
+def return_average(D, e0, tol=1e-9):
+    """Time average of |<A e0|W^t|A e0>|^2 = (sum_j |c_j|^2 cos(t om_j))^2 and the weights by level."""
+    w, E = np.linalg.eigh(np.asarray(D, dtype=float))
+    c2 = (E.T @ e0) ** 2
+    levels = {}
+    for lam, x in zip(w, c2):
+        key = round(float(lam), 9)
+        levels[key] = levels.get(key, 0.0) + float(x)
+    avg = sum((v ** 2 if abs(abs(k) - 1) < tol else v ** 2 / 2) for k, v in levels.items())
+    return avg, {k: v for k, v in sorted(levels.items(), reverse=True) if v > 1e-14}
+
+
+def exact_levels(Sint, scale=120):
+    """Characteristic polynomial of an integer matrix Sint = scale * D, factored over Q (python-flint)."""
+    import math
+    import flint
+    A = flint.fmpz_mat([[int(v) for v in row] for row in Sint])
+    content, facs = A.charpoly().factor()
+    rows = []
+    for pol, e in facs:
+        co = [int(c) for c in pol.coeffs()]
+        deg = len(co) - 1
+        roots = np.roots(co[::-1]) / scale
+        assert np.allclose(roots.imag, 0, atol=1e-8)
+        roots = sorted(roots.real, reverse=True)
+        if deg == 1:
+            ex = str(F(-co[0], scale * co[1]))
+        elif deg == 2:
+            a, b, c = co[2], co[1], co[0]
+            d, sq, q = b * b - 4 * a * c, 1, 2
+            while q * q <= d:
+                while d % (q * q) == 0:
+                    d //= q * q
+                    sq *= q
+                q += 1
+            ex = f'{F(-b, 2 * scale * a)} +- {F(sq, 2 * scale * a)}*sqrt({d})'
+        else:
+            ex = 'roots of ' + ' + '.join(f'{c}*x^{i}' for i, c in enumerate(co) if c) + f' (x = {scale} lambda)'
+        rows.append({'degree': deg, 'multiplicity': int(e), 'exact': ex, 'lambda': [float(r) for r in roots],
+                     'omega': [float(math.acos(max(-1, min(1, r)))) for r in roots]})
+    rows.sort(key=lambda r: -r['lambda'][0])
+    return rows
+
+
+def level_rows(levels):
+    import math
+    return [{'lambda': l, 'omega': math.acos(max(-1.0, min(1.0, l))), 'dim': d, 'irreps': ir} for l, d, ir in levels[::-1]]

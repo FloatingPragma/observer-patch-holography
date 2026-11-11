@@ -1,0 +1,50 @@
+{
+  "status": "EXACT symbolic stationary state and effect-span identities; conditional declared pump law",
+  "reverse_probability": "3/4",
+  "phase_settings": "uniform I, Za(+i), Za(-i), Zb(+i), Zb(-i), all retained",
+  "three_port_result_independently_reproduced": true,
+  "stationary_orbital_coefficients": [
+    "1/12",
+    "3335/1169244",
+    "85/389748",
+    "5/129916"
+  ],
+  "carrier_stationary_density_spectrum": [
+    {
+      "carrier_irrep": "1",
+      "multiplicity": 1,
+      "rho_eigenvalue": "28858/292311",
+      "decimal": 0.09872361970640858
+    },
+    {
+      "carrier_irrep": "3",
+      "multiplicity": 3,
+      "rho_eigenvalue": "770*sqrt(5)/292311 + 8116/97437",
+      "decimal": 0.08918505407827566
+    },
+    {
+      "carrier_irrep": "3prime",
+      "multiplicity": 3,
+      "rho_eigenvalue": "8116/97437 - 770*sqrt(5)/292311",
+      "decimal": 0.07740463977518862
+    },
+    {
+      "carrier_irrep": "5",
+      "multiplicity": 5,
+      "rho_eigenvalue": "23473/292311",
+      "decimal": 0.08030145974663971
+    }
+  ],
+  "faithful_nontracial": true,
+  "covariance": "every graph automorphism permutes equal-weight seams and retained endpoint phase settings",
+  "all_input_population_shadow": "EXACT from local formula, independent of all off-diagonal inputs",
+  "history_effect_real_span": 144,
+  "history_length_suffices": 3,
+  "exact_coherence_extension_identities": 600,
+  "uniqueness_argument": "unphased K1 and adjoint K2 generate all diagonal differences and connected edge matrix units; no common invariant subspace; faithful stationary fixed-space scalar by Schwarz equality",
+  "native_coin_current_history_preserved": false,
+  "faithful_stationary_geometric_modular_flow_proved": false,
+  "protected_record_beyond_load_proved": false,
+  "unitary_or_relativistic_transport_proved": false,
+  "gauge_premises_proved": false
+}

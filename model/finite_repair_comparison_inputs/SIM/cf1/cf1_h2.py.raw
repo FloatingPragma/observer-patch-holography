@@ -1,0 +1,66 @@
+"""Run H2 (theory session): coherence of the species in a static gauge field between carriers with the flux densities of
+the committed universe. Independent of the internal mass step (no rest angle anywhere).
+
+    python cf1_h2.py N out.json
+
+Background (stated placement): every link of the cubic lattice of carriers carries a Z3 phase and a sign. A random share
+q3 of the links carries a nontrivial Z3 phase (omega or omega^2 with equal probability), a random share q2 a sign -1. A
+single nontrivial link puts flux on the four plaquettes around it, so with three links per carrier the number of
+nontrivial plaquettes per carrier is 12 q for small q. q3 = 0.2676 / 12 and q2 = 0.0409 / 12 give the pair densities
+of the stationary classes (2,4) and (3,3) of the committed level-10 run as plaquette densities; the measured plaquette
+densities of the sample are recorded. Species: charge phases (a, b) = (share of a turn per Z3 flux, per Z2 flux):
+quark doublets (1/3, 1/2), quark singlets (1/3, 0), lepton doublets (0, 1/2), singlets (0, 0). A point object made
+of three quark-doublet quanta has (0, 1/2): the same link variable as a lepton doublet, so its run is that run.
+Readouts are gauge invariant: where the quantum is found. A packet with wave number p0 along the first axis; the
+"ballistic" probability is the share found in the window where the free packet is.
+"""
+import json, sys, time
+import numpy as np
+from cf1_lib import Engine, positive_coin
+
+N = int(sys.argv[1]); outf = sys.argv[2]
+rng = np.random.default_rng(20261110); shape = (2 * N, N, N)
+q3 = 0.2676 / 12; q2 = 0.0409 / 12; w = np.exp(2j * np.pi / 3)
+u3 = [np.where(rng.random(shape) < q3, np.where(rng.random(shape) < 0.5, w, np.conj(w)), 1.0 + 0j) for _ in range(3)]
+u2 = [np.where(rng.random(shape) < q2, -1.0, 1.0) for _ in range(3)]
+def plaquette_density(u):
+    n = 0
+    for i in range(3):
+        for j in range(i + 1, 3):
+            W = u[i] * np.roll(u[j], -1, axis=i) * np.conj(np.roll(u[i], -1, axis=j)) * np.conj(u[j]); n += np.sum(np.abs(W - 1) > 1e-9)
+    return float(n / np.prod(shape))
+out = {'run': 'H2', 'label': 'candidate CF-1, routing in a static gauge field between carriers, no rest angle', 'lattice': list(shape), 'seed': 20261110, 'clock': 'tick of CF-1, alternating order',
+       'placement': 'independent random links: Z3 phase with probability q3, sign with probability q2', 'q3': q3, 'q2': q2,
+       'nontrivial_plaquettes_per_carrier': {'Z3': plaquette_density(u3), 'Z2': plaquette_density(u2)}, 'target_per_carrier': {'Z3': 0.2676, 'Z2': 0.0409}, 'species': []}
+print('plaquettes per carrier', out['nontrivial_plaquettes_per_carrier'], flush=True)
+SPECIES = [('quark doublets', 1, 1), ('quark singlets', 1, 0), ('lepton doublets', 0, 1), ('lepton and neutrino singlets', 0, 0)]
+p0 = 2 * np.pi * 8 / shape[0]; width = 5.0; start = (N // 3, N // 2, N // 2); coin = positive_coin((p0, 0, 0), 0.0); T = N
+grids = np.meshgrid(*[np.arange(s) for s in shape], indexing='ij', sparse=True)
+t0 = time.time()
+for name, a, b in SPECIES:
+    links = None if (a == 0 and b == 0) else [(u3[i] if a else 1.0) * (u2[i] if b else 1.0) * np.ones(shape) for i in range(3)]
+    eng = Engine(shape, links); psi = eng.gaussian(start, width, (p0, 0, 0), coin); rows = []
+    for t in range(T):
+        psi = eng.step(psi, 0.0, 'Y', t)
+        if (t + 1) % 4 == 0:
+            rho = Engine.density(psi); xc = start[0] + (t + 1)
+            dx = ((grids[0] - xc + shape[0] / 2) % shape[0]) - shape[0] / 2; dy = grids[1] - start[1]; dz = grids[2] - start[2]
+            ball = float(rho[(np.abs(dx) <= 2.5 * width) & (np.sqrt(dy ** 2 + dz ** 2) <= 2.5 * width + 0 * dx)].sum())
+            x_mean = float((rho * (((grids[0] - start[0] + shape[0] / 2) % shape[0]) - shape[0] / 2)).sum())
+            rows.append({'t': t + 1, 'ballistic_probability': ball, 'mean_advance_cells': x_mean, 'norm': float(rho.sum())})
+    ts = np.array([r['t'] for r in rows]); pb = np.array([r['ballistic_probability'] for r in rows])
+    ref = pb if name.endswith('singlets') and a == 0 and b == 0 else None
+    out['species'].append({'name': name, 'charge_phases': [a / 3, b / 2], 'series': rows})
+    print(name, 'ballistic at t =', [(int(t), round(float(p), 4)) for t, p in zip(ts[::3], pb[::3])], f'{time.time() - t0:.0f}s', flush=True)
+# mean free path relative to the free packet (the free ballistic share also drops by spreading)
+free = np.array([r['ballistic_probability'] for r in out['species'][-1]['series']]); ts = np.array([r['t'] for r in out['species'][-1]['series']])
+for sp in out['species']:
+    ratio = np.array([r['ballistic_probability'] for r in sp['series']]) / free
+    ok = ratio > 1e-3
+    if sp is out['species'][-1] or ok.sum() < 3: sp['mean_free_path_cells'] = None
+    else: sp['mean_free_path_cells'] = float(-1 / np.polyfit(ts[ok], np.log(ratio[ok]), 1)[0])
+    sp['ballistic_share_relative_to_free'] = [float(x) for x in ratio]
+    print(sp['name'], 'mean free path (cells):', sp['mean_free_path_cells'], 'final mean advance', sp['series'][-1]['mean_advance_cells'], flush=True)
+out['composite_of_three_quark_doublets'] = 'charge phases (0, 1/2): the same link variable as the lepton doublets, so the same run; a test with three separate quanta needs a binding interaction'
+out['seconds'] = time.time() - t0
+json.dump(out, open(outf, 'w'), indent=1); print('written', outf)

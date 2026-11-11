@@ -1,0 +1,68 @@
+"""Worker ML. Equilibrium census of the Standard Model plasma above the electroweak scale (ideal gas,
+zero chemical potentials, all species relativistic). Inputs IMPORTED: zeta(3); eta = n_B / n_gamma
+(Planck 2018 with BBN: 6.12e-10); s / n_gamma today = 7.04.
+
+n_boson = zeta(3)/pi^2 * g T^3,  n_fermion = 3/4 of that;  rho_boson = pi^2/30 * g T^4, rho_fermion = 7/8;
+s = 2 pi^2/45 * g_* T^3.
+Run: nice -n 15 /tmp/oph-completion-venv/bin/python census.py   (well below one second)
+"""
+import json
+from math import pi
+
+Z3 = 1.2020569031595942
+ETA = 6.12e-10          # n_B / n_gamma  (CMB + BBN)
+S_OVER_NGAMMA = 7.04    # entropy per photon today (photons + three neutrino species)
+
+# internal states (particle and antiparticle, helicities, colours, isospin), per species
+bosons = {
+    "gluons (8 x 2)": 16,
+    "SU(2) gauge bosons (3 x 2)": 6,
+    "U(1) gauge boson (1 x 2)": 2,
+    "Higgs doublet (4 real)": 4,
+}
+# Weyl multiplets of one generation: (states, antiparticle states)
+weyl = {
+    "Q_L quark doublet (3 x 2)": 6,
+    "u_R (3)": 3,
+    "d_R (3)": 3,
+    "L_L lepton doublet (2)": 2,
+    "e_R (1)": 1,
+}
+NGEN = 3
+g_b = sum(bosons.values())
+g_f = NGEN * 2 * sum(weyl.values())
+g_energy = g_b + 7 / 8 * g_f
+g_number = g_b + 3 / 4 * g_f
+
+rows = {}
+for k, v in bosons.items():
+    rows[k] = dict(g=v, number_weight=v, number_fraction=v / g_number, energy_fraction=v / g_energy)
+for k, v in weyl.items():
+    g = NGEN * 2 * v
+    rows[k + ", three generations, with antiparticles"] = dict(
+        g=g, number_weight=0.75 * g, number_fraction=0.75 * g / g_number, energy_fraction=0.875 * g / g_energy)
+
+n_per_g = Z3 / pi ** 2                      # boson number density per state, units T^3
+s_coef = 2 * pi ** 2 / 45 * g_energy          # s / T^3
+nB_over_s = ETA / S_OVER_NGAMMA
+nB = nB_over_s * s_coef                     # n_B / T^3
+g_quark = NGEN * 2 * (6 + 3 + 3)            # 72
+n_q_plus_qbar = 0.75 * g_quark * n_per_g
+quark_excess = 3 * nB / n_q_plus_qbar       # (n_q - n_qbar) / (n_q + n_qbar)
+
+res = dict(
+    g_bosons=g_b, g_fermions=g_f, g_star_energy=g_energy, g_star_number=g_number,
+    g_star_energy_with_three_nuR=g_b + 7 / 8 * (g_f + 6),
+    n_total_over_T3=g_number * n_per_g, rho_over_T4=pi ** 2 / 30 * g_energy, s_over_T3=s_coef,
+    nB_over_s=nB_over_s, nB_over_T3=nB, quark_excess_fraction=quark_excess,
+    one_excess_quark_per_pairs=1 / (2 * quark_excess),
+    B_over_BminusL_sphaleron=28 / 79,
+    per_generation_fermion_number_shares={k: v / sum(weyl.values()) for k, v in weyl.items()},
+    species=rows,
+)
+for k, v in res.items():
+    if k != "species":
+        print(k, v)
+for k, v in rows.items():
+    print(f"{k:70s} g={v['g']:3d} number {100 * v['number_fraction']:5.2f}%  energy {100 * v['energy_fraction']:5.2f}%")
+json.dump(res, open("census.json", "w"), indent=1)

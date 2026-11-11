@@ -1,0 +1,114 @@
+"""CM readings F1-F3, O1-O3 (points N, N0; lifts +q, -q), HC, generation phases GP-F. mpmath, 50 digits.
+
+Reads no measured value. Needs orbit.json (cm_orbit.py). Writes frames.json.
+Run: cd RL/work/CM && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=../KD:. /tmp/oph-completion-venv/bin/python -B cm_frames.py
+(no RER import needed: the exact source numbers are read from orbit.json and parsed back into Q(sqrt5, i)).
+"""
+import json
+import os
+
+import mpmath as mp
+
+from cm_frames_lib import parse, herm_eig, shift, kron, circ, ckm, perm_check, svals, spectrum_summary
+
+mp.mp.dps = 50
+HERE = os.path.dirname(os.path.abspath(__file__))
+orb = json.load(open(os.path.join(HERE, 'orbit.json')))
+assert orb['measured_values_read'] is False
+
+POINTS = {'N': (mp.mpf(1) / 6, mp.mpf(1) / 12, mp.mpf(2) / 9), 'N0': (mp.mpf(1) / 6, mp.mpf(1) / 12, mp.mpf(0))}
+OUT = {'measured_values_read': False, 'F': {}, 'O': {}, 'GP_F': {}, 'HC': {}}
+
+for lname, rec in orb['lifts'].items():
+    Ux = [[parse(x) for x in row] for row in rec['U_sigma_q']]
+    U = mp.matrix(Ux)
+    up = rec['legs']['up']['per_colour'][str(0)]
+    dn = rec['legs']['down']['per_colour'][str(0)]
+    tu = [parse(x) for x in up['t_n']]
+    td = [parse(x) for x in dn['t_n']]
+    clL, clR = up['closure_L'], up['closure_R']
+    assert dn['closure_L'] == clL and dn['closure_R'] == clR
+    # ------------------------------------------------------------------ reading F (positions x doublet, fixed basis)
+    S3 = shift(3, 1)
+    gL = kron(S3, U)
+    Tu = mp.zeros(3, 6)
+    Td = mp.zeros(3, 6)
+    for n in range(3):
+        Tu[n, 2 * n] = 1
+        Td[n, 2 * n + 1] = -1
+    tau = mp.zeros(6, 6)
+    for n in range(3):
+        tau[2 * n, 2 * n + 1] = 1
+    for pname, (q, p, th) in POINTS.items():
+        CL = circ(gL, q, p, th)
+        CR = circ(S3, q, p, th)
+        for form in ('F1', 'F2', 'F3'):
+            frames = {}
+            spec = {}
+            for sec, T in (('up', Tu), ('down', Td)):
+                Y = {'F1': T * CL, 'F2': CR * T, 'F3': CR * T * CL}[form]
+                E, Q = herm_eig(Y.H * Y)
+                nz = [i for i in range(6) if E[i] > mp.mpf('1e-40')]
+                assert len(nz) == 3, (form, sec, [mp.nstr(e, 5) for e in E])
+                frames[sec] = mp.matrix([[Q[r, i] for i in nz] for r in range(6)])
+                spec[sec] = spectrum_summary([E[i] for i in nz])
+            V = frames['up'].H * tau * frames['down']
+            isp, perm = perm_check(V)
+            OUT['F'][f'{form}|{pname}|{lname}'] = {
+                'V': ckm(V), 'is_permutation': isp, 'permutation': perm, 'singular_values': svals(V),
+                'spectra': spec}
+        # generation phases (GP-F): s-side compression of the family operator; rotation coefficient sqrt(p) U_ss
+        U11, U22 = U[0, 0], U[1, 1]
+        phig = mp.arg(U11)
+        OUT['GP_F'][f'{pname}|{lname}'] = {
+            'phi_g': mp.nstr(phig, 30), 'abs_U11_squared': mp.nstr(abs(U11) ** 2, 30),
+            'delta_u': mp.nstr(th + phig, 20), 'delta_d': mp.nstr(th + mp.arg(U22), 20),
+            'x_eff_at_native': mp.nstr((p / q) * abs(U11) ** 2, 20)}
+    # ------------------------------------------------------------------ reading O (orbit basis, co-rotating partners)
+    SL = shift(3, clL)
+    SR = shift(3, clR)
+    Du = mp.diag(tu)
+    Dd = mp.diag(td)
+    for pname, (q, p, th) in POINTS.items():
+        CL = circ(SL, q, p, th)
+        CR = circ(SR, q, p, th)
+        for form in ('O1', 'O2', 'O3'):
+            frames, spec = {}, {}
+            for sec, D in (('up', Du), ('down', Dd)):
+                Y = {'O1': D * CL, 'O2': CR * D, 'O3': CR * D * CL}[form]
+                E, Q = herm_eig(Y.H * Y)
+                frames[sec] = Q
+                spec[sec] = spectrum_summary(E)
+            V = frames['up'].H * frames['down']
+            isp, perm = perm_check(V)
+            OUT['O'][f'{form}|{pname}|{lname}'] = {'V': ckm(V), 'is_permutation': isp, 'permutation': perm,
+                                                   'unitarity_defect': float(mp.norm(V.H * V - mp.eye(3))),
+                                                   'spectra': spec}
+
+# ------------------------------------------------------------------ HC: Htilde leg as the adjoint vertex
+S3 = shift(3, 1)
+q, p, th = POINTS['N']
+fr = {}
+for sec, sgn in (('up', -1), ('down', 1)):
+    Y = circ(S3, q, p, sgn * th)
+    E, Q = herm_eig(Y.H * Y)
+    fr[sec] = (E, Q)
+V = fr['up'][1].H * fr['down'][1]
+isp, perm = perm_check(V)
+OUT['HC'] = {'V': ckm(V), 'is_permutation': isp, 'permutation': perm,
+             'spectra': {s: spectrum_summary(fr[s][0]) for s in fr}}
+
+with open(os.path.join(HERE, 'frames.json'), 'w') as fh:
+    json.dump(OUT, fh, indent=1, default=str)
+
+for key, r in OUT['F'].items():
+    print('F', key, 'perm', r['is_permutation'], r['permutation'], 'sv', [round(x, 6) for x in r['singular_values']],
+          'J', r['V']['J'])
+for key, r in OUT['O'].items():
+    v = r['V']
+    print('O', key, 'perm', r['is_permutation'], 's12 %.6f s23 %.6f s13 %.6f J %.3e' % (v['s12'], v['s23'], v['s13'], v['J']),
+          'unit', '%.1e' % r['unitarity_defect'], '| up', r['spectra']['up'].get('y1_over_y3'), r['spectra']['up'].get('y2_over_y3'),
+          '| down', r['spectra']['down'].get('y1_over_y3'), r['spectra']['down'].get('y2_over_y3'))
+for key, r in OUT['GP_F'].items():
+    print('GP-F', key, r)
+print('HC', OUT['HC']['is_permutation'], OUT['HC']['permutation'], OUT['HC']['V']['J'])

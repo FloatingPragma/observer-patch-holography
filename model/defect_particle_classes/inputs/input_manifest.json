@@ -1,0 +1,861 @@
+{
+  "schema": "oph.scientific_comparison_inputs.v1",
+  "scope": "Source and numerical comparison inputs. Checksum admission does not validate their physical interpretations or transfer their construction to the owning source. Source text is inert .raw data; executable verified results are linked in README.md.",
+  "files": [
+    {
+      "path": "AV/abelian.json",
+      "source": "work/SIM/phase2/AV/abelian.json",
+      "sha256": "1f86391566eeed9de6b8f2e582d5fb0a65b19da10c5f0a219e06ddf5b5399bcc",
+      "bytes": 15622
+    },
+    {
+      "path": "AV/av_abelian.py.raw",
+      "source": "work/SIM/phase2/AV/av_abelian.py",
+      "sha256": "bc90ed634fc75185135b90ea2ba47b11fe144ff29353c410b464496d2bd42a78",
+      "bytes": 16862
+    },
+    {
+      "path": "AV/av_clock.py.raw",
+      "source": "work/SIM/phase2/AV/av_clock.py",
+      "sha256": "028abb53d0c764d02f661d8496834234bba2c7a53e900a467bc13d92a744e631",
+      "bytes": 2745
+    },
+    {
+      "path": "AV/av_clock2.py.raw",
+      "source": "work/SIM/phase2/AV/av_clock2.py",
+      "sha256": "c9b132ab01943a31676becdc626b0fedd5ee512315e7f3d9d523b45f85cf05ab",
+      "bytes": 2115
+    },
+    {
+      "path": "AV/av_compare.py.raw",
+      "source": "work/SIM/phase2/AV/av_compare.py",
+      "sha256": "7a15600c815829c71f3c48f2bc2735a35c3b77ced0eae678602ed36fa699b461",
+      "bytes": 3339
+    },
+    {
+      "path": "AV/av_complex.py.raw",
+      "source": "work/SIM/phase2/AV/av_complex.py",
+      "sha256": "cf34cb8c10161bd6c5cabff9d451e02247d63ecc55428bec31952931bb446bc2",
+      "bytes": 7678
+    },
+    {
+      "path": "AV/av_engine.py.raw",
+      "source": "work/SIM/phase2/AV/av_engine.py",
+      "sha256": "27af1807f2ccd7dfe8f334283066e0c5398d863ef4624f16b3adc25cf37997b9",
+      "bytes": 14542
+    },
+    {
+      "path": "AV/av_engine_an.py.raw",
+      "source": "work/SIM/phase2/AV/av_engine_an.py",
+      "sha256": "ecf7448db372b7d05fd19a4c64d25135497b55c562fe5b8c4d1acac402b9b46e",
+      "bytes": 4281
+    },
+    {
+      "path": "AV/av_engine_fm.py.raw",
+      "source": "work/SIM/phase2/AV/av_engine_fm.py",
+      "sha256": "41ecf4aa193aaadf00ec320453f454925f61c1fa52f55a3daf64c3ec2a1a7863",
+      "bytes": 4016
+    },
+    {
+      "path": "AV/av_fit.py.raw",
+      "source": "work/SIM/phase2/AV/av_fit.py",
+      "sha256": "bd629ba45d9f9ea6c7306e0e4f7135baa00efd2426a27d17dc6ba1276e28d0ab",
+      "bytes": 21631
+    },
+    {
+      "path": "AV/av_fit_an.py.raw",
+      "source": "work/SIM/phase2/AV/av_fit_an.py",
+      "sha256": "1174e35195b790fd90dbf89048b4886030110bf31f24dfa62c55d8a67794e1c0",
+      "bytes": 5406
+    },
+    {
+      "path": "AV/av_gates.py.raw",
+      "source": "work/SIM/phase2/AV/av_gates.py",
+      "sha256": "ea68609a8c72f062234ee77952a75458d78a8c04d9079143cafd412ca5fdeafd",
+      "bytes": 9206
+    },
+    {
+      "path": "AV/av_package.py.raw",
+      "source": "work/SIM/phase2/AV/av_package.py",
+      "sha256": "bb45b35467b9a27841bc35385f9d5e21777c707dd01f81552d89fc753d7557d5",
+      "bytes": 5272
+    },
+    {
+      "path": "AV/av_proof.py.raw",
+      "source": "work/SIM/phase2/AV/av_proof.py",
+      "sha256": "8dafb70229f3c785519715e6f527c15bb67218b08dd5f53891c94b5dc450f693",
+      "bytes": 23403
+    },
+    {
+      "path": "AV/av_run.py.raw",
+      "source": "work/SIM/phase2/AV/av_run.py",
+      "sha256": "850dd123b6dc8bb218786cb65bc329679be4aa63d0a38c3d24eb1dbd6154c7c8",
+      "bytes": 6528
+    },
+    {
+      "path": "AV/av_run_an.py.raw",
+      "source": "work/SIM/phase2/AV/av_run_an.py",
+      "sha256": "273aee40cfc7d76fdf5a8daf47b9ac699fc146fb96aafee9470377e7dd88747d",
+      "bytes": 3288
+    },
+    {
+      "path": "AV/av_run_fm.py.raw",
+      "source": "work/SIM/phase2/AV/av_run_fm.py",
+      "sha256": "1e60b57c17f719daafe652073807d72ac6747457f413e0dc471ba89984805c5c",
+      "bytes": 3759
+    },
+    {
+      "path": "AV/av_site.py.raw",
+      "source": "work/SIM/phase2/AV/av_site.py",
+      "sha256": "fc893eef0d7dda8d057fdf4c99069a703ab92dec190c43ad386bde1b36395a7c",
+      "bytes": 16310,
+      "original_source_sha256": "e1825b3dc4f31febfb744f5e2512081b62489d3ba9222448d0227436bf7e9d59",
+      "original_source_bytes": 16339,
+      "adaptation": "Machine-local workspace/home prefixes and compute-host metadata replaced by symbolic labels; numerical data unchanged."
+    },
+    {
+      "path": "AV/av_tasks.py.raw",
+      "source": "work/SIM/phase2/AV/av_tasks.py",
+      "sha256": "aad6c63d1414c0a18ec7a6bdc6d5e0a10f3e0ba895d96e5648f2cee754e79018",
+      "bytes": 4852
+    },
+    {
+      "path": "AV/clock.json",
+      "source": "work/SIM/phase2/AV/clock.json",
+      "sha256": "d3b4a2927c65633e74271f39f887fa432f46472ea90edbeaef130385a4f916e9",
+      "bytes": 2976
+    },
+    {
+      "path": "AV/clock2.json",
+      "source": "work/SIM/phase2/AV/clock2.json",
+      "sha256": "6f4ce0d47b300ac9d58b71f78906681c14ccbfac5e7d5b316b4109a74135b719",
+      "bytes": 582
+    },
+    {
+      "path": "AV/compare.json",
+      "source": "work/SIM/phase2/AV/compare.json",
+      "sha256": "8595adcf6c91d4ef33dfbdf246f0b718a90f4c86bf9dd3f3662c836cff5dfff9",
+      "bytes": 14109
+    },
+    {
+      "path": "AV/fits.json",
+      "source": "work/SIM/phase2/AV/fits.json",
+      "sha256": "e7d118bc4ba904ed4033ee13331a3182fe5772de06144f5c0848d9dc0751d0b6",
+      "bytes": 171809
+    },
+    {
+      "path": "AV/fm_out/fm_cub3_L6_hk_b2.json",
+      "source": "work/SIM/phase2/AV/fm_out/fm_cub3_L6_hk_b2.json",
+      "sha256": "a433c0703fbd40b2f13c5865c26b34a61eaa8546abd22136749906fc534ac573",
+      "bytes": 96837
+    },
+    {
+      "path": "AV/fm_out/fm_cub3_L6_hk_b4.json",
+      "source": "work/SIM/phase2/AV/fm_out/fm_cub3_L6_hk_b4.json",
+      "sha256": "02c260f9ae4152f0044416841c2d9e3c87468bfab9ae0e3a327c5393885b02a7",
+      "bytes": 96959
+    },
+    {
+      "path": "AV/fm_out/fm_cub3_L6_hk_b5.json",
+      "source": "work/SIM/phase2/AV/fm_out/fm_cub3_L6_hk_b5.json",
+      "sha256": "96b2360fb4a505f62ce5122a505b6baccc7c563f05170283421c667964c159a4",
+      "bytes": 96908
+    },
+    {
+      "path": "AV/fm_out/fm_cub3_L6_hk_b6.json",
+      "source": "work/SIM/phase2/AV/fm_out/fm_cub3_L6_hk_b6.json",
+      "sha256": "d3df9a2c8396f5e3f320d81f0d6881ab512f04b8b3f73b96478754a042e2163e",
+      "bytes": 96991
+    },
+    {
+      "path": "AV/fm_out/fm_cub3_L6_w_b2.json",
+      "source": "work/SIM/phase2/AV/fm_out/fm_cub3_L6_w_b2.json",
+      "sha256": "dbaff9b864b66a1114d21acd8fb65feb4f41b049f55c821e7012a00bf4e02a11",
+      "bytes": 96873
+    },
+    {
+      "path": "AV/fm_out/fm_cub3_L6_w_b4.json",
+      "source": "work/SIM/phase2/AV/fm_out/fm_cub3_L6_w_b4.json",
+      "sha256": "ed8ba6787e506fed6c5af00d31270da5b5fea8adb5832a270d0d6695c1e7ba4f",
+      "bytes": 96826
+    },
+    {
+      "path": "AV/fm_out/fm_cub3_L6_w_b5.json",
+      "source": "work/SIM/phase2/AV/fm_out/fm_cub3_L6_w_b5.json",
+      "sha256": "1ba419cba530ebbf0a74804023b8ba2952b594a7285ac5f588539737819c1acd",
+      "bytes": 96757
+    },
+    {
+      "path": "AV/fm_out/fm_cub3_L6_w_b6.json",
+      "source": "work/SIM/phase2/AV/fm_out/fm_cub3_L6_w_b6.json",
+      "sha256": "674fa27799a274b46229d956b4d35abc799628427030347215b7a5c2aaf83012",
+      "bytes": 96773
+    },
+    {
+      "path": "AV/fm_out/fm_cub4_L4_hk_b2.json",
+      "source": "work/SIM/phase2/AV/fm_out/fm_cub4_L4_hk_b2.json",
+      "sha256": "fd5d22caa8144144af12cd8bfceb7c48befa3c0becc466a02d083b4ee7277853",
+      "bytes": 120181
+    },
+    {
+      "path": "AV/fm_out/fm_cub4_L4_hk_b4.json",
+      "source": "work/SIM/phase2/AV/fm_out/fm_cub4_L4_hk_b4.json",
+      "sha256": "62cbe152bf227c1a8c292c831a9fe7747bd5cf8d451e36046fa40b15a7f2613b",
+      "bytes": 120332
+    },
+    {
+      "path": "AV/fm_out/fm_cub4_L4_hk_b5.json",
+      "source": "work/SIM/phase2/AV/fm_out/fm_cub4_L4_hk_b5.json",
+      "sha256": "e841d6cffd41372f15cb47d37b7e1b44a3a3041e19609fb62543ef7f01840ecf",
+      "bytes": 120142
+    },
+    {
+      "path": "AV/fm_out/fm_cub4_L4_hk_b6.json",
+      "source": "work/SIM/phase2/AV/fm_out/fm_cub4_L4_hk_b6.json",
+      "sha256": "18d98685b832955c295af46fce934c59958ccfac367ce3f8ee2ba179d37fa1dc",
+      "bytes": 120127
+    },
+    {
+      "path": "AV/fm_out/fm_cub4_L4_w_b2.json",
+      "source": "work/SIM/phase2/AV/fm_out/fm_cub4_L4_w_b2.json",
+      "sha256": "669c851a5b2275c624c1d72d1066950b6e6c039f4acf85ca856323d6573e0991",
+      "bytes": 96913
+    },
+    {
+      "path": "AV/fm_out/fm_cub4_L4_w_b4.json",
+      "source": "work/SIM/phase2/AV/fm_out/fm_cub4_L4_w_b4.json",
+      "sha256": "08bbc8b17e67cc94ae2d6dd8e7d3bb3f5b46c08b80396569c0916c91efcb95cc",
+      "bytes": 96742
+    },
+    {
+      "path": "AV/fm_out/fm_cub4_L4_w_b5.json",
+      "source": "work/SIM/phase2/AV/fm_out/fm_cub4_L4_w_b5.json",
+      "sha256": "5b1f67b9ce27a0233d340cae792a19cd574e55f29ff09d45eb2a6a9ad04f2b8b",
+      "bytes": 96907
+    },
+    {
+      "path": "AV/fm_out/fm_cub4_L4_w_b6.json",
+      "source": "work/SIM/phase2/AV/fm_out/fm_cub4_L4_w_b6.json",
+      "sha256": "2ae5393dd89f05fc0dcbd1ad72fce8185d8f428c0c031f046bd3e710b6d2d535",
+      "bytes": 96864
+    },
+    {
+      "path": "AV/fm_out/fm_icoT_NT8_hk_b2.json",
+      "source": "work/SIM/phase2/AV/fm_out/fm_icoT_NT8_hk_b2.json",
+      "sha256": "1ccec52827f06b4d0e40be37cffb2a638dc6a16f2b5747ac8967299c64594360",
+      "bytes": 96879
+    },
+    {
+      "path": "AV/fm_out/fm_icoT_NT8_hk_b4.json",
+      "source": "work/SIM/phase2/AV/fm_out/fm_icoT_NT8_hk_b4.json",
+      "sha256": "5370de3eaf6d552c8ae498a21f9aadc971e95f23c1024be2ebaed2cf562ea467",
+      "bytes": 96915
+    },
+    {
+      "path": "AV/fm_out/fm_icoT_NT8_hk_b5.json",
+      "source": "work/SIM/phase2/AV/fm_out/fm_icoT_NT8_hk_b5.json",
+      "sha256": "181f9acf4847e7bff3a7394c62ac50d5c90224276e43ce36c4ce40c4152e8981",
+      "bytes": 96992
+    },
+    {
+      "path": "AV/fm_out/fm_icoT_NT8_hk_b6.json",
+      "source": "work/SIM/phase2/AV/fm_out/fm_icoT_NT8_hk_b6.json",
+      "sha256": "1f49d2182980fdbce0f8522e607b0d585966dea2f4261b6dc4747ac8696c2bc4",
+      "bytes": 96989
+    },
+    {
+      "path": "AV/fm_out/fm_icoT_NT8_w_b2.json",
+      "source": "work/SIM/phase2/AV/fm_out/fm_icoT_NT8_w_b2.json",
+      "sha256": "fea7683c0630d68c094ce73e039ae69fad0197877a08369ca0fc9569aedea5a2",
+      "bytes": 96935
+    },
+    {
+      "path": "AV/fm_out/fm_icoT_NT8_w_b4.json",
+      "source": "work/SIM/phase2/AV/fm_out/fm_icoT_NT8_w_b4.json",
+      "sha256": "b7fa18626faf138ba2e31f12d123d1014e15a5aafd00315b70ad26a7a012e304",
+      "bytes": 96787
+    },
+    {
+      "path": "AV/fm_out/fm_icoT_NT8_w_b5.json",
+      "source": "work/SIM/phase2/AV/fm_out/fm_icoT_NT8_w_b5.json",
+      "sha256": "8fc534584c1bce83003e9ce55d9c6abba0fb1722e4938c3747aa07d5406eb6c2",
+      "bytes": 96740
+    },
+    {
+      "path": "AV/fm_out/fm_icoT_NT8_w_b6.json",
+      "source": "work/SIM/phase2/AV/fm_out/fm_icoT_NT8_w_b6.json",
+      "sha256": "c41a0b971af54b1c02fe0307e89b36a962a1b077f8e7b8088ffb071484621cad",
+      "bytes": 96881
+    },
+    {
+      "path": "AV/fm_out/fmg_cub3_L6_ab_b5.json",
+      "source": "work/SIM/phase2/AV/fm_out/fmg_cub3_L6_ab_b5.json",
+      "sha256": "ecf62f1090bfa9f920004be473fefd0b224ce265ba55c030c4784e0acd20426b",
+      "bytes": 96970
+    },
+    {
+      "path": "AV/fm_out/fmg_cub4_L4_ab_b5.json",
+      "source": "work/SIM/phase2/AV/fm_out/fmg_cub4_L4_ab_b5.json",
+      "sha256": "58b329c0606f4de4de861b0ee938df7e5b2a675366b36641973b2fee06664f5c",
+      "bytes": 120195
+    },
+    {
+      "path": "AV/fm_out/fmg_el_cub4_L4_ab_b5.json",
+      "source": "work/SIM/phase2/AV/fm_out/fmg_el_cub4_L4_ab_b5.json",
+      "sha256": "92769539ace450a6a61a9d8bc97b20e972598e0cfc4f656cef88fb13e9fe0dca",
+      "bytes": 73533
+    },
+    {
+      "path": "AV/fm_out/fmg_icoT_NT8_ab_b5.json",
+      "source": "work/SIM/phase2/AV/fm_out/fmg_icoT_NT8_ab_b5.json",
+      "sha256": "3dcdf33df2e421d18c953b8a1db87f7b892c8b3b0b27a737c27265c85747196c",
+      "bytes": 96910
+    },
+    {
+      "path": "AV/gates.json",
+      "source": "work/SIM/phase2/AV/gates.json",
+      "sha256": "ba7d451caf46f2354062af9fe00bd2bb8cbc997d81ab06d8f415d3559bd9f557",
+      "bytes": 4297
+    },
+    {
+      "path": "AV/gates_out/g1_ico2_hk_a.json",
+      "source": "work/SIM/phase2/AV/gates_out/g1_ico2_hk_a.json",
+      "sha256": "316b27a59ada9bacfbbec8a5c5648565a087eb037744f94911850e0ca518cb08",
+      "bytes": 68723
+    },
+    {
+      "path": "AV/gates_out/g1_ico2_hk_b.json",
+      "source": "work/SIM/phase2/AV/gates_out/g1_ico2_hk_b.json",
+      "sha256": "087670e6b6ca81fb26d693d274e4a6251b16b999c3e22c6aba48006849fdedce",
+      "bytes": 115936
+    },
+    {
+      "path": "AV/gates_out/g1_ico2_w_a.json",
+      "source": "work/SIM/phase2/AV/gates_out/g1_ico2_w_a.json",
+      "sha256": "ab892a543ef118473e7c24596e3aee096a1a3f34611447370f7e8bc3e73e069d",
+      "bytes": 71061
+    },
+    {
+      "path": "AV/gates_out/g1_ico2_w_b.json",
+      "source": "work/SIM/phase2/AV/gates_out/g1_ico2_w_b.json",
+      "sha256": "fe0cb5e27d1cd79ec6649bb9f8a5e090f208fbf3abf19dd976bc6056c0247b96",
+      "bytes": 118275
+    },
+    {
+      "path": "AV/gates_out/g2_cub3_ab.json",
+      "source": "work/SIM/phase2/AV/gates_out/g2_cub3_ab.json",
+      "sha256": "25da5afc243cf1c3fe7a43d151c0de5c21ccda547cde00f10f985e8dc5c7dd4d",
+      "bytes": 69937
+    },
+    {
+      "path": "AV/gates_out/g2_cub4_ab.json",
+      "source": "work/SIM/phase2/AV/gates_out/g2_cub4_ab.json",
+      "sha256": "0edeea13c2f11848fd580c3f16eb33abc3a3a56faf73046e804a3a5de03a8683",
+      "bytes": 70410
+    },
+    {
+      "path": "AV/gates_out/g2_cub4_ab_U.json",
+      "source": "work/SIM/phase2/AV/gates_out/g2_cub4_ab_U.json",
+      "sha256": "fa48c03682523b5486c7c4a70c1ca0de1bf14f04bbbae4a122f5addc4eba8860",
+      "bytes": 93702
+    },
+    {
+      "path": "AV/gates_out/g2_icoT_ab.json",
+      "source": "work/SIM/phase2/AV/gates_out/g2_icoT_ab.json",
+      "sha256": "8b6b343514ad23c1981f89c7a79e8fd90f708e219261006aa53deea162fbbfd4",
+      "bytes": 70110
+    },
+    {
+      "path": "AV/gates_out/g3_cub4_w23.json",
+      "source": "work/SIM/phase2/AV/gates_out/g3_cub4_w23.json",
+      "sha256": "0cc93a23cc0defb31588cd5870cef0e6964af38b8a839192421b8736005011ae",
+      "bytes": 20977
+    },
+    {
+      "path": "AV/gates_out/g3_cub4_w25.json",
+      "source": "work/SIM/phase2/AV/gates_out/g3_cub4_w25.json",
+      "sha256": "124149bb427a0f761abb61ffd195b4af9dad9ca31ec20daf91644f5d86e1a807",
+      "bytes": 21036
+    },
+    {
+      "path": "AV/gates_out/g4_higgs_bh0.json",
+      "source": "work/SIM/phase2/AV/gates_out/g4_higgs_bh0.json",
+      "sha256": "3b01463626ad34a3cc46821596e181a45cd09b0e853955cb50d3057bf1f0406d",
+      "bytes": 22437
+    },
+    {
+      "path": "AV/gates_out/g4_higgs_hr0.json",
+      "source": "work/SIM/phase2/AV/gates_out/g4_higgs_hr0.json",
+      "sha256": "741c342bc75c013b6bb740f5d1ee7016c25b875044547b8cbeefad0b4b623754",
+      "bytes": 22356
+    },
+    {
+      "path": "AV/gates_out/g4_higgs_hr3.json",
+      "source": "work/SIM/phase2/AV/gates_out/g4_higgs_hr3.json",
+      "sha256": "80427f184018986a66b0eb41e376b4f23735dff0ab596b2d6bb68ab86b71ce10",
+      "bytes": 22272
+    },
+    {
+      "path": "AV/gates_out/g5_cub4_w25_direct.json",
+      "source": "work/SIM/phase2/AV/gates_out/g5_cub4_w25_direct.json",
+      "sha256": "1756d05a25a09a5263b76cdd3f0f6b108a599b94a93c389b760d6321203f062b",
+      "bytes": 71239
+    },
+    {
+      "path": "AV/prod_out/cub3_L6_hk_b5.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub3_L6_hk_b5.json",
+      "sha256": "d8a93a14465b868d8a88aa19ed890aea4553fd0d32e3e64759801b8dbb57e6d7",
+      "bytes": 92932
+    },
+    {
+      "path": "AV/prod_out/cub3_L6_w_b5.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub3_L6_w_b5.json",
+      "sha256": "3acc64502bde9e955c3a49c0c7c052a2c8240d53878266b5eb5025dee54dee18",
+      "bytes": 94963
+    },
+    {
+      "path": "AV/prod_out/cub3_L8_ab_b5.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub3_L8_ab_b5.json",
+      "sha256": "6b5b0870a2536a4e02246b9f6e1bdaf766c1dcc0971043cdda0ee0d7ae64d7dc",
+      "bytes": 93541
+    },
+    {
+      "path": "AV/prod_out/cub3_L8_hk_b0.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub3_L8_hk_b0.json",
+      "sha256": "f0bfe418ed5c80fd3c624cd35cf5ea28403872437d94d0f082d6b04dd9654208",
+      "bytes": 93311
+    },
+    {
+      "path": "AV/prod_out/cub3_L8_hk_b1.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub3_L8_hk_b1.json",
+      "sha256": "9e4a65371eedbed141dceb95d041b81ecd07896dc6b968270483d301ff1ebc1b",
+      "bytes": 93225
+    },
+    {
+      "path": "AV/prod_out/cub3_L8_hk_b2.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub3_L8_hk_b2.json",
+      "sha256": "aa429636d495cebe220bf7f5e9f4abf6df895eb50355a71aaeefeb84f206618d",
+      "bytes": 92849
+    },
+    {
+      "path": "AV/prod_out/cub3_L8_hk_b3.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub3_L8_hk_b3.json",
+      "sha256": "fe23fb4a093be0cf5091302f357d70919076c020fa442035c2f647c4594b986f",
+      "bytes": 92906
+    },
+    {
+      "path": "AV/prod_out/cub3_L8_hk_b4.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub3_L8_hk_b4.json",
+      "sha256": "475199d9715157fcf5e753ae00f2f6520d764f1a4e20846cf24abeaf73181c9d",
+      "bytes": 92879
+    },
+    {
+      "path": "AV/prod_out/cub3_L8_hk_b5.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub3_L8_hk_b5.json",
+      "sha256": "4bab9b144b760e84be0ddb52dd03e390679f1a35767c86773f7e8d8f2527d0eb",
+      "bytes": 92908
+    },
+    {
+      "path": "AV/prod_out/cub3_L8_hk_b6.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub3_L8_hk_b6.json",
+      "sha256": "f038b574676efa40c109a0aab0344f666f5b34792e3bfdea520a9da9c1922824",
+      "bytes": 116371
+    },
+    {
+      "path": "AV/prod_out/cub3_L8_w_b0.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub3_L8_w_b0.json",
+      "sha256": "9798148c5214da8ac77ae373ec7eb1333de0596b2fe9fa4746d6146de819a225",
+      "bytes": 94201
+    },
+    {
+      "path": "AV/prod_out/cub3_L8_w_b1.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub3_L8_w_b1.json",
+      "sha256": "30e9a99879c22eaac50044a771ad701dc766fc3aea3bd70f1e73803dcb5ec1c0",
+      "bytes": 94446
+    },
+    {
+      "path": "AV/prod_out/cub3_L8_w_b2.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub3_L8_w_b2.json",
+      "sha256": "322032beb02e7d4adea113489c5c0e3ad92acb4cc8c413902e47445496d6732c",
+      "bytes": 94593
+    },
+    {
+      "path": "AV/prod_out/cub3_L8_w_b3.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub3_L8_w_b3.json",
+      "sha256": "bac77caedbbe8e1e41dcd1f1f60f1c787557c244326f66b319baed5ba210d44e",
+      "bytes": 94512
+    },
+    {
+      "path": "AV/prod_out/cub3_L8_w_b4.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub3_L8_w_b4.json",
+      "sha256": "20649d667886fc61bcf2d48c33262e26c5e3228792e8f5afe913d450d0ba69f5",
+      "bytes": 94618
+    },
+    {
+      "path": "AV/prod_out/cub3_L8_w_b5.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub3_L8_w_b5.json",
+      "sha256": "2f518d25e50ad105f30820cda5621d933f8623f03fa5eebb1fb4fc44a67eded2",
+      "bytes": 94918
+    },
+    {
+      "path": "AV/prod_out/cub3_L8_w_b6.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub3_L8_w_b6.json",
+      "sha256": "927d867988f6170c117ab5c48d405dbfb35fd3971c55ac2bd46752f6bc05218e",
+      "bytes": 118465
+    },
+    {
+      "path": "AV/prod_out/cub4_L4_hk_b5.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub4_L4_hk_b5.json",
+      "sha256": "4e070de0b64a3fc05f4065e2b808d34a5f10682724fe68503a1a356ce93ef9fa",
+      "bytes": 93187
+    },
+    {
+      "path": "AV/prod_out/cub4_L4_w_b5.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub4_L4_w_b5.json",
+      "sha256": "099be800415b90734b808dcb93ad8e39af721789bd9befc3f9db7c24ac06e8ce",
+      "bytes": 94914
+    },
+    {
+      "path": "AV/prod_out/cub4_L6_ab_b5.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub4_L6_ab_b5.json",
+      "sha256": "393de0d7860e2cef8c59528a2caa8cb088aa0399395d8eb29b9b594ff30282ef",
+      "bytes": 93887
+    },
+    {
+      "path": "AV/prod_out/cub4_L6_hk_b0.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub4_L6_hk_b0.json",
+      "sha256": "aefdb2fb789cd3c526e50bdba36b746d1c13c76f11393dbad31cc044538148d6",
+      "bytes": 93824
+    },
+    {
+      "path": "AV/prod_out/cub4_L6_hk_b1.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub4_L6_hk_b1.json",
+      "sha256": "112d98806f9acfba332f946f60bbcfb48bd13c06dea417341077e34ca862f6e9",
+      "bytes": 93876
+    },
+    {
+      "path": "AV/prod_out/cub4_L6_hk_b2.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub4_L6_hk_b2.json",
+      "sha256": "091d4aa570053b9b6af863bf4e3a222b2863046f531f380d86f63255a5e5211e",
+      "bytes": 93703
+    },
+    {
+      "path": "AV/prod_out/cub4_L6_hk_b3.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub4_L6_hk_b3.json",
+      "sha256": "3c7fc1c177c04fc509c405c1bb6c6036d81db456d643b16e536008dbd2d57d74",
+      "bytes": 93648
+    },
+    {
+      "path": "AV/prod_out/cub4_L6_hk_b4.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub4_L6_hk_b4.json",
+      "sha256": "b77d8b884dbc5c209b6a3f368917b538ae212d6e63da5701cedd79096a3f2b29",
+      "bytes": 93594
+    },
+    {
+      "path": "AV/prod_out/cub4_L6_hk_b5.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub4_L6_hk_b5.json",
+      "sha256": "1e369526922c961fb51ae003f16042cf9b15d4b90e934f269f75dd095e8d477a",
+      "bytes": 93515
+    },
+    {
+      "path": "AV/prod_out/cub4_L6_hk_b6.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub4_L6_hk_b6.json",
+      "sha256": "2852b079dcb640f60f0f8f9b075fa0b63211537f4eed7cab0971d0075a6f7bb7",
+      "bytes": 116778
+    },
+    {
+      "path": "AV/prod_out/cub4_L6_w_b0.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub4_L6_w_b0.json",
+      "sha256": "dd2e52c9d2823d660bc897a80ebe7cf8a2705e85859f1d6fa12b6789bcee08cd",
+      "bytes": 94684
+    },
+    {
+      "path": "AV/prod_out/cub4_L6_w_b1.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub4_L6_w_b1.json",
+      "sha256": "86c4b2bc130097622019f8f594ef6b5ca7abae13bcacd3282a17979b535f31bc",
+      "bytes": 94726
+    },
+    {
+      "path": "AV/prod_out/cub4_L6_w_b2.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub4_L6_w_b2.json",
+      "sha256": "5a5aad7628bb09bbe7ed3022222fbb371e50d919979616e3754f9d4c47306203",
+      "bytes": 94617
+    },
+    {
+      "path": "AV/prod_out/cub4_L6_w_b3.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub4_L6_w_b3.json",
+      "sha256": "9934eb9dd78b323a5e5d78aae42680e2aa4d31e95fb77cd17b5d87c0f2343a81",
+      "bytes": 94354
+    },
+    {
+      "path": "AV/prod_out/cub4_L6_w_b4.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub4_L6_w_b4.json",
+      "sha256": "66a5f73651ceb5b824eb7811e104b3c2f05763f5823d435797a5af6edb02a1e0",
+      "bytes": 94461
+    },
+    {
+      "path": "AV/prod_out/cub4_L6_w_b5.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub4_L6_w_b5.json",
+      "sha256": "f6cbd599fbad03ba2fc66ace1ee22f23e4450f16254bfa1bf76b851568251a6d",
+      "bytes": 94977
+    },
+    {
+      "path": "AV/prod_out/cub4_L6_w_b6.json",
+      "source": "work/SIM/phase2/AV/prod_out/cub4_L6_w_b6.json",
+      "sha256": "4a039fb38f5fbb1637c2679d4f74730c4e29c8dc928a3af0e7b4e5e278e91b87",
+      "bytes": 118371
+    },
+    {
+      "path": "AV/prod_out/higgs_hk_h00_pole.json",
+      "source": "work/SIM/phase2/AV/prod_out/higgs_hk_h00_pole.json",
+      "sha256": "4ba54c656406bb0d11ef17d655d18cf91a6a5ec8f29e5c93c24212f1d7916c99",
+      "bytes": 94386
+    },
+    {
+      "path": "AV/prod_out/higgs_hk_h05_pole.json",
+      "source": "work/SIM/phase2/AV/prod_out/higgs_hk_h05_pole.json",
+      "sha256": "6441918a0c5a11c405be35aef58e4723c9fb249ebf072113fa3498207139a03a",
+      "bytes": 94426
+    },
+    {
+      "path": "AV/prod_out/higgs_hk_h15_equator.json",
+      "source": "work/SIM/phase2/AV/prod_out/higgs_hk_h15_equator.json",
+      "sha256": "7671492f55909439c1a686ee2f6e2e35efc512c588091c85fb4bc9c1bd0fa582",
+      "bytes": 94243
+    },
+    {
+      "path": "AV/prod_out/higgs_hk_h15_pole.json",
+      "source": "work/SIM/phase2/AV/prod_out/higgs_hk_h15_pole.json",
+      "sha256": "c76ec7a1bc3793a11ca263f07e73021942563c4d79cc9ed3b27798386c765989",
+      "bytes": 94369
+    },
+    {
+      "path": "AV/prod_out/higgs_hk_h30_equator.json",
+      "source": "work/SIM/phase2/AV/prod_out/higgs_hk_h30_equator.json",
+      "sha256": "0eabc84ce98f675ea17dce4e963a59211def4d0ff8b5256d2b681b17b12e5a5e",
+      "bytes": 94268
+    },
+    {
+      "path": "AV/prod_out/higgs_hk_h40_equator.json",
+      "source": "work/SIM/phase2/AV/prod_out/higgs_hk_h40_equator.json",
+      "sha256": "75b7d960a91a260b6b53902448b4af2df49ab3ac0a63053cbf76a917b7bd6b8f",
+      "bytes": 94158
+    },
+    {
+      "path": "AV/prod_out/higgs_hk_stiff32.json",
+      "source": "work/SIM/phase2/AV/prod_out/higgs_hk_stiff32.json",
+      "sha256": "f4bb726bf03595776f0e6f2ff086fff5ef8e6f88830849e18a6c0018ec8c2465",
+      "bytes": 139776
+    },
+    {
+      "path": "AV/prod_out/higgs_hk_stiff8.json",
+      "source": "work/SIM/phase2/AV/prod_out/higgs_hk_stiff8.json",
+      "sha256": "68f9a38c1efb9999321bdd60675376ed9178832f5f67fc795c19a75a5cd756cc",
+      "bytes": 140473
+    },
+    {
+      "path": "AV/prod_out/higgs_w_h00_pole.json",
+      "source": "work/SIM/phase2/AV/prod_out/higgs_w_h00_pole.json",
+      "sha256": "21512ee47599fcb8eb6019ae935177b6e4e9609385b604e98605c7450a85f508",
+      "bytes": 95958
+    },
+    {
+      "path": "AV/prod_out/higgs_w_h05_pole.json",
+      "source": "work/SIM/phase2/AV/prod_out/higgs_w_h05_pole.json",
+      "sha256": "7aa6626e060cecd1667de0f3857ce5a36aeafbe1491cbec697445fd549ab9f54",
+      "bytes": 95893
+    },
+    {
+      "path": "AV/prod_out/higgs_w_h15_equator.json",
+      "source": "work/SIM/phase2/AV/prod_out/higgs_w_h15_equator.json",
+      "sha256": "b3c9057564114f2908c6b1654e9554948285124cf00d2de1c1b0618ba35126f4",
+      "bytes": 96071
+    },
+    {
+      "path": "AV/prod_out/higgs_w_h15_pole.json",
+      "source": "work/SIM/phase2/AV/prod_out/higgs_w_h15_pole.json",
+      "sha256": "3b467f6e1e5ab89d3101b49d25a2e308fc94f73dd2162e8a1e8cf724403519e3",
+      "bytes": 95957
+    },
+    {
+      "path": "AV/prod_out/higgs_w_h30_equator.json",
+      "source": "work/SIM/phase2/AV/prod_out/higgs_w_h30_equator.json",
+      "sha256": "77cfecfefe864816ebf46a2e419704af8308ee7a0146b4125764787cca77e9fa",
+      "bytes": 96098
+    },
+    {
+      "path": "AV/prod_out/higgs_w_h40_equator.json",
+      "source": "work/SIM/phase2/AV/prod_out/higgs_w_h40_equator.json",
+      "sha256": "f450a87c059cb09878c33eec9c8b8fb69ad0c2a3a8a272d099eec741dfe083eb",
+      "bytes": 96006
+    },
+    {
+      "path": "AV/prod_out/higgs_w_stiff32.json",
+      "source": "work/SIM/phase2/AV/prod_out/higgs_w_stiff32.json",
+      "sha256": "0ca2c7ebc16bd289769a9d65103cbef84409572a46af0388c589452b9eff308c",
+      "bytes": 142780
+    },
+    {
+      "path": "AV/prod_out/higgs_w_stiff8.json",
+      "source": "work/SIM/phase2/AV/prod_out/higgs_w_stiff8.json",
+      "sha256": "6aea6d205064733ab5f028a36a7b09e23b0014607d7482b29c9299a5ad2799a6",
+      "bytes": 142897
+    },
+    {
+      "path": "AV/prod_out/icoT_NT16_hk_b5.json",
+      "source": "work/SIM/phase2/AV/prod_out/icoT_NT16_hk_b5.json",
+      "sha256": "db4150afe813b952b8387a1e2ba58b41a0075103eb96257919ef63569472f385",
+      "bytes": 92938
+    },
+    {
+      "path": "AV/prod_out/icoT_NT16_w_b5.json",
+      "source": "work/SIM/phase2/AV/prod_out/icoT_NT16_w_b5.json",
+      "sha256": "d8fade9b9867d583e6102a57197f79a0d347783ec675b6341a458e764d6bc811",
+      "bytes": 94970
+    },
+    {
+      "path": "AV/prod_out/icoT_NT2_hk_b5.json",
+      "source": "work/SIM/phase2/AV/prod_out/icoT_NT2_hk_b5.json",
+      "sha256": "a2d60eee281a413fa03cb7c573affed9ae0eb8fbd3e2b1694c5ba5fb1d5969b4",
+      "bytes": 92723
+    },
+    {
+      "path": "AV/prod_out/icoT_NT2_w_b5.json",
+      "source": "work/SIM/phase2/AV/prod_out/icoT_NT2_w_b5.json",
+      "sha256": "3237035284aea4e1c0482f4e925f9ead03501c99c69c203b776d7022228d0313",
+      "bytes": 94951
+    },
+    {
+      "path": "AV/prod_out/icoT_NT4_hk_b5.json",
+      "source": "work/SIM/phase2/AV/prod_out/icoT_NT4_hk_b5.json",
+      "sha256": "b2963212c6e98e754273d5492a45c37b4ee2e75106d9a4456880c29c6f0d86d3",
+      "bytes": 92875
+    },
+    {
+      "path": "AV/prod_out/icoT_NT4_w_b5.json",
+      "source": "work/SIM/phase2/AV/prod_out/icoT_NT4_w_b5.json",
+      "sha256": "a6530c84523899f14e300495ba87f1093a82b9528048f9b9818fdbc57a3d417c",
+      "bytes": 95063
+    },
+    {
+      "path": "AV/prod_out/icoT_NT8_ab_b5.json",
+      "source": "work/SIM/phase2/AV/prod_out/icoT_NT8_ab_b5.json",
+      "sha256": "4e1b7fa3c255b7d8fac89d147ab54b5e7c4dc2f45e6508d2a9ec1e47a906fd80",
+      "bytes": 93393
+    },
+    {
+      "path": "AV/prod_out/icoT_NT8_hk_b0.json",
+      "source": "work/SIM/phase2/AV/prod_out/icoT_NT8_hk_b0.json",
+      "sha256": "a4159d197f03b06cf15283eea97fd5b62e64e9e54d5db03771d52e99c825c2d9",
+      "bytes": 93143
+    },
+    {
+      "path": "AV/prod_out/icoT_NT8_hk_b1.json",
+      "source": "work/SIM/phase2/AV/prod_out/icoT_NT8_hk_b1.json",
+      "sha256": "e5cbd1d8735e6c027e6862441c2bb2009167f0ecf69fd1c7a8bb8df1722c3352",
+      "bytes": 93206
+    },
+    {
+      "path": "AV/prod_out/icoT_NT8_hk_b2.json",
+      "source": "work/SIM/phase2/AV/prod_out/icoT_NT8_hk_b2.json",
+      "sha256": "c05c6abfec8596ffc9f15df69808b10cf8b098c322e8d9912248ab61c1b3ccde",
+      "bytes": 92993
+    },
+    {
+      "path": "AV/prod_out/icoT_NT8_hk_b3.json",
+      "source": "work/SIM/phase2/AV/prod_out/icoT_NT8_hk_b3.json",
+      "sha256": "658d630e705808530b26f73de34cc08689e072dd7c64d9a2ce4f03e0b03e8995",
+      "bytes": 92994
+    },
+    {
+      "path": "AV/prod_out/icoT_NT8_hk_b4.json",
+      "source": "work/SIM/phase2/AV/prod_out/icoT_NT8_hk_b4.json",
+      "sha256": "c4b462176e4bd51248cb1bfaf9445f834e1513b808ff832efe958f7aac325d11",
+      "bytes": 93063
+    },
+    {
+      "path": "AV/prod_out/icoT_NT8_hk_b5.json",
+      "source": "work/SIM/phase2/AV/prod_out/icoT_NT8_hk_b5.json",
+      "sha256": "27ce8d051eca8766c184f2aaf130e8e6f2b9796cc6700a4ee32e40ecfbbd3c7f",
+      "bytes": 92904
+    },
+    {
+      "path": "AV/prod_out/icoT_NT8_hk_b6.json",
+      "source": "work/SIM/phase2/AV/prod_out/icoT_NT8_hk_b6.json",
+      "sha256": "80420fd415fe0076d074cf7bc3c60cb68cdc17f97e952e739553c754b8e94013",
+      "bytes": 116110
+    },
+    {
+      "path": "AV/prod_out/icoT_NT8_w_b0.json",
+      "source": "work/SIM/phase2/AV/prod_out/icoT_NT8_w_b0.json",
+      "sha256": "1a69dc20025b90d63f78baa827c5da9dbf1c73e9c5ea55477bdddb03dd0420ff",
+      "bytes": 94116
+    },
+    {
+      "path": "AV/prod_out/icoT_NT8_w_b1.json",
+      "source": "work/SIM/phase2/AV/prod_out/icoT_NT8_w_b1.json",
+      "sha256": "76ab885f087a590af08665fe2cd5919532b489c1340d35c0a8f40045b9ba7618",
+      "bytes": 94282
+    },
+    {
+      "path": "AV/prod_out/icoT_NT8_w_b2.json",
+      "source": "work/SIM/phase2/AV/prod_out/icoT_NT8_w_b2.json",
+      "sha256": "b44ad8ff9362ab78ef78ad4766c3b6ac1630ba3f0cc4729f8feda3c580b5a11a",
+      "bytes": 94502
+    },
+    {
+      "path": "AV/prod_out/icoT_NT8_w_b3.json",
+      "source": "work/SIM/phase2/AV/prod_out/icoT_NT8_w_b3.json",
+      "sha256": "0f4d8d15129de0814edb64551a304ba4396ca1b622c35c8a8f32de2a383f715d",
+      "bytes": 94463
+    },
+    {
+      "path": "AV/prod_out/icoT_NT8_w_b4.json",
+      "source": "work/SIM/phase2/AV/prod_out/icoT_NT8_w_b4.json",
+      "sha256": "4bf21572b190b14b6259784e1b51ac0790fb5da6f30707f09fa938b484da846e",
+      "bytes": 94596
+    },
+    {
+      "path": "AV/prod_out/icoT_NT8_w_b5.json",
+      "source": "work/SIM/phase2/AV/prod_out/icoT_NT8_w_b5.json",
+      "sha256": "5e60b630049024d52fc27790224dde36f710050742902e4f89fd9922cad9c233",
+      "bytes": 94986
+    },
+    {
+      "path": "AV/prod_out/icoT_NT8_w_b6.json",
+      "source": "work/SIM/phase2/AV/prod_out/icoT_NT8_w_b6.json",
+      "sha256": "0301c8ed0c9aba4dfea76f4a6e78ffd1543c07da5fc51379dca929e604aad468",
+      "bytes": 118531
+    },
+    {
+      "path": "AV/smoke.json",
+      "source": "work/SIM/phase2/AV/smoke.json",
+      "sha256": "1a8597b538c2535141c5b7be44ad6cdedfb2e3efbcb8c64f6b685d71c75b9faf",
+      "bytes": 691
+    },
+    {
+      "path": "AV/tasks_an.json",
+      "source": "work/SIM/phase2/AV/tasks_an.json",
+      "sha256": "0ef5b577bd1fdaef8f5bb40c87d96b278b4ad4fb8709676eb6b477750abaa8dc",
+      "bytes": 2496
+    },
+    {
+      "path": "AV/tasks_fm.json",
+      "source": "work/SIM/phase2/AV/tasks_fm.json",
+      "sha256": "ad8380006db2f1ef6c57b1d35b876fa982b6c919abf501cb2425824e48c3cbc5",
+      "bytes": 7058
+    },
+    {
+      "path": "AV/tasks_gates.json",
+      "source": "work/SIM/phase2/AV/tasks_gates.json",
+      "sha256": "027c8ef340e74843c827d47edf70b0921f9790a22dc45b4e3c4f47d5a1cc325a",
+      "bytes": 3244
+    },
+    {
+      "path": "AV/tasks_prod.json",
+      "source": "work/SIM/phase2/AV/tasks_prod.json",
+      "sha256": "b7a4645f71aacfad3407c834cd290301f2b04e65f3bdc589f7f6ad343a2a0311",
+      "bytes": 17815
+    }
+  ]
+}

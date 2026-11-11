@@ -1,0 +1,98 @@
+"""Item 4: the flat doublet level (hop 1, central link signs) in a periodic dilute array of central flux pairs.
+
+Family walk of the simulation session on the flat honeycomb federation (kernel 1 - L/NA, NA = 66 or 72).
+Background: one flipped internal seam (a pair of flux faces) in one carrier per N carriers.
+  family H: m x m cells, two defect carriers forming a honeycomb superlattice, N = m^2 (1, 4, 9, 16, ...)
+  family T: n x n cells, one defect carrier (up carrier of cell 0), N = 2 n^2 (2, 8, 18, ...)
+Per case: bottom of the kernel spectrum E0 = lambda_min at q = 0, second level, correction probability at rest
+p0 = E0/NA, walk phase omega0 = arccos(1 - p0), the one-tick value of the uniform preparation (first-order value
+4/(12 N NA)), curvature tensor of the lowest band at q = 0 against the load curvature, speed ratio in the walk clock,
+weight of the lowest state on the defect carriers, overlap with the uniform state, and the range of the shell
+omega^2 = omega0^2 + v^2 q^2 along two directions of the small zone.
+
+usage: python km4_scan.py <out.json> <processes> <mmax_H> <nmax_T> [shell_max]
+"""
+import json, sys, time
+import numpy as np
+from multiprocessing import Pool
+import km_lib as K
+
+
+def load_curvature(gluing):
+    tpl = K.Template('scalar', gluing)
+    q = 1e-3
+    return float(np.linalg.eigvalsh(tpl.cell_matrix((q, 0.0)))[0] / q ** 2)
+
+
+D0 = {g: load_curvature(g) for g in ('bridge', 'seam')}
+
+
+def analyse(task):
+    family, m, gluing, seam, shell = task
+    t0 = time.time()
+    tpl = K.Template('scalar', gluing)
+    defects = K.honeycomb_family(m, seam, -1.0) if family == 'H' else [((0, 0), 0, seam, -1.0)]
+    sc = K.Supercell(tpl, m, m, defects=defects)
+    N = sc.ncar / len(sc.defect_carriers)
+    sigma = -0.02 / m ** 2
+    w0, U0 = sc.lowest(k=4, sigma=sigma)
+    E0 = float(w0[0]); psi = U0[:, 0]
+    cw = K.carrier_weight(sc, psi)
+    wdef = float(cw[sc.defect_carriers].sum())
+    NA = tpl.NA
+    p0 = E0 / NA; om0 = float(np.arccos(1 - p0))
+    born = 4.0 * len(sc.defects) / sc.P
+    rec = {'family': family, 'm': m, 'gluing': gluing, 'seam': seam, 'N_carriers_per_defect': N, 'dimension': sc.P,
+           'E0': E0, 'levels_q0': [float(x) for x in w0], 'p0': p0, 'omega0': om0,
+           'first_order_E': born, 'first_order_p': born / NA, 'E0_over_first_order': E0 / born, 'N_E0': N * E0,
+           'weight_on_defect_carriers': wdef, 'weight_relative_to_uniform': wdef / (len(sc.defect_carriers) / sc.ncar),
+           'overlap_with_uniform': float(abs(psi.sum()) ** 2 / sc.P)}
+    qM = 2 * np.pi / (3 ** 0.5 * m)                       # distance from the centre to the edge midpoint of the small zone
+    curv = {}
+    for frac in (0.1, 0.05):
+        Dxx, Dyy, Dxy = K.curvature(sc, E0, frac * qM, sigma=sigma)
+        curv[str(frac)] = [float(Dxx), float(Dyy), float(Dxy)]
+    Dxx, Dyy, Dxy = curv['0.05']
+    Dm = (Dxx + Dyy) / 2
+    fac = om0 / np.sin(om0) if om0 > 0 else 1.0
+    rec.update({'curvature_xx_yy_xy': curv, 'curvature_mean': Dm, 'curvature_over_load': Dm / D0[gluing],
+                'anisotropy': float(np.hypot((Dxx - Dyy) / 2, Dxy) / Dm),
+                'v2': 2 * Dm * fac / NA, 'v_over_v0': float(np.sqrt(Dm * fac / D0[gluing])),
+                'compton_length_edges': float(np.sqrt(2 * Dm * fac / NA) / om0), 'zone_edge_qM': qM,
+                'compton_wavenumber_over_qM': float(om0 / np.sqrt(2 * Dm * fac / NA) / qM),
+                'nearest_defect_distance': (m / 3 ** 0.5 if family == 'H' else float(m))})
+    if shell:
+        sh = {}
+        for name, d in (('x', (1.0, 0.0)), ('y', (0.0, 1.0))):
+            dv = np.array(d); Dd = Dxx * d[0] ** 2 + Dyy * d[1] ** 2 + 2 * Dxy * d[0] * d[1]
+            v2 = 2 * Dd * fac / NA
+            rows = []
+            for f in (0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0):
+                w, _ = sc.lowest(dv * f * qM, k=2, sigma=sigma)
+                om = np.arccos(1 - w[0] / NA)
+                rows.append([f, float(w[0]), float((om ** 2 - om0 ** 2) / (v2 * (f * qM) ** 2) - 1), float(w[1])])
+            sh[name] = rows
+        rec['shell_rows_fraction_E_deviation_E1'] = sh
+    rec['seconds'] = time.time() - t0
+    return rec
+
+
+if __name__ == '__main__':
+    outp, procs, mmax, nmax = sys.argv[1], int(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4])
+    shell_max = int(sys.argv[5]) if len(sys.argv) > 5 else 16
+    tasks = []
+    for g in ('bridge', 'seam'):
+        for m in range(1, mmax + 1):
+            tasks.append(('H', m, g, 0, m <= shell_max))
+        for n in range(1, nmax + 1):
+            tasks.append(('T', n, g, 0, n <= shell_max))
+    tasks.sort(key=lambda t: -t[1])
+    res = []
+    with Pool(procs) as pool:
+        for r in pool.imap_unordered(analyse, tasks):
+            res.append(r)
+            print(f"{r['family']} m={r['m']:4d} {r['gluing']:6s} N={r['N_carriers_per_defect']:9.1f} E0={r['E0']:.9e} p0={r['p0']:.6e} omega0={r['omega0']:.6f} "
+                  f"E0/first={r['E0_over_first_order']:.4f} N*E0={r['N_E0']:.5f} D/D0={r['curvature_over_load']:.5f} v/v0={r['v_over_v0']:.5f} "
+                  f"aniso={r['anisotropy']:.1e} wdef/unif={r['weight_relative_to_uniform']:.4f} ovl={r['overlap_with_uniform']:.4f} "
+                  f"Compton={r['compton_length_edges']:.3f} qC/qM={r['compton_wavenumber_over_qM']:.3f} [{r['seconds']:.1f}s]", flush=True)
+            json.dump({'load_curvature': D0, 'rows': sorted(res, key=lambda r: (r['gluing'], r['family'], r['m']))}, open(outp, 'w'), indent=1)

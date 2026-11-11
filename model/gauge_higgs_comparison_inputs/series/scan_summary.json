@@ -1,0 +1,1737 @@
+{
+ "groups": [
+  {
+   "family": "A",
+   "model": "su2",
+   "beta_G": 5.171,
+   "lambda_L": 0.0002,
+   "L": 4,
+   "kappa_peak_up": 0.1295,
+   "chi_L_alpha_max_up": 9.67632761019267,
+   "chi_L_phi_max_up": 17507.909087447464,
+   "chi_rho2_max_up": 4521.624247266071,
+   "kappa_range_up": [
+    0.128,
+    0.132
+   ],
+   "crossing_0.30_up": 0.13005612288539642,
+   "crossing_0.40_up": 0.1301253589136814,
+   "kappa_peak_down": 0.13,
+   "chi_L_alpha_max_down": 32.62867584821887,
+   "chi_L_phi_max_down": 25709.12019502692,
+   "chi_rho2_max_down": 6641.330870420666,
+   "kappa_range_down": [
+    0.128,
+    0.132
+   ],
+   "crossing_0.30_down": 0.1295467946687,
+   "crossing_0.40_down": 0.1297337207555256,
+   "hysteresis_kappas": [],
+   "hysteresis_interval": null,
+   "max_branch_difference_rho2": 2.658217024480736,
+   "L_alpha_difference_there": 0.3235118553379065,
+   "grid_step": 0.0005000000000000004,
+   "up_branch_crossing": {
+    "between": [
+     0.13,
+     0.1305
+    ],
+    "rho2_before_after": [
+     2.694984227492011,
+     44.6464517751645
+    ],
+    "L_alpha_before_after": [
+     0.21893976765190834,
+     0.9411071310682685
+    ]
+   },
+   "down_branch_crossing": {
+    "between": [
+     0.13,
+     0.1305
+    ],
+    "rho2_before_after": [
+     5.353201251972747,
+     43.624918989610926
+    ],
+    "L_alpha_before_after": [
+     0.5424516229898149,
+     0.939733438351586
+    ]
+   }
+  },
+  {
+   "family": "A",
+   "model": "su2",
+   "beta_G": 5.171,
+   "lambda_L": 0.0002,
+   "L": 6,
+   "kappa_peak_up": 0.1305,
+   "chi_L_alpha_max_up": 407.2402326306645,
+   "chi_L_phi_max_up": 1699538.2801670309,
+   "chi_rho2_max_up": 445368.9814415979,
+   "kappa_range_up": [
+    0.128,
+    0.132
+   ],
+   "crossing_0.30_up": 0.13011158222688807,
+   "crossing_0.40_up": 0.1302174124116541,
+   "kappa_peak_down": 0.129,
+   "chi_L_alpha_max_down": 4.229296794773429,
+   "chi_L_phi_max_down": 22002.772609704756,
+   "chi_rho2_max_down": 5771.622456908017,
+   "kappa_range_down": [
+    0.128,
+    0.132
+   ],
+   "crossing_0.30_down": 0.12956918148503563,
+   "crossing_0.40_down": 0.1296419298106396,
+   "hysteresis_kappas": [
+    0.13
+   ],
+   "hysteresis_interval": [
+    0.13,
+    0.13
+   ],
+   "max_branch_difference_rho2": 24.80050698052896,
+   "L_alpha_difference_there": 0.2750052198123383,
+   "grid_step": 0.0005000000000000004,
+   "up_branch_crossing": {
+    "between": [
+     0.13,
+     0.1305
+    ],
+    "rho2_before_after": [
+     2.5865400808334744,
+     20.48808064230816
+    ],
+    "L_alpha_before_after": [
+     0.19456483787235515,
+     0.6670198384049247
+    ]
+   },
+   "down_branch_crossing": {
+    "between": [
+     0.1295,
+     0.13
+    ],
+    "rho2_before_after": [
+     2.619946453586006,
+     20.53613167065203
+    ],
+    "L_alpha_before_after": [
+     0.2049029864793775,
+     0.8922040285981497
+    ]
+   }
+  },
+  {
+   "family": "A",
+   "model": "su2",
+   "beta_G": 5.171,
+   "lambda_L": 0.0002,
+   "L": 8,
+   "kappa_peak_up": 0.1305,
+   "chi_L_alpha_max_up": 356.7097914036669,
+   "chi_L_phi_max_up": 4256295.821864281,
+   "chi_rho2_max_up": 1113752.4415511405,
+   "kappa_range_up": [
+    0.1295,
+    0.131
+   ],
+   "crossing_0.30_up": 0.1300565451260684,
+   "crossing_0.40_up": 0.13014309774114927,
+   "kappa_peak_down": 0.1295,
+   "chi_L_alpha_max_down": 215.39756698186824,
+   "chi_L_phi_max_down": 57464.24188779189,
+   "chi_rho2_max_down": 15022.19486397464,
+   "kappa_range_down": [
+    0.1295,
+    0.131
+   ],
+   "crossing_0.30_down": 0.1295146600615441,
+   "crossing_0.40_down": 0.12959606351852068,
+   "hysteresis_kappas": [
+    0.13
+   ],
+   "hysteresis_interval": [
+    0.13,
+    0.13
+   ],
+   "max_branch_difference_rho2": 20.824491277116106,
+   "L_alpha_difference_there": 0.12894948431313358,
+   "grid_step": 0.0005000000000000004,
+   "up_branch_crossing": {
+    "between": [
+     0.13,
+     0.1305
+    ],
+    "rho2_before_after": [
+     2.74532431385414,
+     23.70746323102851
+    ],
+    "L_alpha_before_after": [
+     0.23466965034440707,
+     0.8123529468373214
+    ]
+   },
+   "down_branch_crossing": {
+    "between": [
+     0.1295,
+     0.13
+    ],
+    "rho2_before_after": [
+     3.0288924618322706,
+     21.530764969868375
+    ],
+    "L_alpha_before_after": [
+     0.2819908612132915,
+     0.8962153899625442
+    ]
+   }
+  },
+  {
+   "family": "A",
+   "model": "su2",
+   "beta_G": 5.171,
+   "lambda_L": 0.002,
+   "L": 4,
+   "kappa_peak_up": 0.1315,
+   "chi_L_alpha_max_up": 13.548137145110022,
+   "chi_L_phi_max_up": 1676.6453037820959,
+   "chi_rho2_max_up": 441.58685007717924,
+   "kappa_range_up": [
+    0.13,
+    0.135
+   ],
+   "crossing_0.30_up": 0.1321620674216795,
+   "crossing_0.40_up": 0.13238261554185354,
+   "kappa_peak_down": 0.133,
+   "chi_L_alpha_max_down": 11.10312798319606,
+   "chi_L_phi_max_down": 1617.787404943634,
+   "chi_rho2_max_down": 419.96617484622374,
+   "kappa_range_down": [
+    0.13,
+    0.135
+   ],
+   "crossing_0.30_down": 0.1314250967605148,
+   "crossing_0.40_down": 0.13195829563004935,
+   "hysteresis_kappas": [
+    0.132
+   ],
+   "hysteresis_interval": [
+    0.132,
+    0.132
+   ],
+   "max_branch_difference_rho2": 0.9166244854052836,
+   "L_alpha_difference_there": 0.1809106839510747,
+   "grid_step": 0.0005000000000000004,
+   "up_branch_crossing": {
+    "between": [
+     0.1325,
+     0.133
+    ],
+    "rho2_before_after": [
+     3.931236532048099,
+     5.082827249074943
+    ],
+    "L_alpha_before_after": [
+     0.4532239667487634,
+     0.5759686397483577
+    ]
+   },
+   "down_branch_crossing": {
+    "between": [
+     0.132,
+     0.1325
+    ],
+    "rho2_before_after": [
+     3.621975906646318,
+     4.290548174203259
+    ],
+    "L_alpha_before_after": [
+     0.40742675602116313,
+     0.4977942200413947
+    ]
+   }
+  },
+  {
+   "family": "A",
+   "model": "su2",
+   "beta_G": 5.171,
+   "lambda_L": 0.002,
+   "L": 6,
+   "kappa_peak_up": 0.1305,
+   "chi_L_alpha_max_up": 2.186720334460884,
+   "chi_L_phi_max_up": 1218.9308749100246,
+   "chi_rho2_max_up": 319.38351355324227,
+   "kappa_range_up": [
+    0.13,
+    0.135
+   ],
+   "crossing_0.30_up": 0.13309934609154458,
+   "crossing_0.40_up": 0.13319102109958977,
+   "kappa_peak_down": 0.1315,
+   "chi_L_alpha_max_down": 23.552311081318212,
+   "chi_L_phi_max_down": 1181.797273195661,
+   "chi_rho2_max_down": 308.24096144780793,
+   "kappa_range_down": [
+    0.13,
+    0.135
+   ],
+   "crossing_0.30_down": 0.13159015753223338,
+   "crossing_0.40_down": 0.13184900370381678,
+   "hysteresis_kappas": [
+    0.132,
+    0.1325,
+    0.133
+   ],
+   "hysteresis_interval": [
+    0.132,
+    0.133
+   ],
+   "max_branch_difference_rho2": 3.720595634884249,
+   "L_alpha_difference_there": 0.48414007970285317,
+   "grid_step": 0.0005000000000000004,
+   "up_branch_crossing": {
+    "between": [
+     0.133,
+     0.1335
+    ],
+    "rho2_before_after": [
+     2.5530255752538653,
+     7.588445889703109
+    ],
+    "L_alpha_before_after": [
+     0.19163230670719772,
+     0.7370372220288494
+    ]
+   },
+   "down_branch_crossing": {
+    "between": [
+     0.132,
+     0.1325
+    ],
+    "rho2_before_after": [
+     3.915120484372343,
+     4.876757561412954
+    ],
+    "L_alpha_before_after": [
+     0.45833437491447154,
+     0.5715789143066294
+    ]
+   }
+  },
+  {
+   "family": "A",
+   "model": "su2",
+   "beta_G": 5.171,
+   "lambda_L": 0.002,
+   "L": 8,
+   "kappa_peak_up": 0.132,
+   "chi_L_alpha_max_up": 22.758292505732616,
+   "chi_L_phi_max_up": 1342.105068056958,
+   "chi_rho2_max_up": 352.8694665041904,
+   "kappa_range_up": [
+    0.1315,
+    0.134
+   ],
+   "crossing_0.30_up": 0.1317270064910415,
+   "crossing_0.40_up": 0.13196239999042345,
+   "kappa_peak_down": 0.1315,
+   "chi_L_alpha_max_down": 15.900826264202632,
+   "chi_L_phi_max_down": 1403.4716042479001,
+   "chi_rho2_max_down": 368.4679092217739,
+   "kappa_range_down": [
+    0.1315,
+    0.134
+   ],
+   "crossing_0.30_down": 0.1316338824947313,
+   "crossing_0.40_down": 0.1318509564540813,
+   "hysteresis_kappas": [],
+   "hysteresis_interval": null,
+   "max_branch_difference_rho2": 0.33755087466728995,
+   "L_alpha_difference_there": 0.05268700307019086,
+   "grid_step": 0.0005000000000000004,
+   "up_branch_crossing": {
+    "between": [
+     0.132,
+     0.1325
+    ],
+    "rho2_before_after": [
+     3.6225168805788814,
+     5.139931360599553
+    ],
+    "L_alpha_before_after": [
+     0.4159732574073921,
+     0.5970277929878188
+    ]
+   },
+   "down_branch_crossing": {
+    "between": [
+     0.132,
+     0.1325
+    ],
+    "rho2_before_after": [
+     3.9600677552461714,
+     5.165574902901299
+    ],
+    "L_alpha_before_after": [
+     0.46866026047758297,
+     0.5994919985664261
+    ]
+   }
+  },
+  {
+   "family": "A",
+   "model": "su2",
+   "beta_G": 5.171,
+   "lambda_L": 0.02,
+   "L": 4,
+   "kappa_peak_up": 0.143,
+   "chi_L_alpha_max_up": 5.906655396887768,
+   "chi_L_phi_max_up": 127.35901230642394,
+   "chi_rho2_max_up": 30.90532186981851,
+   "kappa_range_up": [
+    0.14,
+    0.152
+   ],
+   "crossing_0.30_up": 0.1435024846409944,
+   "crossing_0.40_up": 0.1462865618146103,
+   "kappa_peak_down": 0.144,
+   "chi_L_alpha_max_down": 7.243693671062923,
+   "chi_L_phi_max_down": 121.59786472790904,
+   "chi_rho2_max_down": 29.88369647697946,
+   "kappa_range_down": [
+    0.14,
+    0.152
+   ],
+   "crossing_0.30_down": 0.1445743700433602,
+   "crossing_0.40_down": 0.1467013692277548,
+   "hysteresis_kappas": [],
+   "hysteresis_interval": null,
+   "max_branch_difference_rho2": -0.3788378651710773,
+   "L_alpha_difference_there": -0.1118452843786337,
+   "grid_step": 0.0009999999999999731,
+   "up_branch_crossing": {
+    "between": [
+     0.146,
+     0.147
+    ],
+    "rho2_before_after": [
+     3.0692977531942196,
+     3.297038322605785
+    ],
+    "L_alpha_before_after": [
+     0.3860569376092028,
+     0.43471332404979457
+    ]
+   },
+   "down_branch_crossing": {
+    "between": [
+     0.146,
+     0.147
+    ],
+    "rho2_before_after": [
+     2.952338586090391,
+     3.2204312206488503
+    ],
+    "L_alpha_before_after": [
+     0.3575860724678171,
+     0.41805910985492306
+    ]
+   }
+  },
+  {
+   "family": "A",
+   "model": "su2",
+   "beta_G": 5.171,
+   "lambda_L": 0.02,
+   "L": 6,
+   "kappa_peak_up": 0.145,
+   "chi_L_alpha_max_up": 5.42617943106265,
+   "chi_L_phi_max_up": 118.45702030625353,
+   "chi_rho2_max_up": 29.2200240165166,
+   "kappa_range_up": [
+    0.14,
+    0.152
+   ],
+   "crossing_0.30_up": 0.14459449277869615,
+   "crossing_0.40_up": 0.1456472489993486,
+   "kappa_peak_down": 0.144,
+   "chi_L_alpha_max_down": 10.747071562930913,
+   "chi_L_phi_max_down": 156.52326180312147,
+   "chi_rho2_max_down": 37.24205258963245,
+   "kappa_range_down": [
+    0.14,
+    0.152
+   ],
+   "crossing_0.30_down": 0.1438497131081352,
+   "crossing_0.40_down": 0.1457572308309101,
+   "hysteresis_kappas": [],
+   "hysteresis_interval": null,
+   "max_branch_difference_rho2": 0.3555051011566235,
+   "L_alpha_difference_there": 0.10749939622844346,
+   "grid_step": 0.0009999999999999731,
+   "up_branch_crossing": {
+    "between": [
+     0.145,
+     0.146
+    ],
+    "rho2_before_after": [
+     2.966411622263645,
+     3.1974246894785994
+    ],
+    "L_alpha_before_after": [
+     0.3663488557294377,
+     0.41833988901713504
+    ]
+   },
+   "down_branch_crossing": {
+    "between": [
+     0.145,
+     0.146
+    ],
+    "rho2_before_after": [
+     2.93869923960568,
+     3.1813681657873336
+    ],
+    "L_alpha_before_after": [
+     0.3597688903080322,
+     0.4128981450210432
+    ]
+   }
+  },
+  {
+   "family": "A",
+   "model": "su2",
+   "beta_G": 5.171,
+   "lambda_L": 0.02,
+   "L": 8,
+   "kappa_peak_up": 0.143,
+   "chi_L_alpha_max_up": 10.113591442721736,
+   "chi_L_phi_max_up": 126.61420429924125,
+   "chi_rho2_max_up": 29.039332259406287,
+   "kappa_range_up": [
+    0.142,
+    0.147
+   ],
+   "crossing_0.30_up": 0.14391841920642617,
+   "crossing_0.40_up": 0.14561850669868526,
+   "kappa_peak_down": 0.143,
+   "chi_L_alpha_max_down": 6.332661750325068,
+   "chi_L_phi_max_down": 110.95978888043015,
+   "chi_rho2_max_down": 26.966772152826383,
+   "kappa_range_down": [
+    0.142,
+    0.147
+   ],
+   "crossing_0.30_down": 0.14389823217384048,
+   "crossing_0.40_down": 0.14557796895246652,
+   "hysteresis_kappas": [],
+   "hysteresis_interval": null,
+   "max_branch_difference_rho2": 0.0607500359538089,
+   "L_alpha_difference_there": 0.020538188839699822,
+   "grid_step": 0.0010000000000000009,
+   "up_branch_crossing": {
+    "between": [
+     0.144,
+     0.145
+    ],
+    "rho2_before_after": [
+     2.730302713242742,
+     2.9471680584215987
+    ],
+    "L_alpha_before_after": [
+     0.3058102904718656,
+     0.36132762486337383
+    ]
+   },
+   "down_branch_crossing": {
+    "between": [
+     0.144,
+     0.145
+    ],
+    "rho2_before_after": [
+     2.7289119302661593,
+     2.961011320939329
+    ],
+    "L_alpha_before_after": [
+     0.3063499842403078,
+     0.36573152500412726
+    ]
+   }
+  },
+  {
+   "family": "N40",
+   "model": "su2",
+   "beta_G": 4.0,
+   "lambda_L": 0.002,
+   "L": 4,
+   "kappa_peak_up": 0.134,
+   "chi_L_alpha_max_up": 13.197888746021066,
+   "chi_L_phi_max_up": 1857.08455899668,
+   "chi_rho2_max_up": 495.43697118762486,
+   "kappa_range_up": [
+    0.132,
+    0.138
+   ],
+   "crossing_0.30_up": 0.13307780447797146,
+   "crossing_0.40_up": 0.1334987450265642,
+   "kappa_peak_down": 0.134,
+   "chi_L_alpha_max_down": 19.142845272156535,
+   "chi_L_phi_max_down": 2100.519983835918,
+   "chi_rho2_max_down": 563.3823456479274,
+   "kappa_range_down": [
+    0.132,
+    0.138
+   ],
+   "crossing_0.30_down": 0.13403449490829006,
+   "crossing_0.40_down": 0.13432350390572456,
+   "hysteresis_kappas": [
+    0.1335
+   ],
+   "hysteresis_interval": [
+    0.1335,
+    0.1335
+   ],
+   "max_branch_difference_rho2": -1.1787977191927244,
+   "L_alpha_difference_there": -0.12701829946085708,
+   "grid_step": 0.0005000000000000004,
+   "up_branch_crossing": {
+    "between": [
+     0.134,
+     0.1345
+    ],
+    "rho2_before_after": [
+     4.022279505379504,
+     5.275096801011468
+    ],
+    "L_alpha_before_after": [
+     0.45364989410199336,
+     0.5880877110854685
+    ]
+   },
+   "down_branch_crossing": {
+    "between": [
+     0.1345,
+     0.135
+    ],
+    "rho2_before_after": [
+     4.096299081818744,
+     7.030230652416567
+    ],
+    "L_alpha_before_after": [
+     0.46106941162461146,
+     0.6917361954370097
+    ]
+   }
+  },
+  {
+   "family": "N40",
+   "model": "su2",
+   "beta_G": 4.0,
+   "lambda_L": 0.002,
+   "L": 6,
+   "kappa_peak_up": 0.1345,
+   "chi_L_alpha_max_up": 19.632672310712703,
+   "chi_L_phi_max_up": 2740.4933032182394,
+   "chi_rho2_max_up": 726.9180089191648,
+   "kappa_range_up": [
+    0.132,
+    0.138
+   ],
+   "crossing_0.30_up": 0.13413605757778357,
+   "crossing_0.40_up": 0.13425293352126033,
+   "kappa_peak_down": 0.1335,
+   "chi_L_alpha_max_down": 40.006716003323895,
+   "chi_L_phi_max_down": 1506.8668508634605,
+   "chi_rho2_max_down": 398.88938348430105,
+   "kappa_range_down": [
+    0.132,
+    0.138
+   ],
+   "crossing_0.30_down": 0.13356799023299915,
+   "crossing_0.40_down": 0.1337486007369774,
+   "hysteresis_kappas": [
+    0.134
+   ],
+   "hysteresis_interval": [
+    0.134,
+    0.134
+   ],
+   "max_branch_difference_rho2": 2.1104508895264353,
+   "L_alpha_difference_there": 0.35560611502465334,
+   "grid_step": 0.0005000000000000004,
+   "up_branch_crossing": {
+    "between": [
+     0.134,
+     0.1345
+    ],
+    "rho2_before_after": [
+     2.537075832084518,
+     5.506427590056507
+    ],
+    "L_alpha_before_after": [
+     0.18358803896147405,
+     0.6113920721322782
+    ]
+   },
+   "down_branch_crossing": {
+    "between": [
+     0.1335,
+     0.134
+    ],
+    "rho2_before_after": [
+     2.8819177919150913,
+     4.647526721610953
+    ],
+    "L_alpha_before_after": [
+     0.262355327347225,
+     0.5391941539861274
+    ]
+   }
+  },
+  {
+   "family": "N65",
+   "model": "su2",
+   "beta_G": 6.5,
+   "lambda_L": 0.002,
+   "L": 4,
+   "kappa_peak_up": 0.131,
+   "chi_L_alpha_max_up": 16.367816736476822,
+   "chi_L_phi_max_up": 1485.898567880039,
+   "chi_rho2_max_up": 385.43545316584544,
+   "kappa_range_up": [
+    0.129,
+    0.134
+   ],
+   "crossing_0.30_up": 0.13018648405312533,
+   "crossing_0.40_up": 0.1307775943721261,
+   "kappa_peak_down": 0.1315,
+   "chi_L_alpha_max_down": 14.85358576842077,
+   "chi_L_phi_max_down": 1307.8711513362186,
+   "chi_rho2_max_down": 338.93764707768486,
+   "kappa_range_down": [
+    0.129,
+    0.134
+   ],
+   "crossing_0.30_down": 0.13068436257483318,
+   "crossing_0.40_down": 0.13110303025019207,
+   "hysteresis_kappas": [],
+   "hysteresis_interval": null,
+   "max_branch_difference_rho2": -0.5775733594919656,
+   "L_alpha_difference_there": -0.08457384290432163,
+   "grid_step": 0.0005000000000000004,
+   "up_branch_crossing": {
+    "between": [
+     0.1315,
+     0.132
+    ],
+    "rho2_before_after": [
+     4.428218695520857,
+     6.0407227840376905
+    ],
+    "L_alpha_before_after": [
+     0.5128225688682208,
+     0.6615641441099501
+    ]
+   },
+   "down_branch_crossing": {
+    "between": [
+     0.131,
+     0.1315
+    ],
+    "rho2_before_after": [
+     3.358717391112994,
+     4.669931628847789
+    ],
+    "L_alpha_before_after": [
+     0.36466081695297065,
+     0.5361598814565828
+    ]
+   }
+  },
+  {
+   "family": "N65",
+   "model": "su2",
+   "beta_G": 6.5,
+   "lambda_L": 0.002,
+   "L": 6,
+   "kappa_peak_up": 0.1315,
+   "chi_L_alpha_max_up": 48.171498346097835,
+   "chi_L_phi_max_up": 1458.6913953217827,
+   "chi_rho2_max_up": 378.76676827432823,
+   "kappa_range_up": [
+    0.129,
+    0.134
+   ],
+   "crossing_0.30_up": 0.13155682280312328,
+   "crossing_0.40_up": 0.13167413099395006,
+   "kappa_peak_down": 0.1305,
+   "chi_L_alpha_max_down": 26.812185716654863,
+   "chi_L_phi_max_down": 1470.043628229384,
+   "chi_rho2_max_down": 380.6109327361638,
+   "kappa_range_down": [
+    0.129,
+    0.134
+   ],
+   "crossing_0.30_down": 0.13055527966341104,
+   "crossing_0.40_down": 0.1308079305236196,
+   "hysteresis_kappas": [
+    0.131,
+    0.1315
+   ],
+   "hysteresis_interval": [
+    0.131,
+    0.1315
+   ],
+   "max_branch_difference_rho2": 2.5273188054849345,
+   "L_alpha_difference_there": 0.36638523874209844,
+   "grid_step": 0.0005000000000000004,
+   "up_branch_crossing": {
+    "between": [
+     0.1315,
+     0.132
+    ],
+    "rho2_before_after": [
+     2.8246223647844535,
+     6.216353538090888
+    ],
+    "L_alpha_before_after": [
+     0.2515610949902281,
+     0.6777887918594666
+    ]
+   },
+   "down_branch_crossing": {
+    "between": [
+     0.131,
+     0.1315
+    ],
+    "rho2_before_after": [
+     3.9980691881983876,
+     5.351941170269388
+    ],
+    "L_alpha_before_after": [
+     0.47602169896505514,
+     0.6179463337323265
+    ]
+   }
+  },
+  {
+   "family": "U1",
+   "model": "u1",
+   "beta_G": 5.171,
+   "lambda_L": 0.002,
+   "L": 4,
+   "kappa_peak_up": 0.134,
+   "chi_L_alpha_max_up": 13.770369485173275,
+   "chi_L_phi_max_up": 1236.7870416753715,
+   "chi_rho2_max_up": 330.7807620534796,
+   "kappa_range_up": [
+    0.13,
+    0.136
+   ],
+   "crossing_0.30_up": 0.13286472741874206,
+   "crossing_0.40_up": 0.1331693933943011,
+   "kappa_peak_down": 0.134,
+   "chi_L_alpha_max_down": 34.47453570356056,
+   "chi_L_phi_max_down": 2049.9734129119884,
+   "chi_rho2_max_down": 542.3061175108252,
+   "kappa_range_down": [
+    0.13,
+    0.136
+   ],
+   "crossing_0.30_down": 0.13386359738871542,
+   "crossing_0.40_down": 0.13409328962721606,
+   "hysteresis_kappas": [
+    0.1335
+   ],
+   "hysteresis_interval": [
+    0.1335,
+    0.1335
+   ],
+   "max_branch_difference_rho2": -2.343901512070257,
+   "L_alpha_difference_there": -0.35859418211916716,
+   "grid_step": 0.0005000000000000004,
+   "up_branch_crossing": {
+    "between": [
+     0.133,
+     0.1335
+    ],
+    "rho2_before_after": [
+     3.123454418108148,
+     4.977102335824996
+    ],
+    "L_alpha_before_after": [
+     0.3137504492470372,
+     0.5683340211414141
+    ]
+   },
+   "down_branch_crossing": {
+    "between": [
+     0.134,
+     0.1345
+    ],
+    "rho2_before_after": [
+     3.504717237252004,
+     6.909806203622241
+    ],
+    "L_alpha_before_after": [
+     0.33386086378625746,
+     0.6883436620751657
+    ]
+   }
+  },
+  {
+   "family": "U1",
+   "model": "u1",
+   "beta_G": 5.171,
+   "lambda_L": 0.002,
+   "L": 6,
+   "kappa_peak_up": 0.1335,
+   "chi_L_alpha_max_up": 111.15654257970593,
+   "chi_L_phi_max_up": 4179.672204712573,
+   "chi_rho2_max_up": 1119.1998669119503,
+   "kappa_range_up": [
+    0.131,
+    0.136
+   ],
+   "crossing_0.30_up": 0.13336526696939377,
+   "crossing_0.40_up": 0.13357995786926086,
+   "kappa_peak_down": 0.133,
+   "chi_L_alpha_max_down": 44.24223634699176,
+   "chi_L_phi_max_down": 1680.0428818759826,
+   "chi_rho2_max_down": 443.9486379415076,
+   "kappa_range_down": [
+    0.131,
+    0.136
+   ],
+   "crossing_0.30_down": 0.13276129881198426,
+   "crossing_0.40_down": 0.1330149922422612,
+   "hysteresis_kappas": [
+    0.133,
+    0.1335
+   ],
+   "hysteresis_interval": [
+    0.133,
+    0.1335
+   ],
+   "max_branch_difference_rho2": 1.9830354496205098,
+   "L_alpha_difference_there": 0.26772689155098517,
+   "grid_step": 0.0005000000000000004,
+   "up_branch_crossing": {
+    "between": [
+     0.1335,
+     0.134
+    ],
+    "rho2_before_after": [
+     3.400021098741572,
+     6.49977695610532
+    ],
+    "L_alpha_before_after": [
+     0.34604211597365386,
+     0.6834565851506411
+    ]
+   },
+   "down_branch_crossing": {
+    "between": [
+     0.133,
+     0.1335
+    ],
+    "rho2_before_after": [
+     3.547132571912669,
+     5.383056548362082
+    ],
+    "L_alpha_before_after": [
+     0.39339211239901317,
+     0.613769007524639
+    ]
+   }
+  },
+  {
+   "family": "U1b",
+   "model": "u1",
+   "beta_G": 5.171,
+   "lambda_L": 0.0002,
+   "L": 4,
+   "kappa_peak_up": 0.132,
+   "chi_L_alpha_max_up": 11.38842288631475,
+   "chi_L_phi_max_up": 14751.02833246647,
+   "chi_rho2_max_up": 3765.143906287397,
+   "kappa_range_up": [
+    0.1295,
+    0.1335
+   ],
+   "crossing_0.30_up": 0.1320466240727592,
+   "crossing_0.40_up": 0.13211484480190558,
+   "kappa_peak_down": 0.1305,
+   "chi_L_alpha_max_down": 29.71287751543541,
+   "chi_L_phi_max_down": 17936.036062621093,
+   "chi_rho2_max_down": 4650.919128031976,
+   "kappa_range_down": [
+    0.1295,
+    0.1335
+   ],
+   "crossing_0.30_down": 0.13052973901940684,
+   "crossing_0.40_down": 0.13060353178443318,
+   "hysteresis_kappas": [
+    0.131,
+    0.1315,
+    0.132
+   ],
+   "hysteresis_interval": [
+    0.131,
+    0.132
+   ],
+   "max_branch_difference_rho2": 78.29678566104664,
+   "L_alpha_difference_there": 0.7280831746776002,
+   "grid_step": 0.0005000000000000004,
+   "up_branch_crossing": {
+    "between": [
+     0.132,
+     0.1325
+    ],
+    "rho2_before_after": [
+     2.794381335518672,
+     96.26562046580172
+    ],
+    "L_alpha_before_after": [
+     0.23165702955311235,
+     0.9645720925496626
+    ]
+   },
+   "down_branch_crossing": {
+    "between": [
+     0.1305,
+     0.131
+    ],
+    "rho2_before_after": [
+     3.219645092742135,
+     44.3473481918496
+    ],
+    "L_alpha_before_after": [
+     0.25969927485950517,
+     0.9372724757301951
+    ]
+   }
+  },
+  {
+   "family": "U1b",
+   "model": "u1",
+   "beta_G": 5.171,
+   "lambda_L": 0.0002,
+   "L": 6,
+   "kappa_peak_up": 0.1325,
+   "chi_L_alpha_max_up": 0.9716396824967998,
+   "chi_L_phi_max_up": 15135.288736110038,
+   "chi_rho2_max_up": 3845.892020449856,
+   "kappa_range_up": [
+    0.1295,
+    0.1335
+   ],
+   "crossing_0.30_up": 0.13307347207440928,
+   "crossing_0.40_up": 0.13313709133768659,
+   "kappa_peak_down": 0.1305,
+   "chi_L_alpha_max_down": 83.44227722992825,
+   "chi_L_phi_max_down": 19956.13994263168,
+   "chi_rho2_max_down": 5149.033145260333,
+   "kappa_range_down": [
+    0.1295,
+    0.1335
+   ],
+   "crossing_0.30_down": 0.13054794527418914,
+   "crossing_0.40_down": 0.13061857047335856,
+   "hysteresis_kappas": [
+    0.131,
+    0.1315,
+    0.132,
+    0.1325,
+    0.133
+   ],
+   "hysteresis_interval": [
+    0.131,
+    0.133
+   ],
+   "max_branch_difference_rho2": 106.9108764901463,
+   "L_alpha_difference_there": 0.7833867760513802,
+   "grid_step": 0.0005000000000000004,
+   "up_branch_crossing": {
+    "between": [
+     0.133,
+     0.1335
+    ],
+    "rho2_before_after": [
+     2.572806375252375,
+     122.25741608396767
+    ],
+    "L_alpha_before_after": [
+     0.18451284937233897,
+     0.9704383289249172
+    ]
+   },
+   "down_branch_crossing": {
+    "between": [
+     0.1305,
+     0.131
+    ],
+    "rho2_before_after": [
+     2.8510058259701303,
+     46.796514720602126
+    ],
+    "L_alpha_before_after": [
+     0.2321130775516415,
+     0.9400756827977368
+    ]
+   }
+  },
+  {
+   "family": "Z",
+   "model": "su2",
+   "beta_G": 5.171,
+   "lambda_L": 0.0,
+   "L": 4,
+   "kappa_peak_up": 0.1175,
+   "chi_L_alpha_max_up": 0.5655220061480656,
+   "chi_L_phi_max_up": 5.342507403008763,
+   "chi_rho2_max_up": 4.10913598804627,
+   "kappa_range_up": [
+    0.115,
+    0.125
+   ],
+   "crossing_0.30_up": null,
+   "crossing_0.40_up": null,
+   "hysteresis_kappas": [],
+   "hysteresis_interval": null,
+   "max_branch_difference_rho2": 0.0,
+   "L_alpha_difference_there": 0.0,
+   "grid_step": null,
+   "up_branch_crossing": {
+    "between": [
+     0.1175,
+     0.12
+    ],
+    "rho2_before_after": [
+     2.3484213709753363,
+     2.370338010434608
+    ],
+    "L_alpha_before_after": [
+     0.1395103832246036,
+     0.14365412631405092
+    ]
+   }
+  },
+  {
+   "family": "Z",
+   "model": "su2",
+   "beta_G": 5.171,
+   "lambda_L": 0.0,
+   "L": 6,
+   "kappa_peak_up": 0.125,
+   "chi_L_alpha_max_up": 0.5265526335537074,
+   "chi_L_phi_max_up": 5.252190336496935,
+   "chi_rho2_max_up": 4.300075823902614,
+   "kappa_range_up": [
+    0.115,
+    0.125
+   ],
+   "crossing_0.30_up": null,
+   "crossing_0.40_up": null,
+   "hysteresis_kappas": [],
+   "hysteresis_interval": null,
+   "max_branch_difference_rho2": 0.0,
+   "L_alpha_difference_there": 0.0,
+   "grid_step": null,
+   "up_branch_crossing": {
+    "between": [
+     0.1175,
+     0.12
+    ],
+    "rho2_before_after": [
+     2.3308041793754977,
+     2.362812504008113
+    ],
+    "L_alpha_before_after": [
+     0.1343741528340321,
+     0.14138807276359894
+    ]
+   }
+  },
+  {
+   "family": "Zb",
+   "model": "su2",
+   "beta_G": 5.171,
+   "lambda_L": 0.0,
+   "L": 8,
+   "kappa_peak_up": 0.125,
+   "chi_L_alpha_max_up": 0.6264096255157214,
+   "chi_L_phi_max_up": 6.740681553656342,
+   "chi_rho2_max_up": 5.064140032345673,
+   "kappa_range_up": [
+    0.125,
+    0.125
+   ],
+   "crossing_0.30_up": null,
+   "crossing_0.40_up": null,
+   "hysteresis_kappas": [],
+   "hysteresis_interval": null,
+   "max_branch_difference_rho2": 0.0,
+   "L_alpha_difference_there": 0.0,
+   "grid_step": null,
+   "up_branch_crossing": {
+    "between": [
+     0.125,
+     0.125
+    ],
+    "rho2_before_after": [
+     2.4301518712925736,
+     2.4301518712925736
+    ],
+    "L_alpha_before_after": [
+     0.1566436024206217,
+     0.1566436024206217
+    ]
+   }
+  },
+  {
+   "family": "coarse",
+   "model": "su2",
+   "beta_G": 5.171,
+   "lambda_L": 0.0002,
+   "L": 4,
+   "kappa_peak_up": 0.13,
+   "chi_L_alpha_max_up": 6.298279894787354,
+   "chi_L_phi_max_up": 13221.376061706751,
+   "chi_rho2_max_up": 3332.7423664864145,
+   "kappa_range_up": [
+    0.122,
+    0.137
+   ],
+   "crossing_0.30_up": 0.1298647034630529,
+   "crossing_0.40_up": 0.13013496469459135,
+   "kappa_peak_down": 0.129,
+   "chi_L_alpha_max_down": 6.6385261262847886,
+   "chi_L_phi_max_down": 45944.92595773839,
+   "chi_rho2_max_down": 12085.963540252287,
+   "kappa_range_down": [
+    0.122,
+    0.137
+   ],
+   "crossing_0.30_down": 0.1290558033740538,
+   "crossing_0.40_down": 0.1292312050169798,
+   "hysteresis_kappas": [
+    0.13
+   ],
+   "hysteresis_interval": [
+    0.13,
+    0.13
+   ],
+   "max_branch_difference_rho2": 13.006617122750193,
+   "L_alpha_difference_there": 0.524602424908874,
+   "grid_step": 0.0010000000000000009,
+   "up_branch_crossing": {
+    "between": [
+     0.13,
+     0.131
+    ],
+    "rho2_before_after": [
+     3.125569272258588,
+     60.860906155415144
+    ],
+    "L_alpha_before_after": [
+     0.31370303802498534,
+     0.953107011310806
+    ]
+   },
+   "down_branch_crossing": {
+    "between": [
+     0.129,
+     0.13
+    ],
+    "rho2_before_after": [
+     2.895612310285111,
+     16.13218639500878
+    ],
+    "L_alpha_before_after": [
+     0.26818537550564825,
+     0.8383054629338593
+    ]
+   }
+  },
+  {
+   "family": "coarse",
+   "model": "su2",
+   "beta_G": 5.171,
+   "lambda_L": 0.002,
+   "L": 4,
+   "kappa_peak_up": 0.133,
+   "chi_L_alpha_max_up": 12.914807154763546,
+   "chi_L_phi_max_up": 1103.9782972146093,
+   "chi_rho2_max_up": 286.31555678645327,
+   "kappa_range_up": [
+    0.122,
+    0.137
+   ],
+   "crossing_0.30_up": 0.13311532669349124,
+   "crossing_0.40_up": 0.13330272495787157,
+   "kappa_peak_down": 0.132,
+   "chi_L_alpha_max_down": 21.16070090441913,
+   "chi_L_phi_max_down": 1393.459966303458,
+   "chi_rho2_max_down": 370.79521635236875,
+   "kappa_range_down": [
+    0.122,
+    0.137
+   ],
+   "crossing_0.30_down": 0.13152713659990284,
+   "crossing_0.40_down": 0.13197735796416205,
+   "hysteresis_kappas": [],
+   "hysteresis_interval": null,
+   "max_branch_difference_rho2": 1.9335220554277268,
+   "L_alpha_difference_there": 0.2960158597748571,
+   "grid_step": 0.0010000000000000009,
+   "up_branch_crossing": {
+    "between": [
+     0.133,
+     0.134
+    ],
+    "rho2_before_after": [
+     2.7860672575089693,
+     8.788368019654136
+    ],
+    "L_alpha_before_after": [
+     0.23845903862952397,
+     0.7720819103816632
+    ]
+   },
+   "down_branch_crossing": {
+    "between": [
+     0.132,
+     0.133
+    ],
+    "rho2_before_after": [
+     3.714464326292427,
+     4.719589312936696
+    ],
+    "L_alpha_before_after": [
+     0.4050290896068897,
+     0.5344748984043811
+    ]
+   }
+  },
+  {
+   "family": "coarse",
+   "model": "su2",
+   "beta_G": 5.171,
+   "lambda_L": 0.02,
+   "L": 4,
+   "kappa_peak_up": 0.143,
+   "chi_L_alpha_max_up": 3.7506353242164945,
+   "chi_L_phi_max_up": 135.21956012174607,
+   "chi_rho2_max_up": 31.313178773709513,
+   "kappa_range_up": [
+    0.125,
+    0.155
+   ],
+   "crossing_0.30_up": 0.1476603691778326,
+   "crossing_0.40_up": 0.14827623323989234,
+   "kappa_peak_down": 0.147,
+   "chi_L_alpha_max_down": 5.236718234829188,
+   "chi_L_phi_max_down": 136.2087392130798,
+   "chi_rho2_max_down": 31.77811393378098,
+   "kappa_range_down": [
+    0.125,
+    0.155
+   ],
+   "crossing_0.30_down": 0.1432797261155781,
+   "crossing_0.40_down": 0.14560503641386927,
+   "hysteresis_kappas": [
+    0.145,
+    0.147
+   ],
+   "hysteresis_interval": [
+    0.145,
+    0.147
+   ],
+   "max_branch_difference_rho2": 0.9831162799312443,
+   "L_alpha_difference_there": 0.25253335435277646,
+   "grid_step": 0.0020000000000000018,
+   "up_branch_crossing": {
+    "between": [
+     0.147,
+     0.149
+    ],
+    "rho2_before_after": [
+     2.377242652825791,
+     3.769236342152173
+    ],
+    "L_alpha_before_after": [
+     0.19277354882114373,
+     0.5175205381666601
+    ]
+   },
+   "down_branch_crossing": {
+    "between": [
+     0.145,
+     0.147
+    ],
+    "rho2_before_after": [
+     3.0417181850114137,
+     3.3603589327570353
+    ],
+    "L_alpha_before_after": [
+     0.3803490739884436,
+     0.4453069031739202
+    ]
+   }
+  }
+ ],
+ "line": [
+  {
+   "family": "A",
+   "model": "su2",
+   "beta_G": 5.171,
+   "lambda_L": 0.0002,
+   "L": 8,
+   "kappa_c": 0.12978560259380625,
+   "half_width": 0.00027094253226214726,
+   "interval": [
+    0.1295146600615441,
+    0.1300565451260684
+   ],
+   "crossing_up": 0.1300565451260684,
+   "crossing_down": 0.1295146600615441,
+   "two_branches": true,
+   "hysteresis_interval": [
+    0.13,
+    0.13
+   ],
+   "crossing_0.40": [
+    0.13014309774114927,
+    0.12959606351852068
+   ],
+   "m0_squared_at_the_line": -0.2980671197522806
+  },
+  {
+   "family": "A",
+   "model": "su2",
+   "beta_G": 5.171,
+   "lambda_L": 0.002,
+   "L": 8,
+   "kappa_c": 0.1316804444928864,
+   "half_width": 0.0002500000000000002,
+   "interval": [
+    0.1314304444928864,
+    0.1319304444928864
+   ],
+   "crossing_up": 0.1317270064910415,
+   "crossing_down": 0.1316338824947313,
+   "two_branches": false,
+   "hysteresis_interval": null,
+   "crossing_0.40": [
+    0.13196239999042345,
+    0.1318509564540813
+   ],
+   "m0_squared_at_the_line": -0.43623452338964785
+  },
+  {
+   "family": "A",
+   "model": "su2",
+   "beta_G": 5.171,
+   "lambda_L": 0.02,
+   "L": 8,
+   "kappa_c": 0.14390832569013334,
+   "half_width": 0.0005000000000000004,
+   "interval": [
+    0.14340832569013334,
+    0.14440832569013334
+   ],
+   "crossing_up": 0.14391841920642617,
+   "crossing_down": 0.14389823217384048,
+   "two_branches": false,
+   "hysteresis_interval": null,
+   "crossing_0.40": [
+    0.14561850669868526,
+    0.14557796895246652
+   ],
+   "m0_squared_at_the_line": -1.329086448638881
+  },
+  {
+   "family": "N40",
+   "model": "su2",
+   "beta_G": 4.0,
+   "lambda_L": 0.002,
+   "L": 6,
+   "kappa_c": 0.13385202390539136,
+   "half_width": 0.00028403367239221433,
+   "interval": [
+    0.13356799023299915,
+    0.13413605757778357
+   ],
+   "crossing_up": 0.13413605757778357,
+   "crossing_down": 0.13356799023299915,
+   "two_branches": true,
+   "hysteresis_interval": [
+    0.134,
+    0.134
+   ],
+   "crossing_0.40": [
+    0.13425293352126033,
+    0.1337486007369774
+   ],
+   "m0_squared_at_the_line": -0.5589470301622939
+  },
+  {
+   "family": "N65",
+   "model": "su2",
+   "beta_G": 6.5,
+   "lambda_L": 0.002,
+   "L": 6,
+   "kappa_c": 0.13105605123326716,
+   "half_width": 0.0005007715698561177,
+   "interval": [
+    0.13055527966341104,
+    0.13155682280312328
+   ],
+   "crossing_up": 0.13155682280312328,
+   "crossing_down": 0.13055527966341104,
+   "two_branches": true,
+   "hysteresis_interval": [
+    0.131,
+    0.1315
+   ],
+   "crossing_0.40": [
+    0.13167413099395006,
+    0.1308079305236196
+   ],
+   "m0_squared_at_the_line": -0.4001983073088642
+  },
+  {
+   "family": "U1",
+   "model": "u1",
+   "beta_G": 5.171,
+   "lambda_L": 0.002,
+   "L": 6,
+   "kappa_c": 0.13306328289068903,
+   "half_width": 0.0003019840787047562,
+   "interval": [
+    0.13276129881198429,
+    0.13336526696939377
+   ],
+   "crossing_up": 0.13336526696939377,
+   "crossing_down": 0.13276129881198426,
+   "two_branches": true,
+   "hysteresis_interval": [
+    0.133,
+    0.1335
+   ],
+   "crossing_0.40": [
+    0.13357995786926086,
+    0.1330149922422612
+   ],
+   "m0_squared_at_the_line": -0.5148397186456748
+  },
+  {
+   "family": "U1b",
+   "model": "u1",
+   "beta_G": 5.171,
+   "lambda_L": 0.0002,
+   "L": 6,
+   "kappa_c": 0.13181070867429923,
+   "half_width": 0.0012627634001100702,
+   "interval": [
+    0.13054794527418917,
+    0.13307347207440928
+   ],
+   "crossing_up": 0.13307347207440928,
+   "crossing_down": 0.13054794527418914,
+   "two_branches": true,
+   "hysteresis_interval": [
+    0.131,
+    0.133
+   ],
+   "crossing_0.40": [
+    0.13313709133768659,
+    0.13061857047335856
+   ],
+   "m0_squared_at_the_line": -0.4163976504368456
+  },
+  {
+   "family": "coarse",
+   "model": "su2",
+   "beta_G": 5.171,
+   "lambda_L": 0.0002,
+   "L": 4,
+   "kappa_c": 0.12946025341855336,
+   "half_width": 0.0005000000000000004,
+   "interval": [
+    0.12896025341855336,
+    0.12996025341855336
+   ],
+   "crossing_up": 0.1298647034630529,
+   "crossing_down": 0.1290558033740538,
+   "two_branches": true,
+   "hysteresis_interval": [
+    0.13,
+    0.13
+   ],
+   "crossing_0.40": [
+    0.13013496469459135,
+    0.1292312050169798
+   ],
+   "m0_squared_at_the_line": -0.2787112368131339
+  },
+  {
+   "family": "coarse",
+   "model": "su2",
+   "beta_G": 5.171,
+   "lambda_L": 0.002,
+   "L": 4,
+   "kappa_c": 0.13232123164669704,
+   "half_width": 0.0007940950467942021,
+   "interval": [
+    0.13152713659990284,
+    0.13311532669349124
+   ],
+   "crossing_up": 0.13311532669349124,
+   "crossing_down": 0.13152713659990284,
+   "two_branches": false,
+   "hysteresis_interval": null,
+   "crossing_0.40": [
+    0.13330272495787157,
+    0.13197735796416205
+   ],
+   "m0_squared_at_the_line": -0.472863291815786
+  },
+  {
+   "family": "coarse",
+   "model": "su2",
+   "beta_G": 5.171,
+   "lambda_L": 0.02,
+   "L": 4,
+   "kappa_c": 0.14547004764670535,
+   "half_width": 0.0021903215311272484,
+   "interval": [
+    0.1432797261155781,
+    0.1476603691778326
+   ],
+   "crossing_up": 0.1476603691778326,
+   "crossing_down": 0.1432797261155781,
+   "two_branches": true,
+   "hysteresis_interval": [
+    0.145,
+    0.147
+   ],
+   "crossing_0.40": [
+    0.14827623323989234,
+    0.14560503641386927
+   ],
+   "m0_squared_at_the_line": -1.400703337009305
+  }
+ ],
+ "schwinger_dyson_pulls": {
+  "n": 377,
+  "mean": -0.05658722789121561,
+  "rms": 1.1992041269442941,
+  "fraction_above_3": 0.013262599469496022
+ },
+ "source_verdicts": {
+  "reference_line": {
+   "family": "A",
+   "model": "su2",
+   "beta_G": 5.171,
+   "lambda_L": 0.0002,
+   "L": 8,
+   "kappa_c": 0.12978560259380625,
+   "half_width": 0.00027094253226214726,
+   "interval": [
+    0.1295146600615441,
+    0.1300565451260684
+   ],
+   "crossing_up": 0.1300565451260684,
+   "crossing_down": 0.1295146600615441,
+   "two_branches": true,
+   "hysteresis_interval": [
+    0.13,
+    0.13
+   ],
+   "crossing_0.40": [
+    0.13014309774114927,
+    0.12959606351852068
+   ],
+   "m0_squared_at_the_line": -0.2980671197522806
+  },
+  "points": [
+   {
+    "label": "S1 functional only, tree level",
+    "kappa_H": 0.125,
+    "side": "confined side",
+    "kappa_minus_line": -0.004785602593806254,
+    "m0_squared_minus_line": 0.2949851137978001
+   },
+   {
+    "label": "S2 functional plus oscillator energy omega = 1, share s = 0.9",
+    "kappa_H": 0.1234567901234568,
+    "side": "confined side",
+    "kappa_minus_line": -0.006328812470349457,
+    "m0_squared_minus_line": 0.39498511379779977
+   },
+   {
+    "label": "S2 functional plus oscillator energy omega = 1, share s = 0.5",
+    "kappa_H": 0.11764705882352941,
+    "side": "confined side",
+    "kappa_minus_line": -0.012138543770276844,
+    "m0_squared_minus_line": 0.7949851137978001
+   },
+   {
+    "label": "S2 functional plus oscillator energy omega = 1, share s = 0.1",
+    "kappa_H": 0.11235955056179775,
+    "side": "confined side",
+    "kappa_minus_line": -0.017426052032008504,
+    "m0_squared_minus_line": 1.1949851137978005
+   },
+   {
+    "label": "S3 functional plus fermion zero-point term, cones 1, families 1",
+    "kappa_H": 0.1255545367657179,
+    "side": "confined side",
+    "kappa_minus_line": -0.004231065828088354,
+    "m0_squared_minus_line": 0.259651511046183
+   },
+   {
+    "label": "S3 functional plus fermion zero-point term, cones 1, families 3",
+    "kappa_H": 0.1266785029628217,
+    "side": "confined side",
+    "kappa_minus_line": -0.0031070996309845444,
+    "m0_squared_minus_line": 0.18898430554294876
+   },
+   {
+    "label": "S4 functional plus fermion zero-point term, cones 4, families 1",
+    "kappa_H": 0.1272480663130076,
+    "side": "confined side",
+    "kappa_minus_line": -0.0025375362807986412,
+    "m0_squared_minus_line": 0.15365070279133253
+   },
+   {
+    "label": "S4 functional plus fermion zero-point term, cones 4, families 3",
+    "kappa_H": 0.13199583246371271,
+    "side": "Higgs side",
+    "kappa_minus_line": 0.0022102298699064604,
+    "m0_squared_minus_line": -0.12901811922160356
+   },
+   {
+    "label": "S4 functional plus fermion zero-point term, cones 32, families 1",
+    "kappa_H": 0.14557471686563828,
+    "side": "Higgs side",
+    "kappa_minus_line": 0.015789114271832022,
+    "m0_squared_minus_line": -0.8356901742539407
+   },
+   {
+    "label": "S4 functional plus fermion zero-point term, cones 32, families 3",
+    "kappa_H": 0.21701510696883938,
+    "side": "Higgs side",
+    "kappa_minus_line": 0.08722950437503313,
+    "m0_squared_minus_line": -3.0970407503574204
+   }
+  ],
+  "mass_squared_of_the_doublet_at_S1_from_the_line": 0.2949851137978001
+ }
+}

@@ -1,0 +1,60 @@
+{
+ "N_loads": 3,
+ "trajectories_per_placement": 60000,
+ "seed": 20264125,
+ "separations": [
+  2
+ ],
+ "rows": [
+  {
+   "d": 2,
+   "faces": [
+    0,
+    2
+   ],
+   "trajectories": 60000,
+   "unresolved": 0,
+   "vacuum": 0.07645,
+   "lasting_33": 0.47178333333333333,
+   "lasting_24": 0.45176666666666665,
+   "mean_attempts": 1544.2987333333333,
+   "max_attempts": 43420,
+   "vacuum_by_fragment_distance": {
+    "1": [
+     0.18443072019125412,
+     20078
+    ],
+    "2": [
+     0.01330788931853563,
+     19913
+    ],
+    "3": [
+     0.03093607876455595,
+     20009
+    ]
+   },
+   "return_33_by_separation": {
+    "2": 0.40271666666666667,
+    "3": 0.06466666666666666,
+    "4": 0.00405,
+    "5": 0.00035
+   },
+   "lasting_24_by_separation": {
+    "2": 0.36711666666666665,
+    "3": 0.07776666666666666,
+    "4": 0.005933333333333333,
+    "5": 0.00095
+   },
+   "vacuum_standard_error": 0.0010847841375130815
+  }
+ ],
+ "K_C_by_separation": {
+  "2": 0.07645
+ },
+ "K_C_standard_error_by_separation": {
+  "2": 0.0010847841375130815
+ },
+ "partial_placement_sum": 0.02866875,
+ "partial_placement_sum_standard_error": 0.00040679405156740555,
+ "seconds": 24.0
+}

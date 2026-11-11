@@ -1,0 +1,74 @@
+"""BF section B (R1, R2, R4): menus of the link register, leak of the truncated link operators, largest mean link.
+
+R1  menu sizes and Casimir ranges from the fusion rules.
+R2  leak of U~^F per sector: share of F (x) R (and of Fbar (x) R) outside the menu; sectors with zero leak are the
+    ones below the menu boundary, where U~^F is the full multiplication operator.
+R4  top eigenvalue of Re chi_B / d_B on the class functions of each menu (the largest mean link the menu allows) and
+    of Re chi_F / N_F.
+Writes bf_register.json.
+"""
+import json
+import sys
+
+import numpy as np
+
+import bf_lib as L
+
+out = {}
+MEN = L.menus(4)
+REF = L.reference_menu(40.0)
+rows = []
+for n, M in enumerate(MEN):
+    sec = sorted(M)
+    cas = [L.casimir(r) for r in sec]
+    c3 = max(float(L.casimir_parts(r)[0]) for r in sec)
+    c2 = max(float(L.casimir_parts(r)[1]) for r in sec)
+    c1 = max(float(L.casimir_parts(r)[2]) for r in sec)
+    rows.append({'menu': f'M{n}', 'sectors': len(sec), 'states': int(sum(L.dim(r) ** 2 for r in sec)),
+                 'largest_Casimir': max(cas), 'largest_SU3_SU2_U1_parts': [c3, c2, c1],
+                 'largest_abs_6Y': max(abs(r[2]) for r in sec), 'largest_2j': max(r[1] for r in sec),
+                 'SU3_irreps': sorted({r[0] for r in sec})})
+    print(rows[-1], flush=True)
+assert [r['states'] for r in rows[:4]] == [1, 119, 3380, 45500]
+out['R1_menus'] = rows
+out['R1_reference_menu_C_le_40'] = {'sectors': len(REF), 'states': int(sum(L.dim(r) ** 2 for r in REF))}
+
+# R2: leak
+leak_rows = {}
+for name, blocks in (('5', L.BLOCKS5), ('15', L.BLOCKS15)):
+    for n in (1, 2, 3):
+        sec = sorted(MEN[n])
+        lk = L.leak(sec, blocks)
+        lkd = L.leak(sec, [L.dual(B) for B in blocks])
+        tot = sum(L.dim(r) ** 2 for r in sec)
+        zero = [r for r in sec if lk[r] < 1e-12 and lkd[r] < 1e-12]
+        leak_rows[f'F={name}, M{n}'] = {
+            'sectors_with_zero_leak_both_orientations': len(zero),
+            'states_in_those_sectors': int(sum(L.dim(r) ** 2 for r in zero)),
+            'share_of_states_with_zero_leak': sum(L.dim(r) ** 2 for r in zero) / tot,
+            'leak_on_the_vacuum_sector': lk[L.VAC],
+            'mean_leak_over_states (U)': sum(L.dim(r) ** 2 * lk[r] for r in sec) / tot,
+            'mean_leak_over_states (U^dagger)': sum(L.dim(r) ** 2 * lkd[r] for r in sec) / tot,
+            'largest_leak': max(max(lk.values()), max(lkd.values()))}
+        print('leak', f'F={name}, M{n}', leak_rows[f'F={name}, M{n}'], flush=True)
+out['R2_leak_of_truncated_link_operator'] = leak_rows
+
+# R4: largest mean link
+import scipy.sparse.linalg as spl
+umax = {}
+for name, blocks in (('5', L.BLOCKS5), ('15', L.BLOCKS15)):
+    NF = sum(L.dim(B) for B in blocks)
+    for n in (1, 2, 3, 4):
+        sec = sorted(MEN[n])
+        idx, ops = L.class_ops(sec, blocks)
+        row = {}
+        for B, A in zip(blocks, ops):
+            w = np.linalg.eigvalsh(A.toarray()) if len(sec) < 1500 else spl.eigsh(A, k=1, which='LA')[0]
+            row[f'block {B}'] = float(w.max() / L.dim(B))
+        tot = sum(ops)
+        w = np.linalg.eigvalsh(tot.toarray()) if len(sec) < 1500 else spl.eigsh(tot, k=1, which='LA')[0]
+        row['Re chi_F / N_F'] = float(w.max() / NF)
+        umax[f'F={name}, M{n}'] = row
+        print('umax', f'F={name}, M{n}', row, flush=True)
+out['R4_largest_mean_link'] = umax
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 'bf_register.json', 'w'), indent=1, default=L.jsonable)

@@ -1,0 +1,121 @@
+"""Task KOI, part G-b: the exact cone model of koi_cones.py against the executed engine (work/SIM/cf1/cf1_lib.py).
+
+8^3 torus, one body-centred lattice (cells with all coordinates of equal parity, 128 cells, 512 states), period of two
+ticks in the half-step frame (Engine.step_half, alternating order), mass option M1 (kind Y) at the source cells.
+For each configuration: (1) the first-order operator on the 32 rest states, (U2(eps) - U2(0)) / (-i eps) with
+eps = 1e-6, against Y_record (x) M (even parity block, cone basis) and its spectrum; (2) the lifted phases per tick at
+the source angle 0.171237 (all orders) against the first-order levels. Output: koide.json key 'G-b engine'.
+"""
+import itertools, json, os, sys
+import numpy as np
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(HERE, '..', 'cf1'))
+from cf1_lib import Engine                                             # noqa: E402
+from koide_lib import save, koide_from_eigs                            # noqa: E402
+
+L = 8; shape = (L, L, L)
+eng = Engine(shape)
+cells = [x for x in itertools.product(range(L), repeat=3) if (x[0] - x[1]) % 2 == 0 and (x[1] - x[2]) % 2 == 0]
+cid = {x: i for i, x in enumerate(cells)}
+n = 4 * len(cells)
+NE = sum(1 for x in cells if x[0] % 2 == 0)
+KP = {0: (0, 0, 0), 1: (0, 1, 1), 2: (1, 0, 1), 3: (1, 1, 0)}
+s1 = np.array([[0, 1], [1, 0]], complex); s2 = np.array([[0, -1j], [1j, 0]]); s3 = np.diag([1.0, -1.0]).astype(complex)
+aK = {0: np.eye(2), 1: 1j * s1, 2: -1j * s2, 3: 1j * s3}
+Yr = np.array([[0, -1j], [1j, 0]])
+
+
+def embed(vec_lat):
+    psi = np.zeros(shape + (2, 2), complex)
+    for x, i in cid.items(): psi[x] = vec_lat[4 * i:4 * i + 4].reshape(2, 2)
+    return psi
+
+
+def restrict(psi):
+    out = np.zeros(n, complex)
+    for x, i in cid.items(): out[4 * i:4 * i + 4] = psi[x].reshape(-1)
+    return out
+
+
+def period(theta):
+    U = np.zeros((n, n), complex)
+    for j in range(n):
+        e = np.zeros(n, complex); e[j] = 1
+        q = embed(e)
+        for t in (0, 1): q = eng.step_half(q, theta, 'Y', t)
+        U[:, j] = restrict(q)
+    return U
+
+
+def kind(x):
+    par = x[0] % 2; m = [(xi - par) // 2 % 2 for xi in x]
+    return par, (0 if m[0] == m[1] == m[2] else (1 if m[1] == m[2] else (2 if m[0] == m[2] else 3)))
+
+
+rep = {}
+for x in cells: rep.setdefault(kind(x), x)
+# rest basis: |K, parity, coin>, coin index 2 r + s
+def rest_vec(K, par, coin):
+    v = np.zeros(n, complex)
+    k = np.array(KP[K]) * np.pi / 2
+    for x, i in cid.items():
+        if x[0] % 2 != par: continue
+        v[4 * i + coin] = np.exp(1j * np.dot(k, x))
+    return v / np.linalg.norm(v)
+
+
+RB = np.array([rest_vec(K, par, c) for par in (0, 1) for K in range(4) for c in range(4)]).T     # 512 x 32
+U0 = period(np.zeros(shape))
+rest_defect = float(np.abs(U0 @ RB - RB).max())
+
+
+def model_M(sources):
+    M = np.zeros((8, 8), complex)
+    for x in sources:
+        s = np.array([np.exp(1j * np.dot(np.array(KP[K]) * np.pi / 2, x)).real for K in range(4)])
+        if x[0] % 2 == 0:
+            M += np.kron(np.outer(s, s), np.eye(2))
+        else:
+            w = np.zeros((8, 2), complex)
+            for K in range(4): w[2 * K:2 * K + 2] = s[K] * aK[K].conj().T
+            M += w @ w.conj().T
+    return M
+
+
+def run(label, sources, theta=0.171237, eps=1e-6):
+    th = np.zeros(shape)
+    for x in sources: th[x] = eps
+    G = (RB.conj().T @ (period(th) - U0) @ RB) / (-1j * eps)          # first-order operator on the rest space (32 x 32)
+    M = model_M(sources) / NE
+    # even block, reorder (K, coin=(r,s)) -> record (x) (K, spin): model is Y_r (x) M
+    Ge = G[:16, :16].reshape(4, 2, 2, 4, 2, 2)                          # K, r, s ; K', r', s'
+    Ge = Ge.transpose(1, 0, 2, 4, 3, 5).reshape(16, 16)                 # (r, K, s) x (r', K', s')
+    model = np.kron(Yr, M)
+    dev = float(np.abs(Ge - model).max())
+    ev_first = np.sort(np.linalg.eigvalsh((G + G.conj().T) / 2))       # 32 values, +- pairs
+    lev_model = np.sort(np.linalg.eigvalsh(M))
+    th[:] = 0
+    for x in sources: th[x] = theta
+    w = np.angle(np.linalg.eigvals(period(th))) / 2                      # phase per tick, all orders
+    low = np.sort(np.abs(w))[:32]
+    distinct = sorted(set(np.round(low, 7)))
+    first = sorted(set(np.round(np.abs(lev_model) * theta / 2, 7)))
+    row = {'configuration': label, 'cells': [list(x) for x in sources],
+           'first_order_operator_against_Y_x_M (max entry difference)': dev,
+           'first_order_levels_per_tick_over_theta (model)': sorted(set(np.round(lev_model / 2, 12))),
+           'lifted_phases_per_tick_at_theta (all orders, distinct)': distinct, 'first_order_prediction': first,
+           'lifted_multiplicities': [int(np.sum(np.abs(low - d) < 5e-7)) for d in distinct]}
+    print(label, '| first-order operator vs model', f'{dev:.1e}', '| levels all orders', distinct, '| first order', first)
+    return row
+
+
+rows = [run('one even cell (kind 0)', [rep[(0, 0)]]), run('one odd cell (kind 0)', [rep[(1, 0)]]),
+        run('even kind 0 + odd kind 0', [rep[(0, 0)], rep[(1, 0)]]), run('even kind 1 + odd kind 2', [rep[(0, 1)], rep[(1, 2)]]),
+        run('even kinds 1, 2, 3 (turn orbit)', [rep[(0, 1)], rep[(0, 2)], rep[(0, 3)]]),
+        run('even kind 0 + odd kinds 1, 3', [rep[(0, 0)], rep[(1, 1)], rep[(1, 3)]])]
+# the axis block (origin cone removed) of the even+odd pair, from the engine's first-order operator
+out = {'lattice': '8^3, one body-centred lattice (128 cells), half-step frame, alternating order', 'rest_states_defect': rest_defect,
+       'N_even_cells': NE, 'rows': rows, 'label': 'MEASURED (executed engine, float64)'}
+save('G-b engine', out)
+print('rest defect', rest_defect, '| saved')

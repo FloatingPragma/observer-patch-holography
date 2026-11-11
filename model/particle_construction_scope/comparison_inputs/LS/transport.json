@@ -1,0 +1,63 @@
+{
+ "settings": {
+  "mp_dps": 30,
+  "su2_su3_cutoff": 30,
+  "mode": "thomson_structured_running"
+ },
+ "rows": [
+  {
+   "kappa": "-0.5",
+   "P": "1.6309423351309818503",
+   "alpha_inv_0": "137.31068245135354271",
+   "alpha_U": "0.041124927086680185153",
+   "v_over_E": "2.0211052486125015243e-17",
+   "lepton_sum_over_E": "9.3527937506514073127e-20",
+   "lepton_sum_over_v": "0.004627563931701303143"
+  },
+  {
+   "kappa": "-0.1",
+   "P": "1.6309661340430513895",
+   "alpha_inv_0": "137.05799082256419776",
+   "alpha_U": "0.041124383590157663676",
+   "v_over_E": "2.0200705306502736378e-17",
+   "lepton_sum_over_E": "1.3945585519059513785e-19",
+   "lepton_sum_over_v": "0.0069035141632259446491"
+  },
+  {
+   "kappa": "0",
+   "P": "1.630972095858897377",
+   "alpha_inv_0": "136.9948351774129373",
+   "alpha_U": "0.041124247441816685141",
+   "v_over_E": "2.0198114078576330591e-17",
+   "lepton_sum_over_E": "1.5410278557508060362e-19",
+   "lepton_sum_over_v": "0.0076295630857206535386"
+  },
+  {
+   "kappa": "0.1",
+   "P": "1.6309780622400080537",
+   "alpha_inv_0": "136.93168941441282034",
+   "alpha_U": "0.041124111189957965736",
+   "v_over_E": "2.0195521196232923239e-17",
+   "lepton_sum_over_E": "1.7028805390267828235e-19",
+   "lepton_sum_over_v": "0.0084319712399619656885"
+  },
+  {
+   "kappa": "0.5",
+   "P": "1.6310019688979409372",
+   "alpha_inv_0": "136.67925387536740833",
+   "alpha_U": "0.041123565250579157926",
+   "v_over_E": "2.0185135099828975221e-17",
+   "lepton_sum_over_E": "2.5390927758030314249e-19",
+   "lepton_sum_over_v": "0.012579022945576146632"
+  }
+ ],
+ "derivatives_at_kappa0": {
+  "dP_dkappa": "5.964098478e-5",
+  "d_alpha_inv_0_dkappa": "-0.6315070408",
+  "d_alpha_inv_0_dkappa_kernel_asymptotic": "-0.6366197724",
+  "dln_v_dkappa": "-0.001283315484",
+  "dln_M_dkappa": "0.9987166845"
+ },
+ "reading": "For every kappa the forward Thomson map has a root P(kappa); the lepton sum in units of E* moves with slope dln M/dkappa near 1, so the map supplies no second equation for kappa.",
+ "wall_seconds": 11.3
+}

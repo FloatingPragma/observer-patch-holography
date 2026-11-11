@@ -1,0 +1,12 @@
+import sys, os, numpy as np
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from cf1_register import RegisterLine, sample_phases, toggle
+TH, T, L = 0.157935, 60, 256
+line = RegisterLine(L); q0, pk = line.packet_R8(TH); xs = line.xs
+mu0 = float(np.sum(np.sum(np.abs(q0) ** 2, axis=(1, 2, 3, 4)) * xs))
+for seed in (21, 99, 7):
+    phis = sample_phases('counter', L, 4000, np.random.default_rng(seed))
+    q = np.repeat(q0[:, :, :, None], 4000, axis=3)
+    for t in range(T): q = line.sector_tick(q, TH, phis, t, 'end')
+    rho_b = np.sum(np.abs(q) ** 2, axis=(1, 2, 4, 5)); d = np.sum(rho_b * xs[:, None], axis=0) - mu0
+    print(seed, 'blocks of 500:', np.round(d.reshape(8, 500).mean(axis=1), 2), 'all %.3f +- %.3f' % (d.mean(), d.std() / np.sqrt(4000)), 'skew', round(float(((d - d.mean())**3).mean() / d.std()**3), 2))

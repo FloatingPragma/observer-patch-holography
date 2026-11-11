@@ -1,0 +1,317 @@
+"""Analysis of the SU(3) finite-temperature runs and of the register scaling runs.
+
+    python analyze.py su3 DATA_DIR OUT.json [--nt 4]
+    python analyze.py reg DATA_DIR OUT.json
+
+Multi-histogram reweighting in the unbinned form (Ferrenberg and Swendsen 1989). Errors: jackknife over blocks,
+each block removed from every run at once. Thermalisation: the first 15 per cent of a run, at least 500 sweeps.
+"""
+import glob, json, os, sys
+import numpy as np
+from scipy.special import logsumexp
+
+NBLK = 10
+
+
+def therm_cut(n):
+    return max(500, int(0.15 * n)) if n > 1000 else n // 3
+
+
+def mbar(xs, betas, f0=None, tol=1e-8, maxit=4000):
+    """xs: list of arrays of the conjugate variable per run (weight exp(beta x)). Returns f, log denominators."""
+    x = np.concatenate(xs); N = np.array([len(a) for a in xs], float); K = len(betas)
+    B = np.outer(np.asarray(betas, float), x)
+    lnN = np.log(N); f = np.zeros(K) if f0 is None else f0.copy()
+    for it in range(maxit):
+        ld = logsumexp(B + (lnN + f)[:, None], axis=0)
+        fn = -logsumexp(B - ld[None, :], axis=1); fn -= fn[0]
+        d = np.max(np.abs(fn - f)); f = fn
+        if d < tol:
+            break
+    ld = logsumexp(B + (lnN + f)[:, None], axis=0)
+    return f, ld
+
+
+def weights(x, ld, beta):
+    lw = beta * x - ld; lw -= lw.max(); w = np.exp(lw)
+    return w / w.sum()
+
+
+def jk_blocks(n, nb=NBLK):
+    return np.array_split(np.arange(n), nb)
+
+
+def parab_max(g, y):
+    k = int(np.argmax(y))
+    if k == 0 or k == len(y) - 1:
+        return g[k], y[k], True
+    a, b, c = y[k - 1], y[k], y[k + 1]; den = a - 2 * b + c
+    d = 0.5 * (a - c) / den if den != 0 else 0.0
+    return g[k] + d * (g[1] - g[0]), b - 0.25 * (a - c) * d, False
+
+
+def binned_err(x, nb=20):
+    x = np.asarray(x); m = len(x) // nb
+    b = x[:nb * m].reshape(nb, m).mean(1)
+    return float(b.std(ddof=1) / np.sqrt(nb))
+
+
+def jk_stat(fn, arrs, nb=20):
+    """jackknife of a statistic fn(*arrays) over nb blocks of the common series"""
+    n = len(arrs[0]); blocks = np.array_split(np.arange(n), nb)
+    full = fn(*arrs); vals = []
+    for b in blocks:
+        m = np.ones(n, bool); m[b] = False
+        vals.append(fn(*[a[m] for a in arrs]))
+    vals = np.array(vals)
+    return float(full), float(np.sqrt((nb - 1) * np.mean((vals - vals.mean()) ** 2)))
+
+
+def tau_int(x):
+    x = np.asarray(x, float) - np.mean(x); n = len(x)
+    if n < 50 or x.var() == 0:
+        return float('nan')
+    f = np.fft.rfft(x, 2 * n); ac = np.fft.irfft(f * np.conj(f))[:n]; ac /= ac[0]
+    t = 0.5
+    for w in range(1, n // 4):
+        t += ac[w]
+        if w >= 6 * t:
+            break
+    return float(t)
+
+
+# ----------------------------------------------------------------------------------------------------------- SU(3)
+def load_su3(ddir, nt):
+    runs = []
+    for f in sorted(glob.glob(os.path.join(ddir, '*.npz'))):
+        d = np.load(f); m = json.loads(str(d['meta']))
+        if m['nt'] != nt or m['done'] < 600:
+            continue
+        runs.append(dict(file=os.path.basename(f), ns=m['ns'], beta=m['beta'], start=m['start'], done=m['done'],
+                         nsweeps=m['nsweeps'], seed=m['seed'], p=0.5 * (d['ps'] + d['pt']), L=d['L']))
+    return runs
+
+
+def su3_reweight(runs, ns, nt, window, grid_n=241, sub=2):
+    sel = [r for r in runs if r['ns'] == ns and window[0] <= r['beta'] <= window[1] and r['done'] >= 2000]
+    if len(sel) < 2:
+        return None
+    NP = 6 * ns ** 3 * nt; V3 = ns ** 3
+    xs, ls, bs = [], [], []
+    for r in sel:
+        c = therm_cut(r['done'])
+        xs.append(NP * r['p'][c::sub]); ls.append(np.abs(r['L'][c::sub])); bs.append(r['beta'])
+    x0 = np.mean(np.concatenate(xs)); xs = [a - x0 for a in xs]
+    g = np.linspace(min(bs), max(bs), grid_n)
+
+    def curves(xs_, ls_, f0=None):
+        f, ld = mbar(xs_, bs, f0)
+        x = np.concatenate(xs_); l = np.concatenate(ls_)
+        chi = np.empty(len(g)); am = np.empty(len(g)); pm = np.empty(len(g)); b4 = np.empty(len(g))
+        for k, b in enumerate(g):
+            w = weights(x, ld, b); m1 = (w * l).sum(); m2 = (w * l * l).sum(); m4 = (w * l ** 4).sum()
+            chi[k] = V3 * (m2 - m1 * m1); am[k] = m1; pm[k] = (w * x).sum() / NP + x0 / NP; b4[k] = 1 - m4 / (3 * m2 * m2)
+        return f, ld, chi, am, pm, b4
+
+    f, ld, chi, am, pm, b4 = curves(xs, ls)
+    bc, cm, edge = parab_max(g, chi)
+    blocks = [jk_blocks(len(a)) for a in xs]
+    jb, jc, jchi, jam = [], [], [], []
+    for i in range(NBLK):
+        xs_ = [np.delete(a, blocks[k][i]) for k, a in enumerate(xs)]
+        ls_ = [np.delete(a, blocks[k][i]) for k, a in enumerate(ls)]
+        _, _, c_, a_, _, _ = curves(xs_, ls_, f)
+        b_, m_, _ = parab_max(g, c_); jb.append(b_); jc.append(m_); jchi.append(c_); jam.append(a_)
+    jb = np.array(jb); jc = np.array(jc); jchi = np.array(jchi); jam = np.array(jam)
+    je = lambda v: float(np.sqrt((NBLK - 1) * np.mean((v - v.mean(0)) ** 2, axis=0))) if v.ndim == 1 else np.sqrt((NBLK - 1) * np.mean((v - v.mean(0)) ** 2, axis=0))
+    # histogram of |L| at the peak, reweighted
+    x = np.concatenate(xs); l = np.concatenate(ls); w = weights(x, ld, bc)
+    hi = float(np.quantile(l, 0.9995)) * 1.05
+    cnt, edges = np.histogram(l, bins=48, range=(0, hi), weights=w)
+    step = {8: 0.008, 12: 0.003, 16: 0.0015}.get(ns, 0.003)
+    hist_series = []
+    for off in (-2, -1, 0, 1, 2):
+        bb = bc + off * step
+        if g[0] <= bb <= g[-1]:
+            cc, _ = np.histogram(l, bins=48, range=(0, hi), weights=weights(x, ld, bb))
+            hist_series.append(dict(beta=float(bb), counts=(cc / cc.sum()).tolist()))
+    # equal-weight coupling: cut at the minimum between the two peaks of the smoothed histogram at the peak coupling
+    sm = np.convolve(cnt, np.ones(3) / 3, mode='same'); kmax = int(np.argmax(sm))
+    two = None
+    # search for a second local maximum separated by a dip
+    best = None
+    for k2 in range(len(sm)):
+        if abs(k2 - kmax) < 5:
+            continue
+        lo, hi_ = sorted((k2, kmax)); dip = sm[lo:hi_ + 1].min()
+        if sm[k2] > 1.15 * dip and sm[k2] >= sm[max(0, k2 - 2):k2 + 3].max() - 1e-15:
+            if best is None or sm[k2] > sm[best]:
+                best = k2
+    if best is not None:
+        lo, hi_ = sorted((best, kmax)); kd = lo + int(np.argmin(sm[lo:hi_ + 1])); cut = 0.5 * (edges[kd] + edges[kd + 1])
+        frac = np.array([(weights(x, ld, b) * (l > cut)).sum() for b in g])
+        k = int(np.argmin(np.abs(frac - 0.5)))
+        if 0 < k < len(g) - 1 and frac[k + 1] != frac[k - 1]:
+            beq = float(np.interp(0.5, frac[k - 1:k + 2], g[k - 1:k + 2])) if frac[k + 1] > frac[k - 1] else float(g[k])
+        else:
+            beq = float(g[k])
+        two = dict(cut=float(cut), beta_equal_weight=beq, peak_ratio_dip=float(sm[kd] / max(sm[best], 1e-300)),
+                   dip_over_lower_peak=float(sm[kd] / min(sm[best], sm[kmax])))
+    return dict(ns=ns, runs=[r['file'] for r in sel], betas=bs, samples=[len(a) for a in xs], sub=sub,
+                beta_c=float(bc), beta_c_err=je(jb), chi_max=float(cm), chi_max_err=je(jc), peak_on_edge=bool(edge),
+                grid=g.tolist(), chi=chi.tolist(), chi_err=je(jchi).tolist(), absL=am.tolist(), absL_err=je(jam).tolist(),
+                plaq=pm.tolist(), binder=b4.tolist(),
+                hist_at_peak=dict(beta=float(bc), bins=edges.tolist(), counts=(cnt / cnt.sum()).tolist()), hist_series=hist_series, two_peaks=two)
+
+
+def su3_point(rs, ns):
+    """statistics of all runs at one (ns, beta): merged after the thermalisation cut"""
+    V3 = ns ** 3
+    l = np.concatenate([np.abs(r['L'][therm_cut(r['done']):]) for r in rs])
+    p = np.concatenate([r['p'][therm_cut(r['done']):] for r in rs])
+    Lc = np.concatenate([r['L'][therm_cut(r['done']):] for r in rs])
+    chi, chi_e = jk_stat(lambda a: V3 * a.var(), [l])
+    return dict(beta=rs[0]['beta'], n=len(l), absL=float(l.mean()), absL_err=binned_err(l), chi=chi, chi_err=chi_e,
+                plaq=float(p.mean()), plaq_err=binned_err(p), tau_absL=tau_int(l), starts=[r['start'] for r in rs],
+                reL=float(Lc.real.mean()), imL=float(Lc.imag.mean()))
+
+
+def tunnel_count(l, lo, hi, window=20):
+    """number of passages between the bands below lo and above hi of a running mean over `window` sweeps"""
+    s = np.convolve(l, np.ones(window) / window, mode='valid'); state = 0; n = 0
+    for v in s:
+        if v < lo and state != -1:
+            n += state == 1; state = -1
+        elif v > hi and state != 1:
+            n += state == -1; state = 1
+    return n
+
+
+def main_su3(ddir, outf, nt):
+    runs = load_su3(ddir, nt); out = dict(N_t=nt, sizes={}, reweight={})
+    for ns in sorted(set(r['ns'] for r in runs)):
+        pts = []
+        for b in sorted(set(r['beta'] for r in runs if r['ns'] == ns)):
+            rs = [r for r in runs if r['ns'] == ns and r['beta'] == b and not (r['start'] == 'hot' and r['seed'] >= 7000)]
+            if rs:
+                pts.append(su3_point(rs, ns))
+        out['sizes'][str(ns)] = pts
+        win = {4: {8: (5.62, 5.73), 12: (5.67, 5.705), 16: (5.679, 5.701)}, 6: {12: (5.84, 5.94), 16: (5.85, 5.93), 18: (5.86, 5.93)}}[nt].get(ns)
+        if win:
+            rw = su3_reweight(runs, ns, nt, win, sub=1 if ns == 8 else 2)
+            if rw:
+                out['reweight'][str(ns)] = rw
+    # runs listing and tunnelling
+    out['runs'] = []
+    for r in runs:
+        c = therm_cut(r['done']); l = np.abs(r['L'][c:])
+        e = dict(file=r['file'], ns=r['ns'], beta=r['beta'], start=r['start'], done=r['done'], planned=r['nsweeps'],
+                 absL=float(l.mean()))
+        rw = out['reweight'].get(str(r['ns']))
+        if rw and rw.get('two_peaks') and r['done'] >= 4000:
+            cut = rw['two_peaks']['cut']; e['tunnellings'] = tunnel_count(l, 0.8 * cut, 1.2 * cut)
+        out['runs'].append(e)
+    # volume scaling of the susceptibility maximum
+    S = sorted((int(k), v['chi_max'], v['chi_max_err'], v['beta_c'], v['beta_c_err']) for k, v in out['reweight'].items())
+    if len(S) >= 2:
+        ns_ = np.array([s[0] for s in S], float); cm = np.array([s[1] for s in S]); ce = np.array([s[2] for s in S])
+        bc = np.array([s[3] for s in S]); be = np.maximum(np.array([s[4] for s in S]), 1e-5)
+        lx = np.log(ns_); ly = np.log(cm); w = (cm / np.maximum(ce, 1e-12)) ** 2
+        A = np.vstack([lx, np.ones_like(lx)]).T; cov = np.linalg.inv(A.T @ (A * w[:, None])); sol = cov @ (A.T @ (w * ly))
+        out['chi_max_scaling'] = dict(N_s=ns_.tolist(), chi_max=cm.tolist(), err=ce.tolist(), exponent=float(sol[0]),
+                                      exponent_err=float(np.sqrt(cov[0, 0])),
+                                      exponent_pairs=[float(np.log(cm[i + 1] / cm[i]) / np.log(ns_[i + 1] / ns_[i])) for i in range(len(S) - 1)])
+        # beta_c(N_s) = beta_inf - h (nt/ns)^3
+        xx = (nt / ns_) ** 3; A = np.vstack([np.ones_like(xx), -xx]).T; w = 1 / be ** 2
+        cov = np.linalg.inv(A.T @ (A * w[:, None])); sol = cov @ (A.T @ (w * bc))
+        chi2 = float((w * (bc - A @ sol) ** 2).sum())
+        fit = dict(beta_inf=float(sol[0]), beta_inf_err=float(np.sqrt(cov[0, 0])), h=float(sol[1]), h_err=float(np.sqrt(cov[1, 1])),
+                   chi2=chi2, dof=len(S) - 2, sizes=ns_.tolist())
+        if len(S) >= 3:
+            i, j = len(S) - 2, len(S) - 1
+            h2 = (bc[j] - bc[i]) / (xx[i] - xx[j]); binf = bc[j] + h2 * xx[j]
+            e2 = float(np.sqrt((be[j] * (1 + xx[j] / (xx[i] - xx[j]))) ** 2 + (be[i] * xx[j] / (xx[i] - xx[j])) ** 2))
+            fit['two_largest'] = dict(beta_inf=float(binf), beta_inf_err=e2, h=float(h2))
+        out['beta_c_extrapolation'] = fit
+    json.dump(out, open(outf, 'w'))
+    for ns, rw in out['reweight'].items():
+        print(f"N_s={ns}: beta_c={rw['beta_c']:.5f}({rw['beta_c_err']:.5f}) chi_max={rw['chi_max']:.3f}({rw['chi_max_err']:.3f}) edge={rw['peak_on_edge']} two={rw['two_peaks']}")
+    print(out.get('chi_max_scaling')); print(out.get('beta_c_extrapolation'))
+    for r in out['runs']:
+        print(r)
+
+
+# -------------------------------------------------------------------------------------------------------- register
+def main_reg(ddir, outf):
+    out = {}
+    for N in (3, 2):
+        res = {}
+        files = sorted(glob.glob(os.path.join(ddir, f'Z{N}_L*.npz')))
+        byL = {}
+        for f in files:
+            d = np.load(f); m = json.loads(str(d['meta'])); byL.setdefault(m['L'], []).append((m['kappa'], d['e'], d['P'], m))
+        for L in sorted(byL):
+            rs = sorted(byL[L], key=lambda t: t[0]); NPl = 3 * L ** 3
+            ks = [r[0] for r in rs]; sub = {8: 2, 12: 3, 16: 5, 24: 8, 32: 10}.get(L, 10)
+            xs = [NPl * r[1][therm_cut(len(r[1]))::sub] for r in rs]
+            x0 = np.mean(np.concatenate(xs)); xs = [a - x0 for a in xs]
+            g = np.linspace(min(ks), max(ks), 241)
+
+            def curves(xs_, f0=None):
+                f, ld = mbar(xs_, ks, f0); x = np.concatenate(xs_); e = (x + x0) / NPl
+                C = np.empty(len(g)); em = np.empty(len(g)); B = np.empty(len(g))
+                for k, b in enumerate(g):
+                    w = weights(x, ld, b); m1 = (w * e).sum(); m2 = (w * e * e).sum(); m4 = (w * e ** 4).sum()
+                    C[k] = NPl * (m2 - m1 * m1); em[k] = m1; B[k] = 1 - m4 / (3 * m2 * m2)
+                return f, ld, C, em, B
+
+            f, ld, C, em, B = curves(xs)
+            kc, cm, edge = parab_max(g, C)
+            blocks = [jk_blocks(len(a)) for a in xs]; jk_k, jk_c, jk_C, jk_B = [], [], [], []
+            for i in range(NBLK):
+                _, _, C_, _, B_ = curves([np.delete(a, blocks[k][i]) for k, a in enumerate(xs)], f)
+                k_, m_, _ = parab_max(g, C_); jk_k.append(k_); jk_c.append(m_); jk_C.append(C_); jk_B.append(B_.min())
+            je = lambda v: np.sqrt((NBLK - 1) * np.mean((np.asarray(v) - np.mean(v, axis=0)) ** 2, axis=0))
+            x = np.concatenate(xs); e = (x + x0) / NPl; w = weights(x, ld, kc)
+            lo, hi = np.quantile(e, [0.0005, 0.9995]); cnt, edges = np.histogram(e, bins=48, range=(lo, hi), weights=w)
+            sm = np.convolve(cnt, np.ones(3) / 3, mode='same'); kmax = int(np.argmax(sm)); dipr = 1.0
+            for k2 in range(len(sm)):
+                if abs(k2 - kmax) < 5:
+                    continue
+                a, b = sorted((k2, kmax)); dip = sm[a:b + 1].min()
+                if sm[k2] >= sm[max(0, k2 - 2):k2 + 3].max() - 1e-15 and sm[k2] > 0:
+                    dipr = min(dipr, dip / sm[k2])
+            per = []
+            for r in rs:
+                ee = r[1][therm_cut(len(r[1])):]
+                cv, cve = jk_stat(lambda a: NPl * a.var(), [ee])
+                per.append(dict(kappa=r[0], e=float(ee.mean()), e_err=binned_err(ee), C=cv, C_err=cve, tau=tau_int(ee), n=len(ee),
+                                absP=float(np.abs(r[2][len(r[2]) // 5:]).mean()), start=r[3]['start'],
+                                tunnellings=(tunnel_count(ee, 0.905, 0.935, 200) if N == 3 and L >= 16 else None),
+                                share_ordered=(float((np.convolve(ee, np.ones(200) / 200, mode='valid') > 0.92).mean()) if N == 3 and L >= 16 else None)))
+            tun = sum(q['tunnellings'] or 0 for q in per)
+            metastable = bool(N == 3 and L >= 24 and tun < 3)
+            res[str(L)] = dict(L=L, kappas=ks, kappa_peak=float(kc), kappa_peak_err=float(je(jk_k)), C_max=float(cm), C_max_err=float(je(jk_c)),
+                               peak_on_edge=bool(edge), grid=g.tolist(), C=C.tolist(), C_err=je(jk_C).tolist(), e=em.tolist(),
+                               binder_min=float(B.min()), binder_min_err=float(je(jk_B)), two_thirds_minus_binder_min=float(2 / 3 - B.min()),
+                               hist_at_peak=dict(kappa=float(kc), bins=edges.tolist(), counts=(cnt / cnt.sum()).tolist()),
+                               dip_over_second_peak=float(dipr), runs=per, tunnellings=tun, metastable=metastable)
+            print(f"Z{N} L={L}: kappa_peak={kc:.5f}({float(je(jk_k)):.5f}) C_max={cm:.3f}({float(je(jk_c)):.3f}) edge={edge} "
+                  f"2/3-Bmin={2 / 3 - B.min():.3e} dip/peak={dipr:.3f}")
+        Ls = np.array(sorted(int(k) for k in res if not res[k]['metastable']), float)
+        if len(Ls) >= 2:
+            cm = np.array([res[str(int(L))]['C_max'] for L in Ls]); ce = np.array([res[str(int(L))]['C_max_err'] for L in Ls])
+            pairs = [float(np.log(cm[i + 1] / cm[i]) / np.log(Ls[i + 1] / Ls[i])) for i in range(len(Ls) - 1)]
+            pe = [float(np.hypot(ce[i + 1] / cm[i + 1], ce[i] / cm[i]) / np.log(Ls[i + 1] / Ls[i])) for i in range(len(Ls) - 1)]
+            res['scaling'] = dict(L=Ls.tolist(), C_max=cm.tolist(), C_max_err=ce.tolist(), exponent_pairs=pairs, exponent_pairs_err=pe)
+            print(f'Z{N} exponent pairs', pairs, pe)
+        out[f'Z{N}'] = res
+    json.dump(out, open(outf, 'w'))
+
+
+if __name__ == '__main__':
+    if sys.argv[1] == 'su3':
+        nt = int(sys.argv[sys.argv.index('--nt') + 1]) if '--nt' in sys.argv else 4
+        main_su3(sys.argv[2], sys.argv[3], nt)
+    else:
+        main_reg(sys.argv[2], sys.argv[3])

@@ -1,0 +1,1014 @@
+{
+  "schema": "oph.scientific_comparison_inputs.v1",
+  "scope": "Source and numerical comparison inputs. Checksum admission does not validate their physical interpretations or transfer their construction to the owning source. Source text is inert .raw data; executable verified results are linked in README.md.",
+  "files": [
+    {
+      "path": "CODEX_JOIN_COMPILER/FROZEN.json",
+      "source": "work/CODEX_JOIN_COMPILER/FROZEN.json",
+      "sha256": "9f443e08e7149245f32092926280a563faf7f56103a57c941fe50ed05c634df4",
+      "bytes": 617
+    },
+    {
+      "path": "CODEX_JOIN_COMPILER/bridge.py.raw",
+      "source": "work/CODEX_JOIN_COMPILER/bridge.py",
+      "sha256": "45df8b86b143d2aa077e0a1e14690d35e866557ce04c817bfc83013c6a0925e0",
+      "bytes": 25246
+    },
+    {
+      "path": "CODEX_JOIN_COMPILER/finite_compiler.py.raw",
+      "source": "work/CODEX_JOIN_COMPILER/finite_compiler.py",
+      "sha256": "89b3a87ff26508ab5891fa1fb9f529c12647bf1b8b70f1341261cbd4617810fb",
+      "bytes": 6740
+    },
+    {
+      "path": "CODEX_JOIN_COMPILER/results.json",
+      "source": "work/CODEX_JOIN_COMPILER/results.json",
+      "sha256": "d101e190a82f485c060e38080eb5c9cde5b6c0aa2838cbd3e932921bb503af8d",
+      "bytes": 254713
+    },
+    {
+      "path": "CODEX_JOIN_COMPILER/test_compiler.py.raw",
+      "source": "work/CODEX_JOIN_COMPILER/test_compiler.py",
+      "sha256": "5e84b1e003ae0564678c95297e2566e38b0fe5b8382bbde7ec389e13e1639836",
+      "bytes": 4800
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/actual_local_ground_results.json",
+      "source": "work/CODEX_JOIN_QUANTUM/actual_local_ground_results.json",
+      "sha256": "abe6b076682195653a25b87916181bd26d6af357fa97dbd8791eb57021efe749",
+      "bytes": 632
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/affine_spectrum_audit/check.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/affine_spectrum_audit/check.py",
+      "sha256": "7c89e2ee0dc9f3f7940d407d8d3da30e2f7f47d3c5ca707288e3aa9e0db74f43",
+      "bytes": 5502
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/affine_spectrum_audit/test_audit.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/affine_spectrum_audit/test_audit.py",
+      "sha256": "a8b125a6c2e179922897d36d0c41778e09c323ad918b331057100241fb2a06f6",
+      "bytes": 1564
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/audit_nu3.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/audit_nu3.py",
+      "sha256": "153827ca4ad413c91c4c808d99cb50d8f86b61b5a378e0488633a3ea4e86ac11",
+      "bytes": 2762
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/check_physical_embedding.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/check_physical_embedding.py",
+      "sha256": "20463e3d3c62d65a8ac285150a59d6c28aa5425ae983888595389ad9dca0a0a9",
+      "bytes": 2036
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/check_quadrature_reference.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/check_quadrature_reference.py",
+      "sha256": "f10a7b6ee7379d28164a90450536277ed3bb817c50037883e6c3d7c9b5fd3920",
+      "bytes": 6128
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/clock_observables_audit/check.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/clock_observables_audit/check.py",
+      "sha256": "031c07a871836b0b421a7a1aee52d558f18af637dbf475aaaa13f1366a8fda3f",
+      "bytes": 2397
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/coulomb_mobile/model.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/coulomb_mobile/model.py",
+      "sha256": "2d2ff8b55fa8d49244d0483e1f1922600516e81e2a2500c9bd7c86ef44738a0a",
+      "bytes": 12664
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/coulomb_mobile/test_mobile.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/coulomb_mobile/test_mobile.py",
+      "sha256": "d741c0f5f95d4f5d967552f861973b204132f7598c541a9df0a0979683c86204",
+      "bytes": 5856
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/coulomb_source/model.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/coulomb_source/model.py",
+      "sha256": "a8eddbae9ab7f54bfaf7eb9fa3c5b69fda78cb4d7fe3725144ddbcff8016f767",
+      "bytes": 20244
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/coulomb_source/test_source.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/coulomb_source/test_source.py",
+      "sha256": "da0f9709c5ae0c631b1614640e8c64cf39fe421655e31f302988776353077a62",
+      "bytes": 6996
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/field_current_records/baseline.json",
+      "source": "work/CODEX_JOIN_QUANTUM/field_current_records/baseline.json",
+      "sha256": "f6a12208adbcbcdb2ce035870b87f8b805e0ff9ecde1206909e686abdc1531cf",
+      "bytes": 2131
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/field_current_records/build_custody.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/field_current_records/build_custody.py",
+      "sha256": "6281b5f0b3850209047cc71c0abb31edc1d6730e6034b1bb04206c7612eb955c",
+      "bytes": 12513
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/field_current_records/build_navigation.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/field_current_records/build_navigation.py",
+      "sha256": "4a17675a393135baa33bb8ec0e033fac0be59ea3d494dab10b34bc68dc91fef1",
+      "bytes": 7424
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/field_current_records/final_manifest.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/field_current_records/final_manifest.py",
+      "sha256": "7ebd117be4573848c06e5921c0acac97b28aa2ef15e03c6c7830bfc0ce46f7e4",
+      "bytes": 2441
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/field_current_records/live_baselines.json",
+      "source": "work/CODEX_JOIN_QUANTUM/field_current_records/live_baselines.json",
+      "sha256": "46deb5f949bb4d10574c3b1e2c8d5117a32a2e7d5bc0ec78c397399652b671b0",
+      "bytes": 8711
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/field_current_records/navigation_additions.json",
+      "source": "work/CODEX_JOIN_QUANTUM/field_current_records/navigation_additions.json",
+      "sha256": "764eee1d3ae885e7da0071589ff54b7f72eebfcc8d324bb9963a1c8f34143454",
+      "bytes": 8719
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/field_current_records/replay_owner_graph.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/field_current_records/replay_owner_graph.py",
+      "sha256": "f9395b71b920447a265ae8008367f9fe8ba16d810bf43ed5bf3d0f9d94c507ba",
+      "bytes": 3259
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/field_current_records/retained_suite.json",
+      "source": "work/CODEX_JOIN_QUANTUM/field_current_records/retained_suite.json",
+      "sha256": "f30d2316c9f476ccbb758ece846198d2c78ece99358d5a823b97125a73090bb5",
+      "bytes": 2894
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/field_current_records/scaffold.json",
+      "source": "work/CODEX_JOIN_QUANTUM/field_current_records/scaffold.json",
+      "sha256": "c3a9edd11d98645714b84f8b219ab4825dfc2c0af80c3bf4372e7cb9a92441a0",
+      "bytes": 7328
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/full_sector_audit/algebraic_frame.npz",
+      "source": "work/CODEX_JOIN_QUANTUM/full_sector_audit/algebraic_frame.npz",
+      "sha256": "e8336a52278e77eb384203172290080c39c4332600a8c958cc3481d83f90355a",
+      "bytes": 37102
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/full_sector_audit/polynomial_check.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/full_sector_audit/polynomial_check.py",
+      "sha256": "708738c62891a69da2e38ae8617e6060beaf1baccb06a34546f370eadda05a30",
+      "bytes": 3172
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/full_sector_audit/replay_actual.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/full_sector_audit/replay_actual.py",
+      "sha256": "9b7790502adb7eba3ddf42f0216036764be8f683c8c1d40433f450854b9351b8",
+      "bytes": 3494
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/full_sector_audit/results.json",
+      "source": "work/CODEX_JOIN_QUANTUM/full_sector_audit/results.json",
+      "sha256": "870a2cc94d6a26f9098bdee3bc25dd56be9b3111c67fa82fa82837965f352bf1",
+      "bytes": 7766
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/full_sector_audit/rounding_check.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/full_sector_audit/rounding_check.py",
+      "sha256": "292fab6a062acf1020acb811027bff83d6cded5de9100312f273c2e32296d79f",
+      "bytes": 3581
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/full_sector_audit/rounding_control.json",
+      "source": "work/CODEX_JOIN_QUANTUM/full_sector_audit/rounding_control.json",
+      "sha256": "9a6c7de77a8bf52460bb6f6e335602281cf7632ca6c8a3067c10303d30e8af0c",
+      "bytes": 569
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/maxwell_cochain/certificate.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/maxwell_cochain/certificate.py",
+      "sha256": "2f829d8ba6ce69ecbc9f0b208cb823b908031e16381046d6c59f640924cb5c22",
+      "bytes": 3273
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/maxwell_cochain/current_audit.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/maxwell_cochain/current_audit.py",
+      "sha256": "22ee0f7a77bd01b4eaa58efc194a5d3ff0eb5c497459c46efaadfcb2702afb7b",
+      "bytes": 6114
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/maxwell_cochain/field.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/maxwell_cochain/field.py",
+      "sha256": "0d223de7aecbd77d9028f88c674c55f62ec28aa31b9cd8ba892c7f68af2f2721",
+      "bytes": 9739
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/maxwell_cochain/gauss.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/maxwell_cochain/gauss.py",
+      "sha256": "7431ce0d5cba2fce56c0a6ef6bbc675ea3c341d9337eb75117ca077a6ac6333c",
+      "bytes": 4359
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/maxwell_cochain/test_exact_current.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/maxwell_cochain/test_exact_current.py",
+      "sha256": "b223f04fe94d2e26db8a22edbe7b146871663cb2f03f77a97fe0bcaac74aa7e0",
+      "bytes": 1189
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/maxwell_cochain/test_field.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/maxwell_cochain/test_field.py",
+      "sha256": "f23680030518483827447167a6bd339e9d05c6c33dac191fca33baff8d9259c0",
+      "bytes": 4265
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/native_abelian_energy_response/certificate.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/native_abelian_energy_response/certificate.py",
+      "sha256": "0feceeffcec119c9c369b817a6f6ce98cacdb409a6116853f7757540b6989375",
+      "bytes": 3733
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/native_abelian_energy_response/model.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/native_abelian_energy_response/model.py",
+      "sha256": "82b80653bda675814f72fa4ad66a34fe68b62bad59dd6d2d480e6a9207d0a264",
+      "bytes": 11547
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/native_abelian_energy_response/test_energy.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/native_abelian_energy_response/test_energy.py",
+      "sha256": "aed53b1d909dd20cbbca5e92382f0280326e29fea1751710b419fa39dc7e2f15",
+      "bytes": 7151
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/native_abelian_join/certificate.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/native_abelian_join/certificate.py",
+      "sha256": "fae7fb8cb8acaa04911914b721489aae6a639f1486e4b6bd0393560af7b3dda3",
+      "bytes": 3209
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/native_abelian_join/structure.json",
+      "source": "work/CODEX_JOIN_QUANTUM/native_abelian_join/structure.json",
+      "sha256": "9258c57f52a98b75eb32f2d700193adb038fd8c4707b533cbb715c2568bc25a8",
+      "bytes": 23284
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/native_abelian_join/structure.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/native_abelian_join/structure.py",
+      "sha256": "b20fced821ef19e58f6867c40dee64dd40f2599da184012a1dd93f919cc2aa76",
+      "bytes": 12048
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/native_abelian_join/test_structure.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/native_abelian_join/test_structure.py",
+      "sha256": "03bca859b21d525fcbab75558a8eb0e292f5fda55d4b85e0dbe8c66235f8b90b",
+      "bytes": 4360
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/native_charge_centroid/bounds.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/native_charge_centroid/bounds.py",
+      "sha256": "e5345f7ab188f2df5268c18085331cb8f7559496606d824051d19791f2ca7e69",
+      "bytes": 7941
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/native_charge_centroid/certificate.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/native_charge_centroid/certificate.py",
+      "sha256": "b9880ceaf69c3ec021b9b73db8e18a95bb22739dec690a34ff3b82006eb1db23",
+      "bytes": 3684
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/native_charge_centroid/test_centroid.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/native_charge_centroid/test_centroid.py",
+      "sha256": "659689052568fe849dda6cc325bbc5fcdb1b6e83e006fb1ba6a2a454154e68c9",
+      "bytes": 6292
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/native_charge_conjugation/certificate.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/native_charge_conjugation/certificate.py",
+      "sha256": "3e36742f15366ad66cb64d923bb94e197cbc07929fbce1be35ab8d5d233bb29f",
+      "bytes": 4215
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/native_charge_conjugation/symmetry.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/native_charge_conjugation/symmetry.py",
+      "sha256": "a616429caf24348b7792ff052c445a8478dea3fab058d152a9d86f9b2ee9bd52",
+      "bytes": 8811
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/native_charge_conjugation/test_symmetry.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/native_charge_conjugation/test_symmetry.py",
+      "sha256": "563fe1905bd55a7ad23dbdc8d9e087a160268f63cfb31010f291060128822c23",
+      "bytes": 2438
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/native_charge_resolution/bounds.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/native_charge_resolution/bounds.py",
+      "sha256": "ad6895d49ec72c9d28790688cf3e480b974eccea6d7ab3d39ab074aee5fb6faf",
+      "bytes": 6849
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/native_charge_resolution/certificate.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/native_charge_resolution/certificate.py",
+      "sha256": "59fc8fc0aaed81504698626ba5e4b870a2738fc7d8f971808956c2f1e6a37e69",
+      "bytes": 2738
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/native_charge_resolution/test_resolution.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/native_charge_resolution/test_resolution.py",
+      "sha256": "124643a2055baf2c9c4bf2a6fbad5efb4632b333f0b86cae0d71ca2825f0069c",
+      "bytes": 3625
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/native_quark_higgs_join/certificate.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/native_quark_higgs_join/certificate.py",
+      "sha256": "df4cf6d7186751a70d918a8e36f939f35860fa826c58b94a21ee9a54424e523e",
+      "bytes": 5595
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/native_quark_higgs_join/test_join.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/native_quark_higgs_join/test_join.py",
+      "sha256": "d45ef637e1a6e9acf18cf45f82fa887846c4b242f9610c6bb747cd72d0368193",
+      "bytes": 4738
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/native_quark_response/certificate.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/native_quark_response/certificate.py",
+      "sha256": "8d05877b5494a3d34ae9450244302dd7a27ee4e19ad01adb8e46cb5b391d0baf",
+      "bytes": 9462
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/native_quark_response/full.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/native_quark_response/full.py",
+      "sha256": "5851beaa779488f3553bfe3adbfc64b687a7c3d11d109ed874e4918940fc7367",
+      "bytes": 4843
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/native_quark_response/local.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/native_quark_response/local.py",
+      "sha256": "ced3b551f10701bd73c46c5920d1b52eb1fb1cb566e5db43a8d50bea1b54fabd",
+      "bytes": 6957
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/native_quark_response/response.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/native_quark_response/response.py",
+      "sha256": "bc1cd8c8b9aed01f5504e4d677ef49b848875f4a5a6c48ffd9cd0b472110f928",
+      "bytes": 6159
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/native_quark_response/test_response.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/native_quark_response/test_response.py",
+      "sha256": "eb63be4bb49bc8e9db6838fb2262275116351a87156835284467dca1b236d50f",
+      "bytes": 5121
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/native_weak_current_response/bounds.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/native_weak_current_response/bounds.py",
+      "sha256": "394e4c865398da0b2f32e7d2e44f0d0095432dc16e9d07136ec069df0a963cc7",
+      "bytes": 10618
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/native_weak_current_response/certificate.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/native_weak_current_response/certificate.py",
+      "sha256": "ac590a7a1bd247265fff9a4e778bc723695191f97769cc7c29839c79904ee5e0",
+      "bytes": 4131
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/native_weak_current_response/charged.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/native_weak_current_response/charged.py",
+      "sha256": "110552b5689cf04bd34b244e8da3a84c034a95663565d04ca0250fd48ff808a3",
+      "bytes": 5860
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/native_weak_current_response/local.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/native_weak_current_response/local.py",
+      "sha256": "658a13cb36f665b12ef1527c56caa9d6688f0628dd96fe7f58f29752188b2a4f",
+      "bytes": 4930
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/native_weak_current_response/test_response.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/native_weak_current_response/test_response.py",
+      "sha256": "c2fa8292e15c45a77b7624a824cb11b4fedccfb5c45cc892b12837fbdd087113",
+      "bytes": 6638
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/nu3_scope_results.json",
+      "source": "work/CODEX_JOIN_QUANTUM/nu3_scope_results.json",
+      "sha256": "71d09c4ae29ef8c761ec3c386710ee81fd873a5e25f836e09af7a5e66f754347",
+      "bytes": 1172
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/physical_embedding_results.json",
+      "source": "work/CODEX_JOIN_QUANTUM/physical_embedding_results.json",
+      "sha256": "9723928f6578b71ea2d306c04177009353ab4d82d5aafe1f33ecda98cae0dee3",
+      "bytes": 545
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/quadrature_payload_preservation.json",
+      "source": "work/CODEX_JOIN_QUANTUM/quadrature_payload_preservation.json",
+      "sha256": "4a5b1e52a8bf6bfbdef429dde13f4cd6dd8c1c16278b991b1ba73edfdab6b0b6",
+      "bytes": 1130
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/quadrature_reference_results.json",
+      "source": "work/CODEX_JOIN_QUANTUM/quadrature_reference_results.json",
+      "sha256": "86842d95662a67a8c8c245a8cb4b547b702767c839252ee736d427fe284e0048",
+      "bytes": 9157
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/replay_actual_local_ground.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/replay_actual_local_ground.py",
+      "sha256": "7ba0e11602f515f58a4f1d7c168759fb1eadab311bf0db6714c185c1054eb056",
+      "bytes": 2944
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/replay_charged_no_eigh.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/replay_charged_no_eigh.py",
+      "sha256": "e01b6ebe77b3352ab828cc2c58e5de9585d42a91862929500ba260f6960974a0",
+      "bytes": 2402
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/replay_collective_no_eigh.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/replay_collective_no_eigh.py",
+      "sha256": "81d1fe39a5a9e53c93ade96a99b970ed64762535fce4bc040f2a37b1938724bb",
+      "bytes": 1107
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/replay_coulomb_mobile_no_eigh.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/replay_coulomb_mobile_no_eigh.py",
+      "sha256": "6b3feeb60270e04eac63804743b6e80bc94705ccc3049e5c370f45c4b1ad3107",
+      "bytes": 760
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/replay_coulomb_no_eigh.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/replay_coulomb_no_eigh.py",
+      "sha256": "5edc0cf310c7cfe6322a759638d734f2a48587d4813f46d9c8d3d29fa961a62b",
+      "bytes": 742
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/replay_localization_no_eigh.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/replay_localization_no_eigh.py",
+      "sha256": "b2a3dc80036c2977c5fd18b1e743bba882b54f3f327996bdaf6ea1424bda6ac8",
+      "bytes": 627
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/replay_preparation_no_eigh.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/replay_preparation_no_eigh.py",
+      "sha256": "0905c9af5ac128892e9b6e2d1fac97855c6e441b2d7aba9ae6e769dc624b98bb",
+      "bytes": 612
+    },
+    {
+      "path": "CODEX_JOIN_QUANTUM/replay_transport_no_eigh.py.raw",
+      "source": "work/CODEX_JOIN_QUANTUM/replay_transport_no_eigh.py",
+      "sha256": "0c0f9addffbc0f276ab914cdc2b8d70254935c6c1a2b208366fa351c5f7fd46e",
+      "bytes": 644
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/block_dirac/model.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/block_dirac/model.py",
+      "sha256": "221f45ea2f64dd7a4548b4f9f7431afecccabc93a22385ad7b5c37e6fd0a0532",
+      "bytes": 5034
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/block_dirac/source.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/block_dirac/source.py",
+      "sha256": "7699175aa03108d6a52bf183be6d2af327e02183379bbbf95066792bd64188e5",
+      "bytes": 3823
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/block_dirac/test_dirac.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/block_dirac/test_dirac.py",
+      "sha256": "439f3a67e592a96cd70089b00ce9b3b381b8671e7250e4b5b9edb0a7b069173e",
+      "bytes": 4801
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/block_lattice.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/block_lattice.py",
+      "sha256": "d2cb4f75a1632fd61286372af4725ed4c968f3186ed4102620f78dd53ca215f4",
+      "bytes": 13135
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/block_proca/model.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/block_proca/model.py",
+      "sha256": "aaadcfed2799ebf89d7326d268d8a88611dc6c223bf8d050872d70457310176f",
+      "bytes": 9089
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/block_proca/resources.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/block_proca/resources.py",
+      "sha256": "1c1e5cc1e7e6cf1d882f0ffe8721a1e9349f5de09238f8aaafd261b92b9aa1a5",
+      "bytes": 6353
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/block_proca/results.json",
+      "source": "work/CODEX_JOIN_REFINEMENT/block_proca/results.json",
+      "sha256": "ba6ff8e02a9555b5b045fac96cd3b1af4c46fe3d013d2281f524d74307bce40a",
+      "bytes": 86727
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/block_proca/test_proca.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/block_proca/test_proca.py",
+      "sha256": "9ac4a1554f58a1d5ebadf525852135e192cf48549d5257b73a52eb09c5f5a88c",
+      "bytes": 3546
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/charged_clock/model.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/charged_clock/model.py",
+      "sha256": "508321377ed0dd07c6ec20e79e42aea4367548ce141b0d3504d325472893f65b",
+      "bytes": 15467
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/charged_clock/test_clock.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/charged_clock/test_clock.py",
+      "sha256": "8c00491424a5ad992895718d74595b00c378f81afa68ff5214e34e0cbadc6263",
+      "bytes": 5736
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/coulomb_audit/audit.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/coulomb_audit/audit.py",
+      "sha256": "06d896c8a3de1b575ecf83d1c42f4f600f8731b138c93844b5626be4c3ccf4c5",
+      "bytes": 14371
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/coulomb_audit/mobile_audit.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/coulomb_audit/mobile_audit.py",
+      "sha256": "bfad0eaafa7585c0ce69d114a245d143d8ceb4a9de8f712782bc672a82eee5a5",
+      "bytes": 11773
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/coulomb_audit/mobile_results.json",
+      "source": "work/CODEX_JOIN_REFINEMENT/coulomb_audit/mobile_results.json",
+      "sha256": "7e40c986de32d810cdbc7fb40be6dca39c3364e07c79c065897f5a49340a53b6",
+      "bytes": 8640
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/coulomb_audit/static_results.json",
+      "source": "work/CODEX_JOIN_REFINEMENT/coulomb_audit/static_results.json",
+      "sha256": "1c54b063abf662b7fb9e28ec2ec6350d81a80cff118de92b4b2a87e938a71970",
+      "bytes": 2879
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/coulomb_audit/test_audit.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/coulomb_audit/test_audit.py",
+      "sha256": "1d43cb3ee6560b770966a7239257403a26e7cb9cf71ddb3ea1a3c13d9cbb6dea",
+      "bytes": 1023
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/coulomb_audit/test_mobile_audit.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/coulomb_audit/test_mobile_audit.py",
+      "sha256": "294f2b1eed9bab0133a547fc400ef25a24bfd5f2f2f85d34676dd604ffbbb370",
+      "bytes": 1151
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/finite_window_scattering/finite_collision.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/finite_window_scattering/finite_collision.py",
+      "sha256": "04787f70adb6fe5afab20b5937e67a27c3264402a2dd495d640245473005dcf4",
+      "bytes": 8304
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/finite_window_scattering/results.json",
+      "source": "work/CODEX_JOIN_REFINEMENT/finite_window_scattering/results.json",
+      "sha256": "b2810d3e3383750156ba5b33be562978edc1485052f11ad523bdb1de9567f4c3",
+      "bytes": 192071
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/finite_window_scattering/scattering.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/finite_window_scattering/scattering.py",
+      "sha256": "9ce16627f440f6be6f9202f8e3fd33d062eb2d236710a774772e3ad717ac7dc6",
+      "bytes": 14903
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/finite_window_scattering/test_scattering.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/finite_window_scattering/test_scattering.py",
+      "sha256": "b2a2447e7c6bf95991a4607e23a61e64c3cee63b6971942de3735add0b3701e1",
+      "bytes": 6083
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/native_dirac_gauge_join/bounds.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/native_dirac_gauge_join/bounds.py",
+      "sha256": "eead143b456336c57127bd8230b1b2784386b6024813f1340d84db7934332dae",
+      "bytes": 7975
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/native_dirac_gauge_join/current.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/native_dirac_gauge_join/current.py",
+      "sha256": "4f89993336a48276f0ae025df850a9db4f554f8c581c1ee8e1a638f4a283a4c6",
+      "bytes": 4842
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/native_dirac_gauge_join/matter.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/native_dirac_gauge_join/matter.py",
+      "sha256": "458528ab90ed67157265136b2fa7b636affdfb7cf25883a6734f97501ec35dfd",
+      "bytes": 8014
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/native_dirac_gauge_join/model.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/native_dirac_gauge_join/model.py",
+      "sha256": "f1eff15817b2870f1dd9d2b4f9ca422636c94a9954ddce7c887870efcd362010",
+      "bytes": 8855
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/native_dirac_gauge_join/test_current.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/native_dirac_gauge_join/test_current.py",
+      "sha256": "a3e82d14b24310210037adced45b6c213bde6051ad47fa330c7ce342e40aae0c",
+      "bytes": 910
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/native_dirac_gauge_join/test_source.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/native_dirac_gauge_join/test_source.py",
+      "sha256": "03a31ffd38aac7b2a6f755aebe58a01b8a714e9a9295ff38601f586ee0681c37",
+      "bytes": 3960
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/native_higgs_filtered_state/model.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/native_higgs_filtered_state/model.py",
+      "sha256": "10a4a6f044182b0b839f3bfec03d06929dc5affc376661187d2db0d7f98b87de",
+      "bytes": 13410
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/native_higgs_filtered_state/test_filtered.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/native_higgs_filtered_state/test_filtered.py",
+      "sha256": "100f7d041af2e4987fa095a534f871a86c3387d1a1fa7990a5b9d8d514242806",
+      "bytes": 5178
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/native_higgs_join/model.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/native_higgs_join/model.py",
+      "sha256": "39f7601a61e1c8ab6b51d2a986e6f580ce7578efad788e7c9cd787abaf2c4cc2",
+      "bytes": 12822
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/native_higgs_join/test_join.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/native_higgs_join/test_join.py",
+      "sha256": "a180c7c49158ab4c08b1da5256835b0da4c97f5ce749e3271bcbc7f5c4db0669",
+      "bytes": 3326
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/native_orthogonal_wilson_minmax_audit/audit.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/native_orthogonal_wilson_minmax_audit/audit.py",
+      "sha256": "964af88bea643038c659074927a82235fa860f0252cfa3733955015a898cc2ba",
+      "bytes": 6054
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/native_orthogonal_wilson_minmax_audit/results.json",
+      "source": "work/CODEX_JOIN_REFINEMENT/native_orthogonal_wilson_minmax_audit/results.json",
+      "sha256": "d87076f2825df6b26bd28c0bbdeb797cf6dc84506f1adf1d1cb50c215a54c4e7",
+      "bytes": 3846
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/native_orthogonal_wilson_self_energy_audit/algebraic_intervals.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/native_orthogonal_wilson_self_energy_audit/algebraic_intervals.py",
+      "sha256": "2634781c9a0e5d5809660e3b283ff76e702070a5b7ad46999edf3587c92ce696",
+      "bytes": 3857
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/native_orthogonal_wilson_self_energy_audit/arithmetic_audit.json",
+      "source": "work/CODEX_JOIN_REFINEMENT/native_orthogonal_wilson_self_energy_audit/arithmetic_audit.json",
+      "sha256": "7977e9d7eaa9ff7b6ac83e6fec179369ac43dabfba0c3ec4df22d7182fc9b79e",
+      "bytes": 1728
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/native_orthogonal_wilson_self_energy_audit/candidate.json",
+      "source": "work/CODEX_JOIN_REFINEMENT/native_orthogonal_wilson_self_energy_audit/candidate.json",
+      "sha256": "39f18b05be2fb798110ebfd62ed21ff35a325354fc9f6c0411eda4006241b1cf",
+      "bytes": 84209
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/native_orthogonal_wilson_self_energy_audit/contractions.json",
+      "source": "work/CODEX_JOIN_REFINEMENT/native_orthogonal_wilson_self_energy_audit/contractions.json",
+      "sha256": "289d2b28efb55b5e6d17dda3101ed9f747238e7b40d69d3cc754c70fb8ee8590",
+      "bytes": 10802,
+      "original_source_sha256": "3f540383dac19ece7fe663b5cd260651b66c809fe7036c8b7f8977283e3f82ab",
+      "original_source_bytes": 10860,
+      "adaptation": "Machine-local workspace/home prefixes and compute-host metadata replaced by symbolic labels; numerical data unchanged."
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/native_orthogonal_wilson_self_energy_audit/contractions.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/native_orthogonal_wilson_self_energy_audit/contractions.py",
+      "sha256": "e630242b0ccfb6a167b3884fe14ec352ab4999ccad19800bd0c7b2612173ed87",
+      "bytes": 8804
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/native_orthogonal_wilson_self_energy_audit/diagnostic.json",
+      "source": "work/CODEX_JOIN_REFINEMENT/native_orthogonal_wilson_self_energy_audit/diagnostic.json",
+      "sha256": "56db1fd067e57b3c4e3b95a697f7805f40440ab27869f852fae466168ed8d026",
+      "bytes": 4863
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/native_orthogonal_wilson_self_energy_audit/diagnostic.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/native_orthogonal_wilson_self_energy_audit/diagnostic.py",
+      "sha256": "ece0753277dbf12748a2972091149ad3c63fbdcf5f335cdf0dfe1db66a7d8ddd",
+      "bytes": 5019
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/native_orthogonal_wilson_self_energy_audit/test_algebraic_intervals.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/native_orthogonal_wilson_self_energy_audit/test_algebraic_intervals.py",
+      "sha256": "d0c24909ab402b25b86630a9dda6f61c3e9a2021f333d7151f1fd9c783d3a172",
+      "bytes": 2509
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/native_wilson_maxwell_ground/diagnostic.json",
+      "source": "work/CODEX_JOIN_REFINEMENT/native_wilson_maxwell_ground/diagnostic.json",
+      "sha256": "5ed8f9f7b01d17eb9208de1ace384e09c6eae2aeb2d6d7b3e196447206a758da",
+      "bytes": 13059
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/native_wilson_maxwell_ground/ground.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/native_wilson_maxwell_ground/ground.py",
+      "sha256": "65573cf187c6e58751b0608c1dda949474c2d1870fda97f0ead828dfac872364",
+      "bytes": 16948
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/native_wilson_maxwell_ground/producer.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/native_wilson_maxwell_ground/producer.py",
+      "sha256": "c45442adfe33e47d934969126c0e41b089099ca672a0a0741c897f2e92dda881",
+      "bytes": 1828
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/native_wilson_maxwell_ground_refinement/diagnostic.json",
+      "source": "work/CODEX_JOIN_REFINEMENT/native_wilson_maxwell_ground_refinement/diagnostic.json",
+      "sha256": "e2f509f786b798b693ae4846e1069a1ad2d93c98acaf5e46a5354c4af65f6848",
+      "bytes": 10857
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/native_wilson_maxwell_ground_refinement/producer.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/native_wilson_maxwell_ground_refinement/producer.py",
+      "sha256": "d2e3998c392b1b9f730ad9821cf4b1a6806bf9388662888a1414896577bf5fa4",
+      "bytes": 1576
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/native_wilson_maxwell_ground_refinement/refinement.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/native_wilson_maxwell_ground_refinement/refinement.py",
+      "sha256": "0e2bc82e08bce2d6b707b4c967ec886bbe4a6e48272ea94cd480b90735b22504",
+      "bytes": 11507
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/native_wilson_maxwell_locality/diagnostic.json",
+      "source": "work/CODEX_JOIN_REFINEMENT/native_wilson_maxwell_locality/diagnostic.json",
+      "sha256": "820eb498ceeb3351d032fa1e72107f54021795a465e80a4334ec56c1a85f4b22",
+      "bytes": 7670
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/native_wilson_maxwell_spatial_family/diagnostic.json",
+      "source": "work/CODEX_JOIN_REFINEMENT/native_wilson_maxwell_spatial_family/diagnostic.json",
+      "sha256": "21a358ecaf1c8e4d2bdf168806277f5f4731a18c41d22a7759347d53a28e0cae",
+      "bytes": 12553
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/particle_identity/model.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/particle_identity/model.py",
+      "sha256": "524123bcb49f400aaae906df31707a31c61c9e76d6c05b91ad7a11c2f04f64e7",
+      "bytes": 14012
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/particle_identity/results.json",
+      "source": "work/CODEX_JOIN_REFINEMENT/particle_identity/results.json",
+      "sha256": "6d1aa66ba63945f19a6b82344f24a7152a94cbfbefe22420a0a848e0495def89",
+      "bytes": 8370
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/particle_identity/test_identity.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/particle_identity/test_identity.py",
+      "sha256": "12878a43e7fe9fdb29b5fd90f3f019f8cf984a967833897d9876c8d85cd81590",
+      "bytes": 1492
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/photon_cutoff_native_maxwell/producer.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/photon_cutoff_native_maxwell/producer.py",
+      "sha256": "3fa0ea963f08872733812c74418eefa28d0b67c89fcd61e8282cd802b09de7b7",
+      "bytes": 7658
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/quadrature/quadrature.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/quadrature/quadrature.py",
+      "sha256": "77637784000328ff0af1fea4272a3c7b0c24eeb84cd442363354b3d0f656ad22",
+      "bytes": 14616
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/quadrature/results.json",
+      "source": "work/CODEX_JOIN_REFINEMENT/quadrature/results.json",
+      "sha256": "f00fefdc85a10f5fd1b04b1b17bdc56cae578dfb34ffa5186d37ccf568e6bf36",
+      "bytes": 55331
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/quadrature/test_quadrature.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/quadrature/test_quadrature.py",
+      "sha256": "f7b4b559bf61edaf858922abbaaf4719ee5824b2599aaba506a5c572414c8c4a",
+      "bytes": 5540
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/results.json",
+      "source": "work/CODEX_JOIN_REFINEMENT/results.json",
+      "sha256": "9431fe59c9da95fea11f3fd078bc4bb6e78796e006798c4bbf104345368062ea",
+      "bytes": 99787
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/test_block_lattice.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/test_block_lattice.py",
+      "sha256": "0bce2ae1de49b8f5b8cec767a7d81763c8d3ab5ea6dd7993d14a1e3477ab7022",
+      "bytes": 2690
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/weak_chirality_audit/model.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/weak_chirality_audit/model.py",
+      "sha256": "17c99ff4c31c3be22d882ab0e7b80051c50801bd9ba2414d1fbfc8ac512accc1",
+      "bytes": 11113
+    },
+    {
+      "path": "CODEX_JOIN_REFINEMENT/weak_chirality_audit/test_audit.py.raw",
+      "source": "work/CODEX_JOIN_REFINEMENT/weak_chirality_audit/test_audit.py",
+      "sha256": "72c056f8220199a224140fd3f26bd040222d74af2c977684a9ad2757a2888c96",
+      "bytes": 2667
+    },
+    {
+      "path": "CODEX_JOIN_ROOT/weak_conjugate/bounds.py.raw",
+      "source": "work/CODEX_JOIN_ROOT/weak_conjugate/bounds.py",
+      "sha256": "15377c249c33f3e05648b403fa8a4bbcbbc0a4c2ef7fc28b4139298865ea5ff1",
+      "bytes": 3633,
+      "original_source_sha256": "b21eb8453ced21ab3ca87f81a174dc4d4fe3fbcae0ba1d9dfaf1b452611ecda1",
+      "original_source_bytes": 3662,
+      "adaptation": "Machine-local workspace/home prefixes and compute-host metadata replaced by symbolic labels; numerical data unchanged."
+    },
+    {
+      "path": "CODEX_JOIN_ROOT/weak_conjugate/bounds_result.json",
+      "source": "work/CODEX_JOIN_ROOT/weak_conjugate/bounds_result.json",
+      "sha256": "29e9284c9be6074592f09555d465bec5110ae6c2c6dfb840f624d6d9b5e3489e",
+      "bytes": 41872
+    },
+    {
+      "path": "CODEX_JOIN_ROOT/weak_conjugate/derive.py.raw",
+      "source": "work/CODEX_JOIN_ROOT/weak_conjugate/derive.py",
+      "sha256": "8326122270ea694fcc7f2a9ffff70a73d4461e141ba9fe0453a80ab5ed514dda",
+      "bytes": 2292,
+      "original_source_sha256": "f999b45e4e8977735b3d0980249b8704a3ebdfc3efb3803a856624aedb82b7e1",
+      "original_source_bytes": 2321,
+      "adaptation": "Machine-local workspace/home prefixes and compute-host metadata replaced by symbolic labels; numerical data unchanged."
+    },
+    {
+      "path": "CODEX_JOIN_ROOT/weak_conjugate/result.json",
+      "source": "work/CODEX_JOIN_ROOT/weak_conjugate/result.json",
+      "sha256": "921069214173376b4d07a4b9b1096c085827a30a1d3090b56c9b2f456eca21df",
+      "bytes": 4726
+    },
+    {
+      "path": "CODEX_JOIN_SIMULATOR/browser_validation.json",
+      "source": "work/CODEX_JOIN_SIMULATOR/browser_validation.json",
+      "sha256": "8005e40418066c2ae7c08b4770ec0fe6ce9c05dcbaac10b3fcea885c5bdc5b46",
+      "bytes": 1617
+    },
+    {
+      "path": "CODEX_JOIN_SIMULATOR/cosmology_comparison.json",
+      "source": "work/CODEX_JOIN_SIMULATOR/cosmology_comparison.json",
+      "bytes": 2951,
+      "sha256": "a08e5a90f1d193bfbaefe9bc9d4bdf83a41c214e46afbcef37ce11406e53c017"
+    },
+    {
+      "path": "CODEX_JOIN_SIMULATOR/evidence.json",
+      "source": "work/CODEX_JOIN_SIMULATOR/evidence.json",
+      "sha256": "0c6ddb1949510e038c7d2cb5755feedbb183a4b2894b301713c24033b33de500",
+      "bytes": 175015
+    },
+    {
+      "path": "CODEX_JOIN_SIMULATOR/fable_delta_audit/exact_controls.py.raw",
+      "source": "work/CODEX_JOIN_SIMULATOR/fable_delta_audit/exact_controls.py",
+      "sha256": "1a2d1168a5842f1f4333399dbeea1c3823af81d1937c769e215d1ffa5deea5f0",
+      "bytes": 10411
+    },
+    {
+      "path": "CODEX_JOIN_SIMULATOR/fable_delta_audit/replay.py.raw",
+      "source": "work/CODEX_JOIN_SIMULATOR/fable_delta_audit/replay.py",
+      "sha256": "4248a18bd1a927abac7a2c8317439a9ca1fa1714e0ea25c86cbd5ba3b97fa535",
+      "bytes": 9181
+    },
+    {
+      "path": "CODEX_JOIN_SIMULATOR/fable_delta_audit/results.json",
+      "source": "work/CODEX_JOIN_SIMULATOR/fable_delta_audit/results.json",
+      "sha256": "5b40a8962fb2418c05240984c91c7225abe60b6bf84b5fa8c19aa4eeb7c2aa3f",
+      "bytes": 57030,
+      "original_source_sha256": "7b351d7760875daccd9079e5079ce4b2981a14f03d5b2d9049a9927a931503e4",
+      "original_source_bytes": 57088,
+      "adaptation": "Machine-local workspace/home prefixes and compute-host metadata replaced by symbolic labels; numerical data unchanged."
+    },
+    {
+      "path": "CODEX_JOIN_SIMULATOR/fable_delta_audit/test_audit.py.raw",
+      "source": "work/CODEX_JOIN_SIMULATOR/fable_delta_audit/test_audit.py",
+      "sha256": "dfc56015229d19a3780431dd2153fb75fec33de7e665ab846c9ebaeac7b9cd48",
+      "bytes": 2377
+    },
+    {
+      "path": "CODEX_JOIN_SIMULATOR/protected_kernel_audit/kernel.json",
+      "source": "work/CODEX_JOIN_SIMULATOR/protected_kernel_audit/kernel.json",
+      "sha256": "a23841dc78209b77cde965de2228a0fb2371164853a329b6048324dcc90e01f3",
+      "bytes": 5691
+    },
+    {
+      "path": "CODEX_JOIN_SIMULATOR/protected_kernel_audit/kernel.py.raw",
+      "source": "work/CODEX_JOIN_SIMULATOR/protected_kernel_audit/kernel.py",
+      "sha256": "d61868e9c15a9bdaef86b49e89b5bd7e5701a5496fe7f8dd2c2fbdbc90a6b727",
+      "bytes": 3920
+    },
+    {
+      "path": "CODEX_JOIN_SIMULATOR/spectrum_story_validation.json",
+      "source": "work/CODEX_JOIN_SIMULATOR/spectrum_story_validation.json",
+      "sha256": "2e15872c9ea6dabeab9f1961574086bbadd853abbd5a9021c4bf92e2d978d5c6",
+      "bytes": 1073
+    },
+    {
+      "path": "CODEX_JOIN_SPECTRUM/family_clock.json",
+      "source": "work/CODEX_JOIN_SPECTRUM/family_clock.json",
+      "bytes": 20327,
+      "sha256": "04a2add53f180b9729fb8256021b2ff9a0c33b663b69ef2f593824138bbb4290",
+      "original_source_sha256": "19c13eb2d47219f36e2422ad51e2fedb4021ccf2aa16de578f421c613a918e84",
+      "original_source_bytes": 20356,
+      "adaptation": "Machine-local workspace/home prefixes replaced by symbolic labels; numerical data unchanged."
+    },
+    {
+      "path": "CODEX_JOIN_SPECTRUM/family_clock.py.raw",
+      "source": "work/CODEX_JOIN_SPECTRUM/family_clock.py",
+      "sha256": "6b8795c3bc809f06e54282112024e945b2a6fafc4c0af7d049f08bb71d2768fb",
+      "bytes": 11057
+    },
+    {
+      "path": "CODEX_JOIN_SPECTRUM/phase_controller/controller.py.raw",
+      "source": "work/CODEX_JOIN_SPECTRUM/phase_controller/controller.py",
+      "sha256": "2d3d4e42924f8ddbdaf57b7f907ccf0d8deaa21f84dc7616bbe7ebb069aa82cc",
+      "bytes": 8486
+    },
+    {
+      "path": "CODEX_JOIN_SPECTRUM/phase_controller/results.json",
+      "source": "work/CODEX_JOIN_SPECTRUM/phase_controller/results.json",
+      "sha256": "b50e50c26b177b97fdd73fe0c2736217bfd37eb49af2b086f07c1a60c2949cf4",
+      "bytes": 25560
+    },
+    {
+      "path": "CODEX_JOIN_SPECTRUM/phase_controller/weak_kick.json",
+      "source": "work/CODEX_JOIN_SPECTRUM/phase_controller/weak_kick.json",
+      "sha256": "dfb2afbf9ec84072887986d92c14874a2d55cf92dc2ffde6e506f8d6870e4e4d",
+      "bytes": 28993
+    },
+    {
+      "path": "CODEX_JOIN_SPECTRUM/phase_controller/weak_kick.py.raw",
+      "source": "work/CODEX_JOIN_SPECTRUM/phase_controller/weak_kick.py",
+      "sha256": "8a3053411e0d9e99d123b1aac321a4f1585f4beb45390e9ac90c2e50c0428215",
+      "bytes": 5009
+    },
+    {
+      "path": "CODEX_JOIN_SPECTRUM/quantum_memory.json",
+      "source": "work/CODEX_JOIN_SPECTRUM/quantum_memory.json",
+      "bytes": 41487,
+      "sha256": "6038e0e2802a7c5880a762887c527dce80835038995fd2ab8499676e57be59ee",
+      "original_source_sha256": "f3c4f2d1fa27fee44276123901534e2d15fabd70230c57b184670e58d52472e9",
+      "original_source_bytes": 41516,
+      "adaptation": "Machine-local workspace/home prefixes replaced by symbolic labels; numerical data unchanged."
+    },
+    {
+      "path": "CODEX_JOIN_SPECTRUM/quantum_memory.py.raw",
+      "source": "work/CODEX_JOIN_SPECTRUM/quantum_memory.py",
+      "sha256": "9b3781c35b6f622f4ebe511e95eca6b53368148e415db04bf9c649aa19cd2f1d",
+      "bytes": 12441
+    },
+    {
+      "path": "CODEX_MOBILE_SPECTRAL/algebraic_frame.npz",
+      "source": "work/CODEX_MOBILE_SPECTRAL/algebraic_frame.npz",
+      "sha256": "e8336a52278e77eb384203172290080c39c4332600a8c958cc3481d83f90355a",
+      "bytes": 37102
+    },
+    {
+      "path": "CODEX_MOBILE_SPECTRAL/certify_trial.py.raw",
+      "source": "work/CODEX_MOBILE_SPECTRAL/certify_trial.py",
+      "sha256": "9103220d2a8c2be6fa165bbfa4bf03b920f89f3fa3c4e20d2c8e0cd0079293d1",
+      "bytes": 8864
+    },
+    {
+      "path": "CODEX_MOBILE_SPECTRAL/explore.py.raw",
+      "source": "work/CODEX_MOBILE_SPECTRAL/explore.py",
+      "sha256": "184a65e34d3404cda5a41bf66b1a788b108cfe1509a114a89b02566ea98b4a12",
+      "bytes": 1674
+    },
+    {
+      "path": "CODEX_MOBILE_SPECTRAL/full_sector.py.raw",
+      "source": "work/CODEX_MOBILE_SPECTRAL/full_sector.py",
+      "sha256": "074656c065b336c1a5fb0406a176d32fd9971268ff70e5f5df9dfbbd344f4030",
+      "bytes": 9107
+    },
+    {
+      "path": "CODEX_MOBILE_SPECTRAL/full_sector_certificate.json",
+      "source": "work/CODEX_MOBILE_SPECTRAL/full_sector_certificate.json",
+      "sha256": "98d7852ce37c9324a366cc59f0e3cda8372307544bcd62ba37054ac632b2b563",
+      "bytes": 84990
+    },
+    {
+      "path": "CODEX_MOBILE_SPECTRAL/full_sector_trial.json",
+      "source": "work/CODEX_MOBILE_SPECTRAL/full_sector_trial.json",
+      "sha256": "0e834bddbbd58c3b538557539cd26b85de97c6cf6e4ef1f111fa92b43c2a18f4",
+      "bytes": 300
+    },
+    {
+      "path": "CODEX_MOBILE_SPECTRAL/full_sector_trial.npz",
+      "source": "work/CODEX_MOBILE_SPECTRAL/full_sector_trial.npz",
+      "sha256": "611e113779bf24c7633a42dc9cf93fed040c4da615272ece3055964adc805612",
+      "bytes": 1135642
+    }
+  ]
+}

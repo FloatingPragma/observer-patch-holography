@@ -1,0 +1,151 @@
+{
+ "artifact": "HD_compare",
+ "label": "NOT BLIND",
+ "measured_GeV": {
+  "proton": 0.9382720894300001,
+  "neutron": 0.9395654219,
+  "pi0": 0.1349768,
+  "rho770_0": 0.77526,
+  "pi_charged": 0.13957039,
+  "K_charged": 0.493677,
+  "K0": 0.497611,
+  "nucleon_avg": 0.938918755665,
+  "pi_avg": 0.13803919333333334,
+  "K_avg": 0.495644
+ },
+ "rer_root": "WORKSPACE/repair-law/reverse-engineering-reality",
+ "lambda3_D10_vs_lattice": {
+  "I1_ALPHA17_Lambda3": {
+   "lattice_GeV": 0.341,
+   "err_GeV": 0.012,
+   "D10_over_lattice": 0.9971309757323149,
+   "pull": -0.08152810627338562
+  },
+  "I1c_FLAG24_Lambda3": {
+   "lattice_GeV": 0.338,
+   "err_GeV": 0.01,
+   "D10_over_lattice": 1.0059812506648502,
+   "pull": 0.20216627247193752
+  },
+  "I1b_ALPHA22_Lambda3": {
+   "lattice_GeV": 0.336,
+   "err_GeV": 0.012,
+   "D10_over_lattice": 1.0119692342997602,
+   "pull": 0.33513856039328144
+  }
+ },
+ "hadron_rows": {
+  "C-1 (primary): BMW 08 Xi set / ALPHA 17": {
+   "m_N_GeV": 0.9333145932854467,
+   "vs_nucleon_avg_rel": -0.005968740474871059,
+   "vs_proton_rel": -0.005283644478399685,
+   "vs_neutron_rel": -0.0066528934216339985,
+   "pull_nucleon_avg_import_band": -0.11999031711614028,
+   "nucleon_avg_inside_corner_range": true,
+   "m_rho_GeV": 0.7727765061925441,
+   "vs_rho_rel": -0.0032034334384023477,
+   "pull_rho_import_band": -0.05947310817692069,
+   "rho_inside_corner_range": true
+  },
+  "C-2: BMW 08 Omega set / ALPHA 17": {
+   "m_N_GeV": 0.9502658198728962,
+   "vs_nucleon_avg_rel": 0.012085246076333211,
+   "vs_proton_rel": 0.012782785055646562,
+   "vs_neutron_rel": 0.01138866727476806,
+   "pull_nucleon_avg_import_band": 0.23591764439218152,
+   "nucleon_avg_inside_corner_range": true,
+   "m_rho_GeV": 0.7757678991197411,
+   "vs_rho_rel": 0.000655133916029671,
+   "pull_rho_import_band": 0.009733369917703374,
+   "rho_inside_corner_range": true
+  },
+  "C-3: BMW 08 Xi set / FLAG 2024": {
+   "m_N_GeV": 0.9415984506222999,
+   "vs_nucleon_avg_rel": 0.0028540221836359514,
+   "vs_proton_rel": 0.003545198913804004,
+   "vs_neutron_rel": 0.00216379687344026,
+   "pull_nucleon_avg_import_band": 0.061502788806431,
+   "nucleon_avg_inside_corner_range": true,
+   "m_rho_GeV": 0.779635469265259,
+   "vs_rho_rel": 0.005643873365398733,
+   "pull_rho_import_band": 0.11098801316489516,
+   "rho_inside_corner_range": true
+  },
+  "C-4: BMW 08 Xi set / ALPHA 22": {
+   "m_N_GeV": 0.9472032033045754,
+   "vs_nucleon_avg_rel": 0.008823391363300459,
+   "vs_proton_rel": 0.009518682240671872,
+   "vs_neutron_rel": 0.008129057569115528,
+   "pull_nucleon_avg_import_band": 0.17349536778343974,
+   "nucleon_avg_inside_corner_range": true,
+   "m_rho_GeV": 0.7842761565823141,
+   "vs_rho_rel": 0.011629848802097609,
+   "pull_rho_import_band": 0.21140732134116058,
+   "rho_inside_corner_range": true
+  },
+  "C-R: repository constant 2.775 (reference only)": {
+   "m_N_GeV": 0.9435601140610963,
+   "vs_nucleon_avg_rel": 0.004943301396518551,
+   "vs_proton_rel": 0.005635918078207736,
+   "vs_neutron_rel": 0.004251638116926637
+  }
+ },
+ "c_N_needed_with_D10_Lambda": {
+  "proton": 2.7594479772590916,
+  "neutron": 2.763251653941442,
+  "nucleon_avg": 2.761349815600267
+ },
+ "inversion_for_QM": {
+  "pi0 and K average": {
+   "M_pi_GeV": 0.1349768,
+   "M_K_GeV": 0.495644,
+   "m_ud_LO_MeV": 3.4062559528100964,
+   "m_ud_NLO_MeV": 3.492394466746942,
+   "m_s_LO_MeV": 88.454227162818,
+   "ms_over_mud_LO": 25.968168096659017,
+   "m_ud_NLO_over_Estar": 2.8605313319453446e-22,
+   "m_s_LO_over_Estar": 7.245060391987675e-21
+  },
+  "isospin averages": {
+   "M_pi_GeV": 0.13803919333333334,
+   "M_K_GeV": 0.495644,
+   "m_ud_LO_MeV": 3.5625736262438017,
+   "m_ud_NLO_MeV": 3.6555691647510664,
+   "m_s_LO_MeV": 88.2979094893843,
+   "ms_over_mud_LO": 24.78486587306861,
+   "m_ud_NLO_over_Estar": 2.9941835698771886e-22,
+   "m_s_LO_over_Estar": 7.232256809607404e-21
+  }
+ },
+ "closure_check_circular": {
+  "M_pi_LO_GeV": 0.13478823390786007,
+  "M_pi_NLO_GeV": 0.13315360641061455,
+  "M_K_LO_GeV": 0.5068537599742159,
+  "M_pi_LO_vs_pi0": -0.0013970259491996595,
+  "M_pi_NLO_vs_pi0": -0.01350745898099126,
+  "M_K_LO_vs_K_avg": 0.022616555378892844,
+  "MK_over_Mpi_LO_at_FLAG_ratio": 3.7567938458211945,
+  "MK_over_Mpi_measured_avg": 3.5906034223420313,
+  "note": "FLAG quark masses are fixed by the measured pion and kaon; this checks the import and the LO systematic only"
+ },
+ "qm_furthest_meson_test": {
+  "source_row": "QM B1-S1 (x = 1/2, Y_u = Y_d = lepton circulant), down sector P1",
+  "m_s_over_m_d": 206.7703159727291,
+  "m_u_over_m_d": 1.0,
+  "m_s_over_m_ud": 206.7703159727291,
+  "MK_over_Mpi_LO": 10.192406878964583,
+  "MK_over_Mpi_measured_avg": 3.5906034223420313,
+  "MK_over_Mpi_measured_pi0_Kavg": 3.672068088738212,
+  "ratio_pred_over_meas": 2.838633421765196,
+  "verdict": "EXCLUDED (factor above 2 on M_K/M_pi; independent of B, Lambda and the sector normalization)"
+ },
+ "qm_furthest_np_test": {
+  "alpha0_inverse_from_P_fwd": 136.99483517741376,
+  "m_n_minus_m_p_MeV": -1.0003004784781333,
+  "err_MeV": 0.15652475842498528,
+  "note": "Delta_QCD = 0 at m_u = m_d; the QED part alone remains (proton heavier than neutron)",
+  "measured_m_n_minus_m_p_MeV": 1.2933324699999638,
+  "difference_in_sigma": -14.653483394943708,
+  "verdict": "EXCLUDED (wrong sign: proton heavier than neutron)"
+ }
+}

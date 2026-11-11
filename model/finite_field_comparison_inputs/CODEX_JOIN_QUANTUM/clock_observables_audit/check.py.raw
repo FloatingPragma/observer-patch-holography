@@ -1,0 +1,50 @@
+"""Independent exact mixed-state and interval controls for binary fidelity."""
+from pathlib import Path
+from fractions import Fraction as F
+import sys,json
+import sympy as s
+ROOT=Path(__file__).resolve().parents[3]/'reverse-engineering-reality'
+sys.path.insert(0,str(ROOT))
+from model.affine_gauss_clock_observables.certificate import projector_bounds
+
+def rational(x):
+    x=s.simplify(x);assert x.is_Rational
+    return F(int(s.numer(x)),int(s.denom(x)))
+
+def run():
+    g=s.Matrix([s.Rational(3,5),s.Rational(4,5),0]);checks=0
+    for k in range(1,25):
+        v=s.Matrix([k+1,s.I*(2*k-1),3-k]);w=s.Matrix([2-k,k+2,s.I*(k+3)])
+        rho=(s.Rational(k,25)*(v*v.H)/(v.H*v)[0]
+             +s.Rational(25-k,25)*(w*w.H)/(w.H*w)[0])
+        assert s.trace(rho)==1 and rho==rho.H
+        fidelity=rational((g.H*rho*g)[0])
+        for u in (s.Matrix([1,0,0]),s.Matrix([1,s.I,1]),s.Matrix([k,2,1-k])):
+            P=(u*u.H)/(u.H*u)[0]
+            for projector in (P,s.eye(3)-P):
+                assert projector*projector==projector
+                p=rational((g.H*projector*g)[0]);q=rational(s.trace(rho*projector))
+                for f in (fidelity,F(3,4)*fidelity,F(0)):
+                    for radius in (F(0),F(1,100),F(1,5)):
+                        lo,hi=projector_bounds((max(F(0),p-radius),min(F(1),p+radius)),f)
+                        assert lo<=q<=hi;checks+=1
+    # Exact ordering of rounded interval bounds on a dense rational grid,
+    # including both piecewise transitions and f=0,1.
+    monotonic=0
+    for f in (F(0),F(1,10),F(1,2),F(9,10),F(999999,1000000),F(1)):
+        previous=(F(0),F(0))
+        for j in range(1001):
+            bound=projector_bounds((F(j,1000),)*2,f)
+            assert bound[0]>=previous[0] and bound[1]>=previous[1]
+            previous=bound;monotonic+=1
+    # Every joint projector partitions all5456 photon states at each of
+    # thirteen positions. Only finite index sets are used here.
+    partition=[set(range(x*5456,x*5456+1)) for x in range(13)]
+    partition += [set(range(x*5456+1,(x+1)*5456)) for x in range(13)]
+    assert sum(map(len,partition))==70928
+    assert len(set.union(*partition))==70928
+    return {'exact_mixed_state_envelope_controls':checks,
+      'exact_monotonic_rational_grid_controls':monotonic,
+      'joint_projectors':26,'complete_trial_coordinates':70928}
+
+if __name__=='__main__':print(json.dumps(run(),indent=2))

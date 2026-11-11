@@ -1,0 +1,671 @@
+{
+ "wrap": {
+  "wrapper_equals_routing_tick": 0.0,
+  "one_body_inverse_tick": 1.2738115944464653e-16,
+  "site_dependent_mass_equals_uniform": 0.0,
+  "tick_against_symbol_both_orders": 3.1378841343618384e-16,
+  "two_tick_closed_form_300_random_points": 8.881784197001252e-16,
+  "phase_per_tick_alternating": {
+   "massless_p_0.1_0.1_0.1": 0.17204349525098117,
+   "theta_0.157935_p_0.1_0.1_0.1": 0.23301380512947623,
+   "theta_0.157935_p_0.1_0_0": 0.18670866486751828,
+   "sqrt_p2_theta2_(0.1,0.1,0.1)": 0.23440022232284677
+  },
+  "record_written_after_one_tick": {
+   "rest_theta": 0.02473676060538958,
+   "massless_p_2pi_over_64": 0.009607359798384774,
+   "both": 0.03386881048500937
+  },
+  "packet_velocity_theta_0.157935": 0.8744627953152284
+ },
+ "joint": [
+  {
+   "shape": [
+    4,
+    1,
+    1
+   ],
+   "quanta": 0,
+   "dimension": 16,
+   "links": 4,
+   "plaquettes": 0,
+   "unitarity": 1.1102230246251565e-16,
+   "inverse_tick": 1.716587549445839e-16,
+   "commutator_with_Gauss": 0.0,
+   "Gauss_cells_checked": 4,
+   "translation_covariance": 7.850462293418876e-17
+  },
+  {
+   "shape": [
+    4,
+    1,
+    1
+   ],
+   "quanta": 1,
+   "dimension": 256,
+   "links": 4,
+   "plaquettes": 0,
+   "unitarity": 5.551115123125783e-16,
+   "inverse_tick": 1.9456762441208352e-16,
+   "commutator_with_Gauss": 0.0,
+   "Gauss_cells_checked": 4,
+   "translation_covariance": 3.469446951953614e-17
+  },
+  {
+   "shape": [
+    4,
+    1,
+    1
+   ],
+   "quanta": 2,
+   "dimension": 4096,
+   "links": 4,
+   "plaquettes": 0,
+   "unitarity": 9.992007221626409e-16,
+   "inverse_tick": 9.12668998568199e-17,
+   "commutator_with_Gauss": 0.0,
+   "Gauss_cells_checked": 4,
+   "translation_covariance": 1.4304896245381992e-17,
+   "exchange_symmetry_kept": 1.4304896245381992e-17
+  },
+  {
+   "shape": [
+    6,
+    1,
+    1
+   ],
+   "quanta": 0,
+   "dimension": 64,
+   "links": 6,
+   "plaquettes": 0,
+   "unitarity": 4.440892098500626e-16,
+   "inverse_tick": 1.8619006149354548e-16,
+   "commutator_with_Gauss": 0.0,
+   "Gauss_cells_checked": 6,
+   "translation_covariance": 8.326672684688674e-17
+  },
+  {
+   "shape": [
+    6,
+    1,
+    1
+   ],
+   "quanta": 1,
+   "dimension": 1536,
+   "links": 6,
+   "plaquettes": 0,
+   "unitarity": 6.661338147750939e-16,
+   "inverse_tick": 1.1816510524180758e-16,
+   "commutator_with_Gauss": 0.0,
+   "Gauss_cells_checked": 6,
+   "translation_covariance": 2.42861286636753e-17
+  },
+  {
+   "shape": [
+    6,
+    1,
+    1
+   ],
+   "quanta": 2,
+   "dimension": 36864,
+   "links": 6,
+   "plaquettes": 0,
+   "unitarity": 1.6653345369377348e-15,
+   "inverse_tick": 3.816426298339508e-17,
+   "commutator_with_Gauss": 0.0,
+   "Gauss_cells_checked": 6,
+   "translation_covariance": 6.992893892674703e-18,
+   "exchange_symmetry_kept": 6.952433221959954e-18
+  },
+  {
+   "shape": [
+    2,
+    2,
+    1
+   ],
+   "quanta": 0,
+   "dimension": 256,
+   "links": 8,
+   "plaquettes": 4,
+   "unitarity": 3.3306690738754696e-16,
+   "inverse_tick": 1.3877787807814457e-16,
+   "commutator_with_Gauss": 0.0,
+   "Gauss_cells_checked": 4,
+   "translation_covariance": 4.2207643840401616e-17
+  },
+  {
+   "shape": [
+    2,
+    2,
+    1
+   ],
+   "quanta": 1,
+   "dimension": 4096,
+   "links": 8,
+   "plaquettes": 4,
+   "unitarity": 9.992007221626409e-16,
+   "inverse_tick": 8.121767085755589e-17,
+   "commutator_with_Gauss": 0.0,
+   "Gauss_cells_checked": 4,
+   "translation_covariance": 2.1942709178604383e-17
+  },
+  {
+   "shape": [
+    2,
+    2,
+    1
+   ],
+   "quanta": 2,
+   "dimension": 65536,
+   "links": 8,
+   "plaquettes": 4,
+   "unitarity": 1.5543122344752192e-15,
+   "inverse_tick": 3.8186551046272144e-17,
+   "commutator_with_Gauss": 0.0,
+   "Gauss_cells_checked": 4,
+   "translation_covariance": 5.222209201006511e-18,
+   "exchange_symmetry_kept": 5.3514466382379246e-18
+  },
+  {
+   "shape": [
+    3,
+    2,
+    1
+   ],
+   "quanta": 0,
+   "dimension": 4096,
+   "links": 12,
+   "plaquettes": 6,
+   "unitarity": 6.661338147750939e-16,
+   "inverse_tick": 6.639709341020816e-17,
+   "commutator_with_Gauss": 0.0,
+   "Gauss_cells_checked": 6,
+   "translation_covariance": 2.0888836804026045e-17
+  },
+  {
+   "shape": [
+    3,
+    2,
+    1
+   ],
+   "quanta": 1,
+   "dimension": 98304,
+   "links": 12,
+   "plaquettes": 6,
+   "unitarity": 1.3322676295501878e-15,
+   "inverse_tick": 2.2754818207364377e-17,
+   "commutator_with_Gauss": 0.0,
+   "Gauss_cells_checked": 6,
+   "translation_covariance": 6.992893892674703e-18
+  }
+ ],
+ "fock": {
+  "4x1x1": {
+   "modes": 16,
+   "link_word": 6,
+   "unitarity": 6.661338147750939e-16,
+   "number_commutator": 2.082824332422744e-16,
+   "empty_state_fixed": 0.0,
+   "one_quantum_lift_equals_D": 1.5218182408308984e-16,
+   "two_quanta_lift_equals_D_A_Dt": 1.2794688166302258e-16,
+   "correlation_rule_C_to_D_C_Ddagger": 8.326794973869744e-17,
+   "trace_C": 2.9999999999999982
+  },
+  "2x2x1": {
+   "modes": 16,
+   "link_word": 150,
+   "unitarity": 2.6645352591003757e-15,
+   "number_commutator": 3.6108926491245325e-16,
+   "empty_state_fixed": 0.0,
+   "one_quantum_lift_equals_D": 2.2971826326221923e-16,
+   "two_quanta_lift_equals_D_A_Dt": 1.5917919408906608e-16
+  }
+ },
+ "fock2": {
+  "two_patterns_ring_2": {
+   "modes": 16,
+   "unitarity": 1.4432899320127035e-15,
+   "commutator_N_a": 1.097135458930219e-16,
+   "commutator_N_b": 1.097135458930219e-16,
+   "commutator_Q6_total": 4.47545209131181e-16,
+   "commutator_Z2_parity": 0.0,
+   "M2_reading_commutator_of_tick_with_number_of_X_minus_quanta_kind_Y": 0.22330436698194117,
+   "M2_reading_commutator_of_tick_with_number_of_X_minus_quanta_kind_Z": 0.22366733490521748,
+   "same_commutator_without_mass_step": 1.3725125948052202e-15
+  }
+ },
+ "cone": {
+  "lattice": [
+   6,
+   1,
+   1
+  ],
+  "quanta": 2,
+  "density_cell_0_after_1_ticks_vs_density_cell_y": [
+   9.899825487212365e-17,
+   2.491065809770009e-16,
+   1.0056606049965869e-16,
+   1.0309417328770853e-16,
+   1.0203695684385431e-16,
+   2.4734653298869514e-16
+  ],
+  "density_cell_0_after_1_ticks_vs_X_link_k": [
+   2.5273057164211886e-16,
+   1.4297761919013046e-16,
+   1.442937357595917e-16,
+   1.4446109100066765e-16,
+   1.4358114715708487e-16,
+   2.530629829061162e-16
+  ],
+  "density_cell_0_after_2_ticks_vs_density_cell_y": [
+   0.12342325252027493,
+   1.481780346364514e-16,
+   0.08654497640615573,
+   1.4732298787394403e-16,
+   0.08768106047031034,
+   1.48631062557455e-16
+  ],
+  "density_cell_0_after_2_ticks_vs_X_link_k": [
+   0.17394299531429383,
+   0.1739429953142938,
+   2.7963064262174116e-16,
+   2.7845596901502017e-16,
+   0.1752823956958583,
+   0.1752823956958585
+  ],
+  "density_cell_0_after_3_ticks_vs_density_cell_y": [
+   1.8074128962453287e-16,
+   0.12431197179970006,
+   1.802223558087612e-16,
+   0.17304533009548953,
+   1.8284208044954587e-16,
+   0.12369522809415902
+  ],
+  "density_cell_0_after_3_ticks_vs_X_link_k": [
+   0.2458712960549824,
+   0.24444386593361403,
+   0.24444386593361403,
+   0.24331478134132975,
+   0.24331478134132978,
+   0.24587129605498267
+  ],
+  "X_link_0_after_1_ticks_vs_density_cell_y": [
+   2.6589390246990896e-16,
+   2.6989473771370485e-16,
+   2.6497880357864554e-16,
+   2.714959336325324e-16,
+   2.655216821248507e-16,
+   2.6556426320649036e-16
+  ],
+  "X_link_0_after_1_ticks_vs_Z_link_k": [
+   1.9999999999999973,
+   3.306479951047211e-16,
+   3.2400963907557663e-16,
+   3.135902636655431e-16,
+   3.059102805085336e-16,
+   2.953074237966316e-16
+  ],
+  "X_link_0_after_2_ticks_vs_density_cell_y": [
+   0.17367367104712514,
+   0.1731919296512324,
+   0.17367367104712514,
+   3.8885706501345985e-16,
+   3.8583753859131513e-16,
+   0.1731919296512324
+  ],
+  "X_link_0_after_2_ticks_vs_Z_link_k": [
+   1.999999999999993,
+   5.659053391327136e-16,
+   5.61312754721535e-16,
+   5.569186503213442e-16,
+   5.48474778537991e-16,
+   5.43379127313489e-16
+  ],
+  "note": "link k joins cells k and k+1; predicted zeros: operators supported outside the cells within T of the support"
+ },
+ "variants": {
+  "without_record_reflection": [
+   {
+    "p": [
+     0.1,
+     0,
+     0
+    ],
+    "phases_two_ticks_without_R": [
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "phase_two_ticks_with_R": 0.2
+   },
+   {
+    "p": [
+     0.1,
+     0.1,
+     0.1
+    ],
+    "phases_two_ticks_without_R": [
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "phase_two_ticks_with_R": 0.34408699050196234
+   },
+   {
+    "p": [
+     0.2,
+     0.2,
+     0.2
+    ],
+    "phases_two_ticks_without_R": [
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "phase_two_ticks_with_R": 0.6739139118377035
+   }
+  ],
+  "symmetric_statistics_ring_4": {
+   "shape": [
+    4,
+    1,
+    1
+   ],
+   "quanta": 2,
+   "dimension": 4096,
+   "links": 4,
+   "plaquettes": 0,
+   "unitarity": 4.440892098500626e-16,
+   "inverse_tick": 1.0315407380583414e-16,
+   "commutator_with_Gauss": 0.0,
+   "Gauss_cells_checked": 4,
+   "translation_covariance": 2.1942709178604383e-17,
+   "exchange_symmetry_kept": 1.4539632184201917e-17
+  },
+  "charged_and_neutral_pair_ring_4": {
+   "shape": [
+    4,
+    1,
+    1
+   ],
+   "quanta": 2,
+   "dimension": 4096,
+   "links": 4,
+   "plaquettes": 0,
+   "unitarity": 1.1102230246251565e-15,
+   "inverse_tick": 9.664760850780579e-17,
+   "commutator_with_Gauss": 0.0,
+   "Gauss_cells_checked": 4,
+   "translation_covariance": 1.8111044797400594e-17
+  },
+  "neutral_quantum_2x2x1": {
+   "shape": [
+    2,
+    2,
+    1
+   ],
+   "quanta": 1,
+   "dimension": 4096,
+   "links": 8,
+   "plaquettes": 4,
+   "unitarity": 1.1102230246251565e-15,
+   "inverse_tick": 7.757919228897728e-17,
+   "commutator_with_Gauss": 0.0,
+   "Gauss_cells_checked": 4,
+   "translation_covariance": 2.0888836804026045e-17
+  },
+  "M2_declared_record_independent_charge_2x2x1": {
+   "shape": [
+    2,
+    2,
+    1
+   ],
+   "quanta": 1,
+   "dimension": 4096,
+   "links": 8,
+   "plaquettes": 4,
+   "unitarity": 8.881784197001252e-16,
+   "inverse_tick": 8.121767085755589e-17,
+   "commutator_with_Gauss": 0.0,
+   "Gauss_cells_checked": 4,
+   "translation_covariance": 1.769077770938649e-17
+  },
+  "static_class_label_ring_6": {
+   "shape": [
+    6,
+    1,
+    1
+   ],
+   "quanta": 1,
+   "dimension": 1536,
+   "links": 6,
+   "plaquettes": 0,
+   "unitarity": 8.881784197001252e-16,
+   "inverse_tick": 1.2118257228641695e-16,
+   "commutator_with_Gauss": 0.0,
+   "Gauss_cells_checked": 6,
+   "translation_covariance": 0.006320023433836549,
+   "theta_at_the_labelled_carrier": 0.08784654696624196
+  },
+  "ordered_schedule_only_phases_p_0.1_0.1_0.1": [
+   0.167033812,
+   0.167033812,
+   0.178606386,
+   0.178606386
+  ]
+ },
+ "joint2": {
+  "shape": [
+   3,
+   2,
+   1
+  ],
+  "quanta": 2,
+  "dimension": 2359296,
+  "links": 12,
+  "plaquettes": 6,
+  "unitarity": 1.0325074129013956e-14,
+  "inverse_tick": 6.966789916844934e-18,
+  "commutator_with_Gauss": 0.0,
+  "Gauss_cells_checked": 3,
+  "translation_covariance": 1.5523412702062935e-18,
+  "exchange_symmetry_kept": 1.3410840230045617e-18
+ },
+ "cone2": {
+  "pure_gauge_4x2x1_X_link_(0,0,0)->(0,1,0)_after_1_tick_vs_X_links": {
+   "max_over_links_with_an_end_at_x1_=_2": 5.37871515056276e-16,
+   "links_with_nonzero_commutator": [
+    "(0, 0, 0)->axis0",
+    "(0, 1, 0)->axis0",
+    "(3, 0, 0)->axis0",
+    "(3, 1, 0)->axis0",
+    "(0, 0, 0)->axis1",
+    "(1, 0, 0)->axis1",
+    "(3, 0, 0)->axis1"
+   ],
+   "min_nonzero": 0.7788366846172997
+  },
+  "pure_gauge_4x2x1_X_link_(0,0,0)->(0,1,0)_after_1_tick_vs_Z_links": {
+   "max_over_links_with_an_end_at_x1_=_2": 4.93198873505192e-16,
+   "links_with_nonzero_commutator": [
+    "(0, 0, 0)->axis1"
+   ],
+   "min_nonzero": 1.9999999999999996
+  },
+  "one_quantum_4x2x1": {
+   "density_(0,0,0)_after_1_tick_vs_density_(2,0,0)": 0.0,
+   "density_(0,0,0)_after_1_tick_vs_X_link_(2,0,0)->(2,1,0)": 1.935256553834622e-16,
+   "density_(0,0,0)_after_1_tick_vs_density_(1,1,0)_(inside)": 1.4950545348556088e-16
+  }
+ },
+ "speed": {
+  "samples": 20000,
+  "largest_group_speed_cells_per_tick": 0.9999926019418832,
+  "formula_against_finite_difference": 4.521797380974135e-10,
+  "on_axis_massless": 1.0
+ },
+ "doublers": {
+  "theta_0.0": {
+   "grid_points": 64,
+   "period_symbol_equals_+1": 32,
+   "period_symbol_equals_-1": 32,
+   "period_phase_equals_2_theta": 32,
+   "ordered_tick_symbol_equals_+1": 4,
+   "ordered_tick_symbol_equals_-1": 4
+  },
+  "theta_0.157935": {
+   "grid_points": 64,
+   "period_symbol_equals_+1": 0,
+   "period_symbol_equals_-1": 32,
+   "period_phase_equals_2_theta": 32,
+   "ordered_tick_symbol_equals_+1": 0,
+   "ordered_tick_symbol_equals_-1": 0
+  },
+  "phase_at_doubler_plus_q_minus_phase_at_q": 2.7755575615628914e-16
+ },
+ "sector": [
+  {
+   "shape": [
+    4,
+    1,
+    1
+   ],
+   "quanta": 0,
+   "sector_dimension": 2,
+   "gauge_classes_of_link_words": 2,
+   "coeff_of_embed": 2.2887833992611187e-16,
+   "Gauss_eigenvalue": 0.0,
+   "sector_tick_against_full_tick": 5.095246377785861e-16,
+   "weight_leaving_the_sector": 5.055126243601313e-16
+  },
+  {
+   "shape": [
+    4,
+    1,
+    1
+   ],
+   "quanta": 1,
+   "sector_dimension": 32,
+   "gauge_classes_of_link_words": 2,
+   "coeff_of_embed": 9.155133597044475e-16,
+   "Gauss_eigenvalue": 0.0,
+   "sector_tick_against_full_tick": 9.155133597044475e-16,
+   "weight_leaving_the_sector": 1.3627542159293538e-15
+  },
+  {
+   "shape": [
+    4,
+    1,
+    1
+   ],
+   "quanta": 2,
+   "sector_dimension": 240,
+   "gauge_classes_of_link_words": 2,
+   "coeff_of_embed": 1.3426356273935429e-15,
+   "Gauss_eigenvalue": 0.0,
+   "sector_tick_against_full_tick": 1.4043333874306805e-15,
+   "weight_leaving_the_sector": 1.9878826961861306e-15
+  },
+  {
+   "shape": [
+    6,
+    1,
+    1
+   ],
+   "quanta": 0,
+   "sector_dimension": 2,
+   "gauge_classes_of_link_words": 2,
+   "coeff_of_embed": 1.1102230246251565e-15,
+   "Gauss_eigenvalue": 0.0,
+   "sector_tick_against_full_tick": 1.0235750533041808e-15,
+   "weight_leaving_the_sector": 1.1653246008661063e-15
+  },
+  {
+   "shape": [
+    6,
+    1,
+    1
+   ],
+   "quanta": 1,
+   "sector_dimension": 48,
+   "gauge_classes_of_link_words": 2,
+   "coeff_of_embed": 1.7783073324607987e-15,
+   "Gauss_eigenvalue": 0.0,
+   "sector_tick_against_full_tick": 3.580361673049448e-15,
+   "weight_leaving_the_sector": 1.941776395965316e-15
+  },
+  {
+   "shape": [
+    6,
+    1,
+    1
+   ],
+   "quanta": 2,
+   "sector_dimension": 552,
+   "gauge_classes_of_link_words": 2,
+   "coeff_of_embed": 2.7465400791133423e-15,
+   "Gauss_eigenvalue": 0.0,
+   "sector_tick_against_full_tick": 2.9790409838967277e-15,
+   "weight_leaving_the_sector": 2.641728422630654e-15
+  },
+  {
+   "shape": [
+    2,
+    2,
+    1
+   ],
+   "quanta": 0,
+   "sector_dimension": 32,
+   "gauge_classes_of_link_words": 32,
+   "coeff_of_embed": 8.881801137644042e-16,
+   "Gauss_eigenvalue": 0.0,
+   "sector_tick_against_full_tick": 1.3334236103572998e-15,
+   "weight_leaving_the_sector": 8.163667896734183e-16
+  },
+  {
+   "shape": [
+    2,
+    2,
+    1
+   ],
+   "quanta": 1,
+   "sector_dimension": 512,
+   "gauge_classes_of_link_words": 32,
+   "coeff_of_embed": 1.1102230246251565e-15,
+   "Gauss_eigenvalue": 0.0,
+   "sector_tick_against_full_tick": 1.7979101253009106e-15,
+   "weight_leaving_the_sector": 1.6413459721148468e-15
+  },
+  {
+   "shape": [
+    3,
+    2,
+    1
+   ],
+   "quanta": 0,
+   "sector_dimension": 128,
+   "gauge_classes_of_link_words": 128,
+   "coeff_of_embed": 1.807312143953211e-15,
+   "Gauss_eigenvalue": 0.0,
+   "sector_tick_against_full_tick": 3.451079653686751e-15,
+   "weight_leaving_the_sector": 1.1062298200560577e-15
+  },
+  {
+   "shape": [
+    3,
+    2,
+    1
+   ],
+   "quanta": 1,
+   "sector_dimension": 3072,
+   "gauge_classes_of_link_words": 128,
+   "coeff_of_embed": 3.5596458096434965e-15,
+   "Gauss_eigenvalue": 0.0,
+   "sector_tick_against_full_tick": 4.577566798522238e-15,
+   "weight_leaving_the_sector": 1.7484630174758434e-15
+  }
+ ]
+}

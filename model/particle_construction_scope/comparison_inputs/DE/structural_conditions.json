@@ -1,0 +1,60 @@
+{
+  "copy_table": [
+    {
+      "asymptotically_free_above_m_t": true,
+      "b0_above_m_t": "7",
+      "b0_below_m_c": "9",
+      "b1_below_m_c": "64",
+      "copies_per_coloured_species_k_c": 1,
+      "declared_MSSM_like_packet_b0": "3",
+      "declared_packet_asymptotically_free": true,
+      "nf_above_m_t": 6,
+      "nf_below_m_c": 3,
+      "two_loop_infrared_fixed_point_alpha_below_m_c": null
+    },
+    {
+      "asymptotically_free_above_m_t": true,
+      "b0_above_m_t": "3",
+      "b0_below_m_c": "7",
+      "b1_below_m_c": "26",
+      "copies_per_coloured_species_k_c": 2,
+      "declared_MSSM_like_packet_b0": "-3",
+      "declared_packet_asymptotically_free": false,
+      "nf_above_m_t": 12,
+      "nf_below_m_c": 6,
+      "two_loop_infrared_fixed_point_alpha_below_m_c": null
+    },
+    {
+      "asymptotically_free_above_m_t": false,
+      "b0_above_m_t": "-1",
+      "b0_below_m_c": "5",
+      "b1_below_m_c": "-12",
+      "copies_per_coloured_species_k_c": 3,
+      "declared_MSSM_like_packet_b0": "-9",
+      "declared_packet_asymptotically_free": false,
+      "nf_above_m_t": 18,
+      "nf_below_m_c": 9,
+      "two_loop_infrared_fixed_point_alpha_below_m_c": 5.235987755982989
+    },
+    {
+      "asymptotically_free_above_m_t": false,
+      "b0_above_m_t": "-5",
+      "b0_below_m_c": "3",
+      "b1_below_m_c": "-50",
+      "copies_per_coloured_species_k_c": 4,
+      "declared_MSSM_like_packet_b0": "-15",
+      "declared_packet_asymptotically_free": false,
+      "nf_above_m_t": 24,
+      "nf_below_m_c": 12,
+      "two_loop_infrared_fixed_point_alpha_below_m_c": 0.7539822368615503
+    }
+  ],
+  "current_tick_asymptotically_free_above_m_t": false,
+  "current_tick_dirac_copies_per_species_per_parity_class_zero_phase": 4,
+  "dln_lambda3_dln_alpha3": 5.232501697239405,
+  "inherited_lambda3_gev": 0.3400216627247194,
+  "kc_required_by_declared_packet": [
+    1
+  ],
+  "largest_kc_with_asymptotic_freedom_three_generations": 2
+}

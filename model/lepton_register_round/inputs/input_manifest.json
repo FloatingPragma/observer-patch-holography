@@ -1,0 +1,150 @@
+{
+  "schema": "oph.scientific_comparison_inputs.v1",
+  "scope": "Source and numerical comparison inputs. Checksum admission does not validate their physical interpretations or transfer their construction to the owning source. Source text is inert .raw data; executable verified results are linked in README.md.",
+  "files": [
+    {
+      "path": "LR/lepton_run.json",
+      "source": "work/SIM/phase2/LR/lepton_run.json",
+      "bytes": 112673,
+      "sha256": "fd1ca1b20bcde5a3a9b061a375c4e969fbe2678d28571b333a47560916294d7e"
+    },
+    {
+      "path": "LR/lr1_gates.json",
+      "source": "work/SIM/phase2/LR/lr1_gates.json",
+      "sha256": "aaee0a61266cd1f40a599bf579c2ab42554ca831586fc238d1465b087155c962",
+      "bytes": 2594
+    },
+    {
+      "path": "LR/lr1_gates.py.raw",
+      "source": "work/SIM/phase2/LR/lr1_gates.py",
+      "sha256": "517130a66a0a06f40f79c3fece2c1693fcd3116c30c3a7f4c4a693f02ecfb1f3",
+      "bytes": 6914,
+      "original_source_sha256": "b458f6525cedfb965ad241342fb71546e3e68fd546bd534bc3e593810efd7d40",
+      "original_source_bytes": 6972,
+      "adaptation": "Machine-local workspace/home prefixes and compute-host metadata replaced by symbolic labels; numerical data unchanged."
+    },
+    {
+      "path": "LR/lr2_phase_run.json",
+      "source": "work/SIM/phase2/LR/lr2_phase_run.json",
+      "sha256": "5f73bc822267e054eaea78b115e2ad618af923482592c9b98e5652c41b2e9964",
+      "bytes": 52270
+    },
+    {
+      "path": "LR/lr2_phase_run.py.raw",
+      "source": "work/SIM/phase2/LR/lr2_phase_run.py",
+      "sha256": "4b3e32810df893828f90642677f59c825408c7a968c86f008724cdea56b413b2",
+      "bytes": 18004
+    },
+    {
+      "path": "LR/lr2_phase_run_first.json",
+      "source": "work/SIM/phase2/LR/lr2_phase_run_first.json",
+      "sha256": "0017024acee0e00b9452cf2a486eb00d94e632f72d382ab34757a3a13d576464",
+      "bytes": 52276
+    },
+    {
+      "path": "LR/lr2_phase_run_quick.json",
+      "source": "work/SIM/phase2/LR/lr2_phase_run_quick.json",
+      "sha256": "ab3b889327395089ed6c8a6eda2f863877fccfef9fd728085b87f5088fc21ffe",
+      "bytes": 31882
+    },
+    {
+      "path": "LR/lr2b_phase_curve.json",
+      "source": "work/SIM/phase2/LR/lr2b_phase_curve.json",
+      "sha256": "20dcfde47da14baaacd7710e8d71b95e96d64c77e629f9a322c8bcc60f394326",
+      "bytes": 11820
+    },
+    {
+      "path": "LR/lr2b_phase_curve.py.raw",
+      "source": "work/SIM/phase2/LR/lr2b_phase_curve.py",
+      "sha256": "6f970db21807d58ce85dff5a6c3a632e52447b244497881b42ac095f4f38f4c6",
+      "bytes": 1754
+    },
+    {
+      "path": "LR/lr3_orderings.json",
+      "source": "work/SIM/phase2/LR/lr3_orderings.json",
+      "sha256": "c2a9f0ee90484b740521671f3453bf6af4677cfc49ecf1f6e9858ceaf771d322",
+      "bytes": 34425
+    },
+    {
+      "path": "LR/lr3_orderings.py.raw",
+      "source": "work/SIM/phase2/LR/lr3_orderings.py",
+      "sha256": "bbbf1da8de36bfd445c2880abd62a37631b3de08c3b02ee00289d35aed29b1b3",
+      "bytes": 21393
+    },
+    {
+      "path": "LR/lr3b_no_reset_sample.json",
+      "source": "work/SIM/phase2/LR/lr3b_no_reset_sample.json",
+      "sha256": "81b4ec29044328bd2b98f216b44ce4c71001dbb296ce0bf0c2cc14ab43ae5183",
+      "bytes": 1106
+    },
+    {
+      "path": "LR/lr3b_no_reset_sample.py.raw",
+      "source": "work/SIM/phase2/LR/lr3b_no_reset_sample.py",
+      "sha256": "a26193c1858a1f8665d92f9e4c087ba4b5922d77ac97a82dd45721ef433661b0",
+      "bytes": 2161
+    },
+    {
+      "path": "LR/lr3c_self_current.json",
+      "source": "work/SIM/phase2/LR/lr3c_self_current.json",
+      "sha256": "f4abfb771e8ddaa0d98a69f85206ce665f1ccf1a8961aedc73232de9195e744f",
+      "bytes": 1182
+    },
+    {
+      "path": "LR/lr3c_self_current.py.raw",
+      "source": "work/SIM/phase2/LR/lr3c_self_current.py",
+      "sha256": "921a39509e70ec1667fb7ba9206ebaf055a269694c9b281efc3651cb82194921",
+      "bytes": 1819
+    },
+    {
+      "path": "LR/lr4_characters.json",
+      "source": "work/SIM/phase2/LR/lr4_characters.json",
+      "sha256": "2f88c74919f0d040a491280ce694c2cffce3769061d2a07971172d09c540db92",
+      "bytes": 289385
+    },
+    {
+      "path": "LR/lr4_characters.py.raw",
+      "source": "work/SIM/phase2/LR/lr4_characters.py",
+      "sha256": "9f3f56876c53532e8c35a2ae01edd531648eafc994ab009fd8112927f48aca98",
+      "bytes": 26807
+    },
+    {
+      "path": "LR/lr5_compare.json",
+      "source": "work/SIM/phase2/LR/lr5_compare.json",
+      "sha256": "afcaa64b45815dd52075d1ded137b4eb01b6fb9097a9c49d0af124ec97e8f72c",
+      "bytes": 12862
+    },
+    {
+      "path": "LR/lr5_compare.py.raw",
+      "source": "work/SIM/phase2/LR/lr5_compare.py",
+      "sha256": "fb5495ef7aa707832798abb24a509cfaa40eda5f648ed5a6ab1ac5137127be7a",
+      "bytes": 4479
+    },
+    {
+      "path": "LR/lr6_site.py.raw",
+      "source": "work/SIM/phase2/LR/lr6_site.py",
+      "sha256": "ce31ae6b6d5212cb3b38f79c3dc44fb34939ad9a86a26ee332a7452212535250",
+      "bytes": 22320,
+      "original_source_sha256": "59a105a5ffa6527d0e65e27a3a8c11cb418792ece9673f99ad0e38c4f2657730",
+      "original_source_bytes": 22349,
+      "adaptation": "Machine-local workspace/home prefixes and compute-host metadata replaced by symbolic labels; numerical data unchanged."
+    },
+    {
+      "path": "LR/lr_engine.py.raw",
+      "source": "work/SIM/phase2/LR/lr_engine.py",
+      "sha256": "a2435f3b69f592cfa9b023f3c3f9b211edf88b90cc68447f14e84cc438582065",
+      "bytes": 7025,
+      "original_source_sha256": "14d3d01ff736d490feaa5e2f598389e84dd6921529a6dae9dc5f9a7c51195e22",
+      "original_source_bytes": 7054,
+      "adaptation": "Machine-local workspace/home prefixes and compute-host metadata replaced by symbolic labels; numerical data unchanged."
+    },
+    {
+      "path": "LR/lr_progress.py.raw",
+      "source": "work/SIM/phase2/LR/lr_progress.py",
+      "sha256": "1987244394cccc2d5080c8e136dae68d0cd303da2b7a8b4f79b52ed4ff821da1",
+      "bytes": 832,
+      "original_source_sha256": "f5fcd37e41af5ba93ddd97ab119a7744c6962f31b8f78e6f2f003e8c30df3b70",
+      "original_source_bytes": 861,
+      "adaptation": "Machine-local workspace/home prefixes and compute-host metadata replaced by symbolic labels; numerical data unchanged."
+    }
+  ]
+}

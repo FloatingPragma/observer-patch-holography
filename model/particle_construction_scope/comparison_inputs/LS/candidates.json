@@ -1,0 +1,763 @@
+{
+ "inputs": {
+  "P_fwd": 1.6309720958588974,
+  "v_source_GeV": 246.59675497393056,
+  "E_cell_GeV": 9.559898277065234e+18,
+  "Q0_GeV": 91.58832749908593,
+  "mu_c_GeV": 4.8628674014603974e+17,
+  "alpha_U": 0.04112424744181668,
+  "alpha_cut": 0.06155627294861436,
+  "g1_g2_g3_Q0": [
+   0.4606425477134105,
+   0.6515094248275674,
+   1.219447538162682
+  ],
+  "yt_Q0_criticality": 0.9623048972901709,
+  "yt_mu_c_criticality_two_loop": 0.38924119812746444,
+  "lambda_sq_e_mu_tau": [
+   0.00027135251554974313,
+   0.05610764538021535,
+   0.9436210021042349
+  ],
+  "E_star_declared_GeV": 1.22089e+19,
+  "measured_values_read": "none"
+ },
+ "running_one_loop": {
+  "at_mu_c": {
+   "g1": 0.5941725432221331,
+   "g2": 0.5124440300604388,
+   "g3": 0.5075061384053483,
+   "yt_one_loop": 0.4133757709132354,
+   "yl_Q0_over_yl_mu_c": 1.0584142956631155
+  },
+  "at_E_cell": {
+   "g1": 0.6110906278176734,
+   "g2": 0.5045907548900281,
+   "g3": 0.4910808302983849,
+   "yt_one_loop": 0.39698265850288345,
+   "yl_Q0_over_yl_E_cell": 1.0766626233381533
+  }
+ },
+ "rows": [
+  {
+   "id": "R1",
+   "kind": "R/H",
+   "statement_scale": "mu_c",
+   "yJ_at_statement_scale": 0.4124973874675034,
+   "yJ_at_Q0_or_v": 0.4365931318192929,
+   "masses_GeV_e_mu_tau": [
+    0.02065775445312826,
+    4.271410415560388,
+    71.8367799863301
+   ],
+   "sum_GeV": 76.12884815634362,
+   "note": "tr Y_e = tr Y_u at mu_c, up sector on the native circulant",
+   "value_estimated_before_listing": true,
+   "weight": "structural"
+  },
+  {
+   "id": "R2",
+   "kind": "R/H",
+   "statement_scale": "Q0",
+   "yJ_at_statement_scale": 1.0198002112545945,
+   "yJ_at_Q0_or_v": 1.0198002112545945,
+   "masses_GeV_e_mu_tau": [
+    0.04825266551390768,
+    9.977218894837113,
+    167.79733364250777
+   ],
+   "sum_GeV": 177.82280520285877,
+   "note": "same at Q0 without running (control)",
+   "value_estimated_before_listing": true,
+   "weight": "structural"
+  },
+  {
+   "id": "H1",
+   "kind": "R/H",
+   "statement_scale": "mu_c",
+   "yJ_at_statement_scale": 0.2062486937337517,
+   "yJ_at_Q0_or_v": 0.21829656590964644,
+   "masses_GeV_e_mu_tau": [
+    0.01032887722656413,
+    2.135705207780194,
+    35.91838999316505
+   ],
+   "sum_GeV": 38.06442407817181,
+   "note": "y_J/y_J^u = |<B>| = 1/2 (two-level memory, coherent state)",
+   "value_estimated_before_listing": true,
+   "weight": "structural"
+  },
+  {
+   "id": "T0",
+   "kind": "T",
+   "statement_scale": "E_cell",
+   "yJ_at_statement_scale": 0.0732925520844253,
+   "yJ_at_Q0_or_v": 0.07891135139836558,
+   "masses_GeV_e_mu_tau": [
+    0.0037337539277339606,
+    0.7720294794019704,
+    12.984027864127455
+   ],
+   "sum_GeV": 13.759791097457159,
+   "note": "y_J(E_cell) = g_cut p, one current amplitude sqrt(p) per class-3 leg",
+   "value_estimated_before_listing": true,
+   "weight": "structural"
+  },
+  {
+   "id": "T(alpha_U,4)",
+   "kind": "T scan",
+   "statement_scale": "E_cell",
+   "yJ_at_statement_scale": 2.5794914111746385e-17,
+   "yJ_at_Q0_or_v": 2.7772419896335217e-17,
+   "masses_GeV_e_mu_tau": [
+    1.3140743382677154e-18,
+    2.717115661352708e-16,
+    4.56965781726218e-15
+   ],
+   "sum_GeV": 4.8426834577357185e-15,
+   "note": "y_J(E_cell) = exp(-2 pi/(4 alpha_U))",
+   "value_estimated_before_listing": false,
+   "weight": "menu"
+  },
+  {
+   "id": "T(alpha_U,12)",
+   "kind": "T scan",
+   "statement_scale": "E_cell",
+   "yJ_at_statement_scale": 2.9546861882465803e-06,
+   "yJ_at_Q0_or_v": 3.181200182578572e-06,
+   "masses_GeV_e_mu_tau": [
+    1.5052103995340714e-07,
+    3.112328299170982e-05,
+    0.0005234328278507093
+   ],
+   "sum_GeV": 0.0005547066318823726,
+   "note": "y_J(E_cell) = exp(-2 pi/(12 alpha_U))",
+   "value_estimated_before_listing": false,
+   "weight": "menu"
+  },
+  {
+   "id": "T(alpha_U,20)",
+   "kind": "T scan",
+   "statement_scale": "E_cell",
+   "yJ_at_statement_scale": 0.0004811791683857222,
+   "yJ_at_Q0_or_v": 0.0005180676257298426,
+   "masses_GeV_e_mu_tau": [
+    2.451278552607162e-05,
+    0.005068516408597576,
+    0.08524254582868482
+   ],
+   "sum_GeV": 0.09033557502280846,
+   "note": "y_J(E_cell) = exp(-2 pi/(20 alpha_U))",
+   "value_estimated_before_listing": false,
+   "weight": "menu"
+  },
+  {
+   "id": "T(alpha_U,24)",
+   "kind": "T scan",
+   "statement_scale": "E_cell",
+   "yJ_at_statement_scale": 0.001718920064530803,
+   "yJ_at_Q0_or_v": 0.0018506969859863223,
+   "masses_GeV_e_mu_tau": [
+    8.756721330988328e-05,
+    0.01810630036493596,
+    0.30451260570606337
+   ],
+   "sum_GeV": 0.3227064732843092,
+   "note": "y_J(E_cell) = exp(-2 pi/(24 alpha_U))",
+   "value_estimated_before_listing": false,
+   "weight": "menu"
+  },
+  {
+   "id": "T(alpha_U,30)",
+   "kind": "T scan",
+   "statement_scale": "E_cell",
+   "yJ_at_statement_scale": 0.006140511440175339,
+   "yJ_at_Q0_or_v": 0.006611259155817123,
+   "masses_GeV_e_mu_tau": [
+    0.0003128170333274835,
+    0.0646812768227756,
+    1.087812736379968
+   ],
+   "sum_GeV": 1.152806830236071,
+   "note": "y_J(E_cell) = exp(-2 pi/(30 alpha_U))",
+   "value_estimated_before_listing": false,
+   "weight": "menu"
+  },
+  {
+   "id": "T(alpha_U,32)",
+   "kind": "T scan",
+   "statement_scale": "E_cell",
+   "yJ_at_statement_scale": 0.008441930273721417,
+   "yJ_at_Q0_or_v": 0.009089110794542676,
+   "masses_GeV_e_mu_tau": [
+    0.0004300585724024966,
+    0.08892334690244513,
+    1.4955170038936634
+   ],
+   "sum_GeV": 1.584870409368511,
+   "note": "y_J(E_cell) = exp(-2 pi/(32 alpha_U))",
+   "value_estimated_before_listing": false,
+   "weight": "menu"
+  },
+  {
+   "id": "T(alpha_U,60)",
+   "kind": "T scan",
+   "statement_scale": "E_cell",
+   "yJ_at_statement_scale": 0.07836141550645534,
+   "yJ_at_Q0_or_v": 0.08436880718767126,
+   "masses_GeV_e_mu_tau": [
+    0.003991977828702112,
+    0.8254225169968659,
+    13.881994465635389
+   ],
+   "sum_GeV": 14.711408960460957,
+   "note": "y_J(E_cell) = exp(-2 pi/(60 alpha_U))",
+   "value_estimated_before_listing": false,
+   "weight": "menu"
+  },
+  {
+   "id": "T(alpha_cut,4)",
+   "kind": "T scan",
+   "statement_scale": "E_cell",
+   "yJ_at_statement_scale": 8.272747131279788e-12,
+   "yJ_at_Q0_or_v": 8.90695762857688e-12,
+   "masses_GeV_e_mu_tau": [
+    4.2143984915391655e-13,
+    8.714125077305473e-11,
+    1.4655456279062042e-09
+   ],
+   "sum_GeV": 1.5531083185284128e-09,
+   "note": "y_J(E_cell) = exp(-2 pi/(4 alpha_cut))",
+   "value_estimated_before_listing": false,
+   "weight": "menu"
+  },
+  {
+   "id": "T(alpha_cut,12)",
+   "kind": "T scan",
+   "statement_scale": "E_cell",
+   "yJ_at_statement_scale": 0.0002022475409481062,
+   "yJ_at_Q0_or_v": 0.00021775236800087862,
+   "masses_GeV_e_mu_tau": [
+    1.0303128065723266e-05,
+    0.002130381045657096,
+    0.035828847985762705
+   ],
+   "sum_GeV": 0.03796953215948552,
+   "note": "y_J(E_cell) = exp(-2 pi/(12 alpha_cut))",
+   "value_estimated_before_listing": false,
+   "weight": "menu"
+  },
+  {
+   "id": "T(alpha_cut,20)",
+   "kind": "T scan",
+   "statement_scale": "E_cell",
+   "yJ_at_statement_scale": 0.006074771544260339,
+   "yJ_at_Q0_or_v": 0.006540479467023301,
+   "masses_GeV_e_mu_tau": [
+    0.0003094680355425693,
+    0.0639888034925969,
+    1.076166687551405
+   ],
+   "sum_GeV": 1.1404649590795446,
+   "note": "y_J(E_cell) = exp(-2 pi/(20 alpha_cut))",
+   "value_estimated_before_listing": false,
+   "weight": "menu"
+  },
+  {
+   "id": "T(alpha_cut,24)",
+   "kind": "T scan",
+   "statement_scale": "E_cell",
+   "yJ_at_statement_scale": 0.014221376197404602,
+   "yJ_at_Q0_or_v": 0.015311624204176411,
+   "masses_GeV_e_mu_tau": [
+    0.0007244817887317815,
+    0.14980132837255863,
+    2.5193657412917223
+   ],
+   "sum_GeV": 2.669891551453013,
+   "note": "y_J(E_cell) = exp(-2 pi/(24 alpha_cut))",
+   "value_estimated_before_listing": false,
+   "weight": "menu"
+  },
+  {
+   "id": "T(alpha_cut,30)",
+   "kind": "T scan",
+   "statement_scale": "E_cell",
+   "yJ_at_statement_scale": 0.03329302830148359,
+   "yJ_at_Q0_or_v": 0.035845359189946704,
+   "masses_GeV_e_mu_tau": [
+    0.0016960519404977544,
+    0.3506931956428815,
+    5.897974553399486
+   ],
+   "sum_GeV": 6.250363800982865,
+   "note": "y_J(E_cell) = exp(-2 pi/(30 alpha_cut))",
+   "value_estimated_before_listing": false,
+   "weight": "menu"
+  },
+  {
+   "id": "T(alpha_cut,32)",
+   "kind": "T scan",
+   "statement_scale": "E_cell",
+   "yJ_at_statement_scale": 0.04118188473504238,
+   "yJ_at_Q0_or_v": 0.04433899605284018,
+   "masses_GeV_e_mu_tau": [
+    0.002097935185881274,
+    0.43379072127497775,
+    7.2955126229081175
+   ],
+   "sum_GeV": 7.731401279368977,
+   "note": "y_J(E_cell) = exp(-2 pi/(32 alpha_cut))",
+   "value_estimated_before_listing": false,
+   "weight": "menu"
+  },
+  {
+   "id": "T(alpha_cut,60)",
+   "kind": "T scan",
+   "statement_scale": "E_cell",
+   "yJ_at_statement_scale": 0.1824637725727592,
+   "yJ_at_Q0_or_v": 0.1964519240423631,
+   "masses_GeV_e_mu_tau": [
+    0.009295280463531124,
+    1.921988078499469,
+    32.324085325198524
+   ],
+   "sum_GeV": 34.255368684161525,
+   "note": "y_J(E_cell) = exp(-2 pi/(60 alpha_cut))",
+   "value_estimated_before_listing": false,
+   "weight": "menu"
+  },
+  {
+   "id": "N1",
+   "kind": "N",
+   "statement_scale": "v",
+   "yJ_at_statement_scale": 0.006737946999085467,
+   "yJ_at_Q0_or_v": 0.006737946999085467,
+   "masses_GeV_e_mu_tau": [
+    0.000318811370314711,
+    0.06592072777567162,
+    1.1086578804295029
+   ],
+   "sum_GeV": 1.174897419575489,
+   "note": "y_J = exp(-5), five levels read",
+   "value_estimated_before_listing": true,
+   "weight": "structural"
+  },
+  {
+   "id": "N1'",
+   "kind": "N",
+   "statement_scale": "v",
+   "yJ_at_statement_scale": 0.009528896028657764,
+   "yJ_at_Q0_or_v": 0.009528896028657764,
+   "masses_GeV_e_mu_tau": [
+    0.00045086736373781545,
+    0.09322598726185961,
+    1.5678790105352123
+   ],
+   "sum_GeV": 1.6615558651608098,
+   "note": "M/v = exp(-5)",
+   "value_estimated_before_listing": true,
+   "weight": "structural"
+  },
+  {
+   "id": "N2(yJ,1)",
+   "kind": "N scan",
+   "statement_scale": "v",
+   "yJ_at_statement_scale": 0.36787944117144233,
+   "yJ_at_Q0_or_v": 0.36787944117144233,
+   "masses_GeV_e_mu_tau": [
+    0.0174065110287149,
+    3.599149785390179,
+    60.53066929111769
+   ],
+   "sum_GeV": 64.14722558753658,
+   "note": "y_J = exp(-1)",
+   "value_estimated_before_listing": false,
+   "weight": "menu"
+  },
+  {
+   "id": "N2(M/v,1)",
+   "kind": "N scan",
+   "statement_scale": "v",
+   "yJ_at_statement_scale": 0.520260095022889,
+   "yJ_at_Q0_or_v": 0.520260095022889,
+   "masses_GeV_e_mu_tau": [
+    0.024616523970405466,
+    5.089966439511005,
+    85.60329345101925
+   ],
+   "sum_GeV": 90.71787641450067,
+   "note": "M/v = exp(-1)",
+   "value_estimated_before_listing": false,
+   "weight": "menu"
+  },
+  {
+   "id": "N2(yJ,2)",
+   "kind": "N scan",
+   "statement_scale": "v",
+   "yJ_at_statement_scale": 0.1353352832366127,
+   "yJ_at_Q0_or_v": 0.1353352832366127,
+   "masses_GeV_e_mu_tau": [
+    0.006403497549988185,
+    1.3240532117416555,
+    22.26798879254976
+   ],
+   "sum_GeV": 23.598445501841404,
+   "note": "y_J = exp(-2)",
+   "value_estimated_before_listing": false,
+   "weight": "menu"
+  },
+  {
+   "id": "N2(M/v,2)",
+   "kind": "N scan",
+   "statement_scale": "v",
+   "yJ_at_statement_scale": 0.19139299302082188,
+   "yJ_at_Q0_or_v": 0.19139299302082188,
+   "masses_GeV_e_mu_tau": [
+    0.009055913081816178,
+    1.8724940093487048,
+    31.491691757195955
+   ],
+   "sum_GeV": 33.373241679626474,
+   "note": "M/v = exp(-2)",
+   "value_estimated_before_listing": false,
+   "weight": "menu"
+  },
+  {
+   "id": "N2(yJ,3)",
+   "kind": "N scan",
+   "statement_scale": "v",
+   "yJ_at_statement_scale": 0.049787068367863944,
+   "yJ_at_Q0_or_v": 0.049787068367863944,
+   "masses_GeV_e_mu_tau": [
+    0.002355715100232353,
+    0.4870919556167736,
+    8.191935273015146
+   ],
+   "sum_GeV": 8.681382943732151,
+   "note": "y_J = exp(-3)",
+   "value_estimated_before_listing": false,
+   "weight": "menu"
+  },
+  {
+   "id": "N2(M/v,3)",
+   "kind": "N scan",
+   "statement_scale": "v",
+   "yJ_at_statement_scale": 0.07040954731662971,
+   "yJ_at_Q0_or_v": 0.07040954731662971,
+   "masses_GeV_e_mu_tau": [
+    0.00333148424383569,
+    0.688852049756075,
+    11.585145965180564
+   ],
+   "sum_GeV": 12.277329499180475,
+   "note": "M/v = exp(-3)",
+   "value_estimated_before_listing": false,
+   "weight": "menu"
+  },
+  {
+   "id": "N2(yJ,4)",
+   "kind": "N scan",
+   "statement_scale": "v",
+   "yJ_at_statement_scale": 0.01831563888873418,
+   "yJ_at_Q0_or_v": 0.01831563888873418,
+   "masses_GeV_e_mu_tau": [
+    0.0008666191546326063,
+    0.17919111643140362,
+    3.013644570349438
+   ],
+   "sum_GeV": 3.1937023059354743,
+   "note": "y_J = exp(-4)",
+   "value_estimated_before_listing": false,
+   "weight": "menu"
+  },
+  {
+   "id": "N2(M/v,4)",
+   "kind": "N scan",
+   "statement_scale": "v",
+   "yJ_at_statement_scale": 0.02590222491997596,
+   "yJ_at_Q0_or_v": 0.02590222491997596,
+   "masses_GeV_e_mu_tau": [
+    0.0012255845618937384,
+    0.2534145071140674,
+    4.261937023560215
+   ],
+   "sum_GeV": 4.516577115236176,
+   "note": "M/v = exp(-4)",
+   "value_estimated_before_listing": false,
+   "weight": "menu"
+  },
+  {
+   "id": "N2(yJ,5)",
+   "kind": "N scan",
+   "statement_scale": "v",
+   "yJ_at_statement_scale": 0.006737946999085467,
+   "yJ_at_Q0_or_v": 0.006737946999085467,
+   "masses_GeV_e_mu_tau": [
+    0.000318811370314711,
+    0.06592072777567162,
+    1.1086578804295029
+   ],
+   "sum_GeV": 1.174897419575489,
+   "note": "y_J = exp(-5)",
+   "value_estimated_before_listing": false,
+   "weight": "menu"
+  },
+  {
+   "id": "N2(M/v,5)",
+   "kind": "N scan",
+   "statement_scale": "v",
+   "yJ_at_statement_scale": 0.009528896028657764,
+   "yJ_at_Q0_or_v": 0.009528896028657764,
+   "masses_GeV_e_mu_tau": [
+    0.00045086736373781545,
+    0.09322598726185961,
+    1.5678790105352123
+   ],
+   "sum_GeV": 1.6615558651608098,
+   "note": "M/v = exp(-5)",
+   "value_estimated_before_listing": false,
+   "weight": "menu"
+  },
+  {
+   "id": "N2(yJ,6)",
+   "kind": "N scan",
+   "statement_scale": "v",
+   "yJ_at_statement_scale": 0.0024787521766663585,
+   "yJ_at_Q0_or_v": 0.0024787521766663585,
+   "masses_GeV_e_mu_tau": [
+    0.00011728414875047764,
+    0.024250880495728856,
+    0.40785244150272126
+   ],
+   "sum_GeV": 0.4322206061472006,
+   "note": "y_J = exp(-6)",
+   "value_estimated_before_listing": false,
+   "weight": "menu"
+  },
+  {
+   "id": "N2(M/v,6)",
+   "kind": "N scan",
+   "statement_scale": "v",
+   "yJ_at_statement_scale": 0.0035054849460033947,
+   "yJ_at_Q0_or_v": 0.0035054849460033947,
+   "masses_GeV_e_mu_tau": [
+    0.000165864833814309,
+    0.03429592409654892,
+    0.5767904542201279
+   ],
+   "sum_GeV": 0.6112522431504911,
+   "note": "M/v = exp(-6)",
+   "value_estimated_before_listing": false,
+   "weight": "menu"
+  },
+  {
+   "id": "N2(yJ,7)",
+   "kind": "N scan",
+   "statement_scale": "v",
+   "yJ_at_statement_scale": 0.0009118819655545162,
+   "yJ_at_Q0_or_v": 0.0009118819655545162,
+   "masses_GeV_e_mu_tau": [
+    4.314642710059404e-05,
+    0.008921400364684163,
+    0.1500405282604295
+   ],
+   "sum_GeV": 0.15900507505221426,
+   "note": "y_J = exp(-7)",
+   "value_estimated_before_listing": false,
+   "weight": "menu"
+  },
+  {
+   "id": "N2(M/v,7)",
+   "kind": "N scan",
+   "statement_scale": "v",
+   "yJ_at_statement_scale": 0.0012895958429706325,
+   "yJ_at_Q0_or_v": 0.0012895958429706325,
+   "masses_GeV_e_mu_tau": [
+    6.101826237360214e-05,
+    0.012616765391096619,
+    0.212189349971523
+   ],
+   "sum_GeV": 0.22486713362499322,
+   "note": "M/v = exp(-7)",
+   "value_estimated_before_listing": false,
+   "weight": "menu"
+  },
+  {
+   "id": "N2(yJ,8)",
+   "kind": "N scan",
+   "statement_scale": "v",
+   "yJ_at_statement_scale": 0.00033546262790251185,
+   "yJ_at_Q0_or_v": 0.00033546262790251185,
+   "masses_GeV_e_mu_tau": [
+    1.5872683490310908e-05,
+    0.0032819997806267116,
+    0.05519682568951479
+   ],
+   "sum_GeV": 0.05849469815363181,
+   "note": "y_J = exp(-8)",
+   "value_estimated_before_listing": false,
+   "weight": "menu"
+  },
+  {
+   "id": "N2(M/v,8)",
+   "kind": "N scan",
+   "statement_scale": "v",
+   "yJ_at_statement_scale": 0.0004744157980490514,
+   "yJ_at_Q0_or_v": 0.0004744157980490514,
+   "masses_GeV_e_mu_tau": [
+    2.24473642632532e-05,
+    0.0046414486014678185,
+    0.07806009949005549
+   ],
+   "sum_GeV": 0.08272399545578656,
+   "note": "M/v = exp(-8)",
+   "value_estimated_before_listing": false,
+   "weight": "menu"
+  },
+  {
+   "id": "PH1",
+   "kind": "post hoc",
+   "statement_scale": "v",
+   "yJ_at_statement_scale": 0.010973936899862825,
+   "yJ_at_Q0_or_v": 0.010973936899862825,
+   "masses_GeV_e_mu_tau": [
+    0.0005192406323865863,
+    0.10736354962445425,
+    1.8056451950453678
+   ],
+   "sum_GeV": 1.9135279853022087,
+   "note": "y_J = (2/9)^3",
+   "value_estimated_before_listing": false,
+   "weight": "post hoc fit"
+  },
+  {
+   "id": "PH2",
+   "kind": "post hoc",
+   "statement_scale": "v",
+   "yJ_at_statement_scale": 0.011108996538242306,
+   "yJ_at_Q0_or_v": 0.011108996538242306,
+   "masses_GeV_e_mu_tau": [
+    0.0005256310875789194,
+    0.10868490606378256,
+    1.8278678293934407
+   ],
+   "sum_GeV": 1.9370783665448021,
+   "note": "y_J = exp(-9/2)",
+   "value_estimated_before_listing": false,
+   "weight": "post hoc fit"
+  },
+  {
+   "id": "PH3",
+   "kind": "post hoc",
+   "statement_scale": "v",
+   "yJ_at_statement_scale": 0.01061817038060153,
+   "yJ_at_Q0_or_v": 0.01061817038060153,
+   "masses_GeV_e_mu_tau": [
+    0.0005024072539801987,
+    0.10388290665247699,
+    1.7471075788804522
+   ],
+   "sum_GeV": 1.8514928927869094,
+   "note": "M/v = P^-10",
+   "value_estimated_before_listing": false,
+   "weight": "post hoc fit"
+  },
+  {
+   "id": "PH4",
+   "kind": "post hoc",
+   "statement_scale": "v",
+   "yJ_at_statement_scale": 0.010397877148031193,
+   "yJ_at_Q0_or_v": 0.010397877148031193,
+   "masses_GeV_e_mu_tau": [
+    0.000491983902868007,
+    0.10172766704951441,
+    1.7108606585162016
+   ],
+   "sum_GeV": 1.8130803094685841,
+   "note": "|det Y_e| = (1/12)^10",
+   "value_estimated_before_listing": false,
+   "weight": "post hoc fit"
+  },
+  {
+   "id": "PH7",
+   "kind": "post hoc",
+   "statement_scale": "v",
+   "yJ_at_statement_scale": 0.010713739108887085,
+   "yJ_at_Q0_or_v": 0.010713739108887085,
+   "masses_GeV_e_mu_tau": [
+    0.0005069291650649976,
+    0.10481790363628145,
+    1.7628324018496428
+   ],
+   "sum_GeV": 1.8681572346509894,
+   "note": "M/v = 1/132",
+   "value_estimated_before_listing": false,
+   "weight": "post hoc fit"
+  },
+  {
+   "id": "PH8",
+   "kind": "post hoc",
+   "statement_scale": "v",
+   "yJ_at_statement_scale": 0.011048543456039806,
+   "yJ_at_Q0_or_v": 0.011048543456039806,
+   "masses_GeV_e_mu_tau": [
+    0.0005227707014732789,
+    0.10809346312491525,
+    1.817920914407444
+   ],
+   "sum_GeV": 1.9265371482338325,
+   "note": "M/v = 2^-7 (DA B2)",
+   "value_estimated_before_listing": false,
+   "weight": "post hoc fit"
+  },
+  {
+   "id": "PH9",
+   "kind": "post hoc",
+   "statement_scale": "v",
+   "yJ_at_statement_scale": 0.010802469135802469,
+   "yJ_at_Q0_or_v": 0.010802469135802469,
+   "masses_GeV_e_mu_tau": [
+    0.0005111274975055458,
+    0.10568599416157215,
+    1.777431988872784
+   ],
+   "sum_GeV": 1.8836291105318619,
+   "note": "y_J = 7/648 (DA S6)",
+   "value_estimated_before_listing": false,
+   "weight": "post hoc fit"
+  },
+  {
+   "id": "PH10",
+   "kind": "post hoc",
+   "statement_scale": "v",
+   "yJ_at_statement_scale": 0.008441930273721419,
+   "yJ_at_Q0_or_v": 0.008441930273721419,
+   "masses_GeV_e_mu_tau": [
+    0.0003994367066157788,
+    0.082591654038051,
+    1.3890302973988895
+   ],
+   "sum_GeV": 1.4720213881435562,
+   "note": "y_J = (v/E_cell)^(1/8)",
+   "value_estimated_before_listing": false,
+   "weight": "post hoc fit"
+  },
+  {
+   "id": "X3",
+   "kind": "declared reference",
+   "statement_scale": "v",
+   "yJ_at_statement_scale": 0.0107898315908073,
+   "yJ_at_Q0_or_v": 0.0107898315908073,
+   "masses_GeV_e_mu_tau": [
+    0.0005105295419208744,
+    0.10556235469639198,
+    1.7753526145692942
+   ],
+   "sum_GeV": 1.8814254988076071,
+   "note": "MCPR |det Y_e| = sqrt2 6^-14 on the native shape (DECLARED)",
+   "value_estimated_before_listing": false,
+   "weight": "declared"
+  }
+ ]
+}

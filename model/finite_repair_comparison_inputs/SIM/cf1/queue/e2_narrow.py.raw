@@ -1,0 +1,101 @@
+"""Run E, change requested by the theory session (worker R6): two slabs of 12 cells at theta1 = 0.171237 in the background
+theta0 = 0.087847 with 12 cells between them. Half-step frame M^(1/2) S M^(1/2) (Engine.step_half). Augments
+runs/E_resonance.json with the key 'narrow_12_cell_slabs'.
+
+Line of 2048 cells (shape (2048,1,1); one sublattice); structure: slab [1006, 1018), well [1018, 1030), slab [1030, 1042).
+EXACT lattice stationary scattering (transfer matrix, frame independent): T(E) and Wigner delay over the gap; the delay
+peak gives the centre and 2/tau_max; the half width of the delay peak gives a second width.
+MEASURED, preparation in the well: (a) blank record, spin up, lowest sine sin(pi (x - 1017)/13) over the 12 well cells;
+(b) the same envelope with the positive-branch coin at rest. Clock spectrum: return amplitude a(t) = <psi0|U^t psi0>,
+t = 0..1500 (escaped waves return after about 2000 ticks); matrix pencil on t in [60, 1500] (two-tick samples are not
+needed on the line: the tick is time independent there), rank 12; the component with |phase| in the gap (theta0, theta1)
+of largest weight gives centre = |phase| and width = 2 x (amplitude decay rate per tick). Survival: probability inside
+the well and inside the whole structure, decay rate from a linear fit of the log over t in [150, 900].
+`python e2_narrow.py`
+"""
+import json, os, sys
+import numpy as np
+from cq_common import EngineC, positive_coin, matrix_pencil
+import ce_line as ce
+
+TH0, TH1 = 0.087847, 0.171237
+L = 2048
+a1 = 1006; well = (1018, 1030); a2 = 1030
+RUNS = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'runs')
+
+
+def exact():
+    cells = np.r_[np.full(12, TH1), np.full(12, TH0), np.full(12, TH1)]
+    ps = np.arange(0.0005, 0.25, 0.0001)
+    rows = []
+    for p in ps:
+        E = float(np.arccos(np.cos(TH0) * np.cos(p)))
+        t, T, R, _ = ce.transfer_t(E, cells, +1)
+        rows.append((p, E, float(np.angle(t)), T))
+    p, E, ph, T = map(np.array, zip(*rows))
+    tau = np.gradient(np.unwrap(ph), E)
+    i = int(np.argmax(tau))
+    half = tau[i] / 2
+    lo = i
+    while lo > 0 and tau[lo] > half: lo -= 1
+    hi = i
+    while hi < len(tau) - 1 and tau[hi] > half: hi += 1
+    j = int(np.argmax(T))
+    return {'delay_peak_p': float(p[i]), 'delay_peak_E': float(E[i]), 'delay_peak_ticks': float(tau[i]), 'width_2_over_tau': float(2 / tau[i]),
+            'delay_FWHM_in_E': float(E[hi] - E[lo]), 'T_at_delay_peak': float(T[i]), 'T_max': float(T[j]), 'E_at_T_max': float(E[j]),
+            'continuum_reference': None}
+
+
+def continuum():
+    regions = [(a1 - 0.5, a1 + 11.5, TH1), (a2 - 0.5, a2 + 11.5, TH1)]
+    ps = np.arange(0.0005, 0.25, 0.0001)
+    E = np.hypot(ps, TH0); ph = []; T = []
+    for e_ in E:
+        t, Tt, _ = ce.continuum_t(float(e_), regions); ph.append(np.angle(t)); T.append(Tt)
+    tau = np.gradient(np.unwrap(ph), E); i = int(np.argmax(tau))
+    return {'delay_peak_E': float(E[i]), 'delay_peak_ticks': float(tau[i]), 'width_2_over_tau': float(2 / tau[i]), 'T_at_delay_peak': float(T[i])}
+
+
+def run(coin_kind):
+    e = EngineC((L, 1, 1))
+    th = np.full((L, 1, 1), TH0); th[a1:a1 + 12] = TH1; th[a2:a2 + 12] = TH1
+    coin = np.array([1, 0, 0, 0], complex) if coin_kind == 'blank' else positive_coin((0.0, 0, 0), TH0)
+    psi0 = np.zeros((L, 1, 1, 2, 2), complex)
+    for x in range(*well):
+        psi0[x, 0, 0] = np.sin(np.pi * (x - well[0] + 1) / 13) * coin.reshape(2, 2)
+    psi0 /= np.linalg.norm(psi0)
+    psi = psi0.copy(); a = [1.0 + 0j]; Pw = [1.0]; Ps = [float(np.sum(np.abs(psi0[a1:a2 + 12]) ** 2))]
+    for t in range(1500):
+        psi = e.step_half(psi, th, 'Y', t)
+        a.append(np.vdot(psi0, psi)); Pw.append(float(np.sum(np.abs(psi[well[0]:well[1]]) ** 2))); Ps.append(float(np.sum(np.abs(psi[a1:a2 + 12]) ** 2)))
+    a = np.array(a); Pw = np.array(Pw); Ps = np.array(Ps)
+    w, c, mod = matrix_pencil(a[60:], rank=12)
+    comps = [{'abs_phase': float(abs(wi)), 'signed_phase': float(wi), 'weight': float(ci), 'width_2x_amplitude_decay': float(-2 * np.log(mi))}
+             for wi, ci, mi in zip(w, c, mod)]
+    gap = [q for q in comps if TH0 < q['abs_phase'] < TH1]
+    best = max(gap, key=lambda q: q['weight']) if gap else None
+    tt = np.arange(len(Pw)); win = (tt >= 150) & (tt <= 900)
+    gw = float(-np.polyfit(tt[win], np.log(Pw[win]), 1)[0]); gs = float(-np.polyfit(tt[win], np.log(Ps[win]), 1)[0])
+    # local decay rate along the survival curve (100-tick windows) to show whether the decay is one exponential
+    loc = [{'from': int(t0), 'to': int(t0 + 100), 'rate_structure': float(-np.polyfit(tt[t0:t0 + 101], np.log(Ps[t0:t0 + 101]), 1)[0])} for t0 in range(100, 1400, 100)]
+    return {'coin': coin_kind, 'pencil_components': comps, 'clock_line_in_gap': best,
+            'survival_well_rate_150_900': gw, 'survival_structure_rate_150_900': gs, 'local_rates_structure': loc,
+            'P_well_at': {str(k): float(Pw[k]) for k in (0, 50, 100, 200, 400, 800, 1200, 1500)},
+            'P_structure_at': {str(k): float(Ps[k]) for k in (0, 50, 100, 200, 400, 800, 1200, 1500)},
+            'return_amplitude_every_10_ticks_re_im': [[round(float(x.real), 10), round(float(x.imag), 10)] for x in a[::10]]}
+
+
+if __name__ == '__main__':
+    out = {'geometry': 'line of 2048 cells; slabs [1006,1018) and [1030,1042) at theta1, well [1018,1030), background theta0', 'frame': 'half-step frame M^(1/2) S M^(1/2) (step_half)',
+           'targets_from_R6_not_used_in_the_analysis': {'pole_centre': 0.137204, 'width': 0.008995}}
+    out['exact_lattice'] = exact(); out['continuum_dirac'] = continuum()
+    print('exact', out['exact_lattice'], 'continuum', out['continuum_dirac'], flush=True)
+    out['prepared_in_well'] = [run('blank'), run('positive branch at rest')]
+    for r in out['prepared_in_well']:
+        print(r['coin'], 'clock line', r['clock_line_in_gap'], 'survival well', r['survival_well_rate_150_900'], 'structure', r['survival_structure_rate_150_900'],
+              'local', [round(q['rate_structure'], 5) for q in r['local_rates_structure']], flush=True)
+    f = os.path.join(RUNS, 'E_resonance.json'); d = json.load(open(f))
+    d['narrow_12_cell_slabs'] = out
+    d['frame'] = 'four-cell slabs (packets, survival addendum): mass-last frame (Engine.step); twelve-cell slabs: half-step frame (step_half); stationary scattering is frame independent'
+    json.dump(d, open(f, 'w'), indent=1)
+    print('augmented', f)

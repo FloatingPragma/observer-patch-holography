@@ -1,0 +1,74 @@
+"""Checks of the R6 additions against the reference engine, and of the two-reflection structure of the tick.
+Run: python checks.py   (writes checks.json)"""
+import json, time
+import numpy as np
+from r6lib import Field, Routing, dense
+
+out = {}
+rng = np.random.default_rng(601)
+rnd = lambda shape: (lambda a: a / np.linalg.norm(a))(rng.normal(size=shape + (2, 2)) + 1j * rng.normal(size=shape + (2, 2)))
+
+# 1. tick with a field against the engine's tick (constant angle), both orders; one-cell axes; shift against shift_direct
+shape = (6, 4, 4); w = Routing(shape); f = Field(shape, 0.157935); psi = rnd(shape)
+out['field_tick_vs_engine_forward'] = float(np.abs(f.tick(psi, 0) - w.tick(psi, 0.157935)).max())
+out['field_tick_vs_engine_reverse'] = float(np.abs(f.tick(psi, 1) - w.tick(psi, 0.157935, reverse=True)).max())
+w1 = Routing((8, 1, 1)); p1 = rnd((8, 1, 1))
+out['shift_on_one_cell_axis_is_identity'] = float(max(np.abs(w1.shift(p1, 1) - p1).max(), np.abs(w1.shift(p1, 2) - p1).max()))
+out['shift_vs_shift_direct'] = float(max(np.abs(w.shift(psi, i) - w.shift_direct(psi, i)).max() for i in range(3)))
+
+# 2. two reflections: with R the record reflection, (U_s R)^2 = 1 for any angle field and any link signs
+res = {}
+for name, shape in (('line', (12, 1, 1)), ('3d', (4, 4, 6))):
+    theta = rng.uniform(-0.6, 0.6, size=shape)
+    links = [rng.choice([-1.0, 1.0], size=shape) for _ in range(3)]
+    f = Field(shape, theta, links); psi = rnd(shape); R = f.w.record_reflection
+    res[name + '_UsR_squared_minus_1'] = float(np.abs(f.sym(R(f.sym(R(psi)))) - psi).max())
+    # same test in the engine frame and (3d) with the fixed order: not involutions
+    g = lambda q: f.run(q, 1 if name == 'line' else 2)
+    res[name + '_engine_frame_defect'] = float(np.abs(g(R(g(R(psi)))) - psi).max())
+    if name == '3d':
+        fixed = lambda q: f.mass(f.route(f.mass(f.route(f.mass(q, 0.5))), False), 0.5)   # M^1/2 S_fwd M S_fwd M^1/2
+        res['3d_fixed_order_defect'] = float(np.abs(fixed(R(fixed(R(psi)))) - psi).max())
+    # 3. record identity: P(record written after t steps from a blank state) = (1 - <psi|U_s^{2t}|psi>)/2
+    chi = rng.normal(size=shape + (2,)) + 1j * rng.normal(size=shape + (2,)); b = f.blank(chi / np.linalg.norm(chi))
+    worst = 0.0; q = b.copy(); hist = [b.copy()]
+    for t in range(1, 9):
+        q = f.sym(q); hist.append(q)
+    for t in range(1, 5):
+        lhs = Routing.record_probability(hist[t]); c2t = np.vdot(b, hist[2 * t])
+        worst = max(worst, abs(lhs - (1 - c2t.real) / 2), abs(c2t.imag))
+    res[name + '_record_identity_defect'] = float(worst)
+out['two_reflections'] = res
+
+# 4. small lattices, dense: C = P0 U_s P0 is Hermitian and its eigenvalues are the cosines of the phases of the ticks
+for name, shape, nt in (('line_ring_10', (10, 1, 1), 1), ('3d_4x4x4', (4, 4, 4), 2)):
+    theta = np.full(shape, 0.171237); theta[0, 0, 0] = 0.0
+    f = Field(shape, theta)
+    W = dense(lambda q: f.run(q, nt), shape)                                   # engine frame, nt ticks
+    C = dense(lambda chi: f.C(chi), shape, inner=(2,))
+    ph = np.sort(np.cos(np.angle(np.linalg.eigvals(W))))
+    ev = np.sort(np.linalg.eigvalsh((C + C.conj().T) / 2))
+    out[name] = {'C_hermitian_defect': float(np.abs(C - C.conj().T).max()), 'W_unitary_defect': float(np.abs(W.conj().T @ W - np.eye(len(W))).max()),
+                 'cos_phases_of_W_vs_eig_C_each_twice': float(np.abs(ph - np.sort(np.repeat(ev, 2))).max())}
+
+# 5. engine frame against symmetric frame, one axis, uniform angle: P_engine = sin^2 E - sin^2 p sin^2 theta
+L = 64; th = 0.157935; f = Field((L, 1, 1), th); rows = []
+for n in (0, 1, 3):
+    p = 2 * np.pi * n / L; b = f.w.plane_wave((n, 0, 0), [1, 0, 0, 0])
+    pe = Routing.record_probability(f.tick(b)); ps = Routing.record_probability(f.sym(b)); s2E = 1 - (np.cos(th) * np.cos(p)) ** 2
+    rows.append({'p': p, 'engine_frame': pe, 'symmetric_frame': ps, 'sin2E': s2E, 'defect_sym': abs(ps - s2E), 'defect_engine_formula': abs(pe - (s2E - np.sin(p) ** 2 * np.sin(th) ** 2))})
+out['frames_one_axis'] = rows
+
+# 6. parity classes: one tick changes the parity of every coordinate, so two ticks preserve it (any angle field, any link signs)
+shape = (6, 6, 4); theta = rng.uniform(-0.6, 0.6, size=shape); links = [rng.choice([-1.0, 1.0], size=shape) for _ in range(3)]
+f = Field(shape, theta, links); g = np.indices(shape); cls = (g[0] % 2 == 0) & (g[1] % 2 == 0) & (g[2] % 2 == 0); opp = (g[0] % 2 == 1) & (g[1] % 2 == 1) & (g[2] % 2 == 1)
+psi = rnd(shape) * cls[..., None, None]; psi /= np.linalg.norm(psi); one = f.tick(psi, 0); two = f.tick(one, 1)
+out['parity_classes'] = {'weight_outside_opposite_class_after_one_tick': float(np.sum(np.abs(one[~opp]) ** 2)), 'weight_outside_own_class_after_two_ticks': float(np.sum(np.abs(two[~cls]) ** 2))}
+
+# timing
+for shape in ((256, 1, 1), (24, 24, 24)):
+    for direct in (False, True):
+        f = Field(shape, 0.1, direct=direct); psi = rnd(shape); t0 = time.time(); n = 20
+        f.run(psi, n); out[f'ms_per_tick_{shape[0]}_{"direct" if direct else "public"}'] = round((time.time() - t0) / n * 1e3, 3)
+json.dump(out, open('checks.json', 'w'), indent=1)
+print(json.dumps(out, indent=1))

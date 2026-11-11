@@ -1,0 +1,123 @@
+"""CW addition 1, on the simulation session's own data: repair-law/work/MG/frames_flat_{F,face_axis,port_pair,rolling}.json
+(read-only). For every comparison of spinor frames listed there (chart S, R0, R1, R2, roll; ambient) and flux
+k = 1, 2 the Bloch matrix is built from the file: internal links from the axes the file names (template axes for
+chart comparisons, ambient axes E_c u_p for the ambient one), glue links from the file's amplitudes.
+
+  reading 'phase'    glue link z_keep^k (unit modulus): the recharting class of the covariant agreement pump.
+  reading 'modulus'  glue hop keep^k with its modulus cos(angle/2)^k, diagonal unchanged: NOT a recharting.
+
+Reported per comparison: the three glue phases, the zone point on which the comparison puts q = 0, the largest
+difference between its bands and the bands of rule (a) of cw2 after that shift, and at its own q = 0 the levels of
+the leading complex relative to the carrier level, the splitting of the two lowest, the gradient of the two lowest
+bands, the number of flat bands at the carrier level, and the two-band test of the lowest pair.
+
+Run: python cw8_frames.py -> cw8_frames.json
+"""
+import json
+import os
+
+import numpy as np
+
+import cw_lib as C
+import cw_shell as R
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+MGDIR = os.path.join(HERE, '..', 'MG')
+
+
+def links_from_axes(axes, k):
+    chi = [C.spinor(np.asarray(u, float)) for u in axes]
+    A = np.zeros((12, 12), complex)
+    for a, b in C.SEAMS:
+        z = np.vdot(chi[b], chi[a]); z /= abs(z)
+        A[b, a] = z ** k; A[a, b] = np.conj(z) ** k
+    return 5 * np.eye(12) - A
+
+
+def bloch_file(q, Lu, Ld, pu, pd, glue):
+    L = np.zeros((24, 24), complex)
+    L[:12, :12] = Lu; L[12:, 12:] = Ld
+    for j in range(3):
+        u, d = pu[j], 12 + pd[j]
+        L[u, u] += 1; L[d, d] += 1
+        ph = glue[j] * np.exp(-1j * (np.asarray(q, float) @ C.DELTA[j]))
+        L[d, u] -= ph; L[u, d] -= np.conj(ph)
+    return L
+
+
+out = {'files': {}}
+print('file comparison k reading | glue phases (units of 2 pi) | q=0 is | bands = rule (a) shifted | levels - l0 at q=0 | splitting | gradients | flat at l0 | lowest pair b, v, residual')
+for nm in ('F', 'face_axis', 'port_pair', 'rolling'):
+    path = os.path.join(MGDIR, f'frames_flat_{nm}.json')
+    if not os.path.exists(path):
+        out['files'][nm] = 'absent'
+        continue
+    d = json.load(open(path))
+    rows = []
+    for cname, comp in d['comparisons'].items():
+        seams = sorted(comp['glue_seams'], key=lambda s: s['k'])
+        pu = [s['from'][1] for s in seams]; pd = [s['to'][1] for s in seams]
+        assert all(s['from'][0] == 'up' and s['to'][0] == 'down' for s in seams)
+        angles = [s['angle_between_glued_axes_after_transport_deg'] for s in seams]
+        keep = [complex(*s['keep']) for s in seams]
+        if any(abs(z) < 1e-9 for z in keep):
+            rows.append({'comparison': cname, 'ports_up': pu, 'ports_down': pd, 'angles_deg': angles, 'defined': False,
+                         'note': 'a glued pair of axes is antipodal: the overlap vanishes and the recharting phase is undefined'})
+            print(f'{nm} {cname}: undefined (antipodal glued axes on seams {[s["k"] for s, z in zip(seams, keep) if abs(z) < 1e-9]})')
+            continue
+        if comp['kind'] == 'ambient':
+            Eu = np.array(d['embedding']['E_up']); Ed = np.array(d['embedding']['E_down'])
+            ax_u = C.PORT_UNIT @ Eu.T; ax_d = C.PORT_UNIT @ Ed.T
+        else:
+            ax_u = ax_d = C.PORT_UNIT
+        for k in (1, 2):
+            Lu, Ld = links_from_axes(ax_u, k), links_from_axes(ax_d, k)
+            wc = np.linalg.eigvalsh(Lu); l0 = float(wc[0]); dm = int(np.sum(np.abs(wc - l0) < 1e-8))
+            for reading in ('phase', 'modulus'):
+                glue = np.array([(z / abs(z)) ** k if reading == 'phase' else z ** k for z in keep])
+                f = lambda q: np.linalg.eigvalsh(bloch_file(q, Lu, Ld, pu, pd, glue))
+                ph = glue / np.abs(glue)
+                al = np.array([np.angle(ph[1] / ph[0]), np.angle(ph[2] / ph[0])])
+                kap = np.linalg.solve(np.array([C.A1, C.A2]), al)
+                same = None
+                if reading == 'phase':
+                    same = float(max(np.abs(f(q) - C.bands(q - kap, k, pu, pd)).max() for q in C.zone_grid(6)))
+                e0 = f(np.zeros(2))[:2 * dm] - l0
+                h = 1e-5
+                grads = [max(abs(float(f(h * e)[b] - f(-h * e)[b])) / (2 * h) for e in R.DIRS12) for b in (0, 1)]
+                ev = np.array([f(q) for q in C.zone_grid(12)])
+                nflat = int(np.sum(np.abs(ev - l0).max(0) < 1e-8))
+                cr = R.cone_readout(f, 0, 1, np.zeros(2))
+                row = {'comparison': cname, 'kind': comp['kind'], 'rule': comp.get('rule'), 'ports_up': pu, 'ports_down': pd, 'k': k, 'reading': reading, 'defined': True,
+                       'angles_deg': angles, 'glue_modulus': [float(abs(g)) for g in glue], 'glue_phases_units_of_2pi': [float(np.angle(g) / (2 * np.pi)) for g in glue],
+                       'three_phases_equal': bool(np.abs(al).max() < 1e-9), 'q0_point': C.name_point(kap),
+                       'max_band_difference_to_rule_a_after_shift': same, 'levels_minus_l0_at_q0': e0.tolist(), 'splitting_of_two_lowest': float(e0[1] - e0[0]),
+                       'gradient_band0_band1': grads, 'flat_bands_at_l0': nflat, 'spectrum_bottom_minus_l0': float(ev.min() - l0),
+                       'lowest_pair_two_band': {'b': cr['half_splitting_b'], 'v': cr.get('slope_v'), 'residual': cr.get('hyperbola_residual_rel_in_window'),
+                                                'note': cr.get('two_band_form')}}
+                rows.append(row)
+                print(f"{nm} {cname} k={k} {reading:7s} | {np.round(row['glue_phases_units_of_2pi'], 4)} |mod| {row['glue_modulus'][0]:.4f} | {row['q0_point']} | {same if same is None else format(same, '.1e')} | "
+                      f"{np.round(e0, 6)} | {row['splitting_of_two_lowest']:.6f} | {grads[0]:.1e}, {grads[1]:.1e} | {nflat} | b {cr['half_splitting_b']:.6f} v {cr.get('slope_v')} resid {cr.get('hyperbola_residual_rel_in_window')}")
+    out['files'][nm] = {'note': d['note'], 'rows': rows}
+
+# the declared router's flat form (frames_flat_port_pair.json): the bands do not depend on the undefined phases
+pp = out['files'].get('port_pair')
+if isinstance(pp, dict):
+    d = json.load(open(os.path.join(MGDIR, 'frames_flat_port_pair.json')))
+    pu, pd = d['glue_ports_up'], d['glue_ports_down']
+    res = []
+    for k in (1, 2):
+        wc = np.linalg.eigvalsh(C.L_float(k)); l0 = float(wc[0]); dm = int(np.sum(np.abs(wc - l0) < 1e-8))
+        ev = np.array([C.bands(q, k, pu, pd) for q in C.zone_grid(24)])
+        nflat = int(np.sum(np.abs(ev - l0).max(0) < 1e-8))
+        rng = np.random.default_rng(2)
+        g = np.exp(2j * np.pi * rng.random(3))
+        kap = np.linalg.solve(np.array([C.A1, C.A2]), np.array([np.angle(g[1] / g[0]), np.angle(g[2] / g[0])]))
+        same = float(max(np.abs(C.bands(q, k, pu, pd, glue=g) - C.bands(q - kap, k, pu, pd)).max() for q in C.zone_grid(6)))
+        res.append({'k': k, 'ports_up': pu, 'ports_down': pd, 'flat_bands_at_l0_per_cell': nflat, 'predicted_2d_minus_3': 2 * dm - 3,
+                    'first_dispersive_band_min_minus_l0_on_grid_24': float(ev[:, nflat].min() - l0), 'first_dispersive_band_max_minus_l0': float(ev[:, nflat].max() - l0),
+                    'random_glue_phases_equal_shifted_bands_max_diff': same})
+        print(f"port_pair k={k}: flat bands at l0 {nflat} (2d-3 = {2 * dm - 3}); first dispersive band min l0+{res[-1]['first_dispersive_band_min_minus_l0_on_grid_24']:.6f} max l0+{res[-1]['first_dispersive_band_max_minus_l0']:.6f}; random phases = shift: {same:.1e}")
+    out['port_pair_bands_any_phases'] = res
+json.dump(out, open(os.path.join(HERE, 'cw8_frames.json'), 'w'), indent=1)
+print('written cw8_frames.json')

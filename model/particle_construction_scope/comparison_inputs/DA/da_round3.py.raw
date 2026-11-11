@@ -1,0 +1,104 @@
+"""Worker DA, third round: the coin rule under the coherent record bit (K5, K6) and the scale under premise B
+(B1-B5 and B1'-B5'), as listed in CANDIDATES.md section 8.
+
+Run from the RER checkout (read only, no byte code written):
+  cd reverse-engineering-reality && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:../repair-law/work/DA \
+    /tmp/oph-completion-venv/bin/python ../repair-law/work/DA/da_round3.py ../repair-law/work/DA/round3.json
+"""
+import json
+import sys
+from fractions import Fraction as F
+from pathlib import Path
+
+from mpmath import mp, mpf, sqrt, cos, pi, log, fsum
+
+from model.coherent_seam_repair.program import Observer, State
+from model.common_source import native_code_transport as transport
+
+mp.dps = 40
+obs = Observer()
+addr = {pair: k for k, pair in enumerate(obs.addresses)}
+out = {}
+
+# (a) one coherent seam event on an active seam: weights of the agreeing (record 0) and repair (record 1) branches
+branch = {}
+for name, seam in (('C', transport.SEAMS['C']), ('E', transport.SEAMS['E'])):
+    rows = {}
+    for orient in (seam, seam[::-1]):
+        k = addr[orient]
+        for src in seam:
+            amps = [F(0)] * obs.dimension
+            amps[obs.index(src, 0, k)] = F(1)
+            st = obs.repair(State(tuple(amps), 1))
+            rec0 = sum(x * x for i, x in enumerate(st.amplitudes) if (i // obs.address_count) % 2 == 0)
+            rec1 = sum(x * x for i, x in enumerate(st.amplitudes) if (i // obs.address_count) % 2 == 1)
+            comp = [st.amplitudes[obs.index(p, 1, k)] for p in seam]
+            rows[f'address {orient[0]}->{orient[1]}, load at {src}'] = {
+                'record0_weight': str(rec0), 'record1_weight': str(rec1),
+                'record1_amplitudes_on_seam_ports': [str(c) for c in comp]}
+    # activity of the seam on the native matching code (two-load pair states, uniform)
+    a, b = seam
+    act = F(0); tot = F(0)
+    for m in transport.code.MATCHINGS:
+        for pair in m:
+            tot += 1
+            act += int((a in pair) != (b in pair))
+    p_active = act / tot
+    branch[name] = {'seam': seam, 'conditional_weights': rows, 'P_active_on_native_code': str(p_active),
+                    'agree': str(p_active / 2), 'repair_from_first_endpoint': str(p_active / 4),
+                    'repair_from_second_endpoint': str(p_active / 4)}
+out['coherent_seam_event'] = branch
+agree = F(branch['E']['agree']); rp = F(branch['C']['repair_from_first_endpoint']); rm = F(branch['C']['repair_from_second_endpoint'])
+
+# K5: two independent objects in one tick; K6: one seam event, exclusive outcomes
+out['K5_two_objects'] = {'hold': str(agree), 'repair_plus': str(rp), 'repair_minus': str(rm),
+                         'balance_abs_b_over_a_squared': str(rp / agree),
+                         'P(repair+ xor hold)': str(rp + agree - 2 * rp * agree),
+                         'P(repair- xor hold)': str(rm + agree - 2 * rm * agree)}
+a1 = F(branch['C']['agree'])
+out['K6_one_seam'] = {'hold': str(a1), 'repair_plus': str(rp), 'repair_minus': str(rm),
+                      'balance_abs_b_over_a_squared': str(rp / a1),
+                      'P(repair+ xor hold)': str(rp + a1), 'P(repair- xor hold)': str(rm + a1)}
+
+
+# phase readings under premise B (one radian per read) against the pole masses (NOT BLIND)
+def ratios(delta, r=sqrt(2)):
+    x = [1 + r * cos(delta + 2 * pi * k / 3) for k in range(3)]  # tau, e, mu
+    return (x[2] / x[1]) ** 2, (x[0] / x[1]) ** 2
+
+
+meas = {'e': mpf('0.51099895069'), 'mu': mpf('105.6583755'), 'tau': mpf('1776.93')}
+s_mue = mpf('2.3e-6') / meas['mu']
+s_taue = mpf('0.09') / meas['tau']
+comp = {}
+for name, d in (('K5 delta = 2/9', mpf(2) / 9), ('K6 delta = 1/4', mpf(1) / 4)):
+    mue, taue = ratios(d)
+    comp[name] = {'mu_e': str(mue), 'tau_e': str(taue),
+                  'mu_e_pull': float(log(mue / (meas['mu'] / meas['e'])) / s_mue),
+                  'tau_e_pull': float(log(taue / (meas['tau'] / meas['e'])) / s_taue)}
+out['phase_under_B_NOT_BLIND'] = comp
+
+# (b) scale under premise B: M = v n_J (and v n_J / sqrt2)
+P = mpf('1.63097209585889737696451390350695562847912625')
+alpha_U = mpf('0.041124247441816685141')
+v_source = P ** (-mpf(1) / 2) * mp.e ** (-pi / (2 * alpha_U)) * mpf('1.220890e19')
+v_gf = mpf('246.21965')
+M_meas = fsum(meas.values()) / 1000
+p, q = mpf(1) / 12, mpf(1) / 6
+cands = {'B1 pq': p * q, 'B2 2^-7': mpf(1) / 128, 'B3 (2/9) pq': mpf(2) / 9 * p * q, 'B4 p^2': p * p, 'B5 q^2': q * q}
+scale = {}
+for k, n in cands.items():
+    for norm, f in (('v', 1), ("v/sqrt2 (primed)", 1 / sqrt(2))):
+        Ms = v_source * n * f
+        scale[f'{k}, unit {norm}'] = {'n_J': str(n), 'M_GeV_v_source': float(Ms),
+                                      'ratio_v_source': float(Ms / M_meas),
+                                      'ratio_v_GF': float(v_gf * n * f / M_meas),
+                                      'pass_5_percent': bool(abs(Ms / M_meas - 1) <= mpf('0.05'))}
+out['scale_under_B'] = scale
+out['needed_n_J_NOT_BLIND'] = {'unit v_source': float(M_meas / v_source), 'unit v_source/sqrt2': float(sqrt(2) * M_meas / v_source)}
+out['menu_size'] = 10
+Path(sys.argv[1]).write_text(json.dumps(out, indent=1))
+print(json.dumps({k: out[k] for k in ('K5_two_objects', 'K6_one_seam', 'phase_under_B_NOT_BLIND', 'needed_n_J_NOT_BLIND')}, indent=1))
+print(json.dumps({k: (round(v['ratio_v_source'], 4), v['pass_5_percent']) for k, v in scale.items()}, indent=1))
+print(json.dumps({k: {kk: vv for kk, vv in v.items() if kk != 'conditional_weights'} for k, v in branch.items()}, indent=1))
+print(json.dumps(branch['E']['conditional_weights'], indent=1))

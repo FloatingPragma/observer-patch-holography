@@ -1,0 +1,57 @@
+"""Audit replay of the actual full-carrier residual, with owned output only."""
+from pathlib import Path
+import hashlib,json,sys
+from fractions import Fraction as F
+import numpy as np
+import mpmath as mp
+HERE=Path(__file__).resolve().parent
+TARGET=HERE.parents[1]/'CODEX_MOBILE_SPECTRAL'
+sys.path.insert(0,str(TARGET))
+import full_sector as full
+import certify_trial as cert
+
+def run():
+    # Rebuild every exact frame coefficient. Redirect only this process's
+    # output path, keeping the root's source and candidate files untouched.
+    full.HERE=HERE
+    frame=full.algebraic_frame()
+    inherited=np.load(TARGET/'algebraic_frame.npz',allow_pickle=False)
+    assert all(np.array_equal(value,inherited[name]) for name,value in frame.items())
+    operator=full.ActualOperator(frame)
+    parent=cert.coarse.certificate()
+    source=np.load(TARGET/'full_sector_trial.npz',allow_pickle=False)
+    vector=source['vectors'][:,0];energy=float(source['energy'][0])
+    hv=operator.apply(vector);residual=hv-energy*vector
+    normlo,normhi=cert.sqrt_bounds(cert.squared_norm_exact(vector))
+    assert F(1,2)<=normlo<=normhi<=2
+    _,rn=cert.sqrt_bounds(cert.squared_norm_exact(residual))
+    _,hvn=cert.sqrt_bounds(cert.squared_norm_exact(hv))
+    budget=cert.evaluation_budget(frame,operator)
+    rounding=cert.U*abs(cert.q(energy))*normhi+cert.U*(hvn+(1+cert.U)*abs(cert.q(energy))*normhi)
+    bound=(rn+F(budget['H_apply_norm_error_per_unit_input'])*normhi+rounding)/normlo
+    saved=json.loads((TARGET/'full_sector_certificate.json').read_text())
+    assert saved['arithmetic_budget']==budget
+    assert F(saved['actual_H_residual_norm_upper'])==bound
+    L2=F(parent['spectral']['low_charged_levels'][1]['actual_H_energy_interval'][0])
+    assert cert.q(energy)+bound<L2
+    angle=bound/(L2-cert.q(energy))
+    assert F(saved['normalized_trial_sine_angle_to_actual_ground_upper'])==angle
+    norm2=cert.squared_norm_exact(vector)
+    photon=1-cert.squared_norm_exact(vector[::5456])/norm2
+    assert list(map(F,saved['actual_ground_nonvacuum_probability_interval']))==[photon-angle,photon+angle]
+    for y,block in enumerate(vector.reshape(13,5456)):
+        p=cert.squared_norm_exact(block)/norm2
+        assert list(map(F,saved['position_probabilities'][y]['probability_interval']))==[max(F(0),p-angle),min(F(1),p+angle)]
+    files=['full_sector.py','certify_trial.py','algebraic_frame.npz','full_sector_trial.npz','full_sector_certificate.json']
+    value={'schema':'oph.affine_gauss_full_sector_residual_audit.v1',
+      'complete_actual_frame_fresh_rebuilt':True,'full_residual_replay_exactly_equal':True,
+      'actual_H_residual_norm_upper':str(bound),'ground_isolated_by_frozen_full_complement_E2':True,
+      'all_13_position_and_photon_intervals_replayed':True,
+      'actual_charged_ground_energy_interval':saved['actual_charged_ground_energy_interval'],
+      'candidate_sha256':{name:hashlib.sha256((TARGET/name).read_bytes()).hexdigest() for name in files},
+      'owned_source_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')},
+      'independent_controls':['all spectator Peierls Taylor controls','literal full-executor invariant test and exact photon phase identity']}
+    (HERE/'results.json').write_text(json.dumps(value,indent=2,sort_keys=True)+'\n')
+    print('PASS: fresh actual frame, exact residual bound, E2 isolation, all position/photon intervals')
+    return value
+if __name__=='__main__':run()

@@ -1,0 +1,192 @@
+"""Executable version of the candidate program CF-1 (repair-law/candidates/CF1.md): species, backgrounds, readouts.
+
+The routing tick itself is the theory session's reference engine (ref/routing.py, copied from work/DIRAC). This file adds
+  - a tick with one rest angle per cell (a static background) and the alternating order of the axes,
+  - the species layer: the twelve occupation patterns of the five levels, their charge Q6 and the rest angle each one
+    takes on a carrier that holds a flux pair of class k at face separation d (option M1, work/DIRAC/defect_phases.json),
+  - readouts by apparatus: record statistics, phase estimation from the return amplitude, packet velocity, position.
+Nothing here is fitted. Every angle is a number of one carrier computed elsewhere; the unit of the tick is not fixed.
+"""
+import json, os, sys
+import numpy as np
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(HERE, 'ref'))
+from routing import Routing, SIG, I2          # noqa: E402
+
+PHASES = json.load(open(os.path.join(HERE, 'ref', 'defect_phases.json')))
+# rest phase by (alpha numerator of sixths, separation): alpha = 1/6 -> 1, 1/3 -> 2, 1/2 -> 3
+REST = {}
+for row in PHASES['rows']:
+    num = {'1/6': 1, '1/3': 2, '1/2': 3}[row['alpha']]
+    REST[(num, row['separation'])] = row['rest_phase']
+
+# the twelve patterns (n3 vector levels filled, n2 spinor levels filled); Q6 = 3 n2 - 2 n3
+PATTERNS = [(n3, n2) for n2 in range(3) for n3 in range(4)]
+NAMES = {(0, 0): 'antineutrino singlet', (1, 0): 'down quark, right-handed', (2, 0): 'up antiquark', (3, 0): 'electron, right-handed',
+         (0, 1): 'antilepton doublet', (1, 1): 'quark doublet', (2, 1): 'antiquark doublet', (3, 1): 'lepton doublet',
+         (0, 2): 'positron', (1, 2): 'up quark, right-handed', (2, 2): 'down antiquark', (3, 2): 'neutrino, right-handed'}
+
+
+def q6(pattern):
+    n3, n2 = pattern
+    return 3 * n2 - 2 * n3
+
+
+def alpha_sixths(pattern, k):
+    """the phase a pattern sees at a flux of class k, in sixths of a turn, folded to 0..3 (alpha and 1 - alpha are conjugate)"""
+    a = (k * q6(pattern)) % 6
+    return min(a, 6 - a)
+
+
+def rest_angle(pattern, k, d=1):
+    """option M1: rest angle of a pattern on a carrier holding a flux pair (k, -k) at face separation d; 0 if it does not see it"""
+    a = alpha_sixths(pattern, k)
+    return 0.0 if a == 0 or k == 0 else REST[(a, d)]
+
+
+SPECIES_CLASSES = {          # the four classes of patterns by what they see
+    'quark doublets': [(1, 1), (2, 1)],
+    'quark singlets': [(1, 0), (2, 0), (1, 2), (2, 2)],
+    'lepton doublets': [(0, 1), (3, 1)],
+    'lepton and neutrino singlets': [(0, 0), (3, 0), (0, 2), (3, 2)],
+}
+
+
+class Engine(Routing):
+    """routing tick with a rest angle per cell and the alternating order of the axes"""
+
+    def shift_fast(self, psi, i):
+        """S_i = P+ T + P- T*. With a static link field z (sign or phase on the link from x to x + e_i, the convention
+        of Routing.seam_involution) the amplitude that arrives from x + e_i carries z(x), the one from x - e_i conj(z(x - e_i))."""
+        x = psi[..., ::-1, :] @ SIG[i].T
+        if self.links is None:
+            return 0.5 * (np.roll(psi + x, 1, axis=i) + np.roll(psi - x, -1, axis=i))
+        z = self.links[i][..., None, None]
+        return 0.5 * (np.roll(np.conj(z) * (psi + x), 1, axis=i) + z * np.roll(psi - x, -1, axis=i))
+
+    def shift_inverse(self, psi, i):
+        """S_i* = P+ T* + P- T"""
+        x = psi[..., ::-1, :] @ SIG[i].T
+        if self.links is None:
+            return 0.5 * (np.roll(psi + x, -1, axis=i) + np.roll(psi - x, 1, axis=i))
+        z = self.links[i][..., None, None]
+        return 0.5 * (z * np.roll(psi + x, -1, axis=i) + np.roll(np.conj(z) * (psi - x), 1, axis=i))
+
+    def step_inverse(self, psi, theta=0.0, kind='Y', t=0, alternating=True):
+        """inverse of step(psi, theta, kind, t)"""
+        psi = self.mass_field(psi, -theta if np.isscalar(theta) else -np.asarray(theta), kind)
+        order = (2, 1, 0) if (alternating and t % 2 == 1) else (0, 1, 2)
+        for i in reversed(order):
+            psi = self.shift_inverse(psi, i)
+        return psi
+
+    def mass_field(self, psi, theta, kind='Y'):
+        if np.isscalar(theta):
+            if theta == 0: return psi
+            c, s = np.cos(theta), np.sin(theta)
+        else:
+            c, s = np.cos(theta)[..., None], np.sin(theta)[..., None]
+        out = np.empty_like(psi)
+        if kind == 'Y':
+            out[..., 0, :] = c * psi[..., 0, :] - s * psi[..., 1, :]
+            out[..., 1, :] = s * psi[..., 0, :] + c * psi[..., 1, :]
+        else:
+            out[..., 0, :] = (c - 1j * s) * psi[..., 0, :]
+            out[..., 1, :] = (c + 1j * s) * psi[..., 1, :]
+        return out
+
+    def step(self, psi, theta=0.0, kind='Y', t=0, alternating=True):
+        order = (2, 1, 0) if (alternating and t % 2 == 1) else (0, 1, 2)
+        for i in order:
+            psi = self.shift_fast(psi, i)
+        return self.mass_field(psi, theta, kind)
+
+    def step_half(self, psi, theta=0.0, kind='Y', t=0):
+        """one tick in the half-step frame M^(1/2) S M^(1/2): half the mass rotation before the three shifts, half after.
+        Same phases as step(); record statistics and the rest position of a packet are exact only in this frame."""
+        half = theta / 2 if np.isscalar(theta) else np.asarray(theta) / 2
+        psi = self.mass_field(psi, half, kind)
+        for i in ((2, 1, 0) if t % 2 == 1 else (0, 1, 2)):
+            psi = self.shift_fast(psi, i)
+        return self.mass_field(psi, half, kind)
+
+    def run(self, psi, ticks, theta=0.0, kind='Y', t0=0, alternating=True, each=None):
+        for t in range(t0, t0 + ticks):
+            psi = self.step(psi, theta, kind, t, alternating)
+            if each is not None: each(t + 1, psi)
+        return psi
+
+    # ---- preparations ------------------------------------------------------------------------------------------
+    def gaussian(self, centre, width, p=(0, 0, 0), coin=(1, 0, 0, 0)):
+        grids = np.meshgrid(*[np.arange(s) for s in self.shape], indexing='ij')
+        d = [((grids[i] - centre[i] + self.shape[i] / 2) % self.shape[i]) - self.shape[i] / 2 if self.shape[i] > 1 else 0 * grids[i] for i in range(3)]
+        env = np.exp(-(d[0] ** 2 + d[1] ** 2 + d[2] ** 2) / (2 * width ** 2)) * np.exp(1j * (p[0] * d[0] + p[1] * d[1] + p[2] * d[2]))
+        psi = env[..., None, None] * np.asarray(coin, complex).reshape(2, 2)
+        return psi / np.linalg.norm(psi)
+
+    def branch_packet(self, n0, width, theta, kind='Y'):
+        """packet along axis 0; each plane wave carries the projection of the blank spin-up state on the positive branch"""
+        L = self.shape[0]
+        psi = np.zeros(self.shape + (2, 2), complex)
+        for n in range(L):
+            d = ((n - n0 + L / 2) % L) - L / 2
+            wgt = np.exp(-d * d / (2 * width ** 2))
+            if wgt < 1e-12: continue
+            p = self.momentum((n, 0, 0))
+            psi += wgt * self.plane_wave((n, 0, 0), positive_coin(p, theta, kind))
+        return psi / np.linalg.norm(psi)
+
+    # ---- readouts ----------------------------------------------------------------------------------------------
+    @staticmethod
+    def density(psi):
+        return np.sum(np.abs(psi) ** 2, axis=(-1, -2))
+
+    def radial(self, psi, centre):
+        rho = self.density(psi)
+        grids = np.meshgrid(*[np.arange(s) for s in self.shape], indexing='ij')
+        d = [((grids[i] - centre[i] + self.shape[i] / 2) % self.shape[i]) - self.shape[i] / 2 for i in range(3)]
+        return rho, d, np.sqrt(d[0] ** 2 + d[1] ** 2 + d[2] ** 2)
+
+
+def positive_coin(p, theta, kind='Y'):
+    """projection of the blank spin-up state on the branch exp(-i E), E > 0, of the one-axis symbol"""
+    U = Routing.symbol(p, theta, kind)
+    E = float(np.arccos(np.cos(theta) * np.cos(p[0])))
+    e0 = np.array([1, 0, 0, 0], complex)
+    if E < 1e-12: return e0
+    v = (U - np.exp(1j * E) * np.eye(4)) @ e0 / (np.exp(-1j * E) - np.exp(1j * E))
+    return v / np.linalg.norm(v)
+
+
+def two_tick_symbol(p, theta, kind='Y'):
+    return Routing.symbol(p, theta, kind) if False else symbol_order(p, theta, kind, True) @ symbol_order(p, theta, kind, False)
+
+
+def symbol_order(p, theta, kind='Y', reverse=False):
+    X = SIG[0]; out = np.eye(4, dtype=complex)
+    for i in ((2, 1, 0) if reverse else (0, 1, 2)):
+        a = np.kron(X, SIG[i])
+        out = (np.cos(p[i]) * np.eye(4) - 1j * np.sin(p[i]) * a) @ out
+    b = np.kron(SIG[1] if kind == 'Y' else SIG[2], I2)
+    return (np.cos(theta) * np.eye(4) - 1j * np.sin(theta) * b) @ out
+
+
+def phases(p, theta, kind='Y'):
+    """phase per tick of the alternating order at wave vector p: the positive eigenphases of the two-tick symbol, halved"""
+    w = np.linalg.eigvals(two_tick_symbol(p, theta, kind))
+    return np.sort(np.abs(np.angle(w)))[::2] / 2
+
+
+def matrix_pencil(y, rank=None, tol=1e-8):
+    """frequencies and weights of y_t = sum_j c_j exp(-i w_j t); returns (w_j, |c_j|^2) sorted by weight"""
+    y = np.asarray(y, complex); T = len(y); L = T // 2
+    Y = np.array([y[i:i + L + 1] for i in range(T - L)])
+    U, s, Vh = np.linalg.svd(Y, full_matrices=False)
+    K = int(np.sum(s > tol * s[0])) if rank is None else rank
+    Vk = Vh[:K].conj().T
+    Z = np.linalg.pinv(Vk[:-1]) @ Vk[1:]
+    z = np.linalg.eigvals(Z)
+    A = np.vander(z, T, increasing=True).T
+    c = np.linalg.lstsq(A, y, rcond=None)[0]
+    w = -np.angle(z); order = np.argsort(-np.abs(c))
+    return w[order], (np.abs(c) ** 2)[order], np.abs(z)[order]

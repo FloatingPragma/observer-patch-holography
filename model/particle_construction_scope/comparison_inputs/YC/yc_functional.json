@@ -1,0 +1,290 @@
+{
+ "toggle_charges": {
+  "[K, Q_em]": 0.0,
+  "[K, gluons] max": 0.0,
+  "[K, W1] (nonzero: the toggle carries weak isospin)": 0.5,
+  "K^2 = 1 on patterns": true
+ },
+ "generated_carrier": {
+  "dimension": 16,
+  "equals_n3_at_most_1": true
+ },
+ "hessians": {
+  "code (N = 1), 5": {
+   "dimension": 5,
+   "invariant_under_toggle": false,
+   "H_gauge_per_direction (exact trace)": [
+    "1/10",
+    "1/10",
+    "1/10",
+    "1/10",
+    "1/10",
+    "1/10",
+    "1/10",
+    "1/10",
+    "1/10",
+    "1/10",
+    "1/10",
+    "1/10"
+   ],
+   "H_gauge equal in all twelve": true,
+   "H_gauge finite difference (gluon1, W1, B_GUT)": [
+    0.09999999805998527,
+    0.09999999805998527,
+    0.09999999894816369
+   ]
+  },
+  "generated from the code by links and toggle, 16": {
+   "dimension": 16,
+   "invariant_under_toggle": true,
+   "H_gauge_per_direction (exact trace)": [
+    "1/8",
+    "1/8",
+    "1/8",
+    "1/8",
+    "1/8",
+    "1/8",
+    "1/8",
+    "1/8",
+    "1/8",
+    "1/8",
+    "1/8",
+    "1/8"
+   ],
+   "H_gauge equal in all twelve": true,
+   "H_gauge finite difference (gluon1, W1, B_GUT)": [
+    0.12499999724191468,
+    0.12499999746395929,
+    0.12499999657578087
+   ],
+   "H_toggle (exact trace)": "1/1",
+   "H_toggle finite difference": 0.9999999164289619,
+   "sum over Dirac species of y^2 / g^2 at r from this carrier (must equal tr T_a^2 on the carrier)": [
+    2.0000000000000013,
+    2.0000000000000018
+   ]
+  },
+  "family half n3 odd, 16": {
+   "dimension": 16,
+   "invariant_under_toggle": true,
+   "H_gauge_per_direction (exact trace)": [
+    "1/8",
+    "1/8",
+    "1/8",
+    "1/8",
+    "1/8",
+    "1/8",
+    "1/8",
+    "1/8",
+    "1/8",
+    "1/8",
+    "1/8",
+    "1/8"
+   ],
+   "H_gauge equal in all twelve": true,
+   "H_gauge finite difference (gluon1, W1, B_GUT)": [
+    0.12499999746395929,
+    0.12499999746395929,
+    0.12499999657578087
+   ],
+   "H_toggle (exact trace)": "1/1",
+   "H_toggle finite difference": 0.9999999166510065,
+   "sum over Dirac species of y^2 / g^2 at r from this carrier (must equal tr T_a^2 on the carrier)": [
+    2.0,
+    2.0
+   ]
+  },
+  "all patterns, 32": {
+   "dimension": 32,
+   "invariant_under_toggle": true,
+   "H_gauge_per_direction (exact trace)": [
+    "1/8",
+    "1/8",
+    "1/8",
+    "1/8",
+    "1/8",
+    "1/8",
+    "1/8",
+    "1/8",
+    "1/8",
+    "1/8",
+    "1/8",
+    "1/8"
+   ],
+   "H_gauge equal in all twelve": true,
+   "H_gauge finite difference (gluon1, W1, B_GUT)": [
+    0.12499999724191468,
+    0.12499999724191468,
+    0.12499999657578087
+   ],
+   "H_toggle (exact trace)": "1/1",
+   "H_toggle finite difference": 0.9999999162069173,
+   "sum over Dirac species of y^2 / g^2 at r from this carrier (must equal tr T_a^2 on the carrier)": [
+    4.0,
+    4.0
+   ]
+  }
+ },
+ "higgs_plaquette": {
+  "rows": [
+   {
+    "field scale": 0.08,
+    "largest relative deviation of the cost from (H_toggle/2)|U phi' - phi|^2": 0.016465692844935115
+   },
+   {
+    "field scale": 0.04,
+    "largest relative deviation of the cost from (H_toggle/2)|U phi' - phi|^2": 0.003759152823416637
+   },
+   {
+    "field scale": 0.02,
+    "largest relative deviation of the cost from (H_toggle/2)|U phi' - phi|^2": 0.0010536300942577102
+   }
+  ],
+  "statement": "cost = (H_toggle/2) |U phi(x+mu) - phi(x)|^2 at second order; the deviation falls as the square of the field scale (fourth-order remainder)"
+ },
+ "covariance": {
+  "|Lam(U) K_phi Lam(U)^dag - K_(U phi)|": 4.440892098500626e-16,
+  "exact form": "Re tr W/d = cos|phi'| cos|phi| + sin|phi'| sin|phi| Re<phi'^, phi^> on any carrier with K^2 = |phi|^2"
+ },
+ "W_mass_check": {
+  "cost / (eps^2 theta^2)": 0.12499553614375714,
+  "predicted H_toggle / 8": 0.12500000000000006,
+  "m_f / M_W = 2 sqrt(H_g / H_toggle)": 0.7071067811865477
+ },
+ "legs": {
+  "matrix_elements": {
+   "top (u_L <-> u_R: colour, s1 occupied)": {
+    "|<with s2| K |without s2>|": 1.0,
+    "Q_em (without, with s2)": [
+     "2/3",
+     "2/3"
+    ],
+    "Y (without, with s2)": [
+     "1/6",
+     "2/3"
+    ]
+   },
+   "bottom (d_R <-> d_L: colour, s1 empty)": {
+    "|<with s2| K |without s2>|": 1.0,
+    "Q_em (without, with s2)": [
+     "-1/3",
+     "-1/3"
+    ],
+    "Y (without, with s2)": [
+     "-1/3",
+     "1/6"
+    ]
+   },
+   "neutrino (nu_L <-> nu_R: three colour levels, s1 occupied)": {
+    "|<with s2| K |without s2>|": 1.0,
+    "Q_em (without, with s2)": [
+     "0/1",
+     "0/1"
+    ],
+    "Y (without, with s2)": [
+     "-1/2",
+     "0/1"
+    ]
+   },
+   "tau (e_R <-> e_L: three colour levels, s1 empty)": {
+    "|<with s2| K |without s2>|": 1.0,
+    "Q_em (without, with s2)": [
+     "-1/1",
+     "-1/1"
+    ],
+    "Y (without, with s2)": [
+     "-1/1",
+     "-1/2"
+    ]
+   }
+  },
+  "share of tr K^2 on the family half (states per leg; times spin 2 these are 12 : 12 : 4 : 4)": {
+   "top": 6.0,
+   "bottom": 6.0,
+   "neutrino": 2.0,
+   "tau": 2.0
+  },
+  "L0": "one amplitude on the four legs",
+  "L3 (s1-dependence of a linear toggle)": 0.0
+ },
+ "F2_code_with_empty_register": {
+  "H_toggle": "1/5",
+  "finite difference": 0.19999998324138346,
+  "H_gauge (code)": "1/10",
+  "V^2 is a projector": true
+ },
+ "F3_seven_level_code": {
+  "H_gauge (gluon, W, B_GUT)": [
+   "1/14",
+   "1/7",
+   "4/35"
+  ],
+  "H_toggle": "2/7",
+  "gauge Hessians equal": false,
+  "r against g_3, g_2, g_1": [
+   0.7071067811865476,
+   1.0,
+   0.894427190999916
+  ]
+ },
+ "r_per_family": {
+  "F1": 0.5000000000000001,
+  "F1_prime_family_half": 0.4999999949279186,
+  "F1_prime_all_32": 0.5,
+  "F1b": 0.44721359549995787,
+  "F2": 1.0,
+  "F4": 0.4082482904638631,
+  "F7": 0.35355339059327384
+ },
+ "F5": "doublet plaquette rows above use both components: the kinetic term is |D phi|^2 for the doublet",
+ "F6": "register in a number state: no rest phase (R8); no value",
+ "generations": {
+  "circulant eigenvalues c_k": [
+   0.016472781050865255,
+   0.2368705245069875,
+   0.9714015658337367
+  ],
+  "tr C^2": 1.0000000000000007,
+  "tr C^4": 0.8935687371145014,
+  "lambda_max": 0.9714015658337367,
+  "H_toggle on three copies with K (x) C": "1/3",
+  "H_toggle one copy": "1/1",
+  "G1 third-family factor": 1.0,
+  "G3a factors y_k / (r g), k = 1, 2, 3": [
+   0.028531693722056464,
+   0.41027178326159125,
+   1.6825168665759955
+  ],
+  "G3b factors y_k / (r g), k = 1, 2, 3": [
+   0.0004971992861425877,
+   0.10280605349711754,
+   1.7289970121886324
+  ]
+ },
+ "L2": {
+  "code cost of a class-k holonomy, k = 0..5": [
+   0.0,
+   1.7,
+   0.9000000000000002,
+   0.8,
+   0.8999999999999996,
+   1.7
+  ],
+  "Delta = c_2 + c_1 - c_3": 1.8,
+  "beta_5": 12.927598985053837,
+  "weight exp(-beta_5 Delta)": 7.836229988057575e-11
+ },
+ "source_coupling": {
+  "1/alpha (GL B1, DC cut closure)": 16.2453,
+  "g": 0.8795105718325639
+ },
+ "y_cell_source_frame": {
+  "F1": 0.43975528591628205,
+  "F1_prime_family_half": 0.4397552814553327,
+  "F1_prime_all_32": 0.43975528591628193,
+  "F1b": 0.39332908510946485,
+  "F2": 0.8795105718325639,
+  "F4": 0.35905868739553887,
+  "F7": 0.3109539447340321
+ }
+}

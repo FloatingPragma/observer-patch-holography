@@ -1,0 +1,94 @@
+"""Block 3, control with a known answer: a circle of N ports, sections of degree k (span of exp(i m theta), m = 0..k),
+the many-quanta Gaussian state that fills the section space, and an arc of length ell.
+
+Known answer (IMPORTED: modular flow of an arc in the vacuum of a chiral fermion): for wave packets at a band edge
+the flow is the Moebius dilation of the arc, s(theta_t) = s(theta_0) -+ 2 pi t with
+s(theta) = log[ sin((theta - a)/2) / sin((b - theta)/2) ], arc = (a, b). The two band edges move in opposite directions.
+Instrument: Peschel's formula on the support, eps_i = log((1 - nu_i)/nu_i) from the (k+1) x (k+1) arc effect
+M_C = W_C^dagger W_C, evaluated with mpmath at high precision. Measured: three packets (lower band edge, upper band edge, both at a fixed depth of a few modes; all modes = the
+code compression of a port projector): mean of s over the packet against t (it shifts rigidly under a Moebius
+dilation), fitted slope, centre and width.
+Writes flow_circle_k<k>_N<N>.json (one file per run) ; usage: python b3_circle.py k N [arc_fraction]
+"""
+import json, sys, time
+import numpy as np
+import mpmath as mp
+
+k = int(sys.argv[1]); N = int(sys.argv[2]); frac = float(sys.argv[3]) if len(sys.argv) > 3 else 1 / 3
+d = k + 1
+mp.mp.dps = int(40 + 1.2 * d)
+t0 = time.time()
+theta = 2 * np.pi * (np.arange(N) - (N - 1) / 2) / N
+ell = 2 * np.pi * frac
+inarc = np.abs(theta) < ell / 2
+assert np.abs(np.abs(theta) - ell / 2).min() > 1e-9
+nC = int(inarc.sum())
+a_end, b_end = -np.pi * nC / N, np.pi * nC / N               # endpoints midway between ports
+# arc effect: Toeplitz with entries (1/N) sum_{p in arc} cos(m theta_p) = sin(m nC pi/N) / (N sin(m pi/N))
+def dirichlet(m, n):
+    if m == 0:
+        return mp.mpf(n) / N
+    return mp.sin(m * n * mp.pi / N) / (N * mp.sin(m * mp.pi / N))
+row = [dirichlet(m, nC) for m in range(d)]
+M = mp.matrix(d, d)
+for i in range(d):
+    for j in range(d):
+        M[i, j] = row[abs(i - j)]
+E, Q = mp.eigsy(M)
+# 1 - nu from the complementary effect (direct, no cancellation): (1/N) sum_{p not in arc} cos(m theta_p) = delta_m0 - row[m]
+Mc = mp.matrix(d, d)
+for i in range(d):
+    for j in range(d):
+        Mc[i, j] = (1 if i == j else 0) - row[abs(i - j)]
+nu, onem = [], []
+for i in range(d):
+    c = Q[:, i]
+    nu.append((c.T * M * c)[0]); onem.append((c.T * Mc * c)[0])
+tiny = mp.mpf(10) ** (-mp.mp.dps // 2)
+empty = [nu[i] < tiny for i in range(d)]                      # code vectors that vanish on the arc (rank-deficient arc effect)
+full = [onem[i] < tiny for i in range(d)]
+eps = [mp.mpf(0) if (empty[i] or full[i]) else mp.log(onem[i] / nu[i]) for i in range(d)]
+eps_f = np.array([float(e) for e in eps])
+print(f'k={k} N={N} arc ports {nC} dps {mp.mp.dps}: eigen-decomposition {time.time()-t0:.0f}s; entanglement energies from {eps_f.min():.1f} to {eps_f.max():.1f}; '
+      f'modes with |eps| < 20: {int((np.abs(eps_f) < 20).sum())}', flush=True)
+Qf = np.array([[float(Q[i, j]) for j in range(d)] for i in range(d)])
+
+m = np.arange(d)
+th0 = 0.0
+sw = 2.0                                                      # fixed depth below the band edge (in modes)
+packets = {'lower_edge': (m + 1.0) ** 2 * np.exp(-(m + 1.0) / sw), 'upper_edge': (d - m) ** 2.0 * np.exp(-(d - m) / sw), 'all_modes': np.ones(d)}
+TS = np.linspace(0, 0.20, 11)
+thC = theta[inarc]
+Wc = np.exp(1j * np.outer(thC, m)) / np.sqrt(N)
+
+def s_of(th):
+    return np.log(np.sin((th - a_end) / 2) / np.sin((b_end - th) / 2))
+
+res = {'k': k, 'N': N, 'arc_fraction': frac, 'arc_ports': nC, 'dps': mp.mp.dps, 'eps_min': float(eps_f.min()), 'eps_max': float(eps_f.max()),
+       'modes_with_abs_eps_below_20': int((np.abs(eps_f) < 20).sum()), 'packets': {}}
+for name, g in packets.items():
+    f = g * np.exp(-1j * m * th0)
+    f = f / np.linalg.norm(f)
+    coef = Qf.T @ f                                             # components on the eigenvectors (float is enough here)
+    depth = float(np.sum(np.abs(f) ** 2 * np.minimum(m + 0.5, d - m - 0.5)))
+    traj, width, inside, smean = [], [], [], []
+    for t in TS:
+        ph = np.array([complex(mp.expj(-t * e)) for e in eps])
+        ft = Qf @ (ph * coef)
+        psi = Wc @ ft
+        w = np.abs(psi) ** 2
+        inside.append(float(w.sum()))
+        w = w / w.sum()
+        c = float(w @ thC)
+        traj.append(c); width.append(float(np.sqrt(w @ (thC - c) ** 2)))
+        smean.append(float(w @ s_of(thC)))
+    sv = np.array(smean)                                        # mean of s: shifts rigidly under a Moebius dilation
+    slope, icpt = np.polyfit(TS, sv, 1)
+    resid = float(np.sqrt(np.mean((sv - (slope * TS + icpt)) ** 2)))
+    res['packets'][name] = {'centre_theta': traj, 'rms_width': width, 'weight_inside_arc': inside, 'mean_depth_below_band_edge_in_modes': depth,
+                            'mean_of_s': sv.tolist(), 'fitted_slope_of_s': float(slope), 'slope_over_2pi': float(slope / (2 * np.pi)),
+                            'rms_residual_of_linear_fit_in_s': resid,
+                            'net_change_of_s': float(sv[-1] - sv[0]), 'expected_change_for_2pi': float(2 * np.pi * TS[-1])}
+    print(f'  {name}: depth {depth:.2f} modes; slope/2pi {slope/(2*np.pi):+.4f} residual {resid:.3f} width {width[0]:.3f} -> {width[-1]:.3f} centre {traj[0]:+.3f} -> {traj[-1]:+.3f}', flush=True)
+res['times'] = TS.tolist()
+json.dump(res, open(f'flow_circle_k{k}_N{N}.json', 'w'), indent=1)

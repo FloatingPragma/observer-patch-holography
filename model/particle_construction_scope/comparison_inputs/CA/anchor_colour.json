@@ -1,0 +1,77 @@
+{
+ "inputs": {
+  "P_fwd": 1.6309720958588974,
+  "measured_values_read": "none"
+ },
+ "rows": {
+  "A1": {
+   "at_P_fwd": {
+    "inv_alpha_U": 24.316554398103403,
+    "v": 2.019811407857628e-17,
+    "v_GeV": 246.59675497392996,
+    "mZ_GeV": 91.5883274990857,
+    "ell2": 0.39488230749417674,
+    "colour_hidden_index_full_tower": 0.012860716470547729,
+    "probability_nonzero_triality": 0.011692779542107424,
+    "colour_minimum_inside_triality_classes": 0.01284583129364629,
+    "sin2w_mZ": 0.23073517991130943,
+    "alpha_em_inv_mZ": 128.3082680579876,
+    "A_T": 136.99483517741294
+   },
+   "fixed_point": {
+    "P_star": 1.6309720958588974,
+    "inv_alpha_U": 24.316554398103403,
+    "v": 2.019811407857628e-17,
+    "v_GeV": 246.59675497392996,
+    "mZ_GeV": 91.5883274990857,
+    "ell2": 0.39488230749417674,
+    "colour_hidden_index_full_tower": 0.012860716470547729,
+    "probability_nonzero_triality": 0.011692779542107424,
+    "colour_minimum_inside_triality_classes": 0.01284583129364629,
+    "sin2w_mZ": 0.23073517991130943,
+    "alpha_em_inv_mZ": 128.3082680579876,
+    "A_T": 136.99483517741294
+   }
+  },
+  "A1c": {
+   "at_P_fwd": {
+    "inv_alpha_U": 24.317355484745313,
+    "v": 2.0172713888271695e-17,
+    "v_GeV": 246.2866465905203,
+    "mZ_GeV": 91.4715756003847,
+    "ell2": 0.39489539491176184,
+    "colour_hidden_index_full_tower": 0.012862518997415842,
+    "probability_nonzero_triality": 0.011694415933157117,
+    "colour_minimum_inside_triality_classes": 0.012847629052962549,
+    "sin2w_mZ": 0.23073478315853355,
+    "alpha_em_inv_mZ": 128.31284042854747,
+    "A_T": 136.99939740729303
+   },
+   "fixed_point": {
+    "P_star": 1.6309716681439688,
+    "inv_alpha_U": 24.31734970742129,
+    "v": 2.0172899601592966e-17,
+    "v_GeV": 246.28891394588837,
+    "mZ_GeV": 91.47242912558639,
+    "ell2": 0.39489530016416385,
+    "colour_hidden_index_full_tower": 0.012862506783975016,
+    "probability_nonzero_triality": 0.011694404845410887,
+    "colour_minimum_inside_triality_classes": 0.012847616871828288,
+    "sin2w_mZ": 0.23073478640491182,
+    "alpha_em_inv_mZ": 128.3128071179786,
+    "A_T": 136.99936417634476
+   }
+  }
+ },
+ "bound": {
+  "colour_hidden_index_at_anchor": 0.012860716470547729,
+  "minimum_inside_triality_classes": 0.01284583129364629,
+  "largest_change_of_left_side": -1.4885176901438882e-05,
+  "share_of_colour_term_that_is_fixed_by_triality": 0.998842585719425,
+  "d_inv_alpha_U": 0.0007953093178869608,
+  "dln_v": -0.0012491378324893132,
+  "d_A_T": 0.004528998931817796,
+  "d_P_star": -4.277149285858428e-07
+ },
+ "Z6_weak_and_hypercharge_labels_fix_the_triality": true
+}

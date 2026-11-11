@@ -1,0 +1,42 @@
+"""YC: loop-level attachment of v through G_F with the pinned SMDR library (HT's routine, LEW's control F), for one
+D row of yc_run.json. Usage: yc_smdr_row.py "<row name>" <out.json> [max_readouts] [rows.json]. Reads no measured value.
+Each readout is one call of LEW's `heavy match` driver (top pole, Higgs pole, G_F at Q0). SMDR's matching treats the
+bottom and tau as light; rows with heavy bottom and tau are outside its documented domain and are kept as a control."""
+import json
+import math
+import sys
+import time
+
+import yc_rge as R
+
+name, outpath = sys.argv[1], sys.argv[2]
+max_readouts = int(sys.argv[3]) if len(sys.argv) > 3 else 3
+src = sys.argv[4] if len(sys.argv) > 4 else "yc_run.json"
+row = json.load(open(src))["rows"][name]
+pk = R.packet()
+q = row["at_Q0"]
+vs = pk["v"]
+target = 1.0 / (math.sqrt(2.0) * vs * vs)
+tiny = 1e-12
+
+
+def readout(v):
+    args = [pk["Q0"], v, pk["gY"], pk["g2"], pk["g3"], max(q["yu"], tiny), max(q["yc"], tiny), q["yt"], max(q["yd"], tiny),
+            max(q["ys"], tiny), q["yb"], max(q["ye"], tiny), max(q["ymu"], tiny), q["ytau"], q["k"]]
+    m = R.invoke("heavy", "match", *args)["rows"][2]
+    return {"t": m["top_QCD4_EW2"]["mass_GeV"], "H": m["higgs"]["mass_GeV"], "W": m["W"]["mass_GeV"], "Z": m["Z"]["mass_GeV"],
+            "GF_local": m["GF_local_chiral_external_legs_GeVm2"]}
+
+
+t0 = time.time()
+vq = vs * 1.008723
+hist = []
+for _ in range(max_readouts):
+    o = readout(vq)
+    f = o["GF_local"] / target - 1
+    hist.append({"v_Q0": vq, "GF_rel_residual": f, **o, "elapsed": time.time() - t0})
+    print(hist[-1], flush=True)
+    if not math.isfinite(f) or abs(f) < 1e-8:
+        break
+    vq = vq * (1 + f / 2)
+json.dump({"row": name, "inputs_Q0": q, "v_source": vs, "history": hist, "seconds": time.time() - t0}, open(outpath, "w"), indent=1)

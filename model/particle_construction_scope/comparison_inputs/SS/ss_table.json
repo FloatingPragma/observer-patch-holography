@@ -1,0 +1,224 @@
+{
+ "objects": [
+  {
+   "object": "quantum (CF-1), any of the 32 patterns",
+   "spin": "1/2: the pointer doublet, faithful two-dimensional representation of the frame cover (24 Hurwitz units), z = -1 (EXACT at rest, R4 item 4); the pointer register is DECLARED (CF-1 section 6)",
+   "statistics": "fermion: equals the 2 pi rotation on the Gauss sector, the unique such grading of the vertex algebra (EXACT); the antisymmetric lift itself is DECLARED (CF-1 section 8): the tick admits both lifts (R4 item 2), a filled reference forces it (R4 item 2c)"
+  },
+  {
+   "object": "five-level code under the carrier rotation (an internal label: weak isospin)",
+   "spin": "vector levels: integer (flux sector 2, z = +1); spinor levels: half-integer of the Galois-conjugate rotation (flux sector 7, z = -1); a pattern carries z = (-1)^n2 (EXACT). This is weak isospin; the Gauss law cancels it on physical states (EXACT)",
+   "statistics": "none of its own"
+  },
+  {
+   "object": "Higgs: R8 register quantum (charges of the spinor levels, no pointer)",
+   "spin": "0: no pointer; z = -1 on its weak charge is cancelled by the Gauss law (EXACT)",
+   "statistics": "boson: unique spin-statistics grading; the chiral-source Yukawa vertex c c H forces H even when quanta are odd (EXACT); the register itself is DECLARED (R8)"
+  },
+  {
+   "object": "link states (gluons, W, B / Z, photon)",
+   "spin": "integer: z acts on both ends of a link, (-1)^2j (-1)^2j = +1 (EXACT); vector with two polarizations (IMPORTED from GL, X5)",
+   "statistics": "boson: the gauge-covariant hopping c*_x U c_y forces every link operator even (EXACT); GL's grading is the left action of z on one end of a link; on a whole link z acts as +1"
+  },
+  {
+   "object": "flux defect of class k = 1..5 (face holonomy)",
+   "spin": "integer: every placement space holds only 1, 3, 3prime, 4, 5 of the cover, z = +1 (EXACT, X3); a face flux is fixed by the third-turns about its face (intrinsic spin 0)",
+   "statistics": "boson: the class gradings kept by all 27 catalogue channels are 0 and k mod 2 (EXACT), and k mod 2 is +1 on every closed carrier (EXACT); pure fluxes of D(Z6) have theta = 1 (IMPORTED rule); the runs' register is classical (DECLARED)"
+  },
+  {
+   "object": "class 0",
+   "spin": "no defect",
+   "statistics": "no defect; no flux-6 object in the register or the coherent law"
+  },
+  {
+   "object": "carrier content {1,5} (pure fluxes)",
+   "spin": "integer (z = +1)",
+   "statistics": "boson (EXACT given spin-statistics)"
+  },
+  {
+   "object": "carrier content {2,4} (pure fluxes)",
+   "spin": "integer (z = +1)",
+   "statistics": "boson (EXACT given spin-statistics)"
+  },
+  {
+   "object": "carrier content {3,3} (pure fluxes)",
+   "spin": "integer (z = +1)",
+   "statistics": "boson (EXACT given spin-statistics)"
+  },
+  {
+   "object": "carrier content {2,2,4,4} (pure fluxes)",
+   "spin": "integer (z = +1)",
+   "statistics": "boson (EXACT given spin-statistics)"
+  },
+  {
+   "object": "carrier content {2,3,3,4} (pure fluxes)",
+   "spin": "integer (z = +1)",
+   "statistics": "boson (EXACT given spin-statistics)"
+  },
+  {
+   "object": "carrier content {1,2,3} (pure fluxes)",
+   "spin": "integer (z = +1)",
+   "statistics": "boson (EXACT given spin-statistics)"
+  },
+  {
+   "object": "carrier content {3,4,5} (pure fluxes)",
+   "spin": "integer (z = +1)",
+   "statistics": "boson (EXACT given spin-statistics)"
+  },
+  {
+   "object": "carrier content {2,2,2} (pure fluxes)",
+   "spin": "integer (z = +1)",
+   "statistics": "boson (EXACT given spin-statistics)"
+  },
+  {
+   "object": "carrier content {4,4,4} (pure fluxes)",
+   "spin": "integer (z = +1)",
+   "statistics": "boson (EXACT given spin-statistics)"
+  },
+  {
+   "object": "carrier content {3,3,3,3} (pure fluxes)",
+   "spin": "integer (z = +1)",
+   "statistics": "boson (EXACT given spin-statistics)"
+  },
+  {
+   "object": "quantum carrying a flux pair as cargo (R2)",
+   "spin": "1/2 (pointer)",
+   "statistics": "fermion (as the quantum)"
+  },
+  {
+   "object": "meson: two quanta (q qbar) on a carrier",
+   "spin": "integer (two pointers)",
+   "statistics": "boson"
+  },
+  {
+   "object": "baryon: three quanta on a {2,2,2} or {4,4,4} carrier",
+   "spin": "half-integer (three pointers)",
+   "statistics": "fermion; the {2,2,2} / {4,4,4} carrier alone is a boson and is no baryon"
+  },
+  {
+   "object": "chiral-source object (paired-flux orbit + two-component memory + R15 cloud)",
+   "spin": "1/2 (memory)",
+   "statistics": "fermion; the declared odd grading equals the rotation only through the memory: the flux orbit alone has integer spin"
+  },
+  {
+   "object": "screen composite: pattern bound to a class-3 flux (D(Z6))",
+   "spin": "theta = (-1)^n2",
+   "statistics": "fermion iff weak doublet: the action of z on the code (EXACT given the imported rule)"
+  },
+  {
+   "object": "screen composite: pattern bound to the flux of its own class (D(Z6))",
+   "spin": "classes 0: 0; 3: 1/2; 1, 5: 1/6; 2, 4: 2/3",
+   "statistics": "boson, fermion, anyons"
+  }
+ ],
+ "particles": [
+  {
+   "particle": "u, c, t (left)",
+   "carrier": "quantum, pattern {v, s1}",
+   "defect_class": 1,
+   "spin": "1/2",
+   "spin_label": "EXACT at rest (pointer DECLARED)",
+   "statistics": "Fermi",
+   "statistics_label": "DECLARED lift; EXACT as the unique spin-statistics grading"
+  },
+  {
+   "particle": "d, s, b (left)",
+   "carrier": "quantum, pattern {v, s2}",
+   "defect_class": 1,
+   "spin": "1/2",
+   "spin_label": "EXACT at rest (pointer DECLARED)",
+   "statistics": "Fermi",
+   "statistics_label": "DECLARED lift; EXACT as the unique spin-statistics grading"
+  },
+  {
+   "particle": "u, c, t (right)",
+   "carrier": "quantum, pattern {v, s1, s2}",
+   "defect_class": 4,
+   "spin": "1/2",
+   "spin_label": "EXACT at rest (pointer DECLARED)",
+   "statistics": "Fermi",
+   "statistics_label": "DECLARED lift; EXACT as the unique spin-statistics grading"
+  },
+  {
+   "particle": "d, s, b (right)",
+   "carrier": "quantum, pattern {v}",
+   "defect_class": 4,
+   "spin": "1/2",
+   "spin_label": "EXACT at rest (pointer DECLARED)",
+   "statistics": "Fermi",
+   "statistics_label": "DECLARED lift; EXACT as the unique spin-statistics grading"
+  },
+  {
+   "particle": "nu_e, nu_mu, nu_tau (left)",
+   "carrier": "quantum, pattern {v1 v2 v3, s1}",
+   "defect_class": 3,
+   "spin": "1/2",
+   "spin_label": "EXACT at rest (pointer DECLARED)",
+   "statistics": "Fermi",
+   "statistics_label": "DECLARED lift; EXACT as the unique spin-statistics grading"
+  },
+  {
+   "particle": "e, mu, tau (left)",
+   "carrier": "quantum, pattern {v1 v2 v3, s2}",
+   "defect_class": 3,
+   "spin": "1/2",
+   "spin_label": "EXACT at rest (pointer DECLARED)",
+   "statistics": "Fermi",
+   "statistics_label": "DECLARED lift; EXACT as the unique spin-statistics grading"
+  },
+  {
+   "particle": "e, mu, tau (right)",
+   "carrier": "quantum, pattern {v1 v2 v3}",
+   "defect_class": 0,
+   "spin": "1/2",
+   "spin_label": "EXACT at rest (pointer DECLARED)",
+   "statistics": "Fermi",
+   "statistics_label": "DECLARED lift; EXACT as the unique spin-statistics grading"
+  },
+  {
+   "particle": "nu (right)",
+   "carrier": "quantum, pattern {v1 v2 v3, s1, s2}",
+   "defect_class": 0,
+   "spin": "1/2",
+   "spin_label": "EXACT at rest (pointer DECLARED)",
+   "statistics": "Fermi",
+   "statistics_label": "DECLARED lift; EXACT as the unique spin-statistics grading"
+  },
+  {
+   "particle": "antiparticles",
+   "carrier": "quantum, complement pattern",
+   "defect_class": "6 - k",
+   "spin": "1/2",
+   "spin_label": "EXACT at rest (pointer DECLARED)",
+   "statistics": "Fermi",
+   "statistics_label": "DECLARED lift; EXACT as the unique spin-statistics grading"
+  },
+  {
+   "particle": "Higgs doublet",
+   "carrier": "R8 register per cell (no pointer)",
+   "defect_class": 3,
+   "spin": "0",
+   "spin_label": "EXACT given the register",
+   "statistics": "Bose",
+   "statistics_label": "EXACT (vertex), register DECLARED"
+  },
+  {
+   "particle": "gluons",
+   "carrier": "link states, colour block",
+   "defect_class": 0,
+   "spin": "1",
+   "spin_label": "integer EXACT; vector IMPORTED (GL, X5)",
+   "statistics": "Bose",
+   "statistics_label": "EXACT (hopping vertex)"
+  },
+  {
+   "particle": "W, Z, photon",
+   "carrier": "link states, weak and hypercharge blocks",
+   "defect_class": 0,
+   "spin": "1",
+   "spin_label": "integer EXACT; vector IMPORTED (GL, X5)",
+   "statistics": "Bose",
+   "statistics_label": "EXACT (hopping vertex)"
+  }
+ ]
+}

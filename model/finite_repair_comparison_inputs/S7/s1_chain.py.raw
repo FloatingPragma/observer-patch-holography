@@ -1,0 +1,120 @@
+"""Influence front and longest-chain length against elapsed sweeps and displacement.
+
+For a marked event at attempt t0: val[p] = number of events in the longest chain from it to the latest event at port p.
+Radial profiles (distance between carrier centres in mesh edges) at several elapsed times, per origin, then averaged.
+
+usage: s1_chain.py <graph> <conv> <filling> <times> <seed_lo> <seed_hi> <origins_per_seed>
+  graph  fed:<level>[:face_axis] | flat:<n>
+"""
+import json
+import sys
+import time
+from pathlib import Path
+
+import numpy as np
+
+import s7lib as S
+from s1_order import build
+
+HERE = Path(__file__).resolve().parent
+OUT = HERE / 's1_chain.json'
+BIN = 0.25
+
+
+def distances(g, c0):
+    if hasattr(g, 'carrier_xyz'):
+        X = g.carrier_xyz
+        return g.radius * np.arccos(np.clip(X @ X[c0], -1, 1))
+    xy = g.carrier_xy
+    n = g.meta['n']
+    d = xy - xy[c0]
+    best = np.full(len(xy), np.inf)
+    for i in (-1, 0, 1):
+        for j in (-1, 0, 1):
+            e = d + i * n * g.a1 + j * n * g.a2
+            best = np.minimum(best, np.hypot(e[:, 0], e[:, 1]))
+    return best
+
+
+def interp_cross(r, p, level=0.5):
+    """Largest radius where the decreasing profile p crosses `level` (linear interpolation)."""
+    idx = np.flatnonzero((p[:-1] >= level) & (p[1:] < level))
+    if idx.size == 0:
+        return float('nan')
+    k = idx[-1]
+    return float(r[k] + (p[k] - level) / (p[k] - p[k + 1]) * (r[k + 1] - r[k]))
+
+
+if __name__ == '__main__':
+    spec, conv, filling, times, lo, hi, per = sys.argv[1:8]
+    times = [float(v) for v in times.split(',')]
+    fn, fd = (int(v) for v in filling.split('/'))
+    g = build(spec)
+    rmax = (g.radius * np.pi if hasattr(g, 'carrier_xyz') else g.meta['n'] * 0.45)
+    edges = np.arange(0, rmax + BIN, BIN)
+    nb = edges.size - 1
+    rc = 0.5 * (edges[:-1] + edges[1:])
+    prof = {t: {'reach': [], 'val': [], 'cnt': None, 'rest': []} for t in times}
+    t_start = time.time()
+    for seed in range(int(lo), int(hi)):
+        rng = np.random.default_rng(5000 + seed)
+        x = S.balanced_loads(g.nports, fn, fd, rng)
+        seam, cur = S.history(g, x, max(times) + 1.01, 9_000_000 + seed)
+        use = (cur != 0).astype(np.uint8) if conv == 'moves' else None
+        ev = np.flatnonzero(use) if use is not None else None
+        for k in range(int(per)):
+            t0 = int(0.5 * g.M + rng.integers(0, g.M // 2))
+            if ev is not None:
+                t0 = int(ev[np.searchsorted(ev, t0)])
+            a0, b0 = int(g.sa[seam[t0]]), int(g.sb[seam[t0]])
+            c0 = a0 // 12
+            d = np.repeat(distances(g, c0), 12)
+            which = np.minimum((d / BIN).astype(np.int64), nb - 1)
+            cnt = np.bincount(which, minlength=nb).astype(float)
+            val = np.zeros(g.nports, np.int32)
+            val[a0] = 1; val[b0] = 1
+            tb = t0
+            for t in times:
+                te = t0 + int(round(t * g.M))
+                S.lib.s7_chain(S.p32(val), S.p32(seam), S.pu8(use) if use is not None else None, S.p32(g.sa), S.p32(g.sb), tb, te)
+                tb = te
+                reach = np.bincount(which, weights=(val > 0).astype(float), minlength=nb)
+                vs = np.bincount(which, weights=val.astype(float), minlength=nb)
+                with np.errstate(invalid='ignore', divide='ignore'):
+                    prof[t]['reach'].append(reach / cnt)
+                    prof[t]['val'].append(vs / cnt)
+                prof[t]['rest'].append(float(val[12 * c0:12 * c0 + 12].mean()))
+    res = {'graph': g.name, 'conv': conv, 'filling': filling, 'bin': BIN, 'origins': len(prof[times[0]]['rest']), 'times': {}}
+    print(f'{g.name} events={conv} filling={filling} origins={res["origins"]} [{time.time() - t_start:.0f}s]')
+    print(f"{'t':>6}{'front R':>9}{'+-':>7}{'v=R/t':>8}{'rest L0':>9}{'L0/t':>8}   chain ratio L(uR)/L(0) at u = 0.25, 0.5, 0.75, 0.9, 1.0   [Lorentz 0.968, 0.866, 0.661, 0.436, 0]")
+    for t in times:
+        reach = np.array(prof[t]['reach']); val = np.array(prof[t]['val']); rest = np.array(prof[t]['rest'])
+        n = reach.shape[0]
+        ok = ~np.isnan(reach).any(axis=0)
+        r = rc[ok]
+        pm = reach[:, ok].mean(axis=0); vm = val[:, ok].mean(axis=0)
+        Rf = interp_cross(r, pm)
+        # jackknife over origins for the front radius and the ratios
+        us = (0.25, 0.5, 0.75, 0.9, 1.0)
+        def stats(sel):
+            p = reach[sel][:, ok].mean(axis=0); v = val[sel][:, ok].mean(axis=0)
+            R = interp_cross(r, p)
+            l0 = rest[sel].mean()
+            return R, l0, [float(np.interp(u * R, r, v) / l0) for u in us]
+        full = stats(np.arange(n))
+        blocks = np.array_split(np.arange(n), min(n, 12))
+        jk = [stats(np.setdiff1d(np.arange(n), b)) for b in blocks]
+        m = len(jk)
+        jR = np.array([j[0] for j in jk]); jr = np.array([j[2] for j in jk])
+        eR = float(np.sqrt((m - 1) / m * ((jR - jR.mean()) ** 2).sum()))
+        er = np.sqrt((m - 1) / m * ((jr - jr.mean(axis=0)) ** 2).sum(axis=0))
+        res['times'][str(t)] = {'front_radius': full[0], 'front_radius_err': eR, 'speed': full[0] / t, 'rest_chain': float(full[1]),
+                                'rest_chain_sem': float(rest.std(ddof=1) / np.sqrt(n)), 'rest_rate': float(full[1] / t),
+                                'u': list(us), 'ratio': full[2], 'ratio_err': [float(v) for v in er],
+                                'lorentz': [float(np.sqrt(max(0.0, 1 - u * u))) for u in us],
+                                'profile_r': [float(v) for v in r], 'profile_reach': [float(v) for v in pm], 'profile_chain': [float(v) for v in vm]}
+        print(f"{t:>6.0f}{full[0]:>9.3f}{eR:>7.3f}{full[0] / t:>8.4f}{full[1]:>9.1f}{full[1] / t:>8.3f}   "
+              + '  '.join(f'{a:.3f}+-{b:.3f}' for a, b in zip(full[2], er)), flush=True)
+    data = json.loads(OUT.read_text()) if OUT.exists() else {}
+    data[f'{spec}|{conv}|{filling}'] = res
+    OUT.write_text(json.dumps(data))

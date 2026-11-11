@@ -1,0 +1,349 @@
+"""Lane AV: write PROOF.md of the candidate package from results.json (package), fits.json and compare.json.
+The last section quotes the comparison with the measured scale and is labelled NOT BLIND."""
+import json
+import math
+
+PK = "rer_package/seam_class_balance/"
+R = json.load(open(PK + "results.json"))
+F = json.load(open("fits.json"))
+CMP = json.load(open("compare.json"))
+AB = json.load(open("abelian.json"))
+S_U = R["conventions"]["S_U"]
+pi = math.pi
+
+
+def f(x, n=4):
+    return ("%." + str(n) + "f") % x
+
+
+def g(x, n=3):
+    return ("%." + str(n) + "g") % x
+
+
+one = R["one_register"]
+cc = R["cartan_circle"]
+sc = R["scans"]
+L = []
+A = L.append
+A("# The class balance of one seam link")
+A("")
+A("Labels: EXACT (closed form or exact arithmetic, a named check in [results.json](results.json)), MEASURED (Monte")
+A("Carlo, with one standard error), ARGUED, IMPORTED, DECLARED. Conventions: weak factor `SU(2)`, coupling `g^2`,")
+A("`alpha = g^2/(4 pi)`, `S = 2 pi/(4 alpha) = 2 pi^2/g^2`, unit heat time `tau = g^2/2`, Wilson coupling")
+A("`beta = 4/g^2`. Chain coupling `1/alpha_U = 24.3166`, `S_U = %s`. Every result has the form" % f(S_U))
+A("`<A> = M exp(-c S)`. The working law of the chain is `c = 1` with `b M = 1`.")
+A("")
+A("## 1. The operator and the identity (EXACT)")
+A("")
+A("The link space is `L^2(SU(2))` with electric sectors `j`, dimension `d_j = 2j + 1`, Casimir `C_j = j (j + 1)`.")
+A("The centre shift `(A psi)(V) = psi(-V)` is diagonal in the sectors with eigenvalue `(-1)^(2j)`, which is")
+A("`(-1)^(6Y)` on the link of the full group. With the sector law `p_j`,")
+A("")
+A("\\[ \\langle A\\rangle = \\sum_j p_j\\,(-1)^{2j}. \\]")
+A("")
+A("One tick is the transfer matrix `T = K^(1/2) exp(-W) K^(1/2) P`. `K` is the product over seams of the one-tick")
+A("kernel `k(V' V^dag)` of the electric term, `W` the face term and `P` the Gauss projector. `A` commutes with `K`")
+A("and with `P`, so `K^(1/2) A K^(1/2) = A K`, and the kernel of `A K` on the seam is `k(-V' V^dag)`. Hence")
+A("")
+A("\\[ \\langle A\\rangle = \\frac{Z[\\text{one time-like plaquette of the seam with weight } k(-V_P)]}{Z}. \\]")
+A("")
+A("The heat-kernel weight `k = K_tau = sum_j d_j chi_j exp(-tau C_j)` is `exp(-(g^2/2) C)` exactly. The Wilson weight is")
+A("`k = exp((beta/2) tr V)`. `A` is read at the midpoint of the electric step (DECLARED). Section 10 gives the")
+A("reading at the midpoint of the face step.")
+A("")
+A("## 2. One register in the one-tick thermal law (EXACT)")
+A("")
+A("A sector law `p_j` proportional to `d_j^w exp(-t C_j)` has weight power `w` and heat time `t`. At `t = tau` and the")
+A("chain coupling:")
+A("")
+A("| Register | w | `<A>` | c | M |")
+A("| --- | --- | --- | --- | --- |")
+A("| Cartan circle | | %s | 1 | %s |" % (g(one["cartan_circle"]["A"], 6), f(one["cartan_circle"]["M"], 12)))
+A("| full link | 2 | %s | 1 | %s = 2 (2S - 1) |" % (g(one["full_link"]["A"], 6), f(one["full_link"]["M"], 4)))
+A("| one-sided register | 1 | %s | no exponential | leading form `tau/8` = %s |" % (
+    f(one["one_sided_register"]["A"], 5), f(one["one_sided_register"]["leading_form_tau_over_8"], 5)))
+A("| labels alone | 0 | %s | no exponential | `1/(2 sqrt(pi/tau) - 1)` |" % f(one["labels"]["A"], 5))
+A("")
+A("The full link in this law is one free link with a pinned plaquette: `<A> = K_tau(-1)/K_tau(1)`. The exponential")
+A("needs the two-sided sum over sectors: weight power 2, or the Cartan circle. Weight powers 1 and 0 give power laws")
+A("in `alpha` at every heat time. The dual form of the heat kernel used by the Monte Carlo agrees with the character")
+A("sum to %s in the logarithm." % g(R["heat_kernel_dual_form_max_deviation"], 2))
+A("")
+A("## 3. The Cartan circle on a complex (EXACT)")
+A("")
+A("Link angle `eps` of period `4 pi`, plaquette flux `F = d eps`, Villain weight")
+A("`sum_n exp(-(F - 4 pi n)^2/(2 g^2))`, twist `F -> F + 2 pi` on one plaquette. Integer shifts of the links extend")
+A("the angles to the real line and the Gaussian integral is exact:")
+A("")
+A("\\[ Z[v] = \\sum_{[n]} e^{-8\\pi^2\\,(n+v)^{T}(1-\\Pi)(n+v)/g^2}, \\]")
+A("")
+A("summed over integer plaquette fields modulo coboundaries, with `Pi` the orthogonal projector on the range of the")
+A("coboundary, `v = 0` for `Z` and `v = -e_P/2` for the twisted `Z`. At weak coupling the two orientations of the")
+A("half turn dominate:")
+A("")
+A("\\[ \\langle A\\rangle = 2\\,e^{-S\\,(1-\\Pi_{PP})}, \\qquad c = 1-\\Pi_{PP}, \\qquad M = 2 . \\]")
+A("")
+A("`Pi_PP g^2` is the Gaussian flux variance of the twisted plaquette. The electric variance of the link is")
+A("`<E^2> = (1 - Pi_PP)/g^2`.")
+A("")
+A("| Complex | c | count `4/c` | `<A>` at the chain coupling |")
+A("| --- | --- | --- | --- |")
+rows = [("one free link, one tick, no Gauss projection", "pinned_link"),
+        ("two faces on one seam, outer links pinned (Euclidean)", "face_pair_euclidean_pinned_boundary"),
+        ("icosahedral surface as a Euclidean two-complex", "icosahedral_surface_euclidean"),
+        ("icosahedral surface as space, one tick with the Gauss law", "icosahedral_space_one_tick_gauss_law"),
+        ("icosahedral surface as space, 8 ticks", "icosahedral_space_8_ticks"),
+        ("icosahedral surface as space, many ticks", "icosahedral_space_many_ticks"),
+        ("face pair as space, many ticks", "face_pair_space_many_ticks"),
+        ("cubic lattice, three dimensions", "cubic_d3_infinite"),
+        ("cubic lattice, four dimensions", "cubic_d4_infinite")]
+for nm, k in rows:
+    e = cc[k]
+    ex = e["c_exact"] if e["c_exact"] and len(e["c_exact"]) < 12 else None
+    cs = "1" if ex == "1" else ("%s = %s" % (ex, f(e["c"], 6)) if ex else f(e["c"], 6))
+    A("| %s | %s | %s | %s |" % (nm, cs, f(e["count_4_over_c"], 3), g(e["A_at_chain_coupling"], 4)))
+A("")
+A("- Cubic lattice of side `L` in `d` dimensions: `Pi_PP = (2/d)(1 - L^-d)`, checked in rational arithmetic for")
+A("  `(d, L) = (2, 3), (3, 3), (4, 2)`.")
+A("- Icosahedral space with many ticks: `c = (1/30) sum sqrt(lam/(lam + 4))` over the nonzero eigenvalues of the face")
+A("  Laplacian, `3 - sqrt 5` (3), `2` (5), `3` (4), `5` (4), `3 + sqrt 5` (3). In continuous time the same sum with")
+A("  `sqrt(lam)/2` gives `%s`." % f(R["cartan_circle_extra"]["icosahedral_space_continuous_time_c_E"], 4))
+A("- A closed two-dimensional complex has classes `n = N e_P` and the sum is a theta function. The pinned face pair")
+A("  agrees with direct quadrature to ten digits.")
+A("- A free two-dimensional boundary absorbs the twist: `<A> = 1`.")
+A("")
+A("## 4. Flux densities (EXACT)")
+A("")
+fd = R["flux_densities"]
+A("The density of a plaquette flux at a half turn relative to zero is `2 exp(-S/Pi_PP)` in the Gaussian ensemble.")
+A("")
+A("- Icosahedral surface: 12 corners, 30 seams, 20 faces, rank %d, every seam in two faces with opposite orientation," % fd["icosahedral_pair"]["rank"])
+A("  face variance `(19/20) g^2`. One seam at `2 pi` gives `(+2 pi, -2 pi)` on its two faces with Gaussian action")
+A("  `4 pi^2/g^2`. The joint density of the pair is the square of the one-face density: `%s` at the chain coupling." % g(fd["icosahedral_pair"]["joint_density_ratio"], 4))
+A("- Cubic lattices: variance `2 g^2/d`, density exponent `(d/2) S`, count `8/d = 4, 8/3, 2`.")
+A("")
+A("These are statements about the density of the flux. The class balance of the same ensembles has `c = 1 - 2/d`,")
+A("count `12` for `d = 3` and `8` for `d = 4`. The two agree only for a free face (density) against a pinned")
+A("plaquette (balance), both with count 4.")
+A("")
+A("## 5. Monte Carlo for SU(2): estimator and gates (MEASURED)")
+A("")
+A("The twisted plaquette carries `ln W = (1 - lam) ln k(V) + lam ln k(-V)`, `lam = 0, 1/N, ..., 1`, and")
+A("`D = ln k(-V) - ln k(V)`. Each step uses the exact identity")
+A("`ln Z_(k+1)/Z_k = ln <exp(D/2N)>_k - ln <exp(-D/2N)>_(k+1)`. The full-step forward and backward ratios and the")
+A("Simpson integral of `<D>` are checks. Errors: jackknife over 20 blocks per stage. Updates: multi-hit Metropolis")
+A("on unit quaternions, one sweep of the lattice followed by 20 local sweeps around the twisted plaquette.")
+A("The same estimator in plain numpy on the pinned face pair gives `%s (%s)` against the exact `%s`." % (
+    f(R["staged_estimator_in_plain_numpy"]["lnA"]), f(R["staged_estimator_in_plain_numpy"]["error"]), f(R["staged_estimator_in_plain_numpy"]["exact"])))
+A("")
+A("| Gate | measured `ln <A>` | exact | pull |")
+A("| --- | --- | --- | --- |")
+gn = {"g1_ico2_hk_a": "heat kernel, icosahedral two-complex, `g^2 = 0.5168` (Migdal)", "g1_ico2_hk_b": "heat kernel, icosahedral two-complex, `g^2 = 0.1` (Migdal)",
+      "g1_ico2_w_a": "Wilson, icosahedral two-complex, `beta = 7.7402` (Migdal)", "g1_ico2_w_b": "Wilson, icosahedral two-complex, `beta = 30` (Migdal)",
+      "g2_cub3_ab": "Cartan circle, `4^3`, `g^2 = 1`", "g2_cub4_ab": "Cartan circle, `4^4`, `g^2 = 1`", "g2_icoT_ab": "Cartan circle, icosahedral space, 4 ticks, `g^2 = 1`",
+      "g2_cub4_ab_U": "Cartan circle, `4^4`, chain coupling", "cub4_L6_ab_b5": "Cartan circle, `6^4`, chain coupling",
+      "cub3_L8_ab_b5": "Cartan circle, `8^3`, chain coupling", "icoT_NT8_ab_b5": "Cartan circle, icosahedral space, 8 ticks, chain coupling"}
+for k, nm in gn.items():
+    if k in R["measured_gates"]:
+        e = R["measured_gates"][k]
+        A("| %s | %s (%s) | %s | %s |" % (nm, f(e["measured"]), f(e["error"]), f(e["exact"]), f(e["pull"], 2)))
+A("")
+A("Further gates of the engine: Wilson plaquette 0.6032 (0.0006) at `beta = 2.3` and 0.6540 (0.0004) at `2.5` on `6^4`")
+A("against the references 0.6024 and 0.6520 (IMPORTED); compact doublet at `beta_H = 0` with `sin^2 theta = 0.7996 (0.0003)`")
+A("against `4/5`; local weights against differences of the total weight to `1e-11`; gauge invariance to `1e-12`.")
+A("")
+A("## 6. SU(2): the measured laws (MEASURED)")
+A("")
+A("Couplings `beta = 2.5, 3, 4, 5, 6, 7.7402, 9` (`1/alpha = pi beta`). Fit `ln <A> = ln M0 + p ln S - c S` over")
+A("`beta >= 4`, five couplings. `M_U = <A>(S_U) exp(c S_U)` is the multiplicity at the chain coupling, quoted with c at")
+A("its prediction.")
+A("")
+A("| Complex | Weight | c (p = 1) | chi2/dof | c (p free) | p | prediction | `ln <A>` at `S_U` | `M_U` |")
+A("| --- | --- | --- | --- | --- | --- | --- | --- | --- |")
+cxn = {"cub4_L6": "cubic `6^4`", "cub3_L8": "cubic `8^3`", "icoT_NT8": "icosahedral space, 8 ticks"}
+pred = {}
+for k, e in sc.items():
+    cx, act = k.rsplit("_", 1)
+    if act == "hk":
+        pv = e["c_gaussian_twist"]; pn = "`1 - Pi` = %s" % f(pv)
+    else:
+        pv = AB["D_wilson_classical"][cx]["c_W"]; pn = "classical minimum %s" % f(pv)
+    pred[k] = pv
+    A("| %s | %s | %s (%s) | %s/%d | %s (%s) | %s (%s) | %s | %s (%s) | %s (%s) |" % (
+        cxn[cx], e["action"], f(e["fit_p1"]["c"]), f(e["fit_p1"]["c_err"]), f(e["fit_p1"]["chi2"], 1), e["fit_p1"]["dof"],
+        f(e["fit_p_free"]["c"]), f(e["fit_p_free"]["c_err"]),
+        f(e["fit_p_free"]["p"], 2), f(e["fit_p_free"]["p_err"], 2), pn, f(e["lnA_at_chain_coupling"], 3), f(e["lnA_at_chain_coupling_err"], 3),
+        f(e["M_at_chain_coupling_with_predicted_c"], 1), f(e["M_at_chain_coupling_with_predicted_c"] * e["lnA_at_chain_coupling_err"], 1)))
+A("")
+A("- Heat kernel: the three coefficients equal `1 - Pi_PP` of the Cartan circle on the same complex, within one")
+A("  standard error and within 0.2 percent.")
+A("- Wilson: the coefficients equal the classical minima of section 8 within 1.4 percent. On the `6^4` lattice the fit")
+A("  with `p = 1` is excluded by its chi2 and the free fit gives `p = 0.40 (0.15)`. The classical minimum there is the")
+A("  pinned configuration, which keeps the global rotation. On the icosahedral space the fit with `p = 1` lies 0.8")
+A("  percent and 5.7 standard errors above the minimum and the free fit agrees with it.")
+A("- The half turn breaks the global rotation to a circle. This gives the prefactor one power of `S`.")
+A("- No coefficient is 1. The measured values lie between 0.32 and 0.50.")
+A("")
+A("## 7. The sector law of the lattice link (MEASURED)")
+A("")
+A("`p_n = f_n <chi_n(V_P)/k(V_P)>` over the time-like plaquettes of the untwisted ensemble, `f_n` the character")
+A("coefficients of `k` (`n exp(-tau (n^2-1)/4)` for the heat kernel, `2 n I_n(beta)/beta` for Wilson). Fit")
+A("`ln p_n = const + w ln n - t (n^2 - 1)/4` at the chain coupling:")
+A("")
+A("| Complex | Weight | weight power w | `tau/t` (w free) | `tau/t` (w = 2) | c of section 6 |")
+A("| --- | --- | --- | --- | --- | --- |")
+for k, e in sc.items():
+    cx, act = k.rsplit("_", 1)
+    s5 = e["sector_law"].get("%s_%s_b5" % (cx, act))
+    if s5:
+        A("| %s | %s | %s (%s) | %s | %s (%s) | %s |" % (cxn[cx], e["action"], f(s5["w"], 3), f(s5["w_err"], 3), f(s5["tau_over_t"]),
+                                                    f(s5["tau_over_t_w2"]), f(s5["tau_over_t_w2_err"]), f(e["fit_p1"]["c"])))
+A("")
+A("- The lattice link carries weight power 2 for both weights.")
+A("- Heat kernel: the heat time is `tau/c'` with `c'` five to nine percent below `c` at the chain coupling. On the")
+A("  `6^4` lattice `c'` rises with `beta`: 0.4505, 0.4621, 0.4691, 0.4763, 0.4807 for `beta = 4` to `9`. The link is")
+A("  colder than the one-tick law by the factor `1/c`.")
+A("- Wilson: the bulk of the sector law has nearly the heat-kernel width, while the coefficient of the class balance")
+A("  is the classical minimum. The balance is an alternating sum and is set by the tail of the law.")
+A("")
+A("## 8. Wilson weight (EXACT minimum, MEASURED law)")
+A("")
+w = R["wilson_classical"]
+A("One pinned link: `<A> = exp(-2 beta) = exp(-8/g^2)` exactly, so `c = 4/pi^2 = %s`, `M = 1`, count `pi^2`." % f(4 / pi ** 2))
+A("On a lattice the exponent is the minimum of the twisted action, `s_W/g^2`, `c = s_W/(2 pi^2)`:")
+A("")
+A("| Complex | `s_W` | c | flux left on the twisted plaquette, in units of `2 pi` |")
+A("| --- | --- | --- | --- |")
+for k, nm in (("cub4_L6", "cubic `6^4`"), ("cub3_L8", "cubic `8^3`"), ("icoT_NT8", "icosahedral space, 8 ticks")):
+    e = AB["D_wilson_classical"][k]
+    A("| %s | %s | %s | %s |" % (nm, f(e["s_W"]), f(e["c_W"]), f(e["flux_on_P0_over_2pi"], 3)))
+A("")
+A("In four dimensions the minimum is the pinned configuration, `s_W = 8`. The measured coefficients of section 6")
+A("agree with these minima within the spread of the two fits.")
+A("")
+A("## 9. With the doublet (MEASURED)")
+A("")
+A("Compact gauge-Higgs form: `n = (cos theta, sin theta q)` on the unit four-sphere per site, hop term")
+A("`beta_H [1 - n0 n0' - Re q^dag V q']`, on-site term `-h sin^2 theta`, `beta_H = 2 beta_G` (DECLARED). The hop term")
+A("has unit kinetic coefficient on `Phi = (2/g) theta`. Lattice `4^4`, `beta_G` at the chain coupling. At `h = 1.5`")
+A("both sides are stable for the length of the run.")
+A("")
+A("| Weight | `beta_H/beta_G` | h | start | `sin^2 theta` | side | `ln <A>` |")
+A("| --- | --- | --- | --- | --- | --- | --- |")
+for k, e in sorted(F["doublet"].items(), key=lambda kv: (kv[1]["kind"], kv[1]["beta_H"], kv[1]["h"], kv[1]["start"])):
+    A("| %s | %s | %s | %s | %s | %s | %s (%s) |" % ({0: "Wilson", 1: "heat kernel"}[e["kind"]], f(e["beta_H"] / e["beta_G_equiv"], 0), f(e["h"], 1),
+                                               e["start"], f(e["sin2"][0], 3), e["side"].split(" ")[0], f(e["lnA"], 3), f(e["lnA_err"], 3)))
+A("")
+for nm, lab in (("hk", "heat kernel"), ("w", "Wilson")):
+    d_ = F.get("doublet_change_across_the_line_" + nm)
+    if d_:
+        A("- %s: `ln <A>` changes by %s (%s) from the symmetric side to the Higgs side, a factor %s%s" % (
+            lab.capitalize(), f(d_["difference"], 3), f(d_["difference_err"], 3), g(d_["factor"], 2),
+            (". Gaussian estimate with the link mass `m^2 = 2 sin^2 theta`: %s." % f(d_["gaussian_prediction_heat_kernel"], 2)) if d_["gaussian_prediction_heat_kernel"] is not None else "."))
+A("- A stiffer doublet pins the link. The heat-kernel value moves toward the one-link law")
+A("  `ln(2 (2 S_U - 1)) - S_U = %s`, the Wilson value toward `-2 beta = %s`." % (f(math.log(2 * (2 * S_U - 1)) - S_U, 3), f(-2 * S_U * 2 / pi ** 2, 3)))
+A("")
+A("## 10. Second reading: the midpoint of the face step")
+A("")
+A("With `T = exp(-W/2) K exp(-W/2)` the insertion of `A` between two ticks twists the time-like plaquette above the")
+A("seam and half-twists the faces of the seam in that time slice. Gaussian exponent on the Cartan circle (EXACT):")
+A("")
+A("| Complex | c, face step | c, electric step |")
+A("| --- | --- | --- |")
+for k, nm in (("cub3_L6", "cubic `6^3`"), ("cub4_L4", "cubic `4^4`"), ("icoT_NT8", "icosahedral space, 8 ticks")):
+    A("| %s | %s | %s |" % (nm, f(AB["face_step_midpoint_c"][k]["c"]), f(AB["C_twist_reading"][k]["c"])))
+sr = F.get("second_reading", {})
+if sr.get("gates"):
+    A("")
+    A("Cartan circle through the Monte Carlo at the chain coupling (MEASURED against the Gaussian form with `M = 2`):")
+    A("")
+    gname = {"fmg_cub3_L6_ab_b5": "cubic `6^3`, face step", "fmg_cub4_L4_ab_b5": "cubic `4^4`, face step",
+             "fmg_el_cub4_L4_ab_b5": "cubic `4^4`, electric step through the second engine",
+             "fmg_icoT_NT8_ab_b5": "icosahedral space, 8 ticks, face step"}
+    for k, e in sr["gates"].items():
+        A("- %s: %s (%s) against %s." % (gname.get(k, k), f(e["lnA"], 3), f(e["lnA_err"], 3), f(e["gaussian_form"], 3)))
+if sr.get("scans"):
+    A("")
+    A("SU(2) (MEASURED), fit with `p = 1` over `beta = 4, 6, 7.7402, 9`:")
+    A("")
+    A("| Complex | Weight | c | Gaussian c | `ln <A>` at `S_U` |")
+    A("| --- | --- | --- | --- | --- |")
+    cx2 = {"cub4_L4": "cubic `4^4`", "cub3_L6": "cubic `6^3`", "icoT_NT8": "icosahedral space, 8 ticks"}
+    for k, e in sr["scans"].items():
+        cx, act = k.rsplit("_", 1)
+        A("| %s | %s | %s (%s) | %s | %s |" % (cx2[cx], {"hk": "heat kernel", "w": "Wilson"}[act], f(e["fit_p1"]["c"]), f(e["fit_p1"]["c_err"]),
+                                            f(e["c_gaussian_face_step"]) if act == "hk" else "", ("%s (%s)" % (f(e["lnA_at_S_U"], 3), f(e["lnA_at_S_U_err"], 3))) if "lnA_at_S_U" in e else ""))
+A("")
+A("With `n` electric steps per tick a transverse mode of spatial frequency `w` contributes `w/sqrt(w^2/n^2 + 4)` at the")
+A("midpoint of the electric step, `w sqrt(w^2/n^2 + 4)/4` at the midpoint of the face step and `w/2` in continuous time")
+A("(EXACT, Cartan circle):")
+A("")
+A("| Steps per tick | cubic space, 3 dimensions: electric, face | cubic space, 2 dimensions | icosahedral space |")
+A("| --- | --- | --- | --- |")
+ck = R["second_reading"]["clock"]
+for n in ("1", "2", "3", "4", "8", "continuous"):
+    A("| %s | %s, %s | %s, %s | %s, %s |" % (n, f(ck["cubic space, 3 dimensions"][n]["electric_step"]), f(ck["cubic space, 3 dimensions"][n]["face_step"]),
+                                          f(ck["cubic space, 2 dimensions"][n]["electric_step"]), f(ck["cubic space, 2 dimensions"][n]["face_step"]),
+                                          f(ck["icosahedral space"][n]["electric_step"]), f(ck["icosahedral space"][n]["face_step"])))
+A("")
+two = R["second_reading_measured"].get("two_steps_per_tick", {})
+if two.get("scans"):
+    A("Two electric steps per tick were measured on `4^3 x 8` half ticks, with time-like plaquettes of variance `g^2/2`")
+    A("and faces of variance `2 g^2`. Exact Cartan values on this lattice: %s (electric step) and %s (face step)." % (
+        f(two["exact_cartan"]["c_electric_step"]), f(two["exact_cartan"]["c_face_step"])))
+    A("")
+    for k, e in two["gates"].items():
+        A("- Cartan circle through the engine, %s reading, chain coupling: %s (%s) against %s." % (
+            "electric-step" if "_el_" in k else "face-step", f(e["measured"], 3), f(e["error"], 3), f(e["gaussian_form"], 3)))
+    for rd, e in two["scans"].items():
+        pf = e["fit_p_free"]
+        A("- SU(2) heat kernel, %s reading (MEASURED): `c = %s (%s)` with `p = 1`%s. Gaussian value %s." % (
+            rd.replace(" ", "-"), f(e["fit_p1"]["c"]), f(e["fit_p1"]["c_err"]),
+            (", `%s (%s)` with `p` free" % (f(pf["c"]), f(pf["c_err"]))) if pf else "", f(e["c_gaussian"])))
+    A("")
+A("The two readings bracket the continuous-time value. In three space dimensions the face-step coefficient passes")
+A("through 1 at 1.67 steps per tick, between 1.284 for one step and 0.944 for two. No whole number of steps gives the")
+A("coefficient 1 in either reading on any of the three spaces. The measured coefficient closest to 1 is 1.083 (Wilson,")
+A("`4^4`, face step), 8 percent above.")
+A("")
+A("## 11. Which ensemble has the working law")
+A("")
+A("- `c = 1` (EXACT): one free link in its one-tick thermal law, with the heat-kernel weight. `M = 2` on the Cartan")
+A("  circle and `M = 150.79` on the full link. `b M = 1` then needs `b = 1/2` or `b = 1/150.79`.")
+A("- `c = 1` as a limit (MEASURED): a link held by a stiff doublet.")
+A("- Not `c = 1` (EXACT on the Cartan circle, MEASURED for `SU(2)`): every lattice ensemble with the Gauss law and a")
+A("  moving link. Icosahedral space 0.398, cubic three dimensions 1/3, cubic four dimensions 1/2 for the heat")
+A("  kernel; 0.37, 0.32, 0.40 for Wilson.")
+A("- Weight power 1 or 0 at any heat time: no exponential.")
+A("")
+A("## 12. Declared and imported items")
+A("")
+A("- DECLARED: the tick equals the cell (isotropic lattices); `A` read at the midpoint of the electric step; the")
+A("  compact doublet with `beta_H = 2 beta_G` and the on-site term `h sin^2 theta`; the fit window `beta >= 4`.")
+A("- ARGUED: the power `p = 1` of the prefactor; the Gaussian estimate with a link mass.")
+A("- IMPORTED: the reading of the class-3 seam flip as the centre shift of the weak link, and `v = E_cell b <A>`,")
+A("  from the electroweak step of the working chain; `E_cell = 9.5599e18 GeV` and `1/alpha_U = 24.3166`, the chain's")
+A("  declared forms; Migdal's solution of two-dimensional gauge theory; Wilson plaquette references at `beta = 2.3, 2.5`.")
+A("- Open: the sector law of the seam link at the smallest collar that has `c = 1` and `b M = 1`.")
+A("")
+A("## 13. Comparison with the measured scale (NOT BLIND)")
+A("")
+A("Run once after the fits were fixed and hashed. `v = 246.22 GeV` (Particle Data Group 2024, from `G_F`,")
+A("https://pdg.lbl.gov/). Two readings: `b M = 1`, `v = E_cell exp(-c S_U)`; and `b = 1`, `v = E_cell <A>(S_U)`.")
+A("The measured value needs `c = %s` at `b M = 1`." % f(CMP["c_needed_for_the_measured_v_at_bM=1"], 5))
+A("")
+A("| Row | c | v at `b M = 1` (GeV) | v at `b = 1` (GeV) |")
+A("| --- | --- | --- | --- |")
+for k, r in CMP["rows"].items():
+    if k.startswith("doublet"):
+        continue
+    A("| %s | %s | %s | %s |" % (k, f(r["c"]) if "c" in r else "", g(r["v_GeV_bM=1"], 4) if "c" in r else "", g(r["v_GeV_b=1"], 4) if "lnA_at_S_U" in r else ""))
+A("")
+A("- The one-tick law of a single link gives 246.6 GeV at `b M = 1`. It is the working law itself.")
+A("- Every lattice ensemble in the electric-step reading gives between `4.8e10` and `4.8e13 GeV` at `b M = 1` and")
+A("  between `8.6e12` and `8.4e15 GeV` at `b = 1`.")
+A("- One row of the second reading lies within a factor of ten of the measured value: heat kernel, `4^4`, face step,")
+A("  `b = 1`, 43.9 GeV, 0.18 of the measured value. Its coefficient is 1.29 and its multiplicity `1.2e4`. It is one of")
+A("  22 rows compared and counts as a look.")
+open(PK + "PROOF.md", "w").write("\n".join(L) + "\n")
+print("PROOF.md written,", len(L), "lines")

@@ -1,0 +1,79 @@
+#!/usr/bin/env python3
+"""S2 task 2(b): long-wavelength eigenvalues of the sweep-averaged channel on small rings, by exhaustive enumeration.
+
+Ring of N ports with integer link registers; ket twist theta, bra twist theta' (Bloch phases of the cover).
+Line wavevector of the density component: q = (theta - theta')/N.  Per sweep:
+   (i)  N independent uniform seam draws:  E_i  = [ (1/N) sum_e U_e (x) conj U_e' ]^N
+   (ii) one uniformly random order:       E_ii = (1/N!) sum_sigma F_sigma (x) conj F_sigma'
+Diffusion constant D = -log(lambda_slow)/q^2 for q -> 0.  Controls: the classical kernels (known D = 1/2 for (i)).
+"""
+import itertools, json, math
+from pathlib import Path
+import numpy as np
+HERE = Path(__file__).resolve().parent
+out = {}
+
+def ring_gates(Nn, theta, kind, chi=math.pi / 4):
+    Us = []
+    for e in range(Nn):
+        U = np.eye(Nn, dtype=complex); c = (e + 1) % Nn
+        ph = np.exp(1j * theta) if e == Nn - 1 else 1.0
+        if kind == 'unitary':
+            v0 = np.exp(1j * chi) / math.sqrt(2); v1 = -1j * np.exp(1j * chi) / math.sqrt(2)
+        else:                       # classical stochastic event with a counting twist
+            v0 = 0.5; v1 = 0.5
+        U[e, e] = v0; U[c, c] = v0; U[c, e] = v1 * ph; U[e, c] = v1 * np.conj(ph)
+        Us.append(U)
+    return Us
+
+def slow(ev):
+    """eigenvalue continuously connected to 1: the one closest to 1."""
+    return ev[np.argmin(np.abs(ev - 1))]
+
+for Nn in (5, 6, 7):
+    rows = []
+    perms = list(itertools.permutations(range(Nn)))
+    for chi_name, chi in (('sqrt_swap', math.pi / 4), ('beam_splitter', 0.0)):
+        for dth in (0.01, 0.02, 0.05, 0.1):
+            th, thp = 0.0, dth
+            q = dth / Nn
+            Ua, Ub = ring_gates(Nn, th, 'unitary', chi), ring_gates(Nn, thp, 'unitary', chi)
+            Ei = np.linalg.matrix_power(sum(np.kron(x, y.conj()) for x, y in zip(Ua, Ub)) / Nn, Nn)
+            Eii = np.zeros((Nn * Nn, Nn * Nn), complex)
+            for sigma in perms:
+                Fa = np.eye(Nn, dtype=complex); Fb = np.eye(Nn, dtype=complex)
+                for e in sigma: Fa = Ua[e] @ Fa; Fb = Ub[e] @ Fb
+                Eii += np.kron(Fa, Fb.conj())
+            Eii /= len(perms)
+            evi, evii = np.linalg.eigvals(Ei), np.linalg.eigvals(Eii)
+            si, sii = slow(evi), slow(evii)
+            near = sorted(evii, key=lambda z: abs(z - 1))[:4]
+            rows.append({'law': chi_name, 'dtheta': dth, 'q': q, 'orders': len(perms),
+                         'i_slow': [float(si.real), float(si.imag)], 'i_D': float(-math.log(abs(si)) / q ** 2),
+                         'ii_slow': [float(sii.real), float(sii.imag)], 'ii_D': float(-math.log(abs(sii)) / q ** 2),
+                         'ii_slow_phase_over_q': float(np.angle(sii) / q),
+                         'ii_four_eigenvalues_nearest_1': [[float(z.real), float(z.imag)] for z in near],
+                         'ii_max_modulus_of_nonreal_eigenvalue': float(max([abs(z) for z in evii if abs(z.imag) > 1e-9] or [0.0])),
+                         'i_max_modulus_of_nonreal_eigenvalue': float(max([abs(z) for z in evi if abs(z.imag) > 1e-9] or [0.0]))})
+    # classical controls: populations only (N x N), counting twist dth
+    crow = []
+    for dth in (0.01, 0.02, 0.05, 0.1):
+        q = dth / Nn
+        Tc = ring_gates(Nn, dth, 'classical')
+        Ei = np.linalg.matrix_power(sum(Tc) / Nn, Nn)
+        Eii = np.zeros((Nn, Nn), complex)
+        for sigma in perms:
+            Fa = np.eye(Nn, dtype=complex)
+            for e in sigma: Fa = Tc[e] @ Fa
+            Eii += Fa
+        Eii /= len(perms)
+        si, sii = slow(np.linalg.eigvals(Ei)), slow(np.linalg.eigvals(Eii))
+        crow.append({'dtheta': dth, 'q': q, 'classical_i_D': float(-math.log(abs(si)) / q ** 2), 'classical_ii_D': float(-math.log(abs(sii)) / q ** 2),
+                     'classical_ii_drift_phase_over_q': float(np.angle(sii) / q)})
+    out[f'N={Nn}'] = {'unitary': rows, 'classical': crow}
+    print(f'N={Nn}')
+    for r in rows: print('   ', r['law'], 'dtheta', r['dtheta'], 'D_i %.4f  D_ii %.4f  phase/q %.4f' % (r['i_D'], r['ii_D'], r['ii_slow_phase_over_q']),
+                         ' max |nonreal| (i) %.4f (ii) %.4f' % (r['i_max_modulus_of_nonreal_eigenvalue'], r['ii_max_modulus_of_nonreal_eigenvalue']))
+    for r in crow: print('    classical dtheta', r['dtheta'], 'D_i %.4f  D_ii %.4f' % (r['classical_i_D'], r['classical_ii_D']))
+Path(HERE / 't2b_ring_perm.json').write_text(json.dumps(out, indent=1))
+print('written', HERE / 't2b_ring_perm.json')

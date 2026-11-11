@@ -1,0 +1,71 @@
+"""EB row FIT-1 (CANDIDATES.md addendum 23:28), labelled FIT: X3 (menu M2), L4, k = 1, t fitted to the declared
+MSSM - SM vector (5/2, 25/6, 4); then F1 (t held), F2 and F3 with bases A and B. Used for nothing derived.
+
+Run:  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python eb_fit1.py [out.json]
+"""
+import json
+import math
+import sys
+from pathlib import Path
+
+import numpy as np
+from scipy.optimize import minimize_scalar
+
+HERE = Path(__file__).parent
+sys.path.insert(0, str(HERE))
+import eb_lib as L  # noqa: E402
+import eb_chains as C  # noqa: E402
+from d10_float_eb import E_STAR_GEV, PI, readout  # noqa: E402
+
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / 'eb_fit1.json'
+M2 = sorted(L.menus(2)[2], key=str)
+TARGET = np.array([2.5, 25 / 6, 4.0])
+
+
+def shift(t):
+    return np.array(L.explicit_sum(M2, t, k=1, normalized=True, umode='Ua', coeff=L.LOOP_RULES['L4']))
+
+
+res = minimize_scalar(lambda t: float(np.linalg.norm(shift(t) - TARGET)), bounds=(0.6, 1.3), method='bounded',
+                      options=dict(xatol=1e-10))
+t_fit = float(res.x)
+db = shift(t_fit)
+out = dict(label='FIT', t_FIT=t_fit, alpha_equivalent=t_fit / (4 * math.pi ** 2), shift=db.tolist(),
+           residual=(db - TARGET).tolist(), rows={})
+
+
+class FitChain(C.EdgeChain):
+    def slopes(self, alpha_u):
+        return tuple(self.base[i] + db[i] for i in range(3))
+
+
+for base in ('A', 'B'):
+    ch = FitChain(C.base_b(base), 'L4', t_fit)
+    r = ch.closure()
+    f1 = 'no outer fixed point' if r is None else readout(*r)
+    a_cut = C.cut_closure_alpha()
+    Rr = 2 * PI - (2 / 3) * math.log(C.P_FWD)
+    alpha_U = 1 / (1 / a_cut + C.B_ABOVE / (2 * PI) * Rr)
+    d = ch.d10_at(alpha_U, C.P_FWD)
+    if 'mz' in d and d['positive']:
+        a0inv, anchor = ch.alpha0_inv(d)
+        a2 = 1 / d['inv2']; aem = 1 / (d['inv2'] + 5 * d['inv1'] / 3)
+        f2 = dict(v_GeV=d['v'] * E_STAR_GEV, m_Z_GeV=d['mz'] * E_STAR_GEV,
+                  m_W_GeV=0.5 * d['v'] * math.sqrt(4 * PI * a2) * E_STAR_GEV, sin2_theta_W_mZ=aem / a2,
+                  alpha_s_mZ=1 / d['inv3'], alpha_em_inv_mZ=anchor, alpha0_inv=a0inv)
+    else:
+        f2 = 'no positive couplings at m_Z'
+    e_cell = E_STAR_GEV / math.sqrt(C.P_FWD)
+    f3 = {}
+    for variant, inv0 in C.E_CELL_INV.items():
+        lg = math.log(e_cell / 91.58832749908635) / (2 * PI)
+        inv = [inv0[i] + (C.base_b(base)[i] + db[i]) * lg for i in range(3)]
+        f3[variant] = inv
+    out['rows'][base] = dict(slopes=[C.base_b(base)[i] + db[i] for i in range(3)], F1=f1, F2=f2,
+                             F3_inv_alpha_at_source_mZ=f3)
+    print(base, 'slopes', np.round(out['rows'][base]['slopes'], 4))
+    print('  F1', f1 if isinstance(f1, str) else {k: round(float(v), 5) for k, v in f1.items()})
+    print('  F2', f2 if isinstance(f2, str) else {k: round(float(v), 5) for k, v in f2.items()})
+    print('  F3', {k: np.round(v, 3).tolist() for k, v in f3.items()})
+OUT.write_text(json.dumps(out, indent=1, default=float) + '\n')
+print('t_FIT', t_fit, 'shift', np.round(db, 4), 'residual', np.round(db - TARGET, 4))

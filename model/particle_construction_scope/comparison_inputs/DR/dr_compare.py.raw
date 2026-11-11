@@ -1,0 +1,126 @@
+"""Worker DR (S5): comparison of rows D0 to D11 with the measured lepton ratios (NOT BLIND), and the look count.
+
+Run:  /tmp/oph-completion-venv/bin/python -B dr_compare.py <DR dir>
+Inputs: structure.json, clock.json, blocking.json of this directory (all computed before this script was written).
+Pass criterion (CANDIDATES.md): ln(mu/e) residual within 3 standard errors and ln(tau/e) within 1 standard error.
+"""
+import json
+import sys
+from pathlib import Path
+
+from mpmath import mp, mpf, sqrt, cos, sin, pi, log
+
+mp.dps = 40
+D = Path(sys.argv[1])
+st = json.loads((D / 'structure.json').read_text())
+ck = json.loads((D / 'clock.json').read_text())
+bl = json.loads((D / 'blocking.json').read_text())
+
+P_, Q_ = mpf(1) / 12, mpf(1) / 6
+TH0 = P_ + Q_ - 2 * P_ * Q_
+R0 = 2 * sqrt(P_ / Q_)
+ALPHA_P = mpf('0.0072995452617244017571725360595355818930943140296429')   # D10 chain (scale_dressing.json)
+
+
+def lnr(delta, r):
+    x = [1 + r * cos(delta + 2 * pi * k / 3) for k in range(3)]   # tau, e, mu
+    return 2 * log(abs(x[2] / x[1])), 2 * log(abs(x[0] / x[1])), min(x) > 0
+
+
+NAT = lnr(TH0, R0)
+need = (mpf(st['C_needed_NOT_BLIND']['needed_dln_mu_e']), mpf(st['C_needed_NOT_BLIND']['needed_dln_tau_e']))
+sig = (mpf(st['C_needed_NOT_BLIND']['sigma_ln_mu_e']), mpf(st['C_needed_NOT_BLIND']['sigma_ln_tau_e']))
+
+
+def score(dmu, dtau, note=''):
+    rmu, rtau = (dmu - need[0]) / sig[0], (dtau - need[1]) / sig[1]
+    return {'dln_mu_e': float(dmu), 'dln_tau_e': float(dtau), 'residual_mu_e_sigma': float(rmu),
+            'residual_tau_e_sigma': float(rtau), 'pass': bool(abs(rmu) <= 3 and abs(rtau) <= 1),
+            'sign_of_mu_e_shift_matches_target': bool(dmu * need[0] > 0), 'note': note}
+
+
+def from_shape(delta, r, note=''):
+    a, b, pos = lnr(delta, r)
+    if not pos:
+        note = (note + '; ' if note else '') + 'a root of the circulant changes sign'
+    return score(a - NAT[0], b - NAT[1], note)
+
+
+def additive(delta_over_me, note=''):
+    """m_k -> m_k + Delta for all k, Delta given in units of m_e (exact nonlinear map)."""
+    x = [1 + R0 * cos(TH0 + 2 * pi * k / 3) for k in range(3)]
+    m = [xi ** 2 for xi in x]
+    d = delta_over_me * m[1]
+    mm = [mi + d for mi in m]
+    if min(mm) <= 0:
+        return {'note': (note + '; ' if note else '') + 'the electron mass turns negative', 'pass': False,
+                'sign_of_mu_e_shift_matches_target': bool(delta_over_me > 0)}
+    return score(log(mm[2] / mm[1]) - NAT[0], log(mm[0] / mm[1]) - NAT[1], note)
+
+
+rows = {}
+rows['D0'] = score(0, 0, 'native point')
+# D1: additive -1/16 source units for the e^c line (cell scale); sign test at any lepton scale below the cell
+rows['D1'] = additive(mpf('-1e-6'), 'additive universal Sigma = -1/16 kappa^-1 at order h^2; scored at Delta = '
+                                     '-1e-6 m_e for the direction only (every negative Delta raises mu/e; the '
+                                     'cell-scale value is about -1e21 m_e)')
+rows['D1']['Sigma_source_units'] = -0.0625
+# D2: convex Yukawa function at the declared y = omega = 1, and its leading term at small y
+d2 = ck['D2_rows']['declared_y=omega=1']
+rows['D2'] = score(mpf(d2['dln_mu_e']), mpf(d2['dln_tau_e']),
+                   'shared memory, declared y = omega = 1; at physical y the shift is (m_mu - m_e)/omega > 0')
+# D3: y^2 h^2 is the universal factor 1 + 7/32 on every mass: no ratio change beyond D1
+rows['D3'] = score(0, 0, 'universal factor 1 + 7/32 (EXACT; cross-family term 0)')
+# D4 to D7 at the declared couplings: 1 - Z = 1/16, Sigma_rot = -1/16
+Zs = 1 - mpf(1) / 16
+rows['D4'] = from_shape(Zs * P_ + Zs * Q_ - 2 * Zs * Zs * P_ * Q_, R0, '1 - Z = 1/16 (declared)')
+rows['D5'] = from_shape(Zs * TH0, R0, '1 - Z = 1/16 (declared)')
+rows['D6'] = from_shape(Zs * P_ + Q_ - 2 * Zs * P_ * Q_, R0 * sqrt(Zs), '1 - Z = 1/16 (declared)')
+rows['D7'] = from_shape(TH0 - mpf(1) / 16, R0, 'd theta = -1/16 (declared)')
+# D8: the same four forms at 1 - Z = alpha_P/pi, Sigma_rot = -alpha_P/pi
+Zp = 1 - ALPHA_P / pi
+rows['D8'] = {'D4': from_shape(Zp * P_ + Zp * Q_ - 2 * Zp * Zp * P_ * Q_, R0),
+              'D5': from_shape(Zp * TH0, R0),
+              'D6': from_shape(Zp * P_ + Q_ - 2 * Zp * P_ * Q_, R0 * sqrt(Zp)),
+              'D7': from_shape(TH0 - ALPHA_P / pi, R0)}
+rows['D8']['pass'] = any(v['pass'] for v in rows['D8'].values() if isinstance(v, dict))
+rows['D9'] = from_shape(mpf(13) / 36, R0, 'theta = 13/36')
+Gp, Gq = -log(1 - P_), -log(1 - Q_)
+rows['D10'] = from_shape(Gp + Gq - 2 * Gp * Gq, 2 * sqrt(Gp / Gq), 'rates in place of probabilities')
+d11 = bl['D11']
+rows['D11'] = additive(mpf(d11['Delta_e_over_m_e']),
+                       'cross-family link term c = -1/64 per unit y^2 of another family (declared couplings)')
+rows['D11']['c_cross'] = d11['c_cross_per_unit_y2_h4']
+
+# D12: common phase of the current branches (common_phase.json, computed before this block was added)
+cp = json.loads((D / 'common_phase.json').read_text())
+rows['D12'] = {k: {x: v[x] for x in ('phi', 'dln_mu_e', 'dln_tau_e', 'residual_mu_e_sigma', 'residual_tau_e_sigma',
+                                      'pass')} for k, v in cp['rows'].items()}
+rows['D12']['pass'] = any(v['pass'] for v in rows['D12'].values() if isinstance(v, dict))
+rows['D12']['needed_NOT_BLIND'] = cp['needed_NOT_BLIND']
+rows['D12']['posthoc_weight_zero'] = cp['posthoc_observation_weight_zero']
+
+# sizes needed by each form (from structure.json, NOT BLIND) against the source's second-order values
+C = st['C_needed_NOT_BLIND']
+sizes = {'D4_needed_1_minus_Z': C['needed_1_minus_Z_D4'], 'D5_needed_1_minus_Z': C['needed_1_minus_Z_D5'],
+         'D6_needed_1_minus_Z': C['needed_1_minus_Z_D6'], 'D7_needed_d_theta': C['needed_d_theta_D7'],
+         'correlation_needed_cov': C['needed_cov'], 'additive_needed_Delta_over_m_e': C['needed_additive_Delta_over_m_e'],
+         'declared_1_minus_Z': 1 / 16, 'alpha_P_over_pi': float(ALPHA_P / pi),
+         'overshoot_D4_declared': float((mpf(1) / 16) / mpf(C['needed_1_minus_Z_D4'])),
+         'overshoot_D4_alphaP_over_pi': float((ALPHA_P / pi) / mpf(C['needed_1_minus_Z_D4'])),
+         'needed_in_alphaP_over_pi_squared': {
+             'D4': float(mpf(C['needed_1_minus_Z_D4']) / (ALPHA_P / pi) ** 2),
+             'D5': float(mpf(C['needed_1_minus_Z_D5']) / (ALPHA_P / pi) ** 2),
+             'D6': float(mpf(C['needed_1_minus_Z_D6']) / (ALPHA_P / pi) ** 2),
+             'D7': float(-mpf(C['needed_d_theta_D7']) / (ALPHA_P / pi) ** 2),
+             'cov': float(mpf(C['needed_cov']) / (ALPHA_P / pi) ** 2)}}
+looks = {'preregistered_rows': ['D0', 'D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7', 'D8 (four forms)', 'D9', 'D10', 'D11',
+                                'D12 (three rules)'],
+         'count_ids': 13, 'count_evaluations': 18,
+         'own_observations_no_weight': ['O1 to O5 (before section 2)', 'D12 hand estimate (section 4)',
+                                        'post hoc phi = (alpha_P/pi)/18 (after phi_needed)'],
+         'count_own_observations': 7, 'total_looks': 25,
+         'passes': [k for k, v in rows.items() if v.get('pass')]}
+res = {'rows': rows, 'needed_sizes_NOT_BLIND': sizes, 'looks': looks}
+(D / 'compare.json').write_text(json.dumps(res, indent=1, default=str))
+print(json.dumps(res, indent=1, default=str))

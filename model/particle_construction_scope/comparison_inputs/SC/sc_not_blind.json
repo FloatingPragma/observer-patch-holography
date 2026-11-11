@@ -1,0 +1,296 @@
+{
+ "measured": {
+  "v_over_Estar": 2.0167e-17,
+  "sin2w_mZ": 0.23122,
+  "alpha3_mZ": 0.118,
+  "alpha_em_inv_mZ": 127.951,
+  "A_T": 137.035999177,
+  "mW_over_mZ_tree": 0.88136
+ },
+ "law_candidates_v_ratio_at_P_fwd": {
+  "B1 instanton fourth root, unit prefactor, alpha_cut": 321207.13666468783,
+  "B2 prefactor SU(2), no fermions": 11700353.9330568,
+  "B2 prefactor SU(3), no fermions": 65328121.06216005,
+  "B3 Villain flux, unified alpha_cut": 321207.13666468783,
+  "B3 Villain flux, alpha_Y = (3/5) alpha_cut": 0.013138678502257748,
+  "B3 Villain flux, alpha_em = (3/8) alpha_cut": 1.0869296488835906e-13,
+  "B3 Villain flux, alpha_2 + alpha_Y = (8/5) alpha_cut": 4599033042.59421,
+  "B9 beta = 8/3 (target-informed)": 0.9238682895299205,
+  "reference_D10_law": 1.0015428213703714,
+  "B5/B6a K1 links only SU(2) (b = -7.33333)": 35012015974.61762,
+  "B5/B6a K1 links only SU(3) (b = -11)": 3624014200213.8467,
+  "B5/B6a B SU(2) (b = -1.16667)": 3.9129653902562645e-22,
+  "B5/B6a B SU(3) (b = -5)": 52875591.17645772,
+  "B5/B6a SM SU(2) (b = -3.16667)": 389.38321388656186,
+  "B5/B6a SM SU(3) (b = -7)": 18045289951.582333,
+  "B5/B6a K3(1,3) SU(3) (b = -3)": 64.96335352541504,
+  "B5/B6a MSSM (declared, reference) SU(3) (b = -3)": 64.96335352541504,
+  "B5/B6a A3H SU(2) (b = -2.83333)": 8.779393090823861,
+  "B5/B6a A3H SU(3) (b = -7)": 18045289951.582333,
+  "B5/B6a B6a links + class-3 content SU(2) (b = -35/6)": 976808770.507566,
+  "B10 K1 links only (b_2 = -7.33333)": 4761213988575.236,
+  "B10 B (b_2 = -1.16667)": 102153057.89791724,
+  "B10 SM (b_2 = -3.16667)": 25330141867.746014,
+  "B10 K3(1,3) (b_2 = 0.833333)": 389.38321388656186,
+  "B10 MSSM (declared, reference) (b_2 = 1)": 64.9633535254155,
+  "B10 A3H (b_2 = -2.83333)": 12644626963.117704,
+  "B10 b_2 = 4/3 (target-informed)": 0.9238682895299271,
+  "B11 k = 1/2": 120455498.1125519,
+  "B11 k = 2": 4.987600952770135,
+  "B8 capacity form with the Lambda-located capacity (measured input)": 1.0104236742189179
+ },
+ "chains": {
+  "C1": {
+   "MSSM (declared, reference)": {
+    "at_P_fwd": {
+     "v_over_Estar": 321207.13666468783,
+     "sin2w_mZ": 0.9441708779924751,
+     "alpha3_mZ": 2.3072120435885717,
+     "alpha_em_inv_mZ": 0.7316055652663531,
+     "A_T": 0.7427660498740689,
+     "mW_over_mZ_tree": 1.0031447647121692
+    },
+    "fixed_point": {
+     "v_over_Estar": 311185.88676492404,
+     "sin2w_mZ": 0.9441753351196335,
+     "alpha3_mZ": 2.304360788798281,
+     "alpha_em_inv_mZ": 0.7324695784843216,
+     "A_T": 0.7435794418476284,
+     "mW_over_mZ_tree": 1.0031441034399395,
+     "P_star": 1.6354285264766586
+    }
+   },
+   "SM": {
+    "at_P_fwd": "Landau pole between M_U and the Z scale",
+    "fixed_point": "none"
+   },
+   "B": {
+    "at_P_fwd": "Landau pole between M_U and the Z scale",
+    "fixed_point": "none"
+   },
+   "A3H": {
+    "at_P_fwd": "Landau pole between M_U and the Z scale",
+    "fixed_point": "none"
+   },
+   "K3(1,3)": {
+    "at_P_fwd": {
+     "v_over_Estar": 321207.13666468783,
+     "sin2w_mZ": 0.8256561575403786,
+     "alpha3_mZ": 2.3071639324119064,
+     "alpha_em_inv_mZ": 0.8080256419135539,
+     "A_T": 0.8141213661481479,
+     "mW_over_mZ_tree": 1.0205764881830282
+    },
+    "fixed_point": {
+     "v_over_Estar": 314564.97741569736,
+     "sin2w_mZ": 0.8256592803985603,
+     "alpha3_mZ": 2.3052836121295615,
+     "alpha_em_inv_mZ": 0.8086544067759958,
+     "A_T": 0.814712837906964,
+     "mW_over_mZ_tree": 1.0205760327804045,
+     "P_star": 1.6339097919191357
+    }
+   }
+  },
+  "C1m": {
+   "MSSM (declared, reference)": {
+    "at_P_fwd": "Landau pole between M_U and the Z scale",
+    "fixed_point": "none"
+   },
+   "SM": {
+    "at_P_fwd": "Landau pole between M_U and the Z scale",
+    "fixed_point": "none"
+   },
+   "B": {
+    "at_P_fwd": "Landau pole between M_U and the Z scale",
+    "fixed_point": "none"
+   },
+   "A3H": {
+    "at_P_fwd": "Landau pole between M_U and the Z scale",
+    "fixed_point": "none"
+   },
+   "K3(1,3)": {
+    "at_P_fwd": "Landau pole between M_U and the Z scale",
+    "fixed_point": "none"
+   }
+  },
+  "C2": {
+   "c = 0 (E_cell reference)": {
+    "at_P_fwd": {
+     "v_over_Estar": 1.074764485967009,
+     "sin2w_mZ": 1.0011290049118982,
+     "alpha3_mZ": 0.9858616837970126,
+     "alpha_em_inv_mZ": 0.995900413653906,
+     "A_T": 0.99335607798192,
+     "mW_over_mZ_tree": 0.994658399331677
+    },
+    "fixed_point": {
+     "v_over_Estar": 1.0728968202485463,
+     "sin2w_mZ": 1.0011264926255998,
+     "alpha3_mZ": 0.9858316873577462,
+     "alpha_em_inv_mZ": 0.9959490937925486,
+     "A_T": 0.9934014244483519,
+     "mW_over_mZ_tree": 0.9946587752416273,
+     "P_star": 1.63105412374844
+    }
+   },
+   "c = 1/4": {
+    "at_P_fwd": {
+     "v_over_Estar": 1.045730089140553,
+     "sin2w_mZ": 0.9999127753408221,
+     "alpha3_mZ": 0.9921467309989105,
+     "alpha_em_inv_mZ": 0.9985111736099777,
+     "A_T": 0.9957596849332294,
+     "mW_over_mZ_tree": 0.9948403654826007
+    },
+    "fixed_point": {
+     "v_over_Estar": 1.0445974396165367,
+     "sin2w_mZ": 0.9999111763289569,
+     "alpha3_mZ": 0.992128232139687,
+     "alpha_em_inv_mZ": 0.9985416243779548,
+     "A_T": 0.995788049860476,
+     "mW_over_mZ_tree": 0.994840604696805,
+     "P_star": 1.631022918126861
+    }
+   },
+   "c = 1/2 (E* reference)": {
+    "at_P_fwd": {
+     "v_over_Estar": 1.0186108661813034,
+     "sin2w_mZ": 0.9987044510351136,
+     "alpha3_mZ": 0.99853226043918,
+     "alpha_em_inv_mZ": 1.0010903587213837,
+     "A_T": 0.9981335763070126,
+     "mW_over_mZ_tree": 0.9950211159338611
+    },
+    "fixed_point": {
+     "v_over_Estar": 1.0181708449948805,
+     "sin2w_mZ": 0.9987038004857938,
+     "alpha3_mZ": 0.9985249616787569,
+     "alpha_em_inv_mZ": 1.0011025463404304,
+     "A_T": 0.9981449288733512,
+     "mW_over_mZ_tree": 0.9950212132391927,
+     "P_star": 1.6309922478963537
+    }
+   },
+   "c = 2/3 (declared)": {
+    "at_P_fwd": {
+     "v_over_Estar": 1.0015428213703714,
+     "sin2w_mZ": 0.9979032086813832,
+     "alpha3_mZ": 1.0028462877777395,
+     "alpha_em_inv_mZ": 1.0027922256018913,
+     "A_T": 0.9996996117820551,
+     "mW_over_mZ_tree": 0.9951409538303456
+    },
+    "fixed_point": {
+     "v_over_Estar": 1.0015428213703714,
+     "sin2w_mZ": 0.9979032086813832,
+     "alpha3_mZ": 1.0028462877777395,
+     "alpha_em_inv_mZ": 1.0027922256018913,
+     "A_T": 0.9996996117820551,
+     "mW_over_mZ_tree": 0.9951409538303456,
+     "P_star": 1.6309720958588974
+    }
+   },
+   "c = 1 (mirror about exp(-pi) E*)": {
+    "at_P_fwd": {
+     "v_over_Estar": 0.9697028155179265,
+     "sin2w_mZ": 0.9963108354092355,
+     "alpha3_mZ": 1.0116144469582822,
+     "alpha_em_inv_mZ": 1.0061536345325968,
+     "A_T": 1.0027918257021275,
+     "mW_over_mZ_tree": 0.9953790744760984
+    },
+    "fixed_point": {
+     "v_over_Estar": 0.9705352530609657,
+     "sin2w_mZ": 0.996312176923119,
+     "alpha3_mZ": 1.0116286336389442,
+     "alpha_em_inv_mZ": 1.0061292474839754,
+     "A_T": 1.0027691104388106,
+     "mW_over_mZ_tree": 0.9953788738924912,
+     "P_star": 1.6309324920238983
+    }
+   }
+  },
+  "C3a_B10_selfSU2": {
+   "MSSM (declared, reference)": {
+    "at_P_fwd": "Landau pole between M_U and the Z scale",
+    "fixed_point": "none"
+   },
+   "SM": {
+    "at_P_fwd": "Landau pole between M_U and the Z scale",
+    "fixed_point": "none"
+   },
+   "B": {
+    "at_P_fwd": "Landau pole between M_U and the Z scale",
+    "fixed_point": "none"
+   },
+   "A3H": {
+    "at_P_fwd": "Landau pole between M_U and the Z scale",
+    "fixed_point": "none"
+   },
+   "K3(1,3)": {
+    "at_P_fwd": {
+     "v_over_Estar": 389.38321388656186,
+     "sin2w_mZ": 0.7512407663724634,
+     "alpha3_mZ": 18.780721142379903,
+     "alpha_em_inv_mZ": 0.9283343116332006,
+     "A_T": 0.857794939527971,
+     "mW_over_mZ_tree": 1.0313713027503753
+    },
+    "fixed_point": {
+     "v_over_Estar": 382.065271516109,
+     "sin2w_mZ": 0.7512426604687342,
+     "alpha3_mZ": 18.766134889532253,
+     "alpha_em_inv_mZ": 0.9288584086240498,
+     "A_T": 0.8583453030840189,
+     "mW_over_mZ_tree": 1.031371029427619,
+     "P_star": 1.6331027735473325
+    }
+   }
+  },
+  "C3b_B9_beta_8_3_target_informed": {
+   "MSSM (declared, reference)": {
+    "at_P_fwd": "Landau pole between M_U and the Z scale",
+    "fixed_point": "none"
+   },
+   "SM": {
+    "at_P_fwd": "Landau pole between M_U and the Z scale",
+    "fixed_point": "none"
+   },
+   "B": {
+    "at_P_fwd": "Landau pole between M_U and the Z scale",
+    "fixed_point": "none"
+   },
+   "A3H": {
+    "at_P_fwd": "Landau pole between M_U and the Z scale",
+    "fixed_point": "none"
+   },
+   "K3(1,3)": {
+    "at_P_fwd": "Landau pole between M_U and the Z scale",
+    "fixed_point": "none"
+   }
+  },
+  "C3c_B12_posthoc_target_informed": {
+   "MSSM (declared, reference)": {
+    "at_P_fwd": "Landau pole between M_U and the Z scale",
+    "fixed_point": "none"
+   },
+   "SM": {
+    "at_P_fwd": "Landau pole between M_U and the Z scale",
+    "fixed_point": "none"
+   },
+   "B": {
+    "at_P_fwd": "Landau pole between M_U and the Z scale",
+    "fixed_point": "none"
+   },
+   "A3H": {
+    "at_P_fwd": "Landau pole between M_U and the Z scale",
+    "fixed_point": "none"
+   },
+   "K3(1,3)": {
+    "at_P_fwd": "Landau pole between M_U and the Z scale",
+    "fixed_point": "none"
+   }
+  }
+ }
+}

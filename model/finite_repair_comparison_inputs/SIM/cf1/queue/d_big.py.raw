@@ -1,0 +1,57 @@
+"""Run D, addition (theory session's worker R6 targets): cubic cavities of side 8, 12, 16 on 48^3 and side 16 on 64^3.
+
+Two-tick operator U2 (alternating order) restricted to one two-tick sublattice x = r + 2Z^3 (U2 preserves x mod 2 per
+axis); Hermitian A = (U2 + U2^dagger)/2 (eigenvalues cos 2E), top eigenvalues by Lanczos (scipy eigsh 'LA', k = 16) in
+the block; the matvec projects on the block after every application (the block is invariant; the projection removes
+rounding leakage). Frame: the eigenphases are the same in the mass-last frame and in the half-step frame
+M^(1/2) S M^(1/2) (the two-tick operators are conjugate by M^(1/2)), so the mass-last operator is used.
+Blocks r = (0,0,0) and (1,1,1). Background theta0 = 0.171237, cavity theta = 0, cube of side s from L/2 - s/2.
+`python d_big.py out.json`
+"""
+import json, sys, time
+import numpy as np
+from multiprocessing import Pool
+from scipy.sparse.linalg import LinearOperator, eigsh
+from cq_common import EngineC
+
+TH0 = 0.171237
+
+
+def job(args):
+    L, s, r = args
+    t0 = time.time()
+    shape = (L, L, L); e = EngineC(shape)
+    th = np.full(shape, TH0); c = L // 2 - s // 2; th[c:c + s, c:c + s, c:c + s] = 0.0
+    g = np.arange(L)
+    mask = ((g[:, None, None] % 2 == r[0]) & (g[None, :, None] % 2 == r[1]) & (g[None, None, :] % 2 == r[2]))
+    idx = np.flatnonzero(np.broadcast_to(mask[..., None, None], shape + (2, 2)))
+    n = len(idx)
+    def mv(v):
+        full = np.zeros(L ** 3 * 4, complex); full[idx] = v
+        psi = full.reshape(shape + (2, 2))
+        out = 0.5 * (e.two_ticks(psi, th) + e.two_ticks_inverse(psi, th))
+        return out.reshape(-1)[idx]
+    A = LinearOperator((n, n), matvec=mv, dtype=complex)
+    vals, vecs = eigsh(A, k=16, which='LA', tol=1e-11, ncv=64, v0=np.random.default_rng(7).normal(size=n) + 0j)
+    o = np.argsort(-vals); vals = vals[o]; vecs = vecs[:, o]
+    E = np.arccos(np.clip(vals, -1, 1)) / 2
+    full_mask = np.zeros(shape + (2, 2), bool); full_mask[c:c + s, c:c + s, c:c + s] = True
+    incav = full_mask.reshape(-1)[idx]
+    wc = np.sum(np.abs(vecs[incav, :]) ** 2, axis=0)
+    res = float(max(np.linalg.norm(mv(vecs[:, j]) - vals[j] * vecs[:, j]) for j in range(len(vals))))
+    rows = [{'abs_phase': float(E[j]), 'weight_in_cavity': float(wc[j])} for j in range(len(vals))]
+    return {'L': L, 'side': s, 'block_r': list(r), 'block_dimension': n, 'cavity_cells_in_block': int(np.sum(mask[c:c + s, c:c + s, c:c + s])),
+            'cavity_volume_fraction': s ** 3 / L ** 3, 'lowest_16': rows, 'lowest_abs_phase': float(E[0]), 'bound': bool(E[0] < TH0 - 1e-9),
+            'binding_theta0_minus_E': float(TH0 - E[0]), 'eigen_residual': res, 'seconds': time.time() - t0}
+
+
+if __name__ == '__main__':
+    jobs = [(48, s, r) for s in (8, 12, 16) for r in ((0, 0, 0), (1, 1, 1))] + [(64, 16, r) for r in ((0, 0, 0), (1, 1, 1))]
+    with Pool(len(jobs)) as pool:
+        res = pool.map(job, jobs)
+    for r in res:
+        print('L', r['L'], 's', r['side'], 'block', r['block_r'], 'lowest', round(r['lowest_abs_phase'], 8), 'binding', f"{r['binding_theta0_minus_E']:.3e}",
+              'cavity weight', round(r['lowest_16'][0]['weight_in_cavity'], 5), 'fraction', round(r['cavity_volume_fraction'], 5),
+              'next', [round(q['abs_phase'], 6) for q in r['lowest_16'][1:6]], 'res', f"{r['eigen_residual']:.1e}", flush=True)
+    json.dump({'run': 'D addition', 'theta0': TH0, 'rows': res}, open(sys.argv[1], 'w'), indent=1)
+    print('written', sys.argv[1])

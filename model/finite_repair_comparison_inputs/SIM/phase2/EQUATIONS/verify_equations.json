@@ -1,0 +1,233 @@
+{
+ "V1_lawC_three_forms_agree": {
+  "pass": true,
+  "cases": 128
+ },
+ "V2_dV_equals_minus_2j_d_minus_j_and_never_positive": {
+  "pass": true,
+  "max_dV": 0
+ },
+ "V3a_cost_table_and_kappa": {
+  "pass": true,
+  "cost": [
+   0,
+   5,
+   8,
+   10,
+   8,
+   5
+  ],
+  "kappa": 5
+ },
+ "V3b_lawC_on_stored_records": {
+  "pass": true,
+  "attempts": 80640,
+  "violations": 0
+ },
+ "V3c_register_rule_on_stored_records": {
+  "pass": true,
+  "accepted": 5782,
+  "blocked": 23926,
+  "violations": 0
+ },
+ "V4_counts_20x4L_12_30_20_and_glue": {
+  "pass": true,
+  "level_carriers_plaquettes": [
+   [
+    3,
+    1280,
+    642
+   ],
+   [
+    4,
+    5120,
+    2562
+   ],
+   [
+    5,
+    20480,
+    10242
+   ],
+   [
+    6,
+    81920,
+    40962
+   ],
+   [
+    7,
+    327680,
+    163842
+   ]
+  ]
+ },
+ "V5_class_sum_zero_mod_6": {
+  "pass": true,
+  "carriers_with_defects": 355,
+  "screen_defects": 28
+ },
+ "V6_class_rule_6Y_mod_6": {
+  "pass": true,
+  "multiplicities": [
+   4,
+   6,
+   6,
+   4,
+   6,
+   6
+  ],
+  "B_minus_L_values": [
+   "-1",
+   "-1/3",
+   "1",
+   "1/3"
+  ]
+ },
+ "V7_flux_costs": {
+  "pass": true,
+  "beta_k": [
+   "12/5",
+   "3",
+   "4",
+   "3",
+   "12/5"
+  ]
+ },
+ "V8a_alpha_beta_are_Dirac_matrices": {
+  "pass": true,
+  "max_residual": 0.0
+ },
+ "V8b_two_ticks_third_order_in_p_and_theta_jointly": {
+  "pass": true,
+  "errors": [
+   0.0004924492379215905,
+   6.21476143466027e-05,
+   7.787061740299893e-06,
+   9.739652708982108e-07
+  ],
+  "orders": [
+   2.9862041011414795,
+   2.996548041829347,
+   2.9991368292933447
+  ]
+ },
+ "V8c_with_theta_fixed_the_error_is_first_order_in_p": {
+  "pass": true,
+  "errors": [
+   0.0033992949626009605,
+   0.0018124406451059266,
+   0.0009211701508144074,
+   0.0004624786420355505
+  ],
+  "orders": [
+   0.9073018027536253,
+   0.9763941811021759,
+   0.9940809221189164
+  ]
+ },
+ "V8d_axis_dispersion_cosE_equals_cos_theta_cos_p": {
+  "pass": true,
+  "max_difference_to_CF1_numbers": 3.351324824041324e-07
+ },
+ "V9a_phase_is_2_9": {
+  "pass": true,
+  "theta": "2/9"
+ },
+ "V9b_rates_are_eigenvalues_of_2_9_C_squared": {
+  "pass": true,
+  "y_tau": 0.20969355602316334,
+  "y_mu": 0.012468365640047831,
+  "y_e": 6.0300559011054e-05
+ },
+ "V9c_rates_match_LEPTON_STEPS": {
+  "pass": true,
+  "mu_over_e": 206.77031597272907,
+  "tau_over_e": 3477.4728371046003
+ },
+ "V9d_ratios_206_770316_and_3477_4728": {
+  "pass": true
+ },
+ "V9e_koide_two_thirds_in_the_chamber": {
+  "pass": true,
+  "Q": [
+   0.666666666666667,
+   0.6666666666666672,
+   0.666666666666667,
+   0.6666666666666667,
+   0.666666666666667
+  ]
+ },
+ "V10_coupling_chain_declared_forms": {
+  "pass": true,
+  "inv_alpha_U": 24.316554454021535,
+  "Ecell": 9.559898264928756e+18,
+  "MU": 2.4736120290029548e+16,
+  "v": 246.596733000799,
+  "mZ": 91.5883192273553,
+  "mW": 80.33004774539815,
+  "inv_a2": 29.60523138482772,
+  "alpha_s": 0.11833586178141187,
+  "sin2": 0.2307351798798846,
+  "inv_aem": 128.30826838039835,
+  "lhs": 0.407743025
+ },
+ "V10b_MU_two_spellings_agree": {
+  "pass": true,
+  "MU_stack_form": 1.7852562530709022e+16
+ },
+ "V11_five_trace_equals_SPEC_form": {
+  "pass": true,
+  "max_difference": 7.105427357601002e-15,
+  "class3_cost_in_beta_G": 2.0
+ },
+ "V12_radiation_coefficient_and_tick": {
+  "pass": true,
+  "seconds_at_1MeV": 2.420269680992352,
+  "tick_seconds": 6.885135580518704e-44,
+  "ticks_per_second": 1.4524042240060918e+43
+ },
+ "V13_Lambda3_from_chain_alpha_s": {
+  "pass": true,
+  "Lambda3_GeV": 0.3400755384563245,
+  "reference_HD": 0.34
+ },
+ "V14_record_law_effects_sum_to_identity": {
+  "pass": true,
+  "configurations": 78,
+  "labels": [
+   [
+    0,
+    -1
+   ],
+   [
+    0,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    -1
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    1,
+    1
+   ]
+  ],
+  "max_residual": 2.220446049250313e-16
+ },
+ "V15_two_path_duality_V2_plus_D2_at_most_1": {
+  "pass": true,
+  "max_excess": 1.3322676295501878e-15,
+  "max_deviation_for_pure_records": 1.3322676295501878e-15
+ },
+ "_summary": {
+  "checks": 25,
+  "failed": []
+ }
+}

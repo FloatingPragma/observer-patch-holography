@@ -1,0 +1,387 @@
+"""Task X2: build dictionary.json and DICTIONARY.md from the checked results.
+
+Inputs: algebra.json (x2_algebra.py), runs.json (x2_runs.py), work/DIRAC/defect_phases.json,
+work/SIM/cf1/runs/H_background_from_runs.json, work/R2/item3.json (numbers of worker R2, cited).
+Every number in the two outputs is read from these files; none is typed here.
+
+Run (after the two scripts above):  cd RL/work/X2 && PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python x2_build.py
+"""
+import json, os
+from fractions import Fraction
+HERE = os.path.dirname(os.path.abspath(__file__))
+RL = os.path.dirname(os.path.dirname(HERE))
+A = json.load(open(f'{HERE}/algebra.json'))
+R = json.load(open(f'{HERE}/runs.json'))
+PH = json.load(open(f'{RL}/work/DIRAC/defect_phases.json'))
+H = json.load(open(f'{RL}/work/SIM/cf1/runs/H_background_from_runs.json'))
+R2 = json.load(open(f'{RL}/work/R2/item3.json'))
+
+REST = {({'1/6': 1, '1/3': 2, '1/2': 3}[r['alpha']], r['separation']): r['rest_phase'] for r in PH['rows']}
+PAT = {(r['n3'], r['n2']): r for r in A['A_patterns']}
+SPECIES = {'quark doublets': [(1, 1), (2, 1)], 'quark singlets': [(1, 0), (2, 0), (1, 2), (2, 2)],
+           'lepton doublets': [(0, 1), (3, 1)], 'lepton and neutrino singlets': [(0, 0), (3, 0), (0, 2), (3, 2)]}
+species_of = {p: s for s, ps in SPECIES.items() for p in ps}
+MFP = R['H2']['mean_free_path_cells']
+SM_ROW = {(1, 1): 'Quark doublet, left-handed', (1, 2): 'Up quark, right-handed', (1, 0): 'Down quark, right-handed',
+          (3, 1): 'Lepton doublet, left-handed', (3, 0): 'Electron, right-handed', (3, 2): 'Right-handed neutrino'}
+sep = R['separation_fractions_one_pair_carriers_L10_end']
+lim = H['stationary_pairs_per_carrier']
+PS = R['item2_produced_shares']; prod_s = PS['screen']['summary']; prod_i = PS['internal']['summary']
+dens = R['item2_densities']; ch = R['item3_channels']; mot = R['item4_motion']; co = R['item4_response_to_flow']
+kap = R['item2_first_attempt_by_kappa']['rows']
+s10 = ch['screen_L10']; i6 = ch['internal_L6']
+f = lambda x, n=4: f'{x:.{n}f}'
+pm = lambda v, n=4: f'{v[0]:+.{n}f} +- {v[1]:.{n}f}'
+
+def census_weighted(pair, a):
+    return sum(sep[pair][str(d)] * REST[(a, d)] for d in range(1, 6))
+
+# ---------------------------------------------------------------- patterns (Table 1)
+patterns = []
+for p, r in PAT.items():
+    conj = (3 - p[0], 2 - p[1])
+    row = dict(r)
+    row.update({'sm_row': SM_ROW[p] if p in SM_ROW else 'Antiparticles (conjugate of ' + SM_ROW[conj] + ')',
+                'occupation_parity': (p[0] + p[1]) % 2, 'conjugate_pattern': list(conj), 'species_class': species_of[p],
+                'mean_free_path_cells_H2': MFP[species_of[p]], 'reading': 'A',
+                'confidence': 'medium' if p in ((3, 2), (0, 0)) else 'high',
+                'cargo_rest_phase_by_class_and_separation': {
+                    str(k): ({str(d): REST[(r['alpha_sixths_folded'][str(k)], d)] for d in range(1, 6)}
+                             if r['alpha_sixths_folded'][str(k)] else 0.0) for k in range(1, 6)}})
+    patterns.append(row)
+
+# ---------------------------------------------------------------- flux classes (Table 2)
+NAME = {1: 'generating flux', 5: 'generating flux (conjugate of 1)', 2: 'colour-centre flux', 4: 'colour-centre flux (conjugate of 2)', 3: 'weak-centre flux'}
+l10 = dens['internal_L10_300_sweeps']['faces_per_carrier']; limf = dens['internal_limit_faces_per_carrier']
+flux = []
+for k in range(1, 6):
+    cargo = A['F_cargo']['by_cargo_class'][str(k)]
+    flux.append({
+        'class': k, 'conjugate': (6 - k) % 6, 'name': NAME[k], 'level_phases_in_turns': A['A_centre']['level_phases_in_turns'][str(k)],
+        'seen_by': [r['name'] for r in A['A_patterns'] if k in r['sees']], 'blind': [r['name'] for r in A['A_patterns'] if k not in r['sees']],
+        'standard_model_particle': None,
+        'reading_A': 'flux of the centre of the gauge group through a face; a quantum of charge Q6 sees it as the phase exp(2 pi i k Q6/6)',
+        'reading_B_rejected': {1: 'quark doublet', 5: 'antiquark doublet', 2: 'antiquark singlets', 4: 'quark singlets', 3: 'lepton doublet'}[k],
+        'reading_C_role': ('cargo that acts alike on both handedness classes: one rest phase for the quark doublet and the up and down singlets; no lepton sees it'
+                           if cargo['one_angle_for_both_handedness_classes'] else 'cargo that splits the two handedness classes of every species it touches'),
+        'acts_alike_on_both_handedness_classes': cargo['one_angle_for_both_handedness_classes'],
+        'steps_across_a_seam_when_the_current_mod_6_is': co['rule'][str(k)],
+        'runs': {'produced_share_percent_screen': [prod_s[str(k)]['mean_percent'], prod_s[str(k)]['se_between_levels']],
+                 'produced_share_percent_internal': [prod_i[str(k)]['mean_percent'], prod_i[str(k)]['se_between_levels']],
+                 'faces_per_carrier_L10_300_sweeps': l10[str(k)],
+                 'faces_per_carrier_limit': ([limf[str(k)]['value'], limf[str(k)]['se']] if str(k) in limf else [0.0, None]),
+                 'hops_per_identity_screen_L10': mot['screen_L10'][str(k)]['hops_mean'],
+                 'hops_per_identity_internal_L6': mot['internal_L6'][str(k)]['hops_mean'],
+                 'state_in_the_balanced_band': 'frozen (EXACT, CH)' if k in (2, 3, 4) else 'hops at zero cost, diffuses, annihilates; decays as exp(-0.00920(4) sweeps)'},
+        'confidence_that_it_is_no_matter_multiplet': 'high', 'confidence_reading_A': 'medium'})
+
+charge_classes = [{'charge_class': int(q), 'patterns': v['patterns'], 'states': v['states'], 'multiplet_dimensions': v['multiplet_dimensions'],
+                   'names': [PAT[tuple(p)]['name'] for p in v['patterns']],
+                   'note': 'the table of reading B, attached to quanta (label of the Gauss check of a cell) and not to faces'}
+                  for q, v in A['A_states_per_charge_class'].items()]
+
+# ---------------------------------------------------------------- reading C: cargo (Table 3)
+cargo_rows = []
+for k in (2, 3, 1):
+    pair = f'({k},{6 - k})'
+    for sp, ps in SPECIES.items():
+        a = PAT[ps[0]]['alpha_sixths_folded'][str(k)]
+        assert all(PAT[p]['alpha_sixths_folded'][str(k)] == a == PAT[p]['alpha_sixths_folded'][str(6 - k)] for p in ps)
+        cargo_rows.append({'cargo_pair': pair, 'species_class': sp, 'alpha_sixths': a,
+                           'rest_phase_by_separation': ({str(d): REST[(a, d)] for d in range(1, 6)} if a else 0.0),
+                           'rest_phase_census_weighted': (census_weighted(pair, a) if a else 0.0),
+                           'acts_alike_on_both_handedness_classes': A['F_cargo']['by_cargo_class'][str(k)]['one_angle_for_both_handedness_classes']})
+row_of = lambda pair, sp: next(r for r in cargo_rows if r['cargo_pair'] == pair and r['species_class'] == sp)
+q24 = row_of('(2,4)', 'quark doublets')['rest_phase_by_separation']
+assert q24 == row_of('(2,4)', 'quark singlets')['rest_phase_by_separation']
+l33 = row_of('(3,3)', 'lepton doublets')['rest_phase_by_separation']
+stat_share_24 = lim['(2,4)']['value'] / (lim['(2,4)']['value'] + lim['(3,3)']['value'])
+r2c = R2['c_composite']['rest_phase_by_separation_class']
+assert all(abs(x['velocity_measured'] - x['velocity_predicted (dE/dp averaged over the packet)']) < 2e-8 for x in r2c)
+
+# ---------------------------------------------------------------- scores
+d3 = dens['class3_over_class2and4']
+dr = co['drift_L8_balanced_edges_per_64_depth']; hp = co['recorded_hops_L8_sweeps_298_299']['carrier']
+scores = [
+ {'item': '1 Algebra', 'A': 1, 'B': -1, 'C': 0,
+  'fact': 'The flux of a carrier is a constant of the tick and the position of a quantum is not, so no symmetry of the tick exchanges the two labels. '
+          'Four further exact mismatches (below). The label groups are dual in two ways, as for any Z6 register. C needs one declared gate and option M1.'},
+ {'item': '2 Counting', 'A': 0, 'B': -1, 'C': 0,
+  'fact': f"Equal population per state fails by at least {int(PS['screen']['min_abs_z'])} standard errors in every class (produced shares) and by "
+          f"{int(d3['z_against_equal_per_state'])} (stationary densities); 4 of the 32 states have no defect. The densities are remnants of the quench, so a count confirms no reading."},
+ {'item': '3 Fusion and conjugation', 'A': 1, 'B': -1, 'C': 1,
+  'fact': f"Addition modulo 6 is the rule of the register and holds for any labels. {f(s10['share_of_events_percent'], 1)} percent of the events join two defects into one or split one into two, "
+          'which three fermions cannot do. Class 3 is its own conjugate; the lepton doublet is not.'},
+ {'item': '4 Stability and motion', 'A': 1, 'B': -1, 'C': 0,
+  'fact': 'Three classes cannot move; two diffuse with no ballistic stretch and die out. A defect answers a load flow sideways, with the sign of its class; no drift along the gradient or toward its conjugate is resolved. '
+          f"In A the quanta travel on the cone with mean free paths {f(MFP['quark doublets'], 1)}, {f(MFP['quark singlets'], 1)}, {f(MFP['lepton doublets'], 0)} carriers and none. In C the composite travels by one declared gate."},
+ {'item': 'Carrier contents', 'A': 0, 'B': 0, 'C': 0,
+  'fact': 'The classes of a carrier sum to zero modulo 6 in every history: an identity of the register. Flux conservation (A) and neutral composites (B) restate it. It does not discriminate.'}]
+totals = {x: sum(s[x] for s in scores) for x in 'ABC'}
+
+# ---------------------------------------------------------------- map rows (the decisive table)
+rows = [
+ {'sm': 'Quark doublet, left-handed', 'use': 'A; C optional', 'object': 'quantum with pattern (1,1), 6 states, Q6 = 1',
+  'shared_label': 'charge class 1; sees every class (1/6, 1/3, 1/2, 1/3, 1/6)', 'confidence': 'high', 'confidence_option_C': 'low',
+  'reason': f"Charges exact at representation level. Mean free path {f(MFP['quark doublets'], 1)} carriers in a link flux at the census densities (H2)."},
+ {'sm': 'Up quark, right-handed', 'use': 'A; C optional', 'object': 'quantum with pattern (1,2), 3 states, Q6 = 4',
+  'shared_label': 'charge class 4; sees 1, 2, 4, 5 at 1/3; blind to 3', 'confidence': 'high', 'confidence_option_C': 'low',
+  'reason': f"Charges exact. Mean free path {f(MFP['quark singlets'], 1)}. Same phases as the down singlet at every class."},
+ {'sm': 'Down quark, right-handed', 'use': 'A; C optional', 'object': 'quantum with pattern (1,0), 3 states, Q6 = -2',
+  'shared_label': 'charge class 4; sees 1, 2, 4, 5 at 1/3; blind to 3', 'confidence': 'high', 'confidence_option_C': 'low',
+  'reason': 'Charges exact. No flux reading separates it from the up singlet (issue 3).'},
+ {'sm': 'Lepton doublet, left-handed', 'use': 'A', 'object': 'quantum with pattern (3,1), 2 states, Q6 = -3',
+  'shared_label': 'charge class 3; sees 1, 3, 5 at 1/2; blind to 2 and 4', 'confidence': 'high',
+  'reason': f"Charges exact. Mean free path {f(MFP['lepton doublets'], 0)}. Every class it sees is odd, and an odd class as cargo splits it from its right-handed partners."},
+ {'sm': 'Electron, right-handed', 'use': 'A', 'object': 'quantum with pattern (3,0), 1 state, Q6 = -6',
+  'shared_label': 'charge class 0; blind to every class', 'confidence': 'high',
+  'reason': 'Charged and paired trivially with all classes: no defect names it, scatters it or gives it a rest phase (EXACT).'},
+ {'sm': 'Right-handed neutrino', 'use': 'A', 'object': 'quantum with pattern (3,2), 1 state, Q6 = 0',
+  'shared_label': 'charge class 0; blind to every class', 'confidence': 'medium',
+  'reason': 'Exact neutral singlet of the chart; the Standard Model does not contain it.'},
+ {'sm': 'Antiparticles', 'use': 'A', 'object': 'the complementary patterns (3 - n3, 2 - n2)',
+  'shared_label': 'charge class -q; the same folded phase at every class', 'confidence': 'high',
+  'reason': 'Exact: equal mean free path and equal cargo rest phase for a pattern and its conjugate.'},
+ {'sm': 'Gluons (8), W (3), B (1)', 'use': 'A', 'object': 'the twelve port responses',
+  'shared_label': 'charge class 0; they annihilate a flux pair (R2, audit)', 'confidence': 'medium',
+  'reason': 'Algebra exact; they are operators. They carry no class and no class carries them.'},
+ {'sm': 'Photon and Z', 'use': 'A', 'object': 'combinations of the neutral weak response and the central charge',
+  'shared_label': 'charge class 0', 'confidence': 'low', 'reason': 'Needs the state of the Higgs row. The flux register does not distinguish them.'},
+ {'sm': 'Higgs', 'use': 'A', 'object': 'the two spinor levels as a multiplet; the toggle of the neutral member',
+  'shared_label': 'charge class 3 (Q6 = +-3); the toggle shifts the charge class of a pattern by 3', 'confidence': 'low',
+  'reason': 'Representation level. It shares charge class 3 with the lepton doublet, which is why class 3 of reading B could name either.'},
+ {'sm': '(none)', 'use': 'A', 'object': 'defect class 3: flux of the weak centre, its own conjugate',
+  'shared_label': 'seen by the patterns with one spinor level filled (charge classes 1, 3, 5) at phase 1/2',
+  'confidence': 'high that it is no lepton doublet; medium that it is a vortex of the weak field',
+  'reason': f"One state against four, own conjugate, frozen at {f(limf['3']['value'])} faces per carrier. As cargo it gives doublets {f(l33['1'])} to {f(l33['5'])} and singlets nothing: not a Dirac mass."},
+ {'sm': '(none)', 'use': 'A; C for the quark rows', 'object': 'defect classes 2 and 4: flux of the colour centre, conjugate pair',
+  'shared_label': 'seen by the patterns with one or two vector levels filled (charge classes 1, 2, 4, 5) at phase 1/3',
+  'confidence': 'high that they are no quark singlets; medium as the medium of quark patterns; low as cargo',
+  'reason': f"Frozen at {f(limf['2']['value'])} faces per carrier each, {f(100 * stat_share_24, 1)} percent of the stationary pairs. The only classes that act alike on both handedness classes: "
+            f"as cargo one rest phase {f(q24['2'])} to {f(q24['5'])} (separations 2 to 5) for all quark patterns, none for leptons."},
+ {'sm': '(none)', 'use': 'A', 'object': 'defect classes 1 and 5: the generating flux, conjugate pair',
+  'shared_label': 'seen by charge classes 1 to 5 at phases 1/6, 1/3, 1/2, 1/3, 1/6',
+  'confidence': 'high that they are no quark doublet; medium that they are a transient of the quench',
+  'reason': 'Mobile at zero cost, diffusive, annihilating; the population decays as exp(-0.00920(4) sweeps) with no floor (CH). As cargo it gives three different phases to doublet, singlets and leptons.'},
+ {'sm': 'Second and third generation', 'use': 'none of A, B, C', 'object': 'none', 'shared_label': '', 'confidence': 'high that these readings supply none',
+  'reason': f"Every flux reading depends on a pattern through Q6 modulo 6 alone. C gives five separation classes per pair class ({f(q24['1'])} to {f(q24['5'])} for quarks), not three copies."}]
+
+# ---------------------------------------------------------------- neutral composites (Table 4)
+B_READ = {'{2,4}': 'quark singlet with antiquark singlet: meson-like pair', '{1,5}': 'quark doublet with its conjugate: meson-like pair',
+          '{3,3}': 'two objects of charge class 3 (lepton doublet or Higgs type)', '{2,2,4,4}': 'two pairs',
+          '{2,2,2}': 'three antiquark-type singlets: baryon-like triple', '{4,4,4}': 'three quark-type singlets: baryon-like triple',
+          '{2,3,3,4}': 'a singlet pair and a pair of class 3', '{3,4,5}': 'charge content of a Yukawa vertex (conjugate)',
+          '{1,2,3}': 'charge content of a Yukawa vertex'}
+comps = [{'content': k, 'carriers': v['carriers'], 'share_of_defect_carriers_percent': v['share_of_defect_carriers_percent'],
+          'reading_A': v['reading_A'], 'reading_B': B_READ.get(k, ''), 'total_Q6_possible_in_B': v['reading_B_total_Q6_of_possible_members']}
+         for k, v in R['composites']['rows'].items()]
+cs = R['composites']
+
+guesses = [
+ {'object': 'defect classes 2 and 4 in reading A', 'guess': 'the nearest Standard Model notion is a centre vortex of the colour field: a flux that only objects with colour see', 'confidence': 'low',
+  'input': 'IMPORTED notion (lattice gauge theory, from memory); the background of the runs is a remnant of the quench and no area law was tested'},
+ {'object': 'quark quantum with a (2,4) pair as cargo (reading C)', 'guess': 'the nearest Standard Model notion is a rest phase from the colour field that is equal for up and down and for both handedness classes (a constituent mass), not a Yukawa mass', 'confidence': 'low',
+  'input': 'IMPORTED notion; M1 and the carrying gate are DECLARED; the phases are lattice-scale numbers'},
+ {'object': 'charge class of a quantum', 'guess': 'the matter rows of a literal defect table are the Gauss labels of the working law; a run of the coherent law that records them gives the second half of the catalogue', 'confidence': 'medium',
+  'input': 'Z2 part executed by R2; Z6 links DECLARED'}]
+
+out = {
+ 'schema': 'x2.dictionary.v1', 'built': '2026-11-10', 'worker': 'X2 (issue 2 of repair-law/MAP.md)',
+ 'status': 'Best guess with checked numbers. No particle is identified and no mass is derived.',
+ 'reading_to_use': 'A',
+ 'readings': {
+  'A': 'particles are quanta with a pattern of the five levels; a catalogued defect of class k is a flux of the centre, which a quantum of charge Q6 sees as the phase exp(2 pi i k Q6/6)',
+  'B': 'a defect of class k is the multiplet of charge k modulo 6. Excluded for the catalogued defects; exact as the table of charge classes of quanta (key charge_classes)',
+  'C': 'a quantum that carries a flux pair: the pattern gives the charges, the pair a conserved label and a rest phase (option M1, one declared gate; worker R2). Admissible for quark patterns with a colour-centre pair only'},
+ 'declared_inputs': ['register rule of the runs (Z6 link per seam, cost 0,5,8,10,8,5, kappa 5)', 'a register class read as a centre flux',
+                     'option M1 of CF-1 for rest phases', 'the carrying gate of reading C (R2)', 'antisymmetric occupations (CF-1 section 8a)',
+                     'Z6 links in the working law (CF-1 section 8 lists them as open; the Z2 part, class 3, is defined)'],
+ 'conventions': {'Q6': '3 n2 - 2 n3', 'charge_class': 'Q6 mod 6', 'phase': 'flux class k on charge class q: exp(2 pi i k q/6); alpha is the phase in sixths folded to 0..3',
+                 'names': 'work/SIM/cf1/cf1_lib.NAMES (checked equal)'},
+ 'pairing_phase_sixths_flux_class_by_charge_class': A['A_label_level']['pairing_sixths'],
+ 'scores': {'scale': '+1 holds, 0 no test or holds by declaration, -1 fails', 'rows': scores, 'totals': totals},
+ 'map_rows': rows, 'patterns': patterns, 'flux_classes': flux, 'charge_classes': charge_classes,
+ 'reading_C_cargo': {'rows': cargo_rows, 'classes_that_act_alike_on_both_handedness_classes': A['F_cargo']['classes_that_act_alike_on_both_handedness_classes'],
+                     'patterns_blind_to_every_class': A['F_cargo']['patterns_blind_to_every_class'],
+                     'stationary_pairs_per_carrier': lim, 'share_of_stationary_pairs_in_classes_2_4': stat_share_24,
+                     'separation_fractions_one_pair_carriers_L10_end': sep,
+                     'label_in_the_runs': 'a face of class 2, 3 or 4 keeps its class and place in the balanced band unless a mobile 1 or 5 reaches it (CH, CO: EXACT); the label (class, separation) is constant once classes 1 and 5 are gone',
+                     'travel': {'source': 'work/R2/item3.json (worker R2), line of 256 cells, phase 1/2', 'rows': r2c}},
+ 'neutral_composites': {'rows': comps, 'summary': {k: v for k, v in cs.items() if k != 'rows'}},
+ 'best_guesses': guesses,
+ 'tests': {'algebra': {k: A[k] for k in ('B_mutual_phases', 'C_obstructions', 'D_flux_attachment', 'E_engine', 'F_cargo', 'verdict_item_1')},
+           'produced_shares': PS, 'densities': dens, 'first_attempt_by_kappa': R['item2_first_attempt_by_kappa'],
+           'channels': {k: {x: y for x, y in v.items() if x != 'top_channels'} for k, v in ch.items()}, 'channels_reading': R['item3_reading'],
+           'motion': mot, 'response_to_flow': co, 'H2': R['H2']},
+ 'sources': {'chart': 'repair-law/work/FAMILY, oph-physics-sim/oph_defects/particle_map.json', 'runs': 'oph-physics-sim/runs/universe/L3..L10; repair-law/reports/CH.md, CO.md',
+             'working_law': 'repair-law/candidates/CF1.md sections 8 to 12; repair-law/reports/R2.md', 'scripts': 'repair-law/work/X2/x2_algebra.py, x2_runs.py, x2_build.py'}}
+json.dump(out, open(f'{HERE}/dictionary.json', 'w'), indent=1)
+
+# ================================================================ DICTIONARY.md
+L = []
+w = L.append
+sg = lambda v: f'{v:+d}' if v else '0'
+w('# Fluxes against charges: the dictionary (worker X2, 2026-11-10)')
+w('')
+w('Status: best guess with checked numbers. No particle is identified and no mass is derived. Machine-readable copy with all')
+w('tables and tests: [dictionary.json](dictionary.json). Declared inputs: the register rule of the runs (Z6 link, cost')
+w('0,5,8,10,8,5, kappa 5), the reading of a class as a centre flux, option M1, the carrying gate of reading C, antisymmetric')
+w('occupations, Z6 links in the working law (its Z2 part, class 3, is defined).')
+w('')
+w('## Which reading the map should use')
+w('')
+w('Reading A, with one added column and one option.')
+w('')
+w('1. A catalogued defect of class k is a flux of the centre. It is what a charged quantum sees; it is not a matter multiplet.')
+w('2. Matter sits on patterns of quanta. The label a quantum shares with the defect register is its charge class q = Q6 mod 6,')
+w('   the label of the Gauss check of its cell (CF-1 as defined carries q modulo 2, executed by R2; q modulo 6 needs Z6 links).')
+w('   The table of reading B is exact as this column (1 quark doublet, 5 its conjugate, 4 the quark singlets, 2 their')
+w('   conjugates, 3 the lepton and Higgs doublets, 0 the four singlets and the gauge fields) and is excluded as a name for the')
+w('   catalogued defects.')
+w('3. Reading C (a quantum that carries a flux pair) is an option for the quark rows only, with a colour-centre pair. Classes 2')
+w('   and 4 are the only classes that act alike on both handedness classes of every species; any odd class splits them, and')
+w('   the right-handed electron is blind to all classes.')
+w('4. A literal table of protected objects has two lists: face labels (fluxes; the catalogue of the runs) and Gauss labels')
+w('   (charges; carried by quanta, recorded by no run so far). The committed register stores link values only.')
+w('')
+w('## Scores (+1 holds, 0 no test or holds by declaration, -1 fails)')
+w('')
+w('| Item | A | B | C | Deciding fact |')
+w('| --- | --- | --- | --- | --- |')
+for s in scores: w(f"| {s['item']} | {sg(s['A'])} | {sg(s['B'])} | {sg(s['C'])} | {s['fact']} |")
+w(f"| Sum | {sg(totals['A'])} | {sg(totals['B'])} | {sg(totals['C'])} | |")
+w('')
+w('## The map, row by row')
+w('')
+w('| Standard Model object | Use | Object in the working law | Label shared with the defect register | Confidence | Reason |')
+w('| --- | --- | --- | --- | --- | --- |')
+for r in rows:
+    conf = r['confidence'] + (f"; option C {r['confidence_option_C']}" if 'confidence_option_C' in r else '')
+    w(f"| {r['sm']} | {r['use']} | {r['object']} | {r['shared_label']} | {conf} | {r['reason']} |")
+w('')
+w('Reading B is used in no row as the name of a defect; its table is the charge class in the fourth column.')
+w('')
+w('Best guesses beyond the table (labelled, with confidence):')
+for g in guesses: w(f"- {g['object']}: {g['guess']}. Confidence {g['confidence']}. {g['input']}.")
+w('')
+w('## Table 1: which pattern sees which class (phase in sixths of a turn, folded)')
+w('')
+w('| Pattern | Name | States | Q6 | Charge class | k=1 | k=2 | k=3 | k=4 | k=5 | Mean free path, run H2 (carriers) |')
+w('| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |')
+for p in patterns:
+    a = p['alpha_sixths_folded']; m = p['mean_free_path_cells_H2']
+    w(f"| ({p['n3']},{p['n2']}) | {p['name']} | {p['states']} | {p['Q6']} | {p['charge_class']} | {a['1']} | {a['2']} | {a['3']} | {a['4']} | {a['5']} | {f(m, 1) if m else 'no limit'} |")
+w('')
+w('## Table 2: the flux classes')
+w('')
+w('| Class | Conjugate | Flux of | Produced share, screen (%) | Faces per carrier, 300 sweeps / limit | Hops per identity, screen | In the balanced band | As cargo (C) |')
+w('| --- | --- | --- | --- | --- | --- | --- | --- |')
+for x in flux:
+    r = x['runs']; lm = r['faces_per_carrier_limit']
+    w(f"| {x['class']} | {x['conjugate']} | {x['name']} | {f(r['produced_share_percent_screen'][0], 2)} +- {f(r['produced_share_percent_screen'][1], 2)} | "
+      f"{f(r['faces_per_carrier_L10_300_sweeps'], 5)} / {f(lm[0], 5) + ' +- ' + f(lm[1], 5) if lm[1] else '0'} | {f(r['hops_per_identity_screen_L10'], 4)} | "
+      f"{r['state_in_the_balanced_band']} | {'acts alike on both handedness classes' if x['acts_alike_on_both_handedness_classes'] else 'splits the handedness classes'} |")
+w('')
+w('## Table 3: option C, rest phase of a quantum that carries a pair (radians per tick, option M1; not masses)')
+w('')
+w('| Cargo pair | Species class | Phase (sixths) | d=1 | d=2 | d=3 | d=4 | d=5 | Weighted by the separations of the census |')
+w('| --- | --- | --- | --- | --- | --- | --- | --- | --- |')
+for r in cargo_rows:
+    if not r['alpha_sixths']: continue
+    rp = r['rest_phase_by_separation']
+    w(f"| {r['cargo_pair']} | {r['species_class']} | {r['alpha_sixths']} | " + ' | '.join(f(rp[str(d)]) for d in range(1, 6)) + f" | {f(r['rest_phase_census_weighted'])} |")
+w('')
+w('Every combination not listed has rest phase 0: leptons with a (2,4) pair, quark singlets with a (3,3) pair, the four singlets')
+w(f"with any pair. Pairs (2,4) and (3,3) never sit at d = 1 in the runs (CH). Stationary pairs per carrier: (2,4) {f(lim['(2,4)']['value'])}, (3,3) {f(lim['(3,3)']['value'])},")
+w(f"(1,5) 0, so {f(100 * stat_share_24, 1)} percent of the stationary pairs are of the kind that acts alike on both handedness classes. A frozen face keeps")
+w('its class and place unless a mobile 1 or 5 reaches it (CH, CO). Travel of the composite (R2, one declared gate, phase 1/2):')
+w(f"velocity {r2c[0]['velocity_measured']:.7f} at d = 1 and {r2c[1]['velocity_measured']:.7f} at d = 5, equal to the prediction to 1e-8.")
+w('')
+w('## Table 4: what a carrier holds (end of level 10; share of the carriers with defects)')
+w('')
+w('| Content | Carriers | Share (%) | Reading A | Reading B |')
+w('| --- | --- | --- | --- | --- |')
+for c in comps[:9]:
+    w(f"| {c['content']} | {c['carriers']:,} | {f(c['share_of_defect_carriers_percent'], 2)} | {c['reading_A']} | {c['reading_B']} |")
+w('')
+w(f"{cs['distinct_configurations_with_defects']} contents occur; {cs['carriers_violating_the_sum_rule']} carriers violate the sum rule; {f(100 * cs['share_exactly_one_conjugate_pair_among_defect_carriers'], 1)} percent of the carriers with defects hold one")
+w(f"conjugate pair; {{2,2,2}} against {{4,4,4}}: {cs['triples_222_against_444_z']:.2f} standard deviations. The sum rule is an identity of the register (every twist")
+w('adds +delta to one face and -delta to another face of the same carrier), so this table is the list of neutral contents in')
+w('both readings and does not discriminate between them. In reading B the register cannot tell a neutral content from one of')
+w('total charge Q6 = +-6 or +-12 (JSON key `total_Q6_possible_in_B`).')
+w('')
+w('## Numbers behind the scores')
+w('')
+E = A['E_engine']; c4 = A['C_obstructions']['C4_carrier_incidence']['ranks']
+w('Item 1 (algebra).')
+w('- EXACT. The U(1) of the charge diag(-2,-2,-2,3,3)/6 meets SU(3) x SU(2) in six elements; class k acts on each of the 32')
+w('  occupation states as exp(2 pi i k Q6/6). The pairing of flux class with charge class is symmetric and perfect; the two label')
+w('  maps that respect it are k = q and k = -q. This holds for every Z6 register.')
+w('- EXACT. One Z6 link (clock and shift): charge against flux exp(2 pi i k q/6); flux against flux 1; charge against charge 1.')
+w('  Exchange sign -1 for every pattern (declared occupations), +1 for every flux.')
+w(f"- MEASURED. Reference engine, line of L = 6 cells with a holonomy of class k: the lowest eigenphase of the tick for pattern a is 2 pi/L")
+w(f"  times the folded phase k Q6(a)/6 in all {E['cases']} cases (defect {E['max_defect_lowest_phase_against_k_Q6_over_6']:.1e}); the spectrum is the same in another gauge ({E['max_defect_gauge_invariance_of_spectrum']:.1e}). The")
+w('  engine reads the link word and has no operation that changes it (`work/DIRAC/interaction_check.json`: routing_leaves_the_link_word = 0.0).')
+w('- EXACT (definition of the tick; R2, CF-1 section 12). No operator of the tick moves the flux of a carrier, and the routing moves')
+w('  the quantum (packet velocity 1.000000, CF-1 section 4). A symmetry of the tick that exchanged the two labels would make the')
+w('  position of a quantum a constant of motion.')
+w('- EXACT, four further mismatches: internal states per charge class 4, 6, 6, 4, 6, 6 (irreducible dimensions 6, 3, 2, 1) against')
+w('  one state per flux class; the right-handed electron and the positron (Q6 = -6, +6) are charged and paired trivially (charges')
+w(f"  add in Z, fluxes in Z6); on a carrier {c4['vertex_mod2']} independent port labels against {c4['face_mod2']} independent face labels (ranks modulo 2 and")
+w('  modulo 3); the exchange sign. ARGUED: these are integers and a sign, so no approximate form of reading B exists in the law.')
+w('- ARGUED on an EXACT identity. In three dimensions the partner of a point charge under an exchange of electric and magnetic')
+w('  labels would be a point source of flux: a carrier whose classes do not sum to zero. The sum rule excludes it in every history.')
+w('  A catalogued defect is a place where a flux line crosses the surface of a carrier.')
+w('- EXACT. On a surface a single flux k bound to a charge q changes the exchange phase by exp(2 pi i k q/6): -1 only for (q,k) =')
+w('  (1,3), (3,1), (3,3), (3,5), (5,3). Charge classes 0, 2, 4 never get a sign this way. A pair (k,-k) adds no phase.')
+w('- EXACT. A class k acts alike on the two handedness classes of every species exactly for k = 2, 4 (an even class depends on n3')
+w('  alone; the mass operator changes n2 alone).')
+w('')
+w('Item 2 (counting).')
+w(f"- MEASURED. Produced shares, screen tier, classes 1 to 5: " + ', '.join(f"{f(prod_s[str(k)]['mean_percent'], 2)}({int(round(100 * prod_s[str(k)]['se_between_levels']))})" for k in range(1, 6)) + ' percent (mean and')
+w(f"  standard error over levels 6 to 10). State counts: 21.43, 21.43, 14.29, 21.43, 21.43. Deviation {f(PS['screen']['rms_deviation_points']['from_state_counts_6_6_4_6_6'], 1)} points rms ({f(PS['screen']['rms_deviation_points']['from_equal_shares'], 1)} from equal")
+w(f"  shares); at least {int(PS['screen']['min_abs_z'])} standard errors in every class; level 3 alone (613 identities): p = {PS['screen']['per_level']['3']['p_naive_multinomial']:.3f}. Internal tier")
+w(f"  (levels 4 to 6): " + ', '.join(f(prod_i[str(k)]['mean_percent'], 2) for k in range(1, 6)) + f"; class 3 at {f(prod_i['3']['ratio_to_expected'], 2)} of its count. Identities born as conjugate pairs,")
+w(f"  class 3: {f(prod_s['3']['pair_born_mean_percent'], 2)} percent against 14.29.")
+d1 = dens['internal_L10_300_sweeps']['class1and5_over_class2and4']
+w(f"- MEASURED. Stationary faces per carrier, class 3 over classes 2 and 4: {f(d3['value'])} +- {f(d3['se'])}; equal population per state gives 0.6667")
+w(f"  ({int(d3['z_against_equal_per_state'])} standard errors). Classes 1 and 5 over 2 and 4: {f(d1['value'])} at 300 sweeps, 0 in the limit; equal population gives 1.")
+sc = dens['screen_end']; sce = dens['screen_end_combined']
+w(f"- MEASURED. Screen tier at the end of level 10: classes 2, 3, 4 hold {sc['10']['counts_1_to_5'][1]:,}, {sc['10']['counts_1_to_5'][2]:,}, {sc['10']['counts_1_to_5'][3]:,} plaquettes (equal, p = {sc['10']['p_equal_per_class']:.2f};")
+w(f"  levels 6 to 10 within {f(100 * sce['largest_deviation_of_class3_from_mean_of_2_and_4'], 1)} percent, combined p = {sce['p']:.3f}); the ratio 6 : 4 : 6 has chi-square {sc['10']['chi2_states_6_4_6_2dof']:,.0f}. The internal tier has")
+w(f"  1 : {f(d3['value'], 2)} : 1. No count of states describes both tiers.")
+rat = lambda key: ' : '.join(str(int(36 * Fraction(kap[key]['pair_birth_probability'][pp]))) for pp in ('(1,5)', '(2,4)', '(3,3)'))
+w(f"- EXACT. First attempt on a blank register (72 cases), pair births (1,5) : (2,4) : (3,3) = {rat('5')} at kappa 5, {rat('4')} at kappa 4,")
+w(f"  {rat('10')} at kappa 10. The (1,5) birth is allowed at kappa 5 by equality (cost 10 against 5 x 2). The shares depend on the declared")
+w('  kappa and cost table.')
+w('')
+w('Item 3 (fusion and conjugation).')
+w(f"- EXACT counts. Screen, level 10: {s10['events_without_moves']:,} events other than moves, {s10['events_violating_the_sum_mod_6']} violate the sum modulo 6, all {s10['channels_allowed_by_the_sum_rule']} channels a twist")
+w(f"  allows occur. Conjugate channels have equal counts (chi-square {s10['conjugation_symmetry']['chi2']:.1f} for {s10['conjugation_symmetry']['channel_pairs']} channel pairs).")
+w(f"- EXACT counts. Events with three bodies (a + b -> c, c -> a + b): {s10['three_body_events_2to1_and_1to2']:,} = {f(s10['share_of_events_percent'], 1)} percent (screen, level 10); {f(i6['share_of_events_percent'], 1)} percent")
+w(f"  (internal tier, level 6). Without a class 3 among the three: {f(s10['share_without_class_3_percent'], 1)} and {f(i6['share_without_class_3_percent'], 1)} percent.")
+w('- EXACT. Runs only: the three-body events. Standard Model only: every process of the four singlets of charge class 0 and of the')
+w('  gauge fields (no defect), and the mass operator, which shifts the charge class of one object by 3 (1 with 4, 5 with 2, 3 with 0).')
+w('')
+w('Item 4 (stability and motion).')
+ms = mot['screen_L10']
+w(f"- MEASURED. Hops per identity, screen tier, level 10: {f(ms['1']['hops_mean'], 2)} and {f(ms['5']['hops_mean'], 2)} (classes 1, 5), {f(ms['2']['hops_mean'], 3)} and {f(ms['4']['hops_mean'], 3)} (2, 4), {f(ms['3']['hops_mean'], 4)} (3).")
+w('  CH, CO: classes 2, 3, 4 cannot move in the balanced band (EXACT); classes 1, 5 diffuse with no ballistic stretch (largest')
+w('  local exponent 0.97(1)) and decay at 0.00920(4) per sweep.')
+w('- EXACT (rule of the register). A lone defect of class k steps across a seam only when the current on that seam is +k or -k')
+w('  modulo 6, to one side for +k and to the other for -k: sideways to the flow, the side fixed by the sign of the class. A label')
+w('  on ports would be carried along the seam.')
+w(f"  CO, level 8: {hp['1']['hops']:,} of {hp['1']['hops']:,} hops of class 1 to one side and {hp['5']['hops']:,} of {hp['5']['hops']:,} hops of class 5 to the other.")
+w(f"- MEASURED (CO, level 8, balanced, edges per 64 depth). Drift to the left of the load gradient: class 1 {pm(dr['1']['left_of_load_gradient'])}, class 5 {pm(dr['5']['left_of_load_gradient'])}.")
+w(f"  Along the gradient: {pm(dr['1']['along_load_gradient'])} and {pm(dr['5']['along_load_gradient'])}. Toward the nearest conjugate: {pm(dr['1']['toward_nearest_conjugate'])} and {pm(dr['5']['toward_nearest_conjugate'])}.")
+h2 = R['H2']
+w(f"- MEASURED (run H2). Mean free path {f(MFP['quark doublets'], 2)}, {f(MFP['quark singlets'], 2)}, {f(MFP['lepton doublets'], 1)} carriers, none for singlets. The rates of quark singlets and")
+w(f"  lepton doublets add to that of quark doublets within {f(100 * abs(h2['additivity']['relative_difference']), 1)} percent. The order follows from the phases of Table 1.")
+w('')
+w('## Files')
+w('')
+w('`x2_algebra.py` -> `algebra.json`; `x2_runs.py` -> `runs.json`; `x2_build.py` -> `dictionary.json`, `DICTIONARY.md`. Commands in the')
+w('docstring of each script; each runs in under 4 CPU seconds.')
+open(f'{HERE}/DICTIONARY.md', 'w').write('\n'.join(L) + '\n')
+print('\n'.join(L))
+print('TOTALS', totals, 'WORDS', sum(len(x.split()) for x in L))

@@ -1,0 +1,169 @@
+"""Task GEN, property P3 (and the reaction rates): identity catalogues of the universe runs.
+
+    python gen_ident.py --cat <catalogue.npz> --level L --sweeps <end sweep> --out out/ident_L<L> [--vertex-blocks <npy>]
+                        [--vertex-ancestor <npy>]
+
+Per tier (carrier = 0, screen = 1) and class: histograms of the birth sweep, the number of moves (hops) and the
+lifetime in causal depth (alive identities censored at the last depth of the run), for all identities and for the
+identities alive at the end, with the pre-registered bins (GEN.md section 1.3). Per-block histograms for the dispersion
+factor: carrier tier, blocks = cells of level 4 (carrier = face // 20); screen tier, the block of a carrier around the
+plaquette vertex (file from gen_static.py, levels up to 9). Reactions per identity (catalogue conventions of
+oph_defects/tracking.py, as in observer/events.py): fusion 1 + 3 -> 4 (reactant or product) and annihilation 3 + 3.
+For the carrier tier a compact per-identity table is written for group rates (template face of birth and last face).
+"""
+import argparse
+import json
+import time
+
+import numpy as np
+
+SWEEP_EDGES = list(range(0, 20)) + [20, 25, 32, 40, 50, 63, 80, 100, 126, 159, 200, 252, 317, 400, 504, 635, 800, 1008]
+
+
+def hop_edges(maxv):
+    e = [0, 1, 2, 3, 4]
+    f = [1.5, 4 / 3]
+    i = 0
+    while e[-1] <= maxv:
+        e.append(int(round(e[-1] * f[i % 2])))
+        i += 1
+    return e
+
+
+def life_edges():
+    # 0, then four log bins per decade from 1 to 1e6; bins hold the integers in [lo, hi)
+    e = [0.0, 1.0] + [10 ** (j / 4) for j in range(1, 25)]
+    return e
+
+
+def int_widths(edges):
+    w = []
+    for lo, hi in zip(edges[:-1], edges[1:]):
+        w.append(int(np.ceil(hi) - np.ceil(lo)))
+    return w
+
+
+def hist(x, edges):
+    """counts of integers x in [edges[i], edges[i+1]); values beyond the last edge go to the last bin"""
+    e = np.asarray(edges, float)
+    idx = np.searchsorted(e, np.asarray(x, float), side='right') - 1
+    idx = np.clip(idx, 0, len(e) - 2)
+    return idx
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--cat', required=True)
+    ap.add_argument('--level', type=int, required=True)
+    ap.add_argument('--sweeps', type=int, required=True)
+    ap.add_argument('--out', required=True)
+    ap.add_argument('--vertex-blocks', default=None)
+    ap.add_argument('--vertex-ancestor', default=None)
+    a = ap.parse_args()
+    t0 = time.time()
+    L = a.level
+    N = 20 * 4 ** L
+    NB = 20 * 4 ** min(4, L)
+    per = N // NB
+    z = np.load(a.cat)
+    cat = {k: z[k] for k in z.files if k not in ('birth_xyz', 'last_xyz', 'id')}
+    n = len(cat['cls'])
+    cls = cat['cls'].astype(np.int64)
+    cause = cat['cause'].astype(np.int64)
+    alive = cause == 0
+    end_depth = int(max(cat['death_depth'].max(), cat['birth_depth'].max()))
+    life = np.where(alive, end_depth - cat['birth_depth'], cat['death_depth'] - cat['birth_depth']).astype(np.int64)
+    bsw = cat['birth_sweep'].astype(np.int64)
+    hops = cat['hops'].astype(np.int64)
+    p1, p2, c1, partner = cat['parent1'].astype(np.int64), cat['parent2'].astype(np.int64), cat['child1'].astype(np.int64), cat['partner'].astype(np.int64)
+    # ---------------- reactions
+    fus13_reactant = np.zeros(n, bool)
+    m = (cause == 2) & ((cls == 1) | (cls == 3)) & (partner >= 0)
+    ii = np.nonzero(m)[0]
+    ok = (cls[partner[ii]] == 4 - cls[ii]) & (c1[ii] >= 0)
+    ok &= cls[np.where(c1[ii] >= 0, c1[ii], 0)] == 4
+    fus13_reactant[ii[ok]] = True
+    fus13_product = np.zeros(n, bool)
+    jj = np.nonzero((p1 >= 0) & (p2 >= 0) & (cls == 4))[0]
+    okp = (cause[p1[jj]] == 2) & (np.sort(np.stack([cls[p1[jj]], cls[p2[jj]]], 1), 1) == np.array([1, 3])).all(1)
+    fus13_product[jj[okp]] = True
+    ann33 = np.zeros(n, bool)
+    kk = np.nonzero((cause == 1) & (cls == 3) & (partner >= 0))[0]
+    ann33[kk[cls[partner[kk]] == 3]] = True
+    hop_e = hop_edges(int(hops.max()) if n else 4)
+    edges = {'birth_sweep': SWEEP_EDGES, 'hops': hop_e, 'lifetime_depth': life_edges()}
+    widths = {k: int_widths(v) for k, v in edges.items()}
+    out = {'level': L, 'catalogue': a.cat, 'identities': int(n), 'end_depth': end_depth, 'end_sweep': a.sweeps,
+           'edges': edges, 'widths': widths, 'tiers': {}}
+    arr = {}
+    vblk = np.load(a.vertex_blocks) if a.vertex_blocks else None
+    vanc = np.load(a.vertex_ancestor) if a.vertex_ancestor else None
+    for tier, tname in ((0, 'carrier'), (1, 'screen')):
+        sel_t = cat['tier'] == tier
+        if not sel_t.any():
+            continue
+        bf = cat['birth_face'].astype(np.int64)
+        lf = cat['last_face'].astype(np.int64)
+        if tier == 0:
+            blk = np.where(sel_t, bf // 20 // per, -1)
+        elif vblk is not None:
+            v = np.where(sel_t, bf - 20 * N, 0)
+            blk = np.where(sel_t, vblk[v], -1).astype(np.int64)
+        else:
+            blk = None
+        T = {}
+        for k in range(1, 6):
+            sel = sel_t & (cls == k)
+            d = {'identities': int(sel.sum()), 'alive': int((sel & alive).sum()),
+                 'born_before_sweep_0': int((sel & (bsw < 0)).sum())}
+            for sub, sm in (('all', sel), ('alive', sel & alive)):
+                for prop, x in (('birth_sweep', bsw), ('hops', hops), ('lifetime_depth', life)):
+                    xm = x[sm]
+                    if prop == 'birth_sweep':
+                        xm = xm[xm >= 0]
+                    bi = hist(xm, edges[prop])
+                    nb_ = len(edges[prop]) - 1
+                    d[f'{sub}_{prop}'] = np.bincount(bi, minlength=nb_).tolist()
+                    if blk is not None:
+                        b = blk[sm]
+                        if prop == 'birth_sweep':
+                            b = b[x[sm] >= 0]
+                        arr[f'{tname}_{k}_{sub}_{prop}'] = np.bincount(b * nb_ + bi, minlength=NB * nb_).reshape(NB, nb_).astype(np.int32)
+            # reactions per identity
+            d['reactions'] = {'fusion_1_3_to_4_as_reactant': int((sel & fus13_reactant).sum()),
+                              'fusion_1_3_to_4_as_product': int((sel & fus13_product).sum()),
+                              'annihilation_3_3': int((sel & ann33).sum())}
+            # quantiles for the text
+            for prop, x in (('birth_sweep', bsw), ('hops', hops), ('lifetime_depth', life)):
+                for sub, sm in (('all', sel), ('alive', sel & alive)):
+                    xm = x[sm]
+                    d[f'{sub}_{prop}_quantiles'] = ({str(q): float(np.quantile(xm, q)) for q in (0.1, 0.25, 0.5, 0.75, 0.9)}
+                                                    if len(xm) else None)
+            if tier == 1:
+                v_b = bf[sel] - 20 * N
+                v_l = lf[sel] - 20 * N
+                d['valence_last'] = {'pentagonal_all': int((v_l < 12).sum()), 'pentagonal_alive': int(((v_l < 12) & alive[sel]).sum()),
+                                     'pentagonal_birth_all': int((v_b < 12).sum())}
+                if vanc is not None:
+                    d['ancestor_last_alive'] = np.bincount(vanc[v_l[alive[sel]]], minlength=20).tolist()
+                    d['ancestor_last_all'] = np.bincount(vanc[v_l], minlength=20).tolist()
+            T[str(k)] = d
+        out['tiers'][tname] = T
+        if tier == 0:
+            idx = np.nonzero(sel_t)[0]
+            np.savez_compressed(a.out + '_carrier_rows.npz', row=idx.astype(np.int32), cls=cls[idx].astype(np.int8),
+                                f_birth=(cat['birth_face'][idx] % 20).astype(np.int8), f_last=(cat['last_face'][idx] % 20).astype(np.int8),
+                                carrier=(cat['last_face'][idx] // 20).astype(np.int32), alive=alive[idx],
+                                birth_sweep=bsw[idx].astype(np.int32), hops=hops[idx].astype(np.int32), life=life[idx].astype(np.int64),
+                                cause=cause[idx].astype(np.int8), fus13_reactant=fus13_reactant[idx], fus13_product=fus13_product[idx],
+                                ann33=ann33[idx])
+    if arr:
+        np.savez_compressed(a.out + '_blocks.npz', **arr)
+    out['blocks'] = NB if arr else None
+    out['seconds'] = time.time() - t0
+    json.dump(out, open(a.out + '.json', 'w'))
+    print('done', a.out, out['seconds'], flush=True)
+
+
+if __name__ == '__main__':
+    main()

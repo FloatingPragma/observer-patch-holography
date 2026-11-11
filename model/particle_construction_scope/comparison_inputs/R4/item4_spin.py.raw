@@ -1,0 +1,126 @@
+"""R4 item 4: the cover of the frame's rotation group (24 elements) on the one-quantum modes.
+
+A. Exact (kdlib, Q(sqrt5)): for each of the five frames the stabilizer of the frame in the cover has 24 elements,
+   and their quaternion components along the frame axes are the 24 Hurwitz units (binary tetrahedral group).
+B. Lattice representation on a 3 x 3 x 3 torus in the engine's convention (spin lift a0 - i a.sigma, cells
+   rotated about the origin): group law, covariance of the sub-steps, and the invariance table of the ordered
+   ticks and of the alternating two-tick product (dyadic arithmetic, exact comparisons).
+C. Rest space and its character.
+"""
+import sys, itertools
+from fractions import Fraction as F
+import numpy as np
+from r4lib import *
+
+OUT = {}
+
+# ---- A. the stabilizer of a frame in the cover, exact -----------------------------------------------------
+import kdlib as kd
+quats, _ = kd.cover(); fr = kd.frames()
+hur = {tuple(F(x).limit_denominator(2) for x in q) for q in hurwitz_units()}
+def inv(pm):
+    o = [0] * 12
+    for i, v in enumerate(pm): o[v] = i
+    return tuple(o)
+A = []
+for f, frame in enumerate(fr):
+    klein = {h['perm'] for h in frame['half_turns']}
+    ax = [h['axis'] for h in frame['half_turns']]
+    hand = kd.vdot(ax[0], kd.vcross(ax[1], ax[2]))
+    if hand == kd.K(-1): ax[2] = kd.vscale(-1, ax[2])
+    comps = set(); n = 0; rational = True
+    for q, pm in quats.items():
+        if {kd.compose(pm, kd.compose(k, inv(pm))) for k in klein} != klein: continue
+        n += 1
+        a = (q[0],) + tuple(kd.vdot(q[1:], ax[i]) for i in range(3))
+        rational &= all(x.b == 0 and x.c == 0 and x.d == 0 for x in a)
+        comps.add(tuple(x.a for x in a))
+    A.append({'frame': f, 'stabilizer_in_cover': n, 'components_rational': bool(rational), 'equals_the_24_Hurwitz_units': comps == hur})
+    print(A[-1])
+OUT['A_frame_stabilizer_in_the_cover_exact'] = A
+
+# ---- B. lattice representation ---------------------------------------------------------------------------
+L = 3; shape = (L, L, L); D = dim(shape)
+H = hurwitz_units(); key = lambda q: tuple(round(2 * x) for x in q)
+idx = {key(q): n for n, q in enumerate(H)}
+G = [lattice_rep(L, q) for q in H]
+law = all(np.array_equal(G[a] @ G[b], G[idx[key(qmul(H[a], H[b]))]]) for a in range(24) for b in range(24))
+centre = bool(np.array_equal(G[idx[(-2, 0, 0, 0)]], -np.eye(D)))
+OUT['B_group_law_of_the_24_lattice_operators_exact'] = bool(law); OUT['B_central_element_is_minus_one_exact'] = centre
+S = [S_exact(shape, i) for i in range(3)]; Sinv = [s.conj().T for s in S]
+Mm = np.kron(np.eye(ncell(shape)), np.kron(np.array([[3, -4], [4, 3]], complex), I2))          # 5 exp(-i theta Y_r), cos = 3/5
+fwd = S[2] @ S[1] @ S[0]; rev = S[0] @ S[1] @ S[2]
+W2 = rev @ fwd; W2m = Mm @ rev @ Mm @ fwd                                                     # massless; 25 x massive
+word = [0, 1, 2, 2, 1, 0]                                                                     # sub-steps of two ticks, in time order
+def shifted(k):                                                                               # the two-tick product started k sub-steps later
+    out = np.eye(D, dtype=complex)
+    for i in word[k:] + word[:k]: out = S[i] @ out
+    return out
+shifts = [shifted(k) for k in range(6)]
+rows = []; classes = {}
+for n, q in enumerate(H):
+    g = G[n]; gi = g.conj().T; R = rotation_of(q)
+    perm = tuple(int(np.argmax(np.abs(R[:, i]))) + 1 for i in range(3))                        # axis i+1 goes to axis perm[i]
+    cov = all(np.array_equal(g @ S[i] @ gi, S[perm[i] - 1]) for i in range(3))
+    cf = g @ fwd @ gi; c2 = g @ W2 @ gi
+    r = {'q': list(q), 'order': next(m for m in range(1, 13) if np.allclose(np.linalg.matrix_power(spin_lift(q), m), I2)),
+         'axes_go_to': perm, 'substeps_covariant_exact': bool(cov),
+         'fixes_forward_tick': bool(np.array_equal(cf, fwd)), 'fixes_reverse_tick': bool(np.array_equal(g @ rev @ gi, rev)),
+         'fixes_two_tick_product': bool(np.array_equal(c2, W2)), 'fixes_two_tick_product_with_mass': bool(np.array_equal(g @ W2m @ gi, W2m)),
+         'forward_tick_goes_to_S1.fwd.S1^-1': bool(np.array_equal(cf, S[0] @ fwd @ Sinv[0])),
+         'forward_tick_goes_to_S3^-1.fwd.S3': bool(np.array_equal(cf, Sinv[2] @ fwd @ S[2])),
+         'forward_tick_goes_to_reverse_tick': bool(np.array_equal(cf, rev)),
+         'two_tick_product_goes_to_a_substep_shift_of_itself': bool(any(np.array_equal(c2, s) for s in shifts))}
+    rows.append(r)
+    cl = classes.setdefault((r['order'], perm), {'elements': 0})
+    cl['elements'] += 1
+    for k, v in r.items():
+        if isinstance(v, bool): cl[k] = cl.get(k, True) and v
+OUT['B_invariance_table_by_class'] = [{'order_of_element': o, 'axes_1_2_3_go_to': pm, **v} for (o, pm), v in sorted(classes.items())]
+for c in OUT['B_invariance_table_by_class']: print(c)
+OUT['B_elements_fixing_forward_tick'] = sum(r['fixes_forward_tick'] for r in rows)
+OUT['B_elements_fixing_two_tick_product'] = sum(r['fixes_two_tick_product'] for r in rows)
+OUT['B_elements_fixing_two_tick_product_with_mass'] = sum(r['fixes_two_tick_product_with_mass'] for r in rows)
+OUT['B_commutator_norm_of_a_third_of_a_turn_with_the_two_tick_product'] = float(
+    np.linalg.norm(G[idx[(1, -1, -1, -1)]] @ W2 - W2 @ G[idx[(1, -1, -1, -1)]], 2))
+# the screw: third of a turn (axes 1 -> 2 -> 3 -> 1) followed by the inverse of the first sub-step
+g3 = next(G[n] for n, r in enumerate(rows) if r['axes_go_to'] == (2, 3, 1) and r['order'] == 6)
+scr = Sinv[0] @ g3
+OUT['B_screw_S1^-1.g_commutes_with_forward_tick_exact'] = bool(np.array_equal(scr @ fwd, fwd @ scr))
+OUT['B_screw_cubed_equals_minus_inverse_forward_tick_exact'] = bool(np.array_equal(scr @ scr @ scr, -fwd.conj().T))
+OUT['B_screw_commutes_with_two_tick_product'] = bool(np.array_equal(scr @ W2, W2 @ scr))
+
+# no short word of sub-steps conjugates the rotated two-tick product back (symbols at a generic momentum)
+rng = np.random.default_rng(1); pp = rng.uniform(-1, 1, 3); th = 0.157935
+e = [ex(pp[i], i) for i in range(3)]; einv = [x.conj().T for x in e]
+def prod(seq):
+    out = I4
+    for i in seq: out = e[i] @ out
+    return out
+w123 = prod([0, 1, 2, 2, 1, 0]); w231 = prod([1, 2, 0, 0, 2, 1])
+gens = e + einv; found = 0
+for n in range(1, 5):
+    for wd in itertools.product(range(6), repeat=n):
+        Xw = I4
+        for a in wd: Xw = gens[a] @ Xw
+        found += np.abs(Xw @ w123 @ Xw.conj().T - w231).max() < 1e-12
+OUT['B_words_of_up_to_4_substeps_conjugating_the_two_alternating_products'] = int(found)
+ph = lambda Wm: np.sort(np.angle(np.linalg.eigvals(Wm)))
+OUT['B_two_tick_eigenphases_massless_same_for_both_middle_axes_defect'] = float(np.abs(ph(w123) - ph(w231)).max())
+Ms = sym_M(th)
+m123 = Ms @ prod([2, 1, 0]) @ Ms @ prod([0, 1, 2]); m231 = Ms @ prod([0, 2, 1]) @ Ms @ prod([1, 2, 0])
+OUT['B_two_tick_eigenphases_with_mass_same_for_both_middle_axes_defect'] = float(np.abs(ph(m123) - ph(m231)).max())
+OUT['B_two_tick_eigenphases_with_mass'] = [float(x) for x in ph(m123)]
+
+# ---- C. rest space -----------------------------------------------------------------------------------------
+chi = np.array([2 * q[0] for q in H]); q8 = [n for n, q in enumerate(H) if abs(q[0]) != 0.5]
+OUT['C_rest_doublet'] = {
+    'character_values': sorted({float(x) for x in chi}),
+    'norm_of_character_over_the_24': float(np.sum(chi ** 2) / 24), 'norm_over_the_quaternion_group': float(np.sum(chi[q8] ** 2) / 8),
+    'statement': 'at p = 0 every sub-step is the identity, so all 24 elements commute with the tick there; the positive rest '
+                 'branch (Y_r = +1 with mass) is the two-dimensional faithful representation, irreducible already under the '
+                 'eight elements that are symmetries of the alternating product'}
+n2 = {(n3, n2): int(__import__('math').comb(3, n3) * __import__('math').comb(2, n2)) for n3 in range(4) for n2 in range(3)}
+OUT['C_patterns_with_centre_minus_one_if_the_cover_also_acts_on_the_code_levels'] = sum(v for (a, b), v in n2.items() if b == 1)
+print({k: v for k, v in OUT.items() if not k.startswith('B_invariance') and not k.startswith('A_')})
+dump(OUT, sys.argv[1] if len(sys.argv) > 1 else RL + '/work/R4/item4_spin.json')

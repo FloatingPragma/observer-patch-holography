@@ -1,0 +1,110 @@
+"""QT selection table (CANDIDATES.md sections 4 and 6): consensus states of three loads by content type, law and class.
+
+  python -B qt1_consensus.py hexagon   -> qt1_hexagon.json   (exact kernels on every component; check C3)
+  python -B qt1_consensus.py carrier   -> qt1_carrier.json   (float64 and modular on every component; exact kernels
+                                                               on the components of at most 160 states)
+Plain law, uniform consensus address. Counts labelled exact are EXACT; eigenvalues other than 1 are MEASURED.
+"""
+from __future__ import annotations
+
+import sys
+import time
+
+import numpy as np
+
+import qt_common as Q
+import qt_analysis as QA
+
+LAWS = ('T-A', 'T-B', 'T-C')
+TYPES = ('triple', 'double+single', 'separated')
+
+
+def spectrum(m):
+    M = m.Dfloat()
+    return np.sort(np.linalg.eigvalsh((M + M.conj().T) / 2))
+
+
+def strip(res):
+    """Drop the long component list down to the components with a blank preparation, compactly."""
+    res = dict(res)
+    res['component list'] = [{k: v for k, v in row.items()} for row in res['component list']]
+    return res
+
+
+def hexagon_run():
+    t0 = time.time()
+    out = {'task': 'QT selection table, hexagon, three loads', 'provenance': Q.FC.provenance(), 'laws': {}}
+    for name in LAWS:
+        law = Q.Law(name)
+        rows = {}
+        for k in range(6):
+            m = Q.hexagon(law, k)
+            res = QA.analyse(m, exact_limit=200)
+            rows[f'class {k}'] = strip(res)
+            print(name, 'class', k, QA.summary_line(res), 'all blank:',
+                  res['consensus states on the cyclic subspace of all blank preparations (exact)'], flush=True)
+        out['laws'][name] = rows
+    # law independence of the double+single and separated blocks
+    indep = True
+    for k in range(6):
+        for t in ('double+single', 'separated'):
+            ref = out['laws']['T-A'][f'class {k}']['by type'][t]
+            for name in ('T-B', 'T-C'):
+                oth = out['laws'][name][f'class {k}']['by type'][t]
+                for key in ('consensus states on the blank cyclic subspace (exact)', 'lowest A on the cyclic subspace',
+                            'modular nullity (upper bound, exact)'):
+                    indep &= ref[key] == oth[key]
+    out['double+single and separated blocks equal for the three laws'] = bool(indep)
+    print('law independence of double+single and separated:', indep)
+    # C3: gauge position of the class-2 phase and conjugate classes (law T-A)
+    law = Q.Law('T-A')
+    ref = spectrum(Q.hexagon(law, 2, seam=0))
+    pos = {}
+    for s in range(6):
+        sp_ = spectrum(Q.hexagon(law, 2, seam=s))
+        res = QA.analyse(Q.hexagon(law, 2, seam=s), exact_limit=0, do_mod=False)
+        pos[s] = {'largest spectral difference to seam 0': float(np.abs(sp_ - ref).max()),
+                  'consensus states (triple, double+single, separated), float': [
+                      res['by type'][t]['consensus states on the blank cyclic subspace (float)'] for t in TYPES]}
+    conj = {}
+    for a, b in ((1, 5), (2, 4)):
+        conj[f'classes {a} and {b}'] = float(np.abs(spectrum(Q.hexagon(law, a)) - spectrum(Q.hexagon(law, b))).max())
+    out['C3_gauge'] = {'class-2 phase on each hexagon seam': pos, 'largest spectral difference between conjugate classes': conj}
+    print('C3', out['C3_gauge'])
+    out['seconds'] = round(time.time() - t0, 2)
+    Q.jdump(out, 'qt1_hexagon.json')
+    print('written qt1_hexagon.json', out['seconds'], 's')
+
+
+def carrier_run(which):
+    """which: 'A' (law T-A, all content types) or 'BC' (laws T-B and T-C, the triple components)."""
+    t0 = time.time()
+    seams, faces, path, crossed, _ = Q.carrier_flux(0)
+    out = {'task': f'QT selection table, carrier, three loads, part {which}', 'provenance': Q.FC.provenance(),
+           'string from f to f_prime': {'faces': [list(x) for x in path], 'seams crossed': [list(x) for x in crossed]},
+           'laws': {}}
+    for name in (('T-A',) if which == 'A' else ('T-B', 'T-C')):
+        law = Q.Law(name)
+        rows = {}
+        for k in range(6):
+            m = Q.carrier(law, k)
+            res = QA.analyse(m, types=(None if name == 'T-A' else ('triple',)), exact_limit=160)
+            res['faces with flux'] = Q.face_fluxes(m, faces)
+            rows[f'class {k}'] = strip(res)
+            print(name, 'class', k, res['faces with flux'], QA.summary_line(res), 'seconds', round(time.time() - t0, 1), flush=True)
+        out['laws'][name] = rows
+    out['seconds'] = round(time.time() - t0, 2)
+    Q.jdump(out, f'qt1_carrier_{which}.json')
+    print(f'written qt1_carrier_{which}.json', out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    arg = sys.argv[1] if len(sys.argv) > 1 else 'hexagon'
+    if arg == 'hexagon':
+        hexagon_run()
+    elif arg == 'carrierA':
+        carrier_run('A')
+    elif arg == 'carrierBC':
+        carrier_run('BC')
+    else:
+        raise SystemExit('usage: qt1_consensus.py hexagon | carrierA | carrierBC')

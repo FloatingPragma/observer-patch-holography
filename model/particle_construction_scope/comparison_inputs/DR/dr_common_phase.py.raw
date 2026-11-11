@@ -1,0 +1,108 @@
+"""Worker DR (S5), row D12: a common phase phi of the two current branches relative to the hold.
+
+Run:  /tmp/oph-completion-venv/bin/python -B dr_common_phase.py <out.json>
+
+C_phi = a I + b exp(i phi) (exp(i theta) S + exp(-i theta) S^-1), a = sqrt(1/6), b = sqrt(1/12), theta = 2/9 (FR's
+register up to the common factor sqrt2/3). A-clock masses m_k = abs(lambda_k)^2, lambda_k = a + 2 b exp(i phi) c_k,
+c_k = cos(theta + 2 pi k/3). Exact identity: m_k(phi) = m_k(0) - 4 a b (1 - cos phi) c_k.
+Rows (S), (P), (P/2) of CANDIDATES.md section 4 first; the NOT BLIND block last.
+"""
+import json
+import sys
+from pathlib import Path
+
+import numpy as np
+import sympy as s
+from mpmath import mp, mpf, sqrt, cos, sin, pi, log, exp, expj, arg, fsum, findroot
+
+mp.dps = 50
+OUT = Path(sys.argv[1])
+out = {}
+
+# exact identity (sympy)
+a_, b_, ph, c = s.symbols('a b phi c', real=True)
+re_, im_ = a_ + 2 * b_ * s.cos(ph) * c, 2 * b_ * s.sin(ph) * c     # lambda = a + 2 b e^{i phi} c, real a, b, c
+m_sym = s.expand(re_ ** 2 + im_ ** 2)
+assert s.simplify(s.trigsimp(m_sym - ((a_ + 2 * b_ * c) ** 2 - 4 * a_ * b_ * (1 - s.cos(ph)) * c))) == 0
+# numerical witness: eigenvalues of C_phi on the Fourier modes
+S3 = np.roll(np.eye(3), 1, axis=0)
+for phv in (0.3, -1.1):
+    Cn = np.sqrt(1 / 6) * np.eye(3) + np.sqrt(1 / 12) * np.exp(1j * phv) * (np.exp(2j / 9) * S3 + np.exp(-2j / 9) * S3.T)
+    for k in range(3):
+        v = np.array([np.exp(2j * np.pi * j * k / 3) for j in range(3)]) / np.sqrt(3)
+        lk = np.sqrt(1 / 6) + 2 * np.sqrt(1 / 12) * np.exp(1j * phv) * np.cos(2 / 9 - 2 * np.pi * k / 3)
+        assert np.allclose(Cn @ v, lk * v)
+out['identity'] = 'm_k(phi) = m_k(0) - 4ab(1 - cos phi) cos(theta + 2 pi k/3) (EXACT); sum_k m_k unchanged'
+out['mass_circulant'] = ('C_phi^dag C_phi = (a^2 + 2b^2) I + 2ab cos(phi) (e^{i theta} S + h.c.) + b^2 (e^{2i theta} S^2 '
+                         '+ h.c.): the common phase multiplies the S coefficient of the mass circulant by cos(phi)')
+
+A0, B0, TH = sqrt(mpf(1) / 6), sqrt(mpf(1) / 12), mpf(2) / 9
+ck = [cos(TH + 2 * pi * k / 3) for k in range(3)]        # k = 0 tau, 1 e, 2 mu
+
+
+def masses(phi):
+    return [(A0 + 2 * B0 * cos(phi) * x) ** 2 + (2 * B0 * sin(phi) * x) ** 2 for x in ck]
+
+
+def shape(m):
+    x = [sqrt(v) for v in m]
+    A = fsum(x) / 3
+    B = fsum(x[k] * expj(-2 * pi * k / 3) for k in range(3)) / 3
+    return A, 2 * abs(B) / A, arg(B), fsum(m) / fsum(x) ** 2
+
+
+def lnr(m):
+    return log(m[2] / m[1]), log(m[0] / m[1])
+
+
+m0 = masses(0)
+L0 = lnr(m0)
+sh0 = shape(m0)
+# second-order coefficients (exact derivative in phi^2 at 0): eps_k = -2ab c_k phi^2 / m_k
+eps2 = [-2 * A0 * B0 * x / m for x, m in zip(ck, m0)]
+coef = {'dln_mu_e_per_phi2': eps2[2] - eps2[1], 'dln_tau_e_per_phi2': eps2[0] - eps2[1]}
+out['second_order'] = {k: str(v) for k, v in coef.items()}
+out['second_order']['eps_per_phi2_tau_e_mu'] = [str(x) for x in eps2]
+out['sign'] = ('eps_e = 4ab(1 - cos phi)|c_e|/m_e > 0 for every phi != 0 (c_e < 0): the lightest mass rises for either '
+               'sign of phi; ln(mu/e) falls (EXACT)')
+ALPHA_P = mpf('0.0072995452617244017571725360595355818930943140296429')
+rules = {'D12_S_phi=1': mpf(1), 'D12_P_phi=2pi_alphaP': 2 * pi * ALPHA_P, 'D12_P/2_phi=pi_alphaP/2': pi * ALPHA_P / 2}
+rows = {}
+for name, phv in rules.items():
+    m = masses(phv)
+    L = lnr(m)
+    sh = shape(m)
+    rows[name] = {'phi': str(phv), 'dln_mu_e': str(L[0] - L0[0]), 'dln_tau_e': str(L[1] - L0[1]),
+                  'd_delta': str(sh[2] - sh0[2]), 'd_r_over_r': str(sh[1] / sh0[1] - 1), 'Q': str(sh[3])}
+out['rows'] = rows
+
+# ---------------------------------------------------------------- NOT BLIND
+ME, MMU, MTAU = mpf('0.51099895069'), mpf('105.6583755'), mpf('1776.93')
+SE, SMU, STAU = mpf('1.6e-10'), mpf('2.3e-6'), mpf('0.09')
+meas = (log(MMU / ME), log(MTAU / ME))
+sig = (sqrt((SMU / MMU) ** 2 + (SE / ME) ** 2), sqrt((STAU / MTAU) ** 2 + (SE / ME) ** 2))
+for name in rows:
+    m = masses(mpf(rows[name]['phi']))
+    L = lnr(m)
+    rows[name]['residual_mu_e_sigma'] = float((L[0] - meas[0]) / sig[0])
+    rows[name]['residual_tau_e_sigma'] = float((L[1] - meas[1]) / sig[1])
+    rows[name]['pass'] = bool(abs(rows[name]['residual_mu_e_sigma']) <= 3 and abs(rows[name]['residual_tau_e_sigma']) <= 1)
+phi_need = findroot(lambda x: lnr(masses(x))[0] - meas[0], mpf('1.3e-4'))
+mneed = masses(phi_need)
+shn = shape(mneed)
+out['needed_NOT_BLIND'] = {
+    'phi_needed_rad_per_tick': str(phi_need),
+    'phi_needed_over_alphaP_over_pi': str(phi_need / (ALPHA_P / pi)),
+    'tau_e_residual_sigma_at_phi_needed': float((lnr(mneed)[1] - meas[1]) / sig[1]),
+    'm_tau_MeV_at_phi_needed': str(ME * mneed[0] / mneed[1]),
+    'Q_at_phi_needed': str(shn[3]), 'd_delta_at_phi_needed': str(shn[2] - sh0[2]),
+    'd_r_over_r_at_phi_needed': str(shn[1] / sh0[1] - 1)}
+# post hoc observation (after the needed value was known; weight zero): phi = (alpha_P/pi)/18
+for label, phv in (('posthoc_(alphaP/pi)/18', ALPHA_P / pi / 18),):
+    m = masses(phv); L = lnr(m)
+    out['posthoc_observation_weight_zero'] = {
+        'form': label, 'phi': str(phv), 'residual_mu_e_sigma': float((L[0] - meas[0]) / sig[0]),
+        'residual_tau_e_sigma': float((L[1] - meas[1]) / sig[1]),
+        'note': 'found by search after phi_needed was computed; 1/18 = p(1 - 2q) = theta/4; no derivation'}
+OUT.write_text(json.dumps(out, indent=1, default=str))
+print(json.dumps(out, indent=1, default=str))

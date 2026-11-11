@@ -1,0 +1,308 @@
+#!/usr/bin/env python
+"""Worker R3, numerical part (float64, every number carries its printed defect): the symbol of the free CF-1 tick
+on grids, against the closed forms and the bounds of THEOREM.md. The reference engine work/DIRAC/routing.py is
+imported by path and used unchanged.
+
+    python r3_numeric.py [out.json] [sections]        sections: any of 0123456 (default all)
+"""
+import importlib.util, itertools, json, os, sys, time
+import numpy as np
+
+HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
+import r3_closed_forms as cf
+from r3_numeric_lib import Routing, SIG, I2, AL, BE, ONE, Efac, Mfac, dag, D_fwd, D_rev, W2, What, expH, opnorm
+
+rng = np.random.default_rng(20261110)
+THETAS = (0.0, 0.087847, 0.157935)
+
+
+def grid_box(P, m): g = np.linspace(-P, P, m); return np.stack(np.meshgrid(g, g, g, indexing='ij'), -1).reshape(-1, 3)
+def f(x, d=3): return float(f'{float(x):.{d}e}')
+
+
+out = {}
+want = sys.argv[2] if len(sys.argv) > 2 else '0123456'
+T0 = time.time()
+
+# ------------------------------------------------------------------ 0. the engine and this file agree
+if '0' in want:
+    d = {}
+    worst = 0.0
+    for _ in range(100):
+        p = rng.uniform(-np.pi, np.pi, 3); th = rng.uniform(0, 1.5)
+        for kind in 'YZ':
+            worst = max(worst, np.abs(D_fwd(p, th, kind) - Routing.symbol(p, th, kind)).max())
+    d['D_fwd of this file against Routing.symbol, 100 random points, both mass options'] = f(worst)
+    w = Routing((6, 5, 4)); worst_r = worst_2 = 0.0
+    for _ in range(12):
+        n = tuple(int(x) for x in rng.integers(0, 6, 3)); p = w.momentum(n)
+        e = rng.normal(size=4) + 1j * rng.normal(size=4); e /= np.linalg.norm(e)
+        for kind in 'YZ':
+            th = 0.157935; psi = w.plane_wave(n, e)
+            worst_r = max(worst_r, np.abs(w.tick(psi, th, kind, reverse=True) - w.plane_wave(n, D_rev(p, th, kind) @ e)).max())
+            got = w.tick(w.tick(psi, th, kind), th, kind, reverse=True)
+            worst_2 = max(worst_2, np.abs(got - w.plane_wave(n, W2(p, th, kind) @ e)).max())
+    d['engine tick(reverse=True) on the 6x5x4 lattice against D_rev'] = f(worst_r)
+    d['engine: forward tick then reverse tick against W2 = D_rev D_fwd'] = f(worst_2)
+    out['0 engine'] = d
+
+# ------------------------------------------------------------------ 1. closed form of the phases, whole zone
+if '1' in want:
+    d = {}
+    for kind in 'YZ':
+        p = rng.uniform(-np.pi, np.pi, (20000, 3)); th = rng.uniform(0, np.pi / 2, 20000)
+        lam = np.linalg.eigvals(W2(p, th, kind))
+        Om = 2 * cf.omega(p, th)
+        ph = np.sort(np.abs(np.angle(lam)), axis=1)                       # four phases, all equal to Omega
+        d[f'beta = {kind}_r: max | |eigenphase of W2| - 2 w | over 20000 random (p, theta), whole zone'] = f(np.abs(ph - Om[:, None]).max())
+        d[f'beta = {kind}_r: max | cos(eigenphase) - (cos^2 theta (1 + C1 C2 C3) - 1) |'] = f(
+            np.abs(np.cos(np.angle(lam)) - (np.cos(th) ** 2 * (1 + np.prod(np.cos(2 * p), axis=1)) - 1)[:, None]).max())
+        d[f'beta = {kind}_r: number of eigenvalues with positive phase per point (min, max)'] = [
+            int((np.angle(lam) > 0).sum(1).min()), int((np.angle(lam) > 0).sum(1).max())]
+        Wh = What(p, th, kind); n4 = cf.axis4(p, th); w = cf.omega(p, th)
+        closed = np.cos(2 * w)[:, None, None] * ONE - 1j * np.sin(2 * w)[:, None, None] * (
+            sum(n4[:, i, None, None] * AL[i] for i in range(3)) + n4[:, 3, None, None] * BE[kind])
+        d[f'beta = {kind}_r: max | What - (cos 2w - i sin 2w (n_s.alpha + n_4 beta)) |'] = f(np.abs(Wh - closed).max())
+    # ordered tick: the two phases (KD)
+    p = rng.uniform(-1, 1, (5000, 3)); th = rng.uniform(0, 1, 5000)
+    ph = np.sort(np.abs(np.angle(np.linalg.eigvals(D_fwd(p, th)))), axis=1)
+    a, b = cf.ordered_phases(p, th)
+    d['ordered tick: max | phases - KD closed form |'] = f(max(np.abs(ph[:, 0] - a).max(), np.abs(ph[:, 3] - b).max()))
+    # section 4 item 3 of CF1.md
+    p = np.array([[0.1, 0.1, 0.1]])
+    d['CF1 4.3: p = (0.1, 0.1, 0.1) massless: ordered phases, alternating phase per tick'] = [
+        round(float(x[0]), 6) for x in (*cf.ordered_phases(p, 0.0), cf.omega(p, 0.0))]
+    d['CF1 4.3: theta = 0.157935: ordered phases, alternating phase per tick, sqrt(p^2 + theta^2)'] = [
+        round(float(x[0]), 6) for x in (*cf.ordered_phases(p, 0.157935), cf.omega(p, 0.157935), cf.energy(p, 0.157935))]
+    out['1 phases'] = d
+
+# ------------------------------------------------------------------ 2. Theorem 2: the phase bound
+if '2' in want:
+    d = {}
+    # (a) 0 <= E^2 - w^2 <= B on the ball E < pi/4
+    v = rng.normal(size=(400000, 4)); v /= np.linalg.norm(v, axis=1, keepdims=True)
+    Er = np.pi / 4 * rng.uniform(0, 1, 400000) ** 0.25 * 0.999
+    x = v * Er[:, None]; p, th = x[:, :3], np.abs(x[:, 3])
+    E, w = cf.energy(p, th), cf.omega(p, th)
+    D = (E - w) * (E + w); B = cf.B_bound(p, th); N = cf.N_lead(p, th)
+    d['ball E < pi/4, 400000 points: min (E - w) (must be >= 0)'] = f(np.min(E - w))
+    d['ball E < pi/4: max (E^2 - w^2)/B (must be <= 1)'] = f(np.max(D / B), 6)
+    d['ball E < pi/4: max of (E - w) - [E - sqrt(E^2 - B)] (must be <= 0)'] = f(np.max((E - w) - cf.phase_bound(p, th)))
+    rows = []
+    for lo, hi in ((0.0, 0.05), (0.05, 0.1), (0.1, 0.2), (0.2, 0.3), (0.3, 0.4), (0.4, 0.5), (0.5, 0.65), (0.65, 0.785)):
+        sel = (E >= lo) & (E < hi) & (N > 1e-12)
+        q = (E - w)[sel] * 6 * E[sel] / N[sel]
+        rows.append({'E in': [lo, hi], 'min (E-w) 6E/N': round(float(q.min()), 5), 'max (E-w) 6E/N': round(float(q.max()), 5),
+                     'proved ceiling 1 + 3.1 E^2 at the upper end (E <= 1/2)': round(1 + 3.1 * hi * hi, 4) if hi <= 0.5 else None,
+                     'max (E-w)/E^3': round(float(((E - w) / E ** 3)[sel].max()), 5)})
+    d['shells: (E - w) in units of the leading term N/(6E), N = theta^2 |p|^2 + 4 sum p_i^2 p_j^2; and (E - w)/E^3 (leading sup 2/9 = 0.2222)'] = rows
+    sel = E <= 0.5
+    d['E <= 1/2: max (E - w) / [(N/6E)(1 + 3.1 E^2)] (must be <= 1)'] = f(np.max(((E - w) / (N / (6 * E) * (1 + 3.1 * E * E)))[sel & (N > 1e-12)]), 6)
+    d['E <= 1/2: max (E - w)/E^3 (corollary: <= 0.4)'] = f(np.max(((E - w) / E ** 3)[sel]), 6)
+    # (b) boxes
+    rows = []
+    for P, T in ((0.01, 0.01), (0.05, 0.05), (0.1, 0.0), (0.1, 0.087847), (0.1, 0.157935), (0.2, 0.157935), (0.2, 0.215043), (0.25, 0.25)):
+        p = grid_box(P, 21)
+        sup = 0.0; sup_ord = 0.0
+        for th in np.linspace(0, T, 5) if T > 0 else (0.0,):
+            E = cf.energy(p, th)
+            sup = max(sup, float(np.max(E - cf.omega(p, th))))
+            a, b = cf.ordered_phases(p, th)
+            sup_ord = max(sup_ord, float(np.max(np.maximum(np.abs(a - E), np.abs(b - E)))))
+        sup_m = 0.0
+        for th in np.linspace(0, T, 5) if T > 0 else (0.0,):
+            wm = 0.5 * np.arccos(np.clip(np.cos(2 * th) * np.prod(np.cos(2 * p), axis=1), -1, 1))    # mirror variant (E1 E2 E3 M)(M E3 E2 E1)
+            sup_m = max(sup_m, float(np.max(cf.energy(p, th) - wm)))
+        rows.append({'P': P, 'T': T, 'sup (E - w), alternating': f(sup), 'K_box(P,T) (Theorem 2)': f(cf.K_box(P, T)),
+                     'sup (E - w), mirror variant': f(sup_m),
+                     'ratio': round(sup / cf.K_box(P, T), 4),
+                     'sup |w_ordered - E| (ordered tick, both helicities)': f(sup_ord),
+                     'ROUTE.md rate 3 P^2 + 3 T P (operator bound per tick)': f(3 * P * P + 3 * T * P),
+                     'gain: ordered sup / alternating sup': round(sup_ord / sup, 1),
+                     'gain: ROUTE rate / K_box': round((3 * P * P + 3 * T * P) / cf.K_box(P, T), 1)})
+    d['boxes |p_i| <= P, |theta| <= T (21^3 grid x 5 angles, corners included)'] = rows
+    pz_ = rng.uniform(-np.pi / 2, np.pi / 2, (1000000, 3)); tz_ = rng.uniform(0, np.pi / 2, 1000000)
+    d['whole zone (|p_i| <= pi/2, 0 <= theta <= pi/2), 1e6 points: min (E - w) (w <= E everywhere)'] = f(np.min(cf.energy(pz_, tz_) - cf.omega(pz_, tz_)))
+    rel = []
+    v = rng.normal(size=(300000, 4)); v /= np.linalg.norm(v, axis=1, keepdims=True)
+    for E0 in (0.05, 0.1, 0.2, 0.3, 0.5):
+        x = v * E0; p, th = x[:, :3], np.abs(x[:, 3])
+        rel.append({'E': E0, 'sup (E - w)/E on the sphere': f(np.max(E0 - cf.omega(p, th)) / E0),
+                    'proved ceiling (2/9) E^2 (1 + 3.1 E^2)': f(2 / 9 * E0 ** 2 * (1 + 3.1 * E0 ** 2))})
+    d['relative phase error on spheres of fixed E (300000 directions of (p, theta))'] = rel
+    out['2 phase bound'] = d
+
+# ------------------------------------------------------------------ 3. operator bounds over n ticks
+if '3' in want:
+    d = {}; rows = []
+    worst_formula = 0.0; worst_frame = 0.0; viol = 0
+    for P, T in ((0.05, 0.05), (0.1, 0.087847), (0.1, 0.157935), (0.2, 0.157935)):
+        p = grid_box(P, 9); th = np.full(len(p), T)
+        E, w = cf.energy(p, th), cf.omega(p, th)
+        Wh, Wo, Df = What(p, th), W2(p, th), D_fwd(p, th)
+        chord = cf.tilt_chord(p, th)
+        hsum = sum(np.abs(a * b) for a, b in itertools.combinations([p[:, 0], p[:, 1], p[:, 2], th], 2))
+        Emax2 = 3 * P * P + T * T
+        for n in (2, 10, 100, 1000, 10000):
+            tgt = expH(p, th, n)
+            e_hat = opnorm(np.linalg.matrix_power(Wh, n // 2) - tgt)
+            e_own = opnorm(np.linalg.matrix_power(Wo, n // 2) - tgt)
+            e_ord = opnorm(np.linalg.matrix_power(Df, n) - tgt)
+            worst_formula = max(worst_formula, float(np.abs(e_hat - cf.op_error_half_step(p, th, n)).max()))
+            worst_frame = max(worst_frame, float(np.abs(opnorm(np.linalg.matrix_power(Wo, n // 2) - np.linalg.matrix_power(Wh, n // 2))
+                                                        - cf.frame_term(p, th, n)).max()))
+            b_point = n * (E - w) + chord                                       # Theorem 3, pointwise
+            b_unif = n * cf.K_box(P, T) + 2.1 * Emax2                           # Theorem 3, constants
+            b_own = b_point + 2 * np.sin(T / 2) * np.sin(cf.rho(p)) / np.sin(w)
+            b_route = n * hsum
+            viol += int((e_hat > b_point * (1 + 1e-9) + 1e-11).sum() + (e_own > b_own * (1 + 1e-9) + 1e-11).sum()
+                        + (e_ord > b_route * (1 + 1e-9) + 1e-11).sum() + (e_hat > b_unif).sum())
+            rows.append({'P': P, 'T': T, 'n': n,
+                         'sup err, half-step frame': f(e_hat.max()), 'bound n K_box + 2.1 Emax^2': f(min(b_unif, 2.0)),
+                         'sup err, tick frame': f(e_own.max()), 'sup bound, tick frame': f(min(b_own.max(), 2.0)),
+                         'sup err, ordered tick': f(e_ord.max()), 'ROUTE.md bound n sum|h_r h_s| (sup)': f(min(b_route.max(), 2.0))})
+    d['theta = T on a 9^3 grid of the box; errors are operator norms against exp(-i n H); 2 is the trivial ceiling'] = rows
+    d['violations of any bound'] = viol
+    d['max | measured half-step error - exact formula 2 sqrt(cos^2(d/2) sin^2(n(E-w)/2) + sin^2(d/2) sin^2(n(E+w)/2)) |'] = f(worst_formula)
+    d['max | ||W2^(n/2) - What^(n/2)|| - 2 |sin n w| sin(theta/2) sin(rho)/sin(w) |'] = f(worst_frame)
+    # tilt of the axis: sup of the chord in units of E^2
+    v = rng.normal(size=(200000, 4)); v /= np.linalg.norm(v, axis=1, keepdims=True)
+    Er = 0.5 * rng.uniform(0, 1, 200000) ** 0.25; x = v * Er[:, None]; p, th = x[:, :3], np.abs(x[:, 3])
+    q = cf.tilt_chord(p, th) / Er ** 2
+    d['ball E <= 1/2: sup of 2 sin(delta/2)/E^2 (proved <= 2.1)'] = round(float(q.max()), 4)
+    d['ball E <= 0.05: sup of 2 sin(delta/2)/E^2'] = round(float(q[Er <= 0.05].max()), 4)
+    out['3 operator bound'] = d
+
+# ------------------------------------------------------------------ 4. isotropy, group velocity, table for run A
+if '4' in want:
+    d = {}; rows = []
+    dirs = {'100': (1, 0, 0), '110': (1, 1, 0), '111': (1, 1, 1)}
+    for th in THETAS:
+        for r in (0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6):
+            row = {'theta': th, '|p|': r, 'E': round(float(np.hypot(r, th)), 6)}
+            for name, v in dirs.items():
+                nv = np.array(v, float) / np.linalg.norm(v); p = (r * nv)[None]
+                w = float(cf.omega(p, th)[0]); E = float(cf.energy(p, th)[0])
+                lead = (th * th * r * r + 2 * r ** 4 * (1 - np.sum(nv ** 4))) / (6 * E)
+                row[f'w {name}'] = round(w, 6); row[f'E - w {name}'] = f(E - w); row[f'leading {name}'] = f(lead)
+                row[f'|v| {name}'] = round(float(np.linalg.norm(cf.group_velocity(p, th)[0])), 6)
+            row['p/E'] = round(r / np.hypot(r, th), 6)
+            rows.append(row)
+    d['phase per tick along 100, 110, 111 (prediction for run A of the simulation session)'] = rows
+    # anisotropy at fixed |p|: spread over directions against (2/9) |p|^3
+    an = []
+    for r in (0.05, 0.1, 0.2, 0.4, 0.6):
+        v = rng.normal(size=(20000, 3)); v /= np.linalg.norm(v, axis=1, keepdims=True)
+        w = cf.omega(r * v, 0.0)
+        an.append({'|p|': r, 'max w - min w over 20000 directions (massless)': f(w.max() - w.min()), '(2/9) |p|^3': f(2 * r ** 3 / 9),
+                   'max w (axes: exactly |p|)': round(float(w.max()), 8)})
+    d['anisotropy: w = |p| - (|p|^3/3)(1 - sum n_i^4) + O(|p|^5); spread between an axis and a body diagonal'] = an
+    # group velocity: formula against a central difference, and the largest speed
+    p = rng.uniform(-0.7, 0.7, (2000, 3)); worst = 0.0
+    for th in (0.0, 0.157935, 0.6):
+        h = 1e-5
+        fd = np.stack([(cf.omega(p + h * np.eye(3)[i], th) - cf.omega(p - h * np.eye(3)[i], th)) / (2 * h) for i in range(3)], -1)
+        worst = max(worst, float(np.abs(fd - cf.group_velocity(p, th)).max()))
+    d['group velocity formula against central differences (2000 points, three angles)'] = f(worst)
+    sp_rows = []
+    for th in (0.0, 0.087847, 0.157935, 0.6):
+        p = rng.uniform(-np.pi / 2, np.pi / 2, (400000, 3))
+        ok = np.sin(2 * cf.omega(p, th)) > 1e-6
+        sp_rows.append({'theta': th, 'sup |v| over 400000 points of the zone': round(float(np.linalg.norm(cf.group_velocity(p, th), axis=1)[ok].max()), 8),
+                        'cos(theta) (proved ceiling)': round(float(np.cos(th)), 8)})
+    for th in (0.0, 0.157935):
+        p = np.array([[0.3, 0.0, 0.0], [1.2, 0.0, 0.0]])
+        sp_rows.append({'theta': th, '|v| on the axis at p1 = 0.3 and 1.2': [round(float(x), 8) for x in np.linalg.norm(cf.group_velocity(p, th), axis=1)],
+                        'cos(theta) sin(p)/sin(w)': [round(float(np.cos(th) * np.sin(x) / np.sin(cf.omega(np.array([[x, 0, 0]]), th)[0])), 8) for x in (0.3, 1.2)]})
+    d['largest speed'] = sp_rows
+    r = 0.1; p = np.array([[r, r, r]]) / np.sqrt(3)
+    d['massless |v| on the body diagonal at |p| = 0.1, against 1 - (2/3)|p|^2'] = [round(float(np.linalg.norm(cf.group_velocity(p, 0.0)[0])), 8), round(1 - 2 * r * r / 3, 8)]
+    # inertial against rest mass
+    im = []
+    for th in (0.042383, 0.087847, 0.157935, 0.215043):
+        h = 1e-3; p = np.array([[h, 0, 0]])
+        curv = 2 * (float(cf.omega(p, th)[0]) - th) / h ** 2             # 1/m_inertial
+        im.append({'theta': th, 'inertial mass (1/curvature at p = 0)': round(1 / curv, 6), 'tan(theta)': round(float(np.tan(th)), 6),
+                   'm_inertial/theta - 1': f(1 / curv / th - 1), 'theta^2/3': f(th * th / 3)})
+    d['rest phase against inertial mass: w = theta + |p|^2/(2 tan theta) + ...'] = im
+    p = rng.uniform(-np.pi / 4, np.pi / 4, (100000, 3)); th = rng.uniform(0, 1.5, 100000)
+    kap = np.cos(th)[:, None] * cf.u0(p) / (2 * np.cos(cf.rho(p)))[:, None]
+    d['exact shell: max | sin^2 w - sin^2 theta - |kappa|^2 |, kappa = cos(theta) u0/(2 cos rho) (100000 points)'] = f(
+        np.abs(np.sin(cf.omega(p, th)) ** 2 - np.sin(th) ** 2 - np.sum(kap ** 2, 1)).max())
+    out['4 isotropy and speed'] = d
+
+# ------------------------------------------------------------------ 5. the whole zone
+if '5' in want:
+    d = {}
+    iso = np.kron(np.array([[1.0], [1.0]]) / np.sqrt(2), np.eye(2))                # X_r = +1 block
+    def h_of(p, sign):                                                             # W+ = sign exp(-i h.sigma), h small
+        Wp = iso.T @ W2(p, 0.0) @ iso
+        return np.array([np.real(1j * np.trace(SIG[i] @ Wp) / 2) for i in range(3)]) * sign
+    rows = []
+    for q in itertools.product((0, 1), repeat=3):
+        p0 = np.array(q) * np.pi / 2
+        C = float(np.prod(np.cos(2 * p0))); sign = 1.0 if C > 0 else -1.0
+        hstep = 1e-5
+        J = np.stack([(h_of(p0 + hstep * np.eye(3)[i], sign) - h_of(p0 - hstep * np.eye(3)[i], sign)) / (2 * hstep) for i in range(3)], -1)
+        th = 0.157935
+        Om = 2 * cf.omega(p0[None], th)[0]
+        dl = 1e-3 * np.array([0.6, -0.5, 0.62]); dn = np.linalg.norm(dl)
+        slope = (np.pi - 2 * cf.omega((p0 + dl)[None], th)[0]) / (2 * dn) if C < 0 else None
+        rows.append({'p*': [f'{k}pi/2' for k in q], 'q = 2p*': [f'{k}pi' for k in q], 'two-tick phase at theta = 0': 0.0 if C > 0 else round(np.pi, 6),
+                     'two-tick phase at theta = 0.157935': round(float(Om), 6), 'det d h/d p (massless, X_r = +)': round(float(np.linalg.det(J)), 4),
+                     'chirality (-1)^[p2* = pi/2]': 1 if q[1] == 0 else -1,
+                     'cone slope (pi - Omega)/(2|dp|) at theta = 0.157935, against cos(theta) = 0.98755': None if slope is None else round(float(slope), 5)})
+    d['the eight points of the zone of the two-tick operator (q = 2p)'] = rows
+    for th in (0.087847, 0.157935):
+        p = rng.uniform(-np.pi, np.pi, (2000000, 3)); Om = 2 * cf.omega(p, th)
+        d[f'theta = {th}: min and max two-tick phase over 2e6 random momenta (rest value 2 theta = {round(2 * th, 6)}; pi only at the 32 odd points)'] = [
+            round(float(Om.min()), 6), round(float(Om.max()), 6)]
+    out['5 zone'] = d
+
+# ------------------------------------------------------------------ 6. coin covariance and spectral symmetry
+if '6' in want:
+    d = {}
+    S2 = SIG
+    def weyl(p): return (np.cos(p[2]) * I2 - 1j * np.sin(p[2]) * S2[2]) @ (np.cos(p[1]) * I2 - 1j * np.sin(p[1]) * S2[1]) @ (np.cos(p[0]) * I2 - 1j * np.sin(p[0]) * S2[0])
+    cases = {'one Weyl block of the ordered tick (2 x 2)': weyl,
+             'ordered tick, four components, massless': lambda p: D_fwd(p, 0.0),
+             'ordered tick, four components, theta = 0.157935': lambda p: D_fwd(p, 0.157935),
+             'alternating two ticks W2, massless': lambda p: W2(p, 0.0),
+             'alternating two ticks W2, theta = 0.157935': lambda p: W2(p, 0.157935)}
+    elems = []
+    for perm in itertools.permutations(range(3)):
+        for sg in itertools.product((1, -1), repeat=3):
+            g = np.zeros((3, 3)); [g.__setitem__((i, perm[i]), sg[i]) for i in range(3)]
+            elems.append(g)
+    pts = rng.uniform(-1.2, 1.2, (7, 3))
+    for name, U in cases.items():
+        cov = []; spec_ = []
+        for g in elems:
+            Us = [U(p) for p in pts]; Ug = [U(g @ p) for p in pts]
+            n = Us[0].shape[0]; eye = np.eye(n)
+            K = np.vstack([np.kron(eye, a.T) - np.kron(b, eye) for a, b in zip(Us, Ug)])      # V U(p) = U(g p) V
+            _, s, vh = np.linalg.svd(K)
+            null = vh[s < 1e-9].conj() if (s < 1e-9).any() else np.zeros((0, n * n))
+            okc = False
+            if len(null):
+                V = (null.T @ (rng.normal(size=len(null)) + 1j * rng.normal(size=len(null)))).reshape(n, n)
+                sv = np.linalg.svd(V, compute_uv=False); okc = bool(sv.min() / sv.max() > 1e-6)
+            if okc: cov.append(g)
+            same = max(np.abs(np.sort(np.angle(np.linalg.eigvals(a))) - np.sort(np.angle(np.linalg.eigvals(b)))).max() for a, b in zip(Us, Ug))
+            if same < 1e-9: spec_.append(g)
+        def describe(gs):
+            return {'order': len(gs), 'proper rotations': int(sum(np.linalg.det(g) > 0 for g in gs)),
+                    'contains the third-turn about (1,1,1)': bool(any(np.allclose(g, np.array([[0, 0, 1], [1, 0, 0], [0, 1, 0]])) for g in gs)),
+                    'contains the inversion': bool(any(np.allclose(g, -np.eye(3)) for g in gs)),
+                    'all diagonal (sign changes only)': bool(all(np.allclose(g, np.diag(np.diag(g))) for g in gs))}
+        d[name] = {'coin covariance V U(p) V^-1 = U(g p), V independent of p': describe(cov), 'spectrum of U(g p) = spectrum of U(p)': describe(spec_)}
+    out['6 symmetry among the 48 signed permutations of the axes'] = d
+
+if len(sys.argv) > 1 and sys.argv[1] != '-':
+    prev = {}
+    if os.path.exists(sys.argv[1]) and want != '0123456':
+        prev = json.load(open(sys.argv[1]))
+    prev.update(out); prev['seconds of the last call'] = round(time.time() - T0, 2)
+    json.dump(prev, open(sys.argv[1], 'w'), indent=1)
+print(json.dumps(out, indent=1))
+print('seconds', round(time.time() - T0, 2))

@@ -1,0 +1,336 @@
+#!/usr/bin/env python3
+"""Worker CA (coupling item A): the chain with the closure read at each registered scale (CANDIDATES.md, rows A, B,
+G, J) and the measured statement E9.
+
+Independent float64 engine for the chain of COUPLING_FIX.md section 2 in units E* = 1:
+  M_U = exp(-2 pi) P^(1/6), E_cell = P^(-1/2), v = E_cell exp(-2 pi / (4 alpha_U)),
+  1/alpha_i(mu) = 1/alpha_U + (b_i / 2 pi) ln(M_U / mu), b = (33/5, 1, -3),
+  m_W = v sqrt(pi alpha_2), m_Z = v sqrt(pi (alpha_2 + (3/5) alpha_1)) (tree),
+  closure: ellbar_SU(2)(4 pi^2 alpha_2(mu_2)) + ellbar_SU(3)(4 pi^2 alpha_3(mu_3)) = P/4.
+The outer map uses the producer's Thomson transport (RER code/P_derivation/paper_math.py, imported read only,
+sha256 recorded). No measured value is read. Writes anchor_chain.json.
+"""
+from __future__ import annotations
+
+import hashlib
+import json
+import sys
+from decimal import Decimal
+from pathlib import Path
+
+import numpy as np
+from scipy.optimize import brentq
+
+HERE = Path(__file__).resolve().parent
+RER = Path("WORKSPACE/reverse-engineering-reality")
+sys.path.insert(0, str(RER / "code/P_derivation"))
+from paper_math import D10Point, PaperMathContext  # noqa: E402
+
+PRODUCER_SHA = hashlib.sha256((RER / "code/P_derivation/paper_math.py").read_bytes()).hexdigest()
+REP = json.loads((RER / "code/P_derivation/runtime/full_p_alpha_report_current.json").read_text())
+P_FWD = float(REP["p"][:30])
+PHI = (1 + 5 ** 0.5) / 2
+SQPI = np.pi ** 0.5
+K = 4 * np.pi ** 2
+B = (33 / 5, 1.0, -3.0)
+ESTAR_GEV = 1.220890e19            # display unit only
+
+# ---------------------------------------------------------------- towers
+N2, N3 = 120, 90
+_n = np.arange(N2 + 1)
+D2 = (_n + 1).astype(float)
+C2 = (_n / 2) * (_n / 2 + 1)
+_p, _q = np.meshgrid(np.arange(N3 + 1), np.arange(N3 + 1), indexing="ij")
+D3 = ((_p + 1) * (_q + 1) * (_p + _q + 2) / 2).ravel().astype(float)
+C3 = ((_p ** 2 + _q ** 2 + _p * _q + 3 * _p + 3 * _q) / 3).ravel().astype(float)
+LD2, LD3 = np.log(D2), np.log(D3)
+
+
+def _ellbar(t, lnd, cas):
+    logw = lnd - t * cas
+    w = np.exp(logw - logw.max())
+    return float((w * lnd).sum() / w.sum())
+
+
+def ell2(t):
+    return _ellbar(t, LD2, C2)
+
+
+def ell3(t):
+    return _ellbar(t, LD3, C3)
+
+
+# exact label set of G = S(U(3) x U(2)): (p, q), n = 2j, hypercharge 6Y = k + 6 m, k = (3 n - 2 (p - q)) mod 6
+G2, G3, GM = 40, 30, 40
+_gn = np.arange(G2 + 1)
+_gp, _gq = np.meshgrid(np.arange(G3 + 1), np.arange(G3 + 1), indexing="ij")
+_gp, _gq = _gp.ravel(), _gq.ravel()
+GD2 = (_gn + 1).astype(float); GC2 = (_gn / 2) * (_gn / 2 + 1)
+GD3 = ((_gp + 1) * (_gq + 1) * (_gp + _gq + 2) / 2).astype(float)
+GC3 = ((_gp ** 2 + _gq ** 2 + _gp * _gq + 3 * _gp + 3 * _gq) / 3).astype(float)
+KCLASS = (3 * _gn[:, None] - 2 * (_gp - _gq)[None, :]) % 6      # shape (n, pq)
+
+
+def theta_classes(t1):
+    m = np.arange(-GM, GM + 1)
+    return np.array([np.exp(-t1 * 0.6 * (k / 6 + m) ** 2).sum() for k in range(6)])
+
+
+def lhs_G(t1, t2, t3):
+    """<ln d_R3 + ln d_j> over the Z6-constrained label set with the hypercharge weight exp(-t1 (3/5) Y^2)."""
+    w2 = GD2 * np.exp(-t2 * GC2)
+    w3 = GD3 * np.exp(-t3 * GC3)
+    th = theta_classes(t1)[KCLASS]
+    W = w2[:, None] * w3[None, :] * th
+    num = (W * (np.log(GD2)[:, None] + np.log(GD3)[None, :])).sum()
+    return float(num / W.sum())
+
+
+def lhs_prod_small(t2, t3):
+    w2 = GD2 * np.exp(-t2 * GC2); w3 = GD3 * np.exp(-t3 * GC3)
+    return float((w2 * np.log(GD2)).sum() / w2.sum() + (w3 * np.log(GD3)).sum() / w3.sum())
+
+
+# ---------------------------------------------------------------- chain
+def anchors(P):
+    return np.exp(-2 * np.pi) * P ** (1 / 6), P ** -0.5          # M_U, E_cell
+
+
+def run(aU, mu, MU):
+    inv = [1 / aU + b / (2 * np.pi) * np.log(MU / mu) for b in B]
+    if min(inv) <= 0:
+        return None
+    return [1 / x for x in inv]
+
+
+def vev(aU, P):
+    return P ** -0.5 * np.exp(-2 * np.pi / (4 * aU))
+
+
+def masses(aU, P, mu):
+    MU, _ = anchors(P)
+    a = run(aU, mu, MU)
+    if a is None:
+        return None
+    v = vev(aU, P)
+    return v * np.sqrt(np.pi * a[1]), v * np.sqrt(np.pi * (a[1] + 0.6 * a[0])), v
+
+
+def fixed_point(aU, P, f):
+    """mu = f(m_W(mu), m_Z(mu), v), by iteration."""
+    mu = vev(aU, P) / 2
+    for _ in range(300):
+        m = masses(aU, P, mu)
+        if m is None:
+            return None
+        new = f(*m)
+        if abs(new - mu) <= 1e-15 * mu:
+            return new
+        mu = new
+    return mu
+
+
+F_MZ = lambda mW, mZ, v: mZ                                        # noqa: E731
+F_MW = lambda mW, mZ, v: mW                                        # noqa: E731
+ROWS = {
+    "A1": ("m_Z(mu), first freeze", F_MZ, "same"),
+    "A2": ("m_W(mu), second freeze", F_MW, "same"),
+    "A3": ("sqrt(m_W m_Z)", lambda mW, mZ, v: np.sqrt(mW * mZ), "same"),
+    "A4": ("sqrt((2 m_W^2 + m_Z^2)/3)", lambda mW, mZ, v: np.sqrt((2 * mW ** 2 + mZ ** 2) / 3), "same"),
+    "A5": ("v", lambda mW, mZ, v: v, "same"),
+    "A6": ("v/sqrt2", lambda mW, mZ, v: v / np.sqrt(2), "same"),
+    "A7a": ("m_Z/2", lambda mW, mZ, v: mZ / 2, "same"),
+    "A7b": ("2 m_Z", lambda mW, mZ, v: 2 * mZ, "same"),
+    "A7c": ("2 pi m_Z", lambda mW, mZ, v: 2 * np.pi * mZ, "same"),
+    "A7d": ("m_Z/(2 pi)", lambda mW, mZ, v: mZ / (2 * np.pi), "same"),
+    "B1": ("SU(2) at m_Z(mu), SU(3) singlet sector", F_MZ, None),
+    "G1": ("m_Z(mu), exact label set of G with hypercharge", F_MZ, "G"),
+    "J2": ("m_W(mu) for the closure and for the start of the transport", F_MW, "same"),
+}
+
+
+def residual(aU, P, row):
+    _, f, mode = ROWS[row]
+    MU, _ = anchors(P)
+    mu = fixed_point(aU, P, f)
+    if mu is None:
+        return float("nan")
+    a = run(aU, mu, MU)
+    if a is None:
+        return float("nan")
+    if mode == "G":
+        return lhs_G(K * a[0], K * a[1], K * a[2]) - P / 4
+    s3 = ell3(K * a[2]) if mode == "same" else 0.0
+    return ell2(K * a[1]) + s3 - P / 4
+
+
+def roots_inv_alpha(P, row, lo=8.0, hi=80.0, n=145):
+    xs = np.linspace(lo, hi, n)
+    vals = [residual(1 / x, P, row) for x in xs]
+    out = []
+    for i in range(1, n):
+        f0, f1 = vals[i - 1], vals[i]
+        if np.isfinite(f0) and np.isfinite(f1) and (f0 > 0) != (f1 > 0):
+            out.append(brentq(lambda x: residual(1 / x, P, row), xs[i - 1], xs[i], xtol=1e-13, rtol=1e-14))
+    return out
+
+
+def solve_near(P, row, x0, half=1.5):
+    return brentq(lambda x: residual(1 / x, P, row), x0 - half, x0 + half, xtol=1e-13, rtol=1e-14)
+
+
+CTX = PaperMathContext(precision=30, su2_cutoff=2, su3_cutoff=2)
+
+
+def point(P, x, row):
+    aU = 1 / x
+    _, f, mode = ROWS[row]
+    MU, Ecell = anchors(P)
+    v = vev(aU, P)
+    mZ = fixed_point(aU, P, F_MZ)
+    mW = fixed_point(aU, P, F_MW)
+    mu = fixed_point(aU, P, f)
+    a_r = run(aU, mu, MU)
+    start = mW if row == "J2" else mZ                    # scale at which the charge label takes over
+    a1, a2, a3 = run(aU, start, MU)
+    aY = 0.6 * a1
+    aem = 1 / (1 / a2 + 1 / aY)
+    aZ = run(aU, mZ, MU)
+    aemZ = 1 / (1 / aZ[1] + 1 / (0.6 * aZ[0]))
+    D = lambda z: Decimal(repr(float(z)))  # noqa: E731
+    d10 = D10Point(p=D(P), n_c=3, mu_u=D(MU), alpha_u=D(aU), mz_run=D(start), v=D(v), alpha1_mz=D(a1),
+                   alpha2_mz=D(a2), alpha3_mz=D(a3), alpha_y_mz=D(aY), alpha_em_mz=D(aem),
+                   alpha_em_inv_mz=D(1 / aem), sin2w_mz=D(aem / a2))
+    tr = CTX.structured_thomson_running(d10)
+    A_T = float(d10.alpha_em_inv_mz + tr["total_delta_alpha_inv"])
+    e2 = ell2(K * a_r[1])
+    e3 = ell3(K * a_r[2]) if mode in ("same", "G") else 0.0
+    return {"inv_alpha_U": x, "alpha_U": aU, "M_U": MU, "E_cell": Ecell, "v": v, "v_GeV": v * ESTAR_GEV,
+            "mZ_tree": mZ, "mZ_GeV": mZ * ESTAR_GEV, "mW_tree": mW, "mW_GeV": mW * ESTAR_GEV,
+            "reading_scale": mu, "reading_scale_GeV": mu * ESTAR_GEV, "ln_MU_over_reading_scale": float(np.log(MU / mu)),
+            "inv_alpha_2_read": 1 / a_r[1], "inv_alpha_3_read": 1 / a_r[2], "inv_alpha_1_read": 1 / a_r[0],
+            "ell2_read": e2, "ell3_read": e3, "P_over_4": P / 4,
+            "sin2w_mZ": aemZ / aZ[1], "alpha_em_inv_mZ": 1 / aemZ, "alpha_s_mZ": aZ[2],
+            "transport_start": start, "alpha_em_inv_start": 1 / aem, "A_T": A_T,
+            "delta_alpha_inv_transport": float(tr["total_delta_alpha_inv"])}
+
+
+def outer_fixed_point(row, x0):
+    P = P_FWD
+    x = x0
+    hist = []
+    for _ in range(14):
+        x = solve_near(P, row, x)
+        pt = point(P, x, row)
+        P_new = PHI + SQPI / pt["A_T"]
+        hist.append(abs(P_new - P))
+        P = P_new
+        if hist[-1] < 1e-14:
+            break
+    x = solve_near(P, row, x)
+    return {"P_star": P, **point(P, x, row), "dP_history": hist}
+
+
+out = {"inputs": {"P_fwd": P_FWD, "slopes": list(B), "producer_sha256": PRODUCER_SHA,
+                  "E_star_GeV_display_unit": ESTAR_GEV, "measured_values_read": "none"}, "rows": {}}
+for row in ROWS:
+    roots = roots_inv_alpha(P_FWD, row)
+    entry = {"reading": ROWS[row][0], "roots_inv_alpha_U_at_P_fwd_in_8_to_80": roots}
+    if len(roots) == 1:
+        entry["at_P_fwd"] = point(P_FWD, roots[0], row)
+        entry["fixed_point"] = outer_fixed_point(row, roots[0])
+    out["rows"][row] = entry
+    fp = entry.get("fixed_point", {})
+    print(row, ROWS[row][0], "| roots", [round(r, 4) for r in roots], "| P*", fp.get("P_star"), "| 1/aU",
+          fp.get("inv_alpha_U"), "| v GeV", fp.get("v_GeV"), "| A_T", fp.get("A_T"), flush=True)
+
+# ---------------------------------------------------------------- validation against the producer's printed point
+d = REP["d10"]
+a1r = out["rows"]["A1"]["at_P_fwd"]
+val = {"alpha_U_rel_dev": a1r["alpha_U"] / float(d["alpha_u"][:25]) - 1,
+       "alpha_em_inv_mZ_rel_dev": a1r["alpha_em_inv_mZ"] / float(d["alpha_em_inv_mz"][:25]) - 1,
+       "A_T_rel_dev": a1r["A_T"] / float(REP["alpha_inv"][:25]) - 1,
+       "P_star_minus_P_fwd": out["rows"]["A1"]["fixed_point"]["P_star"] - P_FWD}
+out["validation_A1_vs_producer"] = val
+assert abs(val["alpha_U_rel_dev"]) < 1e-10 and abs(val["A_T_rel_dev"]) < 1e-9, val
+
+# ---------------------------------------------------------------- G1: exact label set against the product form
+xA1 = out["rows"]["A1"]["at_P_fwd"]["inv_alpha_U"]
+MU, Ecell = anchors(P_FWD)
+muA = out["rows"]["A1"]["at_P_fwd"]["reading_scale"]
+aA = run(1 / xA1, muA, MU)
+t1, t2, t3 = K * aA[0], K * aA[1], K * aA[2]
+th = theta_classes(t1)
+out["G1_detail"] = {"t1_t2_t3_at_anchor": [t1, t2, t3],
+                    "theta_by_class": [float(z) for z in th],
+                    "theta_max_relative_spread": float((th.max() - th.min()) / th.mean()),
+                    "lhs_G_minus_lhs_product_at_A1_point": lhs_G(t1, t2, t3) - lhs_prod_small(t2, t3),
+                    "inv_alpha_U_G1_minus_A1_at_P_fwd": (out["rows"]["G1"]["at_P_fwd"]["inv_alpha_U"] - xA1)
+                    if "at_P_fwd" in out["rows"]["G1"] else None,
+                    # the same comparison at the cell-scale value t = 2.4301 used by GL and EB (equal couplings)
+                    "lhs_G_minus_lhs_product_at_t_2p4301": lhs_G(2.4301, 2.4301, 2.4301) - lhs_prod_small(2.4301, 2.4301)}
+
+# ---------------------------------------------------------------- E9: uniqueness of the fixed points and the left side along the running
+aU = 1 / xA1
+h = 1e-4
+mZ0 = fixed_point(aU, P_FWD, F_MZ); mW0 = fixed_point(aU, P_FWD, F_MW)
+slope = {}
+for name, mu0, idx in (("mZ", mZ0, 1), ("mW", mW0, 0)):
+    up = masses(aU, P_FWD, mu0 * np.exp(h))[idx]; dn = masses(aU, P_FWD, mu0 * np.exp(-h))[idx]
+    slope["dln_%s_dln_mu" % name] = float((np.log(up) - np.log(dn)) / (2 * h))
+# g(mu) = m_Z(mu)/mu over the whole range: one crossing of 1
+grid = np.geomspace(1e-3 / ESTAR_GEV, Ecell, 4000)
+gz = np.array([masses(aU, P_FWD, mu)[1] / mu if masses(aU, P_FWD, mu) else np.nan for mu in grid])
+gw = np.array([masses(aU, P_FWD, mu)[0] / mu if masses(aU, P_FWD, mu) else np.nan for mu in grid])
+cross = lambda g: int(np.sum((g[1:] > 1) != (g[:-1] > 1)))  # noqa: E731
+slope["crossings_of_mZ_over_mu_equal_1"] = cross(gz[np.isfinite(gz)])
+slope["crossings_of_mW_over_mu_equal_1"] = cross(gw[np.isfinite(gw)])
+slope["range_GeV"] = [float(grid[0] * ESTAR_GEV), float(grid[-1] * ESTAR_GEV)]
+
+
+def lhs_at(mu):
+    a = run(aU, mu, MU)
+    return None if a is None else (ell2(K * a[1]), ell3(K * a[2]))
+
+
+scan = []
+for mu_gev in [Ecell * ESTAR_GEV, MU * ESTAR_GEV, 1e12, 1e9, 1e6, 1e4, 1e3, 246.597, mZ0 * ESTAR_GEV, mW0 * ESTAR_GEV, 50, 30,
+               20, 10, 5, 3, 2, 1, 0.5, 0.1]:
+    r = lhs_at(mu_gev / ESTAR_GEV)
+    scan.append({"mu_GeV": float(mu_gev), "ell2": None if r is None else r[0], "ell3": None if r is None else r[1],
+                 "lhs": None if r is None else r[0] + r[1]})
+fine = np.geomspace(1e-2, Ecell * ESTAR_GEV, 6000)
+vals = np.array([sum(lhs_at(m / ESTAR_GEV)) if lhs_at(m / ESTAR_GEV) else np.nan for m in fine])
+okm = np.isfinite(vals)
+imin = int(np.nanargmin(vals))
+dv = np.diff(vals[okm])
+above = vals[okm] - P_FWD / 4
+crossings = [float(fine[okm][i]) for i in range(len(above) - 1) if (above[i] > 0) != (above[i + 1] > 0)]
+out["E9"] = {"slopes_at_A1": slope, "lhs_scan": scan,
+             "lhs_minimum_formal_continuation": {"mu_GeV": float(fine[imin]), "lhs": float(vals[imin])},
+             "lhs_monotone_from_mZ_up_to_E_cell": bool(np.all(np.diff(vals[okm][fine[okm] >= mZ0 * ESTAR_GEV]) > 0)),
+             "lhs_monotone_on_whole_range": bool(np.all(dv > 0)),
+             "scales_where_lhs_equals_P_over_4_GeV": crossings,
+             "lowest_scale_with_finite_couplings_GeV": float(fine[okm][0]),
+             "dlhs_dln_mu_at_mZ": float((sum(lhs_at(mZ0 * np.exp(h))) - sum(lhs_at(mZ0 * np.exp(-h)))) / (2 * h)),
+             "note": "below m_Z the scan is a formal continuation of the chain's one-loop running with all twelve "
+                     "currents live; it is no statement about the source"}
+
+# ---------------------------------------------------------------- sensitivities from the A7 rows
+r0 = out["rows"]["A1"]["fixed_point"]
+sens = {}
+for row, c in (("A7a", 0.5), ("A7b", 2.0), ("A7c", 2 * np.pi), ("A7d", 1 / (2 * np.pi)), ("A2", None)):
+    r = out["rows"][row].get("fixed_point")
+    if not r:
+        continue
+    dl = float(np.log(r["reading_scale"] / r0["reading_scale"]))
+    sens[row] = {"dln_reading_scale": dl, "d_inv_alpha_U": r["inv_alpha_U"] - r0["inv_alpha_U"],
+                 "dln_v": float(np.log(r["v"] / r0["v"])), "d_A_T": r["A_T"] - r0["A_T"],
+                 "d_A_T_per_efold": (r["A_T"] - r0["A_T"]) / dl, "dln_v_per_efold": float(np.log(r["v"] / r0["v"])) / dl}
+out["sensitivity_to_reading_scale"] = sens
+
+(HERE / "anchor_chain.json").write_text(json.dumps(out, indent=1, default=float) + "\n")
+print(json.dumps({"validation": val, "G1": out["G1_detail"], "E9": {k: v for k, v in out["E9"].items() if k != "lhs_scan"},
+                  "sens": sens}, indent=1, default=float))
+for s_ in scan:
+    print(s_)

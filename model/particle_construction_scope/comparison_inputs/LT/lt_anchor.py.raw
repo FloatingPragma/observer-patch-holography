@@ -1,0 +1,404 @@
+"""LT (step L3): anchors of the clock unit on the repository's own objects. Routes D1, D2, D3, D4, D5, D8.
+
+Run from the public checkout (read only):
+  cd <RER> && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:<RL>/work/LT /tmp/oph-completion-venv/bin/python -B <RL>/work/LT/lt_anchor.py
+EXACT (Fractions and sympy). Writes lt_anchor.json next to this file. No measured value enters.
+"""
+import json
+import os
+import random
+import sys
+from fractions import Fraction as F
+
+sys.dont_write_bytecode = True
+import sympy as s  # noqa: E402
+
+from model.coherent_defect_wave.spatial.family import PairState, dressed_swap, exchange, A as GATE_A, B as GATE_B  # noqa: E402
+from model.coherent_seam_repair.program import Observer, State  # noqa: E402
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+OUT = {}
+tau = s.Symbol('tau', real=True)
+
+# ---------------------------------------------------------------- D1: edge anchor
+# S is a Hermitian involution, so exp(-i tau (pi/4)(I - S)) = c0(tau) I + c1(tau) S.
+c0 = (1 + s.exp(-s.I * s.pi * tau / 2)) / 2
+c1 = (1 - s.exp(-s.I * s.pi * tau / 2)) / 2
+
+
+def coeffs(t):
+    return s.nsimplify(s.simplify(c0.subs(tau, t))), s.nsimplify(s.simplify(c1.subs(tau, t)))
+
+
+pair = PairState({((1, 5, 3, 0, 0), (3, 6, 0, 1, 8)): 1,
+                  ((6553635, 6, 4, 1, 59), (1, 5, 3, 0, 4)): s.I,
+                  ((3, 0, 0, 0, 7), (6553633, 5, 4, 1, 18)): 2}, 6)
+swapped = dressed_swap(pair)
+
+
+def clock_edge(state, t):
+    """exp(-i t (pi/4)(I - S)) on a pair state, built from the repository's dressed swap."""
+    a, b = coeffs(t)
+    src, swp = state.as_dict(), dressed_swap(state).as_dict()
+    return PairState({k: s.expand(a * src.get(k, 0) + b * swp.get(k, 0)) for k in src.keys() | swp.keys()},
+                     state.norm_denominator)
+
+
+gate, gate_inv = exchange(pair), exchange(pair, inverse=True)
+rows = []
+for t in (s.Integer(1), s.Integer(5), s.Integer(-3), s.Integer(9), s.Integer(-7), s.Integer(-1), s.Integer(3),
+          s.Integer(2), s.Rational(1, 2), s.pi / 2, 2 / s.pi, s.Rational(4, 5), s.Integer(0), s.Integer(4)):
+    st = clock_edge(pair, t)
+    rows.append({'tau': str(t), 'equals the tick edge gate E': st == gate, 'equals E^-1': st == gate_inv,
+                 'equals S': st == swapped, 'equals the identity': st == pair})
+# c1(tau) = b and c0(tau) = a hold iff exp(-i pi tau/2) = 1 - 2 b = -i, that is pi tau/2 = pi/2 modulo 2 pi.
+n_int = s.Symbol('n', integer=True)
+family_ok = s.simplify(s.exp(-s.I * s.pi * (1 + 4 * n_int) / 2) + s.I) == 0
+OUT['D1 edge anchor'] = {
+    'repository gate coefficients (a, b)': [str(GATE_A), str(GATE_B)],
+    'clock coefficients at tau = 1': [str(x) for x in coeffs(1)],
+    'S is an involution on the pair state': dressed_swap(swapped) == pair,
+    'E E = S on the pair state': exchange(gate) == swapped,
+    'pair state norm': str(pair.norm_squared()),
+    'rows': rows,
+    'condition': 'exp(-i tau h) = E iff exp(-i pi tau/2) = 1 - 2 b = -i iff tau = 1 modulo 4',
+    'exp(-i pi (1 + 4 n)/2) = -i for integer n (symbolic)': bool(family_ok),
+    'reading': 'exp(-i tau (pi/4)(I - S)) = E exactly for tau in 1 + 4 Z; E^-1 for tau in -1 + 4 Z; S for tau in 2 + 4 Z',
+}
+
+# ---------------------------------------------------------------- D2: principal branch
+# one-body spectrum of tau h: {0, tau pi/2}; principal logarithm of E (eigenvalues 1 and -i) has phases in (-pi, pi].
+members = [1 + 4 * n for n in range(-6, 7)]
+OUT['D2 principal branch'] = {
+    'one-body eigenvalues of tau h': ['0', 'tau pi/2'],
+    'members of 1 + 4 Z with |tau| pi/2 < pi': [m for m in members if abs(m) < 2],
+    'members tested': members,
+}
+
+# ---------------------------------------------------------------- program objects
+obs = Observer()
+n_addr = obs.address_count
+L = [[0] * 12 for _ in range(12)]
+for a, b in obs.seams:
+    L[a][a] += 1
+    L[b][b] += 1
+    L[a][b] -= 1
+    L[b][a] -= 1
+Lm = s.Matrix(L)
+
+
+def consensus(vec):
+    amps = [F(0)] * obs.dimension
+    for port, c in enumerate(vec):
+        if c:
+            for i, x in enumerate(obs.embedded_port(port).amplitudes):
+                amps[i] += F(c) * x
+    return State(tuple(amps), n_addr)
+
+
+def inner(x, y):
+    return sum(a * b for a, b in zip(x.amplitudes, y.amplitudes)) / x.norm_denominator
+
+
+def record_one(y):
+    p1 = F(0)
+    for port in range(12):
+        for address in range(n_addr):
+            v = y.amplitudes[obs.index(port, 1, address)]
+            p1 += v * v
+    return p1 / y.norm_denominator
+
+
+def lin(states, weights):
+    amps = [sum(w * st.amplitudes[i] for st, w in zip(states, weights)) for i in range(obs.dimension)]
+    return State(tuple(amps), states[0].norm_denominator)
+
+
+# ---------------------------------------------------------------- D4 (i), (ii): identity and consensus block
+ident = []
+for port in range(12):
+    x = obs.embedded_port(port)
+    y = obs.step(x)
+    ident.append((1 - inner(x, y) / inner(x, x), record_one(y) / inner(x, x)))
+random.seed(11)
+rand_ok = True
+for trial in range(6):
+    vec = [F(random.randint(-9, 9), random.randint(1, 7)) for _ in range(12)]
+    x = consensus(vec)
+    y = obs.step(x)
+    rand_ok &= (1 - inner(x, y) / inner(x, x)) == record_one(y) / inner(x, x)
+K = s.zeros(12, 12)
+for q in range(12):
+    y = obs.step(obs.embedded_port(q))
+    for p in range(12):
+        K[p, q] = s.Rational(inner(obs.embedded_port(p), y))
+block_ok = (K == s.eye(12) - Lm / 60)
+eig = {str(k): int(v) for k, v in Lm.eigenvals().items()}
+# invariance of the consensus sector: (I - Re W) A e_p = sum_q (L/60)_{qp} A e_q for every port p
+invariant = True
+for p in range(12):
+    x = obs.embedded_port(p)
+    lhs = lin([x, obs.step(x), obs.inverse_step(x)], [F(1), F(-1, 2), F(-1, 2)])
+    rhs = consensus([F(L[q][p], 60) for q in range(12)])
+    invariant &= all(a == b for a, b in zip(lhs.amplitudes, rhs.amplitudes)) and lhs.norm_denominator == rhs.norm_denominator
+OUT['D4 rate matching, action form'] = {
+    '(i) 1 - <psi|W psi> and P(record 1), twelve ports': sorted({(str(a), str(b)) for a, b in ident}),
+    '(i) equal on six random blank consensus inputs': rand_ok,
+    '(ii) consensus block A^dag W A equals K_12 = I - L/60': block_ok,
+    '(ii) spectrum of the port Laplacian L (eigenvalue: multiplicity)': eig,
+    '(ii) (I - Re W) A = A L/60 on all twelve ports (the consensus sector is invariant)': invariant,
+    '(ii) consequence': 'on the consensus sector exp(-i t (I - Re W)) = A exp(-i t (I - K_12)) A^dag: the declared onsite clock is the '
+                        'unitary continuation of the attempt semigroup exp(-t (I - K_12)) = sum_n Poisson(n; t) K_12^n with the same t',
+    '(iii) Poisson identity': 'exp(60 t (K_12 - I)) = exp(-t L) follows from (ii) as an identity of functions of L; '
+                              'the mean number of attempts in clock time t is 60 t for the generator L and t for the generator L/60',
+    '(iv) rate r attempts per unit clock time': {
+        'generator': 'r (I - K_12)', 'mean clock time per attempt': '1/r', 'product of coefficient and time per attempt': '1',
+        'action per attempt on a consensus input': '<I - K_12> = P(record 1), for every r'},
+}
+
+# ---------------------------------------------------------------- D3: onsite anchor
+# (a) single event: the program's repair Q and its address reflection R are involutions; the tick W = Q R is none.
+random.seed(3)
+amps = [F(random.randint(-5, 5)) for _ in range(obs.dimension)]
+psi = State(tuple(amps))
+q_inv = obs.repair(obs.repair(psi)).amplitudes == psi.amplitudes
+r_inv = obs.reflect(obs.reflect(psi)).amplitudes == psi.amplitudes
+w_inv = obs.step(obs.step(psi)).amplitudes == psi.amplitudes
+family_a_ok = s.simplify(s.exp(-2 * s.I * (s.pi / 2 + s.pi * n_int)) + 1) == 0
+# (b) the tick on a consensus mode of L: x = A v, L v = ell v. Then (I - Re W) x = (ell/60) x and W x is no multiple of x.
+modes = []
+for ell, mult, vecs in Lm.eigenvects():
+    if ell == 0:
+        continue
+    v = vecs[0]
+    if any(not c.is_rational for c in v):
+        continue
+    v = v * s.ilcm(*[c.q for c in v])
+    x = consensus([int(c) for c in v])
+    wx, wix = obs.step(x), obs.inverse_step(x)
+    energy_vec = lin([x, wx, wix], [F(1), F(-1, 2), F(-1, 2)])
+    nx = inner(x, x)
+    ratio = F(int(ell), 60)
+    scalar = all(a == ratio * b for a, b in zip(energy_vec.amplitudes, x.amplitudes))
+    c1w = inner(x, wx) / nx
+    c2w = inner(x, obs.step(wx)) / nx
+    parallel = all(a == c1w * b for a, b in zip(wx.amplitudes, x.amplitudes))
+    modes.append({'L eigenvalue': str(ell), 'vector': [int(c) for c in v], '(I - Re W) x = (ell/60) x': scalar,
+                  '<x|W x>/<x|x>': str(c1w), '<x|W^2 x>/<x|x>': str(c2w), '2 cos^2 - 1': str(2 * c1w * c1w - 1),
+                  'W x proportional to x': parallel})
+irr = []
+for ell in (5 - s.sqrt(5), 5 + s.sqrt(5), s.Integer(6)):
+    mu = ell / 60
+    phi = s.acos(1 - mu)
+    irr.append({'L eigenvalue': str(ell), 'energy-clock value mu = ell/60': str(s.nsimplify(mu)), 'Floquet phase phi = arccos(1 - mu)': float(phi),
+                'phi/mu': float(phi / mu)})
+OUT['D3 onsite anchor'] = {
+    '(a) repair Q is an involution': q_inv, '(a) address reflection R is an involution': r_inv, '(a) tick W = Q R is an involution': w_inv,
+    '(a) exp(-i tau (I - Q)) = Q': 'I - Q = 2 Pi, so exp(-i tau (I - Q)) = I + (exp(-2 i tau) - 1) Pi equals Q = I - 2 Pi iff exp(-2 i tau) = -1',
+    '(a) solution set': 'tau = pi/2 modulo pi',
+    '(a) exp(-2 i (pi/2 + pi n)) = -1 for integer n (symbolic)': bool(family_a_ok),
+    '(b) rational consensus modes on the program': modes,
+    '(b) all three nonzero eigenvalues': irr,
+    '(b) reading': 'on the plane span{x, W x} of a consensus mode I - Re W is the scalar ell/60, so exp(-i tau (I - Re W)) is a '
+                   'scalar there for every tau, while W rotates the plane by the angle arccos(1 - ell/60): no tau gives the tick',
+}
+
+# ---------------------------------------------------------------- D5: rate matching, record form
+# continuous clock of the single event Q from a blank consensus input (R fixes it): record-1 weight at clock time tau.
+x = obs.embedded_port(0)
+qx = obs.repair(x)
+p_tick = record_one(qx) / inner(x, x)
+half_diff = lin([x, qx], [F(1, 2), F(-1, 2)])              # Pi x
+rec_in_proj = record_one(half_diff) / inner(x, x)           # record-1 weight of Pi x
+amp = (s.exp(-2 * s.I * tau) - 1)
+prob = s.simplify(s.expand(amp * s.conjugate(amp)) * s.Rational(rec_in_proj))
+OUT['D5 rate matching, record form'] = {
+    'P(record 1) after the event (one tick)': str(p_tick),
+    'record-1 weight at clock time tau under exp(-i tau (I - Q))': str(s.simplify(prob)),
+    'as a multiple of the tick value': str(s.simplify(prob / s.Rational(p_tick))),
+    'at tau = 1': float(prob.subs(tau, 1)), 'at tau = pi/2': str(s.simplify(prob.subs(tau, s.pi / 2))),
+    'action integral of <I - Re W> over clock time tau': f'tau * {p_tick}',
+    'reading': 'the record weight is P sin^2(tau): it equals the tick value at tau = pi/2 + pi Z; the action equals the tick value at tau = 1',
+}
+
+# ---------------------------------------------------------------- D8: signal speed
+k = s.Symbol('k', real=True)
+band = s.pi / 2 * (1 - s.cos(k))
+vel = s.diff(band, k)
+OUT['D8 signal speed'] = {
+    'hopping band per axis': str(band), 'group velocity': str(vel), 'largest value': str(s.pi / 2) + ' at k = pi/2',
+    'velocity at k -> 0': str(s.limit(vel, k, 0)), 'momentum independent': bool(s.diff(vel, k) == 0),
+    'clock time for one link at the largest velocity': str(2 / s.pi),
+}
+
+# ---------------------------------------------------------------- D11, D12: the declared pair of coefficients
+# Family H(c_r, c_h) = c_r sum_x (I - Re U_x) + c_h sum_edges dGamma(I - S).
+#   (a) attempts: the consensus block of c_r (I - Re W) is c_r (I - K_12), the generator of the attempt chain at c_r
+#       attempts per unit clock time; one attempt per tick means c_r tau = 1.
+#   (b) edge: exp(-i tau c_h (I - S)) = E iff 2 tau c_h = pi/2 modulo 2 pi, that is tau c_h in pi/4 + pi Z.
+def edge_with(state, tau_value, c_h):
+    z = s.exp(-2 * s.I * tau_value * c_h)
+    a, b = s.nsimplify(s.simplify((1 + z) / 2)), s.nsimplify(s.simplify((1 - z) / 2))
+    src, swp = state.as_dict(), dressed_swap(state).as_dict()
+    return PairState({k: s.expand(a * src.get(k, 0) + b * swp.get(k, 0)) for k in src.keys() | swp.keys()},
+                     state.norm_denominator)
+
+
+def event_with(tau_value, c_r):
+    """exp(-i tau c_r (I - Q)) on the blank consensus input of port 0, compared with the repair event Q."""
+    z = s.simplify(s.exp(-2 * s.I * tau_value * c_r))
+    return z == -1
+
+
+rules = []
+for name, c_r, c_h in (('declared pair', s.Integer(1), s.pi / 4),
+                       ('uniform rule: I - Re(gate) for every gate', s.Integer(1), s.Rational(1, 2)),
+                       ('uniform rule: principal logarithm of every swap gate', s.pi / 2, s.pi / 4)):
+    tau_a = 1 / c_r                                   # one attempt per tick
+    tau_b = s.pi / (4 * c_h)                          # principal solution of (b)
+    rules.append({
+        'rule': name, 'c_r': str(c_r), 'c_h': str(c_h),
+        'tick duration from (a), one attempt per tick': str(tau_a),
+        'tick duration from (b), the edge gate (principal)': str(s.nsimplify(tau_b)),
+        '(a) and (b) agree': bool(s.simplify(tau_a - tau_b) == 0),
+        'edge gate reproduced at the duration of (b) (repository gate)': edge_with(pair, tau_b, c_h) == gate,
+        'edge gate reproduced at the duration of (a) (repository gate)': edge_with(pair, tau_a, c_h) == gate,
+        'attempts per tick at the duration of (b)': str(s.nsimplify(c_r * tau_b)),
+        'single repair event reproduced at the duration of (b)': bool(event_with(tau_b, c_r)),
+        'kappa = c_r times the duration of (b)': str(s.nsimplify(c_r * tau_b)),
+    })
+scale = s.Symbol('scale', positive=True)
+kappa_scaled = s.simplify((scale * 1) * (s.pi / (4 * scale * s.pi / 4)))
+OUT['D11 the declared pair from two conditions'] = {
+    'condition (a)': 'c_r tau = 1 (one attempt of the consensus chain per tick)',
+    'condition (b)': 'tau c_h in pi/4 + pi Z (the edge gate of the tick)',
+    'together': 'c_h/c_r in pi/4 + pi Z; principal solution c_h/c_r = pi/4, the declared pair (1, pi/4) up to a common scale',
+    'rules': rules,
+}
+OUT['D12 invariant form'] = {
+    'kappa on the principal branch': '(pi/4) c_r/c_h', 'kappa of the declared pair with a common scale': str(kappa_scaled),
+    'reading': '(E) and (T) together are the ratio c_r/c_h = 4/pi of the read coefficient to the hopping coefficient',
+}
+
+# ---------------------------------------------------------------- D13: the declared functional on a quarter-turn gate
+def re_part(M):
+    return (M + M.H) / 2
+
+
+# (i) projector Q, quarter turn V_Q = I + (i - 1) Q (the form of the public program's probe)
+Qp = s.diag(1, 0)
+VQ = s.eye(2) + (s.I - 1) * Qp
+d13_i = (s.eye(2) - re_part(VQ)) == Qp
+# (ii) count N = X (x) (I + J) on (pair flag: X in {0, 1}) (x) (current: j = +1, 0, -1)
+Xf = s.diag(0, 1)
+Jc = s.diag(1, 0, -1)
+Ncount = s.kronecker_product(Xf, s.eye(3) + Jc)
+gate = s.diag(*[(-s.I) ** Ncount[i, i] for i in range(6)])
+func = s.eye(6) - re_part(gate)
+d13_ii = s.simplify(func - Ncount) == s.zeros(6, 6)
+target = s.kronecker_product(Xf, s.eye(3)) + s.kronecker_product(Xf, Jc)
+log_gate = s.pi / 2 * Ncount
+odd_log = s.simplify((log_gate[3, 3] - log_gate[5, 5]) / 2)          # odd part on the flagged read, logarithm rule
+odd_fun = s.simplify((func[3, 3] - func[5, 5]) / 2)                  # odd part on the flagged read, functional rule
+even_fun = s.simplify((func[3, 3] + func[5, 5]) / 2 - func[4, 4])    # even part
+# (iii) edge gate as a quarter turn on the swap-odd projector
+S2 = s.Matrix([[0, 1], [1, 0]])
+Pim = (s.eye(2) - S2) / 2
+E2 = GATE_A * s.eye(2) + GATE_B * S2
+d13_iii_gate = s.simplify(E2 - (s.eye(2) + (-s.I - 1) * Pim)) == s.zeros(2, 2)
+d13_iii_fun = s.simplify(s.eye(2) - re_part(E2) - Pim) == s.zeros(2, 2)
+# (iv) the program's quarter turn: V^3 = V^dag, so Re V psi = (V psi + V^3 psi)/2
+random.seed(21)
+amps = [F(random.randint(-4, 4)) for _ in range(obs.dimension)]
+psi = State(tuple(amps))
+address = obs.index(3, 1, 17)
+v1, _ = obs.quarter_turn(psi, address)
+v2, _ = obs.quarter_turn(v1, address)
+v3, _ = obs.quarter_turn(v2, address)
+v4, _ = obs.quarter_turn(v3, address)
+fun_vec = [s.nsimplify(a - (b + c) / 2) for a, b, c in zip(psi.amplitudes, v1.amplitudes, v3.amplitudes)]
+proj_vec = [psi.amplitudes[i] if i == address else 0 for i in range(obs.dimension)]
+d13_iv = all(s.simplify(a - b) == 0 for a, b in zip(fun_vec, proj_vec)) and all(
+    s.simplify(a - b) == 0 for a, b in zip(v4.amplitudes, psi.amplitudes))
+OUT['D13 the declared functional on a quarter-turn gate'] = {
+    '(i) I - Re(I + (i - 1) Q) = Q for a projector Q': d13_i,
+    '(ii) I - Re((-i)^N) = N for N = X (x) (I + J)': d13_ii,
+    '(ii) functional equals X (x) I + J (x) X': s.simplify(func - target) == s.zeros(6, 6),
+    '(ii) odd part on a flagged read, functional rule': str(odd_fun), '(ii) even part, functional rule': str(even_fun),
+    '(ii) odd part on a flagged read, logarithm rule': str(odd_log),
+    '(iii) E = I + (-i - 1) Pi_-, a quarter turn on the swap-odd projector': d13_iii_gate,
+    '(iii) I - Re E = Pi_- = (I - S)/2': d13_iii_fun,
+    '(iii) declared hopping generator': '(pi/4)(I - S) = (pi/2) Pi_-, the principal logarithm of E',
+    '(iv) program quarter turn: psi - (V psi + V^3 psi)/2 = Pi_address psi, V^4 = I': d13_iv,
+    'reading': 'the declared onsite rule (I - Re of the gate) gives a quarter-turn kick the coefficient one; the declared edge '
+               'rule (principal logarithm of the gate) gives it pi/2',
+}
+
+# ---------------------------------------------------------------- D13 (v): the round "tick, quarter turn, inverse tick"
+def quarter_on_record_one(state, times=1):
+    """The program's own quarter turn on every address with record 1 and nonzero amplitude, applied `times` times."""
+    out = state
+    for port in range(12):
+        for address_k in range(n_addr):
+            idx = obs.index(port, 1, address_k)
+            if out.amplitudes[idx] != 0:
+                for _ in range(times):
+                    out, _rec = obs.quarter_turn(out, idx)
+    return out
+
+
+def project_record_one(state):
+    amps = list(state.amplitudes)
+    for port in range(12):
+        for address_k in range(n_addr):
+            amps[obs.index(port, 0, address_k)] = F(0)
+    return State(tuple(amps), state.norm_denominator)
+
+
+round_rows = []
+random.seed(31)
+inputs = [('port 0', obs.embedded_port(0)), ('port 7', obs.embedded_port(7)),
+          ('random consensus', consensus([F(random.randint(-6, 6), random.randint(1, 5)) for _ in range(12)]))]
+for name, x in inputs:
+    wx = obs.step(x)
+    r_fwd = obs.inverse_step(quarter_on_record_one(wx, 1))          # R psi
+    r_bwd = obs.inverse_step(quarter_on_record_one(wx, 3))          # R^-1 psi (V^3 = V^-1)
+    gen = [s.nsimplify(a - (b + c) / 2) for a, b, c in zip(x.amplitudes, r_fwd.amplitudes, r_bwd.amplitudes)]
+    pulled = obs.inverse_step(project_record_one(wx))                # W^-1 Pi_1 W psi
+    same = all(s.simplify(a - b) == 0 for a, b in zip(gen, pulled.amplitudes))
+    nx = inner(x, x)
+    expect = sum(s.nsimplify(a) * b for a, b in zip(gen, x.amplitudes)) / x.norm_denominator / nx
+    round_rows.append({'input': name, 'psi - (R psi + R^-1 psi)/2 = W^-1 Pi_1 W psi': same,
+                       'expectation of I - Re R': str(s.nsimplify(expect)),
+                       '1 - <psi|W psi>': str(1 - inner(x, wx) / nx),
+                       'return amplitude <psi|R psi>': str(s.nsimplify(sum(s.nsimplify(a) * b for a, b in zip(r_fwd.amplitudes, x.amplitudes))
+                                                                   / x.norm_denominator / nx))})
+# algebraic form with the count gate, generic 2 x 2 tick on the pair flag
+ww = s.Matrix([[s.Rational(3, 5), -s.Rational(4, 5)], [s.Rational(4, 5), s.Rational(3, 5)]])
+Wfull = s.kronecker_product(ww, s.eye(3))
+Rround = Wfull.H * gate * Wfull
+Xw = ww.H * Xf * ww
+d13_v = s.simplify(s.eye(6) - re_part(Rround) - s.kronecker_product(Xw, s.eye(3) + Jc)) == s.zeros(6, 6)
+OUT['D13 (v) the round tick, quarter turn, inverse tick'] = {
+    'public program rows': round_rows,
+    'I - Re(W^-1 (-i)^(X (x) (I + J)) W) = X_W (x) (I + J) for a generic tick on the flag': d13_v,
+    'reading': 'the declared onsite rule applied to the round with a quarter-turn kick returns the generator of the phase clock '
+               'with coefficient one; on a blank consensus input its expectation equals the energy-clock value of the tick',
+}
+
+# ---------------------------------------------------------------- D14: the kick inside a joint onsite unitary
+cc, ss = s.symbols('c s', real=True)
+u0 = cc + s.I * ss                                            # <U_0> on the state of the other register
+eff = [s.simplify(1 - s.re(s.expand((-s.I) ** n * u0))) for n in (0, 1, 2)]      # N = 0, 1, 2: j = -1, 0, +1 on a flagged read
+odd14 = s.simplify((eff[2] - eff[0]) / 2)
+even14 = s.simplify((eff[2] + eff[0]) / 2 - eff[1])
+OUT['D14 the kick inside a joint onsite unitary'] = {
+    'effective values of I - Re((-i)^N <U_0>) for N = 0, 1, 2': [str(e) for e in eff],
+    'odd coefficient on a flagged read': str(odd14), 'even phase on a flagged read': str(even14),
+    'with U_0 a tick of FR object, <S|W|S> = 2/3': {'odd coefficient': '2/3', 'phase': str(s.Rational(2, 9) * s.Rational(2, 3))},
+    'reading': 'inside a joint onsite unitary the coefficient of the kick is Re<U_0> of its co-factor; coefficient one needs the '
+               'round as a term of its own, or a co-factor that acts as the identity on the state',
+}
+
+json.dump(OUT, open(os.path.join(HERE, 'lt_anchor.json'), 'w'), indent=1, default=str)
+print(json.dumps(OUT, indent=1, default=str))

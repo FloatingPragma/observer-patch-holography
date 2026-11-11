@@ -1,0 +1,91 @@
+{
+ "task": "LR task 1: gates",
+ "public repository commit": "736c6d9293cb3fe0d36f607362c298e1b8f18e89",
+ "labels": "EXACT (rational arithmetic)",
+ "gates": {
+  "public: blank 5/6, record 2 1/12, record 3 1/12 at every port": true,
+  "public: P(R+) 1/12, P(H) 1/6, P(R+ and H) 1/72 at every port": true,
+  "public: count 2/9 at every port": true,
+  "public: ratio H : R+ : R- = 2 : 1 : 1 at every port": true,
+  "public: weak round on sixty addresses, overlaps 1/12 and 1/6, <start|X> = <X|X> = 2/9": true,
+  "public: non-return norms 11/144 and 5/36, blank record, zero uniform-address part": true,
+  "public: weak-round phase 0.205334 at N = 1 and 0.222062 at N = 10": true,
+  "public receipt: 80 named checks, all pass": true,
+  "LC module: blank 5/6, record 2 1/12, record 3 1/12 (double at port 2)": true,
+  "LC module: the same weights at each of the twelve ports": true,
+  "LC module: P(R+) 1/12, P(H) 1/6, joint 1/72 (independent registers), count 2/9": true,
+  "LC module: inverse tick restores the standing state": true,
+  "LC module: <D|W^-1 Pi W|D> = 1/12 and 1/6": true,
+  "LC module: forward only 2/9, 0.486, 0.536, 0.467": true,
+  "LC stored output: P = 2/9, phases 0.205334 (N = 1) and 0.222062 (N = 10)": true
+ },
+ "all gates pass": true,
+ "data": {
+  "public": {
+   "double load, weights at port 2": {
+    "blank": "5/6",
+    "record 2": "1/12",
+    "record 3": "1/12"
+   },
+   "two cells at port 2": {
+    "p_r": "1/12",
+    "p_h": "1/6",
+    "joint": "1/72",
+    "total": "1",
+    "count": "2/9"
+   },
+   "weak round at port 2": {
+    "s_A": "1/12",
+    "s_B": "1/6",
+    "<start|X>": "2/9",
+    "<X|X>": "2/9",
+    "non-return X": {
+     "norm2": "11/144",
+     "off": "0",
+     "uniform": "0"
+    },
+    "non-return Y": {
+     "norm2": "5/36",
+     "off": "0",
+     "uniform": "0"
+    }
+   },
+   "phase per unit clock time": {
+    "1": "0.205334030970278",
+    "10": "0.222062099670503",
+    "1000": "0.222222206218563"
+   }
+  },
+  "public receipt": {
+   "checks": 80,
+   "rounds N = 1": "0.205334030970278",
+   "rounds N = 10": "0.222062099670503"
+  },
+  "LC module": {
+   "weights after one tick": {
+    "0": "5/6",
+    "2": "1/12",
+    "3": "1/12"
+   },
+   "s_A": "1/12",
+   "s_B": "1/6",
+   "forward-only counts, ticks 1 to 4": [
+    "2/9",
+    "3544109/7290000",
+    "21968948741/41006250000",
+    "1396558119030851/2989355625000000"
+   ],
+   "forward-only counts as floats": [
+    0.222222222,
+    0.486160357,
+    0.535746349,
+    0.467176975
+   ]
+  },
+  "LC stored output": {
+   "P": "2/9",
+   "N = 1": "0.205334030970278",
+   "N = 10": "0.222062099670503"
+  }
+ }
+}

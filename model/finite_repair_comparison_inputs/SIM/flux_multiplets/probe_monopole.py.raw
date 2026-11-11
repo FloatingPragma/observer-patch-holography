@@ -1,0 +1,63 @@
+"""Flux scan: one quantum on the icosahedral carrier with uniform flux 2*pi*k/20 per face (a monopole of charge k).
+For each k: band multiplets of the magnetic adjacency, and Lie closures of port-indexed operator families compressed to bands."""
+import itertools, json, sys
+import numpy as np
+import sys, pathlib; sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "lib"))
+from lie_tools import *
+V, E, F = icosahedron()
+# outward orientation of faces
+Fo = []
+for a, b, c in F:
+    n = np.cross(V[b] - V[a], V[c] - V[a])
+    Fo.append((a, b, c) if n @ (V[a] + V[b] + V[c]) > 0 else (a, c, b))
+eidx = {e: i for i, e in enumerate(E)}
+def phases(k):
+    M = np.zeros((20, 30)); rhs = np.full(20, 2 * np.pi * k / 20); rhs[0] -= 2 * np.pi * k
+    for f, (a, b, c) in enumerate(Fo):
+        for x, y in ((a, b), (b, c), (c, a)):
+            if (x, y) in eidx: M[f, eidx[(x, y)]] += 1
+            else: M[f, eidx[(y, x)]] -= 1
+    th, res, rk, sv = np.linalg.lstsq(M, rhs, rcond=None)
+    assert np.allclose(M @ th, rhs, atol=1e-9)
+    return th
+out = {}
+for k in range(0, 11):
+    th = phases(k)
+    A = np.zeros((12, 12), complex)
+    for (a, b), t in zip(E, th):
+        A[b, a] = np.exp(1j * t); A[a, b] = np.exp(-1j * t)
+    w, U = np.linalg.eigh(A)
+    bands = []
+    i = 0
+    while i < 12:
+        j = i
+        while j < 12 and abs(w[j] - w[i]) < 1e-7: j += 1
+        bands.append((round(float(w[i]), 6), list(range(i, j)))); i = j
+    desc = [(ev, len(ix)) for ev, ix in bands]
+    print(f'k={k}: adjacency multiplets (eigenvalue, dim): {desc}')
+    stars = []
+    for p in range(12):
+        X = np.zeros((12, 12), complex)
+        for (a, b), t in zip(E, th):
+            if p in (a, b):
+                X[b, a] = np.exp(1j * t); X[a, b] = np.exp(-1j * t)
+        stars.append(X)
+    projs = [np.diag((np.arange(12) == p).astype(complex)) for p in range(12)]
+    rows = []
+    nb = len(bands)
+    subsets = [c for r in (1, 2) for c in itertools.combinations(range(nb), r)]
+    for sub in subsets:
+        ix = sum((bands[b][1] for b in sub), [])
+        P = U[:, ix]
+        dimH = len(ix)
+        for name, ops in (('proj', projs), ('star', stars), ('proj+star', projs + stars)):
+            gens = [1j * (P.conj().T @ o @ P) for o in ops]
+            rk = np.linalg.matrix_rank(np.array([np.concatenate([g.real.ravel(), g.imag.ravel()]) for g in gens]), tol=1e-9)
+            mats, dims = lie_closure(gens, max_dim=150)
+            cz = centre_dim(mats) if len(mats) <= 150 else -1
+            rows.append({'k': k, 'bands': [bands[b][0] for b in sub], 'dimH': dimH, 'family': name, 'rank': int(rk), 'closure': dims, 'centre': cz})
+            tag = '   <== 12 with centre 1' if dims[-1] == 12 and cz == 1 else ''
+            if dims[-1] <= 20 or tag:
+                print(f'   bands {[bands[b][0] for b in sub]} dimH {dimH} {name}: rank {rk} closure {dims} centre {cz}{tag}')
+    out[k] = {'multiplets': desc, 'rows': rows}
+json.dump(out, open('probe_monopole.json', 'w'))

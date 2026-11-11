@@ -1,0 +1,57 @@
+"""Run H4 (task MA), part 3a: link fields drawn at the couplings kappa* on the 96 x 48 x 48 lattice of runs H2/H3.
+
+    python gauge_draw.py kstar.json [--procs P]
+
+kstar.json (written by gauge_analyze.py) lists points {label, N, kappa, start}. For each point: thermalise ntherm sweeps
+from the stated start, then draw 5 configurations separated by nsep sweeps (nsep >> tau_int of the plaquette measured
+in the scan). Between draws: plaquette every sweep, Wilson loops up to Rmax = 12 every 25 sweeps; at each draw: flux
+clusters and the configuration (configs/<label>_<i>.npz, integer links n in 0..N-1, link from x to x + e_mu).
+Output out/draw/<label>.json.
+"""
+import json, os, sys, time, zlib
+import numpy as np
+from multiprocessing import Pool
+import gauge_mc as G
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+SHAPE = (96, 48, 48)
+
+
+def draw(pt):
+    label, N, kappa, start = pt['label'], pt['N'], pt['kappa'], pt['start']
+    ntherm, nsep, ncfg, Rmax = pt.get('ntherm', 3000), pt.get('nsep', 1000), 5, 12
+    seed = zlib.crc32(label.encode()) + 104729
+    rng = np.random.default_rng(seed)
+    n = G.cold(SHAPE) if start == 'cold' else G.hot(SHAPE, N, rng)
+    hb = G.HeatBath(n, N, kappa, seed); t0 = time.time()
+    f_s, e_s, W_s, C_s = [], [], [], []
+    for sw in range(ntherm + ncfg * nsep):
+        hb.sweeps(1)
+        f, e = G.plaquette_obs(n, N); f_s.append(f); e_s.append(e)
+        if sw >= ntherm:
+            k = sw - ntherm + 1
+            if k % 25 == 0:
+                W_s.append(G.wilson_loops(n, N, Rmax))
+            if k % nsep == 0:
+                i = k // nsep - 1
+                np.savez_compressed(os.path.join(HERE, 'configs', f'{label}_{i}.npz'), n=n.astype(np.int8), N=N, kappa=kappa)
+                C_s.append(G.flux_clusters(n, N, wrap_check=True)); C_s[-1]['plaquette_share'] = f
+                print(label, 'config', i, f'f={f:.5f}', f'{time.time() - t0:.0f}s', flush=True)
+    f_m = np.array(f_s[ntherm:]); W = np.array(W_s); m = len(W) // 10; Wb = W[:10 * m].reshape(10, m, Rmax, Rmax).mean(1)
+    out = {'label': label, 'group': f'Z{N}', 'N': N, 'kappa': kappa, 'start': start, 'shape': list(SHAPE), 'seed': int(seed), 'ntherm': ntherm,
+           'nsep': nsep, 'configs': [f'configs/{label}_{i}.npz' for i in range(ncfg)],
+           'f_plaquette': G.binned(f_m, 20), 'f_per_carrier': [3 * x for x in G.binned(f_m, 20)], 'tau_int_f_sweeps': G.tau_int(f_m),
+           'f_at_draws': [c['plaquette_share'] for c in C_s], 'mean_ReW': G.binned(e_s[ntherm:], 20),
+           'W': Wb.mean(0).tolist(), 'W_err': (Wb.std(0, ddof=1) / np.sqrt(10)).tolist(), 'wilson_measurements': len(W), 'Rmax': Rmax,
+           'clusters_at_draws': C_s, 'series_f_every_10': [round(x, 6) for x in f_s[::10]], 'seconds': time.time() - t0}
+    json.dump(out, open(os.path.join(HERE, 'out', 'draw', label + '.json'), 'w'))
+    return label
+
+
+if __name__ == '__main__':
+    pts = json.load(open(sys.argv[1]))['draw_points']
+    procs = int(sys.argv[sys.argv.index('--procs') + 1]) if '--procs' in sys.argv else len(pts)
+    os.makedirs(os.path.join(HERE, 'configs'), exist_ok=True); os.makedirs(os.path.join(HERE, 'out', 'draw'), exist_ok=True)
+    with Pool(procs) as pool:
+        for lab in pool.imap_unordered(draw, pts):
+            print('done', lab, flush=True)

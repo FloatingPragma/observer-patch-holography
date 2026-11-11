@@ -1,0 +1,384 @@
+{
+ "custody": {
+  "CF1.md": "ad2d79ff7ad05399f28f22ca3f1867048f40945d5e32f11a78c0fd8c9c291642",
+  "H_background_from_runs.json": "b7210d7b406e094189bd5c4e8a77233bb6da51505344434a99672cb5f8179cb1",
+  "KD_item4_v2.json": "9bc8755725d93985117492a2a132e91d4ba18fb6a2d41b17e25c6b02681760ab",
+  "comparison.json": "2a2cb52ef05cfd78d81f6f4efee46294132f3685d79c5f013f367b0d6e9c3beb"
+ },
+ "R6b": {
+  "grid": "32^3, all multiples of pi/16",
+  "two_tick_alternating_massless": {
+   "momenta_with_symbol_identity": 32,
+   "cones_per_sublattice": 4,
+   "copies_of_each_cone_over_the_eight_sublattices": [
+    8
+   ],
+   "chirality_by_cone_X_r_plus": {
+    "(0.0, 0.0, 0.0)": [
+     1
+    ],
+    "(0.0, 0.5, 0.5)": [
+     -1
+    ],
+    "(0.5, 0.0, 0.5)": [
+     1
+    ],
+    "(0.5, 0.5, 0.0)": [
+     -1
+    ]
+   },
+   "chirality_by_cone_X_r_minus": {
+    "(0.0, 0.0, 0.0)": [
+     -1
+    ],
+    "(0.0, 0.5, 0.5)": [
+     1
+    ],
+    "(0.5, 0.0, 0.5)": [
+     -1
+    ],
+    "(0.5, 0.5, 0.0)": [
+     1
+    ]
+   },
+   "net_chirality_per_sublattice": {
+    "X_r=+1": 0,
+    "X_r=-1": 0
+   }
+  },
+  "single_ordered_tick_massless": {
+   "momenta_with_symbol_identity_in_sector_X_r_plus": 8,
+   "chirality_counts_X_r_plus": {
+    "1": 4,
+    "-1": 4
+   },
+   "momenta_with_4x4_symbol_identity": 4
+  },
+  "with_mass_step_Y": {
+   "theta": 0.087847,
+   "two_tick_min_rest_phase": 0.08784699999999991,
+   "momenta_at_the_minimum": 32,
+   "momenta_below_theta": 0,
+   "single_ordered_tick_min_phase": 1.3507817310082854e-17,
+   "single_ordered_tick_momenta_with_phase_zero": 8
+  },
+  "with_mass_step_Z": {
+   "theta": 0.087847,
+   "two_tick_min_rest_phase": 0.08784699999999987,
+   "momenta_at_the_minimum": 32,
+   "momenta_below_theta": 0,
+   "single_ordered_tick_min_phase": 1.7603976414456074e-17,
+   "single_ordered_tick_momenta_with_phase_zero": 8
+  },
+  "engine_two_ticks_at_momentum_(pi/2,pi/2,0)_against_exp(-2i theta)": 6.255987461146126e-17,
+  "pass": false
+ },
+ "M3": {
+  "theta_electron_patterns": 0.0,
+  "tower": [
+   {
+    "sector": "slow triplet (either record)",
+    "kernel_eigenvalue": 0.9539344662916631,
+    "mass_angle": 0.3047084373702735,
+    "ratio_to_the_lowest": 1.0,
+    "reduced_compton_length_cells": 3.281825763114091,
+    "ceiling_over_rest_energy": 10.310159707760945
+   },
+   {
+    "sector": "quintet, recorded",
+    "kernel_eigenvalue": 0.9333333333333333,
+    "mass_angle": 0.3672080205578371,
+    "ratio_to_the_lowest": 1.2051127422888386,
+    "reduced_compton_length_cells": 2.723252064268283,
+    "ceiling_over_rest_energy": 8.555348678978477
+   },
+   {
+    "sector": "quintet, blank",
+    "kernel_eigenvalue": 0.9,
+    "mass_angle": 0.45102681179626236,
+    "ratio_to_the_lowest": 1.4801914108081844,
+    "reduced_compton_length_cells": 2.217163090631782,
+    "ceiling_over_rest_energy": 6.965423277339246
+   },
+   {
+    "sector": "fast triplet (either record)",
+    "kernel_eigenvalue": 0.8793988670416701,
+    "mass_angle": 0.4961982595020731,
+    "ratio_to_the_lowest": 1.6284362316462748,
+    "reduced_compton_length_cells": 2.015323473733027,
+    "ceiling_over_rest_energy": 6.331325419686741
+   },
+   {
+    "sector": "uniform load, recorded",
+    "kernel_eigenvalue": 0.8333333333333334,
+    "mass_angle": 0.5856855434571508,
+    "ratio_to_the_lowest": 1.9221179056011553,
+    "reduced_compton_length_cells": 1.7074008589955245,
+    "ceiling_over_rest_energy": 5.363957995353243
+   }
+  ],
+  "largest_ratio_inside_the_tower": 1.9221179056011553,
+  "assigned_particles": 0
+ },
+ "H": {
+  "declared_readings": [
+   "register rule of the runs (Z6 link per seam, twist j mod 6 if cost rise <= kappa j (d - j), cost 0,5,8,10,8,5, kappa 5)",
+   "a register class k read as a centre flux; a pattern of charge Q6 sees alpha = k Q6 / 6 mod 1",
+   "option M1 of CF-1: rest angle of a pattern on a carrier holding a flux pair (k, -k) at separation d (work/DIRAC/defect_phases.json)"
+  ],
+  "units": "rest phases are radians per tick of the declared routing walk at the scale of the lattice; they are not masses",
+  "tables": {
+   "L10_end_300_sweeps_half_faces": {
+    "theta_at_separation_1": {
+     "e_L": 0.008006521394694245,
+     "e_R": 0.0,
+     "nu_L": 0.008006521394694245,
+     "nu_R": 0.0,
+     "Q_L": 0.0258196959880182,
+     "u_R": 0.02387054966116819,
+     "d_R": 0.02387054966116819
+    },
+    "standard_errors": {
+     "lepton doublet": 5.6720583676257885e-06,
+     "quark doublet": 8.803303985508107e-06,
+     "quark singlet": 8.481900844655086e-06
+    },
+    "lepton_doublet_band_separation_2_to_5": [
+     0.010076121317828889,
+     0.015606885678850796
+    ],
+    "dirac_e": false,
+    "dirac_nu": false,
+    "dirac_u": false,
+    "dirac_d": false,
+    "information_only": {
+     "nu_L_over_e_L": 1.0,
+     "Q_L_over_e_L": 3.224833197239487,
+     "u_R_over_e_L": 2.9813883563699344,
+     "pred_over_meas_up_with_Q_L": 0.7629103610831738,
+     "pred_over_meas_down_with_Q_L": 0.350614123391416,
+     "pred_over_meas_up_with_u_R": 0.7053177415298241,
+     "pred_over_meas_down_with_d_R": 0.32414602589455743,
+     "u_over_d_left_partners": 1.0,
+     "u_R_over_d_R": 1.0,
+     "u_over_d_sigma_from_measured": 54.23655416909672
+    },
+    "R15_conjugate_patterns_equal": true,
+    "anchor_on_the_lepton_doublet": {
+     "cell_m": 3.091792436490294e-15,
+     "ceiling_MeV": 200.5053718514546,
+     "muon_MeV": 105.6583755,
+     "top_MeV": 172600.0
+    },
+    "R16_pass": false
+   },
+   "limit_classes_1_5_gone_half_faces": {
+    "theta_at_separation_1": {
+     "e_L": 0.003539977839150051,
+     "e_R": 0.0,
+     "nu_L": 0.003539977839150051,
+     "nu_R": 0.0,
+     "Q_L": 0.023653675678375553,
+     "u_R": 0.0201136978392255,
+     "d_R": 0.0201136978392255
+    },
+    "standard_errors": {
+     "lepton doublet": 1.1278105244720153e-05,
+     "quark doublet": 1.4107650322568217e-05,
+     "quark singlet": 8.475266350556476e-06
+    },
+    "lepton_doublet_band_separation_2_to_5": [
+     0.004455024149856008,
+     0.00690037866855534
+    ],
+    "dirac_e": false,
+    "dirac_nu": false,
+    "dirac_u": false,
+    "dirac_d": false,
+    "information_only": {
+     "nu_L_over_e_L": 1.0,
+     "Q_L_over_e_L": 6.681871117039197,
+     "u_R_over_e_L": 5.681871117039197,
+     "pred_over_meas_up_with_Q_L": 1.5807542265985406,
+     "pred_over_meas_down_with_Q_L": 0.726474282862308,
+     "pred_over_meas_up_with_u_R": 1.3441806383161332,
+     "pred_over_meas_down_with_d_R": 0.6177511018644356,
+     "u_over_d_left_partners": 1.0,
+     "u_R_over_d_R": 1.0,
+     "u_over_d_sigma_from_measured": 54.23655416909672
+    },
+    "R15_conjugate_patterns_equal": true,
+    "anchor_on_the_lepton_doublet": {
+     "cell_m": 1.366995249107849e-15,
+     "ceiling_MeV": 453.4916947009028,
+     "muon_MeV": 105.6583755,
+     "top_MeV": 172600.0
+    },
+    "R16_pass": false
+   }
+  }
+ },
+ "scoreboard_v2": [
+  {
+   "property": "R1 electric charge, label",
+   "status_of_the_CF1_output": "exact on a declared chart",
+   "V_M1_class_table": "MATCH-LABEL",
+   "H_M1_flux_content_of_the_runs": "MATCH-LABEL",
+   "C_M2": "MATCH-LABEL",
+   "M3": "MATCH-LABEL"
+  },
+  {
+   "property": "R2 electric charge, coupling",
+   "status_of_the_CF1_output": "not available (Z2 and centre registers only; they differ on e_L and e_R)",
+   "V_M1_class_table": "NC: no U(1) link coupled to Q",
+   "H_M1_flux_content_of_the_runs": "NC: no U(1) link coupled to Q",
+   "C_M2": "NC: no U(1) link coupled to Q",
+   "M3": "NC: no U(1) link coupled to Q"
+  },
+  {
+   "property": "R3 colour",
+   "status_of_the_CF1_output": "exact on a declared chart",
+   "V_M1_class_table": "MATCH-LABEL",
+   "H_M1_flux_content_of_the_runs": "MATCH-LABEL",
+   "C_M2": "MATCH-LABEL",
+   "M3": "MATCH-LABEL"
+  },
+  {
+   "property": "R4 weak isospin, both classes",
+   "status_of_the_CF1_output": "exact on a declared chart",
+   "V_M1_class_table": "MATCH-LABEL",
+   "H_M1_flux_content_of_the_runs": "MATCH-LABEL",
+   "C_M2": "MATCH-LABEL",
+   "M3": "MATCH-LABEL"
+  },
+  {
+   "property": "R5 hypercharge, both classes",
+   "status_of_the_CF1_output": "exact on a declared chart",
+   "V_M1_class_table": "MATCH-LABEL",
+   "H_M1_flux_content_of_the_runs": "MATCH-LABEL",
+   "C_M2": "MATCH-LABEL",
+   "M3": "MATCH-LABEL"
+  },
+  {
+   "property": "R6 handedness as chirality",
+   "status_of_the_CF1_output": "computed",
+   "V_M1_class_table": "FAIL: 8 components, both chiralities in each class",
+   "H_M1_flux_content_of_the_runs": "FAIL: 8 components, both chiralities in each class",
+   "C_M2": "MATCH-DECL in the corrected form (class = X_r eigenvalue)",
+   "M3": "FAIL (argued, not executed): the chirality register is the address reflection, +1 for both classes on the uniform load state"
+  },
+  {
+   "property": "R6b cones and chirality over the zone (added after its result)",
+   "status_of_the_CF1_output": "computed",
+   "V_M1_class_table": "FAIL: 4 cones per sublattice, net chirality 0 in each X_r sector",
+   "H_M1_flux_content_of_the_runs": "FAIL: 4 cones per sublattice, net chirality 0 in each X_r sector",
+   "C_M2": "FAIL: 4 cones per sublattice, net chirality 0 in each X_r sector",
+   "M3": "same form of routing, not executed"
+  },
+  {
+   "property": "R7 spin",
+   "status_of_the_CF1_output": "representation exact, pointer declared",
+   "V_M1_class_table": "MATCH-DECL",
+   "H_M1_flux_content_of_the_runs": "MATCH-DECL",
+   "C_M2": "MATCH-DECL",
+   "M3": "MATCH-DECL (not re-executed)"
+  },
+  {
+   "property": "R8 statistics",
+   "status_of_the_CF1_output": "declared",
+   "V_M1_class_table": "MATCH-DECL",
+   "H_M1_flux_content_of_the_runs": "MATCH-DECL",
+   "C_M2": "MATCH-DECL",
+   "M3": "MATCH-DECL"
+  },
+  {
+   "property": "R9 stability",
+   "status_of_the_CF1_output": "exact by construction (no vertex)",
+   "V_M1_class_table": "NC: no species-changing vertex; no shipped bound",
+   "H_M1_flux_content_of_the_runs": "NC: no species-changing vertex; no shipped bound",
+   "C_M2": "NC: no species-changing vertex; no shipped bound",
+   "M3": "NC: no species-changing vertex; no shipped bound"
+  },
+  {
+   "property": "R10 magnetic moment, tree level",
+   "status_of_the_CF1_output": "not available",
+   "V_M1_class_table": "NC: no U(1) link coupled to Q; measured g not shipped",
+   "H_M1_flux_content_of_the_runs": "NC: no U(1) link coupled to Q; measured g not shipped",
+   "C_M2": "NC: no U(1) link coupled to Q; measured g not shipped",
+   "M3": "NC: no U(1) link coupled to Q; measured g not shipped"
+  },
+  {
+   "property": "R11 mass of the electron",
+   "status_of_the_CF1_output": "V, H declared; C angle not fixed; M3 exact zero",
+   "V_M1_class_table": "FAIL: Dirac electron in 0 of 25 classes; theta(e_R) = 0 in all",
+   "H_M1_flux_content_of_the_runs": "FAIL: theta(e_L) = 0.0080 (limit 0.0035), theta(e_R) = 0; no Dirac electron",
+   "C_M2": "NC: angle not fixed; mass step fails the Gauss constraint (0.1755 = 2 sin theta)",
+   "M3": "FAIL as it stands: massless in the native program; a nonzero mass needs a state that the program does not yet supply"
+  },
+  {
+   "property": "R12 neutrino against electron",
+   "status_of_the_CF1_output": "as R11",
+   "V_M1_class_table": "FAIL: doublet pattern gives ratio 1; no Dirac neutrino",
+   "H_M1_flux_content_of_the_runs": "FAIL: nu_L has the angle of e_L (ratio 1), nu_R has 0",
+   "C_M2": "FAIL: ratio 1 against bound 8.8e-07",
+   "M3": "bound met trivially (0)"
+  },
+  {
+   "property": "R13 up, down against electron",
+   "status_of_the_CF1_output": "as R11",
+   "V_M1_class_table": "FAIL: no class passes R11",
+   "H_M1_flux_content_of_the_runs": "FAIL by the structure rule; for information quark doublet / lepton doublet = 3.22 (predicted/measured 0.76 up, 0.35 down)",
+   "C_M2": "FAIL: predicted/measured 0.237 and 0.109",
+   "M3": "FAIL: up and down massless"
+  },
+  {
+   "property": "R14 up against down",
+   "status_of_the_CF1_output": "as R11",
+   "V_M1_class_table": "FAIL: 1 where both are Dirac (k = 2, 4); those classes fail R11",
+   "H_M1_flux_content_of_the_runs": "FAIL: up and down share the doublet pattern and the singlet class: 1 against 0.4596",
+   "C_M2": "FAIL: 1 against 0.4596, 54 sigma",
+   "M3": "NC: 0/0"
+  },
+  {
+   "property": "R15 positron against electron",
+   "status_of_the_CF1_output": "exact",
+   "V_M1_class_table": "MATCH (0 against bound 8e-09)",
+   "H_M1_flux_content_of_the_runs": "MATCH (conjugate patterns equal)",
+   "C_M2": "MATCH (0 against bound 8e-09)",
+   "M3": "MATCH (0 = 0)"
+  },
+  {
+   "property": "R16 one clock for heavier rest energies",
+   "status_of_the_CF1_output": "consequence of the anchor",
+   "V_M1_class_table": "FAIL: ceiling 9.4 to 18.3 MeV, muon 105.7 MeV",
+   "H_M1_flux_content_of_the_runs": "FAIL: ceiling 201 MeV (above the muon, below the top)",
+   "C_M2": "no verdict: requires theta < 9.30e-06, cell < 3.59e-18 m",
+   "M3": "NC: no assigned particle has a nonzero angle; the unit cannot be anchored"
+  },
+  {
+   "property": "R17 sum T3^2 / sum Q^2 = 3/8",
+   "status_of_the_CF1_output": "exact on a declared chart",
+   "V_M1_class_table": "NC without running and a breaking mechanism; face value fails (0.2233)",
+   "H_M1_flux_content_of_the_runs": "NC without running and a breaking mechanism; face value fails (0.2233)",
+   "C_M2": "NC without running and a breaking mechanism; face value fails (0.2233)",
+   "M3": "NC without running and a breaking mechanism; face value fails (0.2233)"
+  },
+  {
+   "property": "R18 golden-ratio mixing",
+   "status_of_the_CF1_output": "closed forms of a declared reading",
+   "V_M1_class_table": "FAIL: theta13 = 0 against 8.56 deg (78 uncertainties); theta12 pull -2.8",
+   "H_M1_flux_content_of_the_runs": "FAIL: theta13 = 0 against 8.56 deg (78 uncertainties); theta12 pull -2.8",
+   "C_M2": "FAIL: theta13 = 0 against 8.56 deg (78 uncertainties); theta12 pull -2.8",
+   "M3": "FAIL: theta13 = 0 against 8.56 deg (78 uncertainties); theta12 pull -2.8"
+  },
+  {
+   "property": "T1 tower of M3",
+   "status_of_the_CF1_output": "exact kernel eigenvalues (worker KD)",
+   "V_M1_class_table": "not applicable",
+   "H_M1_flux_content_of_the_runs": "not applicable",
+   "C_M2": "not applicable",
+   "M3": "NC: five angles 0.3047 to 0.5857, ratios to the lowest up to 1.9221, no assigned particle"
+  }
+ ],
+ "M0_line": "R11 FAIL: theta = 0 for every species; the unit cannot be anchored"
+}

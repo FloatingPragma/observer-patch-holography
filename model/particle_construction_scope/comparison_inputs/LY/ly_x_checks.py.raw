@@ -1,0 +1,186 @@
+"""Worker LY, X3, X4, X5: the Kraus pair on register ties, the unrewarded read in the public program, the work rule.
+
+Reads no measured value, computes no candidate value.
+  cd RER && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:RL/work/LY nice -n 10 /tmp/oph-completion-venv/bin/python -B RL/work/LY/ly_x_checks.py
+Writes x_checks.json. The public package model.coherent_seam_repair is imported read only.
+"""
+from __future__ import annotations
+
+import json
+import os
+import sys
+import time
+from fractions import Fraction as F
+
+import sympy as s
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+import ly_chain as CH  # noqa: E402
+import ly_lib as L  # noqa: E402
+
+
+def x3_identity():
+    """Populations after the Kraus pair on one flat pair, for a general density matrix (symbolic)."""
+    a, d = s.symbols('a d', real=True)
+    br, bi = s.symbols('br bi', real=True)
+    b = br + s.I * bi
+    rho = s.Matrix([[a, b], [b.conjugate(), d]])
+    m = s.Matrix([1, -1]) / s.sqrt(2)
+    p = s.Matrix([1, 1]) / s.sqrt(2)
+    K0 = s.eye(2) - m * m.T
+    K1 = p * m.T
+    out = (K0 * rho * K0.H + K1 * rho * K1.H).applyfunc(s.simplify)
+    complete = s.simplify(K0.H * K0 + K1.H * K1 - s.eye(2)) == s.zeros(2)
+    return {'instrument_complete': bool(complete),
+            'population_x_after': str(out[0, 0]), 'population_y_after': str(out[1, 1]),
+            'both_equal_half_the_pair_weight': bool(s.simplify(out[0, 0] - (a + d) / 2) == 0
+                                                    and s.simplify(out[1, 1] - (a + d) / 2) == 0),
+            'state_after_is_p_with_weight': str(s.simplify(out[0, 1]))}
+
+
+def x3_flat_pairs(table=L.T0):
+    """Seam orbits (c_plus + n, c_minus - n): flat edges, chains of flat edges, flat members with a lower
+    neighbour on the same seam."""
+    flat_edges, chained, mixed = [], 0, []
+    for ssum in range(6):
+        cost = [table[n % 6] + table[(ssum - n) % 6] for n in range(6)]
+        for n in range(6):
+            if cost[n] == cost[(n + 1) % 6]:
+                pair = ((n, (ssum - n) % 6), ((n + 1) % 6, (ssum - n - 1) % 6))
+                flat_edges.append(pair)
+                if cost[(n + 1) % 6] == cost[(n + 2) % 6]:
+                    chained += 1
+                lower = cost[(n - 1) % 6] < cost[n] or cost[(n + 2) % 6] < cost[(n + 1) % 6]
+                if lower:
+                    mixed.append(pair)
+    return {'flat_edges': [str(e) for e in flat_edges], 'consecutive_flat_edges': chained,
+            'flat_edges_with_a_lower_neighbour_on_the_same_seam': [str(e) for e in mixed]}
+
+
+def greedy_allowed(cfg, table):
+    """Variant: a flat move is made only when the opposite twist on the same seam does not lower the cost
+    (undirected seam event: descend where a lower neighbour exists, symmetrize ties otherwise)."""
+    out = []
+    for k in range(L.NS):
+        p, m = L.PLUS[k], L.MINUS[k]
+        xp, xm = cfg[p], cfg[m]
+        base = table[xp] + table[xm]
+        r = {}
+        for d in (1, 5):
+            yp, ym = (xp + d) % 6, (xm - d) % 6
+            r[d] = (table[yp] + table[ym] - base, yp, ym)
+        for d in (1, 5):
+            rise, yp, ym = r[d]
+            if rise < 0 or (rise == 0 and r[6 - d][0] >= 0):
+                y = list(cfg)
+                y[p], y[m] = yp, ym
+                out.append((k, d, tuple(y), rise))
+    return out
+
+
+def x3_greedy_variant():
+    reps = L.pair_orbit_reps()
+    rows = []
+    orig = CH.allowed_fast
+    CH.allowed_fast = greedy_allowed
+    try:
+        for a, b, d, size in reps:
+            if d < 2:
+                continue
+            start = L.config({a: 3, b: 3})
+            rs = CH.rises(start, L.T0)
+            rmin = min(r for _, _, r in rs)
+            starts = [L.twist(start, k, dl) for k, dl, r in rs if r == rmin]
+            res, info = CH.solve_absorption(starts, L.T0, want_time=False)
+            vac = sum(r['dist'].get("('vacuum',)", 0.0) for r in res) / len(res)
+            rows.append({'d': d, 'faces': [a, b], 'K_vacuum': vac, 'states': info['states'],
+                         'labels': info['labels']})
+    finally:
+        CH.allowed_fast = orig
+    return rows
+
+
+def x4_program():
+    from model.coherent_seam_repair import common
+    from model.coherent_seam_repair.program import Observer, State
+    U = common.local_repair_unitary()
+    src = s.eye(6)
+    plus = (src[:, 1] + src[:, 2]) / s.sqrt(2)
+    minus = (src[:, 1] - src[:, 2]) / s.sqrt(2)
+
+    def block(r_out, r_in):
+        return s.Matrix(6, 6, lambda i, j: U[i * 4 + r_out, j * 4 + r_in])
+    blank = [block(r, 0) for r in range(4)]
+    amp_p_to_m_blank = [s.simplify((minus.T * B * plus)[0, 0]) for B in blank]
+    rev = block(0, 1)
+    out = {'U_is_an_involution': bool((U * U - s.eye(24)).applyfunc(s.simplify) == s.zeros(24)),
+           'blank_record_amplitudes_agree_to_disagree': [str(x) for x in amp_p_to_m_blank],
+           'blank_record_blocks_never_produce_the_disagreeing_state':
+               all((minus.T * B).applyfunc(s.simplify) == s.zeros(1, 6) for B in blank),
+           'block_record1_to_record0_equals_m_p': bool((rev - minus * plus.T).applyfunc(s.simplify) == s.zeros(6)),
+           'block_record2_to_record0_maps_11_to_20': str(block(0, 2)[4, 3]),
+           'block_record3_to_record0_maps_11_to_02': str(block(0, 3)[5, 3])}
+    # weight of the written record in the reference state rho_W = [(5/4) I + (W + W*)/2]/524 of the scalar walk
+    obs = Observer()
+    D = obs.address_count
+    tr = {0: F(0), 1: F(0)}
+    for port in range(12):
+        for parity in (0, 1):
+            for address in range(D):
+                st = obs.basis_state(port, parity, address)
+                i = obs.index(port, parity, address)
+                tr[parity] += obs.step(st).amplitudes[i]
+    w1 = (F(5, 4) * 720 + tr[1]) / 524
+    w0 = (F(5, 4) * 720 + tr[0]) / 524
+    out['trace_W_on_record_0'] = str(tr[0])
+    out['trace_W_on_record_1'] = str(tr[1])
+    out['trace_W_total'] = str(tr[0] + tr[1])
+    out['reference_weight_of_record_1'] = str(w1)
+    out['reference_weight_of_record_0'] = str(w0)
+    return out
+
+
+def x5_work():
+    T = L.T0
+    out = {'kappa': L.KAPPA, 'release': {'tie_swap_contrast_1': 0, 'emission_contrast_2_j_1': 1,
+                                         'descent_contrast_3_j_1': 2, 'descent_contrast_4_j_2': 4},
+           'isolated_class_rises': {}, 'pair_creation_rise': None}
+    for cls in range(1, 6):
+        cfg = L.config({0: cls})
+        c0 = L.cost(cfg, T)
+        rr = sorted(set(L.cost(L.twist(cfg, k, dl), T) - c0 for k in L.FACE_SEAMS[0] for dl in (1, 5)))
+        out['isolated_class_rises'][cls] = rr
+    out['pair_creation_rise'] = L.cost(L.twist(L.VAC, 0, 1), T)
+    paid = {}
+    for rel in (0, 1, 2):
+        budget = L.KAPPA * rel
+        paid[rel] = {'budget_cost_units': budget,
+                     'splits_paid': {cls: [r for r in rr if 0 < r <= budget]
+                                     for cls, rr in out['isolated_class_rises'].items()},
+                     'pair_creation_paid': out['pair_creation_rise'] <= budget}
+    out['paid_by_release'] = paid
+    return out
+
+
+def main():
+    t0 = time.time()
+    out = {}
+    out['X3_identity'] = x3_identity()
+    print('X3 identity', out['X3_identity'], flush=True)
+    out['X3_flat_pairs_T0'] = x3_flat_pairs()
+    print('X3 flat pairs', out['X3_flat_pairs_T0'], flush=True)
+    out['X3_greedy_variant'] = x3_greedy_variant()
+    print('X3 greedy variant K', [(r['d'], r['K_vacuum']) for r in out['X3_greedy_variant']], f'{time.time() - t0:.1f}s', flush=True)
+    out['X5_work_rule'] = x5_work()
+    print('X5', out['X5_work_rule'], flush=True)
+    out['X4_public_program'] = x4_program()
+    print('X4', out['X4_public_program'], f'{time.time() - t0:.1f}s', flush=True)
+    out['seconds'] = round(time.time() - t0, 1)
+    with open(os.path.join(HERE, 'x_checks.json'), 'w') as fh:
+        json.dump(out, fh, indent=1, default=str)
+        fh.write('\n')
+
+
+if __name__ == '__main__':
+    main()

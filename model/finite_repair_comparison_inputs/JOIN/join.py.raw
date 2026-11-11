@@ -1,0 +1,113 @@
+"""Joint reversible dynamics of the coherent seam walk and a moving Z2 link register (independent implementation).
+
+One step, on H = (link register) x (port) x (parity memory) x (oriented seam address):
+    W_J = F . Q . R
+  R  reflection of the address register about the uniform superposition (as in model/coherent_seam_repair);
+  Q  for address k = (a, b): the reversible seam repair with the CURRENT link sign s = (-1)^l_e on that seam,
+     exchanging (|a> - s|b>)/sqrt2 x |parity 0> with (|a> + s|b>)/sqrt2 x |parity 1>;
+  F  for address k = (a, b): if the walker sits on a or b, the link of that seam is flipped when exactly one of its
+     two faces carries flux (a defect crosses the seam); otherwise nothing happens.
+The walker is a sign-charged scalar (one component of the spinor doublet; the triplet does not see central links).
+Amplitudes are exact: the state is an integer array over the denominator 120^t.
+"""
+import itertools, json, sys
+from fractions import Fraction as Fr
+import numpy as np
+from model.common_source import slow_geometry
+
+SRC = slow_geometry.source()
+SEAMS = [tuple(int(v) for v in e) for e in SRC.seams()]
+N, M = 12, len(SEAMS)
+EDGE = {frozenset(e): i for i, e in enumerate(SEAMS)}
+ADJ = {p: sorted(q for q in range(N) if frozenset((p, q)) in EDGE) for p in range(N)}
+FACES = sorted({tuple(sorted((a, b, c))) for a in range(N) for b in ADJ[a] for c in ADJ[b] if c in ADJ[a]})
+assert len(FACES) == 20
+FACE_EDGES = [[EDGE[frozenset(p)] for p in itertools.combinations(f, 2)] for f in FACES]
+EDGE_FACES = [[i for i, fe in enumerate(FACE_EDGES) if e in fe] for e in range(M)]
+ADDRESSES = [k for e in SEAMS for k in (e, e[::-1])]            # 60 oriented seams
+ADDR_EDGE = [EDGE[frozenset(k)] for k in ADDRESSES]
+
+
+def flux(link):
+    """Tuple of face bits of a link bitmask."""
+    return tuple(sum((link >> e) & 1 for e in fe) & 1 for fe in FACE_EDGES)
+
+
+def move(link, e):
+    """Flip edge e when exactly one of its two faces carries flux."""
+    f1, f2 = EDGE_FACES[e]
+    fl = flux(link)
+    return link ^ (1 << e) if fl[f1] ^ fl[f2] else link
+
+
+def reachable(start, edges):
+    seen, order, queue = {start: 0}, [start], [start]
+    while queue:
+        nxt = []
+        for l in queue:
+            for e in edges:
+                t = move(l, e)
+                if t not in seen:
+                    seen[t] = len(order); order.append(t); nxt.append(t)
+        queue = nxt
+    return order, seen
+
+
+class Joint:
+    def __init__(self, start_link, movable_edges, moves=True):
+        self.links, self.index = reachable(start_link, movable_edges if moves else [])
+        self.L = len(self.links)
+        self.movable = set(movable_edges) if moves else set()
+        self.sign = np.array([[1 - 2 * ((l >> e) & 1) for e in range(M)] for l in self.links], dtype=object)
+        self.target = np.array([[self.index[move(l, e)] if e in self.movable else i for e in range(M)]
+                                for i, l in enumerate(self.links)], dtype=np.int64)
+        self.dim = self.L * N * 2 * 2 * M
+
+    def zero(self):
+        return np.zeros((self.L, N, 2, 2 * M), dtype=object)
+
+    def embedded(self, link_index, port, parity=0):
+        """A|port, parity> on a definite link state, times sqrt(60) (the uniform address vector unnormalized)."""
+        psi = self.zero(); psi[link_index, port, parity, :] = 1
+        return psi
+
+    def step(self, psi, moves=True):
+        """Returns 120 * W_J psi (integer arithmetic)."""
+        total = psi.sum(axis=3, keepdims=True)
+        psi = 2 * total - 60 * psi                                   # 60 R
+        out = 2 * psi                                                # 2 Q, built address by address
+        for k, (a, b) in enumerate(ADDRESSES):
+            s = self.sign[:, ADDR_EDGE[k]]
+            g2 = psi[:, a, 0, k] - s * psi[:, b, 0, k] - psi[:, a, 1, k] - s * psi[:, b, 1, k]
+            out[:, a, 0, k] -= g2; out[:, b, 0, k] += s * g2
+            out[:, a, 1, k] += g2; out[:, b, 1, k] += s * g2
+        if moves and self.movable:
+            new = out.copy()
+            for k, (a, b) in enumerate(ADDRESSES):
+                e = ADDR_EDGE[k]
+                if e in self.movable:
+                    t = self.target[:, e]
+                    new[t, a, :, k] = out[:, a, :, k]; new[t, b, :, k] = out[:, b, :, k]
+            out = new
+        return out
+
+    def run(self, psi, steps, moves=True):
+        for _ in range(steps):
+            psi = self.step(psi, moves)
+        return psi
+
+    @staticmethod
+    def norm2(psi):
+        return int((psi * psi).sum())
+
+    def gauge(self, psi, port):
+        """Vertex recharting at `port`: flip its five links and the sign of the walker amplitude there."""
+        mask = sum(1 << EDGE[frozenset((port, q))] for q in ADJ[port])
+        out = self.zero()
+        for i, l in enumerate(self.links):
+            j = self.index.get(l ^ mask)
+            if j is None:
+                return None
+            block = psi[i].copy(); block[port] = -block[port]
+            out[j] = block
+        return out

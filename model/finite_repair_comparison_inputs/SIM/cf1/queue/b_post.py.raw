@@ -1,0 +1,76 @@
+"""Post-analysis of run B (reads and augments runs/B_landau.json; no new execution of the tick).
+
+1. Landau levels by order: the distinct eigenphases of the exact block spectrum are grouped into levels by their main
+   multiplicity group (the groups of largest multiplicity in increasing |phase|); level n = n-th group. Compared with
+   sqrt(theta^2 + 2 n B).
+2. Orbits: relativistic classical-ensemble reference for the mean position. Initial positions and kinetic momenta are
+   drawn from the Wigner function of the prepared Gaussian (position sd w/sqrt2, momentum sd 1/(w sqrt2) per axis, mean
+   momentum (p0, 0)); every member moves on its relativistic circle (radius |p|/B, angular frequency B/E, E = sqrt(p^2 +
+   theta^2), sense of circulation taken from the executed trajectory); the ensemble mean is compared with the executed
+   mean position. Seed 20261110, 40000 members. ARGUED reference (classical, continuum, ignores the positive-branch
+   projection and the spinor).
+`python b_post.py`
+"""
+import json, os
+import numpy as np
+
+RUNS = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'runs')
+f = os.path.join(RUNS, 'B_landau.json')
+d = json.load(open(f))
+
+levels_by_order = []
+for r in d['lines']:
+    if 'up' not in r['coin']: continue
+    dist = r['exact_distinct_eigenphases_mult_weight']
+    mmax = max(m for _, m, _ in dist if _ < 1.2)
+    # main groups: entries whose multiplicity is at least half the largest multiplicity
+    main = [(E, m) for E, m, _ in dist if m >= mmax / 2]
+    rel = [float(np.sqrt(r['theta'] ** 2 + 2 * n * r['B'])) for n in range(8)]
+    rows = []
+    for n, (E, m) in enumerate(main[:8]):
+        ex = min((q['abs_phase'] for q in r['executed_lines_all']), key=lambda x: abs(x - E))
+        rows.append({'n': n, 'lattice_level': E, 'multiplicity': m, 'executed_line_nearest': ex, 'executed_minus_exact': ex - E,
+                     'relativistic': rel[n], 'relative_error': (E / rel[n] - 1) if rel[n] > 0 else E,
+                     'relative_error_over_E2': ((E / rel[n] - 1) / E ** 2) if rel[n] > 0 else None})
+    levels_by_order.append({'k': r['k'], 'B': r['B'], 'theta': r['theta'], 'levels': rows})
+    print('k', r['k'], 'theta', r['theta'], [(q['n'], q['lattice_level'], round(q['relativistic'], 5), f"{q['relative_error']:+.4f}") for q in rows])
+d['post_levels_by_order'] = levels_by_order
+
+rng = np.random.default_rng(20261110)
+post = []
+for r in d['orbits']:
+    tr = np.array(r['trajectory_every_2_ticks']); t = np.arange(len(tr)) * 2.0
+    B, th, p0, w = r['B'], r['theta'], r['p0'], r['width_amplitude']
+    N = 40000
+    x0 = rng.normal(0, w / np.sqrt(2), size=(N, 2))
+    pv = rng.normal(0, 1 / (w * np.sqrt(2)), size=(N, 2)); pv[:, 0] += p0
+    p = np.hypot(pv[:, 0], pv[:, 1]); phi0 = np.arctan2(pv[:, 1], pv[:, 0]); E = np.hypot(p, th)
+    # sense from the executed trajectory: sign of the y displacement after a short time
+    sense = 1.0 if tr[min(4, len(tr) - 1), 1] >= 0 else -1.0
+    ens = np.zeros((len(t), 2))
+    for i, tt in enumerate(t):
+        ph = phi0 + sense * B / E * tt
+        ens[i, 0] = np.mean(x0[:, 0] + sense * p / B * (np.sin(ph) - np.sin(phi0)))
+        ens[i, 1] = np.mean(x0[:, 1] - sense * p / B * (np.cos(ph) - np.cos(phi0)))
+    Tcl = 2 * np.pi * np.hypot(p0, th) / B
+    one = t <= Tcl
+    dev = np.sqrt(np.mean(np.sum((tr[one, :2] - ens[one]) ** 2, axis=1)))
+    def first_max(z):
+        dist = np.hypot(z[:, 0] - z[0, 0], z[:, 1] - z[0, 1])
+        lim = dist[t <= 1.5 * Tcl].max()
+        k = next(k for k in range(1, len(dist) - 1) if dist[k] > dist[k - 1] and dist[k] >= dist[k + 1] and dist[k] > 0.5 * lim)
+        return float(dist[k] / 2), float(t[k])
+    hr, ht = first_max(tr[:, :2]); her, het = first_max(ens)
+    row = {'k': r['k'], 'theta': th, 'p0': p0, 'sense': sense, 'classical_single_orbit_radius_p0_over_B': p0 / B, 'classical_half_period_piE_over_B': Tcl / 2,
+           'executed_first_max_distance_over_2': hr, 'executed_time_of_first_max': ht,
+           'ensemble_first_max_distance_over_2': her, 'ensemble_time_of_first_max': het,
+           'rms_deviation_executed_vs_ensemble_first_classical_period_cells': float(dev),
+           'executed_mean_xy_every_8_ticks_first_period': [[round(a, 3), round(b, 3)] for a, b in tr[one, :2][::4]],
+           'ensemble_mean_xy_every_8_ticks_first_period': [[round(a, 3), round(b, 3)] for a, b in ens[one][::4]]}
+    post.append(row)
+    print('orbit k', r['k'], 'th', th, 'p0', p0, f'exec half-diam {hr:.2f} at {ht:.0f}', f'ensemble {her:.2f} at {het:.0f}', f'single orbit {p0 / B:.2f} at {Tcl / 2:.1f}', f'rms dev {dev:.2f}')
+d['post_orbit_classical_ensemble'] = post
+d['sublattices'] = ('a quantum moves by (+-1,+-1,+-1) per tick, so (x1-x2) mod 2 and (x2-x3) mod 2 are conserved: four invariant sublattices. '
+                    'Line preparation (one cell column (64,64), both x3 cells) fills the two sublattices with (x1-x2) mod 2 = 0; the orbit Gaussians fill all four.')
+json.dump(d, open(f, 'w'), indent=1)
+print('augmented', f)

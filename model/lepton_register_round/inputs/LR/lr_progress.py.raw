@@ -1,0 +1,23 @@
+"""Lane LR: write the progress file that the site reads as '/rl/LR/progress.json' (ADDENDUM_SITE.md, section 5).
+
+    python -B lr_progress.py <status> <done> <total> <eta_minutes> "<stage>"
+"""
+import datetime
+import json
+import os
+import sys
+
+SITE_DIR = 'WORKSPACE/oph-physics-sim/oph_defects/viewer2/research/LR'
+
+
+def main():
+    status, done, total, eta, stage = sys.argv[1], int(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4]), sys.argv[5]
+    os.makedirs(SITE_DIR, exist_ok=True)
+    out = dict(lane='LR', status=status, stage=stage, done=done, total=total, unit='runs',
+               updated=datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), eta_minutes=eta)
+    json.dump(out, open(os.path.join(SITE_DIR, 'progress.json'), 'w'), indent=1)
+    print(out)
+
+
+if __name__ == '__main__':
+    main()

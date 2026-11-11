@@ -1,0 +1,47 @@
+"""The twist history against the stored record files of a run (sweeps 0 and 1 are stored).
+
+    python il_record_check.py --run <SIM>/runs/universe/L5 --history history_L5.npz
+
+For every stored record file: the applied twists (twist > 0) with their position, seam, signed integer current and
+depth must equal the rows of the history for that sweep. This checks the integer currents themselves, which the
+gates modulo 6 cannot see.
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import sys
+from pathlib import Path
+
+import numpy as np
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--run', required=True)
+    ap.add_argument('--history', required=True)
+    args = ap.parse_args()
+    run = Path(args.run)
+    meta = json.loads((run / 'run.json').read_text())
+    hz = np.load(args.history)
+    out = {'level': meta['geometry']['level'], 'sweeps_checked': [], 'all_equal': True}
+    for rec in meta['records']:
+        s = rec['sweep']
+        with np.load(run / rec['file']) as z:
+            idx = np.flatnonzero(z['twist'] > 0)
+            stored = dict(pos=idx.astype(np.int64), seam=z['seam'][idx].astype(np.int64), j=z['current'][idx].astype(np.int64),
+                          depth=z['depth'][idx].astype(np.int64))
+            delta_ok = bool(((z['current'][idx].astype(np.int64) % 6) == z['twist'][idx].astype(np.int64)).all())
+        sel = hz['ev_sweep'] == s
+        mine = dict(pos=hz['ev_pos'][sel].astype(np.int64), seam=hz['ev_seam'][sel].astype(np.int64),
+                    j=hz['ev_j'][sel].astype(np.int64), depth=hz['ev_depth'][sel].astype(np.int64))
+        eq = {k: bool(stored[k].shape == mine[k].shape and (stored[k] == mine[k]).all()) for k in stored}
+        out['sweeps_checked'].append(dict(sweep=s, applied_twists=int(idx.size), equal=eq, twist_is_current_mod_6=delta_ok,
+                                          currents={str(v): int(c) for v, c in zip(*np.unique(stored['j'], return_counts=True))}))
+        out['all_equal'] &= all(eq.values()) and delta_ok
+    print(json.dumps(out))
+    return 0 if out['all_equal'] else 1
+
+
+if __name__ == '__main__':
+    sys.exit(main())

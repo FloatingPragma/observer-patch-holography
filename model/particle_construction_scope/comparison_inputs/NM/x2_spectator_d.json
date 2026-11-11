@@ -1,0 +1,38 @@
+{
+ "family": "spectator",
+ "couplings": {
+  "y_u": 0,
+  "y_d": 1,
+  "y_e": 0
+ },
+ "spacing": "pi",
+ "source_first_image_terms": 204,
+ "source_second_image_terms": 19266,
+ "targets": {
+  "0": {
+   "bare_V_moments_k0_to_k4": [
+    "0",
+    "0",
+    "0",
+    "0",
+    "0"
+   ],
+   "bare_V_moment_k5": "0",
+   "tagged_fifth_V_moment": "0",
+   "RS_fifth_order_amplitude": "0"
+  },
+  "1": {
+   "bare_V_moments_k0_to_k4": [
+    "0",
+    "0",
+    "0",
+    "0",
+    "0"
+   ],
+   "bare_V_moment_k5": "-15*I/8",
+   "tagged_fifth_V_moment": "-9*I*r_0_0**2*r_0_1**2/8 - 3*I*r_0_0*r_0_1**2*r_1_1/4",
+   "RS_fifth_order_amplitude": "-3*I*(3*Delta_l - 2*Delta_s)/(8*Delta_l*Delta_s**2*(Delta_l - Delta_s)**2)"
+  }
+ },
+ "seconds": 33.8
+}

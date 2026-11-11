@@ -1,0 +1,98 @@
+{
+ "describe": {
+  "name": "covariant agreement pump",
+  "sentence": "A seam event corrects the component in which its two ports disagree after recharting through their spinor frames, and splits a double load as the reference rule does.",
+  "state_added_to_reference_rule": "none (a complex Hilbert space over the load configurations)",
+  "declared": [
+   "recharting class (flux 1 per face in units 2 pi/20; one unit is the spinor frame of the port directions)",
+   "record alphabet {keep, corrected, split_a, split_b}",
+   "uniform independent seam scheduler"
+  ],
+  "declared_numbers": 0,
+  "coin": false,
+  "record": true,
+  "port_response": "not claimed"
+ },
+ "total_1": {
+  "dimension": 12,
+  "completeness_defect": 8.881784197001252e-16,
+  "lumping_defect": 5.551115123125783e-16,
+  "levels": [
+   [
+    0.2986762022,
+    2
+   ],
+   [
+    0.0521908193,
+    4
+   ],
+   [
+    0.0323140531,
+    6
+   ]
+  ],
+  "leading_weight": 0.5973524044
+ },
+ "effect_span": [
+  31,
+  132,
+  144
+ ],
+ "rotation_defect": 7.188347139752693e-14,
+ "total_2": {
+  "dimension": 78,
+  "completeness_defect": 8.881790763271825e-16,
+  "lumping_defect": 5.551115123125783e-16,
+  "levels": [
+   [
+    0.1405973465,
+    3
+   ],
+   [
+    0.0312765731,
+    5
+   ],
+   [
+    0.0242451068,
+    3
+   ],
+   [
+    0.0236330976,
+    3
+   ],
+   [
+    0.0123450851,
+    5
+   ],
+   [
+    0.010894837,
+    4
+   ],
+   [
+    0.0070885317,
+    3
+   ],
+   [
+    0.0058939442,
+    4
+   ],
+   [
+    0.0057139401,
+    3
+   ],
+   [
+    0.0044515558,
+    5
+   ],
+   [
+    0.0043116824,
+    3
+   ],
+   [
+    0.0040698084,
+    4
+   ]
+  ],
+  "leading_weight": 0.4217920395
+ }
+}

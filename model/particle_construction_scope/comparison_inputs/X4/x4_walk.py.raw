@@ -1,0 +1,295 @@
+"""X4, part 3: the internal sectors of the carrier walk as copies (candidate d), and what the frame makes of them.
+
+Exact: rational arithmetic on the public executable (model/coherent_seam_repair/program.py), Q(sqrt5) through the
+library of worker KD, integers. Angles are float64 of exact eigenvalues.
+
+  1. The two discriminant blocks of the public walk, entry by entry on the executable:
+       blank record     K0 = 11/12 + A/60,     set record     K1 = 11/12 - A/60     (A the seam adjacency).
+  2. Sectors, kernel eigenvalues, mass angles arccos(eigenvalue), multiplicities, ratios.
+  3. Under the stabilizer of a cubic frame (order 12) the port space is the regular representation:
+     1 + 1' + 1'' + three copies of the triplet.
+  4. The three copies in one Klein character: kernel in the basis of the three golden rectangles of the frame
+     (the three orbits of the Klein group on the ports), eigenvectors, squared overlaps.
+  5. Rotation content of a copy times the spin doublet under the binary cover of the frame stabilizer.
+  6. Frozen charged-lepton mass ratios for the comparison. NOT BLIND.
+"""
+import json
+import math
+import os
+import sys
+from fractions import Fraction as F
+
+import sympy as s
+
+import kdlib as kd
+from kdlib import K, ZERO, ONE
+from model.coherent_seam_repair.program import Observer, State
+from x4lib import geometry, kstr, fl, rot3, dump
+
+geo = geometry()
+V, seams, rots = geo['V'], geo['seams'], geo['rotations']
+n = 12
+out = {}
+A = [[0] * n for _ in range(n)]
+for a, b in seams:
+    A[a][b] = A[b][a] = 1
+
+# ---------------------------------------------------------------------------------------------------------------
+# 1. the discriminant blocks on the executable
+obs = Observer()
+D = obs.address_count
+def embedded(p, parity):
+    amp = [F(0)] * obs.dimension
+    for k in range(D):
+        amp[obs.index(p, parity, k)] = F(1)
+    return State(tuple(amp), D)
+def inner(u, v):
+    assert u.norm_denominator == v.norm_denominator
+    return sum(a * b for a, b in zip(u.amplitudes, v.amplitudes)) / u.norm_denominator
+blocks_ok = True
+for parity, sign in ((0, 1), (1, -1)):
+    emb = [embedded(p, parity) for p in range(n)]
+    for q in range(n):
+        w = obs.step(emb[q])
+        for p in range(n):
+            want = (F(11, 12) if p == q else F(0)) + sign * F(A[p][q], 60)
+            blocks_ok &= (inner(emb[p], w) == want)
+out['discriminant_blocks_on_the_public_executable'] = {
+    'blank_record': '11/12 + A/60', 'set_record': '11/12 - A/60', 'all_288_entries_equal': bool(blocks_ok), 'tag': 'EXACT'}
+print('1. <embedded p | W | embedded q> = 11/12 delta +- A/60 for blank / set record, 288 entries:', blocks_ok)
+assert blocks_ok
+
+# ---------------------------------------------------------------------------------------------------------------
+# 2. sectors
+x = s.symbols('x')
+cp = s.factor(s.Matrix(A).charpoly(x).as_expr())
+print('2. characteristic polynomial of the adjacency:', cp)
+assert s.expand(cp - (x - 5) * (x ** 2 - 5) ** 3 * (x + 1) ** 5) == 0
+r5 = s.sqrt(5)
+sect = [('uniform', 1, 5), ('slow triplet 3', 3, r5), ('quintet 5', 5, -1), ('fast triplet 3prime', 3, -r5)]
+rows = []
+for record, sign in (('blank', 1), ('set', -1)):
+    for name, mult, a in sect:
+        lam = s.nsimplify(s.Rational(11, 12) + sign * a / 60)
+        rows.append({'sector': name, 'record': record, 'multiplicity': mult, 'kernel_eigenvalue': str(lam),
+                     'mass_angle_per_tick': float(s.acos(lam))})
+rows.sort(key=lambda r: r['mass_angle_per_tick'])
+for r in rows:
+    print(f"   {r['sector']:20s} {r['record']:5s} x{r['multiplicity']}  eigenvalue {r['kernel_eigenvalue']:18s} angle {r['mass_angle_per_tick']:.6f}")
+angles = sorted({round(r['mass_angle_per_tick'], 9) for r in rows})
+nonzero = [a for a in angles if a > 0]
+blank_nonzero = sorted(r['mass_angle_per_tick'] for r in rows if r['record'] == 'blank' and r['mass_angle_per_tick'] > 0)
+out['sectors_of_the_carrier_walk'] = {
+    'rows': rows, 'distinct_angles': angles, 'distinct_nonzero_angles_both_records': len(nonzero),
+    'distinct_nonzero_angles_blank_record': len(blank_nonzero), 'blank_multiplicities': [3, 5, 3],
+    'ratios_to_the_lowest_nonzero_angle': [round(a / nonzero[0], 4) for a in nonzero],
+    'blank_ratios': [round(a / blank_nonzero[0], 4) for a in blank_nonzero],
+    'massless_sector': 'uniform load, blank record (one state)', 'tag': 'EXACT eigenvalues, float64 angles'}
+print('   distinct nonzero angles: both records', len(nonzero), ', blank', len(blank_nonzero), '; ratios', out['sectors_of_the_carrier_walk']['ratios_to_the_lowest_nonzero_angle'],
+      '; blank ratios', out['sectors_of_the_carrier_walk']['blank_ratios'])
+
+# ---------------------------------------------------------------------------------------------------------------
+# 3. regular representation of the frame stabilizer
+fr = geo['frames'][0]
+N12 = fr['normalizer']
+fixed = sorted(sum(1 for p in range(n) if g[p] == p) for g in N12)
+assert fixed == [0] * 11 + [12]
+# classes of the stabilizer: identity, three half-turns, eight third-turns (two classes of four, mutually inverse)
+def order(g):
+    k, h = 1, g
+    while h != tuple(range(n)):
+        h = kd.compose(h, g); k += 1
+    return k
+orders = sorted(order(g) for g in N12)
+assert orders == [1, 2, 2, 2] + [3] * 8
+chi3 = {g: kd.trace(rot3(g)) for g in N12}
+chi3c = {g: kd.trace(rot3(g, conj=True)) for g in N12}
+chi5 = {g: K(sum(1 for p in range(n) if g[p] == p)) - ONE - chi3[g] - chi3c[g] for g in N12}
+def mult_of_triplet(ch):
+    # the stabilizer's own triplet has the character of chi3 restricted (3, -1, 0)
+    return sum((ch[g] * chi3[g] for g in N12), ZERO) / K(12)
+def mult_of_trivial(ch):
+    return sum((ch[g] for g in N12), ZERO) / K(12)
+tri_irreducible = sum((chi3[g] * chi3[g] for g in N12), ZERO) / K(12)
+res = {'slow triplet 3': (mult_of_trivial(chi3), mult_of_triplet(chi3)), 'fast triplet 3prime': (mult_of_trivial(chi3c), mult_of_triplet(chi3c)),
+       'quintet 5': (mult_of_trivial(chi5), mult_of_triplet(chi5))}
+out['port_space_under_the_frame_stabilizer'] = {
+    'fixed_ports_per_element': fixed, 'the_port_space_is_the_regular_representation': True,
+    'triplet_of_the_stabilizer_is_irreducible': kstr(tri_irreducible),
+    'copies_of_the_triplet_in': {k: kstr(v[1]) for k, v in res.items()},
+    'trivial_character_in': {k: kstr(v[0]) for k, v in res.items()},
+    'decomposition': '12 = 1 (uniform) + 1prime + 1doubleprime (inside the quintet) + 3 x 3 (slow triplet, fast triplet, the triplet inside the quintet)',
+    'tag': 'EXACT'}
+print('3. frame stabilizer: fixed ports', fixed, '; triplet irreducible:', kstr(tri_irreducible), '; triplet copies in 3, 3prime, 5:',
+      [kstr(v[1]) for v in res.values()])
+assert tri_irreducible == ONE and all(v[1] == ONE for v in res.values()) and all(v[0].is_zero() for v in res.values())
+
+# ---------------------------------------------------------------------------------------------------------------
+# 4. one Klein character: kernel on the three rectangles
+klein = fr['group']
+orb, seen = [], set()
+for p in range(n):
+    if p in seen: continue
+    o = sorted({g[p] for g in klein}); seen |= set(o); orb.append(o)
+assert sorted(len(o) for o in orb) == [4, 4, 4]
+frame_seams = set(fr['matching'])
+inside = [sum(1 for e in frame_seams if e[0] in o and e[1] in o) for o in orb]
+assert inside == [2, 2, 2]                                     # the six frame seams are the short sides of the three rectangles
+other_inside = sum(1 for e in seams if e not in frame_seams and any(e[0] in o and e[1] in o for o in orb))
+half = [g for g in klein if g != tuple(range(n))]
+def cross3(a, b):
+    return tuple(a[(i + 1) % 3] * b[(i + 2) % 3] - a[(i + 2) % 3] * b[(i + 1) % 3] for i in range(3))
+char_rows = []
+for ci in range(3):
+    # character: +1 on half[ci], -1 on the two others
+    chi = {tuple(range(n)): 1}
+    for j, h in enumerate(half):
+        chi[h] = 1 if j == ci else -1
+    basis = []
+    for o in orb:
+        vec = [F(0)] * n
+        for g in klein:
+            vec[g[o[0]]] += F(chi[g], 2)
+        basis.append(vec)
+    assert all(sum(a * a for a in b) == 1 for b in basis)
+    Kb = [[sum(basis[i][p] * ((F(11, 12) if p == q else F(0)) + F(A[p][q], 60)) * basis[j][q] for p in range(n) for q in range(n))
+           for j in range(3)] for i in range(3)]
+    LF = [[sum(basis[i][p] * basis[j][q] * (sum(1 for e in frame_seams if p in e) if p == q else (-1 if tuple(sorted((p, q))) in frame_seams else 0))
+               for p in range(n) for q in range(n)) for j in range(3)] for i in range(3)]
+    eig = []
+    for name, lam in (('quintet 5', K(F(9, 10))), ('slow triplet 3', K(F(11, 12), F(1, 60))), ('fast triplet 3prime', K(F(11, 12), F(-1, 60)))):
+        Mx = [[K(Kb[i][j]) - (lam if i == j else ZERO) for j in range(3)] for i in range(3)]
+        assert kd.rank(tuple(tuple(r) for r in Mx)) == 2
+        cand = [cross3(Mx[i], Mx[j]) for i, j in ((0, 1), (0, 2), (1, 2))]
+        v = next(c for c in cand if not all(t.is_zero() for t in c))
+        assert all(sum((Mx[i][j] * v[j] for j in range(3)), ZERO).is_zero() for i in range(3))
+        nrm = sum((t * t for t in v), ZERO)
+        # the port vector of this state, exact, and the exact eigen-equation on the twelve ports
+        pv = [sum((v[j] * K(basis[j][p]) for j in range(3)), ZERO) for p in range(n)]
+        for p in range(n):
+            lhs = sum(((K(F(11, 12)) if p == q else ZERO) + K(F(A[p][q], 60))) * pv[q] for q in range(n))
+            assert (lhs - lam * pv[p]).is_zero()
+        scale = math.sqrt(fl(sum((t * t for t in pv), ZERO)))
+        eig.append({'sector': name, 'kernel_eigenvalue': kstr(lam), 'squared_overlaps_with_the_rectangles': [kstr(t * t / nrm) for t in v],
+                    'floats': [round(fl(t * t / nrm), 6) for t in v],
+                    'mass_angle_per_tick_blank_record': math.acos(fl(lam)),
+                    'port_amplitudes': [fl(t) / scale for t in pv]})
+    char_rows.append({'klein_character': ci, 'kernel_in_the_rectangle_basis': [[str(t) for t in r] for r in Kb],
+                      'frame_seam_laplacian_in_the_rectangle_basis': [[str(t) for t in r] for r in LF], 'eigenvectors': eig})
+    print('4. Klein character', ci, ': kernel on rectangles', [[str(t) for t in r] for r in Kb])
+    for e in eig:
+        print('     ', e['sector'], e['kernel_eigenvalue'], e['floats'], e['squared_overlaps_with_the_rectangles'])
+    print('      frame-seam Laplacian on rectangles:', [[str(t) for t in r] for r in LF])
+out['three_copies_in_one_klein_character'] = {
+    'rectangles': orb, 'frame_seams_inside_each_rectangle': inside, 'other_seams_inside_a_rectangle': other_inside,
+    'characters': char_rows, 'tag': 'EXACT',
+    'statement': 'in each nontrivial Klein character the port space holds exactly three states; in the rectangle basis the '
+                 'kernel leaves one rectangle unmixed (the quintet state) and rotates the two others by the golden angle: '
+                 'squared overlaps (5 + sqrt5)/10 and (5 - sqrt5)/10'}
+
+# ---------------------------------------------------------------------------------------------------------------
+# 5. spin content of (copy) x (spin doublet) under the binary cover of the frame stabilizer
+quats, rotm = kd.cover()
+cover24 = [q for q, perm in quats.items() if perm in set(N12)]
+assert len(cover24) == 24
+c2 = {q: K(2) * q[0] for q in cover24}                         # trace of the SU(2) matrix = 2 w (rational part, Galois-stable or not: real)
+c3 = {q: kd.trace(rotm[q]) for q in cover24}
+doublet_irred = sum((c2[q] * c2[q] for q in cover24), ZERO) / K(24)
+mult_doublet = sum((c2[q] * c3[q] * c2[q] for q in cover24), ZERO) / K(24)
+norm_prod = sum(((c2[q] * c3[q]) * (c2[q] * c3[q]) for q in cover24), ZERO) / K(24)
+out['copy_times_spin_doublet'] = {'doublet_character_norm': kstr(doublet_irred), 'multiplicity_of_the_spin_doublet_in_triplet_x_doublet': kstr(mult_doublet),
+                                  'character_norm_of_the_product': kstr(norm_prod), 'dimension_of_the_product': 6, 'tag': 'EXACT',
+                                  'statement': 'a copy is a vector of the frame group; with the spin doublet it holds the doublet once and four further states '
+                                               '(the content of spin 3/2): it is not a second spin-1/2 family unless the load state is exempt from the rotations'}
+print('5. binary cover of the frame stabilizer (24): doublet norm', kstr(doublet_irred), '; doublet in triplet x doublet:', kstr(mult_doublet),
+      '; norm of the product character:', kstr(norm_prod))
+
+# ---------------------------------------------------------------------------------------------------------------
+# 5b. the second index (coordinator's candidate f; work/DESIGN/DESIGN.md entry A, torsor.py), checked exactly here.
+# The frame stabilizer acts simply transitively on the ports: port q <-> the rotation g_q with g_q(p0) = q.
+p0 = 0
+g_of = {g[p0]: g for g in N12}
+assert len(g_of) == 12
+def pinv(g):
+    r = [0] * n
+    for i, xg in enumerate(g):
+        r[xg] = i
+    return tuple(r)
+S = [g_of[q] for q in range(n) if A[p0][q]]
+gen_orders = sorted(order(sg) for sg in S)
+closed_inv = {pinv(sg) for sg in S} == set(S)
+cayley = all((A[p][q] == 1) == (kd.compose(pinv(g_of[p]), g_of[q]) in S) for p in range(n) for q in range(n))
+def right(k):                                               # second action: g_q(p0) -> (g_q k^-1)(p0)
+    kinv = pinv(k)
+    return tuple(g_of[q][kinv[p0]] for q in range(n))
+commute_lr = all(kd.compose(g, right(k)) == kd.compose(right(k), g) for g in N12 for k in N12)
+sumA = [[0] * n for _ in range(n)]
+for sg in S:
+    r = right(pinv(sg))
+    for q in range(n):
+        sumA[r[q]][q] += 1
+kernel_is_right = sumA == A
+commuting = [k for k in N12 if all(A[right(k)[p]][right(k)[q]] == A[p][q] for p in range(n) for q in range(n))]
+right_commuting_with_kernel = len(commuting)
+nontrivial = [k for k in commuting if k != tuple(range(n))]
+antipodal_map = len(nontrivial) == 1 and all(right(nontrivial[0])[q] == geo['antipode'][q] for q in range(n)) and order(nontrivial[0]) == 2
+M3 = [[sum((rot3(sg)[i][j] for sg in S), ZERO) for j in range(3)] for i in range(3)]
+assert all(x.is_rational() and x.a.denominator == 1 for row in M3 for x in row)
+M3i = [[int(x.a) for x in row] for row in M3]
+sym3 = all(M3i[i][j] == M3i[j][i] for i in range(3) for j in range(3))
+# target form [[-1,0,0],[0,-1,2],[0,2,1]] up to a signed permutation of the axes
+import itertools as _it
+target = [[-1, 0, 0], [0, -1, 2], [0, 2, 1]]
+def conj_signed(Mx, perm, sg):
+    return [[sg[i] * sg[j] * Mx[perm[i]][perm[j]] for j in range(3)] for i in range(3)]
+same_form = any(conj_signed(M3i, perm, sg) == target for perm in _it.permutations(range(3)) for sg in _it.product((1, -1), repeat=3))
+# eigen-structure, exact: (M3 + 1)(M3^2 - 5) = 0; one coordinate axis is an eigenvector with value -1;
+# the eigenvector of +sqrt5 has squared components (5 +- sqrt5)/10 on the other two axes
+Mk = tuple(tuple(K(x) for x in row) for row in M3i)
+poly = kd.mm(kd.madd(Mk, kd.eye(3)), kd.msub(kd.mm(Mk, Mk), kd.mscale(K(5), kd.eye(3))))
+axis_m1 = [j for j in range(3) if all(M3i[i][j] == (-1 if i == j else 0) for i in range(3))]
+Mx = [[Mk[i][j] - (K(0, 1) if i == j else ZERO) for j in range(3)] for i in range(3)]
+cand = [cross3(Mx[i], Mx[j]) for i, j in ((0, 1), (0, 2), (1, 2))]
+v5 = next(c for c in cand if not all(t.is_zero() for t in c))
+nrm5 = sum((t * t for t in v5), ZERO)
+sq5 = sorted((t * t / nrm5 for t in v5), key=fl)
+# the three one-dimensional types: characters of the quotient by the Klein group (the cyclic shift of the three rectangles)
+rect_of = {p: i for i, o in enumerate(orb) for p in o}
+shift = {sg: (rect_of[sg[orb[0][0]]] - 0) % 3 for sg in S}
+cnt = [sum(1 for sg in S if shift[sg] == m) for m in range(3)]
+singlet_values = [sum(cnt), cnt[0] - F(cnt[1] + cnt[2], 2), cnt[0] - F(cnt[1] + cnt[2], 2)]
+out['second_index_of_the_regular_representation'] = {
+    'simply_transitive': True, 'generators_orders': gen_orders, 'generators_closed_under_inverse': bool(closed_inv),
+    'seam_graph_is_the_cayley_graph': bool(cayley), 'second_action_commutes_with_the_rotations': bool(commute_lr),
+    'adjacency_is_the_sum_of_second_translations_by_the_generators': bool(kernel_is_right),
+    'second_translations_commuting_with_the_adjacency': right_commuting_with_kernel, 'of': 12,
+    'the_commuting_one_is_a_half_turn_whose_translation_is_the_antipodal_map': bool(antipodal_map),
+    'M3_in_the_raw_frame': M3i, 'symmetric': bool(sym3), 'equal_to_the_design_note_form_up_to_signed_axis_permutation': bool(same_form),
+    'annihilating_polynomial_(M3+1)(M3^2-5)': bool(kd.is_zero(poly)), 'axis_with_value_minus_one': axis_m1,
+    'squared_components_of_the_sqrt5_eigenvector': [kstr(t) for t in sq5],
+    'imaginary_part_of_the_complex_characters_vanishes': bool(cnt[1] == cnt[2]),
+    'adjacency_on_the_three_one_dimensional_types': [str(v) for v in singlet_values],
+    'kernel_levels_of_the_three_copies_blank_record': ['11/12 + sqrt5/60', '9/10', '11/12 - sqrt5/60'],
+    'kernel_levels_of_the_three_copies_set_record': ['11/12 - sqrt5/60', '14/15', '11/12 + sqrt5/60'],
+    'tag': 'EXACT (permutations, integers, Q(sqrt5))',
+    'statement': 'with a frame fixed the ports are the elements of its rotation group; the adjacency acts on the second index only, by M3 on the '
+                 'triplet and by 5, -1, -1 on the three one-dimensional types; the axes of the second index are the three golden rectangles'}
+print('5b. second index: generator orders', gen_orders, '| Cayley:', cayley, '| second action commutes with rotations:', commute_lr,
+      '| adjacency = sum of second translations:', kernel_is_right, '| second translations commuting with the adjacency:', right_commuting_with_kernel, 'of 12')
+print('    M3 =', M3i, '| design-note form up to signed axis permutation:', same_form, '| (M3+1)(M3^2-5) = 0:', kd.is_zero(poly),
+      '| squared components:', [kstr(t) for t in sq5], '| one-dimensional types:', [str(v) for v in singlet_values])
+assert gen_orders == [2, 3, 3, 3, 3] and closed_inv and cayley and commute_lr and kernel_is_right and sym3 and same_form and kd.is_zero(poly)
+assert right_commuting_with_kernel == 2 and antipodal_map
+assert len(axis_m1) == 1 and sq5[0].is_zero() and sq5[1] == (K(5) - K(0, 1)) / K(10) and sq5[2] == (K(5) + K(0, 1)) / K(10)
+assert [str(v) for v in singlet_values] == ['5', '-1', '-1'] and cnt[1] == cnt[2]
+
+# ---------------------------------------------------------------------------------------------------------------
+# 6. frozen charged-lepton ratios (NOT BLIND)
+ref = json.load(open(os.path.join(os.getcwd(), 'model', 'particle_candidate_atlas', 'reference_values.json')))
+ratios = {k: float(v['value']) for k, v in ref['ratios'].items()}
+out['comparison_NOT_BLIND'] = {'frozen_ratios': ratios, 'source': 'RER/model/particle_candidate_atlas/reference_values.json, key ratios',
+                               'tower_blank_ratios': out['sectors_of_the_carrier_walk']['blank_ratios'],
+                               'statement': 'the three blank angles are within a factor 1.63 of each other; the charged leptons span a factor %.0f' % ratios['tau_electron_CODATA2022']}
+print('6. NOT BLIND: frozen ratios', ratios, '; blank tower ratios', out['sectors_of_the_carrier_walk']['blank_ratios'])
+if len(sys.argv) > 1:
+    dump(out, sys.argv[1])

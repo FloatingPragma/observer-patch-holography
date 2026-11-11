@@ -1,0 +1,98 @@
+"""Worker CH: the paper's outer map G(P) = phi + sqrt(pi) alpha_Thomson for the source variants (addendum 2, rows O).
+
+Run: /tmp/oph-completion-venv/bin/python ch_outer.py [out.json]
+
+The Thomson transport is RER code/P_derivation/paper_math.py (imported read only): structured_thomson_running on a
+D10 point built from this worker's chain outputs. The chain is the class Chain of ch_lib.py on the functions of
+work/LV/lv_chain.py. One application of G at P = 1.6309721 and the iterated fixed point are reported.
+No measured value is read (the transport uses the paper's internal mass continuation).
+"""
+import json
+import sys
+from decimal import Decimal
+from pathlib import Path
+
+import numpy as np
+
+from ch_lib import Chain, load_lv, clean, P0
+
+RER = Path('WORKSPACE/reverse-engineering-reality')
+sys.path.insert(0, str(RER / 'code/P_derivation'))
+from paper_math import PaperMathContext, D10Point            # read only
+
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).with_name('outer.json')
+pi = np.pi
+lv = load_lv()
+ctx = PaperMathContext(precision=28)
+PHI = (1 + 5 ** 0.5) / 2
+D = lambda x: Decimal(repr(float(x)))
+
+
+def thomson(r, P):
+    a1, a2, a3 = 1 / r['inv_alpha_1'], 1 / r['inv_alpha_2'], r['alpha_s']
+    aY = 0.6 * a1
+    aem = 1 / r['inv_alpha_em']
+    d10 = D10Point(p=D(P), n_c=3, mu_u=D(r['M_U']), alpha_u=D(1 / r['inv_alpha_U']), mz_run=D(r['mu']), v=D(r['v']),
+                   alpha1_mz=D(a1), alpha2_mz=D(a2), alpha3_mz=D(a3), alpha_y_mz=D(aY), alpha_em_mz=D(aem),
+                   alpha_em_inv_mz=D(r['inv_alpha_em']), sin2w_mz=D(r['sin2']))
+    run = ctx.structured_thomson_running(d10)
+    delta = float(run['total_delta_alpha_inv'])
+    ainv0 = r['inv_alpha_em'] + delta
+    return ainv0, delta
+
+
+def G(P, b, cY, pref):
+    sols = Chain(lv, P=P, b=b, c=(0.6 * cY, 1.0, 1.0), pref=pref).solve()
+    if not sols:
+        return None
+    r = sols[0]
+    ainv0, delta = thomson(r, P)
+    return PHI + np.sqrt(pi) / ainv0, ainv0, delta, r
+
+
+BD, B1, B2 = (33 / 5, 1.0, -3.0), (81 / 10, 5 / 6, -3.0), (41 / 5, 1.0, -3.0)
+ROWS = {'O-SD declared, 5/3': (BD, 5 / 3, 1.0), 'O-SA one doublet m = 2, 5/3': (B1, 5 / 3, 2.0), 'O-SA one doublet m = 2, 1': (B1, 1.0, 2.0),
+        'O-SB two doublets m = 1, 5/3': (B2, 5 / 3, 1.0), 'O-SB two doublets m = 1, 1': (B2, 1.0, 1.0)}
+out = {'code_fixed_point_P': 1.63097209585889737696, 'rows': {}}
+for key, (b, cY, pref) in ROWS.items():
+    once = G(P0, b, cY, pref)
+    P = P0
+    hist = []
+    for it in range(40):
+        res = G(P, b, cY, pref)
+        if res is None:
+            break
+        Pn, ainv0, delta, r = res
+        hist.append(Pn)
+        if abs(Pn - P) < 1e-13:
+            P = Pn
+            break
+        P = Pn
+    res = G(P, b, cY, pref)
+    row = dict(slopes=list(b), c_Y=cY, prefactor=pref,
+               at_P0=dict(G_minus_P=once[0] - P0, inv_alpha_0=once[1], transport=once[2], v=once[3]['v'], sin2=once[3]['sin2'],
+                          inv_alpha_em_mZ=once[3]['inv_alpha_em']),
+               iterations=len(hist))
+    if res is not None:
+        Pf, ainv0, delta, r = res
+        row['fixed_point'] = dict(P=P, residual=Pf - P, inv_alpha_0=ainv0, transport=delta, inv_alpha_U=r['inv_alpha_U'], v=r['v'],
+                                  m_Z=r['m_Z'], m_W=r['m_W'], inv_alpha_2=r['inv_alpha_2'], alpha_s=r['alpha_s'], sin2=r['sin2'],
+                                  inv_alpha_em_mZ=r['inv_alpha_em'])
+    else:
+        row['fixed_point'] = 'the closure has no root along the iteration'
+    out['rows'][key] = row
+gate = out['rows']['O-SD declared, 5/3']
+assert abs(gate['fixed_point']['P'] - out['code_fixed_point_P']) < 2e-11, gate['fixed_point']['P']
+assert abs(gate['fixed_point']['inv_alpha_0'] - 136.994835177412937) < 2e-7
+out['gate'] = 'the declared row reproduces the fixed point of paper_math.py (P = 1.6309720958589, 1/alpha = 136.9948352)'
+OUT.write_text(json.dumps(clean(out), indent=1))
+for k, v in out['rows'].items():
+    a, f = v['at_P0'], v['fixed_point']
+    print(k)
+    print(f"   at P0: G - P = {a['G_minus_P']:+.3e}  1/alpha(0) = {a['inv_alpha_0']:.4f}  transport = {a['transport']:.4f}")
+    if isinstance(f, dict):
+        print(f"   fixed point: P = {f['P']:.10f}  1/alpha(0) = {f['inv_alpha_0']:.4f}  1/alpha_U = {f['inv_alpha_U']:.4f}  v = {f['v']:.3f}  m_Z = {f['m_Z']:.3f}  "
+              f"sin2 = {f['sin2']:.5f}  1/alpha_em(m_Z) = {f['inv_alpha_em_mZ']:.3f}  alpha_s = {f['alpha_s']:.5f}  ({v['iterations']} iterations)")
+    else:
+        print('   ', f)
+print('wrote', OUT)

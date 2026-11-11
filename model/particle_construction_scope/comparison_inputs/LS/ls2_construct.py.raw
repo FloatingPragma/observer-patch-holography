@@ -1,0 +1,160 @@
+"""Worker LS, round 2: basepoint of the charged determinant line (CANDIDATES.md section 5), exact parts and
+the class-relabelled predictions. Reads no measured mass; the comparison is ls2_compare.py.
+
+  cd RER && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. /tmp/oph-completion-venv/bin/python -B RL/work/LS/ls2_construct.py
+"""
+from __future__ import annotations
+
+import itertools
+import json
+from fractions import Fraction as F
+from pathlib import Path
+
+import mpmath as mp
+import sympy as s
+
+HERE = Path(__file__).resolve().parent
+RL = Path("WORKSPACE/repair-law")
+mp.mp.dps = 40
+
+
+# ---------------------------------------------------------------- screen geometry (EXACT)
+def screen():
+    phi = (1 + s.sqrt(5)) / 2
+    verts = []
+    for a, b in itertools.product((1, -1), repeat=2):
+        verts += [s.Matrix([0, a, b * phi]), s.Matrix([a, b * phi, 0]), s.Matrix([b * phi, 0, a])]
+    d2 = lambda u, w: s.simplify((u - w).dot(u - w))
+    edges = [(i, j) for i, j in itertools.combinations(range(12), 2) if d2(verts[i], verts[j]) == 4]
+    eset = set(edges)
+    faces = [t for t in itertools.combinations(range(12), 3)
+             if all(tuple(sorted(p)) in eset for p in itertools.combinations(t, 2))]
+    V, E, Fc = len(verts), len(edges), len(faces)
+    defects = []
+    for v in range(12):
+        ang = 0
+        for f in faces:
+            if v not in f:
+                continue
+            a, b = [w for w in f if w != v]
+            u1, u2 = verts[a] - verts[v], verts[b] - verts[v]
+            cosang = s.nsimplify(s.simplify(u1.dot(u2) / s.sqrt(u1.dot(u1) * u2.dot(u2))))
+            ang += s.acos(cosang)
+        defects.append(s.simplify(2 * s.pi - ang))
+    total = s.simplify(sum(defects))
+    chi = V - E + Fc
+    assert (V, E, Fc) == (12, 30, 20) and chi == 2
+    assert all(d == s.pi / 3 for d in defects) and total == 2 * s.pi * chi
+    # holonomy: rotation by the defect generates Z6
+    R = s.Matrix([[s.cos(s.pi / 3), -s.sin(s.pi / 3)], [s.sin(s.pi / 3), s.cos(s.pi / 3)]])
+    order = next(n for n in range(1, 13) if s.simplify(R**n - s.eye(2)) == s.zeros(2))
+    assert order == 6
+    return {"V": V, "E": E, "F": Fc, "chi": chi, "defect_each": str(defects[0]),
+            "defect_over_2pi": str(s.simplify(defects[0] / (2 * s.pi))),
+            "sum_defects": str(total), "holonomy_order": order}
+
+
+# ---------------------------------------------------------------- C[Z6]: tracial weights and characters (EXACT)
+def group_algebra():
+    w = s.Rational(1, 2) + s.I * s.sqrt(3) / 2      # exp(2 pi i/6), exact in Q(sqrt3, i)
+    wb = s.Rational(1, 2) - s.I * s.sqrt(3) / 2     # its inverse
+    g = s.zeros(6)
+    for j in range(6):
+        g[(j + 1) % 6, j] = 1
+    tau = lambda X: s.expand(X.trace() / 6)  # normalized trace = Haar state on the regular representation
+    P = [(sum((s.expand(wb ** (j * k)) * g**j for j in range(6)), s.zeros(6)) / 6).applyfunc(s.expand)
+         for k in range(6)]
+    zero = lambda X: all(s.expand(x) == 0 for x in X)
+    checks = {
+        "idempotent": all(zero(Pk * Pk - Pk) for Pk in P),
+        "complete": zero(sum(P, s.zeros(6)) - s.eye(6)),
+        "tau_P_k": [str(tau(Pk)) for Pk in P],
+        "character_of_generator": [str(s.expand(w**k)) for k in range(6)],
+        "product_over_12_cone_points_of_character": [str(s.expand(w ** (12 * k))) for k in range(6)],
+    }
+    assert checks["idempotent"] and checks["complete"]
+    assert all(x == "1/6" for x in checks["tau_P_k"])
+    assert all(x == "1" for x in checks["product_over_12_cone_points_of_character"])
+    return checks
+
+
+# ---------------------------------------------------------------- native seam weights (EXACT, repository menu)
+def seam_weights():
+    from model.common_source import native_repair_mass as nrm
+    rows = nrm.native_records()
+    # rows: (cc, cr, ec, er, is_positive_current, weight)
+    p = sum((r[-1] for r in rows if r[0] == 0 and r[1] == 1), s.Integer(0))
+    q = sum((r[-1] for r in rows if r[2] == 0 and r[3] in (4, 5)), s.Integer(0))
+    total = sum((r[-1] for r in rows), s.Integer(0))
+    assert total == 1 and p == s.Rational(1, 12) and q == s.Rational(1, 6)
+    return {"p_repair_one_orientation": str(p), "q_agree_hold": str(q), "menu_size": len(rows)}
+
+
+# ---------------------------------------------------------------- kinetic factor (EXACT)
+def kinetic():
+    w = -s.Rational(1, 2) + s.I * s.sqrt(3) / 2   # exp(2 pi i/3), exact
+    chars = s.Matrix([[s.expand(w ** (j * k)) / s.sqrt(3) for j in range(3)] for k in range(3)])
+    gram = (chars * chars.H).applyfunc(s.expand)
+    assert all(s.expand(x) == 0 for x in gram - s.eye(3))
+    return {"Z_L_equals_Z_E_equals_I3_on_third_turn_characters": True}
+
+
+# ---------------------------------------------------------------- basepoint and relabelling
+def basepoint(classes, higgs_orientation, sw, scr):
+    """D1: prod over cone points of tau(P_c) times q p, with phase prod of characters. The class labels enter
+    through the characters (product 1 over the closed screen) and through tau(P_k), which is 1/6 for every k;
+    the Higgs orientation flips the sign of the circulant phase only (isospectral)."""
+    q, p = s.Rational(sw["q_agree_hold"]), s.Rational(sw["p_repair_one_orientation"])
+    w = s.Rational(1, 2) + s.I * s.sqrt(3) / 2
+    # characters of every leg at every cone point; the product over the closed screen is w^(12 k) = 1 per leg
+    phase = s.expand(s.prod([w ** (scr["V"] * (k % 6)) for k in classes]))
+    modulus = s.Rational(1, 6) ** scr["V"] * q * p
+    d2 = s.Rational(1, 6) ** (scr["V"] + scr["chi"]) / scr["chi"]
+    return {"classes": list(classes), "higgs": higgs_orientation, "phase": str(phase),
+            "N_D1": str(modulus), "N_D2": str(d2), "D1_equals_D2": bool(modulus == d2)}
+
+
+def main():
+    scr = screen()
+    alg = group_algebra()
+    sw = seam_weights()
+    kin = kinetic()
+    sectors = {"e": ((3, 3, 0), "H"), "u": ((1, 3, 4), "Htilde"), "d": ((1, 3, 4), "H")}
+    # signed integer 6Y version of the legs (outgoing minus incoming = 0 for the vertex), for the record
+    sixY = {"e": (-3, -3, -6), "u": (1, 3, 4), "d": (1, -3, -2)}
+    bp = {k: basepoint(*v, sw, scr) for k, v in sectors.items()}
+    N = s.Rational(bp["e"]["N_D1"])
+    assert N == s.Rational(1, 2) * s.Rational(1, 6) ** 14
+    assert all(bp[k]["N_D1"] == bp["e"]["N_D1"] and bp[k]["D1_equals_D2"] for k in bp)
+    # predictions with the source v (no measured input)
+    t1 = json.loads((RL / "work/SIM/derive/lew/t1_chain.json").read_text())["pixels"]["P_fwd"]["chain"]
+    v = mp.mpf(t1["v_over_E"]) * mp.mpf("1.22089e19")
+    ex = json.loads((HERE / "exact.json").read_text())["X1"]
+    lsq = [mp.mpf(x) for x in ex["lambda_sq_sorted"]]
+    det_rho = mp.mpf(ex["det_rho"])
+    Nm = mp.mpf(1) / 2 / mp.mpf(6) ** 14
+    gm = v * Nm ** (mp.mpf(1) / 3)
+    lept = [gm * l / det_rho ** (mp.mpf(1) / 3) for l in lsq]
+    out = {
+        "screen": scr, "group_algebra_Z6": alg, "seam_weights": sw, "kinetic": kin,
+        "basepoints": bp, "integer_6Y_legs": sixY,
+        "N_value": mp.nstr(Nm, 20), "abs_det_Y_predicted_all_sectors": mp.nstr(Nm * 2 ** mp.mpf(1.5), 20),
+        "trace_lift_form": "3 mu = 12 log(1/6) + log(q) + log(p) + (3/2) log 2 = (1/2) log 2 - 14 log 6",
+        "v_source_GeV": mp.nstr(v, 15),
+        "predictions": {
+            "lepton_masses_GeV_e_mu_tau": [mp.nstr(x, 12) for x in lept],
+            "lepton_sum_GeV": mp.nstr(sum(lept), 12),
+            "product_m1m2m3_GeV3_every_sector": mp.nstr(v**3 * Nm, 12),
+            "geometric_mean_mass_GeV_every_sector": mp.nstr(gm, 12),
+            "R_u = R_d = 1": True,
+        },
+        "measured_values_read": "none",
+    }
+    (HERE / "ls2_construct.json").write_text(json.dumps(out, indent=1) + "\n")
+    print(json.dumps({k: out[k] for k in ("screen", "seam_weights", "N_value", "abs_det_Y_predicted_all_sectors",
+                                          "predictions")}, indent=1))
+    print(json.dumps(bp, indent=1))
+
+
+if __name__ == "__main__":
+    main()

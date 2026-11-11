@@ -1,0 +1,111 @@
+"""Task CH, part (a) and addition (A): per-sweep class densities of the register from stats.npz (levels 6 to 10),
+end-of-run values, drift with level, and the decay law of classes 1 and 5. Reads run data only.
+
+    /tmp/oph-completion-venv/bin/python timeseries.py out.json
+"""
+import json, sys
+import numpy as np
+from scipy.optimize import curve_fit
+
+ROOT = 'WORKSPACE/oph-physics-sim/runs/universe'
+LEVELS = [6, 7, 8, 9, 10]
+S0 = 120          # start of the fit window: after the balanced class is reached at every level (sweeps 61 to 96)
+
+
+def load(L):
+    z = np.load(f'{ROOT}/L{L}/stats.npz')
+    meta = json.load(open(f'{ROOT}/L{L}/run.json'))
+    N = 20 * 4 ** L
+    V = 10 * 4 ** L + 2
+    return z, meta, N, V
+
+
+def fit_models(s, y):
+    out = {}
+    def ex(t, A, r): return A * np.exp(-r * t)
+    def exc(t, A, r, C): return A * np.exp(-r * t) + C
+    def pw(t, A, p): return A * t ** (-p)
+    def pwc(t, A, p, t0): return A * (t + t0) ** (-p)
+    def sexp(t, A, r, b): return A * np.exp(-(r * t) ** b)
+    for name, f, p0 in (('exponential', ex, (1.0, 0.009)), ('exponential_plus_floor', exc, (1.0, 0.009, 0.0)),
+                        ('power', pw, (1e3, 2.0)), ('power_shifted', pwc, (1e3, 2.0, 10.0)),
+                        ('stretched_exponential', sexp, (1.0, 0.009, 1.0))):
+        try:
+            p, cov = curve_fit(f, s, y, p0=p0, maxfev=200000)
+            res = y - f(s, *p)
+            rel = float(np.sqrt(np.mean((res / y) ** 2)))
+            out[name] = {'params': [float(x) for x in p], 'param_se_naive': [float(x) for x in np.sqrt(np.diag(cov))],
+                         'rms_relative_residual': rel}
+        except Exception as e:     # noqa: BLE001
+            out[name] = {'error': str(e)}
+    return out
+
+
+def main(path_out):
+    res = {'levels': {}, 'notes': {}}
+    rates, floors, c2inf, c3inf, c4inf = [], [], [], [], []
+    for L in LEVELS:
+        z, meta, N, V = load(L)
+        ci = z['counts_intra'].astype(np.float64)
+        cs = z['counts_screen'].astype(np.float64)
+        S = meta['geometry']['seams']
+        bal = meta['totals']['attempts_to_balanced_class'] / S
+        sweeps = np.arange(1, len(ci) + 1)          # row i = after sweep i (i from 0) -> sweeps completed = i + 1
+        lv = {'carriers': N, 'screen_plaquettes': V, 'sweeps': int(len(ci)), 'balanced_class_at_sweep': bal,
+              'end_counts_intra': meta['end']['counts_intra'], 'end_counts_screen': meta['end']['counts_screen']}
+        lv['intra_faces_per_carrier_by_sweep'] = {str(k): (ci[:, k] / N).tolist() for k in range(1, 6)}
+        lv['screen_per_plaquette_by_sweep'] = {str(k): (cs[:, k] / V).tolist() for k in range(1, 6)}
+        lv['tracker_by_sweep'] = {k: z[k].astype(int).tolist() for k in ('births', 'moves', 'annihilations', 'fusions', 'splits', 'exchanges')}
+        lv['depth_mean_by_sweep'] = z['depth_mean'].tolist()
+        lv['end_intra_faces_per_carrier'] = {str(k): float(ci[-1, k] / N) for k in range(1, 6)}
+        lv['end_screen_per_plaquette'] = {str(k): float(cs[-1, k] / V) for k in range(1, 6)}
+        lv['end_screen_per_carrier'] = {str(k): float(cs[-1, k] / N) for k in range(1, 6)}
+        # decay law of classes 1 and 5 (mean of the two), window s >= S0
+        f15 = (ci[:, 1] + ci[:, 5]) / 2 / N
+        m = sweeps >= S0
+        fits = fit_models(sweeps[m].astype(float), f15[m])
+        lv['fit_classes_1_5'] = fits
+        # local exponents
+        loc = []
+        for a in range(150, len(ci) + 1, 50):
+            b = a - 50
+            if b >= 100:
+                loc.append({'from': b, 'to': a, 'exp_rate': float(np.log(f15[b - 1] / f15[a - 1]) / 50),
+                            'power_exponent': float(np.log(f15[b - 1] / f15[a - 1]) / np.log(a / b))})
+        lv['local_rates_classes_1_5'] = loc
+        r = fits['exponential_plus_floor']['params'][1]
+        rates.append(fits['exponential']['params'][1]); floors.append(fits['exponential_plus_floor']['params'][2])
+        # classes 2, 3, 4: approach to a limit with the same rate as 1/5: y = y_inf + B exp(-r s), r fixed from 1/5
+        rr = fits['exponential']['params'][1]
+        lim = {}
+        for k in (2, 3, 4):
+            y = ci[m, k] / N
+            X = np.stack([np.ones(m.sum()), np.exp(-rr * sweeps[m])], axis=1)
+            coef, *_ = np.linalg.lstsq(X, y, rcond=None)
+            resid = y - X @ coef
+            lim[str(k)] = {'limit': float(coef[0]), 'amplitude': float(coef[1]), 'rms_residual': float(np.sqrt(np.mean(resid ** 2))),
+                           'end_value': float(ci[-1, k] / N),
+                           'linear_drift_last_100_sweeps_per_100': float(np.polyfit(sweeps[-100:], ci[-100:, k] / N, 1)[0] * 100)}
+        lv['classes_2_3_4_limit_with_rate_of_1_5'] = lim
+        c2inf.append(lim['2']['limit']); c3inf.append(lim['3']['limit']); c4inf.append(lim['4']['limit'])
+        res['levels'][str(L)] = lv
+    def ms(v):
+        v = np.array(v); return {'mean': float(v.mean()), 'se_between_levels': float(v.std(ddof=1) / np.sqrt(len(v))), 'values': v.tolist()}
+    res['decay_rate_classes_1_5_exponential'] = ms(rates)
+    res['floor_classes_1_5_exponential_plus_floor'] = ms(floors)
+    res['limits_faces_per_carrier'] = {'2': ms(c2inf), '3': ms(c3inf), '4': ms(c4inf)}
+    json.dump(res, open(path_out, 'w'))
+    # short print
+    for L in LEVELS:
+        lv = res['levels'][str(L)]
+        print('L', L, 'end', {k: round(v, 5) for k, v in lv['end_intra_faces_per_carrier'].items()})
+        for nm, f in lv['fit_classes_1_5'].items():
+            print('    ', nm, [round(x, 6) for x in f.get('params', [])], 'rms rel %.4f' % f.get('rms_relative_residual', np.nan))
+        print('    limits', {k: (round(v['limit'], 5), round(v['amplitude'], 4), round(v['linear_drift_last_100_sweeps_per_100'], 5)) for k, v in lv['classes_2_3_4_limit_with_rate_of_1_5'].items()})
+    print('rate', res['decay_rate_classes_1_5_exponential'])
+    print('floor', res['floor_classes_1_5_exponential_plus_floor'])
+    print('limits', {k: (v['mean'], v['se_between_levels']) for k, v in res['limits_faces_per_carrier'].items()})
+
+
+if __name__ == '__main__':
+    main(sys.argv[1])

@@ -1,0 +1,134 @@
+"""Step 1 of worker DF: the quark spread fiber, stated exactly.
+
+Reads only target-free RER artifacts (the nonidentifiability obstruction and its axiom-level companion) and proves
+with sympy the chart identities used by the candidates:
+  (i)   the RER chart: ln y_k = 2 (mu + sigma v_k), sum v = 0, v unit span, gap ratio rho;
+  (ii)  the circulant chart: sqrt(y_k) = a (1 + r cos(delta + 2 pi k/3)) is a bijection between real triples and
+        (a, r e^{i delta}); Q = (1 + r^2/2)/3;
+  (iii) the circulant bound: for Y = c0 + c1 R + c2 R^2 (R a regular 3-cycle) and any phases,
+        Q(|lambda|) <= (|c0|^2 + |c1|^2 + |c2|^2) / (3 |c0|^2), equality iff every lambda_k / c0 >= 0.
+Run: /tmp/oph-completion-venv/bin/python fiber.py  (writes fiber.json next to this file)
+"""
+import json
+import os
+
+import sympy as sp
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+RER = 'WORKSPACE/reverse-engineering-reality'
+FLAVOR = os.path.join(RER, 'code/particles/runs/flavor')
+
+out = {'labels': 'EXACT unless stated; IMPORTED = read from a target-free RER artifact'}
+
+# ------------------------------------------------------------------ the RER statement (IMPORTED)
+obs = json.load(open(os.path.join(FLAVOR, 'quark_sigma_source_nonidentifiability_obstruction.json')))
+ax = json.load(open(os.path.join(FLAVOR, 'quark_axiom_level_yukawa_moduli_nonidentifiability.json')))
+assert obs['dependency_audit']['no_target_leak'] is True
+assert ax['reference_data_policy']['no_target_leak_by_construction'] is True
+cls = obs['exact_ray_classification']
+geo = obs['ordered_source_geometry']
+out['rer_statement'] = {
+    'label': 'IMPORTED',
+    'axiom_level_counterfamily': ax['counterfamily']['family'],
+    'axiom_level_free_action': ax['counterfamily']['free_action'],
+    'granted_subfamily_fiber': cls['fiber'],
+    'granted_subfamily_coordinates': cls['independent_coordinates'],
+    'v_u': cls['up_type_ray']['profile'], 'v_d': cls['down_type_ray']['profile'],
+    'rho_ord': geo['rho_ord'], 'gap21_over_gap32_up': cls['up_type_ray']['gap21_over_gap32'],
+    'gap21_over_gap32_down': cls['down_type_ray']['gap21_over_gap32'],
+    'shape_law_status': obs['scope']['granted_shape_law'],
+    'template_ancestry': {k: v.get('proof_status') for k, v in obs['template_ancestry'].items()
+                          if isinstance(v, dict)},
+    'generic_interface_scalars': obs['minimal_future_extension']['generic_physical_interface']['scalars'],
+    'generic_interface_unemitted': obs['minimal_future_extension']['generic_physical_interface']['unemitted'],
+    'top_route': obs['notes'][-1],
+}
+
+# ------------------------------------------------------------------ (i) RER chart
+mu, sig, v1, v2 = sp.symbols('mu sigma v1 v2', real=True)
+v3 = -v1 - v2
+E = [mu + sig * v1, mu + sig * v2, mu + sig * v3]
+lny = [2 * e for e in E]
+# unit span: v3 - v1 = 1; gap ratio rho = (v2 - v1)/(v3 - v2)
+rho = sp.symbols('rho', positive=True)
+sol = sp.solve([sp.Eq(v3 - v1, 1), sp.Eq((v2 - v1), rho * (v3 - v2))], [v1, v2], dict=True)[0]
+v_of_rho = [sp.simplify(sol[v1]), sp.simplify(sol[v2]), sp.simplify(v3.subs(sol))]
+assert sp.simplify(sum(v_of_rho)) == 0
+half_span = sp.simplify((lny[2] - lny[0]).subs(sol) / 2)
+assert sp.simplify(half_span - sig) == 0
+out['rer_chart'] = {
+    'formula': 'ln y_k = 2 (mu + sigma v_k), sum v = 0, v_3 - v_1 = 1, rho = (v_2 - v_1)/(v_3 - v_2)',
+    'v_of_rho': [str(x) for x in v_of_rho],
+    'sigma_is_half_log_span': True,
+    'ln_y2_over_y1': str(sp.simplify((lny[1] - lny[0]).subs(sol))),
+    'ln_y3_over_y2': str(sp.simplify((lny[2] - lny[1]).subs(sol))),
+    'scalars_per_sector': ['mu', 'sigma', 'rho'],
+}
+# the RER rays are the rho_ord specialisation
+r_ord = sp.Float(geo['rho_ord'], 30)
+vu = [float(x.subs(rho, r_ord)) for x in v_of_rho]
+vd = [float(x.subs(rho, 1 / r_ord)) for x in v_of_rho]
+out['rer_chart']['rays_reproduced'] = {
+    'v_u': vu, 'v_d': vd,
+    'max_abs_difference_to_artifact': max(max(abs(a - b) for a, b in zip(vu, cls['up_type_ray']['profile'])),
+                                          max(abs(a - b) for a, b in zip(vd, cls['down_type_ray']['profile'])))}
+
+# ------------------------------------------------------------------ (ii) circulant chart
+a, r, d = sp.symbols('a r delta', real=True)
+w = sp.Rational(-1, 2) + sp.sqrt(3) / 2 * sp.I
+s = [a * (1 + r * sp.cos(d + 2 * sp.pi * k / 3)) for k in range(3)]
+mean = sp.simplify(sum(s) / 3)
+harm = sp.simplify(sp.expand_complex(sp.expand_trig(sp.Rational(2, 3) / a * sum(s[k] * sp.expand(w ** (3 - k)) for k in range(3)))))
+assert sp.simplify(mean - a) == 0
+assert sp.simplify(harm - r * sp.exp(sp.I * d)) == 0 or sp.simplify(sp.expand_complex(harm - r * sp.cos(d) - sp.I * r * sp.sin(d))) == 0
+Qexpr = sp.simplify(sum(x ** 2 for x in s) / sum(s) ** 2)
+assert sp.simplify(Qexpr - (1 + r ** 2 / 2) / 3) == 0
+out['circulant_chart'] = {
+    'formula': 'sqrt(y_k) = a (1 + r cos(delta + 2 pi k/3)); a = mean of sqrt(y); r e^{i delta} = (2/(3a)) sum_k sqrt(y_k) w^{-k}',
+    'bijection': 'real triples <-> (a, complex r e^{i delta}); ordering fixes delta in [0, pi/3] on the positive chamber',
+    'Q_identity': 'Q = (1 + r^2/2)/3',
+    'x_definition': 'x = r^2/4 = p/q in the circulant mechanism, Q = (1 + 2 x)/3',
+    'scalars_per_sector': ['a', 'r', 'delta'],
+}
+
+# ------------------------------------------------------------------ (iii) the circulant bound
+# Y = c0 + c1 R + c2 R^2 is normal; lambda_k = c0 + c1 w^k + c2 w^{2k}; sum_k lambda_k = 3 c0 (Fourier);
+# sum |lambda_k|^2 = 3 (|c0|^2 + |c1|^2 + |c2|^2) (Parseval); triangle inequality: sum |lambda_k| >= 3 |c0|.
+c0, c1, c2 = sp.symbols('c0 c1 c2')
+lam = [sp.expand(c0 + c1 * w ** k + c2 * w ** (2 * k)) for k in range(3)]
+assert sp.simplify(sp.expand(sum(lam)) - 3 * c0) == 0
+x0, y0, x1, y1, x2, y2 = sp.symbols('x0 y0 x1 y1 x2 y2', real=True)
+lam_r = [sp.expand_complex(l.subs({c0: x0 + sp.I * y0, c1: x1 + sp.I * y1, c2: x2 + sp.I * y2})) for l in lam]
+pars = sp.simplify(sum(sp.re(l) ** 2 + sp.im(l) ** 2 for l in lam_r)
+                   - 3 * (x0 ** 2 + y0 ** 2 + x1 ** 2 + y1 ** 2 + x2 ** 2 + y2 ** 2))
+assert pars == 0
+out['circulant_bound'] = {
+    'statement': 'For Y = c0 1 + c1 R + c2 R^2 and masses y_k = |lambda_k|^2: Q = sum y / (sum sqrt y)^2 <= '
+                 '(|c0|^2 + |c1|^2 + |c2|^2) / (3 |c0|^2), with equality iff lambda_k / c0 >= 0 for every k.',
+    'proof': 'sum_k lambda_k = 3 c0 (checked), sum_k |lambda_k|^2 = 3 (|c0|^2 + |c1|^2 + |c2|^2) (Parseval, checked), '
+             'sum_k |lambda_k| >= |sum_k lambda_k| = 3 |c0| (triangle inequality).',
+    'native_weights': 'with |c0|^2 = 1/6 and |c1|^2 = |c2|^2 = 1/12 the bound is Q <= 2/3 for every phase assignment',
+    'bound_at_native_weights': str(sp.Rational(1, 6) + 2 * sp.Rational(1, 12)) + ' / (3 * 1/6) = '
+                               + str((sp.Rational(1, 6) + 2 * sp.Rational(1, 12)) / (3 * sp.Rational(1, 6))),
+    'required_x_for_given_Q': 'x >= (3 Q - 1)/2',
+}
+
+# ------------------------------------------------------------------ the fiber, stated
+out['fiber'] = {
+    'per_sector_spectral': 'three positive singular values y_1 <= y_2 <= y_3; charts (mu, sigma, rho) and (a, r, delta)',
+    'mixing': 'left frames U_uL, U_dL enter only through V_CKM = U_uL^dag U_dL (3 angles, 1 phase); right frames are '
+              'unobservable in the Standard Model',
+    'strict_lane_free': ['mu_u', 'sigma_u', 'rho_u', 'mu_d', 'sigma_d', 'rho_d', 'V_CKM (3 angles, 1 phase)'],
+    'granted_subfamily_free': ['sigma_u', 'sigma_d'],
+    'granted_subfamily_fixed_by_templates': ['rho_u = rho_ord', 'rho_d = 1/rho_ord', 'mu_q affine in (sigma_u, sigma_d)'],
+    'free_action': '(lambda_u, lambda_d) in (R_>0)^2 acting by sigma_q -> lambda_q sigma_q',
+    'top_coordinate': 'y_t lives in the Higgs lane (double criticality); granted with a scheme conversion it fixes one '
+                      'combination through the up-sector endpoint',
+    'count': {'strict': '6 spectral scalars + 4 mixing parameters', 'granted': '2 spreads'},
+}
+
+with open(os.path.join(HERE, 'fiber.json'), 'w') as fh:
+    json.dump(out, fh, indent=1, sort_keys=True)
+print(json.dumps(out['fiber'], indent=1))
+print('rays reproduced, max diff', out['rer_chart']['rays_reproduced']['max_abs_difference_to_artifact'])
+print('bound', out['circulant_bound']['bound_at_native_weights'])

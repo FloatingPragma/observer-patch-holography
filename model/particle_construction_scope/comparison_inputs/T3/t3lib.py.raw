@@ -1,0 +1,144 @@
+"""T3 library: words of public-type steps on the cubic family, their symbols, and the same words on the engine.
+
+A word is a list of tokens in TIME order (first applied first):
+  ('S', i, +1)  routing sub-step S_i = Q_i R  (engine: Routing.shift)            symbol exp(-i p_i alpha_i)
+  ('S', i, -1)  its inverse R Q_i                                               symbol exp(+i p_i alpha_i)
+  ('M', a)      record rotation exp(-i a beta), beta = Y_r (option M1)            symbol cos a - i sin a beta
+  ('L', i, phi) lazy sub-step: seam reflector with weights cos(eta), sin(eta), eta = pi/4 - phi/2, then R
+                                                                                symbol cos(phi) exp(-i p_i alpha_i) - i sin(phi) beta
+alpha_i = X_r sigma_i, coin index 2 r + s as in work/DIRAC/routing.py. The engine is imported by path, unchanged.
+"""
+import importlib.util, os, itertools
+import numpy as np
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+RL = os.path.dirname(os.path.dirname(HERE))
+_spec = importlib.util.spec_from_file_location('routing', os.path.join(RL, 'work', 'DIRAC', 'routing.py'))
+routing = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(routing)
+Routing, SIG = routing.Routing, routing.SIG
+
+I2 = np.eye(2, dtype=complex); I4 = np.eye(4, dtype=complex)
+X, Y, Z = SIG
+ALPHA = [np.kron(X, s) for s in SIG]
+BETA = np.kron(Y, I2)
+XR = np.kron(X, I2); ZR = np.kron(Z, I2)
+
+
+def rev(word):
+    """the word read backwards (reversion of the product)"""
+    return list(reversed(word))
+
+
+def S(i, e=1): return ('S', i, e)
+def M(a): return ('M', a)
+
+
+def symbol(word, p):
+    """4 x 4 symbol at wave number p (array (..., 3)); returns array (..., 4, 4)"""
+    p = np.asarray(p, float); out = np.broadcast_to(I4, p.shape[:-1] + (4, 4)).copy()
+    for tok in word:
+        if tok[0] == 'S':
+            c, s = np.cos(p[..., tok[1]])[..., None, None], np.sin(p[..., tok[1]])[..., None, None]
+            g = c * I4 - 1j * tok[2] * s * ALPHA[tok[1]]
+        elif tok[0] == 'M':
+            g = np.cos(tok[1]) * I4 - 1j * np.sin(tok[1]) * BETA
+        elif tok[0] == 'L':
+            c, s = np.cos(p[..., tok[1]])[..., None, None], np.sin(p[..., tok[1]])[..., None, None]
+            g = np.cos(tok[2]) * (c * I4 - 1j * s * ALPHA[tok[1]]) - 1j * np.sin(tok[2]) * BETA
+        else: raise ValueError(tok)
+        out = g @ out
+    return out
+
+
+def cosOmega(word, p):
+    """scalar part of the symbol (= cos of the phase for a palindromic period)"""
+    W = symbol(word, p)
+    return np.real(np.trace(W, axis1=-2, axis2=-1)) / 4
+
+
+def grid(n, shift=0.0, lo=-np.pi, hi=np.pi):
+    g = lo + (hi - lo) * (np.arange(n) + shift) / n
+    return np.stack(np.meshgrid(g, g, g, indexing='ij'), axis=-1)
+
+
+# ---- words --------------------------------------------------------------------------------------------------------
+def X_fwd(): return [S(0), S(1), S(2)]                      # S_3 S_2 S_1 (axis 1 first)
+
+
+def wilson(tau, sign=-1):
+    """N = N_3 N_2 N_1, N_i = S_i^-1 M(tau) S_i M(sign * tau)  (time order: M(sign tau), S_i, M(tau), S_i^-1).
+    sign = -1: Wilson step (identity at rest). sign = 0: no compensation."""
+    w = []
+    for i in range(3):
+        if sign: w.append(M(sign * tau))
+        w += [S(i), M(tau), S(i, -1)]
+    return w
+
+
+def period_C(tau, theta=0.0):
+    """member C: P = M(theta/2) N^r X^r M(theta) X N M(theta/2)"""
+    h = wilson(tau) + X_fwd()
+    return [M(theta / 2)] + h + [M(theta)] + rev(h) + [M(theta / 2)]
+
+
+def period_anti(tau, theta=0.0):
+    """anti-Wilson (hypothesis b): half word M(tau) prod_i S_i^-1 M(tau) S_i, then the routing"""
+    h = [M(tau)] + wilson(tau, 0) + X_fwd()
+    return [M(theta / 2)] + h + [M(theta)] + rev(h) + [M(theta / 2)]
+
+
+def period_F1(angles):
+    """rotations between the six sub-steps: W = M6 E1 M5 E2 M4 E3 M3 E3 M2 E2 M1 E1 (angles = theta_1..theta_6)"""
+    t = angles
+    return [S(0), M(t[0]), S(1), M(t[1]), S(2), M(t[2]), S(2), M(t[3]), S(1), M(t[4]), S(0), M(t[5])]
+
+
+def period_W2(theta=0.0, theta2=None):
+    """CF-1 period D_rev D_fwd with mass angles theta (forward tick) and theta2 (reverse tick)"""
+    t2 = theta if theta2 is None else theta2
+    return X_fwd() + [M(theta)] + rev(X_fwd()) + [M(t2)]
+
+
+def period_B(phi, theta=0.0):
+    """member B: lazy nearest-neighbour sub-steps B_i = M(-phi/2) L_i(phi) M(-phi/2), P = B1 B2 B3 M B3 B2 B1"""
+    h = []
+    for i in range(3): h += [M(-phi / 2), ('L', i, phi), M(-phi / 2)]
+    return [M(theta / 2)] + h + [M(theta)] + rev(h) + [M(theta / 2)]
+
+
+# ---- the same words on the engine -----------------------------------------------------------------------------------
+def lazy_reflector(w, psi, i, phi):
+    """Seam reflector across the links of axis i with unequal weights: for the spin component +1 along axis i the
+    vector is v = cos(eta) |x, -> - sin(eta) |x + e_i, +>, |+-> = (|0> +- |1>)/sqrt2 the arrow states of the record,
+    eta = pi/4 - phi/2; orientation reversed for spin -1. phi = 0 is Routing.seam_involution (flat links)."""
+    eta = np.pi / 4 - phi / 2; ca, sb = np.cos(eta), np.sin(eta)
+    phi_ = psi @ w.V[i].conj(); out = phi_.copy()
+    for comp, fwd in ((0, True), (1, False)):
+        f = phi_[..., comp]; nxt = np.roll(f, -1, axis=i)          # value at x + e_i stored at x
+        a, b = (f, nxt) if fwd else (nxt, f)
+        am = (a[..., 0] - a[..., 1]) / np.sqrt(2); bp = (b[..., 0] + b[..., 1]) / np.sqrt(2)
+        c = ca * am - sb * bp                                        # <v|psi>
+        da = -2 * c[..., None] * ca * np.array([1, -1]) / np.sqrt(2)
+        db = +2 * c[..., None] * sb * np.array([1, 1]) / np.sqrt(2)
+        here, there = (da, db) if fwd else (db, da)
+        out[..., comp] += here + np.roll(there, 1, axis=i)
+    return out @ w.V[i].T
+
+
+def apply(w, word, psi):
+    for tok in word:
+        if tok[0] == 'S':
+            psi = w.shift(psi, tok[1]) if tok[2] > 0 else w.record_reflection(w.seam_involution(psi, tok[1]))
+        elif tok[0] == 'M':
+            psi = w.mass(psi, tok[1], 'Y')
+        elif tok[0] == 'L':
+            psi = lazy_reflector(w, w.record_reflection(psi), tok[1], tok[2])
+    return psi
+
+
+def dense(w, word):
+    n = 4 * int(np.prod(w.shape)); out = np.empty((n, n), complex)
+    for k in range(n):
+        e = np.zeros(n, complex); e[k] = 1
+        out[:, k] = apply(w, word, e.reshape(w.shape + (2, 2))).ravel()
+    return out

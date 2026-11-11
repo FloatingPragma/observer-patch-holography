@@ -1,0 +1,170 @@
+"""CU Part E: the single comparison with measured values (NOT BLIND). Run once, after every blind row is on file.
+
+Rows E1 to E7 of CANDIDATES.md. Reads the blind outputs (cu_table.json, cu_window.json, cu_scheme.json,
+cu_scheme2.json); measured values as quoted in COUPLING_FIX.md. Writes cu_not_blind.json with the count of
+comparisons.
+"""
+import json
+import os
+import time
+
+import numpy as np
+from scipy.integrate import solve_ivp
+from scipy.optimize import brentq
+
+import cu_chain as C
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+pi = np.pi
+P = C.P_FWD
+STAMP = time.strftime('%Y-%m-%d %H:%M:%S %z')
+
+# ------------------------------------------------------------------ measured values (NOT BLIND), COUPLING_FIX.md
+MEAS = {'v': 246.22, 'mz': 91.188, 'mw': 80.37, 'inv_a2': 29.58, 'a3': 0.1180, 's2': 0.23122, 'inv_aem': 127.95}
+inv_a1_meas = 0.6 * (1 - MEAS['s2']) * MEAS['inv_aem']           # GUT-normalised hypercharge from sin2 and 1/alpha_em
+inv_a2_from_s2 = MEAS['s2'] * MEAS['inv_aem']
+KEYS = list(MEAS)
+count = {'E1': 0, 'E2': 0, 'E3': 0, 'E4': 0, 'E5': 0, 'E6': 0, 'E7': 0}
+
+
+def ratios(d, part):
+    r = {}
+    for k in KEYS:
+        if k in d and d[k] is not None:
+            r[k] = float(d[k]) / MEAS[k]
+            count[part] += 1
+    return r
+
+
+def walk(obj, part, prefix=''):
+    """Ratios for every chain row (a dict holding the chain outputs) inside obj."""
+    res = {}
+    if isinstance(obj, dict):
+        if 'inv_aU' in obj and 'v' in obj:
+            return {prefix.strip(' |'): {'R': obj.get('R'), 'ratios': ratios(obj, part)}}
+        for k, v in obj.items():
+            res.update(walk(v, part, f'{prefix} | {k}'))
+    elif isinstance(obj, list):
+        for i, v in enumerate(obj):
+            res.update(walk(v, part, f'{prefix} | root {i}'))
+    return res
+
+
+out = {'stamp': STAMP, 'label': 'NOT BLIND', 'measured': MEAS, 'derived measured 1/alpha_1 (GUT)': inv_a1_meas,
+       'measured 1/alpha_2 from sin2 and 1/alpha_em': inv_a2_from_s2}
+table = json.load(open(os.path.join(HERE, 'cu_table.json')))
+window = json.load(open(os.path.join(HERE, 'cu_window.json')))
+scheme = json.load(open(os.path.join(HERE, 'cu_scheme.json')))
+scheme2 = json.load(open(os.path.join(HERE, 'cu_scheme2.json')))
+
+# ------------------------------------------------------------------ E1: Parts A, B (table) and C (window)
+e1 = {}
+e1.update(walk(table['rows'], 'E1', 'table'))
+e1.update(walk(window['C4_chain_variants'], 'E1', 'C4'))
+e1.update(walk(window['C8_two_closures_diagnostic'], 'E1', 'C8'))
+out['E1'] = e1
+
+# ------------------------------------------------------------------ E2: the R (and c at T = 2 pi) where each output equals its measured value
+e2 = {}
+lnP = np.log(P)
+
+
+def out_at(R, key):
+    r = C.solvex(P, R)
+    return float(r[0][key]) if len(r) == 1 else np.nan
+
+
+for k in KEYS:
+    f = lambda R: out_at(R, k) - MEAS[k]
+    grid = np.linspace(4.0, 8.5, 46)
+    fv = np.array([f(R) for R in grid])
+    idx = np.where(np.isfinite(fv[:-1]) & np.isfinite(fv[1:]) & (np.sign(fv[:-1]) != np.sign(fv[1:])))[0]
+    if len(idx):
+        Rk = brentq(f, grid[idx[0]], grid[idx[0] + 1], xtol=1e-10)
+        e2[k] = {'R': float(Rk), 'c at T = 2 pi': float((2 * pi - Rk) / lnP), 'E_cell/M_U': float(np.exp(Rk))}
+    else:
+        e2[k] = 'no crossing for R in [4, 8.5]'
+    count['E2'] += 1
+out['E2'] = e2
+
+# ------------------------------------------------------------------ E3: one-loop meeting scales of the measured couplings
+Ecell = C.EP / np.sqrt(P)
+x_meas = [inv_a1_meas, MEAS['inv_a2'], 1 / MEAS['a3']]
+e3 = {}
+for lab, b in (('declared (33/5, 1, -3)', C.B_DECL), ('source two doublets (41/5, 1, -3)', C.B_SRC2),
+               ('source one doublet (81/10, 5/6, -3)', (81 / 10, 5 / 6, -3.0))):
+    row = {}
+    for (i, j) in ((0, 1), (1, 2), (0, 2)):
+        L = 2 * pi * (x_meas[i] - x_meas[j]) / (b[i] - b[j])
+        mu = MEAS['mz'] * np.exp(L)
+        row[f'pair ({i + 1},{j + 1})'] = {'mu (GeV)': float(mu), 'R = ln(E_cell/mu)': float(np.log(Ecell / mu)),
+                                          '1/alpha there': float(x_meas[i] - b[i] / (2 * pi) * L)}
+        count['E3'] += 1
+    e3[lab] = row
+e3['chain R (declared)'] = float(C.R_decl(P))
+out['E3'] = e3
+
+# ------------------------------------------------------------------ E4: rows G5, G6, G8, B13, B14
+e4 = {}
+e4.update(walk(scheme['G5_sizes'], 'E4', 'G5'))
+for name, r in scheme['G6_reading_scale_degeneracy'].items():
+    t = r['transported to m_Z: 1/a1, 1/a2, a3, sin2, 1/aem']
+    d = {'v': r['v'], 'mz': r['mz'], 'mw': r['mw'], 'inv_a2': t[1], 'a3': t[2], 's2': t[3], 'inv_aem': t[4]}
+    e4[f'G6 | {name}'] = {'R': r['X = R + ln rho'], 'ratios': ratios(d, 'E4')}
+for lab, rows in window['G8_law_for_v_and_window'].items():
+    for name, r in rows.items():
+        if 'v, chain fixed' in r:
+            e4[f'G8 | {lab} | {name} | chain fixed'] = {'ratios': ratios({'v': r['v, chain fixed']}, 'E4')}
+            e4.update(walk(r['chain solved again'], 'E4', f'G8 | {lab} | {name} | solved again'))
+e4.update(walk({'B13': scheme['B13_whole_ticks_R_6'], 'B14': scheme['B14_window_equal_to_winding_exponent']}, 'E4', ''))
+out['E4'] = e4
+
+# ------------------------------------------------------------------ E5: closure with the measured couplings, MSbar and shifted to DRbar
+e5 = {}
+for lab, d2, d3 in (('MSbar (as measured)', 0.0, 0.0), ('DRbar: 1/alpha - C_A/(12 pi)', -2 / (12 * pi), -3 / (12 * pi))):
+    x2, x3 = MEAS['inv_a2'] + d2, 1 / MEAS['a3'] + d3
+    lhs = C.ell2(4 * pi * pi / x2) + C.ell3(4 * pi * pi / x3)
+    e5[lab] = {'1/alpha_2, 1/alpha_3': [x2, x3], 'left side': lhs, 'P/4': P / 4, 'ratio': lhs / (P / 4)}
+    count['E5'] += 1
+out['E5'] = e5
+
+# ------------------------------------------------------------------ E6: rows H4 and H5
+e6 = {}
+for name, r in scheme2['H4_equal_in_MSbar_at_M_U_downward'].items():
+    d = r['outputs at the anchor with MSbar couplings (alpha_U, M_U, v of the chain fixed)']
+    e6[f'H4 | {name}'] = {'ratios': ratios(d, 'E6'), 'closure left side over P/4': d['closure left side over P/4']}
+e6.update(walk(scheme2['H5_derived_variants'], 'E6', 'H5'))
+out['E6'] = e6
+
+# ------------------------------------------------------------------ E7: two-loop meeting of the measured couplings
+def rge(t, x, b, bij):
+    al_ = 1.0 / x
+    return [-b[i] / (2 * pi) - sum(bij[i][j] * al_[j] for j in range(3)) / (8 * pi ** 2) for i in range(3)]
+
+
+CASES = {name: (r['b'], r['bij']) for name, r in scheme2['H4_equal_in_MSbar_at_M_U_downward'].items()}
+e7 = {}
+for name, (b, bij) in CASES.items():
+    t0 = np.log(MEAS['mz'])
+    tE = np.log(Ecell)
+    sol = solve_ivp(rge, (t0, tE + 6), x_meas, args=(b, bij), rtol=1e-12, atol=1e-12, dense_output=True)
+    row = {}
+    for (i, j) in ((0, 1), (1, 2)):
+        f = lambda t: sol.sol(t)[i] - sol.sol(t)[j]
+        ts = np.linspace(t0, sol.t[-1], 4000)
+        fv = np.array([f(t) for t in ts])
+        k = np.where(np.sign(fv[:-1]) != np.sign(fv[1:]))[0]
+        if len(k):
+            tm = brentq(f, ts[k[0]], ts[k[0] + 1], xtol=1e-13)
+            row[f'pair ({i + 1},{j + 1})'] = {'R': float(tE - tm), 'mu (GeV)': float(np.exp(tm)), '1/alpha there': float(sol.sol(tm)[i])}
+        else:
+            row[f'pair ({i + 1},{j + 1})'] = 'no meeting below E_cell exp(6)'
+        count['E7'] += 1
+    row['1/alpha_i at the chain M_U (2.4736e16 GeV)'] = sol.sol(np.log(2.473612029002955e16)).tolist()
+    e7[name] = row
+out['E7'] = e7
+
+out['count'] = count
+out['total comparisons'] = sum(count.values())
+json.dump(out, open(os.path.join(HERE, 'cu_not_blind.json'), 'w'), indent=1)
+print('NOT BLIND', STAMP, 'comparisons', count, 'total', sum(count.values()))

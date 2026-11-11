@@ -1,0 +1,102 @@
+"""SS: spin and statistics of every defect class, composite and particle carrier, for the obstruction map (step S3).
+
+Run after ss_cover.py, ss_gradings.py and ss_census.py:
+    PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python ss_table.py [out.json]
+Asserts the facts each row rests on from the three result files, then writes ss_table.json.
+Labels: EXACT, DECLARED, IMPORTED (with source), ARGUED.
+"""
+import json
+import sys
+from pathlib import Path
+
+HERE = Path(__file__).parent
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / 'ss_table.json'
+cov = json.loads((HERE / 'ss_cover.json').read_text())
+gra = json.loads((HERE / 'ss_gradings.json').read_text())
+cen = json.loads((HERE / 'ss_census.json').read_text())
+
+# facts the rows rest on
+assert cov['T1a_cover_centre']['central_involution_diagonal'] == [1, 1, 1, -1, -1]
+assert cov['T1b_patterns']['z_on_pattern_equals_(-1)^n2'] and cov['T1b_patterns']['class3_sixth_root_on_code_equals_z']
+assert cov['T1d_GL_grading']['GL_nontrivial_grading_equals_left_action_of_z']
+assert cov['T1e_flux_sectors']['centre_acts_as_(-1)^k_for_k_0_to_19_both_frames']
+assert not cov['T1f_native_scalars_and_flux6']['(-1)^deg_realized_by_a_native_rotation_or_holonomy']
+assert cov['T1f_native_scalars_and_flux6']['integer_flux_6_holonomy_on_all_32_patterns_is_identity']
+assert cov['X3_placements']['spaces_with_spinorial_irreps'] == []
+assert gra['T2_defect_class_gradings']['solutions_(classes_1_to_5)'] == [[0, 0, 0, 0, 0], [1, 0, 1, 0, 1]]
+assert gra['T2_odd_class_defects_per_carrier']['compositions_with_an_odd_number_of_odd-class_defects'] == []
+assert gra['T3_vertex_gradings']['number_of_gradings'] == 16
+sr4 = gra['T3_spin_statistics']['SR4']
+assert sr4['consistent'] and sr4['dimension'] == 0
+assert set(sr4['solution']['quanta_by_block'].values()) == {1} and sr4['solution']['register'] == [0, 0]
+assert set(sr4['solution']['defects'].values()) == {0} and sr4['solution']['links'] == [0]
+assert not any(gra['T4_statistics_rule_equals_spin'][r]['ST2_all_choices_of_g'] for r in ('SR1', 'SR2', 'SR3', 'SR4'))
+assert cen['H3_33_spin']['z_on_every_33_placement'] == '+1'
+
+SS_STAT = ('fermion: equals the 2 pi rotation on the Gauss sector, the unique such grading of the vertex algebra '
+           '(EXACT); the antisymmetric lift itself is DECLARED (CF-1 section 8): the tick admits both lifts (R4 item 2), '
+           'a filled reference forces it (R4 item 2c)')
+SPIN_Q = ('1/2: the pointer doublet, faithful two-dimensional representation of the frame cover (24 Hurwitz units), '
+          'z = -1 (EXACT at rest, R4 item 4); the pointer register is DECLARED (CF-1 section 6)')
+objects = [
+    dict(object='quantum (CF-1), any of the 32 patterns', spin=SPIN_Q, statistics=SS_STAT),
+    dict(object='five-level code under the carrier rotation (an internal label: weak isospin)',
+         spin='vector levels: integer (flux sector 2, z = +1); spinor levels: half-integer of the Galois-conjugate '
+              'rotation (flux sector 7, z = -1); a pattern carries z = (-1)^n2 (EXACT). This is weak isospin; the '
+              'Gauss law cancels it on physical states (EXACT)', statistics='none of its own'),
+    dict(object='Higgs: R8 register quantum (charges of the spinor levels, no pointer)',
+         spin='0: no pointer; z = -1 on its weak charge is cancelled by the Gauss law (EXACT)',
+         statistics='boson: unique spin-statistics grading; the chiral-source Yukawa vertex c c H forces H even when '
+                    'quanta are odd (EXACT); the register itself is DECLARED (R8)'),
+    dict(object='link states (gluons, W, B / Z, photon)',
+         spin='integer: z acts on both ends of a link, (-1)^2j (-1)^2j = +1 (EXACT); vector with two polarizations '
+              '(IMPORTED from GL, X5)',
+         statistics="boson: the gauge-covariant hopping c*_x U c_y forces every link operator even (EXACT); GL's grading "
+                    'is the left action of z on one end of a link; on a whole link z acts as +1'),
+    dict(object='flux defect of class k = 1..5 (face holonomy)',
+         spin='integer: every placement space holds only 1, 3, 3prime, 4, 5 of the cover, z = +1 (EXACT, X3); a face '
+              'flux is fixed by the third-turns about its face (intrinsic spin 0)',
+         statistics='boson: the class gradings kept by all 27 catalogue channels are 0 and k mod 2 (EXACT), and k mod 2 '
+                    'is +1 on every closed carrier (EXACT); pure fluxes of D(Z6) have theta = 1 (IMPORTED rule); the '
+                    "runs' register is classical (DECLARED)"),
+    dict(object='class 0', spin='no defect', statistics='no defect; no flux-6 object in the register or the coherent law'),
+]
+for c in ('{1,5}', '{2,4}', '{3,3}', '{2,2,4,4}', '{2,3,3,4}', '{1,2,3}', '{3,4,5}', '{2,2,2}', '{4,4,4}', '{3,3,3,3}'):
+    objects.append(dict(object=f'carrier content {c} (pure fluxes)', spin='integer (z = +1)',
+                        statistics='boson (EXACT given spin-statistics)'))
+objects += [
+    dict(object='quantum carrying a flux pair as cargo (R2)', spin='1/2 (pointer)', statistics='fermion (as the quantum)'),
+    dict(object='meson: two quanta (q qbar) on a carrier', spin='integer (two pointers)', statistics='boson'),
+    dict(object='baryon: three quanta on a {2,2,2} or {4,4,4} carrier', spin='half-integer (three pointers)',
+         statistics='fermion; the {2,2,2} / {4,4,4} carrier alone is a boson and is no baryon'),
+    dict(object='chiral-source object (paired-flux orbit + two-component memory + R15 cloud)',
+         spin='1/2 (memory)', statistics='fermion; the declared odd grading equals the rotation only through the '
+                                         'memory: the flux orbit alone has integer spin'),
+    dict(object='screen composite: pattern bound to a class-3 flux (D(Z6))', spin='theta = (-1)^n2',
+         statistics='fermion iff weak doublet: the action of z on the code (EXACT given the imported rule)'),
+    dict(object='screen composite: pattern bound to the flux of its own class (D(Z6))',
+         spin='classes 0: 0; 3: 1/2; 1, 5: 1/6; 2, 4: 2/3', statistics='boson, fermion, anyons'),
+]
+
+# Standard Model particles: carrier, class, spin and statistics as source properties
+FERM = dict(spin='1/2', spin_label='EXACT at rest (pointer DECLARED)', statistics='Fermi',
+            statistics_label='DECLARED lift; EXACT as the unique spin-statistics grading')
+particles = [
+    dict(particle='u, c, t (left)', carrier='quantum, pattern {v, s1}', defect_class=1, **FERM),
+    dict(particle='d, s, b (left)', carrier='quantum, pattern {v, s2}', defect_class=1, **FERM),
+    dict(particle='u, c, t (right)', carrier='quantum, pattern {v, s1, s2}', defect_class=4, **FERM),
+    dict(particle='d, s, b (right)', carrier='quantum, pattern {v}', defect_class=4, **FERM),
+    dict(particle='nu_e, nu_mu, nu_tau (left)', carrier='quantum, pattern {v1 v2 v3, s1}', defect_class=3, **FERM),
+    dict(particle='e, mu, tau (left)', carrier='quantum, pattern {v1 v2 v3, s2}', defect_class=3, **FERM),
+    dict(particle='e, mu, tau (right)', carrier='quantum, pattern {v1 v2 v3}', defect_class=0, **FERM),
+    dict(particle='nu (right)', carrier='quantum, pattern {v1 v2 v3, s1, s2}', defect_class=0, **FERM),
+    dict(particle='antiparticles', carrier='quantum, complement pattern', defect_class='6 - k', **FERM),
+    dict(particle='Higgs doublet', carrier='R8 register per cell (no pointer)', defect_class=3, spin='0',
+         spin_label='EXACT given the register', statistics='Bose', statistics_label='EXACT (vertex), register DECLARED'),
+    dict(particle='gluons', carrier='link states, colour block', defect_class=0, spin='1', spin_label='integer EXACT; vector IMPORTED (GL, X5)',
+         statistics='Bose', statistics_label='EXACT (hopping vertex)'),
+    dict(particle='W, Z, photon', carrier='link states, weak and hypercharge blocks', defect_class=0, spin='1',
+         spin_label='integer EXACT; vector IMPORTED (GL, X5)', statistics='Bose', statistics_label='EXACT (hopping vertex)'),
+]
+OUT.write_text(json.dumps(dict(objects=objects, particles=particles), indent=1) + '\n')
+print(json.dumps(dict(objects=len(objects), particles=len(particles)), indent=1))

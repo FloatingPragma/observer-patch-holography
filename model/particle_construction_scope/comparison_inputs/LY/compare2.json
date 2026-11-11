@@ -1,0 +1,542 @@
+{
+ "NOT_BLIND": true,
+ "yJ_pole_convention": 0.010815971327408094,
+ "yJ_MSbar_Q0": 0.010622668768193719,
+ "y0_pole_no_running": 0.048671870973336424,
+ "y0_MSbar_Q0": 0.047802009456871734,
+ "needed_ratio_y0_over_half_g": {
+  "mixed: y_0 from pole masses at Q0, g_U at M_U (the look)": 0.13541118234545516,
+  "m_Z: y_0 MSbar, chart g_2(Q0)": 0.14674231557081394,
+  "cell, Standard Model chart two loops, chart g_2": 0.1733541148372058,
+  "cell, Standard Model chart one loop, chart g_2": 0.17602683228529278,
+  "M_U, S-SM two loops, g_U": 0.12641774898981398,
+  "M_U, S-SM two loops, chart g_2": 0.1740057440104845,
+  "M_U, S-SM one loop, g_U": 0.1276854664291383,
+  "M_U, S-SM one loop, chart g_2": 0.176289929641128,
+  "M_U, S-CH1, g_U": 0.10894035038326967,
+  "M_U, S-CH2, g_U": 0.09159571083769225,
+  "M_U, S-MS, g_U": 0.0876949514310525,
+  "M_U, S-SRC, g_U": 0.11024464852313023
+ },
+ "reference_values": {
+  "exp(-2)": 0.1353352832366127,
+  "1/sqrt55": 0.13483997249264842,
+  "sqrt_of_mean_K": 0.1729996350811316,
+  "mean_of_sqrt_K": 0.1280293626593948,
+  "coherent_sum_sqrt_weight_K": 0.21190460498954894,
+  "sqrt_of_mean_K_C_N6": 0.17506903400278037,
+  "sqrt_of_mean_K_C_N6_standard_error": 0.0007684530383855493
+ },
+ "E_rows": [
+  {
+   "id": "E-1",
+   "A": "exp(-2)",
+   "A_value": 0.1353352832366127,
+   "no_running_ratio": 0.9994394915727945,
+   "by_content": {
+    "S-SM two loops": {
+     "yJ_Q0_pole_convention": 0.011578932189275094,
+     "ratio_to_measured": 1.0705402075108712,
+     "pass_5_percent": false
+    },
+    "S-SM one loop": {
+     "yJ_Q0_pole_convention": 0.011463971460575057,
+     "ratio_to_measured": 1.0599114137372854,
+     "pass_5_percent": false
+    },
+    "S-CH1": {
+     "yJ_Q0_pole_convention": 0.013436550717195546,
+     "ratio_to_measured": 1.2422879379447689,
+     "pass_5_percent": false
+    },
+    "S-CH2": {
+     "yJ_Q0_pole_convention": 0.015980907071813454,
+     "ratio_to_measured": 1.477528609133533,
+     "pass_5_percent": false
+    },
+    "S-MS": {
+     "yJ_Q0_pole_convention": 0.016691753848848533,
+     "ratio_to_measured": 1.5432505637797853,
+     "pass_5_percent": false
+    },
+    "S-SRC": {
+     "yJ_Q0_pole_convention": 0.013277583653112582,
+     "ratio_to_measured": 1.2275905003064003,
+     "pass_5_percent": false
+    }
+   }
+  },
+  {
+   "id": "E-2",
+   "A": "1/sqrt55",
+   "A_value": 0.13483997249264842,
+   "no_running_ratio": 0.9957816640921907,
+   "by_content": {
+    "S-SM two loops": {
+     "yJ_Q0_pole_convention": 0.01153655469997724,
+     "ratio_to_measured": 1.0666221600221109,
+     "pass_5_percent": false
+    },
+    "S-SM one loop": {
+     "yJ_Q0_pole_convention": 0.011422014713619462,
+     "ratio_to_measured": 1.0560322663463086,
+     "pass_5_percent": false
+    },
+    "S-CH1": {
+     "yJ_Q0_pole_convention": 0.01338737456909223,
+     "ratio_to_measured": 1.2377413145658125,
+     "pass_5_percent": false
+    },
+    "S-CH2": {
+     "yJ_Q0_pole_convention": 0.015922418887641076,
+     "ratio_to_measured": 1.472121033391892,
+     "pass_5_percent": false
+    },
+    "S-MS": {
+     "yJ_Q0_pole_convention": 0.01663066405157455,
+     "ratio_to_measured": 1.5376024536448056,
+     "pass_5_percent": false
+    },
+    "S-SRC": {
+     "yJ_Q0_pole_convention": 0.013228989305208695,
+     "ratio_to_measured": 1.223097667768952,
+     "pass_5_percent": false
+    }
+   }
+  },
+  {
+   "id": "E-3",
+   "A": "1/11",
+   "A_value": 0.09090909090909091,
+   "no_running_ratio": 0.6713558609743733,
+   "by_content": {
+    "S-SM two loops": {
+     "yJ_Q0_pole_convention": 0.0077779435920243235,
+     "ratio_to_measured": 0.7191165135871533,
+     "pass_5_percent": false
+    },
+    "S-SM one loop": {
+     "yJ_Q0_pole_convention": 0.007700720748975368,
+     "ratio_to_measured": 0.7119768087274271,
+     "pass_5_percent": false
+    },
+    "S-CH1": {
+     "yJ_Q0_pole_convention": 0.009025766093225886,
+     "ratio_to_measured": 0.8344850240453432,
+     "pass_5_percent": false
+    },
+    "S-CH2": {
+     "yJ_Q0_pole_convention": 0.01073489262412974,
+     "ratio_to_measured": 0.9925037982420591,
+     "pass_5_percent": true
+    },
+    "S-MS": {
+     "yJ_Q0_pole_convention": 0.011212391416243946,
+     "ratio_to_measured": 1.0366513627704714,
+     "pass_5_percent": true
+    },
+    "S-SRC": {
+     "yJ_Q0_pole_convention": 0.008918982770099402,
+     "ratio_to_measured": 0.8246122793889394,
+     "pass_5_percent": false
+    }
+   }
+  },
+  {
+   "id": "E-4",
+   "A": "1/5",
+   "A_value": 0.2,
+   "no_running_ratio": 1.4769828941436212,
+   "by_content": {
+    "S-SM two loops": {
+     "yJ_Q0_pole_convention": 0.017111475902453512,
+     "ratio_to_measured": 1.5820563298917374,
+     "pass_5_percent": false
+    },
+    "S-SM one loop": {
+     "yJ_Q0_pole_convention": 0.01694158564774581,
+     "ratio_to_measured": 1.5663489792003396,
+     "pass_5_percent": false
+    },
+    "S-CH1": {
+     "yJ_Q0_pole_convention": 0.019856685405096948,
+     "ratio_to_measured": 1.835867052899755,
+     "pass_5_percent": false
+    },
+    "S-CH2": {
+     "yJ_Q0_pole_convention": 0.023616763773085435,
+     "ratio_to_measured": 2.183508356132531,
+     "pass_5_percent": false
+    },
+    "S-MS": {
+     "yJ_Q0_pole_convention": 0.024667261115736687,
+     "ratio_to_measured": 2.2806329980950375,
+     "pass_5_percent": false
+    },
+    "S-SRC": {
+     "yJ_Q0_pole_convention": 0.019621762094218686,
+     "ratio_to_measured": 1.814147014655667,
+     "pass_5_percent": false
+    }
+   }
+  },
+  {
+   "id": "E-5",
+   "A": "2/7",
+   "A_value": 0.2857142857142857,
+   "no_running_ratio": 2.109975563062316,
+   "by_content": {
+    "S-SM two loops": {
+     "yJ_Q0_pole_convention": 0.02444496557493359,
+     "ratio_to_measured": 2.2600804712739104,
+     "pass_5_percent": false
+    },
+    "S-SM one loop": {
+     "yJ_Q0_pole_convention": 0.02420226521106544,
+     "ratio_to_measured": 2.237641398857628,
+     "pass_5_percent": false
+    },
+    "S-CH1": {
+     "yJ_Q0_pole_convention": 0.028366693435852786,
+     "ratio_to_measured": 2.6226672184282216,
+     "pass_5_percent": false
+    },
+    "S-CH2": {
+     "yJ_Q0_pole_convention": 0.033738233961550616,
+     "ratio_to_measured": 3.1192976516179005,
+     "pass_5_percent": false
+    },
+    "S-MS": {
+     "yJ_Q0_pole_convention": 0.0352389444510524,
+     "ratio_to_measured": 3.258047140135767,
+     "pass_5_percent": false
+    },
+    "S-SRC": {
+     "yJ_Q0_pole_convention": 0.02803108870602669,
+     "ratio_to_measured": 2.5916385923652383,
+     "pass_5_percent": false
+    }
+   }
+  },
+  {
+   "id": "E-6",
+   "A": "sqrt(p q)",
+   "A_value": 0.11785113019775792,
+   "no_running_ratio": 0.870320516787906,
+   "by_content": {
+    "S-SM two loops": {
+     "yJ_Q0_pole_convention": 0.01008303387227923,
+     "ratio_to_measured": 0.9322356325712909,
+     "pass_5_percent": false
+    },
+    "S-SM one loop": {
+     "yJ_Q0_pole_convention": 0.009982925079644793,
+     "ratio_to_measured": 0.9229799874143222,
+     "pass_5_percent": false
+    },
+    "S-CH1": {
+     "yJ_Q0_pole_convention": 0.011700664084859999,
+     "ratio_to_measured": 1.0817950353853156,
+     "pass_5_percent": false
+    },
+    "S-CH2": {
+     "yJ_Q0_pole_convention": 0.013916311511357917,
+     "ratio_to_measured": 1.286644637832336,
+     "pass_5_percent": false
+    },
+    "S-MS": {
+     "yJ_Q0_pole_convention": 0.014535323006863875,
+     "ratio_to_measured": 1.3438758819590062,
+     "pass_5_percent": false
+    },
+    "S-SRC": {
+     "yJ_Q0_pole_convention": 0.011562234196375986,
+     "ratio_to_measured": 1.0689963801102942,
+     "pass_5_percent": false
+    }
+   }
+  }
+ ],
+ "F_rows": [
+  {
+   "id": "F-1",
+   "formula": "(g_2/2) sqrt(<K>)",
+   "amplitude": 0.1729996350811316,
+   "yJ_cell_two_loops": 0.009730076941384965,
+   "yJ_Q0_pole_convention_two_loops": 0.010793854500925803,
+   "ratio_two_loops": 0.9979551696456289,
+   "ratio_one_loop": 0.9828026377293723,
+   "pass_5_percent_two_loops": true,
+   "masses_GeV_e_mu_tau_two_loops": [
+    0.0005099388772000746,
+    0.10544022276543809,
+    1.773298594046877
+   ],
+   "deviation_percent": -0.20448303543710855
+  },
+  {
+   "id": "F-2",
+   "formula": "(g_2/2) <sqrt(K)>",
+   "amplitude": 0.1280293626593948,
+   "yJ_cell_two_loops": 0.007200798711790221,
+   "yJ_Q0_pole_convention_two_loops": 0.007988053337474885,
+   "ratio_two_loops": 0.738542392141226,
+   "ratio_one_loop": 0.7273286748232404,
+   "pass_5_percent_two_loops": false,
+   "masses_GeV_e_mu_tau_two_loops": [
+    0.0003773831627595933,
+    0.07803163580658892,
+    1.3123396976771098
+   ],
+   "deviation_percent": -26.145760785877403
+  },
+  {
+   "id": "F-3",
+   "formula": "(g_2/2) sum sqrt(pi K)",
+   "amplitude": 0.21190460498954894,
+   "yJ_cell_two_loops": 0.011918222311943926,
+   "yJ_Q0_pole_convention_two_loops": 0.013221227161899433,
+   "ratio_two_loops": 1.222380012084197,
+   "ratio_one_loop": 1.2038199076724156,
+   "pass_5_percent_two_loops": false,
+   "masses_GeV_e_mu_tau_two_loops": [
+    0.0006246163252958294,
+    0.12915211494314355,
+    2.172086304828338
+   ],
+   "deviation_percent": 22.2380012084197
+  },
+  {
+   "id": "F-4",
+   "formula": "(g_2/2) sqrt(<K_C>), N = 6",
+   "amplitude": 0.17506903400278037,
+   "yJ_cell_two_loops": 0.009846466844292096,
+   "yJ_Q0_pole_convention_two_loops": 0.010922969171336375,
+   "ratio_two_loops": 1.009892578362994,
+   "ratio_one_loop": 0.9945587938493372,
+   "pass_5_percent_two_loops": true,
+   "masses_GeV_e_mu_tau_two_loops": [
+    0.0005160386990990613,
+    0.10670148486686895,
+    1.7945105590117798
+   ],
+   "deviation_percent": 0.9892578362993953
+  }
+ ],
+ "F-5": {
+  "no_running_ratio": 1.2775875085396002,
+  "by_content": {
+   "S-SM two loops": 1.3684758387453244,
+   "S-SM one loop": 1.3548890090568086,
+   "S-CH1": 1.5880216510456509,
+   "S-CH2": 1.8887307440376462,
+   "S-MS": 1.972743382122143,
+   "S-SRC": 1.5692338575947733
+  }
+ },
+ "third_family_table": {
+  "Q-A": {
+   "y_MU_t_b_tau": [
+    0.07537174939906023,
+    0.07537174939906023,
+    0.010200457052960809
+   ],
+   "S-SM two loops": {
+    "y_Q0_t_b_tau": [
+     0.24853430653507888,
+     0.24052518975267986,
+     0.013265421304798474
+    ],
+    "m_t_Q0_GeV": 43.27071355854792,
+    "m_b_Q0_GeV": 41.87629762064506,
+    "m_tau_pole_GeV": 2.3501476437933633,
+    "m_t_over_table": 0.25201347442369204,
+    "m_b_over_table": 14.490068380846042,
+    "m_tau_over_measured": 1.322588759148286
+   },
+   "S-CH1": {
+    "y_Q0_t_b_tau": [
+     0.38945257251056214,
+     0.3745413639366324,
+     0.014162154616257383
+    ],
+    "m_t_Q0_GeV": 67.80508874079973,
+    "m_b_Q0_GeV": 65.20899388367702,
+    "m_tau_pole_GeV": 2.509016000147326,
+    "m_t_over_table": 0.3949044189912623,
+    "m_b_over_table": 22.563665703694472,
+    "m_tau_over_measured": 1.4119948451246402
+   }
+  },
+  "Q-B": {
+   "y_MU_t_b_tau": [
+    0.3594376042679167,
+    0.3594376042679167,
+    0.04864458997948802
+   ],
+   "S-SM two loops": {
+    "y_Q0_t_b_tau": [
+     0.8443009089909348,
+     0.8224462700938479,
+     0.04524089521964209
+    ],
+    "m_t_Q0_GeV": 146.99581437869594,
+    "m_b_Q0_GeV": 143.1908434158326,
+    "m_tau_pole_GeV": 8.01503253161544,
+    "m_t_over_table": 0.8561200604466858,
+    "m_b_over_table": 49.54700464215661,
+    "m_tau_over_measured": 4.510606794648885
+   },
+   "S-CH1": {
+    "y_Q0_t_b_tau": [
+     1.090023427717849,
+     1.06108181358702,
+     0.039850183427954614
+    ],
+    "m_t_Q0_GeV": 189.77698560189896,
+    "m_b_Q0_GeV": 184.7381468498719,
+    "m_tau_pole_GeV": 7.059995497773121,
+    "m_t_over_table": 1.1052823855672624,
+    "m_b_over_table": 63.92323420410792,
+    "m_tau_over_measured": 3.9731421596647722
+   }
+  },
+  "Q-C": {
+   "y_MU_t_b_tau": [
+    0.3594376042679167,
+    0.3594376042679167,
+    0.010200457052960809
+   ],
+   "S-SM two loops": {
+    "y_Q0_t_b_tau": [
+     0.8445647937683102,
+     0.8227061835482397,
+     0.009496679231483772
+    ],
+    "m_t_Q0_GeV": 147.04175766424657,
+    "m_b_Q0_GeV": 143.23609527981787,
+    "m_tau_pole_GeV": 1.682464341457417,
+    "m_t_over_table": 0.8563876392792462,
+    "m_b_over_table": 49.56266272658058,
+    "m_tau_over_measured": 0.9468377153052835
+   },
+   "S-CH1": {
+    "y_Q0_t_b_tau": [
+     1.0902733910275755,
+     1.06133071730248,
+     0.008364438103183868
+    ],
+    "m_t_Q0_GeV": 189.8205051100349,
+    "m_b_Q0_GeV": 184.7814818788483,
+    "m_tau_pole_GeV": 1.4818726106152593,
+    "m_t_over_table": 1.105535848049126,
+    "m_b_over_table": 63.938229023822934,
+    "m_tau_over_measured": 0.8339510338703605
+   }
+  },
+  "top alone at g_U/2, bottom negligible (Q-C without the equal bottom)": {
+   "y_MU_t_b_tau": [
+    0.3594376042679167,
+    1e-06,
+    0.010200457052960809
+   ],
+   "S-SM two loops": {
+    "y_Q0_t_b_tau": [
+     0.9020148824878488,
+     2.960788302915156e-06,
+     0.01115702428352124
+    ],
+    "m_t_Q0_GeV": 157.04402402156916,
+    "m_tau_pole_GeV": 1.9766167790070892,
+    "m_t_over_table": 0.9146419570271938,
+    "m_tau_over_measured": 1.1123774031656226
+   },
+   "S-CH1": {
+    "y_Q0_t_b_tau": [
+     1.193123757849878,
+     4.413869172195392e-06,
+     0.010698065720621546
+    ],
+    "m_t_Q0_GeV": 207.72712260765303,
+    "m_tau_pole_GeV": 1.8953061021417161,
+    "m_t_over_table": 1.2098259907259932,
+    "m_tau_over_measured": 1.0666183260689597
+   }
+  }
+ },
+ "cell_rule_table": {
+  "quark legs at g_2/2 (top and bottom), register count on the lepton": {
+   "y_cell_t_b_tau": [
+    0.25309502078254875,
+    0.25309502078254875,
+    0.009181504952966777
+   ],
+   "y_Q0_t_b_tau": [
+    0.7349998238325977,
+    0.7101815786932664,
+    0.009941414855091773
+   ],
+   "m_t_Q0_GeV": 127.96610369826189,
+   "m_b_Q0_GeV": 123.64515826653634,
+   "m_tau_pole_GeV": 1.7612552335005696,
+   "m_t_over_table": 0.745288897485509,
+   "m_b_over_table": 42.78379178772884,
+   "m_tau_over_measured": 0.991178737204375
+  },
+  "top alone at g_2/2, bottom negligible": {
+   "y_cell_t_b_tau": [
+    0.25309502078254875,
+    1e-06,
+    0.009181504952966777
+   ],
+   "y_Q0_t_b_tau": [
+    0.7732973035951376,
+    3.3795506620487215e-06,
+    0.011188617836399769
+   ],
+   "m_t_Q0_GeV": 134.6338321898424,
+   "m_b_Q0_GeV": 0.0005883918831683345,
+   "m_tau_pole_GeV": 1.9822140014511045,
+   "m_t_over_table": 0.7841224938255236,
+   "m_b_over_table": 0.00020359580732468322,
+   "m_tau_over_measured": 1.1155273429179007
+  },
+  "register count on both vertices": {
+   "y_cell_t_b_tau": [
+    0.05307239491378655,
+    0.05307239491378655,
+    0.009181504952966777
+   ],
+   "y_Q0_t_b_tau": [
+    0.19739459589306618,
+    0.18949680846376665,
+    0.012682137878587098
+   ],
+   "m_t_Q0_GeV": 34.36710664203063,
+   "m_b_Q0_GeV": 32.99207354352643,
+   "m_tau_pole_GeV": 2.2468111467249647,
+   "m_t_over_table": 0.20015787211433098,
+   "m_b_over_table": 11.415942402604301,
+   "m_tau_over_measured": 1.2644342471143857
+  }
+ },
+ "mass_round": {
+  "weak_kick_clock": {
+   "F": "h",
+   "d_ln_m_d_ln_v": 1,
+   "Higgs_tau_coupling_over_SM": 1.0
+  },
+  "onsite_rule": {
+   "F": "1 - cos h",
+   "d_ln_m_d_ln_v": 2,
+   "Higgs_tau_coupling_over_SM": 2.0
+  },
+  "kappa_tau_measured_IMPORTED": [
+   0.93,
+   0.07
+  ],
+  "onsite_rule_deviation_sigma": 15.285714285714281,
+  "weak_kick_deviation_sigma": 0.9999999999999992
+ },
+ "looks_printed_by_this_script": 102
+}

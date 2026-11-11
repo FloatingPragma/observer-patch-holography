@@ -1,0 +1,342 @@
+{
+ "D1 edge anchor": {
+  "repository gate coefficients (a, b)": [
+   "1/2 - I/2",
+   "1/2 + I/2"
+  ],
+  "clock coefficients at tau = 1": [
+   "1/2 - I/2",
+   "1/2 + I/2"
+  ],
+  "S is an involution on the pair state": true,
+  "E E = S on the pair state": true,
+  "pair state norm": "1",
+  "rows": [
+   {
+    "tau": "1",
+    "equals the tick edge gate E": true,
+    "equals E^-1": false,
+    "equals S": false,
+    "equals the identity": false
+   },
+   {
+    "tau": "5",
+    "equals the tick edge gate E": true,
+    "equals E^-1": false,
+    "equals S": false,
+    "equals the identity": false
+   },
+   {
+    "tau": "-3",
+    "equals the tick edge gate E": true,
+    "equals E^-1": false,
+    "equals S": false,
+    "equals the identity": false
+   },
+   {
+    "tau": "9",
+    "equals the tick edge gate E": true,
+    "equals E^-1": false,
+    "equals S": false,
+    "equals the identity": false
+   },
+   {
+    "tau": "-7",
+    "equals the tick edge gate E": true,
+    "equals E^-1": false,
+    "equals S": false,
+    "equals the identity": false
+   },
+   {
+    "tau": "-1",
+    "equals the tick edge gate E": false,
+    "equals E^-1": true,
+    "equals S": false,
+    "equals the identity": false
+   },
+   {
+    "tau": "3",
+    "equals the tick edge gate E": false,
+    "equals E^-1": true,
+    "equals S": false,
+    "equals the identity": false
+   },
+   {
+    "tau": "2",
+    "equals the tick edge gate E": false,
+    "equals E^-1": false,
+    "equals S": true,
+    "equals the identity": false
+   },
+   {
+    "tau": "1/2",
+    "equals the tick edge gate E": false,
+    "equals E^-1": false,
+    "equals S": false,
+    "equals the identity": false
+   },
+   {
+    "tau": "pi/2",
+    "equals the tick edge gate E": false,
+    "equals E^-1": false,
+    "equals S": false,
+    "equals the identity": false
+   },
+   {
+    "tau": "2/pi",
+    "equals the tick edge gate E": false,
+    "equals E^-1": false,
+    "equals S": false,
+    "equals the identity": false
+   },
+   {
+    "tau": "4/5",
+    "equals the tick edge gate E": false,
+    "equals E^-1": false,
+    "equals S": false,
+    "equals the identity": false
+   },
+   {
+    "tau": "0",
+    "equals the tick edge gate E": false,
+    "equals E^-1": false,
+    "equals S": false,
+    "equals the identity": true
+   },
+   {
+    "tau": "4",
+    "equals the tick edge gate E": false,
+    "equals E^-1": false,
+    "equals S": false,
+    "equals the identity": true
+   }
+  ],
+  "condition": "exp(-i tau h) = E iff exp(-i pi tau/2) = 1 - 2 b = -i iff tau = 1 modulo 4",
+  "exp(-i pi (1 + 4 n)/2) = -i for integer n (symbolic)": true,
+  "reading": "exp(-i tau (pi/4)(I - S)) = E exactly for tau in 1 + 4 Z; E^-1 for tau in -1 + 4 Z; S for tau in 2 + 4 Z"
+ },
+ "D2 principal branch": {
+  "one-body eigenvalues of tau h": [
+   "0",
+   "tau pi/2"
+  ],
+  "members of 1 + 4 Z with |tau| pi/2 < pi": [
+   1
+  ],
+  "members tested": [
+   -23,
+   -19,
+   -15,
+   -11,
+   -7,
+   -3,
+   1,
+   5,
+   9,
+   13,
+   17,
+   21,
+   25
+  ]
+ },
+ "D4 rate matching, action form": {
+  "(i) 1 - <psi|W psi> and P(record 1), twelve ports": [
+   [
+    "1/12",
+    "1/12"
+   ]
+  ],
+  "(i) equal on six random blank consensus inputs": true,
+  "(ii) consensus block A^dag W A equals K_12 = I - L/60": true,
+  "(ii) spectrum of the port Laplacian L (eigenvalue: multiplicity)": {
+   "6": 5,
+   "5 - sqrt(5)": 3,
+   "sqrt(5) + 5": 3,
+   "0": 1
+  },
+  "(ii) (I - Re W) A = A L/60 on all twelve ports (the consensus sector is invariant)": true,
+  "(ii) consequence": "on the consensus sector exp(-i t (I - Re W)) = A exp(-i t (I - K_12)) A^dag: the declared onsite clock is the unitary continuation of the attempt semigroup exp(-t (I - K_12)) = sum_n Poisson(n; t) K_12^n with the same t",
+  "(iii) Poisson identity": "exp(60 t (K_12 - I)) = exp(-t L) follows from (ii) as an identity of functions of L; the mean number of attempts in clock time t is 60 t for the generator L and t for the generator L/60",
+  "(iv) rate r attempts per unit clock time": {
+   "generator": "r (I - K_12)",
+   "mean clock time per attempt": "1/r",
+   "product of coefficient and time per attempt": "1",
+   "action per attempt on a consensus input": "<I - K_12> = P(record 1), for every r"
+  }
+ },
+ "D3 onsite anchor": {
+  "(a) repair Q is an involution": true,
+  "(a) address reflection R is an involution": true,
+  "(a) tick W = Q R is an involution": false,
+  "(a) exp(-i tau (I - Q)) = Q": "I - Q = 2 Pi, so exp(-i tau (I - Q)) = I + (exp(-2 i tau) - 1) Pi equals Q = I - 2 Pi iff exp(-2 i tau) = -1",
+  "(a) solution set": "tau = pi/2 modulo pi",
+  "(a) exp(-2 i (pi/2 + pi n)) = -1 for integer n (symbolic)": true,
+  "(b) rational consensus modes on the program": [
+   {
+    "L eigenvalue": "6",
+    "vector": [
+     1,
+     -1,
+     -1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "(I - Re W) x = (ell/60) x": true,
+    "<x|W x>/<x|x>": "9/10",
+    "<x|W^2 x>/<x|x>": "31/50",
+    "2 cos^2 - 1": "31/50",
+    "W x proportional to x": false
+   }
+  ],
+  "(b) all three nonzero eigenvalues": [
+   {
+    "L eigenvalue": "5 - sqrt(5)",
+    "energy-clock value mu = ell/60": "1/12 - sqrt(5)/60",
+    "Floquet phase phi = arccos(1 - mu)": 0.3047084373702733,
+    "phi/mu": 6.614672898387105
+   },
+   {
+    "L eigenvalue": "sqrt(5) + 5",
+    "energy-clock value mu = ell/60": "sqrt(5)/60 + 1/12",
+    "Floquet phase phi = arccos(1 - mu)": 0.49619825950207297,
+    "phi/mu": 4.114374776839947
+   },
+   {
+    "L eigenvalue": "6",
+    "energy-clock value mu = ell/60": "1/10",
+    "Floquet phase phi = arccos(1 - mu)": 0.4510268117962624,
+    "phi/mu": 4.5102681179626245
+   }
+  ],
+  "(b) reading": "on the plane span{x, W x} of a consensus mode I - Re W is the scalar ell/60, so exp(-i tau (I - Re W)) is a scalar there for every tau, while W rotates the plane by the angle arccos(1 - ell/60): no tau gives the tick"
+ },
+ "D5 rate matching, record form": {
+  "P(record 1) after the event (one tick)": "1/12",
+  "record-1 weight at clock time tau under exp(-i tau (I - Q))": "sin(tau)**2/12",
+  "as a multiple of the tick value": "sin(tau)**2",
+  "at tau = 1": 0.05900611818946427,
+  "at tau = pi/2": "1/12",
+  "action integral of <I - Re W> over clock time tau": "tau * 1/12",
+  "reading": "the record weight is P sin^2(tau): it equals the tick value at tau = pi/2 + pi Z; the action equals the tick value at tau = 1"
+ },
+ "D8 signal speed": {
+  "hopping band per axis": "pi*(1 - cos(k))/2",
+  "group velocity": "pi*sin(k)/2",
+  "largest value": "pi/2 at k = pi/2",
+  "velocity at k -> 0": "0",
+  "momentum independent": false,
+  "clock time for one link at the largest velocity": "2/pi"
+ },
+ "D11 the declared pair from two conditions": {
+  "condition (a)": "c_r tau = 1 (one attempt of the consensus chain per tick)",
+  "condition (b)": "tau c_h in pi/4 + pi Z (the edge gate of the tick)",
+  "together": "c_h/c_r in pi/4 + pi Z; principal solution c_h/c_r = pi/4, the declared pair (1, pi/4) up to a common scale",
+  "rules": [
+   {
+    "rule": "declared pair",
+    "c_r": "1",
+    "c_h": "pi/4",
+    "tick duration from (a), one attempt per tick": "1",
+    "tick duration from (b), the edge gate (principal)": "1",
+    "(a) and (b) agree": true,
+    "edge gate reproduced at the duration of (b) (repository gate)": true,
+    "edge gate reproduced at the duration of (a) (repository gate)": true,
+    "attempts per tick at the duration of (b)": "1",
+    "single repair event reproduced at the duration of (b)": false,
+    "kappa = c_r times the duration of (b)": "1"
+   },
+   {
+    "rule": "uniform rule: I - Re(gate) for every gate",
+    "c_r": "1",
+    "c_h": "1/2",
+    "tick duration from (a), one attempt per tick": "1",
+    "tick duration from (b), the edge gate (principal)": "pi/2",
+    "(a) and (b) agree": false,
+    "edge gate reproduced at the duration of (b) (repository gate)": true,
+    "edge gate reproduced at the duration of (a) (repository gate)": false,
+    "attempts per tick at the duration of (b)": "pi/2",
+    "single repair event reproduced at the duration of (b)": true,
+    "kappa = c_r times the duration of (b)": "pi/2"
+   },
+   {
+    "rule": "uniform rule: principal logarithm of every swap gate",
+    "c_r": "pi/2",
+    "c_h": "pi/4",
+    "tick duration from (a), one attempt per tick": "2/pi",
+    "tick duration from (b), the edge gate (principal)": "1",
+    "(a) and (b) agree": false,
+    "edge gate reproduced at the duration of (b) (repository gate)": true,
+    "edge gate reproduced at the duration of (a) (repository gate)": false,
+    "attempts per tick at the duration of (b)": "pi/2",
+    "single repair event reproduced at the duration of (b)": true,
+    "kappa = c_r times the duration of (b)": "pi/2"
+   }
+  ]
+ },
+ "D12 invariant form": {
+  "kappa on the principal branch": "(pi/4) c_r/c_h",
+  "kappa of the declared pair with a common scale": "1",
+  "reading": "(E) and (T) together are the ratio c_r/c_h = 4/pi of the read coefficient to the hopping coefficient"
+ },
+ "D13 the declared functional on a quarter-turn gate": {
+  "(i) I - Re(I + (i - 1) Q) = Q for a projector Q": true,
+  "(ii) I - Re((-i)^N) = N for N = X (x) (I + J)": true,
+  "(ii) functional equals X (x) I + J (x) X": true,
+  "(ii) odd part on a flagged read, functional rule": "1",
+  "(ii) even part, functional rule": "0",
+  "(ii) odd part on a flagged read, logarithm rule": "pi/2",
+  "(iii) E = I + (-i - 1) Pi_-, a quarter turn on the swap-odd projector": true,
+  "(iii) I - Re E = Pi_- = (I - S)/2": true,
+  "(iii) declared hopping generator": "(pi/4)(I - S) = (pi/2) Pi_-, the principal logarithm of E",
+  "(iv) program quarter turn: psi - (V psi + V^3 psi)/2 = Pi_address psi, V^4 = I": true,
+  "reading": "the declared onsite rule (I - Re of the gate) gives a quarter-turn kick the coefficient one; the declared edge rule (principal logarithm of the gate) gives it pi/2"
+ },
+ "D13 (v) the round tick, quarter turn, inverse tick": {
+  "public program rows": [
+   {
+    "input": "port 0",
+    "psi - (R psi + R^-1 psi)/2 = W^-1 Pi_1 W psi": true,
+    "expectation of I - Re R": "1/12",
+    "1 - <psi|W psi>": "1/12",
+    "return amplitude <psi|R psi>": "11/12 + I/12"
+   },
+   {
+    "input": "port 7",
+    "psi - (R psi + R^-1 psi)/2 = W^-1 Pi_1 W psi": true,
+    "expectation of I - Re R": "1/12",
+    "1 - <psi|W psi>": "1/12",
+    "return amplitude <psi|R psi>": "11/12 + I/12"
+   },
+   {
+    "input": "random consensus",
+    "psi - (R psi + R^-1 psi)/2 = W^-1 Pi_1 W psi": true,
+    "expectation of I - Re R": "9735/127876",
+    "1 - <psi|W psi>": "9735/127876",
+    "return amplitude <psi|R psi>": "118141/127876 + 9735*I/127876"
+   }
+  ],
+  "I - Re(W^-1 (-i)^(X (x) (I + J)) W) = X_W (x) (I + J) for a generic tick on the flag": true,
+  "reading": "the declared onsite rule applied to the round with a quarter-turn kick returns the generator of the phase clock with coefficient one; on a blank consensus input its expectation equals the energy-clock value of the tick"
+ },
+ "D14 the kick inside a joint onsite unitary": {
+  "effective values of I - Re((-i)^N <U_0>) for N = 0, 1, 2": [
+   "1 - c",
+   "1 - s",
+   "c + 1"
+  ],
+  "odd coefficient on a flagged read": "c",
+  "even phase on a flagged read": "s",
+  "with U_0 a tick of FR object, <S|W|S> = 2/3": {
+   "odd coefficient": "2/3",
+   "phase": "4/27"
+  },
+  "reading": "inside a joint onsite unitary the coefficient of the kick is Re<U_0> of its co-factor; coefficient one needs the round as a term of its own, or a co-factor that acts as the identity on the state"
+ }
+}

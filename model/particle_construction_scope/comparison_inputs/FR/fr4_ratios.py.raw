@@ -1,0 +1,125 @@
+"""FR item 4: lepton ratios from the register's compression (mpmath, 50 digits). Writes fr4_ratios.json.
+
+Formulas written before evaluation (DEFINITION.md section 6, CANDIDATES.md G):
+  compression (sqrt2/3) C(theta), C(theta) = a I + b (z R + z^-1 R^-1), a = sqrt(1/6), b = sqrt(1/12);
+  lambda_k = a + 2 b cos(theta + 2 pi k/3) on R v_k = w^k v_k (R = rho_f; overall factor dropped);
+  A-clock (G1): m_k ~ |lambda_k|^2;  Floquet (G2): cos omega_k = 1 - c |lambda_k|^2, m_k ~ omega_k, c = 1e-6;
+  theta = 2/9 is worker CK's premise (one radian per read) applied to F1 = P(R+ xor H) = 2/9 of this register.
+  Controls use the forms computed exactly in fr2 (quadrature, theta + pi, mixture, other balances, other read counts).
+The measured masses are read only after every predicted number below has been computed (NOT BLIND block last).
+"""
+from __future__ import annotations
+
+import json
+import os
+import sys
+
+import mpmath as mp
+
+import fr_common as FC
+
+mp.mp.dps = 50
+OUT = 'fr4_ratios.json'
+A = mp.sqrt(mp.mpf(1) / 6)
+B = mp.sqrt(mp.mpf(1) / 12)
+TWO9 = mp.mpf(2) / 9
+
+
+def lams(theta, a=A, b=B, sign=1):
+    return [a + sign * 2 * b * mp.cos(theta + 2 * mp.pi * k / 3) for k in range(3)]
+
+
+def summary(vals_abs2, label, lam=None):
+    """vals_abs2: the three |lambda_k|^2 (A-clock masses)."""
+    m = sorted(vals_abs2)
+    roots = [mp.sqrt(x) for x in vals_abs2]
+    Q = mp.fsum(vals_abs2) / mp.fsum(roots) ** 2
+    out = {'label': label, 'Q': mp.nstr(Q, 15), 'm2/m1': mp.nstr(m[1] / m[0], 15), 'm3/m1': mp.nstr(m[2] / m[0], 15)}
+    if lam is not None:
+        out['lambda_k'] = [mp.nstr(x, 15) for x in lam]
+    return out
+
+
+def main():
+    out = {'task': 'FR item 4: lepton ratios', 'provenance': FC.provenance()}
+    lam = lams(TWO9)
+    sq = [x * x for x in lam]
+    prim = summary(sq, 'primary register, theta = 2/9, A-clock', lam)
+    order = sorted(range(3), key=lambda k: sq[k])
+    prim['generation_by_R_character_k (rho_f)'] = {'e': order[0], 'mu': order[1], 'tau': order[2]}
+    prim['all_lambda_positive'] = all(x > 0 for x in lam)
+    prim['positive_chamber_|theta|<=pi/12'] = bool(TWO9 <= mp.pi / 12)
+    out['primary_A_clock'] = prim
+    # Floquet alternative
+    c = mp.mpf('1e-6')
+    om = [mp.acos(1 - c * x) for x in sq]
+    mo = sorted(om)
+    out['alternative_Floquet'] = {'m2/m1': mp.nstr(mo[1] / mo[0], 12), 'm3/m1': mp.nstr(mo[2] / mo[0], 12),
+                                  'Q': mp.nstr(mp.fsum(om) / mp.fsum([mp.sqrt(x) for x in om]) ** 2, 12)}
+    # controls (forms from fr2)
+    ctrl = {}
+    quad = [A * A + 4 * B * B * mp.sin(TWO9 + 2 * mp.pi * k / 3) ** 2 for k in range(3)]
+    ctrl['B2_plain_record_quadrature'] = summary(quad, 'a I + b (z R - z^-1 R^-1)')
+    head = lams(TWO9, sign=-1)
+    ctrl['D2_C_source_at_head_(theta+pi)'] = summary([x * x for x in head], 'C(theta + pi)', head)
+    mix = [(sq[k] + head[k] ** 2) / 2 for k in range(3)]
+    ctrl['D4_C_source_mixture'] = summary(mix, 'average of D1 and D2 energies')
+    for name, r2 in (('E2_E_at_junction_(b/a)^2=9/50', mp.mpf(9) / 50), ('E4a_rotation_first_(b/a)^2=3/5', mp.mpf(3) / 5),
+                     ('E4b_hold_first_(b/a)^2=5/12', mp.mpf(5) / 12), ('E5_product_(b/a)^2=1/8', mp.mpf(1) / 8),
+                     ('E7_LNAT2_two_flag_(b/a)^2=1/4', mp.mpf(1) / 4)):
+        l2 = lams(TWO9, a=mp.mpf(1), b=mp.sqrt(r2))
+        ctrl[name] = summary([x * x for x in l2], name, l2)
+    for name, th in (('F2_theta=5/18', mp.mpf(5) / 18), ('F3_one_object_theta=1/4', mp.mpf(1) / 4)):
+        l2 = lams(th)
+        ctrl[name] = summary([x * x for x in l2], name, l2)
+    out['controls'] = ctrl
+
+    # ---------------- NOT BLIND: measured values (repository table, PDG 2026 as shipped), read only now
+    root = FC.rer_root()
+    ref = json.load(open(os.path.join(root, 'code', 'particles', 'data', 'particle_reference_values.json')))['entries']
+    me, mmu, mtau = (mp.mpf(str(ref[k]['api_value'])) for k in ('electron', 'muon', 'tau'))
+    s_me = mp.mpf(str(ref['electron']['api_error_positive']))
+    s_mmu = mp.mpf(str(ref['muon']['api_error_positive']))
+    s_tau = (mp.mpf(str(ref['tau']['api_error_positive'])) + mp.mpf(str(ref['tau']['api_error_negative']))) / 2
+    r_mu = mmu / me
+    r_tau = mtau / me
+    s_rmu = r_mu * mp.sqrt((s_mmu / mmu) ** 2 + (s_me / me) ** 2)
+    s_rtau = r_tau * mp.sqrt((s_tau / mtau) ** 2 + (s_me / me) ** 2)
+    p_mu = mp.mpf(prim['m2/m1'])
+    p_tau = mp.mpf(prim['m3/m1'])
+    nb = {'source': 'code/particles/data/particle_reference_values.json (repository snapshot)',
+          'measured_m_mu/m_e': mp.nstr(r_mu, 12), 'sigma': mp.nstr(s_rmu, 3),
+          'measured_m_tau/m_e': mp.nstr(r_tau, 10), 'sigma_tau': mp.nstr(s_rtau, 3),
+          'primary_mu/e_offset_ppm': mp.nstr((p_mu / r_mu - 1) * 1e6, 6),
+          'primary_mu/e_pull': mp.nstr((p_mu - r_mu) / s_rmu, 6),
+          'primary_tau/e_pull': mp.nstr((p_tau - r_tau) / s_rtau, 4),
+          'primary_tau_mass_from_m_e_MeV': mp.nstr(p_tau * me, 10),
+          'measured_tau_MeV': mp.nstr(mtau, 10)}
+    # Koide-only tau from e and mu (Q = 2/3), and the phase fitted to mu/e at Q = 2/3 (a FIT)
+    se, smu = mp.sqrt(me), mp.sqrt(mmu)
+    # Q = 2/3: (me + mmu + mt) = (2/3)(se + smu + st)^2 -> quadratic in st
+    st = mp.findroot(lambda x: me + mmu + x * x - mp.mpf(2) / 3 * (se + smu + x) ** 2, mp.sqrt(mtau))
+    nb['Koide_only_tau_MeV_(Q=2/3 from e, mu)'] = mp.nstr(st * st, 10)
+
+    def mu_over_e(th):
+        l2 = lams(th)
+        s2 = sorted(x * x for x in l2)
+        return s2[1] / s2[0]
+    th_fit = mp.findroot(lambda t: mu_over_e(t) - r_mu, TWO9)
+    l_fit = lams(th_fit)
+    s_fit = sorted(x * x for x in l_fit)
+    nb['FIT_theta_to_mu/e_at_Q=2/3'] = {'theta': mp.nstr(th_fit, 15),
+                                        'theta - 2/9': mp.nstr(th_fit - TWO9, 6),
+                                        'relative_ppm': mp.nstr((th_fit / TWO9 - 1) * 1e6, 6),
+                                        'tau/e_at_fit': mp.nstr(s_fit[2] / s_fit[0], 10),
+                                        'tau/e_pull_at_fit': mp.nstr((s_fit[2] / s_fit[0] - r_tau) / s_rtau, 4)}
+    nb['controls_vs_measurement'] = {k: {'m2/m1': v['m2/m1'], 'm3/m1': v['m3/m1']} for k, v in ctrl.items()}
+    out['NOT_BLIND'] = nb
+    FC.jdump(out, OUT)
+    print(json.dumps({'primary': prim, 'Floquet': out['alternative_Floquet'], 'NOT_BLIND': nb}, indent=1)[:4000])
+    for k, v in ctrl.items():
+        print(k, v['Q'], v['m2/m1'], v['m3/m1'])
+
+
+if __name__ == '__main__':
+    sys.exit(main())

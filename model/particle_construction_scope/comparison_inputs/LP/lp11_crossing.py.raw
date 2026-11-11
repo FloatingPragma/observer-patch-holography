@@ -1,0 +1,258 @@
+"""LP addendum 6 (items X1 to X7): the changed target after worker LK's report. A double load on one port of an E
+seam, and the crossing by two ticks of the plain law on that seam. EXACT (Fractions); X3 MEASURED (complex float64).
+Writes lp11_crossing.json.
+"""
+from __future__ import annotations
+
+import cmath
+import json
+import sys
+import time
+from fractions import Fraction as Fr
+
+import numpy as np
+
+import lp_common as L
+from lp2_gauss import STAR, NP, hol
+from lp5_construction import classify
+
+OUT = 'lp11_crossing.json'
+E_SEAM = 5                      # index of the seam (10, 2) in the hexagon
+
+
+def seam_model(frame, sign):
+    """FR's seam object for the E seam: ports (10, 2), one seam, two oriented addresses."""
+    return L.Model([10, 2], [(10, 2)], frame=frame, signs=({0: -1} if sign == -1 else {}), ref_tail={2})
+
+
+def main():
+    t0 = time.time()
+    out = {'task': 'LP addendum 6: double load on one port and the crossing', 'provenance': L.FC.provenance()}
+
+    # ---------------- X1: the crossing on the seam object
+    x1 = {}
+    for frame in ('FP', 'FN'):
+        for sign in (1, -1):
+            m = seam_model(frame, sign)
+            d2, d10 = m.ci[m.cfg_of(2, 2)], m.ci[m.cfg_of(10, 10)]
+            rows = {}
+            for o in (0, 1):
+                st = {(d2, 0, o): Fr(1)}
+                orbit = [dict(st)]
+                for _ in range(4):
+                    st = m.W(st)
+                    orbit.append(dict(st))
+                def show(s):
+                    return {f'{list(m.ports_of(m.cfg[c]))}, record {r}, address {"+-"[k]}': str(a) for (c, r, k), a in s.items()}
+                rows[f'orientation {"+-"[o]}'] = {'tick 1': show(orbit[1]), 'tick 2': show(orbit[2]), 'tick 3': show(orbit[3]),
+                                                  'tick 4': show(orbit[4]),
+                                                  'two ticks carry the double to port 10 with amplitude +1': orbit[2] == {(d10, 0, o): Fr(1)},
+                                                  'four ticks return it': orbit[4] == orbit[0]}
+            u = {(d2, 0, 0): Fr(1), (d2, 0, 1): Fr(1)}
+            rows['uniform address: two ticks give the double at port 10 with the uniform address'] = \
+                m.W(m.W(u)) == {(d10, 0, 0): Fr(1), (d10, 0, 1): Fr(1)}
+            x1[f'{frame}, sign {sign:+d}'] = rows
+    out['X1_crossing_on_the_seam_object'] = x1
+    print('X1', {k: {kk: (vv if isinstance(vv, bool) else {a: b for a, b in vv.items() if isinstance(b, bool)})
+                     for kk, vv in v.items()} for k, v in x1.items()})
+
+    # ---------------- X2: the crossing with the hexagon link register in the charge-free flux state
+    mh = L.hexagon('FP', 1)
+    words = [w for w in range(1 << NP) if hol(w) == -1]
+    c2, c10, c210 = mh.ci[mh.cfg_of(2, 2)], mh.ci[mh.cfg_of(10, 10)], mh.ci[mh.cfg_of(2, 10)]
+
+    def gamma(state, i):
+        return {(g ^ STAR[i], c, rec, o): (-a if mh.cfg[c][i] % 2 else a) for (g, c, rec, o), a in state.items()}
+
+    def seam_tick(state):
+        """Plain law on the seam (10, 2) with its two addresses; the sign is read from the link word."""
+        refl = {(g, c, rec, 1 - o): a for (g, c, rec, o), a in state.items()}
+        new = {}
+        for (g, c, rec, o), a in refl.items():
+            mm = L.Model(L.HEX, L.HEX_SEAMS, frame='FP', signs=({E_SEAM: -1} if g >> E_SEAM & 1 else {}))
+            for cc, r2, u in mm.local(c, rec, 2 * E_SEAM + o):
+                key = (g, cc, r2, o)
+                v = new.get(key, 0) + a * u
+                if v:
+                    new[key] = v
+                else:
+                    new.pop(key, None)
+        return new
+    x2 = {}
+    for o in (0, 1):
+        st = {(g, c2, 0, o): Fr(1) for g in words}
+        inv = [all(gamma(st, i) == st for i in range(NP))]
+        s1 = seam_tick(st)
+        inv.append(all(gamma(s1, i) == s1 for i in range(NP)))
+        s2 = seam_tick(s1)
+        inv.append(all(gamma(s2, i) == s2 for i in range(NP)))
+        x2[f'orientation {"+-"[o]}'] = {
+            'Gauss invariant at the six ports before, after one tick, after two ticks': inv,
+            'configurations after one tick': sorted({str(list(mh.ports_of(mh.cfg[c]))) + f' record {r}' for (g, c, r, oo) in s1}),
+            'after two ticks: |h = -1> (x) double at port 10, same orientation': s2 == {(g, c10, 0, o): Fr(1) for g in words}}
+    out['X2_crossing_with_the_link_register'] = x2
+    print('X2', x2)
+
+    # ---------------- X3: Z6 phase on the seam (complex floats)
+    U = np.array([[float(x) for x in row] for row in L.U24])
+    names = L.NAMES
+
+    def seam_walk(ph, plain=True):
+        """24 x 2 dimensional walk on (source, record) x orientation; reference orientation (10 -> 2), head = port 2."""
+        n = 24
+        Q = np.zeros((2 * n, 2 * n), dtype=complex)
+        swap = {'00': '00', '10': '01', '01': '10', '11': '11', '20': '02', '02': '20'}
+        for o in (0, 1):
+            for col in range(n):
+                s, r = divmod(col, 4)
+                name = names[s]                       # occupations (n_10, n_2)
+                loc = swap[name] if (plain and o == 1) else name
+                # gauge phase: ph to the power n at the head (port 2)
+                g_col = ph ** int(name[1])
+                lc = 4 * names.index(loc) + r
+                for row in range(n):
+                    u = U[row, lc]
+                    if u == 0.0:
+                        continue
+                    s2, r2 = divmod(row, 4)
+                    nm = names[s2]
+                    nm = swap[nm] if (plain and o == 1) else nm
+                    g_row = ph ** int(nm[1])
+                    Q[o * n + 4 * names.index(nm) + r2, o * n + col] += g_row * u * np.conj(g_col)
+        R = np.zeros((2 * n, 2 * n))
+        for i in range(n):
+            R[i, n + i] = R[n + i, i] = 1.0
+        return Q @ R
+    x3 = {}
+    i20, i02 = 4 * names.index('20'), 4 * names.index('02')       # (n_10, n_2) = (2,0): double at port 10; (0,2): at port 2
+    for k in range(6):
+        ph = cmath.exp(1j * cmath.pi * k / 3)
+        W = seam_walk(ph)
+        W2 = W @ W
+        amp = W2[i20, i02]                                          # double at port 2 -> double at port 10, orientation +
+        back = (W2 @ W2)[i02, i02]
+        x3[f'class {k}'] = {'one crossing (port 2 to port 10): amplitude': [round(amp.real, 12), round(amp.imag, 12)],
+                            'modulus': round(abs(amp), 12), 'phase over 2 pi/3': round(cmath.phase(amp) / (2 * cmath.pi / 3), 9),
+                            'return crossing (four ticks)': [round(back.real, 12), round(back.imag, 12)]}
+    out['X3_crossing_with_a_Z6_phase (MEASURED)'] = x3
+    print('X3', x3)
+
+    # ---------------- X4: round coefficients for a double at one port, twelve-address hexagon, class-3 sign
+    x4 = {}
+    for frame in ('FP', 'FN'):
+        m = L.hexagon(frame, -1)
+        rows = {}
+        for port in (2, 10):
+            st = m.embed({m.cfg_of(port, port): Fr(1)})
+            n0 = Fr(len(st))
+            w1 = m.W(st)
+            wt = {}
+            for (c, rec, k), a in w1.items():
+                key = classify(m, c, rec, k)
+                wt[key] = wt.get(key, Fr(0)) + a * a / n0
+            ov = {}
+            for name in ('forward', 'in-dimer'):
+                back = m.Winv({kk: a for kk, a in w1.items() if classify(m, *kk) == name})
+                ov[name] = sum(a * st.get(kk, 0) for kk, a in back.items()) / n0
+            rows[f'D_{port}'] = {'tick-1 weights': {k: str(v) for k, v in sorted(wt.items())},
+                                 '<D|W^-1 Pi_F W|D>': str(ov['forward']), '<D|W^-1 Pi_I W|D>': str(ov['in-dimer']),
+                                 'inverse tick restores the state': m.Winv(w1) == st}
+        pI = Fr(1, 6)
+        cs = []
+        for port in (2, 10):
+            pF = Fr(rows[f'D_{port}']['<D|W^-1 Pi_F W|D>'])
+            cs.append(pF + pI - 2 * pF * pI)
+        rows['round coefficient, A at port 2, B at port 2'] = str(cs[0])
+        rows['round coefficient, A at port 10, B at port 2'] = str(cs[1])
+        rows['mean of the two coefficients'] = str((cs[0] + cs[1]) / 2)
+        x4[frame] = rows
+    out['X4_round_coefficients'] = x4
+    print('X4', json.dumps(x4, indent=1))
+
+    # ---------------- X5: Gauss acceptance of two embedded loads on the charge-free flux state
+    acc = {}
+    for c, cfg in enumerate(mh.cfg):
+        ok = all(cfg[i] % 2 == 0 for i in range(NP))        # Gamma_i (|h> (x) |c>) = (-1)^(n_i) |h> (x) |c>
+        acc.setdefault('1' if ok else '0', []).append(list(mh.ports_of(cfg)))
+    out['X5_gauss_acceptance_of_embedded_pairs'] = {
+        'weight 1': acc['1'], 'number with weight 0': len(acc['0']),
+        'weight 0 configurations are the pairs on two ports': all(p[0] != p[1] for p in acc['0'])}
+    print('X5', out['X5_gauss_acceptance_of_embedded_pairs'])
+
+    # ---------------- X6: return detector for the double at one port, applied to the consensus pair
+    m = L.hexagon('FP', -1)
+    D = m.D()
+    idx = m.sector_index('cycle')
+    v = L.nullspace(L.minus_identity(L.sub(D, idx)))[0]
+    full = {i: v[t] for t, i in enumerate(idx) if v[t]}
+    nv = sum(x * x for x in full.values())
+    per = {}
+    for p in L.HEX:
+        amp = full[4 * m.ci[m.cfg_of(p, p)]]
+        per[p] = amp * amp / nv           # |<A D_p | A v>|^2 with both normalized (the uniform address is common)
+    out['X6_return_detector_on_the_consensus_pair'] = {'weight of yes at each port': {str(p): str(w) for p, w in per.items()},
+                                                       'total over the six ports': str(sum(per.values())),
+                                                       'state left on yes': 'D_p'}
+    print('X6', out['X6_return_detector_on_the_consensus_pair'])
+
+    # ---------------- X7: idle double at one port
+    x7 = {}
+    for r in (1, 2, 3):
+        idle = m.embed({m.cfg_of(2, 2): Fr(1)}, rec=r)
+        bare = {(c, 0, k): a for (c, rec, k), a in idle.items()}
+        x7[f'record {r}'] = {'fixed by the tick': m.W(idle) == idle, 'record reset gives D_2': bare == m.embed({m.cfg_of(2, 2): Fr(1)})}
+    out['X7_idle_double_at_one_port'] = x7
+    print('X7', x7)
+    # ---------------- X8: the crossing attempted with the twelve-address register of the object
+    x8 = {}
+    for frame in ('FP', 'FN'):
+        m = L.hexagon(frame, -1)
+        st = m.embed({m.cfg_of(2, 2): Fr(1)})
+        n0 = Fr(len(st))
+        s2 = m.W(m.W(st))
+        tgt = m.embed({m.cfg_of(10, 10): Fr(1)})
+        amp = sum(a * tgt.get(kk, 0) for kk, a in s2.items()) / n0
+        ret = sum(a * st.get(kk, 0) for kk, a in s2.items()) / n0
+        wt = {}
+        for (c, rec, k), a in s2.items():
+            cfg = m.cfg[c]
+            key = ('double at ' + str(m.ports_of(cfg)[0])) if m.is_double(cfg) else 'split pair'
+            wt[key] = wt.get(key, Fr(0)) + a * a / n0
+        x8[frame] = {'<A D_10|W^2|A D_2>': str(amp), '<A D_2|W^2|A D_2>': str(ret),
+                     'weights after two ticks': {k: str(v) for k, v in sorted(wt.items())}}
+    out['X8_crossing_with_the_twelve_address_register'] = x8
+    print('X8', x8)
+    # ---------------- X9: non-return content of LK's variant 2 with the class-3 sign
+    m = L.hexagon('FP', -1)
+    x9 = {}
+    info = {}
+    for port in (2, 10):
+        st = m.embed({m.cfg_of(port, port): Fr(1)})
+        n0 = Fr(len(st))
+        w1 = m.W(st)
+        for name in ('forward', 'in-dimer'):
+            back = m.Winv({kk: a for kk, a in w1.items() if classify(m, *kk) == name})
+            sv = sum(a * st.get(kk, 0) for kk, a in back.items()) / n0
+            perp = dict(back)
+            for kk, a in st.items():
+                perp[kk] = perp.get(kk, 0) - sv * a
+            perp = {kk: a for kk, a in perp.items() if a}
+            same = all(rec == 0 and c == m.ci[m.cfg_of(port, port)] for (c, rec, k) in perp)
+            info[(port, name)] = (sv, sum(a * a for a in perp.values()) / n0, same)
+    for portA in (2, 10):
+        pF, nF, sameF = info[(portA, 'forward')]
+        pI, nI, sameI = info[(2, 'in-dimer')]
+        tot = (1 - 2 * pI) ** 2 * nF + (1 - 2 * pF) ** 2 * nI + 4 * nF * nI
+        x9[f'A at port {portA}, B at port 2'] = {
+            'non-return norm^2 of A and of B': [str(nF), str(nI)],
+            'every non-return component has a blank record and the double at the same port': bool(sameF and sameI),
+            'weight of the outcome no per round over |1 - z|^2': str(tot)}
+    out['X9_non_return_of_the_round_with_one_port'] = x9
+    print('X9', x9)
+    out['seconds'] = round(time.time() - t0, 2)
+    L.jdump(out, OUT)
+    print('written', OUT, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

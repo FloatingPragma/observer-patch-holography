@@ -1,0 +1,91 @@
+"""Which part of the MSSM slopes the source structures can carry (exact fractions).
+
+Run:
+    /tmp/oph-completion-venv/bin/python differences_lemma.py [out.json]
+
+Coordinates: s = b2 (sets v together with b3 through the pixel equation), u = b1 - b2 (sets sin^2 theta_W),
+w = b2 - b3 (sets alpha_s). For the declared chain the shifts from the Standard Model census A to D are
+Delta (b2, b1 - b2, b2 - b3) = (25/6, -5/3, 1/6).
+
+Lemma 1. A complete copy of the five-level code (any statistics) shifts (b1, b2, b3) equally: Delta u = Delta w = 0.
+Lemma 2. Every piece of the native five, (1,2)_{+-1/2} or (3,1)_{-+1/3}, as a Weyl fermion or a complex scalar,
+         satisfies Delta u = -(2/5) Delta w. Hence every combination of complete copies and split fives lies on
+         the line Delta u = -(2/5) Delta w.
+Lemma 3. The MSSM point (-5/3, 1/6) lies off that line; its departure is carried exactly by the adjoint Weyl
+         fermions (gluino and wino), (Delta u, Delta w) = (-4/3, -2/3); the remaining Higgs part (-1/3, 5/6) lies on
+         the line, and the remaining universal part is (2, 2, 2).
+"""
+import json
+import sys
+from fractions import Fraction as F
+from pathlib import Path
+
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).with_name('differences_lemma.json')
+SU3 = {'1': (1, F(0)), '3': (3, F(1, 2)), '3b': (3, F(1, 2)), '8': (8, F(3))}
+SU2 = {'1': (1, F(0)), '2': (2, F(1, 2)), '3': (3, F(2))}
+W = {'weyl': F(2, 3), 'scalar': F(1, 3)}
+
+
+def shift(r3, r2, y, kind):
+    d3, t3 = SU3[r3]
+    d2, t2 = SU2[r2]
+    w = W[kind]
+    b1 = F(3, 5) * w * d3 * d2 * F(y) ** 2
+    b2 = w * t2 * d3
+    b3 = w * t3 * d2
+    return (b1, b2, b3)
+
+
+def coords(b):
+    b1, b2, b3 = b
+    return (b2, b1 - b2, b2 - b3)
+
+
+def add(*bs):
+    return tuple(sum(x) for x in zip(*bs))
+
+
+# Lemma 1: a complete copy (one family of multiplets) in either statistics
+family = [('3', '2', F(1, 6)), ('3b', '1', F(-2, 3)), ('3b', '1', F(1, 3)), ('1', '2', F(-1, 2)), ('1', '1', F(1))]
+for kind in ('weyl', 'scalar'):
+    b = add(*[shift(r3, r2, y, kind) for r3, r2, y in family])
+    assert b[0] == b[1] == b[2], b
+
+# Lemma 2: pieces of the native five
+pieces = {}
+for name, (r3, r2, y) in {'doublet': ('1', '2', F(1, 2)), 'triplet': ('3', '1', F(-1, 3))}.items():
+    for kind in ('weyl', 'scalar'):
+        s, u, w = coords(shift(r3, r2, y, kind))
+        assert u == -F(2, 5) * w, (name, kind, u, w)
+        pieces[f'{name}_{kind}'] = [str(s), str(u), str(w)]
+
+# Lemma 3: decomposition of D - A
+gluino = shift('8', '1', 0, 'weyl')
+wino = shift('1', '3', 0, 'weyl')
+adj = add(gluino, wino)
+higgs_part = add(shift('1', '2', F(-1, 2), 'scalar'), shift('1', '2', F(1, 2), 'weyl'), shift('1', '2', F(-1, 2), 'weyl'))
+sferm = tuple(3 * x for x in add(*[shift(r3, r2, y, 'scalar') for r3, r2, y in family]))
+total = add(adj, higgs_part, sferm)
+assert total == (F(33, 5) - F(41, 10), 1 - F(-19, 6), -3 + 7)
+mssm = coords(total)
+assert mssm == (F(25, 6), F(-5, 3), F(1, 6))
+assert mssm[1] != -F(2, 5) * mssm[2]                       # off the line
+ca, ch, cs = coords(adj), coords(higgs_part), coords(sferm)
+assert ch[1] == -F(2, 5) * ch[2]                           # Higgs part on the line
+assert cs[1] == cs[2] == 0                                 # universal part
+assert (ca[1], ca[2]) == (F(-4, 3), F(-2, 3))
+# the off-line distance of the MSSM point equals that of the adjoint part
+off = lambda c: c[1] + F(2, 5) * c[2]
+assert off(mssm) == off(ca) == F(-8, 5)
+
+out = dict(
+    coordinates='(b2, b1 - b2, b2 - b3)',
+    MSSM_minus_SM=[str(x) for x in mssm],
+    line='Delta(b1 - b2) = -(2/5) Delta(b2 - b3) for complete copies and every piece of the native five',
+    pieces_of_the_five=pieces,
+    decomposition=dict(adjoint_weyl=[str(x) for x in ca], higgs_pair_and_partners=[str(x) for x in ch],
+                       sfermions_three_copies=[str(x) for x in cs]),
+    off_line_distance=dict(MSSM=str(off(mssm)), adjoint_part=str(off(ca))),
+)
+OUT.write_text(json.dumps(out, indent=1) + '\n')
+print(json.dumps(out, indent=1))

@@ -15,6 +15,7 @@ import numpy as np
 
 from . import lattice as lt
 from . import reduction as rd
+from . import finite_size
 
 HERE = Path(__file__).parent
 
@@ -181,6 +182,16 @@ def certificate(production: dict | None = None) -> dict:
                         chi_max={row: [t["chi_max"], t["chi_max_err"]] for row, t in s["tscan"].items()},
                         half_width_T={row: t["half_width_sym"] for row, t in s["tscan"].items()})
     out["lattice_sets"] = lat
+    out["finite_size_cutoff"] = finite_size.analyse(prod)
+    fs = out["finite_size_cutoff"]
+    checks["8_size.crossover_growth_below_volume_scaling"] = all(
+        p["value"] + 3*p["stat"] < 1 for p in fs["crossover_volume_exponents"])
+    checks["8_size.first_order_control_grows"] = all(
+        p["value"] - 3*p["stat"] > 1 for p in fs["first_order_volume_exponents"])
+    checks["8_size.three_matched_physical_size_spacings"] = all(
+        len(p["points"]) == 3 and {q["size"] for q in p["points"]} == {8.0}
+        for p in fs["matched_size_cutoff"].values())
+
     main_x = [v for k, v in lat.items() if abs(v["x"] - 0.296) < 1e-9]
     fit_y = continuum_fit([dict(beta_G=v["beta_G"], size=v["size"], n_side=v["n_side"], value=v["y_max"], err=v["y_max_err"])
                            for v in main_x])
@@ -401,6 +412,7 @@ def certificate(production: dict | None = None) -> dict:
     out["checks"] = checks
     out["all_checks_pass"] = all(checks.values())
     out["input_sha256"] = {name: hashlib.sha256((HERE / name).read_bytes()).hexdigest()
-                           for name in ("production.json", "lattice.py", "reduction.py", "reweight.py", "kernels.py")
+                           for name in ("production.json", "lattice.py", "reduction.py", "reweight.py", "kernels.py",
+                                        "finite_size.py", "certificate.py")
                            if (HERE / name).exists()}
     return json.loads(json.dumps(out))

@@ -1,0 +1,277 @@
+"""Worker X3: labels of flux defects on the twelve-port carrier. Exact integer combinatorics.
+
+Everything here is a finite enumeration on the pinned public carrier (model.common_source.slow_geometry) and the
+five cubic frames of worker KD (work/KD/kdlib.py, item1.json order). No floating point.
+
+Conventions
+  face index f = 0..19      : position in source().oriented_faces() = template face of the universe runs (face 20 c + f)
+  frame index 0..4          : order of kdlib.frames() = item1.json
+  a face is the ordered pair (L, R) of the two frames that have the face on a cube diagonal (see frame_pair)
+"""
+import itertools
+from collections import deque
+from functools import lru_cache
+
+from model.common_source import slow_geometry
+import kdlib
+
+SRC = slow_geometry.source()
+FACES = [tuple(int(v) for v in f) for f in SRC.oriented_faces()]
+SEAMS = [tuple(sorted(int(v) for v in e)) for e in SRC.seams()]
+ROT_PORTS = [tuple(int(x) for x in p) for p in SRC.rotations()]
+NF = 20
+
+_face_of = {}
+for _i, (_a, _b, _c) in enumerate(FACES):
+    for _t in ((_a, _b, _c), (_b, _c, _a), (_c, _a, _b)):
+        _face_of[_t] = _i
+_seam_index = {e: i for i, e in enumerate(SEAMS)}
+
+
+def face_perm(port_perm):
+    """Face permutation of an orientation-preserving port permutation: out[f] = image of face f."""
+    out = []
+    for a, b, c in FACES:
+        out.append(_face_of[(port_perm[a], port_perm[b], port_perm[c])])     # KeyError if orientation is reversed
+    return tuple(out)
+
+
+ROT_FACES = [face_perm(p) for p in ROT_PORTS]
+assert len(set(ROT_FACES)) == 60
+
+# antipodal port: the only port that is neither equal nor adjacent nor at distance two
+_adj = {p: set() for p in range(12)}
+for _a, _b in SEAMS:
+    _adj[_a].add(_b); _adj[_b].add(_a)
+ANTIPODE_PORT = []
+for _p in range(12):
+    _rest = [q for q in range(12) if q != _p and q not in _adj[_p]]
+    _far = [q for q in _rest if not (_adj[q] & _adj[_p])]
+    assert len(_far) == 1
+    ANTIPODE_PORT.append(_far[0])
+# inversion reverses orientation: the outward face at the antipode is (A a, A c, A b)
+INVERSION_FACES = tuple(_face_of[(ANTIPODE_PORT[a], ANTIPODE_PORT[c], ANTIPODE_PORT[b])] for a, b, c in FACES)
+assert all(INVERSION_FACES[INVERSION_FACES[f]] == f and INVERSION_FACES[f] != f for f in range(NF))
+
+# dual graph: faces adjacent across a seam; edge order of a face = orientation order (a,b), (b,c), (c,a)
+FACE_EDGES = [tuple(tuple(sorted(e)) for e in ((a, b), (b, c), (c, a))) for a, b, c in FACES]
+_seam_faces = {e: [f for f in range(NF) if e in FACE_EDGES[f]] for e in SEAMS}
+assert all(len(v) == 2 for v in _seam_faces.values())
+NEIGHBOUR = [[next(g for g in _seam_faces[e] if g != f) for e in FACE_EDGES[f]] for f in range(NF)]   # across edge 0,1,2
+
+
+def _bfs(s):
+    d = {s: 0}; q = deque([s])
+    while q:
+        u = q.popleft()
+        for v in NEIGHBOUR[u]:
+            if v not in d:
+                d[v] = d[u] + 1; q.append(v)
+    return [d[f] for f in range(NF)]
+
+
+SEP = [_bfs(f) for f in range(NF)]
+
+# the five frames
+FRAMES = kdlib.frames()
+FRAME_OF_SEAM = {}
+for _i, _fr in enumerate(FRAMES):
+    for _e in _fr['matching']:
+        FRAME_OF_SEAM[tuple(_e)] = _i
+assert len(FRAME_OF_SEAM) == 30
+
+
+def frame_perm(port_perm):
+    """Permutation of the five frames induced by a port permutation: out[i] = image of frame i."""
+    out = []
+    for fr in FRAMES:
+        img = {FRAME_OF_SEAM[tuple(sorted((port_perm[a], port_perm[b])))] for a, b in fr['matching']}
+        assert len(img) == 1
+        out.append(img.pop())
+    return tuple(out)
+
+
+ROT_FRAMES = [frame_perm(p) for p in ROT_PORTS]
+
+
+def perm_sign(p):
+    s, seen = 1, [False] * len(p)
+    for i in range(len(p)):
+        if not seen[i]:
+            j, n = i, 0
+            while not seen[j]:
+                seen[j] = True; j = p[j]; n += 1
+            if n % 2 == 0:
+                s = -s
+    return s
+
+
+def frame_pair(f):
+    """(L, R): the two frames whose matching has no edge of face f, ordered so that (L, R, c, d, e) is an even
+    permutation of (0, 1, 2, 3, 4), with c, d, e the frames of the three edges of f in orientation order."""
+    c, d, e = (FRAME_OF_SEAM[x] for x in FACE_EDGES[f])
+    assert len({c, d, e}) == 3
+    a, b = sorted(set(range(5)) - {c, d, e})
+    return (a, b) if perm_sign((a, b, c, d, e)) == 1 else (b, a)
+
+
+LR = [frame_pair(f) for f in range(NF)]
+FACE_OF_LR = {lr: f for f, lr in enumerate(LR)}
+EDGE_FRAMES = [tuple(FRAME_OF_SEAM[x] for x in FACE_EDGES[f]) for f in range(NF)]
+
+
+def turn_sequence(f, g):
+    """Turns of the shortest dual path from f to g, seen from outside ('L'/'R' per interior face); None if not unique."""
+    # all shortest paths
+    d = SEP[f][g]
+    paths = [[f]]
+    for _ in range(d):
+        paths = [p + [v] for p in paths for v in NEIGHBOUR[p[-1]] if SEP[f][v] == len(p) and SEP[v][g] == d - len(p)]
+    if len(paths) != 1:
+        return None
+    p = paths[0]
+    turns = ''
+    for i in range(1, len(p) - 1):
+        ein = NEIGHBOUR[p[i]].index(p[i - 1]); eout = NEIGHBOUR[p[i]].index(p[i + 1])
+        turns += 'R' if (eout - ein) % 3 == 1 else 'L'     # counterclockwise face: next edge = right turn
+    return turns
+
+
+def chirality(f, g):
+    """chi(f, g): +1/-1 at separations 2 and 3, else 0.
+    separation 2: +1 if R(f) = L(g) (arcs head to tail, f first), -1 if L(f) = R(g); antisymmetric.
+    separation 3: +1 if L(f) = L(g) (common tail), -1 if R(f) = R(g) (common head); symmetric."""
+    (a, b), (c, d) = LR[f], LR[g]
+    if SEP[f][g] == 2:
+        assert (b == c) != (a == d)
+        return 1 if b == c else -1
+    if SEP[f][g] == 3:
+        assert (a == c) != (b == d)
+        return 1 if a == c else -1
+    return 0
+
+
+CHI = [[chirality(f, g) if f != g else 0 for g in range(NF)] for f in range(NF)]
+
+
+def pattern(f, g):
+    """Arc pattern of the ordered pair of faces on the five frames."""
+    (a, b), (c, d) = LR[f], LR[g]
+    if (a, b) == (d, c):
+        return 'two-cycle'
+    if a == c:
+        return 'common tail'
+    if b == d:
+        return 'common head'
+    if b == c:
+        return 'path, first to second'
+    if a == d:
+        return 'path, second to first'
+    e = (set(range(5)) - {a, b, c, d}).pop()
+    return 'disjoint, even' if perm_sign((a, b, c, d, e)) == 1 else 'disjoint, odd'
+
+
+# ---------------------------------------------------------------------------------------------------------
+# class words and their canonical form
+# ---------------------------------------------------------------------------------------------------------
+def word_key(word):
+    """Base-6 integer of a class word (face 0 most significant)."""
+    k = 0
+    for c in word:
+        k = k * 6 + c
+    return k
+
+
+def canonical_key(word, group=None):
+    """Minimum over the rotations g of the key of the rotated word (g.word)[g f] = word[f]."""
+    best = None
+    for g in (ROT_FACES if group is None else group):
+        w = [0] * NF
+        for f in range(NF):
+            if word[f]:
+                w[g[f]] = word[f]
+        k = word_key(w)
+        if best is None or k < best:
+            best = k
+    return best
+
+
+def key_word(k):
+    w = [0] * NF
+    for i in range(NF - 1, -1, -1):
+        w[i] = k % 6; k //= 6
+    return w
+
+
+def conjugate(word):
+    return [(6 - c) % 6 for c in word]
+
+
+def invert(word, with_conjugation):
+    """Image under the inversion of the carrier. A geometric inversion of an oriented link register reverses the
+    orientation of every face and therefore conjugates its class (with_conjugation=True); the bare relabelling of
+    faces is with_conjugation=False."""
+    w = [0] * NF
+    for f in range(NF):
+        if word[f]:
+            w[INVERSION_FACES[f]] = (6 - word[f]) % 6 if with_conjugation else word[f]
+    return w
+
+
+def placements(composition):
+    """All class words with the given multiset of nonzero classes (tuple, sorted)."""
+    comp = sorted(composition)
+    groups = [(k, len(list(v))) for k, v in itertools.groupby(comp)]
+
+    def rec(i, free):
+        if i == len(groups):
+            yield {}
+            return
+        k, n = groups[i]
+        for sub in itertools.combinations(free, n):
+            rest = [f for f in free if f not in sub]
+            for more in rec(i + 1, rest):
+                out = dict(more)
+                for f in sub:
+                    out[f] = k
+                yield out
+    for assign in rec(0, list(range(NF))):
+        w = [0] * NF
+        for f, k in assign.items():
+            w[f] = k
+        yield w
+
+
+def stabilizer_order(word):
+    n = 0
+    for g in ROT_FACES:
+        if all(word[g[f]] == word[f] for f in range(NF)):
+            n += 1
+    return n
+
+
+@lru_cache(maxsize=None)
+def frame_stabilizer(F):
+    """The twelve rotations (as face permutations) that keep frame F."""
+    return tuple(ROT_FACES[i] for i in range(60) if ROT_FRAMES[i][F] == F)
+
+# position of a face relative to one frame: 0, 1, 2 = the face has an edge in the frame, on axis 0, 1, 2 of the frame
+# (the order of the half-turns of kdlib.frames() = item1.json); 3 = L corner (L = frame); 4 = R corner (R = frame)
+SEAM_AXIS = {}
+for _i, _fr in enumerate(FRAMES):
+    for _j, _h in enumerate(_fr['half_turns']):
+        for _e in _h['flipped']:
+            SEAM_AXIS[tuple(_e)] = (_i, _j)
+assert len(SEAM_AXIS) == 30 and all(SEAM_AXIS[e][0] == FRAME_OF_SEAM[e] for e in SEAMS)
+
+
+def frame_class(f, F):
+    if LR[f][0] == F:
+        return 3
+    if LR[f][1] == F:
+        return 4
+    e = next(x for x in FACE_EDGES[f] if FRAME_OF_SEAM[x] == F)
+    return SEAM_AXIS[e][1]
+
+
+FRAME_CLASS = [[frame_class(f, F) for F in range(5)] for f in range(NF)]

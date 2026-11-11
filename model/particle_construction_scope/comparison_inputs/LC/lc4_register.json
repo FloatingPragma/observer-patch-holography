@@ -1,0 +1,437 @@
+{
+ "task": "LC item 3: the clocked register on sixty addresses",
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "model_checks (200 random basis terms, 78 configurations, 4 record values, 60 addresses)": {
+  "FP": {
+   "Q Q = 1": true,
+   "norm kept by Q": true,
+   "W^-1 W = 1": true,
+   "W commutes with all 60 carrier rotations (24 random basis terms)": true
+  },
+  "FS(F0)": {
+   "Q Q = 1": true,
+   "norm kept by Q": true,
+   "W^-1 W = 1": true
+  },
+  "FE": {
+   "Q Q = 1": true,
+   "norm kept by Q": true,
+   "W^-1 W = 1": true
+  },
+  "R R = 1": true,
+  "norm kept by R": true
+ },
+ "compression": {
+  "C1 DL at port 2, RD-rec, FP": {
+   "a_H^2": "5/36",
+   "a_+^2": "5/72",
+   "a_-^2": "5/72",
+   "balance (b/a)^2 = a_+^2 / a_H^2": "1/2",
+   "M = c C(theta) with C = sqrt(1/6) + sqrt(1/12)(z R + 1/(z R))": true,
+   "c^2 = tr(M^dag M) = tr Y": "5/18",
+   "Koide Q = (1 + 2 (b/a)^2)/3": "2/3",
+   "weights": {
+    "record 0": "5/6",
+    "record 2": "1/12",
+    "record 3": "1/12"
+   },
+   "signs of the branch amplitudes": {
+    "record 0": [
+     "+"
+    ],
+    "record 2": [
+     "+"
+    ],
+    "record 3": [
+     "+"
+    ]
+   }
+  },
+  "C1 DL at port 2, RD-rec, FS(F0)": {
+   "a_H^2": "5/36",
+   "a_+^2": "5/72",
+   "a_-^2": "5/72",
+   "balance (b/a)^2 = a_+^2 / a_H^2": "1/2",
+   "M = c C(theta) with C = sqrt(1/6) + sqrt(1/12)(z R + 1/(z R))": true,
+   "c^2 = tr(M^dag M) = tr Y": "5/18",
+   "Koide Q = (1 + 2 (b/a)^2)/3": "2/3",
+   "weights": {
+    "record 0": "5/6",
+    "record 2": "1/12",
+    "record 3": "1/12"
+   },
+   "signs of the branch amplitudes": {
+    "record 0": [
+     "+"
+    ],
+    "record 2": [
+     "+"
+    ],
+    "record 3": [
+     "+"
+    ]
+   }
+  },
+  "C1 SD on (2,10), RD-rec, FP": {
+   "a_H^2": "5/36",
+   "a_+^2": "5/72",
+   "a_-^2": "5/72",
+   "balance (b/a)^2 = a_+^2 / a_H^2": "1/2",
+   "M = c C(theta) with C = sqrt(1/6) + sqrt(1/12)(z R + 1/(z R))": true,
+   "c^2 = tr(M^dag M) = tr Y": "5/18",
+   "Koide Q = (1 + 2 (b/a)^2)/3": "2/3",
+   "weights": {
+    "record 0": "5/6",
+    "record 2": "1/12",
+    "record 3": "1/12"
+   },
+   "signs of the branch amplitudes": {
+    "record 0": [
+     "+"
+    ],
+    "record 2": [
+     "+"
+    ],
+    "record 3": [
+     "+"
+    ]
+   }
+  },
+  "C1 SD on (2,10), RD-rec, FS(F0)": {
+   "a_H^2": "5/36",
+   "a_+^2": "5/72",
+   "a_-^2": "5/72",
+   "balance (b/a)^2 = a_+^2 / a_H^2": "1/2",
+   "M = c C(theta) with C = sqrt(1/6) + sqrt(1/12)(z R + 1/(z R))": true,
+   "c^2 = tr(M^dag M) = tr Y": "5/18",
+   "Koide Q = (1 + 2 (b/a)^2)/3": "2/3",
+   "weights": {
+    "record 0": "5/6",
+    "record 2": "1/12",
+    "record 3": "1/12"
+   },
+   "signs of the branch amplitudes": {
+    "record 0": [
+     "+"
+    ],
+    "record 2": [
+     "+"
+    ],
+    "record 3": [
+     "+"
+    ]
+   }
+  },
+  "C2 NP on (2, 0), RN-rec, FP": {
+   "a_H^2": "1/9",
+   "a_+^2": "1/18",
+   "a_-^2": "1/18",
+   "balance (b/a)^2 = a_+^2 / a_H^2": "1/2",
+   "M = c C(theta) with C = sqrt(1/6) + sqrt(1/12)(z R + 1/(z R))": true,
+   "c^2 = tr(M^dag M) = tr Y": "2/9",
+   "Koide Q = (1 + 2 (b/a)^2)/3": "2/3",
+   "weights": {
+    "agree": "1/6",
+    "inactive": "2/3",
+    "repair first": "1/12",
+    "repair second": "1/12"
+   },
+   "signs of the branch amplitudes": {
+    "agree": [
+     "+"
+    ],
+    "inactive": [
+     "+"
+    ],
+    "repair first": [
+     "+"
+    ],
+    "repair second": [
+     "-"
+    ]
+   },
+   "with a fixed positive flag vector": "the repair with the source at the second endpoint enters with a minus sign (quadrature form); the record sign of FR (V) restores the plus sign"
+  },
+  "C3 SD on (2,10), RD-FR, FP": {
+   "a_H^2": "1/36",
+   "a_+^2": "1/72",
+   "a_-^2": "1/72",
+   "balance (b/a)^2 = a_+^2 / a_H^2": "1/2",
+   "M = c C(theta) with C = sqrt(1/6) + sqrt(1/12)(z R + 1/(z R))": true,
+   "c^2 = tr(M^dag M) = tr Y": "1/18",
+   "Koide Q = (1 + 2 (b/a)^2)/3": "2/3",
+   "weights": {
+    "backward C": "1/60",
+    "blank": "5/6",
+    "forward C": "1/60",
+    "in-dimer": "1/30",
+    "off": "1/10"
+   },
+   "signs of the branch amplitudes": {
+    "backward C": [
+     "+"
+    ],
+    "blank": [
+     "+"
+    ],
+    "forward C": [
+     "+"
+    ],
+    "in-dimer": [
+     "+"
+    ],
+    "off": [
+     "+"
+    ]
+   }
+  },
+  "C3 SD on (2,10), RD-FR, FS(F0)": {
+   "a_H^2": "1/36",
+   "a_+^2": "1/72",
+   "a_-^2": "1/72",
+   "balance (b/a)^2 = a_+^2 / a_H^2": "1/2",
+   "M = c C(theta) with C = sqrt(1/6) + sqrt(1/12)(z R + 1/(z R))": true,
+   "c^2 = tr(M^dag M) = tr Y": "1/18",
+   "Koide Q = (1 + 2 (b/a)^2)/3": "2/3",
+   "weights": {
+    "backward C": "1/60",
+    "blank": "5/6",
+    "forward C": "1/60",
+    "in-dimer": "1/30",
+    "off": "1/10"
+   },
+   "signs of the branch amplitudes": {
+    "backward C": [
+     "+"
+    ],
+    "blank": [
+     "+"
+    ],
+    "forward C": [
+     "+"
+    ],
+    "in-dimer": [
+     "+"
+    ],
+    "off": [
+     "+"
+    ]
+   }
+  },
+  "RM A = DL, B = NP": {
+   "a_H^2": "5/36",
+   "a_+^2": "1/18",
+   "a_-^2": "1/18",
+   "balance (b/a)^2 = a_+^2 / a_H^2": "2/5",
+   "M = c C(theta) with C = sqrt(1/6) + sqrt(1/12)(z R + 1/(z R))": false,
+   "c^2 = tr(M^dag M) = tr Y": "1/4 (trace only; shape differs)",
+   "Koide Q = (1 + 2 (b/a)^2)/3": "3/5"
+  },
+  "RD-sense (the seam without sense is not flagged)": {
+   "a_H^2": "5/36",
+   "a_+^2": "1/18",
+   "a_-^2": "1/18",
+   "balance (b/a)^2 = a_+^2 / a_H^2": "2/5",
+   "M = c C(theta) with C = sqrt(1/6) + sqrt(1/12)(z R + 1/(z R))": false,
+   "c^2 = tr(M^dag M) = tr Y": "1/4 (trace only; shape differs)",
+   "Koide Q = (1 + 2 (b/a)^2)/3": "3/5"
+  },
+  "RD-sector": {
+   "a_H^2": "1/12",
+   "a_+^2": "1/36",
+   "a_-^2": "1/36",
+   "balance (b/a)^2 = a_+^2 / a_H^2": "1/3",
+   "M = c C(theta) with C = sqrt(1/6) + sqrt(1/12)(z R + 1/(z R))": false,
+   "c^2 = tr(M^dag M) = tr Y": "5/36 (trace only; shape differs)",
+   "Koide Q = (1 + 2 (b/a)^2)/3": "5/9"
+  }
+ },
+ "eigenvalues": {
+  "lambda_k of C(theta)": "sqrt(1/6) + (1/sqrt3) cos(theta + 2 pi k/3)",
+  "sum of squares (tr C^2)": "1",
+  "at theta = 2/9: squares of the eigenvalues of C": [
+   "0.00027135251555",
+   "0.0561076453802",
+   "0.943621002104"
+  ],
+  "ratios of the squares (register outputs, independent of c)": [
+   "206.770315973",
+   "3477.4728371"
+  ],
+  "rates y_k = c^2 lambda_k^2 for c^2 = 5/18 (double loads)": [
+   "7.53756987638e-5",
+   "0.0155854570501",
+   "0.262116945029"
+  ],
+  "rates for c^2 = 2/9 (native pairs)": [
+   "6.03005590111e-5",
+   "0.01246836564",
+   "0.209693556023"
+  ]
+ },
+ "A1_A7_n_hold_cells": {
+  "1": {
+   "P(H) = 1 - (5/6)^n": "1/6",
+   "count": "2/9",
+   "count as float": 0.222222222,
+   "balance (b/a)^2": "1/2",
+   "equals 2/9": true
+  },
+  "2": {
+   "P(H) = 1 - (5/6)^n": "11/36",
+   "count": "73/216",
+   "count as float": 0.337962963,
+   "balance (b/a)^2": "5/22",
+   "equals 2/9": false
+  },
+  "3": {
+   "P(H) = 1 - (5/6)^n": "91/216",
+   "count": "563/1296",
+   "count as float": 0.43441358,
+   "balance (b/a)^2": "25/182",
+   "equals 2/9": false
+  },
+  "6": {
+   "P(H) = 1 - (5/6)^n": "31031/46656",
+   "count": "178483/279936",
+   "count as float": 0.637585019,
+   "balance (b/a)^2": "3125/62062",
+   "equals 2/9": false
+  }
+ },
+ "A2_one_carrier_two_registers_unlabelled": {
+  "ports": [
+   2,
+   1
+  ],
+  "P(R+) = first register reads 2": "1/6",
+  "P(H) = second register written": "5/18",
+  "P(R+ and H)": "1/36",
+  "count": "7/18",
+  "weight of events with seam total above two": "0"
+ },
+ "A3_A4_echo_frame": {
+  "double load by port": {
+   "0": {
+    "record 2": "1/6",
+    "record 3": "0",
+    "out-degree": 5,
+    "record 2 = out-degree/30": true
+   },
+   "1": {
+    "record 2": "2/15",
+    "record 3": "1/30",
+    "out-degree": 4,
+    "record 2 = out-degree/30": true
+   },
+   "2": {
+    "record 2": "1/6",
+    "record 3": "0",
+    "out-degree": 5,
+    "record 2 = out-degree/30": true
+   },
+   "3": {
+    "record 2": "2/15",
+    "record 3": "1/30",
+    "out-degree": 4,
+    "record 2 = out-degree/30": true
+   },
+   "4": {
+    "record 2": "1/10",
+    "record 3": "1/15",
+    "out-degree": 3,
+    "record 2 = out-degree/30": true
+   },
+   "5": {
+    "record 2": "1/15",
+    "record 3": "1/10",
+    "out-degree": 2,
+    "record 2 = out-degree/30": true
+   },
+   "6": {
+    "record 2": "1/10",
+    "record 3": "1/15",
+    "out-degree": 3,
+    "record 2 = out-degree/30": true
+   },
+   "7": {
+    "record 2": "1/15",
+    "record 3": "1/10",
+    "out-degree": 2,
+    "record 2 = out-degree/30": true
+   },
+   "8": {
+    "record 2": "1/30",
+    "record 3": "2/15",
+    "out-degree": 1,
+    "record 2 = out-degree/30": true
+   },
+   "9": {
+    "record 2": "0",
+    "record 3": "1/6",
+    "out-degree": 0,
+    "record 2 = out-degree/30": true
+   },
+   "10": {
+    "record 2": "1/30",
+    "record 3": "2/15",
+    "out-degree": 1,
+    "record 2 = out-degree/30": true
+   },
+   "11": {
+    "record 2": "0",
+    "record 3": "1/6",
+    "out-degree": 0,
+    "record 2 = out-degree/30": true
+   }
+  },
+  "equal weights of the records 2 and 3 at some port": false,
+  "SD on (2,10)": {
+   "record 0": "5/6",
+   "record 2": "1/10",
+   "record 3": "1/15"
+  }
+ },
+ "A5_A6_cell_ensembles": {
+  "configurations with P(R+) = 1/12 and P(H) = 1/6": 48,
+  "of which doubles, non-adjacent pairs": [
+   12,
+   36
+  ],
+  "adjacent pairs": [
+   [
+    "1/15",
+    "2/15"
+   ]
+  ],
+  "uniform over the 66 pairs": {
+   "configurations": 66,
+   "P(R+)": "5/66",
+   "P(H)": "5/33",
+   "count (two such cells)": "445/2178",
+   "count as float": 0.204315886
+  },
+  "uniform over the 36 non-adjacent pairs (the pairs of the matching code)": {
+   "configurations": 36,
+   "P(R+)": "1/12",
+   "P(H)": "1/6",
+   "count (two such cells)": "2/9",
+   "count as float": 0.222222222
+  },
+  "uniform over all 78 total-two configurations": {
+   "configurations": 78,
+   "P(R+)": "1/13",
+   "P(H)": "2/13",
+   "count (two such cells)": "35/169",
+   "count as float": 0.207100592
+  }
+ },
+ "seconds": 8.1
+}

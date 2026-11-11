@@ -1,0 +1,42 @@
+{
+ "level": 1,
+ "sweeps": 200,
+ "carriers": 80,
+ "seams": 2520,
+ "applied_twists": 4786,
+ "equal": {
+  "loads_initial": true,
+  "loads": true,
+  "register": true,
+  "classes": true,
+  "twists": true,
+  "seams": true,
+  "faces": true
+ },
+ "all_equal": true,
+ "digests": {
+  "loads": "881f87cfa1065f882e9cd7837ef66b4bb3ed85a8bb2c95769238329faaa9a3d1",
+  "register": "e694e9b115c2211511c294aed6d66e43b0bca5771c4c7e27036d693e5d8e5537",
+  "classes": "097889f5a053c903ba4b0d7bef2b69520b9225ef75defb4c6c087c484c6f0cf6",
+  "twists": "8b9afb9ac7f78dd244cada7287db5edf02bbd105b4a32dc96d9feedbafb701da"
+ },
+ "engine_digests": {
+  "loads": "881f87cfa1065f882e9cd7837ef66b4bb3ed85a8bb2c95769238329faaa9a3d1",
+  "register": "e694e9b115c2211511c294aed6d66e43b0bca5771c4c7e27036d693e5d8e5537",
+  "classes": "097889f5a053c903ba4b0d7bef2b69520b9225ef75defb4c6c087c484c6f0cf6"
+ },
+ "reference_seconds": 3.06,
+ "gates": {
+  "value_mod_6_is_the_class": true,
+  "link_mod_6_is_the_register": true,
+  "value_is_the_curl_of_the_link": true,
+  "every_carrier_total_is_zero": true,
+  "screen_total_is_zero": true,
+  "class_total_zero_mod_6_per_carrier": true
+ },
+ "max_abs_j": 3,
+ "depth": [
+  3912,
+  3961
+ ]
+}

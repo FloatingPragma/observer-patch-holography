@@ -1,0 +1,146 @@
+"""Independent finite checks of the literal repair and exchange alternatives.
+
+Run from oph-meta with the completion venv. All claims below use exact
+integers/rationals or symbolic matrices; no tolerance decides a result.
+"""
+from pathlib import Path
+import hashlib
+import itertools
+import json
+import sys
+import sympy as s
+
+ROOT=Path(__file__).resolve().parents[3]
+sys.path.insert(0,str(ROOT/'reverse-engineering-reality'))
+from model.observer import native
+from model.common_source import slow_geometry
+
+
+def require(ok, message):
+    if not bool(ok): raise ArithmeticError(message)
+
+
+def run():
+    seams=list(slow_geometry.source().seams())
+    states=list(native.states()); index={x:i for i,x in enumerate(states)}
+    balanced=[x for x in states if max(x)==1]
+    doubles=[x for x in states if max(x)==2]
+    bi={x:i for i,x in enumerate(balanced)}
+    counts=s.zeros(78); swaps=s.zeros(66)
+    branch_disagreements=0
+    for x in states:
+        for a,b in seams:
+            for coin in (0,1):
+                y,_=native.native(x,(a,b),coin)
+                counts[index[y],index[x]]+=1
+                if x in bi:
+                    z=list(x)
+                    if coin: z[a],z[b]=z[b],z[a]
+                    branch_disagreements += tuple(z)!=y
+    for x in balanced:
+        for a,b in seams:
+            y=list(x);y[a],y[b]=y[b],y[a]
+            swaps[bi[x],bi[x]]+=1
+            swaps[bi[tuple(y)],bi[x]]+=1
+    idx=[index[x] for x in balanced]
+    require(counts.extract(idx,idx)==swaps,'unread SSEP shadow')
+    require(swaps==swaps.T,'binary detailed balance')
+    require(all(sum(swaps[:,i])==60 for i in range(66)),'stochasticity')
+    adjacency={i:{j for j in range(66) if j!=i and swaps[j,i]} for i in range(66)}
+    seen={0};front=[0]
+    while front:
+        i=front.pop()
+        for j in adjacency[i]-seen:seen.add(j);front.append(j)
+    require(len(seen)==66,'binary recurrence connected')
+    require(all(counts[index[y],index[x]]==0 for x in balanced for y in doubles),'shell closed')
+    survival=[counts[index[x],index[x]]/60 for x in doubles]
+    escape=[sum(counts[index[y],index[x]] for y in balanced)/60 for x in doubles]
+    require(set(survival)=={s.Rational(5,6)} and set(escape)=={s.Rational(1,6)},'collision rates')
+
+    # Ordered pairs of k-subsets under S_n are classified by intersection size.
+    # For n=12,k=2 the commutant has dimension three. Its explicit mutually
+    # orthogonal projectors have ranks 1,11,54; no quantum multiplicity remains.
+    sets=[{i for i,v in enumerate(x) if v} for x in balanced]
+    A=s.Matrix(66,66,lambda i,j:int(len(sets[i]&sets[j])==1))
+    I=s.eye(66);P0=s.ones(66)/66;P1=(A+2*I-22*P0)/10;P2=I-P0-P1
+    Ps=[P0,P1,P2]
+    for i,p in enumerate(Ps):
+        require(p*p==p and p.T==p,'Johnson orthoprojector')
+        for j,q in enumerate(Ps):
+            if i!=j: require(p*q==s.zeros(66),'orthogonality')
+    ranks=[s.trace(p) for p in Ps];require(ranks==[1,11,54],'ranks')
+    rho=sum((p/(3*r) for p,r in zip(Ps,ranks)),s.zeros(66))
+    require(s.trace(rho)==1 and rho!=I/66,'faithful nontracial comparison state')
+    # Each positive eigenvalue is shown explicitly rather than eigensolved.
+    stationary_weights=[s.Rational(1,3*int(r)) for r in ranks]
+    require(min(stationary_weights)>0,'faithful')
+    for a,b in seams:
+        perm=[]
+        for x in balanced:
+            z=list(x);z[a],z[b]=z[b],z[a];perm.append(bi[tuple(z)])
+        require(rho.extract(perm,perm)==rho,'rho commutes with every swap')
+        for p in Ps:require(p.extract(perm,perm)==p,'each sector invariant')
+
+    # Small exact controls expose the two incompatible meanings of shadow.
+    P=s.Matrix([[0,1],[1,0]]);p0=s.diag(1,0);T=(s.eye(2)+P)/2
+    # U=(I+iP)/sqrt2 has correct one-event *diagonal*, but creates coherence.
+    U=(s.eye(2)+s.I*P)/s.sqrt(2);r1=s.simplify(U*p0*U.conjugate().T)
+    r2=s.simplify(U*r1*U.conjugate().T)
+    require(r1[0,0]==r1[1,1]==s.Rational(1,2),'one-event population shadow')
+    require(r1[0,1]!=0,'one-event state is not classical repair distribution')
+    require(r2==s.diag(0,1) and T*T==T,'two-event shadow counterexample')
+    parity=[(s.eye(2)+P)/2,(s.eye(2)-P)/2]
+    unread=sum((k*p0*k for k in parity),s.zeros(2))
+    require(unread==s.eye(2)/2,'parity unread shadow')
+    require(parity[0][0,1]!=0,'parity readout effect has coherence')
+    # A definite-current record forces the moving branch's amplitude to be
+    # distinguishable. The swap-parity outcome is not a current measurement.
+    require(parity[0]*s.diag(0,1)!=s.diag(0,1)*parity[0],'parity not local-number covariant')
+
+    # Derive exact iid-sweep attenuation, not a Poisson approximation.
+    factors={}
+    for name,g,m in [('C0',1/s.sqrt(2),s.Rational(1,2)),('C',s.Rational(1,2),0),('E',0,0)]:
+        vals=[]
+        for p,q in itertools.combinations(range(12),2):
+            f=s.Integer(0)
+            for a,b in seams:
+                onp=p in (a,b);onq=q in (a,b)
+                f += m if onp and onq else (g if onp or onq else 1)
+            vals.append(s.simplify(f/30))
+        uniq=sorted(set(vals),key=float)
+        factors[name]={'per_attempt':list(map(str,uniq)),
+                       'per_30_iid_attempts':list(map(str,[s.expand(v**30) for v in uniq])),
+                       'sweep_decimal_for_display':[float(v**30) for v in uniq]}
+    require(factors['C']['per_attempt']==['5/6'],'C attenuation')
+    require(factors['E']['per_attempt']==['2/3','7/10'],'E attenuation')
+    # Diagonal outputs imply diagonal history effects for the original
+    # definite-current/coin record instruments, not for arbitrary Kraus bases.
+    result={
+      'status':'EXACT finite checks; displayed decimals are non-decision summaries',
+      'source_inputs':{
+          str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()
+          for p in [ROOT/'reverse-engineering-reality/model/observer/native.py',
+                    ROOT/'reverse-engineering-reality/model/common_source/slow_geometry.py']},
+      'states':78,'balanced_states':66,'seams':30,
+      'all_unread_binary_seam_shadows_match':True,
+      'native_coin_vs_swap_coin_branch_disagreements':int(branch_disagreements),
+      'uniform_stationary_binary_law_unique':True,
+      'collision_survival_per_attempt':'5/6','collision_exit_per_attempt':'1/6',
+      'fixed_total_two_swap_commutant_dimension':3,
+      'fixed_total_two_sector_dimensions':list(map(int,ranks)),
+      'fixed_total_two_quantum_multiplicities':[1,1,1],
+      'faithful_stationary_full_matrix_density_eigenvalues':list(map(str,stationary_weights)),
+      'native_parity_history_algebra_modular_flow':'identity (analytic proof in REPORT.md)',
+      'sqrt_swap_one_event_diagonal_shadow':True,
+      'sqrt_swap_exact_output_state_shadow':False,
+      'sqrt_swap_two_event_population_shadow':False,
+      'finite_sweep_coherence_factors':factors,
+      'complete_law_accepted':False,
+    }
+    return result
+
+if __name__=='__main__':
+    result=run()
+    out=Path(__file__).with_name('results.json')
+    out.write_text(json.dumps(result,indent=2)+'\n')
+    print(json.dumps({k:v for k,v in result.items() if k not in ('source_inputs','finite_sweep_coherence_factors')},indent=2))

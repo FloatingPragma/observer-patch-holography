@@ -1,0 +1,94 @@
+"""Lane AV: assemble the candidate package rer_package/seam_class_balance from the lane's scripts and results.
+Copies the engine and drivers with package imports, and reduces the raw Monte Carlo outputs to measured_points.json.
+Reads no measured value of nature."""
+import glob
+import hashlib
+import json
+import os
+import sys
+
+import numpy as np
+
+PK = "rer_package/seam_class_balance"
+COPIES = {
+    "av_complex.py": ("complexes.py", []),
+    "av_engine.py": ("engine.py", []),
+    "av_engine_fm.py": ("engine_face_step.py", [("from av_engine import", "from .engine import")]),
+    "av_run.py": ("staged.py", [("import av_complex as C", "from . import complexes as C"), ("import av_engine as E", "from . import engine as E"),
+                               ("python av_run.py", "python -m model.seam_class_balance.staged")]),
+    "av_run_fm.py": ("staged_face_step.py", [("import av_complex as C", "from . import complexes as C"),
+                                             ("import av_engine as E", "from . import engine as E"),
+                                             ("import av_engine_fm as F", "from . import engine_face_step as F"),
+                                             ("from av_run import", "from .staged import"),
+                                             ("python av_run_fm.py", "python -m model.seam_class_balance.staged_face_step")]),
+    "av_tasks.py": ("tasks.py", []),
+    "av_engine_an.py": ("engine_steps.py", [("from av_engine import", "from .engine import")]),
+    "av_run_an.py": ("staged_steps.py", [("import av_complex as C", "from . import complexes as C"), ("import av_engine as E", "from . import engine as E"),
+                                         ("import av_engine_an as A", "from . import engine_steps as A"), ("from av_run import", "from .staged import"),
+                                         ("from av_run_fm import", "from .staged_face_step import"),
+                                         ("python av_run_an.py", "python -m model.seam_class_balance.staged_steps")]),
+}
+for src, (dst, subs) in COPIES.items():
+    s = open(src).read()
+    for a, b in subs:
+        assert a in s, (src, a)
+        s = s.replace(a, b)
+    s = s.replace("Lane AV: ", "").replace("Lane AV, ", "").replace("METHOD.md", "PROOF.md")
+    for a_, b_ in (("(compact form, HR section 7)", "(compact gauge-Higgs form)"), ("of HR section 7", "of PROOF.md section 9"),
+                   ("(HR section 7)", "(PROOF.md section 9)"), ("HR's", "the reference"), ("HR section 7", "PROOF.md section 9"),
+                   ("lane's", "package's"), ("av_complex.build", "complexes.build"), ("av_run.py", "staged.py"),
+                   ("av_run_fm.py", "staged_face_step.py"), ("av_engine_an", "engine_steps"),
+                   ("av_engine_fm", "engine_face_step"), ("av_engine", "engine"), ("av_complex", "complexes")):
+        s = s.replace(a_, b_)
+    if dst == "tasks.py":
+        # the three engine checks of the compact doublet at another worker's coupling stay in the lane record
+        s = "\n".join(l for l in s.split("\n") if "g4_higgs_" not in l) + "\n"
+    open(os.path.join(PK, dst), "w").write(s)
+
+
+sys.path.insert(0, "rer_package")
+from seam_class_balance import fits as ft          # noqa: E402
+
+
+def reduce(path, reading):
+    raw = open(path, "rb").read()
+    r = json.loads(raw)
+    t = r["task"]
+    p = {"name": t["name"], "complex": t["cx"], "kind": t["kind"],
+         "action": {0: "Wilson", 1: "heat kernel", 2: "Cartan circle"}[t["kind"]], "reading": reading, "par": t["par"],
+         "beta_equiv": t["beta_equiv"], "g2": r["g2"], "x": r["x"], "S": r["S"], "stages": t["N"], "cycles": t["ncyc"],
+         "seed": t["seed"], "seconds": round(r["seconds"], 1), "raw_sha256": hashlib.sha256(raw).hexdigest()}
+    if "lnA" in r:
+        p.update({k: r[k] for k in ("lnA", "lnA_err", "lnA_forward", "lnA_backward", "lnA_TI")})
+        p["D_std_max"] = max(r["D_std"])
+    for k in ("A_direct", "plaq_all", "q2", "n0", "L_alpha", "q2_end"):
+        if k in r:
+            p[k] = r[k]
+    if "beta_h" in t:
+        p["beta_h"], p["h"], p["start"] = t["beta_h"], t["h"], t.get("start", "pole")
+    if t.get("mode"):
+        p["mode"] = t["mode"]
+    if t.get("steps"):
+        p["steps"] = t["steps"]
+    if "untwisted_blocks" in r and t["kind"] in (0, 1) and t.get("untw_cyc", 0) > 0:
+        ub = np.array(r["untwisted_blocks"])
+        f, tau = ft.sector_weights(t["kind"], t["par"], ub.shape[1] - 7)
+        pb = ub[:, 7:] * f[None, :]
+        p["p_n"] = pb.mean(0)[:24].tolist()
+        p["p_n_err"] = (pb.std(0, ddof=1) / np.sqrt(ub.shape[0]))[:24].tolist()
+        p["tau"] = tau
+    return p
+
+
+pts = []
+for d, reading in (("gates_out", "electric step"), ("prod_out", "electric step"), ("fm_out", "face step"), ("an_out", "face step")):
+    for f in sorted(glob.glob(d + "/*.json")):
+        if os.path.basename(f).startswith("g4_higgs_"):
+            continue
+        q = reduce(f, reading)
+        if q.get("mode") == "el":
+            q["reading"] = "electric step"
+        pts.append(q)
+json.dump({"points": pts, "note": "reduced outputs of the staged Monte Carlo; raw files are identified by raw_sha256"},
+          open(os.path.join(PK, "measured_points.json"), "w"), indent=1)
+print(len(pts), "points written")

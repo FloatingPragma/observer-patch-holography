@@ -1,0 +1,198 @@
+"""EB step 3: the D10 chain and the cut chain with slopes base + Delta b_edge (CANDIDATES.md Part C).
+
+Frames
+  F1  D10 m_Z chain (pixel closure at m_Z, outer closure P = phi + sqrt(pi) alpha(0)), DB's float chain copied
+      unchanged as d10_float_eb.py. Delta b read at t_U = 4 pi^2 alpha_U self-consistently: the slopes at a trial
+      alpha_U are base + Delta b(4 pi^2 alpha_U), so every root of the pixel residual is self-consistent. Mode
+      'Tc2' holds t at the cell value instead.
+  F2  DC2's cut chain at P_fwd: cut closure, declared b_above = 8.5131 between E_cell and M_U, transmutation,
+      slopes base + Delta b below M_U (t = TUc or Tc1).
+  F3  coordinator's E_cell frame: 1/alpha_i(E_cell) given (equal 16.2453, GL 5-trace, GL 15-trace), one-loop
+      running with base + Delta b(Tc1) to mu.
+No measured value enters. NOT BLIND numbers are read in eb_compare.py afterwards.
+
+Run (each call stays below two minutes):
+  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python eb_chains.py F1 <base> [mode]   -> eb_F1_<base>_<mode>.json
+  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python eb_chains.py F2                 -> eb_F2.json
+  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python eb_chains.py F3                 -> eb_F3.json
+"""
+from __future__ import annotations
+
+import json
+import math
+import sys
+import time
+from fractions import Fraction as F
+from pathlib import Path
+
+from scipy.optimize import brentq
+
+HERE = Path(__file__).parent
+sys.path.insert(0, str(HERE))
+import eb_lib as L  # noqa: E402
+from d10_float_eb import E_STAR_GEV, PI, Chain, ellbar_su2, ellbar_su3, readout  # noqa: E402
+
+P_FWD = 1.6309720958588974
+B_ABOVE = 8.5131                       # DC2, declared (GL: no source content supplies it)
+BASES = {'A': ('41/10', '-19/6', '-7'), 'B': ('61/10', '-7/6', '-5'), 'A3H': ('43/10', '-17/6', '-7'),
+         'MSSM': ('33/5', '1', '-3')}
+RULES = list(L.LOOP_RULES)
+E_CELL_INV = {'equal 16.2453 (DC cut closure)': (16.2453, 16.2453, 16.2453),
+              'GL 5-trace matched': (12.789548081051228, 12.287991184033615, 10.152257143370933),
+              'GL 15-trace matched': (16.2453 - 3.7699111843077517,
+                                      16.2453 - 3.486069917927916 - 3.2986722862692828,
+                                      16.2453 - 5.883603346389747 - 1.4660765716752369)}
+
+
+def edge_shift(t, rule):
+    return L.delta_b('S3', t, k=1, normalized=True, umode='Ua', coeff=L.LOOP_RULES[rule])
+
+
+def base_b(name):
+    return tuple(float(F(x)) for x in BASES[name])
+
+
+class EdgeChain(Chain):
+    """Slopes base + Delta b(t); t = 4 pi^2 alpha_U (mode 'TU') or fixed (mode = float)."""
+
+    def __init__(self, base, rule, mode='TU'):
+        super().__init__(base)
+        self.base = tuple(base)
+        self.rule = rule
+        self.mode = mode
+        self._last = (None, None)
+
+    def slopes(self, alpha_u):
+        if self.rule is None:
+            return self.base
+        if self._last[0] == alpha_u:
+            return self._last[1]
+        t = 4 * PI * PI * alpha_u if self.mode == 'TU' else float(self.mode)
+        db = edge_shift(t, self.rule)
+        b = tuple(self.base[i] + db[i] for i in range(3))
+        self._last = (alpha_u, b)
+        return b
+
+    def inv_alphas(self, alpha_u, mu, mu_u):
+        b = self.slopes(alpha_u)
+        lg = math.log(mu_u / mu)
+        return tuple(1.0 / alpha_u + bi / (2 * PI) * lg for bi in b)
+
+
+def f1(base, mode):
+    rows = {}
+    rules = [None] if base == 'MSSM' else RULES
+    for rule in rules:
+        t0 = time.time()
+        ch = EdgeChain(base_b(base), rule, mode)
+        entry = dict(base=base, rule=rule, mode=mode)
+        d_fwd = ch.solve_alpha_u(P_FWD)
+        if d_fwd is None:
+            entry['at_P_fwd'] = 'no alpha_U root of the pixel closure in [0.02, 0.08]'
+        else:
+            entry['at_P_fwd'] = dict(alpha_U=d_fwd['alpha_u'], slopes=list(ch.slopes(d_fwd['alpha_u'])),
+                                     v_over_Estar=d_fwd['v'], mz_over_Estar=d_fwd['mz'])
+        res = ch.closure()
+        if res is None:
+            entry['closure'] = 'no outer fixed point in alpha in [0.005, 0.01]'
+        else:
+            alpha, d, p = res
+            r = readout(alpha, d, p)
+            r['slopes_at_solution'] = list(ch.slopes(d['alpha_u']))
+            r['t_at_solution'] = 4 * PI * PI * d['alpha_u'] if mode == 'TU' else float(mode)
+            entry['closure'] = r
+        entry['seconds'] = round(time.time() - t0, 1)
+        rows[str(rule)] = entry
+        print(base, rule, mode, entry.get('closure') if isinstance(entry.get('closure'), str) else
+              {k: entry['closure'][k] for k in ('P', 'alpha_U', 'v_GeV', 'm_Z_GeV', 'sin2_theta_W_mZ', 'alpha_s_mZ',
+                                                'alpha0_inv')}, entry['seconds'], 's', flush=True)
+    return rows
+
+
+def cut_closure_alpha():
+    return brentq(lambda a: ellbar_su2(4 * PI * PI * a) + ellbar_su3(4 * PI * PI * a) - P_FWD / 4, 0.02, 0.2,
+                  xtol=1e-300, rtol=1e-15)
+
+
+def f2():
+    a_cut = cut_closure_alpha()
+    R = 2 * PI - (2 / 3) * math.log(P_FWD)
+    alpha_U = 1 / (1 / a_cut + B_ABOVE / (2 * PI) * R)
+    t_uc = 4 * PI * PI * alpha_U
+    t_c1 = 4 * PI * PI * a_cut
+    out = dict(inv_alpha_cut=1 / a_cut, alpha_U=alpha_U, t_TUc=t_uc, t_Tc1=t_c1, rows={})
+    for base in BASES:
+        for tname, t in (('TUc', t_uc), ('Tc1', t_c1)):
+            rules = [None] if base == 'MSSM' else RULES
+            for rule in rules:
+                ch = EdgeChain(base_b(base), rule, t)
+                d = ch.d10_at(alpha_U, P_FWD)
+                key = f'{base} {rule} {tname}'
+                entry = dict(slopes=list(ch.slopes(alpha_U)))
+                if 'mz' not in d:
+                    entry['status'] = 'no m_Z root'
+                elif not d['positive']:
+                    entry['status'] = 'coupling not positive at m_Z (Landau pole above m_Z)'
+                    entry['inv_alpha_123_at_mZ'] = [d['inv1'], d['inv2'], d['inv3']]
+                else:
+                    a0inv, anchor = ch.alpha0_inv(d)
+                    a2 = 1 / d['inv2']
+                    aem = 1 / (d['inv2'] + 5 * d['inv1'] / 3)
+                    entry.update(status='outputs', v_GeV=d['v'] * E_STAR_GEV, m_Z_GeV=d['mz'] * E_STAR_GEV,
+                                 m_W_GeV=0.5 * d['v'] * math.sqrt(4 * PI * a2) * E_STAR_GEV,
+                                 sin2_theta_W_mZ=aem / a2, alpha_s_mZ=1 / d['inv3'], alpha_em_inv_mZ=anchor,
+                                 alpha0_inv=a0inv, inv_alpha_123_at_mZ=[d['inv1'], d['inv2'], d['inv3']])
+                out['rows'][key] = entry
+                print('F2', key, entry['status'], {k: round(v, 5) for k, v in entry.items()
+                                                    if isinstance(v, float)}, flush=True)
+    return out
+
+
+def f3():
+    a_cut = cut_closure_alpha()
+    t_c1 = 4 * PI * PI * a_cut
+    e_cell = E_STAR_GEV / math.sqrt(P_FWD)
+    scales = {'m_Z of the F1 MSSM reference (source chain)': 91.58832749908635,
+              'm_Z = 91.1876 GeV (NOT BLIND scale input)': 91.1876}
+    out = dict(t_Tc1=t_c1, E_cell_GeV=e_cell, E_star_GeV_IMPORTED=E_STAR_GEV, rows={})
+    for variant, inv0 in E_CELL_INV.items():
+        for sname, mu in scales.items():
+            lg = math.log(e_cell / mu) / (2 * PI)
+            for base in BASES:
+                rules = [None] if base == 'MSSM' else RULES
+                for rule in rules:
+                    db = (0.0, 0.0, 0.0) if rule is None else edge_shift(t_c1, rule)
+                    b = [base_b(base)[i] + db[i] for i in range(3)]
+                    inv = [inv0[i] + b[i] * lg for i in range(3)]
+                    entry = dict(slopes=b, inv_alpha_123=inv)
+                    if min(inv) <= 0:
+                        entry['status'] = 'coupling not positive at the scale (Landau pole above it)'
+                    else:
+                        aem_inv = inv[1] + 5 * inv[0] / 3
+                        entry.update(status='outputs', sin2_theta_W=inv[1] / aem_inv, alpha_s=1 / inv[2],
+                                     alpha_em_inv=aem_inv)
+                    out['rows'][f'{variant} | {sname} | {base} {rule}'] = entry
+    # slopes this frame needs to land on given low-scale couplings are computed in eb_compare.py (NOT BLIND)
+    return out
+
+
+if __name__ == '__main__':
+    frame = sys.argv[1]
+    if frame == 'F1':
+        base = sys.argv[2]
+        mode = sys.argv[3] if len(sys.argv) > 3 else 'TU'
+        if mode == 'Tc2':
+            mode = json.loads((HERE / 'eb_derive.json').read_text())['closure']['Tc2']['t']   # G with Z6, fixed
+        res = f1(base, mode)
+        name = f"eb_F1_{base}_{'TU' if mode == 'TU' else 'Tc2'}.json"
+        (HERE / name).write_text(json.dumps(res, indent=1) + '\n')
+    elif frame == 'F2':
+        (HERE / 'eb_F2.json').write_text(json.dumps(f2(), indent=1) + '\n')
+    elif frame == 'F3':
+        res = f3()
+        (HERE / 'eb_F3.json').write_text(json.dumps(res, indent=1) + '\n')
+        for k, v in res['rows'].items():
+            if 'NOT BLIND' in k:
+                continue
+            print('F3', k, v['status'], [round(x, 3) for x in v['inv_alpha_123']],
+                  round(v.get('sin2_theta_W', float('nan')), 5), round(v.get('alpha_s', float('nan')), 5))

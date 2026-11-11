@@ -1,0 +1,92 @@
+{
+ "part_A_symbolic": {
+  "beta = Y_r": {
+   "A1a W2 W2^-1 = 1": true,
+   "A1b W2 + W2^-1 = 2 cosOmega, cosOmega = cos^2(theta) (1 + cos2p1 cos2p2 cos2p3) - 1": true,
+   "A2 What = cosOmega - i [cos(theta) (S1 C2 C3 a1 + S2 C3 a2 + S3 a3) + sin(2 theta) N_e beta], N_e = (1 + C1 C2 C3)/2": true,
+   "A3 [W2, 1 x sigma.u0] = 0, u0 = (S1 C2 C3, S2 C3, S3)": true,
+   "A5a W2(p + pi e_i) = W2(p)": true,
+   "A5b W2(p + (pi/2)(e_i + e_j)) = G W2(R p) G^-1, G = a_i a_j, R12 = diag(-,+,+), R13 = diag(-,-,+), R23 = diag(+,-,+)": true,
+   "A5c W2(p + (pi/2) e_i) = - a_i [M^-1 E1 E2 E3 M E3 E2 E1](p_j -> -p_j for j < i) a_i": true,
+   "A10a inversion: beta W2(p) beta = W2(-p)": true,
+   "A10b half-turn about axis i: (a_j a_k) W2(p) (a_j a_k)^-1 = W2(p_i, -p_j, -p_k)": true,
+   "A6 mirror variant (E1 E2 E3 M)(M E3 E2 E1) = cos2theta C1 C2 C3 - i [cos2theta u0.alpha + sin2theta beta]": true,
+   "A7 ordered tick (KD item 3): ((D + D^-1)/2 - ct c1 c2 c3)^2 = (s1 s2 s3)^2 + st^2 (c1^2 s2^2 s3^2 + s1^2 c2^2 s3^2 + s1^2 s2^2 c3^2)": true
+  },
+  "beta = Z_r": {
+   "A1a W2 W2^-1 = 1": true,
+   "A1b W2 + W2^-1 = 2 cosOmega, cosOmega = cos^2(theta) (1 + cos2p1 cos2p2 cos2p3) - 1": true,
+   "A2 What = cosOmega - i [cos(theta) (S1 C2 C3 a1 + S2 C3 a2 + S3 a3) + sin(2 theta) N_e beta], N_e = (1 + C1 C2 C3)/2": true,
+   "A3 [W2, 1 x sigma.u0] = 0, u0 = (S1 C2 C3, S2 C3, S3)": true,
+   "A5a W2(p + pi e_i) = W2(p)": true,
+   "A5b W2(p + (pi/2)(e_i + e_j)) = G W2(R p) G^-1, G = a_i a_j, R12 = diag(-,+,+), R13 = diag(-,-,+), R23 = diag(+,-,+)": true,
+   "A5c W2(p + (pi/2) e_i) = - a_i [M^-1 E1 E2 E3 M E3 E2 E1](p_j -> -p_j for j < i) a_i": true,
+   "A10a inversion: beta W2(p) beta = W2(-p)": true,
+   "A10b half-turn about axis i: (a_j a_k) W2(p) (a_j a_k)^-1 = W2(p_i, -p_j, -p_k)": true,
+   "A6 mirror variant (E1 E2 E3 M)(M E3 E2 E1) = cos2theta C1 C2 C3 - i [cos2theta u0.alpha + sin2theta beta]": true,
+   "A7 ordered tick (KD item 3): ((D + D^-1)/2 - ct c1 c2 c3)^2 = (s1 s2 s3)^2 + st^2 (c1^2 s2^2 s3^2 + s1^2 c2^2 s3^2 + s1^2 s2^2 c3^2)": true
+  },
+  "weyl blocks": {
+   "A4a spin doublet, order 1,2,3: e^{-i p3 s3} e^{-i p2 s2} e^{-i p1 s1} = u+ - i sigma.n+": true,
+   "A4b spin doublet, order 3,2,1: e^{-i p1 s1} e^{-i p2 s2} e^{-i p3 s3} = u- - i sigma.n-": true,
+   "A4c four components, massless forward tick = P(X_r=+) x (u+ - i sigma.n+) + P(X_r=-) x (u- + i sigma.n-)": true,
+   "A4d u+ u- - n+.n- = cos2p1 cos2p2 cos2p3": true,
+   "A4e one Weyl block: A+(p + (pi/2)(1,1,1)) = A+(p1, -p2, p3)": true,
+   "A9a third-turn: u+(R p) = u+(p) (the spectrum is invariant)": true,
+   "A9b third-turn: n+(R p) - R n+(p) (zero would mean coin covariance)": [
+    "0",
+    "2*c1*s2*s3",
+    "-2*c2*s1*s3"
+   ],
+   "A9c V_R = exp(-i (pi/3) (s1+s2+s3)/sqrt3): V_R s1 V_R^-1 = s2, s2 -> s3, s3 -> s1": true,
+   "A9d V_R A+(p) V_R^-1 = E1(p3) A+(R p) E1(p3)^-1: the third-turn is a symmetry only together with one sub-step": true
+  }
+ },
+ "part_B_rational": {
+  "random points": {
+   "points": 300,
+   "kinds": 2,
+   "failures": 0,
+   "checked": "W2 W2^* = 1;  W2 + W2^* = 2 cosOmega;  What = closed form",
+   "samples": [
+    {
+     "tan(p_i/2)": [
+      "-2/11",
+      "-9/5",
+      "5/3"
+     ],
+     "tan(theta/4)": "3/2",
+     "cos Omega": "-516960203503/1253560140625"
+    },
+    {
+     "tan(p_i/2)": [
+      "0",
+      "31/6",
+      "-11/6"
+     ],
+     "tan(theta/4)": "5/9",
+     "cos Omega": "-166859141924764079/193327261804181521"
+    },
+    {
+     "tan(p_i/2)": [
+      "11/9",
+      "-23/6",
+      "35/8"
+     ],
+     "tan(theta/4)": "11/7",
+     "cos Omega": "-15751335208781452273/22118939146775640625"
+    }
+   ]
+  },
+  "special points p in (pi/2) Z^3 mod 2 pi, tan(theta/4) = 1/7": {
+   "W2 = -1 (Omega = pi at every theta)": 32,
+   "W2 = G M^2 G^-1 (Omega = 2 theta)": 32,
+   "other": 0
+  }
+ },
+ "summary": {
+  "all symbolic identities hold": true,
+  "rational failures": 0,
+  "seconds": 21.07
+ }
+}

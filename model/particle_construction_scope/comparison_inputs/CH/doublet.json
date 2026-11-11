@@ -1,0 +1,196 @@
+{
+ "DO1": {
+  "covariant_lowering_operators": "B_k(x, y) = x a_k + y b_k^dag (a_k removes a +3 quantum, b_k^dag adds a -3 quantum)",
+  "identity": "[B_k(x, y), B_l(x, y)^dag] = (|x|^2 - |y|^2) delta_kl",
+  "identity_defect": 3.553104767396157e-15,
+  "cross_identity": "[B_k(x1, y1), B_k(x2, y2)^dag] = x1 conj(x2) - y1 conj(y2)",
+  "cross_defect": 9.930136612989092e-16,
+  "normal_iff": "|x| = |y|",
+  "two_commuting_normal_doublets_need": "x1/y1 = x2/y2, so the two operators are proportional",
+  "result": "the four oscillators carry exactly one normal doublet operator up to a factor and the phase of b: one complex doublet"
+ },
+ "DO2": {
+  "ring": 12,
+  "omega": 1.0,
+  "kappa": 0.11,
+  "positive_frequencies": 24,
+  "per_wave_number": 2.0,
+  "defect_against_complex_klein_gordon": 4.6629367034256575e-15,
+  "dispersion": "Omega^2 = omega^2 - 4 omega kappa cos p, twice per wave number (charge +1 and charge -1)",
+  "result": "per doublet component one complex scalar field; UH register = one complex doublet, n_H = 1",
+  "eight_oscillators_per_wave_number": 4.0,
+  "number_conserving_hop_per_wave_number": 2.0,
+  "number_conserving_note": "with a_x^dag a_y and b_x^dag b_y hops the empty register is an exact eigenstate; it has no pair fluctuations and adds nothing to a vacuum polarisation"
+ },
+ "DO3": {
+  "covariant_operator_doublets": 10,
+  "level_toggles": 8,
+  "others": [
+   {
+    "frm": "L_L",
+    "to": "conj nu_R",
+    "d_B_minus_L": "2"
+   },
+   {
+    "frm": "nu_R",
+    "to": "conj L_L",
+    "d_B_minus_L": "2"
+   }
+  ],
+  "channels": {
+   "(0, 0)": {
+    "name": "conjugate neutrino",
+    "initial_degree": 0,
+    "complement_image": "adjoint of neutrino"
+   },
+   "(0, 1)": {
+    "name": "conjugate charged lepton",
+    "initial_degree": 1,
+    "complement_image": "adjoint of charged lepton"
+   },
+   "(1, 0)": {
+    "name": "down",
+    "initial_degree": 1,
+    "complement_image": "adjoint of conjugate down"
+   },
+   "(1, 1)": {
+    "name": "up",
+    "initial_degree": 2,
+    "complement_image": "adjoint of conjugate up"
+   },
+   "(2, 0)": {
+    "name": "conjugate up",
+    "initial_degree": 2,
+    "complement_image": "adjoint of up"
+   },
+   "(2, 1)": {
+    "name": "conjugate down",
+    "initial_degree": 3,
+    "complement_image": "adjoint of down"
+   },
+   "(3, 0)": {
+    "name": "charged lepton",
+    "initial_degree": 3,
+    "complement_image": "adjoint of conjugate charged lepton"
+   },
+   "(3, 1)": {
+    "name": "neutrino",
+    "initial_degree": 4,
+    "complement_image": "adjoint of conjugate neutrino"
+   }
+  },
+  "conjugation_pairs": [
+   [
+    "charged lepton",
+    "conjugate charged lepton"
+   ],
+   [
+    "conjugate down",
+    "down"
+   ],
+   [
+    "conjugate neutrino",
+    "neutrino"
+   ],
+   [
+    "conjugate up",
+    "up"
+   ]
+  ]
+ },
+ "DO4": {
+  "one register": {
+   "registers": 1,
+   "amplitudes": [
+    0.37
+   ],
+   "mass_angle_per_species": {
+    "conjugate neutrino": 0.37,
+    "conjugate charged lepton": 0.37,
+    "down": 0.37,
+    "up": 0.37,
+    "conjugate up": 0.37,
+    "conjugate down": 0.37,
+    "charged lepton": 0.37,
+    "neutrino": 0.37
+   },
+   "up_over_down": 1.0,
+   "lepton_over_down": 1.0,
+   "neutrino_over_up": 1.0,
+   "species_and_conjugate_equal": true,
+   "conserved_diagonal_charges": 5
+  },
+  "S1 degree parity of the initial pattern": {
+   "registers": 2,
+   "amplitudes": [
+    0.37,
+    0.011
+   ],
+   "mass_angle_per_species": {
+    "conjugate neutrino": 0.37,
+    "conjugate charged lepton": 0.011,
+    "down": 0.011,
+    "up": 0.37,
+    "conjugate up": 0.37,
+    "conjugate down": 0.011,
+    "charged lepton": 0.011,
+    "neutrino": 0.37
+   },
+   "up_over_down": 33.63636363636364,
+   "lepton_over_down": 1.0,
+   "neutrino_over_up": 1.0,
+   "species_and_conjugate_equal": true,
+   "conserved_diagonal_charges": 6
+  },
+  "S2 n2 of the initial pattern": {
+   "registers": 2,
+   "amplitudes": [
+    0.37,
+    0.011
+   ],
+   "mass_angle_per_species": {
+    "conjugate neutrino": 0.37,
+    "conjugate charged lepton": 0.011,
+    "down": 0.37,
+    "up": 0.011,
+    "conjugate up": 0.37,
+    "conjugate down": 0.011,
+    "charged lepton": 0.37,
+    "neutrino": 0.011
+   },
+   "up_over_down": 0.029729729729729728,
+   "lepton_over_down": 1.0,
+   "neutrino_over_up": 1.0,
+   "species_and_conjugate_equal": false,
+   "conserved_diagonal_charges": 6
+  },
+  "S3 parity of n3": {
+   "registers": 2,
+   "amplitudes": [
+    0.37,
+    0.011
+   ],
+   "mass_angle_per_species": {
+    "conjugate neutrino": 0.37,
+    "conjugate charged lepton": 0.37,
+    "down": 0.011,
+    "up": 0.011,
+    "conjugate up": 0.37,
+    "conjugate down": 0.37,
+    "charged lepton": 0.011,
+    "neutrino": 0.011
+   },
+   "up_over_down": 1.0,
+   "lepton_over_down": 1.0,
+   "neutrino_over_up": 1.0,
+   "species_and_conjugate_equal": false,
+   "conserved_diagonal_charges": 6
+  },
+  "extra_charge_of_S1": "pattern charge ceil(degree/2); the register of the even-degree toggles carries 1, the other 0"
+ },
+ "DO5": {
+  "four_oscillators": "a_k (+3), b_k (-3): one normal doublet B = a + b^dag; the two orientations are particle and antiparticle of one complex doublet; slopes (81/10, 5/6, -3)",
+  "eight_oscillators": "B_u = a_u + b_u^dag on the even-degree toggles (up, neutrino), B_d = a_d + b_d^dag on the odd-degree toggles (down, charged lepton); each field has a +3 and a -3 quantum; slopes (41/5, 1, -3)",
+  "orientation_as_label": "reading the +3 oscillators as one doublet and the -3 oscillators as a second one gives two lowering operators a and b^dag with [a, a^dag] = 1: no common eigenvector of the operator and its adjoint (R8 result 3), and no pair fluctuation"
+ }
+}

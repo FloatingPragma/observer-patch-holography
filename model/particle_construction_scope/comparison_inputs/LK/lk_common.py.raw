@@ -1,0 +1,344 @@
+"""Worker LK (step L2): the two-load hexagon object built from the public pieces, exact arithmetic.
+
+Public pieces used (read only):
+  model.coherent_seam_repair.common.local_repair_unitary   the 24-dimensional local completion (double loads included)
+  model.coherent_seam_repair.program.Observer.reflect       form of the address reflection R = 2 A A^dag - 1
+  model.coherent_seam_repair.program.Observer.step / inverse_step   tick = repair after reflect, inverse = reflect after repair
+  model.common_source.slow_geometry                         carrier rotations (the half-turn gE)
+
+Model (FR round 3, `RL/work/FR/fr9_hexagon.py`, definitions only): ports of the hexagon around the f axis in the screen
+sense, six seams, twelve addresses k = 2 s + o, record values 0..3, native frame (reference pair of a seam has its tail
+in {2, 9, 0}).
+
+A state is a dict {(cfg, rec, k): Fraction}; cfg is the occupation tuple of the six ports (two loads).
+A pair state is a dict {(keyA, keyB): Fraction}.
+"""
+from __future__ import annotations
+
+import itertools
+import os
+import sys
+from fractions import Fraction as Fr
+
+sys.dont_write_bytecode = True
+os.environ.setdefault('PYTHONDONTWRITEBYTECODE', '1')
+
+RER_CANDIDATES = ('WORKSPACE/reverse-engineering-reality',
+                  'WORKSPACE/repair-law/reverse-engineering-reality')
+
+
+def rer_root():
+    for root in RER_CANDIDATES:
+        if os.path.isdir(os.path.join(root, 'model', 'coherent_seam_repair')):
+            if root not in sys.path:
+                sys.path.insert(0, root)
+            return root
+    raise RuntimeError('public checkout not found')
+
+
+RER = rer_root()
+
+import sympy as sp  # noqa: E402
+from model.coherent_seam_repair.common import local_repair_unitary  # noqa: E402
+from model.common_source import slow_geometry  # noqa: E402
+
+H = [2, 3, 9, 1, 0, 10]                                      # screen sense
+SEAMS = [(2, 3), (3, 9), (9, 1), (1, 0), (0, 10), (10, 2)]   # forward (screen) orientation
+TAILS = {2, 9, 0}                                            # native frame: tail of the reference pair
+NAMES = ['00', '10', '01', '11', '20', '02']                 # source order of the public local unitary
+CFG = [c for c in itertools.product(range(3), repeat=6) if sum(c) == 2]
+NA = 12
+
+
+def cfg_of(*ports):
+    c = [0] * 6
+    for p in ports:
+        c[H.index(p)] += 1
+    return tuple(c)
+
+
+DBL2, DBL10 = cfg_of(2, 2), cfg_of(10, 10)
+C_I, C_F, C_B = cfg_of(2, 10), cfg_of(2, 3), cfg_of(10, 0)
+
+
+def _load_u24():
+    U = local_repair_unitary()
+    assert sp.simplify(U * U) == sp.eye(24) and U == U.T
+    out = []
+    for i in range(24):
+        row = []
+        for j in range(24):
+            q = sp.nsimplify(U[i, j])
+            row.append(Fr(int(q.p), int(q.q)))
+        out.append(row)
+    return out
+
+
+U24 = _load_u24()
+
+
+FRAME = 'FN'                                                 # 'FN' native frame; 'FP' plain law of the public program
+_LOCAL_CACHE = {}
+
+
+def set_frame(name):
+    """'FN': one reference pair per seam (tail in {2, 9, 0}). 'FP': the two addresses of a seam use (x, y) and (y, x),
+    as Observer.repair does."""
+    global FRAME
+    assert name in ('FN', 'FP')
+    FRAME = name
+    _LOCAL_CACHE.clear()
+
+
+def ref_pair(k):
+    x, y = SEAMS[k // 2]
+    if FRAME == 'FP':
+        return (x, y) if k % 2 == 0 else (y, x)
+    return (x, y) if x in TAILS else (y, x)
+
+
+def local(cfg, rec, k):
+    """Images of (cfg, rec) under the public local unitary on the reference pair of address k."""
+    key = (cfg, rec, k)
+    if key in _LOCAL_CACHE:
+        return _LOCAL_CACHE[key]
+    out = local_on(cfg, rec, *ref_pair(k))
+    _LOCAL_CACHE[key] = out
+    return out
+
+
+def local_on(cfg, rec, a, b):
+    """Images of (cfg, rec) under the public local unitary on the ordered pair (a, b)."""
+    ia, ib = H.index(a), H.index(b)
+    col = 4 * NAMES.index(f'{cfg[ia]}{cfg[ib]}') + rec
+    out = []
+    for row in range(24):
+        u = U24[row][col]
+        if u:
+            s2, r2 = divmod(row, 4)
+            c2 = list(cfg)
+            c2[ia], c2[ib] = int(NAMES[s2][0]), int(NAMES[s2][1])
+            out.append((tuple(c2), r2, u))
+    return out
+
+
+def cross_e(state):
+    """Two ticks of the plain law on the E seam {2, 10} with its own two-orientation address register (FR's seam
+    object): W_E^2 = (Q R_2)^2, the seam address started at orientation + (2 -> 10) and returned to it. The
+    twelve-address register k of the hexagon object is a spectator. On blank doubles this is X_E."""
+    for a, b in ((10, 2), (2, 10)):                         # R_2 then Q at the reversed address; R_2 then Q at +
+        out = {}
+        for (cfg, rec, k), c in state.items():
+            for c2, r2, u in local_on(cfg, rec, a, b):
+                add(out, (c2, r2, k), c * u)
+        state = out
+    return state
+
+
+def add(d, key, val):
+    v = d.get(key, 0) + val
+    if v:
+        d[key] = v
+    else:
+        d.pop(key, None)
+
+
+def reflect(state):
+    """R = 2 A A^dag - 1 on the address register (the form of Observer.reflect)."""
+    blocks = {}
+    for (cfg, rec, k), c in state.items():
+        blocks.setdefault((cfg, rec), {})[k] = c
+    out = {}
+    for (cfg, rec), g in blocks.items():
+        mean = sum(g.values()) / NA
+        for k in range(NA):
+            v = 2 * mean - g.get(k, 0)
+            if v:
+                out[(cfg, rec, k)] = v
+    return out
+
+
+def repair(state):
+    """Q = sum_k |k><k| (x) U_k with the public local unitary on the reference pair of k."""
+    out = {}
+    for (cfg, rec, k), c in state.items():
+        for c2, r2, u in local(cfg, rec, k):
+            add(out, (c2, r2, k), c * u)
+    return out
+
+
+def step(state):
+    return repair(reflect(state))
+
+
+def inverse_step(state):
+    return reflect(repair(state))
+
+
+def dot(u, v):
+    if len(u) > len(v):
+        u, v = v, u
+    return sum((c.conjugate() * v[k] for k, c in u.items() if k in v), 0)
+
+
+def norm2(u):
+    return sum((abs(c) ** 2 if isinstance(c, complex) else c * c for c in u.values()), 0)
+
+
+def scale(u, a):
+    return {k: a * c for k, c in u.items() if a * c}
+
+
+def axpy(u, v, a=1):
+    out = dict(u)
+    for k, c in v.items():
+        add(out, k, a * c)
+    return out
+
+
+def restrict(state, pred):
+    return {k: c for k, c in state.items() if pred(k)}
+
+
+def flag(key):
+    """Class of a basis state: F, I, B (emission flags), double (blank double at 2 or 10), other."""
+    cfg, rec, k = key
+    if rec in (2, 3):
+        if cfg == C_F:
+            return 'F'
+        if cfg == C_I:
+            return 'I'
+        if cfg == C_B:
+            return 'B'
+    if rec == 0 and cfg in (DBL2, DBL10):
+        return 'double'
+    return 'other'
+
+
+def uniform(cfg, norm=1):
+    return {(cfg, 0, k): Fr(norm) for k in range(NA)}
+
+
+def S_raw():
+    """sqrt(24) times S (integer amplitudes)."""
+    return {(c, 0, k): Fr(1) for c in (DBL2, DBL10) for k in range(NA)}
+
+
+NS = Fr(24)                                                  # squared norm of S_raw
+
+
+# ------------------------------------------------------------------ the half-turn gE and the three return tests
+def half_turn_E():
+    rots = [tuple(int(v) for v in p) for p in slow_geometry.source().rotations()]
+
+    def order(p):
+        cur, n = p, 1
+        while cur != tuple(range(12)):
+            cur, n = tuple(p[cur[x]] for x in range(12)), n + 1
+        return n
+    cand = [p for p in rots if order(p) == 2 and p[2] == 10 and p[10] == 2]
+    assert len(cand) == 1
+    return cand[0]
+
+
+G_E = half_turn_E()
+
+
+def address_image(k, g=None):
+    g = g or G_E
+    x, y = SEAMS[k // 2]
+    if k % 2:
+        x, y = y, x
+    gx, gy = g[x], g[y]
+    for s, (a, b) in enumerate(SEAMS):
+        if (gx, gy) == (a, b):
+            return 2 * s
+        if (gx, gy) == (b, a):
+            return 2 * s + 1
+    raise ValueError('seam leaves the hexagon')
+
+
+def t_blk(state):
+    """Register detector, outcome yes: blank record and configuration double at port 2 or 10."""
+    return restrict(state, lambda key: key[1] == 0 and key[0] in (DBL2, DBL10))
+
+
+def t_addr(state):
+    """(1 + R)/2: the address mean (the operation inside Observer.embedded_return_measurement)."""
+    blocks = {}
+    for (cfg, rec, k), c in state.items():
+        blocks[(cfg, rec)] = blocks.get((cfg, rec), 0) + c
+    out = {}
+    for (cfg, rec), tot in blocks.items():
+        if tot:
+            for k in range(NA):
+                out[(cfg, rec, k)] = tot / NA
+    return out
+
+
+def x_e(state):
+    """Exchange of the two ends of the E seam {2, 10} (native half-turn gE) on the hexagon configurations and
+    addresses. Used on blank-record states only."""
+    perm = [H.index(G_E[p]) for p in H]                      # position of the image of each hexagon port
+    out = {}
+    for (cfg, rec, k), c in state.items():
+        c2 = [0] * 6
+        for i in range(6):
+            c2[perm[i]] = cfg[i]
+        add(out, (tuple(c2), rec, address_image(k)), c)
+    return out
+
+
+def t_sym(state):
+    """(1 + X_E)/2."""
+    return scale(axpy(state, x_e(state)), Fr(1, 2))
+
+
+def return_yes(state):
+    return t_sym(t_addr(t_blk(state)))
+
+
+# ------------------------------------------------------------------ pair states
+def tensor(u, v):
+    return {(ka, kb): ca * cb for ka, ca in u.items() for kb, cb in v.items()}
+
+
+def on_a(pair, op):
+    groups = {}
+    for (ka, kb), c in pair.items():
+        groups.setdefault(kb, {})[ka] = c
+    out = {}
+    for kb, st in groups.items():
+        for ka, c in op(st).items():
+            add(out, (ka, kb), c)
+    return out
+
+
+def on_b(pair, op):
+    groups = {}
+    for (ka, kb), c in pair.items():
+        groups.setdefault(ka, {})[kb] = c
+    out = {}
+    for ka, st in groups.items():
+        for kb, c in op(st).items():
+            add(out, (ka, kb), c)
+    return out
+
+
+def on_both(pair, op):
+    return on_b(on_a(pair, op), op)
+
+
+def qx_value(ka, kb):
+    """Exclusive read of the pair: object A read for F, object B read for I."""
+    return int(flag(ka) == 'F') ^ int(flag(kb) == 'I')
+
+
+def provenance():
+    import hashlib
+    out = {'repository_root_used': RER}
+    for rel in ('model/coherent_seam_repair/program.py', 'model/coherent_seam_repair/common.py',
+                'model/common_source/slow_geometry.py'):
+        with open(os.path.join(RER, rel), 'rb') as fh:
+            out[rel + ' sha256'] = hashlib.sha256(fh.read()).hexdigest()
+    return out

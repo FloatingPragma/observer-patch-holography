@@ -1,0 +1,312 @@
+{
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "model/coherent_seam_repair/program.py sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "model/coherent_seam_repair/common.py sha256": "b788b17ef298902067f6132d170ce8aff1d9ce8d5c5ec8b08e42809ef606348d",
+  "model/common_source/slow_geometry.py sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "R1 own implementation against FR (50 random rational states)": {
+  "tick equal": true,
+  "inverse tick equal": true,
+  "tick of S equal": true,
+  "hexagon ports under gE": {
+   "2": 10,
+   "3": 0,
+   "9": 1,
+   "1": 9,
+   "0": 3,
+   "10": 2
+  },
+  "gE maps the hexagon to itself": true
+ },
+ "R2 W^-1 W S = S": true,
+ "R2 one tick from S": {
+  "weights": {
+   "B": "1/12",
+   "F": "1/12",
+   "I": "1/6",
+   "double": "2/3"
+  },
+  "p_F": "1/12",
+  "p_I": "1/6",
+  "p_B": "1/12",
+  "P = <Qx>": "2/9",
+  "<S|W^-1 Pi_F W|S>": "1/12",
+  "<S|W^-1 Pi_I W|S>": "1/6",
+  "non-return norm squared, object A": "11/144",
+  "p_F (1 - p_F)": "11/144",
+  "non-return norm squared, object B": "5/36",
+  "p_I (1 - p_I)": "5/36"
+ },
+ "R2 pair": {
+  "<SS|X>": "2/9",
+  "<X|X>": "2/9",
+  "zero-return amplitude": "1 - P + P z, z = exp(-i h j), P = 2/9",
+  "non-return weight per round": "|z - 1|^2 (14/81) = 4 sin^2(h j/2) * 14/81",
+  "P (1 - P)": "14/81"
+ },
+ "R2 N rounds (formula from the exact P)": [
+  {
+   "N": 1,
+   "phase per unit clock time (j = +1)": "0.205334030970278",
+   "amplitude kept": "0.917110764911",
+   "expected resets per unit clock time": "0.15890784"
+  },
+  {
+   "N": 2,
+   "phase per unit clock time (j = +1)": "0.218167184001747",
+   "amplitude kept": "0.9576828609",
+   "expected resets per unit clock time": "0.084634278"
+  },
+  {
+   "N": 6,
+   "phase per unit clock time (j = +1)": "0.221777012442412",
+   "amplitude kept": "0.985698740144",
+   "expected resets per unit clock time": "0.028739964"
+  },
+  {
+   "N": 10,
+   "phase per unit clock time (j = +1)": "0.222062099670503",
+   "amplitude kept": "0.991394996221",
+   "expected resets per unit clock time": "0.017269552"
+  },
+  {
+   "N": 100,
+   "phase per unit clock time (j = +1)": "0.22222062184783",
+   "amplitude kept": "0.999136175514",
+   "expected resets per unit clock time": "0.0017283807"
+  },
+  {
+   "N": 1000,
+   "phase per unit clock time (j = +1)": "0.222222206218563",
+   "amplitude kept": "0.999913583981",
+   "expected resets per unit clock time": "0.00017283949"
+  },
+  {
+   "N": 10000,
+   "phase per unit clock time (j = +1)": "0.222222222062186",
+   "amplitude kept": "0.999991358062",
+   "expected resets per unit clock time": "1.7283951e-5"
+  },
+  {
+   "N": 1000000,
+   "phase per unit clock time (j = +1)": "0.222222222222206",
+   "amplitude kept": "0.99999991358",
+   "expected resets per unit clock time": "1.7283951e-7"
+  }
+ ],
+ "R2 executed rounds (floats)": [
+  {
+   "N": 1,
+   "j": 1,
+   "executed amplitude": [
+    0.8978449568595923,
+    -0.18699355217953517
+   ],
+   "formula (1 - P + P exp(-i j/N))^N": [
+    0.8978449568595867,
+    -0.18699355217953256
+   ],
+   "difference": 6.2343249050470514e-15,
+   "phase per unit clock time": 0.20533403097027947,
+   "probability of at least one no (sum over rounds of the no weight)": 0.1589078448850875
+  },
+  {
+   "N": 1,
+   "j": -1,
+   "executed amplitude": [
+    0.8978449568595923,
+    0.18699355217953517
+   ],
+   "formula (1 - P + P exp(-i j/N))^N": [
+    0.8978449568595867,
+    0.18699355217953256
+   ],
+   "difference": 6.2343249050470514e-15,
+   "phase per unit clock time": 0.20533403097027947,
+   "probability of at least one no (sum over rounds of the no weight)": 0.1589078448850875
+  },
+  {
+   "N": 1,
+   "j": 0,
+   "executed amplitude": [
+    1.000000000000013,
+    0.0
+   ],
+   "formula (1 - P + P exp(-i j/N))^N": [
+    1.0,
+    0.0
+   ],
+   "difference": 1.3100631690576847e-14,
+   "phase per unit clock time": -0.0,
+   "probability of at least one no (sum over rounds of the no weight)": 0.0
+  },
+  {
+   "N": 10,
+   "j": 1,
+   "executed amplitude": [
+    0.9670516524941544,
+    -0.21834637606224122
+   ],
+   "formula (1 - P + P exp(-i j/N))^N": [
+    0.9670516524941604,
+    -0.21834637606224275
+   ],
+   "difference": 6.186505493963527e-15,
+   "phase per unit clock time": 0.22206209967050253,
+   "probability of at least one no (sum over rounds of the no weight)": 0.017135961468799383
+  },
+  {
+   "N": 10,
+   "j": -1,
+   "executed amplitude": [
+    0.9670516524941544,
+    0.21834637606224122
+   ],
+   "formula (1 - P + P exp(-i j/N))^N": [
+    0.9670516524941604,
+    0.21834637606224275
+   ],
+   "difference": 6.186505493963527e-15,
+   "phase per unit clock time": 0.22206209967050253,
+   "probability of at least one no (sum over rounds of the no weight)": 0.017135961468799383
+  },
+  {
+   "N": 10,
+   "j": 0,
+   "executed amplitude": [
+    1.000000000000013,
+    0.0
+   ],
+   "formula (1 - P + P exp(-i j/N))^N": [
+    1.0,
+    0.0
+   ],
+   "difference": 1.3100631690576847e-14,
+   "phase per unit clock time": -0.0,
+   "probability of at least one no (sum over rounds of the no weight)": 0.0
+  }
+ ],
+ "K6 pair identity (W^-1 x W^-1)(Z_F x Z_I)(W x W)|SS> = |SS> - 2|X>": true,
+ "R3 return test": {
+  "T_blk T_addr T_sym = |S><S| (20 random rational states)": true,
+  "all six orders agree": true,
+  "X_E S = S": true,
+  "X_E S^- = -S^-": true
+ },
+ "R7 filter form": {
+  "T_addr = (1 + R)/2 with the address reflection R (20 random states)": true,
+  "T_sym = (1 + X_E)/2": "by construction of t_sym; X_E is an involution: True",
+  "statement": "for an involution U the filter with alpha = 1 (controlled U, ancilla readout in the +- basis) has the Kraus operators (1 + U)/2 and (1 - U)/2"
+ },
+ "R4 non-return vectors": {
+  "object A (forward flag)": {
+   "record 1, 2 or 3": "0",
+   "blank record, other configuration": "0",
+   "blank, double at port 2, uniform address": "1/288",
+   "blank, double at port 2, non-uniform address": "5/72",
+   "blank, double at port 10, uniform address": "1/288",
+   "blank, double at port 10, non-uniform address": "0",
+   "component along S^- (uniform address, antisymmetric location)": "1/144",
+   "component along S": "0"
+  },
+  "object B (in-dimer flag)": {
+   "record 1, 2 or 3": "0",
+   "blank record, other configuration": "0",
+   "blank, double at port 2, uniform address": "0",
+   "blank, double at port 2, non-uniform address": "5/72",
+   "blank, double at port 10, uniform address": "0",
+   "blank, double at port 10, non-uniform address": "5/72",
+   "component along S^- (uniform address, antisymmetric location)": "0",
+   "component along S": "0"
+  },
+  "reading": "A: the whole vector sits at port 2; the reset restores the symmetric location and the address consensus. B: symmetric location kept; the reset restores the address consensus."
+ },
+ "R5 round without T_sym": {
+  "G_F on (D2, D10)": [
+   [
+    "1/6",
+    "0"
+   ],
+   [
+    "0",
+    "0"
+   ]
+  ],
+  "G_I on (D2, D10)": [
+   [
+    "1/6",
+    "0"
+   ],
+   [
+    "0",
+    "1/6"
+   ]
+  ],
+  "G_B on (D2, D10)": [
+   [
+    "0",
+    "0"
+   ],
+   [
+    "0",
+    "1/6"
+   ]
+  ],
+  "compression of W^-1 Qx W on the uniform doubles of A (B: identity)": [
+   [
+    "5/18",
+    "0"
+   ],
+   [
+    "0",
+    "1/6"
+   ]
+  ],
+  "mean of the diagonal": "2/9",
+  "half difference of the diagonal": "1/18",
+  "N rounds, t = 1, j = +1": [
+   {
+    "N": 1,
+    "phase of <S|A_N> per unit clock time": "0.205334030970278",
+    "modulus of <S|A_N>": "0.917110764911",
+    "modulus with T_sym in every round": "0.917110764911"
+   },
+   {
+    "N": 10,
+    "phase of <S|A_N> per unit clock time": "0.221984780285496",
+    "modulus of <S|A_N>": "0.99001915487",
+    "modulus with T_sym in every round": "0.991394996221"
+   },
+   {
+    "N": 100,
+    "phase of <S|A_N> per unit clock time": "0.222212125284519",
+    "modulus of <S|A_N>": "0.997610100559",
+    "modulus with T_sym in every round": "0.999136175514"
+   },
+   {
+    "N": 1000,
+    "phase of <S|A_N> per unit clock time": "0.222221348853877",
+    "modulus of <S|A_N>": "0.998372445104",
+    "modulus with T_sym in every round": "0.999913583981"
+   },
+   {
+    "N": 1000000,
+    "phase of <S|A_N> per unit clock time": "0.222222221363985",
+    "modulus of <S|A_N>": "0.998457102253",
+    "modulus with T_sym in every round": "0.99999991358"
+   }
+  ],
+  "limit": "phase 2/9, modulus cos(1/18) = 0.998457186999",
+  "executed (floats), N = 10, j = +1: <SS|pair>": [
+   0.9657264505192528,
+   -0.21796868989941676
+  ],
+  "formula ((a^N + b^N)/2)": [
+   0.9657264505192453,
+   -0.21796868989941331
+  ],
+  "difference": 8.196123257993792e-15
+ },
+ "seconds": 18.22
+}

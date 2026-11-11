@@ -1,0 +1,157 @@
+{
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "model/coherent_seam_repair/program.py sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "model/coherent_seam_repair/common.py sha256": "b788b17ef298902067f6132d170ce8aff1d9ce8d5c5ec8b08e42809ef606348d",
+  "model/common_source/slow_geometry.py sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "R13 exact coefficients": {
+  "c_a (double at port 2)": "5/18",
+  "c_b (double at port 10)": "1/6",
+  "mean": "2/9",
+  "one round on (D2, D10) of A": "diag(1 - c_a (1 - z), 1 - c_b (1 - z)), z = exp(-i h j)",
+  "round, X_E, round, X_E": "scalar (1 - c_a (1 - z)) (1 - c_b (1 - z))",
+  "coefficient of (1 - z)^2: c_a c_b": "5/108",
+  "P^2": "4/81",
+  "difference": "-1/324",
+  "non-return weight per round over |1 - z|^2 (at port 2, at port 10, mean)": [
+   "65/324",
+   "5/36",
+   "55/324"
+  ]
+ },
+ "R13 N rounds, t = 1": [
+  {
+   "N": 2,
+   "phase per unit clock time (j = +1)": "0.218386466745768",
+   "modulus": "0.958408734199",
+   "modulus of the round with T_sym": "0.9576828609"
+  },
+  {
+   "N": 10,
+   "phase per unit clock time (j = +1)": "0.222070680996425",
+   "modulus": "0.991547899188",
+   "modulus of the round with T_sym": "0.991394996221"
+  },
+  {
+   "N": 100,
+   "phase per unit clock time (j = +1)": "0.222220707582506",
+   "modulus": "0.999151594299",
+   "modulus of the round with T_sym": "0.999136175514"
+  },
+  {
+   "N": 1000,
+   "phase per unit clock time (j = +1)": "0.222222207075902",
+   "modulus": "0.999915127058",
+   "modulus of the round with T_sym": "0.999913583981"
+  },
+  {
+   "N": 1000000,
+   "phase per unit clock time (j = +1)": "0.222222222222207",
+   "modulus": "0.999999915123",
+   "modulus of the round with T_sym": "0.99999991358"
+  }
+ ],
+ "R14 executed, A started in D2": [
+  {
+   "N": 2,
+   "executed zero-return amplitude": [
+    0.9356448970479189,
+    -0.20764375362036186
+   ],
+   "formula (a b)^(N/2)": [
+    0.9356448970479154,
+    -0.20764375362036294
+   ],
+   "difference": 3.607904559176205e-15,
+   "phase per unit clock time": 0.21838646674576595,
+   "summed weight of the outcome no": 0.08145269821064169
+  },
+  {
+   "N": 10,
+   "executed zero-return amplitude": [
+    0.9671989269592705,
+    -0.2183883515069972
+   ],
+   "formula (a b)^(N/2)": [
+    0.9671989269592626,
+    -0.21838835150699604
+   ],
+   "difference": 7.968315907803756e-15,
+   "phase per unit clock time": 0.22207068099642435,
+   "summed weight of the outcome no": 0.016832763614907556
+  }
+ ],
+ "R14b executed with return detectors of the public form, A and B started in D2": [
+  {
+   "N": 2,
+   "executed zero-return amplitude": [
+    0.9356448970479136,
+    -0.207643753620363
+   ],
+   "difference to (a b)^(N/2)": 1.7772239894833365e-15,
+   "phase per unit clock time": 0.21838646674576828,
+   "modulus": 0.9584087341992219,
+   "summed weight of the outcome no": 0.08145269821064186
+  },
+  {
+   "N": 10,
+   "executed zero-return amplitude": [
+    0.9671989269592621,
+    -0.2183883515069969
+   ],
+   "difference to (a b)^(N/2)": 9.682678848994769e-16,
+   "phase per unit clock time": 0.22207068099642588,
+   "modulus": 0.9915478991884817,
+   "summed weight of the outcome no": 0.016832763614907584
+  },
+  {
+   "N": 100,
+   "executed zero-return amplitude": [
+    0.9745828754506283,
+    -0.2202092806123181
+   ],
+   "difference to (a b)^(N/2)": 6.280921796110057e-15,
+   "phase per unit clock time": 0.2222207075825057,
+   "modulus": 0.9991515942985876,
+   "summed weight of the outcome no": 0.00169609161059499
+  }
+ ],
+ "reset content (native frame)": {
+  "D2, flag F": {
+   "norm squared": "1/6",
+   "blank record and the double at the same port in every component": true
+  },
+  "D2, flag I": {
+   "norm squared": "1/6",
+   "blank record and the double at the same port in every component": true
+  },
+  "D10, flag I": {
+   "norm squared": "1/6",
+   "blank record and the double at the same port in every component": true
+  },
+  "D10, flag B": {
+   "norm squared": "1/6",
+   "blank record and the double at the same port in every component": true
+  }
+ },
+ "reset content (plain frame)": {
+  "D2, flag F": {
+   "norm squared": "1/6",
+   "blank record and the double at the same port in every component": true
+  },
+  "D2, flag I": {
+   "norm squared": "1/6",
+   "blank record and the double at the same port in every component": true
+  },
+  "D10, flag I": {
+   "norm squared": "1/6",
+   "blank record and the double at the same port in every component": true
+  },
+  "D10, flag B": {
+   "norm squared": "1/6",
+   "blank record and the double at the same port in every component": true
+  }
+ },
+ "seconds": 3.44
+}

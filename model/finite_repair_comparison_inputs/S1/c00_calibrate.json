@@ -1,0 +1,76 @@
+{
+ "C1_rotations": {
+  "tetrahedron": 12,
+  "octahedron": 24,
+  "icosahedron": 60
+ },
+ "C2_cases": 6000,
+ "C3_vacuum_class_sizes": {
+  "0": 1,
+  "1": 12,
+  "2": 66,
+  "3": 220
+ },
+ "C3_double_load_leave_probability": [
+  "1/6"
+ ],
+ "C3_native_branches": 4680,
+ "C4_static_tetrahedron_pair": {
+  "0": {
+   "reachable": 15,
+   "recurrent": 15,
+   "release_per_sweep": "1/4",
+   "E_N_odd": "265/123",
+   "loop_current_per_attempt": [
+    "-1/12",
+    "1/12",
+    "0",
+    "0"
+   ],
+   "max_abs_contrast": 3,
+   "charges_change": false
+  },
+  "1": {
+   "reachable": 19,
+   "recurrent": 19,
+   "release_per_sweep": "1/4",
+   "E_N_odd": "7592/2571",
+   "loop_current_per_attempt": [
+    "-1/12",
+    "1/12",
+    "0",
+    "0"
+   ],
+   "max_abs_contrast": 3,
+   "charges_change": false
+  },
+  "2": {
+   "reachable": 8,
+   "recurrent": 8,
+   "release_per_sweep": "1/4",
+   "E_N_odd": "31/9",
+   "loop_current_per_attempt": [
+    "-1/12",
+    "1/12",
+    "0",
+    "0"
+   ],
+   "max_abs_contrast": 2,
+   "charges_change": false
+  },
+  "3": {
+   "reachable": 19,
+   "recurrent": 19,
+   "release_per_sweep": "1/4",
+   "E_N_odd": "7592/2571",
+   "loop_current_per_attempt": [
+    "-1/12",
+    "1/12",
+    "0",
+    "0"
+   ],
+   "max_abs_contrast": 3,
+   "charges_change": false
+  }
+ }
+}

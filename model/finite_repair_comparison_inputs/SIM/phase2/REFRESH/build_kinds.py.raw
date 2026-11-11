@@ -1,0 +1,104 @@
+"""Lane REFRESH: the finer geometric census (register of worker X3) on the current universe runs.
+
+    cd repair-law/work/SIM/phase2/REFRESH
+    PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python build_kinds.py
+
+Step 1 runs the unchanged census script repair-law/work/SIM/cf1/observer/x3census.py (read only) on the last
+checkpoint of each current run that stores one (per-face classes of every carrier). Step 2 reduces its output to the
+numbers the Map page shows and writes kinds.json here and into the viewer bundle
+(oph-physics-sim/oph_defects/viewer2/research/REFRESH/kinds.json, fetched as /rl/REFRESH/kinds.json).
+Nothing is simulated. Every count is MEASURED on a stored state of a run.
+"""
+import hashlib
+import json
+import subprocess
+import sys
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+META = HERE.parents[4]
+SIM = META / 'oph-physics-sim'
+X3 = META / 'repair-law' / 'work' / 'SIM' / 'cf1' / 'observer'
+RUNS = {6: ('L6', 500), 7: ('L7', 400)}
+OUT_VIEWER = SIM / 'oph_defects' / 'viewer2' / 'research' / 'REFRESH' / 'kinds.json'
+
+
+def sha(path):
+    h = hashlib.sha256()
+    with open(path, 'rb') as f:
+        for block in iter(lambda: f.read(1 << 20), b''):
+            h.update(block)
+    return h.hexdigest()
+
+
+def reduce(level, run, sweep, d, ckpt):
+    meta = json.loads((SIM / 'runs' / 'universe' / run / 'run.json').read_text())
+    assert meta['geometry']['carriers'] == d['carriers'] and meta['sweeps'] == sweep
+    assert all(v is True or v == '30 of 30' or v == 0 for v in d['verification'].values()), d['verification']
+    pairs = {}
+    for name, P in d['pairs'].items():
+        kinds = [{'separation': t['separation'], 'chirality': t['chirality'], 'count': t['count']} for t in P['types']]
+        assert sum(k['count'] for k in kinds) == P['carriers']
+        by_sep = {}
+        for k in kinds:
+            by_sep[k['separation']] = by_sep.get(k['separation'], 0) + k['count']
+        pairs[name] = {'carriers': P['carriers'], 'adjacent': by_sep.get(1, 0), 'kinds': kinds,
+                       'lasting_kinds': sum(1 for k in kinds if k['separation'] > 1),
+                       'lasting_kinds_occupied': sum(1 for k in kinds if k['separation'] > 1 and k['count'] > 0),
+                       'share_by_separation': {str(s): n / P['carriers'] for s, n in sorted(by_sep.items())} if P['carriers'] else {}}
+    triples = {}
+    for name in ('{2,2,2}', '{4,4,4}'):
+        T = d['triples'][name]
+        last = [s for s in T['shapes'] if s['non_adjacent']]
+        triples[name] = {'carriers': T['carriers'], 'lasting_shapes': len(last), 'lasting_shapes_occupied': sum(1 for s in last if s['count'] > 0),
+                         'adjacent_carriers': sum(s['count'] for s in T['shapes'] if not s['non_adjacent']),
+                         'counts_of_lasting_shapes': sorted((s['count'] for s in last), reverse=True)}
+    mirror = {k: {'counts': [v[a] for a in v if a not in ('z', 'relative_difference', 'relative_error')], 'z': v['z']}
+              for k, v in d['chirality_census'].items()}
+    import numpy as np
+    z = np.load(SIM / 'runs' / 'universe' / run / 'stats.npz')
+    n15 = (z['counts_intra'][:, 1] + z['counts_intra'][:, 5]).astype(float); sw = np.arange(1, len(n15) + 1); sel = (sw >= 120) & (n15 > 0)
+    rate = float(-np.polyfit(sw[sel], np.log(n15[sel]), 1)[0])
+    ci = meta['end']['counts_intra']; N = meta['geometry']['carriers']
+    assert [int(x) for x in z['counts_intra'][-1][1:6]] == ci[1:6]
+    decay = {'rate_per_sweep': rate, 'half_life_sweeps': float(np.log(2) / rate), 'e_folding_sweeps': 1 / rate,
+             'fit': 'log-linear least squares of the internal-tier count of classes 1 and 5 over sweeps 120 to the end (stats.npz, counts_intra)'}
+    end = {'faces_per_carrier': {str(k): ci[k] / N for k in (1, 2, 3, 4, 5)}, 'pairs_2_4_per_carrier': (ci[2] + ci[4]) / 2 / N, 'pairs_3_3_per_carrier': ci[3] / 2 / N,
+           'source': 'run.json end.counts_intra: classes on the internal faces after the last sweep'}
+    return {'run': run, 'level': level, 'sweep': sweep, 'decay_of_classes_1_5': decay, 'end_densities': end, 'checkpoint': f'runs/universe/{run}/checkpoints/ckpt_{sweep:06d}.npz',
+            'checkpoint_sha256': sha(ckpt), 'carriers': d['carriers'], 'carriers_with_defects': d['carriers_with_defects'],
+            'carriers_with_class_total_nonzero_mod6': d['verification']['carriers_with_class_total_nonzero_mod6'],
+            'verification': d['verification'], 'compositions': d['compositions'], 'pairs': pairs, 'triples': triples,
+            'mirror_pairs': mirror, 'tests_summary': d['tests_summary']}
+
+
+def main():
+    levels = {}
+    for level, (run, sweep) in RUNS.items():
+        ckpt = SIM / 'runs' / 'universe' / run / 'checkpoints' / f'ckpt_{sweep:06d}.npz'
+        raw = HERE / f'x3_{run}_s{sweep}.json'
+        subprocess.run([sys.executable, str(X3 / 'x3census.py'), str(ckpt), str(level), str(raw)], check=True, cwd=X3,
+                       stdout=subprocess.DEVNULL, env={'PYTHONDONTWRITEBYTECODE': '1', 'PATH': '/usr/bin:/bin'})
+        levels[str(level)] = reduce(level, run, sweep, json.loads(raw.read_text()), ckpt)
+    out = {'schema': 'oph.viewer.kinds_census.v1', 'label': 'MEASURED: counts on stored states of the current universe runs (law C, schedule 1, preparation exact06)',
+           'method': 'the extended register of worker X3 (face separation 1 to 5 on the carrier, chirality of the path between two faces) applied to the '
+                     'per-face classes of the last checkpoint of each run; script repair-law/work/SIM/cf1/observer/x3census.py, unchanged',
+           'register_sha256': sha(X3 / 'x3' / 'register.json'), 'reader_sha256': sha(X3 / 'x3' / 'x3_register.py'), 'census_script_sha256': sha(X3 / 'x3census.py'),
+           'archived': {'run': 'level 10 of 2026-11-10 (retired), checkpoint at sweep 300', 'carriers': 20971520,
+                        'source': 'repair-law/work/SIM/cf1/runs/X3_census.json'},
+           'levels': levels}
+    text = json.dumps(out, indent=1) + '\n'
+    (HERE / 'kinds.json').write_text(text)
+    OUT_VIEWER.parent.mkdir(parents=True, exist_ok=True)
+    OUT_VIEWER.write_text(text)
+    for lv, L in levels.items():
+        p = L['pairs']
+        print(f"level {lv}: {L['carriers_with_defects']} of {L['carriers']} carriers hold defects; "
+              f"(2,4) {p['{2,4}']['carriers']} in {p['{2,4}']['lasting_kinds_occupied']} kinds, (3,3) {p['{3,3}']['carriers']} in {p['{3,3}']['lasting_kinds_occupied']} kinds, "
+              f"{{2,2,2}} {L['triples']['{2,2,2}']['carriers']} and {{4,4,4}} {L['triples']['{4,4,4}']['carriers']} in "
+              f"{L['triples']['{2,2,2}']['lasting_shapes_occupied']} and {L['triples']['{4,4,4}']['lasting_shapes_occupied']} of {L['triples']['{2,2,2}']['lasting_shapes']} shapes")
+    print('PASS wrote', HERE / 'kinds.json', 'and', OUT_VIEWER, 'sha256', hashlib.sha256(text.encode()).hexdigest(), 'bytes', len(text.encode()))
+
+
+if __name__ == '__main__':
+    main()

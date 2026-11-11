@@ -1,0 +1,178 @@
+"""X5 item 1: free excitations of the field step of CF-1 section 8 with a link phase in the place of the link bit.
+
+Declared link variable: a phase theta_l in [0, 2 pi) on every link of the cubic lattice of carriers, conjugate integer
+E_l ([theta_l, E_l] = i). A pattern of integer charge q routes with z_l = exp(i q theta_l) (work/DIRAC/routing.py).
+Field step, same form as section 8 (clock form of a Z_N link, N to infinity; N = 2 is section 8 itself):
+
+    F = prod_links exp(-i eps E_l^2 / 2) . prod_plaquettes exp(-i kappa (1 - cos B_p)),
+    B_p = theta_i(x) + theta_j(x + e_i) - theta_i(x + e_j) - theta_j(x).
+
+Small fields: 1 - cos B = B^2/2. The step is then quadratic, so the Heisenberg map of (theta, E) is linear and equal
+to the classical map
+    E' = E - kappa K theta,    theta' = theta + eps E',        K = curl* curl.
+A. exact symbol (sympy): characteristic polynomial, Gauss row, number of polarizations.
+B. the lattice step against the symbol; C. packets against d omega / d k and against the routing of matter;
+D. linear stability (Courant bound) and the unstable share of the zone; E. one mode as a kicked quantum oscillator.
+"""
+import itertools, json, sys
+import numpy as np
+import sympy as sp
+from routing import Routing, branch_projected
+
+out = {}
+PL = ((0, 1), (1, 2), (2, 0))
+
+# ---------------------------------------------------------------- A. exact symbol
+u = sp.symbols('u1:4'); eps, kap, mu = sp.symbols('epsilon kappa mu')
+d = [x - 1 for x in u]; dc = [1 / x - 1 for x in u]                   # d_i = exp(i k_i) - 1 and its conjugate
+C = sp.zeros(3, 3); Cc = sp.zeros(3, 3)                               # C: theta -> (B_01, B_12, B_20)
+for r, (i, j) in enumerate(PL):
+    C[r, j] += d[i]; C[r, i] -= d[j]; Cc[r, j] += dc[i]; Cc[r, i] -= dc[j]
+K = (Cc.T * C).applyfunc(sp.cancel)                                   # curl* curl at wave vector k
+s = sum(2 - x - 1 / x for x in u)                                     # = 4 sum sin^2(k_i / 2)
+# (1) K = s 1 - w v^T with w = d, v = conj(d), v^T w = s: eigenvalues 0 (once, on the gradient d) and s (twice)
+wv = sp.Matrix(d) * sp.Matrix(dc).T
+okK = (K - s * sp.eye(3) + wv).applyfunc(sp.cancel) == sp.zeros(3) and sp.cancel(sum(a * b for a, b in zip(d, dc)) - s) == 0
+# (2) determinant lemma with generic symbols: det(a 1 - b w v^T) = a^2 (a - b v.w); the blocks of the tick commute,
+#     so det(mu - M) = det((mu-1)^2 + mu eps kappa K) = ((mu-1)^2 + mu eps kappa s)^2 (mu-1)^2
+a_, b_ = sp.symbols('a b'); ws = sp.symbols('w1:4'); vs = sp.symbols('v1:4')
+lemma = sp.expand((a_ * sp.eye(3) - b_ * sp.Matrix(ws) * sp.Matrix(vs).T).det() - a_ ** 2 * (a_ - b_ * sum(p * q for p, q in zip(ws, vs)))) == 0
+want = (mu - 1) ** 2 * (mu ** 2 - (2 - eps * kap * s) * mu + 1) ** 2
+gauss_row = sp.Matrix([[1 - 1 / x for x in u]])                       # lattice divergence of E at wave vector k
+okG = (gauss_row * K).applyfunc(sp.cancel) == sp.zeros(1, 3)
+# (3) the full 6 x 6 characteristic polynomial and the symplectic identity, exact at rational points of the torus
+M = sp.BlockMatrix([[sp.eye(3) - eps * kap * K, eps * sp.eye(3)], [-kap * K, sp.eye(3)]]).as_explicit()
+J6 = sp.Matrix(sp.BlockMatrix([[sp.zeros(3), sp.eye(3)], [-sp.eye(3), sp.zeros(3)]]).as_explicit())
+okM6 = okS = True
+for t1, t2, t3, e_, k_, m_ in ((sp.Rational(1, 3), sp.Rational(2, 5), sp.Rational(-1, 7), sp.Rational(3, 4), sp.Rational(5, 6), sp.Rational(2, 3)),
+                               (sp.Rational(-2, 3), sp.Rational(1, 9), sp.Rational(4, 5), sp.Rational(1, 2), sp.Rational(7, 3), sp.Rational(-5, 4)),
+                               (sp.Rational(5, 2), sp.Rational(-3, 8), sp.Rational(1, 6), sp.Rational(9, 7), sp.Rational(1, 5), sp.Rational(11, 3))):
+    pt = {u[i]: sp.nsimplify((1 - t * t + 2 * sp.I * t) / (1 + t * t)) for i, t in enumerate((t1, t2, t3))}
+    pt.update({eps: e_, kap: k_, mu: m_})
+    Mn = M.subs(pt).applyfunc(sp.nsimplify)
+    okM6 &= sp.simplify((m_ * sp.eye(6) - Mn).det() - want.subs(pt)) == 0
+    okS &= (Mn.H * J6 * Mn - J6).applyfunc(sp.simplify) == sp.zeros(6)
+out['A_exact'] = {'curl_curl_is_s_minus_rank_one_so_eigenvalues_0_s_s': bool(okK), 's': '4 (sin^2(k1/2) + sin^2(k2/2) + sin^2(k3/2))',
+                  'determinant_lemma': bool(lemma),
+                  'charpoly_of_the_tick_is_(mu-1)^2_(mu^2-(2-eps*kappa*s)mu+1)^2_at_three_rational_points': bool(okM6),
+                  'divergence_row_annihilates_curl_curl': bool(okG), 'tick_is_symplectic_at_three_rational_points': bool(okS),
+                  'dispersion': 'cos(omega) = 1 - 2 eps kappa sum_i sin^2(k_i/2), i.e. sin^2(omega/2) = eps kappa sum_i sin^2(k_i/2)',
+                  'polarizations': 2, 'longitudinal': 'eigenvalue 1 twice (a shear theta_L += eps E_L, E_L conserved): the Gauss mode, no wave',
+                  'speed_at_long_wavelength_cells_per_tick': 'sqrt(eps kappa)',
+                  'small_k': 'omega = c|k| (1 + (c^2 |k|^4 - sum k_i^4) / (24 |k|^2)), c = sqrt(eps kappa)'}
+print('A.', out['A_exact'])
+
+# ---------------------------------------------------------------- B. lattice step against the symbol
+def curl(A): return [A[i] + np.roll(A[j], -1, axis=i) - np.roll(A[i], -1, axis=j) - A[j] for i, j in PL]
+def force(A, linear):
+    F = np.zeros_like(A)
+    for (i, j), B in zip(PL, curl(A)):
+        g = B if linear else np.sin(B)
+        F[i] += g - np.roll(g, 1, axis=j); F[j] += -g + np.roll(g, 1, axis=i)
+    return F
+def step(A, E, e, k, linear=True):
+    E = E - k * force(A, linear); return A + e * E, E
+def Knum(kv):
+    dd = np.exp(1j * np.asarray(kv)) - 1; Cn = np.zeros((3, 3), complex)
+    for r, (i, j) in enumerate(PL): Cn[r, j] += dd[i]; Cn[r, i] -= dd[j]
+    return Cn.conj().T @ Cn
+def Mnum(kv, e, k):
+    Kn = Knum(kv); I = np.eye(3)
+    return np.block([[I - e * k * Kn, e * I], [-k * Kn, I]])
+shape = (8, 6, 4); rng = np.random.default_rng(1)
+grid = np.meshgrid(*[np.arange(n) for n in shape], indexing='ij')
+worst = 0.0; e0, k0 = 0.37, 0.61
+for n in ((1, 0, 0), (1, 2, 1), (3, 1, 2), (4, 3, 2)):
+    kv = 2 * np.pi * np.array(n) / np.array(shape)
+    wave = np.exp(1j * sum(kv[i] * grid[i] for i in range(3)))
+    v = rng.normal(size=6) + 1j * rng.normal(size=6)
+    A, E = step(v[:3, None, None, None] * wave, v[3:, None, None, None] * wave, e0, k0)
+    w = Mnum(kv, e0, k0) @ v
+    worst = max(worst, np.abs(A - w[:3, None, None, None] * wave).max(), np.abs(E - w[3:, None, None, None] * wave).max())
+kv = np.array([0.3, -0.2, 0.5]); ev = np.linalg.eigvals(Mnum(kv, e0, k0))
+om = np.arccos(1 - 2 * e0 * k0 * np.sum(np.sin(kv / 2) ** 2))
+ph = np.sort(np.abs(np.angle(ev)))
+out['B_lattice'] = {'shape': shape, 'eps': e0, 'kappa': k0, 'step_against_symbol_defect': float(worst),
+                    'eigenphases_at_k_(0.3,-0.2,0.5)': [round(float(p), 12) for p in ph], 'closed_form_omega': float(om),
+                    'count_at_omega': int(np.sum(np.abs(ph - om) < 1e-9)), 'count_at_zero': int(np.sum(ph < 1e-6))}
+print('B.', out['B_lattice'])
+
+# ---------------------------------------------------------------- C. packets on a line of 256 cells
+Lc, T, n0, width = 256, 60, 12, 3.0
+xs = np.arange(Lc)
+def omega_tick(k, c2, nsub): return 2 * nsub * np.arcsin(np.sqrt(c2) * np.abs(np.sin(k / 2)))
+def packet_run(e, k, nsub):
+    """transverse polarization (theta_1 varying along axis 0), branch exp(-i omega t); nsub field steps per tick"""
+    A = np.zeros((3, Lc, 1, 1), complex); E = np.zeros_like(A); wsum = vsum = 0.0
+    for n in range(Lc):
+        dn = ((n - n0 + Lc / 2) % Lc) - Lc / 2; g = np.exp(-dn * dn / (2 * width ** 2))
+        if g < 1e-12: continue
+        kk = 2 * np.pi * n / Lc; ss = 4 * np.sin(kk / 2) ** 2; w1 = omega_tick(kk, e * k, 1)
+        A[1, :, 0, 0] += g * np.exp(1j * kk * xs); E[1, :, 0, 0] += g * np.exp(1j * kk * xs) * (np.exp(-1j * w1) - 1 + e * k * ss) / e
+        h = 1e-6; vg = (omega_tick(kk + h, e * k, nsub) - omega_tick(kk - h, e * k, nsub)) / (2 * h)
+        wsum += g * g; vsum += g * g * vg
+    def pos(A):
+        wgt = np.abs(A[1, :, 0, 0]) ** 2
+        return (np.angle(np.sum(wgt * np.exp(2j * np.pi * xs / Lc))) % (2 * np.pi)) * Lc / (2 * np.pi)
+    x0 = pos(A)
+    for _ in range(T * nsub): A, E = step(A, E, e, k)
+    return {'eps': e, 'kappa': k, 'eps_kappa': e * k, 'field_steps_per_tick': nsub, 'ticks': T,
+            'velocity_measured': float(((pos(A) - x0 + Lc / 2) % Lc - Lc / 2) / T), 'd_omega_dk_averaged_over_the_packet': float(vsum / wsum),
+            'd_omega_dk_at_p0': float((omega_tick(2 * np.pi * n0 / Lc + 1e-6, e * k, nsub) - omega_tick(2 * np.pi * n0 / Lc - 1e-6, e * k, nsub)) / 2e-6)}
+rowsC = [packet_run(1.0, 1.0, 1), packet_run(0.25, 4.0, 1), packet_run(0.5, 0.5, 2), packet_run(0.1, 2.5, 2),
+         packet_run(1 / 3, 1 / 3, 3), packet_run(0.5, 2 / 3, 1)]
+w2 = Routing((Lc, 1, 1)); psi = w2.packet(n0, width, lambda p: branch_projected(p, 0.0)); x0 = w2.mean_position(psi)
+for _ in range(T): psi = w2.tick(psi, 0.0)
+matter_v = float(((w2.mean_position(psi) - x0 + Lc / 2) % Lc - Lc / 2) / T)
+out['C_packets'] = {'p0': 2 * np.pi * n0 / Lc, 'rows': rowsC, 'matter_massless_routing_velocity_same_packet': matter_v}
+for r in rowsC: print('C.', r)
+print('C. matter', matter_v)
+
+# ---------------------------------------------------------------- D. stability
+def unstable_share(c2, n=1500):
+    """share of the Brillouin zone with c2 * sum sin^2(k_i/2) > 1 (two-dimensional midpoint grid, third integral closed)"""
+    k = (np.arange(n) + 0.5) * np.pi / n; s1 = np.sin(k / 2) ** 2
+    t = 1 / c2 - s1[:, None] - s1[None, :]
+    return float(np.mean(np.where(t <= 0, 1.0, np.where(t >= 1, 0.0, 1 - 2 / np.pi * np.arcsin(np.sqrt(np.clip(t, 0, 1)))))))
+rowsD = []
+for c2 in (1.0, 0.5, 1 / 3, 0.25):
+    rowsD.append({'eps_kappa': c2, 'stable_for_all_k': bool(3 * c2 <= 1 + 1e-12), 'unstable_share_of_the_zone': unstable_share(c2),
+                  'largest_growth_factor_per_step': float(np.exp(np.arccosh(max(1.0, abs(1 - 6 * c2)))))})
+# executed: compact (nonlinear) step from small noise on 12^3
+def noise_run(e, k, steps, amp, seed=3, L=12, linear=False):
+    r = np.random.default_rng(seed); A = amp * r.normal(size=(3, L, L, L)); E = np.zeros_like(A); rec = []
+    for t in range(steps):
+        A, E = step(A, E, e, k, linear=linear)
+        rec.append(float(np.sqrt(np.mean([np.mean(B ** 2) for B in curl(A)]))))
+    return rec, float(np.mean([np.mean(1 - np.cos(B)) for B in curl(A)]))
+r1, _ = noise_run(1.0, 1.0, 16, 1e-10, linear=True)
+r1b, plaq1 = noise_run(1.0, 1.0, 300, 1e-3)
+r4, plaq4 = noise_run(0.5, 0.5, 600, 1e-3)
+r3, plaq3 = noise_run(1 / np.sqrt(3), 1 / np.sqrt(3), 600, 1e-3)
+out['D_stability'] = {'rule': 'all modes stable iff 3 eps kappa <= 1 (per field step); speed per step at most 1/sqrt(3)', 'rows': rowsD,
+                      'compact_step_from_noise_12^3': {
+                          'eps_kappa_1': {'linear_step_rms_plaquette_angle_growth_per_step_at_steps_14_to_16': [r1[14] / r1[13], r1[15] / r1[14]],
+                                          'predicted_exp_arccosh_5': float(np.exp(np.arccosh(5.0))),
+                                          'compact_step_after_300_steps_from_1e-3': {'mean_1_minus_cos_B': plaq1, 'value_for_uniformly_random_angles': 1.0}},
+                          'eps_kappa_1/3_600_steps_from_1e-3': {'rms_plaquette_angle_first_last_max': [r3[0], r3[-1], max(r3)], 'mean_1_minus_cos_B': plaq3},
+                          'eps_kappa_1/4_600_steps_from_1e-3': {'rms_plaquette_angle_first_last_max': [r4[0], r4[-1], max(r4)], 'mean_1_minus_cos_B': plaq4}},
+                      'corrected_field_step': 'n field steps per tick with eps kappa = 1/n^2 and n >= 2: long-wavelength speed exactly 1 cell per tick, '
+                                              'omega_tick = 2 n arcsin(sqrt(sum sin^2(k_i/2)) / n); n = 2: eps kappa = 1/4'}
+for r in rowsD: print('D.', r)
+print('D.', json.dumps(out['D_stability']['compact_step_from_noise_12^3']))
+
+# ---------------------------------------------------------------- E. one transverse mode as a kicked quantum oscillator
+ng = 512; Lx = 40.0; xg = (np.arange(ng) - ng // 2) * Lx / ng; pg = 2 * np.pi * np.fft.fftfreq(ng, d=Lx / ng)
+e1, ks = 0.5, 0.6                                                     # eps and kappa * s of the mode
+Fm = np.fft.fft(np.eye(ng), axis=0, norm='ortho')
+U = Fm.conj().T @ (np.exp(-1j * e1 * pg ** 2 / 2)[:, None] * Fm) * np.exp(-1j * ks * xg ** 2 / 2)[None, :]
+wv, vv = np.linalg.eig(U)
+x2 = np.real(np.sum(np.abs(vv) ** 2 * xg[:, None] ** 2, axis=0) / np.sum(np.abs(vv) ** 2, axis=0))
+order = np.argsort(x2)[:8]
+phases = -np.angle(wv[order])
+gaps = [float((phases[i + 1] - phases[i]) % (2 * np.pi)) for i in range(7)]
+out['E_quantum_mode'] = {'eps': e1, 'kappa_s': ks, 'omega_closed_form': float(np.arccos(1 - e1 * ks / 2)),
+                         'quasi_energy_spacings_of_the_eight_lowest_states': gaps,
+                         'ground_phase_over_omega': float(phases[0] / np.arccos(1 - e1 * ks / 2))}
+print('E.', out['E_quantum_mode'])
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 'field_symbol.json', 'w'), indent=1)

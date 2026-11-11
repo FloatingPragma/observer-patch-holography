@@ -1,0 +1,66 @@
+"""LP addendum 2 (items I1, I2): stationary states of the tick with weight one on double loads, and the record reset.
+EXACT. Writes lp7_idle.json.
+"""
+from __future__ import annotations
+
+import json
+import sys
+import time
+from fractions import Fraction as Fr
+
+import numpy as np
+
+import lp_common as L
+from lp5_construction import tick_weights, count
+
+OUT = 'lp7_idle.json'
+
+
+def main():
+    t0 = time.time()
+    out = {'task': 'LP addendum 2: idle doubles and the record reset', 'provenance': L.FC.provenance()}
+    # public local unitary on the rows |20, r>, |02, r>, r = 1, 2, 3
+    fixed_rows = all(L.U24_COL[4 * L.NAMES.index(src) + r] == [(4 * L.NAMES.index(src) + r, Fr(1))]
+                     for src in ('20', '02') for r in (1, 2, 3))
+    out['public local unitary fixes |20,r> and |02,r> for r = 1, 2, 3'] = fixed_rows
+    res = {}
+    for name, m in (('hexagon FP, holonomy -1', L.hexagon('FP', -1)), ('hexagon FN, holonomy -1', L.hexagon('FN', -1)),
+                    ('carrier FP, flat', L.carrier_model())):
+        D = m.D()
+        n = m.ncr
+        dbl = [c for c in range(len(m.cfg)) if m.is_double(m.cfg[c])]
+        idle_d = [4 * c + r for c in dbl for r in (1, 2, 3)]
+        diag_one = all(D[i][i] == 1 for i in idle_d)
+        iso = all(D[i][j] == 0 and D[j][i] == 0 for i in idle_d for j in range(n) if j != i)
+        # all (configuration, record) states with a double configuration: 4 per double
+        all_d = [4 * c + r for c in dbl for r in range(4)]
+        # eigenvalue +1 of W with weight one on doubles: W-invariant states supported on double configurations.
+        # the blank doubles emit (D diagonal below 1), so the support is the idle doubles; there W = R, fixed space = uniform address
+        blank_diag = sorted({str(D[4 * c][4 * c]) for c in dbl})
+        res[name] = {'idle doubles (configuration double, record 1, 2, 3)': len(idle_d),
+                     'D acts as the identity on each of them': bool(diag_one and iso),
+                     'D diagonal on the blank doubles': blank_diag,
+                     'stationary states with weight one on double loads': f'{len(idle_d)} (idle doubles with the uniform address)',
+                     'records written by them at any tick': 0}
+    out['I1'] = res
+    # I2: record reset of the uniform idle double
+    m = L.hexagon('FP', -1)
+    rows = {}
+    for r in (1, 2, 3):
+        idle = m.embed({m.cfg_of(p, p): Fr(1) for p in L.HEX}, rec=r)
+        w1 = m.W(idle)
+        stationary = (w1 == idle)
+        # reset: the record register of a product state is replaced by a blank one
+        bare = {(c, 0, k): a for (c, rec, k), a in idle.items()}
+        st, w1b, wt, n0 = tick_weights(m, {m.cfg_of(p, p): Fr(1) for p in L.HEX})
+        rows[f'record {r}'] = {'stationary under the tick': stationary, 'state after the reset equals A U6': bare == st,
+                               'tick-1 weights after the reset': {k: str(v) for k, v in sorted(wt.items())}, 'X': str(count(wt))}
+    out['I2'] = rows
+    print(json.dumps(out, indent=1, default=str))
+    out['seconds'] = round(time.time() - t0, 2)
+    L.jdump(out, OUT)
+    print('written', OUT, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

@@ -1,0 +1,80 @@
+"""Variant for the persistence clause: the momentum sum kept in a finite register, each signed axis count modulo Q
+(centred representative). The walk on (Z/Q)^6 has the uniform stationary law (on one parity class for even Q), so the
+spatial readout x = sum_a m_a u_a has a stationary smooth density (the projection of the 6-cube, variance Q^2/6 per
+axis) and the cloud stops diluting. Test: the window statistic of block 3C (diamond of duration dT at the centre)
+at two times t0, for the unbounded sum and for the register.
+
+python b6_modular.py [--procs 12 --seeds 6]    writes results/b6_modular.json
+"""
+import argparse, json, os, time
+from multiprocessing import Pool
+import numpy as np
+import mc_lib as L
+import b3c_momenta as C3
+
+U6, S, AXI, SGN = C3.U6, C3.S, C3.AXI, C3.SGN
+
+
+def centred(m, Q):
+    return (m + Q // 2) % Q - Q // 2 if Q else m
+
+
+def one(a):
+    Q, t0, dT, K, seed = a
+    rng = np.random.default_rng([seed, Q, t0, dT, 61])
+    pts_n, pts_m = [], []
+    done = 0
+    while done < K:
+        k = min(100_000, K - done); done += k
+        cnt = rng.multinomial(t0, [1 / 12] * 12, size=k)
+        m0 = np.zeros((k, 6), np.int64)
+        for p in range(12):
+            m0[:, AXI[p]] += SGN[p] * cnt[:, p]
+        m0 = centred(m0, Q)
+        if not Q:        # unbounded sum: only carriers within dT of the centre can enter the diamond
+            m0 = m0[np.linalg.norm(m0 @ U6, axis=1) <= dT + 1e-9]
+            if m0.shape[0] == 0:
+                continue
+        # with a register every carrier is advanced: a wrap moves a site by Q u_a and can bring it into the diamond
+        n, m = C3.partial_sums(rng.integers(12, size=(m0.shape[0], dT)))
+        m = centred(m + m0[:, None, :], Q)
+        x = m.reshape(-1, 6) @ U6
+        s = n.reshape(-1).astype(float)
+        inside = np.linalg.norm(x, axis=1) <= np.minimum(s, dT - s) + 1e-9
+        pts_n.append(n.reshape(-1)[inside]); pts_m.append(m.reshape(-1, 6)[inside])
+    n = np.concatenate(pts_n); m = np.vstack(pts_m)
+    found = int(n.size)
+    early = int((n <= dT // 2).sum()); late = found - early
+    key = np.unique(np.column_stack([n, m]), axis=0)
+    if key.shape[0] > 3000:
+        key = key[rng.choice(key.shape[0], 3000, replace=False)]
+    if key.shape[0] < 50:
+        return {'Q': Q, 't0': t0, 'dT': dT, 'K': K, 'seed': seed, 'points_found': found, 'N': int(key.shape[0])}
+    st = L.order_stats(L.relation_axis_counts(key[:, 0], key[:, 1:], S))
+    st.update({'Q': Q, 't0': t0, 'dT': dT, 'K': K, 'seed': seed, 'points_found': found, 'late_over_early_half': late / max(1, early)})
+    return st
+
+
+if __name__ == '__main__':
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--procs', type=int, default=12)
+    ap.add_argument('--seeds', type=int, default=6)
+    a = ap.parse_args()
+    t0 = time.time()
+    K = 400_000
+    jobs = [(Q, t, 16, K, s) for Q in (0, 32, 64) for t in (2_000, 20_000, 200_000) for s in range(a.seeds)]
+    with Pool(a.procs) as pool:
+        rows = pool.map(one, jobs, chunksize=1)
+    out = {}
+    for Q in (0, 32, 64):
+        for t in (2_000, 20_000, 200_000):
+            sel = [r for r in rows if (r['Q'], r['t0']) == (Q, t)]
+            d = L.summarize(sel, keys=('points_found', 'late_over_early_half', 'N', 'r', 'd_r', 'm', 'd_m', 'links', 'height'))
+            out[f'{"unbounded" if Q == 0 else "register Q=" + str(Q)}|t0={t}|dT=16|K={K}'] = d
+    res = {'seconds': time.time() - t0, 'result': out}
+    os.makedirs('results', exist_ok=True)
+    json.dump(res, open('results/b6_modular.json', 'w'), indent=1, default=float)
+    for k, v in out.items():
+        f = lambda key: f"{v[key][0]:.4g}+-{v[key][1]:.2g}" if key in v else '-'
+        print(f'{k:44s} points in diamond {f("points_found"):>16s}  late/early {f("late_over_early_half")}  r {f("r")}  d_r {f("d_r")}  d_m {f("d_m")}  links {f("links")}  height {f("height")}')
+    print('seconds', round(res['seconds'], 1))

@@ -1,0 +1,28 @@
+"""Size probe: closed class of the static law on the icosahedron for one unit pair (contrast space)."""
+import sys, time
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import s1lib as S
+ico = S.icosahedron()
+cap = int(sys.argv[1]) if len(sys.argv) > 1 else 300000
+for (f0, f1, m) in ((0, 1, 0), (0, 1, 6)):
+    x = tuple(1 if p < m else 0 for p in range(12))
+    b = ico.string(f0, f1)
+    d0 = tuple(g - o for g, o in zip(ico.grad(x), b))
+    seen = {d0}; frontier = [d0]; t0 = time.time(); layers = 0
+    maxd = 0
+    while frontier and len(seen) < cap:
+        nxt = []
+        for d in frontier:
+            for e in range(ico.M):
+                de = d[e]
+                if de == 0: continue
+                for c in (0, 1):
+                    j = S.ref(de, c)
+                    if j == 0: continue
+                    t = ico.apply(d, e, j, 0)
+                    if t not in seen:
+                        seen.add(t); nxt.append(t)
+        frontier = nxt; layers += 1
+    maxd = max(max(abs(v) for v in d) for d in seen)
+    print(dict(pair=(f0, f1), dist=ico.ddist[f0][f1], m=m, states=len(seen), layers=layers, open_frontier=len(frontier), maxd=maxd, sec=round(time.time()-t0, 1)), flush=True)

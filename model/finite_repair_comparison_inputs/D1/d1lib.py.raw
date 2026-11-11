@@ -1,0 +1,535 @@
+"""Worker D1 library. The ports of one cubic frame as the elements of its rotation group (order 12).
+
+Everything here is exact: integers, Q(sqrt5) (kdlib.K of worker KD, imported by path) and Q(zeta_60) (class C60 below,
+which contains sqrt5, i and the cube root of unity w). No floating point enters an identity.
+
+Conventions
+  rotation g      a port permutation, g[p] = image of port p (kdlib / the public carrier)
+  frame f         one of the five Klein groups (kdlib.frames()), with three unit axes over Q(sqrt5)
+  T_f             the twelve rotations that keep the frame matching: the frame group
+  frame coords    N v with N the matrix of the three axes (made right-handed); every port is (0, +-1, +-phi) cyclically
+  body axes       of a port p: s(p) = signed short axis (coordinate +-1), l(p) = signed long axis (coordinate +-phi),
+                  n(p) = s(p) x l(p) the normal of the port's golden rectangle. In them the port is (0, 1, phi).
+  base port p0    port p <-> the element g_p of T_f with g_p p0 = p
+  left action     L(k): port p -> k p            (the geometric rotations)
+  right action    R(k): port g p0 -> g k^-1 p0   (commutes with every L)
+"""
+from fractions import Fraction as F
+from functools import lru_cache
+
+import kdlib as kd
+from kdlib import K, ZERO, ONE
+
+IDP = tuple(range(12))
+
+
+# ---------------------------------------------------------------------------------------------------------
+# permutations
+# ---------------------------------------------------------------------------------------------------------
+def pmul(p, r):
+    """(p after r)[i] = p[r[i]]."""
+    return tuple(p[r[i]] for i in range(len(r)))
+
+
+def pinv(p):
+    q = [0] * len(p)
+    for i, x in enumerate(p):
+        q[x] = i
+    return tuple(q)
+
+
+def pmat(p):
+    """Integer matrix of the operator that carries the amplitude of port i to port p[i]: (M f)(p[i]) = f(i)."""
+    n = len(p)
+    M = [[0] * n for _ in range(n)]
+    for i in range(n):
+        M[p[i]][i] = 1
+    return M
+
+
+def imm(A, B):
+    n, k, m = len(A), len(B), len(B[0])
+    return [[sum(A[i][t] * B[t][j] for t in range(k) if A[i][t]) for j in range(m)] for i in range(n)]
+
+
+def iadd(A, B):
+    return [[x + y for x, y in zip(r, s)] for r, s in zip(A, B)]
+
+
+def isub(A, B):
+    return [[x - y for x, y in zip(r, s)] for r, s in zip(A, B)]
+
+
+def iscale(c, A):
+    return [[c * x for x in r] for r in A]
+
+
+def itrans(A):
+    return [list(r) for r in zip(*A)]
+
+
+def ieye(n):
+    return [[int(i == j) for j in range(n)] for i in range(n)]
+
+
+def izero(A):
+    return all(x == 0 for r in A for x in r)
+
+
+def irank(A):
+    """Exact rank over Q (Fractions)."""
+    rows = [[F(x) for x in r] for r in A]
+    rk = 0
+    ncol = len(rows[0]) if rows else 0
+    for col in range(ncol):
+        piv = next((i for i in range(rk, len(rows)) if rows[i][col] != 0), None)
+        if piv is None:
+            continue
+        rows[rk], rows[piv] = rows[piv], rows[rk]
+        for i in range(rk + 1, len(rows)):
+            if rows[i][col] != 0:
+                fct = rows[i][col] / rows[rk][col]
+                rows[i] = [x - fct * y for x, y in zip(rows[i], rows[rk])]
+        rk += 1
+        if rk == len(rows):
+            break
+    return rk
+
+
+# ---------------------------------------------------------------------------------------------------------
+# carrier and frames
+# ---------------------------------------------------------------------------------------------------------
+@lru_cache(maxsize=1)
+def adjacency():
+    A = [[0] * 12 for _ in range(12)]
+    for a, b in kd.carrier()['seams']:
+        A[a][b] = A[b][a] = 1
+    return A
+
+
+@lru_cache(maxsize=1)
+def antipode():
+    V = kd.carrier()['V']
+    out = []
+    for p in range(12):
+        q = next(q for q in range(12) if all((V[p][i] + V[q][i]).is_zero() for i in range(3)))
+        out.append(q)
+    return tuple(out)
+
+
+@lru_cache(maxsize=1)
+def faces():
+    A = adjacency()
+    return tuple((a, b, c) for a in range(12) for b in range(a + 1, 12) for c in range(b + 1, 12)
+                 if A[a][b] and A[b][c] and A[a][c])
+
+
+def kmat3(rows):
+    return tuple(tuple(K.lift(x) for x in r) for r in rows)
+
+
+def kint(x):
+    """An element of Q(sqrt5) that must be an integer."""
+    assert x.b == 0 and x.c == 0 and x.d == 0 and x.a.denominator == 1, x
+    return int(x.a)
+
+
+@lru_cache(maxsize=None)
+def frame(f):
+    """Exact data of frame f: group, axes, frame coordinates of the ports, integer rotation matrices, body axes."""
+    fr = kd.frames()[f]
+    car = kd.carrier()
+    match = set(fr['matching'])
+    T = tuple(g for g in car['rotations'] if {tuple(sorted((g[a], g[b]))) for a, b in match} == match)
+    assert len(T) == 12
+    idx = {g: i for i, g in enumerate(T)}
+    axes = [h['axis'] for h in fr['half_turns']]
+    det = kd.vdot(axes[0], kd.vcross(axes[1], axes[2]))
+    assert det == ONE or det == -ONE
+    if det == -ONE:
+        axes[2] = tuple(-x for x in axes[2])
+    N = tuple(axes)                                                   # rows: the three axes, right-handed
+    # frame coordinates of the ports; all of the form (0, +-1, +-phi) up to a cyclic permutation. If the listed axes
+    # give the mirror form (0, +-phi, +-1), exchange two axes and reverse the third (a proper rotation of the axes).
+    def port_coords(N_):
+        return [tuple(kd.vdot(N_[i], car['V'][p]) for i in range(3)) for p in range(12)]
+    coords = port_coords(N)
+    c0 = coords[0]
+    iz = next(i for i in range(3) if c0[i].is_zero())
+    i1 = next(i for i in range(3) if c0[i] == ONE or c0[i] == -ONE)
+    if (i1 - iz) % 3 != 1:
+        N = (N[1], N[0], tuple(-x for x in N[2]))
+        coords = port_coords(N)
+    assert kd.vdot(N[0], kd.vcross(N[1], N[2])) == ONE
+    for c in coords:
+        iz = next(i for i in range(3) if c[i].is_zero())
+        assert c[(iz + 1) % 3] in (ONE, -ONE) and c[(iz + 2) % 3] in (kd.PHI, -kd.PHI)
+    # integer rotation matrices in frame coordinates
+    rho = {}
+    for g in T:
+        Rg = kd.rotation_matrix(g)
+        M = kd.mm(N, Rg, kd.transpose(N))
+        rho[g] = tuple(tuple(kint(x) for x in row) for row in M)
+        assert all(sorted(abs(x) for x in row) == [0, 0, 1] for row in rho[g])
+    # body axes of every port
+    body = []
+    for p in range(12):
+        c = coords[p]
+        zero = [i for i in range(3) if c[i].is_zero()]
+        one = [i for i in range(3) if c[i] == ONE or c[i] == -ONE]
+        phi = [i for i in range(3) if c[i] == kd.PHI or c[i] == -kd.PHI]
+        assert len(zero) == len(one) == len(phi) == 1, c
+        s = [0, 0, 0]; l = [0, 0, 0]
+        s[one[0]] = 1 if c[one[0]] == ONE else -1
+        l[phi[0]] = 1 if c[phi[0]] == kd.PHI else -1
+        n = [s[1] * l[2] - s[2] * l[1], s[2] * l[0] - s[0] * l[2], s[0] * l[1] - s[1] * l[0]]
+        assert abs(n[zero[0]]) == 1
+        body.append((tuple(n), tuple(s), tuple(l)))
+    kinds = {}
+    for g in T:
+        tr = sum(rho[g][i][i] for i in range(3))
+        kinds[g] = {3: 'identity', -1: 'half-turn', 0: 'third of a turn'}[tr]
+    return {'f': f, 'T': T, 'index': idx, 'matching': tuple(sorted(match)), 'axes': N, 'coords': tuple(coords),
+            'rho': rho, 'body': tuple(body), 'kind': kinds,
+            'klein': tuple(h['perm'] for h in fr['half_turns'])}
+
+
+def i3mul(A, B):
+    return tuple(tuple(sum(A[i][t] * B[t][j] for t in range(3)) for j in range(3)) for i in range(3))
+
+
+def i3T(A):
+    return tuple(zip(*A))
+
+
+def i3vec(A, v):
+    return tuple(sum(A[i][t] * v[t] for t in range(3)) for i in range(3))
+
+
+@lru_cache(maxsize=None)
+def torsor(f, p0):
+    """The identification port <-> group element with base port p0, and everything that follows from it."""
+    fr = frame(f)
+    T, rho = fr['T'], fr['rho']
+    elem = {}
+    for g in T:
+        assert g[p0] not in elem                                   # free
+        elem[g[p0]] = g
+    assert len(elem) == 12                                         # transitive
+    B0 = fr['body'][p0]                                            # rows n, s, l of the base port (frame coordinates)
+    rhoB = {g: i3mul(i3mul(B0, rho[g]), i3T(B0)) for g in T}       # rotation matrices in the body axes of p0
+    A = adjacency()
+    S = tuple(g for g in T if A[p0][g[p0]])                        # the elements that move p0 to a neighbour
+    # right translations as port permutations: g p0 -> g k^-1 p0
+    right = {}
+    for k in T:
+        ki = pinv(k)
+        right[k] = tuple(pmul(elem[p], ki)[p0] for p in range(12))
+    return {'f': f, 'p0': p0, 'elem': elem, 'S': S, 'right': right, 'B0': B0, 'rhoB': rhoB}
+
+
+def rot3(d):
+    """Third of a turn, counterclockwise about the signed diagonal d (entries +-1; right-hand rule), as a 3x3 integer
+    matrix. With D = diag(d): D C D for an even number of minus signs and D C^-1 D for an odd number, C: e_i -> e_(i+1)."""
+    assert all(abs(x) == 1 for x in d)
+    step = 1 if d[0] * d[1] * d[2] == 1 else -1
+    M = [[0] * 3 for _ in range(3)]
+    for i in range(3):
+        j = (i + step) % 3
+        M[j][i] = d[i] * d[j]
+    # the axis is fixed and the sense is positive: d . (v x M v) > 0 for a vector v off the axis
+    assert tuple(sum(M[i][t] * d[t] for t in range(3)) for i in range(3)) == tuple(d)
+    v = (1, 0, 0); Mv = tuple(M[i][0] for i in range(3))
+    cr = (v[1] * Mv[2] - v[2] * Mv[1], v[2] * Mv[0] - v[0] * Mv[2], v[0] * Mv[1] - v[1] * Mv[0])
+    assert sum(d[i] * cr[i] for i in range(3)) > 0
+    return tuple(tuple(r) for r in M)
+
+
+def canonical_ops(f):
+    """Frame partner swap F, antipode P, and the two face rotations C+ and C-, defined without a base port.
+
+    C+ (C-) turns every port by a third of a turn, counterclockwise seen from outside, inside the one face of the
+    first (second) inscribed tetrahedron that contains it; that face is centred on n + s + l (on -n + s + l) in the
+    port's own body axes."""
+    fr = frame(f)
+    Fp = [None] * 12
+    for a, b in fr['matching']:
+        Fp[a] = b; Fp[b] = a
+    P = antipode()
+    coords, rho, T = fr['coords'], fr['rho'], fr['T']
+    # integer coordinate triples (a, b) meaning a + b phi per component
+    def comp(x):
+        # x in {0, +-1, +-phi}
+        if x.is_zero():
+            return (0, 0)
+        if x == ONE:
+            return (1, 0)
+        if x == -ONE:
+            return (-1, 0)
+        if x == kd.PHI:
+            return (0, 1)
+        if x == -kd.PHI:
+            return (0, -1)
+        raise ValueError(x)
+    cc = [tuple(comp(x) for x in coords[p]) for p in range(12)]
+    where = {c: p for p, c in enumerate(cc)}
+    def rot_about(d):
+        return rot3(d)
+    def apply(M, c):
+        return tuple((sum(M[i][t] * c[t][0] for t in range(3)), sum(M[i][t] * c[t][1] for t in range(3))) for i in range(3))
+    Cp, Cm = [None] * 12, [None] * 12
+    for p in range(12):
+        n, s, l = fr['body'][p]
+        for sign, out in ((1, Cp), (-1, Cm)):
+            d = tuple(sign * n[i] + s[i] + l[i] for i in range(3))
+            assert all(abs(x) == 1 for x in d)
+            out[p] = where[apply(rot_about(d), cc[p])]
+    return {'F': tuple(Fp), 'P': tuple(P), 'C+': tuple(Cp), 'C-': tuple(Cm)}
+
+
+# ---------------------------------------------------------------------------------------------------------
+# Q(zeta_60): contains sqrt5, i, w = exp(2 pi i/3), zeta_20
+# ---------------------------------------------------------------------------------------------------------
+_DEG = 16
+_TOP = ((14, -1), (10, 1), (8, 1), (6, 1), (2, -1), (0, -1))          # x^16 = -x^14 + x^10 + x^8 + x^6 - x^2 - 1
+
+
+def _powers():
+    out = []
+    cur = [0] * _DEG
+    cur[0] = 1
+    for _ in range(60):
+        out.append(tuple(cur))
+        top = cur[_DEG - 1]
+        nxt = [0] + cur[:_DEG - 1]
+        if top:
+            for i, c in _TOP:
+                nxt[i] += c * top
+        cur = nxt
+    assert tuple(cur) == out[0], 'zeta^60 != 1'
+    assert all(out[e] != out[0] for e in range(1, 60)), 'zeta is not primitive'
+    return tuple(out)
+
+
+_POW = _powers()
+
+
+class C60:
+    """Element of Q(zeta), zeta = exp(2 pi i/60): sixteen rational coefficients of 1, zeta, ..., zeta^15."""
+    __slots__ = ('c',)
+
+    def __init__(self, c=None):
+        self.c = tuple(F(x) for x in c) if c is not None else (F(0),) * _DEG
+
+    @staticmethod
+    def lift(x):
+        if isinstance(x, C60):
+            return x
+        if isinstance(x, (int, F)):
+            return C60((x,) + (0,) * (_DEG - 1))
+        if isinstance(x, K):
+            return C60.lift(x.a) + S5 * x.b + IU * (C60.lift(x.c) + S5 * x.d)
+        raise TypeError(type(x))
+
+    @staticmethod
+    def root(e):
+        return C60(_POW[e % 60])
+
+    def __add__(self, o):
+        o = C60.lift(o)
+        return C60(tuple(a + b for a, b in zip(self.c, o.c)))
+    __radd__ = __add__
+
+    def __neg__(self):
+        return C60(tuple(-a for a in self.c))
+
+    def __sub__(self, o):
+        return self + (-C60.lift(o))
+
+    def __rsub__(self, o):
+        return C60.lift(o) - self
+
+    def __mul__(self, o):
+        o = C60.lift(o)
+        acc = [F(0)] * (2 * _DEG - 1)
+        for i, a in enumerate(self.c):
+            if a:
+                for j, b in enumerate(o.c):
+                    if b:
+                        acc[i + j] += a * b
+        out = [F(0)] * _DEG
+        for e, a in enumerate(acc):
+            if a:
+                for i, x in enumerate(_POW[e]):
+                    if x:
+                        out[i] += a * x
+        return C60(out)
+    __rmul__ = __mul__
+
+    def gal(self, a):
+        """zeta -> zeta^a (a coprime to 60)."""
+        out = [F(0)] * _DEG
+        for e, x in enumerate(self.c):
+            if x:
+                for i, y in enumerate(_POW[(a * e) % 60]):
+                    if y:
+                        out[i] += x * y
+        return C60(out)
+
+    def conj(self):
+        return self.gal(59)
+
+    def __eq__(self, o):
+        return self.c == C60.lift(o).c
+
+    def __hash__(self):
+        return hash(self.c)
+
+    def is_zero(self):
+        return not any(self.c)
+
+    def is_real(self):
+        return self == self.conj()
+
+    def is_rational(self):
+        return not any(self.c[1:])
+
+    def inv(self):
+        """Inverse by solving the 16x16 rational system of the multiplication map."""
+        cols = [(self * C60.root(e)).c for e in range(_DEG)]            # image of zeta^e
+        M = [[cols[j][i] for j in range(_DEG)] + [F(int(i == 0))] for i in range(_DEG)]
+        n = _DEG
+        for col in range(n):
+            piv = next(i for i in range(col, n) if M[i][col] != 0)
+            M[col], M[piv] = M[piv], M[col]
+            pv = M[col][col]
+            M[col] = [x / pv for x in M[col]]
+            for i in range(n):
+                if i != col and M[i][col] != 0:
+                    fct = M[i][col]
+                    M[i] = [x - fct * y for x, y in zip(M[i], M[col])]
+        out = C60(tuple(M[i][n] for i in range(n)))
+        assert self * out == C60.lift(1)
+        return out
+
+    def __truediv__(self, o):
+        return self * C60.lift(o).inv()
+
+    def __complex__(self):
+        import cmath
+        return complex(sum(float(x) * cmath.exp(2j * cmath.pi * e / 60) for e, x in enumerate(self.c) if x))
+
+    def real_float(self):
+        z = complex(self)
+        return z.real
+
+    def q5(self):
+        """(a, b) with self = a + b sqrt5 when self lies in Q(sqrt5); else None."""
+        # solve in the basis 1, sqrt5
+        s5 = S5.c
+        b = None
+        for i in range(1, _DEG):
+            if s5[i] != 0:
+                b = self.c[i] / s5[i]
+                break
+        a = self.c[0] - b * s5[0]
+        return (a, b) if (C60.lift(a) + S5 * b) == self else None
+
+    def __repr__(self):
+        q = self.q5()
+        if q is not None:
+            a, b = q
+            if b == 0:
+                return str(a)
+            if a == 0:
+                return f'{b}*r5'
+            return f'({a}+{b}*r5)'
+        return 'C60(' + ','.join(str(x) for x in self.c) + ')'
+
+
+IU = C60.root(15)                                                       # i
+W3 = C60.root(20)                                                       # w = exp(2 pi i/3)
+Z20 = C60.root(3)                                                       # exp(2 pi i/20)
+S5 = C60.root(12) - C60.root(24) - C60.root(36) + C60.root(48)          # sqrt5 = 2cos72 - 2cos144
+S3 = -IU * (W3 + W3 + C60.lift(1))                                      # sqrt3 = -i(2w + 1)
+assert IU * IU == C60.lift(-1) and W3 * W3 + W3 + C60.lift(1) == C60.lift(0)
+assert S5 * S5 == C60.lift(5) and S5.real_float() > 0
+assert S3 * S3 == C60.lift(3) and S3.real_float() > 0
+PHI60 = (C60.lift(1) + S5) * F(1, 2)
+C1 = C60.lift(1)
+C0 = C60.lift(0)
+
+
+def cmat(rows):
+    return tuple(tuple(C60.lift(x) for x in r) for r in rows)
+
+
+def cmm(A, B):
+    n, k, m = len(A), len(B), len(B[0])
+    out = []
+    for i in range(n):
+        row = []
+        for j in range(m):
+            s = C0
+            for t in range(k):
+                a, b = A[i][t], B[t][j]
+                if not a.is_zero() and not b.is_zero():
+                    s = s + a * b
+            row.append(s)
+        out.append(tuple(row))
+    return tuple(out)
+
+
+def cadd(A, B):
+    return tuple(tuple(x + y for x, y in zip(r, s)) for r, s in zip(A, B))
+
+
+def csub(A, B):
+    return tuple(tuple(x - y for x, y in zip(r, s)) for r, s in zip(A, B))
+
+
+def cscale(c, A):
+    c = C60.lift(c)
+    return tuple(tuple(c * x for x in r) for r in A)
+
+
+def cdag(A):
+    return tuple(tuple(A[i][j].conj() for i in range(len(A))) for j in range(len(A[0])))
+
+
+def ceq(A, B):
+    return len(A) == len(B) and all(x == y for r, s in zip(A, B) for x, y in zip(r, s))
+
+
+def ceye(n):
+    return tuple(tuple(C1 if i == j else C0 for j in range(n)) for i in range(n))
+
+
+def cdot(a, b):
+    """Hermitian product <a|b> = sum conj(a_i) b_i."""
+    s = C0
+    for x, y in zip(a, b):
+        if not x.is_zero() and not y.is_zero():
+            s = s + x.conj() * y
+    return s
+
+
+def cnull3(M):
+    """A nonzero null vector of a singular 3x3 matrix of rank 2 (cross product of two independent rows, conjugated
+    so that M v = 0)."""
+    for i in range(3):
+        for j in range(i + 1, 3):
+            a, b = M[i], M[j]
+            v = tuple(a[(t + 1) % 3] * b[(t + 2) % 3] - a[(t + 2) % 3] * b[(t + 1) % 3] for t in range(3))
+            if any(not x.is_zero() for x in v):
+                for row in M:
+                    s = C0
+                    for x, y in zip(row, v):
+                        s = s + x * y
+                    assert s.is_zero()
+                return v
+    raise ValueError('rank below two')
+
+
+def cfloat(A):
+    return [[complex(x) for x in r] for r in A]

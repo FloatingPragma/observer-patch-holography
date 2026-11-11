@@ -1,0 +1,109 @@
+"""Worker HR: gates for the hypercharge engine (hr_u1.py) and the compact engine (hr_compact.py).
+Writes checks2.json. Reads no measured value. Usage: python hr_checks2.py [u1|compact|all]
+"""
+import json
+import sys
+import time
+
+import numpy as np
+
+import hr_compact as HC
+import hr_lib as H
+import hr_u1 as HU
+
+part = sys.argv[1] if len(sys.argv) > 1 else "all"
+try:
+    out = json.load(open("checks2.json"))
+except Exception:
+    out = {}
+t0 = time.time()
+
+if part in ("u1", "all"):
+    # gauge invariance under both factors
+    lat = HU.LatticeU1(4, 5.171, 0.134, 0.002, seed=11)
+    for _ in range(30):
+        lat.sweep()
+    m0 = lat.measure(); p0 = np.array(lat.plaquettes()); W0, S0, La0 = lat.slice_ops()
+    g = H.random_su2(lat.V, lat.rng)
+    lat.gauge_transform(g)
+    m1 = lat.measure(); p1 = np.array(lat.plaquettes())
+    chi = lat.rng.uniform(-np.pi, np.pi, size=lat.V)
+    lat.gauge_transform_u1(chi)
+    m2 = lat.measure(); p2 = np.array(lat.plaquettes()); W2, S2, La2 = lat.slice_ops()
+    neutral = [2, 5, 8]
+    out["U1_gauge_invariance"] = {
+        "weak_factor_max_change": float(max(np.abs(m0 - m1).max(), np.abs(p0 - p1).max())),
+        "hypercharge_max_change": float(max(np.abs(m1 - m2).max(), np.abs(p1 - p2).max())),
+        "neutral_vector_component_max_change": float(np.abs(W0[:, neutral] - W2[:, neutral]).max()),
+        "charged_vector_components_max_change_(not_invariant)": float(np.abs(W0[:, [0, 1]] - W2[:, [0, 1]]).max())}
+    print(out["U1_gauge_invariance"], flush=True)
+    # kappa = 0: plaquettes; estimate <cos 2 a_P> = 1 - 1/(4 (6/g^2 + (9/4) beta_G <trV/2>))
+    lat = HU.LatticeU1(4, 5.171, 0.0, 0.0, seed=12)
+    for _ in range(100):
+        lat.sweep()
+    acc = []
+    for _ in range(400):
+        lat.sweep(); acc.append(lat.plaquettes())
+    acc = np.array(acc)
+    pw, pv, c2, c3 = acc.mean(0)
+    est = 1 - 1 / (4 * (1.5 * 5.171 + 2.25 * 5.171 * pv))
+    out["U1_kappa0"] = {"weak_term": pw, "trV_over_2": pv, "cos_2a": c2, "cos_3a": c3, "cos_2a_estimate": est,
+                        "cos_2a_err": H.blocked_error(acc[:, 2]), "trV_over_2_without_hypercharge_(G4)": 0.84791,
+                        "acc_u1": lat.acc_u1[0] / lat.acc_u1[1]}
+    print(out["U1_kappa0"], flush=True)
+    # Schwinger-Dyson on both sides
+    sd = []
+    for kap, lam in ((0.125, 0.002), (0.136, 0.002)):
+        lat = HU.LatticeU1(4, 5.171, kap, lam, seed=13)
+        if kap > 0.13:
+            lat.phi[:] = 0; lat.phi[:, 0] = 3.0
+        res, rows = H.run_point(lat, 150, 1200)
+        sd.append({"kappa": kap, "lambda": lam, "rho2": res["rho2"], "L_alpha": res["L_alpha"], "sd_residual": res["sd_residual"],
+                   "sd_err": res["sd_residual_err"]})
+        print(sd[-1], flush=True)
+    out["U1_schwinger_dyson"] = sd
+
+if part in ("compact", "all"):
+    # gauge invariance and the frozen-link control: unit links, h = 0: O(5) model; <n_x . n_y> must be equal in the
+    # five components on average, so <sin^2 theta> = 4/5 at small beta_H and the full link is O(5) invariant
+    lat = HC.Compact(4, 5.171, 10.342, 0.0, seed=21)
+    for _ in range(30):
+        lat.sweep()
+    m0 = lat.measure()
+    g = H.random_su2(lat.V, lat.rng)
+    lat.n[:, 1:] = H.qmul(g, lat.n[:, 1:])
+    for m in range(4):
+        lat.U[m] = H.qmul(H.qmul(g, lat.U[m]), H.qc(g[lat.up[m]]))
+    m1 = lat.measure()
+    out["compact_gauge_invariance_max_change"] = float(np.abs(m0 - m1).max())
+    out["compact_unit_norm_defect"] = float(np.abs((lat.n ** 2).sum(1) - 1).max())
+    # beta_H = 0: uniform sphere: <sin^2 theta> = 4/5, <|cos theta|> = 3/8
+    lat = HC.Compact(4, 5.171, 0.0, 0.0, seed=22)
+    lat.start_random()
+    acc = []
+    for _ in range(300):
+        lat.sweep(); acc.append(lat.measure())
+    acc = np.array(acc)
+    out["compact_beta_H_0"] = {"sin2": float(acc[:, 4].mean()), "sin2_err": H.blocked_error(acc[:, 4]), "expected_sin2": 0.8,
+                               "abscos": float(acc[:, 6].mean()), "expected_abscos": 0.375,
+                               "plaq": float(acc[:, 0].mean()), "plaq_pure_gauge_(G4)": 0.84791}
+    # heat bath against a Metropolis-free identity: for beta_G -> large the links freeze; small-angle Gaussian check
+    # of the sphere heat bath: one site in a fixed field B: <c> = coth-type moment of density (1 - c^2) exp(k c)
+    rng = np.random.default_rng(3)
+    k = 7.3
+    cs = []
+    for _ in range(200000 // 1000):
+        x = -np.log((1 - rng.random(1000)) * (1 - rng.random(1000)))
+        c = 1 - x / k
+        ok = (x <= 2 * k) & (rng.random(1000) < 0.5 * (1 + c))
+        cs.append(c[ok])
+    cs = np.concatenate(cs)
+    grid = np.linspace(-1, 1, 200001)
+    w = (1 - grid ** 2) * np.exp(k * (grid - 1))
+    out["compact_sphere_heat_bath"] = {"k": k, "mean_c_sampled": float(cs.mean()), "mean_c_exact": float((grid * w).sum() / w.sum()),
+                                       "err": float(cs.std() / np.sqrt(cs.size)), "acceptance": float(cs.size / 200000)}
+    print({k_: out[k_] for k_ in out if k_.startswith("compact")}, flush=True)
+
+out["seconds_last_call_checks2"] = time.time() - t0
+json.dump(out, open("checks2.json", "w"), indent=1)
+print("done", time.time() - t0)

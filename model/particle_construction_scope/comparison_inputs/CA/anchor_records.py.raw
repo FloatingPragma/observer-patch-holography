@@ -1,0 +1,61 @@
+#!/usr/bin/env python3
+"""Worker CA, second run: E14 of CANDIDATES.md (Addendum 5). Arithmetic only.
+
+Record model (ARGUED; N1, N2, N4, E12): a record written on a collar of scale mu at or below the anchor takes one
+exposed label of that collar, its fused total; all records of the collar together carry at most the entropy of the
+fused total about the per-cell factors.
+Entropy of the fused total: (1/2) ln N + c for SU(2) factors (local central limit form, IMPORTED; c from E12 at
+N = 8, 16, 32, largest value kept), and the generous 2 ln N + 4 c for the full G total (four Cartan totals).
+Inputs: anchor_cells.json, anchor_slopes.json, anchor_chain.json. No measured value is read.
+Writes anchor_records.json.
+"""
+import json
+import math
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+cells = json.loads((HERE / "anchor_cells.json").read_text())
+slopes = json.loads((HERE / "anchor_slopes.json").read_text())
+P = json.loads((HERE / "anchor_chain.json").read_text())["inputs"]["P_fwd"]
+P4 = P / 4
+NA = slopes["A1_point"]["cells_in_anchor_collar_square"]
+
+consts = {N: cells["rows"][str(N)]["product"]["shannon_of_fused_total"] - 0.5 * math.log(N) for N in (8, 16, 32)}
+c = max(consts.values())
+
+
+def H_su2(N):
+    return 0.5 * math.log(N) + c
+
+
+def H_G(N):
+    return 2.0 * math.log(N) + 4 * c
+
+
+def ladder(H):
+    """fraction of a cut's hidden index resolvable by records on the dyadic ladder mu_A 2^-k."""
+    return sum(H(NA * 4.0 ** k) / (NA * 4.0 ** k * P4) for k in range(400))
+
+
+# collar size (cells) where the generous G bound would equal the collar's hidden index
+lo, hi = 2.0, 1e6
+for _ in range(200):
+    mid = math.sqrt(lo * hi)
+    if H_G(mid) > mid * P4:
+        lo = mid
+    else:
+        hi = mid
+N_equal = lo
+
+out = {
+    "inputs": {"P_fwd": P, "P_over_4": P4, "cells_in_anchor_collar": NA, "measured_values_read": "none"},
+    "fused_total_constant_c_by_N": {str(k): v for k, v in consts.items()}, "c_used": c,
+    "anchor_collar": {"hidden_index_nats": NA * P4,
+                      "record_bound_su2_nats": H_su2(NA), "record_bound_G_nats": H_G(NA),
+                      "fraction_su2": H_su2(NA) / (NA * P4), "fraction_G": H_G(NA) / (NA * P4)},
+    "dyadic_ladder_below_anchor": {"fraction_su2": ladder(H_su2), "fraction_G": ladder(H_G)},
+    "collar_cells_where_G_bound_equals_hidden_index": N_equal,
+    "collar_side_in_cells_there": math.sqrt(N_equal),
+}
+(HERE / "anchor_records.json").write_text(json.dumps(out, indent=1) + "\n")
+print(json.dumps(out, indent=1))

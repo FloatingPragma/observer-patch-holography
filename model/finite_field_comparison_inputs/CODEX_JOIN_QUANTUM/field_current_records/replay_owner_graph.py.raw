@@ -1,0 +1,69 @@
+"""Actual cold owner execution in the authenticated receipt dependency order."""
+from concurrent.futures import ThreadPoolExecutor, wait, FIRST_COMPLETED
+from pathlib import Path
+import json
+import os
+import subprocess
+import sys
+
+ROOT = Path.cwd()
+from tools.renew_canonical_live_receipts import load_catalog, bindings
+from tools import strict_json
+
+CAT = load_catalog()
+OMIT = {'chiral_candidate', 'hierarchy_diagnosis', 'full_repair_response', 'particle_completion'}
+NODES = set(CAT)-OMIT | {'charged_lepton_response'}
+receipts = {row['receipt']: name for name, row in CAT.items()}
+parents = {}
+for name in NODES:
+    if name == 'charged_lepton_response':
+        parents[name] = {'mcpr_native_memory_bridge'}
+        continue
+    spec = CAT[name]
+    old = strict_json.load(ROOT/spec['receipt'])
+    pins = {p for _, p, _, _ in bindings(ROOT, spec['receipt'], old)}
+    parents[name] = {receipts[p] for p in pins if p in receipts and receipts[p] in NODES and receipts[p] != name}
+parents['particle_comparison'].add('cross_scale')
+OUTPUT = Path('/tmp/oph-r2064-owner-graph')
+OUTPUT.mkdir(exist_ok=False)
+ENV = dict(os.environ, PYTHONPATH=str(ROOT), PYTHONDONTWRITEBYTECODE='1', OPENBLAS_NUM_THREADS='1',
+           OMP_NUM_THREADS='1', MKL_NUM_THREADS='1', VECLIB_MAXIMUM_THREADS='1')
+
+
+def run(name):
+    destination = OUTPUT/(name+'.json')
+    if name in ('standard_model_source_map', 'charged_lepton_response'):
+        call = 'from tools.renew_source_records_atlas import execute\nvalue=execute('+repr(name)+',renew=True)'
+    elif name == 'particle_comparison':
+        call = 'from tools.renew_source_records_comparison import execute\nvalue=execute(renew=True)'
+    else:
+        call = 'from tools.renew_canonical_live_receipts import execute\nvalue=execute('+repr(name)+',renew=True)'
+    script = call+'\nimport json\nfrom pathlib import Path\nPath('+repr(str(destination))+').write_text(json.dumps(value,indent=2,sort_keys=True)+"\\n")\n'
+    with (OUTPUT/(name+'.log')).open('w') as log:
+        completed = subprocess.run([sys.executable, '-B', '-W', 'error', '-c', script], cwd=ROOT,
+                                   env=ENV, stdout=log, stderr=subprocess.STDOUT)
+    if completed.returncode:
+        raise RuntimeError(name+' failed; exact owner log '+str(OUTPUT/(name+'.log')))
+    return json.loads(destination.read_text())
+
+
+completed = {}
+pending = set(NODES)
+futures = {}
+with ThreadPoolExecutor(max_workers=3) as pool:
+    while pending or futures:
+        ready = sorted(name for name in pending if parents[name] <= set(completed))
+        while ready and len(futures) < 3:
+            name = ready.pop(0)
+            pending.remove(name)
+            print('REPLAY', name, flush=True)
+            futures[pool.submit(run, name)] = name
+        if not futures:
+            raise RuntimeError('owner dependency cycle: '+repr(pending))
+        done, _ = wait(futures, return_when=FIRST_COMPLETED)
+        for future in done:
+            name = futures.pop(future)
+            completed[name] = future.result()
+            (OUTPUT/'executed.json').write_text(json.dumps(completed, indent=2, sort_keys=True)+'\n')
+            print('PASS', name, flush=True)
+print('ALL', len(completed), 'authenticated actual owners passed', flush=True)

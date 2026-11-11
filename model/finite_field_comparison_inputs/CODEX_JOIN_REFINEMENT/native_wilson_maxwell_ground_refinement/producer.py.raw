@@ -1,0 +1,35 @@
+"""Reproduce uniform interacting ground and complete fixed-capacity clocks."""
+import argparse,hashlib,json
+from pathlib import Path
+import refinement
+from model.particle_common_contract.provenance import import_closure
+
+HERE=Path(__file__).resolve().parent
+RER=refinement.RER
+
+
+def digest(path):return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def certificate():
+    value=refinement.scientific();parent,_=refinement.admit()
+    cutoff=json.loads((RER/refinement.CUTOFF_PARENT).read_text())
+    seeds=set(parent['input_sha256'])|set(cutoff['input_sha256'])|{refinement.PARENT,refinement.CUTOFF_PARENT,
+        'model/native_wilson_maxwell_ground/ground.py',
+        'model/native_wilson_maxwell_refinement/bounds.py',
+        'model/particle_common_contract/provenance.py'}
+    value['input_sha256']={p:digest(RER/p) for p in sorted(import_closure(seeds))}
+    value['owned_source_sha256']={p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')}
+    return value
+
+
+def main():
+    parser=argparse.ArgumentParser();g=parser.add_mutually_exclusive_group(required=True)
+    g.add_argument('--write',action='store_true');g.add_argument('--check',action='store_true')
+    args=parser.parse_args();value=certificate();path=HERE/'results.json'
+    if args.write:path.write_text(json.dumps(value,indent=2,sort_keys=True)+'\n')
+    elif value!=json.loads(path.read_text()):raise ValueError('ground refinement receipt differs')
+    print('PASS: uniform fixed-cube interacting ground and complete photon-capacity records')
+
+
+if __name__=='__main__':main()

@@ -1,0 +1,275 @@
+"""Worker LK, task 2: the kick exp(-i h J (x) Qx) against source interactions (statements K0 to K9, A1 to A5 of
+CANDIDATES.md).
+
+Run from RL/work/LK:
+  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B lk_kick.py
+Clocked register: FR's C object (twelve states, `RL/work/FR/fr_common.py`, read only). Pair: the two hexagon objects
+of lk_common, in the state after one tick from S (x) S. EXACT for the pair statistics (Fractions) and for the identities
+A1 to A3 (sympy); floats for the finite-angle amplitudes. Writes lk_kick.json.
+"""
+from __future__ import annotations
+
+import cmath
+import json
+import math
+import os
+import sys
+import time
+from fractions import Fraction as Fr
+
+import numpy as np
+
+import lk_common as L
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(HERE, '..', 'FR'))
+import sympy as sp  # noqa: E402
+import fr_common as FC  # noqa: E402
+
+T0 = time.time()
+OUT = {'provenance': L.provenance()}
+
+
+def fs(x):
+    return str(x)
+
+
+# ------------------------------------------------------------------ clocked register: FR's C object, index 4 l + 2 r + o
+def diag12(fn):
+    return sp.diag(*[fn(i // 4, (i // 2) % 2, i % 2) for i in range(12)])
+
+
+Zr = diag12(lambda l, r, o: 1 - 2 * r)
+SZo = diag12(lambda l, r, o: 1 - 2 * o)
+Pi1 = diag12(lambda l, r, o: r)
+J = Pi1 * SZo
+Vm = FC.obj_orient()                                            # Z_r at orientation - (FR's oriented record V)
+Vp = diag12(lambda l, r, o: -1 if (r == 1 and o == 0) else 1)   # Z_r at orientation +
+Xr = sp.zeros(12, 12)
+for i in range(12):
+    l, r, o = i // 4, (i // 2) % 2, i % 2
+    Xr[FC.oidx(l, 1 - r, o), i] = 1
+phiH, phiP, phiM = FC.obj_flag('idle', 0, 'u'), FC.obj_flag('p', 1, 0), FC.obj_flag('p', 1, 1)
+FLAGS = sp.Matrix.hstack(phiH, phiP, phiM)                      # 12 x 3, orthonormal columns
+Pflag = FLAGS * FLAGS.H
+
+OUT['A1 clocked register'] = {
+    'J = Pi_1 V_-': J == Pi1 * Vm, 'J = (V_- - V_+)/2': J == (Vm - Vp) / 2, 'Z_r = V_+ V_-': Zr == Vp * Vm,
+    'flags orthonormal': (FLAGS.H * FLAGS).applyfunc(sp.simplify) == sp.eye(3),
+    'J on the flags (phi_H, phi_+, phi_-)': [str(sp.simplify((FLAGS.H * J * FLAGS)[i, i])) for i in range(3)],
+    'J maps the flag space into itself': (J * FLAGS - Pflag * J * FLAGS).applyfunc(sp.simplify) == sp.zeros(12, 3),
+}
+
+# A3 on FR's event matrix: plain law Q = 1 - K^2 + sigma_z(o) K
+Q_plain = FC.obj_event(1)
+m_vec = (sp.Matrix([1, -1, 0]) / sp.sqrt(2))                    # (tail - head)/sqrt2 on the load (tail, head, idle)
+p_vec = (sp.Matrix([1, 1, 0]) / sp.sqrt(2))
+e0, e1 = sp.Matrix([1, 0]), sp.Matrix([0, 1])
+kp = sp.kronecker_product
+K_seam = kp(p_vec * m_vec.T, e1 * e0.T, sp.eye(2)) + kp(m_vec * p_vec.T, e0 * e1.T, sp.eye(2))
+blank = diag12(lambda l, r, o: 1 - r)
+OUT['A3 FR event matrix'] = {
+    'plain law: Q = 1 - K^2 + sigma_z(o) K': (Q_plain - (sp.eye(12) - K_seam ** 2 + SZo * K_seam)).applyfunc(sp.simplify) == sp.zeros(12, 12),
+    'oriented law on blank records: V Q = 1 - K^2 + K': ((Vm * Q_plain - (sp.eye(12) - K_seam ** 2 + K_seam)) * blank).applyfunc(sp.simplify) == sp.zeros(12, 12),
+    'K^3 = K': (K_seam ** 3 - K_seam).applyfunc(sp.simplify) == sp.zeros(12, 12),
+}
+
+# numeric copies
+def N_(M):
+    return np.array([[complex(x) for x in row] for row in M.tolist()], dtype=complex)
+
+
+nZr, nSZo, nPi1, nJ, nVm, nVp, nXr, nFL = (N_(M) for M in (Zr, SZo, Pi1, J, Vm, Vp, Xr, FLAGS))
+nPflag = nFL @ nFL.conj().T
+
+# ------------------------------------------------------------------ pair statistics after one tick (exact)
+S = L.S_raw()
+w = L.step(S)
+WW = L.tensor(w, w)
+NSS = L.NS * L.NS
+dist = {}
+for (ka, kb), c in WW.items():
+    key = (L.flag(ka), L.flag(kb))
+    dist[key] = dist.get(key, Fr(0)) + c * c / NSS
+assert sum(dist.values()) == 1
+
+
+def f_Z(a, b):
+    return (1 - 2 * (a == 'F')) * (1 - 2 * (b == 'I'))
+
+
+def f_Qx(a, b):
+    return int(a == 'F') ^ int(b == 'I')
+
+
+def f_QxB(a, b):
+    return int(a == 'B') ^ int(b == 'I')
+
+
+def expect(g):
+    return sum((p * g(a, b) for (a, b), p in dist.items()), Fr(0))
+
+
+P = expect(f_Qx)
+OUT['pair after one tick'] = {
+    'joint flag distribution (A, B)': {f'{a},{b}': fs(p) for (a, b), p in sorted(dist.items())},
+    '<Qx>': fs(P), '<Z_F Z_I>': fs(expect(f_Z)), '<Qx[B]>': fs(expect(f_QxB)),
+    'A2: Qx = (1 - Z_F Z_I)/2 on every basis pair of the support': all(2 * f_Qx(a, b) == 1 - f_Z(a, b) for a, b in dist),
+}
+
+# multiplicities of the classes in one object's register (for the Hilbert-Schmidt comparison)
+mult = {}
+for cfg in L.CFG:
+    for rec in range(4):
+        cls = L.flag((cfg, rec, 0))
+        mult[cls] = mult.get(cls, 0) + 12
+assert sum(mult.values()) == 1008
+
+
+def hs_pair(f, g):
+    """Normalized Hilbert-Schmidt overlap of the traceless parts of two class functions on the pair register."""
+    tot = Fr(1008 * 1008)
+    mf = sum(mult[a] * mult[b] * f(a, b) for a in mult for b in mult) / tot
+    mg = sum(mult[a] * mult[b] * g(a, b) for a in mult for b in mult) / tot
+    cov = sum(mult[a] * mult[b] * (f(a, b) - mf) * (g(a, b) - mg) for a in mult for b in mult)
+    vf = sum(mult[a] * mult[b] * (f(a, b) - mf) ** 2 for a in mult for b in mult)
+    vg = sum(mult[a] * mult[b] * (g(a, b) - mg) ** 2 for a in mult for b in mult)
+    return float(cov) / math.sqrt(float(vf) * float(vg))
+
+
+def hs_c(A, B):
+    A0 = A - np.trace(A) / 12 * np.eye(12)
+    B0 = B - np.trace(B) / 12 * np.eye(12)
+    return float(np.trace(A0.conj().T @ B0).real / math.sqrt(np.trace(A0.conj().T @ A0).real * np.trace(B0.conj().T @ B0).real))
+
+
+# ------------------------------------------------------------------ candidates
+def zero_return(Lop, f, eta, echo):
+    """Zero-return operator on the clocked register for exp(-i eta Lop (x) f), f a class function on the pair."""
+    ev, U = np.linalg.eigh(Lop)
+    f0 = f('double', 'double')
+    amps = []
+    for lam in ev:
+        a = 0j
+        for (ca, cb), p in dist.items():
+            val = f(ca, cb) - (f0 if echo else 0)
+            a += float(p) * cmath.exp(-1j * eta * lam * val)
+        amps.append(a)
+    return (U * np.array(amps)) @ U.conj().T
+
+
+def generator(Lop, f, echo):
+    f0 = f('double', 'double')
+    return Lop * float(expect(f) - (f0 if echo else 0))
+
+
+def flag_report(Gamma):
+    d = [(nFL[:, i].conj() @ Gamma @ nFL[:, i]).real for i in range(3)]
+    leak = Gamma @ nFL - nPflag @ Gamma @ nFL
+    return {'gamma (phi_H, phi_+, phi_-)': [round(float(x), 12) for x in d],
+            'odd': round(float((d[1] - d[2]) / 2), 12), 'even': round(float((d[1] + d[2]) / 2 - d[0]), 12),
+            'leak norms (phi_H, phi_+, phi_-)': [round(float(np.linalg.norm(leak[:, i])), 12) for i in range(3)]}
+
+
+CAND = {
+    'K0': ('J (x) Qx, plain round (kick of CK2)', nJ, f_Qx, False, 1.0),
+    'K1': ('Z_r (x) Z_F Z_I, plain round (Z2 toggle, CF-1 chart)', nZr, f_Z, False, None),
+    'K2': ('Z_r (x) Z_F Z_I, echo round', nZr, f_Z, True, None),
+    'K3': ('X_r (x) Z_F Z_I, plain round (record flip as the toggle)', nXr, f_Z, False, None),
+    'K4': ('sigma_z(o) Z_r (x) Z_F Z_I, plain round (orientation sign of the plain law)', nSZo @ nZr, f_Z, False, None),
+    'K5': ('sigma_z(o) Z_r (x) Z_F Z_I, echo round', nSZo @ nZr, f_Z, True, 0.5),
+    'K6': ('-J (x) Z_F Z_I, echo round', -nJ, f_Z, True, 0.5),
+    'K7': ('J (x) (Qx[F] - Qx[B]), plain round (forward read minus backward read)', nJ, lambda a, b: f_Qx(a, b) - f_QxB(a, b), False, None),
+}
+rows = {}
+for kid, (label, Lop, f, echo, unit) in CAND.items():
+    row = {'generator': label, 'first-order generator on the flags': flag_report(generator(Lop, f, echo)),
+           'Hilbert-Schmidt overlap of the coupling part with J (x) Qx': round(hs_c(Lop, nJ) * hs_pair(f, f_Qx), 12)}
+    if unit is not None:
+        # eta = unit * h; N rounds with h = 1/N: amplitudes on the three flags and phase per unit clock time
+        tab = []
+        for N in (1, 10, 100, 1000, 10 ** 5):
+            A = zero_return(Lop, f, unit / N, echo)
+            aH, aP, aM = (nFL[:, i].conj() @ A @ nFL[:, i] for i in range(3))
+            leakH = np.linalg.norm(A @ nFL[:, 0] - nPflag @ A @ nFL[:, 0])
+            tab.append({'N': N, 'phase of phi_+ per unit clock time': -cmath.phase(aP ** N), 'phase of phi_-': -cmath.phase(aM ** N),
+                        'modulus phi_+': abs(aP) ** N, 'modulus phi_H': abs(aH) ** N, 'phase of phi_H': -cmath.phase(aH ** N),
+                        'leak of phi_H in one round': float(leakH)})
+        row['N rounds, h = 1/N (eta = %s h)' % unit] = tab
+    rows[kid] = row
+OUT['candidates'] = rows
+
+# K5: closed forms of the hold flag
+eta = 0.05
+A5 = zero_return(nSZo @ nZr, f_Z, eta, True)
+aH = nFL[:, 0].conj() @ A5 @ nFL[:, 0]
+dissent = N_(FC.obj_state(0, 0, 1, r=0, addr=0)) - N_(FC.obj_state(0, 0, 1, r=0, addr=1))
+dissent = (dissent / np.linalg.norm(dissent)).reshape(12)
+OUT['K5 closed forms at eta = 0.05'] = {
+    'hold amplitude': [aH.real, aH.imag], '1 - 2P sin^2(eta)': 1 - 2 * float(P) * math.sin(eta) ** 2,
+    'amplitude into the dissent address state of the blank C object': [(dissent.conj() @ A5 @ nFL[:, 0]).real, (dissent.conj() @ A5 @ nFL[:, 0]).imag],
+    'i P sin(2 eta)': float(P) * math.sin(2 * eta),
+    'phi_+ amplitude': [(nFL[:, 1].conj() @ A5 @ nFL[:, 1]).real, (nFL[:, 1].conj() @ A5 @ nFL[:, 1]).imag],
+    '1 - P + P exp(-2 i eta)': [(1 - float(P) + float(P) * cmath.exp(-2j * eta)).real, (1 - float(P) + float(P) * cmath.exp(-2j * eta)).imag],
+}
+
+# K6: the echo round equals CK2's round for every state of the clocked register
+# pair identity (exact, lk_round.json): (W^-1 x W^-1)(Z_F x Z_I)(W x W)|SS> = |SS> - 2|X>.
+# Scalar identity for the eigenvalue j of J: exp(-i eta j) (cos(eta j) + i sin(eta j) (1 - 2 x)) = 1 + (exp(-2 i eta j) - 1) x
+worst = 0.0
+for e in (0.01, 0.3, 1.0, 2.7):
+    for j in (-1, 0, 1):
+        for x in (0.0, 1.0, 0.37):
+            lhs = cmath.exp(-1j * e * j) * (math.cos(e * j) + 1j * math.sin(e * j) * (1 - 2 * x))
+            rhs = 1 + (cmath.exp(-2j * e * j) - 1) * x
+            worst = max(worst, abs(lhs - rhs))
+try:
+    pair_identity = json.load(open(os.path.join(HERE, 'lk_round.json')))['K6 pair identity (W^-1 x W^-1)(Z_F x Z_I)(W x W)|SS> = |SS> - 2|X>']
+except OSError:
+    pair_identity = 'run lk_round.py first'
+OUT['K6 identity'] = {
+    'pair identity (exact, from lk_round.json)': pair_identity,
+    'scalar identity, largest deviation': worst,
+    'statement': 'W^-1 T(eta) W T(eta)^-1 |psi>|SS> = W^-1 exp(-i 2 eta J (x) Qx) W |psi>|SS> for every state psi of the clocked '
+                 'register, T(eta) = exp(+i eta J (x) Z_F Z_I): CK2 round with h = 2 eta',
+    'T(eta) as two reflection products': 'exp(+i (eta/2) V_- (x) Z_F Z_I) exp(-i (eta/2) V_+ (x) Z_F Z_I)',
+}
+
+# ------------------------------------------------------------------ K9: bit model of the A-B flag exchange
+pF, pI = Fr(1, 12), Fr(1, 6)
+lo = np.array([[0, 1], [0, 0]], dtype=complex)                  # flagged -> unflagged
+KAB = np.kron(lo.conj().T, lo) + np.kron(lo, lo.conj().T)
+XOR = np.diag([0, 1, 1, 0]).astype(complex)
+ev, U = np.linalg.eigh(KAB)
+Uex = (U * np.exp(-1j * (math.pi / 2) * ev)) @ U.conj().T
+psi = np.kron([math.sqrt(1 - pF), math.sqrt(pF)], [math.sqrt(1 - pI), math.sqrt(pI)])
+OUT['K9 bit model'] = {
+    'K_AB^2 = Qx': bool(np.allclose(KAB @ KAB, XOR)),
+    '1 - Re exp(-i (pi/2) K_AB) = Qx': bool(np.allclose(np.eye(4) - (Uex + Uex.conj().T) / 2, XOR)),
+    '<K_AB>': float((psi.conj() @ KAB @ psi).real), 'sqrt(55)/36': math.sqrt(55) / 36,
+    '<K_AB^2> = P': float((psi.conj() @ KAB @ KAB @ psi).real), 'P': float(P),
+}
+
+# ------------------------------------------------------------------ A4, A5: quarter-turn compositions
+def turns(j, qx):
+    return qx * (1 if j == -1 else 3 if j == 1 else 0)
+
+
+a4 = all(abs(cmath.exp(-1j * (math.pi / 2) * j * qx) - (1j) ** turns(j, qx)) < 1e-15 for j in (-1, 0, 1) for qx in (0, 1))
+supp_qx = sum(1 for (ka, kb) in WW if L.qx_value(ka, kb))
+supp_c = {'j = +1': int(np.count_nonzero(np.abs(nFL[:, 1]) > 0)), 'j = -1': int(np.count_nonzero(np.abs(nFL[:, 2]) > 0))}
+Vq = np.eye(2, dtype=complex) + (1j - 1) * np.diag([0, 1])
+OUT['A4 A5 quarter-turns'] = {
+    'exp(-i (pi/2) J (x) Qx) = product of quarter-turns (one for j = -1, three for j = +1) on Qx': a4,
+    'pair basis states inside Qx on the support of the ticked state': supp_qx,
+    'basis states of the C object in phi_+ and phi_-': supp_c,
+    'quarter-turns on the support for the strong kick': supp_qx * (3 * supp_c['j = +1'] + supp_c['j = -1']),
+    'V_i^2 = 1 - 2 P_i': bool(np.allclose(Vq @ Vq, np.diag([1, -1]))),
+    'basis states per reflection (own register)': {'Z_F': mult['F'], 'Z_I': mult['I'], 'V_-': 3, 'V_+': 3, 'sigma_z(o)': 6, 'Z_r': 6},
+    'flagged basis states on the support of the ticked state': {'F of A': sum(1 for k in w if L.flag(k) == 'F'), 'I of B': sum(1 for k in w if L.flag(k) == 'I')},
+}
+
+OUT['seconds'] = round(time.time() - T0, 2)
+with open(os.path.join(HERE, 'lk_kick.json'), 'w') as fh:
+    json.dump(OUT, fh, indent=1, default=str)
+print(json.dumps({k: v for k, v in OUT.items() if k != 'provenance'}, indent=1, default=str))

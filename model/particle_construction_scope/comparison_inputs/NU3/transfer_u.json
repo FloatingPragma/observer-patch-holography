@@ -1,0 +1,105 @@
+{
+ "couplings": {
+  "y_u": 1,
+  "y_d": 0,
+  "y_e": 0
+ },
+ "spacing": "pi",
+ "source_image_census": {
+  "first": {
+   "(2, 0)": 168,
+   "(1, 1)": 24
+  },
+  "first_P_keys": 0,
+  "second": {
+   "(3, 0)": 6048,
+   "(2, 1)": 11088,
+   "(1, 2)": 240
+  },
+  "second_terms": 17376
+ },
+ "targets": {
+  "0": {
+   "bare_V_moments_k0_to_k4": [
+    "0",
+    "0",
+    "0",
+    "0",
+    "0"
+   ],
+   "bare_V_moment_k5": "0",
+   "diagonal_H0_term_in_middle": "0",
+   "tagged_fifth_V_moment": "0",
+   "RS_fifth_order_amplitude": "0",
+   "target_image_census": {
+    "first": {
+     "(2, 0)": 168,
+     "(1, 1)": 24
+    },
+    "first_P_keys": 0,
+    "second": {
+     "(3, 0)": 6048,
+     "(2, 1)": 11088,
+     "(1, 2)": 240
+    },
+    "second_terms": 17376
+   },
+   "nonzero_middle_kinetic_summands": []
+  },
+  "1": {
+   "bare_V_moments_k0_to_k4": [
+    "0",
+    "0",
+    "0",
+    "0",
+    "0"
+   ],
+   "bare_V_moment_k5": "-15*I/8",
+   "diagonal_H0_term_in_middle": "0",
+   "tagged_fifth_V_moment": "-3*I*r_1_1*r_2_0*r_2_1**2/4 - 9*I*r_2_0**2*r_2_1**2/8",
+   "RS_fifth_order_amplitude": "-3*I*(3*Delta_l + 2*Delta_s)/(8*Delta_l*Delta_s**2*(Delta_l + Delta_s)**2)",
+   "target_image_census": {
+    "first": {
+     "(2, 0)": 168,
+     "(1, 1)": 24
+    },
+    "first_P_keys": 0,
+    "second": {
+     "(3, 0)": 6048,
+     "(2, 1)": 11088,
+     "(1, 2)": 240
+    },
+    "second_terms": 17376
+   },
+   "nonzero_middle_kinetic_summands": [
+    {
+     "path": [
+      0
+     ],
+     "contribution": "-15*I/16",
+     "middle_fields_bare": {
+      "-4": "-3*I/8",
+      "1": "-3*I/8",
+      "6": "0",
+      "-3": "-3*I/16",
+      "2": "0"
+     }
+    },
+    {
+     "path": [
+      12
+     ],
+     "contribution": "-15*I/16",
+     "middle_fields_bare": {
+      "-4": "-3*I/8",
+      "1": "-3*I/8",
+      "6": "0",
+      "-3": "-3*I/16",
+      "2": "0"
+     }
+    }
+   ]
+  }
+ },
+ "seconds": 36.7
+}

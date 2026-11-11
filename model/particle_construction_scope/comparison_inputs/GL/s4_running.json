@@ -1,0 +1,118 @@
+{
+ "inputs": {
+  "inv_alpha_bare_cell": 16.2453,
+  "inv_alpha_U_D10": 24.316554398103403,
+  "ln(E_cell/M_U)": 5.957067830590499,
+  "E_cell_GeV": 9.559898277065234e+18
+ },
+ "MSbar_at_E_cell (1/alpha_1, 1/alpha_2, 1/alpha_3)": {
+  "Euclidean isotropic reference": [
+   12.789548081051228,
+   12.287991184033615,
+   10.152257143370933
+  ],
+  "Hamiltonian tadpoles": [
+   10.744659257879768,
+   12.009142708146598,
+   10.028324487421147
+  ]
+ },
+ "coefficients_needed_per_factor_to_reach_alpha_U_at_M_U": [
+  12.158048017373202,
+  12.6870624613372,
+  14.9397164726656
+ ],
+ "coefficient_needed_without_matching (DC b_above)": 8.513112236904801,
+ "running_from_E_cell": {
+  "K1 links only": {
+   "1/alpha_i(M_U)": [
+    12.7895,
+    5.3353,
+    -0.2768
+   ],
+   "spread_at_M_U": 13.066355644974399,
+   "one_loop_colour_scale_GeV (b3 < 0)": 2.8973355903044172e+16
+  },
+  "K2 links + vector-like family, k_c = 1, n_g = 1": {
+   "1/alpha_i(M_U)": [
+    15.3178,
+    7.8635,
+    2.2515
+   ],
+   "spread_at_M_U": 13.0663556449744,
+   "one_loop_colour_scale_GeV (b3 < 0)": 4529949607958144.0
+  },
+  "K3 = K2 + one Higgs doublet, k_c = 1, n_g = 1": {
+   "1/alpha_i(M_U)": [
+    15.4126,
+    8.0216,
+    2.2515
+   ],
+   "spread_at_M_U": 13.16116532413162,
+   "one_loop_colour_scale_GeV (b3 < 0)": 4529949607958144.0
+  },
+  "K2 links + vector-like family, k_c = 4, n_g = 1": {
+   "1/alpha_i(M_U)": [
+    22.9026,
+    15.4483,
+    9.8362
+   ],
+   "spread_at_M_U": 13.066355644974397,
+   "one_loop_colour_scale_GeV (b3 < 0)": 7.437992976474732e-65
+  },
+  "K3 = K2 + one Higgs doublet, k_c = 4, n_g = 1": {
+   "1/alpha_i(M_U)": [
+    22.9974,
+    15.6063,
+    9.8362
+   ],
+   "spread_at_M_U": 13.161165324131616,
+   "one_loop_colour_scale_GeV (b3 < 0)": 7.437992976474732e-65
+  },
+  "K2 links + vector-like family, k_c = 1, n_g = 3": {
+   "1/alpha_i(M_U)": [
+    20.3743,
+    12.9201,
+    7.308
+   ],
+   "spread_at_M_U": 13.066355644974397,
+   "one_loop_colour_scale_GeV (b3 < 0)": 5573400019.657126
+  },
+  "K3 = K2 + one Higgs doublet, k_c = 1, n_g = 3": {
+   "1/alpha_i(M_U)": [
+    20.4691,
+    13.0781,
+    7.308
+   ],
+   "spread_at_M_U": 13.161165324131616,
+   "one_loop_colour_scale_GeV (b3 < 0)": 5573400019.657126
+  },
+  "K2 links + vector-like family, k_c = 4, n_g = 3": {
+   "1/alpha_i(M_U)": [
+    43.1286,
+    35.6744,
+    30.0623
+   ],
+   "spread_at_M_U": 13.0663556449744,
+   "one_loop_colour_scale_GeV (b3 < 0)": null
+  },
+  "K3 = K2 + one Higgs doublet, k_c = 4, n_g = 3": {
+   "1/alpha_i(M_U)": [
+    43.2235,
+    35.8324,
+    30.0623
+   ],
+   "spread_at_M_U": 13.161165324131623,
+   "one_loop_colour_scale_GeV (b3 < 0)": null
+  },
+  "K2 with 32 Dirac patterns per copy (complements independent), k_c = 1, n_g = 1": {
+   "1/alpha_i(M_U)": [
+    17.8461,
+    10.3918,
+    4.7797
+   ],
+   "spread_at_M_U": 13.066355644974397,
+   "one_loop_colour_scale_GeV (b3 < 0)": 123506186411416.42
+  }
+ }
+}

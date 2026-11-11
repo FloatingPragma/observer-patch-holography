@@ -1,0 +1,202 @@
+"""Worker DR (S5): exact structure of the lepton-phase dressing on a generic three-family register.
+
+Run:  /tmp/oph-completion-venv/bin/python -B dr_structure.py <out.json>
+
+Section A (EXACT, sympy): T1 family-blind environments split into Fourier sectors; T2 the Q-preserving rate changes;
+the closed forms of rows D4 to D7, D9, D10 of CANDIDATES.md as functions of their coefficient.
+Section B (mpmath, 50 digits): the Jacobian T3 at the native point theta = 2/9, r = sqrt2.
+No measured value enters sections A and B. Section C (NOT BLIND) is only the translation of the measured masses into
+the needed shifts; the comparison of rows is done in dr_compare.py.
+"""
+import json
+import sys
+from pathlib import Path
+
+import numpy as np
+import sympy as s
+from mpmath import mp, mpf, sqrt, cos, sin, pi, log, findroot
+
+mp.dps = 50
+OUT = Path(sys.argv[1])
+out = {}
+
+# ------------------------------------------------------------------ A. exact identities
+p, q, Z, a, b, cov, th = s.symbols('p q Z a b cov theta', positive=True)
+# Eigenvalues of C = sqrt(q) I + sqrt(p)(e^{i theta} S + e^{-i theta} S^-1) on the Fourier modes v_k = (w^{jk})_j/sqrt3:
+# S v_k = w^{-k} v_k, so lambda_k = sqrt(q) + 2 sqrt(p) cos(theta - 2 pi k/3). Numerical witness at random points:
+rng0 = np.random.default_rng(7)
+S3n = np.roll(np.eye(3), 1, axis=0)
+for _ in range(5):
+    pv, qv, tv = rng0.uniform(0.01, 0.3), rng0.uniform(0.01, 0.3), rng0.uniform(-3, 3)
+    Cn = np.sqrt(qv) * np.eye(3) + np.sqrt(pv) * (np.exp(1j * tv) * S3n + np.exp(-1j * tv) * S3n.T)
+    for k in range(3):
+        v = np.array([np.exp(2j * np.pi * j * k / 3) for j in range(3)]) / np.sqrt(3)
+        lk = np.sqrt(qv) + 2 * np.sqrt(pv) * np.cos(tv - 2 * np.pi * k / 3)
+        assert np.allclose(Cn @ v, lk * v, atol=1e-13)
+lam_closed = [s.sqrt(q) + 2 * s.sqrt(p) * s.cos(th - 2 * s.pi * k / 3) for k in range(3)]
+# Exact sums: sum lambda_k = 3 sqrt(q); sum lambda_k^2 = 3q + 6p (sum of cos over the three characters is 0 and the
+# sum of cos^2 is 3/2). Hence Q = (3q + 6p)/(9q) = 1/3 + 2p/(3q), a function of r = 2 sqrt(p/q) alone (T2 base).
+sum1 = s.simplify(sum(s.expand_trig(x) for x in lam_closed))
+sum2 = s.simplify(s.expand(s.expand_trig(sum(x ** 2 for x in lam_closed))))
+assert s.simplify(sum1 - 3 * s.sqrt(q)) == 0 and s.simplify(sum2 - (3 * q + 6 * p)) == 0
+Qexpr = (3 * q + 6 * p) / (9 * q)
+assert s.simplify(Qexpr.subs(p, q / 2) - s.Rational(2, 3)) == 0
+# T2(a): a common factor Z on both rates leaves r, hence Q, unchanged
+rr = 2 * s.sqrt(p / q)
+assert s.simplify(rr.subs({p: Z * p, q: Z * q}, simultaneous=True) - rr) == 0
+
+# T1: family-blind environment. H = H_F x I + I x (H_E + V_E), H_F Z3-covariant. Numerical witness with a random
+# environment and a random Hermitian circulant: the Fourier transform block-diagonalizes H exactly, and every block is
+# m_k I + H_E + V_E, so every pole of sector k is m_k + (a pole of H_E + V_E): a common additive shift.
+rng = np.random.default_rng(20261110)
+dE = 7
+HE = rng.normal(size=(dE, dE)) + 1j * rng.normal(size=(dE, dE)); HE = HE + HE.conj().T
+c0, c1 = 0.37, 0.21 * np.exp(0.4j)
+HF = c0 * np.eye(3) + c1 * np.roll(np.eye(3), 1, axis=0) + np.conj(c1) * np.roll(np.eye(3), -1, axis=0)
+Hfull = np.kron(HF, np.eye(dE)) + np.kron(np.eye(3), HE)
+F = np.array([[np.exp(2j * np.pi * j * k / 3) for k in range(3)] for j in range(3)]) / np.sqrt(3)
+Hf = np.kron(F.conj().T, np.eye(dE)) @ Hfull @ np.kron(F, np.eye(dE))
+mk = np.real(np.diag(F.conj().T @ HF @ F))
+blocks_ok = all(np.allclose(Hf[i * dE:(i + 1) * dE, j * dE:(j + 1) * dE],
+                            (mk[i] * np.eye(dE) + HE) if i == j else 0, atol=1e-12)
+                for i in range(3) for j in range(3))
+ev = [np.linalg.eigvalsh(Hf[i * dE:(i + 1) * dE, i * dE:(i + 1) * dE]) - mk[i] for i in range(3)]
+shift_common = bool(np.allclose(ev[0], ev[1]) and np.allclose(ev[1], ev[2]))
+out['A_exact'] = {
+    'circulant_eigenvalues': 'lambda_k = sqrt(q) + 2 sqrt(p) cos(theta - 2 pi k/3) (Fourier mode k; EXACT)',
+    'Q_at_p_eq_q_over_2': '2/3 for every theta (EXACT)',
+    'T1_family_blind_blocks_equal_m_k_plus_environment': blocks_ok,
+    'T1_pole_shift_common_to_all_sectors': shift_common,
+    'T1_statement': 'a family-blind environment shifts the three family poles by one common additive amount, to all '
+                    'orders; ratios move only through that common amount',
+    'T2_common_factor_keeps_r': True,
+    'T2_joint_statistics_do_not_enter_r': 'r = 2 sqrt(p/q) uses the marginals only (EXACT)'}
+
+# closed forms of the rows that act on the read statistics
+theta0 = p + q - 2 * p * q
+forms = {
+    'D4_independent_dilution': {'theta': s.expand((Z * p) + (Z * q) - 2 * (Z * p) * (Z * q)), 'r_factor': 1},
+    'D5_ticks_without_reads': {'theta': s.expand(Z * theta0), 'r_factor': 1},
+    'D6_current_only': {'theta': s.expand(Z * p + q - 2 * Z * p * q), 'r_factor': s.sqrt(Z)},
+    'correlation_fixed_marginals': {'theta': s.expand(p + q - 2 * (p * q + cov)), 'r_factor': 1},
+}
+first_order = {}
+for name, f in forms.items():
+    if 'Z' in str(f['theta']):
+        d = s.factor(s.diff(f['theta'], Z).subs(Z, 1))
+        first_order[name] = {'theta(Z)': str(f['theta']), 'd theta / dZ at Z = 1': str(d),
+                             'native value': str(d.subs({p: s.Rational(1, 12), q: s.Rational(1, 6)})),
+                             'r factor': str(f['r_factor'])}
+    else:
+        first_order[name] = {'theta': str(f['theta']), 'd theta / d cov': '-2', 'r factor': '1'}
+# exact finite-Z forms at the native point
+pn, qn = s.Rational(1, 12), s.Rational(1, 6)
+first_order['D4_independent_dilution']['exact'] = str(s.factor(forms['D4_independent_dilution']['theta']
+                                                               .subs({p: pn, q: qn}) - theta0.subs({p: pn, q: qn})))
+first_order['D5_ticks_without_reads']['exact'] = '(Z - 1) 2/9'
+out['A_rate_forms'] = first_order
+
+# D9 and D10 (native weights, no coefficient)
+theta_D9 = s.Rational(1, 12) + s.Rational(1, 3) - 2 * s.Rational(1, 12) * s.Rational(1, 3)
+Gp, Gq = -s.log(1 - pn), -s.log(1 - qn)
+theta_D10 = Gp + Gq - 2 * Gp * Gq
+r_D10 = 2 * s.sqrt(Gp / Gq)
+out['A_D9_D10'] = {'D9_theta': str(theta_D9), 'D9_theta_float': float(theta_D9),
+                   'D10_theta': str(theta_D10), 'D10_theta_float': float(theta_D10),
+                   'D10_r': float(r_D10), 'D10_r_over_sqrt2': float(r_D10 / s.sqrt(2))}
+
+# ------------------------------------------------------------------ B. Jacobian at the native point (no data)
+P_, Q_ = mpf(1) / 12, mpf(1) / 6
+D0 = P_ + Q_ - 2 * P_ * Q_
+R0 = 2 * sqrt(P_ / Q_)
+
+
+def roots(delta, r):
+    """DA convention: k = 0 heaviest (tau), k = 1 lightest (e), k = 2 middle (mu)."""
+    return [1 + r * cos(delta + 2 * pi * k / 3) for k in range(3)]
+
+
+def lnratios(delta, r):
+    t, e, u = roots(delta, r)
+    return 2 * log(u / e), 2 * log(t / e)
+
+
+def dln(delta, r):
+    """d ln(mu/e), d ln(tau/e) per unit d delta and per unit d r/r."""
+    t, e, u = roots(delta, r)
+    dd = [-r * sin(delta + 2 * pi * k / 3) for k in range(3)]
+    dr = [r * cos(delta + 2 * pi * k / 3) for k in range(3)]
+    J_delta = (2 * (dd[2] / u - dd[1] / e), 2 * (dd[0] / t - dd[1] / e))
+    J_r = (2 * (dr[2] / u - dr[1] / e), 2 * (dr[0] / t - dr[1] / e))
+    return J_delta, J_r
+
+
+Jd, Jr = dln(D0, R0)
+# rate space: d delta = (1 - 2q) p a + (1 - 2p) q b, d r/r = (a - b)/2
+Ja = (Jd[0] * (1 - 2 * Q_) * P_ + Jr[0] / 2, Jd[1] * (1 - 2 * Q_) * P_ + Jr[1] / 2)
+Jb = (Jd[0] * (1 - 2 * P_) * Q_ - Jr[0] / 2, Jd[1] * (1 - 2 * P_) * Q_ - Jr[1] / 2)
+t, e, u = roots(D0, R0)
+native = lnratios(D0, R0)
+out['B_jacobian_native'] = {
+    'roots_tau_e_mu': [str(x) for x in (t, e, u)],
+    'native_mu_over_e': str(mp.e ** native[0]), 'native_tau_over_e': str(mp.e ** native[1]),
+    'dln_mu_e_per_d_delta': str(Jd[0]), 'dln_tau_e_per_d_delta': str(Jd[1]),
+    'dln_mu_e_per_d_r_over_r': str(Jr[0]), 'dln_tau_e_per_d_r_over_r': str(Jr[1]),
+    'dln_mu_e_per_a': str(Ja[0]), 'dln_mu_e_per_b': str(Jb[0]),
+    'dln_tau_e_per_a': str(Ja[1]), 'dln_tau_e_per_b': str(Jb[1]),
+    'per_relative_mass_shift': 'dln(mu/e) = eps_mu - eps_e, dln(tau/e) = eps_tau - eps_e',
+    'additive_common_shift_Delta_over_m_e': {
+        'dln_mu_e': str(-(1 - (e / u) ** 2)), 'dln_tau_e': str(-(1 - (e / t) ** 2)),
+        'note': 'per unit Delta/m_e; m_k -> m_k + Delta'}}
+
+
+def apply_row(dd, dr):
+    return (Jd[0] * dd + Jr[0] * dr, Jd[1] * dd + Jr[1] * dr)
+
+
+def row_from_Z(name, Zv):
+    Zv = mpf(Zv)
+    if name == 'D4':
+        th_new = Zv * P_ + Zv * Q_ - 2 * Zv * Zv * P_ * Q_; drr = 0
+    elif name == 'D5':
+        th_new = Zv * D0; drr = 0
+    elif name == 'D6':
+        th_new = Zv * P_ + Q_ - 2 * Zv * P_ * Q_; drr = sqrt(Zv) - 1
+    else:
+        raise ValueError(name)
+    return th_new - D0, drr
+
+
+out['B_row_maps'] = 'rows D4 to D7 are evaluated in dr_compare.py from the coefficients of dr_clock.json'
+
+# exact nonlinear check of the D4 linearization at a small dilution (consistency)
+epsZ = mpf('1e-6')
+dd4, dr4 = row_from_Z('D4', 1 - epsZ)
+lin = apply_row(dd4, dr4)
+exact = [x - y for x, y in zip(lnratios(D0 + dd4, R0 * (1 + dr4)), native)]
+out['B_linearization_check_D4_at_1e-6'] = {'linear': [str(x) for x in lin], 'exact': [str(x) for x in exact],
+                                            'rel_diff': [str(abs(x / y - 1)) for x, y in zip(lin, exact)]}
+
+# ------------------------------------------------------------------ C. NOT BLIND: needed shifts from the data
+ME, MMU, MTAU = mpf('0.51099895069'), mpf('105.6583755'), mpf('1776.93')   # MeV, as DA (PDG reference file)
+SE, SMU, STAU = mpf('1.6e-10'), mpf('2.3e-6'), mpf('0.09')
+meas = (log(MMU / ME), log(MTAU / ME))
+sig = (sqrt((SMU / MMU) ** 2 + (SE / ME) ** 2), sqrt((STAU / MTAU) ** 2 + (SE / ME) ** 2))
+need = (meas[0] - native[0], meas[1] - native[1])
+# Q held: solve for delta on mu/e
+d_fit = mp.re(findroot(lambda x: lnratios(x, R0)[0] - meas[0], D0))
+tau_fit = mp.re(mp.e ** lnratios(d_fit, R0)[1] * ME)
+out['C_needed_NOT_BLIND'] = {
+    'needed_dln_mu_e': str(need[0]), 'sigma_ln_mu_e': str(sig[0]),
+    'needed_dln_tau_e': str(need[1]), 'sigma_ln_tau_e': str(sig[1]),
+    'Q_held_delta': str(d_fit), 'Q_held_d_delta': str(d_fit - D0), 'Q_held_rel': str((d_fit - D0) / D0),
+    'Q_held_m_tau_MeV': str(tau_fit), 'Q_held_tau_pull_sigma': str((tau_fit - MTAU) / STAU),
+    'needed_1_minus_Z_D4': str(-findroot(lambda x: apply_row(*row_from_Z('D4', 1 + x))[0] - need[0], mpf('-1e-6'))),
+    'needed_1_minus_Z_D5': str(-findroot(lambda x: apply_row(*row_from_Z('D5', 1 + x))[0] - need[0], mpf('-1e-6'))),
+    'needed_1_minus_Z_D6': str(-findroot(lambda x: apply_row(*row_from_Z('D6', 1 + x))[0] - need[0], mpf('-1e-6'))),
+    'needed_d_theta_D7': str(need[0] / Jd[0]),
+    'needed_cov': str(-need[0] / Jd[0] / 2),
+    'needed_additive_Delta_over_m_e': str(need[0] / (-(1 - (e / u) ** 2))),
+    'needed_additive_Delta_eV': str(need[0] / (-(1 - (e / u) ** 2)) * ME * 10 ** 6)}
+OUT.write_text(json.dumps(out, indent=1, default=str))
+print(json.dumps(out, indent=1, default=str))

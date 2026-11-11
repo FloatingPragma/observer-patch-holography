@@ -1,0 +1,131 @@
+"""X5 item 4: the Higgs register of worker R8, its lowest excitation and how it travels.
+
+Register of R8 (work/R8/r8_gauss.py, r8_higgs_state.py): per cell a register with a lowering operator B (two-level
+bit, counter or ladder); the toggle of the neutral doublet level is exp(-i theta (|F><E| B + |E><F| B*)); one register
+quantum carries Z2 charge 1, 6Y = 3, T3 = -1/2, electric charge 0, no colour; the extended Gauss operator is
+G_x (-1)^(h_x). In R8's tick the register word is never shifted.
+
+A. Declared exchange between the registers of neighbouring carriers with the link sign (the public reflector with
+   two register bits in the place of two ports): commutator with the extended Gauss operator on a ring of four
+   cells with four quantum links (256 dimensions, dense), and the control without the link sign.
+B. One register quantum on flat links: closed form of the exchange walk against a ring of 64 cells.
+C. Exact: a register with a phase (stiffness rho, charge q, number cost u) coupled to the link wave of item 1.
+   Symbol of the linear step on (theta, phi; E, n): polarizations, rest phase, speeds.
+D. Exact: mass matrix of the four electroweak link components on the register quantum of R8.
+"""
+import itertools, json, sys
+import numpy as np
+import sympy as sp
+
+out = {}
+# ---------------------------------------------------------------- A. exchange with link sign on a ring
+L = 4; NQ = 2 * L                                                       # qubits: links 0..3 (link x joins x, x+1), bits 4..7
+I2 = np.eye(2); Xm = np.array([[0, 1], [1, 0]], complex); Zm = np.diag([1.0, -1.0]).astype(complex)
+sp_ = np.array([[0, 0], [1, 0]], complex); sm_ = sp_.T.copy()          # raise / lower the bit (|1> = one register quantum)
+def op(mats):
+    M = np.eye(1, dtype=complex)
+    for k in range(NQ): M = np.kron(M, mats.get(k, I2))
+    return M
+def expm_h(H, t):
+    w, v = np.linalg.eigh(H); return (v * np.exp(-1j * t * w)) @ v.conj().T
+def hop(x, with_link=True):
+    y = (x + 1) % L; lk = {x: Zm} if with_link else {}
+    return op({**lk, L + x: sp_, L + y: sm_}) + op({**lk, L + x: sm_, L + y: sp_})
+eps, mu, lam = 0.3, 0.2, 0.4
+F = np.eye(2 ** NQ, dtype=complex)
+for x in range(L): F = expm_h(op({x: Xm}), eps) @ F
+onsite = np.eye(2 ** NQ, dtype=complex)
+for x in range(L): onsite = expm_h(op({L + x: Zm}), mu) @ onsite
+def tick(with_link=True):
+    U = F.copy()
+    for x in (0, 2): U = expm_h(hop(x, with_link), lam) @ U
+    for x in (1, 3): U = expm_h(hop(x, with_link), lam) @ U
+    return onsite @ U
+gauss = [op({x: Xm, (x - 1) % L: Xm, L + x: Zm}) for x in range(L)]
+U = tick(); Ub = tick(False)
+comm = lambda A, B: float(np.abs(A @ B - B @ A).max())
+v = np.zeros((4, 1), complex); v[2, 0] = 1 / np.sqrt(2); v[1, 0] = -1 / np.sqrt(2)      # (|10> - |01>)/sqrt2 on two bits
+refl = np.eye(4) - 2 * v @ v.conj().T
+swap_sub = np.array([[1, 0, 0, 0], [0, 0, 1, 0], [0, 1, 0, 0], [0, 0, 0, 1]], complex)
+out['A_exchange'] = {'dimension': 2 ** NQ, 'unitarity': float(np.abs(U.conj().T @ U - np.eye(2 ** NQ)).max()),
+                     'commutator_with_extended_Gauss': max(comm(U, G) for G in gauss),
+                     'control_without_link_sign': max(comm(Ub, G) for G in gauss),
+                     'number_of_register_quanta_conserved': comm(U, sum(op({L + x: (I2 - Zm) / 2}) for x in range(L))),
+                     'public_reflector_on_two_bits_is_the_exchange': float(np.abs(refl - swap_sub).max()),
+                     'eps_mu_lambda': [eps, mu, lam]}
+print('A.', out['A_exchange'])
+
+# ---------------------------------------------------------------- B. one quantum on flat links
+def one_particle(Lr, lam):
+    c, s = np.cos(lam), np.sin(lam)
+    def layer(start):
+        B = np.zeros((Lr, Lr), complex)
+        for x in range(start, Lr + start, 2):
+            a, b = x % Lr, (x + 1) % Lr
+            B[a, a] = B[b, b] = c; B[a, b] = B[b, a] = -1j * s
+        return B
+    return layer(1) @ layer(0)                                          # two ticks: even links, then odd links
+rowsB = []
+for lam_ in (0.3, 1.0, np.pi / 2):
+    Lr = 64; U1 = one_particle(Lr, lam_)
+    got = np.sort(np.abs(np.angle(np.linalg.eigvals(U1))))
+    kap_ = 2 * np.pi * np.arange(Lr // 2) / (Lr // 2)
+    want = np.sort(np.concatenate([np.arccos(np.clip(np.cos(lam_) ** 2 - np.sin(lam_) ** 2 * np.cos(kap_), -1, 1))] * 2))
+    kk = np.linspace(0, np.pi, 200001)                                  # wave number per cell, two cells per Bloch period
+    Om = np.arccos(np.clip(np.cos(lam_) ** 2 - np.sin(lam_) ** 2 * np.cos(2 * kk), -1, 1))
+    vmax = float(np.max(np.abs(np.gradient(Om, kk))) / 2)
+    hh = 1e-3; f = lambda k: np.arccos(np.clip(np.cos(lam_) ** 2 - np.sin(lam_) ** 2 * np.cos(2 * k), -1, 1)) / 2
+    curv = float((f(hh) - 2 * f(0.0) + f(-hh)) / hh ** 2)               # per tick and axis, from the closed form
+    rowsB.append({'lambda': float(lam_), 'ring': Lr, 'eigenphases_against_closed_form': float(np.abs(got - want).max()),
+                  'rest_phase_per_tick_and_axis': float(f(0.0)), 'curvature_d2omega_dk2_at_rest': curv if lam_ < 1.5 else None,
+                  'minus_tan_lambda': float(-np.tan(lam_)) if lam_ < 1.5 else None,
+                  'largest_group_velocity_cells_per_tick': vmax, 'closed_form_sin_lambda': float(np.sin(lam_))})
+out['B_one_quantum'] = {'closed_form': 'two ticks (even links, then odd links): cos(Omega) = cos^2(lambda) - sin^2(lambda) cos(2k); '
+                                       'three axes: the phases add; near rest omega = 3 lambda - tan(lambda) |k|^2 / 2 per tick', 'rows': rowsB}
+for r in rowsB: print('B.', r)
+
+# ---------------------------------------------------------------- C. link wave with a charged phase register (exact)
+u = sp.symbols('u1:4'); e_, k_, r_, q_, n_, m_ = sp.symbols('epsilon kappa rho q u mu')
+d = sp.Matrix([x - 1 for x in u]); dc = sp.Matrix([1 / x - 1 for x in u])
+s = sum(2 - x - 1 / x for x in u)
+K = s * sp.eye(3) - d * dc.T                                           # curl* curl (item 1)
+H = sp.zeros(4, 4); H[:3, :3] = k_ * K + r_ * q_ ** 2 * sp.eye(3); H[:3, 3] = -r_ * q_ * d; H[3, :3] = -r_ * q_ * dc.T; H[3, 3] = r_ * s
+T = sp.diag(e_, e_, e_, n_)
+gauge = sp.Matrix([d[0], d[1], d[2], q_])
+okC = {'gauge_direction_is_null': (H * gauge).applyfunc(sp.cancel) == sp.zeros(4, 1),
+       'trace_of_TH': sp.cancel((T * H).trace() - (2 * e_ * (k_ * s + r_ * q_ ** 2) + r_ * (e_ * q_ ** 2 + n_ * s))) == 0}
+M8 = sp.BlockMatrix([[sp.eye(4) - T * H, T], [-H, sp.eye(4)]]).as_explicit()
+want = (m_ - 1) ** 2 * (m_ ** 2 - (2 - e_ * (k_ * s + r_ * q_ ** 2)) * m_ + 1) ** 2 * (m_ ** 2 - (2 - r_ * (e_ * q_ ** 2 + n_ * s)) * m_ + 1)
+ok8 = True
+R = sp.Rational
+for t1, t2, t3, a1, a2, a3, a4, a5, a6 in ((R(1, 3), R(2, 5), R(-1, 7), R(3, 4), R(5, 6), R(2, 3), 2, R(1, 5), R(7, 5)),
+                                           (R(-2, 3), R(1, 9), R(4, 5), R(1, 2), R(7, 3), R(1, 4), 1, R(3, 7), R(-5, 4)),
+                                           (R(5, 2), R(-3, 8), R(1, 6), R(9, 7), R(1, 5), R(2, 9), 3, R(1, 2), R(11, 3))):
+    pt = {u[i]: sp.nsimplify((1 - t * t + 2 * sp.I * t) / (1 + t * t)) for i, t in enumerate((t1, t2, t3))}
+    pt.update({e_: a1, k_: a2, r_: a3, q_: a4, n_: a5, m_: a6})
+    ok8 &= sp.simplify((a6 * sp.eye(8) - M8.subs(pt).applyfunc(sp.nsimplify)).det() - want.subs(pt)) == 0
+out['C_link_wave_with_register'] = {
+    **{k: bool(x) for k, x in okC.items()}, 'charpoly_of_the_8x8_tick_at_three_rational_points': bool(ok8),
+    'transverse (2 polarizations)': 'cos(omega) = 1 - eps (kappa s + rho q^2) / 2',
+    'longitudinal (1 polarization)': 'cos(omega) = 1 - rho (eps q^2 + u s) / 2',
+    'gauge and Gauss pair': 'eigenvalue 1 twice', 'independent scalar branch': 'none: 8 phase-space dimensions = 2 (gauge) + 6 (three polarizations)',
+    'rest_phase': 'cos(omega_0) = 1 - eps rho q^2 / 2 for all three', 'speeds': 'transverse sqrt(eps kappa), longitudinal sqrt(u rho)',
+    'q = 0': 'the link wave keeps two polarizations and no rest phase; the register phase is then a separate massless scalar with speed sqrt(u rho)'}
+print('C.', out['C_link_wave_with_register'])
+
+# ---------------------------------------------------------------- D. electroweak mass matrix on the register quantum
+g, gp = sp.symbols('g gprime', positive=True)
+sig = [sp.Matrix([[0, 1], [1, 0]]), sp.Matrix([[0, -sp.I], [sp.I, 0]]), sp.Matrix([[1, 0], [0, -1]])]
+gens = [g * m / 2 for m in sig] + [gp * sp.eye(2) / 2]                 # W1, W2, W3, B on the register doublet (Y = 1/2)
+ref = sp.Matrix([0, 1])                                                # the neutral member: T3 = -1/2, Q = T3 + Y = 0
+M2 = sp.Matrix(4, 4, lambda a, b: sp.re(sp.simplify((ref.T * (gens[a] * gens[b] + gens[b] * gens[a]) * ref)[0] / 2)))
+eig = M2.eigenvals()
+null = M2.nullspace()[0]
+photon_gen = sp.simplify(null[2] * gens[2] / g + null[3] * gens[3] / gp)       # direction in (T3, Y)
+charge_ok = sp.simplify(null[2] / null[3] - gp / g) == 0                # null vector (0, 0, g', g): couples to g g' (T3 + Y)
+out['D_mass_matrix'] = {'matrix': str(M2.tolist()), 'eigenvalues': {str(sp.factor(k)): int(v) for k, v in eig.items()},
+                        'massless_direction_is_g_prime_W3_plus_g_B': bool(charge_ok),
+                        'its_generator_annihilates_the_register_quantum': bool(sp.simplify((sig[2] / 2 + sp.eye(2) / 2) * ref) == sp.zeros(2, 1)),
+                        'mW2_over_mZ2': 'g^2 / (g^2 + g\'^2)', 'at_equal_normalization_sin2_3/8': str(sp.Rational(5, 8))}
+print('D.', out['D_mass_matrix'])
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 'higgs.json', 'w'), indent=1)

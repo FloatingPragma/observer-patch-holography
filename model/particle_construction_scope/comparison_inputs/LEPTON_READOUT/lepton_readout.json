@@ -1,0 +1,526 @@
+{
+ "register": {
+  "theta": "2/9",
+  "positions": 3,
+  "character_of": {
+   "0": "tau",
+   "1": "electron",
+   "2": "muon"
+  },
+  "C_eigenvalues": {
+   "tau": 0.9714015658337364,
+   "electron": 0.016472781050865186,
+   "muon": 0.23687052450698748
+  },
+  "Y_eigenvalues_per_tick": {
+   "tau": 0.2096935560231633,
+   "electron": 6.030055901105403e-05,
+   "muon": 0.012468365640047855
+  },
+  "trace_Y": "2/9",
+  "koide_Q": "2/3",
+  "share_of_summed_mass": {
+   "tau": 0.9436210021042349,
+   "electron": 0.00027135251554974313,
+   "muon": 0.05610764538021535
+  },
+  "agrees_with_FR_ratios": true
+ },
+ "defect_at_definite_position": {
+  "prior_lepton_probabilities": {
+   "tau": 0.3333333333333334,
+   "electron": 0.3333333333333334,
+   "muon": 0.3333333333333334
+  },
+  "beat_periods_in_ticks": {
+   "tau-muon": 31.85792491808132,
+   "muon-electron": 506.37913857996716,
+   "tau-electron": 29.97227368943867
+  },
+  "circulation": [
+   {
+    "tick": 0,
+    "position_probabilities": [
+     1.0,
+     0.0,
+     0.0
+    ]
+   },
+   {
+    "tick": 4,
+    "position_probabilities": [
+     0.860433,
+     0.066795,
+     0.072772
+    ]
+   },
+   {
+    "tick": 8,
+    "position_probabilities": [
+     0.529334,
+     0.21518,
+     0.255486
+    ]
+   },
+   {
+    "tick": 16,
+    "position_probabilities": [
+     0.111768,
+     0.36826,
+     0.519972
+    ]
+   },
+   {
+    "tick": 32,
+    "position_probabilities": [
+     0.962848,
+     0.018127,
+     0.019025
+    ]
+   },
+   {
+    "tick": 64,
+    "position_probabilities": [
+     0.857602,
+     0.067759,
+     0.074638
+    ]
+   },
+   {
+    "tick": 128,
+    "position_probabilities": [
+     0.521585,
+     0.2161,
+     0.262315
+    ]
+   },
+   {
+    "tick": 256,
+    "position_probabilities": [
+     0.1131,
+     0.358083,
+     0.528817
+    ]
+   },
+   {
+    "tick": 512,
+    "position_probabilities": [
+     0.948336,
+     0.024304,
+     0.02736
+    ]
+   }
+  ]
+ },
+ "mass_readout": {
+  "instrument": "phase estimation of exp(-i t Y) with a clock register of T levels; every outcome kept",
+  "resolution": [
+   {
+    "clock_levels": 8,
+    "frequency_resolution": 0.7853981633974483,
+    "p_lepton_identified": 0.403566,
+    "mean_largest_posterior": 0.403566,
+    "p_tau_separated_from_light": 0.736628
+   },
+   {
+    "clock_levels": 16,
+    "frequency_resolution": 0.39269908169872414,
+    "p_lepton_identified": 0.549133,
+    "mean_largest_posterior": 0.549133,
+    "p_tau_separated_from_light": 0.881367
+   },
+   {
+    "clock_levels": 32,
+    "frequency_resolution": 0.19634954084936207,
+    "p_lepton_identified": 0.666388,
+    "mean_largest_posterior": 0.666388,
+    "p_tau_separated_from_light": 0.995327
+   },
+   {
+    "clock_levels": 64,
+    "frequency_resolution": 0.09817477042468103,
+    "p_lepton_identified": 0.672469,
+    "mean_largest_posterior": 0.672469,
+    "p_tau_separated_from_light": 0.988491
+   },
+   {
+    "clock_levels": 128,
+    "frequency_resolution": 0.04908738521234052,
+    "p_lepton_identified": 0.713493,
+    "mean_largest_posterior": 0.713493,
+    "p_tau_separated_from_light": 0.981821
+   },
+   {
+    "clock_levels": 256,
+    "frequency_resolution": 0.02454369260617026,
+    "p_lepton_identified": 0.852611,
+    "mean_largest_posterior": 0.852611,
+    "p_tau_separated_from_light": 0.983406
+   },
+   {
+    "clock_levels": 512,
+    "frequency_resolution": 0.01227184630308513,
+    "p_lepton_identified": 0.999777,
+    "mean_largest_posterior": 0.999777,
+    "p_tau_separated_from_light": 0.99988
+   },
+   {
+    "clock_levels": 1024,
+    "frequency_resolution": 0.006135923151542565,
+    "p_lepton_identified": 0.999591,
+    "mean_largest_posterior": 0.999591,
+    "p_tau_separated_from_light": 0.99977
+   },
+   {
+    "clock_levels": 2048,
+    "frequency_resolution": 0.0030679615757712823,
+    "p_lepton_identified": 0.999191,
+    "mean_largest_posterior": 0.999191,
+    "p_tau_separated_from_light": 0.999609
+   },
+   {
+    "clock_levels": 4096,
+    "frequency_resolution": 0.0015339807878856412,
+    "p_lepton_identified": 0.998848,
+    "mean_largest_posterior": 0.998848,
+    "p_tau_separated_from_light": 0.999651
+   },
+   {
+    "clock_levels": 16384,
+    "frequency_resolution": 0.0003834951969714103,
+    "p_lepton_identified": 0.997865,
+    "mean_largest_posterior": 0.997865,
+    "p_tau_separated_from_light": 0.999828
+   }
+  ],
+  "sample": {
+   "clock_levels": 4096,
+   "defects": 30000,
+   "seed": 20261111,
+   "counts": {
+    "tau": 9992,
+    "electron": 10058,
+    "muon": 9950
+   },
+   "fractions": {
+    "tau": 0.3330666666666667,
+    "electron": 0.33526666666666666,
+    "muon": 0.33166666666666667
+   },
+   "second_readout_gives_same_lepton": 0.9987666666666667,
+   "first_histories": [
+    {
+     "defect": 0,
+     "clock_outcome": 8,
+     "frequency_read_per_tick": 0.012272,
+     "lepton": "muon",
+     "posterior": [
+      4e-06,
+      2.6e-05,
+      0.99997
+     ],
+     "second_readout": "muon"
+    },
+    {
+     "defect": 1,
+     "clock_outcome": 137,
+     "frequency_read_per_tick": 0.210155,
+     "lepton": "tau",
+     "posterior": [
+      0.999999,
+      0.0,
+      1e-06
+     ],
+     "second_readout": "tau"
+    },
+    {
+     "defect": 2,
+     "clock_outcome": 0,
+     "frequency_read_per_tick": 0.0,
+     "lepton": "electron",
+     "posterior": [
+      4e-06,
+      0.99976,
+      0.000236
+     ],
+     "second_readout": "electron"
+    },
+    {
+     "defect": 3,
+     "clock_outcome": 8,
+     "frequency_read_per_tick": 0.012272,
+     "lepton": "muon",
+     "posterior": [
+      4e-06,
+      2.6e-05,
+      0.99997
+     ],
+     "second_readout": "muon"
+    },
+    {
+     "defect": 4,
+     "clock_outcome": 0,
+     "frequency_read_per_tick": 0.0,
+     "lepton": "electron",
+     "posterior": [
+      4e-06,
+      0.99976,
+      0.000236
+     ],
+     "second_readout": "electron"
+    },
+    {
+     "defect": 5,
+     "clock_outcome": 0,
+     "frequency_read_per_tick": 0.0,
+     "lepton": "electron",
+     "posterior": [
+      4e-06,
+      0.99976,
+      0.000236
+     ],
+     "second_readout": "electron"
+    },
+    {
+     "defect": 6,
+     "clock_outcome": 136,
+     "frequency_read_per_tick": 0.208621,
+     "lepton": "tau",
+     "posterior": [
+      0.999992,
+      1e-06,
+      7e-06
+     ],
+     "second_readout": "tau"
+    },
+    {
+     "defect": 7,
+     "clock_outcome": 137,
+     "frequency_read_per_tick": 0.210155,
+     "lepton": "tau",
+     "posterior": [
+      0.999999,
+      0.0,
+      1e-06
+     ],
+     "second_readout": "tau"
+    },
+    {
+     "defect": 8,
+     "clock_outcome": 137,
+     "frequency_read_per_tick": 0.210155,
+     "lepton": "tau",
+     "posterior": [
+      0.999999,
+      0.0,
+      1e-06
+     ],
+     "second_readout": "tau"
+    },
+    {
+     "defect": 9,
+     "clock_outcome": 8,
+     "frequency_read_per_tick": 0.012272,
+     "lepton": "muon",
+     "posterior": [
+      4e-06,
+      2.6e-05,
+      0.99997
+     ],
+     "second_readout": "muon"
+    },
+    {
+     "defect": 10,
+     "clock_outcome": 8,
+     "frequency_read_per_tick": 0.012272,
+     "lepton": "muon",
+     "posterior": [
+      4e-06,
+      2.6e-05,
+      0.99997
+     ],
+     "second_readout": "muon"
+    },
+    {
+     "defect": 11,
+     "clock_outcome": 8,
+     "frequency_read_per_tick": 0.012272,
+     "lepton": "muon",
+     "posterior": [
+      4e-06,
+      2.6e-05,
+      0.99997
+     ],
+     "second_readout": "muon"
+    },
+    {
+     "defect": 12,
+     "clock_outcome": 8,
+     "frequency_read_per_tick": 0.012272,
+     "lepton": "muon",
+     "posterior": [
+      4e-06,
+      2.6e-05,
+      0.99997
+     ],
+     "second_readout": "muon"
+    },
+    {
+     "defect": 13,
+     "clock_outcome": 0,
+     "frequency_read_per_tick": 0.0,
+     "lepton": "electron",
+     "posterior": [
+      4e-06,
+      0.99976,
+      0.000236
+     ],
+     "second_readout": "electron"
+    },
+    {
+     "defect": 14,
+     "clock_outcome": 137,
+     "frequency_read_per_tick": 0.210155,
+     "lepton": "tau",
+     "posterior": [
+      0.999999,
+      0.0,
+      1e-06
+     ],
+     "second_readout": "tau"
+    },
+    {
+     "defect": 15,
+     "clock_outcome": 0,
+     "frequency_read_per_tick": 0.0,
+     "lepton": "electron",
+     "posterior": [
+      4e-06,
+      0.99976,
+      0.000236
+     ],
+     "second_readout": "electron"
+    },
+    {
+     "defect": 16,
+     "clock_outcome": 136,
+     "frequency_read_per_tick": 0.208621,
+     "lepton": "tau",
+     "posterior": [
+      0.999992,
+      1e-06,
+      7e-06
+     ],
+     "second_readout": "tau"
+    },
+    {
+     "defect": 17,
+     "clock_outcome": 137,
+     "frequency_read_per_tick": 0.210155,
+     "lepton": "tau",
+     "posterior": [
+      0.999999,
+      0.0,
+      1e-06
+     ],
+     "second_readout": "tau"
+    },
+    {
+     "defect": 18,
+     "clock_outcome": 0,
+     "frequency_read_per_tick": 0.0,
+     "lepton": "electron",
+     "posterior": [
+      4e-06,
+      0.99976,
+      0.000236
+     ],
+     "second_readout": "electron"
+    },
+    {
+     "defect": 19,
+     "clock_outcome": 8,
+     "frequency_read_per_tick": 0.012272,
+     "lepton": "muon",
+     "posterior": [
+      4e-06,
+      2.6e-05,
+      0.99997
+     ],
+     "second_readout": "muon"
+    },
+    {
+     "defect": 20,
+     "clock_outcome": 8,
+     "frequency_read_per_tick": 0.012272,
+     "lepton": "muon",
+     "posterior": [
+      4e-06,
+      2.6e-05,
+      0.99997
+     ],
+     "second_readout": "muon"
+    },
+    {
+     "defect": 21,
+     "clock_outcome": 137,
+     "frequency_read_per_tick": 0.210155,
+     "lepton": "tau",
+     "posterior": [
+      0.999999,
+      0.0,
+      1e-06
+     ],
+     "second_readout": "tau"
+    },
+    {
+     "defect": 22,
+     "clock_outcome": 133,
+     "frequency_read_per_tick": 0.204019,
+     "lepton": "tau",
+     "posterior": [
+      0.999777,
+      1.8e-05,
+      0.000205
+     ],
+     "second_readout": "tau"
+    },
+    {
+     "defect": 23,
+     "clock_outcome": 8,
+     "frequency_read_per_tick": 0.012272,
+     "lepton": "muon",
+     "posterior": [
+      4e-06,
+      2.6e-05,
+      0.99997
+     ],
+     "second_readout": "muon"
+    }
+   ]
+  }
+ },
+ "mass_read": {
+  "ratios": {
+   "mu_over_e": 206.77031597272938,
+   "tau_over_e": 3477.4728371045985,
+   "tau_over_mu": 16.818046733377518
+  },
+  "MeV_with_electron_as_unit_anchor": {
+   "electron": 0.51099895069,
+   "muon": 105.65941449590446,
+   "tau": 1776.9849708134273
+  },
+  "measured_MeV": {
+   "electron": 0.51099895069,
+   "muon": 105.6583755,
+   "tau": 1776.93
+  },
+  "deviation": {
+   "muon_ppm": 9.833540403514363,
+   "tau_sigma": 0.6107868158576619
+  },
+  "own_scale_note": "in the register own clock units the rates are Y per tick (sum 2/9 per tick, the lattice scale); the physical lepton scale is not derived, so GeV values need one anchor"
+ },
+ "status": "register parts declared (FR, FR2, LNAT3), unit clock time per tick declared (CK); comparison NOT BLIND"
+}

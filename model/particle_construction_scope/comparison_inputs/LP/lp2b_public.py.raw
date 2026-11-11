@@ -1,0 +1,155 @@
+"""LP direction 2, items G5 and G6: the public joint defect and wave program with two occupied modes
+(`model/coherent_defect_wave/species/fock.py`, imported read only). EXACT. Writes lp2b_public.json.
+
+G5: which two-load port multisets leave a regional class-3 defect unmoved by the public control sequence
+    (primary control f(n) = n mod 2; comparison control f(n) = 1[n > 0]).
+G6: the public Gauss operator `gamma` on the charge-free link state (|g> + |g xor star_5>)/sqrt2 with one and two quanta.
+"""
+from __future__ import annotations
+
+import itertools
+import json
+import sys
+import time
+from fractions import Fraction as Fr
+
+import lp_common as L
+
+OUT = 'lp2b_public.json'
+
+
+def main():
+    t0 = time.time()
+    L.FC.rer_root()
+    from model.coherent_defect_wave.species.fock import FockObserver, FockState, mode
+    out = {'task': 'LP direction 2, G5 and G6: public species program', 'provenance': L.FC.provenance()}
+    obs = FockObserver('parity')
+    pres = FockObserver('presence')
+    law = obs.base.law
+    words = obs.base.link_words
+    star = law.vertex_stars[5]
+    faces = law.faces
+    region = law.region
+    interior = [law.edges[e] for e in law.interior]
+    out['public_region'] = {'faces around port 5': [list(faces[f]) for f in region], 'interior edges': [list(e) for e in interior],
+                            'link words of the sector': len(words)}
+
+    def occ_of(p, q):
+        if p == q:
+            return tuple(sorted((mode(p, 3, 0, 0), mode(p, 4, 0, 0))))      # two doublet levels on one port
+        return tuple(sorted((mode(p, 3, 0, 0), mode(q, 3, 0, 0))))
+
+    multisets = list(itertools.combinations_with_replacement(range(12), 2))
+    assert len(multisets) == 78
+
+    def defect_face(g):
+        syn = law.syndrome(g)
+        hit = [f for f in region if syn >> f & 1]
+        assert len(hit) == 1
+        return hit[0]
+
+    # ---------------- G5
+    g5 = {}
+    for f in region:
+        face = faces[f]
+        adj = [e for e in interior if set(e) <= set(face)]             # the two interior edges of the defect face
+        assert len(adj) == 2
+        wf = [g for g in words if defect_face(g) == f]
+        rows = {}
+        for name, o in (('parity', obs), ('presence', pres)):
+            unmoved, rule_ok = [], True
+            for (p, q) in multisets:
+                res = set()
+                for g in wf:
+                    st = o.controls(o.basis_state(g, occ_of(p, q)))
+                    (key, val), = st.amplitudes
+                    res.add(key[0] == g)
+                assert len(res) == 1
+                stay = res.pop()
+                if stay:
+                    unmoved.append((p, q))
+                if name == 'parity':
+                    even = all(((p in e) + (q in e)) % 2 == 0 for e in adj)
+                    rule_ok &= (even == stay)
+            on_face = [pq for pq in unmoved if set(pq) & set(face)]
+            rows[name] = {'unmoved multisets': len(unmoved), 'unmoved with a load on the defect face': [list(x) for x in on_face]}
+            if name == 'parity':
+                rows[name]['unmoved exactly when both interior edges of the defect face see an even number of loads'] = rule_ok
+        g5[str(list(face))] = {'interior edges of the face': [list(e) for e in adj], 'link words': len(wf), **rows}
+    out['G5_defect_at_rest'] = g5
+    print('G5', json.dumps(g5[str([4, 5, 11])], indent=1))
+    print('G5 all faces (parity):', {k: (v['parity']['unmoved multisets'], v['parity']['unmoved with a load on the defect face'],
+                                         v['parity']['unmoved exactly when both interior edges of the defect face see an even number of loads'])
+                                     for k, v in g5.items()})
+
+    # ---------------- G6
+    def positive_weight(g, occ):
+        psi = FockState({(g, occ): Fr(1), (g ^ star, occ): Fr(1)}, 2)       # charge-free link state (x) wave occupation
+        gam = obs.gamma(psi).as_dict()
+        ov = sum(v * gam.get(k, Fr(0)) for k, v in psi.as_dict().items()) / 2
+        return (1 + ov) / 2
+    g0 = words[0]
+    cases = {
+        'one doublet quantum at port 5': (mode(5, 3, 0, 0),),
+        'one triplet quantum at port 5': (mode(5, 0, 0, 0),),
+        'two doublet quanta at port 5 (levels 3 and 4)': tuple(sorted((mode(5, 3, 0, 0), mode(5, 4, 0, 0)))),
+        'doublet quanta at ports 5 and 0': tuple(sorted((mode(5, 3, 0, 0), mode(0, 3, 0, 0)))),
+        'doublet quanta at ports 0 and 1': tuple(sorted((mode(0, 3, 0, 0), mode(1, 3, 0, 0)))),
+        'two doublet quanta at port 0': tuple(sorted((mode(0, 3, 0, 0), mode(0, 4, 0, 0)))),
+        'empty wave': (),
+    }
+    g6 = {name: str(positive_weight(g0, occ)) for name, occ in cases.items()}
+    g6['all words'] = all(positive_weight(g, cases['two doublet quanta at port 5 (levels 3 and 4)']) == 1
+                          and positive_weight(g, cases['one doublet quantum at port 5']) == 0 for g in words)
+    g6['reading'] = ('on the charge-free link state the public Gauss operator admits an even number of doublet quanta at its '
+                     'vertex; the public constraint exists at port 5 only')
+    out['G6_public_gauss_on_the_charge_free_link_state'] = g6
+    print('G6', json.dumps(g6, indent=1))
+
+    # ---------------- reproduction of the public two-wave observation (one full public step from the double occupation of port 5)
+    try:
+        psi = FockState({(1, cases['two doublet quanta at port 5 (levels 3 and 4)']): Fr(1),
+                         (1 ^ star, cases['two doublet quanta at port 5 (levels 3 and 4)']): Fr(1)}, 2)
+        after = obs.step(psi)
+        dist = {}
+        n2 = after.norm_squared()
+        for face, br in obs.face_measurement(after):
+            dist[int(face)] = str(br.norm_squared())
+        ports_after = {}
+        for (g, occ), v in after.amplitudes:
+            from model.coherent_defect_wave.species.fock import coordinates
+            pp = tuple(sorted(coordinates(i)[0] for i in occ))
+            ports_after[pp] = ports_after.get(pp, Fr(0)) + v * v / after.norm_denominator
+        f0 = defect_face(1)
+        joint = {'defect unmoved, both quanta on port 5': Fr(0), 'defect unmoved, other occupation': Fr(0),
+                 'defect moved, both quanta on port 5': Fr(0), 'defect moved, other occupation': Fr(0)}
+        for (g, occ), v in after.amplitudes:
+            pp = tuple(sorted(coordinates(i)[0] for i in occ))
+            key = ('defect unmoved' if defect_face(g) == f0 else 'defect moved') + ', ' + \
+                ('both quanta on port 5' if pp == (5, 5) else 'other occupation')
+            joint[key] += v * v / after.norm_denominator
+        unmoved = joint['defect unmoved, both quanta on port 5'] + joint['defect unmoved, other occupation']
+        out['public_two_wave_step_joint_law'] = {
+            **{k: str(v) for k, v in joint.items()},
+            'weight of the intact pair given the defect unmoved': str(joint['defect unmoved, both quanta on port 5'] / unmoved),
+            'as float': float(joint['defect unmoved, both quanta on port 5'] / unmoved),
+            'weight of the unmoved defect given the intact pair': str(joint['defect unmoved, both quanta on port 5']
+                                                                      / (joint['defect unmoved, both quanta on port 5']
+                                                                         + joint['defect moved, both quanta on port 5']))}
+        print('joint law', out['public_two_wave_step_joint_law'])
+        out['public_two_wave_step'] = {
+            'norm': str(n2), 'face distribution': dist, 'amplitudes': len(after.amplitudes),
+            'weight with both quanta still on port 5': str(ports_after.get((5, 5), Fr(0))),
+            'weight with one quantum on port 5': str(sum(v for k, v in ports_after.items() if k.count(5) == 1)),
+            'weight with no quantum on port 5': str(sum(v for k, v in ports_after.items() if k.count(5) == 0))}
+        print('public two-wave step', out['public_two_wave_step'])
+    except Exception as exc:  # noqa: BLE001
+        out['public_two_wave_step'] = f'not run: {type(exc).__name__}: {exc}'
+        print(out['public_two_wave_step'])
+    out['seconds'] = round(time.time() - t0, 2)
+    L.jdump(out, OUT)
+    print('written', OUT, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

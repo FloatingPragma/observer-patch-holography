@@ -1,0 +1,199 @@
+{
+ "construction": "(CANDIDATES.md section 1). Each lepton mode of the repository's six-mode lepton block (e^c, L1, L2 at\nnative indices 9, 10, 11; both spins) carries a family label f = 0, 1, 2 on the Fourier modes of the circulant. The\nYukawa of family f has coefficient y_f (the circulant eigenvalue times a common y); the five-state Higgs memory of a\ncell is shared by the families; the two oriented six-state links of the periodic two-cell control are family blind\n(their label records the native indices a, b only). Unit penalties kappa = omega = 1 as declared; the hopping is the\nrepository's i(-1)^(spin+site)/4 sigma3 term. Mode number inside a cell: 6 f + 3 spin + i.",
+ "check_family0_equals_quantum_lepton_block": true,
+ "D2_shared_memory": {
+  "vacuum_component_is_star": true,
+  "vacuum_component_size": 13,
+  "S_vac": "4*y0**2 + 4*y1**2 + 4*y2**2",
+  "lines": {
+   "e^c family 0": {
+    "star": true,
+    "component_size": 11,
+    "S_line": "2*y0**2 + 4*y1**2 + 4*y2**2",
+    "S_vac_minus_S_line": "2*y0**2"
+   },
+   "L1 family 0": {
+    "star": true,
+    "component_size": 12,
+    "S_line": "3*y0**2 + 4*y1**2 + 4*y2**2",
+    "S_vac_minus_S_line": "y0**2"
+   },
+   "e^c family 1": {
+    "star": true,
+    "component_size": 11,
+    "S_line": "4*y0**2 + 2*y1**2 + 4*y2**2",
+    "S_vac_minus_S_line": "2*y1**2"
+   },
+   "L1 family 1": {
+    "star": true,
+    "component_size": 12,
+    "S_line": "4*y0**2 + 3*y1**2 + 4*y2**2",
+    "S_vac_minus_S_line": "y1**2"
+   },
+   "e^c family 2": {
+    "star": true,
+    "component_size": 11,
+    "S_line": "4*y0**2 + 4*y1**2 + 2*y2**2",
+    "S_vac_minus_S_line": "2*y2**2"
+   },
+   "L1 family 2": {
+    "star": true,
+    "component_size": 12,
+    "S_line": "4*y0**2 + 4*y1**2 + 3*y2**2",
+    "S_vac_minus_S_line": "y2**2"
+   }
+  },
+  "exact_mass_e^c_line": "m_f = [sqrt(omega^2 + 4S) - sqrt(omega^2 + 4S - 8 y_f^2)]/2, S = 4(y0^2 + y1^2 + y2^2)",
+  "mass_of_blocked_weight_u": "sqrt(4*S + omega**2)/2 - sqrt(4*S + omega**2 - 4*u)/2",
+  "series_in_u": "u*(4*S + omega**2 + u)/(4*S + omega**2)**(3/2)",
+  "second_order_in_y": "m_f = 2 y_f^2/omega: the A-clock circulant with Y = y C (EXACT)",
+  "convexity": "d2m/du2 = 2/(omega^2 + 4S - 4u)^(3/2) > 0: m_f/u_f increases with u_f, so every ratio heavy/light rises (EXACT)"
+ },
+ "D2_rows": {
+  "declared_y=omega=1": {
+   "eps_tau_e_mu": [
+    "-0.7221202829317409043644063477841111148425",
+    "-0.7574566318043396568300442095576007601483",
+    "-0.7558419308655584136022748158741862765597"
+   ],
+   "dln_mu_e": "0.001614700938781243227769393683414483588662",
+   "dln_tau_e": "0.03533634887259875246563786177348964530583"
+  },
+  "y=0.01_omega=1": {
+   "eps_tau_e_mu": [
+    "-0.0006106981287346516427681793206795536930811",
+    "-0.0007989871376907941118792129954573543233209",
+    "-0.0007878463761934529781294312896825067682359"
+   ],
+   "dln_mu_e": "0.00001114076149734113374978170577484755508502",
+   "dln_tau_e": "0.0001882890089561424691110336747778006302397"
+  },
+  "leading_family_dependent_term": "eps_f - eps_e = 2 (y_f^2 - y_e^2)/(omega^2 + 4S) + O(y^4) = (m_f - m_e)/sqrt(omega^2 + 4S) at leading order: positive"
+ },
+ "check_family0_equals_periodic_column": {
+  "columns_compared": 88,
+  "mismatches": 0
+ },
+ "D1_link_second_order": {
+  "Sigma_line_e^c": "(-0.0625+0j)",
+  "channels": 1,
+  "one_minus_Z_line_e^c": 0.0625,
+  "Sigma_vacuum_at_y=0": 0.0,
+  "statement": "family blind and additive (T1); the neutral ground has no hopping term at y = 0, so the charged line moves by Sigma relative to it",
+  "Sigma_line_L1": "(-0.125+0j)",
+  "channels_L1": 2
+ },
+ "D3_mixed_y2h2": {
+  "only_f0": {
+   "vacuum": {
+    "E2_Y": "(-8+0j)",
+    "E2_h": "0j",
+    "E4_yyhh": "(-0.75+0j)"
+   },
+   "line_family_0": {
+    "E2_Y": "(-6+0j)",
+    "E2_h": "(-0.0625+0j)",
+    "E4_yyhh": "(-0.3125+0j)"
+   },
+   "mass_family_0": {
+    "order_y2": "(2+0j)",
+    "order_h2": "(-0.0625+0j)",
+    "order_y2h2": "(0.4375+0j)"
+   },
+   "line_family_1": {
+    "E2_Y": "(-8+0j)",
+    "E2_h": "(-0.0625+0j)",
+    "E4_yyhh": "(-0.75+0j)"
+   },
+   "mass_family_1": {
+    "order_y2": "0j",
+    "order_h2": "(-0.0625+0j)",
+    "order_y2h2": "0j"
+   },
+   "line_family_2": {
+    "E2_Y": "(-8+0j)",
+    "E2_h": "(-0.0625+0j)",
+    "E4_yyhh": "(-0.75+0j)"
+   },
+   "mass_family_2": {
+    "order_y2": "0j",
+    "order_h2": "(-0.0625+0j)",
+    "order_y2h2": "0j"
+   }
+  },
+  "only_f1": {
+   "vacuum": {
+    "E2_Y": "(-8+0j)",
+    "E2_h": "0j",
+    "E4_yyhh": "(-0.75+0j)"
+   },
+   "line_family_0": {
+    "E2_Y": "(-8+0j)",
+    "E2_h": "(-0.0625+0j)",
+    "E4_yyhh": "(-0.75+0j)"
+   },
+   "mass_family_0": {
+    "order_y2": "0j",
+    "order_h2": "(-0.0625+0j)",
+    "order_y2h2": "0j"
+   },
+   "line_family_1": {
+    "E2_Y": "(-6+0j)",
+    "E2_h": "(-0.0625+0j)",
+    "E4_yyhh": "(-0.3125+0j)"
+   },
+   "mass_family_1": {
+    "order_y2": "(2+0j)",
+    "order_h2": "(-0.0625+0j)",
+    "order_y2h2": "(0.4375+0j)"
+   },
+   "line_family_2": {
+    "E2_Y": "(-8+0j)",
+    "E2_h": "(-0.0625+0j)",
+    "E4_yyhh": "(-0.75+0j)"
+   },
+   "mass_family_2": {
+    "order_y2": "0j",
+    "order_h2": "(-0.0625+0j)",
+    "order_y2h2": "0j"
+   }
+  },
+  "all_equal": {
+   "vacuum": {
+    "E2_Y": "(-24+0j)",
+    "E2_h": "0j",
+    "E4_yyhh": "(-2.25+0j)"
+   },
+   "line_family_0": {
+    "E2_Y": "(-22+0j)",
+    "E2_h": "(-0.0625+0j)",
+    "E4_yyhh": "(-1.8125+0j)"
+   },
+   "mass_family_0": {
+    "order_y2": "(2+0j)",
+    "order_h2": "(-0.0625+0j)",
+    "order_y2h2": "(0.4375+0j)"
+   },
+   "line_family_1": {
+    "E2_Y": "(-22+0j)",
+    "E2_h": "(-0.0625+0j)",
+    "E4_yyhh": "(-1.8125+0j)"
+   },
+   "mass_family_1": {
+    "order_y2": "(2+0j)",
+    "order_h2": "(-0.0625+0j)",
+    "order_y2h2": "(0.4375+0j)"
+   },
+   "line_family_2": {
+    "E2_Y": "(-22+0j)",
+    "E2_h": "(-0.0625+0j)",
+    "E4_yyhh": "(-1.8125+0j)"
+   },
+   "mass_family_2": {
+    "order_y2": "(2+0j)",
+    "order_h2": "(-0.0625+0j)",
+    "order_y2h2": "(0.4375+0j)"
+   }
+  }
+ }
+}

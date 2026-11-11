@@ -1,0 +1,242 @@
+"""SS tests T1, T5 and F2 (CANDIDATES.md): the centre z of the cover of order 120 on every register of the source,
+its identity with GL's grading and with the class-3 holonomy, the flux-sector parity rule, the native scalars on the
+code, the action of an integer flux 6, and the topological spins of the screen's quantum double D(Z6).
+
+Run:  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python ss_cover.py [out.json]
+Reads (never writes): work/GL/gl_lib.py (cover, ports, lifts), work/GL/s5_links_couplings.json, work/X3/irreps.json.
+"""
+import cmath
+import hashlib
+import itertools
+import json
+import math
+import sys
+from fractions import Fraction as F
+from pathlib import Path
+
+import numpy as np
+
+RL = Path('WORKSPACE/repair-law')
+sys.path.insert(0, str(RL / 'work/GL'))
+import gl_lib as G  # noqa: E402  (read only)
+
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).with_name('ss_cover.json')
+out = {'inputs_sha256': {p: hashlib.sha256((RL / p).read_bytes()).hexdigest()
+                         for p in ('work/GL/gl_lib.py', 'work/GL/s5_links_couplings.json', 'work/X3/irreps.json')}}
+TOL = 1e-9
+
+
+def key(M):
+    return tuple(np.round(np.concatenate([M.real.ravel(), M.imag.ravel()]), 8) + 0.0)
+
+
+# ------------------------------------------------------------------ T1a: the group rho(2I) on the code and its centre
+mats = [m for m, _ in G.COVER]
+index = {key(m): i for i, m in enumerate(mats)}
+assert len(index) == 120
+closed = all(key(a @ b) in index for a in mats for b in mats)
+central = [i for i, m in enumerate(mats) if all(np.allclose(m @ g, g @ m, atol=TOL) for g in mats)]
+ident = [i for i in central if np.allclose(mats[i], np.eye(5), atol=TOL)]
+z_list = [i for i in central if i not in ident]
+assert closed and len(central) == 2 and len(z_list) == 1
+Z = mats[z_list[0]]
+Y6 = G.Y6
+assert np.allclose(sum(G.X), Y6, atol=1e-12)
+expY = np.diag(np.exp(1j * math.pi * np.diag(Y6).real))
+out['T1a_cover_centre'] = {
+    'group_closed_under_products': closed, 'order': len(mats),
+    'central_elements': len(central), 'central_involution_diagonal': [int(round(x.real)) for x in np.diag(Z)],
+    'equals_exp_i_pi_sum_p_X_p': bool(np.allclose(Z, expY, atol=1e-12)),
+    'statement': 'the unique central involution of rho(2I) is diag(1,1,1,-1,-1) = exp(i pi 6Y) on the code'}
+
+# ------------------------------------------------------------------ T1b: action on the 32 patterns
+pats = []
+for mask in range(32):
+    occ = [i for i in range(5) if mask >> i & 1]
+    n3 = sum(1 for i in occ if i < 3)
+    n2 = sum(1 for i in occ if i >= 3)
+    q6 = 3 * n2 - 2 * n3
+    zval = np.prod([Z[i, i] for i in occ]) if occ else 1.0
+    pats.append(dict(mask=mask, n3=n3, n2=n2, deg=n3 + n2, q6=q6, k=q6 % 6, z=int(round(complex(zval).real))))
+assert all(p['z'] == (-1) ** p['n2'] for p in pats)
+assert all(p['z'] == (-1) ** p['q6'] for p in pats)
+assert all(abs(cmath.exp(2j * math.pi * 3 * p['q6'] / 6) - p['z']) < 1e-12 for p in pats)
+# the class-3 holonomy of the Z6 alphabet exp(i (pi k / 3) sum_p X_p) at k = 3 equals z on C^5
+hol3 = np.diag(np.exp(1j * math.pi * 3 / 3 * np.diag(Y6).real))
+out['T1b_patterns'] = {
+    'z_on_pattern_equals_(-1)^n2': True, 'z_on_pattern_equals_(-1)^Q6': True,
+    'z_equals_class3_holonomy_exp(2 pi i 3 Q6/6)': True,
+    'class3_sixth_root_on_code_equals_z': bool(np.allclose(hol3, Z, atol=1e-12)),
+    'patterns_with_z_minus1': sum(p['z'] == -1 for p in pats),
+    'classes_with_z_minus1': sorted({p['k'] for p in pats if p['z'] == -1}),
+    'statement': 'z is the weak centre (-1)^n2 = (-1)^(6Y) on every pattern and the Z6 holonomy of class 3'}
+
+# ------------------------------------------------------------------ T1c: central involutions of G = S(U(3) x U(2))
+# centre = {diag(a I3, b I2): a^3 b^2 = 1} = {diag(e^{2 i t} I3, e^{-3 i t} I2)} (connected since gcd(3, 2) = 1)
+inv = []
+for t in np.linspace(0, 2 * math.pi, 7201)[:-1]:
+    c = np.diag([cmath.exp(2j * t)] * 3 + [cmath.exp(-3j * t)] * 2)
+    if np.allclose(c @ c, np.eye(5), atol=1e-9):
+        inv.append([int(round(x.real)) for x in np.diag(c)])
+inv_unique = sorted({tuple(v) for v in inv})
+out['T1c_central_involutions_of_G'] = {
+    'involutions_found_on_a_7200_point_grid_of_the_centre': [list(v) for v in inv_unique],
+    'analytic': 'c^2 = 1 with a = e^{2it}, b = e^{-3it}: 4t and 6t in 2 pi Z, so t in {0, pi}; t = pi gives diag(1,1,1,-1,-1)',
+    'unique_nontrivial_equals_rho_z': inv_unique == [(1, 1, 1, -1, -1), (1, 1, 1, 1, 1)]}
+
+# ------------------------------------------------------------------ T1d: GL's graded link sectors against the left action of z
+NATIVE = {-4: ((0, 1), 0, -4), 1: ((1, 0), 1, 1), 6: ((0, 0), 0, 6), -3: ((0, 0), 1, -3), 2: ((0, 1), 0, 2)}
+FIELDS = {}
+for lab, (su3, n2, y) in NATIVE.items():
+    FIELDS[lab] = (su3, n2, y)
+    FIELDS[-lab] = ((su3[1], su3[0]), n2, -y)
+
+
+def su3_times(p, q, f):
+    if f == (0, 0):
+        return [(p, q)]
+    if f == (1, 0):
+        return [(a, b) for a, b in ((p + 1, q), (p - 1, q + 1), (p, q - 1)) if a >= 0 and b >= 0]
+    return [(a, b) for a, b in ((p, q + 1), (p + 1, q - 1), (p - 1, q)) if a >= 0 and b >= 0]
+
+
+def tensor(r, f):
+    (p, q), n2, y = r
+    (fs, fn, fy) = f
+    js = [n2] if fn == 0 else [k for k in (n2 - 1, n2 + 1) if k >= 0]
+    return [((a, b), k, y + fy) for a, b in su3_times(p, q, fs) for k in js]
+
+
+vac = ((0, 0), 0, 0)
+menus = [{vac}]
+for _ in range(2):
+    new = set(menus[-1])
+    for s_ in menus[-1]:
+        for f in FIELDS.values():
+            new.update(tensor(s_, f))
+    menus.append(new)
+M2 = menus[2]
+z6_ok = all(((-2 * ((r[0][0] - r[0][1]) % 3) - 3 * r[1] - r[2]) % 6) == 0 for r in M2)
+parity_equal = all((r[1] % 2) == (r[2] % 2) for r in M2)
+odd_2j = [r for r in M2 if r[1] % 2 == 1]
+gl = json.loads((RL / 'work/GL/s5_links_couplings.json').read_text())
+gl_odd = [g['number_of_odd_sectors'] for g in gl['GLG_menu_M2']['gradings']]
+gl37 = gl['GLG_audit_119_links']['gradings']
+out['T1d_GL_grading'] = {
+    'menu_M2_sectors': len(M2), 'Z6_constraint_holds_on_M2': z6_ok,
+    'parity_of_2j_equals_parity_of_6Y_on_every_sector': parity_equal,
+    'sectors_with_odd_2j': len(odd_2j), 'GL_odd_sector_counts': gl_odd,
+    'GL_nontrivial_grading_equals_left_action_of_z': len(odd_2j) in gl_odd and parity_equal,
+    'GL_37_channel_odd_sectors_6Y': [g['odd_sectors'] for g in gl37],
+    'left_action_of_z_on_V_r': '(-1)^(2j)', 'two_sided_action_on_V_r (x) V_r^*': '+1 on every sector',
+    'statement': "GL's only nontrivial grading is the left action of z on the link sectors; the two-sided action "
+                 "(the rotation of a whole link) is +1"}
+
+# ------------------------------------------------------------------ T1e: flux-sector parity: z acts as (-1)^k on the port space at flux k
+def coherent(u):
+    th, ph = math.acos(max(-1.0, min(1.0, u[2]))), math.atan2(u[1], u[0])
+    return np.array([math.cos(th / 2), cmath.exp(1j * ph) * math.sin(th / 2)])
+
+
+def flux_sector(frame_vectors, use_conjugate):
+    chi = [coherent(u) for u in frame_vectors]
+    res = {}
+    lifts = []
+    for R, Rc, perm in G.ROTS:
+        S = G.su2_lift(Rc if use_conjugate else R)
+        for sgn in (1, -1):
+            lifts.append((sgn * S, perm))
+    for k in range(20):
+        A = np.zeros((12, 12), complex)
+        for a, b in G.SEAMS:
+            zz = np.vdot(chi[a], chi[b]); zz /= abs(zz)
+            A[a, b] = zz ** k; A[b, a] = np.conj(zz) ** k
+        cov_err, centre_vals = 0.0, None
+        for S, perm in lifts:
+            M = np.zeros((12, 12), complex)
+            for p in range(12):
+                ph = np.vdot(chi[perm[p]], S @ chi[p])       # S|n_p> = ph |n_perm(p)>
+                assert abs(abs(ph) - 1) < 1e-9
+                M[perm[p], p] = ph ** k
+            cov_err = max(cov_err, float(np.abs(M @ A @ M.conj().T - A).max()))
+            if np.allclose(S, -np.eye(2), atol=1e-12):
+                centre_vals = sorted({int(round(x.real)) for x in np.diag(M)})
+        flux = []
+        for f in G.FACES:
+            a, b, c = f
+            flux.append(round(float(np.angle(A[a, b] * A[b, c] * A[c, a]) / (2 * math.pi) * 20), 6))
+        res[k] = dict(covariance_defect=cov_err, centre_acts_as=centre_vals,
+                      face_fluxes_in_units_2pi_over_20=sorted(set(abs(x) for x in flux)))
+    return res
+
+
+fs = flux_sector(G.N, False)
+fsc = flux_sector(G.NC, True)
+rule = all(fs[k]['centre_acts_as'] == [(-1) ** k] and fsc[k]['centre_acts_as'] == [(-1) ** k] for k in range(20))
+out['T1e_flux_sectors'] = {
+    'centre_acts_as_(-1)^k_for_k_0_to_19_both_frames': rule,
+    'largest_covariance_defect': max(max(v['covariance_defect'] for v in fs.values()),
+                                     max(v['covariance_defect'] for v in fsc.values())),
+    'code_sectors': {'triplet: load 2, flux 11 x 2 mod 20': (11 * 2) % 20, 'doublet: load -3, flux 11 x (-3) mod 20': (11 * -3) % 20},
+    'centre_on_code_from_the_flux_rule': [(-1) ** ((11 * 2) % 20)] * 3 + [(-1) ** ((11 * -3) % 20)] * 2,
+    'agrees_with_rho_z': [(-1) ** ((11 * 2) % 20)] * 3 + [(-1) ** ((11 * -3) % 20)] * 2 == [1, 1, 1, -1, -1],
+    'pattern_rule': 'flux seen by a pattern = 11 x load mod 20, load = 2 n3 - 3 n2 = -Q6; parity = n2 mod 2',
+    'per_k_face_flux_check': {k: fs[k]['face_fluxes_in_units_2pi_over_20'] for k in (1, 2, 3, 7)}}
+
+# ------------------------------------------------------------------ T1f: native scalars on the code, (-1)^deg, integer flux 6 (F2)
+# native central phases: exp(i alpha 6Y) with alpha = 2 pi n / 60 (GL S1: Z6 sixth roots and Z20 area characters, order 60)
+scalars = set()
+for n in range(60):
+    alpha = 2 * math.pi * n / 60
+    for s in (1, -1):        # rho(a) is scalar on C^3 only for a in {1, z}
+        a3, a2 = cmath.exp(2j * alpha), s * cmath.exp(-3j * alpha)
+        if abs(a3 - a2) < 1e-12:
+            scalars.add((round(a3.real, 9) + 0.0, round(a3.imag, 9) + 0.0))
+fifth = {(round(math.cos(2 * math.pi * m / 5), 9) + 0.0, round(math.sin(2 * math.pi * m / 5), 9) + 0.0) for m in range(5)}
+minus_one_scalar = (-1.0, 0.0) in scalars
+flux6 = [cmath.exp(2j * math.pi * 6 * p['q6'] / 6) for p in pats]
+out['T1f_native_scalars_and_flux6'] = {
+    'scalars_of_rho(2I) x Z60_on_the_code': sorted(scalars), 'are_the_fifth_roots_of_unity': scalars == fifth,
+    '(-1)^deg_realized_by_a_native_rotation_or_holonomy': minus_one_scalar,
+    'det_argument': 'Lambda(U) = (-1)^deg needs U = -I5, det -1; every native element lies in G = S(U(3) x U(2)), det 1',
+    'integer_flux_6_holonomy_on_all_32_patterns_is_identity': all(abs(v - 1) < 1e-12 for v in flux6),
+    'statement': 'no native operation acts as (-1)^deg; a flux of 6 (Z6 units) acts as the identity on every pattern'}
+
+# ------------------------------------------------------------------ X3 placements (read): spinorial content of defect spaces
+irr = json.loads((RL / 'work/X3/irreps.json').read_text())
+spin_rows = {k: v for k, v in irr.items() if isinstance(v, dict) and '2' in v}
+spinorial = {k: sum(v.get(x, 0) for x in ('2', "2'", "4'", '6')) for k, v in spin_rows.items()}
+out['X3_placements'] = {'spaces_read': len(spinorial), 'spaces_with_spinorial_irreps': [k for k, v in spinorial.items() if v],
+                        'statement': 'every placement space of flux defects (faces, pairs, triples) holds only 1, 3, 3prime, 4, 5: z acts as +1'}
+
+# ------------------------------------------------------------------ T5: quantum double D(Z6) of the screen (theta = exp(2 pi i q m / 6), IMPORTED)
+def theta(q, m):
+    return cmath.exp(2j * math.pi * (q % 6) * (m % 6) / 6)
+
+
+def kind(t):
+    if abs(t - 1) < 1e-12:
+        return 'boson'
+    if abs(t + 1) < 1e-12:
+        return 'fermion'
+    return f'anyon, spin {F(round(cmath.phase(t) / (2 * math.pi) * 6), 6) % 1}'
+
+
+own = {}
+cls3 = {}
+for p in pats:
+    own.setdefault(p['k'], set()).add(kind(theta(p['q6'], p['k'])))
+    cls3.setdefault(p['k'], set()).add(kind(theta(p['q6'], 3)))
+contents = ['{1,5}', '{2,4}', '{3,3}', '{2,2,2}', '{4,4,4}', '{1,2,3}', '{3,4,5}', '{2,2,4,4}', '{2,3,3,4}']
+out['T5_screen_D_Z6'] = {
+    'rule': 'theta(q, m) = exp(2 pi i q m / 6) for charge q and flux m; pure fluxes q = 0 (IMPORTED, standard)',
+    'pure_flux_every_class': kind(theta(0, 1)), 'mutual_braiding_of_pure_fluxes': 'trivial',
+    'carrier_contents_of_pure_fluxes': {c: 'boson (q = 0, trivial mutual braiding)' for c in contents},
+    'pattern_bound_to_flux_of_its_own_class': {k: sorted(v) for k, v in sorted(own.items())},
+    'pattern_bound_to_class3_flux': {k: sorted(v) for k, v in sorted(cls3.items())},
+    'class3_bound_theta_equals_z_on_pattern': all(abs(theta(p['q6'], 3) - p['z']) < 1e-12 for p in pats),
+    'statement': 'pure defects and every carrier content are bosons; binding a pattern to a class-3 flux gives '
+                 'theta = (-1)^n2, the action of z on the code (fermion iff weak doublet)'}
+
+OUT.write_text(json.dumps(out, indent=1, default=str) + '\n')
+print(json.dumps(out, indent=1, default=str))

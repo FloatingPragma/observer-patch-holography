@@ -1,0 +1,680 @@
+{
+ "pattern_level": [
+  {
+   "charge": "su3_S12",
+   "commutes_with_handedness": true,
+   "commutes_with_toggle": true,
+   "L_part_commutes_with_toggle": false,
+   "R_part_commutes_with_toggle": false
+  },
+  {
+   "charge": "su3_A12",
+   "commutes_with_handedness": true,
+   "commutes_with_toggle": true,
+   "L_part_commutes_with_toggle": false,
+   "R_part_commutes_with_toggle": false
+  },
+  {
+   "charge": "su3_S13",
+   "commutes_with_handedness": true,
+   "commutes_with_toggle": true,
+   "L_part_commutes_with_toggle": false,
+   "R_part_commutes_with_toggle": false
+  },
+  {
+   "charge": "su3_A13",
+   "commutes_with_handedness": true,
+   "commutes_with_toggle": true,
+   "L_part_commutes_with_toggle": false,
+   "R_part_commutes_with_toggle": false
+  },
+  {
+   "charge": "su3_S23",
+   "commutes_with_handedness": true,
+   "commutes_with_toggle": true,
+   "L_part_commutes_with_toggle": false,
+   "R_part_commutes_with_toggle": false
+  },
+  {
+   "charge": "su3_A23",
+   "commutes_with_handedness": true,
+   "commutes_with_toggle": true,
+   "L_part_commutes_with_toggle": false,
+   "R_part_commutes_with_toggle": false
+  },
+  {
+   "charge": "su3_D12",
+   "commutes_with_handedness": true,
+   "commutes_with_toggle": true,
+   "L_part_commutes_with_toggle": false,
+   "R_part_commutes_with_toggle": false
+  },
+  {
+   "charge": "su3_D23",
+   "commutes_with_handedness": true,
+   "commutes_with_toggle": true,
+   "L_part_commutes_with_toggle": false,
+   "R_part_commutes_with_toggle": false
+  },
+  {
+   "charge": "su2_T1",
+   "commutes_with_handedness": true,
+   "commutes_with_toggle": false,
+   "L_part_commutes_with_toggle": false,
+   "R_part_commutes_with_toggle": false
+  },
+  {
+   "charge": "su2_T2",
+   "commutes_with_handedness": true,
+   "commutes_with_toggle": false,
+   "L_part_commutes_with_toggle": false,
+   "R_part_commutes_with_toggle": false
+  },
+  {
+   "charge": "su2_T3",
+   "commutes_with_handedness": true,
+   "commutes_with_toggle": false,
+   "L_part_commutes_with_toggle": false,
+   "R_part_commutes_with_toggle": false
+  },
+  {
+   "charge": "u1_Y",
+   "commutes_with_handedness": true,
+   "commutes_with_toggle": false,
+   "L_part_commutes_with_toggle": false,
+   "R_part_commutes_with_toggle": false
+  },
+  {
+   "charge": "Q_em",
+   "commutes_with_handedness": true,
+   "commutes_with_toggle": true,
+   "L_part_commutes_with_toggle": false,
+   "R_part_commutes_with_toggle": false
+  },
+  {
+   "charge": "N_neutral_level",
+   "commutes_with_handedness": true,
+   "commutes_with_toggle": false,
+   "L_part_commutes_with_toggle": false,
+   "R_part_commutes_with_toggle": false
+  },
+  {
+   "charge": "number",
+   "commutes_with_handedness": true,
+   "commutes_with_toggle": true,
+   "L_part_commutes_with_toggle": false,
+   "R_part_commutes_with_toggle": false
+  }
+ ],
+ "gauge_algebra_commuting_with_toggle": {
+  "dimension": 9,
+  "content": "su(3) + u(1) of Q_em",
+  "broken_generators": 3
+ },
+ "Z2_charge_anticommutes_with_toggle": true,
+ "handedness_operators": {
+  "orbits_of_the_gauge_algebra_on_patterns": 12,
+  "sign_operators_commuting_with_all_twelve_and_anticommuting_with_toggle": 16,
+  "form": "f(n3) (-1)^n2, f arbitrary sign on n3 = 0..3"
+ },
+ "anomaly_traces": {
+  "family_half_n3_odd": {
+   "states": 16,
+   "left": 8,
+   "right": 8,
+   "max_cubic_trace": 0,
+   "max_linear_trace": 0,
+   "triples": 364
+  },
+  "conjugate_half_n3_even": {
+   "states": 16,
+   "left": 8,
+   "right": 8,
+   "max_cubic_trace": 0,
+   "max_linear_trace": 0,
+   "triples": 364
+  },
+  "all_32_handedness_parity": {
+   "states": 32,
+   "left": 16,
+   "right": 16,
+   "max_cubic_trace": 0,
+   "max_linear_trace": 0,
+   "triples": 364
+  },
+  "all_32_handedness_minus1_to_n2": {
+   "states": 32,
+   "left": 16,
+   "right": 16,
+   "max_cubic_trace": 0,
+   "max_linear_trace": 0,
+   "triples": 364
+  }
+ },
+ "chart": [
+  {
+   "n3": 0,
+   "n2": 0,
+   "name": "conj nu_R",
+   "states": 1,
+   "six_Y": 0,
+   "Q6_mod_6": 0,
+   "Z2": 0,
+   "six_Q_em": [
+    0
+   ],
+   "handedness": "L",
+   "family_half": false
+  },
+  {
+   "n3": 0,
+   "n2": 1,
+   "name": "conj L_L",
+   "states": 2,
+   "six_Y": 3,
+   "Q6_mod_6": 3,
+   "Z2": 1,
+   "six_Q_em": [
+    0,
+    6
+   ],
+   "handedness": "R",
+   "family_half": false
+  },
+  {
+   "n3": 0,
+   "n2": 2,
+   "name": "conj e_R",
+   "states": 1,
+   "six_Y": 6,
+   "Q6_mod_6": 0,
+   "Z2": 0,
+   "six_Q_em": [
+    6
+   ],
+   "handedness": "L",
+   "family_half": false
+  },
+  {
+   "n3": 1,
+   "n2": 0,
+   "name": "d_R",
+   "states": 3,
+   "six_Y": -2,
+   "Q6_mod_6": 4,
+   "Z2": 0,
+   "six_Q_em": [
+    -2
+   ],
+   "handedness": "R",
+   "family_half": true
+  },
+  {
+   "n3": 1,
+   "n2": 1,
+   "name": "Q_L",
+   "states": 6,
+   "six_Y": 1,
+   "Q6_mod_6": 1,
+   "Z2": 1,
+   "six_Q_em": [
+    -2,
+    4
+   ],
+   "handedness": "L",
+   "family_half": true
+  },
+  {
+   "n3": 1,
+   "n2": 2,
+   "name": "u_R",
+   "states": 3,
+   "six_Y": 4,
+   "Q6_mod_6": 4,
+   "Z2": 0,
+   "six_Q_em": [
+    4
+   ],
+   "handedness": "R",
+   "family_half": true
+  },
+  {
+   "n3": 2,
+   "n2": 0,
+   "name": "conj u_R",
+   "states": 3,
+   "six_Y": -4,
+   "Q6_mod_6": 2,
+   "Z2": 0,
+   "six_Q_em": [
+    -4
+   ],
+   "handedness": "L",
+   "family_half": false
+  },
+  {
+   "n3": 2,
+   "n2": 1,
+   "name": "conj Q_L",
+   "states": 6,
+   "six_Y": -1,
+   "Q6_mod_6": 5,
+   "Z2": 1,
+   "six_Q_em": [
+    -4,
+    2
+   ],
+   "handedness": "R",
+   "family_half": false
+  },
+  {
+   "n3": 2,
+   "n2": 2,
+   "name": "conj d_R",
+   "states": 3,
+   "six_Y": 2,
+   "Q6_mod_6": 2,
+   "Z2": 0,
+   "six_Q_em": [
+    2
+   ],
+   "handedness": "L",
+   "family_half": false
+  },
+  {
+   "n3": 3,
+   "n2": 0,
+   "name": "e_R",
+   "states": 1,
+   "six_Y": -6,
+   "Q6_mod_6": 0,
+   "Z2": 0,
+   "six_Q_em": [
+    -6
+   ],
+   "handedness": "R",
+   "family_half": true
+  },
+  {
+   "n3": 3,
+   "n2": 1,
+   "name": "L_L",
+   "states": 2,
+   "six_Y": -3,
+   "Q6_mod_6": 3,
+   "Z2": 1,
+   "six_Q_em": [
+    -6,
+    0
+   ],
+   "handedness": "L",
+   "family_half": true
+  },
+  {
+   "n3": 3,
+   "n2": 2,
+   "name": "nu_R",
+   "states": 1,
+   "six_Y": 0,
+   "Q6_mod_6": 0,
+   "Z2": 0,
+   "six_Q_em": [
+    0
+   ],
+   "handedness": "R",
+   "family_half": true
+  }
+ ],
+ "toggle_pairs_of_the_family_half": {
+  "down": {
+   "empty": "d_R",
+   "filled": "Q_L",
+   "Q6_classes": [
+    1,
+    4
+   ],
+   "pairs": 3
+  },
+  "up": {
+   "empty": "Q_L",
+   "filled": "u_R",
+   "Q6_classes": [
+    1,
+    4
+   ],
+   "pairs": 3
+  },
+  "charged lepton": {
+   "empty": "e_R",
+   "filled": "L_L",
+   "Q6_classes": [
+    0,
+    3
+   ],
+   "pairs": 1
+  },
+  "neutrino": {
+   "empty": "L_L",
+   "filled": "nu_R",
+   "Q6_classes": [
+    0,
+    3
+   ],
+   "pairs": 1
+  }
+ },
+ "lattice": {
+  "shape": [
+   3,
+   2,
+   2
+  ],
+  "state": "random Gaussian integers in [-3, 3], seed 8",
+  "rows": [
+   {
+    "charge": "su3_S12",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": true,
+    "max_source_on_test_state_per_unit_norm": 0.0
+   },
+   {
+    "charge": "su3_S12 [L]",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.00358138782176057
+   },
+   {
+    "charge": "su3_S12 [R]",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.00358138782176057
+   },
+   {
+    "charge": "su3_A12",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": true,
+    "max_source_on_test_state_per_unit_norm": 0.0
+   },
+   {
+    "charge": "su3_A12 [L]",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.00311194098403348
+   },
+   {
+    "charge": "su3_A12 [R]",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.00311194098403348
+   },
+   {
+    "charge": "su3_S13",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": true,
+    "max_source_on_test_state_per_unit_norm": 0.0
+   },
+   {
+    "charge": "su3_S13 [L]",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.0019536642115388814
+   },
+   {
+    "charge": "su3_S13 [R]",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.0019536642115388814
+   },
+   {
+    "charge": "su3_A13",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": true,
+    "max_source_on_test_state_per_unit_norm": 0.0
+   },
+   {
+    "charge": "su3_A13 [L]",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.0037001516036170366
+   },
+   {
+    "charge": "su3_A13 [R]",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.0037001516036170366
+   },
+   {
+    "charge": "su3_S23",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": true,
+    "max_source_on_test_state_per_unit_norm": 0.0
+   },
+   {
+    "charge": "su3_S23 [L]",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.0034540466556589136
+   },
+   {
+    "charge": "su3_S23 [R]",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.0034540466556589136
+   },
+   {
+    "charge": "su3_A23",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": true,
+    "max_source_on_test_state_per_unit_norm": 0.0
+   },
+   {
+    "charge": "su3_A23 [L]",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.002378904530463842
+   },
+   {
+    "charge": "su3_A23 [R]",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.002378904530463842
+   },
+   {
+    "charge": "su3_D12",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": true,
+    "max_source_on_test_state_per_unit_norm": 0.0
+   },
+   {
+    "charge": "su3_D12 [L]",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.002987239013084189
+   },
+   {
+    "charge": "su3_D12 [R]",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.002987239013084189
+   },
+   {
+    "charge": "su3_D23",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": true,
+    "max_source_on_test_state_per_unit_norm": 0.0
+   },
+   {
+    "charge": "su3_D23 [L]",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.002531977849301066
+   },
+   {
+    "charge": "su3_D23 [R]",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.002531977849301066
+   },
+   {
+    "charge": "su2_T1",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.005373731229611083
+   },
+   {
+    "charge": "su2_T1 [L]",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.00266723660085982
+   },
+   {
+    "charge": "su2_T1 [R]",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.003006373177938842
+   },
+   {
+    "charge": "su2_T2",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.003694873213312305
+   },
+   {
+    "charge": "su2_T2 [L]",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.0019899531448839126
+   },
+   {
+    "charge": "su2_T2 [R]",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.002100799341283282
+   },
+   {
+    "charge": "su2_T3",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.0034903355890039452
+   },
+   {
+    "charge": "su2_T3 [L]",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.002566617285675869
+   },
+   {
+    "charge": "su2_T3 [R]",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.002378904530463842
+   },
+   {
+    "charge": "u1_Y",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.010471006767011836
+   },
+   {
+    "charge": "u1_Y [L]",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.006887309649492946
+   },
+   {
+    "charge": "u1_Y [R]",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.006823639066442118
+   },
+   {
+    "charge": "Q_em",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": true,
+    "max_source_on_test_state_per_unit_norm": 0.0
+   },
+   {
+    "charge": "Q_em [L]",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.012908303490221774
+   },
+   {
+    "charge": "Q_em [R]",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.012908303490221774
+   },
+   {
+    "charge": "N_neutral_level",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.0034903355890039452
+   },
+   {
+    "charge": "N_neutral_level [L]",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.002261130446789512
+   },
+   {
+    "charge": "N_neutral_level [R]",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.002774453903924686
+   },
+   {
+    "charge": "number",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": true,
+    "max_source_on_test_state_per_unit_norm": 0.0
+   },
+   {
+    "charge": "number [L]",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.004067659528583993
+   },
+   {
+    "charge": "number [R]",
+    "continuity_exact_in_all_three_layers": true,
+    "toggle_source_identically_zero": false,
+    "max_source_on_test_state_per_unit_norm": 0.004067659528583993
+   }
+  ],
+  "toggle_angle": "cos = 99/101, sin = 20/101"
+ },
+ "summary": {
+  "conserved_by_massless_tick": 45,
+  "of": 45,
+  "conserved_with_toggle": [
+   "su3_S12",
+   "su3_A12",
+   "su3_S13",
+   "su3_A13",
+   "su3_S23",
+   "su3_A23",
+   "su3_D12",
+   "su3_D23",
+   "Q_em",
+   "number"
+  ]
+ },
+ "port_responses": {
+  "span_residual_in_the_twelve_generators": 3.3306690738754696e-16,
+  "continuity_defect_all_twelve_all_layers": 5.9211894646675e-15
+ },
+ "reference_engine": {
+  "massless_tick_defect": 8.438993393712256e-16,
+  "toggle_tick_defect_kind_Z": 8.943250564992654e-16,
+  "map": "record 0 = (E + pF)/sqrt2, record 1 = (-pE + F)/sqrt2, p = (-1)^(occupation of the other four levels)"
+ },
+ "gauss": {
+  "engine_link_shift_commutes_with_handedness": 1.0971354589302191e-17,
+  "routing_commutes_with_Gauss": 2.7809732887839817e-17,
+  "tick_with_plain_toggle_commutator_with_Gauss_norm": 0.18622612972722336,
+  "two_sin_theta_times_norm_bound": 0.3145584880774294,
+  "tick_with_Higgs_bit_commutator_with_extended_Gauss": 2.7809732887839817e-17,
+  "unitarity_with_Higgs_bit": 3.3306690738754696e-16
+ }
+}

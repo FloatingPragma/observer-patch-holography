@@ -1,0 +1,364 @@
+"""FR item 3: Gauss compatibility and rotation covariance of the register (EXACT). Writes fr3_covariance.json.
+
+Formulas written before evaluation:
+  (G1) Classical Z6 link phases s_C, s_E (36 pairs) on the two seams, flags built with the agreeing states p_s:
+       the compression equals the primary (sqrt2/3) C(theta) for loads at the screen tails.
+  (G2) The class-k face defect of LNAT2 (class k on f, -k on f', Dirac string along a dual path) puts link labels on
+       the hexagon; the holonomy of the hexagon in the screen sense is exp(i pi k/3); the compression is the same for
+       every k. Class 3 has real link phases (+-1).
+  (G3) Quantum Z6 link on the C seam: Q_link = sum_n |n><n| (x) Q(exp(i pi n/3)). Gauss operators
+       G_tail = D_tail(pi/3) (x) X^-1, G_head = D_head(pi/3) (x) X (X: |n> -> |n+1>, D: phase exp(i pi/3) on the load
+       at that port). Expected [Q_link R_2, G] = 0 exactly; V, T, K act on records, addresses and F only, so the tick
+       commutes with G; Q_link conserves the link register (face classes).
+  (R1) For every one of the sixty rotations h: rho_{h f} = h rho_f h^-1; screen orientation of h(seam) w.r.t. h(f) is
+       h(screen orientation); screen tails map to screen tails; the F basis maps to the F basis. Hence the compression
+       built from the rotated inputs is the same matrix in the transported basis.
+  (R2) A half-turn h with h(f) = f' gives rho_f' = g = rho_f^-1; on the characters of g (g v = w^k v) the f register has
+       lambda_k = a + 2b cos(theta - 2 pi k/3) and the f' register a + 2b cos(theta + 2 pi k/3): the sign of the phase
+       relative to a fixed frame is set by the outward normal of the defect face.
+"""
+from __future__ import annotations
+
+import sys
+import time
+
+import numpy as np
+import sympy as sp
+
+import fr_common as FC
+import fr2_register as R2
+
+OUT = 'fr3_covariance.json'
+
+
+# ------------------------------------------------------------------ Z[omega] integer matrices (A + B omega)
+class ZW:
+    def __init__(self, A, B=None):
+        self.A = np.array(A, dtype=np.int64)
+        self.B = np.zeros_like(self.A) if B is None else np.array(B, dtype=np.int64)
+
+    def __matmul__(self, o):
+        AC, BD = self.A @ o.A, self.B @ o.B
+        return ZW(AC - BD, self.A @ o.B + self.B @ o.A - BD)
+
+    def __sub__(self, o):
+        return ZW(self.A - o.A, self.B - o.B)
+
+    def zero(self):
+        return not self.A.any() and not self.B.any()
+
+
+SIXTH = {0: (1, 0), 1: (1, 1), 2: (0, 1), 3: (-1, 0), 4: (-1, -1), 5: (0, -1)}  # exp(i pi n/3) = x + y omega
+
+
+def zw_mul(x, y):
+    return (x[0] * y[0] - x[1] * y[1], x[0] * y[1] + x[1] * y[0] - x[1] * y[1])
+
+
+def zw_conj(x):
+    return (x[0] - x[1], -x[1])
+
+
+def event_link_zw():
+    """2 Q_link on (link n in Z6) x (object 12 states), index n*12 + i, as a ZW matrix."""
+    N = 72
+    A = np.zeros((N, N), dtype=np.int64)
+    B = np.zeros((N, N), dtype=np.int64)
+    for n in range(6):
+        base = 12 * n
+        for i in range(12):
+            A[base + i, base + i] += 2
+        for o in range(2):
+            if o == 0:
+                a, b, s = 0, 1, SIXTH[n]
+            else:
+                a, b, s = 1, 0, zw_conj(SIXTH[n])
+            ms = zw_mul((-1, 0), s)
+            sites = [FC.oidx(a, 0, o), FC.oidx(b, 0, o), FC.oidx(a, 1, o), FC.oidx(b, 1, o)]
+            u = [(1, 0), ms, (-1, 0), ms]  # sqrt2 v = u ;  2 v v^dag = u u^dag
+            for si, ui in zip(sites, u):
+                for sj, uj in zip(sites, u):
+                    zz = zw_mul(ui, zw_conj(uj))
+                    A[base + si, base + sj] -= zz[0]
+                    B[base + si, base + sj] -= zz[1]
+    return ZW(A, B)
+
+
+def gauss_zw(port_l, shift):
+    """G = D_port(pi/3) (x) X^shift on (link) x (object)."""
+    N = 72
+    A = np.zeros((N, N), dtype=np.int64)
+    B = np.zeros((N, N), dtype=np.int64)
+    for n in range(6):
+        m = (n + shift) % 6
+        for i in range(12):
+            l = i // 4
+            ph = SIXTH[1] if l == port_l else (1, 0)
+            A[12 * m + i, 12 * n + i] = ph[0]
+            B[12 * m + i, 12 * n + i] = ph[1]
+    return ZW(A, B)
+
+
+def refl_zw():
+    Rm = np.array(FC.obj_address_reflection().tolist(), dtype=np.int64)
+    return ZW(np.kron(np.eye(6, dtype=np.int64), Rm))
+
+
+def zlink_zw():
+    """Link clock Z_link = exp(i pi n/3) on |n>, identity on the object."""
+    N = 72
+    A = np.zeros((N, N), dtype=np.int64)
+    B = np.zeros((N, N), dtype=np.int64)
+    for n in range(6):
+        for i in range(12):
+            A[12 * n + i, 12 * n + i], B[12 * n + i, 12 * n + i] = SIXTH[n]
+    return ZW(A, B)
+
+
+# ------------------------------------------------------------------ face defect links (LNAT2 convention)
+def dual_path(f_from, f_to):
+    fs = FC.faces()
+
+    def shared(x, y):
+        s = set(x) & set(y)
+        return tuple(sorted(s)) if len(s) == 2 else None
+    prev = {f_from: None}
+    queue = [f_from]
+    while queue:
+        nxt = []
+        for x in queue:
+            for y in fs:
+                if y not in prev and shared(x, y):
+                    prev[y] = x
+                    nxt.append(y)
+        queue = nxt
+    path = [f_to]
+    while prev[path[-1]] is not None:
+        path.append(prev[path[-1]])
+    return list(reversed(path))
+
+
+def traverses(face_oriented, a, b):
+    p, q, r = face_oriented
+    return (a, b) in ((p, q), (q, r), (r, p))
+
+
+def defect_links(k, f, fp):
+    n = {}
+    for a, b in FC.carrier()['seams']:
+        n[(a, b)] = 0
+        n[(b, a)] = 0
+    path = dual_path(f, fp)
+    for x, y in zip(path[:-1], path[1:]):
+        u, v = sorted(set(x) & set(y))
+        if not traverses(FC.outward(x), u, v):
+            u, v = v, u
+        n[(u, v)] = (n[(u, v)] + k) % 6
+        n[(v, u)] = (n[(v, u)] - k) % 6
+    return n
+
+
+def main():
+    t0 = time.time()
+    out = {'task': 'FR item 3: Gauss compatibility and rotation covariance', 'provenance': FC.provenance()}
+    gC, gE, g = FC.native_rotations()
+    g2 = FC.compose(g, g)
+    f, fp = (4, 5, 11), (6, 7, 8)
+    a13, a23 = R2.a13, R2.a23
+    z = R2.z
+    Phi_ref, _ = R2.analyzer_E1(R2.flags())
+    M_ref = R2.compress(Phi_ref, R2.psi((a13, 0, a23)), R2.psi((a13, 0, a23)))
+
+    # (G1) classical link phases on the two seams
+    same = 0
+    for nC in range(6):
+        for nE in range(6):
+            sC, sE = sp.exp(sp.I * sp.pi * nC / 3), sp.exp(sp.I * sp.pi * nE / 3)
+            Phi, _ = R2.analyzer_E1(R2.flags(sC, sE))
+            M = R2.compress(Phi, R2.psi((a13, 0, a23), s=sC), R2.psi((a13, 0, a23), s=sE))
+            same += int((M - M_ref).applyfunc(lambda e: sp.simplify(sp.expand_complex(e))) == sp.zeros(3, 3))
+    out['G1_classical_links'] = {'pairs_checked': 36, 'pairs_with_compression_equal_to_primary': same}
+    print('G1', same, '/ 36')
+
+    # (G2) face defect of class k: link labels on the hexagon, holonomy, compression
+    orient = {s: FC.screen_orientation(f, s) for s in FC.carrier()['seams']}
+    hexagon = [2, 3, 9, 1, 0, 10, 2]
+    rows = {}
+    for k in range(6):
+        n = defect_links(k, f, fp)
+        hol = sum(n[(hexagon[i], hexagon[i + 1])] for i in range(6)) % 6
+        nC = n[(2, 3)]   # screen orientation 2 -> 3
+        nE = n[(10, 2)]  # screen orientation 10 -> 2
+        sC, sE = sp.exp(sp.I * sp.pi * nC / 3), sp.exp(sp.I * sp.pi * nE / 3)
+        Phi, _ = R2.analyzer_E1(R2.flags(sC, sE))
+        M = R2.compress(Phi, R2.psi((a13, 0, a23), s=sC), R2.psi((a13, 0, a23), s=sE))
+        eqref = (M - M_ref).applyfunc(lambda e: sp.simplify(sp.expand_complex(e))) == sp.zeros(3, 3)
+        real_links = all(v in (0, 3) for v in n.values())
+        rows[k] = {'hexagon_holonomy_screen_sense_(units pi/3)': hol, 'link_label_C_seam': nC, 'link_label_E_seam': nE,
+                   'all_link_phases_real': real_links, 'compression_equals_primary': eqref}
+    out['G2_face_defect'] = rows
+    print('G2', {k: (v['hexagon_holonomy_screen_sense_(units pi/3)'], v['compression_equals_primary'],
+                     v['all_link_phases_real']) for k, v in rows.items()})
+    # (G2b) the class-k string routed through the C seam, then through the E seam (explicit dual paths)
+    paths = {'through C seam (2,3)': [f, (2, 4, 11), (2, 3, 4), (2, 3, 6), (3, 6, 8), fp],
+             'through E seam (2,10)': [f, (2, 4, 11), (2, 10, 11), (2, 6, 10), (6, 7, 10), fp]}
+    rows_b = {}
+    for pname, path in paths.items():
+        for a_, b_ in zip(path[:-1], path[1:]):
+            assert len(set(a_) & set(b_)) == 2 and a_ in FC.faces() and b_ in FC.faces()
+        for k in (1, 3):
+            n = {}
+            for a, b in FC.carrier()['seams']:
+                n[(a, b)] = n[(b, a)] = 0
+            for x, y in zip(path[:-1], path[1:]):
+                u, v = sorted(set(x) & set(y))
+                if not traverses(FC.outward(x), u, v):
+                    u, v = v, u
+                n[(u, v)] = (n[(u, v)] + k) % 6
+                n[(v, u)] = (n[(v, u)] - k) % 6
+            cls_f = (n[(4, 5)] + n[(5, 11)] + n[(11, 4)]) % 6
+            hol = sum(n[(hexagon[i], hexagon[i + 1])] for i in range(6)) % 6
+            nC, nE = n[(2, 3)], n[(10, 2)]
+            sC, sE = sp.exp(sp.I * sp.pi * nC / 3), sp.exp(sp.I * sp.pi * nE / 3)
+            Phi, _ = R2.analyzer_E1(R2.flags(sC, sE))
+            M = R2.compress(Phi, R2.psi((a13, 0, a23), s=sC), R2.psi((a13, 0, a23), s=sE))
+            eqref = (M - M_ref).applyfunc(lambda e: sp.simplify(sp.expand_complex(e))) == sp.zeros(3, 3)
+            rows_b[f'{pname}, k={k}'] = {'class_of_f': cls_f, 'hexagon_holonomy': hol, 'link_label_C': nC,
+                                         'link_label_E': nE, 'compression_equals_primary': eqref}
+    out['G2b_string_through_the_register_seams'] = rows_b
+    print('G2b', rows_b)
+
+    # (G3) quantum Z6 link on the C seam, Gauss operators at the tail and the head
+    Q2 = event_link_zw()
+    Rr = refl_zw()
+    W2 = Q2 @ Rr
+    Gt = gauss_zw(0, -1)
+    Gh = gauss_zw(1, +1)
+    Zl = zlink_zw()
+    unit = W2.__class__(W2.A, W2.B)
+    # unitarity of 2 W: (2W)^dag (2W) = 4 I ; conj transpose of A + B w is (A - B)^T - B^T w
+    WH = ZW((W2.A - W2.B).T, (-W2.B).T)
+    prodWW = WH @ W2
+    out['G3_quantum_link'] = {
+        'tick_factor_unitary_(2W)^dag(2W)=4I': bool(np.array_equal(prodWW.A, 4 * np.eye(72, dtype=np.int64))
+                                                    and not prodWW.B.any()),
+        '[2 Q R_2, G_tail] = 0': (W2 @ Gt - Gt @ W2).zero(),
+        '[2 Q R_2, G_head] = 0': (W2 @ Gh - Gh @ W2).zero(),
+        '[2 Q R_2, Z_link] = 0 (link register and face classes conserved)': (W2 @ Zl - Zl @ W2).zero(),
+        'control_[2 Q R_2, G_tail with the wrong shift] = 0': (W2 @ gauss_zw(0, +1) - gauss_zw(0, +1) @ W2).zero(),
+        'records_addresses_F': 'V, T, K act on (r_C, o_C, F) and E on (r_E, o_E); G acts on loads and links only; '
+                               'the factors act on different tensor factors and commute',
+    }
+    print('G3', out['G3_quantum_link'])
+
+    # (R1) equivariance under all sixty rotations
+    rots = FC.carrier()['rotations']
+    rho_f = FC.stabilizer_turn(f)
+    xs = [4, rho_f[4], rho_f[rho_f[4]]]
+    ok_rho = ok_or = ok_tail = ok_F = 0
+    for h in rots:
+        hf = tuple(sorted(h[i] for i in f))
+        rho_hf = FC.stabilizer_turn(hf)
+        ok_rho += int(rho_hf == FC.compose(FC.compose(h, rho_f), FC.inverse(h)))
+        good_or = True
+        for seam in ((2, 3), (2, 10)):
+            o = FC.screen_orientation(f, seam)
+            ho = FC.screen_orientation(hf, (h[seam[0]], h[seam[1]]))
+            good_or &= ho == (h[o[0]], h[o[1]])
+        ok_or += int(good_or)
+        ok_tail += int(good_or)
+        hx = [h[x] for x in xs]
+        ok_F += int(hx == [h[4], rho_hf[h[4]], rho_hf[rho_hf[h[4]]]])
+    out['R1_equivariance'] = {'rotations': len(rots), 'rho_hf = h rho_f h^-1': ok_rho,
+                              'screen orientations and tails transported': ok_or,
+                              'F basis transported (x_j -> h x_j)': ok_F,
+                              'consequence': 'the compression built from the rotated inputs is the same matrix in the '
+                                             'transported basis (the construction reads the geometry only through these '
+                                             'data)'}
+    print('R1', out['R1_equivariance'])
+
+    # (R2) half-turns: f -> f', phase sign in the frame of g
+    half = [h for h in rots if FC.order(h) == 2 and set(h[i] for i in f) == set(fp)]
+    a_ = sp.sqrt(sp.Rational(1, 6))
+    b_ = sp.sqrt(sp.Rational(1, 12))
+    th = sp.Symbol('theta', real=True)
+    res = {}
+    for h in half:
+        rho_fp = FC.stabilizer_turn(fp)
+        tail_f = FC.screen_orientation(f, (2, 3))[0]
+        tail_fp_of_hC = FC.screen_orientation(fp, (h[2], h[3]))[0]
+        res[str(FC.cycles(h))] = {
+            'is_gC': h == gC, 'is_gE': h == gE,
+            "rho_f' = g": rho_fp == g, 'rho_f = g^-1': rho_f == g2,
+            "h maps the f screen tail of C to the f' screen tail of h(C)": h[tail_f] == tail_fp_of_hC,
+            "C seam screen orientation for f, for f'": [FC.screen_orientation(f, (2, 3)), FC.screen_orientation(fp, (2, 3))],
+        }
+    # eigenvalues on the characters of g for the f and f' registers
+    lam_f = [sp.simplify(a_ + 2 * b_ * sp.cos(th - 2 * sp.pi * k / 3)) for k in range(3)]
+    lam_fp = [sp.simplify(a_ + 2 * b_ * sp.cos(th + 2 * sp.pi * k / 3)) for k in range(3)]
+    # verify from the matrices: f register: R = rho_f = g^-1; f' register: R' = rho_f' = g
+    Rg = FC.shift3(1)  # g acting on a g-orbit basis
+    M_f = a_ * sp.eye(3) + b_ * (sp.exp(sp.I * th) * Rg.inv() + sp.exp(-sp.I * th) * Rg)
+    M_fp = a_ * sp.eye(3) + b_ * (sp.exp(sp.I * th) * Rg + sp.exp(-sp.I * th) * Rg.inv())
+    vk = FC.character_vectors()  # g v_k = w^k v_k in this basis
+    chk = []
+    for k in range(3):
+        e1 = (M_f * vk[k] - lam_f[k] * vk[k]).applyfunc(lambda e: sp.simplify(sp.expand_complex(sp.expand(e))))
+        e2 = (M_fp * vk[k] - lam_fp[k] * vk[k]).applyfunc(lambda e: sp.simplify(sp.expand_complex(sp.expand(e))))
+        chk.append(e1 == sp.zeros(3, 1) and e2 == sp.zeros(3, 1))
+    num = {}
+    for name, lam in (('f', lam_f), ("f'", lam_fp)):
+        vals = [float(l.subs(th, sp.Rational(2, 9))) for l in lam]
+        order_ = sorted(range(3), key=lambda k: abs(vals[k]))
+        num[name] = {'lambda_on_g_characters_k=0,1,2_at_theta=2/9': vals,
+                     'electron_mu_tau_as_g_character_k': order_}
+    out['R2_half_turn_sign'] = {
+        'half_turns_mapping_f_to_fprime': res,
+        'eigenvalues_on_g_characters': {'f': [str(l) for l in lam_f], "f'": [str(l) for l in lam_fp]},
+        'verified_on_matrices': all(chk),
+        'theta_2/9': num,
+        'reading': "lambda^f_k(theta) = lambda^f'_k(-theta): the sign of the clock phase relative to g is the outward "
+                   "normal of the defect face; the half-turns gC and gE exchange the two faces and reverse it; the "
+                   "spectrum is the same, the generation labels k <-> -k are exchanged",
+    }
+    print('R2', all(chk), num)
+
+    # (R3) geometric reading of F: the E-type hexagon seams (dimers) are cycled by rho_f; each screen-oriented C seam
+    # joins a dimer to its rho_f image. (R4) native conventions against the f screen orientation.
+    E_orbit = [tuple(sorted((x, y))) for x, y in ((2, 10), (g[2], g[10]), (g2[2], g2[10]))]
+    C_orbit = [(2, 3), (g[2], g[3]), (g2[2], g2[3])]
+    dimer_of = {p: d for d in E_orbit for p in d}
+    joins = []
+    for c in C_orbit:
+        t, hd = FC.screen_orientation(f, c)
+        d_from, d_to = dimer_of[t], dimer_of[hd]
+        img = tuple(sorted(rho_f[p] for p in d_from))
+        joins.append({'C_seam_screen': (t, hd), 'from_dimer': d_from, 'to_dimer': d_to, 'to_dimer == rho_f(from)':
+                      d_to == img})
+    out['R3_dimer_reading'] = {
+        'E_type_hexagon_seams (dimers)': E_orbit,
+        'rho_f_cycles_dimers': sorted(tuple(sorted(rho_f[p] for p in d)) for d in E_orbit) == sorted(E_orbit),
+        'C_joins': joins,
+        'reading': 'F = index of the E dimer that the screen-oriented current has reached; a forward C repair advances '
+                   'it by rho_f, a backward one by rho_f^-1, the E agreeing half keeps it; a full circuit of the hexagon '
+                   'crosses three C seams and returns F to its start',
+    }
+    from model.common_source import native_family_record_memory as nfm
+    out['R4_native_conventions'] = {
+        'native C seam tuple': (2, 3), 'native current +1 record (coin 0, raw 1)': 'load at 2 moves to 3 (LNAT Q1)',
+        'f screen orientation of the C seam': FC.screen_orientation(f, (2, 3)),
+        'native reset port (native_family_record_memory.RESET)': nfm.RESET,
+        'f screen tail of the C seam': FC.screen_orientation(f, (2, 3))[0],
+        "f' screen tail of the C seam": FC.screen_orientation(fp, (2, 3))[0],
+        'reading': 'the sign convention of the native current record and the native reset port agree with the screen '
+                   "orientation of f and disagree with that of f'",
+    }
+    print('R3', out['R3_dimer_reading']['rho_f_cycles_dimers'], [j['to_dimer == rho_f(from)'] for j in joins])
+    print('R4', out['R4_native_conventions'])
+    out['seconds'] = round(time.time() - t0, 2)
+    FC.jdump(out, OUT)
+    print('written', OUT, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

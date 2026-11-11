@@ -1,0 +1,13 @@
+"""Task X3-CENSUS: collect out/x3_L8.json, x3_L9.json, x3_L10.json and the pooled handedness test into
+repair-law/work/SIM/cf1/runs/X3_census.json."""
+import json
+from pathlib import Path
+H = Path(__file__).resolve().parent
+out = {'task': 'X3-CENSUS', 'labels': 'EXACT, MEASURED (with error), ARGUED',
+       'register': 'repair-law/work/X3/register.json and x3_register.py, used read-only from copies in observer/x3/ (sha256 in each level)',
+       'checkpoints': {'8': 'L8 checkpoints/ckpt_000300.npz', '9': 'L9 ckpt_000300.npz (archive copy)', '10': 'L10 ckpt_000300.npz (archive copy)'},
+       'levels': {str(L): json.load(open(H / 'out' / f'x3_L{L}.json')) for L in (8, 9, 10)},
+       'handedness_pooled_over_all_chiral_comparisons': json.load(open(H / 'out' / 'x3_handedness_pooled.json'))}
+dest = H.parent / 'runs' / 'X3_census.json'
+json.dump(out, open(dest, 'w'), indent=1)
+print(dest, dest.stat().st_size)

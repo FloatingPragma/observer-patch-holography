@@ -1,0 +1,200 @@
+"""Block 3A: framed quantum (R5). The load walks by the reference rule (tape of moves); its internal C^2 rides along.
+Apparatus: after each record the spin is read along the axis of the port where the load sits,
+  click    sqrt(s) Pi_p            Pi_p = (1 + u_p.sigma) / 2
+  no click sqrt(1 - s Pi_p) = 1 - (1 - sqrt(1 - s)) Pi_p
+(s = 1: projective; the no-click row is then the projector on the antipodal axis).
+A history h = ((p_1, o_1), ..., (p_n, o_n)) has the Kraus operator K_h = M_n ... M_1 and the effect E_h = K_h^+ K_h on C^2.
+Population: the effects of all prefixes of K runs of length T, with the root effect 1. Order: Loewner.
+
+python b3a_framed.py runs [--procs 12 --seeds 8]     sampled populations, all strengths
+python b3a_framed.py tree                            complete no-click trees (all port sequences to depth 3)
+Writes results/b3a_<part>.json.
+"""
+import argparse, itertools, json, os, sys, time
+from multiprocessing import Pool
+import numpy as np
+import mc_lib as L
+from carrier_tools import C
+
+I2 = np.eye(2, dtype=complex)
+SIG = np.array([[[0, 1], [1, 0]], [[0, -1j], [1j, 0]], [[1, 0], [0, -1]]], dtype=complex)
+PI = np.array([(I2 + np.einsum('i,ijk->jk', C.N[p], SIG)) / 2 for p in range(12)])
+NBR = np.array(C.nbr)
+
+
+def rows(p, s):
+    return I2 - (1 - np.sqrt(1 - s)) * PI[p], np.sqrt(s) * PI[p]
+
+
+def sample(K, T, s, seq, rng):
+    """K runs of length T. Returns per point: coordinates, run, step, null flag, ray direction, history key."""
+    pts = [np.array([1.0, 0, 0, 0])]; keys = [()]; null = [False]; ray = [np.zeros(3)]; run_of = [-1]; step_of = [0]
+    clicks = np.zeros((K, T), bool)
+    for k in range(K):
+        Kop = I2.copy(); rho = I2 / 2; p = int(rng.integers(12)); hist = (); isnull = False; rdir = np.zeros(3)
+        for t in range(T):
+            p = int(rng.integers(12)) if seq == 'iid' else int(NBR[p, rng.integers(5)])
+            M0, M1 = rows(p, s)
+            p1 = float(np.trace(M1 @ rho @ M1.conj().T).real)
+            o = rng.random() < p1
+            M = M1 if o else M0
+            if o and not isnull:
+                v = Kop.conj().T @ np.linalg.eigh(PI[p])[1][:, 1]      # the ray K^+ chi_p
+                rdir = np.array([np.vdot(v, SIG[i] @ v).real for i in range(3)]); rdir /= np.linalg.norm(rdir)
+                isnull = True
+            if s == 1.0 and not isnull:                                 # projective no click: the antipodal projector
+                rdir = -C.N[p].copy(); isnull = True
+            Kop = M @ Kop
+            rho = M @ rho @ M.conj().T; rho /= np.trace(rho).real
+            E = Kop.conj().T @ Kop
+            hist = hist + ((p, int(o)),)
+            clicks[k, t] = o
+            pts.append(L.herm2_to_point(E)); keys.append(hist); null.append(isnull); ray.append(rdir.copy())
+            run_of.append(k); step_of.append(t + 1)
+    return np.array(pts), keys, np.array(null), np.array(ray), np.array(run_of), np.array(step_of), clicks
+
+
+def analyse(pts, keys, null, ray, run_of, step_of, rng, profile=True):
+    # distinct histories -> distinct points of the tree
+    uniq = {}
+    ids = np.array([uniq.setdefault(k, len(uniq)) for k in keys])
+    first = np.array([np.nonzero(ids == i)[0][0] for i in range(len(uniq))])
+    P = pts[first]; nul = null[first]; rd = ray[first]; hk = [keys[i] for i in first]
+    N = P.shape[0]
+    R = L.relation_cone(P, tol=1e-9)
+    # exact override for pairs of null effects: related iff same ray and smaller weight below larger weight
+    ray_id = np.full(N, -1)
+    if nul.any():
+        _, rid = np.unique(np.round(rd[nul], 7), axis=0, return_inverse=True)
+        ray_id[nul] = rid.reshape(-1)
+    nn = nul[:, None] & nul[None, :]
+    same = ray_id[:, None] == ray_id[None, :]
+    wless = P[:, 0][:, None] < P[:, 0][None, :] * (1 - 1e-12)
+    R_exact = np.where(nn, same & wless, R)
+    float_disagreements = int((R != R_exact).sum())
+    R = R_exact
+    # tree order (reversed prefix order): history a extends history b  =>  E_a <= E_b
+    index = {k: i for i, k in enumerate(hk)}
+    Rp = np.zeros((N, N), bool)
+    for i, k in enumerate(hk):
+        for n in range(len(k)):
+            j = index.get(k[:n])
+            if j is not None:
+                Rp[i, j] = True
+    st = L.order_stats(R, check_transitive=True)
+    tau2 = P[:, 0] ** 2 - (P[:, 1:] ** 2).sum(axis=1)
+    rel_det = tau2 / np.maximum(P[:, 0] ** 2, 1e-300)
+    rap = np.arctanh(np.minimum(np.linalg.norm(P[:, 1:], axis=1) / np.maximum(P[:, 0], 1e-300), 1 - 1e-16))
+    depth = np.array([len(k) for k in hk])
+    st.update({'points': int(N), 'null_fraction': float(nul.mean()), 'null_fraction_by_flag_vs_det': [float(nul.mean()), float((rel_det < 1e-9).mean())],
+               'distinct_null_rays': int(len(set(ray_id[nul].tolist()))),
+               'rays_on_port_axes_fraction': float(np.mean([np.abs(rd[i] @ C.N.T).max() > 1 - 1e-7 for i in np.nonzero(nul)[0]])) if nul.any() else float('nan'),
+               'interior_fraction': float((~nul).mean()),
+               'interior_median_rapidity': float(np.median(rap[~nul])) if (~nul).any() else float('nan'),
+               'interior_max_rapidity': float(rap[~nul].max()) if (~nul).any() else float('nan'),
+               'prefix_in_loewner': bool(not (Rp & ~R).any()), 'tree_pairs': int(Rp.sum()),
+               'extra_fraction': float((R & ~Rp).sum() / max(1, R.sum())), 'float_disagreements': float_disagreements,
+               'mean_ray_vector_norm': float(np.linalg.norm(rd[nul].mean(axis=0))) if nul.any() else float('nan'),
+               'null_fraction_at_depth': {str(d): float(nul[depth == d].mean()) for d in sorted(set(depth.tolist())) if d in (1, 2, 5, 10, 20, 40, 100, 250)}})
+    if nul.any():
+        cnt = np.bincount(ray_id[nul]); f = cnt / cnt.sum()
+        st['largest_ray_share'] = float(f.max()); st['sum_ray_share_squared'] = float((f ** 2).sum())
+    if profile:
+        st['profile'] = L.profile_means(L.interval_profile(R, rng))
+    return st
+
+
+def run_one(a):
+    s, seq, K, T, seed = a
+    rng = np.random.default_rng([seed, int(s * 1000), 1 if seq == 'iid' else 2, K, T])
+    out = sample(K, T, s, seq, rng)
+    st = analyse(*out[:6], rng)
+    st.update({'s': s, 'seq': seq, 'K': K, 'T': T, 'seed': seed, 'click_rate': float(out[6].mean())})
+    return st
+
+
+def part_runs(procs, seeds):
+    shapes = ((400, 10), (100, 40), (40, 100), (16, 250))
+    jobs = [(s, seq, K, T, sd) for s in (1.0, 0.5, 0.2, 0.05) for seq in ('jump', 'iid') for K, T in shapes for sd in range(seeds)]
+    with Pool(procs) as pool:
+        res = pool.map(run_one, jobs, chunksize=1)
+    out = {}
+    keys = ('r', 'd_r', 'm', 'd_m', 'links', 'height', 'N', 'null_fraction', 'distinct_null_rays', 'rays_on_port_axes_fraction',
+            'interior_fraction', 'interior_median_rapidity', 'interior_max_rapidity', 'extra_fraction', 'click_rate',
+            'largest_ray_share', 'sum_ray_share_squared', 'mean_ray_vector_norm', 'float_disagreements')
+    for s in (1.0, 0.5, 0.2, 0.05):
+        for seq in ('jump', 'iid'):
+            for K, T in shapes:
+                sel = [r for r in res if (r['s'], r['seq'], r['K'], r['T']) == (s, seq, K, T)]
+                d = L.summarize(sel, keys=keys)
+                d['prefix_in_loewner_all'] = all(r['prefix_in_loewner'] for r in sel)
+                d['transitive_all'] = all(r['transitive'] for r in sel)
+                d['antisymmetric_all'] = all(r['antisymmetric'] for r in sel)
+                d['null_fraction_at_depth'] = {k: float(np.mean([r['null_fraction_at_depth'][k] for r in sel if k in r['null_fraction_at_depth']]))
+                                               for k in sel[0]['null_fraction_at_depth']}
+                d['profile'] = L.across_seeds([r['profile'] for r in sel])
+                out[f's={s}|{seq}|K={K}|T={T}'] = d
+    return out
+
+
+def part_tree():
+    """Complete no-click tree: all port sequences of length <= 3 (1 + 12 + 144 + 1728 histories)."""
+    out = {}
+    for s in (0.5, 0.2, 0.05):
+        pts, keys = [np.array([1.0, 0, 0, 0])], [()]
+        M0 = [rows(p, s)[0] for p in range(12)]
+        for n in (1, 2, 3):
+            for seq in itertools.product(range(12), repeat=n):
+                Kop = I2
+                for p in seq:
+                    Kop = M0[p] @ Kop
+                pts.append(L.herm2_to_point(Kop.conj().T @ Kop)); keys.append(tuple((p, 0) for p in seq))
+        pts = np.array(pts)
+        # distinct points (different sequences can give the same effect, e.g. a repeated port commutes)
+        idx = L.dedup_rows(pts, 11)
+        P = pts[idx]; hk = [keys[i] for i in idx]
+        R = L.relation_cone(P)
+        allkeys = {k: i for i, k in enumerate(keys)}
+        pos = {int(i): j for j, i in enumerate(idx)}
+        # tree order on all histories, mapped to the distinct points
+        rep = {}
+        rounded = np.round(pts, 11)
+        lookup = {tuple(row): j for j, row in enumerate(np.round(P, 11))}
+        to_pt = np.array([lookup[tuple(row)] for row in rounded])
+        Rp = np.zeros((len(idx), len(idx)), bool)
+        for i, k in enumerate(keys):
+            for n in range(len(k)):
+                a, b = to_pt[i], to_pt[allkeys[k[:n]]]
+                if a != b:
+                    Rp[a, b] = True
+        st = L.order_stats(R, check_transitive=True)
+        tau = np.sqrt(np.maximum(P[:, 0] ** 2 - (P[:, 1:] ** 2).sum(axis=1), 0))
+        rap = np.arctanh(np.linalg.norm(P[:, 1:], axis=1) / P[:, 0])
+        depth = np.array([len(k) for k in hk])
+        zeta = -0.5 * np.log(1 - s)
+        out[f's={s}'] = {'histories': len(keys), 'distinct_points': int(len(idx)),
+                         'tau_by_depth': {str(n): [float(tau[depth == n].min()), float(tau[depth == n].max()), float((1 - s) ** (n / 2))] for n in (1, 2, 3)},
+                         'rapidity_mean_by_depth': {str(n): float(rap[depth == n].mean()) for n in (1, 2, 3)},
+                         'rapidity_max_by_depth': {str(n): float(rap[depth == n].max()) for n in (1, 2, 3)},
+                         'step_rapidity_zeta': float(zeta),
+                         'links_null': bool(all(abs((P[to_pt[allkeys[k[:-1]]]] - P[to_pt[i]])[0] - np.linalg.norm((P[to_pt[allkeys[k[:-1]]]] - P[to_pt[i]])[1:])) < 1e-12 for i, k in enumerate(keys) if k)),
+                         'prefix_in_loewner': bool(not (Rp & ~R).any()), 'tree_pairs': int(Rp.sum()), 'loewner_pairs': int(R.sum()),
+                         'extra_fraction': float((R & ~Rp).sum() / R.sum()),
+                         **{k: st[k] for k in ('N', 'r', 'd_r', 'm', 'd_m', 'links', 'height', 'transitive')},
+                         'profile': L.profile_means(L.interval_profile(R, np.random.default_rng(2)))}
+    return out
+
+
+if __name__ == '__main__':
+    ap = argparse.ArgumentParser()
+    ap.add_argument('part')
+    ap.add_argument('--procs', type=int, default=12)
+    ap.add_argument('--seeds', type=int, default=8)
+    a = ap.parse_args()
+    t0 = time.time()
+    res = part_tree() if a.part == 'tree' else part_runs(a.procs, a.seeds)
+    res = {'part': a.part, 'seconds': time.time() - t0, 'result': res}
+    os.makedirs('results', exist_ok=True)
+    json.dump(res, open(f'results/b3a_{a.part}.json', 'w'), indent=1, default=float)
+    print(json.dumps(res, default=float)[:3000])
+    print('seconds', round(res['seconds'], 1))

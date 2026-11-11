@@ -1,0 +1,199 @@
+"""Covariant agreement pump: correct the seam component in which the two ports disagree AFTER recharting.
+
+Seam (a,b) with link phase z (flux k: z = unit-connection phase to the power k). Covariantly symmetric and
+antisymmetric one-load seam states: |+> = (|a> + z|b>)/sqrt2, |-> = (|a> - z|b>)/sqrt2. Event (Kraus rows):
+K0 = (identity off the one-load seam space) + |+><+|,  K1 = |+><-|.  For k = 0 this is the plain parity pump.
+The script computes, on the carrier: population lumping for arbitrary inputs, the stationary state of the uniformly
+scheduled unread channel for one load and for two hard-core loads, its spectrum by multiplet, the span of history
+effects, and the Lie closure of port occupations compressed to the leading multiplet of the stationary state.
+"""
+import itertools, sys, json
+import numpy as np
+from model.transported_contrast import law
+
+seams, faces = law.carrier()
+n, M = 12, 30
+A0 = np.zeros((n, n))
+for a, b in seams: A0[a, b] = A0[b, a] = 1
+w, v = np.linalg.eigh(A0)
+U = v[:, np.abs(w - 5 ** .5) < 1e-9] * 2.0
+f0 = faces[0]
+if np.linalg.det(np.array([U[f0[0]], U[f0[1]], U[f0[2]]])) < 0: U[:, 2] *= -1
+R = np.linalg.qr(np.random.default_rng(3).normal(size=(3, 3)))[0]
+if np.linalg.det(R) < 0: R[:, 0] *= -1
+U = U @ R.T
+def spinor(u):
+    th, ph = np.arccos(np.clip(u[2], -1, 1)), np.arctan2(u[1], u[0])
+    return np.array([np.cos(th / 2), np.exp(1j * ph) * np.sin(th / 2)])
+chi = [spinor(u) for u in U]
+link = {}
+for a, b in seams:
+    z = np.vdot(chi[b], chi[a]); z /= abs(z)
+    link[(a, b)] = z
+
+pairs = list(itertools.combinations(range(n), 2)); pidx = {c: i for i, c in enumerate(pairs)}
+
+def kraus_one(k):
+    out = []
+    for (a, b) in seams:
+        z = link[(a, b)] ** k
+        plus = np.zeros(n, complex); plus[a] = 1; plus[b] = z; plus /= np.sqrt(2)
+        minus = np.zeros(n, complex); minus[a] = 1; minus[b] = -z; minus /= np.sqrt(2)
+        Pseam = np.zeros((n, n)); Pseam[a, a] = Pseam[b, b] = 1
+        K0 = np.eye(n) - Pseam + np.outer(plus, plus.conj())
+        K1 = np.outer(plus, minus.conj())
+        out.append((K0, K1))
+    return out
+def kraus_two(k):
+    out = []
+    for (a, b) in seams:
+        z = link[(a, b)] ** k
+        K0 = np.zeros((66, 66), complex); K1 = np.zeros((66, 66), complex)
+        done = set()
+        for c in pairs:
+            ina, inb = a in c, b in c
+            if ina == inb:
+                K0[pidx[c], pidx[c]] = 1
+                continue
+            other = [x for x in c if x not in (a, b)][0]
+            ia, ib = pidx[tuple(sorted((a, other)))], pidx[tuple(sorted((b, other)))]
+            if (ia, ib) in done: continue
+            done.add((ia, ib))
+            plus = np.zeros(66, complex); plus[ia] = 1; plus[ib] = z; plus /= np.sqrt(2)
+            minus = np.zeros(66, complex); minus[ia] = 1; minus[ib] = -z; minus /= np.sqrt(2)
+            K0 += np.outer(plus, plus.conj()); K1 += np.outer(plus, minus.conj())
+        out.append((K0, K1))
+    return out
+def superop(kr, d):
+    S = np.zeros((d * d, d * d), complex)
+    for K0, K1 in kr:
+        S += np.kron(K0, K0.conj()) + np.kron(K1, K1.conj())
+    return S / len(kr)
+def stationary(S, d):
+    ev, evec = np.linalg.eig(S)
+    order = np.argsort(-ev.real)
+    lead = [i for i in order if abs(ev[i] - 1) < 1e-9]
+    rho = evec[:, lead[0]].reshape(d, d); rho = rho / np.trace(rho); rho = (rho + rho.conj().T) / 2
+    second = sorted(np.abs(ev))[-len(lead) - 1]
+    return rho, len(lead), second, int(np.sum(np.abs(ev.imag) > 1e-9))
+def closure(herm, tol=1e-8, cap=60):
+    basis, elems = [], []
+    def add(X):
+        vec = np.concatenate([X.real.ravel(), X.imag.ravel()])
+        if basis:
+            B = np.array(basis); vec = vec - B.T @ (B @ vec)
+        nv = np.linalg.norm(vec)
+        if nv > tol:
+            basis.append(vec / nv); return True
+        return False
+    for X in herm:
+        G = 1j * X
+        if add(G): elems.append(G)
+    span = len(elems); frontier = list(elems)
+    while frontier and len(elems) < cap:
+        new = []
+        for X in frontier:
+            for Y in list(elems):
+                Z = X @ Y - Y @ X
+                if add(Z): new.append(Z)
+        elems += new; frontier = new
+    m = len(elems)
+    Mx = np.concatenate([np.array([np.concatenate([(E @ Y - Y @ E).real.ravel(), (E @ Y - Y @ E).imag.ravel()]) for E in elems]).T for Y in elems], axis=0)
+    return span, m, int(m - np.linalg.matrix_rank(Mx, tol=1e-7))
+def levels(rho):
+    ev, evec = np.linalg.eigh(rho)
+    out = []
+    for val in sorted(set(np.round(ev, 9)), reverse=True):
+        sel = np.abs(ev - val) < 1e-8
+        out.append((float(val), int(sel.sum()), evec[:, sel]))
+    return out
+
+res = {}
+print('ONE LOAD (12 ports)')
+lead1 = {}
+for k in (0, 1, 2, 3, 7, 10):
+    kr = kraus_one(k)
+    # completeness and population lumping on all matrix units
+    comp = max(np.abs(K0.conj().T @ K0 + K1.conj().T @ K1 - np.eye(n)).max() for K0, K1 in kr)
+    lump = 0.0
+    for (a, b), (K0, K1) in zip(seams, kr):
+        T = np.eye(n); T[a, a] = T[b, b] = .5; T[a, b] = T[b, a] = .5
+        for i in range(n):
+            for j in range(n):
+                E = np.zeros((n, n), complex); E[i, j] = 1
+                outp = K0 @ E @ K0.conj().T + K1 @ E @ K1.conj().T
+                target = T @ np.diag(E).real if i == j else np.zeros(n)
+                lump = max(lump, np.abs(np.diag(outp) - target).max())
+    S = superop(kr, n)
+    rho, nfix, second, ncomplex = stationary(S, n)
+    lv = levels(rho)
+    lead1[k] = lv[0][2]
+    desc = ', '.join(f'{val:.6f} (x{m})' for val, m, _ in lv)
+    print(f' k = {k:2d}: completeness defect {comp:.1e}; population lumping defect on all 144 matrix units {lump:.1e}; stationary states {nfix}; second |eigenvalue| {second:.5f}; complex eigenvalues {ncomplex}')
+    print(f'         stationary density levels: {desc}; diagonal min/max {rho.diagonal().real.min():.5f}/{rho.diagonal().real.max():.5f}; modular gap to next level {(np.log(lv[0][0] / lv[1][0]) if len(lv) > 1 and lv[1][0] > 1e-12 else float("inf")):.4f}')
+    res[f'one_load_k{k}'] = dict(levels=[(val, m) for val, m, _ in lv], second=float(second))
+    # effect span of histories up to depth 3
+    effs = [np.eye(n, dtype=complex)]
+    span_prev = 0
+    for depth in range(1, 5):
+        new = []
+        for E in effs:
+            for K0, K1 in kr:
+                new.append(K0.conj().T @ E @ K0); new.append(K1.conj().T @ E @ K1)
+        vecs = np.array([np.concatenate([X.real.ravel(), X.imag.ravel()]) for X in new])
+        rank = np.linalg.matrix_rank(vecs, tol=1e-9)
+        # keep a spanning subset to bound growth
+        u, s, vt = np.linalg.svd(vecs, full_matrices=False)
+        keep = vt[:rank]
+        effs = [(row[:n * n] + 1j * row[n * n:]).reshape(n, n) for row in keep]
+        print(f'         real span of history effects at depth {depth}: {rank} of 144', end='; ' if depth < 4 else '\n')
+        if rank == span_prev: 
+            print(); break
+        span_prev = rank
+
+print('\nTWO HARD-CORE LOADS (66 states)', flush=True)
+lead2 = {}
+def apply_channel(kr, rho):
+    out = np.zeros_like(rho)
+    for K0, K1 in kr:
+        out += K0 @ rho @ K0.conj().T + K1 @ rho @ K1.conj().T
+    return out / len(kr)
+for k in (0, 1, 7):
+    kr = kraus_two(k)
+    comp = max(np.abs(K0.conj().T @ K0 + K1.conj().T @ K1 - np.eye(66)).max() for K0, K1 in kr)
+    rng = np.random.default_rng(11)
+    X = rng.normal(size=(66, 66)) + 1j * rng.normal(size=(66, 66)); rho = X @ X.conj().T; rho /= np.trace(rho)
+    rate = None
+    for it in range(1, 6001):
+        new_rho = apply_channel(kr, rho)
+        diff = np.linalg.norm(new_rho - rho)
+        if it % 500 == 0:
+            rate = diff if rate is None else rate
+        rho = new_rho
+        if diff < 1e-13: break
+    rho = (rho + rho.conj().T) / 2
+    lv = levels(rho)
+    lead2[k] = lv[0][2]
+    desc = ', '.join(f'{val:.6f} (x{m})' for val, m, _ in lv[:8])
+    print(f' k = {k:2d}: completeness defect {comp:.1e}; iterations {it}, last step {diff:.1e}; diagonal min/max {rho.diagonal().real.min():.6f}/{rho.diagonal().real.max():.6f}; rank {int(np.sum(np.linalg.eigvalsh(rho) > 1e-10))}', flush=True)
+    print(f'         leading stationary levels: {desc}', flush=True)
+    res[f'two_loads_k{k}'] = dict(levels=[(val, m) for val, m, _ in lv])
+
+def comp1(V): return [V.conj().T[:, [p]] @ V[[p], :] for p in range(n)]
+def comp2(V):
+    out = []
+    for p in range(n):
+        d = np.array([1.0 if p in c else 0.0 for c in pairs]); out.append(V.conj().T @ (d[:, None] * V))
+    return out
+def blk(Xs):
+    size = sum(x.shape[0] for x in Xs); Z = np.zeros((size, size), complex); o = 0
+    for x in Xs:
+        Z[o:o + x.shape[0], o:o + x.shape[0]] = x; o += x.shape[0]
+    return Z
+print('\nport occupations compressed to the leading level of the stationary density (span, closure, centre):')
+for k in (1, 7):
+    print(f' k = {k}: one load, dim {lead1[k].shape[1]}: {closure(comp1(lead1[k]))};  two loads, dim {lead2[k].shape[1]}: {closure(comp2(lead2[k]))}')
+for k1, k2 in ((1, 1), (7, 1), (1, 7), (7, 7)):
+    ops = [blk([x, y]) for x, y in zip(comp1(lead1[k1]), comp2(lead2[k2]))]
+    print(f' one load k = {k1} with two loads k = {k2}: {closure(ops)}')
+json.dump(res, open(sys.argv[1], 'w'), indent=1)

@@ -1,0 +1,131 @@
+"""T3 item 2: net chirality of an arrow block = degree of the block symbol T^3 -> SU(2).
+
+(a) EXACT positions, MEASURED Jacobians: the 64 nodes of each arrow block of the CF-1 period W2 (theta = 0), the sign of
+    det J at each (U(p*+q) = exp(-i eps0) exp(-i (J q).sigma) + O(q^2), eps0 in {0, pi}), sums per phase.
+(b) MEASURED: the winding number W3 = (1/24 pi^2) int eps^{ijk} tr(A_i A_j A_k), A = U^-1 dU, on a grid (convergence
+    in n), for the CF-1 block (expected 0) and for a smooth control of degree one (flattened Wilson map, m = 2).
+(c) the control's nodes: one zero-phase node and seven phase-pi nodes, net chirality = degree at both phases.
+(d) the spectral (SLAC-type) block U = exp(-i eps ptilde.sigma), ptilde the representative in (-pi, pi]^3: one node,
+    no phase-pi node, symbol discontinuous at the zone boundary; its position-space couplings decay as 1/r.
+python t3_item2.py -> item2.json (local, < 20 CPU s)
+"""
+import json, itertools, os
+import numpy as np
+import t3sym as T
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+SIG = T.SIG
+
+
+def jac_sign(Ufun, p, h=1e-6):
+    U0 = Ufun(p); a0, _ = T.su2_vector(U0); s0 = 1.0 if a0 > 0 else -1.0
+    J = np.zeros((3, 3))
+    for j in range(3):
+        e = np.zeros(3); e[j] = h
+        _, ap = T.su2_vector(Ufun(p + e)); _, am = T.su2_vector(Ufun(p - e))
+        J[:, j] = s0 * (ap - am) / (2 * h)
+    return J, (0 if s0 > 0 else 1)
+
+
+def W3(Ufun_grid, n):
+    """winding number on an n^3 grid by central differences (periodic); Ufun_grid(p) on arrays (..., 3) -> (..., 2, 2)"""
+    h = 2 * np.pi / n
+    g = -np.pi + h * np.arange(n)
+    P = np.stack(np.meshgrid(g, g, g, indexing='ij'), axis=-1)
+    U = Ufun_grid(P)
+    Ui = np.conj(np.swapaxes(U, -1, -2))
+    A = []
+    for ax in range(3):
+        dU = (np.roll(U, -1, axis=ax) - np.roll(U, 1, axis=ax)) / (2 * h)
+        A.append(Ui @ dU)
+    tot = 0.0
+    for (i, j, k), sgn in (((0, 1, 2), 1), ((1, 2, 0), 1), ((2, 0, 1), 1), ((0, 2, 1), -1), ((2, 1, 0), -1), ((1, 0, 2), -1)):
+        tot = tot + sgn * np.trace(A[i] @ A[j] @ A[k], axis1=-2, axis2=-1)
+    val = np.sum(tot) * h ** 3 / (24 * np.pi ** 2)
+    return complex(val)
+
+
+def cf1_block(chi):
+    w = T.period_W2(0.0)
+    return lambda p: T.block_symbol(w, p, chi)
+
+
+def flattened(m=2.0):
+    """U = (d0 - i d.sigma)/|d|, d0 = sum cos p_i - m, d = sin p: smooth, not of finite range"""
+    def U(p):
+        p = np.asarray(p, float)
+        d0 = np.cos(p).sum(-1) - m; d = np.sin(p)
+        nrm = np.sqrt(d0 ** 2 + (d ** 2).sum(-1))
+        out = d0[..., None, None] * T.I2 - 1j * sum(d[..., k, None, None] * SIG[k] for k in range(3))
+        return out / nrm[..., None, None]
+    return U
+
+
+def spectral(eps=0.5):
+    def U(p):
+        q = (np.asarray(p, float) + np.pi) % (2 * np.pi) - np.pi
+        r = np.sqrt((q ** 2).sum(-1)); r = np.where(r == 0, 1e-300, r)
+        c, s = np.cos(eps * r), np.sin(eps * r)
+        return c[..., None, None] * T.I2 - 1j * (s / r)[..., None, None] * sum(q[..., k, None, None] * SIG[k] for k in range(3))
+    return U
+
+
+if __name__ == '__main__':
+    out = {'note': __doc__}
+    # (a) CF-1 blocks
+    nodes = {}
+    for chi in (1, -1):
+        U = cf1_block(chi); rows = []; sums = {0: 0, 1: 0}
+        for k in itertools.product(range(4), repeat=3):
+            p = np.array(k) * np.pi / 2
+            U0 = U(p)
+            if np.abs(U0 - U0[0, 0] * T.I2).max() > 1e-12 or abs(abs(U0[0, 0]) - 1) > 1e-12: continue
+            J, ph = jac_sign(U, p)
+            sv = np.linalg.svd(J, compute_uv=False)
+            s = int(np.sign(np.linalg.det(J))); sums[ph] += s
+            rows.append({'p_over_pi': [x / 2 for x in k], 'phase': ['0', 'pi'][ph], 'chirality': s,
+                         'J_rounded': np.round(J, 6).tolist(), 'singular_values': np.round(sv, 6).tolist()})
+        nodes['block %+d' % chi] = {'nodes': rows, 'count_phase0': sum(r['phase'] == '0' for r in rows),
+                                    'count_phasepi': sum(r['phase'] == 'pi' for r in rows),
+                                    'net_chirality_phase0': sums[0], 'net_chirality_phasepi': sums[1]}
+        print('block', chi, 'phase-0 nodes', nodes['block %+d' % chi]['count_phase0'], 'net', sums[0],
+              '| phase-pi nodes', nodes['block %+d' % chi]['count_phasepi'], 'net', sums[1])
+    out['cf1_blocks'] = nodes
+    # classes per two-tick sublattice (p mod pi) with chirality, block +1
+    cls = {}
+    for r in nodes['block +1']['nodes']:
+        key = tuple((x % 1.0) for x in r['p_over_pi']) + (r['phase'],)
+        cls.setdefault(str(key), set()).add(r['chirality'])
+    out['cf1_classes_block_plus'] = {k: sorted(v) for k, v in cls.items()}
+    print('classes (p mod pi, phase) -> chirality, block +1:', out['cf1_classes_block_plus'])
+    # (b) W3 integrals
+    w3 = {}
+    for n in (24, 36, 48):
+        w3['cf1 block +1, n=%d' % n] = W3(lambda P: T.block_symbol(T.period_W2(0.0), P, 1), n).real
+        w3['flattened m=2, n=%d' % n] = W3(flattened(2.0), n).real
+    out['W3'] = w3
+    print('W3:', {k: round(v, 5) for k, v in w3.items()})
+    # (c) control nodes
+    U = flattened(2.0); rows = []; sums = {0: 0, 1: 0}
+    for c in itertools.product((0, 1), repeat=3):
+        p = np.array(c, float) * np.pi
+        J, ph = jac_sign(U, p); s = int(np.sign(np.linalg.det(J))); sums[ph] += s
+        rows.append({'p_over_pi': list(c), 'phase': ['0', 'pi'][ph], 'chirality': s})
+    out['flattened_m2_nodes'] = {'nodes': rows, 'net_chirality_phase0': sums[0], 'net_chirality_phasepi': sums[1]}
+    print('flattened m=2: nodes', [(r['p_over_pi'], r['phase'], r['chirality']) for r in rows], 'net', sums)
+    # (d) spectral block: nodes on a grid; couplings in position space along an axis
+    U = spectral(0.5)
+    n = 64; h = 2 * np.pi / n; g = -np.pi + h * (np.arange(n) + 0.5)
+    P = np.stack(np.meshgrid(g, g, g, indexing='ij'), axis=-1)
+    a0 = np.real(np.trace(U(P), axis1=-2, axis2=-1)) / 2
+    out['spectral_eps0.5'] = {'max_a0': float(a0.max()), 'min_a0': float(a0.min()),
+                              'nodes': 'one at p = 0 (U = 1); U = -1 nowhere since eps |ptilde| <= 0.5 sqrt3 pi < pi'}
+    # coupling along axis 1 at p2 = p3 = 0: Fourier coefficients of U(p1, 0, 0) on a 1024-point circle
+    N = 1024; p1 = 2 * np.pi * (np.arange(N) - N // 2) / N
+    Ux = U(np.stack([p1, 0 * p1, 0 * p1], -1))
+    coef = np.fft.ifft(np.fft.ifftshift(Ux[:, 0, 1] + Ux[:, 1, 0]) * 1.0)
+    rr = [1, 2, 4, 8, 16, 32, 64, 128]
+    out['spectral_eps0.5']['axis_coupling_abs_at_r'] = {str(r): float(abs(coef[r])) for r in rr}
+    out['spectral_eps0.5']['r_times_coupling'] = {str(r): float(r * abs(coef[r])) for r in rr}
+    print('spectral block: a0 range', a0.min(), a0.max(), '; r*|coupling(r)|:', {r: round(r * abs(coef[r]), 4) for r in rr})
+    json.dump(out, open(os.path.join(HERE, 'item2.json'), 'w'), indent=1)

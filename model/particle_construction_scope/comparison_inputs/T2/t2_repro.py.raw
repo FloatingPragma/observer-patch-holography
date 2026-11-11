@@ -1,0 +1,449 @@
+"""T2: independent reproduction of headline numbers of the audit team's packets (public checkout, read only).
+
+Nothing here runs a test or a certificate of the audit. Each part builds its objects from scratch:
+  A  dispersion           icosahedron from golden-ratio coordinates; exact Laplacian spectrum, weights, ratios
+  B  mobile_flux          face count of the twelve admitted link words (the words are read from the audit's
+                          observer, the faces are recomputed here); eigenphases of the one-object route tick with
+                          own Dirac matrices; its zone (corners, half-way points); ordered against alternating order
+  C  chiral_higgs         the 320-state lepton/scalar Hamiltonian from six Jordan-Wigner modes and a five-state scalar
+  D  chiral_particle_map  the pairing of the fifteen even patterns of the CF-1 chart by the neutral toggle; invariant
+                          tensors from the exterior algebra of the five levels; Nambu matrix and its spectrum
+  E  chiral_regulator     the antiperiodic spectral derivative in position space
+  F  physical_attachment  the quarter-turn residual of the ordered tick
+
+Run from the public checkout:
+  cd RER && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. python RL/work/T2/t2_repro.py [part ...] [out.json]
+Exact arithmetic: integers and sympy where marked EXACT; float64 results print their defect (MEASURED).
+"""
+import itertools, json, sys, os
+from fractions import Fraction as Fr
+import numpy as np
+import sympy as sp
+
+out = {}
+parts = [a for a in sys.argv[1:] if not a.endswith('.json')] or list('ABCDEF')
+dest = next((a for a in sys.argv[1:] if a.endswith('.json')), None)
+
+SX = np.array([[0, 1], [1, 0]], complex); SY = np.array([[0, -1j], [1j, 0]]); SZ = np.diag([1.0, -1.0]).astype(complex)
+SIG = [SX, SY, SZ]; I2 = np.eye(2, dtype=complex)
+
+
+def expi(angle, inv):
+    """exp(-i angle inv) for an involution inv"""
+    return np.cos(angle) * np.eye(len(inv)) - 1j * np.sin(angle) * inv
+
+
+# =============================================================================================== A
+if 'A' in parts:
+    phi = sp.GoldenRatio
+    verts = []
+    for s1, s2 in itertools.product((1, -1), repeat=2):
+        verts += [(0, s1, s2 * phi), (s1, s2 * phi, 0), (s2 * phi, 0, s1)]
+    d2 = lambda u, v: sp.nsimplify(sp.expand(sum((a - b) ** 2 for a, b in zip(u, v))))
+    edges = [(i, j) for i, j in itertools.combinations(range(12), 2) if sp.simplify(d2(verts[i], verts[j]) - 4) == 0]
+    assert len(edges) == 30
+    Lap = sp.zeros(12)
+    for i, j in edges:
+        Lap[i, j] -= 1; Lap[j, i] -= 1; Lap[i, i] += 1; Lap[j, j] += 1
+    x = sp.symbols('x')
+    cp = sp.factor(Lap.charpoly(x).as_expr())
+    assert sp.expand(cp - x * (x - 6) ** 5 * (x ** 2 - 10 * x + 20) ** 3) == 0
+    lam = [sp.Integer(0), 5 - sp.sqrt(5), sp.Integer(6), 5 + sp.sqrt(5)]; mult = [1, 3, 5, 3]
+    # spectral weights of one port: diagonal entry of the exact polynomial projector
+    wts = []
+    for k, l in enumerate(lam):
+        P = sp.eye(12)
+        for j, m in enumerate(lam):
+            if j != k: P = (P * (Lap - m * sp.eye(12)) / (l - m)).applyfunc(sp.radsimp)
+        P = P.applyfunc(sp.simplify)
+        assert (P * P - P).applyfunc(sp.simplify) == sp.zeros(12) and sp.simplify(P.trace() - mult[k]) == 0
+        wts.append(sp.nsimplify(sp.simplify(P[0, 0])))
+    en = [l / 60 for l in lam]
+    r1 = sp.radsimp(en[2] / en[1]); r2 = sp.radsimp(en[3] / en[1])
+    assert sp.simplify(r1 - (sp.Rational(3, 2) + 3 * sp.sqrt(5) / 10)) == 0
+    assert sp.simplify(r2 - (sp.Rational(3, 2) + sp.sqrt(5) / 2)) == 0 and sp.simplify(r2 - phi ** 2) == 0
+    ang = [float(sp.acos(1 - e)) for e in en]                      # CF-1 option M3: mass angle arccos(kernel eigenvalue)
+    out['A_dispersion'] = {
+        'tag': 'EXACT',
+        'laplacian_characteristic_polynomial': str(cp),
+        'onsite_energies_L_over_60': [str(e) for e in en], 'multiplicities': mult,
+        'port_weights': [str(w) for w in wts],
+        'ratios_of_positive_energies': [1.0, float(r1), float(r2)],
+        'ratio_closed_forms': ['1', str(r1), str(r2) + ' = golden ratio squared'],
+        'same_spectrum_read_as_CF1_M3_angles_arccos(1-E)': ang[1:],
+        'ratios_of_M3_angles': [1.0, ang[2] / ang[1], ang[3] / ang[1]],
+        'square_roots_of_energy_ratios': [1.0, float(sp.sqrt(r1)), float(sp.sqrt(r2))],
+    }
+    print('A', json.dumps(out['A_dispersion'], indent=1))
+
+# =============================================================================================== B
+if 'B' in parts:
+    from model.coherent_defect_wave.mobile_flux.model import MobileObserver, STAR
+    ob = MobileObserver(); E = ob.law.edges
+    eidx = {e: k for k, e in enumerate(E)}
+    faces = [f for f in itertools.combinations(range(12), 3) if all(tuple(sorted(p)) in eidx for p in itertools.combinations(f, 2))]
+    assert len(faces) == 20
+    adj = {f: [g for g in faces if g != f and len(set(f) & set(g)) == 2] for f in faces}
+    assert all(len(v) == 3 for v in adj.values())
+    def fdist(f, g):
+        seen, front, d = {f}, [f], 0
+        while g not in seen:
+            front = [h for x in front for h in adj[x] if h not in seen]; seen |= set(front); d += 1
+        return d
+    def flipped(word):
+        return [f for f in faces if sum(word >> eidx[tuple(sorted(p))] & 1 for p in itertools.combinations(f, 2)) % 2]
+    rows, seps = [], []
+    orbits = sorted({min(g, g ^ STAR) for g in ob.link_words})
+    for g in orbits:
+        assert (g ^ STAR) in ob.link_words
+        fa, fb = flipped(g), flipped(g ^ STAR)
+        assert fa == fb
+        row = {'orbit_representative': g, 'flipped_faces': [list(f) for f in fa], 'face_count': len(fa)}
+        if len(fa) == 2:
+            row['inside_region_of_port_5'] = [5 in f for f in fa]; row['dual_distance'] = fdist(*fa); seps.append(row['dual_distance'])
+        rows.append(row)
+    assert sorted(r['face_count'] for r in rows) == [0, 2, 2, 2, 2, 2]
+    # ---- the route tick with own matrices: alpha_i = sigma_x x sigma_i, beta = sigma_z x 1
+    AL = [np.kron(SX, s) for s in SIG]; BE = np.kron(SZ, I2)
+    def D(a, p, m=2.0, order=(0, 1, 2)):
+        U = np.eye(4, dtype=complex)
+        for i in order: U = expi(a * p[i], AL[i]) @ U
+        return expi(a * m, BE) @ U
+    def phases(U): return np.sort(np.angle(np.linalg.eigvals(U)))
+    rest = {}
+    for a in (np.pi / 12, 0.1, 0.01):
+        ph = phases(D(a, (0, 0, 0)))
+        rest[f'a={a:.6f}'] = {'eigenphases_over_a': (ph / a).tolist(), 'defect_from_2': float(np.abs(np.abs(ph) / a - 2).max())}
+    # window: frequency against sqrt(p^2 + 4) and the audit's bound a * sum_{r<s} |h_r h_s| (n = 1 form, per unit time)
+    rng = np.random.default_rng(7); win = []
+    for a in (0.05, 0.01):
+        worst = 0.0; worst_alt = 0.0; ok = True
+        for _ in range(400):
+            p = rng.uniform(-1, 1, 3); h = [*p, 2.0]
+            C = sum(abs(h[r] * h[s]) for r in range(4) for s in range(r + 1, 4))
+            HD = sum(p[i] * AL[i] for i in range(3)) + 2 * BE
+            Ecl = np.sqrt(p @ p + 4)
+            exact = np.cos(a * Ecl) * np.eye(4) - 1j * np.sin(a * Ecl) * HD / Ecl
+            err = np.linalg.norm(D(a, p) - exact, 2)
+            ok &= err <= a * a * C + 1e-12
+            w1 = np.abs(phases(D(a, p))) / a
+            w2 = np.abs(phases(D(a, p, order=(2, 1, 0)) @ D(a, p))) / (2 * a)
+            worst = max(worst, np.abs(w1 - Ecl).max()); worst_alt = max(worst_alt, np.abs(w2 - Ecl).max())
+        win.append({'a': a, 'window': '|p_i| <= 1', 'one_tick_operator_error_within_a^2_C(p)': bool(ok),
+                    'largest_frequency_error_ordered_tick': worst, 'largest_frequency_error_alternating_order': worst_alt})
+    # inertial mass of the finite tick on an axis: cos w = cos(2a) cos(a p)  ->  w/a = 2 + p^2 a/(2 tan 2a)
+    inert = {}
+    for a in (np.pi / 12, 0.1, 0.01):
+        p = 1e-3; w = np.arccos(np.cos(2 * a) * np.cos(a * p)) / a
+        assert abs(np.abs(phases(D(a, (p, 0, 0)))).max() / a - w) < 1e-9
+        inert[f'a={a:.6f}'] = {'rest_frequency': 2.0, 'inertial_mass_p^2/(2(w-2))': p * p / (2 * (w - 2)), 'tan(2a)/a': np.tan(2 * a) / a}
+    # the audit's Wilson clock (many_body_route, mass_instrument): rest energy 2 at every a, kinetic mass 2/(1 + 2a)
+    def Ewil(a, p): return np.sqrt(np.sum(np.sin(a * np.asarray(p)) ** 2) / a ** 2 + (2 + np.sum(1 - np.cos(a * np.asarray(p))) / a) ** 2)
+    for a in (np.pi / 12, 0.1, 0.01):
+        p = 1e-3
+        inert[f'a={a:.6f}'].update({'wilson_rest_energy': float(Ewil(a, (0, 0, 0))), 'wilson_kinetic_mass_p^2/(2(E-2))': float(p * p / (2 * (Ewil(a, (p, 0, 0)) - 2))),
+                                    '2/(1+2a)': 2 / (1 + 2 * a)})
+    # zone of the ordered tick: corners and half-way points, lattice momentum k = a p
+    a = np.pi / 12; zone = {'corners': [], 'half_way': []}
+    for n in itertools.product((0, 1), repeat=3):
+        U = D(a, tuple(np.pi * np.array(n) / a))
+        zone['corners'].append({'k_over_pi': n, 'defect_from_(-1)^n_exp(-2ia beta)': float(np.abs(U - (-1) ** sum(n) * expi(2 * a, BE)).max())})
+    for s in itertools.product((1, -1), repeat=3):
+        k0 = np.pi / 2 * np.array(s)
+        U = D(a, tuple(k0 / a))
+        ph = phases(U)
+        q = 1e-4; slopes = []
+        for dirn in np.eye(3):
+            ph2 = phases(D(a, tuple((k0 + q * dirn) / a)))
+            slopes.append(float(np.min(np.abs(ph2)) / q))
+        zone['half_way'].append({'k_over_pi': (np.array(s) / 2).tolist(), 'involution_defect': float(np.abs(U @ U - np.eye(4)).max()),
+                                 'eigenphases': [float(round(x, 12)) for x in ph], 'slope_of_the_zero_branch_per_axis': slopes})
+    hw_ok = all(z['involution_defect'] < 1e-14 for z in zone['half_way'])
+    out['B_mobile_flux'] = {
+        'tag': 'face count EXACT (integers); tick MEASURED (float64, defects printed)',
+        'orbits': rows, 'dual_distances_of_the_five_pairs': sorted(seps),
+        'rest_frequency': rest, 'window': win, 'inertial_mass': inert,
+        'zone_a=pi/12': zone, 'half_way_points_are_involutions_for_the_mass_coin': bool(hw_ok),
+        'cos(2a)_at_a=pi/12': float(np.cos(2 * a)),
+    }
+    print('B', json.dumps(out['B_mobile_flux'], indent=1, default=str))
+
+# =============================================================================================== C
+if 'C' in parts:
+    nm = 6                                                              # modes: e^c up, e^c dn, L1 up, L1 dn, L2 up, L2 dn
+    def ann(k):
+        A = np.zeros((2 ** nm, 2 ** nm), dtype=np.int64)
+        for s in range(2 ** nm):
+            if s >> k & 1:
+                A[s ^ (1 << k), s] = (-1) ** bin(s & ((1 << k) - 1)).count('1')
+        return A
+    c = [ann(k) for k in range(nm)]; cd = [x.T.copy() for x in c]
+    for i in range(nm):
+        for j in range(nm):
+            assert not np.any(c[i] @ cd[j] + cd[j] @ c[i] - (i == j) * np.eye(64, dtype=np.int64)) and not np.any(c[i] @ c[j] + c[j] @ c[i])
+    EU, ED = 0, 1; LU = {1: 2, 2: 4}; LD = {1: 3, 2: 5}
+    A = {k: c[EU] @ c[LD[k]] - c[ED] @ c[LU[k]] for k in (1, 2)}        # epsilon^{ab} e^c_a L_{k,b}
+    WW = sum(A[k].T @ A[k] + A[k] @ A[k].T for k in (1, 2))             # W^dagger W on the 64 matter states
+    Id = np.eye(64, dtype=np.int64); prod = Id.copy()
+    for k in range(7): prod = prod @ (WW - k * Id)
+    assert not np.any(prod)                                             # minimal polynomial divides prod_{k=0..6}(X - k)
+    tr = [int(np.trace(np.linalg.matrix_power(WW, j))) for j in range(7)]
+    V = sp.Matrix(7, 7, lambda j, k: sp.Integer(k) ** j if not (j == 0 and k == 0) else 1)
+    mult = list(V.LUsolve(sp.Matrix(tr)))
+    assert all(m.is_integer and m >= 0 for m in mult)
+    mult = [int(m) for m in mult]
+    assert mult == [6, 20, 22, 8, 2, 4, 2]
+    # full 320-state Hamiltonian: scalar states (vac, p1, p2, ap1, ap2), H_H = N_H, y_e = 1, Phi = phi^dagger
+    def ket(i, j, n=5):
+        M = np.zeros((n, n), dtype=np.int64); M[i, j] = 1; return M
+    phi = {1: ket(0, 1) + ket(3, 0), 2: ket(0, 2) + ket(4, 0)}          # phi_k = |vac><p_k| + |ap_k><vac|
+    NH = np.diag([0, 1, 1, 1, 1]).astype(np.int64)
+    kron = np.kron
+    H = kron(Id, NH) + sum(kron(A[k], phi[k].T) + kron(A[k].T, phi[k]) for k in (1, 2))
+    assert not np.any(H - H.T)
+    ev = np.linalg.eigvalsh(H.astype(float))
+    pred = []
+    for r, m in enumerate(mult):
+        if r == 0: pred += [0.0] * m
+        else: pred += [(1 + np.sqrt(1 + 4 * r)) / 2] * m + [(1 - np.sqrt(1 + 4 * r)) / 2] * m
+    pred += [1.0] * (320 - len(pred)); pred = np.sort(pred)
+    spec_defect = float(np.abs(ev - pred).max())
+    ground_mult = int(np.sum(np.abs(ev + 2) < 1e-9)); gap = float(np.sort(ev)[ground_mult] + 2)
+    # exact ground statement: (H + 2) is singular with a two-dimensional kernel, H + 2 >= 0 numerically
+    Hs = sp.Matrix(H.tolist())
+    ker = (Hs + 2 * sp.eye(320)).nullspace()
+    # charges: lepton number, hypercharge, weak isospin on matter + scalar
+    num = [cd[k] @ c[k] for k in range(nm)]
+    Lep = kron(-(num[EU] + num[ED]) + sum(num[k] for k in (2, 3, 4, 5)), np.eye(5, dtype=np.int64))
+    twoY = kron(2 * (num[EU] + num[ED]) - sum(num[k] for k in (2, 3, 4, 5)), np.eye(5, dtype=np.int64)) \
+        + kron(Id, np.diag([0, 1, 1, -1, -1]).astype(np.int64))
+    def hop(i, j): return cd[i] @ c[j]
+    Tp_m = hop(LU[1], LU[2]) + hop(LD[1], LD[2])                         # raises L2 -> L1
+    Tp_s = ket(1, 2) - ket(4, 3)                                         # doublet: p2 -> p1 ; conjugate: -(ap1 -> ap2)
+    Tp = kron(Tp_m, np.eye(5, dtype=np.int64)) + kron(Id, Tp_s)
+    T3x2 = kron(sum(num[k] for k in (2, 3)) - sum(num[k] for k in (4, 5)), np.eye(5, dtype=np.int64)) + kron(Id, np.diag([0, 1, -1, -1, 1]).astype(np.int64))
+    comm = lambda X, Y: X @ Y - Y @ X
+    conserved = all(not np.any(comm(H, G)) for G in (Lep, twoY, Tp, Tp.T, T3x2))
+    # sector: lepton number 0 and all gauge generators 0
+    stack = sp.Matrix(np.vstack([Lep, twoY, Tp, Tp.T, T3x2]).tolist())
+    sect = stack.nullspace()
+    Bs = sp.Matrix.hstack(*sect)
+    Hsec = (Bs.T * Bs).inv() * (Bs.T * Hs * Bs)
+    xE = sp.symbols('E')
+    cps = sp.factor(Hsec.charpoly(xE).as_expr())
+    assert sp.expand(cps - (xE - 1) ** 3 * (xE ** 2 - xE - 4)) == 0
+    # conversion from the empty matter/scalar state at t = pi/sqrt(17)
+    e0 = np.zeros(320); e0[0] = 1.0                                     # matter vacuum x scalar vacuum
+    w_, v_ = np.linalg.eigh(H.astype(float)); t = np.pi / np.sqrt(17)
+    psi = v_ @ (np.exp(-1j * w_ * t) * (v_.T @ e0)); pr = np.abs(psi) ** 2
+    big = sorted(((float(p), int(i)) for i, p in enumerate(pr) if p > 1e-12), reverse=True)
+    Hc = Hs - sp.Rational(1, 2) * sp.eye(320); e0s = sp.zeros(320, 1); e0s[0] = 1
+    cyc = (Hc * Hc * e0s - sp.Rational(17, 4) * e0s)
+    out['C_chiral_higgs'] = {
+        'tag': 'EXACT (integers, sympy) for the multiplicities, the kernel, the sector polynomial, the cyclic identity; MEASURED for the full spectrum',
+        'WdaggerW_minimal_polynomial_divides_prod_k=0..6': True, 'WdaggerW_multiplicities_0..6': mult,
+        'full_spectrum_against_lambda_pm_(1 +- sqrt(1+4r))/2_defect': spec_defect,
+        'ground_energy': -2, 'ground_multiplicity_exact_kernel_of_H+2': len(ker), 'gap': gap, '(5-sqrt21)/2': float((5 - np.sqrt(21)) / 2),
+        'H_commutes_with_lepton_number_hypercharge_isospin': bool(conserved),
+        'sector_dimension': len(sect), 'sector_characteristic_polynomial': str(cps), 'sector_ground': float((1 - np.sqrt(17)) / 2),
+        'empty_state_(H-1/2)^2=17/4_exact': bool(cyc == sp.zeros(320, 1)),
+        'conversion_at_t=pi/sqrt17': {'probabilities': [p for p, _ in big], 'expected': [4 / 17] * 4 + [1 / 17], 'empty_state_probability': float(pr[0])},
+    }
+    print('C', json.dumps(out['C_chiral_higgs'], indent=1))
+
+# =============================================================================================== D
+if 'D' in parts:
+    LV = ('v1', 'v2', 'v3', 's1', 's2'); S2 = 4; S1 = 3
+    def annL(k, n=5):
+        A = np.zeros((32, 32), dtype=np.int64)
+        for s in range(32):
+            if s >> k & 1: A[s ^ (1 << k), s] = (-1) ** bin(s & ((1 << k) - 1)).count('1')
+        return A
+    a = [annL(k) for k in range(5)]; ad = [x.T.copy() for x in a]
+    def creat(mask):
+        M = np.eye(32, dtype=np.int64)
+        for k in reversed([k for k in range(5) if mask >> k & 1]): M = ad[k] @ M      # a+_{k1} a+_{k2} ... |0>, ascending
+        return M
+    vac = np.zeros(32, dtype=np.int64); vac[0] = 1; FULL = 31
+    even15 = [m for m in range(1, 32) if bin(m).count('1') % 2 == 0]
+    assert len(even15) == 15
+    pos = {m: i for i, m in enumerate(even15)}
+    n3 = lambda m: bin(m & 7).count('1'); n2 = lambda m: bin(m >> 3).count('1')
+    sixY = lambda m: 3 * n2(m) - 2 * n3(m)
+    T3x2p = lambda m: (m >> S1 & 1) - (m >> S2 & 1)
+    Q = lambda m: Fr(T3x2p(m), 2) + Fr(sixY(m), 6)
+    hyper = sorted((Fr(sixY(m), 6) for m in even15))
+    from collections import Counter
+    cnt = Counter(hyper)
+    assert cnt == Counter({Fr(-2, 3): 3, Fr(1, 6): 6, Fr(1): 1, Fr(-1, 2): 2, Fr(1, 3): 3})
+    # invariant tensors from the exterior algebra
+    def Cup(k):                                                         # e_P ^ e_P' ^ e_k
+        C = np.zeros((15, 15), dtype=np.int64)
+        for P in even15:
+            for Pp in even15:
+                C[pos[P], pos[Pp]] = (creat(P) @ creat(Pp) @ ad[k] @ vac)[FULL]
+        return C
+    def Cdn(k):                                                         # (i_k e_P) ^ e_P' for P of degree 2, P' of degree 4,
+        C = np.zeros((15, 15), dtype=np.int64)                          # extended symmetrically (the antiderivation rule gives
+        for P in even15:                                                # (i_k e_P) ^ e_P' = - e_P ^ (i_k e_P'), one invariant)
+            for Pp in even15:
+                if bin(P).count('1') == 2 and bin(Pp).count('1') == 4:
+                    val = (creat(Pp) @ a[k] @ creat(P) @ vac)[FULL]
+                    assert val == -(creat(P) @ a[k] @ creat(Pp) @ vac)[FULL]
+                    C[pos[P], pos[Pp]] = C[pos[Pp], pos[P]] = val
+        return C
+    up = {k: Cup(k) for k in (S1, S2)}; dn_all = {k: Cdn(k) for k in (S1, S2)}
+    isq = lambda m: n3(m) in (1, 2)                                     # coloured pattern
+    def split(C, quark):
+        Cq = C.copy()
+        for P in even15:
+            for Pp in even15:
+                if (isq(P) and isq(Pp)) != quark: Cq[pos[P], pos[Pp]] = 0
+        return Cq
+    down = {k: split(dn_all[k], True) for k in (S1, S2)}; lep = {k: split(dn_all[k], False) for k in (S1, S2)}
+    for k in (S1, S2):
+        for C in (up[k], down[k], lep[k]): assert not np.any(C - C.T) and set(np.unique(C)) <= {-1, 0, 1}
+        assert not np.any(dn_all[k] - down[k] - lep[k])
+    # twelve generators on the five levels, lifted to the patterns and restricted to the fifteen
+    gens5 = []
+    for i, j in itertools.combinations(range(3), 2):
+        S = np.zeros((5, 5), complex); S[i, j] = S[j, i] = 1; gens5.append(S)
+        Am = np.zeros((5, 5), complex); Am[i, j] = -1j; Am[j, i] = 1j; gens5.append(Am)
+    gens5 += [np.diag([1, -1, 0, 0, 0]).astype(complex), np.diag([0, 1, -1, 0, 0]).astype(complex)]
+    S = np.zeros((5, 5), complex); S[3, 4] = S[4, 3] = 1; gens5.append(S)
+    Am = np.zeros((5, 5), complex); Am[3, 4] = -1j; Am[4, 3] = 1j; gens5.append(Am)
+    gens5 += [np.diag([0, 0, 0, 1, -1]).astype(complex), np.diag([-2, -2, -2, 3, 3]).astype(complex)]
+    assert len(gens5) == 12
+    def lift(t):
+        M = np.zeros((32, 32), complex)
+        for i in range(5):
+            for j in range(5):
+                if t[i, j] != 0: M += t[i, j] * (ad[i] @ a[j])
+        return M[np.ix_(even15, even15)]
+    worst = 0.0
+    for t in gens5:
+        T = lift(t)
+        for chan, sign in ((up, +1), (down, -1), (lep, -1)):
+            for kk, k in enumerate((S1, S2)):
+                # derivation identity; the Higgs component transforms with t (up) or with -t^T (conjugate channels)
+                th = t[3:, 3:] if sign > 0 else -t[3:, 3:].T
+                res = T.T @ chan[k] + chan[k] @ T + sum(th[jj, kk] * chan[j] for jj, j in enumerate((S1, S2)))
+                worst = max(worst, float(np.abs(res).max()))
+    # the pairs of the neutral background and the CF-1 toggle
+    pairs = {}
+    for name, C in (('up', up[S2]), ('down', down[S2]), ('charged lepton', lep[S2])):
+        pr = sorted({tuple(sorted((even15[i], even15[j]))) for i, j in zip(*np.nonzero(C))})
+        pairs[name] = pr
+    lab = lambda m: '{' + ','.join(LV[k] for k in range(5) if m >> k & 1) + '}'
+    tau = lambda m: FULL ^ (m ^ (1 << S2))                              # complement of the toggled pattern
+    all_pairs = [p for v in pairs.values() for p in v]
+    toggle_ok = all(tau(p) == q and tau(q) == p for p, q in all_pairs)
+    paired = {m for p in all_pairs for m in p}
+    unpaired = [m for m in even15 if m not in paired]
+    assert [lab(m) for m in unpaired] == ['{v1,v2,v3,s1}'] and tau(unpaired[0]) == 0
+    # the weak generators vanish on the singlet partner of every pair
+    weak = [lift(g) for g in gens5[8:11]]
+    weak_on = lambda m: float(max(np.abs(W[:, pos[m]]).max() for W in weak))
+    left_only = all((weak_on(p) > 0) != (weak_on(q) > 0) for p, q in all_pairs)
+    # charge of the paired field: Q of the doublet member = -Q of its conjugate singlet partner
+    charges = {}
+    for name, pr in pairs.items():
+        vals = set()
+        for p, q in pr:
+            l, r = (p, q) if weak_on(p) > 0 else (q, p)
+            assert Q(l) == -Q(r)
+            vals.add(str(Q(l)))
+        charges[name] = sorted(vals)
+    assert charges == {'up': ['2/3'], 'down': ['-1/3'], 'charged lepton': ['-1']}
+    # mass matrix and the Nambu response, declared controls (y_u, y_d, y_e, v) = (1, 2, 3, 1)
+    yu, yd, ye, v = 1.0, 2.0, 3.0, 1.0
+    M = v * (yu * up[S2] + yd * down[S2] + ye * lep[S2]).astype(float)
+    MM = M.T @ M
+    assert np.allclose(MM, np.diag(np.diag(MM)))
+    mm_mult = dict(Counter(int(round(x)) for x in np.diag(MM)))
+    eps = np.array([[0, 1], [-1, 0]], float); Delta = np.kron(eps, M)
+    rng = np.random.default_rng(3); p = rng.normal(size=3)
+    hL = lambda q: -sum(q[i] * SIG[i] for i in range(3))
+    Bm = np.block([[np.kron(hL(p), np.eye(15)), -Delta.conj()], [Delta, -np.kron(hL(-p).T, np.eye(15))]])
+    herm = float(np.abs(Bm - Bm.conj().T).max())
+    sq = float(np.abs(Bm @ Bm - (p @ p * np.eye(60) + np.kron(np.eye(4), MM))).max())
+    evB = np.sort(np.linalg.eigvalsh(Bm)); pp = p @ p
+    predB = np.sort(sum(([s * np.sqrt(pp + m * m)] * n for m, n in ((1, 12), (2, 12), (3, 4), (0, 2)) for s in (1, -1)), []))
+    out['D_chiral_dictionary'] = {
+        'tag': 'EXACT (integers) for the tensors, pairs and charges; MEASURED for the Nambu spectrum',
+        'fifteen_even_patterns_hypercharges': {str(k): v_ for k, v_ in sorted(cnt.items())},
+        'tensor_identities_checked': 12 * 3 * 2, 'largest_residual': worst,
+        'pairs_of_the_neutral_background': {k: [[lab(p), lab(q)] for p, q in v_] for k, v_ in pairs.items()},
+        'each_pair_is_pattern_and_complement_of_its_toggle': bool(toggle_ok),
+        'unpaired': [lab(m) for m in unpaired], 'partner_of_the_unpaired_under_the_toggle': 'the empty pattern (absent from the fifteen)',
+        'electric_charges_of_the_paired_fields': charges,
+        'weak_generators_act_on_exactly_one_member_of_each_pair': bool(left_only),
+        'MdaggerM_multiplicities_(value: count)_for_y=(1,2,3)': {str(k): v_ for k, v_ in sorted(mm_mult.items())},
+        'nambu_hermiticity_defect': herm, 'nambu_square_defect': sq,
+        'nambu_spectrum_defect_against_sqrt(p^2+m^2)_with_multiplicities_12_12_4_2': float(np.abs(evB - predB).max()),
+        'count': '7 pairs x 4 components + 1 x 2 = 30',
+    }
+    print('D', json.dumps(out['D_chiral_dictionary'], indent=1))
+
+# =============================================================================================== E
+if 'E' in parts:
+    def Pmat(N, L):
+        n = np.arange(-N // 2, N // 2); pn = 2 * np.pi * (n + 0.5) / L
+        F = np.exp(2j * np.pi * np.outer(np.arange(N), n + 0.5) / N) / np.sqrt(N)
+        return F @ np.diag(pn) @ F.conj().T, pn
+    rowsE = {}
+    for N in (2, 4, 6):
+        L = 2 * np.pi; P, pn = Pmat(N, L)
+        x, y = np.meshgrid(np.arange(N), np.arange(N), indexing='ij'); r = x - y
+        with np.errstate(divide='ignore', invalid='ignore'):
+            cf = np.where(r != 0, -(1j * np.pi / L) * (-1.0) ** r / np.sin(np.pi * r / N), 0)
+        rowsE[f'N={N}'] = float(np.abs(P - cf).max())
+    P6, _ = Pmat(6, 2 * np.pi)
+    # locality price: absolute row sum of the one-axis derivative in units of 1/a, and the instantaneous tails
+    rowsum = {}
+    for N in (8, 32, 128, 512, 2048):
+        r = np.arange(1, N)
+        rowsum[N] = float(np.sum((np.pi / N) / np.abs(np.sin(np.pi * r / N))))          # a * sum_r |P_0r|, a = L/N
+    leak = {}
+    N = 512; n = np.arange(-N // 2, N // 2)
+    for tt in (0.5, 1.0, 4.5):                                                           # time in units of a; mover of speed 1
+        xs = np.arange(N); xs = np.where(xs > N // 2, xs - N, xs)
+        amp = np.exp(2j * np.pi * np.outer(xs - tt, n + 0.5) / N).sum(axis=1) / N        # localized at 0, component of sigma = +1
+        pr = np.abs(amp) ** 2
+        leak[f't={tt}a'] = {'norm': float(pr.sum()),
+                            **{f'weight_beyond_{R}_cells_from_the_front': float(pr[np.abs(xs - tt) > R].sum()) for R in (1, 4, 16, 64)}}
+    Lbox = 2 * np.pi
+    out['E_chiral_regulator'] = {
+        'tag': 'MEASURED (float64, defects printed); closed forms in the comments',
+        'closed_form_of_P_xy_defect': rowsE, 'P_(0,3)_at_N=6_L=2pi': [float(P6[0, 3].real), float(P6[0, 3].imag)],
+        'first_energy_sqrt3_pi_over_L_at_L=2pi': float(np.sqrt(3) * np.pi / Lbox),
+        'w_(3+sqrt3)/6': float((1 + 1 / np.sqrt(3)) / 2), '(3+sqrt3)/6': float((3 + np.sqrt(3)) / 6),
+        'absolute_row_sum_a*sum|P_0r|': rowsum, 'row_sum_minus_2ln(N)': {k: v_ - 2 * np.log(k) for k, v_ in rowsum.items()},
+        'tails_of_a_site_localized_mover_N=512': leak,
+        '2/(pi^2 R)_for_R=1,4,16,64': [2 / (np.pi ** 2 * R) for R in (1, 4, 16, 64)],
+    }
+    print('E', json.dumps(out['E_chiral_regulator'], indent=1))
+
+# =============================================================================================== F
+if 'F' in parts:
+    AL = [np.kron(SX, s) for s in SIG]
+    J3 = -0.5j * AL[0] @ AL[1]
+    Srot = expi(np.pi / 4, 2 * J3)                                      # exp(-i (pi/2) J_3), (2 J_3)^2 = 1
+    Rm = np.array([[0, -1, 0], [1, 0, 0], [0, 0, 1]], float)            # quarter turn about axis 3
+    cov = max(float(np.abs(Srot @ AL[j] @ Srot.conj().T - sum(Rm[i, j] * AL[i] for i in range(3))).max()) for j in range(3))
+    def Dm(p):
+        U = np.eye(4, dtype=complex)
+        for i in range(3): U = expi(p[i], AL[i]) @ U
+        return U
+    p = np.array([np.pi / 2, np.pi / 3, 0.0])
+    res = float(np.linalg.norm(Srot @ Dm(p) @ Srot.conj().T - Dm(Rm @ p), 'fro') ** 2)
+    out['F_physical_attachment'] = {'tag': 'MEASURED (float64)', 'rotation_of_the_alpha_matrices_defect': cov,
+                                    'squared_Hilbert_Schmidt_residual_at_p=(pi/2,pi/3,0)': res, 'audit_value': 12}
+    print('F', json.dumps(out['F_physical_attachment'], indent=1))
+
+if dest:
+    old = {}
+    if os.path.exists(dest):
+        old = json.load(open(dest))
+    old.update(out)
+    json.dump(old, open(dest, 'w'), indent=1, default=str)

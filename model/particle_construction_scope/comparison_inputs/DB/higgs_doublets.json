@@ -1,0 +1,70 @@
+{
+ "TE": {
+  "classes_with_both_parities": [
+   0,
+   3
+  ],
+  "class3_patterns": [
+   [
+    0,
+    1,
+    1
+   ],
+   [
+    3,
+    1,
+    0
+   ]
+  ],
+  "gradings": {
+   "g(3)=0": {
+    "(n3,n2)=(0,1) Y=1/2": "fermion",
+    "(n3,n2)=(3,1) Y=-1/2": "boson"
+   },
+   "g(3)=1": {
+    "(n3,n2)=(0,1) Y=1/2": "boson",
+    "(n3,n2)=(3,1) Y=-1/2": "fermion"
+   }
+  }
+ },
+ "TF": {
+  "real_rank_linear_doublet_operators": 4,
+  "complex_doublets_linear": 1,
+  "real_rank_three_body": 8,
+  "complex_doublets_three_body": 2,
+  "three_body_operator_hypercharge": "+1/2 for both",
+  "transitions": "a^dag(1-N2): n2 0->1; a^dag N2: n2 1->2"
+ },
+ "censuses": {
+  "A3H": {
+   "b": [
+    "43/10",
+    "-17/6",
+    "-7"
+   ],
+   "closure": "none in the producer windows",
+   "widened_max_pixel_residual_at_P0": -0.40341440180496296,
+   "required_heat_sum": 0.40774302396472434
+  },
+  "B2H": {
+   "b": [
+    "31/5",
+    "-1",
+    "-5"
+   ],
+   "closure": "none in the producer windows",
+   "widened_max_pixel_residual_at_P0": -0.27507053984686636,
+   "required_heat_sum": 0.40774302396472434
+  },
+  "BHH": {
+   "b": [
+    "33/5",
+    "-1/3",
+    "-5"
+   ],
+   "closure": "none in the producer windows",
+   "widened_max_pixel_residual_at_P0": -0.2369320583631194,
+   "required_heat_sum": 0.40774302396472434
+  }
+ }
+}

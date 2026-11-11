@@ -1,0 +1,246 @@
+"""GL step 3b: Gauss law with the matter of the five-level code.
+
+A. CF-1 routing tick with G-valued matrix links acting on the code index (the link rule of work/DIRAC/routing.py with a
+   5 x 5 matrix in place of the phase): covariance under G-valued gauge transformations; at trivial links every code
+   level routes as the free tick.
+B. Quantum Gauss law on two sites and one link. Matter: fermion modes c_{x,a}, c_{y,a}, a = the five code levels
+   (patterns are their occupations). Link: Peter-Weyl register truncated to the code sectors with both orientations,
+   |0>, |+,r,a,b>, |-,r,a,b>, r in {3, 2}: 27 states; U^r_ab = (|+,r,a,b><0| + |0><-,r,a,b|)/sqrt(d_r) (the audit's
+   oriented-link rule). H = hopping + electric Casimir of the code trace. Gauss G_x(T) = dGamma_x(T) + L(T),
+   G_y(T) = dGamma_y(T) + R(T) for the twelve T = X_p. Controls: matter with the doublet hypercharge reversed; the
+   chiral toggle c_{s2} + c_{s2}^dagger of the neutral doublet level.
+Writes s3_gauss.json.
+"""
+import itertools
+import json
+import sys
+
+import numpy as np
+import scipy.sparse as sps
+
+import gl_lib as L
+
+sys.path.insert(0, 'WORKSPACE/repair-law/work/DIRAC')
+rng = np.random.default_rng(11)
+out = {}
+
+# ============================================================================ A. routing tick with matrix links
+SIG = L.SIG
+
+
+def eigbasis(i):
+    w, v = np.linalg.eigh(SIG[i])
+    return v[:, [int(np.argmax(w)), int(np.argmin(w))]]
+
+
+VB = [eigbasis(i) for i in range(3)]
+
+
+def seam_involution(psi, i, links):
+    """psi[x1,x2,x3, record, spin, a]; links[i][x] = 5 x 5 matrix from x to x + e_i (transports x + e_i to x)."""
+    phi = np.einsum('...rsa,st->...rta', psi, VB[i].conj())
+    out = phi.copy()
+    for comp, forward in ((0, True), (1, False)):
+        f = phi[..., comp, :]                                   # [x, record, a]
+        nxt = np.roll(f, -1, axis=i)
+        if links is not None:
+            nxt = np.einsum('...ab,...rb->...ra', links[i], nxt)
+        a_, b_ = (f, nxt) if forward else (nxt, f)
+        c = (a_[..., 0, :] - b_[..., 0, :] - a_[..., 1, :] - b_[..., 1, :]) / 2
+        da = np.stack([-c, c], axis=-2)
+        db = np.stack([c, c], axis=-2)
+        here, there = (da, db) if forward else (db, da)
+        if links is not None:
+            there = np.einsum('...ba,...rb->...ra', links[i].conj(), there)     # U^dagger back to x + e_i
+        out[..., comp, :] += here + np.roll(there, 1, axis=i)
+    return np.einsum('...rta,st->...rsa', out, VB[i])
+
+
+def tick(psi, links, theta=0.0):
+    for i in range(3):
+        psi = psi.copy(); psi[..., 1, :, :] *= -1             # record reflection R
+        psi = seam_involution(psi, i, links)
+    if theta:
+        c, s = np.cos(theta), np.sin(theta)
+        o = np.empty_like(psi)
+        o[..., 0, :, :] = c * psi[..., 0, :, :] - s * psi[..., 1, :, :]
+        o[..., 1, :, :] = s * psi[..., 0, :, :] + c * psi[..., 1, :, :]
+        psi = o
+    return psi
+
+
+def random_G(scale):
+    return L.expm_herm(sum(rng.normal() * scale * T for T in L.TBASIS))
+
+
+shape = (4, 3, 3)
+psi = rng.normal(size=shape + (2, 2, 5)) + 1j * rng.normal(size=shape + (2, 2, 5)); psi /= np.linalg.norm(psi)
+links = [np.array([random_G(1.5) for _ in range(np.prod(shape))]).reshape(shape + (5, 5)) for _ in range(3)]
+gx = np.array([random_G(2.0) for _ in range(np.prod(shape))]).reshape(shape + (5, 5))
+links_g = []
+for i in range(3):
+    gy = np.roll(gx, -1, axis=i)
+    links_g.append(np.einsum('...ab,...bc,...dc->...ad', gx, links[i], gy.conj()))
+psi_g = np.einsum('...ab,...rsb->...rsa', gx, psi)
+lhs = tick(psi_g, links_g, 0.1)
+rhs = np.einsum('...ab,...rsb->...rsa', gx, tick(psi, links, 0.1))
+cov = float(np.abs(lhs - rhs).max())
+unit = float(abs(np.linalg.norm(tick(psi, links, 0.1)) - 1))
+# free comparison with the reference engine: each code level separately
+from routing import Routing
+ref = Routing(shape)
+free_dev = max(float(np.abs(tick(psi, None, 0.1)[..., a] - ref.tick(psi[..., a], 0.1)).max()) for a in range(5))
+# control: transform matter only
+ctrl = float(np.abs(tick(psi_g, links, 0.1) - rhs).max())
+out['A_routing_matrix_links'] = {'lattice': shape, 'covariance_defect': cov, 'unitarity_defect': unit,
+                                 'free_tick_equals_reference_engine_per_level': free_dev,
+                                 'control_matter_transformed_links_not': ctrl}
+print('A', out['A_routing_matrix_links'], flush=True)
+
+# ============================================================================ B. quantum Gauss law, two sites, one link
+nm = 10                                                         # modes (x, a) then (y, a)
+Zs = sps.diags([1.0, -1.0]); Id2 = sps.identity(2); amode = sps.csr_matrix(np.array([[0.0, 1.0], [0.0, 0.0]]))
+
+
+def ann(k):
+    ops = [Zs] * k + [amode] + [Id2] * (nm - k - 1)
+    M = ops[0]
+    for o in ops[1:]:
+        M = sps.kron(M, o, format='csr')
+    return M
+
+
+C = [ann(k) for k in range(nm)]
+CD = [c.conj().T.tocsr() for c in C]
+DM = 2 ** nm
+
+
+def dGamma(site, T):
+    o = 5 * site
+    M = sps.csr_matrix((DM, DM), dtype=complex)
+    for a in range(5):
+        for b in range(5):
+            if abs(T[a, b]) > 1e-15:
+                M = M + T[a, b] * (CD[o + a] @ C[o + b])
+    return M
+
+
+# link register
+blocks = {3: [0, 1, 2], 2: [3, 4]}
+states = [('0',)]
+for sgn in ('+', '-'):
+    for r, lev in blocks.items():
+        for a in range(len(lev)):
+            for b in range(len(lev)):
+                states.append((sgn, r, a, b))
+idx = {s: k for k, s in enumerate(states)}
+DL = len(states)
+assert DL == 27
+
+
+def blockT(T, r):
+    lev = blocks[r]
+    return T[np.ix_(lev, lev)]
+
+
+def U_link(r, a, b):
+    M = np.zeros((DL, DL), complex)
+    d = len(blocks[r])
+    M[idx[('+', r, a, b)], idx[('0',)]] += 1 / np.sqrt(d)
+    M[idx[('0',)], idx[('-', r, a, b)]] += 1 / np.sqrt(d)
+    return M
+
+
+def L_gen(T):
+    M = np.zeros((DL, DL), complex)
+    for r in blocks:
+        Tr = blockT(T, r); d = len(blocks[r])
+        for a, b in itertools.product(range(d), repeat=2):
+            for c in range(d):
+                M[idx[('+', r, c, b)], idx[('+', r, a, b)]] += -Tr[a, c]        # -T^T on a
+                M[idx[('-', r, c, b)], idx[('-', r, a, b)]] += Tr[c, a]         # T on a
+    return M
+
+
+def R_gen(T):
+    M = np.zeros((DL, DL), complex)
+    for r in blocks:
+        Tr = blockT(T, r); d = len(blocks[r])
+        for a, b in itertools.product(range(d), repeat=2):
+            for c in range(d):
+                M[idx[('+', r, a, c)], idx[('+', r, a, b)]] += Tr[c, b]         # T on b
+                M[idx[('-', r, a, c)], idx[('-', r, a, b)]] += -Tr[b, c]        # -T^T on b
+    return M
+
+
+# Ward identities on the link alone
+ward = 0.0
+for T in L.X:
+    Lg, Rg = L_gen(T), R_gen(T)
+    for r in blocks:
+        Tr = blockT(T, r); d = len(blocks[r])
+        for a, b in itertools.product(range(d), repeat=2):
+            Uab = U_link(r, a, b)
+            lw = Lg @ Uab - Uab @ Lg + sum(Tr[a, c] * U_link(r, c, b) for c in range(d))
+            rw = Rg @ Uab - Uab @ Rg - sum(Tr[c, b] * U_link(r, a, c) for c in range(d))
+            ward = max(ward, np.abs(lw).max(), np.abs(rw).max())
+casimir = {r: float(np.mean(np.linalg.eigvalsh(sum(blockT(T, r) @ blockT(T, r) for T in L.TBASIS)))) for r in blocks}
+Eel = np.zeros((DL, DL))
+for s, k in idx.items():
+    if s[0] != '0':
+        Eel[k, k] = casimir[s[1]]
+IL = sps.identity(DL, format='csr'); IM = sps.identity(DM, format='csr')
+
+
+def kron(A, B):
+    return sps.kron(sps.csr_matrix(A), sps.csr_matrix(B), format='csr')
+
+
+H = kron(IM, Eel) * 0.7
+for r, lev in blocks.items():
+    d = len(lev)
+    for a, b in itertools.product(range(d), repeat=2):
+        hop = kron(CD[lev[a]] @ C[5 + lev[b]], U_link(r, a, b))
+        H = H + hop + hop.conj().T
+# a gauge-invariant on-site interaction: (number at x)^2 and (6Y at y)^2
+H = H + kron(dGamma(0, np.eye(5)) @ dGamma(0, np.eye(5)), IL) * 0.3 + kron(dGamma(1, L.Y6) @ dGamma(1, L.Y6), IL) * 0.05
+
+
+def comm_norm(A, B):
+    Cm = A @ B - B @ A
+    return float(np.abs(Cm.data).max()) if Cm.nnz else 0.0
+
+
+gauss = []
+for p, T in enumerate(L.X):
+    Gx = kron(dGamma(0, T), IL) + kron(IM, L_gen(T))
+    Gy = kron(dGamma(1, T), IL) + kron(IM, R_gen(T))
+    gauss.append(max(comm_norm(H, Gx), comm_norm(H, Gy)))
+# controls
+Yrev = np.diag([-1 / 3, -1 / 3, -1 / 3, -1 / 2, -1 / 2]).astype(complex)
+ctrl_y = []
+for T in L.X:
+    y = np.trace(T @ L.Y5).real / np.trace(L.Y5 @ L.Y5).real
+    Tm = T - y * L.Y5 + y * Yrev                         # matter with the doublet hypercharge reversed
+    Gx = kron(dGamma(0, Tm), IL) + kron(IM, L_gen(T))
+    ctrl_y.append(comm_norm(H, Gx))
+s2 = 4                                                   # T3 = -1/2 level of the doublet (the neutral level)
+tog = kron(C[s2] + CD[s2], IL)
+Qem = np.diag([-1 / 3, -1 / 3, -1 / 3, 1.0, 0.0]).astype(complex)
+tog_rows = {}
+for name, T in [('X_p (max over the twelve)', None), ('gluons (max over eight)', 'g'), ('W1', L.WEAK[0]), ('W3', L.WEAK[2]),
+                ('B_GUT', L.BGUT), ('electric charge Q = T3 + Y', Qem)]:
+    if T is None:
+        val = max(comm_norm(tog, kron(dGamma(0, X), IL) + kron(IM, L_gen(X))) for X in L.X)
+    elif isinstance(T, str):
+        val = max(comm_norm(tog, kron(dGamma(0, G), IL) + kron(IM, L_gen(G))) for G in L.GLUONS)
+    else:
+        val = comm_norm(tog, kron(dGamma(0, T), IL) + kron(IM, L_gen(T)))
+    tog_rows[name] = val
+out['B_quantum_gauss'] = {'dimension': DM * DL, 'link_states': DL, 'ward_identity_defect': float(ward),
+                          'electric_casimir_per_sector': casimir,
+                          'max_commutator_H_Gauss_over_twelve_generators': float(max(gauss)),
+                          'control_doublet_hypercharge_reversed': float(max(ctrl_y)),
+                          'chiral_toggle_of_s2_against_Gauss': tog_rows}
+print('B', json.dumps(out['B_quantum_gauss'], default=L.jsonable), flush=True)
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 's3_gauss.json', 'w'), indent=1, default=L.jsonable)

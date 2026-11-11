@@ -1,0 +1,167 @@
+"""Task KOI, part 2/9: can the body-diagonal coefficient 2/9 of the tick enter a third-turn-covariant phase?
+
+1. Dispersion of the alternating period (massless): cos 2E = prod cos 2p_i. Series of E along a unit direction u at every
+   one of the 32 rest points K: E(K + q u) = q - (1/3)(1 - sum u_i^4) q^3 + O(q^5); -2/9 on the body diagonal.
+2. One ordered tick in an arrow sector (the D'Ariano-Perinotti BCC automaton): cos w = prod c_i + chi prod s_i; along the
+   diagonal w^2 = q^2 (1 - chi (2/(3 sqrt3)) q + ...) in cell units; with k = sqrt3 q (DP units) w^2 = (k^2/3)(1 - chi (2/9) k).
+3. The third-turn and the tick: no on-site unitary or antiunitary V (4 x 4 on record (x) spin) realises the turn on the
+   period symbol, V U2(p) V^-1 = U2(Rp) (or variants), checked exactly at rational points (tan(p/2) rational).
+4. Invariance: the free dispersion is a function of the cubic group (all 48 signed permutations), so it is constant on
+   every turn orbit of copies and at every rest point; it contributes a multiple of the identity to every copy matrix.
+Output: koide.json key 'two_ninths'.
+"""
+import itertools, json
+import sympy as sp
+from koide_lib import save
+
+q = sp.symbols('q', positive=True)
+u1, u2, u3 = sp.symbols('u1 u2 u3', real=True)
+out = {}
+
+# ------------------------------------------------------------------------------------------------ 1. period dispersion
+def E_series(K, u, order=6):
+    """series of the per-tick phase E = (1/2) arccos(prod cos 2p_i) at p = K + q u (K in units of pi/2)"""
+    prod = sp.Integer(1)
+    for i in range(3):
+        prod *= sp.cos(2 * (K[i] * sp.pi / 2 + q * u[i]))
+    prod = sp.simplify(sp.expand_trig(prod))
+    c = sp.series(prod, q, 0, order).removeO()
+    # E from cos 2E = c: 2E = arccos(c); use E^2 series via 1 - cos 2E = 2 sin^2 E
+    Es = sp.Symbol('Es')
+    # invert: write E = q (1 + a2 q^2 + a4 q^4), solve order by order
+    a2, a4 = sp.symbols('a2 a4')
+    Etrial = q * (1 + a2 * q ** 2 + a4 * q ** 4)
+    lhs = sp.series(sp.cos(2 * Etrial), q, 0, order).removeO()
+    eqs = sp.Poly(sp.expand(lhs - c), q).all_coeffs()[::-1]
+    sol = sp.solve([e for e in eqs if e != 0][:2], [a2, a4], dict=True)
+    return sol, c
+
+
+rest_points = [K for K in itertools.product(range(4), repeat=3) if sum(1 for k in K if k % 2 == 1) % 2 == 0]
+assert len(rest_points) == 32
+diag = (1 / sp.sqrt(3),) * 3
+coef = {}
+for K in rest_points:
+    sol, _ = E_series(K, diag)
+    coef[K] = [sp.nsimplify(s[sp.Symbol('a2')]) for s in sol]
+vals = {str(v) for v in coef.values()}
+print('1. relative q^2 coefficient along (1,1,1) at the 32 rest points:', vals)
+general, _ = E_series((0, 0, 0), (u1, u2, u3), order=6)
+g2 = sp.simplify(general[0][sp.Symbol('a2')].subs(u3 ** 2, 1 - u1 ** 2 - u2 ** 2)) if general else None
+target = sp.simplify((-sp.Rational(1, 3) * (1 - (u1 ** 4 + u2 ** 4 + (1 - u1 ** 2 - u2 ** 2) ** 2))))
+eqcheck = sp.simplify(sp.expand(g2 - target)) if g2 is not None else None
+axis = E_series((0, 0, 0), (1, 0, 0))[0][0][sp.Symbol('a2')]
+face = E_series((0, 0, 0), (1 / sp.sqrt(2), 1 / sp.sqrt(2), 0))[0][0][sp.Symbol('a2')]
+same_function = all(sp.simplify(sp.expand_trig(sp.prod([sp.cos(2 * (K[i] * sp.pi / 2) + 2 * sp.Symbol(f'p{i}')) for i in range(3)]) -
+                                               sp.prod([sp.cos(2 * sp.Symbol(f'p{i}')) for i in range(3)]))) == 0 for K in rest_points)
+out['period_dispersion'] = {
+    'relative_q2_coefficient_along_(1,1,1)_at_every_rest_point': sorted(vals),
+    'general_direction': 'E = q (1 - (1/3)(1 - sum u_i^4) q^2 + O(q^4)) = q (1 - (2/3) sum_(i<j) u_i^2 u_j^2 q^2 + ...)',
+    'general_check (difference, symbolic)': str(eqcheck),
+    'axis_100': str(axis), 'face_diagonal_110': str(face), 'body_diagonal_111': '-2/9',
+    'prod_cos_2p_identical_at_all_32_rest_points': bool(same_function),
+    'reading': 'every copy (rest point) has the same dispersion function; the coefficient is the value of the cubic harmonic (1/3)(1 - sum u^4), invariant under all 48 signed permutations of the axes',
+    'label': 'EXACT (sympy series)'}
+print('   general check', eqcheck, '| axis', axis, '| 110', face, '| same function at all rest points', same_function)
+
+# ------------------------------------------------------------------------------------------------ 2. one ordered tick (DP form)
+chi = sp.symbols('chi')
+c, s = sp.cos(q / sp.sqrt(3)), sp.sin(q / sp.sqrt(3))
+cosw = c ** 3 + chi * s ** 3
+b1, b2 = sp.symbols('b1 b2')
+wtrial = q * (1 + b1 * q + b2 * q ** 2)
+lhs = sp.series(sp.cos(wtrial), q, 0, 5).removeO()
+rhs = sp.series(cosw, q, 0, 5).removeO()
+eqs = [e for e in sp.Poly(sp.expand(lhs - rhs), q).all_coeffs()[::-1] if e != 0]
+sol = sp.solve(eqs[:2], [b1, b2], dict=True)[0]
+w2_rel_linear = sp.simplify(2 * sol[b1])                              # w^2 = q^2 (1 + 2 b1 q + ...)
+k = sp.symbols('k', positive=True)
+w2_dp = sp.simplify(w2_rel_linear * sp.sqrt(3) ** -1)                 # q = k / sqrt3: coefficient of k
+out['one_ordered_tick'] = {
+    'symbol': 'cos w = cos p1 cos p2 cos p3 + chi sin p1 sin p2 sin p3 (arrow sector chi = +-1): the D\'Ariano-Perinotti BCC Weyl automaton',
+    'w^2_relative_linear_coefficient_along_(1,1,1), cell units': str(w2_rel_linear),
+    'same, DP units k = sqrt3 |p|': str(w2_dp),
+    'period_relative_quadratic_coefficient, DP units': str(sp.Rational(-2, 9) / 3),
+    'reading': 'LIT.md B2 quotes the odd coefficient of one ordered tick in DP units (+-2/9 per unit k); CQ run A quotes the even coefficient of the alternating period in cell units (-2/9 per cell^2). In one common unit they are 2/(3 sqrt3) and 2/9 (cells) or 2/9 and 2/27 (DP): two different numbers. A dispersion coefficient changes with the unit of momentum (relative q^n coefficient scales as lambda^n under p -> lambda p); a phase in radians does not.',
+    'label': 'EXACT (sympy series)'}
+print('2. one tick: w^2 relative linear coefficient (cells)', w2_rel_linear, '| DP units', w2_dp)
+
+# ------------------------------------------------------------------------------------------------ 3. no on-site symmetry realises the turn
+I = sp.I
+S1 = sp.Matrix([[0, 1], [1, 0]]); S2 = sp.Matrix([[0, -I], [I, 0]]); S3 = sp.Matrix([[1, 0], [0, -1]])
+SIG = [S1, S2, S3]; X = S1
+alpha = [sp.kronecker_product(X, s_) for s_ in SIG]
+
+
+def cs(t):
+    return (1 - t ** 2) / (1 + t ** 2), 2 * t / (1 + t ** 2)
+
+
+def ex(i, t):
+    co, si = cs(t)
+    return co * sp.eye(4) - I * si * alpha[i]
+
+
+def U2(ts):
+    fwd = ex(2, ts[2]) * ex(1, ts[1]) * ex(0, ts[0])
+    rev = ex(0, ts[0]) * ex(1, ts[1]) * ex(2, ts[2])
+    return sp.simplify(rev * fwd), sp.simplify(fwd * rev)
+
+
+pts = [(sp.Rational(1, 2), sp.Rational(1, 3), sp.Rational(1, 5)), (sp.Rational(2, 3), sp.Rational(-1, 4), sp.Rational(3, 7)),
+       (sp.Rational(-1, 3), sp.Rational(1, 6), sp.Rational(2, 5)), (sp.Rational(1, 7), sp.Rational(3, 5), sp.Rational(-2, 3))]
+Vs = sp.Matrix(4, 4, lambda i, j: sp.Symbol(f'v{i}{j}'))
+
+
+def rot(ts):                                                          # R p = (p3, p1, p2): R e1 = e2
+    return (ts[2], ts[0], ts[1])
+
+
+def neg(ts):
+    return tuple(-t for t in ts)
+
+
+def nullity(variant):
+    eqs = []
+    for ts in pts:
+        A, Ap = U2(ts)
+        if variant == 'unitary: V U2(p) = U2(Rp) V':
+            B, _ = U2(rot(ts)); eqs += list(Vs * A - B * Vs)
+        elif variant == 'unitary onto the other period: V U2(p) = U2\'(Rp) V':
+            _, B = U2(rot(ts)); eqs += list(Vs * A - B * Vs)
+        elif variant == 'unitary, inverse turn: V U2(p) = U2(R^-1 p) V':
+            B, _ = U2(rot(rot(ts))); eqs += list(Vs * A - B * Vs)
+        elif variant == 'antiunitary: V conj(U2(p)) = U2(-Rp) V':
+            B, _ = U2(neg(rot(ts))); eqs += list(Vs * A.conjugate() - B * Vs)
+        elif variant == 'antiunitary onto the other period: V conj(U2(p)) = U2\'(-Rp) V':
+            _, B = U2(neg(rot(ts))); eqs += list(Vs * A.conjugate() - B * Vs)
+        elif variant == 'control: half-turn about axis 3, V U2(p) = U2(H p) V':
+            B, _ = U2((-ts[0], -ts[1], ts[2])); eqs += list(Vs * A - B * Vs)
+    Mx = sp.Matrix([[sp.expand(e).coeff(sp.Symbol(f'v{i}{j}')) for i in range(4) for j in range(4)] for e in eqs])
+    return 16 - Mx.rank()
+
+
+variants = ['unitary: V U2(p) = U2(Rp) V', 'unitary onto the other period: V U2(p) = U2\'(Rp) V', 'unitary, inverse turn: V U2(p) = U2(R^-1 p) V',
+            'antiunitary: V conj(U2(p)) = U2(-Rp) V', 'antiunitary onto the other period: V conj(U2(p)) = U2\'(-Rp) V',
+            'control: half-turn about axis 3, V U2(p) = U2(H p) V']
+nul = {}
+for v in variants:
+    nul[v] = nullity(v)
+    print('3.', v, '-> dimension of solutions V:', nul[v])
+out['turn_symmetry_of_the_period'] = {
+    'test': 'linear equations for a constant 4 x 4 matrix V on record (x) spin at four rational momenta (cos p, sin p rational), exact over Q(i)',
+    'solution_space_dimensions': nul,
+    'reading': 'no nonzero on-site V intertwines the period with its turned image in any of the five forms; the control (a half-turn of the frame, a symmetry by R1) has solutions',
+    'label': 'EXACT'}
+
+# ------------------------------------------------------------------------------------------------ 4. statements
+out['obstruction'] = {
+    'a_trivial_channel': 'the free spectrum cos E2 = cos^2(theta) prod cos 2p_i - sin^2(theta) is invariant under all 48 signed permutations, so on any set of copies related by a third-turn (cones, or momenta q, Rq, R^2 q) and at every rest point the free tick contributes E(q) times 1. A multiple of the identity changes a and leaves b, |b| and delta unchanged. The coefficient 2/9 lives in E(q) only.',
+    'b_order': 'delta belongs to the copy matrix at q = 0; 2/9 is the q^3 coefficient of E. The first-order copy matrix of any source is built from the rest states at the cone points (exact: entries theta/N times Gaussian integers), which carry no dispersion coefficient.',
+    'c_arithmetic': 'Lemma 2: a copy matrix with algebraic entries has algebraic cos 3delta; cos(2/3) is transcendental. All first-order copy matrices of the cones are theta/N times Gaussian-integer matrices, so their delta is never 2/9; the carrier matrices are in Q(sqrt5, sqrt-3).',
+    'd_units': 'the 2/9 of the period is per cell^2; in the units where the one-tick coefficient is 2/9 it is 2/27. A unit-free phase can equal it only after a choice of momentum unit.',
+    'e_symmetry': 'the third-turn is not a symmetry of the alternating tick (section 3; at the cones the turned program differs by Z = diag(1, 1, -1, -1)): a third-turn-covariant copy matrix exists only for a declared source with that symmetry, and (a) to (c) apply to it.',
+    'beyond_first_order': 'ARGUED: at higher orders the dispersion enters through real energy denominators of intermediate states, i.e. as weights of lattice sums; no step isolates the q^3 coefficient',
+    'label': 'EXACT (a, c, d, e), ARGUED (beyond first order)'}
+save('two_ninths', out)
+print('saved two_ninths')

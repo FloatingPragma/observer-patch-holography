@@ -1,0 +1,316 @@
+"""Worker CA, shared core: the area record of closed native histories on the public twelve-port carrier.
+
+Tuple (ACCEPTANCE.md): carrier = public pinned icosahedron (model.common_source.slow_geometry); local state = integer
+loads, totals one and two; seam instrument = model.observer.native.native, unchanged; scheduler = fresh uniform seam and
+fair coin per complete attempt; memory = one counter modulo 20 driven by (seam, current); preparation = uniform law on a
+closed class; measurement grammar = return events with port-occupation insertions, graded by the counter; clock =
+complete attempts.  Nothing here changes the source: every object is a function of the retained tape (seam, current).
+
+Run from the public checkout:
+  cd reverse-engineering-reality && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:../repair-law/work/CA python <script>
+"""
+from fractions import Fraction
+import itertools
+import numpy as np
+from model.common_source import slow_geometry
+from model.observer import native
+
+SRC = slow_geometry.source()
+SEAMS = tuple(tuple(int(v) for v in e) for e in SRC.seams())            # 30 seams (a, b), a < b
+FACES = tuple(tuple(int(v) for v in f) for f in SRC.oriented_faces())   # 20 oriented faces
+ROTS = tuple(tuple(int(v) for v in r) for r in SRC.rotations())         # 60 proper rotations, port -> port
+N, M, NF, Q20 = 12, 30, 20, 20
+SIDX = {}
+for _i, (_a, _b) in enumerate(SEAMS):
+    SIDX[(_a, _b)] = (_i, 1)
+    SIDX[(_b, _a)] = (_i, -1)
+ADJ = np.zeros((N, N), dtype=np.int64)
+for _a, _b in SEAMS:
+    ADJ[_a, _b] = ADJ[_b, _a] = 1
+NBRS = tuple(tuple(int(q) for q in np.nonzero(ADJ[p])[0]) for p in range(N))
+
+# incidence: BND1[e, port] (boundary of an oriented seam a -> b is b - a), BND2[f, e] (boundary of an oriented face)
+BND1 = np.zeros((M, N), dtype=np.int64)
+for _i, (_a, _b) in enumerate(SEAMS):
+    BND1[_i, _a] = -1
+    BND1[_i, _b] = 1
+BND2 = np.zeros((NF, M), dtype=np.int64)
+for _f, _face in enumerate(FACES):
+    for _j in range(3):
+        _i, _s = SIDX[(_face[_j], _face[(_j + 1) % 3])]
+        BND2[_f, _i] += _s
+assert not (BND2 @ BND1).any(), 'boundary of a boundary'
+assert not BND2.sum(axis=0).any(), 'the faces are coherently oriented: the sum of all face boundaries vanishes'
+assert all(sorted(np.abs(BND2[:, e]).tolist())[-2:] == [1, 1] and np.abs(BND2[:, e]).sum() == 2 for e in range(M))
+
+
+# ---------------------------------------------------------------------------------------------------------------
+# the integer seam table theta
+# ---------------------------------------------------------------------------------------------------------------
+def spanning_tree(root=0, order=None):
+    """Breadth-first spanning tree of the port graph; returns the set of seam indices."""
+    parent = {root: None}
+    queue = [root]
+    tree = set()
+    for a in queue:
+        for b in (NBRS[a] if order is None else sorted(NBRS[a], key=order)):
+            if b not in parent:
+                parent[b] = a
+                queue.append(b)
+                tree.add(SIDX[(a, b)][0])
+    assert len(tree) == N - 1
+    return tree
+
+
+def theta_table(outside_face=NF - 1, tree=None):
+    """Integer theta on the 30 oriented seams (value for a -> b, a < b; theta(b -> a) = -theta(a -> b)) with
+    coboundary 1 on every oriented face except `outside_face`, where it is 1 - 20.  Constructed by peeling: theta = 0
+    on a spanning tree; the 19 other seams are the edges of a spanning tree of the faces; a face with one undetermined
+    seam fixes it."""
+    tree = spanning_tree() if tree is None else tree
+    w = np.ones(NF, dtype=np.int64)
+    w[outside_face] = 1 - NF
+    theta = {e: 0 for e in tree}
+    progress = True
+    while len(theta) < M and progress:
+        progress = False
+        for f in range(NF):
+            unknown = [e for e in range(M) if BND2[f, e] and e not in theta]
+            if len(unknown) == 1:
+                e = unknown[0]
+                rest = sum(int(BND2[f, x]) * theta[x] for x in range(M) if BND2[f, x] and x != e)
+                theta[e] = int(BND2[f, e]) * (int(w[f]) - rest)        # BND2 entry is +-1
+                progress = True
+    assert len(theta) == M
+    th = np.array([theta[e] for e in range(M)], dtype=np.int64)
+    assert (BND2 @ th == w).all()
+    return th
+
+
+def coboundary(theta):
+    return BND2 @ np.asarray(theta, dtype=np.int64)
+
+
+def regauge(theta, g):
+    """theta'(a -> b) = theta(a -> b) + g(b) - g(a): the counter is relabelled n -> n + g(port)."""
+    return np.asarray(theta, dtype=np.int64) + BND1 @ np.asarray(g, dtype=np.int64)
+
+
+THETA = theta_table()
+
+
+# ---------------------------------------------------------------------------------------------------------------
+# the area class by homology, independent of theta
+# ---------------------------------------------------------------------------------------------------------------
+def _filling_matrix(outside_face):
+    """Exact rational K with m = K c for every integer cycle c, m the unique filling 2-chain with m[outside] = 0."""
+    import sympy as sp
+    rows = [f for f in range(NF) if f != outside_face]
+    D = sp.Matrix(BND2[rows].tolist())                      # 19 x 30, rank 19
+    K = (D * D.T).inv() * D                                 # m^T D = c^T  ->  m = (D D^T)^-1 D c
+    den = sp.ilcm(*[sp.Rational(x).q for x in K])
+    Kint = np.array((K * den).tolist(), dtype=object)
+    return rows, Kint, int(den)
+
+
+_FILL = {}
+
+
+def filling(cycle, outside_face=NF - 1):
+    """Integer 2-chain m with boundary `cycle` and m[outside_face] = 0 (exact; raises if `cycle` is not a cycle)."""
+    if outside_face not in _FILL:
+        _FILL[outside_face] = _filling_matrix(outside_face)
+    rows, Kint, den = _FILL[outside_face]
+    c = np.array([int(x) for x in cycle], dtype=object)
+    if (BND1.T.astype(object) @ c).any():
+        raise ValueError('not a cycle')
+    num = Kint @ c
+    if any(int(x) % den for x in num):
+        raise ArithmeticError('non-integer filling')
+    m = np.zeros(NF, dtype=object)
+    for r, x in zip(rows, num):
+        m[r] = int(x) // den
+    assert ((BND2.T.astype(object) @ m) == c).all()
+    return m
+
+
+def area_class(cycle, outside_face=NF - 1):
+    """Area of a closed current record modulo 20: the sum of the coefficients of any filling 2-chain."""
+    return int(sum(filling(cycle, outside_face))) % Q20
+
+
+# ---------------------------------------------------------------------------------------------------------------
+# sectors of the native rule and the lifted chain
+# ---------------------------------------------------------------------------------------------------------------
+def sector(name):
+    """'one': 12 one-hot states; 'two': 66 binary states (exclusion chain); 'full': 78 states, binary then double."""
+    one = [tuple(int(p == q) for p in range(N)) for q in range(N)]
+    binary = [tuple(int(p in c) for p in range(N)) for c in itertools.combinations(range(N), 2)]
+    double = [tuple(2 * int(p == q) for p in range(N)) for q in range(N)]
+    return {'one': one, 'two': binary, 'full': binary + double}[name]
+
+
+def branches(states):
+    """All 60 native branches of every state: list over states of [(target index, seam index, current)]."""
+    index = {s: i for i, s in enumerate(states)}
+    out = []
+    for s in states:
+        rows = []
+        for e, seam in enumerate(SEAMS):
+            for coin in (0, 1):
+                nxt, (_, current) = native.native(s, seam, coin)
+                rows.append((index[tuple(nxt)], e, int(current)))
+        out.append(rows)
+    return out
+
+
+def lifted_counts(states, theta=None, br=None):
+    """C[y, x, s] = number of native branches x -> y whose counter increment current * theta(seam) is s modulo 20.
+    This is the one-attempt count matrix of the lifted chain on (configuration, counter), written in the group ring
+    Z[Z/20] (translation invariance in the counter is built in)."""
+    theta = THETA if theta is None else theta
+    br = branches(states) if br is None else br
+    d = len(states)
+    C = np.zeros((d, d, Q20), dtype=object)
+    for x, rows in enumerate(br):
+        for y, e, j in rows:
+            C[y, x, (j * int(theta[e])) % Q20] += 1
+    return C
+
+
+def ring_mul(A, B):
+    """Product in M_d(Z[Z/20]) (exact integers): (A B)[y, x, s] = sum_z sum_t A[y, z, t] B[z, x, s - t]."""
+    d = A.shape[0]
+    amax = max(abs(int(v)) for v in A.ravel())
+    bmax = max(abs(int(v)) for v in B.ravel())
+    if amax * bmax * d * Q20 < 2 ** 62:                        # exact in int64: no overflow possible
+        T = np.einsum('yzt,zxu->yxtu', A.astype(np.int64), B.astype(np.int64), optimize=True)
+        out64 = np.zeros((d, d, Q20), dtype=np.int64)
+        for t in range(Q20):
+            for u in range(Q20):
+                out64[:, :, (t + u) % Q20] += T[:, :, t, u]
+        return out64.astype(object)
+    out = np.zeros((d, d, Q20), dtype=object)
+    for t in range(Q20):
+        At = A[:, :, t]
+        if not At.any():
+            continue
+        for u in range(Q20):
+            Bu = B[:, :, u]
+            if not Bu.any():
+                continue
+            out[:, :, (t + u) % Q20] += At.dot(Bu)
+    return out
+
+
+def ring_power(C, L):
+    d = C.shape[0]
+    out = np.zeros((d, d, Q20), dtype=object)
+    for x in range(d):
+        out[x, x, 0] = 1
+    base = C
+    while L:
+        if L & 1:
+            out = ring_mul(out, base)
+        L >>= 1
+        if L:
+            base = ring_mul(base, base)
+    return out
+
+
+OMEGA = np.exp(2j * np.pi / Q20)
+
+
+def twisted(C, k):
+    """Fourier block k of the lifted chain: P_k[y, x] = (1/60) sum_s C[y, x, s] omega^(k s)."""
+    ph = OMEGA ** (k * np.arange(Q20))
+    return (C.astype(float) @ ph) / 60.0
+
+
+def leading(P, tol=1e-9):
+    """Leading multiplet of a Hermitian transfer: (lambda1, multiplicity, lambda2, isometry V, residual defect)."""
+    assert np.abs(P - P.conj().T).max() < 1e-12
+    ev, vec = np.linalg.eigh((P + P.conj().T) / 2)
+    top = ev[-1]
+    sel = np.abs(ev - top) < tol
+    V = vec[:, sel]
+    defect = float(np.abs(P @ V - top * V).max())
+    return float(top), int(sel.sum()), float(ev[~sel].max()), V, defect
+
+
+def occupation(states, p):
+    """Diagonal of the port-occupation field 'port p carries a load' on a sector (loads 0, 1; a double load counts 2)."""
+    return np.array([s[p] for s in states], dtype=float)
+
+
+def compressed(states, V):
+    """The twelve compressed occupations n_p = V^* N_p V on a multiplet."""
+    return [V.conj().T @ (occupation(states, p)[:, None] * V) for p in range(N)]
+
+
+def block(parts):
+    size = sum(x.shape[0] for x in parts)
+    Z = np.zeros((size, size), complex)
+    o = 0
+    for x in parts:
+        Z[o:o + x.shape[0], o:o + x.shape[0]] = x
+        o += x.shape[0]
+    return Z
+
+
+# ---------------------------------------------------------------------------------------------------------------
+# real Lie closure of anti-Hermitian generators (numerical rank, relative tolerance printed by the callers)
+# ---------------------------------------------------------------------------------------------------------------
+def lie_data(herm, tol=1e-8, cap=400, centre_tol=1e-7):
+    """(span, closure, centre) of the real Lie algebra generated by i * herm[j].  `tol` is the relative size below
+    which a new direction or a bracket is treated as zero; `centre_tol` the relative singular value below which a
+    direction commutes with everything."""
+    basis, elems = [], []
+
+    def add(X):
+        vec = np.concatenate([X.real.ravel(), X.imag.ravel()])
+        scale = max(np.linalg.norm(vec), 1e-300)
+        if basis:
+            B = np.array(basis)
+            vec = vec - B.T @ (B @ vec)
+            vec = vec - B.T @ (B @ vec)
+        if np.linalg.norm(vec) > tol * max(scale, 1.0) and np.linalg.norm(vec) > tol:
+            basis.append(vec / np.linalg.norm(vec))
+            return True
+        return False
+
+    scale = max(np.linalg.norm(X) for X in herm)
+    for X in herm:
+        G = 1j * X / scale
+        if add(G):
+            elems.append(G)
+    span = len(elems)
+    frontier = list(elems)
+    while frontier and len(elems) < cap:
+        new = []
+        for X in frontier:
+            for Y in elems[:span]:                                # brackets with the generators suffice
+                Z = X @ Y - Y @ X
+                nz = np.linalg.norm(Z)
+                if nz > tol and add(Z / nz):
+                    new.append(Z / nz)
+        elems += new
+        frontier = new
+    m = len(elems)
+    rows = [np.array([np.concatenate([(E @ Y - Y @ E).real.ravel(), (E @ Y - Y @ E).imag.ravel()]) for E in elems]).T
+            for Y in elems]
+    sv = np.linalg.svd(np.concatenate(rows, axis=0), compute_uv=False)
+    centre = int(m - (sv > centre_tol * max(sv[0], 1e-300)).sum()) if sv.size and sv[0] > 1e-12 else m
+    return span, m, centre
+
+
+def rotation_on_states(states, r):
+    """Permutation of a sector induced by a rotation r (port p -> r[p])."""
+    index = {s: i for i, s in enumerate(states)}
+    perm = []
+    for s in states:
+        t = [0] * N
+        for p in range(N):
+            t[r[p]] = s[p]
+        perm.append(index[tuple(t)])
+    return perm

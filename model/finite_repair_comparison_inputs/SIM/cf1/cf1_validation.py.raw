@@ -1,0 +1,118 @@
+"""Validation run of the candidate CF-1 at scale (protocol of the theory session, questions Q1 to Q5).
+Label of every output: "candidate CF-1, free tick in a static background, validation". Not a dataset.
+
+    python cf1_validation.py N block out.json        block: q1 | q2_6 | q2_12 | q3_0878 | q3_1712 | q4_<density>_<see> | q4c_<row>
+    python cf1_validation.py merge N out.json        collects runs/V_<N>_*.json
+
+The kernel below is the tick of cf1_lib.Engine written with index operations instead of matrix products; it is
+compared with Engine.step on a small random state at the start of every block. Preparations with a Gaussian envelope
+fill all four body-centred sublattices on purpose; the densities shown are sums over the four.
+"""
+import glob, json, os, resource, sys, time
+import numpy as np
+from cf1_lib import Engine, REST
+
+def alpha(psi, i):
+    f = psi[..., ::-1, :]; x = np.empty_like(psi)
+    if i == 0: x[..., 0] = f[..., 1]; x[..., 1] = f[..., 0]
+    elif i == 1: x[..., 0] = -1j * f[..., 1]; x[..., 1] = 1j * f[..., 0]
+    else: x[..., 0] = f[..., 0]; x[..., 1] = -f[..., 1]
+    return x
+def step(psi, t, cs=None, sn=None, links=None):
+    for i in ((2, 1, 0) if t % 2 else (0, 1, 2)):
+        x = alpha(psi, i)
+        if links is None: psi = 0.5 * (np.roll(psi + x, 1, axis=i) + np.roll(psi - x, -1, axis=i))
+        else: z = links[i][..., None, None]; psi = 0.5 * (np.roll(z * (psi + x), 1, axis=i) + z * np.roll(psi - x, -1, axis=i))
+    if cs is not None:
+        new = np.empty_like(psi); new[..., 0, :] = cs * psi[..., 0, :] - sn * psi[..., 1, :]; new[..., 1, :] = sn * psi[..., 0, :] + cs * psi[..., 1, :]; psi = new
+    return psi
+def step_inv(psi, t, cs=None, sn=None, links=None):
+    if cs is not None:
+        new = np.empty_like(psi); new[..., 0, :] = cs * psi[..., 0, :] + sn * psi[..., 1, :]; new[..., 1, :] = -sn * psi[..., 0, :] + cs * psi[..., 1, :]; psi = new
+    for i in reversed((2, 1, 0) if t % 2 else (0, 1, 2)):
+        x = alpha(psi, i)
+        if links is None: psi = 0.5 * (np.roll(psi + x, -1, axis=i) + np.roll(psi - x, 1, axis=i))
+        else: z = links[i][..., None, None]; psi = 0.5 * (z * np.roll(psi + x, -1, axis=i) + np.roll(z * (psi - x), 1, axis=i))
+    return psi
+def kernel_check():
+    rng = np.random.default_rng(1); sh = (6, 4, 4); psi = rng.normal(size=sh + (2, 2)) + 1j * rng.normal(size=sh + (2, 2))
+    links = [rng.choice([-1.0, 1.0], size=sh) for _ in range(3)]; th = rng.uniform(0, 0.3, size=sh); e = Engine(sh, links); a = psi.copy(); b = psi.copy()
+    for t in range(4): a = e.step(a, th, 'Y', t); b = step(b, t, np.cos(th)[..., None], np.sin(th)[..., None], links)
+    c = b.copy()
+    for t in reversed(range(4)): c = step_inv(c, t, np.cos(th)[..., None], np.sin(th)[..., None], links)
+    return float(np.abs(a - b).max()), float(np.abs(c - psi).max())
+
+if sys.argv[1] == 'merge':
+    N = int(sys.argv[2]); out = {'label': 'candidate CF-1, free tick in a static background, validation', 'lattice': N, 'carriers': N ** 3, 'blocks': {}}
+    for f in sorted(glob.glob(f'runs/V_{N}_*.json')): out['blocks'][os.path.basename(f)[len(f'V_{N}_'):-5]] = json.load(open(f))
+    json.dump(out, open(sys.argv[3], 'w'), indent=1); print('merged', len(out['blocks']), 'blocks'); sys.exit()
+
+N = int(sys.argv[1]); block = sys.argv[2]; outf = sys.argv[3]
+t_start = time.time(); kc = kernel_check()
+out = {'label': 'candidate CF-1, free tick in a static background, validation', 'block': block, 'lattice': N, 'clock': 'tick of CF-1, alternating order',
+       'kernel_against_engine': kc[0], 'kernel_inverse': kc[1], 'sublattices': 'all four filled (Gaussian or random preparation); densities are sums over the four'}
+rng = np.random.default_rng(20261110); c0 = N // 2
+def gaussian(width, dtype):
+    g = np.exp(-((np.arange(N) - c0) ** 2) / (2 * width ** 2)); env = g[:, None, None] * g[None, :, None] * g[None, None, :]
+    psi = np.zeros((N, N, N, 2, 2), dtype); psi[..., 0, 0] = env; return psi / np.sqrt(np.sum(np.abs(psi) ** 2, dtype=np.float64))
+ax = (np.arange(N) - c0).astype(np.float32); X, Y, Z = ax[:, None, None], ax[None, :, None], ax[None, None, :]
+def shell_stats(psi, t, rows, slices, tag):
+    rho = np.sum(np.abs(psi) ** 2, axis=(-1, -2), dtype=np.float64); tot = rho.sum(); r = np.sqrt(X * X + Y * Y + Z * Z)
+    row = {'t': t, 'norm': float(tot), 'mean_radius': float((rho * r).sum() / tot), 'rms_radius': float(np.sqrt((rho * r * r).sum() / tot)),
+           'cubic_ratio': float((rho * (X ** 4 + Y ** 4 + Z ** 4)).sum() / (rho * r ** 4).sum()), 'record': float(np.sum(np.abs(psi[..., 1, :]) ** 2, dtype=np.float64) / tot)}
+    rs = np.maximum(r, 1e-6)
+    aX, aY, aZ = np.abs(X), np.abs(Y), np.abs(Z)
+    for name, cosine in (('axis_100', np.maximum(np.maximum(aX, aY), aZ) / rs), ('diagonal_110', np.maximum(np.maximum(aX + aY, aY + aZ), aX + aZ) / (np.sqrt(2) * rs)),
+                         ('diagonal_111', (aX + aY + aZ) / (np.sqrt(3) * rs))):
+        m = cosine > np.cos(np.radians(8)); w = rho[m]; row['radius_' + name] = float((w * r[m]).sum() / w.sum()); row['weight_' + name] = float(w.sum() / tot)
+    hist = np.bincount(np.minimum(r.astype(np.int32), N).ravel(), weights=rho.ravel(), minlength=N + 1)[:N // 2 + 2] / tot
+    row['radial_distribution'] = [float(x) for x in hist]
+    rows.append(row); sl = rho[:, :, c0]; slices[f'{tag}_t{t}'] = np.round(255 * np.sqrt(sl / sl.max())).astype(np.uint8)
+    print(block, {k: v for k, v in row.items() if k != 'radial_distribution'}, f'{time.time() - t_start:.0f}s', flush=True)
+slices = {}
+if block == 'q1':
+    psi0 = (rng.normal(size=(N, N, N, 2, 2)) + 1j * rng.normal(size=(N, N, N, 2, 2))); psi0 /= np.linalg.norm(psi0)
+    links = [rng.choice([-1.0, 1.0], size=(N, N, N)) for _ in range(3)]; th = rng.uniform(0, 0.3, size=(N, N, N)); cs, sn = np.cos(th)[..., None], np.sin(th)[..., None]; del th
+    psi = psi0.copy(); t1 = time.time()
+    for t in range(64): psi = step(psi, t, cs, sn, links)
+    out['norm_drift_64_ticks'] = float(abs(np.linalg.norm(psi) - 1)); out['seconds_per_tick_float64'] = (time.time() - t1) / 64
+    for t in reversed(range(64)): psi = step_inv(psi, t, cs, sn, links)
+    out['return_error_64_forward_64_inverse'] = float(np.abs(psi - psi0).max() / np.abs(psi0).max()); out['preparation'] = 'random state, random Z2 links, random rest angles in [0, 0.3]'
+elif block.startswith('q2') or block.startswith('q3'):
+    width = float(block.split('_')[1]) if block.startswith('q2') else 6.0
+    theta = 0.0 if block.startswith('q2') else {'0878': 0.087847, '1712': 0.171237}[block.split('_')[1]]
+    cs = sn = None
+    if theta: cs, sn = np.float32(np.cos(theta)), np.float32(np.sin(theta))
+    psi = gaussian(width, np.complex64); rows = []; T = min(96, N // 2 - 16); t1 = time.time()
+    for t in range(T):
+        psi = step(psi, t, cs, sn)
+        if (t + 1) in (T // 3, 2 * T // 3, T): shell_stats(psi, t + 1, rows, slices, block)
+    out.update({'preparation': f'Gaussian of width {width} cells at rest, blank record, spin up', 'rest_angle': theta, 'dtype': 'complex64', 'series': rows, 'seconds_per_tick_complex64': (time.time() - t1) / T})
+elif block.startswith('q4'):
+    # q4_<density>_<see>: random cells at angle 0.171237 with that density; see = 1 the species sees them, 0 it does not
+    # q4c_<row>: the stationary classes of the committed level-10 run: pairs (2,4) at 0.2676 and (3,3) at 0.0409 per carrier; rows qd, qs, n
+    if block.startswith('q4c'):
+        row = block.split('_')[1]; occ24 = rng.random((N, N, N)) < 0.2676; occ33 = rng.random((N, N, N)) < 0.0409
+        a24, a33 = {'qd': (REST[(2, 1)], REST[(3, 1)]), 'qs': (REST[(2, 1)], 0.0), 'n': (0.0, 0.0)}[row]
+        th = (occ24 * np.float32(a24) + occ33 * np.float32(a33)).astype(np.float32); law = 0.2676 * a24 + 0.0409 * a33
+        out['background'] = {'pairs_per_carrier': {'(2,4)': 0.2676, '(3,3)': 0.0409}, 'angles': [a24, a33], 'row': row}
+    else:
+        dens = float(block.split('_')[1]); see = block.split('_')[2] == '1'
+        th = (rng.random((N, N, N)) < dens).astype(np.float32) * np.float32(0.171237 if see else 0.0); law = dens * 0.171237 if see else 0.0
+        out['background'] = {'density': dens, 'angle': 0.171237, 'species_sees_it': see}
+    out['density_law'] = float(law); out['mean_angle_in_this_sample'] = float(th.mean(dtype=np.float64))
+    cs, sn = np.cos(th)[..., None], np.sin(th)[..., None]; del th
+    psi = np.zeros((N, N, N, 2, 2), np.complex64); psi[..., 0, 0] = 1 / np.sqrt(float(N) ** 3); a = [1.0 + 0j]; T = 120; t1 = time.time()
+    for t in range(T):
+        psi = step(psi, t, cs, sn); a.append(complex(np.sum(psi[..., 0, 0], dtype=np.complex128) / np.sqrt(float(N) ** 3)))
+    a = np.array(a); out['return_amplitude'] = [[float(x.real), float(x.imag)] for x in a]
+    if law:
+        from cf1_lib import matrix_pencil
+        w, c, mod = matrix_pencil(a, rank=2); out['effective_phase'] = float(np.mean(np.abs(w))); out['decay_per_tick'] = float(-np.log(np.mean(mod)))
+        out['deviation_from_density_law'] = out['effective_phase'] / out['mean_angle_in_this_sample'] - 1
+    else: out['effective_phase'] = 0.0; out['decay_per_tick'] = float(-np.log(abs(a[-1])) / T)
+    out.update({'preparation': 'plane wave at rest, blank record, spin up', 'dtype': 'complex64', 'ticks': T, 'seconds_per_tick_complex64': (time.time() - t1) / T})
+out['peak_memory_GB'] = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1e6; out['seconds'] = time.time() - t_start
+json.dump(out, open(outf, 'w'), indent=1)
+if slices: np.savez_compressed(outf[:-5] + '.npz', **slices)
+print('written', outf, {k: v for k, v in out.items() if k in ('return_error_64_forward_64_inverse', 'norm_drift_64_ticks', 'effective_phase', 'density_law', 'decay_per_tick', 'peak_memory_GB', 'seconds')})

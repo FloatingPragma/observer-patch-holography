@@ -1,0 +1,62 @@
+{
+  "schema": "lew.t3_addendum.v1",
+  "controls": {
+    "A4_E_cell": {
+      "attachment_scale_GeV": 9.559898277065234e+18,
+      "r_v(Q)_over_v(Q0)": 0.9635328793442155,
+      "v_Q0_GeV": 255.92977703237833,
+      "outputs_GeV": {
+        "H": 129.19241720302585,
+        "t": 176.583127658103,
+        "W": 82.82091418387479,
+        "W_BW_noshift": 82.82091375131232,
+        "Z": 93.96029756871758,
+        "Z_BW_noshift": 93.96028547087992,
+        "GF_local": 1.0991103277287376e-05
+      },
+      "residual_percent_compare_only": {
+        "W": 3.0591559295377824,
+        "Z": 3.040312989681282,
+        "H": 3.2465573427841843,
+        "t": 2.6049550599087645
+      }
+    },
+    "A5_M_U": {
+      "attachment_scale_GeV": 2.4736120279561884e+16,
+      "r_v(Q)_over_v(Q0)": 0.9527910387258308,
+      "v_Q0_GeV": 258.81514933610714,
+      "outputs_GeV": {
+        "H": 130.53571870581558,
+        "t": 178.42713748178642,
+        "W": 83.73739998748349,
+        "W_BW_noshift": 83.73739994957607,
+        "Z": 95.00401821392465,
+        "Z_BW_noshift": 95.00400643547378,
+        "GF_local": 1.0749855849482045e-05
+      },
+      "residual_percent_compare_only": {
+        "W": 4.19959556694165,
+        "Z": 4.184895379677189,
+        "H": 4.32008207929,
+        "t": 3.676430843571432
+      }
+    }
+  },
+  "statement_residuals": {
+    "A1": {
+      "D10_Zscale_law_mZtree_Q0_minus_Q0_GeV": 0.0,
+      "D10_Zscale_law_relative": 0.0,
+      "D11_readout_scale_with_running_v_GeV": 161.03532008646556,
+      "D11_v_at_that_scale_GeV": 245.02823837659784,
+      "D11_statement_v_equals_v_source_relative": -0.006360653843553332
+    },
+    "A2": {
+      "D10_Zscale_law_mZtree_Q0_minus_Q0_GeV": 0.5922227623875358,
+      "D10_Zscale_law_relative": 0.006466137973678343,
+      "D11_readout_scale_with_running_v_GeV": 162.00835141158092,
+      "D11_v_at_that_scale_GeV": 246.59675497392126,
+      "D11_statement_v_equals_v_source_relative": -3.7636560534792807e-14
+    }
+  },
+  "A2_scale_GeV": 162.00835141101015
+}

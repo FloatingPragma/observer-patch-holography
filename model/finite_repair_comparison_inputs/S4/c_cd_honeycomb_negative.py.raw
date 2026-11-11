@@ -1,0 +1,134 @@
+"""Controls (c) and (d).
+
+(c) Honeycomb walk with sublattice-dependent hop rates tA, tB (a reversible Markov chain). IMPORTED closed form:
+      H(k) = [[3 tA, -tB f], [-tA f*, 3 tB]],  f = 1 + exp(i k1) + exp(i k2),
+      E = 3 (tA + tB) / 2 +- sqrt(mu^2 + tA tB |f|^2),  mu = 3 |tA - tB| / 2,
+      at K: f = 0, cone slope v = sqrt(3 tA tB) / 2 per unit Cartesian q (lattice constant one),
+      R4 = mu / v^2 = 2 |tA - tB| / (tA tB), and the kinetic mass of the gapped band at K is the same number.
+(d) Negative controls:
+      d1 flat band        independent spin flips at rate Gamma / 2: E(k) = Gamma, R1 gives c = 0, m infinite, R2 infinite.
+      d2 gapped diffusion spin flips plus neighbour exchange at rate h: E(k) = Gamma + h khat^2. R1 returns a gap and a
+                          small-k c, the small-k R3 is one by construction, the shell defect and R3 with the largest
+                          slope are not: a gapped non-relativistic level.
+      d4 displaced cone   honeycomb with one bond direction weakened: the splitting at the old K is nonzero, the
+                          minimum splitting over the zone is zero. R4 read at K is spurious; R4 at the minimum is zero.
+"""
+import json
+from pathlib import Path
+import numpy as np
+import scipy.sparse as sp
+import readouts as R
+
+HERE = Path(__file__).resolve().parent
+out = {}
+
+
+def honeycomb_chain(L, tA, tB, tprime=None):
+    """Sites (i, j, s), s = 0 (A) or 1 (B). A(i,j) is joined to B(i,j), B(i-1,j), B(i,j-1). Generator on probabilities."""
+    idx = lambda i, j, s: 2 * ((i % L) * L + (j % L)) + s
+    rows, cols, vals = [], [], []
+    for i in range(L):
+        for j in range(L):
+            for n, (di, dj) in enumerate(((0, 0), (-1, 0), (0, -1))):
+                w = 1.0 if (tprime is None or n != 0) else tprime
+                a, b = idx(i, j, 0), idx(i + di, j + dj, 1)
+                rows += [b, a]; cols += [a, b]; vals += [tA * w, tB * w]
+    n = 2 * L * L
+    W = sp.coo_matrix((vals, (rows, cols)), shape=(n, n)).tocsc()
+    G = W - sp.diags(np.asarray(W.sum(axis=0)).ravel())
+    px = np.array([idx(i + 1, j, s) for i in range(L) for j in range(L) for s in (0, 1)])
+    py = np.array([idx(i, j + 1, s) for i in range(L) for j in range(L) for s in (0, 1)])
+    perms, cx_ = {}, np.arange(n)
+    for a in range(L):
+        cur = cx_.copy()
+        for b in range(L):
+            perms[(a, b)] = cur.copy(); cur = py[cur]
+        cx_ = px[cx_]
+    return G, R.Translations(perms, (L, L))
+
+
+def cart2(k1, k2):
+    """Cartesian |q|^2 for lattice momenta along axes at 60 degrees (a1 = (1,0), a2 = (1/2, sqrt3/2))."""
+    return 4 / 3 * (k1 ** 2 - k1 * k2 + k2 ** 2)
+
+
+rows = []
+for (tA, tB) in ((1.0, 1.0), (1.0, 0.9), (1.0, 0.6), (0.3, 0.5)):
+    for L in (6, 12, 24, 48):
+        G, tr = honeycomb_chain(L, tA, tB)
+        mK = (L // 3, 2 * L // 3)                       # K: k1 = 2 pi / 3, k2 = 4 pi / 3
+        E = lambda m: np.sort(-np.linalg.eigvals(tr.block(G, (m[0] % L, m[1] % L))).real)
+        eK = E(mK)
+        half = (eK[1] - eK[0]) / 2
+        # slope: from the splitting at the six nearest momenta around K, (dE/2)^2 = mu^2 + v^2 q^2
+        v2s, mk = [], []
+        for d in ((1, 0), (0, 1), (1, 1), (-1, 0), (0, -1), (-1, -1)):
+            e = E((mK[0] + d[0], mK[1] + d[1]))
+            q2 = cart2(2 * np.pi * d[0] / L, 2 * np.pi * d[1] / L)
+            v2s.append((((e[1] - e[0]) / 2) ** 2 - half ** 2) / q2)
+            mk.append(q2 / (2 * (e[1] - eK[1])) if e[1] > eK[1] + 1e-14 else np.inf)
+        v2 = float(np.mean(v2s))
+        row = {'tA': tA, 'tB': tB, 'L': L, 'half_splitting_at_K': float(half), 'half_splitting_exact': 1.5 * abs(tA - tB),
+               'cone_slope': float(np.sqrt(v2)), 'cone_slope_exact': float(np.sqrt(3 * tA * tB) / 2),
+               'R4': float(R.r4_cone(half, np.sqrt(v2))) if v2 > 0 else None,
+               'R4_exact': 2 * abs(tA - tB) / (tA * tB),
+               'kinetic_mass_of_upper_band_at_K': float(np.mean(mk)) if half > 1e-12 else None,
+               'level_of_touching': float((eK[0] + eK[1]) / 2)}
+        rows.append(row); print('C ', row, flush=True)
+out['c_honeycomb'] = rows
+
+# d1 / d2: spin flips (rate Gamma/2 each way) plus neighbour exchange (rate h) on a ring of L spins
+neg = []
+for (Gam, h) in ((1.0, 0.0), (1.0, 0.25), (0.2, 0.5)):
+    for L in (6, 8, 10):
+        n = 1 << L
+        s = np.arange(n)
+        rows_, cols_, vals_ = [], [], []
+        for i in range(L):
+            rows_.append(s ^ (1 << i)); cols_.append(s); vals_.append(np.full(n, Gam / 2))
+            j = (i + 1) % L
+            diff = ((s >> i) & 1) != ((s >> j) & 1)
+            rows_.append((s ^ ((1 << i) | (1 << j)))[diff]); cols_.append(s[diff]); vals_.append(np.full(diff.sum(), h))
+        W = sp.coo_matrix((np.concatenate(vals_), (np.concatenate(rows_), np.concatenate(cols_))), shape=(n, n)).tocsc()
+        G = W - sp.diags(np.asarray(W.sum(axis=0)).ravel())
+        shift = np.zeros(n, np.int64)
+        for i in range(L):
+            shift |= ((s >> i) & 1) << ((i + 1) % L)
+        flip = s ^ (n - 1)
+        perms, cur = {}, np.arange(n)
+        for j in range(L):
+            perms[(j, 0)] = cur.copy(); perms[(j, 1)] = flip[cur]; cur = shift[cur]
+        tr = R.Translations(perms, (L, 2))
+        ks = np.array([2 * np.pi * m / L for m in range(L)]); ks = (ks + np.pi) % (2 * np.pi) - np.pi
+        Es = np.array([np.sort(-np.linalg.eigvals(tr.block(G, (m, 1))).real)[0] for m in range(L)])
+        r1 = R.r1_pole(ks, Es); r2 = R.r2_kinetic(ks, Es); cls = R.largest_slope(ks, Es)
+        row = {'Gamma': Gam, 'h': h, 'L': L, 'one_spin_band_is_lowest_everywhere': bool(np.max(np.abs(Es - Gam - h * R.khat(ks) ** 2)) < 1e-9),
+               'three_spin_threshold_3Gamma': 3 * Gam, 'one_spin_band_top': Gam + 4 * h,
+               'band_max_abs_error_vs_Gamma_plus_h_khat2': float(np.max(np.abs(Es - Gam - h * R.khat(ks) ** 2))),
+               'R1_E0': r1['E0'], 'R1_c2_small_k': r1['c2_small_k'], 'R1_m': r1['m_pole'], 'R2_m_kin': r2['m_kin'],
+               'largest_slope': cls, 'shell_defect': R.shell_defect(ks, Es) if h > 0 else None,
+               'R3_with_c_from_small_k': (r1['E0'] / (r2['m_kin'] * r1['c2_small_k'])) if h > 0 else None,
+               'R3_with_c_from_largest_slope': (r1['E0'] / (r2['m_kin'] * cls ** 2)) if h > 0 else None,
+               'R3_expected_Gamma_over_2h': (Gam / (2 * h)) if h > 0 else None}
+        neg.append(row); print('D ', row, flush=True)
+out['d_flat_and_gapped_diffusion'] = neg
+
+# d4: displaced cone
+rows = []
+for tp in (1.0, 0.8):
+    L = 48
+    G, tr = honeycomb_chain(L, 1.0, 1.0, tprime=tp)
+    mK = (L // 3, 2 * L // 3)
+    split = np.empty((L, L))
+    for a in range(L):
+        for b in range(L):
+            e = np.sort(-np.linalg.eigvals(tr.block(G, (a, b))).real)
+            split[a, b] = e[1] - e[0]
+    # exact minimum over the continuous zone: |t' + e^{ik1} + e^{ik2}| vanishes when |t'| <= 2
+    row = {'tprime': tp, 'L': L, 'half_splitting_at_old_K': float(split[mK] / 2),
+           'min_half_splitting_on_grid': float(split.min() / 2), 'continuum_minimum_exact': 0.0,
+           'R4_read_at_old_K_with_unperturbed_slope': float((split[mK] / 2) / 0.75),
+           'R4_at_true_minimum': 0.0}
+    rows.append(row); print('D4', row, flush=True)
+out['d4_displaced_cone'] = rows
+(HERE / 'c_cd_honeycomb_negative.json').write_text(json.dumps(out, indent=1))

@@ -1,0 +1,218 @@
+#!/usr/bin/env python3
+"""Worker SC (step S14): values of the Part A and Part B candidates of CANDIDATES.md (source only).
+
+No measured value is read. Inputs: P_fwd and the D10 alpha_U(P_fwd) as printed in RER
+`code/P_derivation/README.md` (solver outputs, not measured), GL's matched couplings and slopes (on file in
+`work/GL`), IMPORTED constants marked as such. Writes sc_numeric.json. Every number is MEASURED (numerical) unless a
+closed form is given.
+"""
+from __future__ import annotations
+
+import json
+import math
+from pathlib import Path
+
+import numpy as np
+
+HERE = Path(__file__).resolve().parent
+GL = HERE.parent / "GL"
+
+# solver outputs printed in RER code/P_derivation/README.md (hierarchy handoff block); not measured values
+P_FWD = 1.63097209585889737696451390350695562847912625483895268486516
+ALPHA_U_D10 = 0.0411242474418166851408899338896597194
+PHI = (1 + 5 ** 0.5) / 2
+PI = math.pi
+K = 4 * PI ** 2
+
+N2, N3 = 120, 90
+n = np.arange(N2 + 1)
+d2 = (n + 1).astype(float)
+c2_2 = (n / 2) * (n / 2 + 1)
+pp, qq = np.meshgrid(np.arange(N3 + 1), np.arange(N3 + 1), indexing="ij")
+d3 = ((pp + 1) * (qq + 1) * (pp + qq + 2) / 2).ravel().astype(float)
+c2_3 = ((pp ** 2 + qq ** 2 + pp * qq + 3 * pp + 3 * qq) / 3).ravel().astype(float)
+ln_d2, ln_d3 = np.log(d2), np.log(d3)
+
+
+def ellbar(t, lnd, cas):
+    logw = lnd - t * cas
+    w = np.exp(logw - logw.max())
+    return float((w * lnd).sum() / w.sum())
+
+
+def ell2(t):
+    return ellbar(t, ln_d2, c2_2)
+
+
+def ell3(t):
+    return ellbar(t, ln_d3, c2_3)
+
+
+def p_trivial(t, lnd, cas):
+    logw = lnd - t * cas
+    m = logw.max()
+    return float(np.exp(-m) / np.exp(logw - m).sum())  # trivial sector has log weight 0
+
+
+def bisect(f, lo, hi, n=200):
+    flo = f(lo)
+    for _ in range(n):
+        mid = 0.5 * (lo + hi)
+        fm = f(mid)
+        if (fm > 0) == (flo > 0):
+            lo, flo = mid, fm
+        else:
+            hi = mid
+    return 0.5 * (lo + hi)
+
+
+def alpha_cut(P, k=1.0):
+    return bisect(lambda a: ell2(K * a) + ell3(K * a) - k * P / 4, 0.005, 2.0)
+
+
+out: dict[str, object] = {"inputs": {"P_fwd": P_FWD, "alpha_U_D10_at_P_fwd": ALPHA_U_D10, "measured_values_read": "none"}}
+
+# ------------------------------------------------------------------ cut coupling (cross-check of DC's value)
+acut = {"P_fwd": alpha_cut(P_FWD), "phi": alpha_cut(PHI)}
+out["alpha_cut"] = {k: {"alpha": a, "inv_alpha": 1 / a, "t": K * a} for k, a in acut.items()}
+AC = acut["P_fwd"]
+TC = K * AC
+
+
+def R_decl(P):
+    return 2 * PI - (2 / 3) * math.log(P)
+
+
+out["declared_R"] = {"P_fwd": R_decl(P_FWD), "phi": R_decl(PHI)}
+
+# ------------------------------------------------------------------ A2: pairwise meeting of GL's matched couplings
+s4 = json.loads((GL / "s4_running.json").read_text())
+s3m = json.loads((GL / "s3_matching_reps.json").read_text())
+matched = {
+    "5-trace Euclidean": s4["MSbar_at_E_cell (1/alpha_1, 1/alpha_2, 1/alpha_3)"]["Euclidean isotropic reference"],
+    "Hamiltonian tadpoles": s4["MSbar_at_E_cell (1/alpha_1, 1/alpha_2, 1/alpha_3)"]["Hamiltonian tadpoles"],
+}
+# 15-trace: GL report 12.48, 9.46, 8.90 = bare + Wilson pure gauge + 15-trace cross terms (s3_matching_reps.json)
+wil = {"a2": -3.486069917927916, "a3": -5.883603346389747}
+ct15 = s3m["Euclidean"]["native 15 (audit, Lambda^2 + Lambda^4)"]
+inv_bare = 1 / AC
+matched["15-trace Euclidean"] = [inv_bare + ct15["delta_inv_alpha1"], inv_bare + ct15["delta_inv_alpha2"] + wil["a2"],
+                                 inv_bare + ct15["delta_inv_alpha3"] + wil["a3"]]
+CENSUS = {"K1 links only": (0.0, -22 / 3, -11.0), "B": (6.1, -7 / 6, -5.0), "SM": (4.1, -19 / 6, -7.0),
+          "K3(1,3)": (8.1, 5 / 6, -3.0), "MSSM (declared, reference)": (6.6, 1.0, -3.0), "A3H": (4.3, -17 / 6, -7.0)}
+A2 = {}
+for mk, a in matched.items():
+    A2[mk] = {"inv_alpha_MS_at_E_cell": a}
+    for ck, bvec in CENSUS.items():
+        row = {}
+        for i, j in ((0, 1), (1, 2), (0, 2)):
+            row[f"R_{i + 1}{j + 1}"] = -2 * PI * (a[i] - a[j]) / (bvec[i] - bvec[j])
+        A2[mk][ck] = row
+out["A2_pairwise_meeting_R"] = A2
+
+# ------------------------------------------------------------------ A3: Lambda-parameter matching (IMPORTED ratios)
+def lam_ratio(N):
+    return 38.853 * math.exp(-3 * PI ** 2 / (11 * N ** 2))
+
+
+out["A3_Lambda_matching"] = {f"SU({N})": {"Lambda_MS_over_Lambda_L": lam_ratio(N), "R": -math.log(lam_ratio(N))} for N in (2, 3, 5)}
+out["A3_Lambda_matching"]["source"] = "IMPORTED from GL (Hasenfratz and Hasenfratz 1980; Dashen and Gross 1981; from memory, unchecked)"
+
+# ------------------------------------------------------------------ A4, A5: modular family (closed forms)
+fam = {"A4a E_ref = E_cell (c = 0)": 0.0, "A4b E_ref = E* (c = 1/2)": 0.5, "A4c E_ref = sqrt(E* E_cell) (c = 1/4)": 0.25,
+       "A5a mu_b = exp(-pi) E_cell (c = 0)": 0.0, "A5b mu_b = exp(-pi) E* (c = 1)": 1.0,
+       "A5c mu_b = exp(-pi) sqrt(E* E_cell) (c = 1/2)": 0.5, "A5d thin link, Planck cross-section (c = 2/3)": 2 / 3,
+       "A5d under C1 (cross-section = cell face) (c = 0)": 0.0}
+out["A4_A5_modular_family"] = {k: {"c": c, "R_P_fwd": 2 * PI - c * math.log(P_FWD), "R_phi": 2 * PI - c * math.log(PHI),
+                                   "R_minus_declared_P_fwd": (2 * PI - c * math.log(P_FWD)) - R_decl(P_FWD)} for k, c in fam.items()}
+
+# ------------------------------------------------------------------ A6: heat-kernel equalization
+t_eq = {"SU(2)": (4 / 3) * math.log(2), "SU(3)": (3 / 4) * math.log(3)}
+t_half = {"SU(2)": bisect(lambda t: p_trivial(t, ln_d2, c2_2) - 0.5, 0.01, 20.0),
+          "SU(3)": bisect(lambda t: p_trivial(t, ln_d3, c2_3) - 0.5, 0.01, 20.0)}
+# crossing of ellbar_SU2 and ellbar_SU3
+grid = np.geomspace(0.01, 30, 3000)
+dv = [ell2(t) - ell3(t) for t in grid]
+cross = [bisect(lambda t: ell2(t) - ell3(t), grid[i - 1], grid[i]) for i in range(1, len(grid)) if (dv[i - 1] > 0) != (dv[i] > 0)]
+A6 = {"t_cell": TC, "t_eq": t_eq, "t_half": t_half, "t_x_crossings": cross,
+      "fundamental_over_trivial_weight_at_cell": {"SU(2)": 2 * math.exp(-0.75 * TC), "SU(3)": 3 * math.exp(-(4 / 3) * TC)},
+      "2D_area_reading_R": {}, "4D_running_reading_R": {}}
+for name, tv in (("t_eq", t_eq), ("t_half", t_half)):
+    for G, t in tv.items():
+        A6["2D_area_reading_R"][f"{name} {G}"] = 0.5 * math.log(t / TC)
+for t in cross:
+    A6["2D_area_reading_R"][f"t_x = {t:.6f}"] = 0.5 * math.log(t / TC)
+for ck, bvec in CENSUS.items():
+    row = {}
+    for G, idx in (("SU(2)", 1), ("SU(3)", 2)):
+        for name, tv in (("t_eq", t_eq), ("t_half", t_half)):
+            target_inv = K / tv[G]
+            bG = bvec[idx]
+            xval = 2 * PI * (target_inv - 1 / AC) / bG if bG != 0 else float("nan")
+            row[f"{name} {G}"] = xval if xval > 0 else f"no scale below E_cell (x = {xval:.4g})"
+    A6["4D_running_reading_R"][ck] = row
+out["A6_heat_kernel_equalization"] = A6
+
+# ------------------------------------------------------------------ Part B: the law
+def v_over_Estar(P, exponent):
+    return P ** -0.5 * math.exp(-exponent)
+
+
+EXP_CELL = PI / (2 * AC)
+B = {"B1 instanton fourth root, unit prefactor, alpha_cut": {"exponent": EXP_CELL, "v_over_Estar": v_over_Estar(P_FWD, EXP_CELL)}}
+# B2 semiclassical prefactor (IMPORTED constants), zero fermion masses give zero
+for N in (2, 3):
+    CN = 0.466 * math.exp(-1.679 * N) / (math.factorial(N - 1) * math.factorial(N - 2))
+    pref = CN * (2 * PI / AC) ** (2 * N)
+    B[f"B2 prefactor SU({N}), no fermions"] = {"C_N": CN, "prefactor": pref, "prefactor_fourth_root": pref ** 0.25,
+                                               "v_over_Estar": pref ** 0.25 * v_over_Estar(P_FWD, EXP_CELL),
+                                               "with_massless_source_fermions": 0.0}
+# B3 Villain flux quantum with the tree couplings at the cell
+for name, ratio in (("unified alpha_cut", 1.0), ("alpha_Y = (3/5) alpha_cut", 0.6), ("alpha_em = (3/8) alpha_cut", 3 / 8),
+                    ("alpha_2 + alpha_Y = (8/5) alpha_cut", 1.6)):
+    e = PI / (2 * ratio * AC)
+    B[f"B3 Villain flux, {name}"] = {"exponent": e, "v_over_Estar": v_over_Estar(P_FWD, e)}
+# B5, B6a: Lambda of asymptotically free factors from the cut coupling
+lam = {}
+for ck, bvec in CENSUS.items():
+    for G, idx in (("SU(2)", 1), ("SU(3)", 2)):
+        bG = bvec[idx]
+        if bG < 0:
+            e = 2 * PI / (abs(bG) * AC)
+            lam[f"{ck} {G} (b = {bG:.6g})"] = {"exponent": e, "Lambda_over_Estar": v_over_Estar(P_FWD, e)}
+        else:
+            lam[f"{ck} {G} (b = {bG:.6g})"] = "infrared free: no Lambda below E_cell"
+e = 2 * PI / ((35 / 6) * AC)
+lam["B6a links + class-3 content SU(2) (b = -35/6)"] = {"exponent": e, "Lambda_over_Estar": v_over_Estar(P_FWD, e)}
+B["B5_B6a_Lambda_from_cut_coupling"] = lam
+# B9 target-informed
+e = 2 * PI / ((8 / 3) * AC)
+B["B9 beta = 8/3 (target-informed)"] = {"exponent": e, "v_over_Estar": v_over_Estar(P_FWD, e)}
+# B10 self-consistent SU(2) coupling at v
+b10 = {}
+for ck, bvec in CENSUS.items():
+    b2 = bvec[1]
+    xval = (PI / 2) / AC / (1 - b2 / 4)
+    b10[f"{ck} (b_2 = {b2:.6g})"] = {"x = ln(E_cell/v)": xval, "v_over_Estar": v_over_Estar(P_FWD, xval),
+                                     "inv_alpha_2_at_v": 1 / AC + b2 / (2 * PI) * xval}
+xval = (PI / 2) / AC / (1 - (4 / 3) / 4)
+b10["b_2 = 4/3 (target-informed)"] = {"x = ln(E_cell/v)": xval, "v_over_Estar": v_over_Estar(P_FWD, xval)}
+B["B10_self_consistent"] = b10
+# reference: the D10 exponent and the ratio
+EXP_D10 = PI / (2 * ALPHA_U_D10)
+B["reference_D10_law"] = {"exponent": EXP_D10, "v_over_Estar": v_over_Estar(P_FWD, EXP_D10),
+                          "ratio_D10_exponent_to_cell_exponent": EXP_D10 / EXP_CELL,
+                          "beta_with_alpha_cut_that_gives_D10_exponent": 4 * ALPHA_U_D10 / AC}
+# B11 closure multiplier
+t_d10 = K * ALPHA_U_D10
+k_needed = (ell2(t_d10) + ell3(t_d10)) / (P_FWD / 4)
+B["B11_closure_multiplier"] = {"t_D10": t_d10, "k_needed_for_D10_coupling_at_cell": k_needed,
+                               "k = 1/2": {"alpha": alpha_cut(P_FWD, 0.5), "inv_alpha": 1 / alpha_cut(P_FWD, 0.5)},
+                               "k = 2": {"alpha": alpha_cut(P_FWD, 2.0), "inv_alpha": 1 / alpha_cut(P_FWD, 2.0)}}
+for kk in ("k = 1/2", "k = 2"):
+    a = B["B11_closure_multiplier"][kk]["alpha"]
+    B["B11_closure_multiplier"][kk]["v_over_Estar_law_beta4"] = v_over_Estar(P_FWD, PI / (2 * a))
+out["B"] = B
+
+(HERE / "sc_numeric.json").write_text(json.dumps(out, indent=1) + "\n")
+print(json.dumps({"alpha_cut": out["alpha_cut"], "declared_R": out["declared_R"]}, indent=1))

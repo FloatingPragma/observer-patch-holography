@@ -1,0 +1,237 @@
+"""Q3: where could a phase 2/9 arise?  Walk phases, the declared energy clock, holonomy of the order-3 cycle.
+
+EXACT unless labelled. Writes q3_phase.json.
+
+Formulas (written before evaluation):
+  (a) walk: eigenphases omega with cos omega in spec(P) u spec(P_sign) (spectral mapping) and 0, pi.
+      energy clock (declared, model/coherent_defect_wave/energy): H = I - Re W on one carrier.
+      H = 1 - lambda on each oscillatory block, 0 on W=+1, 2 on W=-1.  One tick: exp(-iH).
+      Lindemann-Weierstrass (linear independence of e^{a_j}, a_j distinct algebraic): if S = sum_mu w_mu e^{-i mu}
+      (w algebraic, mu algebraic) has arg S = theta0 mod pi with theta0 = +-2/9, then
+      sum_mu w_mu e^{-i mu} - sum_mu conj(w_mu) e^{i(mu + 2 theta0)} = 0; if no mu + mu' = -2 theta0 the exponents
+      are distinct, so all w_mu = 0 and S = 0.
+  (b) holonomy of the 3-cycle: Pi(g)^3 = I (scalar walk); five-level code R5(q) = R(q) + U(Galois q), q the
+      canonical unit-quaternion lift of g; R5(q)^3.
+  (c) off-diagonal coefficient c1 of Q2 for the walk, for exp(-iH), and for the five-level flat-link walk W x I5
+      with the code transported by R5(q):  c_d = c_d(scalar seed) <u|R5(q)^d|u>.
+"""
+from __future__ import annotations
+
+import json
+import random
+from fractions import Fraction as F
+
+import mpmath as mp
+import numpy as np
+import scipy.sparse as sp
+import sympy as s
+
+import lnat_common as C
+
+OUT = 'q3_phase.json'
+mp.mp.dps = 40
+
+
+def csr_int_matvec(M, v):
+    """Exact matvec with Python ints (no overflow)."""
+    out = [0] * M.shape[0]
+    indptr, indices, data = M.indptr, M.indices, M.data
+    for i in range(M.shape[0]):
+        acc = 0
+        for p in range(indptr[i], indptr[i + 1]):
+            acc += int(data[p]) * v[indices[p]]
+        out[i] = acc
+    return out
+
+
+def main():
+    out = {'question': 'Q3'}
+    car = C.carrier(); gC, gE, g = C.native_rotations()
+    adj = car['adj']
+    _, _, W120 = C.walk_integer()
+    WT120 = W120.T.tocsr()
+    I = sp.identity(C.DIM, dtype=np.int64, format='csr')
+    H240 = (240 * I - (W120 + WT120)).tocsr()  # 240 H
+
+    # ---- exact minimal polynomial of the on-site clock H = I - Re W
+    mus_rational = [F(0), F(2), F(1, 10), F(1, 6), F(1, 15)]
+    # (x - 1/12)^2 - 1/720 for the pair (5 +- sqrt5)/60;  scaled: (240x)^2 - 40 (240x) + 320
+    random.seed(7)
+    ok_min = True
+    for trial in range(3):
+        v = [random.randint(-5, 5) for _ in range(C.DIM)]
+        u = v
+        for mu in mus_rational:
+            Hu = csr_int_matvec(H240, u)
+            u = [a - int(240 * mu) * b for a, b in zip(Hu, u)]
+        Hu = csr_int_matvec(H240, u); HHu = csr_int_matvec(H240, Hu)
+        u = [a - 40 * b + 320 * c for a, b, c in zip(HHu, Hu, u)]
+        ok_min &= all(x == 0 for x in u)
+    # each factor needed: drop one rational factor at a time and check nonzero on a random vector
+    needed = {}
+    v = [random.randint(-5, 5) for _ in range(C.DIM)]
+    for drop in range(len(mus_rational) + 1):
+        u = v
+        for j, mu in enumerate(mus_rational):
+            if j == drop:
+                continue
+            Hu = csr_int_matvec(H240, u)
+            u = [a - int(240 * mu) * b for a, b in zip(Hu, u)]
+        if drop != len(mus_rational):
+            Hu = csr_int_matvec(H240, u); HHu = csr_int_matvec(H240, Hu)
+            u = [a - 40 * b + 320 * c for a, b, c in zip(HHu, Hu, u)]
+        needed[str(mus_rational[drop]) if drop < len(mus_rational) else 'quadratic'] = any(x != 0 for x in u)
+    spectrum = ['0', '2', '1/10', '1/6', '1/15', '(5-sqrt5)/60', '(5+sqrt5)/60']
+    out['a_energy_clock_spectrum'] = {
+        'H': 'I - Re W on one carrier (on-site term of the declared energy clock, coefficient one)',
+        'distinct_eigenvalues': spectrum,
+        'minimal_polynomial_annihilates_random_integer_vectors': ok_min,
+        'each_factor_needed': needed,
+        'max_oscillatory_energy': '1/6 (P_sign trivial mode); next 2 (W = -1)',
+        'two_ninths_is_eigenvalue': False,
+        'spectrum_in_ring': '(1/60) Z[sqrt5]; 2/9 = (40/3)/60 is not in it; no finite sum of on-site energies of any number '
+                            'of independent carriers equals 2/9 (denominator 9 does not divide 60)',
+        'no_pair_sums_to_4_9': True,
+        'xor_energy_check': 'mu1 + mu2 - 2 mu1 mu2 = 2/9 with mu2 = 1/6 needs mu1 = 1/12, which is not an eigenvalue '
+                            '(1/12 is the mean of (5 +- sqrt5)/60, the expectation of a localised port)',
+    }
+    # all pair sums
+    vals = [s.Integer(0), s.Integer(2), s.Rational(1, 10), s.Rational(1, 6), s.Rational(1, 15),
+            (5 - s.sqrt(5)) / 60, (5 + s.sqrt(5)) / 60]
+    pair_hits = [(str(a), str(b)) for a in vals for b in vals if s.simplify(a + b - s.Rational(4, 9)) == 0]
+    out['a_energy_clock_spectrum']['pairs_summing_to_4_9'] = pair_hits
+    xor_hits = [(str(a), str(b)) for a in vals for b in vals if s.simplify(a + b - 2 * a * b - s.Rational(2, 9)) == 0]
+    out['a_energy_clock_spectrum']['eigenvalue_pairs_with_xor_2_9'] = xor_hits
+
+    # ---- walk eigenphases (rest phases)
+    lam_list = {'11/12+sqrt5/60': s.Rational(11, 12) + s.sqrt(5) / 60, '11/12-sqrt5/60': s.Rational(11, 12) - s.sqrt(5) / 60,
+                '9/10': s.Rational(9, 10), '5/6': s.Rational(5, 6), '14/15': s.Rational(14, 15)}
+    out['a_walk_rest_phases'] = {k: str(mp.acos(mp.mpf(s.N(v, 50)))) for k, v in lam_list.items()}
+    out['a_walk_rest_phases']['also'] = '0 (W=+1), pi (W=-1)'
+    out['a_walk_rest_phases']['arccos(7/9) (= arccos(1 - 2/9)), not a rest phase'] = str(mp.acos(mp.mpf(7) / 9))
+    out['a_walk_rest_phases']['two_ninths'] = str(mp.mpf(2) / 9)
+    out['a_branch_exactly_one_C_or_E'] = {
+        'walk': 'one address per tick: the C-seam and E-seam repair branches are exclusive; from port 2 each has weight '
+                '1/60 (amplitudes +-1/sqrt120 on the two orientations); P(exactly one) = 1/30; phases 0 or pi',
+        'two independent seam events (C object and E object, one each per tick)':
+            'P(C repair component from port 2 xor E agreeing half) = 1/12 + 1/6 - 2/72 = 2/9 (a probability; '
+            'amplitudes real, phases 0 or pi)',
+    }
+
+    # ---- energy-clock circulant on the embedded orbits: c_d = (exp(-i L/60))_{x, g^d x}
+    L = s.Matrix(np.diag(adj.sum(1)) - adj)
+    t = s.symbols('t', real=True)
+    # exact spectral projectors of L: eigenvalues 0, 5-sqrt5, 6, 5+sqrt5
+    eig = [s.Integer(0), 5 - s.sqrt(5), s.Integer(6), 5 + s.sqrt(5)]
+    projs = []
+    for i, e in enumerate(eig):
+        Pm = s.eye(12)
+        for j, f in enumerate(eig):
+            if j != i:
+                Pm = Pm * (L - f * s.eye(12)) / (e - f)
+        projs.append(Pm.applyfunc(s.simplify))
+    assert sum(projs, s.zeros(12)) == s.eye(12)
+    clock = {}
+    for x in (2, 4):
+        cs = []
+        y = x
+        for d in range(3):
+            expr = sum(projs[i][x, y] * s.exp(-s.I * eig[i] / 60) for i in range(4))
+            cs.append(s.simplify(expr))
+            y = g[y]
+        num = [complex(s.N(c, 30)) for c in cs]
+        ev = [num[0] + num[1] * np.exp(2j * np.pi * k / 3) + num[2] * np.exp(4j * np.pi * k / 3) for k in range(3)]
+        clock[f'orbit of port {x}'] = {
+            'c_d_exact': [str(c) for c in cs], 'c_d_numeric': [str(c) for c in num],
+            'c1_equals_c2': s.simplify(cs[1] - cs[2]) == 0,
+            'abs_c1_over_abs_c0': abs(num[1]) / abs(num[0]),
+            'arg_c1_minus_arg_c0': float(np.angle(num[1] / num[0])),
+            'eigenvalues': [str(e) for e in ev], 'abs_eigenvalues': [abs(e) for e in ev],
+        }
+    out['b_energy_clock_circulant_embedded_orbits'] = clock
+    out['b_energy_clock_general'] = (
+        'H = I - Re W is real symmetric, so exp(-iH) is complex symmetric; for every real seed v, '
+        'c2 = <v|e^{-iH} Pi(g)^2|v> = <Pi(g) v|e^{-iH}|v> = <v|e^{-iH}|Pi(g) v> = c1. Families 1 and 2 are degenerate '
+        '(lambda_1 = lambda_2 = c0 - c1). The Brannen phase (opposite phases on S and S^2) is zero.')
+
+    # ---- (b) holonomy: five-level lift of g
+    frame = s.Matrix([[s.Rational(a) + s.Rational(b) * s.sqrt(5) for a, b in row] for row in C.slow_geometry.raw_frame()])
+    base = [0, 1, 4]
+    T = s.Matrix.hstack(*[frame[g[i], :].T for i in base])
+    D = s.Matrix.hstack(*[frame[i, :].T for i in base])
+    R = (T * D.inv()).applyfunc(s.radsimp)
+    assert (R.T * R).applyfunc(s.simplify) == s.eye(3)
+    wq = s.sqrt((1 + R.trace()) / 4)
+    wq = s.nsimplify(s.simplify(wq))
+    xq = s.radsimp((R[2, 1] - R[1, 2]) / (4 * wq)); yq = s.radsimp((R[0, 2] - R[2, 0]) / (4 * wq)); zq = s.radsimp((R[1, 0] - R[0, 1]) / (4 * wq))
+    gal = lambda e: s.radsimp(s.expand(e).subs(s.sqrt(5), -s.sqrt(5)))
+    W_, X_, Y_, Z_ = map(gal, (wq, xq, yq, zq))
+    U = s.Matrix([[W_ + s.I * X_, Y_ + s.I * Z_], [-Y_ + s.I * Z_, W_ - s.I * X_]])
+    U3 = (U**3).applyfunc(lambda e: s.simplify(s.expand(e)))
+    detU = s.simplify(U.det())
+    Ueig = [s.simplify(e) for e in U.eigenvals()]
+    out['b_holonomy'] = {
+        'scalar_walk': 'Pi(g)^3 = I; on the Fourier mode of character w^k the 3-cycle holonomy is 1 and one step is '
+                       'w^k: phases 0, +-2pi/3 (EXACT)',
+        'quaternion_lift_canonical': [str(wq), str(xq), str(yq), str(zq)],
+        'R(g)_trace': str(R.trace()),
+        'spinor_U(Galois q)': [[str(e) for e in U.row(i)] for i in range(2)],
+        'det_U': str(detU), 'eigenvalues_U': [str(e) for e in Ueig],
+        'U^3': [[str(e) for e in U3.row(i)] for i in range(2)],
+        'R5(q)^3': 'diag(I3, U^3) = diag(I3, -I2) = the central element Z' if U3 == -s.eye(2) else 'diag(I3, U^3)',
+        'one_step_phases_on_doublet': '+-pi/3 (canonical lift, w = 1/2); +-2pi/3 for the other lift',
+        'loop_phase_on_doublet': 'pi (canonical lift) or 0',
+        'all_rational_multiples_of_pi': True,
+        'relation_to_repository_no_go': 'g is a carrier rotation, not a hypercharge phase: it generates the cyclic shift '
+            'of the orbit basis, so it escapes the hypercharge clause of derive_charged_z3_phase_holonomy_no_go; it falls '
+            'under the finite-geometry clause (C3 characters, binary lift): phases in (pi/3)Z, never 2/9 (section 0).',
+    }
+
+    # ---- (c) five-level flat-link compression with the transported code, face orbit seed A|4> (c_scalar = 11/12, 1/60, 1/60)
+    cs_scalar = [s.Rational(11, 12), s.Rational(1, 60), s.Rational(1, 60)]
+    u = s.Matrix([1, 0])
+    cU = [(u.H * U**d * u)[0] for d in range(3)]
+    c5 = [s.simplify(cs_scalar[d] * cU[d]) for d in range(3)]
+    num5 = [complex(s.N(c, 30)) for c in c5]
+    out['c_five_level_flat_link'] = {
+        'walk': 'W x I5 (flat links), code transported by R5(q) with the carrier rotation g',
+        'seed': 'A|4> x (first doublet state)',
+        'internal_factor_<u|U^d|u>': [str(s.simplify(e)) for e in cU],
+        'c_d': [str(e) for e in c5], 'c_d_numeric': [str(e) for e in num5],
+        'arg_c1': float(np.angle(num5[1])), 'arg_c2': float(np.angle(num5[2])),
+        'wrap_sign': 'R5(q)^3 = Z gives -1 on the doublet: the 3x3 compression is a skew (twisted) circulant; its '
+                     'modes have characters e^{i pi (2k+1)/3}, i.e. a Brannen-type phase shift of pi/3, never 2/9',
+        'arguments_are_arguments_of_algebraic_numbers': True,
+    }
+
+    # ---- declared central link (fibre 5, central_edge (0,1)): covariance under g
+    from model.coherent_seam_repair.program import Observer, State
+    obs = Observer(fibre=5, central_edge=(0, 1))
+    adr = obs.addresses; pos = {pr: i for i, pr in enumerate(adr)}
+
+    def move(state_amps):
+        newa = [F(0)] * obs.dimension
+        for port in range(12):
+            for internal in range(5):
+                for par in (0, 1):
+                    for k, (a, b) in enumerate(adr):
+                        newa[obs.index(g[port], par, pos[(g[a], g[b])], internal)] = \
+                            state_amps[obs.index(port, par, k, internal)]
+        return newa
+    amps = [F(0)] * obs.dimension
+    amps[obs.index(0, 0, pos[(0, 1)], 3)] = F(1)
+    lhs = obs.step(State(tuple(move(amps)))).amplitudes
+    rhs = move(list(obs.step(State(tuple(amps))).amplitudes))
+    out['c_declared_central_link'] = {
+        'program': 'Observer(fibre=5, central_edge=(0,1)) of the repository',
+        'W_G Pi(g) == Pi(g) W_G on a basis state at port 0, internal 3, address (0,1)': all(a == b for a, b in zip(lhs, rhs)),
+        'reason': 'g maps the central edge (0,1) to (9,3); the declared background is not g-invariant, so the '
+                  'compressions to g-orbits are not circulants',
+    }
+
+    json.dump(out, open(OUT, 'w'), indent=1, default=str)
+    print(json.dumps(out, indent=1, default=str)[:6000])
+
+
+if __name__ == '__main__':
+    main()

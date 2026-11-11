@@ -1,0 +1,2166 @@
+{
+ "TC_excl|hop-3|ann-3": {
+  "order": "TC_excl",
+  "hop_cells": [
+   -3
+  ],
+  "ann_cells": [
+   -3
+  ],
+  "nonzero_entries": 12,
+  "lumped_states": 40,
+  "exact": true,
+  "max_abs_contrast": 3,
+  "max_abs_contrast_at_uncharged_seam": 2,
+  "hop_reachable": true,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 1,
+  "closed_charged_sizes": [
+   6
+  ],
+  "closed_charged_hop_rates": [
+   0.0
+  ],
+  "survival_decay_per_attempt": 0.9999268543959009,
+  "hop_rate_qsd": 0.0001530688808281291,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 563.2857142856939,
+   "hops": -9.981932424833396e-14,
+   "p_annihilated": 0.9999999999999728,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.9999999999999708
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 1501.8892329338287,
+   "hops": 0.4729064039407449,
+   "p_annihilated": 0.5999999999998148,
+   "p_trapped": 0.3999999999999996,
+   "p_label_kept": 0.12709359605909407
+  },
+  "numerical_notes": [],
+  "seconds": 0.01
+ },
+ "TC_excl|hop-3|ann-1": {
+  "order": "TC_excl",
+  "hop_cells": [
+   -3
+  ],
+  "ann_cells": [
+   -1
+  ],
+  "nonzero_entries": 10,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": false,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.9553418012614796,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 1.0000000000000002,
+   "hops": 0.0,
+   "p_annihilated": 1.0000000000000002,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0000000000000002
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 2.8666666666666654,
+   "hops": 0.0,
+   "p_annihilated": 0.9999999999999997,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.9999999999999976
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_excl|hop-3|ann-3,-2,-1": {
+  "order": "TC_excl",
+  "hop_cells": [
+   -3
+  ],
+  "ann_cells": [
+   -3,
+   -2,
+   -1
+  ],
+  "nonzero_entries": 16,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": false,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.9220148143729925,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 1.0000000000000002,
+   "hops": 0.0,
+   "p_annihilated": 1.0000000000000002,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0000000000000002
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 1.6755555555555548,
+   "hops": 0.0,
+   "p_annihilated": 0.9999999999999997,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.9999999999999974
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_excl|hop-3|ann-": {
+  "order": "TC_excl",
+  "hop_cells": [
+   -3
+  ],
+  "ann_cells": [],
+  "nonzero_entries": 8,
+  "lumped_states": 36,
+  "exact": true,
+  "max_abs_contrast": 3,
+  "max_abs_contrast_at_uncharged_seam": 2,
+  "hop_reachable": true,
+  "annihilation_reachable": false,
+  "closed_charged_classes": 2,
+  "closed_charged_sizes": [
+   6,
+   11
+  ],
+  "closed_charged_hop_rates": [
+   0.0,
+   0.0
+  ],
+  "survival_decay_per_attempt": 0.9999351391198379,
+  "hop_rate_qsd": 0.00019458264048832975,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 0.0,
+   "hops": 0.0,
+   "p_annihilated": 0,
+   "p_trapped": 1.0,
+   "p_label_kept": 0.0
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 1371.199999999503,
+   "hops": 0.5333333333331396,
+   "p_annihilated": 0,
+   "p_trapped": 0.9999999999998056,
+   "p_label_kept": 0.0
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_excl|hop-2|ann-2": {
+  "order": "TC_excl",
+  "hop_cells": [
+   -2
+  ],
+  "ann_cells": [
+   -2
+  ],
+  "nonzero_entries": 6,
+  "lumped_states": 41,
+  "exact": true,
+  "max_abs_contrast": 3,
+  "max_abs_contrast_at_uncharged_seam": 2,
+  "hop_reachable": true,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.970979282865733,
+  "hop_rate_qsd": 0.08112446563164241,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 11.02368311149361,
+   "hops": 1.9218700606262784,
+   "p_annihilated": 1.0000000000000002,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.058700558858156456
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 5.581541328518527,
+   "hops": 0.8235890108474834,
+   "p_annihilated": 0.9999999999999997,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.6411117423075554
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_excl|hop-2|ann-1": {
+  "order": "TC_excl",
+  "hop_cells": [
+   -2
+  ],
+  "ann_cells": [
+   -1
+  ],
+  "nonzero_entries": 6,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": false,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.9553418012614796,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 1.0000000000000002,
+   "hops": 0.0,
+   "p_annihilated": 1.0000000000000002,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0000000000000002
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 2.8666666666666654,
+   "hops": 0.0,
+   "p_annihilated": 0.9999999999999997,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.9999999999999976
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_excl|hop-2|ann-3,-2,-1": {
+  "order": "TC_excl",
+  "hop_cells": [
+   -2
+  ],
+  "ann_cells": [
+   -3,
+   -2,
+   -1
+  ],
+  "nonzero_entries": 12,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": false,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.9220148143729925,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 1.0000000000000002,
+   "hops": 0.0,
+   "p_annihilated": 1.0000000000000002,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0000000000000002
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 1.6755555555555548,
+   "hops": 0.0,
+   "p_annihilated": 0.9999999999999997,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.9999999999999974
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_excl|hop-2|ann-": {
+  "order": "TC_excl",
+  "hop_cells": [
+   -2
+  ],
+  "ann_cells": [],
+  "nonzero_entries": 4,
+  "lumped_states": 36,
+  "exact": true,
+  "max_abs_contrast": 3,
+  "max_abs_contrast_at_uncharged_seam": 2,
+  "hop_reachable": true,
+  "annihilation_reachable": false,
+  "closed_charged_classes": 1,
+  "closed_charged_sizes": [
+   36
+  ],
+  "closed_charged_hop_rates": [
+   0.065734
+  ],
+  "survival_decay_per_attempt": null,
+  "hop_rate_qsd": null,
+  "reflected_per_sweep_qsd": null,
+  "uniform_r1": {
+   "time_with_charge_sweeps": null,
+   "hops": null,
+   "p_annihilated": 0,
+   "p_trapped": 0.0,
+   "p_label_kept": null
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": null,
+   "hops": null,
+   "p_annihilated": 0,
+   "p_trapped": 0.0,
+   "p_label_kept": null
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_excl|hop-1|ann-1": {
+  "order": "TC_excl",
+  "hop_cells": [
+   -1
+  ],
+  "ann_cells": [
+   -1
+  ],
+  "nonzero_entries": 6,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": true,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.8333333333333334,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 1.0000000000000002,
+   "hops": -4.996003610813204e-16,
+   "p_annihilated": 1.0,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 1.6999999999999993,
+   "hops": 1.4066666666666658,
+   "p_annihilated": 0.9999999999999996,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.2499999999999996
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_excl|hop-1|ann-3,-2,-1": {
+  "order": "TC_excl",
+  "hop_cells": [
+   -1
+  ],
+  "ann_cells": [
+   -3,
+   -2,
+   -1
+  ],
+  "nonzero_entries": 12,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": true,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.8333333333333334,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 0.9999999999999996,
+   "hops": -4.996003610813204e-16,
+   "p_annihilated": 1.0,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 1.466666666666666,
+   "hops": 1.2066666666666657,
+   "p_annihilated": 0.9999999999999996,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.38333333333333297
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_excl|hop-1|ann-": {
+  "order": "TC_excl",
+  "hop_cells": [
+   -1
+  ],
+  "ann_cells": [],
+  "nonzero_entries": 4,
+  "lumped_states": 16,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": true,
+  "annihilation_reachable": false,
+  "closed_charged_classes": 1,
+  "closed_charged_sizes": [
+   16
+  ],
+  "closed_charged_hop_rates": [
+   0.416076
+  ],
+  "survival_decay_per_attempt": null,
+  "hop_rate_qsd": null,
+  "reflected_per_sweep_qsd": null,
+  "uniform_r1": {
+   "time_with_charge_sweeps": null,
+   "hops": null,
+   "p_annihilated": 0,
+   "p_trapped": 0.0,
+   "p_label_kept": null
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": null,
+   "hops": null,
+   "p_annihilated": 0,
+   "p_trapped": 0.0,
+   "p_label_kept": null
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_excl|hop-3,-2|ann-3,-2": {
+  "order": "TC_excl",
+  "hop_cells": [
+   -3,
+   -2
+  ],
+  "ann_cells": [
+   -3,
+   -2
+  ],
+  "nonzero_entries": 18,
+  "lumped_states": 41,
+  "exact": true,
+  "max_abs_contrast": 3,
+  "max_abs_contrast_at_uncharged_seam": 2,
+  "hop_reachable": true,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.9707891176792973,
+  "hop_rate_qsd": 0.0811264557702064,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 10.917918950819647,
+   "hops": 1.9036624935233406,
+   "p_annihilated": 0.9999999999999984,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.069289662976871
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 5.5634587355583776,
+   "hops": 0.8214740845281225,
+   "p_annihilated": 0.9999999999999997,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.6410203737371438
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_excl|hop-3,-2|ann-1": {
+  "order": "TC_excl",
+  "hop_cells": [
+   -3,
+   -2
+  ],
+  "ann_cells": [
+   -1
+  ],
+  "nonzero_entries": 14,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": false,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.9553418012614796,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 1.0000000000000002,
+   "hops": 0.0,
+   "p_annihilated": 1.0000000000000002,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0000000000000002
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 2.8666666666666654,
+   "hops": 0.0,
+   "p_annihilated": 0.9999999999999997,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.9999999999999976
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_excl|hop-3,-2|ann-3,-2,-1": {
+  "order": "TC_excl",
+  "hop_cells": [
+   -3,
+   -2
+  ],
+  "ann_cells": [
+   -3,
+   -2,
+   -1
+  ],
+  "nonzero_entries": 20,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": false,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.9220148143729925,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 1.0000000000000002,
+   "hops": 0.0,
+   "p_annihilated": 1.0000000000000002,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0000000000000002
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 1.6755555555555548,
+   "hops": 0.0,
+   "p_annihilated": 0.9999999999999997,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.9999999999999974
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_excl|hop-3,-2|ann-": {
+  "order": "TC_excl",
+  "hop_cells": [
+   -3,
+   -2
+  ],
+  "ann_cells": [],
+  "nonzero_entries": 12,
+  "lumped_states": 36,
+  "exact": true,
+  "max_abs_contrast": 3,
+  "max_abs_contrast_at_uncharged_seam": 2,
+  "hop_reachable": true,
+  "annihilation_reachable": false,
+  "closed_charged_classes": 1,
+  "closed_charged_sizes": [
+   36
+  ],
+  "closed_charged_hop_rates": [
+   0.06588
+  ],
+  "survival_decay_per_attempt": null,
+  "hop_rate_qsd": null,
+  "reflected_per_sweep_qsd": null,
+  "uniform_r1": {
+   "time_with_charge_sweeps": null,
+   "hops": null,
+   "p_annihilated": 0,
+   "p_trapped": 0.0,
+   "p_label_kept": null
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": null,
+   "hops": null,
+   "p_annihilated": 0,
+   "p_trapped": 0.0,
+   "p_label_kept": null
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_excl|hop-3,-1|ann-3,-1": {
+  "order": "TC_excl",
+  "hop_cells": [
+   -3,
+   -1
+  ],
+  "ann_cells": [
+   -3,
+   -1
+  ],
+  "nonzero_entries": 18,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": true,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.8333333333333334,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 1.0000000000000002,
+   "hops": -4.996003610813204e-16,
+   "p_annihilated": 1.0,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 1.6999999999999993,
+   "hops": 1.4066666666666658,
+   "p_annihilated": 0.9999999999999996,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.2499999999999996
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_excl|hop-3,-1|ann-1": {
+  "order": "TC_excl",
+  "hop_cells": [
+   -3,
+   -1
+  ],
+  "ann_cells": [
+   -1
+  ],
+  "nonzero_entries": 14,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": true,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.8333333333333334,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 1.0000000000000002,
+   "hops": -4.996003610813204e-16,
+   "p_annihilated": 1.0,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 1.6999999999999993,
+   "hops": 1.4066666666666658,
+   "p_annihilated": 0.9999999999999996,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.2499999999999996
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_excl|hop-3,-1|ann-3,-2,-1": {
+  "order": "TC_excl",
+  "hop_cells": [
+   -3,
+   -1
+  ],
+  "ann_cells": [
+   -3,
+   -2,
+   -1
+  ],
+  "nonzero_entries": 20,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": true,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.8333333333333334,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 0.9999999999999996,
+   "hops": -4.996003610813204e-16,
+   "p_annihilated": 1.0,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 1.466666666666666,
+   "hops": 1.2066666666666657,
+   "p_annihilated": 0.9999999999999996,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.38333333333333297
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_excl|hop-3,-1|ann-": {
+  "order": "TC_excl",
+  "hop_cells": [
+   -3,
+   -1
+  ],
+  "ann_cells": [],
+  "nonzero_entries": 12,
+  "lumped_states": 16,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": true,
+  "annihilation_reachable": false,
+  "closed_charged_classes": 1,
+  "closed_charged_sizes": [
+   16
+  ],
+  "closed_charged_hop_rates": [
+   0.416076
+  ],
+  "survival_decay_per_attempt": null,
+  "hop_rate_qsd": null,
+  "reflected_per_sweep_qsd": null,
+  "uniform_r1": {
+   "time_with_charge_sweeps": null,
+   "hops": null,
+   "p_annihilated": 0,
+   "p_trapped": 0.0,
+   "p_label_kept": null
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": null,
+   "hops": null,
+   "p_annihilated": 0,
+   "p_trapped": 0.0,
+   "p_label_kept": null
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_excl|hop-2,-1|ann-2,-1": {
+  "order": "TC_excl",
+  "hop_cells": [
+   -2,
+   -1
+  ],
+  "ann_cells": [
+   -2,
+   -1
+  ],
+  "nonzero_entries": 12,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": true,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.8333333333333334,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 0.9999999999999996,
+   "hops": -4.996003610813204e-16,
+   "p_annihilated": 1.0,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 1.466666666666666,
+   "hops": 1.2066666666666657,
+   "p_annihilated": 0.9999999999999996,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.38333333333333297
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_excl|hop-2,-1|ann-1": {
+  "order": "TC_excl",
+  "hop_cells": [
+   -2,
+   -1
+  ],
+  "ann_cells": [
+   -1
+  ],
+  "nonzero_entries": 10,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": true,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.8333333333333334,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 1.0000000000000002,
+   "hops": -4.996003610813204e-16,
+   "p_annihilated": 1.0,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 1.6999999999999993,
+   "hops": 1.4066666666666658,
+   "p_annihilated": 0.9999999999999996,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.2499999999999996
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_excl|hop-2,-1|ann-3,-2,-1": {
+  "order": "TC_excl",
+  "hop_cells": [
+   -2,
+   -1
+  ],
+  "ann_cells": [
+   -3,
+   -2,
+   -1
+  ],
+  "nonzero_entries": 16,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": true,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.8333333333333334,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 0.9999999999999996,
+   "hops": -4.996003610813204e-16,
+   "p_annihilated": 1.0,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 1.466666666666666,
+   "hops": 1.2066666666666657,
+   "p_annihilated": 0.9999999999999996,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.38333333333333297
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_excl|hop-2,-1|ann-": {
+  "order": "TC_excl",
+  "hop_cells": [
+   -2,
+   -1
+  ],
+  "ann_cells": [],
+  "nonzero_entries": 8,
+  "lumped_states": 16,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": true,
+  "annihilation_reachable": false,
+  "closed_charged_classes": 1,
+  "closed_charged_sizes": [
+   16
+  ],
+  "closed_charged_hop_rates": [
+   0.44367
+  ],
+  "survival_decay_per_attempt": null,
+  "hop_rate_qsd": null,
+  "reflected_per_sweep_qsd": null,
+  "uniform_r1": {
+   "time_with_charge_sweeps": null,
+   "hops": null,
+   "p_annihilated": 0,
+   "p_trapped": 0.0,
+   "p_label_kept": null
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": null,
+   "hops": null,
+   "p_annihilated": 0,
+   "p_trapped": 0.0,
+   "p_label_kept": null
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_excl|hop-3,-2,-1|ann-3,-2,-1": {
+  "order": "TC_excl",
+  "hop_cells": [
+   -3,
+   -2,
+   -1
+  ],
+  "ann_cells": [
+   -3,
+   -2,
+   -1
+  ],
+  "nonzero_entries": 24,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": true,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.8333333333333334,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 0.9999999999999996,
+   "hops": -4.996003610813204e-16,
+   "p_annihilated": 1.0,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 1.466666666666666,
+   "hops": 1.2066666666666657,
+   "p_annihilated": 0.9999999999999996,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.38333333333333297
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_excl|hop-3,-2,-1|ann-1": {
+  "order": "TC_excl",
+  "hop_cells": [
+   -3,
+   -2,
+   -1
+  ],
+  "ann_cells": [
+   -1
+  ],
+  "nonzero_entries": 18,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": true,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.8333333333333334,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 1.0000000000000002,
+   "hops": -4.996003610813204e-16,
+   "p_annihilated": 1.0,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 1.6999999999999993,
+   "hops": 1.4066666666666658,
+   "p_annihilated": 0.9999999999999996,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.2499999999999996
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_excl|hop-3,-2,-1|ann-": {
+  "order": "TC_excl",
+  "hop_cells": [
+   -3,
+   -2,
+   -1
+  ],
+  "ann_cells": [],
+  "nonzero_entries": 16,
+  "lumped_states": 16,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": true,
+  "annihilation_reachable": false,
+  "closed_charged_classes": 1,
+  "closed_charged_sizes": [
+   16
+  ],
+  "closed_charged_hop_rates": [
+   0.44367
+  ],
+  "survival_decay_per_attempt": null,
+  "hop_rate_qsd": null,
+  "reflected_per_sweep_qsd": null,
+  "uniform_r1": {
+   "time_with_charge_sweeps": null,
+   "hops": null,
+   "p_annihilated": 0,
+   "p_trapped": 0.0,
+   "p_label_kept": null
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": null,
+   "hops": null,
+   "p_annihilated": 0,
+   "p_trapped": 0.0,
+   "p_label_kept": null
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_then|hop-3|ann-3": {
+  "order": "TC_then",
+  "hop_cells": [
+   -3
+  ],
+  "ann_cells": [
+   -3
+  ],
+  "nonzero_entries": 12,
+  "lumped_states": 38,
+  "exact": true,
+  "max_abs_contrast": 3,
+  "max_abs_contrast_at_uncharged_seam": 2,
+  "hop_reachable": true,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 1,
+  "closed_charged_sizes": [
+   6
+  ],
+  "closed_charged_hop_rates": [
+   0.0
+  ],
+  "survival_decay_per_attempt": 0.9999268543959012,
+  "hop_rate_qsd": 0.00015073267609880505,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 563.2857142856761,
+   "hops": 2.661663992657369e-15,
+   "p_annihilated": 0.9999999999999097,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.9999999999999089
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 1519.927234341274,
+   "hops": 0.4729064039406601,
+   "p_annihilated": 0.5999999999996931,
+   "p_trapped": 0.3999999999999996,
+   "p_label_kept": 0.12709359605907808
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_then|hop-3|ann-1": {
+  "order": "TC_then",
+  "hop_cells": [
+   -3
+  ],
+  "ann_cells": [
+   -1
+  ],
+  "nonzero_entries": 10,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": false,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.9553418012614796,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 1.0000000000000002,
+   "hops": 0.0,
+   "p_annihilated": 1.0000000000000002,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0000000000000002
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 2.8666666666666654,
+   "hops": 0.0,
+   "p_annihilated": 0.9999999999999997,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.9999999999999976
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_then|hop-3|ann-3,-2,-1": {
+  "order": "TC_then",
+  "hop_cells": [
+   -3
+  ],
+  "ann_cells": [
+   -3,
+   -2,
+   -1
+  ],
+  "nonzero_entries": 16,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": false,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.9220148143729925,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 1.0000000000000002,
+   "hops": 0.0,
+   "p_annihilated": 1.0000000000000002,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0000000000000002
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 1.6755555555555548,
+   "hops": 0.0,
+   "p_annihilated": 0.9999999999999997,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.9999999999999974
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_then|hop-3|ann-": {
+  "order": "TC_then",
+  "hop_cells": [
+   -3
+  ],
+  "ann_cells": [],
+  "nonzero_entries": 8,
+  "lumped_states": 36,
+  "exact": true,
+  "max_abs_contrast": 3,
+  "max_abs_contrast_at_uncharged_seam": 2,
+  "hop_reachable": true,
+  "annihilation_reachable": false,
+  "closed_charged_classes": 2,
+  "closed_charged_sizes": [
+   6,
+   11
+  ],
+  "closed_charged_hop_rates": [
+   0.0,
+   0.0
+  ],
+  "survival_decay_per_attempt": 0.9999351391198379,
+  "hop_rate_qsd": 0.00019458264048832975,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 0.0,
+   "hops": 0.0,
+   "p_annihilated": 0,
+   "p_trapped": 1.0,
+   "p_label_kept": 0.0
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 1371.199999999503,
+   "hops": 0.5333333333331396,
+   "p_annihilated": 0,
+   "p_trapped": 0.9999999999998056,
+   "p_label_kept": 0.0
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_then|hop-2|ann-2": {
+  "order": "TC_then",
+  "hop_cells": [
+   -2
+  ],
+  "ann_cells": [
+   -2
+  ],
+  "nonzero_entries": 6,
+  "lumped_states": 41,
+  "exact": true,
+  "max_abs_contrast": 3,
+  "max_abs_contrast_at_uncharged_seam": 2,
+  "hop_reachable": true,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.9748593305347459,
+  "hop_rate_qsd": 0.07859658018681714,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 12.317073766653522,
+   "hops": 2.019936902753234,
+   "p_annihilated": 0.9999999999999982,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.05878031856274632
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 6.340423508089295,
+   "hops": 0.9236785545627659,
+   "p_annihilated": 0.9999999999999992,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.6513311385668392
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_then|hop-2|ann-1": {
+  "order": "TC_then",
+  "hop_cells": [
+   -2
+  ],
+  "ann_cells": [
+   -1
+  ],
+  "nonzero_entries": 6,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": false,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.9553418012614796,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 1.0000000000000002,
+   "hops": 0.0,
+   "p_annihilated": 1.0000000000000002,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0000000000000002
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 2.8666666666666654,
+   "hops": 0.0,
+   "p_annihilated": 0.9999999999999997,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.9999999999999976
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_then|hop-2|ann-3,-2,-1": {
+  "order": "TC_then",
+  "hop_cells": [
+   -2
+  ],
+  "ann_cells": [
+   -3,
+   -2,
+   -1
+  ],
+  "nonzero_entries": 12,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": false,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.9220148143729925,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 1.0000000000000002,
+   "hops": 0.0,
+   "p_annihilated": 1.0000000000000002,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0000000000000002
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 1.6755555555555548,
+   "hops": 0.0,
+   "p_annihilated": 0.9999999999999997,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.9999999999999974
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_then|hop-2|ann-": {
+  "order": "TC_then",
+  "hop_cells": [
+   -2
+  ],
+  "ann_cells": [],
+  "nonzero_entries": 4,
+  "lumped_states": 36,
+  "exact": true,
+  "max_abs_contrast": 3,
+  "max_abs_contrast_at_uncharged_seam": 2,
+  "hop_reachable": true,
+  "annihilation_reachable": false,
+  "closed_charged_classes": 1,
+  "closed_charged_sizes": [
+   36
+  ],
+  "closed_charged_hop_rates": [
+   0.066211
+  ],
+  "survival_decay_per_attempt": null,
+  "hop_rate_qsd": null,
+  "reflected_per_sweep_qsd": null,
+  "uniform_r1": {
+   "time_with_charge_sweeps": null,
+   "hops": null,
+   "p_annihilated": 0,
+   "p_trapped": 0.0,
+   "p_label_kept": null
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": null,
+   "hops": null,
+   "p_annihilated": 0,
+   "p_trapped": 0.0,
+   "p_label_kept": null
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_then|hop-1|ann-1": {
+  "order": "TC_then",
+  "hop_cells": [
+   -1
+  ],
+  "ann_cells": [
+   -1
+  ],
+  "nonzero_entries": 6,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": true,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.8333333333333334,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 1.0000000000000002,
+   "hops": -4.996003610813204e-16,
+   "p_annihilated": 1.0,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 1.6999999999999993,
+   "hops": 1.4066666666666658,
+   "p_annihilated": 0.9999999999999996,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.2499999999999996
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_then|hop-1|ann-3,-2,-1": {
+  "order": "TC_then",
+  "hop_cells": [
+   -1
+  ],
+  "ann_cells": [
+   -3,
+   -2,
+   -1
+  ],
+  "nonzero_entries": 12,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": true,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.8333333333333334,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 0.9999999999999996,
+   "hops": -4.996003610813204e-16,
+   "p_annihilated": 1.0,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 1.466666666666666,
+   "hops": 1.2066666666666657,
+   "p_annihilated": 0.9999999999999996,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.38333333333333297
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_then|hop-1|ann-": {
+  "order": "TC_then",
+  "hop_cells": [
+   -1
+  ],
+  "ann_cells": [],
+  "nonzero_entries": 4,
+  "lumped_states": 16,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": true,
+  "annihilation_reachable": false,
+  "closed_charged_classes": 1,
+  "closed_charged_sizes": [
+   16
+  ],
+  "closed_charged_hop_rates": [
+   0.416076
+  ],
+  "survival_decay_per_attempt": null,
+  "hop_rate_qsd": null,
+  "reflected_per_sweep_qsd": null,
+  "uniform_r1": {
+   "time_with_charge_sweeps": null,
+   "hops": null,
+   "p_annihilated": 0,
+   "p_trapped": 0.0,
+   "p_label_kept": null
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": null,
+   "hops": null,
+   "p_annihilated": 0,
+   "p_trapped": 0.0,
+   "p_label_kept": null
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_then|hop-3,-2|ann-3,-2": {
+  "order": "TC_then",
+  "hop_cells": [
+   -3,
+   -2
+  ],
+  "ann_cells": [
+   -3,
+   -2
+  ],
+  "nonzero_entries": 18,
+  "lumped_states": 41,
+  "exact": true,
+  "max_abs_contrast": 3,
+  "max_abs_contrast_at_uncharged_seam": 2,
+  "hop_reachable": true,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.9748055089972992,
+  "hop_rate_qsd": 0.07871309163832518,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 12.211099146083724,
+   "hops": 2.003145484364996,
+   "p_annihilated": 1.0000000000000027,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.06834660069864532
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 6.328571736327547,
+   "hops": 0.9230064236517821,
+   "p_annihilated": 1.0000000000000007,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.6515205381221801
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_then|hop-3,-2|ann-1": {
+  "order": "TC_then",
+  "hop_cells": [
+   -3,
+   -2
+  ],
+  "ann_cells": [
+   -1
+  ],
+  "nonzero_entries": 14,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": false,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.9553418012614796,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 1.0000000000000002,
+   "hops": 0.0,
+   "p_annihilated": 1.0000000000000002,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0000000000000002
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 2.8666666666666654,
+   "hops": 0.0,
+   "p_annihilated": 0.9999999999999997,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.9999999999999976
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_then|hop-3,-2|ann-3,-2,-1": {
+  "order": "TC_then",
+  "hop_cells": [
+   -3,
+   -2
+  ],
+  "ann_cells": [
+   -3,
+   -2,
+   -1
+  ],
+  "nonzero_entries": 20,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": false,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.9220148143729925,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 1.0000000000000002,
+   "hops": 0.0,
+   "p_annihilated": 1.0000000000000002,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0000000000000002
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 1.6755555555555548,
+   "hops": 0.0,
+   "p_annihilated": 0.9999999999999997,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.9999999999999974
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_then|hop-3,-2|ann-": {
+  "order": "TC_then",
+  "hop_cells": [
+   -3,
+   -2
+  ],
+  "ann_cells": [],
+  "nonzero_entries": 12,
+  "lumped_states": 36,
+  "exact": true,
+  "max_abs_contrast": 3,
+  "max_abs_contrast_at_uncharged_seam": 2,
+  "hop_reachable": true,
+  "annihilation_reachable": false,
+  "closed_charged_classes": 1,
+  "closed_charged_sizes": [
+   36
+  ],
+  "closed_charged_hop_rates": [
+   0.066338
+  ],
+  "survival_decay_per_attempt": null,
+  "hop_rate_qsd": null,
+  "reflected_per_sweep_qsd": null,
+  "uniform_r1": {
+   "time_with_charge_sweeps": null,
+   "hops": null,
+   "p_annihilated": 0,
+   "p_trapped": 0.0,
+   "p_label_kept": null
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": null,
+   "hops": null,
+   "p_annihilated": 0,
+   "p_trapped": 0.0,
+   "p_label_kept": null
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_then|hop-3,-1|ann-3,-1": {
+  "order": "TC_then",
+  "hop_cells": [
+   -3,
+   -1
+  ],
+  "ann_cells": [
+   -3,
+   -1
+  ],
+  "nonzero_entries": 18,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": true,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.8333333333333334,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 1.0000000000000002,
+   "hops": -4.996003610813204e-16,
+   "p_annihilated": 1.0,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 1.6999999999999993,
+   "hops": 1.4066666666666658,
+   "p_annihilated": 0.9999999999999996,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.2499999999999996
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_then|hop-3,-1|ann-1": {
+  "order": "TC_then",
+  "hop_cells": [
+   -3,
+   -1
+  ],
+  "ann_cells": [
+   -1
+  ],
+  "nonzero_entries": 14,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": true,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.8333333333333334,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 1.0000000000000002,
+   "hops": -4.996003610813204e-16,
+   "p_annihilated": 1.0,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 1.6999999999999993,
+   "hops": 1.4066666666666658,
+   "p_annihilated": 0.9999999999999996,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.2499999999999996
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_then|hop-3,-1|ann-3,-2,-1": {
+  "order": "TC_then",
+  "hop_cells": [
+   -3,
+   -1
+  ],
+  "ann_cells": [
+   -3,
+   -2,
+   -1
+  ],
+  "nonzero_entries": 20,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": true,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.8333333333333334,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 0.9999999999999996,
+   "hops": -4.996003610813204e-16,
+   "p_annihilated": 1.0,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 1.466666666666666,
+   "hops": 1.2066666666666657,
+   "p_annihilated": 0.9999999999999996,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.38333333333333297
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_then|hop-3,-1|ann-": {
+  "order": "TC_then",
+  "hop_cells": [
+   -3,
+   -1
+  ],
+  "ann_cells": [],
+  "nonzero_entries": 12,
+  "lumped_states": 16,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": true,
+  "annihilation_reachable": false,
+  "closed_charged_classes": 1,
+  "closed_charged_sizes": [
+   16
+  ],
+  "closed_charged_hop_rates": [
+   0.416076
+  ],
+  "survival_decay_per_attempt": null,
+  "hop_rate_qsd": null,
+  "reflected_per_sweep_qsd": null,
+  "uniform_r1": {
+   "time_with_charge_sweeps": null,
+   "hops": null,
+   "p_annihilated": 0,
+   "p_trapped": 0.0,
+   "p_label_kept": null
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": null,
+   "hops": null,
+   "p_annihilated": 0,
+   "p_trapped": 0.0,
+   "p_label_kept": null
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_then|hop-2,-1|ann-2,-1": {
+  "order": "TC_then",
+  "hop_cells": [
+   -2,
+   -1
+  ],
+  "ann_cells": [
+   -2,
+   -1
+  ],
+  "nonzero_entries": 12,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": true,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.8333333333333334,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 0.9999999999999996,
+   "hops": -4.996003610813204e-16,
+   "p_annihilated": 1.0,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 1.466666666666666,
+   "hops": 1.2066666666666657,
+   "p_annihilated": 0.9999999999999996,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.38333333333333297
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_then|hop-2,-1|ann-1": {
+  "order": "TC_then",
+  "hop_cells": [
+   -2,
+   -1
+  ],
+  "ann_cells": [
+   -1
+  ],
+  "nonzero_entries": 10,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": true,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.8333333333333334,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 1.0000000000000002,
+   "hops": -4.996003610813204e-16,
+   "p_annihilated": 1.0,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 1.6999999999999993,
+   "hops": 1.4066666666666658,
+   "p_annihilated": 0.9999999999999996,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.2499999999999996
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_then|hop-2,-1|ann-3,-2,-1": {
+  "order": "TC_then",
+  "hop_cells": [
+   -2,
+   -1
+  ],
+  "ann_cells": [
+   -3,
+   -2,
+   -1
+  ],
+  "nonzero_entries": 16,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": true,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.8333333333333334,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 0.9999999999999996,
+   "hops": -4.996003610813204e-16,
+   "p_annihilated": 1.0,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 1.466666666666666,
+   "hops": 1.2066666666666657,
+   "p_annihilated": 0.9999999999999996,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.38333333333333297
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_then|hop-2,-1|ann-": {
+  "order": "TC_then",
+  "hop_cells": [
+   -2,
+   -1
+  ],
+  "ann_cells": [],
+  "nonzero_entries": 8,
+  "lumped_states": 16,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": true,
+  "annihilation_reachable": false,
+  "closed_charged_classes": 1,
+  "closed_charged_sizes": [
+   16
+  ],
+  "closed_charged_hop_rates": [
+   0.440943
+  ],
+  "survival_decay_per_attempt": null,
+  "hop_rate_qsd": null,
+  "reflected_per_sweep_qsd": null,
+  "uniform_r1": {
+   "time_with_charge_sweeps": null,
+   "hops": null,
+   "p_annihilated": 0,
+   "p_trapped": 0.0,
+   "p_label_kept": null
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": null,
+   "hops": null,
+   "p_annihilated": 0,
+   "p_trapped": 0.0,
+   "p_label_kept": null
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_then|hop-3,-2,-1|ann-3,-2,-1": {
+  "order": "TC_then",
+  "hop_cells": [
+   -3,
+   -2,
+   -1
+  ],
+  "ann_cells": [
+   -3,
+   -2,
+   -1
+  ],
+  "nonzero_entries": 24,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": true,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.8333333333333334,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 0.9999999999999996,
+   "hops": -4.996003610813204e-16,
+   "p_annihilated": 1.0,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 1.466666666666666,
+   "hops": 1.2066666666666657,
+   "p_annihilated": 0.9999999999999996,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.38333333333333297
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_then|hop-3,-2,-1|ann-1": {
+  "order": "TC_then",
+  "hop_cells": [
+   -3,
+   -2,
+   -1
+  ],
+  "ann_cells": [
+   -1
+  ],
+  "nonzero_entries": 18,
+  "lumped_states": 13,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": true,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.8333333333333334,
+  "hop_rate_qsd": 0.0,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 1.0000000000000002,
+   "hops": -4.996003610813204e-16,
+   "p_annihilated": 1.0,
+   "p_trapped": 0.0,
+   "p_label_kept": 1.0
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 1.6999999999999993,
+   "hops": 1.4066666666666658,
+   "p_annihilated": 0.9999999999999996,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.2499999999999996
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "TC_then|hop-3,-2,-1|ann-": {
+  "order": "TC_then",
+  "hop_cells": [
+   -3,
+   -2,
+   -1
+  ],
+  "ann_cells": [],
+  "nonzero_entries": 16,
+  "lumped_states": 16,
+  "exact": true,
+  "max_abs_contrast": 2,
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "hop_reachable": true,
+  "annihilation_reachable": false,
+  "closed_charged_classes": 1,
+  "closed_charged_sizes": [
+   16
+  ],
+  "closed_charged_hop_rates": [
+   0.440943
+  ],
+  "survival_decay_per_attempt": null,
+  "hop_rate_qsd": null,
+  "reflected_per_sweep_qsd": null,
+  "uniform_r1": {
+   "time_with_charge_sweeps": null,
+   "hops": null,
+   "p_annihilated": 0,
+   "p_trapped": 0.0,
+   "p_label_kept": null
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": null,
+   "hops": null,
+   "p_annihilated": 0,
+   "p_trapped": 0.0,
+   "p_label_kept": null
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "CT|hop-1|ann-1": {
+  "order": "CT",
+  "hop_cells": [
+   -1
+  ],
+  "ann_cells": [
+   -1
+  ],
+  "nonzero_entries": 6,
+  "lumped_states": 48,
+  "exact": true,
+  "max_abs_contrast": 3,
+  "max_abs_contrast_at_uncharged_seam": 3,
+  "hop_reachable": true,
+  "annihilation_reachable": true,
+  "closed_charged_classes": 0,
+  "closed_charged_sizes": [],
+  "closed_charged_hop_rates": [],
+  "survival_decay_per_attempt": 0.9479178302769848,
+  "hop_rate_qsd": 0.34822825126688994,
+  "reflected_per_sweep_qsd": 0.0,
+  "uniform_r1": {
+   "time_with_charge_sweeps": 2.620480913775402,
+   "hops": 1.3575623782066502,
+   "p_annihilated": 1.000000000000001,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.8239767881602643
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": 3.5483962578494577,
+   "hops": 2.7599825032600336,
+   "p_annihilated": 0.9999999999999999,
+   "p_trapped": 0.0,
+   "p_label_kept": 0.30537018865494137
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ },
+ "CT|hop-1|ann-": {
+  "order": "CT",
+  "hop_cells": [
+   -1
+  ],
+  "ann_cells": [],
+  "nonzero_entries": 4,
+  "lumped_states": 42,
+  "exact": true,
+  "max_abs_contrast": 3,
+  "max_abs_contrast_at_uncharged_seam": 3,
+  "hop_reachable": true,
+  "annihilation_reachable": false,
+  "closed_charged_classes": 1,
+  "closed_charged_sizes": [
+   42
+  ],
+  "closed_charged_hop_rates": [
+   0.300786
+  ],
+  "survival_decay_per_attempt": null,
+  "hop_rate_qsd": null,
+  "reflected_per_sweep_qsd": null,
+  "uniform_r1": {
+   "time_with_charge_sweeps": null,
+   "hops": null,
+   "p_annihilated": 0,
+   "p_trapped": 0.0,
+   "p_label_kept": null
+  },
+  "balanced_r1": {
+   "time_with_charge_sweeps": null,
+   "hops": null,
+   "p_annihilated": 0,
+   "p_trapped": 0.0,
+   "p_label_kept": null
+  },
+  "numerical_notes": [],
+  "seconds": 0.02
+ }
+}

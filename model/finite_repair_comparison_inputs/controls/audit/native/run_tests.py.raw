@@ -1,0 +1,43 @@
+"""Scoped scorecard; a finite diagnostic pass never promotes the full law."""
+from pathlib import Path
+import json
+import numpy as np
+from carrier_candidate import certificate
+from minimal_candidate import instrument,space,describe
+from model.common_source import slow_geometry
+
+
+def main():
+    receipt=certificate(0,2)
+    counts={}
+    for sector in (1,2):
+        count=0;max_residual=0.
+        for seam in slow_geometry.source().seams():
+            rows=instrument(seam,sector);n=len(space(sector));total=sum((K.conj().T@K for _,K in rows),np.zeros((n,n),complex))
+            max_residual=max(max_residual,float(np.max(np.abs(total-np.eye(n)))))
+            if not max_residual<1e-12:raise ArithmeticError('materialized interface fails exact local completeness consequence')
+            count+=len(rows)
+        counts[str(sector)]={'complete_seams':30,'materialized_nonzero_rows':count,'floating_interface_residual':max_residual}
+    entries=[
+       ('T0','FAIL','Complete original coin/current instrument and strict diagonal-state output equality change. Exact all-input population lumping passes, including double splitting.'),
+       ('T1','PASS','Endpoint-swap and graph-rotation covariance, total-load conservation; independent local-number covariance intentionally replaced.'),
+       ('T2','FAIL','No selected closed twelve-dimensional gauge-response algebra.'),
+       ('T3','FAIL','No selected gauge algebra or centre claim.'),
+       ('T4','FAIL','Actual one-load fixed source algebra is scalar; no additional protected label.'),
+       ('T5','FAIL','Finite one-load stationary source is faithful/nontracial on its tomographic M12 algebra; regional geometric modular and physical clock premises unproved.'),
+       ('T6','FAIL','Every nonzero primitive one-load branch is singular. The zero-diagonal block contracts by at most3/4+sqrt(2)/12 per actual-carrier attempt, and a uniform sweep bound excludes an infrared coherent-wave branch for this unchanged N=1 iid law.'),
+       ('T7','FAIL','Unique stationary density is not terminating/confluent complete-history consensus.'),
+       ('T8','FAIL','No unbounded finite-memory record or common three-dimensional displacement theorem.'),
+       ('T9','PASS','FINITE DIAGNOSTIC ONLY: native history effects span all144 Hermitian directions by depth4. Arbitrary effects, efficient costs, adaptive apparatus and the full corrected operational-effect premise are not supplied.'),
+       ('T10','FAIL','No federation mass-shell or isotropic massless-band theorem.')]
+    score={'candidate':describe(),'sector_scope':'actual isolated carrier total1; exact local instrument also covers total2',
+      'exact_finite_results':receipt,'floating_interface_checks':counts,
+      'scorecard':[{'id':k,'status':v,'reason':t,**({'tier':'finite history-effect span diagnostic','full_premise_supplied':False} if k=='T9' else {})} for k,v,t in entries],
+      'finite_state_effect_subpremises_proved':True,'complete_law_accepted':False,
+      'simplicity_boundary':'Reverse-jump rate and optional phase/no-op settings removed. Quarter-turn and endpoint-setting law declared; global minimality not proved.'}
+    root=Path(__file__).parent
+    (root/'carrier_minimal_results.json').write_text(json.dumps(receipt,indent=2)+'\n')
+    (root/'scorecard.json').write_text(json.dumps(score,indent=2)+'\n')
+    for k,v,t in entries:print(k,v,t)
+    print('PASS exact finite certificate and materialized interface at totals1,2')
+if __name__=='__main__':main()

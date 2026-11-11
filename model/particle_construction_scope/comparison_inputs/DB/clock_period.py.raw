@@ -1,0 +1,94 @@
+"""Item 2: the clock period on clouds under CF-1 (test TD of CANDIDATES.md, round 2).
+
+Run:
+    PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python clock_period.py [out.json]
+
+1. CF-1 sees a pattern only through its Z2 charge (n2 mod 2) and, under M1, through Q6 = 3 n2 - 2 n3 folded mod 6.
+   The complement map (n3, n2) -> (3 - n3, 2 - n2) keeps n2 mod 2 and sends Q6 -> -Q6. Check: m1_theta equal for a
+   pattern and its complement for every carrier label (k, d), and the one-quantum period U_1 U_0 (work/R1/cf1.OneBody,
+   read only) has the same spectrum for a pattern and its complement on a 3 x 3 x 2 lattice with a non-flat link word
+   and a class-label field holding all five classes.
+2. The native factor (-1)^n of a degree-n cloud per tick commutes with the CF-1 tick (it acts on the cloud label
+   only). Over one CF-1 period it contributes (-1)^(2n) = 1: the period spectra of the two halves coincide, while a
+   single-tick spectrum would be shifted by pi on the odd half.
+"""
+import importlib.util
+import itertools
+import json
+import sys
+from pathlib import Path
+
+import numpy as np
+
+HERE = Path(__file__).parent
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / 'clock_period.json'
+RL = HERE.parent.parent
+_spec = importlib.util.spec_from_file_location('cf1', RL / 'work' / 'R1' / 'cf1.py')
+cf1 = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(cf1)
+
+pats = cf1.patterns()
+# 1a. angles: pattern against complement, every label
+max_angle_diff = 0.0
+for p in pats:
+    q = 3 * (2 - p['n2']) - 2 * (3 - p['n3'])
+    assert q == -p['Q6'] and (2 - p['n2']) % 2 == p['Z2']
+    for k in range(1, 6):
+        for d in range(1, 6):
+            max_angle_diff = max(max_angle_diff, abs(cf1.m1_theta(p['Q6'], k, d) - cf1.m1_theta(q, k, d)))
+assert max_angle_diff == 0.0
+
+# 1b. period spectra on a lattice with a non-flat link word and all five classes present
+shape = (3, 3, 2)
+lat = cf1.Lattice(shape)
+rng = np.random.default_rng(11)
+z = int(rng.integers(0, lat.NZ))
+signs = lat.signs(z)
+labels = {(0, 0, 0): (1, 2), (1, 1, 0): (2, 3), (2, 0, 1): (3, 2), (0, 2, 1): (4, 4), (2, 2, 0): (5, 5)}
+
+
+def spectra(n3, n2, native_factor):
+    sp = cf1.Species(name=f'{n3},{n2}', n3=n3, n2=n2)
+    sp.theta = cf1.class_theta(shape, labels, sp)
+    ob = cf1.OneBody(shape, sp, signs)
+    u0, u1 = ob.matrix(0), ob.matrix(1)
+    f = (-1.0) ** (n3 + n2) if native_factor else 1.0
+    period = (f * u1) @ (f * u0)
+    tick = f * u0
+    ph_period = np.sort(np.angle(np.linalg.eigvals(period)))
+    ph_tick = np.sort(np.angle(np.linalg.eigvals(tick)))
+    return ph_period, ph_tick
+
+
+rows = []
+max_period_diff = 0.0
+max_period_diff_native = 0.0
+tick_shift_ok = True
+for n3, n2 in itertools.product(range(4), range(3)):
+    c3, c2 = 3 - n3, 2 - n2
+    pp, pt = spectra(n3, n2, False)
+    cp, ct = spectra(c3, c2, False)
+    ppn, ptn = spectra(n3, n2, True)
+    cpn, ctn = spectra(c3, c2, True)
+    d0 = float(np.max(np.abs(pp - cp)))
+    dn = float(np.max(np.abs(ppn - cpn)))
+    max_period_diff = max(max_period_diff, d0)
+    max_period_diff_native = max(max_period_diff_native, dn)
+    # one tick with the native factor: the odd member's eigenvalues are minus those of the even member
+    odd_t = ptn if (n3 + n2) % 2 else ctn
+    even_t = ctn if (n3 + n2) % 2 else ptn
+    shifted = np.sort(np.angle(-np.exp(1j * even_t)))
+    tick_shift_ok &= bool(np.max(np.abs(np.sort(odd_t) - shifted)) < 1e-9)
+    rows.append(dict(pattern=(n3, n2), complement=(c3, c2), Q6=3 * n2 - 2 * n3, degree=n3 + n2,
+                     period_spectrum_max_diff=d0, period_spectrum_max_diff_with_native_factor=dn))
+assert max_period_diff < 1e-9 and max_period_diff_native < 1e-9 and tick_shift_ok
+
+out = dict(lattice=shape, link_word=z, class_labels={str(k): v for k, v in labels.items()},
+           max_angle_difference_pattern_vs_complement=max_angle_diff,
+           max_period_spectrum_difference=max_period_diff,
+           max_period_spectrum_difference_with_native_factor=max_period_diff_native,
+           single_tick_with_native_factor_odd_half_shifted_by_pi=tick_shift_ok, rows=rows,
+           finding='CF-1 treats a pattern and its complement identically; the native factor (-1)^n per tick cancels '
+                   'over the CF-1 period, so the even and odd cloud halves are degenerate in the period readout')
+OUT.write_text(json.dumps(out, indent=1) + '\n')
+print(json.dumps({k: v for k, v in out.items() if k != 'rows'}, indent=1))

@@ -1,0 +1,63 @@
+"""Instrument (a) on the public internal walk of one carrier (option M3 of CF1.md section 10; lead L30).
+
+The walk W = Q R of reverse-engineering-reality/model/coherent_seam_repair/walk.py (read only), executed here in
+float64 with the same two operations: R reflects the address register (60 ordered seams) about its uniform state,
+Q applies for every address (a, b) the reflector 1 - v v^T, v = (a0 - b0 - a1 - b1)/sqrt2. State x[port, record,
+address], dimension 12 x 2 x 60 = 1440.
+
+Preparation: blank record, uniform address, ports in an eigenvector of the native kernel P = 1 - L/60 (the rest state
+of an internal sector). One tick, then the complete readout (port, record, address); every outcome kept. The record
+is written with probability 1 - cos(omega), omega = arccos(kernel eigenvalue) the mass angle of the sector.
+
+Run from the public checkout:  cd reverse-engineering-reality && PYTHONPATH=.:<R6> python <R6>/m3_record.py
+(writes m3_record.json and m3_records.npz next to this file)"""
+import json, os
+import numpy as np
+from model.common_source import slow_geometry
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+SEED, EPS, REPS = 20261110, 0.01, 400
+seams = [tuple(e) for e in slow_geometry.source().seams()]
+addresses = [(a, b) for edge in seams for a, b in (edge, edge[::-1])]
+n, D = 12, len(addresses)
+A0 = np.array([a for a, b in addresses]); B0 = np.array([b for a, b in addresses]); K = np.arange(D)
+
+
+def reflect(x):
+    return 2 * x.mean(axis=2, keepdims=True) - x
+
+
+def controlled(x):
+    y = x.copy()
+    c = (x[A0, 0, K] - x[B0, 0, K] - x[A0, 1, K] - x[B0, 1, K]) / 2
+    y[A0, 0, K] -= c; y[B0, 0, K] += c; y[A0, 1, K] += c; y[B0, 1, K] += c
+    return y
+
+
+tick = lambda x: controlled(reflect(x))
+adj = np.zeros((n, n))
+for a, b in seams: adj[a, b] = adj[b, a] = 1
+Lap = np.diag(adj.sum(axis=1)) - adj; P = np.eye(n) - Lap / D
+lam, vec = np.linalg.eigh(P)
+out = {'ports': n, 'ordered_addresses': D, 'kernel_eigenvalues': sorted({round(float(v), 12) for v in lam}, reverse=True), 'rows': []}
+rng0 = np.random.default_rng(3); z = rng0.normal(size=(n, 2, D)); z /= np.linalg.norm(z)
+out['tick_norm_defect'] = float(abs(np.linalg.norm(tick(z)) - 1)); out['Q_involution_defect'] = float(np.abs(controlled(controlled(z)) - z).max())
+store = {}
+for it, (name, target) in enumerate((('slow triplet, blank record', 11 / 12 + np.sqrt(5) / 60), ('quintet, blank record', 9 / 10))):
+    sel = np.where(np.abs(lam - target) < 1e-9)[0]; omega = float(np.arccos(target))
+    rng = np.random.default_rng(SEED + 900 + it); u = vec[:, sel] @ rng.normal(size=len(sel)); u /= np.linalg.norm(u)   # any vector of the multiplet
+    x = np.zeros((n, 2, D)); x[:, 0, :] = u[:, None] / np.sqrt(D)
+    Pout = tick(x) ** 2; p1 = float(Pout[:, 1, :].sum())                       # complete outcome set: (port, record, address)
+    N = int(np.ceil(p1 * (1 - p1) / (np.sin(omega) ** 2 * EPS ** 2 * omega ** 2) / 100) * 100)
+    h = np.random.default_rng(SEED + 910 + it).multinomial(N, (Pout / Pout.sum()).ravel()).reshape(Pout.shape); store[f'sector{it}_counts'] = h
+    k = int(h[:, 1, :].sum()); ph = k / N; est = float(np.arccos(1 - ph)); se = float(np.sqrt(ph * (1 - ph) / N) / np.sin(est))
+    ks = np.random.default_rng(SEED + 920 + it).binomial(N, p1, size=REPS); reps = np.arccos(1 - ks / N)
+    out['rows'].append({'sector': name, 'multiplicity': int(len(sel)), 'kernel_eigenvalue': float(target), 'omega_true': omega, 'exact_P_record_written': p1,
+                        'defect_vs_1_minus_cos_omega': abs(p1 - (1 - np.cos(omega))), 'records': N, 'records_written': k, 'seed': SEED + 910 + it,
+                        'estimate': est, 'error_bar': se, 'pull': (est - omega) / se,
+                        'records_for_stated_error_formula': 'p(1-p)/(sin^2(omega) eps^2 omega^2), p = 1 - cos(omega)',
+                        'replicates': REPS, 'mean_minus_true': float(reps.mean() - omega), 'rms_scatter': float(reps.std(ddof=1))})
+    r = out['rows'][-1]
+    print(f"{name}: omega={omega:.6f} P={p1:.6f} (defect {r['defect_vs_1_minus_cos_omega']:.1e}) records={N} estimate={est:.6f}+-{se:.6f} pull={r['pull']:.2f} rep bias={r['mean_minus_true']:.1e} rep rms={r['rms_scatter']:.6f}")
+np.savez_compressed(os.path.join(HERE, 'm3_records.npz'), **store)
+json.dump(out, open(os.path.join(HERE, 'm3_record.json'), 'w'), indent=1)

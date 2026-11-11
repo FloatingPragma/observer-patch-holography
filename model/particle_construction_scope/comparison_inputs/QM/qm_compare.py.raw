@@ -1,0 +1,101 @@
+"""NOT BLIND comparison of the QM readings (values.json) with measured quark data.
+
+Measured inputs, read only here and only after values.json exists (the file worker DF used):
+  RER/model/common_source/calibrated_matter_results.json: Yukawa couplings at M_Z (MSbar SM), CKM sines.
+Rules (CANDIDATES.md E): x within 2 percent; ratios within 10 percent (|ln(pred/meas)| <= 0.1); mixing sines within
+10 percent; an exact zero or one fails when the measurement excludes it.
+A conditional diagnostic (marked as such) evaluates each candidate's x with the measured circulant phase, to separate
+the magnitude test from the phase.
+Run: cd RL/work/QM && PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B qm_compare.py
+"""
+import itertools
+import json
+import math
+import os
+
+import numpy as np
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+from qm_paths import RER  # noqa: E402  (the checkout moved at 23:18; both locations are accepted)
+vals = json.load(open(os.path.join(HERE, 'values.json')))
+assert vals['measured_values_read'] is False
+cal = json.load(open(os.path.join(RER, 'model/common_source/calibrated_matter_results.json')))['calibration']
+yuk = cal['matched_SM']['yukawa']
+ckm = cal['CKM']
+W3 = complex(-0.5, 3 ** 0.5 / 2)
+R3 = np.array([[0, 0, 1], [1, 0, 0], [0, 1, 0]], float)
+
+
+def chart(ys):
+    """Circulant chart of a measured triple (DF's convention): sqrt(y_k) = a(1 + r cos(delta + 2 pi k/3))."""
+    y = np.sort(np.array([float(v) for v in ys]))
+    sq = np.sqrt(y)
+    best = None
+    for perm in itertools.permutations(range(3)):
+        z = sum(sq[perm[k]] * W3 ** (-k) for k in range(3)) * 2 / (3 * sq.mean())
+        d = math.atan2(z.imag, z.real)
+        if 0 <= d <= math.pi / 3 + 1e-12:
+            best = (abs(z), d)
+    r, d = best
+    return {'y': y.tolist(), 'y1_over_y3': y[0] / y[2], 'y2_over_y3': y[1] / y[2], 'koide_Q': y.sum() / sq.sum() ** 2,
+            'sigma': 0.5 * math.log(y[2] / y[0]), 'rho': math.log(y[1] / y[0]) / math.log(y[2] / y[1]),
+            'x': r * r / 4, 'delta': d}
+
+
+M = {'up': chart(yuk['up']), 'down': chart(yuk['down']), 'lepton': chart(yuk['charged_lepton'])}
+CKM = {'s12': float(ckm['sin_theta12']), 's23': float(ckm['sin_theta23']), 's13': float(ckm['sin_theta13'])}
+
+
+def spec(x, delta, q=1 / 6):
+    p = x * q
+    C = math.sqrt(q) * np.eye(3) + math.sqrt(p) * (np.exp(1j * delta) * R3 + np.exp(-1j * delta) * (R3 @ R3))
+    y = np.sort(np.linalg.eigvalsh(C) ** 2)
+    return {'y1_over_y3': y[0] / y[2], 'y2_over_y3': y[1] / y[2], 'koide_Q': y.sum() / np.sqrt(y).sum() ** 2}
+
+
+def rv(pred, meas):
+    if pred is None or meas is None or not (pred > 0) or not (meas > 0):
+        return 'fails (zero or undefined)'
+    d = math.log(pred / meas)
+    return ('passes' if abs(d) <= 0.1 else 'fails') + f' (ln = {d:+.3f})'
+
+
+out = {'NOT_BLIND': True, 'measured_MZ': M, 'CKM_sines': CKM, 'verdicts': {}, 'conditional_measured_phase': {}}
+summary = []
+for name, rec in vals.items():
+    if not isinstance(rec, dict) or 'x_float' not in rec:
+        continue
+    v = {'lepton_control': rec['lepton_control_x_e_is_half']}
+    for sec in ('up', 'down'):
+        x = rec['x_float'][sec]
+        rel = x / M[sec]['x'] - 1
+        v[f'x_{sec}'] = [x, M[sec]['x'], ('passes' if abs(rel) <= 0.02 else 'fails') + f' ({100 * rel:+.1f} percent)']
+        for ph in ('P1', 'P2'):
+            sp_ = rec['spectra'][f'{sec}|{ph}']
+            v[f'{sec}|{ph}'] = {k: [sp_[k], M[sec][k], rv(sp_[k], M[sec][k])]
+                                for k in ('y1_over_y3', 'y2_over_y3', 'koide_Q')}
+        # conditional diagnostic: candidate x with the measured phase (NOT a prediction)
+        c = spec(x, M[sec]['delta'])
+        out['conditional_measured_phase'][f'{name}|{sec}'] = {k: [c[k], M[sec][k], rv(c[k], M[sec][k])] for k in c}
+    for ph in ('P1', 'P2'):
+        A = np.array(rec['mixing'][ph]['V_abs'])
+        v[f'V|{ph}'] = {k: [A[i, j], CKM[k], 'fails (exact zero excluded)' if A[i, j] < 1e-9 else rv(A[i, j], CKM[k])]
+                        for k, (i, j) in (('s12', (0, 1)), ('s23', (1, 2)), ('s13', (0, 2)))}
+    out['verdicts'][name] = v
+    passes = [k for k in ('x_up', 'x_down') if v[k][2].startswith('passes')]
+    summary.append((name, rec['x_float']['up'], rec['x_float']['down'], rec['x_float']['lepton'], v['lepton_control'],
+                    v['x_up'][2], v['x_down'][2]))
+out['summary'] = summary
+# number of looks at the measured x per sector in this file: one per reading, recorded in CANDIDATES.md
+with open(os.path.join(HERE, 'compare.json'), 'w') as fh:
+    json.dump(out, fh, indent=1, sort_keys=True)
+
+print('measured M_Z charts:', {s_: {k: round(M[s_][k], 6) for k in ('x', 'delta', 'koide_Q', 'y1_over_y3', 'y2_over_y3')} for s_ in M})
+print('CKM', CKM)
+for row in summary:
+    print(f'{row[0]:26s} x_u={row[1]:.4f} x_d={row[2]:.4f} x_e={row[3]:.4f} lepton_ok={row[4]} | up {row[5]} | down {row[6]}')
+for name in out['verdicts']:
+    for sec in ('up', 'down'):
+        c = out['conditional_measured_phase'][f'{name}|{sec}']
+        if name in ('QM-1a', 'B1-S1_own_quantum', 'F3', 'QM-4'):
+            print('conditional', name, sec, {k: (round(v[0], 6), round(v[1], 6), v[2]) for k, v in c.items()})

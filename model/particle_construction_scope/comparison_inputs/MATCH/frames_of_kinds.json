@@ -1,0 +1,107 @@
+{
+ "face_labels": [
+  [
+   3,
+   4
+  ],
+  [
+   1,
+   2
+  ],
+  [
+   0,
+   2
+  ],
+  [
+   4,
+   1
+  ],
+  [
+   0,
+   3
+  ],
+  [
+   0,
+   1
+  ],
+  [
+   0,
+   4
+  ],
+  [
+   2,
+   3
+  ],
+  [
+   3,
+   1
+  ],
+  [
+   2,
+   4
+  ],
+  [
+   1,
+   3
+  ],
+  [
+   1,
+   4
+  ],
+  [
+   2,
+   0
+  ],
+  [
+   4,
+   0
+  ],
+  [
+   3,
+   0
+  ],
+  [
+   2,
+   1
+  ],
+  [
+   3,
+   2
+  ],
+  [
+   4,
+   2
+  ],
+  [
+   1,
+   0
+  ],
+  [
+   4,
+   3
+  ]
+ ],
+ "separation_vs_frame_relation": {
+  "1": {
+   "disjoint (x,y)": 60
+  },
+  "2": {
+   "second to first (b,x)": 24,
+   "first to second (x,a)": 24,
+   "same second (x,b)": 36,
+   "same first (a,x)": 36
+  },
+  "3": {
+   "first to second (x,a)": 36,
+   "same second (x,b)": 24,
+   "second to first (b,x)": 36,
+   "same first (a,x)": 24
+  },
+  "4": {
+   "disjoint (x,y)": 60
+  },
+  "5": {
+   "reverse (b,a)": 20
+  }
+ }
+}

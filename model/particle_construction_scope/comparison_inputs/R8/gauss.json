@@ -1,0 +1,58 @@
+{
+ "lattice": [
+  2,
+  2,
+  1
+ ],
+ "quantum_links": 8,
+ "higgs_bits": 4,
+ "amplitudes": 65536,
+ "theta_0.087847": {
+  "mass_step_plain_commutator_norm_on_occupied_cell": 0.17546811261721132,
+  "two_sin_theta": 0.17546811261721132,
+  "mass_step_lifted_commutator_with_extended_Gauss_on_occupied_cell": 0.0,
+  "full_tick_plain_commutator_norm_max_over_cells": 0.08785072414130443,
+  "full_tick_plain_unitarity": 6.661338147750939e-16,
+  "full_tick_lifted_commutator_norm_max_over_cells": 1.7569653407636823e-16,
+  "full_tick_lifted_unitarity": 0.0
+ },
+ "theta_0.157935": {
+  "mass_step_plain_commutator_norm_on_occupied_cell": 0.3145584880774297,
+  "two_sin_theta": 0.3145584880774294,
+  "mass_step_lifted_commutator_with_extended_Gauss_on_occupied_cell": 0.0,
+  "full_tick_plain_commutator_norm_max_over_cells": 0.1574883923364515,
+  "full_tick_plain_unitarity": 4.440892098500626e-16,
+  "full_tick_lifted_commutator_norm_max_over_cells": 1.779672461458249e-16,
+  "full_tick_lifted_unitarity": 0.0
+ },
+ "gauss_invariant_higgs_state": {
+  "norm_squared_of_projection": 0.06249999999999996,
+  "expected": 0.0625,
+  "invariance_defect": 0.0,
+  "lifted_tick_equals_projection_of_plain_M2_tick": 8.024736863255199e-17
+ },
+ "seam_factor_of_the_routing": {
+  "plain_Q_squared_minus_1_flat_links": 3.8934982549937384e-16,
+  "plain_Q_squared_minus_1_one_negative_link": 0.9679850208208425,
+  "lifted_Q_squared_minus_1_on_the_gauss_invariant_higgs_state": 3.62200385439864e-16,
+  "lifted_Q_squared_minus_1_random_state": 1.413797987321252,
+  "lifted_Q_times_lifted_R_equals_shift": 0.0
+ },
+ "routing_alone_commutes_with_Gauss": 1.3626487651484526e-16,
+ "extended_Gauss_squares_to_one": 0.0,
+ "register_charges": {
+  "Z2_charge_of_the_Higgs_bit": 1,
+  "six_Y_of_the_register_quantum": 3,
+  "T3_of_the_register_quantum": "-1/2",
+  "electric_charge": 0,
+  "colour": "singlet",
+  "phase_charges_N_j_of_the_register_quantum": [
+   0,
+   0,
+   0,
+   0,
+   1
+  ],
+  "determinant_weight": 1
+ }
+}

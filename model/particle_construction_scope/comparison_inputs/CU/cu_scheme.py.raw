@@ -1,0 +1,273 @@
+"""CU Part G (item G): scheme and scale of the equality of the three couplings; rows B13, B14, G6, G9.
+
+Engine at P = 1.6309721. No measured value. Group data from worker BF's bf_lib (read only).
+Writes cu_scheme.json.
+"""
+import json
+import os
+import sys
+from fractions import Fraction as Fr
+
+import numpy as np
+import sympy as sp
+from scipy.optimize import brentq
+
+import cu_chain as C
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+RL = os.path.dirname(os.path.dirname(HERE))
+sys.dont_write_bytecode = True
+sys.path.insert(0, os.path.join(RL, 'work', 'BF'))
+import bf_lib as L          # noqa: E402
+
+pi = np.pi
+P = C.P_FWD
+R0 = float(C.R_decl(P))
+out, checks = {}, {}
+
+# ------------------------------------------------------------------ G1: spin-uniform matching is a scale shift
+c1, ch, c0, nH, x = sp.symbols('c_1 c_half c_0 n_H x')
+bV = sp.Matrix([0, -sp.Rational(22, 3), -11])
+bF = sp.Matrix([8, 8, 8])
+bS = nH * sp.Matrix([sp.Rational(1, 10), sp.Rational(1, 6), 0])
+btot = bV + bF + bS
+k = (bV * c1 + bF * ch + bS * c0) / (2 * sp.pi)
+after = k - btot * c1 / (2 * sp.pi)                         # couplings at the scale raised by exp(c_1)
+expected = (bF * (ch - c1) + bS * (c0 - c1)) / (2 * sp.pi)
+checks['G1_scale_shift_lemma'] = bool(sp.simplify(after - expected) == sp.zeros(3, 1))
+checks['G1_no_scalars_gives_exact_equality'] = bool(sp.simplify((after[0] - after[1]).subs(nH, 0)) == 0 and
+                                                    sp.simplify((after[1] - after[2]).subs(nH, 0)) == 0)
+checks['G1_spin_uniform_gives_exact_equality_and_value'] = bool(sp.simplify(after.subs({ch: c1, c0: c1})) == sp.zeros(3, 1))
+out['G1'] = {'statement': 'alpha_i^-1(exp(c_1) mu) = bare + (8/2 pi)(c_half - c_1) + (b_i^(0)/2 pi)(c_0 - c_1)',
+             'remainder per unit (c_0 - c_1), n_H = 2': [float(v) for v in (bS.subs(nH, 2) / (2 * sp.pi))],
+             'common shift per unit (c_half - c_1)': float(8 / (2 * sp.pi))}
+
+# ------------------------------------------------------------------ G3: Killing form and trace invariants on GL's twelve generators
+T5 = L.T5
+n = len(T5)
+f = np.zeros((n, n, n))
+for a in range(n):
+    for b in range(n):
+        comm = T5[a] @ T5[b] - T5[b] @ T5[a]
+        for c in range(n):
+            f[a, b, c] = (-2j * np.trace(comm @ T5[c])).real
+closure = max(np.abs(T5[a] @ T5[b] - T5[b] @ T5[a] - 1j * sum(f[a, b, c] * T5[c] for c in range(n))).max()
+              for a in range(n) for b in range(n))
+kill = np.einsum('acd,bcd->ab', f, f)
+CA = np.array([3.0] * 8 + [2.0] * 3 + [0.0])
+checks['G3_algebra_closes_on_twelve_generators'] = bool(closure < 1e-12)
+checks['G3_killing_form_is_adjoint_casimir_per_factor'] = bool(np.allclose(kill, np.diag(CA), atol=1e-12))
+inv = {}
+for F, (Tg, kap) in L.REPS.items():
+    Cop = sum(t @ t for t in Tg)
+    vals = [float(np.trace(Cop @ Tg[i] @ Tg[i]).real / kap) for i in (0, 8, 11)]      # one gluon, one W, B
+    inv[f'{F}-trace: tr_F(C H^2)/kappa_F for a gluon, a W, B'] = vals
+checks['G3_trace_invariants_match_BF'] = bool(np.allclose(inv['5-trace: tr_F(C H^2)/kappa_F for a gluon, a W, B'], [7 / 5, 9 / 10, 11 / 10]) and
+                                              np.allclose(inv['15-trace: tr_F(C H^2)/kappa_F for a gluon, a W, B'], [9 / 5, 9 / 5, 6 / 5]))
+out['G3'] = {'adjoint Casimir per factor (Killing form, trace-5 metric)': [3.0, 2.0, 0.0],
+             'quadratic term of the exponential-map Jacobian per factor, coefficient of |X|^2': [-3 / 24, -2 / 24, 0.0],
+             **inv,
+             'ratio of the trace invariants to the adjoint Casimir (5-trace)': [7 / 15, 9 / 20, 'undefined (C_A = 0, invariant 11/10)']}
+# complete adjoint of SU(5): effective adjoint Casimir 5 on every factor
+X = []
+for i in range(5):
+    for j in range(5):
+        if i != j:
+            E = np.zeros((5, 5), complex); E[i, j] = 1
+            X.append(E)
+gens24 = []
+for i in range(5):
+    for j in range(i + 1, 5):
+        E = np.zeros((5, 5), complex); E[i, j] = E[j, i] = 0.5; gens24.append(E)
+        E = np.zeros((5, 5), complex); E[i, j] = -0.5j; E[j, i] = 0.5j; gens24.append(E)
+for m in range(1, 5):
+    d = np.zeros(5); d[:m] = 1; d[m] = -m
+    gens24.append(np.diag(d).astype(complex) / np.sqrt(2 * m * (m + 1)))
+G24 = np.array([[np.trace(a @ b).real for b in gens24] for a in gens24])
+assert np.allclose(G24, 0.5 * np.eye(24))
+
+
+def casimir_eff(H):
+    tot = 0.0
+    for g in gens24:
+        cm = H @ g - g @ H
+        tot += 2 * np.trace(cm @ cm.conj().T).real
+    return tot / (2 * np.trace(H @ H).real)
+
+
+ca5 = [casimir_eff(T5[i]) for i in (0, 8, 11)]
+checks['G2_complete_adjoint_gives_equal_shifts'] = bool(np.allclose(ca5, [5, 5, 5]))
+out['G2_effective_adjoint_casimir_with_the_24'] = ca5
+
+# ------------------------------------------------------------------ G2: remainders of BF's constants
+g2 = {}
+bVn = np.array([0, -22 / 3, -11])
+for tr, kk in (('5-trace', np.array([-2.750, -4.060, -6.215])), ('15-trace', np.array([-3.000, -6.310, -7.215]))):
+    c_1 = 2 * pi * (kk[1] - kk[2]) / (bVn[1] - bVn[2])
+    rem = kk - bVn * c_1 / (2 * pi)
+    row = {'constants (U(1), SU(2), SU(3))': kk.tolist(), 'c_1 from the pair (2,3), gauge slopes': float(c_1),
+           'scale ratio exp(c_1)': float(np.exp(c_1)), 'remainder r_i': rem.tolist(),
+           'U(1) remainder against the non-abelian pair': float(rem[0] - rem[1])}
+    for lab, b in (('declared slopes', C.B_DECL), ('source slopes', C.B_SRC2)):
+        x12 = 2 * pi * (kk[0] - kk[1]) / (b[0] - b[1])
+        x23 = 2 * pi * (kk[1] - kk[2]) / (b[1] - b[2])
+        row[f'matched pairs meet above the lattice scale by a factor, {lab}'] = {'(1,2)': float(np.exp(x12)), '(2,3)': float(np.exp(x23))}
+    g2[tr] = row
+g2['proper-time cutoff'] = {'c_s': 'one number for all spins', 'remainder r_i': [0.0, 0.0, 0.0],
+                            'common value': 'unchanged', 'label': 'EXACT at one loop'}
+g2['MSbar against DRbar'] = {'constants C_A/(12 pi) (U(1), SU(2), SU(3))': [0.0, 1 / (6 * pi), 1 / (4 * pi)],
+                             'c_1 magnitude': 1 / 22, 'scale ratio': float(np.exp(1 / 22)),
+                             'remainder on the gauge class': [0.0, 0.0, 0.0],
+                             'common shift (8/2 pi)/22': 8 / (2 * pi) / 22,
+                             'scalar remainder, n_H = 2': [0.2 / (2 * pi) / 22, (1 / 3) / (2 * pi) / 22, 0.0]}
+out['G2'] = g2
+
+# ------------------------------------------------------------------ G4: Jacobian with respect to splits and the law's coupling
+KEYS = ('inv_aU', 'v', 'mz', 'inv_a1', 'inv_a2', 'a3', 's2', 'inv_aem')
+
+
+def get(**kw):
+    r = C.solvex(P, kw.pop('R', R0), **kw)
+    return r[0] if len(r) == 1 else None
+
+
+g4 = {}
+h = 1e-3
+for lab, b in (('declared slopes', C.B_DECL), ('source slopes, two doublets', C.B_SRC2)):
+    mid = get(b=b)
+    J = {}
+    for name, kw_up, kw_dn in (
+            ('delta_1 (U(1) at M_U)', dict(delta=(h, 0, 0)), dict(delta=(-h, 0, 0))),
+            ('delta_2 (SU(2) at M_U)', dict(delta=(0, h, 0)), dict(delta=(0, -h, 0))),
+            ('delta_3 (SU(3) at M_U)', dict(delta=(0, 0, h)), dict(delta=(0, 0, -h))),
+            ('common shift of all three', dict(delta=(h, h, h)), dict(delta=(-h, -h, -h))),
+            ('delta_v (coupling inside the law for v)', dict(delta_v=h), dict(delta_v=-h))):
+        up, dn = get(b=b, **kw_up), get(b=b, **kw_dn)
+        J[name] = {k_: (up[k_] - dn[k_]) / (2 * h) / mid[k_] for k_ in KEYS}
+        J[name]['size that moves v by one percent'] = 0.01 / abs(J[name]['v']) if abs(J[name]['v']) > 1e-12 else None
+    g4[lab] = J
+out['G4_jacobian_d_ln_output_per_unit_shift'] = g4
+
+# ------------------------------------------------------------------ G5: sizes
+g5 = {}
+dd = np.array([0.0, 1 / (6 * pi), 1 / (4 * pi)])
+for sgn in (+1, -1):
+    for law, dv in (('law reads the common value', 0.0), ('law reads the split SU(2) value', sgn * dd[1])):
+        g5[f'(i) split {sgn:+d} x (0, 1/(6 pi), 1/(4 pi)), {law}'] = C.row(get(delta=tuple(sgn * dd), delta_v=dv))
+# (iii) two-loop coefficients of the source census, exact
+fam = [('Q', 3, Fr(1, 2), Fr(4, 3), 2, Fr(1, 2), Fr(3, 4), Fr(1, 6)), ('u^c', 3, Fr(1, 2), Fr(4, 3), 1, 0, 0, Fr(-2, 3)),
+       ('d^c', 3, Fr(1, 2), Fr(4, 3), 1, 0, 0, Fr(1, 3)), ('L', 1, 0, 0, 2, Fr(1, 2), Fr(3, 4), Fr(-1, 2)),
+       ('e^c', 1, 0, 0, 1, 0, 0, Fr(1)), ('nu^c', 1, 0, 0, 1, 0, 0, Fr(0))]
+Hd = ('H', 1, 0, 0, 2, Fr(1, 2), Fr(3, 4), Fr(1, 2))
+CAv = [Fr(0), Fr(2), Fr(3)]
+
+
+def SC(m):
+    """Dynkin index S_i of the full multiplet and Casimir C_i, order (U(1), SU(2), SU(3)), GUT-normalised U(1)."""
+    _, d3, T3, C3, d2, T2, C2, Y = m
+    y2 = Fr(3, 5) * Y * Y
+    return [y2 * d3 * d2, T2 * d3, T3 * d2], [y2, C2, C3]
+
+
+def two_loop(n_weyl16, n_h):
+    b1 = [-(Fr(11, 3)) * CAv[i] for i in range(3)]
+    bij = [[Fr(0)] * 3 for _ in range(3)]
+    for i in range(3):
+        bij[i][i] += -Fr(34, 3) * CAv[i] ** 2
+    for mult, count, kind in [(m, n_weyl16, 'weyl') for m in fam] + [(Hd, n_h, 'scalar')]:
+        S, Cq = SC(mult)
+        for i in range(3):
+            b1[i] += count * (Fr(2, 3) if kind == 'weyl' else Fr(1, 3)) * S[i]
+            for j in range(3):
+                if i == j:
+                    bij[i][i] += count * S[i] * ((Fr(10, 3) * CAv[i] + 2 * Cq[i]) if kind == 'weyl' else (Fr(2, 3) * CAv[i] + 4 * Cq[i]))
+                else:
+                    bij[i][j] += count * S[i] * (2 * Cq[j] if kind == 'weyl' else 4 * Cq[j])
+    return b1, bij
+
+
+b_sm, bij_sm = two_loop(3, 1)
+SM_ref = [[Fr(199, 50), Fr(27, 10), Fr(44, 5)], [Fr(9, 10), Fr(35, 6), Fr(12)], [Fr(11, 10), Fr(9, 2), Fr(-26)]]
+checks['G5_two_loop_formula_reproduces_SM'] = bool(bij_sm == SM_ref and b_sm == [Fr(41, 10), Fr(-19, 6), Fr(-7)])
+MSSM = [[Fr(199, 25), Fr(27, 5), Fr(88, 5)], [Fr(9, 5), Fr(25), Fr(24)], [Fr(11, 5), Fr(9), Fr(14)]]
+tl = {}
+for name, (b1v, bijv) in (('source census, two doublets', two_loop(6, 2)), ('source census, one doublet', two_loop(6, 1)),
+                          ('MSSM matrix (IMPORTED) with the declared slopes', ([Fr(33, 5), Fr(1), Fr(-3)], MSSM))):
+    bfl = tuple(float(v) for v in b1v)
+    bijf = [[float(v) for v in row] for row in bijv]
+    one_loop = get(b=bfl)
+    if one_loop is None:
+        tl[name] = {'one-loop slopes': [str(v) for v in b1v], 'two-loop matrix': [[str(v) for v in row] for row in bijv], 'chain': 'no root'}
+        continue
+    xU = one_loop['inv_aU']
+    xs = [one_loop['inv_a1'], one_loop['inv_a2'], one_loop['inv_a3']]
+    shifts = [-sum(bijf[i][j] / bfl[j] * np.log(xU / xs[j]) for j in range(3)) / (4 * pi) for i in range(3)]
+    re = get(b=bfl, bij=bijf)
+    tl[name] = {'one-loop slopes': [str(v) for v in b1v], 'two-loop matrix': [[str(v) for v in row] for row in bijv],
+                'shift of alpha_i^-1 at the anchor, (M_U, alpha_U) fixed': shifts,
+                'differences of the shifts (1-2, 2-3)': [shifts[0] - shifts[1], shifts[1] - shifts[2]],
+                'one-loop chain': C.row(one_loop), 'chain solved with the two-loop term': C.row(re)}
+g5['(iii) two-loop terms'] = tl
+out['G5_sizes'] = g5
+
+# ------------------------------------------------------------------ G6: reading scale and window enter through X = R + ln rho
+g6 = {}
+ref = get()
+for name, R, rho in (('declared: R = 2 pi - (2/3) ln P, rho = 1', R0, 1.0),
+                     ('R = 2 pi, rho = P^(-2/3)', 2 * pi, P ** (-2 / 3)),
+                     ('R = 2 pi - (1/2) ln P, rho = P^(-1/6)', 2 * pi - 0.5 * np.log(P), P ** (-1 / 6)),
+                     ('R = 2 pi, rho = 1 (for contrast)', 2 * pi, 1.0)):
+    c = get(R=R, rho=rho)
+    at_mz = C.transport(c, C.B_DECL, c['mz'])
+    g6[name] = {'X = R + ln rho': R + np.log(rho), 'reading point (GeV)': c['mu'], 'inv_aU': c['inv_aU'], 'v': c['v'], 'mz': c['mz'],
+                'mw': c['mw'], 'couplings at the reading point': [c['inv_a1'], c['inv_a2'], c['inv_a3']],
+                'transported to m_Z: 1/a1, 1/a2, a3, sin2, 1/aem': [at_mz['inv_a1'], at_mz['inv_a2'], at_mz['a3'], at_mz['s2'], at_mz['inv_aem']]}
+rows = list(g6.values())
+checks['G6_outputs_depend_on_X_only'] = bool(all(abs(rows[i][k_] / rows[0][k_] - 1) < 1e-11 for i in (1, 2) for k_ in ('inv_aU', 'v', 'mz', 'mw')))
+out['G6_reading_scale_degeneracy'] = g6
+
+# ------------------------------------------------------------------ G9 and rows B13, B14
+xU = ref['inv_aU']
+g2U = 4 * pi / xU
+out['G9_one_statement'] = {
+    'collar heat time over one-tick heat time': (4 * pi ** 2 / xU) / (g2U / 2), 'equals 2 pi': bool(abs((4 * pi ** 2 / xU) / (g2U / 2) - 2 * pi) < 1e-12),
+    'dilation of the transverse coordinate over unit modular time': float(np.exp(2 * pi)),
+    'proper time of the unit-distance link per period, in ticks': 2 * pi,
+    'winding weight of the collar law exp(-pi^2/t) = exp(-1/(4 alpha_U))': float(np.exp(-xU / 4)),
+    'winding weight of the one-tick law exp(-2 pi/(4 alpha_U))': float(np.exp(-2 * pi * xU / 4)),
+    'exponent ratio': 2 * pi, '1/(4 alpha_U)': xU / 4, 'R declared': R0, '2 pi': 2 * pi}
+b13 = get(R=6.0)
+fB14 = lambda r: C.solvex(P, r)[0]['inv_aU'] / 4 - r
+r14 = brentq(fB14, 5.5, 6.6, xtol=1e-12)
+b14 = get(R=r14)
+out['B13_whole_ticks_R_6'] = {'R': 6.0, 'c_equivalent': (2 * pi - 6.0) / np.log(P), **C.row(b13)}
+out['B14_window_equal_to_winding_exponent'] = {'R': r14, 'c_equivalent': (2 * pi - r14) / np.log(P),
+                                               'ln(E_cell/v) over R': float(np.log(b14['Ecell'] / b14['v']) / r14), **C.row(b14)}
+
+out['checks'] = checks
+out['all_checks_pass'] = all(checks.values())
+json.dump(out, open(os.path.join(HERE, 'cu_scheme.json'), 'w'), indent=1, default=L.jsonable)
+print('checks', checks)
+print('G1', out['G1'])
+print('G3', json.dumps(out['G3'], indent=1))
+print('G2', json.dumps(out['G2'], indent=1))
+for lab, J in g4.items():
+    print('G4', lab)
+    for name, r in J.items():
+        print('   ', name, {k_: round(v_, 4) for k_, v_ in r.items() if v_ is not None})
+for name, r in g5.items():
+    if name.startswith('(i)'):
+        print('G5', name, {k_: round(r[k_], 5) for k_ in ('inv_aU', 'v', 'mz', 'inv_a2', 'a3', 's2', 'inv_aem')})
+for name, r in tl.items():
+    print('G5 two-loop', name)
+    print('    slopes', r['one-loop slopes'], 'matrix', r['two-loop matrix'])
+    if 'chain' not in r:
+        print('    shifts', [round(v, 4) for v in r['shift of alpha_i^-1 at the anchor, (M_U, alpha_U) fixed']], 'differences', [round(v, 4) for v in r['differences of the shifts (1-2, 2-3)']])
+        for kk_ in ('one-loop chain', 'chain solved with the two-loop term'):
+            c = r[kk_]
+            print('   ', kk_, None if c is None else {k_: round(c[k_], 5) for k_ in ('inv_aU', 'v', 'mz', 'inv_a2', 'a3', 's2', 'inv_aem')})
+for name, r in g6.items():
+    print('G6', name, {k_: (round(v_, 6) if isinstance(v_, float) else [round(z, 5) for z in v_]) for k_, v_ in r.items()})
+print('G9', out['G9_one_statement'])
+print('B13', {k_: round(v_, 5) for k_, v_ in out['B13_whole_ticks_R_6'].items()})
+print('B14', {k_: round(v_, 5) for k_, v_ in out['B14_window_equal_to_winding_exponent'].items()})

@@ -15,6 +15,41 @@ def jk_err(samples):
     return np.sqrt((n - 1) / n * ((samples - samples.mean(0)) ** 2).sum(0))
 
 
+def jk_cov(samples):
+    """Covariance of jointly deleted streams; the first axis identifies the same omitted stream."""
+    a = np.asarray(samples, dtype=float)
+    if a.ndim != 2 or len(a) < 2 or not np.isfinite(a).all():
+        raise ValueError('joint jackknife needs at least two finite vector replicas')
+    centered = a - a.mean(axis=0)
+    return (len(a) - 1) / len(a) * centered.T @ centered
+
+
+def joint_summary(central, replicas):
+    """Joint scale/mass covariance and contrasts without independent-error assumptions."""
+    names = ['mrho_chiral', 'mN_chiral', 'sqrt_sigma', 'r0',
+             'mrho_over_sqrtsigma_chiral', 'mN_over_sqrtsigma_chiral',
+             'mrho_r0_chiral', 'mN_r0_chiral', 'mN_over_mrho_chiral']
+    samples = np.array([[row[key] for key in names] for row in replicas])
+    covariance = jk_cov(samples)
+    sd = np.sqrt(np.diag(covariance))
+    correlation = covariance / np.outer(sd, sd)
+    contrasts = {}
+    for label, rho, nucleon in [('lattice', 'mrho_chiral', 'mN_chiral'),
+                               ('over_sqrt_sigma', 'mrho_over_sqrtsigma_chiral', 'mN_over_sqrtsigma_chiral'),
+                               ('times_r0', 'mrho_r0_chiral', 'mN_r0_chiral')]:
+        i, j = names.index(rho), names.index(nucleon)
+        variance = covariance[i, i] + covariance[j, j] - 2 * covariance[i, j]
+        contrasts[label] = dict(value=float(central[nucleon] - central[rho]),
+                               stat=float(jk_err(samples[:, j] - samples[:, i])),
+                               variance_from_covariance=float(variance),
+                               independent_stat_control=float(np.hypot(sd[i], sd[j])))
+    return dict(names=names, replicas=samples.tolist(), covariance=covariance.tolist(),
+                correlation=correlation.tolist(), contrasts=contrasts,
+                scale_cancelled_ratio_max_error=float(np.max(abs(
+                    samples[:, 5] / samples[:, 4] - samples[:, 8]))),
+                sampling_unit='delete-one-stream replicas, paired in their retained order')
+
+
 def _golden(f, lo, hi, tol=1e-13):
     """Minimum of a unimodal function on [lo, hi] by golden-section search."""
     g = 0.5 * (np.sqrt(5.0) - 1.0)
@@ -166,6 +201,12 @@ def potential(dump):
                sigma_syst=float(0.5 * (max(sig) - min(sig))), r0=fits['F1_primary']['r0'],
                r0_stat=fits['F1_primary']['r0_err'], r0_syst=float(0.5 * (np.nanmax(r0s) - np.nanmin(r0s))))
     out['sigma_over_err'] = float(out['sigma'] / np.hypot(out['sigma_stat'], out['sigma_syst']))
+    vm, vj, ve = est[2]
+    axis = [i for i, x in enumerate(r) if abs(x - round(x)) < 1e-9 and np.isfinite(vm[i])]
+    out['on_axis_increments'] = [dict(r_from=float(r[a]), r_to=float(r[b]),
+        value=float(vm[b] - vm[a]), stat=float(jk_err(vj[:, b] - vj[:, a])),
+        independent_stat_control=float(np.hypot(ve[a], ve[b]))) for a, b in zip(axis[:-1], axis[1:])]
+
     p, pj, r0, r0j = keep['F1_primary']
     return out, (p[1], pj[:, 1], r0, r0j)
 
@@ -265,6 +306,8 @@ def analyse(dump):
         else:
             dropped.append(dict(kappa=kappas[i], pion_relative_error=rel, correlator_positive=rows[i]['correlator_positive_pion']))
 
+    primary_joint = {}
+
     def variant(ty, tag, sel):
         m = {ch: np.array([masses[(ch, ty, tag, i)][0] for i in sel]) for ch in KINDS}
         mj = {ch: np.array([masses[(ch, ty, tag, i)][1] for i in sel]) for ch in KINDS}
@@ -275,6 +318,8 @@ def analyse(dump):
                            dump['ratio_phys_input'])
         js = [chiral_chain(mj['pion'][:, i], mj['rho'][:, i], mj['nucleon'][:, i], e2, e['rho'], e['nucleon'], x,
                            sigma_j[i], r0_j[i], dump['ratio_phys_input']) for i in range(mj['pion'].shape[1])]
+        if ty == 'SP' and tag == 'primary' and sel == use:
+            primary_joint.update(joint_summary(cen, js))
         return {k: [float(cen[k]), float(jk_err(np.array([j[k] for j in js])))] for k in cen}
     ch = dict(kappas_used=[kappas[i] for i in use], kappas_dropped=dropped, primary=variant('SP', 'primary', use),
               alt_window=variant('SP', 'alt', use), smeared_sink=variant('SS', 'primary', use))
@@ -287,5 +332,6 @@ def analyse(dump):
         k: float(max(abs(ch['primary'][k][0] - ch[v][k][0]) for v in names)) for k in ch['primary']}
     ch['systematic_potential_only'] = chiral_systematics({'primary': ch['primary']}, out['potential']['fits'])
     ch['systematic'] = chiral_systematics(variants, out['potential']['fits'])
+    ch['joint'] = primary_joint
     out['chiral'] = ch
     return out

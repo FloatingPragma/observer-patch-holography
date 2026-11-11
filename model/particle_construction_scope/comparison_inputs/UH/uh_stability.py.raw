@@ -1,0 +1,49 @@
+"""Worker UH (NOT BLIND: uses the Yukawa that the reference m_t implies, read from not_blind.json): the quartic along
+the trajectory below the cell for the laws 'zero' and B4 at y_t(E_cell) = r y_crit, r from the D11 curve at the
+reference m_t. D11 engine, two loops. Writes stability.json."""
+import json
+import math
+import sys
+
+import numpy as np
+
+sys.path.insert(0, ".")
+import d11_scan_copy as D  # noqa: E402
+import uhlib as U  # noqa: E402
+
+nb = json.load(open("not_blind.json"))
+fl = json.load(open("flows_d11.json"))
+root = json.load(open("R_P_source_audit_pixel_certificate.json"))
+sc = D.source_scales(float(root["P_cand"]), float(root["alpha_U_P_cand"]))
+mz, EC = sc["mz_run_gev"], sc["E_cell_pixel_energy"]
+gY, g2, g3 = D.gauge_couplings(EC, mz)
+yc = fl["gate_C4_D11"]["y_crit_2loop"]
+regs = U.regulators()
+out = {}
+for law in ("zero", "B4", "B4t", "B6t"):
+    r = nb["d11_curves_at_reference_mt"]["zero"]["y_over_y_crit_2loop"]
+    y = r * yc
+    lam = 0.0 if law == "zero" else U.lam_ind(y, g2, gY, regs[law])
+    n = 20000
+    t0, t1 = math.log(EC), math.log(200.0)
+    dt = (t1 - t0) / n
+    ts, ls = [t0], [lam]
+
+    def der(t, yv, lv):
+        a, b, c = D.gauge_couplings(math.exp(t), mz)
+        d = D._beta_2loop_engine(math.sqrt(5 / 3) * a, b, c, yv, lv)
+        return d[3], d[4]
+    for i in range(n):
+        t = t0 + i * dt
+        k1 = der(t, y, lam); k2 = der(t + dt / 2, y + dt / 2 * k1[0], lam + dt / 2 * k1[1])
+        k3 = der(t + dt / 2, y + dt / 2 * k2[0], lam + dt / 2 * k2[1]); k4 = der(t + dt, y + dt * k3[0], lam + dt * k3[1])
+        y += dt / 6 * (k1[0] + 2 * k2[0] + 2 * k3[0] + k4[0]); lam += dt / 6 * (k1[1] + 2 * k2[1] + 2 * k3[1] + k4[1])
+        ts.append(t + dt); ls.append(lam)
+    ts, ls = np.array(ts), np.array(ls)
+    i_min = int(np.argmin(ls))
+    neg = np.where(ls < 0)[0]
+    out[law] = {"y_over_y_crit_2loop": r, "lambda_E_cell": float(ls[0]), "min_lambda": float(ls[i_min]),
+                "mu_at_min_GeV": float(math.exp(ts[i_min])),
+                "lambda_negative_between_GeV": [float(math.exp(ts[neg[-1]])), float(math.exp(ts[neg[0]]))] if len(neg) else None}
+    print(law, out[law])
+json.dump(out, open("stability.json", "w"), indent=1)

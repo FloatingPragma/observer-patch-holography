@@ -557,6 +557,34 @@ relativistic comparison are given in the
 
 ## Defect register, lepton ratios and lattice results
 
+The [fixed-cube charged-cluster bound](../../model/native_charged_cluster_minmax/PROOF.md)
+uses the original orthogonal Wilson cube with `g=1/64`, photon capacity
+three and completion `c=21/2`. Its charged rank-two cluster has a full
+fixed-charge gap above `0.17175185 m`. The actual-ground transition obeys
+`(E_charged-E_actual_neutral-4)/m in [1.11134603,1.12278560]`; the raw
+reference subtraction is four, not `4m`. These are source-energy bounds
+with the native complement included. The multiplicity is not a physical
+spin identification, and the separate self-energy transfer/remainder
+estimates are not certified inputs to this interval.
+
+The [complete lepton-cycle source](../../model/lepton_cycle/PROOF.md) gives
+the exact four-outcome instrument, a fresh-pair preparation and a SWAP reset
+that exports every failure environment. Its mass effect has trace `5/18`,
+with orthogonal pulled-back character vectors and a rank-three nonreturn
+environment. The native-pair effect of trace `2/9` differs by a common factor
+`5/4`; the ratios coincide. Finite repeated channels converge to their
+declared coherent rates with an arbitrary-reference error bound. These
+clocked effects are not attached to a physical pole-mass operator.
+
+The two logarithmic mass ratios have a nonsingular Jacobian with respect to
+phase `theta` and branch balance `c=2b/a`, with determinant `263.829438446`.
+Their common normalization cancels.
+Independent fresh preparation selects phase `2/9`; the same marginal flag
+counts without independence permit phases in `[1/12,1/4]`. No shape parameter
+or finite round count is adjusted to the measured muon residual. This
+distinguishes a complete conditional calculation from an independent mass
+prediction.
+
 These results belong to the defect register and the declared coupling chain;
 the finite sources above keep their own boundaries. The [integer lift](../../model/defect_integer_lift/README.md)
 reproduces the stored class on every stored cut of the runs; it is not a

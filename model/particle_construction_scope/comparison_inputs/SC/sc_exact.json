@@ -1,0 +1,108 @@
+{
+ "checks": {
+  "A0_R_equals_2pi_minus_two_thirds_lnP": true,
+  "A0_MU_cubed_Ecell_equals_Estar4_exp_minus_6pi": true,
+  "A0_midpoint_MD_equals_Estar_exp_minus_pi_P_minus_sixth": true,
+  "A0_MU_equals_MD_squared_over_Ecell": true,
+  "A0_one_period_below_reference_gives_c_equal_(1-s)/2": true,
+  "A0_mirror_about_half_period_gives_c_equal_1-s": true,
+  "A4_declared_needs_s_equal_minus_one_third": true,
+  "A5_declared_needs_s_equal_one_third": true,
+  "A4_declared_reference_is_Estar_P_one_sixth": true,
+  "A4_declared_reference_above_Estar_for_P_gt_1": true,
+  "A5d_C1_cross_section_gives_s_1_R_2pi": true,
+  "A5d_Planck_cross_section_gives_s_one_third_declared": true,
+  "A1a_lines_from_common_point_meet_again_only_if_equal_slopes": true,
+  "A1_census_decomposition_links_complete_higgs": true,
+  "A1b_b3_minus_b2_is_minus_11_3_minus_nH_6": true,
+  "A1b_every_census_on_file_has_b3_lt_b2": true,
+  "A1c_N4_content_cancels_the_link_part": true,
+  "A1c_no_adjoint_content_no_universal_running": true,
+  "A1c_b1_eq_b2_needs_110_doublets": true,
+  "A2_Rij_formula_solves_equal_couplings": true,
+  "A2_all_censuses_have_b1_gt_b2_gt_b3": true,
+  "B0_fourth_root_of_instanton_weight": true,
+  "B0_Villain_flux_quantum_cost": true,
+  "B0_law_is_pi_over_2alpha": true,
+  "B0_one_loop_Lambda_is_mu_independent": true,
+  "B0_induced_form_is_the_law": true,
+  "B0_capacity_form_is_the_law": true,
+  "B0_D10_law_with_cut_coupling_rewrite": true,
+  "B7_CP3_gap_equals_law_with_f_alpha": true,
+  "B1_threshold_is_minus_4": true,
+  "B2_every_count_positive_so_density_vanishes_at_zero_mass": true,
+  "B4_compositeness_needs_inverse_cell_coupling_zero": true,
+  "B6b_U1_coefficient_nonnegative_for_every_content": true,
+  "B6a_links_plus_class3_content_SU2_slope_minus_35_6": true,
+  "B9_one_vectorlike_generation_SU2_fermion_coefficient_8_3": true,
+  "B9_three_chiral_generations_SU2_fermion_coefficient_4": true,
+  "B10_self_consistent_solution": true,
+  "B10_b2_four_thirds_gives_factor_three_halves": true
+ },
+ "notes": {
+  "A1c_adjoint_requirement": {
+   "SU(2)": "4 n_Weyl_adjoint + n_real_adjoint_scalars = 22 (N=4 content: 4 and 6)",
+   "SU(3)": "4 n_Weyl_adjoint + n_real_adjoint_scalars = 22 (N=4 content: 4 and 6)",
+   "b1 = b2 with Higgs doublets only": "n_H = 110, and then b3 - b2 = -22 != 0"
+  },
+  "B1_size_integral": {
+   "K1 links only": {
+    "SU(2)": "large instantons dominate (b < -4)",
+    "SU(3)": "large instantons dominate (b < -4)"
+   },
+   "B (61/10, -7/6, -5)": {
+    "SU(2)": "cell end dominates (b > -4)",
+    "SU(3)": "large instantons dominate (b < -4)"
+   },
+   "A3H (43/10, -17/6, -7)": {
+    "SU(2)": "cell end dominates (b > -4)",
+    "SU(3)": "large instantons dominate (b < -4)"
+   },
+   "SM (41/10, -19/6, -7)": {
+    "SU(2)": "cell end dominates (b > -4)",
+    "SU(3)": "large instantons dominate (b < -4)"
+   },
+   "K3(1,3) (81/10, 5/6, -3)": {
+    "SU(2)": "cell end dominates (b > -4)",
+    "SU(3)": "cell end dominates (b > -4)"
+   },
+   "MSSM (33/5, 1, -3)": {
+    "SU(2)": "cell end dominates (b > -4)",
+    "SU(3)": "cell end dominates (b > -4)"
+   }
+  },
+  "B2_zero_modes_per_instanton": {
+   "SU(2), three chiral generations (4 Weyl doublets each)": 12,
+   "SU(2), source vector-like cones k_c = 1 (8 Weyl doublets per generation)": 24,
+   "SU(3), three chiral generations (Q: 2, u^c: 1, d^c: 1)": 12,
+   "SU(3), source vector-like cones k_c = 1": 24
+  }
+ },
+ "censuses_exact": {
+  "K1 links only": [
+   "0",
+   "-22/3",
+   "-11"
+  ],
+  "B (61/10, -7/6, -5)": [
+   "61/10",
+   "-7/6",
+   "-5"
+  ],
+  "A3H (43/10, -17/6, -7)": [
+   "43/10",
+   "-17/6",
+   "-7"
+  ],
+  "SM (41/10, -19/6, -7)": [
+   "41/10",
+   "-19/6",
+   "-7"
+  ],
+  "K3(1,3) (81/10, 5/6, -3)": [
+   "81/10",
+   "5/6",
+   "-3"
+  ]
+ }
+}

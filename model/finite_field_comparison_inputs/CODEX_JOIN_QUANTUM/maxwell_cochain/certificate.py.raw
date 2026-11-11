@@ -1,0 +1,53 @@
+"""Frozen cube field, full Gauss labels and independent exact current receipt."""
+from pathlib import Path
+import argparse,hashlib,json,sys
+HERE=Path(__file__).resolve().parent
+ROOT=HERE.parents[2]/'reverse-engineering-reality'
+sys.path.insert(0,str(ROOT))
+import field,gauss,current_audit
+from model.affine_gauss_source.model import serialize
+from model.particle_common_contract.provenance import import_closure
+SEEDS=(
+ 'model/affine_gauss_source/model.py','model/affine_gauss_source/PROOF.md',
+ 'model/affine_gauss_mobile/model.py','model/affine_gauss_mobile/PROOF.md',
+ 'model/native_block_dirac/algebra.py','model/native_block_dirac/PROOF.md',
+ 'code/electromagnetism/discrete_coulomb_green.py','code/electromagnetism/cone_whitney_bridge.py',
+ 'Lean/Screen/WhitneyNormalModeConstruction.lean','Lean/Screen/WhitneyQuantumBridge.lean',
+ 'Lean/Screen/SeamCurrentFreePhotonLift.lean','Lean/Screen/SeamMaxwellContinuum.lean',
+ 'Lean/Screen/ModalMaxwellFactorizationBoundary.lean','Lean/Screen/TemporalMaxwellEvolution.lean',
+ 'Lean/Screen/PositionSpaceMaxwellAction.lean','Lean/Screen/DiscreteCoulombGreen.lean',
+ 'code/electromagnetism/whitney_quantum_state.py')
+
+def digest(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+def validate(pins):
+    for name,sha in pins.items():
+        relative=Path(name)
+        if relative.is_absolute() or '..' in relative.parts:raise ValueError('repository-relative source pin required')
+        if digest(ROOT/name)!=sha:raise ValueError('frozen cube input changed: '+name)
+
+def certificate():
+    return {'schema':'oph.open_cube_Maxwell_native_current_prerequisites.v1',
+      'finite_field':serialize(field.certificate()),'full_Gauss_embedding':serialize(gauss.calculate()),
+      'independent_exact_current':serialize(current_audit.calculate()),
+      'scope':{'one_common_coupled_H_source_authority_required':True,
+        'actual_native_charge_density_and_preparation_support_supplied_by_matter_provider':True,
+        'complete_interaction_probability_proved_by_this_prerequisite_alone':False,
+        'source_unchanged_from_native_PW119_or_thirteen_vertex_cone':False,
+        'finite_photon_top_boundary_and_all_full_charge_complements_retained':True},
+      'input_sha256':{name:digest(ROOT/name) for name in sorted(import_closure(set(SEEDS)))},
+      'owned_source_sha256':{p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')}}
+
+def main():
+    parser=argparse.ArgumentParser(description=__doc__);group=parser.add_mutually_exclusive_group(required=True)
+    group.add_argument('--write',action='store_true');group.add_argument('--check',action='store_true');args=parser.parse_args()
+    path=HERE/'results.json'
+    if args.check:
+        saved=json.loads(path.read_text());validate(saved['input_sha256'])
+        for name,sha in saved['owned_source_sha256'].items():
+            if digest(HERE/name)!=sha:raise ValueError('owned cube input changed: '+name)
+    value=certificate()
+    if args.write:path.write_text(json.dumps(value,indent=2,sort_keys=True)+'\n')
+    elif value!=saved:raise ValueError('cube field/Gauss/current replay differs')
+    print('PASS: actual finite cube field, full Gauss capacities and independent exact Dirac current')
+
+if __name__=='__main__':main()

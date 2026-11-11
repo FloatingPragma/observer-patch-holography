@@ -1,0 +1,29 @@
+"""BF row W1: one-loop wave speed per factor on the single-coupling lattice, from bf_bg_fit.json (no new input).
+
+c_a = g_tau/g_sigma = 1 + (g^2/2) (delta_sigma,a - delta_tau,a) + O(g^4),
+delta_s,a = C_A (m_s + w_s/8) - (w_s/2) tr_F(Chat H_a^2)/kappa_F for s = sigma (magnetic) and tau (electric).
+Writes bf_speed.json.
+"""
+import json
+import sys
+
+import bf_lib as L
+
+fit = json.load(open('bf_bg_fit.json'))
+con = fit['constants_per_anisotropy']
+CA = {'U1': 0.0, 'SU2': 2.0, 'SU3': 3.0}
+out = {'g2': L.G2, 'rows': {}}
+for F in ('5', '15'):
+    X = {a: fit['source_action_matching'][f'F={F}, xi=inf'][a]['X_hat = tr_F(Chat H^2)/kappa_F'] for a in CA}
+    for xi in ('1.0', '2.0', '4.0', '8.0', '16.0', 'inf'):
+        t = con[xi]
+        row = {}
+        for a in ('U1', 'SU2', 'SU3'):
+            ds = CA[a] * (t['m_sigma'] + t['w_sigma'] / 8) - t['w_sigma'] / 2 * X[a]
+            dt = CA[a] * (t['m_tau'] + t['w_tau'] / 8) - t['w_tau'] / 2 * X[a]
+            row[a] = {'delta_sigma': ds, 'delta_tau': dt, 'c_minus_1': L.G2 / 2 * (ds - dt)}
+        row['largest_speed_difference_between_factors'] = max(r['c_minus_1'] for r in row.values()) - min(r['c_minus_1'] for r in row.values())
+        out['rows'][f'F={F}, xi={xi}'] = row
+        print(f'F={F}, xi={xi}', {a: round(r['c_minus_1'], 4) for a, r in row.items() if isinstance(r, dict)},
+              'spread', round(row['largest_speed_difference_between_factors'], 4))
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 'bf_speed.json', 'w'), indent=1)

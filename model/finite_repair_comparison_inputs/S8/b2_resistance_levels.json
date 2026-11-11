@@ -1,0 +1,152 @@
+{
+ "face_axis": {
+  "rows": [
+   {
+    "level": 0,
+    "ports": 240,
+    "R_smeared_mean": 1.6333333333333366,
+    "R_smeared_spread": 9.103828801926284e-15,
+    "R_port_mean": 2.043279671717175,
+    "R_port_spread": 0.00017045454546282812,
+    "seconds": 0.02
+   },
+   {
+    "level": 1,
+    "ports": 960,
+    "R_smeared_mean": 2.2968253968253984,
+    "R_smeared_spread": 1.4654943925052066e-14,
+    "R_port_mean": 2.706796869875707,
+    "R_port_spread": 4.820321722931453e-05,
+    "seconds": 0.02
+   },
+   {
+    "level": 2,
+    "ports": 3840,
+    "R_smeared_mean": 2.875631250429939,
+    "R_smeared_spread": 6.52811138479592e-14,
+    "R_port_mean": 3.2856002500211168,
+    "R_port_spread": 6.261657858885883e-14,
+    "seconds": 0.18
+   },
+   {
+    "level": 3,
+    "ports": 15360,
+    "R_smeared_mean": 3.441160507346087,
+    "R_smeared_spread": 1.438849039914203e-13,
+    "R_port_mean": 3.851136902676227,
+    "R_port_spread": 2.960354275494126e-06,
+    "seconds": 0.7
+   },
+   {
+    "level": 4,
+    "ports": 61440,
+    "R_smeared_mean": 4.002391802326743,
+    "R_smeared_spread": 3.6060043839825084e-13,
+    "R_port_mean": 4.412366402403454,
+    "R_port_spread": 7.402847241877453e-07,
+    "seconds": 4.83
+   },
+   {
+    "level": 5,
+    "ports": 245760,
+    "R_smeared_mean": 4.563048824748293,
+    "R_smeared_spread": 9.627854069549358e-13,
+    "R_port_mean": 4.973023513377879,
+    "R_port_spread": 9.663381206337363e-13,
+    "seconds": 31.96
+   }
+  ],
+  "increments_smeared": [
+   0.6634920634920618,
+   0.5788058536045404,
+   0.5655292569161481,
+   0.5612312949806562,
+   0.5606570224215499
+  ],
+  "increments_port": [
+   0.6635171981585319,
+   0.57880338014541,
+   0.5655366526551102,
+   0.5612294997272271,
+   0.5606571109744252
+  ]
+ },
+ "port_pair": {
+  "rows": [
+   {
+    "level": 0,
+    "ports": 240,
+    "R_smeared_mean": 1.6302104465309422,
+    "R_smeared_spread": 0.033694495970632454,
+    "R_port_mean": 2.06533259346468,
+    "R_port_spread": 0.0459114399517313,
+    "seconds": 0.03
+   },
+   {
+    "level": 1,
+    "ports": 960,
+    "R_smeared_mean": 2.2985052373882326,
+    "R_smeared_spread": 0.043225590765255895,
+    "R_port_mean": 2.7519501232858388,
+    "R_port_spread": 0.10939877366793915,
+    "seconds": 0.06
+   },
+   {
+    "level": 2,
+    "ports": 3840,
+    "R_smeared_mean": 2.871413615235125,
+    "R_smeared_spread": 0.02499830588098506,
+    "R_port_mean": 3.3250133863091826,
+    "R_port_spread": 0.09194547170786471,
+    "seconds": 0.39
+   },
+   {
+    "level": 3,
+    "ports": 15360,
+    "R_smeared_mean": 3.427746106566546,
+    "R_smeared_spread": 0.003787588142921905,
+    "R_port_mean": 3.8816085461311434,
+    "R_port_spread": 0.06566282211484076,
+    "seconds": 1.67
+   },
+   {
+    "level": 4,
+    "ports": 61440,
+    "R_smeared_mean": 3.985451724290923,
+    "R_smeared_spread": 0.007449275849041204,
+    "R_port_mean": 4.4390975601205716,
+    "R_port_spread": 0.06316183398534214,
+    "seconds": 7.13
+   },
+   {
+    "level": 5,
+    "ports": 245760,
+    "R_smeared_mean": 4.53995105576974,
+    "R_smeared_spread": 0.024668924838327833,
+    "R_port_mean": 4.99379726122187,
+    "R_port_spread": 0.046293867631268526,
+    "seconds": 30.77
+   }
+  ],
+  "increments_smeared": [
+   0.6682947908572905,
+   0.5729083778468924,
+   0.5563324913314212,
+   0.5577056177243769,
+   0.5544993314788171
+  ],
+  "increments_port": [
+   0.686617529821159,
+   0.5730632630233439,
+   0.5565951598219607,
+   0.5574890139894282,
+   0.5546997011012982
+  ]
+ },
+ "prediction": {
+  "sigma_flat_face_axis": 0.39364790908,
+  "ln2/(pi sigma)": 0.5604897042849843,
+  "1/(pi sigma) per e-fold": 0.8086157168412684,
+  "analogue of a one-loop coefficient b = 2/sigma": 5.080682391211546
+ }
+}

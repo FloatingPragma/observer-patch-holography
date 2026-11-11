@@ -1,0 +1,381 @@
+{
+ "schema": "s6.c.wiring.v1",
+ "face_axis": {
+  "L0": {
+   "carriers": 20,
+   "distinct_glue_port_triples": 1,
+   "glue_triple_types": [
+    {
+     "pairwise_port_distances": [
+      2,
+      2,
+      2
+     ],
+     "stabilizer_in_rotations": 3,
+     "stabilizer_in_automorphisms": 6,
+     "carriers": 20
+    }
+   ],
+   "fraction_with_trivial_rotation_stabilizer": 0.0,
+   "holonomy_half_turn_transport": [
+    {
+     "vertex_degree": 5,
+     "holonomy": "rotation by +1 positions (counterclockwise from outside)",
+     "vertices": 12
+    }
+   ],
+   "holonomy_mirror_transport": [
+    {
+     "vertex_degree": 5,
+     "holonomy": "reflection fixing the position of the vertex",
+     "vertices": 12
+    }
+   ],
+   "orientation_of_cell_vertex_order": {
+    "1": 20
+   }
+  },
+  "L1": {
+   "carriers": 80,
+   "distinct_glue_port_triples": 1,
+   "glue_triple_types": [
+    {
+     "pairwise_port_distances": [
+      2,
+      2,
+      2
+     ],
+     "stabilizer_in_rotations": 3,
+     "stabilizer_in_automorphisms": 6,
+     "carriers": 80
+    }
+   ],
+   "fraction_with_trivial_rotation_stabilizer": 0.0,
+   "holonomy_half_turn_transport": [
+    {
+     "vertex_degree": 5,
+     "holonomy": "rotation by +1 positions (counterclockwise from outside)",
+     "vertices": 12
+    },
+    {
+     "vertex_degree": 6,
+     "holonomy": "identity",
+     "vertices": 30
+    }
+   ],
+   "holonomy_mirror_transport": [
+    {
+     "vertex_degree": 5,
+     "holonomy": "reflection fixing the position of the vertex",
+     "vertices": 12
+    },
+    {
+     "vertex_degree": 6,
+     "holonomy": "identity",
+     "vertices": 30
+    }
+   ],
+   "orientation_of_cell_vertex_order": {
+    "1": 80
+   }
+  },
+  "L2": {
+   "carriers": 320,
+   "distinct_glue_port_triples": 1,
+   "glue_triple_types": [
+    {
+     "pairwise_port_distances": [
+      2,
+      2,
+      2
+     ],
+     "stabilizer_in_rotations": 3,
+     "stabilizer_in_automorphisms": 6,
+     "carriers": 320
+    }
+   ],
+   "fraction_with_trivial_rotation_stabilizer": 0.0,
+   "holonomy_half_turn_transport": [
+    {
+     "vertex_degree": 5,
+     "holonomy": "rotation by +1 positions (counterclockwise from outside)",
+     "vertices": 12
+    },
+    {
+     "vertex_degree": 6,
+     "holonomy": "identity",
+     "vertices": 150
+    }
+   ],
+   "holonomy_mirror_transport": [
+    {
+     "vertex_degree": 5,
+     "holonomy": "reflection fixing the position of the vertex",
+     "vertices": 12
+    },
+    {
+     "vertex_degree": 6,
+     "holonomy": "identity",
+     "vertices": 150
+    }
+   ],
+   "orientation_of_cell_vertex_order": {
+    "1": 320
+   }
+  },
+  "L3": {
+   "carriers": 1280,
+   "distinct_glue_port_triples": 1,
+   "glue_triple_types": [
+    {
+     "pairwise_port_distances": [
+      2,
+      2,
+      2
+     ],
+     "stabilizer_in_rotations": 3,
+     "stabilizer_in_automorphisms": 6,
+     "carriers": 1280
+    }
+   ],
+   "fraction_with_trivial_rotation_stabilizer": 0.0,
+   "holonomy_half_turn_transport": [
+    {
+     "vertex_degree": 5,
+     "holonomy": "rotation by +1 positions (counterclockwise from outside)",
+     "vertices": 12
+    },
+    {
+     "vertex_degree": 6,
+     "holonomy": "identity",
+     "vertices": 630
+    }
+   ],
+   "holonomy_mirror_transport": [
+    {
+     "vertex_degree": 5,
+     "holonomy": "reflection fixing the position of the vertex",
+     "vertices": 12
+    },
+    {
+     "vertex_degree": 6,
+     "holonomy": "identity",
+     "vertices": 630
+    }
+   ],
+   "orientation_of_cell_vertex_order": {
+    "1": 1280
+   }
+  },
+  "L4": {
+   "carriers": 5120,
+   "distinct_glue_port_triples": 1,
+   "glue_triple_types": [
+    {
+     "pairwise_port_distances": [
+      2,
+      2,
+      2
+     ],
+     "stabilizer_in_rotations": 3,
+     "stabilizer_in_automorphisms": 6,
+     "carriers": 5120
+    }
+   ],
+   "fraction_with_trivial_rotation_stabilizer": 0.0,
+   "holonomy_half_turn_transport": [
+    {
+     "vertex_degree": 5,
+     "holonomy": "rotation by +1 positions (counterclockwise from outside)",
+     "vertices": 12
+    },
+    {
+     "vertex_degree": 6,
+     "holonomy": "identity",
+     "vertices": 2550
+    }
+   ],
+   "holonomy_mirror_transport": [
+    {
+     "vertex_degree": 5,
+     "holonomy": "reflection fixing the position of the vertex",
+     "vertices": 12
+    },
+    {
+     "vertex_degree": 6,
+     "holonomy": "identity",
+     "vertices": 2550
+    }
+   ],
+   "orientation_of_cell_vertex_order": {
+    "1": 5120
+   }
+  }
+ },
+ "port_pair": {
+  "L0": {
+   "carriers": 20,
+   "distinct_glue_port_triples": 4,
+   "glue_triple_types": [
+    {
+     "pairwise_port_distances": [
+      2,
+      2,
+      2
+     ],
+     "stabilizer_in_rotations": 3,
+     "stabilizer_in_automorphisms": 6,
+     "carriers": 12
+    },
+    {
+     "pairwise_port_distances": [
+      1,
+      2,
+      2
+     ],
+     "stabilizer_in_rotations": 1,
+     "stabilizer_in_automorphisms": 2,
+     "carriers": 8
+    }
+   ],
+   "fraction_with_trivial_rotation_stabilizer": 0.4
+  },
+  "L1": {
+   "carriers": 80,
+   "distinct_glue_port_triples": 6,
+   "glue_triple_types": [
+    {
+     "pairwise_port_distances": [
+      2,
+      2,
+      2
+     ],
+     "stabilizer_in_rotations": 3,
+     "stabilizer_in_automorphisms": 6,
+     "carriers": 56
+    },
+    {
+     "pairwise_port_distances": [
+      1,
+      2,
+      3
+     ],
+     "stabilizer_in_rotations": 1,
+     "stabilizer_in_automorphisms": 2,
+     "carriers": 24
+    }
+   ],
+   "fraction_with_trivial_rotation_stabilizer": 0.3
+  },
+  "L2": {
+   "carriers": 320,
+   "distinct_glue_port_triples": 8,
+   "glue_triple_types": [
+    {
+     "pairwise_port_distances": [
+      2,
+      2,
+      2
+     ],
+     "stabilizer_in_rotations": 3,
+     "stabilizer_in_automorphisms": 6,
+     "carriers": 216
+    },
+    {
+     "pairwise_port_distances": [
+      1,
+      2,
+      3
+     ],
+     "stabilizer_in_rotations": 1,
+     "stabilizer_in_automorphisms": 2,
+     "carriers": 104
+    }
+   ],
+   "fraction_with_trivial_rotation_stabilizer": 0.325
+  },
+  "L3": {
+   "carriers": 1280,
+   "distinct_glue_port_triples": 8,
+   "glue_triple_types": [
+    {
+     "pairwise_port_distances": [
+      2,
+      2,
+      2
+     ],
+     "stabilizer_in_rotations": 3,
+     "stabilizer_in_automorphisms": 6,
+     "carriers": 852
+    },
+    {
+     "pairwise_port_distances": [
+      1,
+      2,
+      3
+     ],
+     "stabilizer_in_rotations": 1,
+     "stabilizer_in_automorphisms": 2,
+     "carriers": 428
+    }
+   ],
+   "fraction_with_trivial_rotation_stabilizer": 0.334375
+  },
+  "L4": {
+   "carriers": 5120,
+   "distinct_glue_port_triples": 8,
+   "glue_triple_types": [
+    {
+     "pairwise_port_distances": [
+      2,
+      2,
+      2
+     ],
+     "stabilizer_in_rotations": 3,
+     "stabilizer_in_automorphisms": 6,
+     "carriers": 3252
+    },
+    {
+     "pairwise_port_distances": [
+      1,
+      2,
+      3
+     ],
+     "stabilizer_in_rotations": 1,
+     "stabilizer_in_automorphisms": 2,
+     "carriers": 1868
+    }
+   ],
+   "fraction_with_trivial_rotation_stabilizer": 0.364844
+  }
+ },
+ "holonomy_element": {
+  "class": "3",
+  "port_permutation": [
+   5,
+   4,
+   7,
+   6,
+   10,
+   11,
+   8,
+   9,
+   3,
+   2,
+   1,
+   0
+  ],
+  "action_on_triads": [
+   0,
+   3,
+   2,
+   4,
+   1
+  ],
+  "fixes_the_two_triads_of_the_marked_face": true,
+  "cycles_the_other_three": true,
+  "reading": "on the symmetric wiring the frame of a carrier returns rotated by a third of a turn about its marked face after one circuit of a five-valent mesh vertex. Labels that need only the marked face (Y, T3, Q) are global; the three other triads (colour index) are defined only up to cyclic permutation.",
+  "mirror_automorphisms_fixing_marked_face": 3
+ },
+ "seconds": 9.4
+}

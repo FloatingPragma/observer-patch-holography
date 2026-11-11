@@ -1,0 +1,194 @@
+"""Task 6: the reversible completion of CAP (owned parity record, coherent ordered-seam address, address
+reflection), built on the actual carrier with the recharted parity states. Exact arithmetic in Q(zeta_20).
+
+Template: audit/native/coherent_control.py (read-only). Space: 12 ports x 2 record states x 60 ordered seams.
+  v_kappa = |-_kappa>|0> - |+_kappa>|1>,  U_kappa = 1 - v v^dagger,  Q = sum_kappa U_kappa (x) |kappa><kappa|,
+  A psi = psi (x) uniform address,  R = 2 A A^dagger - 1,  W = Q R.
+"""
+import json, sys, time
+from fractions import Fraction as F
+import mpmath
+from cyc import Cyc, ZERO, ONE, Z, SQRT5, R18, q5, mat, eye, mmul, madd, mscale, dagger, mtrace, meq, mzero
+import carrier_exact as ce
+import oneload as ol
+from model.observer import native
+
+n, M = 12, 30
+ADDR = [(a, b) for (a, b) in ce.SEAMS] + [(b, a) for (a, b) in ce.SEAMS]
+D = len(ADDR)
+out = {}
+t0 = time.time()
+HALF = Cyc.of(F(1, 2))
+
+
+def reflector(a, b, k):
+    """v (dict index -> Cyc on the 24-dimensional source x record space, index 2*port + record), norm^2 = 2."""
+    z = ce.link(a, b, k)
+    s = Cyc.of(1)                        # entries carry 1/sqrt2; v v^dagger then carries 1/2
+    return {2 * a: ONE, 2 * b: -z, 2 * a + 1: -ONE, 2 * b + 1: -z}
+
+
+def U_of(v):
+    U = eye(2 * n)
+    for i, x in v.items():
+        for j, y in v.items():
+            U[i][j] = U[i][j] - x * y.conj() * HALF
+    return U
+
+
+def native_kernel():
+    lap = ce._src.laplacian()
+    return [[Cyc.of(F(int(i == j)) - F(int(lap[i, j]), 60)) for j in range(n)] for i in range(n)]
+
+
+P_native = native_kernel()
+lifts = {}
+for lift in ce.COVER:
+    lifts.setdefault(lift[0], lift)
+
+
+def irrep_label(Pj, mult, k):
+    """Name of the multiplet carried by the projector Pj (dimension mult) under the cover action at flux k."""
+    if mult in (1, 5):
+        return str(mult)
+    if mult == 4:
+        return '4' if k % 2 == 0 else "4s"
+    # character at a rotation of order five
+    perm = next(p for p in ce.ROTATIONS if len({p[i] == i for i in range(n)}) == 2 and sum(p[i] == i for i in range(n)) == 2)
+    lift = lifts[perm]; G = lift[2]
+    tr2 = G[0][0] + G[1][1]
+    U = ce.implementer(lift, 1, k)
+    ch = ZERO
+    for col, (row, e) in enumerate(U):
+        ch = ch + Pj[col][row] * Z ** e          # Tr(P U) = sum_col P[col][row(col)] * phase
+    if mult == 2:
+        cands = {'2': tr2, "2'": tr2.galois(3), '2*': tr2.conj(), "2'*": tr2.galois(3).conj()}
+        return next((name[:2].rstrip('*') for name, c in cands.items() if c == ch), '2?')
+    if mult == 3:
+        c3 = tr2 * tr2 - 1
+        return '3' if ch == c3 else ("3'" if ch == c3.galois(3) else '3?')
+    if mult == 6:
+        return '6'
+    return str(mult)
+
+
+table = []
+for k in range(0, 11):
+    # 1. local reflectors and the discriminant
+    disc = mat(2 * n, 2 * n)
+    traces = set()
+    blank_blocks_ok = True
+    for (a, b) in ADDR:
+        v = reflector(a, b, k)
+        assert sum((x * x.conj() for x in v.values()), ZERO) == 4      # entries without the 1/sqrt2: norm^2 2 after the factor 1/2
+        U = U_of(v)
+        if k in (1, 2):
+            assert meq(mmul(U, U), eye(2 * n)) and meq(U, dagger(U))
+        traces.add(mtrace(U))
+        disc = madd(disc, U)
+        # blank-record blocks are the CAP rows of the oriented seam
+        rows = dict(ce.instrument((a, b), 1, k))
+        keep = ce.sp_dense(rows['keep'], n); corr = ce.sp_dense(rows['corrected'], n)
+        for p in range(n):
+            for q in range(n):
+                blank_blocks_ok &= (U[2 * p][2 * q] == keep[p][q]) and (U[2 * p + 1][2 * q] == corr[p][q])
+    assert blank_blocks_ok and traces == {Cyc.of(22)}
+    disc = mscale(disc, Cyc.of(F(1, D)))
+    A = ce.twisted_adjacency(k)
+    T0 = [[(ONE if i == j else ZERO) - ((Cyc.of(5) if i == j else ZERO) - A[i][j]) / 60 for j in range(n)] for i in range(n)]
+    T1 = [[(ONE if i == j else ZERO) - ((Cyc.of(5) if i == j else ZERO) + A[i][j]) / 60 for j in range(n)] for i in range(n)]
+    for i in range(n):
+        for j in range(n):
+            assert disc[2 * i][2 * j] == T0[i][j] and disc[2 * i + 1][2 * j + 1] == T1[i][j]
+            assert disc[2 * i][2 * j + 1].is_zero() and disc[2 * i + 1][2 * j].is_zero()
+    # 2. spectrum of the twisted adjacency, walk frequencies
+    spec = ol.spectrum(A)
+    Pj = ol.projectors(A, spec)
+    mpmath.mp.dps = 40
+    rowk = []
+    for (a, m), P in zip(spec, Pj):
+        lam = (Cyc.of(55) + a) / 60
+        lam1 = (Cyc.of(55) - a) / 60
+        assert (ONE - lam).sign() >= 0 and (ONE + lam).sign() > 0
+        rowk.append({'multiplet': irrep_label(P, m, k), 'dimension': m, 'adjacency_eigenvalue': ol.show(a),
+                     'transfer_eigenvalue': ol.show(lam), 'transfer_float': float(lam.mp(40).real),
+                     'walk_frequency': mpmath.nstr(mpmath.acos(lam.mp(40).real), 15),
+                     'record_one_block_frequency': mpmath.nstr(mpmath.acos(lam1.mp(40).real), 15)})
+    lowest = min(float(r['walk_frequency']) for r in rowk)
+    table.append({'flux': k, 'levels': rowk, 'lowest_walk_frequency': lowest,
+                  'zero_mode': any((ONE - (Cyc.of(55) + a) / 60).is_zero() for a, _ in spec)})
+    print(f'flux {k:2d}: discriminant = diag(1 - (5 - A_k)/60, 1 - (5 + A_k)/60) exact; blank-record blocks = CAP rows; '
+          + '; '.join(f"{r['multiplet']}: lambda {r['transfer_float']:.6f}, omega {float(r['walk_frequency']):.6f}" for r in rowk), flush=True)
+out['walk_frequency_table'] = table
+out['discriminant'] = {'record_0_block': 'T_k = 1 - (5 - A_k)/60 (twisted transfer of flux k)',
+                       'record_1_block': '1 - (5 + A_k)/60 (gauge equivalent to the twisted transfer of flux k + 10)',
+                       'cross_blocks': 'zero (opposite orientations cancel)', 'checked_for_flux': list(range(11)),
+                       'local_reflector_trace': 22, 'blank_record_blocks_equal_CAP_rows': True}
+
+# 3. the walk itself at flux 1: first-event population shadow for every source matrix unit, second event, counts
+k = 1
+Us = [U_of(reflector(a, b, k)) for (a, b) in ADDR]
+# first event from an embedded blank-record source matrix unit E_ij: populations (1/D) sum_kappa sum_r U[(p,r),(i,0)] conj(U[(p,r),(j,0)])
+ok = True
+for i in range(n):
+    for j in range(n):
+        for p in range(n):
+            s = ZERO
+            for U in Us:
+                for r in (0, 1):
+                    x, y = U[2 * p + r][2 * i], U[2 * p + r][2 * j]
+                    if not x.is_zero() and not y.is_zero():
+                        s = s + x * y.conj()
+            s = s / D
+            ok &= (s == (P_native[p][i] if i == j else ZERO))
+assert ok
+# second event: amplitudes on 24 x D, initial |port 0, record 0> (x) uniform address (amplitudes scaled by sqrt(D))
+def reflect(x):
+    y = [None] * (2 * n * D)
+    for s in range(2 * n):
+        seg = x[s * D:(s + 1) * D]
+        mean = sum(seg, ZERO) / D
+        for kk in range(D):
+            y[s * D + kk] = mean * 2 - seg[kk]
+    return y
+def controlled(x):
+    y = list(x)
+    for kk, (a, b) in enumerate(ADDR):
+        v = reflector(a, b, k)
+        c = sum((val.conj() * x[i * D + kk] for i, val in v.items()), ZERO) * HALF
+        for i, val in v.items():
+            y[i * D + kk] = y[i * D + kk] - val * c
+    return y
+def populations(x):
+    return [sum((z * z.conj() for z in x[2 * a * D:(2 * a + 2) * D]), ZERO) / D for a in range(n)]
+init = [ZERO] * (2 * n * D)
+for kk in range(D):
+    init[0 * D + kk] = ONE
+first = controlled(reflect(init)); second = controlled(reflect(first))
+p1, p2 = populations(first), populations(second)
+assert all(p1[i] == P_native[i][0] for i in range(n)) and sum(p2, ZERO) == 1
+PP = mmul(P_native, P_native)
+out['walk_flux_1'] = {
+    'dimension': 2 * n * D,
+    'first_event_population_shadow_all_144_source_matrix_units': True,
+    'second_event_return_probability': ol.show(p2[0]), 'second_event_return_float': float(p2[0].mp(30).real),
+    'native_two_event_return_probability': str(PP[0][0].rational()),
+    'difference': ol.show(p2[0] - PP[0][0]),
+    'all_time_population_shadow': False,
+    'W_plus_one_multiplicity': D - 2 * n, 'W_minus_one_multiplicity': 2 * n * D - D - 2 * n, 'oscillatory_dimension': 4 * n,
+    'A_cyclic_subspace_dimension': 4 * n, 'blank_record_cyclic_subspace_dimension': 2 * n,
+    'count_rule': 'two reflections with ranges of dimension 24 (address-uniform) and 60 (local reflectors); no discriminant eigenvalue equals 1 or -1 for flux k != 0',
+    'trace_W': -1276, 'heralded_reference': 'rho_W = ((5/4) 1 + (W + W^dagger)/2)/524, success probability 131/810 (same numbers as the flux-0 walk: Tr U_kappa = 22)',
+    'reduced_reference_on_source_and_record': 'Tr_address rho_W = (75 - 58 diag(T_k, T_k^(1)))/524: blank-record block (17 + (29/30)(5 - A_k))/524, record-one block (17 + (29/30)(5 + A_k))/524',
+    'reduced_reference_on_source': '1/12 (tracial); the flux dependence sits in the source-record correlation',
+}
+# exact check of the reduced reference blocks
+A1 = ce.twisted_adjacency(1)
+red0 = [[((Cyc.of(75) if i == j else ZERO) - sum((U[2 * i][2 * j] for U in Us), ZERO) * F(58, 60)) / 524 for j in range(n)] for i in range(n)]
+want0 = [[((Cyc.of(17) if i == j else ZERO) + ((Cyc.of(5) if i == j else ZERO) - A1[i][j]) * F(29, 30)) / 524 for j in range(n)] for i in range(n)]
+assert meq(red0, want0)
+print('flux 1 walk: first blank-record event has the native population shadow on all 144 source matrix units; '
+      f'second-event return probability {ol.show(p2[0])} = {float(p2[0].mp(30).real):.9f} against native {PP[0][0].rational()} = {float(PP[0][0].rational()):.9f}')
+print(f'   blank-record block of the heralded reference = (17 + (29/30)(5 - A_1))/524 exact; {time.time() - t0:.1f}s')
+out['seconds'] = time.time() - t0
+json.dump(out, open(sys.argv[1], 'w'), indent=1)

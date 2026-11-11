@@ -1,0 +1,257 @@
+"""S3 step 3: exhaustive Bloch analysis of translation-invariant wirings on the flat triangular mesh.
+
+Unit cell: one up and one down carrier (24 ports). A wiring is a pair (type of the up triple, type of the down
+triple), each one of the 14 ordered-triple types; bond k (k = 0,1,2, ccw) carries port u[k] of the up carrier and
+port d[k] of the down carrier. The 105 pairs with up <= down are computed; the other 91 of the 14 x 14 = 196
+are their images under the lattice inversion (which exchanges up and down) and have the same spectrum.
+The pair loop is resumable (cache s3_flat_pairs_cache.json) and stops itself after BUDGET seconds.
+
+Per pair: reduced bond conductances (exact), conductivity tensor of the massless band (exact formula, checked
+against the Bloch curvature), anisotropy, minimum over the zone of the gap between the two lowest bands and
+where it sits (K, displaced, or gapped).
+
+Also: detailed numbers for the two cyclic wirings, and the vertex wiring with six belt ports (sim `triangular6`).
+
+Run:  cd SCR/rer-edit && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. nice -n 10 /tmp/oph-completion-venv/bin/python \
+          SCR/research/S3/s3_flat.py
+Writes SCR/research/S3/s3_flat.json
+"""
+import json
+import math
+import sys
+import time
+from fractions import Fraction as Fr
+
+import numpy as np
+from scipy.optimize import minimize
+
+sys.dont_write_bytecode = True
+sys.path.insert(0, '/private/tmp/claude-501/-Users-muellerberndt-Projects-oph-meta/ffc7e197-dc34-420e-b416-eceb3c5d7773/scratchpad/research/S3')
+import s0_lib as S  # noqa: E402
+
+A1 = np.array([1.0, 0.0]); A2 = np.array([0.5, math.sqrt(3) / 2])
+DELTA = (np.zeros(2), A1, A2)
+BOND = np.array([(A1 + A2) / 3, (A2 - 2 * A1) / 3, (A1 - 2 * A2) / 3])     # up centre -> down centre, ccw 30,150,270 deg
+B1 = 2 * math.pi * np.array([1.0, -1 / math.sqrt(3)]); B2 = 2 * math.pi * np.array([0.0, 2 / math.sqrt(3)])
+KPT = np.array([2 * math.pi / 3, 2 * math.pi / math.sqrt(3)])
+RHO = 24 / (math.sqrt(3) / 2)                                               # ports per unit area (mesh edge = 1)
+LC = S.LCAR.astype(float)
+
+
+def bloch(q, pu, pd):
+    q = np.atleast_2d(np.asarray(q, float))
+    L = np.zeros((q.shape[0], 24, 24), complex)
+    L[:, :12, :12] = LC; L[:, 12:, 12:] = LC
+    for k in range(3):
+        u, d = pu[k], 12 + pd[k]
+        L[:, u, u] += 1; L[:, d, d] += 1
+        ph = np.exp(-1j * (q @ DELTA[k]))
+        L[:, u, d] -= ph; L[:, d, u] -= np.conj(ph)
+    return L
+
+
+def bands(q, pu, pd):
+    return np.linalg.eigvalsh(bloch(q, pu, pd))
+
+
+def conductivity(pu, pd):
+    """Exact reduced conductances and the conductivity tensor of the anisotropic honeycomb (per unit area)."""
+    au, ad = S.star_arms(pu), S.star_arms(pd)
+    w = [1 / (1 + au[k] + ad[k]) for k in range(3)]
+    wf = np.array([float(x) for x in w])
+    m = (wf[:, None] * BOND).sum(axis=0) / wf.sum()
+    sig = sum(wf[k] * np.outer(BOND[k] - m, BOND[k] - m) for k in range(3)) / (math.sqrt(3) / 2)
+    return w, sig
+
+
+def curvature_tensor_numeric(pu, pd, h=2e-3):
+    c = []
+    for ang in (0, 60, 120):
+        e = np.array([math.cos(math.radians(ang)), math.sin(math.radians(ang))])
+        c.append(float(bands(h * e, pu, pd)[0, 0]) / h ** 2)
+    # c(theta) = a + b cos 2theta + c sin 2theta at 0,60,120 deg
+    a = sum(c) / 3
+    b = (2 * c[0] - c[1] - c[2]) / 3
+    s = (c[1] - c[2]) / math.sqrt(3)
+    return a, math.hypot(b, s)
+
+
+def min_gap(pu, pd, n=30, starts=2):
+    s = (np.arange(n) + 0.5) / n
+    g1, g2 = np.meshgrid(s, s, indexing='ij')
+    qs = g1.reshape(-1, 1) * B1 + g2.reshape(-1, 1) * B2
+    ev = bands(qs, pu, pd)
+    gap = ev[:, 1] - ev[:, 0]
+    f = lambda x: float(np.diff(bands(x, pu, pd)[0, :2])[0])
+    best = []
+    for i in np.argsort(gap)[:starts]:
+        r = minimize(f, qs[i], method='Nelder-Mead', options={'xatol': 1e-9, 'fatol': 1e-13, 'maxiter': 400,
+                                                              'initial_simplex': qs[i] + 0.05 * np.array([[0, 0], [1, 0], [0, 1]])})
+        best.append((r.fun, r.x))
+    best.sort(key=lambda t: t[0])
+    g, q0 = best[0]
+    ev0 = bands(q0, pu, pd)[0]
+    corners = []
+    for n1 in range(-2, 3):
+        for n2 in range(-2, 3):
+            for sgn in (1, -1):
+                corners.append(sgn * KPT + n1 * B1 + n2 * B2)
+    dK = min(float(np.linalg.norm(q0 - c)) for c in corners)
+    return float(g), q0.tolist(), float(ev0[0]), dK, float(ev[:, 0].max()), float(ev[:, 1].min())
+
+
+T0 = time.time()
+out = {'conventions': {'mesh_edge': 1, 'K': KPT.tolist(), 'ports_per_unit_area': RHO}}
+import os
+BUDGET = float(sys.argv[1]) if len(sys.argv) > 1 else 140.0
+CACHE = S.S3 + '/s3_flat_pairs_cache.json'
+cache = json.load(open(CACHE)) if os.path.exists(CACHE) else {}
+reps = S.REPS120
+complete = True
+for iu, pu in enumerate(reps):
+    for idn, pd in enumerate(reps):
+        if idn < iu or f'{iu},{idn}' in cache:
+            continue
+        if time.time() - T0 > BUDGET:
+            complete = False
+            break
+        w, sig = conductivity(pu, pd)
+        ev = np.linalg.eigvalsh(sig)
+        cmean, camp = curvature_tensor_numeric(pu, pd)
+        g, q0, lam0, dK, top0, bot1 = min_gap(pu, pd)
+        cache[f'{iu},{idn}'] = {'up_type': iu, 'down_type': idn, 'up_triple': list(pu), 'down_triple': list(pd),
+                     'up_pattern': list(S.dist_pattern(pu)), 'down_pattern': list(S.dist_pattern(pd)),
+                     'bond_conductances': [str(x) for x in w],
+                     'c2_mean_exact_formula': float(ev.mean() / RHO), 'c2_anisotropy_pm': float((ev[1] - ev[0]) / (ev[1] + ev[0])),
+                     'sigma_eigen_ratio': float(ev[1] / ev[0]),
+                     'c2_mean_bloch': cmean, 'c2_anisotropy_pm_bloch': camp / cmean,
+                     'min_gap_lowest_pair': g, 'at_q': q0, 'level_there': lam0, 'distance_to_K': dK,
+                     'top_of_band0': top0, 'bottom_of_band1': bot1,
+                     'indirect_gap': bot1 - top0,
+                     'inversion_symmetric': iu == idn}
+    print('up type', iu, 'cached pairs', len(cache), round(time.time() - T0, 1), 's', flush=True)
+    if not complete:
+        break
+json.dump(cache, open(CACHE, 'w'))
+if not complete:
+    print('budget reached; rerun to continue', flush=True)
+    sys.exit(0)
+rows = [cache[k] for k in sorted(cache, key=lambda t: tuple(map(int, t.split(','))))]
+out['pairs'] = rows
+
+gapless = [r for r in rows if r['min_gap_lowest_pair'] < 1e-6]
+gapped = [r for r in rows if r['min_gap_lowest_pair'] >= 1e-6]
+atK = [r for r in gapless if r['distance_to_K'] < 1e-5]
+out['summary'] = {
+    'pairs_computed_up_le_down': len(rows), 'gapless': len(gapless), 'gapless_at_K': len(atK), 'gapless_displaced': len(gapless) - len(atK),
+    'gapped': len(gapped),
+    'all_inversion_symmetric_pairs_gapless': all(r['min_gap_lowest_pair'] < 1e-6 for r in rows if r['inversion_symmetric']),
+    'gapless_pairs_not_inversion_symmetric': [(r['up_type'], r['down_type']) for r in gapless if not r['inversion_symmetric']],
+    'isotropic_pairs': [(r['up_type'], r['down_type']) for r in rows if r['c2_anisotropy_pm'] < 1e-12],
+    'max_sigma_eigen_ratio': max(r['sigma_eigen_ratio'] for r in rows),
+    'max_c2_anisotropy_pm': max(r['c2_anisotropy_pm'] for r in rows),
+    'max_gap': max(r['min_gap_lowest_pair'] for r in rows),
+    'max_abs_formula_vs_bloch_c2': max(abs(r['c2_mean_exact_formula'] - r['c2_mean_bloch']) for r in rows),
+    'max_abs_formula_vs_bloch_anisotropy': max(abs(r['c2_anisotropy_pm'] - r['c2_anisotropy_pm_bloch']) for r in rows),
+    'gapped_examples_sorted': sorted([(round(r['min_gap_lowest_pair'], 6), r['up_pattern'], r['down_pattern'], r['up_type'], r['down_type']) for r in gapped], reverse=True)[:12],
+}
+print(json.dumps(out['summary'], indent=1))
+
+
+# ---------------------------------------------------------------- detail for the two cyclic wirings and the pinned-like one
+def detail(name, pu, pd):
+    ev0 = bands(np.zeros(2), pu, pd)[0]
+    n = 30
+    s = (np.arange(n) + 0.5) / n
+    g1, g2 = np.meshgrid(s, s, indexing='ij')
+    qs = g1.reshape(-1, 1) * B1 + g2.reshape(-1, 1) * B2
+    ev = bands(qs, pu, pd)
+    width = ev.max(axis=0) - ev.min(axis=0)
+    evK = bands(KPT, pu, pd)[0]
+    d = 1e-4
+    slopes = []
+    for ang in (0, 30, 60, 90):
+        e = np.array([math.cos(math.radians(ang)), math.sin(math.radians(ang))])
+        b = bands(KPT + d * e, pu, pd)[0]
+        slopes.append(float(b[1] - b[0]) / (2 * d))
+    w, sig = conductivity(pu, pd)
+    c2 = float(np.linalg.eigvalsh(sig).mean() / RHO)
+    h = 1e-2
+    c4 = [(float(bands(h * np.array([math.cos(t), math.sin(t)]), pu, pd)[0, 0]) - c2 * h * h) / h ** 4 for t in np.radians([0, 15, 30])]
+    return {'wiring': name, 'up_triple': list(pu), 'down_triple': list(pd), 'bond_conductance': [str(x) for x in w],
+            'massless_c2': c2, 'massless_c2_exact': str(w[0] / 48) if w[0] == w[1] == w[2] else None,
+            'q4_coefficient_at_0_15_30_deg': c4,
+            'levels_at_zero': ev0.tolist(), 'flat_bands': int((width < 1e-9).sum()), 'flat_band_levels': sorted(set(np.round(ev[0][width < 1e-9], 9).tolist())),
+            'two_lowest_at_K': evK[:2].tolist(), 'gap_at_K': float(evK[1] - evK[0]), 'slope_of_lambda_at_K_by_direction': slopes,
+            'top_of_band0': float(ev[:, 0].max()), 'bottom_of_band1': float(ev[:, 1].min())}
+
+
+F, B = S.FACE_TRIPLE, S.BELT_TRIPLE
+out['detail'] = [detail('F: face triple (1,1,1), up = down', F, F), detail('B: belt triple (2,2,2), up = down (sim face_axis)', B, B),
+                 detail('F up, B down (staggered)', F, B)]
+for d in out['detail']:
+    print(json.dumps({k: d[k] for k in ('wiring', 'bond_conductance', 'massless_c2', 'massless_c2_exact', 'flat_bands', 'two_lowest_at_K', 'gap_at_K',
+                                           'slope_of_lambda_at_K_by_direction', 'top_of_band0', 'bottom_of_band1', 'q4_coefficient_at_0_15_30_deg')}), flush=True)
+
+
+# ---------------------------------------------------------------- vertex wiring: carriers on mesh vertices, six belt ports
+def belt_cycle():
+    U = S.PORT_UNIT
+    n = U[list(S.TOP)].sum(axis=0); n /= np.linalg.norm(n)
+    ref = U[S.TOP[0]] - (U[S.TOP[0]] @ n) * n; ref /= np.linalg.norm(ref)
+    e2 = np.cross(n, ref)
+    polar = np.degrees(np.arccos(np.clip(U @ n, -1, 1)))
+    belt = [p for p in range(12) if 60 < polar[p] < 120]
+    az = np.degrees(np.arctan2(U[belt] @ e2, U[belt] @ ref)) % 360
+    order = np.argsort(az)
+    return [belt[i] for i in order], az[order]
+
+
+def bloch_vertex(q, ring):
+    """One carrier per mesh vertex; neighbour j (direction 60 j degrees) is reached through ring[j], and the bond
+    ends on ring[j+3] of the neighbour (the port facing back)."""
+    q = np.atleast_2d(np.asarray(q, float))
+    L = np.tile(LC.astype(complex), (q.shape[0], 1, 1))
+    for j in range(3):                                  # three bond directions, each bond counted once
+        e = np.array([math.cos(math.radians(60 * j)), math.sin(math.radians(60 * j))])
+        p, pb = ring[j], ring[j + 3]
+        ph = np.exp(1j * (q @ e))
+        L[:, p, p] += 1; L[:, pb, pb] += 1
+        L[:, p, pb] -= ph; L[:, pb, p] -= np.conj(ph)
+    return L
+
+
+belt, az = belt_cycle()
+faces6 = None
+# the other six-port orbit of the rotoreflection: top and bottom face alternating
+top = list(S.TOP)
+rr = S.find_aut(tuple(top), (top[1], top[2], top[0]), proper_only=True)[0]
+s6 = S.compose(tuple(S.ANTI), rr)                        # rotoreflection of order 6
+assert S.perm_order(s6) == 6
+orb = [top[0]]
+for _ in range(5):
+    orb.append(s6[orb[-1]])
+bo = [belt[0]]
+for _ in range(5):
+    bo.append(s6[bo[-1]])
+vert = []
+for name, ring in (('six belt ports (sim triangular6)', belt), ('top and bottom face ports alternating', orb)):
+    ev0 = np.linalg.eigvalsh(bloch_vertex(np.zeros(2), ring))[0]
+    h = 2e-3
+    cs = [float(np.linalg.eigvalsh(bloch_vertex(h * np.array([math.cos(t), math.sin(t)]), ring))[0, 0]) / h ** 2 for t in np.radians([0, 15, 30, 60, 90])]
+    n = 30
+    s = (np.arange(n) + 0.5) / n
+    g1, g2 = np.meshgrid(s, s, indexing='ij')
+    qs = g1.reshape(-1, 1) * B1 + g2.reshape(-1, 1) * B2
+    ev = np.linalg.eigvalsh(bloch_vertex(qs, ring))
+    width = ev.max(axis=0) - ev.min(axis=0)
+    vert.append({'wiring': name, 'ring': [int(x) for x in ring],
+                 'ring_is_orbit_of_order6_rotoreflection': any([int(x) for x in ring] == [cand[(s0 + sg * i) % 6] for i in range(6)]
+                                                               for cand in (bo, orb) for s0 in range(6) for sg in (1, -1)),
+                 'massless_c2_by_direction': cs, 'five_over_64': 5 / 64,
+                 'flat_bands': int((width < 1e-9).sum()), 'min_gap_band0_band1': float((ev[:, 1] - ev[:, 0]).min()),
+                 'top_of_band0': float(ev[:, 0].max()), 'bottom_of_band1': float(ev[:, 1].min())})
+    print(json.dumps(vert[-1]), flush=True)
+out['vertex_wirings'] = vert
+json.dump(out, open(S.S3 + '/s3_flat.json', 'w'), indent=1)
+print('written', S.S3 + '/s3_flat.json')

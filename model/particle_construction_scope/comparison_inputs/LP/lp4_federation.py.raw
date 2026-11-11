@@ -1,0 +1,109 @@
+"""LP direction 4: the federation glue seam (items F1 to F3 of CANDIDATES.md). Reads the public federation
+(`model/federated_observer/source.py`, retained `oph_exact/federation.py`, gluing `port_pair`) and the public local
+unitary. EXACT. Writes lp4_federation.json.
+"""
+from __future__ import annotations
+
+import itertools
+import json
+import sys
+import time
+from collections import Counter
+from fractions import Fraction as Fr
+
+import lp_common as L
+
+OUT = 'lp4_federation.json'
+
+
+def main():
+    t0 = time.time()
+    L.FC.rer_root()
+    from model.federated_observer import source
+    out = {'task': 'LP direction 4: federation glue seam', 'provenance': L.FC.provenance()}
+    fed = source.federation(0)
+    raw = source._source().build_federation(0, 'port_pair')
+    glued = Counter()
+    for a, b in fed.inter_seams:
+        glued[a] += 1
+        glued[b] += 1
+    car = L.FC.carrier()
+    adj = car['adj']
+    per = {}
+    for p in glued:
+        per.setdefault(p // 12, []).append(p % 12)
+    shapes = Counter()
+    for c, ps in per.items():
+        shapes[sum(1 for x, y in itertools.combinations(sorted(ps), 2) if y in adj[x])] += 1
+    rec = raw.gluing_receipt
+    out['F1_public_rule'] = {
+        'level': 0, 'carriers': fed.cells, 'ports': fed.ports, 'seams': len(fed.seams), 'inter-carrier seams': len(fed.inter_seams),
+        'every inter-carrier seam joins two different carriers': all(a // 12 != b // 12 for a, b in fed.inter_seams),
+        'largest number of glue seams at one port': max(glued.values()), 'glued ports per carrier': sorted({len(v) for v in per.values()}),
+        'carriers by number of adjacent pairs among their three glued ports': dict(shapes),
+        'receipt: declared_convention': rec.get('declared_convention'), 'receipt: source_derived': rec.get('source_derived'),
+        'receipt: mode': rec.get('mode'),
+        'reading': ('a glue seam is an ordinary seam between one port of a carrier and one port of a neighbour; no port belongs '
+                    'to two carriers; the occupation is global, so a load carries no carrier label')}
+    # the public binary endpoint rule on a glue seam
+    a, b = fed.inter_seams[0]
+    rows = {}
+    for occ in ((), (a,), (b,), (a, b)):
+        for coin in (0, 1):
+            res = source.binary_step(tuple(sorted(occ)), (a, b), coin)
+            rows[f'occupied {list(occ)}, coin {coin}'] = str(res)
+    out['F1_binary_rule_on_a_glue_seam'] = rows
+    # the public local unitary: transitions from (no double, record 0 or 1) into a double or a record 2, 3
+    leak = []
+    for src in ('00', '10', '01', '11'):
+        for r in (0, 1):
+            col = 4 * L.NAMES.index(src) + r
+            for row, u in L.U24_COL[col]:
+                if L.NAMES[row // 4] in ('20', '02') or row % 4 in (2, 3):
+                    leak.append((src, r, L.NAMES[row // 4], row % 4, str(u)))
+    kept = L.U24_COL[4 * L.NAMES.index('11')] == [(4 * L.NAMES.index('11'), Fr(1))]
+    out['F1_coherent_event_on_a_glue_seam'] = {
+        'seam with one load at each end and a blank record is kept': kept,
+        'transitions from states without a double load (records 0, 1) into a double load or a record 2, 3': leak,
+        'weight of a double load after a glue-seam event, from configurations without one': '0'}
+    out['F1_occurrence_weights'] = {
+        'two loads uniform over the 66 distinct pairs of one carrier, both ends of a given seam loaded': str(Fr(1, 66)),
+        'two loads uniform over the distinct pairs of two glued carriers (24 ports), both ends of the glue seam loaded': str(Fr(1, 276)),
+        'F3 declared reading of FR round 5 (one uniform load per carrier, coincidence on an identified port)': str(Fr(1, 144))}
+
+    # ---------------- F2: the integer seam-mean law of the retained federation at loads above two
+    import sys as _sys
+    carrier_mod = _sys.modules['oph_exact.carrier']
+    fedmod = source._source()
+    ev = {}
+    forms = []
+    for xi in range(0, 6):
+        for xj in range(0, 6):
+            outs = {carrier_mod.integer_nearest_agreement(xi, xj, ceiling_to_first=c) for c in (True, False)}
+            ev[f'({xi},{xj})'] = sorted(outs)
+            for (yi, yj) in outs:
+                if (yi == 2 and xi < 2) or (yj == 2 and xj < 2):
+                    forms.append(((xi, xj), (yi, yj)))
+    smallest = min(sum(x[0]) for x in forms)
+    loads = fedmod.initial_loads(0, fed.ports)
+    total = int(loads.sum())
+    q, r = divmod(total, fed.ports)
+    out['F2_integer_law'] = {
+        'events that put two loads on a port that held fewer': [f'{a_} -> {b_}' for a_, b_ in sorted(set(forms))],
+        'smallest seam total among them': smallest,
+        'smallest larger endpoint load among them': min(max(x[0]) for x in forms),
+        'from a seam total of two': [f'{k} -> {v}' for k, v in ev.items() if sum(eval(k)) == 2],
+        'retained level-0 run: initial loads': {'range': [int(loads.min()), int(loads.max())], 'total': total, 'ports': fed.ports},
+        'retained level-0 run: terminal balanced class': f'{fed.ports - r} ports with {q} loads and {r} ports with {q + 1} loads',
+        'events that produce equal loads of two from unequal loads': [f'{a_} -> {b_}' for a_, b_ in sorted(set(forms)) if b_ == (2, 2)],
+        'reading': ('a load of two appears on a port that held fewer only at a seam total of at least three: a double load '
+                    'exchanges place with a single load, or it forms beside a load of at least three; equal loads of two form '
+                    'at a seam total of four; the total-two sector and the binary class contain no such event')}
+    print(json.dumps(out, indent=1, default=str))
+    out['seconds'] = round(time.time() - t0, 2)
+    L.jdump(out, OUT)
+    print('written', OUT, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

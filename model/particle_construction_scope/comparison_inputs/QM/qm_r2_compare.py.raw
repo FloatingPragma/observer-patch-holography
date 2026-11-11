@@ -1,0 +1,74 @@
+"""QM round 2, NOT BLIND comparison (CANDIDATES.md H3): x, normalizations and determinants of every round-2 reading.
+
+Measured inputs, read only here and after values2.json exists:
+  - RER M_Z Yukawas (model/common_source/calibrated_matter_results.json), as in round 1;
+  - LS's three scale tables (RL/work/LS/ls2_compare.py SCALES, IMPORTED by LS from memory);
+  - the coordinator's normalization targets: y_3u/y_3d = 59 at M_Z, tr Y_e/tr Y_u = 0.0104 at Q0 (worker TR).
+Rules: x within 2 percent; a normalization within a factor 1.5; determinants within a factor 3 (LS).
+Run: cd RL/work/QM && PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B qm_r2_compare.py
+"""
+import json
+import math
+import os
+import sys
+
+import numpy as np
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+from qm_paths import RER  # noqa: E402
+sys.path.insert(0, os.path.join(HERE, '..', 'LS'))
+from ls2_compare import SCALES  # noqa: E402
+
+vals = json.load(open(os.path.join(HERE, 'values2.json')))
+assert vals['measured_values_read'] is False
+meas_x = json.load(open(os.path.join(HERE, 'compare.json')))['measured_MZ']   # round-1 chart of the same Yukawas
+cal = json.load(open(os.path.join(RER, 'model/common_source/calibrated_matter_results.json')))['calibration']
+yuk = cal['matched_SM']['yukawa']
+tables = {name: {'u': m['u'], 'd': m['d'], 'e': m['e']} for name, m in SCALES.items()}
+tables['RER_MZ_yukawa'] = {'u': [float(v) for v in yuk['up']], 'd': [float(v) for v in yuk['down']],
+                           'e': [float(v) for v in yuk['charged_lepton']]}
+DET = {}
+for name, t in tables.items():
+    det = {f: float(np.prod(t[f])) for f in t}
+    DET[name] = {'R_u': det['u'] / det['e'], 'R_d': det['d'] / det['e']}
+yu, yd, ye = (np.sort(np.array(tables['RER_MZ_yukawa'][f])) for f in ('u', 'd', 'e'))
+TARGET = {'y3u_over_y3d_MZ_coordinator': 59.0, 'y3u_over_y3d_MZ_RER': float(yu[2] / yd[2]),
+          'tr_e_over_tr_u_Q0_coordinator': 0.0104, 'tr_e_over_tr_u_MZ_RER': float(ye.sum() / yu.sum())}
+
+
+def fac(pred, target):
+    return math.exp(abs(math.log(pred / target))) if pred > 0 and target > 0 else float('inf')
+
+
+out = {'NOT_BLIND': True, 'targets': TARGET, 'measured_det': DET, 'readings': {}}
+for name, rec in vals.items():
+    if name == 'measured_values_read':
+        continue
+    r = {}
+    for sec in ('up', 'down'):
+        x = rec['x'][sec]
+        rel = x / meas_x[sec]['x'] - 1
+        r[f'x_{sec}'] = [x, meas_x[sec]['x'], ('passes' if abs(rel) <= 0.02 else 'fails') + f' ({100 * rel:+.1f} percent)']
+    nz = rec['normalizations']
+    for ph in ('P1', 'P2'):
+        y3 = nz[f'y3u_over_y3d_{ph}']
+        r[f'y3u_over_y3d|{ph}'] = [y3, TARGET['y3u_over_y3d_MZ_coordinator'], fac(y3, 59.0)]
+        tre = rec['spectra'][f'lepton|{ph}']['trace'] / rec['spectra'][f'up|{ph}']['trace']
+        r[f'tr_e_over_tr_u|{ph}'] = [tre, 0.0104, fac(tre, 0.0104)]
+        det = {s_: float(np.prod(rec['spectra'][f'{s_}|{ph}']['y_sorted'])) for s_ in ('up', 'down', 'lepton')}
+        Ru, Rd = det['up'] / det['lepton'], det['down'] / det['lepton']
+        r[f'det|{ph}'] = {'R_u': Ru, 'R_d': Rd,
+                          'miss': {t: {'u': fac(Ru, DET[t]['R_u']), 'd': fac(Rd, DET[t]['R_d']),
+                                       'passes_factor_3': max(fac(Ru, DET[t]['R_u']), fac(Rd, DET[t]['R_d'])) <= 3}
+                                   for t in DET}}
+    r['norm_passes'] = any(r[f'y3u_over_y3d|{ph}'][2] <= 1.5 and r[f'tr_e_over_tr_u|{ph}'][2] <= 1.5 for ph in ('P1', 'P2'))
+    r['det_passes'] = any(r[f'det|{ph}']['miss'][t]['passes_factor_3'] for ph in ('P1', 'P2') for t in DET)
+    out['readings'][name] = r
+with open(os.path.join(HERE, 'r2_compare.json'), 'w') as fh:
+    json.dump(out, fh, indent=1, sort_keys=True)
+print('targets', {k: round(v, 5) for k, v in TARGET.items()})
+for name, r in out['readings'].items():
+    print(f"{name:10s} up {r['x_up'][2]:24s} down {r['x_down'][2]:24s} | y3u/y3d P1 {r['y3u_over_y3d|P1'][0]:.3f} (x{r['y3u_over_y3d|P1'][2]:.1f}) "
+          f"tr_e/tr_u P1 {r['tr_e_over_tr_u|P1'][0]:.3f} (x{r['tr_e_over_tr_u|P1'][2]:.1f}) | R_u {r['det|P1']['R_u']:.3g} R_d {r['det|P1']['R_d']:.3g} "
+          f"(M_Z miss u x{r['det|P1']['miss']['S2_MZ']['u']:.3g} d x{r['det|P1']['miss']['S2_MZ']['d']:.3g}) | norm pass {r['norm_passes']} det pass {r['det_passes']}")

@@ -1,0 +1,209 @@
+"""QM step 1, part B2: leg weights of the up (Htilde), down (H) and lepton legs in the family cell.
+
+Readings F1 to F4 of CANDIDATES.md. Reads no measured value. Writes cell.json.
+Run: cd RER && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:RL/work/QM /tmp/oph-completion-venv/bin/python -B RL/work/QM/qm_cell.py
+
+Source (read only): model/coherent_defect_wave/chiral_joint/family_cell (uncommitted packet): H = N_H + H_up + H_down
++ H_e on one cell, F(C^2 x R15) x C^5, vacuum-connected sector of Omega (97,878 states), Yukawa coefficients and
+scalar penalty declared 1. The leg operators are split into their pair-creation part H_s^+ (A_s^dagger Phi_s^dagger)
+and pair-annihilation part H_s^- (A_s Phi_s) with the packet's own word list (`terms()`), and the sum is checked
+against the packet's `column()` on every key of the graph.
+Labels: F1, F2 EXACT (integer arithmetic); F3, F4 MEASURED (float64 Lanczos ground, energy checked against the
+packet's certified interval).
+"""
+import json
+import os
+import sys
+import time
+from collections import defaultdict
+
+import numpy as np
+import scipy.sparse as sp
+from scipy.sparse.linalg import eigsh
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+from model.coherent_defect_wave.chiral_joint.family_cell import model as fc  # noqa: E402
+
+LEGS = ('up', 'down', 'charged_lepton')
+BLOCKS = ((0, 1, 4), (2, 3, 5, 6, 7, 8), (9,), (10, 11), (12, 13, 14))   # (uc, Q, ec, L, dc), as the packet
+NAMES = ('n_uc', 'n_Q', 'n_ec', 'n_L', 'n_dc')
+
+
+def counts(mask):
+    return tuple(sum((mask >> (15 * spin + i)) & 1 for spin in (0, 1) for i in b) for b in BLOCKS)
+
+
+def column_part(key, channel, part):
+    mask, scalar = key
+    out = defaultdict(int)
+    for ch, word, row, value in fc.terms().get(scalar, ()):
+        if ch != channel:
+            continue
+        creation = word[0][1]
+        assert all(op[1] == creation for op in word)
+        if (part == '+') != creation:
+            continue
+        m = mask
+        v = value
+        for mode, cr in reversed(word):
+            if bool((m >> mode) & 1) == cr:
+                break
+            if (m & ((1 << mode) - 1)).bit_count() % 2:
+                v = -v
+            m ^= 1 << mode
+        else:
+            out[(m, row)] += v
+    return {k: x for k, x in out.items() if x}
+
+
+def main():
+    t0 = time.time()
+    keys, h, phase, depth, digest = fc.graph()
+    index = {k: j for j, k in enumerate(keys)}
+    n = len(keys)
+    # leg part matrices on the graph
+    parts = {}
+    for ch in LEGS:
+        for part in ('+', '-'):
+            rows, cols, vals = [], [], []
+            for j, key in enumerate(keys):
+                for tgt, v in column_part(key, ch, part).items():
+                    rows.append(index[tgt]); cols.append(j); vals.append(v)
+            parts[(ch, part)] = sp.csr_matrix((np.array(vals, dtype=np.int64), (rows, cols)), shape=(n, n))
+    NH = sp.diags(np.array([1 if k[1] else 0 for k in keys], dtype=np.int64))
+    Hsum = NH + sum(parts.values())
+    D = (Hsum - h).tocsr(); D.eliminate_zeros()
+    assert D.nnz == 0, 'leg split does not reproduce the packet Hamiltonian'
+    for ch in LEGS:
+        assert (parts[(ch, '+')] - parts[(ch, '-')].T).count_nonzero() == 0
+    out = {'measured_values_read': False, 'graph_dimension': n, 'graph_sha256': digest,
+           'leg_split_reproduces_packet_H_on_all_keys': True}
+    omega = np.zeros(n); omega[index[(0, 0)]] = 1.0
+    i0 = index[(0, 0)]
+    cnt = [counts(k[0]) for k in keys]
+    scal = np.array([k[1] for k in keys])
+
+    # ---------------- F1: first order, EXACT (integer columns)
+    F1 = {}
+    for ch in LEGS:
+        col = parts[(ch, '+')][:, i0]
+        w = int(col.multiply(col).sum())
+        F1[ch] = {'w_at_unit_coefficients': w, 'dependence': f'{w} y_{ch}^2',
+                  'support': sorted({(tuple(cnt[i]), int(scal[i])) for i in col.nonzero()[0]})}
+    out['F1'] = F1
+
+    # ---------------- F2: second order through the one quantum scalar, EXACT
+    F2 = {}
+    for ch in LEGS:
+        v = parts[(ch, '+')][:, i0].toarray().ravel().astype(np.int64)     # unnormalized |s>, norm^2 = w_s
+        w = int(v @ v)
+        ret = {}
+        trans = {}
+        for ch2 in LEGS:
+            for part in ('+', '-'):
+                u = parts[(ch2, part)] @ v
+                nz = np.nonzero(u)[0]
+                if len(nz) == 0:
+                    continue
+                # classify targets
+                for i in nz:
+                    key = (tuple(cnt[i]), int(scal[i]))
+                    if i == i0:
+                        ret[(ch2, part)] = ret.get((ch2, part), 0) + int(u[i]) ** 2
+                    else:
+                        trans.setdefault((ch2, part), {}).setdefault(str(key), 0)
+                        trans[(ch2, part)][str(key)] += int(u[i]) ** 2
+        R = sum(ret.values())
+        T = {f'{c2}{p}': sum(d.values()) for (c2, p), d in trans.items()}
+        F2[ch] = {'w': w, 'return_weight_times_w': {f'{c}{p}': x for (c, p), x in ret.items()},
+                  'transfer_weight_times_w_by_partner': T,
+                  'transfer_targets': {f'{c}{p}': d for (c, p), d in trans.items()},
+                  # normalized |s>: weights divided by w
+                  'R_normalized': R / w, 'T_normalized': sum(T.values()) / w,
+                  'R_exact': f'{R}/{w}', 'T_exact': f'{sum(T.values())}/{w}'}
+    out['F2'] = F2
+
+    # ---------------- ground state (F3, F4), MEASURED float64
+    def ground(yu=1.0, yd=1.0, ye=1.0, om=1.0):
+        y = {'up': yu, 'down': yd, 'charged_lepton': ye}
+        H = om * NH.astype(float) + sum(y[c] * parts[(c, p)].astype(float) for c in LEGS for p in ('+', '-'))
+        vals, vecs = eigsh(H.tocsc(), k=2, which='SA', tol=1e-12)
+        o = np.argsort(vals)
+        return vals[o], vecs[:, o[0]], H
+    E, G, H = ground()
+    lo, hi = -1531211498821 / 137438953472, -12249691990567 / 1099511627776
+    out['ground_energy'] = float(E[0]); out['ground_energy_in_certified_interval'] = bool(lo - 1e-9 <= E[0] <= hi + 1e-9)
+    out['first_gap'] = float(E[1] - E[0])
+    out['ground_overlap_with_Omega_sq'] = float(G[i0] ** 2)
+    out['residual'] = float(np.linalg.norm(H @ G - E[0] * G))
+
+    def readings(G, yv):
+        r = {}
+        for ch in LEGS:
+            Hp = parts[(ch, '+')].astype(float) * yv[ch]
+            Hm = parts[(ch, '-')].astype(float) * yv[ch]
+            Es = float(G @ (Hp @ G) + G @ (Hm @ G))
+            c = float(np.linalg.norm(Hp @ G) ** 2)
+            a = float(np.linalg.norm(Hm @ G) ** 2)
+            r[ch] = {'E_s': Es, 'c_s': c, 'a_s': a}
+        # populations by channel content
+        pops = defaultdict(float)
+        for i in np.nonzero(np.abs(G) > 1e-14)[0]:
+            pops[str((cnt[i], int(scal[i])))] += float(G[i] ** 2)
+        r['top_populations'] = dict(sorted(pops.items(), key=lambda kv: -kv[1])[:12])
+        r['scalar_excited_probability'] = float(sum(G[i] ** 2 for i in np.nonzero(scal)[0]))
+        return r
+    y1 = {'up': 1.0, 'down': 1.0, 'charged_lepton': 1.0}
+    rd = readings(G, y1)
+    out['ground_readings_unit'] = rd
+    m = {ch: F1[ch]['w_at_unit_coefficients'] for ch in LEGS}
+
+    def x_readings(rd, m):
+        e = 'charged_lepton'
+        x = {}
+        # F3
+        x['F3'] = {ch: 0.5 * (rd[ch]['E_s'] / m[ch]) / (rd[e]['E_s'] / m[e]) for ch in LEGS}
+        # F4a absolute, F4b normalized
+        x['F4a'] = {ch: rd[ch]['c_s'] / (2 * rd[ch]['a_s']) for ch in LEGS}
+        x['F4b'] = {ch: 0.5 * (rd[ch]['c_s'] / rd[ch]['a_s']) / (rd[e]['c_s'] / rd[e]['a_s']) for ch in LEGS}
+        return x
+    out['x_ground_unit'] = x_readings(rd, m)
+    # F1, F2 x readings (exact rationals as floats here; exact forms recorded above)
+    e = 'charged_lepton'
+    x12 = {'F1': {ch: 0.5 * m[ch] / m[e] for ch in LEGS}}
+    Rn = {ch: F2[ch]['R_normalized'] for ch in LEGS}
+    Tn = {ch: F2[ch]['T_normalized'] for ch in LEGS}
+    x12['F2a'] = {ch: Tn[ch] / (2 * Rn[ch]) for ch in LEGS}
+    x12['F2b'] = {ch: 0.5 * (Tn[ch] / Rn[ch]) / (Tn[e] / Rn[e]) for ch in LEGS}
+    x12['F2c'] = {ch: 0.5 * (Rn[ch] / Tn[ch]) / (Rn[e] / Tn[e]) for ch in LEGS}
+    out['x_first_second_order_unit'] = x12
+
+    # coefficient dependence of the ground readings: a small grid around the declared point
+    dep = {}
+    for label, pt in (('yu=1.2', (1.2, 1, 1, 1)), ('yd=1.2', (1, 1.2, 1, 1)), ('ye=1.2', (1, 1, 1.2, 1)),
+                      ('ye=0.5', (1, 1, 0.5, 1)), ('omega=0.5', (1, 1, 1, 0.5)), ('omega=2', (1, 1, 1, 2)),
+                      ('all_y=0.5', (0.5, 0.5, 0.5, 1))):
+        Ex, Gx, _ = ground(*pt)
+        yv = {'up': pt[0], 'down': pt[1], 'charged_lepton': pt[2]}
+        rdx = readings(Gx, yv)
+        mx = {ch: m[ch] * yv[ch] ** 2 for ch in LEGS}
+        dep[label] = {'ground_energy': float(Ex[0]), 'x': x_readings(rdx, mx),
+                      'E_s': {ch: rdx[ch]['E_s'] for ch in LEGS}}
+    out['coefficient_dependence'] = dep
+    out['runtime_s'] = round(time.time() - t0, 1)
+    with open(os.path.join(HERE, 'cell.json'), 'w') as fh:
+        json.dump(out, fh, indent=1, default=str)
+    print('F1', {c: F1[c]['w_at_unit_coefficients'] for c in LEGS})
+    for c in LEGS:
+        print('F2', c, F2[c]['R_exact'], F2[c]['T_exact'], F2[c]['transfer_weight_times_w_by_partner'], F2[c]['return_weight_times_w'])
+    print('ground', out['ground_energy'], out['ground_energy_in_certified_interval'], 'gap', out['first_gap'], 'res', out['residual'])
+    print('ground readings', {c: rd[c] for c in LEGS}, 'scalar excited', rd['scalar_excited_probability'])
+    print('x F1/F2', x12)
+    print('x ground', out['x_ground_unit'])
+    for k, v in dep.items():
+        print('dep', k, v['ground_energy'], v['x'])
+    print('runtime', out['runtime_s'])
+
+
+if __name__ == '__main__':
+    main()

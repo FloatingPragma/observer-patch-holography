@@ -1,0 +1,1000 @@
+{
+ "artifact": "MAUD_mass_lanes",
+ "task": "MAUD",
+ "generated": "2026-11-10",
+ "subject": {
+  "repository": "reverse-engineering-reality",
+  "commit": "5c7a8281bf5633ae957c9fdc634f31cbdd65ed4e",
+  "copy": "/tmp/claude-501/maud_repo"
+ },
+ "report": "WORKSPACE/repair-law/reports/MAUD.md",
+ "classes": {
+  "DERIVED": "named theorem or exact construction",
+  "MEASURED": "laboratory value enters",
+  "DECLARED": "stated choice",
+  "TARGET-INFORMED": "chosen with the measured value known"
+ },
+ "reference_file_history": {
+  "file": "code/particles/data/particle_reference_values.json",
+  "2026-03-26..2026-04-26": {
+   "W": 80.377,
+   "Z": 91.18797809193725,
+   "H": 125.1995304097179,
+   "t": 172.3523553288312
+  },
+  "from_2026-07-11": {
+   "W": 80.3625,
+   "Z": 91.1879,
+   "H": 125.13,
+   "t": 172.1
+  },
+  "note": "raw PDG-API values; D10/D11 outputs reproduce the older set to 1e-8 GeV or bitwise"
+ },
+ "any_value_derived_beyond_one_anchor": false,
+ "closest_to_source_only": [
+  "W1-strict-zero",
+  "W1-ratio",
+  "A-root"
+ ],
+ "lanes": [
+  {
+   "id": "W1-strict-zero",
+   "particles": [
+    "W",
+    "Z"
+   ],
+   "lane": "strict source-audit branch, zero-selector law",
+   "reported": {
+    "MW_GeV": 80.33006348366054,
+    "MZ_GeV": 91.11911830689765
+   },
+   "reported_where": "code/particles/MASS_CANDIDATE_STATUS.md:67-76",
+   "measured": {
+    "MW_GeV": [
+     80.3625,
+     0.0077
+    ],
+    "MZ_GeV": [
+     91.1879,
+     0.002
+    ],
+    "source": "PDG 2026, code/particles/data/particle_reference_values.json"
+   },
+   "residual": {
+    "MW_MeV": -32.44,
+    "MZ_MeV": -68.78,
+    "MW_pull_exp": -4.2,
+    "MZ_pull_exp": -34.4,
+    "repository_physical_pull": "none defined (chart coordinates)"
+   },
+   "reproduced": {
+    "yes": true,
+    "digits": "all",
+    "how": "build() of calibration/derive_wzh_residual_elimination_boundary.py in the copy; /tmp/claude-501/maud_work/strict_ratio.py"
+   },
+   "inputs": [
+    {
+     "name": "E* (Planck energy, 1.220890e19 GeV or clock decimal 1.2208901289579266e19 GeV, a 'calibration checksum reproducing displayed G')",
+     "class": "MEASURED",
+     "source": "code/particles/MASS_CANDIDATE_STATUS.md:15, 222-226"
+    },
+    {
+     "name": "P = P_fwd = 1.6309720958588973769...",
+     "class": "DECLARED",
+     "source": "code/particles/hierarchy/certificates/R_P_source_audit_pixel_certificate.json; code/P_derivation/README.md:55-71 ('The solver inserts no measured endpoint')"
+    },
+    {
+     "name": "P = phi + sqrt(pi) alpha (outer closure premise)",
+     "class": "DECLARED",
+     "source": "paper/observers_are_all_you_need.tex:3260-3266; code/P_derivation/paper_math.py:668"
+    },
+    {
+     "name": "M_U = E* exp(-2 pi) P^(1/6)",
+     "class": "DECLARED",
+     "source": "paper/observers_are_all_you_need.tex:3288; code/P_derivation/paper_math.py:209-212; code/particles/calibration/legacy_d10/particle_masses_paper_d10_d11.py:89-90"
+    },
+    {
+     "name": "E_cell = E* P^(-1/2); v = E_cell exp(-2 pi/(beta_EW alpha_U))",
+     "class": "DECLARED",
+     "source": "paper/observers_are_all_you_need.tex:3289; paper_math.py:214-223; legacy_d10:97-99"
+    },
+    {
+     "name": "beta_EW = N_c + 1 = 4 ('a design choice, not the weak beta-function coefficient')",
+     "class": "DECLARED",
+     "source": "paper/observers_are_all_you_need.tex:3294-3295; paper_math.py:156; legacy_d10:93-94"
+    },
+    {
+     "name": "one-loop slopes (33/5, 1, -3), MSSM-like proxy; SM census (41/10,-19/6,-7) with beta=4 has no solution",
+     "class": "DECLARED",
+     "source": "paper_math.py:155; legacy_d10:31-32; code/P_derivation/README.md:66-71; model/pixel_mass_closure/PROOF.md:65-104"
+    },
+    {
+     "name": "pixel closure ellbar_SU2(4 pi^2 a2) + ellbar_SU3(4 pi^2 a3) = P/4",
+     "class": "DECLARED",
+     "source": "paper_math.py:582-588; legacy_d10:134-137"
+    },
+    {
+     "name": "tree Z closure m_Z = (v/2) sqrt(g2^2 + gY^2)",
+     "class": "DECLARED",
+     "source": "legacy_d10:127-131, 219-247; paper_math.py:242"
+    },
+    {
+     "name": "Thomson transport A_T on Stage-5 continuation masses with screening 1 - N_c alpha3/pi (Koide balance inside is 'a target-informed premise')",
+     "class": "DECLARED",
+     "source": "extra/fine_structure_constant_derivation.tex:519-586; paper_math.py:268-345, 453"
+    },
+    {
+     "name": "eta slice alphaY -> alphaY(1-2 eta), eta = alpha_U cos 2 theta_W0",
+     "class": "TARGET-INFORMED",
+     "source": "code/particles/calibration/derive_d10_ew_source_transport_pair.py:57-69",
+     "evidence": "introduced 0ac276683 (2026-03-29) three days after 13d5b69ca RESULTS_STATUS.md:17-18 showed Z 91.6524603 vs 91.1880 (+0.4645 GeV); moves strict-branch MZ 91.5883 -> 91.1191; no repository text records its origin"
+    },
+    {
+     "name": "law choice tau2 = delta_n = 0",
+     "class": "DECLARED",
+     "source": "derive_wzh_residual_elimination_boundary.py:575-580 (SOURCE_LAW_SELECTION_PRINCIPLE_ABSENT)"
+    }
+   ],
+   "p_sensitivity": {
+    "dMW_dP_GeV": -1751.6,
+    "dMZ_dP_GeV": -1987.1,
+    "P_C_minus_P_fwd_shift_MeV": {
+     "MW": 6.81,
+     "MZ": 7.72
+    }
+   },
+   "count": {
+    "fitted_continuous": 0,
+    "measured_anchor": 1,
+    "declared_forms": 8,
+    "target_informed_discrete": 1,
+    "discrete_law_choice": 1,
+    "outputs": 2
+   },
+   "classification": "declared-map output with one anchor; outside experimental errors",
+   "missing_step": "repository: T3 once the discrete law selection is a theorem; SOURCE_LAW_SELECTION_PRINCIPLE, BRST-complete pole kernels, operational clock (MASS_CANDIDATE_STATUS.md:68,76). trace: source derivation of the eta slice and of the D10 forms; chart-to-pole map"
+  },
+  {
+   "id": "W1-ratio",
+   "particles": [
+    "W",
+    "Z"
+   ],
+   "lane": "MW/MZ on the strict branch",
+   "reported": {
+    "MW_over_MZ_zero_selector": 0.881593950603225,
+    "MW_over_MZ_carrier": 0.8814430088792116
+   },
+   "reported_where": "derived from MASS_CANDIDATE_STATUS.md:67-86",
+   "measured": {
+    "MW_over_MZ": [
+     0.881284688,
+     8.66e-05
+    ]
+   },
+   "residual": {
+    "zero_selector_rel": 0.000351,
+    "zero_selector_pull_exp": 3.57,
+    "carrier_rel": 0.00018,
+    "carrier_pull_exp": 1.83,
+    "without_slice": 0.877077431,
+    "without_slice_rel": -0.0048
+   },
+   "reproduced": {
+    "yes": true,
+    "how": "/tmp/claude-501/maud_work/strict_ratio.py"
+   },
+   "p_dependence": "8e-9 between P_C and P_fwd; 2.0e-7 over 1.63094 <= P <= 1.63105; E* cancels",
+   "inputs": [
+    {
+     "name": "M_U = E* exp(-2 pi) P^(1/6)",
+     "class": "DECLARED",
+     "source": "paper/observers_are_all_you_need.tex:3288; code/P_derivation/paper_math.py:209-212; code/particles/calibration/legacy_d10/particle_masses_paper_d10_d11.py:89-90"
+    },
+    {
+     "name": "E_cell = E* P^(-1/2); v = E_cell exp(-2 pi/(beta_EW alpha_U))",
+     "class": "DECLARED",
+     "source": "paper/observers_are_all_you_need.tex:3289; paper_math.py:214-223; legacy_d10:97-99"
+    },
+    {
+     "name": "beta_EW = N_c + 1 = 4 ('a design choice, not the weak beta-function coefficient')",
+     "class": "DECLARED",
+     "source": "paper/observers_are_all_you_need.tex:3294-3295; paper_math.py:156; legacy_d10:93-94"
+    },
+    {
+     "name": "one-loop slopes (33/5, 1, -3), MSSM-like proxy; SM census (41/10,-19/6,-7) with beta=4 has no solution",
+     "class": "DECLARED",
+     "source": "paper_math.py:155; legacy_d10:31-32; code/P_derivation/README.md:66-71; model/pixel_mass_closure/PROOF.md:65-104"
+    },
+    {
+     "name": "pixel closure ellbar_SU2(4 pi^2 a2) + ellbar_SU3(4 pi^2 a3) = P/4",
+     "class": "DECLARED",
+     "source": "paper_math.py:582-588; legacy_d10:134-137"
+    },
+    {
+     "name": "tree Z closure m_Z = (v/2) sqrt(g2^2 + gY^2)",
+     "class": "DECLARED",
+     "source": "legacy_d10:127-131, 219-247; paper_math.py:242"
+    },
+    {
+     "name": "eta slice alphaY -> alphaY(1-2 eta), eta = alpha_U cos 2 theta_W0",
+     "class": "TARGET-INFORMED",
+     "source": "code/particles/calibration/derive_d10_ew_source_transport_pair.py:57-69",
+     "evidence": "introduced 0ac276683 (2026-03-29) three days after 13d5b69ca RESULTS_STATUS.md:17-18 showed Z 91.6524603 vs 91.1880 (+0.4645 GeV); moves strict-branch MZ 91.5883 -> 91.1191; no repository text records its origin"
+    }
+   ],
+   "count": {
+    "measured": 0,
+    "anchor": 0,
+    "outputs": 1
+   },
+   "classification": "pure number of declared forms and the slice; no measured input; outside experimental errors",
+   "missing_step": "as W1-strict-zero"
+  },
+  {
+   "id": "W2-value-law",
+   "particles": [
+    "W",
+    "Z"
+   ],
+   "lane": "D10 target-free repair value law (archived legacy benchmark, P = 1.63094)",
+   "reported": {
+    "MW_GeV": 80.37700001539531,
+    "MZ_GeV": 91.18797807794321
+   },
+   "reported_where": "CONDITIONAL_CANDIDATES.md:30-31; MASS_CANDIDATE_STATUS.md:88-96; ledger.yaml:118-119",
+   "measured": {
+    "MW_GeV": [
+     80.3625,
+     0.0077
+    ],
+    "MZ_GeV": [
+     91.1879,
+     0.002
+    ]
+   },
+   "residual": {
+    "MW_MeV": 14.5,
+    "MZ_MeV": 0.078,
+    "former_reference_pair": [
+     80.377,
+     91.18797809193725
+    ],
+    "hit_on_former_pair_GeV": [
+     1.54e-08,
+     -1.4e-08
+    ]
+   },
+   "reproduced": {
+    "yes": true,
+    "how": "EW subagent, derive_d10_ew_observable_family -> source_transport_pair -> target_free_repair_value_law (bit-exact)"
+   },
+   "inputs": [
+    {
+     "name": "P = 1.63094",
+     "class": "MEASURED",
+     "source": "initial commit a0b64d5a9 paper/PAPER.md:4609 'extracted from data, not predicted'"
+    },
+    {
+     "name": "E_P = 1.220890e19 GeV",
+     "class": "MEASURED",
+     "source": "legacy_d10:29"
+    },
+    {
+     "name": "M_U = E* exp(-2 pi) P^(1/6)",
+     "class": "DECLARED",
+     "source": "paper/observers_are_all_you_need.tex:3288; code/P_derivation/paper_math.py:209-212; code/particles/calibration/legacy_d10/particle_masses_paper_d10_d11.py:89-90"
+    },
+    {
+     "name": "E_cell = E* P^(-1/2); v = E_cell exp(-2 pi/(beta_EW alpha_U))",
+     "class": "DECLARED",
+     "source": "paper/observers_are_all_you_need.tex:3289; paper_math.py:214-223; legacy_d10:97-99"
+    },
+    {
+     "name": "beta_EW = N_c + 1 = 4 ('a design choice, not the weak beta-function coefficient')",
+     "class": "DECLARED",
+     "source": "paper/observers_are_all_you_need.tex:3294-3295; paper_math.py:156; legacy_d10:93-94"
+    },
+    {
+     "name": "one-loop slopes (33/5, 1, -3), MSSM-like proxy; SM census (41/10,-19/6,-7) with beta=4 has no solution",
+     "class": "DECLARED",
+     "source": "paper_math.py:155; legacy_d10:31-32; code/P_derivation/README.md:66-71; model/pixel_mass_closure/PROOF.md:65-104"
+    },
+    {
+     "name": "pixel closure ellbar_SU2(4 pi^2 a2) + ellbar_SU3(4 pi^2 a3) = P/4",
+     "class": "DECLARED",
+     "source": "paper_math.py:582-588; legacy_d10:134-137"
+    },
+    {
+     "name": "tree Z closure m_Z = (v/2) sqrt(g2^2 + gY^2)",
+     "class": "DECLARED",
+     "source": "legacy_d10:127-131, 219-247; paper_math.py:242"
+    },
+    {
+     "name": "eta slice alphaY -> alphaY(1-2 eta), eta = alpha_U cos 2 theta_W0",
+     "class": "TARGET-INFORMED",
+     "source": "code/particles/calibration/derive_d10_ew_source_transport_pair.py:57-69",
+     "evidence": "introduced 0ac276683 (2026-03-29) three days after 13d5b69ca RESULTS_STATUS.md:17-18 showed Z 91.6524603 vs 91.1880 (+0.4645 GeV); moves strict-branch MZ 91.5883 -> 91.1191; no repository text records its origin"
+    },
+    {
+     "name": "lambda = eta^2/(4 beta); coefficients 2/3, 1-beta/6, 4/3, 2-beta/6",
+     "class": "TARGET-INFORMED",
+     "source": "calibration/derive_d10_ew_target_free_repair_value_law.py:69-78",
+     "evidence": "entered 0ac276683 (2026-03-29) as 'strongest current source-only target-emitter candidate above the freeze-once electroweak repair surface' next to the frozen-target artifact from (80.377, 91.18797809193725); reproduces its chart point to 3.8e-10/5.1e-10; same commit RESULTS_STATUS rows 'W | calibration | 80.377 | 80.377 | 0'"
+    }
+   ],
+   "count": {
+    "fitted_coefficient_terms": 2,
+    "measured": 2,
+    "outputs": 2
+   },
+   "classification": "fit",
+   "missing_step": "QT1-QT5 quotient-path certificate not emitted (code/particles/README.md:306-311)"
+  },
+  {
+   "id": "W2-candidate-B",
+   "particles": [
+    "W",
+    "Z"
+   ],
+   "lane": "color-balanced quadratic descent (selection axioms A2, A3)",
+   "reported": {
+    "MW_GeV": 80.36921677537332,
+    "MZ_GeV": 91.1880067442454
+   },
+   "reported_where": "runs/calibration/d10_repair_tuple_selection_theorem.json",
+   "inputs": [
+    {
+     "name": "(c, d) = (sqrt(3)/2, 3/2)",
+     "class": "TARGET-INFORMED",
+     "source": "d10_repair_tuple_selection_theorem.json selection_axioms",
+     "evidence": "target-implied (0.866876, 1.500346) for (80.3692, 91.188); hits that pair to 17 keV / 7 keV; axioms stated not derived"
+    }
+   ],
+   "count": {
+    "numbers": 2,
+    "outputs": 2
+   },
+   "classification": "fit",
+   "reproduced": {
+    "yes": true
+   }
+  },
+  {
+   "id": "W-ledger",
+   "particles": [
+    "W",
+    "Z"
+   ],
+   "lane": "postdiction-ledger chart envelope",
+   "reported": {
+    "MW_GeV": 80.373383,
+    "MZ_GeV": 91.19486
+   },
+   "reported_where": "docs/POSTDICTION_LEDGER.md:357-358 (NOT_EVALUABLE)",
+   "classification": "envelope of the two fits at P = 1.63094 and the empirical-hadron pixel interval",
+   "reproduced": {
+    "yes": true
+   }
+  },
+  {
+   "id": "W-paper",
+   "particles": [
+    "W",
+    "Z"
+   ],
+   "lane": "paper twelve-value table (SMDR)",
+   "reported": {
+    "MW_GeV": 79.8563905,
+    "MZ_GeV": 90.5845168
+   },
+   "reported_where": "paper/deriving_the_particle_zoo_from_observer_consistency.tex:3816-3817",
+   "residual": {
+    "MW_rel": -0.006298,
+    "MZ_rel": -0.006617
+   },
+   "reproduced": {
+    "yes": "arithmetic only",
+    "note": "SMDR multiloop outputs are frozen inputs; SMDR v1.3 not available, not installed"
+   },
+   "inputs": [
+    {
+     "name": "E* (Planck energy, 1.220890e19 GeV or clock decimal 1.2208901289579266e19 GeV, a 'calibration checksum reproducing displayed G')",
+     "class": "MEASURED",
+     "source": "code/particles/MASS_CANDIDATE_STATUS.md:15, 222-226"
+    },
+    {
+     "name": "boundary packet P = 1.630971465307864, alpha_U, v = 246.60010076754213 GeV, Q0, gauge couplings",
+     "class": "DECLARED",
+     "source": "model/particle_spectrum_audit/inputs.json (ancestry files not in the repository)"
+    },
+    {
+     "name": "attachment v_Landau_MSbar(Q0) = v_source",
+     "class": "DECLARED",
+     "source": "inputs.json physical_attachment"
+    }
+   ],
+   "classification": "declared-map output; outside printed intervals"
+  },
+  {
+   "id": "H3-declared-surface",
+   "particles": [
+    "H",
+    "t"
+   ],
+   "lane": "declared calibration surface / live-exact split pair",
+   "reported": {
+    "mH_GeV": 125.1995304097179,
+    "mt_GeV": 172.3523553288312
+   },
+   "reported_where": "RESULTS_STATUS.md:60; EXACT_NONHADRON_MASSES.md:14; CONDITIONAL_CANDIDATES.md:28-29",
+   "measured": {
+    "mH_GeV": [
+     125.13,
+     0.11
+    ],
+    "mt_GeV": [
+     172.1,
+     0.6
+    ]
+   },
+   "residual": {
+    "mH_MeV": 69.5,
+    "mt_MeV": 252.4,
+    "note": "bit-equal to raw PDG-API S126M and Q007TP4 values, the reference entries until 2026-07-11"
+   },
+   "reproduced": {
+    "yes": true
+   },
+   "inputs": [
+    {
+     "name": "exactifier reading references['higgs']",
+     "class": "MEASURED",
+     "source": "feca1d288 derive_d11_live_exact_higgs_promotion.py:49,61"
+    },
+    {
+     "name": "residual selectors 'found ... that make the forward D11 pair land exactly'",
+     "class": "TARGET-INFORMED",
+     "source": "02d18608b derive_d11_live_exact_split_pair_theorem.py:55-57"
+    },
+    {
+     "name": "D11 core from synchronization scan (objective with published OPH 171.1/126.5), Jacobians, kappa 16/9, A_T, B_H",
+     "class": "TARGET-INFORMED",
+     "source": "legacy_d10:52-56, 567-608; EW notes section 5"
+    }
+   ],
+   "count": {
+    "selected_numbers_at_least": 15,
+    "outputs": 2
+   },
+   "classification": "target-anchored fit ('zero predictive content', MASS_CANDIDATE_STATUS.md:137)"
+  },
+  {
+   "id": "H2-log-midpoint",
+   "particles": [
+    "H",
+    "t"
+   ],
+   "lane": "double criticality at E* exp(-pi) P^(-1/6)",
+   "reported": {
+    "mt_GeV": 172.62935892273643,
+    "mH_GeV": 125.77115226639518
+   },
+   "reported_where": "MASS_CANDIDATE_STATUS.md:102-108",
+   "residual": {
+    "mt_pull_exp": 0.88,
+    "mH_pull_exp": 5.83
+   },
+   "reproduced": {
+    "yes": true
+   },
+   "inputs": [
+    {
+     "name": "E* (Planck energy, 1.220890e19 GeV or clock decimal 1.2208901289579266e19 GeV, a 'calibration checksum reproducing displayed G')",
+     "class": "MEASURED",
+     "source": "code/particles/MASS_CANDIDATE_STATUS.md:15, 222-226"
+    },
+    {
+     "name": "lambda = beta_lambda = 0 at the boundary",
+     "class": "DECLARED",
+     "source": "MASS_CANDIDATE_STATUS.md:110-116"
+    },
+    {
+     "name": "boundary scale E* exp(-pi) P^(-1/6)",
+     "class": "TARGET-INFORMED",
+     "source": "calibration/derive_d11_boundary_scale_selection_audit.py:17-22 ('identified after the two-loop implied scale was computed; ... post-exposure')"
+    }
+   ],
+   "count": {
+    "selected_scale": 1,
+    "outputs": 2
+   },
+   "classification": "target-informed (post-exposure scale)"
+  },
+  {
+   "id": "H-relation",
+   "particles": [
+    "H"
+   ],
+   "lane": "mH on the criticality curve at measured mt",
+   "reported": {
+    "mH_GeV": 124.72560405075059
+   },
+   "reported_where": "MASS_CANDIDATE_STATUS.md:118-125",
+   "residual": {
+    "mH_MeV": -404.4,
+    "pull_exp": -3.68
+   },
+   "reproduced": {
+    "yes": true
+   },
+   "inputs": [
+    {
+     "name": "mt = 172.1 GeV",
+     "class": "MEASURED",
+     "source": "PDG 2026 Q007TP4"
+    }
+   ],
+   "count": {
+    "measured": 1,
+    "tuned": 0,
+    "outputs": 1
+   },
+   "classification": "fit-free relation test; outside experimental error"
+  },
+  {
+   "id": "H-paper",
+   "particles": [
+    "H",
+    "t"
+   ],
+   "lane": "paper twelve-value table (SMDR)",
+   "reported": {
+    "mH_GeV": 124.842549,
+    "mt_GeV": 170.611817
+   },
+   "residual": {
+    "mH_rel": -0.002297,
+    "mt_rel": -0.008647
+   },
+   "reproduced": {
+    "yes": "arithmetic only"
+   },
+   "classification": "post-exposure boundary scale (packet UV_GeV = E* exp(-pi) P^(-1/6)); outside printed intervals"
+  },
+  {
+   "id": "L-circulant",
+   "particles": [
+    "e",
+    "mu",
+    "tau"
+   ],
+   "lane": "MCPR circulant law at different P (paper -70.5 ppm; MCPR -84 ppm; icosahedral 0.0003 / -0.42 / -84.1 ppm)",
+   "reported": {
+    "paper_MeV": [
+     0.510962911231,
+     105.650931342,
+     1776.80479525
+    ],
+    "MCPR_MeV": [
+     0.510955973931,
+     105.649498409,
+     1776.780694465
+    ]
+   },
+   "residual_by_P_ppm": {
+    "1.6309681897": [
+     0.0003,
+     0.0,
+     0.0
+    ],
+    "1.630968209403959": [
+     -0.424,
+     -0.424,
+     -0.424
+    ],
+    "1.630971465307864": [
+     -70.53,
+     -70.46,
+     -70.46
+    ],
+    "1.630971514159316": [
+     -71.58,
+     -71.51,
+     -71.51
+    ],
+    "1.630972095858897": [
+     -84.1,
+     -84.02,
+     -84.02
+    ],
+    "1.63094": [
+     607.2,
+     606.5,
+     606.6
+    ]
+   },
+   "scale_slope_ppm_per_1e-6_P": -21.53,
+   "zero_residual_P": 1.630968189714,
+   "alex_p_note": "1.6309681897 = alex_p, the pixel of the submitted icosahedral archive and of the truncated D10 comparison probe; 1.97e-8 below P_C (alpha^-1 = 137.0362079 under P = phi + sqrt(pi) alpha); the fitted law has zero residual there to 1.4e-11 in P",
+   "reproduced": {
+    "yes": true,
+    "how": "model.particle_spectrum_audit.derive --check; leptons/derive_charged_mcpr_completion_conditional.py (bit-exact); /tmp/claude-501/maud_work/lepton_pscan.py"
+   },
+   "inputs": [
+    {
+     "name": "register integers 50, 31, 10, 512, 77, 21, 27, 5; phase 2/9; amplitude sqrt(2); determinant 1/(2*6^14)",
+     "class": "TARGET-INFORMED",
+     "source": "MCPR script docstring 11-13; paper:3830-3834; runs/leptons/charged_icosahedral_completion_v1_review.json /three_coordinate_inverse_audit"
+    },
+    {
+     "name": "P",
+     "class": "MEASURED (P_C) or DECLARED (packet, P_fwd)"
+    },
+    {
+     "name": "pole-mass reading",
+     "class": "DECLARED",
+     "source": "paper:3840"
+    },
+    {
+     "name": "E* (Planck energy, 1.220890e19 GeV or clock decimal 1.2208901289579266e19 GeV, a 'calibration checksum reproducing displayed G')",
+     "class": "MEASURED",
+     "source": "code/particles/MASS_CANDIDATE_STATUS.md:15, 222-226"
+    }
+   ],
+   "count": {
+    "fitted_coordinates": 3,
+    "plus_P": 1,
+    "outputs": 3
+   },
+   "classification": "fit (three coordinates for three masses), evaluated at a shifted P",
+   "missing_step": "A5/W5 source selection; A5_FAM, DET_CAN, PROV, QFT_POLE, SCALE, W5_ORB (MASS_CANDIDATE_STATUS.md:21,32)"
+  },
+  {
+   "id": "L-stage5",
+   "particles": [
+    "e",
+    "mu",
+    "tau"
+   ],
+   "lane": "frozen Stage-5 formula at P = 1.63094",
+   "reported": {
+    "MeV": [
+     0.510882243295,
+     105.635282871,
+     1776.579124017
+    ],
+    "max_rel": 0.0002284
+   },
+   "reproduced": {
+    "yes": true
+   },
+   "inputs": [
+    {
+     "name": "Koide balance Q = 2/3",
+     "class": "TARGET-INFORMED",
+     "source": "extra/fine_structure_constant_derivation.tex:542"
+    },
+    {
+     "name": "delta = 2/9, epsilon = 1/6, n_e = (7,4,3), 2^(1/6), det = v^3/(2*6^14)",
+     "class": "DECLARED",
+     "source": "extra/fine_structure_constant_derivation.tex:582-586"
+    },
+    {
+     "name": "P = 1.63094, v = 246.767 GeV",
+     "class": "MEASURED"
+    }
+   ],
+   "classification": "target-informed premise plus declared constants"
+  },
+  {
+   "id": "L-koide-tau",
+   "particles": [
+    "tau"
+   ],
+   "lane": "Koide conditional tau",
+   "reported": {
+    "tau_MeV": [
+     1776.968991,
+     1776.969063
+    ],
+    "pull": 0.4336
+   },
+   "reproduced": {
+    "yes": true
+   },
+   "inputs": [
+    {
+     "name": "m_e, m_mu",
+     "class": "MEASURED"
+    },
+    {
+     "name": "Q = 2/3 (Koide's empirical relation)",
+     "class": "TARGET-INFORMED"
+    }
+   ],
+   "count": {
+    "measured": 2,
+    "outputs": 1
+   },
+   "classification": "Koide's formula; no OPH-specific input"
+  },
+  {
+   "id": "L-calibrations",
+   "particles": [
+    "e",
+    "mu",
+    "tau"
+   ],
+   "lane": "exact current-family witness, kappa intervals, anchor-gap closure",
+   "reproduced": {
+    "yes": true
+   },
+   "classification": "calibration identity (measured inputs equal the outputs)"
+  },
+  {
+   "id": "Q-paper-texture",
+   "particles": [
+    "u",
+    "d",
+    "s",
+    "c",
+    "b"
+   ],
+   "lane": "paper six-power texture",
+   "reported": {
+    "GeV": [
+     0.00668144352,
+     0.00665065487,
+     0.239423082,
+     1.56844907,
+     6.59077908
+    ]
+   },
+   "residual_rel": [
+    2.093,
+    0.415,
+    1.577,
+    0.232,
+    0.574
+   ],
+   "classification": "declared texture; disagrees (repository rejects it)"
+  },
+  {
+   "id": "Q-RSCC",
+   "particles": [
+    "u",
+    "d",
+    "s",
+    "c",
+    "b",
+    "t"
+   ],
+   "lane": "conditional RSCC replay",
+   "reported": {
+    "GeV": [
+     0.002158958,
+     0.004711035,
+     0.09307006,
+     1.2722596,
+     4.1894578,
+     172.06453
+    ],
+    "s_over_d": 19.755755,
+    "s_over_ud": 27.094659
+   },
+   "reproduced": {
+    "yes": true
+   },
+   "inputs": [
+    {
+     "name": "CODATA alpha via P_C",
+     "class": "MEASURED"
+    },
+    {
+     "name": "E* (Planck energy, 1.220890e19 GeV or clock decimal 1.2208901289579266e19 GeV, a 'calibration checksum reproducing displayed G')",
+     "class": "MEASURED",
+     "source": "code/particles/MASS_CANDIDATE_STATUS.md:15, 222-226"
+    },
+    {
+     "name": "13 rational coefficients and ~8 equation forms",
+     "class": "TARGET-INFORMED",
+     "source": "flavor/conditional_quark_mass_spec.json:96,98; flavor/quark_rscc_completion_candidate.py:6-7"
+    }
+   ],
+   "count": {
+    "target_informed_rationals_at_least": 13,
+    "measured": 2,
+    "outputs": 6
+   },
+   "classification": "target-informed retrospective fit"
+  },
+  {
+   "id": "Q-exact",
+   "particles": [
+    "u",
+    "d",
+    "s",
+    "c",
+    "b",
+    "t"
+   ],
+   "lane": "exact current-family and selected-class audits",
+   "classification": "identity (6 measured -> 6)",
+   "reproduced": {
+    "yes": true
+   }
+  },
+  {
+   "id": "N-weighted-cycle",
+   "particles": [
+    "nu"
+   ],
+   "lane": "weighted-cycle candidate",
+   "reported": {
+    "ratio_dm21_dm32": 0.03072111,
+    "theta12_deg": 34.2259,
+    "theta13_deg": 8.68636
+   },
+   "measured": {
+    "ratio": 0.030721903
+   },
+   "reproduced": {
+    "yes": true,
+    "note": "NuFIT scorer not rerun (tables not shipped)"
+   },
+   "inputs": [
+    {
+     "name": "hand-written template kernel",
+     "class": "DECLARED",
+     "source": "flavor/derive_family_transport_kernel.py:73-85"
+    },
+    {
+     "name": "exponent law p = 1 + gamma + eps/D_nu",
+     "class": "TARGET-INFORMED",
+     "source": "802d93a08 derive_neutrino_dimensionless_law_candidate_audit.py:124-151 (ranked against 7.49e-5/2.438e-3); decd4a9a2 adopts the winner"
+    }
+   ],
+   "classification": "target-informed; rejected by the repository (NuFIT T23/DCP)"
+  },
+  {
+   "id": "N-adapters",
+   "particles": [
+    "nu"
+   ],
+   "lane": "exact adapters and absolute attachment",
+   "classification": "fits (2 -> 2, 1 -> 1); P_nu, C_nu from searches ranked against a PDG-fitted scale",
+   "reproduced": {
+    "yes": true
+   }
+  },
+  {
+   "id": "A-root",
+   "particles": [
+    "alpha"
+   ],
+   "lane": "forward closure root",
+   "reported": {
+    "alpha_inv": "136.994835177412937",
+    "P": "1.630972095858897"
+   },
+   "residual": {
+    "ppm": -300.4
+   },
+   "reproduced": {
+    "yes": true,
+    "digits": 25,
+    "how": "interval_contraction_certificate.PointSolver, 40 digits, cutoffs 120/90 (/tmp/claude-501/maud_work/pfwd_fast.py)"
+   },
+   "inputs": [
+    {
+     "name": "P = phi + sqrt(pi) alpha (outer closure premise)",
+     "class": "DECLARED",
+     "source": "paper/observers_are_all_you_need.tex:3260-3266; code/P_derivation/paper_math.py:668"
+    },
+    {
+     "name": "M_U = E* exp(-2 pi) P^(1/6)",
+     "class": "DECLARED",
+     "source": "paper/observers_are_all_you_need.tex:3288; code/P_derivation/paper_math.py:209-212; code/particles/calibration/legacy_d10/particle_masses_paper_d10_d11.py:89-90"
+    },
+    {
+     "name": "E_cell = E* P^(-1/2); v = E_cell exp(-2 pi/(beta_EW alpha_U))",
+     "class": "DECLARED",
+     "source": "paper/observers_are_all_you_need.tex:3289; paper_math.py:214-223; legacy_d10:97-99"
+    },
+    {
+     "name": "beta_EW = N_c + 1 = 4 ('a design choice, not the weak beta-function coefficient')",
+     "class": "DECLARED",
+     "source": "paper/observers_are_all_you_need.tex:3294-3295; paper_math.py:156; legacy_d10:93-94"
+    },
+    {
+     "name": "one-loop slopes (33/5, 1, -3), MSSM-like proxy; SM census (41/10,-19/6,-7) with beta=4 has no solution",
+     "class": "DECLARED",
+     "source": "paper_math.py:155; legacy_d10:31-32; code/P_derivation/README.md:66-71; model/pixel_mass_closure/PROOF.md:65-104"
+    },
+    {
+     "name": "pixel closure ellbar_SU2(4 pi^2 a2) + ellbar_SU3(4 pi^2 a3) = P/4",
+     "class": "DECLARED",
+     "source": "paper_math.py:582-588; legacy_d10:134-137"
+    },
+    {
+     "name": "tree Z closure m_Z = (v/2) sqrt(g2^2 + gY^2)",
+     "class": "DECLARED",
+     "source": "legacy_d10:127-131, 219-247; paper_math.py:242"
+    },
+    {
+     "name": "Thomson transport A_T on Stage-5 continuation masses with screening 1 - N_c alpha3/pi (Koide balance inside is 'a target-informed premise')",
+     "class": "DECLARED",
+     "source": "extra/fine_structure_constant_derivation.tex:519-586; paper_math.py:268-345, 453"
+    }
+   ],
+   "classification": "declared-map output, no anchor; disagrees"
+  },
+  {
+   "id": "A-gauge-width",
+   "particles": [
+    "alpha"
+   ],
+   "lane": "gauge-width map",
+   "reported": {
+    "alpha_inv": "137.035660136947"
+   },
+   "residual": {
+    "ppm": -2.474
+   },
+   "reproduced": {
+    "yes": true,
+    "digits": 25
+   },
+   "inputs": [
+    {
+     "name": "alpha_U(P) added to the inverse-coupling readout",
+     "class": "TARGET-INFORMED",
+     "evidence": "added 29fbfe16b (2026-06-27) after the 0.041164 gap to CODATA was in the repository (a2ee0efaf, 2026-04-28); first as mixed packet 137.0359595; self-consistent map 7e94eb43d (2026-07-14)"
+    }
+   ],
+   "classification": "target-informed"
+  },
+  {
+   "id": "A-spectral",
+   "particles": [
+    "alpha"
+   ],
+   "lane": "entangled-pair spectral scalar (Wissner-Gross construction)",
+   "reported": {
+    "alpha_inv": "137.0359991895661550",
+    "expression": "(79+48 sqrt2+42 sqrt3+3 sqrt6)/31104"
+   },
+   "residual": {
+    "pull": 0.5984,
+    "rel": 9.17e-11
+   },
+   "inputs": [
+    {
+     "name": "construction: dimensions (3,2,3,2), exchange involutions, sqrt-gain weights, normalization 31104",
+     "class": "DECLARED",
+     "source": "model/observer_particles/entangled_alpha.py (borrowed from A. D. Wissner-Gross 2026)"
+    }
+   ],
+   "classification": "declared external candidate with no measured input; Thomson identification unproved; feeds no mass row"
+  },
+  {
+   "id": "V-hierarchy",
+   "particles": [
+    "v"
+   ],
+   "lane": "v/E* = P^(-1/2) exp(-2 pi/(4 alpha_U))",
+   "reported": {
+    "v_over_E_star_PC": 2.0199803239725553e-17,
+    "v_GeV_PC": 246.6174
+   },
+   "measured": {
+    "v_GeV": 246.2197
+   },
+   "residual": {
+    "rel": 0.0016
+   },
+   "classification": "declared-map output at measured P_C; disagrees"
+  }
+ ]
+}

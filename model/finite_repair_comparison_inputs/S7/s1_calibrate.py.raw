@@ -1,0 +1,260 @@
+"""Calibration of the S7 instruments on known answers.
+
+  A  kernel rule == model.observer.native.native on a replayed history (levels 0, loads 0..5)
+  B  exact interval counts == brute-force transitive closure
+  C  Minkowski sprinklings d = 2, 3, 4: ordering fraction 1/2, 8/35, 1/10; longest chain against sqrt(t^2 - r^2)
+  D  randomly scheduled seam graphs of known dimension: ring (1+1), triangular torus (2+1), cubic torus (3+1)
+  E  negative control: one isolated carrier (the order saturates, no dimension is defined)
+
+usage: s1_calibrate.py A|B|C|D1|D2|D3|E
+"""
+import json
+import sys
+import time
+from pathlib import Path
+
+import numpy as np
+
+import s7lib as S
+
+HERE = Path(__file__).resolve().parent
+OUT = HERE / 's1_calibrate.json'
+
+
+def save(key, value):
+    data = json.loads(OUT.read_text()) if OUT.exists() else {}
+    data[key] = value
+    OUT.write_text(json.dumps(data, indent=1))
+
+
+def sample_intervals(g, conv, durations, seeds, filling=(1, 3), start=0.5):
+    """Nested intervals between events on one port; returns rows (seed, tau, N, R, H, P)."""
+    rows = []
+    for seed in seeds:
+        rng = np.random.default_rng(1000 + seed)
+        x = S.balanced_loads(g.nports, filling[0], filling[1], rng)
+        seam, cur = S.history(g, x, max(durations) + start + 0.01, 7_000_000 + seed)
+        use = (cur != 0).astype(np.uint8) if conv == 'moves' else None
+        for _try in range(50):
+            port = int(rng.integers(g.nports))
+            inc = np.flatnonzero((g.sa == port) | (g.sb == port))
+            hit = np.isin(seam, inc)
+            if use is not None:
+                hit &= use.astype(bool)
+            times = np.flatnonzero(hit)
+            times0 = times[times >= int(start * g.M)]
+            if times0.size >= 2:
+                break
+        else:
+            continue
+        t0 = int(times0[0])
+        for tau in durations:
+            cand = times[(times > t0) & (times < t0 + int(tau * g.M))]
+            if cand.size == 0:
+                continue
+            t1 = int(cand[-1])
+            N, R, H, P, L = S.interval(g, seam, use, t0, t1)
+            if N >= 3:
+                rows.append((seed, tau, N, R, H, P, (t1 - t0) / g.M))
+    return rows
+
+
+def summarize(rows, durations):
+    out = []
+    for tau in durations:
+        sub = [r for r in rows if r[1] == tau]
+        if not sub:
+            continue
+        N = np.array([r[2] for r in sub], float); R = np.array([r[3] for r in sub], float); H = np.array([r[4] for r in sub], float)
+        f = 2 * R / (N * (N - 1))
+        fi = 2 * (R - (2 * N - 3)) / np.maximum((N - 2) * (N - 3), 1)          # endpoints removed
+        k = len(sub)
+        sem = lambda v: float(v.std(ddof=1) / np.sqrt(k)) if k > 1 else float('nan')
+        out.append({'tau': tau, 'samples': k, 'N_mean': float(N.mean()), 'f': float(f.mean()), 'f_sem': sem(f),
+                    'f_inner': float(fi.mean()), 'f_inner_sem': sem(fi), 'mm_dim': S.mm_dim(float(f.mean())),
+                    'mm_dim_inner': S.mm_dim(float(fi.mean())), 'H_mean': float(H.mean()), 'H_sem': sem(H),
+                    'ports_mean': float(np.mean([r[5] for r in sub]))})
+    return out
+
+
+def show(title, summ):
+    print(title)
+    print(f"{'tau':>6}{'n':>4}{'N':>10}{'f':>9}{'+-':>8}{'f_in':>9}{'+-':>8}{'d_MM':>7}{'d_in':>7}{'H':>8}{'ports':>8}")
+    for s in summ:
+        print(f"{s['tau']:>6}{s['samples']:>4}{s['N_mean']:>10.0f}{s['f']:>9.4f}{s['f_sem']:>8.4f}{s['f_inner']:>9.4f}{s['f_inner_sem']:>8.4f}"
+              f"{s['mm_dim']:>7.3f}{s['mm_dim_inner']:>7.3f}{s['H_mean']:>8.1f}{s['ports_mean']:>8.0f}", flush=True)
+
+
+def test_A():
+    from model.observer.native import native
+    g = S.federation(0)
+    rng = np.random.default_rng(5)
+    x = rng.integers(0, 6, size=g.nports).astype(np.int32)
+    x0 = x.copy()
+    seam, cur, coin = S.history(g, x, 40.0, 99, coin=True)
+    y = [int(v) for v in x0]
+    bad = 0
+    hist = {}
+    for t in range(seam.size):
+        a, b = int(g.sa[seam[t]]), int(g.sb[seam[t]])
+        loc = [y[a], y[b]]
+        out, (c, j) = native(loc, (0, 1), int(coin[t]))
+        y[a], y[b] = out
+        bad += (j != int(cur[t]))
+        hist[j] = hist.get(j, 0) + 1
+    ok = bad == 0 and y == [int(v) for v in x]
+    cnt = np.bincount(seam, minlength=g.M)
+    chi2 = float(((cnt - seam.size / g.M) ** 2 / (seam.size / g.M)).sum())
+    res = {'attempts': int(seam.size), 'current_mismatches': int(bad), 'final_state_equal': bool(y == [int(v) for v in x]),
+           'current_histogram': {str(k): v for k, v in sorted(hist.items())}, 'coin_mean': float(coin.mean()),
+           'seam_chi2': chi2, 'seam_dof': g.M - 1, 'final_spread': int(x.max() - x.min())}
+    print('A kernel vs native():', res, 'PASS' if ok else 'FAIL')
+    save('A_kernel_vs_native', res)
+
+
+def brute(seam, use, sa, sb, t0, t1):
+    ev = [t for t in range(t0, t1 + 1) if use is None or use[t]]
+    idx = {t: i for i, t in enumerate(ev)}
+    n = len(ev)
+    past = [0] * n
+    last = {}
+    for i, t in enumerate(ev):
+        a, b = int(sa[seam[t]]), int(sb[seam[t]])
+        m = 0
+        for p in (a, b):
+            if p in last:
+                m |= past[last[p]] | (1 << last[p])
+        past[i] = m
+        last[a] = i; last[b] = i
+    i0, i1 = idx[t0], idx[t1]
+    if not (past[i1] >> i0) & 1:
+        return 0, 0, 0
+    inside = [i for i in range(n) if (i == i0 or (past[i] >> i0) & 1) and (i == i1 or (past[i1] >> i) & 1)]
+    mask = sum(1 << i for i in inside)
+    R = sum((past[i] & mask).bit_count() for i in inside)
+    h = {}
+    for i in inside:
+        best = 0
+        for k in inside:
+            if k < i and (past[i] >> k) & 1 and h[k] > best:
+                best = h[k]
+        h[i] = best + 1
+    return len(inside), R, h[i1]
+
+
+def test_B():
+    res = []
+    ok = True
+    for name, g in (('ring_40', S.ring(40)), ('fed_L0', S.federation(0)), ('tri_12', S.triangular_torus(12))):
+        for conv in ('all', 'moves'):
+            for seed in range(6):
+                rng = np.random.default_rng(seed)
+                x = S.balanced_loads(g.nports, 1, 3, rng)
+                seam, cur = S.history(g, x, 6.0, 31 + seed)
+                use = (cur != 0).astype(np.uint8) if conv == 'moves' else None
+                ev = np.flatnonzero(use) if use is not None else np.arange(seam.size)
+                t0 = int(ev[ev >= g.M // 2][0])
+                port = int(g.sa[seam[t0]])
+                hit = ((g.sa[seam] == port) | (g.sb[seam] == port)) & ((use.astype(bool)) if use is not None else True)
+                cand = np.flatnonzero(hit)
+                cand = cand[(cand > t0) & (cand < t0 + int((2.5 if name != 'ring_40' else 5.0) * g.M))]
+                if cand.size == 0:
+                    continue
+                t1 = int(cand[-1])
+                N, R, H, P, L = S.interval(g, seam, use, t0, t1)
+                bN, bR, bH = brute(seam, use, g.sa, g.sb, t0, t1)
+                same = (N, R, H) == (bN, bR, bH)
+                ok &= same
+                res.append({'graph': name, 'conv': conv, 'seed': seed, 'kernel': [N, R, H], 'brute': [bN, bR, bH], 'equal': same})
+    for r in res:
+        print(r)
+    print('B interval counts vs brute force:', 'PASS' if ok else 'FAIL', f'({len(res)} intervals)')
+    save('B_interval_vs_brute', {'all_equal': bool(ok), 'cases': res})
+
+
+def test_C():
+    out = {}
+    rng = np.random.default_rng(2026)
+    for dim, target in ((1, 0.5), (2, 8 / 35), (3, 0.1)):
+        fs = []
+        for rep in range(8):
+            n_try = {1: 9000, 2: 30000, 3: 90000}[dim]
+            t = rng.uniform(0, 1, n_try)
+            x = rng.uniform(-0.5, 0.5, (n_try, dim))
+            r = np.linalg.norm(x, axis=1)
+            keep = (r <= t) & (r <= 1 - t)
+            t = np.concatenate([[0.0], t[keep], [1.0]]); x = np.vstack([np.zeros((1, dim)), x[keep], np.zeros((1, dim))])
+            o = np.argsort(t, kind='stable'); t = np.ascontiguousarray(t[o]); x = np.ascontiguousarray(x[o])
+            n = t.size
+            chain = np.zeros(n, np.int32)
+            rel = S.lib.s7_minkowski(S.pd(t), S.pd(x), dim, n, None, S.p32(chain))
+            fs.append((n, 2 * rel / (n * (n - 1)), int(chain[-1])))
+        f = np.array([v[1] for v in fs])
+        out[f'd{dim + 1}'] = {'target': target, 'f_mean': float(f.mean()), 'f_sem': float(f.std(ddof=1) / np.sqrt(f.size)),
+                              'N_mean': float(np.mean([v[0] for v in fs])), 'mm_dim': S.mm_dim(float(f.mean())),
+                              'H_mean': float(np.mean([v[2] for v in fs]))}
+        print(f"C sprinkling d={dim + 1}: N={out[f'd{dim + 1}']['N_mean']:.0f} f={f.mean():.4f} +- {out[f'd{dim + 1}']['f_sem']:.4f} target {target:.4f} "
+              f"MM dim {out[f'd{dim + 1}']['mm_dim']:.3f} height {out[f'd{dim + 1}']['H_mean']:.1f}", flush=True)
+    # longest chain against proper time, 2+1: points in the future cone of the origin, t <= 1
+    prof = {u: [] for u in (0.0, 0.25, 0.5, 0.75, 0.9)}
+    for rep in range(6):
+        n_try = 60000
+        t = rng.uniform(0, 1, n_try); x = rng.uniform(-1, 1, (n_try, 2))
+        r = np.linalg.norm(x, axis=1)
+        keep = r <= t
+        t = t[keep]; x = x[keep]
+        # probes at t = 1 and displacement u along the first axis
+        us = sorted(prof)
+        t = np.concatenate([[0.0], t, np.ones(len(us))]); x = np.vstack([np.zeros((1, 2)), x, np.array([[u, 0.0] for u in us])])
+        o = np.argsort(t, kind='stable'); t = np.ascontiguousarray(t[o]); x = np.ascontiguousarray(x[o])
+        n = t.size
+        chain = np.zeros(n, np.int32)
+        inflag = np.zeros(n, np.uint8)
+        S.lib.s7_minkowski(S.pd(t), S.pd(x), 2, n, S.pu8(inflag), S.p32(chain))
+        for i in range(n - len(us), n):
+            u = round(float(x[i, 0]), 2)
+            prof[u].append(int(chain[i]))
+    base = np.mean(prof[0.0])
+    rows = []
+    for u in sorted(prof):
+        v = np.array(prof[u], float)
+        rows.append({'u': u, 'chain': float(v.mean()), 'ratio': float(v.mean() / base), 'ratio_sem': float(v.std(ddof=1) / np.sqrt(v.size) / base),
+                     'lorentz': float(np.sqrt(1 - u * u))})
+        print(f"C chain 2+1 sprinkling u={u:.2f}: chain {v.mean():.1f} ratio {v.mean() / base:.3f} +- {rows[-1]['ratio_sem']:.3f}  sqrt(1-u^2) = {np.sqrt(1 - u * u):.3f}")
+    out['chain_profile_2p1'] = rows
+    save('C_minkowski', out)
+
+
+def test_D(which):
+    spec = {'D1': ('ring', lambda: S.ring(6000), [25, 50, 100, 200, 400, 800], 12, 0.5),
+            'D2': ('triangular torus', lambda: S.triangular_torus(200), [2, 3, 4, 6, 8, 12, 16, 24], 10, 8 / 35),
+            'D3': ('cubic torus', lambda: S.cubic_torus(56), [2, 3, 4, 5, 6, 8, 10], 8, 0.1)}[which]
+    name, build, durations, nseed, target = spec
+    g = build()
+    out = {}
+    for conv in ('all', 'moves'):
+        t = time.time()
+        rows = sample_intervals(g, conv, durations if conv == 'all' else durations, range(nseed))
+        summ = summarize(rows, durations)
+        show(f'D control {name} ({g.name}, {g.nports} ports, {g.M} seams), events = {conv}, target f = {target:.4f}  [{time.time() - t:.0f}s]', summ)
+        out[conv] = summ
+    save(f'{which}_{g.name}', {'target': target, 'summary': out})
+
+
+def test_E():
+    c = S.carrier()
+    seams = np.asarray(c.seams(), np.int32)
+    g = S.Graph('single_carrier', 12, seams[:, 0], seams[:, 1])
+    durations = [1, 2, 4, 8, 16, 32, 64]
+    out = {}
+    for conv in ('all', 'moves'):
+        rows = sample_intervals(g, conv, durations, range(20), filling=(1, 3))
+        summ = summarize(rows, durations)
+        show(f'E negative control: one isolated carrier, events = {conv}', summ)
+        out[conv] = summ
+    save('E_single_carrier', out)
+
+
+if __name__ == '__main__':
+    w = sys.argv[1]
+    {'A': test_A, 'B': test_B, 'C': test_C, 'E': test_E}.get(w, lambda: test_D(w))()

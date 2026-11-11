@@ -1,0 +1,194 @@
+"""D1 item 1, supplement: what is canonical. Exact over Q(sqrt5) (kdlib.K); integers for the group data.
+
+For every frame f and base port p0 the nine matrix coefficients Phi[p][(i, j)] = rho(g_p)_ij (body axes of p0) identify
+the triplet-isotypic part of the port space with C^3 (first index i) x C^3 (second index j). Claims checked here:
+  (a) the three kernel copies (second index along an eigenvector u of M3) are subspaces of the port space that do not
+      depend on the base port: slow = the sqrt5 eigenspace of A (the 3 of the sixty rotations), fast = the -sqrt5
+      eigenspace (the 3'), middle = (the -1 eigenspace of A, the 5) intersected with the triplet-isotypic part of the
+      frame group; the middle copy depends on the frame, not on the base port;
+  (b) the three axis lines of the second index are canonical: they are the joint eigenspaces of the canonical right
+      Klein group {1, F, P, FP} on the triplet-isotypic part (normal = P-even = the middle copy, long = F-even,
+      short = FP-even);
+  (c) the overlaps between (a) and (b) are canonical: (5 + sqrt5)/10 and (5 - sqrt5)/10;
+  (d) the base port enters only through the bijection between the three canonical lines and the three frame axes
+      of the first index (fixed by the golden rectangle of p0, three cyclic choices) and through signs (fixed by the
+      port inside its rectangle).
+Run from the public checkout:
+  PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:RL/work/KD:RL/work/D1 python RL/work/D1/d1_item1b.py [out.json]
+"""
+import json
+import sys
+from fractions import Fraction as F
+
+import kdlib as kd
+from kdlib import K, ONE, ZERO, PHI, R5
+
+import d1lib as d
+from d1lib import frame, torsor, canonical_ops, adjacency, pmat, pmul, IDP
+
+checks, counts = {}, {}
+
+
+def ok(name, cond):
+    assert cond, name
+    checks[name] = True
+
+
+def bump(name, n=1):
+    counts[name] = counts.get(name, 0) + n
+
+
+A = adjacency()
+AK = tuple(tuple(K(x) for x in r) for r in A)
+N12 = 12
+
+
+def kmm(X, Y):
+    return kd.mm(X, Y)
+
+
+def keye(n):
+    return kd.eye(n)
+
+
+def kscale(c, X):
+    return kd.mscale(c, X)
+
+
+def ksub(X, Y):
+    return kd.msub(X, Y)
+
+
+def kadd(X, Y):
+    return kd.madd(X, Y)
+
+
+def kint(M):
+    return tuple(tuple(K(x) for x in r) for r in M)
+
+
+# spectral projectors of the adjacency: eigenvalues 5, sqrt5, -1, -sqrt5
+EIG = {'5': K(5), 'sqrt5': R5, '-1': K(-1), '-sqrt5': -R5}
+
+
+def spectral(name):
+    lam = EIG[name]
+    out = keye(N12)
+    for other, mu in EIG.items():
+        if other == name:
+            continue
+        out = kmm(out, kscale((lam - mu).inv(), ksub(AK, kscale(mu, keye(N12)))))
+    return out
+
+
+E = {name: spectral(name) for name in EIG}
+ok('spectral projectors of A: idempotent, sum to one, ranks 1, 3, 5, 3',
+   all(kd.meq(kmm(P, P), P) for P in E.values())
+   and kd.meq(kadd(kadd(E['5'], E['sqrt5']), kadd(E['-1'], E['-sqrt5'])), keye(N12))
+   and [kd.rank(E[n]) for n in ('5', 'sqrt5', '-1', '-sqrt5')] == [1, 3, 5, 3])
+
+U = {'slow': (ZERO, ONE, PHI), 'middle': (ONE, ZERO, ZERO), 'fast': (ZERO, PHI, -ONE)}
+AXES = {'normal': (ONE, ZERO, ZERO), 'short': (ZERO, ONE, ZERO), 'long': (ZERO, ZERO, ONE)}
+
+
+def copy_projector(Phi, u):
+    """Projector on span_i Phi(e_i x u): (1/(4|u|^2)) sum_i c_i c_i^T with c_i[p] = sum_j Phi[p][3i+j] u_j."""
+    nu = sum((x * x for x in u), ZERO)
+    cols = [tuple(sum((K(Phi[p][3 * i + j]) * u[j] for j in range(3)), ZERO) for p in range(N12)) for i in range(3)]
+    s = (K(4) * nu).inv()
+    return tuple(tuple(s * sum((c[p] * c[q] for c in cols), ZERO) for q in range(N12)) for p in range(N12))
+
+
+frames_out = []
+mid_by_frame = []
+pi3_by_frame = []
+bijections = {}
+for f in range(5):
+    fr = frame(f)
+    T, rho = fr['T'], fr['rho']
+    ops = canonical_ops(f)
+    Pm = kint(pmat(ops['P'])); Fm = kint(pmat(ops['F'])); FPm = kint(pmat(pmul(ops['F'], ops['P'])))
+    # triplet-isotypic projector of the left action by characters: (3/12) sum_g chi_3(g) L(g)
+    Pi3 = kscale(K(F(3, 12)), tuple(tuple(K(sum(sum(rho[g][i][i] for i in range(3)) * pmat(g)[a][b] for g in T))
+                                          for b in range(N12)) for a in range(N12)))
+    ok('triplet-isotypic projector (characters) is idempotent of rank 9', kd.meq(kmm(Pi3, Pi3), Pi3) and kd.rank(Pi3) == 9)
+    pi3_by_frame.append(Pi3)
+    half = lambda X: kscale(K(F(1, 2)), kadd(keye(N12), X))
+    Qcanon = {'normal': kmm(Pi3, half(Pm)), 'long': kmm(Pi3, half(Fm)), 'short': kmm(Pi3, half(FPm))}
+    mid_canon = kmm(E['-1'], Pi3)
+    ok('(the 5 of the rotations) x (triplet-isotypic part of the frame group) is a projector of rank 3',
+       kd.meq(kmm(mid_canon, mid_canon), mid_canon) and kd.rank(mid_canon) == 3)
+    mid_by_frame.append(mid_canon)
+    rows = []
+    for p0 in range(12):
+        to = torsor(f, p0)
+        elem, rhoB, B0 = to['elem'], to['rhoB'], to['B0']
+        Phi = [[rhoB[elem[p]][i][j] for i in range(3) for j in range(3)] for p in range(12)]
+        Pc = {name: copy_projector(Phi, u) for name, u in U.items()}
+        Qa = {name: copy_projector(Phi, u) for name, u in AXES.items()}
+        ok('(a) slow copy = sqrt5 eigenspace of A, for every frame and base port', kd.meq(Pc['slow'], E['sqrt5']))
+        ok('(a) fast copy = -sqrt5 eigenspace of A, for every frame and base port', kd.meq(Pc['fast'], E['-sqrt5']))
+        ok('(a) middle copy = (-1 eigenspace of A) x (triplet-isotypic part of the frame), for every base port',
+           kd.meq(Pc['middle'], mid_canon))
+        ok('(b) axis lines of the second index = joint eigenspaces of the canonical right Klein group {1, F, P, FP}',
+           all(kd.meq(Qa[n], Qcanon[n]) for n in AXES))
+        ok('(b) the normal line is the middle copy', kd.meq(Qa['normal'], Pc['middle']))
+        ov = {(c, a): kd.trace(kmm(Pc[c], Qa[a])) * K(F(1, 3)) for c in U for a in AXES}
+        ok('(c) squared overlaps copy/axis: slow-long = fast-short = (5+sqrt5)/10, slow-short = fast-long = (5-sqrt5)/10, '
+           'middle-normal = 1, all others 0',
+           ov[('slow', 'long')] == K(F(1, 2), F(1, 10)) and ov[('fast', 'short')] == K(F(1, 2), F(1, 10))
+           and ov[('slow', 'short')] == K(F(1, 2), F(-1, 10)) and ov[('fast', 'long')] == K(F(1, 2), F(-1, 10))
+           and ov[('middle', 'normal')] == ONE
+           and all(ov[(c, a)].is_zero() for c, a in (('slow', 'normal'), ('fast', 'normal'), ('middle', 'short'), ('middle', 'long'))))
+        bump('(frame, base port) cases with all projectors compared exactly')
+        # (d) bijection canonical line -> frame axis of the first index (index 0, 1, 2 of the frame coordinates)
+        def axis_index(row):
+            return next(i for i in range(3) if row[i] != 0), next(row[i] for i in range(3) if row[i] != 0)
+        nn, ss, ll = B0
+        bij = {'P-line (normal)': axis_index(nn)[0], 'F-line (long)': axis_index(ll)[0], 'FP-line (short)': axis_index(ss)[0]}
+        signs = (axis_index(nn)[1], axis_index(ss)[1], axis_index(ll)[1])
+        # golden rectangle of p0 = orbit of the frame's Klein group
+        klein = [g for g in T if fr['kind'][g] in ('identity', 'half-turn')]
+        rect = tuple(sorted({g[p0] for g in klein}))
+        bijections.setdefault(f, {}).setdefault(rect, set()).add(tuple(sorted(bij.items())))
+        rows.append({'base_port': p0, 'rectangle': list(rect), 'line_to_frame_axis': bij, 'signs_normal_short_long': list(signs)})
+    frames_out.append({'frame': f, 'base_ports': rows})
+
+ok('(a) the middle copy differs between the five frames (five distinct subspaces)',
+   all(not kd.meq(mid_by_frame[a], mid_by_frame[b]) for a in range(5) for b in range(a + 1, 5)))
+ok('(d) the bijection line -> frame axis is constant on each golden rectangle and takes three distinct values per frame',
+   all(len(v) == 1 for f in bijections for v in bijections[f].values())
+   and all(len({next(iter(v)) for v in bijections[f].values()}) == 3 for f in bijections))
+cyc = set()
+for f in bijections:
+    for v in bijections[f].values():
+        b = dict(next(iter(v)))
+        cyc.add((b['P-line (normal)'] - b['F-line (long)']) % 3)
+ok('(d) the three bijections are cyclic shifts of one another', len(cyc) == 1)
+
+out = {
+    'arithmetic': 'Q(sqrt5) and integers; every statement exact',
+    'canonical': {
+        'second_index_space': 'the multiplicity space of the frame triplet in the port space; as a subspace of the port space '
+                              'the triplet-isotypic part (rank 9) of the frame group',
+        'kernel_copies': 'slow = the sqrt5 eigenspace of the adjacency (the 3 of the sixty rotations); fast = the -sqrt5 '
+                         'eigenspace (the 3prime); middle = the 5 of the rotations intersected with the triplet-isotypic part '
+                         'of the frame group. Slow and fast do not depend on the frame; the middle copy depends on the frame '
+                         'and on nothing else',
+        'axis_lines_of_the_second_index': 'the joint eigenspaces of the right Klein group {1, F, P, FP}: normal line = P-even = '
+                                          'the middle copy; long line = F-even; short line = FP-even',
+        'mixing_angle_copies_vs_lines': 'squared overlaps (5 + sqrt5)/10 and (5 - sqrt5)/10 in the P-odd plane; the middle copy '
+                                        'is a line',
+    },
+    'base_port_dependent': {
+        'bijection_lines_to_frame_axes': 'fixed by the golden rectangle of the base port (three cyclic choices per frame)',
+        'signs': 'fixed by the base port inside its rectangle',
+        'group_labels_of_the_right_translations': 'R_(a p0)(k) = R_p0(a^-1 k a)',
+        'matrix_M3_in_frame_coordinates': 'six values; a coordinate expression of one canonical operator',
+    },
+    'frames': frames_out,
+    'checks': checks, 'counts': counts,
+}
+path = sys.argv[1] if len(sys.argv) > 1 else 'item1b.json'
+json.dump(out, open(path, 'w'), indent=1)
+print('all checks passed:', len(checks), '| counts:', counts)

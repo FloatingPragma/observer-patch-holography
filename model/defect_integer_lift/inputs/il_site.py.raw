@@ -1,0 +1,334 @@
+"""Summary tables of the integer-lift census and the small data file for the viewer.
+
+    python il_site.py --site <SIM>/oph_defects/viewer2/research/IL/il_census.json
+
+Reads census_L4.json ... census_L7.json of this directory (written by il_lift.py), writes il_summary.json here and
+the site file. Nothing is recomputed from the runs.
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import math
+import re
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+LEVELS = (4, 5, 6, 7)
+A_SET = {0, 1, -1, 2, -2, 3, -3, 4, -4, 6, -6}
+MINIMAL = {0: (0,), 1: (1,), 2: (2,), 3: (3, -3), 4: (-2,), 5: (-1,)}
+R1_NAME = {  # value -> the multiplet whose 6Y it is (reading R1); a face is the flux that such a quantum sees
+    1: 'Q = (u_L, d_L)', -1: 'conjugate of Q', 4: 'u_R', -2: 'd_R', -4: 'conjugate of u_R', 2: 'conjugate of d_R',
+    -3: 'L, conjugate of H', 3: 'conjugate of L, H', -6: 'e_R', 6: 'conjugate of e_R', 0: 'nu_R, gauge fields'}
+KEY_COMPS = ('{2,4}', '{1,5}', '{3,3}', '{2,2,4,4}', '{4,4,4}', '{2,2,2}', '{2,3,3,4}', '{1,2,3}', '{3,4,5}', '{}')
+
+
+def load(level):
+    p = HERE / f'census_L{level}.json'
+    return json.loads(p.read_text()) if p.exists() else None
+
+
+def share(a, b):
+    return a / b if b else None
+
+
+def binom_err(k, n):
+    if not n:
+        return None
+    p = k / n
+    return math.sqrt(max(p * (1 - p), 0.0) / n)
+
+
+def parse_side(text):
+    m = re.match(r'^(.*?)(?: \[flat ([^\]]*)\])?$', text.strip())
+    body, flat = m.group(1).strip(), m.group(2)
+    vals = [] if body in ('', '0') else [int(v) for v in body.split(' + ')]
+    flats = [int(v) for v in flat.split(',')] if flat else []
+    return vals, flats
+
+
+def is_min(v):
+    return v in MINIMAL[v % 6]
+
+
+def origins(census):
+    """Where non-minimal defect values and hidden values first come from: reactions whose inputs are all minimal."""
+    out = {'non_minimal_from_minimal_inputs': {}, 'hidden_from_minimal_inputs': {}, 'reactions_total': 0,
+           'reactions_all_minimal': 0, 'reactions_with_a_non_minimal_or_hidden_input': 0}
+    for etype, table in census['events']['integer_lifts_of_reactions'].items():
+        for z6, row in table.items():
+            for lift, n in row['lifts'].items():
+                left, right = lift.split(' -> ')
+                ins, fin = parse_side(left)
+                outs, fout = parse_side(right)
+                out['reactions_total'] += n
+                clean_in = all(is_min(v) for v in ins) and not fin
+                if not clean_in:
+                    out['reactions_with_a_non_minimal_or_hidden_input'] += n
+                    continue
+                if all(is_min(v) for v in outs) and not fout:
+                    out['reactions_all_minimal'] += n
+                    continue
+                key = f'{etype}: {z6}: {lift}'
+                if any(not is_min(v) for v in outs):
+                    out['non_minimal_from_minimal_inputs'][key] = n
+                if fout:
+                    out['hidden_from_minimal_inputs'][key] = n
+    for k in ('non_minimal_from_minimal_inputs', 'hidden_from_minimal_inputs'):
+        out[k] = dict(sorted(out[k].items(), key=lambda kv: -kv[1]))
+        out[k + '_total'] = sum(out[k].values())
+    return out
+
+
+def two_lifts(census):
+    """The two integer lifts of the Yukawa-class reactions, counted without flat faces involved."""
+    want = {
+        'fusions': {'1 + 3 -> 4': ('+1 + -3 -> -2', '+1 + +3 -> +4'), '3 + 5 -> 2': ('+3 + -1 -> +2', '-3 + -1 -> -4'),
+                    '1 + 2 -> 3': ('+1 + +2 -> +3', '+1 + -4 -> -3'), '4 + 5 -> 3': ('-2 + -1 -> -3', '+4 + -1 -> +3')},
+        'splits': {'3 -> 1 + 2': ('+3 -> +1 + +2', '-3 -> +1 + -4'), '3 -> 4 + 5': ('-3 -> -2 + -1', '+3 -> +4 + -1'),
+                   '4 -> 1 + 3': ('-2 -> +1 + -3', '+4 -> +1 + +3'), '2 -> 3 + 5': ('+2 -> +3 + -1', '-4 -> -3 + -1')}}
+    rows = []
+    for etype, chans in want.items():
+        table = census['events']['integer_lifts_of_reactions'][etype]
+        for z6, (lift_min, lift_other) in chans.items():
+            row = table.get(z6)
+            if not row:
+                continue
+            a, b = row['lifts'].get(lift_min, 0), row['lifts'].get(lift_other, 0)
+            rows.append(dict(reaction=z6, kind=etype, events=row['count'], minimal_lift=lift_min, minimal_count=a,
+                             other_lift=lift_other, other_count=b, other_share=share(b, a + b),
+                             other_share_error=binom_err(b, a + b)))
+    return rows
+
+
+def word_rows(census, comp, limit=10):
+    row = census['end']['words'].get(comp)
+    if not row:
+        return None
+    return dict(carriers=row['carriers'],
+                words=[dict(word=w['word'], count=w['count'], share=w['count'] / row['carriers'],
+                            all_values_hypercharge_integers=w['in_A'], defect_faces_minimal=w['minimal'],
+                            hidden_value_present=w['hidden']) for w in row['words'][:limit]],
+                words_listed=min(limit, len(row['words'])), words_total=len(row['words']))
+
+
+def peak_words(census, comp, named):
+    """Counts of the named words of a composition on the stored cut where the composition is most populated."""
+    W = census['cuts']['words']
+    keys = [k for k in W if k.startswith(comp + ' ')]
+    if not keys:
+        return None
+    n = len(census['cuts']['depth'])
+    totals = [sum(W[k][i] for k in keys) for i in range(n)]
+    i = max(range(n), key=lambda q: totals[q])
+    tot = totals[i]
+    rows = {w: W.get(f'{comp} {w}', [0] * n)[i] for w in named}
+    return dict(cut_index=i, depth=census['cuts']['depth'][i], carriers=tot, counts=rows,
+                shares={w: share(c, tot) for w, c in rows.items()},
+                other_words=tot - sum(rows.values()))
+
+
+def level_summary(census):
+    L = census['level']
+    out = dict(level=L, carriers=census['carriers'], sweeps=census['sweeps'], applied_twists=census['applied_twists'],
+               all_gates_pass=census['all_gates_pass'])
+    g = census['gates']
+    out['gates'] = {
+        'G1 value mod 6 equals the stored class on every stored cut': dict(
+            passed=g['G1_value_mod_6_is_the_stored_class']['passed'], cuts=g['G1_value_mod_6_is_the_stored_class']['cuts'],
+            faces_compared=g['G1_value_mod_6_is_the_stored_class']['faces_compared'],
+            mismatches=g['G1_value_mod_6_is_the_stored_class']['mismatches'],
+            cuts_with_internal_tier=g['G1_value_mod_6_is_the_stored_class']['intra_compared_on']),
+        'G1 end state: curl of the integer link, engine classes and register': dict(passed=g['G1b_end_state']['passed']),
+        'G2 Stokes: every carrier total is zero': dict(
+            passed=g['G2_stokes_carrier_total_zero']['passed'], carrier_cuts=g['G2_stokes_carrier_total_zero']['carrier_cuts'],
+            nonzero_totals=g['G2_stokes_carrier_total_zero']['nonzero_totals']),
+        'G3 Stokes: the screen total is zero': dict(passed=g['G3_stokes_screen_total_zero']['passed'],
+                                                    cuts=g['G3_stokes_screen_total_zero']['cuts']),
+        'G4 every applied twist conserves the sum of its two faces': dict(passed=g['G4_twist_conserves_pair_sum']['passed']),
+        'G5 |j| at most 3, and |j| = 1 in the band': dict(
+            passed=g['G5_current_bound']['passed'], applied_by_abs_j=g['G5_current_bound']['applied_by_abs_j'],
+            applied_after_band=g['G5_current_bound']['applied_after_band']),
+        'G6 the twist list reproduces the stored run': dict(
+            passed=g['G6_twist_list_reproduces_the_run']['passed'], identities=g['G6_twist_list_reproduces_the_run']['identities'],
+            tiers_tracked=g['G6_twist_list_reproduces_the_run']['tiers_tracked'])}
+    if 'G1c_end_state_against_stored_checkpoint' in g:
+        out['gates']['G1 end state against the stored final checkpoint (sha256 of classes and register)'] = dict(
+            passed=g['G1c_end_state_against_stored_checkpoint']['passed'], faces=g['G1c_end_state_against_stored_checkpoint']['faces'])
+    end = {}
+    for tier in ('internal', 'screen'):
+        e = census['end'][tier]
+        s = e['summary']
+        nd = s['defect_faces']
+        vb = e['values_by_class']
+        flat = census['hidden']['at_end']['flat_faces_' + tier]
+        row = dict(values_by_class=vb, defect_faces=nd, hidden_faces=s['hidden_faces'], flat_faces=flat,
+                   share_hypercharge_integers=share(s['defect_in_A'], nd), outside_hypercharge_integers=nd - s['defect_in_A'],
+                   share_minimal=share(s['defect_minimal'], nd), share_abs_4=share(s['defect_abs4'], nd),
+                   abs_5=s['defect_abs5'], abs_7_or_more=s['defect_abs7plus'],
+                   hidden_per_flat_face=share(s['hidden_faces'], flat), hidden_abs_12_or_more=s['hidden_abs12plus'],
+                   hidden_per_defect_face=share(s['hidden_faces'], nd), max_abs=s['max_abs'])
+        for k, pair in (('4', ('-2', '+4')), ('2', ('+2', '-4'))):
+            tot = sum(vb[k].values())
+            row[f'class_{k}'] = dict(faces=tot, **{f'share_{v}': share(vb[k].get(v, 0), tot) for v in pair},
+                                     other=tot - sum(vb[k].get(v, 0) for v in pair))
+        t3 = sum(vb['3'].values())
+        row['class_3'] = dict(faces=t3, plus_3=vb['3'].get('+3', 0), minus_3=vb['3'].get('-3', 0),
+                              abs_9=t3 - vb['3'].get('+3', 0) - vb['3'].get('-3', 0))
+        mir = {}
+        for name, (ka, va, kb, vbv) in {'4:+4 against 2:-4': ('4', '+4', '2', '-4'), '4:-2 against 2:+2': ('4', '-2', '2', '+2'),
+                                        '3:+3 against 3:-3': ('3', '+3', '3', '-3'), '0:+6 against 0:-6': ('0', '+6', '0', '-6'),
+                                        '4:-8 against 2:+8': ('4', '-8', '2', '+8'), '1:+1 against 5:-1': ('1', '+1', '5', '-1')}.items():
+            a, b = vb[ka].get(va, 0), vb[kb].get(vbv, 0)
+            mir[name] = dict(a=a, b=b, standard_errors=((a - b) / math.sqrt(a + b) if a + b else None))
+        row['mirror_pairs'] = mir
+        n2 = census['end']['null_N2'][tier]['summary']
+        row['null_N2'] = dict(share_hypercharge_integers=share(n2['defect_in_A'], n2['defect_faces']),
+                              share_minimal=share(n2['defect_minimal'], n2['defect_faces']), hidden_faces=n2['hidden_faces'],
+                              max_abs=n2['max_abs'])
+        end[tier] = row
+    out['end'] = end
+    out['null_N1_end'] = census['null_N1']
+    out['words_end'] = {c: word_rows(census, c) for c in KEY_COMPS if word_rows(census, c)}
+    w = census['end']['words']
+    tests = {}
+    for comp, strict, r2 in (('{4,4,4}', '(+4,-2,-2)', '(-2,-2,-2|+6)'), ('{2,2,2}', '(+2,+2,-4)', '(+2,+2,+2|-6)')):
+        if comp in w:
+            cnt = {x['word']: x['count'] for x in w[comp]['words']}
+            n = w[comp]['carriers']
+            tests[comp] = dict(carriers=n, R1_strict_word=strict, R1_strict_count=cnt.get(strict, 0),
+                               R1_strict_share=share(cnt.get(strict, 0), n), R1_strict_error=binom_err(cnt.get(strict, 0), n),
+                               R2_word=r2, R2_count=cnt.get(r2, 0), R2_share=share(cnt.get(r2, 0), n),
+                               R2_error=binom_err(cnt.get(r2, 0), n), other=n - cnt.get(strict, 0) - cnt.get(r2, 0),
+                               share_with_a_hidden_value=w[comp]['share_with_hidden'],
+                               share_all_values_hypercharge_integers=w[comp]['share_all_in_A'])
+    if '{2,4}' in w:
+        cnt = {x['word']: x['count'] for x in w['{2,4}']['words']}
+        a, b = cnt.get('(+2,-2)', 0), cnt.get('(-4,+4)', 0)
+        tests['{2,4}'] = dict(carriers=w['{2,4}']['carriers'], word_a='(+2,-2)', count_a=a, word_b='(-4,+4)', count_b=b,
+                              share_b_of_both=share(b, a + b), error=binom_err(b, a + b))
+    if '{3,3}' in w:
+        opp = sum(x['count'] for x in w['{3,3}']['words'] if x['word'].startswith('(+3,-3'))
+        pp = sum(x['count'] for x in w['{3,3}']['words'] if x['word'].startswith('(+3,+3'))
+        mm = sum(x['count'] for x in w['{3,3}']['words'] if x['word'].startswith('(-3,-3'))
+        n = w['{3,3}']['carriers']
+        tests['{3,3}'] = dict(carriers=n, opposite_signs=opp, both_plus=pp, both_minus=mm, with_abs_9=n - opp - pp - mm,
+                              share_opposite=share(opp, n), share_equal_signs=share(pp + mm, n))
+    out['word_tests_end'] = tests
+    out['words_at_peak'] = {
+        '{1,2,3}': peak_words(census, '{1,2,3}', ('(+1,+2,-3)', '(+1,-4,+3)', '(-5,+2,+3)')),
+        '{3,4,5}': peak_words(census, '{3,4,5}', ('(+3,-2,-1)', '(-3,+4,-1)', '(-3,-2,+5)')),
+        '{2,4}': peak_words(census, '{2,4}', ('(+2,-2)', '(-4,+4)')),
+        '{4,4,4}': peak_words(census, '{4,4,4}', ('(+4,-2,-2)', '(-2,-2,-2|+6)')),
+        '{2,2,2}': peak_words(census, '{2,2,2}', ('(+2,+2,-4)', '(+2,+2,+2|-6)'))}
+    ev = census['events']
+    out['events'] = {name: dict(count=ev[name]['count'], defect_sum_conserved=ev[name]['defect_sum_conserved'],
+                                share_conserved=ev[name]['share_conserved'], transfer_to_flat_faces=ev[name]['transfer_to_flat_faces'])
+                     for name in ('births', 'moves', 'annihilations', 'fusions', 'splits', 'exchanges')}
+    out['events']['births']['on_two_faces_of_value_zero'] = ev['births']['on_two_faces_of_value_zero']
+    out['events']['moves']['by_class'] = ev['moves']['by_class']
+    out['events']['moves']['top'] = ev['moves']['value_before_after_left_behind'][:16]
+    out['two_lifts'] = two_lifts(census)
+    out['origins'] = origins(census)
+    idn = {}
+    for tier, rows in census['identities']['tiers'].items():
+        idn[tier] = {}
+        for k, r in rows.items():
+            per = {}
+            for v, d in r['by_value_at_birth'].items():
+                per[v] = dict(identities=d['identities'], share=d['identities'] / r['identities'], alive_at_end=d['alive_at_end'],
+                              lifetime_depth_median=d['lifetime_depth_median'], lifetime_depth_mean=d['lifetime_depth_mean'],
+                              moved=d['moved'], hops_total=d['hops_total'], value_changing_moves=d['value_changing_moves'],
+                              moved_and_value_constant=d['moved_and_value_constant'])
+            idn[tier][k] = dict(identities=r['identities'], moved=r['moved'], moved_and_value_constant=r['moved_and_value_constant'],
+                                share_moved_with_constant_value=share(r['moved_and_value_constant'], r['moved']),
+                                born_non_minimal=r['born_non_minimal'], share_born_non_minimal=share(r['born_non_minimal'], r['identities']),
+                                by_value_at_birth=per)
+    out['identities'] = idn
+    out['hidden'] = census['hidden']
+    cu = census['cuts']
+    s_i = cu['internal_summary']
+    pk5 = max(range(len(s_i)), key=lambda i: s_i[i]['defect_abs5'])
+    pk7 = max(range(len(s_i)), key=lambda i: s_i[i]['defect_abs7plus'])
+    pk4 = max(range(len(s_i)), key=lambda i: s_i[i]['defect_abs4'])
+    out['time'] = dict(
+        first_cut_all_minimal=bool(s_i[1]['defect_faces'] == s_i[1]['defect_minimal'] and s_i[1]['hidden_faces'] == 0),
+        first_cut=dict(depth=cu['depth'][1], defect_faces=s_i[1]['defect_faces'], minimal=s_i[1]['defect_minimal'],
+                       hidden=s_i[1]['hidden_faces']),
+        peak_abs_5=dict(depth=cu['depth'][pk5], count=s_i[pk5]['defect_abs5'], defect_faces=s_i[pk5]['defect_faces'],
+                        share=share(s_i[pk5]['defect_abs5'], s_i[pk5]['defect_faces'])),
+        peak_abs_7_or_more=dict(depth=cu['depth'][pk7], count=s_i[pk7]['defect_abs7plus'], defect_faces=s_i[pk7]['defect_faces'],
+                                share=share(s_i[pk7]['defect_abs7plus'], s_i[pk7]['defect_faces'])),
+        peak_abs_4=dict(depth=cu['depth'][pk4], count=s_i[pk4]['defect_abs4'], defect_faces=s_i[pk4]['defect_faces']),
+        min_share_hypercharge_integers=min((s['defect_in_A'] / s['defect_faces'], cu['depth'][i])
+                                           for i, s in enumerate(s_i) if s['defect_faces']),
+        hidden_monotone=all(s_i[i + 1]['hidden_faces'] >= s_i[i]['hidden_faces'] for i in range(len(s_i) - 2)))
+    w_all = cu['words']
+    k444 = [k for k in w_all if k.startswith('{4,4,4} ')]
+    early = [i for i, dep in enumerate(cu['depth']) if dep in (2, 3)]
+    out['time']['word_444_at_depth_2_and_3'] = dict(
+        carriers=sum(w_all[k][i] for k in k444 for i in early),
+        with_the_word_plus4_minus2_minus2=sum(w_all.get('{4,4,4} (+4,-2,-2)', [0] * len(cu['depth']))[i] for i in early))
+    if 'loads' in census:
+        Ld = census['loads']
+        out['loads'] = {pool: {g: ({k: v for k, v in row.items() if k != 'triples'} | {'triples': row.get('triples')})
+                               for g, row in Ld[pool].items()} for pool in ('early', 'late')}
+        out['loads']['late_chi_square_class3_rest_against_flat'] = Ld['late_chi_square_class3_rest_against_flat']
+        out['loads']['cuts_pooled'] = Ld['cuts_pooled']
+        pc = Ld['per_cut']
+        out['loads']['first_cuts'] = [dict(depth=pc['depth'][i], class3_rest=pc['class3_rest_faces'][i], rest_H_par=pc['class3_rest_H_par'][i],
+                                           rest_H_double=pc['class3_rest_H_double'][i], class3_moving=pc['class3_moving_faces'][i],
+                                           moving_H_double=pc['class3_moving_H_double'][i],
+                                           flat_H_double_share=share(pc['flat_H_double'][i], pc['flat_faces'][i]))
+                                      for i in range(1, 9)]
+    c = census['custody']
+    out['custody'] = dict(simulator_commit=c['simulator_commit'], run_json_sha256=c['run_json_sha256'],
+                          run_manifest_sha256=c['run_manifest_sha256'], catalogue_sha256=c['catalogue_sha256'],
+                          end_cut_sha256=c['end_cut_sha256'], history_sha256=c['history_sha256'],
+                          kernel_core_sha256=c['history_meta']['kernel_core_sha256'],
+                          engine_files_sha256=c['history_meta']['engine_files_sha256'],
+                          run=dict(level=L, sweeps=census['sweeps'], schedule=c['run_config']['schedule'], preparation=c['run_config']['prep'],
+                                   cost=c['run_config']['cost_table'], kappa=c['run_config']['kappa'], seed=c['run_config']['seed']))
+    return out
+
+
+def series(census, every=1):
+    cu = census['cuts']
+    idx = list(range(0, len(cu['depth']), every))
+    if idx[-1] != len(cu['depth']) - 1:
+        idx.append(len(cu['depth']) - 1)
+    s = cu['internal_summary']
+    return dict(
+        depth=[cu['depth'][i] for i in idx],
+        note='the last entry is the end state and has depth null',
+        internal_values={k: [v[i] for i in idx] for k, v in cu['internal'].items()},
+        defect_faces=[s[i]['defect_faces'] for i in idx], minimal=[s[i]['defect_minimal'] for i in idx],
+        at_a_hypercharge_integer=[s[i]['defect_in_A'] for i in idx], hidden_faces=[s[i]['hidden_faces'] for i in idx],
+        null_N2_at_a_hypercharge_integer=[cu['null_N2_internal_summary'][i]['defect_in_A'] for i in idx],
+        null_N2_hidden_faces=[cu['null_N2_internal_summary'][i]['hidden_faces'] for i in idx],
+        words={k: [v[i] for i in idx] for k, v in cu['words'].items()
+               if k in ('{4,4,4} (+4,-2,-2)', '{4,4,4} (-2,-2,-2|+6)', '{4,4,4} (+4,+4,-2|-6)', '{2,2,2} (+2,+2,-4)',
+                        '{2,2,2} (+2,+2,+2|-6)', '{1,2,3} (+1,+2,-3)', '{1,2,3} (+1,-4,+3)', '{1,2,3} (-5,+2,+3)',
+                        '{3,4,5} (+3,-2,-1)', '{3,4,5} (-3,+4,-1)', '{2,4} (+2,-2)', '{2,4} (-4,+4)', '{3,3} (+3,-3)',
+                        '{3,3} (+3,+3|-6)', '{3,3} (-3,-3|+6)', '{1,5} (+1,-1)')})
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--site', default='')
+    args = ap.parse_args()
+    cens = {L: load(L) for L in LEVELS}
+    cens = {L: c for L, c in cens.items() if c}
+    summary = {'schema': 'il.summary.v1', 'levels': {f'L{L}': level_summary(c) for L, c in cens.items()}}
+    (HERE / 'il_summary.json').write_text(json.dumps(summary, indent=1) + '\n')
+    print('written il_summary.json', sorted(summary['levels']))
+    if args.site:
+        import il_site_text as T
+        site = T.build(summary, {f'L{L}': series(c, 2 if L <= 5 else 3) for L, c in cens.items() if L in (5, 6)})
+        Path(args.site).parent.mkdir(parents=True, exist_ok=True)
+        Path(args.site).write_text(json.dumps(site, separators=(',', ':')) + '\n')
+        print('written', args.site, Path(args.site).stat().st_size, 'bytes')
+
+
+if __name__ == '__main__':
+    main()

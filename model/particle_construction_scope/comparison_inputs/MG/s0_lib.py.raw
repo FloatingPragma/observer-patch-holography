@@ -1,0 +1,466 @@
+"""S3 library: own builder for the icosahedral cell federation and its wirings.
+
+Nothing here imports the pinned builder; `s1_baseline.py` checks this builder against it.
+
+Conventions
+  * carrier ports 0..11 with the pinned template coordinates; 30 seams; 20 oriented faces (pinned table).
+  * mesh level l: vertices `verts`, cells `tri` (ccw seen from outside), child cells of cell c are 4c..4c+3
+    in the pinned order (a,ab,ca), (b,bc,ab), (c,ca,bc), (ab,bc,ca).
+  * edge k of a cell is the edge opposite its k-th vertex; `nbr[c,k]` is the cell across it and `nbk[c,k]`
+    the index of the same edge in that cell.
+  * a wiring is an integer array W[N,3]: W[c,k] is the carrier port of cell c glued across edge k.
+"""
+from __future__ import annotations
+
+import itertools
+import math
+import sys
+
+import numpy as np
+import scipy.sparse as sp
+import scipy.sparse.linalg as sla
+
+sys.dont_write_bytecode = True
+
+SCR = '/private/tmp/claude-501/-Users-muellerberndt-Projects-oph-meta/ffc7e197-dc34-420e-b416-eceb3c5d7773/scratchpad'
+S3 = SCR + '/research/S3'
+REPO = SCR + '/rer-edit'
+ARCH = REPO + '/evidence/observer_dynamics_20260925/oph-physics-sim'
+
+PHI = (1.0 + math.sqrt(5.0)) / 2.0
+RAW = np.asarray([(-1.0, PHI, 0.0), (1.0, PHI, 0.0), (-1.0, -PHI, 0.0), (1.0, -PHI, 0.0), (0.0, -1.0, PHI),
+                  (0.0, 1.0, PHI), (0.0, -1.0, -PHI), (0.0, 1.0, -PHI), (PHI, 0.0, -1.0), (PHI, 0.0, 1.0),
+                  (-PHI, 0.0, -1.0), (-PHI, 0.0, 1.0)], dtype=float)
+BASE_FACES = ((0, 11, 5), (0, 5, 1), (0, 1, 7), (0, 7, 10), (0, 10, 11), (1, 5, 9), (5, 11, 4), (11, 10, 2),
+              (10, 7, 6), (7, 1, 8), (3, 9, 4), (3, 4, 2), (3, 2, 6), (3, 6, 8), (3, 8, 9), (4, 9, 5), (2, 4, 11),
+              (6, 2, 10), (8, 6, 7), (9, 8, 1))
+
+
+def _clean(v):
+    r = np.asarray(v, dtype=float).copy()
+    r /= np.linalg.norm(r, axis=1, keepdims=True)
+    r[np.abs(r) < 5.0e-16] = 0.0
+    return r
+
+
+# ----------------------------------------------------------------------------- carrier
+def base_vertices():
+    v = RAW.copy()
+    v /= np.linalg.norm(v, axis=1, keepdims=True)
+    return _clean(_clean(v))
+
+
+PORT_UNIT = base_vertices()
+SEAMS = tuple(sorted({tuple(sorted((f[i], f[(i + 1) % 3]))) for f in BASE_FACES for i in range(3)}))
+assert len(SEAMS) == 30
+ADJ = np.zeros((12, 12), dtype=np.int64)
+for _a, _b in SEAMS:
+    ADJ[_a, _b] = ADJ[_b, _a] = 1
+ANTI = tuple(int(np.argmin(PORT_UNIT @ PORT_UNIT[p])) for p in range(12))
+DIST = np.full((12, 12), 2, dtype=np.int64)
+for _p in range(12):
+    DIST[_p, _p] = 0
+    DIST[_p, ANTI[_p]] = 3
+DIST[ADJ == 1] = 1
+LCAR = np.diag(ADJ.sum(axis=1)) - ADJ
+
+
+def _rot(axis, angle):
+    axis = np.asarray(axis, float) / np.linalg.norm(axis)
+    K = np.array([[0, -axis[2], axis[1]], [axis[2], 0, -axis[0]], [-axis[1], axis[0], 0]])
+    return np.eye(3) + math.sin(angle) * K + (1 - math.cos(angle)) * (K @ K)
+
+
+def _perm_of(M, pts=None):
+    pts = PORT_UNIT if pts is None else pts
+    img = pts @ M.T
+    perm = tuple(int(np.argmax(pts @ img[p])) for p in range(pts.shape[0]))
+    assert np.allclose(pts[list(perm)], img, atol=1e-9)
+    return perm
+
+
+def rotation_group():
+    """The 60 rotation matrices of the template icosahedron and their port permutations (perm[p] = image of p)."""
+    g5 = _rot(PORT_UNIT[0], 2 * math.pi / 5)
+    g3 = _rot(PORT_UNIT[[0, 11, 5]].sum(axis=0), 2 * math.pi / 3)
+    mats = [np.eye(3)]
+    seen = {_perm_of(np.eye(3))}
+    frontier = [np.eye(3)]
+    while frontier:
+        nxt = []
+        for M in frontier:
+            for G in (g5, g3):
+                N = G @ M
+                key = _perm_of(N)
+                if key not in seen:
+                    seen.add(key)
+                    mats.append(N)
+                    nxt.append(N)
+        frontier = nxt
+    assert len(mats) == 60
+    return mats, [_perm_of(M) for M in mats]
+
+
+ROT_MATS, ROT60 = rotation_group()
+AUT120 = ROT60 + [tuple(ANTI[p] for p in perm) for perm in ROT60]   # rotations, then rotation composed with inversion
+AUT_PROPER = [True] * 60 + [False] * 60
+assert len(set(AUT120)) == 120
+_seamset = set(SEAMS)
+assert all(tuple(sorted((g[a], g[b]))) in _seamset for g in AUT120 for a, b in SEAMS)
+
+
+def compose(g, h):
+    """(g o h)[p] = g[h[p]]."""
+    return tuple(g[h[p]] for p in range(len(h)))
+
+
+def inverse(g):
+    out = [0] * len(g)
+    for p, q in enumerate(g):
+        out[q] = p
+    return tuple(out)
+
+
+def perm_order(g):
+    e = tuple(range(len(g)))
+    h, n = g, 1
+    while h != e:
+        h = compose(g, h)
+        n += 1
+    return n
+
+
+def rotation_class(g):
+    """Conjugacy class label of a carrier automorphism (port permutation) in the group of 120."""
+    idx = AUT120.index(tuple(g))
+    proper = AUT_PROPER[idx]
+    M = ROT_MATS[idx % 60]
+    tr = float(np.trace(M))
+    angle = round(math.degrees(math.acos(max(-1.0, min(1.0, (tr - 1) / 2)))))
+    name = {0: 'identity', 180: 'C2 (180 deg)', 120: 'C3 (120 deg)', 72: 'C5 (72 deg)', 144: 'C5^2 (144 deg)'}[angle]
+    if proper:
+        return {'proper': True, 'order': perm_order(g), 'class': name}
+    return {'proper': False, 'order': perm_order(g), 'class': 'inversion x ' + name}
+
+
+# ordered-triple types -------------------------------------------------------------------------------------
+def _type_tables():
+    t120, t60 = {}, {}
+    reps120, reps60 = [], []
+    for tr in itertools.permutations(range(12), 3):
+        if tr in t120:
+            continue
+        orbit = {tuple(g[p] for p in tr) for g in AUT120}
+        i = len(reps120)
+        reps120.append(min(orbit))
+        for o in orbit:
+            t120[o] = i
+    for tr in itertools.permutations(range(12), 3):
+        if tr in t60:
+            continue
+        orbit = {tuple(g[p] for p in tr) for g in ROT60}
+        i = len(reps60)
+        reps60.append(min(orbit))
+        for o in orbit:
+            t60[o] = i
+    return t120, reps120, t60, reps60
+
+
+TYPE120, REPS120, TYPE60, REPS60 = _type_tables()
+
+
+def dist_pattern(tr):
+    """Unordered distance pattern (sorted) of a port triple."""
+    a, b, c = tr
+    return tuple(sorted((int(DIST[a, b]), int(DIST[a, c]), int(DIST[b, c]))))
+
+
+def ordered_dist(tr):
+    """(d(p2,p3), d(p3,p1), d(p1,p2)): the internal distance facing each position."""
+    a, b, c = tr
+    return (int(DIST[b, c]), int(DIST[c, a]), int(DIST[a, b]))
+
+
+def find_aut(src, dst, proper_only=False):
+    """All carrier automorphisms g with g(src[i]) = dst[i]."""
+    out = []
+    for i, g in enumerate(AUT120):
+        if proper_only and not AUT_PROPER[i]:
+            continue
+        if all(g[s] == d for s, d in zip(src, dst)):
+            out.append(g)
+    return out
+
+
+def star_arms(tr):
+    """Exact star (Y) arms of the carrier seen from three glue ports, as Fractions (order of tr)."""
+    from fractions import Fraction as Fr
+    R = {1: Fr(11, 30), 2: Fr(7, 15), 3: Fr(1, 2)}
+    a, b, c = tr
+    Rab, Rac, Rbc = R[int(DIST[a, b])], R[int(DIST[a, c])], R[int(DIST[b, c])]
+    return ((Rab + Rac - Rbc) / 2, (Rab + Rbc - Rac) / 2, (Rac + Rbc - Rab) / 2)
+
+
+# ----------------------------------------------------------------------------- mesh tower
+class Mesh:
+    pass
+
+
+_MESH_CACHE = {}
+
+
+def build_mesh(level):
+    if level in _MESH_CACHE:
+        return _MESH_CACHE[level]
+    if level == 0:
+        verts = base_vertices()
+        tri = np.asarray(BASE_FACES, dtype=np.int64)
+    else:
+        coarse = build_mesh(level - 1)
+        vl = [p.copy() for p in coarse.verts]
+        mid = {}
+
+        def midpoint(i, j):
+            key = (min(i, j), max(i, j))
+            if key not in mid:
+                p = coarse.verts[key[0]] + coarse.verts[key[1]]
+                p /= np.linalg.norm(p)
+                mid[key] = len(vl)
+                vl.append(p)
+            return mid[key]
+        faces = []
+        for a, b, c in coarse.tri.tolist():
+            ab = midpoint(a, b); bc = midpoint(b, c); ca = midpoint(c, a)
+            faces.extend(((a, ab, ca), (b, bc, ab), (c, ca, bc), (ab, bc, ca)))
+        verts = _clean(_clean(np.asarray(vl, dtype=float)))
+        tri = np.asarray(faces, dtype=np.int64)
+    m = Mesh()
+    m.level = level
+    m.verts = verts
+    m.tri = tri
+    N = tri.shape[0]
+    V = verts.shape[0]
+    m.N, m.V = N, V
+    # outward orientation check
+    nrm = np.cross(verts[tri[:, 1]] - verts[tri[:, 0]], verts[tri[:, 2]] - verts[tri[:, 0]])
+    assert (np.einsum('ij,ij->i', nrm, verts[tri].sum(axis=1)) > 0).all()
+    # dual edges in the pinned order
+    me = np.concatenate((tri[:, (0, 1)], tri[:, (1, 2)], tri[:, (2, 0)]), axis=0)
+    kk = np.concatenate((np.full(N, 2), np.full(N, 0), np.full(N, 1)))      # opposite-vertex index of each listed edge
+    low = np.minimum(me[:, 0], me[:, 1]); high = np.maximum(me[:, 0], me[:, 1])
+    keys = low * V + high
+    fid = np.tile(np.arange(N, dtype=np.int64), 3)
+    order = np.argsort(keys, kind='stable')
+    sk, sf, skk = keys[order], fid[order], kk[order]
+    assert (sk[0::2] == sk[1::2]).all()
+    f0, f1, k0, k1 = sf[0::2], sf[1::2], skk[0::2], skk[1::2]
+    swap = f0 > f1
+    m.left = np.where(swap, f1, f0); m.right = np.where(swap, f0, f1)
+    m.kl = np.where(swap, k1, k0); m.kr = np.where(swap, k0, k1)
+    m.edge_lo = (sk[0::2] // V); m.edge_hi = (sk[0::2] % V)
+    nbr = np.full((N, 3), -1, dtype=np.int64); nbk = np.full((N, 3), -1, dtype=np.int64)
+    nbr[m.left, m.kl] = m.right; nbk[m.left, m.kl] = m.kr
+    nbr[m.right, m.kr] = m.left; nbk[m.right, m.kr] = m.kl
+    assert (nbr >= 0).all()
+    m.nbr, m.nbk = nbr, nbk
+    pts = np.sum(verts[tri], axis=1)
+    pts /= np.linalg.norm(pts, axis=1, keepdims=True)
+    m.points = pts
+    _MESH_CACHE[level] = m
+    return m
+
+
+def vertex_cycles(mesh):
+    """For every mesh vertex the cells around it in ccw order, as a list of (cell, index of the vertex in the cell)."""
+    tri, nbr = mesh.tri, mesh.nbr
+    first = {}
+    for c in range(mesh.N):
+        for i in range(3):
+            first.setdefault(int(tri[c, i]), (c, i))
+    out = {}
+    for v, (c0, i0) in first.items():
+        cyc = []
+        c, i = c0, i0
+        while True:
+            cyc.append((c, i))
+            # ccw about v: leave cell (v, x, y) across the edge (y, v), i.e. the edge opposite x = index i+1
+            k = (i + 1) % 3
+            c2 = int(nbr[c, k])
+            i2 = int(np.where(tri[c2] == v)[0][0])
+            c, i = c2, i2
+            if (c, i) == (c0, i0):
+                break
+        out[v] = cyc
+    return out
+
+
+# ----------------------------------------------------------------------------- port graph
+def intra_seams(N):
+    loc = np.asarray(SEAMS, dtype=np.int64)
+    base = (np.arange(N, dtype=np.int64) * 12)[:, None]
+    return (base + loc[None, :, 0]).ravel(), (base + loc[None, :, 1]).ravel()
+
+
+def glue_seams(mesh, W):
+    ga = 12 * mesh.left + W[mesh.left, mesh.kl]
+    gb = 12 * mesh.right + W[mesh.right, mesh.kr]
+    return ga, gb
+
+
+def port_seams(mesh, W):
+    ia, ib = intra_seams(mesh.N)
+    ga, gb = glue_seams(mesh, W)
+    return np.concatenate([ia, ga]), np.concatenate([ib, gb])
+
+
+def laplacian(n, a, b, w=None):
+    w = np.ones(a.size) if w is None else np.asarray(w, float)
+    A = sp.coo_matrix((w, (a, b)), shape=(n, n))
+    A = (A + A.T).tocsr()
+    deg = np.asarray(A.sum(axis=1)).ravel()
+    return (sp.diags(deg) - A).tocsc()
+
+
+def port_laplacian(mesh, W):
+    a, b = port_seams(mesh, W)
+    return laplacian(12 * mesh.N, a, b)
+
+
+def low_spectrum(L, k=16, vectors=False, sigma=None):
+    n = L.shape[0]
+    if n <= 2000:
+        w, v = np.linalg.eigh(L.toarray())
+        return (w[:k], v[:, :k]) if vectors else w[:k]
+    if sigma is None:
+        sigma = -1.0 / n
+    res = sla.eigsh(L, k=k, sigma=sigma, which='LM', tol=1e-13, return_eigenvectors=vectors)
+    if vectors:
+        w, v = res
+        o = np.argsort(w)
+        return w[o], v[:, o]
+    return np.sort(res)
+
+
+def multiplets(vals, tol=1e-6):
+    """Group sorted eigenvalues into clusters of relative width tol; returns list of (mean, multiplicity)."""
+    out = []
+    cur = [vals[0]]
+    for x in vals[1:]:
+        if abs(x - cur[-1]) <= tol * max(abs(x), 1e-300):
+            cur.append(x)
+        else:
+            out.append((float(np.mean(cur)), len(cur)))
+            cur = [x]
+    out.append((float(np.mean(cur)), len(cur)))
+    return out
+
+
+def spread(vals):
+    vals = np.asarray(vals, float)
+    return float((vals.max() - vals.min()) / vals.mean())
+
+
+# ----------------------------------------------------------------------------- wirings
+def pinned_wiring(mesh):
+    """Own implementation of the declared tangent-frame routing (same float operations as the pinned source)."""
+    from scipy.optimize import linear_sum_assignment
+    points = mesh.points
+    left, right = mesh.left, mesh.right
+    directions = base_vertices()
+    en = np.empty(left.size * 2, dtype=np.int64); en[0::2] = left; en[1::2] = right
+    eo = np.empty_like(en); eo[0::2] = right; eo[1::2] = left
+    normals = np.asarray(points, dtype=float).copy()
+    normals /= np.maximum(np.linalg.norm(normals, axis=1, keepdims=True), 1.0e-15)
+    reference = np.tile(np.asarray([0.0, 0.0, 1.0]), (normals.shape[0], 1))
+    reference[np.abs(normals[:, 2]) > 0.9] = np.asarray([1.0, 0.0, 0.0])
+    tx = np.cross(reference, normals)
+    tx /= np.maximum(np.linalg.norm(tx, axis=1, keepdims=True), 1.0e-15)
+    ty = np.cross(normals, tx)
+    frames = np.stack((tx, ty, normals), axis=2)
+    vectors = points[eo] - points[en]
+    vectors /= np.maximum(np.linalg.norm(vectors, axis=1, keepdims=True), 1.0e-15)
+    local = np.einsum('ni,nij->nj', vectors, frames[en], optimize=True)
+    scores = np.asarray(local @ directions.T, dtype=np.float32)
+    ep = np.argmax(scores, axis=1).astype(np.int64)
+    keys = en * 12 + ep
+    _, fi, kc = np.unique(keys, return_index=True, return_counts=True)
+    dup = keys[fi[kc > 1]]
+    coll = np.unique(dup // 12)
+    if coll.size:
+        order = np.argsort(en, kind='stable')
+        sn = en[order]
+        starts = np.searchsorted(sn, coll, side='left'); stops = np.searchsorted(sn, coll, side='right')
+        for s, t in zip(starts, stops):
+            ids = order[int(s):int(t)]
+            r, c = linear_sum_assignment(-scores[ids])
+            ep[ids[r]] = c
+    lp, rp = ep[0::2], ep[1::2]
+    W = np.full((mesh.N, 3), -1, dtype=np.int64)
+    W[left, mesh.kl] = lp
+    W[right, mesh.kr] = rp
+    assert (W >= 0).all()
+    return W, int(coll.size)
+
+
+def belt_port(face, k):
+    """The port across the template edge opposite the k-th vertex of an oriented template face."""
+    e = {face[(k + 1) % 3], face[(k + 2) % 3]}
+    third = [v for f in BASE_FACES if e <= set(f) and set(f) != set(face) for v in f if v not in e]
+    assert len(third) == 1
+    return third[0]
+
+
+TOP = (0, 11, 5)
+FACE_TRIPLE = TOP                                          # (1,1,1): the three ports of one carrier face
+BELT_TRIPLE = tuple(belt_port(TOP, k) for k in range(3))   # (2,2,2): the sim's `face_axis` control ports
+
+
+def uniform_wiring_mesh_order(mesh, triple):
+    """W[c,k] = triple[k] in the mesh's own vertex order (the labelling of the sim's `face_axis`)."""
+    return np.tile(np.asarray(triple, dtype=np.int64), (mesh.N, 1))
+
+
+def natural_tower(max_level, triple, central):
+    """Labelled wiring tower: corner children inherit the parent's port for both outer half-edges and for the
+    parallel inner edge; the central child uses central(P_k) on the inner edge parallel to parent edge k."""
+    Ws = [np.tile(np.asarray(triple, dtype=np.int64), (20, 1))]
+    for level in range(1, max_level + 1):
+        Wp = Ws[-1]
+        N = Wp.shape[0]
+        W = np.empty((4 * N, 3), dtype=np.int64)
+        W[0::4] = Wp                                                   # child (a,ab,ca)
+        W[1::4] = Wp[:, (1, 2, 0)]                                     # child (b,bc,ab)
+        W[2::4] = Wp[:, (2, 0, 1)]                                     # child (c,ca,bc)
+        cen = np.asarray(central, dtype=np.int64)
+        W[3::4] = cen[Wp[:, (2, 0, 1)]]                                # child (ab,bc,ca)
+        Ws.append(W)
+    return Ws
+
+
+def ancestry_count(mesh_c, Wc, mesh_f, Wf):
+    """Port ancestry p(v) = 12*(cell//4) + v%12 applied to every fine seam."""
+    ac, bc = port_seams(mesh_c, Wc)
+    coarse = set(zip(np.minimum(ac, bc).tolist(), np.maximum(ac, bc).tolist()))
+    af, bf = port_seams(mesh_f, Wf)
+    pa = 12 * ((af // 12) // 4) + af % 12
+    pb = 12 * ((bf // 12) // 4) + bf % 12
+    non = col = ok = 0
+    for x, y in zip(pa.tolist(), pb.tolist()):
+        if x == y:
+            col += 1
+        elif (min(x, y), max(x, y)) in coarse:
+            ok += 1
+        else:
+            non += 1
+    return {'fine_seams': int(af.size), 'to_coarse_seam': ok, 'to_non_seam': non, 'collapsed': col}
+
+
+def type_census(W):
+    pat = {}
+    t120 = {}
+    t60 = {}
+    for tr in map(tuple, W.tolist()):
+        pat[dist_pattern(tr)] = pat.get(dist_pattern(tr), 0) + 1
+        t120[TYPE120[tr]] = t120.get(TYPE120[tr], 0) + 1
+        t60[TYPE60[tr]] = t60.get(TYPE60[tr], 0) + 1
+    return pat, t120, t60

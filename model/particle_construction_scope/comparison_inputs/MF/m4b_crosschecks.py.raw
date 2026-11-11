@@ -1,0 +1,92 @@
+"""Block 4b: two cross-checks of block 4.
+
+(A) Seam probes and completeness (EXACT). For the compressed-load response X_p = P_p/4 (+) Q_p/6 (a law whose
+    consensus space lies in the load register) the compressed seam disagreement projectors add a thirteenth
+    direction (the second central direction of u(3) + u(2)); seam sums N_a + N_b add nothing.
+(B) The audit's encoded controller (audit/gauge/encoded_overlap.py, copied unchanged as
+    audit_encoded_overlap_copy.py; float64 from its exact tables): its fifth-turn lifts W(q) are two-pulse words
+    exp(i s X_p) exp(-i s X_pbar) in its own declared response X_p = P_p/2 (+) -Q_p/2.
+Output m4b_crosschecks.json. Run: python m4b_crosschecks.py
+"""
+import json, io, contextlib, os
+import numpy as np
+from scipy.linalg import expm
+from kfield import *
+from xcarrier import Carrier
+
+out = {}
+X = Carrier(); Xg = X.great()
+# ---------------------------------------------------------------- (A)
+h2 = X.adj_overlap ** 2
+hg = Xg.adj_overlap
+def anticomm(A, B): return madd(mmul(A, B), mmul(B, A))
+Xs = [dsum(mscale(Kq(1, 4), X.P[p]), mscale(Kq(1, 6), Xg.Q[p])) for p in range(12)]
+seam = []
+for (a, b) in X.E:
+    S3 = mscale(Kq(1, 8), msub(madd(X.P[a], X.P[b]), mscale(h2.inv(), anticomm(X.P[a], X.P[b]))))
+    S2 = mscale(Kq(1, 12), msub(madd(Xg.Q[a], Xg.Q[b]), mscale(hg.inv(), anticomm(Xg.Q[a], Xg.Q[b]))))
+    assert is_hermitian(S3) and is_hermitian(S2)
+    seam.append(dsum(S3, S2))
+r_ports = rank([herm_real_coords(M) for M in Xs])
+r_all = rank([herm_real_coords(M) for M in Xs + seam])
+r_seam = rank([herm_real_coords(M) for M in seam])
+tr3, tr2 = trace([row[:3] for row in seam[0][:3]]), trace([row[3:] for row in seam[0][3:]])
+# cross-check of the compressed seam projector against the definition on the load register (spinor block)
+W = Xg.sections('spinor'); Wd = dagger(W)
+a, b = X.E[0]
+z = Xg.link[(a, b)]
+Pm = zeros(12)
+Pm[a][a] = HALF; Pm[b][b] = HALF; Pm[b][a] = -z * HALF; Pm[a][b] = -z.conj() * HALF
+direct = mscale(Kq(1, 6), mmulm(Wd, Pm, W))
+S2_0 = [row[3:] for row in seam[0][3:]]
+out['seam_probes'] = {'law': 'compressed loads X_p = P_p/4 (+) Q_p/6; seam probe = compressed disagreement projector of the seam in each sector',
+                      'compression_formula_checked_on_the_load_register': meq(direct, S2_0),
+                      'real_span_of_port_responses': r_ports, 'real_span_of_seam_responses': r_seam, 'real_span_of_both': r_all,
+                      'trace_ratio_triplet_to_doublet_seam': str(tr3 * tr2.inv()), 'trace_ratio_port': '3/2',
+                      'conclusion': 'seam probes leave the twelve-dimensional port algebra: with them the response is u(3) + u(2), dimension 13, centre 2',
+                      'framed_quanta': 'the position register is dephased by the reference instrument, so a seam hop probe has no first-order response; sums N_a + N_b are sums of port probes'}
+print('(A) span of port responses', r_ports, '; of seam responses', r_seam, '; of both', r_all, '; seam trace ratio', tr3 * tr2.inv(), '=', float(tr3 * tr2.inv()), flush=True)
+json.dump(out, open('m4b_crosschecks.json', 'w'), indent=1)
+
+# ---------------------------------------------------------------- (B)
+# The audit's script reads a Lean file near its end (not on the box). Its definitions and exact group tables come
+# first; execute the unchanged source up to that point.
+src = open('audit_encoded_overlap_copy.py').read()
+cut = src.index('binding=slow_geometry.registered_binding()')
+ns = {'__file__': os.path.abspath('audit_encoded_overlap_copy.py'), '__name__': 'audit_encoded_overlap_prefix'}
+buf = io.StringIO()
+with contextlib.redirect_stdout(buf):
+    exec(compile(src[:cut], 'audit_encoded_overlap_copy.py', 'exec'), ns)
+class _NS: pass
+eo = _NS(); eo.__dict__.update(ns)
+c = eo.c
+Xa = eo.response_numeric()
+verts = [np.array([c.q5_float(x) for x in v]) for v in eo.vertices]
+anti = [int(np.argmin([np.linalg.norm(verts[p] + verts[q]) for q in range(12)])) for p in range(12)]
+def impl(q):
+    return np.array([[c.q5_float(a) + 1j * c.q5_float(b) for a, b in row] for row in eo.implementer(q)])
+res = {}
+hits_total = 0
+for p in range(12):
+    stab = [q for q in eo.project if eo.project[q][p] == p and eo.project[q] != eo.idperm]
+    found = []
+    for m in range(1, 5):
+        for sgn in (1, -1):
+            s = sgn * 4 * np.pi * m / 5
+            Wd_ = expm(1j * s * Xa[p]) @ expm(-1j * s * Xa[anti[p]])
+            for q in stab:
+                U = impl(q)
+                D = np.abs(Wd_ - U).max()
+                if D < 1e-10:
+                    found.append({'s_over_pi': sgn * 4 * m / 5, 'defect': float(D), 'order_of_rotation': 5})
+    res[p] = found
+    hits_total += len(found)
+ok = all(len(v) >= 1 for v in res.values())
+out['audit_encoded_controller'] = {'response': 'X_p = P_p/2 (+) -Q_p/2 with the audit\'s Pauli ordering; implementers W(q) of the audit',
+                                   'every_port_has_a_two_pulse_word_equal_to_a_fifth_turn_lift': ok,
+                                   'pulse_areas_found_for_port_0_in_units_of_pi': [f['s_over_pi'] for f in res[0]],
+                                   'max_defect': max(f['defect'] for v in res.values() for f in v) if hits_total else None,
+                                   'reading': 'exp(i s X_p) exp(-i s X_pbar) = W(q) for a lift q of a rotation about port p: the declared transport gates of the encoded controller are words in its own response pulses'}
+print('(B) audit encoded controller: two-pulse words reproduce fifth-turn lifts for every port:', ok, '; port 0:', res[0], flush=True)
+json.dump(out, open('m4b_crosschecks.json', 'w'), indent=1)
+print('written m4b_crosschecks.json')

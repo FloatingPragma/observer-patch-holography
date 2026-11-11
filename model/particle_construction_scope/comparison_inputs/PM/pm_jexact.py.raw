@@ -1,0 +1,42 @@
+"""Exact Jarlskog invariants of the second-index pairs (C3, C4, D1, D2) in Q(zeta_60). No measured value enters.
+
+    PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=<geometry checkout>:../KD:../D1 python -B pm_jexact.py jexact.json
+
+abs(J) of a pair of orthonormal bases is invariant under permutations of rows and columns, so one 2 x 2 minor
+fixes it: J = Im(<f_0|v_a><f_1|v_b> conj(<f_0|v_b>) conj(<f_1|v_a>)) / (norms).
+"""
+import json
+import sys
+from fractions import Fraction as F
+
+import d1lib as d
+import d1cover as dc
+from d1lib import C60, C0, C1, IU, W3, S5, frame, torsor, canonical_ops, cmat, csub, cscale, ceye, cdot, cnull3
+
+f0, p00 = 1, 0
+fr = frame(f0)
+to = torsor(f0, p00)
+ops = canonical_ops(f0)
+gCp = next(g for g in fr['T'] if to['right'][g] == ops['C+'])
+R = cmat(to['rhoB'][gCp])
+fvec = [cnull3(csub(R, cscale(lam, ceye(3)))) for lam in (C1, W3, W3 * W3)]
+half = F(1, 2)
+levels = {0: [S5, C60.lift(-1), -S5],
+          2: [(S5 + 5) * half, (S5 - 3) * half, -S5],
+          4: [(S5 + 3) * half, (S5 - 5) * half, -S5]}
+out = {}
+for k, lv in levels.items():
+    A = dc.second_index_matrix(f0, p00, k, "3")
+    vecs = [cnull3(csub(A, cscale(l, ceye(3)))) for l in lv]
+    a, b = vecs[0], vecs[1]
+    T = cdot(fvec[0], a) * cdot(fvec[1], b) * cdot(fvec[0], b).conj() * cdot(fvec[1], a).conj()
+    N = cdot(fvec[0], fvec[0]) * cdot(fvec[1], fvec[1]) * cdot(a, a) * cdot(b, b)
+    imT = (T - T.conj()) * (IU * 2).inv()
+    J2 = (imT * imT) * (N * N).inv()
+    q = J2.q5()
+    out[f'flux {k}'] = {'J_squared_exact (a + b sqrt5)': None if q is None else [str(q[0]), str(q[1])],
+                        'abs_J_float': abs(complex(imT * N.inv())) if True else None,
+                        'J_squared_float': complex(J2).real}
+    print(k, out[f'flux {k}'])
+assert out['flux 0']['J_squared_exact (a + b sqrt5)'] == ['1/540', '0']
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 'jexact.json', 'w'), indent=1)

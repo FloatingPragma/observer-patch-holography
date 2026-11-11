@@ -1,0 +1,276 @@
+"""NM step 4: comparison with NuFIT 6.1, KATRIN and cosmology. NOT BLIND. Every look is counted in looks.json.
+
+Run in this directory:  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B nm4_compare.py
+Reads symmetry.json, x.json, mixing.json, work/DG/scale.json, work/PM/pm_lib.py. Measured values: reports/LIT.md.
+"""
+import itertools
+import json
+import math
+import sys
+from pathlib import Path
+
+import mpmath as mp
+
+HERE = Path(__file__).parent
+RL = Path('WORKSPACE/repair-law')
+sys.path.insert(0, str(RL / 'work/PM'))
+import pm_lib as L  # noqa: E402
+
+mp.mp.dps = 30
+MEAS = {'sin2_theta12': (0.3096, 0.0057, 0.0073), 'sin2_theta23': (0.470, 0.017, 0.013), 'sin2_theta13': (0.02215, 0.00056, 0.00056),
+        'delta_deg': (212.0, 26.0, 41.0), 'dm21': (7.530e-5, 0.096e-5, 0.097e-5), 'dm31': (2.511e-3, 0.021e-3, 0.020e-3)}
+R_MEAS = MEAS['dm21'][0] / MEAS['dm31'][0]
+R_SIG = R_MEAS * math.hypot(0.0965 / 7.530, 0.0205 / 2.511)
+KATRIN, COSMO = 0.45, (0.064, 0.072)
+FLOOR = math.sqrt(MEAS['dm31'][0])
+looks, out = [], {'measured': {**{k: list(v) for k, v in MEAS.items()}, 'r': R_MEAS, 'sigma_r': R_SIG, 'KATRIN_m_beta_eV': KATRIN,
+                               'cosmology_sum_eV': list(COSMO), 'source': 'reports/LIT.md (NuFIT 6.1 and 6.0, KATRIN); cosmology IMPORTED from the candidate files of NU3 and DG'}}
+
+
+def pull(name, value):
+    c, up, dn = MEAS[name]
+    return None if value is None else (value - c) / (up if value >= c else dn)
+
+
+def angle_pulls(e):
+    return {k: pull(k, e.get(k)) for k in ('sin2_theta12', 'sin2_theta23', 'sin2_theta13')}
+
+
+def passes(pulls):
+    return all(p is not None and abs(p) <= 3 for p in pulls.values())
+
+
+# ---------------------------------------------------------------- D1a: part C tuples
+mix = json.loads((HERE / 'mixing.json').read_text())
+rows_c = []
+for e in mix['entries']:
+    row = {'id': e['id'], 'kind': e['kind'], 'relative_phase': e['relative_phase'], 'labelling': e['labelling']}
+    if e.get('degenerate_pair'):
+        row.update({'verdict': 'excluded: degenerate pair (one splitting is zero)', 'masses_over_heaviest': e['masses_linear_over_heaviest']})
+    else:
+        ap = angle_pulls(e)
+        rp = {k: (e[k] - R_MEAS) / R_SIG for k in ('r_linear', 'r_square') if e.get(k) is not None}
+        row.update({'angles': [e['sin2_theta12'], e['sin2_theta23'], e['sin2_theta13']], 'J': e['J'], 'delta_deg': e.get('delta_deg'),
+                    'pulls': ap, 'r_linear': e.get('r_linear'), 'r_square': e.get('r_square'), 'r_pulls': rp,
+                    'all_angles_within_3_sigma': passes(ap), 'some_r_within_3_sigma': any(abs(v) <= 3 for v in rp.values()),
+                    'worst_angle_pull': None if any(p is None for p in ap.values()) else max(abs(p) for p in ap.values())})
+    rows_c.append(row)
+    looks.append({'part': 'C', 'id': e['id'], 'tuple': f"{e['relative_phase']} / {e['labelling']}"})
+out['D1_part_C'] = {'tuples': rows_c,
+                    'tuples_with_all_angles_within_3_sigma': sum(bool(r.get('all_angles_within_3_sigma')) for r in rows_c),
+                    'tuples_with_angles_and_r_within_3_sigma': sum(bool(r.get('all_angles_within_3_sigma')) and bool(r.get('some_r_within_3_sigma')) for r in rows_c)}
+best = sorted((r for r in rows_c if r.get('worst_angle_pull') is not None), key=lambda r: r['worst_angle_pull'])[:3]
+out['D1_part_C']['three_smallest_worst_angle_pulls'] = [{k: r[k] for k in ('id', 'relative_phase', 'labelling', 'angles', 'worst_angle_pull', 'r_linear', 'r_square')} for r in best]
+
+# ---------------------------------------------------------------- D1b: part B values of x
+xj = json.loads((HERE / 'x.json').read_text())
+rows_b = []
+for name, v in xj['splitting_ratio'].items():
+    for reading in ('linear', 'square'):
+        for lab in ('NO', 'IO'):
+            r = v[reading][f'r_{lab}']
+            rel = v[reading]['masses_over_heaviest']
+            row = {'x_source': name, 'x': v['x'], 'reading': reading, 'labelling': lab, 'r': r, 'r_pull': (r - R_MEAS) / R_SIG,
+                   'PMNS': 'permutation (PM A1): angle pulls of about 40'}
+            if lab == 'NO':                               # scale fitted to the atmospheric splitting (a fit of one number)
+                m3 = math.sqrt(MEAS['dm31'][0] / (1 - rel[0] ** 2))
+                ms = [rel[0] * m3, rel[1] * m3, m3]
+                row.update({'masses_eV_with_the_scale_fitted_to_dm31': ms, 'sum_eV': sum(ms),
+                            'sum_within_cosmology_bound': sum(ms) < COSMO[1], 'heaviest_below_KATRIN': ms[2] < KATRIN})
+            rows_b.append(row)
+            looks.append({'part': 'B', 'id': name, 'tuple': f'{reading} / {lab}'})
+out['D1_part_B'] = {'rows': rows_b, 'rows_with_r_within_3_sigma': [r for r in rows_b if abs(r['r_pull']) <= 3]}
+
+# ---------------------------------------------------------------- D2, D3: top-form weights, seesaw values, Dirac values
+sym = json.loads((HERE / 'symmetry.json').read_text())
+dg = json.loads((RL / 'work/DG/scale.json').read_text())
+E_STAR = float(dg['inputs']['E_star_display_GeV'])
+V = {k: float(v) for k, v in dg['v_conventions_GeV_display'].items()}
+pt, pd = sym['S4_walk_on_the_code']['p_triplet'], sym['S4_walk_on_the_code']['p_doublet']
+ot, od = sym['S4_walk_on_the_code']['omega_triplet'], sym['S4_walk_on_the_code']['omega_doublet']
+YC = {'F1 G1 D-a N1 (reports/YC.md, work/YC/yc_run.log)': 41.165594385032946, 'F1 G3a D-a N1 (reports/YC.md)': 51.06499464292585}
+weights = {'TF0 source as it stands': 0.0, 'TF1 reflection about (00000 + 11111)/sqrt2': math.pi / 2,
+           'TF3a p_t^3 p_d^2': pt ** 3 * pd ** 2, 'TF3b sqrt(p_t^3 p_d^2)': math.sqrt(pt ** 3 * pd ** 2),
+           'TF3c sin^3(omega_t) sin^2(omega_d)': math.sin(ot) ** 3 * math.sin(od) ** 2}
+rows_t = []
+for name, th in weights.items():
+    row = {'weight': name, 'theta_M_per_tick': th}
+    if th == 0:
+        row.update({'M_GeV': None, 'verdict': 'no pairing: Dirac neutrinos; with the Dirac amplitude of YC the third neutrino weighs '
+                                                + ', '.join(f'{m:.2f} GeV' for m in YC.values()) + f' against the KATRIN limit {KATRIN} eV'})
+    else:
+        M = th * E_STAR
+        row['M_GeV'] = M
+        k = 0.5 / math.tan(th / 2)                        # T6: th_l = k theta_D^2 at leading order
+        for conv, v in V.items():
+            m = k * (v / E_STAR) ** 2 * E_STAR * 1e9
+            row[f'm_nu_eV_y=1_convention_{conv}'] = m
+            row[f'fraction_of_the_atmospheric_floor_{conv}'] = m / FLOOR
+            row[f'theta_M_needed_over_this_{conv}'] = None
+        for label, md in YC.items():
+            m = k * (md / E_STAR) ** 2 * E_STAR * 1e9
+            row[f'm_nu3_eV_with_YC_{label}'] = m
+            row[f'fraction_of_the_floor_with_YC_{label}'] = m / FLOOR
+    rows_t.append(row)
+    looks.append({'part': 'A', 'id': name, 'tuple': 'conventions a, b and two YC rows'})
+needed = {conv: (v / E_STAR) ** 2 * E_STAR * 1e9 / FLOOR for conv, v in V.items()}
+needed.update({f'YC {label}': (md / E_STAR) ** 2 * E_STAR * 1e9 / FLOOR for label, md in YC.items()})
+out['D2_top_form'] = {'rows': rows_t, 'theta_M_needed_for_the_atmospheric_floor (continuum form theta_D^2/theta_M)': needed,
+                      'tower_angles_TF2': 'DG: 4.3 to 8.2 micro-eV (a), 8.5 to 16 micro-eV (b) at y = 1; no new computation',
+                      'E_star_GeV': E_STAR, 'floor_eV': FLOOR}
+
+# ---------------------------------------------------------------- D3: the three masses of every part C candidate
+md = YC['F1 G1 D-a N1 (reports/YC.md, work/YC/yc_run.log)']
+k3b = 0.5 / math.tan(weights['TF3b sqrt(p_t^3 p_d^2)'] / 2)
+maj_scale_eV = k3b * (md / E_STAR) ** 2 * E_STAR * 1e9
+rows_m, seen = [], set()
+for e in mix['entries']:
+    key = (e['id'], e['relative_phase'])
+    if key in seen:
+        continue
+    seen.add(key)
+    rel = e['masses_linear_over_heaviest']
+    if e['id'].startswith('C'):
+        ms = [r * md for r in rel]
+        rows_m.append({'id': e['id'], 'relative_phase': e['relative_phase'], 'kind': 'Dirac, heaviest = YC third-family Dirac mass',
+                       'masses_GeV': ms, 'heaviest_over_KATRIN_limit': ms[2] * 1e9 / KATRIN})
+    else:
+        ms = [r * maj_scale_eV for r in rel]
+        rows_m.append({'id': e['id'], 'relative_phase': e['relative_phase'], 'kind': 'seesaw, YC Dirac mass, pairing weight TF3b',
+                       'masses_eV': ms, 'heaviest_over_atmospheric_floor': ms[2] / FLOOR, 'sum_eV': sum(ms)})
+out['D3_three_masses'] = {'rows': rows_m, 'Dirac_amplitude': 'YC row F1 G1 D-a N1 (y_nu = y_tau = g/2 at the cell): 41.17 GeV for the third family (reports/YC.md)',
+                          'note': 'linear reading; every Dirac row exceeds the KATRIN limit by more than ten orders of magnitude'}
+
+# ---------------------------------------------------------------- TH-CP check and fits I1, I2, I3
+S = L.shift_counter()
+Fc = L.fourier_counter()
+f = [L.col(Fc, k) for k in range(3)]
+I3 = mp.eye(3)
+a, b, TH = L.A_HOLD, L.B_STEP, L.THETA
+
+
+def unit(i, j):
+    M = mp.zeros(3, 3)
+    M[i, j] = 1
+    return M
+
+
+def mirror(j):
+    P = mp.zeros(3, 3)
+    for n in range(3):
+        P[(2 * j - n) % 3, n] = 1
+    return P
+
+
+def Ce(t):
+    return a * I3 + b * (mp.exp(1j * t) * S + mp.exp(-1j * t) * L.dagger(S))
+
+
+def conj(M):
+    return M.apply(mp.conj)
+
+
+cp_ok = all(mp.mnorm(mirror(j) * conj(Ce(TH)) * mirror(j) - Ce(TH), 1) < 1e-25 for j in range(3))
+assert cp_ok
+out['TH_CP'] = {'holds': True, 'statement': 'P_j conj(C_e(theta)) P_j = C_e(theta) for the three mirrors: the charged circulant has three '
+                                            'antiunitary symmetries; a neutral structure invariant under one of them gives J = 0 '
+                                            '(every J = 0 row of part C with a defined delta is of this kind)'}
+rows_e = {'+2/9': [f[1], f[2], f[0]], '-2/9': [f[2], f[1], f[0]]}
+
+
+def chi2_best(H):
+    """Smallest sum of squared angle pulls over the six assignments of the eigenvectors of a Hermitian H."""
+    E, Q = mp.eigh(H)
+    vecs = [L.col(Q, i) for i in range(3)]
+    best_ = None
+    for orient, rows in rows_e.items():
+        for perm in itertools.permutations(range(3)):
+            p = L.params(L.pmns(rows, [vecs[i] for i in perm]))
+            if p.get('sin2_theta12') is None:
+                continue
+            pulls = [pull(k, p[k]) for k in ('sin2_theta12', 'sin2_theta23', 'sin2_theta13')]
+            c2 = sum(q * q for q in pulls)
+            if best_ is None or c2 < best_['chi2_angles']:
+                best_ = {'chi2_angles': c2, 'orientation': orient, 'assignment': list(perm), 'angles': [p['sin2_theta12'], p['sin2_theta23'], p['sin2_theta13']],
+                         'pulls': pulls, 'J': p['J'], 'delta_deg': p.get('delta_deg'), 'eigenvalues': [float(mp.re(e)) for e in E]}
+    return best_
+
+
+# I1: the measured operator in the counter basis
+s12, s23, s13 = (MEAS[k][0] for k in ('sin2_theta12', 'sin2_theta23', 'sin2_theta13'))
+U = L.pdg_matrix(mp.mpf(s12), mp.mpf(s23), mp.mpf(s13), mp.radians(MEAS['delta_deg'][0]))
+J_meas = float(mp.im(U[0, 0] * U[1, 1] * mp.conj(U[0, 1]) * mp.conj(U[1, 0])))
+i1 = {}
+for orient, rows in rows_e.items():
+    vecs = [sum((U[al, i] * rows[al] for al in range(3)), mp.zeros(3, 1)) for i in range(3)]
+    msq = [0, MEAS['dm21'][0], MEAS['dm31'][0]]
+    T = sum((msq[i] * vecs[i] * L.dagger(vecs[i]) for i in range(3)), mp.zeros(3, 3)) / MEAS['dm31'][0]
+    Tc = (T + S * T * L.dagger(S) + L.dagger(S) * T * S) / 3
+    Tr = T - Tc
+    odd = [float(mp.mnorm(T - mirror(j) * conj(T) * mirror(j), 'f') / 2 / mp.mnorm(T, 'f')) for j in range(3)]
+    i1[orient] = {'T_over_dm31_abs': [[float(abs(T[i, j])) for j in range(3)] for i in range(3)],
+                  'T_over_dm31_phase_deg': [[float(mp.degrees(mp.arg(T[i, j]))) if abs(T[i, j]) > 1e-12 else None for j in range(3)] for i in range(3)],
+                  'norm_third_turn_invariant_part': float(mp.mnorm(Tc, 'f')), 'norm_remainder': float(mp.mnorm(Tr, 'f')),
+                  'remainder_over_invariant': float(mp.mnorm(Tr, 'f') / mp.mnorm(Tc, 'f')),
+                  'mirror_conjugation_odd_fraction_per_mirror': odd}
+    looks.append({'part': 'I1', 'id': 'measured operator', 'tuple': orient})
+out['I1_measured_operator_in_the_counter_basis (FIT input: central values, NO, m1 = 0)'] = i1
+out['J_measured_central'] = J_meas
+
+# I2: T = C_e(theta)^2 + kappa N (x drops out of the eigenvectors)
+grid = [s * 10 ** (e / 20) for s in (1, -1) for e in range(-60, 41)]
+i2 = {}
+for nname, N in (('D0 (marked position)', unit(0, 0)),
+                 ('link 0-1 with the clock phase', mp.exp(1j * TH) * unit(1, 0) + mp.exp(-1j * TH) * unit(0, 1))):
+    bestk = None
+    for kappa in grid:
+        res = chi2_best(Ce(TH) * Ce(TH) + kappa * N)
+        if res and (bestk is None or res['chi2_angles'] < bestk['chi2_angles']):
+            bestk = dict(res, kappa=kappa)
+    i2[nname] = bestk
+    looks.append({'part': 'I2', 'id': nname, 'tuple': f'{len(grid)} values of kappa, two orientations, six assignments (fit)'})
+out['I2_fits'] = i2
+
+# I3: marked position and the opposite link with a phase chi
+i3, scan = None, []
+for n in range(0, 3600):
+    chi = 2 * mp.pi * n / 3600
+    res = chi2_best(unit(0, 0) * 0 + 2 * unit(1, 1) + 2 * unit(2, 2) + (mp.exp(1j * chi) * unit(2, 1) + mp.exp(-1j * chi) * unit(1, 2)))
+    if res and (i3 is None or res['chi2_angles'] < i3['chi2_angles']):
+        i3 = dict(res, chi_deg=n / 10)
+tm2 = {'chi = 60 deg (tri-bimaximal)': chi2_best(2 * unit(1, 1) + 2 * unit(2, 2) + (mp.exp(1j * mp.pi / 3) * unit(2, 1) + mp.exp(-1j * mp.pi / 3) * unit(1, 2))),
+       'chi = 2/9 rad (the clock phase)': chi2_best(2 * unit(1, 1) + 2 * unit(2, 2) + (mp.exp(1j * TH) * unit(2, 1) + mp.exp(-1j * TH) * unit(1, 2))),
+       'chi = 60 deg + 2/9 rad': chi2_best(2 * unit(1, 1) + 2 * unit(2, 2) + (mp.exp(1j * (mp.pi / 3 + TH)) * unit(2, 1) + mp.exp(-1j * (mp.pi / 3 + TH)) * unit(1, 2))),
+       'chi = 60 deg - 2/9 rad': chi2_best(2 * unit(1, 1) + 2 * unit(2, 2) + (mp.exp(1j * (mp.pi / 3 - TH)) * unit(2, 1) + mp.exp(-1j * (mp.pi / 3 - TH)) * unit(1, 2)))}
+out['I3_marked_position_and_opposite_link'] = {'best_fit': i3, 'named_phases': tm2,
+                                               'closed_form': 'abs(U_k,+-)^2 = (1 +- cos(chi + 2 pi k/3))/3 on the character f_k; the column of |0> is (1/3, 1/3, 1/3)'}
+looks.append({'part': 'I3', 'id': 'opposite link', 'tuple': '3600 values of chi (fit)'})
+for nm in tm2:
+    looks.append({'part': 'I3', 'id': 'opposite link', 'tuple': nm})
+
+out['count_of_looks'] = {'total': len(looks), 'by_part': {p: sum(1 for l in looks if l['part'] == p) for p in sorted({l['part'] for l in looks})}}
+(HERE / 'compare.json').write_text(json.dumps(out, indent=1) + '\n')
+(HERE / 'looks.json').write_text(json.dumps(looks, indent=1) + '\n')
+
+print('r measured', R_MEAS, 'sigma', R_SIG, 'floor', FLOOR, 'J measured', J_meas)
+print('part C: angles within 3 sigma:', out['D1_part_C']['tuples_with_all_angles_within_3_sigma'], 'of', len(rows_c))
+for r in out['D1_part_C']['three_smallest_worst_angle_pulls']:
+    print('  ', r)
+print('part B rows with r within 3 sigma:')
+for r in out['D1_part_B']['rows_with_r_within_3_sigma']:
+    print('  ', r['x_source'], r['reading'], r['labelling'], 'r', round(r['r'], 6), 'pull', round(r['r_pull'], 2), 'masses', [round(m, 5) for m in r.get('masses_eV_with_the_scale_fitted_to_dm31', [])], 'sum', round(r.get('sum_eV', 0), 4))
+for r in rows_t:
+    print({k: (round(v, 9) if isinstance(v, float) and abs(v) < 1e3 else v) for k, v in r.items() if 'needed' not in k})
+print('needed theta_M', needed)
+for r in rows_m:
+    print('masses', r['id'], r['relative_phase'], [float(f'{m:.4g}') for m in r.get('masses_GeV', r.get('masses_eV'))], 'GeV' if 'masses_GeV' in r else 'eV')
+for k, v in i1.items():
+    print('I1', k, 'remainder/invariant', round(v['remainder_over_invariant'], 4), 'odd fractions', [round(x, 4) for x in v['mirror_conjugation_odd_fraction_per_mirror']])
+    print('   abs', [[round(x, 4) for x in row] for row in v['T_over_dm31_abs']])
+    print('   phase', [[None if x is None else round(x, 1) for x in row] for row in v['T_over_dm31_phase_deg']])
+for k, v in i2.items():
+    print('I2', k, {kk: (round(vv, 4) if isinstance(vv, float) else vv) for kk, vv in v.items() if kk != 'eigenvalues'})
+print('I3 best', {kk: (round(vv, 4) if isinstance(vv, float) else vv) for kk, vv in i3.items() if kk != 'eigenvalues'})
+for k, v in tm2.items():
+    print('I3', k, [round(x, 4) for x in v['angles']], 'pulls', [round(x, 1) for x in v['pulls']], 'J', round(v['J'], 5), 'delta', v['delta_deg'])
+print('looks', out['count_of_looks'])

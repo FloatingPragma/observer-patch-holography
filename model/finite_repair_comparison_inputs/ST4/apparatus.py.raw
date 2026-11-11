@@ -1,0 +1,464 @@
+"""Executable apparatus on the family walk: position, translation, momentum, energy (worker ST4, step 4).
+
+    from apparatus import Rig
+
+Built on `family_walk` (FlatPatch, FamilyWalk); the step W = Q R is the engine's, unchanged. Everything here is an
+instrument in the sense of the audit's event classes: a finite list of Kraus operators K_i with sum K_i* K_i = 1,
+every outcome returned with its unnormalized branch K_i psi. Nothing here is part of the idle law.
+
+State layout of the engine: psi[port, record, address], port = 24 cell + local port (local 0..11 the up carrier,
+12..23 the down carrier), cell = i n2 + k for the cell at i A1 + k A2, record in {0, 1}, address = index in the
+register of the carrier that holds the port (NA entries; the engine numbers them in construction order).
+
+Declared by this module (none of it is in the public program or in the engine):
+  D1  canonical address labels. An address of a carrier is named by the oriented seam it points to, written with
+      local port numbers (x, y) in 0..23. The sorted list of these names is the same for every carrier of one type
+      (up or down), so `to_can` turns a state into Psi[i, k, local port, record, canonical address].
+  D2  translation T_d (d a cell vector): the relabelling Psi[i + d1, k + d2, ...] = Psi[i, k, ...] of ports, records
+      and addresses. A permutation of the basis.
+  D3  covariant translation D_g T_d: T_d followed by a diagonal port rephasing g, chosen so that it commutes with W
+      (`covariant_translation`). In the gauge of the engine g = 1. The constant phase of g is the origin of
+      momentum in a charged sector: it is a convention; momentum differences are not.
+  D4  ancilla registers: n levels for a translation, M levels for the step; controlled T^k and controlled W^t; the
+      Fourier readout of the ancilla. K_l = (1/n) sum_k exp(+2 pi i l k / n) T^k (bin l: T = exp(-i theta),
+      theta = 2 pi l / n = q.d);  K_m = (1/M) sum_t exp(+2 pi i m t / M) W^t (bin m: W = exp(-i omega),
+      omega = 2 pi m / M). Plane wave exp(i (q.x - omega t)), group velocity + d omega / d q.
+  D5  position detectors: port projectors, carrier projectors, and the embedded detector |x, 0, u><x, 0, u|
+      (u the uniform address) with its two complement outcomes.
+  D6  position operator X = sum over carriers (centre of the carrier) x (carrier projector), centres in mesh edges:
+      up carrier of cell (i, k) at i A1 + k A2, down carrier at i A1 + k A2 + tau, tau = -(A1 + A2)/3.
+      (`FlatPatch.positions` has the down carrier at -tau; see `Rig.check_positions`.)
+"""
+import numpy as np
+from family_walk import FlatPatch, FamilyWalk, A1, A2
+
+TAU = -(A1 + A2) / 3.0
+BASIS = np.array([A1, A2]).T                       # columns: the cell vectors
+RECIP = 2 * np.pi * np.linalg.inv(BASIS).T         # columns b1, b2 with b_i . A_j = 2 pi delta_ij
+
+
+class BatchWalk(FamilyWalk):
+    """The engine with an optional trailing batch axis: psi[port, record, address, batch...]. Same operations."""
+
+    def seam(self):
+        h = 2 ** -0.5; p = self.psi; pa, pb, ia, ib = self.pa, self.pb, self.ia, self.ib
+        z = self.z.reshape((-1,) + (1,) * (p.ndim - 3))
+        A0, B0, A1_, B1 = p[pa, 0, ia], p[pb, 0, ib], p[pa, 1, ia], p[pb, 1, ib]
+        c = ((A0 - np.conj(z) * B0) - (A1_ + np.conj(z) * B1)) * h
+        p[pa, 0, ia] = A0 - c * h; p[pb, 0, ib] = B0 + z * c * h
+        p[pa, 1, ia] = A1_ + c * h; p[pb, 1, ib] = B1 + z * c * h
+
+
+def regauge(patch, g):
+    """Port rephasing |p> -> g_p |p> of a patch: hop phases z_ab -> g_b z_ab conj(g_a). Returns the patch."""
+    patch.seams = [(a, b, g[b] * z * np.conj(g[a]), glue) for (a, b, z, glue) in patch.seams]
+    return patch
+
+
+def add_uniform_flux(patch, m=1):
+    """Known-answer control for the translation algebra (n1 = n2 = n): m flux quanta through the torus, flux
+    2 pi m / n^2 ... per mesh vertex is not needed here; the simplest uniform field with elementary covariant
+    translations is Phi = 2 pi m / n per cell in a Landau gauge: the glue seam that leaves the up carrier of cell
+    (i, k) towards the cell displaced along A2 gets the extra phase exp(i Phi i)."""
+    n1, n2 = patch.n1, patch.n2
+    Phi = 2 * np.pi * m / n1
+    out = []
+    for (a, b, z, glue) in patch.seams:
+        if glue:
+            ca, cb = a // 24, b // 24
+            ia_, ka = divmod(ca, n2); ib_, kb = divmod(cb, n2)
+            if (kb - ka) % n2 == 1 % n2 and (ib_ - ia_) % n1 == 0 and n2 > 1:
+                z = z * np.exp(1j * Phi * ia_)
+        out.append((a, b, z, glue))
+    patch.seams = out
+    return Phi
+
+
+class Rig:
+    """A flat patch, its walk, and the instruments."""
+
+    def __init__(self, n1, n2, sector='scalar', gluing='bridge', rule='template', flips=(), patch=None):
+        self.g = patch if patch is not None else FlatPatch(n1, n2, sector, gluing, rule, flips)
+        g = self.g
+        self.n1, self.n2, self.P, self.NA, self.ncar, self.ncell = g.n1, g.n2, g.P, g.NA, g.ncar, g.ncell
+        self.w = BatchWalk(g)
+        w = self.w
+        # ---- D1: canonical address labels
+        code = np.full((g.ncar, g.NA), -1, int)
+        for e in range(len(w.pa)):
+            x, y = int(w.pa[e]), int(w.pb[e]); k = (x % 24) * 24 + (y % 24)
+            code[g.carrier[x], w.ia[e]] = k; code[g.carrier[y], w.ib[e]] = k
+        assert (code >= 0).all()
+        srt = np.sort(code, axis=1)
+        for t in (0, 1):
+            assert (srt[t::2] == srt[t]).all(), 'address names differ between carriers of one type'
+            assert len(set(srt[t].tolist())) == g.NA, 'address names are not unique in a register'
+        self.addr_names = [[(int(c) // 24, int(c) % 24) for c in srt[t]] for t in (0, 1)]
+        self.from_canon = np.argsort(code, axis=1)                         # [carrier, canonical] -> engine index
+        self.to_canon = np.argsort(self.from_canon, axis=1)                # [carrier, engine] -> canonical index
+        self._fc = self.from_canon[g.carrier]; self._tc = self.to_canon[g.carrier]      # per port
+        # ---- D6: carrier centres
+        pos = np.zeros((g.ncar, 2))
+        for i in range(g.n1):
+            for k in range(g.n2):
+                c = i * g.n2 + k; o = i * A1 + k * A2
+                pos[2 * c] = o; pos[2 * c + 1] = o + TAU
+        self.pos = pos
+        self.cellidx = np.arange(g.P) // 24
+        self.sa = np.array([s[0] for s in g.seams]); self.sb = np.array([s[1] for s in g.seams])
+
+    # ------------------------------------------------------------------ engine operations on a given state
+    def zeros(self, batch=()):
+        return np.zeros((self.P, 2, self.NA) + tuple(batch), complex)
+
+    def embed(self, phi):
+        """A: port amplitudes -> blank record, uniform address. phi[P] or phi[P, batch]."""
+        phi = np.asarray(phi, complex)
+        psi = np.zeros((self.P, 2, self.NA) + phi.shape[1:], complex)
+        psi[:, 0] = phi[:, None] / np.sqrt(self.NA)
+        return psi
+
+    def unembed(self, psi):
+        """A*: the amplitude on (port, blank record, uniform address)."""
+        return psi[:, 0].sum(axis=1) / np.sqrt(self.NA)
+
+    def W(self, psi, t=1):
+        self.w.psi = psi
+        for _ in range(t): self.w.step()
+        return self.w.psi
+
+    def Q(self, psi):
+        self.w.psi = psi.copy(); self.w.seam(); return self.w.psi
+
+    def R(self, psi):
+        return 2 * psi.mean(axis=2, keepdims=True) - psi
+
+    def Winv(self, psi, t=1):
+        for _ in range(t): psi = self.R(self.Q(psi))
+        return psi
+
+    @staticmethod
+    def pops(psi):
+        return (abs(psi) ** 2).sum(axis=(1, 2))
+
+    # ------------------------------------------------------------------ D1, D2: canonical layout and translation
+    def to_can(self, psi):
+        idx = self._fc.reshape((self.P, 1, self.NA) + (1,) * (psi.ndim - 3))
+        out = np.take_along_axis(psi, np.broadcast_to(idx, psi.shape), axis=2)
+        return out.reshape((self.n1, self.n2, 24, 2, self.NA) + psi.shape[3:])
+
+    def from_can(self, Psi):
+        psi = Psi.reshape((self.P, 2, self.NA) + Psi.shape[5:])
+        idx = self._tc.reshape((self.P, 1, self.NA) + (1,) * (psi.ndim - 3))
+        return np.take_along_axis(psi, np.broadcast_to(idx, psi.shape), axis=2)
+
+    def translate(self, psi, d):
+        """T_d: the executed relabelling (ports, records, addresses) by the cell vector d = (d1, d2)."""
+        return self.from_can(np.roll(self.to_can(psi), (d[0], d[1]), axis=(0, 1)))
+
+    def shift_ports(self, d):
+        """Port permutation of T_d: the port p is carried to shift_ports(d)[p]."""
+        c = np.arange(self.ncell); i, k = np.divmod(c, self.n2)
+        c2 = ((i + d[0]) % self.n1) * self.n2 + (k + d[1]) % self.n2
+        return (24 * c2[:, None] + np.arange(24)[None, :]).reshape(-1)
+
+    def translation_is_exact_symmetry(self, d):
+        """Exact (no arithmetic): T_d maps the list of oriented addresses (port a, canonical address, port b,
+        canonical address, hop phase) of the walk onto itself. Then T Q T* = Q; T R T* = R because T maps address
+        registers onto address registers. Returns (True/False, number of entries)."""
+        w, g = self.w, self.g; sp = self.shift_ports(d)
+        ca = self.to_canon[g.carrier[w.pa], w.ia]; cb = self.to_canon[g.carrier[w.pb], w.ib]
+        def table(pa, pb):
+            return set(zip(pa.tolist(), ca.tolist(), pb.tolist(), cb.tolist(), w.z.real.tolist(), w.z.imag.tolist()))
+        return table(w.pa, w.pb) == table(sp[w.pa], sp[w.pb]), len(w.pa)
+
+    # ------------------------------------------------------------------ D3: covariant translation
+    def eff_z(self):
+        z = np.array([s[2] for s in self.g.seams], complex)
+        if self.g.sector == 'spinor':
+            for s in self.g.flips: z[s] = -z[s]
+        return z
+
+    def covariant_translation(self, d):
+        """Port rephasing g (unit phases, g = 1 at port 0) such that D_g T_d commutes with W, and the residual
+        max |g_b conj(g_a) - z_ab conj(z_(T^-1 a, T^-1 b))| over all seams (0: the covariant translation exists).
+        Derivation: T W(z) T* = W(z moved by d); D_g W(z') D_g* = W(g_b z'_ab conj(g_a))."""
+        sp = self.shift_ports(d); z = self.eff_z()
+        index = {(int(a), int(b)): s for s, (a, b) in enumerate(zip(self.sa, self.sb))}
+        ratio = np.zeros(len(z), complex); ends = []
+        for s, (a, b) in enumerate(zip(self.sa, self.sb)):
+            a2, b2 = int(sp[a]), int(sp[b])
+            if (a2, b2) in index: s2 = index[(a2, b2)]; r = z[s2] * np.conj(z[s])
+            elif (b2, a2) in index: s2 = index[(b2, a2)]; r = np.conj(z[s2]) * np.conj(z[s])
+            else: raise ValueError('the seam list is not invariant under the shift')
+            ends.append((a2, b2, r))
+        nbr = [[] for _ in range(self.P)]
+        for a2, b2, r in ends: nbr[a2].append((b2, r)); nbr[b2].append((a2, np.conj(r)))
+        gph = np.zeros(self.P, complex); gph[0] = 1; stack = [0]
+        while stack:
+            a = stack.pop()
+            for b, r in nbr[a]:
+                if gph[b] == 0: gph[b] = r * gph[a]; stack.append(b)
+        assert (gph != 0).all(), 'port graph not connected'
+        res = max(abs(gph[b2] * np.conj(gph[a2]) - r) for a2, b2, r in ends)
+        return gph, float(res)
+
+    def cov_translate(self, psi, d, gph):
+        return self.translate(psi, d) * gph.reshape((self.P, 1, 1) + (1,) * (psi.ndim - 3))
+
+    def commutator_phase(self, d1, g1, d2, g2):
+        """(D_g1 T_d1)(D_g2 T_d2) = exp(i Phi) (D_g2 T_d2)(D_g1 T_d1). Returns Phi and the spread of the phase over
+        ports (0: the commutator is a number)."""
+        s1 = self.shift_ports((-d1[0], -d1[1])); s2 = self.shift_ports((-d2[0], -d2[1]))
+        c = g1 * g2[s1] * np.conj(g2 * g1[s2])
+        return float(np.angle(c[0])), float(abs(c - c[0]).max())
+
+    # ------------------------------------------------------------------ D5, D6: position
+    def check_positions(self):
+        """Distance between the centres of glued carriers (minimal image), for the centres used here and for
+        FlatPatch.positions. A honeycomb of unit mesh edge has 1/sqrt3 on every glue seam."""
+        out = {}
+        for name, pos in (('apparatus', self.pos), ('FlatPatch.positions', self.g.positions)):
+            dist = []
+            for (a, b, z, glue) in self.g.seams:
+                if not glue: continue
+                s = np.linalg.solve(BASIS, pos[b // 12] - pos[a // 12])
+                s -= np.round(s / np.array([self.n1, self.n2])) * np.array([self.n1, self.n2])
+                dist.append(np.linalg.norm(BASIS @ s))
+            out[name] = (float(min(dist)), float(max(dist)))
+        return out
+
+    def rel_pos(self, ref):
+        """Carrier centres relative to the point ref, minimal image on the torus (mesh edges)."""
+        s = np.linalg.solve(BASIS, (self.pos - np.asarray(ref)).T).T
+        n = np.array([self.n1, self.n2]); s -= np.round(s / n) * n
+        return s @ BASIS.T
+
+    def carrier_pops(self, psi):
+        return self.pops(psi).reshape((self.ncar, 12) + psi.shape[3:]).sum(axis=1)
+
+    def X_stats(self, psi, ref):
+        """<X> and the covariance of X in the state psi (unnormalized states are normalized), about ref."""
+        w = self.carrier_pops(psi); w = w / w.sum(); r = self.rel_pos(ref)
+        mean = w @ r; dr = r - mean
+        cov = (dr * w[:, None]).T @ dr
+        return mean + np.asarray(ref), cov
+
+    def cell_stats(self, psi, ref_cell, axis=0):
+        """Mean and variance of the cell coordinate along one cell axis (cells, minimal image about ref_cell)."""
+        w = self.pops(psi).reshape(self.n1, self.n2, 24).sum(axis=2)
+        w = w.sum(axis=1 - axis); w = w / w.sum(); n = len(w)
+        x = (np.arange(n) - ref_cell + n / 2) % n - n / 2
+        m = w @ x
+        return float(m + ref_cell), float(w @ (x - m) ** 2)
+
+    def position_instrument(self, psi, level='port'):
+        """Complete projective instrument {Pi_x}: x a port, a carrier or a cell. Returns (probabilities, branch)
+        with branch(x) the unnormalized post-measurement state Pi_x psi. The record and address registers of the
+        outcome are whatever the state held at x; they are not reset."""
+        size = {'port': 1, 'carrier': 12, 'cell': 24}[level]
+        prob = self.pops(psi).reshape(-1, size).sum(axis=1)
+        def branch(x):
+            out = np.zeros_like(psi); out[x * size:(x + 1) * size] = psi[x * size:(x + 1) * size]; return out
+        return prob, branch
+
+    def embedded_instrument(self, psi):
+        """Complete instrument whose port outcomes are embedded states: E_x = |x, 0, u><x, 0, u| (P outcomes),
+        F_rec = 1 (x) |1><1| (x) 1 (record written), F_adr = 1 (x) |0><0| (x) (1 - |u><u|) (blank record, address
+        not uniform). sum_x E_x + F_rec + F_adr = 1. Returns (probabilities of the P port outcomes, p_rec, p_adr,
+        branches) with branches(kind, x)."""
+        amp = self.unembed(psi)
+        p_ports = abs(amp) ** 2
+        p_rec = float((abs(psi[:, 1]) ** 2).sum())
+        p_adr = float((abs(psi[:, 0]) ** 2).sum() - p_ports.sum())
+        def branch(kind, x=None):
+            out = np.zeros_like(psi)
+            if kind == 'port': out[x, 0, :] = amp[x] / np.sqrt(self.NA)
+            elif kind == 'record': out[:, 1] = psi[:, 1]
+            else: out[:, 0] = psi[:, 0] - amp[:, None] / np.sqrt(self.NA)
+            return out
+        return p_ports, p_rec, p_adr, branch
+
+    # ------------------------------------------------------------------ D4: momentum by phase estimation
+    def momentum_instrument(self, psi, n, axis=0, gph=None):
+        """Phase estimation of the (covariant) translation along one cell axis with an ancilla of n levels.
+        Executed literally: ancilla uniform; controlled T^k; Fourier readout. Returns the n unnormalized branches
+        K_l psi, K_l = (1/n) sum_k exp(2 pi i l k / n) T^k, as an array [l, ...]. Outcome l: theta = 2 pi l / n."""
+        d = (1, 0) if axis == 0 else (0, 1)
+        joint = np.empty((n,) + psi.shape, complex); cur = psi
+        for k in range(n):                                   # ancilla level k holds T^k psi / sqrt(n)
+            joint[k] = cur / np.sqrt(n)
+            if k < n - 1: cur = self.translate(cur, d) if gph is None else self.cov_translate(cur, d, gph)
+        return np.fft.ifft(joint, axis=0) * np.sqrt(n)        # (1/sqrt n) sum_k exp(+2 pi i l k / n) joint[k]
+
+    def momentum_probs(self, psi, n, axis=0):
+        """Outcome probabilities of the n-level instrument along one axis, from the Fourier sum over cells
+        (no branches stored). Equal to the norms of `momentum_instrument` branches."""
+        Psi = self.to_can(psi); N = Psi.shape[axis]
+        F = np.fft.fft(Psi, axis=axis)                                         # momentum j: theta = 2 pi j / N
+        wj = (abs(F) ** 2).sum(axis=tuple(a for a in range(Psi.ndim) if a != axis)) / N
+        l = np.arange(n)[:, None]; j = np.arange(N)[None, :]
+        delta = 2 * np.pi * (l / n - j / N)
+        with np.errstate(divide='ignore', invalid='ignore'):
+            ker = np.where(abs(np.sin(delta / 2)) < 1e-12, 1.0, (np.sin(n * delta / 2) / (n * np.sin(delta / 2))) ** 2)
+        return ker @ wj
+
+    def momentum_grid(self, psi):
+        """Joint exact instrument of both translations with ancillas of n1 and n2 levels: probabilities
+        P[l1, l2] of the momentum theta = 2 pi (l1 / n1, l2 / n2), and the Fourier amplitudes F[l1, l2, ...]
+        (K_l psi = exp(i theta.cell) F[l] / (n1 n2))."""
+        F = np.fft.fft2(self.to_can(psi), axes=(0, 1))
+        Pl = (abs(F) ** 2).sum(axis=(2, 3, 4)) / (self.n1 * self.n2)
+        return Pl, F
+
+    def theta_grid(self):
+        l1 = np.arange(self.n1); l2 = np.arange(self.n2)
+        return 2 * np.pi * l1 / self.n1, 2 * np.pi * l2 / self.n2
+
+    @staticmethod
+    def circ_stats(prob, n):
+        """Mean and spread of an angle 2 pi l / n with probabilities prob[l]: (mean, standard deviation about the
+        mean on the minimal-image branch)."""
+        prob = prob / prob.sum(); th = 2 * np.pi * np.arange(n) / n
+        m = np.angle((prob * np.exp(1j * th)).sum())
+        d = (th - m + np.pi) % (2 * np.pi) - np.pi
+        return float(m), float(np.sqrt(prob @ d ** 2))
+
+    # ------------------------------------------------------------------ D4: energy by phase estimation
+    def energy_instrument(self, psi, M):
+        """Phase estimation of W with an ancilla of M levels: branches K_m psi, K_m = (1/M) sum_t exp(2 pi i m t / M) W^t,
+        as an array [m, ...]. Outcome m: W = exp(-i omega), omega = 2 pi m / M."""
+        joint = np.empty((M,) + psi.shape, complex); cur = psi
+        for t in range(M):
+            joint[t] = cur / np.sqrt(M)
+            if t < M - 1: cur = self.W(cur)
+        return np.fft.ifft(joint, axis=0) * np.sqrt(M)
+
+    def joint_record(self, psi, M, progress=None):
+        """Joint record (momentum bin l1, l2; phase bin m) of the state psi: P[l1, l2, m] = |K_l K_m psi|^2 with the
+        exact momentum instrument (ancillas n1, n2) and the M-level clock. Computed from the momentum-resolved
+        return amplitudes c_l(s) = <K_l psi| W^s |K_l psi>, s < M (the moment formula of the public spectroscopy
+        package; equal to the norms of the executed branches, see b4). Returns (P, c)."""
+        F0 = np.fft.fft2(self.to_can(psi), axes=(0, 1)); norm = self.n1 * self.n2
+        c = np.zeros((self.n1, self.n2, M), complex); cur = psi
+        for s in range(M):
+            Fs = F0 if s == 0 else np.fft.fft2(self.to_can(cur), axes=(0, 1))
+            c[:, :, s] = (np.conj(F0) * Fs).sum(axis=(2, 3, 4)) / norm
+            if s < M - 1: cur = self.W(cur)
+            if progress and s % progress == 0: print('   step', s, flush=True)
+        return self.record_from_moments(c), c
+
+    @staticmethod
+    def record_from_moments(c):
+        """P[..., m] = (1/M^2) sum_{|s| < M} (M - |s|) exp(2 pi i m s / M) c(s), c(-s) = conj c(s)."""
+        M = c.shape[-1]; a = c * (M - np.arange(M))
+        return (2 * np.real(np.fft.ifft(a, axis=-1) * M) - np.real(a[..., :1])) / M ** 2
+
+    @staticmethod
+    def fejer(delta, M):
+        """|(1/M) sum_t exp(i t delta)|^2: the response of an M-level clock to a line at distance delta."""
+        delta = np.asarray(delta, float); s = np.sin(delta / 2)
+        with np.errstate(divide='ignore', invalid='ignore'):
+            return np.where(abs(s) < 1e-13, 1.0, (np.sin(M * delta / 2) / (M * s)) ** 2)
+
+    # ------------------------------------------------------------------ record readout (lead L30 of the theory session)
+    def record_instrument(self, psi):
+        """Complete projective instrument on the owned record: probabilities (p0, p1) and both branches."""
+        b0 = np.zeros_like(psi); b0[:, 0] = psi[:, 0]; b1 = np.zeros_like(psi); b1[:, 1] = psi[:, 1]
+        return (float((abs(b0) ** 2).sum()), float((abs(b1) ** 2).sum())), (b0, b1)
+
+    def correction_record(self, phi):
+        """One tick on the blank embedded state A phi, then the joint record (momentum bin, record). Returns
+        P[l1, l2, r]. For a kernel eigenvector P[., 1] / P[.] = 1 - cos omega."""
+        out = self.W(self.embed(phi))
+        F = np.fft.fft2(self.to_can(out), axes=(0, 1))
+        return (abs(F) ** 2).sum(axis=(2, 4)) / (self.n1 * self.n2)
+
+    # ------------------------------------------------------------------ kernel bands (Bloch form of the patch Laplacian)
+    def cell_seams(self):
+        """Seams with their first port in cell 0: (local a, local b, cell displacement of b, hop phase). Flat
+        background (flips ignored). Minimal-image displacement; unambiguous for n1, n2 >= 3."""
+        out = []
+        for (a, b, z, glue) in self.g.seams:
+            if a // 24 != 0: continue
+            cb = b // 24; D = np.array(divmod(cb, self.n2), float); n = np.array([self.n1, self.n2])
+            D -= np.round(D / n) * n
+            out.append((a % 24, b % 24, D, z))
+        return out
+
+    def bloch(self, theta):
+        """L(theta) on the 24 ports of a cell for the plane wave exp(i theta.(i, k)) phi[local port]."""
+        if not hasattr(self, '_cs'): self._cs = self.cell_seams()
+        L = np.zeros((24, 24), complex)
+        for la, lb, D, z in self._cs:
+            ph = z * np.exp(-1j * (theta[0] * D[0] + theta[1] * D[1]))
+            L[la, la] += 1; L[lb, lb] += 1; L[lb, la] -= ph; L[la, lb] -= np.conj(ph)
+        return L
+
+    def dbloch(self, theta, j):
+        L = np.zeros((24, 24), complex)
+        for la, lb, D, z in self._cs:
+            ph = z * np.exp(-1j * (theta[0] * D[0] + theta[1] * D[1])) * (-1j * D[j])
+            L[lb, la] -= ph; L[la, lb] -= np.conj(ph)
+        return L
+
+    def bands(self, theta):
+        lam, U = np.linalg.eigh(self.bloch(theta))
+        return lam, U, np.arccos(np.clip(1 - lam / self.NA, -1, 1))
+
+    def group_velocity(self, theta, vec):
+        """d omega / d q (mesh edges per step, Cartesian) of the kernel eigenvector vec at theta (Hellmann-Feynman)."""
+        lam = np.real(np.vdot(vec, self.bloch(theta) @ vec)); om = np.arccos(1 - lam / self.NA)
+        dl = np.array([np.real(np.vdot(vec, self.dbloch(theta, j) @ vec)) for j in (0, 1)])
+        return BASIS @ (dl / (self.NA * np.sin(om))), om
+
+    def plane_wave(self, theta, vec):
+        """Port amplitudes exp(i theta.(i, k)) vec[local port] / sqrt(ncell)."""
+        i, k = np.divmod(np.arange(self.ncell), self.n2)
+        ph = np.exp(1j * (theta[0] * i + theta[1] * k)) / np.sqrt(self.ncell)
+        return (ph[:, None] * vec[None, :]).reshape(-1)
+
+    # ------------------------------------------------------------------ preparations (named interventions)
+    def band_packet(self, band, l0, sigma_q, centre_cell, sign=+1, ref=None):
+        """Gaussian packet of one kernel band on the momentum grid of the patch.
+
+        band: index of the band at the central momentum l0 = (l1, l2) (theta0 = 2 pi l0 / n); neighbouring momenta
+        take the eigenvector of largest overlap with the central one, phase-aligned to it. sigma_q: width in
+        rad per mesh edge. centre_cell: (s1, s2) cell coordinates of the centre.
+        sign = +1 or -1: the walk eigenvectors of phase exp(-i omega) or exp(+i omega):
+             psi = A phi1 - Q A phi2,  phi1 = sum g phi / (sqrt2 sin omega),  phi2 = sum g exp(-+ i omega) phi / (sqrt2 sin omega)
+        sign = 0: the blank embedded packet A sum g phi (half of its weight on each sign).
+        Returns (psi, info) with the kernel prediction of the mean group velocity."""
+        th1, th2 = self.theta_grid(); th0 = np.array([th1[l0[0]], th2[l0[1]]])
+        lam0, U0, om0 = self.bands(th0); ref = U0[:, band] if ref is None else ref
+        phi1 = np.zeros(self.P, complex); phi2 = np.zeros(self.P, complex); rows = []
+        for a in range(self.n1):
+            for b in range(self.n2):
+                th = np.array([th1[a], th2[b]]); dth = (th - th0 + np.pi) % (2 * np.pi) - np.pi
+                dq = RECIP @ (dth / (2 * np.pi)); gw = np.exp(-(dq @ dq) / (4 * sigma_q ** 2))
+                if gw < 1e-9: continue
+                lam, U, om = self.bands(th); ov = U.conj().T @ ref; n = int(np.argmax(abs(ov)))
+                vec = U[:, n] * (np.conj(ov[n]) / abs(ov[n])) if abs(ov[n]) > 0 else U[:, n]
+                amp = gw * np.exp(-1j * (th[0] * centre_cell[0] + th[1] * centre_cell[1]))
+                rows.append((th, vec, om[n], amp, abs(ov[n])))
+        norm = np.sqrt(sum(abs(r[3]) ** 2 for r in rows)); vbar = np.zeros(2); ombar = 0.0
+        for th, vec, om, amp, ovl in rows:
+            amp = amp / norm; pw = self.plane_wave(th, vec)
+            if sign == 0: phi1 += amp * pw
+            else:
+                phi1 += amp * pw / (np.sqrt(2) * np.sin(om)); phi2 += amp * np.exp(-1j * sign * om) * pw / (np.sqrt(2) * np.sin(om))
+            v, _ = self.group_velocity(th, vec); vbar += abs(amp) ** 2 * v; ombar += abs(amp) ** 2 * om
+        psi = self.embed(phi1) if sign == 0 else self.embed(phi1) - self.Q(self.embed(phi2))
+        info = {'theta0': th0.tolist(), 'q0': (RECIP @ (th0 / (2 * np.pi))).tolist(), 'omega0': float(om0[band]),
+                'level0': float(lam0[band]), 'components': len(rows), 'min_overlap': float(min(r[4] for r in rows)),
+                'mean_group_velocity': (sign if sign else 1) * vbar, 'mean_omega': float(ombar)}
+        return psi, info
+
+    def gaussian_ports(self, centre, sigma, theta0, vec):
+        """Port amplitudes exp(-|r - centre|^2 / (4 sigma^2)) exp(i theta0.(i, k)) vec[local port], r the carrier
+        centre (mesh edges, minimal image), normalized."""
+        r = self.rel_pos(centre); env = np.exp(-(r ** 2).sum(axis=1) / (4 * sigma ** 2))
+        i, k = np.divmod(np.arange(self.ncell), self.n2)
+        ph = np.exp(1j * (theta0[0] * i + theta0[1] * k))
+        phi = (ph[:, None] * vec[None, :]).reshape(-1) * np.repeat(env, 12)
+        return phi / np.linalg.norm(phi)

@@ -1,0 +1,132 @@
+#!/usr/bin/env python3
+"""Worker DE: values of the nucleon candidates N0, N1, N2 of CANDIDATES.md.
+
+Reads no measured hadron mass. Inputs: the class-4 rest phases of RL/work/MATCH/masses_from_data.json, the external
+unit E*, the inherited colour coupling and declared thresholds of the RER Lambda lane (imported read-only from
+code/particles/qcd/derive_lambda_qcd_source_transmutation.py).
+
+Run from RER/code/particles with PYTHONPATH=.:<this directory>.
+"""
+from __future__ import annotations
+
+import json
+import math
+from pathlib import Path
+
+from scipy.integrate import quad
+
+from qcd.derive_lambda_qcd_source_transmutation import (
+    ALPHA_3_MZ, MZ_RUN_GEV, MB_MB_GEV, MC_MC_GEV, MB_BRACKET, MC_BRACKET, ZETA3,
+    beta_coeffs, chain as repo_chain,
+)
+
+HERE = Path(__file__).resolve().parent
+MATCH = HERE.parent / 'MATCH' / 'masses_from_data.json'
+E_STAR_GEV = 1.22089e19          # external unit used by MATCH.md
+X_MIT = 2.0427869               # j0(x) = j1(x), lowest positive root
+X_THRESHOLD = 1.1655611852       # tan(x) = 2x, lowest positive root
+
+
+def roots_check() -> dict:
+    j0 = lambda x: math.sin(x) / x
+    j1 = lambda x: math.sin(x) / x**2 - math.cos(x) / x
+    return {'j0_minus_j1_at_x_MIT': j0(X_MIT) - j1(X_MIT),
+            'tan_minus_2x_at_x_threshold': math.tan(X_THRESHOLD) - 2 * X_THRESHOLD}
+
+
+def beta_n(a: float, nf: int, n: int) -> float:
+    """d a / d ln mu at n loops, a = alpha_s/(4 pi)."""
+    b = beta_coeffs(nf)[:n]
+    return -2.0 * a * a * sum(bi * a**i for i, bi in enumerate(b))
+
+
+def run_n(alpha0: float, mu0: float, mu1: float, nf: int, n: int, steps: int = 4000) -> float:
+    a = alpha0 / (4 * math.pi)
+    t0, t1 = math.log(mu0), math.log(mu1)
+    h = (t1 - t0) / steps
+    for _ in range(steps):
+        k1 = beta_n(a, nf, n)
+        k2 = beta_n(a + 0.5 * h * k1, nf, n)
+        k3 = beta_n(a + 0.5 * h * k2, nf, n)
+        k4 = beta_n(a + h * k3, nf, n)
+        a += h / 6 * (k1 + 2 * k2 + 2 * k3 + k4)
+    return 4 * math.pi * a
+
+
+def decouple_n(alpha_high: float, nl: int, n: int) -> float:
+    """(n-1)-loop high-to-low matching at mu = m_q(m_q), constants of the RER lane."""
+    a = alpha_high / math.pi
+    c2 = 11.0 / 72.0 if n >= 3 else 0.0
+    c3 = (564731.0 / 124416.0 - 82043.0 * ZETA3 / 27648.0 - 2633.0 * nl / 31104.0) if n >= 4 else 0.0
+    return alpha_high * (1 + c2 * a * a + c3 * a**3)
+
+
+def landau_scale(alpha_c3: float, mu_c: float, n: int) -> float:
+    """mu_L with ln(mu_L/mu_c) = int_{a_c}^{inf} da / beta_n(a), nf = 3 (all b_i > 0, so no fixed point)."""
+    a_c = alpha_c3 / (4 * math.pi)
+    # substitute a = a_c / s, da = -a_c/s^2 ds, s from 1 to 0
+    f = lambda s: (a_c / s**2) / beta_n(a_c / s, 3, n) if s > 0 else 0.0
+    val, err = quad(lambda s: -f(s), 1.0, 0.0, limit=400)
+    # quad from 1 to 0 of -f equals int_{a_c}^{inf} da/beta
+    return mu_c * math.exp(val)
+
+
+def chain_n(alpha_mz: float, mz: float, mb: float, mc: float, n: int) -> dict:
+    a_mb5 = run_n(alpha_mz, mz, mb, 5, n)
+    a_mb4 = decouple_n(a_mb5, 4, n)
+    a_mc4 = run_n(a_mb4, mb, mc, 4, n)
+    a_mc3 = decouple_n(a_mc4, 3, n)
+    mu_l = landau_scale(a_mc3, mc, n)
+    return {'alpha_s_mb_5f': a_mb5, 'alpha_s_mc_3f': a_mc3, 'landau_scale_gev': mu_l}
+
+
+def main() -> None:
+    out: dict = {'reads_measured_hadron_mass': False, 'roots': roots_check()}
+
+    m = json.loads(MATCH.read_text())
+    theta4 = [r for r in m['rows'] if r['right_class'] == 4][0]['rest_phase_right_per_tick']
+    out['N0'] = {'theta4_per_tick': theta4,
+                 'm_baryon_gev': [3 * t * E_STAR_GEV for t in theta4],
+                 'm_baryon_over_E_star': [3 * t for t in theta4]}
+
+    repo = repo_chain(ALPHA_3_MZ, MZ_RUN_GEV, MB_MB_GEV, MC_MC_GEV)
+    out['repository_lambda3_gev'] = repo['lambda3_gev']
+    out['repository_alpha_s_mc_3f'] = repo['alpha_s_mc_3f']
+
+    rows = {}
+    for n in (1, 2, 3, 4):
+        c = chain_n(ALPHA_3_MZ, MZ_RUN_GEV, MB_MB_GEV, MC_MC_GEV, n)
+        mu = c['landau_scale_gev']
+        rows[n] = dict(c, N1_m_N_gev=3 * mu, N2_m_N_gev=4 * mu,
+                       mu_L_over_repo_lambda3=mu / repo['lambda3_gev'],
+                       N1_over_repo_lambda3=3 * mu / repo['lambda3_gev'],
+                       N2_over_repo_lambda3=4 * mu / repo['lambda3_gev'])
+    out['loop_orders'] = rows
+    out['check_4loop_alpha_mc_matches_repository'] = abs(rows[4]['alpha_s_mc_3f'] / repo['alpha_s_mc_3f'] - 1)
+
+    corners = []
+    for mb in MB_BRACKET:
+        for mc in MC_BRACKET:
+            c = chain_n(ALPHA_3_MZ, MZ_RUN_GEV, mb, mc, 4)
+            corners.append({'mb': mb, 'mc': mc, 'landau_scale_gev': c['landau_scale_gev'],
+                            'N1_m_N_gev': 3 * c['landau_scale_gev'], 'N2_m_N_gev': 4 * c['landau_scale_gev']})
+    out['four_loop_threshold_corners'] = corners
+
+    # sensitivity of the Landau scale to the inherited coupling (relative change per relative change)
+    eps = 1e-4
+    up = chain_n(ALPHA_3_MZ * (1 + eps), MZ_RUN_GEV, MB_MB_GEV, MC_MC_GEV, 4)['landau_scale_gev']
+    out['dln_muL_dln_alpha3'] = (math.log(up) - math.log(rows[4]['landau_scale_gev'])) / math.log(1 + eps)
+
+    (HERE / 'nucleon_candidates.json').write_text(json.dumps(out, indent=2, sort_keys=True) + '\n')
+    print(json.dumps({'N0_gev': out['N0']['m_baryon_gev'],
+                      'repo_lambda3': repo['lambda3_gev'],
+                      'loop': {n: (round(r['landau_scale_gev'], 5), round(r['N1_m_N_gev'], 5), round(r['N2_m_N_gev'], 5))
+                               for n, r in rows.items()},
+                      'check': out['check_4loop_alpha_mc_matches_repository'],
+                      'corners_N1': [round(c['N1_m_N_gev'], 4) for c in corners],
+                      'dln_muL_dln_alpha3': out['dln_muL_dln_alpha3'],
+                      'roots': out['roots']}, indent=1))
+
+
+if __name__ == '__main__':
+    main()

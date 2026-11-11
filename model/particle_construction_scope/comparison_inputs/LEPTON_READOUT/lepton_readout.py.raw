@@ -1,0 +1,167 @@
+"""Mass readout of a class-3 defect that carries the coherent generation register.
+
+What is executed
+  1. The generation register on a face f: three positions (the three seams of the hexagon around f that the
+     repair current can occupy), the face third-turn R, and the one-tick compression of worker FR's register,
+     M(theta) = (sqrt2/3) C(theta), C = sqrt(1/6) I + sqrt(1/12) (e^{i theta} R + e^{-i theta} R^-1), theta = 2/9
+     (cross-checked against work/FR/fr2_register.json when present).
+  2. The mass generator of the energy clock, Y = M^dag M = (2/9) C^2 (worker CK), with eigenvectors the three
+     characters of R: tau (character 1), electron (w), muon (w^2).
+  3. A defect created at a definite position: an equal superposition of the three leptons. Its free evolution
+     exp(-i t Y): the position probability circulates around the face with two beat periods.
+  4. The observer's mass readout: phase estimation of the energy clock with a clock register of T levels, all
+     outcomes kept. For each outcome: probability, posterior over the three leptons, post-measurement state.
+     Sampled readout histories with a fixed seed; a second readout of the same defect.
+  5. The mass read: ratios from the register; MeV values with the electron as the one unit anchor (a calibration).
+
+Declared in this demonstration (see reports FR, FR2, LNAT3, CK): the generation register and its coupling, the
+analyzer, the per-tick re-preparation, and unit clock time per tick. Measured masses are read at the end for
+comparison only (NOT BLIND).
+"""
+import json
+import sys
+from pathlib import Path
+
+import numpy as np
+from mpmath import mp, mpf, cos, sqrt, pi
+
+mp.dps = 30
+RL = Path('WORKSPACE/repair-law')
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).with_name('lepton_readout.json')
+THETA = mpf(2) / 9
+NAMES = {0: 'tau', 1: 'electron', 2: 'muon'}          # character index k of R v_k = w^k v_k
+ME_MEV, MMU_MEV, MTAU_MEV, DTAU = 0.51099895069, 105.6583755, 1776.93, 0.09   # PDG 2026, comparison only
+
+# ------------------------------------------------------------------ 1, 2: register and mass generator
+w = np.exp(2j * np.pi / 3)
+R = np.roll(np.eye(3), 1, axis=0)                      # third-turn on the three positions: R e_j = e_{j+1}
+th = float(THETA)
+C = np.sqrt(1 / 6) * np.eye(3) + np.sqrt(1 / 12) * (np.exp(1j * th) * R + np.exp(-1j * th) * R.conj().T)
+M = (np.sqrt(2) / 3) * C
+Y = M.conj().T @ M
+V = np.array([[w ** (-k * j) for k in range(3)] for j in range(3)]) / np.sqrt(3)   # columns v_k
+assert np.allclose(R @ V, V * np.array([w ** k for k in range(3)]))               # R v_k = w^k v_k
+c_exact = [(1 + sqrt(2) * cos(THETA + 2 * pi * k / 3)) / sqrt(6) for k in range(3)]  # eigenvalues of C
+y_exact = [mpf(2) / 9 * c ** 2 for c in c_exact]                                    # eigenvalues of Y
+assert np.allclose(V.conj().T @ C @ V, np.diag([float(c) for c in c_exact]), atol=1e-13)
+assert np.allclose(V.conj().T @ Y @ V, np.diag([float(y) for y in y_exact]), atol=1e-13)
+assert abs(sum(c ** 2 for c in c_exact) - 1) < mpf('1e-25') and abs(sum(y_exact) - mpf(2) / 9) < mpf('1e-25')
+koide_q = sum(c ** 2 for c in c_exact) / sum(c_exact) ** 2
+assert abs(koide_q - mpf(2) / 3) < mpf('1e-25')
+fr = RL / 'work/FR/fr4_ratios.json'
+fr_check = None
+if fr.exists():
+    txt = fr.read_text()
+    fr_check = ('206.7703' in txt) and ('3477.47' in txt)
+
+y = np.array([float(v) for v in y_exact])
+share = {NAMES[k]: float(c_exact[k] ** 2) for k in range(3)}
+ratio_mu_e = y_exact[2] / y_exact[1]
+ratio_tau_e = y_exact[0] / y_exact[1]
+
+# ------------------------------------------------------------------ 3: a defect at a definite position
+psi0 = np.array([1, 0, 0], complex)                    # the current sits on the first seam of the hexagon
+amp = V.conj().T @ psi0                                # amplitudes on tau, electron, muon
+prior = np.abs(amp) ** 2
+assert np.allclose(prior, 1 / 3)
+beats = {'tau-muon': 2 * np.pi / (y[0] - y[2]), 'muon-electron': 2 * np.pi / (y[2] - y[1]),
+         'tau-electron': 2 * np.pi / (y[0] - y[1])}
+circ = []
+for t in (0, 4, 8, 16, 32, 64, 128, 256, 512):
+    psit = V @ (np.exp(-1j * y * t) * amp)
+    circ.append(dict(tick=t, position_probabilities=[round(float(p), 6) for p in np.abs(psit) ** 2]))
+
+# ------------------------------------------------------------------ 4: the mass readout (phase estimation)
+def readout_table(T):
+    """Clock register of T levels: outcome m has amplitude a_m(y_k) = (1/T) sum_t exp(i t (2 pi m/T - y_k))."""
+    t = np.arange(T)
+    m = np.arange(T)
+    a = np.exp(1j * np.outer(2 * np.pi * m / T, t)) @ np.exp(-1j * np.outer(t, y)) / T      # shape (T, 3)
+    joint = (np.abs(a) ** 2) * prior                                                        # P(m, k)
+    assert abs(joint.sum() - 1) < 1e-9                                                      # all outcomes kept
+    pm = joint.sum(axis=1)
+    post = joint / pm[:, None]
+    best = post.argmax(axis=1)
+    p_correct = float(sum(joint[i, best[i]] for i in range(T)))                             # assign outcome to its likeliest lepton
+    definiteness = float((pm * post.max(axis=1)).sum())                                     # mean largest posterior weight
+    tau_vs_rest = float((pm * np.maximum(post[:, 0], post[:, 1] + post[:, 2])).sum())
+    return dict(a=a, pm=pm, post=post, p_correct=p_correct, definiteness=definiteness, tau_vs_rest=tau_vs_rest)
+
+resolution = []
+for T in (8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 16384):
+    r = readout_table(T)
+    resolution.append(dict(clock_levels=T, frequency_resolution=2 * np.pi / T,
+                           p_lepton_identified=round(r['p_correct'], 6),
+                           mean_largest_posterior=round(r['definiteness'], 6),
+                           p_tau_separated_from_light=round(r['tau_vs_rest'], 6)))
+
+rng = np.random.default_rng(20261111)
+T_SAMPLE = 4096
+tab = readout_table(T_SAMPLE)
+N = 30000
+counts = {NAMES[k]: 0 for k in range(3)}
+agree_second = 0
+histories = []
+for n in range(N):
+    m1 = rng.choice(T_SAMPLE, p=tab['pm'] / tab['pm'].sum())
+    post1 = tab['post'][m1]
+    k1 = int(post1.argmax())
+    counts[NAMES[k1]] += 1
+    # state after the first readout, in the lepton basis, then a second readout of the same defect
+    state = tab['a'][m1] * amp
+    state = state / np.linalg.norm(state)
+    p2 = (np.abs(tab['a']) ** 2) @ (np.abs(state) ** 2)
+    m2 = rng.choice(T_SAMPLE, p=p2 / p2.sum())
+    joint2 = (np.abs(tab['a'][m2]) ** 2) * np.abs(state) ** 2
+    k2 = int(joint2.argmax())
+    agree_second += (k1 == k2)
+    if n < 24:
+        f1 = 2 * np.pi * m1 / T_SAMPLE
+        f1 = f1 if f1 < np.pi else f1 - 2 * np.pi
+        histories.append(dict(defect=n, clock_outcome=int(m1), frequency_read_per_tick=round(float(f1), 6),
+                              lepton=NAMES[k1], posterior=[round(float(p), 6) for p in post1],
+                              second_readout=NAMES[k2]))
+
+# ------------------------------------------------------------------ 5: the mass read
+mev = dict(electron=ME_MEV, muon=float(ratio_mu_e) * ME_MEV, tau=float(ratio_tau_e) * ME_MEV)
+result = dict(
+    register=dict(theta='2/9', positions=3, character_of=NAMES,
+                  C_eigenvalues={NAMES[k]: float(c_exact[k]) for k in range(3)},
+                  Y_eigenvalues_per_tick={NAMES[k]: float(y_exact[k]) for k in range(3)},
+                  trace_Y='2/9', koide_Q='2/3', share_of_summed_mass=share, agrees_with_FR_ratios=fr_check),
+    defect_at_definite_position=dict(
+        prior_lepton_probabilities={NAMES[k]: float(prior[k]) for k in range(3)},
+        beat_periods_in_ticks={k: float(v) for k, v in beats.items()},
+        circulation=circ),
+    mass_readout=dict(
+        instrument='phase estimation of exp(-i t Y) with a clock register of T levels; every outcome kept',
+        resolution=resolution,
+        sample=dict(clock_levels=T_SAMPLE, defects=N, seed=20261111, counts=counts,
+                    fractions={k: v / N for k, v in counts.items()},
+                    second_readout_gives_same_lepton=agree_second / N, first_histories=histories)),
+    mass_read=dict(
+        ratios=dict(mu_over_e=float(ratio_mu_e), tau_over_e=float(ratio_tau_e), tau_over_mu=float(ratio_tau_e / ratio_mu_e)),
+        MeV_with_electron_as_unit_anchor=mev,
+        measured_MeV=dict(electron=ME_MEV, muon=MMU_MEV, tau=MTAU_MEV),
+        deviation=dict(muon_ppm=(mev['muon'] / MMU_MEV - 1) * 1e6, tau_sigma=(mev['tau'] - MTAU_MEV) / DTAU),
+        own_scale_note='in the register own clock units the rates are Y per tick (sum 2/9 per tick, the lattice scale); '
+                       'the physical lepton scale is not derived, so GeV values need one anchor'),
+    status='register parts declared (FR, FR2, LNAT3), unit clock time per tick declared (CK); comparison NOT BLIND')
+OUT.write_text(json.dumps(result, indent=1))
+
+print('eigenvalues of C  :', {NAMES[k]: round(float(c_exact[k]), 7) for k in range(3)})
+print('rates Y per tick  :', {NAMES[k]: float(y_exact[k]) for k in range(3)}, ' sum = 2/9')
+print('prior at a definite position:', {NAMES[k]: round(float(prior[k]), 4) for k in range(3)})
+print('beat periods (ticks):', {k: round(v, 1) for k, v in beats.items()})
+print('circulation:', [(c['tick'], c['position_probabilities']) for c in circ[:6]])
+print('clock levels | P(lepton identified) | mean largest posterior | P(tau separated)')
+for r in resolution:
+    print(f"  {r['clock_levels']:6d} | {r['p_lepton_identified']:.4f} | {r['mean_largest_posterior']:.4f} | {r['p_tau_separated_from_light']:.4f}")
+print('sample of', N, 'defects, clock', T_SAMPLE, ':', {k: round(v / N, 4) for k, v in counts.items()},
+      ' second readout agrees:', round(agree_second / N, 4))
+for h in histories[:8]:
+    print('  ', h)
+print('ratios:', float(ratio_mu_e), float(ratio_tau_e))
+print('MeV (electron anchor):', mev, ' muon ppm', round((mev['muon'] / MMU_MEV - 1) * 1e6, 2),
+      ' tau sigma', round((mev['tau'] - MTAU_MEV) / DTAU, 2))
+print('wrote', OUT)

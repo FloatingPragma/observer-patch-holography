@@ -1,0 +1,60 @@
+"""Port load operators compressed to (a multiplet at flux k1) + (a multiplet at flux k2): rank, closure, centre."""
+import itertools, json
+import numpy as np
+import sys, pathlib; sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "lib"))
+from lie_tools import *
+V, E, F = icosahedron()
+Fo = []
+for a, b, c in F:
+    n = np.cross(V[b] - V[a], V[c] - V[a])
+    Fo.append((a, b, c) if n @ (V[a] + V[b] + V[c]) > 0 else (a, c, b))
+eidx = {e: i for i, e in enumerate(E)}
+def bands_of(k):
+    M = np.zeros((20, 30)); rhs = np.full(20, 2 * np.pi * k / 20); rhs[0] -= 2 * np.pi * k
+    for f, (a, b, c) in enumerate(Fo):
+        for x, y in ((a, b), (b, c), (c, a)):
+            if (x, y) in eidx: M[f, eidx[(x, y)]] += 1
+            else: M[f, eidx[(y, x)]] -= 1
+    th = np.linalg.lstsq(M, rhs, rcond=None)[0]
+    A = np.zeros((12, 12), complex)
+    for (a, b), t in zip(E, th):
+        A[b, a] = np.exp(1j * t); A[a, b] = np.exp(-1j * t)
+    w, U = np.linalg.eigh(A)
+    out, i = [], 0
+    while i < 12:
+        j = i
+        while j < 12 and abs(w[j] - w[i]) < 1e-7: j += 1
+        out.append((round(float(w[i]), 4), U[:, i:j])); i = j
+    return out
+B = {k: bands_of(k) for k in range(-9, 11)}
+def comp(P):
+    return [P.conj().T @ np.diag((np.arange(12) == p).astype(complex)) @ P for p in range(12)]
+rows = []
+for k1 in range(-9, 11):
+    for ev1, P1 in B[k1]:
+        d1 = P1.shape[1]
+        if d1 not in (2, 3): continue
+        for k2 in range(k1, 11):
+            for ev2, P2 in B[k2]:
+                d2 = P2.shape[1]
+                if d2 not in (2, 3) or (k1 == k2 and ev2 <= ev1): continue
+                c1, c2 = comp(P1), comp(P2)
+                for y in (1.0, 0.61803):
+                    gens = []
+                    for p in range(12):
+                        D = np.zeros((d1 + d2, d1 + d2), complex)
+                        D[:d1, :d1] = c1[p]; D[d1:, d1:] = y * c2[p]
+                        gens.append(1j * D)
+                    rk = np.linalg.matrix_rank(np.array([np.concatenate([g.real.ravel(), g.imag.ravel()]) for g in gens]), tol=1e-9)
+                    mats, dims = lie_closure(gens, max_dim=60)
+                    cz = centre_dim(mats)
+                    rows.append(dict(k1=k1, ev1=ev1, d1=d1, k2=k2, ev2=ev2, d2=d2, y=y, rank=int(rk), closure=dims, centre=cz))
+                    if y == 1.0:
+                        tag = '  <== 12, centre 1, injective' if (dims[-1] == 12 and cz == 1 and rk == 12) else ''
+                        if tag or (d1 + d2 == 5 and abs(k1) <= 3 and abs(k2) <= 3):
+                            print(f'k1={k1:+d} ({d1}-plet at {ev1:+.4f})  k2={k2:+d} ({d2}-plet at {ev2:+.4f}): rank {rk} closure {dims} centre {cz}{tag}')
+json.dump(rows, open('probe_flux_pair.json', 'w'))
+hits = [r for r in rows if r['closure'][-1] == 12 and r['centre'] == 1 and r['rank'] == 12 and r['y'] == 1.0]
+print('hits:', len(hits))
+import collections
+print(collections.Counter((r['d1'], r['d2'], (abs(r['k1']) % 10, abs(r['k2']) % 10)) for r in hits))

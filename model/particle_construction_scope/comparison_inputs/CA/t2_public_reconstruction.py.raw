@@ -1,0 +1,180 @@
+"""Task 2: what grading the closed-history counts by the area character does to the objects of
+model/native_quantum_reconstruction and model/native_modular_dynamics (66-state exclusion chain, complete-attempt
+clock).  Each numbered check is the computational part of a statement in STATEMENTS.md (S5).
+
+Float64 (MEASURED, defects printed) except where a check is a count.
+Usage: cd reverse-engineering-reality && PYTHONPATH=.:../repair-law/work/CA:../repair-law/work/FLUXPUMP python \
+       ../repair-law/work/CA/t2_public_reconstruction.py [out.json]
+"""
+import json
+import sys
+import time
+import numpy as np
+import ca_core as c
+import ca_corr as cc
+
+out_path = sys.argv[1] if len(sys.argv) > 1 else 't2_public_reconstruction.json'
+t0 = time.time()
+res = {'schema': 'repair_law.CA.t2.v1'}
+sec = cc.Sector('two')
+states, d = sec.states, sec.d
+index = {s: i for i, s in enumerate(states)}
+th = c.THETA
+
+
+def out(key, text, **kw):
+    res[key] = kw
+    print(text, flush=True)
+
+
+# 1. one event on a seam is a projection in every character: P_k = (1/30) sum_s (1 + S_s^(k)) / 2
+def swap(e, k):
+    a, b = c.SEAMS[e]
+    S = np.zeros((d, d), complex)
+    for x, s in enumerate(states):
+        if s[a] == s[b]:
+            S[x, x] = 1
+        else:
+            t = list(s)
+            t[a], t[b] = s[b], s[a]
+            j = 1 if s[a] == 1 else -1                           # the load moves a -> b (j = 1) or b -> a
+            S[index[tuple(t)], x] = c.OMEGA ** (k * j * int(th[e]))
+    return S
+
+
+worst = [0.0, 0.0, 0.0]
+for k in range(20):
+    acc = np.zeros((d, d), complex)
+    for e in range(30):
+        S = swap(e, k)
+        worst[0] = max(worst[0], np.abs(S - S.conj().T).max())
+        worst[1] = max(worst[1], np.abs(S @ S - np.eye(d)).max())
+        acc += (np.eye(d) + S) / 2
+    worst[2] = max(worst[2], np.abs(acc / 30 - sec.P(k)).max())
+out('projection_form', f'1. S_s^(k) Hermitian (defect {worst[0]:.1e}), involution ({worst[1]:.1e}); P_k = mean of the 30 '
+    f'projections (1 + S)/2 ({worst[2]:.1e}), all 20 characters', hermitian=worst[0], involution=worst[1], mean=worst[2])
+
+# 2. spectral bounds
+lo = [float(np.linalg.eigvalsh(sec.P(k)).min()) for k in range(20)]
+hi = [float(np.linalg.eigvalsh(sec.P(k)).max()) for k in range(20)]
+diag_same = max(float(np.abs(np.diag(sec.P(k)) - np.diag(sec.P(0))).max()) for k in range(20))
+mod_same = max(float(np.abs(np.abs(sec.P(k)) - sec.P(0).real).max()) for k in range(20))
+out('bounds', f'2. smallest eigenvalue over the 20 characters {min(lo):.6f} (>= 2/3 by diagonal dominance: diagonal entries '
+    f'are those of P, defect {diag_same:.1e}; moduli of all entries are those of P, defect {mod_same:.1e}); largest '
+    f'eigenvalue for k != 0: {max(hi[1:]):.6f} < 1', min_eigenvalue=min(lo), max_eigenvalue_nontrivial=max(hi[1:]),
+    lowest_by_k=lo, highest_by_k=hi)
+
+# 3. path dependence of the matrix-unit moments; closed words are gauge invariant
+x0 = index[tuple(int(p in (0, 3)) for p in range(12))]
+x1 = index[tuple(int(p in (5, 3)) for p in range(12))]
+x2 = index[tuple(int(p in (1, 3)) for p in range(12))]
+assert c.ADJ[0, 1] and c.ADJ[0, 5] and c.ADJ[5, 1]
+L = 4
+rows = []
+for k in (0, 1, 5):
+    P = sec.P(k)
+    PL = np.linalg.matrix_power(P, L)
+    norm = np.trace(PL).real
+    # moment of the matrix unit E_(x0, x2) from the direct path and from the path through x1 (public definition:
+    # weighted count of [path, then L free attempts back to x0] divided by the path coefficient c > 0 and the return count)
+    direct = P[x2, x0] * PL[x0, x2] / (abs(P[x2, x0]) * norm)
+    via = P[x1, x0] * P[x2, x1] * PL[x0, x2] / (abs(P[x1, x0] * P[x2, x1]) * norm)
+    tri = P[x1, x0] * P[x2, x1] * P[x0, x2]                       # closed word around the face (0, 5, 1)
+    rows.append({'k': k, 'direct': [direct.real, direct.imag], 'via': [via.real, via.imag],
+                 'ratio_phase_units': float(np.angle(via / direct) / (2 * np.pi / 20)),
+                 'triangle_word_phase_units': float(np.angle(tri) / (2 * np.pi / 20))})
+    print(f'3. k = {k}: moment of one matrix unit by the direct path {direct:.6f}, by the two-step path {via:.6f}; '
+          f'phase of the ratio {rows[-1]["ratio_phase_units"]:+.4f} x 2 pi/20; closed word around the face: phase '
+          f'{rows[-1]["triangle_word_phase_units"]:+.4f} x 2 pi/20')
+res['path_dependence'] = rows
+
+# 4. the reference rho_(L, k)
+rows = []
+for k in (0, 1, 2, 7):
+    P = sec.P(k)
+    sp = sec.spectrum(k)
+    Pi = sp['V'] @ sp['V'].conj().T
+    for L in (1, 4, 64, 256):
+        PL = np.linalg.matrix_power(P, L)
+        rho = PL / np.trace(PL).real
+        ev = np.linalg.eigvalsh((rho + rho.conj().T) / 2)
+        conj = np.linalg.matrix_power(sec.P(-k), L)
+        conj = conj / np.trace(conj).real
+        rows.append({'k': k, 'L': L, 'min_eigenvalue': float(ev.min()), 'max_imaginary_entry': float(np.abs(rho.imag).max()),
+                     'return_normalizer_r': float(np.trace(PL).real / d), 'm_lambda1_L_over_66': sp['m'] * sp['lam1'] ** L / d,
+                     'trace_distance_to_projector_over_m': float(np.abs(np.linalg.eigvalsh(rho - Pi / sp['m'])).sum()),
+                     'conjugation_defect': float(np.abs(conj - rho.conj()).max()),
+                     'diagonal_min_max': [float(rho.diagonal().real.min()), float(rho.diagonal().real.max())]})
+        r = rows[-1]
+        print(f"4. k = {k}, L = {L:3d}: rho positive (min eigenvalue {r['min_eigenvalue']:.3e}), max |Im| entry "
+              f"{r['max_imaginary_entry']:.2e}, r_(L,k) = Tr P_k^L / 66 = {r['return_normalizer_r']:.4e}, "
+              f"||rho - Pi/m||_1 = {r['trace_distance_to_projector_over_m']:.3e}, rho_(L,-k) = conj: {r['conjugation_defect']:.1e}")
+res['reference'] = rows
+res['normalizer_floor'] = {'public_floor': 1 / 66, 'floor_all_characters_L_le_10': (2 / 3) ** 10,
+                           'holds_up_to_L': int(np.floor(np.log(66) / np.log(1.5)))}
+print(f"   r_(L,k) >= (2/3)^L for every character; (2/3)^L >= 1/66 up to L = {res['normalizer_floor']['holds_up_to_L']}")
+
+# 5. generator H_k = -log P_k
+rows = []
+for k in (0, 1, 2, 7):
+    w = np.linalg.eigvalsh(sec.P(k))
+    Hk = -np.log(w)[::-1]
+    sp = sec.spectrum(k)
+    rows.append({'k': k, 'ground_level': float(Hk[0]), 'ground_multiplicity': sp['m'], 'next_level': float(Hk[sp['m']]),
+                 'norm_one_minus_P': float(max(abs(1 - w.min()), abs(1 - w.max())))})
+    print(f"5. k = {k}: H_k = -log P_k has lowest level {Hk[0]:.6f} with multiplicity {sp['m']}, next {Hk[sp['m']]:.6f}; "
+          f"||1 - P_k|| = {rows[-1]['norm_one_minus_P']:.6f} <= 1/3")
+res['generator'] = rows
+
+# 6. the four-configuration contrast of the interaction diagnosis
+conf = [index[tuple(int(p in pr) for p in range(12))] for pr in ((0, 1), (2, 3), (0, 2), (1, 3))]
+rows = []
+for k in (0, 1, 2, 7):
+    P = sec.P(k)
+    J = np.eye(d) - P
+    w, v = np.linalg.eigh(P)
+    Hm = (v * (-np.log(w))) @ v.conj().T
+    cj = (J[conf[0], conf[0]] + J[conf[1], conf[1]] - J[conf[2], conf[2]] - J[conf[3], conf[3]]).real
+    ch = (Hm[conf[0], conf[0]] + Hm[conf[1], conf[1]] - Hm[conf[2], conf[2]] - Hm[conf[3], conf[3]]).real
+    rows.append({'k': k, 'contrast_J': float(cj), 'contrast_H': float(ch)})
+    print(f'6. k = {k}: contrast K(01,01)+K(23,23)-K(02,02)-K(13,13): for 1 - P_k {cj:+.6f} (= -1/15 for every k), '
+          f'for -log P_k {ch:+.6f}')
+res['interaction_contrast'] = rows
+
+# 7. the twisted transfer is the mean of the keep rows of the covariant agreement pump (candidates/CAP.md)
+try:
+    import cap
+    assert tuple(cap.SEAMS) == tuple(c.SEAMS)
+    # port rephasing between the spinor links of cap.py and omega^(sgn theta)
+    z = {(a, b): cap.link(a, b, 1) for a, b in c.SEAMS}
+    f = c.FACES[0]
+    hol = z[tuple(sorted((f[0], f[1])))] ** (1 if f[0] < f[1] else -1) * z[tuple(sorted((f[1], f[2])))] ** (1 if f[1] < f[2] else -1) \
+        * z[tuple(sorted((f[2], f[0])))] ** (1 if f[2] < f[0] else -1)
+    sgn = int(round(np.angle(hol) / (2 * np.pi / 20)))
+    u = {0: 1.0 + 0j}
+    todo = [0]
+    for a in todo:
+        for b in c.NBRS[a]:
+            if b not in u:
+                e, s = c.SIDX[(a, b)]
+                zab = z[c.SEAMS[e]] ** s
+                u[b] = u[a] * zab / c.OMEGA ** (sgn * s * int(th[e]))
+                todo.append(b)
+    worst = 0.0
+    for flux in (1, 2, 7):
+        keep = np.zeros((d, d), complex)
+        for seam in cap.SEAMS:
+            rows_ = dict(cap.instrument(seam, 2, flux))
+            keep += rows_['keep'][:d, :d]
+        keep /= 30
+        D = np.array([np.prod([u[p] ** flux for p in range(12) if s[p]]) for s in states])
+        mine = (D[:, None] * sec.P(sgn * flux)) * D.conj()[None, :]
+        worst = max(worst, float(np.abs(keep - mine).max()))
+    out('cap_link', f'7. mean over the 30 seams of the CAP keep row at flux f (binary shell) = P_(k = {sgn} f) up to the '
+        f'port rephasing, f = 1, 2, 7: defect {worst:.1e}', defect=worst, sign=sgn)
+except ImportError:
+    print('7. cap.py not on the path: skipped')
+
+res['seconds'] = round(time.time() - t0, 2)
+json.dump(res, open(out_path, 'w'), indent=1)
+print('wrote', out_path, 'in %.1f s' % (time.time() - t0))

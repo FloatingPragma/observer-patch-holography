@@ -1,0 +1,189 @@
+"""Reference state of CF-1 (worker R1): the empty vacuum, the filled branch, the heralded stationary reference.
+
+    python reference.py <section> ...     sections: vacuum sea sea2 cycle herald herald2 filter
+
+Results accumulate in reference.json. Float64; every number is a value or a printed defect (MEASURED).
+Declared sample values: theta = 0.157935 (M1), eps = 0.3, kappa = 0.2. One clock period = two ticks (forward, reverse).
+"""
+import json, os, sys, time
+import numpy as np
+from scipy.linalg import schur
+from cf1 import Species, OneBody, Gaussian, Joint, Sector, Lattice, dense, mass_step, branch_projectors
+
+HERE = os.path.dirname(os.path.abspath(__file__)); OUT = os.path.join(HERE, 'reference.json')
+TH, EPS, KAP = 0.157935, 0.3, 0.2
+INSTANCES = ((4, 1, 1), (6, 1, 1), (2, 2, 1), (3, 2, 1))
+
+
+def save(key, val):
+    d = json.load(open(OUT)) if os.path.exists(OUT) else {}
+    d[key] = val; json.dump(d, open(OUT, 'w'), indent=1)
+
+
+# ------------------------------------------------------------------ the empty vacuum and its link state
+def sec_vacuum():
+    rows = []
+    for shape in INSTANCES:
+        for eps in (0.0, EPS):
+            J = Joint(shape, [], eps, KAP); S = Sector(J); lat = J.lat; U = S.matrix(0)        # no quanta: U_0 = U_1 = F
+            flat = np.where(lat.wsum()[S.reps] == len(lat.plaq))[0]            # flat representatives: one per holonomy class
+            v0 = np.zeros(S.dim, complex); v0[0] = 1                           # flat, trivial holonomy (word 0)
+            vs = np.zeros(S.dim, complex); vs[flat] = 1 / np.sqrt(len(flat))   # equal superposition of the holonomy classes
+            r = {'shape': list(shape), 'eps': eps, 'kappa': KAP, 'sector_dimension': S.dim, 'flat_holonomy_classes': len(flat),
+                 'unitarity': float(np.abs(U.conj().T @ U - np.eye(S.dim)).max()),
+                 'flat_trivial_holonomy_defect_against_phase': float(np.abs(U @ v0 - np.exp(-1j * KAP * len(lat.plaq)) * v0).max()),
+                 'one_tick_survival_flat_trivial_holonomy': float(abs(np.vdot(v0, U @ v0)) ** 2),
+                 'one_tick_survival_flat_symmetric': float(abs(np.vdot(vs, U @ vs)) ** 2)}
+            # weight of the symmetric flat state on single eigenphases of the pure-gauge step
+            T, Q = schur(U, output='complex'); ph = np.angle(np.diag(T)); wt = np.abs(Q.conj().T @ vs) ** 2   # U is normal: T diagonal
+            order = np.argsort(ph); ph, wt = ph[order], wt[order]
+            groups = np.split(np.arange(S.dim), np.where(np.diff(ph) > 1e-8)[0] + 1)
+            best = max(groups, key=lambda g: wt[g].sum())
+            r['largest_weight_of_flat_symmetric_on_one_eigenphase'] = float(wt[best].sum())
+            r['that_eigenphase'] = float(ph[best[0]]); r['its_multiplicity'] = int(len(best))
+            rows.append(r); print(r, flush=True)
+    return rows
+
+
+# ------------------------------------------------------------------ the filled negative-phase branch
+def sec_sea():
+    res = {}
+    for shape, th in (((3, 3, 3), TH), ((3, 3, 3), 0.0), ((4, 4, 4), TH), ((4, 4, 4), 0.0), ((8, 1, 1), TH), ((5, 5, 1), TH)):
+        G = Gaussian(shape, Species(theta=th)); C, und = G.filled_branch(); U2 = G.period(); D0 = G.D[0]
+        C1 = G.tick(C, 0)
+        r = {'modes': G.n, 'filled_modes': float(np.trace(C).real), 'undecided_modes_at_phase_0_or_pi': und,
+             'two_tick_stationarity_defect': float(np.abs(U2 @ C @ U2.conj().T - C).max()),
+             'one_tick_defect_max_entry': float(np.abs(C1 - C).max()),
+             'quanta_outside_the_filled_branch_after_one_tick': float(np.trace((np.eye(G.n) - C) @ C1).real),
+             'cell_charge_parity_expectation': G.cell_parity(C),
+             'forward_and_reverse_tick_differ': float(np.abs(G.D[0] - G.D[1]).max())}
+        if shape == (3, 3, 3):
+            ob = G.ob
+            V = dense(lambda p: ob.w.record_reflection(mass_step(p, th, 'Y', inverse=True)), shape)   # V = R M^dagger
+            pos, neg, _ = branch_projectors(U2)
+            r['V_U2_Vdagger_equals_U2_inverse'] = float(np.abs(V @ U2 @ V.conj().T - U2.conj().T).max())
+            r['V_maps_positive_branch_to_negative'] = float(np.abs(V @ pos @ V.conj().T - neg).max())
+        res['x'.join(map(str, shape)) + f'_theta_{th}'] = r; print(shape, th, r, flush=True)
+    return res
+
+
+def sec_sea2():
+    """infinite lattice, symbol level: how far the forward tick moves the filled negative branch of the period"""
+    from cf1 import symbol
+    def displaced(p, th):
+        Df, Dr = symbol(p, th, 'Y', 0), symbol(p, th, 'Y', 1)
+        _, neg, und = branch_projectors(Dr @ Df)
+        return float(np.trace((np.eye(4) - neg) @ Df @ neg @ Df.conj().T).real) / 2, und
+    n = 20; grid = (np.arange(n) + 0.37) * 2 * np.pi / n                 # offset grid: no undecided point
+    res = {}
+    for th in (TH, 0.0):
+        vals = [displaced((a, b, c), th)[0] for a in grid for b in grid for c in grid]
+        res[f'zone_average_fraction_of_the_filled_branch_displaced_by_one_tick_theta_{th}'] = float(np.mean(vals))
+        res[f'small_p_theta_{th}'] = [{'p': [q, q, q], 'fraction': displaced((q, q, q), th)[0]} for q in (0.4, 0.2, 0.1, 0.05)]
+        res[f'on_axis_theta_{th}'] = displaced((0.3, 0.0, 0.0), th)[0]
+    for k, v in res.items(): print(k, v)
+    return res
+
+
+def sec_cycle():
+    """one quantum, static flat links (eps = 0): the heralded reference built from the period is a two-cycle on lattices
+    with two or more active axes; closed form tr(period) = 4 N (cos^2 theta prod_i s_i - sin^2 theta), s_i = 1 if L_i <= 2 else 0"""
+    rows = []
+    for shape in ((6, 1, 1), (3, 3, 1), (5, 5, 1), (3, 3, 3)):
+        G = Gaussian(shape, Species(theta=TH)); d = G.n; U2 = G.period(); I = np.eye(d)
+        Z = 1.25 * d + np.trace(U2).real; rho = (1.25 * I + (U2 + U2.conj().T) / 2) / Z
+        odd = G.tick(rho, 0); back = G.tick(odd, 1)
+        closed = 4 * (d // 4) * (np.cos(TH) ** 2 * np.prod([1.0 if L <= 2 else 0.0 for L in shape]) - np.sin(TH) ** 2)
+        rows.append({'shape': list(shape), 'dimension': d, 'tr_period': float(np.trace(U2).real), 'tr_period_closed_form': float(closed),
+                     'Z': float(Z), 'p_success': float(4 * Z / (9 * d)), 'p_success_closed_form_5/9-(4/9)sin^2(theta)': float(5 / 9 - 4 / 9 * np.sin(TH) ** 2),
+                     'stationarity_under_the_period': float(np.abs(back - rho).max()),
+                     'trace_distance_between_even_and_odd_tick_states': float(np.abs(np.linalg.eigvalsh(odd - rho)).sum() / 2),
+                     'lambda_min': float(np.linalg.eigvalsh(rho).min()), 'lambda_min_lower_bound': float(1 / (4 * Z))})
+        print(rows[-1], flush=True)
+    # the same reference on the whole Gauss sector with quantum links at eps = 0: block diagonal in the gauge classes of
+    # link words (flat and with plaquette flux); trace distance between the even-tick and the odd-tick state, block by block
+    for shape in ((2, 2, 1), (3, 2, 1)):
+        sp = Species(theta=TH); J = Joint(shape, [sp], 0.0, KAP); S = Sector(J); lat = J.lat
+        Df, Dr = J.one_body(sp, S.reps, 0), J.one_body(sp, S.reps, 1); ph = J.kph[S.reps] ** 2
+        U2 = ph[:, None, None] * (Dr @ Df); Zs = 1.25 * S.dim + np.trace(U2, axis1=1, axis2=2).sum().real
+        rho = (1.25 * np.eye(J.n)[None] + (U2 + np.conj(np.swapaxes(U2, 1, 2))) / 2) / Zs
+        odd = Df @ rho @ np.conj(np.swapaxes(Df, 1, 2))
+        dist = np.array([np.abs(np.linalg.eigvalsh(odd[r] - rho[r])).sum() / 2 for r in range(len(S.reps))])
+        flat = lat.wsum()[S.reps] == len(lat.plaq)
+        rows.append({'shape': list(shape), 'quantum_links_sector_dimension': S.dim, 'eps': 0.0, 'kappa': KAP, 'gauge_classes_of_link_words': len(S.reps),
+                     'flat_classes': int(flat.sum()), 'p_success': float(4 * Zs / (9 * S.dim)),
+                     'trace_distance_between_even_and_odd_tick_states': float(dist.sum()),
+                     'part_from_flat_classes': float(dist[flat].sum()), 'part_from_classes_with_plaquette_flux': float(dist[~flat].sum())})
+        print(rows[-1], flush=True)
+    return rows
+
+
+# ------------------------------------------------------------------ the heralded stationary reference
+def herald(shape, N, eps, kappa, theta=TH, dense_limit=600):
+    sp = Species(theta=theta); J = Joint(shape, [sp] * N, eps, kappa); S = Sector(J); d = S.dim
+    t1 = S.tick_trace(0); t2 = S.period_trace()
+    row = {'shape': list(shape), 'quanta': N, 'eps': eps, 'kappa': kappa, 'theta': theta, 'sector_dimension': d,
+           'background_charge_at_cells': [int(c) for c in np.where(S.g < 0)[0]], 'tr_one_tick': [t1.real, t1.imag], 'tr_period': [t2.real, t2.imag]}
+    for name, tr in (('filter_with_one_tick', t1), ('filter_with_period', t2)):
+        Z = 1.25 * d + tr.real
+        row[name] = {'Z': float(Z), 'p_success': float(4 * Z / (9 * d)), 'p_failure': float(1 - 4 * Z / (9 * d)), 'lambda_min_lower_bound': float(1 / (4 * Z))}
+    if d <= dense_limit:
+        U0, U1 = S.matrix(0), S.matrix(1); U2 = U1 @ U0; I = np.eye(d)
+        Z = row['filter_with_period']['Z']; rho = (1.25 * I + (U2 + U2.conj().T) / 2) / Z
+        rho_odd = U0 @ rho @ U0.conj().T
+        row['dense'] = {'unitarity': float(np.abs(U0.conj().T @ U0 - I).max()),
+                        'trace_formula_against_dense': float(abs(np.trace(U2) - t2)),
+                        'trace_rho': float(np.trace(rho).real),
+                        'stationarity_under_the_period': float(np.abs(U2 @ rho @ U2.conj().T - rho).max()),
+                        'trace_distance_between_even_and_odd_tick_states': float(np.abs(np.linalg.eigvalsh(rho_odd - rho)).sum() / 2),
+                        'lambda_min': float(np.linalg.eigvalsh(rho).min()),
+                        'kraus_completeness': float(np.abs((2 * I + U2).conj().T @ (2 * I + U2) / 9 + 2 * (I - U2).conj().T @ (I - U2) / 9 - I).max())}
+    return row
+
+
+def sec_herald():
+    rows = []
+    for shape in INSTANCES:
+        for N in (0, 1, 2):
+            if shape == (3, 2, 1) and N == 2: continue                     # section herald2
+            for eps, kap in ((0.0, 0.0), (EPS, KAP)):
+                rows.append(herald(shape, N, eps, kap)); r = rows[-1]
+                print(r['shape'], 'N', N, 'eps', eps, 'dim', r['sector_dimension'], 'p+ (period)', round(r['filter_with_period']['p_success'], 6),
+                      'p+ (one tick)', round(r['filter_with_one_tick']['p_success'], 6), r.get('dense', ''), flush=True)
+    return rows
+
+
+def sec_herald2():
+    rows = []
+    for eps, kap in ((0.0, 0.0), (EPS, KAP)):
+        t0 = time.time(); rows.append(herald((3, 2, 1), 2, eps, kap)); r = rows[-1]
+        print(r['shape'], 'N 2 eps', eps, 'dim', r['sector_dimension'], 'p+ (period)', round(r['filter_with_period']['p_success'], 6),
+              'p+ (one tick)', round(r['filter_with_one_tick']['p_success'], 6), round(time.time() - t0, 1), 's', flush=True)
+    return rows
+
+
+# ------------------------------------------------------------------ the filter executed on one pure input, all outcomes kept
+def sec_filter():
+    sp = Species(theta=TH); J = Joint((6, 1, 1), [sp], EPS, KAP); S = Sector(J); lat = J.lat
+    e = np.zeros(J.n, complex); e[4 * 3] = 1                               # cell 3, blank record, spin up
+    Psi = S.embed(S.coeff(J.product(0, e))); p_sector = float(np.linalg.norm(Psi) ** 2); Psi = Psi / np.linalg.norm(Psi)
+    W = J.tick(J.tick(Psi, 0), 1)                                          # one period
+    branches = {'success': (2 * Psi + W) / 3, 'failure': np.sqrt(2) * (Psi - W) / 3}
+    rows = []
+    for name, b in branches.items():
+        out = J.tick(b, 0)                                                 # one more tick, then read the record
+        written = float(np.sum(np.abs(out.reshape(lat.NZ, lat.N, 2, 2)[:, :, 1, :]) ** 2)); total = float(np.linalg.norm(b) ** 2)
+        rows.append({'filter': name, 'probability': total, 'record_written_after_one_tick': written, 'record_blank_after_one_tick': total - written})
+    res = {'instance': 'ring of 6, one charged quantum, background charge at cell 0, eps 0.3, kappa 0.2, theta 0.157935',
+           'input': 'links all +1, quantum at cell 3 with blank record and spin up, projected on the Gauss sector',
+           'probability_of_this_Gauss_outcome': p_sector, 'outcomes': rows,
+           'total_probability': float(sum(r['probability'] for r in rows))}
+    print(json.dumps(res, indent=1))
+    return res
+
+
+SECTIONS = {'vacuum': sec_vacuum, 'sea': sec_sea, 'sea2': sec_sea2, 'cycle': sec_cycle, 'herald': sec_herald, 'herald2': sec_herald2, 'filter': sec_filter}
+
+if __name__ == '__main__':
+    for name in sys.argv[1:]:
+        t0 = time.time(); save(name, SECTIONS[name]()); print(f'[{name}] {time.time() - t0:.1f} s', flush=True)

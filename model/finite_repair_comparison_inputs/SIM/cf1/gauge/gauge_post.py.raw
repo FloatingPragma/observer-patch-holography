@@ -1,0 +1,76 @@
+"""Run H4 (task MA), part 2b/4: Wilson-loop readouts on the five independent 96 x 48 x 48 draws at each kappa*.
+
+    python gauge_post.py kstar.json out.json
+
+For each configuration: W(R, T), R, T = 1..12, averaged over all positions, three planes, both orientations; Creutz
+ratios chi(R, R); V(R) = ln W(R, T-1) / W(R, T) at T = 8 and T = 12; a fit ln W = -sigma R T - mu (R + T) - c over
+2 <= R, T <= 8. Errors: standard deviation over the five configurations / sqrt(5) (independent configurations, 1,000
+heat-bath sweeps apart, i.e. more than five integrated autocorrelation times of the plaquette at every point).
+"""
+import json, os, sys
+import numpy as np
+from multiprocessing import Pool
+import gauge_mc as G
+
+HERE = os.path.dirname(os.path.abspath(__file__)); RMAX = 12
+
+
+def one(args):
+    label, f = args
+    d = np.load(os.path.join(HERE, f)); n = d['n'].astype(np.int16); N = int(d['N'])
+    W = G.wilson_loops(n, N, RMAX)
+    return label, f, W, G.plaquette_obs(n, N)
+
+
+def readout(W):
+    lw = np.log(np.clip(W, 1e-300, None)); ok = W > 0
+    chi = {R: float(-(lw[R - 1, R - 1] + lw[R - 2, R - 2] - lw[R - 1, R - 2] - lw[R - 2, R - 1])) if ok[R - 1, R - 1] else np.nan for R in range(2, RMAX + 1)}
+    V8 = {R: float(lw[R - 1, 6] - lw[R - 1, 7]) if ok[R - 1, 7] else np.nan for R in range(1, RMAX + 1)}
+    V12 = {R: float(lw[R - 1, 10] - lw[R - 1, 11]) if ok[R - 1, 11] else np.nan for R in range(1, RMAX + 1)}
+    rows = [(R, T, lw[R - 1, T - 1]) for R in range(2, 9) for T in range(2, 9) if W[R - 1, T - 1] > 1e-3]
+    fit = None
+    if len(rows) >= 6:
+        A = np.array([[-R * T, -(R + T), -1.0] for R, T, _ in rows]); y = np.array([r[2] for r in rows])
+        p = np.linalg.lstsq(A, y, rcond=None)[0]; fit = [float(x) for x in p]
+    return chi, V8, V12, fit
+
+
+def stat(x):
+    x = np.array([v for v in x if np.isfinite(v)])
+    if len(x) < 2:
+        return [float(x[0]) if len(x) else None, None, int(len(x))]
+    return [float(x.mean()), float(x.std(ddof=1) / np.sqrt(len(x))), int(len(x))]
+
+
+if __name__ == '__main__':
+    K = json.load(open(sys.argv[1])); outf = sys.argv[2]
+    jobs = [(p['label'], f'configs/{p["label"]}_{i}.npz') for p in K['draw_points'] for i in range(5)]
+    with Pool(min(20, len(jobs))) as pool:
+        res = pool.map(one, jobs)
+    out = {'run': 'H4 Wilson loops on the draws', 'Rmax': RMAX, 'points': []}
+    for p in K['draw_points']:
+        rr = [r for r in res if r[0] == p['label']]
+        per = [readout(r[2]) for r in rr]
+        Wm = np.mean([r[2] for r in rr], 0); We = np.std([r[2] for r in rr], 0, ddof=1) / np.sqrt(len(rr))
+        row = {'label': p['label'], 'kappa': p['kappa'], 'configs': [r[1] for r in rr],
+               'f_plaquette_per_config': [r[3][0] for r in rr], 'f_plaquette': stat([r[3][0] for r in rr]),
+               'f_per_carrier': [3 * x if x is not None else None for x in stat([r[3][0] for r in rr])[:2]],
+               'W_mean': Wm.tolist(), 'W_err': We.tolist(),
+               'creutz_RR': {R: stat([c[0][R] for c in per]) for R in range(2, RMAX + 1)},
+               'V_T8': {R: stat([c[1][R] for c in per]) for R in range(1, RMAX + 1)},
+               'V_T12': {R: stat([c[2][R] for c in per]) for R in range(1, RMAX + 1)},
+               'V_minus_V1_T8': {R: stat([c[1][R] - c[1][1] for c in per]) for R in range(1, RMAX + 1)},
+               'V_minus_V1_T12': {R: stat([c[2][R] - c[2][1] for c in per]) for R in range(1, RMAX + 1)}}
+        fits = [c[3] for c in per if c[3] is not None]
+        if fits:
+            row['area_fit_2to8'] = {'sigma': stat([f[0] for f in fits]), 'mu': stat([f[1] for f in fits]), 'c': stat([f[2] for f in fits])}
+        big = [row['creutz_RR'][R] for R in range(5, 9) if row['creutz_RR'][R][1] is not None]
+        if big:
+            w = np.array([1 / max(b[1], 1e-12) ** 2 for b in big]); x = np.array([b[0] for b in big])
+            m = float((w * x).sum() / w.sum()); e = float(1 / np.sqrt(w.sum()))
+            row['sigma_from_creutz_R5to8'] = {'sigma': m, 'err': e, 'law': 'area' if m > 3 * e else 'perimeter (no area term resolved)',
+                                              'sigma_upper_bound_2err': float(max(m, 0) + 2 * e), 'sqrt_sigma': float(np.sqrt(m)) if m > 0 else None}
+        out['points'].append(row)
+        print(p['label'], 'f', row['f_plaquette'], 'creutz R5..8', row.get('sigma_from_creutz_R5to8'), 'fit', row.get('area_fit_2to8', {}).get('sigma'),
+              'V-V1 T8', {R: [round(v, 4) if v is not None else None for v in row['V_minus_V1_T8'][R][:2]] for R in (2, 4, 8, 12)}, flush=True)
+    json.dump(out, open(outf, 'w'), indent=1); print('written', outf)

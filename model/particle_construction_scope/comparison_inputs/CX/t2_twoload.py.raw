@@ -1,0 +1,102 @@
+"""Task 2, two loads: exact stationary state of CAP on the 78-state carrier (flux k, default 1).
+
+Exact content: the stationary density lives on the 66-state binary shell (population lumping), it is the unique
+invariant solution of the orbit-reduced linear system over Q(zeta_20), its diagonal is 1/66, and its levels are the
+roots of exact sector polynomials (one per multiplet type). The decimal values are evaluations of those roots.
+"""
+import json, sys, time
+from fractions import Fraction as F
+import mpmath
+from cyc import Cyc, ZERO, ONE, Z, SQRT5, q5, rank_nullspace
+import carrier_exact as ce
+import twoload as tw
+import oneload as ol
+
+k = int(sys.argv[2]) if len(sys.argv) > 2 else 1
+t0 = time.time()
+sh = tw.shell(2); d = len(sh)
+action = tw.group_action(2, k, sh)
+chi = tw.characters()
+mult = tw.multiplicities(action, d, chi)
+orbit_of, expo, reps = tw.orbit_basis(action, d)
+n_orb = len(reps)
+assert n_orb == sum(m * m for m in mult.values()), (n_orb, mult)
+print(f'two loads, flux {k}: shell dimension {d}; multiplet content {mult}; commutant dimension {n_orb} (orbit basis); {time.time() - t0:.1f}s')
+
+rows = tw.rows_by_row(2, k, sh)
+C = tw.channel_on_commutant(rows, orbit_of, expo, reps)
+# stationary equation (C - 1) x = 0
+A = [[C[i][j] - (ONE if i == j else ZERO) for j in range(n_orb)] for i in range(n_orb)]
+rk, null = rank_nullspace(A)
+assert rk == n_orb - 1 and len(null) == 1, rk
+x = null[0]
+# normalise the trace: diagonal orbits
+tr = ZERO
+for i in range(d):
+    o = orbit_of[i][i]
+    assert o >= 0 and expo[i][i] == 0
+    tr = tr + x[o]
+x = [v / tr for v in x]
+rho = tw.dense_from_orbits(x, orbit_of, expo, d)
+print(f'   invariant stationary solution unique in the commutant (rank {rk} of {n_orb}); {time.time() - t0:.1f}s')
+assert all(rho[i][j] == rho[j][i].conj() for i in range(d) for j in range(d)), 'hermitian'
+assert all(rho[i][i] == Cyc.of(F(1, d)) for i in range(d)), 'uniform diagonal'
+img = tw.apply_channel(rows, rho, d)
+assert all(img[i][j] == rho[i][j] for i in range(d) for j in range(d)), 'stationarity on the actual rows'
+print(f'   Phi(rho) = rho verified entrywise with the actual rows; diagonal exactly 1/{d}; {time.time() - t0:.1f}s')
+
+# sector polynomials
+dims = {'1': 1, '3': 3, "3'": 3, '4': 4, '5': 5}
+sector = {}
+for label, m in mult.items():
+    if m == 0:
+        continue
+    poly = None
+    for seed in range(d):
+        v = tw.isotypic_vector(action, chi[label], dims[label], {seed: ONE})
+        if not v:
+            continue
+        poly = tw.krylov_polynomial(rho, v, d, m)
+        if poly is not None and len(poly) - 1 == m:
+            break
+    assert poly is not None and len(poly) - 1 == m, (label, m)
+    assert all(c.is_real() for c in poly)
+    roots = sorted([r.real for r in ol.poly_roots_mp(poly, 50)], reverse=True)
+    assert max(abs(complex(r).imag) for r in ol.poly_roots_mp(poly, 50)) < 1e-30
+    sector[label] = dict(poly=poly, roots=roots)
+    print(f'   sector {label}: multiplicity {m}; levels', ', '.join(mpmath.nstr(r, 12) for r in roots), f'; {time.time() - t0:.1f}s')
+levels = sorted([(r, label) for label, sdata in sector.items() for r in sdata['roots']], reverse=True)
+total_trace = sum(r * dims[label] for r, label in levels)
+lead, second = levels[0], levels[1]
+purity = ZERO
+for i in range(d):
+    for j in range(d):
+        purity = purity + rho[i][j] * rho[j][i]
+# rigorous isolation of the leading level: sign change of its sector polynomial on a rational interval
+lam = lead[0]
+lo = F(int(mpmath.floor(lam * 10 ** 12)), 10 ** 12); hi = lo + F(1, 10 ** 12)
+P = sector[lead[1]]['poly']
+s_lo = ol.poly_eval(P, Cyc.of(lo)).sign(); s_hi = ol.poly_eval(P, Cyc.of(hi)).sign()
+assert s_lo * s_hi < 0
+out = {
+    'flux': k, 'shell_dimension': d, 'multiplet_content': mult, 'commutant_dimension': n_orb,
+    'stationary_solution_unique_in_commutant_rank': [rk, n_orb],
+    'diagonal': f'1/{d} exactly', 'support': 'binary shell (collision weight exactly 0 by population lumping)',
+    'stationarity_checked_on_actual_rows': True,
+    'purity_exact': ol.show(purity), 'purity_float': float(purity.mp(30).real),
+    'levels': [{'value': mpmath.nstr(r, 30), 'multiplet': label, 'dimension': dims[label]} for r, label in levels],
+    'trace_check': mpmath.nstr(total_trace, 30),
+    'leading_level': {'multiplet': lead[1], 'value': mpmath.nstr(lead[0], 30), 'weight': mpmath.nstr(lead[0] * dims[lead[1]], 30),
+                      'isolating_interval': [str(lo), str(hi)],
+                      'defining_polynomial_monic_low_to_high': [ol.show(c) for c in P]},
+    'second_level': {'multiplet': second[1], 'value': mpmath.nstr(second[0], 30)},
+    'modular_gap': mpmath.nstr(mpmath.log(lead[0] / second[0]), 30),
+    'smallest_level': mpmath.nstr(levels[-1][0], 30),
+    'sector_polynomials_monic_low_to_high': {label: [ol.show(c) for c in sdata['poly']] for label, sdata in sector.items()},
+    'seconds': time.time() - t0,
+}
+print(f'   leading level: multiplet {lead[1]}, value {mpmath.nstr(lead[0], 20)}, weight {mpmath.nstr(lead[0] * dims[lead[1]], 20)}; '
+      f'modular gap {mpmath.nstr(mpmath.log(lead[0] / second[0]), 20)}; smallest level {mpmath.nstr(levels[-1][0], 12)}; trace {mpmath.nstr(total_trace, 20)}')
+json.dump(out, open(sys.argv[1], 'w'), indent=1)
+import pickle
+pickle.dump({'rho': rho, 'sector': sector, 'mult': mult}, open(sys.argv[1].replace('.json', '.pkl'), 'wb'))

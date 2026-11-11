@@ -1,0 +1,158 @@
+"""Item 4, second method: the same supercell problem solved through the lattice Green function (exact secular
+equation of a finite-rank perturbation), which reaches defect spacings far beyond the sparse solver.
+
+L = L0 + V, V = sum over defect seams of the rank-two change of one hop (flat level: +2 on both off-diagonal entries).
+For a superlattice of n x n cells with Bloch vector q, E is an eigenvalue of L (not of L0) iff
+    det(1 - G_q(E) V) = 0,   G_q(E)[x, y] = (1/n^2) sum over kappa in q + (2 pi/n)(j1 b1 + j2 b2) of
+                                             exp(i kappa.(R_x - R_y)) [(E - L0(kappa))^{-1}][x, y]
+on the 2d defect ports. L0(kappa) is diagonalized once per kappa, so every evaluation of G is a sum of poles.
+Outputs per case: lowest level E0, its curvature at q = 0, the weight on the defect carriers and the overlap with
+the uniform state (from the resolvent representation psi = G V psi).
+
+usage: python km4_tmatrix.py <out.json> <processes> <family:H|T> <gluing> n1 n2 ...
+"""
+import json, sys, time
+import numpy as np
+from multiprocessing import Pool
+import km_lib as K
+
+Bmat = 2 * np.pi * np.linalg.inv(np.array([K.A1, K.A2])).T          # rows b1, b2 with b_i . A_j = 2 pi delta_ij
+
+
+class Folded:
+    def __init__(self, tpl, n, q, defects, chunk=32768, carriers=False):
+        """defects: list of ((i, k), type, seam, w). Stores the pole data of G on the defect ports."""
+        self.tpl, self.n, self.q, self.defects = tpl, n, np.asarray(q, float), defects
+        d = len(defects)
+        ports = []; cells = []
+        for (i, k), t, e, w in defects:
+            a, b = K.E[e]
+            ports += [12 * t + a, 12 * t + b]; cells += [(i, k), (i, k)]
+        self.ports = np.array(ports); cells = np.array(cells, float)
+        V = np.zeros((2 * d, 2 * d), complex)
+        for j, ((i, k), t, e, w) in enumerate(defects):
+            z = tpl.zint[t, e]
+            V[2 * j + 1, 2 * j] = -z * (w - 1); V[2 * j, 2 * j + 1] = np.conj(-z * (w - 1))
+        self.V = V
+        j1, j2 = np.meshgrid(np.arange(n), np.arange(n), indexing='ij')
+        frac = np.stack([j1.ravel(), j2.ravel()], 1) / n                # kappa = q + frac @ Bmat
+        self.K = len(frac)
+        lam = np.empty((self.K, 24)); W = np.empty((self.K, 24, 2 * d, 2 * d), complex)
+        self.Uc = [] if carriers else None
+        for s in range(0, self.K, chunk):
+            fr = frac[s:s + chunk]
+            kap = self.q[None, :] + fr @ Bmat
+            w_, U = np.linalg.eigh(tpl.cell_matrices(kap))
+            # phase exp(i kappa . R) for each defect port's cell R = i A1 + k A2
+            ph = np.exp(1j * (kap @ np.array([K.A1, K.A2]).T @ cells.T))          # (chunk, 2d)
+            Up = U[:, self.ports, :] * ph[:, :, None]                               # (chunk, 2d, 24): row x, band nb
+            W[s:s + chunk] = np.einsum('kxn,kyn->knxy', Up, Up.conj())
+            lam[s:s + chunk] = w_
+            if carriers:
+                self.Uc.append((kap, U, ph))
+        self.lam, self.W = lam, W
+        flat = np.sort(lam.ravel())
+        self.poles = flat[:4]
+
+    def G(self, E, deriv=False):
+        r = 1.0 / (E - self.lam)                                                    # (K, 24)
+        G = np.einsum('kn,knxy->xy', r, self.W) / self.K
+        if deriv:
+            return G, -np.einsum('kn,knxy->xy', r * r, self.W) / self.K
+        return G
+
+    def f(self, E):
+        """(E - pole0) det(1 - G V): smooth through the lowest unperturbed pole."""
+        M = np.eye(len(self.V)) - self.G(E) @ self.V
+        return float(((E - self.poles[0]) * np.linalg.det(M)).real)
+
+    def lowest(self):
+        """Lowest eigenvalue of L in this Bloch sector (below the second unperturbed pole)."""
+        lo, hi = self.poles[0], self.poles[1]
+        if hi - lo < 1e-14:
+            hi = self.poles[self.poles > lo + 1e-14][0]
+        # candidates: sign changes of f on a grid over (0, hi), avoiding the removable point E = pole0
+        grid = np.unique(np.concatenate([np.geomspace(max(hi * 1e-9, 1e-15), hi * (1 - 1e-9), 240)]))
+        vals = [self.f(x) for x in grid]
+        from scipy.optimize import brentq
+        for a, b, fa, fb in zip(grid[:-1], grid[1:], vals[:-1], vals[1:]):
+            if fa == 0 or fa * fb < 0:
+                root = brentq(self.f, a, b, xtol=1e-18, rtol=1e-14)
+                if abs(root - lo) > 1e-13 * max(1.0, abs(lo)) or abs(self.f(root)) < 1e-30:
+                    return root
+        return None
+
+    def vector_data(self, E):
+        """Null vector c = V psi restricted to the defect ports; norm^2 of psi; overlap with the uniform state (q = 0)."""
+        G, dG = self.G(E, deriv=True)
+        M = np.eye(len(self.V)) - self.V @ G                                        # (1 - V G) c = 0 for c = V psi
+        u, s, vh = np.linalg.svd(M)
+        c = vh[-1].conj()
+        norm2 = float((c.conj() @ (-dG) @ c).real)
+        psi_def = G @ c                                                             # psi on the defect ports
+        return c, norm2, psi_def, float(s[-1] / s[0])
+
+
+def analyse(task):
+    family, n, gluing, seam = task
+    t0 = time.time()
+    tpl = K.Template('scalar', gluing)
+    defects = K.honeycomb_family(n, seam, -1.0) if family == 'H' else [((0, 0), 0, seam, -1.0)]
+    d = len(defects); N = 2 * n * n / d
+    fo = Folded(tpl, n, (0.0, 0.0), defects)
+    E0 = fo.lowest()
+    c, norm2, psi_def, sv = fo.vector_data(E0)
+    # weight on the defect carriers: psi(x) = sum_y G(x, y; E0) c_y for the 12 ports x of each defect carrier (second pass, batched solves)
+    acc = [np.zeros(12, complex) for _ in defects]
+    j1, j2 = np.meshgrid(np.arange(n), np.arange(n), indexing='ij')
+    frac = np.stack([j1.ravel(), j2.ravel()], 1) / n
+    cells = np.array([[i, k] for (i, k), t, e, w in defects for _ in (0, 1)], float)
+    Amat = np.array([K.A1, K.A2])
+    for s in range(0, len(frac), 32768):
+        kap = frac[s:s + 32768] @ Bmat
+        ph = np.exp(1j * (kap @ Amat.T @ cells.T))                                  # (chunk, 2d)
+        rhs = np.zeros((len(kap), 24), complex)
+        for y in range(2 * d):
+            rhs[:, fo.ports[y]] += np.conj(ph[:, y]) * c[y]
+        sol = np.linalg.solve(E0 * np.eye(24)[None] - tpl.cell_matrices(kap), rhs[:, :, None])[:, :, 0]
+        for j, ((i, k), t, e, w) in enumerate(defects):
+            Rc = np.array([i, k], float) @ Amat
+            acc[j] += (sol[:, 12 * t:12 * t + 12] * np.exp(1j * (kap @ Rc))[:, None]).sum(0)
+    wdef = float(sum((abs(a / fo.K) ** 2).sum() for a in acc) / norm2)
+    ovl = float(abs(c.sum() / E0) ** 2 / (24 * n * n) / norm2)
+    NA = tpl.NA; p0 = E0 / NA; om0 = float(np.arccos(1 - p0))
+    born = 4.0 * d / (24 * n * n)
+    rec = {'family': family, 'm': n, 'gluing': gluing, 'seam': seam, 'N_carriers_per_defect': N, 'E0': E0, 'p0': p0, 'omega0': om0,
+           'first_order_E': born, 'E0_over_first_order': E0 / born, 'N_E0': N * E0, 'weight_on_defect_carriers': wdef,
+           'weight_relative_to_uniform': wdef / (d / (2 * n * n)), 'overlap_with_uniform': ovl, 'null_singular_ratio': sv}
+    # curvature from three directions
+    del fo                                                   # free the pole data of q = 0 before the next sums
+    qM = 2 * np.pi / (3 ** 0.5 * n); delta = 0.05 * qM
+    vals = []
+    for dvec in ((1.0, 0.0), (0.0, 1.0), (2 ** -0.5, 2 ** -0.5)):
+        fq = Folded(tpl, n, np.array(dvec) * delta, defects)
+        vals.append((fq.lowest() - E0) / delta ** 2)
+        del fq
+    Dxx, Dyy = vals[0], vals[1]; Dxy = vals[2] - (Dxx + Dyy) / 2
+    Dm = (Dxx + Dyy) / 2
+    q = 1e-3; D0 = float(np.linalg.eigvalsh(tpl.cell_matrix((q, 0.0)))[0] / q ** 2)
+    fac = om0 / np.sin(om0)
+    rec.update({'curvature_xx_yy_xy': [Dxx, Dyy, Dxy], 'curvature_mean': Dm, 'curvature_over_load': Dm / D0,
+                'anisotropy': float(np.hypot((Dxx - Dyy) / 2, Dxy) / Dm), 'v_over_v0': float(np.sqrt(Dm * fac / D0)),
+                'compton_length_edges': float(np.sqrt(2 * Dm * fac / NA) / om0),
+                'compton_wavenumber_over_qM': float(om0 / np.sqrt(2 * Dm * fac / NA) / qM), 'seconds': time.time() - t0})
+    return rec
+
+
+if __name__ == '__main__':
+    outp, procs, family, gluing = sys.argv[1], int(sys.argv[2]), sys.argv[3], sys.argv[4]
+    sizes = [int(x) for x in sys.argv[5:]]
+    tasks = [(family, n, gluing, 0) for n in sorted(sizes, reverse=True)]
+    res = []
+    with Pool(procs, maxtasksperchild=1) as pool:
+        for r in pool.imap_unordered(analyse, tasks):
+            res.append(r)
+            print(f"{r['family']} n={r['m']:5d} {r['gluing']:6s} N={r['N_carriers_per_defect']:11.1f} E0={r['E0']:.9e} p0={r['p0']:.6e} omega0={r['omega0']:.3e} "
+                  f"E0/first={r['E0_over_first_order']:.5f} N*E0={r['N_E0']:.6f} D/D0={r['curvature_over_load']:.5f} v/v0={r['v_over_v0']:.5f} "
+                  f"wdef/unif={r['weight_relative_to_uniform']:.4f} ovl={r['overlap_with_uniform']:.4f} qC/qM={r['compton_wavenumber_over_qM']:.3f} [{r['seconds']:.1f}s]", flush=True)
+            json.dump({'rows': sorted(res, key=lambda r: r['m'])}, open(outp, 'w'), indent=1)

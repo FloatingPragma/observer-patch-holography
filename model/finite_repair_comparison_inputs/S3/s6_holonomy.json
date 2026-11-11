@@ -1,0 +1,207 @@
+{
+ "cell_wirings": {
+  "F_mesh_order": {
+   "0": {
+    "five_valent_vertices": {
+     "proper C3 (120 deg) (order 3)": 12
+    },
+    "six_valent_vertices": {}
+   },
+   "1": {
+    "five_valent_vertices": {
+     "proper C3 (120 deg) (order 3)": 12
+    },
+    "six_valent_vertices": {
+     "proper identity (order 1)": 30
+    }
+   },
+   "2": {
+    "five_valent_vertices": {
+     "proper C3 (120 deg) (order 3)": 12
+    },
+    "six_valent_vertices": {
+     "proper identity (order 1)": 150
+    }
+   },
+   "3": {
+    "five_valent_vertices": {
+     "proper C3 (120 deg) (order 3)": 12
+    },
+    "six_valent_vertices": {
+     "proper identity (order 1)": 630
+    }
+   }
+  },
+  "B_mesh_order": {
+   "0": {
+    "five_valent_vertices": {
+     "proper C3 (120 deg) (order 3)": 12
+    },
+    "six_valent_vertices": {}
+   },
+   "1": {
+    "five_valent_vertices": {
+     "proper C3 (120 deg) (order 3)": 12
+    },
+    "six_valent_vertices": {
+     "proper identity (order 1)": 30
+    }
+   },
+   "2": {
+    "five_valent_vertices": {
+     "proper C3 (120 deg) (order 3)": 12
+    },
+    "six_valent_vertices": {
+     "proper identity (order 1)": 150
+    }
+   },
+   "3": {
+    "five_valent_vertices": {
+     "proper C3 (120 deg) (order 3)": 12
+    },
+    "six_valent_vertices": {
+     "proper identity (order 1)": 630
+    }
+   }
+  },
+  "F_nat_r": {
+   "0": {
+    "five_valent_vertices": {
+     "proper C3 (120 deg) (order 3)": 12
+    },
+    "six_valent_vertices": {}
+   },
+   "1": {
+    "five_valent_vertices": {
+     "proper C3 (120 deg) (order 3)": 12
+    },
+    "six_valent_vertices": {
+     "proper identity (order 1)": 30
+    }
+   },
+   "2": {
+    "five_valent_vertices": {
+     "proper C3 (120 deg) (order 3)": 12
+    },
+    "six_valent_vertices": {
+     "proper identity (order 1)": 150
+    }
+   },
+   "3": {
+    "five_valent_vertices": {
+     "proper C3 (120 deg) (order 3)": 12
+    },
+    "six_valent_vertices": {
+     "proper identity (order 1)": 630
+    }
+   }
+  },
+  "B_nat_mirror": {
+   "0": {
+    "five_valent_vertices": {
+     "proper C3 (120 deg) (order 3)": 12
+    },
+    "six_valent_vertices": {}
+   },
+   "1": {
+    "five_valent_vertices": {
+     "proper C3 (120 deg) (order 3)": 12
+    },
+    "six_valent_vertices": {
+     "proper identity (order 1)": 30
+    }
+   },
+   "2": {
+    "five_valent_vertices": {
+     "proper C3 (120 deg) (order 3)": 12
+    },
+    "six_valent_vertices": {
+     "proper identity (order 1)": 150
+    }
+   },
+   "3": {
+    "five_valent_vertices": {
+     "proper C3 (120 deg) (order 3)": 12
+    },
+    "six_valent_vertices": {
+     "proper identity (order 1)": 630
+    }
+   }
+  },
+  "pinned": {
+   "0": {
+    "five_valent_vertices": {
+     "undefined (types differ along the loop)": 12
+    },
+    "six_valent_vertices": {}
+   },
+   "1": {
+    "five_valent_vertices": {
+     "proper C3 (120 deg) (order 3)": 2,
+     "undefined (types differ along the loop)": 10
+    },
+    "six_valent_vertices": {
+     "proper identity (order 1)": 10,
+     "undefined (types differ along the loop)": 20
+    }
+   },
+   "2": {
+    "five_valent_vertices": {
+     "proper C3 (120 deg) (order 3)": 2,
+     "undefined (types differ along the loop)": 10
+    },
+    "six_valent_vertices": {
+     "proper identity (order 1)": 66,
+     "undefined (types differ along the loop)": 84
+    }
+   },
+   "3": {
+    "five_valent_vertices": {
+     "proper C3 (120 deg) (order 3)": 2,
+     "undefined (types differ along the loop)": 10
+    },
+    "six_valent_vertices": {
+     "proper identity (order 1)": 362,
+     "undefined (types differ along the loop)": 268
+    }
+   }
+  }
+ },
+ "vertex_wiring": {
+  "belt_shift_by_one_step": "improper inversion x C3 (120 deg) (order 6)",
+  "belt_shift_classes": {
+   "0": "proper identity (order 1)",
+   "1": "improper inversion x C3 (120 deg) (order 6)",
+   "2": "proper C3 (120 deg) (order 3)",
+   "3": "improper inversion x identity (order 2)",
+   "4": "proper C3 (120 deg) (order 3)",
+   "5": "improper inversion x C3 (120 deg) (order 6)"
+  },
+  "1": {
+   "loop_around_five_valent_vertex": {
+    "improper inversion x C3 (120 deg) (order 6)": 12
+   },
+   "loop_around_six_valent_vertex": {
+    "skipped (a five-valent vertex on the loop)": 30
+   }
+  },
+  "2": {
+   "loop_around_five_valent_vertex": {
+    "improper inversion x C3 (120 deg) (order 6)": 12
+   },
+   "loop_around_six_valent_vertex": {
+    "skipped (a five-valent vertex on the loop)": 60,
+    "proper identity (order 1)": 90
+   }
+  },
+  "3": {
+   "loop_around_five_valent_vertex": {
+    "improper inversion x C3 (120 deg) (order 6)": 12
+   },
+   "loop_around_six_valent_vertex": {
+    "skipped (a five-valent vertex on the loop)": 60,
+    "proper identity (order 1)": 570
+   }
+  }
+ }
+}

@@ -1,0 +1,74 @@
+"""CF-1 at the scale of the committed universe runs: N^3 carriers, alternating order, a random background of carriers
+that hold a flux pair, with the pair densities read from the end of the committed level-10 run.
+
+    python cf1_universe.py N out_prefix [ticks]
+
+Three species start as the same packet at the centre: one that sees every flux class (quark doublets, Q6 = 1),
+one that sees the odd classes (lepton doublets, Q6 = 3), one that sees none (singlets, Q6 = 0). Mass option M1:
+the rest angle of a cell is the sum over the pairs it holds of the angle of the species' charge phase at face
+separation 1 (repair-law/work/DIRAC/defect_phases.json). Three declared readings are stacked here: the register rule
+of the committed runs, the reading of a register class as a centre flux, and option M1. Lattice-scale numbers.
+Outputs: shell radius against time, record probability, a plane-wave run for the effective rest phase and decay,
+and central slices of the density for the web app.
+"""
+import json, sys, time
+import numpy as np
+from cf1_lib import Engine, REST, alpha_sixths, matrix_pencil, SIG
+
+N = int(sys.argv[1]); prefix = sys.argv[2]; T = int(sys.argv[3]) if len(sys.argv) > 3 else N // 2 - 12
+dtype = np.complex64 if N > 160 else np.complex128
+# pairs per carrier at the end of the committed level-10 run (run.json, end.counts_intra over 20,971,520 carriers):
+# class 1 with 5: 1,053,540; class 2 with 4: 5,611,452; class 3 with 3: 1,715,691 faces, two per pair
+CARRIERS = 20971520
+PAIRS = {1: 1053540 / CARRIERS, 2: 5611452 / CARRIERS, 3: 1715691 / 2 / CARRIERS}
+SPECIES = [('sees every class (quark doublets)', (1, 1)), ('sees the odd classes (lepton doublets)', (3, 1)), ('sees no class (lepton and neutrino singlets)', (3, 0))]
+rng = np.random.default_rng(20261110)
+occ = {k: rng.random((N, N, N)) < PAIRS[k] for k in PAIRS}
+out = {'lattice': N, 'carriers': N ** 3, 'ticks': T, 'dtype': str(np.dtype(dtype)), 'seed': 20261110, 'clock': 'tick of CF-1, alternating order',
+       'pairs_per_carrier': PAIRS, 'background_sample': {str(k): float(occ[k].mean()) for k in occ}, 'separation': 1, 'species': []}
+eng = Engine((N, N, N)); c0 = (N // 2,) * 3
+grids = np.meshgrid(*[np.arange(N)] * 3, indexing='ij', sparse=True)
+r = np.sqrt(sum((g - N // 2) ** 2 for g in grids)).astype(np.float32)
+slices = {}
+t0 = time.time()
+for name, pat in SPECIES:
+    theta = np.zeros((N, N, N), np.float32); law = 0.0
+    for k in PAIRS:
+        a = alpha_sixths(pat, k)
+        if a: theta += occ[k] * np.float32(REST[(a, 1)]); law += PAIRS[k] * REST[(a, 1)]
+    cs, sn = (np.cos(theta)[..., None], np.sin(theta)[..., None]) if law else (None, None)
+    def step(psi, t):
+        for i in ((2, 1, 0) if t % 2 else (0, 1, 2)):
+            x = psi[..., ::-1, :] @ SIG[i].T.astype(dtype)
+            psi = 0.5 * (np.roll(psi + x, 1, axis=i) + np.roll(psi - x, -1, axis=i))
+        if cs is not None:
+            new = np.empty_like(psi); new[..., 0, :] = cs * psi[..., 0, :] - sn * psi[..., 1, :]; new[..., 1, :] = sn * psi[..., 0, :] + cs * psi[..., 1, :]; psi = new
+        return psi
+    # packet at rest
+    psi = eng.gaussian(c0, 4.0).astype(dtype); rows = []
+    for t in range(T):
+        psi = step(psi, t)
+        if (t + 1) % 5 == 0 or t + 1 == T:
+            rho = np.sum(np.abs(psi) ** 2, axis=(-1, -2)); tot = float(rho.sum())
+            rows.append({'t': t + 1, 'mean_radius': float((rho * r).sum() / tot), 'inside_8': float(rho[r <= 8].sum() / tot),
+                         'record': float(np.sum(np.abs(psi[..., 1, :]) ** 2) / tot), 'norm': tot})
+            if (t + 1) in (T // 3 // 5 * 5, 2 * T // 3 // 5 * 5, T):
+                sl = rho[:, :, N // 2]; slices[f'{pat[0]}{pat[1]}_t{t + 1}'] = np.round(255 * np.sqrt(sl / sl.max())).astype(np.uint8)
+            print(name, rows[-1], f'{time.time() - t0:.0f}s', flush=True)
+    half = [q for q in rows if q['t'] >= T // 2]
+    speed = float(np.polyfit([q['t'] for q in half], [q['mean_radius'] for q in half], 1)[0])
+    # plane wave at rest: effective rest phase and decay of the coherent amplitude
+    eff = {'effective_phase': 0.0, 'decay_per_tick': 0.0}
+    if law:
+        psi0 = np.zeros((N, N, N, 2, 2), dtype); psi0[..., 0, 0] = 1 / np.sqrt(N ** 3); psi = psi0.copy(); a = [1.0 + 0j]
+        for t in range(160 if N <= 160 else 120):
+            psi = step(psi, t); a.append(complex(np.vdot(psi0, psi)))
+        w, c, mod = matrix_pencil(np.array(a), rank=2)
+        eff = {'effective_phase': float(np.mean(np.abs(w))), 'decay_per_tick': float(-np.log(np.mean(mod))), 'return_amplitude': [float(x.real) for x in a[::4]]}
+    out['species'].append({'name': name, 'pattern': list(pat), 'density_law': law, 'mean_angle_in_this_sample': float(theta.mean()), **eff,
+                           'shell_speed_cells_per_tick': speed, 'series': rows})
+    print('DONE', name, 'law', law, 'effective', eff['effective_phase'], 'decay', eff['decay_per_tick'], 'speed', speed, flush=True)
+out['seconds'] = time.time() - t0
+json.dump(out, open(prefix + '.json', 'w'), indent=1)
+np.savez_compressed(prefix + '.npz', **slices)
+print('written', prefix)

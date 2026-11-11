@@ -1,0 +1,114 @@
+"""S6 (4): the multiplet census, an instrument for "colour / weak isospin = a symmetry acting on a degenerate multiplet".
+
+An internal symmetry commutes with the carrier rotations. In the spectrum of the generator it therefore shows up
+as an eigenspace that contains the SAME irreducible representation of the geometric symmetry group more than
+once (multiplicity space = the internal multiplet). A degenerate multiplet that is a single irreducible of the
+geometric group is a rotation multiplet and is no internal quantum number.
+
+Instrument: eigenspaces of the generator on a sector, each decomposed over the ten irreducibles of the full
+automorphism group of the port graph (rotations x antipodal map).
+Controls (known answers):
+  + three-species exclusion (declared, hidden SU(3)): every eigenspace must show multiplicity 3;
+  + complete graph on the twelve ports (larger geometric symmetry): eigenspaces reducible under the rotations;
+  + hidden SU(2) of the bare law: every level of sector N-1 must reappear in sector N.
+Unknown: the bare native law on its binary (balanced) sectors N = 1..6, where one attempt acts as
+1 - H/(2M), H = sum over seams of (1 - exchange).
+
+Floating-point linear algebra (numpy, symmetric eigensolver); degeneracy tolerance 1e-8; characters are rounded
+to integers with the residual reported.
+
+Run:  cd SCR/rer-edit && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. nice -n 10 python SCR/research/S6/s6_census.py OUT.json
+"""
+import itertools, json, sys, time
+import numpy as np
+
+from s6_common import *   # noqa: F401,F403
+
+T0 = time.time()
+TOL = 1e-8
+AUT = [tuple(int(v) for v in a) for a in SRC.incidence_automorphisms()]
+assert len(AUT) == 120
+
+
+def split(a):
+    """automorphism = (rotation, parity): a = r or a = antipode o r."""
+    if a in ROTSET:
+        return a, 1
+    r = tuple(ANTI[v] for v in a)
+    assert r in ROTSET
+    return r, -1
+
+
+SQRT5 = 5 ** 0.5
+chi_float = {n: {c: float(v[0]) + float(v[1]) * SQRT5 for c, v in CHI[n].items()} for n in IRREPS}
+IRR10 = [(n, e) for n in IRREPS for e in (1, -1)]
+
+
+def sector(n_particles, seams, nports=12):
+    states = list(itertools.combinations(range(nports), n_particles))
+    index = {s: i for i, s in enumerate(states)}
+    H = np.zeros((len(states), len(states)))
+    for i, s in enumerate(states):
+        ss = set(s)
+        for a, b in seams:
+            if (a in ss) != (b in ss):
+                t = tuple(sorted(ss ^ {a, b}))
+                H[i, i] += 1.0
+                H[index[t], i] -= 1.0
+    return states, index, H
+
+
+def census(states, index, H, group, decompose_fn):
+    w, V = np.linalg.eigh(H)
+    out, start = [], 0
+    perms = []
+    for a in group:
+        perms.append(np.array([index[tuple(sorted(a[p] for p in s))] for s in states]))
+    while start < len(w):
+        end = start
+        while end + 1 < len(w) and w[end + 1] - w[start] < TOL:
+            end += 1
+        E = V[:, start:end + 1]
+        chars = [float(np.sum(E[p, :] * E)) for p in perms]
+        mult, resid = decompose_fn(chars)
+        out.append({'level': round(float(w[start]), 10), 'dimension': end - start + 1, 'content': mult, 'residual': resid})
+        start = end + 1
+    return out
+
+
+def dec_aut(chars):
+    mult, resid = {}, 0.0
+    for (n, e) in IRR10:
+        s = 0.0
+        for a, c in zip(AUT, chars):
+            r, par = split(a)
+            s += c * chi_float[n][CLASS_OF[r]] * (e if par == -1 else 1)
+        s /= 120.0
+        k = int(round(s))
+        resid = max(resid, abs(s - k))
+        if k:
+            mult[n + ('+' if e == 1 else '-')] = k
+    return mult, resid
+
+
+def dec_rot(chars):
+    mult, resid = {}, 0.0
+    for n in IRREPS:
+        s = sum(c * chi_float[n][CLASS_OF[r]] for r, c in zip(ROT, chars)) / 60.0
+        k = int(round(s))
+        resid = max(resid, abs(s - k))
+        if k:
+            mult[n] = k
+    return mult, resid
+
+
+def summary(rows):
+    return {'levels': len(rows), 'max_dimension': max(r['dimension'] for r in rows),
+            'max_multiplicity_of_one_irreducible': max(max(r['content'].values()) for r in rows),
+            'levels_with_more_than_one_irreducible': sum(1 for r in rows if sum(r['content'].values()) > 1),
+            'max_character_residual': max(r['residual'] for r in rows),
+            'dimension_histogram': {str(d): sum(1 for r in rows if r['dimension'] == d) for d in sorted({r['dimension'] for r in rows})}}
+
+
+
+

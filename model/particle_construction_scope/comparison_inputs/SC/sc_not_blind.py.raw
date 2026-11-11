@@ -1,0 +1,55 @@
+#!/usr/bin/env python3
+"""Worker SC: the one comparison with measured values (NOT BLIND), run after sc_numeric.json, sc_c0_b12.json and
+sc_chains.json were written. Writes sc_not_blind.json.
+
+Measured values (same set as DC and EB): v = 246.22 GeV with the declared unit E* = 1.22089e19 GeV, so
+v/E* = 2.0167e-17; sin^2 theta_W(m_Z) MSbar 0.23122; alpha_s(m_Z) 0.1180; alpha_em^-1(m_Z) 127.951;
+alpha^-1(0) 137.035999177; m_W/m_Z 0.88136. The capacity row B8 also uses the Lambda-located capacity 3.31e122
+(RER OBSERVERS_SYNTHESIS_SECTIONS.tex:143), a measured input.
+"""
+from __future__ import annotations
+
+import json
+import math
+
+MEAS = {"v_over_Estar": 2.0167e-17, "sin2w_mZ": 0.23122, "alpha3_mZ": 0.1180, "alpha_em_inv_mZ": 127.951,
+        "A_T": 137.035999177, "mW_over_mZ_tree": 0.88136}
+P_FWD = 1.63097209585889737696451390350695562847912625483895268486516
+
+num = json.loads(open("sc_numeric.json").read())
+ch = json.loads(open("sc_chains.json").read())
+out = {"measured": MEAS, "law_candidates_v_ratio_at_P_fwd": {}, "chains": {}}
+
+B = num["B"]
+law = out["law_candidates_v_ratio_at_P_fwd"]
+for k, r in B.items():
+    if isinstance(r, dict) and "v_over_Estar" in r:
+        law[k] = r["v_over_Estar"] / MEAS["v_over_Estar"]
+for k, r in B["B5_B6a_Lambda_from_cut_coupling"].items():
+    if isinstance(r, dict):
+        law["B5/B6a " + k] = r["Lambda_over_Estar"] / MEAS["v_over_Estar"]
+for k, r in B["B10_self_consistent"].items():
+    law["B10 " + k] = r["v_over_Estar"] / MEAS["v_over_Estar"]
+for kk in ("k = 1/2", "k = 2"):
+    law["B11 " + kk] = B["B11_closure_multiplier"][kk]["v_over_Estar_law_beta4"] / MEAS["v_over_Estar"]
+N_L = 3.31e122
+v_cap = P_FWD ** -0.5 * math.exp(-(P_FWD / 12) * math.log(N_L / math.pi))
+law["B8 capacity form with the Lambda-located capacity (measured input)"] = v_cap / MEAS["v_over_Estar"]
+
+for block, rows in ch.items():
+    if block == "inputs":
+        continue
+    out["chains"][block] = {}
+    for k, r in rows.items():
+        entry = {}
+        for where in ("at_P_fwd", "fixed_point"):
+            q = r.get(where)
+            if not q or q.get("status") != "ok":
+                entry[where] = (q or {}).get("status", "none")
+                continue
+            entry[where] = {m: q[m] / MEAS[m] for m in MEAS if m in q}
+            if where == "fixed_point":
+                entry[where]["P_star"] = q["P_star"]
+        out["chains"][block][k] = entry
+open("sc_not_blind.json", "w").write(json.dumps(out, indent=1) + "\n")
+print(json.dumps(out, indent=1))

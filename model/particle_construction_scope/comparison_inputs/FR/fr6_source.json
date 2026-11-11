@@ -1,0 +1,193 @@
+{
+ "task": "FR round 2 goal 4: source mechanisms",
+ "provenance": {
+  "repository_root_used": "WORKSPACE/repair-law/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "S1_two_tick_maps": {
+  "plain (Q R_2)^2 = exchange (x) Z_r on the seam block, identity on idle": true,
+  "plain: images of blank tail/head": {
+   "tail,+": [
+    [
+     "head",
+     0,
+     "+",
+     "1"
+    ]
+   ],
+   "tail,-": [
+    [
+     "head",
+     0,
+     "-",
+     "1"
+    ]
+   ],
+   "head,+": [
+    [
+     "tail",
+     0,
+     "+",
+     "1"
+    ]
+   ],
+   "head,-": [
+    [
+     "tail",
+     0,
+     "-",
+     "1"
+    ]
+   ]
+  },
+  "plain: (Q R_2)^4 = 1": true,
+  "native frame (Q_or R_2)^2 = 1": true,
+  "one-sided V every tick: images of blank tail/head": {
+   "tail,+": [
+    [
+     "tail",
+     0,
+     "+",
+     "1"
+    ]
+   ],
+   "tail,-": [
+    [
+     "head",
+     0,
+     "-",
+     "1"
+    ]
+   ],
+   "head,+": [
+    [
+     "head",
+     0,
+     "+",
+     "1"
+    ]
+   ],
+   "head,-": [
+    [
+     "tail",
+     0,
+     "-",
+     "1"
+    ]
+   ]
+  },
+  "one-sided V: period": 4
+ },
+ "I1_native_frame_record_reuse": {
+  "1": {
+   "lambda_k(n) as a function of y = z w^k": "sqrt(6)*y/18 + sqrt(3)/9 + sqrt(6)/(18*y)",
+   "C return amplitude <in|psi_n>": "5/6",
+   "E return amplitude": "5/6"
+  },
+  "2": {
+   "lambda_k(n) as a function of y = z w^k": "sqrt(3)/9",
+   "C return amplitude <in|psi_n>": "y/12 + 5/6 + 1/(12*y)",
+   "E return amplitude": "1"
+  },
+  "3": {
+   "lambda_k(n) as a function of y = z w^k": "sqrt(6)*y**2/18 + sqrt(3)/9 + sqrt(6)/(18*y**2)",
+   "C return amplitude <in|psi_n>": "5/6",
+   "E return amplitude": "5/6"
+  },
+  "4": {
+   "lambda_k(n) as a function of y = z w^k": "sqrt(3)/9",
+   "C return amplitude <in|psi_n>": "y**2/12 + 5/6 + 1/(12*y**2)",
+   "E return amplitude": "1"
+  },
+  "5": {
+   "lambda_k(n) as a function of y = z w^k": "sqrt(6)*y**3/18 + sqrt(3)/9 + sqrt(6)/(18*y**3)",
+   "C return amplitude <in|psi_n>": "5/6",
+   "E return amplitude": "5/6"
+  },
+  "6": {
+   "lambda_k(n) as a function of y = z w^k": "sqrt(3)/9",
+   "C return amplitude <in|psi_n>": "y**3/12 + 5/6 + 1/(12*y**3)",
+   "E return amplitude": "1"
+  }
+ },
+ "S2_return_detector_cycle": {
+  "native frame": {
+   "C one tick <in|W|in>": "5/6",
+   "C two ticks <in|W^2|in>": "y/12 + 5/6 + 1/(12*y)",
+   "C four ticks <in|W^4|in>": "y**2/12 + 5/6 + 1/(12*y**2)",
+   "E one tick": "5/6",
+   "E two ticks": "1"
+  },
+  "plain": {
+   "C one tick <in|W|in>": "5/6",
+   "C two ticks <in|W^2|in>": "-y/12 + 5/6 - 1/(12*y)",
+   "C four ticks <in|W^4|in>": "y**2/12 + 5/6 + 1/(12*y**2)",
+   "E one tick": "5/6",
+   "E two ticks": "2/3"
+  },
+  "one-sided V every tick": {
+   "C one tick <in|W|in>": "5/6",
+   "C two ticks <in|W^2|in>": "-y/12 + 5/6 + 1/(12*y)",
+   "C four ticks <in|W^4|in>": "y**2/12 + 5/6 + 1/(12*y**2)",
+   "E one tick": "5/6",
+   "E two ticks": "5/6"
+  },
+  "native frame: two-tick C return equals 5/6 + (y + 1/y)/12": true,
+  "operator on F": "K_0 = (5/6) I + (1/12)(z R + z^-1 R^-1), eigenvalues 5/6 + (1/6) cos(theta + 2 pi k/3)",
+  "abs_b_over_a": "1/10",
+  "theta=2/9 (mechanism only)": {
+   "lambda_k": [
+    "0.995901680898",
+    "0.720237485423",
+    "0.783860833679"
+   ],
+   "rates -log lambda sorted": [
+    "0.004106740228",
+    "0.2435237825",
+    "0.3281742805"
+   ],
+   "rate ratios": [
+    "59.29856",
+    "79.911137"
+   ],
+   "amplitude-squared ratios": [
+    "1.1844766",
+    "1.9119718"
+   ]
+  }
+ },
+ "S3_full_walk_return": {
+  "formula_matches_Observer_n<=8": true,
+  "exact_return_amplitudes_n=1..8": [
+   "11/12",
+   "41/60",
+   "1871/5400",
+   "-1109/40500",
+   "-444281/1215000",
+   "-1224593/2025000",
+   "-96077887/136687500",
+   "-1329534349/2050312500"
+  ],
+  "float_n=1..12": [
+   0.916667,
+   0.683333,
+   0.346481,
+   -0.027383,
+   -0.365663,
+   -0.604737,
+   -0.702902,
+   -0.648454,
+   -0.46124,
+   -0.187443,
+   0.111118,
+   0.370759
+  ],
+  "max_abs_return_for_10<=n<=200": 0.913857,
+  "n_of_max": 126,
+  "long_time_mean": "1/12 (the uniform mode)"
+ }
+}

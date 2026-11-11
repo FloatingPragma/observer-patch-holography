@@ -1,0 +1,242 @@
+"""Runs of the executable CF-1 (see cf1_lib.py). `python cf1_runs.py out.json [quick]` writes one JSON for the web app.
+
+  validation   the reference numbers of CF1.md section 4, re-executed with this engine
+  species      the twelve patterns: charge, what they see at each flux class, rest angle (option M1)
+  uniform      one flux pair of class k in every cell: dispersion of each class of species, read by apparatus
+  cone         a massless packet at rest in three dimensions: the shell and its isotropy
+  defect       one cell holds a flux pair: scattering and trapping of a packet
+  dilute       a random fraction of the cells holds a flux pair: effective rest phase against density
+  flux_object  the audit's routed protected flux pair: rest angle 2a from the face count, position and momentum readouts
+"""
+import itertools, json, sys, time
+import numpy as np
+from cf1_lib import (Engine, Routing, PATTERNS, NAMES, SPECIES_CLASSES, REST, q6, alpha_sixths, rest_angle, positive_coin,
+                     phases, symbol_order, matrix_pencil)
+
+quick = len(sys.argv) > 2 and sys.argv[2] == 'quick'
+out = {'program': 'CF-1 routing tick, alternating order of the axes; mass option M1 (rest angle from the carrier) unless stated',
+       'units': 'cells and ticks; phases in radians per tick; no physical unit is attached'}
+t_start = time.time()
+BLANK_UP = (1, 0, 0, 0)
+
+# ---- validation ---------------------------------------------------------------------------------------------------
+v = {}
+eng = Engine((6, 4, 4)); rng = np.random.default_rng(5)
+psi = rng.normal(size=eng.shape + (2, 2)) + 1j * rng.normal(size=eng.shape + (2, 2)); psi /= np.linalg.norm(psi)
+v['fast_shift_equals_public_seam_form'] = float(max(np.abs(eng.shift_fast(psi, i) - eng.shift(psi, i)).max() for i in range(3)))
+el = Engine((6, 4, 4), [rng.choice([-1.0, 1.0], size=(6, 4, 4)) for _ in range(3)])
+v['fast_shift_equals_public_seam_form_with_link_signs'] = float(max(np.abs(el.shift_fast(psi, i) - el.shift(psi, i)).max() for i in range(3)))
+v['one_axis'] = [{'p': p, 'E': float(phases((p, 0, 0), 0.157935)[0]), 'closed_form': float(np.arccos(np.cos(0.157935) * np.cos(p)))} for p in (0, 0.05, 0.1, 0.2, 0.4)]
+v['off_axis_alternating'] = [{'p': [q, q, q], 'norm': float(np.sqrt(3) * q), 'phase_per_tick': [float(x) for x in phases((q, q, q), 0.0)]} for q in (0.1, 0.05, 0.025)]
+e1 = Engine((64, 2, 2))
+rec = []
+for theta, n in ((0.157935, (0, 0, 0)), (0.0, (1, 0, 0)), (0.157935, (1, 0, 0))):
+    rec.append({'theta': theta, 'n': list(n), 'P_record': Routing.record_probability(e1.step(e1.plane_wave(n, BLANK_UP), theta, 'Y', 0))})
+v['record_after_one_tick'] = rec
+pk = []
+e2 = Engine((256, 1, 1))
+for theta in (0.0, 0.087847, 0.157935):
+    psi = e2.branch_packet(12, 3.0, theta); x0 = e2.mean_position(psi)
+    psi = e2.run(psi, 60, theta, alternating=False); x1 = e2.mean_position(psi)
+    wgt = np.array([np.exp(-((((n - 12 + 128) % 256) - 128) ** 2) / 9.0) for n in range(256)])
+    ps = 2 * np.pi * np.arange(256) / 256; E = np.arccos(np.cos(theta) * np.cos(ps))
+    vg = np.where(E > 1e-12, np.cos(theta) * np.sin(ps) / np.maximum(np.sin(E), 1e-300), 1.0)
+    pk.append({'theta': theta, 'velocity_measured': float(((x1 - x0 + 128) % 256 - 128) / 60), 'velocity_averaged_dE_dp': float(np.sum(wgt * vg) / np.sum(wgt)),
+               'velocity_at_central_momentum': float(vg[12])})
+v['packets'] = pk
+out['validation'] = v
+def save(): json.dump(out, open(sys.argv[1], 'w'), indent=1)
+save()
+print('validation', json.dumps(v)[:600], flush=True)
+
+# ---- species ------------------------------------------------------------------------------------------------------
+species = []
+for pat in PATTERNS:
+    row = {'n3': pat[0], 'n2': pat[1], 'name': NAMES[pat], 'Q6': q6(pat),
+           'alpha_sixths_by_class': {str(k): alpha_sixths(pat, k) for k in range(1, 6)},
+           'rest_angle_by_class_and_separation': {str(k): [rest_angle(pat, k, d) for d in range(1, 6)] for k in range(1, 6)}}
+    species.append(row)
+out['species'] = species
+out['classes'] = {name: [list(p) for p in pats] for name, pats in SPECIES_CLASSES.items()}
+
+# ---- uniform background: dispersion by apparatus ------------------------------------------------------------------
+def estimate_phases(engine, n, theta, ticks=96):
+    """phase estimation: return amplitude of a plane wave with a blank record, sampled every two ticks"""
+    psi0 = engine.plane_wave(n, BLANK_UP); psi = psi0.copy(); a = [1.0 + 0j]
+    for t in range(ticks):
+        psi = engine.step(psi, theta, 'Y', t)
+        if t % 2 == 1: a.append(np.vdot(psi0, psi))
+    w, c, _ = matrix_pencil(np.array(a), tol=1e-9)
+    keep = c > 1e-9 * c.max()
+    return sorted({round(abs(float(x)) / 2, 9) for x in w[keep]}), a
+
+uni = []
+eu = Engine((64, 4, 4))
+classes_theta = sorted({round(rest_angle(p, k, d), 6) for p in PATTERNS for k in range(1, 6) for d in (1, 5)})
+for theta in classes_theta:
+    rows = []
+    for n in ((0, 0, 0), (1, 0, 0), (2, 0, 0), (4, 0, 0), (8, 0, 0), (2, 1, 1), (4, 2, 2)):
+        p = eu.momentum(n)
+        est, _ = estimate_phases(eu, n, theta)
+        psi1 = eu.step(eu.plane_wave(n, BLANK_UP), theta, 'Y', 0)
+        rows.append({'n': list(n), 'p_norm': float(np.linalg.norm(p)), 'phase_from_symbol': [float(x) for x in phases(p, theta)],
+                     'phase_estimated': est, 'relativistic': float(np.hypot(np.linalg.norm(p), theta)),
+                     'record_after_one_tick': float(Routing.record_probability(psi1))})
+    # packet velocity along the axis at three momenta
+    vel = []
+    for n0 in (4, 12, 32):
+        psi = e2.branch_packet(n0, 3.0, theta); x0 = e2.mean_position(psi)
+        psi = e2.run(psi, 60, theta, alternating=False); x1 = e2.mean_position(psi)
+        p0 = 2 * np.pi * n0 / 256; E0 = np.arccos(np.cos(theta) * np.cos(p0))
+        vel.append({'p0': float(p0), 'velocity_measured': float(((x1 - x0 + 128) % 256 - 128) / 60),
+                    'dE_dp': float(np.cos(theta) * np.sin(p0) / np.sin(E0)) if E0 > 1e-12 else 1.0, 'relativistic': float(p0 / np.hypot(p0, theta))})
+    uni.append({'theta': theta, 'compton_cells': (1 / theta if theta else None), 'rest_phase_from_record': float(np.arcsin(np.sqrt(rows[0]['record_after_one_tick']))),
+                'momenta': rows, 'packets': vel})
+    print('uniform theta', theta, 'rest by record', uni[-1]['rest_phase_from_record'], 'est', rows[3]['phase_estimated'], rows[3]['phase_from_symbol'], flush=True)
+out['uniform'] = uni
+save()
+
+# ---- one cone: a massless packet at rest in three dimensions ------------------------------------------------------
+N = 48 if quick else 96
+ec = Engine((N, N, N)); c0 = (N // 2,) * 3
+cone = {'lattice': N, 'width': 3.0, 'rows': []}
+for theta in (0.0, 0.087847, 0.157935):
+    psi = ec.gaussian(c0, 3.0); rows = []
+    T = N // 2 - 8
+    for t in range(T):
+        psi = ec.step(psi, theta, 'Y', t)
+        if (t + 1) % 4 == 0:
+            rho, d, r = ec.radial(psi, c0); tot = rho.sum()
+            r2 = float((rho * r ** 2).sum() / tot); r4 = float((rho * r ** 4).sum() / tot)
+            x4 = float((rho * (d[0] ** 4 + d[1] ** 4 + d[2] ** 4)).sum() / tot)
+            rows.append({'t': t + 1, 'mean_radius': float((rho * r).sum() / tot), 'rms_radius': r2 ** 0.5, 'cubic_ratio': x4 / r4,
+                         'x2_y2_z2': [float((rho * d[i] ** 2).sum() / tot) for i in range(3)], 'inside_radius_6': float(rho[r <= 6].sum() / tot),
+                         'record': float(Routing.record_probability(psi))})
+    sl = np.polyfit([q['t'] for q in rows[2 * len(rows) // 3:]], [q['mean_radius'] for q in rows[2 * len(rows) // 3:]], 1)[0]
+    cone['rows'].append({'theta': theta, 'front_speed_cells_per_tick': float(sl), 'series': rows})
+    print('cone theta', theta, 'speed', sl, 'cubic ratio (isotropic shell 0.6)', rows[-1]['cubic_ratio'], 'inside 6:', rows[-1]['inside_radius_6'], flush=True)
+out['cone'] = cone
+save()
+
+# ---- one defect cell ----------------------------------------------------------------------------------------------
+shape = (96, 32, 32) if not quick else (64, 16, 16)
+ed = Engine(shape); mid = (shape[1] // 2, shape[2] // 2)
+defect = {'lattice': list(shape), 'rows': []}
+for theta_d, label in ((0.087847, 'alpha 1/2, separation 1'), (0.171237, 'alpha 1/2, separation 5'), (np.pi / 2, 'control: a full record flip')):
+    th = np.zeros(shape); th[shape[0] // 2, mid[0], mid[1]] = theta_d
+    p0 = 2 * np.pi * 6 / shape[0]
+    start = (shape[0] // 4, mid[0], mid[1])
+    coin = positive_coin((p0, 0, 0), 0.0)
+    psi_f = ed.gaussian(start, 3.5, (p0, 0, 0), coin); psi_d = psi_f.copy()
+    T = shape[0] // 2
+    for t in range(T):
+        psi_f = ed.step(psi_f, 0.0, 'Y', t); psi_d = ed.step(psi_d, th, 'Y', t)
+    scattered = float(np.linalg.norm(psi_d - psi_f) ** 2)
+    rho, d, r = ed.radial(psi_d, (shape[0] // 2, mid[0], mid[1]))
+    # trapping: a quantum prepared on the defect cell
+    psi_t = ed.gaussian((shape[0] // 2, mid[0], mid[1]), 1.2); psi_t0 = psi_t.copy(); stay = []
+    for t in range(40):
+        psi_t = ed.step(psi_t, th, 'Y', t); psi_t0 = ed.step(psi_t0, 0.0, 'Y', t)
+        if (t + 1) % 10 == 0:
+            rr = ed.radial(psi_t, (shape[0] // 2, mid[0], mid[1])); rr0 = ed.radial(psi_t0, (shape[0] // 2, mid[0], mid[1]))
+            stay.append({'t': t + 1, 'inside_radius_3': float(rr[0][rr[2] <= 3].sum()), 'free_inside_radius_3': float(rr0[0][rr0[2] <= 3].sum())})
+    defect['rows'].append({'defect_angle': float(theta_d), 'label': label, 'packet': {'p0': float(p0), 'width': 3.5, 'ticks': T},
+                           'scattered_probability': scattered, 'left_within_3_cells': float(rho[r <= 3].sum()), 'trapping': stay})
+    print('defect', label, 'scattered', scattered, 'trapping', stay[-1], flush=True)
+out['defect'] = defect
+save()
+
+# ---- dilute random background -------------------------------------------------------------------------------------
+M = 32 if quick else 48
+er = Engine((M, M, M)); rng = np.random.default_rng(11)
+dil = {'lattice': M, 'rows': []}
+for theta_d in (0.087847, 0.171237):
+    for f in (0.0, 0.02, 0.05, 0.1, 0.2, 0.4, 0.7, 1.0):
+        th = np.where(rng.random((M, M, M)) < f, theta_d, 0.0)
+        psi0 = er.plane_wave((0, 0, 0), BLANK_UP); psi = psi0.copy(); a = [1.0 + 0j]
+        T = 240
+        for t in range(T):
+            psi = er.step(psi, th, 'Y', t); a.append(np.vdot(psi0, psi))
+        a = np.array(a); tt = np.arange(len(a))
+        # fit a_t = exp(-g t) cos(w t): frequency from the first zero crossings of the real part, decay from the envelope
+        if f == 0: w, c, mod = np.zeros(2), np.ones(2), np.ones(2)
+        else: w, c, mod = matrix_pencil(a, rank=2)
+        dil['rows'].append({'defect_angle': theta_d, 'density': f, 'mean_angle': float(th.mean()), 'effective_phase': float(np.mean(np.abs(w))),
+                            'decay_per_tick': float(-np.log(np.mean(mod))), 'return_amplitude_sample': [float(x.real) for x in a[:120:4]]})
+        print('dilute', theta_d, f, 'mean', th.mean(), 'effective', dil['rows'][-1]['effective_phase'], 'decay', dil['rows'][-1]['decay_per_tick'], flush=True)
+out['dilute'] = dil
+save()
+
+
+# ---- the flux gas of the big runs: four classes of species in one random background -------------------------------
+SHARES = {1: 0.241, 2: 0.196, 3: 0.127, 4: 0.196, 5: 0.241}       # shares of the flux classes over run L10 (viewer census)
+gas = {'lattice': M, 'class_shares': SHARES, 'separation': 1, 'rows': []}
+for f in (0.1, 0.3):
+    cls = np.where(rng.random((M, M, M)) < f, rng.choice([1, 2, 3, 4, 5], size=(M, M, M), p=np.array([SHARES[k] for k in range(1, 6)]) / sum(SHARES.values())), 0)
+    for name, pats in SPECIES_CLASSES.items():
+        pat = pats[0]
+        table = np.array([0.0] + [rest_angle(pat, k, 1) for k in range(1, 6)])
+        th = table[cls]
+        linear = f * sum(SHARES[k] * rest_angle(pat, k, 1) for k in range(1, 6)) / sum(SHARES.values())
+        if th.max() == 0:
+            gas['rows'].append({'density': f, 'class': name, 'pattern': list(pat), 'effective_phase': 0.0, 'linear_law': 0.0, 'decay_per_tick': 0.0}); continue
+        psi0 = er.plane_wave((0, 0, 0), BLANK_UP); psi = psi0.copy(); a = [1.0 + 0j]
+        for t in range(240):
+            psi = er.step(psi, th, 'Y', t); a.append(np.vdot(psi0, psi))
+        w, c, mod = matrix_pencil(np.array(a), rank=2)
+        gas['rows'].append({'density': f, 'class': name, 'pattern': list(pat), 'effective_phase': float(np.mean(np.abs(w))), 'linear_law': float(linear),
+                            'mean_angle_in_this_sample': float(th.mean()), 'decay_per_tick': float(-np.log(np.mean(mod)))})
+        print('gas', f, name, gas['rows'][-1], flush=True)
+out['flux_gas'] = gas
+save()
+
+# ---- a flux line of the lattice gauge field: charged patterns (odd n2) see the link signs, neutral ones do not -----
+fl_shape = (96, 64, 4) if not quick else (64, 48, 2)
+n1, n2_, n3_ = fl_shape; x0 = n1 // 2 - 1; y0 = n2_ // 2 - 1
+links = [np.ones(fl_shape), np.ones(fl_shape), np.ones(fl_shape)]
+links[1][x0 + 1:, y0, :] = -1.0          # sheet of flipped y-links: plaquettes with holonomy -1 along the lines x = x0 + 1/2 and x = -1/2
+e_free = Engine(fl_shape); e_link = Engine(fl_shape, links)
+p0 = 2 * np.pi * 10 / n1; start = (n1 // 6, y0 + 0.5, 0)
+coin = positive_coin((p0, 0, 0), 0.0)
+T = int(round(n1 * 0.58))
+line = {'lattice': list(fl_shape), 'line_at': [x0 + 0.5, y0 + 0.5], 'packet': {'p0': float(p0), 'width': 6.0, 'start': list(start), 'ticks': T}, 'rows': []}
+for label, eng_ in (('neutral pattern (even number of spinor levels)', e_free), ('charged pattern (odd number of spinor levels)', e_link)):
+    psi = eng_.gaussian(start, 6.0, (p0, 0, 0), coin)
+    for t in range(T): psi = eng_.step(psi, 0.0, 'Y', t)
+    rho = Engine.density(psi); prof = rho.sum(axis=(0, 2))
+    yy = np.arange(n2_) - (y0 + 0.5)
+    line['rows'].append({'species': label, 'profile_across_the_line': [float(x) for x in prof], 'probability_within_2_cells_of_the_shadow': float(prof[np.abs(yy) <= 2].sum()),
+                         'norm': float(rho.sum()), 'mean_x': float(e_free.mean_position(psi, 0))})
+    print('flux line', label, 'within 2 cells of the shadow:', line['rows'][-1]['probability_within_2_cells_of_the_shadow'], flush=True)
+out['flux_line'] = line
+save()
+
+# ---- the routed protected flux pair of the audit ------------------------------------------------------------------
+a_sp = np.pi / 12; theta_f = 2 * a_sp
+ef = Engine((256, 1, 1))
+fo = {'spacing_a': float(a_sp), 'rest_angle': float(theta_f), 'mass_coin': 'exp(-i a beta M), M = face count of the pair = 2 (declared unit coefficient), kind Z',
+      'internal_states': 'five face positions x four routing components', 'dispersion': [], 'packets': []}
+for n in (0, 1, 2, 4, 8, 16):
+    p = ef.momentum((n, 0, 0)); E = float(phases(p, theta_f, 'Z')[0])
+    fo['dispersion'].append({'lattice_p': float(p[0]), 'physical_p': float(p[0] / a_sp), 'phase_per_tick': E, 'frequency': E / a_sp,
+                             'continuum_sqrt_p2_plus_4': float(np.hypot(p[0] / a_sp, 2.0))})
+for n0 in (4, 12, 32):
+    psi = ef.branch_packet(n0, 3.0, theta_f, 'Z'); x0 = ef.mean_position(psi)
+    psi = ef.run(psi, 60, theta_f, 'Z', alternating=False); x1 = ef.mean_position(psi)
+    rho = Engine.density(psi)[:, 0, 0]
+    k = np.fft.fft(psi, axis=0, norm='ortho'); mom = np.sum(np.abs(k) ** 2, axis=(1, 2, 3, 4))
+    p0 = 2 * np.pi * n0 / 256
+    fo['packets'].append({'lattice_p0': float(p0), 'velocity_measured': float(((x1 - x0 + 128) % 256 - 128) / 60),
+                          'relativistic_velocity': float((p0 / a_sp) / np.hypot(p0 / a_sp, 2.0)),
+                          'momentum_readout_peak_index': int(np.argmax(mom)), 'momentum_readout_peak_weight': float(mom.max()),
+                          'position_readout_peak_cell': int(np.argmax(rho)), 'position_spread_cells': float(np.sqrt(np.sum(rho * (np.arange(256) - np.sum(rho * np.arange(256))) ** 2)))})
+fo['continuum_limit'] = []
+for a_ in (np.pi / 12, np.pi / 24, np.pi / 48, np.pi / 96):
+    for pphys in (0.5, 1.0, 2.0):
+        E = float(np.arccos(np.cos(2 * a_) * np.cos(a_ * pphys))) / a_
+        fo['continuum_limit'].append({'spacing_a': float(a_), 'physical_p': pphys, 'frequency': E, 'continuum': float(np.hypot(pphys, 2.0)), 'relative_error': E / float(np.hypot(pphys, 2.0)) - 1})
+out['flux_object'] = fo
+print('flux object', json.dumps(fo['packets']), flush=True)
+out['seconds'] = time.time() - t_start
+json.dump(out, open(sys.argv[1], 'w'), indent=1)
+print('written', sys.argv[1], 'seconds', out['seconds'])

@@ -1,0 +1,89 @@
+"""N1 and N2: bare transfer moments per coupling setting and the tagged fifth-order resolvent amplitude.
+
+Usage (from the RER root): neutral_transfer.py y_u y_d y_e [spacing_multiple_of_pi] out.json
+"""
+import json
+import sys
+import time
+from collections import Counter
+
+import sympy as s
+
+from nu3_lib import (config_for, vapply, tagged, energy_class, substitute,
+                     inner, supported_bilinear, preparation)
+
+yu, yd, ye = (int(x) for x in sys.argv[1:4])
+spacing = s.pi * s.Integer(sys.argv[4]) if len(sys.argv) > 5 else s.pi
+out_path = sys.argv[-1]
+config = config_for(yu, yd, ye, spacing)
+start = time.time()
+log = {'couplings': {'y_u': yu, 'y_d': yd, 'y_e': ye}, 'spacing': str(spacing)}
+
+s0 = preparation(cell=0, spin=0, config=config)
+targets = {sig: preparation(cell=4, spin=sig, config=config) for sig in (0, 1)}
+e0 = energy_class(next(iter(s0)))
+assert all(energy_class(k) == e0 for k in s0)
+
+# P space: every composite packet D^dagger_{x,sigma} Omega (both spins, all eight cells).
+p_keys = set()
+for cell in range(8):
+    for spin in (0, 1):
+        p_keys |= set(preparation(cell=cell, spin=spin, config=config))
+
+
+def ones(expr):
+    expr = s.sympify(expr)
+    return s.expand(expr.subs({sym: 1 for sym in expr.free_symbols if sym.name.startswith('r_')}))
+
+
+def v_bilinear(left, right):
+    total, support = supported_bilinear(left, right, config)
+    diagonal = s.sympify(support[0]['contribution'])
+    return s.expand(total - diagonal), diagonal, support
+
+
+def images(state):
+    first = vapply(state, config)
+    first_t = tagged(first, p_keys)
+    second_t = tagged(vapply(first_t, config), p_keys)
+    census = {'first': dict(Counter(str(energy_class(k)) for k in first)),
+              'first_P_keys': sum(k in p_keys for k in first),
+              'second': dict(Counter(str(energy_class(k)) for k in second_t)),
+              'second_terms': len(second_t)}
+    return first, second_t, census
+
+
+f_s, st_s, census_s = images(s0)
+log['source_image_census'] = census_s
+print('source images', len(f_s), len(st_s), round(time.time() - start, 1), flush=True)
+
+rows = {}
+for sig, tgt in targets.items():
+    f_t, st_t, census_t = images(tgt)
+    m3, _, _ = v_bilinear(f_t, f_s)
+    m4 = ones(inner(st_t, st_s))
+    middle, diagonal, support = v_bilinear(st_t, st_s)
+    bare5 = ones(middle)
+    rs5 = s.factor(substitute(middle, e0))
+    per_edge = [{'path': r['path'], 'contribution': str(ones(r['contribution'])),
+                 'middle_fields_bare': {q: str(ones(v)) for q, v in
+                                        r.get('middle_field_contributions_six_Y', {}).items()}}
+                for r in support if r.get('kind') == 'kinetic' and r['contribution'] != '0']
+    rows[sig] = {'bare_V_moments_k0_to_k4': [str(x) for x in
+                     (inner(tgt, s0), inner(tgt, f_s), inner(f_t, f_s), m3, m4)],
+                 'bare_V_moment_k5': str(bare5),
+                 'diagonal_H0_term_in_middle': str(diagonal),
+                 'tagged_fifth_V_moment': str(middle),
+                 'RS_fifth_order_amplitude': str(rs5),
+                 'target_image_census': census_t,
+                 'nonzero_middle_kinetic_summands': per_edge}
+    print('target spin', sig, 'k3', m3, 'k4', m4, 'k5', bare5,
+          'time', round(time.time() - start, 1), flush=True)
+    print('   tagged =', middle, flush=True)
+    print('   RS5 =', rs5, flush=True)
+
+log['targets'] = rows
+log['seconds'] = round(time.time() - start, 1)
+with open(out_path, 'w') as handle:
+    json.dump(log, handle, indent=1)
+print('wrote', out_path)

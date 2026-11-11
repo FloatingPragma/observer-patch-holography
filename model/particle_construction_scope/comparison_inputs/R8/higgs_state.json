@@ -1,0 +1,125 @@
+{
+ "A_exact": {
+  "cyclic_2_uniform_state_gives_exact_rotation_by_g": true,
+  "cyclic_2_K_is_involution": true,
+  "cyclic_3_uniform_state_gives_exact_rotation_by_g": true,
+  "cyclic_3_K_is_involution": true,
+  "cyclic_5_uniform_state_gives_exact_rotation_by_g": true,
+  "cyclic_5_K_is_involution": true,
+  "cyclic_3_phase_state_gives_rotation_with_chiral_phase": true,
+  "cyclic_4_number_state_visibility": "0",
+  "cyclic_4_number_state_purity_law_holds": true,
+  "cyclic_4_amplitudes_1_2_2_1_state_visibility": "9/10",
+  "cyclic_4_amplitudes_1_2_2_1_state_purity_law_holds": true,
+  "two_level_memory": {
+   "transition_expectation_in_coherent_state": "1/2",
+   "residual_norm_squared_of_B_rho_minus_beta_rho": "1/4",
+   "purity_after_one_step_from_E": "sin(g)**4/2 - sin(g)**2/2 + 1",
+   "purity_after_one_step_from_F": "sin(g)**4/2 - sin(g)**2/2 + 1",
+   "probability_of_F_after_n_steps_from_E": "sin(g*n)**2/2",
+   "mean_field_rotation_would_give": "sin(n g / 2)^2"
+  },
+  "ladder_uniform_state": [
+   {
+    "levels": 2,
+    "expectation": "1/2",
+    "residual_norm_squared": "1/4",
+    "equals_(m-1)/m_and_(m-1)/m^2": true
+   },
+   {
+    "levels": 3,
+    "expectation": "2/3",
+    "residual_norm_squared": "2/9",
+    "equals_(m-1)/m_and_(m-1)/m^2": true
+   },
+   {
+    "levels": 4,
+    "expectation": "3/4",
+    "residual_norm_squared": "3/16",
+    "equals_(m-1)/m_and_(m-1)/m^2": true
+   },
+   {
+    "levels": 6,
+    "expectation": "5/6",
+    "residual_norm_squared": "5/36",
+    "equals_(m-1)/m_and_(m-1)/m^2": true
+   },
+   {
+    "levels": 10,
+    "expectation": "9/10",
+    "residual_norm_squared": "9/100",
+    "equals_(m-1)/m_and_(m-1)/m^2": true
+   }
+  ],
+  "ladder_3_linear_entropy_from_E_to_second_order": "4*g**2/9"
+ },
+ "B1_dressed_routing_equals_plain_toggle": 8.371725890308804e-17,
+ "B2_number_state_equals_phase_average": {
+  "reduced_state_defect": 4.996204744589775e-16,
+  "phase_fields_enumerated": 27,
+  "ticks": 4
+ },
+ "C_line": {
+  "theta": 0.157935,
+  "ticks": 60,
+  "cells": 256,
+  "common_phase_state": {
+   "displacement": 52.14023736409772,
+   "velocity": 0.8690039560682954,
+   "width": 9.973322274899571,
+   "own_mass_step_against_engine": 1.7348908687159286e-15
+  },
+  "no_mass_step": {
+   "displacement": 52.140237363858155,
+   "width": 30.98901857057033
+  },
+  "initial_width": 9.670281181867596,
+  "initial_right_moving_weight": 0.9345019780343359,
+  "telegraph_prediction_displacement": 16.728461806997363,
+  "number_states_integer_counter": {
+   "samples": 500,
+   "displacement": 16.46109124573425,
+   "standard_error": 0.2974465265824393,
+   "width": 37.80795669398156,
+   "amplitude_with_registers_unchanged_norm": 0.4822876832156331,
+   "its_overlap_with_the_massless_evolution": 0.4806770948991289,
+   "cos_theta_to_the_power_T": 0.4716888819867535,
+   "sampling_floor": 0.044721359549995794
+  },
+  "number_states_bit": {
+   "samples": 500,
+   "displacement": 15.057710439470434,
+   "standard_error": 0.405515824913298,
+   "width": 37.490640333377954,
+   "amplitude_with_registers_unchanged_norm": 0.4605900444968268,
+   "its_overlap_with_the_massless_evolution": 0.4587512379990998,
+   "cos_theta_to_the_power_T": 0.4716888819867535,
+   "sampling_floor": 0.044721359549995794
+  }
+ },
+ "D_oscillator": {
+  "alpha": 4.0,
+  "g": 0.02,
+  "mean_field_angle": 0.08,
+  "rows": [
+   {
+    "start": "E",
+    "linear_entropy": 3.630708511614955e-09,
+    "leading_order_2_g2_weightF_squared": 0.0,
+    "fidelity_with_rotation_by_g_alpha": 0.9999999981559848
+   },
+   {
+    "start": "F",
+    "linear_entropy": 0.0007961699954988077,
+    "leading_order_2_g2_weightF_squared": 0.0008,
+    "fidelity_with_rotation_by_g_alpha": 0.999601755697552
+   },
+   {
+    "start": "(E+F)/sqrt2",
+    "linear_entropy": 0.00019946734873510508,
+    "leading_order_2_g2_weightF_squared": 0.00020000000000000006,
+    "fidelity_with_rotation_by_g_alpha": 0.9999002164647729
+   }
+  ]
+ }
+}

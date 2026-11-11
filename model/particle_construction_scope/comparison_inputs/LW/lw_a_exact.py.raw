@@ -1,0 +1,164 @@
+"""LW part (a), exact checks (CANDIDATES.md rows LA1, LA4, LA5).
+
+1. LA1: the archived selector J10 is the pullback of the population selector J_pop_EW through the exact mass-pair
+   chart (symbolic identity), with the three J_pop terms written as transport entries.
+2. LA4: finite I-projection: a fine feature that no emitted moment constrains keeps its reference mean.
+3. LA5: normalized trace of the Z6-invariant projector on (i) one Standard-Model generation, (ii) the gauge adjoints
+   and their bilinears (the representation of the vacuum-polarization chart), (iii) the regular Z6 register.
+Writes lw_a_exact.json. No measured value is read.
+"""
+from __future__ import annotations
+
+import json
+import sys
+from fractions import Fraction as F
+from pathlib import Path
+
+import sympy as sp
+
+sys.dont_write_bytecode = True
+HERE = Path(__file__).resolve().parent
+
+
+def pullback_identity() -> dict:
+    x, y, eta_s, kappa = sp.symbols("tau2 dn eta_s kappa", real=True)
+    s2, c2 = sp.symbols("s2 c2", positive=True)
+    # exact mass-pair chart (derive_d10_ew_exact_mass_pair_chart_current_carrier.py, lines 84-94)
+    sigma = (2 * x**3 - eta_s) / (1 + 4 * x**2) + sp.Rational(1, 2) * kappa * y
+    eta = (eta_s + x + 2 * x**3) / (1 + 4 * x**2) - sp.Rational(1, 2) * kappa * y
+    # transport entries (derive_d10_ew_source_transport_pair.py, pushforward_shell), s2 + c2 = 1
+    pi_aa = sigma + (s2 - c2) * eta
+    pi_zz = sigma + (c2 - s2) * eta
+    pi_az2 = 4 * s2 * c2 * eta**2
+    pi_ww = sigma + eta
+    j_pop_transport = pi_ww**2 + (pi_aa * pi_zz - pi_az2) ** 2 + (sp.Rational(1, 2) * (pi_aa + pi_zz) + eta_s) ** 2
+    j_pop_sigma_eta = (sigma + eta) ** 2 + (sigma**2 - eta**2) ** 2 + (sigma + eta_s) ** 2
+    j10 = x**2 * (1 + (2 * eta_s + x) ** 2 + 4 * x**2) / (1 + 4 * x**2) + kappa**2 / 4 * (1 + 4 * x**2) * y**2
+    r1 = sp.simplify(sp.together((j_pop_transport - j_pop_sigma_eta).subs(c2, 1 - s2)))
+    r2 = sp.simplify(sp.together(j_pop_sigma_eta - j10))
+    tau_y = sp.simplify(sigma - eta)
+    fiber = -(x + 2 * eta_s) / (1 + 4 * x**2) + kappa * y
+    return {
+        "J_pop_transport_minus_sigma_eta_form": str(r1),
+        "J_pop_pullback_minus_J10": str(r2),
+        "Pi_WW_on_chart": str(sp.simplify(pi_ww)),
+        "tauY_on_chart_minus_fibre_plus_kappa_dn": str(sp.simplify(tau_y - fiber)),
+        "sigma_plus_eta_s_on_chart": str(sp.factor(sp.simplify(sigma + eta_s))),
+        "identity_holds": r1 == 0 and r2 == 0,
+        "statement": ("J10(tau2, dn) = J_pop_EW(sigma(tau2, dn), eta(tau2, dn)) exactly; J_pop_EW = Pi_WW^2 + "
+                      "det(Pi_neutral)^2 + (tr(Pi_neutral)/2 + eta_source)^2, and on the chart Pi_WW = tau2"),
+    }
+
+
+def j_terms_at(tau2: F, dn: F, eta_s: F, kappa: F) -> dict:
+    sigma = (2 * tau2**3 - eta_s) / (1 + 4 * tau2**2) + kappa * dn / 2
+    eta = (eta_s + tau2 + 2 * tau2**3) / (1 + 4 * tau2**2) - kappa * dn / 2
+    t1 = (sigma + eta) ** 2
+    t2 = (sigma**2 - eta**2) ** 2
+    t3 = (sigma + eta_s) ** 2
+    return {"Pi_WW_sq": float(t1), "det_neutral_sq": float(t2), "trace_term_sq": float(t3),
+            "J_pop": float(t1 + t2 + t3), "J_pop_exactly_zero": (t1 + t2 + t3) == 0}
+
+
+def i_projection_check(p: F) -> dict:
+    """Uniform reference on {0,1} x {-1,0,1} x {-1,0,1}: coarse X, two fine deformation features D1, D2.
+    The I-projection under E[X] = p is the Gibbs law with a multiplier on X only (exact closed form)."""
+    states = [(xv, d1, d2) for xv in (0, 1) for d1 in (-1, 0, 1) for d2 in (-1, 0, 1)]
+    # Gibbs law m exp(-theta X)/Z with exp(-theta) = p/(1-p): weight (1-p)/9 on X=0 states, p/9 on X=1 states
+    law = {s: ((1 - p) if s[0] == 0 else p) / 9 for s in states}
+    total = sum(law.values())
+    ex = sum(w * s[0] for s, w in law.items())
+    e1 = sum(w * s[1] for s, w in law.items())
+    e2 = sum(w * s[2] for s, w in law.items())
+    # Any law with E[D1] = t != 0 differs from the I-projection and costs D(nu||mu*) > 0 (Pythagorean identity):
+    # the minimal cost of a mean shift t on a symmetric three-point fibre is the I-projection onto E[D1] = t,
+    # which needs its own multiplier theta_1 != 0.
+    return {"normalized": total == 1, "E_X": str(ex), "E_X_equals_p": ex == p, "E_D1": str(e1), "E_D2": str(e2),
+            "fine_means_zero": e1 == 0 and e2 == 0,
+            "statement": ("with the coarse moment as the only emitted moment, the multipliers of the fine deformation "
+                          "features vanish and their means stay at the reference value 0; a nonzero mean needs an "
+                          "emitted moment on that feature")}
+
+
+def z6_traces() -> dict:
+    """Z6 generator zeta = (exp(2 pi i/3) 1_3, -1_2, exp(2 pi i Y)); exponent q = 2 t + 3 d + 6 Y mod 6."""
+    gen = [  # (name, triality t, doublet d, hypercharge Y, multiplicity = colour x isospin)
+        ("Q_L", 1, 1, F(1, 6), 6), ("u_R", 1, 0, F(2, 3), 3), ("d_R", 1, 0, F(-1, 3), 3),
+        ("L_L", 0, 1, F(-1, 2), 2), ("e_R", 0, 0, F(-1), 1), ("nu_R", 0, 0, F(0), 1),
+    ]
+
+    def q(t, d, y):
+        val = 2 * t + 3 * d + 6 * y
+        assert val.denominator == 1
+        return int(val) % 6
+
+    fields = {name: q(t, d, y) for name, t, d, y, _ in gen}
+    dim = sum(m for *_, m in gen)
+    inv = sum(m for name, t, d, y, m in gen if q(t, d, y) == 0)
+    higgs_q = q(0, 1, F(1, 2))
+    # adjoints: gluon (3 x 3bar: t = 1 + 2), W (doublet x doublet: d = 2), B (Y = 0)
+    adj = {"gluon": (2 * (1 + 2)) % 6, "W": (3 * 2) % 6, "B": 0}
+    # vacuum-polarization entries Pi_AA, Pi_AZ, Pi_ZZ, Pi_WW are bilinears of adjoint fields: exponent sums of zeros
+    regular_dim, regular_inv = 6, 1
+    return {
+        "generation_exponents": fields, "higgs_exponent": higgs_q,
+        "generation_trace": str(F(inv, dim)), "adjoint_exponents": adj,
+        "vacuum_polarization_trace": "1", "regular_register_trace": str(F(regular_inv, regular_dim)),
+        "statement": ("the Z6 centre acts trivially on every Standard-Model field and on every gauge adjoint, so the "
+                      "invariant projector is the identity (normalized trace 1) on the vacuum-polarization chart on "
+                      "which the D10 transport acts; the trace 1/6 of the C10 carrier is the trace on the regular "
+                      "register, which the D10 transport does not carry"),
+    }
+
+
+def seam_pump_fixed_subspace() -> dict:
+    """Local agreement pump of model/coherent_seam_repair/PROOF.md (basis 00,10,01,11,20,02):
+    K0 = |00><00| + |11><11| + |+><+|, K1 = |+><-|, K2 = |11><20|, K3 = |11><02|."""
+    basis = ["00", "10", "01", "11", "20", "02"]
+    e = {b: sp.Matrix([1 if b == c else 0 for c in basis]) for b in basis}
+    plus = (e["10"] + e["01"]) / sp.sqrt(2)
+    minus = (e["10"] - e["01"]) / sp.sqrt(2)
+    k0 = e["00"] * e["00"].T + e["11"] * e["11"].T + plus * plus.T
+    k1 = plus * minus.T
+    k2 = e["11"] * e["20"].T
+    k3 = e["11"] * e["02"].T
+    completeness = sp.simplify(sum((k.T * k for k in (k1, k2, k3)), k0.T * k0) - sp.eye(6))
+    agreeing = [e["00"], e["11"], plus]
+    disagreeing = [minus, e["20"], e["02"]]
+    fixes = all(sp.simplify(k0 * s - s) == sp.zeros(6, 1) and all(sp.simplify(k * s) == sp.zeros(6, 1)
+                                                                  for k in (k1, k2, k3)) for s in agreeing)
+    moves = all(sp.simplify(k0 * s) == sp.zeros(6, 1) for s in disagreeing)
+    return {"kraus_complete": completeness == sp.zeros(6, 6), "fixes_agreeing_subspace": fixes,
+            "removes_disagreeing_components_from_K0_branch": moves,
+            "statement": ("the pump is the identity on span{|00>, |11>, |+>} with every other Kraus branch zero there; "
+                          "it acts only on the disagreement components |->, |20>, |02>")}
+
+
+def main():
+    ident = pullback_identity()
+    chain = json.loads((HERE.parent / "SIM" / "derive" / "lew" / "t1_chain.json").read_text())["pixels"]["P_fwd"]
+    sc = chain["strict_chart"]
+    a2 = F(chain["chain"]["alpha2"])
+    ay = F(3, 5) * F(chain["chain"]["alpha1"])
+    eta_s = F(sc["eta"]).limit_denominator(10**17)
+    kappa = (a2 + ay) / ay
+    tau2_c = F(sc["tau2_carrier"]).limit_denominator(10**17)
+    dn_c = F(sc["dn_carrier"]).limit_denominator(10**17)
+    terms = {"zero_selector_law": j_terms_at(F(0), F(0), eta_s, kappa),
+             "carrier_value_law": j_terms_at(tau2_c, dn_c, eta_s, kappa)}
+    p_fwd = F(chain["chain"]["P"])
+    # p = (P - phi)/sqrt(pi) is irrational; the check is exact for any rational p in (0,1); use alpha = 1/A at P_fwd
+    p = 1 / F(chain["chain"]["alpha_inv_outer"])
+    out = {"schema": "lw.a_exact.v1",
+           "LA1_pullback": ident,
+           "LA1_J_pop_terms_at_P_fwd": terms,
+           "LA1_seam_pump": seam_pump_fixed_subspace(),
+           "LA4_i_projection": i_projection_check(p),
+           "LA5_z6_traces": z6_traces(),
+           "basis": {"kappa": float(kappa), "eta_source": float(eta_s), "P_fwd": float(p_fwd)}}
+    (HERE / "lw_a_exact.json").write_text(json.dumps(out, indent=2) + "\n")
+    print(json.dumps(out, indent=1))
+
+
+if __name__ == "__main__":
+    main()

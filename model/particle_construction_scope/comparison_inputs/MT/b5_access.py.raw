@@ -1,0 +1,392 @@
+"""Block 5: accessible algebra, state, tomography, response, A2 implementers.
+
+A (exact) spans of one-event and sequential port-axis effects for the internal types; controls spin 3/2 and 2.
+B (exact) Lie algebras of the twelve first-order responses D_p = i P_p / 12 for every type and realization; Gram.
+C (exact) A2: the stabilizer rotation about port p is the two-pulse word exp(i eps P_p) exp(-i eps P_anti(p)) at
+  eps = 2 pi m / 5; the words generate implementers of all 60 rotations (120 projective classes on 2 + 3).
+D (float) the response channel: exact form, second-order term, motional averaging, commutators of ordered responses,
+  tape-resolved unitary word.
+E (float, exact where stated) stationary states, unread readout, click and null-click preparation, modular flow.
+"""
+import itertools, json, time
+from fractions import Fraction as Fr
+import numpy as np
+from scipy.linalg import expm, logm
+from scipy.optimize import nnls
+import framed as fq
+from framed import SEAMS
+from mt_lib import (Z, ZERO, ONE, IM, R, RG, SQRT5, PHI, CH, SH, zmat, zeye, zzeros, zdsum, ztrace, znum, zrank, zis_zero,
+                    zinv, helicity_projector, herm_projector, N_EX, NG_EX, AXES, AXES_NUM, Span, lie_report, lie_closure,
+                    centre_dim, port_projectors, exact_rotation)
+from carrier_tools import C, su2
+
+t0 = time.time()
+out = {}
+rng = np.random.default_rng(7)
+
+
+def vecs(ops):
+    return [list(X.ravel()) for X in ops]
+
+
+# ---------------------------------------------------------------- A: effect spans
+def all_helicity(j2, real, sgn=1):
+    return [helicity_projector(j2, tuple(x * sgn for x in AXES[real][p]), m2) for p in range(12) for m2 in range(j2, -j2 - 1, -2)]
+resA = {}
+for name, j2 in (('spinor (d = 2)', 1), ('vector (d = 3)', 2), ('spin 3/2 (d = 4)', 3), ('spin 2 (d = 5)', 4)):
+    top = port_projectors([(j2, 'convex', 1)])
+    allh = all_helicity(j2, 'convex')
+    d = j2 + 1
+    seq = [top[q] @ top[p] @ top[q] for p in range(12) for q in range(12)]
+    prop = all(zis_zero(top[q] @ top[p] @ top[q] - top[q] * ztrace(top[p] @ top[q])) for p in range(12) for q in range(12))
+    resA[name] = {'hermitian_directions': d * d, 'one_event_top_helicity_span': zrank(vecs(top)),
+                  'one_event_all_helicities_span': zrank(vecs(allh)),
+                  'two_event_sequences_span': zrank(vecs(top + seq)),
+                  'sequential_effect_is_multiple_of_first_projector': bool(prop)}
+    print('A', name, resA[name], flush=True)
+vec0 = [helicity_projector(2, N_EX[p], 0) for p in range(12)]
+resA['vector, helicity 0 only'] = {'span': zrank(vecs(vec0))}
+for name, blocks in (('2 + 3, same realization, locked top helicity', [(1, 'convex', 1), (2, 'convex', 1)]),
+                     ('2 + 3, spinor great, vector convex, locked top helicity', [(1, 'great', 1), (2, 'convex', 1)])):
+    P = port_projectors(blocks)
+    seq = [P[q] @ P[p] @ P[q] for p in range(12) for q in range(12)]
+    resolved = [zdsum(X, zzeros(3)) for X in all_helicity(1, blocks[0][1])] + [zdsum(zzeros(2), X) for X in all_helicity(2, 'convex')]
+    resA[name] = {'block_algebra_hermitian_directions': 13, 'one_event_span': zrank(vecs(P)), 'two_event_sequences_span': zrank(vecs(P + seq)),
+                  'type_resolving_readout_span': zrank(vecs(resolved))}
+    print('A', name, resA[name], flush=True)
+out['A_effect_spans'] = resA
+
+# 5-design property of the twelve axes (float)
+def sphere_avg(a, b, c3):
+    # exact average of x^a y^b z^c over the unit sphere
+    if a % 2 or b % 2 or c3 % 2:
+        return 0.0
+    from math import gamma, pi
+    return gamma((a + 1) / 2) * gamma((b + 1) / 2) * gamma((c3 + 1) / 2) / gamma((a + b + c3 + 3) / 2) / (2 * pi)
+design = {}
+for deg in range(1, 8):
+    dev = 0.0
+    for a in range(deg + 1):
+        for b in range(deg + 1 - a):
+            c3 = deg - a - b
+            m = np.mean(C.N[:, 0] ** a * C.N[:, 1] ** b * C.N[:, 2] ** c3)
+            dev = max(dev, abs(m - sphere_avg(a, b, c3)))
+    design[deg] = float(dev)
+out['A_design'] = {'max_deviation_of_degree_d_moments_from_sphere_average': design,
+                   'reading': 'the axes are a spherical 5-design (degrees 1 to 5 agree, degree 6 does not): port-axis readout '
+                              'resolves multipoles up to rank 2, complete for d <= 3 only'}
+print('A design', design, flush=True)
+
+# ---------------------------------------------------------------- B: Lie algebras of the first-order responses
+types = {
+    'spinor convex': [(1, 'convex', 1)], 'spinor great': [(1, 'great', 1)],
+    'vector convex': [(2, 'convex', 1)], 'vector great': [(2, 'great', 1)],
+    'spinor convex + vector convex': [(1, 'convex', 1), (2, 'convex', 1)],
+    'spinor great + vector convex': [(1, 'great', 1), (2, 'convex', 1)],
+    'spinor great (reversed axes) + vector convex': [(1, 'great', -1), (2, 'convex', 1)],
+    'spinor convex + vector great': [(1, 'convex', 1), (2, 'great', 1)],
+    'spinor great + vector great': [(1, 'great', 1), (2, 'great', 1)],
+    'spin 3/2 convex': [(3, 'convex', 1)],
+    'all four circular': [(1, 'convex', 1), (1, 'great', 1), (2, 'convex', 1), (2, 'great', 1)],
+}
+resB = {}
+for name, blocks in types.items():
+    resB[name] = lie_report(port_projectors(blocks))
+    print('B', name, resB[name], flush=True)
+rad = [zdsum(helicity_projector(2, N_EX[p], 0), helicity_projector(2, NG_EX[p], 0)) for p in range(12)]
+resB['radial vector convex + radial vector great'] = lie_report(rad)
+radsp = [zdsum(helicity_projector(1, NG_EX[p], 1), helicity_projector(2, N_EX[p], 0)) for p in range(12)]
+resB['spinor great + radial vector convex'] = lie_report(radsp)
+res13 = [zdsum(X, zzeros(3)) for X in port_projectors([(1, 'great', 1)])] + [zdsum(zzeros(2), X) for X in port_projectors([(2, 'convex', 1)])]
+resB['spinor great + vector convex, type-resolving probes (24 generators)'] = lie_report(res13)
+print('B extra', {k: resB[k] for k in list(resB)[-3:]}, flush=True)
+# Gram of the mixed 2 + 3 response, exact, by graph distance
+P5 = port_projectors([(1, 'great', 1), (2, 'convex', 1)])
+dist = [[0 if p == q else (1 if q in C.nbr[p] else (3 if C.anti[p] == q else 2)) for q in range(12)] for p in range(12)]
+g = {}
+okg = True
+for p in range(12):
+    for q in range(12):
+        val = ztrace(P5[p] @ P5[q])
+        okg &= (g.setdefault(dist[p][q], val) == val)
+# eigenvalues on the irreducibles 1, 3, 5, 3' of the port space
+eigs = {'1': g[0] + 5 * g[1] + 5 * g[2] + g[3], '3': g[0] + SQRT5 * g[1] - SQRT5 * g[2] - g[3],
+        '5': g[0] - g[1] - g[2] + g[3], "3'": g[0] - SQRT5 * g[1] + SQRT5 * g[2] - g[3]}
+resB['gram_mixed_2+3'] = {'depends_only_on_port_distance': bool(okg), 'entries_by_distance': {str(k): float(complex(v).real) for k, v in sorted(g.items())},
+                          'eigenvalues_on_1_3_5_3prime': {k: float(complex(v).real) for k, v in eigs.items()},
+                          'exact': {k: str(v.p) for k, v in eigs.items()}, 'positive_definite': bool(all(complex(v).real > 0 for v in eigs.values())),
+                          'sum_of_generators': 'sum_p P_p = 6 on the spinor block, 4 on the vector block'}
+sumP = sum(P5[1:], P5[0])
+resB['gram_mixed_2+3']['sum_check'] = bool(zis_zero(sumP - zdsum(zeye(2) * 6, zeye(3) * 4)))
+print('B gram', resB['gram_mixed_2+3'], flush=True)
+out['B_lie_algebras_of_first_order_responses'] = resB
+
+# ---------------------------------------------------------------- C: A2 implementers as pulse words
+rot_index = {perm: i for i, (Rm, perm) in enumerate(C.rot)}
+def pulse(P, p, e):
+    """exp(i eps P_p) at eps = 2 pi e / 20 (exact), and its inverse."""
+    d = P[0].shape[0]
+    return zeye(d) + P[p] * (Z.zeta(e) - 1), zeye(d) + P[p] * (Z.zeta(-e) - 1)
+def stab_word(P, p, m):
+    W1, W1i = pulse(P, p, 4 * m); W2, W2i = pulse(P, C.anti[p], -4 * m)
+    return W1 @ W2, W2i @ W1i
+def induced_perm(P, W, Wi):
+    perm = []
+    for q in range(12):
+        X = W @ P[q] @ Wi
+        hits = [r for r in range(12) if zis_zero(X - P[r])]
+        if len(hits) != 1:
+            return None
+        perm.append(hits[0])
+    return tuple(perm)
+def rotation_about(p, perm):
+    """angle (in units of 2 pi / 5) of the rotation perm about port p, convex realization; None if not a stabilizer rotation."""
+    if perm[p] != p:
+        return None
+    Rx = znum(exact_rotation(perm)).real
+    n = C.N[p]
+    q = C.nbr[p][0]
+    v = C.N[q] - (C.N[q] @ n) * n; w = Rx @ C.N[q]; w = w - (w @ n) * n
+    ang = np.arctan2(np.cross(v, w) @ n, v @ w)
+    return int(round(ang / (2 * np.pi / 5)))
+resC = {}
+for name in ('spinor convex', 'spinor great', 'vector convex', 'spinor convex + vector convex', 'spinor great + vector convex',
+             'spinor great (reversed axes) + vector convex'):
+    P = port_projectors(types[name])
+    rows = []
+    for m in (1, 2):
+        W, Wi = stab_word(P, 0, m)
+        perm = induced_perm(P, W, Wi)
+        rows.append({'eps_in_units_2pi/5': m, 'induces_a_port_permutation': perm is not None,
+                     'is_a_carrier_rotation': (perm in rot_index) if perm else False,
+                     'rotation_angle_about_port_0_in_units_2pi/5': rotation_about(0, perm) if perm and perm in rot_index else None})
+    resC[name] = rows
+    print('C stabilizer word', name, rows, flush=True)
+out['C_stabilizer_words'] = resC
+
+def generate(P, label):
+    d = P[0].shape[0]
+    def key(W):
+        flat = list(W.ravel())
+        piv = next(x for x in flat if x)
+        inv = piv.inv()
+        return tuple(str((x * inv).p) for x in flat)
+    gens = []
+    for p in range(12):
+        for m in (1, 2, 3, 4):
+            W, Wi = stab_word(P, p, m)
+            perm = induced_perm(P, W, Wi)
+            assert perm is not None and perm in rot_index
+            gens.append((W, Wi, perm))
+    I = zeye(d)
+    seen = {key(I): (I, I, tuple(range(12)), 0)}
+    frontier = [key(I)]
+    while frontier:
+        new = []
+        for k in frontier:
+            W, Wi, perm, length = seen[k]
+            for (G, Gi, gp) in gens:
+                W2, W2i = G @ W, Wi @ Gi
+                k2 = key(W2)
+                if k2 not in seen:
+                    seen[k2] = (W2, W2i, tuple(gp[perm[q]] for q in range(12)), length + 1); new.append(k2)
+        frontier = new
+    perms = {}
+    ok = True
+    for k, (W, Wi, perm, length) in seen.items():
+        perms.setdefault(perm, []).append(length)
+        ok &= all(zis_zero(W @ P[q] @ Wi - P[perm[q]]) for q in range(12))
+    res = {'projective_classes': len(seen), 'port_permutations_reached': len(perms), 'all_are_carrier_rotations': all(p in rot_index for p in perms),
+           'classes_per_rotation': sorted({len(v) for v in perms.values()}), 'max_word_length_in_stabilizer_words': max(l for v in perms.values() for l in v),
+           'pulses_per_stabilizer_word': 2, 'exact_covariance_W P_q W^-1 = P_a(q)_for_every_class': bool(ok)}
+    print('C group', label, res, flush=True)
+    return res
+resC2 = {}
+for name in ('spinor convex', 'vector convex', 'spinor great + vector convex', 'spinor great (reversed axes) + vector convex'):
+    P = port_projectors(types[name])
+    W, Wi = stab_word(P, 0, 1)
+    perm = induced_perm(P, W, Wi)
+    if perm is not None and perm in rot_index:
+        resC2[name] = generate(P, name)
+    else:
+        resC2[name] = 'the two-pulse stabilizer word does not induce a carrier rotation for this pairing'
+out['C_generated_implementers'] = resC2
+
+# ---------------------------------------------------------------- D: the response channel (d = 2, port 0, float)
+T12 = np.eye(12) * (1 - 5 / 60) + C.A / 60
+Pi0 = herm_projector(1, C.N[0], 1)
+def lam(eps):
+    """Unread channel on the internal factor of one probe pulse at port 0, stationary position state: 4 x 4 matrix on vec(sigma)."""
+    U = expm(1j * eps * Pi0)
+    return (np.kron(U, U.conj()) + 11 * np.eye(4)) / 12
+def simulate_pulse(eps, sigma):
+    rho = np.kron(np.eye(12) / 12, sigma)
+    N0 = np.zeros((12, 12)); N0[0, 0] = 1
+    W = expm(1j * eps * np.kron(N0, Pi0))
+    rho2 = W @ rho @ W.conj().T
+    return rho2.reshape(12, 2, 12, 2).trace(axis1=0, axis2=2)
+A = rng.normal(size=(2, 2)) + 1j * rng.normal(size=(2, 2)); sig = A @ A.conj().T; sig /= np.trace(sig)
+dev = 0.0
+for eps in (0.1, 0.7, 2.0):
+    direct = simulate_pulse(eps, sig)
+    formula = (lam(eps) @ sig.ravel()).reshape(2, 2)
+    dev = max(dev, np.abs(direct - formula).max())
+# generator expansion: Lambda = exp(eps L1 + eps^2 L2) + O(eps^3), L1 = i ad(Pi)/12, L2 = (11/144) D[Pi]
+adPi = np.kron(Pi0, np.eye(2)) - np.kron(np.eye(2), Pi0.T)
+DPi = np.kron(Pi0, Pi0.conj()) - (np.kron(Pi0, np.eye(2)) + np.kron(np.eye(2), Pi0.T)) / 2
+orders = []
+for eps in (0.2, 0.1, 0.05, 0.025):
+    approx1 = expm(1j * eps * adPi / 12)
+    approx2 = expm(1j * eps * adPi / 12 + eps ** 2 * (11 / 144) * DPi)
+    orders.append({'eps': eps, 'defect_first_order_unitary': float(np.abs(lam(eps) - approx1).max()),
+                   'defect_with_second_order_dephasing': float(np.abs(lam(eps) - approx2).max())})
+mu = lambda e: (11 + np.exp(1j * e)) / 12
+# motional averaging: r pulses of eps/r, m repair events between pulses (position chain T12), target exp(i eps Pi/12)
+def char_fn(eps, r, m):
+    D = np.ones(12, complex); D[0] = np.exp(1j * eps / r)
+    Tm = np.linalg.matrix_power(T12, m)
+    v = np.ones(12) / 12 * D
+    for _ in range(r - 1):
+        v = (Tm @ v) * D
+    return v.sum()
+target_eps = 12 * 2 * np.pi / 5
+mot = []
+for m in (1, 5, 30, 300):
+    for r in (12, 120, 1200, 12000):
+        f = char_fn(target_eps, r, m)
+        mot.append({'repair_events_between_pulses': m, 'pulses': r, 'coherence_modulus': float(abs(f)),
+                    'phase_error_vs_eps/12': float(np.angle(f * np.exp(-1j * target_eps / 12)))})
+# commutator of ordered unread responses
+Pi1 = herm_projector(1, C.N[C.nbr[0][0]], 1)
+def lam_p(Pi, eps):
+    U = expm(1j * eps * Pi)
+    return (np.kron(U, U.conj()) + 11 * np.eye(4)) / 12
+def ad(X): return np.kron(X, np.eye(2)) - np.kron(np.eye(2), X.T)
+comm_rows = []
+bracket = ad((1j * Pi1 / 12) @ (1j * Pi0 / 12) - (1j * Pi0 / 12) @ (1j * Pi1 / 12))
+for eps in (0.2, 0.1, 0.05):
+    cm = lam_p(Pi1, eps) @ lam_p(Pi0, eps) - lam_p(Pi0, eps) @ lam_p(Pi1, eps)
+    comm_rows.append({'eps': eps, 'defect_of_[Lambda_q, Lambda_p]/eps^2 - ad([D_q, D_p])': float(np.abs(cm / eps ** 2 - bracket).max())})
+# tape-resolved evolution: quantum trajectory with records against the unitary word
+def run_trajectory(steps, eps, seed):
+    r2 = np.random.default_rng(seed)
+    p0 = 3; chi0 = np.array([0.6, 0.8j])
+    psi = np.zeros(24, complex); psi[2 * p0:2 * p0 + 2] = chi0
+    rho = np.outer(psi, psi.conj())
+    pos = p0; word = np.eye(2, dtype=complex)
+    for _ in range(steps):
+        # probe at a random port between repair events
+        pp = int(r2.integers(12))
+        Np = np.zeros((12, 12)); Np[pp, pp] = 1
+        Pip = herm_projector(1, C.N[pp], 1)
+        W = expm(1j * eps * np.kron(Np, Pip))
+        rho = W @ rho @ W.conj().T
+        if pos == pp:
+            word = expm(1j * eps * Pip) @ word
+        seam = SEAMS[int(r2.integers(30))]
+        ks = fq.instrument(seam, 1, 'C', 2)
+        probs = np.array([np.real(np.trace(K @ rho @ K.conj().T)) for _, K in ks])
+        k = int(r2.choice(len(ks), p=probs / probs.sum()))
+        (coin, j), K = ks[k]
+        rho = K @ rho @ K.conj().T; rho /= np.trace(rho)
+        a, b = seam                                   # the tape (coin, current) moves the known position
+        if j == 1 and pos == a: pos = b
+        elif j == -1 and pos == b: pos = a
+    internal = rho.reshape(12, 2, 12, 2).trace(axis1=0, axis2=2)
+    expect = np.outer(word @ chi0, (word @ chi0).conj())
+    located = np.real(rho.reshape(12, 2, 12, 2)[pos, :, pos, :].trace())
+    return float(np.abs(internal - expect).max()), float(located)
+traj = [run_trajectory(200, 0.9, s) for s in range(8)]
+out['D_response_channel'] = {
+    'exact_form': 'Lambda_{p,eps} = (1/12) Ad[exp(i eps Pi_p)] + (11/12) id on the internal factor, stationary position state',
+    'defect_of_exact_form_against_direct_simulation': float(dev),
+    'expansion': 'Lambda = exp(eps (i/12) ad Pi_p + eps^2 (11/144) D[Pi_p]) + O(eps^3), D[Pi](s) = Pi s Pi - {Pi, s}/2; '
+                 'helicity coherence about the port axis is multiplied by (11 + exp(i eps))/12 = exp(i eps/12 - 11 eps^2/288 + ...)',
+    'expansion_defects': orders,
+    'coherence_factor_per_pulse_eps=0.5': [float(abs(mu(0.5))), float(np.exp(-11 * 0.25 / 288))],
+    'motional_averaging_to_the_stabilizer_rotation_total_angle_12*2pi/5': mot,
+    'commutator_of_ordered_unread_responses': comm_rows,
+    'tape_resolved_word': {'trajectories': len(traj), 'events_each': 200, 'max_defect_internal_state_vs_unitary_word': max(t[0] for t in traj),
+                           'min_weight_on_the_tape_predicted_port': min(t[1] for t in traj)}}
+print('D', json.dumps(out['D_response_channel'], indent=1)[:3000], flush=True)
+
+# ---------------------------------------------------------------- E: states, preparation, modular flow (d = 2 unless stated)
+# stationarity of (uniform) x sigma under the unread autonomous law, laws C and E
+KR = {law: [K for seam in SEAMS for _, K in fq.instrument(seam, 1, law, 2)] for law in ('C', 'E')}
+def unread(rho, law):
+    new = np.zeros_like(rho)
+    for K in KR[law]:
+        new += K @ rho @ K.conj().T
+    return new / 30
+stat = {law: float(np.abs(unread(np.kron(np.eye(12) / 12, sig), law) - np.kron(np.eye(12) / 12, sig)).max()) for law in ('C', 'E')}
+# unread complete port readout: exact contraction of the Bloch vector (spinor) and of rank 1, 2 parts (vector)
+P2 = {m: [helicity_projector(1, N_EX[p], m) for p in range(12)] for m in (1, -1)}
+sxz = [zmat([[0, 1], [1, 0]]), zmat([[0, -IM], [IM, 0]]), zmat([[1, 0], [0, -1]])]
+okthird = all(zis_zero(sum((P2[m][p] @ X @ P2[m][p] for p in range(12) for m in (1, -1)), zzeros(2)) * Z(Fr(1, 12)) - X * Z(Fr(1, 3))) for X in sxz)
+H3 = {m: [herm_projector(2, C.N[p], m) for p in range(12)] for m in (2, 0, -2)}
+S3 = sum(np.kron(H3[m][p], H3[m][p].conj()) for p in range(12) for m in (2, 0, -2)) / 12
+ev3 = np.sort(np.linalg.eigvals(S3).real)[::-1]
+# null-click preparation at port 0, helicity +: n null results with complete remixing
+def null_click(n):
+    w = np.array([0.5, 0.5])                           # weights on helicity +, - along axis 0
+    prob = 1.0
+    for _ in range(n):
+        new = np.array([w[0] * 11 / 12, w[1]]); prob *= new.sum() / w.sum(); w = new
+    return w / w.sum(), prob
+nulls = []
+for n in (1, 4, 8, 16, 32):
+    w, prob = null_click(n)
+    nulls.append({'null_results': n, 'weights_helicity_plus_minus': [float(w[0]), float(w[1])], 'probability_of_this_record': float(prob),
+                  'closed_form_probability': float((1 + (11 / 12) ** n) / 2), 'modular_hamiltonian': f'{n} log(12/11) Pi_(p,+) + const', 'beta': float(n * np.log(12 / 11))})
+# check the null-click update against the full instrument with repair mixing (one null result, then 400 repair events)
+N0 = np.zeros((12, 12)); N0[0, 0] = 1
+K0 = np.eye(24) - np.kron(N0, Pi0)
+rho = K0 @ np.kron(np.eye(12) / 12, np.eye(2) / 2) @ K0.conj().T; p_null = np.real(np.trace(rho)); rho /= p_null
+for _ in range(400):
+    rho = unread(rho, 'C')
+int1 = rho.reshape(12, 2, 12, 2).trace(axis1=0, axis2=2)
+pred = (11 * Pi0 + 12 * (np.eye(2) - Pi0)) / 23
+null_check = {'probability_of_one_null_result': float(p_null), 'expected': 23 / 24,
+              'defect_internal_state_vs_(11 Pi_+ + 12 Pi_-)/23': float(np.abs(int1 - pred).max()),
+              'defect_from_product_form_after_400_events': float(np.abs(rho - np.kron(np.eye(12) / 12, int1)).max())}
+# modular flow of the null-click state = own-axis pulse; orbit of an accessible effect against the cone of port effects
+beta = 8 * np.log(12 / 11)
+sigma = expm(-beta * Pi0); sigma /= np.trace(sigma)
+q1 = C.nbr[0][0]
+Piq = herm_projector(1, C.N[q1], 1)
+port_effects = np.array([np.concatenate([herm_projector(1, C.N[p], m).real.ravel(), herm_projector(1, C.N[p], m).imag.ravel()]) for p in range(12) for m in (1, -1)]).T
+orbit = []
+for frac in (0.0, 0.1, 0.25, 0.5, 1.0):
+    ang = frac * 2 * np.pi / 5                                    # modular rotation angle beta t
+    t = ang / beta
+    st = expm(1j * t * logm(sigma))                               # sigma^{it}
+    eff = st @ Piq @ st.conj().T
+    pulse_eff = expm(-1j * ang * Pi0) @ Piq @ expm(1j * ang * Pi0)
+    x, resid = nnls(port_effects, np.concatenate([eff.real.ravel(), eff.imag.ravel()]))
+    span_resid = np.linalg.lstsq(port_effects, np.concatenate([eff.real.ravel(), eff.imag.ravel()]), rcond=None)
+    orbit.append({'modular_angle_in_units_2pi/5': frac, 'equals_own_axis_pulse_at_port_0': float(np.abs(eff - pulse_eff).max()),
+                  'distance_from_span_of_port_effects': float(np.linalg.norm(port_effects @ span_resid[0] - np.concatenate([eff.real.ravel(), eff.imag.ravel()]))),
+                  'distance_from_cone_of_port_effects': float(resid), 'commutator_norm_with_sigma': float(np.linalg.norm(sigma @ Piq - Piq @ sigma))})
+# tomography of the spinor from click statistics: s = 3 E[m n_p]
+svec = np.array([0.3, -0.5, 0.4]); sx = np.array([[0, 1], [1, 0]], complex); sy = np.array([[0, -1j], [1j, 0]]); sz = np.diag([1., -1]).astype(complex)
+sg = (np.eye(2) + svec[0] * sx + svec[1] * sy + svec[2] * sz) / 2
+rec = np.zeros(3); tot = 0.0
+for p in range(12):
+    for m in (1, -1):
+        pr = np.real(np.trace(sg @ herm_projector(1, C.N[p], m))) / 12
+        rec += 3 * pr * m * C.N[p]; tot += pr
+out['E_states_preparation_modular'] = {
+    'stationarity_defect_of_uniform_x_sigma': stat,
+    'unread_complete_port_readout': {'spinor_Bloch_vector_factor_exactly_1/3': bool(okthird),
+                                     'vector_all_helicities_eigenvalues': [round(float(v), 9) for v in ev3]},
+    'click_preparation': 'outcome (p, m) has probability Tr(sigma Pi_(p,m))/12 and leaves the pure internal state chi_(p,m)',
+    'null_click_preparation': nulls, 'null_click_check_against_full_instrument': null_check,
+    'modular_orbit_of_a_neighbouring_port_effect': orbit,
+    'reading': 'sigma_n = ((11/12)^n Pi_+ + Pi_-)/Z is faithful and nontracial; -log sigma_n = n log(12/11) Pi_(p,+) + const, so its '
+               'modular flow is the own-axis probe pulse at port p; the orbit of a port effect stays in the span and leaves '
+               'the cone of port effects except at multiples of 2 pi/5',
+    'spinor_tomography_from_clicks': {'true_Bloch_vector': svec.tolist(), 'reconstructed_3_E[m n_p]': rec.tolist(), 'total_probability': float(tot)}}
+print('E', json.dumps(out['E_states_preparation_modular'], indent=1)[:3500], flush=True)
+out['seconds'] = round(time.time() - t0, 1)
+json.dump(out, open('b5_access.json', 'w'), indent=1)
+print('written b5_access.json', out['seconds'], 's')

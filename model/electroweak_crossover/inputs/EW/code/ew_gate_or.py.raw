@@ -1,0 +1,26 @@
+"""Gate: heat bath alone and heat bath with overrelaxation sample the same distribution (8^3, crossover region)."""
+import json, math
+import numpy as np
+import ewlat as E
+from ew_wham import tau_int
+res = {}
+for x, y in ((0.29, -0.05), (0.036, 0.03)):
+    out = {}
+    for nor, nsw in ((0, 200000), (4, 60000)):
+        L = 8; bG = 8.0; bH, bR = E.betas(x, y, bG)
+        E.seed_numba(900 + nor)
+        U, phi = E.cold_start(L, 1.0)
+        eps = 0.5 / L ** 1.5
+        E.run_series(U, phi, L, bG, bH, bR, nor, eps, 2000, 0, True, True)
+        ser, acc = E.run_series(U, phi, L, bG, bH, bR, nor, eps, nsw, 50, True, True)
+        r2 = ser[:, 1] / L ** 3
+        tau = tau_int(r2)
+        err = r2.std() * math.sqrt(2 * tau / len(r2))
+        pl = ser[::50, 3]
+        out[str(nor)] = dict(R2=float(r2.mean()), err=float(err), tau=float(tau), var=float(r2.var()), plaq=float(np.nanmean(pl)),
+                             plaq_err=float(np.nanstd(pl) / math.sqrt(len(pl))))
+    d = out['0']['R2'] - out['4']['R2']; e = math.hypot(out['0']['err'], out['4']['err'])
+    dp = out['0']['plaq'] - out['4']['plaq']; ep = math.hypot(out['0']['plaq_err'], out['4']['plaq_err'])
+    res[f"x{x}"] = dict(runs=out, diff=d, diff_err=e, sigma=d / e, plaq_diff=dp, plaq_diff_err=ep)
+    print(("PASS " if abs(d) < 3 * e else "FAIL ") + f"G6_heatbath_vs_overrelaxation_x{x}", json.dumps(res[f"x{x}"]), flush=True)
+json.dump(res, open("gate_or.json", "w"), indent=1)

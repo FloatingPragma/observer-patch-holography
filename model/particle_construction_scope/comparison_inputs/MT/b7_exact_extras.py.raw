@@ -1,0 +1,132 @@
+"""Exact extras for blocks 1 and 2.
+
+X1 The native controller of model/observer/native.py (seams E = (0,1), F = (0,5); the second seam is chosen from the
+   first record; halt after two records) run on two framed bosonic quanta (d = 2): record marginals and the forecast
+   table are reproduced exactly, for every internal state of the pair.
+X2 Covariance of the load instruments (12, 78 and the fermionic 66 register; laws C and E) under the 60 rotations,
+   exact: the instrument of a seam is carried to the instrument of the image seam; a reversed seam swaps the coin and
+   reverses current and contrast; the fermionic register acquires the sign of the reordering of its two ports.
+X3 Probe pulses and port readouts as interventions: their effect on the load register (exact formula, float check).
+"""
+import json, time
+from fractions import Fraction as Fr
+import numpy as np
+from scipy.linalg import expm
+from model.observer import native
+import framed as fq
+from framed import S, ROOT_HALF, SEAMS, STATES78, BIN66, IDX66, IDX78
+from mt_lib import herm_projector
+from carrier_tools import C
+
+t0 = time.time()
+out = {}
+
+# ---------------------------------------------------------------- X1
+def k_apply(vec, seam, rec, law='C'):
+    new = {}
+    for x, amp in vec.items():
+        for coin in (0, 1):
+            r, outs = fq.event(x, seam, coin, law)
+            if r == rec:
+                for a2, y in outs:
+                    new[y] = new.get(y, S()) + ROOT_HALF * a2 * amp
+    return {y: v for y, v in new.items() if v}
+def norm2(vec):
+    tot = S()
+    for v in vec.values():
+        tot = tot + v * v.conj()
+    assert tot.is_real() and not tot.b
+    return tot.a
+internal = {'triplet +1': {(0, 0): S(1)}, 'triplet 0': {(0, 1): ROOT_HALF, (1, 0): ROOT_HALF}, 'triplet -1': {(1, 1): S(1)}}
+letters = native.LETTERS
+table = {}
+for name, tvec in internal.items():
+    marg = {r: Fr(0) for r in letters}; succ = {r: Fr(0) for r in letters}
+    for x in BIN66:
+        p, q = [k for k in range(12) if x[k]]
+        vec = {}
+        for (s1, s2), amp in tvec.items():                    # symmetric position state times the internal state
+            vec[((p, s1), (q, s2))] = vec.get(((p, s1), (q, s2)), S()) + ROOT_HALF * amp
+            vec[((q, s1), (p, s2))] = vec.get(((q, s1), (p, s2)), S()) + ROOT_HALF * amp
+        assert norm2(vec) == 1
+        for r1 in letters:
+            v1 = k_apply(vec, native.E, r1)
+            p1 = norm2(v1) if v1 else Fr(0)
+            marg[r1] += p1 / 66
+            seam2 = native.F if r1[1] > 0 else native.E
+            for r2 in letters:
+                v2 = k_apply(v1, seam2, r2) if v1 else {}
+                if v2 and r2[1] > 0:
+                    succ[r1] += norm2(v2) / 66
+    table[name] = {str(r): {'record_probability': str(marg[r]), 'forecast': (str(succ[r] / marg[r]) if marg[r] else None)} for r in letters}
+ref = native.run()['forecast']['table']
+ref_map = {str(tuple(row['record'])): (row['record_probability'], row['forecast']) for row in ref}
+agree = all(table[name][r]['record_probability'] == ref_map[r][0] and table[name][r]['forecast'] == ref_map[r][1]
+            for name in table for r in ref_map) and all(
+            table[name][str(r)]['record_probability'] == '0' for name in table for r in letters if str(r) not in ref_map)
+out['X1_native_controller_on_framed_bosons'] = {'forecast_table_of_the_reference': ref_map, 'framed_tables_equal_reference_exactly': bool(agree),
+                                                 'internal_states_tested': list(internal)}
+print('X1 controller tape law equals reference exactly for every internal state:', agree, ref_map, flush=True)
+
+# ---------------------------------------------------------------- X2
+def same(d1, d2):
+    keys = set(d1) | set(d2)
+    return all(d1.get(k, S()) == d2.get(k, S()) for k in keys)
+ONE12 = [tuple(int(i == p) for i in range(12)) for p in range(12)]
+def perm_state(x, perm):
+    y = [0] * 12
+    for p in range(12):
+        y[perm[p]] = x[p]
+    return tuple(y)
+res = {}
+for law in ('C', 'E'):
+    for sector, states, build in (('12', ONE12, lambda e: fq.reference_instrument(e, 1, law)[1]), ('78', STATES78, lambda e: fq.reference_instrument(e, 2, law)[1]),
+                                  ('66 fermionic', BIN66, lambda e: fq.fermion_instrument(e, law)[1])):
+        idx = {x: i for i, x in enumerate(states)}
+        cache = {e: build(e) for e in SEAMS}
+        ok = True
+        for Rm, perm in C.rot:
+            pm = [idx[perm_state(x, perm)] for x in states]
+            sg = [1] * len(states)
+            if sector.startswith('66'):
+                for i, x in enumerate(states):
+                    p, q = [k for k in range(12) if x[k]]
+                    sg[i] = 1 if perm[p] < perm[q] else -1
+            for (a, b) in SEAMS:
+                a2, b2 = perm[a], perm[b]
+                rev = a2 > b2; img = (min(a2, b2), max(a2, b2))
+                src, dst = cache[(a, b)], cache[img]
+                mapped = {}
+                for (c0, v), br in src.items():
+                    rec2 = (1 - c0, -v) if rev else (c0, v)
+                    mapped[rec2] = {(pm[o], pm[i]): amp * (sg[o] * sg[i]) for (o, i), amp in br.items()}
+                ok &= set(mapped) == set(dst) and all(same(mapped[r], dst[r]) for r in dst)
+        res[f'{law}, {sector}'] = bool(ok)
+out['X2_exact_covariance_of_load_instruments_under_60_rotations'] = res
+print('X2', res, flush=True)
+
+# ---------------------------------------------------------------- X3
+rng = np.random.default_rng(3)
+A = rng.normal(size=(24, 4)) + 1j * rng.normal(size=(24, 4)); rho = A @ A.conj().T; rho /= np.trace(rho)
+p = 4; eps = 0.8
+Np = np.zeros((12, 12)); Np[p, p] = 1; Pi = herm_projector(1, C.N[p], 1)
+W = expm(1j * eps * np.kron(Np, Pi))
+before = rho.reshape(12, 2, 12, 2).trace(axis1=1, axis2=3); after = (W @ rho @ W.conj().T).reshape(12, 2, 12, 2).trace(axis1=1, axis2=3)
+pop_dev = float(np.abs(np.diag(before) - np.diag(after)).max())
+other = [q for q in range(12) if q != p]
+block_dev = float(np.abs(before[np.ix_(other, other)] - after[np.ix_(other, other)]).max())
+# coherence between p and q: Tr_int[(u x 1)(rho_pq)] with u = exp(i eps Pi)
+u = expm(1j * eps * Pi)
+T4 = rho.reshape(12, 2, 12, 2)
+pred = np.array([np.trace(u @ T4[p, :, q, :]) for q in other])
+coh_dev = float(np.abs(pred - after[p, other]).max())
+out['X3_apparatus_as_intervention_on_the_load_register'] = {
+    'probe_pulse': {'population_change': pop_dev, 'change_of_load_coherences_not_involving_the_probed_port': block_dev,
+                    'coherence_p_q_becomes_Tr_int[exp(i eps Pi_p) rho_pq]_defect': coh_dev},
+    'reading': 'a probe at port p leaves populations, the tape law and all coherences among other ports unchanged and multiplies '
+               'the coherence between p and another port by Tr(sigma exp(i eps Pi_p)) for a product input; a port readout '
+               'summed over helicities is the occupancy readout N_p'}
+print('X3', out['X3_apparatus_as_intervention_on_the_load_register'], flush=True)
+out['seconds'] = round(time.time() - t0, 1)
+json.dump(out, open('b7_exact_extras.json', 'w'), indent=1)
+print('written b7_exact_extras.json', out['seconds'], 's')

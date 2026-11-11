@@ -1,0 +1,1604 @@
+{
+ "edges": [
+  0.0,
+  1.0,
+  1.7782794100389228,
+  3.1622776601683795,
+  5.623413251903491,
+  10.0,
+  17.78279410038923,
+  31.622776601683793,
+  56.23413251903491,
+  100.0,
+  177.82794100389228,
+  316.22776601683796,
+  562.341325190349,
+  1000.0,
+  1778.2794100389228,
+  3162.2776601683795,
+  5623.413251903491,
+  10000.0,
+  17782.794100389227,
+  31622.776601683792,
+  56234.13251903491,
+  100000.0,
+  177827.94100389228,
+  316227.7660168379,
+  562341.3251903491,
+  1000000.0
+ ],
+ "cases": {
+  "carrier all 3 reading ii": {
+   "tier": "carrier",
+   "subset": "all",
+   "class": 3,
+   "reading": "ii",
+   "modes_bins": [
+    1,
+    8,
+    17
+   ],
+   "valley_bins": [
+    3,
+    15
+   ],
+   "mode_lifetime_ranges_depth": [
+    [
+     1.0,
+     1.7782794100389228
+    ],
+    [
+     56.23413251903491,
+     100.0
+    ],
+    [
+     10000.0,
+     17782.794100389227
+    ]
+   ],
+   "cuts_depth": [
+    5.623413251903491,
+    5623.413251903491
+   ],
+   "levels": {
+    "L6": {
+     "identities": 61880,
+     "end_depth": 10894,
+     "groups": [
+      {
+       "size": 11263,
+       "share": 0.18201357466063348,
+       "lifetime_range_depth": [
+        1,
+        5
+       ],
+       "median_lifetime_depth": 2.0,
+       "alive_share": 0.0,
+       "ending": {
+        "alive": 0,
+        "annihilation": 0,
+        "fusion": 624,
+        "split": 4724,
+        "exchange": 5915
+       },
+       "origin": {
+        "pair birth": 6841,
+        "split product": 649,
+        "fusion product": 590,
+        "exchange product": 3183
+       },
+       "birth_sweep_quantiles": {
+        "0.1": 0.0,
+        "0.5": 0.0,
+        "0.9": 7.0
+       },
+       "per_identity": {
+        "fusion_1_3_to_4_as_reactant": 0.028411613246914675,
+        "fusion_1_3_to_4_as_product": 0.0,
+        "annihilation_3_3": 0.0
+       },
+       "counts": {
+        "fusion_1_3_to_4_as_reactant": 320,
+        "fusion_1_3_to_4_as_product": 0,
+        "annihilation_3_3": 0
+       }
+      },
+      {
+       "size": 44047,
+       "share": 0.7118131868131868,
+       "lifetime_range_depth": [
+        6,
+        5611
+       ],
+       "median_lifetime_depth": 74.0,
+       "alive_share": 0.001884350807092424,
+       "ending": {
+        "alive": 83,
+        "annihilation": 0,
+        "fusion": 11497,
+        "split": 2678,
+        "exchange": 29789
+       },
+       "origin": {
+        "pair birth": 12241,
+        "split product": 1603,
+        "fusion product": 9474,
+        "exchange product": 20729
+       },
+       "birth_sweep_quantiles": {
+        "0.1": 0.0,
+        "0.5": 1.0,
+        "0.9": 21.0
+       },
+       "per_identity": {
+        "fusion_1_3_to_4_as_reactant": 0.13117805979975936,
+        "fusion_1_3_to_4_as_product": 0.0,
+        "annihilation_3_3": 0.0
+       },
+       "counts": {
+        "fusion_1_3_to_4_as_reactant": 5778,
+        "fusion_1_3_to_4_as_product": 0,
+        "annihilation_3_3": 0
+       }
+      },
+      {
+       "size": 6570,
+       "share": 0.1061732385261797,
+       "lifetime_range_depth": [
+        5628,
+        10893
+       ],
+       "median_lifetime_depth": 10165.0,
+       "alive_share": 0.9882800608828006,
+       "ending": {
+        "alive": 6493,
+        "annihilation": 0,
+        "fusion": 72,
+        "split": 0,
+        "exchange": 5
+       },
+       "origin": {
+        "pair birth": 150,
+        "split product": 64,
+        "fusion product": 5654,
+        "exchange product": 702
+       },
+       "birth_sweep_quantiles": {
+        "0.1": 2.0,
+        "0.5": 32.0,
+        "0.9": 120.0
+       },
+       "per_identity": {
+        "fusion_1_3_to_4_as_reactant": 0.0045662100456621,
+        "fusion_1_3_to_4_as_product": 0.0,
+        "annihilation_3_3": 0.0
+       },
+       "counts": {
+        "fusion_1_3_to_4_as_reactant": 30,
+        "fusion_1_3_to_4_as_product": 0,
+        "annihilation_3_3": 0
+       }
+      }
+     ],
+     "ratios_to_group1": [
+      1.0,
+      3.9107697771464087,
+      0.5833259344757169
+     ],
+     "ended_only_lifetime_hist": [
+      0,
+      4401,
+      4329,
+      2533,
+      3484,
+      4320,
+      4999,
+      6001,
+      6671,
+      6707,
+      4770,
+      2717,
+      1603,
+      1302,
+      989,
+      401,
+      76,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "alive_lifetime_hist": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      10,
+      71,
+      2837,
+      3656,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    "L5": {
+     "identities": 15767,
+     "end_depth": 13023,
+     "groups": [
+      {
+       "size": 2852,
+       "share": 0.18088412507135157,
+       "lifetime_range_depth": [
+        1,
+        5
+       ],
+       "median_lifetime_depth": 2.0,
+       "alive_share": 0.0,
+       "ending": {
+        "alive": 0,
+        "annihilation": 0,
+        "fusion": 150,
+        "split": 1252,
+        "exchange": 1450
+       },
+       "origin": {
+        "pair birth": 1748,
+        "split product": 162,
+        "fusion product": 134,
+        "exchange product": 808
+       },
+       "birth_sweep_quantiles": {
+        "0.1": 0.0,
+        "0.5": 0.0,
+        "0.9": 5.0
+       },
+       "per_identity": {
+        "fusion_1_3_to_4_as_reactant": 0.026297335203366058,
+        "fusion_1_3_to_4_as_product": 0.0,
+        "annihilation_3_3": 0.0
+       },
+       "counts": {
+        "fusion_1_3_to_4_as_reactant": 75,
+        "fusion_1_3_to_4_as_product": 0,
+        "annihilation_3_3": 0
+       }
+      },
+      {
+       "size": 11276,
+       "share": 0.7151645842582609,
+       "lifetime_range_depth": [
+        6,
+        5609
+       ],
+       "median_lifetime_depth": 73.0,
+       "alive_share": 0.000354735721887194,
+       "ending": {
+        "alive": 4,
+        "annihilation": 0,
+        "fusion": 2986,
+        "split": 651,
+        "exchange": 7635
+       },
+       "origin": {
+        "pair birth": 3241,
+        "split product": 407,
+        "fusion product": 2320,
+        "exchange product": 5308
+       },
+       "birth_sweep_quantiles": {
+        "0.1": 0.0,
+        "0.5": 1.0,
+        "0.9": 21.0
+       },
+       "per_identity": {
+        "fusion_1_3_to_4_as_reactant": 0.1374600922312877,
+        "fusion_1_3_to_4_as_product": 0.0,
+        "annihilation_3_3": 0.0
+       },
+       "counts": {
+        "fusion_1_3_to_4_as_reactant": 1550,
+        "fusion_1_3_to_4_as_product": 0,
+        "annihilation_3_3": 0
+       }
+      },
+      {
+       "size": 1639,
+       "share": 0.10395129067038753,
+       "lifetime_range_depth": [
+        5624,
+        13022
+       ],
+       "median_lifetime_depth": 12332.0,
+       "alive_share": 0.9884075655887736,
+       "ending": {
+        "alive": 1620,
+        "annihilation": 0,
+        "fusion": 17,
+        "split": 0,
+        "exchange": 2
+       },
+       "origin": {
+        "pair birth": 39,
+        "split product": 24,
+        "fusion product": 1395,
+        "exchange product": 181
+       },
+       "birth_sweep_quantiles": {
+        "0.1": 1.0,
+        "0.5": 31.0,
+        "0.9": 128.0
+       },
+       "per_identity": {
+        "fusion_1_3_to_4_as_reactant": 0.006711409395973154,
+        "fusion_1_3_to_4_as_product": 0.0,
+        "annihilation_3_3": 0.0
+       },
+       "counts": {
+        "fusion_1_3_to_4_as_reactant": 11,
+        "fusion_1_3_to_4_as_product": 0,
+        "annihilation_3_3": 0
+       }
+      }
+     ],
+     "ratios_to_group1": [
+      1.0,
+      3.953716690042076,
+      0.5746844319775596
+     ],
+     "ended_only_lifetime_hist": [
+      0,
+      1107,
+      1096,
+      649,
+      860,
+      1161,
+      1367,
+      1529,
+      1656,
+      1705,
+      1216,
+      673,
+      419,
+      320,
+      255,
+      111,
+      19,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "alive_lifetime_hist": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      4,
+      136,
+      1484,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   }
+  },
+  "screen all 4 reading ii": {
+   "tier": "screen",
+   "subset": "all",
+   "class": 4,
+   "reading": "ii",
+   "modes_bins": [
+    1,
+    5,
+    16
+   ],
+   "valley_bins": [
+    2,
+    14
+   ],
+   "mode_lifetime_ranges_depth": [
+    [
+     1.0,
+     1.7782794100389228
+    ],
+    [
+     10.0,
+     17.78279410038923
+    ],
+    [
+     5623.413251903491,
+     10000.0
+    ]
+   ],
+   "cuts_depth": [
+    3.1622776601683795,
+    3162.2776601683795
+   ],
+   "levels": {
+    "L10": {
+     "identities": 2481326,
+     "end_depth": 6584,
+     "groups": [
+      {
+       "size": 364425,
+       "share": 0.14686703802724835,
+       "lifetime_range_depth": [
+        1,
+        3
+       ],
+       "median_lifetime_depth": 2.0,
+       "alive_share": 0.0,
+       "ending": {
+        "alive": 0,
+        "annihilation": 1505,
+        "fusion": 55597,
+        "split": 155902,
+        "exchange": 151421
+       },
+       "origin": {
+        "pair birth": 152796,
+        "split product": 84964,
+        "fusion product": 43248,
+        "exchange product": 83417
+       },
+       "birth_sweep_quantiles": {
+        "0.1": 0.0,
+        "0.5": 0.0,
+        "0.9": 3.0
+       },
+       "per_identity": {
+        "fusion_1_3_to_4_as_reactant": 0.0,
+        "fusion_1_3_to_4_as_product": 0.028850929546545927,
+        "annihilation_3_3": 0.0
+       },
+       "counts": {
+        "fusion_1_3_to_4_as_reactant": 0,
+        "fusion_1_3_to_4_as_product": 10514,
+        "annihilation_3_3": 0
+       }
+      },
+      {
+       "size": 1952102,
+       "share": 0.7867172632697195,
+       "lifetime_range_depth": [
+        4,
+        3162
+       ],
+       "median_lifetime_depth": 30.0,
+       "alive_share": 0.004350182521200224,
+       "ending": {
+        "alive": 8492,
+        "annihilation": 2080,
+        "fusion": 654010,
+        "split": 310369,
+        "exchange": 977151
+       },
+       "origin": {
+        "pair birth": 492113,
+        "split product": 322852,
+        "fusion product": 540459,
+        "exchange product": 596678
+       },
+       "birth_sweep_quantiles": {
+        "0.1": 0.0,
+        "0.5": 1.0,
+        "0.9": 15.0
+       },
+       "per_identity": {
+        "fusion_1_3_to_4_as_reactant": 0.0,
+        "fusion_1_3_to_4_as_product": 0.08608669014221593,
+        "annihilation_3_3": 0.0
+       },
+       "counts": {
+        "fusion_1_3_to_4_as_reactant": 0,
+        "fusion_1_3_to_4_as_product": 168050,
+        "annihilation_3_3": 0
+       }
+      },
+      {
+       "size": 164799,
+       "share": 0.06641569870303217,
+       "lifetime_range_depth": [
+        3163,
+        6583
+       ],
+       "median_lifetime_depth": 6084.0,
+       "alive_share": 0.9380518085667996,
+       "ending": {
+        "alive": 154590,
+        "annihilation": 0,
+        "fusion": 7169,
+        "split": 0,
+        "exchange": 3040
+       },
+       "origin": {
+        "pair birth": 4393,
+        "split product": 5568,
+        "fusion product": 114689,
+        "exchange product": 40149
+       },
+       "birth_sweep_quantiles": {
+        "0.1": 2.0,
+        "0.5": 20.0,
+        "0.9": 85.0
+       },
+       "per_identity": {
+        "fusion_1_3_to_4_as_reactant": 0.0,
+        "fusion_1_3_to_4_as_product": 0.3638310912080777,
+        "annihilation_3_3": 0.0
+       },
+       "counts": {
+        "fusion_1_3_to_4_as_reactant": 0,
+        "fusion_1_3_to_4_as_product": 59959,
+        "annihilation_3_3": 0
+       }
+      }
+     ],
+     "ratios_to_group1": [
+      1.0,
+      5.356663236605612,
+      0.4522165054537971
+     ],
+     "ended_only_lifetime_hist": [
+      0,
+      164825,
+      199600,
+      156504,
+      240107,
+      308419,
+      298454,
+      270117,
+      215229,
+      163684,
+      113203,
+      74969,
+      49795,
+      32997,
+      20132,
+      9413,
+      796,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "alive_lifetime_hist": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      8,
+      22,
+      56,
+      89,
+      182,
+      334,
+      719,
+      1623,
+      5458,
+      42366,
+      112224,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    "L9": {
+     "identities": 621056,
+     "end_depth": 6567,
+     "groups": [
+      {
+       "size": 90877,
+       "share": 0.14632657924567188,
+       "lifetime_range_depth": [
+        1,
+        3
+       ],
+       "median_lifetime_depth": 2.0,
+       "alive_share": 0.0,
+       "ending": {
+        "alive": 0,
+        "annihilation": 366,
+        "fusion": 13947,
+        "split": 39036,
+        "exchange": 37528
+       },
+       "origin": {
+        "pair birth": 37816,
+        "split product": 21052,
+        "fusion product": 10991,
+        "exchange product": 21018
+       },
+       "birth_sweep_quantiles": {
+        "0.1": 0.0,
+        "0.5": 0.0,
+        "0.9": 3.0
+       },
+       "per_identity": {
+        "fusion_1_3_to_4_as_reactant": 0.0,
+        "fusion_1_3_to_4_as_product": 0.029523421767884063,
+        "annihilation_3_3": 0.0
+       },
+       "counts": {
+        "fusion_1_3_to_4_as_reactant": 0,
+        "fusion_1_3_to_4_as_product": 2683,
+        "annihilation_3_3": 0
+       }
+      },
+      {
+       "size": 488841,
+       "share": 0.7871125953215169,
+       "lifetime_range_depth": [
+        4,
+        3162
+       ],
+       "median_lifetime_depth": 30.0,
+       "alive_share": 0.0042570079023649815,
+       "ending": {
+        "alive": 2081,
+        "annihilation": 527,
+        "fusion": 163529,
+        "split": 77492,
+        "exchange": 245212
+       },
+       "origin": {
+        "pair birth": 122979,
+        "split product": 81424,
+        "fusion product": 135178,
+        "exchange product": 149260
+       },
+       "birth_sweep_quantiles": {
+        "0.1": 0.0,
+        "0.5": 1.0,
+        "0.9": 15.0
+       },
+       "per_identity": {
+        "fusion_1_3_to_4_as_reactant": 0.0,
+        "fusion_1_3_to_4_as_product": 0.08679100157310864,
+        "annihilation_3_3": 0.0
+       },
+       "counts": {
+        "fusion_1_3_to_4_as_reactant": 0,
+        "fusion_1_3_to_4_as_product": 42427,
+        "annihilation_3_3": 0
+       }
+      },
+      {
+       "size": 41338,
+       "share": 0.06656082543281121,
+       "lifetime_range_depth": [
+        3163,
+        6566
+       ],
+       "median_lifetime_depth": 6073.0,
+       "alive_share": 0.938579515216024,
+       "ending": {
+        "alive": 38799,
+        "annihilation": 0,
+        "fusion": 1839,
+        "split": 0,
+        "exchange": 700
+       },
+       "origin": {
+        "pair birth": 1062,
+        "split product": 1355,
+        "fusion product": 28844,
+        "exchange product": 10077
+       },
+       "birth_sweep_quantiles": {
+        "0.1": 2.0,
+        "0.5": 20.0,
+        "0.9": 83.0
+       },
+       "per_identity": {
+        "fusion_1_3_to_4_as_reactant": 0.0,
+        "fusion_1_3_to_4_as_product": 0.35744351444191785,
+        "annihilation_3_3": 0.0
+       },
+       "counts": {
+        "fusion_1_3_to_4_as_reactant": 0,
+        "fusion_1_3_to_4_as_product": 14776,
+        "annihilation_3_3": 0
+       }
+      }
+     ],
+     "ratios_to_group1": [
+      1.0,
+      5.379149839893483,
+      0.454878572135964
+     ],
+     "ended_only_lifetime_hist": [
+      0,
+      41213,
+      49664,
+      38751,
+      60198,
+      77480,
+      74908,
+      67609,
+      54153,
+      41036,
+      28173,
+      18774,
+      12303,
+      8379,
+      4996,
+      2352,
+      187,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "alive_lifetime_hist": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      6,
+      17,
+      27,
+      49,
+      79,
+      165,
+      431,
+      1305,
+      10581,
+      28218,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   }
+  },
+  "screen all 3 reading ii": {
+   "tier": "screen",
+   "subset": "all",
+   "class": 3,
+   "reading": "ii",
+   "modes_bins": [
+    1,
+    5,
+    16
+   ],
+   "valley_bins": [
+    2,
+    14
+   ],
+   "mode_lifetime_ranges_depth": [
+    [
+     1.0,
+     1.7782794100389228
+    ],
+    [
+     10.0,
+     17.78279410038923
+    ],
+    [
+     5623.413251903491,
+     10000.0
+    ]
+   ],
+   "cuts_depth": [
+    3.1622776601683795,
+    3162.2776601683795
+   ],
+   "levels": {
+    "L10": {
+     "identities": 1607810,
+     "end_depth": 6584,
+     "groups": [
+      {
+       "size": 245727,
+       "share": 0.15283335717528812,
+       "lifetime_range_depth": [
+        0,
+        3
+       ],
+       "median_lifetime_depth": 2.0,
+       "alive_share": 4.069556865952866e-06,
+       "ending": {
+        "alive": 1,
+        "annihilation": 21,
+        "fusion": 32724,
+        "split": 117178,
+        "exchange": 95803
+       },
+       "origin": {
+        "pair birth": 67705,
+        "split product": 36233,
+        "fusion product": 42398,
+        "exchange product": 99391
+       },
+       "birth_sweep_quantiles": {
+        "0.1": 0.0,
+        "0.5": 0.0,
+        "0.9": 2.0
+       },
+       "per_identity": {
+        "fusion_1_3_to_4_as_reactant": 0.06340776552841161,
+        "fusion_1_3_to_4_as_product": 0.0,
+        "annihilation_3_3": 8.54606941850102e-05
+       },
+       "counts": {
+        "fusion_1_3_to_4_as_reactant": 15581,
+        "fusion_1_3_to_4_as_product": 0,
+        "annihilation_3_3": 21
+       }
+      },
+      {
+       "size": 1200498,
+       "share": 0.7466665837381282,
+       "lifetime_range_depth": [
+        4,
+        3162
+       ],
+       "median_lifetime_depth": 31.0,
+       "alive_share": 0.008890477118662421,
+       "ending": {
+        "alive": 10673,
+        "annihilation": 13,
+        "fusion": 439889,
+        "split": 246571,
+        "exchange": 503352
+       },
+       "origin": {
+        "pair birth": 111702,
+        "split product": 86019,
+        "fusion product": 446935,
+        "exchange product": 555842
+       },
+       "birth_sweep_quantiles": {
+        "0.1": 0.0,
+        "0.5": 1.0,
+        "0.9": 16.0
+       },
+       "per_identity": {
+        "fusion_1_3_to_4_as_reactant": 0.1822243768835933,
+        "fusion_1_3_to_4_as_product": 0.0,
+        "annihilation_3_3": 1.082883936499686e-05
+       },
+       "counts": {
+        "fusion_1_3_to_4_as_reactant": 218760,
+        "fusion_1_3_to_4_as_product": 0,
+        "annihilation_3_3": 13
+       }
+      },
+      {
+       "size": 161585,
+       "share": 0.10050005908658362,
+       "lifetime_range_depth": [
+        3163,
+        6583
+       ],
+       "median_lifetime_depth": 5981.0,
+       "alive_share": 0.9471609369681592,
+       "ending": {
+        "alive": 153047,
+        "annihilation": 0,
+        "fusion": 8387,
+        "split": 0,
+        "exchange": 151
+       },
+       "origin": {
+        "pair birth": 411,
+        "split product": 643,
+        "fusion product": 140205,
+        "exchange product": 20326
+       },
+       "birth_sweep_quantiles": {
+        "0.1": 4.0,
+        "0.5": 25.0,
+        "0.9": 94.0
+       },
+       "per_identity": {
+        "fusion_1_3_to_4_as_reactant": 0.025881115202524986,
+        "fusion_1_3_to_4_as_product": 0.0,
+        "annihilation_3_3": 0.0
+       },
+       "counts": {
+        "fusion_1_3_to_4_as_reactant": 4182,
+        "fusion_1_3_to_4_as_product": 0,
+        "annihilation_3_3": 0
+       }
+      }
+     ],
+     "ratios_to_group1": [
+      1.0,
+      4.885494878462684,
+      0.6575793461849939
+     ],
+     "ended_only_lifetime_hist": [
+      0,
+      119226,
+      126500,
+      95801,
+      143908,
+      183771,
+      181325,
+      165044,
+      131648,
+      99951,
+      67809,
+      45930,
+      33654,
+      24935,
+      16049,
+      7968,
+      570,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "alive_lifetime_hist": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      3,
+      2,
+      19,
+      63,
+      98,
+      218,
+      399,
+      884,
+      2152,
+      6834,
+      49709,
+      103338,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    "L9": {
+     "identities": 402646,
+     "end_depth": 6567,
+     "groups": [
+      {
+       "size": 61449,
+       "share": 0.15261296523497067,
+       "lifetime_range_depth": [
+        1,
+        3
+       ],
+       "median_lifetime_depth": 2.0,
+       "alive_share": 0.0,
+       "ending": {
+        "alive": 0,
+        "annihilation": 3,
+        "fusion": 8092,
+        "split": 29325,
+        "exchange": 24029
+       },
+       "origin": {
+        "pair birth": 17018,
+        "split product": 8979,
+        "fusion product": 10698,
+        "exchange product": 24754
+       },
+       "birth_sweep_quantiles": {
+        "0.1": 0.0,
+        "0.5": 0.0,
+        "0.9": 2.0
+       },
+       "per_identity": {
+        "fusion_1_3_to_4_as_reactant": 0.06363000211557551,
+        "fusion_1_3_to_4_as_product": 0.0,
+        "annihilation_3_3": 4.882097349021139e-05
+       },
+       "counts": {
+        "fusion_1_3_to_4_as_reactant": 3910,
+        "fusion_1_3_to_4_as_product": 0,
+        "annihilation_3_3": 3
+       }
+      },
+      {
+       "size": 300267,
+       "share": 0.7457344665040755,
+       "lifetime_range_depth": [
+        4,
+        3162
+       ],
+       "median_lifetime_depth": 31.0,
+       "alive_share": 0.009028631184912095,
+       "ending": {
+        "alive": 2711,
+        "annihilation": 3,
+        "fusion": 109952,
+        "split": 61977,
+        "exchange": 125624
+       },
+       "origin": {
+        "pair birth": 28254,
+        "split product": 21436,
+        "fusion product": 111598,
+        "exchange product": 138979
+       },
+       "birth_sweep_quantiles": {
+        "0.1": 0.0,
+        "0.5": 1.0,
+        "0.9": 16.0
+       },
+       "per_identity": {
+        "fusion_1_3_to_4_as_reactant": 0.1828838999956705,
+        "fusion_1_3_to_4_as_product": 0.0,
+        "annihilation_3_3": 9.991107913956579e-06
+       },
+       "counts": {
+        "fusion_1_3_to_4_as_reactant": 54914,
+        "fusion_1_3_to_4_as_product": 0,
+        "annihilation_3_3": 3
+       }
+      },
+      {
+       "size": 40930,
+       "share": 0.10165256826095379,
+       "lifetime_range_depth": [
+        3163,
+        6566
+       ],
+       "median_lifetime_depth": 5966.0,
+       "alive_share": 0.9469826533105302,
+       "ending": {
+        "alive": 38760,
+        "annihilation": 0,
+        "fusion": 2125,
+        "split": 0,
+        "exchange": 45
+       },
+       "origin": {
+        "pair birth": 108,
+        "split product": 153,
+        "fusion product": 35460,
+        "exchange product": 5209
+       },
+       "birth_sweep_quantiles": {
+        "0.1": 4.0,
+        "0.5": 24.0,
+        "0.9": 94.0
+       },
+       "per_identity": {
+        "fusion_1_3_to_4_as_reactant": 0.025946738333740532,
+        "fusion_1_3_to_4_as_product": 0.0,
+        "annihilation_3_3": 0.0
+       },
+       "counts": {
+        "fusion_1_3_to_4_as_reactant": 1062,
+        "fusion_1_3_to_4_as_product": 0,
+        "annihilation_3_3": 0
+       }
+      }
+     ],
+     "ratios_to_group1": [
+      1.0,
+      4.886442415661769,
+      0.6660808149847841
+     ],
+     "ended_only_lifetime_hist": [
+      0,
+      29998,
+      31451,
+      23911,
+      35798,
+      46421,
+      45410,
+      41712,
+      32926,
+      24799,
+      16957,
+      11309,
+      8269,
+      6178,
+      3866,
+      2003,
+      167,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "alive_lifetime_hist": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      3,
+      7,
+      14,
+      27,
+      58,
+      102,
+      200,
+      516,
+      1783,
+      12727,
+      26033,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   }
+  },
+  "screen all 2 reading ii": {
+   "tier": "screen",
+   "subset": "all",
+   "class": 2,
+   "reading": "ii",
+   "modes_bins": [
+    1,
+    5,
+    16
+   ],
+   "valley_bins": [
+    2,
+    14
+   ],
+   "mode_lifetime_ranges_depth": [
+    [
+     1.0,
+     1.7782794100389228
+    ],
+    [
+     10.0,
+     17.78279410038923
+    ],
+    [
+     5623.413251903491,
+     10000.0
+    ]
+   ],
+   "cuts_depth": [
+    3.1622776601683795,
+    3162.2776601683795
+   ],
+   "levels": {
+    "L10": {
+     "identities": 2486092,
+     "end_depth": 6584,
+     "groups": [
+      {
+       "size": 364496,
+       "share": 0.1466140432453827,
+       "lifetime_range_depth": [
+        1,
+        3
+       ],
+       "median_lifetime_depth": 2.0,
+       "alive_share": 0.0,
+       "ending": {
+        "alive": 0,
+        "annihilation": 1469,
+        "fusion": 55783,
+        "split": 155986,
+        "exchange": 151258
+       },
+       "origin": {
+        "pair birth": 152707,
+        "split product": 85015,
+        "fusion product": 43439,
+        "exchange product": 83335
+       },
+       "birth_sweep_quantiles": {
+        "0.1": 0.0,
+        "0.5": 0.0,
+        "0.9": 3.0
+       },
+       "per_identity": {
+        "fusion_1_3_to_4_as_reactant": 0.0,
+        "fusion_1_3_to_4_as_product": 0.0,
+        "annihilation_3_3": 0.0
+       },
+       "counts": {
+        "fusion_1_3_to_4_as_reactant": 0,
+        "fusion_1_3_to_4_as_product": 0,
+        "annihilation_3_3": 0
+       }
+      },
+      {
+       "size": 1956063,
+       "share": 0.7868023387710511,
+       "lifetime_range_depth": [
+        4,
+        3162
+       ],
+       "median_lifetime_depth": 30.0,
+       "alive_share": 0.004361311471051801,
+       "ending": {
+        "alive": 8531,
+        "annihilation": 2116,
+        "fusion": 654085,
+        "split": 309959,
+        "exchange": 981372
+       },
+       "origin": {
+        "pair birth": 492252,
+        "split product": 324578,
+        "fusion product": 542351,
+        "exchange product": 596882
+       },
+       "birth_sweep_quantiles": {
+        "0.1": 0.0,
+        "0.5": 1.0,
+        "0.9": 15.0
+       },
+       "per_identity": {
+        "fusion_1_3_to_4_as_reactant": 0.0,
+        "fusion_1_3_to_4_as_product": 0.0,
+        "annihilation_3_3": 0.0
+       },
+       "counts": {
+        "fusion_1_3_to_4_as_reactant": 0,
+        "fusion_1_3_to_4_as_product": 0,
+        "annihilation_3_3": 0
+       }
+      },
+      {
+       "size": 165533,
+       "share": 0.06658361798356617,
+       "lifetime_range_depth": [
+        3163,
+        6583
+       ],
+       "median_lifetime_depth": 6086.0,
+       "alive_share": 0.9378432095110945,
+       "ending": {
+        "alive": 155244,
+        "annihilation": 0,
+        "fusion": 7263,
+        "split": 0,
+        "exchange": 3026
+       },
+       "origin": {
+        "pair birth": 4343,
+        "split product": 5610,
+        "fusion product": 115227,
+        "exchange product": 40353
+       },
+       "birth_sweep_quantiles": {
+        "0.1": 2.0,
+        "0.5": 20.0,
+        "0.9": 85.0
+       },
+       "per_identity": {
+        "fusion_1_3_to_4_as_reactant": 0.0,
+        "fusion_1_3_to_4_as_product": 0.0,
+        "annihilation_3_3": 0.0
+       },
+       "counts": {
+        "fusion_1_3_to_4_as_reactant": 0,
+        "fusion_1_3_to_4_as_product": 0,
+        "annihilation_3_3": 0
+       }
+      }
+     ],
+     "ratios_to_group1": [
+      1.0,
+      5.3664868750274355,
+      0.45414215793863305
+     ],
+     "ended_only_lifetime_hist": [
+      0,
+      165003,
+      199493,
+      156086,
+      241426,
+      308520,
+      297641,
+      271509,
+      216034,
+      164446,
+      113363,
+      74877,
+      50154,
+      33406,
+      20070,
+      9573,
+      716,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "alive_lifetime_hist": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      2,
+      16,
+      56,
+      124,
+      165,
+      341,
+      716,
+      1614,
+      5496,
+      42623,
+      112621,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    "L9": {
+     "identities": 620211,
+     "end_depth": 6567,
+     "groups": [
+      {
+       "size": 90674,
+       "share": 0.14619863240090872,
+       "lifetime_range_depth": [
+        0,
+        3
+       ],
+       "median_lifetime_depth": 2.0,
+       "alive_share": 1.1028519752078877e-05,
+       "ending": {
+        "alive": 1,
+        "annihilation": 377,
+        "fusion": 13759,
+        "split": 38882,
+        "exchange": 37655
+       },
+       "origin": {
+        "pair birth": 37858,
+        "split product": 21102,
+        "fusion product": 10927,
+        "exchange product": 20787
+       },
+       "birth_sweep_quantiles": {
+        "0.1": 0.0,
+        "0.5": 0.0,
+        "0.9": 3.0
+       },
+       "per_identity": {
+        "fusion_1_3_to_4_as_reactant": 0.0,
+        "fusion_1_3_to_4_as_product": 0.0,
+        "annihilation_3_3": 0.0
+       },
+       "counts": {
+        "fusion_1_3_to_4_as_reactant": 0,
+        "fusion_1_3_to_4_as_product": 0,
+        "annihilation_3_3": 0
+       }
+      },
+      {
+       "size": 488433,
+       "share": 0.7875271480189806,
+       "lifetime_range_depth": [
+        4,
+        3162
+       ],
+       "median_lifetime_depth": 30.0,
+       "alive_share": 0.004321984796277074,
+       "ending": {
+        "alive": 2111,
+        "annihilation": 516,
+        "fusion": 163182,
+        "split": 77280,
+        "exchange": 245344
+       },
+       "origin": {
+        "pair birth": 122991,
+        "split product": 81400,
+        "fusion product": 134895,
+        "exchange product": 149147
+       },
+       "birth_sweep_quantiles": {
+        "0.1": 0.0,
+        "0.5": 1.0,
+        "0.9": 15.0
+       },
+       "per_identity": {
+        "fusion_1_3_to_4_as_reactant": 0.0,
+        "fusion_1_3_to_4_as_product": 0.0,
+        "annihilation_3_3": 0.0
+       },
+       "counts": {
+        "fusion_1_3_to_4_as_reactant": 0,
+        "fusion_1_3_to_4_as_product": 0,
+        "annihilation_3_3": 0
+       }
+      },
+      {
+       "size": 41104,
+       "share": 0.06627421958011064,
+       "lifetime_range_depth": [
+        3163,
+        6566
+       ],
+       "median_lifetime_depth": 6070.0,
+       "alive_share": 0.9361862592448423,
+       "ending": {
+        "alive": 38481,
+        "annihilation": 0,
+        "fusion": 1867,
+        "split": 0,
+        "exchange": 756
+       },
+       "origin": {
+        "pair birth": 1008,
+        "split product": 1354,
+        "fusion product": 28790,
+        "exchange product": 9952
+       },
+       "birth_sweep_quantiles": {
+        "0.1": 2.0,
+        "0.5": 19.0,
+        "0.9": 85.0
+       },
+       "per_identity": {
+        "fusion_1_3_to_4_as_reactant": 0.0,
+        "fusion_1_3_to_4_as_product": 0.0,
+        "annihilation_3_3": 0.0
+       },
+       "counts": {
+        "fusion_1_3_to_4_as_reactant": 0,
+        "fusion_1_3_to_4_as_product": 0,
+        "annihilation_3_3": 0
+       }
+      }
+     ],
+     "ratios_to_group1": [
+      1.0,
+      5.386692988067142,
+      0.4533162758894501
+     ],
+     "ended_only_lifetime_hist": [
+      0,
+      41119,
+      49554,
+      38895,
+      60039,
+      77589,
+      74897,
+      67859,
+      53553,
+      41032,
+      28175,
+      18858,
+      12363,
+      8199,
+      4863,
+      2456,
+      167,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "alive_lifetime_hist": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      2,
+      1,
+      11,
+      14,
+      18,
+      45,
+      89,
+      168,
+      410,
+      1353,
+      10715,
+      27766,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   }
+  }
+ }
+}

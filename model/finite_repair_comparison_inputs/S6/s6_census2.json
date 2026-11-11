@@ -1,0 +1,454 @@
+{
+ "schema": "s6.census2.v1",
+ "tolerance": 1e-08,
+ "A_one_carrier": {
+  "N=1": {
+   "states": 12,
+   "levels": 4,
+   "levels_with_c_above_1": 0,
+   "max_dimension": 5,
+   "max_c": 1,
+   "max_residual": 9.992007221626409e-16,
+   "coincident_levels (level, dimension, c)": []
+  },
+  "N=2": {
+   "states": 66,
+   "levels": 16,
+   "levels_with_c_above_1": 1,
+   "max_dimension": 11,
+   "max_c": 3,
+   "max_residual": 3.9968028886505635e-15,
+   "coincident_levels (level, dimension, c)": [
+    [
+     10.0,
+     11,
+     3
+    ]
+   ]
+  },
+  "N=3": {
+   "states": 220,
+   "levels": 48,
+   "levels_with_c_above_1": 4,
+   "max_dimension": 20,
+   "max_c": 11,
+   "max_residual": 5.329070518200751e-15,
+   "coincident_levels (level, dimension, c)": [
+    [
+     10.0,
+     11,
+     3
+    ],
+    [
+     12.0,
+     20,
+     11
+    ],
+    [
+     14.0,
+     15,
+     4
+    ],
+    [
+     16.0,
+     15,
+     6
+    ]
+   ]
+  },
+  "N=4": {
+   "states": 495,
+   "levels": 113,
+   "levels_with_c_above_1": 5,
+   "max_dimension": 35,
+   "max_c": 20,
+   "max_residual": 7.105427357601002e-15,
+   "coincident_levels (level, dimension, c)": [
+    [
+     10.0,
+     11,
+     3
+    ],
+    [
+     12.0,
+     20,
+     11
+    ],
+    [
+     14.0,
+     15,
+     4
+    ],
+    [
+     16.0,
+     35,
+     20
+    ],
+    [
+     18.0,
+     10,
+     2
+    ]
+   ]
+  },
+  "N=5": {
+   "states": 792,
+   "levels": 191,
+   "levels_with_c_above_1": 5,
+   "max_dimension": 41,
+   "max_c": 32,
+   "max_residual": 1.4210854715202004e-14,
+   "coincident_levels (level, dimension, c)": [
+    [
+     10.0,
+     11,
+     3
+    ],
+    [
+     12.0,
+     20,
+     11
+    ],
+    [
+     14.0,
+     15,
+     4
+    ],
+    [
+     16.0,
+     41,
+     32
+    ],
+    [
+     18.0,
+     10,
+     2
+    ]
+   ]
+  },
+  "N=6": {
+   "states": 924,
+   "levels": 219,
+   "levels_with_c_above_1": 10,
+   "max_dimension": 46,
+   "max_c": 41,
+   "max_residual": 7.105427357601002e-15,
+   "coincident_levels (level, dimension, c)": [
+    [
+     10.0,
+     11,
+     3
+    ],
+    [
+     12.0,
+     20,
+     11
+    ],
+    [
+     14.0,
+     15,
+     4
+    ],
+    [
+     16.0,
+     46,
+     41
+    ],
+    [
+     16.763932023,
+     7,
+     2
+    ],
+    [
+     18.0,
+     20,
+     7
+    ],
+    [
+     20.0,
+     10,
+     3
+    ],
+    [
+     21.236067977,
+     7,
+     2
+    ],
+    [
+     22.0,
+     6,
+     2
+    ],
+    [
+     24.0,
+     5,
+     2
+    ]
+   ]
+  }
+ },
+ "B_control_three_species": {
+  "levels": 4,
+  "levels_with_c_above_1": 4,
+  "max_dimension": 15,
+  "max_c": 9,
+  "max_residual": 7.105427357601002e-15,
+  "coincident_levels (level, dimension, c)": [
+   [
+    -0.0,
+    3,
+    9
+   ],
+   [
+    2.763932023,
+    9,
+    9
+   ],
+   [
+    6.0,
+    15,
+    9
+   ],
+   [
+    7.236067977,
+    9,
+    9
+   ]
+  ],
+  "c_at_every_level": [
+   9
+  ]
+ },
+ "C_two_glued_carriers": {
+  "group_order": 200,
+  "N=1": {
+   "states": 24,
+   "levels": 8,
+   "levels_with_c_above_1": 3,
+   "max_dimension": 9,
+   "max_c": 3,
+   "max_residual": 1.7763568394002505e-15,
+   "coincident_levels (level, dimension, c)": [
+    [
+     2.763932023,
+     5,
+     2
+    ],
+    [
+     6.0,
+     9,
+     3
+    ],
+    [
+     7.236067977,
+     5,
+     2
+    ]
+   ]
+  },
+  "N=2": {
+   "states": 276,
+   "levels": 80,
+   "levels_with_c_above_1": 7,
+   "max_dimension": 19,
+   "max_c": 8,
+   "max_residual": 3.774758283725532e-15,
+   "coincident_levels (level, dimension, c)": [
+    [
+     2.763932023,
+     5,
+     2
+    ],
+    [
+     6.0,
+     9,
+     3
+    ],
+    [
+     7.236067977,
+     5,
+     2
+    ],
+    [
+     8.763932023,
+     16,
+     3
+    ],
+    [
+     10.0,
+     19,
+     8
+    ],
+    [
+     12.0,
+     18,
+     4
+    ],
+    [
+     13.236067977,
+     16,
+     3
+    ]
+   ]
+  },
+  "N=3": {
+   "states": 2024,
+   "levels": 557,
+   "levels_with_c_above_1": 12,
+   "max_dimension": 26,
+   "max_c": 8,
+   "max_residual": 9.547918011776346e-15,
+   "coincident_levels (level, dimension, c)": [
+    [
+     2.763932023,
+     5,
+     2
+    ],
+    [
+     6.0,
+     9,
+     3
+    ],
+    [
+     7.236067977,
+     5,
+     2
+    ],
+    [
+     8.763932023,
+     16,
+     3
+    ],
+    [
+     10.0,
+     19,
+     8
+    ],
+    [
+     12.0,
+     20,
+     7
+    ],
+    [
+     12.763932023,
+     8,
+     2
+    ],
+    [
+     13.236067977,
+     16,
+     3
+    ],
+    [
+     14.0,
+     10,
+     3
+    ],
+    [
+     16.0,
+     26,
+     6
+    ],
+    [
+     17.236067977,
+     8,
+     2
+    ],
+    [
+     18.0,
+     8,
+     2
+    ]
+   ]
+  }
+ },
+ "D_one_seam_removed": {
+  "group_order": 4,
+  "N=1": {
+   "states": 12,
+   "levels": 7,
+   "levels_with_c_above_1": 3,
+   "max_dimension": 4,
+   "max_c": 6,
+   "max_residual": 3.1086244689504383e-15,
+   "coincident_levels (level, dimension, c)": [
+    [
+     2.763932023,
+     2,
+     2
+    ],
+    [
+     6.0,
+     4,
+     6
+    ],
+    [
+     7.236067977,
+     2,
+     2
+    ]
+   ]
+  },
+  "N=2": {
+   "states": 66,
+   "levels": 58,
+   "levels_with_c_above_1": 4,
+   "max_dimension": 4,
+   "max_c": 8,
+   "max_residual": 7.549516567451064e-15,
+   "coincident_levels (level, dimension, c)": [
+    [
+     2.763932023,
+     2,
+     2
+    ],
+    [
+     6.0,
+     4,
+     6
+    ],
+    [
+     7.236067977,
+     2,
+     2
+    ],
+    [
+     10.0,
+     4,
+     8
+    ]
+   ]
+  },
+  "N=3": {
+   "states": 220,
+   "levels": 212,
+   "levels_with_c_above_1": 4,
+   "max_dimension": 4,
+   "max_c": 8,
+   "max_residual": 5.329070518200751e-15,
+   "coincident_levels (level, dimension, c)": [
+    [
+     2.763932023,
+     2,
+     2
+    ],
+    [
+     6.0,
+     4,
+     6
+    ],
+    [
+     7.236067977,
+     2,
+     2
+    ],
+    [
+     10.0,
+     4,
+     8
+    ]
+   ]
+  }
+ },
+ "seconds": 19.3
+}

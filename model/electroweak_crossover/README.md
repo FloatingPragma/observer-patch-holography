@@ -34,7 +34,13 @@ python -m model.electroweak_crossover.simulate --n 24 --beta-G 8 --x 0.296 --y -
 - [reduction.py](reduction.py): the map from four-dimensional parameters and temperature to `(g3^2, x, y)`.
 - [reweight.py](reweight.py): multi-histogram reweighting with block jackknife.
 - [production.json](production.json): the lattice measurements of the production runs. The raw series are not stored.
-- [certificate.py](certificate.py) and [results.json](results.json): the derived numbers and 44 named checks.
+- [certificate.py](certificate.py) and [results.json](results.json): the derived numbers and 47 named checks.
 - `test_lattice.py`, `test_reduction.py`, `test_results.py`: gates. They run in under a minute.
 
 The production used 53 runs at the chain's point and the validation runs listed in `production.json`.
+
+A matched-volume comparison at physical side eight gives a linear cutoff intercept of
+`160.8546 +- 0.0720 GeV`, with `0.3490 GeV` spread over six retained cutoff forms and omitted-spacing controls.
+This is finite design sensitivity, not an infinite-volume error bound. The susceptibility growth exponent
+falls from `0.227` to `0.089` across the declared point's measured volumes, while the first-order control
+approaches volume scaling. The [receipt](results.json) exposes each fit and its residual degrees of freedom.

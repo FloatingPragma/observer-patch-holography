@@ -1,0 +1,85 @@
+"""Worker CH, DO-10 (addendum 2 of CANDIDATES.md): LV's statements on UH's register, checked on this worker's own
+matrices (truncated oscillators, statements evaluated below the truncation edge).
+
+Run: /tmp/oph-completion-venv/bin/python ch_doublet3.py [out.json]
+No measured value is read.
+"""
+import json
+import sys
+from pathlib import Path
+
+import numpy as np
+
+from ch_lib import clean
+
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).with_name('doublet3.json')
+d = 5
+lower = np.diag(np.sqrt(np.arange(1, d)), 1)
+
+
+def osc(i, n=4):
+    mats = [np.eye(d)] * n
+    mats[i] = lower
+    M = mats[0]
+    for m in mats[1:]:
+        M = np.kron(M, m)
+    return M
+
+
+a = [osc(0), osc(1)]
+b = [osc(2), osc(3)]
+dim = d ** 4
+vac = np.zeros(dim); vac[0] = 1.0
+occ = sum(o.T @ o for o in a + b)
+Plow = np.diag((np.diag(occ) <= d - 3).astype(float))
+comm = lambda A, B: A @ B - B @ A
+out = {}
+
+# register charges for a generator with doublet block t: Q = sum a_k^dag t_kl a_l - b_k^dag t_lk b_l
+def charge(t):
+    return sum(t[k, l] * a[k].T @ a[l] - t[l, k] * b[k].T @ b[l] for k in range(2) for l in range(2))
+
+
+Q6Y = charge(np.diag([3.0, 3.0]))
+Q2T3 = charge(np.diag([1.0, -1.0]))
+states = {'a_1^dag|0>': a[0].T @ vac, 'a_2^dag|0>': a[1].T @ vac, 'b_1^dag|0>': b[0].T @ vac, 'b_2^dag|0>': b[1].T @ vac}
+one = {}
+for name, v in states.items():
+    one[name] = dict(six_Y=float(v @ Q6Y @ v), two_T3=float(v @ Q2T3 @ v))
+out['one_quantum_states'] = one
+assert sorted((round(x['six_Y']), round(x['two_T3'])) for x in one.values()) == [(-3, -1), (-3, 1), (3, -1), (3, 1)]
+
+# B_k = a_k + b_k^dag; B_k^dag B_k |0> = |0> + a_k^dag b_k^dag |0>
+pair = {}
+for k in range(2):
+    B = a[k] + b[k].T
+    v = B.T @ B @ vac
+    target = vac + a[k].T @ b[k].T @ vac
+    pair[f'k={k + 1}'] = dict(defect=float(np.abs(v - target).max()),
+                              six_Y_of_the_pair=float((a[k].T @ b[k].T @ vac) @ Q6Y @ (a[k].T @ b[k].T @ vac)),
+                              pair_content='one +3 quantum and one -3 quantum')
+    assert pair[f'k={k + 1}']['defect'] < 1e-12 and abs(pair[f'k={k + 1}']['six_Y_of_the_pair']) < 1e-12
+out['B_dag_B_on_the_vacuum'] = pair
+
+# canonical pairs: Phi_k = (a_k + b_k^dag)/sqrt(2 w), Pi_k = i sqrt(w/2) (a_k^dag - b_k)
+w = 0.7
+can = 0.0
+for k in range(2):
+    for l in range(2):
+        Phi = (a[k] + b[k].T) / np.sqrt(2 * w)
+        Pi = 1j * np.sqrt(w / 2) * (a[l].T - b[l])
+        can = max(can, np.abs((comm(Phi, Pi) - 1j * (k == l) * np.eye(dim)) @ Plow).max(),
+                  np.abs(comm(Phi, Pi.conj().T) @ Plow).max(), np.abs(comm(Phi, Phi.conj().T) @ Plow).max())
+out['canonical_pairs'] = dict(count=2, defect=float(can), statement='[Phi_k, Pi_l] = i delta_kl, [Phi_k, Pi_l^dag] = 0, [Phi_k, Phi_k^dag] = 0: two complex canonical pairs')
+assert can < 1e-10
+
+# each orientation alone
+alone = dict(a=float(np.abs((comm(a[0], a[0].T) - np.eye(dim)) @ Plow).max()),
+             b_dag=float(np.abs((comm(b[0].T, b[0]) + np.eye(dim)) @ Plow).max()))
+out['one_orientation_alone'] = dict(defects=alone, statement='[a_k, a_k^dag] = 1 and [b_k^dag, b_k] = -1: neither lowering operator is normal, '
+                                    'so neither has a common eigenvector with its adjoint (R8 result 3)')
+assert max(alone.values()) < 1e-12
+out['result'] = ('LV confirmed: four oscillators, two complex canonical pairs, one-quantum charges (6Y, 2 T3) = (+-3, +-1), B^dag B creates a (+3, -3) pair; '
+                 'one complex doublet with indices (1/10, 1/6, 0). Slopes of the source as built: (81/10, 5/6, -3).')
+OUT.write_text(json.dumps(clean(out), indent=1))
+print(json.dumps(clean(out), indent=1))

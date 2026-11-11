@@ -1,0 +1,1547 @@
+{
+ "effective_resistance_by_port_distance": {
+  "1": "11/30",
+  "2": "7/15",
+  "3": "1/2"
+ },
+ "types_under_120": [
+  {
+   "type": 0,
+   "representative": [
+    0,
+    1,
+    2
+   ],
+   "distance_pattern": [
+    1,
+    2,
+    3
+   ],
+   "internal_distance_facing_each_position": [
+    3,
+    2,
+    1
+   ],
+   "star_arms": [
+    "1/6",
+    "1/5",
+    "3/10"
+   ],
+   "position_permutations_preserving_type": 1,
+   "cyclic_invariant": false,
+   "pointwise_stabilizer_order": 2,
+   "orbit_size": 60
+  },
+  {
+   "type": 1,
+   "representative": [
+    0,
+    1,
+    3
+   ],
+   "distance_pattern": [
+    1,
+    2,
+    3
+   ],
+   "internal_distance_facing_each_position": [
+    2,
+    3,
+    1
+   ],
+   "star_arms": [
+    "1/5",
+    "1/6",
+    "3/10"
+   ],
+   "position_permutations_preserving_type": 1,
+   "cyclic_invariant": false,
+   "pointwise_stabilizer_order": 2,
+   "orbit_size": 60
+  },
+  {
+   "type": 2,
+   "representative": [
+    0,
+    1,
+    4
+   ],
+   "distance_pattern": [
+    1,
+    2,
+    2
+   ],
+   "internal_distance_facing_each_position": [
+    2,
+    2,
+    1
+   ],
+   "star_arms": [
+    "11/60",
+    "11/60",
+    "17/60"
+   ],
+   "position_permutations_preserving_type": 2,
+   "cyclic_invariant": false,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 120
+  },
+  {
+   "type": 3,
+   "representative": [
+    0,
+    1,
+    5
+   ],
+   "distance_pattern": [
+    1,
+    1,
+    1
+   ],
+   "internal_distance_facing_each_position": [
+    1,
+    1,
+    1
+   ],
+   "star_arms": [
+    "11/60",
+    "11/60",
+    "11/60"
+   ],
+   "position_permutations_preserving_type": 6,
+   "cyclic_invariant": true,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 120
+  },
+  {
+   "type": 4,
+   "representative": [
+    0,
+    1,
+    8
+   ],
+   "distance_pattern": [
+    1,
+    1,
+    2
+   ],
+   "internal_distance_facing_each_position": [
+    1,
+    2,
+    1
+   ],
+   "star_arms": [
+    "7/30",
+    "2/15",
+    "7/30"
+   ],
+   "position_permutations_preserving_type": 2,
+   "cyclic_invariant": false,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 120
+  },
+  {
+   "type": 5,
+   "representative": [
+    0,
+    1,
+    10
+   ],
+   "distance_pattern": [
+    1,
+    1,
+    2
+   ],
+   "internal_distance_facing_each_position": [
+    2,
+    1,
+    1
+   ],
+   "star_arms": [
+    "2/15",
+    "7/30",
+    "7/30"
+   ],
+   "position_permutations_preserving_type": 2,
+   "cyclic_invariant": false,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 120
+  },
+  {
+   "type": 6,
+   "representative": [
+    0,
+    2,
+    1
+   ],
+   "distance_pattern": [
+    1,
+    2,
+    3
+   ],
+   "internal_distance_facing_each_position": [
+    3,
+    1,
+    2
+   ],
+   "star_arms": [
+    "1/6",
+    "3/10",
+    "1/5"
+   ],
+   "position_permutations_preserving_type": 1,
+   "cyclic_invariant": false,
+   "pointwise_stabilizer_order": 2,
+   "orbit_size": 60
+  },
+  {
+   "type": 7,
+   "representative": [
+    0,
+    2,
+    3
+   ],
+   "distance_pattern": [
+    1,
+    2,
+    3
+   ],
+   "internal_distance_facing_each_position": [
+    1,
+    3,
+    2
+   ],
+   "star_arms": [
+    "3/10",
+    "1/6",
+    "1/5"
+   ],
+   "position_permutations_preserving_type": 1,
+   "cyclic_invariant": false,
+   "pointwise_stabilizer_order": 2,
+   "orbit_size": 60
+  },
+  {
+   "type": 8,
+   "representative": [
+    0,
+    2,
+    4
+   ],
+   "distance_pattern": [
+    1,
+    2,
+    2
+   ],
+   "internal_distance_facing_each_position": [
+    1,
+    2,
+    2
+   ],
+   "star_arms": [
+    "17/60",
+    "11/60",
+    "11/60"
+   ],
+   "position_permutations_preserving_type": 2,
+   "cyclic_invariant": false,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 120
+  },
+  {
+   "type": 9,
+   "representative": [
+    0,
+    2,
+    5
+   ],
+   "distance_pattern": [
+    1,
+    2,
+    2
+   ],
+   "internal_distance_facing_each_position": [
+    2,
+    1,
+    2
+   ],
+   "star_arms": [
+    "11/60",
+    "17/60",
+    "11/60"
+   ],
+   "position_permutations_preserving_type": 2,
+   "cyclic_invariant": false,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 120
+  },
+  {
+   "type": 10,
+   "representative": [
+    0,
+    2,
+    8
+   ],
+   "distance_pattern": [
+    2,
+    2,
+    2
+   ],
+   "internal_distance_facing_each_position": [
+    2,
+    2,
+    2
+   ],
+   "star_arms": [
+    "7/30",
+    "7/30",
+    "7/30"
+   ],
+   "position_permutations_preserving_type": 6,
+   "cyclic_invariant": true,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 120
+  },
+  {
+   "type": 11,
+   "representative": [
+    0,
+    2,
+    10
+   ],
+   "distance_pattern": [
+    1,
+    1,
+    2
+   ],
+   "internal_distance_facing_each_position": [
+    1,
+    1,
+    2
+   ],
+   "star_arms": [
+    "7/30",
+    "7/30",
+    "2/15"
+   ],
+   "position_permutations_preserving_type": 2,
+   "cyclic_invariant": false,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 120
+  },
+  {
+   "type": 12,
+   "representative": [
+    0,
+    3,
+    1
+   ],
+   "distance_pattern": [
+    1,
+    2,
+    3
+   ],
+   "internal_distance_facing_each_position": [
+    2,
+    1,
+    3
+   ],
+   "star_arms": [
+    "1/5",
+    "3/10",
+    "1/6"
+   ],
+   "position_permutations_preserving_type": 1,
+   "cyclic_invariant": false,
+   "pointwise_stabilizer_order": 2,
+   "orbit_size": 60
+  },
+  {
+   "type": 13,
+   "representative": [
+    0,
+    3,
+    2
+   ],
+   "distance_pattern": [
+    1,
+    2,
+    3
+   ],
+   "internal_distance_facing_each_position": [
+    1,
+    2,
+    3
+   ],
+   "star_arms": [
+    "3/10",
+    "1/5",
+    "1/6"
+   ],
+   "position_permutations_preserving_type": 1,
+   "cyclic_invariant": false,
+   "pointwise_stabilizer_order": 2,
+   "orbit_size": 60
+  }
+ ],
+ "types_under_60": [
+  {
+   "type": 0,
+   "representative": [
+    0,
+    1,
+    2
+   ],
+   "distance_pattern": [
+    1,
+    2,
+    3
+   ],
+   "internal_distance_facing_each_position": [
+    3,
+    2,
+    1
+   ],
+   "star_arms": [
+    "1/6",
+    "1/5",
+    "3/10"
+   ],
+   "position_permutations_preserving_type": 1,
+   "cyclic_invariant": false,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 60
+  },
+  {
+   "type": 1,
+   "representative": [
+    0,
+    1,
+    3
+   ],
+   "distance_pattern": [
+    1,
+    2,
+    3
+   ],
+   "internal_distance_facing_each_position": [
+    2,
+    3,
+    1
+   ],
+   "star_arms": [
+    "1/5",
+    "1/6",
+    "3/10"
+   ],
+   "position_permutations_preserving_type": 1,
+   "cyclic_invariant": false,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 60
+  },
+  {
+   "type": 2,
+   "representative": [
+    0,
+    1,
+    4
+   ],
+   "distance_pattern": [
+    1,
+    2,
+    2
+   ],
+   "internal_distance_facing_each_position": [
+    2,
+    2,
+    1
+   ],
+   "star_arms": [
+    "11/60",
+    "11/60",
+    "17/60"
+   ],
+   "position_permutations_preserving_type": 1,
+   "cyclic_invariant": false,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 60
+  },
+  {
+   "type": 3,
+   "representative": [
+    0,
+    1,
+    5
+   ],
+   "distance_pattern": [
+    1,
+    1,
+    1
+   ],
+   "internal_distance_facing_each_position": [
+    1,
+    1,
+    1
+   ],
+   "star_arms": [
+    "11/60",
+    "11/60",
+    "11/60"
+   ],
+   "position_permutations_preserving_type": 3,
+   "cyclic_invariant": true,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 60
+  },
+  {
+   "type": 4,
+   "representative": [
+    0,
+    1,
+    6
+   ],
+   "distance_pattern": [
+    1,
+    2,
+    2
+   ],
+   "internal_distance_facing_each_position": [
+    2,
+    2,
+    1
+   ],
+   "star_arms": [
+    "11/60",
+    "11/60",
+    "17/60"
+   ],
+   "position_permutations_preserving_type": 1,
+   "cyclic_invariant": false,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 60
+  },
+  {
+   "type": 5,
+   "representative": [
+    0,
+    1,
+    7
+   ],
+   "distance_pattern": [
+    1,
+    1,
+    1
+   ],
+   "internal_distance_facing_each_position": [
+    1,
+    1,
+    1
+   ],
+   "star_arms": [
+    "11/60",
+    "11/60",
+    "11/60"
+   ],
+   "position_permutations_preserving_type": 3,
+   "cyclic_invariant": true,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 60
+  },
+  {
+   "type": 6,
+   "representative": [
+    0,
+    1,
+    8
+   ],
+   "distance_pattern": [
+    1,
+    1,
+    2
+   ],
+   "internal_distance_facing_each_position": [
+    1,
+    2,
+    1
+   ],
+   "star_arms": [
+    "7/30",
+    "2/15",
+    "7/30"
+   ],
+   "position_permutations_preserving_type": 1,
+   "cyclic_invariant": false,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 60
+  },
+  {
+   "type": 7,
+   "representative": [
+    0,
+    1,
+    9
+   ],
+   "distance_pattern": [
+    1,
+    1,
+    2
+   ],
+   "internal_distance_facing_each_position": [
+    1,
+    2,
+    1
+   ],
+   "star_arms": [
+    "7/30",
+    "2/15",
+    "7/30"
+   ],
+   "position_permutations_preserving_type": 1,
+   "cyclic_invariant": false,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 60
+  },
+  {
+   "type": 8,
+   "representative": [
+    0,
+    1,
+    10
+   ],
+   "distance_pattern": [
+    1,
+    1,
+    2
+   ],
+   "internal_distance_facing_each_position": [
+    2,
+    1,
+    1
+   ],
+   "star_arms": [
+    "2/15",
+    "7/30",
+    "7/30"
+   ],
+   "position_permutations_preserving_type": 1,
+   "cyclic_invariant": false,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 60
+  },
+  {
+   "type": 9,
+   "representative": [
+    0,
+    1,
+    11
+   ],
+   "distance_pattern": [
+    1,
+    1,
+    2
+   ],
+   "internal_distance_facing_each_position": [
+    2,
+    1,
+    1
+   ],
+   "star_arms": [
+    "2/15",
+    "7/30",
+    "7/30"
+   ],
+   "position_permutations_preserving_type": 1,
+   "cyclic_invariant": false,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 60
+  },
+  {
+   "type": 10,
+   "representative": [
+    0,
+    2,
+    1
+   ],
+   "distance_pattern": [
+    1,
+    2,
+    3
+   ],
+   "internal_distance_facing_each_position": [
+    3,
+    1,
+    2
+   ],
+   "star_arms": [
+    "1/6",
+    "3/10",
+    "1/5"
+   ],
+   "position_permutations_preserving_type": 1,
+   "cyclic_invariant": false,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 60
+  },
+  {
+   "type": 11,
+   "representative": [
+    0,
+    2,
+    3
+   ],
+   "distance_pattern": [
+    1,
+    2,
+    3
+   ],
+   "internal_distance_facing_each_position": [
+    1,
+    3,
+    2
+   ],
+   "star_arms": [
+    "3/10",
+    "1/6",
+    "1/5"
+   ],
+   "position_permutations_preserving_type": 1,
+   "cyclic_invariant": false,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 60
+  },
+  {
+   "type": 12,
+   "representative": [
+    0,
+    2,
+    4
+   ],
+   "distance_pattern": [
+    1,
+    2,
+    2
+   ],
+   "internal_distance_facing_each_position": [
+    1,
+    2,
+    2
+   ],
+   "star_arms": [
+    "17/60",
+    "11/60",
+    "11/60"
+   ],
+   "position_permutations_preserving_type": 1,
+   "cyclic_invariant": false,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 60
+  },
+  {
+   "type": 13,
+   "representative": [
+    0,
+    2,
+    5
+   ],
+   "distance_pattern": [
+    1,
+    2,
+    2
+   ],
+   "internal_distance_facing_each_position": [
+    2,
+    1,
+    2
+   ],
+   "star_arms": [
+    "11/60",
+    "17/60",
+    "11/60"
+   ],
+   "position_permutations_preserving_type": 1,
+   "cyclic_invariant": false,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 60
+  },
+  {
+   "type": 14,
+   "representative": [
+    0,
+    2,
+    6
+   ],
+   "distance_pattern": [
+    1,
+    2,
+    2
+   ],
+   "internal_distance_facing_each_position": [
+    1,
+    2,
+    2
+   ],
+   "star_arms": [
+    "17/60",
+    "11/60",
+    "11/60"
+   ],
+   "position_permutations_preserving_type": 1,
+   "cyclic_invariant": false,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 60
+  },
+  {
+   "type": 15,
+   "representative": [
+    0,
+    2,
+    7
+   ],
+   "distance_pattern": [
+    1,
+    2,
+    2
+   ],
+   "internal_distance_facing_each_position": [
+    2,
+    1,
+    2
+   ],
+   "star_arms": [
+    "11/60",
+    "17/60",
+    "11/60"
+   ],
+   "position_permutations_preserving_type": 1,
+   "cyclic_invariant": false,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 60
+  },
+  {
+   "type": 16,
+   "representative": [
+    0,
+    2,
+    8
+   ],
+   "distance_pattern": [
+    2,
+    2,
+    2
+   ],
+   "internal_distance_facing_each_position": [
+    2,
+    2,
+    2
+   ],
+   "star_arms": [
+    "7/30",
+    "7/30",
+    "7/30"
+   ],
+   "position_permutations_preserving_type": 3,
+   "cyclic_invariant": true,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 60
+  },
+  {
+   "type": 17,
+   "representative": [
+    0,
+    2,
+    9
+   ],
+   "distance_pattern": [
+    2,
+    2,
+    2
+   ],
+   "internal_distance_facing_each_position": [
+    2,
+    2,
+    2
+   ],
+   "star_arms": [
+    "7/30",
+    "7/30",
+    "7/30"
+   ],
+   "position_permutations_preserving_type": 3,
+   "cyclic_invariant": true,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 60
+  },
+  {
+   "type": 18,
+   "representative": [
+    0,
+    2,
+    10
+   ],
+   "distance_pattern": [
+    1,
+    1,
+    2
+   ],
+   "internal_distance_facing_each_position": [
+    1,
+    1,
+    2
+   ],
+   "star_arms": [
+    "7/30",
+    "7/30",
+    "2/15"
+   ],
+   "position_permutations_preserving_type": 1,
+   "cyclic_invariant": false,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 60
+  },
+  {
+   "type": 19,
+   "representative": [
+    0,
+    2,
+    11
+   ],
+   "distance_pattern": [
+    1,
+    1,
+    2
+   ],
+   "internal_distance_facing_each_position": [
+    1,
+    1,
+    2
+   ],
+   "star_arms": [
+    "7/30",
+    "7/30",
+    "2/15"
+   ],
+   "position_permutations_preserving_type": 1,
+   "cyclic_invariant": false,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 60
+  },
+  {
+   "type": 20,
+   "representative": [
+    0,
+    3,
+    1
+   ],
+   "distance_pattern": [
+    1,
+    2,
+    3
+   ],
+   "internal_distance_facing_each_position": [
+    2,
+    1,
+    3
+   ],
+   "star_arms": [
+    "1/5",
+    "3/10",
+    "1/6"
+   ],
+   "position_permutations_preserving_type": 1,
+   "cyclic_invariant": false,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 60
+  },
+  {
+   "type": 21,
+   "representative": [
+    0,
+    3,
+    2
+   ],
+   "distance_pattern": [
+    1,
+    2,
+    3
+   ],
+   "internal_distance_facing_each_position": [
+    1,
+    2,
+    3
+   ],
+   "star_arms": [
+    "3/10",
+    "1/5",
+    "1/6"
+   ],
+   "position_permutations_preserving_type": 1,
+   "cyclic_invariant": false,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 60
+  }
+ ],
+ "count_types_120": 14,
+ "count_types_60": 22,
+ "cyclic_invariant_types_120": [
+  {
+   "type": 3,
+   "representative": [
+    0,
+    1,
+    5
+   ],
+   "distance_pattern": [
+    1,
+    1,
+    1
+   ],
+   "internal_distance_facing_each_position": [
+    1,
+    1,
+    1
+   ],
+   "star_arms": [
+    "11/60",
+    "11/60",
+    "11/60"
+   ],
+   "position_permutations_preserving_type": 6,
+   "cyclic_invariant": true,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 120
+  },
+  {
+   "type": 10,
+   "representative": [
+    0,
+    2,
+    8
+   ],
+   "distance_pattern": [
+    2,
+    2,
+    2
+   ],
+   "internal_distance_facing_each_position": [
+    2,
+    2,
+    2
+   ],
+   "star_arms": [
+    "7/30",
+    "7/30",
+    "7/30"
+   ],
+   "position_permutations_preserving_type": 6,
+   "cyclic_invariant": true,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 120
+  }
+ ],
+ "cyclic_invariant_types_60": [
+  {
+   "type": 3,
+   "representative": [
+    0,
+    1,
+    5
+   ],
+   "distance_pattern": [
+    1,
+    1,
+    1
+   ],
+   "internal_distance_facing_each_position": [
+    1,
+    1,
+    1
+   ],
+   "star_arms": [
+    "11/60",
+    "11/60",
+    "11/60"
+   ],
+   "position_permutations_preserving_type": 3,
+   "cyclic_invariant": true,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 60
+  },
+  {
+   "type": 5,
+   "representative": [
+    0,
+    1,
+    7
+   ],
+   "distance_pattern": [
+    1,
+    1,
+    1
+   ],
+   "internal_distance_facing_each_position": [
+    1,
+    1,
+    1
+   ],
+   "star_arms": [
+    "11/60",
+    "11/60",
+    "11/60"
+   ],
+   "position_permutations_preserving_type": 3,
+   "cyclic_invariant": true,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 60
+  },
+  {
+   "type": 16,
+   "representative": [
+    0,
+    2,
+    8
+   ],
+   "distance_pattern": [
+    2,
+    2,
+    2
+   ],
+   "internal_distance_facing_each_position": [
+    2,
+    2,
+    2
+   ],
+   "star_arms": [
+    "7/30",
+    "7/30",
+    "7/30"
+   ],
+   "position_permutations_preserving_type": 3,
+   "cyclic_invariant": true,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 60
+  },
+  {
+   "type": 17,
+   "representative": [
+    0,
+    2,
+    9
+   ],
+   "distance_pattern": [
+    2,
+    2,
+    2
+   ],
+   "internal_distance_facing_each_position": [
+    2,
+    2,
+    2
+   ],
+   "star_arms": [
+    "7/30",
+    "7/30",
+    "7/30"
+   ],
+   "position_permutations_preserving_type": 3,
+   "cyclic_invariant": true,
+   "pointwise_stabilizer_order": 1,
+   "orbit_size": 60
+  }
+ ],
+ "arm_values": [
+  "2/15",
+  "1/6",
+  "11/60",
+  "1/5",
+  "7/30",
+  "17/60",
+  "3/10"
+ ],
+ "reduced_conductance_range": [
+  "5/8",
+  "15/19"
+ ],
+ "max_conductance_ratio": "24/19",
+ "conductance_face_triple": "30/41",
+ "conductance_belt_triple": "15/22",
+ "refinement_rules_face_triple_F_group120": [
+  {
+   "corner_inner_ports": [
+    0,
+    11,
+    5
+   ],
+   "corner_copies_parent": true,
+   "central_ports": [
+    0,
+    11,
+    5
+   ],
+   "kind": "weak (collapses)",
+   "central_is_image_of_parent_under": [
+    {
+     "proper": true,
+     "order": 1,
+     "class": "identity"
+    }
+   ]
+  },
+  {
+   "corner_inner_ports": [
+    0,
+    11,
+    5
+   ],
+   "corner_copies_parent": true,
+   "central_ports": [
+    5,
+    0,
+    11
+   ],
+   "kind": "strict",
+   "central_is_image_of_parent_under": [
+    {
+     "proper": true,
+     "order": 3,
+     "class": "C3 (120 deg)"
+    }
+   ]
+  },
+  {
+   "corner_inner_ports": [
+    0,
+    11,
+    5
+   ],
+   "corner_copies_parent": true,
+   "central_ports": [
+    11,
+    5,
+    0
+   ],
+   "kind": "strict",
+   "central_is_image_of_parent_under": [
+    {
+     "proper": true,
+     "order": 3,
+     "class": "C3 (120 deg)"
+    }
+   ]
+  },
+  {
+   "corner_inner_ports": [
+    4,
+    1,
+    10
+   ],
+   "corner_copies_parent": false,
+   "central_ports": [
+    3,
+    8,
+    6
+   ],
+   "kind": "strict",
+   "central_is_image_of_parent_under": [
+    {
+     "proper": false,
+     "order": 2,
+     "class": "inversion x identity"
+    }
+   ]
+  },
+  {
+   "corner_inner_ports": [
+    4,
+    1,
+    10
+   ],
+   "corner_copies_parent": false,
+   "central_ports": [
+    5,
+    0,
+    11
+   ],
+   "kind": "strict",
+   "central_is_image_of_parent_under": [
+    {
+     "proper": true,
+     "order": 3,
+     "class": "C3 (120 deg)"
+    }
+   ]
+  },
+  {
+   "corner_inner_ports": [
+    4,
+    1,
+    10
+   ],
+   "corner_copies_parent": false,
+   "central_ports": [
+    11,
+    5,
+    0
+   ],
+   "kind": "strict",
+   "central_is_image_of_parent_under": [
+    {
+     "proper": true,
+     "order": 3,
+     "class": "C3 (120 deg)"
+    }
+   ]
+  }
+ ],
+ "refinement_rules_face_triple_F_group60": [
+  {
+   "corner_inner_ports": [
+    0,
+    11,
+    5
+   ],
+   "corner_copies_parent": true,
+   "central_ports": [
+    0,
+    11,
+    5
+   ],
+   "kind": "weak (collapses)",
+   "central_is_image_of_parent_under": [
+    {
+     "proper": true,
+     "order": 1,
+     "class": "identity"
+    }
+   ]
+  },
+  {
+   "corner_inner_ports": [
+    0,
+    11,
+    5
+   ],
+   "corner_copies_parent": true,
+   "central_ports": [
+    5,
+    0,
+    11
+   ],
+   "kind": "strict",
+   "central_is_image_of_parent_under": [
+    {
+     "proper": true,
+     "order": 3,
+     "class": "C3 (120 deg)"
+    }
+   ]
+  },
+  {
+   "corner_inner_ports": [
+    0,
+    11,
+    5
+   ],
+   "corner_copies_parent": true,
+   "central_ports": [
+    11,
+    5,
+    0
+   ],
+   "kind": "strict",
+   "central_is_image_of_parent_under": [
+    {
+     "proper": true,
+     "order": 3,
+     "class": "C3 (120 deg)"
+    }
+   ]
+  }
+ ],
+ "refinement_rules_belt_triple_B_group120": [
+  {
+   "corner_inner_ports": [
+    3,
+    8,
+    6
+   ],
+   "corner_copies_parent": false,
+   "central_ports": [
+    2,
+    9,
+    7
+   ],
+   "kind": "strict",
+   "central_is_image_of_parent_under": [
+    {
+     "proper": false,
+     "order": 6,
+     "class": "inversion x C3 (120 deg)"
+    }
+   ]
+  },
+  {
+   "corner_inner_ports": [
+    3,
+    8,
+    6
+   ],
+   "corner_copies_parent": false,
+   "central_ports": [
+    4,
+    1,
+    10
+   ],
+   "kind": "strict",
+   "central_is_image_of_parent_under": [
+    {
+     "proper": true,
+     "order": 1,
+     "class": "identity"
+    }
+   ]
+  },
+  {
+   "corner_inner_ports": [
+    3,
+    8,
+    6
+   ],
+   "corner_copies_parent": false,
+   "central_ports": [
+    9,
+    7,
+    2
+   ],
+   "kind": "strict",
+   "central_is_image_of_parent_under": [
+    {
+     "proper": false,
+     "order": 6,
+     "class": "inversion x C3 (120 deg)"
+    }
+   ]
+  },
+  {
+   "corner_inner_ports": [
+    4,
+    1,
+    10
+   ],
+   "corner_copies_parent": true,
+   "central_ports": [
+    2,
+    9,
+    7
+   ],
+   "kind": "strict",
+   "central_is_image_of_parent_under": [
+    {
+     "proper": false,
+     "order": 6,
+     "class": "inversion x C3 (120 deg)"
+    }
+   ]
+  },
+  {
+   "corner_inner_ports": [
+    4,
+    1,
+    10
+   ],
+   "corner_copies_parent": true,
+   "central_ports": [
+    4,
+    1,
+    10
+   ],
+   "kind": "weak (collapses)",
+   "central_is_image_of_parent_under": [
+    {
+     "proper": true,
+     "order": 1,
+     "class": "identity"
+    }
+   ]
+  },
+  {
+   "corner_inner_ports": [
+    4,
+    1,
+    10
+   ],
+   "corner_copies_parent": true,
+   "central_ports": [
+    9,
+    7,
+    2
+   ],
+   "kind": "strict",
+   "central_is_image_of_parent_under": [
+    {
+     "proper": false,
+     "order": 6,
+     "class": "inversion x C3 (120 deg)"
+    }
+   ]
+  }
+ ],
+ "refinement_rules_belt_triple_B_group60": [
+  {
+   "corner_inner_ports": [
+    4,
+    1,
+    10
+   ],
+   "corner_copies_parent": true,
+   "central_ports": [
+    4,
+    1,
+    10
+   ],
+   "kind": "weak (collapses)",
+   "central_is_image_of_parent_under": [
+    {
+     "proper": true,
+     "order": 1,
+     "class": "identity"
+    }
+   ]
+  }
+ ],
+ "refinement_rules_no_covariance_face_triple_F_group120": {
+  "corner_choices": [
+   2,
+   2,
+   2
+  ],
+  "strict": 92,
+  "weak_only": 64
+ },
+ "refinement_rules_no_covariance_face_triple_F_group60": {
+  "corner_choices": [
+   1,
+   1,
+   1
+  ],
+  "strict": 8,
+  "weak_only": 7
+ },
+ "refinement_rules_no_covariance_belt_triple_B_group120": {
+  "corner_choices": [
+   2,
+   2,
+   2
+  ],
+  "strict": 92,
+  "weak_only": 64
+ },
+ "refinement_rules_no_covariance_belt_triple_B_group60": {
+  "corner_choices": [
+   1,
+   1,
+   1
+  ],
+  "strict": 6,
+  "weak_only": 7
+ }
+}

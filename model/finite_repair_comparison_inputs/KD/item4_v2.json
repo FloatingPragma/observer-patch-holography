@@ -1,0 +1,45 @@
+{
+ "checks": {
+  "R W R W = 1 on a pseudo-random integer vector of the 1440-dimensional public walk": true,
+  "blank embedded eigenvector, kernel eigenvalue 9/10: invariant plane, <Ax, W Ax> = 9/10, W W Ax = 2 lam W Ax - Ax, R Ax = Ax, R W Ax = 2 lam Ax - W Ax; set-record weight after one tick = 1/10 = 1 - lam": true,
+  "same plane structure for the set-record embedded eigenvector (14/15) and the two end points (1 and 5/6)": true,
+  "on the plane (symbolic in lam): W and R are isometries of the Gram form, R^2 = 1, R W R = W^-1, tr W = 2 lam, det W = 1: W is the rotation by omega = arccos(lam) and R a reflection": true,
+  "with chirality R (= Z on the plane) and the walk rotation exp(-i omega Y): (Z x a_1, Z x a_2, Z x a_3, Y x 1) satisfy the sixteen relations, so W prod_i exp(-i k_i R x a_i) is the Dirac symbol with mass angle omega": true
+ },
+ "planes": [
+  {
+   "embedded_record": 0,
+   "adjacency_eigenvalue": -1,
+   "cos_omega": "9/10",
+   "set_record_weight_before": "0",
+   "set_record_weight_after_one_tick": "1/10"
+  },
+  {
+   "embedded_record": 1,
+   "adjacency_eigenvalue": -1,
+   "cos_omega": "14/15",
+   "set_record_weight_before": "1",
+   "set_record_weight_after_one_tick": "14/15"
+  },
+  {
+   "embedded_record": 0,
+   "adjacency_eigenvalue": 5,
+   "cos_omega": "1",
+   "set_record_weight_before": "0",
+   "set_record_weight_after_one_tick": "0"
+  },
+  {
+   "embedded_record": 1,
+   "adjacency_eigenvalue": 5,
+   "cos_omega": "5/6",
+   "set_record_weight_before": "1",
+   "set_record_weight_after_one_tick": "5/6"
+  }
+ ],
+ "relation": "mass angle of branch b = arccos(1 - p_b), p_b = set-record weight after one tick at rest = <x_b|L|x_b>/60",
+ "spectrum_of_W_from_the_public_proof": {
+  "plus_one": 38,
+  "minus_one": 1356,
+  "oscillatory": 46
+ }
+}

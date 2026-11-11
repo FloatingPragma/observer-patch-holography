@@ -1,0 +1,47 @@
+"""Common exact tables for worker R8: the 32 occupation patterns of the five-level code and their operators.
+
+Levels (v1, v2, v3, s1, s2); s2 is the neutral doublet level (T3 = -1/2, Y = +1/2, Q = 0). Convention of CF-1:
+Q6 = 6Y = 3 n2 - 2 n3; even occupation left-handed. All matrices are Gaussian-integer valued; E() is the real
+embedding used for exact int64 arithmetic.
+"""
+import itertools
+import numpy as np
+
+states = list(itertools.product((0, 1), repeat=5))
+idx = {s: i for i, s in enumerate(states)}
+def ann(k):
+    A = np.zeros((32, 32), np.int64)
+    for s in states:
+        if s[k]:
+            t = list(s); t[k] = 0
+            A[idx[tuple(t)], idx[s]] = (-1) ** sum(s[:k])
+    return A
+a = [ann(k) for k in range(5)]; ad = [x.T.copy() for x in a]; num = [ad[k] @ a[k] for k in range(5)]
+I32 = np.eye(32, dtype=np.int64)
+n3op = num[0] + num[1] + num[2]; n2op = num[3] + num[4]
+Pn = np.diag([(-1) ** sum(s) for s in states]).astype(np.int64)      # (-1)^N
+chiR = -Pn                                                           # handedness: +1 right (odd), -1 left (even)
+G0 = a[4] + ad[4]                                                    # toggle of the neutral doublet level
+Q6 = np.array([3 * (s[3] + s[4]) - 2 * (s[0] + s[1] + s[2]) for s in states])
+gens = {}
+for i, j in itertools.combinations(range(3), 2):
+    gens[f'su3_S{i+1}{j+1}'] = (ad[i] @ a[j] + ad[j] @ a[i]).astype(complex)
+    gens[f'su3_A{i+1}{j+1}'] = -1j * (ad[i] @ a[j] - ad[j] @ a[i])
+gens['su3_D12'] = (num[0] - num[1]).astype(complex); gens['su3_D23'] = (num[1] - num[2]).astype(complex)
+gens['su2_T1'] = (ad[3] @ a[4] + ad[4] @ a[3]).astype(complex)
+gens['su2_T2'] = -1j * (ad[3] @ a[4] - ad[4] @ a[3])
+gens['su2_T3'] = (num[3] - num[4]).astype(complex)
+gens['u1_Y'] = (3 * n2op - 2 * n3op).astype(complex)
+
+def E(A):
+    A = np.asarray(A, complex)
+    Ar = np.rint(A.real).astype(np.int64); Ai = np.rint(A.imag).astype(np.int64)
+    assert np.all(Ar == A.real) and np.all(Ai == A.imag)
+    return np.block([[Ar, -Ai], [Ai, Ar]])
+def comm0(A, B):
+    return not np.any(E(A) @ E(B) - E(B) @ E(A))
+def acomm0(A, B):
+    return not np.any(E(A) @ E(B) + E(B) @ E(A))
+sector = lambda s: (s[0] + s[1] + s[2], s[3] + s[4])
+names = {(1, 0): 'd_R', (1, 1): 'Q_L', (1, 2): 'u_R', (3, 0): 'e_R', (3, 1): 'L_L', (3, 2): 'nu_R',
+         (2, 2): 'conj d_R', (2, 1): 'conj Q_L', (2, 0): 'conj u_R', (0, 2): 'conj e_R', (0, 1): 'conj L_L', (0, 0): 'conj nu_R'}

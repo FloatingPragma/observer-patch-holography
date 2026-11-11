@@ -1,0 +1,32 @@
+"""NOT BLIND: round-2 outputs (cut chain of DC2 and the copy counts) against measured values, read only here.
+
+Run:
+    PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python compare_round2.py [out.json]
+Measured values as in compare.py (m_W, m_Z: PDG 2026 file in RER; alpha^-1(0): CODATA 2022; alpha_s(m_Z) = 0.1180 and
+sin^2 theta_W = 0.2312 MS-bar: IMPORTED PDG averages; the chain's sin^2 theta_W carries a scheme mismatch).
+"""
+import json
+import sys
+from pathlib import Path
+
+HERE = Path(__file__).parent
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / 'compare_round2.json'
+RER = Path('WORKSPACE/reverse-engineering-reality')
+ref = json.loads((RER / 'code/particles/data/particle_reference_values.json').read_text())['entries']
+MEAS = dict(m_W_GeV=ref['w_boson']['api_value'], m_Z_GeV=ref['z_boson']['api_value'], alpha_s_mZ=0.1180,
+            sin2_theta_W_mZ=0.2312, alpha0_inv=137.035999177)
+cut = json.loads((HERE / 'cut_chain_censuses.json').read_text())['censuses']
+cop = json.loads((HERE / 'copies.json').read_text())
+rows = {}
+for key, r in list(cut.items()) + [(k, v['cut_chain']) for k, v in cop.items()]:
+    if r.get('status') != 'outputs':
+        rows[key] = dict(status=r.get('status'))
+        continue
+    rows[key] = {k: dict(chain=r[k], measured=m, rel_dev=(r[k] - m) / m) for k, m in MEAS.items()}
+OUT.write_text(json.dumps(dict(label='NOT BLIND', chain='cut chain of DC2 at P_fwd', rows=rows), indent=1) + '\n')
+print('NOT BLIND, cut chain at P_fwd')
+for k, r in rows.items():
+    if 'status' in r:
+        print(f'{k:5s} {r["status"]}')
+    else:
+        print(f'{k:5s} ' + '  '.join(f'{q}={v["chain"]:.5g} ({100 * v["rel_dev"]:+.2f}%)' for q, v in r.items()))

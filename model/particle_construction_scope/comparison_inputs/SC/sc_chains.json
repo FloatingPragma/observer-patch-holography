@@ -1,0 +1,520 @@
+{
+ "inputs": {
+  "P_fwd": 1.6309720958588974,
+  "t_half_SU3": 1.4968428794314015,
+  "matching_shifts_5trace": [
+   -3.455751918948772,
+   -3.957308815966385,
+   -6.093042856629067
+  ],
+  "measured_values_read": "none"
+ },
+ "C1": {
+  "MSSM (declared, reference)": {
+   "at_P_fwd": {
+    "status": "ok",
+    "R": 0.0,
+    "alpha_U": 0.06155627294861437,
+    "inv_alpha_U": 16.245298035421587,
+    "alpha_cut": 0.06155627294861436,
+    "v_over_Estar": 6.47778432511676e-12,
+    "mZ_over_Estar": 2.8726725989707733e-12,
+    "mW_over_mZ_tree": 0.8841316698267175,
+    "sin2w_mZ": 0.2183111904094201,
+    "alpha_em_inv_mZ": 93.60966368139515,
+    "alpha3_mZ": 0.27225102114345145,
+    "alpha2_mZ": 0.04893316617669375,
+    "alpha1_mZ": 0.022776876653620364,
+    "L": 26.33119019287719,
+    "A_T": 101.78568779924646
+   },
+   "fixed_point": {
+    "P_star": 1.6354285264766586,
+    "status": "ok",
+    "R": 0.0,
+    "alpha_U": 0.061483192398946285,
+    "inv_alpha_U": 16.26460762660623,
+    "alpha_cut": 0.061483192398946285,
+    "v_over_Estar": 6.275685778388224e-12,
+    "mZ_over_Estar": 2.78140226226035e-12,
+    "mW_over_mZ_tree": 0.8841310870078251,
+    "sin2w_mZ": 0.21831222098636166,
+    "alpha_em_inv_mZ": 93.72021503664743,
+    "alpha3_mZ": 0.2719145730781971,
+    "alpha2_mZ": 0.04887521441725041,
+    "alpha1_mZ": 0.022750039289084707,
+    "L": 26.362113471657135,
+    "A_T": 101.89715178106573,
+    "last_dP": [
+     3.4860980768769423e-10,
+     1.4883649868124849e-12,
+     6.439293542825908e-15
+    ],
+    "iterations": 6
+   }
+  },
+  "SM": {
+   "at_P_fwd": {
+    "status": "Landau pole between M_U and the Z scale",
+    "alpha_U": 0.06155627294861437,
+    "v_over_Estar": 6.47778432511676e-12
+   }
+  },
+  "B": {
+   "at_P_fwd": {
+    "status": "Landau pole between M_U and the Z scale",
+    "alpha_U": 0.06155627294861437,
+    "v_over_Estar": 6.47778432511676e-12
+   }
+  },
+  "A3H": {
+   "at_P_fwd": {
+    "status": "Landau pole between M_U and the Z scale",
+    "alpha_U": 0.06155627294861437,
+    "v_over_Estar": 6.47778432511676e-12
+   }
+  },
+  "K3(1,3)": {
+   "at_P_fwd": {
+    "status": "ok",
+    "R": 0.0,
+    "alpha_U": 0.06155627294861437,
+    "inv_alpha_U": 16.245298035421587,
+    "alpha_cut": 0.06155627294861436,
+    "v_over_Estar": 6.47778432511676e-12,
+    "mZ_over_Estar": 2.8731334680678443e-12,
+    "mW_over_mZ_tree": 0.8994952936249937,
+    "sin2w_mZ": 0.19090821674648634,
+    "alpha_em_inv_mZ": 103.38768890848112,
+    "alpha3_mZ": 0.27224534402460493,
+    "alpha2_mZ": 0.050664825555799056,
+    "alpha1_mZ": 0.01992425684128423,
+    "L": 26.331029773575644,
+    "A_T": 111.56393486145572
+   },
+   "fixed_point": {
+    "P_star": 1.6339097919191357,
+    "status": "ok",
+    "R": 0.0,
+    "alpha_U": 0.061508075687463575,
+    "inv_alpha_U": 16.258027727630854,
+    "alpha_cut": 0.06150807568746358,
+    "v_over_Estar": 6.343831899542369e-12,
+    "mZ_over_Estar": 2.812622511292327e-12,
+    "mW_over_mZ_tree": 0.8994948922513374,
+    "sin2w_mZ": 0.19090893881375512,
+    "alpha_em_inv_mZ": 103.46814000139543,
+    "alpha3_mZ": 0.27202346623128826,
+    "alpha2_mZ": 0.05062523991602874,
+    "alpha1_mZ": 0.019908782610515208,
+    "L": 26.351415895771083,
+    "A_T": 111.64498778491006,
+    "last_dP": [
+     1.7819168363075732e-10,
+     6.989964163039986e-13,
+     2.6645352591003757e-15
+    ],
+    "iterations": 6
+   }
+  }
+ },
+ "C1m": {
+  "MSSM (declared, reference)": {
+   "at_P_fwd": {
+    "status": "Landau pole between M_U and the Z scale",
+    "alpha_U": 0.06155627294861437,
+    "v_over_Estar": 6.47778432511676e-12
+   }
+  },
+  "SM": {
+   "at_P_fwd": {
+    "status": "Landau pole between M_U and the Z scale",
+    "alpha_U": 0.06155627294861437,
+    "v_over_Estar": 6.47778432511676e-12
+   }
+  },
+  "B": {
+   "at_P_fwd": {
+    "status": "Landau pole between M_U and the Z scale",
+    "alpha_U": 0.06155627294861437,
+    "v_over_Estar": 6.47778432511676e-12
+   }
+  },
+  "A3H": {
+   "at_P_fwd": {
+    "status": "Landau pole between M_U and the Z scale",
+    "alpha_U": 0.06155627294861437,
+    "v_over_Estar": 6.47778432511676e-12
+   }
+  },
+  "K3(1,3)": {
+   "at_P_fwd": {
+    "status": "Landau pole between M_U and the Z scale",
+    "alpha_U": 0.06155627294861437,
+    "v_over_Estar": 6.47778432511676e-12
+   }
+  }
+ },
+ "C2": {
+  "c = 0 (E_cell reference)": {
+   "at_P_fwd": {
+    "status": "ok",
+    "R": 6.283185307179586,
+    "alpha_U": 0.04120035664163266,
+    "inv_alpha_U": 24.271634556422924,
+    "alpha_cut": null,
+    "v_over_Estar": 2.1674775388496668e-17,
+    "mZ_over_Estar": 8.068907413292112e-18,
+    "mW_over_mZ_tree": 0.8766521268349668,
+    "sin2w_mZ": 0.2314810485157291,
+    "alpha_em_inv_mZ": 127.42645382743092,
+    "alpha3_mZ": 0.11633167868804747,
+    "alpha2_mZ": 0.033901972082230294,
+    "alpha1_mZ": 0.01701902086949004,
+    "L": 32.83074017484291,
+    "A_T": 136.12554268479835
+   },
+   "fixed_point": {
+    "P_star": 1.63105412374844,
+    "status": "ok",
+    "R": 6.283185307179586,
+    "alpha_U": 0.04119850438520717,
+    "inv_alpha_U": 24.272725792421298,
+    "alpha_cut": null,
+    "v_over_Estar": 2.163711017395243e-17,
+    "mZ_over_Estar": 8.054695922516374e-18,
+    "mW_over_mZ_tree": 0.8766524581469607,
+    "sin2w_mZ": 0.23148046762489122,
+    "alpha_em_inv_mZ": 127.43268249985037,
+    "alpha3_mZ": 0.11632813910821405,
+    "alpha2_mZ": 0.03390040008837744,
+    "alpha1_mZ": 0.017018176148098894,
+    "L": 32.8324778472083,
+    "A_T": 136.131756783135,
+    "last_dP": [
+     3.1429747693323407e-11,
+     2.275957200481571e-13,
+     1.5543122344752192e-15
+    ],
+    "iterations": 6
+   }
+  },
+  "c = 1/4": {
+   "at_P_fwd": {
+    "status": "ok",
+    "R": 6.160891253458678,
+    "alpha_U": 0.041170783122497834,
+    "inv_alpha_U": 24.289069193185895,
+    "alpha_cut": null,
+    "v_over_Estar": 2.108923870769753e-17,
+    "mZ_over_Estar": 7.843990162814445e-18,
+    "mW_over_mZ_tree": 0.876812504521745,
+    "sin2w_mZ": 0.2311998319143049,
+    "alpha_em_inv_mZ": 127.76050317457025,
+    "alpha3_mZ": 0.11707331425787143,
+    "alpha2_mZ": 0.03385445855820207,
+    "alpha1_mZ": 0.0169683129919522,
+    "L": 32.98130465876222,
+    "A_T": 136.45492336499981
+   },
+   "fixed_point": {
+    "P_star": 1.631022918126861,
+    "status": "ok",
+    "R": 6.160883463399566,
+    "alpha_U": 0.04116963054954774,
+    "inv_alpha_U": 24.28974918287153,
+    "alpha_cut": null,
+    "v_over_Estar": 2.1066396564746696e-17,
+    "mZ_over_Estar": 7.835379099939771e-18,
+    "mW_over_mZ_tree": 0.8768127153555761,
+    "sin2w_mZ": 0.2311994621907814,
+    "alpha_em_inv_mZ": 127.76439938078369,
+    "alpha3_mZ": 0.11707113139248307,
+    "alpha2_mZ": 0.033853480295151436,
+    "alpha1_mZ": 0.016967787379174783,
+    "L": 32.98239526285355,
+    "A_T": 136.45881038114663,
+    "last_dP": [
+     1.9752643964920935e-11,
+     1.438849039914203e-13,
+     1.1102230246251565e-15
+    ],
+    "iterations": 6
+   }
+  },
+  "c = 1/2 (E* reference)": {
+   "at_P_fwd": {
+    "status": "ok",
+    "R": 6.0385971997377705,
+    "alpha_U": 0.041142448972804016,
+    "inv_alpha_U": 24.30579668850097,
+    "alpha_cut": null,
+    "v_over_Estar": 2.0542325338278345e-17,
+    "mZ_over_Estar": 7.633948625575112e-18,
+    "mW_over_mZ_tree": 0.8769718107394678,
+    "sin2w_mZ": 0.23092044316833898,
+    "alpha_em_inv_mZ": 128.09051248875977,
+    "alpha3_mZ": 0.11782680673182323,
+    "alpha2_mZ": 0.03380809144796155,
+    "alpha1_mZ": 0.016918447925814595,
+    "L": 33.1307411420991,
+    "A_T": 136.78023194134386
+   },
+   "fixed_point": {
+    "P_star": 1.6309922478963537,
+    "status": "ok",
+    "R": 6.0385910218537315,
+    "alpha_U": 0.04114199002825057,
+    "inv_alpha_U": 24.306067823003694,
+    "alpha_cut": null,
+    "v_over_Estar": 2.0533451431011757e-17,
+    "mZ_over_Estar": 7.630606190360105e-18,
+    "mW_over_mZ_tree": 0.8769718965004949,
+    "sin2w_mZ": 0.23092029274832523,
+    "alpha_em_inv_mZ": 128.0920719068044,
+    "alpha3_mZ": 0.11782594547809332,
+    "alpha2_mZ": 0.0338077018837235,
+    "alpha1_mZ": 0.016918238648361582,
+    "L": 33.131179076294856,
+    "A_T": 136.78178765161528,
+    "last_dP": [
+     7.940981205933895e-12,
+     5.81756864903582e-14,
+     4.440892098500626e-16
+    ],
+    "iterations": 6
+   }
+  },
+  "c = 2/3 (declared)": {
+   "at_P_fwd": {
+    "status": "ok",
+    "R": 5.957067830590499,
+    "alpha_U": 0.04112424744181668,
+    "inv_alpha_U": 24.316554398103403,
+    "alpha_cut": null,
+    "v_over_Estar": 2.019811407857628e-17,
+    "mZ_over_Estar": 7.501767358163773e-18,
+    "mW_over_mZ_tree": 0.8770774310679135,
+    "sin2w_mZ": 0.23073517991130943,
+    "alpha_em_inv_mZ": 128.3082680579876,
+    "alpha3_mZ": 0.11833586195777325,
+    "alpha2_mZ": 0.0337778141092008,
+    "alpha1_mZ": 0.016885667570669727,
+    "L": 33.22973709532364,
+    "A_T": 136.99483517741294
+   },
+   "fixed_point": {
+    "P_star": 1.6309720958588974,
+    "status": "ok",
+    "R": 5.957067830590499,
+    "alpha_U": 0.04112424744181668,
+    "inv_alpha_U": 24.316554398103403,
+    "alpha_cut": null,
+    "v_over_Estar": 2.019811407857628e-17,
+    "mZ_over_Estar": 7.501767358163773e-18,
+    "mW_over_mZ_tree": 0.8770774310679135,
+    "sin2w_mZ": 0.23073517991130943,
+    "alpha_em_inv_mZ": 128.3082680579876,
+    "alpha3_mZ": 0.11833586195777325,
+    "alpha2_mZ": 0.0337778141092008,
+    "alpha1_mZ": 0.016885667570669727,
+    "L": 33.22973709532364,
+    "A_T": 136.99483517741294,
+    "last_dP": [
+     0.0
+    ],
+    "iterations": 1
+   }
+  },
+  "c = 1 (mirror about exp(-pi) E*)": {
+   "at_P_fwd": {
+    "status": "ok",
+    "R": 5.794009092295955,
+    "alpha_U": 0.04108949310287048,
+    "inv_alpha_U": 24.337121840282347,
+    "alpha_cut": null,
+    "v_over_Estar": 1.9555996680550024e-17,
+    "mZ_over_Estar": 7.25519234618886e-18,
+    "mW_over_mZ_tree": 0.8772873010802541,
+    "sin2w_mZ": 0.23036699136332345,
+    "alpha_em_inv_mZ": 128.73836369208027,
+    "alpha3_mZ": 0.11937050474107729,
+    "alpha2_mZ": 0.03371877317258661,
+    "alpha1_mZ": 0.01682120404804096,
+    "L": 33.42621707594583,
+    "A_T": 137.41857980161907
+   },
+   "fixed_point": {
+    "P_star": 1.6309324920238983,
+    "status": "ok",
+    "R": 5.794033374940609,
+    "alpha_U": 0.04109040236488132,
+    "inv_alpha_U": 24.33658330040274,
+    "alpha_cut": null,
+    "v_over_Estar": 1.9572784448480496e-17,
+    "mZ_over_Estar": 7.261505114281905e-18,
+    "mW_over_mZ_tree": 0.8772871242938861,
+    "sin2w_mZ": 0.2303673015481636,
+    "alpha_em_inv_mZ": 128.73524334482212,
+    "alpha3_mZ": 0.11937217876939542,
+    "alpha2_mZ": 0.033719545061826624,
+    "alpha1_mZ": 0.016821618548151337,
+    "L": 33.425335209466226,
+    "A_T": 137.41546699281386,
+    "last_dP": [
+     1.6020296200736084e-11,
+     1.1812772982011666e-13,
+     8.881784197001252e-16
+    ],
+    "iterations": 6
+   }
+  }
+ },
+ "C3a_B10_selfSU2": {
+  "MSSM (declared, reference)": {
+   "at_P_fwd": {
+    "status": "Landau pole between M_U and the Z scale",
+    "alpha_U": 0.06155627294861437,
+    "v_over_Estar": 1.3101159505470545e-15
+   }
+  },
+  "SM": {
+   "at_P_fwd": {
+    "status": "Landau pole between M_U and the Z scale",
+    "alpha_U": 0.06155627294861437,
+    "v_over_Estar": 5.108329710468338e-07
+   }
+  },
+  "B": {
+   "at_P_fwd": {
+    "status": "Landau pole between M_U and the Z scale",
+    "alpha_U": 0.06155627294861437,
+    "v_over_Estar": 2.0601207186273045e-09
+   }
+  },
+  "A3H": {
+   "at_P_fwd": {
+    "status": "Landau pole between M_U and the Z scale",
+    "alpha_U": 0.06155627294861437,
+    "v_over_Estar": 2.5500419196519473e-07
+   }
+  },
+  "K3(1,3)": {
+   "at_P_fwd": {
+    "status": "ok",
+    "R": 0.0,
+    "alpha_U": 0.06155627294861437,
+    "inv_alpha_U": 16.245298035421587,
+    "alpha_cut": 0.06155627294861436,
+    "v_over_Estar": 7.852691274450293e-15,
+    "mZ_over_Estar": 3.370922476866327e-15,
+    "mW_over_mZ_tree": 0.9090094113920708,
+    "sin2w_mZ": 0.17370189000064098,
+    "alpha_em_inv_mZ": 118.78130350777964,
+    "alpha3_mZ": 2.2161250948008284,
+    "alpha2_mZ": 0.048467137321466965,
+    "alpha1_mZ": 0.01698102507593768,
+    "L": 33.079001848554554,
+    "A_T": 117.54878662718981
+   },
+   "fixed_point": {
+    "P_star": 1.6331027735473325,
+    "status": "ok",
+    "R": 0.0,
+    "alpha_U": 0.06152130742420906,
+    "inv_alpha_U": 16.25453102133673,
+    "alpha_cut": 0.06152130742420907,
+    "v_over_Estar": 7.70511033066537e-15,
+    "mZ_over_Estar": 3.3066338965355035e-15,
+    "mW_over_mZ_tree": 0.9090091704963263,
+    "sin2w_mZ": 0.17370232795358073,
+    "alpha_em_inv_mZ": 118.84836224185578,
+    "alpha3_mZ": 2.2144039169648058,
+    "alpha2_mZ": 0.04843966820183468,
+    "alpha1_mZ": 0.016971452735508135,
+    "L": 33.09760479893708,
+    "A_T": 117.62420624700344,
+    "last_dP": [
+     1.996469656262434e-10,
+     9.052758542793526e-13,
+     4.218847493575595e-15
+    ],
+    "iterations": 6
+   }
+  }
+ },
+ "C3b_B9_beta_8_3_target_informed": {
+  "MSSM (declared, reference)": {
+   "at_P_fwd": {
+    "status": "Landau pole between M_U and the Z scale",
+    "alpha_U": 0.06155627294861437,
+    "v_over_Estar": 1.863165179495004e-17
+   }
+  },
+  "SM": {
+   "at_P_fwd": {
+    "status": "Landau pole between M_U and the Z scale",
+    "alpha_U": 0.06155627294861437,
+    "v_over_Estar": 1.863165179495004e-17
+   }
+  },
+  "B": {
+   "at_P_fwd": {
+    "status": "Landau pole between M_U and the Z scale",
+    "alpha_U": 0.06155627294861437,
+    "v_over_Estar": 1.863165179495004e-17
+   }
+  },
+  "A3H": {
+   "at_P_fwd": {
+    "status": "Landau pole between M_U and the Z scale",
+    "alpha_U": 0.06155627294861437,
+    "v_over_Estar": 1.863165179495004e-17
+   }
+  },
+  "K3(1,3)": {
+   "at_P_fwd": {
+    "status": "Landau pole between M_U and the Z scale",
+    "alpha_U": 0.06155627294861437,
+    "v_over_Estar": 1.863165179495004e-17
+   }
+  }
+ },
+ "C3c_B12_posthoc_target_informed": {
+  "MSSM (declared, reference)": {
+   "at_P_fwd": {
+    "status": "Landau pole between M_U and the Z scale",
+    "alpha_U": 0.06155627294861437,
+    "v_over_Estar": 2.0194805513345218e-17
+   }
+  },
+  "SM": {
+   "at_P_fwd": {
+    "status": "Landau pole between M_U and the Z scale",
+    "alpha_U": 0.06155627294861437,
+    "v_over_Estar": 2.0194805513345218e-17
+   }
+  },
+  "B": {
+   "at_P_fwd": {
+    "status": "Landau pole between M_U and the Z scale",
+    "alpha_U": 0.06155627294861437,
+    "v_over_Estar": 2.0194805513345218e-17
+   }
+  },
+  "A3H": {
+   "at_P_fwd": {
+    "status": "Landau pole between M_U and the Z scale",
+    "alpha_U": 0.06155627294861437,
+    "v_over_Estar": 2.0194805513345218e-17
+   }
+  },
+  "K3(1,3)": {
+   "at_P_fwd": {
+    "status": "Landau pole between M_U and the Z scale",
+    "alpha_U": 0.06155627294861437,
+    "v_over_Estar": 2.0194805513345218e-17
+   }
+  }
+ }
+}

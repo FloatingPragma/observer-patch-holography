@@ -1,0 +1,265 @@
+{
+ "rest_block": {
+  "basis": [
+   "nu_L = 11110",
+   "N = 11111",
+   "N^c = 00000",
+   "nu_L^c = 00001"
+  ],
+  "characteristic_polynomial_of_M_M_M_D": "(lam^2 - 2 cos(th_l) lam + 1)(lam^2 - 2 cos(th_h) lam + 1)",
+  "cos_th_l_plus_cos_th_h": "cos(theta_D) (1 + cos(theta_M))",
+  "cos_th_l_times_cos_th_h": "cos^2(theta_D) cos(theta_M) - (1 - cos(theta_M)) sin^2(theta_D) / 2",
+  "closed_form": "th_h = A + theta_M/2, th_l = A - theta_M/2, A = arccos(cos(theta_D) cos(theta_M/2))",
+  "sum_rule": "th_h - th_l = theta_M",
+  "product_rule": "sin(th_l) sin(th_h) = sin^2(theta_D) cos^2(theta_M/2)",
+  "product_rule_half_angles": "tan(th_l/2) tan(th_h/2) = tan^2(theta_D/2)",
+  "order_of_the_two_steps": "M_M M_D, M_D M_M and the palindromic M_D^(1/2) M_M M_D^(1/2) are conjugate: same rest phases",
+  "palindromic_step": "G M G = M^-1 with G the handedness: M = exp(-i K), K handedness-odd",
+  "identities_checked": "characteristic polynomial (five coefficients), root form, product rule, G M G = M^-1, unitarity: polynomial identities modulo the three circle relations"
+ },
+ "single_exponential_variant": {
+  "step": "exp(-i (theta_D H_D + theta_M H_M))",
+  "rest_phases": "sqrt(theta_D^2 + theta_M^2/4) +- theta_M/2; product theta_l theta_h = theta_D^2 exactly",
+  "with_doublet_angle_theta_T": "theta_l theta_h = |theta_D^2 - theta_T theta_M|, theta_l^2 + theta_h^2 = 2 theta_D^2 + theta_M^2 + theta_T^2",
+  "majorana_matrix": "[[theta_T, theta_D], [theta_D, theta_M]] on the left-handed fields (nu_L, N^c); rest phases = its Takagi values"
+ },
+ "light_phase": {
+  "exact": "th_l = arccos(cos(theta_D) cos(theta_M/2)) - theta_M/2",
+  "series": "th_l = (theta_D^2/2) cot(theta_M/2) - (theta_D^4/24) cot(theta_M/2) (1 + 3 cot^2(theta_M/2)) + O(theta_D^6)",
+  "bound": "0 <= th_l <= (theta_D^2/2) cot(theta_M/2) for 0 <= theta_D <= pi, 0 < theta_M < pi (d th_l/d theta_D = sin(theta_D) cos(a)/sqrt(1 - cos^2(theta_D) cos^2(a)) <= theta_D cot(a), a = theta_M/2)",
+  "admixture_of_the_singlet_in_the_light_left_state": "amplitude ratio N^c : nu_L = tan(th_l/2)/tan(theta_D/2) = sqrt(tan(th_l/2)/tan(th_h/2)) (left block of the palindromic step; checked to 30 digits at 20 points); (theta_D/2) cot(theta_M/2) to leading order"
+ },
+ "period": {
+  "tick": "U_t = M S_t, M = M_D^(1/2) M_M M_D^(1/2), S_t the alternating routing of CF-1 section 8",
+  "identity": "(U2 + U2^-1)/2 = ((Pi - 1)/2) 1 + ((Pi + 1)/2) cos(2 Theta), Pi = prod_i cos(2 p_i), cos(2 Theta) = (M^2 + M^-2)/2 with the two eigenvalues cos(2 th_l), cos(2 th_h), each four times, commuting with the routing",
+  "phases": "cos(E2_j) = cos^2(th_j) Pi - sin^2(th_j), j = light, heavy; each sign twice (two helicities)",
+  "argument": "M = exp(-i K) with K handedness-odd; singular value decomposition of its block gives a rotation of the species label that depends on the handedness only; the routing is diagonal in handedness and blind to the label, so the rotation commutes with it and the tick is the direct sum of two CF-1 ticks with mass angles th_l and th_h (reports R1, R3 apply to each)",
+  "rational_points_checked": 40,
+  "plain_order_M_M_M_D_S_violates_the_identity_at": "40 of 40 points",
+  "conjugation": "C = (Y_r sigma_2 tau_x) K: C H C^-1 = -H for the three generators and C alpha_i C^-1 = alpha_i: the block is the doubled (particle and hole) form of two Weyl fields"
+ },
+ "occupations_of_one_cell": {
+  "modes": [
+   "nu_L up",
+   "nu_L down",
+   "N up",
+   "N down"
+  ],
+  "Dirac_step": "exp(-i theta_D sum_s (c*_(nu_L s) c_(N s) + h.c.))",
+  "pairing_step": "exp(-i theta_M (c_(N up) c_(N down) + h.c.)): a rotation by theta_M between the empty cell and the cell holding the spin-singlet pair of neutral singlets",
+  "bogoliubov_identity": "U^-1 c_m U = sum_n M[m, n] c_n with the 4 x 4 one-body step M = M_M M_D and the dictionary c_(N^c up) = -c*_(N down), c_(N^c down) = c*_(N up), c_(nu_L^c up) = c*_(nu_L down), c_(nu_L^c down) = -c*_(nu_L up): eight operator identities on the 16 states, symbolic in the two angles",
+  "normalisation": "the rest phase of N under the pairing step alone is theta_M",
+  "empty_state": "<empty| pairing step |empty> = cos(theta_M) per cell: the empty state is not stationary under a pairing step; with all 32 patterns as independent modes the link 11111 <-> 00000 is number conserving and fixes it"
+ },
+ "audit_form": {
+  "fields": "two left Weyl fields (nu_L, N^c) of the sixteen even patterns",
+  "pair_matrix": "Delta = epsilon x [[0, m_D], [m_D, M]], m_D = v y_nu (fourth Higgs channel), M the bare term",
+  "identity": "B(p)^2 = (|p|^2 + M_nu^2) on every Nambu row; E^2 = |p|^2 + m^2, m = (sqrt(M^2 + 4 m_D^2) +- M)/2",
+  "reading": "the continuum form of the product rule; the audit's massless neutral row is the case without the sixteenth state"
+ },
+ "tower_table": {
+  "law": "th_l = k theta_D^2 (1 - (theta_D^2/12)(1 + 12 k^2) + ...), k = (1/2) cot(theta_M/2) = (1/2) sqrt((1 + lambda)/(1 - lambda)) for theta_M = arccos(lambda)",
+  "theta_D_values": [
+   "1e-6",
+   "1e-5",
+   "1e-4",
+   "1e-3",
+   "1e-2",
+   "0.042383",
+   "0.087847",
+   "0.157935"
+  ],
+  "rows": [
+   {
+    "sector": "slow triplet (either record)",
+    "kernel_eigenvalue": "sqrt(5)/60 + 11/12",
+    "theta_M": "0.30470843737",
+    "coefficient_k_exact": "sqrt(5 - sqrt(5))*(sqrt(5) + 5)*sqrt(sqrt(5) + 115)/40",
+    "coefficient_k": "3.25639401275",
+    "k_times_theta_M (1 in the continuum seesaw)": "0.99225073",
+    "light_phase": {
+     "1e-6": "3.256394013e-12",
+     "1e-5": "3.256394009e-10",
+     "1e-4": "3.256393665e-8",
+     "1e-3": "3.256359211e-6",
+     "1e-2": "0.0003252921182",
+     "0.042383": "0.005741337313",
+     "0.087847": "0.02334174287",
+     "0.157935": "0.06664728429"
+    },
+    "heavy_phase": {
+     "1e-6": "0.304708437374",
+     "1e-5": "0.304708437696",
+     "1e-4": "0.304708469934",
+     "1e-3": "0.304711693729",
+     "1e-2": "0.305033729488",
+     "0.042383": "0.310449774683",
+     "0.087847": "0.328050180244",
+     "0.157935": "0.371355721665"
+    },
+    "light_over_theta_D": {
+     "1e-6": "3.256394e-6",
+     "1e-5": "3.256394e-5",
+     "1e-4": "0.00032563937",
+     "1e-3": "0.0032563592",
+     "1e-2": "0.032529212",
+     "0.042383": "0.13546321",
+     "0.087847": "0.26570905",
+     "0.157935": "0.42199186"
+    }
+   },
+   {
+    "sector": "quintet, recorded",
+    "kernel_eigenvalue": "14/15",
+    "theta_M": "0.367208020558",
+    "coefficient_k_exact": "sqrt(29)/2",
+    "coefficient_k": "2.69258240357",
+    "k_times_theta_M (1 in the continuum seesaw)": "0.98873785",
+    "light_phase": {
+     "1e-6": "2.692582404e-12",
+     "1e-5": "2.692582402e-10",
+     "1e-4": "2.692582206e-8",
+     "1e-3": "2.692562658e-6",
+     "1e-2": "0.0002690610734",
+     "0.042383": "0.004774646886",
+     "0.087847": "0.01971980189",
+     "0.157935": "0.05800003716"
+    },
+    "heavy_phase": {
+     "1e-6": "0.367208020561",
+     "1e-5": "0.367208020827",
+     "1e-4": "0.367208047484",
+     "1e-3": "0.36721071312",
+     "1e-2": "0.367477081631",
+     "0.042383": "0.371982667444",
+     "0.087847": "0.386927822443",
+     "0.157935": "0.425208057719"
+    },
+    "light_over_theta_D": {
+     "1e-6": "2.6925824e-6",
+     "1e-5": "2.6925824e-5",
+     "1e-4": "0.00026925822",
+     "1e-3": "0.0026925627",
+     "1e-2": "0.026906107",
+     "0.042383": "0.11265476",
+     "0.087847": "0.22447895",
+     "0.157935": "0.36723992"
+    }
+   },
+   {
+    "sector": "quintet, blank",
+    "kernel_eigenvalue": "9/10",
+    "theta_M": "0.451026811796",
+    "coefficient_k_exact": "sqrt(19)/2",
+    "coefficient_k": "2.17944947177",
+    "k_times_theta_M (1 in the continuum seesaw)": "0.98299015",
+    "light_phase": {
+     "1e-6": "2.179449472e-12",
+     "1e-5": "2.179449471e-10",
+     "1e-4": "2.179449366e-8",
+     "1e-3": "2.179438938e-6",
+     "1e-2": "0.0002178397088",
+     "0.042383": "0.003881572687",
+     "0.087847": "0.01623451715",
+     "0.157935": "0.04903126793"
+    },
+    "heavy_phase": {
+     "1e-6": "0.451026811798",
+     "1e-5": "0.451026812014",
+     "1e-4": "0.451026833591",
+     "1e-3": "0.451028991235",
+     "1e-2": "0.451244651505",
+     "0.042383": "0.454908384483",
+     "0.087847": "0.467261328944",
+     "0.157935": "0.500058079726"
+    },
+    "light_over_theta_D": {
+     "1e-6": "2.1794495e-6",
+     "1e-5": "2.1794495e-5",
+     "1e-4": "0.00021794494",
+     "1e-3": "0.0021794389",
+     "1e-2": "0.021783971",
+     "0.042383": "0.091583245",
+     "0.087847": "0.18480446",
+     "0.157935": "0.3104522"
+    }
+   },
+   {
+    "sector": "fast triplet (either record)",
+    "kernel_eigenvalue": "11/12 - sqrt(5)/60",
+    "theta_M": "0.496198259502",
+    "coefficient_k_exact": "(5 - sqrt(5))*sqrt(115 - sqrt(5))*sqrt(sqrt(5) + 5)/40",
+    "coefficient_k": "1.97380293691",
+    "k_times_theta_M (1 in the continuum seesaw)": "0.97939758",
+    "light_phase": {
+     "1e-6": "1.973802937e-12",
+     "1e-5": "1.973802936e-10",
+     "1e-4": "1.973802858e-8",
+     "1e-3": "1.973795083e-6",
+     "1e-2": "0.0001973018139",
+     "0.042383": "0.00352059126",
+     "0.087847": "0.01479096557",
+     "0.157935": "0.04512758095"
+    },
+    "heavy_phase": {
+     "1e-6": "0.496198259504",
+     "1e-5": "0.496198259699",
+     "1e-4": "0.49619827924",
+     "1e-3": "0.496200233297",
+     "1e-2": "0.496395561316",
+     "0.042383": "0.499718850762",
+     "0.087847": "0.510989225074",
+     "0.157935": "0.541325840455"
+    },
+    "light_over_theta_D": {
+     "1e-6": "1.9738029e-6",
+     "1e-5": "1.9738029e-5",
+     "1e-4": "0.00019738029",
+     "1e-3": "0.0019737951",
+     "1e-2": "0.019730181",
+     "0.042383": "0.083066118",
+     "0.087847": "0.16837189",
+     "0.157935": "0.28573515"
+    }
+   },
+   {
+    "sector": "uniform load, recorded",
+    "kernel_eigenvalue": "5/6",
+    "theta_M": "0.585685543457",
+    "coefficient_k_exact": "sqrt(11)/2",
+    "coefficient_k": "1.65831239518",
+    "k_times_theta_M (1 in the continuum seesaw)": "0.9712496",
+    "light_phase": {
+     "1e-6": "1.658312395e-12",
+     "1e-5": "1.658312395e-10",
+     "1e-4": "1.658312348e-8",
+     "1e-3": "1.658307697e-6",
+     "1e-2": "0.0001657842806",
+     "0.042383": "0.002963848731",
+     "0.087847": "0.01252913772",
+     "0.157935": "0.03879264549"
+    },
+    "heavy_phase": {
+     "1e-6": "0.585685543459",
+     "1e-5": "0.585685543623",
+     "1e-4": "0.58568556004",
+     "1e-3": "0.585687201765",
+     "1e-2": "0.585851327738",
+     "0.042383": "0.588649392188",
+     "0.087847": "0.598214681178",
+     "0.157935": "0.624478188945"
+    },
+    "light_over_theta_D": {
+     "1e-6": "1.6583124e-6",
+     "1e-5": "1.6583124e-5",
+     "1e-4": "0.00016583123",
+     "1e-3": "0.0016583077",
+     "1e-2": "0.016578428",
+     "0.042383": "0.069930131",
+     "0.087847": "0.14262454",
+     "0.157935": "0.24562412"
+    }
+   }
+  ]
+ }
+}

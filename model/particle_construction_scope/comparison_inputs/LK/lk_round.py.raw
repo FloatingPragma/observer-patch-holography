@@ -1,0 +1,263 @@
+"""Worker LK, task 1: the weak round of CK2 built from the public operations (statements R1 to R5, R7 of CANDIDATES.md).
+
+Run from RL/work/LK:
+  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B lk_round.py
+EXACT (Fractions) for every structural quantity; complex floats for the executed rounds; mpmath for the phases.
+Writes lk_round.json.
+"""
+from __future__ import annotations
+
+import cmath
+import json
+import os
+import random
+import sys
+import time
+from fractions import Fraction as Fr
+
+import mpmath as mp
+
+import lk_common as L
+
+mp.mp.dps = 40
+HERE = os.path.dirname(os.path.abspath(__file__))
+T0 = time.time()
+OUT = {'provenance': L.provenance()}
+S = L.S_raw()
+NS = L.NS
+
+
+def fs(x):
+    return str(x)
+
+
+# ------------------------------------------------------------------ R1: agreement with FR's model (read only)
+sys.path.insert(0, os.path.join(HERE, '..', 'FR'))
+import fr_common as FC  # noqa: E402,F401
+import fr9_hexagon as X  # noqa: E402
+
+
+def fr_step(st):
+    poly = {k: {0: c} for k, c in st.items()}
+    out = X.Qstep(X.Rstep(poly), 'FN')
+    return {k: p[0] for k, p in out.items() if p.get(0)}
+
+
+def fr_inverse(st):
+    poly = {k: {0: c} for k, c in st.items()}
+    out = X.Rstep(X.Qstep(poly, 'FN'))
+    return {k: p[0] for k, p in out.items() if p.get(0)}
+
+
+rng = random.Random(20261111)
+agree_step = agree_inv = True
+for trial in range(50):
+    st = {}
+    for _ in range(30):
+        key = (rng.choice(L.CFG), rng.randrange(4), rng.randrange(12))
+        st[key] = Fr(rng.randint(-5, 5), rng.randint(1, 4))
+    st = {k: c for k, c in st.items() if c}
+    agree_step &= L.step(st) == fr_step(st)
+    agree_inv &= L.inverse_step(st) == fr_inverse(st)
+OUT['R1 own implementation against FR (50 random rational states)'] = {
+    'tick equal': agree_step, 'inverse tick equal': agree_inv, 'tick of S equal': L.step(S) == fr_step(S),
+    'hexagon ports under gE': {str(p): L.G_E[p] for p in L.H},
+    'gE maps the hexagon to itself': all(L.G_E[p] in L.H for p in L.H),
+}
+
+# ------------------------------------------------------------------ R2: tick-1 weights, zero return, non-return norms
+w = L.step(S)
+OUT['R2 W^-1 W S = S'] = L.inverse_step(w) == S
+wt = {}
+for key, c in w.items():
+    wt[L.flag(key)] = wt.get(L.flag(key), Fr(0)) + c * c / NS
+pF, pI, pB = wt['F'], wt['I'], wt['B']
+P = pF + pI - 2 * pF * pI
+Fv = L.inverse_step(L.restrict(w, lambda k: L.flag(k) == 'F'))
+Iv = L.inverse_step(L.restrict(w, lambda k: L.flag(k) == 'I'))
+sF, sI = L.dot(S, Fv) / NS, L.dot(S, Iv) / NS
+nA = L.axpy(Fv, S, -sF)
+nB = L.axpy(Iv, S, -sI)
+OUT['R2 one tick from S'] = {
+    'weights': {k: fs(v) for k, v in sorted(wt.items())}, 'p_F': fs(pF), 'p_I': fs(pI), 'p_B': fs(pB), 'P = <Qx>': fs(P),
+    '<S|W^-1 Pi_F W|S>': fs(sF), '<S|W^-1 Pi_I W|S>': fs(sI),
+    'non-return norm squared, object A': fs(L.norm2(nA) / NS), 'p_F (1 - p_F)': fs(pF * (1 - pF)),
+    'non-return norm squared, object B': fs(L.norm2(nB) / NS), 'p_I (1 - p_I)': fs(pI * (1 - pI)),
+}
+
+# pair, exact: |Psi(z)> = |SS> + (z - 1) |X>,  |X> = (W^-1 x W^-1) Qx (W x W) |SS>,  z = exp(-i h j)
+SS = L.tensor(S, S)
+WW = L.tensor(w, w)
+X0 = {k: c for k, c in WW.items() if L.qx_value(*k)}
+Xv = L.on_both(X0, L.inverse_step)
+NSS = NS * NS
+PX = L.dot(SS, Xv) / NSS
+nXX = L.norm2(Xv) / NSS
+OUT['R2 pair'] = {
+    '<SS|X>': fs(PX), '<X|X>': fs(nXX), 'zero-return amplitude': f'1 - P + P z, z = exp(-i h j), P = {PX}',
+    'non-return weight per round': f'|z - 1|^2 ({nXX - PX * PX}) = 4 sin^2(h j/2) * {nXX - PX * PX}',
+    'P (1 - P)': fs(P * (1 - P)),
+}
+rows = []
+Pm = mp.mpf(P.numerator) / P.denominator
+for N in (1, 2, 6, 10, 100, 1000, 10 ** 4, 10 ** 6):
+    z = (1 - Pm * (1 - mp.exp(-1j / mp.mpf(N)))) ** N
+    rows.append({'N': N, 'phase per unit clock time (j = +1)': mp.nstr(-mp.arg(z), 15),
+                 'amplitude kept': mp.nstr(abs(z), 12),
+                 'expected resets per unit clock time': mp.nstr(N * 4 * mp.sin(1 / (2 * mp.mpf(N))) ** 2 * Pm * (1 - Pm), 8)})
+OUT['R2 N rounds (formula from the exact P)'] = rows
+
+
+# executed round, complex floats: every operation applied in sequence to the pair state
+def cstate(st, norm):
+    return {k: complex(c) / norm for k, c in st.items()}
+
+
+SSc = L.tensor(cstate(S, float(NS) ** 0.5), cstate(S, float(NS) ** 0.5))
+
+
+def kick(pair, phase):
+    return {k: (c * phase if L.qx_value(*k) else c) for k, c in pair.items()}
+
+
+def return_test(pair, with_sym=True):
+    op = L.return_yes if with_sym else (lambda st: L.t_addr(L.t_blk(st)))
+    yes = L.on_both(pair, op)
+    no = L.axpy(pair, yes, -1)
+    return yes, no
+
+
+def run_rounds(N, j, t=1.0, with_sym=True):
+    """N rounds of: tick, kick, inverse tick, return test. Returns the zero-return amplitude on S x S after N rounds,
+    the summed probability of the outcome 'no', and the last pair state of the yes branch."""
+    h = t / N
+    pair = dict(SSc)
+    p_no = 0.0
+    for _ in range(N):
+        pair = L.on_both(pair, L.step)
+        pair = kick(pair, cmath.exp(-1j * h * j))
+        pair = L.on_both(pair, L.inverse_step)
+        pair, no = return_test(pair, with_sym)
+        p_no += L.norm2(no)
+    return L.dot(SSc, pair), p_no, pair
+
+
+ex = []
+for N in (1, 10):
+    for j in (1, -1, 0):
+        amp, p_no, _ = run_rounds(N, j)
+        formula = complex((1 - Pm * (1 - mp.exp(-1j * j / mp.mpf(N)))) ** N)
+        ex.append({'N': N, 'j': j, 'executed amplitude': [amp.real, amp.imag],
+                   'formula (1 - P + P exp(-i j/N))^N': [formula.real, formula.imag],
+                   'difference': abs(amp - formula), 'phase per unit clock time': -cmath.phase(amp) * (1 if j >= 0 else -1),
+                   'probability of at least one no (sum over rounds of the no weight)': p_no})
+OUT['R2 executed rounds (floats)'] = ex
+
+# ------------------------------------------------------------------ echo identity (statement K6, pair side)
+def z_flag(name):
+    return lambda st: {k: (-c if L.flag(k) == name else c) for k, c in st.items()}
+
+
+ZZ = L.on_b(L.on_a(WW, z_flag('F')), z_flag('I'))
+Yv = L.on_both(ZZ, L.inverse_step)
+OUT['K6 pair identity (W^-1 x W^-1)(Z_F x Z_I)(W x W)|SS> = |SS> - 2|X>'] = Yv == L.axpy(SS, Xv, -2)
+
+# ------------------------------------------------------------------ R3 and R7: the return test
+Sm = {(L.DBL2, 0, k): Fr(1) for k in range(12)}
+Sm.update({(L.DBL10, 0, k): Fr(-1) for k in range(12)})
+ok_proj = ok_comm = ok_addr = True
+orders = [(L.t_blk, L.t_addr, L.t_sym), (L.t_blk, L.t_sym, L.t_addr), (L.t_addr, L.t_blk, L.t_sym),
+          (L.t_addr, L.t_sym, L.t_blk), (L.t_sym, L.t_blk, L.t_addr), (L.t_sym, L.t_addr, L.t_blk)]
+for trial in range(20):
+    st = {}
+    for _ in range(60):
+        cfg = rng.choice([L.DBL2, L.DBL10, L.DBL2, L.DBL10, rng.choice(L.CFG)])
+        key = (cfg, rng.choice([0, 0, 0, 1, 2, 3]), rng.randrange(12))
+        st[key] = Fr(rng.randint(-5, 5), rng.randint(1, 4))
+    st = {k: c for k, c in st.items() if c}
+    target = L.scale(S, L.dot(S, st) / NS)
+    res = [f3(f2(f1(st))) for f1, f2, f3 in orders]
+    ok_proj &= res[0] == target
+    ok_comm &= all(r == res[0] for r in res)
+    ok_addr &= L.t_addr(st) == L.scale(L.axpy(st, L.reflect(st)), Fr(1, 2))
+OUT['R3 return test'] = {
+    'T_blk T_addr T_sym = |S><S| (20 random rational states)': ok_proj, 'all six orders agree': ok_comm,
+    'X_E S = S': L.x_e(S) == S, 'X_E S^- = -S^-': L.x_e(Sm) == L.scale(Sm, -1),
+}
+OUT['R7 filter form'] = {
+    'T_addr = (1 + R)/2 with the address reflection R (20 random states)': ok_addr,
+    'T_sym = (1 + X_E)/2': 'by construction of t_sym; X_E is an involution: ' + str(L.x_e(L.x_e(st)) == st),
+    'statement': 'for an involution U the filter with alpha = 1 (controlled U, ancilla readout in the +- basis) has the '
+                 'Kraus operators (1 + U)/2 and (1 - U)/2',
+}
+
+
+# ------------------------------------------------------------------ R4: content of the non-return vectors
+def content(v):
+    parts = {'record 1, 2 or 3': Fr(0), 'blank record, other configuration': Fr(0)}
+    blocks = {}
+    for (cfg, rec, k), c in v.items():
+        if rec != 0:
+            parts['record 1, 2 or 3'] += c * c / NS
+        elif cfg not in (L.DBL2, L.DBL10):
+            parts['blank record, other configuration'] += c * c / NS
+        else:
+            blocks.setdefault(cfg, {})[k] = c
+    for cfg, name in ((L.DBL2, 'double at port 2'), (L.DBL10, 'double at port 10')):
+        g = blocks.get(cfg, {})
+        tot = sum(g.values(), Fr(0))
+        uni = tot * tot / 12 / NS
+        allw = sum((c * c for c in g.values()), Fr(0)) / NS
+        parts[f'blank, {name}, uniform address'] = uni
+        parts[f'blank, {name}, non-uniform address'] = allw - uni
+    parts['component along S^- (uniform address, antisymmetric location)'] = (L.dot(Sm, v) / NS) ** 2
+    parts['component along S'] = (L.dot(S, v) / NS) ** 2
+    return {k: fs(x) for k, x in parts.items()}
+
+
+OUT['R4 non-return vectors'] = {
+    'object A (forward flag)': content(nA), 'object B (in-dimer flag)': content(nB),
+    'reading': 'A: the whole vector sits at port 2; the reset restores the symmetric location and the address '
+               'consensus. B: symmetric location kept; the reset restores the address consensus.',
+}
+
+# ------------------------------------------------------------------ R5: the round without T_sym
+D = {'D2': L.uniform(L.DBL2), 'D10': L.uniform(L.DBL10)}       # squared norm 12 each
+WD = {n: L.step(v) for n, v in D.items()}
+
+
+def gram(name):
+    return [[Fr(L.dot(L.restrict(WD[a], lambda k: L.flag(k) == name), L.restrict(WD[b], lambda k: L.flag(k) == name))) / 12
+             for b in ('D2', 'D10')] for a in ('D2', 'D10')]
+
+
+GF, GI, GB = gram('F'), gram('I'), gram('B')
+gI = GI[0][0]
+comp = [[GF[a][b] * (1 - gI) + ((1 if a == b else 0) - GF[a][b]) * gI for b in range(2)] for a in range(2)]
+ca, cb = comp[0][0], comp[1][1]
+rows5 = []
+for N in (1, 10, 100, 1000, 10 ** 6):
+    z = mp.exp(-1j / mp.mpf(N))
+    a = (1 - mp.mpf(ca.numerator) / ca.denominator * (1 - z)) ** N
+    b = (1 - mp.mpf(cb.numerator) / cb.denominator * (1 - z)) ** N
+    ov = (a + b) / 2
+    rows5.append({'N': N, 'phase of <S|A_N> per unit clock time': mp.nstr(-mp.arg(ov), 15), 'modulus of <S|A_N>': mp.nstr(abs(ov), 12),
+                  'modulus with T_sym in every round': mp.nstr(abs((1 - Pm * (1 - z)) ** N), 12)})
+amp_nosym, p_no_nosym, _ = run_rounds(10, 1, with_sym=False)
+z10 = mp.exp(-1j / mp.mpf(10))
+pred10 = complex(((1 - mp.mpf(ca.numerator) / ca.denominator * (1 - z10)) ** 10 + (1 - mp.mpf(cb.numerator) / cb.denominator * (1 - z10)) ** 10) / 2)
+OUT['R5 round without T_sym'] = {
+    'G_F on (D2, D10)': [[fs(x) for x in r] for r in GF], 'G_I on (D2, D10)': [[fs(x) for x in r] for r in GI],
+    'G_B on (D2, D10)': [[fs(x) for x in r] for r in GB],
+    'compression of W^-1 Qx W on the uniform doubles of A (B: identity)': [[fs(x) for x in r] for r in comp],
+    'mean of the diagonal': fs((ca + cb) / 2), 'half difference of the diagonal': fs((ca - cb) / 2),
+    'N rounds, t = 1, j = +1': rows5,
+    'limit': 'phase 2/9, modulus cos(1/18) = ' + mp.nstr(mp.cos(mp.mpf(1) / 18), 12),
+    'executed (floats), N = 10, j = +1: <SS|pair>': [amp_nosym.real, amp_nosym.imag],
+    'formula ((a^N + b^N)/2)': [pred10.real, pred10.imag], 'difference': abs(amp_nosym - pred10),
+}
+
+OUT['seconds'] = round(time.time() - T0, 2)
+with open(os.path.join(HERE, 'lk_round.json'), 'w') as fh:
+    json.dump(OUT, fh, indent=1, default=str)
+print(json.dumps({k: v for k, v in OUT.items() if k != 'provenance'}, indent=1, default=str))

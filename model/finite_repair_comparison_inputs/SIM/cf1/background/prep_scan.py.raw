@@ -1,0 +1,112 @@
+"""Task P (preparation scan): the committed rule (law C) with the declared Z6 register of the universe runs, at levels 5
+and 6, from different initial loads. The library is used read-only: `oph_defects.fedgeom.build` (federation),
+`oph_defects.universe.Engine` (the same C attempt body as the stored runs, sequential backend, register on, cost
+'binding' 0,5,8,10,8,5, kappa 5), `universe.schedule_seed`. Only the initial loads differ. Identity tracking is off
+(the register and the face classes are unchanged by it; tracking only logs events).
+
+    python prep_scan.py <prep> <level> <seed_index> <sweeps> <out.json>
+
+Preparations (generator, seed):
+  exact06        numpy default_rng(20260909 + level + 1000 i).integers(0, 6, ports)          (i = 0: the stored runs)
+  u03            default_rng(30260909 + level + 1000 i).integers(0, 4, ports)                  loads 0..3
+  u14            default_rng(40260909 + level + 1000 i).integers(1, 5, ports)                  loads 1..4 (within one unit of the band 2, 3)
+  u23            default_rng(50260909 + level + 1000 i).integers(2, 4, ports)                  loads 2, 3 (the band itself)
+  mixP           default_rng(60260909 + level + 1000 i): with probability P (per port) a load drawn from 0..5,
+                 otherwise from {2, 3} (mean 2.5 at every P; variance 1/4 + P (35/12 - 1/4))
+  pertF          the settled end state of the stored run of that level (final_loads.npy), then F x total load units
+                 are moved, one by one, from a uniformly chosen unit to a uniformly chosen port:
+                 default_rng(70260909 + level + 1000 i); units chosen without replacement among all units,
+                 destinations uniform over ports (a unit may land on its own port)
+Schedule: universe.schedule_seed(level, i) (i = 0 is the schedule of the stored runs).
+The register always starts blank.
+"""
+import json, sys, time
+from pathlib import Path
+import numpy as np
+
+from oph_defects import fedgeom as FG
+from oph_defects.universe import Engine, COSTS, schedule_seed
+
+RUNS = Path.home() / 'oph-physics-sim' / 'runs' / 'universe'
+
+
+def prepare(prep, level, i, ports):
+    if prep == 'exact06':
+        return np.random.default_rng(20260909 + level + 1000 * i).integers(0, 6, size=ports).astype(np.int8)
+    if prep == 'u03':
+        return np.random.default_rng(30260909 + level + 1000 * i).integers(0, 4, size=ports).astype(np.int8)
+    if prep == 'u14':
+        return np.random.default_rng(40260909 + level + 1000 * i).integers(1, 5, size=ports).astype(np.int8)
+    if prep == 'u23':
+        return np.random.default_rng(50260909 + level + 1000 * i).integers(2, 4, size=ports).astype(np.int8)
+    if prep.startswith('mix'):
+        p = float(prep[3:])
+        rng = np.random.default_rng(60260909 + level + 1000 * i)
+        wide = rng.random(ports) < p
+        a = rng.integers(0, 6, size=ports); b = rng.integers(2, 4, size=ports)
+        return np.where(wide, a, b).astype(np.int8)
+    if prep.startswith('pert'):
+        f = float(prep[4:])
+        x = np.load(RUNS / f'L{level}' / 'final_loads.npy').astype(np.int64)
+        rng = np.random.default_rng(70260909 + level + 1000 * i)
+        total = int(x.sum())
+        m = int(round(f * total))
+        units = np.sort(rng.choice(total, size=m, replace=False))
+        owner = np.searchsorted(np.cumsum(x), units, side='right')     # port holding each chosen unit
+        dest = rng.integers(0, ports, size=m)
+        np.subtract.at(x, owner, 1); np.add.at(x, dest, 1)
+        assert x.min() >= 0 and x.max() <= 127 and int(x.sum()) == total
+        return x.astype(np.int8)
+    raise ValueError(prep)
+
+
+def main(prep, level, i, sweeps, out):
+    t0 = time.time()
+    geo = FG.build(level)
+    x0 = prepare(prep, level, i, geo.ports)
+    x0i = x0.astype(np.int64)
+    total = int(x0i.sum()); q, r = divmod(total, geo.ports)
+    vmin = (geo.ports - r) * q * q + r * (q + 1) * (q + 1)
+    e = Engine(geo, x0, schedule_seed(level, i), COSTS['binding'], 5, False, backend='sequential', register=True, track=False)
+    FI, N, V = geo.intra_faces, geo.carriers, geo.vertices
+    series = {'intra': [], 'screen': [], 'unsettled': [], 'V': []}
+    balanced = None
+    for s in range(sweeps):
+        seq, coin = e.draw()
+        for lo in range(0, geo.seams, e.chunk):
+            hi = min(geo.seams, lo + e.chunk)
+            e.run_chunk(seq[lo:hi], coin[lo:hi], lo, s)
+        xi = e.x.astype(np.int64)
+        uns = int(np.count_nonzero((e.x != q) & (e.x != q + 1)))
+        series['intra'].append(np.bincount(e.cls[:FI].view(np.uint8), minlength=6)[:6].tolist())
+        series['screen'].append(np.bincount(e.cls[FI:].view(np.uint8), minlength=6)[:6].tolist())
+        series['unsettled'].append(uns); series['V'].append(int((xi ** 2).sum()))
+        if balanced is None and uns == 0:
+            balanced = s + 1
+    cls = e.cls[:FI].reshape(N, 20)
+    c = np.stack([(cls == k).sum(axis=1) for k in range(1, 6)], axis=1)
+    nnz = c.sum(axis=1)
+    dec = (c[:, 0] == c[:, 4]) & (c[:, 1] == c[:, 3]) & (c[:, 2] % 2 == 0)
+    one = (nnz == 2) & dec
+    nb = 20 * 4 ** 4 if level >= 4 else 20
+    def bse(v):
+        b = np.asarray(v, float).reshape(nb, -1).mean(axis=1)
+        return float(b.mean()), float(b.std(ddof=1) / np.sqrt(nb))
+    res = {'prep': prep, 'level': level, 'seed_index': i, 'sweeps': sweeps, 'schedule_seed': schedule_seed(level, i),
+           'ports': geo.ports, 'carriers': N, 'plaquettes': V, 'total_load': total, 'band': [q, q + 1],
+           'filling_per_port': total / geo.ports,
+           'initial_load_variance_per_port': float(x0i.var()),
+           'initial_load_hist': np.bincount(x0i, minlength=6).tolist(),
+           'initial_excess_potential_per_port': float(((x0i ** 2).sum() - vmin) / 2 / geo.ports),
+           'balanced_at_sweep': balanced, 'series': series,
+           'end_pairs_half_faces': {'(1,5)': bse((c[:, 0] + c[:, 4]) / 2), '(2,4)': bse((c[:, 1] + c[:, 3]) / 2), '(3,3)': bse(c[:, 2] / 2)},
+           'end_share_defect_carriers': float((nnz > 0).mean()),
+           'end_share_decomposable_of_defect_carriers': float(dec[nnz > 0].mean()) if (nnz > 0).any() else None,
+           'end_share_one_pair_of_defect_carriers': float(one[nnz > 0].mean()) if (nnz > 0).any() else None,
+           'seconds': round(time.time() - t0, 1)}
+    json.dump(res, open(out, 'w'))
+    print(prep, level, i, 'balanced', balanced, 'end intra', series['intra'][-1], 'sec', res['seconds'], flush=True)
+
+
+if __name__ == '__main__':
+    main(sys.argv[1], int(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4]), sys.argv[5])

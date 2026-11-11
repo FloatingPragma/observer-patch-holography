@@ -1,0 +1,23 @@
+{
+  "status": "EXACT N=1 local identities and actual-carrier coefficient row sums",
+  "local_matrix_units_checked": 9,
+  "carrier_off_diagonal_rows_checked": 132,
+  "gamma_endpoint_outside": "1/4 + I/4",
+  "row_norm_by_adjacency": {
+    "1": [
+      "sqrt(2)/15 + 23/30"
+    ],
+    "0": [
+      "sqrt(2)/12 + 3/4"
+    ]
+  },
+  "coherence_infinity_norm": "sqrt(2)/12 + 3/4",
+  "coherence_norm_numeric": 0.867851130197758,
+  "per_30_attempt_sweep_norm_upper_numeric": 0.014234984592831963,
+  "graph_only_bound": "sqrt(2)/6 + 2/3",
+  "graph_only_per_sweep_numeric": 0.045869495228030445,
+  "general_bound": "1-((degree(p)+degree(q)-2*A_pq)*(1-1/sqrt(2))+A_pq)/M",
+  "positive_min_degree_per_sweep_upper": "exp(-2*delta*(1-1/sqrt(2)))",
+  "population_block": "I-L/(2*M), real nonnegative eigenvalues",
+  "scope": "The unchanged N=1 pump with uniform iid seams cannot produce a long-lived infrared coherent wave in its sweep clock. No claim covers arbitrary controlled schedules, added coherent memory, or all many-load sectors."
+}

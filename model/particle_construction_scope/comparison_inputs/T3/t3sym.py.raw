@@ -1,0 +1,205 @@
+"""T3 symbol module (no engine import; runs locally and on box B).
+
+Same conventions as t3lib.py, whose words are tied to the engine work/DIRAC/routing.py (scan.json, engine_tie, <= 6e-16):
+coin index 2 r + s (record r, spin s in the frame basis), alpha_i = X_r sigma_i, beta = Y_r.
+A word is a list of tokens in TIME order (first applied first):
+  ('S', i, e)    routing sub-step S_i = Q_i R (e = +1) or its inverse R Q_i (e = -1); symbol exp(-i e p_i alpha_i)
+  ('M', a)       record rotation exp(-i a beta) (mass step M1)
+  ('L', i, phi)  lazy sub-step: seam reflector with weights cos(eta), sin(eta), eta = pi/4 - phi/2, then R;
+                 symbol cos(phi) exp(-i p_i alpha_i) - i sin(phi) beta
+"""
+import itertools
+import numpy as np
+
+I2 = np.eye(2, dtype=complex); I4 = np.eye(4, dtype=complex)
+SX = np.array([[0, 1], [1, 0]], complex); SY = np.array([[0, -1j], [1j, 0]]); SZ = np.diag([1.0, -1.0]).astype(complex)
+SIG = [SX, SY, SZ]
+ALPHA = [np.kron(SX, s) for s in SIG]
+BETA = np.kron(SY, I2)
+XR = np.kron(SX, I2); ZR = np.kron(SZ, I2)
+# arrow basis of the record: |+-> = (|0> +- |1>)/sqrt2; block chi = X_r eigenvalue
+ARROW = np.array([[1, 1], [1, -1]], complex) / np.sqrt(2)          # columns |+>, |->
+BLOCK = {+1: np.kron(ARROW[:, [0]], I2), -1: np.kron(ARROW[:, [1]], I2)}   # 4 x 2 isometries
+
+
+def S(i, e=1): return ('S', i, e)
+def M(a): return ('M', a)
+def L(i, phi): return ('L', i, phi)
+def rev(word): return list(reversed(word))
+
+
+def symbol(word, p):
+    p = np.asarray(p, float); out = np.broadcast_to(I4, p.shape[:-1] + (4, 4)).copy()
+    for tok in word:
+        if tok[0] == 'S':
+            c, s = np.cos(p[..., tok[1]])[..., None, None], np.sin(p[..., tok[1]])[..., None, None]
+            g = c * I4 - 1j * tok[2] * s * ALPHA[tok[1]]
+        elif tok[0] == 'M':
+            g = np.cos(tok[1]) * I4 - 1j * np.sin(tok[1]) * BETA
+        elif tok[0] == 'L':
+            c, s = np.cos(p[..., tok[1]])[..., None, None], np.sin(p[..., tok[1]])[..., None, None]
+            g = np.cos(tok[2]) * (c * I4 - 1j * s * ALPHA[tok[1]]) - 1j * np.sin(tok[2]) * BETA
+        elif tok[0] == 'G':                     # a constant 4 x 4 unitary
+            g = tok[1]
+        else:
+            raise ValueError(tok)
+        out = g @ out
+    return out
+
+
+def cosOmega(word, p):
+    return np.real(np.trace(symbol(word, p), axis1=-2, axis2=-1)) / 4
+
+
+# ---- words ------------------------------------------------------------------------------------------------------------
+def X_fwd(): return [S(0), S(1), S(2)]
+
+
+def period_W2(theta=0.0):
+    """CF-1 period in the half-step frame: M(th/2) S1 S2 S3 M(th) S3 S2 S1 M(th/2) (time order); same phases as D_rev D_fwd"""
+    return [M(theta / 2)] + X_fwd() + [M(theta)] + rev(X_fwd()) + [M(theta / 2)]
+
+
+def lazy_half(phi):
+    h = []
+    for i in range(3): h += [M(-phi / 2), L(i, phi), M(-phi / 2)]
+    return h
+
+
+def period_B(phi, theta=0.0):
+    """member B (Wilson-type lazy sub-steps): B_i = M(-phi/2) L_i(phi) M(-phi/2); P = M(th/2) B1B2B3 M(th) B3B2B1 M(th/2)"""
+    h = lazy_half(phi)
+    return [M(theta / 2)] + h + [M(theta)] + rev(h) + [M(theta / 2)]
+
+
+def wilson(tau):
+    w = []
+    for i in range(3): w += [M(-tau), S(i), M(tau), S(i, -1)]
+    return w
+
+
+def period_C(tau, theta=0.0):
+    """member C (parity-preserving Wilson step from public reflectors): N_i = S_i^-1 M(tau) S_i M(-tau)"""
+    h = wilson(tau) + X_fwd()
+    return [M(theta / 2)] + h + [M(theta)] + rev(h) + [M(theta / 2)]
+
+
+# ---- spectra ----------------------------------------------------------------------------------------------------------
+def grid(n, shift=0.0, lo=-np.pi, hi=np.pi):
+    g = lo + (hi - lo) * (np.arange(n) + shift) / n
+    return np.stack(np.meshgrid(g, g, g, indexing='ij'), axis=-1)
+
+
+def omega_grid(word, n, shift=0.0, lo=-np.pi, hi=np.pi, chunk=32768):
+    p = grid(n, shift, lo, hi).reshape(-1, 3); out = np.empty(len(p))
+    for k in range(0, len(p), chunk):
+        out[k:k + chunk] = np.arccos(np.clip(cosOmega(word, p[k:k + chunk]), -1, 1))
+    return p.reshape(n, n, n, 3), out.reshape(n, n, n)
+
+
+def degeneracy_defect(word, n=12, seed=0):
+    rng = np.random.default_rng(seed); p = rng.uniform(-np.pi, np.pi, (n ** 3, 3)); P = symbol(word, p)
+    c = np.real(np.trace(P, axis1=-2, axis2=-1)) / 4
+    return float(np.abs(P + np.conj(np.swapaxes(P, -1, -2)) - 2 * c[:, None, None] * I4).max())
+
+
+def _local_extrema(f, periodic=True):
+    """indices of discrete local minima of f on a periodic cubic grid (26 neighbours, ties allowed)"""
+    m = np.ones(f.shape, bool)
+    for d in itertools.product((-1, 0, 1), repeat=3):
+        if d == (0, 0, 0): continue
+        m &= f <= np.roll(f, d, axis=(0, 1, 2))
+    return np.argwhere(m)
+
+
+def wrap(q): return (np.asarray(q) + np.pi) % (2 * np.pi) - np.pi
+
+
+def refine(fun, x0):
+    from scipy.optimize import minimize
+    r = minimize(fun, x0, method='BFGS', options={'gtol': 1e-13, 'maxiter': 400})
+    r2 = minimize(fun, r.x, method='Nelder-Mead', options={'xatol': 1e-12, 'fatol': 1e-16, 'maxiter': 4000})
+    return (r2.x, r2.fun) if r2.fun < r.fun else (r.x, r.fun)
+
+
+def critical_points(word, n=48, lo=-np.pi, hi=np.pi, tol=1e-11, cap=300, thr=0.35, nlow=12):
+    """Refined local minima of Omega (kind 'min') and of pi - Omega (kind 'max') over the cell [lo, hi)^3.
+    Seeds: discrete local extrema of two shifted grids with value below thr, plus the nlow lowest of each kind.
+    Returns lists of (p, value), value = Omega at a minimum, pi - Omega at a maximum, deduplicated modulo the cell."""
+    L = hi - lo
+    seeds = {'min': [], 'max': []}
+    for sh in (0.0, 0.5):
+        p, om = omega_grid(word, n, sh, lo, hi)
+        for kind in ('min', 'max'):
+            f = om if kind == 'min' else np.pi - om
+            idx = _local_extrema(f)
+            vals = f[tuple(idx.T)]
+            order = np.argsort(vals)
+            keep = [k for j, k in enumerate(order) if (vals[k] < thr or j < nlow)][:cap]
+            seeds[kind] += [p[tuple(idx[k])] for k in keep]
+    out = {}
+    for kind in ('min', 'max'):
+        pts = seeds[kind]
+        found = []
+        for x0 in pts:
+            if kind == 'min': fun = lambda q: float(1 - cosOmega(word, q))
+            else: fun = lambda q: float(1 + cosOmega(word, q))
+            x, fv = refine(fun, x0)
+            x = lo + (x - lo) % L
+            val = float(np.arccos(np.clip(cosOmega(word, x), -1, 1)))
+            val = val if kind == 'min' else np.pi - val
+            if fv < tol: val = 0.0
+            if not any(np.linalg.norm(((x - y + L / 2) % L) - L / 2) < 1e-4 for y, _ in found):
+                found.append((x, val))
+        out[kind] = sorted(found, key=lambda t: t[1])
+    return out
+
+
+def summary(word, n=48, lo=-np.pi, hi=np.pi):
+    cp = critical_points(word, n, lo, hi)
+    z0 = [x for x, v in cp['min'] if v == 0.0]; zp = [x for x, v in cp['max'] if v == 0.0]
+    others = [v for x, v in cp['min'] if v > 0]
+    res = {'zeros_phase0': [[round(float(t) / np.pi, 5) for t in x] for x in z0],
+           'zeros_phasepi': [[round(float(t) / np.pi, 5) for t in x] for x in zp],
+           'count_phase0': len(z0), 'count_phasepi': len(zp),
+           'lightest_nonzero_minimum_of_Omega': (min(others) if others else None),
+           'gap_at_pi': (min(v for x, v in cp['max']) if cp['max'] else None),
+           'minima': [[[round(float(t) / np.pi, 5) for t in x], round(v, 6)] for x, v in cp['min'][:40]],
+           'maxima_pi_minus_Omega': [[[round(float(t) / np.pi, 5) for t in x], round(v, 6)] for x, v in cp['max'][:40]]}
+    return res
+
+
+def speeds(word, eps=1e-5):
+    """Omega(eps n)/eps per period along 100, 110, 111 (Omega at the origin subtracted in quadrature)"""
+    o0 = float(np.arccos(np.clip(cosOmega(word, np.zeros(3)), -1, 1)))
+    out = {}
+    for name, d in (('100', (1, 0, 0)), ('110', (1, 1, 0)), ('111', (1, 1, 1))):
+        d = np.array(d, float) / np.linalg.norm(d)
+        o = float(np.arccos(np.clip(cosOmega(word, eps * d), -1, 1)))
+        out[name] = float(np.sqrt(max(o * o - o0 * o0, 0.0)) / eps)
+    out['rest_phase_per_period'] = o0
+    return out
+
+
+# ---- blocks and chirality ---------------------------------------------------------------------------------------------
+def block_symbol(word, p, chi):
+    V = BLOCK[chi]; W = symbol(word, p)
+    return np.conj(V.T) @ W @ V
+
+
+def su2_vector(U):
+    """U = a0 - i a.sigma (2 x 2, det 1 up to rounding): returns (a0, a)"""
+    a0 = np.real(np.trace(U)) / 2
+    a = np.array([np.real(1j * np.trace(U @ s)) / 2 for s in SIG])
+    return a0, a
+
+
+def node_jacobian(word, p, chi, h=1e-6):
+    """J with U(p + q) = e^{-i eps0} exp(-i (J q).sigma) + O(q^2), eps0 in {0, pi}; chirality = sign det J"""
+    U0 = block_symbol(word, p, chi); a0, _ = su2_vector(U0); s0 = 1.0 if a0 > 0 else -1.0
+    J = np.zeros((3, 3))
+    for j in range(3):
+        e = np.zeros(3); e[j] = h
+        _, ap = su2_vector(block_symbol(word, p + e, chi)); _, am = su2_vector(block_symbol(word, p - e, chi))
+        J[:, j] = s0 * (ap - am) / (2 * h)
+    return J, (0.0 if s0 > 0 else np.pi)

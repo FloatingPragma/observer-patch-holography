@@ -1,0 +1,61 @@
+"""Task P: fits of the frozen (2,4) and (3,3) densities against one number of the preparation; adds 'dependence_fits'
+to runs/P_preparation_scan.json. Power laws y = A x^b fitted in log-log, weighted by the seed standard errors.
+
+    /tmp/oph-completion-venv/bin/python prep_fit.py
+"""
+import glob, json, os
+import numpy as np
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+DEST = os.path.join(os.path.dirname(HERE), 'runs', 'P_preparation_scan.json')
+P = json.load(open(DEST))
+
+
+def mu4_of(prep, L):
+    a = json.load(open(sorted(glob.glob(os.path.join(HERE, 'pscan', f'{prep}_L{L}_s*.json')))[0]))
+    h = np.array(a['initial_load_hist'], float); h /= h.sum(); x = np.arange(len(h)); m = (h * x).sum()
+    return float((h * (x - m) ** 4).sum())
+
+
+def plfit(x, y, se):
+    x, y, se = map(np.asarray, (x, y, se))
+    ok = y > 0
+    lx, ly = np.log(x[ok]), np.log(y[ok])
+    w = 1 / np.maximum(se[ok] / y[ok], 0.01) ** 2
+    W = np.diag(w); X = np.stack([np.ones(ok.sum()), lx], axis=1)
+    cov = np.linalg.inv(X.T @ W @ X); beta = cov @ X.T @ W @ ly
+    res = ly - X @ beta
+    return {'A': float(np.exp(beta[0])), 'b': float(beta[1]), 'b_se': float(np.sqrt(cov[1, 1])),
+            'rms_log_residual': float(np.sqrt(np.mean(res ** 2))), 'max_factor_off': float(np.exp(np.abs(res).max())),
+            'points': int(ok.sum())}
+
+
+out = {}
+for L in (5, 6):
+    G = {g['prep']: g for g in P['groups'].values() if g['level'] == L}
+    d = {}
+    # family 1: mixture at fixed filling 2.5, x = P (fraction of wide ports); excess potential = 4P/3 exactly in expectation
+    mix = [k for k in G if k.startswith('mix')] + ['exact06']
+    ps = [1.0 if k == 'exact06' else float(k[3:]) for k in mix]
+    for key in ('n24_end', 'n33_end'):
+        d[f'mix_family_{key}_vs_P'] = plfit(ps, [G[k][key]['mean'] for k in mix], [G[k][key]['se'] for k in mix])
+        d[f'mix_family_{key}_vs_P']['preps'] = mix
+    # family 2: perturbed settled state, x = F (fraction of load units moved); F = 0.01 gives no frozen defect
+    per = ['pert0.03', 'pert0.1', 'pert0.3']
+    fs = [0.03, 0.1, 0.3]
+    for key in ('n24_end', 'n33_end'):
+        d[f'pert_family_{key}_vs_F'] = plfit(fs, [G[k][key]['mean'] for k in per], [G[k][key]['se'] for k in per])
+        d[f'pert_family_{key}_vs_F']['preps'] = per
+    # one-number collapse tests over all preparations with frozen defects
+    allp = [k for k in G if G[k]['n24_end']['mean'] > 0 and k not in ('pert0.03',)]
+    for xname in ('initial_load_variance_per_port', 'initial_excess_potential_per_port', 'mu4'):
+        xs = [mu4_of(k, L) if xname == 'mu4' else (G[k][xname]['mean'] - (0.25 if xname.startswith('initial_load_var') else 0)) for k in allp]
+        r = plfit(xs, [G[k]['n24_end']['mean'] for k in allp], [G[k]['n24_end']['se'] for k in allp])
+        r['x'] = xname + (' minus 1/4' if xname.startswith('initial_load_var') else ''); r['preps'] = allp; r['xs'] = xs
+        d[f'collapse_n24_vs_{xname}'] = r
+    out[f'L{L}'] = d
+P['dependence_fits'] = out
+json.dump(P, open(DEST, 'w'), indent=1)
+for L, d in out.items():
+    for k, v in d.items():
+        print(L, k, 'A %.4g b %.3f +- %.3f rms log %.3f max factor %.2f' % (v['A'], v['b'], v['b_se'], v['rms_log_residual'], v['max_factor_off']))

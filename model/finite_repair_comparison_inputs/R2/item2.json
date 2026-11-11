@@ -1,0 +1,369 @@
+{
+ "arithmetic": "integers, GF(2), Q(sqrt5, i); every listed identity is exact",
+ "pairs_by_separation": {
+  "1": 30,
+  "2": 60,
+  "3": 60,
+  "4": 30,
+  "5": 10
+ },
+ "A_half_turns_on_faces_and_pairs": [
+  {
+   "frame": 0,
+   "port_level: a1 a2 = a3 (some order), all commute": true,
+   "faces: no fixed face": true,
+   "faces: five free orbits of four": true,
+   "pairs: involutions": true,
+   "pairs: commutators vanish (rho_i rho_j = rho_j rho_i, 3 pairs)": true,
+   "pairs: rho_1 rho_2 = rho_3": true,
+   "pairs fixed by each half-turn": [
+    10,
+    10,
+    10
+   ],
+   "orbits": {
+    "total": 55,
+    "size 4 (free)": 40,
+    "size 2": 15,
+    "size 1": 0
+   },
+   "character multiplicities (signs of rho_1, rho_2, rho_3)": {
+    "+++": 55,
+    "+--": 45,
+    "-+-": 45,
+    "--+": 45
+   },
+   "pairs in short orbits by separation": {
+    "1": 6,
+    "2": 0,
+    "3": 12,
+    "4": 6,
+    "5": 6
+   },
+   "separation is preserved": true
+  },
+  {
+   "frame": 1,
+   "port_level: a1 a2 = a3 (some order), all commute": true,
+   "faces: no fixed face": true,
+   "faces: five free orbits of four": true,
+   "pairs: involutions": true,
+   "pairs: commutators vanish (rho_i rho_j = rho_j rho_i, 3 pairs)": true,
+   "pairs: rho_1 rho_2 = rho_3": true,
+   "pairs fixed by each half-turn": [
+    10,
+    10,
+    10
+   ],
+   "orbits": {
+    "total": 55,
+    "size 4 (free)": 40,
+    "size 2": 15,
+    "size 1": 0
+   },
+   "character multiplicities (signs of rho_1, rho_2, rho_3)": {
+    "+++": 55,
+    "+--": 45,
+    "-+-": 45,
+    "--+": 45
+   },
+   "pairs in short orbits by separation": {
+    "1": 6,
+    "2": 0,
+    "3": 12,
+    "4": 6,
+    "5": 6
+   },
+   "separation is preserved": true
+  },
+  {
+   "frame": 2,
+   "port_level: a1 a2 = a3 (some order), all commute": true,
+   "faces: no fixed face": true,
+   "faces: five free orbits of four": true,
+   "pairs: involutions": true,
+   "pairs: commutators vanish (rho_i rho_j = rho_j rho_i, 3 pairs)": true,
+   "pairs: rho_1 rho_2 = rho_3": true,
+   "pairs fixed by each half-turn": [
+    10,
+    10,
+    10
+   ],
+   "orbits": {
+    "total": 55,
+    "size 4 (free)": 40,
+    "size 2": 15,
+    "size 1": 0
+   },
+   "character multiplicities (signs of rho_1, rho_2, rho_3)": {
+    "+++": 55,
+    "+--": 45,
+    "-+-": 45,
+    "--+": 45
+   },
+   "pairs in short orbits by separation": {
+    "1": 6,
+    "2": 0,
+    "3": 12,
+    "4": 6,
+    "5": 6
+   },
+   "separation is preserved": true
+  },
+  {
+   "frame": 3,
+   "port_level: a1 a2 = a3 (some order), all commute": true,
+   "faces: no fixed face": true,
+   "faces: five free orbits of four": true,
+   "pairs: involutions": true,
+   "pairs: commutators vanish (rho_i rho_j = rho_j rho_i, 3 pairs)": true,
+   "pairs: rho_1 rho_2 = rho_3": true,
+   "pairs fixed by each half-turn": [
+    10,
+    10,
+    10
+   ],
+   "orbits": {
+    "total": 55,
+    "size 4 (free)": 40,
+    "size 2": 15,
+    "size 1": 0
+   },
+   "character multiplicities (signs of rho_1, rho_2, rho_3)": {
+    "+++": 55,
+    "+--": 45,
+    "-+-": 45,
+    "--+": 45
+   },
+   "pairs in short orbits by separation": {
+    "1": 6,
+    "2": 0,
+    "3": 12,
+    "4": 6,
+    "5": 6
+   },
+   "separation is preserved": true
+  },
+  {
+   "frame": 4,
+   "port_level: a1 a2 = a3 (some order), all commute": true,
+   "faces: no fixed face": true,
+   "faces: five free orbits of four": true,
+   "pairs: involutions": true,
+   "pairs: commutators vanish (rho_i rho_j = rho_j rho_i, 3 pairs)": true,
+   "pairs: rho_1 rho_2 = rho_3": true,
+   "pairs fixed by each half-turn": [
+    10,
+    10,
+    10
+   ],
+   "orbits": {
+    "total": 55,
+    "size 4 (free)": 40,
+    "size 2": 15,
+    "size 1": 0
+   },
+   "character multiplicities (signs of rho_1, rho_2, rho_3)": {
+    "+++": 55,
+    "+--": 45,
+    "-+-": 45,
+    "--+": 45
+   },
+   "pairs in short orbits by separation": {
+    "1": 6,
+    "2": 0,
+    "3": 12,
+    "4": 6,
+    "5": 6
+   },
+   "separation is preserved": true
+  }
+ ],
+ "rotation_group_orbits_on_pairs": 6,
+ "B_link_words": {
+  "kernel of the face syndrome = span of the vertex stars (rank 11 of 30 - 19)": true,
+  "g.w_pi + w_(g pi) in the star span, 60 rotations x 190 pairs": true,
+  "consequence": "on Gauss-positive codewords (uniform superposition over the star orbit) every rotation acts as the permutation of pairs, without sign; the central element of the cover acts as +1"
+ },
+ "C_audit_five_position_code": {
+  "STAR equals the mobile packet constant 6553634": true,
+  "domain size": 12,
+  "paired-flux orbits": 5,
+  "one exterior compensator face for all five": true,
+  "separations of the five code pairs": [
+   1,
+   2,
+   2,
+   3,
+   3
+  ],
+  "rotations (of 59) that map the twelve-word domain into itself": 0,
+  "rotations (of 59) that map the five code pairs to code pairs": 0,
+  "rotations (of 59) that fix the region (port 5)": 4,
+  "per_frame": [
+   {
+    "frame": 0,
+    "images of port 5": [
+     4,
+     6,
+     7
+    ],
+    "pairs in the frame orbit of the code": 18,
+    "code pairs fixed by a half-turn of this frame": 1
+   },
+   {
+    "frame": 1,
+    "images of port 5": [
+     6,
+     9,
+     10
+    ],
+    "pairs in the frame orbit of the code": 20,
+    "code pairs fixed by a half-turn of this frame": 0
+   },
+   {
+    "frame": 2,
+    "images of port 5": [
+     1,
+     2,
+     6
+    ],
+    "pairs in the frame orbit of the code": 18,
+    "code pairs fixed by a half-turn of this frame": 1
+   },
+   {
+    "frame": 3,
+    "images of port 5": [
+     0,
+     3,
+     6
+    ],
+    "pairs in the frame orbit of the code": 18,
+    "code pairs fixed by a half-turn of this frame": 1
+   },
+   {
+    "frame": 4,
+    "images of port 5": [
+     6,
+     8,
+     11
+    ],
+    "pairs in the frame orbit of the code": 20,
+    "code pairs fixed by a half-turn of this frame": 0
+   }
+  ],
+  "five transports, each spoke once, return the flux and add the star: g -> g xor s (10 words)": true,
+  "reading": "the code positions are related by interior transports, not by carrier rotations; one turn of the flux about port 5 is the Gauss partner s, eigenvalue (-1)^(doublet quanta at port 5) on Gauss-positive states"
+ },
+ "D_doublet_times_pairs": {
+  "per_frame": [
+   {
+    "frame": 0,
+    "u_i^2 = -1 (the central element is -1 on the doublet)": true,
+    "alpha_i = i u_i Hermitian involutions": true,
+    "{alpha_i, alpha_j} = 0": true,
+    "alpha_1 alpha_2 alpha_3": "-i"
+   },
+   {
+    "frame": 1,
+    "u_i^2 = -1 (the central element is -1 on the doublet)": true,
+    "alpha_i = i u_i Hermitian involutions": true,
+    "{alpha_i, alpha_j} = 0": true,
+    "alpha_1 alpha_2 alpha_3": "i"
+   },
+   {
+    "frame": 2,
+    "u_i^2 = -1 (the central element is -1 on the doublet)": true,
+    "alpha_i = i u_i Hermitian involutions": true,
+    "{alpha_i, alpha_j} = 0": true,
+    "alpha_1 alpha_2 alpha_3": "i"
+   },
+   {
+    "frame": 3,
+    "u_i^2 = -1 (the central element is -1 on the doublet)": true,
+    "alpha_i = i u_i Hermitian involutions": true,
+    "{alpha_i, alpha_j} = 0": true,
+    "alpha_1 alpha_2 alpha_3": "i"
+   },
+   {
+    "frame": 4,
+    "u_i^2 = -1 (the central element is -1 on the doublet)": true,
+    "alpha_i = i u_i Hermitian involutions": true,
+    "{alpha_i, alpha_j} = 0": true,
+    "alpha_1 alpha_2 alpha_3": "-i"
+   }
+  ],
+  "identity": "{alpha_i x rho_i, alpha_j x rho_j} = {alpha_i, alpha_j} x rho_i rho_j = 0 because the rho commute; (alpha_i x rho_i)^2 = 1; product of the three = (alpha_1 alpha_2 alpha_3) x rho_1 rho_2 rho_3 = +-i x 1",
+  "consequence": "the 380 states doublet x pairs are 190 copies of the two-dimensional representation of the quaternion group, all of one handedness; on a character sector (e1, e2, e3) the triple is (e1 alpha_1, e2 alpha_2, e3 alpha_3)"
+ },
+ "E_regular_representation_and_declared_triple": {
+  "J_i = i D_i rho_(i+1)": {
+   "Hermitian involutions": true,
+   "anticommute": true,
+   "covariant: rho_j J_i rho_j = chi_i(a_j) J_i": true,
+   "J_1 J_2 J_3": "i"
+  },
+  "J_i = i D_i rho_(i-1)": {
+   "Hermitian involutions": true,
+   "anticommute": true,
+   "covariant: rho_j J_i rho_j = chi_i(a_j) J_i": true,
+   "J_1 J_2 J_3": "-i"
+  },
+  "rho_i commute and D_i commute; D_i rho_j = chi_i(a_j) rho_j D_i": true,
+  "short orbit (fixed by a_1): rho_1 = 1, so an operator that anticommutes with rho_1 is zero; no covariant triple": true,
+  "geometric D_i = sign of the frame coordinate i of the midpoint of the pair": [
+   {
+    "frame": 0,
+    "pairs in free orbits": 160,
+    "with a midpoint off all three coordinate planes": 144
+   },
+   {
+    "frame": 1,
+    "pairs in free orbits": 160,
+    "with a midpoint off all three coordinate planes": 144
+   },
+   {
+    "frame": 2,
+    "pairs in free orbits": 160,
+    "with a midpoint off all three coordinate planes": 144
+   },
+   {
+    "frame": 3,
+    "pairs in free orbits": 160,
+    "with a midpoint off all three coordinate planes": 144
+   },
+   {
+    "frame": 4,
+    "pairs in free orbits": 160,
+    "with a midpoint off all three coordinate planes": 144
+   }
+  ]
+ },
+ "G_lattice_gauge_field": {
+  "tori": [
+   {
+    "L": 3,
+    "cells": 27,
+    "links": 81,
+    "plaquettes": 81,
+    "rank of the flux map": 52,
+    "2N - 2": 52,
+    "plaquettes flipped by one link": [
+     4
+    ]
+   },
+   {
+    "L": 4,
+    "cells": 64,
+    "links": 192,
+    "plaquettes": 192,
+    "rank of the flux map": 126,
+    "2N - 2": 126,
+    "plaquettes flipped by one link": [
+     4
+    ]
+   }
+  ],
+  "consequence": "every plaquette-flux configuration is the image of a link word, so it is reached from the flat field by link flips: with eps > 0 no flux label is conserved; with eps = 0 every plaquette flux is conserved and static. One link flip makes a closed line of four flipped plaquettes."
+ }
+}

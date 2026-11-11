@@ -1,0 +1,203 @@
+"""Independent finite checks for the state, clock and geometry audit.
+
+Run from oph-meta with /tmp/oph-completion-venv/bin/python. No source files
+are changed and no external jobs are launched. EXACT checks use rational
+algebra; Bloch checks are numerical diagnostics, not interval certificates.
+"""
+from fractions import Fraction as Q
+from itertools import combinations
+from math import comb, gamma, sqrt, pi, log
+from pathlib import Path
+import hashlib
+import json
+import numpy as np
+
+HERE=Path(__file__).resolve().parent
+ROOT=HERE.parents[2]
+FACES=((0,11,5),(0,5,1),(0,1,7),(0,7,10),(0,10,11),(1,5,9),(5,11,4),(11,10,2),(10,7,6),(7,1,8),(3,9,4),(3,4,2),(3,2,6),(3,6,8),(3,8,9),(4,9,5),(2,4,11),(6,2,10),(8,6,7),(9,8,1))
+EDGES=sorted({tuple(sorted((f[i],f[(i+1)%3]))) for f in FACES for i in range(3)})
+assert len(EDGES)==30
+LCAR=np.zeros((12,12),int)
+for a,b in EDGES:
+ LCAR[a,a]+=1;LCAR[b,b]+=1;LCAR[a,b]-=1;LCAR[b,a]-=1
+
+
+def states_and_caps():
+    V,q=12,2
+    states=list(combinations(range(V),q));d=len(states)
+    result=[]
+    for cap in [(0,),(0,11,5),(0,1,5,7,10,11)]:
+        weights={}
+        for s in states:
+            key=tuple(int(p in s) for p in cap)
+            weights[key]=weights.get(key,Q(0))+Q(1,d)
+        for key,w in weights.items():
+            assert w==Q(comb(V-len(cap),q-sum(key)),d)
+        by_k={str(sum(k)):str(v) for k,v in weights.items()}
+        result.append({'cap':cap,'configuration_weights_by_cap_load':by_k,
+                       'faithful_on_full_cap_algebra':len(weights)==2**len(cap)})
+    # A one-port charge-changing operator has nontrivial regional modular phase,
+    # but the load-conserving regional algebra is central under this state.
+    assert Q(5,6)/Q(1,6)==5
+    return {'status':'EXACT','global_fixed_charge_dimension':d,'global_density':'I_66/66',
+            'global_modular_generator':'log(66) I_66','caps':result,
+            'one_port_charge_changing_modular_frequency':'log(5), sign depends on convention',
+            'number_conserving_cap_modular_flow':'identity',
+            'connected_occupation_correlation':str(Q(q*(q-1),V*(V-1))-Q(q*q,V*V)),
+            'all_pairs_same_correlation':True}
+
+
+def faithful_swap_state():
+    # rho=(I+J)/(2d), epsilon=1/2. Every permutation fixes I,J.
+    d=66
+    lam_hi=Q(d+1,2*d);lam_lo=Q(1,2*d)
+    assert lam_hi+(d-1)*lam_lo==1 and lam_lo>0
+    assert lam_hi+(d-1)*lam_lo==1
+    return {'status':'EXACT','input_label':'DECLARED preparation',
+            'density':'(I_66+J_66)/132', 'diagonal':'1/66',
+            'eigenvalues':[[str(lam_hi),1],[str(lam_lo),65]],
+            'ambient_modular_gap':'log(67)',
+            'stationary_for_every_swap_parity_channel':True,
+            'all_parity_history_effects_commute_with_density':True,
+            'accessible_modular_flow':'identity on permutation-history algebra',
+            'T5_geometric_modular_pass':False}
+
+
+def bloch(q,up=(0,1,5),down=(0,2,8)):
+    L=np.zeros((24,24),complex);L[:12,:12]=LCAR;L[12:,12:]=LCAR
+    delta=np.array([[0.,0.],[1.,0.],[.5,sqrt(3)/2]])
+    for i in range(3):
+        a,b=up[i],12+down[i];p=np.exp(-1j*np.dot(q,delta[i]))
+        L[a,a]+=1;L[b,b]+=1;L[a,b]-=p;L[b,a]-=p.conjugate()
+    assert np.max(abs(L-L.conj().T))<1e-13
+    return np.linalg.eigvalsh(L)
+
+
+def wiring_bands():
+    K=np.array([2*pi/3,2*pi/sqrt(3)])
+    b0=bloch(K);m=(b0[1]-b0[0])/2;mid=(b0[0]+b0[1])/2
+    def gap2(k):
+        e=bloch(k);return ((e[1]-e[0])/2)**2
+    rows=[]
+    for h in [.08,.04,.02,.01,.005]:
+        eplus=bloch(K+np.array([h,0.]));eminus=bloch(K-np.array([h,0.]))
+        ep=gap2(K+np.array([h,0.]));em=gap2(K-np.array([h,0.]))
+        rows.append({'k':h,'even_slope_squared':(ep+em-2*m*m)/(2*h*h),
+                     'odd_cubic_coefficient':(ep-em)/(2*h**3),
+                     'midpoint_even_curvature':((eplus[0]+eplus[1]+eminus[0]+eminus[1])/4-mid)/(h*h),
+                     'direct_signed_shell_asymmetry':ep-em})
+    assert abs(rows[-1]['odd_cubic_coefficient'])>1e-6
+    q=np.array([1e-3,0.]);curv=bloch(q)[0]/np.dot(q,q)
+    assert abs(curv-Q(1,68))<1e-7
+    return {'status':'MEASURED (float64, independent finite matrix)',
+            'inputs':'DECLARED 2D honeycomb wiring F-up/B-down; port Laplacian',
+            'matrix_dimension':24,'momentum_dimensions':2,'half_gap':float(m),'band_midpoint':float(mid),
+            'bands_at_K':b0[:4].tolist(),'massless_laplacian_curvature':float(curv),
+            'wave_lift_speed':float(sqrt(curv)),'first_order_acoustic_group_speed_limit':0,
+            'small_k_half_gap_slope':float(sqrt(rows[-1]['even_slope_squared'])),
+            'finite_k_exact_relativistic_shell':False,
+            'reason':'odd cubic term and k-dependent band midpoint; underlying native generator is dissipative',
+            'shell_diagnostics':rows}
+
+
+def order_dimension():
+    # Expected related unordered-pair fraction for a uniform flat Alexandrov
+    # interval, not a dimension theorem for arbitrary posets.
+    def f(d):return gamma(d+1)*gamma(d/2)/(2*gamma(3*d/2))
+    assert abs(f(3)-8/35)<1e-14 and abs(f(4)-1/10)<1e-14
+    return {'status':'EXACT formula; finite-order application is conditional',
+            'fractions':{'d3':f(3),'d4':f(4)},
+            'ratio_is_unique_dimension_certificate':False,
+            'reason':'manifoldlike order and uniform interval population are premises; many non-isomorphic finite posets share a pair count'}
+
+
+def same_laplacian_different_clocks():
+    # On a ring the EXACT mode symbol is lambda(k)=4 sin^2(k/2).
+    return {'status':'EXACT','symbol':'lambda(k)=4 sin(k/2)^2',
+            'native_heat_flow':'exp(-t lambda): decay, no oscillation',
+            'declared_unitary_flow':'exp(-it lambda): omega~k^2',
+            'declared_wave_lift':'qddot=-Lq: omega=2|sin(k/2)|~|k|',
+            'same_spectrum_implies_same_physical_clock':False,
+            'tracial_state_allows_other_declared_dynamics':True}
+
+
+def check_archives():
+    d=json.loads((ROOT/'repair-law/work/S3/s10_mass_shell.json').read_text())
+    flat=d['flat']['F up / B down (1,1,1)/(2,2,2)']
+    assert abs(wiring_bands()['half_gap']-flat['half_gap_m'])<1e-10
+    native=json.loads((ROOT/'repair-law/work/S11/out/s2_native_state.json').read_text())
+    assert native['chain']['stay_probability_of_doubly_loaded_state']==['5/6']
+    return {'status':'AUDITED archived outputs; large calculations not rerun',
+            'S11_double_load_stay_probability':'5/6',
+            'therefore_double_load_leave_probability':'1/6',
+            'icosphere_staggering_has_gap_window_intruders':{k:v['levels_inside_window'] for k,v in d['walls'].items()},
+            'octahedral_gap_control_intruders':{k:v['levels_inside_window'] for k,v in d['octahedral_control'].items()}}
+
+
+
+def natural_wiring():
+    # Replay the saved builder, but independently compare the two generators.
+    # This is a local finite check, not an asymptotic isotropy certificate.
+    import importlib.util
+    import scipy.sparse as sp
+    path=ROOT/'repair-law/work/S3/s0_lib.py'
+    spec=importlib.util.spec_from_file_location('audit_s3_lib',path)
+    module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+    F=module.FACE_TRIPLE
+    turn=module.find_aut(F,(F[1],F[2],F[0]),proper_only=True)[0]
+    ws=module.natural_tower(2,F,turn)
+    ancestry=[module.ancestry_count(module.build_mesh(k),ws[k],module.build_mesh(k+1),ws[k+1]) for k in range(2)]
+    assert all(x['to_non_seam']==x['collapsed']==0 for x in ancestry)
+    Lc=module.port_laplacian(module.build_mesh(0),ws[0]).astype(np.int64)
+    Lf=module.port_laplacian(module.build_mesh(1),ws[1]).astype(np.int64)
+    n=Lf.shape[0];parent=12*((np.arange(n)//12)//4)+np.arange(n)%12
+    J=sp.csr_matrix((np.ones(n,dtype=np.int64),(np.arange(n),parent)),shape=(n,Lc.shape[0]))
+    A=Lf@J;B=J@Lc
+    aa=int(A.multiply(A).sum());ab=int(A.multiply(B).sum());bb=int(B.multiply(B).sum())
+    residual=Q(aa)-Q(ab*ab,bb)
+    assert residual>0
+    return {'status':'EXACT integer/rational finite checks',
+            'input':'DECLARED face-triple recursive wiring; original saved builder',
+            'ancestry_levels_0_to_2':ancestry,
+            'generator_intertwining_residual_minimised_over_clock_rescale':str(residual),
+            'best_clock_rescale':str(Q(ab,bb)),
+            'relative_squared_residual':str(residual/Q(aa)),
+            'graph_morphism_implies_generator_intertwining':False,
+            'proof_scope':'graph support refinement is repaired; exact dynamical coarse-graining is not supplied'}
+
+
+def reflection_positivity_counterexample():
+    # Time labels [-1,-2,+1,+2], reflection swaps the two halves.
+    # C=[[I,B],[B,I]], B=[[1/4,1/2],[1/2,1/4]].
+    # C is strictly positive, entrywise nonnegative and reflection invariant,
+    # while the reflected quadratic form on f=(1,-1) equals -1/2.
+    a,b=Q(1,4),Q(1,2)
+    eigenvalues=sorted([1+a+b,1-a-b,1+a-b,1-a+b])
+    reflected_norm=2*(a-b)
+    assert min(eigenvalues)>0 and reflected_norm<0
+    return {'status':'EXACT rational counterexample',
+            'full_covariance_spectrum':[str(x) for x in eigenvalues],
+            'reflection_block':'[[1/4,1/2],[1/2,1/4]]',
+            'positive_time_test_vector':[1,-1],
+            'reflected_quadratic_form':str(reflected_norm),
+            'positive_covariance_and_reflection_symmetry_imply_OS_positivity':False,
+            'scope':'This is a missing-premise counterexample, not a calculation on the native record covariance.'}
+
+def main():
+    values={'native_stationary_reference':states_and_caps(),
+            'faithful_swap_reference':faithful_swap_state(),
+            'wiring':wiring_bands(),'order_dimension':order_dimension(),
+            'clock_dictionary':same_laplacian_different_clocks(),'archived_scope_checks':check_archives(),
+            'natural_wiring':natural_wiring(),'reflection_positivity_control':reflection_positivity_counterexample()}
+    inputs=['repair-law/LEADS.md','repair-law/PROBLEM.md','repair-law/REQUIREMENTS.md',
+            'repair-law/work/S3/s0_lib.py','repair-law/work/S3/s5_ancestry.json',
+            'repair-law/work/S3/s10_mass_shell.py','repair-law/work/S3/s10_mass_shell.json',
+            'repair-law/work/S11/s2_native_state.py','repair-law/work/S11/out/s2_native_state.json',
+            'repair-law/work/S11/CONVENTIONS.md','reverse-engineering-reality/Lean/QFT/FiniteModularInclusion.lean',
+            'reverse-engineering-reality/Lean/QFT/ModularClockComparison.lean',
+            'reverse-engineering-reality/Lean/Geometry/GoldenSourceCausalLimit.lean']
+    values['input_sha256']={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in inputs}
+    (HERE/'results.json').write_text(json.dumps(values,indent=2)+'\n')
+    print(json.dumps({k:v for k,v in values.items() if k!='input_sha256'},indent=2))
+
+if __name__=='__main__':main()

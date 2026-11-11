@@ -1,0 +1,92 @@
+#!/usr/bin/env python3
+"""Worker SC: Part C chain reruns (C1, C1m, C2, C3 of CANDIDATES.md). Source values only; no measured value is read.
+Writes sc_chains.json. Comparison with measured values is done separately (sc_not_blind.py)."""
+from __future__ import annotations
+
+import json
+import math
+
+import numpy as np
+
+from sc_chain_lib import PHI, PI, SQPI, Chain, alpha_cut, bisect, _l3, _c3
+
+P_FWD = 1.63097209585889737696451390350695562847912625483895268486516
+CENSUS = {"MSSM (declared, reference)": (33 / 5, 1.0, -3.0), "SM": (41 / 10, -19 / 6, -7.0), "B": (61 / 10, -7 / 6, -5.0),
+          "A3H": (43 / 10, -17 / 6, -7.0), "K3(1,3)": (81 / 10, 5 / 6, -3.0)}
+# GL 5-trace Euclidean matching shifts at mu = E_cell (cross terms EXACT, pure gauge IMPORTED)
+DELTA = (-3.455751918948772, -0.47123889803846897 - 3.486069917927916, -0.20943951023931953 - 5.883603346389747)
+
+
+def p_trivial3(t):
+    logw = _l3 - t * _c3
+    m = logw.max()
+    return float(np.exp(-m) / np.exp(logw - m).sum())
+
+
+T_HALF3 = bisect(lambda t: p_trivial3(t) - 0.5, 0.01, 20.0)
+
+
+def run_row(ch, matched=False):
+    def pt(P):
+        if matched:
+            ac = alpha_cut(P)
+            ch.inv_start = tuple(1 / ac + d for d in DELTA)
+        return ch.point(P)
+
+    at = pt(P_FWD)
+    if at.get("status") != "ok":
+        return {"at_P_fwd": at}
+    P = P_FWD
+    hist = []
+    fp = None
+    for _ in range(40):
+        q = pt(P)
+        if q.get("status") != "ok":
+            fp = {"status": f"stopped at P = {P}: {q.get('status')}"}
+            break
+        Pn = PHI + SQPI / q["A_T"]
+        hist.append(abs(Pn - P))
+        P = Pn
+        if hist[-1] < 1e-14:
+            break
+    if fp is None:
+        q = pt(P)
+        fp = {"P_star": P, **q, "last_dP": hist[-3:], "iterations": len(hist)}
+    return {"at_P_fwd": at, "fixed_point": fp}
+
+
+out = {"inputs": {"P_fwd": P_FWD, "t_half_SU3": T_HALF3, "matching_shifts_5trace": DELTA, "measured_values_read": "none"}}
+
+# C1: R = 0, cut closure, law with the coupling at the cell (beta = 4)
+out["C1"] = {k: run_row(Chain(R=0.0, closure="cut", slopes=b, law_coupling="U")) for k, b in CENSUS.items()}
+# C1m: as C1 with GL's matched starting values (5-trace), law with the bare cell coupling
+out["C1m"] = {k: run_row(Chain(R=0.0, closure="cut", slopes=b, law_coupling="cut"), matched=True) for k, b in CENSUS.items()}
+# C2: declared chain with R from the modular family
+fam = {"c = 0 (E_cell reference)": 0.0, "c = 1/4": 0.25, "c = 1/2 (E* reference)": 0.5, "c = 2/3 (declared)": 2 / 3,
+       "c = 1 (mirror about exp(-pi) E*)": 1.0}
+out["C2"] = {k: run_row(Chain(R=(lambda P, c=c: 2 * PI - c * math.log(P)))) for k, c in fam.items()}
+# C3a: R = 0, self-consistent law with alpha_2(v) run from the cell (B10)
+out["C3a_B10_selfSU2"] = {k: run_row(Chain(R=0.0, closure="cut", slopes=b, law_coupling="selfSU2")) for k, b in CENSUS.items()}
+# C3b: R = 0, beta = 8/3 with the cell coupling (B9, target-informed)
+out["C3b_B9_beta_8_3_target_informed"] = {k: run_row(Chain(R=0.0, closure="cut", slopes=b, beta=8 / 3, law_coupling="U"))
+                                          for k, b in CENSUS.items()}
+# C3c: R = 0, law coupling 1/alpha = t_half(SU(3))/alpha_cut (B12 coincidence, post-hoc, target-informed)
+out["C3c_B12_posthoc_target_informed"] = {k: run_row(Chain(R=0.0, closure="cut", slopes=b,
+                                                           law_inv=lambda P: T_HALF3 / alpha_cut(P)))
+                                          for k, b in CENSUS.items()}
+open("sc_chains.json", "w").write(json.dumps(out, indent=1, default=float) + "\n")
+
+
+def brief(r):
+    a = r["at_P_fwd"]
+    if a.get("status") != "ok":
+        return a.get("status")
+    f = r.get("fixed_point", {})
+    return (f"v/E*={a['v_over_Estar']:.4e} s2w={a['sin2w_mZ']:.5f} a3={a['alpha3_mZ']:.4f} aem-1={a['alpha_em_inv_mZ']:.3f} "
+            f"A_T={a['A_T']:.3f} | P*={f.get('P_star', f.get('status'))}")
+
+
+for block in ("C1", "C1m", "C2", "C3a_B10_selfSU2", "C3b_B9_beta_8_3_target_informed", "C3c_B12_posthoc_target_informed"):
+    print("==", block)
+    for k, r in out[block].items():
+        print(f"  {k}: {brief(r)}")

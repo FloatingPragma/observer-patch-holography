@@ -1,0 +1,29 @@
+"""Quick per-run summary: mean and susceptibility of the volume average of R^2 with binned errors."""
+import sys, glob, json, math
+import numpy as np
+import ewlat as E
+def tau_int(a):
+    a = a - a.mean(); n = len(a); v = a.var()
+    if v == 0: return 0.5
+    t = 0.5
+    for k in range(1, n // 4):
+        c = np.dot(a[:-k], a[k:]) / ((n - k) * v)
+        t += c
+        if k > 6 * t: break
+    return t
+rows = []
+for f in sorted(glob.glob(sys.argv[1])):
+    d = np.load(f); m = json.loads(str(d['meta'])); s = d['ser']
+    L = m['L']; V = L ** 3
+    r2 = s[:, 1] / V
+    nb = 20; n = len(r2) // nb
+    if n < 2: continue
+    b = r2[:n * nb].reshape(nb, n)
+    chi_b = np.array([V * np.delete(b, i, 0).var() for i in range(nb)])
+    chi = V * r2.var(); chie = math.sqrt((nb - 1) * chi_b.var())
+    chi3 = chi * m['bH'] ** 2 / m['bG']
+    rows.append((m['x'], m['bG'], L, m['y'], m['bH'], len(r2), r2.mean(), b.mean(1).std(ddof=1) / math.sqrt(nb), chi3, chie * m['bH'] ** 2 / m['bG'], tau_int(r2), m.get('seconds', 0) / max(m.get('nmeas', 1) + m.get('ntherm', 0), 1)))
+rows.sort()
+print("x bG L y bH N R2 err chi3 err tau s/sweep")
+for r in rows:
+    print("%.4f %g %d %+.4f %.7f %d %.5f %.5f %.4f %.4f %.1f %.4f" % r)

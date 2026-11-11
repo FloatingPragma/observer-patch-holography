@@ -1,0 +1,112 @@
+{
+ "rate": 0.37,
+ "ring": [
+  {
+   "L": 6,
+   "max_abs_error_of_band": 4.440892098500626e-16,
+   "R1_E0": -0.0,
+   "R1_c2_from_two_smallest_k": 0.13689999999999994,
+   "R2_D": 0.36999999999999994,
+   "R2_m_kin": 1.3513513513513515,
+   "R2_m_kin_exact": 1.3513513513513513,
+   "largest_slope": 0.7066479473280154,
+   "largest_slope_exact": 0.74,
+   "R1s_alpha": 4.748575883363761e-16,
+   "R1s_m": 1.3513513513513506,
+   "R1s_c2": Infinity
+  },
+  {
+   "L": 12,
+   "max_abs_error_of_band": 1.3322676295501878e-15,
+   "R1_E0": -0.0,
+   "R1_c2_from_two_smallest_k": 0.03668224444382076,
+   "R2_D": 0.37000000000000033,
+   "R2_m_kin": 1.3513513513513502,
+   "R2_m_kin_exact": 1.3513513513513513,
+   "largest_slope": 0.7066479473280172,
+   "largest_slope_exact": 0.74,
+   "R1s_alpha": -2.2385001387369435e-16,
+   "R1s_m": 1.3513513513513515,
+   "R1s_c2": Infinity
+  },
+  {
+   "L": 24,
+   "max_abs_error_of_band": 6.772360450213455e-15,
+   "R1_E0": -0.0,
+   "R1_c2_from_two_smallest_k": 0.009329508762053088,
+   "R2_D": 0.3699999999999998,
+   "R2_m_kin": 1.3513513513513522,
+   "R2_m_kin_exact": 1.3513513513513513,
+   "largest_slope": 0.7315757878043953,
+   "largest_slope_exact": 0.74,
+   "R1s_alpha": -3.324003118354633e-15,
+   "R1s_m": 1.3513513513513538,
+   "R1s_c2": Infinity
+  },
+  {
+   "L": 48,
+   "max_abs_error_of_band": 9.325873406851315e-15,
+   "R1_E0": -0.0,
+   "R1_c2_from_two_smallest_k": 0.002342396955850763,
+   "R2_D": 0.37000000000000427,
+   "R2_m_kin": 1.3513513513513358,
+   "R2_m_kin_exact": 1.3513513513513513,
+   "largest_slope": 0.7378885264388044,
+   "largest_slope_exact": 0.74,
+   "R1s_alpha": -4.700850291347586e-15,
+   "R1s_m": 1.3513513513513549,
+   "R1s_c2": Infinity
+  }
+ ],
+ "triangular": [
+  {
+   "N": 3,
+   "max_abs_error_of_band": 1.3322676295501878e-15,
+   "R1_E0": -1.1102230246251565e-16,
+   "R2_D_three_directions_at_smallest_k": [
+    0.37957448422010814,
+    0.37957448422010814,
+    0.3795744842201079
+   ],
+   "R2_D_exact_continuum": 0.5549999999999999,
+   "R2_m_kin_exact": 0.900900900900901
+  },
+  {
+   "N": 6,
+   "max_abs_error_of_band": 5.10702591327572e-15,
+   "R1_E0": -1.1102230246251565e-16,
+   "R2_D_three_directions_at_smallest_k": [
+    0.5060993122934774,
+    0.5060993122934774,
+    0.5060993122934782
+   ],
+   "R2_D_exact_continuum": 0.5549999999999999,
+   "R2_m_kin_exact": 0.900900900900901
+  },
+  {
+   "N": 12,
+   "max_abs_error_of_band": 5.995204332975845e-15,
+   "R1_E0": -1.1102230246251565e-16,
+   "R2_D_three_directions_at_smallest_k": [
+    0.5424356080759362,
+    0.5424356080759362,
+    0.5424356080759375
+   ],
+   "R2_D_exact_continuum": 0.5549999999999999,
+   "R2_m_kin_exact": 0.900900900900901
+  },
+  {
+   "N": 24,
+   "max_abs_error_of_band": 2.19824158875781e-14,
+   "R1_E0": -1.1102230246251565e-16,
+   "R2_D_three_directions_at_smallest_k": [
+    0.5518373082262727,
+    0.5518373082262715,
+    0.5518373082262601
+   ],
+   "R2_D_exact_continuum": 0.5549999999999999,
+   "R2_m_kin_exact": 0.900900900900901
+  }
+ ],
+ "statement": "R2 returns 1/(2D) (ring: lattice-exact with khat; triangular: up to O(k^2), isotropic). R1 returns E0 = 0. The two-point c^2 = E1^2/khat^2 goes to zero as 1/L^2: there is no cone. R1s returns alpha = 0 (c infinite): a Galilean particle."
+}

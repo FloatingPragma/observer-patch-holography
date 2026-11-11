@@ -1,0 +1,43 @@
+"""Task GEN: further replications of the P3 mode counts on the levels that do not enter the decision (reported only;
+no test is added to the ledger). Uses the functions of gen_decide.py unchanged.
+
+    python gen_replicate.py <out dir> <GEN_three_populations.json> <out.json>
+"""
+import json
+import sys
+from pathlib import Path
+
+import numpy as np
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import gen_decide as D  # noqa: E402
+
+od = Path(sys.argv[1])
+R = json.load(open(sys.argv[2]))
+led = D.Ledger(R['ledger']['T_used'])
+out = {'T_used': led.T, 'z_one_sided': led.z1, 'P3': {}}
+for L in (3, 4, 5, 6, 7, 8, 9, 10):
+    js = json.load(open(od / f'ident_L{L}.json'))
+    bp = od / f'ident_L{L}_blocks.npz'
+    z = np.load(bp) if bp.exists() else None
+    for tier in js['tiers']:
+        for k in (1, 2, 3, 4, 5):
+            for sub in ('all', 'alive'):
+                for prop in ('birth_sweep', 'hops', 'lifetime_depth'):
+                    cnt = np.array(js['tiers'][tier][str(k)][f'{sub}_{prop}'], float)
+                    if cnt.sum() < 1:
+                        continue
+                    key = f'{tier}_{k}_{sub}_{prop}'
+                    phi = D.phi_hist(z[key])[0] if (z is not None and key in z.files) else 2.0
+                    for reading in ('i', 'ii'):
+                        if reading == 'i':
+                            w = np.array(js['widths'][prop][:len(cnt)], float)
+                        else:
+                            ed = np.array(js['edges'][prop], float)
+                            w = (np.log1p(np.ceil(ed[1:])) - np.log1p(np.ceil(ed[:-1])))[:len(cnt)]
+                        m = D.modes(cnt, w, phi, led, 'replication', register=False)
+                        out['P3'].setdefault(f'{tier} {sub} {prop} reading {reading}', {}).setdefault(str(k), {})[f'L{L}'] = m['modes']
+json.dump(out, open(sys.argv[3], 'w'), indent=1)
+for key, v in out['P3'].items():
+    if 'lifetime' in key and key.split()[1] == 'all':
+        print(key, {k: v[k] for k in ('3', '4', '2')})

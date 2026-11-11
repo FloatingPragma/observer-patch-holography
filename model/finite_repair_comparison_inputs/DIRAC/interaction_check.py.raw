@@ -1,0 +1,68 @@
+"""Routing with quantum links: the tick commutes with every Gauss operator (executed check).
+
+Lattice 3 x 2 x 1 of carriers, one charged quantum (cell, record, spin), one Z2 link bit on each of the twelve links
+of axes 0 and 1 (axis 2 has one cell and carries no link). Joint state Psi[z, x1, x2, x3, record, spin], z the link word.
+  routing     in each link word, the routing tick with those link signs (work/DIRAC/routing.py)
+  field step  exp(-i eps X) on every link (a partial reflection of the link bit about its uniform state) and a
+              phase exp(-i kappa W) for every plaquette holonomy W
+  Gauss       G_x = (flip of the four links at x) times (-1 on the matter amplitude at x)
+Checked: unitarity; [tick, G_x] = 0 for every x; the routing alone does not change any plaquette holonomy.
+"""
+import itertools, json, sys
+import numpy as np
+from routing import Routing
+
+shape = (3, 2, 1)
+cells = list(itertools.product(range(3), range(2), range(1)))
+links = [(c, i) for i in (0, 1) for c in cells]                       # link from c to c + e_i
+lid = {l: k for k, l in enumerate(links)}
+NL = len(links); NZ = 2 ** NL
+def signs(z):
+    out = [np.ones(shape), np.ones(shape), np.ones(shape)]
+    for (c, i), k in lid.items():
+        if (z >> k) & 1: out[i][c] = -1.0
+    return out
+def star(c):
+    """bits of the links incident on cell c"""
+    m = 0
+    for i in (0, 1):
+        m ^= 1 << lid[(c, i)]
+        back = list(c); back[i] = (back[i] - 1) % shape[i]
+        m ^= 1 << lid[(tuple(back), i)]
+    return m
+def gauss(Psi, c):
+    out = np.empty_like(Psi)
+    m = star(c)
+    idx = np.arange(NZ) ^ m
+    out[idx] = Psi
+    out[(slice(None),) + c] *= -1
+    return out
+def route(Psi, theta=0.1):
+    out = np.empty_like(Psi)
+    for z in range(NZ):
+        out[z] = Routing(shape, signs(z)).tick(Psi[z], theta)
+    return out
+def plaquette(z, c):
+    """holonomy of the plaquette at c in the plane of axes 0 and 1"""
+    c0 = list(c); c0[0] = (c0[0] + 1) % shape[0]; c1 = list(c); c1[1] = (c1[1] + 1) % shape[1]
+    bits = [lid[(c, 0)], lid[(tuple(c0), 1)], lid[(tuple(c1), 0)], lid[(c, 1)]]
+    return (-1) ** sum((z >> b) & 1 for b in bits)
+W = np.array([[plaquette(z, c) for c in cells] for z in range(NZ)])
+def field(Psi, eps=0.3, kappa=0.2):
+    out = Psi * np.exp(-1j * kappa * W.sum(axis=1)).reshape((NZ,) + (1,) * 5)
+    for k in range(NL):
+        out = np.cos(eps) * out - 1j * np.sin(eps) * out[np.arange(NZ) ^ (1 << k)]
+    return out
+def tick(Psi): return field(route(Psi))
+
+rng = np.random.default_rng(2)
+Psi = rng.normal(size=(NZ,) + shape + (2, 2)) + 1j * rng.normal(size=(NZ,) + shape + (2, 2)); Psi /= np.linalg.norm(Psi)
+res = {'dimension': int(Psi.size), 'unitarity': float(abs(np.linalg.norm(tick(Psi)) - 1))}
+res['commutator_with_Gauss'] = float(max(np.abs(tick(gauss(Psi, c)) - gauss(tick(Psi), c)).max() for c in cells))
+res['commutator_routing_only'] = float(max(np.abs(route(gauss(Psi, c)) - gauss(route(Psi), c)).max() for c in cells))
+res['Gauss_squares_to_one'] = float(max(np.abs(gauss(gauss(Psi, c), c) - Psi).max() for c in cells))
+# routing is diagonal in the link word, so every plaquette holonomy is conserved by it
+P = Psi.copy(); P[1:] = 0; P /= np.linalg.norm(P)
+res['routing_leaves_the_link_word'] = float(np.linalg.norm(route(P)[1:]))
+print(res)
+json.dump(res, open(sys.argv[1] if len(sys.argv) > 1 else 'interaction_check.json', 'w'), indent=1)

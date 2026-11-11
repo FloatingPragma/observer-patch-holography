@@ -1,0 +1,288 @@
+"""R8 item 1: charges, handedness and exact link currents of the 32 patterns under the routing tick (chiral reading).
+
+Chiral reading of CF-1 (section 9): one quantum carries (cell, spin, pattern); the two-level register of the routing
+is not an extra factor but acts on the pattern:
+    X_r = chi' = -(-1)^N      (handedness; R = +1 on odd patterns, L = -1 on even ones)
+    Z_r = G0   = a + a*       of the neutral doublet level s2 (the toggle; the record reflection R of the routing)
+so alpha_i = chi' sigma_i and the tick is  M . S_3 S_2 S_1,  S_i = P_i^+ T_i + P_i^- T_i^*,  M = exp(-i theta G0).
+
+Exact part (int64, Gaussian integers through the real embedding): operator identities on the 32 patterns, and the
+lattice continuity equation of every charge on a 3 x 2 x 2 lattice with a random Gaussian-integer state.
+Float part: the same tick against the reference engine work/DIRAC/routing.py (defect printed), and the Gauss
+operator of CF-1 section 8 against the toggle on a ring of three cells with quantum links (and with a Higgs bit).
+"""
+import itertools, json, sys
+import numpy as np
+import sympy as sp
+from routing import Routing, SIG
+
+out = {}
+states = list(itertools.product((0, 1), repeat=5))            # occupation of (v1, v2, v3, s1, s2); s2 neutral
+idx = {s: i for i, s in enumerate(states)}
+def ann(k):
+    A = np.zeros((32, 32), np.int64)
+    for s in states:
+        if s[k]:
+            t = list(s); t[k] = 0
+            A[idx[tuple(t)], idx[s]] = (-1) ** sum(s[:k])
+    return A
+a = [ann(k) for k in range(5)]; ad = [x.T.copy() for x in a]; num = [ad[k] @ a[k] for k in range(5)]
+I32 = np.eye(32, dtype=np.int64)
+n3op = num[0] + num[1] + num[2]; n2op = num[3] + num[4]
+Pn = np.diag([(-1) ** sum(s) for s in states]).astype(np.int64)      # (-1)^N
+chiR = -Pn                                                           # +1 right-handed (odd), -1 left-handed (even)
+G0 = a[4] + ad[4]                                                    # toggle of the neutral doublet level
+PL = (I32 + Pn) // 2; PR = (I32 - Pn) // 2
+
+# the twelve generators as Gaussian-integer Hermitian matrices (twice or six times the usual normalisation)
+gens = {}
+for i, j in itertools.combinations(range(3), 2):
+    gens[f'su3_S{i+1}{j+1}'] = (ad[i] @ a[j] + ad[j] @ a[i]).astype(complex)
+    gens[f'su3_A{i+1}{j+1}'] = -1j * (ad[i] @ a[j] - ad[j] @ a[i])
+gens['su3_D12'] = (num[0] - num[1]).astype(complex); gens['su3_D23'] = (num[1] - num[2]).astype(complex)
+gens['su2_T1'] = (ad[3] @ a[4] + ad[4] @ a[3]).astype(complex)
+gens['su2_T2'] = -1j * (ad[3] @ a[4] - ad[4] @ a[3])
+gens['su2_T3'] = (num[3] - num[4]).astype(complex)
+gens['u1_Y'] = (3 * n2op - 2 * n3op).astype(complex)                 # 6Y = Q6 = 3 n2 - 2 n3 (CF-1 convention)
+derived = {'Q_em': 3 * gens['su2_T3'] + gens['u1_Y'],                # 6Q = 6 n_s1 - 2 n3
+           'N_neutral_level': num[4].astype(complex), 'number': I32.astype(complex)}
+assert np.array_equal(derived['Q_em'].real, 6 * num[3] - 2 * n3op)
+
+def E(A):
+    """real embedding of a Gaussian-integer matrix"""
+    A = np.asarray(A, complex)
+    Ar = np.rint(A.real).astype(np.int64); Ai = np.rint(A.imag).astype(np.int64)
+    assert np.all(Ar == A.real) and np.all(Ai == A.imag)
+    return np.block([[Ar, -Ai], [Ai, Ar]])
+def comm0(A, B):
+    return not np.any(E(A) @ E(B) - E(B) @ E(A))
+def acomm0(A, B):
+    return not np.any(E(A) @ E(B) + E(B) @ E(A))
+
+# ---------------------------------------------------------------- 1. pattern-level identities (exact)
+rows = []
+for name, T in {**gens, **derived}.items():
+    rows.append({'charge': name, 'commutes_with_handedness': comm0(T, Pn), 'commutes_with_toggle': comm0(T, G0),
+                 'L_part_commutes_with_toggle': comm0(T @ PL, G0), 'R_part_commutes_with_toggle': comm0(T @ PR, G0)})
+out['pattern_level'] = rows
+assert all(r['commutes_with_handedness'] for r in rows)
+assert acomm0(G0, Pn) and np.array_equal(G0 @ G0, I32)
+# dimension of the part of the gauge algebra that commutes with the toggle (exact rank)
+cols = []
+for name, T in gens.items():
+    C = E(T) @ E(G0) - E(G0) @ E(T)
+    cols.append(C.ravel())
+M = np.array(cols).T
+M = M[np.any(M != 0, axis=1)]
+M = np.unique(M, axis=0)
+rank = sp.Matrix(M.tolist()).rank()
+out['gauge_algebra_commuting_with_toggle'] = {'dimension': 12 - rank, 'content': 'su(3) + u(1) of Q_em',
+                                              'broken_generators': rank}
+# Z2 charge of CF-1 section 8 (n2 mod 2) against the toggle
+Z2 = np.diag([(-1) ** (s[3] + s[4]) for s in states]).astype(np.int64)
+out['Z2_charge_anticommutes_with_toggle'] = acomm0(Z2, G0)
+# handedness operators compatible with the twelve currents and with the toggle as a mass
+parent = list(range(32))
+def find(x):
+    while parent[x] != x: x = parent[x]
+    return x
+for T in gens.values():
+    for i, j in zip(*np.nonzero(np.abs(T) > 0)):
+        parent[find(i)] = find(j)
+classes = {}
+for i in range(32): classes.setdefault(find(i), []).append(i)
+sectors = sorted({(sum(s[:3]), sum(s[3:])) for s in states})
+assert len(classes) == 12 and all(len({(sum(states[i][:3]), sum(states[i][3:])) for i in c}) == 1 for c in classes.values())
+sol = []
+for signs in itertools.product((1, -1), repeat=12):
+    d = dict(zip(sectors, signs))
+    D = np.diag([d[(sum(s[:3]), sum(s[3:]))] for s in states]).astype(np.int64)
+    if acomm0(D, G0): sol.append(d)
+assert all(all(d[(n3, n2)] == d[(n3, 0)] * (-1) ** n2 for n3, n2 in sectors) for d in sol)
+out['handedness_operators'] = {'orbits_of_the_gauge_algebra_on_patterns': 12,
+                               'sign_operators_commuting_with_all_twelve_and_anticommuting_with_toggle': len(sol),
+                               'form': 'f(n3) (-1)^n2, f arbitrary sign on n3 = 0..3'}
+# anomaly traces with the handedness sign: family half (n3 odd), conjugate half, and all 32
+def anomaly(mask, chi):
+    sel = np.nonzero(mask)[0]
+    Ts = [E(T[np.ix_(sel, sel)]) for T in gens.values()]
+    X = E(chi[np.ix_(sel, sel)].astype(complex))
+    worst = 0; lin = max(abs(int(np.trace(X @ T))) for T in Ts)
+    for i, j, k in itertools.combinations_with_replacement(range(12), 3):
+        worst = max(worst, abs(int(np.trace(X @ Ts[i] @ (Ts[j] @ Ts[k] + Ts[k] @ Ts[j])))))
+    return {'states': int(len(sel)), 'left': int((np.diag(chi)[sel] == -1).sum()), 'right': int((np.diag(chi)[sel] == 1).sum()),
+            'max_cubic_trace': worst, 'max_linear_trace': lin, 'triples': 364}
+n3 = np.array([sum(s[:3]) for s in states]); n2 = np.array([sum(s[3:]) for s in states])
+chi_mirror = np.diag((-1) ** n2).astype(np.int64)                    # f = 1: doublets left everywhere
+out['anomaly_traces'] = {'family_half_n3_odd': anomaly(n3 % 2 == 1, chiR),
+                         'conjugate_half_n3_even': anomaly(n3 % 2 == 0, chiR),
+                         'all_32_handedness_parity': anomaly(n3 >= 0, chiR),
+                         'all_32_handedness_minus1_to_n2': anomaly(n3 >= 0, chi_mirror)}
+# chart: sectors, handedness, classes, partners
+names = {(1, 0): 'd_R', (1, 1): 'Q_L', (1, 2): 'u_R', (3, 0): 'e_R', (3, 1): 'L_L', (3, 2): 'nu_R',
+         (2, 2): 'conj d_R', (2, 1): 'conj Q_L', (2, 0): 'conj u_R', (0, 2): 'conj e_R', (0, 1): 'conj L_L', (0, 0): 'conj nu_R'}
+chart = []
+for (m3, m2) in sectors:
+    sel = [i for i, s in enumerate(states) if (sum(s[:3]), sum(s[3:])) == (m3, m2)]
+    q = sorted({int(round(derived['Q_em'][i, i].real)) for i in sel})
+    chart.append({'n3': m3, 'n2': m2, 'name': names[(m3, m2)], 'states': len(sel), 'six_Y': 3 * m2 - 2 * m3,
+                  'Q6_mod_6': (3 * m2 - 2 * m3) % 6, 'Z2': m2 % 2, 'six_Q_em': q,
+                  'handedness': 'L' if (m3 + m2) % 2 == 0 else 'R', 'family_half': bool(m3 % 2)})
+out['chart'] = chart
+pairs = {}
+for s in states:
+    if s[4] == 0 and sum(s[:3]) % 2 == 1:
+        t = s[:4] + (1,)
+        key = {(1, 0): 'down', (1, 1): 'up', (3, 0): 'charged lepton', (3, 1): 'neutrino'}[(sum(s[:3]), s[3])]
+        A, B = (sum(s[:3]), sum(s[3:])), (sum(t[:3]), sum(t[3:]))
+        pairs.setdefault(key, {'empty': names[A], 'filled': names[B], 'Q6_classes': sorted([(3 * A[1] - 2 * A[0]) % 6, (3 * B[1] - 2 * B[0]) % 6]),
+                               'pairs': 0})['pairs'] += 1
+out['toggle_pairs_of_the_family_half'] = pairs
+
+# ---------------------------------------------------------------- 2. lattice continuity (exact, int64)
+shape = (3, 2, 2)
+rng = np.random.default_rng(8)
+v = rng.integers(-3, 4, size=shape + (128,)).astype(np.int64)        # real embedding of 64 complex amplitudes per cell
+S2 = [np.kron(SIG[i], chiR.astype(complex)) for i in range(3)]       # alpha_i on spin x pattern (Gaussian integers)
+I64 = np.eye(64)
+Ep = [E(I64 + S2[i]) for i in range(3)]; Em = [E(I64 - S2[i]) for i in range(3)]
+def layer(v, i):                                                     # twice the shift S_i
+    return np.roll(v, 1, axis=i) @ Ep[i].T + np.roll(v, -1, axis=i) @ Em[i].T
+def rho(v, ET):
+    return np.einsum('...a,ab,...b->...', v, ET, v)
+C, Sn = 99, 20                                                       # cos, sin = 99/101, 20/101
+EM = E(C * I64 - 1j * Sn * np.kron(np.eye(2), G0))                   # 101 exp(-i theta G0)
+def one(T): return np.kron(np.eye(2), T)
+cont = []
+tests = {}
+for name, T in {**gens, **derived}.items():
+    tests[name] = T; tests[name + ' [L]'] = T @ PL; tests[name + ' [R]'] = T @ PR
+vs = [v]
+for i in range(3): vs.append(layer(vs[-1], i))
+vM = vs[-1] @ EM.T
+norm2 = int(np.sum(v * v))
+for name, T in tests.items():
+    ET = E(one(T)); ok = True
+    for i in range(3):
+        JT = [E((I64 + S2[i]) @ one(T)), E((I64 - S2[i]) @ one(T))]
+        J2 = rho(vs[i], JT[0]) - np.roll(rho(vs[i], JT[1]), -1, axis=i)      # twice the current on link x -> x + e_i
+        lhs = rho(vs[i + 1], ET) - 4 * rho(vs[i], ET)
+        ok &= not np.any(lhs - 2 * (np.roll(J2, 1, axis=i) - J2))
+    src = rho(vM, ET) - 101 ** 2 * rho(vs[3], ET)                     # source of the toggle step at every cell
+    cont.append({'charge': name, 'continuity_exact_in_all_three_layers': bool(ok),
+                 'toggle_source_identically_zero': not np.any(EM.T @ ET @ EM - 101 ** 2 * ET),
+                 'max_source_on_test_state_per_unit_norm': float(np.abs(src).max()) / (101 ** 2 * 64 * norm2)})
+out['lattice'] = {'shape': shape, 'state': 'random Gaussian integers in [-3, 3], seed 8', 'rows': cont,
+                  'toggle_angle': 'cos = 99/101, sin = 20/101'}
+assert all(r['continuity_exact_in_all_three_layers'] for r in cont)
+keep_massless = [r['charge'] for r in cont]
+keep_toggle = [r['charge'] for r in cont if r['toggle_source_identically_zero']]
+out['summary'] = {'conserved_by_massless_tick': len(keep_massless), 'of': len(cont),
+                  'conserved_with_toggle': keep_toggle}
+
+# ---------------------------------------------------------------- 2b. the twelve port responses themselves (float)
+from model.common_source import slow_geometry
+src = slow_geometry.source()
+Adj = np.zeros((12, 12))
+for x_, y_ in [tuple(int(t) for t in e) for e in src.seams()]: Adj[x_, y_] = Adj[y_, x_] = 1
+wv, vv = np.linalg.eigh(Adj)
+N1 = vv[:, np.abs(wv - 5 ** .5) < 1e-9] * 2.0; N2 = vv[:, np.abs(wv + 5 ** .5) < 1e-9] * 2.0
+def cross(u): return np.array([[0, -u[2], u[1]], [u[2], 0, -u[0]], [-u[1], u[0], 0]])
+basis = np.array([np.concatenate([T.real.ravel(), T.imag.ravel()]) for T in gens.values()]).T
+span_res = 0.0; cont_res = 0.0
+fl = [(vs[k][..., :64] + 1j * vs[k][..., 64:]) / 2 ** k for k in range(4)]
+for q_ in range(12):
+    Pq = (np.eye(3) - np.outer(N1[q_], N1[q_]) + 1j * cross(N1[q_])) / 2
+    Qq = (np.eye(2) + N2[q_][0] * SIG[0] + N2[q_][1] * SIG[1] + N2[q_][2] * SIG[2]) / 2
+    X5 = np.zeros((5, 5), complex); X5[:3, :3] = Pq / 2; X5[3:, 3:] = -Qq / 2
+    T32 = sum(X5[i, j] * (ad[i] @ a[j]) for i in range(5) for j in range(5))      # the response on the 32 patterns
+    vec = np.concatenate([T32.real.ravel(), T32.imag.ravel()])
+    coef, *_ = np.linalg.lstsq(basis, vec, rcond=None)
+    span_res = max(span_res, float(np.abs(basis @ coef - vec).max()))
+    T64 = np.kron(np.eye(2), T32)
+    dens = lambda f: np.einsum('...a,ab,...b->...', f.conj(), T64, f).real
+    for i in range(3):
+        Pp, Pm = (I64 + S2[i]) / 2, (I64 - S2[i]) / 2
+        J = np.einsum('...a,ab,...b->...', fl[i].conj(), Pp @ T64, fl[i]).real \
+            - np.roll(np.einsum('...a,ab,...b->...', fl[i].conj(), Pm @ T64, fl[i]).real, -1, axis=i)
+        cont_res = max(cont_res, float(np.abs(dens(fl[i + 1]) - dens(fl[i]) - (np.roll(J, 1, axis=i) - J)).max()))
+out['port_responses'] = {'span_residual_in_the_twelve_generators': span_res,
+                         'continuity_defect_all_twelve_all_layers': cont_res / float(np.abs(fl[0]).max()) ** 2}
+print('port responses', out['port_responses'])
+
+# ---------------------------------------------------------------- 3. the same tick in the reference engine (float)
+w = Routing(shape)
+psi = (v[..., :64] + 1j * v[..., 64:]).reshape(shape + (2, 32))       # [x, spin, pattern]
+def to_engine(psi):
+    """one engine state psi[x, record, spin] for each of the 16 patterns of the four other levels"""
+    res = {}
+    for ap in itertools.product((0, 1), repeat=4):
+        p = (-1) ** sum(ap)
+        e_, f_ = psi[..., idx[ap + (0,)]], psi[..., idx[ap + (1,)]]
+        res[ap] = np.stack([(e_ + p * f_) / np.sqrt(2), (-p * e_ + f_) / np.sqrt(2)], axis=-2)
+    return res
+theta = float(np.arctan2(Sn, C))
+mine0 = (vs[3][..., :64] + 1j * vs[3][..., 64:]).reshape(shape + (2, 32)) / 8
+mine1 = (vM[..., :64] + 1j * vM[..., 64:]).reshape(shape + (2, 32)) / (8 * 101)
+e_in, e0, e1 = to_engine(psi), to_engine(mine0), to_engine(mine1)
+d0 = max(np.abs(w.tick(e_in[k], 0.0) - e0[k]).max() for k in e_in)
+d1 = max(np.abs(w.tick(e_in[k], theta, kind='Z') - e1[k]).max() for k in e_in)
+scale = float(np.abs(psi).max())
+out['reference_engine'] = {'massless_tick_defect': d0 / scale, 'toggle_tick_defect_kind_Z': d1 / scale,
+                           'map': 'record 0 = (E + pF)/sqrt2, record 1 = (-pE + F)/sqrt2, p = (-1)^(occupation of the other four levels)'}
+
+# ---------------------------------------------------------------- 4. Gauss operator of section 8 against the toggle
+L = 3; ring = (L, 1, 1)
+def signs(z):
+    s0 = np.ones(ring)
+    for k in range(L):
+        if (z >> k) & 1: s0[k, 0, 0] = -1.0
+    return [s0, np.ones(ring), np.ones(ring)]
+eng = {z: Routing(ring, signs(z)) for z in range(8)}; free = Routing(ring)
+def Xr(e): return e[..., ::-1, :]
+def route(Psi):
+    res = np.empty_like(Psi)
+    for z in range(8):
+        for h in range(8):
+            e = Psi[z, h]
+            res[z, h] = free.tick((e + Xr(e)) / 2, 0.0) + eng[z].tick((e - Xr(e)) / 2, 0.0)   # R sees no link, L sees it
+    return res
+th = 0.157935
+def toggle_plain(Psi):
+    res = Psi.copy()
+    res[..., 0, :] *= np.exp(-1j * th); res[..., 1, :] *= np.exp(1j * th)
+    return res
+def toggle_higgs(Psi):
+    res = np.cos(th) * Psi
+    for x in range(L):
+        flip = np.arange(8) ^ (1 << x)
+        z = Psi[:, flip][:, :, x]                                     # Higgs bit of cell x flipped
+        res[:, :, x, :, :, 0, :] += -1j * np.sin(th) * z[..., 0, :]
+        res[:, :, x, :, :, 1, :] += +1j * np.sin(th) * z[..., 1, :]
+    return res
+def gauss(Psi, c, higgs):
+    m = (1 << c) | (1 << ((c - 1) % L))
+    res = np.empty_like(Psi)
+    res[np.arange(8) ^ m] = Psi
+    res[:, :, c] = Xr(res[:, :, c])                                   # (-1)^(charged) = X_r: -1 on the left-handed part
+    if higgs:
+        sg = np.array([(-1) ** ((h >> c) & 1) for h in range(8)])
+        res = res * sg[None, :, None, None, None, None, None]
+    return res
+rngg = np.random.default_rng(3)
+Psi = rngg.normal(size=(8, 8) + ring + (2, 2)) + 1j * rngg.normal(size=(8, 8) + ring + (2, 2)); Psi /= np.linalg.norm(Psi)
+g = {}
+g['engine_link_shift_commutes_with_handedness'] = float(max(np.abs(Xr(eng[5].tick(Psi[5, 0], 0.0)) - eng[5].tick(Xr(Psi[5, 0]), 0.0)).max(), 0))
+g['routing_commutes_with_Gauss'] = float(max(np.abs(route(gauss(Psi, c, False)) - gauss(route(Psi), c, False)).max() for c in range(L)))
+tp = lambda P: toggle_plain(route(P)); thg = lambda P: toggle_higgs(route(P))
+g['tick_with_plain_toggle_commutator_with_Gauss_norm'] = float(max(np.linalg.norm(tp(gauss(Psi, c, False)) - gauss(tp(Psi), c, False)) for c in range(L)))
+g['two_sin_theta_times_norm_bound'] = float(2 * np.sin(th))
+g['tick_with_Higgs_bit_commutator_with_extended_Gauss'] = float(max(np.abs(thg(gauss(Psi, c, True)) - gauss(thg(Psi), c, True)).max() for c in range(L)))
+g['unitarity_with_Higgs_bit'] = float(abs(np.linalg.norm(thg(Psi)) - 1))
+out['gauss'] = g
+
+for k in ('gauge_algebra_commuting_with_toggle', 'Z2_charge_anticommutes_with_toggle', 'handedness_operators', 'anomaly_traces',
+          'toggle_pairs_of_the_family_half', 'summary', 'reference_engine', 'gauss'):
+    print(k, json.dumps(out[k]))
+print('pattern level:'); [print('  ', r) for r in rows]
+if len(sys.argv) > 1: json.dump(out, open(sys.argv[1], 'w'), indent=1)

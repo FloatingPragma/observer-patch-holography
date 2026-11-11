@@ -1,0 +1,206 @@
+"""Lane AV: site data. Reads fits.json, abelian.json, gates.json, compare.json and writes
+SIM/oph_defects/viewer2/research/AV/class_balance.json (fetched by the viewer as /rl/AV/class_balance.json).
+The comparison block is NOT BLIND and labelled so.
+"""
+import json
+import math
+import os
+import sys
+
+pi = math.pi
+F = json.load(open("fits.json"))
+AB = json.load(open("abelian.json"))
+G = json.load(open("gates.json")) if os.path.exists("gates.json") else {}
+CMP = json.load(open("compare.json")) if os.path.exists("compare.json") else None
+S_U, X_U, E_CELL = F["S_U"], F["x_U"], F["E_cell_GeV"]
+DEST = sys.argv[1] if len(sys.argv) > 1 else "WORKSPACE/oph-physics-sim/oph_defects/viewer2/research/AV"
+
+CX = {"cub4_L6": "cubic lattice, four dimensions, 6^4, one axis is the tick",
+      "cub3_L8": "cubic lattice, three dimensions, 8^3, one axis is the tick",
+      "icoT_NT8": "icosahedral surface as space (20 faces, 30 seams), 8 ticks",
+      "cub4_L4": "cubic lattice, four dimensions, 4^4", "cub3_L6": "cubic lattice, three dimensions, 6^3"}
+ACT = {"hk": "SU(2), heat-kernel weight (one tick of the electric term)", "w": "SU(2), Wilson weight"}
+
+doc = {
+    "lane": "AV",
+    "title": "Class balance of the seam link",
+    "generated": "2026-11-11",
+    "one_line": "The class balance <A> of one seam link, measured as a ratio of partition functions with one centre-twisted link step.",
+    "map_into_this_step": "defects to field: the class-3 flip of one seam is the centre shift of its link; its expectation sets v = E_cell b <A>",
+    "conventions": {
+        "x": "1/alpha, alpha = g^2/(4 pi)", "S": "2 pi/(4 alpha) = (pi/2) x, the Gaussian cost of a half turn",
+        "form": "<A> = M exp(-c S)", "count": "4/c, defined by <A> proportional to exp(-2 pi/(count alpha))",
+        "x_U": X_U, "S_U": S_U, "E_cell_GeV": E_CELL, "paper_law": "c = 1 with (prefactor b) x M = 1",
+        "reading_electric_step": "A at the midpoint of the electric step: one twisted time-like plaquette of the seam",
+        "reading_face_step": "A at the midpoint of the face step: that plaquette twisted and the faces of the seam half twisted",
+    },
+    "fields": {
+        "series[].points[]": "x = 1/alpha, S, lnA = ln <A>, err = one standard error (jackknife, 20 blocks per stage)",
+        "series[].fit": "the adopted fit of ln <A> = ln M0 + p ln S - c S over beta >= 4: p = 1 unless its chi2/dof exceeds 4, then p free; count = 4/c",
+        "series[].fit_p1, fit_p_free": "both fits",
+        "series[].c_predicted": "1 - Pi of the Cartan circle (heat kernel) or the classical minimum of the twisted Wilson action over 2 pi^2",
+        "series[].M_at_x_U_with_predicted_c": "multiplicity at the chain coupling: <A>(S_U) exp(c S_U) with c at its prediction",
+        "series[].sector_law": "weight power w and heat time t of p_n proportional to n^w exp(-t (n^2-1)/4), measured at the chain coupling; tau = g^2/2",
+        "series[].candidates": "preregistered candidate values of c with the deviation of the fit",
+        "exact_counts[]": "Cartan circle with the Villain weight: c = 1 - Pi, count = 4/c, <A> at the chain coupling",
+        "one_register[]": "exact laws of a single register for weight powers 0, 1, 2 and the Cartan circle, against x",
+        "flux_density_statements[]": "the flux-density statements behind the counts 8/d and the pair weight, with their status here",
+        "doublet[]": "gauge-Higgs system (compact form), ln <A> on both sides of the Higgs line",
+        "second_reading[]": "the same measurement with A at the midpoint of the face step",
+        "clock": "exact Gaussian coefficient c against the number of electric steps per tick, both readings, three spaces",
+        "two_steps_per_tick": "SU(2) heat kernel on 4^3 x 8 half ticks with two electric steps per tick, both readings, with the exact Cartan values",
+        "statements[]": "text, label (EXACT, MEASURED, ARGUED, IMPORTED, DECLARED), status (derived, one premise, declared, imported, open)",
+        "comparison_not_blind": "v = E_cell exp(-c S_U) for b M = 1 and v = E_cell <A>(S_U) for b = 1 against 246.22 GeV (PDG 2024). NOT BLIND.",
+    },
+}
+
+def adopted(e):
+    """the fit with p = 1, unless its chi2 per degree of freedom exceeds 4; then the fit with p free"""
+    m, f = e["fit_p1_weak"], e["fit_pfree_weak"]
+    if m["dof"] > 0 and m["chi2"] / m["dof"] > 4.0 and f:
+        return f, "p free (the fit with p = 1 has chi2/dof = %.1f/%d)" % (m["chi2"], m["dof"])
+    return m, "p = 1"
+
+
+series = []
+for k, e in F["scans"].items():
+    cxn, act = k.rsplit("_", 1)
+    m, f = e["fit_p1_weak"], e["fit_pfree_weak"]
+    ad, which = adopted(e)
+    s5 = e["sector_law"].get("%s_%s_b5" % (cxn, act), {})
+    ser = {
+        "id": k, "complex": CX[cxn], "action": ACT[act], "reading": "electric step", "label": "MEASURED",
+        "points": [{"x": q["x"], "S": q["S"], "lnA": q["lnA"], "err": q["lnA_err"], "in_fit": bool(q["S"] > 19.0)} for q in e["points"]],
+        "fit": {"which": which, "c": ad["c"], "c_err": ad["c_err"], "p": ad["p"], "p_err": ad["p_err"], "count": 4 / ad["c"],
+                "count_err": 4 * ad["c_err"] / ad["c"] ** 2, "ln_M0": ad["ln_M0"], "ln_M0_err": ad["ln_M0_err"],
+                "chi2": ad["chi2"], "dof": ad["dof"]},
+        "fit_p1": {"c": m["c"], "c_err": m["c_err"], "p": 1.0, "chi2": m["chi2"], "dof": m["dof"]},
+        "c_predicted": e["c_predicted"], "prediction": "1 - Pi of the Cartan circle on the same complex" if act == "hk" else "classical minimum of the twisted Wilson action",
+        "M_at_x_U_with_predicted_c": e.get("M_U_at_predicted_c"),
+        "M_at_x_U_with_predicted_c_err": (e["M_U_at_predicted_c"] * e["M_U_at_predicted_c_rel_err"]) if "M_U_at_predicted_c" in e else None,
+        "fit_p_free": {"c": f["c"], "c_err": f["c_err"], "p": f["p"], "p_err": f["p_err"], "chi2": f["chi2"], "dof": f["dof"]} if f else None,
+        "lnA_at_x_U": e.get("lnA_at_S_U"), "lnA_at_x_U_err": e.get("lnA_at_S_U_err"),
+        "M_at_x_U_with_fitted_c_p1": e.get("M_U_measured"), "ln_M_at_x_U_with_fitted_c_err": e.get("ln_M_U_measured_err"),
+        "candidates": {n: {"c": v["candidate_c"], "deviation": v["deviation"], "agrees": v["agrees"]} for n, v in e["candidates"].items()},
+        "sector_law": {a: s5.get(a) for a in ("w", "w_err", "tau_over_t", "tau_over_t_w2", "tau_over_t_w2_err", "c_E_from_second_moment",
+                                              "mean_casimir", "sectors_used")} if s5 else None,
+        "sector_p_n_at_x_U": s5.get("p_n"),
+    }
+    series.append(ser)
+doc["series"] = series
+
+# exact curves of the single register against x (for the plot)
+doc["one_register"] = [
+    {"id": "cartan", "name": "one tick, Cartan circle", "weight_power": None, "c": 1.0, "M": 2.0, "label": "EXACT",
+     "points": [{"x": r["x"], "S": r["S"], "lnA": math.log(r["cartan"])} for r in AB["A_scan"]]},
+    {"id": "w2", "name": "one tick, full link", "weight_power": 2, "c": 1.0, "M": "2 (2S - 1)", "label": "EXACT",
+     "points": [{"x": r["x"], "S": r["S"], "lnA": math.log(r["w2"])} for r in AB["A_scan"]]},
+    {"id": "w1", "name": "one tick, one-sided register", "weight_power": 1, "c": 0.0, "M": "tau/8 at leading order", "label": "EXACT",
+     "points": [{"x": r["x"], "S": r["S"], "lnA": math.log(r["w1"])} for r in AB["A_scan"]]},
+    {"id": "w0", "name": "one tick, labels alone", "weight_power": 0, "c": 0.0, "M": "1/(2 sqrt(pi/tau) - 1)", "label": "EXACT",
+     "points": [{"x": r["x"], "S": r["S"], "lnA": math.log(r["w0"])} for r in AB["A_scan"]]},
+]
+
+names = {"pinned": "one free link, one tick, no Gauss projection", "pair2_pinned_boundary": "two faces on one seam, outer links pinned (Euclidean)",
+         "pair2_free_boundary": "two faces on one seam, outer links free (Euclidean)", "ico2": "icosahedral surface as a Euclidean two-complex",
+         "icoT_NT1_Gauss": "icosahedral space, one tick with the Gauss law", "icoT_NT2": "icosahedral space, 2 ticks",
+         "icoT_NT4": "icosahedral space, 4 ticks", "icoT_NT8": "icosahedral space, 8 ticks", "icoT_infinite": "icosahedral space, many ticks",
+         "pairT_NT32": "face pair as space, many ticks", "cub3_infinite": "cubic lattice, three dimensions", "cub4_infinite": "cubic lattice, four dimensions",
+         "torus2_L8": "square lattice 8 x 8 (two dimensions)"}
+doc["exact_counts"] = [{"id": k, "complex": names[k], "Pi": AB["C_twist_reading"][k]["Pi"], "c": AB["C_twist_reading"][k]["c"],
+                        "count": AB["C_twist_reading"][k]["count"], "M": AB["C_twist_reading"][k]["M"],
+                        "A_at_x_U": AB["C_twist_reading"][k]["<A>_x_U"], "label": "EXACT"} for k in names]
+doc["exact_counts_note"] = ("Cartan circle, Villain weight. c = 1 - Pi, Pi = flux variance of the twisted plaquette over g^2. "
+                            "Many ticks on the icosahedral space: c = (1/30) sum sqrt(lam/(lam+4)) over the nonzero eigenvalues of the face Laplacian.")
+doc["face_step_exact_c"] = AB["face_step_midpoint_c"]
+if os.path.exists("clock.json"):
+    doc["clock"] = json.load(open("clock.json"))
+doc["wilson_classical"] = {k: {a: v[a] for a in ("s_W", "c_W", "count") if a in v} for k, v in AB["D_wilson_classical"].items()}
+
+B = AB["B_LV_statements"]
+doc["flux_density_statements"] = [
+    {"statement": "On the icosahedral surface one seam flip creates the pair (+2 pi, -2 pi) on its two faces with the square of the one-face weight.",
+     "status_here": "reproduced as a statement about flux densities", "label": "EXACT",
+     "numbers": {"joint_density_ratio_at_x_U": B["B1_icosahedral_pair"]["Villain_joint_density_ratio_pair_over_vacuum_at_x_U"], "c_density": 2.0}},
+    {"statement": "On cubic complexes the plaquette variance is 2 g^2/d and the count becomes 8/d.",
+     "status_here": "reproduced as the density of the plaquette flux at 2 pi. The class balance has c = 1 - 2/d: count 12 for d = 3 and 8 for d = 4.",
+     "label": "EXACT", "numbers": {"count_density": {"2": 4.0, "3": 8 / 3, "4": 2.0}, "count_class_balance": {"2": None, "3": 12.0, "4": 8.0}}},
+    {"statement": "Sector law of a cubic complex with the tick as an axis: electric coefficient 2/3 (d = 3) and 1/2 (d = 4).",
+     "status_here": "d = 4 confirmed. d = 3 is 1/3: the electric variance is (1 - Pi)/g^2, Pi = 2/d.", "label": "EXACT"},
+]
+
+dbl = []
+for k, e in sorted(F.get("doublet", {}).items()):
+    dbl.append({"id": k, "action": "heat kernel" if e["kind"] == 1 else "Wilson", "beta_H_over_beta_G": e["beta_H"] / e["beta_G_equiv"],
+                "h": e["h"], "start": e["start"], "side": e["side"], "sin2_theta": e["sin2"][0], "L_alpha": e["L_alpha"][0],
+                "plaquette": e["plaq"][0], "lnA": e["lnA"], "err": e["lnA_err"], "label": "MEASURED"})
+doc["doublet"] = dbl
+doc["doublet_change"] = {k[len("doublet_change_across_the_line_"):]: v for k, v in F.items() if k.startswith("doublet_change_across_the_line_")}
+
+sr = []
+for k, e in F.get("second_reading", {}).get("scans", {}).items():
+    cxn, act = k.rsplit("_", 1)
+    sr.append({"id": k, "complex": CX[cxn], "action": ACT[act], "reading": "face step", "label": "MEASURED",
+               "points": [{"x": 2 * q["S"] / pi, "S": q["S"], "lnA": q["lnA"], "err": q["lnA_err"]} for q in e["points"]],
+               "fit": {"c": e["fit_p1"]["c"], "c_err": e["fit_p1"]["c_err"], "p": 1.0, "count": 4 / e["fit_p1"]["c"]},
+               "c_gaussian": e["c_gaussian_face_step"], "lnA_at_x_U": e.get("lnA_at_S_U"), "lnA_at_x_U_err": e.get("lnA_at_S_U_err")})
+doc["second_reading"] = sr
+doc["second_reading_gates"] = F.get("second_reading", {}).get("gates", {})
+if os.path.exists("an_fits.json"):
+    AN = json.load(open("an_fits.json"))
+    doc["two_steps_per_tick"] = {
+        "label": "MEASURED", "note": "run after the comparison; the v values of this block are NOT BLIND",
+        "lattice": AN["lattice"], "exact_cartan": AN["exact_cartan"], "gates": AN["gates"],
+        "scans": {e["reading"]: {"points": [{"x": 2 * q["S"] / pi, "S": q["S"], "lnA": q["lnA"], "err": q["lnA_err"]} for q in e["points"]],
+                                 "fit": {"c": e["fit_p1"]["c"], "c_err": e["fit_p1"]["c_err"], "p": 1.0, "chi2": e["fit_p1"]["chi2"], "dof": e["fit_p1"]["dof"]},
+                                 "fit_p_free": e["fit_pfree"], "c_gaussian": e["c_gaussian"], "c_minus_1": e["relative_to_1"],
+                                 "agrees_with_working_law": e["agrees_with_working_law"],
+                                 "lnA_at_x_U": e.get("lnA_at_S_U"), "lnA_at_x_U_err": e.get("lnA_at_S_U_err"),
+                                 "v_GeV_bM=1_NOT_BLIND": e["v_GeV_bM=1_NOT_BLIND"], "v_GeV_b=1_NOT_BLIND": e.get("v_GeV_b=1_NOT_BLIND")}
+                  for e in AN["scans"].values()}}
+doc["gates"] = {k: v for k, v in G.items() if isinstance(v, dict) and "pass" in v and "_HR_" not in k}
+doc["gates_summary"] = G.get("summary")
+doc["chain_coupling_points"] = F.get("chain_coupling_points")
+
+
+def cfit(k):
+    e = F["scans"].get(k)
+    if not e:
+        return (float("nan"), float("nan"))
+    ad, _w = adopted(e)
+    return (ad["c"], ad["c_err"])
+
+
+st = [
+    {"text": "<A> equals the ratio of partition functions with the seam's time-like plaquette twisted by the centre element.",
+     "label": "EXACT", "status": "derived"},
+    {"text": "One free link in the one-tick thermal law: <A> = M exp(-S) with M = 2 on the Cartan circle and M = 2 (2S - 1) = 150.79 on the full link.",
+     "label": "EXACT", "status": "derived"},
+    {"text": "Weight power 1 (one-sided register) and weight power 0 (labels) give power laws at every heat time: 0.0338 and 0.167 at the chain coupling.",
+     "label": "EXACT", "status": "derived"},
+    {"text": "Cartan circle on a complex: <A> = 2 exp(-c S), c = 1 - Pi. Cubic lattices: c = 1 - 2/d. Icosahedral space with many ticks: c = 0.398231.",
+     "label": "EXACT", "status": "derived"},
+    {"text": "The counts 8/d and the pair weight exp(-2S) are densities of the plaquette flux at a half turn. They are a different object from <A>.",
+     "label": "EXACT", "status": "derived"},
+    {"text": "SU(2) heat kernel: c = %.4f (%.4f) on the 6^4 lattice, %.4f (%.4f) on the 8^3 lattice, %.4f (%.4f) on the icosahedral space." % (
+        cfit("cub4_L6_hk") + cfit("cub3_L8_hk") + cfit("icoT_NT8_hk")), "label": "MEASURED", "status": "derived"},
+    {"text": "SU(2) Wilson: c = %.4f (%.4f), %.4f (%.4f), %.4f (%.4f) on the same complexes." % (
+        cfit("cub4_L6_w") + cfit("cub3_L8_w") + cfit("icoT_NT8_w")), "label": "MEASURED", "status": "derived"},
+    {"text": "The measured sector law of the lattice link has weight power 2 and a heat time longer than g^2/2.", "label": "MEASURED", "status": "derived"},
+    {"text": "No lattice ensemble measured here has c = 1. The working law is the law of one pinned link: c = 1 holds where the seam's plaquette cannot move.",
+     "label": "MEASURED", "status": "derived"},
+    {"text": "The class balance changes across the Higgs line of the gauge-Higgs system: by a factor 0.015 with the heat-kernel weight and 0.18 with the Wilson weight. A stiff doublet pins the link and moves it toward the one-link law.",
+     "label": "MEASURED", "status": "derived"},
+    {"text": "Read at the midpoint of the face step the coefficients are 0.70 (three dimensions), 0.74 (icosahedral space) and 1.29 (four dimensions) for the heat kernel. No reading has the coefficient 1.",
+     "label": "MEASURED", "status": "derived"},
+    {"text": "The sector law of the seam link that has c = 1 and b M = 1 is not supplied by any lattice ensemble here.", "label": "MEASURED", "status": "open"},
+    {"text": "The tick equals the cell in every lattice here.", "label": "DECLARED", "status": "declared"},
+]
+doc["statements"] = st
+if CMP:
+    doc["comparison_not_blind"] = {"label": "NOT BLIND", "v_measured_GeV": CMP["v_measured_GeV"], "source": CMP["source"],
+                                   "source_link": "https://pdg.lbl.gov/", "c_needed_at_bM=1": CMP["c_needed_for_the_measured_v_at_bM=1"],
+                                   "rows": CMP["rows"]}
+os.makedirs(DEST, exist_ok=True)
+json.dump(doc, open(os.path.join(DEST, "class_balance.json"), "w"), indent=1)
+print("wrote", os.path.join(DEST, "class_balance.json"), len(json.dumps(doc)), "bytes;", len(series), "series,", len(dbl), "doublet points,", len(sr), "second-reading series")

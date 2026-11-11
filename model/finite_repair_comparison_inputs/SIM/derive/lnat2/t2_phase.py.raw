@@ -1,0 +1,132 @@
+"""T2: the consensus clock and the phase map (events -> phase); the status of the radian.
+
+EXACT unless labelled. Writes lnat2_t2.json.
+
+Formulas (written before evaluation):
+  Exclusive events (premise-B reading, DA3's K5): rotation component R (C repair, one source, weight p = 1/12) and
+    hold H (E agreeing half, weight q = 1/6) on independent objects in one tick:
+    X = 1[exactly one of R, H],  E X = p + q - 2 p q = 2/9;  one object (K6, exclusive outcomes): p + q = 1/4.
+  Phase map as an operator (premises (a) DECLARED, (b) IMPORTED): every read carries one quantum of action hbar, so a
+    history with N reads has amplitude factor exp(-i N); on the family register the clock is
+        U_clock = exp(i theta_hat J),   J = +1 on the rho-step branch, -1 on the rho^-1-step branch, 0 on the hold,
+        theta_hat = (1/n) sum_{j=1..n} X_j  (federation mean over n carriers of the exclusive-read indicator),
+    E theta_hat = 2/9, Var theta_hat = (2/9)(7/9)/n = 14/(81 n).
+  Single carrier, branch-wise phase: E exp(i X) = 7/9 + (2/9) e^{i}, argument atan2((2/9) sin 1, 7/9 + (2/9) cos 1).
+  n carriers coherently: n arg(7/9 + (2/9) e^{i/n}) = 2/9 - 35/(2187 n^2) + O(n^-4).
+  Sign: a half-turn h (f <-> f') satisfies h g h = g^-1 and moves the readout face; on the g-labelled register
+    h J h = -J, so theta -> -theta; C3 keeps theta. theta and -theta give complex-conjugate circulants (equal spectra).
+  Clock consistency: A-clock (energy = expected reads per tick, hbar per read): m_k ~ |lambda_k|^2;
+    Floquet rest phase: cos omega_k = 1 - c |lambda_k|^2, m_k ~ omega_k ~ sqrt(2c) |lambda_k| (small c).
+"""
+from __future__ import annotations
+
+import json
+
+import mpmath as mp
+import sympy as s
+
+import lnat2_common as L
+
+C = L.C
+mp.mp.dps = 40
+OUT = 'lnat2_t2.json'
+
+
+def main():
+    out = {'task': 'T2'}
+    p, q = s.Rational(1, 12), s.Rational(1, 6)
+    out['exclusive_events'] = {
+        'K5_two_objects_P(R xor H)': str(p + q - 2 * p * q),
+        'K6_one_object_exclusive_P(R or H)': str(p + q),
+        'joint_P(R and H)': str(p * q),
+        'note': 'the phase 2/9 needs the hold and the rotation on independent objects (K5); one seam event gives 1/4',
+    }
+    x = s.Rational(2, 9)
+    n = s.Symbol('n', positive=True)
+    out['federation_mean'] = {'mean': str(x), 'variance': str(s.simplify(x * (1 - x) / n)),
+                              'spread': '%.6f / sqrt(n)' % float(s.sqrt(x * (1 - x)))}
+    # single-carrier branch-wise phase and the n-carrier coherent average
+    z1 = mp.mpf(7) / 9 + mp.mpf(2) / 9 * mp.expj(1)
+    circ = lambda nn: nn * mp.arg(mp.mpf(7) / 9 + mp.mpf(2) / 9 * mp.expj(mp.mpf(1) / nn))
+    series_ok = all(abs(circ(nn) - (mp.mpf(2) / 9 - mp.mpf(35) / (2187 * nn ** 2))) < 10 / mp.mpf(nn) ** 4
+                    for nn in (10, 100, 1000))
+    out['coherent_averages'] = {
+        'single_carrier_arg_E_exp_iX': str(mp.arg(z1)),
+        'relative_to_2/9': str(mp.arg(z1) / (mp.mpf(2) / 9) - 1),
+        'n_carrier_coherent_phase_series': '2/9 - 35/(2187 n^2) + O(n^-4)',
+        'series_checked_n=10,100,1000': series_ok,
+        'n=10': str(circ(10)), 'n=1000': str(circ(1000)),
+        'statement': 'the phase is 2/9 only as the federation mean (arithmetic, or coherent with n -> infinity); a '
+                     'single carrier gives 0.205330',
+    }
+    # sign under the half-turns (exact on the permutations)
+    gC, gE, g = C.native_rotations()
+    rots = C.carrier()['rotations']
+    f, fp = L.axis_faces()
+    halfturns = [h for h in rots if set(h[x_] for x_ in f) == set(fp)]
+    ginv = C.inverse(g)
+    name_f, rho_f = L.rho(f)
+    name_fp, rho_fp = L.rho(fp)
+    sign_rows = []
+    for h in halfturns:
+        conj_rho_f = C.compose(h, C.compose(rho_f, h))  # h rho_f h^-1 (h is an involution)
+        sign_rows.append({'h': C.cycles(h), 'h g h = g^-1': C.compose(h, C.compose(g, h)) == ginv,
+                          'h rho_f h = rho_fprime': conj_rho_f == rho_fp})
+    out['sign_of_the_phase'] = {
+        'rho_f': name_f, "rho_f'": name_fp, 'halfturns': sign_rows,
+        'statement': 'J is defined by the readout at f: J = +1 on rho_f = g^-1 steps. A half-turn carries the readout '
+                     'to f\', where the aligned steps are rho_f\' = g: on the g-labelled register J -> -J and '
+                     'theta -> -theta. Elements of C3 fix f and J. The sign of theta labels which family is which; '
+                     'theta and -theta give conjugate circulants with the same spectrum.',
+    }
+    # clock consistency: A-clock against Floquet, for the two operators of T1 (D4)
+    a, b = 1 / mp.sqrt(6), 1 / mp.sqrt(12)
+    th = mp.mpf(2) / 9
+    lam2 = [a + 2 * b * mp.cos(th + 2 * mp.pi * k / 3) for k in range(3)]                    # Koide form C_2
+    lam1 = [abs(a + 2j * b * mp.sin(th + 2 * mp.pi * k / 3)) for k in range(3)]               # quadrature C_1
+    def Q(ms):
+        return mp.fsum(ms) / mp.fsum(mp.sqrt(m) for m in ms) ** 2
+    def readouts(lams, c=mp.mpf('1e-6')):
+        E = [c * l ** 2 for l in lams]
+        W = [mp.acos(1 - c * l ** 2) for l in lams]
+        Es, Ws = sorted(E), sorted(W)
+        return {'A_clock': {'Q': str(Q(E)), 'ratios': [str(Es[1] / Es[0]), str(Es[2] / Es[0])]},
+                'Floquet': {'Q': str(Q(W)), 'ratios': [str(Ws[1] / Ws[0]), str(Ws[2] / Ws[0])]}}
+    out['clock_consistency'] = {
+        'C_2 (Koide form, needs a current record)': readouts(lam2),
+        'C_1 (one-orientation readout of the coherent law)': readouts(lam1),
+        'which clock': 'the mass readout uses the A-clock: premise (b) assigns one quantum of action hbar to each read, '
+                       'so the same coefficient makes the phase per tick equal the expected reads per tick and the '
+                       'energy per tick equal the expected reads per tick in hbar/tick (DA\'s A-clock, lead L30). The '
+                       'Floquet rest phase arccos(1 - p) ~ sqrt(2p) per tick is the coherent walk\'s own clock and '
+                       'assigns a different action to a read. Using it for the masses while using (b) for the phase '
+                       'would read one tick with two clocks. The choice follows from the premise that supplies the '
+                       'phase and is fixed before any mass is compared.',
+    }
+    out['premises'] = {
+        '(a) DECLARED': 'crossing-read area law with its Planck-area dictionary: one nat of cut entropy per crossing read '
+                        '(CROSSING_READ_AREA_LAW.tex, proposition "Area law and the Planck-area dictionary", proof line '
+                        '124; the remark there calls the nat-per-read reading a declared dictionary)',
+        '(b) IMPORTED': 'Wick correspondence: a stationary process with Euclidean weight e^{-1} per unit Euclidean time '
+                        'has real-time phase e^{-i} per unit real time, both from one action coefficient; stated as '
+                        '"each read carries one quantum of action hbar"',
+        'chain (ARGUED)': '(a) gives the Euclidean weight e^{-1} per read, i.e. S_E = hbar per read; (b) continues the '
+                          'same coefficient to S = hbar per read in real time, i.e. exp(-i) per read; on the consensus '
+                          'clock the expected number of exclusive reads per tick is 2/9, so the phase per tick is 2/9 rad '
+                          'as a federation mean',
+        'what each premise supplies': '(a) alone fixes a weight in nats and no angle; (b) alone fixes the continuation and '
+                                      'not the coefficient; together they supply the radian',
+        'identification inside (a) as used here': 'the area law counts unordered crossing reads of the three-dimensional '
+                                                  'source population per layer; the phase map counts exclusive record '
+                                                  'events of a carrier per tick; "each read carries hbar" applies the '
+                                                  'dictionary to both kinds of read',
+        'not supplied by (a) or (b)': 'the event-to-coherent-control map (which family branch receives exp(+i theta)), '
+                                      'named as a separate input in PHASE_AND_PREMISES.md; here it is the readout '
+                                      'orientation J of T1, and with the coherent sign law it gives C_1, not C_2',
+    }
+    json.dump(out, open(OUT, 'w'), indent=1, default=str)
+    print(json.dumps(out, indent=1, default=str))
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,87 @@
+{
+ "A0": {
+  "statement": "C_e is diagonal on f_k with lambda_k = a + 2b cos(theta + 2 pi k/3). The axial character f_0 carries the largest lambda exactly when theta lies in (-pi/3, pi/3) mod 2 pi (identities above). At theta = +-2/9 tau sits on f_0; e and mu sit on the conjugate characters f_1, f_2.",
+  "values": {
+   "+2/9": {
+    "lambda_k": [
+     "0.971401565833736",
+     "0.0164727810508652",
+     "0.236870524506987"
+    ],
+    "mass_fraction_k": [
+     "0.943621002104235",
+     "0.000271352515549743",
+     "0.0561076453802154"
+    ],
+    "rows": {
+     "e": 1,
+     "mu": 2,
+     "tau": 0
+    }
+   },
+   "-2/9": {
+    "lambda_k": [
+     "0.971401565833736",
+     "0.236870524506987",
+     "0.0164727810508652"
+    ],
+    "mass_fraction_k": [
+     "0.943621002104235",
+     "0.0561076453802154",
+     "0.000271352515549743"
+    ],
+    "rows": {
+     "e": 2,
+     "mu": 1,
+     "tau": 0
+    }
+   }
+  }
+ },
+ "A1": {
+  "statement": "Every word in C_e, C_e^dagger and S, every trace and the identity commute with S, hence with C_e. With C_e nondegenerate, an operator commuting with C_e is diagonal on the f_k, so its eigenbasis is the charged-lepton basis and U_PMNS is a permutation matrix times phases: every angle is 0 or 90 degrees and J = 0. Spurion form (all orders): if T(Y) obeys T(U Y V^dagger) = U T(Y) U^dagger for all unitary U, V, write Y = U_L D V_R^dagger; then T(Y) = U_L T(D) U_L^dagger and T(D) = P T(D) P^dagger for every diagonal phase P, so T(D) is diagonal and T(Y) is diagonal in the left mass basis of Y."
+ },
+ "A2": {
+  "statement": "For a real vector v, <f_2|v> = conj(<f_1|v>). With e and mu on f_1, f_2 (A0), every neutrino eigenbasis that is real in the counter basis gives abs(U_e i) = abs(U_mu i), i = 1, 2, 3."
+ },
+ "A3": {
+  "statement": "Counter basis (or any basis unbiased to the f_k): abs(U)^2 = 1/3, abs(J) = 1/(6 sqrt3), the largest value of a 3 x 3 unitary; sin^2 theta13 = 1/3 in every column order.",
+  "J_counter_order_012": "sqrt(3)/18"
+ },
+ "A4": {
+  "statement": "If e sat on f_0 (DECLARED theta_e = 2/9 + 2 pi/3; no source), A2 applies to the mu and tau rows: abs(U_mu i) = abs(U_tau i), so theta23 = 45 degrees and cos delta = 0 whenever s12 c12 s13 is nonzero; abs(U_e i)^2 = (v_i . (1,1,1))^2/3 for a real basis {v_i}."
+ },
+ "B_algebra": {
+  "T_k": "x + lambda_k^2 (s = +1 without loss: s = -1 is -(T) at -x)",
+  "r_linear_NO_for_x_ge_0": "(l0 - l1)*(l0 + l1 + 2*x)/((l0 - l2)*(l0 + l2 + 2*x))",
+  "limit_x_to_plus_infinity_both_readings": "(l0 - l1)/(l0 - l2)"
+ },
+ "checks": {
+  "S f_0 = w^0 f_0": true,
+  "S f_1 = w^1 f_1": true,
+  "S f_2 = w^2 f_2": true,
+  "A0: C_e f_0 = (a + 2b cos(theta + 2 pi 0/3)) f_0": true,
+  "A0: C_e f_1 = (a + 2b cos(theta + 2 pi 1/3)) f_1": true,
+  "A0: C_e f_2 = (a + 2b cos(theta + 2 pi 2/3)) f_2": true,
+  "A0: cos t - cos(t + 2pi/3) = sqrt3 sin(t + pi/3) and cos t - cos(t - 2pi/3) = -sqrt3 sin(t - pi/3)": true,
+  "A0: theta = +2/9 puts tau on f_0, e on f_1, mu on f_2": true,
+  "A0: theta = -2/9 puts tau on f_0, e on f_2, mu on f_1": true,
+  "A0: sum of lambda_k^2 = 1 and Q = 2/3 at theta = 2/9": true,
+  "A1: C_e commutes with S for every theta": true,
+  "A1: C_e^dagger C_e commutes with S": true,
+  "A1: C_e C_e^dagger commutes with S": true,
+  "A1: C_e^2 commutes with S": true,
+  "A1: (C_e^dagger C_e)^2 commutes with S": true,
+  "A1: C_e^dagger S C_e (a hop that carries the shift) commutes with S": true,
+  "A1: X 1 + sigma Y Y^dagger commutes with Y Y^dagger (random complex Y)": true,
+  "A1: C_e has three distinct eigenvalues at theta = +2/9": true,
+  "A1: C_e has three distinct eigenvalues at theta = -2/9": true,
+  "A2: abs(<f_1|v>) = abs(<f_2|v>) for every real v": true,
+  "A2: f_2 = conj(f_1)": true,
+  "A3: abs(U)^2 = 1/3 everywhere for the counter basis": true,
+  "A3: J^2 = 1/108 for the counter basis": true,
+  "A4: at theta23 = 45 degrees abs(U_mu1)^2 - abs(U_tau1)^2 = 2 s12 c12 s13 cos delta": true,
+  "B: linear reading, x >= 0: r_NO = (l_mu - l_e)(2x + l_mu + l_e) / ((l_tau - l_e)(2x + l_tau + l_e))": true,
+  "B3: both readings tend to (l_mu - l_e)/(l_tau - l_e) as x -> +infinity": true
+ }
+}

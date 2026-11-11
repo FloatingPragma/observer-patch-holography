@@ -1,0 +1,374 @@
+"""Lane AV: fits of the measured class balance. Reads prod_out/*.json and abelian.json. Reads no measured value of
+nature. Writes fits.json and FITS_TABLE.md.
+
+Form: ln <A> = ln M0 + p ln S - c S, S = 2 pi/(4 alpha). Reported per complex and action: c, p, M0, the value at the
+chain coupling and the multiplicity M_U = <A>(S_U) exp(c S_U). Sector law of the untwisted link: weight power w and
+heat time t from ln p_n = const + w ln n - t (n^2 - 1)/4.
+"""
+import glob
+import json
+import math
+import os
+import sys
+
+import numpy as np
+from scipy import special
+
+pi = math.pi
+X_U = 24.3166
+S_U = (pi / 2) * X_U
+E_CELL = 9.5599e18          # GeV, unit of the chain (brief)
+od = sys.argv[1] if len(sys.argv) > 1 else "prod_out"
+R = {os.path.basename(f)[:-5]: json.load(open(f)) for f in sorted(glob.glob(od + "/*.json"))}
+AB = json.load(open("abelian.json"))
+out = {"S_U": S_U, "x_U": X_U, "E_cell_GeV": E_CELL, "tasks_read": len(R)}
+NB = 20
+
+
+def wls(X, y, e):
+    W = 1.0 / e ** 2
+    A = X.T @ (X * W[:, None])
+    b = X.T @ (W * y)
+    cov = np.linalg.inv(A)
+    par = cov @ b
+    chi2 = float((W * (y - X @ par) ** 2).sum())
+    dof = len(y) - X.shape[1]
+    return par, cov, chi2, dof
+
+
+def fit_scan(S, y, e, p_fixed=None):
+    """ln A = a + p ln S - c S. Returns dict with c, p, a, errors, chi2."""
+    if p_fixed is None:
+        X = np.stack([np.ones_like(S), np.log(S), -S], 1)
+        par, cov, chi2, dof = wls(X, y, e)
+        a, p, c = par
+        sc = max(1.0, math.sqrt(chi2 / dof)) if dof > 0 else 1.0
+        ea, ep, ec = (sc * np.sqrt(np.diag(cov))).tolist()
+        lnM_U = a + p * math.log(S_U)
+        g = np.array([1.0, math.log(S_U), 0.0])
+        e_lnM = sc * math.sqrt(g @ cov @ g)
+    else:
+        X = np.stack([np.ones_like(S), -S], 1)
+        par, cov, chi2, dof = wls(X, y - p_fixed * np.log(S), e)
+        a, c = par
+        p = p_fixed
+        sc = max(1.0, math.sqrt(chi2 / dof)) if dof > 0 else 1.0
+        ea, ec = (sc * np.sqrt(np.diag(cov))).tolist()
+        ep = 0.0
+        lnM_U = a + p * math.log(S_U)
+        e_lnM = ea
+    g = np.array([1.0, -S_U]) if p_fixed is not None else np.array([1.0, math.log(S_U), -S_U])
+    lnA_U = lnM_U - c * S_U
+    e_lnA_U = sc * math.sqrt(g @ cov @ g)
+    return {"c": float(c), "c_err": float(ec), "p": float(p), "p_err": float(ep), "ln_M0": float(a), "ln_M0_err": float(ea),
+            "chi2": chi2, "dof": dof, "error_scale": sc, "ln_M_at_S_U": float(lnM_U), "ln_M_at_S_U_err": float(e_lnM),
+            "M_at_S_U": float(math.exp(lnM_U)), "lnA_fit_at_S_U": float(lnA_U), "lnA_fit_at_S_U_err": float(e_lnA_U)}
+
+
+def massive_c(d, m2, L=16):
+    k = 2 * np.sin(pi * np.arange(L) / L)
+    g = np.meshgrid(*([k] * d), indexing="ij")
+    k2 = sum(x ** 2 for x in g)
+    return 1.0 - (2 / d) * float((k2 / (k2 + m2)).mean())
+
+
+def measure_factor(cxn):
+    """product over plaquettes of (F/2)/sin(F/2) on the Gaussian half-turn configuration of the Cartan circle"""
+    import av_complex as C
+    from scipy import sparse
+    from scipy.sparse import linalg as splinalg
+    cx = C.build(cxn)
+    rows, cols, vals = [], [], []
+    for p_ in range(cx["nplaq"]):
+        for k_ in range(cx["pn"][p_]):
+            rows.append(p_); cols.append(int(cx["pl"][p_, k_])); vals.append(float(cx["ps"][p_, k_]))
+    D = sparse.csr_matrix((vals, (rows, cols)), shape=(cx["nplaq"], cx["nlink"]))
+    e0 = np.zeros(cx["nplaq"]); e0[cx["P0"]] = 1.0
+    row = D @ splinalg.lsqr(D, e0, atol=1e-14, btol=1e-14, iter_lim=50000)[0]
+    Fl = 2 * pi * row
+    Fl[cx["P0"]] = 2 * pi * (1 - row[cx["P0"]])
+    h = np.abs(Fl) / 2
+    return float(np.prod(np.where(h > 1e-9, h / np.sin(np.maximum(h, 1e-12)), 1.0)))
+
+
+def sector_law(r):
+    """p_n of the untwisted link from the accumulated <chi_n / k>, with weight power and heat time"""
+    t = r["task"]
+    kind, par = t["kind"], t["par"]
+    ub = np.array(r["untwisted_blocks"])
+    nmax = ub.shape[1] - 7
+    n = np.arange(1, nmax + 1)
+    if kind == 1:
+        tau = par / 2
+        lnnorm = 0.25 * tau + 0.5 * math.log(4 * pi / tau) - math.log(tau)
+        f = n * np.exp(-tau * (n * n - 1) / 4 - lnnorm)
+    elif kind == 0:
+        f = 2 * n * special.iv(n, par) / par           # exp(beta x) = sum_n (2 n I_n(beta)/beta) chi_n
+        tau = 2.0 / par
+    else:
+        return None
+    pb = ub[:, 7:] * f[None, :]
+    p = pb.mean(0); pe = pb.std(0, ddof=1) / math.sqrt(ub.shape[0])
+    res = {"p_n": p.tolist(), "p_n_err": pe.tolist(), "sum_p": float(p.sum()),
+           "alternating_sum": float((p * (-1.0) ** (n - 1)).sum()),
+           "mean_casimir": float((p * (n * n - 1) / 4).sum()), "tau": tau}
+    res["c_E_from_second_moment"] = res["mean_casimir"] * (2 * tau) / 3.0     # <E_a^2> g^2 = <C> g^2 / 3
+    ok = (p > 8 * pe) & (p > 1e-7)
+    last = int(np.argmax(~ok)) if (~ok).any() else nmax
+    use = np.arange(last)
+    if use.size >= 4:
+        X = np.stack([np.ones(use.size), np.log(n[use]), -(n[use] ** 2 - 1) / 4.0], 1)
+        par_, cov, chi2, dof = wls(X, np.log(p[use]), pe[use] / p[use])
+        sc = max(1.0, math.sqrt(chi2 / dof)) if dof > 0 else 1.0
+        res.update({"w": float(par_[1]), "w_err": float(sc * math.sqrt(cov[1, 1])), "t": float(par_[2]),
+                    "t_err": float(sc * math.sqrt(cov[2, 2])), "t_over_tau": float(par_[2] / tau),
+                    "t_over_tau_err": float(sc * math.sqrt(cov[2, 2]) / tau), "tau_over_t": float(tau / par_[2]),
+                    "sectors_used": int(use.size), "chi2": chi2, "dof": dof})
+        # heat time with the weight power fixed at 2
+        X2 = np.stack([np.ones(use.size), -(n[use] ** 2 - 1) / 4.0], 1)
+        par2, cov2, chi22, dof2 = wls(X2, np.log(p[use]) - 2 * np.log(n[use]), pe[use] / p[use])
+        sc2 = max(1.0, math.sqrt(chi22 / dof2)) if dof2 > 0 else 1.0
+        res.update({"tau_over_t_w2": float(tau / par2[1]), "tau_over_t_w2_err": float(sc2 * math.sqrt(cov2[1, 1]) * tau / par2[1] ** 2),
+                    "chi2_w2": chi22, "dof_w2": dof2})
+    return res
+
+
+# ------------------------------------------------------------------------------------------ main scans
+CAND = {
+    "paper_law_c=1": 1.0,
+    "LV_density_8/d": None,          # filled per complex
+    "LV_row_N8": None,
+    "twist_Gaussian_(1-Pi)": None,
+    "Wilson_pinned_4/pi^2": 4 / pi ** 2,
+    "Wilson_classical_minimum": None,
+}
+scans = {}
+for cxn, d in (("cub4_L6", 4), ("cub3_L8", 3), ("icoT_NT8", None)):
+    for act in ("hk", "w"):
+        rows = []
+        for ib in range(7):
+            k = "%s_%s_b%d" % (cxn, act, ib)
+            if k in R and "lnA" in R[k]:
+                r = R[k]
+                rows.append({"name": k, "beta": r["task"]["beta_equiv"], "x": r["x"], "S": r["S"], "lnA": r["lnA"],
+                             "lnA_err": r["lnA_err"], "lnA_forward": r["lnA_forward"], "lnA_backward": r["lnA_backward"],
+                             "lnA_TI": r["lnA_TI"], "A_direct": r.get("A_direct"), "plaq": r.get("plaq_all"),
+                             "D_std_max": max(r["D_std"]), "seconds": r["seconds"]})
+        if len(rows) < 4:
+            continue
+        S = np.array([q["S"] for q in rows]); y = np.array([q["lnA"] for q in rows]); e = np.array([q["lnA_err"] for q in rows])
+        sel = S > 19.0                       # weak-coupling window beta >= 4
+        entry = {"points": rows}
+        entry["fit_p1_weak"] = fit_scan(S[sel], y[sel], e[sel], 1.0)
+        entry["fit_pfree_weak"] = fit_scan(S[sel], y[sel], e[sel], None) if sel.sum() >= 4 else None
+        entry["fit_p0_weak"] = fit_scan(S[sel], y[sel], e[sel], 0.0)
+        sel5 = S > 24.0
+        entry["fit_p1_beta_ge_5"] = fit_scan(S[sel5], y[sel5], e[sel5], 1.0)
+        entry["fit_p1_all"] = fit_scan(S, y, e, 1.0)
+        entry["fit_pfree_all"] = fit_scan(S, y, e, None)
+        if act == "w" and d == 4:
+            entry["fit_p075_weak"] = fit_scan(S[sel], y[sel], e[sel], 0.75)
+        # local slope between the two largest couplings
+        entry["local_c_last_two"] = float(-(y[-1] - y[-2] - math.log(S[-1] / S[-2])) / (S[-1] - S[-2])) if len(rows) >= 2 else None
+        # measured value at the chain coupling (point b5)
+        k5 = "%s_%s_b5" % (cxn, act)
+        if k5 in R:
+            entry["lnA_at_S_U"] = R[k5]["lnA"]; entry["lnA_at_S_U_err"] = R[k5]["lnA_err"]
+            entry["A_at_S_U"] = math.exp(R[k5]["lnA"])
+        # candidates
+        ab = AB["C_twist_reading"]
+        cg = ab[cxn]["c"]
+        cand = {"paper_law": 1.0, "twist_Gaussian_1-Pi": cg}
+        if d:
+            cand["LV_density_d/2"] = d / 2
+            cand["LV_row_N8_2/d"] = 2 / d
+        else:
+            cand["LV_pair_density"] = 2.0
+        if act == "w":
+            cand["Wilson_pinned_4/pi^2"] = 4 / pi ** 2
+            cand["Wilson_classical_minimum"] = AB["D_wilson_classical"][cxn]["c_W"]
+        main = entry["fit_p1_weak"]
+        ver = {}
+        for nm, cv in cand.items():
+            dev = main["c"] - cv
+            ver[nm] = {"candidate_c": cv, "deviation": dev, "pull": dev / main["c_err"], "relative": dev / cv,
+                       "agrees": bool(abs(dev) <= 3 * main["c_err"] and abs(dev / cv) <= 0.05),
+                       "within_five_percent": bool(abs(dev / cv) <= 0.05)}
+        entry["candidates"] = ver
+        # sector law at every coupling
+        sl = {}
+        for q in rows:
+            s_ = sector_law(R[q["name"]])
+            if s_:
+                sl[q["name"]] = {a: s_[a] for a in s_ if a not in ("p_n", "p_n_err")}
+                sl[q["name"]]["p_n"] = s_["p_n"][:24]; sl[q["name"]]["p_n_err"] = s_["p_n_err"][:24]
+        entry["sector_law"] = sl
+        # two readings of v at the chain coupling (no measured value is read)
+        entry["v_GeV_bM=1"] = E_CELL * math.exp(-main["c"] * S_U)
+        entry["v_GeV_bM=1_log10_err"] = main["c_err"] * S_U / math.log(10)
+        if "lnA_at_S_U" in entry:
+            entry["v_GeV_b=1"] = E_CELL * entry["A_at_S_U"]
+            entry["M_U_measured"] = math.exp(entry["lnA_at_S_U"] + main["c"] * S_U)
+            entry["ln_M_U_measured_err"] = math.hypot(entry["lnA_at_S_U_err"], main["c_err"] * S_U)
+        # multiplicity with the coefficient held at its prediction (1 - Pi for the heat kernel, classical minimum for Wilson)
+        cpred = cg if act == "hk" else AB["D_wilson_classical"][cxn]["c_W"]
+        entry["c_predicted"] = cpred
+        entry["pull_p1"] = (main["c"] - cpred) / main["c_err"]
+        if entry["fit_pfree_weak"]:
+            entry["pull_pfree"] = (entry["fit_pfree_weak"]["c"] - cpred) / entry["fit_pfree_weak"]["c_err"]
+        entry["systematic_c_form"] = abs(main["c"] - entry["fit_pfree_weak"]["c"]) if entry["fit_pfree_weak"] else None
+        if "lnA_at_S_U" in entry:
+            entry["M_U_at_predicted_c"] = math.exp(entry["lnA_at_S_U"] + cpred * S_U)
+            entry["M_U_at_predicted_c_rel_err"] = entry["lnA_at_S_U_err"]
+            if act == "hk":
+                # after the measurement (ARGUED): Gaussian-link multiplicity 2 (2cS - 1) times the heat-kernel measure
+                # factors (F/2)/sin(F/2) on the classical half-turn configuration
+                J = measure_factor(cxn)
+                entry["post_hoc_multiplicity_form"] = {"gaussian_link_2(2cS-1)": 2 * (2 * cg * S_U - 1), "measure_factor_J": J,
+                                                        "product": 2 * (2 * cg * S_U - 1) * J}
+        scans["%s_%s" % (cxn, act)] = entry
+out["scans"] = scans
+
+# ------------------------------------------------------------------------------------------ checks at the chain coupling
+chk = {}
+for k, r in R.items():
+    if k.endswith("_b5") and "lnA" in r:
+        chk[k] = {"lnA": r["lnA"], "lnA_err": r["lnA_err"], "complex": r["task"]["cx"], "kind": r["task"]["kind"]}
+        if r["task"]["kind"] == 2:
+            cx = r["task"]["cx"]
+            exact = math.log(2.0) - AB["C_twist_reading"][cx]["c"] * r["S"]
+            chk[k]["exact_cartan"] = exact; chk[k]["pull"] = (r["lnA"] - exact) / r["lnA_err"]
+        if r["task"]["kind"] == 1 and r["task"]["cx"] in AB["C_twist_reading"]:
+            c = AB["C_twist_reading"][r["task"]["cx"]]["c"]
+            chk[k]["gaussian_link_form"] = math.log(2 * (2 * c * r["S"] - 1)) - c * r["S"]
+out["chain_coupling_points"] = chk
+
+# ------------------------------------------------------------------------------------------ doublet
+hg = {}
+for k, r in R.items():
+    if k.startswith("higgs_") and "lnA" in r:
+        t = r["task"]
+        e = {"kind": t["kind"], "beta_G_equiv": t["beta_equiv"], "beta_H": t["beta_h"], "h": t["h"], "start": t.get("start", "pole"),
+             "lnA": r["lnA"], "lnA_err": r["lnA_err"], "lnA_forward": r["lnA_forward"], "lnA_backward": r["lnA_backward"],
+             "sin2": r["q2"], "sin2_end_of_staging": r.get("q2_end"), "L_alpha": r["L_alpha"], "plaq": r["plaq_all"],
+             "side": "Higgs (equator)" if r["q2"][0] > 0.5 else "symmetric (pole)"}
+        S = r["S"]
+        if t["kind"] == 1:
+            # inversion of the Gaussian-link form ln A = ln(2 (2 c S - 1)) - c S
+            lo, hi = 0.05, 3.0
+            fun = lambda c: math.log(2 * (2 * c * S - 1)) - c * S - r["lnA"]
+            for _ in range(80):
+                mid = 0.5 * (lo + hi)
+                if fun(mid) > 0:
+                    lo = mid
+                else:
+                    hi = mid
+            e["c_gaussian_link"] = 0.5 * (lo + hi)
+        else:
+            e["c_at_unit_multiplicity"] = -r["lnA"] / S
+        m2 = (t["beta_h"] / t["beta_equiv"]) * r["q2"][0] if r["q2"][0] > 0.5 else 0.0
+        e["link_mass_squared_tree"] = m2
+        e["c_gaussian_with_link_mass"] = massive_c(4, m2) if m2 > 0 else AB["C_twist_reading"]["cub4_L4"]["c"]
+        hg[k] = e
+# change across the line: Higgs side minus symmetric side, same action and beta_H = 2 beta_G
+for kind, nm in ((1, "hk"), (0, "w")):
+    sym = [e for k, e in hg.items() if e["kind"] == kind and e["side"].startswith("sym") and "stiff" not in k]
+    hig = [e for k, e in hg.items() if e["kind"] == kind and e["side"].startswith("Higgs") and "stiff" not in k]
+    if sym and hig:
+        ws = np.array([1 / e["lnA_err"] ** 2 for e in sym]); wh = np.array([1 / e["lnA_err"] ** 2 for e in hig])
+        ms = float((ws * np.array([e["lnA"] for e in sym])).sum() / ws.sum()); mh = float((wh * np.array([e["lnA"] for e in hig])).sum() / wh.sum())
+        cs, ch = sym[0]["c_gaussian_with_link_mass"], hig[0]["c_gaussian_with_link_mass"]
+        S = S_U
+        out["doublet_change_across_the_line_" + nm] = {
+            "lnA_symmetric_side_mean": ms, "lnA_Higgs_side_mean": mh, "difference": mh - ms,
+            "difference_err": math.sqrt(1 / ws.sum() + 1 / wh.sum()),
+            "spread_symmetric": float(np.ptp([e["lnA"] for e in sym])), "spread_Higgs": float(np.ptp([e["lnA"] for e in hig])),
+            "factor": math.exp(mh - ms),
+            "gaussian_prediction_heat_kernel": (-(ch - cs) * S + math.log((2 * ch * S - 1) / (2 * cs * S - 1))) if kind == 1 else None}
+out["doublet"] = hg
+
+# ------------------------------------------------------------------------------------------ second reading (face step)
+fmd = "fm_out"
+FM = {os.path.basename(f)[:-5]: json.load(open(f)) for f in sorted(glob.glob(fmd + "/*.json"))}
+fm = {"gates": {}, "scans": {}}
+fmc = AB["face_step_midpoint_c"]
+for k, r in FM.items():
+    if k.startswith("fmg_"):
+        cx = r["task"]["cx"]
+        if r["task"].get("mode") == "el":
+            ex = math.log(2.0) - AB["C_twist_reading"][cx]["c"] * r["S"]
+        else:
+            ex = math.log(2.0) - fmc[cx]["c"] * r["S"]
+        fm["gates"][k] = {"lnA": r["lnA"], "lnA_err": r["lnA_err"], "gaussian_form": ex, "pull": (r["lnA"] - ex) / r["lnA_err"],
+                          "difference": r["lnA"] - ex}
+for cxn in ("cub4_L4", "cub3_L6", "icoT_NT8"):
+    for act in ("hk", "w"):
+        rows = sorted([r for k, r in FM.items() if k.startswith("fm_%s_%s_b" % (cxn, act))], key=lambda r: r["S"])
+        if len(rows) < 3:
+            continue
+        S = np.array([r["S"] for r in rows]); y = np.array([r["lnA"] for r in rows]); e = np.array([r["lnA_err"] for r in rows])
+        ent = {"points": [{"name": r["task"]["name"], "beta": r["task"]["beta_equiv"], "S": r["S"], "lnA": r["lnA"], "lnA_err": r["lnA_err"],
+                           "lnA_forward": r["lnA_forward"], "lnA_backward": r["lnA_backward"], "lnA_TI": r["lnA_TI"]} for r in rows],
+               "fit_p1": fit_scan(S, y, e, 1.0), "fit_p0": fit_scan(S, y, e, 0.0),
+               "fit_pfree": fit_scan(S, y, e, None) if len(rows) >= 4 else None,
+               "c_gaussian_face_step": fmc[cxn]["c"], "c_electric_step_gaussian": AB["C_twist_reading"][cxn]["c"]}
+        at = [r for r in rows if abs(r["S"] - S_U) < 1e-3]
+        if at:
+            ent["lnA_at_S_U"] = at[0]["lnA"]; ent["lnA_at_S_U_err"] = at[0]["lnA_err"]
+            ent["v_GeV_b=1"] = E_CELL * math.exp(at[0]["lnA"])
+        ent["v_GeV_bM=1"] = E_CELL * math.exp(-ent["fit_p1"]["c"] * S_U)
+        fm["scans"]["%s_%s" % (cxn, act)] = ent
+out["second_reading"] = fm
+json.dump(out, open("fits.json", "w"), indent=1)
+
+# ------------------------------------------------------------------------------------------ table
+L = ["# Lane AV: fit table (generated by av_fit.py)", "",
+     "Form: ln <A> = ln M0 + p ln S - c S, S = 2 pi/(4 alpha). Window: beta >= 4 (S from 19.7 to 44.4). S_U = %.4f." % S_U, "",
+     "| Complex | Action | c (p = 1) | c (p free) | p free | chi2/dof (p = 1) | c (p = 1, beta >= 5) | predicted c | ln <A> at S_U | M_U (fit c) | M_U (predicted c) | candidates within 5 percent |",
+     "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
+for k, e in scans.items():
+    m, f = e["fit_p1_weak"], e["fit_pfree_weak"]
+    ag = [n for n, v in e["candidates"].items() if v["within_five_percent"]]
+    L.append("| %s | %s | %.4f (%.4f) | %s | %s | %.1f/%d | %.4f (%.4f) | %.5f | %s | %s | %s | %s |" % (
+        k.rsplit("_", 1)[0], k.rsplit("_", 1)[1], m["c"], m["c_err"],
+        ("%.4f (%.4f)" % (f["c"], f["c_err"])) if f else "", ("%.2f (%.2f)" % (f["p"], f["p_err"])) if f else "",
+        m["chi2"], m["dof"], e["fit_p1_beta_ge_5"]["c"], e["fit_p1_beta_ge_5"]["c_err"], e["c_predicted"],
+        ("%.3f (%.3f)" % (e["lnA_at_S_U"], e["lnA_at_S_U_err"])) if "lnA_at_S_U" in e else "",
+        ("%.1f (ln %.3f)" % (e["M_U_measured"], e["ln_M_U_measured_err"])) if "M_U_measured" in e else "",
+        ("%.1f (%.1f)" % (e["M_U_at_predicted_c"], e["M_U_at_predicted_c"] * e["M_U_at_predicted_c_rel_err"])) if "M_U_at_predicted_c" in e else "",
+        ", ".join(ag) if ag else "none"))
+L += ["", "| Scan | beta | S | ln <A> | error | forward | backward | TI | w | tau/t | tau/t (w = 2) | c_E 2nd moment |", "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
+for k, e in scans.items():
+    for q in e["points"]:
+        s_ = e["sector_law"].get(q["name"], {})
+        L.append("| %s | %.4f | %.3f | %.4f | %.4f | %.4f | %.4f | %.4f | %s | %s | %s | %s |" % (
+            k, q["beta"], q["S"], q["lnA"], q["lnA_err"], q["lnA_forward"], q["lnA_backward"], q["lnA_TI"],
+            ("%.3f (%.3f)" % (s_["w"], s_["w_err"])) if "w" in s_ else "", ("%.4f" % s_["tau_over_t"]) if "tau_over_t" in s_ else "",
+            ("%.4f (%.4f)" % (s_["tau_over_t_w2"], s_["tau_over_t_w2_err"])) if "tau_over_t_w2" in s_ else "",
+            ("%.4f" % s_["c_E_from_second_moment"]) if s_ else ""))
+L += ["", "| Doublet point | action | h | start | sin^2 theta | L_alpha | plaquette | ln <A> | error | side |", "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
+for k, e in sorted(hg.items()):
+    L.append("| %s | %s | %.1f | %s | %.4f | %.4f | %.5f | %.3f | %.3f | %s |" % (
+        k, {0: "Wilson", 1: "heat kernel"}[e["kind"]], e["h"], e["start"], e["sin2"][0], e["L_alpha"][0], e["plaq"][0],
+        e["lnA"], e["lnA_err"], e["side"]))
+L += ["", "| Point at the chain coupling | ln <A> | error | exact Cartan | pull | Gaussian-link form |", "| --- | --- | --- | --- | --- | --- |"]
+for k, e in sorted(chk.items()):
+    L.append("| %s | %.4f | %.4f | %s | %s | %s |" % (k, e["lnA"], e["lnA_err"], ("%.4f" % e["exact_cartan"]) if "exact_cartan" in e else "",
+                                                  ("%.2f" % e["pull"]) if "pull" in e else "",
+                                                  ("%.4f" % e["gaussian_link_form"]) if "gaussian_link_form" in e else ""))
+L += ["", "| Second reading (face step) | c (p = 1) | c (p = 0) | Gaussian c | ln <A> at S_U |", "| --- | --- | --- | --- | --- |"]
+for k, e in fm["scans"].items():
+    L.append("| %s | %.4f (%.4f) | %.4f (%.4f) | %.4f | %s |" % (k, e["fit_p1"]["c"], e["fit_p1"]["c_err"], e["fit_p0"]["c"], e["fit_p0"]["c_err"],
+                                                   e["c_gaussian_face_step"], ("%.3f (%.3f)" % (e["lnA_at_S_U"], e["lnA_at_S_U_err"])) if "lnA_at_S_U" in e else ""))
+for k, e in fm["gates"].items():
+    L.append("| gate %s | ln <A> %.4f (%.4f) | Gaussian form %.4f | pull %.2f | |" % (k, e["lnA"], e["lnA_err"], e["gaussian_form"], e["pull"]))
+for nm in ("hk", "w"):
+    d_ = out.get("doublet_change_across_the_line_" + nm)
+    if d_:
+        L.append("")
+        L.append("Doublet, %s: ln <A> symmetric side %.3f, Higgs side %.3f, difference %.3f (%.3f), factor %.3g, Gaussian prediction %s." % (
+            nm, d_["lnA_symmetric_side_mean"], d_["lnA_Higgs_side_mean"], d_["difference"], d_["difference_err"], d_["factor"],
+            ("%.3f" % d_["gaussian_prediction_heat_kernel"]) if d_["gaussian_prediction_heat_kernel"] is not None else "n/a"))
+json.dump(out, open("fits.json", "w"), indent=1)
+open("FITS_TABLE.md", "w").write("\n".join(L) + "\n")
+print("\n".join(L))

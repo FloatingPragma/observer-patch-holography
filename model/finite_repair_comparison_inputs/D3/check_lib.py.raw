@@ -1,0 +1,107 @@
+"""D3 checks of the library against the reference engines, and of the two exact structures.
+
+Run:  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python check_lib.py check_lib.json
+Every number is a float64 defect (MEASURED) except the block 'exact_dyadic', where all entries are dyadic rationals
+and float64 arithmetic is exact (the defect printed there is an exact zero).
+"""
+import importlib.util, json, os, sys
+import numpy as np
+import scipy.sparse as sp
+import d3lib as d3
+
+out = {'engine': d3.ENGINE, 'engine_sha256': d3.ENGINE_SHA}
+rng = np.random.default_rng(20261110)
+
+# cf1.py by path (local only)
+_cf1 = 'WORKSPACE/repair-law/work/R1/cf1.py'
+spec = importlib.util.spec_from_file_location('cf1_ref', _cf1); cf1 = importlib.util.module_from_spec(spec); spec.loader.exec_module(cf1)
+
+def rnd(shape):
+    p = rng.normal(size=shape + (2, 2)) + 1j * rng.normal(size=shape + (2, 2)); return p / np.linalg.norm(p)
+
+# 1. mass step with a phase per cell against the two engines at the two quadratures
+shape = (5, 4, 3); psi = rnd(shape); th = rng.uniform(-0.6, 0.6, size=shape)
+w = d3.Routing(shape)
+d = {}
+d['uniform_phi0_vs_routing_Z'] = float(np.abs(d3.mass_apply(psi, np.full(shape, 0.3), 0.0) - w.mass(psi, 0.3, 'Z')).max())
+d['uniform_phi90_vs_routing_Y'] = float(np.abs(d3.mass_apply(psi, np.full(shape, 0.3), np.pi / 2) - w.mass(psi, 0.3, 'Y')).max())
+d['field_phi0_vs_cf1_Z'] = float(np.abs(d3.mass_apply(psi, th, 0.0) - cf1.mass_step(psi, th, 'Z')).max())
+d['field_phi90_vs_cf1_Y'] = float(np.abs(d3.mass_apply(psi, th, np.pi / 2) - cf1.mass_step(psi, th, 'Y')).max())
+ph = rng.uniform(0, 2 * np.pi, size=shape)
+N = np.cos(ph)[..., None, None] * d3.SIG[2] + np.sin(ph)[..., None, None] * d3.SIG[1]          # 2 x 2 per cell
+want = np.cos(th)[..., None, None] * psi - 1j * np.sin(th)[..., None, None] * np.einsum('...ab,...bs->...as', N, psi)
+d['field_general_phase_vs_closed_form'] = float(np.abs(d3.mass_apply(psi, th, ph) - want).max())
+out['mass_step'] = d
+
+# 2. sparse shifts against the engine, with random link phases; wave number on a one-cell axis
+d = {}
+links = [np.exp(1j * rng.uniform(0, 2 * np.pi, size=shape)) for _ in range(3)]
+for name, lk in (('flat', None), ('random_U1_links', links)):
+    wl = d3.Routing(shape, lk)
+    for i in range(3):
+        S = d3.shift_matrix(shape, i, lk)
+        d[f'S_{i}_{name}'] = float(np.abs((S @ psi.ravel()).reshape(psi.shape) - wl.shift(psi, i)).max())
+        d[f'S_{i}_{name}_unitary'] = float(np.abs((S.conj().T @ S - sp.identity(S.shape[0])).toarray()).max())
+shape2 = (6, 4, 1); psi2 = rnd(shape2); p3 = 0.37
+lk3 = [np.ones(shape2), np.ones(shape2), np.exp(1j * p3) * np.ones(shape2)]
+w3 = d3.Routing(shape2, lk3)
+d['engine_one_cell_axis_with_link_phase_equals_exp(-i p3 alpha_3)'] = float(np.abs(
+    w3.shift(psi2, 2) - (d3.shift_matrix(shape2, 2, p=p3) @ psi2.ravel()).reshape(psi2.shape)).max())
+d['engine_one_cell_axis_flat_is_identity'] = float(np.abs(d3.Routing(shape2).shift(psi2, 2) - psi2).max())
+out['shifts'] = d
+
+# 3. period and symmetric frame: sparse against the engine, random fields (lengths divisible by 4: Theta is periodic)
+d = {}
+L1, L2 = 8, 4; th2 = rng.uniform(-0.5, 0.5, size=(L1, L2)); ph2 = rng.uniform(0, 2 * np.pi, size=(L1, L2))
+psi3 = rnd((L1, L2, 1))
+for p3v in (0.0, 0.37):
+    lk = None if p3v == 0 else [np.ones((L1, L2, 1)), np.ones((L1, L2, 1)), np.exp(1j * p3v) * np.ones((L1, L2, 1))]
+    ew = d3.EngineWalk((L1, L2, 1), th2.reshape(L1, L2, 1), ph2.reshape(L1, L2, 1), lk)
+    pt = d3.Patch((L1, L2), th2, ph2, p3=p3v)
+    d[f'period_p3_{p3v}'] = float(np.abs((pt.period() @ psi3.ravel()).reshape(psi3.shape) - ew.period(psi3)).max())
+    d[f'symmetric_frame_p3_{p3v}'] = float(np.abs((pt.period_sym() @ psi3.ravel()).reshape(psi3.shape) - ew.sym(psi3)).max())
+out['period'] = d
+
+# 4. the two structures, random fields and random U(1) links in the plane
+d = {}
+lk2 = [np.exp(1j * rng.uniform(0, 2 * np.pi, size=(L1, L2))) for _ in range(2)]
+for name, lk in (('flat', None), ('random_U1_links', lk2)):
+    for p3v in (0.0, np.pi, 0.37):
+        pt = d3.Patch((L1, L2), th2, ph2, p3=p3v, links=lk)
+        Us = pt.period_sym(); G = pt.gamma(); Th = pt.theta_op(); I = sp.identity(Us.shape[0])
+        tag = f'{name}_p3_{round(p3v, 4)}'
+        d[f'unitary_{tag}'] = float(np.abs((Us.conj().T @ Us - I).toarray()).max())
+        d[f'Gamma_Us_Gamma_Us_minus_1_{tag}'] = float(np.abs((G @ Us @ G @ Us - I).toarray()).max())
+        d[f'Theta_commutes_with_period_{tag}'] = float(np.abs((Th @ Us - Us @ Th).toarray()).max())
+        ptm = d3.Patch((L1, L2), th2, ph2, p3=-p3v, links=lk)
+        d[f'Theta_Us(p3)_equals_Us(-p3)_Theta_{tag}'] = float(np.abs((Th @ Us - ptm.period_sym() @ Th).toarray()).max())
+    d[f'Theta_Gamma_anticommute'] = float(np.abs((Th @ G + G @ Th).toarray()).max())
+    d[f'Theta_squared_is_(-1)^(x1+x2)'] = float(np.abs((Th @ Th).diagonal() - np.repeat((-1.0) ** (pt.x1 + pt.x2), 4)).max())
+out['structures'] = d
+
+# 5. parity classes of the period
+pt = d3.Patch((L1, L2), th2, ph2); Us = pt.period_sym(); worst = 0.0; dims = []
+for a in (0, 1):
+    for b in (0, 1):
+        idx, cells = pt.class_index(a, b); mask = np.ones(Us.shape[0], bool); mask[idx] = False
+        worst = max(worst, float(np.abs(Us[idx][:, np.nonzero(mask)[0]].toarray()).max())); dims.append(len(idx))
+out['parity_classes'] = {'largest_entry_between_classes': worst, 'class_dimensions': dims}
+
+# 6. exact certificate of the Theta identity: dyadic entries only (float64 arithmetic exact)
+L = 8; shape = (L, L, 1); Nc = L * L
+S1, S2 = d3.shift_matrix(shape, 0).toarray(), d3.shift_matrix(shape, 1).toarray()      # entries 0, +-1/2, +-i/2
+x1, x2 = np.meshgrid(np.arange(L), np.arange(L), indexing='ij')
+Th = np.kron(np.diag((1j) ** ((x1 + x2).ravel() % 4)), d3.SPIN[0])
+def onsite():   # a generic on-site record operator with Gaussian-integer entries, identity on the spin
+    blocks = rng.integers(-3, 4, size=(Nc, 2, 2)) + 1j * rng.integers(-3, 4, size=(Nc, 2, 2))
+    X = np.zeros((4 * Nc, 4 * Nc), complex)
+    for c in range(Nc): X[4 * c:4 * c + 4, 4 * c:4 * c + 4] = np.kron(blocks[c], np.eye(2))
+    return X
+X, Xp = onsite(), onsite()
+P = Xp @ S1 @ S2 @ X @ S2 @ S1
+out['exact_dyadic'] = {'lattice': [L, L], 'statement': 'Theta (X\' S1 S2 X S2 S1) = (X\' S1 S2 X S2 S1) Theta for arbitrary on-site record operators X, X\'',
+                       'defect': float(np.abs(Th @ P - P @ Th).max()), 'largest_entry_of_the_product': float(np.abs(P).max()),
+                       'Gamma_S_i_Gamma_S_i_minus_1': [float(np.abs(np.kron(np.eye(Nc), d3.GAMMA) @ S @ np.kron(np.eye(Nc), d3.GAMMA) @ S - np.eye(4 * Nc)).max()) for S in (S1, S2)]}
+for k, v in out.items():
+    print(k, json.dumps(v) if not isinstance(v, str) else v)
+if len(sys.argv) > 1: json.dump(out, open(sys.argv[1], 'w'), indent=1)

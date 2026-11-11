@@ -1,0 +1,132 @@
+"""Exact one-load analysis of CAP at flux k: twisted adjacency, isotypic projectors, channel, spectrum."""
+from fractions import Fraction as F
+import mpmath
+from cyc import (Cyc, ZERO, ONE, Z, SQRT5, R18, q5, mat, eye, mmul, madd, mscale, dagger, mtrace, meq, mzero,
+                 rank_nullspace, solve)
+import carrier_exact as ce
+
+N = 12
+BASIS = [ONE, SQRT5, R18, SQRT5 * R18]          # Q-basis of the real subfield Q(r), r = 2 cos(pi/10)
+
+
+def real_coords(x):
+    """Fractions (c0, c1, c2, c3) with x = c0 + c1 sqrt5 + (c2 + c3 sqrt5) r; x must lie in Q(r)."""
+    import sympy as s
+    cols = [[F(b.n[j], b.d) for b in BASIS] for j in range(8)]
+    rhs = [F(x.n[j], x.d) for j in range(8)]
+    Mx = s.Matrix([[s.Rational(v.numerator, v.denominator) for v in row] for row in cols])
+    sol = Mx.gauss_jordan_solve(s.Matrix([s.Rational(v.numerator, v.denominator) for v in rhs]))[0]
+    c = [F(int(v.p), int(v.q)) for v in sol]
+    assert sum((b * ci for b, ci in zip(BASIS, c)), ZERO) == x, 'element outside Q(r)'
+    return c
+
+
+def show(x):
+    """Readable form of an element of Q(r)."""
+    c = real_coords(x)
+    def part(a, b):
+        if b == 0:
+            return str(a)
+        if a == 0:
+            return f'{b}*sqrt5'
+        return f'({a} + {b}*sqrt5)'
+    if c[2] == 0 and c[3] == 0:
+        return part(c[0], c[1])
+    if c[0] == 0 and c[1] == 0:
+        return part(c[2], c[3]) + '*r'
+    return part(c[0], c[1]) + ' + ' + part(c[2], c[3]) + '*r'
+
+
+def recognise(val):
+    """Element of Q(r) equal to the real number val (60 digits), by an integer relation; verified by the caller."""
+    mpmath.mp.dps = 60
+    basis = [b.mp(60).real for b in BASIS]
+    rel = mpmath.pslq([mpmath.mpf(val)] + basis, maxcoeff=10 ** 6, maxsteps=10 ** 5)
+    assert rel is not None and rel[0] != 0
+    return sum((b * F(-c, rel[0]) for b, c in zip(BASIS, rel[1:])), ZERO)
+
+
+def spectrum(A):
+    """Exact eigenvalues (elements of Q(r)) with multiplicities of a Hermitian matrix over the field."""
+    import numpy as np
+    mpmath.mp.dps = 60
+    Am = mpmath.matrix([[a.mp(60) for a in row] for row in A])
+    ev = [e.real for e in mpmath.eigh(Am)[0]]
+    groups = []
+    for e in sorted(ev, reverse=True):
+        if groups and abs(groups[-1][0] - e) < mpmath.mpf(10) ** -40:
+            groups[-1][1] += 1
+        else:
+            groups.append([e, 1])
+    out = []
+    n = len(A)
+    for e, mult in groups:
+        a = recognise(e)
+        rk, _ = rank_nullspace(madd(A, mscale(eye(n), a), -1))
+        assert n - rk == mult, 'eigenvalue not certified'
+        out.append((a, mult))
+    assert sum(m for _, m in out) == n
+    return out
+
+
+def projectors(A, spec):
+    n = len(A); out = []
+    for j, (aj, mj) in enumerate(spec):
+        P = eye(n)
+        for i, (ai, _) in enumerate(spec):
+            if i != j:
+                P = mscale(mmul(P, madd(A, mscale(eye(n), ai), -1)), (aj - ai).inv())
+        assert meq(mmul(P, P), P) and mtrace(P) == mj
+        out.append(P)
+    return out
+
+
+def kraus_dense(k):
+    return [[ce.sp_dense(K, N) for _, K in ce.instrument(seam, 1, k)] for seam in ce.SEAMS]
+
+
+def channel(rows, X):
+    """Unread uniformly scheduled channel (Schroedinger picture), exact."""
+    acc = mat(N, N)
+    for seam_rows in rows:
+        for K in seam_rows:
+            acc = madd(acc, mmul(mmul(K, X), dagger(K)))
+    return mscale(acc, Cyc.of(F(1, len(rows))))
+
+
+def poly_mul(p, q):
+    out = [ZERO] * (len(p) + len(q) - 1)
+    for i, a in enumerate(p):
+        for j, b in enumerate(q):
+            out[i + j] = out[i + j] + a * b
+    return out
+
+
+def poly_add(p, q):
+    n = max(len(p), len(q))
+    return [(p[i] if i < len(p) else ZERO) + (q[i] if i < len(q) else ZERO) for i in range(n)]
+
+
+def poly_eval(p, x):
+    acc = ZERO
+    for c in reversed(p):
+        acc = acc * x + c
+    return acc
+
+
+def poly_divide_root(p, root):
+    """p(x) / (x - root), exact; asserts zero remainder. Coefficients low to high."""
+    n = len(p) - 1
+    q = [ZERO] * n
+    carry = ZERO
+    for i in range(n, 0, -1):
+        carry = p[i] + carry * root
+        q[i - 1] = carry
+    assert (p[0] + carry * root).is_zero(), 'not a root'
+    return q
+
+
+def poly_roots_mp(p, dps=50):
+    mpmath.mp.dps = dps
+    coeffs = [c.mp(dps) for c in reversed(p)]
+    return mpmath.polyroots(coeffs, maxsteps=500, extraprec=200)

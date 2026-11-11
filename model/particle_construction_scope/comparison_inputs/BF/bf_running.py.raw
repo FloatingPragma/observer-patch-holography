@@ -1,0 +1,94 @@
+"""BF section F: verdict against SC's colour bound and one-loop running from E_cell (no measured value enters).
+
+Cell couplings (1/alpha_1, 1/alpha_2, 1/alpha_3), U(1) GUT normalized:
+  bare equal 16.2453 (DC cut closure, GL B1);
+  full register matched to MSbar at mu = E_cell (bf_bg_fit.json) for F = 5, 15 and xi = inf (Hamiltonian of section A),
+  xi = 2 (CF-1 field step, declared reading), xi = 1 (isotropic Euclidean);
+  menus M1..M4: mean-field rule of section E added to the xi = inf row; plaquette bound P2 for 1/alpha_3.
+Censuses: VL (81/10, 5/6, -3), SM (41/10, -19/6, -7), B (61/10, -7/6, -5).
+Bound (SC): alpha_3 finite down to x_v = ln(E_cell/mu) = 38.196 needs 1/alpha_3(E_cell) >= |b3| x_v/(2 pi).
+Running: alpha^-1(mu) = alpha^-1(E_cell) + (b/(2 pi)) ln(E_cell/mu), no thresholds. E* = 1.22089e19 GeV (IMPORTED
+declared unit), scale m_Z = 91.588 GeV of the declared chain (EB F1 reference row).
+Writes bf_running.json.
+"""
+import json
+import math
+import sys
+
+fit = json.load(open('bf_bg_fit.json'))
+mf = json.load(open('bf_meanfield.json'))
+P_FWD = 1.6309720958588974
+E_STAR = 1.22089e19
+E_CELL = E_STAR / math.sqrt(P_FWD)
+MZ_SRC = 91.58832749908635
+X_V = 38.19635432884911
+BARE = 16.2453
+CENSUS = {'VL (81/10, 5/6, -3)': (8.1, 5 / 6, -3.0), 'SM (41/10, -19/6, -7)': (4.1, -19 / 6, -7.0),
+          'B (61/10, -7/6, -5)': (6.1, -7 / 6, -5.0)}
+out = {'E_cell_GeV': E_CELL, 'ln(E_cell/m_Z_source)': math.log(E_CELL / MZ_SRC), 'x_v': X_V,
+       'bound_inv_alpha3_needed': {k: abs(b[2]) * X_V / (2 * math.pi) for k, b in CENSUS.items()}}
+
+cells = {'bare equal (cut closure)': {'inv': (BARE, BARE, BARE), 'kind': 'bare'}}
+for F in ('5', '15'):
+    for xi, tag in (('inf', 'Hamiltonian (xi = inf)'), ('2.0', 'CF-1 field step (xi = 2)'), ('1.0', 'isotropic Euclidean (xi = 1)')):
+        r = fit['source_action_matching'][f'F={F}, xi={xi}']
+        cells[f'full register, F={F}, {tag}'] = {
+            'inv': tuple(r[a]['inv_alpha_MSbar_at_E_cell'] for a in ('U1', 'SU2', 'SU3')), 'kind': 'computed matching'}
+    base = fit['source_action_matching'][f'F={F}, xi=inf']
+    for n in (1, 2, 3, 4):
+        c = mf['E_menu_correction_mean_field_rule'][f'F={F}, M{n}']
+        d = c['delta_inv_alpha (SU3, SU2, U1)']
+        cells[f'menu M{n}, F={F}, mean-field rule on the Hamiltonian row'] = {
+            'inv': (base['U1']['inv_alpha_MSbar_at_E_cell'] + d['U1'], base['SU2']['inv_alpha_MSbar_at_E_cell'] + d['SU2'],
+                    base['SU3']['inv_alpha_MSbar_at_E_cell'] + d['SU3']),
+            'kind': 'mean-field estimate', 'mean_field_state': c['mean_field_state']}
+out['cell_couplings'] = {k: {'inv_alpha_1_2_3': list(v['inv']), **{a: b for a, b in v.items() if a != 'inv'}} for k, v in cells.items()}
+
+# plaquette bound P2 on the bare-equivalent coupling, carried to MSbar with the SU(3) matching shift of the full register
+p2 = {}
+for F in ('5', '15'):
+    shift = fit['source_action_matching'][f'F={F}, xi=inf']['SU3']['delta_inv_alpha_total']
+    for n in (1, 2, 3, 4):
+        r = mf['P2_plaquette_equivalent_coupling'][f'F={F}, M{n}']
+        ub = min(r['inv_alpha_P linear form (upper bound)'], BARE)
+        p2[f'F={F}, M{n}'] = {'bare_equivalent_inv_alpha_upper_bound': r['inv_alpha_P linear form (upper bound)'],
+                              'bound_is_below_the_bare_value': bool(r['inv_alpha_P linear form (upper bound)'] < BARE),
+                              'inv_alpha_3_MSbar_upper_bound': ub + shift,
+                              'exponential_form': min(r['inv_alpha_P exponential form'], BARE) + shift}
+out['P2_upper_bound_on_inv_alpha_3_of_the_menus'] = p2
+
+rows = {}
+for cname, c in cells.items():
+    inv0 = c['inv']
+    for sname, b in CENSUS.items():
+        need = abs(b[2]) * X_V / (2 * math.pi)
+        e = {'inv_alpha_3_cell': inv0[2], 'needed': need, 'margin': inv0[2] - need, 'bound_met': bool(inv0[2] >= need),
+             'largest_abs_b3_allowed_by_this_cell_value': 2 * math.pi * inv0[2] / X_V if inv0[2] > 0 else 0.0}
+        if inv0[2] > 0:
+            xp = 2 * math.pi * inv0[2] / abs(b[2])
+            e.update({'colour_pole_x = ln(E_cell/mu)': xp, 'colour_pole_GeV': E_CELL * math.exp(-xp),
+                      'colour_pole_over_E_star': E_CELL * math.exp(-xp) / E_STAR})
+        else:
+            e['colour_pole'] = 'at or above the cell (no weak-coupling colour at E_cell)'
+        lg = math.log(E_CELL / MZ_SRC) / (2 * math.pi)
+        inv = [inv0[i] + b[i] * lg for i in range(3)]
+        e['inv_alpha_123_at_m_Z_source'] = inv
+        if min(inv) > 0 and min(inv0) > 0:
+            aem = inv[1] + 5 * inv[0] / 3
+            e.update({'status_at_m_Z': 'outputs', 'sin2_theta_W': inv[1] / aem, 'alpha_s': 1 / inv[2], 'alpha_em_inv': aem})
+        else:
+            e['status_at_m_Z'] = 'colour coupling not finite at m_Z (pole above m_Z)' if inv[2] <= 0 else 'a coupling is not positive'
+        rows[f'{cname} | {sname}'] = e
+out['rows'] = rows
+out['sensitivity'] = {'d(inv_alpha_3)/d ln(a E_cell) for b3 = -3, -7': [3 / (2 * math.pi), 7 / (2 * math.pi)],
+                      'ln(a E_cell) needed to reach the bound from the Hamiltonian F=5 row, b3 = -3':
+                          (out['bound_inv_alpha3_needed']['VL (81/10, 5/6, -3)']
+                           - cells['full register, F=5, Hamiltonian (xi = inf)']['inv'][2]) * 2 * math.pi / 3}
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 'bf_running.json', 'w'), indent=1)
+for k, v in rows.items():
+    if 'VL' in k or 'SM' in k:
+        print(k.ljust(96), 'inv a3', round(v['inv_alpha_3_cell'], 3), 'need', round(v['needed'], 2), 'met', v['bound_met'],
+              'pole GeV', ('%.3g' % v['colour_pole_GeV']) if 'colour_pole_GeV' in v else 'cell',
+              'at mZ', [round(x, 2) for x in v['inv_alpha_123_at_m_Z_source']])
+print('P2', json.dumps(p2))
+print('sensitivity', out['sensitivity'])

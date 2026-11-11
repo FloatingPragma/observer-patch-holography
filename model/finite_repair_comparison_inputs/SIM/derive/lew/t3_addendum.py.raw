@@ -1,0 +1,67 @@
+"""T3 addendum (PREREGISTRATION Addendum 1): controls A4 (pixel scale) and A5 (unification scale), and the
+residual of each source statement (D10 Z-scale law, D11 top readout) under A1 and A2. P_fwd packet.
+Writes t3_addendum.json.
+"""
+from __future__ import annotations
+
+import json
+import math
+
+import lewlib as L
+
+
+def ratio(pk, q):
+    row = L.rg_to(pk, q, 5, name="w.dat")
+    return row["v"] / pk["v"], row
+
+
+def main():
+    t1 = json.loads((L.LANE / "t1_chain.json").read_text())
+    t3 = json.loads((L.LANE / "t3_vev_attachment.json").read_text())
+    refs = t1["references_compare_only_GeV"]
+    pf = t1["pixels"]["P_fwd"]
+    pk = dict(pf["packet_Q0"])
+    chain = pf["chain"]
+    e = L.E_STAR_BRANCH
+    p = float(chain["P"])
+    scales = {"A4_E_cell": e * p ** -0.5, "A5_M_U": e * math.exp(-2 * math.pi) * p ** (1 / 6)}
+    out = {"schema": "lew.t3_addendum.v1", "controls": {}, "statement_residuals": {}}
+    for name, q in scales.items():
+        r, row = ratio(pk, q)
+        new = dict(pk)
+        new["v"] = pk["v"] / r
+        o = L.readout(new)
+        out["controls"][name] = {"attachment_scale_GeV": q, "r_v(Q)_over_v(Q0)": r, "v_Q0_GeV": new["v"],
+                                 "outputs_GeV": o,
+                                 "residual_percent_compare_only": {k: 100 * (o[k] / refs[k] - 1) for k in ("W", "Z", "H", "t")}}
+    gz = math.sqrt(pk["g2"] ** 2 + pk["gY"] ** 2)
+    rows = t3["pixels"]["P_fwd"]
+    qt = rows["A2"]["attachment_scale_GeV"]
+    for rule in ("A1", "A2"):
+        vq0 = rows[rule]["v_Q0_GeV"]
+        mz_tree = 0.5 * vq0 * gz
+        # D11 readout at its own self-consistent scale with the v that this attachment implies
+        trial = dict(pk)
+        trial["v"] = vq0
+        q = 163.0
+        for _ in range(80):
+            row = L.rg_to(trial, q, 5, name="w.dat")
+            q_new = row["yt"] * row["v"] / math.sqrt(2.0)
+            if abs(q_new - q) < 1e-9:
+                break
+            q = q_new
+        row = L.rg_to(trial, q, 5, name="w.dat")
+        out["statement_residuals"][rule] = {
+            "D10_Zscale_law_mZtree_Q0_minus_Q0_GeV": mz_tree - pk["Q0"],
+            "D10_Zscale_law_relative": mz_tree / pk["Q0"] - 1,
+            "D11_readout_scale_with_running_v_GeV": q,
+            "D11_v_at_that_scale_GeV": row["v"],
+            "D11_statement_v_equals_v_source_relative": row["v"] / pk["v"] - 1,
+        }
+    out["A2_scale_GeV"] = qt
+    (L.LANE / "t3_addendum.json").write_text(json.dumps(out, indent=2) + "\n")
+    print(json.dumps(out, indent=1))
+
+
+if __name__ == "__main__":
+    main()

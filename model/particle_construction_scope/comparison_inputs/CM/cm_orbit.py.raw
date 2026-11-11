@@ -1,0 +1,243 @@
+"""CM part D1 (exact): the generation rotation g, its cover lifts, the toggles on the lifted orbit, statement X3.
+
+Reads no measured value. Writes orbit.json.
+Run from the RER checkout:
+  PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:RL/work/KD:RL/work/CM /tmp/oph-completion-venv/bin/python -B RL/work/CM/cm_orbit.py
+"""
+import json
+import os
+
+import kdlib as kd
+from kdlib import K, ZERO, ONE, I
+import cmlib as L
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+OUT = {'measured_values_read': False, 'labels': 'EXACT (Q(sqrt5, i))'}
+
+
+def kstr(x):
+    return repr(K.lift(x))
+
+
+def mstr(M):
+    return [[kstr(x) for x in row] for row in M]
+
+
+geo = L.generation_rotation()
+g = geo['g']
+OUT['g_cycles'] = sorted({tuple(sorted({i, g[i], g[g[i]]})) for i in range(12)})
+OUT['gC'] = list(geo['gC'])
+OUT['gE'] = list(geo['gE'])
+OUT['face_orbit_positions'] = list(geo['face_orbit'])
+
+LEGS = {
+    # leg: (left levels without colour, right levels without colour, toggle, has colour)
+    'up': ((L.S1,), (L.S1, L.S2), ('create', L.S2), True),
+    'down': ((L.S2,), (), ('annihilate', L.S2), True),
+    'nu': ((L.C0, L.C1, L.C2, L.S1), (L.C0, L.C1, L.C2, L.S1, L.S2), ('create', L.S2), False),
+    'e': ((L.C0, L.C1, L.C2, L.S2), (L.C0, L.C1, L.C2), ('annihilate', L.S2), False),
+}
+
+
+def toggle(t, vec):
+    kind, j = t
+    return L.create(j, vec) if kind == 'create' else L.annihilate(j, vec)
+
+
+lift_data = {}
+for lname, q in (('plus', geo['q_plus']), ('minus', geo['q_minus'])):
+    M = L.code_lift(q)
+    U = tuple(tuple(M[3 + i][3 + j] for j in range(2)) for i in range(2))
+    R = tuple(tuple(M[i][j] for j in range(3)) for i in range(3))
+    U3 = kd.mm(U, U, U)
+    R3 = kd.mm(R, R, R)
+    rec = {'quaternion': [kstr(x) for x in q], 'U_sigma_q': mstr(U), 'R_q': mstr(R),
+           'U_cubed': mstr(U3), 'R_cubed_is_identity': kd.meq(R3, kd.eye(3)),
+           'U_unitary': kd.is_unitary(U), 'det_U': kstr(U[0][0] * U[1][1] - U[0][1] * U[1][0]),
+           'U11': kstr(U[0][0]), 'U22': kstr(U[1][1]), 'U22_is_conj_U11': U[1][1] == U[0][0].conj()}
+    # alpha_n = (U^n)_11, delta_n = (U^n)_22
+    Un = kd.eye(2)
+    alphas, deltas = [], []
+    for n in range(3):
+        alphas.append(kstr(Un[0][0]))
+        deltas.append(kstr(Un[1][1]))
+        Un = kd.mm(U, Un)
+    rec['alpha_n'] = alphas
+    rec['delta_n'] = deltas
+    # orbits and toggle compressions, every leg and colour
+    legs = {}
+    for leg, (lev_L, lev_R, tg, coloured) in LEGS.items():
+        colours = (L.C0, L.C1, L.C2) if coloured else (None,)
+        per_c = {}
+        for c in colours:
+            extra = (c,) if c is not None else ()
+            eL = [L.pattern(4, extra + lev_L)]
+            eR = [L.pattern(4, extra + lev_R)]
+            for n in range(1, 4):
+                eL.append(L.apply_lift(q, eL[-1], g))
+                eR.append(L.apply_lift(q, eR[-1], g))
+            # closure signs
+            cl = {}
+            for side, e in (('L', eL), ('R', eR)):
+                if L.vequal(e[3], e[0]):
+                    cl[side] = 1
+                elif L.vequal(e[3], L.vscale(K(-1), e[0])):
+                    cl[side] = -1
+                else:
+                    cl[side] = None
+            # compressions: T e_n^L must be t_n e_n^R
+            ts, ok = [], True
+            for n in range(3):
+                img = toggle(tg, eL[n])
+                nrm = L.inner(eR[n], eR[n])
+                t = L.inner(eR[n], img) * nrm.inv()
+                ok = ok and L.vequal(img, L.vscale(t, eR[n]))
+                ts.append(t)
+            # orthonormality of the orbit states
+            orth = all(L.inner(eL[a], eL[b]) == (ONE if a == b else ZERO) for a in range(3) for b in range(3)) and \
+                all(L.inner(eR[a], eR[b]) == (ONE if a == b else ZERO) for a in range(3) for b in range(3))
+            per_c[str(c)] = {'closure_L': cl['L'], 'closure_R': cl['R'], 't_n': [kstr(t) for t in ts],
+                             'toggle_maps_orbit_into_orbit': ok, 'orbit_states_orthonormal': orth,
+                             'abs_t_n_squared': [kstr(t.norm2()) for t in ts]}
+        vals = {json.dumps(v['t_n']) for v in per_c.values()}
+        legs[leg] = {'per_colour': per_c, 'colour_blind': len(vals) == 1}
+    rec['legs'] = legs
+    rec['nu_equals_up'] = legs['nu']['per_colour']['None']['t_n'] == legs['up']['per_colour'][str(L.C0)]['t_n']
+    rec['e_equals_down'] = legs['e']['per_colour']['None']['t_n'] == legs['down']['per_colour'][str(L.C0)]['t_n']
+    lift_data[lname] = rec
+OUT['lifts'] = lift_data
+
+# base-port check (CANDIDATES.md D1 O): orbits started at ports 11 and 5 give the same compressions as port 4
+base_check = {}
+for lname, q in (('plus', geo['q_plus']), ('minus', geo['q_minus'])):
+    for base in (11, 5):
+        for leg in ('up', 'down'):
+            lev_L, lev_R, tg, _ = LEGS[leg]
+            eL = [L.pattern(base, (L.C0,) + lev_L)]
+            eR = [L.pattern(base, (L.C0,) + lev_R)]
+            for n in range(1, 3):
+                eL.append(L.apply_lift(q, eL[-1], g))
+                eR.append(L.apply_lift(q, eR[-1], g))
+            ts = [kstr(L.inner(eR[n], toggle(tg, eL[n]))) for n in range(3)]
+            base_check[f'{lname}|port{base}|{leg}'] = ts == lift_data[lname]['legs'][leg]['per_colour'][str(L.C0)]['t_n']
+OUT['base_port_check_same_compressions'] = base_check
+
+# ------------------------------------------------------------------------------- reading F: fixed weak basis, X3
+q = geo['q_plus']
+M = L.code_lift(q)
+U = tuple(tuple(M[3 + i][3 + j] for j in range(2)) for i in range(2))
+R = tuple(tuple(M[i][j] for j in range(3)) for i in range(3))
+ports = [4]
+for n in range(2):
+    ports.append(g[ports[-1]])
+
+
+def colour_vec(n, c):
+    Rn = kd.eye(3)
+    for _ in range(n):
+        Rn = kd.mm(R, Rn)
+    return [Rn[j][c] for j in range(3)]
+
+
+def fixed_state(n, c, extra_levels):
+    cv = colour_vec(n % 3, c)
+    vec = {}
+    for j in range(3):
+        if cv[j].is_zero():
+            continue
+        m = (1 << j)
+        for lv in extra_levels:
+            m |= 1 << lv
+        vec[(ports[n % 3], m)] = cv[j]
+    return vec
+
+
+Fchecks = {}
+for c in (L.C0, L.C1, L.C2):
+    fL = {(n, s): fixed_state(n, c, (s,)) for n in range(3) for s in (L.S1, L.S2)}
+    fRu = {n: fixed_state(n, c, (L.S1, L.S2)) for n in range(3)}
+    fRd = {n: fixed_state(n, c, ()) for n in range(3)}
+    # g^ f_{n,s} = sum_s' U_{s's} f_{n+1,s'}
+    ok_shift = True
+    for n in range(3):
+        for si, s in enumerate((L.S1, L.S2)):
+            img = L.apply_lift(q, fL[(n, s)], g)
+            want = {}
+            for ti, t in enumerate((L.S1, L.S2)):
+                want = L.vadd(want, fL[((n + 1) % 3, t)], U[ti][si])
+            ok_shift = ok_shift and L.vequal(img, want)
+    ok_right = all(L.vequal(L.apply_lift(q, fRu[n], g), fRu[(n + 1) % 3]) and
+                   L.vequal(L.apply_lift(q, fRd[n], g), fRd[(n + 1) % 3]) for n in range(3))
+    # toggles in the fixed basis: T_u f_{n,s1} = sign f^u_n, T_u f_{n,s2} = 0; T_d f_{n,s2} = sign f^d_n, T_d f_{n,s1} = 0
+    tu = [L.inner(fRu[n], L.create(L.S2, fL[(n, L.S1)])) for n in range(3)]
+    td = [L.inner(fRd[n], L.annihilate(L.S2, fL[(n, L.S2)])) for n in range(3)]
+    zero_u = all(len(L.create(L.S2, fL[(n, L.S2)])) == 0 for n in range(3))
+    zero_d = all(len(L.annihilate(L.S2, fL[(n, L.S1)])) == 0 for n in range(3))
+    exact_u = all(L.vequal(L.create(L.S2, fL[(n, L.S1)]), L.vscale(tu[n], fRu[n])) for n in range(3))
+    exact_d = all(L.vequal(L.annihilate(L.S2, fL[(n, L.S2)]), L.vscale(td[n], fRd[n])) for n in range(3))
+    Fchecks[str(c)] = {'lifted_shift_is_S_x_U_in_fixed_basis': ok_shift, 'right_orbits_periodic_plain_shift': ok_right,
+                       'T_u_amplitudes': [kstr(x) for x in tu], 'T_d_amplitudes': [kstr(x) for x in td],
+                       'T_u_kills_s2_side': zero_u, 'T_d_kills_s1_side': zero_d,
+                       'T_u_exact': exact_u, 'T_d_exact': exact_d}
+OUT['reading_F_basis_checks'] = Fchecks
+
+# X3 as matrices (exact): positions x (s1, s2) for L, positions for R
+def kron(A, B):
+    return kd.kron(A, B)
+
+
+S3 = ((ZERO, ZERO, ONE), (ONE, ZERO, ZERO), (ZERO, ONE, ZERO))
+E2 = kd.eye(2)
+gL = kron(S3, U)
+SxI = kron(S3, E2)
+sign_u = Fchecks[str(L.C0)]['T_u_amplitudes'][0]
+sign_d = Fchecks[str(L.C0)]['T_d_amplitudes'][0]
+su = K(1) if sign_u == '1' else K(-1)
+sd = K(1) if sign_d == '1' else K(-1)
+assert sign_u in ('1', '-1') and sign_d in ('1', '-1')
+Tu = tuple(tuple((su if (j == 2 * i) else ZERO) for j in range(6)) for i in range(3))       # (n) <- (n, s1)
+Td = tuple(tuple((sd if (j == 2 * i + 1) else ZERO) for j in range(6)) for i in range(3))   # (n) <- (n, s2)
+tau_plus = kron(kd.eye(3), ((ZERO, ONE), (ZERO, ZERO)))
+X3 = {
+    'S_x_1_commutes_with_lifted_shift': kd.is_zero(kd.comm(SxI, gL)),
+    'S_x_1_intertwines_T_u': kd.meq(kd.mm(S3, Tu), kd.mm(Tu, SxI)),
+    'S_x_1_intertwines_T_d': kd.meq(kd.mm(S3, Td), kd.mm(Td, SxI)),
+    'S_x_1_commutes_with_tau_plus': kd.is_zero(kd.comm(SxI, tau_plus)),
+    'lifted_shift_commutes_with_T_u': kd.meq(kd.mm(S3, Tu), kd.mm(Tu, gL)),
+}
+# compressions of g^k on the s1 and s2 sides: P_s (S x U)^k P_s = (U^k)_ss S^k
+comp = {}
+gk = kd.eye(6)
+for k in range(1, 4):
+    gk = kd.mm(gL, gk)
+    Sk = kd.eye(3)
+    for _ in range(k):
+        Sk = kd.mm(S3, Sk)
+    Uk = kd.eye(2)
+    for _ in range(k):
+        Uk = kd.mm(U, Uk)
+    P1 = tuple(tuple(gk[2 * i][2 * j] for j in range(3)) for i in range(3))
+    P2 = tuple(tuple(gk[2 * i + 1][2 * j + 1] for j in range(3)) for i in range(3))
+    comp[f'k{k}'] = {'s1_side_equals_U11k_S^k': kd.meq(P1, kd.mscale(Uk[0][0], Sk)),
+                     's2_side_equals_U22k_S^k': kd.meq(P2, kd.mscale(Uk[1][1], Sk)),
+                     '(U^k)_11': kstr(Uk[0][0]), '(U^k)_22': kstr(Uk[1][1])}
+X3['compressions'] = comp
+OUT['X3'] = X3
+
+with open(os.path.join(HERE, 'orbit.json'), 'w') as fh:
+    json.dump(OUT, fh, indent=1, default=str)
+
+print('g cycles', OUT['g_cycles'], 'face orbit', OUT['face_orbit_positions'])
+for lname, rec in lift_data.items():
+    print('lift', lname, 'q =', rec['quaternion'])
+    print('   U =', rec['U_sigma_q'], 'U^3 =', rec['U_cubed'], 'det', rec['det_U'], 'R^3=1', rec['R_cubed_is_identity'])
+    print('   alpha_n', rec['alpha_n'], 'delta_n', rec['delta_n'])
+    for leg, d in rec['legs'].items():
+        c0 = next(iter(d['per_colour'].values()))
+        print('   ', leg, 'colour blind', d['colour_blind'], 'closure L/R', c0['closure_L'], c0['closure_R'],
+              't_n', c0['t_n'], '|t|^2', c0['abs_t_n_squared'], 'maps', c0['toggle_maps_orbit_into_orbit'],
+              'orth', c0['orbit_states_orthonormal'])
+    print('   nu=up', rec['nu_equals_up'], 'e=down', rec['e_equals_down'])
+print('F checks', json.dumps(Fchecks, indent=None)[:900])
+print('X3', {k: v for k, v in X3.items() if k != 'compressions'})
+print('compressions', X3['compressions'])

@@ -1,0 +1,83 @@
+"""Item 3: correction probability at rest of every prepared family of the public programs on one carrier.
+
+p = lambda/60 with lambda the level of the (connection) port Laplacian that the family diagonalizes; the walk phase
+is omega = arccos(1 - p). These are phases of the declared walk coherent-seam-repair-v1 per tick, not masses.
+Exact where the level is algebraic of low degree (sympy); float otherwise with the closed forms of report CW.
+Single-carrier reference for flux pairs: work/DIRAC/defect_phases.json (reproduced here for one link, three phases).
+"""
+import json, sys
+import numpy as np
+import sympy as s
+from model.common_source import slow_geometry
+
+src = slow_geometry.source()
+seams = [tuple(sorted(int(v) for v in e)) for e in src.seams()]
+n = 12
+x = s.symbols('x')
+rows = []
+
+
+def lap(z_by_seam=None):
+    L = s.zeros(n)
+    for a, b in seams:
+        z = (z_by_seam or {}).get((a, b), 1)
+        L[a, a] += 1; L[b, b] += 1; L[a, b] -= s.conjugate(z); L[b, a] -= z
+    return L
+
+
+def row(program, family, lam, mult, exact):
+    lamf = float(lam); p = lamf / 60
+    rows.append({'program': program, 'family': family, 'level_lambda': lamf, 'exact': str(exact), 'multiplicity': mult,
+                 'p_rest': p, 'rest_phase': float(np.arccos(1 - p)), 'sqrt_2p': float(np.sqrt(2 * p))})
+    print(f'{program:34s} | {family:58s} | lambda {lamf:9.6f} = {str(exact):22s} x{mult:2d} | p {p:.9f} | phase {np.arccos(1 - p):.6f} | sqrt(2p) {np.sqrt(2 * p):.6f}')
+
+
+# loads (plain walk) = each of the five fibre levels with flat links
+sq5 = s.sqrt(5)
+for lam, mult, name in ((0, 1, 'constant (consensus)'), (5 - sq5, 3, 'triplet 3'), (6, 5, 'quintet 5'), (5 + sq5, 3, "triplet 3'")):
+    row('plain walk; fibre level, flat links', f'loads, {name}', lam, mult, lam)
+# check against the carrier
+cp = s.factor(lap().charpoly(x).as_expr())
+assert s.expand(cp - x * (x - 6) ** 5 * (x ** 2 - 10 * x + 20) ** 3) == 0
+# sections (walk with link phases, flux k per face); closed forms of CW
+c = 2 * s.cos(s.pi / 10)
+for k, name, top, mult in ((1, 'spinor doublet 2 (flux 1; L13, L17)', sq5 * c, 2), (2, 'vector triplet 3 (flux 2; L13, L17)', (5 + sq5) / 2, 3),
+                           (7, "conjugate doublet 2' (flux 7; L17)", (5 - sq5) * c / 2, 2)):
+    row('walk with link phases (local(G))', f'sections, {name}', 5 - top, mult, s.nsimplify(5 - top))
+# record-one block of the same walk: flux k + 10
+for k, name, top, mult in ((0, 'record-one block, flux 10 (sign kernel), 3-prime', sq5, 3),):
+    row('plain walk, record-one discriminant', name, 5 - top, mult, 5 - top)
+# five-level fibre with one central link on seam (0,1): triplet levels unchanged, doublet levels signed
+Lz = lap({(0, 1): -1})
+cpz = s.factor(Lz.charpoly(x).as_expr())
+print('characteristic polynomial of the signed Laplacian (one negative link):', cpz)
+factors = s.factor_list(Lz.charpoly(x).as_expr())[1]
+froots = {f: sorted(complex(r).real for r in s.Poly(f, x).nroots(n=30)) for f, m in factors}
+roots = sorted(r for f, m in factors for r in froots[f] for _ in range(m))
+fmin = min(froots, key=lambda f: froots[f][0])
+lam_min = froots[fmin][0]
+row('fibre 5, central link (0,1)', 'triplet levels 0..2: loads, constant', 0, 1, 0)
+row('fibre 5, central link (0,1)', 'doublet levels 3, 4: lowest level (frustrated consensus)', lam_min, 1, f'root of {fmin}')
+row('fibre 5, central link (0,1)', 'doublet levels 3, 4: second level', roots[1], 1, 'float')
+detz = Lz.det()
+print('det of the signed Laplacian:', detz, '(public value 13132800)')
+# joint program: port-localized walker (any position, any word, any level) and the lowest level per defect position
+row('joint program (10 words)', 'walker at one port: endpoint, centre, outside (JOIN.md)', 5, 1, '5 (degree)')
+ref = json.load(open('WORKSPACE/repair-law/work/DIRAC/defect_phases.json'))['rows']
+for r in ref:
+    if r['alpha'] == '1/2' and r['separation'] in (1, 2, 3):
+        row('joint program (10 words)', f'doublet level, lowest level, flux faces at dual distance {r["separation"]}', r['lambda_min'], 1, 'float (DIRAC table)')
+# cross-check of the single-carrier reference for one link and three phases
+chk = {}
+for name, al in (('1/6', s.Rational(1, 6)), ('1/3', s.Rational(1, 3)), ('1/2', s.Rational(1, 2))):
+    z = s.exp(2 * s.pi * s.I * al)
+    Lp = np.array(lap({(0, 1): z}).evalf(20).tolist(), complex)
+    lam = float(np.linalg.eigvalsh(Lp)[0])
+    refv = next(r['lambda_min'] for r in ref if r['alpha'] == name and r['separation'] == 1)
+    chk[name] = {'lambda_min': lam, 'reference': refv, 'difference': abs(lam - refv)}
+    row('one link phase exp(2 pi i alpha)', f'flat level, alpha = {name}, adjacent flux faces', lam, 1, 'float')
+print('single-carrier reference (work/DIRAC/defect_phases.json), one link:', {k: f"{v['difference']:.1e}" for k, v in chk.items()})
+out = {'rows': rows, 'signed_laplacian_charpoly': str(cpz), 'signed_laplacian_det': str(detz), 'lambda_min_signed_30_digits': str(sorted(s.Poly(fmin, x).nroots(n=30), key=lambda r: complex(r).real)[0]), 'signed_levels': roots,
+       'minimal_factor': str(fmin), 'reference_check': chk}
+if len(sys.argv) > 1:
+    json.dump(out, open(sys.argv[1], 'w'), indent=1)

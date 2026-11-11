@@ -1,0 +1,286 @@
+"""Shared exact machinery for S6.
+
+Carrier incidence, the sixty rotations, exact characters over Q(sqrt5), the five triads of mutually orthogonal
+twofold axes, the chart face -> ordered pair of triads, and the dual Green form of face charges.
+Everything is integer or rational arithmetic. Inputs: carrier incidence and its rotation group only
+(``model.common_source.slow_geometry.source()``); no repair rule is executed anywhere in this module.
+"""
+from fractions import Fraction as F
+
+from model.common_source import slow_geometry
+from model.transported_contrast import exact, law
+
+SRC = slow_geometry.source()
+SEAMS, FACES = law.carrier()
+ROT = tuple(tuple(int(v) for v in r) for r in SRC.rotations())
+IDENT = tuple(range(12))
+NPORT, NSEAM, NFACE = 12, 30, 20
+assert len(SEAMS) == NSEAM and len(FACES) == NFACE and len(set(ROT)) == 60 and IDENT in ROT
+
+
+def mul(r, s):
+    """(r s)(p) = r(s(p))."""
+    return tuple(r[v] for v in s)
+
+
+def inv(r):
+    o = [0] * len(r)
+    for p, v in enumerate(r):
+        o[v] = p
+    return tuple(o)
+
+
+def order(r):
+    k, x, e = 1, r, tuple(range(len(r)))
+    while x != e:
+        x = mul(r, x)
+        k += 1
+    return k
+
+
+ROTSET = set(ROT)
+assert all(mul(r, s) in ROTSET for r in ROT for s in ROT)
+
+# ---------------------------------------------------------------- incidence
+ADJ = {p: set() for p in range(NPORT)}
+for a, b in SEAMS:
+    ADJ[a].add(b)
+    ADJ[b].add(a)
+
+
+def _port_dist(a):
+    seen, layer = {a: 0}, [a]
+    while layer:
+        nxt = []
+        for p in layer:
+            for r in ADJ[p]:
+                if r not in seen:
+                    seen[r] = seen[p] + 1
+                    nxt.append(r)
+        layer = nxt
+    return seen
+
+
+ANTI = tuple(next(p for p, d in _port_dist(a).items() if d == 3) for a in range(NPORT))
+FACE_INDEX = {frozenset(f): i for i, f in enumerate(FACES)}
+SEAM_INDEX = {s: i for i, s in enumerate(SEAMS)}
+
+
+def face_perm(r):
+    return tuple(FACE_INDEX[frozenset(r[v] for v in f)] for f in FACES)
+
+
+def keeps_orientation(r):
+    for f in FACES:
+        g = tuple(r[v] for v in f)
+        h = FACES[FACE_INDEX[frozenset(g)]]
+        k = h.index(g[0])
+        if (h[(k + 1) % 3], h[(k + 2) % 3]) != (g[1], g[2]):
+            return False
+    return True
+
+
+FP = {r: face_perm(r) for r in ROT}
+assert all(keeps_orientation(r) for r in ROT)
+FANTI = tuple(FACE_INDEX[frozenset(ANTI[v] for v in f)] for f in FACES)
+DIST = law.dual_distance(FACES)[0]
+
+# ---------------------------------------------------------------- classes and characters
+CLASSES = ('1', '2', '3', '5A', '5B')
+
+
+def rot_class(r):
+    o = order(r)
+    if o in (1, 2, 3):
+        return str(o)
+    assert o == 5
+    p = next(p for p in range(NPORT) if r[p] == p)
+    n = min(ADJ[p])
+    return '5A' if r[n] in ADJ[n] else '5B'      # 5A: rotation by 72 degrees, 5B: by 144 degrees
+
+
+CLASS_OF = {r: rot_class(r) for r in ROT}
+CLASS_SIZE = {c: sum(1 for r in ROT if CLASS_OF[r] == c) for c in CLASSES}
+assert CLASS_SIZE == {'1': 1, '2': 15, '3': 20, '5A': 12, '5B': 12}
+assert all(CLASS_OF[mul(mul(g, r), inv(g))] == CLASS_OF[r] for g in ROT for r in ROT)
+
+
+# numbers a + b sqrt5 as pairs of Fractions
+def q5(a, b=0):
+    return (F(a), F(b))
+
+
+def q5mul(x, y):
+    return (x[0] * y[0] + 5 * x[1] * y[1], x[0] * y[1] + x[1] * y[0])
+
+
+def q5add(x, y):
+    return (x[0] + y[0], x[1] + y[1])
+
+
+PHI, PHIC = q5(F(1, 2), F(1, 2)), q5(F(1, 2), F(-1, 2))
+IRREPS = ('1', '3', "3'", '4', '5')
+CHI = {'1': dict(zip(CLASSES, (q5(1), q5(1), q5(1), q5(1), q5(1)))),
+       '3': dict(zip(CLASSES, (q5(3), q5(-1), q5(0), PHI, PHIC))),      # the geometric triplet: trace 1 + 2 cos(angle)
+       "3'": dict(zip(CLASSES, (q5(3), q5(-1), q5(0), PHIC, PHI))),
+       '4': dict(zip(CLASSES, (q5(4), q5(0), q5(1), q5(-1), q5(-1)))),
+       '5': dict(zip(CLASSES, (q5(5), q5(1), q5(-1), q5(0), q5(0))))}
+# orthonormality of the table (exact)
+for _a in IRREPS:
+    for _b in IRREPS:
+        _s = q5(0)
+        for _c in CLASSES:
+            _s = q5add(_s, q5mul(q5(CLASS_SIZE[_c]), q5mul(CHI[_a][_c], CHI[_b][_c])))
+        assert _s == q5(60 if _a == _b else 0)
+
+
+def class_function(trace):
+    """``trace(r)`` -> dict class -> value, asserting that it is a class function."""
+    out = {}
+    for r in ROT:
+        v = trace(r)
+        v = v if isinstance(v, tuple) else q5(v)
+        c = CLASS_OF[r]
+        if c in out:
+            assert out[c] == v, 'not a class function'
+        else:
+            out[c] = v
+    return out
+
+
+def decompose(character):
+    """Multiplicities of the five irreducibles in a class function (must be nonnegative integers)."""
+    out = {}
+    for name in IRREPS:
+        s = q5(0)
+        for c in CLASSES:
+            s = q5add(s, q5mul(q5(CLASS_SIZE[c]), q5mul(character[c], CHI[name][c])))
+        assert s[1] == 0 and (s[0] / 60).denominator == 1, (name, s)
+        out[name] = int(s[0] / 60)
+    return out
+
+
+def show(mult):
+    return ' + '.join((str(m) + '*' if m > 1 else '') + n for n, m in mult.items() if m) or '0'
+
+
+# ---------------------------------------------------------------- the five triads
+INVOLUTIONS = [r for r in ROT if order(r) == 2]
+assert len(INVOLUTIONS) == 15
+_klein = set()
+for _a in INVOLUTIONS:
+    for _b in INVOLUTIONS:
+        if _a != _b and mul(_a, _b) == mul(_b, _a):
+            _klein.add(frozenset((_a, _b, mul(_a, _b))))
+TRIADS = sorted(_klein, key=lambda k: sorted(k))
+assert len(TRIADS) == 5 and all(len(k) == 3 for k in TRIADS)
+TRIAD_INDEX = {k: i for i, k in enumerate(TRIADS)}
+RHO = {g: tuple(TRIAD_INDEX[frozenset(mul(mul(g, a), inv(g)) for a in TRIADS[i])] for i in range(5)) for g in ROT}
+
+
+def perm_sign(p):
+    s, seen = 1, set()
+    for i in range(len(p)):
+        if i not in seen:
+            j, n = i, 0
+            while j not in seen:
+                seen.add(j)
+                j = p[j]
+                n += 1
+            if n % 2 == 0:
+                s = -s
+    return s
+
+
+assert len(set(RHO.values())) == 60 and all(perm_sign(p) == 1 for p in RHO.values())
+assert all(RHO[mul(g, h)] == tuple(RHO[g][RHO[h][i]] for i in range(5)) for g in ROT for h in ROT)
+
+# ---------------------------------------------------------------- faces as ordered pairs of triads
+STAB_FACE = [[g for g in ROT if FP[g][f] == f] for f in range(NFACE)]
+assert all(len(s) == 3 for s in STAB_FACE)
+
+
+def _fixed_triads(f):
+    g = next(g for g in STAB_FACE[f] if g != IDENT)
+    return tuple(i for i in range(5) if RHO[g][i] == i)
+
+
+PAIR = [frozenset(_fixed_triads(f)) for f in range(NFACE)]
+assert all(len(p) == 2 for p in PAIR)
+ORD = [None] * NFACE
+_i0, _j0 = sorted(PAIR[0])
+for g in ROT:
+    f = FP[g][0]
+    v = (RHO[g][_i0], RHO[g][_j0])
+    assert ORD[f] in (None, v), 'the ordered chart is not well defined'
+    ORD[f] = v
+assert all(ORD[FANTI[f]] == ORD[f][::-1] for f in range(NFACE))
+assert all(frozenset(ORD[f]) == PAIR[f] for f in range(NFACE))
+assert all(ORD[FP[g][f]] == (RHO[g][ORD[f][0]], RHO[g][ORD[f][1]]) for g in ROT for f in range(NFACE))
+assert len(set(ORD)) == 20
+FACE_OF = {ORD[f]: f for f in range(NFACE)}
+
+# ---------------------------------------------------------------- Green form of face charges (dual dodecahedron Laplacian)
+_D = exact.dual_laplacian(SEAMS, FACES)
+_cols = []
+for _f in range(NFACE):
+    _rhs = [F(-1, NFACE)] * NFACE
+    _rhs[_f] += 1
+    _cols.append(exact.centred_solution(_D, _rhs))
+GREEN = [[_cols[g][f] for g in range(NFACE)] for f in range(NFACE)]
+assert all(GREEN[f][g] == GREEN[g][f] for f in range(NFACE) for g in range(NFACE))
+
+
+def release(q):
+    """Standing release per sweep (1/2) q^T D^+ q of a static zero-sum face-charge vector (transported-contrast law)."""
+    assert sum(q) == 0
+    return sum(F(q[f]) * GREEN[f][g] * q[g] for f in range(NFACE) for g in range(NFACE) if q[f] and q[g]) / 2
+
+
+# ---------------------------------------------------------------- integer lattices
+def echelon(rows):
+    """Integer row echelon basis of the lattice spanned by ``rows`` (gcd elimination, exact)."""
+    rows = [list(map(int, r)) for r in rows if any(r)]
+    if not rows:
+        return []
+    ncol, basis, col = len(rows[0]), [], 0
+    while rows and col < ncol:
+        nz = [r for r in rows if r[col] != 0]
+        zero = [r for r in rows if r[col] == 0]
+        if not nz:
+            col += 1
+            continue
+        while len(nz) > 1:
+            nz.sort(key=lambda r: abs(r[col]))
+            piv, keep = nz[0], [nz[0]]
+            for r in nz[1:]:
+                k = r[col] // piv[col]
+                r2 = [x - k * y for x, y in zip(r, piv)]
+                if r2[col] != 0:
+                    keep.append(r2)
+                elif any(r2):
+                    zero.append(r2)
+            nz = keep
+        piv = nz[0]
+        basis.append(piv if piv[col] > 0 else [-x for x in piv])
+        rows, col = zero, col + 1
+    return basis
+
+
+def lattice_index(rows, n):
+    """Index in Z^n of the lattice spanned by ``rows`` (None when the rank is below n)."""
+    b = echelon(rows)
+    if len(b) < n:
+        return None
+    out = 1
+    for k, r in enumerate(b):
+        out *= next(x for x in r if x != 0)
+    return abs(out)
+
+
+def smith_invariants(rows):
+    import sympy
+    from sympy.matrices.normalforms import smith_normal_form
+    b = echelon(rows)
+    m = smith_normal_form(sympy.Matrix(b), domain=sympy.ZZ)
+    return sorted(abs(int(m[i, i])) for i in range(min(m.shape)) if m[i, i] != 0)

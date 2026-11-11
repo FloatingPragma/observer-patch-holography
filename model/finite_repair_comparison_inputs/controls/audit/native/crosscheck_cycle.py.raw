@@ -1,0 +1,86 @@
+"""Independent receipt audit of state_geometry/cycle_deck, without rewriting it."""
+from pathlib import Path
+from collections import Counter,deque
+import json,sys
+import sympy as s
+from sympy.matrices.normalforms import hermite_normal_form,smith_normal_form
+ROOT=Path(__file__).resolve().parents[3]
+sys.path.insert(0,str(ROOT/'reverse-engineering-reality'))
+from model.observer import native
+from model.common_source import slow_geometry
+
+
+def run():
+    data=json.loads((ROOT/'repair-law/audit/state_geometry/cycle_deck_results.json').read_text())
+    edges=[tuple(e) for e in data['seams']]
+    assert edges==list(slow_geometry.source().seams())
+    adj={i:[] for i in range(12)};ei={e:k for k,e in enumerate(edges)}
+    for a,b in edges:adj[a].append(b);adj[b].append(a)
+    checked=[]
+    for name,c in data['components'].items():
+        Z=s.Matrix(c['integer_harmonic_cochains']);V=s.Matrix(c['primitive_integer_edge_deck_map'])
+        H=s.Matrix(c['raw_period_Hermite_basis'])
+        Hinv=H.inv()
+        # Alternate root and traversal order independently reproduce raw period lattice.
+        h={1:s.zeros(1,4)};todo=deque([1])
+        while todo:
+            a=todo.popleft()
+            for b in sorted(adj[a],reverse=True):
+                if b not in h:
+                    e=ei[tuple(sorted((a,b)))];h[b]=h[a]+(1 if a<b else -1)*Z[e,:];todo.append(b)
+        periods=s.Matrix([list(Z[k,:]+h[a]-h[b]) for k,(a,b) in enumerate(edges)])
+        assert hermite_normal_form(periods.T)==H
+        S=smith_normal_form(periods.T,domain=s.ZZ)
+        assert [str(abs(S[i,i])) for i in range(4)]==c['raw_period_Smith_diagonal']
+        div=s.zeros(12,4)
+        for k,(a,b) in enumerate(edges):div[a,:]-=Z[k,:];div[b,:]+=Z[k,:]
+        assert div==s.zeros(12,4)
+        for record in c['source_sectors']:
+            q=record['source_load'];states=[tuple(x) for x in record['states']];idx={x:i for i,x in enumerate(states)};N=len(states)
+            expected=Counter()
+            corrected_moment=s.zeros(4);conditional_moments=[];drift=[]
+            g=s.Matrix(record['state_corrector'])
+            for i,x in enumerate(states):
+                mean=s.zeros(4,1);second=s.zeros(4)
+                for e,edge in enumerate(edges):
+                    for coin in (0,1):
+                        y,(_,j)=native.native(x,edge,coin);l=idx[y]
+                        z=j*V[e,:].T;expected[(i,l,tuple(z))]+=1
+                        v=z+g[l,:].T-g[i,:].T
+                        assert v==j*Hinv*Z[e,:].T
+                        mean+=v;second+=v*v.T
+                assert mean==s.zeros(4,1)
+                conditional_moments.append(second/60);corrected_moment+=second
+            supplied=Counter({(i,j,tuple(z)):n for i,j,z,n in record['aggregated_kernel_rows']})
+            assert supplied==expected
+            Sigma=s.Matrix(record['primitive_deck_record_asymptotic_covariance_per_attempt'])
+            assert corrected_moment/(N*60)==Sigma
+            assert Sigma==H.inv()*(s.Rational(q*(12-q),12*11*30)*Z.T*Z)*H.inv().T
+            # Exact Hessian from the ORIGINAL voltage kernel, independently of
+            # the harmonic-coordinate covariance calculation.
+            hessian=s.zeros(4)
+            for (i,j,z),n in supplied.items():
+                z=s.Matrix(z);gj=g[j,:].T
+                hessian+=n*(z*z.T+z*gj.T+gj*z.T)
+            hessian/=N*60
+            assert hessian==Sigma
+            stationary_only=any(M!=Sigma for M in conditional_moments)
+            witness=next((i for i,M in enumerate(conditional_moments) if M!=Sigma),None)
+            direction=next(((a,b) for a in range(4) for b in range(4) if conditional_moments[witness][a,b]!=Sigma[a,b]),None) if witness is not None else None
+            checked.append({'component':name,'q':q,'literal_native_branches':N*60,
+                'all_exported_kernel_rows_match':True,'raw_lattice_reproduced_from_different_root':True,
+                'corrected_drift_zero_in_every_state':True,'exact_Bloch_covariance_Hessian_matches':True,
+                'conditional_covariance_varies_by_initial_internal_state':stationary_only,
+                'nonstationary_one_event_counterexample_state_index':witness,
+                'counterexample_entry':direction,
+                'counterexample_second_moment':str(conditional_moments[witness][direction[0],direction[1]]) if witness is not None else None,
+                'stationary_Sigma_entry':str(Sigma[direction[0],direction[1]]) if direction is not None else None})
+    return {'status':'PASS independent exact branch, alternate-tree lattice and Bloch-Hessian checks',
+       'q2_native_edge_current_covariance_factor':'1/198 per complete attempt',
+       'q1_native_edge_current_covariance_factor':'1/360 per complete attempt',
+       'checks':checked,
+       'scope':'Confirms the finite diffusive coordinate construction. Conditional martingale drift holds for every input; exact nSigma second moment uses the explicitly declared stationary uniform internal preparation. No field, OS, physical time or mass premise supplied.'}
+
+
+if __name__=='__main__':
+    value=run();Path(__file__).with_name('cycle_peer_review.json').write_text(json.dumps(value,indent=2)+'\n');print(json.dumps(value,indent=2))

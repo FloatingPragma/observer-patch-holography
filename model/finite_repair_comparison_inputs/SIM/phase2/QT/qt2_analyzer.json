@@ -1,0 +1,1519 @@
+{
+ "task": "QT analyzer rows",
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "control: pair around a class-3 flux, hexagon": {
+  "weights by flag": {
+   "H": "1/6",
+   "R+": "1/12",
+   "R-": "1/12",
+   "idle": "2/3"
+  },
+  "weights by record": {
+   "0": "2/3",
+   "2": "1/6",
+   "3": "1/6"
+  },
+  "total": "1",
+  "inverse tick restores the standing state": true,
+  "(w_0, w_H, w_+, w_-)": [
+   "2/3",
+   "1/6",
+   "1/12",
+   "1/12"
+  ],
+  "theta = P(R+ xor H)": "2/9",
+  "H : R+ : R-": "2 : 1 : 1",
+  "circulants": {
+   "A1": {
+    "circulant": "A1",
+    "lambda_k (k = 0, 1, 2), real part": [
+     "0.457923089637510321",
+     "0.00776534345737869004",
+     "0.111661836094736753"
+    ],
+    "lambda_k, largest imaginary part": "0.0",
+    "all lambda_k real and nonnegative": true,
+    "y_k (k = 0, 1, 2)": [
+     "0.209693556023163313",
+     "0.0000603005590110540273",
+     "0.0124683656400478556"
+    ],
+    "characters in ascending order of y": [
+     1,
+     2,
+     0
+    ],
+    "sum of y_k": "0.222222222222222222",
+    "y_mid / y_min": "206.770315972729",
+    "y_max / y_min": "3477.4728371046",
+    "y_max / y_mid": "16.8180467333775",
+    "Q = sum y / (sum sqrt y)^2": "0.666666666666667"
+   }
+  },
+  "consensus states of the pair": 1
+ },
+ "law T-A": {
+  "R1 and R3, class 0": {
+   "weights by flag": {
+    "H": "1/6",
+    "R+": "1/12",
+    "R-": "1/12",
+    "idle": "2/3"
+   },
+   "weights by record": {
+    "0": "2/3",
+    "2": "1/6",
+    "3": "1/6"
+   },
+   "total": "1",
+   "inverse tick restores the standing state": true,
+   "(w_0, w_H, w_+, w_-)": [
+    "2/3",
+    "1/6",
+    "1/12",
+    "1/12"
+   ],
+   "theta = P(R+ xor H)": "2/9",
+   "H : R+ : R-": "2 : 1 : 1",
+   "circulants": {
+    "A1": {
+     "circulant": "A1",
+     "lambda_k (k = 0, 1, 2), real part": [
+      "0.457923089637510321",
+      "0.00776534345737869004",
+      "0.111661836094736753"
+     ],
+     "lambda_k, largest imaginary part": "0.0",
+     "all lambda_k real and nonnegative": true,
+     "y_k (k = 0, 1, 2)": [
+      "0.209693556023163313",
+      "0.0000603005590110540273",
+      "0.0124683656400478556"
+     ],
+     "characters in ascending order of y": [
+      1,
+      2,
+      0
+     ],
+     "sum of y_k": "0.222222222222222222",
+     "y_mid / y_min": "206.770315972729",
+     "y_max / y_min": "3477.4728371046",
+     "y_max / y_mid": "16.8180467333775",
+     "Q = sum y / (sum sqrt y)^2": "0.666666666666667"
+    },
+    "A2": {
+     "circulant": "A2",
+     "lambda_k (k = 0, 1, 2), real part": [
+      "0.448048867704237564",
+      "0.0893474209608893517",
+      "0.039953980524498849"
+     ],
+     "lambda_k, largest imaginary part": "0.0",
+     "all lambda_k real and nonnegative": true,
+     "y_k (k = 0, 1, 2)": [
+      "0.200747787851049375",
+      "0.00798296163236236988",
+      "0.00159632055975203332"
+     ],
+     "characters in ascending order of y": [
+      2,
+      1,
+      0
+     ],
+     "sum of y_k": "0.210327070043163778",
+     "y_mid / y_min": "5.0008512285292",
+     "y_max / y_min": "125.756563507666",
+     "y_max / y_mid": "25.147031527401",
+     "Q = sum y / (sum sqrt y)^2": "0.630981210129491"
+    }
+   },
+   "consensus state on the cyclic subspace": {
+    "basis states in its support": 30,
+    "all scaled amplitudes of equal modulus": true,
+    "weight of its blank-record part": "1/3",
+    "weight by record": {
+     "0": "1/3",
+     "1": "0",
+     "2": "1/3",
+     "3": "1/3"
+    }
+   },
+   "standing state": {
+    "configurations": 6,
+    "all triples": true,
+    "ports": [
+     0,
+     1,
+     2,
+     3,
+     9,
+     10
+    ],
+    "squared moduli of its amplitudes": [
+     "1"
+    ],
+    "amplitudes": {
+     "0": "1",
+     "1": "1",
+     "2": "1",
+     "3": "1",
+     "9": "1",
+     "10": "1"
+    }
+   },
+   "one triple at a single port: distinct (w_0, w_H, w_+, w_-, theta)": [
+    [
+     "2/3",
+     "1/6",
+     "0",
+     "1/6",
+     "1/6"
+    ],
+    [
+     "2/3",
+     "1/6",
+     "1/6",
+     "0",
+     "5/18"
+    ]
+   ]
+  },
+  "R1 and R3, class 2": {
+   "weights by flag": {
+    "H": "1/6",
+    "R+": "1/12",
+    "R-": "1/12",
+    "idle": "2/3"
+   },
+   "weights by record": {
+    "0": "2/3",
+    "2": "1/6",
+    "3": "1/6"
+   },
+   "total": "1",
+   "inverse tick restores the standing state": true,
+   "(w_0, w_H, w_+, w_-)": [
+    "2/3",
+    "1/6",
+    "1/12",
+    "1/12"
+   ],
+   "theta = P(R+ xor H)": "2/9",
+   "H : R+ : R-": "2 : 1 : 1",
+   "circulants": {
+    "A1": {
+     "circulant": "A1",
+     "lambda_k (k = 0, 1, 2), real part": [
+      "0.457923089637510321",
+      "0.00776534345737869004",
+      "0.111661836094736753"
+     ],
+     "lambda_k, largest imaginary part": "0.0",
+     "all lambda_k real and nonnegative": true,
+     "y_k (k = 0, 1, 2)": [
+      "0.209693556023163313",
+      "0.0000603005590110540273",
+      "0.0124683656400478556"
+     ],
+     "characters in ascending order of y": [
+      1,
+      2,
+      0
+     ],
+     "sum of y_k": "0.222222222222222222",
+     "y_mid / y_min": "206.770315972729",
+     "y_max / y_min": "3477.4728371046",
+     "y_max / y_mid": "16.8180467333775",
+     "Q = sum y / (sum sqrt y)^2": "0.666666666666667"
+    },
+    "A2": {
+     "circulant": "A2",
+     "lambda_k (k = 0, 1, 2), real part": [
+      "0.448048867704237564",
+      "0.0893474209608893517",
+      "0.039953980524498849"
+     ],
+     "lambda_k, largest imaginary part": "0.0",
+     "all lambda_k real and nonnegative": true,
+     "y_k (k = 0, 1, 2)": [
+      "0.200747787851049375",
+      "0.00798296163236236988",
+      "0.00159632055975203332"
+     ],
+     "characters in ascending order of y": [
+      2,
+      1,
+      0
+     ],
+     "sum of y_k": "0.210327070043163778",
+     "y_mid / y_min": "5.0008512285292",
+     "y_max / y_min": "125.756563507666",
+     "y_max / y_mid": "25.147031527401",
+     "Q = sum y / (sum sqrt y)^2": "0.630981210129491"
+    }
+   },
+   "consensus state on the cyclic subspace": {
+    "basis states in its support": 30,
+    "all scaled amplitudes of equal modulus": true,
+    "weight of its blank-record part": "1/3",
+    "weight by record": {
+     "0": "1/3",
+     "1": "0",
+     "2": "1/3",
+     "3": "1/3"
+    }
+   },
+   "standing state": {
+    "configurations": 6,
+    "all triples": true,
+    "ports": [
+     0,
+     1,
+     2,
+     3,
+     9,
+     10
+    ],
+    "squared moduli of its amplitudes": [
+     "1"
+    ],
+    "amplitudes": {
+     "0": "1",
+     "1": "1",
+     "2": "1",
+     "3": "1",
+     "9": "1",
+     "10": "1"
+    }
+   },
+   "one triple at a single port: distinct (w_0, w_H, w_+, w_-, theta)": [
+    [
+     "2/3",
+     "1/6",
+     "0",
+     "1/6",
+     "1/6"
+    ],
+    [
+     "2/3",
+     "1/6",
+     "1/6",
+     "0",
+     "5/18"
+    ]
+   ]
+  },
+  "R1 and R3, class 4": {
+   "weights by flag": {
+    "H": "1/6",
+    "R+": "1/12",
+    "R-": "1/12",
+    "idle": "2/3"
+   },
+   "weights by record": {
+    "0": "2/3",
+    "2": "1/6",
+    "3": "1/6"
+   },
+   "total": "1",
+   "inverse tick restores the standing state": true,
+   "(w_0, w_H, w_+, w_-)": [
+    "2/3",
+    "1/6",
+    "1/12",
+    "1/12"
+   ],
+   "theta = P(R+ xor H)": "2/9",
+   "H : R+ : R-": "2 : 1 : 1",
+   "circulants": {
+    "A1": {
+     "circulant": "A1",
+     "lambda_k (k = 0, 1, 2), real part": [
+      "0.457923089637510321",
+      "0.00776534345737869004",
+      "0.111661836094736753"
+     ],
+     "lambda_k, largest imaginary part": "0.0",
+     "all lambda_k real and nonnegative": true,
+     "y_k (k = 0, 1, 2)": [
+      "0.209693556023163313",
+      "0.0000603005590110540273",
+      "0.0124683656400478556"
+     ],
+     "characters in ascending order of y": [
+      1,
+      2,
+      0
+     ],
+     "sum of y_k": "0.222222222222222222",
+     "y_mid / y_min": "206.770315972729",
+     "y_max / y_min": "3477.4728371046",
+     "y_max / y_mid": "16.8180467333775",
+     "Q = sum y / (sum sqrt y)^2": "0.666666666666667"
+    },
+    "A2": {
+     "circulant": "A2",
+     "lambda_k (k = 0, 1, 2), real part": [
+      "0.448048867704237564",
+      "0.0893474209608893517",
+      "0.039953980524498849"
+     ],
+     "lambda_k, largest imaginary part": "0.0",
+     "all lambda_k real and nonnegative": true,
+     "y_k (k = 0, 1, 2)": [
+      "0.200747787851049375",
+      "0.00798296163236236988",
+      "0.00159632055975203332"
+     ],
+     "characters in ascending order of y": [
+      2,
+      1,
+      0
+     ],
+     "sum of y_k": "0.210327070043163778",
+     "y_mid / y_min": "5.0008512285292",
+     "y_max / y_min": "125.756563507666",
+     "y_max / y_mid": "25.147031527401",
+     "Q = sum y / (sum sqrt y)^2": "0.630981210129491"
+    }
+   },
+   "consensus state on the cyclic subspace": {
+    "basis states in its support": 30,
+    "all scaled amplitudes of equal modulus": true,
+    "weight of its blank-record part": "1/3",
+    "weight by record": {
+     "0": "1/3",
+     "1": "0",
+     "2": "1/3",
+     "3": "1/3"
+    }
+   },
+   "standing state": {
+    "configurations": 6,
+    "all triples": true,
+    "ports": [
+     0,
+     1,
+     2,
+     3,
+     9,
+     10
+    ],
+    "squared moduli of its amplitudes": [
+     "1"
+    ],
+    "amplitudes": {
+     "0": "1",
+     "1": "1",
+     "2": "1",
+     "3": "1",
+     "9": "1",
+     "10": "1"
+    }
+   },
+   "one triple at a single port: distinct (w_0, w_H, w_+, w_-, theta)": [
+    [
+     "2/3",
+     "1/6",
+     "0",
+     "1/6",
+     "1/6"
+    ],
+    [
+     "2/3",
+     "1/6",
+     "1/6",
+     "0",
+     "5/18"
+    ]
+   ]
+  },
+  "R2, class 0": {
+   "weights by flag": {
+    "R+": "1/12",
+    "R-": "1/12",
+    "idle": "5/6"
+   },
+   "weights by record": {
+    "0": "5/6",
+    "2": "1/12",
+    "3": "1/12"
+   },
+   "total": "1",
+   "inverse tick restores the standing state": true,
+   "(w_0, w_H, w_+, w_-)": [
+    "5/6",
+    "1/6",
+    "1/12",
+    "1/12"
+   ],
+   "theta = P(R+ xor H)": "2/9",
+   "H : R+ : R-": "2 : 1 : 1",
+   "circulants": {
+    "A1": {
+     "circulant": "A1",
+     "lambda_k (k = 0, 1, 2), real part": [
+      "0.511973578448101305",
+      "0.0086819179196659959",
+      "0.124841728000135514"
+     ],
+     "lambda_k, largest imaginary part": "0.0",
+     "all lambda_k real and nonnegative": true,
+     "y_k (k = 0, 1, 2)": [
+      "0.262116945028954141",
+      "0.0000753756987638175341",
+      "0.0155854570500598195"
+     ],
+     "characters in ascending order of y": [
+      1,
+      2,
+      0
+     ],
+     "sum of y_k": "0.277777777777777778",
+     "y_mid / y_min": "206.770315972729",
+     "y_max / y_min": "3477.4728371046",
+     "y_max / y_mid": "16.8180467333775",
+     "Q = sum y / (sum sqrt y)^2": "0.666666666666667"
+    }
+   },
+   "consensus state on the cyclic subspace": {
+    "basis states in its support": 132,
+    "all scaled amplitudes of equal modulus": true,
+    "weight of its blank-record part": "1/6",
+    "weight by record": {
+     "0": "1/6",
+     "1": "0",
+     "2": "5/12",
+     "3": "5/12"
+    }
+   },
+   "standing state": {
+    "configurations": 12,
+    "all triples": true,
+    "ports": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11
+    ],
+    "squared moduli of its amplitudes": [
+     "1"
+    ],
+    "amplitudes": {
+     "0": "1",
+     "1": "1",
+     "2": "1",
+     "3": "1",
+     "4": "1",
+     "5": "1",
+     "6": "1",
+     "7": "1",
+     "8": "1",
+     "9": "1",
+     "10": "1",
+     "11": "1"
+    }
+   },
+   "one triple at a single port: distinct (w_0, w_H, w_+, w_-, theta)": [
+    [
+     "5/6",
+     "1/6",
+     "1/12",
+     "1/12",
+     "2/9"
+    ]
+   ]
+  },
+  "R2, class 2": {
+   "weights by flag": {
+    "R+": "1/12",
+    "R-": "1/12",
+    "idle": "5/6"
+   },
+   "weights by record": {
+    "0": "5/6",
+    "2": "1/12",
+    "3": "1/12"
+   },
+   "total": "1",
+   "inverse tick restores the standing state": true,
+   "(w_0, w_H, w_+, w_-)": [
+    "5/6",
+    "1/6",
+    "1/12",
+    "1/12"
+   ],
+   "theta = P(R+ xor H)": "2/9",
+   "H : R+ : R-": "2 : 1 : 1",
+   "circulants": {
+    "A1": {
+     "circulant": "A1",
+     "lambda_k (k = 0, 1, 2), real part": [
+      "0.511973578448101305",
+      "0.0086819179196659959",
+      "0.124841728000135514"
+     ],
+     "lambda_k, largest imaginary part": "0.0",
+     "all lambda_k real and nonnegative": true,
+     "y_k (k = 0, 1, 2)": [
+      "0.262116945028954141",
+      "0.0000753756987638175341",
+      "0.0155854570500598195"
+     ],
+     "characters in ascending order of y": [
+      1,
+      2,
+      0
+     ],
+     "sum of y_k": "0.277777777777777778",
+     "y_mid / y_min": "206.770315972729",
+     "y_max / y_min": "3477.4728371046",
+     "y_max / y_mid": "16.8180467333775",
+     "Q = sum y / (sum sqrt y)^2": "0.666666666666667"
+    }
+   },
+   "consensus state on the cyclic subspace": {
+    "basis states in its support": 132,
+    "all scaled amplitudes of equal modulus": true,
+    "weight of its blank-record part": "1/6",
+    "weight by record": {
+     "0": "1/6",
+     "1": "0",
+     "2": "5/12",
+     "3": "5/12"
+    }
+   },
+   "standing state": {
+    "configurations": 12,
+    "all triples": true,
+    "ports": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11
+    ],
+    "squared moduli of its amplitudes": [
+     "1"
+    ],
+    "amplitudes": {
+     "0": "1",
+     "1": "1",
+     "2": "1",
+     "3": "1",
+     "4": "1",
+     "5": "1",
+     "6": "1",
+     "7": "1",
+     "8": "1",
+     "9": "1",
+     "10": "1",
+     "11": "1"
+    }
+   },
+   "one triple at a single port: distinct (w_0, w_H, w_+, w_-, theta)": [
+    [
+     "5/6",
+     "1/6",
+     "1/12",
+     "1/12",
+     "2/9"
+    ]
+   ]
+  },
+  "R2, class 4": {
+   "weights by flag": {
+    "R+": "1/12",
+    "R-": "1/12",
+    "idle": "5/6"
+   },
+   "weights by record": {
+    "0": "5/6",
+    "2": "1/12",
+    "3": "1/12"
+   },
+   "total": "1",
+   "inverse tick restores the standing state": true,
+   "(w_0, w_H, w_+, w_-)": [
+    "5/6",
+    "1/6",
+    "1/12",
+    "1/12"
+   ],
+   "theta = P(R+ xor H)": "2/9",
+   "H : R+ : R-": "2 : 1 : 1",
+   "circulants": {
+    "A1": {
+     "circulant": "A1",
+     "lambda_k (k = 0, 1, 2), real part": [
+      "0.511973578448101305",
+      "0.0086819179196659959",
+      "0.124841728000135514"
+     ],
+     "lambda_k, largest imaginary part": "0.0",
+     "all lambda_k real and nonnegative": true,
+     "y_k (k = 0, 1, 2)": [
+      "0.262116945028954141",
+      "0.0000753756987638175341",
+      "0.0155854570500598195"
+     ],
+     "characters in ascending order of y": [
+      1,
+      2,
+      0
+     ],
+     "sum of y_k": "0.277777777777777778",
+     "y_mid / y_min": "206.770315972729",
+     "y_max / y_min": "3477.4728371046",
+     "y_max / y_mid": "16.8180467333775",
+     "Q = sum y / (sum sqrt y)^2": "0.666666666666667"
+    }
+   },
+   "consensus state on the cyclic subspace": {
+    "basis states in its support": 132,
+    "all scaled amplitudes of equal modulus": true,
+    "weight of its blank-record part": "1/6",
+    "weight by record": {
+     "0": "1/6",
+     "1": "0",
+     "2": "5/12",
+     "3": "5/12"
+    }
+   },
+   "standing state": {
+    "configurations": 12,
+    "all triples": true,
+    "ports": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11
+    ],
+    "squared moduli of its amplitudes": [
+     "1"
+    ],
+    "amplitudes": {
+     "0": "1",
+     "1": "1",
+     "2": "1",
+     "3": "1",
+     "4": "1",
+     "5": "1",
+     "6": "1",
+     "7": "1",
+     "8": "1",
+     "9": "1",
+     "10": "1",
+     "11": "1"
+    }
+   },
+   "one triple at a single port: distinct (w_0, w_H, w_+, w_-, theta)": [
+    [
+     "5/6",
+     "1/6",
+     "1/12",
+     "1/12",
+     "2/9"
+    ]
+   ]
+  }
+ },
+ "laws T-B and T-C (uniform triple)": {
+  "T-B, flags as R1, hexagon, class 0": {
+   "weights by flag": {
+    "H": "1/6",
+    "R+": "1/12",
+    "R-": "1/12",
+    "idle": "2/3"
+   },
+   "weights by record": {
+    "0": "2/3",
+    "2": "1/6",
+    "3": "1/6"
+   },
+   "total": "1",
+   "inverse tick restores the standing state": true,
+   "(w_0, w_H, w_+, w_-)": [
+    "2/3",
+    "1/6",
+    "1/12",
+    "1/12"
+   ],
+   "theta = P(R+ xor H)": "2/9",
+   "H : R+ : R-": "2 : 1 : 1",
+   "circulants": {
+    "A1": {
+     "circulant": "A1",
+     "lambda_k (k = 0, 1, 2), real part": [
+      "0.457923089637510321",
+      "0.00776534345737869004",
+      "0.111661836094736753"
+     ],
+     "lambda_k, largest imaginary part": "0.0",
+     "all lambda_k real and nonnegative": true,
+     "y_k (k = 0, 1, 2)": [
+      "0.209693556023163313",
+      "0.0000603005590110540273",
+      "0.0124683656400478556"
+     ],
+     "characters in ascending order of y": [
+      1,
+      2,
+      0
+     ],
+     "sum of y_k": "0.222222222222222222",
+     "y_mid / y_min": "206.770315972729",
+     "y_max / y_min": "3477.4728371046",
+     "y_max / y_mid": "16.8180467333775",
+     "Q = sum y / (sum sqrt y)^2": "0.666666666666667"
+    }
+   }
+  },
+  "T-B, flags as R1, hexagon, class 2": {
+   "weights by flag": {
+    "H": "1/6",
+    "R+": "1/12",
+    "R-": "1/12",
+    "idle": "2/3"
+   },
+   "weights by record": {
+    "0": "2/3",
+    "2": "1/6",
+    "3": "1/6"
+   },
+   "total": "1",
+   "inverse tick restores the standing state": true,
+   "(w_0, w_H, w_+, w_-)": [
+    "2/3",
+    "1/6",
+    "1/12",
+    "1/12"
+   ],
+   "theta = P(R+ xor H)": "2/9",
+   "H : R+ : R-": "2 : 1 : 1",
+   "circulants": {
+    "A1": {
+     "circulant": "A1",
+     "lambda_k (k = 0, 1, 2), real part": [
+      "0.457923089637510321",
+      "0.00776534345737869004",
+      "0.111661836094736753"
+     ],
+     "lambda_k, largest imaginary part": "0.0",
+     "all lambda_k real and nonnegative": true,
+     "y_k (k = 0, 1, 2)": [
+      "0.209693556023163313",
+      "0.0000603005590110540273",
+      "0.0124683656400478556"
+     ],
+     "characters in ascending order of y": [
+      1,
+      2,
+      0
+     ],
+     "sum of y_k": "0.222222222222222222",
+     "y_mid / y_min": "206.770315972729",
+     "y_max / y_min": "3477.4728371046",
+     "y_max / y_mid": "16.8180467333775",
+     "Q = sum y / (sum sqrt y)^2": "0.666666666666667"
+    }
+   }
+  },
+  "T-B, flags as R1, hexagon, class 4": {
+   "weights by flag": {
+    "H": "1/6",
+    "R+": "1/12",
+    "R-": "1/12",
+    "idle": "2/3"
+   },
+   "weights by record": {
+    "0": "2/3",
+    "2": "1/6",
+    "3": "1/6"
+   },
+   "total": "1",
+   "inverse tick restores the standing state": true,
+   "(w_0, w_H, w_+, w_-)": [
+    "2/3",
+    "1/6",
+    "1/12",
+    "1/12"
+   ],
+   "theta = P(R+ xor H)": "2/9",
+   "H : R+ : R-": "2 : 1 : 1",
+   "circulants": {
+    "A1": {
+     "circulant": "A1",
+     "lambda_k (k = 0, 1, 2), real part": [
+      "0.457923089637510321",
+      "0.00776534345737869004",
+      "0.111661836094736753"
+     ],
+     "lambda_k, largest imaginary part": "0.0",
+     "all lambda_k real and nonnegative": true,
+     "y_k (k = 0, 1, 2)": [
+      "0.209693556023163313",
+      "0.0000603005590110540273",
+      "0.0124683656400478556"
+     ],
+     "characters in ascending order of y": [
+      1,
+      2,
+      0
+     ],
+     "sum of y_k": "0.222222222222222222",
+     "y_mid / y_min": "206.770315972729",
+     "y_max / y_min": "3477.4728371046",
+     "y_max / y_mid": "16.8180467333775",
+     "Q = sum y / (sum sqrt y)^2": "0.666666666666667"
+    }
+   }
+  },
+  "T-B, flags as R1, carrier, class 0": {
+   "weights by flag": {
+    "R+": "1/12",
+    "R-": "1/12",
+    "idle": "5/6"
+   },
+   "weights by record": {
+    "0": "5/6",
+    "2": "1/12",
+    "3": "1/12"
+   },
+   "total": "1",
+   "inverse tick restores the standing state": true,
+   "(w_0, w_H, w_+, w_-)": [
+    "5/6",
+    "1/6",
+    "1/12",
+    "1/12"
+   ],
+   "theta = P(R+ xor H)": "2/9",
+   "H : R+ : R-": "2 : 1 : 1",
+   "circulants": {
+    "A1": {
+     "circulant": "A1",
+     "lambda_k (k = 0, 1, 2), real part": [
+      "0.511973578448101305",
+      "0.0086819179196659959",
+      "0.124841728000135514"
+     ],
+     "lambda_k, largest imaginary part": "0.0",
+     "all lambda_k real and nonnegative": true,
+     "y_k (k = 0, 1, 2)": [
+      "0.262116945028954141",
+      "0.0000753756987638175341",
+      "0.0155854570500598195"
+     ],
+     "characters in ascending order of y": [
+      1,
+      2,
+      0
+     ],
+     "sum of y_k": "0.277777777777777778",
+     "y_mid / y_min": "206.770315972729",
+     "y_max / y_min": "3477.4728371046",
+     "y_max / y_mid": "16.8180467333775",
+     "Q = sum y / (sum sqrt y)^2": "0.666666666666667"
+    }
+   }
+  },
+  "T-B, flags as R1, carrier, class 2": {
+   "weights by flag": {
+    "R+": "1/12",
+    "R-": "1/12",
+    "idle": "5/6"
+   },
+   "weights by record": {
+    "0": "5/6",
+    "2": "1/12",
+    "3": "1/12"
+   },
+   "total": "1",
+   "inverse tick restores the standing state": true,
+   "(w_0, w_H, w_+, w_-)": [
+    "5/6",
+    "1/6",
+    "1/12",
+    "1/12"
+   ],
+   "theta = P(R+ xor H)": "2/9",
+   "H : R+ : R-": "2 : 1 : 1",
+   "circulants": {
+    "A1": {
+     "circulant": "A1",
+     "lambda_k (k = 0, 1, 2), real part": [
+      "0.511973578448101305",
+      "0.0086819179196659959",
+      "0.124841728000135514"
+     ],
+     "lambda_k, largest imaginary part": "0.0",
+     "all lambda_k real and nonnegative": true,
+     "y_k (k = 0, 1, 2)": [
+      "0.262116945028954141",
+      "0.0000753756987638175341",
+      "0.0155854570500598195"
+     ],
+     "characters in ascending order of y": [
+      1,
+      2,
+      0
+     ],
+     "sum of y_k": "0.277777777777777778",
+     "y_mid / y_min": "206.770315972729",
+     "y_max / y_min": "3477.4728371046",
+     "y_max / y_mid": "16.8180467333775",
+     "Q = sum y / (sum sqrt y)^2": "0.666666666666667"
+    }
+   }
+  },
+  "T-B, flags as R1, carrier, class 4": {
+   "weights by flag": {
+    "R+": "1/12",
+    "R-": "1/12",
+    "idle": "5/6"
+   },
+   "weights by record": {
+    "0": "5/6",
+    "2": "1/12",
+    "3": "1/12"
+   },
+   "total": "1",
+   "inverse tick restores the standing state": true,
+   "(w_0, w_H, w_+, w_-)": [
+    "5/6",
+    "1/6",
+    "1/12",
+    "1/12"
+   ],
+   "theta = P(R+ xor H)": "2/9",
+   "H : R+ : R-": "2 : 1 : 1",
+   "circulants": {
+    "A1": {
+     "circulant": "A1",
+     "lambda_k (k = 0, 1, 2), real part": [
+      "0.511973578448101305",
+      "0.0086819179196659959",
+      "0.124841728000135514"
+     ],
+     "lambda_k, largest imaginary part": "0.0",
+     "all lambda_k real and nonnegative": true,
+     "y_k (k = 0, 1, 2)": [
+      "0.262116945028954141",
+      "0.0000753756987638175341",
+      "0.0155854570500598195"
+     ],
+     "characters in ascending order of y": [
+      1,
+      2,
+      0
+     ],
+     "sum of y_k": "0.277777777777777778",
+     "y_mid / y_min": "206.770315972729",
+     "y_max / y_min": "3477.4728371046",
+     "y_max / y_mid": "16.8180467333775",
+     "Q = sum y / (sum sqrt y)^2": "0.666666666666667"
+    }
+   }
+  },
+  "T-C, flag set all, hexagon, class 0": {
+   "weights by flag": {
+    "H": "1/6",
+    "R+": "1/12",
+    "R-": "1/12",
+    "idle": "2/3"
+   },
+   "weights by record": {
+    "0": "2/3",
+    "2": "1/12",
+    "3": "1/12",
+    "4": "1/12",
+    "5": "1/12"
+   },
+   "total": "1",
+   "inverse tick restores the standing state": true,
+   "(w_0, w_H, w_+, w_-)": [
+    "2/3",
+    "1/6",
+    "1/12",
+    "1/12"
+   ],
+   "theta = P(R+ xor H)": "2/9",
+   "H : R+ : R-": "2 : 1 : 1",
+   "circulants": {
+    "A1": {
+     "circulant": "A1",
+     "lambda_k (k = 0, 1, 2), real part": [
+      "0.457923089637510321",
+      "0.00776534345737869004",
+      "0.111661836094736753"
+     ],
+     "lambda_k, largest imaginary part": "0.0",
+     "all lambda_k real and nonnegative": true,
+     "y_k (k = 0, 1, 2)": [
+      "0.209693556023163313",
+      "0.0000603005590110540273",
+      "0.0124683656400478556"
+     ],
+     "characters in ascending order of y": [
+      1,
+      2,
+      0
+     ],
+     "sum of y_k": "0.222222222222222222",
+     "y_mid / y_min": "206.770315972729",
+     "y_max / y_min": "3477.4728371046",
+     "y_max / y_mid": "16.8180467333775",
+     "Q = sum y / (sum sqrt y)^2": "0.666666666666667"
+    }
+   }
+  },
+  "T-C, flag set all, hexagon, class 2": {
+   "weights by flag": {
+    "H": "1/6",
+    "R+": "1/12",
+    "R-": "1/12",
+    "idle": "2/3"
+   },
+   "weights by record": {
+    "0": "2/3",
+    "2": "1/12",
+    "3": "1/12",
+    "4": "1/12",
+    "5": "1/12"
+   },
+   "total": "1",
+   "inverse tick restores the standing state": true,
+   "(w_0, w_H, w_+, w_-)": [
+    "2/3",
+    "1/6",
+    "1/12",
+    "1/12"
+   ],
+   "theta = P(R+ xor H)": "2/9",
+   "H : R+ : R-": "2 : 1 : 1",
+   "circulants": {
+    "A1": {
+     "circulant": "A1",
+     "lambda_k (k = 0, 1, 2), real part": [
+      "0.457923089637510321",
+      "0.00776534345737869004",
+      "0.111661836094736753"
+     ],
+     "lambda_k, largest imaginary part": "0.0",
+     "all lambda_k real and nonnegative": true,
+     "y_k (k = 0, 1, 2)": [
+      "0.209693556023163313",
+      "0.0000603005590110540273",
+      "0.0124683656400478556"
+     ],
+     "characters in ascending order of y": [
+      1,
+      2,
+      0
+     ],
+     "sum of y_k": "0.222222222222222222",
+     "y_mid / y_min": "206.770315972729",
+     "y_max / y_min": "3477.4728371046",
+     "y_max / y_mid": "16.8180467333775",
+     "Q = sum y / (sum sqrt y)^2": "0.666666666666667"
+    }
+   }
+  },
+  "T-C, flag set all, hexagon, class 4": {
+   "weights by flag": {
+    "H": "1/6",
+    "R+": "1/12",
+    "R-": "1/12",
+    "idle": "2/3"
+   },
+   "weights by record": {
+    "0": "2/3",
+    "2": "1/12",
+    "3": "1/12",
+    "4": "1/12",
+    "5": "1/12"
+   },
+   "total": "1",
+   "inverse tick restores the standing state": true,
+   "(w_0, w_H, w_+, w_-)": [
+    "2/3",
+    "1/6",
+    "1/12",
+    "1/12"
+   ],
+   "theta = P(R+ xor H)": "2/9",
+   "H : R+ : R-": "2 : 1 : 1",
+   "circulants": {
+    "A1": {
+     "circulant": "A1",
+     "lambda_k (k = 0, 1, 2), real part": [
+      "0.457923089637510321",
+      "0.00776534345737869004",
+      "0.111661836094736753"
+     ],
+     "lambda_k, largest imaginary part": "0.0",
+     "all lambda_k real and nonnegative": true,
+     "y_k (k = 0, 1, 2)": [
+      "0.209693556023163313",
+      "0.0000603005590110540273",
+      "0.0124683656400478556"
+     ],
+     "characters in ascending order of y": [
+      1,
+      2,
+      0
+     ],
+     "sum of y_k": "0.222222222222222222",
+     "y_mid / y_min": "206.770315972729",
+     "y_max / y_min": "3477.4728371046",
+     "y_max / y_mid": "16.8180467333775",
+     "Q = sum y / (sum sqrt y)^2": "0.666666666666667"
+    }
+   }
+  },
+  "T-C, flag set all, carrier, class 0": {
+   "weights by flag": {
+    "R+": "1/12",
+    "R-": "1/12",
+    "idle": "5/6"
+   },
+   "weights by record": {
+    "0": "5/6",
+    "2": "1/24",
+    "3": "1/24",
+    "4": "1/24",
+    "5": "1/24"
+   },
+   "total": "1",
+   "inverse tick restores the standing state": true,
+   "(w_0, w_H, w_+, w_-)": [
+    "5/6",
+    "1/6",
+    "1/12",
+    "1/12"
+   ],
+   "theta = P(R+ xor H)": "2/9",
+   "H : R+ : R-": "2 : 1 : 1",
+   "circulants": {
+    "A1": {
+     "circulant": "A1",
+     "lambda_k (k = 0, 1, 2), real part": [
+      "0.511973578448101305",
+      "0.0086819179196659959",
+      "0.124841728000135514"
+     ],
+     "lambda_k, largest imaginary part": "0.0",
+     "all lambda_k real and nonnegative": true,
+     "y_k (k = 0, 1, 2)": [
+      "0.262116945028954141",
+      "0.0000753756987638175341",
+      "0.0155854570500598195"
+     ],
+     "characters in ascending order of y": [
+      1,
+      2,
+      0
+     ],
+     "sum of y_k": "0.277777777777777778",
+     "y_mid / y_min": "206.770315972729",
+     "y_max / y_min": "3477.4728371046",
+     "y_max / y_mid": "16.8180467333775",
+     "Q = sum y / (sum sqrt y)^2": "0.666666666666667"
+    }
+   }
+  },
+  "T-C, flag set all, carrier, class 2": {
+   "weights by flag": {
+    "R+": "1/12",
+    "R-": "1/12",
+    "idle": "5/6"
+   },
+   "weights by record": {
+    "0": "5/6",
+    "2": "1/24",
+    "3": "1/24",
+    "4": "1/24",
+    "5": "1/24"
+   },
+   "total": "1",
+   "inverse tick restores the standing state": true,
+   "(w_0, w_H, w_+, w_-)": [
+    "5/6",
+    "1/6",
+    "1/12",
+    "1/12"
+   ],
+   "theta = P(R+ xor H)": "2/9",
+   "H : R+ : R-": "2 : 1 : 1",
+   "circulants": {
+    "A1": {
+     "circulant": "A1",
+     "lambda_k (k = 0, 1, 2), real part": [
+      "0.511973578448101305",
+      "0.0086819179196659959",
+      "0.124841728000135514"
+     ],
+     "lambda_k, largest imaginary part": "0.0",
+     "all lambda_k real and nonnegative": true,
+     "y_k (k = 0, 1, 2)": [
+      "0.262116945028954141",
+      "0.0000753756987638175341",
+      "0.0155854570500598195"
+     ],
+     "characters in ascending order of y": [
+      1,
+      2,
+      0
+     ],
+     "sum of y_k": "0.277777777777777778",
+     "y_mid / y_min": "206.770315972729",
+     "y_max / y_min": "3477.4728371046",
+     "y_max / y_mid": "16.8180467333775",
+     "Q = sum y / (sum sqrt y)^2": "0.666666666666667"
+    }
+   }
+  },
+  "T-C, flag set all, carrier, class 4": {
+   "weights by flag": {
+    "R+": "1/12",
+    "R-": "1/12",
+    "idle": "5/6"
+   },
+   "weights by record": {
+    "0": "5/6",
+    "2": "1/24",
+    "3": "1/24",
+    "4": "1/24",
+    "5": "1/24"
+   },
+   "total": "1",
+   "inverse tick restores the standing state": true,
+   "(w_0, w_H, w_+, w_-)": [
+    "5/6",
+    "1/6",
+    "1/12",
+    "1/12"
+   ],
+   "theta = P(R+ xor H)": "2/9",
+   "H : R+ : R-": "2 : 1 : 1",
+   "circulants": {
+    "A1": {
+     "circulant": "A1",
+     "lambda_k (k = 0, 1, 2), real part": [
+      "0.511973578448101305",
+      "0.0086819179196659959",
+      "0.124841728000135514"
+     ],
+     "lambda_k, largest imaginary part": "0.0",
+     "all lambda_k real and nonnegative": true,
+     "y_k (k = 0, 1, 2)": [
+      "0.262116945028954141",
+      "0.0000753756987638175341",
+      "0.0155854570500598195"
+     ],
+     "characters in ascending order of y": [
+      1,
+      2,
+      0
+     ],
+     "sum of y_k": "0.277777777777777778",
+     "y_mid / y_min": "206.770315972729",
+     "y_max / y_min": "3477.4728371046",
+     "y_max / y_mid": "16.8180467333775",
+     "Q = sum y / (sum sqrt y)^2": "0.666666666666667"
+    }
+   }
+  },
+  "R4: T-C, flag set single, hexagon, class 0": {
+   "weights by flag": {
+    "H": "1/12",
+    "R+": "1/24",
+    "R-": "1/24",
+    "emission not read": "1/6",
+    "idle": "2/3"
+   },
+   "weights by record": {
+    "0": "2/3",
+    "2": "1/12",
+    "3": "1/12",
+    "4": "1/12",
+    "5": "1/12"
+   },
+   "total": "1",
+   "inverse tick restores the standing state": true,
+   "(w_0, w_H, w_+, w_-)": [
+    "2/3",
+    "1/12",
+    "1/24",
+    "1/24"
+   ],
+   "theta = P(R+ xor H)": "17/144",
+   "H : R+ : R-": "2 : 1 : 1",
+   "circulants": {
+    "A1": {
+     "circulant": "A1",
+     "lambda_k (k = 0, 1, 2), real part": [
+      "0.327193310643457662",
+      "0.0208972364166564653",
+      "0.0601577434037488891"
+     ],
+     "lambda_k, largest imaginary part": "0.0",
+     "all lambda_k real and nonnegative": true,
+     "y_k (k = 0, 1, 2)": [
+      "0.107055462529826185",
+      "0.000436694489853633145",
+      "0.00361895409143129297"
+     ],
+     "characters in ascending order of y": [
+      1,
+      2,
+      0
+     ],
+     "sum of y_k": "0.111111111111111111",
+     "y_mid / y_min": "8.28715309104142",
+     "y_max / y_min": "245.14956111699",
+     "y_max / y_mid": "29.5818791355504",
+     "Q = sum y / (sum sqrt y)^2": "0.666666666666667"
+    }
+   }
+  },
+  "R4: T-C, flag set single, hexagon, class 2": {
+   "weights by flag": {
+    "H": "1/12",
+    "R+": "1/24",
+    "R-": "1/24",
+    "emission not read": "1/6",
+    "idle": "2/3"
+   },
+   "weights by record": {
+    "0": "2/3",
+    "2": "1/12",
+    "3": "1/12",
+    "4": "1/12",
+    "5": "1/12"
+   },
+   "total": "1",
+   "inverse tick restores the standing state": true,
+   "(w_0, w_H, w_+, w_-)": [
+    "2/3",
+    "1/12",
+    "1/24",
+    "1/24"
+   ],
+   "theta = P(R+ xor H)": "17/144",
+   "H : R+ : R-": "2 : 1 : 1",
+   "circulants": {
+    "A1": {
+     "circulant": "A1",
+     "lambda_k (k = 0, 1, 2), real part": [
+      "0.327193310643457662",
+      "0.0208972364166564653",
+      "0.0601577434037488891"
+     ],
+     "lambda_k, largest imaginary part": "0.0",
+     "all lambda_k real and nonnegative": true,
+     "y_k (k = 0, 1, 2)": [
+      "0.107055462529826185",
+      "0.000436694489853633145",
+      "0.00361895409143129297"
+     ],
+     "characters in ascending order of y": [
+      1,
+      2,
+      0
+     ],
+     "sum of y_k": "0.111111111111111111",
+     "y_mid / y_min": "8.28715309104142",
+     "y_max / y_min": "245.14956111699",
+     "y_max / y_mid": "29.5818791355504",
+     "Q = sum y / (sum sqrt y)^2": "0.666666666666667"
+    }
+   }
+  },
+  "R4: T-C, flag set single, hexagon, class 4": {
+   "weights by flag": {
+    "H": "1/12",
+    "R+": "1/24",
+    "R-": "1/24",
+    "emission not read": "1/6",
+    "idle": "2/3"
+   },
+   "weights by record": {
+    "0": "2/3",
+    "2": "1/12",
+    "3": "1/12",
+    "4": "1/12",
+    "5": "1/12"
+   },
+   "total": "1",
+   "inverse tick restores the standing state": true,
+   "(w_0, w_H, w_+, w_-)": [
+    "2/3",
+    "1/12",
+    "1/24",
+    "1/24"
+   ],
+   "theta = P(R+ xor H)": "17/144",
+   "H : R+ : R-": "2 : 1 : 1",
+   "circulants": {
+    "A1": {
+     "circulant": "A1",
+     "lambda_k (k = 0, 1, 2), real part": [
+      "0.327193310643457662",
+      "0.0208972364166564653",
+      "0.0601577434037488891"
+     ],
+     "lambda_k, largest imaginary part": "0.0",
+     "all lambda_k real and nonnegative": true,
+     "y_k (k = 0, 1, 2)": [
+      "0.107055462529826185",
+      "0.000436694489853633145",
+      "0.00361895409143129297"
+     ],
+     "characters in ascending order of y": [
+      1,
+      2,
+      0
+     ],
+     "sum of y_k": "0.111111111111111111",
+     "y_mid / y_min": "8.28715309104142",
+     "y_max / y_min": "245.14956111699",
+     "y_max / y_mid": "29.5818791355504",
+     "Q = sum y / (sum sqrt y)^2": "0.666666666666667"
+    }
+   }
+  }
+ },
+ "seconds": 6.18
+}

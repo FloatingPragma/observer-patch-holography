@@ -1,0 +1,49 @@
+"""NOT BLIND: the closure rows of run_sets.json against measured values (read only here, after the runs).
+
+Run:
+    /tmp/oph-completion-venv/bin/python compare.py [out.json]
+Measured values: m_W, m_Z from RER/code/particles/data/particle_reference_values.json (PDG 2026 edition);
+alpha^-1(0) = 137.035999177 (CODATA 2022, as quoted in RER/code/P_derivation/README.md);
+IMPORTED (PDG world averages): alpha_s(m_Z) = 0.1180 +- 0.0009, sin^2 theta_W (MS-bar, m_Z) = 0.2312,
+v = (sqrt2 G_F)^(-1/2) = 246.22 GeV. The chain's sin^2 theta_W is the one-loop ratio alpha_em/alpha_2 at its own m_Z
+with no threshold or scheme matching, so its comparison with the MS-bar value carries a scheme mismatch.
+"""
+import json
+import sys
+from pathlib import Path
+
+HERE = Path(__file__).parent
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / 'compare.json'
+RER = Path('WORKSPACE/reverse-engineering-reality')
+ref = json.loads((RER / 'code/particles/data/particle_reference_values.json').read_text())['entries']
+MEAS = {
+    'm_W_GeV': (ref['w_boson']['api_value'], ref['w_boson']['error_plus_gev'], 'PDG 2026 file'),
+    'm_Z_GeV': (ref['z_boson']['api_value'], ref['z_boson']['error_plus_gev'], 'PDG 2026 file'),
+    'alpha0_inv': (137.035999177, 0.000000021, 'CODATA 2022'),
+    'alpha_s_mZ': (0.1180, 0.0009, 'PDG world average (IMPORTED)'),
+    'sin2_theta_W_mZ': (0.2312, None, 'MS-bar, PDG (IMPORTED), scheme mismatch'),
+    'v_GeV': (246.22, None, 'from G_F (IMPORTED)'),
+}
+runs = json.loads((HERE / 'run_sets.json').read_text())
+out = {'label': 'NOT BLIND', 'measured': {k: dict(value=v[0], error=v[1], source=v[2]) for k, v in MEAS.items()}}
+for key, entry in runs.items():
+    row = entry['producer_windows']
+    if row.get('status') != 'closure':
+        out[key] = dict(b=entry['b'], status='no closure: nothing to compare')
+        continue
+    cmp = {}
+    for k, (val, err, _) in MEAS.items():
+        pred = row[k]
+        cmp[k] = dict(chain=pred, measured=val, rel_dev=(pred - val) / val,
+                      pulls=((pred - val) / err) if err else None)
+    out[key] = dict(b=entry['b'], P=row['P'], alpha_U=row['alpha_U'], M_U_GeV=row['M_U_GeV'], comparison=cmp)
+OUT.write_text(json.dumps(out, indent=1) + '\n')
+print('NOT BLIND')
+for key, r in out.items():
+    if key in ('label', 'measured'):
+        continue
+    if 'comparison' not in r:
+        print(f"{key:5s} {r['b']}: {r['status']}")
+        continue
+    c = r['comparison']
+    print(f"{key:5s} {r['b']}: " + '  '.join(f"{k}={c[k]['chain']:.6g} ({100 * c[k]['rel_dev']:+.3g}%)" for k in c))

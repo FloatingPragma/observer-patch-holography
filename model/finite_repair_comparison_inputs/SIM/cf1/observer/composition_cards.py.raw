@@ -1,0 +1,64 @@
+"""Task CO extension: assemble the composition cards from the outputs of compositions.py (history at L5, L6, L7, L8;
+census at L5 to L10). Writes composition_cards.json next to this script (read by build.py)."""
+import json
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+OUT = HERE / 'out'
+TARGETS = ['{2,4}', '{1,5}', '{3,3}', '{2,2,2}', '{4,4,4}', '{2,2,4,4}', '{2,3,3,4}', '{1,2,3}', '{3,4,5}']
+CONJ = {'{2,4}': '{2,4}', '{1,5}': '{1,5}', '{3,3}': '{3,3}', '{2,2,2}': '{4,4,4}', '{4,4,4}': '{2,2,2}',
+        '{2,2,4,4}': '{2,2,4,4}', '{2,3,3,4}': '{2,3,3,4}', '{1,2,3}': '{3,4,5}', '{3,4,5}': '{1,2,3}'}
+CORR = {'{2,2,2}': ['{2,2,2}-{2,2,2}', '{2,2,2}-{4,4,4}', '{2,4}-{2,2,2}'], '{4,4,4}': ['{4,4,4}-{4,4,4}', '{2,2,2}-{4,4,4}', '{2,4}-{4,4,4}'],
+        '{2,4}': ['{2,4}-{2,4}'], '{3,3}': ['{3,3}-{3,3}'], '{1,5}': ['{1,5}-{1,5}'], '{1,2,3}': ['{1,2,3}-{3,4,5}'], '{3,4,5}': ['{1,2,3}-{3,4,5}']}
+
+
+def main():
+    hist = {L: json.load(open(OUT / f'comphist_L{L}.json')) for L in (5, 6, 7, 8)}
+    cen = {L: json.load(open(OUT / f'census_L{L}_{s}.json')) for L, s in ((5, 600), (6, 500), (7, 400), (8, 300), (9, 300), (10, 300))}
+    out = {'notes': {
+        'composition': 'multiset of the nonzero classes on the twenty faces of one carrier (carrier tier)',
+        'history_sources': 'per-sweep compositions from the record files: L5 sweeps 0-600 (all), L6 0-80, L7 0-64, L8 0-4; '
+                           'after that the checkpoints (L6 every 50 to 500, L7 every 50 to 400, L8 every 50 to 300, L9 and L10 at 100, 200, 300)',
+        'moves_between_carriers': 'EXACT: a face of a carrier changes only by a twist of one of its own 30 seams; glue seams carry screen plaquettes. '
+                                  'Data: composition changes without an own-seam twist in that sweep = 0 at L5 (600 sweeps), L6 (80), L7 (64), L8 (4); '
+                                  'total class content per carrier sums to 0 mod 6 on every checkpoint (CH). Content never moves to a neighbour.',
+        'shape_symmetry': 'shapes up to the 60 proper rotations of the icosahedral template; a reflection maps class k to 6 - k, so the mirror '
+                          'image of a configuration of composition X is a configuration of the conjugate composition',
+        'pair_correlation': 'g(r) = observed / expected pairs of carriers at angular distance r (units: mean spacing of adjacent cells), '
+                            'expected = same numbers placed at random on the carriers; error Poisson on the observed count; first shell (r < 0.5) is the carrier itself'},
+           'cards': {}}
+    for lab in TARGETS:
+        c = {'counts_at_end': {str(L): cen[L]['all_compositions'].get(lab, 0) for L in cen},
+             'carriers_at_end': {str(L): cen[L]['carriers'] for L in cen},
+             'end_sweeps': {'5': 600, '6': 500, '7': 400, '8': 300, '9': 300, '10': 300}}
+        for L in (5, 6, 7):
+            h = hist[L]['compositions'].get(lab, {})
+            if not h or not h.get('entries_total'):
+                continue
+            c[f'history_L{L}'] = {k: h.get(k) for k in (
+                'carriers_at_last_record_sweep', 'entries_total', 'entered_from', 'entry_sweep_quantiles',
+                'final_holders_came_from', 'final_holders_entry_sweep_quantiles', 'final_holders_entry_sweep_hist_first_40',
+                'exits_total', 'exited_to', 'entries_after_sweep_15', 'exits_after_sweep_15', 'entries_after_sweep_30',
+                'exits_after_sweep_30', 'entries_after_sweep_60', 'exits_after_sweep_60', 'entries_after_sweep_100', 'exits_after_sweep_100',
+                'last_entry_sweep', 'last_exit_sweep', 'episodes_complete', 'episodes_censored',
+                'episode_lifetime_sweeps_quantiles_complete', 'episode_lifetime_hist_1_2_3_5_10_20_50_100_inf',
+                'episode_survival_km_grid_sweeps', 'episode_survival_km', 'checkpoint_steps')}
+            c[f'history_L{L}']['record_sweeps'] = hist[L]['record_sweeps']
+        d10 = cen[10]['compositions'].get(lab, {})
+        c['shape_L10'] = {k: d10.get(k) for k in ('count', 'pairwise_distance_multisets', 'distinct_distance_multisets', 'rotation_classes',
+                                                    'shapes_up_to_rotation_top20', 'mirror_comparison', 'chiral_rotation_classes',
+                                                    'achiral_rotation_classes', 'chiral_pairs', 'chi2_chiral_pairs')}
+        c['conjugate_composition'] = CONJ[lab]
+        cr = {}
+        for L in (8, 9):
+            pc = cen[L].get('pair_correlation_angular')
+            if pc:
+                cr[str(L)] = {k: pc['rows'][k] for k in CORR.get(lab, []) if k in pc['rows']}
+        c['pair_correlation'] = cr
+        out['cards'][lab] = c
+    json.dump(out, open(HERE / 'composition_cards.json', 'w'), indent=1)
+    print('ok')
+
+
+if __name__ == '__main__':
+    main()

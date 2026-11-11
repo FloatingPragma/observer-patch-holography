@@ -1,0 +1,61 @@
+"""GL step 3e: one-loop cross terms between the factors for plaquette actions built on different matter
+representations (seam cost of the matter carried around a plaquette): the 5-level code, the audit's native 15
+(Lambda^2 + Lambda^4) and all 32 patterns (Lambda^* C^5).
+
+For S = beta_R sum_P (1 - sum_b Re chi_b(U_P) / d_R), blocks b = (SU(3) rep, SU(2) rep, 6Y), the background-field
+tadpole of the other factors multiplies the kinetic coefficient of factor i by
+    1 - (g^2 w / 2) sum_b omega_b^(i) C_cross^(i)(b),
+omega_b^(i) = contribution of block b to the factor-i kinetic term (normalized), C_cross = Casimirs of block b under the
+other factors (for U(1): all Casimirs of b, including its own U(1) Casimir (3/5)(6Y/6)^2). Checked against the direct
+5-trace numbers of s3_action.json. Every block of these representations is fundamental, antifundamental or singlet under
+each simple factor, so the SU(N) self parts are the fundamental Wilson ones. Writes s3_matching_reps.json.
+"""
+import json
+import sys
+
+import numpy as np
+
+C3 = {1: 0.0, 3: 4 / 3}           # SU(3) Casimir by dimension (3 or 3bar)
+C2 = {1: 0.0, 2: 3 / 4}
+T3 = {1: 0.0, 3: 0.5}
+T2 = {1: 0.0, 2: 0.5}
+REPS = {
+    'code 5 (A1 of this work)': [(3, 1, -2), (1, 2, 3)],
+    'native 15 (audit, Lambda^2 + Lambda^4)': [(3, 1, -4), (3, 2, 1), (1, 1, 6), (1, 2, -3), (3, 1, 2)],
+    'all 32 patterns (Lambda^* C^5)': [(1, 1, 0), (3, 1, -2), (1, 2, 3), (3, 1, -4), (3, 2, 1), (1, 1, 6), (1, 1, -6),
+                                       (3, 2, -1), (3, 1, 4), (1, 2, -3), (3, 1, 2), (1, 1, 0)]}
+
+
+def cu1(y):
+    return 0.6 * (y / 6.0) ** 2
+
+
+def cross(blocks, w):
+    d = lambda b: b[0] * b[1]
+    om3 = np.array([b[1] * T3[b[0]] for b in blocks]); om2 = np.array([b[0] * T2[b[1]] for b in blocks])
+    om1 = np.array([d(b) * cu1(b[2]) for b in blocks])
+    c3 = np.array([C2[b[1]] + cu1(b[2]) for b in blocks])
+    c2 = np.array([C3[b[0]] + cu1(b[2]) for b in blocks])
+    c1 = np.array([C3[b[0]] + C2[b[1]] + cu1(b[2]) for b in blocks])
+    f = lambda om, c: float(np.sum(om * c) / np.sum(om))
+    k3, k2, k1 = f(om3, c3), f(om2, c2), f(om1, c1)
+    # trace-form check: tr_R(T_a T_b) proportional for the three factors (complete SU(5) multiplets)
+    tr3 = float(np.sum(om3)); tr2 = float(np.sum(om2)); tr1 = float(np.sum(om1))
+    s = 4 * np.pi * w / 2
+    return {'delta_inv_alpha1': -s * k1, 'delta_inv_alpha2': -s * k2, 'delta_inv_alpha3': -s * k3,
+            'trace_form_index (SU3, SU2, U1_GUT)': [tr3, tr2, tr1],
+            'unified_tree_level': bool(abs(tr3 - tr2) < 1e-12 and abs(tr2 - tr1) < 1e-12)}
+
+
+A = json.load(open('s3_action.json'))
+out = {}
+for wname, w in (('Euclidean', 0.5), ('Hamiltonian', A['one_loop_matching']['plaquette_fluctuation_w']['Hamiltonian_continuous_time'])):
+    out[wname] = {name: cross(bl, w) for name, bl in REPS.items()}
+direct = A['one_loop_matching']['cross_terms_Euclidean']
+chk = out['Euclidean']['code 5 (A1 of this work)']
+out['check_against_direct_5_trace'] = max(abs(chk[k] - direct[k]) for k in ('delta_inv_alpha1', 'delta_inv_alpha2', 'delta_inv_alpha3'))
+for wname in ('Euclidean', 'Hamiltonian'):
+    for name, v in out[wname].items():
+        print(wname, name, {k: (round(x, 5) if isinstance(x, float) else x) for k, x in v.items()}, flush=True)
+print('check', out['check_against_direct_5_trace'])
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 's3_matching_reps.json', 'w'), indent=1)

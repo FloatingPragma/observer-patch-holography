@@ -1,0 +1,168 @@
+"""Task GEN, section 2: per-face labels of the carrier template from the run geometry (run.json: geometry), checked
+against X3's register.json. Exact integer / exact-geometry computation, no run data.
+
+    python gen_geom.py <run.json> <x3 register.json> <out.json>
+
+Frames: the 30 template seams fall into five classes of six (three mutually orthogonal two-fold axes, two antipodal
+seams per axis): the five inscribed cubic frames. A face centre lies on a three-fold axis (a cube body diagonal) of
+exactly two frames. The fixed frame F* is the frame whose axes are the coordinate axes of the port vectors; the ports of
+every carrier are routed in its local frame (tangent_x, tangent_y, normal) = these coordinate axes
+(oph_fpe.core.screen_ports._geometric_endpoint_port_assignment), so F* has one axis along the carrier normal.
+"""
+import itertools
+import json
+import sys
+
+import numpy as np
+
+
+def main(run_json, reg_json, out_path):
+    g = json.load(open(run_json))['geometry']
+    pv = np.array(g['port_vectors'], float)
+    pu = pv / np.linalg.norm(pv, axis=1, keepdims=True)
+    TS = np.array(g['template_seams'], int)
+    TF = np.array(g['template_faces'], int)
+    reg = json.load(open(reg_json))
+    T = reg['tables']
+    checks = {}
+    # ---- seam midpoints and the five frames
+    mid = pu[TS].sum(1)
+    mid /= np.linalg.norm(mid, axis=1, keepdims=True)
+    # two seams are in one frame when their midpoint directions are parallel or orthogonal
+    same = (np.abs(np.abs(mid @ mid.T) - 1) < 1e-9) | (np.abs(mid @ mid.T) < 1e-9)
+    frames = []
+    left = set(range(30))
+    while left:
+        s = min(left)
+        grp = sorted(j for j in left if same[s, j])
+        frames.append(grp)
+        left -= set(grp)
+    assert len(frames) == 5 and all(len(f) == 6 for f in frames)
+    for f in frames:
+        assert all(same[a, b] for a in f for b in f)
+    # match to X3 frame order (frame_matchings: port pairs)
+    x3_frames = [sorted(tuple(sorted(e)) for e in fm) for fm in T['frame_matchings']]
+    my_frames = [sorted(tuple(sorted(TS[k])) for k in f) for f in frames]
+    order = [my_frames.index(xf) for xf in x3_frames]
+    frames = [frames[i] for i in order]
+    checks['five_frames_equal_x3_frame_matchings'] = True
+    frame_of_seam = np.empty(30, int)
+    for i, f in enumerate(frames):
+        frame_of_seam[f] = i
+    # axes of each frame (unit vectors, one per axis, sign fixed to the first nonzero coordinate positive)
+    axes = []
+    for f in frames:
+        ax = []
+        for k in f:
+            v = mid[k]
+            if not any(np.abs(np.abs(v @ a) - 1) < 1e-9 for a in ax):
+                ax.append(v)
+        assert len(ax) == 3
+        axes.append(np.array(ax))
+    # fixed frame: axes along the coordinate axes
+    Fstar = [i for i, ax in enumerate(axes) if np.allclose(np.sort(np.abs(ax), axis=None)[-3:], 1) and
+             np.allclose(np.abs(ax).max(1), 1)]
+    assert len(Fstar) == 1
+    Fstar = Fstar[0]
+    # ---- faces
+    cen = pu[TF].mean(1)
+    cen /= np.linalg.norm(cen, axis=1, keepdims=True)
+    seam_key = {tuple(sorted(s)): k for k, s in enumerate(TS.tolist())}
+    face_seams = [[seam_key[tuple(sorted((a, b)))] for a, b in ((p, q), (q, r), (r, p))] for p, q, r in TF.tolist()]
+    corner_frames = []
+    for f in range(20):
+        cf = [i for i in range(5) if np.allclose(np.abs(axes[i] @ cen[f]), 1 / np.sqrt(3))]
+        assert len(cf) == 2
+        edge_frames = sorted(frame_of_seam[face_seams[f]].tolist())
+        assert sorted(cf + edge_frames) == [0, 1, 2, 3, 4]
+        corner_frames.append(cf)
+    # X3 ordered pair (L, R): check that the unordered pair equals the two corner frames
+    LR = [tuple(x) for x in T['frame_pair']]
+    checks['unordered_LR_equals_corner_frames_from_geometry'] = all(sorted(LR[f]) == corner_frames[f] for f in range(20))
+    assert checks['unordered_LR_equals_corner_frames_from_geometry']
+    # three-fold axis id: index of the unordered pair {L, R} among the 10 pairs
+    pairs10 = sorted(set(tuple(sorted(x)) for x in LR))
+    assert len(pairs10) == 10
+    axis_id = [pairs10.index(tuple(sorted(LR[f]))) for f in range(20)]
+    # antipodal faces share the axis
+    anti = [int(np.argmin(np.linalg.norm(cen + cen[f], axis=1))) for f in range(20)]
+    checks['axis_pair_is_antipodal_face_pair'] = all(axis_id[anti[f]] == axis_id[f] and anti[f] != f for f in range(20))
+    # ---- frame class relative to every frame, own computation, compared with X3 frame_class
+    # own: for frame F: corner faces -> 'Lc' if F == L else 'Rc'; edge faces -> axis index along which its F-edge lies
+    def own_class(f, F):
+        if F == LR[f][0]:
+            return 3
+        if F == LR[f][1]:
+            return 4
+        k = [s for s in face_seams[f] if frame_of_seam[s] == F]
+        assert len(k) == 1
+        v = mid[k[0]]
+        j = [i for i in range(3) if abs(abs(axes[F][i] @ v) - 1) < 1e-9]
+        assert len(j) == 1
+        return j[0]
+    own = [[own_class(f, F) for F in range(5)] for f in range(20)]
+    x3fc = T['frame_class']
+    # the axial index order may differ from X3 (item1 half-turn order): check equality up to a permutation per frame
+    perm_ok = True
+    axis_perm = []
+    for F in range(5):
+        m = {}
+        for f in range(20):
+            a, b = own[f][F], x3fc[f][F]
+            if a < 3 or b < 3:
+                if m.setdefault(a, b) != b:
+                    perm_ok = False
+            elif a != b:
+                perm_ok = False
+        axis_perm.append({int(k): int(v) for k, v in m.items() if k < 3})
+    checks['frame_class_equal_to_x3_up_to_axis_order'] = perm_ok
+    assert perm_ok
+    # ---- fixed frame F*: corner tetrahedra by the sign of x y z of the face centre, axial classes by coordinate axis
+    names_axis = ['x (tangent_x)', 'y (tangent_y)', 'z (normal)']
+    fstar = []
+    for f in range(20):
+        c = cen[f]
+        if own[f][Fstar] >= 3:
+            fstar.append('T+' if np.prod(c) > 0 else 'T-')
+        else:
+            v = mid[[s for s in face_seams[f] if frame_of_seam[s] == Fstar][0]]
+            fstar.append(['ax_x', 'ax_y', 'ax_z'][int(np.argmax(np.abs(v)))])
+    # T+ / T- correspond to L corner / R corner of F* (one to one)
+    tl = {fstar[f]: own[f][Fstar] for f in range(20) if fstar[f] in ('T+', 'T-')}
+    checks['tetrahedra_equal_L_R_corner_classes_of_Fstar'] = (len(set(tl.values())) == 2 and all(
+        own[f][Fstar] == tl[fstar[f]] for f in range(20) if fstar[f] in ('T+', 'T-')))
+    # position relative to the normal (z): outer / equatorial / inner and latitude |z|
+    z = cen[:, 2]
+    hemi = ['outer' if zz > 1e-9 else 'inner' if zz < -1e-9 else 'equatorial' for zz in z]
+    lat_vals = sorted(set(np.round(np.abs(z), 6).tolist()))
+    lat = [lat_vals.index(round(abs(zz), 6)) for zz in z]
+    # cross relation between F* classes and the latitude
+    out = {
+        'fixed_frame_index_x3_order': Fstar,
+        'fixed_frame_definition': 'the frame whose three two-fold axes are the coordinate axes of the port vectors = '
+                                  'the routing frame (tangent_x, tangent_y, normal) of every carrier',
+        'frame_axes': [ax.round(6).tolist() for ax in axes],
+        'frame_seams': [[int(k) for k in f] for f in frames],
+        'face_centres': cen.round(6).tolist(),
+        'LR': [list(x) for x in LR],
+        'axis_id': axis_id, 'axis_pairs': [list(p) for p in pairs10],
+        'antipodal_face': anti,
+        'frame_class_own': own, 'frame_class_x3': x3fc, 'axis_index_own_to_x3': axis_perm,
+        'Fstar_class': fstar,
+        'Fstar_class_counts': {k: fstar.count(k) for k in sorted(set(fstar))},
+        'hemisphere': hemi, 'hemisphere_counts': {k: hemi.count(k) for k in sorted(set(hemi))},
+        'latitude_abs_z_values': lat_vals, 'latitude_class': lat,
+        'latitude_counts': {str(v): lat.count(i) for i, v in enumerate(lat_vals)},
+        'Fstar_class_vs_latitude': {k: sorted(set(lat[f] for f in range(20) if fstar[f] == k)) for k in sorted(set(fstar))},
+        'template_faces': TF.tolist(),
+        'checks': checks,
+    }
+    json.dump(out, open(out_path, 'w'), indent=1)
+    print(json.dumps({k: out[k] for k in ('fixed_frame_index_x3_order', 'Fstar_class_counts', 'hemisphere_counts',
+                                          'latitude_abs_z_values', 'latitude_counts', 'Fstar_class_vs_latitude', 'checks')}, indent=1))
+    print('Fstar class per face', fstar)
+    print('hemisphere per face', hemi)
+
+
+if __name__ == '__main__':
+    main(*sys.argv[1:4])

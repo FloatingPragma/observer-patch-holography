@@ -1,0 +1,81 @@
+#!/usr/bin/env python3
+"""Worker DC, round 3: SC's item B12, test of alpha_cut/alpha_U^D10 = t_half(SU(3)) at the D10 fixed point (Z1 to Z3).
+
+No measured value is read. Writes dc_thalf.json.
+"""
+from __future__ import annotations
+
+import json
+
+import mpmath as mp
+import numpy as np
+
+import dc_lib as L
+
+out: dict = {"inputs": {"P_fwd": L.REP["p"][:42], "alpha_U_printed": L.REP["d10"]["alpha_u"][:42],
+                        "measured_values_read": "none"}}
+
+# Z1: precision
+tw2 = L.Towers(200, 150)
+th = {"cut90": L.bisect(lambda t: L.TW.Z3(t) - 2, 0.5, 3.0), "cut150": L.bisect(lambda t: tw2.Z3(t) - 2, 0.5, 3.0)}
+ac = {"cut120_90": L.alpha_cut(L.P_FWD), "cut200_150": L.alpha_cut(L.P_FWD, tw2)}
+
+mp.mp.dps = 34
+n3 = 40
+pq = [(p, q) for p in range(n3 + 1) for q in range(n3 + 1)]
+D3 = [mp.mpf((p + 1) * (q + 1) * (p + q + 2)) / 2 for p, q in pq]
+C3 = [mp.mpf(p * p + q * q + p * q + 3 * p + 3 * q) / 3 for p, q in pq]
+D2 = [mp.mpf(k + 1) for k in range(81)]
+C2 = [mp.mpf(k) / 2 * (mp.mpf(k) / 2 + 1) for k in range(81)]
+
+
+def Z3(t):
+    return mp.fsum(d * mp.e ** (-t * c) for d, c in zip(D3, C3))
+
+
+def ell(t, D, C):
+    w = [d * mp.e ** (-t * c) for d, c in zip(D, C)]
+    return mp.fsum(wi * mp.log(d) for wi, d in zip(w, D)) / mp.fsum(w)
+
+
+th_mp = mp.findroot(lambda t: Z3(t) - 2, mp.mpf("1.4968"))
+P_mp = mp.mpf(L.REP["p"])
+K = 4 * mp.pi ** 2
+ac_mp = mp.findroot(lambda a: ell(K * a, D2, C2) + ell(K * a, D3, C3) - P_mp / 4, mp.mpf("0.06155"))
+aU_mp = mp.mpf(L.REP["d10"]["alpha_u"])
+r_mp = ac_mp / aU_mp
+out["Z1_precision"] = {
+    "t_half_float_cutoff90": th["cut90"], "t_half_float_cutoff150": th["cut150"], "t_half_mp34": mp.nstr(th_mp, 25),
+    "alpha_cut_float": ac, "alpha_cut_mp34": mp.nstr(ac_mp, 25), "alpha_U_printed": mp.nstr(aU_mp, 25),
+    "ratio_r_mp34": mp.nstr(r_mp, 25), "Delta_r_minus_t_half": mp.nstr(r_mp - th_mp, 12),
+    "Delta_relative": mp.nstr((r_mp - th_mp) / th_mp, 12),
+    "numerical_error_scale": mp.nstr(max(abs(th["cut90"] - th["cut150"]), abs(ac["cut120_90"] - ac["cut200_150"]) / 0.04,
+                                          abs(mp.mpf(th["cut90"]) - th_mp), abs(mp.mpf(ac["cut120_90"]) - ac_mp) / 0.04), 5),
+}
+
+# Z2: r(P) and the crossing point
+grid = {}
+for d in (-1e-2, -1e-3, -1e-4, 0.0, 1e-4, 1e-3, 1e-2):
+    P = L.P_FWD + d
+    grid[f"{d:+.0e}"] = L.alpha_cut(P) / L.solve_aU(P)[0]
+grid["phi"] = L.alpha_cut(L.PHI) / L.solve_aU(L.PHI)[0]
+t_half = float(th_mp)
+f = lambda P: L.alpha_cut(P) / L.solve_aU(P)[0] - t_half  # noqa: E731
+P_x = L.bisect(f, L.P_FWD - 1e-3, L.P_FWD + 1e-3, it=80)
+pt_x = L.point(P_x, L.solve_aU(P_x)[0])
+out["Z2_P_dependence"] = {"r_of_P": grid, "dlnr_dP_central": (np.log(grid["+1e-04"]) - np.log(grid["-1e-04"])) / 2e-4,
+                          "P_x": P_x, "P_x_minus_P_fwd": P_x - L.P_FWD,
+                          "outer_residual_at_P_x": P_x - L.PHI - L.SQPI / pt_x["A"],
+                          "A_T_at_P_x": pt_x["A"], "A_needed_for_fixed_point_at_P_x": L.SQPI / (P_x - L.PHI)}
+
+# Z3: other declared readouts of the producer move the fixed point; the closures and t_half are unchanged
+z3 = {}
+for readout in ("exact", "asymptotic", "mz_anchor"):
+    fp = L.outer_fixed_point("mZ", L.MSSM, readout)
+    r = L.alpha_cut(fp["P_star"]) / fp["alpha_U"]
+    z3[readout] = {"P_star": fp["P_star"], "A_at_fixed_point": fp["A"], "r": r, "r_minus_t_half": r - t_half,
+                   "relative": (r - t_half) / t_half}
+out["Z3_readouts"] = z3
+
+(L.HERE / "dc_thalf.json").write_text(json.dumps(out, indent=1, default=float) + "\n")
+print(json.dumps(out, indent=1, default=float))

@@ -1,0 +1,220 @@
+"""Worker CH: shared library.
+
+Parts:
+  1. the 32 patterns of the five-level code with the charges of work/MATCH/match.py (asserted against match.json);
+  2. exact one-loop indices and slopes from pattern charges;
+  3. the chain of work/COUPLING/closure_check.py with a general normalisation of the three couplings at M_U
+     (the engine's functions ell2, ell3 and its constant EP are imported, its own chain is used as the gate).
+
+Conventions: 1/alpha_i(mu) = c_i/alpha_U + (b_i/2 pi) ln(M_U/mu); alpha_Y = (3/5) alpha_1; c_Y = (5/3) c_1.
+One-loop functional (IMPORTED): b = -(11/3) C2(G) + (2/3) sum_Weyl T + (1/3) sum_complex_scalar T, U(1) index (3/5) Y^2.
+"""
+import contextlib
+import io
+import itertools
+import json
+import sys
+from fractions import Fraction as F
+from pathlib import Path
+
+import numpy as np
+from scipy.optimize import brentq
+
+RL = Path('WORKSPACE/repair-law')
+HERE = Path(__file__).resolve().parent
+pi = np.pi
+
+# ----------------------------------------------------------------------------- 1. patterns
+LEVELS = ('v1', 'v2', 'v3', 's1', 's2')
+SU3_DIM = {0: 1, 1: 3, 2: 3, 3: 1}
+SU3_T = {0: F(0), 1: F(1, 2), 2: F(1, 2), 3: F(0)}
+SU3_NAME = {0: '1', 1: '3', 2: '3bar', 3: '1'}
+SU2_DIM = {0: 1, 1: 2, 2: 1}
+SU2_T = {0: F(0), 1: F(1, 2), 2: F(0)}
+NAME = {(1, 0): 'd_R', (1, 1): 'Q_L', (1, 2): 'u_R', (3, 0): 'e_R', (3, 1): 'L_L', (3, 2): 'nu_R',
+        (2, 2): 'conj d_R', (2, 1): 'conj Q_L', (2, 0): 'conj u_R', (0, 2): 'conj e_R', (0, 1): 'conj L_L',
+        (0, 0): 'conj nu_R'}
+
+
+def pattern(bits):
+    n3, n2 = sum(bits[:3]), bits[3] + bits[4]
+    q6 = 3 * n2 - 2 * n3
+    y = F(q6, 6)
+    t3 = F(bits[3] - bits[4], 2)
+    return dict(bits=tuple(bits), n3=n3, n2=n2, degree=n3 + n2, Q6=q6, Y=y, T3=t3, Q=t3 + y,
+                k=q6 % 6, multiplet=(n3, n2), name=NAME[(n3, n2)],
+                BL=F(1) - F(2 * n3, 3), T3R=F(n2 - 1, 2), X=5 - 2 * (n3 + n2))
+
+
+PATTERNS = [pattern(b) for b in itertools.product((0, 1), repeat=5)]
+INDEX = {p['bits']: i for i, p in enumerate(PATTERNS)}
+MULTIPLETS = sorted({p['multiplet'] for p in PATTERNS})
+assert len(PATTERNS) == 32 and len(MULTIPLETS) == 12
+
+
+def check_against_match():
+    """The charges used here equal those of work/MATCH/match.json for all 32 patterns."""
+    ref = json.loads((RL / 'work/MATCH/match.json').read_text())['patterns']
+    by_bits = {r['bits']: r for r in ref}
+    for p in PATTERNS:
+        r = by_bits[''.join(map(str, p['bits']))]
+        assert (r['n3'], r['n2'], r['Q6']) == (p['n3'], p['n2'], p['Q6'])
+        assert F(r['Y']) == p['Y'] and F(r['T3']) == p['T3'] and F(r['Q']) == p['Q'] and r['k'] == p['k']
+        assert (r['hand'] == 'L') == (p['degree'] % 2 == 0)
+        assert (r['family'] == 'F') == (p['n3'] % 2 == 1)
+    return len(ref)
+
+
+def multiplet_index(m):
+    """(T_Y, T_2, T_3) of one multiplet (n3, n2): sum of Y^2, SU(2) index times colour dimension, SU(3) index times
+    weak dimension."""
+    n3, n2 = m
+    y = F(3 * n2 - 2 * n3, 6)
+    return (SU3_DIM[n3] * SU2_DIM[n2] * y * y, SU2_T[n2] * SU3_DIM[n3], SU3_T[n3] * SU2_DIM[n2])
+
+
+def index_of_patterns(pats):
+    """(T_Y, T_2, T_3) of a set of patterns, computed pattern by pattern (each pattern carries 1/dim of its
+    multiplet's non-abelian index)."""
+    ty = t2 = t3 = F(0)
+    for p in pats:
+        n3, n2 = p['multiplet']
+        ty += p['Y'] ** 2
+        t2 += SU2_T[n2] / SU2_DIM[n2]
+        t3 += SU3_T[n3] / SU3_DIM[n3]
+    return ty, t2, t3
+
+
+GAUGE = (F(0), F(-22, 3), F(-11))
+WEYL, SCALAR = F(2, 3), F(1, 3)
+HIGGS = (F(1, 10), F(1, 6), F(0))          # one complex scalar doublet with |Y| = 1/2
+
+
+def slopes(weyl_patterns=(), scalar_patterns=(), copies=1, n_h=0, cones=1, links=True):
+    ty, t2, t3 = index_of_patterns(weyl_patterns)
+    sy, s2, s3 = index_of_patterns(scalar_patterns)
+    b1 = copies * cones * (WEYL * F(3, 5) * ty) + copies * SCALAR * F(3, 5) * sy + n_h * HIGGS[0]
+    b2 = copies * cones * (WEYL * t2) + copies * SCALAR * s2 + n_h * HIGGS[1]
+    b3 = copies * cones * (WEYL * t3) + copies * SCALAR * s3 + n_h * HIGGS[2]
+    if links:
+        b1, b2, b3 = b1 + GAUGE[0], b2 + GAUGE[1], b3 + GAUGE[2]
+    return (b1, b2, b3)
+
+
+def fr(x):
+    return str(x) if isinstance(x, F) else x
+
+
+# ----------------------------------------------------------------------------- 3. the chain
+def load_engine():
+    """Import work/COUPLING/closure_check.py (its module body prints; the output is discarded)."""
+    sys.path.insert(0, str(RL / 'work/COUPLING'))
+    with contextlib.redirect_stdout(io.StringIO()):
+        import closure_check as cc
+    return cc
+
+
+def load_lv():
+    """Import work/LV/lv_chain.py read only: the coordinator's chain with a prefactor option (functions ell2, ell3,
+    chain, solve; constants EP, P_FWD)."""
+    sys.path.insert(0, str(RL / 'work/LV'))
+    import lv_chain
+    return lv_chain
+
+
+P0 = 1.6309721
+
+
+class Chain:
+    """closure_check.chain with normalisations c_i and an optional law for 1/alpha_1(mu).
+
+    inv1: None, or a function (mu, ctx) -> 1/alpha_1(mu), ctx a dict with x = 1/alpha_U, MU, Ecell, b, i2, i3
+    (functions of mu for the non-abelian inverse couplings).
+    """
+
+    def __init__(self, cc, P=P0, b=(33 / 5, 1.0, -3.0), c=(1.0, 1.0, 1.0), beta=4.0, read='mZ', inv1=None, pref=1.0):
+        self.cc, self.P, self.b, self.c, self.beta, self.read, self.inv1 = cc, P, tuple(map(float, b)), tuple(map(float, c)), beta, read, inv1
+        self.pref = pref                 # prefactor of the law for v: a number or a function of 1/alpha_U (as in lv_chain)
+        self.MU = cc.EP * np.exp(-2 * pi) * P ** (1 / 6)
+        self.Ecell = cc.EP / np.sqrt(P)
+
+    def inverse(self, x, mu):
+        L = np.log(self.MU / mu)
+        i2 = self.c[1] * x + self.b[1] / (2 * pi) * L
+        i3 = self.c[2] * x + self.b[2] / (2 * pi) * L
+        if self.inv1 is None:
+            i1 = self.c[0] * x + self.b[0] / (2 * pi) * L
+        else:
+            ctx = dict(x=x, MU=self.MU, Ecell=self.Ecell, b=self.b,
+                       i2=lambda m: self.c[1] * x + self.b[1] / (2 * pi) * np.log(self.MU / m),
+                       i3=lambda m: self.c[2] * x + self.b[2] / (2 * pi) * np.log(self.MU / m))
+            i1 = self.inv1(mu, ctx)
+        return i1, i2, i3
+
+    def point(self, x):
+        pf = self.pref(x) if callable(self.pref) else self.pref
+        v = pf * self.Ecell * np.exp(-2 * pi * x / self.beta)
+        mu = 91.0
+        ok = True
+        for _ in range(400):
+            i1, i2, i3 = self.inverse(x, mu)
+            if min(i1, i2, i3) <= 0:
+                ok = False
+                break
+            a1, a2 = 1 / i1, 1 / i2
+            aY = 0.6 * a1
+            mz, mw = v * np.sqrt(pi * (a2 + aY)), v * np.sqrt(pi * a2)
+            new = mz if self.read == 'mZ' else mw
+            if not np.isfinite(new) or new <= 0:
+                ok = False
+                break
+            if abs(new - mu) < 1e-13 * mu:
+                mu = new
+                break
+            mu = new
+        if not ok:
+            return None
+        i1, i2, i3 = self.inverse(x, mu)
+        if min(i1, i2, i3) <= 0:
+            return None
+        a1, a2, a3 = 1 / i1, 1 / i2, 1 / i3
+        aY = 0.6 * a1
+        lhs = self.cc.ell2(4 * pi * pi * a2) + self.cc.ell3(4 * pi * pi * a3)
+        return dict(inv_alpha_U=x, M_U=self.MU, E_cell=self.Ecell, prefactor=pf, v=v, mu=mu, m_Z=v * np.sqrt(pi * (a2 + aY)),
+                    m_W=v * np.sqrt(pi * a2), inv_alpha_1=i1, inv_alpha_2=i2, inv_alpha_3=i3, alpha_s=a3,
+                    inv_alpha_Y=i1 / 0.6, sin2=aY / (aY + a2), inv_alpha_em=1 / a2 + 1 / aY, lhs=lhs,
+                    inv_alpha_1_MU=self.inverse(x, self.MU)[0], inv_alpha_Y_MU=self.inverse(x, self.MU)[0] / 0.6)
+
+    def residual(self, x):
+        pt = self.point(x)
+        return np.nan if pt is None else pt['lhs'] - self.P / 4
+
+    def roots(self, lo=8.0, hi=80.0, n=721):
+        xs = np.linspace(lo, hi, n)
+        vals = [self.residual(x) for x in xs]
+        out = []
+        for i in range(n - 1):
+            if np.isfinite(vals[i]) and np.isfinite(vals[i + 1]) and vals[i] * vals[i + 1] < 0:
+                out.append(brentq(self.residual, xs[i], xs[i + 1], xtol=1e-13, rtol=1e-14))
+        return out
+
+    def solve(self):
+        r = self.roots()
+        return [self.point(x) for x in r]
+
+
+def clean(o):
+    """JSON helper: fractions to strings, numpy scalars to floats."""
+    if isinstance(o, F):
+        return str(o)
+    if isinstance(o, dict):
+        return {str(k): clean(v) for k, v in o.items()}
+    if isinstance(o, (list, tuple)):
+        return [clean(v) for v in o]
+    if isinstance(o, (np.floating,)):
+        return float(o)
+    if isinstance(o, (np.integer,)):
+        return int(o)
+    if isinstance(o, np.ndarray):
+        return clean(o.tolist())
+    return o

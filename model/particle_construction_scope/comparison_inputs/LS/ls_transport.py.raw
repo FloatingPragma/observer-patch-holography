@@ -1,0 +1,89 @@
+"""Worker LS, X2: the electromagnetic endpoint transport is the one object of the current chain that
+varies along Y_e -> exp(kappa) Y_e. Check that the repository's forward Thomson map turns kappa into a
+pixel P(kappa) and supplies no second equation.
+
+Loads RER code/P_derivation/interval_contraction_certificate.py by path (read only) and rescales the
+charged-lepton masses that its Stage-5 transport consumes by exp(kappa). Reads no measured mass.
+  cd RER && PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B RL/work/LS/ls_transport.py
+"""
+from __future__ import annotations
+
+import importlib.util
+import json
+import sys
+import time
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+RER = Path("WORKSPACE/reverse-engineering-reality")
+spec = importlib.util.spec_from_file_location(
+    "ls_icc", RER / "code" / "P_derivation" / "interval_contraction_certificate.py")
+ICC = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(ICC)
+
+ORIG = ICC.lepton_masses
+KAPPA = {"value": 0}
+
+
+def scaled_lepton_masses(b, v, vectors, roots_ascending):
+    out = ORIG(b, v, vectors, roots_ascending)
+    f = b.exp(b.num(KAPPA["value"]))
+    return {k: f * x for k, x in out.items()}
+
+
+ICC.lepton_masses = scaled_lepton_masses
+
+
+def main():
+    dps = int(sys.argv[1]) if len(sys.argv) > 1 else 30
+    cutoff = int(sys.argv[2]) if len(sys.argv) > 2 else 30
+    kappas = ["-0.5", "-0.1", "0", "0.1", "0.5"]
+    mpb = ICC.MpBackend(dps)
+    solver = ICC.PointSolver(mpb, cutoff, cutoff)
+    ctx = mpb.ctx
+    rows = []
+    t0 = time.time()
+    for k in kappas:
+        KAPPA["value"] = k
+        alpha = solver.fixed_point(ICC.MODE_SOURCE)
+        inner = solver.inner(alpha, ICC.MODE_SOURCE)
+        lep = ICC.lepton_masses(mpb, inner["v"], solver.vectors, solver.roots_ascending)
+        rows.append({
+            "kappa": k,
+            "P": ctx.nstr(inner["p"], 20),
+            "alpha_inv_0": ctx.nstr(inner["alpha_inv"], 20),
+            "alpha_U": ctx.nstr(inner["alpha_u"], 20),
+            "v_over_E": ctx.nstr(inner["v"], 20),
+            "lepton_sum_over_E": ctx.nstr(lep["e"] + lep["mu"] + lep["tau"], 20),
+            "lepton_sum_over_v": ctx.nstr((lep["e"] + lep["mu"] + lep["tau"]) / inner["v"], 20),
+        })
+        print(rows[-1], f"{time.time() - t0:.1f}s", flush=True)
+    # derivatives at kappa = 0 by central differences over +-0.1
+    r = {row["kappa"]: row for row in rows}
+    m = ctx.mpf
+    dP = (m(r["0.1"]["P"]) - m(r["-0.1"]["P"])) / m("0.2")
+    dA = (m(r["0.1"]["alpha_inv_0"]) - m(r["-0.1"]["alpha_inv_0"])) / m("0.2")
+    dlnv = (ctx.log(m(r["0.1"]["v_over_E"])) - ctx.log(m(r["-0.1"]["v_over_E"]))) / m("0.2")
+    dlnM = (ctx.log(m(r["0.1"]["lepton_sum_over_E"])) - ctx.log(m(r["-0.1"]["lepton_sum_over_E"]))) / m("0.2")
+    out = {
+        "settings": {"mp_dps": dps, "su2_su3_cutoff": cutoff, "mode": ICC.MODE_SOURCE},
+        "rows": rows,
+        "derivatives_at_kappa0": {
+            "dP_dkappa": ctx.nstr(dP, 10),
+            "d_alpha_inv_0_dkappa": ctx.nstr(dA, 10),
+            "d_alpha_inv_0_dkappa_kernel_asymptotic": ctx.nstr(-2 / ctx.pi, 10),
+            "dln_v_dkappa": ctx.nstr(dlnv, 10),
+            "dln_M_dkappa": ctx.nstr(dlnM, 10),
+        },
+        "reading": (
+            "For every kappa the forward Thomson map has a root P(kappa); the lepton sum in units of E* "
+            "moves with slope dln M/dkappa near 1, so the map supplies no second equation for kappa."
+        ),
+        "wall_seconds": round(time.time() - t0, 1),
+    }
+    (HERE / "transport.json").write_text(json.dumps(out, indent=1) + "\n")
+    print(json.dumps(out["derivatives_at_kappa0"], indent=1))
+
+
+if __name__ == "__main__":
+    main()

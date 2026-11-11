@@ -1,0 +1,71 @@
+{
+ "schema": "repair_law.CA.t1b.v1",
+ "cases": {
+  "1": {
+   "eigenvalues_of_A": [
+    "sqrt5 * 2cos(pi/10)",
+    "((3 - sqrt5)/2) * 2cos(pi/10)",
+    "-2cos(pi/10)"
+   ],
+   "multiplicities": [
+    2,
+    4,
+    6
+   ],
+   "numeric": [
+    4.253254041760199,
+    0.7265425280053611,
+    -1.9021130325903068
+   ],
+   "lambda1": 0.9875542340293366,
+   "lambda2": 0.9287757088000894,
+   "q": 0.940480711637047,
+   "minimal_polynomial_vanishes_exactly": true,
+   "trace_identities_exact": true
+  },
+  "2": {
+   "eigenvalues_of_A": [
+    "(5 + sqrt5)/2",
+    "-(3 - sqrt5)/2",
+    "-sqrt5"
+   ],
+   "multiplicities": [
+    3,
+    5,
+    4
+   ],
+   "numeric": [
+    3.6180339887498945,
+    -0.3819660112501054,
+    -2.2360679774997894
+   ],
+   "lambda1": 0.9769672331458316,
+   "lambda2": 0.9103005664791649,
+   "q": 0.9317616145098335,
+   "minimal_polynomial_vanishes_exactly": true,
+   "trace_identities_exact": true
+  },
+  "7": {
+   "eigenvalues_of_A": [
+    "sqrt5 * 2sin(pi/5)",
+    "2sin(pi/5)",
+    "-((3 + sqrt5)/2) * 2sin(pi/5)"
+   ],
+   "multiplicities": [
+    2,
+    6,
+    4
+   ],
+   "numeric": [
+    2.628655560595668,
+    1.1755705045849458,
+    -3.0776835371752527
+   ],
+   "lambda1": 0.9604775926765945,
+   "lambda2": 0.9362595084097491,
+   "q": 0.9747853729732976,
+   "minimal_polynomial_vanishes_exactly": true,
+   "trace_identities_exact": true
+  }
+ }
+}

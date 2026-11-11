@@ -1,0 +1,205 @@
+"""R8 item 3: the state of the Higgs register and the mass angle.
+
+Handedness bit of one species: E (neutral doublet level empty), F (filled). Register with a lowering operator B.
+Mass step U_g = exp(-i g K), K = |F><E| x B + |E><F| x B*.  For every partial isometry B (cyclic counter, ladder,
+two-level memory) K^3 = K and U_g = 1 + (cos g - 1) K^2 - i sin g K.
+
+A. Exact (sympy): the condition for a definite angle, the visibility law, the two-level memory, the ladder.
+B. Small joint system (three cells, three-valued cyclic counters, reference engine for the shifts):
+   B1 a lift in which the routing carries the register deficit is the plain toggle for every register state;
+   B2 with the plain routing, counters in a number state act on the quantum as the uniform average over static
+      chiral phases (all 27 phase fields enumerated).
+C. Line of 256 cells, 60 ticks, theta = 0.157935, the packet of CF-1 section 4 item 5: counters in a common phase
+   state against counters in number states (sampled phase fields).
+D. Oscillator register in a coherent state (float, truncated): mean-field angle and entanglement per step.
+"""
+import itertools, json, sys
+import numpy as np
+import sympy as s
+from routing import Routing, branch_projected
+
+out = {}
+g = s.symbols('g', real=True)
+sp_, sm_ = s.Matrix([[0, 0], [1, 0]]), s.Matrix([[0, 1], [0, 0]])     # |F><E|, |E><F| in the basis (E, F)
+kp = s.kronecker_product
+def shift(m, cyclic):
+    B = s.zeros(m)
+    for n in range(1, m): B[n - 1, n] = 1
+    if cyclic: B[m - 1, 0] = 1
+    return B
+def step(B):
+    K = kp(sp_, B) + kp(sm_, B.H)
+    assert K ** 3 == K
+    return s.eye(K.rows) + (s.cos(g) - 1) * K ** 2 - s.I * s.sin(g) * K, K
+def purity(B, psi, rho):
+    """purity of the handedness bit after one step from the product state psi x rho"""
+    U, _ = step(B); m = B.rows
+    v = U * kp(psi, rho)
+    M = s.Matrix(2, m, lambda i, j: v[i * m + j])
+    red = M * M.H
+    return s.simplify((red * red).trace())
+Ev, Fv = s.Matrix([1, 0]), s.Matrix([0, 1])
+
+# ---- A1. cyclic counter, uniform (phase) state: exact fixed rotation, no entanglement
+c0, c1 = s.symbols('c0 c1')
+rowsA = {}
+for m in (2, 3, 5):
+    B = shift(m, True); U, K = step(B)
+    u = s.ones(m, 1) / s.sqrt(m)
+    psi = s.Matrix([c0, c1])
+    want = kp((s.cos(g) * s.eye(2) - s.I * s.sin(g) * (sp_ + sm_)) * psi, u)
+    rowsA[f'cyclic_{m}_uniform_state_gives_exact_rotation_by_g'] = bool((U * kp(psi, u) - want).applyfunc(s.simplify) == s.zeros(2 * m, 1))
+    rowsA[f'cyclic_{m}_K_is_involution'] = bool(K ** 2 == s.eye(2 * m))
+B = shift(3, True); w3 = (-1 + s.sqrt(3) * s.I) / 2
+ph = s.Matrix([1, w3, w3 ** 2]) / s.sqrt(3)                            # B ph = w3 ph: phase state with phase 2 pi/3
+U, K = step(B)
+want = kp((s.cos(g) * s.eye(2) - s.I * s.sin(g) * (w3 * sp_ + s.conjugate(w3) * sm_)) * s.Matrix([c0, c1]), ph)
+rowsA['cyclic_3_phase_state_gives_rotation_with_chiral_phase'] = bool((U * kp(s.Matrix([c0, c1]), ph) - want).applyfunc(lambda x: s.simplify(s.expand(x))) == s.zeros(6, 1))
+# ---- A2. number state and a general state: purity 1 - (1 - V^2) sin^2(2g)/2 from a handedness eigenstate
+B = shift(4, True)
+num_state = s.Matrix([1, 0, 0, 0]); gen = s.Matrix([1, 2, 2, 1]) / s.sqrt(10)
+for lab, rho in (('number', num_state), ('amplitudes_1_2_2_1', gen)):
+    V = s.Abs((rho.H * B * rho)[0])
+    law = 1 - (1 - V ** 2) * s.sin(2 * g) ** 2 / 2
+    rowsA[f'cyclic_4_{lab}_state_visibility'] = str(V)
+    rowsA[f'cyclic_4_{lab}_state_purity_law_holds'] = bool(s.simplify(purity(B, Ev, rho) - law) == 0)
+# ---- A3. two-level memory (the audit's X): no common eigenvector with nonzero eigenvalue; coherent state
+B2 = shift(2, False); coh = s.Matrix([1, 1]) / s.sqrt(2)
+beta = (coh.H * B2 * coh)[0]
+U2, K2 = step(B2)
+pE = purity(B2, Ev, coh); pF = purity(B2, Fv, coh)
+n_ = s.symbols('n', positive=True, integer=True)
+vE = (s.eye(4) + (s.cos(n_ * g) - 1) * K2 ** 2 - s.I * s.sin(n_ * g) * K2) * kp(Ev, coh)      # n steps (K^3 = K)
+PF_n = s.simplify(sum(abs(vE[2 + j]) ** 2 for j in range(2)))
+rowsA['two_level_memory'] = {'transition_expectation_in_coherent_state': str(beta),
+                             'residual_norm_squared_of_B_rho_minus_beta_rho': str(s.simplify(((B2 * coh - beta * coh).H * (B2 * coh - beta * coh))[0])),
+                             'purity_after_one_step_from_E': str(pE), 'purity_after_one_step_from_F': str(pF),
+                             'probability_of_F_after_n_steps_from_E': str(PF_n),
+                             'mean_field_rotation_would_give': 'sin(n g / 2)^2'}
+# ---- A4. ladder of m levels in the uniform state
+lad = []
+for m in (2, 3, 4, 6, 10):
+    Bm = shift(m, False); u = s.ones(m, 1) / s.sqrt(m)
+    b_ = (u.H * Bm * u)[0]; res = ((Bm * u - b_ * u).H * (Bm * u - b_ * u))[0]
+    lad.append({'levels': m, 'expectation': str(b_), 'residual_norm_squared': str(res),
+                'equals_(m-1)/m_and_(m-1)/m^2': bool(b_ == s.Rational(m - 1, m) and res == s.Rational(m - 1, m * m))})
+ser = s.series(1 - purity(shift(3, False), Ev, s.ones(3, 1) / s.sqrt(3)), g, 0, 3).removeO()
+rowsA['ladder_uniform_state'] = lad
+rowsA['ladder_3_linear_entropy_from_E_to_second_order'] = str(ser)
+out['A_exact'] = rowsA
+for k, v in rowsA.items(): print('A.', k, v)
+
+# ---------------------------------------------------------------- B. small joint system
+th = 0.157935
+L, m = 3, 3
+w = Routing((L, 1, 1))
+rng = np.random.default_rng(4)
+def chiral_mass(psi, theta, phi):
+    """exp(-i theta (cos(phi) Y_r + sin(phi) Z_r)) with a phase phi[x]; phi = 0 is the engine's kind 'Y', pi/2 its kind 'Z'"""
+    c, sn = np.cos(theta), np.sin(theta)
+    cp, sph = np.cos(phi)[:, None, None, None], np.sin(phi)[:, None, None, None]
+    o = np.empty_like(psi)
+    o[..., 0, :] = (c - 1j * sn * sph) * psi[..., 0, :] - sn * cp * psi[..., 1, :]
+    o[..., 1, :] = (c + 1j * sn * sph) * psi[..., 1, :] + sn * cp * psi[..., 0, :]
+    return o
+def EF(P):                                                           # record basis -> (E, F) = X_r eigenstates
+    return (P[..., 0, :] + P[..., 1, :]) / np.sqrt(2), (P[..., 0, :] - P[..., 1, :]) / np.sqrt(2)
+def rec(Ec, Fc):
+    return np.stack([(Ec + Fc) / np.sqrt(2), (Ec - Fc) / np.sqrt(2)], axis=-2)
+def route(P):                                                        # P[c0, c1, c2, x, 1, 1, r, s]; registers untouched
+    o = np.empty_like(P)
+    for c in itertools.product(range(m), repeat=L): o[c] = w.shift(P[c], 0)
+    return o
+def Kstep(P):                                                        # exp(-i theta K) with the counter of the occupied cell
+    Ec, Fc = EF(P); nE, nF = np.cos(th) * Ec, np.cos(th) * Fc
+    for x in range(L):
+        nE[..., x, :, :, :] += -1j * np.sin(th) * np.roll(Fc, 1, axis=x)[..., x, :, :, :]     # (F, n-1) -> (E, n)
+        nF[..., x, :, :, :] += -1j * np.sin(th) * np.roll(Ec, -1, axis=x)[..., x, :, :, :]    # (E, n+1) -> (F, n)
+    return rec(nE, nF)
+def D(P, inverse=False):                                             # F at cell x lowers (inverse: raises) the counter of x
+    Ec, Fc = EF(P); o = Fc.copy()
+    for x in range(L):
+        o[..., x, :, :, :] = np.roll(Fc, 1 if inverse else -1, axis=x)[..., x, :, :, :]
+    return rec(Ec, o)
+P = rng.normal(size=(m,) * L + (L, 1, 1, 2, 2)) + 1j * rng.normal(size=(m,) * L + (L, 1, 1, 2, 2)); P /= np.linalg.norm(P)
+plain = np.empty_like(P)
+for c in itertools.product(range(m), repeat=L): plain[c] = w.mass(w.shift(P[c], 0), th, 'Z')
+dressed = Kstep(D(route(D(D(P), inverse=True))))                      # K . (D S D*) applied to D P
+out['B1_dressed_routing_equals_plain_toggle'] = float(np.abs(dressed - D(plain)).max())
+# B2: number state against the average over all phase fields, bare routing, four ticks
+psi0 = rng.normal(size=(L, 1, 1, 2, 2)) + 1j * rng.normal(size=(L, 1, 1, 2, 2)); psi0 /= np.linalg.norm(psi0)
+J = np.zeros((m,) * L + (L, 1, 1, 2, 2), complex); J[(0,) * L] = psi0
+for _ in range(4): J = Kstep(route(J))
+P_joint = np.sum(np.abs(J) ** 2, axis=tuple(range(L)) + (4, 5, 6, 7))
+red_joint = np.einsum('abcxyzrs,abcXyzRS->xrsXRS', J, J.conj())       # reduced state of the quantum
+red_avg = np.zeros_like(red_joint)
+for jj in itertools.product(range(m), repeat=L):
+    phi = 2 * np.pi * np.array(jj) / m + np.pi / 2
+    q = psi0.copy()
+    for _ in range(4): q = chiral_mass(w.shift(q, 0), th, phi)
+    red_avg += np.einsum('xyzrs,XyzRS->xrsXRS', q, q.conj()) / m ** L
+out['B2_number_state_equals_phase_average'] = {'reduced_state_defect': float(np.abs(red_joint - red_avg).max()),
+                                               'phase_fields_enumerated': m ** L, 'ticks': 4}
+print('B1 dressed routing = plain toggle, defect', out['B1_dressed_routing_equals_plain_toggle'])
+print('B2', out['B2_number_state_equals_phase_average'])
+
+# ---------------------------------------------------------------- C. line of 256 cells
+Lc, T, n0 = 256, 60, 12
+w2 = Routing((Lc, 1, 1))
+pk = w2.packet(n0, 3.0, lambda p: branch_projected(p, th))            # the packet of routing.py (kind 'Y')
+xs = ((np.arange(Lc) + Lc // 2) % Lc) - Lc // 2                       # positions in (-128, 128]
+def dens(q): return np.sum(np.abs(q) ** 2, axis=(1, 2, 3, 4))
+def moments(Pd):
+    mu = float(np.sum(Pd * xs)); return mu, float(np.sqrt(np.sum(Pd * xs ** 2) - mu ** 2))
+mu0, sd0 = moments(dens(pk))
+q = pk.copy(); zero = np.zeros(Lc)
+for _ in range(T): q = w2.tick(q, th)
+mu_c, sd_c = moments(dens(q))
+q2 = pk.copy()
+for _ in range(T): q2 = chiral_mass(w2.shift(q2, 0), th, zero)
+free = pk.copy()
+for _ in range(T): free = w2.shift(free, 0)
+mu_f, sd_f = moments(dens(free))
+alpha1 = lambda q_: q_[..., ::-1, :][..., ::-1]                       # X_r sigma_1 (sigma_1 flips the spin index)
+wR = float(np.sum(np.abs((pk + alpha1(pk)) / 2) ** 2)); wL = 1 - wR
+cc = np.cos(2 * th)
+resC = {'theta': th, 'ticks': T, 'cells': Lc,
+        'common_phase_state': {'displacement': mu_c - mu0, 'velocity': (mu_c - mu0) / T, 'width': sd_c,
+                               'own_mass_step_against_engine': float(np.abs(q - q2).max())},
+        'no_mass_step': {'displacement': mu_f - mu0, 'width': sd_f},
+        'initial_width': sd0, 'initial_right_moving_weight': wR,
+        'telegraph_prediction_displacement': (wR - wL) * (1 - cc ** T) / (1 - cc)}
+for label, sampler, ns in (('number_states_integer_counter', lambda r: r.uniform(0, 2 * np.pi, Lc), 500),
+                           ('number_states_bit', lambda r: np.pi * r.integers(0, 2, Lc), 500)):
+    r = np.random.default_rng(21)
+    Pd = np.zeros(Lc); mean_state = np.zeros_like(pk); disp = []
+    for _ in range(ns):
+        phi = sampler(r); q = pk.copy()
+        for _ in range(T): q = chiral_mass(w2.shift(q, 0), th, phi)
+        d_ = dens(q); Pd += d_ / ns; mean_state += q / ns; disp.append(float(np.sum(d_ * xs)) - mu0)
+    mu, sd = moments(Pd)
+    resC[label] = {'samples': ns, 'displacement': mu - mu0, 'standard_error': float(np.std(disp) / np.sqrt(ns)), 'width': sd,
+                   'amplitude_with_registers_unchanged_norm': float(np.linalg.norm(mean_state)),
+                   'its_overlap_with_the_massless_evolution': float(abs(np.vdot(free, mean_state))),
+                   'cos_theta_to_the_power_T': float(np.cos(th) ** T), 'sampling_floor': float(1 / np.sqrt(ns))}
+out['C_line'] = resC
+print('C.', json.dumps(resC, indent=1))
+
+# ---------------------------------------------------------------- D. oscillator register, coherent state (float)
+nmax, al, gg = 90, 4.0, 0.02
+bo = np.diag(np.sqrt(np.arange(1, nmax)), 1)
+coh = np.array([al ** n / np.sqrt(float(s.factorial(n))) for n in range(nmax)]) * np.exp(-al * al / 2)
+Ko = np.kron(np.array([[0, 0], [1, 0]]), bo) + np.kron(np.array([[0, 1], [0, 0]]), bo.T)
+ev, evec = np.linalg.eigh(Ko)
+Uo = (evec * np.exp(-1j * gg * ev)) @ evec.T
+rowsD = []
+for lab, psi in (('E', [1, 0]), ('F', [0, 1]), ('(E+F)/sqrt2', [2 ** -.5, 2 ** -.5])):
+    v = Uo @ np.kron(np.array(psi, complex), coh)
+    M = v.reshape(2, nmax); red = M @ M.conj().T
+    mf = np.array([[np.cos(gg * al), -1j * np.sin(gg * al)], [-1j * np.sin(gg * al), np.cos(gg * al)]]) @ np.array(psi, complex)
+    rowsD.append({'start': lab, 'linear_entropy': float(1 - np.trace(red @ red).real),
+                  'leading_order_2_g2_weightF_squared': float(2 * gg ** 2 * abs(psi[1]) ** 4),
+                  'fidelity_with_rotation_by_g_alpha': float((mf.conj() @ red @ mf).real)})
+out['D_oscillator'] = {'alpha': al, 'g': gg, 'mean_field_angle': gg * al, 'rows': rowsD}
+for r_ in rowsD: print('D.', r_)
+if len(sys.argv) > 1: json.dump(out, open(sys.argv[1], 'w'), indent=1)

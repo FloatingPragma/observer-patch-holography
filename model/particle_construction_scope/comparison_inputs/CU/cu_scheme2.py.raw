@@ -1,0 +1,266 @@
+"""CU second run, Part H of CANDIDATES.md (Addendum 2): rows H1 to H7. No measured value.
+
+H1, H2, H7 are symbolic checks (sympy). H3, H4 integrate the two-loop gauge equations (scipy). H5 solves the chain
+(cu_chain, engine at P = 1.6309721). H6 reads cu_scheme.json. Writes cu_scheme2.json.
+"""
+import json
+import os
+import sys
+from fractions import Fraction as Fr
+
+import numpy as np
+import sympy as sp
+from scipy.integrate import solve_ivp
+from scipy.optimize import brentq
+
+import cu_chain as C
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.dont_write_bytecode = True
+pi = np.pi
+P = C.P_FWD
+R0 = float(C.R_decl(P))
+out, checks = {}, {}
+
+# ------------------------------------------------------------------ H1: sign lemma for the reference length
+s = sp.symbols('s', real=True)
+Ps, ls = sp.symbols('P l_star', positive=True)
+lc = ls * sp.sqrt(Ps)
+eps = ls ** (1 - s) * lc ** s
+c_dir = sp.simplify(-sp.log(sp.expand_power_base(eps / lc, force=True)) / sp.log(Ps))
+checks['H1_direct_c_equals_(1-s)/2'] = bool(sp.simplify(sp.expand_log(c_dir, force=True) - (1 - s) / 2) == 0)
+ratio = sp.powsimp(sp.expand_power_base(sp.simplify(eps / lc), force=True), force=True)
+checks['H1_eps_over_lcell_is_P^(-(1-s)/2)'] = bool(sp.simplify(ratio - Ps ** (-(1 - s) / 2)) == 0)
+s_dir = sp.solve(sp.Eq((1 - s) / 2, sp.Rational(2, 3)), s)[0]
+s_two = sp.solve(sp.Eq(1 - s, sp.Rational(2, 3)), s)[0]
+eps_dir = sp.simplify(sp.expand_power_base(eps.subs(s, s_dir), force=True))
+eps_two = sp.simplify(sp.expand_power_base(eps.subs(s, s_two), force=True))
+checks['H1_declared_direct_reference_is_l*P^(-1/6)'] = bool(sp.simplify(eps_dir - ls * Ps ** sp.Rational(-1, 6)) == 0)
+checks['H1_declared_two_sided_reference_is_l*P^(1/6)'] = bool(sp.simplify(eps_two - ls * Ps ** sp.Rational(1, 6)) == 0)
+Pf = sp.Float('1.6309721', 30)
+vals = {'l*P^(-1/6) / l*': float((Ps ** sp.Rational(-1, 6)).subs(Ps, Pf)), 'l*P^(1/6) / l*': float((Ps ** sp.Rational(1, 6)).subs(Ps, Pf)),
+        'l_cell / l*': float(sp.sqrt(Pf)), 'l*P^(-1/6) / l_cell': float((Ps ** sp.Rational(-2, 3)).subs(Ps, Pf)),
+        'l*P^(1/6) / l_cell': float((Ps ** sp.Rational(-1, 3)).subs(Ps, Pf))}
+checks['H1_both_declared_references_lie_below_the_cell_at_P_fwd'] = bool(vals['l*P^(-1/6) / l_cell'] < 1 and vals['l*P^(1/6) / l_cell'] < 1)
+out['H1'] = {'direct c': '(1 - s)/2', 'two-sided c': '1 - s', 'eps/l_cell': 'P^(-(1-s)/2)',
+             'c > 0 iff s < 1 iff eps < l_cell (P > 1)': True, 's for c = 2/3 (direct, two-sided)': [str(s_dir), str(s_two)],
+             'declared references at P_fwd': vals}
+
+# ------------------------------------------------------------------ H2: boost lemma (aberration, Doppler, invariants)
+sb, th, E, th2, E2 = sp.symbols('s theta E theta2 E2', real=True)
+
+
+def boost(k, r):
+    """Boost along +z with rapidity r of the four-vector k = (E, px, py, pz)."""
+    e, px, py, pz = k
+    return (e * sp.cosh(r) - pz * sp.sinh(r), px, py, pz * sp.cosh(r) - e * sp.sinh(r))
+
+
+k1 = (E, E * sp.sin(th), 0, E * sp.cos(th))
+k2 = (E2, E2 * sp.sin(th2), 0, E2 * sp.cos(th2))
+b1, b2 = boost(k1, sb), boost(k2, sb)
+mink = lambda a, b: (a[0] - b[0]) ** 2 - sum((a[i] - b[i]) ** 2 for i in (1, 2, 3))
+checks['H2_null_vector_stays_null'] = bool(sp.simplify(mink(b1, (0, 0, 0, 0))) == 0)
+checks['H2_p_perp_unchanged'] = bool(sp.simplify(b1[1] - k1[1]) == 0)
+tan_half_new = b1[1] / (b1[0] + b1[3])
+checks['H2_aberration_tan_half_angle_times_exp(s)'] = bool(
+    sp.simplify((tan_half_new - sp.exp(sb) * sp.sin(th) / (1 + sp.cos(th))).rewrite(sp.exp)) == 0)
+checks['H2_Doppler_on_axis_exp(-s)'] = bool(sp.simplify((b1[0].subs(th, 0) - E * sp.exp(-sb)).rewrite(sp.exp)) == 0)
+checks['H2_momentum_transfer_invariant'] = bool(sp.simplify((mink(b1, b2) - mink(k1, k2)).rewrite(sp.exp)) == 0)
+out['H2'] = {'statement': 'near the fixed point angles scale by exp(s), energies by exp(-s), p_perp and Q^2 unchanged',
+             'rapidity per unit modular time': '2 pi', 'angle factor after unit modular time': float(np.exp(2 * pi)),
+             'Doppler factor after unit modular time': float(np.exp(-2 * pi))}
+
+# ------------------------------------------------------------------ H7: scheme lemma (two-loop coefficients)
+e_ = sp.symbols('epsilon', positive=True)
+n = 3
+a = sp.symbols('a1:4', positive=True)
+bsym = sp.symbols('b1:4', nonzero=True)
+Bm = sp.Matrix(3, 3, lambda i, j: sp.Symbol(f'B{i + 1}{j + 1}'))
+cub = sp.symbols('k1:4')
+csh = sp.symbols('c1:4')
+Em = sp.Matrix(3, 3, lambda i, j: sp.Symbol(f'e{i + 1}{j + 1}'))
+
+
+def beta_inv(i, al):
+    """d(1/alpha_i)/dt to three loops (three-loop part: a placeholder cubic term)."""
+    return -bsym[i] / (2 * sp.pi) - sum(Bm[i, j] * al[j] for j in range(n)) / (8 * sp.pi ** 2) - cub[i] * al[i] ** 2
+
+
+al = [e_ * a[j] for j in range(n)]
+dal = [-al[j] ** 2 * beta_inv(j, al) for j in range(n)]          # d alpha_j/dt
+lemma = {}
+for name, F in (('analytic', [csh[i] + sum(Em[i, j] * al[j] for j in range(n)) for i in range(n)]),
+                ('non-analytic', [sum(Bm[i, j] / (4 * sp.pi * bsym[j]) * sp.log(al[j]) for j in range(n)) for i in range(n)])):
+    ok_all = True
+    rows = []
+    for i in range(n):
+        dF = sum(sp.diff(F[i], a[j]) / e_ * dal[j] for j in range(n))      # dF/d alpha_j = (dF/d a_j)/epsilon
+        total = sp.expand(beta_inv(i, al) + dF)
+        coeff1 = sp.simplify(sp.series(total, e_, 0, 2).removeO().coeff(e_, 1))
+        target = -sum(Bm[i, j] * a[j] for j in range(n)) / (8 * sp.pi ** 2) if name == 'analytic' else sp.Integer(0)
+        good = sp.simplify(coeff1 - target) == 0
+        ok_all = ok_all and good
+        rows.append(str(coeff1))
+    lemma[name] = {'order-alpha coefficient of d(1/alpha_i)/dt': rows}
+    checks[f'H7_{name}_change'] = bool(ok_all)
+# the analytic change also moves alpha_j by O(alpha^2), so the order-alpha coefficient in the new couplings is the same
+out['H7'] = {'statement': 'analytic changes keep b_ij; the change with (b_ij/(4 pi b_j)) ln alpha_j removes them', **lemma}
+
+# ------------------------------------------------------------------ two-loop matrices (exact, as in cu_scheme.py)
+fam = [('Q', 3, Fr(1, 2), Fr(4, 3), 2, Fr(1, 2), Fr(3, 4), Fr(1, 6)), ('u^c', 3, Fr(1, 2), Fr(4, 3), 1, 0, 0, Fr(-2, 3)),
+       ('d^c', 3, Fr(1, 2), Fr(4, 3), 1, 0, 0, Fr(1, 3)), ('L', 1, 0, 0, 2, Fr(1, 2), Fr(3, 4), Fr(-1, 2)),
+       ('e^c', 1, 0, 0, 1, 0, 0, Fr(1)), ('nu^c', 1, 0, 0, 1, 0, 0, Fr(0))]
+Hd = ('H', 1, 0, 0, 2, Fr(1, 2), Fr(3, 4), Fr(1, 2))
+CAv = [Fr(0), Fr(2), Fr(3)]
+
+
+def SCm(m):
+    _, d3, T3, C3, d2, T2, C2, Y = m
+    y2 = Fr(3, 5) * Y * Y
+    return [y2 * d3 * d2, T2 * d3, T3 * d2], [y2, C2, C3]
+
+
+def two_loop(n_weyl16, n_h):
+    b1 = [-(Fr(11, 3)) * CAv[i] for i in range(3)]
+    bij = [[Fr(0)] * 3 for _ in range(3)]
+    for i in range(3):
+        bij[i][i] += -Fr(34, 3) * CAv[i] ** 2
+    for mult, count, kind in [(m, n_weyl16, 'weyl') for m in fam] + [(Hd, n_h, 'scalar')]:
+        S, Cq = SCm(mult)
+        for i in range(3):
+            b1[i] += count * (Fr(2, 3) if kind == 'weyl' else Fr(1, 3)) * S[i]
+            for j in range(3):
+                if i == j:
+                    bij[i][i] += count * S[i] * ((Fr(10, 3) * CAv[i] + 2 * Cq[i]) if kind == 'weyl' else (Fr(2, 3) * CAv[i] + 4 * Cq[i]))
+                else:
+                    bij[i][j] += count * S[i] * (2 * Cq[j] if kind == 'weyl' else 4 * Cq[j])
+    return [float(x) for x in b1], [[float(x) for x in r] for r in bij]
+
+
+MSSM = [[199 / 25, 27 / 5, 88 / 5], [9 / 5, 25.0, 24.0], [11 / 5, 9.0, 14.0]]
+CASES = {'(i) MSSM matrix (IMPORTED), declared slopes': ((33 / 5, 1.0, -3.0), MSSM),
+         '(ii) source census, two doublets': two_loop(6, 2),
+         '(iii) source census, one doublet': two_loop(6, 1)}
+checks['H3_source_slopes_two_doublets'] = bool(np.allclose(CASES['(ii) source census, two doublets'][0], [41 / 5, 1, -3]))
+checks['H3_source_slopes_one_doublet'] = bool(np.allclose(CASES['(iii) source census, one doublet'][0], [81 / 10, 5 / 6, -3]))
+
+
+def rge(t, x, b, bij):
+    al_ = 1.0 / x
+    return [-b[i] / (2 * pi) - sum(bij[i][j] * al_[j] for j in range(3)) / (8 * pi ** 2) for i in range(3)]
+
+
+def run(x0, t0, t1, b, bij, events=None):
+    return solve_ivp(rge, (t0, t1), x0, args=(b, bij), rtol=1e-12, atol=1e-12, dense_output=True, events=events)
+
+
+# ------------------------------------------------------------------ H3: MSbar meaning of the equality (upward from the anchor)
+h3, h4 = {}, {}
+for name, (b, bij) in CASES.items():
+    ch = C.solvex(P, R0, b=b)
+    if len(ch) != 1:
+        h3[name] = 'no chain root'
+        continue
+    ch = ch[0]
+    x0 = [ch['inv_a1'], ch['inv_a2'], ch['inv_a3']]
+    t0, tU = np.log(ch['mu']), np.log(ch['MU'])
+    tcell = np.log(ch['Ecell'])
+    up = run(x0, t0, tcell + 6.0, b, bij)
+    xU = up.sol(tU)
+    one_loop_check = [x0[i] - b[i] / (2 * pi) * (tU - t0) for i in range(3)]
+
+    def meet(i, j):
+        f = lambda t: up.sol(t)[i] - up.sol(t)[j]
+        ts = np.linspace(t0, tcell + 6.0, 4000)
+        fv = np.array([f(t) for t in ts])
+        k = np.where(np.sign(fv[:-1]) != np.sign(fv[1:]))[0]
+        if len(k) == 0:
+            return None
+        tm = brentq(f, ts[k[0]], ts[k[0] + 1], xtol=1e-13)
+        return {'R = ln(E_cell/mu)': float(tcell - tm), 'mu (GeV)': float(np.exp(tm)), '1/alpha there': float(up.sol(tm)[i])}
+    h3[name] = {'anchor (GeV)': ch['mu'], 'anchor couplings 1/alpha_i': x0, 'chain 1/alpha_U': ch['inv_aU'],
+                'one-loop values at M_U (check, equal 1/alpha_U)': one_loop_check,
+                'MSbar 1/alpha_i at M_U': xU.tolist(), 'offsets from 1/alpha_U': (xU - ch['inv_aU']).tolist(),
+                'differences (1-2, 2-3) at M_U': [float(xU[0] - xU[1]), float(xU[1] - xU[2])],
+                'pair (1,2) meets': meet(0, 1), 'pair (2,3) meets': meet(1, 2), 'chain R': R0}
+    checks[f'H3_one_loop_reference_{name[:5]}'] = bool(np.allclose(one_loop_check, ch['inv_aU'], atol=1e-9))
+    # ---------------------------------------------------------- H4: the converse (equal in MSbar at M_U, run down)
+    dn = run([ch['inv_aU']] * 3, tU, t0, b, bij)
+    xa = dn.y[:, -1]
+    h4[name] = {'MSbar 1/alpha_i at the chain anchor': xa.tolist(), 'one-loop chain values': x0,
+                'shifts (two-loop minus one-loop)': (xa - np.array(x0)).tolist(),
+                'shift differences (1-2, 2-3)': [float((xa - x0)[0] - (xa - x0)[1]), float((xa - x0)[1] - (xa - x0)[2])],
+                'anchor (GeV)': ch['mu'], 'b': list(b), 'bij': bij}
+    a2, aY, a3 = 1 / xa[1], 0.6 / xa[0], 1 / xa[2]
+    h4[name]['outputs at the anchor with MSbar couplings (alpha_U, M_U, v of the chain fixed)'] = {
+        'inv_a2': float(xa[1]), 'a3': float(a3), 's2': float(aY / (aY + a2)), 'inv_aem': float(1 / (a2 * aY / (a2 + aY))),
+        'closure left side over P/4': float((C.ell2(4 * pi * pi * a2) + C.ell3(4 * pi * pi * a3)) / (P / 4))}
+out['H3_MSbar_meaning_upward_from_anchor'] = h3
+out['H4_equal_in_MSbar_at_M_U_downward'] = h4
+
+# ------------------------------------------------------------------ H5: derived variant B1 and the declared R, three censuses, two prefactors
+h5 = {}
+for rname, R in (('R = 2 pi (B1, c = 0)', 2 * pi), ('R declared (c = 2/3)', R0)):
+    for bname, b in (('declared (33/5, 1, -3)', C.B_DECL), ('source two doublets (41/5, 1, -3)', C.B_SRC2),
+                     ('source as built, one doublet (81/10, 5/6, -3)', (81 / 10, 5 / 6, -3.0))):
+        for f in (1.0, 2.0):
+            r = C.solvex(P, R, b=b, delta_v=-(2 / pi) * np.log(f))
+            h5[f'{rname} | {bname} | prefactor {f:g}'] = C.row(r[0]) if len(r) == 1 else ('no root' if not r else [C.row(x) for x in r])
+out['H5_derived_variants'] = h5
+chk = h5['R declared (c = 2/3) | declared (33/5, 1, -3) | prefactor 1']
+checks['H5_reproduces_engine'] = bool(abs(chk['inv_aU'] - 24.316554454) < 1e-6 and abs(chk['v'] - 246.596733) < 1e-4)
+
+# ------------------------------------------------------------------ H6: precision bound on the scalar remainder
+sch = json.load(open(os.path.join(HERE, 'cu_scheme.json')))
+J = sch['G4_jacobian_d_ln_output_per_unit_shift']
+h6 = {}
+for lab in J:
+    jv = np.array([J[lab]['delta_1 (U(1) at M_U)']['v'], J[lab]['delta_2 (SU(2) at M_U)']['v'], J[lab]['delta_3 (SU(3) at M_U)']['v']])
+    js = np.array([J[lab]['delta_1 (U(1) at M_U)']['s2'], J[lab]['delta_2 (SU(2) at M_U)']['s2'], J[lab]['delta_3 (SU(3) at M_U)']['s2']])
+    row = {}
+    for nH in (1, 2):
+        rem = nH * np.array([1 / 10, 1 / 6, 0.0]) / (2 * pi)
+        dv = float(jv @ rem)
+        ds = float(js @ rem)
+        row[f'n_H = {nH}'] = {'remainder per unit (c_0 - c_1)': rem.tolist(), 'd ln v per unit (c_0 - c_1)': dv,
+                              '|c_0 - c_1| for one percent in v': 0.01 / abs(dv), 'd ln sin2 per unit (c_0 - c_1)': ds}
+    # BF's U(1) remainder and the non-abelian scale relabelling, as effects on v and sin2
+    for tr, du1 in (('5-trace', -3.0), ('15-trace', 1.5)):
+        row[f'BF {tr}: U(1) remainder {du1:+.1f} alone'] = {'d ln v': float(jv[0] * du1), 'd ln sin2': float(js[0] * du1)}
+    h6[lab] = row
+d3 = json.load(open(os.path.join(HERE, 'cu_sensitivity.json')))['D3_derivatives_at_declared_point']['declared slopes']['v']['d ln/dR']
+h6['scale relabelling of the gauge class from BF (pair (2,3)), as a shift of R'] = {
+    '5-trace: ln 40.157': float(np.log(40.15710413650219)), '15-trace: ln 4.7153': float(np.log(4.715261489171574)),
+    'd ln v/dR at the declared point': d3,
+    'd ln v for these shifts (linear)': [float(d3 * np.log(40.15710413650219)), float(d3 * np.log(4.715261489171574))],
+    'shift of R for one percent in v': float(0.01 / d3)}
+h6['heat-kernel regulator'] = {'cross terms between factors': 0, 'Jacobian coefficient of |X|^2 per factor (SU3, SU2, U1)': [-3 / 24, -2 / 24, 0.0],
+                               'proportional to C_A': True, 'label': 'ARGUED beyond the Jacobian order'}
+out['H6_regulator_and_precision'] = h6
+
+out['checks'] = checks
+out['all_checks_pass'] = all(checks.values())
+json.dump(out, open(os.path.join(HERE, 'cu_scheme2.json'), 'w'), indent=1)
+
+print('checks', json.dumps(checks, indent=0))
+print('H1', json.dumps(out['H1'], indent=0))
+print('H7', json.dumps(out['H7'], indent=0)[:1500])
+for name, r in h3.items():
+    print('H3', name)
+    if isinstance(r, str):
+        print('   ', r)
+        continue
+    print('    MSbar at M_U', [round(x, 4) for x in r['MSbar 1/alpha_i at M_U']], 'offsets', [round(x, 4) for x in r['offsets from 1/alpha_U']],
+          'diffs', [round(x, 4) for x in r['differences (1-2, 2-3) at M_U']])
+    print('    meets (1,2)', r['pair (1,2) meets'], '(2,3)', r['pair (2,3) meets'])
+for name, r in h4.items():
+    print('H4', name, 'shifts', [round(x, 4) for x in r['shifts (two-loop minus one-loop)']], 'diffs', [round(x, 4) for x in r['shift differences (1-2, 2-3)']])
+    print('    outputs', {k: round(v, 5) for k, v in r['outputs at the anchor with MSbar couplings (alpha_U, M_U, v of the chain fixed)'].items()})
+print(f"{'H5 row':80s} {'1/aU':>8s} {'v':>9s} {'mZ':>8s} {'mW':>8s} {'1/a2':>7s} {'a3':>8s} {'sin2':>8s} {'1/aem':>8s}")
+for k, d in h5.items():
+    if isinstance(d, dict):
+        print(f"{k:80s} {d['inv_aU']:8.4f} {d['v']:9.3f} {d['mz']:8.3f} {d['mw']:8.3f} {d['inv_a2']:7.3f} {d['a3']:8.5f} {d['s2']:8.5f} {d['inv_aem']:8.3f}")
+    else:
+        print(k, d)
+print('H6', json.dumps(h6, indent=0)[:3000])

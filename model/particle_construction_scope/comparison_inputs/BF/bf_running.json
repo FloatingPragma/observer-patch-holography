@@ -1,0 +1,907 @@
+{
+ "E_cell_GeV": 9.559898277065234e+18,
+ "ln(E_cell/m_Z_source)": 39.18680492591414,
+ "x_v": 38.19635432884911,
+ "bound_inv_alpha3_needed": {
+  "VL (81/10, 5/6, -3)": 18.23741579857755,
+  "SM (41/10, -19/6, -7)": 42.55397019668096,
+  "B (61/10, -7/6, -5)": 30.395692997629254
+ },
+ "cell_couplings": {
+  "bare equal (cut closure)": {
+   "inv_alpha_1_2_3": [
+    16.2453,
+    16.2453,
+    16.2453
+   ],
+   "kind": "bare"
+  },
+  "full register, F=5, Hamiltonian (xi = inf)": {
+   "inv_alpha_1_2_3": [
+    13.494979655850527,
+    12.18545993007589,
+    10.030525334016133
+   ],
+   "kind": "computed matching"
+  },
+  "full register, F=5, CF-1 field step (xi = 2)": {
+   "inv_alpha_1_2_3": [
+    12.772888235104165,
+    12.080174593072009,
+    9.839774991203658
+   ],
+   "kind": "computed matching"
+  },
+  "full register, F=5, isotropic Euclidean (xi = 1)": {
+   "inv_alpha_1_2_3": [
+    12.789548081051228,
+    12.287999291195128,
+    10.152269304113203
+   ],
+   "kind": "computed matching"
+  },
+  "menu M1, F=5, mean-field rule on the Hamiltonian row": {
+   "inv_alpha_1_2_3": [
+    1.2741973789683385,
+    -0.8630781504799501,
+    -0.8309791468474987
+   ],
+   "kind": "mean-field estimate",
+   "mean_field_state": "confined (u = 0)"
+  },
+  "menu M2, F=5, mean-field rule on the Hamiltonian row": {
+   "inv_alpha_1_2_3": [
+    6.694051804398516,
+    6.133923825706598,
+    -0.8309791468474987
+   ],
+   "kind": "mean-field estimate",
+   "mean_field_state": "u > 0 on colourless blocks only"
+  },
+  "menu M3, F=5, mean-field rule on the Hamiltonian row": {
+   "inv_alpha_1_2_3": [
+    9.074340458700613,
+    8.04898943735887,
+    4.910811264289728
+   ],
+   "kind": "mean-field estimate",
+   "mean_field_state": "u > 0 on all blocks"
+  },
+  "menu M4, F=5, mean-field rule on the Hamiltonian row": {
+   "inv_alpha_1_2_3": [
+    10.876787567426325,
+    9.754934645709533,
+    7.0055412677630935
+   ],
+   "kind": "mean-field estimate",
+   "mean_field_state": "u > 0 on all blocks"
+  },
+  "full register, F=15, Hamiltonian (xi = inf)": {
+   "inv_alpha_1_2_3": [
+    13.244950533655121,
+    9.935197830317234,
+    9.030408845234508
+   ],
+   "kind": "computed matching"
+  },
+  "full register, F=15, CF-1 field step (xi = 2)": {
+   "inv_alpha_1_2_3": [
+    12.457214438295455,
+    9.239110421793605,
+    8.577079803968811
+   ],
+   "kind": "computed matching"
+  },
+  "full register, F=15, isotropic Euclidean (xi = 1)": {
+   "inv_alpha_1_2_3": [
+    12.47538881569225,
+    9.46056590296432,
+    8.89563224267729
+   ],
+   "kind": "computed matching"
+  },
+  "menu M1, F=15, mean-field rule on the Hamiltonian row": {
+   "inv_alpha_1_2_3": [
+    6.348211784163975,
+    0.9943254925155163,
+    0.3535372695319694
+   ],
+   "kind": "mean-field estimate",
+   "mean_field_state": "u > 0 on colourless blocks only"
+  },
+  "menu M2, F=15, mean-field rule on the Hamiltonian row": {
+   "inv_alpha_1_2_3": [
+    8.288344878582507,
+    3.5934068240392323,
+    0.3535372695319694
+   ],
+   "kind": "mean-field estimate",
+   "mean_field_state": "u > 0 on colourless blocks only"
+  },
+  "menu M3, F=15, mean-field rule on the Hamiltonian row": {
+   "inv_alpha_1_2_3": [
+    9.437570216744868,
+    5.057913614468107,
+    0.3535372695319694
+   ],
+   "kind": "mean-field estimate",
+   "mean_field_state": "u > 0 on colourless blocks only"
+  },
+  "menu M4, F=15, mean-field rule on the Hamiltonian row": {
+   "inv_alpha_1_2_3": [
+    11.111257177400743,
+    7.467976080727828,
+    6.268086110876594
+   ],
+   "kind": "mean-field estimate",
+   "mean_field_state": "u > 0 on all blocks"
+  }
+ },
+ "P2_upper_bound_on_inv_alpha_3_of_the_menus": {
+  "F=5, M1": {
+   "bare_equivalent_inv_alpha_upper_bound": 8.888440016169858,
+   "bound_is_below_the_bare_value": true,
+   "inv_alpha_3_MSbar_upper_bound": 2.6736653501859893,
+   "exponential_form": -0.8773898685618482
+  },
+  "F=5, M2": {
+   "bare_equivalent_inv_alpha_upper_bound": 13.021181719102968,
+   "bound_is_below_the_bare_value": true,
+   "inv_alpha_3_MSbar_upper_bound": 6.806407053119099,
+   "exponential_form": 3.4990959286728875
+  },
+  "F=5, M3": {
+   "bare_equivalent_inv_alpha_upper_bound": 18.24914189127875,
+   "bound_is_below_the_bare_value": false,
+   "inv_alpha_3_MSbar_upper_bound": 10.030525334016133,
+   "exponential_form": 8.835161214354372
+  },
+  "F=5, M4": {
+   "bare_equivalent_inv_alpha_upper_bound": 24.521434729481772,
+   "bound_is_below_the_bare_value": false,
+   "inv_alpha_3_MSbar_upper_bound": 10.030525334016133,
+   "exponential_form": 10.030525334016133
+  },
+  "F=15, M1": {
+   "bare_equivalent_inv_alpha_upper_bound": 10.469218837133731,
+   "bound_is_below_the_bare_value": true,
+   "inv_alpha_3_MSbar_upper_bound": 3.2543276823682383,
+   "exponential_form": -1.6775885386938905
+  },
+  "F=15, M2": {
+   "bare_equivalent_inv_alpha_upper_bound": 14.433771008897693,
+   "bound_is_below_the_bare_value": true,
+   "inv_alpha_3_MSbar_upper_bound": 7.218879854132201,
+   "exponential_form": 2.68535692082434
+  },
+  "F=15, M3": {
+   "bare_equivalent_inv_alpha_upper_bound": 19.571072910254248,
+   "bound_is_below_the_bare_value": false,
+   "inv_alpha_3_MSbar_upper_bound": 9.030408845234508,
+   "exponential_form": 8.00686160226319
+  },
+  "F=15, M4": {
+   "bare_equivalent_inv_alpha_upper_bound": 25.7882339600509,
+   "bound_is_below_the_bare_value": false,
+   "inv_alpha_3_MSbar_upper_bound": 9.030408845234508,
+   "exponential_form": 9.030408845234508
+  }
+ },
+ "rows": {
+  "bare equal (cut closure) | VL (81/10, 5/6, -3)": {
+   "inv_alpha_3_cell": 16.2453,
+   "needed": 18.23741579857755,
+   "margin": -1.9921157985775508,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 2.672302947866178,
+   "colour_pole_x = ln(E_cell/mu)": 34.02407675690818,
+   "colour_pole_GeV": 15995.00881538078,
+   "colour_pole_over_E_star": 1.3101105599505917e-15,
+   "inv_alpha_123_at_m_Z_source": [
+    66.76316703429026,
+    21.44261142328089,
+    -2.465021123811205
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "bare equal (cut closure) | SM (41/10, -19/6, -7)": {
+   "inv_alpha_3_cell": 16.2453,
+   "needed": 42.55397019668096,
+   "margin": -26.308670196680957,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 2.672302947866178,
+   "colour_pole_x = ln(E_cell/mu)": 14.581747181532076,
+   "colour_pole_GeV": 4443047269376.336,
+   "colour_pole_over_E_star": 3.6391872071819215e-07,
+   "inv_alpha_123_at_m_Z_source": [
+    41.816072202541974,
+    -3.504483408467383,
+    -27.41211595555948
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "bare equal (cut closure) | B (61/10, -7/6, -5)": {
+   "inv_alpha_3_cell": 16.2453,
+   "needed": 30.395692997629254,
+   "margin": -14.150392997629254,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 2.672302947866178,
+   "colour_pole_x = ln(E_cell/mu)": 20.414446054144907,
+   "colour_pole_GeV": 13018831280.302969,
+   "colour_pole_over_E_star": 1.0663394147140995e-09,
+   "inv_alpha_123_at_m_Z_source": [
+    54.28961961841612,
+    8.969064007406754,
+    -14.938568539685342
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "full register, F=5, Hamiltonian (xi = inf) | VL (81/10, 5/6, -3)": {
+   "inv_alpha_3_cell": 10.030525334016133,
+   "needed": 18.23741579857755,
+   "margin": -8.206890464561418,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 1.6499912232299616,
+   "colour_pole_x = ln(E_cell/mu)": 21.00788313399426,
+   "colour_pole_GeV": 7191931621.055874,
+   "colour_pole_over_E_star": 5.890728584111487e-10,
+   "inv_alpha_123_at_m_Z_source": [
+    64.01284669014078,
+    17.38277135335678,
+    -8.679795789795072
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "full register, F=5, Hamiltonian (xi = inf) | SM (41/10, -19/6, -7)": {
+   "inv_alpha_3_cell": 10.030525334016133,
+   "needed": 42.55397019668096,
+   "margin": -32.523444862664824,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 1.6499912232299616,
+   "colour_pole_x = ln(E_cell/mu)": 9.00337848599754,
+   "colour_pole_GeV": 1175806011329235.0,
+   "colour_pole_over_E_star": 9.630728495845122e-05,
+   "inv_alpha_123_at_m_Z_source": [
+    39.0657518583925,
+    -7.564323478391493,
+    -33.626890621543346
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "full register, F=5, Hamiltonian (xi = inf) | B (61/10, -7/6, -5)": {
+   "inv_alpha_3_cell": 10.030525334016133,
+   "needed": 30.395692997629254,
+   "margin": -20.36516766361312,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 1.6499912232299616,
+   "colour_pole_x = ln(E_cell/mu)": 12.604729880396556,
+   "colour_pole_GeV": 32084009644303.99,
+   "colour_pole_over_E_star": 2.62791976708008e-06,
+   "inv_alpha_123_at_m_Z_source": [
+    51.53929927426665,
+    4.9092239374826425,
+    -21.15334320566921
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "full register, F=5, CF-1 field step (xi = 2) | VL (81/10, 5/6, -3)": {
+   "inv_alpha_3_cell": 9.839774991203658,
+   "needed": 18.23741579857755,
+   "margin": -8.397640807373893,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 1.6186133660402353,
+   "colour_pole_x = ln(E_cell/mu)": 20.60837655022799,
+   "colour_pole_GeV": 10723808609.161474,
+   "colour_pole_over_E_star": 8.783599348967945e-10,
+   "inv_alpha_123_at_m_Z_source": [
+    63.290755269394424,
+    17.2774860163529,
+    -8.870546132607547
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "full register, F=5, CF-1 field step (xi = 2) | SM (41/10, -19/6, -7)": {
+   "inv_alpha_3_cell": 9.839774991203658,
+   "needed": 42.55397019668096,
+   "margin": -32.714195205477296,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 1.6186133660402353,
+   "colour_pole_x = ln(E_cell/mu)": 8.832161378669138,
+   "colour_pole_GeV": 1395385870700944.2,
+   "colour_pole_over_E_star": 0.00011429251371548168,
+   "inv_alpha_123_at_m_Z_source": [
+    38.34366043764614,
+    -7.6696088153953745,
+    -33.81764096435582
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "full register, F=5, CF-1 field step (xi = 2) | B (61/10, -7/6, -5)": {
+   "inv_alpha_3_cell": 9.839774991203658,
+   "needed": 30.395692997629254,
+   "margin": -20.555918006425596,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 1.6186133660402353,
+   "colour_pole_x = ln(E_cell/mu)": 12.365025930136794,
+   "colour_pole_GeV": 40774696873772.82,
+   "colour_pole_over_E_star": 3.339751891961833e-06,
+   "inv_alpha_123_at_m_Z_source": [
+    50.81720785352029,
+    4.803938600478761,
+    -21.344093548481684
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "full register, F=5, isotropic Euclidean (xi = 1) | VL (81/10, 5/6, -3)": {
+   "inv_alpha_3_cell": 10.152269304113203,
+   "needed": 18.23741579857755,
+   "margin": -8.085146494464349,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 1.6700177398332456,
+   "colour_pole_x = ln(E_cell/mu)": 21.262863108711468,
+   "colour_pole_GeV": 5573258070.3156395,
+   "colour_pole_over_E_star": 4.564914177620948e-10,
+   "inv_alpha_123_at_m_Z_source": [
+    63.307415115341485,
+    17.485310714476018,
+    -8.558051819698003
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "full register, F=5, isotropic Euclidean (xi = 1) | SM (41/10, -19/6, -7)": {
+   "inv_alpha_3_cell": 10.152269304113203,
+   "needed": 42.55397019668096,
+   "margin": -32.40170089256775,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 1.6700177398332456,
+   "colour_pole_x = ln(E_cell/mu)": 9.1126556180192,
+   "colour_pole_GeV": 1054088853179420.5,
+   "colour_pole_over_E_star": 8.633774158027509e-05,
+   "inv_alpha_123_at_m_Z_source": [
+    38.360320283593204,
+    -7.461784117272256,
+    -33.505146651446275
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "full register, F=5, isotropic Euclidean (xi = 1) | B (61/10, -7/6, -5)": {
+   "inv_alpha_3_cell": 10.152269304113203,
+   "needed": 30.395692997629254,
+   "margin": -20.24342369351605,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 1.6700177398332456,
+   "colour_pole_x = ln(E_cell/mu)": 12.75771786522688,
+   "colour_pole_GeV": 27532573077210.457,
+   "colour_pole_over_E_star": 2.255123154191652e-06,
+   "inv_alpha_123_at_m_Z_source": [
+    50.83386769946735,
+    5.01176329860188,
+    -21.031599235572138
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "menu M1, F=5, mean-field rule on the Hamiltonian row | VL (81/10, 5/6, -3)": {
+   "inv_alpha_3_cell": -0.8309791468474987,
+   "needed": 18.23741579857755,
+   "margin": -19.068394945425048,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 0.0,
+   "colour_pole": "at or above the cell (no weak-coupling colour at E_cell)",
+   "inv_alpha_123_at_m_Z_source": [
+    51.79206441325859,
+    4.33423327280094,
+    -19.541300270658702
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "menu M1, F=5, mean-field rule on the Hamiltonian row | SM (41/10, -19/6, -7)": {
+   "inv_alpha_3_cell": -0.8309791468474987,
+   "needed": 42.55397019668096,
+   "margin": -43.384949343528454,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 0.0,
+   "colour_pole": "at or above the cell (no weak-coupling colour at E_cell)",
+   "inv_alpha_123_at_m_Z_source": [
+    26.844969581510316,
+    -20.612861558947333,
+    -44.488395102406976
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "menu M1, F=5, mean-field rule on the Hamiltonian row | B (61/10, -7/6, -5)": {
+   "inv_alpha_3_cell": -0.8309791468474987,
+   "needed": 30.395692997629254,
+   "margin": -31.22667214447675,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 0.0,
+   "colour_pole": "at or above the cell (no weak-coupling colour at E_cell)",
+   "inv_alpha_123_at_m_Z_source": [
+    39.31851699738446,
+    -8.139314143073197,
+    -32.01484768653284
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "menu M2, F=5, mean-field rule on the Hamiltonian row | VL (81/10, 5/6, -3)": {
+   "inv_alpha_3_cell": -0.8309791468474987,
+   "needed": 18.23741579857755,
+   "margin": -19.068394945425048,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 0.0,
+   "colour_pole": "at or above the cell (no weak-coupling colour at E_cell)",
+   "inv_alpha_123_at_m_Z_source": [
+    57.211918838688774,
+    11.33123524898749,
+    -19.541300270658702
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "menu M2, F=5, mean-field rule on the Hamiltonian row | SM (41/10, -19/6, -7)": {
+   "inv_alpha_3_cell": -0.8309791468474987,
+   "needed": 42.55397019668096,
+   "margin": -43.384949343528454,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 0.0,
+   "colour_pole": "at or above the cell (no weak-coupling colour at E_cell)",
+   "inv_alpha_123_at_m_Z_source": [
+    32.26482400694049,
+    -13.615859582760784,
+    -44.488395102406976
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "menu M2, F=5, mean-field rule on the Hamiltonian row | B (61/10, -7/6, -5)": {
+   "inv_alpha_3_cell": -0.8309791468474987,
+   "needed": 30.395692997629254,
+   "margin": -31.22667214447675,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 0.0,
+   "colour_pole": "at or above the cell (no weak-coupling colour at E_cell)",
+   "inv_alpha_123_at_m_Z_source": [
+    44.73837142281464,
+    -1.142312166886649,
+    -32.01484768653284
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "menu M3, F=5, mean-field rule on the Hamiltonian row | VL (81/10, 5/6, -3)": {
+   "inv_alpha_3_cell": 4.910811264289728,
+   "needed": 18.23741579857755,
+   "margin": -13.326604534287824,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 0.8078136702908455,
+   "colour_pole_x = ln(E_cell/mu)": 10.285179060705742,
+   "colour_pole_GeV": 326329818718921.4,
+   "colour_pole_over_E_star": 2.67288468837423e-05,
+   "inv_alpha_123_at_m_Z_source": [
+    59.592207492990866,
+    13.24630086063976,
+    -13.799509859521478
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "menu M3, F=5, mean-field rule on the Hamiltonian row | SM (41/10, -19/6, -7)": {
+   "inv_alpha_3_cell": 4.910811264289728,
+   "needed": 42.55397019668096,
+   "margin": -37.64315893239123,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 0.8078136702908455,
+   "colour_pole_x = ln(E_cell/mu)": 4.407933883159603,
+   "colour_pole_GeV": 1.1644260403243333e+17,
+   "colour_pole_over_E_star": 0.009537518042774806,
+   "inv_alpha_123_at_m_Z_source": [
+    34.64511266124259,
+    -11.700793971108514,
+    -38.74660469126975
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "menu M3, F=5, mean-field rule on the Hamiltonian row | B (61/10, -7/6, -5)": {
+   "inv_alpha_3_cell": 4.910811264289728,
+   "needed": 30.395692997629254,
+   "margin": -25.484881733339527,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 0.8078136702908455,
+   "colour_pole_x = ln(E_cell/mu)": 6.171107436423445,
+   "colour_pole_GeV": 1.9969875820202596e+16,
+   "colour_pole_over_E_star": 0.0016356818239319346,
+   "inv_alpha_123_at_m_Z_source": [
+    47.11866007711673,
+    0.7727534447656224,
+    -26.273057275395615
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "menu M4, F=5, mean-field rule on the Hamiltonian row | VL (81/10, 5/6, -3)": {
+   "inv_alpha_3_cell": 7.0055412677630935,
+   "needed": 18.23741579857755,
+   "margin": -11.231874530814459,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 1.1523904502373903,
+   "colour_pole_x = ln(E_cell/mu)": 14.67237132081644,
+   "colour_pole_GeV": 4058105843258.6025,
+   "colour_pole_over_E_star": 3.323891458901787e-07,
+   "inv_alpha_123_at_m_Z_source": [
+    61.39465460171658,
+    14.952246068990423,
+    -11.704779856048113
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "menu M4, F=5, mean-field rule on the Hamiltonian row | SM (41/10, -19/6, -7)": {
+   "inv_alpha_3_cell": 7.0055412677630935,
+   "needed": 42.55397019668096,
+   "margin": -35.548428928917865,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 1.1523904502373903,
+   "colour_pole_x = ln(E_cell/mu)": 6.288159137492761,
+   "colour_pole_GeV": 1.7763987398078492e+16,
+   "colour_pole_over_E_star": 0.0014550031041353842,
+   "inv_alpha_123_at_m_Z_source": [
+    36.4475597699683,
+    -9.99484876275785,
+    -36.651874687796386
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "menu M4, F=5, mean-field rule on the Hamiltonian row | B (61/10, -7/6, -5)": {
+   "inv_alpha_3_cell": 7.0055412677630935,
+   "needed": 30.395692997629254,
+   "margin": -23.39015172986616,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 1.1523904502373903,
+   "colour_pole_x = ln(E_cell/mu)": 8.803422792489865,
+   "colour_pole_GeV": 1436069076705741.5,
+   "colour_pole_over_E_star": 0.00011762477182266555,
+   "inv_alpha_123_at_m_Z_source": [
+    48.921107185842445,
+    2.478698653116285,
+    -24.17832727192225
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "full register, F=15, Hamiltonian (xi = inf) | VL (81/10, 5/6, -3)": {
+   "inv_alpha_3_cell": 9.030408845234508,
+   "needed": 18.23741579857755,
+   "margin": -9.207006953343043,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 1.4854750714087757,
+   "colour_pole_x = ln(E_cell/mu)": 18.913244058067345,
+   "colour_pole_GeV": 58416528112.126335,
+   "colour_pole_over_E_star": 4.784749495214666e-09,
+   "inv_alpha_123_at_m_Z_source": [
+    63.762817567945376,
+    15.132509253598124,
+    -9.679912278576698
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "full register, F=15, Hamiltonian (xi = inf) | SM (41/10, -19/6, -7)": {
+   "inv_alpha_3_cell": 9.030408845234508,
+   "needed": 42.55397019668096,
+   "margin": -33.523561351446446,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 1.4854750714087757,
+   "colour_pole_x = ln(E_cell/mu)": 8.105676024886005,
+   "colour_pole_GeV": 2885379231251052.5,
+   "colour_pole_over_E_star": 0.00023633408671141975,
+   "inv_alpha_123_at_m_Z_source": [
+    38.8157227361971,
+    -9.81458557815015,
+    -34.62700711032497
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "full register, F=15, Hamiltonian (xi = inf) | B (61/10, -7/6, -5)": {
+   "inv_alpha_3_cell": 9.030408845234508,
+   "needed": 30.395692997629254,
+   "margin": -21.365284152394747,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 1.4854750714087757,
+   "colour_pole_x = ln(E_cell/mu)": 11.347946434840406,
+   "colour_pole_GeV": 112746418132975.47,
+   "colour_pole_over_E_star": 9.234772840548736e-06,
+   "inv_alpha_123_at_m_Z_source": [
+    51.28927015207124,
+    2.6589618377239868,
+    -22.153459694450834
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "full register, F=15, CF-1 field step (xi = 2) | VL (81/10, 5/6, -3)": {
+   "inv_alpha_3_cell": 8.577079803968811,
+   "needed": 18.23741579857755,
+   "margin": -9.66033599460874,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 1.4109038087464876,
+   "colour_pole_x = ln(E_cell/mu)": 17.963793934267866,
+   "colour_pole_GeV": 150965146034.92386,
+   "colour_pole_over_E_star": 1.2365171803759869e-08,
+   "inv_alpha_123_at_m_Z_source": [
+    62.975081472585714,
+    14.436421845074495,
+    -10.133241319842394
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "full register, F=15, CF-1 field step (xi = 2) | SM (41/10, -19/6, -7)": {
+   "inv_alpha_3_cell": 8.577079803968811,
+   "needed": 42.55397019668096,
+   "margin": -33.97689039271215,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 1.4109038087464876,
+   "colour_pole_x = ln(E_cell/mu)": 7.698768828971943,
+   "colour_pole_GeV": 4334314804711127.5,
+   "colour_pole_over_E_star": 0.00035501272061456214,
+   "inv_alpha_123_at_m_Z_source": [
+    38.02798664083743,
+    -10.510672986673779,
+    -35.08033615159067
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "full register, F=15, CF-1 field step (xi = 2) | B (61/10, -7/6, -5)": {
+   "inv_alpha_3_cell": 8.577079803968811,
+   "needed": 30.395692997629254,
+   "margin": -21.818613193660443,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 1.4109038087464876,
+   "colour_pole_x = ln(E_cell/mu)": 10.77827636056072,
+   "colour_pole_GeV": 199300011303729.53,
+   "colour_pole_over_E_star": 1.6324157893317952e-05,
+   "inv_alpha_123_at_m_Z_source": [
+    50.50153405671158,
+    1.9628744292003573,
+    -22.60678873571653
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "full register, F=15, isotropic Euclidean (xi = 1) | VL (81/10, 5/6, -3)": {
+   "inv_alpha_3_cell": 8.89563224267729,
+   "needed": 18.23741579857755,
+   "margin": -9.34178355590026,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 1.4633047259970542,
+   "colour_pole_x = ln(E_cell/mu)": 18.630968601754315,
+   "colour_pole_GeV": 77468726177.50964,
+   "colour_pole_over_E_star": 6.345266664278489e-09,
+   "inv_alpha_123_at_m_Z_source": [
+    62.9932558499825,
+    14.65787732624521,
+    -9.814688881133915
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "full register, F=15, isotropic Euclidean (xi = 1) | SM (41/10, -19/6, -7)": {
+   "inv_alpha_3_cell": 8.89563224267729,
+   "needed": 42.55397019668096,
+   "margin": -33.65833795400367,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 1.4633047259970542,
+   "colour_pole_x = ln(E_cell/mu)": 7.984700829323278,
+   "colour_pole_GeV": 3256430107099165.5,
+   "colour_pole_over_E_star": 0.00026672592183564167,
+   "inv_alpha_123_at_m_Z_source": [
+    38.04616101823423,
+    -10.289217505503064,
+    -34.76178371288219
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "full register, F=15, isotropic Euclidean (xi = 1) | B (61/10, -7/6, -5)": {
+   "inv_alpha_3_cell": 8.89563224267729,
+   "needed": 30.395692997629254,
+   "margin": -21.500060754951964,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 1.4633047259970542,
+   "colour_pole_x = ln(E_cell/mu)": 11.178581161052588,
+   "colour_pole_GeV": 133554079198548.52,
+   "colour_pole_over_E_star": 1.0939075526750855e-05,
+   "inv_alpha_123_at_m_Z_source": [
+    50.51970843410837,
+    2.184329910371072,
+    -22.28823629700805
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "menu M1, F=15, mean-field rule on the Hamiltonian row | VL (81/10, 5/6, -3)": {
+   "inv_alpha_3_cell": 0.3535372695319694,
+   "needed": 18.23741579857755,
+   "margin": -17.88387852904558,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 0.05815581660854779,
+   "colour_pole_x = ln(E_cell/mu)": 0.7404467258212198,
+   "colour_pole_GeV": 4.5591233658376346e+18,
+   "colour_pole_over_E_star": 0.3734262190563961,
+   "inv_alpha_123_at_m_Z_source": [
+    56.86607881845423,
+    6.191636915796407,
+    -18.356783854279236
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "menu M1, F=15, mean-field rule on the Hamiltonian row | SM (41/10, -19/6, -7)": {
+   "inv_alpha_3_cell": 0.3535372695319694,
+   "needed": 42.55397019668096,
+   "margin": -42.20043292714899,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 0.05815581660854779,
+   "colour_pole_x = ln(E_cell/mu)": 0.31733431106623705,
+   "colour_pole_GeV": 6.96044058973848e+18,
+   "colour_pole_over_E_star": 0.570112015803101,
+   "inv_alpha_123_at_m_Z_source": [
+    31.918983986705953,
+    -18.755457915951865,
+    -43.30387868602751
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "menu M1, F=15, mean-field rule on the Hamiltonian row | B (61/10, -7/6, -5)": {
+   "inv_alpha_3_cell": 0.3535372695319694,
+   "needed": 30.395692997629254,
+   "margin": -30.042155728097285,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 0.05815581660854779,
+   "colour_pole_x = ln(E_cell/mu)": 0.44426803549273186,
+   "colour_pole_GeV": 6.130700705735847e+18,
+   "colour_pole_over_E_star": 0.5021501286549851,
+   "inv_alpha_123_at_m_Z_source": [
+    44.39253140258009,
+    -6.281910500077731,
+    -30.830331270153373
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "menu M2, F=15, mean-field rule on the Hamiltonian row | VL (81/10, 5/6, -3)": {
+   "inv_alpha_3_cell": 0.3535372695319694,
+   "needed": 18.23741579857755,
+   "margin": -17.88387852904558,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 0.05815581660854779,
+   "colour_pole_x = ln(E_cell/mu)": 0.7404467258212198,
+   "colour_pole_GeV": 4.5591233658376346e+18,
+   "colour_pole_over_E_star": 0.3734262190563961,
+   "inv_alpha_123_at_m_Z_source": [
+    58.80621191287276,
+    8.790718247320122,
+    -18.356783854279236
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "menu M2, F=15, mean-field rule on the Hamiltonian row | SM (41/10, -19/6, -7)": {
+   "inv_alpha_3_cell": 0.3535372695319694,
+   "needed": 42.55397019668096,
+   "margin": -42.20043292714899,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 0.05815581660854779,
+   "colour_pole_x = ln(E_cell/mu)": 0.31733431106623705,
+   "colour_pole_GeV": 6.96044058973848e+18,
+   "colour_pole_over_E_star": 0.570112015803101,
+   "inv_alpha_123_at_m_Z_source": [
+    33.85911708112448,
+    -16.156376584428152,
+    -43.30387868602751
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "menu M2, F=15, mean-field rule on the Hamiltonian row | B (61/10, -7/6, -5)": {
+   "inv_alpha_3_cell": 0.3535372695319694,
+   "needed": 30.395692997629254,
+   "margin": -30.042155728097285,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 0.05815581660854779,
+   "colour_pole_x = ln(E_cell/mu)": 0.44426803549273186,
+   "colour_pole_GeV": 6.130700705735847e+18,
+   "colour_pole_over_E_star": 0.5021501286549851,
+   "inv_alpha_123_at_m_Z_source": [
+    46.332664496998625,
+    -3.682829168554015,
+    -30.830331270153373
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "menu M3, F=15, mean-field rule on the Hamiltonian row | VL (81/10, 5/6, -3)": {
+   "inv_alpha_3_cell": 0.3535372695319694,
+   "needed": 18.23741579857755,
+   "margin": -17.88387852904558,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 0.05815581660854779,
+   "colour_pole_x = ln(E_cell/mu)": 0.7404467258212198,
+   "colour_pole_GeV": 4.5591233658376346e+18,
+   "colour_pole_over_E_star": 0.3734262190563961,
+   "inv_alpha_123_at_m_Z_source": [
+    59.95543725103512,
+    10.255225037748996,
+    -18.356783854279236
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "menu M3, F=15, mean-field rule on the Hamiltonian row | SM (41/10, -19/6, -7)": {
+   "inv_alpha_3_cell": 0.3535372695319694,
+   "needed": 42.55397019668096,
+   "margin": -42.20043292714899,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 0.05815581660854779,
+   "colour_pole_x = ln(E_cell/mu)": 0.31733431106623705,
+   "colour_pole_GeV": 6.96044058973848e+18,
+   "colour_pole_over_E_star": 0.570112015803101,
+   "inv_alpha_123_at_m_Z_source": [
+    35.00834241928685,
+    -14.691869793999278,
+    -43.30387868602751
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "menu M3, F=15, mean-field rule on the Hamiltonian row | B (61/10, -7/6, -5)": {
+   "inv_alpha_3_cell": 0.3535372695319694,
+   "needed": 30.395692997629254,
+   "margin": -30.042155728097285,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 0.05815581660854779,
+   "colour_pole_x = ln(E_cell/mu)": 0.44426803549273186,
+   "colour_pole_GeV": 6.130700705735847e+18,
+   "colour_pole_over_E_star": 0.5021501286549851,
+   "inv_alpha_123_at_m_Z_source": [
+    47.481889835160985,
+    -2.2183223781251407,
+    -30.830331270153373
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "menu M4, F=15, mean-field rule on the Hamiltonian row | VL (81/10, 5/6, -3)": {
+   "inv_alpha_3_cell": 6.268086110876594,
+   "needed": 18.23741579857755,
+   "margin": -11.969329687700956,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 1.031081296841214,
+   "colour_pole_x = ln(E_cell/mu)": 13.12784885199875,
+   "colour_pole_GeV": 19015202532080.75,
+   "colour_pole_over_E_star": 1.5574869588644965e-06,
+   "inv_alpha_123_at_m_Z_source": [
+    61.629124211691,
+    12.665287504008718,
+    -12.44223501293461
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "menu M4, F=15, mean-field rule on the Hamiltonian row | SM (41/10, -19/6, -7)": {
+   "inv_alpha_3_cell": 6.268086110876594,
+   "needed": 42.55397019668096,
+   "margin": -36.28588408580436,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 1.031081296841214,
+   "colour_pole_x = ln(E_cell/mu)": 5.626220936570894,
+   "colour_pole_GeV": 3.4436306486856524e+16,
+   "colour_pole_over_E_star": 0.002820590428855714,
+   "inv_alpha_123_at_m_Z_source": [
+    36.68202937994272,
+    -12.281807327739555,
+    -37.389329844682884
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  },
+  "menu M4, F=15, mean-field rule on the Hamiltonian row | B (61/10, -7/6, -5)": {
+   "inv_alpha_3_cell": 6.268086110876594,
+   "needed": 30.395692997629254,
+   "margin": -24.12760688675266,
+   "bound_met": false,
+   "largest_abs_b3_allowed_by_this_cell_value": 1.031081296841214,
+   "colour_pole_x = ln(E_cell/mu)": 7.876709311199251,
+   "colour_pole_GeV": 3627787848245355.5,
+   "colour_pole_over_E_star": 0.0002971428915172829,
+   "inv_alpha_123_at_m_Z_source": [
+    49.15557679581686,
+    0.19174008813458077,
+    -24.915782428808747
+   ],
+   "status_at_m_Z": "colour coupling not finite at m_Z (pole above m_Z)"
+  }
+ },
+ "sensitivity": {
+  "d(inv_alpha_3)/d ln(a E_cell) for b3 = -3, -7": [
+   0.477464829275686,
+   1.1140846016432675
+  ],
+  "ln(a E_cell) needed to reach the bound from the Hamiltonian F=5 row, b3 = -3": 17.188471194854852
+ }
+}

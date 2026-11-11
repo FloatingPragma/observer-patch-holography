@@ -1,0 +1,205 @@
+"""Item 1: the two-object conjugate-pair sector (tests TA, TB, TC of CANDIDATES.md, round 2).
+
+Run:
+    PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python two_object_sector.py [out.json]
+
+Objects: one per slot, each with its own five-level cloud (exterior algebra of C^5, 32 states, Jordan-Wigner level
+operators). Pair sectors: Lambda^1 x Lambda^4 (5 x 5bar, 25 states) and Lambda^3 x Lambda^2 (10bar x 10, 100 states).
+Joint eigenspaces of the pair's SU(3) and SU(2) Casimirs and total hypercharge give the blocks (8,1)_0, (1,3)_0,
+(1,1)_0, (3,2)_{-5/6}, (3b,2)_{5/6} and the remaining pieces of the 75.
+
+TA  native dark clock: U_F = (-1)^n on each object's cloud (RER field_identity_audit, PROOF section 2), pair clock
+    U_F x U_F; its eigenvalue on every block.
+TB  CF-1: one-quantum M1 angle theta_p(k, d) of every pattern (work/R1/cf1.m1_theta, read only), for all carrier
+    labels k = 1..5, d = 1..5. Free pair: per-tick rest phases +-theta_a +- theta_b over the pattern pairs supporting a
+    block. Bound pair (declared reading, one quantum of the pair's total Q6): angle m1_theta(Q6_total, k, d).
+TC  centre class (triality, Z2 charge) of every block against the quark doublet Q = (3,2)_{1/6}.
+"""
+import importlib.util
+import itertools
+import json
+import sys
+from fractions import Fraction as F
+from pathlib import Path
+
+import numpy as np
+
+HERE = Path(__file__).parent
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / 'two_object_sector.json'
+RL = HERE.parent.parent
+_spec = importlib.util.spec_from_file_location('cf1', RL / 'work' / 'R1' / 'cf1.py')
+cf1 = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(cf1)
+
+# ---------------------------------------------------------------- five-level Fock space
+N = 5
+DIM = 2 ** N
+deg = np.array([bin(m).count('1') for m in range(DIM)])
+
+
+def create(j):
+    op = np.zeros((DIM, DIM))
+    for m in range(DIM):
+        if not (m >> j) & 1:
+            sign = (-1) ** bin(m & ((1 << j) - 1)).count('1')
+            op[m | (1 << j), m] = sign
+    return op
+
+
+A_DAG = [create(j) for j in range(N)]
+A = [a.T for a in A_DAG]
+
+
+def dgamma(t):
+    return sum(t[i, j] * A_DAG[i] @ A[j] for i in range(N) for j in range(N) if t[i, j] != 0)
+
+
+gell = []
+l = np.zeros((8, 3, 3), complex)
+l[0][0, 1] = l[0][1, 0] = 1
+l[1][0, 1], l[1][1, 0] = -1j, 1j
+l[2][0, 0], l[2][1, 1] = 1, -1
+l[3][0, 2] = l[3][2, 0] = 1
+l[4][0, 2], l[4][2, 0] = -1j, 1j
+l[5][1, 2] = l[5][2, 1] = 1
+l[6][1, 2], l[6][2, 1] = -1j, 1j
+l[7] = np.diag([1, 1, -2]) / np.sqrt(3)
+for a in range(8):
+    t = np.zeros((5, 5), complex)
+    t[:3, :3] = l[a] / 2
+    gell.append(dgamma(t))
+pauli = [np.array([[0, 1], [1, 0]], complex), np.array([[0, -1j], [1j, 0]]), np.array([[1, 0], [0, -1]], complex)]
+weak = []
+for s in pauli:
+    t = np.zeros((5, 5), complex)
+    t[3:, 3:] = s / 2
+    weak.append(dgamma(t))
+Y1 = dgamma(np.diag([-1 / 3] * 3 + [1 / 2] * 2).astype(complex))
+
+# one-object checks: Lambda^1 = (3,1)_{-1/3} + (1,2)_{1/2}; hypercharge 6Y = -2 n3 + 3 n2 on every pattern
+for m in range(DIM):
+    n3 = bin(m & 0b00111).count('1')
+    n2 = bin(m & 0b11000).count('1')
+    assert abs(Y1[m, m] - (3 * n2 - 2 * n3) / 6) < 1e-12
+
+I = np.eye(DIM)
+G = [np.kron(g, I) + np.kron(I, g) for g in gell]
+W = [np.kron(w, I) + np.kron(I, w) for w in weak]
+YT = np.kron(Y1, I) + np.kron(I, Y1)
+C3 = sum(g @ g for g in G)
+C2 = sum(w @ w for w in W)
+PAR = np.diag((-1.0) ** deg)
+UF = np.kron(PAR, PAR)
+
+
+def sector(d1, d2):
+    idx = [i * DIM + j for i in range(DIM) for j in range(DIM) if deg[i] == d1 and deg[j] == d2]
+    return np.array(idx)
+
+
+NAMES = {(F(3), F(0), F(0)): '(8,1)_0', (F(0), F(2), F(0)): '(1,3)_0', (F(0), F(0), F(0)): '(1,1)_0',
+         (F(4, 3), F(3, 4), F(-5, 6)): '(3,2)_-5/6', (F(4, 3), F(3, 4), F(5, 6)): '(3b,2)_5/6',
+         (F(3), F(2), F(0)): '(8,3)_0', (F(10, 3), F(3, 4), F(-5, 6)): '(6,2)_-5/6',
+         (F(10, 3), F(3, 4), F(5, 6)): '(6b,2)_5/6', (F(4, 3), F(0), F(5, 3)): '(3,1)_5/3',
+         (F(4, 3), F(0), F(-5, 3)): '(3b,1)_-5/3'}
+ADJOINT = {'(8,1)_0', '(1,3)_0', '(1,1)_0'}
+LEPTOQUARK = {'(3,2)_-5/6', '(3b,2)_5/6'}
+
+
+def frac(x, den=36):
+    return F(round(x * den), den)
+
+
+def blocks(idx):
+    sub = np.ix_(idx, idx)
+    c3, c2, y = C3[sub], C2[sub], YT[sub]
+    # the three operators commute; diagonalize a generic real combination
+    assert np.allclose(c3 @ c2, c2 @ c3) and np.allclose(c3 @ y, y @ c3)
+    h = c3 + np.sqrt(2) * c2 + np.sqrt(3) * y
+    vals, vecs = np.linalg.eigh(h)
+    out = {}
+    for v in np.unique(np.round(vals, 9)):
+        sel = np.abs(vals - v) < 1e-7
+        V = vecs[:, sel]
+        q3 = frac(np.real(np.trace(V.conj().T @ c3 @ V)) / V.shape[1])
+        q2 = frac(np.real(np.trace(V.conj().T @ c2 @ V)) / V.shape[1])
+        qy = frac(np.real(np.trace(V.conj().T @ y @ V)) / V.shape[1])
+        name = NAMES.get((q3, q2, qy), f'(C3={q3},C2={q2},Y={qy})')
+        out.setdefault(name, []).append(V)
+    return {k: np.hstack(v) for k, v in out.items()}
+
+
+def patterns_of(idx, V):
+    """pattern pairs (mask_a, mask_b) carrying weight in the block spanned by V"""
+    w = np.sum(np.abs(V) ** 2, axis=1)
+    return [divmod(int(idx[i]), DIM) for i in np.nonzero(w > 1e-12)[0]]
+
+
+def q6(m):
+    return 3 * bin(m & 0b11000).count('1') - 2 * bin(m & 0b00111).count('1')
+
+
+result = {}
+for label, (d1, d2) in {'5 x 5bar (Lambda1 x Lambda4)': (1, 4), '10bar x 10 (Lambda3 x Lambda2)': (3, 2)}.items():
+    idx = sector(d1, d2)
+    bl = blocks(idx)
+    sub = np.ix_(idx, idx)
+    rows = {}
+    for name, V in sorted(bl.items()):
+        # TA: native dark clock on the block
+        Ub = V.conj().T @ UF[sub] @ V
+        ev = np.linalg.eigvals(Ub)
+        assert np.allclose(ev, -1.0)
+        pairs = patterns_of(idx, V)
+        q6_tot = {q6(a) + q6(b) for a, b in pairs}
+        assert len(q6_tot) == 1
+        q6t = q6_tot.pop()
+        n2_tot = {(bin(a & 0b11000).count('1') + bin(b & 0b11000).count('1')) % 2 for a, b in pairs}
+        n3_tot = {(bin(a & 0b00111).count('1') + bin(b & 0b00111).count('1')) % 3 for a, b in pairs}
+        assert len(n2_tot) == 1 and len(n3_tot) == 1
+        # TB: CF-1 angles for free and bound pairs, all labels
+        free_min, free_max, bound = {}, {}, {}
+        for k in range(1, 6):
+            for d in range(1, 6):
+                th = [(cf1.m1_theta(q6(a), k, d), cf1.m1_theta(q6(b), k, d)) for a, b in pairs]
+                free_min[f'{k},{d}'] = min(abs(ta - tb) for ta, tb in th)
+                free_max[f'{k},{d}'] = max(ta + tb for ta, tb in th)
+                bound[f'{k},{d}'] = cf1.m1_theta(q6t, k, d)
+        rows[name] = dict(dim=V.shape[1], native_clock_eigenvalues='-1 on every state', Q6_total=q6t,
+                          Z2=n2_tot.pop(), triality=n3_tot.pop(), class_k=q6t % 6,
+                          class_pairs=sorted({(q6(a) % 6, q6(b) % 6) for a, b in pairs}),
+                          cf1_free_pair_min_abs_rest_phase=free_min, cf1_free_pair_max_rest_phase=free_max,
+                          cf1_bound_pair_angle=bound)
+    result[label] = rows
+
+# TC: the leptoquark blocks against the quark doublet Q (Q6 = 1) and the adjoint blocks against class 0
+q_angle = {f'{k},{d}': cf1.m1_theta(1, k, d) for k in range(1, 6) for d in range(1, 6)}
+for label, rows in result.items():
+    for name, r in rows.items():
+        if name in LEPTOQUARK:
+            assert r['class_k'] in (1, 5) and r['Z2'] == 1 and r['triality'] in (1, 2)
+            assert r['cf1_bound_pair_angle'] == q_angle          # identical to the quark doublet for every label
+        if name in ADJOINT:
+            assert r['class_k'] == 0 and r['Z2'] == 0
+            assert all(v == 0.0 for v in r['cf1_bound_pair_angle'].values())
+            assert all(v == 0.0 for v in r['cf1_free_pair_min_abs_rest_phase'].values())
+
+out = dict(
+    sectors={lab: {n: {k: (v if not isinstance(v, set) else sorted(v)) for k, v in r.items()} for n, r in rows.items()}
+             for lab, rows in result.items()},
+    quark_doublet_Q_angle=q_angle,
+    findings=dict(
+        TA='the native dark clock is -1 on every block of both pair sectors: no separation of adjoint and leptoquark',
+        TB='CF-1 acts on a pattern only through its Z2 charge and Q6 mod 6 (folded); bound adjoint blocks have angle 0 for '
+           'every label, bound leptoquark blocks have the angle of the quark doublet Q for every label',
+        TC='the leptoquark blocks carry class 1 or 5 with Z2 charge 1, the centre class of Q and Qbar',
+    ),
+)
+OUT.write_text(json.dumps(out, indent=1, default=str) + '\n')
+for lab, rows in result.items():
+    print(lab)
+    for n, r in rows.items():
+        print(f"  {n:16s} dim {r['dim']:3d}  class {r['class_k']}  Z2 {r['Z2']}  native clock -1  "
+              f"bound angle (k,d)=(2,2): {r['cf1_bound_pair_angle']['2,2']:.6f}  (3,2): {r['cf1_bound_pair_angle']['3,2']:.6f}  "
+              f"free min |phase| (2,2): {r['cf1_free_pair_min_abs_rest_phase']['2,2']:.6f}")
+print('quark doublet angle (2,2), (3,2):', q_angle['2,2'], q_angle['3,2'])

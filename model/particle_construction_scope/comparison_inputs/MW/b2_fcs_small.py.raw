@@ -1,0 +1,107 @@
+"""Block 2 (b), small instance: the face-controlled swap on one carrier, exactly.
+
+A seam (a, b) has two wing ports w1, w2 (the third ports of its two faces). One event on a seam with unequal ends:
+  wing : a fair coin picks one wing; the two ends are swapped when that wing is occupied
+  or   : swapped when at least one wing is occupied
+  xor  : swapped when exactly one wing is occupied
+  and  : swapped when both wings are occupied
+Every event is a permutation of the load configurations (the control ports are not moved). Enumerates all 4096
+binary configurations: involution, load conservation, orbits (ergodic classes) per load number, frozen
+configurations, one-event statistics in the uniform measure against the reference rule, relaxation gap.
+    python b2_fcs_small.py   ->  b2_fcs_small.json
+"""
+import json
+import numpy as np
+from oph_defects import fedgeom as FG
+
+seams = np.asarray(FG.TEMPLATE_SEAMS); faces = np.asarray(FG.TEMPLATE_FACES)
+third = lambda f, a, b: int([v for v in faces[f] if v != a and v != b][0])
+W1 = [third(FG.TEMPLATE_PLUS[k], a, b) for k, (a, b) in enumerate(seams)]
+W2 = [third(FG.TEMPLATE_MINUS[k], a, b) for k, (a, b) in enumerate(seams)]
+S = np.arange(4096)
+bit = lambda p: (S >> p) & 1
+load = sum(bit(p) for p in range(12))
+
+
+def swap_map(a, b, on):
+    """Configuration map: exchange bits a and b where `on` holds and the two bits differ."""
+    diff = (bit(a) ^ bit(b)).astype(bool) & on
+    return np.where(diff, S ^ ((1 << a) | (1 << b)), S)
+
+
+def generators(control):
+    gens = []
+    for k, (a, b) in enumerate(seams):
+        o1, o2 = bit(W1[k]).astype(bool), bit(W2[k]).astype(bool)
+        if control == 'wing':
+            gens += [swap_map(a, b, o1), swap_map(a, b, o2)]
+        elif control == 'or':
+            gens.append(swap_map(a, b, o1 | o2))
+        elif control == 'xor':
+            gens.append(swap_map(a, b, o1 ^ o2))
+        elif control == 'and':
+            gens.append(swap_map(a, b, o1 & o2))
+        elif control == 'reference':
+            gens.append(swap_map(a, b, np.ones(4096, bool)))
+    return gens
+
+
+def orbits(gens):
+    parent = np.arange(4096)
+    def find(x):
+        while parent[x] != x:
+            parent[x] = parent[parent[x]]; x = parent[x]
+        return x
+    for g in gens:
+        for x in range(4096):
+            rx, ry = find(x), find(int(g[x]))
+            if rx != ry:
+                parent[rx] = ry
+    return np.array([find(x) for x in range(4096)])
+
+
+out = {'wings_of_template_seams': [[int(a), int(b), W1[k], W2[k]] for k, (a, b) in enumerate(seams)]}
+for control in ('wing', 'or', 'xor', 'and'):
+    gens = generators(control)
+    res = {'events_per_carrier': len(gens),
+           'every_event_is_an_involution': bool(all((g[g] == S).all() for g in gens)),
+           'load_conserved': bool(all((load[g] == load).all() for g in gens))}
+    root = orbits(gens)
+    T = np.zeros((4096, 4096))
+    for g in gens:
+        T[g, S] += 1.0 / len(gens)
+    res['transition_matrix_symmetric'] = bool(np.abs(T - T.T).max() < 1e-15)
+    rows = []
+    for n in range(1, 12):
+        idx = np.flatnonzero(load == n)
+        r = root[idx]
+        _, counts = np.unique(r, return_counts=True)
+        frozen = int(sum(all(g[x] == x for g in gens) for x in idx))
+        # one-event statistics in the uniform measure on the shell
+        move = float(np.mean([np.mean(g[idx] != idx) for g in gens]))
+        odd = float(np.mean([np.mean(bit(a)[idx] != bit(b)[idx]) for a, b in seams]))
+        ref_move = odd / 2
+        Tn = T[np.ix_(idx, idx)]
+        ev = np.sort(np.linalg.eigvalsh(Tn))[::-1]
+        Tr = np.zeros((idx.size, idx.size)); pos = {int(x): i for i, x in enumerate(idx)}
+        for a, b in seams:
+            g = swap_map(a, b, np.ones(4096, bool))
+            for x in idx:
+                Tr[pos[int(g[x])], pos[int(x)]] += 0.5 / 30; Tr[pos[int(x)], pos[int(x)]] += 0.5 / 30
+        evr = np.sort(np.linalg.eigvalsh(Tr))[::-1]
+        nontrivial = ev[ev < 1 - 1e-9]
+        rows.append({'loads': n, 'configurations': int(idx.size), 'orbits': int(counts.size), 'largest_orbit': int(counts.max()),
+                     'frozen_configurations': frozen, 'unit_eigenvalues': int((ev > 1 - 1e-9).sum()),
+                     'move_probability_per_event': move, 'reference_move_probability': ref_move,
+                     'ratio_to_reference': move / ref_move,
+                     'slowest_factor_per_event': float(nontrivial[0]) if nontrivial.size else None,
+                     'reference_slowest_factor_per_event': float(evr[1]),
+                     'largest_entry_difference_to_reference_transition': float(np.abs(Tn - Tr).max())})
+    res['by_load'] = rows
+    out[control] = res
+    print(control, 'involution', res['every_event_is_an_involution'], 'load conserved', res['load_conserved'], 'symmetric', res['transition_matrix_symmetric'])
+    for r in rows:
+        print('   n=%2d states %4d orbits %4d largest %4d frozen %4d move/ref %.4f slowest %s ref %.6f' % (
+            r['loads'], r['configurations'], r['orbits'], r['largest_orbit'], r['frozen_configurations'], r['ratio_to_reference'],
+            ('%.6f' % r['slowest_factor_per_event']) if r['slowest_factor_per_event'] else 'none', r['reference_slowest_factor_per_event']))
+json.dump(out, open('b2_fcs_small.json', 'w'), indent=1)

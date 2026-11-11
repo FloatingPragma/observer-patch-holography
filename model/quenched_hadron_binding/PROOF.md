@@ -2,9 +2,10 @@
 
 Labels: EXACT, MEASURED (Monte Carlo, with error), ARGUED, IMPORTED (with citation), DECLARED. The measured numbers
 below are stored in [results.json](results.json), which is recomputed from
-[recorded_tables.json](recorded_tables.json). Prefixes of its 68 named checks: `1_gamma`, `2_gauge`, `3_dirac` and
+[recorded_tables.json](recorded_tables.json). Prefixes of its 74 named checks: `1_gamma`, `2_gauge`, `3_dirac` and
 `4_hadrons` for the fast gates of section 6, `5_potential`, `5_gauge`, `6_solver`, `7_hadrons`, `8_chiral` and
-`9_volume` for section 7, `10_melting` for section 8, `11_recorded_gates` for the gates of the compiled kernels.
+`9_volume` for section 7, `10_melting` for section 8, `11_recorded_gates` for the gates of the compiled kernels,
+and `8_covariance` for the joint mass and scale covariance.
 Errors: a single bracket is statistical. With two brackets the first is statistical and the second systematic. A
 number after `+-` is the two added in quadrature.
 
@@ -265,3 +266,26 @@ from `r = 4` to `r = 12`. The slope falls by a factor of about 930.
 - G. Boyd et al., Nucl. Phys. B 469, 419 (1996), arXiv:hep-lat/9602007.
 - L. D. McLerran and B. Svetitsky, Phys. Rev. D 24, 450 (1981).
 - Particle Data Group, Phys. Rev. D 110, 030001 (2024), https://pdg.lbl.gov/.
+
+## Joint mass and scale covariance
+
+The potential and correlator replicas delete the same stream in the same order. For a vector of fitted
+observables `z_b` on `B` delete-one-stream replicas, the retained statistical covariance is
+
+```
+Cov(z) = (B-1)/B sum_b (z_b - mean(z)) (z_b - mean(z))^T.
+```
+
+The joint record includes chiral rho and nucleon masses, `sqrt(sigma)`, `r0`, both scale-normalized mass pairs
+and their ratio. Its diagonal reproduces the corresponding jackknife variances. For `D=mN-mrho`, including
+either shared scale normalization, the statistical variance is `Cov(N,N)+Cov(rho,rho)-2 Cov(N,rho)`.
+Independent-error propagation is retained only as a named comparison control. The source refits the full
+nonlinear chain on each paired replica, so the reported contrast error is the direct jackknife error and agrees
+with this covariance identity. Normalizing both masses by the same string tension cancels identically from
+`mN/mrho` on every replica.
+
+The potential-rise check also uses the paired replica difference `V_b(r2)-V_b(r1)`. Errors at neighboring
+separations are correlated measurements of the same gauge streams. Their independent quadrature is not the
+error of the measured difference. These covariance statements concern statistical errors conditional on the
+retained fit choices. The crossed potential/hadron sensitivity envelope, quenching and the physical
+continuum and volume limits are separate matters.

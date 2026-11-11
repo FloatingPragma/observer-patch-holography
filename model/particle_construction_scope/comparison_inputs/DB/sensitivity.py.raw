@@ -1,0 +1,75 @@
+"""Which slope controls which output of the declared D10 chain (sensitivity scans recorded in CANDIDATES.md).
+
+Run:
+    /tmp/oph-completion-venv/bin/python sensitivity.py [out.json]
+
+Scan 1: b2 varied, b1 = 33/5 and b3 = -3 held.   Scan 2: b3 varied, b1 = 33/5, b2 = 1.
+Scan 3: b1 varied, b2 = 1, b3 = -3.
+Also the exact elimination of the chain: with x = 1/alpha_2(m_Z), r = m_Z/v and L = ln(M_U/m_Z),
+    L = pi/(2 alpha_U) - 2 pi + (2/3) ln P - ln r,
+    1/alpha_U = [x + b2 - (b2/(2 pi)) ((2/3) ln P - ln r)] / (1 + b2/4),
+so for fixed x (set by the pixel equation, dominated by the SU(2) heat sum) b2 alone fixes alpha_U, L and v;
+alpha_3(m_Z) then depends on b2 - b3 and alpha_1(m_Z) on b1 - b2. The script checks the identity at each
+closure point.
+"""
+import json
+import math
+import sys
+from fractions import Fraction as F
+from pathlib import Path
+
+from d10_float import Chain, readout
+
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).with_name('sensitivity.json')
+PI = math.pi
+
+
+def run(b):
+    res = Chain(b).closure()
+    if res is None:
+        return dict(b=list(map(str, b)), status='no closure')
+    alpha, d, p = res
+    r = readout(alpha, d, p)
+    # exact elimination identity at the closure point
+    x = d['inv2']
+    rr = d['mz'] / d['v']
+    lhs = 1 / d['alpha_u']
+    rhs = (x + float(b[1]) - float(b[1]) / (2 * PI) * ((2 / 3) * math.log(p) - math.log(rr))) / (1 + float(b[1]) / 4)
+    assert abs(lhs - rhs) < 1e-9 * lhs, (lhs, rhs)
+    return dict(b=list(map(str, b)), status='closure', inv_alpha2_mZ=x, **r)
+
+
+out = {'scan_b2': [], 'scan_b3': [], 'scan_b1': []}
+for b2 in [F(-1), F(-1, 2), F(0), F(1, 6), F(1, 2), F(5, 6), F(9, 10), F(1), F(11, 10), F(7, 6), F(3, 2), F(2)]:
+    out['scan_b2'].append(run((F(33, 5), b2, F(-3))))
+for b3 in [F(-5), F(-4), F(-7, 2), F(-13, 4), F(-3), F(-11, 4), F(-5, 2), F(-2)]:
+    out['scan_b3'].append(run((F(33, 5), F(1), b3)))
+for b1 in [F(5), F(28, 5), F(6), F(32, 5), F(33, 5), F(34, 5), F(7), F(41, 5)]:
+    out['scan_b1'].append(run((b1, F(1), F(-3))))
+
+# local slopes at the declared point
+base = run((F(33, 5), F(1), F(-3)))
+h = F(1, 100)
+up2, dn2 = run((F(33, 5), 1 + h, F(-3))), run((F(33, 5), 1 - h, F(-3)))
+up3, dn3 = run((F(33, 5), F(1), -3 + h)), run((F(33, 5), F(1), -3 - h))
+up1, dn1 = run((F(33, 5) + h, F(1), F(-3))), run((F(33, 5) - h, F(1), F(-3)))
+hf = float(h)
+out['local_slopes_at_declared_point'] = dict(
+    dlnv_db2=(math.log(up2['v_GeV']) - math.log(dn2['v_GeV'])) / (2 * hf),
+    dalpha_s_db3=(up3['alpha_s_mZ'] - dn3['alpha_s_mZ']) / (2 * hf),
+    dsin2_db1=(up1['sin2_theta_W_mZ'] - dn1['sin2_theta_W_mZ']) / (2 * hf),
+    dlnv_db1=(math.log(up1['v_GeV']) - math.log(dn1['v_GeV'])) / (2 * hf),
+    dlnv_db3=(math.log(up3['v_GeV']) - math.log(dn3['v_GeV'])) / (2 * hf),
+    dalpha_s_db2=(up2['alpha_s_mZ'] - dn2['alpha_s_mZ']) / (2 * hf),
+    dsin2_db2=(up2['sin2_theta_W_mZ'] - dn2['sin2_theta_W_mZ']) / (2 * hf),
+)
+Path(OUT).write_text(json.dumps(out, indent=1) + '\n')
+for k in ('scan_b2', 'scan_b3', 'scan_b1'):
+    print(k)
+    for r in out[k]:
+        if r['status'] == 'closure':
+            print(f"  b={r['b']}: P={r['P']:.7f} 1/a={r['alpha0_inv']:.3f} aU={r['alpha_U']:.5f} v={r['v_GeV']:.4g} "
+                  f"mZ={r['m_Z_GeV']:.4g} s2w={r['sin2_theta_W_mZ']:.5f} as={r['alpha_s_mZ']:.5f} 1/a2={r['inv_alpha2_mZ']:.4f}")
+        else:
+            print(f"  b={r['b']}: {r['status']}")
+print(json.dumps(out['local_slopes_at_declared_point'], indent=1))

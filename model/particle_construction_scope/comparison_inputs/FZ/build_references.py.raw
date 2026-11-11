@@ -1,0 +1,260 @@
+"""Build the frozen reference table of the FZ comparison (measured values only).
+
+Reads the byte copies in ./sources (SHA-256 checked), adds the values transcribed from RL/reports/LIT.md and from
+the PDG 2026 CKM and QCD reviews, derives the ratio rows, and writes references.json. No candidate value is read.
+
+Run: /tmp/oph-completion-venv/bin/python -I build_references.py   (from RL/work/FZ)
+"""
+import hashlib
+import json
+import math
+import os
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+SRC = os.path.join(HERE, "sources")
+
+EXPECTED = {
+    # byte copies of RER main (GitHub FloatingPragma/observer-patch-holography, identical in every local checkout)
+    "rer_particle_reference_values.json": "1c47e0ebf7f02d41",
+    "rer_pdg_2026_conditional_quark_comparison.json": "3ac4c0dc31f9d13e",
+    "rer_codata_2022_alpha_fixture.json": "e5a967c2895c51ce",
+    "rer_wz_pdg_2026_target_fixture.json": "25ecaade15003f08",
+    "rl_LIT.md": "99ed252dedaf115f",
+    "pdg2026_ckm_review.txt": "397ebb54833ac482",
+    "pdg2026_qcd_review.txt": "0a338efc1b5f7633",
+}
+RER_PATHS = {
+    "rer_particle_reference_values.json": "RER/code/particles/data/particle_reference_values.json",
+    "rer_pdg_2026_conditional_quark_comparison.json": "RER/code/particles/data/pdg_2026_conditional_quark_comparison.json",
+    "rer_codata_2022_alpha_fixture.json": "RER/code/P_derivation/codata_2022_alpha_fixture.json",
+    "rer_wz_pdg_2026_target_fixture.json": "RER/code/particles/calibration/wz_pdg_2026_target_fixture.json",
+    "rl_LIT.md": "RL/reports/LIT.md",
+    "pdg2026_ckm_review.txt": "pdftotext of https://pdg.lbl.gov/2026/reviews/rpp2026-rev-ckm-matrix.pdf "
+                              "(PDF SHA-256 c6b23ae8572345c3ab739e233ea47a25e879f8534c9021a10e9ca1bd3bb8d433)",
+    "pdg2026_qcd_review.txt": "pdftotext of https://pdg.lbl.gov/2026/reviews/rpp2026-rev-qcd.pdf "
+                              "(PDF SHA-256 c04c628d76b18610c5fa2a919c6081918a25b55fb971b6af5829f4ca2baa386f)",
+}
+Z90 = 1.6448536269514722  # two-sided 90 percent half-width in units of one Gaussian sigma
+
+
+def sha(path):
+    h = hashlib.sha256()
+    with open(path, "rb") as f:
+        h.update(f.read())
+    return h.hexdigest()
+
+
+def check_sources():
+    out = {}
+    for name, prefix in EXPECTED.items():
+        p = os.path.join(SRC, name)
+        d = sha(p)
+        if not d.startswith(prefix):
+            raise SystemExit(f"source {name} changed: {d}")
+        out[name] = {"sha256": d, "origin": RER_PATHS[name]}
+    return out
+
+
+def must_contain(name, *snippets):
+    text = open(os.path.join(SRC, name), encoding="utf-8").read()
+    for s in snippets:
+        if s not in text:
+            raise SystemExit(f"transcription check failed: {s!r} not in {name}")
+
+
+def ref(central, s_minus, s_plus, unit, source, quoted, cl=68.27, kind="value", note=None):
+    """Two-sided reference; s_minus, s_plus are Gaussian-equivalent one-sigma errors."""
+    r = {"kind": kind, "central": central, "sigma_minus": s_minus, "sigma_plus": s_plus, "unit": unit,
+         "quoted": quoted, "quoted_cl_percent": cl, "source": source}
+    if note:
+        r["note"] = note
+    return r
+
+
+def from_pdg_entry(entries, key, unit_scale=1.0, unit="GeV", source_name="rer_particle_reference_values.json"):
+    e = entries[key]
+    cl = e.get("confidence_level")
+    lo = e["error_minus_gev"] * unit_scale
+    hi = e["error_plus_gev"] * unit_scale
+    if cl is not None and abs(cl - 90.0) < 1e-9:
+        lo, hi, clp = lo / Z90, hi / Z90, 90.0
+    else:
+        clp = 68.27
+    return ref(e["value_gev"] * unit_scale, lo, hi, unit,
+               {"file": source_name, "pointer": f"/entries/{key}", "pdg_summary_id": e["source"].get("summary_id"),
+                "edition": e["source"].get("edition")},
+               e["display"], cl=clp)
+
+
+def ratio_ref(a, b, source_note):
+    r = a["central"] / b["central"]
+    sa = max(a["sigma_minus"], a["sigma_plus"]) / a["central"]
+    sb = max(b["sigma_minus"], b["sigma_plus"]) / b["central"]
+    s = r * math.hypot(sa, sb)
+    return ref(r, s, s, "1", {"derived": source_note, "propagation": "first order, uncorrelated, larger side"},
+               f"{r:.10g} +- {s:.3g}")
+
+
+def koide(me, mm, mt):
+    return (me + mm + mt) / (math.sqrt(me) + math.sqrt(mm) + math.sqrt(mt)) ** 2
+
+
+def main():
+    srcs = check_sources()
+    pdg = json.load(open(os.path.join(SRC, "rer_particle_reference_values.json")))["entries"]
+    qk = json.load(open(os.path.join(SRC, "rer_pdg_2026_conditional_quark_comparison.json")))
+    al = json.load(open(os.path.join(SRC, "rer_codata_2022_alpha_fixture.json")))
+    wz = json.load(open(os.path.join(SRC, "rer_wz_pdg_2026_target_fixture.json")))["experimental_target"]
+
+    # transcriptions are checked against the source text
+    must_contain("rl_LIT.md", "ŝ²_Z = 0.23122±0.00006", "s²_W = 0.22342±0.00009",
+                 "Δm²21 = 7.530 +0.096/−0.097 ×10^-5 eV²", "Δm²31 = 2.511 +0.021/−0.020 ×10^-3 eV²",
+                 "sin²θ12 = 0.3096 +0.0057/−0.0073", "sin²θ23 = 0.470 +0.017/−0.013",
+                 "sin²θ13 = 0.02215±0.00056", "δ_CP = 212° +26/−41", "m_ν < 0.45 eV, 90% CL",
+                 "0.22431±0.00085", "0.561 +0.012/−0.015")
+    must_contain("pdg2026_ckm_review.txt", "sin θ12 = 0.22517 ± 0.00068", "sin θ13 = 0.003763+0.000088",
+                 "−0.000083", "sin θ23 = 0.04189+0.00081", "δ = 1.154 ± 0.025", "J = 3.16+0.13",
+                 "−0.11 × 10", "Revised March 2026")
+    must_contain("pdg2026_qcd_review.txt", "αs (m2Z ) = 0.1180 ± 0.0009         (PDG 2025 average) .",
+                 "(9.25)")
+
+    R = {}
+    # charged leptons (pole masses, GeV)
+    R["L1"] = from_pdg_entry(pdg, "electron")
+    R["L2"] = from_pdg_entry(pdg, "muon")
+    R["L3"] = from_pdg_entry(pdg, "tau")
+    R["L4"] = ratio_ref(R["L2"], R["L1"], "L2 / L1")
+    R["L5"] = ratio_ref(R["L3"], R["L1"], "L3 / L1")
+    R["L6"] = ratio_ref(R["L3"], R["L2"], "L3 / L2")
+    me, mm, mt = R["L1"]["central"], R["L2"]["central"], R["L3"]["central"]
+    q0 = koide(me, mm, mt)
+    parts = []
+    for i, (m, s) in enumerate([(me, R["L1"]["sigma_plus"]), (mm, R["L2"]["sigma_plus"]), (mt, R["L3"]["sigma_plus"])]):
+        args = [me, mm, mt]
+        args[i] = m + s
+        parts.append(koide(*args) - q0)
+    sq = math.sqrt(sum(p * p for p in parts))
+    R["L7"] = ref(q0, sq, sq, "1", {"derived": "Koide Q of L1, L2, L3", "propagation": "first order, uncorrelated"},
+                  f"{q0:.9f} +- {sq:.2g}")
+
+    # quarks: MSbar u, d, s at 2 GeV; c(m_c), b(m_b); top pole from cross sections (90 percent rows converted)
+    R["Q1"] = from_pdg_entry(pdg, "up_quark")
+    R["Q2"] = from_pdg_entry(pdg, "down_quark")
+    R["Q3"] = from_pdg_entry(pdg, "strange_quark")
+    R["Q4"] = from_pdg_entry(pdg, "charm_quark")
+    R["Q5"] = from_pdg_entry(pdg, "bottom_quark")
+    R["Q6"] = from_pdg_entry(pdg, "top_quark")
+    R["Q6"]["definition"] = "pole mass from cross-section measurements"
+    ct = qk["criticality_top_comparison"]
+    R["Q6"]["alternate_msbar"] = ref(float(ct["central"]), float(ct["minus"]), float(ct["plus"]), "GeV",
+                                     {"file": "rer_pdg_2026_conditional_quark_comparison.json",
+                                      "pointer": "/criticality_top_comparison"},
+                                     f"{ct['central']} +{ct['plus']} -{ct['minus']}",
+                                     note="m_t(m_t) MSbar from cross sections; used when the lane states MSbar")
+    R["Q6i"] = from_pdg_entry(pdg, "top_quark_direct_aux")
+    R["Q6i"]["definition"] = "direct measurements (Monte Carlo mass); information line"
+    lq = {x["quantity"]: x for x in qk["light_quantities"]}
+    u = lq["mu_over_md"]
+    R["Q7"] = ref(float(u["central"]), float(u["minus"]) / Z90, float(u["plus"]) / Z90, "1",
+                  {"file": "rer_pdg_2026_conditional_quark_comparison.json", "pointer": "/light_quantities/0"},
+                  f"{u['central']} +- {u['plus']} (90%)", cl=90.0)
+    s = lq["ms_over_mud"]
+    R["Q8"] = ref(float(s["central"]), float(s["minus"]) / Z90, float(s["plus"]) / Z90, "1",
+                  {"file": "rer_pdg_2026_conditional_quark_comparison.json", "pointer": "/light_quantities/1"},
+                  f"{s['central']} +{s['plus']} -{s['minus']} (90%), m_ud = (m_u + m_d)/2", cl=90.0)
+
+    # CKM, PDG 2026 global fit, Eq. (12.28) and J
+    ckm_src = {"file": "pdg2026_ckm_review.txt", "pointer": "Eq. (12.28) and the sentence before it"}
+    R["C1"] = ref(0.22517, 0.00068, 0.00068, "1", ckm_src, "sin theta12 = 0.22517 +- 0.00068")
+    R["C2"] = ref(0.04189, 0.00069, 0.00081, "1", ckm_src, "sin theta23 = 0.04189 +0.00081 -0.00069")
+    R["C3"] = ref(0.003763, 0.000083, 0.000088, "1", ckm_src, "sin theta13 = 0.003763 +0.000088 -0.000083")
+    R["C4"] = ref(1.154, 0.025, 0.025, "rad", ckm_src, "delta = 1.154 +- 0.025")
+    R["C5"] = ref(3.16e-5, 0.11e-5, 0.13e-5, "1", ckm_src, "J = 3.16 +0.13 -0.11 x 10^-5")
+
+    # neutrinos (LIT.md: NuFIT 6.1 splittings and theta12; NuFIT 6.0 theta23, theta13, delta; normal ordering, with SK)
+    lit = {"file": "rl_LIT.md"}
+    R["N1"] = ref(7.530e-5, 0.097e-5, 0.096e-5, "eV^2", dict(lit, pointer="A5"), "7.530 +0.096 -0.097 x 10^-5 eV^2")
+    R["N2"] = ref(2.511e-3, 0.020e-3, 0.021e-3, "eV^2", dict(lit, pointer="A5"), "2.511 +0.021 -0.020 x 10^-3 eV^2",
+                  note="normal ordering")
+    r21 = R["N1"]["central"] / R["N2"]["central"]
+    rp = r21 * math.hypot(R["N1"]["sigma_plus"] / R["N1"]["central"], R["N2"]["sigma_minus"] / R["N2"]["central"])
+    rm = r21 * math.hypot(R["N1"]["sigma_minus"] / R["N1"]["central"], R["N2"]["sigma_plus"] / R["N2"]["central"])
+    R["N3"] = ref(r21, rm, rp, "1", {"derived": "N1 / N2", "propagation": "first order, uncorrelated"},
+                  f"{r21:.5f} +{rp:.5f} -{rm:.5f}")
+    R["N4"] = ref(0.3096, 0.0073, 0.0057, "1", dict(lit, pointer="B1"), "0.3096 +0.0057 -0.0073 (NuFIT 6.1)")
+    R["N5"] = ref(0.470, 0.013, 0.017, "1", dict(lit, pointer="B1"), "0.470 +0.017 -0.013 (NuFIT 6.0, with SK)",
+                  note="octant: without SK 0.561 +0.012 -0.015; a FAIL near the other octant is marked indicative")
+    R["N6"] = ref(0.02215, 0.00056, 0.00056, "1", dict(lit, pointer="B1"), "0.02215 +- 0.00056 (NuFIT 6.0)")
+    R["N7"] = ref(212.0, 41.0, 26.0, "deg", dict(lit, pointer="B1"), "212 +26 -41 deg (NuFIT 6.0)",
+                  note="compared on the circle; Gaussian extension of the one-sigma errors; a FAIL is marked indicative")
+    R["N8"] = {"kind": "upper_limit", "limit": 0.45, "unit": "eV", "quoted_cl_percent": 90.0,
+               "quoted": "m_nu < 0.45 eV, 90% CL (KATRIN)", "source": dict(lit, pointer="A5")}
+    R["N9"] = {"kind": "none", "unit": None, "quoted": "no measurement decides Dirac against Majorana",
+               "source": None}
+
+    # electroweak and couplings
+    R["E1"] = from_pdg_entry(pdg, "w_boson")
+    R["E2"] = from_pdg_entry(pdg, "z_boson")
+    widths = dict(zip(wz["input_order"], wz["central_GeV"]))
+    R["E1"]["pole_shift_GeV"] = widths["W_width_running_width"] ** 2 / (2 * R["E1"]["central"])
+    R["E2"]["pole_shift_GeV"] = widths["Z_width_running_width"] ** 2 / (2 * R["E2"]["central"])
+    for k in ("E1", "E2"):
+        R[k]["definition"] = ("PDG mass of the running-width Breit-Wigner; complex-pole mass = PDG mass - "
+                              "Gamma^2/(2 M) (widths from rer_wz_pdg_2026_target_fixture.json)")
+    R["E3"] = from_pdg_entry(pdg, "higgs")
+    ainv = float(al["inverse_fine_structure_constant"]["value"])
+    sa = float(al["inverse_fine_structure_constant"]["standard_uncertainty"])
+    R["E4"] = ref(ainv, sa, sa, "1", {"file": "rer_codata_2022_alpha_fixture.json",
+                                      "pointer": "/inverse_fine_structure_constant"}, "137.035999177(21), CODATA 2022")
+    R["E5"] = ref(0.23122, 0.00006, 0.00006, "1", dict(lit, pointer="A4"),
+                  "MSbar s^2_Z(M_Z) = 0.23122 +- 0.00006 (PDG 2026 Table 10.2)")
+    R["E5o"] = ref(0.22342, 0.00009, 0.00009, "1", dict(lit, pointer="A4"),
+                   "on-shell s^2_W = 0.22342 +- 0.00009 (PDG 2026 Table 10.2)")
+    R["E6"] = ref(0.1180, 0.0009, 0.0009, "1", {"file": "pdg2026_qcd_review.txt", "pointer": "Eq. (9.25)"},
+                  "alpha_s(m_Z^2) = 0.1180 +- 0.0009 (PDG world average, MSbar, n_f = 5)")
+
+    # hadrons (MeV in the PDG display; stored in GeV like every other mass row)
+    R["H1"] = from_pdg_entry(pdg, "proton")
+    R["H2"] = from_pdg_entry(pdg, "neutron")
+    avg = 0.5 * (R["H1"]["central"] + R["H2"]["central"])
+    savg = 0.5 * math.hypot(R["H1"]["sigma_plus"], R["H2"]["sigma_plus"])
+    R["H0"] = ref(avg, savg, savg, "GeV", {"derived": "(H1 + H2)/2"}, f"{avg:.12g} +- {savg:.2g} GeV",
+                  note="isospin average; the row for a lane value that has no isospin breaking")
+    d = R["H2"]["central"] - R["H1"]["central"]
+    sd = math.hypot(R["H1"]["sigma_plus"], R["H2"]["sigma_plus"])
+    R["H3"] = ref(d, sd, sd, "GeV", {"derived": "H2 - H1"}, f"{d:.12g} +- {sd:.2g} GeV")
+    R["H4"] = from_pdg_entry(pdg, "neutral_pion")
+    R["H5"] = from_pdg_entry(pdg, "rho_770_0")
+
+    # massless rows
+    ph = pdg["photon"]
+    R["G1"] = {"kind": "upper_limit", "limit": ph["value_gev"], "unit": "GeV", "quoted_cl_percent": None,
+               "quoted": ph["display"], "source": {"file": "rer_particle_reference_values.json",
+                                                  "pointer": "/entries/photon"}}
+    R["G2"] = {"kind": "none", "unit": None, "quoted": pdg["gluon"]["display"],
+               "source": {"file": "rer_particle_reference_values.json", "pointer": "/entries/gluon"}}
+
+    # information only (not rows): alternative determinations, never used for a verdict
+    info = {
+        "abs_Vus_direct": "0.22431 +- 0.00085 (PDG 2026, LIT B3)",
+        "flag_2024_mu_over_md_nf2p1p1": "0.465(24) (RER code/particles/data/flag_2024_light_quark_ratio_fixture.json)",
+        "koide_LIT_B2": "Q = 0.6666645 +- 0.0000051 with PDG 2026 masses (LIT B2)",
+    }
+
+    out = {"schema": "fz.references.v1", "built_by": "build_references.py", "sources": srcs,
+           "conventions": {"Z90": Z90, "sigma_rule": "90 percent half-widths divided by Z90; no stated CL read as 68.27"},
+           "rows": R, "information_only": info}
+    with open(os.path.join(HERE, "references.json"), "w") as f:
+        json.dump(out, f, indent=1, sort_keys=True)
+        f.write("\n")
+    print("rows", len(R))
+    for k in sorted(R):
+        r = R[k]
+        if r["kind"] == "value":
+            print(f"{k:4s} {r['central']:.10g} -{r['sigma_minus']:.3g} +{r['sigma_plus']:.3g} {r['unit']}")
+        else:
+            print(f"{k:4s} {r['kind']} {r.get('limit', '')} {r['unit']}")
+
+
+if __name__ == "__main__":
+    main()

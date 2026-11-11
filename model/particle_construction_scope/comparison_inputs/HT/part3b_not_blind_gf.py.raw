@@ -1,0 +1,20 @@
+"""Addendum 1 comparison (NOT BLIND), run once after the G_F rows are on file. Reads LEW's stored compare-only
+references. Writes part3b_not_blind_gf.json."""
+import glob
+import json
+
+LEW = "WORKSPACE/repair-law/work/SIM/derive/lew/"
+refs = json.load(open(LEW + "t1_chain.json"))["references_compare_only_GeV"]
+out = {"references_GeV": refs, "rows": {}}
+for f in sorted(glob.glob("part2_gf_*.json")):
+    r = json.load(open(f))
+    if "label" not in r:
+        continue
+    o = r["GF"]["outputs_GeV"]
+    out["rows"][f"{r['label']}_loops{r['loops']}"] = {
+        "mu_c_GeV": r["mu_c_GeV"], "v_Q0_GeV": r["GF"]["v_Q0_GeV"],
+        "GeV": {k: o[k] for k in ("W", "Z", "H", "t")},
+        "percent": {k: 100 * (o[k] / refs[k] - 1) for k in ("W", "Z", "H", "t")}}
+json.dump(out, open("part3b_not_blind_gf.json", "w"), indent=1)
+for k, v in out["rows"].items():
+    print(k, "v(Q0)=%.5f" % v["v_Q0_GeV"], {kk: "%.5f (%+.3f%%)" % (v["GeV"][kk], v["percent"][kk]) for kk in v["GeV"]})

@@ -1,0 +1,645 @@
+{
+ "HY1": {
+  "sum_of_port_responses": [
+   2.0,
+   2.0,
+   2.0,
+   -3.0,
+   -3.0
+  ],
+  "sum_is_diagonal": true,
+  "max_abs_trace_of_a_port_response": 5.551115123125783e-17,
+  "dimension_of_generated_algebra": 12,
+  "centre_dimension": 1,
+  "statement": "the twelve port responses are traceless and generate s(u(3) + u(2)); the centre is one-dimensional and is spanned by sum_p X_p = diag(2, 2, 2, -3, -3): a uniform port phase is the hypercharge rotation (6Y = -sum_p X_p in the sign of match.py)",
+  "identities": "Y = T3R + (B - L)/2 with T3R = (N_2 - 1)/2 and B - L = 1 - (2/3) N_3 per quantum; X = 5(B - L) - 4Y = 5 - 2 degree",
+  "trace_of_Y_times_degree_on_the_code": "0",
+  "second_abelian_current": "the block algebra u(3) + u(2) has a thirteenth current, the degree; Y and the degree are trace orthogonal, so a trace action gives the hypercharge the same stiffness with twelve or thirteen links"
+ },
+ "HY2": {
+  "traces": {
+   "N1": {
+    "trace": "five-level code, Re tr_5",
+    "T_Y": "5/6",
+    "T_2": "1/2",
+    "T_3": "1/2",
+    "c_Y": "5/3",
+    "T3_over_T2": "1",
+    "TY_over_T3": "5/3",
+    "note": ""
+   },
+   "N2": {
+    "trace": "swap test, Haar average over the code, |tr_5|^2",
+    "T_Y": "25/3",
+    "T_2": "5",
+    "T_3": "5",
+    "c_Y": "5/3",
+    "T3_over_T2": "1",
+    "TY_over_T3": "5/3",
+    "note": ""
+   },
+   "N3": {
+    "trace": "fifteen-state module, Lambda^2 + Lambda^4",
+    "T_Y": "10/3",
+    "T_2": "2",
+    "T_3": "2",
+    "c_Y": "5/3",
+    "T3_over_T2": "1",
+    "TY_over_T3": "5/3",
+    "note": ""
+   },
+   "N4": {
+    "trace": "all 32 patterns",
+    "T_Y": "20/3",
+    "T_2": "4",
+    "T_3": "4",
+    "c_Y": "5/3",
+    "T3_over_T2": "1",
+    "TY_over_T3": "5/3",
+    "note": ""
+   },
+   "N4 Lambda^1": {
+    "trace": "patterns of degree 1",
+    "T_Y": "5/6",
+    "T_2": "1/2",
+    "T_3": "1/2",
+    "c_Y": "5/3",
+    "T3_over_T2": "1",
+    "TY_over_T3": "5/3",
+    "note": ""
+   },
+   "N4 Lambda^2": {
+    "trace": "patterns of degree 2",
+    "T_Y": "5/2",
+    "T_2": "3/2",
+    "T_3": "3/2",
+    "c_Y": "5/3",
+    "T3_over_T2": "1",
+    "TY_over_T3": "5/3",
+    "note": ""
+   },
+   "N4 Lambda^3": {
+    "trace": "patterns of degree 3",
+    "T_Y": "5/2",
+    "T_2": "3/2",
+    "T_3": "3/2",
+    "c_Y": "5/3",
+    "T3_over_T2": "1",
+    "TY_over_T3": "5/3",
+    "note": ""
+   },
+   "N4 Lambda^4": {
+    "trace": "patterns of degree 4",
+    "T_Y": "5/6",
+    "T_2": "1/2",
+    "T_3": "1/2",
+    "c_Y": "5/3",
+    "T3_over_T2": "1",
+    "TY_over_T3": "5/3",
+    "note": ""
+   },
+   "N4 n3 odd": {
+    "trace": "the half n3 odd",
+    "T_Y": "10/3",
+    "T_2": "2",
+    "T_3": "2",
+    "c_Y": "5/3",
+    "T3_over_T2": "1",
+    "TY_over_T3": "5/3",
+    "note": ""
+   },
+   "N4 n3 even": {
+    "trace": "the half n3 even",
+    "T_Y": "10/3",
+    "T_2": "2",
+    "T_3": "2",
+    "c_Y": "5/3",
+    "T3_over_T2": "1",
+    "TY_over_T3": "5/3",
+    "note": ""
+   },
+   "N5": {
+    "trace": "doublet block alone, Re tr_2 (transport of the class-3 register)",
+    "T_Y": "1/2",
+    "T_2": "1/2",
+    "T_3": "0",
+    "c_Y": "1",
+    "T3_over_T2": "0",
+    "TY_over_T3": null,
+    "note": ""
+   },
+   "N6": {
+    "trace": "triplet block alone, Re tr_3",
+    "T_Y": "1/3",
+    "T_2": "0",
+    "T_3": "1/2",
+    "c_Y": null,
+    "T3_over_T2": null,
+    "TY_over_T3": "2/3",
+    "note": ""
+   },
+   "N7": {
+    "trace": "swap test, average over states of definite load: (3/5)(|tr_3|^2 + 3)/12 + (2/5)(|tr_2|^2 + 2)/6",
+    "T_Y": "0",
+    "T_2": "2/15",
+    "T_3": "3/20",
+    "c_Y": "0",
+    "T3_over_T2": "9/8",
+    "TY_over_T3": "0",
+    "note": "blind to the hypercharge phase"
+   },
+   "N9 class 0": {
+    "trace": "patterns of Z6 class 0",
+    "T_Y": "2",
+    "T_2": "0",
+    "T_3": "0",
+    "c_Y": null,
+    "T3_over_T2": null,
+    "TY_over_T3": null,
+    "note": ""
+   },
+   "N9 class 1": {
+    "trace": "patterns of Z6 class 1",
+    "T_Y": "1/6",
+    "T_2": "3/2",
+    "T_3": "1",
+    "c_Y": "1/9",
+    "T3_over_T2": "2/3",
+    "TY_over_T3": "1/6",
+    "note": ""
+   },
+   "N9 class 2": {
+    "trace": "patterns of Z6 class 2",
+    "T_Y": "5/3",
+    "T_2": "0",
+    "T_3": "1",
+    "c_Y": null,
+    "T3_over_T2": null,
+    "TY_over_T3": "5/3",
+    "note": ""
+   },
+   "N9 class 3": {
+    "trace": "patterns of Z6 class 3",
+    "T_Y": "1",
+    "T_2": "1",
+    "T_3": "0",
+    "c_Y": "1",
+    "T3_over_T2": "0",
+    "TY_over_T3": null,
+    "note": ""
+   },
+   "N9 class 4": {
+    "trace": "patterns of Z6 class 4",
+    "T_Y": "5/3",
+    "T_2": "0",
+    "T_3": "1",
+    "c_Y": null,
+    "T3_over_T2": null,
+    "TY_over_T3": "5/3",
+    "note": ""
+   },
+   "N9 class 5": {
+    "trace": "patterns of Z6 class 5",
+    "T_Y": "1/6",
+    "T_2": "3/2",
+    "T_3": "1",
+    "c_Y": "1/9",
+    "T3_over_T2": "2/3",
+    "TY_over_T3": "1/6",
+    "note": ""
+   },
+   "N10": {
+    "trace": "native link sectors of the fifteen-state module (right action), blocks of dimension 3, 6, 1, 2, 3",
+    "T_Y": "8",
+    "T_2": "10",
+    "T_3": "9",
+    "c_Y": "4/5",
+    "T3_over_T2": "9/10",
+    "TY_over_T3": "8/9",
+    "note": "the blocks enter with weights equal to their dimensions; the set is not a complete multiplet sum"
+   }
+  },
+  "traces_with_SU5_normalisation_and_equal_nonabelian_stiffness": [
+   "N1",
+   "N2",
+   "N3",
+   "N4",
+   "N4 Lambda^1",
+   "N4 Lambda^2",
+   "N4 Lambda^3",
+   "N4 Lambda^4",
+   "N4 n3 odd",
+   "N4 n3 even"
+  ],
+  "other": {
+   "N5": {
+    "c_Y": "1",
+    "T3_over_T2": "0"
+   },
+   "N6": {
+    "c_Y": null,
+    "T3_over_T2": null
+   },
+   "N7": {
+    "c_Y": "0",
+    "T3_over_T2": "9/8"
+   },
+   "N9 class 0": {
+    "c_Y": null,
+    "T3_over_T2": null
+   },
+   "N9 class 1": {
+    "c_Y": "1/9",
+    "T3_over_T2": "2/3"
+   },
+   "N9 class 2": {
+    "c_Y": null,
+    "T3_over_T2": null
+   },
+   "N9 class 3": {
+    "c_Y": "1",
+    "T3_over_T2": "0"
+   },
+   "N9 class 4": {
+    "c_Y": null,
+    "T3_over_T2": null
+   },
+   "N9 class 5": {
+    "c_Y": "1/9",
+    "T3_over_T2": "2/3"
+   },
+   "N10": {
+    "c_Y": "4/5",
+    "T3_over_T2": "9/10"
+   }
+  },
+  "N8": {
+   "port_norm_Y": 0.33333333333333337,
+   "port_norm_T3": 1.0000000000000004,
+   "port_norm_colour_lambda3": 5.0,
+   "c_Y": 0.3333333333333332,
+   "photon_weights_sum_of_squares": 1.333333333333334,
+   "note": "stiffness per port phase: 1/g_Y^2 : 1/g_2^2 = 1/3 : 1; the colour directions are not equivalent under SU(3) (GL A3), so this form is no invariant action for colour"
+  },
+  "hessians_at_identity": {
+   "N1": {
+    "Y": 0.16666666380338313,
+    "T3": 0.09999999805998527,
+    "colour": 0.09999999805998527,
+    "c_Y": 1.6666666703674102,
+    "colour_over_T3": 1.0
+   },
+   "N2": {
+    "Y": 0.2777777614593191,
+    "T3": 0.16666665914044643,
+    "colour": 0.16666665914044643,
+    "c_Y": 1.666666644018116,
+    "colour_over_T3": 1.0
+   },
+   "N3": {
+    "Y": 0.2222222121872619,
+    "T3": 0.1333333305986173,
+    "colour": 0.1333333305986173,
+    "c_Y": 1.666666625588414,
+    "colour_over_T3": 1.0
+   },
+   "N4": {
+    "Y": 0.20833332414760264,
+    "T3": 0.12499999746395929,
+    "colour": 0.12499999746395929,
+    "c_Y": 1.6666666269946964,
+    "colour_over_T3": 1.0
+   },
+   "N5": {
+    "Y": 0.24999999470587397,
+    "T3": 0.24999999470587397,
+    "colour": 0.0,
+    "c_Y": 1.0,
+    "colour_over_T3": 0.0
+   },
+   "N6": {
+    "Y": 0.11111111031247844,
+    "T3": 0.0,
+    "colour": 0.16666666335929392,
+    "c_Y": null,
+    "colour_over_T3": null
+   },
+   "N7": {
+    "Y": 0.0,
+    "T3": 0.1333333221609223,
+    "colour": 0.14999999065068437,
+    "c_Y": 0.0,
+    "colour_over_T3": 1.1250000241473528
+   }
+  },
+  "block_decomposition": "for a trace over the code, c_Y = 2/3 (triplet block) + 1 (doublet block) = 5/3; any action that is a positive combination of Re tr_3 and Re tr_2 with equal colour and weak stiffness has c_Y = 5/3; terms blind to the block phases (|tr_3|^2, |tr_2|^2) lower c_Y and reach 0"
+ },
+ "HY3": [
+  {
+   "multiplet": "conj nu_R",
+   "six_Y": 0,
+   "states": 1,
+   "weyl_block_contribution_to_b1": "0",
+   "in_three_copies": "0"
+  },
+  {
+   "multiplet": "conj L_L",
+   "six_Y": 3,
+   "states": 2,
+   "weyl_block_contribution_to_b1": "1/5",
+   "in_three_copies": "3/5"
+  },
+  {
+   "multiplet": "conj e_R",
+   "six_Y": 6,
+   "states": 1,
+   "weyl_block_contribution_to_b1": "2/5",
+   "in_three_copies": "6/5"
+  },
+  {
+   "multiplet": "d_R",
+   "six_Y": -2,
+   "states": 3,
+   "weyl_block_contribution_to_b1": "2/15",
+   "in_three_copies": "2/5"
+  },
+  {
+   "multiplet": "Q_L",
+   "six_Y": 1,
+   "states": 6,
+   "weyl_block_contribution_to_b1": "1/15",
+   "in_three_copies": "1/5"
+  },
+  {
+   "multiplet": "u_R",
+   "six_Y": 4,
+   "states": 3,
+   "weyl_block_contribution_to_b1": "8/15",
+   "in_three_copies": "8/5"
+  },
+  {
+   "multiplet": "conj u_R",
+   "six_Y": -4,
+   "states": 3,
+   "weyl_block_contribution_to_b1": "8/15",
+   "in_three_copies": "8/5"
+  },
+  {
+   "multiplet": "conj Q_L",
+   "six_Y": -1,
+   "states": 6,
+   "weyl_block_contribution_to_b1": "1/15",
+   "in_three_copies": "1/5"
+  },
+  {
+   "multiplet": "conj d_R",
+   "six_Y": 2,
+   "states": 3,
+   "weyl_block_contribution_to_b1": "2/15",
+   "in_three_copies": "2/5"
+  },
+  {
+   "multiplet": "e_R",
+   "six_Y": -6,
+   "states": 1,
+   "weyl_block_contribution_to_b1": "2/5",
+   "in_three_copies": "6/5"
+  },
+  {
+   "multiplet": "L_L",
+   "six_Y": -3,
+   "states": 2,
+   "weyl_block_contribution_to_b1": "1/5",
+   "in_three_copies": "3/5"
+  },
+  {
+   "multiplet": "nu_R",
+   "six_Y": 0,
+   "states": 1,
+   "weyl_block_contribution_to_b1": "0",
+   "in_three_copies": "0"
+  },
+  {
+   "multiplet": "scalar doublet, |6Y| = 3",
+   "contribution_to_b1": "1/10"
+  },
+  {
+   "multiplet": "twelve links",
+   "contribution_to_b1": "0"
+  }
+ ],
+ "HY4": {
+  "declared_chain": {
+   "inv_alpha_U": 24.316554454021542,
+   "log_MU_over_mZ": 33.229737186061065,
+   "inv_alpha_1_mZ": 59.22182219734238
+  },
+  "c1_of_b1": "c_1 = 1 - (b_1 - 33/5) (L/2 pi) alpha_U",
+  "slope_dc1_db1": -0.21749285824215653,
+  "points": {
+   "b1 = 33/5": {
+    "c_1": 1.0,
+    "c_Y": 1.6666666666666667
+   },
+   "b1 = 41/5": {
+    "c_1": 0.6520114268125496,
+    "c_Y": 1.0866857113542494
+   },
+   "b1 = 81/10": {
+    "c_1": 0.6737607126367652,
+    "c_Y": 1.1229345210612753
+   },
+   "b1 = 83/10": {
+    "c_1": 0.6302621409883337,
+    "c_Y": 1.0504369016472228
+   }
+  },
+  "b1_for_cY_1": 8.439140849188895,
+  "b1_for_cY_1_third": 10.278281698377793,
+  "integer_content_changes_reaching_33_over_5": {
+   "count": 147,
+   "smallest": [
+    {
+     "dQ": 0,
+     "du": 0,
+     "dd": 0,
+     "dL": 0,
+     "de": -4,
+     "dH": 0,
+     "size": 4
+    },
+    {
+     "dQ": 0,
+     "du": -1,
+     "dd": 1,
+     "dL": 0,
+     "de": -3,
+     "dH": 0,
+     "size": 5
+    },
+    {
+     "dQ": 0,
+     "du": -2,
+     "dd": 2,
+     "dL": 0,
+     "de": -2,
+     "dH": 0,
+     "size": 6
+    },
+    {
+     "dQ": 1,
+     "du": -2,
+     "dd": 0,
+     "dL": -3,
+     "de": 0,
+     "dH": 0,
+     "size": 6
+    },
+    {
+     "dQ": 0,
+     "du": -3,
+     "dd": 3,
+     "dL": 0,
+     "de": -1,
+     "dH": 0,
+     "size": 7
+    },
+    {
+     "dQ": 0,
+     "du": 0,
+     "dd": 0,
+     "dL": -1,
+     "de": -4,
+     "dH": 2,
+     "size": 7
+    },
+    {
+     "dQ": 0,
+     "du": 0,
+     "dd": 0,
+     "dL": 1,
+     "de": -4,
+     "dH": -2,
+     "size": 7
+    },
+    {
+     "dQ": 0,
+     "du": 1,
+     "dd": -1,
+     "dL": 0,
+     "de": -5,
+     "dH": 0,
+     "size": 7
+    }
+   ],
+   "all_remove_hypercharge": true,
+   "with_Q_L_H_unchanged": [
+    {
+     "dQ": 0,
+     "du": 0,
+     "dd": 0,
+     "dL": 0,
+     "de": -4,
+     "dH": 0,
+     "size": 4
+    },
+    {
+     "dQ": 0,
+     "du": -1,
+     "dd": 1,
+     "dL": 0,
+     "de": -3,
+     "dH": 0,
+     "size": 5
+    },
+    {
+     "dQ": 0,
+     "du": -2,
+     "dd": 2,
+     "dL": 0,
+     "de": -2,
+     "dH": 0,
+     "size": 6
+    },
+    {
+     "dQ": 0,
+     "du": -3,
+     "dd": 3,
+     "dL": 0,
+     "de": -1,
+     "dH": 0,
+     "size": 7
+    },
+    {
+     "dQ": 0,
+     "du": 1,
+     "dd": -1,
+     "dL": 0,
+     "de": -5,
+     "dH": 0,
+     "size": 7
+    },
+    {
+     "dQ": 0,
+     "du": -4,
+     "dd": 4,
+     "dL": 0,
+     "de": 0,
+     "dH": 0,
+     "size": 8
+    },
+    {
+     "dQ": 0,
+     "du": 2,
+     "dd": -2,
+     "dL": 0,
+     "de": -6,
+     "dH": 0,
+     "size": 10
+    },
+    {
+     "dQ": 0,
+     "du": -5,
+     "dd": 5,
+     "dL": 0,
+     "de": 1,
+     "dH": 0,
+     "size": 11
+    },
+    {
+     "dQ": 0,
+     "du": -6,
+     "dd": 6,
+     "dL": 0,
+     "de": 2,
+     "dH": 0,
+     "size": 14
+    }
+   ],
+   "note": "with the doublets, the quark doublets and the lepton doublets unchanged the condition is 4 du + dd + 3 de = -12 with du + dd = 0: du + de = -4 (four exchanges of an up-type singlet for a down-type singlet, or four removed charged singlets, or a mixture)"
+  }
+ },
+ "HY5": {
+  "at_the_declared_chain_couplings": {
+   "global_form": 0.4077430249904146,
+   "factor_wise": 0.40774302500000015,
+   "difference": -9.585554572311139e-12,
+   "class_weights_of_the_U1_sum": [
+    0.16666666667306893,
+    0.1666666666698678,
+    0.16666666666346555,
+    0.16666666666026442,
+    0.16666666666346555,
+    0.1666666666698678
+   ],
+   "spread_of_class_weights": 1.2804507454333702e-11
+  },
+  "at_equal_couplings_1_over_16p2453": {
+   "global_form": 0.4070390092666898,
+   "factor_wise": 0.4077431372959449,
+   "difference": -0.0007041280292551244,
+   "spread_of_class_weights": 0.0007659910226210931
+  },
+  "statement": "at the anchor the six classes of the hypercharge sum have equal weight to the printed precision, so the closure on G equals the factor-wise closure and carries no information on the hypercharge coupling"
+ }
+}

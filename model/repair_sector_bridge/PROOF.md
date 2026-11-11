@@ -85,3 +85,21 @@ Laplacian as the physical Hamiltonian, a modular clock, or a gauge coupling.
 It also does not prove a native operation that changes electric sectors.
 A source-to-gauge transfer needs the actual sector projector map, proposal
 measure, sector-changing events and physical clock on one admitted source.
+
+## Bounded current-record observer
+
+The [bounded observer](RECORD_OBSERVER.md) implements the distance readout
+from addressed coin/current records, given the declared known binary
+preparation. Its controller has no access to working source loads. The
+exhaustive check covers all 3,960 native branches. This is an explicit
+observer extension with a uniform addressed-seam scheduler; the diagnostic
+quotient alone does not implement that apparatus.
+
+For the three-state kernel the exact one-attempt Dobrushin coefficient is
+14/15. Direct rational powers give a worst-initial-class total variation
+distance below 1/100 after 39 attempts, and above it after 38. The controller
+retains 298 logical bits for this horizon, or 311 including its incoming
+packet. It retains every no-operation record and requires the source to
+halt at capacity. These register bounds exclude immutable program and
+geometry storage, physical implementation costs, and any inference about
+evolution after the declared stopping point.

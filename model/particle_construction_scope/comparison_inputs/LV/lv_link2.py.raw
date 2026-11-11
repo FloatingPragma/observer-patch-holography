@@ -1,0 +1,24 @@
+"""Worker LV, row N3c (Addendum 3): <A> for weights d exp(-tau C) at the unit heat time. No measured value is read."""
+import json
+import math
+
+import mpmath as mp
+
+import lv_chain as C
+
+mp.mp.dps = 50
+pi = math.pi
+x = C.solve()[0][0]
+tau = 4 * pi / x / 2
+out = {}
+for power, name in ((1, "weights_d"), (2, "weights_d^2"), (0, "weights_1")):
+    num = mp.mpf(0); den = mp.mpf(0)
+    for k in range(1, 600):
+        w = mp.mpf(k) ** power * mp.exp(-mp.mpf(tau) * (k * k - 1) / 4)
+        num += (-1) ** (k - 1) * w; den += w
+    out[name] = {"<A>": float(num / den)}
+out["tau"] = tau
+out["tau_over_8"] = tau / 8
+out["E_cell_times_<A>_weights_d_GeV"] = out["weights_d"]["<A>"] * C.EP / math.sqrt(C.P_FWD)
+json.dump(out, open("lv_link2.json", "w"), indent=1)
+print(out)

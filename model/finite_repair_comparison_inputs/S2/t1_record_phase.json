@@ -1,0 +1,1925 @@
+{
+ "label_action_matches_native_branches_all_rotations": true,
+ "classification": {
+  "unknowns": 144,
+  "equations": 240,
+  "rank_over_Q": 129,
+  "rank_mod_2": 128,
+  "rank_mod_3": 129,
+  "rank_mod_5": 128,
+  "smith_torsion_factors": [
+   10
+  ],
+  "sign_classes_modulo_port_sign_rephasing": 8,
+  "phase_classes_group": "U(1)^2 x Z_10",
+  "Z3_valued_classes": 9,
+  "Z5_valued_classes": 125
+ },
+ "strictly_invariant": {
+  "label_orbits": 2,
+  "orbit_sizes": [
+   60,
+   60
+  ],
+  "orbit_kinds": [
+   [
+    "move"
+   ],
+   [
+    "wait"
+   ]
+  ]
+ },
+ "representative_covariance_checks": [
+  {
+   "w": "1",
+   "r": "1",
+   "n": 0,
+   "max_covariance_defect_with_explicit_rephasing": 0.0,
+   "face_flux_uniform": true,
+   "f^20 - r^30": 0.0
+  },
+  {
+   "w": "1",
+   "r": "1",
+   "n": 10,
+   "max_covariance_defect_with_explicit_rephasing": 4.525725126580323e-14,
+   "face_flux_uniform": true,
+   "f^20 - r^30": 6.844324643523449e-13
+  },
+  {
+   "w": "1",
+   "r": "-1",
+   "n": 0,
+   "max_covariance_defect_with_explicit_rephasing": 0.0,
+   "face_flux_uniform": true,
+   "f^20 - r^30": 0.0
+  },
+  {
+   "w": "1",
+   "r": "-1",
+   "n": 10,
+   "max_covariance_defect_with_explicit_rephasing": 4.525725126580323e-14,
+   "face_flux_uniform": true,
+   "f^20 - r^30": 6.844324643523449e-13
+  },
+  {
+   "w": "-1",
+   "r": "1",
+   "n": 0,
+   "max_covariance_defect_with_explicit_rephasing": 0.0,
+   "face_flux_uniform": true,
+   "f^20 - r^30": 0.0
+  },
+  {
+   "w": "-1",
+   "r": "-1",
+   "n": 10,
+   "max_covariance_defect_with_explicit_rephasing": 4.525725126580323e-14,
+   "face_flux_uniform": true,
+   "f^20 - r^30": 6.844324643523449e-13
+  },
+  {
+   "w": "1",
+   "r": "1",
+   "n": 1,
+   "max_covariance_defect_with_explicit_rephasing": 3.5566146649215975e-15,
+   "face_flux_uniform": true,
+   "f^20 - r^30": 5.394889994704497e-14
+  },
+  {
+   "w": "1",
+   "r": "1",
+   "n": 7,
+   "max_covariance_defect_with_explicit_rephasing": 3.642242264931826e-14,
+   "face_flux_uniform": true,
+   "f^20 - r^30": 4.590537482824872e-13
+  },
+  {
+   "w": "(0.955336489125606+0.29552020666133955j)",
+   "r": "(0.4535961214255773+0.8912073600614354j)",
+   "n": 3,
+   "max_covariance_defect_with_explicit_rephasing": 8.34515588764179e-15,
+   "face_flux_uniform": true,
+   "f^20 - r^30": 5.449867448192107e-14
+  }
+ ],
+ "sign_classes_realised_by_real_signs": [
+  [
+   -1,
+   -1,
+   -1
+  ],
+  [
+   -1,
+   -1,
+   1
+  ],
+  [
+   -1,
+   1,
+   -1
+  ],
+  [
+   -1,
+   1,
+   1
+  ],
+  [
+   1,
+   -1,
+   -1
+  ],
+  [
+   1,
+   -1,
+   1
+  ],
+  [
+   1,
+   1,
+   -1
+  ],
+  [
+   1,
+   1,
+   1
+  ]
+ ],
+ "sign_class_spectra": {
+  "(-1, -1, -1)": {
+   "one_load": {
+    "subspace_dim": 36,
+    "invariance_residual": 3.931925553187782e-14,
+    "max_abs_dev_from_unit_circle": 5.88418203051333e-15,
+    "full_dim": 720,
+    "full_spectrum_contains_restricted": true,
+    "eigenphases": [
+     [
+      -3.072667,
+      6
+     ],
+     [
+      -1.522972,
+      6
+     ],
+     [
+      -1.454046,
+      6
+     ],
+     [
+      1.454046,
+      6
+     ],
+     [
+      1.522972,
+      6
+     ],
+     [
+      3.072667,
+      6
+     ]
+    ],
+    "min_abs_eigenphase": 1.4540456171934821,
+    "max_abs_eigenphase": 3.0726667308706515,
+    "discriminant_hermitian": false,
+    "closed_cubic_reproduces_inherited_spectrum": true,
+    "magnetic_adjacency_spectrum": [
+     [
+      -2.236067977,
+      6
+     ],
+     [
+      2.236067977,
+      6
+     ]
+    ]
+   },
+   "two_loads": {
+    "subspace_dim": 198,
+    "invariance_residual": 3.4088063301334476e-13,
+    "max_abs_dev_from_unit_circle": 1.554312234475219e-14,
+    "min_abs_eigenphase": 1.3435797585937315,
+    "max_abs_eigenphase": 3.141592653589793,
+    "distinct_eigenphases": 50
+   }
+  },
+  "(-1, -1, 1)": {
+   "one_load": {
+    "subspace_dim": 36,
+    "invariance_residual": 4.272360474028707e-14,
+    "max_abs_dev_from_unit_circle": 8.326672684688674e-15,
+    "full_dim": 720,
+    "full_spectrum_contains_restricted": true,
+    "eigenphases": [
+     [
+      -3.072667,
+      6
+     ],
+     [
+      -1.522972,
+      6
+     ],
+     [
+      -1.454046,
+      6
+     ],
+     [
+      1.454046,
+      6
+     ],
+     [
+      1.522972,
+      6
+     ],
+     [
+      3.072667,
+      6
+     ]
+    ],
+    "min_abs_eigenphase": 1.4540456171934824,
+    "max_abs_eigenphase": 3.0726667308706515,
+    "discriminant_hermitian": false,
+    "closed_cubic_reproduces_inherited_spectrum": true,
+    "magnetic_adjacency_spectrum": [
+     [
+      -2.236067977,
+      6
+     ],
+     [
+      2.236067977,
+      6
+     ]
+    ]
+   },
+   "two_loads": {
+    "subspace_dim": 198,
+    "invariance_residual": 3.600952828596352e-13,
+    "max_abs_dev_from_unit_circle": 1.7985612998927536e-14,
+    "min_abs_eigenphase": 1.3435797585937312,
+    "max_abs_eigenphase": 3.141592653589793,
+    "distinct_eigenphases": 50
+   }
+  },
+  "(-1, 1, -1)": {
+   "one_load": {
+    "subspace_dim": 23,
+    "invariance_residual": 4.1768591247226417e-14,
+    "max_abs_dev_from_unit_circle": 6.217248937900877e-15,
+    "full_dim": 720,
+    "full_spectrum_contains_restricted": true,
+    "eigenphases": [
+     [
+      -2.836884,
+      3
+     ],
+     [
+      -2.690566,
+      5
+     ],
+     [
+      -2.645394,
+      3
+     ],
+     [
+      2.645394,
+      3
+     ],
+     [
+      2.690566,
+      5
+     ],
+     [
+      2.836884,
+      3
+     ],
+     [
+      3.141593,
+      1
+     ]
+    ],
+    "min_abs_eigenphase": 2.6453943940877194,
+    "max_abs_eigenphase": 3.141592653589793,
+    "discriminant_hermitian": true,
+    "discriminant_spectrum": [
+     [
+      -1.0,
+      1
+     ],
+     [
+      -0.953934466,
+      3
+     ],
+     [
+      -0.9,
+      5
+     ],
+     [
+      -0.879398867,
+      3
+     ]
+    ],
+    "discriminant_as_a+b*L": {
+     "a": -0.900000000000001,
+     "b": -0.0033333333333333145,
+     "residual": 0.019999999999999976,
+     "a_times_60": -54.000000000000064,
+     "b_times_60": -0.19999999999999887
+    },
+    "uniform_mode_eigenphase": null,
+    "dispersion_sign_d(phase)/d(lambda)": null,
+    "closed_cubic_reproduces_inherited_spectrum": true,
+    "magnetic_adjacency_spectrum": [
+     [
+      -5.0,
+      1
+     ],
+     [
+      -2.236067977,
+      3
+     ],
+     [
+      1.0,
+      5
+     ],
+     [
+      2.236067977,
+      3
+     ]
+    ]
+   },
+   "two_loads": {
+    "subspace_dim": 131,
+    "invariance_residual": 3.1919297362818545e-13,
+    "max_abs_dev_from_unit_circle": 2.3092638912203256e-14,
+    "min_abs_eigenphase": 2.453079970081381,
+    "max_abs_eigenphase": 3.1415926535897927,
+    "distinct_eigenphases": 31,
+    "discriminant_range": [
+     -1.0000000000000004,
+     -0.7721918938562027
+    ]
+   }
+  },
+  "(-1, 1, 1)": {
+   "one_load": {
+    "subspace_dim": 24,
+    "invariance_residual": 3.295293746728571e-14,
+    "max_abs_dev_from_unit_circle": 3.552713678800501e-15,
+    "full_dim": 720,
+    "full_spectrum_contains_restricted": true,
+    "eigenphases": [
+     [
+      -2.836884,
+      3
+     ],
+     [
+      -2.774385,
+      5
+     ],
+     [
+      -2.645394,
+      3
+     ],
+     [
+      -2.555907,
+      1
+     ],
+     [
+      2.555907,
+      1
+     ],
+     [
+      2.645394,
+      3
+     ],
+     [
+      2.774385,
+      5
+     ],
+     [
+      2.836884,
+      3
+     ]
+    ],
+    "min_abs_eigenphase": 2.55590711013264,
+    "max_abs_eigenphase": 2.836884216219522,
+    "discriminant_hermitian": true,
+    "discriminant_spectrum": [
+     [
+      -0.953934466,
+      3
+     ],
+     [
+      -0.933333333,
+      5
+     ],
+     [
+      -0.879398867,
+      3
+     ],
+     [
+      -0.833333333,
+      1
+     ]
+    ],
+    "discriminant_as_a+b*L": {
+     "a": -0.8333333333333343,
+     "b": -0.01666666666666665,
+     "residual": 3.3306690738754696e-16,
+     "a_times_60": -50.00000000000006,
+     "b_times_60": -0.9999999999999989
+    },
+    "uniform_mode_eigenphase": 2.555907110132644,
+    "dispersion_sign_d(phase)/d(lambda)": "+",
+    "closed_cubic_reproduces_inherited_spectrum": true,
+    "magnetic_adjacency_spectrum": [
+     [
+      -2.236067977,
+      3
+     ],
+     [
+      -1.0,
+      5
+     ],
+     [
+      2.236067977,
+      3
+     ],
+     [
+      5.0,
+      1
+     ]
+    ]
+   },
+   "two_loads": {
+    "subspace_dim": 132,
+    "invariance_residual": 3.147314074506602e-13,
+    "max_abs_dev_from_unit_circle": 1.9872992140790302e-14,
+    "min_abs_eigenphase": 2.3301707781203276,
+    "max_abs_eigenphase": 2.7347289180952328,
+    "distinct_eigenphases": 32,
+    "discriminant_range": [
+     -0.9183664545864548,
+     -0.6884678901430046
+    ]
+   }
+  },
+  "(1, -1, -1)": {
+   "one_load": {
+    "subspace_dim": 36,
+    "invariance_residual": 4.135838311759287e-14,
+    "max_abs_dev_from_unit_circle": 5.551115123125783e-15,
+    "full_dim": 720,
+    "full_spectrum_contains_restricted": true,
+    "eigenphases": [
+     [
+      -1.687547,
+      6
+     ],
+     [
+      -1.618621,
+      6
+     ],
+     [
+      -0.068926,
+      6
+     ],
+     [
+      0.068926,
+      6
+     ],
+     [
+      1.618621,
+      6
+     ],
+     [
+      1.687547,
+      6
+     ]
+    ],
+    "min_abs_eigenphase": 0.06892592271914162,
+    "max_abs_eigenphase": 1.6875470363963105,
+    "discriminant_hermitian": false,
+    "closed_cubic_reproduces_inherited_spectrum": true,
+    "magnetic_adjacency_spectrum": [
+     [
+      -2.236067977,
+      6
+     ],
+     [
+      2.236067977,
+      6
+     ]
+    ]
+   },
+   "two_loads": {
+    "subspace_dim": 198,
+    "invariance_residual": 3.4094972695322225e-13,
+    "max_abs_dev_from_unit_circle": 1.3766765505351941e-14,
+    "min_abs_eigenphase": 0.0,
+    "max_abs_eigenphase": 1.7980128949960628,
+    "distinct_eigenphases": 49
+   }
+  },
+  "(1, -1, 1)": {
+   "one_load": {
+    "subspace_dim": 36,
+    "invariance_residual": 5.022668781529206e-14,
+    "max_abs_dev_from_unit_circle": 7.438494264988549e-15,
+    "full_dim": 720,
+    "full_spectrum_contains_restricted": true,
+    "eigenphases": [
+     [
+      -1.687547,
+      6
+     ],
+     [
+      -1.618621,
+      6
+     ],
+     [
+      -0.068926,
+      6
+     ],
+     [
+      0.068926,
+      6
+     ],
+     [
+      1.618621,
+      6
+     ],
+     [
+      1.687547,
+      6
+     ]
+    ],
+    "min_abs_eigenphase": 0.06892592271914208,
+    "max_abs_eigenphase": 1.687547036396311,
+    "discriminant_hermitian": false,
+    "closed_cubic_reproduces_inherited_spectrum": true,
+    "magnetic_adjacency_spectrum": [
+     [
+      -2.236067977,
+      6
+     ],
+     [
+      2.236067977,
+      6
+     ]
+    ]
+   },
+   "two_loads": {
+    "subspace_dim": 198,
+    "invariance_residual": 3.36083899751697e-13,
+    "max_abs_dev_from_unit_circle": 1.5432100042289676e-14,
+    "min_abs_eigenphase": 0.0,
+    "max_abs_eigenphase": 1.7980128949960625,
+    "distinct_eigenphases": 49
+   }
+  },
+  "(1, 1, -1)": {
+   "one_load": {
+    "subspace_dim": 24,
+    "invariance_residual": 3.968497104701508e-14,
+    "max_abs_dev_from_unit_circle": 5.551115123125783e-15,
+    "full_dim": 720,
+    "full_spectrum_contains_restricted": true,
+    "eigenphases": [
+     [
+      -0.585686,
+      1
+     ],
+     [
+      -0.496198,
+      3
+     ],
+     [
+      -0.367208,
+      5
+     ],
+     [
+      -0.304708,
+      3
+     ],
+     [
+      0.304708,
+      3
+     ],
+     [
+      0.367208,
+      5
+     ],
+     [
+      0.496198,
+      3
+     ],
+     [
+      0.585686,
+      1
+     ]
+    ],
+    "min_abs_eigenphase": 0.3047084373702726,
+    "max_abs_eigenphase": 0.5856855434571525,
+    "discriminant_hermitian": true,
+    "discriminant_spectrum": [
+     [
+      0.833333333,
+      1
+     ],
+     [
+      0.879398867,
+      3
+     ],
+     [
+      0.933333333,
+      5
+     ],
+     [
+      0.953934466,
+      3
+     ]
+    ],
+    "discriminant_as_a+b*L": {
+     "a": 0.9333333333333343,
+     "b": -0.0033333333333333912,
+     "residual": 0.020000000000000052,
+     "a_times_60": 56.000000000000064,
+     "b_times_60": -0.20000000000000348
+    },
+    "uniform_mode_eigenphase": null,
+    "dispersion_sign_d(phase)/d(lambda)": null,
+    "closed_cubic_reproduces_inherited_spectrum": true,
+    "magnetic_adjacency_spectrum": [
+     [
+      -5.0,
+      1
+     ],
+     [
+      -2.236067977,
+      3
+     ],
+     [
+      1.0,
+      5
+     ],
+     [
+      2.236067977,
+      3
+     ]
+    ]
+   },
+   "two_loads": {
+    "subspace_dim": 132,
+    "invariance_residual": 3.524334705202013e-13,
+    "max_abs_dev_from_unit_circle": 2.1094237467877974e-14,
+    "min_abs_eigenphase": 0.4068637354945612,
+    "max_abs_eigenphase": 0.8114218754694676,
+    "distinct_eigenphases": 32,
+    "discriminant_range": [
+     0.6884678901430047,
+     0.9183664545864548
+    ]
+   }
+  },
+  "(1, 1, 1)": {
+   "one_load": {
+    "subspace_dim": 23,
+    "invariance_residual": 4.457130184424035e-14,
+    "max_abs_dev_from_unit_circle": 6.217248937900877e-15,
+    "full_dim": 720,
+    "full_spectrum_contains_restricted": true,
+    "eigenphases": [
+     [
+      -0.496198,
+      3
+     ],
+     [
+      -0.451027,
+      5
+     ],
+     [
+      -0.304708,
+      3
+     ],
+     [
+      0.0,
+      1
+     ],
+     [
+      0.304708,
+      3
+     ],
+     [
+      0.451027,
+      5
+     ],
+     [
+      0.496198,
+      3
+     ]
+    ],
+    "min_abs_eigenphase": 1.1102230246251627e-16,
+    "max_abs_eigenphase": 0.49619825950207314,
+    "discriminant_hermitian": true,
+    "discriminant_spectrum": [
+     [
+      0.879398867,
+      3
+     ],
+     [
+      0.9,
+      5
+     ],
+     [
+      0.953934466,
+      3
+     ],
+     [
+      1.0,
+      1
+     ]
+    ],
+    "discriminant_as_a+b*L": {
+     "a": 1.000000000000001,
+     "b": -0.016666666666666673,
+     "residual": 1.1102230246251565e-16,
+     "a_times_60": 60.000000000000064,
+     "b_times_60": -1.0000000000000004
+    },
+    "uniform_mode_eigenphase": 0.0,
+    "dispersion_sign_d(phase)/d(lambda)": "+",
+    "closed_cubic_reproduces_inherited_spectrum": true,
+    "magnetic_adjacency_spectrum": [
+     [
+      -2.236067977,
+      3
+     ],
+     [
+      -1.0,
+      5
+     ],
+     [
+      2.236067977,
+      3
+     ],
+     [
+      5.0,
+      1
+     ]
+    ]
+   },
+   "two_loads": {
+    "subspace_dim": 131,
+    "invariance_residual": 2.923515485612205e-13,
+    "max_abs_dev_from_unit_circle": 1.9984014443252818e-14,
+    "min_abs_eigenphase": 3.330669073875403e-16,
+    "max_abs_eigenphase": 0.6885126835084145,
+    "distinct_eigenphases": 31,
+    "discriminant_range": [
+     0.7721918938562027,
+     1.0000000000000007
+    ]
+   }
+  }
+ },
+ "hermitian_flux_family_w1_r1": {
+  "0": {
+   "discriminant_spectrum": [
+    [
+     0.879398867,
+     3
+    ],
+    [
+     0.9,
+     5
+    ],
+    [
+     0.953934466,
+     3
+    ],
+    [
+     1.0,
+     1
+    ]
+   ],
+   "magnetic_adjacency_spectrum": [
+    [
+     -2.236067977,
+     3
+    ],
+    [
+     -1.0,
+     5
+    ],
+    [
+     2.236067977,
+     3
+    ],
+    [
+     5.0,
+     1
+    ]
+   ],
+   "lowest_eigenphase": 0.0,
+   "highest_eigenphase": 0.49619825950207164,
+   "zero_mode": true,
+   "two_loads_lowest_eigenphase": 0.0,
+   "two_loads_highest_eigenphase": 0.6885126835084093,
+   "walk_phases_match_arccos": true
+  },
+  "1": {
+   "discriminant_spectrum": [
+    [
+     0.884964783,
+     6
+    ],
+    [
+     0.928775709,
+     4
+    ],
+    [
+     0.987554234,
+     2
+    ]
+   ],
+   "magnetic_adjacency_spectrum": [
+    [
+     -1.902113033,
+     6
+    ],
+    [
+     0.726542528,
+     4
+    ],
+    [
+     4.253254042,
+     2
+    ]
+   ],
+   "lowest_eigenphase": 0.15793459517968583,
+   "highest_eigenphase": 0.48437795010492213,
+   "zero_mode": false,
+   "two_loads_lowest_eigenphase": 0.22195907098444095,
+   "two_loads_highest_eigenphase": 0.6902531499908421,
+   "walk_phases_match_arccos": true
+  },
+  "2": {
+   "discriminant_spectrum": [
+    [
+     0.879398867,
+     4
+    ],
+    [
+     0.910300566,
+     5
+    ],
+    [
+     0.976967233,
+     3
+    ]
+   ],
+   "magnetic_adjacency_spectrum": [
+    [
+     -2.236067977,
+     4
+    ],
+    [
+     -0.381966011,
+     5
+    ],
+    [
+     3.618033989,
+     3
+    ]
+   ],
+   "lowest_eigenphase": 0.21504293541572833,
+   "highest_eigenphase": 0.4961982595020719,
+   "zero_mode": false,
+   "two_loads_lowest_eigenphase": 0.29124863111123095,
+   "two_loads_highest_eigenphase": 0.696801399586844,
+   "walk_phases_match_arccos": true
+  },
+  "3": {
+   "discriminant_spectrum": [
+    [
+     0.872855741,
+     2
+    ],
+    [
+     0.897073825,
+     6
+    ],
+    [
+     0.967961392,
+     4
+    ]
+   ],
+   "magnetic_adjacency_spectrum": [
+    [
+     -2.628655561,
+     2
+    ],
+    [
+     -1.175570505,
+     6
+    ],
+    [
+     3.077683537,
+     4
+    ]
+   ],
+   "lowest_eigenphase": 0.2538155365743415,
+   "highest_eigenphase": 0.5097720998322303,
+   "zero_mode": false,
+   "two_loads_lowest_eigenphase": 0.34327020848677336,
+   "two_loads_highest_eigenphase": 0.7077029480641316,
+   "walk_phases_match_arccos": true
+  },
+  "4": {
+   "discriminant_spectrum": [
+    [
+     0.879398867,
+     4
+    ],
+    [
+     0.8936339,
+     3
+    ],
+    [
+     0.960300566,
+     5
+    ]
+   ],
+   "magnetic_adjacency_spectrum": [
+    [
+     -2.236067977,
+     4
+    ],
+    [
+     -1.381966011,
+     3
+    ],
+    [
+     2.618033989,
+     5
+    ]
+   ],
+   "lowest_eigenphase": 0.2827186746163744,
+   "highest_eigenphase": 0.49619825950207075,
+   "zero_mode": false,
+   "two_loads_lowest_eigenphase": 0.3744108472542025,
+   "two_loads_highest_eigenphase": 0.7005804322777625,
+   "walk_phases_match_arccos": true
+  },
+  "5": {
+   "discriminant_spectrum": [
+    [
+     0.879398867,
+     6
+    ],
+    [
+     0.953934466,
+     6
+    ]
+   ],
+   "magnetic_adjacency_spectrum": [
+    [
+     -2.236067977,
+     6
+    ],
+    [
+     2.236067977,
+     6
+    ]
+   ],
+   "lowest_eigenphase": 0.30470843737026826,
+   "highest_eigenphase": 0.4961982595020726,
+   "zero_mode": false,
+   "two_loads_lowest_eigenphase": 0.3830460321037948,
+   "two_loads_highest_eigenphase": 0.7082218534913555,
+   "walk_phases_match_arccos": true
+  },
+  "6": {
+   "discriminant_spectrum": [
+    [
+     0.873032767,
+     5
+    ],
+    [
+     0.939699434,
+     3
+    ],
+    [
+     0.953934466,
+     4
+    ]
+   ],
+   "magnetic_adjacency_spectrum": [
+    [
+     -2.618033989,
+     5
+    ],
+    [
+     1.381966011,
+     3
+    ],
+    [
+     2.236067977,
+     4
+    ]
+   ],
+   "lowest_eigenphase": 0.3047084373702657,
+   "highest_eigenphase": 0.5094092073388409,
+   "zero_mode": false,
+   "two_loads_lowest_eigenphase": 0.38156270361266126,
+   "two_loads_highest_eigenphase": 0.7281688902229906,
+   "walk_phases_match_arccos": true
+  },
+  "7": {
+   "discriminant_spectrum": [
+    [
+     0.865371941,
+     4
+    ],
+    [
+     0.936259508,
+     6
+    ],
+    [
+     0.960477593,
+     2
+    ]
+   ],
+   "magnetic_adjacency_spectrum": [
+    [
+     -3.077683537,
+     4
+    ],
+    [
+     1.175570505,
+     6
+    ],
+    [
+     2.628655561,
+     2
+    ]
+   ],
+   "lowest_eigenphase": 0.2820834033624681,
+   "highest_eigenphase": 0.5249042255638589,
+   "zero_mode": false,
+   "two_loads_lowest_eigenphase": 0.38744514243412337,
+   "two_loads_highest_eigenphase": 0.746251125742616,
+   "walk_phases_match_arccos": true
+  },
+  "8": {
+   "discriminant_spectrum": [
+    [
+     0.8563661,
+     3
+    ],
+    [
+     0.923032767,
+     5
+    ],
+    [
+     0.953934466,
+     4
+    ]
+   ],
+   "magnetic_adjacency_spectrum": [
+    [
+     -3.618033989,
+     3
+    ],
+    [
+     0.381966011,
+     5
+    ],
+    [
+     2.236067977,
+     4
+    ]
+   ],
+   "lowest_eigenphase": 0.30470843737026937,
+   "highest_eigenphase": 0.5426056743594326,
+   "zero_mode": false,
+   "two_loads_lowest_eigenphase": 0.3951441846549855,
+   "two_loads_highest_eigenphase": 0.7736324909631909,
+   "walk_phases_match_arccos": true
+  },
+  "9": {
+   "discriminant_spectrum": [
+    [
+     0.845779099,
+     2
+    ],
+    [
+     0.904557625,
+     4
+    ],
+    [
+     0.948368551,
+     6
+    ]
+   ],
+   "magnetic_adjacency_spectrum": [
+    [
+     -4.253254042,
+     2
+    ],
+    [
+     -0.726542528,
+     4
+    ],
+    [
+     1.902113033,
+     6
+    ]
+   ],
+   "lowest_eigenphase": 0.3227443920016472,
+   "highest_eigenphase": 0.5627725816120529,
+   "zero_mode": false,
+   "two_loads_lowest_eigenphase": 0.4093633316593638,
+   "two_loads_highest_eigenphase": 0.7736112348848802,
+   "walk_phases_match_arccos": true
+  },
+  "10": {
+   "discriminant_spectrum": [
+    [
+     0.833333333,
+     1
+    ],
+    [
+     0.879398867,
+     3
+    ],
+    [
+     0.933333333,
+     5
+    ],
+    [
+     0.953934466,
+     3
+    ]
+   ],
+   "magnetic_adjacency_spectrum": [
+    [
+     -5.0,
+     1
+    ],
+    [
+     -2.236067977,
+     3
+    ],
+    [
+     1.0,
+     5
+    ],
+    [
+     2.236067977,
+     3
+    ]
+   ],
+   "lowest_eigenphase": 0.30470843737026904,
+   "highest_eigenphase": 0.5856855434571493,
+   "zero_mode": false,
+   "two_loads_lowest_eigenphase": 0.4068637354945662,
+   "two_loads_highest_eigenphase": 0.8114218754694723,
+   "walk_phases_match_arccos": true
+  },
+  "11": {
+   "discriminant_spectrum": [
+    [
+     0.845779099,
+     2
+    ],
+    [
+     0.904557625,
+     4
+    ],
+    [
+     0.948368551,
+     6
+    ]
+   ],
+   "magnetic_adjacency_spectrum": [
+    [
+     -4.253254042,
+     2
+    ],
+    [
+     -0.726542528,
+     4
+    ],
+    [
+     1.902113033,
+     6
+    ]
+   ],
+   "lowest_eigenphase": 0.3227443920016465,
+   "highest_eigenphase": 0.5627725816120535,
+   "zero_mode": false,
+   "two_loads_lowest_eigenphase": 0.4093633316593635,
+   "two_loads_highest_eigenphase": 0.7736112348848795,
+   "walk_phases_match_arccos": true
+  },
+  "12": {
+   "discriminant_spectrum": [
+    [
+     0.8563661,
+     3
+    ],
+    [
+     0.923032767,
+     5
+    ],
+    [
+     0.953934466,
+     4
+    ]
+   ],
+   "magnetic_adjacency_spectrum": [
+    [
+     -3.618033989,
+     3
+    ],
+    [
+     0.381966011,
+     5
+    ],
+    [
+     2.236067977,
+     4
+    ]
+   ],
+   "lowest_eigenphase": 0.30470843737026826,
+   "highest_eigenphase": 0.5426056743594317,
+   "zero_mode": false,
+   "two_loads_lowest_eigenphase": 0.3951441846549835,
+   "two_loads_highest_eigenphase": 0.7736324909631901,
+   "walk_phases_match_arccos": true
+  },
+  "13": {
+   "discriminant_spectrum": [
+    [
+     0.865371941,
+     4
+    ],
+    [
+     0.936259508,
+     6
+    ],
+    [
+     0.960477593,
+     2
+    ]
+   ],
+   "magnetic_adjacency_spectrum": [
+    [
+     -3.077683537,
+     4
+    ],
+    [
+     1.175570505,
+     6
+    ],
+    [
+     2.628655561,
+     2
+    ]
+   ],
+   "lowest_eigenphase": 0.2820834033624665,
+   "highest_eigenphase": 0.5249042255638606,
+   "zero_mode": false,
+   "two_loads_lowest_eigenphase": 0.3874451424341231,
+   "two_loads_highest_eigenphase": 0.746251125742616,
+   "walk_phases_match_arccos": true
+  },
+  "14": {
+   "discriminant_spectrum": [
+    [
+     0.873032767,
+     5
+    ],
+    [
+     0.939699434,
+     3
+    ],
+    [
+     0.953934466,
+     4
+    ]
+   ],
+   "magnetic_adjacency_spectrum": [
+    [
+     -2.618033989,
+     5
+    ],
+    [
+     1.381966011,
+     3
+    ],
+    [
+     2.236067977,
+     4
+    ]
+   ],
+   "lowest_eigenphase": 0.30470843737026865,
+   "highest_eigenphase": 0.5094092073388402,
+   "zero_mode": false,
+   "two_loads_lowest_eigenphase": 0.38156270361266187,
+   "two_loads_highest_eigenphase": 0.7281688902229912,
+   "walk_phases_match_arccos": true
+  },
+  "15": {
+   "discriminant_spectrum": [
+    [
+     0.879398867,
+     6
+    ],
+    [
+     0.953934466,
+     6
+    ]
+   ],
+   "magnetic_adjacency_spectrum": [
+    [
+     -2.236067977,
+     6
+    ],
+    [
+     2.236067977,
+     6
+    ]
+   ],
+   "lowest_eigenphase": 0.30470843737026904,
+   "highest_eigenphase": 0.49619825950207236,
+   "zero_mode": false,
+   "two_loads_lowest_eigenphase": 0.3830460321037945,
+   "two_loads_highest_eigenphase": 0.7082218534913555,
+   "walk_phases_match_arccos": true
+  },
+  "16": {
+   "discriminant_spectrum": [
+    [
+     0.879398867,
+     4
+    ],
+    [
+     0.8936339,
+     3
+    ],
+    [
+     0.960300566,
+     5
+    ]
+   ],
+   "magnetic_adjacency_spectrum": [
+    [
+     -2.236067977,
+     4
+    ],
+    [
+     -1.381966011,
+     3
+    ],
+    [
+     2.618033989,
+     5
+    ]
+   ],
+   "lowest_eigenphase": 0.2827186746163744,
+   "highest_eigenphase": 0.49619825950207097,
+   "zero_mode": false,
+   "two_loads_lowest_eigenphase": 0.3744108472542025,
+   "two_loads_highest_eigenphase": 0.7005804322777615,
+   "walk_phases_match_arccos": true
+  },
+  "17": {
+   "discriminant_spectrum": [
+    [
+     0.872855741,
+     2
+    ],
+    [
+     0.897073825,
+     6
+    ],
+    [
+     0.967961392,
+     4
+    ]
+   ],
+   "magnetic_adjacency_spectrum": [
+    [
+     -2.628655561,
+     2
+    ],
+    [
+     -1.175570505,
+     6
+    ],
+    [
+     3.077683537,
+     4
+    ]
+   ],
+   "lowest_eigenphase": 0.2538155365743424,
+   "highest_eigenphase": 0.5097720998322303,
+   "zero_mode": false,
+   "two_loads_lowest_eigenphase": 0.3432702084867757,
+   "two_loads_highest_eigenphase": 0.7077029480641321,
+   "walk_phases_match_arccos": true
+  },
+  "18": {
+   "discriminant_spectrum": [
+    [
+     0.879398867,
+     4
+    ],
+    [
+     0.910300566,
+     5
+    ],
+    [
+     0.976967233,
+     3
+    ]
+   ],
+   "magnetic_adjacency_spectrum": [
+    [
+     -2.236067977,
+     4
+    ],
+    [
+     -0.381966011,
+     5
+    ],
+    [
+     3.618033989,
+     3
+    ]
+   ],
+   "lowest_eigenphase": 0.21504293541572833,
+   "highest_eigenphase": 0.4961982595020719,
+   "zero_mode": false,
+   "two_loads_lowest_eigenphase": 0.2912486311112321,
+   "two_loads_highest_eigenphase": 0.6968013995868444,
+   "walk_phases_match_arccos": true
+  },
+  "19": {
+   "discriminant_spectrum": [
+    [
+     0.884964783,
+     6
+    ],
+    [
+     0.928775709,
+     4
+    ],
+    [
+     0.987554234,
+     2
+    ]
+   ],
+   "magnetic_adjacency_spectrum": [
+    [
+     -1.902113033,
+     6
+    ],
+    [
+     0.726542528,
+     4
+    ],
+    [
+     4.253254042,
+     2
+    ]
+   ],
+   "lowest_eigenphase": 0.15793459517968725,
+   "highest_eigenphase": 0.48437795010492307,
+   "zero_mode": false,
+   "two_loads_lowest_eigenphase": 0.22195907098443793,
+   "two_loads_highest_eigenphase": 0.6902531499908421,
+   "walk_phases_match_arccos": true
+  }
+ },
+ "distinct_lowest_eigenphases_hermitian_family": [
+  0.0,
+  0.157935,
+  0.215043,
+  0.253816,
+  0.282083,
+  0.282719,
+  0.304708,
+  0.322744
+ ],
+ "continuous_scan_n0": [
+  {
+   "alpha": 0.0,
+   "rho": 0.0,
+   "subspace_dim": 23,
+   "eigenphases_min_max": [
+    -0.49619825950207314,
+    0.4961982595020728
+   ],
+   "min_abs_eigenphase": 1.1102230246251627e-16,
+   "unit_circle_dev": 6.217248937900877e-15
+  },
+  {
+   "alpha": 0.0,
+   "rho": 0.5,
+   "subspace_dim": 35,
+   "eigenphases_min_max": [
+    -2.9125092152744325,
+    0.6377271232024823
+   ],
+   "min_abs_eigenphase": 0.02091656168463715,
+   "unit_circle_dev": 1.8207657603852567e-14
+  },
+  {
+   "alpha": 0.0,
+   "rho": 1.0,
+   "subspace_dim": 35,
+   "eigenphases_min_max": [
+    -2.6839334433851993,
+    0.8042157211974826
+   ],
+   "min_abs_eigenphase": 0.042340789795398855,
+   "unit_circle_dev": 1.509903313490213e-14
+  },
+  {
+   "alpha": 0.0,
+   "rho": 1.5707963267948966,
+   "subspace_dim": 35,
+   "eigenphases_min_max": [
+    -2.42432189032548,
+    1.018672659729941
+   ],
+   "min_abs_eigenphase": 0.053921382676217225,
+   "unit_circle_dev": 1.3766765505351941e-14
+  },
+  {
+   "alpha": 0.0,
+   "rho": 3.141592653589793,
+   "subspace_dim": 35,
+   "eigenphases_min_max": [
+    -1.7260572441277806,
+    1.68754703639631
+   ],
+   "min_abs_eigenphase": 0.03078025974517162,
+   "unit_circle_dev": 7.327471962526033e-15
+  },
+  {
+   "alpha": 0.5,
+   "rho": 0.0,
+   "subspace_dim": 35,
+   "eigenphases_min_max": [
+    -3.12909625350278,
+    0.7917193211104675
+   ],
+   "min_abs_eigenphase": 0.14738496045511626,
+   "unit_circle_dev": 1.6653345369377348e-14
+  },
+  {
+   "alpha": 0.5,
+   "rho": 0.5,
+   "subspace_dim": 35,
+   "eigenphases_min_max": [
+    -2.885435334711732,
+    0.8815698043244146
+   ],
+   "min_abs_eigenphase": 0.041549898675909594,
+   "unit_circle_dev": 1.587618925213974e-14
+  },
+  {
+   "alpha": 0.5,
+   "rho": 1.0,
+   "subspace_dim": 23,
+   "eigenphases_min_max": [
+    0.0038017404979249496,
+    0.9961982595020752
+   ],
+   "min_abs_eigenphase": 0.0038017404979249496,
+   "unit_circle_dev": 6.439293542825908e-15
+  },
+  {
+   "alpha": 0.5,
+   "rho": 1.5707963267948966,
+   "subspace_dim": 35,
+   "eigenphases_min_max": [
+    -2.380101649017374,
+    1.1598743644906966
+   ],
+   "min_abs_eigenphase": 0.1325632781918066,
+   "unit_circle_dev": 2.1538326677728037e-14
+  },
+  {
+   "alpha": 0.5,
+   "rho": 3.141592653589793,
+   "subspace_dim": 35,
+   "eigenphases_min_max": [
+    -1.6670636408955257,
+    1.7517465580155198
+   ],
+   "min_abs_eigenphase": 0.3478711480953712,
+   "unit_circle_dev": 1.5210055437364645e-14
+  },
+  {
+   "alpha": 1.0,
+   "rho": 0.0,
+   "subspace_dim": 35,
+   "eigenphases_min_max": [
+    -3.1150139537392443,
+    1.1659841399737383
+   ],
+   "min_abs_eigenphase": 0.08311395594195198,
+   "unit_circle_dev": 2.042810365310288e-14
+  },
+  {
+   "alpha": 1.0,
+   "rho": 0.5,
+   "subspace_dim": 35,
+   "eigenphases_min_max": [
+    -2.8723725353925964,
+    1.2216951471434303
+   ],
+   "min_abs_eigenphase": 0.0090847346593749,
+   "unit_circle_dev": 9.880984919163893e-15
+  },
+  {
+   "alpha": 1.0,
+   "rho": 1.0,
+   "subspace_dim": 35,
+   "eigenphases_min_max": [
+    -2.6290962535027775,
+    1.2917193211104698
+   ],
+   "min_abs_eigenphase": 0.1957842788025169,
+   "unit_circle_dev": 1.2878587085651816e-14
+  },
+  {
+   "alpha": 1.0,
+   "rho": 1.5707963267948966,
+   "subspace_dim": 35,
+   "eigenphases_min_max": [
+    -2.3509157211804186,
+    1.396204508592306
+   ],
+   "min_abs_eigenphase": 0.3839148857932106,
+   "unit_circle_dev": 2.0872192862952943e-14
+  },
+  {
+   "alpha": 1.0,
+   "rho": 3.141592653589793,
+   "subspace_dim": 35,
+   "eigenphases_min_max": [
+    -1.6193706829770917,
+    1.8552709784098924
+   ],
+   "min_abs_eigenphase": 0.7298770512058029,
+   "unit_circle_dev": 1.1324274851176597e-14
+  },
+  {
+   "alpha": 1.5707963267948966,
+   "rho": 0.0,
+   "subspace_dim": 35,
+   "eigenphases_min_max": [
+    -3.093767866707523,
+    1.6397222495140396
+   ],
+   "min_abs_eigenphase": 0.047824786882270216,
+   "unit_circle_dev": 1.199040866595169e-14
+  },
+  {
+   "alpha": 1.5707963267948966,
+   "rho": 0.5,
+   "subspace_dim": 35,
+   "eigenphases_min_max": [
+    -2.8540871512504826,
+    1.678818254417335
+   ],
+   "min_abs_eigenphase": 0.10447257003824549,
+   "unit_circle_dev": 1.1102230246251565e-14
+  },
+  {
+   "alpha": 1.5707963267948966,
+   "rho": 1.0,
+   "subspace_dim": 35,
+   "eigenphases_min_max": [
+    -2.612771274273802,
+    1.7229251786995283
+   ],
+   "min_abs_eigenphase": 0.31904976877937014,
+   "unit_circle_dev": 1.3766765505351941e-14
+  },
+  {
+   "alpha": 1.5707963267948966,
+   "rho": 1.5707963267948966,
+   "subspace_dim": 35,
+   "eigenphases_min_max": [
+    -2.3359776623623727,
+    1.7838539952974157
+   ],
+   "min_abs_eigenphase": 0.552123667064957,
+   "unit_circle_dev": 8.326672684688674e-15
+  },
+  {
+   "alpha": 1.5707963267948966,
+   "rho": 3.141592653589793,
+   "subspace_dim": 23,
+   "eigenphases_min_max": [
+    1.074598067292822,
+    2.066994586296971
+   ],
+   "min_abs_eigenphase": 1.074598067292822,
+   "unit_circle_dev": 9.992007221626409e-15
+  },
+  {
+   "alpha": 3.141592653589793,
+   "rho": 0.0,
+   "subspace_dim": 24,
+   "eigenphases_min_max": [
+    -2.8368842162195196,
+    2.83688421621952
+   ],
+   "min_abs_eigenphase": 2.555907110132642,
+   "unit_circle_dev": 5.995204332975845e-15
+  },
+  {
+   "alpha": 3.141592653589793,
+   "rho": 0.5,
+   "subspace_dim": 35,
+   "eigenphases_min_max": [
+    -2.6831425522657053,
+    2.9486391741098505
+   ],
+   "min_abs_eigenphase": 0.23450337815585814,
+   "unit_circle_dev": 1.3100631690576847e-14
+  },
+  {
+   "alpha": 3.141592653589793,
+   "rho": 1.0,
+   "subspace_dim": 35,
+   "eigenphases_min_max": [
+    -2.4942076931346793,
+    3.025604752290503
+   ],
+   "min_abs_eigenphase": 0.4686029408441723,
+   "unit_circle_dev": 1.509903313490213e-14
+  },
+  {
+   "alpha": 3.141592653589793,
+   "rho": 1.5707963267948966,
+   "subspace_dim": 35,
+   "eigenphases_min_max": [
+    -2.2516613012111204,
+    3.0876712709135754
+   ],
+   "min_abs_eigenphase": 0.7347863570924386,
+   "unit_circle_dev": 1.1324274851176597e-14
+  },
+  {
+   "alpha": 3.141592653589793,
+   "rho": 3.141592653589793,
+   "subspace_dim": 35,
+   "eigenphases_min_max": [
+    -3.1108123938446215,
+    3.0726667308706506
+   ],
+   "min_abs_eigenphase": 1.4155354094620116,
+   "unit_circle_dev": 6.439293542825908e-15
+  }
+ ],
+ "sign_classes_fixing_uniform_coherent_ket": [
+  [
+   1,
+   1,
+   1
+  ]
+ ],
+ "E_only_sign_extension_r1_f_pm1": [
+  {
+   "w_spectator": 1,
+   "w_incident": 1,
+   "m": 1,
+   "preserves_C_branch": true,
+   "discriminant": "1 + (-1/60) L",
+   "spectrum_range": [
+    0.8793988670416701,
+    0.9999999999999999
+   ],
+   "eigenphase_range": [
+    1.4901161193847656e-08,
+    0.4961982595020731
+   ]
+  },
+  {
+   "w_spectator": 1,
+   "w_incident": 1,
+   "m": -1,
+   "preserves_C_branch": true,
+   "discriminant": "5/6 + (1/60) L",
+   "spectrum_range": [
+    0.833333333333333,
+    0.9539344662916632
+   ],
+   "eigenphase_range": [
+    0.3047084373702731,
+    0.5856855434571515
+   ]
+  },
+  {
+   "w_spectator": 1,
+   "w_incident": -1,
+   "m": 1,
+   "preserves_C_branch": false,
+   "discriminant": "5/6 + (-1/60) L",
+   "spectrum_range": [
+    0.7127322003750035,
+    0.8333333333333337
+   ],
+   "eigenphase_range": [
+    0.5856855434571503,
+    0.777410634210833
+   ]
+  },
+  {
+   "w_spectator": 1,
+   "w_incident": -1,
+   "m": -1,
+   "preserves_C_branch": false,
+   "discriminant": "2/3 + (1/60) L",
+   "spectrum_range": [
+    0.6666666666666664,
+    0.7872677996249966
+   ],
+   "eigenphase_range": [
+    0.6644309428238289,
+    0.8410686705679306
+   ]
+  },
+  {
+   "w_spectator": -1,
+   "w_incident": 1,
+   "m": 1,
+   "preserves_C_branch": false,
+   "discriminant": "-2/3 + (-1/60) L",
+   "spectrum_range": [
+    -0.7872677996249966,
+    -0.6666666666666664
+   ],
+   "eigenphase_range": [
+    2.3005239830218627,
+    2.4771617107659645
+   ]
+  },
+  {
+   "w_spectator": -1,
+   "w_incident": 1,
+   "m": -1,
+   "preserves_C_branch": false,
+   "discriminant": "-5/6 + (1/60) L",
+   "spectrum_range": [
+    -0.8333333333333337,
+    -0.7127322003750035
+   ],
+   "eigenphase_range": [
+    2.36418201937896,
+    2.555907110132643
+   ]
+  },
+  {
+   "w_spectator": -1,
+   "w_incident": -1,
+   "m": 1,
+   "preserves_C_branch": true,
+   "discriminant": "-5/6 + (-1/60) L",
+   "spectrum_range": [
+    -0.9539344662916632,
+    -0.833333333333333
+   ],
+   "eigenphase_range": [
+    2.5559071101326416,
+    2.83688421621952
+   ]
+  },
+  {
+   "w_spectator": -1,
+   "w_incident": -1,
+   "m": -1,
+   "preserves_C_branch": true,
+   "discriminant": "-1 + (1/60) L",
+   "spectrum_range": [
+    -0.9999999999999999,
+    -0.8793988670416701
+   ],
+   "eigenphase_range": [
+    2.6453943940877203,
+    3.141592638688632
+   ]
+  }
+ ]
+}

@@ -1,0 +1,191 @@
+{
+ "A_fixed_points_of_the_load_channels": {
+  "C, one quantum (12)": {
+   "population_kernel_fixed_dimension": 1,
+   "max_offdiagonal_weight_a": "5/6",
+   "offdiagonal_units_strictly_contracting": true,
+   "fixed_point_dimension_of_the_load_channel": 1,
+   "population_kernel_leading_eigenvalues": [
+    1.0,
+    0.953934466,
+    0.953934466,
+    0.953934466,
+    0.9,
+    0.9
+   ]
+  },
+  "C, two quanta (78)": {
+   "population_kernel_fixed_dimension": 1,
+   "max_offdiagonal_weight_a": "5/6",
+   "offdiagonal_units_strictly_contracting": true,
+   "fixed_point_dimension_of_the_load_channel": 1,
+   "population_kernel_leading_eigenvalues": [
+    1.0,
+    0.953934466,
+    0.953934466,
+    0.953934466,
+    0.916362121,
+    0.916362121
+   ],
+   "binary_shell_closed": true,
+   "uniform_on_binary_shell_stationary": true,
+   "double_load_survival_per_attempt": [
+    "5/6"
+   ],
+   "signed_kernel_fixed_dimension": 0,
+   "signed_kernel_spectral_radius": 0.963735961,
+   "signed_kernel_top_multiplicity": 3,
+   "binary_shell_second_eigenvalue": 0.953934466
+  },
+  "E, one quantum (12)": {
+   "population_kernel_fixed_dimension": 1,
+   "max_offdiagonal_weight_a": "7/10",
+   "offdiagonal_units_strictly_contracting": true,
+   "fixed_point_dimension_of_the_load_channel": 1,
+   "population_kernel_leading_eigenvalues": [
+    1.0,
+    0.953934466,
+    0.953934466,
+    0.953934466,
+    0.9,
+    0.9
+   ]
+  },
+  "E, two quanta (78)": {
+   "population_kernel_fixed_dimension": 1,
+   "max_offdiagonal_weight_a": "7/10",
+   "offdiagonal_units_strictly_contracting": true,
+   "fixed_point_dimension_of_the_load_channel": 1,
+   "population_kernel_leading_eigenvalues": [
+    1.0,
+    0.953934466,
+    0.953934466,
+    0.953934466,
+    0.916362121,
+    0.916362121
+   ],
+   "binary_shell_closed": true,
+   "uniform_on_binary_shell_stationary": true,
+   "double_load_survival_per_attempt": [
+    "5/6"
+   ],
+   "signed_kernel_fixed_dimension": 0,
+   "signed_kernel_spectral_radius": 0.963735961,
+   "signed_kernel_top_multiplicity": 3,
+   "binary_shell_second_eigenvalue": 0.953934466
+  }
+ },
+ "A_reading": {
+  "one quantum": "Fix(load channel) = scalars, so the fixed-point algebra of the framed law is 1 x M_d (dimension d^2)",
+  "two bosons": "H = ref78 x Sym^2(C^d) + ferm66 x Lambda^2(C^d): fixed-point algebra M(Sym^2 C^d) + M(Lambda^2 C^d); d = 2: M_3 + C",
+  "two fermions": "H = ref78 x Lambda^2(C^d) + ferm66 x Sym^2(C^d): the same algebra; d = 2: C + M_3",
+  "two labelled quanta": "positions C^12 x C^12 = sym78 + anti66: fixed-point algebra span{1, position exchange} x M_d x M_d; d = 2: M_4 + M_4",
+  "coherence between the two registers": "not protected: the signed kernel has no fixed point; its spectral radius is the survival factor per attempt"
+ },
+ "B_port_effects_on_two_spinor_quanta": {
+  "algebra": "M_3 (triplet) + M_1 (singlet) inside the commutant of the swap on C^2 x C^2: 10 Hermitian directions, 9 on the triplet",
+  "one_click_effects": {
+   "count": 24,
+   "span": 4,
+   "span_on_triplet": 4,
+   "lie": {
+    "span": 4,
+    "closure": 4,
+    "centre": 1,
+    "derived": 3
+   }
+  },
+  "coincidence_effects_all_pairs": {
+   "count": 264,
+   "span": 10,
+   "span_on_triplet": 9
+  },
+  "coincidence_effects_adjacent_pairs": {
+   "span": 10,
+   "span_on_triplet": 9
+  },
+  "coincidence_effects_distance_two": {
+   "span": 10,
+   "span_on_triplet": 9
+  },
+  "coincidence_effects_antipodal": {
+   "span": 10,
+   "span_on_triplet": 9
+  },
+  "coincidence_lie": {
+   "span": 10,
+   "closure": 10,
+   "centre": 2,
+   "derived": 8
+  },
+  "coincidence_lie_on_triplet": {
+   "span": 9,
+   "closure": 9,
+   "centre": 1,
+   "derived": 8
+  },
+  "double_load_effects_on_triplet": {
+   "span": 9,
+   "note": "the three helicity projectors of spin 1 along the port axis"
+  },
+  "elementary_vector_one_click": {
+   "top_helicity": {
+    "span": 9,
+    "closure": 9,
+    "centre": 1,
+    "derived": 8
+   },
+   "all_helicities_span": 9
+  },
+  "one_click_identity": {
+   "X_plus + X_minus = 1": true,
+   "reading": "X_pm = (1 pm n.S)/2 with S the total spin: the one-body response of the pair is the tensor-product representation of the one-quantum u(2); no quadrupole"
+  }
+ },
+ "C_relation_to_twisted_chain_and_CAP": {
+  "flux_per_face_of_the_spinor_frame": -1.0,
+  "hard_core_bosons_flux_1_vs_triplet_sections": {
+   "leading_factor": 0.97546805,
+   "multiplicity": 3,
+   "next": 0.922871777,
+   "cosines_of_principal_angles_with_section_space": [
+    0.999384394,
+    0.999384394,
+    0.999384394
+   ],
+   "rayleigh_quotients_on_section_space": [
+    0.975340814,
+    0.975340814,
+    0.975340814
+   ],
+   "invariance_residual_of_section_space": 0.006804937449778551,
+   "section": "<chi_p chi_q|t>, t in the triplet (symmetric in p, q)"
+  },
+  "hard_core_fermions_flux_1_vs_singlet_section": {
+   "leading_factor": 0.984554334,
+   "multiplicity": 1,
+   "next": 0.93563635,
+   "cosines_of_principal_angles_with_section_space": [
+    0.991934619
+   ],
+   "rayleigh_quotients_on_section_space": [
+    0.982786057
+   ],
+   "invariance_residual_of_section_space": 0.014034751854111484,
+   "section": "<chi_p chi_q|s>, s the singlet (antisymmetric in p, q)"
+  },
+  "CAP_two_loads": {
+   "iterations": 733,
+   "last_step": 9.716292657684386e-15,
+   "leading_level": 0.140597,
+   "multiplicity": 3,
+   "cosines_of_principal_angles_with_triplet_sections": [
+    0.985924607,
+    0.985924607,
+    0.985924607
+   ],
+   "weight_of_stationary_state_on_section_space": 0.412003
+  }
+ },
+ "seconds": 0.9
+}

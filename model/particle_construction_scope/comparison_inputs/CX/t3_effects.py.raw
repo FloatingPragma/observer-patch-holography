@@ -1,0 +1,170 @@
+"""Task 3 (and the fixed-space dimension of task 4): ranks over a prime field with a primitive 20th root of unity.
+
+Rigor: every Kraus entry lies in Z[zeta_20, 1/2]; reduction modulo a prime ideal above p (p = 1 mod 20) is a ring
+homomorphism, so the rank over F_p of any explicit family of effect matrices is a LOWER bound for its rank over
+Q(zeta_20), which equals the complex rank and, for Hermitian families, the dimension of the real span.
+Upper bounds are structural (stated in PROOFS.md) or the ambient dimension.
+
+History effects: S_0 = span{1}, S_(d+1) = span{K^dagger E K : E in S_d, K a row}. One load: all generators are
+used. Two loads on the binary shell: generators are sampled as sum_K s_K K^dagger w K with random s and random w in
+the current span (their span is S_(d+1); the computed rank is a lower bound in every case).
+
+usage: python t3_effects.py <out.json> <total> [flux] [prime index]
+"""
+import json, sys, time
+import numpy as np
+from cyc import prime_with_zeta, to_fp
+import carrier_exact as ce
+
+try:
+    import flint
+except Exception:                                   # local runs: numpy elimination
+    flint = None
+
+out_path, total = sys.argv[1], int(sys.argv[2])
+k = int(sys.argv[3]) if len(sys.argv) > 3 else 1
+pidx = int(sys.argv[4]) if len(sys.argv) > 4 else 0
+p, zp = prime_with_zeta()
+for _ in range(pidx):
+    p, zp = prime_with_zeta(p - 1)
+rng = np.random.default_rng(20261110 + pidx)
+t0 = time.time()
+
+
+def rank_mod(Mx):
+    """Rank of an integer matrix modulo p."""
+    Mx = np.asarray(Mx, dtype=np.int64) % p
+    if flint is not None and Mx.size > 200000:
+        return flint.nmod_mat(Mx.shape[0], Mx.shape[1], Mx.ravel().tolist(), p).rank()
+    A = Mx.copy(); r = 0; rows, cols = A.shape
+    for c in range(cols):
+        nz = np.nonzero(A[r:, c])[0]
+        if nz.size == 0:
+            continue
+        piv = r + nz[0]
+        if piv != r:
+            A[[r, piv]] = A[[piv, r]]
+        inv = pow(int(A[r, c]), -1, p)
+        A[r] = (A[r] * inv) % p
+        f = A[r + 1:, c].copy()
+        if f.any():
+            A[r + 1:] = (A[r + 1:] - f[:, None] * A[r][None, :]) % p
+        r += 1
+        if r == rows:
+            break
+    return r
+
+
+def row_basis(Mx):
+    """Reduced row basis (rank x cols) modulo p."""
+    Mx = np.asarray(Mx, dtype=np.int64) % p
+    if flint is not None and Mx.size > 200000:
+        R, r = flint.nmod_mat(Mx.shape[0], Mx.shape[1], Mx.ravel().tolist(), p).rref()
+        return np.array([[int(R[i, j]) for j in range(Mx.shape[1])] for i in range(r)], dtype=np.int64)
+    A = Mx.copy(); r = 0; rows, cols = A.shape
+    for c in range(cols):
+        nz = np.nonzero(A[r:, c])[0]
+        if nz.size == 0:
+            continue
+        piv = r + nz[0]
+        if piv != r:
+            A[[r, piv]] = A[[piv, r]]
+        inv = pow(int(A[r, c]), -1, p)
+        A[r] = (A[r] * inv) % p
+        f = A[:, c].copy(); f[r] = 0
+        if f.any():
+            A = (A - f[:, None] * A[r][None, :]) % p
+        r += 1
+        if r == rows:
+            break
+    return A[:r]
+
+
+# ---- sector, rows, sparse action E -> K^dagger E K on flattened matrices
+states = ce.space(total)
+keep_idx = [i for i, s in enumerate(states) if max(s) == 1]          # binary shell (all states for one load)
+pos = {i: n for n, i in enumerate(keep_idx)}
+d = len(keep_idx)
+rows = []
+for seam in ce.SEAMS:
+    for label, K in ce.instrument(seam, total, k):
+        cols = {}
+        for (i, j), v in K.items():
+            if j in pos:
+                assert i in pos
+                cols.setdefault(pos[j], []).append((pos[i], to_fp(v, p, zp), to_fp(v.conj(), p, zp)))
+        if cols:
+            rows.append(cols)
+
+
+def action_tables(cols):
+    """Tables (idx, coef) of shape (4, d*d): out[i*d+j] = sum_t coef[t] * E[idx[t]]."""
+    idx = np.zeros((4, d * d), dtype=np.int64); coef = np.zeros((4, d * d), dtype=np.int64)
+    for i in range(d):
+        ci = cols.get(i, [])
+        for j in range(d):
+            cj = cols.get(j, [])
+            t = 0
+            for (i2, a, ac) in ci:
+                for (j2, b, bc) in cj:
+                    idx[t, i * d + j] = i2 * d + j2; coef[t, i * d + j] = ac * b % p; t += 1
+    return idx, coef
+
+
+TABLES = [action_tables(c) for c in rows]
+
+
+def apply(table, V):
+    idx, coef = table
+    outv = np.zeros_like(V)
+    for t in range(4):
+        if coef[t].any():
+            outv = (outv + V[:, idx[t]] * coef[t][None, :]) % p
+    return outv
+
+
+res = {'total': total, 'flux': k, 'prime': p, 'zeta_mod_p': zp, 'dimension': d, 'ambient_real_dimension': d * d, 'rows_per_event': len(rows)}
+print(f'total {total}, flux {k}: sector dimension {d}, {len(rows)} nonzero rows, prime {p}', flush=True)
+
+# ---- history-effect spans by depth
+B = np.eye(d, dtype=np.int64).reshape(1, d * d)
+ranks = []
+for depth in range(1, 12):
+    r = B.shape[0]
+    if total == 1:
+        gen = np.concatenate([apply(tb, B) for tb in TABLES], axis=0)
+    else:
+        nsamp = min(d * d, 60 * r) + 40
+        W = rng.integers(0, p, size=(nsamp, r), dtype=np.int64)
+        if flint is not None and r * nsamp > 10000:
+            Wf = flint.nmod_mat(nsamp, r, W.ravel().tolist(), p) * flint.nmod_mat(r, d * d, B.ravel().tolist(), p)
+            Wb = np.array([[int(Wf[i, j]) for j in range(d * d)] for i in range(nsamp)], dtype=np.int64)
+        else:
+            Wb = np.zeros((nsamp, d * d), dtype=np.int64)
+            for a in range(r):
+                Wb = (Wb + W[:, [a]] * B[[a], :]) % p
+        gen = np.zeros((nsamp, d * d), dtype=np.int64)
+        for tb in TABLES:
+            s = rng.integers(0, p, size=(nsamp, 1), dtype=np.int64)
+            gen = (gen + s * apply(tb, Wb)) % p
+    B = row_basis(gen)
+    ranks.append(int(B.shape[0]))
+    print(f'   depth {depth}: rank of history effects >= {B.shape[0]} of {d * d}; {time.time() - t0:.1f}s', flush=True)
+    if B.shape[0] == d * d or (len(ranks) > 1 and ranks[-1] == ranks[-2]):
+        break
+res['history_effect_rank_lower_bounds_by_depth'] = ranks
+
+# ---- fixed space of the unread channel: rank of (Phi^dagger - 1) on flattened matrices
+S = np.zeros((d * d, d * d), dtype=np.int64)
+for idx, coef in TABLES:
+    for t in range(4):
+        nzc = np.nonzero(coef[t])[0]
+        np.add.at(S, (nzc, idx[t, nzc]), coef[t, nzc])
+S = ((S % p) * pow(30, -1, p)) % p
+S[np.arange(d * d), np.arange(d * d)] = (S[np.arange(d * d), np.arange(d * d)] - 1) % p
+rk = rank_mod(S)
+res['rank_of_dual_channel_minus_identity_lower_bound'] = int(rk)
+res['fixed_observable_space_dimension_upper_bound'] = int(d * d - rk)
+print(f'   rank(Phi^dagger - 1) >= {rk} of {d * d}: fixed observables have dimension <= {d * d - rk} (>= 1 by unitality); {time.time() - t0:.1f}s', flush=True)
+res['seconds'] = time.time() - t0
+json.dump(res, open(out_path, 'w'), indent=1)

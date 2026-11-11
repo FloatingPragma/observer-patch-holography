@@ -1,0 +1,133 @@
+"""R4 item 5: link currents, continuity and the Gauss constraint.
+
+A. One-body identities (exact, dyadic), lattice 3 x 2 x 2 with Z2 links. N_x: quanta at cell x. For the sub-step
+   S_i = Q_i R:   S_i* N_x S_i = N_x - J_i(x) + J_i(x - e_i),   J_i(x) = N_x P_i^+ - N_(x+e_i) P_i^-,
+   P_i^(+-) = (1 +- X_r sigma_i)/2: the current through the link (x, x+e_i) is the number of quanta at x pointing
+   forward minus the number at x + e_i pointing backward. One tick: the three currents taken at their sub-steps.
+   The identities are linear in one-body operators, so they hold for the lifts to any occupations.
+B. Eight conserved class numbers: the parity of (x_i + tick) on each axis (lattice 4 x 4 x 2).
+C. Quantum Z2 links, two charged quanta, antisymmetric and symmetric (lattice 2 x 2 x 1, 8 links):
+   [U, G_x] = 0 with the field step; product of all G_x = (-1)^(number of charged quanta); and the Z2 continuity
+   equation  X_l U = U Gamma(K_l) X_l  (kappa = 0): the electric sign of a link flips when a charged quantum crosses.
+D. The chiral reading: sources of the charges that depend on the handedness label.
+"""
+import sys, itertools
+import numpy as np
+from r4lib import *
+
+OUT = {}; rng = np.random.default_rng(7)
+
+# ---- A ----------------------------------------------------------------------------------------------------
+shape = (3, 2, 2); D = dim(shape); links = [rng.choice([-1.0, 1.0], size=shape) for _ in range(3)]
+N = {x: np.kron(np.diag((np.arange(ncell(shape)) == cidx(shape, x)).astype(float)), I4) for x in cells(shape)}
+Pp = [np.kron(np.eye(ncell(shape)), (I4 + ALPHA[i]) / 2) for i in range(3)]
+Pm = [np.kron(np.eye(ncell(shape)), (I4 - ALPHA[i]) / 2) for i in range(3)]
+J = {(x, i): N[x] @ Pp[i] - N[step(shape, x, i)] @ Pm[i] for x in cells(shape) for i in range(3)}
+S = [S_exact(shape, i, links) for i in range(3)]; dg = lambda M: M.conj().T
+sub = all(np.array_equal(dg(S[i]) @ N[x] @ S[i], N[x] - J[(x, i)] + J[(step(shape, x, i, -1), i)]) for x in cells(shape) for i in range(3))
+M5 = np.kron(np.eye(ncell(shape)), np.kron(np.array([[3, -4], [4, 3]], complex), I2))
+ok = {}
+for name, order in (('forward', (0, 1, 2)), ('reverse', (2, 1, 0))):
+    pre = np.eye(D, dtype=complex); Jh = {}
+    for i in order:
+        for x in cells(shape): Jh[(x, i)] = dg(pre) @ J[(x, i)] @ pre
+        pre = S[i] @ pre
+    W5 = M5 @ pre                                                     # 5 x tick, exact
+    ok[name] = all(np.array_equal(dg(W5) @ N[x] @ W5, 25 * (N[x] - sum(Jh[(x, i)] - Jh[(step(shape, x, i, -1), i)] for i in range(3)))) for x in cells(shape))
+OUT['A_continuity'] = {'lattice': list(shape), 'Z2_links': True, 'substep_identity_exact_all_cells_and_axes': bool(sub),
+                       'one_tick_identity_exact_forward': bool(ok['forward']), 'one_tick_identity_exact_reverse': bool(ok['reverse']),
+                       'current_commutes_with_the_link_signs': 'J_i(x) contains no link sign: the same operator in every link word'}
+print(OUT['A_continuity'])
+
+# ---- B ----------------------------------------------------------------------------------------------------
+shape = (4, 4, 2); D = dim(shape); links = [rng.choice([-1.0, 1.0], size=shape) for _ in range(3)]
+W5 = np.kron(np.eye(ncell(shape)), np.kron(np.array([[3, -4], [4, 3]], complex), I2)) @ tick_exact(shape, False, links)
+W5r = np.kron(np.eye(ncell(shape)), np.kron(np.array([[3, -4], [4, 3]], complex), I2)) @ tick_exact(shape, True, links)
+def cls(c): return np.kron(np.diag([float(all((x[i] - c[i]) % 2 == 0 for i in range(3))) for x in cells(shape)]), I4)
+one = all(np.array_equal(dg(W5) @ cls(c) @ W5, 25 * cls(tuple((ci + 1) % 2 for ci in c))) for c in itertools.product(range(2), repeat=3))
+two = all(np.array_equal(cls(c) @ (W5r @ W5), (W5r @ W5) @ cls(c)) for c in itertools.product(range(2), repeat=3))
+OUT['B_eight_class_numbers'] = {'lattice': list(shape), 'Z2_links': True, 'mass_step': True,
+                                'one_tick_maps_class_c_to_c+(1,1,1)_exact': bool(one), 'two_tick_product_commutes_with_all_eight_class_projectors_exact': bool(two)}
+print(OUT['B_eight_class_numbers'])
+
+# ---- C ----------------------------------------------------------------------------------------------------
+shape = (2, 2, 1); cl = cells(shape); n1 = dim(shape); th, eps, kap = 0.157935, 0.3, 0.2
+lk = [(c, i) for i in (0, 1) for c in cl]; lid = {l: k for k, l in enumerate(lk)}; NZ = 2 ** len(lk)
+def signs(z):
+    out = [np.ones(shape) for _ in range(3)]
+    for (c, i), k in lid.items():
+        if (z >> k) & 1: out[i][c] = -1.0
+    return out
+def star(c): return sum(1 << lid[(d, i)] for i in (0, 1) for d in {c, step(shape, c, i, -1)})
+def plaq(z, c):
+    bits = [lid[(c, 0)], lid[(step(shape, c, 0), 1)], lid[(step(shape, c, 1), 0)], lid[(c, 1)]]
+    return (-1) ** sum((z >> b) & 1 for b in bits)
+Wsum = np.array([sum(plaq(z, c) for c in cl) for z in range(NZ)])
+Wz = np.stack([engine_matrix(shape, lambda p, z=z: Routing(shape, signs(z)).tick(p, th)) for z in range(NZ)])   # one-body tick per link word
+S1z = np.stack([S_exact(shape, 0, signs(z)) for z in range(NZ)])
+cell_of = np.arange(n1) // 4
+def route(Psi): return np.einsum('zab,zbc,zdc->zad', Wz, Psi, Wz)                    # W (x) W on each link word
+def field(Psi, eps=eps, kap=kap):
+    out = Psi * np.exp(-1j * kap * Wsum)[:, None, None]
+    for k in range(len(lk)): out = np.cos(eps) * out - 1j * np.sin(eps) * out[np.arange(NZ) ^ (1 << k)]
+    return out
+def tick(Psi, **kw): return field(route(Psi), **kw)
+def gauss(Psi, c):
+    s = np.where(cell_of == cidx(shape, c), -1.0, 1.0)
+    out = np.empty_like(Psi); out[np.arange(NZ) ^ star(c)] = Psi
+    return out * s[None, :, None] * s[None, None, :]
+def flipX(Psi, k): return Psi[np.arange(NZ) ^ (1 << k)]
+C = {'lattice': list(shape), 'links': len(lk), 'link_words': NZ}
+for name, sgn in (('antisymmetric', -1), ('symmetric', +1)):
+    T = rng.normal(size=(NZ, n1, n1)) + 1j * rng.normal(size=(NZ, n1, n1)); Psi = T + sgn * T.transpose(0, 2, 1); Psi /= np.linalg.norm(Psi)
+    out = tick(Psi)
+    r = {'unitarity': float(abs(np.linalg.norm(out) - 1)), 'stays_in_the_subspace': float(np.abs(out - sgn * out.transpose(0, 2, 1)).max()),
+         'commutator_with_Gauss_max': float(max(np.abs(tick(gauss(Psi, c)) - gauss(tick(Psi), c)).max() for c in cl))}
+    prod = Psi
+    for c in cl: prod = gauss(prod, c)
+    r['product_of_all_Gauss_operators_is_identity_on_two_charged_quanta'] = float(np.abs(prod - Psi).max())
+    worst = 0.0                                                                        # Z2 continuity, kappa = 0
+    for (c, i), k in lid.items():
+        K = np.eye(n1, dtype=complex) - 2 * (np.kron(np.diag((np.arange(4) == cidx(shape, c)).astype(float)), (I4 + ALPHA[i]) / 2)
+                                              + np.kron(np.diag((np.arange(4) == cidx(shape, step(shape, c, i))).astype(float)), (I4 - ALPHA[i]) / 2))
+        Kz = np.broadcast_to(K, (NZ, n1, n1)) if i == 0 else np.einsum('zba,bc,zcd->zad', np.conj(S1z), K, S1z)
+        lhs = flipX(tick(Psi, kap=0.0), k)
+        rhs = tick(np.einsum('zab,zbc,zdc->zad', Kz, flipX(Psi, k), Kz), kap=0.0)
+        worst = max(worst, float(np.abs(lhs - rhs).max()))
+    r['Z2_continuity_X_l_U_equals_U_Gamma(K_l)_X_l_max_defect_all_links'] = worst
+    C[name] = r
+# one charged quantum: the product of all Gauss operators is -1
+psi1 = rng.normal(size=(NZ, n1)) + 0j; p1 = psi1.copy()
+for c in cl:
+    s = np.where(cell_of == cidx(shape, c), -1.0, 1.0); q = np.empty_like(p1); q[np.arange(NZ) ^ star(c)] = p1; p1 = q * s[None, :]
+C['one_charged_quantum_product_of_all_Gauss_operators_plus_identity_defect'] = float(np.abs(p1 + psi1).max())
+OUT['C_quantum_links_two_quanta'] = C; print(C)
+
+# ---- D ----------------------------------------------------------------------------------------------------
+Mth = sym_M(th)
+OUT['D_chiral_reading'] = {
+    'X_r_commutes_with_every_substep_exact': bool(all(np.array_equal(rec_op((3, 2, 2), SIG[0]) @ s, s @ rec_op((3, 2, 2), SIG[0])) for s in S)),
+    'norm_of_M*_X_r_M_minus_X_r': float(np.linalg.norm(dg(Mth) @ XR @ Mth - XR, 2)), '2_sin_theta': float(2 * np.sin(th)),
+    'statement': 'a charge q0 + q1 X_r (the handedness label of the chiral reading) has the on-site source q1 (M* X_r M - X_r) per tick; '
+                 'for Q6 the two classes differ by 3 and for n2 mod 2 by 1, so with the toggle neither is conserved and '
+                 '(-1)^(n2) in G_x does not commute with Gamma(M); the part that is conserved is the charge of the four levels '
+                 'other than the neutral doublet level'}
+shD = (3, 2, 2); lkD = [rng.choice([-1.0, 1.0], size=shD) for _ in range(3)]; Id = np.eye(dim(shD))
+Xop, Zop, Rop = rec_op(shD, SIG[0]), rec_op(shD, SIG[2]), R_exact(shD)
+worst_inv = 0.0; worst_z = 0.0; unit = True
+for i in range(3):
+    Sz, S0 = S_exact(shD, i, lkD), S_exact(shD, i, None)
+    Sc = (Id + Xop) / 2 @ Sz + (Id - Xop) / 2 @ S0                 # the link sign seen by one handedness class only
+    Qc = Sc @ Rop                                                   # the would-be reflector of that sub-step
+    unit &= bool(np.array_equal(Sc @ dg(Sc), Id))
+    worst_inv = max(worst_inv, float(np.linalg.norm(Qc @ Qc - Id, 2)))
+    worst_z = max(worst_z, float(np.linalg.norm(Zop @ S0 - S0 @ Zop, 2)))
+OUT['D_chiral_reading'].update({
+    'class_dependent_link_sign_substep_still_unitary_exact': unit,
+    'class_dependent_link_sign_norm_of_Q^2_minus_1': worst_inv,
+    'norm_of_commutator_of_Z_r_with_a_substep': worst_z,
+    'statement_2': 'if only one handedness class sees the link sign, the sub-step is still a unitary conditional shift but S_i R is no '
+                   'longer an involution: the reflector form needs the same link sign on both arrow states. A label read in the '
+                   'record basis (Z_r) is changed by every sub-step.'})
+print(OUT['D_chiral_reading'])
+dump(OUT, sys.argv[1] if len(sys.argv) > 1 else RL + '/work/R4/item5_currents.json')

@@ -1,0 +1,59 @@
+"""Placement of the colour transition on the chain's scale. Writes scale.json. No lattice data is read here."""
+import json, math
+
+HBAR = 6.582119569e-25          # GeV s (CODATA 2018 exact value of hbar in eV s times 1e-9)
+E_PLANCK = 1.22089e19           # GeV, the declared display unit E* of the chain
+E_CELL = 9.5599e18              # GeV
+LAMBDA3_CHAIN = 0.3400          # GeV, report HD, from alpha_s(m_Z) = 0.11834
+LAMBDA3_CORNERS = (0.3251, 0.3547)
+
+
+def ratio(T, dT, Lam, dLam):
+    R = T / Lam
+    return R, R * math.hypot(dT / T, dLam / Lam)
+
+
+def time_s(T_GeV, gstar):
+    return math.sqrt(45.0 / (16.0 * math.pi ** 3 * gstar)) * E_PLANCK / T_GeV ** 2 * HBAR
+
+
+out = {}
+sets = {'primary: HotQCD 2019 with FLAG 2021': (156.5, 1.5, 338.0, 12.0),
+        'Borsanyi et al. 2020 with FLAG 2021': (158.0, 0.6, 338.0, 12.0),
+        'HotQCD 2019 with FLAG 2024': (156.5, 1.5, 338.0, 10.0),
+        'HotQCD 2019 with ALPHA 2017': (156.5, 1.5, 341.0, 12.0)}
+rows = {}
+for k, (T, dT, L, dL) in sets.items():
+    R, dR = ratio(T, dT, L, dL)
+    Tc = R * LAMBDA3_CHAIN * 1e3
+    rows[k] = dict(T_lattice_MeV=T, T_err=dT, Lambda3_MeV=L, Lambda3_err=dL, ratio=R, ratio_err=dR,
+                   T_chain_MeV=Tc, err_from_ratio_MeV=dR * LAMBDA3_CHAIN * 1e3,
+                   err_from_T_import_MeV=Tc * dT / T, err_from_Lambda_import_MeV=Tc * dL / L,
+                   chain_corners_MeV=[R * c * 1e3 for c in LAMBDA3_CORNERS])
+out['placements'] = rows
+p = rows['primary: HotQCD 2019 with FLAG 2021']
+T = p['T_chain_MeV'] * 1e-3
+corner = max(abs(c - p['T_chain_MeV']) for c in p['chain_corners_MeV'])
+out['primary'] = dict(ratio=p['ratio'], ratio_err=p['ratio_err'], T_chain_MeV=p['T_chain_MeV'],
+                      err_ratio_MeV=p['err_from_ratio_MeV'], err_chain_corners_MeV=corner,
+                      err_total_MeV=math.hypot(p['err_from_ratio_MeV'], corner),
+                      Lambda_chain_over_Lambda_lattice=LAMBDA3_CHAIN * 1e3 / 338.0,
+                      T_over_E_cell=T / E_CELL)
+tick = HBAR / E_CELL
+out['time'] = dict(tick_seconds=tick, E_cell_GeV=E_CELL, E_Planck_GeV=E_PLANCK,
+                   g_above=61.75, g_below=17.25,
+                   t_seconds_g_above=time_s(T, 61.75), t_seconds_g_below=time_s(T, 17.25),
+                   ticks_g_above=time_s(T, 61.75) / tick, ticks_g_below=time_s(T, 17.25) / tick,
+                   coefficient_seconds_MeV2=math.sqrt(45.0 / (16.0 * math.pi ** 3)) * E_PLANCK * HBAR * 1e6)
+# pure gauge theory, literature ratios
+tc_r0, d1 = 0.7498, 0.0050
+r0L, d2 = 0.602, 0.048
+out['pure_gauge'] = dict(Tc_over_sqrt_sigma=[dict(value=0.629, err=0.003, cite='Boyd et al. 1996'),
+                                             dict(value=0.596 + 0.453 / 9, err=math.hypot(0.004, 0.030 / 9), cite='Lucini, Teper, Wenger 2004, fit at N = 3')],
+                         Tc_over_Lambda0=dict(value=tc_r0 / r0L, err=tc_r0 / r0L * math.hypot(d1 / tc_r0, d2 / r0L),
+                                              cite='T_c r_0 = 0.7498(50), Necco 2004; r_0 Lambda0 = 0.602(48), Capitani et al. 1999'),
+                         Tc_over_Lambda0_alt=dict(value=0.7457 / r0L, err=0.7457 / r0L * math.hypot(0.0045 / 0.7457, d2 / r0L),
+                                                  cite='T_c r_0 = 0.7457(45), Francis et al. 2015; r_0 Lambda0 = 0.602(48)'),
+                         Tc_MeV_if_sqrt_sigma_440=[0.629 * 440, (0.596 + 0.453 / 9) * 440])
+json.dump(out, open('scale.json', 'w'), indent=1)
+print(json.dumps(out, indent=1))

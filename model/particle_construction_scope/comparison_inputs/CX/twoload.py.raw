@@ -1,0 +1,178 @@
+"""Exact symmetry reduction for CAP on a sector: orbit basis of the commutant of the cover action, channel in that
+basis, stationary state, isotypic projectors, sector polynomials of an invariant Hermitian matrix."""
+from fractions import Fraction as F
+from cyc import Cyc, ZERO, ONE, Z, SQRT5, q5, rank_nullspace
+import carrier_exact as ce
+
+
+def shell(total):
+    states = ce.space(total)
+    return [i for i, s in enumerate(states) if max(s) == 1]
+
+
+def group_action(total, k, restrict=None):
+    """One monomial implementer per rotation, restricted to the index list `restrict` (must be invariant)."""
+    lifts = {}
+    for lift in ce.COVER:
+        lifts.setdefault(lift[0], lift)
+    pos = {i: n for n, i in enumerate(restrict)} if restrict is not None else None
+    out = []
+    for perm in ce.ROTATIONS:
+        U = ce.implementer(lifts[perm], total, k)
+        if restrict is not None:
+            U = [(pos[U[i][0]], U[i][1]) for i in restrict]
+        out.append(U)
+    return out
+
+
+def orbit_basis(action, d):
+    """Orbits of ordered pairs with their phase cocycle. Returns (orbit_of, exponent_of, reps); dead orbits get -1."""
+    orbit_of = [[None] * d for _ in range(d)]; expo = [[0] * d for _ in range(d)]; reps = []
+    for i in range(d):
+        for j in range(d):
+            if orbit_of[i][j] is not None:
+                continue
+            members = {}; alive = True
+            for U in action:
+                key = (U[i][0], U[j][0]); e = (U[i][1] - U[j][1]) % 20
+                if key in members and members[key] != e:
+                    alive = False
+                members.setdefault(key, e)
+            oid = len(reps) if alive else -1
+            if alive:
+                reps.append((i, j, len(members)))
+            for (a, b), e in members.items():
+                orbit_of[a][b] = oid; expo[a][b] = e
+    return orbit_of, expo, reps
+
+
+def rows_by_row(total, k, restrict=None):
+    """For every seam and row label: dict row index -> list of (column index, value), restricted to `restrict`."""
+    pos = {i: n for n, i in enumerate(restrict)} if restrict is not None else None
+    out = []
+    for seam in ce.SEAMS:
+        for label, K in ce.instrument(seam, total, k):
+            byrow = {}
+            for (i, j), v in K.items():
+                if pos is not None:
+                    if j not in pos:
+                        continue                       # column outside the subspace: irrelevant for states inside
+                    assert i in pos, 'the restriction is not invariant'
+                    i, j = pos[i], pos[j]
+                byrow.setdefault(i, []).append((j, v))
+            if byrow:
+                out.append(byrow)
+    return out
+
+
+def channel_on_commutant(rows, orbit_of, expo, reps, nseams=30):
+    """Matrix C with Phi(B_O) = sum_O' C[O'][O] B_O', B_O = sum over the orbit of zeta^expo E_ij."""
+    n = len(reps)
+    C = [[ZERO] * n for _ in range(n)]
+    for o2, (i, j, _) in enumerate(reps):
+        assert expo[i][j] == 0
+        for byrow in rows:
+            ri, rj = byrow.get(i), byrow.get(j)
+            if not ri or not rj:
+                continue
+            for i2, v in ri:
+                for j2, w in rj:
+                    o = orbit_of[i2][j2]
+                    if o >= 0:
+                        C[o2][o] = C[o2][o] + v * w.conj() * Z ** expo[i2][j2]
+    inv = Cyc.of(F(1, nseams))
+    return [[x * inv for x in row] for row in C]
+
+
+def dense_from_orbits(x, orbit_of, expo, d):
+    return [[(x[orbit_of[i][j]] * Z ** expo[i][j]) if orbit_of[i][j] >= 0 else ZERO for j in range(d)] for i in range(d)]
+
+
+def apply_channel(rows, X, d, nseams=30):
+    """Exact unread channel on a dense matrix X (list of rows)."""
+    acc = [[ZERO] * d for _ in range(d)]
+    for byrow in rows:
+        # Y = K X ; then Z = Y K^dagger
+        Y = {}
+        for i, ri in byrow.items():
+            row = [ZERO] * d
+            for i2, v in ri:
+                Xi = X[i2]
+                row = [a + v * b if not b.is_zero() else a for a, b in zip(row, Xi)]
+            Y[i] = row
+        for i, row in Y.items():
+            acc_i = acc[i]
+            for j, rj in byrow.items():
+                s = ZERO
+                for j2, w in rj:
+                    if not row[j2].is_zero():
+                        s = s + row[j2] * w.conj()
+                if not s.is_zero():
+                    acc_i[j] = acc_i[j] + s
+    inv = Cyc.of(F(1, nseams))
+    return [[a * inv for a in row] for row in acc]
+
+
+def characters():
+    """A5 character values of each rotation: dict label -> list over ce.ROTATIONS (exact, in Q(sqrt5))."""
+    lifts = {}
+    for lift in ce.COVER:
+        lifts.setdefault(lift[0], lift)
+    chi = {'1': [], '3': [], "3'": [], '4': [], '5': []}
+    for perm in ce.ROTATIONS:
+        G = lifts[perm][2]
+        tr = G[0][0] + G[1][1]
+        c3 = tr * tr - 1
+        c3p = c3.galois(3)                          # sqrt5 -> -sqrt5
+        c5 = c3 * c3 - c3 - 1
+        c4 = c3 * c3p - c5
+        chi['1'].append(ONE); chi['3'].append(c3); chi["3'"].append(c3p); chi['4'].append(c4); chi['5'].append(c5)
+    return chi
+
+
+def multiplicities(action, d, chi):
+    out = {}
+    for label, vals in chi.items():
+        s = ZERO
+        for U, c in zip(action, vals):
+            tr = ZERO
+            for i in range(d):
+                if U[i][0] == i:
+                    tr = tr + Z ** U[i][1]
+            s = s + tr * c.conj()
+        s = s / 60
+        assert s.is_rational() and s.rational().denominator == 1
+        out[label] = int(s.rational())
+    return out
+
+
+def isotypic_vector(action, chi_vals, dim, v):
+    """E_sigma v with E_sigma = (dim/60) sum_g conj(chi(g)) U_g, v a dict index -> Cyc."""
+    out = {}
+    for U, c in zip(action, chi_vals):
+        if c.is_zero():
+            continue
+        cc = c.conj()
+        for i, val in v.items():
+            r, e = U[i]
+            out[r] = out.get(r, ZERO) + cc * val * Z ** e
+    f = Cyc.of(F(dim, 60))
+    return {i: val * f for i, val in out.items() if not val.is_zero()}
+
+
+def krylov_polynomial(X, v, d, maxdeg):
+    """Monic minimal polynomial (low to high) of the vector v under the dense matrix X."""
+    vecs = [[v.get(i, ZERO) for i in range(d)]]
+    for _ in range(maxdeg):
+        w = vecs[-1]
+        vecs.append([sum((X[i][j] * w[j] for j in range(d) if not w[j].is_zero() and not X[i][j].is_zero()), ZERO) for i in range(d)])
+    for deg in range(1, maxdeg + 1):
+        # columns = vecs[0..deg]; look for a dependency
+        A = [[vecs[t][i] for t in range(deg + 1)] for i in range(d)]
+        rk, null = rank_nullspace(A)
+        if null:
+            c = null[0]
+            lead = c[deg]
+            assert not lead.is_zero()
+            return [x / lead for x in c]
+    return None

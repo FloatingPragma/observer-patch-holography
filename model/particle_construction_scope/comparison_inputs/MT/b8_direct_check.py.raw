@@ -1,0 +1,109 @@
+"""Direct check of blocks 3 and 5 on the actual instrument of two bosonic spinor quanta (300 dimensions, law C).
+
+The Heisenberg unread channel X -> (1/30) sum over seams and records K* X K is iterated on
+  (a) twelve random Hermitian operators: the limits must lie in the predicted fixed-point algebra
+      1_78 x M_3 + 1_66 x C (dimension 10) and span it;
+  (b) the one-click effect n_(p,+) and a two-click coincidence n_(p,+) n_(q,+): the limits must be
+      1 x (1 + n_p.S)/12 + 1 x 1/12 and 1 x P_sym (Pi_p x Pi_q + Pi_q x Pi_p) P_sym / 132 + 1 x <s|Pi_p x Pi_q|s>/66.
+One quantum (24 dimensions): eigenvalue-1 multiplicity of the full superoperator (expected 4).
+Float; defects printed.
+"""
+import json, time
+import numpy as np
+import scipy.sparse as sps
+import framed as fq
+from framed import SEAMS
+from mt_lib import herm_projector
+from carrier_tools import C
+
+t0 = time.time()
+out = {}
+rng = np.random.default_rng(21)
+
+# one quantum: full superoperator on M_24
+S1 = np.zeros((576, 576), complex)
+for seam in SEAMS:
+    for _, K in fq.instrument(seam, 1, 'C', 2):
+        S1 += np.kron(K, K.conj()) / 30
+ev = np.linalg.eigvals(S1)
+out['one_quantum_d2'] = {'eigenvalue_1_multiplicity': int((np.abs(ev - 1) < 1e-9).sum()),
+                         'next_modulus': float(np.sort(np.abs(ev[np.abs(ev - 1) >= 1e-9]))[-1])}
+print('one quantum', out['one_quantum_d2'], flush=True)
+
+# two bosons
+labels, vecs = fq.fock_basis(2, 'bose')
+basis = fq.labelled_space(2, 2); idx = {x: i for i, x in enumerate(basis)}
+V = np.zeros((len(basis), len(labels)), complex)
+for k, v in enumerate(vecs):
+    for x, a in v.items():
+        V[idx[x], k] = fq.s_float(a)
+Ks = [sps.csr_matrix(K) for seam in SEAMS for _, K in fq.instrument(seam, 2, 'C', 2, 'bose')]
+Kh = [K.conj().T.tocsr() for K in Ks]
+def heis(X):
+    new = np.zeros_like(X)
+    for K, Kd in zip(Ks, Kh):
+        new += Kd @ (K.T @ X.T).T          # K* X K with sparse K
+    return new / 30
+def iterate(X, n=700):
+    for _ in range(n):
+        X = heis(X)
+    return X
+from multiprocessing import Pool
+def iterate_many(ops):
+    with Pool(12) as pool:
+        return pool.map(iterate, ops)
+# labelled-space operators: index ((p, s1), (q, s2)) -> tensor (p, s1, q, s2)
+def lab(pos_op, int_op):
+    """pos_op on C^12 x C^12 (144 x 144, index p * 12 + q), int_op on C^2 x C^2 (index s1 * 2 + s2)."""
+    T = np.einsum('abcd,ijkl->aibjckdl', pos_op.reshape(12, 12, 12, 12), int_op.reshape(2, 2, 2, 2))
+    return T.reshape(576, 576)
+F12 = np.zeros((144, 144))
+for p in range(12):
+    for q in range(12):
+        F12[p * 12 + q, q * 12 + p] = 1
+PosS, PosA = (np.eye(144) + F12) / 2, (np.eye(144) - F12) / 2
+SW = np.array([[1, 0, 0, 0], [0, 0, 1, 0], [0, 1, 0, 0], [0, 0, 0, 1.]])
+Psym, Pasym = (np.eye(4) + SW) / 2, (np.eye(4) - SW) / 2
+fock = lambda O: V.conj().T @ O @ V
+# predicted fixed-point algebra: 1_S x A (A on the triplet), 1_A x Pasym
+w, U = np.linalg.eigh(Psym); Tb = U[:, w > .5]                                   # 4 x 3 triplet basis
+fixed_basis = [fock(lab(PosS, Tb[:, [i]] @ Tb[:, [j]].conj().T)) for i in range(3) for j in range(3)] + [fock(lab(PosA, Pasym))]
+FB = np.array([B.ravel() for B in fixed_basis]).T
+stat_defect = max(float(np.abs(heis(B) - B).max()) for B in fixed_basis)
+lims = []
+resid = 0.0
+rand_ops = []
+for trial in range(12):
+    A = rng.normal(size=(300, 300)) + 1j * rng.normal(size=(300, 300)); rand_ops.append(A + A.conj().T)
+p = 0; q = C.nbr[0][0]
+Pi_p = herm_projector(1, C.N[p], 1); Pi_q = herm_projector(1, C.N[q], 1)
+Np1 = np.zeros((12, 12)); Np1[p, p] = 1; Nq1 = np.zeros((12, 12)); Nq1[q, q] = 1
+I12, I2 = np.eye(12), np.eye(2)
+def one_body(Npos, Pi):
+    """sum over the two quanta of N x Pi."""
+    return lab(np.kron(Npos, I12), np.kron(Pi, I2)) + lab(np.kron(I12, Npos), np.kron(I2, Pi))
+n_p = fock(one_body(Np1, Pi_p))
+coinc = fock(lab(np.kron(Np1, Nq1), np.kron(Pi_p, Pi_q)) + lab(np.kron(Nq1, Np1), np.kron(Pi_q, Pi_p)))
+results = iterate_many(rand_ops + [n_p, coinc])
+for L in results[:12]:
+    sol = np.linalg.lstsq(FB, L.ravel(), rcond=None)[0]
+    resid = max(resid, float(np.linalg.norm(FB @ sol - L.ravel()) / np.linalg.norm(L.ravel())))
+    lims.append(L.ravel())
+lim_n, lim_c = results[12], results[13]
+rank = int(np.linalg.matrix_rank(np.array(lims), tol=1e-7))
+out['two_bosons_fixed_point_algebra'] = {'predicted_basis_is_fixed_defect': stat_defect, 'limits_of_12_random_operators_relative_distance_from_prediction': resid,
+                                          'rank_of_the_limits': rank, 'iterations': 700}
+print('two bosons fixed algebra', out['two_bosons_fixed_point_algebra'], flush=True)
+# effects
+pred1 = fock(lab(PosS, Psym @ (np.kron(Pi_p, I2) + np.kron(I2, Pi_p)) @ Psym / 12) + lab(PosA, Pasym / 12))
+sing = np.array([0, 1, -1, 0.]) / np.sqrt(2)
+X2 = (np.kron(Pi_p, Pi_q) + np.kron(Pi_q, Pi_p)) / 2
+pred2 = fock(lab(PosS, Psym @ X2 @ Psym / 66) + lab(PosA, Pasym * np.real(sing @ X2 @ sing) / 66))
+out['two_bosons_asymptotic_effects'] = {
+    'one_click_n_(p,+)_defect': float(np.abs(lim_n - pred1).max()),
+    'coincidence_n_(p,+)n_(q,+)_defect': float(np.abs(lim_c - pred2).max()),
+    'check_n_is_a_projector_on_the_binary_shell': float(np.abs(coinc @ coinc - coinc).max())}
+print('asymptotic effects', out['two_bosons_asymptotic_effects'], flush=True)
+out['seconds'] = round(time.time() - t0, 1)
+json.dump(out, open('b8_direct_check.json', 'w'), indent=1)
+print('written b8_direct_check.json', out['seconds'], 's')

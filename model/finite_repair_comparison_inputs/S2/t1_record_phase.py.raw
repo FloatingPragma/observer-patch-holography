@@ -1,0 +1,465 @@
+#!/usr/bin/env python3
+"""S2 task 1: classification of the record-phase completions eta(e, c, j) of the dilation of law C.
+
+Register: (state x) x (60 events (e, c)) arcs.  Native branch: (x, e, c) -> (y, e, c', record (e, c, j)),
+c' = c if j == 0 else 1 - c  (the repository's reversal S).
+Completion: S_eta |x,e,c> = eta(e,c,j) |y,e,c'>,  eta a phase per committed C label (e, c, j); every committed C and E
+CP branch is unchanged (E's label (e, c, d) determines (e, c, j)).  Walk: W_eta = S_eta (2 A A^dag - 1).
+Port rephasing |x> -> exp(i sigma.x)|x> multiplies eta on a moving label a->b by exp(i(sigma_b - sigma_a)).
+
+Part A  exact classification: solutions of  g.eta = eta * (port rephasing)  for the 60 rotations,
+        over GF(2) (signs) by Gaussian elimination and over R/Z (phases) by an integer Smith diagonalisation.
+Part B  explicit representatives (w, r, n): waiting phase w, round-trip phase r, uniform face flux
+        f = r^(3/2) exp(2 pi i n/20); explicit covariance check with constructed rephasings on all arcs.
+Part C  spectra: inherited eigenphases of W_eta on the 720-arc and 3960-arc registers; closed cubic.
+Part D  the E-only extension (phases that depend on the pre-repair contrast).
+"""
+import itertools, json, math, sys, cmath
+from fractions import Fraction as Fr
+from pathlib import Path
+import numpy as np
+
+from model.common_source import slow_geometry
+from model.observer import native
+
+HERE = Path(__file__).resolve().parent
+src = slow_geometry.source()
+SEAMS = [tuple(s) for s in src.seams()]
+FACES = [tuple(f) for f in src.oriented_faces()]
+ROTS = [tuple(r) for r in src.rotations()]
+EIDX = {s: i for i, s in enumerate(SEAMS)}
+assert len(SEAMS) == 30 and len(FACES) == 20 and len(ROTS) == 60
+out = {}
+
+# ------------------------------------------------------------------ labels
+# committed C label on the binary shell: (e, c, j) with (c, j) in {(0,+1), (0,0), (1,0), (1,-1)}
+LAB = [(e, c, j) for e in range(30) for (c, j) in ((0, 1), (0, 0), (1, 0), (1, -1))]
+LIDX = {l: i for i, l in enumerate(LAB)}
+
+def rot_label(g, lab):
+    e, c, j = lab
+    a, b = SEAMS[e]
+    ga, gb = g[a], g[b]
+    flip = int(ga > gb)
+    return (EIDX[tuple(sorted((ga, gb)))], c ^ flip, -j if flip else j)
+
+# check: the label action is the action induced on native branches
+def repair(x, seam, c):
+    a, b = seam
+    d = x[a] - x[b]
+    j = (d - (2 * c - 1) * (abs(d) % 2)) // 2
+    y = list(x); y[a] -= j; y[b] += j
+    return tuple(y), j
+one = [tuple(int(p == s) for p in range(12)) for s in range(12)]
+ok = True
+for g in ROTS:
+    for s in range(12):
+        gx = [0] * 12
+        for old, new in enumerate(g): gx[new] = one[s][old]
+        gx = tuple(gx)
+        for e, seam in enumerate(SEAMS):
+            for c in (0, 1):
+                y, j = repair(one[s], seam, c)
+                ge, gc, gj = rot_label(g, (e, c, j))
+                y2, j2 = repair(gx, SEAMS[ge], gc)
+                gy = [0] * 12
+                for old, new in enumerate(g): gy[new] = y[old]
+                ok &= (tuple(gy) == y2 and j2 == gj)
+out['label_action_matches_native_branches_all_rotations'] = bool(ok)
+print('label action induced by the 60 rotations matches native branches:', ok)
+
+# generators of the rotation group (find two that generate all 60)
+def compose(g, h): return tuple(g[h[i]] for i in range(12))
+def generated(gens):
+    seen = {tuple(range(12))}; frontier = list(seen)
+    while frontier:
+        nxt = []
+        for x in frontier:
+            for g in gens:
+                y = compose(g, x)
+                if y not in seen: seen.add(y); nxt.append(y)
+        frontier = nxt
+    return seen
+GENS = None
+for g, h in itertools.combinations(ROTS[1:], 2):
+    if len(generated([g, h])) == 60: GENS = [g, h]; break
+assert GENS is not None
+print('two generators found; group order', len(generated(GENS)))
+
+# ------------------------------------------------------------------ Part A: linear systems
+# unknowns: t (120 label exponents), s_g (12 port exponents for each generator)
+# equation for generator g and label l:  t[g.l] - t[l] - (delta s_g)[g.l] = 0
+# (delta s)(label) = 0 for waiting labels, s_b - s_a for (e,0,+1) [a->b], s_a - s_b for (e,1,-1) [b->a]
+def delta_row(lab):
+    e, c, j = lab
+    a, b = SEAMS[e]
+    row = [0] * 12
+    if j == 1: row[b] += 1; row[a] -= 1
+    elif j == -1: row[a] += 1; row[b] -= 1
+    return row
+NU = 120 + 12 * len(GENS)
+B = []
+for gi, g in enumerate(GENS):
+    for l, lab in enumerate(LAB):
+        gl = LIDX[rot_label(g, lab)]
+        row = [0] * NU
+        row[gl] += 1; row[l] -= 1
+        d = delta_row(LAB[gl])
+        for p in range(12): row[120 + 12 * gi + p] -= d[p]
+        B.append(row)
+
+def rank_mod_p(rows, p):
+    M = [[v % p for v in r] for r in rows]
+    rank = 0; ncol = len(M[0])
+    for col in range(ncol):
+        piv = next((i for i in range(rank, len(M)) if M[i][col]), None)
+        if piv is None: continue
+        M[rank], M[piv] = M[piv], M[rank]
+        inv = pow(M[rank][col], -1, p)
+        M[rank] = [(v * inv) % p for v in M[rank]]
+        for i in range(len(M)):
+            if i != rank and M[i][col]:
+                f = M[i][col]
+                M[i] = [(a - f * b) % p for a, b in zip(M[i], M[rank])]
+        rank += 1
+    return rank
+
+def smith_diagonal(rows):
+    """Diagonal of an integer matrix under unimodular row and column operations (exact integers)."""
+    M = [list(r) for r in rows]
+    nr, nc = len(M), len(M[0])
+    diag = []
+    for t in range(min(nr, nc)):
+        best = None
+        for i in range(t, nr):
+            Mi = M[i]
+            for jx in range(t, nc):
+                v = Mi[jx]
+                if v and (best is None or abs(v) < abs(best[0])): best = (v, i, jx)
+        if best is None: break
+        _, pi, pj = best
+        M[t], M[pi] = M[pi], M[t]
+        if pj != t:
+            for row in M: row[t], row[pj] = row[pj], row[t]
+        while True:
+            changed = False
+            for i in range(t + 1, nr):
+                if M[i][t]:
+                    q = M[i][t] // M[t][t]
+                    if q:
+                        Mt = M[t]; M[i] = [a - q * b for a, b in zip(M[i], Mt)]
+                    if M[i][t]:
+                        M[t], M[i] = M[i], M[t]; changed = True
+            for jx in range(t + 1, nc):
+                if M[t][jx]:
+                    q = M[t][jx] // M[t][t]
+                    if q:
+                        for row in M:
+                            if row[t]: row[jx] -= q * row[t]
+                    if M[t][jx]:
+                        for row in M: row[t], row[jx] = row[jx], row[t]
+                        changed = True
+            if not changed: break
+        assert all(M[i][t] == 0 for i in range(t + 1, nr)) and all(M[t][jx] == 0 for jx in range(t + 1, nc))
+        diag.append(abs(M[t][t]))
+    return diag
+
+AMBIG = len(GENS) * 1 + 11        # constants in each s_g (kernel of delta) and the 11 rephasing directions of eta
+r2 = rank_mod_p(B, 2); r5 = rank_mod_p(B, 5); r3 = rank_mod_p(B, 3)
+diag = smith_diagonal(B)
+rankQ = len(diag)
+torsion = sorted(d for d in diag if d > 1)
+classes_sign_log2 = NU - r2 - AMBIG
+out['classification'] = {
+    'unknowns': NU, 'equations': len(B), 'rank_over_Q': rankQ, 'rank_mod_2': r2, 'rank_mod_3': r3, 'rank_mod_5': r5,
+    'smith_torsion_factors': torsion,
+    'sign_classes_modulo_port_sign_rephasing': 2 ** classes_sign_log2,
+    'phase_classes_group': f'U(1)^{NU - rankQ - AMBIG} x ' + (' x '.join(f'Z_{d}' for d in torsion) if torsion else '1'),
+    'Z3_valued_classes': 3 ** (NU - r3 - AMBIG), 'Z5_valued_classes': 5 ** (NU - r5 - AMBIG)}
+print('classification:', json.dumps(out['classification']))
+
+# strictly invariant completions (no rephasing allowed): orbits of the 60 rotations on the 120 labels
+seen = set(); orbits = []
+for l in range(120):
+    if l in seen: continue
+    orb = {l}; frontier = [l]
+    while frontier:
+        nxt = []
+        for x in frontier:
+            for g in GENS:
+                y = LIDX[rot_label(g, LAB[x])]
+                if y not in orb: orb.add(y); nxt.append(y)
+        frontier = nxt
+    seen |= orb; orbits.append(sorted(orb))
+out['strictly_invariant'] = {'label_orbits': len(orbits), 'orbit_sizes': [len(o) for o in orbits],
+                             'orbit_kinds': [sorted({'wait' if LAB[l][2] == 0 else 'move' for l in o}) for o in orbits]}
+print('label orbits under the 60 rotations:', out['strictly_invariant'])
+
+# ------------------------------------------------------------------ Part B: representatives
+# directed arcs a->b ; curl matrix on antisymmetric seam potentials
+curl = np.zeros((20, 30))
+for fi, (p, q, r_) in enumerate(FACES):
+    for a, b in ((p, q), (q, r_), (r_, p)):
+        e = EIDX[tuple(sorted((a, b)))]
+        curl[fi, e] += 1 if a < b else -1
+def monopole_potential(n):
+    """Antisymmetric seam potential with flux 2 pi n/20 through every oriented face (Dirac string through face 0)."""
+    target = np.full(20, 2 * math.pi * n / 20); target[0] -= 2 * math.pi * n
+    A, *_ = np.linalg.lstsq(curl, target, rcond=None)
+    assert np.allclose(curl @ A, target, atol=1e-10)
+    return A
+def completion(w, r, n):
+    """eta on the 120 labels: waiting phase w, round-trip phase r, face flux r^(3/2) exp(2 pi i n/20)."""
+    A = monopole_potential(n)
+    sr = cmath.sqrt(r)
+    eta = {}
+    for e in range(30):
+        eta[(e, 0, 0)] = w; eta[(e, 1, 0)] = w
+        eta[(e, 0, 1)] = sr * cmath.exp(1j * A[e])       # a -> b
+        eta[(e, 1, -1)] = sr * cmath.exp(-1j * A[e])     # b -> a
+    return eta
+def invariants(eta):
+    w = {eta[(e, c, 0)] for e in range(30) for c in (0, 1)}
+    rr = [eta[(e, 0, 1)] * eta[(e, 1, -1)] for e in range(30)]
+    ff = []
+    for (p, q, r_) in FACES:
+        h = 1
+        for a, b in ((p, q), (q, r_), (r_, p)):
+            e = EIDX[tuple(sorted((a, b)))]
+            h *= eta[(e, 0, 1)] if a < b else eta[(e, 1, -1)]
+        ff.append(h)
+    return w, rr, ff
+def covariant_with_explicit_rephasing(eta):
+    """For every rotation g find port phases sigma with (g.eta)(label) = eta(label) * rephasing; check on all labels."""
+    nbr = {p: [] for p in range(12)}
+    for (a, b) in SEAMS: nbr[a].append(b); nbr[b].append(a)
+    worst = 0.0
+    for g in ROTS:
+        geta = {rot_label(g, lab): eta[lab] for lab in LAB}      # transported completion
+        def hop(tab, a, b):
+            e = EIDX[tuple(sorted((a, b)))]
+            return tab[(e, 0, 1)] if a < b else tab[(e, 1, -1)]
+        sig = {0: 1.0 + 0j}; stack = [0]
+        while stack:
+            a = stack.pop()
+            for b in nbr[a]:
+                if b not in sig:
+                    sig[b] = sig[a] * hop(geta, a, b) / hop(eta, a, b); stack.append(b)
+        for lab in LAB:
+            e, c, j = lab; a, b = SEAMS[e]
+            if j == 0: ph = 1
+            elif j == 1: ph = sig[b] / sig[a]
+            else: ph = sig[a] / sig[b]
+            worst = max(worst, abs(geta[lab] - eta[lab] * ph))
+    return worst
+rep_checks = []
+for (w, r, n) in [(1, 1, 0), (1, 1, 10), (1, -1, 0), (1, -1, 10), (-1, 1, 0), (-1, -1, 10), (1, 1, 1), (1, 1, 7),
+                  (cmath.exp(0.3j), cmath.exp(1.1j), 3)]:
+    eta = completion(w, r, n)
+    ws, rr, ff = invariants(eta)
+    f_expected = cmath.sqrt(r) ** 3 * cmath.exp(2j * math.pi * n / 20)
+    rep_checks.append({'w': str(w), 'r': str(r), 'n': n,
+                       'max_covariance_defect_with_explicit_rephasing': covariant_with_explicit_rephasing(eta),
+                       'face_flux_uniform': bool(max(abs(f - f_expected) for f in ff) < 1e-9),
+                       'f^20 - r^30': abs(ff[0] ** 20 - r ** 30)})
+out['representative_covariance_checks'] = rep_checks
+print('covariance of representatives (max defect):', max(c['max_covariance_defect_with_explicit_rephasing'] for c in rep_checks))
+# sign representatives realised with real signs?  (w, r, f) in {+-1}^3 : solve over GF(2)
+sign_reps = {}
+for wsgn, rsgn, fsgn in itertools.product((1, -1), repeat=3):
+    # unknown s_e in GF(2): m(a->b) = (-1)^s_e, m(b->a) = rsgn * (-1)^s_e ; face flux product
+    rows = []
+    for fi, (p, q, r_) in enumerate(FACES):
+        row = [0] * 31; rhs = 0 if fsgn == 1 else 1
+        for a, b in ((p, q), (q, r_), (r_, p)):
+            e = EIDX[tuple(sorted((a, b)))]
+            row[e] ^= 1
+            if a > b and rsgn == -1: rhs ^= 1
+        row[30] = rhs; rows.append(row)
+    # gaussian elimination
+    M = [r[:] for r in rows]; piv_cols = []; rk = 0
+    for col in range(30):
+        pv = next((i for i in range(rk, 20) if M[i][col]), None)
+        if pv is None: continue
+        M[rk], M[pv] = M[pv], M[rk]
+        for i in range(20):
+            if i != rk and M[i][col]: M[i] = [x ^ y for x, y in zip(M[i], M[rk])]
+        piv_cols.append(col); rk += 1
+    solvable = all(not (M[i][30] and not any(M[i][:30])) for i in range(20))
+    s = [0] * 30
+    if solvable:
+        for i, col in enumerate(piv_cols): s[col] = M[i][30]
+        eta = {}
+        for e in range(30):
+            eta[(e, 0, 0)] = wsgn; eta[(e, 1, 0)] = wsgn
+            eta[(e, 0, 1)] = (-1) ** s[e]; eta[(e, 1, -1)] = rsgn * (-1) ** s[e]
+        _, rr, ff = invariants(eta)
+        assert all(x == rsgn for x in rr) and all(x == fsgn for x in ff)
+        sign_reps[(wsgn, rsgn, fsgn)] = eta
+out['sign_classes_realised_by_real_signs'] = sorted([list(k) for k in sign_reps])
+print('sign classes (w, r, f) realised with real signs:', len(sign_reps))
+
+# ------------------------------------------------------------------ Part C: spectra
+def build_register(states):
+    idx = {s: i for i, s in enumerate(states)}
+    n = len(states); dim = n * 60
+    tgt = np.zeros(dim, int); lab = [None] * dim
+    for i, x in enumerate(states):
+        for e, seam in enumerate(SEAMS):
+            for c in (0, 1):
+                y, j = repair(x, seam, c)
+                cp = c if j == 0 else 1 - c
+                tgt[i * 60 + 2 * e + c] = idx[y] * 60 + 2 * e + cp
+                lab[i * 60 + 2 * e + c] = (e, c, j)
+    assert np.all(tgt[tgt] == np.arange(dim))
+    return n, dim, tgt, lab
+REG12 = build_register(one)
+REG66 = build_register(list(native.states(binary=True)))
+
+def inherited_spectrum(reg, eta, full=False):
+    """Eigenvalues of W = S_eta(2AA^dag-1) on the invariant subspace generated by the image of A."""
+    n, dim, tgt, lab = reg
+    ph = np.array([eta[l] for l in lab], complex)
+    def S(v):                       # S_eta |i> = eta(i) |tgt i>
+        o = np.zeros_like(v); o[tgt] = (ph[:, None] if v.ndim == 2 else ph) * v; return o
+    A = np.zeros((dim, n), complex); A[np.arange(dim), np.repeat(np.arange(n), 60)] = 1 / math.sqrt(60)
+    def W(v): return S(2 * A @ (A.conj().T @ v) - v)
+    blocks = [A]; cur = A
+    for _ in range(3):
+        cur = S(cur); blocks.append(cur)
+    K = np.concatenate(blocks, axis=1)
+    U, sv, _ = np.linalg.svd(K, full_matrices=False)
+    Q = U[:, sv > 1e-9]
+    WQ = W(Q)
+    resid = np.linalg.norm(WQ - Q @ (Q.conj().T @ WQ))
+    ev = np.linalg.eigvals(Q.conj().T @ WQ)
+    res = {'subspace_dim': int(Q.shape[1]), 'invariance_residual': float(resid), 'max_abs_dev_from_unit_circle': float(np.abs(np.abs(ev) - 1).max())}
+    D = A.conj().T @ S(A)
+    if full:
+        Wd = np.zeros((dim, dim), complex)
+        Wd[:, :] = W(np.eye(dim, dtype=complex))
+        evf = np.linalg.eigvals(Wd)
+        # inherited = eigenvalues of the restriction; all others must be eigenvalues of -S_eta on the complement
+        res['full_dim'] = dim
+        res['full_spectrum_contains_restricted'] = bool(all(np.abs(evf - z).min() < 1e-7 for z in ev))
+    return ev, D, res
+
+def phase_table(ev):
+    ang = np.sort(np.angle(ev))
+    vals, counts = np.unique(np.round(ang, 6), return_counts=True)
+    return [[float(v), int(c)] for v, c in zip(vals, counts)]
+
+Lap = np.zeros((12, 12))
+for a, b in SEAMS: Lap[a, a] += 1; Lap[b, b] += 1; Lap[a, b] -= 1; Lap[b, a] -= 1
+lamL = np.linalg.eigvalsh(Lap)
+
+def cubic_roots(w, r, mu):
+    """Roots of 1 - (11/6) w/(z+w) - (s/(z+s)) (5+mu)/60 + (s/(z-s)) (5-mu)/60 = 0, s = sqrt r (one-load register)."""
+    s = cmath.sqrt(r)
+    # multiply by (z+w)(z+s)(z-s)
+    P = np.poly1d
+    z = P([1, 0])
+    poly = (z + w) * (z + s) * (z - s) - (11 / 6) * w * (z + s) * (z - s) - s * (5 + mu) / 60 * (z + w) * (z - s) + s * (5 - mu) / 60 * (z + w) * (z + s)
+    return poly.roots
+
+spectra = {}
+# (1) the eight sign classes, one load (720 arcs, full diagonalisation as cross-check) and two loads (3960 arcs)
+for key, eta in sorted(sign_reps.items()):
+    ev12, D12, res12 = inherited_spectrum(REG12, eta, full=True)
+    ev66, D66, res66 = inherited_spectrum(REG66, eta)
+    herm = bool(np.allclose(D12, D12.conj().T))
+    entry = {'one_load': dict(res12, eigenphases=phase_table(ev12), min_abs_eigenphase=float(np.abs(np.angle(ev12)).min()),
+                              max_abs_eigenphase=float(np.abs(np.angle(ev12)).max()), discriminant_hermitian=herm),
+             'two_loads': dict(res66, min_abs_eigenphase=float(np.abs(np.angle(ev66)).min()), max_abs_eigenphase=float(np.abs(np.angle(ev66)).max()),
+                               distinct_eigenphases=len(phase_table(ev66)))}
+    if herm:
+        d = np.linalg.eigvalsh(D12)
+        entry['one_load']['discriminant_spectrum'] = [[float(v), int(c)] for v, c in zip(*np.unique(np.round(d, 9), return_counts=True))]
+        # is D an affine function of the Laplacian?
+        Dm = D12.real
+        coef = np.linalg.lstsq(np.stack([np.eye(12).ravel(), Lap.ravel()], 1), Dm.ravel(), rcond=None)[0]
+        fit = float(np.abs(coef[0] * np.eye(12) + coef[1] * Lap - Dm).max())
+        entry['one_load']['discriminant_as_a+b*L'] = {'a': float(coef[0]), 'b': float(coef[1]), 'residual': fit,
+                                                      'a_times_60': float(coef[0] * 60), 'b_times_60': float(coef[1] * 60)}
+        entry['one_load']['uniform_mode_eigenphase'] = float(math.acos(max(-1, min(1, coef[0])))) if fit < 1e-9 else None
+        entry['one_load']['dispersion_sign_d(phase)/d(lambda)'] = (None if fit > 1e-9 else ('+' if coef[1] < 0 else '-'))
+        d66 = np.linalg.eigvalsh((D66 + D66.conj().T) / 2)
+        entry['two_loads']['discriminant_range'] = [float(d66.min()), float(d66.max())]
+    # closed form check on one load: hopping matrix M[y, x] = eta(x -> y); Htilde = M / sqrt(r) is Hermitian
+    Mhop = np.zeros((12, 12), complex)
+    for e, (pa, pb) in enumerate(SEAMS):
+        Mhop[pb, pa] = eta[(e, 0, 1)]; Mhop[pa, pb] = eta[(e, 1, -1)]
+    Ht = Mhop / cmath.sqrt(key[1])
+    assert np.allclose(Ht, Ht.conj().T)
+    mu_all = np.linalg.eigvalsh(Ht)
+    roots = np.concatenate([cubic_roots(key[0], key[1], m) for m in mu_all])
+    roots = roots[np.abs(np.abs(roots) - 1) < 1e-6]
+    entry['one_load']['closed_cubic_reproduces_inherited_spectrum'] = bool(all(np.abs(roots - z).min() < 1e-6 for z in ev12))
+    entry['one_load']['magnetic_adjacency_spectrum'] = [[float(v), int(c)] for v, c in zip(*np.unique(np.round(mu_all, 9), return_counts=True))]
+    spectra[str(key)] = entry
+    print('sign class (w,r,f)=%s: one load dim %d, |phase| in [%.6f, %.6f]; two loads dim %d, |phase| in [%.6f, %.6f]; cubic ok %s' % (
+        key, res12['subspace_dim'], entry['one_load']['min_abs_eigenphase'], entry['one_load']['max_abs_eigenphase'],
+        res66['subspace_dim'], entry['two_loads']['min_abs_eigenphase'], entry['two_loads']['max_abs_eigenphase'],
+        entry['one_load']['closed_cubic_reproduces_inherited_spectrum']))
+out['sign_class_spectra'] = spectra
+
+# (2) the Hermitian flux family w = 1, r = 1, n = 0..19 (monopole classes); one and two loads
+flux = {}
+for n in range(20):
+    eta = completion(1, 1, n)
+    ev12, D12, res12 = inherited_spectrum(REG12, eta)
+    ev66, D66, res66 = inherited_spectrum(REG66, eta)
+    d = np.linalg.eigvalsh((D12 + D12.conj().T) / 2)
+    d66 = np.linalg.eigvalsh((D66 + D66.conj().T) / 2)
+    mu = 60 * d - 55
+    flux[n] = {'discriminant_spectrum': [[float(v), int(c)] for v, c in zip(*np.unique(np.round(d, 9), return_counts=True))],
+               'magnetic_adjacency_spectrum': [[float(v), int(c)] for v, c in zip(*np.unique(np.round(mu, 9), return_counts=True))],
+               'lowest_eigenphase': float(math.acos(min(1.0, d.max()))), 'highest_eigenphase': float(math.acos(d.min())),
+               'zero_mode': bool(abs(d.max() - 1) < 1e-9),
+               'two_loads_lowest_eigenphase': float(math.acos(min(1.0, d66.max()))), 'two_loads_highest_eigenphase': float(math.acos(d66.min())),
+               'walk_phases_match_arccos': bool(all(np.abs(np.abs(np.angle(ev12)) - math.acos(min(1, max(-1, x)))).min() < 1e-6 for x in d))}
+    print('flux class n=%2d: mu = %s ; lowest eigenphase %.6f (two loads %.6f)' % (
+        n, ' '.join('%.4f(x%d)' % (v, c) for v, c in flux[n]['magnetic_adjacency_spectrum']), flux[n]['lowest_eigenphase'], flux[n]['two_loads_lowest_eigenphase']))
+out['hermitian_flux_family_w1_r1'] = flux
+out['distinct_lowest_eigenphases_hermitian_family'] = sorted({round(v['lowest_eigenphase'], 6) for v in flux.values()})
+
+# (3) a scan of the continuous directions (w = exp(i alpha), r = exp(i rho)) at n = 0: lowest |eigenphase| on one load
+scan = []
+for alpha in (0.0, 0.5, 1.0, math.pi / 2, math.pi):
+    for rho in (0.0, 0.5, 1.0, math.pi / 2, math.pi):
+        eta = completion(cmath.exp(1j * alpha), cmath.exp(1j * rho), 0)
+        ev12, D12, res12 = inherited_spectrum(REG12, eta)
+        scan.append({'alpha': alpha, 'rho': rho, 'subspace_dim': res12['subspace_dim'],
+                     'eigenphases_min_max': [float(np.angle(ev12).min()), float(np.angle(ev12).max())],
+                     'min_abs_eigenphase': float(np.abs(np.angle(ev12)).min()),
+                     'unit_circle_dev': res12['max_abs_dev_from_unit_circle']})
+out['continuous_scan_n0'] = scan
+print('continuous scan (alpha, rho) -> min |eigenphase|:', [(round(s['alpha'], 2), round(s['rho'], 2), round(s['min_abs_eigenphase'], 4)) for s in scan])
+
+# (4) selection test: which classes fix the uniform coherent ket (S_eta A 1 = A 1 up to the reversal)?
+fixers = []
+for key, eta in sorted(sign_reps.items()):
+    n, dim, tgt, lab = REG12
+    ph = np.array([eta[l] for l in lab], complex)
+    v = np.ones(dim, complex) / math.sqrt(dim)
+    o = np.zeros_like(v); o[tgt] = ph * v
+    if np.allclose(o, v): fixers.append(list(key))
+out['sign_classes_fixing_uniform_coherent_ket'] = fixers
+print('sign classes whose first coherent event fixes the uniform ket:', fixers)
+
+# ------------------------------------------------------------------ Part D: E-only extension
+# phases depending on (e, c, d): the waiting label splits into spectator (d = 0) and incident wait (d = +-1)
+# covariant signs: (w_spectator, w_incident, m); discriminant diag = (50 w_s + 5 w_i)/60, hopping m/60 * Adj
+Adj = np.diag(np.diag(Lap)) - Lap
+eonly = []
+for ws_, wi_, m_ in itertools.product((1, -1), repeat=3):
+    D = (50 * ws_ + 5 * wi_) / 60 * np.eye(12) + m_ * Adj / 60
+    d = np.linalg.eigvalsh(D)
+    eonly.append({'w_spectator': ws_, 'w_incident': wi_, 'm': m_, 'preserves_C_branch': ws_ == wi_,
+                  'discriminant': f'{Fr(50 * ws_ + 5 * wi_ + 5 * m_, 60)} + ({Fr(-m_, 60)}) L',
+                  'spectrum_range': [float(d.min()), float(d.max())],
+                  'eigenphase_range': [float(math.acos(min(1, d.max()))), float(math.acos(max(-1, d.min())))]})
+out['E_only_sign_extension_r1_f_pm1'] = eonly
+
+Path(HERE / 't1_record_phase.json').write_text(json.dumps(out, indent=1, default=str))
+print('written', HERE / 't1_record_phase.json')

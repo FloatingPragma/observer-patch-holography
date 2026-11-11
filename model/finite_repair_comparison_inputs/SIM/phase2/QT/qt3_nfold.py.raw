@@ -1,0 +1,105 @@
+"""QT item X6 (CANDIDATES.md section 7): the cyclic block of an n-fold load on one port under the agreeing-state pump
+at every total (DECLARED for n >= 3; NATIVE for n = 2).
+
+Block: the blank n-fold loads N_p (one per port) and, per seam, the agreeing state of total n with record 2 and with
+record 3. With the link phase s on the reference orientation x -> y, the event at (x, y) exchanges N_x with the
+record-2 state and s^n N_y with the record-3 state; the event at (y, x) exchanges s^n N_y with the record-2 state and
+N_x with the record-3 state. The block depends on the class only through the crossing phase s^n = w^(n k).
+Fixed vectors EXACT over Q(w); lowest A MEASURED. Writes qt3_nfold.json.
+"""
+from __future__ import annotations
+
+import math
+import sys
+import time
+from fractions import Fraction as Fr
+
+import numpy as np
+
+import qt_common as Q
+
+OUT = 'qt3_nfold.json'
+
+
+def block(nports, seams, expo):
+    """expo: {seam index: m}, crossing phase w^m on the reference orientation. Returns the exact discriminant."""
+    S = len(seams)
+    n = nports + 2 * S
+    NA = 2 * S
+    D = [[Fr(0)] * n for _ in range(n)]
+    for i in range(n):
+        D[i][i] = Fr(1)                                   # each of the NA events contributes the identity ...
+    D = [[Q.Qw(x) for x in row] for row in D]
+
+    def swap(vec_a, vec_b):
+        """Add (U - I)/NA for the reflector exchanging the unit vectors a and b: U = I - (a - b)(a - b)^dag."""
+        v = {}
+        for i, c in vec_a.items():
+            v[i] = v.get(i, 0) + c
+        for i, c in vec_b.items():
+            v[i] = v.get(i, 0) - c
+        for i, ci in v.items():
+            for j, cj in v.items():
+                D[i][j] = D[i][j] - Q.Qw.of(ci) * Q.conj(Q.Qw.of(cj)) / NA
+    for s, (x, y) in enumerate(seams):
+        ph = Q.W6[expo.get(s, 0) % 6]
+        e2, e3 = nports + 2 * s, nports + 2 * s + 1
+        swap({x: Q.Qw(1)}, {e2: Q.Qw(1)})                 # address (x, y)
+        swap({y: ph}, {e3: Q.Qw(1)})
+        swap({y: ph}, {e2: Q.Qw(1)})                      # address (y, x)
+        swap({x: Q.Qw(1)}, {e3: Q.Qw(1)})
+    return D
+
+
+def analyse(D):
+    n = len(D)
+    ns = Q.nullspace(Q.minus_identity(D))
+    M = np.array([[complex(x) for x in row] for row in D])
+    herm = float(np.abs(M - M.conj().T).max())
+    ev = np.linalg.eigvalsh((M + M.conj().T) / 2)
+    return len(ns), float(ev.max()), herm
+
+
+def main():
+    t0 = time.time()
+    out = {'task': 'QT X6: n-fold loads', 'provenance': Q.FC.provenance()}
+    hexs = [(Q.HEX.index(a), Q.HEX.index(b)) for a, b in Q.HEX_SEAMS]
+    cseams, faces, path, crossed, flux1 = Q.carrier_flux(1)           # exponents of the class-1 string
+    table = {}
+    for geo, nports, seams in (('hexagon', 6, hexs), ('carrier', 12, cseams)):
+        by_phase = {}
+        for mexp in range(6):
+            expo = {0: mexp} if geo == 'hexagon' else {i: (e * mexp) % 6 for i, e in flux1.items()}
+            nfix, top, herm = analyse(block(nports, seams, expo))
+            by_phase[mexp] = {'fixed vectors (exact)': nfix, 'lowest A': round(1 - top, 10), 'hermitian defect': herm,
+                              'states': nports + 2 * len(seams)}
+        rows = {}
+        for n in range(2, 7):
+            rows[f'n = {n}'] = {f'class {k}': {'crossing phase exponent n k mod 6': (n * k) % 6,
+                                              'fixed vectors (exact)': by_phase[(n * k) % 6]['fixed vectors (exact)'],
+                                              'lowest A': by_phase[(n * k) % 6]['lowest A']} for k in range(6)}
+        table[geo] = {'by crossing phase w^m': by_phase, 'by load number and class': rows,
+                      'selected exactly when n k is a multiple of six': all(
+                          (rows[f'n = {n}'][f'class {k}']['fixed vectors (exact)'] == 1) == ((n * k) % 6 == 0)
+                          for n in range(2, 7) for k in range(6))}
+        print(geo)
+        for mexp, r in by_phase.items():
+            print('   phase w^%d' % mexp, r)
+        for n in range(2, 7):
+            print('   n =', n, [(rows[f'n = {n}'][f'class {k}']['fixed vectors (exact)'], rows[f'n = {n}'][f'class {k}']['lowest A']) for k in range(6)])
+    out['X6'] = table
+    # one tick from a blank n-fold load on the hexagon: the address counts do not depend on n
+    out['tick weights of a blank n-fold load, uniform over the six hexagon ports'] = {
+        'idle': str(Fr(2, 3)), 'in-dimer (H)': str(Fr(1, 6)), 'forward (R+)': str(Fr(1, 12)), 'backward (R-)': str(Fr(1, 12)),
+        'reason': 'four of the twelve addresses touch the port; each exchanges the blank n-fold load with an emission state with amplitude one'}
+    out['size of the full six-load problem'] = {
+        'configurations on the hexagon': math.comb(11, 6), 'configurations on the carrier': math.comb(17, 6),
+        'record values needed by a completion at totals up to six': 'blank, the shell pump, and one value per imbalance of two to six of either sign (twelve)',
+        'status': 'not computed: the completion at totals four to six is not declared in this lane'}
+    out['seconds'] = round(time.time() - t0, 2)
+    Q.jdump(out, OUT)
+    print('written', OUT, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

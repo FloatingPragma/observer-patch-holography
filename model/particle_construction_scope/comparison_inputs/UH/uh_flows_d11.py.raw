@@ -1,0 +1,156 @@
+"""Worker UH, flows with the private copy of the D11 engine (two loops for y_t and lambda, the engine's one-loop
+gauge chart, v at m_t, tree m_H): values of the induced quartic at the cell for every regulator of group B on both
+coupling charts, the rows Y1 and Y2, the curve Y4, and the compositeness rows C1. No measured value is read.
+Writes flows_d11.json."""
+import json
+import math
+import sys
+
+import numpy as np
+
+sys.path.insert(0, ".")
+import d11_scan_copy as D  # noqa: E402
+import uhlib as U  # noqa: E402
+
+root = json.load(open("R_P_source_audit_pixel_certificate.json"))
+p, au = float(root["P_cand"]), float(root["alpha_U_P_cand"])
+sc = D.source_scales(p, au)
+v, mz = sc["v_transmutation_gev"], sc["mz_run_gev"]
+EC = sc["E_cell_pixel_energy"]
+gY, g2, g3 = D.gauge_couplings(EC, mz)
+g1 = math.sqrt(5 / 3) * gY
+regs = U.regulators()
+out = {"E_cell_GeV": EC, "v_GeV": v, "chart_i_D11_couplings_at_E_cell": {"gY": gY, "g2": g2, "g3": g3},
+       "X_chart_i": U.X_of(g2, gY), "y_crit_1loop_chart_i": U.y_crit_1loop(g2, gY)}
+# chart (ii): GL's cell couplings
+gGL2 = 0.77354
+g2_GL, gY_GL = math.sqrt(gGL2), math.sqrt(0.6 * gGL2)
+out["chart_ii_GL_couplings_at_E_cell"] = {"g2": g2_GL, "gY": gY_GL, "X": U.X_of(g2_GL, gY_GL),
+                                          "y_crit_1loop": U.y_crit_1loop(g2_GL, gY_GL)}
+
+
+def run_from(mu_b, y0, lam0, n_steps=12000):
+    """HT's part1_c1.run_from (RK4 down from mu_b with the two-loop engine), returning m_t pole and tree m_H"""
+    t0, t1 = math.log(mu_b), math.log(50.0)
+    dt = (t1 - t0) / n_steps
+    y, lam = y0, lam0
+    ln_mu = np.empty(n_steps + 1); ya = np.empty(n_steps + 1); la = np.empty(n_steps + 1)
+
+    def derivs(t, yv, lv):
+        g_y, g_2, g_3 = D.gauge_couplings(math.exp(t), mz)
+        d = D._beta_2loop_engine(math.sqrt(5 / 3) * g_y, g_2, g_3, yv, lv)
+        return d[3], d[4]
+
+    for i in range(n_steps + 1):
+        t = t0 + i * dt
+        ln_mu[i], ya[i], la[i] = t, y, lam
+        if i == n_steps:
+            break
+        k1 = derivs(t, y, lam)
+        k2 = derivs(t + dt / 2, y + dt / 2 * k1[0], lam + dt / 2 * k1[1])
+        k3 = derivs(t + dt / 2, y + dt / 2 * k2[0], lam + dt / 2 * k2[1])
+        k4 = derivs(t + dt, y + dt * k3[0], lam + dt * k3[1])
+        y += dt / 6 * (k1[0] + 2 * k2[0] + 2 * k3[0] + k4[0])
+        lam += dt / 6 * (k1[1] + 2 * k2[1] + 2 * k3[1] + k4[1])
+        if not (math.isfinite(y) and math.isfinite(lam)) or abs(y) > 50 or abs(lam) > 500:
+            return {"failed": "blow-up at mu = %.3e" % math.exp(t)}
+
+    def interp(mu):
+        x = math.log(mu)
+        return float(np.interp(x, ln_mu[::-1], ya[::-1])), float(np.interp(x, ln_mu[::-1], la[::-1]))
+
+    mu_g = 173.0
+    for _ in range(12):
+        mu_g = interp(mu_g)[0] * v / math.sqrt(2)
+    y_mt, l_mt = interp(mu_g)
+    a_s = D.alpha_run_1loop(D.ALPHA_3_MZ, D.B_SM_ALPHA_Y[2], mu_g, mz)
+    keep = ln_mu >= math.log(mu_g)
+    imin = int(np.argmin(np.where(keep, la, np.inf)))
+    return {"mt_pole": D.top_pole_from_msbar(mu_g, a_s), "mh_tree": math.sqrt(max(0.0, 2 * l_mt)) * v,
+            "lambda_mt": l_mt, "yt_mt": y_mt, "min_lambda": float(la[imin]), "mu_at_min_lambda_GeV": math.exp(ln_mu[imin])}
+
+
+def beta_lam_2l(y, lam):
+    return D._beta_2loop_engine(g1, g2, g3, y, lam)[4]
+
+
+def bisect(f, lo, hi, n=200):
+    flo = f(lo)
+    if flo * f(hi) > 0:
+        return None
+    for _ in range(n):
+        mid = 0.5 * (lo + hi)
+        fm = f(mid)
+        if flo * fm <= 0:
+            hi = mid
+        else:
+            lo, flo = mid, fm
+    return 0.5 * (lo + hi)
+
+
+# gate: lambda = 0 with beta_lambda = 0 at E_cell reproduces the stored D11 row (131.80938727, 175.66412568)
+y_c2 = bisect(lambda y: beta_lam_2l(y, 0.0), 0.05, 2.0)
+gate = run_from(EC, y_c2, 0.0, n_steps=24000)
+out["gate_C4_D11"] = {"y_crit_2loop": y_c2, "mh": gate["mh_tree"], "mt": gate["mt_pole"],
+                      "stored": [131.80938727093422, 175.66412567505776],
+                      "rel_dev": max(abs(gate["mh_tree"] / 131.80938727093422 - 1), abs(gate["mt_pole"] / 175.66412567505776 - 1))}
+print("gate C4:", out["gate_C4_D11"], flush=True)
+
+rows = {}
+for name, reg in regs.items():
+    r = {"text": reg["text"], "c_f": reg["c_f"], "c_V": reg["c_V"], "mu_zero_over_E_cell": U.mu_zero(reg)}
+    # values at the cell, both charts, at the one-loop critical Yukawa of each chart
+    r["lambda_at_y_crit_chart_i"] = U.lam_ind(U.y_crit_1loop(g2, gY), g2, gY, reg)
+    r["lambda_at_y_crit_chart_ii_GL"] = U.lam_ind(U.y_crit_1loop(g2_GL, gY_GL), g2_GL, gY_GL, reg)
+    # Y1: beta_lambda(E_cell) = 0 at lambda = lambda_ind(y) (two-loop engine, chart i)
+    y1 = bisect(lambda y: beta_lam_2l(y, U.lam_ind(y, g2, gY, reg)), 0.2, 0.8)
+    if y1 is not None:
+        l1 = U.lam_ind(y1, g2, gY, reg)
+        r["Y1"] = {"y_t_E_cell": y1, "lambda_E_cell": l1, **run_from(EC, y1, l1)}
+    # Y2: no induced register mass at the cell
+    y2 = U.y_veltman(g2, gY, reg)
+    if y2 is None:
+        r["Y2"] = {"y_t_E_cell": None, "note": "A_V/A_f negative: no solution"}
+    else:
+        l2 = U.lam_ind(y2, g2, gY, reg)
+        r["Y2"] = {"y_t_E_cell": y2, "A_V_over_A_f": reg["A_V"] / reg["A_f"], "lambda_E_cell": l2, **run_from(EC, y2, l2)}
+    # Y4: the curve
+    curve = []
+    for ratio in (0.90, 0.92, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99, 1.00, 1.01, 1.02):
+        y = ratio * y_c2
+        l = U.lam_ind(y, g2, gY, reg)
+        curve.append({"y_over_y_crit": ratio, "y_t_E_cell": y, "lambda_E_cell": l, **run_from(EC, y, l)})
+    r["Y4_curve"] = curve
+    rows[name] = r
+    print(name, "c_f=%.3f c_V=%.3f lam(ycrit) i=%.3e ii=%.3e" % (reg["c_f"], reg["c_V"], r["lambda_at_y_crit_chart_i"],
+                                                                r["lambda_at_y_crit_chart_ii_GL"]),
+          "| Y1 y=%.5f lam=%.3e H=%.3f t=%.3f" % (r["Y1"]["y_t_E_cell"], r["Y1"]["lambda_E_cell"], r["Y1"]["mh_tree"],
+                                                 r["Y1"]["mt_pole"]) if "Y1" in r else "| Y1 none",
+          "| Y2", {k: (round(x, 5) if isinstance(x, float) else x) for k, x in r["Y2"].items()
+                   if k in ("y_t_E_cell", "lambda_E_cell", "mh_tree", "mt_pole", "failed", "note")}, flush=True)
+out["regulators"] = rows
+# reference curve: lambda(E_cell) = 0 exactly (tree-level matching), y free
+ref = []
+for ratio in (0.90, 0.92, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99, 1.00, 1.01, 1.02):
+    ref.append({"y_over_y_crit": ratio, "y_t_E_cell": ratio * y_c2, "lambda_E_cell": 0.0, **run_from(EC, ratio * y_c2, 0.0)})
+out["tree_level_lambda_zero_curve"] = ref
+# sensitivity of m_H to lambda(E_cell) at fixed y_t(E_cell)
+sens = []
+for l0 in (-4e-3, -2e-3, -1e-3, -3e-4, 0.0, 2e-4, 1e-3, 4e-3, 1.2e-2):
+    sens.append({"lambda_E_cell": l0, **run_from(EC, 0.96 * y_c2, l0)})
+out["sensitivity_at_y_0.96_y_crit"] = sens
+# C1: compositeness (Bardeen, Hill, Lindner): lambda = y^2, y large at E_cell
+c1 = []
+for y0 in (2.0, 3.0, 5.0):
+    c1.append({"y_t_E_cell": y0, "lambda_E_cell": y0 ** 2, **run_from(EC, y0, y0 ** 2, n_steps=60000)})
+out["C1_compositeness"] = c1
+json.dump(out, open("flows_d11.json", "w"), indent=1)
+print("tree-level lambda = 0 curve:")
+for r in ref:
+    print("  y/yc=%.2f  t=%.3f H=%.3f  min_lam=%.2e" % (r["y_over_y_crit"], r["mt_pole"], r["mh_tree"], r["min_lambda"]))
+print("B4 curve:")
+for r in rows["B4"]["Y4_curve"]:
+    print("  y/yc=%.2f lam=%.3e t=%.3f H=%.3f min_lam=%.2e" % (r["y_over_y_crit"], r["lambda_E_cell"], r["mt_pole"],
+                                                               r["mh_tree"], r["min_lambda"]))
+print("sensitivity:", [(s["lambda_E_cell"], round(s["mh_tree"], 3), round(s["mt_pole"], 3)) for s in sens])
+print("C1:", [(c["y_t_E_cell"], c.get("mt_pole"), c.get("mh_tree"), c.get("failed")) for c in c1])

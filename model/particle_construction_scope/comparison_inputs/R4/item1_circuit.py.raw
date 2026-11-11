@@ -1,0 +1,116 @@
+"""R4 item 1: the lifted tick as a circuit of local gates, checked against the exterior power of the one-body tick.
+
+Fermionic lift on the k-quantum sector, built from the anticommutation relations only:
+  Gamma(R)   = (-1)^(number of recorded quanta)                         one diagonal layer
+  Gamma(Q_i) = product over the reflectors v of axis i of (1 - 2 n_v),   n_v = a+(v) a(v)
+  Gamma(M)   = product over (cell, spin) of the two-mode gate 1 + (c-1)(n0-n1)^2 + s (a1+ a0 - a0+ a1)
+All arithmetic in int64 (Gaussian integers with a tracked scale 2^e2 5^e5); the mass angle is the rational
+rotation cos = 3/5, sin = 4/5 so that the whole tick is exact. Compared with Lambda^k of the one-body tick
+(k x k minors, explicit formula on Gaussian integers).
+"""
+import sys, time
+import numpy as np
+import scipy.sparse as sp
+from r4lib import *
+
+rng = np.random.default_rng(4)
+OUT = {}
+
+
+def layers_needed(shape, i):
+    """greedy colouring of the reflector gates of axis i by disjoint mode supports (spin basis along the axis)"""
+    if shape[i] == 1: return 1
+    sup = []
+    for x in cells(shape):
+        y = step(shape, x, i)
+        for eps in (0, 1): sup.append({(cidx(shape, x), eps), (cidx(shape, y), eps)})
+    colour = []
+    for a in range(len(sup)):
+        used = {colour[b] for b in range(a) if sup[a] & sup[b]}
+        colour.append(next(c for c in range(len(sup)) if c not in used))
+    return max(colour) + 1
+
+
+def run(shape, k, links, ncols=None, reverse=False, tag=''):
+    t0 = time.process_time()
+    D = dim(shape); sec = Sector(D, k)
+    cols = np.arange(sec.nb) if (ncols is None or ncols >= sec.nb) else np.sort(rng.choice(sec.nb, ncols, replace=False))
+    Xr = np.zeros((sec.nb, len(cols)), np.int64); Xr[cols, np.arange(len(cols))] = 1
+    X = (Xr, np.zeros_like(Xr)); e2 = e5 = 0
+    rec = [m for m in range(D) if m % 4 >= 2]
+    signR = 1 - 2 * (sec.occ[:, rec].sum(axis=1) & 1)
+    ngate = 0; idem = True; ortho = True
+    A = np.eye(D, dtype=complex)                                   # scaled one-body tick, Gaussian integers
+    for i in ((2, 1, 0) if reverse else (0, 1, 2)):
+        X = (X[0] * signR[:, None], X[1] * signR[:, None])         # Gamma(R)
+        Ps = reflector_projectors(shape, i, links)
+        tot = sum(Ps); ortho &= bool(np.array_equal(tot @ tot, tot))   # the reflectors of one axis are mutually orthogonal
+        for P in Ps:                                               # Gamma(Q_i), gate by gate
+            N = sec.bilinear(8 * P)                                # 8 n_v
+            if ngate % 7 == 0:                                     # n_v^2 = n_v on the sector (sampled gates)
+                idem &= ((N[0] @ N[0] - N[1] @ N[1]) != 8 * N[0]).nnz == 0 and ((N[0] @ N[1] + N[1] @ N[0]) != 8 * N[1]).nnz == 0
+            X = gi_apply((4 * sec.eye() - N[0], -N[1]), X); e2 += 2
+            X, t = reduce2(X); e2 -= t; ngate += 1
+        A = (2 * Q_exact(shape, i, links)) @ R_exact(shape) @ A
+    nm = 0
+    for x in cells(shape):                                         # Gamma(M), cos = 3/5, sin = 4/5
+        for s in range(2):
+            m0, m1 = mode(shape, x, 0, s), mode(shape, x, 1, s)
+            r1, c1, g1 = sec.hop(m1, m0); r2, c2, g2 = sec.hop(m0, m1)
+            ar = np.arange(sec.nb)
+            G = sp.csr_matrix((5 - 2 * (sec.occ[:, m0] ^ sec.occ[:, m1]), (ar, ar)), shape=(sec.nb, sec.nb), dtype=np.int64) \
+                + sp.csr_matrix((4 * g1, (r1, c1)), shape=(sec.nb, sec.nb), dtype=np.int64) \
+                - sp.csr_matrix((4 * g2, (r2, c2)), shape=(sec.nb, sec.nb), dtype=np.int64)
+            X = gi_apply((G, sec.zero()), X); e5 += 1; nm += 1
+            while e5 > 0 and not (X[0] % 5).any() and not (X[1] % 5).any(): X = (X[0] // 5, X[1] // 5); e5 -= 1
+    A = np.kron(np.eye(ncell(shape)), np.kron(np.array([[3, -4], [4, 3]], complex), I2)) @ A     # 5 M
+    assert np.array_equal(A.real, np.rint(A.real)) and np.array_equal(A.imag, np.rint(A.imag))
+    # exterior power of the scaled one-body tick: Lambda^k(A) = (2^3 5)^k Lambda^k(W)
+    ok = True; chunk = 96
+    for a in range(0, len(cols), chunk):
+        cc = cols[a:a + chunk]
+        Lam = ext_power(A, sec.comb, sec.comb[cc])
+        Lr, Li = np.rint(Lam.real).astype(np.int64), np.rint(Lam.imag).astype(np.int64)
+        assert np.array_equal(Lr, Lam.real) and np.array_equal(Li, Lam.imag)
+        f = (2 ** (3 * k - e2)) * (5 ** (k - e5)); assert 3 * k >= e2 and k >= e5
+        ok &= bool(np.array_equal(X[0][:, a:a + chunk] * f, Lr) and np.array_equal(X[1][:, a:a + chunk] * f, Li))
+    res = {'lattice': list(shape), 'quanta': k, 'modes': D, 'sector_dimension': sec.nb, 'columns_checked': int(len(cols)),
+           'order': 'reverse' if reverse else 'forward', 'Z2_links': links is not None,
+           'reflector_gates': ngate, 'mass_gates': nm,
+           'reflectors_of_an_axis_mutually_orthogonal_exact': ortho, 'n_v_is_a_projector_on_the_sector_exact': bool(idem),
+           'circuit_equals_exterior_power_of_the_tick_exact': ok, 'cpu_s': round(time.process_time() - t0, 2)}
+    print(res); OUT[tag] = res
+
+
+def engine_ties(shape, links):
+    w = Routing(shape, links); d = {}
+    for i in range(3):
+        d[f'Q_{i}'] = float(np.abs(engine_matrix(shape, lambda p: w.seam_involution(p, i)) - Q_exact(shape, i, links)).max())
+    th = 0.157935
+    for rev in (False, True):
+        E = engine_matrix(shape, lambda p: w.tick(p, th, reverse=rev))
+        d['tick_rev' if rev else 'tick_fwd'] = float(np.abs(E - tick_exact(shape, rev, links, (np.cos(th), np.sin(th)))).max())
+    return d
+
+
+if __name__ == '__main__':
+    sh1, sh2 = (3, 2, 1), (2, 2, 2)
+    l1 = [rng.choice([-1.0, 1.0], size=sh1) for _ in range(3)]
+    l2 = [rng.choice([-1.0, 1.0], size=sh2) for _ in range(3)]
+    OUT['engine_against_exact_one_body_operators_max_abs'] = {
+        '3x2x1_no_links': engine_ties(sh1, None), '3x2x1_links': engine_ties(sh1, l1), '2x2x2_links': engine_ties(sh2, l2)}
+    print(OUT['engine_against_exact_one_body_operators_max_abs'])
+    run(sh1, 2, None, tag='3x2x1_k2')
+    run(sh1, 2, l1, tag='3x2x1_k2_links')
+    run(sh1, 3, l1, ncols=None, tag='3x2x1_k3_links')
+    run(sh1, 3, l1, ncols=300, reverse=True, tag='3x2x1_k3_links_reverse_order')
+    run(sh2, 2, l2, tag='2x2x2_k2_links')
+    run(sh2, 3, l2, ncols=160, tag='2x2x2_k3_links_sampled_columns')
+    OUT['depth'] = {
+        'per_axis': 'one layer Gamma(R) of single-mode signs, then 2N commuting reflector gates (N cells); each gate acts on the four '
+                    'modes (two neighbouring cells) x (two records) of one spin component along the axis',
+        'disjoint_support_layers_of_the_reflector_gates': {str(L): layers_needed((L, 1, 1), 0) for L in (2, 3, 4, 5, 6, 8)},
+        'tick_layers_even_L': '3 x (1 + 2) + 1 = 10 layers of gates with disjoint supports; 3 + 3 + 1 = 7 layers of mutually commuting gates',
+        'cone': 'every gate touches at most two neighbouring cells of one axis: one cell per axis per tick'}
+    print(OUT['depth'])
+    dump(OUT, sys.argv[1] if len(sys.argv) > 1 else RL + '/work/R4/item1_circuit.json')

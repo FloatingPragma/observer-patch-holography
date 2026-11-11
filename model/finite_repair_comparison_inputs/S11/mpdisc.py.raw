@@ -1,0 +1,204 @@
+"""Multiprecision modular generators of discs on the flat honeycomb of carriers (64 x 64 torus by default).
+
+Fermions (carrier-level honeycomb hopping model, optional staggered potential) and bosons (carrier-level scalar
+with the honeycomb graph Laplacian). Correlation kernels are exact lattice sums evaluated in fixed point; discs are
+centred on a mesh vertex and block-diagonalised with the two mirrors x -> -x, y -> -y.
+"""
+from __future__ import annotations
+
+import mpmath as mp
+import numpy as np
+
+import flat as FL
+import geom as G
+from fpmath import FP, symmetry_blocks
+
+KD = G.KPOINT
+
+
+def lattice_tables(fp: FP, N: int, Mmax: int):
+    n = np.arange(N)
+    cosT = np.array([fp.from_mp(mp.cos(2 * mp.pi * k / N)) for k in range(N)], dtype=object)
+    sinT = np.array([fp.from_mp(mp.sin(2 * mp.pi * k / N)) for k in range(N)], dtype=object)
+    ms = np.arange(-Mmax, Mmax + 1)
+    idx = (n[:, None] * ms[None, :]) % N
+    return cosT, sinT, cosT[idx], sinT[idx]
+
+
+def scalar_kernel(fp: FP, W: np.ndarray, Cc: np.ndarray, Sc: np.ndarray) -> np.ndarray:
+    """J(m1, m2) = sum_{n1 n2} cos(2 pi (n1 m1 + n2 m2)/N) W[n1, n2] for |m1|, |m2| <= Mmax (fixed point)."""
+    Ac = fp.dot(W, Cc); As = fp.dot(W, Sc)
+    return fp.dot(Cc.T.copy(), Ac) - fp.dot(Sc.T.copy(), As)
+
+
+def f2_table(N: int):
+    """|f(q)|^2 = 3 + 2 cos t1 + 2 cos t2 + 2 cos(t1 - t2) on the grid, as mpf."""
+    c = [mp.cos(2 * mp.pi * k / N) for k in range(N)]
+    return [[3 + 2 * c[a] + 2 * c[b] + 2 * c[(a - b) % N] for b in range(N)] for a in range(N)]
+
+
+def region_index(cells: np.ndarray):
+    m1, m2, s = cells.T
+    d1 = m1[:, None] - m1[None, :]
+    d2 = m2[:, None] - m2[None, :]
+    return d1, d2, s[:, None], s[None, :]
+
+
+def assemble(Jaa: np.ndarray, Jbb: np.ndarray, Jab: np.ndarray, cells: np.ndarray, Mmax: int) -> np.ndarray:
+    """Region matrix from kernels: AA(dR) = Jaa, BB(dR) = Jbb, AB(dR) = sum_delta Jab(dR - delta),
+    BA(dR) = sum_delta Jab(dR + delta), delta in {0, a1, a2}; dR = row cell - column cell."""
+    d1, d2, sr, sc = region_index(cells)
+    o = Mmax
+
+    def at(J, a, b):
+        return J[a + o, b + o]
+    AB = at(Jab, d1, d2) + at(Jab, d1 - 1, d2) + at(Jab, d1, d2 - 1)
+    BA = at(Jab, d1, d2) + at(Jab, d1 + 1, d2) + at(Jab, d1, d2 + 1)
+    AA = at(Jaa, d1, d2); BB = at(Jbb, d1, d2)
+    out = np.where((sr == 0) & (sc == 0), AA, np.where((sr == 1) & (sc == 1), BB, np.where((sr == 0) & (sc == 1), AB, BA)))
+    return out
+
+
+def mirror_perms(pos: np.ndarray):
+    key = {(round(float(x), 6), round(float(y), 6)): i for i, (x, y) in enumerate(pos)}
+    px = np.array([key[(round(float(-x), 6), round(float(y), 6))] for x, y in pos])
+    py = np.array([key[(round(float(x), 6), round(float(-y), 6))] for x, y in pos])
+    return px, py
+
+
+def block_bases(fp: FP, pos: np.ndarray):
+    """Fixed-point orthonormal symmetry-adapted bases, one (n x n_b) object matrix per irreducible block."""
+    px, py = mirror_perms(pos)
+    n = pos.shape[0]
+    blocks = symmetry_blocks([px, py], n)
+    half, quarter_sqrt = fp.ONE // 2, fp.sqrt_half()
+    out = []
+    for chi, cols in blocks:
+        if not cols:
+            continue
+        B = np.empty((n, len(cols)), dtype=object); B[:, :] = 0
+        for c, (vec, d) in enumerate(cols):
+            amp = {1: fp.ONE, 2: quarter_sqrt, 4: half}[d]
+            for site, sign in vec.items():
+                B[site, c] = sign * amp
+        out.append((chi, B))
+    return out
+
+
+def blockwise(fp: FP, mats: dict, bases):
+    """Project fixed-point region matrices onto each symmetry block."""
+    res = []
+    for chi, B in bases:
+        res.append((chi, B, {k: fp.dot(B.T.copy(), fp.dot(M, B)) for k, M in mats.items()}))
+    return res
+
+
+# ------------------------------------------------------------------------------------------------ fermions
+def fermion_disc(fp: FP, N: int, rho: float, stagger, centre=np.zeros(2)):
+    """Direct K of a disc for the honeycomb hopping model h = -adjacency + stagger * (+1 up, -1 down), half filling."""
+    cells, r, pos = FL.disc(centre, rho)
+    Mmax = int(np.abs(cells[:, :2]).max()) * 2 + 2
+    cosT, sinT, Cc, Sc = lattice_tables(fp, N, Mmax)
+    f2 = f2_table(N)
+    m = mp.mpf(stagger)
+    W = np.empty((N, N), dtype=object)
+    for a in range(N):
+        for b in range(N):
+            W[a, b] = fp.from_mp(1 / (mp.sqrt(m * m + f2[a][b]) * N * N))
+    J = scalar_kernel(fp, W, Cc, Sc)                    # (1/N^2) sum cos(q.dR)/E
+    o = Mmax
+    half = fp.ONE // 2
+    mfp = fp.from_mp(m / 2)
+    delta0 = np.empty_like(J); delta0[:, :] = 0; delta0[o, o] = half
+    Jaa = delta0 - ((mfp * J) >> fp.P)
+    Jbb = delta0 + ((mfp * J) >> fp.P)
+    Jab = J // 2                                         # (t/2) J, t = 1
+    C = assemble(Jaa, Jbb, Jab, cells, Mmax)
+    bases = block_bases(fp, pos - centre)
+    n = cells.shape[0]
+    K = np.zeros((n, n)); eps_all = []; sweeps = []; margin = 0.0
+    for chi, B, mats in blockwise(fp, {'C': C}, bases):
+        Kb, eps, mg, sw = fp.fermi_K(mats['C'])
+        Bf = fp.arr_to_float(B)
+        K += Bf @ Kb @ Bf.T
+        eps_all.extend(eps.tolist()); sweeps.append(sw); margin = max(margin, mg)
+    return {'cells': cells, 'r': r, 'pos': pos, 'K': K, 'eps': np.sort(np.array(eps_all)), 'max_abs_eps': margin, 'sweeps': sweeps,
+            'C_float': fp.arr_to_float(C)}
+
+
+def fermion_slope_profile(K: np.ndarray, cells: np.ndarray, pos: np.ndarray):
+    """Local cone slope and local mass of K at every carrier (sum over all ranges inside the region)."""
+    s = cells[:, 2]
+    dR = pos[None, :, :] - pos[:, None, :]                       # r_j - r_x
+    ph = np.exp(-1j * (dR @ KD))
+    opp = s[:, None] != s[None, :]
+    F = np.stack([(np.where(opp, K, 0.0) * dR[:, :, mu] * ph).sum(axis=1) for mu in range(2)], axis=1)
+    slope = np.sqrt(0.5 * (np.abs(F) ** 2).sum(axis=1))
+    F0 = (np.where(opp, K, 0.0) * ph).sum(axis=1)
+    mass = (np.where(~opp, K, 0.0) * ph).sum(axis=1).real
+    return slope, np.abs(F0), mass
+
+
+def honeycomb_cone_slope(t: float = 1.0) -> float:
+    deltas = [G.DOWN_POS - G.UP_POS, G.DOWN_POS - G.A1 - G.UP_POS, G.DOWN_POS - G.A2 - G.UP_POS]
+    F = np.array([sum(-t * d[mu] * np.exp(-1j * (d @ KD)) for d in deltas) for mu in range(2)])
+    return float(np.sqrt(0.5 * (np.abs(F) ** 2).sum()))
+
+
+# ------------------------------------------------------------------------------------------------ bosons
+def boson_disc(fp: FP, N: int, rho: float, g, mass2, centre=np.zeros(2)):
+    """Carrier-level scalar: H = (1/2) sum p^2 + (1/2) x^T (g * honeycomb graph Laplacian + mass2) x, ground state.
+    Returns the modular generator K = (1/2) p^T Mp p + (1/2) x^T Mx x of the disc (float64 matrices)."""
+    cells, r, pos = FL.disc(centre, rho)
+    Mmax = int(np.abs(cells[:, :2]).max()) * 2 + 2
+    cosT, sinT, Cc, Sc = lattice_tables(fp, N, Mmax)
+    f2 = f2_table(N)
+    g = mp.mpf(g); mass2 = mp.mpf(mass2)
+    names = ('x_sum', 'x_dif', 'p_sum', 'p_dif')
+    W = {k: np.empty((N, N), dtype=object) for k in names}
+    for a in range(N):
+        for b in range(N):
+            af = mp.sqrt(f2[a][b]) if f2[a][b] > 0 else mp.mpf(0)
+            lp = g * (3 + af) + mass2; lm = g * (3 - af) + mass2
+            wp, wm = mp.sqrt(lp), mp.sqrt(lm)
+            nn = N * N
+            # X = (1/2) L^(-1/2), P = (1/2) L^(1/2);  L = lp P+ + lm P-,  P+- = (1/2)[[1, -+f/|f|], [-+f*/|f|, 1]]
+            W['x_sum'][a, b] = fp.from_mp((1 / wp + 1 / wm) / (4 * nn))
+            W['p_sum'][a, b] = fp.from_mp((wp + wm) / (4 * nn))
+            W['x_dif'][a, b] = fp.from_mp(((1 / wm - 1 / wp) / af) / (4 * nn)) if af > 0 else 0
+            W['p_dif'][a, b] = fp.from_mp(((wm - wp) / af) / (4 * nn)) if af > 0 else 0
+    J = {k: scalar_kernel(fp, W[k], Cc, Sc) for k in names}
+    X = assemble(J['x_sum'], J['x_sum'], J['x_dif'], cells, Mmax)
+    Pm = assemble(J['p_sum'], J['p_sum'], J['p_dif'], cells, Mmax)
+    bases = block_bases(fp, pos - centre)
+    n = cells.shape[0]
+    Mp = np.zeros((n, n)); Mx = np.zeros((n, n)); eps_all = []; sig_all = []
+    ONE, Pb = fp.ONE, fp.P
+    for chi, B, mats in blockwise(fp, {'X': X, 'P': Pm}, bases):
+        Xb, Pbk = mats['X'], mats['P']
+        dx, Ux, _ = fp.jacobi(Xb)
+        sq = np.array([fp.from_mp(mp.sqrt(fp.to_mp(v))) for v in dx], dtype=object)
+        isq = np.array([fp.from_mp(1 / mp.sqrt(fp.to_mp(v))) for v in dx], dtype=object)
+        Xh = fp.dot((Ux * sq[None, :]) >> Pb, Ux.T.copy())
+        Xih = fp.dot((Ux * isq[None, :]) >> Pb, Ux.T.copy())
+        D = fp.dot(Xh, fp.dot(Pbk, Xh))
+        D = (D + D.T) // 2
+        dd, U, _ = fp.jacobi(D)
+        ep, en = [], []
+        for v in dd:
+            nu = mp.sqrt(fp.to_mp(v))
+            if nu <= mp.mpf(1) / 2:
+                raise ArithmeticError('symplectic eigenvalue <= 1/2 at this precision')
+            e = mp.log((nu + mp.mpf(1) / 2) / (nu - mp.mpf(1) / 2))
+            ep.append(fp.from_mp(e / nu)); en.append(fp.from_mp(e * nu))
+            eps_all.append(float(e)); sig_all.append(float(nu))
+        ep = np.array(ep, dtype=object); en = np.array(en, dtype=object)
+        Tp = fp.dot((U * ep[None, :]) >> Pb, U.T.copy())
+        Tx = fp.dot((U * en[None, :]) >> Pb, U.T.copy())
+        Mp_b = fp.dot(Xh, fp.dot(Tp, Xh))                 # momentum form:  X^(1/2) U (eps/nu) U^T X^(1/2)
+        Mx_b = fp.dot(Xih, fp.dot(Tx, Xih))               # position form:  X^(-1/2) U (eps nu) U^T X^(-1/2)
+        Bf = fp.arr_to_float(B)
+        Mp += Bf @ fp.arr_to_float(Mp_b) @ Bf.T
+        Mx += Bf @ fp.arr_to_float(Mx_b) @ Bf.T
+    return {'cells': cells, 'r': r, 'pos': pos, 'Mp': Mp, 'Mx': Mx, 'eps': np.sort(np.array(eps_all)), 'sigma': np.sort(np.array(sig_all)),
+            'X_float': fp.arr_to_float(X), 'P_float': fp.arr_to_float(Pm)}

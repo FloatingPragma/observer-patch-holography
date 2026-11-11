@@ -1,0 +1,68 @@
+"""Idea B. Positions as six-component port-crossing records; a quantum hops along port axis i according to the
+sign of its spin along that axis. No cubic frame is chosen.
+
+Symbol on the physical slice (wave vector q in the port frame, zero conjugate wave vector):
+    W_fwd(q) = prod_{i=1..6} exp(-i (q.u_i) (sigma.u_i)),   W2 = W_rev W_fwd  (alternating order)
+with u_i the six port axes. Sum_i u_i u_i^T = 2, so to first order W = exp(-2 i sigma.q): a Weyl quantum with the
+full icosahedral symmetry. Checks: leading speed, isotropy (order at which the direction enters), the phase of W2
+along axes of different symmetry, and a scan of the physical slice for other points where W2 returns to 1.
+"""
+import itertools, json, sys
+import numpy as np
+
+PHI = (1 + 5 ** 0.5) / 2
+ax = np.array([(0, 1, PHI), (0, 1, -PHI), (1, PHI, 0), (1, -PHI, 0), (PHI, 0, 1), (-PHI, 0, 1)], float)
+ax /= np.linalg.norm(ax, axis=1, keepdims=True)
+print('sum of u u^T over the six axes:\n', np.round(ax.T @ ax, 12))
+sig = [np.array([[0, 1], [1, 0]], complex), np.array([[0, -1j], [1j, 0]]), np.diag([1.0, -1.0]).astype(complex)]
+def ex(theta, u):
+    s = u[0] * sig[0] + u[1] * sig[1] + u[2] * sig[2]
+    return np.cos(theta) * np.eye(2) - 1j * np.sin(theta) * s
+def W2(q):
+    f = np.eye(2, dtype=complex)
+    for u in ax: f = ex(q @ u, u) @ f
+    r = np.eye(2, dtype=complex)
+    for u in ax[::-1]: r = ex(q @ u, u) @ r
+    return r @ f
+def phase(q):
+    w = np.linalg.eigvals(W2(q)); return np.sort(np.abs(np.angle(w)))
+out = {}
+dirs = {'five-fold (port axis)': ax[0], 'three-fold (face centre)': np.array([1.0, 1, 1]) / 3 ** .5, 'two-fold (seam midpoint)': np.array([1.0, 0, 0]),
+        'generic': np.array([0.3, -0.5, 0.81]) / np.linalg.norm([0.3, -0.5, 0.81])}
+print('phase of the two-tick product per unit 4|q| (1 = exact Weyl cone of speed 2 per tick), both helicities:')
+rows = []
+for name, d in dirs.items():
+    row = []
+    for qn in (0.02, 0.05, 0.1, 0.2):
+        ph = phase(qn * d); row.append((qn, float(ph[0] / (4 * qn)), float(ph[1] / (4 * qn))))
+    rows.append({'direction': name, 'ratios': row}); print(f'  {name:26s}', [(q, round(a, 6), round(b, 6)) for q, a, b in row])
+out['cone'] = rows
+# anisotropy at fixed |q|: spread of the phase over random directions
+rng = np.random.default_rng(0)
+for qn in (0.05, 0.1, 0.2, 0.4):
+    vals = []
+    for _ in range(400):
+        d = rng.normal(size=3); d /= np.linalg.norm(d); vals.append(phase(qn * d))
+    vals = np.array(vals)
+    print(f'|q| = {qn}: mean phase/(4|q|) = {vals.mean() / (4 * qn):.6f}, relative spread over directions = {(vals.max() - vals.min()) / vals.mean():.2e}, helicity splitting max = {np.abs(vals[:, 1] - vals[:, 0]).max():.2e}')
+# other returns to the identity on the physical slice
+best = []
+for R, n in ((6.0, 60000), (20.0, 200000), (60.0, 400000)):
+    Q = rng.uniform(-R, R, size=(n, 3))
+    Q = Q[np.linalg.norm(Q, axis=1) > 1.0]
+    c = np.array([q @ ax.T for q in Q])                    # the six phases q.u_i
+    # W2 = 1 needs every factor trivial up to sign: distance of all six phases from multiples of pi
+    dist = np.abs((c + np.pi / 2) % np.pi - np.pi / 2).max(axis=1)
+    k = int(np.argmin(dist))
+    ph = phase(Q[k])
+    best.append({'radius': R, 'smallest_max_distance_of_the_six_phases_from_multiples_of_pi': float(dist[k]), 'at_q': Q[k].tolist(), 'two_tick_phase_there': ph.tolist()})
+    print(f'within |q| < {R}: closest approach of all six phases to multiples of pi: {dist[k]:.4f} at q = {np.round(Q[k], 3)}; two-tick phase there {np.round(ph, 4)}')
+# direct scan of the two-tick phase itself for small values away from the origin
+for R, n in ((3.2, 150000),):
+    Q = rng.uniform(-R, R, size=(n, 3)); Q = Q[np.linalg.norm(Q, axis=1) > 0.6]
+    ph = np.array([phase(q)[0] for q in Q])
+    k = np.argsort(ph)[:5]
+    print(f'smallest two-tick phases for 0.6 < |q| < {R}:', [(np.round(Q[i], 3).tolist(), round(float(ph[i]), 4)) for i in k])
+    out['smallest_phases_away_from_origin'] = [(Q[i].tolist(), float(ph[i])) for i in k]
+out['returns'] = best
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 'six_axis.json', 'w'), indent=1)

@@ -1,0 +1,21 @@
+"""Reference for the window statistics: sprinklings of a flat four-dimensional diamond with 3,000 and 1,820 points
+(sizes of the window populations and of the CAP population). Writes results/b2_ref3000.json."""
+import json
+from multiprocessing import Pool
+import numpy as np
+import mc_lib as L
+
+
+def one(a):
+    N, seed = a
+    rng = np.random.default_rng([seed, N, 13])
+    return L.order_stats(L.relation_cone(L.sprinkle_diamond(N, 4, rng)))
+
+
+if __name__ == '__main__':
+    out = {}
+    with Pool(12) as pool:
+        for N in (3000, 1820):
+            out[f'd=4|N={N}'] = L.summarize(pool.map(one, [(N, s) for s in range(16)], chunksize=1))
+    json.dump(out, open('results/b2_ref3000.json', 'w'), indent=1)
+    print(json.dumps(out))

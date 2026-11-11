@@ -1,0 +1,59 @@
+{
+  "schema": "oph.repair_band_inputs.v1",
+  "files": [
+    {
+      "path": "bands/check_bands.json",
+      "source": "repair-law/work/SIM/bands/check_bands.json",
+      "sha256": "967327bd0b42caa359f5d49a96417ea50931c3db41600fb82a00abf8c8cec79e",
+      "bytes": 10584
+    },
+    {
+      "path": "bands/check_bands.py",
+      "source": "repair-law/work/SIM/bands/check_bands.py",
+      "sha256": "338547aea49b5b6ce0ca78855cd7c94314f682ce8508b8ab2e8848ff71ab68da",
+      "bytes": 5047
+    },
+    {
+      "path": "bands/gluing_bands.json",
+      "source": "repair-law/work/SIM/bands/gluing_bands.json",
+      "sha256": "9f8bf8dc4c09cb6d8c2a775688ad4cf43d8123861cad464d06e64f5401c5e326",
+      "bytes": 13146
+    },
+    {
+      "path": "bands/gluing_bands.py",
+      "source": "repair-law/work/SIM/bands/gluing_bands.py",
+      "sha256": "b0bf985b8f28637599d7501453b1babe7e5baffb852610c4271ece72c9c26ec3",
+      "bytes": 5333
+    },
+    {
+      "path": "bands/twisted_bands.json",
+      "source": "repair-law/work/SIM/bands/twisted_bands.json",
+      "sha256": "1869e46e5e333838525bfed5b4319d53b86e7172146aa7ba24dd383c3eb61ef7",
+      "bytes": 10295
+    },
+    {
+      "path": "bands/twisted_bands.py",
+      "source": "repair-law/work/SIM/bands/twisted_bands.py",
+      "sha256": "7bc133e3df4bd728290db18af697a8364ada73a5252eaeca18f8e6d2a24460e5",
+      "bytes": 2715
+    },
+    {
+      "path": "bands/walk_spectrum.json",
+      "source": "repair-law/work/SIM/bands/walk_spectrum.json",
+      "sha256": "bd9003a72890b31f1a7932b55c127deccc164e5a65e5fb07934c31cb08322527",
+      "bytes": 3138
+    },
+    {
+      "path": "bands/walk_spectrum.py",
+      "source": "repair-law/work/SIM/bands/walk_spectrum.py",
+      "sha256": "7212536f91b4ab4f5a96beb2656308ec4d3a6c679e0927bed649bb2cab56139a",
+      "bytes": 4255
+    },
+    {
+      "path": "cf1/runs/H2_coherence_48.json",
+      "source": "repair-law/work/SIM/cf1/runs/H2_coherence_48.json",
+      "sha256": "4d5e4e295452a6f8f791b7e48d729d8f53bc06acc15d0cc81333cf31dfded687",
+      "bytes": 9995
+    }
+  ]
+}

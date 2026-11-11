@@ -1,0 +1,134 @@
+{
+ "bridge": {
+  "addresses": 66,
+  "massless_speed_edges_per_step": 0.02074705056929417,
+  "sectors": {
+   "spinor|template": [
+    {
+     "level": 0.7467459582398012,
+     "omega0": 0.15057046852654632,
+     "v2": 0.0,
+     "flat": true,
+     "qmax_1pct": null,
+     "anisotropy_at_q0.2": 0.0
+    },
+    {
+     "level": 0.746745958239802,
+     "omega0": 0.15057046852654707,
+     "v2": 0.0004224231323762817,
+     "flat": false,
+     "qmax_1pct": 0.5,
+     "anisotropy_at_q0.2": 5.571173090893012e-07
+    },
+    {
+     "level": 1.0495597477883567,
+     "omega0": 0.17857630247621342,
+     "v2": -0.00011689851836527154,
+     "flat": false,
+     "qmax_1pct": null,
+     "anisotropy_at_q0.2": 5.591475535923044e-07
+    }
+   ],
+   "vector|template": [
+    {
+     "level": 1.3819660112501047,
+     "omega0": 0.2049993293496836,
+     "v2": -2.1510571102112408e-12,
+     "flat": true,
+     "qmax_1pct": null,
+     "anisotropy_at_q0.2": 0.0
+    },
+    {
+     "level": 1.3819660112501064,
+     "omega0": 0.2049993293496836,
+     "v2": 0.0,
+     "flat": true,
+     "qmax_1pct": null,
+     "anisotropy_at_q0.2": 0.0
+    },
+    {
+     "level": 1.381966011250107,
+     "omega0": 0.2049993293496836,
+     "v2": 0.0,
+     "flat": true,
+     "qmax_1pct": null,
+     "anisotropy_at_q0.2": 0.0
+    },
+    {
+     "level": 1.5529753502764054,
+     "omega0": 0.2173604804506618,
+     "v2": 0.0003535725993930594,
+     "flat": false,
+     "qmax_1pct": 0.5,
+     "anisotropy_at_q0.2": 5.570466285678986e-07
+    }
+   ]
+  }
+ },
+ "seam": {
+  "addresses": 72,
+  "massless_speed_edges_per_step": 0.03127437800492294,
+  "sectors": {
+   "spinor|ambient": [
+    {
+     "level": 0.7506568982434368,
+     "omega0": 0.14452651641369405,
+     "v2": 0.0009031613733626043,
+     "flat": false,
+     "qmax_1pct": 0.1,
+     "anisotropy_at_q0.2": 9.265947589303812e-07
+    },
+    {
+     "level": 0.7840037199653658,
+     "omega0": 0.14770754647559758,
+     "v2": 0.000873992477071206,
+     "flat": false,
+     "qmax_1pct": 0.1,
+     "anisotropy_at_q0.2": 1.697945191632446e-06
+    },
+    {
+     "level": 0.8472768405027862,
+     "omega0": 0.1535635798232467,
+     "v2": -9.037745402756814e-05,
+     "flat": false,
+     "qmax_1pct": null,
+     "anisotropy_at_q0.2": 7.359956430976452e-07
+    }
+   ],
+   "vector|ambient": [
+    {
+     "level": 1.390263301372692,
+     "omega0": 0.19683330733458868,
+     "v2": -0.0009181704202498864,
+     "flat": false,
+     "qmax_1pct": null,
+     "anisotropy_at_q0.2": 1.3923387043640867e-06
+    },
+    {
+     "level": 1.3955442684426305,
+     "omega0": 0.19720800632729166,
+     "v2": -5.8102766209433554e-05,
+     "flat": false,
+     "qmax_1pct": null,
+     "anisotropy_at_q0.2": 6.805076026925798e-05
+    },
+    {
+     "level": 1.4029321478325396,
+     "omega0": 0.19773102045724192,
+     "v2": 0.0021398670671524123,
+     "flat": false,
+     "qmax_1pct": 0.05,
+     "anisotropy_at_q0.2": 2.32263755088359e-06
+    },
+    {
+     "level": 1.4671199933167982,
+     "omega0": 0.20221892346294298,
+     "v2": 0.0012604280576894444,
+     "flat": false,
+     "qmax_1pct": 0.1,
+     "anisotropy_at_q0.2": 1.933381406999638e-06
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,31 @@
+"""Sanity plot of the site file (private check of units and ordering; not a deliverable)."""
+import json, sys
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+d = json.load(open(sys.argv[1]))
+fig, ax = plt.subplots(2, 3, figsize=(16, 9))
+o = d['oph']
+for s in o['series']:
+    st = '-' if s['kind'] == 'reweighted' else 'o'
+    ax[0, 0].plot(s['t'], s['chi'], st, ms=3, label=f"bG {s['beta_G']:g} N {s['L']} {s['kind']}")
+    ax[0, 1].plot(s['t'], s['order'], st, ms=3)
+ax[0, 0].axvline(o['T_c_GeV'], color='k', lw=0.5); ax[0, 0].axvspan(158.0, 161.0, alpha=0.1)
+ax[0, 0].set_title("chain point: chi(T)"); ax[0, 0].legend(fontsize=6); ax[0, 1].set_title("v^2/T^2")
+c = o['continuum']
+ax[0, 2].errorbar([1 / p['beta_G'] for p in c['points']], [p['T_max'] for p in c['points']], [p['err'] for p in c['points']], fmt='o')
+for p in c['points']:
+    ax[0, 2].annotate(str(p['L']), (1 / p['beta_G'], p['T_max']))
+ax[0, 2].errorbar([0], [c['T_continuum']], [c['err']], fmt='s'); ax[0, 2].set_title("T_max vs 1/beta_G")
+for p in d['points']:
+    if p['id'] == 'first_order':
+        for s in p['series']:
+            ax[1, 0].plot(s['t'], s['chi'], label=f"N {s['L']}")
+        ax[1, 0].set_yscale('log'); ax[1, 0].set_title("x=0.036 chi3(y)"); ax[1, 0].legend(fontsize=6)
+        for h in p['hist']:
+            b = h['bins']; ax[1, 1].step([0.5 * (b[i] + b[i + 1]) for i in range(len(b) - 1)], h['counts'], label=f"N {h['L']}")
+        ax[1, 1].set_yscale('log'); ax[1, 1].set_ylim(1e-4, 0.3); ax[1, 1].set_title("histograms"); ax[1, 1].legend(fontsize=6)
+        for h in p['hysteresis']:
+            ax[1, 2].plot(h['t'], h['order'], '.-', label=f"N {h['L']}")
+        ax[1, 2].set_title("hysteresis"); ax[1, 2].legend(fontsize=6)
+fig.tight_layout(); fig.savefig(sys.argv[2], dpi=70)

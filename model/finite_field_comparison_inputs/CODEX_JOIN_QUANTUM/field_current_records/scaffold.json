@@ -1,0 +1,128 @@
+{
+  "actual_owner_execution_required_before_metadata_renewal": true,
+  "actual_release_identity_sha256": {
+    "paper/paper_release_manifest.json": "a68eefc1d92a87bd30ee2fbc11d2a38d41bb9062b69e83877f91accbf02f971c",
+    "paper/release_info.tex": "0204285ad45a381ca200df1305e338905a754968dcd515ad3cf491d9d52575e5"
+  },
+  "awaiting_owner_freeze": [],
+  "baseline": {
+    "baseline_files": {
+      "claims/assumption_dictionary.md": {
+        "retained_path": "model/completion/historical/field_current_records_inputs/claims/assumption_dictionary.md",
+        "sha256": "e55c387135ae0509bc04ce543b95fd384110ef986bf7d25bedb00f3e951be63d"
+      },
+      "claims/claim_registry.yaml": {
+        "retained_path": "model/completion/historical/field_current_records_inputs/claims/claim_registry.yaml",
+        "sha256": "503a304702ee2791f71578dfa522cdf546139f6ff3d2ebfa9965e3ed8aaf940e"
+      },
+      "claims/completion_program.json": {
+        "retained_path": "model/completion/historical/field_current_records_inputs/claims/completion_program.json",
+        "sha256": "7d107fa99d17a7a32867265581c589476184004f92693333202f1d13ff9043ad"
+      },
+      "model/completion/component_interfaces.json": {
+        "retained_path": "model/completion/historical/field_current_records_inputs/model/completion/component_interfaces.json",
+        "sha256": "e8efd95181cf1db6c309c5a27d5713dad57b77e23cbecdaed64cc6c14bc8b5dd"
+      },
+      "model/completion/finite_attachment_map.json": {
+        "retained_path": "model/completion/historical/field_current_records_inputs/model/completion/finite_attachment_map.json",
+        "sha256": "325c90ef05b559dff716765248d850af20175a3f6d740dbad04a371240731be2"
+      },
+      "model/completion/program_class_v2.json": {
+        "retained_path": "model/completion/historical/field_current_records_inputs/model/completion/program_class_v2.json",
+        "sha256": "4d7226ec427ebe85ec99cb596f8180527d161e32cad9b4d474e6157d2d5ed800"
+      },
+      "model/completion/program_class_v2_review.json": {
+        "retained_path": "model/completion/historical/field_current_records_inputs/model/completion/program_class_v2_review.json",
+        "sha256": "3e6443c99b2bc55afbb9ded20c32519b73d005f415853d235f918cb4b2f91ade"
+      },
+      "tracking/premise_register.json": {
+        "retained_path": "model/completion/historical/field_current_records_inputs/tracking/premise_register.json",
+        "sha256": "df9963bc623f28fd4fceb73efac8dc030fa2e515b6fe4e8d5ef7000b6f769cd2"
+      }
+    },
+    "checkpoint": "a0367dc26b07ad959c915054dbfcb3f9828af295"
+  },
+  "binding_assumption_unions": [
+    1,
+    74
+  ],
+  "frozen_package_receipts": {
+    "native_higgs_current_response": "55fea7f49b3683fb34f3a72aa686cab58646608a3267db02f7f6d3a943b9352a",
+    "native_local_current_readout": "15428032377feb91b213d1b13be01badcb7997082220d0e0d9a880a855cff2ab",
+    "native_quark_higgs_join": "3eaa996b2ac49a222168aef03118c67fbab9df68a5de5c996fd5cc82b5d214a4",
+    "native_quark_response": "06c336e1f691db866896de6123fea34937dcd462d92765f594600744c54fd40f",
+    "native_wilson_maxwell": "eba4963148b62f6841a038119ed5b9baf4a6f142009915b31e49d72dacd12b72",
+    "native_wilson_maxwell_ground": "0e9edccffa2d8571f0b325feaee7c49408714d7b838e3e1c57ec6a183c15fa17",
+    "native_wilson_maxwell_ground_refinement": "e5a40a0d4e8d183c933232758f211bcd44bf81944429867da4048c184fc7b96a",
+    "native_wilson_maxwell_refinement": "49da49cb0745d1f78563f50fd4f6829e45e957d2bec7e4a87064075ce0a202ec",
+    "protected_readout_numerics": "3ac6e75ed65d489b6620206bb14126e20f3f9b78e6b7a1b50c2ef9d1c39b695b"
+  },
+  "optional_science_only_after_separate_freeze": [],
+  "ordered_appends": [
+    "claim326 primary evidence",
+    "claim326 declared architecture assumptions",
+    "group8 typed state/reference sources",
+    "group18 typed field/record sources"
+  ],
+  "permitted_ledger_fields": [
+    [
+      "claims/claim_registry.yaml",
+      [
+        "claims",
+        326,
+        "statement"
+      ]
+    ],
+    [
+      "claims/claim_registry.yaml",
+      [
+        "claims",
+        326,
+        "oph_specific_delta"
+      ]
+    ],
+    [
+      "tracking/premise_register.json",
+      [
+        "model_supply",
+        "groups",
+        8,
+        "constructed"
+      ]
+    ],
+    [
+      "tracking/premise_register.json",
+      [
+        "model_supply",
+        "groups",
+        18,
+        "constructed"
+      ]
+    ]
+  ],
+  "physical_status_changes": false,
+  "planned_public_helpers": [
+    "model/completion/field_current_records_navigation.py",
+    "model/completion/field_current_records_custody.py"
+  ],
+  "proposed_architecture_premises": {
+    "declared_Wilson_Maxwell_onsite_complement_energy_completion": "The changed Hamiltonian adds m c(g) times the sum of onsite-in-macrocell code-complement projectors, with c(g) equal to g squared times the stated source-derived dyadic coefficient. The choice of this positive completion is explicit; the unmodified source ground outside the occupation code and the completed coupled ground are distinct. All complements, original code energies, kinetic guards, reference costs and complete preparation filters are retained.",
+    "declared_fixed_graph_photon_capacity_refinement": "Total photon occupation cutoffs vary on one fixed finite cube with the same source current, reference and clock. The exact finite boundary completion and explicit occupation-tail bounds control the stated fixed-time comparison. This premise does not supply a volume, spatial-continuum, ultraviolet, or physical QED limit.",
+    "declared_local_gauge_invariant_current_pointer_coupling": "The apparatus adds an explicitly controlled finite neutral pointer coupling built from a local gauge-invariant polynomial of the actual dressed current. Admission flags, source evolution during the finite readout interval and all measurement errors and work bounds are retained. This is a declared narrower apparatus primitive; preparation and spectral-bin services retain their separate full-matrix premise, and no autonomous native-C/E implementation is inferred.",
+    "declared_native_Wilson_Maxwell_cube_and_affine_Gauss_embedding": "The declared open-cube Wilson current is coupled to the five finite transverse modes through literal finite-cutoff Peierls exponentials and an exact longitudinal charge/reference embedding. Full native complement charges, the static compensator, the complete Gauss-orthogonal extension, the source-selected length/time scale and all cutoff boundary commutators are retained. This is an added finite source architecture, not a transfer from the scalar square-root kinetic source or an electromagnetic identification."
+  },
+  "protected_numerical_route": {
+    "full_cold_write_check_renew_live_and_tests_required_before_seal": true,
+    "module": "model.protected_readout_numerics",
+    "old_verifier_unchanged": true,
+    "retained_baselines_code_proof_and_admission_unchanged": true,
+    "route_module": "model.verify_current",
+    "two_fixed_parent_paths": [
+      "model/particle_comparison/results.json",
+      "model/particle_identification/results.json"
+    ],
+    "unpublished_contract_only_two_current_hashes_may_change_after_owner_replay_and_exact_review": true
+  },
+  "release_identity_transition_included": true,
+  "role": "integration_scaffolding_only_no_live_ledger_projection"
+}

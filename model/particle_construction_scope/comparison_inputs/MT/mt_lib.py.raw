@@ -1,0 +1,445 @@
+"""Exact and numerical tools of worker MT (framed quanta).
+
+Exact field: F = Q(zeta), zeta = exp(2 pi i / 20), elements are rational polynomials modulo the 20th cyclotomic
+polynomial (python-flint). F contains i = zeta^5, r = zeta + 1/zeta = 2 cos(pi/10) = sqrt((5 + sqrt5)/2) (the port
+radius), sqrt5 = 2 r^2 - 5, the golden ratio, c = cos(theta/2) = r/sqrt5 and s = sin(theta/2) = r_g/sqrt5, where
+theta is the angle between adjacent port axes (cos theta = 1/sqrt5) and r_g = sqrt((5 - sqrt5)/2).
+The automorphism zeta -> zeta^17 fixes i and sends sqrt5 -> -sqrt5, r -> r_g: it maps the convex realization of the
+port axes (C.N) to the great-icosahedron realization (C.Ng).
+
+All linear algebra over F is exact (Gaussian elimination with exact inverses).
+Spin-j operators are written in the monomial basis of Sym^{2j}(C^2), where J_z, J_+, J_- have integer entries. That
+basis is not orthonormal for j >= 1; spans, Lie closures, centres and traces do not depend on the basis.
+"""
+import itertools
+from fractions import Fraction as Fr
+import numpy as np
+from flint import fmpq_poly, fmpq
+
+PHI20 = fmpq_poly([1, 0, -1, 0, 1, 0, -1, 0, 1])
+_X = fmpq_poly([0, 1])
+_ZPOW = [(_X ** k) % PHI20 for k in range(20)]
+ZETA_NUM = np.exp(2j * np.pi / 20)
+
+
+def _poly(o):
+    if isinstance(o, Z):
+        return o.p
+    if isinstance(o, fmpq_poly):
+        return o if o.degree() < 8 else o % PHI20
+    if isinstance(o, Fr):
+        return fmpq_poly([fmpq(o.numerator, o.denominator)])
+    if isinstance(o, (int, np.integer)):
+        return fmpq_poly([int(o)])
+    if isinstance(o, fmpq):
+        return fmpq_poly([o])
+    raise TypeError(f'cannot convert {type(o)} to the cyclotomic field')
+
+
+class Z:
+    """Element of Q(zeta_20)."""
+    __slots__ = ('p',)
+
+    def __init__(self, o=0):
+        self.p = _poly(o)
+
+    @staticmethod
+    def zeta(k=1):
+        return Z(_ZPOW[k % 20])
+
+    def __add__(self, o): return Z(self.p + _poly(o))
+    __radd__ = __add__
+    def __sub__(self, o): return Z(self.p - _poly(o))
+    def __rsub__(self, o): return Z(_poly(o) - self.p)
+    def __neg__(self): return Z(-self.p)
+    def __mul__(self, o): return Z((self.p * _poly(o)) % PHI20)
+    __rmul__ = __mul__
+
+    def inv(self):
+        if self.p.is_zero():
+            raise ZeroDivisionError
+        g, s, t = self.p.xgcd(PHI20)
+        return Z(s * fmpq_poly([1 / g.coeffs()[0]]))
+
+    def __truediv__(self, o): return self * Z(o).inv()
+    def __rtruediv__(self, o): return Z(o) * self.inv()
+
+    def __pow__(self, n):
+        out, base = Z(1), self
+        if n < 0:
+            base, n = self.inv(), -n
+        while n:
+            if n & 1:
+                out = out * base
+            base = base * base; n >>= 1
+        return out
+
+    def gal(self, m):
+        """The automorphism zeta -> zeta^m (m coprime to 20)."""
+        out = fmpq_poly([0])
+        for k, c in enumerate(self.p.coeffs()):
+            if c != 0:
+                out = out + fmpq_poly([c]) * _ZPOW[(m * k) % 20]
+        return Z(out)
+
+    def conj(self): return self.gal(19)
+    def __eq__(self, o): return (self.p - _poly(o)).is_zero()
+    def __ne__(self, o): return not self.__eq__(o)
+    def __bool__(self): return not self.p.is_zero()
+    def __hash__(self): return hash(str(self.p))
+    def __complex__(self): return complex(sum(float(c.p) / float(c.q) * ZETA_NUM ** k for k, c in enumerate(self.p.coeffs())))
+    def num(self): return complex(self)
+    def __repr__(self): return f'Z({self.p})'
+
+
+ONE, ZERO = Z(1), Z(0)
+IM = Z.zeta(5)
+R = Z.zeta(1) + Z.zeta(19)                 # 2 cos(pi/10) = sqrt((5+sqrt5)/2), the port radius
+SQRT5 = 2 * R * R - 5
+PHI = (1 + SQRT5) / 2
+RG = R.gal(17)                             # sqrt((5-sqrt5)/2)
+CH = R / SQRT5                             # cos(theta/2), theta = angle of adjacent port axes
+SH = RG / SQRT5                            # sin(theta/2)
+assert abs(complex(IM) - 1j) < 1e-12 and abs(complex(R) - (((5 + 5 ** .5) / 2) ** .5)) < 1e-12
+assert abs(complex(SQRT5) - 5 ** .5) < 1e-12 and abs(complex(RG) - (((5 - 5 ** .5) / 2) ** .5)) < 1e-12
+assert CH * CH == (5 + SQRT5) / 10 and SH * SH == (5 - SQRT5) / 10 and CH * CH + SH * SH == 1
+
+
+# ------------------------------------------------------------------ exact matrices (numpy object arrays of Z)
+def zmat(rows):
+    A = np.empty((len(rows), len(rows[0])), dtype=object)
+    for i, row in enumerate(rows):
+        for j, x in enumerate(row):
+            A[i, j] = x if isinstance(x, Z) else Z(x)
+    return A
+
+
+def zeye(n):
+    return zmat([[1 if i == j else 0 for j in range(n)] for i in range(n)])
+
+
+def zzeros(n, m=None):
+    m = n if m is None else m
+    return zmat([[0] * m for _ in range(n)])
+
+
+def zkron(A, B):
+    n, m = A.shape; p, q = B.shape
+    out = np.empty((n * p, m * q), dtype=object)
+    for i in range(n):
+        for j in range(m):
+            for k in range(p):
+                for l in range(q):
+                    out[i * p + k, j * q + l] = A[i, j] * B[k, l]
+    return out
+
+
+def zdsum(*blocks):
+    n = sum(b.shape[0] for b in blocks)
+    out = zzeros(n); o = 0
+    for b in blocks:
+        k = b.shape[0]; out[o:o + k, o:o + k] = b; o += k
+    return out
+
+
+def ztrace(A):
+    t = Z(0)
+    for i in range(A.shape[0]):
+        t = t + A[i, i]
+    return t
+
+
+def znum(A):
+    return np.array([[complex(x) for x in row] for row in A])
+
+
+def zgal(A, m):
+    return zmat([[x.gal(m) for x in row] for row in A])
+
+
+def zis_zero(A):
+    return all(not x for x in A.ravel())
+
+
+def zinv(A):
+    n = A.shape[0]
+    M = [list(A[i]) + [ONE if i == j else ZERO for j in range(n)] for i in range(n)]
+    for c in range(n):
+        piv = next(r for r in range(c, n) if M[r][c])
+        M[c], M[piv] = M[piv], M[c]
+        inv = M[c][c].inv()
+        M[c] = [x * inv for x in M[c]]
+        for r in range(n):
+            if r != c and M[r][c]:
+                f = M[r][c]
+                M[r] = [x - f * y for x, y in zip(M[r], M[c])]
+    return zmat([row[n:] for row in M])
+
+
+class Span:
+    """Exact echelon basis of a set of vectors over F."""
+
+    def __init__(self):
+        self.rows, self.piv = [], []
+
+    def reduce(self, v):
+        v = list(v)
+        for row, pc in zip(self.rows, self.piv):
+            f = v[pc]
+            if f:
+                v = [a - f * b if b else a for a, b in zip(v, row)]
+        return v
+
+    def add(self, v):
+        v = self.reduce(v)
+        for k, a in enumerate(v):
+            if a:
+                inv = a.inv()
+                self.rows.append([x * inv if x else x for x in v]); self.piv.append(k)
+                return True
+        return False
+
+    def contains(self, v):
+        return all(not a for a in self.reduce(v))
+
+    def __len__(self):
+        return len(self.rows)
+
+
+def zrank(vectors):
+    sp = Span()
+    for v in vectors:
+        sp.add(list(v))
+    return len(sp)
+
+
+def lie_closure(gens, cap=400):
+    """Complex Lie algebra over F generated by the matrices gens. Returns (span of gens, basis matrices).
+    For Hermitian generators H_k the real Lie algebra generated by i H_k has real dimension = len(basis)."""
+    sp, mats = Span(), []
+
+    def add(M):
+        if sp.add(list(M.ravel())):
+            mats.append(M); return True
+        return False
+    for g in gens:
+        add(g)
+    span0 = len(mats)
+    frontier = list(range(len(mats)))
+    while frontier:
+        new = []
+        for i in frontier:
+            j = 0
+            while j < len(mats):
+                C = mats[i] @ mats[j] - mats[j] @ mats[i]
+                if add(C):
+                    new.append(len(mats) - 1)
+                j += 1
+            if len(mats) > cap:
+                raise RuntimeError('closure above cap')
+        frontier = new
+    return span0, mats
+
+
+def centre_dim(mats):
+    """Dimension of the centre of the Lie algebra with basis mats (exact)."""
+    n = len(mats)
+    rows = []
+    for i in range(n):
+        row = []
+        for j in range(n):
+            row += list((mats[i] @ mats[j] - mats[j] @ mats[i]).ravel())
+        rows.append(row)
+    return n - zrank(rows)
+
+
+def derived_dim(mats):
+    sp = Span()
+    for i in range(len(mats)):
+        for j in range(i + 1, len(mats)):
+            sp.add(list((mats[i] @ mats[j] - mats[j] @ mats[i]).ravel()))
+    return len(sp)
+
+
+# ------------------------------------------------------------------ the carrier, exactly
+from carrier_tools import C  # numerical carrier: seams, faces, rotations (their port permutations are exact data)
+
+
+def exact_ports():
+    V = []
+    for s1 in (1, -1):
+        for s2 in (1, -1):
+            V += [(ZERO, Z(s1), s2 * PHI), (Z(s1), s2 * PHI, ZERO), (s2 * PHI, ZERO, Z(s1))]
+    return V
+
+
+V_EX = exact_ports()
+N_EX = [tuple(x / R for x in v) for v in V_EX]                    # convex realization, unit axes
+NG_EX = [tuple(x.gal(17) for x in n) for n in N_EX]               # great realization = Galois conjugate
+assert np.allclose(np.array([[complex(x).real for x in n] for n in N_EX]), C.N, atol=1e-12)
+assert np.allclose(np.array([[complex(x).real for x in n] for n in NG_EX]), C.Ng, atol=1e-12)
+AXES = {'convex': N_EX, 'great': NG_EX}
+AXES_NUM = {'convex': C.N, 'great': C.Ng}
+
+
+def exact_rotation(perm):
+    """The proper rotation with R V_p = V_perm[p], exact over Q(sqrt5)."""
+    B = zmat([[V_EX[p][i] for p in (0, 1, 2)] for i in range(3)])
+    B2 = zmat([[V_EX[perm[p]][i] for p in (0, 1, 2)] for i in range(3)])
+    return B2 @ zinv(B)
+
+
+# ------------------------------------------------------------------ spin, exact (monomial basis) and numerical
+def spin_J(j2):
+    """J_x, J_y, J_z of spin j = j2/2 in the monomial basis (integer J_z, J_+, J_-), exact."""
+    d = j2 + 1
+    Jz, Jp, Jm = zzeros(d), zzeros(d), zzeros(d)
+    for k in range(d):
+        Jz[k, k] = Z(Fr(j2 - 2 * k, 2))
+        if k >= 1:
+            Jp[k - 1, k] = Z(k)
+        if k + 1 < d:
+            Jm[k + 1, k] = Z(j2 - k)
+    half = Z(Fr(1, 2))
+    Jx = (Jp + Jm) * half
+    Jy = (Jp - Jm) * (half * (-IM))
+    return Jx, Jy, Jz
+
+
+def helicity_projector(j2, n, m2):
+    """Projector on the eigenspace of n.J with eigenvalue m2/2 (exact; n a triple of Z)."""
+    Jx, Jy, Jz = spin_J(j2)
+    nJ = Jx * n[0] + Jy * n[1] + Jz * n[2]
+    d = j2 + 1
+    P = zeye(d)
+    for mm2 in range(-j2, j2 + 1, 2):
+        if mm2 != m2:
+            P = P @ ((nJ - zeye(d) * Z(Fr(mm2, 2))) * Z(Fr(2, m2 - mm2)))
+    return P
+
+
+def spin_J_num(j2):
+    return tuple(znum(M) for M in spin_J(j2))
+
+
+def helicity_projector_num(j2, n, m2):
+    Jx, Jy, Jz = spin_J_num(j2)
+    nJ = n[0] * Jx + n[1] * Jy + n[2] * Jz
+    d = j2 + 1
+    P = np.eye(d, dtype=complex)
+    for mm2 in range(-j2, j2 + 1, 2):
+        if mm2 != m2:
+            P = P @ ((nJ - mm2 / 2 * np.eye(d)) * (2 / (m2 - mm2)))
+    return P
+
+
+def herm_spin(j2):
+    """Hermitian spin matrices (standard orthonormal basis), numerical."""
+    j = j2 / 2; d = j2 + 1
+    m = np.array([j - i for i in range(d)])
+    Jz = np.diag(m).astype(complex)
+    Jp = np.zeros((d, d), complex)
+    for i in range(1, d):
+        Jp[i - 1, i] = np.sqrt(j * (j + 1) - m[i] * (m[i] + 1))
+    return (Jp + Jp.conj().T) / 2, (Jp - Jp.conj().T) / (2j), Jz
+
+
+def herm_projector(j2, n, m2):
+    Jx, Jy, Jz = herm_spin(j2)
+    nJ = n[0] * Jx + n[1] * Jy + n[2] * Jz
+    d = j2 + 1
+    P = np.eye(d, dtype=complex)
+    for mm2 in range(-j2, j2 + 1, 2):
+        if mm2 != m2:
+            P = P @ ((nJ - mm2 / 2 * np.eye(d)) * (2 / (m2 - mm2)))
+    return P
+
+
+# internal types: a list of blocks (j2, realization, sign), top helicity read along sign * axis
+SPINOR = [(1, 'convex', 1)]
+SPINOR_G = [(1, 'great', 1)]
+VECTOR = [(2, 'convex', 1)]
+VECTOR_G = [(2, 'great', 1)]
+
+
+def port_projectors(blocks, m2_of=None, exact=True):
+    """P_p = direct sum over blocks of the helicity projector along the port axis (top helicity by default)."""
+    out = []
+    for p in range(12):
+        parts = []
+        for (j2, real, sgn) in blocks:
+            m2 = j2 if m2_of is None else m2_of[(j2, real)]
+            if exact:
+                n = tuple(x * sgn for x in AXES[real][p])
+                parts.append(helicity_projector(j2, n, m2))
+            else:
+                parts.append(herm_projector(j2, sgn * AXES_NUM[real][p], m2))
+        if exact:
+            out.append(zdsum(*parts))
+        else:
+            d = sum(x.shape[0] for x in parts); M = np.zeros((d, d), complex); o = 0
+            for x in parts:
+                k = x.shape[0]; M[o:o + k, o:o + k] = x; o += k
+            out.append(M)
+    return out
+
+
+def lie_report(gens):
+    span0, mats = lie_closure(gens)
+    return {'span': span0, 'closure': len(mats), 'centre': centre_dim(mats), 'derived': derived_dim(mats)}
+
+
+def integer_table():
+    """Integer seam table t[(a, b)] = -t[(b, a)] mod 20 with t(a,b) + t(b,c) + t(c,a) = 1 mod 20 on every oriented
+    face (a, b, c): the unit-flux connection zeta^t; the area record of a path is the sum of t along it."""
+    faces = [tuple(f) for f in C.F]
+    edge_face = {}
+    for f, (a, b, c3) in enumerate(faces):
+        for e in ((a, b), (b, c3), (c3, a)):
+            edge_face[e] = f
+    t = {}
+    parent = {0: None}; order = [0]
+    for f in order:
+        a, b, c3 = faces[f]
+        for e in ((a, b), (b, c3), (c3, a)):
+            g = edge_face[(e[1], e[0])]
+            if g not in parent:
+                parent[g] = (f, e); order.append(g)
+    tree = set()
+    for g, pe in parent.items():
+        if pe is not None:
+            tree.add(pe[1]); tree.add((pe[1][1], pe[1][0]))
+    for f, (a, b, c3) in enumerate(faces):
+        for e in ((a, b), (b, c3), (c3, a)):
+            if e not in tree:
+                t[e] = 0
+    for g in reversed(order[1:]):
+        f, e = parent[g]
+        a, b, c3 = faces[g]
+        mine = (e[1], e[0])
+        others = [x for x in ((a, b), (b, c3), (c3, a)) if x != mine]
+        val = (1 - sum(t[x] for x in others)) % 20
+        t[mine] = val; t[e] = (-val) % 20
+    for (a, b, c3) in faces:
+        assert (t[(a, b)] + t[(b, c3)] + t[(c3, a)]) % 20 == 1
+    assert all((t[(a, b)] + t[(b, a)]) % 20 == 0 for (a, b) in t)
+    return t
+
+
+if __name__ == '__main__':
+    print('field checks passed; r =', complex(R).real, 'c =', complex(CH).real, 's =', complex(SH).real)
+    # calibration of the exact tools on known answers
+    P2 = port_projectors(SPINOR); P3 = port_projectors(VECTOR)
+    print('spinor port projectors (expect span 4, closure 4, centre 1):', lie_report(P2))
+    print('vector port projectors (expect span 9, closure 9, centre 1):', lie_report(P3))
+    for name, bl in (('spinor convex + vector convex (R4: 9, 12, 1)', SPINOR + VECTOR), ('spinor great + vector convex (R4: 12, 12, 1)', SPINOR_G + VECTOR)):
+        print(name, lie_report(port_projectors(bl)))
+    # negative control: su(2)^4-like commuting blocks are not produced; a single axis gives an abelian algebra
+    print('one port and its antipode only (expect abelian: span 2, closure 2, centre 2):', lie_report([P2[0], P2[C.anti[0]]]))
+    # exact rotations
+    ok = True
+    for Rn, perm in C.rot:
+        Rx = exact_rotation(perm)
+        ok &= all(all((sum((Rx[i, k] * V_EX[p][k] for k in range(3)), ZERO)) == V_EX[perm[p]][i] for i in range(3)) for p in range(12))
+        ok &= zis_zero(Rx @ Rx.T - zeye(3))
+    print('60 exact rotations map ports to ports and are orthogonal:', ok)

@@ -1,0 +1,292 @@
+"""Block 1: CAP on the federation (wiring F). Exact stationary density where it fits, quantum trajectories at all
+sizes. Worker MW.
+
+    python b1_fed.py <geometry> <rule> [--events 2e8] [--chains 16] [--stride 8] [--procs 16] [--noexact] [--tag x]
+
+geometry   sphere:L  (L = level, wiring F with mesh labels; rule capgauge uses S3's natural labels)
+           flat:n    (periodic patch of n x n rhombi)
+rule       c3j0 | c3j1 | c3j2   z = 1 on glue seams in the spinor frame that is invariant under the third of a
+                                turn about the glue face (j = character twist; j = 0 is S3's frame transport lifted
+                                to SU(2) through its order-three lift)
+           capgauge             z = 1 on glue seams in the spinor frame of cap.py as coded (not a covariant rule)
+           flux0                control: all phases 1 (the plain parity pump)
+           file:<path.npz>      arrays z_int[30], z_glue[G] in the seam order of capfed (for transports of worker MG)
+Writes b1_fed_<geometry>_<rule>[_tag].json
+"""
+import argparse, json, math, sys, time
+import multiprocessing as mp
+import numpy as np
+import scipy.sparse as sp
+import scipy.sparse.csgraph as csg
+import scipy.sparse.linalg as sla
+import capfed as CF
+
+T0 = time.time()
+
+
+def setup(geometry, rule):
+    kind, arg = geometry.split(':')
+    if kind == 'sphere':
+        fed = CF.build_sphere(int(arg), 'natural' if rule == 'capgauge' else 'mesh')
+    else:
+        fed = CF.build_flat(int(arg), int(arg))
+    if rule.startswith('c3j'):
+        z_int = CF.internal_links(CF.gauge_c3(int(rule[3:]))); Z = CF.phases(fed, z_int)
+    elif rule == 'capgauge':
+        import cap_ref as CAP
+        assert set(map(tuple, CAP.SEAMS)) == set(map(tuple, CF.TSEAMS.tolist()))
+        z_int = np.array([CAP.link(int(a), int(b)) for a, b in CF.TSEAMS]); Z = CF.phases(fed, z_int)
+    elif rule == 'flux0':
+        z_int = np.ones(30, complex); Z = CF.phases(fed, z_int)
+    elif rule.startswith('randglue'):
+        # independent uniformly random phases on the glue seams (a test of the dependence on the glue rule)
+        z_int = CF.internal_links(CF.gauge_c3(0))
+        rng = np.random.default_rng(int(rule.split(':')[1]) if ':' in rule else 0)
+        Z = CF.phases(fed, z_int, np.exp(2j * np.pi * rng.random(fed.M - fed.n_int)))
+    elif rule.startswith('mg:'):
+        # recharting phases of worker MG (RL/work/MG/frames_*.json, copied to mg_frames/): rule 'mg:<file>:<comparison>',
+        # comparison = chart_S | chart_R0 | chart_R1 | chart_R2 | ambient. z = keep/|keep| on glue seams; internal seams
+        # use the standard spinor section of the template axes. For 'ambient' the file's phases refer to the standard
+        # section of the ambient axes E_c u_p; they are brought to the template frame of every carrier by the port
+        # rephasing theta(c, p) = phase <chi(E_c u_p)| U_c chi(u_p)> (U_c a lift of E_c), which changes no holonomy.
+        import json as _json
+        _, path, comp = rule.split(':')
+        d = _json.load(open(path))
+        assert d['W'] == fed.W.tolist(), 'the frame file uses other glue ports'
+        chi = CF.gauge_standard()
+        z_int = CF.internal_links(chi)
+        theta = np.zeros((fed.N, 12))
+        if comp == 'ambient':
+            axes = np.array(d['port_axes'], float); E = np.array(d['carrier_frames'], float)
+            for c in range(fed.N):
+                Ec = E[c] if np.allclose(CF.PORT_UNIT @ E[c].T, axes[c], atol=1e-6) else E[c].T
+                assert np.allclose(CF.PORT_UNIT @ Ec.T, axes[c], atol=1e-6), 'carrier frame convention'
+                ang = np.arccos(np.clip((np.trace(Ec) - 1) / 2, -1, 1))
+                ax = np.array([Ec[2, 1] - Ec[1, 2], Ec[0, 2] - Ec[2, 0], Ec[1, 0] - Ec[0, 1]])
+                if np.linalg.norm(ax) < 1e-9:
+                    w, v = np.linalg.eigh((Ec + Ec.T) / 2); ax = v[:, -1]
+                Uc = CF.su2(ax, ang) if ang > 1e-12 else np.eye(2)
+                for p in range(12):
+                    theta[c, p] = np.angle(np.vdot(CF.coherent(axes[c, p]), Uc @ chi[p]))
+        look = {}
+        for gs in d['glue_seams']:
+            (c1, c2), (p1, p2) = gs['cells'], gs['ports']
+            k = complex(*gs[comp]['keep']); z = k / abs(k)
+            z = z * np.exp(-1j * (theta[c2, p2] - theta[c1, p1]))
+            look[(12 * c1 + p1, 12 * c2 + p2)] = z; look[(12 * c2 + p2, 12 * c1 + p1)] = np.conj(z)
+        zg = np.array([look[(int(x), int(y))] for x, y in zip(fed.A[fed.n_int:], fed.B[fed.n_int:])])
+        Z = CF.phases(fed, z_int, zg)
+    elif rule.startswith('file:'):
+        d = np.load(rule[5:]); z_int = d['z_int']; Z = CF.phases(fed, z_int, d['z_glue'])
+    else:
+        raise ValueError(rule)
+    return fed, z_int, Z
+
+
+def turn_perms():
+    r = np.array(CF.glue_turn()[0])
+    return [np.arange(12), r, r[r]]
+
+
+def canonical_neighbour(R1):
+    """Average of the nearest-neighbour blocks brought to the frame in which both carriers are glued through F3[0]."""
+    rk = turn_perms()
+    acc = np.zeros((12, 12), complex)
+    for k in range(3):
+        for k2 in range(3):
+            acc += R1[k, k2][np.ix_(rk[k], rk[k2])]
+    return acc
+
+
+def chain(args):
+    geometry, rule, n_events, seed, stride = args
+    fed, z_int, Z = setup(geometry, rule)
+    r = CF.trajectories(fed, Z, n_events, seed=seed, stride=stride, burn=200000)
+    return r['R0'], r['R1'], r['stats'], r['hist']
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('geometry'); ap.add_argument('rule')
+    ap.add_argument('--events', type=float, default=2e8); ap.add_argument('--chains', type=int, default=16)
+    ap.add_argument('--stride', type=int, default=8); ap.add_argument('--procs', type=int, default=16)
+    ap.add_argument('--noexact', action='store_true'); ap.add_argument('--tag', default='')
+    a = ap.parse_args()
+    fed, z_int, Z = setup(a.geometry, a.rule)
+    N, P, M = fed.N, fed.P, fed.M
+    out = {'geometry': fed.kind, 'rule': a.rule, 'carriers': N, 'ports': P, 'seams': M,
+           'internal_face_flux_units': sorted(set(np.round(CF.face_fluxes(z_int), 4).tolist()))}
+    fl = CF.plaquette_fluxes(fed, Z)
+    out['plaquette_flux_units_by_valence'] = CF.flux_summary(fl)
+    print(json.dumps({k: out[k] for k in ('geometry', 'rule', 'ports', 'internal_face_flux_units')}), flush=True)
+    print('plaquette fluxes (units 2 pi/20) by valence:', {n: (list(d.items())[:6], len(d)) for n, d in out['plaquette_flux_units_by_valence'].items()}, flush=True)
+
+    # ---- one-particle operator: bottom of the twisted spectrum, population diffusion
+    H = CF.hop_matrix(fed, Z)
+    L = ((sp.diags(fed.deg.astype(float)) - H) * 0.5).tocsc()
+    Lg = (sp.diags(fed.deg.astype(float)) - abs(H)).tocsc()
+    lam, vec = sla.eigsh(L, k=6, sigma=-0.01, which='LM')
+    o = np.argsort(lam); lam = lam[o]; vec = vec[:, o]
+    # coherence relaxation: the off-diagonal part of the density decays with the spectrum of X -> (L X + X L)_off.
+    # Its lowest eigenvalue mu obeys 2 lam_min <= mu (interlacing) and mu <= Rayleigh quotient of
+    # X = phi phi^dagger - diag(|phi|^2) for the lowest eigenvector phi.
+    phi = vec[:, 0]; p2 = np.abs(phi) ** 2; ipr = float((p2 ** 2).sum())
+    Lr = L.tocsr()
+    num = lam[0] * (1 - ipr) - float(np.vdot(phi, Lr @ (p2 * phi)).real) + float((Lr.diagonal().real * p2 ** 2).sum())
+    mu_upper = 2 * num / (1 - ipr)
+    lg = np.sort(sla.eigsh(Lg, k=5, sigma=-1e-3, which='LM', return_eigenvectors=False))
+    Hc = CF.carrier_hop(z_int)
+    lam_car = float((5 - np.linalg.eigvalsh(Hc)[-1]) / 2)
+    cw = (np.abs(vec[:, 0]) ** 2).reshape(N, 12).sum(axis=1)
+    out['twisted_L'] = {'lowest_levels': lam.tolist(), 'isolated_carrier_lowest_level': lam_car,
+                        'coherence_rate_per_sweep_bracket': [float(2 * lam[0]), float(mu_upper)],
+                        'coherence_time_sweeps_bracket': [float(1 / mu_upper), float(1 / (2 * lam[0]))],
+                        'lowest_mode_carrier_participation': float(1 / (cw ** 2).sum()),
+                        'lowest_mode_port_inverse_participation': ipr}
+    out['population'] = {'graph_laplacian_lowest': lg.tolist(), 'N_times_lambda2': float(N * lg[1]),
+                         'slowest_population_rate_per_sweep': float(lg[1] / 2)}
+    print('twisted L lowest', np.round(lam, 6), 'isolated carrier', round(lam_car, 6), '| N lambda_2 of the port graph', round(N * lg[1], 6), flush=True)
+
+    Pd, _ = CF.doublet_projector(z_int)
+    val = np.bincount(fed.tri.ravel(), minlength=fed.V)
+    pent = (val[fed.tri] == 5).any(axis=1)            # carriers touching a five-valent vertex
+    exact = None
+    # ---- exact stationary density
+    if not a.noexact and P <= 16000:
+        rho, it, res = CF.exact_stationary(fed, Z, verbose=True)
+        print('exact: cg iterations', it, 'residual', res, round(time.time() - T0, 1), flush=True)
+        ex = {'cg_iterations': it, 'cg_residual': res}
+        if P <= 4000:
+            ex['stationarity_defect'] = CF.channel_check(fed, Z, rho)
+        B = rho.reshape(N, 12, N, 12).transpose(0, 2, 1, 3)                # [c, c', i, j]
+        diag_blocks = B[np.arange(N), np.arange(N)]
+        tr = np.einsum('cii->c', diag_blocks).real
+        dw = np.einsum('ij,cji->c', Pd, diag_blocks).real / tr
+        ex['doublet_weight'] = {'mean': float(dw.mean()), 'min': float(dw.min()), 'max': float(dw.max()),
+                                'mean_at_five_valent_vertices': float(dw[pent].mean()) if pent.any() else None,
+                                'mean_elsewhere': float(dw[~pent].mean()), 'isolated_carrier': 0.597352}
+        R0e = diag_blocks.sum(axis=0)
+        ex['mean_block'] = CF.block_report(R0e, z_int)
+        R1e = np.zeros((3, 3, 12, 12), complex)
+        for c in range(N):
+            for k in range(3):
+                R1e[k, fed.nbk[c, k]] += B[c, fed.nbr[c, k]]
+        can = canonical_neighbour(R1e) / (3 * N)                             # mean neighbour block, canonical frame
+        f0 = CF.F3[0]
+        ex['neighbour_block'] = {'frobenius_norm_over_carrier_block_norm': float(np.linalg.norm(can) / np.linalg.norm(R0e / N)),
+                                 'singular_values_times_N': (np.linalg.svd(can, compute_uv=False) * N).tolist()[:4],
+                                 'glue_seam_coherence_times_P': [float((can[f0, f0] * P).real), float((can[f0, f0] * P).imag)]}
+        # seam agreements a_e = P Re(z rho_ab) (1 for the uniform state); jump rate per sweep = (M/P)(1 - mean a)
+        A, Bn = fed.A.astype(np.int64), fed.B.astype(np.int64)
+        ag = P * (Z * rho[A, Bn]).real; cu = P * (Z * rho[A, Bn]).imag
+        ex['seam_agreement'] = {'internal_mean': float(ag[:fed.n_int].mean()), 'internal_min_max': [float(ag[:fed.n_int].min()), float(ag[:fed.n_int].max())],
+                                'glue_mean': float(ag[fed.n_int:].mean()), 'glue_min_max': [float(ag[fed.n_int:].min()), float(ag[fed.n_int:].max())],
+                                'imaginary_part_internal_max_abs': float(np.abs(cu[:fed.n_int]).max()),
+                                'imaginary_part_glue_max_abs': float(np.abs(cu[fed.n_int:]).max())}
+        ex['jumps_per_sweep'] = float(M / P * (1 - ag.mean()))
+        ex['diagonal_times_P_min_max'] = [float(P * rho.diagonal().real.min()), float(P * rho.diagonal().real.max())]
+        # profile against carrier distance
+        G = sp.coo_matrix((np.ones(3 * N), (np.repeat(np.arange(N), 3), fed.nbr.ravel())), shape=(N, N)).tocsr()
+        D = csg.shortest_path(G, unweighted=True).astype(int)
+        bn = np.sqrt((np.abs(B) ** 2).sum(axis=(2, 3)))                     # block Frobenius norms [N, N]
+        prof = []
+        for d in range(0, min(D.max(), 12) + 1):
+            m = D == d
+            prof.append({'carrier_distance': d, 'pairs': int(m.sum()), 'rms_block_norm_times_N': float(N * math.sqrt((bn[m] ** 2).mean())),
+                         'max_block_norm_times_N': float(N * bn[m].max())})
+        ex['carrier_distance_profile'] = prof
+        xs = np.array([p['carrier_distance'] for p in prof[1:8]]); ys = np.log([p['rms_block_norm_times_N'] for p in prof[1:8]])
+        good = np.isfinite(ys)
+        if good.sum() >= 3:
+            sl = np.polyfit(xs[good], ys[good], 1)[0]
+            ex['coherence_length'] = {'honeycomb_steps': float(-1 / sl), 'mesh_edges': float(-1 / sl / math.sqrt(3)),
+                                      'fit': 'log of the rms block norm against carrier distance 1..7',
+                                      'local_slopes': np.diff(ys).tolist()}
+        # profile against port distance (small systems)
+        if P <= 4000:
+            Gp = sp.coo_matrix((np.ones(M), (A, Bn)), shape=(P, P)).tocsr()
+            Dp = csg.shortest_path(Gp, unweighted=True, directed=False).astype(int)
+            same = (np.arange(P)[:, None] // 12) == (np.arange(P)[None, :] // 12)
+            ar = np.abs(rho) * P
+            pp = []
+            for d in range(1, min(Dp.max(), 14) + 1):
+                row = {'port_distance': d}
+                for name, mask in (('same_carrier', same), ('different_carriers', ~same)):
+                    m = (Dp == d) & mask
+                    if m.any():
+                        row[name] = {'pairs': int(m.sum()), 'mean_modulus_times_P': float(ar[m].mean()), 'max_modulus_times_P': float(ar[m].max())}
+                pp.append(row)
+            ex['port_distance_profile'] = pp
+            # spectrum of rho and locality of -log rho
+            w, v = np.linalg.eigh(rho)
+            w = w[::-1]
+            ex['spectrum'] = {'top_levels_times_N': (w[:8] * N).tolist(), 'level_2N_times_N': float(w[2 * N - 1] * N),
+                              'level_2N_plus_1_times_N': float(w[2 * N] * N), 'smallest_times_N': float(w[-1] * N),
+                              'weight_of_top_2N': float(w[:2 * N].sum()), 'isolated_carrier_levels': [0.298676, 0.052191, 0.032314]}
+            if w[-1] > 1e-14:
+                K = (v * (-np.log(w[::-1]))) @ v.conj().T
+                KB = K.reshape(N, 12, N, 12).transpose(0, 2, 1, 3)
+                kn = np.sqrt((np.abs(KB) ** 2).sum(axis=(2, 3)))
+                ex['modular_hamiltonian_profile'] = [{'carrier_distance': d, 'rms_block_norm': float(math.sqrt((kn[D == d] ** 2).mean())),
+                                                      'max_block_norm': float(kn[D == d].max())} for d in range(0, min(D.max(), 10) + 1)]
+        if a.rule == 'flux0':
+            ex['max_deviation_from_uniform_density_times_P'] = float(np.abs(rho * P - 1).max())
+        out['exact'] = ex
+        exact = {'R0': R0e, 'can': can * 3 * N}
+        print('exact:', json.dumps({k: ex[k] for k in ex if k not in ('port_distance_profile', 'carrier_distance_profile', 'modular_hamiltonian_profile')}), flush=True)
+        print('carrier-distance profile:', [(p['carrier_distance'], round(p['rms_block_norm_times_N'], 8)) for p in ex['carrier_distance_profile']], flush=True)
+        del rho, B
+        json.dump(out, open(name_of(a), 'w'), indent=1)
+
+    # ---- trajectories
+    if a.events > 0 and a.rule != 'flux0':
+        n_ev = int(a.events // a.chains)
+        with mp.Pool(min(a.procs, a.chains)) as pool:
+            res = pool.map(chain, [(a.geometry, a.rule, n_ev, 100 + 31 * s, a.stride) for s in range(a.chains)])
+        R0s = np.array([r[0] / r[2][9] for r in res]); cans = np.array([canonical_neighbour(r[1]) / r[2][9] for r in res])
+        st = np.array([r[2] for r in res]); hist = np.sum([r[3] for r in res], axis=0)
+        nc = len(res)
+        tj = {'chains': nc, 'active_events_per_chain': n_ev, 'stride': a.stride,
+              'raw_events_total': float(st[:, 0].sum()), 'sweeps_total': float(st[:, 0].sum() / M)}
+        R0m = R0s.mean(axis=0); canm = cans.mean(axis=0)
+        tj['mean_block'] = CF.block_report(R0m, z_int)
+        dws = np.array([np.trace(Pd @ r).real / np.trace(r).real for r in R0s])
+        tj['doublet_weight'] = [float(dws.mean()), float(dws.std(ddof=1) / math.sqrt(nc))]
+        per_sweep = lambda x: [float(np.mean(x)), float(np.std(x, ddof=1) / math.sqrt(nc))]
+        tj['jumps_per_sweep'] = per_sweep((st[:, 3] + st[:, 4]) / st[:, 0] * M)
+        tj['fraction_of_jumps_on_glue_seams'] = per_sweep(st[:, 4] / (st[:, 3] + st[:, 4]))
+        tj['ports_in_support'] = per_sweep(st[:, 1] / st[:, 9]); tj['carriers_in_support'] = per_sweep(st[:, 2] / st[:, 9])
+        tj['port_participation_ratio'] = per_sweep(st[:, 5] / st[:, 9]); tj['carrier_participation_ratio'] = per_sweep(st[:, 7] / st[:, 9])
+        tj['largest_carrier_weight'] = per_sweep(st[:, 6] / st[:, 9])
+        # mean agreement P Re(z rho_ab) per seam class from the jump probabilities (gauge invariant, label free)
+        n_gl = M - fed.n_int
+        tj['seam_agreement_internal'] = per_sweep(1 - st[:, 11] / st[:, 0] * M * P / fed.n_int)
+        tj['seam_agreement_glue'] = per_sweep(1 - st[:, 12] / st[:, 0] * M * P / n_gl)
+        tj['support_carriers_histogram'] = (hist / hist.sum()).tolist()[:24]
+        f0 = CF.F3[0]
+        gl = np.array([c[f0, f0] * P / (3 * N) for c in cans])
+        tj['neighbour_block'] = {'frobenius_norm_over_carrier_block_norm': float(np.linalg.norm(canm / (3 * N)) / np.linalg.norm(R0m / N)),
+                                 'glue_seam_coherence_times_P': [float(gl.real.mean()), float(gl.real.std(ddof=1) / math.sqrt(nc)),
+                                                                 float(gl.imag.mean()), float(gl.imag.std(ddof=1) / math.sqrt(nc))]}
+        if exact is not None:
+            def zs(samples, ref):
+                m = samples.mean(axis=0); er = samples.real.std(axis=0, ddof=1) / math.sqrt(nc); ei = samples.imag.std(axis=0, ddof=1) / math.sqrt(nc)
+                z = np.concatenate([((m.real - ref.real) / np.maximum(er, 1e-300)).ravel(), ((m.imag - ref.imag) / np.maximum(ei, 1e-300)).ravel()])
+                keep = np.concatenate([er.ravel(), ei.ravel()]) > 1e-9    # drop entries that vanish to rounding in every chain
+                z = z[keep]
+                return {'max_abs_deviation': float(np.abs(m - ref).max()), 'largest_entry': float(np.abs(ref).max()),
+                        'z_rms': float(np.sqrt(np.mean(z ** 2))), 'z_max_abs': float(np.abs(z).max()), 'z_count': int(z.size)}
+            tj['against_exact'] = {'carrier_block': zs(R0s, exact['R0']), 'neighbour_block': zs(cans, exact['can'])}
+        out['trajectories'] = tj
+        print('trajectories:', json.dumps({k: tj[k] for k in tj if k != 'support_carriers_histogram'}), round(time.time() - T0, 1), flush=True)
+    out['seconds'] = round(time.time() - T0, 1)
+    json.dump(out, open(name_of(a), 'w'), indent=1)
+    print('written', name_of(a), out['seconds'], flush=True)
+
+
+def name_of(a):
+    return 'b1_fed_%s_%s%s.json' % (a.geometry.replace(':', ''), a.rule.replace(':', '_').replace('/', '_').replace('.json', ''), ('_' + a.tag) if a.tag else '')
+
+
+if __name__ == '__main__':
+    main()

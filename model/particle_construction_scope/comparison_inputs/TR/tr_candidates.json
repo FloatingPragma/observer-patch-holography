@@ -1,0 +1,335 @@
+{
+ "structure_used": {
+  "per_d": {
+   "2": {
+    "n": 6,
+    "u": 1,
+    "nu": 1,
+    "S_cost_units": 3,
+    "B": 3,
+    "U": 3
+   },
+   "3": {
+    "n": 9,
+    "u": 1,
+    "nu": 2,
+    "S_cost_units": 6,
+    "B": 3,
+    "U": 3
+   },
+   "4": {
+    "n": 12,
+    "u": 1,
+    "nu": 3,
+    "S_cost_units": 9,
+    "B": 3,
+    "U": 3
+   },
+   "5": {
+    "n": 15,
+    "u": 1,
+    "nu": 4,
+    "S_cost_units": 12,
+    "B": 3,
+    "U": 3
+   }
+  },
+  "n_q": {
+   "2": 2,
+   "3": 3,
+   "4": 4,
+   "5": 5,
+   "1": 1
+  },
+  "n_adjacent_33": 3,
+  "placement_weights": {
+   "2": "3/8",
+   "3": "3/8",
+   "4": "3/16",
+   "5": "1/16"
+  },
+  "t3_sum_inverse_denominators": "2/9",
+  "p": "1/12",
+  "kappa": 5,
+  "t3_over_tau": {
+   "C1": "25/54",
+   "C2": "25/648"
+  }
+ },
+ "inputs": {
+  "v_source_GeV": 246.59675497393056,
+  "Q0_GeV": 91.58832749908593,
+  "mu_c_GeV": 4.8628674014603974e+17,
+  "yt_Q0": 0.9623048972901709,
+  "yt_mu_c": 0.38924119812746444,
+  "lambda_sq_e_mu_tau": [
+   0.00027135251554974313,
+   0.05610764538021535,
+   0.9436210021042349
+  ],
+  "yl_Q0_over_yl_mu_c": 1.0584142956631155,
+  "measured_values_read": "none"
+ },
+ "rows": [
+  {
+   "id": "A1",
+   "r": 0.1353352832366127,
+   "formula": "e^-(n(1) - n_q(1)) = e^-(3 - 1)",
+   "weight": "structural",
+   "estimated_before_listing": true,
+   "yJe_mu_c": 0.055825450767277345,
+   "yJe_Q0_run_from_mu_c": 0.05908645515392378,
+   "masses_GeV_stated_at_mu_c": [
+    0.0027957230499465104,
+    0.5780725384096826,
+    9.722050966256212
+   ],
+   "yJe_Q0_stated_at_Q0": 0.138014950434898,
+   "masses_GeV_stated_at_Q0": [
+    0.006530288154246229,
+    1.3502697450464645,
+    22.708899674857186
+   ]
+  },
+  {
+   "id": "A2",
+   "r": 0.002655712149563607,
+   "formula": "< e^-(n(d) - n_q(1)) >",
+   "weight": "structural",
+   "estimated_before_listing": true,
+   "yJe_mu_c": 0.0010954743235606955,
+   "yJe_Q0_run_from_mu_c": 0.0011594656845885214,
+   "masses_GeV_stated_at_mu_c": [
+    5.486104948387443e-05,
+    0.011343636536376258,
+    0.1907778093952246
+   ],
+   "yJe_Q0_stated_at_Q0": 0.0027082958111563594,
+   "masses_GeV_stated_at_Q0": [
+    0.00012814519005411348,
+    0.026496621437874502,
+    0.44562141761878593
+   ]
+  },
+  {
+   "id": "A3",
+   "r": 0.007863633387867077,
+   "formula": "< e^-(n(d) - n_q(d)) >",
+   "weight": "structural",
+   "estimated_before_listing": true,
+   "yJe_mu_c": 0.0032437282284974024,
+   "yJe_Q0_run_from_mu_c": 0.0034332083282876437,
+   "masses_GeV_stated_at_mu_c": [
+    0.0001624450076359792,
+    0.03358880555708386,
+    0.5648981015773668
+   ],
+   "yJe_Q0_stated_at_Q0": 0.008019334990175528,
+   "masses_GeV_stated_at_Q0": [
+    0.0003794412715887467,
+    0.07845719161949938,
+    1.3194967152262955
+   ]
+  },
+  {
+   "id": "A4",
+   "r": 0.19918532440254103,
+   "formula": "< e^-nu(d) >",
+   "weight": "structural",
+   "estimated_before_listing": true,
+   "yJe_mu_c": 0.08216342593791531,
+   "yJe_Q0_run_from_mu_c": 0.08696294459334719,
+   "masses_GeV_stated_at_mu_c": [
+    0.004114721522174389,
+    0.8508022692797883,
+    14.308832325611123
+   ],
+   "yJe_Q0_stated_at_Q0": 0.20312923590452625,
+   "masses_GeV_stated_at_Q0": [
+    0.009611222833675003,
+    1.987315582203292,
+    33.42276633546432
+   ]
+  },
+  {
+   "id": "A5",
+   "r": 0.006944444444444444,
+   "formula": "p^(n(1) - n_q(1)) = (1/12)^2",
+   "weight": "structural",
+   "estimated_before_listing": true,
+   "yJe_mu_c": 0.0028645651907465513,
+   "yJe_Q0_run_from_mu_c": 0.003031896748745089,
+   "masses_GeV_stated_at_mu_c": [
+    0.00014345662814672404,
+    0.02966257233028047,
+    0.49886652768284784
+   ],
+   "yJe_Q0_stated_at_Q0": 0.007081945911490238,
+   "masses_GeV_stated_at_Q0": [
+    0.00033508795495769216,
+    0.06928624232525772,
+    1.1652592614063038
+   ]
+  },
+  {
+   "id": "A6",
+   "r": 0.03396568769290124,
+   "formula": "< p^nu(d) >",
+   "weight": "structural",
+   "estimated_before_listing": true,
+   "yJe_mu_c": 0.014010757436858893,
+   "yJe_Q0_run_from_mu_c": 0.014829185964239763,
+   "masses_GeV_stated_at_mu_c": [
+    0.0007016548361915943,
+    0.14508139218312963,
+    2.439985633879346
+   ],
+   "yJe_Q0_stated_at_Q0": 0.03463821548462826,
+   "masses_GeV_stated_at_Q0": [
+    0.001638934967195414,
+    0.3388831010257506,
+    5.699351830202969
+   ]
+  },
+  {
+   "id": "B1",
+   "r": 0.3554156066244714,
+   "formula": "< e^-S(d) >, S in nats = cost units / kappa",
+   "weight": "structural",
+   "estimated_before_listing": true,
+   "yJe_mu_c": 0.14660800919777237,
+   "yJe_Q0_run_from_mu_c": 0.1551720127936318,
+   "masses_GeV_stated_at_mu_c": [
+    0.007342088330457957,
+    1.518125923988481,
+    25.531912736790197
+   ],
+   "yJe_Q0_stated_at_Q0": 0.36245291071881575,
+   "masses_GeV_stated_at_Q0": [
+    0.017149750384873208,
+    3.54605930593367,
+    59.63779112652071
+   ]
+  },
+  {
+   "id": "B2",
+   "r": 0.5488116360940264,
+   "formula": "< e^-(B(d)/kappa) >",
+   "weight": "structural",
+   "estimated_before_listing": true,
+   "yJe_mu_c": 0.22638336610055207,
+   "yJe_Q0_run_from_mu_c": 0.23960739098116104,
+   "masses_GeV_stated_at_mu_c": [
+    0.011337216019449979,
+    2.3441997385927618,
+    39.42486075602442
+   ],
+   "yJe_Q0_stated_at_Q0": 0.5596782224276677,
+   "masses_GeV_stated_at_Q0": [
+    0.026481624306585475,
+    5.47561382534379,
+    92.0891292085599
+   ]
+  },
+  {
+   "id": "C1",
+   "r": 0.27546327902579965,
+   "formula": "< (t3/tau)^(d-1) >, t3/tau = 25/54 (tau = sqrt p, eps = 1/kappa)",
+   "weight": "structural",
+   "estimated_before_listing": true,
+   "yJe_mu_c": 0.11362788294137428,
+   "yJe_Q0_run_from_mu_c": 0.1202653756910856,
+   "masses_GeV_stated_at_mu_c": [
+    0.005690452778968526,
+    1.1766167191352181,
+    19.788394969689428
+   ],
+   "yJe_Q0_stated_at_Q0": 0.2809175101433938,
+   "masses_GeV_stated_at_Q0": [
+    0.01329183746419613,
+    2.7483574323299957,
+    46.22200373695131
+   ]
+  },
+  {
+   "id": "C2",
+   "r": 0.015036661390925127,
+   "formula": "< (t3/tau)^(d-1) >, t3/tau = 25/648 (tau = p, eps = 1/kappa)",
+   "weight": "structural",
+   "estimated_before_listing": true,
+   "yJe_mu_c": 0.006202583539990091,
+   "yJe_Q0_run_from_mu_c": 0.006564903088770246,
+   "masses_GeV_stated_at_mu_c": [
+    0.00031062365880856537,
+    0.06422775208045235,
+    1.0801853360688327
+   ],
+   "yJe_Q0_stated_at_Q0": 0.015334390463029248,
+   "masses_GeV_stated_at_Q0": [
+    0.0007255589925422,
+    0.15002406214480588,
+    2.5231116882824782
+   ]
+  },
+  {
+   "id": "PH-TR0",
+   "r": 0.02430997420092727,
+   "formula": "(det C^2)^(1/3) (POST HOC coincidence)",
+   "weight": "post hoc",
+   "estimated_before_listing": true,
+   "yJe_mu_c": 0.010027800847284907,
+   "yJe_Q0_run_from_mu_c": 0.010613567770829047,
+   "masses_GeV_stated_at_mu_c": [
+    0.0005021894778046384,
+    0.10383787700384506,
+    1.7463502681453729
+   ],
+   "yJe_Q0_stated_at_Q0": 0.024791316825699367,
+   "masses_GeV_stated_at_Q0": [
+    0.0011730210537690684,
+    0.24254593393049423,
+    4.0791488518337475
+   ]
+  },
+  {
+   "id": "PH-TR7",
+   "r": 0.022881367512377394,
+   "formula": "uphill cost units read as nats, as estimated before listing with the guess U = 3 (d = 2), 5 (d >= 3) (POST HOC)",
+   "weight": "post hoc",
+   "estimated_before_listing": true,
+   "yJe_mu_c": 0.009438504320539482,
+   "yJe_Q0_run_from_mu_c": 0.009989847902537069,
+   "masses_GeV_stated_at_mu_c": [
+    0.0004726776716224784,
+    0.09773571151463388,
+    1.6437237637730158
+   ],
+   "yJe_Q0_stated_at_Q0": 0.02333442342291648,
+   "masses_GeV_stated_at_Q0": [
+    0.00110408697307554,
+    0.2282924122842038,
+    3.839432458671227
+   ]
+  },
+  {
+   "id": "PH-TR7x",
+   "r": 0.049787068367863944,
+   "formula": "uphill cost units read as nats with the exact minimal total uphill cost U(d) (POST HOC)",
+   "weight": "post hoc",
+   "estimated_before_listing": true,
+   "yJe_mu_c": 0.020537035631409857,
+   "yJe_Q0_run_from_mu_c": 0.02173669210282697,
+   "masses_GeV_stated_at_mu_c": [
+    0.0010284890332844427,
+    0.2126610023867112,
+    3.576542676506617
+   ],
+   "yJe_Q0_stated_at_Q0": 0.05077286283929459,
+   "masses_GeV_stated_at_Q0": [
+    0.002402358756872592,
+    0.4967364792383993,
+    8.35413732200481
+   ]
+  }
+ ]
+}

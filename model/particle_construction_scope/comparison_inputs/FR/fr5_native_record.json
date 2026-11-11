@@ -1,0 +1,79 @@
+{
+ "task": "FR round 2 item 3: native signed current completion",
+ "provenance": {
+  "repository_root_used": "WORKSPACE/repair-law/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "N1": {
+  "(i)+(ii) source a: U|a,0> = |p>(|0>+|1>)/sqrt2": true,
+  "(i)+(ii) source b: U|b,0> = |p>(|0>-|1>)/sqrt2": true,
+  "involution U^2 = 1": true,
+  "unitary": true,
+  "involutive completions: sign on |m,1>": "[(-1,), (1,)]",
+  "reflection form I - v v^T is the + solution": true,
+  "reversed address of the law: U_(b,a) = Z U_(a,b) Z": true,
+  "blank records: Z U_(b,a) = U_(a,b) (one-sided V of round 1, LNAT3 squared quarter-turns)": true,
+  "non-blank records: Z U_(b,a) = U_(a,b) Z differs from U_(a,b)": true
+ },
+ "N2_N3": {
+  "native_order": {
+   "C": [
+    2,
+    3
+   ],
+   "E": [
+    2,
+    10
+   ]
+  },
+  "f_screen_orientation": {
+   "C": [
+    2,
+    3
+   ],
+   "E": [
+    10,
+    2
+   ]
+  },
+  "C: native order equals screen orientation": true,
+  "E: native order opposite to screen orientation": true,
+  "E in the native frame (Z at the screen address)": {
+   "E load at port 10 (screen tail, native head)": {
+    "compression_equals_primary": true,
+    "E repair amplitude in the native frame": "-sqrt(6)/6"
+   },
+   "E load at port 2 (junction, native tail)": {
+    "compression_equals_primary": true,
+    "E repair amplitude in the native frame": "sqrt(6)/6"
+   }
+  }
+ },
+ "N4_transport": {
+  "cases": 120,
+  "order_reversing": 60,
+  "native current reversed (raw 1 -> 2, coin complemented) exactly when the coherent record frame flips (Z)": 120
+ },
+ "N5_statistics": {
+  "source a (J = +1)": {
+   "P(record 1)": "1/2",
+   "P(conjugate value = J)": "1"
+  },
+  "source b (J = -1)": {
+   "P(record 1)": "1/2",
+   "P(conjugate value = J)": "1"
+  },
+  "native rule": "P(|J| = 1 | source) = 1/2 (the coin matches the source)"
+ },
+ "N6": {
+  "native tails": {
+   "C": 2,
+   "E": 2
+  },
+  "both equal the native reset port 2": true
+ }
+}

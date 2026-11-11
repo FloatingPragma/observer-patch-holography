@@ -1,0 +1,281 @@
+"""Write RESULT.md of the lane from results.json (numbers) and fixed text."""
+import json, math, sys
+from pathlib import Path
+
+LANE = Path(__file__).resolve().parent.parent
+PKG = LANE / "rer_package" / "electroweak_crossover"
+R = json.loads((PKG / "results.json").read_text())
+EXTRA = sys.argv[1] if len(sys.argv) > 1 else ""
+
+
+def pe(v, e):
+    if e is None or e <= 0 or e != e:
+        return f"{v:.4g}"
+    d = max(0, 1 - int(math.floor(math.log10(e))))
+    return f"{v:.{d}f}({round(e * 10 ** d):d})" if d > 0 else f"{v:.0f}({e:.0f})"
+
+
+rows = R["rows"]; dec = rows["declared"]; A = rows["one_doublet_A"]; B = rows["one_doublet_B"]; SM = rows["standard_model"]
+ce = R["continuum_extrapolation"]; fy, fT = ce["y_max"], ce["T_max_declared"]
+lat = R["lattice_sets"]; val = R["validation"]; fo = val["first_order"]; co = val["crossover"]; ep = val["endpoint"]
+cmp_ = R["comparison_not_blind"]; end = R["endpoint"]; bp = R["validation_broken_phase"]; mapc = R["map_check_standard_model"]
+u1 = R.get("hypercharge_field_estimate", {})
+var = dec["variants_T_c"]
+main_sets = sorted([v for v in lat.values() if abs(v["x"] - 0.296) < 1e-9], key=lambda v: (v["beta_G"], v["n_side"]))
+set_table = "\n".join(
+    f"| {v['beta_G']:g} | {v['n_side']} | {v['size']:g} | {v['runs']} | {pe(v['y_max'], v['y_max_err'])} | {pe(v['chi3_max'], v['chi3_max_err'])} | "
+    + (pe(*v['T_max']['declared']) if 'declared' in v['T_max'] else "") + " | "
+    + (pe(*v['chi_max']['declared']) if 'declared' in v['chi_max'] else "") + " |" for v in main_sets)
+fo_sets = fo["sets"]
+fo_table = "\n".join(
+    f"| {L} | {pe(fo_sets[L]['y_max'], fo_sets[L]['y_max_err'])} | {pe(fo_sets[L]['chi3_max'], fo_sets[L]['chi3_max_err'])} | "
+    f"{fo_sets[L]['hist_equal_height']['valley_over_peak']:.3g} |" for L in sorted(fo_sets, key=int))
+co_sets = co["sets"]
+co_line = ", ".join(f"{pe(co_sets[L]['chi3_max'], co_sets[L]['chi3_max_err'])} on {L}^3" for L in sorted(co_sets, key=int))
+g_rows = []
+for k, pair in (("growth_exponent_12_16", "12, 16"), ("growth_exponent_8_12", "8, 12")):
+    if k in fo:
+        g_rows.append((fo["x"], pair, fo[k], fo[k + "_err"])); break
+for p in ep["points"]:
+    if "growth_exponent_16_24" in p:
+        g_rows.append((p["x"], "16, 24", p["growth_exponent_16_24"], p["growth_exponent_err"]))
+if "growth_exponent_16_24" in co:
+    g_rows.append((co["x"], "16, 24", co["growth_exponent_16_24"], co["growth_exponent_16_24_err"]))
+if "growth_exponent_24_32" in co:
+    g_rows.append((co["x"], "24, 32", co["growth_exponent_24_32"], co["growth_exponent_24_32_err"]))
+s = {v["n_side"]: v for v in main_sets if v["beta_G"] == 8}
+for a, b in ((16, 24), (24, 32)):
+    if a in s and b in s:
+        g = math.log(s[b]["chi3_max"] / s[a]["chi3_max"]) / math.log(b / a)
+        ge = math.hypot(s[b]["chi3_max_err"] / s[b]["chi3_max"], s[a]["chi3_max_err"] / s[a]["chi3_max"]) / math.log(b / a)
+        g_rows.append((0.296, f"{a}, {b}", g, ge))
+g_rows.sort()
+g_table = "\n".join(f"| {x:.4f} | {pair} | {pe(g, ge)} |" for x, pair, g, ge in g_rows)
+ising = 1.963
+lo = [x for x, pair, g, ge in g_rows if g - 2 * ge > ising]
+hi = [x for x, pair, g, ge in g_rows if g + 2 * ge < ising]
+bracket = (max(lo) if lo else None, min(hi) if hi else None)
+hy = fo.get("hysteresis", {})
+
+
+def loop(L):
+    h = hy.get(str(L))
+    if not h:
+        return None
+    dn = [(y, r) for y, r, b in zip(h["y"], h["R2"], h["branch"]) if b == "down"]
+    up = [(y, r) for y, r, b in zip(h["y"], h["R2"], h["branch"]) if b == "up"]
+    return max(y for y, r in dn if r > 5.0), min(y for y, r in up if r < 5.0)
+
+
+loops = {L: loop(L) for L in (16, 24) if loop(L)}
+loop_text = "; ".join(f"{L}^3: down at y = {a:.3f}, up at y = {b:.3f}" for L, (a, b) in loops.items())
+x60 = next((p for p in ep["points"] if abs(p["x"] - 0.06445) < 1e-4), None)
+bh_text = ""
+if x60 and "24" in x60["sets"] and "16" in x60["sets"]:
+    bh_text = (f"- Critical coupling at x = 0.0644, beta_G = 8 (MEASURED against IMPORTED): susceptibility maximum at beta_H = "
+               f"{x60['sets']['16']['bH_max']:.6f} on 16^3 and {x60['sets']['24']['bH_max']:.6f} on 24^3. Published infinite-volume value: "
+               f"0.3479735(6).\n")
+sm_pk = cmp_.get("standard_model_peak_beta_G_8", {})
+curve = cmp_.get("standard_model_curve", [])
+ratios = [c["this"] / c["published"] for c in curve]
+slope_txt = (f"C = {pe(fT['slope'], fT['slope_err'])} GeV" if fT["slope"] is not None else "no slope (one lattice spacing)")
+off_txt = "; ".join(f"size {float(k):g}/g3^2 against {fT['size_reference']:g}/g3^2: {pe(v[0], v[1])} GeV" for k, v in fT["size_offsets"].items())
+pub_slope = (158.73 - 159.58) * 6.0
+nruns = sum(v["runs"] for v in lat.values())
+gates = R["gates"]
+g6 = [f"{pe(g['diff'], g['diff_err'])}" for k, g in sorted(gates.items()) if k.startswith("G6")]
+Bline = ""
+if "T_c" in B:
+    Bline = (f"- Assumption B, the masses of the declared row (m_H = 125.84, m_t = 171.99 GeV): x = {B['x_at_T_c']:.4f}, "
+             f"T_c = {B['T_c']:.2f} +- {B['T_c_err_lattice']:.2f} +- {B['truncation_error']:.1f} GeV, crossover. MEASURED on 24^3 at beta_G = 8 "
+             f"and x = 0.36, with the continuum shift of the main point.\n")
+
+sens = dec.get("sensitivity_GeV", {})
+w80 = ("%.1f" % dec["width_at_80_percent_GeV"]) if dec.get("width_at_80_percent_GeV") else "an interval not closed inside the reweighted range"
+scan = R.get("higgs_mass_scan_declared_chain", {}).get("rows", [])
+scan_table = "\n".join(f"| {r['m_H']:.2f} | {r['x']:.4f} | {r['T_peak_beta_G_8']:.1f} | {r['kind']} |" for r in scan
+                       if abs(r['m_H'] % 10) < 1e-9 or abs(r['m_H'] - 125.84) < 1e-6)
+
+TEXT = f"""# Lane EW: the electroweak transition for the chain's couplings
+
+{EXTRA}
+## RESULT
+
+**1. The declared chain gives a crossover at T_c = {dec['T_c']:.2f} +- {dec['T_c_err_lattice']:.2f} (lattice) +- {dec['truncation_error']:.1f} (reduction) GeV.**
+
+- Inputs DECLARED: v = 246.60 GeV, 1/alpha_2(m_Z) = 29.605, sin^2 theta_W = 0.23074, alpha_s = 0.11834, tree masses
+  80.330 and 91.588 GeV, declared midpoint m_H = 125.84 and m_t = 171.99 GeV. Label on every output: declared chain
+  with two-doublet-equivalent slopes; the derivation of the chain is open.
+- Map IMPORTED (Kajantie, Laine, Rummukainen, Shaposhnikov, hep-ph/9508379, relative order g^4): x = {dec['x_at_T_c']:.4f},
+  g3^2/T = {dec['g32_over_T']:.5f}, y = 0 at {dec['T_y0']:.2f} GeV. The first-order line ends at x_c = 0.0983(15)
+  (IMPORTED). The chain sits at three times that value.
+- MEASURED: maximum of the susceptibility of the volume average of phi^dag phi along the chain's curve (x(T), y(T)),
+  {nruns} runs at x = 0.296:
+
+| beta_G | N | size (1/g3^2) | runs | y at maximum | chi_3 maximum | T at maximum (GeV) | chi maximum |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+{set_table}
+
+- Continuum (MEASURED): fit T_max = T_c + C/beta_G + D(size): T_c = {pe(fT['continuum'], fT['err'])} GeV, {slope_txt},
+  chi^2 = {fT['chi2']:.2f} for {fT['dof']} degrees of freedom; {off_txt}. The slope of the published Standard Model
+  simulation is {pub_slope:.1f} GeV (IMPORTED, from 158.73 GeV at beta_G = 6 and 159.58 GeV in the continuum).
+- Shape (MEASURED, 24^3, beta_G = 8): chi = V T <(delta phi^dag phi)^2> peaks at {pe(dec['chi_max'], dec['chi_max_err'])};
+  it exceeds 80 percent of its maximum over {w80} GeV, falls to half its maximum
+  {dec['half_width_high_side_GeV']:.2f} GeV above the peak, and stays near 5, about half the maximum, below the peak down to 148 GeV.
+- Error budget: lattice statistics and continuum extrapolation {dec['T_c_err_lattice']:.2f} GeV; reduction one percent,
+  {dec['truncation_error']:.1f} GeV (IMPORTED estimate); hypercharge gauge field not simulated, estimated
+  {u1.get('dT_GeV_declared', float('nan')):+.1f} GeV from the published simulation with that field (not applied).
+- Variants of the map at fixed lattice result (GeV): alpha_s run to m_W {var['alpha_s_run_to_mW']:.2f}; product form of
+  the one-loop factors at mu = pi T {var['product_form_mu_piT']:.2f}; hypercharge dropped from the map
+  {var['no_hypercharge_in_map']:.2f}; tree-level reduction {var['tree_level_reduction']:.1f}.
+- Sensitivity of T_c (GeV): {sens['m_H_plus_1_GeV']:+.2f} per GeV of m_H, {sens['m_t_plus_1_GeV']:+.2f} per GeV of m_t,
+  {sens['v_plus_1_percent']:+.2f} per percent of v, {sens['g2_plus_1_percent']:+.2f} per percent of g^2, {sens['alpha_s_plus_0.001']:+.2f} per 0.001 of
+  alpha_s. The chain's Higgs mass, top mass and v account for most of its distance from the Standard Model value.
+- NOT BLIND: Standard Model lattice result 159.5 +- 1.5 GeV (D'Onofrio, Rummukainen 2016, abstract). Difference
+  {cmp_['difference']:+.2f} GeV, {cmp_['pull']:+.2f} combined standard deviations.
+
+**2. The pipeline reproduces the published Standard Model simulation.** MEASURED against IMPORTED, NOT BLIND.
+
+- Standard Model inputs through the same code: maximum at {pe(sm_pk.get('this_pipeline', float('nan')), sm_pk.get('err', 0))} GeV on 24^3 at
+  beta_G = 8. Published: 158.73 GeV at beta_G = 6, 159.01 GeV at beta_G = 9; {sm_pk.get('published_interpolated', float('nan')):.2f} GeV interpolated to 8.
+- Susceptibility at eleven temperatures from 156 to 161 GeV against the published points at beta_G = 9: ratios
+  between {min(ratios) if ratios else float('nan'):.2f} and {max(ratios) if ratios else float('nan'):.2f}.
+- Continuum value of the pipeline for Standard Model inputs: {SM['T_c']:.2f} GeV. Published: 159.58(6) GeV.
+- Map on Standard Model inputs: x = {mapc['x']:.4f}, y = {mapc['y']:.4f}, g3^2/T = {mapc['g32_over_T']:.5f} at 160 GeV, y = 0 at
+  {mapc['T_y0']:.2f} GeV. Published curves: 0.2899, -0.0536, 0.39282, 162.1 GeV. The paper does not list its inputs; with
+  m_t = 174.3 GeV this code gives -0.0546 and 162.14 GeV.
+- Condensate in the broken phase at the point m_H* = 80, T* = 145 GeV of hep-lat/9510020, five lattice spacings:
+  continuum value {pe(bp['fit']['continuum'], bp['fit']['err'])}. Published: 0.7061(7).
+{bh_text}
+**3. Phase structure at beta_G = 8.** MEASURED.
+
+- First-order point x = 0.036:
+
+| N | y at maximum | chi_3 maximum | histogram valley / peak |
+| --- | --- | --- | --- |
+{fo_table}
+
+  Hysteresis, 300 sweeps per step of 0.004 in y: {loop_text}. The volume average of R^2 jumps from 3.2 to about 10
+  on the way down and from about 7 to 3.1 on the way up.
+- Crossover point x = 0.13: chi_3 maximum {co_line}.
+- Growth exponent d ln chi_max / d ln N. First-order scaling is 3, the Ising value at the endpoint is 1.96, a crossover
+  tends to 0:
+
+| x | volumes | exponent |
+| --- | --- | --- |
+{g_table}
+
+- Bracket of the end of the first-order signal at this lattice spacing, from exponents two errors above and below
+  1.96: x between {bracket[0] if bracket[0] is not None else float('nan'):.3f} and {bracket[1] if bracket[1] is not None else float('nan'):.3f}. IMPORTED: x_c = 0.0983(15) in the continuum, 0.1133(25) at
+  beta_G = 5 (hep-lat/9805013).
+
+**4. The source as built with one doublet.** Inputs of the row: v = 222.9 GeV, alpha_s = 0.1123, sin^2 = 0.2056,
+1/alpha_em = 142.25, hence g^2 = {A['g2']:.5f} and g'^2 = {A['gprime2']:.5f} at m_Z, m_W = {A['inputs']['mW']:.2f} and
+m_Z = {A['inputs']['mZ']:.2f} GeV. Its Higgs and top masses are not derived. DECLARED assumptions:
+
+- Assumption A, the quartic and top couplings of the declared row (m_H = {A['inputs']['mH']:.2f}, m_t = {A['inputs']['mt']:.2f} GeV):
+  x = {A['x_at_T_c']:.4f}, T_c = {A['T_c']:.2f} +- {A['T_c_err_lattice']:.2f} +- {A['truncation_error']:.1f} GeV, crossover. MEASURED by
+  reweighting the runs at x = 0.296.
+{Bline}
+**5. Higgs mass of the endpoint.** With the other inputs of the declared chain fixed, the map reaches x_c = 0.0983(15)
+on the transition line at m_H = {end['m_H_c_declared_chain']:.1f} +- {end['m_H_c_err_from_x_c']:.1f} GeV (error of x_c; the
+reduction adds about 1 GeV). Below this mass the chain gives a first-order transition. Standard Model inputs through
+the same procedure: {end['m_H_c_standard_model_inputs_this_map']:.1f} GeV; published 72(2) GeV. IMPORTED endpoint with the map of item 1.
+
+Scan of the Higgs mass with the other inputs of the declared chain fixed. Position of the susceptibility maximum at
+beta_G = 8 from the measured y_max(x), interpolated linearly in x between the simulated values
+{', '.join('%.3g' % p['x'] for p in R['peak_position_vs_x_beta_G_8'])}:
+
+| m_H (GeV) | x at the transition | T (GeV) | kind |
+| --- | --- | --- | --- |
+{scan_table}
+
+**6. Cosmic time.** Radiation era with g* = 106.75 (DECLARED): t = {dec['cosmic_time_seconds']:.3e} s at T_c, that is
+{dec['cosmic_time_ticks']:.3e} ticks of hbar/E_cell = 6.8851e-44 s. One-doublet row A: {A['cosmic_time_seconds']:.3e} s.
+
+**7. The four-dimensional scans of lane HR at cell-scale coefficients** (unreviewed lane; table values recomputed
+here from its stored scan points, the runs were not repeated):
+
+1. System: SU(2) links and a doublet on 8^3 x N_t at beta_G = 5.171, temperature E_cell/N_t, with a declared quartic
+   stabilizer lambda_L. That beta_G belongs to the retired cell reading of the coupling. The scans show the mechanism
+   and carry no number of the corrected chain.
+2. Thermal restoration: the Higgs line moves to larger hopping as N_t falls. At lambda_L = 0.002: kappa_H = 0.13191
+   (N_t = 8), 0.13208 (4), 0.13253 (2). At 0.02: 0.14560, 0.14572, 0.14695. A point between the lines is in the Higgs
+   regime in the vacuum and symmetric at T = E_cell/2.
+3. Hysteresis against the quartic on 8^4: the two sweep directions differ by 0.00055 in kappa_H at lambda_L = 0.0002,
+   by 0.00011 at 0.002 and by 0.00004 at 0.02. The first-order signal weakens as the quartic grows.
+4. The reduced theory here shows the same two facts with a continuum limit: symmetric phase above a temperature, and
+   a first-order line in the quartic that ends (x = 0.036 first order, x = 0.13 and 0.296 crossover).
+5. Limits of the HR numbers: 240 to 350 measurements per point, one spatial size, no relation to continuum
+   parameters. The scale is the cell scale, 1e17 above the measured crossover.
+
+**8. Source checks.** Every formula was read in the TeX source of the arXiv version. Three differences:
+arXiv:1508.07161 prints the quartic lattice coupling without the factor x; its abstract gives 159.5 +- 1.5 GeV and
+its text 159.6 +- 0.1 +- 1.5 GeV; hep-lat/9510020 uses the rounded constants 0.09, 5.0, 5.2. The brief cites
+159.5 +- 1.5 GeV, which is the abstract's value.
+
+## EVIDENCE
+
+- Lane directory `RL/work/SIM/phase2/EW/`: `METHOD.md` (verified formulas, sources, differences), `CANDIDATES.md`
+  (written before any value; three recorded changes), `code/` (production kernels `ewlat.py`, driver `ew_run.py`,
+  gates `ew_gates.py`, `ew_gate_or.py`, map `ewmap.py`, reweighting `ew_wham.py`, analysis `ew_oph.py`, `ew_valid.py`,
+  assembly `ew_assemble.py`, documents `ew_docs.py`, `ew_report.py`), `data/` (analysis outputs, gates, raw series
+  archive `series.tar.gz`).
+- Compute box `~/ew`: all runs with seeds in `queue.txt`, logs per run. Rebuild: `python sched.py 12` with
+  `queue.txt`, then `python ew_oph.py`, `python ew_valid.py`, copy the JSON files to `data/`, then locally
+  `python code/ew_assemble.py`, `python code/ew_docs.py`, `python code/ew_report.py`.
+- Gates of the production kernels, all PASS (`data/gates.json`, `data/gate_or.json`): gauge invariance 1.4e-16; free
+  field <R^2> 2.46799(85) against 2.46774; plaquette at zero hopping 0.24190(18) against the strong-coupling series
+  0.24179 and 0.12389(13) against 0.12378; Schwinger-Dyson identity 2.00021(70), 1.99981(55), 2.00064(50);
+  heat bath alone against heat bath with overrelaxation: differences {', '.join(g6) if g6 else 'pending'} in <R^2>.
+  Independent numpy implementation: plaquette at beta_G = 8 0.87068(16) against 0.870699(43).
+- Candidate package `rer_package/electroweak_crossover/`: `python -m pytest -q -W error` passes (19 tests, 16 s of
+  CPU time); `certificate.py` evaluates {len(R['checks'])} named checks, all true; `results.json` equals its recomputation from
+  `production.json`.
+- Map: the scale dependence of the transcribed vacuum relations equals the printed one-loop running of g^2, nu^2,
+  lambda and g_Y^2 to 1e-9 (`test_reduction.py`).
+
+## WHAT THIS DOES NOT ESTABLISH
+
+- The chain's couplings are declared forms that fit. This lane takes them as inputs and adds no derivation.
+- The Higgs mass term enters through m_H. Its cell-size problem is untouched.
+- The reduction is perturbative. One percent of T_c is its quoted accuracy, and it dominates the error.
+- The U(1) gauge field of the reduced theory is not simulated.
+- The endpoint x_c is imported. The runs bracket the end of the first-order signal at one lattice spacing and
+  small volumes.
+- The one-doublet rows rest on assumed Higgs and top masses.
+- Lane HR's numbers were recomputed from its files and its runs were not repeated.
+- Nothing here is a run at cell resolution. The reduced theory lives 1e17 below the cell scale.
+
+## NEXT
+
+1. Larger volumes at x = 0.13 and near x = 0.10 (48^3, 64^3) with multicanonical sampling to locate the endpoint at
+   beta_G = 8 and 12.
+2. The U(1) field in the lattice action (z = 0.33 for the chain), which removes the 0.3 GeV estimate.
+3. A second fine lattice (beta_G = 16, 48^3) to tighten the continuum slope.
+4. Two-loop vacuum relations for the top Yukawa coupling, the largest single term of the map.
+5. When the chain derives m_H and m_t for the one-doublet row, rerun `ew_assemble.py` with those masses; the lattice
+   data cover x from 0.29 to 0.36.
+
+## FOR THE SITE
+
+- Data file written: `SIM/oph_defects/viewer2/research/EW/ew_transition.json`, fetched as `/rl/EW/ew_transition.json`.
+  It has no field "placeholder". Schema of the brief, with these additions: `points[].hysteresis` (list of
+  {{L, t, order, branch}}), `points[].series[].chi_max`, `points[].growth_exponent_*`, `oph.series[].kind`
+  ("reweighted" curve near the peak or "runs" over 148 to 174 GeV), `oph.continuum` (peak position per lattice),
+  `oph.variants` (one-doublet rows A and B and the Standard Model check), `oph.T_c_err_lattice`,
+  `oph.T_c_err_reduction`, `endpoint.growth`, `higgs_mass_scan`, `inputs[].row`.
+- Units: `order` is <phi^dag phi>/g3^2 on y axes and v^2/T^2 on the temperature axis; `chi` is chi_3 on y axes and
+  V T <(delta phi^dag phi)^2> on the temperature axis.
+- Progress file: `SIM/oph_defects/viewer2/research/EW/progress.json`, status "done".
+- Status words for the page: the transition temperature is "declared" (inputs) with a measured lattice part; the
+  endpoint and the reduction are "imported"; the one-doublet rows are "one premise" (assumed masses).
+- Links to add to `links.js` (all external, new page): https://arxiv.org/abs/hep-ph/9508379,
+  https://arxiv.org/abs/hep-lat/9510020, https://arxiv.org/abs/hep-lat/9504001, https://arxiv.org/abs/hep-lat/9705003,
+  https://arxiv.org/abs/hep-lat/9805013, https://arxiv.org/abs/1508.07161, https://arxiv.org/abs/1404.3565. The
+  package is a candidate and is not on the public main branch; no RER link exists yet.
+- Hook line for the coordinator: the transitions page reads `/rl/EW/ew_transition.json`; one line under the heading:
+  "Map into this step: the chain's couplings at m_Z, reduced to three dimensions at temperature T."
+"""
+(LANE / "RESULT.md").write_text(TEXT)
+print("written RESULT.md, %d chars" % len(TEXT))

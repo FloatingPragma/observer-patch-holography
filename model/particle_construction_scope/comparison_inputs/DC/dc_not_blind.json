@@ -1,0 +1,54 @@
+{
+ "label": "NOT BLIND",
+ "pairs_are": "[source value, measured value]",
+ "v_measured_GeV": 246.21964023926205,
+ "rows": {
+  "S5@phi": {
+   "v_over_Estar_source": 7.1027319169217455e-12,
+   "v_over_Estar_measured": 2.0167225568172565e-17,
+   "ratio": 352191.8219693594
+  },
+  "S5@P_fwd": {
+   "v_over_Estar_source": 6.47778432511676e-12,
+   "v_over_Estar_measured": 2.0167225568172565e-17,
+   "ratio": 321203.5439986274
+  },
+  "D10_code_chain@P_fwd": {
+   "v_over_Estar_source": 2.019811407857633e-17,
+   "v_over_Estar_measured": 2.0167225568172565e-17,
+   "ratio": 1.0015316192254284
+  },
+  "U1b_MU_eq_Ecell@P_fwd": {
+   "v_over_Estar": [
+    2.0082658273579246e-17,
+    2.0167225568172565e-17
+   ],
+   "sin2w_mz": [
+    0.21868600852276504,
+    0.23122
+   ],
+   "alpha_em_inv_mz": [
+    139.75131329956085,
+    127.951
+   ],
+   "outer_map_alpha_inv_at_P_fwd": [
+    148.12309732708945,
+    137.035999177
+   ]
+  },
+  "declared_form_code_chain@P_fwd": {
+   "sin2w_mz": [
+    0.23073517991130937,
+    0.23122
+   ],
+   "alpha_em_inv_mz": [
+    128.3082680579876,
+    127.951
+   ],
+   "outer_map_alpha_inv_fixed_point": [
+    136.99483517741294,
+    137.035999177
+   ]
+  }
+ }
+}

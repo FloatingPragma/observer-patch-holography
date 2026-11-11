@@ -1,0 +1,512 @@
+{
+ "implementers": {
+  "covariance_Ad_U_g_X_p_equals_X_gp_for_all_120_lifts": true,
+  "U_g": "R_g (+) u_g with R_g the rotation of the convex axes and u_g the SU(2) lift of the rotation of the great axes",
+  "commutant_dimension_of_the_responses": 2,
+  "centralizer": "block scalars exp(i a) 1_3 (+) exp(i b) 1_2: a two-parameter torus; it meets the response group in the one-parameter centre",
+  "determinants_one": true
+ },
+ "two_pulse_words": {
+  "statement": "exp(-i (2 pi/5) X_p) exp(+i (2 pi/5) X_pbar) = R(n_p, 2 pi/5) (+) u(n'_p, 4 pi/5): the implementer of the fifth turn about port p",
+  "all_twelve_exact": true,
+  "per_port": {
+   "0": {
+    "lift_index": 37,
+    "is_fifth_turn_about_port": true,
+    "covariance": true,
+    "fifth_power_is_identity": true,
+    "doublet_block_is_minus_galois_image_of_principal_lift": true
+   },
+   "1": {
+    "lift_index": 38,
+    "is_fifth_turn_about_port": true,
+    "covariance": true,
+    "fifth_power_is_identity": true,
+    "doublet_block_is_minus_galois_image_of_principal_lift": true
+   },
+   "2": {
+    "lift_index": 44,
+    "is_fifth_turn_about_port": true,
+    "covariance": true,
+    "fifth_power_is_identity": true,
+    "doublet_block_is_minus_galois_image_of_principal_lift": true
+   },
+   "3": {
+    "lift_index": 25,
+    "is_fifth_turn_about_port": true,
+    "covariance": true,
+    "fifth_power_is_identity": true,
+    "doublet_block_is_minus_galois_image_of_principal_lift": true
+   },
+   "4": {
+    "lift_index": 29,
+    "is_fifth_turn_about_port": true,
+    "covariance": true,
+    "fifth_power_is_identity": true,
+    "doublet_block_is_minus_galois_image_of_principal_lift": true
+   },
+   "5": {
+    "lift_index": 31,
+    "is_fifth_turn_about_port": true,
+    "covariance": true,
+    "fifth_power_is_identity": true,
+    "doublet_block_is_minus_galois_image_of_principal_lift": true
+   },
+   "6": {
+    "lift_index": 36,
+    "is_fifth_turn_about_port": true,
+    "covariance": true,
+    "fifth_power_is_identity": true,
+    "doublet_block_is_minus_galois_image_of_principal_lift": true
+   },
+   "7": {
+    "lift_index": 39,
+    "is_fifth_turn_about_port": true,
+    "covariance": true,
+    "fifth_power_is_identity": true,
+    "doublet_block_is_minus_galois_image_of_principal_lift": true
+   },
+   "8": {
+    "lift_index": 32,
+    "is_fifth_turn_about_port": true,
+    "covariance": true,
+    "fifth_power_is_identity": true,
+    "doublet_block_is_minus_galois_image_of_principal_lift": true
+   },
+   "9": {
+    "lift_index": 14,
+    "is_fifth_turn_about_port": true,
+    "covariance": true,
+    "fifth_power_is_identity": true,
+    "doublet_block_is_minus_galois_image_of_principal_lift": true
+   },
+   "10": {
+    "lift_index": 23,
+    "is_fifth_turn_about_port": true,
+    "covariance": true,
+    "fifth_power_is_identity": true,
+    "doublet_block_is_minus_galois_image_of_principal_lift": true
+   },
+   "11": {
+    "lift_index": 26,
+    "is_fifth_turn_about_port": true,
+    "covariance": true,
+    "fifth_power_is_identity": true,
+    "doublet_block_is_minus_galois_image_of_principal_lift": true
+   }
+  },
+  "in_framed_units": "X_p = Pi_p/12: pulse areas -24 pi/5 at p and +24 pi/5 at the antipode"
+ },
+ "words_for_all_lifts": {
+  "group_generated_by_the_blocks_has_order": 120,
+  "max_blocks": 3,
+  "max_pulses": 6,
+  "histogram_of_block_lengths": {
+   "0": 1,
+   "1": 12,
+   "2": 44,
+   "3": 63
+  },
+  "total_blocks_for_all_lifts": 289,
+  "examples_shortest_word_per_class": {
+   "identity": {
+    "lift_index": 0,
+    "blocks": [],
+    "pulses": 0,
+    "port_permutation": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11
+    ],
+    "verified_exact": true
+   },
+   "fifth turn": {
+    "lift_index": 37,
+    "blocks": [
+     0
+    ],
+    "pulses": 2,
+    "port_permutation": [
+     0,
+     7,
+     1,
+     11,
+     8,
+     6,
+     2,
+     5,
+     3,
+     9,
+     4,
+     10
+    ],
+    "verified_exact": true
+   },
+   "two fifths turn": {
+    "lift_index": 3,
+    "blocks": [
+     0,
+     0
+    ],
+    "pulses": 4,
+    "port_permutation": [
+     0,
+     5,
+     7,
+     10,
+     3,
+     2,
+     1,
+     6,
+     11,
+     9,
+     8,
+     4
+    ],
+    "verified_exact": true
+   },
+   "third turn": {
+    "lift_index": 4,
+    "blocks": [
+     1,
+     0
+    ],
+    "pulses": 4,
+    "port_permutation": [
+     2,
+     0,
+     1,
+     5,
+     3,
+     4,
+     8,
+     6,
+     7,
+     11,
+     9,
+     10
+    ],
+    "verified_exact": true
+   },
+   "half turn": {
+    "lift_index": 70,
+    "blocks": [
+     1,
+     0,
+     0
+    ],
+    "pulses": 6,
+    "port_permutation": [
+     2,
+     6,
+     0,
+     10,
+     7,
+     8,
+     1,
+     4,
+     5,
+     11,
+     3,
+     9
+    ],
+    "verified_exact": true
+   },
+   "central element diag(1_3, -1_2) over the identity rotation": {
+    "lift_index": 24,
+    "blocks": [
+     10,
+     3,
+     0
+    ],
+    "pulses": 6,
+    "port_permutation": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11
+    ],
+    "verified_exact": true
+   }
+  },
+  "reading": "a word [p1, p2, ...] is W_p1 W_p2 ..., W_p = exp(-i (2 pi/5) X_p) exp(+i (2 pi/5) X_antipode(p))"
+ },
+ "two_pulse_scan": {
+  "reading": "pulse exp(i t X_p) exp(-i t X_pbar) with phases zeta^a on the vector projector and zeta^b on the spinor projector; a hit is an implementer (up to block phases) of a nontrivial rotation about the port axis",
+  "results": {
+   "vector helicity +1 (convex), spinor +1/2 (great)": {
+    "equal_weights": [
+     {
+      "a": 4,
+      "b": 4,
+      "rotation": "fifth turn",
+      "lift_index": 14
+     },
+     {
+      "a": 8,
+      "b": 8,
+      "rotation": "two fifths turn",
+      "lift_index": 7
+     },
+     {
+      "a": 12,
+      "b": 12,
+      "rotation": "two fifths turn",
+      "lift_index": 3
+     },
+     {
+      "a": 16,
+      "b": 16,
+      "rotation": "fifth turn",
+      "lift_index": 1
+     }
+    ],
+    "weights_1/4_1/6": []
+   },
+   "vector helicity +1 (convex), spinor -1/2 (great)": {
+    "equal_weights": [],
+    "weights_1/4_1/6": [
+     {
+      "a": 12,
+      "b": 8,
+      "rotation": "two fifths turn",
+      "lift_index": 3
+     },
+     {
+      "a": 4,
+      "b": 16,
+      "rotation": "fifth turn",
+      "lift_index": 14
+     },
+     {
+      "a": 16,
+      "b": 4,
+      "rotation": "fifth turn",
+      "lift_index": 1
+     },
+     {
+      "a": 8,
+      "b": 12,
+      "rotation": "two fifths turn",
+      "lift_index": 7
+     }
+    ]
+   },
+   "vector helicity -1 (convex), spinor +1/2 (great)": {
+    "equal_weights": [],
+    "weights_1/4_1/6": [
+     {
+      "a": 12,
+      "b": 8,
+      "rotation": "two fifths turn",
+      "lift_index": 7
+     },
+     {
+      "a": 4,
+      "b": 16,
+      "rotation": "fifth turn",
+      "lift_index": 1
+     },
+     {
+      "a": 16,
+      "b": 4,
+      "rotation": "fifth turn",
+      "lift_index": 14
+     },
+     {
+      "a": 8,
+      "b": 12,
+      "rotation": "two fifths turn",
+      "lift_index": 3
+     }
+    ]
+   },
+   "vector helicity -1 (convex), spinor -1/2 (great)": {
+    "equal_weights": [
+     {
+      "a": 4,
+      "b": 4,
+      "rotation": "fifth turn",
+      "lift_index": 1
+     },
+     {
+      "a": 8,
+      "b": 8,
+      "rotation": "two fifths turn",
+      "lift_index": 3
+     },
+     {
+      "a": 12,
+      "b": 12,
+      "rotation": "two fifths turn",
+      "lift_index": 7
+     },
+     {
+      "a": 16,
+      "b": 16,
+      "rotation": "fifth turn",
+      "lift_index": 14
+     }
+    ],
+    "weights_1/4_1/6": []
+   },
+   "reverse: vector +1 (great), spinor +1/2 (convex)": {
+    "equal_weights": [],
+    "weights_1/4_1/6": [
+     {
+      "a": 12,
+      "b": 8,
+      "rotation": "fifth turn",
+      "lift_index": 1
+     },
+     {
+      "a": 4,
+      "b": 16,
+      "rotation": "two fifths turn",
+      "lift_index": 3
+     },
+     {
+      "a": 16,
+      "b": 4,
+      "rotation": "two fifths turn",
+      "lift_index": 7
+     },
+     {
+      "a": 8,
+      "b": 12,
+      "rotation": "fifth turn",
+      "lift_index": 14
+     }
+    ]
+   },
+   "reverse: vector +1 (great), spinor -1/2 (convex)": {
+    "equal_weights": [
+     {
+      "a": 4,
+      "b": 4,
+      "rotation": "two fifths turn",
+      "lift_index": 3
+     },
+     {
+      "a": 8,
+      "b": 8,
+      "rotation": "fifth turn",
+      "lift_index": 14
+     },
+     {
+      "a": 12,
+      "b": 12,
+      "rotation": "fifth turn",
+      "lift_index": 1
+     },
+     {
+      "a": 16,
+      "b": 16,
+      "rotation": "two fifths turn",
+      "lift_index": 7
+     }
+    ],
+    "weights_1/4_1/6": []
+   }
+  },
+  "rule": "with weights w3, w2 and relative helicity s = +-1 the word turns the triplet by -t w3 and the doublet by -2 s t w2; an implementer needs (theta, 2 theta) modulo 2 pi with theta a multiple of 2 pi/5"
+ },
+ "centre": {
+  "sum_of_unit_responses": [
+   "4",
+   "4",
+   "4",
+   "6",
+   "6"
+  ],
+  "in_framed_units": "1_3/3 (+) 1_2/2 (total load times helicity content)",
+  "traceless_part": "proportional to diag(2, 2, 2, -3, -3) with coefficient -1/30; scalar part 2/5",
+  "cover_central_element": "diag(1_3, -1_2) = exp(6 pi i (1_3/3 (+) 1_2/2))",
+  "visibility": "the centre commutes with every block-diagonal operator, so block-diagonal preparations and the port effects cannot see it; a state with coherence between the triplet and the doublet block and an effect with a cross-block element give the fringe (1 + cos(t/6))/2 for the total-load pulse of area t",
+  "cross_block_fringe_check": {
+   "t_in_units_6pi/10": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "exact_probability": [
+    1.0,
+    0.9755282581475766,
+    0.9045084971874735,
+    0.7938926261462362,
+    0.6545084971874735,
+    0.5,
+    0.34549150281252644,
+    0.2061073738537637,
+    0.09549150281252644,
+    0.0244717418524234,
+    0.0,
+    0.0244717418524234
+   ],
+   "formula": [
+    1.0,
+    0.9755282581475768,
+    0.9045084971874737,
+    0.7938926261462366,
+    0.6545084971874737,
+    0.5,
+    0.34549150281252633,
+    0.2061073738537635,
+    0.09549150281252633,
+    0.024471741852423234,
+    0.0,
+    0.02447174185242318
+   ],
+   "max_defect": 3.3306690738754696e-16
+  }
+ },
+ "synthesis_weights_1/4_1/6_aligned": {
+  "target": "implementer of the fifth turn about port 0",
+  "antipodal_pulse_pairs": 6,
+  "ports": [
+   4,
+   0,
+   2,
+   0,
+   2,
+   5
+  ],
+  "pulse_areas": [
+   -6.990743479070763,
+   4.121041704267188,
+   15.676295399680107,
+   4.121041704267193,
+   -4.180147704952427e-15,
+   8.685551920609345
+  ],
+  "max_entry_defect_of_the_adjoint_action": 1.8318679906315083e-15,
+  "reading": "product over i of exp(i t_i (X_p_i - X_antipode(p_i))) with X_p = P_p/4 (+) Q_p/6; float64, defect as printed"
+ },
+ "seconds": 1.6
+}

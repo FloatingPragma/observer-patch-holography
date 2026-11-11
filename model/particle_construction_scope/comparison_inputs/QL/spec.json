@@ -1,0 +1,5003 @@
+{
+ "schema": "repair-law.QL.spec.v1",
+ "date": "2026-11-10",
+ "worker": "QL (simulation session)",
+ "sources_read_only": [
+  "reverse-engineering-reality at 2d5a9d1c0 plus uncommitted model/coherent_seam_repair and model/coherent_defect_wave",
+  "repair-law/reports as of 2026-11-10 18:43 (+07): MC, MF, MG, MU (final), MT (blocks 1 to 4), QF, CX, CA, MW (interim)"
+ ],
+ "marks": {
+  "EXACT": "supplied on one carrier with exact evidence",
+  "SHADOW": "level-1 shadow: a necessary property checked on a table, a reconstruction or a declared object",
+  "COMP": "decided by a named computation; the worker is given",
+  "NO": "not supplied by the candidate as defined"
+ },
+ "theorems": {
+  "T-G": {
+   "family": "a",
+   "name": "Finite-current fixed-space theorem (gauge type)",
+   "prose": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex:153 (thm:finite-current-fixed-space)",
+   "lean": [
+    "OPH.A2HolonomyBridge.compact_product_dimensions_of_projective_holonomy",
+    "OPH.A2HolonomyBridge.carrier_projective_witness_of_holonomy",
+    "OPH.A2HolonomyBridge.internalImplementation_of_holonomy",
+    "OPH.A2HolonomyBridge.faithful_twelve_port_response_has_dimension_twelve",
+    "OPH.A5PortModule.centrally_trivial_finrank_le_one",
+    "OPH.TrichotomyCases.inner_action_selection",
+    "OPH.Compact12.finrank_compact",
+    "OPH.SL2F5PortCover.slToPort_ker"
+   ],
+   "files": [
+    "Lean/Screen/A2HolonomyBridge.lean",
+    "Lean/Screen/A5PortModule.lean",
+    "Lean/Screen/TrichotomyCases.lean",
+    "Lean/Screen/Compact12.lean",
+    "Lean/Screen/SL2F5PortCover.lean",
+    "Lean/Screen/A5ResponseWordAlgebra.lean",
+    "Lean/Screen/PhysicalA5ForcingNoGo.lean"
+   ],
+   "conclusion": "dz = 1 ∧ m = {3, 8} (Lean, numerals); g ≅ u(1) ⊕ su(2) ⊕ su(3) (prose)",
+   "no_go_in_tree": [
+    "OPH.A5ResponseWordAlgebra.no_twelve_independent_span_members",
+    "OPH.A5ResponseWordAlgebra.no_nonzero_word_commutator",
+    "OPHPhysicalA5NoGo.noSourceOnlyCurrentReconstruction"
+   ]
+  },
+  "T-B": {
+   "family": "b",
+   "name": "Born bridge",
+   "lean": [
+    "EventAlgebra.operational_record_probabilities_unique_born",
+    "EventAlgebra.operational_busch_gleason",
+    "EventAlgebra.finite_busch_gleason",
+    "EventAlgebra.partitionOperationallyEquivalent_iff_pinching_eq"
+   ],
+   "files": [
+    "Lean/EventAlgebra/OperationalBornBridge.lean",
+    "Lean/EventAlgebra/FiniteBuschGleason.lean",
+    "Lean/EventAlgebra/QuantumAdequacySurface.lean",
+    "Lean/EventAlgebra/Superselection.lean",
+    "Lean/EventAlgebra/FiniteEffectClosureBoundary.lean"
+   ],
+   "conclusion": "∃! ρ, IsState ρ ∧ ∀ (c : C) (S : Finset (Ω c)), recordEventWeight W c S = (bornWeight ρ (recordEventEffect R c S)).re",
+   "no_go_in_tree": [
+    "EventAlgebra.no_operationalEffectQuotient_of_offDiagonal_effect",
+    "EventAlgebra.diagonal_qubit_records_no_operationalEffectQuotient",
+    "EventAlgebra.FiniteEffectClosureBoundary.nonlinearBinaryWeight_not_affine"
+   ]
+  },
+  "T-4L": {
+   "family": "c",
+   "name": "Four laws",
+   "lean": [
+    "OPH.Thermodynamics.fourLaws_composed",
+    "OPH.Thermodynamics.FourLawSurface.second_contraction_of_stationary",
+    "OPH.Thermodynamics.FourLawSurface.zeroth_thermometer"
+   ],
+   "files": [
+    "Lean/Thermodynamics/FourLawAdequacySurface.lean",
+    "Lean/Thermodynamics/FiniteConditionalRepair.lean",
+    "Lean/Thermodynamics/LowTemperatureControl.lean",
+    "Lean/Thermodynamics/NativeBinaryThermodynamics.lean"
+   ],
+   "conclusion": "FourLawConclusions A for the kernel repairKernel A.repair = heatBath A.repair.ref A.repair.visible"
+  },
+  "T-C": {
+   "family": "d",
+   "name": "Consensus and termination",
+   "lean": [
+    "OPH.termination",
+    "OPH.completeness",
+    "OPH.boundary_fiber_observer_unique",
+    "OPH.confluence_of_commute",
+    "OPH.demoCarrier_not_confluent",
+    "ObservableNormalForms.boundaryIdentifiesModulo_iff_observerEndpointUniqueModulo",
+    "ObservableNormalForms.existsUnique_auditedTerminal",
+    "ObservableNormalForms.empty_fiber_no_reachable_normalForm",
+    "OPH.Tower.PublicWorldPresentation.FiniteRepairSystem.public_endpoint_exists_unique_on_public_class"
+   ],
+   "files": [
+    "Lean/ObserverPatchHolography/Primitives.lean",
+    "Lean/ObservableNormalForms/ObservableNormalForms/Exact.lean",
+    "Lean/ObservableNormalForms/ObservableNormalForms/ObserverConfluence.lean",
+    "Lean/Tower/FixedPointEndpoint.lean",
+    "Lean/Tower/FullPremiseInhabitant.lean"
+   ],
+   "conclusion": "WellFounded accepted step; NormalFormLR lr x ↔ Consistent C x; gaugeEquiv of endpoints with equal boundary; Confluent under H4"
+  },
+  "T-N": {
+   "family": "e",
+   "name": "Causal order and count limit",
+   "lean": [
+    "OPH.FlatDiamondNormalization.ordering_fraction_tendsto_one_tenth",
+    "OPH.FlatDiamondNormalization.generated_interval_count_tendsto_volume",
+    "OPH.GoldenSourceCausalLimit.generated_eventually_iff",
+    "OPH.SourceNetOrderLimit.eventually_precedes_of_timelike"
+   ],
+   "files": [
+    "Lean/Geometry/GoldenSourceCausalLimit.lean",
+    "Lean/Geometry/SourceNetOrderLimit.lean",
+    "Lean/Geometry/SourceNetCausalCone.lean",
+    "Lean/Geometry/FlatDiamondNormalization.lean"
+   ],
+   "conclusion": "2 * strictPairCount / (intervalCount * (intervalCount - 1)) → 1/10; weight * count → π((cΔt)² − |Δx|²)² / (24 c)",
+   "reuse": "fields N1 to N7 of reports/MC.md block 1 (verified against the Lean files)"
+  },
+  "T-M": {
+   "family": "f",
+   "name": "Modular clock and cap flow",
+   "prose": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex:359 (thm:conditional-cap-modular), proof outline only",
+   "lean": [
+    "OPH.QFT.ModularClockComparison.relative_time_cocycle",
+    "OPH.QFT.ModularClockComparison.nonresonant_output_stationary",
+    "OPH.QFT.FiniteModularInclusion.image_eq",
+    "OPH.QFT.FiniteModularInclusion.half_sided_is_two_sided",
+    "finiteStoneConverse_of_continuous (Lean/Dynamics/StoneConverse.lean)"
+   ],
+   "files": [
+    "Lean/QFT/ModularClockComparison.lean",
+    "Lean/QFT/FiniteModularInclusion.lean",
+    "Lean/Dynamics/StoneConverse.lean"
+   ],
+   "conclusion": "the limiting modular automorphism of each geometric cap is its cap-preserving conformal flow with the 2π normalization",
+   "reuse": "fields H1 to H10 of reports/MU.md block 1"
+  },
+  "T-K": {
+   "family": "g",
+   "name": "Lorentz and mass-shell kinematics",
+   "lean": [
+    "OPH.C1Lorentz.lorentzQ_fourMomentum",
+    "OPH.C1Lorentz.fourMomentum_time_sq_eq_mass_sq_add_spatial",
+    "OPH.C1Lorentz.lorentzQ_oriented_fourMomentum",
+    "OPH.C1Lorentz.futureNull_time_sq_eq_spatial"
+   ],
+   "files": [
+    "Lean/Geometry/MassShellKinematics.lean",
+    "Lean/Geometry/CanonicalLorentzModule.lean",
+    "Lean/Geometry/LorentzOverlapCocycle.lean",
+    "Lean/Geometry/ObserverFrameHyperboloid.lean"
+   ],
+   "conclusion": "identities on the declared module Herm2; no hypothesis beyond the types; the mass is an argument"
+  },
+  "T-E": {
+   "family": "h",
+   "name": "Einstein rungs",
+   "prose": "spacetime paper: Null tomography; Einstein equation from a common null balance; premises (G1) to (G6)",
+   "lean": [
+    "OPH.EinsteinBranch.composedEinsteinBranch",
+    "OPH.EinsteinBranch.composedEinsteinAdmissibleTower",
+    "OPH.EinsteinBranch.continuumEinstein_from_explicit_premises",
+    "OPH.EinsteinBranch.einstein_register_composition"
+   ],
+   "files": [
+    "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean",
+    "Lean/ObserverPatchHolography/EinsteinBranch/Consensus.lean",
+    "Lean/ObserverPatchHolography/EinsteinBranch/Entropy.lean",
+    "Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean",
+    "Lean/ObserverPatchHolography/EinsteinBranch/Manifest.lean",
+    "Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean",
+    "docs/registers/PREMISE_REGISTER_V3.md (gravity premise-elimination ladder, rungs 1 to 11)"
+   ],
+   "conclusion": "A.geometry p i j = 8 * Real.pi * A.newton * A.stress p i j + A.referenceLambda * eta 3 i j"
+  },
+  "T-X": {
+   "family": "i",
+   "name": "Mass (no theorem; six confirmation tests and five register rows)",
+   "files": [
+    "model/particle_candidate_confirmation/CONFIRMATION_STEPS.md",
+    "model/particle_candidate_confirmation/MASS_PATHS.md",
+    "model/particle_joint_reconstruction/DEPENDENCIES.md",
+    "Lean/Screen/A5FamilyBand.lean"
+   ],
+   "conclusion": "none: Lean has mass only as the argument of fourMomentum"
+  }
+ },
+ "candidates": {
+  "i": {
+   "name": "committed rule with tape and area counter; CAP as its recharted pump",
+   "carrier": "pinned icosahedron: 12 ports, 30 seams, 20 faces",
+   "local_state": "integer loads, total two (66 binary configurations, 78 with double loads)",
+   "seam_instrument": "native rule (floor/ceiling split with a coin), record letters (coin, current); CAP: rows keep, corrected, split_a, split_b after recharting by the port spinors",
+   "memory": "tape of committed letters (model/observer/native.py: two letters of a six-letter alphabet, halting controller); area counter mod 20 per quantum (LEADS L16)",
+   "scheduler": "independent uniform seam draws, fair coin; native.py: controller reads phase and prefix",
+   "preparation": "uniform classical law on the shell (supplied); CAP: its own stationary density",
+   "grammar": "diagonal record effects; weighted closed-history counts (ρ_L = P^L / Tr P^L, H = −log P) as a reconstruction; CAP: history effects, 144 of 144 at depth 3",
+   "clock": "attempts",
+   "shadow": "population, history and instrument (committed); population for every input (CAP)"
+  },
+  "ii": {
+   "name": "framed quanta: separate internal factor, port-axis readouts",
+   "carrier": "pinned icosahedron",
+   "local_state": "quanta on ports, each with an internal label in C^d carried in the ambient frame; symmetric or antisymmetric Fock register",
+   "seam_instrument": "(reference Kraus on ports) ⊗ (identity on the label) (reports/MT.md item 1)",
+   "memory": "tape as in (i); the internal factor",
+   "scheduler": "as in (i)",
+   "preparation": "internal state declared",
+   "grammar": "port-axis readouts N_p ⊗ |χ_p⟩⟨χ_p|",
+   "clock": "attempts",
+   "shadow": "population, history and instrument on one quantum and on the symmetric register (MT item 5)"
+  },
+  "iii": {
+   "name": "public coherent programs: walk, five-level fibre, link register, heralded reference, chart agreement",
+   "carrier": "pinned icosahedron (one carrier)",
+   "local_state": "port ⊗ parity record ⊗ oriented seam address (1440); with five-level fibre (7200); with ten link words of the regional sector (72000)",
+   "seam_instrument": "reversible agreement repair U_k (involution) with owned parity record; W = Q R with the address reflection R = 2AA* − I",
+   "memory": "parity bit, address register, thirty link bits, session record capacity",
+   "scheduler": "coherent address superposition; defect wave: five transports in sorted edge order",
+   "preparation": "heralded filter K_success = (I + αW)/(1 + α), α = 1/2, success 131/810 (defect wave 281/1080)",
+   "grammar": "register detectors {P_i, I − P_i}, quarter-turns V_i = I + (i − 1)P_i, finite W steps, frame-wrapped queries",
+   "clock": "walk steps",
+   "shadow": "population for the first blank-record event only",
+   "source": [
+    "reverse-engineering-reality/model/coherent_seam_repair/",
+    "reverse-engineering-reality/model/coherent_defect_wave/"
+   ]
+  }
+ },
+ "fields": [
+  {
+   "id": "a01",
+   "family": "a",
+   "name": "carrier module: sixty rotations on twelve ports, one fixed line",
+   "lean": [
+    "OPH.A5PortModule.P60",
+    "OPH.A5PortModule.finrank_fixed",
+    "OPH.A5PortModule.centrally_trivial_finrank_le_one",
+    "hfixed : carrierFixedDim = 1"
+   ],
+   "files": [
+    "Lean/Screen/A5PortModule.lean",
+    "Lean/Screen/A2HolonomyBridge.lean"
+   ],
+   "statement": "theorem finrank_fixed : Module.finrank ℚ Fixed = 1 ; theorem centrally_trivial_finrank_le_one (Z : Submodule ℚ (Fin 12 → ℚ)) (hZ : ∀ g ∈ P60, ∀ z ∈ Z, pAct g z = z) : Module.finrank ℚ Z ≤ 1",
+   "kind": "proved for the pinned incidence; hfixed is a numeral hypothesis of the bridge",
+   "constrains": [
+    "carrier"
+   ],
+   "register": [],
+   "requirement": [],
+   "consumed_by": [
+    "T-G"
+   ],
+   "toy_inhabitant": "the pinned incidence",
+   "executable_model": "supplied: the carrier is fixed",
+   "committed_source_tape_reconstruction": "inhabited exactly (see the score of candidate i)",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "EXACT",
+     "note": "carrier fact"
+    },
+    "ii": {
+     "mark": "EXACT",
+     "note": "carrier fact"
+    },
+    "iii": {
+     "mark": "EXACT",
+     "note": "carrier fact"
+    }
+   }
+  },
+  {
+   "id": "a02",
+   "family": "a",
+   "name": "central port projections (A1)",
+   "lean": [],
+   "files": [
+    "paper/tex_fragments/PREMISE_BASIS.tex"
+   ],
+   "statement": "a federation of finite carriers, each with twelve primitive pairwise-orthogonal central port projections summing to one",
+   "kind": "prose clause of A1; no Lean object",
+   "constrains": [
+    "state space",
+    "record algebra"
+   ],
+   "register": [],
+   "requirement": [],
+   "consumed_by": [
+    "T-G",
+    "T-E"
+   ],
+   "toy_inhabitant": "architectural receipts of the earlier federation (claims/axiom_registry.yaml, realization_receipts)",
+   "executable_model": "classical port addresses label experiments",
+   "committed_source_tape_reconstruction": "committed loads: every record effect is diagonal in the port occupations",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "EXACT",
+     "note": "the committed record algebra is diagonal. CAP: history effects span Herm(12) at depth 3 (reports/CX.md 6), so ports are not central there"
+    },
+    "ii": {
+     "mark": "EXACT",
+     "note": "every generator (reference Kraus ⊗ identity, port pulse exp(−iκ N_p ⊗ Π_p), port effect N_p ⊗ Π_p) commutes with N_p ⊗ 1; seam hop probes have no first-order response (MF 8)"
+    },
+    "iii": {
+     "mark": "NO",
+     "note": "model/coherent_seam_repair/PREMISES.md: 'The coherent position projectors are not central in the full walk matrix algebra.'"
+    }
+   }
+  },
+  {
+   "id": "a03",
+   "family": "a",
+   "name": "injective port response D (G1)",
+   "lean": [
+    "OPH.A2HolonomyBridge.faithful_twelve_port_response_has_dimension_twelve",
+    "hD : Function.Injective D"
+   ],
+   "files": [
+    "Lean/Screen/A2HolonomyBridge.lean",
+    "paper/tex_fragments/PREMISE_BASIS.tex"
+   ],
+   "statement": "theorem faithful_twelve_port_response_has_dimension_twelve (D : (Fin 12 → R) →ₗ[R] W) (hD : Function.Injective D) : Module.finrank R D.range = 12 ; prose: an injective real-linear map D_{r,i} : V_{r,i} → u(H_{r,i}); 'The primitive port probes span V_{r,i}'",
+   "kind": "hypothesis",
+   "constrains": [
+    "accessible measurement grammar (response of the law to a port probe)",
+    "state space H"
+   ],
+   "register": [
+    "PR-54",
+    "physical_full_rank_screen_current_lift"
+   ],
+   "requirement": [
+    "G1",
+    "T2"
+   ],
+   "consumed_by": [
+    "T-G"
+   ],
+   "toy_inhabitant": "specified twelve-current law D_p = diag(hat(v_p/2) + iQ_p, hat(σ(v_p)/2)) (gauge paper, section 4)",
+   "executable_model": "fail: OPH.A5ResponseWordAlgebra.no_twelve_independent_span_members (registered response); exchange response closes on 17",
+   "committed_source_tape_reconstruction": "the area counter gives the flux sectors as characters of a native record at the level of closed-history counts (L16)",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "SHADOW",
+     "note": "compressed loads span 12 for mixed frames (LEADS L13, L16; CAP.md). CAP's own first-order response spans 11 and its pinched loads close on 54 (reports/MF.md 15)"
+    },
+    "ii": {
+     "mark": "EXACT",
+     "note": "first-order response of the framed law to a port probe is Π_p/12 exactly, no leakage (MF 16); twelve independent for the mixed pair (MF 5). The five-level internal factor with the mixed realization is declared"
+    },
+    "iii": {
+     "mark": "SHADOW",
+     "note": "declared response X_p = (P_p/2) ⊕ (−Q_p/2): exact Gram roots 5/2, 1/2, 1/10; the family exp(i Σ β_p X_p) is a declared controller (audit/gauge/ENCODED_OVERLAP.md)"
+    }
+   }
+  },
+  {
+   "id": "a04",
+   "family": "a",
+   "name": "closure under commutators from ordered response composition (G2)",
+   "lean": [
+    "hsum : dz + m.sum = 12"
+   ],
+   "files": [
+    "paper/tex_fragments/PREMISE_BASIS.tex",
+    "Lean/Screen/A2HolonomyBridge.lean"
+   ],
+   "statement": "The image g_{r,i} = D_{r,i}(V_{r,i}) is closed under commutators ; A1 informal: 'closed under the commutators generated by ordered response composition'",
+   "kind": "prose clause; Lean carries the numeral hsum only (no Lie algebra object, review L2 F4)",
+   "constrains": [
+    "event composition (ordered histories)"
+   ],
+   "register": [],
+   "requirement": [
+    "G2",
+    "T2"
+   ],
+   "consumed_by": [
+    "T-G"
+   ],
+   "toy_inhabitant": "algebraic current fixture on the protected matching code (gauge paper, section 4; code/a5_closure): rank 12, 66 bracket closures, 720 port covariance identities",
+   "executable_model": "fail",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "SHADOW",
+     "note": "closure 12 on compressed tables"
+    },
+    "ii": {
+     "mark": "EXACT",
+     "note": "the twelve responses close, and the lifts are words in the same port pulses (MF 8, 9); exact with the tape (MF 16). Level 2 only if the declared port pulses are admitted as source histories (MF section 3)"
+    },
+    "iii": {
+     "mark": "SHADOW",
+     "note": "closure by equality with s(u(3)+u(2)); no bracket read from ordered histories"
+    }
+   }
+  },
+  {
+   "id": "a05",
+   "family": "a",
+   "name": "completeness of the response (G3)",
+   "lean": [
+    "hD : Function.Surjective D (internalImplementation_of_holonomy)"
+   ],
+   "files": [
+    "paper/tex_fragments/PREMISE_BASIS.tex",
+    "Lean/Screen/A2HolonomyBridge.lean"
+   ],
+   "statement": "complete for the declared quotient-visible infinitesimal port response ... no additional public response direction is omitted ; Lean docstring: 'Surjectivity of D expresses that L is the current codomain generated by the visible response directions, rather than a larger ambient operator space.'",
+   "kind": "prose clause; Lean: surjectivity onto the codomain L",
+   "constrains": [
+    "accessible measurement grammar"
+   ],
+   "register": [],
+   "requirement": [
+    "G3"
+   ],
+   "consumed_by": [
+    "T-G",
+    "T-B"
+   ],
+   "toy_inhabitant": "none: completeness holds 'over the specified current-control menu' only",
+   "executable_model": "fail",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": "all twenty area characters are present; the same loads generate u(4), u(5), u(6) on the other multiplets (L13); CAP's history effects span Herm(12) (CX 6)"
+    },
+    "ii": {
+     "mark": "EXACT",
+     "note": "complete for the port grammar: one probe per port gives the twelve-dimensional closed algebra {A + B : Tr A = Tr B} (MF 8). Seam-disagreement probes on compressed loads would add a thirteenth direction"
+    },
+    "iii": {
+     "mark": "NO",
+     "note": "PREMISES.md: completeness and 'the quotient separating optional apparatus controls require proofs'"
+    }
+   }
+  },
+  {
+   "id": "a06",
+   "family": "a",
+   "name": "positive trace form (G4)",
+   "lean": [],
+   "files": [
+    "paper/tex_fragments/PREMISE_BASIS.tex"
+   ],
+   "statement": "−Tr(D_{r,i}(v) D_{r,i}(w)) is positive definite",
+   "kind": "prose clause; follows from a03 inside u(H)",
+   "constrains": [
+    "state space H"
+   ],
+   "register": [],
+   "requirement": [
+    "G4"
+   ],
+   "consumed_by": [
+    "T-G"
+   ],
+   "toy_inhabitant": "algebraic current fixture on the protected matching code (gauge paper, section 4; code/a5_closure): rank 12, 66 bracket closures, 720 port covariance identities",
+   "executable_model": "fail",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "SHADOW",
+     "note": "on the compressed tables"
+    },
+    "ii": {
+     "mark": "EXACT",
+     "note": "follows from a03; trace form positive on the exact table (MF 5)"
+    },
+    "iii": {
+     "mark": "SHADOW",
+     "note": "exact positive roots 5/2, 1/2, 1/10 on the declared response"
+    }
+   }
+  },
+  {
+   "id": "a07",
+   "family": "a",
+   "name": "closed overlap paths onto the proper carrier automorphisms (G5)",
+   "lean": [
+    "OPH.A2HolonomyBridge.HolonomyFull",
+    "project : H →* A"
+   ],
+   "files": [
+    "Lean/Screen/A2HolonomyBridge.lean",
+    "paper/tex_fragments/PREMISE_BASIS.tex"
+   ],
+   "statement": "def HolonomyFull (project : H →* A) : Prop := Function.Surjective project ; prose: 'For a complete carrier chart o, its closed paths Hol_r(o) map onto the orientation-preserving incidence automorphisms Aut^+(K_{r,i}).'",
+   "kind": "hypothesis (used through CarrierHolonomyFullEndogenous)",
+   "constrains": [
+    "wiring",
+    "accepted records"
+   ],
+   "register": [],
+   "requirement": [
+    "G5"
+   ],
+   "consumed_by": [
+    "T-G"
+   ],
+   "toy_inhabitant": "none (the bridge is abstract in H)",
+   "executable_model": "fail",
+   "committed_source_tape_reconstruction": "every U(1) character of the additive current contrast has unit loop holonomy (model/observer/native_loop_readout.py); the area counter is the native record with nontrivial characters",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": "no overlap transport in the tuple"
+    },
+    "ii": {
+     "mark": "SHADOW",
+     "note": "pulse words reach all 120 lifts in at most three blocks (MF 9) and are apparatus, not overlap paths. On wiring F the rolling transport from level 1 (MG component A) has all 60 rotations as holonomies; no law has produced these paths as accepted records"
+    },
+    "iii": {
+     "mark": "EXACT",
+     "note": "120 typed closed chart words of the cover controller on one carrier, longest nine gates (holonomy.py; ENCODED_OVERLAP.md). Federation: MG"
+    }
+   }
+  },
+  {
+   "id": "a08",
+   "family": "a",
+   "name": "implementer natural on the response",
+   "lean": [
+    "OPH.A2HolonomyBridge.ProjectiveResponseNatural",
+    "hnatural"
+   ],
+   "files": [
+    "Lean/Screen/A2HolonomyBridge.lean"
+   ],
+   "statement": "def ProjectiveResponseNatural (portAction : A →* Equiv.Perm V) (project : H →* A) (implementer : H →* Q) (projectiveAction : Q →* Equiv.Perm L) (D : V → L) : Prop := ∀ h v, D (portAction (project h) v) = projectiveAction (implementer h) (D v)",
+   "kind": "hypothesis",
+   "constrains": [
+    "implementer of a closed path",
+    "response"
+   ],
+   "register": [],
+   "requirement": [
+    "G5"
+   ],
+   "consumed_by": [
+    "T-G"
+   ],
+   "toy_inhabitant": "algebraic current fixture on the protected matching code (gauge paper, section 4; code/a5_closure): rank 12, 66 bracket closures, 720 port covariance identities",
+   "executable_model": "fail",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "SHADOW",
+     "note": "CAP rows covariant under 120 monomial implementers (CX 2); D is a table"
+    },
+    "ii": {
+     "mark": "EXACT",
+     "note": "U_g = R_g ⊕ u_g as words in the port pulses; U_g Π_p U_g† = Π_{g p} (MF 9)"
+    },
+    "iii": {
+     "mark": "EXACT",
+     "note": "W(q) X_p W(q)† = X_{π(q)p} for the executed lifts"
+    }
+   }
+  },
+  {
+   "id": "a09",
+   "family": "a",
+   "name": "endogenous implementer (G6)",
+   "lean": [
+    "OPH.A2HolonomyBridge.CarrierHolonomyFullEndogenous",
+    "OPH.A2HolonomyBridge.ResponseGeneratedGroup",
+    "hbridge"
+   ],
+   "files": [
+    "Lean/Screen/A2HolonomyBridge.lean"
+   ],
+   "statement": "def CarrierHolonomyFullEndogenous (project : H →* A) (implementer : H →* Q) (projectiveAction : Q →* Equiv.Perm L) (responseFlow : V → Q) : Prop := ∀ a, ∃ h : H, ∃ g : ResponseGeneratedGroup responseFlow, ∃ c : projectiveAction.ker, project h = a ∧ implementer h = (g : Q) * (c : Q)",
+   "kind": "hypothesis",
+   "constrains": [
+    "implementer",
+    "response-generated group"
+   ],
+   "register": [],
+   "requirement": [
+    "G6",
+    "T3"
+   ],
+   "consumed_by": [
+    "T-G"
+   ],
+   "toy_inhabitant": "exchange response: rotations lie in its connected response group at the effective-algebra level; it closes on 17",
+   "executable_model": "fail",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "SHADOW",
+     "note": "inner action of the table (L13)"
+    },
+    "ii": {
+     "mark": "EXACT",
+     "note": "the implementers are words in the same pulses (MF 9)"
+    },
+    "iii": {
+     "mark": "EXACT",
+     "note": "every executed W(q) lies in SU(3) × SU(2), inside the group generated by the twelve responses; c = 1"
+    }
+   }
+  },
+  {
+   "id": "a10",
+   "family": "a",
+   "name": "projective composition of closed paths",
+   "lean": [
+    "implementer : H →* Q"
+   ],
+   "files": [
+    "Lean/Screen/A2HolonomyBridge.lean",
+    "paper/tex_fragments/PREMISE_BASIS.tex"
+   ],
+   "statement": "Closed paths compose projectively ; Lean: the implementer is a group homomorphism H →* Q",
+   "kind": "typing of the hypothesis",
+   "constrains": [
+    "implementer"
+   ],
+   "register": [],
+   "requirement": [
+    "G7"
+   ],
+   "consumed_by": [
+    "T-G"
+   ],
+   "toy_inhabitant": "none",
+   "executable_model": "fail",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": "no implementer"
+    },
+    "ii": {
+     "mark": "EXACT",
+     "note": "the pulse words multiply as the binary icosahedral group (MF 9)"
+    },
+    "iii": {
+     "mark": "EXACT",
+     "note": "14,400 cover products and 480 generator identities"
+    }
+   }
+  },
+  {
+   "id": "a11",
+   "family": "a",
+   "name": "naturality under presentation equivalence and refinement (G7)",
+   "lean": [],
+   "files": [
+    "paper/tex_fragments/PREMISE_BASIS.tex"
+   ],
+   "statement": "The response construction is natural under admissible presentation equivalence and refinement. ; (A2) 'the construction commutes with refinement'",
+   "kind": "prose clause",
+   "constrains": [
+    "wiring",
+    "refinement map"
+   ],
+   "register": [],
+   "requirement": [
+    "G7"
+   ],
+   "consumed_by": [
+    "T-G"
+   ],
+   "toy_inhabitant": "none",
+   "executable_model": "fail",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": "no frames in the tuple"
+    },
+    "ii": {
+     "mark": "SHADOW",
+     "note": "MG component A: exact under refinement from level 1, not at level 0; declared transport, not joined with the instrument"
+    },
+    "iii": {
+     "mark": "COMP",
+     "note": "presentation equivalence holds on the finite frame groupoid (PREMISES.md); chart transport exact under refinement from level 1 exists (MG component A); the walk on that family is MV",
+     "worker": "MV"
+    }
+   }
+  },
+  {
+   "id": "a12",
+   "family": "a",
+   "name": "same accepted source history",
+   "lean": [],
+   "files": [
+    "paper/tex_fragments/PREMISE_BASIS.tex"
+   ],
+   "statement": "The closed path, port action, and implementer must arise from the same accepted source history in an executable realization.",
+   "kind": "prose clause",
+   "constrains": [
+    "accepted records"
+   ],
+   "register": [],
+   "requirement": [
+    "G5",
+    "G6"
+   ],
+   "consumed_by": [
+    "T-G"
+   ],
+   "toy_inhabitant": "none",
+   "executable_model": "fail",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": ""
+    },
+    "ii": {
+     "mark": "SHADOW",
+     "note": "response and implementer are the same recorded pulses; there is no closed overlap path (MF decision 2)"
+    },
+    "iii": {
+     "mark": "EXACT",
+     "note": "typed arrow records carry generator, charts, port permutation, frame and central bit; complete history laws agree in either chart (PREMISES.md)"
+    }
+   }
+  },
+  {
+   "id": "a13",
+   "family": "a",
+   "name": "imported Lie theory",
+   "lean": [
+    "hm : ∀ d ∈ m, d ∈ SimpleDims",
+    "hcentreBound",
+    "hcentreless",
+    "OPH.A2HolonomyBridge.CentrelessFourFactorFixedSpaceDescription"
+   ],
+   "files": [
+    "Lean/Screen/A2HolonomyBridge.lean"
+   ],
+   "statement": "(hcentreBound : CarrierResponseInternallyImplemented portAction projectiveAction responseFlow D → dz ≤ 1) (hcentreless : CarrierResponseInternallyImplemented portAction projectiveAction responseFlow D → CentrelessFourFactorFixedSpaceDescription dz carrierFixedDim)",
+   "kind": "hypotheses that carry the classification; nothing for a setup to supply",
+   "constrains": [
+    "none"
+   ],
+   "register": [
+    "PR-11"
+   ],
+   "requirement": [],
+   "consumed_by": [
+    "T-G"
+   ],
+   "toy_inhabitant": "OPHSelection.SimpleDims = {3, 8, 10}",
+   "executable_model": "imported mathematics",
+   "committed_source_tape_reconstruction": "no obligation",
+   "scored": false,
+   "score": {
+    "i": {
+     "mark": "EXACT",
+     "note": ""
+    },
+    "ii": {
+     "mark": "EXACT",
+     "note": ""
+    },
+    "iii": {
+     "mark": "EXACT",
+     "note": ""
+    }
+   }
+  },
+  {
+   "id": "a14",
+   "family": "a",
+   "name": "federation architecture (A1)",
+   "lean": [],
+   "files": [
+    "paper/tex_fragments/PREMISE_BASIS.tex"
+   ],
+   "statement": "seam algebras with unital restrictions and coherent triple-overlap cocycles forming the nerve N_r; a finite edge-midpoint refinement support S_r realized orientation-preservingly in S^2 with mesh tending to zero; and a source-bound degree-one bridge b_r : N_r → S_r, all commuting with refinement",
+   "kind": "prose clause of A1",
+   "constrains": [
+    "wiring",
+    "refinement map"
+   ],
+   "register": [],
+   "requirement": [],
+   "consumed_by": [
+    "T-G",
+    "T-M",
+    "T-N",
+    "T-E"
+   ],
+   "toy_inhabitant": "earlier federation: single-port seams with sign −1 (reports/QF.md)",
+   "executable_model": "declared routing: anisotropic, ancestry breaks adjacency (PROBLEM.md)",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "SHADOW",
+     "note": "wiring F with the natural tower is covariant and ancestry-exact (reports/S3.md, reports/MG.md); seam algebras, triple-overlap cocycles and the degree-one bridge are not constructed"
+    },
+    "ii": {
+     "mark": "SHADOW",
+     "note": "as for (i); chart transports with their spin lifts exist on wiring F (MG 5, 6)"
+    },
+    "iii": {
+     "mark": "COMP",
+     "note": "family walk",
+     "worker": "MV"
+    }
+   }
+  },
+  {
+   "id": "b01",
+   "family": "b",
+   "name": "complete normalized record law for every experiment",
+   "lean": [
+    "EventAlgebra.CompleteRecordWeights",
+    "weight",
+    "nonneg",
+    "total"
+   ],
+   "files": [
+    "Lean/EventAlgebra/OperationalBornBridge.lean"
+   ],
+   "statement": "structure CompleteRecordWeights (C : Type u) (Ω : C → Type v) [∀ c, Fintype (Ω c)] where weight : ∀ c, Ω c → ℝ ; nonneg : ∀ c x, 0 ≤ weight c x ; total : ∀ c, ∑ x, weight c x = 1",
+   "kind": "structure (hypothesis)",
+   "constrains": [
+    "records",
+    "preparation"
+   ],
+   "register": [],
+   "requirement": [],
+   "consumed_by": [
+    "T-B"
+   ],
+   "toy_inhabitant": "none in tree (review L1-4)",
+   "executable_model": "model/native_born_bridge: complete endpoint execution on 78 configurations",
+   "committed_source_tape_reconstruction": "probabilities of the 264 histories sum to one",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "EXACT",
+     "note": "native.py: all 264 main histories retained; CAP complete on 30 seams (CX 2)"
+    },
+    "ii": {
+     "mark": "EXACT",
+     "note": "complete on both Fock registers (MT 3)"
+    },
+    "iii": {
+     "mark": "EXACT",
+     "note": "both detector branches and failures retained"
+    }
+   }
+  },
+  {
+   "id": "b02",
+   "family": "b",
+   "name": "positive matrix atom per record",
+   "lean": [
+    "EventAlgebra.CompleteRecordEffects",
+    "atom",
+    "positive",
+    "complete"
+   ],
+   "files": [
+    "Lean/EventAlgebra/OperationalBornBridge.lean"
+   ],
+   "statement": "structure CompleteRecordEffects (d : ℕ) (C : Type u) (Ω : C → Type v) [∀ c, Fintype (Ω c)] where atom : ∀ c, Ω c → Matrix (Fin d) (Fin d) ℂ ; positive : ∀ c x, (atom c x).PosSemidef ; complete : ∀ c, ∑ x, atom c x = 1",
+   "kind": "structure (hypothesis)",
+   "constrains": [
+    "measurement grammar",
+    "state space"
+   ],
+   "register": [
+    "PR-02"
+   ],
+   "requirement": [],
+   "consumed_by": [
+    "T-B"
+   ],
+   "toy_inhabitant": "none in tree (review L1-4)",
+   "executable_model": "declared input",
+   "committed_source_tape_reconstruction": "every committed effect is diagonal",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "EXACT",
+     "note": "diagonal atoms (committed); CAP rows (CX 2)"
+    },
+    "ii": {
+     "mark": "EXACT",
+     "note": "diagonal ⊗ internal"
+    },
+    "iii": {
+     "mark": "EXACT",
+     "note": ""
+    }
+   }
+  },
+  {
+   "id": "b03",
+   "family": "b",
+   "name": "implementation independence",
+   "lean": [
+    "EventAlgebra.OperationalEffectQuotient.implementation_independent"
+   ],
+   "files": [
+    "Lean/EventAlgebra/OperationalBornBridge.lean"
+   ],
+   "statement": "implementation_independent : ∀ (c c' : C) (S : Finset (Ω c)) (T : Finset (Ω c')), recordEventEffect R c S = recordEventEffect R c' T → recordEventWeight W c S = recordEventWeight W c' T",
+   "kind": "structure field (hypothesis)",
+   "constrains": [
+    "preparation",
+    "measurement grammar"
+   ],
+   "register": [],
+   "requirement": [],
+   "consumed_by": [
+    "T-B"
+   ],
+   "toy_inhabitant": "none in tree",
+   "executable_model": "classical domain only",
+   "committed_source_tape_reconstruction": "inhabited exactly (see the score of candidate i)",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "EXACT",
+     "note": "derived from counts on the commutative record algebra (model/native_born_bridge)"
+    },
+    "ii": {
+     "mark": "EXACT",
+     "note": "holds by the declared complex-state semantics; the conclusion of the theorem is then an input (review L4-1)"
+    },
+    "iii": {
+     "mark": "EXACT",
+     "note": "holds by the declared complex-state semantics"
+    }
+   }
+  },
+  {
+   "id": "b04",
+   "family": "b",
+   "name": "joint refinement of every coexistent effect pair",
+   "lean": [
+    "EventAlgebra.OperationalEffectQuotient.coexistent_refinement"
+   ],
+   "files": [
+    "Lean/EventAlgebra/OperationalBornBridge.lean"
+   ],
+   "statement": "coexistent_refinement : ∀ {E F}, IsEffect E → IsEffect F → IsEffect (E + F) → ∃ (c : C) (S T : Finset (Ω c)), Disjoint S T ∧ recordEventEffect R c S = E ∧ recordEventEffect R c T = F ; docstring: 'Exact realization of every effect needs uncountably many settings, so a finite-program source needs a dense-effect version of this interface.'",
+   "kind": "structure field (hypothesis)",
+   "constrains": [
+    "measurement grammar (apparatus menu)"
+   ],
+   "register": [],
+   "requirement": [
+    "T9"
+   ],
+   "consumed_by": [
+    "T-B"
+   ],
+   "toy_inhabitant": "none in tree",
+   "executable_model": "obstructed: no_operationalEffectQuotient_of_offDiagonal_effect, diagonal_qubit_records_no_operationalEffectQuotient",
+   "committed_source_tape_reconstruction": "extra repair coins give every dyadic acceptance, hence every real classical record effect (register PR-03)",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": "CAP: 144 of 144 Hermitian directions at depth 3 is a span; the band projector is not an event (CX 6, 9)"
+    },
+    "ii": {
+     "mark": "NO",
+     "note": "port effects span 12 of 13 block-diagonal dimensions (13 with N_p) and are finitely many sharp effects (MF section 3, gate T9)"
+    },
+    "iii": {
+     "mark": "NO",
+     "note": "PREMISES.md: tomography 'does not implement every positive effect'; the gauge walk splits into charge blocks"
+    }
+   }
+  },
+  {
+   "id": "b05",
+   "family": "b",
+   "name": "effect additivity",
+   "lean": [
+    "EventAlgebra.IsEffectValuation.additive",
+    "EventAlgebra.RepresentedPublicFrame.additive"
+   ],
+   "files": [
+    "Lean/EventAlgebra/FiniteBuschGleason.lean",
+    "Lean/EventAlgebra/QuantumAdequacySurface.lean"
+   ],
+   "statement": "additive : ∀ {E F : Matrix (Fin d) (Fin d) ℂ}, IsEffect E → IsEffect F → IsEffect (E + F) → v (E + F) = v E + v F",
+   "kind": "structure field (hypothesis); derived from b03 and b04 in the bridge",
+   "constrains": [
+    "preparation",
+    "measurement grammar"
+   ],
+   "register": [
+    "PR-03"
+   ],
+   "requirement": [
+    "T9"
+   ],
+   "consumed_by": [
+    "T-B"
+   ],
+   "toy_inhabitant": "none; countermodels nonlinearBinaryWeight_not_affine, FiniteWebBornNoGo",
+   "executable_model": "declared input",
+   "committed_source_tape_reconstruction": "model/native_quantum_reconstruction/PROOF.md",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "SHADOW",
+     "note": "ell_L(A) = Tr(ρ_L A) is an IsEffectValuation on M_66(ℂ): a linear reconstruction from closed-history counts; operational on diagonal effects only"
+    },
+    "ii": {
+     "mark": "EXACT",
+     "note": "declared semantics"
+    },
+    "iii": {
+     "mark": "EXACT",
+     "note": "declared semantics"
+    }
+   }
+  },
+  {
+   "id": "b06",
+   "family": "b",
+   "name": "phase-sensitive effect",
+   "lean": [
+    "EventAlgebra.AlgebraicPhaseCompletion",
+    "lift",
+    "isEvent",
+    "separates",
+    "completes"
+   ],
+   "files": [
+    "Lean/EventAlgebra/QuantumAdequacySurface.lean"
+   ],
+   "statement": "separates : bornWeight OPH.QFT.rhoYPlus lift = 1 ∧ bornWeight OPH.QFT.rhoYMinus lift = 0",
+   "kind": "structure (inhabited by committedAlgebraicPhaseCompletion as an algebraic lift)",
+   "constrains": [
+    "measurement grammar"
+   ],
+   "register": [
+    "PR-04"
+   ],
+   "requirement": [
+    "T9"
+   ],
+   "consumed_by": [
+    "T-B"
+   ],
+   "toy_inhabitant": "committedAlgebraicPhaseCompletion: I/2 − (2√3/3) i (QP − PQ)",
+   "executable_model": "declared input",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "EXACT",
+     "note": "CAP history effects span all 144 Hermitian directions at depth 3 (CX 6); the committed rule has none"
+    },
+    "ii": {
+     "mark": "EXACT",
+     "note": "port-axis projectors along six axes span Herm(2)"
+    },
+    "iii": {
+     "mark": "EXACT",
+     "note": "quarter-turn apparatus: complex tomography of the 1440 register"
+    }
+   }
+  },
+  {
+   "id": "b07",
+   "family": "b",
+   "name": "phase instrument as complete CP maps",
+   "lean": [],
+   "files": [
+    "docs/registers/PREMISE_REGISTER_V3.md"
+   ],
+   "statement": "context- and outcome-indexed completely-positive trace-nonincreasing state-update maps whose sum in each context is trace preserving, whose induced effects agree with the declared effect table, and whose outcome readback agrees with the recorded public outcome",
+   "kind": "register row",
+   "constrains": [
+    "seam instrument",
+    "apparatus"
+   ],
+   "register": [
+    "PR-64"
+   ],
+   "requirement": [],
+   "consumed_by": [
+    "T-B"
+   ],
+   "toy_inhabitant": "declared Lüders instrument (Lean/EventAlgebra/LuedersPhaseInstrument.lean); model/finite_instrument_calibration",
+   "executable_model": "constructed on declared inputs",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "EXACT",
+     "note": "CAP rows (CX 2)"
+    },
+    "ii": {
+     "mark": "EXACT",
+     "note": "MT 1 to 3"
+    },
+    "iii": {
+     "mark": "EXACT",
+     "note": ""
+    }
+   }
+  },
+  {
+   "id": "b08",
+   "family": "b",
+   "name": "source-produced preparation and readback in one run",
+   "lean": [],
+   "files": [
+    "docs/registers/PREMISE_REGISTER_V3.md"
+   ],
+   "statement": "One source construction supplies the common preparation used across the phase and real contexts, selects the phase-sensitive effect or instrument, produces the public outcomes through that instrument, and binds preparation, context, operation, readback, and receipt custody to one run.",
+   "kind": "register row",
+   "constrains": [
+    "preparation",
+    "accepted records"
+   ],
+   "register": [
+    "PR-65"
+   ],
+   "requirement": [],
+   "consumed_by": [
+    "T-B",
+    "T-M"
+   ],
+   "toy_inhabitant": "none",
+   "executable_model": "obstructed (native coherence floor)",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "EXACT",
+     "note": "CAP prepares its own stationary density (CX 3, 5; uniqueness ARGUED with rank certificates)"
+    },
+    "ii": {
+     "mark": "NO",
+     "note": "every internal state is stationary; the law selects none"
+    },
+    "iii": {
+     "mark": "EXACT",
+     "note": "heralded filter of the same walk, success 131/810, failures retained"
+    }
+   }
+  },
+  {
+   "id": "b09",
+   "family": "b",
+   "name": "projective partition for central records",
+   "lean": [
+    "EventAlgebra.ProjectivePartition",
+    "EventAlgebra.partitionOperationallyEquivalent_iff_pinching_eq"
+   ],
+   "files": [
+    "Lean/EventAlgebra/PartitionPinching.lean",
+    "Lean/EventAlgebra/Superselection.lean"
+   ],
+   "statement": "structure ProjectivePartition (n k : ℕ) where proj : Fin k → Matrix (Fin n) (Fin n) ℂ ; isEvent : ∀ i, IsEvent (proj i) ; orthogonal : ∀ i j, i ≠ j → proj i * proj j = 0 ; complete : ∑ i, proj i = 1",
+   "kind": "structure (hypothesis)",
+   "constrains": [
+    "record algebra"
+   ],
+   "register": [
+    "PR-02"
+   ],
+   "requirement": [
+    "T4"
+   ],
+   "consumed_by": [
+    "T-B",
+    "T-E"
+   ],
+   "toy_inhabitant": "any supplied partition (Lean/EventAlgebra/PublicRecordAlgebra.lean)",
+   "executable_model": "declared input",
+   "committed_source_tape_reconstruction": "inhabited exactly (see the score of candidate i)",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "EXACT",
+     "note": "total load; committed prefix cylinders"
+    },
+    "ii": {
+     "mark": "EXACT",
+     "note": "ports"
+    },
+    "iii": {
+     "mark": "EXACT",
+     "note": "Q5 blocks; regional flux parity"
+    }
+   }
+  },
+  {
+   "id": "c01",
+   "family": "c",
+   "name": "faithful reference law",
+   "lean": [
+    "OPH.Thermodynamics.RepairLawData",
+    "ref",
+    "ref_pos",
+    "ref_law"
+   ],
+   "files": [
+    "Lean/Thermodynamics/FourLawAdequacySurface.lean"
+   ],
+   "statement": "ref : Ω → ℝ ; ref_pos : ∀ x, 0 < ref x ; ref_law : ∑ x, ref x = 1",
+   "kind": "structure fields (hypothesis)",
+   "constrains": [
+    "reference state (classical law)"
+   ],
+   "register": [
+    "PR-07"
+   ],
+   "requirement": [
+    "T5"
+   ],
+   "consumed_by": [
+    "T-4L"
+   ],
+   "toy_inhabitant": "NativeBinary.fairSwap with the counting reference; NativeRecordFourLaws at (1/2, 1/4, 1/4)",
+   "executable_model": "derived from native records (binary shell, uniform reference)",
+   "committed_source_tape_reconstruction": "uniform stationary law",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "EXACT",
+     "note": "uniform on the 66 shell; ref_pos fails on the 78 carrier (collisions are transient)"
+    },
+    "ii": {
+     "mark": "EXACT",
+     "note": "positions"
+    },
+    "iii": {
+     "mark": "NO",
+     "note": "the reference ρ_W is a density matrix and W is not a stochastic kernel"
+    }
+   }
+  },
+  {
+   "id": "c02",
+   "family": "c",
+   "name": "complete repaired visible datum",
+   "lean": [
+    "OPH.Thermodynamics.RepairLawData.visible"
+   ],
+   "files": [
+    "Lean/Thermodynamics/FourLawAdequacySurface.lean"
+   ],
+   "statement": "visible : Ω → B",
+   "kind": "structure field (hypothesis)",
+   "constrains": [
+    "record (what an event leaves visible)"
+   ],
+   "register": [
+    "PR-07"
+   ],
+   "requirement": [],
+   "consumed_by": [
+    "T-4L"
+   ],
+   "toy_inhabitant": "NativeBinary.orbitLabel",
+   "executable_model": "derived from native records",
+   "committed_source_tape_reconstruction": "inhabited exactly (see the score of candidate i)",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "EXACT",
+     "note": "orbitLabel τ x = {x, τ x}"
+    },
+    "ii": {
+     "mark": "EXACT",
+     "note": "positions"
+    },
+    "iii": {
+     "mark": "NO",
+     "note": ""
+    }
+   }
+  },
+  {
+   "id": "c03",
+   "family": "c",
+   "name": "the event is conditional resampling in the visible fibre",
+   "lean": [
+    "OPH.Thermodynamics.heatBath",
+    "OPH.Thermodynamics.FourLawSurface.repairKernel"
+   ],
+   "files": [
+    "Lean/Thermodynamics/FiniteConditionalRepair.lean",
+    "Lean/Thermodynamics/FourLawAdequacySurface.lean"
+   ],
+   "statement": "noncomputable def heatBath (x y : Ω) : ℝ := if b y = b x then π y / fiberMass π b x else 0 ; noncomputable def repairKernel : Ω → Ω → ℝ := heatBath D.ref D.visible ; second law alone: (hstat : push D.ref K = D.ref)",
+   "kind": "definition: the theorem is about this kernel",
+   "constrains": [
+    "event"
+   ],
+   "register": [
+    "PR-07"
+   ],
+   "requirement": [
+    "T0"
+   ],
+   "consumed_by": [
+    "T-4L"
+   ],
+   "toy_inhabitant": "NativeBinary.fairSwap; NativeRepairFourCycle",
+   "executable_model": "derived from native records",
+   "committed_source_tape_reconstruction": "inhabited exactly (see the score of candidate i)",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "EXACT",
+     "note": "coin-averaged native event = (I + swap)/2 on all 30 seams; CAP has the same population kernel for every input (CX 2)"
+    },
+    "ii": {
+     "mark": "EXACT",
+     "note": "MT 5"
+    },
+    "iii": {
+     "mark": "SHADOW",
+     "note": "first blank-record event only: second return 643/900 against 101/120"
+    }
+   }
+  },
+  {
+   "id": "c04",
+   "family": "c",
+   "name": "thermal calibration with a nonconstant energy",
+   "lean": [
+    "OPH.Thermodynamics.CalibrationData",
+    "thermal",
+    "zeroth_thermometer (hij : C.energy i ≠ C.energy j)"
+   ],
+   "files": [
+    "Lean/Thermodynamics/FourLawAdequacySurface.lean"
+   ],
+   "statement": "thermal : ∀ x, -Real.log (D.ref x) = beta * energy x + logZ",
+   "kind": "structure field (hypothesis)",
+   "constrains": [
+    "clock",
+    "reference state"
+   ],
+   "register": [
+    "PR-15"
+   ],
+   "requirement": [],
+   "consumed_by": [
+    "T-4L",
+    "T-M",
+    "T-E",
+    "T-X"
+   ],
+   "toy_inhabitant": "NativeRecordFourLaws: E := −log w at (1/2, 1/4, 1/4); ProtectedGaugeCorner: supplied port weights 25:8 (review L5-2, L5-4)",
+   "executable_model": "declared input",
+   "committed_source_tape_reconstruction": "H = −log P of the count reconstruction is an operator on M_66, outside this classical bundle",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": "uniform reference: constant energy (counting_calibration_energy_constant); CAP's levels 0.298676 ×2, 0.052191 ×4, 0.032314 ×6 belong to a density matrix"
+    },
+    "ii": {
+     "mark": "NO",
+     "note": ""
+    },
+    "iii": {
+     "mark": "NO",
+     "note": "−log ρ_W is a function of W + W*"
+    }
+   }
+  },
+  {
+   "id": "c05",
+   "family": "c",
+   "name": "refinement-uniform gap family",
+   "lean": [
+    "OPH.Thermodynamics.RefinementAttachment",
+    "OPH.Thermodynamics.UniformGapRefinement",
+    "gap_dichotomy",
+    "card_le"
+   ],
+   "files": [
+    "Lean/Thermodynamics/FourLawAdequacySurface.lean",
+    "Lean/Thermodynamics/LowTemperatureControl.lean"
+   ],
+   "statement": "gap_dichotomy : ∀ (r : I) (x : X r), E r x = minEnergy (E r) ∨ minEnergy (E r) + gapBound ≤ E r x ; cardBound : ℕ ; card_le : ∀ r : I, Fintype.card (X r) ≤ cardBound",
+   "kind": "structure fields (hypothesis)",
+   "constrains": [
+    "refinement family",
+    "energy"
+   ],
+   "register": [
+    "PR-08"
+   ],
+   "requirement": [],
+   "consumed_by": [
+    "T-4L"
+   ],
+   "toy_inhabitant": "declared families (CofinalSpectralTailFamily, CoherentRefinementFamily)",
+   "executable_model": "not addressed",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": "only the one-member constant-energy family"
+    },
+    "ii": {
+     "mark": "NO",
+     "note": ""
+    },
+    "iii": {
+     "mark": "NO",
+     "note": ""
+    }
+   }
+  },
+  {
+   "id": "c06",
+   "family": "c",
+   "name": "state and transition as information projections on one reference (A3)",
+   "lean": [
+    "OPH.Thermodynamics.FourLawSurface.repairKernel_row_optimal"
+   ],
+   "files": [
+    "paper/tex_fragments/PREMISE_BASIS.tex",
+    "Lean/Thermodynamics/FourLawAdequacySurface.lean"
+   ],
+   "statement": "the realized state is the information projection ... ρ_r = arg min_{ρ ∈ K_r} Σ_{P ∈ G_r} w_{r,P} D(ρ_{r,P} ‖ τ_{r,P})",
+   "kind": "prose clause of A3; row optimality proved for heatBath",
+   "constrains": [
+    "reference state",
+    "event"
+   ],
+   "register": [
+    "PR-07",
+    "PR-05"
+   ],
+   "requirement": [],
+   "consumed_by": [
+    "T-4L",
+    "T-E"
+   ],
+   "toy_inhabitant": "conditional counting-reference realization (Lean/InformationProjection/SourceReferenceSelection.lean)",
+   "executable_model": "declared input (PR-05), derived (PR-07)",
+   "committed_source_tape_reconstruction": "inhabited exactly (see the score of candidate i)",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "EXACT",
+     "note": "each kernel row is the information projection onto the visible fibre for the uniform reference; the stationary law is uniform"
+    },
+    "ii": {
+     "mark": "SHADOW",
+     "note": "positions only; the internal reference is free"
+    },
+    "iii": {
+     "mark": "NO",
+     "note": "PREMISES.md: 'The declared alpha=1/2 filter is not an information-projection dynamics.'"
+    }
+   }
+  },
+  {
+   "id": "d01",
+   "family": "d",
+   "name": "typed patch graph with interface projections",
+   "lean": [
+    "OPH.OPHCarrier",
+    "OPH.Records",
+    "OPH.obsMap"
+   ],
+   "files": [
+    "Lean/ObserverPatchHolography/Primitives.lean"
+   ],
+   "statement": "def Records : Type := (i : C.Patch) → C.State i",
+   "kind": "structure (hypothesis)",
+   "constrains": [
+    "wiring",
+    "local state"
+   ],
+   "register": [],
+   "requirement": [],
+   "consumed_by": [
+    "T-C"
+   ],
+   "toy_inhabitant": "demoCarrier (two Bool patches, one edge)",
+   "executable_model": "the carrier supplies the typing",
+   "committed_source_tape_reconstruction": "inhabited exactly (see the score of candidate i)",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "EXACT",
+     "note": "Patch = port, Edge = seam, State = load"
+    },
+    "ii": {
+     "mark": "EXACT",
+     "note": ""
+    },
+    "iii": {
+     "mark": "NO",
+     "note": "amplitudes on 1440 dimensions are not a product of local finite states; the chart and link registers are"
+    }
+   }
+  },
+  {
+   "id": "d02",
+   "family": "d",
+   "name": "single-site move (H1)",
+   "lean": [
+    "H1"
+   ],
+   "files": [
+    "Lean/ObserverPatchHolography/Primitives.lean"
+   ],
+   "statement": "(H1 : ∀ (i : C.Patch) (x : Records C) (j : C.Patch), j ≠ i → (lr i x) j = x j)",
+   "kind": "hypothesis",
+   "constrains": [
+    "event"
+   ],
+   "register": [
+    "PR-01"
+   ],
+   "requirement": [
+    "T7"
+   ],
+   "consumed_by": [
+    "T-C",
+    "T-E"
+   ],
+   "toy_inhabitant": "demoLR (copy the neighbour)",
+   "executable_model": "obstructed",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": "a seam event changes two ports; H1 together with a conserved total forces lr i x = x"
+    },
+    "ii": {
+     "mark": "NO",
+     "note": ""
+    },
+    "iii": {
+     "mark": "COMP",
+     "note": "chart variable of the cover controller",
+     "worker": "MA"
+    }
+   }
+  },
+  {
+   "id": "d03",
+   "family": "d",
+   "name": "fires iff an incident edge is broken (H2)",
+   "lean": [
+    "H2"
+   ],
+   "files": [
+    "Lean/ObserverPatchHolography/Primitives.lean"
+   ],
+   "statement": "(H2 : ∀ (i : C.Patch) (x : Records C), lr i x ≠ x ↔ ∃ e : C.Edge, (C.src e = i ∨ C.tgt e = i) ∧ ¬ edgeConsistentAt e x)",
+   "kind": "hypothesis",
+   "constrains": [
+    "event",
+    "scheduler"
+   ],
+   "register": [
+    "PR-01"
+   ],
+   "requirement": [
+    "T7"
+   ],
+   "consumed_by": [
+    "T-C",
+    "T-E"
+   ],
+   "toy_inhabitant": "demoLR",
+   "executable_model": "obstructed",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": "the rule waits or swaps at mismatch one"
+    },
+    "ii": {
+     "mark": "NO",
+     "note": ""
+    },
+    "iii": {
+     "mark": "COMP",
+     "note": "",
+     "worker": "MA"
+    }
+   }
+  },
+  {
+   "id": "d04",
+   "family": "d",
+   "name": "local satisfiability (H3)",
+   "lean": [
+    "H3",
+    "OPH.LocallySolvable"
+   ],
+   "files": [
+    "Lean/ObserverPatchHolography/Primitives.lean"
+   ],
+   "statement": "(H3 : ∀ (i : C.Patch) (x : Records C), lr i x ≠ x → ∀ e : C.Edge, (C.src e = i ∨ C.tgt e = i) → edgeConsistentAt e (lr i x))",
+   "kind": "hypothesis",
+   "constrains": [
+    "state space",
+    "event"
+   ],
+   "register": [
+    "PR-01"
+   ],
+   "requirement": [
+    "T7"
+   ],
+   "consumed_by": [
+    "T-C",
+    "T-E"
+   ],
+   "toy_inhabitant": "demoLR",
+   "executable_model": "obstructed",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": "at total two no configuration satisfies all 30 seams; with one unit of flux per face at most 11 of 30 recharted seam equations hold (reports/QF.md)"
+    },
+    "ii": {
+     "mark": "NO",
+     "note": ""
+    },
+    "iii": {
+     "mark": "COMP",
+     "note": "face and rhombus checks are frustration-free on amplitudes: kernels exactly the doublet and the triplet (MF 1, 2)",
+     "worker": "MA"
+    }
+   }
+  },
+  {
+   "id": "d05",
+   "family": "d",
+   "name": "protected observation preserved (HB)",
+   "lean": [
+    "HB",
+    "ObservableNormalForms.ObservationPreserving"
+   ],
+   "files": [
+    "Lean/ObserverPatchHolography/Primitives.lean",
+    "Lean/ObservableNormalForms/ObservableNormalForms/Exact.lean"
+   ],
+   "statement": "(HB : ∀ (i : C.Patch) (x : Records C), B (lr i x) = B x)",
+   "kind": "hypothesis",
+   "constrains": [
+    "record (protected observation)"
+   ],
+   "register": [],
+   "requirement": [],
+   "consumed_by": [
+    "T-C",
+    "T-E"
+   ],
+   "toy_inhabitant": "demoBoundary",
+   "executable_model": "total load is conserved",
+   "committed_source_tape_reconstruction": "inhabited exactly (see the score of candidate i)",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "EXACT",
+     "note": "total load; committed prefix cylinders"
+    },
+    "ii": {
+     "mark": "EXACT",
+     "note": "total load"
+    },
+    "iii": {
+     "mark": "EXACT",
+     "note": "Q5; regional flux parity"
+    }
+   }
+  },
+  {
+   "id": "d06",
+   "family": "d",
+   "name": "the observation identifies consistent states (Hfib)",
+   "lean": [
+    "Hfib",
+    "ObservableNormalForms.BoundaryIdentifiesModulo",
+    "OPH.EinsteinBranch.BoundaryFiber"
+   ],
+   "files": [
+    "Lean/ObserverPatchHolography/Primitives.lean",
+    "Lean/ObservableNormalForms/ObservableNormalForms/ObserverConfluence.lean"
+   ],
+   "statement": "(Hfib : ∀ x y : Records C, B x = B y → Consistent C x → Consistent C y → gaugeEquiv C x y)",
+   "kind": "hypothesis",
+   "constrains": [
+    "record",
+    "readout"
+   ],
+   "register": [
+    "PR-01"
+   ],
+   "requirement": [],
+   "consumed_by": [
+    "T-C",
+    "T-E"
+   ],
+   "toy_inhabitant": "demoSeedBoundary; no carrier in the file has HB and Hfib together",
+   "executable_model": "obstructed (PR-01)",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": "the consistent set is empty at total two: the hypotheses of empty_fiber_no_reachable_normalForm hold and its conclusion is the nontermination; unique frozen vacuum at integer filling (L7)"
+    },
+    "ii": {
+     "mark": "NO",
+     "note": ""
+    },
+    "iii": {
+     "mark": "COMP",
+     "note": "",
+     "worker": "MA"
+    }
+   }
+  },
+  {
+   "id": "d07",
+   "family": "d",
+   "name": "commutation of moves (H4)",
+   "lean": [
+    "H4",
+    "OPH.AbstractRewriting.Confluent"
+   ],
+   "files": [
+    "Lean/ObserverPatchHolography/Primitives.lean"
+   ],
+   "statement": "(H4 : ∀ (i j : C.Patch) (x : Records C), lr i (lr j x) = lr j (lr i x))",
+   "kind": "hypothesis",
+   "constrains": [
+    "event",
+    "scheduler"
+   ],
+   "register": [
+    "PR-01"
+   ],
+   "requirement": [],
+   "consumed_by": [
+    "T-C"
+   ],
+   "toy_inhabitant": "none: demoCarrier_repairs_dont_commute, demoCarrier_not_confluent; demoCarrier_dir_confluent for a directional repair",
+   "executable_model": "obstructed",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": ""
+    },
+    "ii": {
+     "mark": "NO",
+     "note": ""
+    },
+    "iii": {
+     "mark": "COMP",
+     "note": "",
+     "worker": "MA"
+    }
+   }
+  },
+  {
+   "id": "d08",
+   "family": "d",
+   "name": "normal forms exist and are the consistent set",
+   "lean": [
+    "ObservableNormalForms.CompleteFor",
+    "ObservableNormalForms.WeaklyNormalizing"
+   ],
+   "files": [
+    "Lean/ObservableNormalForms/ObservableNormalForms/Exact.lean"
+   ],
+   "statement": "def CompleteFor (r : Q → Q → Prop) (C : Set Q) : Prop := ∀ x : Q, IsNormalForm r x ↔ x ∈ C ; def WeaklyNormalizing (r : Q → Q → Prop) (x : Q) : Prop := ∃ nf : Q, ReflTransGen r x nf ∧ IsNormalForm r nf",
+   "kind": "hypotheses",
+   "constrains": [
+    "event",
+    "scheduler"
+   ],
+   "register": [
+    "PR-01"
+   ],
+   "requirement": [
+    "T7"
+   ],
+   "consumed_by": [
+    "T-C",
+    "T-E"
+   ],
+   "toy_inhabitant": "TwoBitRepair",
+   "executable_model": "obstructed (PR-01)",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": "each of the 66 states has at least 8 moving branches of 60: no normal form (audit/acceptance/checks.py)"
+    },
+    "ii": {
+     "mark": "NO",
+     "note": ""
+    },
+    "iii": {
+     "mark": "COMP",
+     "note": "recharting of the cover controller to the base chart lowers the word distance (at most nine) with one endpoint by the 14,400 exact products: ARGUED",
+     "worker": "MA"
+    }
+   }
+  },
+  {
+   "id": "d09",
+   "family": "d",
+   "name": "public quotient compatibility",
+   "lean": [
+    "OPH.Tower.PublicWorldPresentation.FiniteRepairSystem.QuotientCompatible",
+    "repair_respects_public",
+    "enabled_respects_public"
+   ],
+   "files": [
+    "Lean/Tower/FixedPointEndpoint.lean"
+   ],
+   "statement": "repair_respects_public : ∀ (m : R.Move) {x y : P.Config}, P.readback x = P.readback y → P.readback (R.repair m x) = P.readback (R.repair m y) ; enabled_respects_public : ∀ (m : R.Move) {x y : P.Config}, P.readback x = P.readback y → (R.repair m x ≠ x ↔ R.repair m y ≠ y)",
+   "kind": "structure (hypothesis); the theorem also takes hterm and hconf",
+   "constrains": [
+    "readout",
+    "event"
+   ],
+   "register": [],
+   "requirement": [],
+   "consumed_by": [
+    "T-C"
+   ],
+   "toy_inhabitant": "FullPremiseInhabitant.branchSystem (two flags and a hidden bit)",
+   "executable_model": "obstructed (PR-01): termination fails",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "SHADOW",
+     "note": "holds with Move = 60 seam and coin labels and readback = loads; hterm fails"
+    },
+    "ii": {
+     "mark": "SHADOW",
+     "note": ""
+    },
+    "iii": {
+     "mark": "COMP",
+     "note": "",
+     "worker": "MA"
+    }
+   }
+  },
+  {
+   "id": "d10",
+   "family": "d",
+   "name": "agreement of accepted records (A2)",
+   "lean": [],
+   "files": [
+    "paper/tex_fragments/PREMISE_BASIS.tex"
+   ],
+   "statement": "every declared data-access diagram for accepted public data commutes after interpretation, and J_r ∘ c_{s→r} = C_{s→r} ∘ J_s across resolutions",
+   "kind": "prose clause of A2 (the first of the three consensus contracts of audit/ACCEPTANCE.md)",
+   "constrains": [
+    "accepted records",
+    "wiring"
+   ],
+   "register": [],
+   "requirement": [
+    "T7"
+   ],
+   "consumed_by": [
+    "T-G",
+    "T-C"
+   ],
+   "toy_inhabitant": "none",
+   "executable_model": "one tape per carrier",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": "increments of neighbouring carriers are uncorrelated (L15)"
+    },
+    "ii": {
+     "mark": "SHADOW",
+     "note": "chart transports on wiring F exist (MG); no agreement of accepted records between carriers is computed; registers of neighbouring carriers do not agree (MC 16)"
+    },
+    "iii": {
+     "mark": "EXACT",
+     "note": "complete adaptive history laws agree under the implemented finite frame groupoid (PREMISES.md). Federation: MG"
+    }
+   }
+  },
+  {
+   "id": "d11",
+   "family": "d",
+   "name": "almost-sure stabilization",
+   "lean": [],
+   "files": [
+    "repair-law/audit/ACCEPTANCE.md"
+   ],
+   "statement": "the second of the three consensus contracts: almost-sure stabilization",
+   "kind": "audit contract",
+   "constrains": [
+    "event",
+    "scheduler"
+   ],
+   "register": [],
+   "requirement": [
+    "T7"
+   ],
+   "consumed_by": [
+    "T-C"
+   ],
+   "toy_inhabitant": "none",
+   "executable_model": "fails at fractional filling; holds in the neutral integer-filling sector (L7)",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": "the probability of never moving again is zero at fractional filling"
+    },
+    "ii": {
+     "mark": "NO",
+     "note": ""
+    },
+    "iii": {
+     "mark": "NO",
+     "note": "unitary recurrence"
+    }
+   }
+  },
+  {
+   "id": "e01",
+   "family": "e",
+   "name": "N1 point set in a bounded convex window of a three-dimensional Euclidean space",
+   "lean": [
+    "OPH.GoldenSourceCausalLimit.Carrier",
+    "population",
+    "domain"
+   ],
+   "files": [
+    "Lean/Geometry/GoldenSourceCausalLimit.lean"
+   ],
+   "statement": "abbrev Carrier := EuclideanSpace ℝ (Fin 3) ; def population (n : ℕ) (L : ℝ) : Set Carrier := Set.range (site (n := n) L)",
+   "kind": "definition (the population is supplied)",
+   "constrains": [
+    "records as points",
+    "state space"
+   ],
+   "register": [
+    "PR-16",
+    "PR-52"
+   ],
+   "requirement": [
+    "T8"
+   ],
+   "consumed_by": [
+    "T-N",
+    "T-E"
+   ],
+   "toy_inhabitant": "golden sites L frac(b φ)",
+   "executable_model": "supplied loads held fixed",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "SHADOW",
+     "note": "one tape is one chain (MC 5). Register population: six signed axis counts modulo Q per carrier, a function of the tape, read as x = Σ m_a u_a: r = 0.1002(15), d_r = 4.00(2), d_m = 3.98(2) in windows (MC 19); the register, the readout and the read law are declared"
+    },
+    "ii": {
+     "mark": "NO",
+     "note": "sharp records have null effects on twelve rays: a union of twelve chains; weak effects become null after the first sharp row (MC 11 to 14)"
+    },
+    "iii": {
+     "mark": "COMP",
+     "note": "no population computed",
+     "worker": "MV"
+    }
+   }
+  },
+  {
+   "id": "e02",
+   "family": "e",
+   "name": "N2 covering at radius h_n with h_n / a_n → 0",
+   "lean": [
+    "OPH.SourceNetCausalCone.Covers",
+    "population_covers",
+    "assignment_ratio_tendsto"
+   ],
+   "files": [
+    "Lean/Geometry/SourceNetCausalCone.lean",
+    "Lean/Geometry/GoldenSourceCausalLimit.lean"
+   ],
+   "statement": "def Covers (Ω S : Set E) (h : ℝ) : Prop := ∀ x ∈ Ω, ∃ s ∈ S, ‖s - x‖ ≤ h ; (hratio : Tendsto (fun n => h n / a n) atTop (𝓝 0))",
+   "kind": "hypothesis; proved for the golden sites",
+   "constrains": [
+    "records as points"
+   ],
+   "register": [],
+   "requirement": [],
+   "consumed_by": [
+    "T-N"
+   ],
+   "toy_inhabitant": "golden sites",
+   "executable_model": "supplied population (proved for the golden sites)",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "SHADOW",
+     "note": "stationary sample, uniform on (Z/Q)^6 (MC 19); covering in probability only"
+    },
+    "ii": {
+     "mark": "NO",
+     "note": "see e01"
+    },
+    "iii": {
+     "mark": "COMP",
+     "note": "",
+     "worker": "MV"
+    }
+   }
+  },
+  {
+   "id": "e03",
+   "family": "e",
+   "name": "N3 counting measure tends to Lebesgue measure",
+   "lean": [
+    "eventCell",
+    "generated_interval_count_tendsto"
+   ],
+   "files": [
+    "Lean/Geometry/GoldenSourceCausalLimit.lean"
+   ],
+   "statement": "theorem generated_interval_count_tendsto ... Tendsto (fun n => (sourceDelta (n + 2) L c * (L ^ 3 / (Nat.fib (n + 2) : ℝ) ^ 3)) * (intervalCount (e n) (f n) : ℝ)) atTop (𝓝 ((spaceTimeVolume T L).real (diamond c p q)))",
+   "kind": "proved for the golden sites",
+   "constrains": [
+    "records as points"
+   ],
+   "register": [],
+   "requirement": [],
+   "consumed_by": [
+    "T-N",
+    "T-E"
+   ],
+   "toy_inhabitant": "Fibonacci permutation partition",
+   "executable_model": "supplied population",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": "fails as written (MC 21): a density-weighted volume with convergence in probability would be needed; the unbounded sum is not Lorentz invariant (MC 8, 9)"
+    },
+    "ii": {
+     "mark": "NO",
+     "note": "long tapes end as one chain per run (MC A3)"
+    },
+    "iii": {
+     "mark": "COMP",
+     "note": "",
+     "worker": "MV"
+    }
+   }
+  },
+  {
+   "id": "e04",
+   "family": "e",
+   "name": "N4 order generated by reads",
+   "lean": [
+    "OPH.SourceNetCausalCone.Reachable",
+    "OPH.SourceNetCausalCone.Precedes",
+    "generated"
+   ],
+   "files": [
+    "Lean/Geometry/SourceNetCausalCone.lean",
+    "Lean/Geometry/GoldenSourceCausalLimit.lean"
+   ],
+   "statement": "def Precedes {S : Set E} (a : ℝ) (e f : ℕ × S) : Prop := e.1 ≤ f.1 ∧ Reachable S a (f.1 - e.1) e.2 f.2",
+   "kind": "definition (the read law is supplied)",
+   "constrains": [
+    "event",
+    "records"
+   ],
+   "register": [
+    "PR-81"
+   ],
+   "requirement": [],
+   "consumed_by": [
+    "T-N"
+   ],
+   "toy_inhabitant": "complete-neighbour reads of the golden population",
+   "executable_model": "derived from native records",
+   "committed_source_tape_reconstruction": "inhabited exactly (see the score of candidate i)",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "EXACT",
+     "note": "order generated by the reads of native histories; it reads dimension 2+1 (L9)"
+    },
+    "ii": {
+     "mark": "EXACT",
+     "note": "same events"
+    },
+    "iii": {
+     "mark": "NO",
+     "note": "the idle walk has no commit events"
+    }
+   }
+  },
+  {
+   "id": "e05",
+   "family": "e",
+   "name": "N5 the same full population at every layer",
+   "lean": [
+    "Label",
+    "placed"
+   ],
+   "files": [
+    "Lean/Geometry/GoldenSourceCausalLimit.lean"
+   ],
+   "statement": "abbrev Label (n : ℕ) (T L c : ℝ) := timeIndex T (sourceDelta n L c) × (Fin 3 → Fin (Nat.fib n))",
+   "kind": "definition (one event per site and layer)",
+   "constrains": [
+    "memory"
+   ],
+   "register": [
+    "PR-52"
+   ],
+   "requirement": [
+    "T8"
+   ],
+   "consumed_by": [
+    "T-N",
+    "T-E"
+   ],
+   "toy_inhabitant": "fixed supplied loads",
+   "executable_model": "supplied (fixed population)",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": "fails as written (MC 21): the register population is stationary, not the same population at every layer"
+    },
+    "ii": {
+     "mark": "SHADOW",
+     "note": "the internal factor survives every later event (MT 1, 10)"
+    },
+    "iii": {
+     "mark": "SHADOW",
+     "note": "link bits persist under a fixed boundary; the parity record is rewritten"
+    }
+   }
+  },
+  {
+   "id": "e06",
+   "family": "e",
+   "name": "N6 layer clock with a speed",
+   "lean": [
+    "OPH.SourceNetOrderLimit.layerTime"
+   ],
+   "files": [
+    "Lean/Geometry/SourceNetOrderLimit.lean"
+   ],
+   "statement": "noncomputable def layerTime (a c : ℝ) (j : ℕ) : ℝ := (j : ℝ) * (a / c)",
+   "kind": "definition (the tick is supplied)",
+   "constrains": [
+    "clock",
+    "scheduler"
+   ],
+   "register": [],
+   "requirement": [
+    "T6"
+   ],
+   "consumed_by": [
+    "T-N",
+    "T-K"
+   ],
+   "toy_inhabitant": "layerTime with a declared speed",
+   "executable_model": "declared read law and clock",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": "diffusion: no front"
+    },
+    "ii": {
+     "mark": "NO",
+     "note": ""
+    },
+    "iii": {
+     "mark": "COMP",
+     "note": "one seam per step gives a strict front on one carrier",
+     "worker": "MV"
+    }
+   }
+  },
+  {
+   "id": "e07",
+   "family": "e",
+   "name": "N7 interior diamonds inside the window",
+   "lean": [
+    "hbox"
+   ],
+   "files": [
+    "Lean/Geometry/FlatDiamondNormalization.lean"
+   ],
+   "statement": "(hbox : diamond c p q ⊆ Icc 0 T ×ˢ cube L)",
+   "kind": "hypothesis on the statistic, proved under N1 to N6",
+   "constrains": [
+    "none"
+   ],
+   "register": [],
+   "requirement": [],
+   "consumed_by": [
+    "T-N"
+   ],
+   "toy_inhabitant": "interior diamonds of the golden population",
+   "executable_model": "supplied population",
+   "committed_source_tape_reconstruction": "no obligation",
+   "scored": false,
+   "score": {
+    "i": {
+     "mark": "EXACT",
+     "note": ""
+    },
+    "ii": {
+     "mark": "EXACT",
+     "note": ""
+    },
+    "iii": {
+     "mark": "EXACT",
+     "note": ""
+    }
+   }
+  },
+  {
+   "id": "e08",
+   "family": "e",
+   "name": "certified read support and ancestry rank",
+   "lean": [],
+   "files": [
+    "docs/registers/PREMISE_REGISTER_V3.md"
+   ],
+   "statement": "Every semantic commit declares the register versions on which its enablement, accepted payload, visible label, or continuation genuinely depends, and the declared support is sound and complete for that dependence.",
+   "kind": "register rows",
+   "constrains": [
+    "accepted records"
+   ],
+   "register": [
+    "PR-81",
+    "PR-82"
+   ],
+   "requirement": [],
+   "consumed_by": [
+    "T-N"
+   ],
+   "toy_inhabitant": "four-event native execution with zero spatial displacement (Lean/Geometry/NativeRepairSemanticPlacement.lean; review L1-6)",
+   "executable_model": "derived from native records",
+   "committed_source_tape_reconstruction": "inhabited exactly (see the score of candidate i)",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "EXACT",
+     "note": "dependence crosses at most one seam per event; the attempt index ranks every event"
+    },
+    "ii": {
+     "mark": "EXACT",
+     "note": ""
+    },
+    "iii": {
+     "mark": "NO",
+     "note": "no semantic commit in idle evolution"
+    }
+   }
+  },
+  {
+   "id": "f01",
+   "family": "f",
+   "name": "H1 cap algebra and support",
+   "lean": [],
+   "files": [
+    "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex:359",
+    "repair-law/reports/MU.md (block 1)"
+   ],
+   "statement": "a common support-visible geometric cap algebra ; finite: a declared algebra A_N(C) of a cap C and what 'support' of an element means",
+   "kind": "prose hypothesis",
+   "constrains": [
+    "accessible algebra"
+   ],
+   "register": [
+    "PR-23"
+   ],
+   "requirement": [
+    "T5"
+   ],
+   "consumed_by": [
+    "T-M",
+    "T-E"
+   ],
+   "toy_inhabitant": "none: the theorem has a proof outline only",
+   "executable_model": "not addressed",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "SHADOW",
+     "note": "declared cap algebra M_{n_C} + C (MU block 3); sector references σ_Q in the reconstruction"
+    },
+    "ii": {
+     "mark": "SHADOW",
+     "note": "declared cap algebra M_{n_C} + C on the code corner (MU block 3)"
+    },
+    "iii": {
+     "mark": "NO",
+     "note": "not computed for ρ_W"
+    }
+   }
+  },
+  {
+   "id": "f02",
+   "family": "f",
+   "name": "H2 state faithful on the accessible algebra, with its preparation",
+   "lean": [],
+   "files": [
+    "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex:359",
+    "repair-law/reports/MU.md (block 1)",
+    "repair-law/audit/ACCEPTANCE.md"
+   ],
+   "statement": "state in its mixed-GNS limit ; finite: a state faithful on A_N(C) with reduced density ρ_C and K_C = −log ρ_C ; ACCEPTANCE T5: 'A faithful state on the actual accessible algebra, its preparation or selection, stationarity under the declared evolution'",
+   "kind": "prose hypothesis",
+   "constrains": [
+    "reference state",
+    "preparation"
+   ],
+   "register": [
+    "PR-23"
+   ],
+   "requirement": [
+    "T5"
+   ],
+   "consumed_by": [
+    "T-M",
+    "T-E",
+    "T-4L"
+   ],
+   "toy_inhabitant": "Gibbs references of compiled Hamiltonians (register PR-23)",
+   "executable_model": "constructed on declared inputs",
+   "committed_source_tape_reconstruction": "ρ_L = P^L / Tr P^L is faithful and nontracial on the reconstructed M_66; the source does not prepare it",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "EXACT",
+     "note": "CAP stationary density, faithful on the shell (CX 3, 5); ρ_L on the reconstructed algebra"
+    },
+    "ii": {
+     "mark": "NO",
+     "note": "the internal reference is free"
+    },
+    "iii": {
+     "mark": "EXACT",
+     "note": "ρ_W, eigenvalues at least 1/2096, stationary under W"
+    }
+   }
+  },
+  {
+   "id": "f03",
+   "family": "f",
+   "name": "H3 nontrivial modular action on accessible observables",
+   "lean": [],
+   "files": [
+    "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex:359",
+    "repair-law/reports/MU.md (block 1)"
+   ],
+   "statement": "finite: K_C is not central in A_N(C) (the native tracial state fails here)",
+   "kind": "prose hypothesis",
+   "constrains": [
+    "reference state",
+    "accessible algebra"
+   ],
+   "register": [],
+   "requirement": [
+    "T5"
+   ],
+   "consumed_by": [
+    "T-M",
+    "T-E"
+   ],
+   "toy_inhabitant": "Gibbs references of compiled Hamiltonians",
+   "executable_model": "native stationary state is tracial: identity modular action",
+   "committed_source_tape_reconstruction": "α_s^L(A) = P^{iLs} A P^{−iLs} on the reconstructed algebra; trivial on the diagonal record effects",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "EXACT",
+     "note": "CAP: nontracial with complete effects (CX 3, 6). Committed rule: identity"
+    },
+    "ii": {
+     "mark": "NO",
+     "note": ""
+    },
+    "iii": {
+     "mark": "EXACT",
+     "note": "ρ_(a,0,k),(b,0,k) = −29/31440 against a readable register projector. Caps: MU"
+    }
+   }
+  },
+  {
+   "id": "f04",
+   "family": "f",
+   "name": "H4 Markov collars",
+   "lean": [],
+   "files": [
+    "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex:359",
+    "repair-law/reports/MU.md (block 1)"
+   ],
+   "statement": "its finite collars have exact Markov replacements or controlled faithful Markov comparison",
+   "kind": "prose hypothesis",
+   "constrains": [
+    "reference state",
+    "wiring"
+   ],
+   "register": [],
+   "requirement": [],
+   "consumed_by": [
+    "T-M",
+    "T-E"
+   ],
+   "toy_inhabitant": "counterexample_receipt (gravity ladder rung 4)",
+   "executable_model": "not addressed",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": "CAP: I(A:D|B) = 0.69 nats at every N (MU 11)"
+    },
+    "ii": {
+     "mark": "NO",
+     "note": "I(A:D|B) = 0.97 nats (tracial code state), 1.66 (Gaussian) for a collar of half-width 5 degrees, the same at N = 162, 642, 2562 (MU 11)"
+    },
+    "iii": {
+     "mark": "NO",
+     "note": "not computed for ρ_W"
+    }
+   }
+  },
+  {
+   "id": "f05",
+   "family": "f",
+   "name": "H5 refinement compatibility of algebra and state",
+   "lean": [],
+   "files": [
+    "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex:359",
+    "repair-law/reports/MU.md (block 1)"
+   ],
+   "statement": "the local algebra-state comparisons and replacements are compatible under refinement",
+   "kind": "prose hypothesis",
+   "constrains": [
+    "refinement map",
+    "reference state"
+   ],
+   "register": [],
+   "requirement": [],
+   "consumed_by": [
+    "T-M",
+    "T-E"
+   ],
+   "toy_inhabitant": "none",
+   "executable_model": "not addressed",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": "CAP doublet weight 0.597, 0.487, 0.415, 0.363 along the point sets (MU 8)"
+    },
+    "ii": {
+     "mark": "SHADOW",
+     "note": "holds on the code corner only (MU section 3)"
+    },
+    "iii": {
+     "mark": "NO",
+     "note": "not computed for ρ_W"
+    }
+   }
+  },
+  {
+   "id": "f06",
+   "family": "f",
+   "name": "H6 support readability of the modular action",
+   "lean": [],
+   "files": [
+    "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex:359",
+    "repair-law/reports/MU.md (block 1)"
+   ],
+   "statement": "modular action is readable as a map of cap supports",
+   "kind": "prose hypothesis",
+   "constrains": [
+    "accessible algebra",
+    "clock"
+   ],
+   "register": [],
+   "requirement": [],
+   "consumed_by": [
+    "T-M"
+   ],
+   "toy_inhabitant": "none",
+   "executable_model": "not addressed",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": "CAP: the image of a port projector is a halo that does not move (MU 8)"
+    },
+    "ii": {
+     "mark": "NO",
+     "note": "a two-dimensional code does not localize (MU 5, section 3)"
+    },
+    "iii": {
+     "mark": "NO",
+     "note": "not computed for ρ_W"
+    }
+   }
+  },
+  {
+   "id": "f07",
+   "family": "f",
+   "name": "H7 oriented cross-ratio rigidity",
+   "lean": [],
+   "files": [
+    "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex:359",
+    "repair-law/reports/MU.md (block 1)"
+   ],
+   "statement": "a cap-normal certificate supplies oriented cross-ratio rigidity",
+   "kind": "prose hypothesis",
+   "constrains": [
+    "clock",
+    "wiring"
+   ],
+   "register": [
+    "mesh_crossratio_normalization_receipts"
+   ],
+   "requirement": [],
+   "consumed_by": [
+    "T-M"
+   ],
+   "toy_inhabitant": "none",
+   "executable_model": "not addressed",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": "see f06"
+    },
+    "ii": {
+     "mark": "SHADOW",
+     "note": "the flow of the tracial code state rotates screen points about the cap axis and preserves every cross-ratio: elliptic (MU 5)"
+    },
+    "iii": {
+     "mark": "NO",
+     "note": "not computed for ρ_W"
+    }
+   }
+  },
+  {
+   "id": "f08",
+   "family": "f",
+   "name": "H8 hyperbolic flow of a framed cap",
+   "lean": [],
+   "files": [
+    "repair-law/reports/MU.md (block 1)"
+   ],
+   "statement": "the flow of the framed cap (C, p−, p+) is hyperbolic with fixed points p−, p+ on the boundary",
+   "kind": "prose hypothesis (finite reading by MU)",
+   "constrains": [
+    "clock"
+   ],
+   "register": [],
+   "requirement": [],
+   "consumed_by": [
+    "T-M",
+    "T-K"
+   ],
+   "toy_inhabitant": "none",
+   "executable_model": "not addressed",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": "see f06"
+    },
+    "ii": {
+     "mark": "NO",
+     "note": "a finite code has no unitary boost (MU section 3)"
+    },
+    "iii": {
+     "mark": "NO",
+     "note": "not computed for ρ_W"
+    }
+   }
+  },
+  {
+   "id": "f09",
+   "family": "f",
+   "name": "H9 geometric 2π-KMS comparison",
+   "lean": [],
+   "files": [
+    "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex:359",
+    "repair-law/reports/MU.md (block 1)"
+   ],
+   "statement": "an independent geometric 2π-KMS comparison",
+   "kind": "prose hypothesis",
+   "constrains": [
+    "clock",
+    "reference state"
+   ],
+   "register": [
+    "finite_cap_BW_certificate"
+   ],
+   "requirement": [],
+   "consumed_by": [
+    "T-M",
+    "T-E"
+   ],
+   "toy_inhabitant": "kms_profile_receipt, kms_receipt (gravity ladder rung 7)",
+   "executable_model": "not addressed",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": "see f06"
+    },
+    "ii": {
+     "mark": "NO",
+     "note": "the scale is 2η_C and depends on the cap; it equals 2π only at opening 7.0 degrees (MU 5)"
+    },
+    "iii": {
+     "mark": "NO",
+     "note": "not computed for ρ_W; the filter parameter α carries no 2π"
+    }
+   }
+  },
+  {
+   "id": "f10",
+   "family": "f",
+   "name": "H10 no strict finite half-sided inclusion",
+   "lean": [
+    "OPH.QFT.FiniteModularInclusion.image_eq"
+   ],
+   "files": [
+    "Lean/QFT/FiniteModularInclusion.lean"
+   ],
+   "statement": "theorem image_eq (S : Submodule K V) [FiniteDimensional K S] (e : V ≃ₗ[K] V) (h : ∀ x ∈ S, e x ∈ S) : S.map e.toLinearMap = S",
+   "kind": "proved: every finite claim is an error bound on a family",
+   "constrains": [
+    "none"
+   ],
+   "register": [
+    "PR-24"
+   ],
+   "requirement": [],
+   "consumed_by": [
+    "T-M"
+   ],
+   "toy_inhabitant": "model/finite_modular_inclusion: CAR plaquette, leakage at least 23/524288 at t = 1/32",
+   "executable_model": "proved",
+   "committed_source_tape_reconstruction": "no obligation",
+   "scored": false,
+   "score": {
+    "i": {
+     "mark": "EXACT",
+     "note": ""
+    },
+    "ii": {
+     "mark": "EXACT",
+     "note": ""
+    },
+    "iii": {
+     "mark": "EXACT",
+     "note": ""
+    }
+   }
+  },
+  {
+   "id": "f11",
+   "family": "f",
+   "name": "one-parameter group of star automorphisms",
+   "lean": [
+    "finiteStoneConverse_of_continuous",
+    "hzero",
+    "hgroup",
+    "hcont"
+   ],
+   "files": [
+    "Lean/Dynamics/StoneConverse.lean"
+   ],
+   "statement": "(α : ℝ → (Matrix ι ι ℂ ≃⋆ₐ[ℂ] Matrix ι ι ℂ)) (hzero : ∀ x, α 0 x = x) (hgroup : ∀ s t : ℝ, ∀ x, α (s + t) x = α s (α t x)) (hcont : ∀ x, Continuous fun t : ℝ => α t x)",
+   "kind": "hypotheses",
+   "constrains": [
+    "clock",
+    "event"
+   ],
+   "register": [
+    "PR-43"
+   ],
+   "requirement": [
+    "T6"
+   ],
+   "consumed_by": [
+    "T-M",
+    "T-X"
+   ],
+   "toy_inhabitant": "supplied field Hamiltonian with its M2 corner (model/particle_clock)",
+   "executable_model": "obstructed",
+   "committed_source_tape_reconstruction": "P^{it} on the reconstructed algebra with rational approximants V_m (model/native_modular_dynamics); not executed",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": "CAP is dissipative (second eigenvalue 0.968606...)"
+    },
+    "ii": {
+     "mark": "NO",
+     "note": ""
+    },
+    "iii": {
+     "mark": "SHADOW",
+     "note": "the executed group is W^t for integer t; a real parameter needs a declared generator"
+    }
+   }
+  },
+  {
+   "id": "f12",
+   "family": "f",
+   "name": "typed modular first law",
+   "lean": [
+    "OPH.EinsteinBranch.FiniteFirstLawData",
+    "OPH.EinsteinBranch.FiniteFirstLawPremises"
+   ],
+   "files": [
+    "Lean/ObserverPatchHolography/EinsteinBranch/Entropy.lean"
+   ],
+   "statement": "def FiniteFirstLawPremises {V : Type u} [AddCommGroup V] [Module ℝ V] (D : FiniteFirstLawData V) : Prop := D.entropyDifferential = D.modularPairing ∧ D.modularPairing = (2 * Real.pi) • D.bulkPairing + D.centralPairing ∧ D.centralPairing = D.edgeDifferential",
+   "kind": "hypothesis",
+   "constrains": [
+    "reference state",
+    "clock",
+    "record algebra"
+   ],
+   "register": [
+    "PR-23"
+   ],
+   "requirement": [],
+   "consumed_by": [
+    "T-M",
+    "T-E"
+   ],
+   "toy_inhabitant": "passingFirstLawData",
+   "executable_model": "constructed on declared inputs",
+   "committed_source_tape_reconstruction": "inhabited as a reconstruction or on the classical domain only",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "SHADOW",
+     "note": "first clause for any faithful reference"
+    },
+    "ii": {
+     "mark": "NO",
+     "note": ""
+    },
+    "iii": {
+     "mark": "SHADOW",
+     "note": "first clause"
+    }
+   }
+  },
+  {
+   "id": "f13",
+   "family": "f",
+   "name": "half-sided inclusion and null translation",
+   "lean": [
+    "OPH.QFT.FiniteModularInclusion.half_sided_is_two_sided"
+   ],
+   "files": [
+    "Lean/QFT/FiniteModularInclusion.lean",
+    "docs/registers/PREMISE_REGISTER_V3.md"
+   ],
+   "statement": "The reconstructed stress readout satisfies the weak Ward identity under the chart coordinate steps, the conservation shadow of the null translations generated by half-sided modular inclusion.",
+   "kind": "register row; impossible exactly at finite dimension",
+   "constrains": [
+    "refinement family",
+    "clock"
+   ],
+   "register": [
+    "PR-24"
+   ],
+   "requirement": [],
+   "consumed_by": [
+    "T-M",
+    "T-E"
+   ],
+   "toy_inhabitant": "none",
+   "executable_model": "not addressed",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": ""
+    },
+    "ii": {
+     "mark": "NO",
+     "note": ""
+    },
+    "iii": {
+     "mark": "NO",
+     "note": ""
+    }
+   }
+  },
+  {
+   "id": "f14",
+   "family": "f",
+   "name": "one clock: the modular generator is the executed generator",
+   "lean": [
+    "OPH.QFT.ModularClockComparison.relative_time_cocycle"
+   ],
+   "files": [
+    "repair-law/audit/state_geometry/COMPATIBILITY.md (equation 5)",
+    "Lean/QFT/ModularClockComparison.lean"
+   ],
+   "statement": "If the wave flow is claimed to be the modular flow of sigma on a full matrix algebra, then -log sigma = beta H + c I is required",
+   "kind": "audit compatibility equation",
+   "constrains": [
+    "clock",
+    "reference state"
+   ],
+   "register": [
+    "PR-23",
+    "PR-43"
+   ],
+   "requirement": [
+    "T5",
+    "T6"
+   ],
+   "consumed_by": [
+    "T-M",
+    "T-E",
+    "T-4L",
+    "T-X"
+   ],
+   "toy_inhabitant": "finite KMS identity of chosen Gibbs references (register PR-23)",
+   "executable_model": "the reconstructed time is not identified with a physical clock",
+   "committed_source_tape_reconstruction": "inhabited as a reconstruction or on the classical domain only",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "SHADOW",
+     "note": "holds in the count reconstruction: ρ_L = exp(−L H)/Tr exp(−L H) for every L; CAP's modular flow is not executed"
+    },
+    "ii": {
+     "mark": "NO",
+     "note": ""
+    },
+    "iii": {
+     "mark": "NO",
+     "note": "ρ_W weights e^{iω} and e^{−iω} equally; equation 5 fails (CX 11)"
+    }
+   }
+  },
+  {
+   "id": "g01",
+   "family": "g",
+   "name": "a record with values in Herm2",
+   "lean": [
+    "OPH.C1Lorentz.Herm2",
+    "OPH.C1Lorentz.lorentzQ"
+   ],
+   "files": [
+    "Lean/Geometry/CanonicalLorentzModule.lean"
+   ],
+   "statement": "abbrev Herm2 := ℝ × Spatial ; def lorentzQ (v : Herm2) : ℝ := v.1 ^ 2 - spatialNormSq v.2",
+   "kind": "definition (the module is declared)",
+   "constrains": [
+    "records",
+    "readout"
+   ],
+   "register": [],
+   "requirement": [],
+   "consumed_by": [
+    "T-K",
+    "T-N"
+   ],
+   "toy_inhabitant": "the declared module with standardFrame = (1, 0)",
+   "executable_model": "the rank-three readback of port loads",
+   "committed_source_tape_reconstruction": "inhabited exactly (see the score of candidate i)",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "EXACT",
+     "note": "X = Σ_p x_p (1, u_p), det X = N² − |Σ_p x_p u_p|² (L18)"
+    },
+    "ii": {
+     "mark": "EXACT",
+     "note": "cap effects on the spinor factor (MU 4)"
+    },
+    "iii": {
+     "mark": "SHADOW",
+     "note": "doublet block of the declared code"
+    }
+   }
+  },
+  {
+   "id": "g02",
+   "family": "g",
+   "name": "a mass",
+   "lean": [
+    "OPH.C1Lorentz.fourMomentum"
+   ],
+   "files": [
+    "Lean/Geometry/MassShellKinematics.lean"
+   ],
+   "statement": "def fourMomentum (mass : ℝ) (frame : FrameHyperboloid) : Herm2 := mass • (frame : Herm2) ; docstring: 'The mass parameter is a hypothesis, not a derived quantity.'",
+   "kind": "argument of every statement",
+   "constrains": [
+    "clock",
+    "event"
+   ],
+   "register": [],
+   "requirement": [
+    "T10"
+   ],
+   "consumed_by": [
+    "T-K",
+    "T-X"
+   ],
+   "toy_inhabitant": "fourMomentum mass standardFrame = (mass, 0)",
+   "executable_model": "no rest mass: zero own gap in every conserved sector (reports/S4.md)",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "SHADOW",
+     "note": "√det X of two quanta is the chord 0, 1.0515, 1.7013, 2; repair relaxes the three-momentum"
+    },
+    "ii": {
+     "mark": "SHADOW",
+     "note": "M²(n) = t² − λ^{2n}|r_0|²: energy conserved, three-momentum factor (55 + √5)/60 per attempt (MU 16, 17)"
+    },
+    "iii": {
+     "mark": "COMP",
+     "note": "rest frequency arccos λ in the walk clock; family bands",
+     "worker": "MV"
+    }
+   }
+  },
+  {
+   "id": "g03",
+   "family": "g",
+   "name": "Lorentz maps between observers",
+   "lean": [
+    "OPH.C1Lorentz.OrientedLorentzEquiv",
+    "map_lorentzB",
+    "map_futureNull_iff",
+    "map_futureUnit_iff"
+   ],
+   "files": [
+    "Lean/Geometry/LorentzOverlapCocycle.lean"
+   ],
+   "statement": "structure OrientedLorentzEquiv where toLinearEquiv : Herm2 ≃ₗ[ℝ] Herm2 ; map_lorentzB : ∀ u v, lorentzB (toLinearEquiv u) (toLinearEquiv v) = lorentzB u v ; map_futureNull_iff : ∀ v, IsFutureNull (toLinearEquiv v) ↔ IsFutureNull v ; map_futureUnit_iff : ∀ v, IsFutureUnitTimelike (toLinearEquiv v) ↔ IsFutureUnitTimelike v",
+   "kind": "structure",
+   "constrains": [
+    "wiring",
+    "transformation between observers"
+   ],
+   "register": [],
+   "requirement": [],
+   "consumed_by": [
+    "T-K",
+    "T-M"
+   ],
+   "toy_inhabitant": "instances of OrientedLorentzEquiv in Lean/Geometry/LorentzOverlapCocycle.lean",
+   "executable_model": "not addressed",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "SHADOW",
+     "note": "rotations exact; Aut(K_12) = dilations × I_h has no boost; on loads a boost is an approximate automorphism with defect exp(2η) × 2.92/N (MU 3)"
+    },
+    "ii": {
+     "mark": "EXACT",
+     "note": "rotations by recharting; boosts as the filter action of a declared cap readout with one Kraus operator per outcome, at N = 12 (MU 15, section 3). No unitary boost"
+    },
+    "iii": {
+     "mark": "NO",
+     "note": "rotations exact (120 lifts); no boost"
+    }
+   }
+  },
+  {
+   "id": "g04",
+   "family": "g",
+   "name": "coherent frame and boost transport",
+   "lean": [],
+   "files": [
+    "docs/registers/PREMISE_REGISTER_V3.md"
+   ],
+   "statement": "One coherent frame carries the comparison, and a boost transport connects that frame to the source frame of the committed symbol",
+   "kind": "register row",
+   "constrains": [
+    "wiring"
+   ],
+   "register": [
+    "PR-74",
+    "PR-53"
+   ],
+   "requirement": [],
+   "consumed_by": [
+    "T-K"
+   ],
+   "toy_inhabitant": "none",
+   "executable_model": "not addressed",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": ""
+    },
+    "ii": {
+     "mark": "SHADOW",
+     "note": "cap filters act by the aberration formula; the images of ports are not ports (MU 15)"
+    },
+    "iii": {
+     "mark": "NO",
+     "note": ""
+    }
+   }
+  },
+  {
+   "id": "g05",
+   "family": "g",
+   "name": "cone selection inputs",
+   "lean": [],
+   "files": [
+    "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex (derivation map)"
+   ],
+   "statement": "nonzero closed convex pointed cone; finite irreducible operational rotations; one continuous boost direction ⟹ Lorentz displacement cone up to time orientation",
+   "kind": "prose implication",
+   "constrains": [
+    "records",
+    "transformation between observers"
+   ],
+   "register": [],
+   "requirement": [],
+   "consumed_by": [
+    "T-K"
+   ],
+   "toy_inhabitant": "analytic, not Lean (review L3)",
+   "executable_model": "not addressed",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "SHADOW",
+     "note": "cone over the port axes inside the Lorentz cone, inradius deficit 2.92/N (MU 2); no continuous boost at finite N"
+    },
+    "ii": {
+     "mark": "SHADOW",
+     "note": ""
+    },
+    "iii": {
+     "mark": "NO",
+     "note": ""
+    }
+   }
+  },
+  {
+   "id": "h01",
+   "family": "h",
+   "name": "rung 1: equal state weights",
+   "lean": [],
+   "files": [
+    "docs/registers/PREMISE_REGISTER_V3.md (gravity ladder)",
+    "Lean/Screen/EqualStateWeights.lean"
+   ],
+   "statement": "A3 existence, uniqueness, support, and faithfulness (interface equal_state_weights: rho(e_p) = 1/12)",
+   "kind": "axiom_forced",
+   "constrains": [
+    "reference state"
+   ],
+   "register": [],
+   "requirement": [],
+   "consumed_by": [
+    "T-E"
+   ],
+   "toy_inhabitant": "equal_state_weights certificate",
+   "executable_model": "uniform stationary populations",
+   "committed_source_tape_reconstruction": "inhabited exactly (see the score of candidate i)",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "EXACT",
+     "note": "uniform stationary populations; CAP diagonal 1/66 (CX 5)"
+    },
+    "ii": {
+     "mark": "EXACT",
+     "note": "positions"
+    },
+    "iii": {
+     "mark": "EXACT",
+     "note": "the heralded reference has source marginal 1/12 (CX 10)"
+    }
+   }
+  },
+  {
+   "id": "h02",
+   "family": "h",
+   "name": "rung 2: optimizer pushforward across refinement",
+   "lean": [],
+   "files": [
+    "docs/registers/PREMISE_REGISTER_V3.md (gravity ladder)"
+   ],
+   "statement": "Optimizer pushforward across refinement",
+   "kind": "conditional_open_interface",
+   "constrains": [
+    "refinement map",
+    "reference state"
+   ],
+   "register": [],
+   "requirement": [],
+   "consumed_by": [
+    "T-E"
+   ],
+   "toy_inhabitant": "optimizer_pushforward_reference: exact nonclosure defect 5/66 outside sufficiency",
+   "executable_model": "not addressed",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": ""
+    },
+    "ii": {
+     "mark": "NO",
+     "note": ""
+    },
+    "iii": {
+     "mark": "NO",
+     "note": ""
+    }
+   }
+  },
+  {
+   "id": "h03",
+   "family": "h",
+   "name": "rung 3: edge-center decomposition and state alignment",
+   "lean": [],
+   "files": [
+    "docs/registers/PREMISE_REGISTER_V3.md (gravity ladder)"
+   ],
+   "statement": "Edge-center decomposition and state alignment (token central_interface_clause)",
+   "kind": "independence_limited",
+   "constrains": [
+    "record algebra",
+    "reference state"
+   ],
+   "register": [],
+   "requirement": [],
+   "consumed_by": [
+    "T-E"
+   ],
+   "toy_inhabitant": "countermodels bell_counterexample, identityChannel_closureDefect_eq_zero",
+   "executable_model": "not addressed",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": ""
+    },
+    "ii": {
+     "mark": "SHADOW",
+     "note": "ports are central in the block algebra"
+    },
+    "iii": {
+     "mark": "NO",
+     "note": ""
+    }
+   }
+  },
+  {
+   "id": "h04",
+   "family": "h",
+   "name": "rung 4: Markov collar",
+   "lean": [],
+   "files": [
+    "docs/registers/PREMISE_REGISTER_V3.md (gravity ladder)"
+   ],
+   "statement": "Exact Markovity or Gibbs/mixing hypotheses and sharp collar rate",
+   "kind": "conditional_open_interface",
+   "constrains": [
+    "reference state",
+    "wiring"
+   ],
+   "register": [],
+   "requirement": [],
+   "consumed_by": [
+    "T-E",
+    "T-M"
+   ],
+   "toy_inhabitant": "counterexample_receipt",
+   "executable_model": "not addressed",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": "see f04"
+    },
+    "ii": {
+     "mark": "NO",
+     "note": "see f04"
+    },
+    "iii": {
+     "mark": "NO",
+     "note": "not computed for ρ_W"
+    }
+   }
+  },
+  {
+   "id": "h05",
+   "family": "h",
+   "name": "rung 5: edge-reference factorization and normalization",
+   "lean": [],
+   "files": [
+    "docs/registers/PREMISE_REGISTER_V3.md (gravity ladder)"
+   ],
+   "statement": "Edge-reference factorization and edge normalization",
+   "kind": "conditional_open_interface",
+   "constrains": [
+    "reference state"
+   ],
+   "register": [],
+   "requirement": [],
+   "consumed_by": [
+    "T-E"
+   ],
+   "toy_inhabitant": "central_edge_normalization_defect",
+   "executable_model": "not addressed",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": ""
+    },
+    "ii": {
+     "mark": "NO",
+     "note": ""
+    },
+    "iii": {
+     "mark": "NO",
+     "note": ""
+    }
+   }
+  },
+  {
+   "id": "h06",
+   "family": "h",
+   "name": "rung 6: generalized-entropy stationarity",
+   "lean": [
+    "OPH.EinsteinBranch.MaxEntEnvelopePremises",
+    "SmallBallPremises.stationarity"
+   ],
+   "files": [
+    "docs/registers/PREMISE_REGISTER_V3.md (gravity ladder)",
+    "Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean"
+   ],
+   "statement": "stationarity : deltaBulkEntropy + deltaArea / (4 * G) = 0",
+   "kind": "structure field (hypothesis)",
+   "constrains": [
+    "reference state",
+    "geometry"
+   ],
+   "register": [
+    "PR-26"
+   ],
+   "requirement": [],
+   "consumed_by": [
+    "T-E"
+   ],
+   "toy_inhabitant": "passingMaxEntTangent",
+   "executable_model": "not addressed",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": ""
+    },
+    "ii": {
+     "mark": "NO",
+     "note": ""
+    },
+    "iii": {
+     "mark": "NO",
+     "note": ""
+    }
+   }
+  },
+  {
+   "id": "h07",
+   "family": "h",
+   "name": "rung 7: Bisognano-Wichmann identification",
+   "lean": [],
+   "files": [
+    "docs/registers/PREMISE_REGISTER_V3.md (gravity ladder)"
+   ],
+   "statement": "Finite cap-profile diagnostics and independent Bisognano-Wichmann identification",
+   "kind": "conditional_open_interface",
+   "constrains": [
+    "clock",
+    "reference state"
+   ],
+   "register": [
+    "PR-23"
+   ],
+   "requirement": [],
+   "consumed_by": [
+    "T-E",
+    "T-M"
+   ],
+   "toy_inhabitant": "kms_profile_receipt; fermion_ball_results.json",
+   "executable_model": "not addressed",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": "see f06"
+    },
+    "ii": {
+     "mark": "NO",
+     "note": "see f08, f09"
+    },
+    "iii": {
+     "mark": "NO",
+     "note": "not computed for ρ_W"
+    }
+   }
+  },
+  {
+   "id": "h08",
+   "family": "h",
+   "name": "rung 8: null balance, Ward and Bianchi",
+   "lean": [
+    "OPH.EinsteinBranch.ContinuumEinsteinPremises",
+    "nullBalance",
+    "ward",
+    "bianchi",
+    "universalCoupling"
+   ],
+   "files": [
+    "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean"
+   ],
+   "statement": "nullBalance : ∀ p k, quadOf (eta 3) k = 0 → quadOf (geometry p) k = coupling * quadOf (stress p) k ; ward : ∀ p j, ddiv step stress p j = 0 ; bianchi : ∀ p j, ddiv step geometry p j = 0",
+   "kind": "structure fields (hypothesis); 'No instance of this structure is constructed here.'",
+   "constrains": [
+    "geometry",
+    "stress"
+   ],
+   "register": [
+    "PR-24",
+    "PR-25"
+   ],
+   "requirement": [],
+   "consumed_by": [
+    "T-E"
+   ],
+   "toy_inhabitant": "16-point torus with geometry := κT + η (Lean/Geometry/EinsteinBranchInhabitant.lean)",
+   "executable_model": "obstructed (PR-25)",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": ""
+    },
+    "ii": {
+     "mark": "NO",
+     "note": ""
+    },
+    "iii": {
+     "mark": "NO",
+     "note": ""
+    }
+   }
+  },
+  {
+   "id": "h09",
+   "family": "h",
+   "name": "rung 9: event dimension four and the small-ball tail",
+   "lean": [
+    "OPH.EinsteinBranch.ScalingTailReceipt",
+    "DependencyHolds C .lorentzGeometry"
+   ],
+   "files": [
+    "Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean",
+    "Lean/ObserverPatchHolography/EinsteinBranch/Manifest.lean"
+   ],
+   "statement": "| .lorentzGeometry => C.eventDimension = 4 ; def ScalingTailReceipt (D : ScalingTailData) : Prop := (∀ r, 0 < D.ell r) ∧ Tendsto D.ell atTop (𝓝 0) ∧ IsLittleO atTop D.collarError (fun r => D.ell r ^ 4) ∧ IsLittleO atTop D.kernelError (fun r => D.ell r ^ 4) ∧ IsLittleO atTop D.chartError (fun r => D.ell r ^ 4)",
+   "kind": "hypotheses",
+   "constrains": [
+    "records as points",
+    "refinement family"
+   ],
+   "register": [
+    "PR-16",
+    "PR-27"
+   ],
+   "requirement": [],
+   "consumed_by": [
+    "T-E",
+    "T-N"
+   ],
+   "toy_inhabitant": "countermodel constantRadiusData_fails",
+   "executable_model": "not addressed",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "SHADOW",
+     "note": "the register population reads four dimensions in windows (MC 19, 20)"
+    },
+    "ii": {
+     "mark": "NO",
+     "note": "see e01"
+    },
+    "iii": {
+     "mark": "COMP",
+     "note": "",
+     "worker": "MV"
+    }
+   }
+  },
+  {
+   "id": "h10",
+   "family": "h",
+   "name": "rung 10: Einstein-admissible tower on a terminating consensus quotient",
+   "lean": [
+    "OPH.EinsteinBranch.EinsteinAdmissibleTower",
+    "OPH.EinsteinBranch.BareConsensusTower",
+    "step_descends",
+    "normalForm_natural",
+    "OPH.EinsteinBranch.BoundaryFiber",
+    "TypedArrowCommutation",
+    "ReadoutNaturality"
+   ],
+   "files": [
+    "Lean/ObserverPatchHolography/EinsteinBranch/Consensus.lean"
+   ],
+   "statement": "step_descends : ∀ r x y, step r x y → mismatch r y < mismatch r x ; def BoundaryFiber (T : BareConsensusTower ι) : Prop := ∀ r (x y : T.Quot r), T.consistent r x → T.consistent r y → T.boundary r x = T.boundary r y → x = y",
+   "kind": "structure (hypothesis); 'Its existence is deliberately not proved'",
+   "constrains": [
+    "event",
+    "record",
+    "refinement map"
+   ],
+   "register": [
+    "PR-28",
+    "PR-01"
+   ],
+   "requirement": [],
+   "consumed_by": [
+    "T-E"
+   ],
+   "toy_inhabitant": "demoTower",
+   "executable_model": "not addressed",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": ""
+    },
+    "ii": {
+     "mark": "NO",
+     "note": ""
+    },
+    "iii": {
+     "mark": "COMP",
+     "note": "chart variable",
+     "worker": "MA"
+    }
+   }
+  },
+  {
+   "id": "h11",
+   "family": "h",
+   "name": "rung 11: scale",
+   "lean": [
+    "physicalScale"
+   ],
+   "files": [
+    "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean"
+   ],
+   "statement": "physicalScale : coupling = 8 * Real.pi * newton",
+   "kind": "structure field (hypothesis)",
+   "constrains": [
+    "clock",
+    "calibration"
+   ],
+   "register": [
+    "PR-15"
+   ],
+   "requirement": [],
+   "consumed_by": [
+    "T-E"
+   ],
+   "toy_inhabitant": "countermodel extra_scale_stabilizer_fails",
+   "executable_model": "declared input (PR-15)",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": ""
+    },
+    "ii": {
+     "mark": "NO",
+     "note": ""
+    },
+    "iii": {
+     "mark": "NO",
+     "note": ""
+    }
+   }
+  },
+  {
+   "id": "h12",
+   "family": "h",
+   "name": "nine null directions",
+   "lean": [
+    "DependencyHolds C .nineDirectionTomography"
+   ],
+   "files": [
+    "Lean/ObserverPatchHolography/EinsteinBranch/Manifest.lean"
+   ],
+   "statement": "| .nineDirectionTomography => C.tomographyRank = 9",
+   "kind": "dependency key",
+   "constrains": [
+    "wiring",
+    "readout"
+   ],
+   "register": [],
+   "requirement": [],
+   "consumed_by": [
+    "T-E"
+   ],
+   "toy_inhabitant": "nine-direction determinant 8192/27; twelve-test constant 1 − √5/5 (review L3)",
+   "executable_model": "the twelve port directions exist; no stress readout",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "SHADOW",
+     "note": "the twelve null rays (1, u_p) have rank 9 of 10 on quadrics (MU 3); no stress readout along them"
+    },
+    "ii": {
+     "mark": "SHADOW",
+     "note": "same"
+    },
+    "iii": {
+     "mark": "SHADOW",
+     "note": "same"
+    }
+   }
+  },
+  {
+   "id": "i01",
+   "family": "i",
+   "name": "family band selection",
+   "lean": [
+    "family_band_selected"
+   ],
+   "files": [
+    "Lean/Screen/A5FamilyBand.lean",
+    "docs/registers/PREMISE_REGISTER_V3.md"
+   ],
+   "statement": "The family multiplicity object is a single complete spectral band of the twelve-port adjacency ... candidates carrying a source-visible proper splitting projector are excluded ... the unique strict minimizer is selected",
+   "kind": "register row",
+   "constrains": [
+    "state space",
+    "selection rule"
+   ],
+   "register": [
+    "PR-36"
+   ],
+   "requirement": [],
+   "consumed_by": [
+    "T-X"
+   ],
+   "toy_inhabitant": "family_band_selected on four typed tuples (review L2 F6)",
+   "executable_model": "constructed on declared inputs",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "SHADOW",
+     "note": "carrier costs 5 − √5 < 6 < 5 + √5; CAP leading levels: doublet 0.597352, triplet 0.421792 (CX 3, 5)"
+    },
+    "ii": {
+     "mark": "SHADOW",
+     "note": "declared pairing"
+    },
+    "iii": {
+     "mark": "SHADOW",
+     "note": "declared code"
+    }
+   }
+  },
+  {
+   "id": "i02",
+   "family": "i",
+   "name": "fine-structure closure map",
+   "lean": [],
+   "files": [
+    "docs/registers/PREMISE_REGISTER_V3.md"
+   ],
+   "statement": "The P-closure map consumed by the fine-structure lane is a declared selection",
+   "kind": "register row",
+   "constrains": [
+    "calibration"
+   ],
+   "register": [
+    "PR-37"
+   ],
+   "requirement": [],
+   "consumed_by": [
+    "T-X"
+   ],
+   "toy_inhabitant": "declared closure map",
+   "executable_model": "declared input",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": ""
+    },
+    "ii": {
+     "mark": "NO",
+     "note": ""
+    },
+    "iii": {
+     "mark": "NO",
+     "note": ""
+    }
+   }
+  },
+  {
+   "id": "i03",
+   "family": "i",
+   "name": "one scalar doublet with kinetic action",
+   "lean": [],
+   "files": [
+    "docs/registers/PREMISE_REGISTER_V3.md"
+   ],
+   "statement": "One complex weak doublet of hypercharge one half is selected as the physical scalar carrier",
+   "kind": "register row",
+   "constrains": [
+    "state space",
+    "event"
+   ],
+   "register": [
+    "PR-48"
+   ],
+   "requirement": [],
+   "consumed_by": [
+    "T-X"
+   ],
+   "toy_inhabitant": "declared one-doublet grammar (PR-67)",
+   "executable_model": "declared input",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": ""
+    },
+    "ii": {
+     "mark": "NO",
+     "note": ""
+    },
+    "iii": {
+     "mark": "NO",
+     "note": "pattern (0,1) carries the charges as a label (L24)"
+    }
+   }
+  },
+  {
+   "id": "i04",
+   "family": "i",
+   "name": "scalar potential and breaking",
+   "lean": [],
+   "files": [
+    "docs/registers/PREMISE_REGISTER_V3.md"
+   ],
+   "statement": "The scalar sector carries the renormalizable quadratic-plus-quartic Higgs potential, a stable symmetry-breaking branch, and a vacuum attachment",
+   "kind": "register row",
+   "constrains": [
+    "event",
+    "reference state"
+   ],
+   "register": [
+    "PR-49"
+   ],
+   "requirement": [],
+   "consumed_by": [
+    "T-X"
+   ],
+   "toy_inhabitant": "declared quartic packet (PR-68)",
+   "executable_model": "declared input",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": ""
+    },
+    "ii": {
+     "mark": "NO",
+     "note": ""
+    },
+    "iii": {
+     "mark": "NO",
+     "note": ""
+    }
+   }
+  },
+  {
+   "id": "i05",
+   "family": "i",
+   "name": "Yukawa lines and matrices",
+   "lean": [],
+   "files": [
+    "docs/registers/PREMISE_REGISTER_V3.md"
+   ],
+   "statement": "The gauge-invariant up, down, and charged-lepton interaction lines are selected on the one-Higgs matter package and furnished with complete Yukawa matrices",
+   "kind": "register row",
+   "constrains": [
+    "event"
+   ],
+   "register": [
+    "PR-50"
+   ],
+   "requirement": [],
+   "consumed_by": [
+    "T-X"
+   ],
+   "toy_inhabitant": "declared Yukawa-line coefficient (PR-69)",
+   "executable_model": "declared input",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": ""
+    },
+    "ii": {
+     "mark": "NO",
+     "note": ""
+    },
+    "iii": {
+     "mark": "NO",
+     "note": ""
+    }
+   }
+  },
+  {
+   "id": "i06",
+   "family": "i",
+   "name": "test 1: source operator and complete records",
+   "lean": [],
+   "files": [
+    "model/particle_candidate_confirmation/CONFIRMATION_STEPS.md"
+   ],
+   "statement": "Bind the actual source operator and accessible current/field records, conserved charges, conjugate channel and complete detector, including failure and boundary compensation.",
+   "kind": "confirmation test",
+   "constrains": [
+    "seam instrument",
+    "accepted records"
+   ],
+   "register": [],
+   "requirement": [],
+   "consumed_by": [
+    "T-X"
+   ],
+   "toy_inhabitant": "finite constructions on the separate Wilson gauge-matter family (model/particle_*), not on the native rule",
+   "executable_model": "native: complete coin and current records",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "SHADOW",
+     "note": "complete records and total load; no conjugate channel"
+    },
+    "ii": {
+     "mark": "COMP",
+     "note": "",
+     "worker": "MT"
+    },
+    "iii": {
+     "mark": "EXACT",
+     "note": "complete detectors with both branches, Q5, failures retained, one carrier"
+    }
+   }
+  },
+  {
+   "id": "i07",
+   "family": "i",
+   "name": "test 2: populated energy and momentum response in one clock",
+   "lean": [],
+   "files": [
+    "model/particle_candidate_confirmation/CONFIRMATION_STEPS.md",
+    "repair-law/REQUIREMENTS.md (T6, T10)"
+   ],
+   "statement": "Calculate the original populated joint spectral response using the operational translation generator and the same clock.",
+   "kind": "confirmation test",
+   "constrains": [
+    "clock",
+    "event",
+    "wiring"
+   ],
+   "register": [
+    "PR-43",
+    "PR-53"
+   ],
+   "requirement": [
+    "T6",
+    "T10"
+   ],
+   "consumed_by": [
+    "T-X",
+    "T-K"
+   ],
+   "toy_inhabitant": "finite constructions on the separate Wilson gauge-matter family (model/particle_*), not on the native rule",
+   "executable_model": "native: fail (diffusion, pinned coherence)",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": "diffusion; CAP coherence contracts"
+    },
+    "ii": {
+     "mark": "NO",
+     "note": "positions diffuse; the internal factor is static"
+    },
+    "iii": {
+     "mark": "COMP",
+     "note": "cos ω = λ on one carrier; bands of the family walk",
+     "worker": "MV"
+    }
+   }
+  },
+  {
+   "id": "i08",
+   "family": "i",
+   "name": "test 3: Lorentz spin, chirality, statistics",
+   "lean": [],
+   "files": [
+    "model/particle_candidate_confirmation/CONFIRMATION_STEPS.md"
+   ],
+   "statement": "Attach physical Lorentz spin, chirality, exchange and current transformations; finite cube labels alone do not establish these.",
+   "kind": "confirmation test",
+   "constrains": [
+    "state space",
+    "transformation between observers"
+   ],
+   "register": [
+    "PR-47"
+   ],
+   "requirement": [],
+   "consumed_by": [
+    "T-X"
+   ],
+   "toy_inhabitant": "finite constructions on the separate Wilson gauge-matter family (model/particle_*), not on the native rule",
+   "executable_model": "declared input (PR-47)",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": ""
+    },
+    "ii": {
+     "mark": "SHADOW",
+     "note": "exact spin lift; symmetric and antisymmetric registers with the exchange sign (MT 2, 3, 6)"
+    },
+    "iii": {
+     "mark": "NO",
+     "note": ""
+    }
+   }
+  },
+  {
+   "id": "i09",
+   "family": "i",
+   "name": "test 4: interactions and distinct species",
+   "lean": [],
+   "files": [
+    "model/particle_candidate_confirmation/CONFIRMATION_STEPS.md"
+   ],
+   "statement": "Test the current vertices, distinguish flavors or polarizations, and retain extra modes, compensation and competing assignments.",
+   "kind": "confirmation test",
+   "constrains": [
+    "event"
+   ],
+   "register": [],
+   "requirement": [],
+   "consumed_by": [
+    "T-X"
+   ],
+   "toy_inhabitant": "finite constructions on the separate Wilson gauge-matter family (model/particle_*), not on the native rule",
+   "executable_model": "native: fail",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": ""
+    },
+    "ii": {
+     "mark": "NO",
+     "note": ""
+    },
+    "iii": {
+     "mark": "SHADOW",
+     "note": "a central link changes a three-step return amplitude by −1/6750; defect and wave respond to each other with 1/120 against 0"
+    }
+   }
+  },
+  {
+   "id": "i10",
+   "family": "i",
+   "name": "test 5: controlled mass observable",
+   "lean": [],
+   "files": [
+    "model/particle_candidate_confirmation/CONFIRMATION_STEPS.md"
+   ],
+   "statement": "Use the appropriate threshold, resonance or renormalized mass definition and bound volume, cutoff, capacity and numerical errors.",
+   "kind": "confirmation test",
+   "constrains": [
+    "clock",
+    "refinement family"
+   ],
+   "register": [],
+   "requirement": [
+    "T10"
+   ],
+   "consumed_by": [
+    "T-X"
+   ],
+   "toy_inhabitant": "finite constructions on the separate Wilson gauge-matter family (model/particle_*), not on the native rule",
+   "executable_model": "none in the stack",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": ""
+    },
+    "ii": {
+     "mark": "NO",
+     "note": ""
+    },
+    "iii": {
+     "mark": "NO",
+     "note": ""
+    }
+   }
+  },
+  {
+   "id": "i11",
+   "family": "i",
+   "name": "test 6: units and comparison",
+   "lean": [],
+   "files": [
+    "model/particle_candidate_confirmation/CONFIRMATION_STEPS.md"
+   ],
+   "statement": "Attach one common unit convention, preserve calibration ancestry and compare complete records with experimental uncertainties.",
+   "kind": "confirmation test",
+   "constrains": [
+    "calibration"
+   ],
+   "register": [
+    "PR-15"
+   ],
+   "requirement": [],
+   "consumed_by": [
+    "T-X"
+   ],
+   "toy_inhabitant": "declared SI/GeV conversion",
+   "executable_model": "declared input (PR-15)",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": ""
+    },
+    "ii": {
+     "mark": "NO",
+     "note": ""
+    },
+    "iii": {
+     "mark": "NO",
+     "note": ""
+    }
+   }
+  },
+  {
+   "id": "i12",
+   "family": "i",
+   "name": "protected sector with write and read interface and a lifetime",
+   "lean": [],
+   "files": [
+    "repair-law/audit/ACCEPTANCE.md (T4)"
+   ],
+   "statement": "Identify the protected classical labels, quantum multiplicities or noiseless dynamics separately, within the stated superselection sector; prove their write/read interface and lifetime.",
+   "kind": "audit test",
+   "constrains": [
+    "memory",
+    "event",
+    "apparatus"
+   ],
+   "register": [],
+   "requirement": [
+    "T4"
+   ],
+   "consumed_by": [
+    "T-X"
+   ],
+   "toy_inhabitant": "ordered-cover bit, selected spin charge, single-occupancy spin code (MASS_PATHS.md)",
+   "executable_model": "native: scalar fixed algebra",
+   "committed_source_tape_reconstruction": "not inhabited",
+   "scored": true,
+   "score": {
+    "i": {
+     "mark": "NO",
+     "note": "fixed algebra scalar (CX 7); the doublet survives one event with probability 0.979257 (CX 8)"
+    },
+    "ii": {
+     "mark": "EXACT",
+     "note": "the internal factor is noiseless under the autonomous law for a flat transport (MT 10); protected M_3 of two spinor quanta (MT 8)"
+    },
+    "iii": {
+     "mark": "EXACT",
+     "note": "classical labels: Q5 and regional flux parity under a fixed boundary, with executed motion; no protected quantum code"
+    }
+   }
+  }
+ ],
+ "committed_source_tape_and_reconstruction": {
+  "source": [
+   "reverse-engineering-reality/model/observer/native.py",
+   "reverse-engineering-reality/model/native_quantum_reconstruction/PROOF.md",
+   "reverse-engineering-reality/model/native_modular_dynamics/PROOF.md",
+   "reverse-engineering-reality/model/native_born_bridge",
+   "repair-law/LEADS.md (L16)"
+  ],
+  "objects": {
+   "tape": "State(loads, prefix): two letters of the alphabet {0,1} × {−1,0,1}; the controller reads phase and prefix, selects seam (0,1) then (0,5) or (0,1), halts when full; Hilbert dimension 78 × 43 = 3354; each tick is an isometry; committed prefix cylinders are preserved; a reachable coherence between prefixes changes from 1/4 to 1/8",
+   "reconstruction": "P = (1/30) Σ_s (I + S_s)/2 on the 66 shell, 2I/3 ≤ P ≤ I, H = −log P; occupation fields and P generate M_66(ℝ); ρ_L = P^L / Tr P^L from scaled counts of closed histories; α_s^L(A) = P^{iLs} A P^{−iLs}; ordered modular correlations as weighted sums of closed-word probabilities with rational error bounds",
+   "area_counter": "enclosed area of a closed history modulo 20; the flux-k transfer is the k-th Fourier block of the chain on (configuration, counter)"
+  },
+  "inhabited_exactly": [
+   "a01",
+   "a02",
+   "b01",
+   "b02",
+   "b03",
+   "b09",
+   "c01",
+   "c02",
+   "c03",
+   "c06",
+   "d01",
+   "d05",
+   "e04",
+   "e08",
+   "g01",
+   "h01"
+  ],
+  "inhabited_as_reconstruction": [
+   "b05",
+   "f02",
+   "f03",
+   "f11",
+   "f12",
+   "f14"
+  ],
+  "inhabited_on_the_classical_domain_only": [
+   "b04"
+  ],
+  "not_inhabited": "every field of family a beyond the carrier module; b06 to b08; c04, c05; d02 to d04, d06 to d08, d10, d11; e01 to e03, e05, e06; f04 to f09, f13; g03; h02 to h11; i02 to i12",
+  "limits": [
+   "the reconstruction is not prepared or executed by the source (PROOF.md of both packages)",
+   "the tape is terminating and not confluent: its two letters are random",
+   "the count reconstruction and the walk use the same kernel with two clocks: exp(−H) = P and cos ω = λ"
+  ]
+ },
+ "compatibility": {
+  "conflicts": [
+   {
+    "id": "K1",
+    "pair": [
+     "c03",
+     "f11",
+     "i07"
+    ],
+    "verdict": "conflict",
+    "status": "EXACT (audit)",
+    "statement": "A unitary step that preserves every load population for every input is diagonal in the load basis: the reference population law for every event and coherent transport of the load coordinate exclude each other on the same coordinates.",
+    "resolution": "a separate factor (candidate ii), or the population law for the first blank-record event only (candidate iii)"
+   },
+   {
+    "id": "K2",
+    "pair": [
+     "c03",
+     "d08",
+     "d11",
+     "h10"
+    ],
+    "verdict": "conflict",
+    "status": "EXACT (audit)",
+    "statement": "At total two every configuration has a moving branch with probability at least 2/15 per attempt: the reference history law excludes quiescence of the raw loads.",
+    "resolution": "the terminating contract lives on another variable (charts, records) or at integer filling"
+   },
+   {
+    "id": "K3",
+    "pair": [
+     "e05",
+     "memory"
+    ],
+    "verdict": "conflict",
+    "status": "EXACT (audit)",
+    "statement": "A b-bit record has at most 2^b states; the same full population at every layer for unbounded depth needs a growing memory family.",
+    "resolution": "state the capacity family, a bounded horizon, or a lossy summary (the area counter is one)"
+   },
+   {
+    "id": "K4",
+    "pair": [
+     "f13",
+     "finite dimension"
+    ],
+    "verdict": "conflict",
+    "status": "EXACT (Lean: image_eq, half_sided_is_two_sided)",
+    "statement": "A finite-dimensional subspace mapped into itself by an invertible map is mapped onto itself: no strict half-sided inclusion at finite level.",
+    "resolution": "an approximate statement on a refining family with a topology and errors"
+   },
+   {
+    "id": "K5",
+    "pair": [
+     "d02",
+     "c03"
+    ],
+    "verdict": "conflict",
+    "status": "EXACT (one line)",
+    "statement": "If (lr i x) j = x j for j ≠ i and Σ_j x_j is conserved, then (lr i x) i = x i, so lr i x = x; H2 then forbids any broken seam. With patches = ports and states = loads the bundle H1 to H3 has no inhabitant that conserves the load.",
+    "resolution": "consensus is typed on frames, charts or records; conservation on loads"
+   },
+   {
+    "id": "K6",
+    "pair": [
+     "i12",
+     "b04",
+     "b06"
+    ],
+    "verdict": "conflict",
+    "status": "EXACT (audit/PROTECTION_AND_READOUT.md; CX 7, 8)",
+    "statement": "A channel with a faithful invariant state whose history effects span all Hermitian matrices has a scalar fixed algebra.",
+    "resolution": "typed event classes (autonomous law against apparatus) or a ProjectivePartition"
+   },
+   {
+    "id": "K7",
+    "pair": [
+     "a02",
+     "b04",
+     "i07"
+    ],
+    "verdict": "conflict",
+    "status": "ARGUED from EXACT parts",
+    "statement": "If the port projections are central, the accessible algebra is block diagonal in ports. Sums of block-diagonal atoms are block diagonal (the argument of no_operationalEffectQuotient_of_offDiagonal_effect, which is stated for diagonal atoms), so the full effect quotient on the port register is excluded and there is no coherence between ports of one carrier. The public walk keeps port coherence and gives up centrality (PREMISES.md).",
+    "resolution": "framed typing: ports classical, Born bridge and response on the internal factor, transport between carriers; or a separate A1 interface for the walk algebra"
+   },
+   {
+    "id": "K8",
+    "pair": [
+     "a07",
+     "a11"
+    ],
+    "verdict": "conflict for uniform rules and at level 0",
+    "status": "EXACT in the enumerated families, levels 0 to 4 (reports/MG.md items 2, 4, 5, 7 and section 3)",
+    "statement": "Among the sixteen uniform transport rules on wirings F and B, rule S commutes with the ancestry and has holonomy group Z3; the six rolling rules reach all 60 rotations and the joint group of fine and ancestral holonomy is A5 × A5; the other nine rules reach A4, Z3 or S3.",
+    "resolution": "MG component A: the rolling rule from level 1 is covariant, full and equal to its ancestry image from level 1 (it declares a base level and a 7-bit register per quantum); or implementers from the per-carrier cover controller. At level 0 no covariant transport is full (order at most 12)"
+   },
+   {
+    "id": "K9",
+    "pair": [
+     "d04",
+     "a07"
+    ],
+    "verdict": "conflict",
+    "status": "EXACT in the enumerated families (reports/MG.md section 3: the global chart has holonomy group 1; full transports have curvature at the 30 midpoints of base seams or at every six-valent vertex); reports/QF.md for one carrier",
+    "statement": "H3 on frame labels needs a satisfiable set of seam equations. With one unit of flux per face at most 11 of 30 recharted seam equations hold; full holonomy on the federation means curvature at mesh vertices. Completeness (normal form iff Consistent) fails where G5 holds.",
+    "resolution": "contract 1 (agreement of accepted records after transport) or checks on faces and rhombi over amplitudes (frustration-free, MF 1, 2)"
+   },
+   {
+    "id": "K10",
+    "pair": [
+     "c05",
+     "i07",
+     "f14"
+    ],
+    "verdict": "conflict under one clock",
+    "status": "ARGUED",
+    "statement": "UniformGapRefinement asks one gap and one cardinality bound for every member. A spatial family with a dispersive band in the same energy has neither.",
+    "resolution": "index the refinement family by carriers of fixed size, or use a different energy for the third law"
+   },
+   {
+    "id": "K11",
+    "pair": [
+     "f14",
+     "candidate iii"
+    ],
+    "verdict": "conflict for the declared filter",
+    "status": "EXACT (PROOF.md formula; CX 11)",
+    "statement": "ρ_W = [(5/4)I + (W + W*)/2]/524 has modular generator −log(5/4 + cos ω) + const, even in ω; the walk generator is odd. Modular time is not walk time.",
+    "resolution": "a filter p(W) with |p(e^{iω})|² ∝ exp(−βω) on the spectrum of W (twelve distinct eigenvalues on one carrier)"
+   },
+   {
+    "id": "K12",
+    "pair": [
+     "h01",
+     "c03",
+     "i12"
+    ],
+    "verdict": "conflict",
+    "status": "EXACT (reports/MT.md item 10, T1); ARGUED for noiseless subsystems of seam laws on one load (reports/CX.md 8)",
+    "statement": "Under lumping onto an irreducible chain no noiseless subspace of dimension two lies in the load register.",
+    "resolution": "the protected factor is a separate register"
+   }
+  ],
+  "apparent_conflicts": [
+   {
+    "id": "A1",
+    "pair": [
+     "family d",
+     "family c"
+    ],
+    "statement": "Termination (d) and perpetual resampling (c) are two contracts. The Lean Einstein composition consumes d through BareConsensusTower on a quotient that the setup chooses; it need not be the raw loads."
+   },
+   {
+    "id": "A2",
+    "pair": [
+     "b04",
+     "b09"
+    ],
+    "statement": "The full effect quotient and central records apply to different domains: partitionOperationallyEquivalent_iff_pinching_eq gives the operational quotient relative to a partition, and the Born bridge is then asked per block."
+   },
+   {
+    "id": "A3",
+    "pair": [
+     "e01 to e06",
+     "Loewner route"
+    ],
+    "statement": "N1 to N6 (points in a Euclidean window, order from reads, layer clock) and a population in Herm(2) with the Loewner order (M1 to M4 of reports/MC.md) are alternative routes to N7."
+   },
+   {
+    "id": "A4",
+    "pair": [
+     "f11 by −log P",
+     "f11 by W"
+    ],
+    "statement": "The count reconstruction (exp(−H) = P) and the walk (cos ω = λ) are two clocks on one kernel. No theorem consumes both."
+   },
+   {
+    "id": "A5",
+    "pair": [
+     "T-G finite route",
+     "Tannaka route"
+    ],
+    "statement": "The gauge paper keeps the two routes with separate premise sets."
+   },
+   {
+    "id": "A6",
+    "pair": [
+     "family g",
+     "family e"
+    ],
+    "statement": "The mass-shell identities need a Herm2-valued record and nothing from the count limit."
+   }
+  ],
+  "joint_inhabitation": {
+   "one_carrier_join_of_i_and_iii": {
+    "typing": "two registers: classical loads with tape and area counter (i); walk, fibre and link registers (iii). They share the native kernel as discriminant, cos ω = λ, and the population law for the first blank-record event (K1).",
+    "inhabited_together": [
+     "a01",
+     "a07",
+     "a08",
+     "a09",
+     "a10",
+     "a12",
+     "b01",
+     "b02",
+     "b03",
+     "b06",
+     "b07",
+     "b08",
+     "b09",
+     "c01",
+     "c02",
+     "c03",
+     "c06",
+     "d05",
+     "d10",
+     "e04",
+     "e08",
+     "f02",
+     "f03",
+     "g01",
+     "h01",
+     "i06",
+     "i12"
+    ],
+    "lean_bundles_inhabited": [
+     "compact_product_dimensions_of_projective_holonomy: hbridge and hnatural by the executed cover controller with the declared response D(v) = i Σ_p v_p X_p; the numerals dz = 1, m = {3, 8} are read off the image s(u(3)+u(2)). By exact executable checks, not by a Lean term.",
+     "fourLaws_composed on the 66 shell: RepairLawData with the uniform reference and the orbit label, kernel fairSwap = heatBath; CalibrationData with constant energy; a one-member RefinementAttachment. The thermal clauses are empty.",
+     "empty_fiber_no_reachable_normalForm on the 66 shell with B = total load and C = configurations with equal loads on every seam: hobs, hcomplete and hempty hold; the conclusion is the nontermination of the committed rule."
+    ],
+    "lean_bundles_not_inhabited": [
+     "OperationalEffectQuotient (b04)",
+     "H1 to H4 with a conserved load (K5)",
+     "the population of GoldenSourceCausalLimit",
+     "ContinuumEinsteinPremises",
+     "EinsteinAdmissibleTower",
+     "UniformGapRefinement beyond one member"
+    ]
+   }
+  }
+ },
+ "shortest_path": [
+  {
+   "rank": 1,
+   "name": "refining family with a refinement map",
+   "fields": [
+    "a11",
+    "a14",
+    "c05",
+    "e02",
+    "e03",
+    "e06",
+    "f04",
+    "f05",
+    "h02",
+    "h09",
+    "i07",
+    "i10"
+   ],
+   "consumers": [
+    "T-G",
+    "T-4L",
+    "T-N",
+    "T-M",
+    "T-E",
+    "T-X"
+   ],
+   "minimal_object": "the chart transport exists: wiring F (natural tower) with MG component A is covariant, full and exact under refinement from level 1. Missing: the walk W on this family, a coarse map c with ‖c W_s − W_r c‖ ≤ ε_r and ε_r → 0 (exact intertwining of the generators fails for label-retaining ancestry: relative squared residual 1/133, reports/S3.md), and a law that writes the closed paths as accepted records.",
+   "owner": "MV",
+   "status": "frame rule done (MG); walk open"
+  },
+  {
+   "rank": 2,
+   "name": "one clock",
+   "fields": [
+    "f14",
+    "c04",
+    "f09",
+    "f11",
+    "f12"
+   ],
+   "consumers": [
+    "T-M",
+    "T-E",
+    "T-4L",
+    "T-X"
+   ],
+   "minimal_object": "a heralded filter K = p(W) of degree at most 11 with |p(e^{iω})|² ∝ exp(−βω) on the twelve distinct eigenvalues of W (+1, −1 and five conjugate pairs with cos ω = 11/12 ± √5/60, 9/10, 5/6, 14/15). Then −log ρ = βH + c with W = exp(−iH): the modular flow of the prepared reference is the walk. β is declared; the 2π comparison (f09) is separate. ARGUED by interpolation on the spectrum stated in PROOF.md; not computed.",
+   "owner": "audit (heralded reference), MU",
+   "status": "ARGUED"
+  },
+  {
+   "rank": 3,
+   "name": "a population of records in 1+3 that persists and is frame covariant",
+   "fields": [
+    "e01",
+    "e03",
+    "e05",
+    "g02",
+    "g03",
+    "h09"
+   ],
+   "consumers": [
+    "T-N",
+    "T-E",
+    "T-K",
+    "T-X"
+   ],
+   "minimal_object": "MC partial candidate: a register per carrier of six signed axis counts modulo Q (30 bits at Q = 32), a function of the tape, read as x = Σ m_a u_a: stationary and four-dimensional in windows (4.00(2)). The theorem then needs N5 weakened to a stationary covering sample and N3 to a density-weighted volume (MC 21); agreement between carriers fails (MC 16).",
+   "owner": "MC",
+   "status": "partial candidate; needs a decision on N3 and N5"
+  },
+  {
+   "rank": 4,
+   "name": "complete response quotient with central ports",
+   "fields": [
+    "a02",
+    "a03",
+    "a05",
+    "a06",
+    "h03"
+   ],
+   "consumers": [
+    "T-G",
+    "T-B",
+    "T-E"
+   ],
+   "minimal_object": "accessible algebra ℓ^∞(ports) ⊗ (M_3 ⊕ M_2) with the response Π_p/12 and port pulses of MF (items 8, 9, 16): central ports, twelve independent closed responses, complete for the port grammar, implementers as pulse words. For the join the walk fibre has to be typed this way; port coherence of the walk is then outside the public algebra (K7): a decision.",
+   "owner": "MT",
+   "status": "supplied for framed quanta with declared pulses (MF); open for the join"
+  },
+  {
+   "rank": 5,
+   "name": "geometric cap flow and boosts",
+   "fields": [
+    "f01",
+    "f04",
+    "f05",
+    "f06",
+    "f07",
+    "f08",
+    "f09",
+    "f13",
+    "g03",
+    "g04",
+    "g05",
+    "h04",
+    "h07"
+   ],
+   "consumers": [
+    "T-M",
+    "T-E",
+    "T-K"
+   ],
+   "minimal_object": "obstructed for one-quantum code states: H4, H6, H8, H9 fail (reports/MU.md section 3). Remaining object: a many-quanta state with exclusion and a Fermi level in the section space, whose edge packets follow hyperbolic flows (MU 12), and a law whose stationary state it is. Kinematics alone: boosts as cap filters on the spinor factor are exact at N = 12.",
+   "owner": "MU",
+   "status": "obstruction for one quantum; half-filled state open"
+  },
+  {
+   "rank": 6,
+   "name": "terminating confluent contract on a typed variable",
+   "fields": [
+    "d02",
+    "d03",
+    "d04",
+    "d06",
+    "d07",
+    "d08",
+    "d09",
+    "d11",
+    "h10"
+   ],
+   "consumers": [
+    "T-C",
+    "T-E"
+   ],
+   "minimal_object": "recharting of the cover controller: Q = 120 charts × code states, r = one generator step that lowers the word distance, B = the code state transported to the base chart, C = base-chart states. ObservationPreserving, CompleteFor and BoundaryIdentifiesModulo follow from the exact group checks. On the federation only on flat regions (K9).",
+   "owner": "MA",
+   "status": "ARGUED"
+  },
+  {
+   "rank": 7,
+   "name": "bracket from ordered histories",
+   "fields": [
+    "a04"
+   ],
+   "consumers": [
+    "T-G"
+   ],
+   "minimal_object": "for framed quanta the lifts are two-pulse words in the port pulses and the algebra closes (MF 8, 9); the audit controller has its fifth-turn lifts as two-pulse words of area 4π/5 (MF 10). Missing: a law that admits the port pulses as source histories (MF decision 2).",
+   "owner": "MF",
+   "status": "table level done; ownership open"
+  },
+  {
+   "rank": 8,
+   "name": "effect domain",
+   "fields": [
+    "b04"
+   ],
+   "consumers": [
+    "T-B"
+   ],
+   "minimal_object": "a dense version of OperationalEffectQuotient (the Lean docstring asks for it) and the covariant port measurement {|χ_p^±⟩⟨χ_p^±|/12} with the position as dilation, refined along the family.",
+   "owner": "MT",
+   "status": "open"
+  },
+  {
+   "rank": 9,
+   "name": "protected moving excitation with a lifetime",
+   "fields": [
+    "i07",
+    "i12"
+   ],
+   "consumers": [
+    "T-X"
+   ],
+   "minimal_object": "in the joint defect-wave program: a lower bound on the return amplitude of a wave bound to a regional flux after t ticks.",
+   "owner": "audit",
+   "status": "open"
+  },
+  {
+   "rank": 10,
+   "name": "stress, geometry, scale and the declared mass inputs",
+   "fields": [
+    "h05",
+    "h06",
+    "h08",
+    "h11",
+    "h12",
+    "i01",
+    "i02",
+    "i03",
+    "i04",
+    "i05",
+    "i08",
+    "i09",
+    "i10",
+    "i11"
+   ],
+   "consumers": [
+    "T-E",
+    "T-X"
+   ],
+   "minimal_object": "none proposed",
+   "owner": "",
+   "status": "open"
+  }
+ ],
+ "tallies": {
+  "fields_total": 91,
+  "fields_scored": 88,
+  "by_candidate": {
+   "i": {
+    "a": {
+     "EXACT": 2,
+     "SHADOW": 6,
+     "COMP": 0,
+     "NO": 5
+    },
+    "b": {
+     "EXACT": 7,
+     "SHADOW": 1,
+     "COMP": 0,
+     "NO": 1
+    },
+    "c": {
+     "EXACT": 4,
+     "SHADOW": 0,
+     "COMP": 0,
+     "NO": 2
+    },
+    "d": {
+     "EXACT": 2,
+     "SHADOW": 1,
+     "COMP": 0,
+     "NO": 8
+    },
+    "e": {
+     "EXACT": 2,
+     "SHADOW": 2,
+     "COMP": 0,
+     "NO": 3
+    },
+    "f": {
+     "EXACT": 2,
+     "SHADOW": 3,
+     "COMP": 0,
+     "NO": 8
+    },
+    "g": {
+     "EXACT": 1,
+     "SHADOW": 3,
+     "COMP": 0,
+     "NO": 1
+    },
+    "h": {
+     "EXACT": 1,
+     "SHADOW": 2,
+     "COMP": 0,
+     "NO": 9
+    },
+    "i": {
+     "EXACT": 0,
+     "SHADOW": 2,
+     "COMP": 0,
+     "NO": 10
+    },
+    "all": {
+     "EXACT": 21,
+     "SHADOW": 20,
+     "COMP": 0,
+     "NO": 47
+    }
+   },
+   "ii": {
+    "a": {
+     "EXACT": 9,
+     "SHADOW": 4,
+     "COMP": 0,
+     "NO": 0
+    },
+    "b": {
+     "EXACT": 7,
+     "SHADOW": 0,
+     "COMP": 0,
+     "NO": 2
+    },
+    "c": {
+     "EXACT": 3,
+     "SHADOW": 1,
+     "COMP": 0,
+     "NO": 2
+    },
+    "d": {
+     "EXACT": 2,
+     "SHADOW": 2,
+     "COMP": 0,
+     "NO": 7
+    },
+    "e": {
+     "EXACT": 2,
+     "SHADOW": 1,
+     "COMP": 0,
+     "NO": 4
+    },
+    "f": {
+     "EXACT": 0,
+     "SHADOW": 3,
+     "COMP": 0,
+     "NO": 10
+    },
+    "g": {
+     "EXACT": 2,
+     "SHADOW": 3,
+     "COMP": 0,
+     "NO": 0
+    },
+    "h": {
+     "EXACT": 1,
+     "SHADOW": 2,
+     "COMP": 0,
+     "NO": 9
+    },
+    "i": {
+     "EXACT": 1,
+     "SHADOW": 2,
+     "COMP": 1,
+     "NO": 8
+    },
+    "all": {
+     "EXACT": 27,
+     "SHADOW": 18,
+     "COMP": 1,
+     "NO": 42
+    }
+   },
+   "iii": {
+    "a": {
+     "EXACT": 6,
+     "SHADOW": 3,
+     "COMP": 2,
+     "NO": 2
+    },
+    "b": {
+     "EXACT": 8,
+     "SHADOW": 0,
+     "COMP": 0,
+     "NO": 1
+    },
+    "c": {
+     "EXACT": 0,
+     "SHADOW": 1,
+     "COMP": 0,
+     "NO": 5
+    },
+    "d": {
+     "EXACT": 2,
+     "SHADOW": 0,
+     "COMP": 7,
+     "NO": 2
+    },
+    "e": {
+     "EXACT": 0,
+     "SHADOW": 1,
+     "COMP": 4,
+     "NO": 2
+    },
+    "f": {
+     "EXACT": 2,
+     "SHADOW": 2,
+     "COMP": 0,
+     "NO": 9
+    },
+    "g": {
+     "EXACT": 0,
+     "SHADOW": 1,
+     "COMP": 1,
+     "NO": 3
+    },
+    "h": {
+     "EXACT": 1,
+     "SHADOW": 1,
+     "COMP": 2,
+     "NO": 8
+    },
+    "i": {
+     "EXACT": 2,
+     "SHADOW": 2,
+     "COMP": 1,
+     "NO": 7
+    },
+    "all": {
+     "EXACT": 21,
+     "SHADOW": 11,
+     "COMP": 17,
+     "NO": 39
+    }
+   },
+   "join_i_iii": {
+    "a": {
+     "EXACT": 7,
+     "SHADOW": 4,
+     "COMP": 1,
+     "NO": 1
+    },
+    "b": {
+     "EXACT": 8,
+     "SHADOW": 0,
+     "COMP": 0,
+     "NO": 1
+    },
+    "c": {
+     "EXACT": 4,
+     "SHADOW": 0,
+     "COMP": 0,
+     "NO": 2
+    },
+    "d": {
+     "EXACT": 3,
+     "SHADOW": 1,
+     "COMP": 6,
+     "NO": 1
+    },
+    "e": {
+     "EXACT": 2,
+     "SHADOW": 3,
+     "COMP": 2,
+     "NO": 0
+    },
+    "f": {
+     "EXACT": 2,
+     "SHADOW": 4,
+     "COMP": 0,
+     "NO": 7
+    },
+    "g": {
+     "EXACT": 1,
+     "SHADOW": 3,
+     "COMP": 0,
+     "NO": 1
+    },
+    "h": {
+     "EXACT": 1,
+     "SHADOW": 2,
+     "COMP": 1,
+     "NO": 8
+    },
+    "i": {
+     "EXACT": 2,
+     "SHADOW": 2,
+     "COMP": 1,
+     "NO": 7
+    },
+    "all": {
+     "EXACT": 30,
+     "SHADOW": 19,
+     "COMP": 11,
+     "NO": 28
+    }
+   },
+   "join_all": {
+    "a": {
+     "EXACT": 11,
+     "SHADOW": 2,
+     "COMP": 0,
+     "NO": 0
+    },
+    "b": {
+     "EXACT": 8,
+     "SHADOW": 0,
+     "COMP": 0,
+     "NO": 1
+    },
+    "c": {
+     "EXACT": 4,
+     "SHADOW": 0,
+     "COMP": 0,
+     "NO": 2
+    },
+    "d": {
+     "EXACT": 3,
+     "SHADOW": 1,
+     "COMP": 6,
+     "NO": 1
+    },
+    "e": {
+     "EXACT": 2,
+     "SHADOW": 3,
+     "COMP": 2,
+     "NO": 0
+    },
+    "f": {
+     "EXACT": 2,
+     "SHADOW": 6,
+     "COMP": 0,
+     "NO": 5
+    },
+    "g": {
+     "EXACT": 2,
+     "SHADOW": 3,
+     "COMP": 0,
+     "NO": 0
+    },
+    "h": {
+     "EXACT": 1,
+     "SHADOW": 3,
+     "COMP": 1,
+     "NO": 7
+    },
+    "i": {
+     "EXACT": 2,
+     "SHADOW": 3,
+     "COMP": 1,
+     "NO": 6
+    },
+    "all": {
+     "EXACT": 35,
+     "SHADOW": 21,
+     "COMP": 10,
+     "NO": 22
+    }
+   }
+  },
+  "scored_fields_per_theorem": {
+   "T-G": 14,
+   "T-B": 10,
+   "T-4L": 8,
+   "T-C": 11,
+   "T-N": 10,
+   "T-M": 19,
+   "T-K": 8,
+   "T-E": 35,
+   "T-X": 16
+  },
+  "open_for_join_i_iii": [
+   "a03",
+   "a04",
+   "a05",
+   "a06",
+   "a11",
+   "a14",
+   "b04",
+   "c04",
+   "c05",
+   "d02",
+   "d03",
+   "d04",
+   "d06",
+   "d07",
+   "d08",
+   "d09",
+   "d11",
+   "e01",
+   "e02",
+   "e03",
+   "e05",
+   "e06",
+   "f01",
+   "f04",
+   "f05",
+   "f06",
+   "f07",
+   "f08",
+   "f09",
+   "f11",
+   "f12",
+   "f13",
+   "f14",
+   "g02",
+   "g03",
+   "g04",
+   "g05",
+   "h02",
+   "h03",
+   "h04",
+   "h05",
+   "h06",
+   "h07",
+   "h08",
+   "h09",
+   "h10",
+   "h11",
+   "h12",
+   "i01",
+   "i02",
+   "i03",
+   "i04",
+   "i05",
+   "i07",
+   "i08",
+   "i09",
+   "i10",
+   "i11"
+  ],
+  "open_fields_outside_the_path": []
+ }
+}

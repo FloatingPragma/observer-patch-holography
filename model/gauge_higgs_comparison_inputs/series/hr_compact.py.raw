@@ -1,0 +1,214 @@
+"""Worker HR: the exact functional on a compact register (CANDIDATES.md, Addendum 1, group C; SPEC.md section 6).
+
+Fields: weak links V (unit quaternions); n_x = (n0, q) on the unit four-sphere, n0 = cos|theta|,
+q = sin|theta| theta^ (quaternion; the doublet part, q -> g_x q under a gauge transformation).
+  S_C = beta_G sum_P (1 - tr V_P/2) + beta_H sum_(x,mu) [1 - n0_x n0_y - dot(q_x, V q_y)] - h sum_x |q_x|^2
+Source value: beta_H = 8/g^2 = 2 beta_G. Measure: Haar per link, the sphere's invariant measure per cell (DECLARED).
+Updates: Kennedy-Pendleton heat bath for links; exact heat bath on the four-sphere for n with rejection for h.
+
+Usage: python hr_compact.py <tag> <beta_G> <beta_H|scan> <h|scan> <L> <start> <stop> <npoints> <ntherm> <nmeas> <seed>
+                          <mode> [budget]
+  the argument given as the word scan is scanned from start to stop.
+  mode up: values ascending; start aligned (theta = 0) for a scan in h, random sphere for a scan in beta_H.
+  mode down: values descending; start on the equator (theta = pi/2, uniform doublet) for a scan in h, aligned for
+  a scan in beta_H.
+Chain protocol as hr_scan2.py: exit code 3 when points remain (state in state_compact_<tag>.npz); run through
+hr_chain.sh. Writes compact_<tag>.json. Reads no measured value.
+"""
+import json
+import sys
+import time
+
+import numpy as np
+
+import hr_lib as H
+from hr_lib import qc, qmul
+
+
+class Compact:
+    def __init__(self, L, beta, beta_h, h, seed, T=None):
+        self.L, self.T = int(L), int(T or L)
+        self.dims = (self.T, self.L, self.L, self.L)
+        self.V = int(np.prod(self.dims))
+        self.beta, self.beta_h, self.h = float(beta), float(beta_h), float(h)
+        self.rng = np.random.default_rng(seed)
+        idx = np.arange(self.V).reshape(self.dims)
+        self.up = [np.roll(idx, -1, axis=m).ravel() for m in range(4)]
+        self.dn = [np.roll(idx, +1, axis=m).ravel() for m in range(4)]
+        par = np.indices(self.dims).sum(0).ravel() % 2
+        self.sub = [np.nonzero(par == p)[0] for p in (0, 1)]
+        self.U = np.zeros((4, self.V, 4)); self.U[..., 0] = 1.0
+        self.n = np.zeros((self.V, 5)); self.n[:, 0] = 1.0          # aligned start, theta = 0
+        self.acc = [0, 0]
+
+    staple_sum = H.Lattice.staple_sum
+
+    def start_random(self):
+        v = self.rng.normal(size=(self.V, 5))
+        self.n = v / np.linalg.norm(v, axis=1)[:, None]
+
+    def start_equator(self):
+        self.n[:] = 0.0
+        self.n[:, 1] = 1.0                                          # theta = pi/2, uniform doublet direction
+
+    def update_links(self):
+        for m in range(4):
+            for p in (0, 1):
+                s = self.sub[p]
+                W = self.beta * self.staple_sum(m, s)
+                W += self.beta_h * qmul(self.n[self.up[m][s], 1:], qc(self.n[s, 1:]))
+                self.U[m][s] = H.su2_heatbath(W, self.rng)
+
+    def update_n(self, ntry=6):
+        rng = self.rng
+        for p in (0, 1):
+            s = self.sub[p]
+            B = np.zeros((s.size, 5))
+            for m in range(4):
+                xu, xd = self.up[m][s], self.dn[m][s]
+                B[:, 0] += self.n[xu, 0] + self.n[xd, 0]
+                B[:, 1:] += qmul(self.U[m][s], self.n[xu, 1:]) + qmul(qc(self.U[m][xd]), self.n[xd, 1:])
+            nb = np.linalg.norm(B, axis=1)
+            nb = np.maximum(nb, 1e-12)
+            Bh = B / nb[:, None]
+            k = self.beta_h * nb
+            todo = np.arange(s.size)
+            for _ in range(ntry):
+                kk = k[todo]
+                # cos of the angle to B^: density (1 - c^2) exp(k c); proposal x = k (1 - c) from Gamma(2), accept (1 + c)/2
+                # for k < 1.5: c from the uniform sphere (density 1 - c^2), accept exp(k (c - 1))
+                big = kk >= 1.5
+                x = -np.log((1.0 - rng.random(todo.size)) * (1.0 - rng.random(todo.size)))
+                c = 1.0 - x / np.where(big, kk, 1.0)
+                ok = (x <= 2.0 * kk) & (rng.random(todo.size) < 0.5 * (1.0 + c))
+                if not big.all():
+                    u = rng.normal(size=(todo.size, 5))
+                    cu = u[:, 0] / np.linalg.norm(u, axis=1)
+                    oku = rng.random(todo.size) < np.exp(kk * (cu - 1.0))
+                    c = np.where(big, c, cu)
+                    ok = np.where(big, ok, oku)
+                g = rng.normal(size=(todo.size, 5))
+                bh = Bh[todo]
+                g -= (g * bh).sum(1)[:, None] * bh
+                g /= np.linalg.norm(g, axis=1)[:, None]
+                prop = c[:, None] * bh + np.sqrt(np.maximum(0.0, 1.0 - c * c))[:, None] * g
+                if self.h != 0.0:
+                    q2 = (prop[:, 1:] ** 2).sum(1)
+                    ok &= rng.random(todo.size) < (np.exp(self.h * (q2 - 1.0)) if self.h > 0 else np.exp(self.h * q2))
+                self.n[s[todo[ok]]] = prop[ok]
+                todo = todo[~ok]
+                if not todo.size:
+                    break
+            self.acc[0] += s.size - todo.size; self.acc[1] += s.size
+
+    def sweep(self):
+        self.update_links()
+        self.update_n()
+
+    plaquette = H.Lattice.plaquette
+
+    def measure(self):
+        """plaquette, L_n (full link n.Un), L_q (doublet part), L_alpha (unit doublets), sin^2 theta, cos theta,
+        |cos theta|, mean mass angle |theta| in [0, pi]"""
+        q = self.n[:, 1:]
+        s2 = (q * q).sum(1)
+        sq = np.sqrt(np.maximum(s2, 1e-300))
+        ln = lq = la = 0.0
+        for m in range(4):
+            xu = self.up[m]
+            d = (q * qmul(self.U[m], q[xu])).sum(1)
+            lq += float(d.sum())
+            la += float((d / (sq * sq[xu])).sum())
+            ln += float((self.n[:, 0] * self.n[xu, 0]).sum()) + float(d.sum())
+        nl = 4.0 * self.V
+        return np.array([self.plaquette(), ln / nl, lq / nl, la / nl, float(s2.mean()), float(self.n[:, 0].mean()),
+                         float(np.abs(self.n[:, 0]).mean()), float(np.arctan2(sq, self.n[:, 0]).mean())])
+
+
+NAMES = ["plaq", "L_n", "L_q", "L_alpha", "sin2", "cos", "abscos", "theta"]
+
+if __name__ == "__main__":
+    import os
+    t0 = time.time()
+    tag, beta = sys.argv[1], float(sys.argv[2])
+    a_bh, a_h, L = sys.argv[3], sys.argv[4], int(sys.argv[5])
+    v0, v1, npts = float(sys.argv[6]), float(sys.argv[7]), int(sys.argv[8])
+    ntherm, nmeas, seed = int(sys.argv[9]), int(sys.argv[10]), int(sys.argv[11])
+    mode = sys.argv[12]
+    budget = float(sys.argv[13]) if len(sys.argv) > 13 else 95.0
+    vals = np.linspace(v0, v1, npts)
+    order = vals if mode == "up" else vals[::-1]
+    scan_bh = a_bh == "scan"
+    sfile, jfile = f"state_compact_{tag}.npz", f"compact_{tag}.json"
+    if os.path.exists(sfile):
+        st = np.load(sfile)
+        nxt, call = int(st["nxt"]), int(st["call"]) + 1
+        out = json.load(open(jfile))
+    else:
+        nxt, call = 0, 0
+        out = {"tag": tag, "beta_G": beta, "scan": "beta_H" if scan_bh else "h", "fixed": a_h if scan_bh else a_bh,
+               "L": L, "ntherm": ntherm, "nmeas": nmeas, "seed": seed, "mode": mode, "points": [],
+               "seconds_per_call": [], "complete": False}
+    lat = Compact(L, beta, order[0] if scan_bh else float(a_bh), float(a_h) if scan_bh else order[0], seed + 7919 * call)
+    if call > 0:
+        lat.U[:] = st["U"]; lat.n[:] = st["n"]
+    else:
+        if scan_bh and mode == "up":
+            lat.start_random()
+        if (not scan_bh) and mode == "down":
+            lat.start_equator()
+        for _ in range(60):
+            lat.sweep()
+    probe = []
+    for _ in range(4):
+        tp = time.time()
+        lat.sweep(); lat.measure()
+        probe.append(time.time() - tp)
+    per = min(probe)
+    done_any = False
+    while nxt < npts:
+        need = (ntherm + nmeas) * per
+        if done_any and time.time() - t0 + need > budget:
+            break
+        v = float(order[nxt])
+        if scan_bh:
+            lat.beta_h = v
+        else:
+            lat.h = v
+        lat.acc = [0, 0]
+        tq = time.time()
+        # a point that does not fit the budget is shortened (at least 20 thermalization and 40 measurement sweeps)
+        t_end = t0 + budget
+        nth = 0
+        while nth < ntherm and (time.time() < t_end - 40 * per or nth < 20):
+            lat.sweep(); nth += 1
+        rws = []
+        while len(rws) < nmeas and (time.time() < t_end or len(rws) < 40):
+            lat.sweep(); rws.append(lat.measure())
+        rows = np.array(rws)
+        per = (time.time() - tq) / (nth + len(rws))
+        res = {"value": v, "branch": mode, "acc_n": lat.acc[0] / max(1, lat.acc[1]), "ntherm_done": nth,
+               "nmeas": len(rws)}
+        for j, nm in enumerate(NAMES):
+            res[nm] = float(rows[:, j].mean()); res[nm + "_err"] = H.blocked_error(rows[:, j])
+        res["chi_sin2"] = float(lat.V * rows[:, 4].var())
+        res["chi_L_q"] = float(4 * lat.V * rows[:, 2].var())
+        res["series_sin2"] = np.round(rows[:, 4], 5).tolist()
+        out["points"].append(res)
+        nxt += 1
+        done_any = True
+        print(f"{mode:4s} {out['scan']} {v:8.4f} plaq {res['plaq']:.5f} L_n {res['L_n']:.4f} L_q {res['L_q']:.4f} "
+              f"L_alpha {res['L_alpha']:.4f} sin2 {res['sin2']:.4f} cos {res['cos']:+.4f} |cos| {res['abscos']:.4f} "
+              f"theta {res['theta']:.4f} chi_s2 {res['chi_sin2']:.3f} acc {res['acc_n']:.3f} t {time.time() - t0:.0f}s",
+              flush=True)
+    out["seconds_per_call"].append(time.time() - t0)
+    out["complete"] = nxt >= npts
+    json.dump(out, open(jfile, "w"))
+    if nxt >= npts:
+        if os.path.exists(sfile):
+            os.remove(sfile)
+        print("complete", sum(out["seconds_per_call"]))
+        sys.exit(0)
+    np.savez(sfile, U=lat.U, n=lat.n, nxt=nxt, call=call)
+    print("paused at point", nxt, "of", npts, "after", round(time.time() - t0, 1), "s")
+    sys.exit(3)

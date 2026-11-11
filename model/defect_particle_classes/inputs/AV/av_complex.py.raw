@@ -1,0 +1,215 @@
+"""Lane AV: the complexes of METHOD.md section 6 as plain arrays (numpy only).
+
+A complex is a dict with
+  nsite, nlink, nplaq
+  tail, head        (nlink)    oriented links
+  pl, ps, pn        (nplaq, 4) link ids (-1 padded), signs, number of links of each plaquette
+  ptype             (nplaq)    1 time-like (contains the tick), 0 spatial
+  P0                the twisted plaquette (a time-like plaquette of one seam)
+  lp_ptr, lp_idx, lp_pos       CSR: plaquettes of each link and the position of the link inside them
+  sl_ptr, sl_idx, sl_dir       CSR: links of each site, +1 where the site is the tail, -1 where it is the head
+"""
+import math
+
+import numpy as np
+
+
+def _finish(nsite, tail, head, plaqs, ptype, P0, name):
+    nlink = len(tail)
+    nplaq = len(plaqs)
+    pl = -np.ones((nplaq, 4), np.int64)
+    ps = np.zeros((nplaq, 4), np.int64)
+    pn = np.zeros(nplaq, np.int64)
+    for p, (ls, ss) in enumerate(plaqs):
+        pn[p] = len(ls)
+        pl[p, :len(ls)] = ls
+        ps[p, :len(ls)] = ss
+        assert len(set(ls)) == len(ls), "a link appears twice in one plaquette"
+    cnt = np.zeros(nlink + 1, np.int64)
+    for p in range(nplaq):
+        for k in range(pn[p]):
+            cnt[pl[p, k] + 1] += 1
+    lp_ptr = np.cumsum(cnt)
+    lp_idx = np.zeros(lp_ptr[-1], np.int64)
+    lp_pos = np.zeros(lp_ptr[-1], np.int64)
+    fill = lp_ptr[:-1].copy()
+    for p in range(nplaq):
+        for k in range(pn[p]):
+            l = pl[p, k]
+            lp_idx[fill[l]] = p
+            lp_pos[fill[l]] = k
+            fill[l] += 1
+    cnt = np.zeros(nsite + 1, np.int64)
+    for l in range(nlink):
+        cnt[tail[l] + 1] += 1
+        cnt[head[l] + 1] += 1
+    sl_ptr = np.cumsum(cnt)
+    sl_idx = np.zeros(sl_ptr[-1], np.int64)
+    sl_dir = np.zeros(sl_ptr[-1], np.int64)
+    fill = sl_ptr[:-1].copy()
+    for l in range(nlink):
+        sl_idx[fill[tail[l]]] = l; sl_dir[fill[tail[l]]] = 1; fill[tail[l]] += 1
+        sl_idx[fill[head[l]]] = l; sl_dir[fill[head[l]]] = -1; fill[head[l]] += 1
+    return {"name": name, "nsite": int(nsite), "nlink": int(nlink), "nplaq": int(nplaq),
+            "tail": np.asarray(tail, np.int64), "head": np.asarray(head, np.int64),
+            "pl": pl, "ps": ps, "pn": pn, "ptype": np.asarray(ptype, np.int64), "P0": int(P0),
+            "lp_ptr": lp_ptr, "lp_idx": lp_idx, "lp_pos": lp_pos,
+            "sl_ptr": sl_ptr, "sl_idx": sl_idx, "sl_dir": sl_dir}
+
+
+def cubic(L, d, T=None):
+    """periodic cubic lattice, axis 0 is the tick (extent T, default L). link id = site * d + mu."""
+    T = T or L
+    dims = (T,) + (L,) * (d - 1)
+    S = int(np.prod(dims))
+    idx = np.arange(S).reshape(dims)
+    up = [np.roll(idx, -1, axis=m).ravel() for m in range(d)]
+    tail = np.repeat(np.arange(S), d)
+    head = np.stack(up, 1).ravel()
+    plaqs, ptype = [], []
+    for mu in range(d):
+        for nu in range(mu + 1, d):
+            for x in range(S):
+                plaqs.append(([x * d + mu, up[mu][x] * d + nu, up[nu][x] * d + mu, x * d + nu], [1, 1, -1, -1]))
+                ptype.append(1 if mu == 0 else 0)
+    return _finish(S, tail, head, plaqs, ptype, 0, "cub%d_L%d_T%d" % (d, L, T))
+
+
+def icosahedron():
+    """12 corners, 30 seams (i < j), 20 faces oriented outward"""
+    phi = (1 + math.sqrt(5)) / 2
+    V = []
+    for s1 in (1, -1):
+        for s2 in (1, -1):
+            V += [(0, s1, s2 * phi), (s1, s2 * phi, 0), (s2 * phi, 0, s1)]
+    V = np.array(V, float)
+    E = [(i, j) for i in range(12) for j in range(i + 1, 12) if abs(np.linalg.norm(V[i] - V[j]) - 2) < 1e-9]
+    F = []
+    for i in range(12):
+        for j in range(i + 1, 12):
+            for k in range(j + 1, 12):
+                if (i, j) in E and (j, k) in E and (i, k) in E:
+                    n = np.cross(V[j] - V[i], V[k] - V[i])
+                    F.append((i, j, k) if n @ (V[i] + V[j] + V[k]) > 0 else (i, k, j))
+    return V, E, F
+
+
+def _face_links(face, eidx):
+    ls, ss = [], []
+    n = len(face)
+    for a in range(n):
+        i, j = face[a], face[(a + 1) % n]
+        if (i, j) in eidx:
+            ls.append(eidx[(i, j)]); ss.append(1)
+        else:
+            ls.append(eidx[(j, i)]); ss.append(-1)
+    return ls, ss
+
+
+def surface2(corners, E, F, name):
+    """a surface read as a Euclidean two-complex: the faces are the plaquettes"""
+    eidx = {e: n for n, e in enumerate(E)}
+    plaqs = [_face_links(f, eidx) for f in F]
+    return _finish(corners, [e[0] for e in E], [e[1] for e in E], plaqs, [1] * len(F), 0, name)
+
+
+def ico2():
+    V, E, F = icosahedron()
+    return surface2(12, E, F, "ico2")
+
+
+def pair2():
+    """two triangles on one seam: corners 0..3, shared seam (0, 1)"""
+    E = [(0, 1), (1, 2), (0, 2), (1, 3), (0, 3)]
+    F = [(0, 1, 2), (1, 0, 3)]
+    return surface2(4, E, F, "pair2")
+
+
+def surfaceT(corners, E, F, NT, name):
+    """space = the surface, NT ticks, periodic (NT >= 2). P0 = time-like plaquette of seam 0 at tick 0."""
+    assert NT >= 2
+    ne, nv = len(E), corners
+    eidx = {e: n for n, e in enumerate(E)}
+    tail, head = [], []
+    for t in range(NT):
+        for (i, j) in E:
+            tail.append(i + nv * t); head.append(j + nv * t)
+    for t in range(NT):
+        for v in range(nv):
+            tail.append(v + nv * t); head.append(v + nv * ((t + 1) % NT))
+
+    def sl(e, t):
+        return e + ne * t
+
+    def tl(v, t):
+        return ne * NT + v + nv * t
+    plaqs, ptype = [], []
+    for t in range(NT):
+        for e, (i, j) in enumerate(E):
+            plaqs.append(([sl(e, t), tl(j, t), sl(e, (t + 1) % NT), tl(i, t)], [1, 1, -1, -1]))
+            ptype.append(1)
+    for t in range(NT):
+        for f in F:
+            ls, ss = _face_links(f, eidx)
+            plaqs.append(([sl(e, t) for e in ls], ss))
+            ptype.append(0)
+    return _finish(nv * NT, tail, head, plaqs, ptype, 0, name)
+
+
+def icoT(NT):
+    V, E, F = icosahedron()
+    return surfaceT(12, E, F, NT, "icoT_NT%d" % NT)
+
+
+def pairT(NT):
+    E = [(0, 1), (1, 2), (0, 2), (1, 3), (0, 3)]
+    F = [(0, 1, 2), (1, 0, 3)]
+    return surfaceT(4, E, F, NT, "pairT_NT%d" % NT)
+
+
+def coboundary(cx):
+    """dense matrix d (nplaq x nlink): F_P = sum of signed link angles"""
+    D = np.zeros((cx["nplaq"], cx["nlink"]))
+    for p in range(cx["nplaq"]):
+        for k in range(cx["pn"][p]):
+            D[p, cx["pl"][p, k]] += cx["ps"][p, k]
+    return D
+
+
+def shells(cx, P0, nshell):
+    """links within nshell plaquette shells of P0 (shell 0: the links of P0)"""
+    links = set(int(l) for l in cx["pl"][P0, :cx["pn"][P0]])
+    for _ in range(nshell):
+        new = set()
+        for l in links:
+            for a in range(cx["lp_ptr"][l], cx["lp_ptr"][l + 1]):
+                p = cx["lp_idx"][a]
+                new.update(int(m) for m in cx["pl"][p, :cx["pn"][p]])
+        links |= new
+    return np.array(sorted(links), np.int64)
+
+
+def build(name):
+    """cub3_L8, cub4_L6, cub4_L4_T8, icoT_NT8, ico2, pair2, pairT_NT8"""
+    parts = name.split("_")
+    if parts[0].startswith("cub"):
+        d = int(parts[0][3:]); L = int(parts[1][1:])
+        T = int(parts[2][1:]) if len(parts) > 2 else None
+        return cubic(L, d, T)
+    if parts[0] == "icoT":
+        return icoT(int(parts[1][2:]))
+    if parts[0] == "pairT":
+        return pairT(int(parts[1][2:]))
+    if parts[0] == "ico2":
+        return ico2()
+    if parts[0] == "pair2":
+        return pair2()
+    raise ValueError(name)
+
+
+if __name__ == "__main__":
+    for nm in ("ico2", "pair2", "icoT_NT4", "pairT_NT4", "cub3_L4", "cub4_L4"):
+        c = build(nm)
+        D = coboundary(c)
+        print(nm, c["nsite"], c["nlink"], c["nplaq"], "rank d", np.linalg.matrix_rank(D),
+              "plaquettes per link", sorted(set(np.diff(c["lp_ptr"]).tolist())))

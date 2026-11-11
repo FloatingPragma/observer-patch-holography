@@ -1,0 +1,83 @@
+{
+ "Z2_gauge_invariance": true,
+ "Z2_W11_equals_plaquette": true,
+ "Z3_gauge_invariance": true,
+ "Z3_W11_equals_plaquette": true,
+ "single_link_cluster": [
+  1,
+  4
+ ],
+ "two_lines_clusters": [
+  2,
+  [
+   8,
+   8
+  ],
+  [
+   false,
+   false,
+   true
+  ]
+ ],
+ "closed_loop": [
+  1,
+  [
+   14
+  ],
+  [
+   {
+    "size": 14,
+    "wraps_axes": [
+     false,
+     false,
+     false
+    ]
+   }
+  ]
+ ],
+ "Z2_strong_coupling_kappa0.15": {
+  "mc": 0.14866319444444448,
+  "err": 0.0015489488676957489,
+  "single_plaquette": 0.14888503362331795
+ },
+ "Z3_strong_coupling_kappa0.2": {
+  "mc": 0.10539713541666666,
+  "err": 0.0018427137331151384,
+  "single_plaquette": 0.10443986677431481
+ },
+ "Z2_exact_2cube_beta0.5": {
+  "exact_mean_Up": 0.6547776076515287,
+  "numpy": [
+   0.6539166666666667,
+   0.0024945660899892523
+  ],
+  "numba": [
+   0.653305,
+   0.0010995892090100874
+  ]
+ },
+ "Z2_numpy_vs_numba_12^3_kappa0.74_cold_start": {
+  "numpy": [
+   0.8897937242798355,
+   0.00412676133226182
+  ],
+  "numba": [
+   0.8814020061728394,
+   0.003944480243968188
+  ]
+ },
+ "Z3_numpy_vs_numba_12^3_kappa1.0_cold_start": {
+  "numpy": [
+   0.6855740740740741,
+   0.0009786830440608682
+  ],
+  "numba": [
+   0.6868035300925927,
+   0.0008018985695402338
+  ]
+ },
+ "numba_seconds_per_sweep_48^3_Z3": 0.025935518741607665,
+ "seconds_per_wilson_8x8_48^3": 0.3241574764251709,
+ "seconds_per_plaquette_48^3": 0.0011506080627441406,
+ "seconds": 54.98092985153198
+}

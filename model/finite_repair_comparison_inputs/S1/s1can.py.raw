@@ -1,0 +1,274 @@
+"""Pair-sector analysis on lumped chains built by the C kernel (float64 linear algebra on the enumerated chain)."""
+import numpy as np
+import scipy.sparse as sp
+import scipy.sparse.linalg as spla
+from scipy.sparse.csgraph import connected_components
+import s1lib as S, s1an as A, s1c
+
+
+def initial_groups(C):
+    """Initial states: ('uniform', r): uniform loads + shortest string at dual distance r;
+    ('balanced', r): every balanced load pattern + every ordered pair at distance r (uniform weight)."""
+    groups = {}
+    vac = A.balanced_vacua(C)
+    for f in range(C.F):
+        for g in range(C.F):
+            if f == g:
+                continue
+            r = C.ddist[f][g]
+            b = C.string(f, g)
+            groups.setdefault(('uniform', r), []).append(tuple(-o for o in b))
+            for dv in vac:
+                groups.setdefault(('balanced', r), []).append(tuple(a - o for a, o in zip(dv, b)))
+    return groups
+
+
+def initial_labels(C):
+    """Vacuum label (folded by conjugation) from which each initial pair state is made, where it is defined:
+    0 for the uniform starts; the number of high ports for a pair made by ONE unit twist of a balanced vacuum (r = 1)."""
+    labels = {}
+    vac = A.balanced_vacua(C)
+    fold = lambda m: min(m, (C.P - m) % C.P)
+    vl = [fold(A.vacuum_label(C, dv)) for dv in vac]
+    for f in range(C.F):
+        for g in range(C.F):
+            if f == g:
+                continue
+            r = C.ddist[f][g]
+            labels.setdefault(('uniform', r), []).append(0)
+            if r == 1:
+                labels.setdefault(('balanced', 1), []).extend(vl)
+    return labels
+
+
+NOTES = []          # convergence notes of the last analysis (cleared by analyse)
+TMAX = 12.0         # seconds allowed for one iterative solve
+
+
+def perron(Q):
+    """Largest eigenvalue of a nonnegative matrix and its left eigenvector."""
+    import time
+    n = Q.shape[0]
+    if n == 0:
+        return None, None
+    if n <= 1500:
+        w, V = np.linalg.eig(Q.toarray().T)
+        k = int(np.argmax(w.real))
+        v = np.abs(V[:, k].real)
+        return float(w[k].real), v / v.sum()
+    QT = Q.T.tocsr()
+    try:
+        w, V = spla.eigs(QT, k=1, which='LR', tol=1e-12, maxiter=3000, v0=np.ones(n))
+        v = np.abs(V[:, 0].real)
+        lam = float(w[0].real)
+        if np.abs(QT @ v - lam * v).sum() < 1e-8 * v.sum():
+            return lam, v / v.sum()
+    except Exception as exc:        # ARPACK did not converge
+        NOTES.append(f'perron: ARPACK failed ({type(exc).__name__}), power iteration used')
+    v = np.ones(n) / n; lam = 0.0; t0 = time.time()
+    while True:
+        for _ in range(200):
+            w_ = QT @ v
+            s_ = w_.sum()
+            if s_ == 0:
+                return 0.0, v
+            w_ /= s_
+            done = abs(s_ - lam) < 1e-14 and np.abs(w_ - v).sum() < 1e-12
+            lam, v = s_, w_
+        if done:
+            break
+        if time.time() - t0 > TMAX:
+            NOTES.append('perron: power iteration stopped at the time limit'); break
+    return float(lam), v
+
+
+def stationary(Tc):
+    import time
+    n = Tc.shape[0]
+    if n <= 1500:
+        A_ = Tc.toarray().T - np.eye(n)
+        A_[-1, :] = 1.0
+        b = np.zeros(n); b[-1] = 1.0
+        return np.linalg.solve(A_, b)
+    TT = (0.5 * (Tc + sp.identity(n))).T.tocsr()
+    try:
+        w, V = spla.eigs(TT, k=1, which='LR', tol=1e-13, maxiter=5000, v0=np.ones(n))
+        v = np.abs(V[:, 0].real); v /= v.sum()
+        if np.abs(TT @ v - v).sum() < 1e-9:
+            return v
+    except Exception as exc:
+        NOTES.append(f'stationary: ARPACK failed ({type(exc).__name__}), power iteration used')
+    v = np.ones(n) / n; t0 = time.time()
+    while True:
+        for _ in range(200):
+            v = TT @ v
+        if np.abs(TT @ v - v).sum() < 1e-13:
+            break
+        if time.time() - t0 > TMAX:
+            NOTES.append('stationary: power iteration stopped at the time limit'); break
+    return v / v.sum()
+
+
+def solver(Q):
+    """Returns a function b -> (I - Q)^-1 b for a substochastic sparse matrix."""
+    n = Q.shape[0]
+    if n <= 4000:
+        lu = spla.splu(sp.identity(n, format='csc') - Q.tocsc())
+        return lu.solve
+    A_ = (sp.identity(n, format='csr') - Q.tocsr())
+    try:
+        ilu = spla.spilu(A_.tocsc(), drop_tol=1e-5, fill_factor=20)
+        Mop = spla.LinearOperator((n, n), ilu.solve)
+    except Exception:
+        Mop = None
+
+    def solve(b):
+        b = np.asarray(b, float)
+        if not b.any():
+            return np.zeros(n)
+        x, info = spla.lgmres(A_, b, M=Mop, rtol=1e-11, atol=0.0, maxiter=400)
+        res_ = np.abs(A_ @ x - b).max() / max(np.abs(b).max(), 1e-300)
+        if info != 0 or res_ > 1e-7:
+            NOTES.append(f'solve: lgmres residual {res_:.1e} (info {info})')
+        return x
+    return solve
+
+
+def analyse(C, law, groups=None, cap=200000, dcap=10, qcap=2, sweeps=(1, 2, 5, 10, 20, 50, 100), reflect=False,
+            labels=None):
+    groups = groups or initial_groups(C)
+    labels = labels or {}
+    keys = list(groups)
+    init = [d for k in keys for d in groups[k]]
+    ch = s1c.build_chain(C, law, init, cap=cap, dcap=dcap, qcap=qcap, reflect=reflect)
+    NOTES.clear()
+    res = dict(law=law.name, order=law.order, carrier=C.name, contrast_cap=dcap, reflecting_cap=bool(reflect))
+    if ch['overflow']:
+        res['overflow'] = True
+        return res, ch
+    n, T, absq, ev, flags = ch['n'], ch['T'], ch['absq'], ch['ev'], ch['flags']
+    M4 = 4.0 * C.M
+    res.update(lumped_states=n, max_abs_contrast=int(ch['maxd'].max()), frozen_by_contrast_cap=int((flags & 1).sum()),
+               frozen_by_charge_cap=int((flags & 2).sum()), charge_content_reached=sorted(set(int(v) for v in absq)))
+    keysseen = s1c.seen_keys(ch['seen'])
+    res['max_abs_contrast_at_uncharged_seam'] = max((abs(d) for d, u, v in keysseen if u == 0 and v == 0), default=0)
+    res['contrasts_at_hop_seam'] = sorted({(d if (u, v) in ((1, 0), (0, -1)) else -d) for d, u, v in keysseen
+                                           if (u, v) in ((1, 0), (0, -1), (0, 1), (-1, 0))})
+    res['contrasts_at_pair_seam'] = sorted({(d if (u, v) == (1, -1) else -d) for d, u, v in keysseen
+                                            if (u, v) in ((1, -1), (-1, 1))})
+    names = ('hop', 'annihilate', 'create', 'merge', 'split', 'other')
+    res['event_types'] = [names[t] for t in range(6) if ev[:, t].any()]
+    res['states_with_reflected_outcome'] = int((ev[:, 6] > 0).sum())
+    ncomp, lab = connected_components(T, directed=True, connection='strong')
+    coo = T.tocoo()
+    openc = np.zeros(ncomp, bool)
+    cross = lab[coo.row] != lab[coo.col]
+    openc[lab[coo.row[cross]]] = True
+    closed_ids = np.flatnonzero(~openc)
+    in_closed = ~openc[lab]
+    size = np.bincount(lab, minlength=ncomp)
+    cinfo = []
+    for cid in closed_ids:
+        mem = np.flatnonzero(lab == cid)
+        a0 = int(absq[mem[0]])
+        kind = 'frozen' if flags[mem[0]] else ('vacuum' if a0 == 0 else 'charged')
+        vl = None
+        if kind == 'vacuum':
+            vl = A.vacuum_label(C, tuple(int(v) for v in ch['states'][mem[0]]))
+            vl = None if vl is None else min(vl, (C.P - vl) % C.P)
+        cinfo.append(dict(id=int(cid), kind=kind, size=int(len(mem)), abs_charge=a0, label=vl, members=mem))
+    res['closed_classes'] = dict(vacuum=sum(c['kind'] == 'vacuum' for c in cinfo), charged=sum(c['kind'] == 'charged' for c in cinfo),
+                                 frozen=sum(c['kind'] == 'frozen' for c in cinfo),
+                                 charged_sizes=sorted(c['size'] for c in cinfo if c['kind'] == 'charged'))
+    vac_states = absq == 0
+    res['vacuum_creates_charge'] = bool((T[np.flatnonzero(vac_states)][:, np.flatnonzero(~vac_states)]).nnz > 0)
+    res['creates_charge_from_pair'] = bool(absq.max() > 2)
+    # transient part
+    tra = np.flatnonzero(~in_closed)
+    loc = -np.ones(n, np.int64); loc[tra] = np.arange(len(tra))
+    Q = T[tra][:, tra].tocsc()
+    hop = ev[:, 0] / M4
+    starts = {k: ch['init_index'][sum(len(groups[kk]) for kk in keys[:i]): sum(len(groups[kk]) for kk in keys[:i + 1])]
+              for i, k in enumerate(keys)}
+    out_start = {}
+    if len(tra):
+        lu_solve = solver(Q)
+        n_hop = lu_solve(hop[tra])
+        # absorption probabilities by closed-class kind / label
+        targets = {}
+        for c in cinfo:
+            key = c['kind'] if c['kind'] != 'vacuum' else f"vacuum_label_{c['label']}"
+            vec = np.asarray(T[tra][:, c['members']].sum(axis=1)).ravel()
+            targets[key] = targets.get(key, 0) + vec
+        absorb = {k: lu_solve(v) for k, v in targets.items()}
+        # time spent with charge present (annihilation time): solve on charged transient states only
+        ctra = np.flatnonzero((~in_closed) & (absq > 0))
+        Qc = T[ctra][:, ctra].tocsc()
+        t_ann = solver(Qc)(np.ones(len(ctra))) if len(ctra) else np.zeros(0)
+        locc = -np.ones(n, np.int64); locc[ctra] = np.arange(len(ctra))
+        lam, qsd = perron(Qc.tocsr()) if len(ctra) else (None, None)
+        res['survival_decay_per_attempt'] = lam
+        res['lifetime_sweeps_tail'] = (float(-1 / (C.M * np.log(lam))) if lam and 0 < lam < 1 else None)
+        if qsd is not None:
+            res['hop_rate_per_charge_per_sweep_qsd'] = float(qsd @ hop[ctra] * C.M / 2)
+            res['reflected_outcomes_per_sweep_qsd'] = float(qsd @ ev[ctra, 6] / M4 * C.M)
+        for k, idxs in starts.items():
+            idxs = np.asarray(idxs)
+            w_tr = np.zeros(len(tra)); w_c = np.zeros(len(ctra)); direct = {}
+            labs = labels.get(k); kept = 0.0
+            for pos, i in enumerate(idxs):
+                if loc[i] >= 0:
+                    w_tr[loc[i]] += 1.0 / len(idxs)
+                    if labs is not None and f"vacuum_label_{labs[pos]}" in absorb:
+                        kept += absorb[f"vacuum_label_{labs[pos]}"][loc[i]] / len(idxs)
+                else:
+                    cid = lab[i]
+                    c = next(c for c in cinfo if c['id'] == cid)
+                    key = c['kind'] if c['kind'] != 'vacuum' else f"vacuum_label_{c['label']}"
+                    direct[key] = direct.get(key, 0) + 1.0 / len(idxs)
+                    if labs is not None and key == f"vacuum_label_{labs[pos]}":
+                        kept += 1.0 / len(idxs)
+                if locc[i] >= 0:
+                    w_c[locc[i]] += 1.0 / len(idxs)
+            o = dict(mean_time_with_charge_sweeps=float(w_c @ t_ann / C.M) if len(ctra) else 0.0,
+                     mean_hops=float(w_tr @ n_hop),
+                     absorbed={kk: float(w_tr @ vv + direct.get(kk, 0)) for kk, vv in absorb.items()})
+            for kk, vv in direct.items():
+                o['absorbed'].setdefault(kk, float(vv))
+            if labs is not None:
+                o['p_final_label_equals_initial'] = float(kept)
+            # survival curve of the charged transient part
+            if len(ctra) and w_c.sum() > 0:
+                vec = w_c.copy(); QcT = Qc.T.tocsr(); step = 0; surv = {}
+                for hs in sweeps:
+                    while step < hs * C.M:
+                        vec = QcT @ vec; step += 1
+                    surv[str(hs)] = float(vec.sum())
+                o['charged_transient_mass_after_sweeps'] = surv
+            out_start[f'{k[0]}_r{k[1]}'] = o
+    else:
+        for k, idxs in starts.items():
+            out_start[f'{k[0]}_r{k[1]}'] = dict(mean_time_with_charge_sweeps=None, absorbed={})
+    res['starts'] = out_start
+    # closed charged classes: stationary hop rate, adjacency, mean dual distance
+    cc = []
+    for c in cinfo:
+        if c['kind'] != 'charged':
+            continue
+        mem = c['members']
+        pi = stationary(T[mem][:, mem].tocsr())
+        hr = float(pi @ hop[mem] * C.M) / max(1, c['abs_charge'])
+        info = dict(size=c['size'], abs_charge=c['abs_charge'], hop_rate_per_charge_per_sweep=hr,
+                    reflected_outcomes_per_sweep=float(pi @ ev[mem, 6] / M4 * C.M),
+                    mean_max_contrast=float(pi @ ch['maxd'][mem]), prob_max_contrast_ge_3=float(pi[ch['maxd'][mem] >= 3].sum()),
+                    twist_events_per_sweep={names[t]: float(pi @ ev[mem, t] / M4 * C.M) for t in range(6) if ev[mem, t].any()})
+        qs = ch['q'][mem]
+        if c['abs_charge'] == 2 and np.abs(qs).max() == 1:
+            fp = np.argmax(qs == 1, axis=1); fm = np.argmax(qs == -1, axis=1)
+            dd = np.array(C.ddist)[fp, fm]
+            info['dual_distance_distribution'] = {str(int(r)): float(pi[dd == r].sum()) for r in sorted(set(dd))}
+        info['prob_double_face'] = float(pi[np.abs(qs).max(axis=1) >= 2].sum())
+        cc.append(info)
+    res['closed_charged_classes'] = cc
+    res['numerical_notes'] = list(NOTES)
+    return res, ch

@@ -1,0 +1,1726 @@
+{
+ "wiring": "rolling",
+ "lattice": {
+  "unit_cell": "one up carrier and one down carrier; seam k joins port ports_up[k] of the up carrier of cell R to port ports_down[k] of the down carrier of cell R - delta_k",
+  "a1": [
+   1.0,
+   0.0
+  ],
+  "a2": [
+   0.5,
+   0.8660254037844386
+  ],
+  "delta": [
+   [
+    0.0,
+    0.0
+   ],
+   [
+    1.0,
+    0.0
+   ],
+   [
+    0.5,
+    0.8660254037844386
+   ]
+  ],
+  "delta_in_lattice_coordinates": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ]
+  ],
+  "bond_direction_deg_from_up_carrier": [
+   30.0,
+   150.0,
+   270.0
+  ],
+  "bloch_convention": "oph_defects.bloch.bloch_honeycomb: L[u, d] -= exp(-i q.delta_k)",
+  "plaquette": "counter-clockwise ring around a mesh vertex as in oph_defects.bloch.incidence_bloch"
+ },
+ "conventions": {
+  "port_labels": "template labels of oph_defects.fedgeom / RL/work/S3/s0_lib.py",
+  "template_port_axes": [
+   [
+    -0.525731112119,
+    0.850650808352,
+    0.0
+   ],
+   [
+    0.525731112119,
+    0.850650808352,
+    0.0
+   ],
+   [
+    -0.525731112119,
+    -0.850650808352,
+    0.0
+   ],
+   [
+    0.525731112119,
+    -0.850650808352,
+    0.0
+   ],
+   [
+    0.0,
+    -0.525731112119,
+    0.850650808352
+   ],
+   [
+    0.0,
+    0.525731112119,
+    0.850650808352
+   ],
+   [
+    0.0,
+    -0.525731112119,
+    -0.850650808352
+   ],
+   [
+    0.0,
+    0.525731112119,
+    -0.850650808352
+   ],
+   [
+    0.850650808352,
+    0.0,
+    -0.525731112119
+   ],
+   [
+    0.850650808352,
+    0.0,
+    0.525731112119
+   ],
+   [
+    -0.850650808352,
+    0.0,
+    -0.525731112119
+   ],
+   [
+    -0.850650808352,
+    0.0,
+    0.525731112119
+   ]
+  ],
+  "spinor": "chi+(n) = (cos(theta/2), exp(i phi) sin(theta/2)), chi-(n) = chi+(-n); complex numbers are [re, im]",
+  "su2": "U(n, t) = cos(t/2) - i sin(t/2) n.sigma; U (v.sigma) U^+ = (R v).sigma",
+  "hop": "amplitude of the hop from port p of the first carrier to port q of the second: keep = <chi+_q| U |chi+_p>, flip = <chi-_q| U |chi+_p>; the reverse hop has the complex conjugate keep amplitude (U replaced by U^-1)",
+  "z": "z_keep = keep / |keep| is the recharting phase for the covariant agreement pump and for section bands of helicity 1/2; intra-carrier seams use z_ab = phase of <chi_b|chi_a> with the template axes (chart) or the ambient axes (ambient)",
+  "flux_unit": "2 pi / 20; a carrier face oriented outward has flux -1 unit in this spinor convention (helicity +1/2)"
+ },
+ "note": "Wiring F with the rolling transport R1 (primary): the carrier sits with its glue face on the cell, glue port k at the first end of mesh edge k, and rolls over the shared edge. No common frame exists (a fifth of a turn around every mesh vertex). With a two-carrier cell the lift has the short (order 10) holonomy.",
+ "glue_ports_up": [
+  0,
+  11,
+  5
+ ],
+ "glue_ports_down": [
+  0,
+  11,
+  5
+ ],
+ "embedding": null,
+ "ports": [
+  {
+   "carrier": "up",
+   "port": 0,
+   "ambient_axis": null
+  },
+  {
+   "carrier": "up",
+   "port": 1,
+   "ambient_axis": null
+  },
+  {
+   "carrier": "up",
+   "port": 2,
+   "ambient_axis": null
+  },
+  {
+   "carrier": "up",
+   "port": 3,
+   "ambient_axis": null
+  },
+  {
+   "carrier": "up",
+   "port": 4,
+   "ambient_axis": null
+  },
+  {
+   "carrier": "up",
+   "port": 5,
+   "ambient_axis": null
+  },
+  {
+   "carrier": "up",
+   "port": 6,
+   "ambient_axis": null
+  },
+  {
+   "carrier": "up",
+   "port": 7,
+   "ambient_axis": null
+  },
+  {
+   "carrier": "up",
+   "port": 8,
+   "ambient_axis": null
+  },
+  {
+   "carrier": "up",
+   "port": 9,
+   "ambient_axis": null
+  },
+  {
+   "carrier": "up",
+   "port": 10,
+   "ambient_axis": null
+  },
+  {
+   "carrier": "up",
+   "port": 11,
+   "ambient_axis": null
+  },
+  {
+   "carrier": "down",
+   "port": 0,
+   "ambient_axis": null
+  },
+  {
+   "carrier": "down",
+   "port": 1,
+   "ambient_axis": null
+  },
+  {
+   "carrier": "down",
+   "port": 2,
+   "ambient_axis": null
+  },
+  {
+   "carrier": "down",
+   "port": 3,
+   "ambient_axis": null
+  },
+  {
+   "carrier": "down",
+   "port": 4,
+   "ambient_axis": null
+  },
+  {
+   "carrier": "down",
+   "port": 5,
+   "ambient_axis": null
+  },
+  {
+   "carrier": "down",
+   "port": 6,
+   "ambient_axis": null
+  },
+  {
+   "carrier": "down",
+   "port": 7,
+   "ambient_axis": null
+  },
+  {
+   "carrier": "down",
+   "port": 8,
+   "ambient_axis": null
+  },
+  {
+   "carrier": "down",
+   "port": 9,
+   "ambient_axis": null
+  },
+  {
+   "carrier": "down",
+   "port": 10,
+   "ambient_axis": null
+  },
+  {
+   "carrier": "down",
+   "port": 11,
+   "ambient_axis": null
+  }
+ ],
+ "comparisons": {
+  "chart_R0": {
+   "kind": "chart",
+   "rule": "R0",
+   "glue_seams": [
+    {
+     "from": [
+      "up",
+      0
+     ],
+     "to": [
+      "down",
+      0
+     ],
+     "angle_between_glued_axes_after_transport_deg": 116.565051177,
+     "keep": [
+      0.0,
+      -0.525731112119
+     ],
+     "flip": [
+      -0.26286555606,
+      -0.809016994375
+     ],
+     "z_keep": [
+      0.0,
+      -1.0
+     ],
+     "z_flip": [
+      -0.309016994375,
+      -0.951056516295
+     ],
+     "k": 0,
+     "cell_displacement": [
+      0.0,
+      0.0
+     ],
+     "transport_perm": [
+      4,
+      2,
+      1,
+      7,
+      0,
+      11,
+      8,
+      3,
+      6,
+      10,
+      9,
+      5
+     ],
+     "transport_class": "C2 (half turn)",
+     "transport_axis_through": "seam (5, 11)",
+     "transport_rotation": [
+      [
+       -0.5,
+       -0.309016994375,
+       -0.809016994375
+      ],
+      [
+       -0.309016994375,
+       -0.809016994375,
+       0.5
+      ],
+      [
+       -0.809016994375,
+       0.5,
+       0.309016994375
+      ]
+     ],
+     "transport_su2": [
+      [
+       [
+        0.0,
+        -0.809016994375
+       ],
+       [
+        -0.309016994375,
+        0.5
+       ]
+      ],
+      [
+       [
+        0.309016994375,
+        0.5
+       ],
+       [
+        0.0,
+        0.809016994375
+       ]
+      ]
+     ],
+     "transport_meaning": "carrier rotation T (template coordinates) from the up carrier to the down carrier: port p of up corresponds to port T(p) of down; the reverse uses the inverse",
+     "port_after_transport": 4
+    },
+    {
+     "from": [
+      "up",
+      11
+     ],
+     "to": [
+      "down",
+      11
+     ],
+     "angle_between_glued_axes_after_transport_deg": 116.565051177,
+     "keep": [
+      0.0,
+      -0.525731112119
+     ],
+     "flip": [
+      0.809016994375,
+      -0.26286555606
+     ],
+     "z_keep": [
+      0.0,
+      -1.0
+     ],
+     "z_flip": [
+      0.951056516295,
+      -0.309016994375
+     ],
+     "k": 1,
+     "cell_displacement": [
+      1.0,
+      0.0
+     ],
+     "transport_perm": [
+      5,
+      11,
+      8,
+      6,
+      7,
+      0,
+      3,
+      4,
+      2,
+      10,
+      9,
+      1
+     ],
+     "transport_class": "C2 (half turn)",
+     "transport_axis_through": "seam (0, 5)",
+     "transport_rotation": [
+      [
+       -0.809016994375,
+       -0.5,
+       -0.309016994375
+      ],
+      [
+       -0.5,
+       0.309016994375,
+       0.809016994375
+      ],
+      [
+       -0.309016994375,
+       0.809016994375,
+       -0.5
+      ]
+     ],
+     "transport_su2": [
+      [
+       [
+        0.0,
+        -0.5
+       ],
+       [
+        -0.809016994375,
+        0.309016994375
+       ]
+      ],
+      [
+       [
+        0.809016994375,
+        0.309016994375
+       ],
+       [
+        0.0,
+        0.5
+       ]
+      ]
+     ],
+     "transport_meaning": "carrier rotation T (template coordinates) from the up carrier to the down carrier: port p of up corresponds to port T(p) of down; the reverse uses the inverse",
+     "port_after_transport": 1
+    },
+    {
+     "from": [
+      "up",
+      5
+     ],
+     "to": [
+      "down",
+      5
+     ],
+     "angle_between_glued_axes_after_transport_deg": 116.565051177,
+     "keep": [
+      -0.0,
+      -0.525731112119
+     ],
+     "flip": [
+      -0.809016994375,
+      0.26286555606
+     ],
+     "z_keep": [
+      -0.0,
+      -1.0
+     ],
+     "z_flip": [
+      -0.951056516295,
+      0.309016994375
+     ],
+     "k": 2,
+     "cell_displacement": [
+      0.5,
+      0.8660254037844386
+     ],
+     "transport_perm": [
+      11,
+      2,
+      1,
+      8,
+      7,
+      10,
+      9,
+      4,
+      3,
+      6,
+      5,
+      0
+     ],
+     "transport_class": "C2 (half turn)",
+     "transport_axis_through": "seam (0, 11)",
+     "transport_rotation": [
+      [
+       0.309016994375,
+       -0.809016994375,
+       -0.5
+      ],
+      [
+       -0.809016994375,
+       -0.5,
+       0.309016994375
+      ],
+      [
+       -0.5,
+       0.309016994375,
+       -0.809016994375
+      ]
+     ],
+     "transport_su2": [
+      [
+       [
+        -0.0,
+        -0.309016994375
+       ],
+       [
+        -0.5,
+        0.809016994375
+       ]
+      ],
+      [
+       [
+        0.5,
+        0.809016994375
+       ],
+       [
+        -0.0,
+        0.309016994375
+       ]
+      ]
+     ],
+     "transport_meaning": "carrier rotation T (template coordinates) from the up carrier to the down carrier: port p of up corresponds to port T(p) of down; the reverse uses the inverse",
+     "port_after_transport": 10
+    }
+   ],
+   "plaquette_flux_units_direct_links": 2.000000000000001,
+   "holonomy_around_mesh_vertex": {
+    "class": "C5 (fifth of a turn, 72 deg)",
+    "lifted_order": 10,
+    "su2": [
+     [
+      [
+       0.809016994375,
+       0.0
+      ],
+      [
+       0.5,
+       -0.309016994375
+      ]
+     ],
+     [
+      [
+       -0.5,
+       -0.309016994375
+      ],
+      [
+       0.809016994375,
+       0.0
+      ]
+     ]
+    ]
+   }
+  },
+  "chart_R1": {
+   "kind": "chart",
+   "rule": "R1",
+   "glue_seams": [
+    {
+     "from": [
+      "up",
+      0
+     ],
+     "to": [
+      "down",
+      0
+     ],
+     "angle_between_glued_axes_after_transport_deg": 63.434948823,
+     "keep": [
+      0.0,
+      0.850650808352
+     ],
+     "flip": [
+      0.425325404176,
+      0.309016994375
+     ],
+     "z_keep": [
+      0.0,
+      1.0
+     ],
+     "z_flip": [
+      0.809016994375,
+      0.587785252292
+     ],
+     "k": 0,
+     "cell_displacement": [
+      0.0,
+      0.0
+     ],
+     "transport_perm": [
+      11,
+      2,
+      1,
+      8,
+      7,
+      10,
+      9,
+      4,
+      3,
+      6,
+      5,
+      0
+     ],
+     "transport_class": "C2 (half turn)",
+     "transport_axis_through": "seam (0, 11)",
+     "transport_rotation": [
+      [
+       0.309016994375,
+       -0.809016994375,
+       -0.5
+      ],
+      [
+       -0.809016994375,
+       -0.5,
+       0.309016994375
+      ],
+      [
+       -0.5,
+       0.309016994375,
+       -0.809016994375
+      ]
+     ],
+     "transport_su2": [
+      [
+       [
+        0.0,
+        0.309016994375
+       ],
+       [
+        0.5,
+        -0.809016994375
+       ]
+      ],
+      [
+       [
+        -0.5,
+        -0.809016994375
+       ],
+       [
+        0.0,
+        -0.309016994375
+       ]
+      ]
+     ],
+     "transport_meaning": "carrier rotation T (template coordinates) from the up carrier to the down carrier: port p of up corresponds to port T(p) of down; the reverse uses the inverse",
+     "port_after_transport": 11
+    },
+    {
+     "from": [
+      "up",
+      11
+     ],
+     "to": [
+      "down",
+      11
+     ],
+     "angle_between_glued_axes_after_transport_deg": 63.434948823,
+     "keep": [
+      -0.0,
+      0.850650808352
+     ],
+     "flip": [
+      -0.309016994375,
+      0.425325404176
+     ],
+     "z_keep": [
+      -0.0,
+      1.0
+     ],
+     "z_flip": [
+      -0.587785252292,
+      0.809016994375
+     ],
+     "k": 1,
+     "cell_displacement": [
+      1.0,
+      0.0
+     ],
+     "transport_perm": [
+      4,
+      2,
+      1,
+      7,
+      0,
+      11,
+      8,
+      3,
+      6,
+      10,
+      9,
+      5
+     ],
+     "transport_class": "C2 (half turn)",
+     "transport_axis_through": "seam (5, 11)",
+     "transport_rotation": [
+      [
+       -0.5,
+       -0.309016994375,
+       -0.809016994375
+      ],
+      [
+       -0.309016994375,
+       -0.809016994375,
+       0.5
+      ],
+      [
+       -0.809016994375,
+       0.5,
+       0.309016994375
+      ]
+     ],
+     "transport_su2": [
+      [
+       [
+        -0.0,
+        0.809016994375
+       ],
+       [
+        0.309016994375,
+        -0.5
+       ]
+      ],
+      [
+       [
+        -0.309016994375,
+        -0.5
+       ],
+       [
+        -0.0,
+        -0.809016994375
+       ]
+      ]
+     ],
+     "transport_meaning": "carrier rotation T (template coordinates) from the up carrier to the down carrier: port p of up corresponds to port T(p) of down; the reverse uses the inverse",
+     "port_after_transport": 5
+    },
+    {
+     "from": [
+      "up",
+      5
+     ],
+     "to": [
+      "down",
+      5
+     ],
+     "angle_between_glued_axes_after_transport_deg": 63.434948823,
+     "keep": [
+      -0.0,
+      0.850650808352
+     ],
+     "flip": [
+      0.309016994375,
+      -0.425325404176
+     ],
+     "z_keep": [
+      -0.0,
+      1.0
+     ],
+     "z_flip": [
+      0.587785252292,
+      -0.809016994375
+     ],
+     "k": 2,
+     "cell_displacement": [
+      0.5,
+      0.8660254037844386
+     ],
+     "transport_perm": [
+      5,
+      11,
+      8,
+      6,
+      7,
+      0,
+      3,
+      4,
+      2,
+      10,
+      9,
+      1
+     ],
+     "transport_class": "C2 (half turn)",
+     "transport_axis_through": "seam (0, 5)",
+     "transport_rotation": [
+      [
+       -0.809016994375,
+       -0.5,
+       -0.309016994375
+      ],
+      [
+       -0.5,
+       0.309016994375,
+       0.809016994375
+      ],
+      [
+       -0.309016994375,
+       0.809016994375,
+       -0.5
+      ]
+     ],
+     "transport_su2": [
+      [
+       [
+        -0.0,
+        0.5
+       ],
+       [
+        0.809016994375,
+        -0.309016994375
+       ]
+      ],
+      [
+       [
+        -0.809016994375,
+        -0.309016994375
+       ],
+       [
+        -0.0,
+        -0.5
+       ]
+      ]
+     ],
+     "transport_meaning": "carrier rotation T (template coordinates) from the up carrier to the down carrier: port p of up corresponds to port T(p) of down; the reverse uses the inverse",
+     "port_after_transport": 0
+    }
+   ],
+   "plaquette_flux_units_direct_links": 1.9999999999999996,
+   "holonomy_around_mesh_vertex": {
+    "class": "C5 (fifth of a turn, 72 deg)",
+    "lifted_order": 10,
+    "su2": [
+     [
+      [
+       0.809016994375,
+       0.5
+      ],
+      [
+       0.309016994375,
+       0.0
+      ]
+     ],
+     [
+      [
+       -0.309016994375,
+       0.0
+      ],
+      [
+       0.809016994375,
+       -0.5
+      ]
+     ]
+    ]
+   }
+  },
+  "chart_R2": {
+   "kind": "chart",
+   "rule": "R2",
+   "glue_seams": [
+    {
+     "from": [
+      "up",
+      0
+     ],
+     "to": [
+      "down",
+      0
+     ],
+     "angle_between_glued_axes_after_transport_deg": 63.434948823,
+     "keep": [
+      0.0,
+      -0.850650808352
+     ],
+     "flip": [
+      0.162459848116,
+      -0.5
+     ],
+     "z_keep": [
+      0.0,
+      -1.0
+     ],
+     "z_flip": [
+      0.309016994375,
+      -0.951056516295
+     ],
+     "k": 0,
+     "cell_displacement": [
+      0.0,
+      0.0
+     ],
+     "transport_perm": [
+      5,
+      11,
+      8,
+      6,
+      7,
+      0,
+      3,
+      4,
+      2,
+      10,
+      9,
+      1
+     ],
+     "transport_class": "C2 (half turn)",
+     "transport_axis_through": "seam (0, 5)",
+     "transport_rotation": [
+      [
+       -0.809016994375,
+       -0.5,
+       -0.309016994375
+      ],
+      [
+       -0.5,
+       0.309016994375,
+       0.809016994375
+      ],
+      [
+       -0.309016994375,
+       0.809016994375,
+       -0.5
+      ]
+     ],
+     "transport_su2": [
+      [
+       [
+        0.0,
+        -0.5
+       ],
+       [
+        -0.809016994375,
+        0.309016994375
+       ]
+      ],
+      [
+       [
+        0.809016994375,
+        0.309016994375
+       ],
+       [
+        0.0,
+        0.5
+       ]
+      ]
+     ],
+     "transport_meaning": "carrier rotation T (template coordinates) from the up carrier to the down carrier: port p of up corresponds to port T(p) of down; the reverse uses the inverse",
+     "port_after_transport": 5
+    },
+    {
+     "from": [
+      "up",
+      11
+     ],
+     "to": [
+      "down",
+      11
+     ],
+     "angle_between_glued_axes_after_transport_deg": 63.434948823,
+     "keep": [
+      -0.0,
+      -0.850650808352
+     ],
+     "flip": [
+      0.5,
+      0.162459848116
+     ],
+     "z_keep": [
+      -0.0,
+      -1.0
+     ],
+     "z_flip": [
+      0.951056516295,
+      0.309016994375
+     ],
+     "k": 1,
+     "cell_displacement": [
+      1.0,
+      0.0
+     ],
+     "transport_perm": [
+      11,
+      2,
+      1,
+      8,
+      7,
+      10,
+      9,
+      4,
+      3,
+      6,
+      5,
+      0
+     ],
+     "transport_class": "C2 (half turn)",
+     "transport_axis_through": "seam (0, 11)",
+     "transport_rotation": [
+      [
+       0.309016994375,
+       -0.809016994375,
+       -0.5
+      ],
+      [
+       -0.809016994375,
+       -0.5,
+       0.309016994375
+      ],
+      [
+       -0.5,
+       0.309016994375,
+       -0.809016994375
+      ]
+     ],
+     "transport_su2": [
+      [
+       [
+        -0.0,
+        -0.309016994375
+       ],
+       [
+        -0.5,
+        0.809016994375
+       ]
+      ],
+      [
+       [
+        0.5,
+        0.809016994375
+       ],
+       [
+        -0.0,
+        0.309016994375
+       ]
+      ]
+     ],
+     "transport_meaning": "carrier rotation T (template coordinates) from the up carrier to the down carrier: port p of up corresponds to port T(p) of down; the reverse uses the inverse",
+     "port_after_transport": 0
+    },
+    {
+     "from": [
+      "up",
+      5
+     ],
+     "to": [
+      "down",
+      5
+     ],
+     "angle_between_glued_axes_after_transport_deg": 63.434948823,
+     "keep": [
+      0.0,
+      -0.850650808352
+     ],
+     "flip": [
+      -0.5,
+      -0.162459848116
+     ],
+     "z_keep": [
+      0.0,
+      -1.0
+     ],
+     "z_flip": [
+      -0.951056516295,
+      -0.309016994375
+     ],
+     "k": 2,
+     "cell_displacement": [
+      0.5,
+      0.8660254037844386
+     ],
+     "transport_perm": [
+      4,
+      2,
+      1,
+      7,
+      0,
+      11,
+      8,
+      3,
+      6,
+      10,
+      9,
+      5
+     ],
+     "transport_class": "C2 (half turn)",
+     "transport_axis_through": "seam (5, 11)",
+     "transport_rotation": [
+      [
+       -0.5,
+       -0.309016994375,
+       -0.809016994375
+      ],
+      [
+       -0.309016994375,
+       -0.809016994375,
+       0.5
+      ],
+      [
+       -0.809016994375,
+       0.5,
+       0.309016994375
+      ]
+     ],
+     "transport_su2": [
+      [
+       [
+        0.0,
+        -0.809016994375
+       ],
+       [
+        -0.309016994375,
+        0.5
+       ]
+      ],
+      [
+       [
+        0.309016994375,
+        0.5
+       ],
+       [
+        0.0,
+        0.809016994375
+       ]
+      ]
+     ],
+     "transport_meaning": "carrier rotation T (template coordinates) from the up carrier to the down carrier: port p of up corresponds to port T(p) of down; the reverse uses the inverse",
+     "port_after_transport": 11
+    }
+   ],
+   "plaquette_flux_units_direct_links": 1.9999999999999993,
+   "holonomy_around_mesh_vertex": {
+    "class": "C5 (fifth of a turn, 72 deg)",
+    "lifted_order": 10,
+    "su2": [
+     [
+      [
+       0.809016994375,
+       0.309016994375
+      ],
+      [
+       0.0,
+       -0.5
+      ]
+     ],
+     [
+      [
+       0.0,
+       -0.5
+      ],
+      [
+       0.809016994375,
+       -0.309016994375
+      ]
+     ]
+    ]
+   }
+  },
+  "face_axis_chart_roll": {
+   "kind": "chart",
+   "rule": "roll (half turn about the top-face seam under the mesh edge)",
+   "glue_seams": [
+    {
+     "from": [
+      "up",
+      4
+     ],
+     "to": [
+      "down",
+      4
+     ],
+     "angle_between_glued_axes_after_transport_deg": 116.565051177,
+     "keep": [
+      0.0,
+      -0.525731112119
+     ],
+     "flip": [
+      0.5,
+      -0.688190960236
+     ],
+     "z_keep": [
+      0.0,
+      -1.0
+     ],
+     "z_flip": [
+      0.587785252292,
+      -0.809016994375
+     ],
+     "k": 0,
+     "cell_displacement": [
+      0.0,
+      0.0
+     ],
+     "transport_perm": [
+      4,
+      2,
+      1,
+      7,
+      0,
+      11,
+      8,
+      3,
+      6,
+      10,
+      9,
+      5
+     ],
+     "transport_class": "C2 (half turn)",
+     "transport_axis_through": "seam (5, 11)",
+     "transport_rotation": [
+      [
+       -0.5,
+       -0.309016994375,
+       -0.809016994375
+      ],
+      [
+       -0.309016994375,
+       -0.809016994375,
+       0.5
+      ],
+      [
+       -0.809016994375,
+       0.5,
+       0.309016994375
+      ]
+     ],
+     "transport_su2": [
+      [
+       [
+        0.0,
+        -0.809016994375
+       ],
+       [
+        -0.309016994375,
+        0.5
+       ]
+      ],
+      [
+       [
+        0.309016994375,
+        0.5
+       ],
+       [
+        0.0,
+        0.809016994375
+       ]
+      ]
+     ],
+     "transport_meaning": "carrier rotation T (template coordinates) from the up carrier to the down carrier: port p of up corresponds to port T(p) of down; the reverse uses the inverse",
+     "port_after_transport": 0
+    },
+    {
+     "from": [
+      "up",
+      1
+     ],
+     "to": [
+      "down",
+      1
+     ],
+     "angle_between_glued_axes_after_transport_deg": 116.565051177,
+     "keep": [
+      0.0,
+      -0.525731112119
+     ],
+     "flip": [
+      -0.688190960236,
+      -0.5
+     ],
+     "z_keep": [
+      0.0,
+      -1.0
+     ],
+     "z_flip": [
+      -0.809016994375,
+      -0.587785252292
+     ],
+     "k": 1,
+     "cell_displacement": [
+      1.0,
+      0.0
+     ],
+     "transport_perm": [
+      5,
+      11,
+      8,
+      6,
+      7,
+      0,
+      3,
+      4,
+      2,
+      10,
+      9,
+      1
+     ],
+     "transport_class": "C2 (half turn)",
+     "transport_axis_through": "seam (0, 5)",
+     "transport_rotation": [
+      [
+       -0.809016994375,
+       -0.5,
+       -0.309016994375
+      ],
+      [
+       -0.5,
+       0.309016994375,
+       0.809016994375
+      ],
+      [
+       -0.309016994375,
+       0.809016994375,
+       -0.5
+      ]
+     ],
+     "transport_su2": [
+      [
+       [
+        0.0,
+        -0.5
+       ],
+       [
+        -0.809016994375,
+        0.309016994375
+       ]
+      ],
+      [
+       [
+        0.809016994375,
+        0.309016994375
+       ],
+       [
+        0.0,
+        0.5
+       ]
+      ]
+     ],
+     "transport_meaning": "carrier rotation T (template coordinates) from the up carrier to the down carrier: port p of up corresponds to port T(p) of down; the reverse uses the inverse",
+     "port_after_transport": 11
+    },
+    {
+     "from": [
+      "up",
+      10
+     ],
+     "to": [
+      "down",
+      10
+     ],
+     "angle_between_glued_axes_after_transport_deg": 116.565051177,
+     "keep": [
+      -0.0,
+      -0.525731112119
+     ],
+     "flip": [
+      0.5,
+      -0.688190960236
+     ],
+     "z_keep": [
+      -0.0,
+      -1.0
+     ],
+     "z_flip": [
+      0.587785252292,
+      -0.809016994375
+     ],
+     "k": 2,
+     "cell_displacement": [
+      0.5,
+      0.8660254037844386
+     ],
+     "transport_perm": [
+      11,
+      2,
+      1,
+      8,
+      7,
+      10,
+      9,
+      4,
+      3,
+      6,
+      5,
+      0
+     ],
+     "transport_class": "C2 (half turn)",
+     "transport_axis_through": "seam (0, 11)",
+     "transport_rotation": [
+      [
+       0.309016994375,
+       -0.809016994375,
+       -0.5
+      ],
+      [
+       -0.809016994375,
+       -0.5,
+       0.309016994375
+      ],
+      [
+       -0.5,
+       0.309016994375,
+       -0.809016994375
+      ]
+     ],
+     "transport_su2": [
+      [
+       [
+        -0.0,
+        -0.309016994375
+       ],
+       [
+        -0.5,
+        0.809016994375
+       ]
+      ],
+      [
+       [
+        0.5,
+        0.809016994375
+       ],
+       [
+        -0.0,
+        0.309016994375
+       ]
+      ]
+     ],
+     "transport_meaning": "carrier rotation T (template coordinates) from the up carrier to the down carrier: port p of up corresponds to port T(p) of down; the reverse uses the inverse",
+     "port_after_transport": 5
+    }
+   ],
+   "plaquette_flux_units_direct_links": -6.000000000000004,
+   "holonomy_around_mesh_vertex": {
+    "class": "C5 (fifth of a turn, 72 deg)",
+    "lifted_order": 10,
+    "su2": [
+     [
+      [
+       0.809016994375,
+       0.0
+      ],
+      [
+       0.5,
+       -0.309016994375
+      ]
+     ],
+     [
+      [
+       -0.5,
+       -0.309016994375
+      ],
+      [
+       0.809016994375,
+       0.0
+      ]
+     ]
+    ]
+   },
+   "plaquette_flux_units_through_ports": 8.0
+  }
+ },
+ "primary_comparison": "chart_R1",
+ "glue_seams": [
+  {
+   "from": [
+    "up",
+    0
+   ],
+   "to": [
+    "down",
+    0
+   ],
+   "angle_between_glued_axes_after_transport_deg": 63.434948823,
+   "keep": [
+    0.0,
+    0.850650808352
+   ],
+   "flip": [
+    0.425325404176,
+    0.309016994375
+   ],
+   "z_keep": [
+    0.0,
+    1.0
+   ],
+   "z_flip": [
+    0.809016994375,
+    0.587785252292
+   ],
+   "k": 0,
+   "cell_displacement": [
+    0.0,
+    0.0
+   ],
+   "transport_perm": [
+    11,
+    2,
+    1,
+    8,
+    7,
+    10,
+    9,
+    4,
+    3,
+    6,
+    5,
+    0
+   ],
+   "transport_class": "C2 (half turn)",
+   "transport_axis_through": "seam (0, 11)",
+   "transport_rotation": [
+    [
+     0.309016994375,
+     -0.809016994375,
+     -0.5
+    ],
+    [
+     -0.809016994375,
+     -0.5,
+     0.309016994375
+    ],
+    [
+     -0.5,
+     0.309016994375,
+     -0.809016994375
+    ]
+   ],
+   "transport_su2": [
+    [
+     [
+      0.0,
+      0.309016994375
+     ],
+     [
+      0.5,
+      -0.809016994375
+     ]
+    ],
+    [
+     [
+      -0.5,
+      -0.809016994375
+     ],
+     [
+      0.0,
+      -0.309016994375
+     ]
+    ]
+   ],
+   "transport_meaning": "carrier rotation T (template coordinates) from the up carrier to the down carrier: port p of up corresponds to port T(p) of down; the reverse uses the inverse",
+   "port_after_transport": 11
+  },
+  {
+   "from": [
+    "up",
+    11
+   ],
+   "to": [
+    "down",
+    11
+   ],
+   "angle_between_glued_axes_after_transport_deg": 63.434948823,
+   "keep": [
+    -0.0,
+    0.850650808352
+   ],
+   "flip": [
+    -0.309016994375,
+    0.425325404176
+   ],
+   "z_keep": [
+    -0.0,
+    1.0
+   ],
+   "z_flip": [
+    -0.587785252292,
+    0.809016994375
+   ],
+   "k": 1,
+   "cell_displacement": [
+    1.0,
+    0.0
+   ],
+   "transport_perm": [
+    4,
+    2,
+    1,
+    7,
+    0,
+    11,
+    8,
+    3,
+    6,
+    10,
+    9,
+    5
+   ],
+   "transport_class": "C2 (half turn)",
+   "transport_axis_through": "seam (5, 11)",
+   "transport_rotation": [
+    [
+     -0.5,
+     -0.309016994375,
+     -0.809016994375
+    ],
+    [
+     -0.309016994375,
+     -0.809016994375,
+     0.5
+    ],
+    [
+     -0.809016994375,
+     0.5,
+     0.309016994375
+    ]
+   ],
+   "transport_su2": [
+    [
+     [
+      -0.0,
+      0.809016994375
+     ],
+     [
+      0.309016994375,
+      -0.5
+     ]
+    ],
+    [
+     [
+      -0.309016994375,
+      -0.5
+     ],
+     [
+      -0.0,
+      -0.809016994375
+     ]
+    ]
+   ],
+   "transport_meaning": "carrier rotation T (template coordinates) from the up carrier to the down carrier: port p of up corresponds to port T(p) of down; the reverse uses the inverse",
+   "port_after_transport": 5
+  },
+  {
+   "from": [
+    "up",
+    5
+   ],
+   "to": [
+    "down",
+    5
+   ],
+   "angle_between_glued_axes_after_transport_deg": 63.434948823,
+   "keep": [
+    -0.0,
+    0.850650808352
+   ],
+   "flip": [
+    0.309016994375,
+    -0.425325404176
+   ],
+   "z_keep": [
+    -0.0,
+    1.0
+   ],
+   "z_flip": [
+    0.587785252292,
+    -0.809016994375
+   ],
+   "k": 2,
+   "cell_displacement": [
+    0.5,
+    0.8660254037844386
+   ],
+   "transport_perm": [
+    5,
+    11,
+    8,
+    6,
+    7,
+    0,
+    3,
+    4,
+    2,
+    10,
+    9,
+    1
+   ],
+   "transport_class": "C2 (half turn)",
+   "transport_axis_through": "seam (0, 5)",
+   "transport_rotation": [
+    [
+     -0.809016994375,
+     -0.5,
+     -0.309016994375
+    ],
+    [
+     -0.5,
+     0.309016994375,
+     0.809016994375
+    ],
+    [
+     -0.309016994375,
+     0.809016994375,
+     -0.5
+    ]
+   ],
+   "transport_su2": [
+    [
+     [
+      -0.0,
+      0.5
+     ],
+     [
+      0.809016994375,
+      -0.309016994375
+     ]
+    ],
+    [
+     [
+      -0.809016994375,
+      -0.309016994375
+     ],
+     [
+      -0.0,
+      -0.5
+     ]
+    ]
+   ],
+   "transport_meaning": "carrier rotation T (template coordinates) from the up carrier to the down carrier: port p of up corresponds to port T(p) of down; the reverse uses the inverse",
+   "port_after_transport": 0
+  }
+ ]
+}

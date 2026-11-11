@@ -1,0 +1,159 @@
+"""UD: every registered reading as per-sector normalizations, x values, determinants and masses.
+
+Reads no measured value. Reads cell.json and rge.json; writes values.json.
+Run: cd RL/work/UD && PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B ud_cand.py
+
+Per reading: N_u : N_d : N_e at E_cell, x_s, the circulant spectra (delta = 2/9), the third-family Yukawas at the
+cell, their transport to Q0 with the SM engine of ud_rge.py (y_t(Q0) fixed at the criticality-lane stand-in; the
+dependence on that scale is linear in all masses up to the Yukawa self-terms), the light families with the one-loop
+family-dependent factors, the determinant ratios at the cell and at Q0.
+"""
+import json
+import math
+import os
+
+from fractions import Fraction as Fr
+
+import numpy as np
+from scipy.integrate import solve_ivp
+
+import ud_rge as R
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+DELTA = 2 / 9
+CAS = {'Q': 2.1, 'u': 1.6, 'd': 1.4, 'L': 0.9, 'H': 0.9, 'e': 0.6}
+LEFT = {'u': 'Q', 'd': 'Q', 'e': 'L'}
+Y_R = {'u': 2 / 3, 'd': -1 / 3, 'e': -1.0}
+ALPHA_INV = 16.2453
+EPS = 2 * math.pi / ALPHA_INV
+T_CUT = 2 * math.pi * EPS
+SECT = ('u', 'd', 'e')
+R3 = np.array([[0, 0, 1], [1, 0, 0], [0, 1, 0]], float)
+
+
+def shape(x):
+    """eigenvalue fractions of C^2/tr C^2 for q = 1/6, p = x/6 (the fractions depend on x and delta only)"""
+    q, p = 1 / 6, x / 6
+    C = math.sqrt(q) * np.eye(3) + math.sqrt(p) * (np.exp(1j * DELTA) * R3 + np.exp(-1j * DELTA) * (R3 @ R3))
+    lam = np.sort(np.linalg.eigvalsh(C) ** 2)
+    f = lam / lam.sum()
+    return {'f': f.tolist(), 'y1_over_y3': f[0] / f[2], 'y2_over_y3': f[1] / f[2],
+            'koide_Q': 1.0 / (np.sqrt(f).sum() ** 2), 'det_over_tr3': float(np.prod(f))}
+
+
+def light_factors(yq0, loops=2):
+    """exp of the integrals that separate the light families from the third between Q0 and the cell (one-loop terms):
+    y_c/y_t(Q0) = y_c/y_t(cell) * F_u, with F_u = exp(int 1.5 (y_t^2 - y_b^2) K1 dt); F_d with the sign reversed;
+    F_e = exp(int 1.5 y_tau^2 K1 dt)."""
+    s0 = list(R.G_Q0) + list(yq0) + [R.LAM_Q0, 0.0, 0.0]
+
+    def rhs(t, s):
+        b = R.beta(t, s[:7], loops)
+        yt, yb, yl = s[3:6]
+        return b + [1.5 * R.K1 * (yt * yt - yb * yb), 1.5 * R.K1 * yl * yl]
+    sol = solve_ivp(rhs, (0.0, R.T_CELL), s0, method='DOP853', rtol=1e-10, atol=1e-14)
+    It, Il = sol.y[7, -1], sol.y[8, -1]
+    return {'F_u': math.exp(It), 'F_d': math.exp(-It), 'F_e': math.exp(Il)}
+
+
+def main():
+    cell = json.load(open(os.path.join(HERE, 'cell.json')))
+    rge = json.load(open(os.path.join(HERE, 'rge.json')))
+    g = cell['grounds']
+    readings = {}
+
+    def add(name, N, x=(0.5, 0.5, 0.5), label='EXACT', note=''):
+        readings[name] = {'N': dict(zip(SECT, N)), 'x': dict(zip(SECT, x)), 'label': label, 'note': note}
+
+    add('A1_three_strings', [(1 + EPS * (CAS[LEFT[s]] + CAS[s] + CAS['H'])) ** -2 for s in SECT])
+    add('A2_right_string', [(1 + EPS * CAS[s]) ** -2 for s in SECT])
+    d = g['dressed']
+    add('A3_dressed_cell_ground', [-d['E_u'] / 12, -d['E_d'] / 12, -d['E_e'] / 4], label='MEASURED')
+    a4 = cell['A4']
+    add('A4_dressed_W2a', [float(Fr(a4['N_exact'][s])) for s in SECT], x=[float(Fr(a4['x_exact'][s])) for s in SECT])
+    add('A5_edge_weight_right_leg', [(3 if s != 'e' else 1) * math.exp(-T_CUT * CAS[s]) for s in SECT])
+    add('A6_pair_channel', [math.exp(T_CUT * (CAS[LEFT[s]] + CAS[s] - CAS['H'])) for s in SECT])
+    add('B1_E1_common_per_component', [1, 1, 1], note='E1: every Yukawa word of the packet has coefficient 1')
+    occ = {'C1_undressed_cell': g['undressed']['summary']['pi_H_over_blank_per_member'],
+           'C2_dressed_cell': g['dressed']['summary']['pi_H_over_blank_per_member'],
+           'C3_edge_law': 2 * math.exp(-0.9 * T_CUT), 'C4_flux_lifts': math.exp(T_CUT * (2.1 - 0.9))}
+    for name, ratio in occ.items():
+        add(name + '|a', [math.sqrt(ratio), 1, 1], label='MEASURED' if 'cell' in name else 'EXACT', note=f'occupation ratio {ratio:.6f}')
+        add(name + '|w', [ratio, 1, 1], label='MEASURED' if 'cell' in name else 'EXACT', note=f'occupation ratio {ratio:.6f}')
+    add('D1_U1_edge_twelve_cone_points', [math.exp(-12 * T_CUT * 0.6 * Y_R[s] ** 2) for s in SECT])
+    add('D2_unit_twists', [math.exp(-abs(6 * Y_R[s])) for s in SECT])
+    dn = g['dressed_no_lepton']
+    add('E2_dressed_cell_without_lepton_leg', [-dn['E_u'] / 12, -dn['E_d'] / 12, float('nan')], label='MEASURED',
+        note='up/down only; the exchange map is broken by the lepton leg and by C(uc) - C(dc) = 1/5')
+    add('F2_class_event_amplitude', [1, 1, math.sqrt(3)], note='post hoc (look 11)')
+    add('F3_class_event_weight', [1, 1, 3], note='post hoc (look 11)')
+
+    out = {'measured_values_read': False, 'eps': EPS, 't_cut': T_CUT, 'delta': DELTA,
+           'y_t_Q0_stand_in': R.YT_Q0, 'v_GeV': R.V, 'readings': {}}
+    for name, r in readings.items():
+        N, x = r['N'], r['x']
+        sh = {s: shape(x[s]) for s in SECT}
+        y3 = {s: N[s] * sh[s]['f'][2] for s in SECT}                      # third-family Yukawas at the cell, relative
+        rec = {'label': r['label'], 'note': r['note'], 'N_relative': N, 'x': x,
+               'N_u_over_N_d': N['u'] / N['d'], 'N_e_over_N_u': N['e'] / N['u'], 'N_e_over_N_d': N['e'] / N['d'],
+               'shape': sh,
+               'cell': {'y_t_over_y_b': y3['u'] / y3['d'], 'y_b_over_y_tau': y3['d'] / y3['e'], 'y_tau_over_y_t': y3['e'] / y3['u'],
+                        'R_u_over_R_d': (N['u'] / N['d']) ** 3 * sh['u']['det_over_tr3'] / sh['d']['det_over_tr3'],
+                        'R_u': (N['u'] / N['e']) ** 3 * sh['u']['det_over_tr3'] / sh['e']['det_over_tr3'],
+                        'R_d': (N['d'] / N['e']) ** 3 * sh['d']['det_over_tr3'] / sh['e']['det_over_tr3']}}
+        if not math.isfinite(y3['e']):
+            out['readings'][name] = rec
+            continue
+        ratios = [y3['u'], y3['d'], y3['e']]
+        loops_used = 2
+        sc, dsol = R.solve_scale(ratios, 2)
+        if sc is None:
+            loops_used = 1
+            sc, dsol = R.solve_scale(ratios, 1)
+        if sc is None:
+            # y_t(Q0) = stand-in out of reach: one-loop row with the largest cell Yukawa set to 0.5
+            m = 0.5 / max(ratios)
+            dd = R.down_from_cell([m * r_ for r_ in ratios], 1)
+            rec['Q0'] = {'y_t_Q0_stand_in_out_of_reach': dsol, 'loops': 1, 'largest_cell_yukawa_set_to': 0.5}
+            yq = dd['y_Q0'] if dd else None
+        else:
+            rec['Q0'] = {'loops': loops_used, 'y_cell': [sc * r_ for r_ in ratios]}
+            yq = dsol['y_Q0']
+        if yq is not None:
+            F = light_factors(yq, loops_used)
+            yall = {}
+            for s, y3q, Fk in (('u', yq[0], F['F_u']), ('d', yq[1], F['F_d']), ('e', yq[2], F['F_e'])):
+                yall[s] = [y3q * sh[s]['y1_over_y3'] * Fk, y3q * sh[s]['y2_over_y3'] * Fk, y3q]
+            det = {s: float(np.prod(yall[s])) for s in SECT}
+            rec['Q0'].update({
+                'y_Q0': yq, 'y_t_over_y_b': yq[0] / yq[1], 'y_b_over_y_tau': yq[1] / yq[2], 'y_tau_over_y_t': yq[2] / yq[0],
+                'light_family_factors': F,
+                'masses_GeV': {s: [y * R.V / math.sqrt(2) for y in yall[s]] for s in SECT},
+                'R_u': det['u'] / det['e'], 'R_d': det['d'] / det['e'], 'R_u_over_R_d': det['u'] / det['d']})
+        out['readings'][name] = rec
+        q = rec.get('Q0', {})
+        print(f"{name:34s} cell: Nu/Nd={rec['N_u_over_N_d']:.4g} Ne/Nu={rec['N_e_over_N_u']:.4g} x=({x['u']:.4f},{x['d']:.4f},{x['e']:.4f}) "
+              f"Ru/Rd={rec['cell']['R_u_over_R_d']:.4g} | Q0({q.get('loops')}L): t/b={q.get('y_t_over_y_b', float('nan')):.4g} "
+              f"b/tau={q.get('y_b_over_y_tau', float('nan')):.4g} tau/t={q.get('y_tau_over_y_t', float('nan')):.4g} Ru/Rd={q.get('R_u_over_R_d', float('nan')):.4g}")
+
+    # ---------------- class statements A-X and D-X (EXACT orders)
+    cu = {'right_leg': (CAS['u'], CAS['d'], CAS['e'], 0.0),
+          'left_plus_right': (CAS['Q'] + CAS['u'], CAS['Q'] + CAS['d'], CAS['L'] + CAS['e'], CAS['L']),
+          'three_legs': (4.6, 4.4, 2.4, 1.8), 'pair_channel': (2.8, 2.6, 0.6, 0.0),
+          'abs_6Y_R': (4, 2, 6, 0), 'signed_6Y_R': (4, -2, -6, 0), 'T3R_times_BminusL': (1 / 6, -1 / 6, 1 / 2, -1 / 2)}
+    names = ('u', 'd', 'e', 'nu')
+    out['class_statements'] = {k: {'values_u_d_e_nu': v, 'order_descending': [names[i] for i in np.argsort(-np.array(v, float), kind='stable')]}
+                               for k, v in cu.items()}
+    out['class_statements']['exponential_law_in_a_CL_plus_b_CR'] = {
+        'ln_Nd_over_Ne_divided_by_ln_Nu_over_Nd': '(1.2 a + 0.8 b)/(0.2 b), at least 4 for a, b >= 0',
+        'pair_channel_value': (2.6 - 0.6) / 0.2, 'signed_6Y_R_linear_value': 4 / 6}
+    out['custodial_split_of_the_U1_term'] = {
+        'identity': '(3/5) Y_R^2 = (3/5)(1/4 + T3R (B-L) + (B-L)^2/4), Y_R = T3R + (B-L)/2',
+        'cross_term': {'u_R': 0.1, 'd_R': -0.1, 'e_R': 0.3, 'nu_R': -0.3}}
+    with open(os.path.join(HERE, 'values.json'), 'w') as fh:
+        json.dump(out, fh, indent=1, default=str)
+    print(json.dumps(out['class_statements'], indent=1))
+
+
+if __name__ == '__main__':
+    main()

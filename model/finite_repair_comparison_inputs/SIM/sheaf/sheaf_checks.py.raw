@@ -1,0 +1,92 @@
+"""Local consistency checks whose common kernel is a spin-j multiplet of sections on the icosahedral carrier.
+
+A section of type j assigns to port p the amplitude <chi_p|psi>, chi_p the spin-j coherent state along the port axis
+(helicity m about the axis), psi in C^(2j+1). The image T_j,m of this map is a (2j+1)-dimensional subspace of C^12:
+the multiplet of flux k = 2m. A check on a cluster S of ports is the projector onto the orthogonal complement of the
+restriction of T to S. The script reports, per cluster family, the dimension of the common kernel of all checks.
+"""
+import itertools, json, sys, pathlib
+import numpy as np
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / 'lib'))
+from lie_tools import icosahedron, lie_closure, centre_dim
+
+V, E, F = icosahedron()
+N = V / np.linalg.norm(V, axis=1)[:, None]
+nbr = [[q for q in range(12) if (min(p, q), max(p, q)) in set(E)] for p in range(12)]
+
+def spin_matrices(j):
+    d = int(round(2 * j + 1)); m = np.array([j - i for i in range(d)])
+    Jz = np.diag(m).astype(complex)
+    Jp = np.zeros((d, d), complex)
+    for i in range(1, d):
+        Jp[i - 1, i] = np.sqrt(j * (j + 1) - m[i] * (m[i] + 1))
+    Jx = (Jp + Jp.conj().T) / 2; Jy = (Jp - Jp.conj().T) / (2j)
+    return Jx, Jy, Jz
+
+def axis_state(j, m, n):
+    Jx, Jy, Jz = spin_matrices(j)
+    w, U = np.linalg.eigh(n[0] * Jx + n[1] * Jy + n[2] * Jz)
+    i = int(np.argmin(abs(w - m)))
+    return U[:, i]
+
+def multiplet(j, m):
+    """12 x (2j+1) matrix W with W[p] = <chi_p|, so the section of psi is W @ psi."""
+    return np.array([axis_state(j, m, N[p]).conj() for p in range(12)])
+
+def clusters():
+    out = {'seam': [list(e) for e in E], 'face': [list(f) for f in F]}
+    rh = []
+    for a, b in E:
+        wings = [c for c in range(12) if c in nbr[a] and c in nbr[b]]
+        rh.append([a, b] + wings)
+    out['rhombus'] = rh
+    out['star'] = [[p] + nbr[p] for p in range(12)]
+    out['link'] = [nbr[p] for p in range(12)]
+    out['path3'] = [[a, b, c] for b in range(12) for a in nbr[b] for c in nbr[b] if a < c and c not in nbr[a]]
+    return out
+
+def common_kernel(W, cl):
+    rows = []
+    for S in cl:
+        R = W[S, :]                                  # restriction of T to S
+        u, s, vh = np.linalg.svd(R, full_matrices=True)
+        r = int((s > 1e-9).sum())
+        comp = u[:, r:]                              # orthogonal complement inside C^S
+        for c in comp.T:
+            row = np.zeros(12, complex); row[S] = c.conj(); rows.append(row)
+    if not rows:
+        return 12, 0
+    s = np.linalg.svd(np.array(rows), compute_uv=False)
+    return 12 - int((s > 1e-9).sum()), len(rows)
+
+res = {}
+CL = clusters()
+for (j, m) in [(0.5, 0.5), (1, 1), (1, 0), (1.5, 1.5), (1.5, 0.5), (2, 2), (2, 1), (2, 0), (2.5, 2.5)]:
+    W = multiplet(j, m)
+    rk = np.linalg.matrix_rank(W, tol=1e-9)
+    line = f'j={j} m={m} (flux k={int(2*m)}): section space rank {rk};'
+    res[f'{j},{m}'] = {}
+    for name, cl in CL.items():
+        k, nchecks = common_kernel(W, cl)
+        res[f'{j},{m}'][name] = {'kernel': k, 'checks': nchecks}
+        line += f'  {name}: kernel {k} ({nchecks} checks)'
+    print(line)
+json.dump(res, open('sheaf_checks.json', 'w'), indent=1)
+
+# The tensor picture: (uniform position) x (internal state) seen in helicity components.
+print()
+for j in (0.5, 1):
+    d = int(2 * j + 1)
+    for m in [j - i for i in range(d)]:
+        W = multiplet(j, m)                           # helicity-m component of |uniform> x |psi> is W psi / sqrt(12)
+        # compare with the magnetic adjacency of flux k = 2m in the same gauge: A[p,q] = phase of <chi_p|chi_q>
+        chi = [axis_state(j, m, N[p]) for p in range(12)]
+        A = np.zeros((12, 12), complex)
+        for a, b in E:
+            z = np.vdot(chi[a], chi[b]); A[a, b] = z / abs(z); A[b, a] = np.conj(A[a, b])
+        Q, _ = np.linalg.qr(W)
+        Q = Q[:, :np.linalg.matrix_rank(W, tol=1e-9)]
+        resid = np.linalg.norm(A @ Q - Q @ (Q.conj().T @ A @ Q))
+        ev = np.linalg.eigvalsh(Q.conj().T @ A @ Q)
+        allev = np.round(np.linalg.eigvalsh(A), 4)
+        print(f'spin {j}, helicity {m}: the helicity component of (uniform x internal) spans dim {Q.shape[1]}; invariant under the flux-{int(2*m)} adjacency: residual {resid:.1e}; its eigenvalue {np.round(ev, 4)}; all levels {sorted(set(allev))}')

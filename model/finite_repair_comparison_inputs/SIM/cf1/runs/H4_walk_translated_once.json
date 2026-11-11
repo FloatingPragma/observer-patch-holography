@@ -1,0 +1,6964 @@
+{
+ "run": "H4 walk",
+ "label": "candidate CF-1 routing (no rest angle) in static link fields drawn from the plaquette-action Gibbs ensemble at kappa*",
+ "lattice": [
+  96,
+  48,
+  48
+ ],
+ "ticks": [
+  4,
+  8,
+  12,
+  16,
+  20,
+  24,
+  28,
+  32,
+  36,
+  40,
+  44,
+  48
+ ],
+ "free_ballistic": [
+  0.9861862808545456,
+  0.9503750742433932,
+  0.9237998846662435,
+  0.9052779483958376,
+  0.8788911609752272,
+  0.8457517147228498,
+  0.8082689792730529,
+  0.7687669133536232,
+  0.7290332722772721,
+  0.6907244741928408,
+  0.6582691915485446,
+  0.6406445081050254
+ ],
+ "points": [
+  {
+   "label": "Z3_carrier",
+   "N": 3,
+   "normalisation": "carrier",
+   "kappa": 1.0797,
+   "target_f": 0.08926666666666666,
+   "start": "hot"
+  },
+  {
+   "label": "Z3_plaquette",
+   "N": 3,
+   "normalisation": "plaquette",
+   "kappa": 0.9305,
+   "target_f": 0.2678,
+   "start": "hot"
+  },
+  {
+   "label": "Z2_carrier",
+   "N": 2,
+   "normalisation": "carrier",
+   "kappa": 0.7982,
+   "target_f": 0.013433333333333334,
+   "start": "cold"
+  },
+  {
+   "label": "Z2_plaquette",
+   "N": 2,
+   "normalisation": "plaquette",
+   "kappa": 0.754,
+   "target_f": 0.0403,
+   "start": "hot"
+  }
+ ],
+ "gauge_fixing": [
+  {
+   "file": "configs/Z3_carrier_0.npz",
+   "fixed_file": "configs/fixed_Z3_carrier_0.npz",
+   "copies": [
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 0,
+     "sweeps": 1002,
+     "nontrivial_link_share": 0.09114281925154322,
+     "mean_ReU": 0.8632857711226852
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 1,
+     "sweeps": 1003,
+     "nontrivial_link_share": 0.09157835407021606,
+     "mean_ReU": 0.8626324688946759
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 2,
+     "sweeps": 1002,
+     "nontrivial_link_share": 0.08997938368055555,
+     "mean_ReU": 0.8650309244791666
+    },
+    {
+     "anneal": [
+      0.2,
+      8.0,
+      3000
+     ],
+     "seed": 3,
+     "sweeps": 3003,
+     "nontrivial_link_share": 0.08671061197916667,
+     "mean_ReU": 0.86993408203125
+    }
+   ],
+   "nontrivial_link_share_kept": 0.08671061197916667,
+   "nontrivial_link_share_before": 0.6665837794174383,
+   "nontrivial_plaquettes_per_carrier": 0.2720675998263889
+  },
+  {
+   "file": "configs/Z3_carrier_1.npz",
+   "fixed_file": "configs/fixed_Z3_carrier_1.npz",
+   "copies": [
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 0,
+     "sweeps": 1002,
+     "nontrivial_link_share": 0.0912890022183642,
+     "mean_ReU": 0.8630664966724537
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 1,
+     "sweeps": 1003,
+     "nontrivial_link_share": 0.09006377797067901,
+     "mean_ReU": 0.8649043330439815
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 2,
+     "sweeps": 1002,
+     "nontrivial_link_share": 0.09065152391975309,
+     "mean_ReU": 0.8640227141203703
+    },
+    {
+     "anneal": [
+      0.2,
+      8.0,
+      3000
+     ],
+     "seed": 3,
+     "sweeps": 3003,
+     "nontrivial_link_share": 0.08640920380015432,
+     "mean_ReU": 0.8703861942997685
+    }
+   ],
+   "nontrivial_link_share_kept": 0.08640920380015432,
+   "nontrivial_link_share_before": 0.6673252435378086,
+   "nontrivial_plaquettes_per_carrier": 0.27397551359953703
+  },
+  {
+   "file": "configs/Z3_carrier_2.npz",
+   "fixed_file": "configs/fixed_Z3_carrier_2.npz",
+   "copies": [
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 0,
+     "sweeps": 1003,
+     "nontrivial_link_share": 0.08915352527006173,
+     "mean_ReU": 0.8662697120949074
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 1,
+     "sweeps": 1003,
+     "nontrivial_link_share": 0.08928011670524691,
+     "mean_ReU": 0.8660798249421297
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 2,
+     "sweeps": 1002,
+     "nontrivial_link_share": 0.08842110339506173,
+     "mean_ReU": 0.8673683449074074
+    },
+    {
+     "anneal": [
+      0.2,
+      8.0,
+      3000
+     ],
+     "seed": 3,
+     "sweeps": 3002,
+     "nontrivial_link_share": 0.08513726128472222,
+     "mean_ReU": 0.8722941080729166
+    }
+   ],
+   "nontrivial_link_share_kept": 0.08513726128472222,
+   "nontrivial_link_share_before": 0.6669997227044753,
+   "nontrivial_plaquettes_per_carrier": 0.2679985894097222
+  },
+  {
+   "file": "configs/Z3_carrier_3.npz",
+   "fixed_file": "configs/fixed_Z3_carrier_3.npz",
+   "copies": [
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 0,
+     "sweeps": 1003,
+     "nontrivial_link_share": 0.08660059799382716,
+     "mean_ReU": 0.8700991030092593
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 1,
+     "sweeps": 1003,
+     "nontrivial_link_share": 0.08632179542824074,
+     "mean_ReU": 0.8705173068576388
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 2,
+     "sweeps": 1002,
+     "nontrivial_link_share": 0.0878002025462963,
+     "mean_ReU": 0.8682996961805556
+    },
+    {
+     "anneal": [
+      0.2,
+      8.0,
+      3000
+     ],
+     "seed": 3,
+     "sweeps": 3002,
+     "nontrivial_link_share": 0.08315098138503087,
+     "mean_ReU": 0.8752735279224537
+    }
+   ],
+   "nontrivial_link_share_kept": 0.08315098138503087,
+   "nontrivial_link_share_before": 0.6660593291859568,
+   "nontrivial_plaquettes_per_carrier": 0.26279477719907407
+  },
+  {
+   "file": "configs/Z3_carrier_4.npz",
+   "fixed_file": "configs/fixed_Z3_carrier_4.npz",
+   "copies": [
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 0,
+     "sweeps": 1003,
+     "nontrivial_link_share": 0.08908721547067901,
+     "mean_ReU": 0.8663691767939815
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 1,
+     "sweeps": 1002,
+     "nontrivial_link_share": 0.0892333984375,
+     "mean_ReU": 0.86614990234375
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 2,
+     "sweeps": 1003,
+     "nontrivial_link_share": 0.08915503231095678,
+     "mean_ReU": 0.8662674515335648
+    },
+    {
+     "anneal": [
+      0.2,
+      8.0,
+      3000
+     ],
+     "seed": 3,
+     "sweeps": 3002,
+     "nontrivial_link_share": 0.08436716338734568,
+     "mean_ReU": 0.8734492549189815
+    }
+   ],
+   "nontrivial_link_share_kept": 0.08436716338734568,
+   "nontrivial_link_share_before": 0.6676010320216049,
+   "nontrivial_plaquettes_per_carrier": 0.26819299768518523
+  },
+  {
+   "file": "configs/Z3_plaquette_0.npz",
+   "fixed_file": "configs/fixed_Z3_plaquette_0.npz",
+   "copies": [
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 0,
+     "sweeps": 1003,
+     "nontrivial_link_share": 0.1810815128279321,
+     "mean_ReU": 0.7283777307581019
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 1,
+     "sweeps": 1003,
+     "nontrivial_link_share": 0.18089162567515432,
+     "mean_ReU": 0.7286625614872685
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 2,
+     "sweeps": 1003,
+     "nontrivial_link_share": 0.18154266734182098,
+     "mean_ReU": 0.7276859989872685
+    },
+    {
+     "anneal": [
+      0.2,
+      8.0,
+      3000
+     ],
+     "seed": 3,
+     "sweeps": 3003,
+     "nontrivial_link_share": 0.17866120515046297,
+     "mean_ReU": 0.7320081922743056
+    }
+   ],
+   "nontrivial_link_share_kept": 0.17866120515046297,
+   "nontrivial_link_share_before": 0.6659764419367284,
+   "nontrivial_plaquettes_per_carrier": 0.8001663773148148
+  },
+  {
+   "file": "configs/Z3_plaquette_1.npz",
+   "fixed_file": "configs/fixed_Z3_plaquette_1.npz",
+   "copies": [
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 0,
+     "sweeps": 1003,
+     "nontrivial_link_share": 0.18078914689429013,
+     "mean_ReU": 0.7288162796585648
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 1,
+     "sweeps": 1003,
+     "nontrivial_link_share": 0.1813301745756173,
+     "mean_ReU": 0.7280047381365741
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 2,
+     "sweeps": 1003,
+     "nontrivial_link_share": 0.1812201605902778,
+     "mean_ReU": 0.7281697591145834
+    },
+    {
+     "anneal": [
+      0.2,
+      8.0,
+      3000
+     ],
+     "seed": 3,
+     "sweeps": 3003,
+     "nontrivial_link_share": 0.17943883825231483,
+     "mean_ReU": 0.7308417426215278
+    }
+   ],
+   "nontrivial_link_share_kept": 0.17943883825231483,
+   "nontrivial_link_share_before": 0.6655017240547839,
+   "nontrivial_plaquettes_per_carrier": 0.8022913049768519
+  },
+  {
+   "file": "configs/Z3_plaquette_2.npz",
+   "fixed_file": "configs/fixed_Z3_plaquette_2.npz",
+   "copies": [
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 0,
+     "sweeps": 1003,
+     "nontrivial_link_share": 0.18171296296296297,
+     "mean_ReU": 0.7274305555555556
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 1,
+     "sweeps": 1003,
+     "nontrivial_link_share": 0.18122468171296297,
+     "mean_ReU": 0.7281629774305556
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 2,
+     "sweeps": 1003,
+     "nontrivial_link_share": 0.18171748408564814,
+     "mean_ReU": 0.7274237738715278
+    },
+    {
+     "anneal": [
+      0.2,
+      8.0,
+      3000
+     ],
+     "seed": 3,
+     "sweeps": 3003,
+     "nontrivial_link_share": 0.18001603491512347,
+     "mean_ReU": 0.7299759476273148
+    }
+   ],
+   "nontrivial_link_share_kept": 0.18001603491512347,
+   "nontrivial_link_share_before": 0.6662552445023148,
+   "nontrivial_plaquettes_per_carrier": 0.8061659071180556
+  },
+  {
+   "file": "configs/Z3_plaquette_3.npz",
+   "fixed_file": "configs/fixed_Z3_plaquette_3.npz",
+   "copies": [
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 0,
+     "sweeps": 1003,
+     "nontrivial_link_share": 0.18168885030864199,
+     "mean_ReU": 0.7274667245370371
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 1,
+     "sweeps": 1003,
+     "nontrivial_link_share": 0.18153362509645063,
+     "mean_ReU": 0.7276995623553241
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 2,
+     "sweeps": 1003,
+     "nontrivial_link_share": 0.18078010464891975,
+     "mean_ReU": 0.7288298430266203
+    },
+    {
+     "anneal": [
+      0.2,
+      8.0,
+      3000
+     ],
+     "seed": 3,
+     "sweeps": 3003,
+     "nontrivial_link_share": 0.1793137538580247,
+     "mean_ReU": 0.7310293692129629
+    }
+   ],
+   "nontrivial_link_share_kept": 0.1793137538580247,
+   "nontrivial_link_share_before": 0.6674744405864198,
+   "nontrivial_plaquettes_per_carrier": 0.8034758391203702
+  },
+  {
+   "file": "configs/Z3_plaquette_4.npz",
+   "fixed_file": "configs/fixed_Z3_plaquette_4.npz",
+   "copies": [
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 0,
+     "sweeps": 1003,
+     "nontrivial_link_share": 0.18095040027006173,
+     "mean_ReU": 0.7285743995949074
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 1,
+     "sweeps": 1003,
+     "nontrivial_link_share": 0.1816481602044753,
+     "mean_ReU": 0.7275277596932871
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 2,
+     "sweeps": 1003,
+     "nontrivial_link_share": 0.18154718846450618,
+     "mean_ReU": 0.7276792173032407
+    },
+    {
+     "anneal": [
+      0.2,
+      8.0,
+      3000
+     ],
+     "seed": 3,
+     "sweeps": 3003,
+     "nontrivial_link_share": 0.1795096691743827,
+     "mean_ReU": 0.7307354962384259
+    }
+   ],
+   "nontrivial_link_share_kept": 0.1795096691743827,
+   "nontrivial_link_share_before": 0.6665310329861112,
+   "nontrivial_plaquettes_per_carrier": 0.8039279513888888
+  },
+  {
+   "file": "configs/Z2_carrier_0.npz",
+   "fixed_file": "configs/fixed_Z2_carrier_0.npz",
+   "copies": [
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 0,
+     "sweeps": 1001,
+     "nontrivial_link_share": 0.004849657600308642,
+     "mean_ReU": 0.9903006847993827
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 1,
+     "sweeps": 1001,
+     "nontrivial_link_share": 0.004849657600308642,
+     "mean_ReU": 0.9903006847993827
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 2,
+     "sweeps": 1001,
+     "nontrivial_link_share": 0.004849657600308642,
+     "mean_ReU": 0.9903006847993827
+    },
+    {
+     "anneal": [
+      0.2,
+      8.0,
+      3000
+     ],
+     "seed": 3,
+     "sweeps": 3001,
+     "nontrivial_link_share": 0.004849657600308642,
+     "mean_ReU": 0.9903006847993827
+    }
+   ],
+   "nontrivial_link_share_kept": 0.004849657600308642,
+   "nontrivial_link_share_before": 0.4998583381558642,
+   "nontrivial_plaquettes_per_carrier": 0.041169343171296294
+  },
+  {
+   "file": "configs/Z2_carrier_1.npz",
+   "fixed_file": "configs/fixed_Z2_carrier_1.npz",
+   "copies": [
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 0,
+     "sweeps": 1001,
+     "nontrivial_link_share": 0.004789375964506173,
+     "mean_ReU": 0.9904212480709876
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 1,
+     "sweeps": 1001,
+     "nontrivial_link_share": 0.004789375964506173,
+     "mean_ReU": 0.9904212480709876
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 2,
+     "sweeps": 1001,
+     "nontrivial_link_share": 0.004789375964506173,
+     "mean_ReU": 0.9904212480709876
+    },
+    {
+     "anneal": [
+      0.2,
+      8.0,
+      3000
+     ],
+     "seed": 3,
+     "sweeps": 3001,
+     "nontrivial_link_share": 0.010271990740740741,
+     "mean_ReU": 0.9794560185185185
+    }
+   ],
+   "nontrivial_link_share_kept": 0.004789375964506173,
+   "nontrivial_link_share_before": 0.4991048177083333,
+   "nontrivial_plaquettes_per_carrier": 0.041196469907407406
+  },
+  {
+   "file": "configs/Z2_carrier_2.npz",
+   "fixed_file": "configs/fixed_Z2_carrier_2.npz",
+   "copies": [
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 0,
+     "sweeps": 1001,
+     "nontrivial_link_share": 0.004980770158179012,
+     "mean_ReU": 0.990038459683642
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 1,
+     "sweeps": 1001,
+     "nontrivial_link_share": 0.004980770158179012,
+     "mean_ReU": 0.990038459683642
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 2,
+     "sweeps": 1001,
+     "nontrivial_link_share": 0.004980770158179012,
+     "mean_ReU": 0.990038459683642
+    },
+    {
+     "anneal": [
+      0.2,
+      8.0,
+      3000
+     ],
+     "seed": 3,
+     "sweeps": 3001,
+     "nontrivial_link_share": 0.004980770158179012,
+     "mean_ReU": 0.990038459683642
+    }
+   ],
+   "nontrivial_link_share_kept": 0.004980770158179012,
+   "nontrivial_link_share_before": 0.5002607180748457,
+   "nontrivial_plaquettes_per_carrier": 0.040834780092592594
+  },
+  {
+   "file": "configs/Z2_carrier_3.npz",
+   "fixed_file": "configs/fixed_Z2_carrier_3.npz",
+   "copies": [
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 0,
+     "sweeps": 1001,
+     "nontrivial_link_share": 0.018506462191358024,
+     "mean_ReU": 0.9629870756172839
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 1,
+     "sweeps": 1001,
+     "nontrivial_link_share": 0.01872950424382716,
+     "mean_ReU": 0.9625409915123457
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 2,
+     "sweeps": 1001,
+     "nontrivial_link_share": 0.018506462191358024,
+     "mean_ReU": 0.9629870756172839
+    },
+    {
+     "anneal": [
+      0.2,
+      8.0,
+      3000
+     ],
+     "seed": 3,
+     "sweeps": 3001,
+     "nontrivial_link_share": 0.012062355324074073,
+     "mean_ReU": 0.9758752893518519
+    }
+   ],
+   "nontrivial_link_share_kept": 0.012062355324074073,
+   "nontrivial_link_share_before": 0.49938211323302467,
+   "nontrivial_plaquettes_per_carrier": 0.04024703414351852
+  },
+  {
+   "file": "configs/Z2_carrier_4.npz",
+   "fixed_file": "configs/fixed_Z2_carrier_4.npz",
+   "copies": [
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 0,
+     "sweeps": 1001,
+     "nontrivial_link_share": 0.018394941165123458,
+     "mean_ReU": 0.9632101176697531
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 1,
+     "sweeps": 1001,
+     "nontrivial_link_share": 0.018503448109567902,
+     "mean_ReU": 0.9629931037808642
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 2,
+     "sweeps": 1001,
+     "nontrivial_link_share": 0.018394941165123458,
+     "mean_ReU": 0.9632101176697531
+    },
+    {
+     "anneal": [
+      0.2,
+      8.0,
+      3000
+     ],
+     "seed": 3,
+     "sweeps": 3001,
+     "nontrivial_link_share": 0.011809172453703705,
+     "mean_ReU": 0.9763816550925926
+    }
+   ],
+   "nontrivial_link_share_kept": 0.011809172453703705,
+   "nontrivial_link_share_before": 0.49936704282407407,
+   "nontrivial_plaquettes_per_carrier": 0.039885344328703706
+  },
+  {
+   "file": "configs/Z2_plaquette_0.npz",
+   "fixed_file": "configs/fixed_Z2_plaquette_0.npz",
+   "copies": [
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 0,
+     "sweeps": 1001,
+     "nontrivial_link_share": 0.049147617669753084,
+     "mean_ReU": 0.9017047646604939
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 1,
+     "sweeps": 1001,
+     "nontrivial_link_share": 0.04992223668981482,
+     "mean_ReU": 0.9001555266203703
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 2,
+     "sweeps": 1001,
+     "nontrivial_link_share": 0.04773099922839506,
+     "mean_ReU": 0.9045380015432098
+    },
+    {
+     "anneal": [
+      0.2,
+      8.0,
+      3000
+     ],
+     "seed": 3,
+     "sweeps": 3001,
+     "nontrivial_link_share": 0.04203438464506173,
+     "mean_ReU": 0.9159312307098766
+    }
+   ],
+   "nontrivial_link_share_kept": 0.04203438464506173,
+   "nontrivial_link_share_before": 0.49977695794753085,
+   "nontrivial_plaquettes_per_carrier": 0.12370695891203703
+  },
+  {
+   "file": "configs/Z2_plaquette_1.npz",
+   "fixed_file": "configs/fixed_Z2_plaquette_1.npz",
+   "copies": [
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 0,
+     "sweeps": 1001,
+     "nontrivial_link_share": 0.04659619743441358,
+     "mean_ReU": 0.9068076051311729
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 1,
+     "sweeps": 1001,
+     "nontrivial_link_share": 0.04578540943287037,
+     "mean_ReU": 0.9084291811342593
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 2,
+     "sweeps": 1001,
+     "nontrivial_link_share": 0.04720805603780864,
+     "mean_ReU": 0.9055838879243827
+    },
+    {
+     "anneal": [
+      0.2,
+      8.0,
+      3000
+     ],
+     "seed": 3,
+     "sweeps": 3001,
+     "nontrivial_link_share": 0.04232524353780864,
+     "mean_ReU": 0.9153495129243827
+    }
+   ],
+   "nontrivial_link_share_kept": 0.04232524353780864,
+   "nontrivial_link_share_before": 0.5002215350115741,
+   "nontrivial_plaquettes_per_carrier": 0.12212456597222221
+  },
+  {
+   "file": "configs/Z2_plaquette_2.npz",
+   "fixed_file": "configs/fixed_Z2_plaquette_2.npz",
+   "copies": [
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 0,
+     "sweeps": 1001,
+     "nontrivial_link_share": 0.04813036506558642,
+     "mean_ReU": 0.9037392698688271
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 1,
+     "sweeps": 1001,
+     "nontrivial_link_share": 0.048552336516203706,
+     "mean_ReU": 0.9028953269675926
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 2,
+     "sweeps": 1001,
+     "nontrivial_link_share": 0.04861864631558642,
+     "mean_ReU": 0.9027627073688271
+    },
+    {
+     "anneal": [
+      0.2,
+      8.0,
+      3000
+     ],
+     "seed": 3,
+     "sweeps": 3001,
+     "nontrivial_link_share": 0.043503749517746916,
+     "mean_ReU": 0.9129925009645061
+    }
+   ],
+   "nontrivial_link_share_kept": 0.043503749517746916,
+   "nontrivial_link_share_before": 0.5007007740162037,
+   "nontrivial_plaquettes_per_carrier": 0.12305591724537038
+  },
+  {
+   "file": "configs/Z2_plaquette_3.npz",
+   "fixed_file": "configs/fixed_Z2_plaquette_3.npz",
+   "copies": [
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 0,
+     "sweeps": 1001,
+     "nontrivial_link_share": 0.04335304542824074,
+     "mean_ReU": 0.9132939091435185
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 1,
+     "sweeps": 1001,
+     "nontrivial_link_share": 0.0443115234375,
+     "mean_ReU": 0.911376953125
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 2,
+     "sweeps": 1001,
+     "nontrivial_link_share": 0.04337414400077161,
+     "mean_ReU": 0.9132517119984568
+    },
+    {
+     "anneal": [
+      0.2,
+      8.0,
+      3000
+     ],
+     "seed": 3,
+     "sweeps": 3001,
+     "nontrivial_link_share": 0.03961558400848766,
+     "mean_ReU": 0.9207688319830247
+    }
+   ],
+   "nontrivial_link_share_kept": 0.03961558400848766,
+   "nontrivial_link_share_before": 0.5006374782986112,
+   "nontrivial_plaquettes_per_carrier": 0.11506257233796297
+  },
+  {
+   "file": "configs/Z2_plaquette_4.npz",
+   "fixed_file": "configs/fixed_Z2_plaquette_4.npz",
+   "copies": [
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 0,
+     "sweeps": 1001,
+     "nontrivial_link_share": 0.0474145206404321,
+     "mean_ReU": 0.9051709587191358
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 1,
+     "sweeps": 1001,
+     "nontrivial_link_share": 0.04690212673611111,
+     "mean_ReU": 0.9061957465277778
+    },
+    {
+     "anneal": [
+      0.5,
+      6.0,
+      1000
+     ],
+     "seed": 2,
+     "sweeps": 1001,
+     "nontrivial_link_share": 0.046820746527777776,
+     "mean_ReU": 0.9063585069444444
+    },
+    {
+     "anneal": [
+      0.2,
+      8.0,
+      3000
+     ],
+     "seed": 3,
+     "sweeps": 3001,
+     "nontrivial_link_share": 0.040608723958333336,
+     "mean_ReU": 0.9187825520833334
+    }
+   ],
+   "nontrivial_link_share_kept": 0.040608723958333336,
+   "nontrivial_link_share_before": 0.4988305362654321,
+   "nontrivial_plaquettes_per_carrier": 0.11827256944444445
+  }
+ ],
+ "summary": [
+  {
+   "kind": "Z3 charge in Z3_carrier",
+   "labels": [
+    "Z3_carrier"
+   ],
+   "configs": 5,
+   "single_rate_per_tick": [
+    0.1753199625025356,
+    0.006224322914114673
+   ],
+   "single_mean_free_path_cells_from_mean_rate": 5.703857026466894,
+   "single_mean_free_path_cells_per_config": [
+    5.035413561631156,
+    6.110750275252096,
+    5.6895305627032045,
+    5.787722306340931,
+    6.0306574210901776
+   ],
+   "pairs": [
+    {
+     "separation": 0,
+     "rate_per_tick": [
+      0.0,
+      0.0
+     ],
+     "rate_over_single": [
+      0.0,
+      0.0
+     ]
+    },
+    {
+     "separation": 1,
+     "rate_per_tick": [
+      0.16630452947527624,
+      0.006430186924853633
+     ],
+     "rate_over_single": [
+      0.9484700732996677,
+      0.0140764776418596
+     ]
+    },
+    {
+     "separation": 2,
+     "rate_per_tick": [
+      0.186441544808529,
+      0.002800525617829851
+     ],
+     "rate_over_single": [
+      1.0673772490867957,
+      0.031026915528249557
+     ]
+    },
+    {
+     "separation": 4,
+     "rate_per_tick": [
+      0.19470201255936148,
+      0.0021262292594002646
+     ],
+     "rate_over_single": [
+      1.1148100296454004,
+      0.031770971368062985
+     ]
+    },
+    {
+     "separation": 8,
+     "rate_per_tick": [
+      0.19460670204216218,
+      0.0012594223542312564
+     ],
+     "rate_over_single": [
+      1.1145974429472332,
+      0.03300836120920843
+     ]
+    },
+    {
+     "separation": 16,
+     "rate_per_tick": [
+      0.19496535378465465,
+      0.0019412152331080904
+     ],
+     "rate_over_single": [
+      1.1173452066652607,
+      0.03875762836139856
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "Z3 charge in Z3_plaquette",
+   "labels": [
+    "Z3_plaquette"
+   ],
+   "configs": 5,
+   "single_rate_per_tick": [
+    0.19346499727256786,
+    0.0005978841787051406
+   ],
+   "single_mean_free_path_cells_from_mean_rate": 5.168893671195342,
+   "single_mean_free_path_cells_per_config": [
+    5.19907366766101,
+    5.211954114137593,
+    5.12791441307964,
+    5.162687872243633,
+    5.143826341401663
+   ],
+   "pairs": [
+    {
+     "separation": 0,
+     "rate_per_tick": [
+      0.0,
+      0.0
+     ],
+     "rate_over_single": [
+      0.0,
+      0.0
+     ]
+    },
+    {
+     "separation": 1,
+     "rate_per_tick": [
+      0.19326426059746835,
+      0.0009291832910400828
+     ],
+     "rate_over_single": [
+      0.9990025609872852,
+      0.005775558044157165
+     ]
+    },
+    {
+     "separation": 2,
+     "rate_per_tick": [
+      0.18207795036880114,
+      0.0006317843065730663
+     ],
+     "rate_over_single": [
+      0.9412169117704673,
+      0.006136489729309417
+     ]
+    },
+    {
+     "separation": 4,
+     "rate_per_tick": [
+      0.18004244360461485,
+      0.0006905334315214515
+     ],
+     "rate_over_single": [
+      0.9306881382415101,
+      0.006000719773543138
+     ]
+    },
+    {
+     "separation": 8,
+     "rate_per_tick": [
+      0.1805215012589015,
+      0.0006511889709708979
+     ],
+     "rate_over_single": [
+      0.9331224390449251,
+      0.003879160844935269
+     ]
+    },
+    {
+     "separation": 16,
+     "rate_per_tick": [
+      0.1804130095067225,
+      0.0005539457319358063
+     ],
+     "rate_over_single": [
+      0.9325969892683788,
+      0.005329752729661203
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "Z2 charge in Z2_carrier",
+   "labels": [
+    "Z2_carrier"
+   ],
+   "configs": 5,
+   "single_rate_per_tick": [
+    0.018291667665595528,
+    0.0012142355930178973
+   ],
+   "single_mean_free_path_cells_from_mean_rate": 54.669700886862394,
+   "single_mean_free_path_cells_per_config": [
+    66.79081989575167,
+    51.92042573666344,
+    59.080383785454195,
+    55.379384314202305,
+    44.95872161788916
+   ],
+   "pairs": [
+    {
+     "separation": 0,
+     "rate_per_tick": [
+      0.0,
+      0.0
+     ],
+     "rate_over_single": [
+      0.0,
+      0.0
+     ]
+    },
+    {
+     "separation": 1,
+     "rate_per_tick": [
+      0.02483374958674199,
+      0.0007716213927493176
+     ],
+     "rate_over_single": [
+      1.3725504072081456,
+      0.0623470584545956
+     ]
+    },
+    {
+     "separation": 2,
+     "rate_per_tick": [
+      0.032927342549511136,
+      0.0011937006503273144
+     ],
+     "rate_over_single": [
+      1.8218084898873141,
+      0.09642831786821808
+     ]
+    },
+    {
+     "separation": 4,
+     "rate_per_tick": [
+      0.039435252388768695,
+      0.0014475309187627274
+     ],
+     "rate_over_single": [
+      2.179424118068746,
+      0.10509873225390447
+     ]
+    },
+    {
+     "separation": 8,
+     "rate_per_tick": [
+      0.03308050933151814,
+      0.0017242381691622945
+     ],
+     "rate_over_single": [
+      1.8310234937659644,
+      0.12641395864263477
+     ]
+    },
+    {
+     "separation": 16,
+     "rate_per_tick": [
+      0.033696740193106645,
+      0.00218559095591683
+     ],
+     "rate_over_single": [
+      1.8663298668209425,
+      0.14592041699023936
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "Z2 charge in Z2_plaquette",
+   "labels": [
+    "Z2_plaquette"
+   ],
+   "configs": 5,
+   "single_rate_per_tick": [
+    0.07074272706770925,
+    0.010707826584836854
+   ],
+   "single_mean_free_path_cells_from_mean_rate": 14.135728737780783,
+   "single_mean_free_path_cells_per_config": [
+    17.012714603489204,
+    23.79686984711095,
+    11.838967311507496,
+    15.490051667946448,
+    9.625811572469578
+   ],
+   "pairs": [
+    {
+     "separation": 0,
+     "rate_per_tick": [
+      0.0,
+      0.0
+     ],
+     "rate_over_single": [
+      0.0,
+      0.0
+     ]
+    },
+    {
+     "separation": 1,
+     "rate_per_tick": [
+      0.07625462807565211,
+      0.007739387750571198
+     ],
+     "rate_over_single": [
+      1.1119862037475716,
+      0.05718599715548872
+     ]
+    },
+    {
+     "separation": 2,
+     "rate_per_tick": [
+      0.11006896725782996,
+      0.011736999359392063
+     ],
+     "rate_over_single": [
+      1.5994347034229357,
+      0.07305060844516248
+     ]
+    },
+    {
+     "separation": 4,
+     "rate_per_tick": [
+      0.13019733678169002,
+      0.011589905100014921
+     ],
+     "rate_over_single": [
+      1.9188868022015577,
+      0.14492624867944714
+     ]
+    },
+    {
+     "separation": 8,
+     "rate_per_tick": [
+      0.14548509294206163,
+      0.011701857961500202
+     ],
+     "rate_over_single": [
+      2.170035494514055,
+      0.2141067801389686
+     ]
+    },
+    {
+     "separation": 16,
+     "rate_per_tick": [
+      0.15661290235794195,
+      0.005754817354317783
+     ],
+     "rate_over_single": [
+      2.3839551150848046,
+      0.2891191644949675
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "Z3 and Z2 charge in Z3_carrier x Z2_carrier",
+   "labels": [
+    "Z3_carrier",
+    "Z2_carrier"
+   ],
+   "configs": 5,
+   "single_rate_per_tick": [
+    0.18157152362971662,
+    0.005806335432235483
+   ],
+   "single_mean_free_path_cells_from_mean_rate": 5.50747154625042,
+   "single_mean_free_path_cells_per_config": [
+    4.987825245682091,
+    5.8823294909007595,
+    5.691148508827626,
+    5.2796959551565505,
+    5.805432402217983
+   ],
+   "pairs": [
+    {
+     "separation": 0,
+     "rate_per_tick": [
+      0.0,
+      0.0
+     ],
+     "rate_over_single": [
+      0.0,
+      0.0
+     ]
+    },
+    {
+     "separation": 1,
+     "rate_per_tick": [
+      0.18061477537521015,
+      0.0050090305112510565
+     ],
+     "rate_over_single": [
+      0.9953770349892237,
+      0.009152086670288188
+     ]
+    },
+    {
+     "separation": 2,
+     "rate_per_tick": [
+      0.19070697279192392,
+      0.0011348135052536516
+     ],
+     "rate_over_single": [
+      1.0547602352489949,
+      0.035336057072322104
+     ]
+    },
+    {
+     "separation": 4,
+     "rate_per_tick": [
+      0.1931564146645685,
+      0.001544820046294263
+     ],
+     "rate_over_single": [
+      1.067064544105141,
+      0.025793022869142302
+     ]
+    },
+    {
+     "separation": 8,
+     "rate_per_tick": [
+      0.19415503729753594,
+      0.0008773584894497131
+     ],
+     "rate_over_single": [
+      1.0732113654405275,
+      0.030915824145730034
+     ]
+    },
+    {
+     "separation": 16,
+     "rate_per_tick": [
+      0.19412389714589748,
+      0.0015144231553243799
+     ],
+     "rate_over_single": [
+      1.0740000537586152,
+      0.03856497410004264
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "Z3 and Z2 charge in Z3_plaquette x Z2_plaquette",
+   "labels": [
+    "Z3_plaquette",
+    "Z2_plaquette"
+   ],
+   "configs": 5,
+   "single_rate_per_tick": [
+    0.1898358259049036,
+    0.0005960234576135717
+   ],
+   "single_mean_free_path_cells_from_mean_rate": 5.267709586603217,
+   "single_mean_free_path_cells_per_config": [
+    5.3326909613898845,
+    5.2661289175003825,
+    5.242542722314683,
+    5.251551602727888,
+    5.246680844489704
+   ],
+   "pairs": [
+    {
+     "separation": 0,
+     "rate_per_tick": [
+      0.0,
+      0.0
+     ],
+     "rate_over_single": [
+      0.0,
+      0.0
+     ]
+    },
+    {
+     "separation": 1,
+     "rate_per_tick": [
+      0.19066459602347607,
+      0.0007716047961547406
+     ],
+     "rate_over_single": [
+      1.0044176607825404,
+      0.005705908380633248
+     ]
+    },
+    {
+     "separation": 2,
+     "rate_per_tick": [
+      0.18115815450709105,
+      0.00037288109204627667
+     ],
+     "rate_over_single": [
+      0.954311850431554,
+      0.0024392691980295598
+     ]
+    },
+    {
+     "separation": 4,
+     "rate_per_tick": [
+      0.17932470382049231,
+      0.0009605440685728844
+     ],
+     "rate_over_single": [
+      0.9447054957150358,
+      0.007229814609997144
+     ]
+    },
+    {
+     "separation": 8,
+     "rate_per_tick": [
+      0.17921273362937207,
+      0.0008612873526920189
+     ],
+     "rate_over_single": [
+      0.9440722880426474,
+      0.005158401288980364
+     ]
+    },
+    {
+     "separation": 16,
+     "rate_per_tick": [
+      0.17973623069285466,
+      0.0007493313650243613
+     ],
+     "rate_over_single": [
+      0.9468741712336156,
+      0.006558506987736338
+     ]
+    }
+   ]
+  }
+ ],
+ "per_config": [
+  {
+   "kind": "Z3 charge in Z3_carrier",
+   "config": 1,
+   "files": [
+    "configs/Z3_carrier_1.npz"
+   ],
+   "gauge_fixing": [
+    {
+     "file": "configs/Z3_carrier_1.npz",
+     "fixed_file": "configs/fixed_Z3_carrier_1.npz",
+     "nontrivial_link_share": 0.08640920380015432,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.3480902777777778,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.33984375,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.3441840277777778,
+       "shift": 0
+      }
+     ]
+    }
+   ],
+   "single_ballistic_share_relative_to_free": [
+    0.9945307475781554,
+    0.9236407427700717,
+    0.7032196366742298,
+    0.4563050033025305,
+    0.26566867650898024,
+    0.12475870401110495,
+    0.05632319088012907,
+    0.02675261768110875,
+    0.012403782900764793,
+    0.004595227746775897,
+    0.0018432045005574978,
+    0.0006902848474892297
+   ],
+   "single_rate_per_tick": 0.16364602625800242,
+   "single_mean_free_path_cells": 6.110750275252096,
+   "pairs": [
+    {
+     "separation": 0,
+     "ballistic_share_relative_to_free": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rate_per_tick": 0.0,
+     "rate_over_single_quantum_rate": 0.0
+    },
+    {
+     "separation": 1,
+     "ballistic_share_relative_to_free": [
+      0.9952614240710194,
+      0.9366423244046124,
+      0.7090031087017102,
+      0.4429437998119976,
+      0.24362365478687528,
+      0.12403054972525739,
+      0.06157100824251744,
+      0.03314244504073819,
+      0.017192609413165093,
+      0.0073117864183823945,
+      0.002689050373045925,
+      0.0009145622643705061
+     ],
+     "rate_per_tick": 0.15158902898746504,
+     "rate_over_single_quantum_rate": 0.9263227006103499
+    },
+    {
+     "separation": 2,
+     "ballistic_share_relative_to_free": [
+      0.9939794744066678,
+      0.9207691636039665,
+      0.6724414448903138,
+      0.39399319423778423,
+      0.19416218636537122,
+      0.0837689568415402,
+      0.03484362896255875,
+      0.013889894696530429,
+      0.004964105723231377,
+      0.0015047387918847356,
+      0.0004789441685469452,
+      0.00017117587328756704
+     ],
+     "rate_per_tick": 0.18562802597855205,
+     "rate_over_single_quantum_rate": 1.1343265108429401
+    },
+    {
+     "separation": 4,
+     "ballistic_share_relative_to_free": [
+      0.99292600620539,
+      0.8964543951640415,
+      0.6246517283704722,
+      0.3405528752981417,
+      0.15636116690422347,
+      0.06147871362905487,
+      0.02292848566497588,
+      0.008428476070746692,
+      0.002897156109250842,
+      0.0008204643621142995,
+      0.0002623100626502677,
+      9.792021968953003e-05
+     ],
+     "rate_per_tick": 0.19029045128964306,
+     "rate_over_single_quantum_rate": 1.162817427596032
+    },
+    {
+     "separation": 8,
+     "ballistic_share_relative_to_free": [
+      0.9920520420497192,
+      0.8966494498795626,
+      0.6305573212497234,
+      0.3491127333660763,
+      0.15391985304063455,
+      0.05929618112762124,
+      0.021802046433841996,
+      0.007606554162726364,
+      0.002453071035950085,
+      0.0006931536016014311,
+      0.0002021465838380473,
+      7.698823058255971e-05
+     ],
+     "rate_per_tick": 0.19508647485467803,
+     "rate_over_single_quantum_rate": 1.1921247299161848
+    },
+    {
+     "separation": 16,
+     "ballistic_share_relative_to_free": [
+      0.9926722822163512,
+      0.9014527412811534,
+      0.6182512442886097,
+      0.32604730190802517,
+      0.13852535184823989,
+      0.05480709787493375,
+      0.020093301410875147,
+      0.007101432864050121,
+      0.0023270972258770204,
+      0.0006641850615791858,
+      0.0001846180331962334,
+      6.905580216213973e-05
+     ],
+     "rate_per_tick": 0.19746036833930417,
+     "rate_over_single_quantum_rate": 1.2066310001807832
+    }
+   ],
+   "seconds": 71.61855411529541
+  },
+  {
+   "kind": "Z2 charge in Z2_carrier",
+   "config": 0,
+   "files": [
+    "configs/Z2_carrier_0.npz"
+   ],
+   "gauge_fixing": [
+    {
+     "file": "configs/Z2_carrier_0.npz",
+     "fixed_file": "configs/fixed_Z2_carrier_0.npz",
+     "nontrivial_link_share": 0.004849657600308642,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.7196180555555556,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.8203125,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.8059895833333334,
+       "shift": 0
+      }
+     ]
+    }
+   ],
+   "single_ballistic_share_relative_to_free": [
+    0.9989725408867753,
+    0.990511208148498,
+    0.9568448056042056,
+    0.9153356406550748,
+    0.865253339192972,
+    0.8073711385005221,
+    0.7442499406469026,
+    0.6953687073798603,
+    0.657067857116071,
+    0.6190035472383434,
+    0.576777634675646,
+    0.5374969118181389
+   ],
+   "single_rate_per_tick": 0.01497211744908684,
+   "single_mean_free_path_cells": 66.79081989575167,
+   "pairs": [
+    {
+     "separation": 0,
+     "ballistic_share_relative_to_free": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rate_per_tick": 0.0,
+     "rate_over_single_quantum_rate": 0.0
+    },
+    {
+     "separation": 1,
+     "ballistic_share_relative_to_free": [
+      0.9984514936514339,
+      0.9857367892828612,
+      0.9394406339511711,
+      0.8716894529085538,
+      0.7902316776525444,
+      0.7163254109960375,
+      0.6425612506239506,
+      0.5817611921504735,
+      0.5373209489688836,
+      0.4944020598897638,
+      0.43814396217674406,
+      0.38763777443481484
+     ],
+     "rate_per_tick": 0.022417186206129855,
+     "rate_over_single_quantum_rate": 1.4972622464631478
+    },
+    {
+     "separation": 2,
+     "ballistic_share_relative_to_free": [
+      0.9979973259682796,
+      0.98376949295513,
+      0.9262790208002065,
+      0.8561442005942086,
+      0.7685234098634486,
+      0.6767468990249172,
+      0.5733101377685494,
+      0.4946435403988651,
+      0.4403399275931504,
+      0.3910641268664491,
+      0.3350521126971643,
+      0.28995102016176105
+     ],
+     "rate_per_tick": 0.029841549394017237,
+     "rate_over_single_quantum_rate": 1.9931415509859824
+    },
+    {
+     "separation": 4,
+     "ballistic_share_relative_to_free": [
+      0.9978726914116263,
+      0.9797898485572679,
+      0.9160186594248897,
+      0.8337007528359335,
+      0.7348428833971958,
+      0.6235786324903171,
+      0.5110324899508667,
+      0.43398149984043044,
+      0.37813744781623454,
+      0.33087339258429854,
+      0.2872227198283316,
+      0.24748914791355364
+     ],
+     "rate_per_tick": 0.03430136951063907,
+     "rate_over_single_quantum_rate": 2.2910165931627215
+    },
+    {
+     "separation": 8,
+     "ballistic_share_relative_to_free": [
+      0.9978531859648834,
+      0.9819929874564134,
+      0.9219782642245093,
+      0.8405188366149544,
+      0.7355110681246098,
+      0.638943669507015,
+      0.5501556854559686,
+      0.48587274987199003,
+      0.4418401310263642,
+      0.404715479478807,
+      0.36088888155998344,
+      0.32253616251585415
+     ],
+     "rate_per_tick": 0.027801237371713416,
+     "rate_over_single_quantum_rate": 1.8568674381731511
+    },
+    {
+     "separation": 16,
+     "ballistic_share_relative_to_free": [
+      0.9980711896427489,
+      0.9835520550477252,
+      0.9225318570998152,
+      0.8392062004887619,
+      0.7418273661511792,
+      0.654763943954217,
+      0.5685421562999927,
+      0.4985593707834252,
+      0.4399199715827331,
+      0.39715981297618264,
+      0.3529391542800242,
+      0.3134276021211394
+     ],
+     "rate_per_tick": 0.02834516907361744,
+     "rate_over_single_quantum_rate": 1.8931970825106124
+    }
+   ],
+   "seconds": 71.66453838348389
+  },
+  {
+   "kind": "Z3 charge in Z3_plaquette",
+   "config": 0,
+   "files": [
+    "configs/Z3_plaquette_0.npz"
+   ],
+   "gauge_fixing": [
+    {
+     "file": "configs/Z3_plaquette_0.npz",
+     "fixed_file": "configs/fixed_Z3_plaquette_0.npz",
+     "nontrivial_link_share": 0.17866120515046297,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.3372395833333333,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.3402777777777778,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.3381076388888889,
+       "shift": 0
+      }
+     ]
+    }
+   ],
+   "single_ballistic_share_relative_to_free": [
+    0.9904259303851224,
+    0.880167185931901,
+    0.6143069427998789,
+    0.34104161682722617,
+    0.16576164767675045,
+    0.0711053504944086,
+    0.028601823579199395,
+    0.010397767366915162,
+    0.003791554009386793,
+    0.0012412933053481926,
+    0.000407725218969977,
+    0.0001838739136240021
+   ],
+   "single_rate_per_tick": 0.19234195626427542,
+   "single_mean_free_path_cells": 5.19907366766101,
+   "pairs": [
+    {
+     "separation": 0,
+     "ballistic_share_relative_to_free": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rate_per_tick": 0.0,
+     "rate_over_single_quantum_rate": 0.0
+    },
+    {
+     "separation": 1,
+     "ballistic_share_relative_to_free": [
+      0.9906697063147215,
+      0.8782788925591726,
+      0.6083632071215792,
+      0.335338415182014,
+      0.15819006441045297,
+      0.06863669171972085,
+      0.02702213789362122,
+      0.010251726315301796,
+      0.0034954569843821354,
+      0.001143440406578489,
+      0.0003694037326183685,
+      0.00017240476779817638
+     ],
+     "rate_per_tick": 0.19450243594144412,
+     "rate_over_single_quantum_rate": 1.0112324929990846
+    },
+    {
+     "separation": 2,
+     "ballistic_share_relative_to_free": [
+      0.9897574032710749,
+      0.8683581563149267,
+      0.5943753864325667,
+      0.34042516498453185,
+      0.1728402222864073,
+      0.07617582272553684,
+      0.03132719396187337,
+      0.012334296656314088,
+      0.0048140139017067,
+      0.0017470697232249413,
+      0.0006238433380718733,
+      0.00030208630543791435
+     ],
+     "rate_per_tick": 0.18298981379393175,
+     "rate_over_single_quantum_rate": 0.9513775223462221
+    },
+    {
+     "separation": 4,
+     "ballistic_share_relative_to_free": [
+      0.989946292613272,
+      0.8712175724788573,
+      0.5989574037988926,
+      0.33641261493267954,
+      0.16238986105536427,
+      0.0732884720128188,
+      0.03051252545939212,
+      0.012515817152122813,
+      0.0049070737516136165,
+      0.0018291136786242306,
+      0.0006647285645326685,
+      0.0003323222060386735
+     ],
+     "rate_per_tick": 0.18217584347972526,
+     "rate_over_single_quantum_rate": 0.9471456307193734
+    },
+    {
+     "separation": 8,
+     "ballistic_share_relative_to_free": [
+      0.9900103745065951,
+      0.8653399016855257,
+      0.597182516269272,
+      0.33199690639706475,
+      0.16776041323160013,
+      0.0774261103716195,
+      0.03290610340783954,
+      0.013063717079456206,
+      0.004956217241084566,
+      0.001859767929090706,
+      0.0006681707234865203,
+      0.00031643224275720313
+     ],
+     "rate_per_tick": 0.18098828213397286,
+     "rate_over_single_quantum_rate": 0.94097141179794
+    },
+    {
+     "separation": 16,
+     "ballistic_share_relative_to_free": [
+      0.9901696305833952,
+      0.8644776126924766,
+      0.5950138306812852,
+      0.34129517968170303,
+      0.17040689233214415,
+      0.07709641139431692,
+      0.03229057613195796,
+      0.013245263155251959,
+      0.00504077630029576,
+      0.0019199448466823384,
+      0.0006913563951337205,
+      0.0003272016411366254
+     ],
+     "rate_per_tick": 0.1804756788268854,
+     "rate_over_single_quantum_rate": 0.9383063494421056
+    }
+   ],
+   "seconds": 71.73734164237976
+  },
+  {
+   "kind": "Z3 charge in Z3_carrier",
+   "config": 2,
+   "files": [
+    "configs/Z3_carrier_2.npz"
+   ],
+   "gauge_fixing": [
+    {
+     "file": "configs/Z3_carrier_2.npz",
+     "fixed_file": "configs/fixed_Z3_carrier_2.npz",
+     "nontrivial_link_share": 0.08513726128472222,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.3415798611111111,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 2,
+       "share_of_lines": 0.3374565972222222,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.3433159722222222,
+       "shift": 0
+      }
+     ]
+    }
+   ],
+   "single_ballistic_share_relative_to_free": [
+    0.994500356121998,
+    0.9127533529710242,
+    0.6705955809737066,
+    0.3960659887957087,
+    0.20309634331066195,
+    0.094409503785909,
+    0.042466148455518445,
+    0.018132857660809763,
+    0.008375394081148914,
+    0.0033494409786515313,
+    0.0011025552320467627,
+    0.0004294986084328363
+   ],
+   "single_rate_per_tick": 0.17576142512623763,
+   "single_mean_free_path_cells": 5.6895305627032045,
+   "pairs": [
+    {
+     "separation": 0,
+     "ballistic_share_relative_to_free": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rate_per_tick": 0.0,
+     "rate_over_single_quantum_rate": 0.0
+    },
+    {
+     "separation": 1,
+     "ballistic_share_relative_to_free": [
+      0.9957618321931887,
+      0.9217823426138754,
+      0.6895657929562667,
+      0.43238912748516484,
+      0.2405925070495009,
+      0.11580431042314265,
+      0.05489759265867437,
+      0.02483250156769891,
+      0.01157160866799736,
+      0.004515679269499451,
+      0.0015310746251171487,
+      0.0006013971455371694
+     ],
+     "rate_per_tick": 0.16617547325740747,
+     "rate_over_single_quantum_rate": 0.9454604338696889
+    },
+    {
+     "separation": 2,
+     "ballistic_share_relative_to_free": [
+      0.993703028008279,
+      0.8995618566841435,
+      0.6460274192952404,
+      0.3806514861319651,
+      0.19223607084060737,
+      0.08407927188108127,
+      0.03349376273999022,
+      0.012020541448277397,
+      0.0044333072494890805,
+      0.001613070939316234,
+      0.0005408822940678295,
+      0.00018912233138400892
+     ],
+     "rate_per_tick": 0.18642225027917952,
+     "rate_over_single_quantum_rate": 1.060655090531298
+    },
+    {
+     "separation": 4,
+     "ballistic_share_relative_to_free": [
+      0.9931859660466695,
+      0.8920594360545893,
+      0.6262376443361171,
+      0.3506887374674726,
+      0.1724509122945644,
+      0.06962718289889937,
+      0.026127983934178672,
+      0.008485576432151901,
+      0.0025970805711335886,
+      0.0008333520038630433,
+      0.0002500279133672665,
+      8.605636648624672e-05
+     ],
+     "rate_per_tick": 0.19050751939096974,
+     "rate_over_single_quantum_rate": 1.0838983539996958
+    },
+    {
+     "separation": 8,
+     "ballistic_share_relative_to_free": [
+      0.9926482783769075,
+      0.8946702870783653,
+      0.6297234126136331,
+      0.3542238737279655,
+      0.17044114951772388,
+      0.07008158709991293,
+      0.024571345655085366,
+      0.007837819165426944,
+      0.002544944499863346,
+      0.0008225115523267454,
+      0.0002458136924897226,
+      8.542419930772567e-05
+     ],
+     "rate_per_tick": 0.19243842763412117,
+     "rate_over_single_quantum_rate": 1.0948843154628813
+    },
+    {
+     "separation": 16,
+     "ballistic_share_relative_to_free": [
+      0.9920443526673669,
+      0.8974251656968036,
+      0.627465930987755,
+      0.3395873968322713,
+      0.15318308739693043,
+      0.060319748887504424,
+      0.020440993212342266,
+      0.006486620532479809,
+      0.0020864928005381927,
+      0.0006357424206364425,
+      0.00018695573831279977,
+      7.048231466814825e-05
+     ],
+     "rate_per_tick": 0.20009526244621084,
+     "rate_over_single_quantum_rate": 1.1384481111398355
+    }
+   ],
+   "seconds": 71.78680896759033
+  },
+  {
+   "kind": "Z2 charge in Z2_carrier",
+   "config": 1,
+   "files": [
+    "configs/Z2_carrier_1.npz"
+   ],
+   "gauge_fixing": [
+    {
+     "file": "configs/Z2_carrier_1.npz",
+     "fixed_file": "configs/fixed_Z2_carrier_1.npz",
+     "nontrivial_link_share": 0.004789375964506173,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.6983506944444444,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.8255208333333334,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.8161892361111112,
+       "shift": 0
+      }
+     ]
+    }
+   ],
+   "single_ballistic_share_relative_to_free": [
+    0.9993517410382862,
+    0.9898002634876676,
+    0.9558084536834018,
+    0.9031198493120107,
+    0.8270904678072364,
+    0.7546015156429204,
+    0.7072827691039976,
+    0.6727331552455577,
+    0.6199831793514755,
+    0.5456501535438907,
+    0.48615977213184763,
+    0.43514515539231574
+   ],
+   "single_rate_per_tick": 0.019260242685064374,
+   "single_mean_free_path_cells": 51.92042573666344,
+   "pairs": [
+    {
+     "separation": 0,
+     "ballistic_share_relative_to_free": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rate_per_tick": 0.0,
+     "rate_over_single_quantum_rate": 0.0
+    },
+    {
+     "separation": 1,
+     "ballistic_share_relative_to_free": [
+      0.9990155301545446,
+      0.9805943814879031,
+      0.9170732664941322,
+      0.8289966843122829,
+      0.7424447395683582,
+      0.6643543613300756,
+      0.6040495151430113,
+      0.5624442336672548,
+      0.504469712179812,
+      0.4383340732387194,
+      0.37651651538158876,
+      0.3256491541201161
+     ],
+     "rate_per_tick": 0.0258079832102839,
+     "rate_over_single_quantum_rate": 1.3399614756826022
+    },
+    {
+     "separation": 2,
+     "ballistic_share_relative_to_free": [
+      0.998849197050778,
+      0.9795976167327876,
+      0.9129403280222894,
+      0.8247190344429403,
+      0.6975245446887647,
+      0.5774570880155097,
+      0.50552181776846,
+      0.4567351376704308,
+      0.3913706101093096,
+      0.31996577541594634,
+      0.2577434696846255,
+      0.20949823114211832
+     ],
+     "rate_per_tick": 0.036422069138922354,
+     "rate_over_single_quantum_rate": 1.8910493359030394
+    },
+    {
+     "separation": 4,
+     "ballistic_share_relative_to_free": [
+      0.9986486590090103,
+      0.9737028496917594,
+      0.8984439690463948,
+      0.8003242455108605,
+      0.6703324176882136,
+      0.5470817125298457,
+      0.47178505722808745,
+      0.412999585814278,
+      0.33735773124414326,
+      0.26126741364939826,
+      0.20011862637508063,
+      0.15894430539691487
+     ],
+     "rate_per_tick": 0.042851716903831154,
+     "rate_over_single_quantum_rate": 2.2248793851938906
+    },
+    {
+     "separation": 8,
+     "ballistic_share_relative_to_free": [
+      0.9985945413279935,
+      0.9792209873033554,
+      0.913870200624344,
+      0.8252542292884342,
+      0.7292669339132893,
+      0.632476705444708,
+      0.5646084921258889,
+      0.5198905813053357,
+      0.4496579326686057,
+      0.3645439498777811,
+      0.3000671480634399,
+      0.25161806056431085
+     ],
+     "rate_per_tick": 0.03182311921517715,
+     "rate_over_single_quantum_rate": 1.6522698979205925
+    },
+    {
+     "separation": 16,
+     "ballistic_share_relative_to_free": [
+      0.9989908181068987,
+      0.981183173431352,
+      0.9216967691349343,
+      0.8466712916007189,
+      0.7555675995401763,
+      0.6669327957485468,
+      0.6002624533706055,
+      0.5463479606298471,
+      0.4769182753519235,
+      0.3878104116750113,
+      0.31095508192138915,
+      0.248042967875302
+     ],
+     "rate_per_tick": 0.03118380463577286,
+     "rate_over_single_quantum_rate": 1.6190764127782657
+    }
+   ],
+   "seconds": 71.891193151474
+  },
+  {
+   "kind": "Z3 charge in Z3_carrier",
+   "config": 3,
+   "files": [
+    "configs/Z3_carrier_3.npz"
+   ],
+   "gauge_fixing": [
+    {
+     "file": "configs/Z3_carrier_3.npz",
+     "fixed_file": "configs/fixed_Z3_carrier_3.npz",
+     "nontrivial_link_share": 0.08315098138503087,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.3394097222222222,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.341796875,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 2,
+       "share_of_lines": 0.3435329861111111,
+       "shift": 0
+      }
+     ]
+    }
+   ],
+   "single_ballistic_share_relative_to_free": [
+    0.9964391377476917,
+    0.9031657488098315,
+    0.6608507636520526,
+    0.39063003678802416,
+    0.19873127293566883,
+    0.09704063188446,
+    0.04295431379388573,
+    0.018117527247988322,
+    0.0065564079972547555,
+    0.002406717643793093,
+    0.0009783440444834938,
+    0.0005175798144640462
+   ],
+   "single_rate_per_tick": 0.17277954039094393,
+   "single_mean_free_path_cells": 5.787722306340931,
+   "pairs": [
+    {
+     "separation": 0,
+     "ballistic_share_relative_to_free": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rate_per_tick": 0.0,
+     "rate_over_single_quantum_rate": 0.0
+    },
+    {
+     "separation": 1,
+     "ballistic_share_relative_to_free": [
+      0.9958017164654727,
+      0.9129661556586411,
+      0.6755462133580286,
+      0.40354324710200284,
+      0.20726232264069,
+      0.09911450441504194,
+      0.044466704594453385,
+      0.01726414394486196,
+      0.0065290672443516305,
+      0.002439822846899582,
+      0.0009067751876253181,
+      0.00041126936042812167
+     ],
+     "rate_per_tick": 0.17329762881805308,
+     "rate_over_single_quantum_rate": 1.0029985519462368
+    },
+    {
+     "separation": 2,
+     "ballistic_share_relative_to_free": [
+      0.9942039626667093,
+      0.8927480276495859,
+      0.6239452048302888,
+      0.3531303839426045,
+      0.168070744365984,
+      0.07485740860395967,
+      0.030074805713532625,
+      0.010668331004843054,
+      0.003541395082961851,
+      0.0012186033299633379,
+      0.0003789246560790722,
+      0.0001533390608501547
+     ],
+     "rate_per_tick": 0.19331633557566746,
+     "rate_over_single_quantum_rate": 1.1188612675913794
+    },
+    {
+     "separation": 4,
+     "ballistic_share_relative_to_free": [
+      0.9940152206845662,
+      0.88667330098656,
+      0.6167788431281699,
+      0.3335288759428513,
+      0.151403253661706,
+      0.06248152417467774,
+      0.023973317475055638,
+      0.007674156131938989,
+      0.0024454691827606864,
+      0.0007728822810384358,
+      0.00022163182634634326,
+      8.465105913606409e-05
+     ],
+     "rate_per_tick": 0.19353713983901086,
+     "rate_over_single_quantum_rate": 1.1201392213516672
+    },
+    {
+     "separation": 8,
+     "ballistic_share_relative_to_free": [
+      0.9936668416599638,
+      0.8882567928054004,
+      0.614898208039648,
+      0.3344259847612691,
+      0.15189417182245446,
+      0.06171479720573334,
+      0.023856831653172768,
+      0.007899233537950755,
+      0.0025768318097839507,
+      0.0008515845881830559,
+      0.00023072847522877176,
+      8.417029762921087e-05
+     ],
+     "rate_per_tick": 0.19239797837675984,
+     "rate_over_single_quantum_rate": 1.113546071146073
+    },
+    {
+     "separation": 16,
+     "ballistic_share_relative_to_free": [
+      0.9935124364469403,
+      0.8950111408764728,
+      0.6179943298339104,
+      0.3249302942567788,
+      0.14554006677458248,
+      0.05946567773383139,
+      0.02194144569039954,
+      0.007269110920015199,
+      0.002405557159786992,
+      0.000760478371364147,
+      0.00022073890453468226,
+      8.153703563600671e-05
+     ],
+     "rate_per_tick": 0.1954495080188446,
+     "rate_over_single_quantum_rate": 1.1312074773240275
+    }
+   ],
+   "seconds": 71.91379165649414
+  },
+  {
+   "kind": "Z3 charge in Z3_plaquette",
+   "config": 1,
+   "files": [
+    "configs/Z3_plaquette_1.npz"
+   ],
+   "gauge_fixing": [
+    {
+     "file": "configs/Z3_plaquette_1.npz",
+     "fixed_file": "configs/fixed_Z3_plaquette_1.npz",
+     "nontrivial_link_share": 0.17943883825231483,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.3342013888888889,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.3404947916666667,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.3385416666666667,
+       "shift": 0
+      }
+     ]
+    }
+   ],
+   "single_ballistic_share_relative_to_free": [
+    0.9911878773231128,
+    0.8832530281708723,
+    0.6082872501086809,
+    0.3410709813257797,
+    0.16131450189933857,
+    0.06979240535790016,
+    0.02809690164510301,
+    0.010580494336731892,
+    0.0038615877103503763,
+    0.001258768277714721,
+    0.0004007188740722073,
+    0.00016857713334132517
+   ],
+   "single_rate_per_tick": 0.19186661626346016,
+   "single_mean_free_path_cells": 5.211954114137593,
+   "pairs": [
+    {
+     "separation": 0,
+     "ballistic_share_relative_to_free": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rate_per_tick": 0.0,
+     "rate_over_single_quantum_rate": 0.0
+    },
+    {
+     "separation": 1,
+     "ballistic_share_relative_to_free": [
+      0.990934681724348,
+      0.8777855171654818,
+      0.6007269282102764,
+      0.3344808683387764,
+      0.16284089365259904,
+      0.07114441811817687,
+      0.028696523312869097,
+      0.010586169249881571,
+      0.0037352315188049355,
+      0.001274293707029203,
+      0.00042469521204885823,
+      0.0001921956442492841
+     ],
+     "rate_per_tick": 0.1916846813383451,
+     "rate_over_single_quantum_rate": 0.9990517635185412
+    },
+    {
+     "separation": 2,
+     "ballistic_share_relative_to_free": [
+      0.990194457201835,
+      0.8719471500282109,
+      0.5939238384423733,
+      0.33209588453579497,
+      0.16633422399922135,
+      0.07597177559043256,
+      0.031821498467715426,
+      0.012452853150179468,
+      0.004667892660168984,
+      0.0016557748138974846,
+      0.0006028710954906503,
+      0.0003083950501299149
+     ],
+     "rate_per_tick": 0.1837823135736663,
+     "rate_over_single_quantum_rate": 0.9578649853359953
+    },
+    {
+     "separation": 4,
+     "ballistic_share_relative_to_free": [
+      0.9904016381033661,
+      0.8721331180236428,
+      0.597971087014348,
+      0.33692937135440926,
+      0.16949825874779964,
+      0.07772869659440353,
+      0.03353082147477541,
+      0.013115659730672065,
+      0.005091747952145675,
+      0.0019264156027596962,
+      0.0006956486741386001,
+      0.0003320848333801339
+     ],
+     "rate_per_tick": 0.18028153323351703,
+     "rate_over_single_quantum_rate": 0.9396190788394623
+    },
+    {
+     "separation": 8,
+     "ballistic_share_relative_to_free": [
+      0.9901455019386437,
+      0.8710626469217018,
+      0.6004687334148318,
+      0.33791589483532164,
+      0.17154256919026628,
+      0.07954218554945802,
+      0.03374026863773191,
+      0.013486745306771889,
+      0.005142222345687717,
+      0.0019066486279893538,
+      0.0007066243324074506,
+      0.0003501240318359721
+     ],
+     "rate_per_tick": 0.18008942181322146,
+     "rate_over_single_quantum_rate": 0.93861780293208
+    },
+    {
+     "separation": 16,
+     "ballistic_share_relative_to_free": [
+      0.990140967678131,
+      0.8684202762946401,
+      0.6106168362664341,
+      0.3465830451980765,
+      0.1704469837080181,
+      0.07632342075348812,
+      0.03232639733225211,
+      0.012955040219185433,
+      0.004923038257493568,
+      0.001867129716333654,
+      0.0006613433592842087,
+      0.00032128821374552213
+     ],
+     "rate_per_tick": 0.18159899592391598,
+     "rate_over_single_quantum_rate": 0.9464856339289099
+    }
+   ],
+   "seconds": 72.0266420841217
+  },
+  {
+   "kind": "Z2 charge in Z2_carrier",
+   "config": 3,
+   "files": [
+    "configs/Z2_carrier_3.npz"
+   ],
+   "gauge_fixing": [
+    {
+     "file": "configs/Z2_carrier_3.npz",
+     "fixed_file": "configs/fixed_Z2_carrier_3.npz",
+     "nontrivial_link_share": 0.012062355324074073,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.7170138888888888,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.8122829861111112,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.8148871527777778,
+       "shift": 0
+      }
+     ]
+    }
+   ],
+   "single_ballistic_share_relative_to_free": [
+    0.9984694151916219,
+    0.9798112511258804,
+    0.941248521808255,
+    0.8925632633188703,
+    0.828924421791989,
+    0.7568629658731947,
+    0.6800178692426406,
+    0.6437735743086628,
+    0.6087981832291428,
+    0.5620727373677203,
+    0.5064839999730328,
+    0.4681744312319283
+   ],
+   "single_rate_per_tick": 0.018057261061740357,
+   "single_mean_free_path_cells": 55.379384314202305,
+   "pairs": [
+    {
+     "separation": 0,
+     "ballistic_share_relative_to_free": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rate_per_tick": 0.0,
+     "rate_over_single_quantum_rate": 0.0
+    },
+    {
+     "separation": 1,
+     "ballistic_share_relative_to_free": [
+      0.9993103057273279,
+      0.9824784562832032,
+      0.9259279483497942,
+      0.8609226303282418,
+      0.7832949888289096,
+      0.6979500901496248,
+      0.6169086045413206,
+      0.5715636132538162,
+      0.5206068875877999,
+      0.46648220619495967,
+      0.41533987452153803,
+      0.37073608789511203
+     ],
+     "rate_per_tick": 0.023635546735105217,
+     "rate_over_single_quantum_rate": 1.3089220261196812
+    },
+    {
+     "separation": 2,
+     "ballistic_share_relative_to_free": [
+      0.9992756837593895,
+      0.9832215286804824,
+      0.9258559586171848,
+      0.8582165375401526,
+      0.7647465658458424,
+      0.6585676583626981,
+      0.557403019190948,
+      0.5020043805640184,
+      0.4465512380465624,
+      0.3790766394371949,
+      0.3178286072844819,
+      0.27941780144537876
+     ],
+     "rate_per_tick": 0.030706649206195875,
+     "rate_over_single_quantum_rate": 1.7005153273913165
+    },
+    {
+     "separation": 4,
+     "ballistic_share_relative_to_free": [
+      0.9990030441677783,
+      0.9762175358257631,
+      0.912742227549276,
+      0.8329135369251431,
+      0.7245323553777395,
+      0.5948483772659391,
+      0.47878434961619115,
+      0.4194423230888515,
+      0.359838075057133,
+      0.2939401043541965,
+      0.23674172219442294,
+      0.2015987181872324
+     ],
+     "rate_per_tick": 0.03875916484250281,
+     "rate_over_single_quantum_rate": 2.1464586855104817
+    },
+    {
+     "separation": 8,
+     "ballistic_share_relative_to_free": [
+      0.9987704397037651,
+      0.9807517535653624,
+      0.9284482463551921,
+      0.8563862434679899,
+      0.7587395694577094,
+      0.6427902964747556,
+      0.5268022378904972,
+      0.46141142531647067,
+      0.4124877978378297,
+      0.35604946848966773,
+      0.29304261858048575,
+      0.2515381774462016
+     ],
+     "rate_per_tick": 0.033298104695365247,
+     "rate_over_single_quantum_rate": 1.8440285368591762
+    },
+    {
+     "separation": 16,
+     "ballistic_share_relative_to_free": [
+      0.9985111493992995,
+      0.9798599187714447,
+      0.9270020687439459,
+      0.8401276970971211,
+      0.6978766013734992,
+      0.550825337910215,
+      0.4482648769357469,
+      0.3689516705619554,
+      0.32334924957907857,
+      0.2737068387952457,
+      0.22121181297685963,
+      0.1856157410348224
+     ],
+     "rate_per_tick": 0.041376406773576686,
+     "rate_over_single_quantum_rate": 2.2913999322546665
+    }
+   ],
+   "seconds": 72.05793142318726
+  },
+  {
+   "kind": "Z2 charge in Z2_plaquette",
+   "config": 2,
+   "files": [
+    "configs/Z2_plaquette_2.npz"
+   ],
+   "gauge_fixing": [
+    {
+     "file": "configs/Z2_plaquette_2.npz",
+     "fixed_file": "configs/fixed_Z2_plaquette_2.npz",
+     "nontrivial_link_share": 0.043503749517746916,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.5008680555555556,
+       "shift": 33,
+       "wall_layer": 55,
+       "wall_links": 254
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.5060763888888888,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.5067274305555556,
+       "shift": 0
+      }
+     ]
+    }
+   ],
+   "single_ballistic_share_relative_to_free": [
+    0.9965565422375829,
+    0.9688092930247536,
+    0.8863684813811176,
+    0.7614547527250263,
+    0.6489131254246573,
+    0.5241710672981361,
+    0.39565618698550764,
+    0.2499197503235807,
+    0.13361632912350696,
+    0.07870545441662118,
+    0.04502380182285999,
+    0.02574860828994538
+   ],
+   "single_rate_per_tick": 0.08446682668242511,
+   "single_mean_free_path_cells": 11.838967311507496,
+   "pairs": [
+    {
+     "separation": 0,
+     "ballistic_share_relative_to_free": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rate_per_tick": 0.0,
+     "rate_over_single_quantum_rate": 0.0
+    },
+    {
+     "separation": 1,
+     "ballistic_share_relative_to_free": [
+      0.9976840473216939,
+      0.9660791574090146,
+      0.8638935059103886,
+      0.7235972941270526,
+      0.6085157976152459,
+      0.4867812741348929,
+      0.3505020575038419,
+      0.20751155917393418,
+      0.11582214253017058,
+      0.06826616969701742,
+      0.03688133022030753,
+      0.019896708916693543
+     ],
+     "rate_per_tick": 0.08997960352361167,
+     "rate_over_single_quantum_rate": 1.0652655848184434
+    },
+    {
+     "separation": 2,
+     "ballistic_share_relative_to_free": [
+      0.9967714684385187,
+      0.9616157246659228,
+      0.8330882280494312,
+      0.6560715359134526,
+      0.5245225294225686,
+      0.3896009036480863,
+      0.2563185318833998,
+      0.12117565562024424,
+      0.04727294425267512,
+      0.020603564391184402,
+      0.009361323515057226,
+      0.0041267988822680695
+     ],
+     "rate_per_tick": 0.1275430935020068,
+     "rate_over_single_quantum_rate": 1.5099785147788025
+    },
+    {
+     "separation": 4,
+     "ballistic_share_relative_to_free": [
+      0.9957351272122489,
+      0.9498979998642728,
+      0.808993010786272,
+      0.6212119580348755,
+      0.478643411619102,
+      0.328025610211355,
+      0.1984402756013145,
+      0.0906422451870013,
+      0.03124377661509559,
+      0.011803037670825798,
+      0.004166472404449218,
+      0.0014782088466978732
+     ],
+     "rate_per_tick": 0.14907230757343953,
+     "rate_over_single_quantum_rate": 1.764862176412942
+    },
+    {
+     "separation": 8,
+     "ballistic_share_relative_to_free": [
+      0.9958206081148762,
+      0.956571249911606,
+      0.809437182973964,
+      0.6056329133967873,
+      0.4655097920507644,
+      0.31899496394083604,
+      0.1904436395063404,
+      0.08776892037646096,
+      0.029544605881723564,
+      0.008837023192830838,
+      0.0027654615687138753,
+      0.0009410638428741017
+     ],
+     "rate_per_tick": 0.14285827875617046,
+     "rate_over_single_quantum_rate": 1.6912944923725277
+    },
+    {
+     "separation": 16,
+     "ballistic_share_relative_to_free": [
+      0.9928494917646707,
+      0.9301865509668557,
+      0.7155454830414938,
+      0.47415538383905487,
+      0.31574646018980335,
+      0.19402640217344141,
+      0.09160080009105855,
+      0.036296230753362496,
+      0.013120033126959127,
+      0.005084513647712576,
+      0.0018556092232360597,
+      0.0007720191406686148
+     ],
+     "rate_per_tick": 0.16050552201254148,
+     "rate_over_single_quantum_rate": 1.9002196284229254
+    }
+   ],
+   "seconds": 72.0727972984314
+  },
+  {
+   "kind": "Z2 charge in Z2_plaquette",
+   "config": 3,
+   "files": [
+    "configs/Z2_plaquette_3.npz"
+   ],
+   "gauge_fixing": [
+    {
+     "file": "configs/Z2_plaquette_3.npz",
+     "fixed_file": "configs/fixed_Z2_plaquette_3.npz",
+     "nontrivial_link_share": 0.03961558400848766,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.5052083333333334,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.515625,
+       "shift": 17,
+       "wall_layer": 30,
+       "wall_links": 339
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.5010850694444444,
+       "shift": 0
+      }
+     ]
+    }
+   ],
+   "single_ballistic_share_relative_to_free": [
+    0.9955681644620246,
+    0.9604585041115729,
+    0.8596885355946227,
+    0.7011141800206395,
+    0.4886269457749441,
+    0.3390762060935651,
+    0.2451022574586525,
+    0.19002755540724076,
+    0.14770249156500398,
+    0.11894869689774476,
+    0.09783698667577327,
+    0.07457533375979934
+   ],
+   "single_rate_per_tick": 0.06455756387625868,
+   "single_mean_free_path_cells": 15.490051667946448,
+   "pairs": [
+    {
+     "separation": 0,
+     "ballistic_share_relative_to_free": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rate_per_tick": 0.0,
+     "rate_over_single_quantum_rate": 0.0
+    },
+    {
+     "separation": 1,
+     "ballistic_share_relative_to_free": [
+      0.9963453576232074,
+      0.9569994064656345,
+      0.8391806957325676,
+      0.6542935567832956,
+      0.446541789930751,
+      0.29433582663060054,
+      0.20479475277563416,
+      0.1546973068495914,
+      0.11755999092859333,
+      0.08883244185254803,
+      0.06919382514807564,
+      0.05108911781138504
+     ],
+     "rate_per_tick": 0.07356942632475034,
+     "rate_over_single_quantum_rate": 1.1395942149515623
+    },
+    {
+     "separation": 2,
+     "ballistic_share_relative_to_free": [
+      0.9949778576205072,
+      0.9426565952366265,
+      0.7972431720637037,
+      0.5775242900627238,
+      0.32220195284260306,
+      0.18025642956803836,
+      0.10390469980138703,
+      0.06562497322386536,
+      0.04248710986742727,
+      0.02793569207880685,
+      0.020419135371904405,
+      0.013348045051853465
+     ],
+     "rate_per_tick": 0.10816960331319388,
+     "rate_over_single_quantum_rate": 1.6755527442226443
+    },
+    {
+     "separation": 4,
+     "ballistic_share_relative_to_free": [
+      0.9934673708839171,
+      0.9267422645715974,
+      0.7530613127472409,
+      0.5182624268783242,
+      0.26301544124253,
+      0.11537847369428875,
+      0.052688264808839716,
+      0.02738778295666481,
+      0.01582814704548613,
+      0.008946158210082109,
+      0.005482261858967339,
+      0.0031647905763723715
+     ],
+     "rate_per_tick": 0.144629166274084,
+     "rate_over_single_quantum_rate": 2.240313258277579
+    },
+    {
+     "separation": 8,
+     "ballistic_share_relative_to_free": [
+      0.9934415791875362,
+      0.917684068828527,
+      0.7261004452783576,
+      0.503087478699989,
+      0.2748675648490303,
+      0.11716130365879951,
+      0.048500454939303064,
+      0.020758029663063584,
+      0.010603390855904409,
+      0.0046105201095900765,
+      0.0021167685702347095,
+      0.0010559745428018314
+     ],
+     "rate_per_tick": 0.16897457847430217,
+     "rate_over_single_quantum_rate": 2.617424951136412
+    },
+    {
+     "separation": 16,
+     "ballistic_share_relative_to_free": [
+      0.9914354785955369,
+      0.9068635971851272,
+      0.7091367725379862,
+      0.48761251534489863,
+      0.27803134364673937,
+      0.15728622744280538,
+      0.08542913805843035,
+      0.03752461969756329,
+      0.017900129532609294,
+      0.008301772581659173,
+      0.0037774495554406223,
+      0.0016550648545735722
+     ],
+     "rate_per_tick": 0.15205607367662083,
+     "rate_over_single_quantum_rate": 2.3553564376759284
+    }
+   ],
+   "seconds": 72.08262729644775
+  },
+  {
+   "kind": "Z3 charge in Z3_carrier",
+   "config": 0,
+   "files": [
+    "configs/Z3_carrier_0.npz"
+   ],
+   "gauge_fixing": [
+    {
+     "file": "configs/Z3_carrier_0.npz",
+     "fixed_file": "configs/fixed_Z3_carrier_0.npz",
+     "nontrivial_link_share": 0.08671061197916667,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 2,
+       "share_of_lines": 0.33984375,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.3372395833333333,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 2,
+       "share_of_lines": 0.3428819444444444,
+       "shift": 0
+      }
+     ]
+    }
+   ],
+   "single_ballistic_share_relative_to_free": [
+    0.9944942805504169,
+    0.9235756581544229,
+    0.6748482900516782,
+    0.3735519329710251,
+    0.1745577821391629,
+    0.07003451629211185,
+    0.02631430227027182,
+    0.0090567718043246,
+    0.003030496995960407,
+    0.0011829512456233559,
+    0.000464221474829082,
+    0.0002252914133122216
+   ],
+   "single_rate_per_tick": 0.19859341993670587,
+   "single_mean_free_path_cells": 5.035413561631156,
+   "pairs": [
+    {
+     "separation": 0,
+     "ballistic_share_relative_to_free": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rate_per_tick": 0.0,
+     "rate_over_single_quantum_rate": 0.0
+    },
+    {
+     "separation": 1,
+     "ballistic_share_relative_to_free": [
+      0.9948087938118424,
+      0.9277379328058963,
+      0.6762959381794891,
+      0.3856420566664618,
+      0.1909357023504257,
+      0.0855980629528939,
+      0.03445507338304919,
+      0.012572517684849335,
+      0.0042970779403685815,
+      0.0016704100501379478,
+      0.0006329526797624837,
+      0.0002569309930560126
+     ],
+     "rate_per_tick": 0.18651917061088416,
+     "rate_over_single_quantum_rate": 0.9392011611982415
+    },
+    {
+     "separation": 2,
+     "ballistic_share_relative_to_free": [
+      0.9930923590954213,
+      0.9024834576113723,
+      0.6324438008932199,
+      0.3546067882613316,
+      0.1635222234648874,
+      0.06504127276920497,
+      0.024182041145767812,
+      0.008514698651559122,
+      0.002843633103098462,
+      0.0009333375550903118,
+      0.0002973200659253971,
+      0.00010643686016495007
+     ],
+     "rate_per_tick": 0.19015409885590362,
+     "rate_over_single_quantum_rate": 0.9575045281787686
+    },
+    {
+     "separation": 4,
+     "ballistic_share_relative_to_free": [
+      0.9911763726871372,
+      0.8980417797157225,
+      0.621855535874054,
+      0.33346560543854425,
+      0.14587854517477788,
+      0.05658503553470982,
+      0.019659998185724344,
+      0.006539136540982845,
+      0.002010338896045672,
+      0.0006175694467555014,
+      0.00017669427230148144,
+      6.94770269539223e-05
+     ],
+     "rate_per_tick": 0.20104845770449906,
+     "rate_over_single_quantum_rate": 1.0123621304702626
+    },
+    {
+     "separation": 8,
+     "ballistic_share_relative_to_free": [
+      0.9919347285363623,
+      0.8910815343506366,
+      0.6066288071015812,
+      0.3235431072613434,
+      0.14521663153264036,
+      0.05694268162321634,
+      0.02019744357249777,
+      0.006705389534827847,
+      0.0021137052860951983,
+      0.0006295759837504383,
+      0.00017368917325101695,
+      6.550574006135132e-05
+     ],
+     "rate_per_tick": 0.19923100662698456,
+     "rate_over_single_quantum_rate": 1.0032105126669448
+    },
+    {
+     "separation": 16,
+     "ballistic_share_relative_to_free": [
+      0.9920324313334482,
+      0.8953015069605365,
+      0.6232613149640828,
+      0.33965201276248846,
+      0.15741110587955948,
+      0.06332715141773254,
+      0.023181087892528596,
+      0.008181220282663633,
+      0.0024598311262917765,
+      0.0007777981325138018,
+      0.0002288412906068614,
+      8.573845598885526e-05
+     ],
+     "rate_per_tick": 0.19311448214529975,
+     "rate_over_single_quantum_rate": 0.9724112823418202
+    }
+   ],
+   "seconds": 72.14276146888733
+  },
+  {
+   "kind": "Z2 charge in Z2_plaquette",
+   "config": 4,
+   "files": [
+    "configs/Z2_plaquette_4.npz"
+   ],
+   "gauge_fixing": [
+    {
+     "file": "configs/Z2_plaquette_4.npz",
+     "fixed_file": "configs/fixed_Z2_plaquette_4.npz",
+     "nontrivial_link_share": 0.040608723958333336,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.5134548611111112,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.5169270833333334,
+       "shift": 28,
+       "wall_layer": 19,
+       "wall_links": 422
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.5071614583333334,
+       "shift": 0
+      }
+     ]
+    }
+   ],
+   "single_ballistic_share_relative_to_free": [
+    0.9940342357955347,
+    0.9298574118817948,
+    0.7738125731429026,
+    0.5976970266484529,
+    0.4365672917193877,
+    0.2988465913145685,
+    0.20935059291081726,
+    0.14448320680548082,
+    0.08800765862646107,
+    0.04319853814743922,
+    0.020854665921725093,
+    0.009444422573259337
+   ],
+   "single_rate_per_tick": 0.10388734419652078,
+   "single_mean_free_path_cells": 9.625811572469578,
+   "pairs": [
+    {
+     "separation": 0,
+     "ballistic_share_relative_to_free": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rate_per_tick": 0.0,
+     "rate_over_single_quantum_rate": 0.0
+    },
+    {
+     "separation": 1,
+     "ballistic_share_relative_to_free": [
+      0.9963434489765941,
+      0.9495451494658512,
+      0.8052528769130803,
+      0.6138392585865046,
+      0.4403314305917438,
+      0.2945267370799231,
+      0.19198880482386105,
+      0.13258250259669108,
+      0.08490706615281561,
+      0.049725654776056144,
+      0.028275672855757317,
+      0.01580494643913779
+     ],
+     "rate_per_tick": 0.09669538293017295,
+     "rate_over_single_quantum_rate": 0.930771536013636
+    },
+    {
+     "separation": 2,
+     "ballistic_share_relative_to_free": [
+      0.994550321252768,
+      0.9303495255440043,
+      0.7532246847367088,
+      0.5409039015027755,
+      0.3585530577533929,
+      0.20745273649393078,
+      0.11400423217244968,
+      0.06549265758216011,
+      0.030841114061664364,
+      0.01290446330999746,
+      0.005044403232019657,
+      0.0020682996506024755
+     ],
+     "rate_per_tick": 0.1428105875544719,
+     "rate_over_single_quantum_rate": 1.3746678063530156
+    },
+    {
+     "separation": 4,
+     "ballistic_share_relative_to_free": [
+      0.9926131912154287,
+      0.9075380104060765,
+      0.7156018021633505,
+      0.5133919748372495,
+      0.3298399760084392,
+      0.18254473247287906,
+      0.09501144179612421,
+      0.046729246758532364,
+      0.02003889917402874,
+      0.00722263648678574,
+      0.002374366306680871,
+      0.0008293831225244996
+     ],
+     "rate_per_tick": 0.15062820139256003,
+     "rate_over_single_quantum_rate": 1.4499186841047826
+    },
+    {
+     "separation": 8,
+     "ballistic_share_relative_to_free": [
+      0.9924651728710917,
+      0.9203119457572635,
+      0.7495705492175543,
+      0.5509059055472054,
+      0.3627124144133934,
+      0.19247165350822193,
+      0.08908942526389148,
+      0.03534995627087245,
+      0.013536836571689402,
+      0.00437372480195969,
+      0.0012716748963144937,
+      0.0004409703034547987
+     ],
+     "rate_per_tick": 0.16735099311705318,
+     "rate_over_single_quantum_rate": 1.6108891262104073
+    },
+    {
+     "separation": 16,
+     "ballistic_share_relative_to_free": [
+      0.994232920132135,
+      0.9151335624632292,
+      0.7097959170861556,
+      0.4832556366391394,
+      0.29277961838025646,
+      0.15747727171850842,
+      0.07283732761772162,
+      0.02718562649300891,
+      0.010074555675730698,
+      0.0034732655238651306,
+      0.001181438279080442,
+      0.00038082935275777656
+     ],
+     "rate_per_tick": 0.1724633946985709,
+     "rate_over_single_quantum_rate": 1.6601001405168923
+    }
+   ],
+   "seconds": 72.1496992111206
+  },
+  {
+   "kind": "Z3 charge in Z3_carrier",
+   "config": 4,
+   "files": [
+    "configs/Z3_carrier_4.npz"
+   ],
+   "gauge_fixing": [
+    {
+     "file": "configs/Z3_carrier_4.npz",
+     "fixed_file": "configs/fixed_Z3_carrier_4.npz",
+     "nontrivial_link_share": 0.08436716338734568,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 2,
+       "share_of_lines": 0.3450520833333333,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.3374565972222222,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 2,
+       "share_of_lines": 0.3387586805555556,
+       "shift": 0
+      }
+     ]
+    }
+   ],
+   "single_ballistic_share_relative_to_free": [
+    0.9951085711160323,
+    0.9215653323762273,
+    0.7127891544819076,
+    0.5007491122389541,
+    0.34248742558673023,
+    0.18552797844193986,
+    0.07670514655164937,
+    0.02947031418393245,
+    0.01143903963407703,
+    0.00462104463983406,
+    0.001582080863215701,
+    0.0006257256942653059
+   ],
+   "single_rate_per_tick": 0.16581940080078822,
+   "single_mean_free_path_cells": 6.0306574210901776,
+   "pairs": [
+    {
+     "separation": 0,
+     "ballistic_share_relative_to_free": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rate_per_tick": 0.0,
+     "rate_over_single_quantum_rate": 0.0
+    },
+    {
+     "separation": 1,
+     "ballistic_share_relative_to_free": [
+      0.9949822717301419,
+      0.9283084737318871,
+      0.7278780417260152,
+      0.49092092692980854,
+      0.3164971577675504,
+      0.17175917234184293,
+      0.07984342685689101,
+      0.035621164096926214,
+      0.01626092643410653,
+      0.006780060983405703,
+      0.0024522268566517756,
+      0.0009909849848433482
+     ],
+     "rate_per_tick": 0.1539413457025714,
+     "rate_over_single_quantum_rate": 0.9283675188738207
+    },
+    {
+     "separation": 2,
+     "ballistic_share_relative_to_free": [
+      0.9934011130241125,
+      0.905533259074907,
+      0.661606092225618,
+      0.40489560977407385,
+      0.2293860906373077,
+      0.10749946283604449,
+      0.043569443464415776,
+      0.017148052196287754,
+      0.006008540413109905,
+      0.0020168531569071473,
+      0.0006181228422475097,
+      0.00021106803736320505
+     ],
+     "rate_per_tick": 0.17668701335334236,
+     "rate_over_single_quantum_rate": 1.0655388482895933
+    },
+    {
+     "separation": 4,
+     "ballistic_share_relative_to_free": [
+      0.9925794077420829,
+      0.895452740825065,
+      0.623885727512988,
+      0.35054466530447387,
+      0.1675394919940349,
+      0.07203539194640068,
+      0.02726991048763039,
+      0.009344243092136328,
+      0.00314993431676365,
+      0.0010454608054017514,
+      0.00029704371493106426,
+      0.000100738558440057
+     ],
+     "rate_per_tick": 0.19812649457268466,
+     "rate_over_single_quantum_rate": 1.1948330148093436
+    },
+    {
+     "separation": 8,
+     "ballistic_share_relative_to_free": [
+      0.9931504407348337,
+      0.9012151415575516,
+      0.6302244999481187,
+      0.33833841009972543,
+      0.15267389675367685,
+      0.06169974244728264,
+      0.02280288202961576,
+      0.007788351679596098,
+      0.002500466125824245,
+      0.0007516416752851363,
+      0.00021818198882988653,
+      7.346513111633811e-05
+     ],
+     "rate_per_tick": 0.19387962271826734,
+     "rate_over_single_quantum_rate": 1.1692215855440826
+    },
+    {
+     "separation": 16,
+     "ballistic_share_relative_to_free": [
+      0.9922337024375644,
+      0.9042475532769032,
+      0.6325717037765424,
+      0.3743449872393105,
+      0.19519261647325678,
+      0.0793936675969116,
+      0.027706508385073388,
+      0.008700167925489206,
+      0.0027513819985149177,
+      0.0007940468634077961,
+      0.00023186428654563574,
+      8.444225310013905e-05
+     ],
+     "rate_per_tick": 0.18870714797361396,
+     "rate_over_single_quantum_rate": 1.1380281623398372
+    }
+   ],
+   "seconds": 72.15880036354065
+  },
+  {
+   "kind": "Z3 charge in Z3_plaquette",
+   "config": 3,
+   "files": [
+    "configs/Z3_plaquette_3.npz"
+   ],
+   "gauge_fixing": [
+    {
+     "file": "configs/Z3_plaquette_3.npz",
+     "fixed_file": "configs/fixed_Z3_plaquette_3.npz",
+     "nontrivial_link_share": 0.1793137538580247,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.3389756944444444,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.3355034722222222,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 2,
+       "share_of_lines": 0.3424479166666667,
+       "shift": 0
+      }
+     ]
+    }
+   ],
+   "single_ballistic_share_relative_to_free": [
+    0.9907139381763459,
+    0.8778772009339244,
+    0.6015047584586809,
+    0.3342169565051939,
+    0.15754200662289386,
+    0.06738290997276151,
+    0.0268016251322287,
+    0.010080210497881232,
+    0.0035350140012371783,
+    0.0012095936692101971,
+    0.00038324419424357834,
+    0.0001669104879761837
+   ],
+   "single_rate_per_tick": 0.19369755149761045,
+   "single_mean_free_path_cells": 5.162687872243633,
+   "pairs": [
+    {
+     "separation": 0,
+     "ballistic_share_relative_to_free": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rate_per_tick": 0.0,
+     "rate_over_single_quantum_rate": 0.0
+    },
+    {
+     "separation": 1,
+     "ballistic_share_relative_to_free": [
+      0.9908593901545237,
+      0.8796485323250836,
+      0.6120595070008731,
+      0.3334213908622798,
+      0.15659884966039458,
+      0.06603482363206124,
+      0.025993107403865304,
+      0.009812896259330624,
+      0.003505394695684729,
+      0.001265843410774159,
+      0.00039356368015792893,
+      0.00016822943903695156
+     ],
+     "rate_per_tick": 0.19367565736223255,
+     "rate_over_single_quantum_rate": 0.9998869674128112
+    },
+    {
+     "separation": 2,
+     "ballistic_share_relative_to_free": [
+      0.9900568978190317,
+      0.8682887591276796,
+      0.6029432645043901,
+      0.33544480131430265,
+      0.16685237045349238,
+      0.07407259050759596,
+      0.03097035598190128,
+      0.012611574297069118,
+      0.004878555121942768,
+      0.0018454050392610584,
+      0.0006464357429756931,
+      0.00032416824436763556
+     ],
+     "rate_per_tick": 0.1820192189594674,
+     "rate_over_single_quantum_rate": 0.9397084142373007
+    },
+    {
+     "separation": 4,
+     "ballistic_share_relative_to_free": [
+      0.9902126373443502,
+      0.8709327264987295,
+      0.5966371234814873,
+      0.3403815717683173,
+      0.16757695274530834,
+      0.07594770291606062,
+      0.03183043808489581,
+      0.0133155963324166,
+      0.005248660257794397,
+      0.0019915564489493666,
+      0.0006912217589008508,
+      0.00033204646025425714
+     ],
+     "rate_per_tick": 0.17965813363744898,
+     "rate_over_single_quantum_rate": 0.9275188676799837
+    },
+    {
+     "separation": 8,
+     "ballistic_share_relative_to_free": [
+      0.9897544553211395,
+      0.8707510205957265,
+      0.601153424415973,
+      0.34213748910585773,
+      0.16795759458044016,
+      0.07604710550284635,
+      0.03201497441749805,
+      0.013249520911119916,
+      0.005189701803854935,
+      0.001970682060567846,
+      0.0007138176237796253,
+      0.00035572473813927076
+     ],
+     "rate_per_tick": 0.18000648913340425,
+     "rate_over_single_quantum_rate": 0.9293173183741814
+    },
+    {
+     "separation": 16,
+     "ballistic_share_relative_to_free": [
+      0.989614984555576,
+      0.8674893787463299,
+      0.5976217245999719,
+      0.3391460425939175,
+      0.1670974164405972,
+      0.0770981127556142,
+      0.032959147160292836,
+      0.013074859169674633,
+      0.004995859383314521,
+      0.0018619851511582318,
+      0.0006679437090362463,
+      0.0003256715681999238
+     ],
+     "rate_per_tick": 0.18099746887968227,
+     "rate_over_single_quantum_rate": 0.93443343749193
+    }
+   ],
+   "seconds": 72.15962147712708
+  },
+  {
+   "kind": "Z3 charge in Z3_plaquette",
+   "config": 2,
+   "files": [
+    "configs/Z3_plaquette_2.npz"
+   ],
+   "gauge_fixing": [
+    {
+     "file": "configs/Z3_plaquette_2.npz",
+     "fixed_file": "configs/fixed_Z3_plaquette_2.npz",
+     "nontrivial_link_share": 0.18001603491512347,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.3394097222222222,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.3424479166666667,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.3474392361111111,
+       "shift": 0
+      }
+     ]
+    }
+   ],
+   "single_ballistic_share_relative_to_free": [
+    0.9905771277405631,
+    0.8773148427612203,
+    0.6070413057206334,
+    0.3351341983008322,
+    0.15893206748543953,
+    0.06747081098457267,
+    0.026381577126447245,
+    0.009660859410678391,
+    0.003434419362304632,
+    0.0011635612178271363,
+    0.0003770128628570046,
+    0.0001625043196014449
+   ],
+   "single_rate_per_tick": 0.19501105506935246,
+   "single_mean_free_path_cells": 5.12791441307964,
+   "pairs": [
+    {
+     "separation": 0,
+     "ballistic_share_relative_to_free": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rate_per_tick": 0.0,
+     "rate_over_single_quantum_rate": 0.0
+    },
+    {
+     "separation": 1,
+     "ballistic_share_relative_to_free": [
+      0.9906183872897576,
+      0.8788375134873139,
+      0.6121065900054866,
+      0.33999542985410897,
+      0.16389022352045854,
+      0.06948478634820622,
+      0.027780933114029165,
+      0.010380012468787059,
+      0.003849626278858844,
+      0.0013974796116447924,
+      0.0004575088341907337,
+      0.0001900188296181831
+     ],
+     "rate_per_tick": 0.19067311607922696,
+     "rate_over_single_quantum_rate": 0.9777554201294754
+    },
+    {
+     "separation": 2,
+     "ballistic_share_relative_to_free": [
+      0.9901844801660713,
+      0.8692463626390707,
+      0.6055003497864555,
+      0.3492678416070142,
+      0.17367301427216553,
+      0.07848598912079263,
+      0.03309201362586689,
+      0.013150612906051712,
+      0.005220095720457854,
+      0.0019545547765896384,
+      0.000712149607437083,
+      0.000333629326888435
+     ],
+     "rate_per_tick": 0.1801017649188908,
+     "rate_over_single_quantum_rate": 0.9235464361486613
+    },
+    {
+     "separation": 4,
+     "ballistic_share_relative_to_free": [
+      0.9897737401808675,
+      0.8648087101597102,
+      0.6011116037773613,
+      0.33940206547019564,
+      0.16839528640902113,
+      0.07799540875201594,
+      0.034120268575952545,
+      0.01384978835007991,
+      0.005471730018305197,
+      0.0020915976737937514,
+      0.0007643708765474333,
+      0.0003501287846413244
+     ],
+     "rate_per_tick": 0.17786428322238185,
+     "rate_over_single_quantum_rate": 0.9120728215081312
+    },
+    {
+     "separation": 8,
+     "ballistic_share_relative_to_free": [
+      0.9901929397078679,
+      0.8716426096940415,
+      0.5980529831021842,
+      0.34167230626970774,
+      0.16744443319066196,
+      0.07485883159555812,
+      0.0317469163871973,
+      0.012652761100381006,
+      0.004824082087098675,
+      0.001757161219875184,
+      0.0006275017367557913,
+      0.0003146848177355769
+     ],
+     "rate_per_tick": 0.18272326026388488,
+     "rate_over_single_quantum_rate": 0.9369892399120777
+    },
+    {
+     "separation": 16,
+     "ballistic_share_relative_to_free": [
+      0.990231993974714,
+      0.8665778496697966,
+      0.5936527077795166,
+      0.3347665619088262,
+      0.16988985282492225,
+      0.07700226655500202,
+      0.03281553714421894,
+      0.013833703108608285,
+      0.0054667276436001205,
+      0.0020356378605570747,
+      0.0007466659227227484,
+      0.00034803284998200526
+     ],
+     "rate_per_tick": 0.17833350784485388,
+     "rate_over_single_quantum_rate": 0.9144789652126774
+    }
+   ],
+   "seconds": 72.20776057243347
+  },
+  {
+   "kind": "Z2 charge in Z2_carrier",
+   "config": 2,
+   "files": [
+    "configs/Z2_carrier_2.npz"
+   ],
+   "gauge_fixing": [
+    {
+     "file": "configs/Z2_carrier_2.npz",
+     "fixed_file": "configs/fixed_Z2_carrier_2.npz",
+     "nontrivial_link_share": 0.004980770158179012,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.7087673611111112,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.8070746527777778,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.806640625,
+       "shift": 0
+      }
+     ]
+    }
+   ],
+   "single_ballistic_share_relative_to_free": [
+    0.9995777900649182,
+    0.9858289811982502,
+    0.9449895192214642,
+    0.8962252089336568,
+    0.8481766986263598,
+    0.7843359047044668,
+    0.6994632518387213,
+    0.6370304802488963,
+    0.5982264536864997,
+    0.5730011415656682,
+    0.5404177687664479,
+    0.5074754034556263
+   ],
+   "single_rate_per_tick": 0.0169260918079243,
+   "single_mean_free_path_cells": 59.080383785454195,
+   "pairs": [
+    {
+     "separation": 0,
+     "ballistic_share_relative_to_free": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rate_per_tick": 0.0,
+     "rate_over_single_quantum_rate": 0.0
+    },
+    {
+     "separation": 1,
+     "ballistic_share_relative_to_free": [
+      0.9993173638765052,
+      0.9780234091385707,
+      0.9142589837759667,
+      0.8317074954542472,
+      0.7506123432241235,
+      0.6650065678993171,
+      0.5743961524366956,
+      0.503691322015228,
+      0.45307054702041794,
+      0.42199020462039016,
+      0.3878206011281422,
+      0.3530937953761542
+     ],
+     "rate_per_tick": 0.02584002110871863,
+     "rate_over_single_quantum_rate": 1.5266383641273342
+    },
+    {
+     "separation": 2,
+     "ballistic_share_relative_to_free": [
+      0.9992146062981068,
+      0.9773085098956822,
+      0.9102178639249702,
+      0.8219231693359875,
+      0.7314976606335079,
+      0.6376761143164211,
+      0.5207703856510612,
+      0.4299043228787672,
+      0.36477554967043896,
+      0.3277207670034082,
+      0.28743012231910015,
+      0.2547337984039534
+     ],
+     "rate_per_tick": 0.034141828733012115,
+     "rate_over_single_quantum_rate": 2.017112344683603
+    },
+    {
+     "separation": 4,
+     "ballistic_share_relative_to_free": [
+      0.9986361666247221,
+      0.9731713691353623,
+      0.9040432676258986,
+      0.8121219093192277,
+      0.7063577248033762,
+      0.5911142844130567,
+      0.4696124801047696,
+      0.37186524914266583,
+      0.3034778169986271,
+      0.2608204140448897,
+      0.22138571579325553,
+      0.1947283799855132
+     ],
+     "rate_per_tick": 0.04115945315470468,
+     "rate_over_single_quantum_rate": 2.4317162887793757
+    },
+    {
+     "separation": 8,
+     "ballistic_share_relative_to_free": [
+      0.9990085542336149,
+      0.9784394056909508,
+      0.9147573718427197,
+      0.8175210984837143,
+      0.7289582083286861,
+      0.6422888541229342,
+      0.5207240442687172,
+      0.4102775194120976,
+      0.3310800225998234,
+      0.2771932063519913,
+      0.24197022901441548,
+      0.22028111659323693
+     ],
+     "rate_per_tick": 0.038475613436946304,
+     "rate_over_single_quantum_rate": 2.273154008235566
+    },
+    {
+     "separation": 16,
+     "ballistic_share_relative_to_free": [
+      0.9986532339635015,
+      0.9777455166205411,
+      0.9110797815882379,
+      0.813301548473733,
+      0.7204350365062158,
+      0.6312947170567595,
+      0.5198617546749946,
+      0.43124302936717646,
+      0.36331994226428205,
+      0.3161818073998931,
+      0.2820133813839848,
+      0.24821204151471454
+     ],
+     "rate_per_tick": 0.03468012495765721,
+     "rate_over_single_quantum_rate": 2.0489150922258963
+    }
+   ],
+   "seconds": 72.24435663223267
+  },
+  {
+   "kind": "Z3 charge in Z3_plaquette",
+   "config": 4,
+   "files": [
+    "configs/Z3_plaquette_4.npz"
+   ],
+   "gauge_fixing": [
+    {
+     "file": "configs/Z3_plaquette_4.npz",
+     "fixed_file": "configs/fixed_Z3_plaquette_4.npz",
+     "nontrivial_link_share": 0.1795096691743827,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.3428819444444444,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 2,
+       "share_of_lines": 0.3400607638888889,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 2,
+       "share_of_lines": 0.3407118055555556,
+       "shift": 0
+      }
+     ]
+    }
+   ],
+   "single_ballistic_share_relative_to_free": [
+    0.9902538628313373,
+    0.8744737008429483,
+    0.6003911909568708,
+    0.33266433299628856,
+    0.1572617030262952,
+    0.06811423337434815,
+    0.026728443663492904,
+    0.009958160174237458,
+    0.0034454680307942002,
+    0.001171598839265157,
+    0.0003828659766189962,
+    0.0001622471508088156
+   ],
+   "single_rate_per_tick": 0.19440780726814075,
+   "single_mean_free_path_cells": 5.143826341401663,
+   "pairs": [
+    {
+     "separation": 0,
+     "ballistic_share_relative_to_free": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rate_per_tick": 0.0,
+     "rate_over_single_quantum_rate": 0.0
+    },
+    {
+     "separation": 1,
+     "ballistic_share_relative_to_free": [
+      0.9910112173849781,
+      0.8765695469141112,
+      0.6021404876112275,
+      0.32847113853559967,
+      0.15587301674192192,
+      0.0650150169195438,
+      0.024987510159017182,
+      0.009474903783989535,
+      0.003352183997452734,
+      0.001142231135234914,
+      0.0003876661245307441,
+      0.00016941452170550668
+     ],
+     "rate_per_tick": 0.195785412266093,
+     "rate_over_single_quantum_rate": 1.0070861608765134
+    },
+    {
+     "separation": 2,
+     "ballistic_share_relative_to_free": [
+      0.9903657233598518,
+      0.8673299906630466,
+      0.6027329690826272,
+      0.3415421122488234,
+      0.17044564684770788,
+      0.07574875993099474,
+      0.032118396588051136,
+      0.012882807022663981,
+      0.0050081703023952375,
+      0.0018437782070180125,
+      0.0006541098266433467,
+      0.00032236630632276195
+     ],
+     "rate_per_tick": 0.1814966405980495,
+     "rate_over_single_quantum_rate": 0.9335872007841575
+    },
+    {
+     "separation": 4,
+     "ballistic_share_relative_to_free": [
+      0.9901658780168614,
+      0.864379658746679,
+      0.5949954881457354,
+      0.3373749450110342,
+      0.17128777829667363,
+      0.07747365575225619,
+      0.03271886576292706,
+      0.013461076764260184,
+      0.005123676744182134,
+      0.0018967600185212984,
+      0.0006970996641749298,
+      0.00033123788021529905
+     ],
+     "rate_per_tick": 0.18023242445000107,
+     "rate_over_single_quantum_rate": 0.9270842924606005
+    },
+    {
+     "separation": 8,
+     "ballistic_share_relative_to_free": [
+      0.989998568211856,
+      0.8699105966317296,
+      0.5975785431970315,
+      0.3317017338127247,
+      0.16849578674662566,
+      0.07841588291212459,
+      0.03368615324113089,
+      0.013920806547997945,
+      0.005300748701135957,
+      0.0019912649771717528,
+      0.000732445741698969,
+      0.0003467786534309656
+     ],
+     "rate_per_tick": 0.17880005295002419,
+     "rate_over_single_quantum_rate": 0.9197164222083465
+    },
+    {
+     "separation": 16,
+     "ballistic_share_relative_to_free": [
+      0.9896520818925565,
+      0.8686498366690035,
+      0.5965510416391773,
+      0.3427009205825268,
+      0.1714436013518924,
+      0.0787129544714506,
+      0.033048437576957586,
+      0.013388791421250329,
+      0.005072522567963744,
+      0.0018675247971626622,
+      0.000663838208577441,
+      0.0003227533966928098
+     ],
+     "rate_per_tick": 0.18065939605827502,
+     "rate_over_single_quantum_rate": 0.9292805602662708
+    }
+   ],
+   "seconds": 72.26344847679138
+  },
+  {
+   "kind": "Z2 charge in Z2_carrier",
+   "config": 4,
+   "files": [
+    "configs/Z2_carrier_4.npz"
+   ],
+   "gauge_fixing": [
+    {
+     "file": "configs/Z2_carrier_4.npz",
+     "fixed_file": "configs/fixed_Z2_carrier_4.npz",
+     "nontrivial_link_share": 0.011809172453703705,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.7126736111111112,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.8200954861111112,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.8174913194444444,
+       "shift": 0
+      }
+     ]
+    }
+   ],
+   "single_ballistic_share_relative_to_free": [
+    0.9948959858760167,
+    0.9414874310073963,
+    0.8643064312522882,
+    0.772508414100023,
+    0.6505902050004849,
+    0.5748428289381924,
+    0.5237969533668224,
+    0.4856749267014494,
+    0.4621456953396521,
+    0.4413755845620459,
+    0.4255614642173891,
+    0.39879661162712793
+   ],
+   "single_rate_per_tick": 0.022242625324161755,
+   "single_mean_free_path_cells": 44.95872161788916,
+   "pairs": [
+    {
+     "separation": 0,
+     "ballistic_share_relative_to_free": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rate_per_tick": 0.0,
+     "rate_over_single_quantum_rate": 0.0
+    },
+    {
+     "separation": 1,
+     "ballistic_share_relative_to_free": [
+      0.9991222479372283,
+      0.9816216995693562,
+      0.9434120273788098,
+      0.8615031107795484,
+      0.7380572428948232,
+      0.6570847253914631,
+      0.5839270374202783,
+      0.5134767160037702,
+      0.4650315152095415,
+      0.42400942048625906,
+      0.3853443726097422,
+      0.3363430632582887
+     ],
+     "rate_per_tick": 0.02646801067347235,
+     "rate_over_single_quantum_rate": 1.1899679236479623
+    },
+    {
+     "separation": 2,
+     "ballistic_share_relative_to_free": [
+      0.9990521473866532,
+      0.9781269698332745,
+      0.9336962376327688,
+      0.839373550871827,
+      0.6906914602822936,
+      0.59878516630275,
+      0.5128830371940974,
+      0.43770394370764953,
+      0.3843790058653887,
+      0.3355582407566703,
+      0.2972405426114292,
+      0.25455127867847716
+     ],
+     "rate_per_tick": 0.033524616275408085,
+     "rate_over_single_quantum_rate": 1.5072238904726283
+    },
+    {
+     "separation": 4,
+     "ballistic_share_relative_to_free": [
+      0.9988580151431645,
+      0.9760718977947193,
+      0.9199202322958422,
+      0.8048080343426135,
+      0.6514952618126545,
+      0.5533457838672443,
+      0.4615454956946964,
+      0.3827016183317903,
+      0.3217760482827606,
+      0.27278129971346865,
+      0.23142859816643482,
+      0.19348167620049658
+     ],
+     "rate_per_tick": 0.040104557532165776,
+     "rate_over_single_quantum_rate": 1.8030496376972611
+    },
+    {
+     "separation": 8,
+     "ballistic_share_relative_to_free": [
+      0.9990919762053565,
+      0.973204757082739,
+      0.9245440341865784,
+      0.8296394958523549,
+      0.6738339752622653,
+      0.5869067565053799,
+      0.5101468216713578,
+      0.43804048858089556,
+      0.38492749850050156,
+      0.32913257172000504,
+      0.28525758011855845,
+      0.24739307447742334
+     ],
+     "rate_per_tick": 0.03400447193838859,
+     "rate_over_single_quantum_rate": 1.5287975876413364
+    },
+    {
+     "separation": 16,
+     "ballistic_share_relative_to_free": [
+      0.998678498822358,
+      0.9812007336731454,
+      0.9222137253609372,
+      0.8096117303891308,
+      0.6678140389581332,
+      0.5865312252111944,
+      0.5168827785797176,
+      0.4532366979111322,
+      0.38904980613343854,
+      0.3370112831348255,
+      0.2958161297168618,
+      0.25903591366101597
+     ],
+     "rate_per_tick": 0.032898195524909024,
+     "rate_over_single_quantum_rate": 1.4790608143352717
+    }
+   ],
+   "seconds": 72.42174124717712
+  },
+  {
+   "kind": "Z2 charge in Z2_plaquette",
+   "config": 0,
+   "files": [
+    "configs/Z2_plaquette_0.npz"
+   ],
+   "gauge_fixing": [
+    {
+     "file": "configs/Z2_plaquette_0.npz",
+     "fixed_file": "configs/fixed_Z2_plaquette_0.npz",
+     "nontrivial_link_share": 0.04203438464506173,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.5082465277777778,
+       "shift": 0,
+       "wall_layer": 88,
+       "wall_links": 235
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.5125868055555556,
+       "shift": 46,
+       "wall_layer": 1,
+       "wall_links": 460
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.505859375,
+       "shift": 11,
+       "wall_layer": 36,
+       "wall_links": 347
+      }
+     ]
+    }
+   ],
+   "single_ballistic_share_relative_to_free": [
+    0.9977875873464849,
+    0.9714787130704231,
+    0.8643620268252437,
+    0.7284274929868768,
+    0.6105545879051839,
+    0.5169885006469387,
+    0.4245998699727799,
+    0.3401330118721307,
+    0.25491141986400573,
+    0.19079853909541825,
+    0.12165649358682223,
+    0.06085216983364361
+   ],
+   "single_rate_per_tick": 0.058779567124161713,
+   "single_mean_free_path_cells": 17.012714603489204,
+   "pairs": [
+    {
+     "separation": 0,
+     "ballistic_share_relative_to_free": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rate_per_tick": 0.0,
+     "rate_over_single_quantum_rate": 0.0
+    },
+    {
+     "separation": 1,
+     "ballistic_share_relative_to_free": [
+      0.9977246237138567,
+      0.9648359258926172,
+      0.8437948529613207,
+      0.6901908846475637,
+      0.5596677460632158,
+      0.4480091699887805,
+      0.3411766269537715,
+      0.244629324447866,
+      0.1770064341101447,
+      0.13281346039058406,
+      0.08812900098652933,
+      0.050487157723988804
+     ],
+     "rate_per_tick": 0.06718672835891148,
+     "rate_over_single_quantum_rate": 1.1430286347123157
+    },
+    {
+     "separation": 2,
+     "ballistic_share_relative_to_free": [
+      0.9967820477295994,
+      0.9576601593559732,
+      0.8148349898269197,
+      0.630733906507057,
+      0.46672651947902344,
+      0.3344769258837927,
+      0.23646108659874146,
+      0.1600956612564828,
+      0.10093680377299015,
+      0.06245882230599566,
+      0.03125028605471899,
+      0.012217208558493276
+     ],
+     "rate_per_tick": 0.09608280364884642,
+     "rate_over_single_quantum_rate": 1.6346293167809154
+    },
+    {
+     "separation": 4,
+     "ballistic_share_relative_to_free": [
+      0.9958610226482921,
+      0.9448438277724621,
+      0.7847734706089627,
+      0.5674405394788763,
+      0.38222280612867815,
+      0.24847811149057927,
+      0.16262019253526142,
+      0.10238984337002639,
+      0.05965830623329223,
+      0.03372785338991069,
+      0.015939948156085414,
+      0.005665506568475889
+     ],
+     "rate_per_tick": 0.11474531730295906,
+     "rate_over_single_quantum_rate": 1.9521293353620544
+    },
+    {
+     "separation": 8,
+     "ballistic_share_relative_to_free": [
+      0.9953399007418603,
+      0.9409412648911645,
+      0.7610430664344252,
+      0.5331274967060712,
+      0.3157412849971147,
+      0.17609819744344088,
+      0.10558906010056743,
+      0.05699669694269078,
+      0.025680407412503346,
+      0.01221628408991049,
+      0.00561404456198064,
+      0.0018977728829674247
+     ],
+     "rate_per_tick": 0.14398321525664864,
+     "rate_over_single_quantum_rate": 2.4495453488541163
+    },
+    {
+     "separation": 16,
+     "ballistic_share_relative_to_free": [
+      0.9962204365955478,
+      0.942930339324807,
+      0.7356050316503017,
+      0.5072809834589368,
+      0.2972627884551734,
+      0.15973185832502637,
+      0.08865355662168549,
+      0.040851287934441816,
+      0.015709269168128433,
+      0.006690620866748007,
+      0.0028377890501279134,
+      0.0011455400223733996
+     ],
+     "rate_per_tick": 0.16041913727033164,
+     "rate_over_single_quantum_rate": 2.7291649993181104
+    }
+   ],
+   "seconds": 72.5065426826477
+  },
+  {
+   "kind": "Z2 charge in Z2_plaquette",
+   "config": 1,
+   "files": [
+    "configs/Z2_plaquette_1.npz"
+   ],
+   "gauge_fixing": [
+    {
+     "file": "configs/Z2_plaquette_1.npz",
+     "fixed_file": "configs/fixed_Z2_plaquette_1.npz",
+     "nontrivial_link_share": 0.04232524353780864,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.5091145833333334,
+       "shift": 0,
+       "wall_layer": 88,
+       "wall_links": 274
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.505859375,
+       "shift": 22,
+       "wall_layer": 25,
+       "wall_links": 319
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.5041232638888888,
+       "shift": 0
+      }
+     ]
+    }
+   ],
+   "single_ballistic_share_relative_to_free": [
+    0.9976911045750343,
+    0.9458641422384926,
+    0.7846805215320841,
+    0.6342725446889801,
+    0.5147792298205057,
+    0.43696997922143127,
+    0.38430963963140086,
+    0.3365912354304896,
+    0.27513927457985876,
+    0.22950506425765183,
+    0.19910214439274276,
+    0.16395258771612806
+   ],
+   "single_rate_per_tick": 0.04202233345917991,
+   "single_mean_free_path_cells": 23.79686984711095,
+   "pairs": [
+    {
+     "separation": 0,
+     "ballistic_share_relative_to_free": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rate_per_tick": 0.0,
+     "rate_over_single_quantum_rate": 0.0
+    },
+    {
+     "separation": 1,
+     "ballistic_share_relative_to_free": [
+      0.9976832307453319,
+      0.9508922577600121,
+      0.7752448278788755,
+      0.5885983054880253,
+      0.4511051808361613,
+      0.3675356915840914,
+      0.3129576881148175,
+      0.25971683981899235,
+      0.20227550111682102,
+      0.1597278231310152,
+      0.1298705677735578,
+      0.09856525520954527
+     ],
+     "rate_per_tick": 0.05384199924081415,
+     "rate_over_single_quantum_rate": 1.2812710482419007
+    },
+    {
+     "separation": 2,
+     "ballistic_share_relative_to_free": [
+      0.9969386398602851,
+      0.9387338595177077,
+      0.7344043113163451,
+      0.5150469016456475,
+      0.3561536976703234,
+      0.2651555248402284,
+      0.20923586011219408,
+      0.16384291784885702,
+      0.11197276214538389,
+      0.0782741130187702,
+      0.05864505926319043,
+      0.038411199025942123
+     ],
+     "rate_per_tick": 0.0757387482706308,
+     "rate_over_single_quantum_rate": 1.8023451349793007
+    },
+    {
+     "separation": 4,
+     "ballistic_share_relative_to_free": [
+      0.9954570362816497,
+      0.9273340329344343,
+      0.7172468101179058,
+      0.501131595739837,
+      0.319679438005496,
+      0.22455700810107354,
+      0.16933137768055828,
+      0.12483285543168278,
+      0.07535933948829855,
+      0.04722935734663125,
+      0.03240227470912804,
+      0.01935797520782461
+     ],
+     "rate_per_tick": 0.09191169136540736,
+     "rate_over_single_quantum_rate": 2.18721055685043
+    },
+    {
+     "separation": 8,
+     "ballistic_share_relative_to_free": [
+      0.9954454289416358,
+      0.9272145819000844,
+      0.7229115900484054,
+      0.5191739795729635,
+      0.33016394098586543,
+      0.22532640125412662,
+      0.16271723663733065,
+      0.12269345063924982,
+      0.07484400689046808,
+      0.037992516509882834,
+      0.019120331650458188,
+      0.009881282933381585
+     ],
+     "rate_per_tick": 0.10425839910613367,
+     "rate_over_single_quantum_rate": 2.4810235539968115
+    },
+    {
+     "separation": 16,
+     "ballistic_share_relative_to_free": [
+      0.9938996245204575,
+      0.9184544522365323,
+      0.7155721727815668,
+      0.5189695080940345,
+      0.3586132772104473,
+      0.24959199939443172,
+      0.15846933542795327,
+      0.09163866358820559,
+      0.03900690434275404,
+      0.014278262319679512,
+      0.005409728227335002,
+      0.0023888867830230832
+     ],
+     "rate_per_tick": 0.13762038413164487,
+     "rate_over_single_quantum_rate": 3.274934369490166
+    }
+   ],
+   "seconds": 72.82992911338806
+  },
+  {
+   "kind": "Z3 and Z2 charge in Z3_plaquette x Z2_plaquette",
+   "config": 0,
+   "files": [
+    "configs/Z3_plaquette_0.npz",
+    "configs/Z2_plaquette_0.npz"
+   ],
+   "gauge_fixing": [
+    {
+     "file": "configs/Z3_plaquette_0.npz",
+     "fixed_file": "configs/fixed_Z3_plaquette_0.npz",
+     "nontrivial_link_share": 0.17866120515046297,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.3372395833333333,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.3402777777777778,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.3381076388888889,
+       "shift": 0
+      }
+     ]
+    },
+    {
+     "file": "configs/Z2_plaquette_0.npz",
+     "fixed_file": "configs/fixed_Z2_plaquette_0.npz",
+     "nontrivial_link_share": 0.04203438464506173,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.5082465277777778,
+       "shift": 0,
+       "wall_layer": 88,
+       "wall_links": 235
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.5125868055555556,
+       "shift": 46,
+       "wall_layer": 1,
+       "wall_links": 460
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.505859375,
+       "shift": 11,
+       "wall_layer": 36,
+       "wall_links": 347
+      }
+     ]
+    }
+   ],
+   "single_ballistic_share_relative_to_free": [
+    0.9904780682534629,
+    0.8747145826855678,
+    0.6104577286630692,
+    0.3399480071964932,
+    0.16660697409136235,
+    0.07289818082821979,
+    0.029945939808050145,
+    0.011570920049282896,
+    0.0042832309327443495,
+    0.0014747593708039908,
+    0.0004950551925637207,
+    0.00022356880657340282
+   ],
+   "single_rate_per_tick": 0.1875225861090149,
+   "single_mean_free_path_cells": 5.3326909613898845,
+   "pairs": [
+    {
+     "separation": 0,
+     "ballistic_share_relative_to_free": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rate_per_tick": 0.0,
+     "rate_over_single_quantum_rate": 0.0
+    },
+    {
+     "separation": 1,
+     "ballistic_share_relative_to_free": [
+      0.9904340963858017,
+      0.8735453830406644,
+      0.601783444997991,
+      0.3330067537703654,
+      0.16215501296008025,
+      0.0705626172759998,
+      0.02750575937680209,
+      0.01058238650996858,
+      0.0038956042117059223,
+      0.0012893686645343736,
+      0.0004324274667172511,
+      0.00020413116956689145
+     ],
+     "rate_per_tick": 0.19121482199209133,
+     "rate_over_single_quantum_rate": 1.019689552921001
+    },
+    {
+     "separation": 2,
+     "ballistic_share_relative_to_free": [
+      0.9895746145328415,
+      0.867947249567997,
+      0.6041015509788541,
+      0.3429337074920254,
+      0.1734996962677038,
+      0.07770094289317682,
+      0.03350992474836661,
+      0.013434128102530073,
+      0.005245549156986999,
+      0.0018931573079419368,
+      0.0006800619678533407,
+      0.0003293442894633321
+     ],
+     "rate_per_tick": 0.18015550702480881,
+     "rate_over_single_quantum_rate": 0.9607136439558097
+    },
+    {
+     "separation": 4,
+     "ballistic_share_relative_to_free": [
+      0.9901700211827096,
+      0.8677789700169731,
+      0.6043287969062555,
+      0.33900710516983334,
+      0.1659573245229805,
+      0.07478866657030896,
+      0.03148551843952045,
+      0.012882755401323491,
+      0.004947746132701059,
+      0.0019220538415029795,
+      0.0007073340988209188,
+      0.0003467041637652738
+     ],
+     "rate_per_tick": 0.1811167631543218,
+     "rate_over_single_quantum_rate": 0.9658397258292443
+    },
+    {
+     "separation": 8,
+     "ballistic_share_relative_to_free": [
+      0.9904444691049407,
+      0.8638172318753388,
+      0.6000714286644091,
+      0.3373967193582105,
+      0.1702094643339775,
+      0.07687873225953218,
+      0.033200497458678764,
+      0.013294166262831291,
+      0.005272561023484666,
+      0.001994405425981094,
+      0.0007335348171812594,
+      0.00035603139208825046
+     ],
+     "rate_per_tick": 0.17933588891956595,
+     "rate_over_single_quantum_rate": 0.9563428738941896
+    },
+    {
+     "separation": 16,
+     "ballistic_share_relative_to_free": [
+      0.9900786328108594,
+      0.8661894994786734,
+      0.597203703690436,
+      0.3351761469350182,
+      0.16390189329160412,
+      0.07338206152830137,
+      0.030699563903887735,
+      0.012365996318828286,
+      0.004844521815266715,
+      0.001841619002759024,
+      0.0006595095726286257,
+      0.0003296418679402547
+     ],
+     "rate_per_tick": 0.1821960462180135,
+     "rate_over_single_quantum_rate": 0.9715952088677742
+    }
+   ],
+   "seconds": 80.80693483352661
+  },
+  {
+   "kind": "Z3 and Z2 charge in Z3_plaquette x Z2_plaquette",
+   "config": 2,
+   "files": [
+    "configs/Z3_plaquette_2.npz",
+    "configs/Z2_plaquette_2.npz"
+   ],
+   "gauge_fixing": [
+    {
+     "file": "configs/Z3_plaquette_2.npz",
+     "fixed_file": "configs/fixed_Z3_plaquette_2.npz",
+     "nontrivial_link_share": 0.18001603491512347,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.3394097222222222,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.3424479166666667,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.3474392361111111,
+       "shift": 0
+      }
+     ]
+    },
+    {
+     "file": "configs/Z2_plaquette_2.npz",
+     "fixed_file": "configs/fixed_Z2_plaquette_2.npz",
+     "nontrivial_link_share": 0.043503749517746916,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.5008680555555556,
+       "shift": 33,
+       "wall_layer": 55,
+       "wall_links": 254
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.5060763888888888,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.5067274305555556,
+       "shift": 0
+      }
+     ]
+    }
+   ],
+   "single_ballistic_share_relative_to_free": [
+    0.9906504453503693,
+    0.876585446771433,
+    0.6079283263946639,
+    0.3368295716282158,
+    0.15926675022060494,
+    0.0679476211278073,
+    0.027386852166598228,
+    0.010624338276562622,
+    0.003885258245079769,
+    0.0013557199059355412,
+    0.00044620503254071874,
+    0.0001992931447390067
+   ],
+   "single_rate_per_tick": 0.19074713416135614,
+   "single_mean_free_path_cells": 5.242542722314683,
+   "pairs": [
+    {
+     "separation": 0,
+     "ballistic_share_relative_to_free": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rate_per_tick": 0.0,
+     "rate_over_single_quantum_rate": 0.0
+    },
+    {
+     "separation": 1,
+     "ballistic_share_relative_to_free": [
+      0.990679213065014,
+      0.8775927082418646,
+      0.6085201356475793,
+      0.3390751277783874,
+      0.1627767935908611,
+      0.0702054127882248,
+      0.028997275432259984,
+      0.0113587767837036,
+      0.0042250504600072495,
+      0.0014939916122306267,
+      0.0005230474482552592,
+      0.00021885650014377453
+     ],
+     "rate_per_tick": 0.18780109678136514,
+     "rate_over_single_quantum_rate": 0.9845552731738612
+    },
+    {
+     "separation": 2,
+     "ballistic_share_relative_to_free": [
+      0.9900434620876009,
+      0.870527693502345,
+      0.5994452086101293,
+      0.34312237958699143,
+      0.16818133099137583,
+      0.07702909054721906,
+      0.032655526200317156,
+      0.012891406626836136,
+      0.004840745736663993,
+      0.0018130378274292854,
+      0.000686966570120167,
+      0.000334795309839842
+     ],
+     "rate_per_tick": 0.18197457264940023,
+     "rate_over_single_quantum_rate": 0.9540094714894377
+    },
+    {
+     "separation": 4,
+     "ballistic_share_relative_to_free": [
+      0.9899321019322344,
+      0.862007737555206,
+      0.5951089249808388,
+      0.338146440207702,
+      0.17110941733327512,
+      0.08106462620527378,
+      0.03512007889639226,
+      0.01461473258245926,
+      0.00578912654938981,
+      0.0022321518832218975,
+      0.0008185106349969688,
+      0.00038173334596110795
+     ],
+     "rate_per_tick": 0.17568145239365898,
+     "rate_over_single_quantum_rate": 0.9210175196920503
+    },
+    {
+     "separation": 8,
+     "ballistic_share_relative_to_free": [
+      0.9897742557908229,
+      0.8698262403561077,
+      0.599067385351607,
+      0.33338994409076045,
+      0.16387185426221262,
+      0.0723498192402749,
+      0.030686206803092666,
+      0.012787078915794649,
+      0.004849997447418642,
+      0.001808537927143825,
+      0.0006593002051646962,
+      0.0003199081997952613
+     ],
+     "rate_per_tick": 0.18224029579339485,
+     "rate_over_single_quantum_rate": 0.9554025364241372
+    },
+    {
+     "separation": 16,
+     "ballistic_share_relative_to_free": [
+      0.9901040164693813,
+      0.8636752703808027,
+      0.6009771163897899,
+      0.34148159826584806,
+      0.17052590480297117,
+      0.07740552120805523,
+      0.033262982748906045,
+      0.01371481307509382,
+      0.005429324128999635,
+      0.0020497552862942777,
+      0.0007533551836250853,
+      0.00034963252480499005
+     ],
+     "rate_per_tick": 0.17845948265726896,
+     "rate_over_single_quantum_rate": 0.9355814620329087
+    }
+   ],
+   "seconds": 80.66383409500122
+  },
+  {
+   "kind": "Z3 and Z2 charge in Z3_plaquette x Z2_plaquette",
+   "config": 3,
+   "files": [
+    "configs/Z3_plaquette_3.npz",
+    "configs/Z2_plaquette_3.npz"
+   ],
+   "gauge_fixing": [
+    {
+     "file": "configs/Z3_plaquette_3.npz",
+     "fixed_file": "configs/fixed_Z3_plaquette_3.npz",
+     "nontrivial_link_share": 0.1793137538580247,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.3389756944444444,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.3355034722222222,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 2,
+       "share_of_lines": 0.3424479166666667,
+       "shift": 0
+      }
+     ]
+    },
+    {
+     "file": "configs/Z2_plaquette_3.npz",
+     "fixed_file": "configs/fixed_Z2_plaquette_3.npz",
+     "nontrivial_link_share": 0.03961558400848766,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.5052083333333334,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.515625,
+       "shift": 17,
+       "wall_layer": 30,
+       "wall_links": 339
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.5010850694444444,
+       "shift": 0
+      }
+     ]
+    }
+   ],
+   "single_ballistic_share_relative_to_free": [
+    0.990803282420208,
+    0.8759058926735108,
+    0.6015277753461857,
+    0.33371809694357185,
+    0.15717423720793222,
+    0.06814071712836917,
+    0.027788853131065893,
+    0.010740220652665831,
+    0.003816808889971327,
+    0.0013772133707949132,
+    0.0004366778085566578,
+    0.0001948096529905926
+   ],
+   "single_rate_per_tick": 0.19041991313206477,
+   "single_mean_free_path_cells": 5.251551602727888,
+   "pairs": [
+    {
+     "separation": 0,
+     "ballistic_share_relative_to_free": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rate_per_tick": 0.0,
+     "rate_over_single_quantum_rate": 0.0
+    },
+    {
+     "separation": 1,
+     "ballistic_share_relative_to_free": [
+      0.9906730859098454,
+      0.8761142889248048,
+      0.6057409608377644,
+      0.3352019804988049,
+      0.15983958669729087,
+      0.06774581061646098,
+      0.02715654554170281,
+      0.010048498912821844,
+      0.003713915831045985,
+      0.0013289539116630262,
+      0.0004195189836033788,
+      0.00019192552467983182
+     ],
+     "rate_per_tick": 0.19191318214532996,
+     "rate_over_single_quantum_rate": 1.0078419792799167
+    },
+    {
+     "separation": 2,
+     "ballistic_share_relative_to_free": [
+      0.9895412725615628,
+      0.8665874315051794,
+      0.5983418433412745,
+      0.33253005119860163,
+      0.1656424197549788,
+      0.07307456258576239,
+      0.030980561877426167,
+      0.012879131194304212,
+      0.0050502124100887304,
+      0.0018887028210380309,
+      0.0006681718606158989,
+      0.0003254943682087891
+     ],
+     "rate_per_tick": 0.18105957814443743,
+     "rate_over_single_quantum_rate": 0.9508437177936557
+    },
+    {
+     "separation": 4,
+     "ballistic_share_relative_to_free": [
+      0.9897181122314059,
+      0.8706144912228225,
+      0.5976895315994872,
+      0.33243590010404694,
+      0.16304875977172745,
+      0.07527391636087549,
+      0.03220207151034566,
+      0.013238737407532593,
+      0.005343073208355268,
+      0.0020102272997370306,
+      0.0007075813908864352,
+      0.00034375193954893485
+     ],
+     "rate_per_tick": 0.179200189387765,
+     "rate_over_single_quantum_rate": 0.9410790417884584
+    },
+    {
+     "separation": 8,
+     "ballistic_share_relative_to_free": [
+      0.9900614679341829,
+      0.867666622163827,
+      0.5952453648433308,
+      0.33908575665463464,
+      0.16800504223732468,
+      0.07535711166586959,
+      0.032397466650894824,
+      0.01355237018579762,
+      0.0052760506712322686,
+      0.0019825252522841933,
+      0.0007100206635713614,
+      0.0003579422882290847
+     ],
+     "rate_per_tick": 0.1793898545516123,
+     "rate_over_single_quantum_rate": 0.9420750781836423
+    },
+    {
+     "separation": 16,
+     "ballistic_share_relative_to_free": [
+      0.9894272599618339,
+      0.8664120365618947,
+      0.600352761642744,
+      0.3384435268037174,
+      0.1677959523853386,
+      0.07898452304195139,
+      0.034093296280868726,
+      0.013962473854234601,
+      0.005450966187630487,
+      0.0019849076083137316,
+      0.0007122187721185246,
+      0.0003577222594398339
+     ],
+     "rate_per_tick": 0.17852870564402462,
+     "rate_over_single_quantum_rate": 0.9375527102578128
+    }
+   ],
+   "seconds": 80.73680973052979
+  },
+  {
+   "kind": "Z3 and Z2 charge in Z3_plaquette x Z2_plaquette",
+   "config": 4,
+   "files": [
+    "configs/Z3_plaquette_4.npz",
+    "configs/Z2_plaquette_4.npz"
+   ],
+   "gauge_fixing": [
+    {
+     "file": "configs/Z3_plaquette_4.npz",
+     "fixed_file": "configs/fixed_Z3_plaquette_4.npz",
+     "nontrivial_link_share": 0.1795096691743827,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.3428819444444444,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 2,
+       "share_of_lines": 0.3400607638888889,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 2,
+       "share_of_lines": 0.3407118055555556,
+       "shift": 0
+      }
+     ]
+    },
+    {
+     "file": "configs/Z2_plaquette_4.npz",
+     "fixed_file": "configs/fixed_Z2_plaquette_4.npz",
+     "nontrivial_link_share": 0.040608723958333336,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.5134548611111112,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.5169270833333334,
+       "shift": 28,
+       "wall_layer": 19,
+       "wall_links": 422
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.5071614583333334,
+       "shift": 0
+      }
+     ]
+    }
+   ],
+   "single_ballistic_share_relative_to_free": [
+    0.9894420408052832,
+    0.8725690129563232,
+    0.6012414327625333,
+    0.33160352871240173,
+    0.15874846426492314,
+    0.06872677848813864,
+    0.027198838030668703,
+    0.010714501796099327,
+    0.0038818360295070835,
+    0.0013443001405627122,
+    0.0004743053987620458,
+    0.0002168717686377495
+   ],
+   "single_rate_per_tick": 0.19059668953377334,
+   "single_mean_free_path_cells": 5.246680844489704,
+   "pairs": [
+    {
+     "separation": 0,
+     "ballistic_share_relative_to_free": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rate_per_tick": 0.0,
+     "rate_over_single_quantum_rate": 0.0
+    },
+    {
+     "separation": 1,
+     "ballistic_share_relative_to_free": [
+      0.9903976959706208,
+      0.8746728827489569,
+      0.5993718013635307,
+      0.33163964934882106,
+      0.15856132502783088,
+      0.06750551744747342,
+      0.027127864005035345,
+      0.010246251113507424,
+      0.003707659460565231,
+      0.0012938358468411815,
+      0.00044194518301999603,
+      0.00021142192005210638
+     ],
+     "rate_per_tick": 0.1919967383345266,
+     "rate_over_single_quantum_rate": 1.007345609224263
+    },
+    {
+     "separation": 2,
+     "ballistic_share_relative_to_free": [
+      0.990116900291545,
+      0.8667829970944938,
+      0.6009190549027935,
+      0.34164759734081945,
+      0.17180982465064246,
+      0.07851637965069104,
+      0.032889040735909494,
+      0.013238846556054559,
+      0.005083599174946308,
+      0.0018954569953526382,
+      0.0006658502665587348,
+      0.00032659370699727493
+     ],
+     "rate_per_tick": 0.18057299596034387,
+     "rate_over_single_quantum_rate": 0.947408878937253
+    },
+    {
+     "separation": 4,
+     "ballistic_share_relative_to_free": [
+      0.9906160510533693,
+      0.8617341346357867,
+      0.5959355407873326,
+      0.3357387915193883,
+      0.167671432440369,
+      0.07440634377789772,
+      0.03174709248224587,
+      0.013278910398861369,
+      0.00512518127399223,
+      0.0019146343187351766,
+      0.000729030171350589,
+      0.00035006420965354835
+     ],
+     "rate_per_tick": 0.1803341041998277,
+     "rate_over_single_quantum_rate": 0.9461554901134465
+    },
+    {
+     "separation": 8,
+     "ballistic_share_relative_to_free": [
+      0.9898740686531526,
+      0.8658081592970491,
+      0.5967027806125766,
+      0.3419618312311107,
+      0.17312901913324197,
+      0.08131785163583626,
+      0.03498861865720053,
+      0.014120853977821191,
+      0.00551919457746282,
+      0.0021134057695967163,
+      0.000740715887396684,
+      0.000363085559427919
+     ],
+     "rate_per_tick": 0.1773409776727233,
+     "rate_over_single_quantum_rate": 0.9304515104985538
+    },
+    {
+     "separation": 16,
+     "ballistic_share_relative_to_free": [
+      0.9900900737324303,
+      0.8686617641718465,
+      0.6010627128590807,
+      0.3390207534320878,
+      0.17008187068029695,
+      0.07804822326832683,
+      0.032972586468665716,
+      0.013248694186141701,
+      0.004967736823076863,
+      0.0018971988383992091,
+      0.0007120120873993622,
+      0.0003437609663042967
+     ],
+     "rate_per_tick": 0.18077089678067051,
+     "rate_over_single_quantum_rate": 0.9484472013803696
+    }
+   ],
+   "seconds": 80.75393414497375
+  },
+  {
+   "kind": "Z3 and Z2 charge in Z3_carrier x Z2_carrier",
+   "config": 1,
+   "files": [
+    "configs/Z3_carrier_1.npz",
+    "configs/Z2_carrier_1.npz"
+   ],
+   "gauge_fixing": [
+    {
+     "file": "configs/Z3_carrier_1.npz",
+     "fixed_file": "configs/fixed_Z3_carrier_1.npz",
+     "nontrivial_link_share": 0.08640920380015432,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.3480902777777778,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.33984375,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.3441840277777778,
+       "shift": 0
+      }
+     ]
+    },
+    {
+     "file": "configs/Z2_carrier_1.npz",
+     "fixed_file": "configs/fixed_Z2_carrier_1.npz",
+     "nontrivial_link_share": 0.004789375964506173,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.6983506944444444,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.8255208333333334,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.8161892361111112,
+       "shift": 0
+      }
+     ]
+    }
+   ],
+   "single_ballistic_share_relative_to_free": [
+    0.9942971585390282,
+    0.9214204071948695,
+    0.697134704522709,
+    0.44842740950984095,
+    0.25099104206584394,
+    0.1163142362453634,
+    0.05171439141058139,
+    0.024585120049696128,
+    0.010670483089028727,
+    0.0038750716931047254,
+    0.0013554521047293184,
+    0.00047413544342393054
+   ],
+   "single_rate_per_tick": 0.1700006777156698,
+   "single_mean_free_path_cells": 5.8823294909007595,
+   "pairs": [
+    {
+     "separation": 0,
+     "ballistic_share_relative_to_free": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rate_per_tick": 0.0,
+     "rate_over_single_quantum_rate": 0.0
+    },
+    {
+     "separation": 1,
+     "ballistic_share_relative_to_free": [
+      0.9949649359200682,
+      0.926063445504405,
+      0.6897121905339739,
+      0.42542997069678584,
+      0.22468798161507342,
+      0.10498303084749118,
+      0.0456046533089815,
+      0.021402855992140247,
+      0.00948413361499599,
+      0.003411374172794957,
+      0.0011099151294315505,
+      0.00036008760101061333
+     ],
+     "rate_per_tick": 0.17463919830247002,
+     "rate_over_single_quantum_rate": 1.0272853064418852
+    },
+    {
+     "separation": 2,
+     "ballistic_share_relative_to_free": [
+      0.993653285402336,
+      0.9136321467053938,
+      0.658806653408075,
+      0.38045627379572233,
+      0.1828540144300649,
+      0.07787150024692173,
+      0.030236682963338753,
+      0.011529010547250999,
+      0.00413660010974676,
+      0.001231770712316119,
+      0.0003704201853685578,
+      0.00013334359264901676
+     ],
+     "rate_per_tick": 0.19196619576642956,
+     "rate_over_single_quantum_rate": 1.1292084146128971
+    },
+    {
+     "separation": 4,
+     "ballistic_share_relative_to_free": [
+      0.9925686467945859,
+      0.892452577727705,
+      0.6211921340290968,
+      0.34151506032953716,
+      0.15937975674501964,
+      0.06573412668455648,
+      0.024490378910172347,
+      0.008560461214612161,
+      0.0029973479135251167,
+      0.0008450920822760441,
+      0.0002591835915441929,
+      9.467207595793286e-05
+     ],
+     "rate_per_tick": 0.18860510367590436,
+     "rate_over_single_quantum_rate": 1.1094373634871675
+    },
+    {
+     "separation": 8,
+     "ballistic_share_relative_to_free": [
+      0.9915584855524849,
+      0.8923163581172814,
+      0.6207982189767068,
+      0.3402569584329182,
+      0.15465905102096522,
+      0.06090729297678885,
+      0.021898852312717952,
+      0.00759915342254324,
+      0.0025296703624337253,
+      0.0007051635609774285,
+      0.00019802428148149495,
+      7.684957103825516e-05
+     ],
+     "rate_per_tick": 0.19413166366516252,
+     "rate_over_single_quantum_rate": 1.141946410295213
+    },
+    {
+     "separation": 16,
+     "ballistic_share_relative_to_free": [
+      0.992375565987121,
+      0.8994850342649542,
+      0.6096895128444552,
+      0.32552828242192827,
+      0.14241801449001856,
+      0.056601701217419864,
+      0.021073964143861278,
+      0.007529963270643208,
+      0.0024282617262058074,
+      0.0007040543863084666,
+      0.0002084913890287006,
+      7.790379607673467e-05
+     ],
+     "rate_per_tick": 0.19533222455238583,
+     "rate_over_single_quantum_rate": 1.1490085050077485
+    }
+   ],
+   "seconds": 81.40455770492554
+  },
+  {
+   "kind": "Z3 and Z2 charge in Z3_carrier x Z2_carrier",
+   "config": 0,
+   "files": [
+    "configs/Z3_carrier_0.npz",
+    "configs/Z2_carrier_0.npz"
+   ],
+   "gauge_fixing": [
+    {
+     "file": "configs/Z3_carrier_0.npz",
+     "fixed_file": "configs/fixed_Z3_carrier_0.npz",
+     "nontrivial_link_share": 0.08671061197916667,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 2,
+       "share_of_lines": 0.33984375,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.3372395833333333,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 2,
+       "share_of_lines": 0.3428819444444444,
+       "shift": 0
+      }
+     ]
+    },
+    {
+     "file": "configs/Z2_carrier_0.npz",
+     "fixed_file": "configs/fixed_Z2_carrier_0.npz",
+     "nontrivial_link_share": 0.004849657600308642,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.7196180555555556,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.8203125,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.8059895833333334,
+       "shift": 0
+      }
+     ]
+    }
+   ],
+   "single_ballistic_share_relative_to_free": [
+    0.9938358061486152,
+    0.920281739655157,
+    0.6679593178697054,
+    0.3747133202176748,
+    0.17490673028334558,
+    0.07013822210340254,
+    0.026217668356884903,
+    0.008871559965336997,
+    0.0029318896528786856,
+    0.0010612503624620486,
+    0.0003719314140227205,
+    0.00016877339650538808
+   ],
+   "single_rate_per_tick": 0.20048817886426348,
+   "single_mean_free_path_cells": 4.987825245682091,
+   "pairs": [
+    {
+     "separation": 0,
+     "ballistic_share_relative_to_free": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rate_per_tick": 0.0,
+     "rate_over_single_quantum_rate": 0.0
+    },
+    {
+     "separation": 1,
+     "ballistic_share_relative_to_free": [
+      0.9937957948649913,
+      0.9245979036459598,
+      0.6724692595076406,
+      0.3783537763302729,
+      0.18113376870346026,
+      0.07669262736638581,
+      0.02889125487269165,
+      0.010300723286296552,
+      0.0033448825304751737,
+      0.0011511577020192204,
+      0.0003882831382393446,
+      0.0001424757855781981
+     ],
+     "rate_per_tick": 0.1964702696104974,
+     "rate_over_single_quantum_rate": 0.9799593707892059
+    },
+    {
+     "separation": 2,
+     "ballistic_share_relative_to_free": [
+      0.9921677597834987,
+      0.900810183842183,
+      0.6299420525232027,
+      0.34563935711019644,
+      0.15780021396995747,
+      0.06366701668804724,
+      0.02372656407636069,
+      0.00841994285842111,
+      0.0028018643957075594,
+      0.000877949761838222,
+      0.0002582581567426777,
+      9.47485785166261e-05
+     ],
+     "rate_per_tick": 0.19060957328826134,
+     "rate_over_single_quantum_rate": 0.9507272417158806
+    },
+    {
+     "separation": 4,
+     "ballistic_share_relative_to_free": [
+      0.9909802289570168,
+      0.893613150666868,
+      0.6190558090001734,
+      0.3325799254747954,
+      0.14698325474222465,
+      0.05873101274690816,
+      0.020411590191144007,
+      0.007017486164434143,
+      0.002180158901332604,
+      0.0006751699623504584,
+      0.00019480008370735088,
+      7.789779277871564e-05
+     ],
+     "rate_per_tick": 0.19823286822839536,
+     "rate_over_single_quantum_rate": 0.9887509046735616
+    },
+    {
+     "separation": 8,
+     "ballistic_share_relative_to_free": [
+      0.991745718338134,
+      0.8904444397314312,
+      0.6072974915537981,
+      0.3244074348810202,
+      0.14660445351586665,
+      0.05781666495017174,
+      0.020996033953042316,
+      0.007119347202424303,
+      0.002245922675772231,
+      0.0006797196803199413,
+      0.00019308854308419814,
+      7.374832718975973e-05
+     ],
+     "rate_per_tick": 0.19709253701008622,
+     "rate_over_single_quantum_rate": 0.9830631318344399
+    },
+    {
+     "separation": 16,
+     "ballistic_share_relative_to_free": [
+      0.9915875284102088,
+      0.8926738593332386,
+      0.6212093517791452,
+      0.3444175015272036,
+      0.16033218756115833,
+      0.06504867518730997,
+      0.024979832851585244,
+      0.008617586066711239,
+      0.002664231859365937,
+      0.000809608963247032,
+      0.00022387590872847244,
+      8.403054638814498e-05
+     ],
+     "rate_per_tick": 0.19038638349058626,
+     "rate_over_single_quantum_rate": 0.9496140100084581
+    }
+   ],
+   "seconds": 81.5050151348114
+  },
+  {
+   "kind": "Z3 and Z2 charge in Z3_carrier x Z2_carrier",
+   "config": 4,
+   "files": [
+    "configs/Z3_carrier_4.npz",
+    "configs/Z2_carrier_4.npz"
+   ],
+   "gauge_fixing": [
+    {
+     "file": "configs/Z3_carrier_4.npz",
+     "fixed_file": "configs/fixed_Z3_carrier_4.npz",
+     "nontrivial_link_share": 0.08436716338734568,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 2,
+       "share_of_lines": 0.3450520833333333,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.3374565972222222,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 2,
+       "share_of_lines": 0.3387586805555556,
+       "shift": 0
+      }
+     ]
+    },
+    {
+     "file": "configs/Z2_carrier_4.npz",
+     "fixed_file": "configs/fixed_Z2_carrier_4.npz",
+     "nontrivial_link_share": 0.011809172453703705,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.7126736111111112,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.8200954861111112,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.8174913194444444,
+       "shift": 0
+      }
+     ]
+    }
+   ],
+   "single_ballistic_share_relative_to_free": [
+    0.9935516946592361,
+    0.9130022315394651,
+    0.6790964036696703,
+    0.4245965257613159,
+    0.2418704153306992,
+    0.11939014068493319,
+    0.04828592160740911,
+    0.018098716734291368,
+    0.0065826664720410955,
+    0.002515894428040876,
+    0.0008510956874012083,
+    0.0003351608488713386
+   ],
+   "single_rate_per_tick": 0.17225245782173726,
+   "single_mean_free_path_cells": 5.805432402217983,
+   "pairs": [
+    {
+     "separation": 0,
+     "ballistic_share_relative_to_free": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rate_per_tick": 0.0,
+     "rate_over_single_quantum_rate": 0.0
+    },
+    {
+     "separation": 1,
+     "ballistic_share_relative_to_free": [
+      0.9943272895031586,
+      0.9213399896707144,
+      0.715924363867698,
+      0.46064772663355186,
+      0.26604492678822855,
+      0.1296742077940817,
+      0.05387035902706255,
+      0.020547031037689692,
+      0.007977346240341904,
+      0.0027655369131974823,
+      0.0008687441322217833,
+      0.0002950646726396552
+     ],
+     "rate_per_tick": 0.16836232986368954,
+     "rate_over_single_quantum_rate": 0.9774161251035757
+    },
+    {
+     "separation": 2,
+     "ballistic_share_relative_to_free": [
+      0.9927002821864543,
+      0.8989704036066882,
+      0.6558264043476231,
+      0.392015978001086,
+      0.20072290882744453,
+      0.08647600938590426,
+      0.03335568446853954,
+      0.01219622451654214,
+      0.004191933482653707,
+      0.0013883940313771913,
+      0.00043490743664707906,
+      0.0001540970398923369
+     ],
+     "rate_per_tick": 0.18922011508342376,
+     "rate_over_single_quantum_rate": 1.098504587256724
+    },
+    {
+     "separation": 4,
+     "ballistic_share_relative_to_free": [
+      0.9920510251565923,
+      0.8870426753001123,
+      0.6182764857700483,
+      0.3425100288937782,
+      0.1567640259442814,
+      0.06442180768967387,
+      0.023287118216815117,
+      0.007949630002728754,
+      0.002529017567842322,
+      0.0008083649130163585,
+      0.00022956245032994073,
+      8.622261886576335e-05
+     ],
+     "rate_per_tick": 0.19275415489086364,
+     "rate_over_single_quantum_rate": 1.1190212164655637
+    },
+    {
+     "separation": 8,
+     "ballistic_share_relative_to_free": [
+      0.9929145405963047,
+      0.8957006460589033,
+      0.6271193909228476,
+      0.34019873316574895,
+      0.15465796614635752,
+      0.06310691275769341,
+      0.023261538001222475,
+      0.00816202313673988,
+      0.0026129389807474615,
+      0.0008053383565625379,
+      0.0002406833843135143,
+      8.496000915278201e-05
+     ],
+     "rate_per_tick": 0.19220162248489953,
+     "rate_over_single_quantum_rate": 1.1158135269327043
+    },
+    {
+     "separation": 16,
+     "ballistic_share_relative_to_free": [
+      0.9919220791450488,
+      0.8984091229233306,
+      0.6258650827838336,
+      0.357530653719304,
+      0.17405329187563426,
+      0.06700429802772763,
+      0.023577342949194186,
+      0.008125000866271733,
+      0.002532060227594991,
+      0.0007504126755497279,
+      0.00021679047864574223,
+      7.808344189319146e-05
+     ],
+     "rate_per_tick": 0.19263185750317216,
+     "rate_over_single_quantum_rate": 1.118311227248353
+    }
+   ],
+   "seconds": 81.29201173782349
+  },
+  {
+   "kind": "Z3 and Z2 charge in Z3_carrier x Z2_carrier",
+   "config": 3,
+   "files": [
+    "configs/Z3_carrier_3.npz",
+    "configs/Z2_carrier_3.npz"
+   ],
+   "gauge_fixing": [
+    {
+     "file": "configs/Z3_carrier_3.npz",
+     "fixed_file": "configs/fixed_Z3_carrier_3.npz",
+     "nontrivial_link_share": 0.08315098138503087,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.3394097222222222,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.341796875,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 2,
+       "share_of_lines": 0.3435329861111111,
+       "shift": 0
+      }
+     ]
+    },
+    {
+     "file": "configs/Z2_carrier_3.npz",
+     "fixed_file": "configs/fixed_Z2_carrier_3.npz",
+     "nontrivial_link_share": 0.012062355324074073,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.7170138888888888,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.8122829861111112,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.8148871527777778,
+       "shift": 0
+      }
+     ]
+    }
+   ],
+   "single_ballistic_share_relative_to_free": [
+    0.9955119351396057,
+    0.9022427229983265,
+    0.6531557359390814,
+    0.38352549810268755,
+    0.1841178331290447,
+    0.08064596313562122,
+    0.03250977875925681,
+    0.011872131597785917,
+    0.004090700892453955,
+    0.0014210395611431728,
+    0.0004801324745085571,
+    0.0002358531745643482
+   ],
+   "single_rate_per_tick": 0.18940484613007388,
+   "single_mean_free_path_cells": 5.2796959551565505,
+   "pairs": [
+    {
+     "separation": 0,
+     "ballistic_share_relative_to_free": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rate_per_tick": 0.0,
+     "rate_over_single_quantum_rate": 0.0
+    },
+    {
+     "separation": 1,
+     "ballistic_share_relative_to_free": [
+      0.9949951185732205,
+      0.9081103690311784,
+      0.6610052962060997,
+      0.38201350194561606,
+      0.18549717624083048,
+      0.08257095858518633,
+      0.03439861410687137,
+      0.012478575994647098,
+      0.004316078629190332,
+      0.001523945800712049,
+      0.0004778289713066916,
+      0.00019414687005021552
+     ],
+     "rate_per_tick": 0.18735831622353963,
+     "rate_over_single_quantum_rate": 0.9891949443303641
+    },
+    {
+     "separation": 2,
+     "ballistic_share_relative_to_free": [
+      0.9935149104843302,
+      0.8925810822582836,
+      0.6270070245282752,
+      0.34917308340825454,
+      0.16172791062750502,
+      0.06683748185623894,
+      0.026415660945791532,
+      0.009043859163299167,
+      0.0029697034716931366,
+      0.0009987998613388035,
+      0.0002947057952947318,
+      0.00010950567647830384
+     ],
+     "rate_per_tick": 0.18756061282039888,
+     "rate_over_single_quantum_rate": 0.9902630088545439
+    },
+    {
+     "separation": 4,
+     "ballistic_share_relative_to_free": [
+      0.9933850566556048,
+      0.8874803896108364,
+      0.6137450521406546,
+      0.33726417018568966,
+      0.15174867552255628,
+      0.060783858096762663,
+      0.023202861705701346,
+      0.00763434480638502,
+      0.002470107556550488,
+      0.0007894524331782467,
+      0.00023410101436001243,
+      8.636735304464664e-05
+     ],
+     "rate_per_tick": 0.1938281867356329,
+     "rate_over_single_quantum_rate": 1.0233538935034496
+    },
+    {
+     "separation": 8,
+     "ballistic_share_relative_to_free": [
+      0.9929157594631103,
+      0.8864981624962606,
+      0.6124583938370053,
+      0.3360018013538865,
+      0.15018920938199853,
+      0.061390537441003014,
+      0.0238352298672576,
+      0.007843550985309264,
+      0.002562299176046371,
+      0.0008782104569459119,
+      0.000254326537096313,
+      8.752978213087486e-05
+     ],
+     "rate_per_tick": 0.1925592456520982,
+     "rate_over_single_quantum_rate": 1.0166542703973795
+    },
+    {
+     "separation": 16,
+     "ballistic_share_relative_to_free": [
+      0.9930314918117493,
+      0.8935597078214137,
+      0.6145175155062615,
+      0.32561884889036063,
+      0.14503886157949575,
+      0.05900838807567782,
+      0.022438052594873324,
+      0.007676831616643367,
+      0.0026454638263542184,
+      0.0008381738553150958,
+      0.0002372389688770254,
+      8.323856217344063e-05
+     ],
+     "rate_per_tick": 0.19296203666452907,
+     "rate_over_single_quantum_rate": 1.0187808844764843
+    }
+   ],
+   "seconds": 81.43332028388977
+  },
+  {
+   "kind": "Z3 and Z2 charge in Z3_carrier x Z2_carrier",
+   "config": 2,
+   "files": [
+    "configs/Z3_carrier_2.npz",
+    "configs/Z2_carrier_2.npz"
+   ],
+   "gauge_fixing": [
+    {
+     "file": "configs/Z3_carrier_2.npz",
+     "fixed_file": "configs/fixed_Z3_carrier_2.npz",
+     "nontrivial_link_share": 0.08513726128472222,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.3415798611111111,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 2,
+       "share_of_lines": 0.3374565972222222,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.3433159722222222,
+       "shift": 0
+      }
+     ]
+    },
+    {
+     "file": "configs/Z2_carrier_2.npz",
+     "fixed_file": "configs/fixed_Z2_carrier_2.npz",
+     "nontrivial_link_share": 0.004980770158179012,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.7087673611111112,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.8070746527777778,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.806640625,
+       "shift": 0
+      }
+     ]
+    }
+   ],
+   "single_ballistic_share_relative_to_free": [
+    0.994213589360523,
+    0.9098110305473757,
+    0.665515008682197,
+    0.3901993268918813,
+    0.19833131954592784,
+    0.09100314139099025,
+    0.03871361816724461,
+    0.015031222078136706,
+    0.006385999715675009,
+    0.0023072509556767056,
+    0.0007352332115744723,
+    0.00028195424294624326
+   ],
+   "single_rate_per_tick": 0.17571145761683865,
+   "single_mean_free_path_cells": 5.691148508827626,
+   "pairs": [
+    {
+     "separation": 0,
+     "ballistic_share_relative_to_free": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rate_per_tick": 0.0,
+     "rate_over_single_quantum_rate": 0.0
+    },
+    {
+     "separation": 1,
+     "ballistic_share_relative_to_free": [
+      0.9951208139104002,
+      0.9129453323626104,
+      0.6678122217863399,
+      0.40758673705809645,
+      0.21527270045375957,
+      0.0975277852269977,
+      0.041784387178451926,
+      0.01654939476349274,
+      0.006315598449285015,
+      0.002113173364360033,
+      0.0006480662602023831,
+      0.00023307207440862764
+     ],
+     "rate_per_tick": 0.17624376287585422,
+     "rate_over_single_quantum_rate": 1.0030294282810877
+    },
+    {
+     "separation": 2,
+     "ballistic_share_relative_to_free": [
+      0.9933125876824288,
+      0.8943502432619588,
+      0.6372003645860475,
+      0.3675105205443008,
+      0.18046263895719375,
+      0.07750705404035475,
+      0.02963694921632897,
+      0.010430724017783883,
+      0.0034786221074347454,
+      0.0012157029495241955,
+      0.00037623297731932513,
+      0.00013163130379569655
+     ],
+     "rate_per_tick": 0.1941783670011061,
+     "rate_over_single_quantum_rate": 1.1050979238049286
+    },
+    {
+     "separation": 4,
+     "ballistic_share_relative_to_free": [
+      0.9927133402115722,
+      0.8872673166837307,
+      0.6230746052537621,
+      0.34754630067576914,
+      0.16514352241132274,
+      0.06743091824797733,
+      0.024755596130501663,
+      0.007938538229454747,
+      0.0025062939023592443,
+      0.0008161298699244203,
+      0.00025369506892219344,
+      9.082194392816965e-05
+     ],
+     "rate_per_tick": 0.19236175979204617,
+     "rate_over_single_quantum_rate": 1.0947593423959616
+    },
+    {
+     "separation": 8,
+     "ballistic_share_relative_to_free": [
+      0.9921060529987351,
+      0.8894977188192897,
+      0.6237727615649039,
+      0.34618434569500317,
+      0.16565485502531604,
+      0.06768919393537652,
+      0.02310143136888402,
+      0.007373197360123596,
+      0.0023702230600236443,
+      0.0007545866832374047,
+      0.0002250318514420553,
+      8.361688237426887e-05
+     ],
+     "rate_per_tick": 0.19479011767543317,
+     "rate_over_single_quantum_rate": 1.1085794877428994
+    },
+    {
+     "separation": 16,
+     "ballistic_share_relative_to_free": [
+      0.9919842896804176,
+      0.892228232144584,
+      0.6179556179091262,
+      0.3296392739597244,
+      0.14841622434284285,
+      0.05892847130974799,
+      0.020541769278399284,
+      0.006640394773971252,
+      0.0021150912778067957,
+      0.0006411659767288225,
+      0.00019206356533172373,
+      7.391043506845534e-05
+     ],
+     "rate_per_tick": 0.19930698351881418,
+     "rate_over_single_quantum_rate": 1.1342856420520318
+    }
+   ],
+   "seconds": 81.5132098197937
+  },
+  {
+   "kind": "Z3 and Z2 charge in Z3_plaquette x Z2_plaquette",
+   "config": 1,
+   "files": [
+    "configs/Z3_plaquette_1.npz",
+    "configs/Z2_plaquette_1.npz"
+   ],
+   "gauge_fixing": [
+    {
+     "file": "configs/Z3_plaquette_1.npz",
+     "fixed_file": "configs/fixed_Z3_plaquette_1.npz",
+     "nontrivial_link_share": 0.17943883825231483,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.3342013888888889,
+       "shift": 0
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.3404947916666667,
+       "shift": 0
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.3385416666666667,
+       "shift": 0
+      }
+     ]
+    },
+    {
+     "file": "configs/Z2_plaquette_1.npz",
+     "fixed_file": "configs/fixed_Z2_plaquette_1.npz",
+     "nontrivial_link_share": 0.04232524353780864,
+     "sector": [
+      {
+       "axis": 0,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.5091145833333334,
+       "shift": 0,
+       "wall_layer": 88,
+       "wall_links": 274
+      },
+      {
+       "axis": 1,
+       "majority_holonomy": 1,
+       "share_of_lines": 0.505859375,
+       "shift": 22,
+       "wall_layer": 25,
+       "wall_links": 319
+      },
+      {
+       "axis": 2,
+       "majority_holonomy": 0,
+       "share_of_lines": 0.5041232638888888,
+       "shift": 0
+      }
+     ]
+    }
+   ],
+   "single_ballistic_share_relative_to_free": [
+    0.9910089606179419,
+    0.8748563168761173,
+    0.6071276341937406,
+    0.3399038070125142,
+    0.16267657980641262,
+    0.0711104894902,
+    0.02893194809762481,
+    0.010597898194391204,
+    0.003986808259720876,
+    0.00138878064658671,
+    0.0004619708092540183,
+    0.00020278370417043312
+   ],
+   "single_rate_per_tick": 0.1898928065883088,
+   "single_mean_free_path_cells": 5.2661289175003825,
+   "pairs": [
+    {
+     "separation": 0,
+     "ballistic_share_relative_to_free": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rate_per_tick": 0.0,
+     "rate_over_single_quantum_rate": 0.0
+    },
+    {
+     "separation": 1,
+     "ballistic_share_relative_to_free": [
+      0.9903925418039463,
+      0.8725121321133553,
+      0.6048082594837914,
+      0.33998489843457586,
+      0.16497164276995246,
+      0.07219320347662175,
+      0.02911841826137385,
+      0.010721364621927215,
+      0.003912465309178108,
+      0.0013399432298233504,
+      0.00044483205569485437,
+      0.0002113562449642317
+     ],
+     "rate_per_tick": 0.1903971408640674,
+     "rate_over_single_quantum_rate": 1.002655889313659
+    },
+    {
+     "separation": 2,
+     "ballistic_share_relative_to_free": [
+      0.9900799536738112,
+      0.8687899101749003,
+      0.6020290610428501,
+      0.34116496177451994,
+      0.17014941666958344,
+      0.07699666489552948,
+      0.03259090397582411,
+      0.012768404452147306,
+      0.004795158116211338,
+      0.0018307535730804185,
+      0.000661277953283731,
+      0.00033682485997266464
+     ],
+     "rate_per_tick": 0.18202811875646496,
+     "rate_over_single_quantum_rate": 0.9585835399816138
+    },
+    {
+     "separation": 4,
+     "ballistic_share_relative_to_free": [
+      0.9902754855856566,
+      0.8661943093145401,
+      0.5962997654872996,
+      0.33824348737653154,
+      0.16838448671317102,
+      0.07667693454698124,
+      0.0331495729350316,
+      0.013347617843467679,
+      0.005130269762116057,
+      0.0018931806165552254,
+      0.0007163360501383929,
+      0.0003483376755686366
+     ],
+     "rate_per_tick": 0.18029100996688832,
+     "rate_over_single_quantum_rate": 0.9494357011519802
+    },
+    {
+     "separation": 8,
+     "ballistic_share_relative_to_free": [
+      0.9900287752615278,
+      0.8634916447039515,
+      0.5987338672285354,
+      0.34383551772941473,
+      0.17444312536927756,
+      0.08247205904590559,
+      0.035200097784142216,
+      0.014200840564948592,
+      0.005413140632090718,
+      0.002072629481431199,
+      0.000764583534453129,
+      0.0003759550062370003
+     ],
+     "rate_per_tick": 0.177756651209564,
+     "rate_over_single_quantum_rate": 0.9360894412127142
+    },
+    {
+     "separation": 16,
+     "ballistic_share_relative_to_free": [
+      0.9897262569964806,
+      0.8664218131248778,
+      0.6068496982488961,
+      0.3457213720234238,
+      0.1731132847521268,
+      0.0803754108448703,
+      0.03422800405254299,
+      0.014042007174245703,
+      0.005269465860839459,
+      0.0020296848930609506,
+      0.0007138021162563448,
+      0.000343722738003228
+     ],
+     "rate_per_tick": 0.17872602216429587,
+     "rate_over_single_quantum_rate": 0.9411942736292127
+    }
+   ],
+   "seconds": 81.35043931007385
+  }
+ ],
+ "seconds": 153.4183702468872
+}

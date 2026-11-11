@@ -1,0 +1,201 @@
+#!/usr/bin/env python3
+"""S10 t2: the law's OWN port responses on one carrier, one quantum (C^12).
+
+Definitions (all DECLARED readings of premise A1 on a coherent seam law with Hermitian seam generator h_e):
+  R1  first-order own response of port p:    X_p = sum_{e ni p} h_e            (generator of "the seams of p fire")
+  R2  ordered second-order own response:     K_p = sum_{faces (p,a,b), oriented} [h_pa, h_pb]   (anti-Hermitian;
+      the commutator of two consecutive seam events at p taken in the orientation order of the carrier faces)
+  R2' same with the two-step (pentagram) order.
+  BD  band-diagonal reading on the two triplet eigenbands of the uniform law (first-order degenerate perturbation
+      theory of a weak port modulation of the flow exp(-itH)):  X -> P_3 X P_3 + P_3' X P_3'.
+  Universal form on a triplet (exact, C5-invariance): P X_p P = c P + a J_p + b (J_p^2 - 2/3 P), J_p the spin-1
+  generator about the port axis.  b is the quintet (quadrupole) weight, a the vector (T-odd) weight.
+
+Laws (seam generator on one quantum):
+  EX        h = P_ab (exchange).  Reference rule on the balanced shell (T = (1+P)/2), S-a exchange-parity measurement
+            {P_+,P_-} (its Kraus operators are (1 +- P)/2) and S-b U = exp(i pi/4 P_ab) all apply this generator.
+  XXZ(D)    h = -(1/2)(|a><b| + |b><a|) + (D/2)(N_a + N_b)   (G(Delta) restricted to one quantum; EX = 1 - 2 XXZ(1))
+  ADJ       h = |a><b| + |b><a|  (pure hopping)
+  WALK(n,w) h = w (2 - N_a - N_b) + magnetic hop with face flux 2 pi n/20 (seam part of 60 x discriminant of the
+            dilation of record law C with completion class (w, r=1, n) of S2/t1_record_phase.py)
+"""
+import json, sys, time, math
+from pathlib import Path
+import numpy as np
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import s10lib as L
+
+HERE = Path(__file__).resolve().parent
+out = {}
+N = [L.n_op(p) for p in range(12)]
+I12 = np.eye(12, dtype=complex)
+
+
+def E(a, b):
+    M = np.zeros((12, 12), complex); M[a, b] = 1; return M
+
+
+# counter-clockwise successor of neighbour a around port p, from the oriented faces
+NXT = [dict() for _ in range(12)]
+for f in L.FACES:
+    for k in range(3):
+        p, a, b = f[k], f[(k + 1) % 3], f[(k + 2) % 3]
+        NXT[p][a] = b
+assert all(len(NXT[p]) == 5 for p in range(12))
+
+
+def seam_gen(law, a, b, An=None, par=None):
+    if law == 'EX':
+        return I12 - N[a] - N[b] + E(a, b) + E(b, a)
+    if law == 'XXZ':
+        return -0.5 * (E(a, b) + E(b, a)) + (par / 2) * (N[a] + N[b])
+    if law == 'ADJ':
+        return E(a, b) + E(b, a)
+    if law == 'WALK':
+        return par * (2 * I12 - N[a] - N[b]) + An[b, a] * E(b, a) + An[a, b] * E(a, b)
+    raise ValueError(law)
+
+
+def own_responses(law, An=None, par=None):
+    h = {}
+    for (a, b) in L.SEAMS:
+        h[(a, b)] = seam_gen(law, a, b, An, par)
+        h[(b, a)] = h[(a, b)]
+    X = [sum(h[(p, b)] for b in L.NBR[p]) for p in range(12)]
+    K1 = [sum(L.comm(h[(p, a)], h[(p, NXT[p][a])]) for a in L.NBR[p]) for p in range(12)]
+    K2 = [sum(L.comm(h[(p, a)], h[(p, NXT[p][NXT[p][a]])]) for a in L.NBR[p]) for p in range(12)]
+    return X, K1, K2, h
+
+
+# ---- band data (n = 0)
+w, V = np.linalg.eigh(L.ADJ)
+def proj(val):
+    sel = np.abs(w - val) < 1e-9
+    return (V[:, sel] @ V[:, sel].T).astype(complex)
+P1, P3, P5, P3p = proj(5), proj(L.SQ5), proj(-1), proj(-L.SQ5)
+W3 = L.VEC / np.linalg.norm(L.VEC[:, 0])           # 12 x 3 isometry onto band 3 (columns orthonormal)
+W3p = L.VECS / np.linalg.norm(L.VECS[:, 0])
+assert np.allclose(W3.T @ W3, np.eye(3)) and np.allclose(W3 @ W3.T, P3.real) and np.allclose(W3p @ W3p.T, P3p.real)
+
+
+def hat(v):
+    x, y, z = v
+    return np.array([[0, -z, y], [z, 0, -x], [-y, x, 0]], float)
+
+
+def triplet_coeffs(Y, p, band):
+    """(c, a, b, residual) of P Y P = c P + a J_p + b (J_p^2 - 2/3 P) on band '3' or "3'"."""
+    Wb, vec = (W3, L.VEC[p]) if band == '3' else (W3p, L.VECS[p])
+    u = vec / np.linalg.norm(vec)
+    J = 1j * hat(u)                                  # u.S for spin 1 in the Cartesian basis (Hermitian)
+    Q = J @ J - (2 / 3) * np.eye(3)
+    Yb = Wb.T @ Y @ Wb
+    c = np.trace(Yb) / 3
+    a = np.trace(Yb @ J) / 2
+    b = np.trace(Yb @ Q) / (2 / 3)
+    res = np.abs(Yb - c * np.eye(3) - a * J - b * Q).max()
+    return complex(c), complex(a), complex(b), float(res)
+
+
+def blockwise(Y):
+    return P3 @ Y @ P3 + P3p @ Y @ P3p
+
+
+Pm = [L.perm_matrix(g).astype(complex) for g in L.ROTS]
+
+
+def analyse(name, gens, rots=Pm, ports=None, full=True):
+    t0 = time.time()
+    clo = L.Closure(gens)
+    st = L.structure(clo, rot_unitaries=rots)
+    s = L.summarize(st)
+    s['generator_span'] = L.span_rank(gens)
+    if ports is not None and clo.dim == 12 and 'simple_ideals' in st:
+        for idl, sm in zip(st['simple_ideals'], s['simple_ideals']):
+            if idl.get('_basis') is not None:
+                sm['port_band'] = L.band_of_ideal(clo, st, idl, ports)['adjacency_eigenvalues_of_port_coefficients']
+    s['seconds'] = round(time.time() - t0, 2)
+    print(f"  {name}: span {s['generator_span']} depths {s['depth_dims']} dim {s['dim']} centre {s['centre_dim']}"
+          f" ideals {[(t['type'], t['dim'], t.get('port_band')) for t in s.get('simple_ideals', [])]} A5 {s.get('A5_content')}", flush=True)
+    return s
+
+
+def law_report(tag, law, An=None, par=None, rots=Pm, bare=True):
+    print(tag, flush=True)
+    X, K1, K2, h = own_responses(law, An, par)
+    r = {}
+    cov = max(np.abs(rots[i] @ X[p] @ rots[i].conj().T - X[g[p]]).max() for i, g in enumerate(L.ROTS) for p in range(12))
+    covK = max(np.abs(rots[i] @ K1[p] @ rots[i].conj().T - K1[g[p]]).max() for i, g in enumerate(L.ROTS) for p in range(12))
+    r['covariance_defect_R1'] = float(cov); r['covariance_defect_R2'] = float(covK)
+    r['R1_is_real_symmetric_T_even'] = bool(max(np.abs(x.imag).max() for x in X) < 1e-12)
+    r['R2_vanishing'] = bool(max(np.abs(k).max() for k in K1) < 1e-12)
+    if bare:
+        r['bare_R1'] = analyse('bare R1 {-iX_p}', [-1j * x for x in X], rots)
+        r['bare_R1_and_R2'] = analyse('bare R1 + R2 (24 generators)', [-1j * x for x in X] + list(K1), rots)
+        r['bare_combined_R1+R2'] = analyse('bare combined D_p = -iX_p + K_p', [-1j * X[p] + K1[p] for p in range(12)], rots)
+    if An is None:
+        c3 = triplet_coeffs(X[0], 0, '3'); c3p = triplet_coeffs(X[0], 0, "3'")
+        k3 = triplet_coeffs(1j * K1[0], 0, '3'); k3p = triplet_coeffs(1j * K1[0], 0, "3'")
+        q3 = triplet_coeffs(1j * K2[0], 0, '3'); q3p = triplet_coeffs(1j * K2[0], 0, "3'")
+        r['band_diagonal_coeffs'] = {
+            'R1_slow_band_3 (c,a,b)': [c3[0].real, c3[1].real, c3[2].real], 'R1_fast_band_3prime (c,a,b)': [c3p[0].real, c3p[1].real, c3p[2].real],
+            'R2_slow_band_3 (c,a,b)': [k3[0].real, k3[1].real, k3[2].real], 'R2_fast_band_3prime (c,a,b)': [k3p[0].real, k3p[1].real, k3p[2].real],
+            'R2prime_slow (c,a,b)': [q3[0].real, q3[1].real, q3[2].real], 'R2prime_fast (c,a,b)': [q3p[0].real, q3p[1].real, q3p[2].real],
+            'universal_form_residual': max(c3[3], c3p[3], k3[3], k3p[3], q3[3], q3p[3]),
+            'quintet_ratio_b_slow/b_fast': (c3[2] / c3p[2]).real if abs(c3p[2]) > 1e-12 else None}
+        print('  band-diagonal (c,a,b): R1 slow', np.round(r['band_diagonal_coeffs']['R1_slow_band_3 (c,a,b)'], 6), ' R1 fast', np.round(r['band_diagonal_coeffs']['R1_fast_band_3prime (c,a,b)'], 6),
+              '| R2 slow', np.round(r['band_diagonal_coeffs']['R2_slow_band_3 (c,a,b)'], 6), ' R2 fast', np.round(r['band_diagonal_coeffs']['R2_fast_band_3prime (c,a,b)'], 6),
+              ' residual', r['band_diagonal_coeffs']['universal_form_residual'])
+        Db = [-1j * blockwise(X[p]) + blockwise(K1[p]) for p in range(12)]
+        r['blockwise_R1'] = analyse('blockwise (3+3\') R1', [-1j * blockwise(x) for x in X], rots)
+        r['blockwise_R1+R2'] = analyse('blockwise (3+3\') combined R1 + R2', Db, rots, ports=Db)
+    return r
+
+
+# ------------------------------------------------------------------ the laws
+out['EX (reference shadow, S-a parity measurement, S-b sqrt-swap)'] = law_report('EX: exchange generator P_ab', 'EX')
+out['ADJ (pure hopping)'] = law_report('ADJ: pure hopping', 'ADJ')
+for D in (1.0, 0.5, 0.0):
+    out[f'XXZ(Delta={D})'] = law_report(f'XXZ Delta={D}', 'XXZ', par=D, bare=(D != 1.0))
+for D, nm in ((L.SQ5 / 2, '+sqrt5/2'), (-L.SQ5 / 2, '-sqrt5/2')):
+    out[f'XXZ(Delta={nm})'] = law_report(f'XXZ Delta={nm}', 'XXZ', par=D, bare=False)
+
+# identities used in the report
+X, K1, K2, h = own_responses('EX')
+C = []
+for p in range(12):
+    M = np.zeros((12, 12), complex)
+    for a, b in NXT[p].items():
+        M[b, a] += 1j; M[a, b] -= 1j
+    C.append(M)
+out['identities'] = {
+    'EX star = 5 - (5N_p + NbrN_p - Star_p)': bool(all(np.allclose(X[p], 5 * I12 - 5 * N[p] - L.nbr_n(p) + (L.ADJ @ N[p] + N[p] @ L.ADJ)) for p in range(12))),
+    'EX ordered second-order K_p = i * (pentagon circulation C_p of re/closure_probe.py) * sign': None,
+    'sum_p X_p (EX) = 60 - 2 L': bool(np.allclose(sum(X), 60 * I12 - 2 * L.LAP)),
+    'sum_p K_p = 0': bool(np.allclose(sum(K1), 0)),
+}
+for sgn in (1, -1):
+    if all(np.allclose(K1[p], sgn * 1j * C[p]) for p in range(12)):
+        out['identities']['EX ordered second-order K_p = i * (pentagon circulation C_p of re/closure_probe.py) * sign'] = sgn
+print('identities:', out['identities'])
+
+# ------------------------------------------------------------------ Delta scan of the blockwise closure (R1 + R2)
+scan = []
+for D in list(np.round(np.linspace(-2, 2, 41), 3)) + [L.SQ5 / 2, -L.SQ5 / 2]:
+    X, K1, K2, h = own_responses('XXZ', par=float(D))
+    Db = [-1j * blockwise(X[p]) + blockwise(K1[p]) for p in range(12)]
+    clo = L.Closure(Db)
+    b3 = triplet_coeffs(X[0], 0, '3')[2].real; b3p = triplet_coeffs(X[0], 0, "3'")[2].real
+    scan.append({'Delta': float(D), 'b_slow': b3, 'b_fast': b3p, 'span': L.span_rank(Db), 'closure': clo.dim})
+out['Delta_scan_blockwise_R1+R2'] = scan
+print('Delta scan (Delta, b_slow, b_fast, span, closure):')
+for s in scan:
+    print('   %8.4f  %9.5f %9.5f  %2d  %2d' % (s['Delta'], s['b_slow'], s['b_fast'], s['span'], s['closure']))
+out['Delta_scan_summary'] = {'closure_values': sorted(set(s['closure'] for s in scan)),
+                             'Delta_with_closure_12': [s['Delta'] for s in scan if s['closure'] == 12],
+                             'closed_form': 'b_band = (2*Delta - lambda_band)/4 with lambda = +sqrt5 (slow 3), -sqrt5 (fast 3\'); zero at Delta = lambda/2'}
+print(out['Delta_scan_summary'])
+
+(HERE / 't2_own_responses.json').write_text(json.dumps(out, indent=1, default=str))
+print('written', HERE / 't2_own_responses.json')

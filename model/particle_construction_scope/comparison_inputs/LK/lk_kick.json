@@ -1,0 +1,393 @@
+{
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "model/coherent_seam_repair/program.py sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "model/coherent_seam_repair/common.py sha256": "b788b17ef298902067f6132d170ce8aff1d9ce8d5c5ec8b08e42809ef606348d",
+  "model/common_source/slow_geometry.py sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "A1 clocked register": {
+  "J = Pi_1 V_-": true,
+  "J = (V_- - V_+)/2": true,
+  "Z_r = V_+ V_-": true,
+  "flags orthonormal": true,
+  "J on the flags (phi_H, phi_+, phi_-)": [
+   "0",
+   "1",
+   "-1"
+  ],
+  "J maps the flag space into itself": true
+ },
+ "A3 FR event matrix": {
+  "plain law: Q = 1 - K^2 + sigma_z(o) K": true,
+  "oriented law on blank records: V Q = 1 - K^2 + K": true,
+  "K^3 = K": true
+ },
+ "pair after one tick": {
+  "joint flag distribution (A, B)": {
+   "B,B": "1/144",
+   "B,F": "1/144",
+   "B,I": "1/72",
+   "B,double": "1/18",
+   "F,B": "1/144",
+   "F,F": "1/144",
+   "F,I": "1/72",
+   "F,double": "1/18",
+   "I,B": "1/72",
+   "I,F": "1/72",
+   "I,I": "1/36",
+   "I,double": "1/9",
+   "double,B": "1/18",
+   "double,F": "1/18",
+   "double,I": "1/9",
+   "double,double": "4/9"
+  },
+  "<Qx>": "2/9",
+  "<Z_F Z_I>": "5/9",
+  "<Qx[B]>": "2/9",
+  "A2: Qx = (1 - Z_F Z_I)/2 on every basis pair of the support": true
+ },
+ "candidates": {
+  "K0": {
+   "generator": "J (x) Qx, plain round (kick of CK2)",
+   "first-order generator on the flags": {
+    "gamma (phi_H, phi_+, phi_-)": [
+     0.0,
+     0.222222222222,
+     -0.222222222222
+    ],
+    "odd": 0.222222222222,
+    "even": 0.0,
+    "leak norms (phi_H, phi_+, phi_-)": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "Hilbert-Schmidt overlap of the coupling part with J (x) Qx": 1.0,
+   "N rounds, h = 1/N (eta = 1.0 h)": [
+    {
+     "N": 1,
+     "phase of phi_+ per unit clock time": 0.20533403097027791,
+     "phase of phi_-": -0.20533403097027791,
+     "modulus phi_+": 0.9171107649106036,
+     "modulus phi_H": 1.0,
+     "phase of phi_H": -0.0,
+     "leak of phi_H in one round": 1.5700924586837752e-16
+    },
+    {
+     "N": 10,
+     "phase of phi_+ per unit clock time": 0.22206209967050264,
+     "phase of phi_-": -0.22206209967050264,
+     "modulus phi_+": 0.9913949962205787,
+     "modulus phi_H": 1.0,
+     "phase of phi_H": -0.0,
+     "leak of phi_H in one round": 1.5700924586837752e-16
+    },
+    {
+     "N": 100,
+     "phase of phi_+ per unit clock time": 0.2222206218478297,
+     "phase of phi_-": -0.2222206218478297,
+     "modulus phi_+": 0.9991361755138042,
+     "modulus phi_H": 1.0,
+     "phase of phi_H": -0.0,
+     "leak of phi_H in one round": 1.5700924586837752e-16
+    },
+    {
+     "N": 1000,
+     "phase of phi_+ per unit clock time": 0.22222220621856342,
+     "phase of phi_-": -0.22222220621856342,
+     "modulus phi_+": 0.9999135839806554,
+     "modulus phi_H": 1.0,
+     "phase of phi_H": -0.0,
+     "leak of phi_H in one round": 1.5700924586837752e-16
+    },
+    {
+     "N": 100000,
+     "phase of phi_+ per unit clock time": 0.22222222222062182,
+     "phase of phi_-": -0.22222222222062182,
+     "modulus phi_+": 0.9999991358249755,
+     "modulus phi_H": 1.0,
+     "phase of phi_H": -0.0,
+     "leak of phi_H in one round": 1.5700924586837752e-16
+    }
+   ]
+  },
+  "K1": {
+   "generator": "Z_r (x) Z_F Z_I, plain round (Z2 toggle, CF-1 chart)",
+   "first-order generator on the flags": {
+    "gamma (phi_H, phi_+, phi_-)": [
+     0.555555555556,
+     -0.555555555556,
+     -0.555555555556
+    ],
+    "odd": 0.0,
+    "even": -1.111111111111,
+    "leak norms (phi_H, phi_+, phi_-)": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "Hilbert-Schmidt overlap of the coupling part with J (x) Qx": -0.0
+  },
+  "K2": {
+   "generator": "Z_r (x) Z_F Z_I, echo round",
+   "first-order generator on the flags": {
+    "gamma (phi_H, phi_+, phi_-)": [
+     -0.444444444444,
+     0.444444444444,
+     0.444444444444
+    ],
+    "odd": 0.0,
+    "even": 0.888888888889,
+    "leak norms (phi_H, phi_+, phi_-)": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "Hilbert-Schmidt overlap of the coupling part with J (x) Qx": -0.0
+  },
+  "K3": {
+   "generator": "X_r (x) Z_F Z_I, plain round (record flip as the toggle)",
+   "first-order generator on the flags": {
+    "gamma (phi_H, phi_+, phi_-)": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "odd": 0.0,
+    "even": 0.0,
+    "leak norms (phi_H, phi_+, phi_-)": [
+     0.555555555556,
+     0.555555555556,
+     0.555555555556
+    ]
+   },
+   "Hilbert-Schmidt overlap of the coupling part with J (x) Qx": -0.0
+  },
+  "K4": {
+   "generator": "sigma_z(o) Z_r (x) Z_F Z_I, plain round (orientation sign of the plain law)",
+   "first-order generator on the flags": {
+    "gamma (phi_H, phi_+, phi_-)": [
+     -0.0,
+     -0.555555555556,
+     0.555555555556
+    ],
+    "odd": -0.555555555556,
+    "even": 0.0,
+    "leak norms (phi_H, phi_+, phi_-)": [
+     0.555555555556,
+     0.0,
+     0.0
+    ]
+   },
+   "Hilbert-Schmidt overlap of the coupling part with J (x) Qx": 0.707106781187
+  },
+  "K5": {
+   "generator": "sigma_z(o) Z_r (x) Z_F Z_I, echo round",
+   "first-order generator on the flags": {
+    "gamma (phi_H, phi_+, phi_-)": [
+     0.0,
+     0.444444444444,
+     -0.444444444444
+    ],
+    "odd": 0.444444444444,
+    "even": -0.0,
+    "leak norms (phi_H, phi_+, phi_-)": [
+     0.444444444444,
+     0.0,
+     0.0
+    ]
+   },
+   "Hilbert-Schmidt overlap of the coupling part with J (x) Qx": 0.707106781187,
+   "N rounds, h = 1/N (eta = 0.5 h)": [
+    {
+     "N": 1,
+     "phase of phi_+ per unit clock time": 0.20533403097027791,
+     "phase of phi_-": -0.20533403097027791,
+     "modulus phi_+": 0.9171107649106036,
+     "modulus phi_H": 0.8978449568595867,
+     "phase of phi_H": 5.715537166512089e-18,
+     "leak of phi_H in one round": 0.18699355217953254
+    },
+    {
+     "N": 10,
+     "phase of phi_+ per unit clock time": 0.22206209967050264,
+     "phase of phi_-": -0.22206209967050264,
+     "modulus phi_+": 0.9913949962205787,
+     "modulus phi_H": 0.9889534442152282,
+     "phase of phi_H": 6.8973054254236375e-18,
+     "leak of phi_H in one round": 0.022185203699295143
+    },
+    {
+     "N": 100,
+     "phase of phi_+ per unit clock time": 0.2222206218478297,
+     "phase of phi_-": -0.2222206218478297,
+     "modulus phi_+": 0.9991361755138042,
+     "modulus phi_H": 0.9988895090273111,
+     "phase of phi_H": 9.198305234123724e-18,
+     "leak of phi_H in one round": 0.00222218518537037
+    },
+    {
+     "N": 1000,
+     "phase of phi_+ per unit clock time": 0.22222220621856342,
+     "phase of phi_-": -0.22222220621856342,
+     "modulus phi_+": 0.9999135839806554,
+     "modulus phi_H": 0.9998888950645629,
+     "phase of phi_H": 5.7456724834201534e-18,
+     "leak of phi_H in one round": 0.00022222218518518706
+    },
+    {
+     "N": 100000,
+     "phase of phi_+ per unit clock time": 0.22222222222062182,
+     "phase of phi_-": -0.22222222222062182,
+     "modulus phi_+": 0.9999991358249755,
+     "modulus phi_H": 0.9999988889116187,
+     "phase of phi_H": -6.8901416173354204e-18,
+     "leak of phi_H in one round": 2.222222222185185e-06
+    }
+   ]
+  },
+  "K6": {
+   "generator": "-J (x) Z_F Z_I, echo round",
+   "first-order generator on the flags": {
+    "gamma (phi_H, phi_+, phi_-)": [
+     0.0,
+     0.444444444444,
+     -0.444444444444
+    ],
+    "odd": 0.444444444444,
+    "even": 0.0,
+    "leak norms (phi_H, phi_+, phi_-)": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "Hilbert-Schmidt overlap of the coupling part with J (x) Qx": 1.0,
+   "N rounds, h = 1/N (eta = 0.5 h)": [
+    {
+     "N": 1,
+     "phase of phi_+ per unit clock time": 0.20533403097027791,
+     "phase of phi_-": -0.20533403097027791,
+     "modulus phi_+": 0.9171107649106036,
+     "modulus phi_H": 1.0,
+     "phase of phi_H": -0.0,
+     "leak of phi_H in one round": 1.5700924586837752e-16
+    },
+    {
+     "N": 10,
+     "phase of phi_+ per unit clock time": 0.22206209967050264,
+     "phase of phi_-": -0.22206209967050264,
+     "modulus phi_+": 0.9913949962205787,
+     "modulus phi_H": 1.0,
+     "phase of phi_H": -0.0,
+     "leak of phi_H in one round": 1.5700924586837752e-16
+    },
+    {
+     "N": 100,
+     "phase of phi_+ per unit clock time": 0.2222206218478297,
+     "phase of phi_-": -0.2222206218478297,
+     "modulus phi_+": 0.9991361755138042,
+     "modulus phi_H": 1.0,
+     "phase of phi_H": -0.0,
+     "leak of phi_H in one round": 1.5700924586837752e-16
+    },
+    {
+     "N": 1000,
+     "phase of phi_+ per unit clock time": 0.22222220621856342,
+     "phase of phi_-": -0.22222220621856342,
+     "modulus phi_+": 0.9999135839806554,
+     "modulus phi_H": 1.0,
+     "phase of phi_H": -0.0,
+     "leak of phi_H in one round": 1.5700924586837752e-16
+    },
+    {
+     "N": 100000,
+     "phase of phi_+ per unit clock time": 0.22222222222062182,
+     "phase of phi_-": -0.22222222222062182,
+     "modulus phi_+": 0.9999991358249755,
+     "modulus phi_H": 1.0,
+     "phase of phi_H": -0.0,
+     "leak of phi_H in one round": 1.5700924586837752e-16
+    }
+   ]
+  },
+  "K7": {
+   "generator": "J (x) (Qx[F] - Qx[B]), plain round (forward read minus backward read)",
+   "first-order generator on the flags": {
+    "gamma (phi_H, phi_+, phi_-)": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "odd": 0.0,
+    "even": 0.0,
+    "leak norms (phi_H, phi_+, phi_-)": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "Hilbert-Schmidt overlap of the coupling part with J (x) Qx": 0.518249648063
+  }
+ },
+ "K5 closed forms at eta = 0.05": {
+  "hold amplitude": [
+   0.9988898145062279,
+   -6.889648136994217e-19
+  ],
+  "1 - 2P sin^2(eta)": 0.9988898145062279,
+  "amplitude into the dissent address state of the blank C object": [
+   -8.073774041362188e-18,
+   0.022185203699295143
+  ],
+  "i P sin(2 eta)": 0.022185203699295143,
+  "phi_+ amplitude": [
+   0.9988898145062279,
+   -0.022185203699295143
+  ],
+  "1 - P + P exp(-2 i eta)": [
+   0.9988898145062279,
+   -0.022185203699295143
+  ]
+ },
+ "K6 identity": {
+  "pair identity (exact, from lk_round.json)": true,
+  "scalar identity, largest deviation": 1.5700924586837752e-16,
+  "statement": "W^-1 T(eta) W T(eta)^-1 |psi>|SS> = W^-1 exp(-i 2 eta J (x) Qx) W |psi>|SS> for every state psi of the clocked register, T(eta) = exp(+i eta J (x) Z_F Z_I): CK2 round with h = 2 eta",
+  "T(eta) as two reflection products": "exp(+i (eta/2) V_- (x) Z_F Z_I) exp(-i (eta/2) V_+ (x) Z_F Z_I)"
+ },
+ "K9 bit model": {
+  "K_AB^2 = Qx": true,
+  "1 - Re exp(-i (pi/2) K_AB) = Qx": true,
+  "<K_AB>": 0.20600551353043509,
+  "sqrt(55)/36": 0.20600551353043509,
+  "<K_AB^2> = P": 0.2222222222222222,
+  "P": 0.2222222222222222
+ },
+ "A4 A5 quarter-turns": {
+  "exp(-i (pi/2) J (x) Qx) = product of quarter-turns (one for j = -1, three for j = +1) on Qx": true,
+  "pair basis states inside Qx on the support of the ticked state": 128,
+  "basis states of the C object in phi_+ and phi_-": {
+   "j = +1": 2,
+   "j = -1": 2
+  },
+  "quarter-turns on the support for the strong kick": 1024,
+  "V_i^2 = 1 - 2 P_i": true,
+  "basis states per reflection (own register)": {
+   "Z_F": 24,
+   "Z_I": 24,
+   "V_-": 3,
+   "V_+": 3,
+   "sigma_z(o)": 6,
+   "Z_r": 6
+  },
+  "flagged basis states on the support of the ticked state": {
+   "F of A": 2,
+   "I of B": 4
+  }
+ },
+ "seconds": 0.42
+}

@@ -1,0 +1,100 @@
+"""NU3 helpers: off-diagonal source action V, energy classes and tagged resolvent images.
+
+All source code is imported read only from the audit packet
+model/coherent_defect_wave/chiral_joint/peter_weyl_links (run from the RER root).
+H = H0 + V with H0 = Delta_s N_scalar + Delta_l N_link diagonal in the occupation basis.
+"""
+from collections import defaultdict
+from functools import lru_cache
+
+import sympy as s
+
+from model.coherent_defect_wave.chiral_joint.periodic_family.model import (
+    Configuration, apply_state, norm2)
+from model.coherent_defect_wave.chiral_joint.neutral_mobility.model import preparation
+from model.coherent_defect_wave.chiral_joint.peter_weyl_links.model import column, gauss_column
+from model.coherent_defect_wave.chiral_joint.peter_weyl_links.experiment import (
+    inner, supported_bilinear)
+
+
+def gauss_check(state, config):
+    """All cell/current Gauss generators annihilate the state (asserted); returns the count."""
+    count = 0
+    for cell in range(config.side ** 3):
+        for current in range(12):
+            assert not apply_state(state, lambda key: gauss_column(key, cell, current, config))
+            count += 1
+    return count
+
+DS, DL = s.symbols('Delta_s Delta_l', positive=True)
+
+
+def config_for(yu=1, yd=1, ye=1, spacing=s.pi):
+    return Configuration(spacing=spacing, y_up=s.Integer(yu), y_down=s.Integer(yd),
+                         y_lepton=s.Integer(ye))
+
+
+def vcolumn(key, config):
+    """The off-diagonal part of the audit's column: Yukawa plus kinetic words.
+
+    Neither family has a diagonal entry (a Yukawa word changes the scalar state,
+    a kinetic word moves a fermion between distinct cells), so the diagonal of
+    column() is exactly H0.
+    """
+    out = dict(column(key, config))
+    diagonal = out.pop(key, s.Integer(0))
+    _, links, scalars = key
+    expected = (config.link_penalty * sum(v != 0 for v in links)
+                + config.scalar_penalty * sum(v != 0 for v in scalars))
+    assert s.expand(diagonal - expected) == 0
+    return out
+
+
+def energy_class(key):
+    _, links, scalars = key
+    return (sum(v != 0 for v in scalars), sum(v != 0 for v in links))
+
+
+@lru_cache(maxsize=None)
+def tag(cls):
+    return s.Symbol('r_%d_%d' % cls, real=True)
+
+
+def denominator(cls, e0_class):
+    """E0 - E(class) for H0 = DS*n_s + DL*n_l."""
+    return (e0_class[0] - cls[0]) * DS + (e0_class[1] - cls[1]) * DL
+
+
+def vapply(state, config):
+    return apply_state(state, lambda key: vcolumn(key, config))
+
+
+def split_by_class(state):
+    out = defaultdict(dict)
+    for key, value in state.items():
+        out[energy_class(key)][key] = value
+    return dict(out)
+
+
+def tagged(state, exclude):
+    """Multiply each component by its class tag r_class; drop keys in `exclude` (the P space)."""
+    out = {}
+    for key, value in state.items():
+        if key in exclude:
+            continue
+        out[key] = s.expand(value * tag(energy_class(key)))
+    return out
+
+
+def substitute(expr, e0_class, extra=None):
+    """Replace every class tag by 1/(E0 - E(class))."""
+    subs = {}
+    for symbol in expr.free_symbols:
+        name = symbol.name
+        if name.startswith('r_'):
+            _, a, b = name.split('_')
+            d = denominator((int(a), int(b)), e0_class)
+            subs[symbol] = 1 / d if d != 0 else s.zoo
+    if extra:
+        subs.update(extra)
+    return s.together(expr.subs(subs))

@@ -1,0 +1,154 @@
+"""PM comparison with measurement. NOT BLIND: run after results.json exists; every evaluated tuple counts as a look.
+
+    /tmp/oph-completion-venv/bin/python -B pm_compare.py results.json compare.json looks.json
+
+Measured central values: NuFIT 6.1, normal ordering with SK, from the repository's packet
+model/common_source/calibrated_neutrino_parameters.json (read from the checkout oph-completion-2026-11-02 because
+reverse-engineering-reality is absent from disk during this round; the file is the one DG2 used: same numbers).
+One-sigma widths: reports/LIT.md (NuFIT 6.1 for theta12 and the splittings, NuFIT 6.0 for theta23, theta13, delta).
+"""
+import json
+import sys
+
+import mpmath as mp
+
+import pm_lib as L
+
+mp.mp.dps = 40
+res = json.load(open(sys.argv[1]))
+PACKET = 'WORKSPACE/oph-completion-2026-11-02/model/common_source/calibrated_neutrino_parameters.json'
+pk = json.load(open(PACKET))['oscillation_inputs']
+meas = {'sin2_theta12': float(pk['sin2_theta12']), 'sin2_theta23': float(pk['sin2_theta23']),
+        'sin2_theta13': float(pk['sin2_theta13']), 'delta_deg': float(pk['delta_degrees']),
+        'dm21': float(pk['delta_m21_squared_eV2']), 'dm31': float(pk['delta_m31_squared_eV2'])}
+meas['r'] = meas['dm21'] / meas['dm31']
+width = {'sin2_theta12': (0.0057, 0.0073), 'sin2_theta23': (0.017, 0.013), 'sin2_theta13': (0.00056, 0.00056),
+         'delta_deg': (26.0, 41.0)}
+sr = meas['r'] * ((0.0965e-5 / meas['dm21']) ** 2 + (0.0205e-3 / meas['dm31']) ** 2) ** 0.5
+width['r'] = (sr, sr)
+# Jarlskog at the central values
+s12, s23, s13 = (meas[k] ** 0.5 for k in ('sin2_theta12', 'sin2_theta23', 'sin2_theta13'))
+c12, c23, c13 = ((1 - x * x) ** 0.5 for x in (s12, s23, s13))
+J_meas = s12 * c12 * s23 * c23 * s13 * c13 ** 2 * float(mp.sin(mp.radians(meas['delta_deg'])))
+J_max = s12 * c12 * s23 * c23 * s13 * c13 ** 2
+
+
+def pull(key, val):
+    if val is None:
+        return None
+    m = meas[key]
+    up, dn = width[key]
+    if key == 'delta_deg':
+        d = (val - m + 180) % 360 - 180
+    else:
+        d = val - m
+    return d / (up if d > 0 else dn)
+
+
+looks, rows = [], []
+for e in res['entries']:
+    row = {k: e.get(k) for k in ('id', 'orientation', 'labelling', 'reading', 'mass_reading', 'flux', 'columns',
+                                  'fixed_counter_state', 'x')}
+    row = {k: v for k, v in row.items() if v is not None}
+    pulls = {k: pull(k, e.get(k)) for k in ('sin2_theta12', 'sin2_theta23', 'sin2_theta13', 'delta_deg', 'r')}
+    row['values'] = {k: e.get(k) for k in ('sin2_theta12', 'sin2_theta23', 'sin2_theta13', 'delta_deg', 'J', 'r')}
+    row['pulls'] = {k: (None if v is None else round(v, 2)) for k, v in pulls.items()}
+    angle_pulls = [pulls[k] for k in ('sin2_theta12', 'sin2_theta23', 'sin2_theta13')]
+    row['angles_within_3_sigma'] = all(p is not None and abs(p) <= 3 for p in angle_pulls)
+    row['ratio_within_3_sigma'] = pulls['r'] is not None and abs(pulls['r']) <= 3
+    row['abs_J_le_Jmax_at_measured_angles'] = abs(e['J']) <= J_max + 1e-12
+    worst = max((abs(p) for p in angle_pulls if p is not None), default=None)
+    row['largest_angle_pull'] = None if worst is None else round(worst, 1)
+    rows.append(row)
+    looks.append({'id': e['id'], 'orientation': e['orientation'], 'labelling': e.get('labelling'),
+                  'variant': e.get('mass_reading', e.get('reading', e.get('flux', e.get('columns'))))})
+
+# ------------------------------------------------------------------------------------------------ B5 inverse reading
+lam2 = sorted(L.lam(L.THETA, k) ** 2 for k in range(3))
+r_meas = mp.mpf(meas['r'])
+
+
+def r_of(x, reading, lab):
+    ms = [abs(x + v) if reading == 'linear' else (x + v) ** 2 for v in lam2]
+    return L.ratio(ms, lab)
+
+
+def ascending_names(x, reading):
+    names = ['e', 'mu', 'tau']
+    ms = {n: (abs(x + v) if reading == 'linear' else (x + v) ** 2) for n, v in zip(names, lam2)}
+    return sorted(names, key=lambda n: ms[n])
+
+
+coarse = [mp.mpf(-50) + mp.mpf(100) * i / 20000 for i in range(20001)]
+fine = [mp.mpf(-1) + mp.mpf(2) * i / 40000 for i in range(40001)]
+finest = [mp.mpf('-0.001') + mp.mpf('0.002') * i / 20000 for i in range(20001)]
+grid = sorted(set(coarse) | set(fine) | set(finest))
+inverse = []
+for reading in ('linear', 'square'):
+    for lab in ('NO', 'IO'):
+        prev = None
+        for x in grid:
+            r = r_of(x, reading, lab)
+            if r is None:
+                prev = None
+                continue
+            g = r - r_meas
+            if prev is not None and (g == 0 or (g > 0) != (prev[1] > 0)):
+                try:
+                    root = mp.findroot(lambda z: r_of(z, reading, lab) - r_meas, (prev[0], x), solver='anderson')
+                except Exception:
+                    root = (prev[0] + x) / 2
+                asc = ascending_names(root, reading)
+                ms = [abs(root + v) if reading == 'linear' else (root + v) ** 2 for v in lam2]
+                msort = sorted(ms)
+                if lab == 'NO':
+                    scale = (mp.mpf(meas['dm31']) / (msort[2] ** 2 - msort[0] ** 2)) ** 0.5
+                    nu = {'nu1': msort[0] * scale, 'nu2': msort[1] * scale, 'nu3': msort[2] * scale}
+                    flav = {'nu1': asc[0], 'nu2': asc[1], 'nu3': asc[2]}
+                else:
+                    scale = (mp.mpf(meas['dm31']) / (msort[1] ** 2 - msort[0] ** 2)) ** 0.5
+                    nu = {'nu3': msort[0] * scale, 'nu1': msort[1] * scale, 'nu2': msort[2] * scale}
+                    flav = {'nu3': asc[0], 'nu1': asc[1], 'nu2': asc[2]}
+                inverse.append({'reading': reading, 'labelling': lab, 'x': float(root),
+                                'ascending_flavours': asc, 'mass_state_flavour': flav,
+                                'masses_eV_with_measured_dm31': {k: float(v) for k, v in nu.items()},
+                                'sum_eV': float(sum(nu.values())),
+                                'PMNS': 'permutation: ' + ', '.join(f'{k} = {v}' for k, v in flav.items())})
+            prev = (x, g)
+# ------------------------------------------------------------------------------------------------ post hoc readings
+post_hoc = []
+for r_ in rows:
+    v = r_['values']
+    if r_['id'] == 'C4' and v['J'] is not None:
+        post_hoc.append({'tuple': {k: r_.get(k) for k in ('id', 'orientation', 'labelling', 'flux')},
+                         'J': v['J'], 'delta_deg': v['delta_deg'], 'angles': [v['sin2_theta12'], v['sin2_theta23'], v['sin2_theta13']]})
+summary = {
+    'measured': meas, 'one_sigma_widths': {k: list(v) for k, v in width.items()},
+    'J_at_central_values': J_meas, 'J_max_at_central_angles': J_max,
+    'count_of_looks': len(looks) + len(inverse),
+    'looks_value_tuples': len(looks), 'looks_inverse_branches': len(inverse),
+    'tuples_with_all_three_angles_within_3_sigma': [r_ for r_ in rows if r_['angles_within_3_sigma']],
+    'tuples_with_ratio_within_3_sigma': [r_ for r_ in rows if r_['ratio_within_3_sigma']],
+    'best_largest_angle_pull_per_id': {},
+    'inverse_reading_B5': inverse,
+    'C4_J_and_delta_values (post hoc reading, NOT BLIND)': post_hoc,
+}
+for r_ in rows:
+    w = r_['largest_angle_pull']
+    if w is None:
+        continue
+    cur = summary['best_largest_angle_pull_per_id'].get(r_['id'])
+    if cur is None or w < cur['largest_angle_pull']:
+        summary['best_largest_angle_pull_per_id'][r_['id']] = r_
+json.dump({'summary': summary, 'rows': rows}, open(sys.argv[2], 'w'), indent=1)
+json.dump({'looks': looks, 'inverse_branches': inverse, 'count': len(looks) + len(inverse)}, open(sys.argv[3], 'w'), indent=1)
+print('measured', meas, 'J_meas', round(J_meas, 5), 'J_max', round(J_max, 5))
+print('looks', len(looks), '+ inverse branches', len(inverse))
+print('tuples with all three angles within 3 sigma:', len(summary['tuples_with_all_three_angles_within_3_sigma']))
+print('tuples with the ratio within 3 sigma:', len(summary['tuples_with_ratio_within_3_sigma']))
+for k, v in summary['best_largest_angle_pull_per_id'].items():
+    print('best', k, v.get('orientation'), v.get('labelling'), v.get('mass_reading', v.get('flux', v.get('columns', ''))),
+          'largest angle pull', v['largest_angle_pull'], 'pulls', v['pulls'])
+for b in inverse:
+    print('B5', b['reading'], b['labelling'], 'x = %.6f' % b['x'], b['PMNS'],
+          {k: round(v, 5) for k, v in b['masses_eV_with_measured_dm31'].items()}, 'sum %.4f' % b['sum_eV'])

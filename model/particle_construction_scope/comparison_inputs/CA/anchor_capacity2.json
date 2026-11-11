@@ -1,0 +1,103 @@
+{
+ "N6_copy_reproduces_public_program": true,
+ "N6_results": {
+  "public central link (1,1,1,-1,-1)": {
+   "(a) doublet levels with amplitudes 1, 2": {
+    "record_probabilities": [
+     "0",
+     "1"
+    ],
+    "record_entropy": -0.0,
+    "coherence_between_doublet_levels_after": "2/5",
+    "coherence_inside_triplet_after": "0",
+    "fibre_entropy_after": -0.0
+   },
+   "(b) doublet levels with equal amplitudes": {
+    "record_probabilities": [
+     "0",
+     "1"
+    ],
+    "record_entropy": -0.0,
+    "coherence_between_doublet_levels_after": "1/2",
+    "coherence_inside_triplet_after": "0",
+    "fibre_entropy_after": -0.0
+   },
+   "(c) all five levels with equal amplitudes": {
+    "record_probabilities": [
+     "3/5",
+     "2/5"
+    ],
+    "record_entropy": 0.6730116670092565,
+    "coherence_between_doublet_levels_after": "1/5",
+    "coherence_inside_triplet_after": "1/5",
+    "fibre_entropy_after": 0.6730116670092565
+   }
+  },
+  "sign on the charged doublet level (1,1,1,-1,1)": {
+   "(a) doublet levels with amplitudes 1, 2": {
+    "record_probabilities": [
+     "4/5",
+     "1/5"
+    ],
+    "record_entropy": 0.5004024235381879,
+    "coherence_between_doublet_levels_after": "0",
+    "coherence_inside_triplet_after": "0",
+    "fibre_entropy_after": 0.5004024235381879
+   },
+   "(b) doublet levels with equal amplitudes": {
+    "record_probabilities": [
+     "1/2",
+     "1/2"
+    ],
+    "record_entropy": 0.6931471805599453,
+    "coherence_between_doublet_levels_after": "0",
+    "coherence_inside_triplet_after": "0",
+    "fibre_entropy_after": 0.6931471805599453
+   },
+   "(c) all five levels with equal amplitudes": {
+    "record_probabilities": [
+     "4/5",
+     "1/5"
+    ],
+    "record_entropy": 0.5004024235381879,
+    "coherence_between_doublet_levels_after": "0",
+    "coherence_inside_triplet_after": "1/5",
+    "fibre_entropy_after": 0.5004024235381881
+   }
+  },
+  "sign on the other doublet level (1,1,1,1,-1)": {
+   "(a) doublet levels with amplitudes 1, 2": {
+    "record_probabilities": [
+     "1/5",
+     "4/5"
+    ],
+    "record_entropy": 0.5004024235381879,
+    "coherence_between_doublet_levels_after": "0",
+    "coherence_inside_triplet_after": "0",
+    "fibre_entropy_after": 0.5004024235381879
+   },
+   "(b) doublet levels with equal amplitudes": {
+    "record_probabilities": [
+     "1/2",
+     "1/2"
+    ],
+    "record_entropy": 0.6931471805599453,
+    "coherence_between_doublet_levels_after": "0",
+    "coherence_inside_triplet_after": "0",
+    "fibre_entropy_after": 0.6931471805599453
+   },
+   "(c) all five levels with equal amplitudes": {
+    "record_probabilities": [
+     "4/5",
+     "1/5"
+    ],
+    "record_entropy": 0.5004024235381879,
+    "coherence_between_doublet_levels_after": "0",
+    "coherence_inside_triplet_after": "1/5",
+    "fibre_entropy_after": 0.5004024235381881
+   }
+  }
+ },
+ "N6_predictions_hold": true,
+ "ln2": 0.6931471805599453
+}

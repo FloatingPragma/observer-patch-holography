@@ -1,0 +1,29 @@
+"""Probe: composite sectors of the unit-twist chain (creation disabled) on the strip L = 3 and on closed solids."""
+import sys, time
+import numpy as np
+import readouts as R
+NOCREATE = lambda q1, q2, m1, m2: abs(m1) + abs(m2) > abs(q1) + abs(q2)
+L = 3
+cx, perm, sid = R.strip(L)
+M = cx.M
+def start(spec):
+    d = [0] * M
+    for k, v in spec.items():
+        d[sid[k]] += v
+    return tuple(d)
+cases = {'double charge on U_0 (string through bottom rail, twice)': {('B', 0): -2},
+         'two unit charges U_0, U_1': {('B', 0): -1, ('B', 1): -1},
+         'neutral pair U_0 (+), D_0 (-) across diagonal G_0': {('G', 0): 1},
+         'neutral pair across rung R_1: D_0 (+), U_1 (-)': {('R', 1): 1},
+         }
+for label, spec in cases.items():
+    d = start(spec)
+    t0 = time.time()
+    try:
+        states, index, T = R.enumerate_chain([d], R.moves_twist(cx, forbid=NOCREATE), limit=int(sys.argv[1]))
+    except ArithmeticError:
+        print(label, 'charges', cx.charges(d), 'exceeds limit', f'{time.time()-t0:.1f}s', flush=True); continue
+    classes, lab = R.recurrent_classes(T)
+    absq = sorted({sum(abs(v) for v in cx.charges(s)) for s in states})
+    print(label, 'start charges', cx.charges(d), 'reachable', len(states), 'closed classes', [len(c) for c in classes],
+          'total |q| seen', absq, 'max |d|', max(max(abs(v) for v in s) for s in states), f'{time.time()-t0:.1f}s', flush=True)

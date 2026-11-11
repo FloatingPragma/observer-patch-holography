@@ -1,0 +1,539 @@
+{
+ "separation_classes": {
+  "by_dual_distance": {
+   "1": {
+    "pairs": 30,
+    "rotation_orbits_unordered": 1,
+    "rotation_orbits_ordered": 1
+   },
+   "2": {
+    "pairs": 60,
+    "rotation_orbits_unordered": 1,
+    "rotation_orbits_ordered": 2
+   },
+   "3": {
+    "pairs": 60,
+    "rotation_orbits_unordered": 2,
+    "rotation_orbits_ordered": 2
+   },
+   "4": {
+    "pairs": 30,
+    "rotation_orbits_unordered": 1,
+    "rotation_orbits_ordered": 1
+   },
+   "5": {
+    "pairs": 10,
+    "rotation_orbits_unordered": 1,
+    "rotation_orbits_ordered": 1
+   }
+  },
+  "tag": "EXACT",
+  "rotation_classes_of_unordered_pairs_at_separation_2_to_5": 5
+ },
+ "stationary_pair_separations": {
+  "allowed": [
+   2,
+   3,
+   4,
+   5
+  ],
+  "count": 4,
+  "source": "reports/CH.md, addition B (EXACT for the register rule of the runs): adjacent nonzero faces can always lower the cost, so stationary pairs of classes 2, 3, 4 sit at separation 2 to 5",
+  "shares_of_one_pair_carriers_end_of_level_10": {
+   "(2,4)": [
+    0.444,
+    0.345,
+    0.159,
+    0.052
+   ],
+   "(3,3)": [
+    0.503,
+    0.336,
+    0.125,
+    0.036
+   ]
+  },
+  "shares_source": "reports/CH.md, part (b), MEASURED there; not recomputed here"
+ },
+ "rest_phases_M1": {
+  "regenerated_against_stored_max_difference": 0.0,
+  "by_alpha_and_separation": {
+   "1/6": {
+    "1": 0.042383,
+    "2": 0.051014,
+    "3": 0.056207,
+    "4": 0.058279,
+    "5": 0.059322
+   },
+   "1/3": {
+    "1": 0.075113,
+    "2": 0.092788,
+    "3": 0.106416,
+    "4": 0.11308,
+    "5": 0.116921
+   },
+   "1/2": {
+    "1": 0.087847,
+    "2": 0.110554,
+    "3": 0.132363,
+    "4": 0.147787,
+    "5": 0.171237
+   }
+  },
+  "stationary_separations": {
+   "1/6": {
+    "d2_to_d5": [
+     0.051014,
+     0.056207,
+     0.058279,
+     0.059322
+    ],
+    "largest_over_smallest": 1.1629,
+    "distinct_values": 4
+   },
+   "1/3": {
+    "d2_to_d5": [
+     0.092788,
+     0.106416,
+     0.11308,
+     0.116921
+    ],
+    "largest_over_smallest": 1.2601,
+    "distinct_values": 4
+   },
+   "1/2": {
+    "d2_to_d5": [
+     0.110554,
+     0.132363,
+     0.147787,
+     0.171237
+    ],
+    "largest_over_smallest": 1.5489,
+    "distinct_values": 4
+   }
+  },
+  "tag": "MEASURED (float64), reference script work/DIRAC/defect_phases.py",
+  "all_ordered_face_pairs": {
+   "pairs_checked": 1140,
+   "largest_spread_inside_a_separation_class": 2.6229018956769323e-15,
+   "largest_difference_to_the_reference_table": 2.6229018956769323e-15,
+   "statement": "the rest phase depends on the separation only (both rotation classes at separation 3 agree)"
+  }
+ },
+ "flux_pair_splits_a_load_triplet": {
+  "slow_triplet_without_flux": {
+   "level": 2.76393202250021,
+   "rest_angle": 0.3047084373702735
+  },
+  "rows": {
+   "alpha 1/6, separation 1": {
+    "lowest_level": 0.053881,
+    "levels": [
+     2.541506,
+     2.763932,
+     3.004846
+    ],
+    "rest_angles": [
+     0.292099,
+     0.304708,
+     0.317819
+    ],
+    "largest_over_smallest_angle": 1.0881,
+    "gap_to_the_next_level": 2.5062,
+    "levels_1_to_3_separated_from_level_0": true
+   },
+   "alpha 1/6, separation 2": {
+    "lowest_level": 0.078056,
+    "levels": [
+     2.388923,
+     2.763932,
+     3.144206
+    ],
+    "rest_angles": [
+     0.283134,
+     0.304708,
+     0.32517
+    ],
+    "largest_over_smallest_angle": 1.1485,
+    "gap_to_the_next_level": 2.2853,
+    "levels_1_to_3_separated_from_level_0": true
+   },
+   "alpha 1/6, separation 3": {
+    "lowest_level": 0.094753,
+    "levels": [
+     2.222618,
+     2.818488,
+     3.290018
+    ],
+    "rest_angles": [
+     0.273037,
+     0.307725,
+     0.332693
+    ],
+    "largest_over_smallest_angle": 1.2185,
+    "gap_to_the_next_level": 2.1632,
+    "levels_1_to_3_separated_from_level_0": true
+   },
+   "alpha 1/6, separation 4": {
+    "lowest_level": 0.101863,
+    "levels": [
+     2.145431,
+     2.859877,
+     3.364734
+    ],
+    "rest_angles": [
+     0.268225,
+     0.309994,
+     0.336485
+    ],
+    "largest_over_smallest_angle": 1.2545,
+    "gap_to_the_next_level": 2.0641,
+    "levels_1_to_3_separated_from_level_0": true
+   },
+   "alpha 1/6, separation 5": {
+    "lowest_level": 0.105541,
+    "levels": [
+     2.103842,
+     2.890154,
+     3.408138
+    ],
+    "rest_angles": [
+     0.265597,
+     0.311644,
+     0.338669
+    ],
+    "largest_over_smallest_angle": 1.2751,
+    "gap_to_the_next_level": 1.8591,
+    "levels_1_to_3_separated_from_level_0": true
+   },
+   "alpha 1/3, separation 1": {
+    "lowest_level": 0.169178,
+    "levels": [
+     2.363981,
+     2.763932,
+     3.237552
+    ],
+    "rest_angles": [
+     0.281642,
+     0.304708,
+     0.330005
+    ],
+    "largest_over_smallest_angle": 1.1717,
+    "gap_to_the_next_level": 1.7901,
+    "levels_1_to_3_separated_from_level_0": true
+   },
+   "alpha 1/3, separation 2": {
+    "lowest_level": 0.258103,
+    "levels": [
+     2.056076,
+     2.763932,
+     3.52026
+    ],
+    "rest_angles": [
+     0.262547,
+     0.304708,
+     0.34425
+    ],
+    "largest_over_smallest_angle": 1.3112,
+    "gap_to_the_next_level": 1.3432,
+    "levels_1_to_3_separated_from_level_0": true
+   },
+   "alpha 1/3, separation 3": {
+    "lowest_level": 0.33941,
+    "levels": [
+     1.710482,
+     2.939076,
+     3.799647
+    ],
+    "rest_angles": [
+     0.239351,
+     0.314292,
+     0.357791
+    ],
+    "largest_over_smallest_angle": 1.4948,
+    "gap_to_the_next_level": 1.099,
+    "levels_1_to_3_separated_from_level_0": true
+   },
+   "alpha 1/3, separation 4": {
+    "lowest_level": 0.383204,
+    "levels": [
+     1.548562,
+     3.100376,
+     3.936626
+    ],
+    "rest_angles": [
+     0.227689,
+     0.322875,
+     0.364255
+    ],
+    "largest_over_smallest_angle": 1.5998,
+    "gap_to_the_next_level": 0.93,
+    "levels_1_to_3_separated_from_level_0": true
+   },
+   "alpha 1/3, separation 5": {
+    "lowest_level": 0.409646,
+    "levels": [
+     1.459844,
+     3.254571,
+     4.018264
+    ],
+    "rest_angles": [
+     0.221043,
+     0.330879,
+     0.368055
+    ],
+    "largest_over_smallest_angle": 1.6651,
+    "gap_to_the_next_level": 0.4943,
+    "levels_1_to_3_separated_from_level_0": true
+   },
+   "alpha 1/2, separation 1": {
+    "lowest_level": 0.231362,
+    "levels": [
+     2.290725,
+     2.763932,
+     3.355148
+    ],
+    "rest_angles": [
+     0.277215,
+     0.304708,
+     0.336001
+    ],
+    "largest_over_smallest_angle": 1.2121,
+    "gap_to_the_next_level": 1.4509,
+    "levels_1_to_3_separated_from_level_0": true
+   },
+   "alpha 1/2, separation 2": {
+    "lowest_level": 0.366292,
+    "levels": [
+     1.90263,
+     2.763932,
+     3.751058
+    ],
+    "rest_angles": [
+     0.252506,
+     0.304708,
+     0.355472
+    ],
+    "largest_over_smallest_angle": 1.4078,
+    "gap_to_the_next_level": 0.8041,
+    "levels_1_to_3_separated_from_level_0": true
+   },
+   "alpha 1/2, separation 3": {
+    "lowest_level": 0.524832,
+    "levels": [
+     1.435929,
+     3.006793,
+     4.208465
+    ],
+    "rest_angles": [
+     0.219218,
+     0.317923,
+     0.376767
+    ],
+    "largest_over_smallest_angle": 1.7187,
+    "gap_to_the_next_level": 0.2606,
+    "levels_1_to_3_separated_from_level_0": false
+   },
+   "alpha 1/2, separation 4": {
+    "lowest_level": 0.654037,
+    "levels": [
+     1.171573,
+     3.267949,
+     4.406728
+    ],
+    "rest_angles": [
+     0.19794,
+     0.331565,
+     0.385649
+    ],
+    "largest_over_smallest_angle": 1.9483,
+    "gap_to_the_next_level": 0.1791,
+    "levels_1_to_3_separated_from_level_0": false
+   },
+   "alpha 1/2, separation 5": {
+    "lowest_level": 0.877514,
+    "levels": [
+     0.877514,
+     3.816211,
+     3.816211
+    ],
+    "rest_angles": [
+     0.171237,
+     0.358579,
+     0.358579
+    ],
+    "largest_over_smallest_angle": 2.0941,
+    "gap_to_the_next_level": 0.7696,
+    "levels_1_to_3_separated_from_level_0": false
+   }
+  },
+  "alpha_1/6_largest_over_smallest_angle_range": [
+   1.0881,
+   1.2751
+  ],
+  "isotropic_average_spread_on_the_triplet": 4.440892098500626e-15,
+  "tag": "MEASURED (float64); the vanishing of the averaged splitting is Schur's lemma",
+  "note": "levels 1 to 3 descend from the slow triplet where the flag levels_1_to_3_separated_from_level_0 is true (all rows of alpha 1/6); at alpha 1/2 and separation 5 the two lowest levels coincide and the assignment by position fails",
+  "statement": "a flux pair on the carrier splits the three states of a load triplet for a charged level; averaged over the sixty orientations of the pair the first-order operator on the triplet is a multiple of the identity, so an unoriented dilute background shifts the three copies together and does not split them at first order in the density"
+ },
+ "three_flux_classes": {
+  "classes_up_to_conjugation": [
+   [
+    1,
+    5
+   ],
+   [
+    2,
+    4
+   ],
+   [
+    3
+   ]
+  ],
+  "count": 3,
+  "patterns": {
+   "quark doublet Q_L": {
+    "Q6": 1,
+    "alpha_in_class_1_2_3": [
+     "1/6",
+     "1/3",
+     "1/2"
+    ],
+    "rest_phase_at_separation_1": [
+     0.042383,
+     0.075113,
+     0.087847
+    ],
+    "distinct_nonzero_phases": 3
+   },
+   "up singlet u_R": {
+    "Q6": 4,
+    "alpha_in_class_1_2_3": [
+     "1/3",
+     "1/3",
+     "0"
+    ],
+    "rest_phase_at_separation_1": [
+     0.075113,
+     0.075113,
+     0.0
+    ],
+    "distinct_nonzero_phases": 1
+   },
+   "down singlet d_R": {
+    "Q6": -2,
+    "alpha_in_class_1_2_3": [
+     "1/3",
+     "1/3",
+     "0"
+    ],
+    "rest_phase_at_separation_1": [
+     0.075113,
+     0.075113,
+     0.0
+    ],
+    "distinct_nonzero_phases": 1
+   },
+   "lepton doublet L_L": {
+    "Q6": -3,
+    "alpha_in_class_1_2_3": [
+     "1/2",
+     "0",
+     "1/2"
+    ],
+    "rest_phase_at_separation_1": [
+     0.087847,
+     0.0,
+     0.087847
+    ],
+    "distinct_nonzero_phases": 1
+   },
+   "electron singlet e_R": {
+    "Q6": -6,
+    "alpha_in_class_1_2_3": [
+     "0",
+     "0",
+     "0"
+    ],
+    "rest_phase_at_separation_1": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "distinct_nonzero_phases": 0
+   },
+   "neutrino singlet nu_R": {
+    "Q6": 0,
+    "alpha_in_class_1_2_3": [
+     "0",
+     "0",
+     "0"
+    ],
+    "rest_phase_at_separation_1": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "distinct_nonzero_phases": 0
+   }
+  },
+  "dirac_pairs_equal_angle_and_left_alpha": {
+   "class 1": {
+    "up": {
+     "equal": false,
+     "alpha_left": "1/6"
+    },
+    "down": {
+     "equal": false,
+     "alpha_left": "1/6"
+    },
+    "electron": {
+     "equal": false,
+     "alpha_left": "1/2"
+    },
+    "neutrino": {
+     "equal": false,
+     "alpha_left": "1/2"
+    }
+   },
+   "class 2": {
+    "up": {
+     "equal": true,
+     "alpha_left": "1/3"
+    },
+    "down": {
+     "equal": true,
+     "alpha_left": "1/3"
+    },
+    "electron": {
+     "equal": true,
+     "alpha_left": "0"
+    },
+    "neutrino": {
+     "equal": true,
+     "alpha_left": "0"
+    }
+   },
+   "class 3": {
+    "up": {
+     "equal": false,
+     "alpha_left": "1/2"
+    },
+    "down": {
+     "equal": false,
+     "alpha_left": "1/2"
+    },
+    "electron": {
+     "equal": false,
+     "alpha_left": "1/2"
+    },
+    "neutrino": {
+     "equal": false,
+     "alpha_left": "1/2"
+    }
+   }
+  },
+  "tag": "EXACT (charges), phases from the reference table",
+  "statement": "the three classes are three backgrounds, not three copies: a pattern sees them through its own charge. The quark doublet has three different angles, the quark singlets two equal ones and a zero, the lepton doublet two equal ones and a zero, the lepton singlets three zeros; the two handedness patterns of a Dirac pair agree only in class 2 (up and down), where the leptons are massless"
+ }
+}

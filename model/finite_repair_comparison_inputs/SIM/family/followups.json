@@ -1,0 +1,106 @@
+{
+ "drift_of_a_blank_spin_up_packet": {
+  "mass step at the end": {
+   "slope_cells_per_tick_ticks_200_to_600": -0.040481836116893516,
+   "intercept_cells": 2.3714076226075904,
+   "centre_after_4_ticks": 1.5634102542598507,
+   "centre_after_64_ticks": 0.07835665240650513
+  },
+  "half-step frame": {
+   "slope_cells_per_tick_ticks_200_to_600": -7.601346917845994e-05,
+   "intercept_cells": 2.403719845062157,
+   "centre_after_4_ticks": 2.0722091699302583,
+   "centre_after_64_ticks": 2.831189110993277
+  }
+ },
+ "one_point_source": {
+  "lifted_states": [
+   {
+    "phase_per_tick": -0.0053597499009753555,
+    "arrow_expectation_X_record": 1.9434487042161894e-14,
+    "weight_on_cones": {
+     "origin": 0.24989941520901637,
+     "axis 1": 0.24989941520901587,
+     "axis 2": 0.24989941520901587,
+     "axis 3": 0.24989941520901637
+    }
+   },
+   {
+    "phase_per_tick": 0.00535974990097576,
+    "arrow_expectation_X_record": 1.8426704765277126e-14,
+    "weight_on_cones": {
+     "origin": 0.24989941520901637,
+     "axis 1": 0.24989941520901582,
+     "axis 2": 0.24989941520901582,
+     "axis 3": 0.24989941520901637
+    }
+   },
+   {
+    "phase_per_tick": -0.005359749900975579,
+    "arrow_expectation_X_record": 6.485523923460691e-14,
+    "weight_on_cones": {
+     "origin": 0.2498994152090162,
+     "axis 1": 0.24989941520901596,
+     "axis 2": 0.24989941520901598,
+     "axis 3": 0.24989941520901623
+    }
+   },
+   {
+    "phase_per_tick": 0.005359749900975759,
+    "arrow_expectation_X_record": 4.560761490690617e-14,
+    "weight_on_cones": {
+     "origin": 0.24989941520901626,
+     "axis 1": 0.24989941520901593,
+     "axis 2": 0.24989941520901593,
+     "axis 3": 0.2498994152090162
+    }
+   },
+   {
+    "phase_per_tick": 0.005359749900975478,
+    "arrow_expectation_X_record": -9.151905594800202e-14,
+    "weight_on_cones": {
+     "origin": 0.2497918819139944,
+     "axis 1": 0.24979188191398782,
+     "axis 2": 0.24979188191398588,
+     "axis 3": 0.2497918819139908
+    }
+   },
+   {
+    "phase_per_tick": -0.005359749900975741,
+    "arrow_expectation_X_record": -1.2281499241263998e-13,
+    "weight_on_cones": {
+     "origin": 0.24979188191399246,
+     "axis 1": 0.24979188191398854,
+     "axis 2": 0.24979188191398927,
+     "axis 3": 0.2497918819139886
+    }
+   },
+   {
+    "phase_per_tick": -0.005359749900975743,
+    "arrow_expectation_X_record": 9.544688251153442e-14,
+    "weight_on_cones": {
+     "origin": 0.24979188191398904,
+     "axis 1": 0.2497918819139882,
+     "axis 2": 0.24979188191399093,
+     "axis 3": 0.2497918819139906
+    }
+   },
+   {
+    "phase_per_tick": 0.005359749900975729,
+    "arrow_expectation_X_record": 6.604236901073609e-14,
+    "weight_on_cones": {
+     "origin": 0.24979188191399385,
+     "axis 1": 0.24979188191399368,
+     "axis 2": 0.24979188191398605,
+     "axis 3": 0.24979188191398516
+    }
+   }
+  ],
+  "count_zero": 120,
+  "zero_space_arrow_eigenvalues": {
+   "plus": 60,
+   "minus": 60,
+   "other": 0
+  }
+ }
+}

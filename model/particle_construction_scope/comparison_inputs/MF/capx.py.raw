@@ -1,0 +1,257 @@
+"""Exact objects of the covariant agreement pump (CAP) on the exact carrier: Kraus rows, channel, symmetry tools.
+
+One load: 12 states. Two hard-core loads: the 66 pairs of ports (the binary shell of the total-two carrier; the
+stationary state of CAP lives there because double loads are split and never created).
+Sparse operators are lists of rows, each row a list of (column, value).
+"""
+import itertools
+from kfield import *
+from xcarrier import Carrier, dot3
+
+X = Carrier()
+PAIRS = list(itertools.combinations(range(12), 2))
+PIDX = {c: i for i, c in enumerate(PAIRS)}
+INV30 = Kq(1, 30)
+
+
+def pair_index(p, q):
+    return PIDX[(p, q) if p < q else (q, p)]
+
+
+def link(a, b, k):
+    z = X.link[(a, b)]
+    return z ** k
+
+
+# ------------------------------------------------------------------ Kraus rows
+def kraus_one(k):
+    """Per seam: [K0, K1] with K0 = 1 - |-><-|, K1 = |+><-|, |+-> = (|a> +- z|b>)/sqrt2, z = link(a -> b)^k."""
+    out = []
+    for (a, b) in X.E:
+        z = link(a, b, k); zc = z.conj()
+        K0 = [[(i, K(1))] for i in range(12)]
+        K0[a] = [(a, HALF), (b, zc * HALF)]
+        K0[b] = [(a, z * HALF), (b, HALF)]
+        K1 = [[] for _ in range(12)]
+        K1[a] = [(a, HALF), (b, -zc * HALF)]
+        K1[b] = [(a, z * HALF), (b, -HALF)]
+        out.append([K0, K1])
+    return out
+
+
+def kraus_two(k):
+    """Hard-core pairs: the seam acts on the load that sits on exactly one of its ports."""
+    out = []
+    for (a, b) in X.E:
+        z = link(a, b, k); zc = z.conj()
+        K0 = [[(i, K(1))] for i in range(66)]
+        K1 = [[] for _ in range(66)]
+        for o in range(12):
+            if o in (a, b): continue
+            ia, ib = pair_index(a, o), pair_index(b, o)
+            K0[ia] = [(ia, HALF), (ib, zc * HALF)]
+            K0[ib] = [(ia, z * HALF), (ib, HALF)]
+            K1[ia] = [(ia, HALF), (ib, -zc * HALF)]
+            K1[ib] = [(ia, z * HALF), (ib, -HALF)]
+        out.append([K0, K1])
+    return out
+
+
+ONE = fmpq_poly([1])
+
+
+def sandwich(Ks, Xm):
+    """K X K^dagger for a sparse K."""
+    n = len(Xm)
+    Xr = [[x.p for x in row] for row in Xm]
+    Y = []
+    for i in range(n):
+        row = Ks[i]
+        if len(row) == 1 and row[0][1].p == ONE:
+            Y.append(Xr[row[0][0]]); continue
+        acc = [fmpq_poly([0])] * n
+        for (s, v) in row:
+            vp = v.p; xs = Xr[s]
+            acc = [a + vp * x if not x.is_zero() else a for a, x in zip(acc, xs)]
+        Y.append(acc)
+    Z = [[None] * n for _ in range(n)]
+    for j in range(n):
+        row = Ks[j]
+        if len(row) == 1 and row[0][1].p == ONE:
+            t = row[0][0]
+            for i in range(n):
+                Z[i][j] = Y[i][t]
+            continue
+        cs = [(t, v.conj().p) for (t, v) in row]
+        for i in range(n):
+            acc = fmpq_poly([0]); yi = Y[i]
+            for (t, vc) in cs:
+                y = yi[t]
+                if not y.is_zero():
+                    acc = acc + y * vc
+            Z[i][j] = acc
+    return [[K(x % PHI) for x in row] for row in Z]
+
+
+def channel(krs, Xm):
+    n = len(Xm)
+    out = zeros(n)
+    for rows in krs:
+        for Ks in rows:
+            out = madd(out, sandwich(Ks, Xm))
+    return mscale(Kq(1, len(krs)), out)
+
+
+def dense(Ks):
+    n = len(Ks)
+    M = zeros(n)
+    for i, row in enumerate(Ks):
+        for (j, v) in row:
+            M[i][j] = v
+    return M
+
+
+# ------------------------------------------------------------------ symmetry
+def rotation_class(R):
+    t = trace(R)
+    if t == 3: return 'e'
+    if t == -1: return '2'
+    if t == 0: return '3'
+    if t == PHI_G: return '5a'
+    if t == 1 - PHI_G: return '5b'
+    raise ValueError('unknown class')
+
+
+CLASS = [rotation_class(g[0]) for g in X.group]
+CHAR = {'1': {'e': K(1), '2': K(1), '3': K(1), '5a': K(1), '5b': K(1)},
+        '3': {'e': K(3), '2': K(-1), '3': K(0), '5a': PHI_G, '5b': 1 - PHI_G},
+        "3'": {'e': K(3), '2': K(-1), '3': K(0), '5a': 1 - PHI_G, '5b': PHI_G},
+        '4': {'e': K(4), '2': K(0), '3': K(1), '5a': K(-1), '5b': K(-1)},
+        '5': {'e': K(5), '2': K(1), '3': K(-1), '5a': K(0), '5b': K(0)}}
+DIM = {'1': 1, '3': 3, "3'": 3, '4': 4, '5': 5}
+# one lift per rotation
+_seen = {}
+for gi, g in enumerate(X.group):
+    _seen.setdefault(g[2], gi)
+ROT = sorted(_seen.values())
+assert len(ROT) == 60
+assert sorted(CLASS[g] for g in ROT).count('2') == 15 and sorted(CLASS[g] for g in ROT).count('5a') == 12
+
+
+def action_one(gi, k):
+    """(perm, phases) of the monomial action of group element gi on the one-load space at flux k."""
+    return list(X.group[gi][2]), [t ** k for t in X.theta[gi]]
+
+
+def action_two(gi, k):
+    perm = X.group[gi][2]; th = [t ** k for t in X.theta[gi]]
+    return [pair_index(perm[p], perm[q]) for (p, q) in PAIRS], [th[p] * th[q] for (p, q) in PAIRS]
+
+
+def subgroup(gens):
+    """Closure of a set of rotations (indices into X.group), as a list of representatives in ROT."""
+    perms = {X.group[g][2]: g for g in ROT}
+    ident = tuple(range(12))
+    elems = {ident}; frontier = [ident]
+    gp = [X.group[g][2] for g in gens]
+    while frontier:
+        new = []
+        for h in frontier:
+            for g in gp:
+                c = tuple(g[h[p]] for p in range(12))
+                if c not in elems:
+                    elems.add(c); new.append(c)
+        frontier = new
+    return [perms[e] for e in elems]
+
+
+def subgroup_for(chi):
+    """A subgroup H with exactly one invariant vector in the irreducible chi."""
+    if chi == '1':
+        return list(ROT)
+    cands = []
+    stab0 = [g for g in ROT if X.group[g][2][0] == 0]
+    cands.append(stab0)
+    f = X.F[0]
+    order3 = [g for g in ROT if CLASS[g] == '3']
+    order2 = [g for g in ROT if CLASS[g] == '2']
+    for g3 in order3[:4]:
+        for g2 in order2:
+            H = subgroup([g3, g2])
+            if len(H) in (6, 12):
+                cands.append(H)
+    for H in cands:
+        m = sum((CHAR[chi][CLASS[h]] for h in H), K(0)) * Kq(1, len(H))
+        if m == 1:
+            return H
+    raise ValueError('no subgroup found for ' + chi)
+
+
+def averaged_vectors(act, chi, H):
+    """Columns of P_chi P_H on a monomial representation given by act(g) -> (perm, phases). Returns the matrix."""
+    n = len(act(ROT[0])[0])
+    PH = zeros(n)
+    for h in H:
+        perm, ph = act(h)
+        for i in range(n):
+            PH[perm[i]][i] = PH[perm[i]][i] + ph[i]
+    PH = mscale(Kq(1, len(H)), PH)
+    PC = zeros(n)
+    for g in ROT:
+        perm, ph = act(g)
+        w = CHAR[chi][CLASS[g]]
+        if w.is_zero(): continue
+        for i in range(n):
+            PC[perm[i]][i] = PC[perm[i]][i] + w * ph[i]
+    PC = mscale(Kq(DIM[chi], 60), PC)
+    return mmul(PC, PH), PC
+
+
+def column_basis(Mx):
+    """Independent columns of a matrix (as list of column vectors)."""
+    R, piv = rref(Mx)
+    return [colvec(Mx, j) for j in piv]
+
+
+def conj_action(Xm, perm, ph):
+    """M X M^dagger for the monomial M|i> = ph_i |perm i>."""
+    n = len(Xm)
+    out = zeros(n)
+    phc = [x.conj() for x in ph]
+    for i in range(n):
+        for j in range(n):
+            x = Xm[i][j]
+            if not x.is_zero():
+                out[perm[i]][perm[j]] = ph[i] * x * phc[j]
+    return out
+
+
+def band_projectors(A, lams):
+    n = len(A)
+    out = []
+    for j, lj in enumerate(lams):
+        Pj = eye(n)
+        for i, li in enumerate(lams):
+            if i != j:
+                Pj = mscale((lj - li).inv(), mmul(Pj, msub(A, mscale(li, eye(n)))))
+        out.append(Pj)
+    return out
+
+
+LEVELS1 = [S5 * C10, (3 - S5) * C10 * HALF, -C10]          # flux 1: doublet, quartet, sextet
+
+
+def bands(k):
+    """Eigenvalues of the flux-k adjacency (descending) with their dimensions, for k in 0, 1, 2, 3, 7, 9, 10."""
+    if k == 0:
+        lam, dims = [K(5), S5, -S5, K(-1)], [1, 3, 3, 5]
+    elif k == 10:
+        lam, dims = [K(-5), -S5, S5, K(1)], [1, 3, 3, 5]
+    elif k == 2:
+        lam, dims = [(5 + S5) * HALF, (S5 - 3) * HALF, -S5], [3, 5, 4]
+    elif k in (1, 3, 7, 9):
+        lam, dims = [x.galois(k) for x in LEVELS1], [2, 4, 6]
+    else:
+        raise ValueError(k)
+    order = sorted(range(len(lam)), key=lambda i: -float(lam[i]))
+    return [lam[i] for i in order], [dims[i] for i in order]

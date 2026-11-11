@@ -1,0 +1,40 @@
+"""Exact opposite-charge weak-density contraction on the full native source."""
+from pathlib import Path
+import sys,json
+from fractions import Fraction
+ROOT=Path('WORKSPACE/repair-law/reverse-engineering-reality')
+sys.path.insert(0,str(ROOT))
+import sympy as s
+from model.native_weak_current_interface.model import dressed_weak_polynomial
+from model.coherent_defect_wave.chiral_joint.neutral_local_spectrum.symmetries import conjugate_polynomial
+from model.native_weak_current_response import charged
+from model.coherent_defect_wave.chiral_joint.higgs_composites import model as car
+from model.coherent_defect_wave.chiral_higgs.model import higgs_memory
+from model.coherent_defect_wave.chiral_particle_map.model import pauli
+W,D,S,Ka,NL=dressed_weak_polynomial(); Wbar=conjugate_polynomial(W)
+assert Wbar!=W and Wbar==car.adjoint(Wbar)
+assert conjugate_polynomial(Wbar)==W
+phi=higgs_memory()[0];sig=pauli();ka=[];js=[]
+for a in range(3):
+ ka.append(sum((s.conjugate(sig[a][j,i])*phi[i].H*phi[j] for i in range(2) for j in range(2)),s.zeros(5)))
+ one=s.zeros(30)
+ for spin in range(2):
+  for i in range(2):
+   for j in range(2):one[15*spin+10+i,15*spin+10+j]=sig[a][i,j]/2
+ js.append(car.one_body(one))
+formula=car.scale(car.add(*[car.multiply(car.monomial(matrix=ka[a]),js[a]) for a in range(3)]),-1)
+assert formula==Wbar
+for a in range(12):assert not car.commutator(car.gauge_current(a),Wbar)
+for a in range(3):assert not car.commutator(car.spin_current(a),Wbar)
+# Re-execute the unchanged complete-block contraction with the actual
+# conjugate polynomial. Only this module's provider is substituted in memory.
+original=charged.dressed_weak_polynomial
+charged.dressed_weak_polynomial=lambda:(Wbar,D,S,Ka,NL)
+charged.calculate.cache_clear()
+try:value=charged.calculate()
+finally:charged.dressed_weak_polynomial=original;charged.calculate.cache_clear()
+report={'formula':'Theta W Theta^-1 = -sum_a tr(sigma_a^* [phi_i^dagger phi_j]_(ij)) j_a',
+ 'W_is_conjugation_invariant':False,'actual_all12_Gauss_and3_spin_commutators_zero':True,
+ 'complete_charged_contractions':value}
+Path(__file__).with_name('result.json').write_text(json.dumps(report,indent=2,sort_keys=True)+'\n')
+for k,v in value['charged_target_ground_current'].items():print(k,[float(Fraction(z)) for z in v['outward_interval']])

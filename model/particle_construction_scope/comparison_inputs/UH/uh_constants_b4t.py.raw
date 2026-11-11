@@ -1,0 +1,32 @@
+"""Worker UH, Addendum 2: vector constant with the field step of X5 (two leapfrog steps per tick):
+omega = 4 arcsin(s/4), s = sqrt(khat^2 + M^2). Writes constants_b4t.json."""
+import json
+import math
+import sys
+
+import numpy as np
+
+sys.argv = sys.argv[:1]
+import importlib.util
+spec = importlib.util.spec_from_file_location("uhc_partial", "uh_constants.py")
+src = open("uh_constants.py").read().split("# ------------------------------------------------------------------ B1, B2")[0]
+ns = {}
+exec(compile(src, "uh_constants_head", "exec"), ns)
+khat = lambda p: np.sqrt((4 * np.sin(p / 2) ** 2).sum(-1))
+
+
+def D(p):
+    s = khat(p)
+    q = 1 - s ** 2 / 16
+    return -1 / (4 * s ** 3) / np.sqrt(q) + 1 / (64 * s) / q ** 1.5
+
+
+def T2(p):
+    s = khat(p)
+    return 1 / (2 * s) / np.sqrt(1 - s ** 2 / 16)
+
+
+res = ns["constants"](D, T2, math.pi, label="GL links, two leapfrog field steps per tick, full zone")
+res["max_s_over_4_at_zone_corner"] = math.sqrt(12) / 4
+json.dump(res, open("constants_b4t.json", "w"), indent=1)
+print(res)

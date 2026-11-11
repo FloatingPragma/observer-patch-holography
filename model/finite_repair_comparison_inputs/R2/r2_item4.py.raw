@@ -1,0 +1,212 @@
+"""R2 item 4: operational readouts with complete outcome sets, executed (float64, printed defects).
+
+  P  position: one projector per cell (and, for a flux object, the face syndrome); all outcomes kept
+  M  momentum: phase estimation of the lattice translation with a clock register of M levels; all M outcomes kept
+     M1  a momentum eigenstate: exact when the lattice size divides M; otherwise the kernel sin^2(M d/2)/(M sin(d/2))^2
+     M2  the packet of the reference engine (256 cells, momentum index 12, theta = 0.157935): outcome distributions
+     M3  resolution against register size M and patch size (packet with sigma_x = patch/8 on a ring of 512 cells)
+     M4  the momentum record is a constant of the tick; three axes on a three-dimensional packet
+     M5  flux pair with the commuting pointer: momentum record against velocity
+  S  the code-carrying seam reflector at register level (ring of 4 carriers, code register per carrier, 1296
+     dimensions): local factors commute, are involutions, and on the one-composite sector equal the reflector with
+     the code as a carried label; the cell of the quantum and the cell of the nonflat carrier coincide
+"""
+import itertools, json, os, sys, time
+import numpy as np
+from routing import Routing, branch
+from r2lib import (GenRouting, SIG, branch_packet, cell_distribution, central_halfwidth, circ_stats, circular_mean,
+                   displacement, fejer, linear_mean, qpe)
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+TAB = json.load(open(os.path.join(HERE, 'carrier_tables.json')))
+out = {}
+t00 = time.time()
+
+# ---- M1: eigenstates -----------------------------------------------------------------------------------------------
+m1 = {}
+w = Routing((64, 1, 1))
+psi = w.plane_wave((5, 0, 0), [1, 0, 0, 0])
+for M in (64, 128):
+    P = qpe(psi, 0, M)
+    want = np.zeros(M); want[5 * M // 64] = 1
+    m1[f'lattice 64, M = {M}: outcome distribution minus the delta at j = 5 M/64 (max)'] = float(np.abs(P - want).max())
+worst = 0.0; near = []
+for M in (16, 48, 100):
+    P = qpe(psi, 0, M)
+    p = 2 * np.pi * 5 / 64
+    worst = max(worst, float(np.abs(P - fejer(p - 2 * np.pi * np.arange(M) / M, M)).max()))
+    j0 = int(np.floor(p * M / (2 * np.pi)))
+    near.append({'M': M, 'two nearest outcomes': float(P[j0 % M] + P[(j0 + 1) % M]), 'total': float(P.sum())})
+m1['lattice 64, M = 16, 48, 100: distribution minus the kernel sin^2(M d/2)/(M sin(d/2))^2 (max)'] = worst
+m1['weight of the two outcomes nearest to the momentum (bound 8/pi^2 = 0.8106)'] = near
+out['M1_eigenstates'] = m1
+print('M1:', m1)
+
+# ---- M2: the packet of the reference engine ------------------------------------------------------------------------
+theta = 0.157935
+w2 = Routing((256, 1, 1))
+psi0 = w2.packet(12, 3.0, lambda p: branch(p, theta)[0])
+amp = np.fft.fft(psi0, axis=0) / np.sqrt(256)
+exact = (np.abs(amp) ** 2).sum(axis=(1, 2, 3, 4))            # momentum distribution on the lattice grid, index n
+p0 = 2 * np.pi * 12 / 256
+rows = []
+for M in (16, 32, 64, 128, 256, 512):
+    P = qpe(psi0, 0, M)
+    mean, std = circ_stats(P)
+    row = {'M': M, 'bin (rad)': 2 * np.pi / M, 'total probability': float(P.sum()), 'mean (rad)': mean, 'circular std (rad)': std,
+           'half-width of the central 68% (rad)': central_halfwidth(P, p0 * M / (2 * np.pi), 0.68) * 2 * np.pi / M,
+           'half-width of the central 95% (rad)': central_halfwidth(P, p0 * M / (2 * np.pi), 0.95) * 2 * np.pi / M}
+    if M % 256 == 0:
+        row['distribution minus the exact lattice momentum distribution (max)'] = float(np.abs(P[::M // 256] - exact).max())
+    rows.append(row)
+m2 = {'p0': p0, 'exact momentum distribution: mean, std (rad)': list(circ_stats(exact)), 'registers': rows,
+      'M = 32, all outcomes': [float(x) for x in qpe(psi0, 0, 32)]}
+# position instrument on the same packet, before and after 60 ticks
+psi = psi0
+for t in range(60): psi = w2.tick(psi, theta)
+P0, P1 = cell_distribution(psi0)[:, 0, 0], cell_distribution(psi)[:, 0, 0]
+def moments(P):
+    ref = int(round(circular_mean(P.reshape(-1, 1, 1), 0)))    # unwrap around the packet
+    m = linear_mean(P.reshape(-1, 1, 1), 0, ref)
+    x = (np.arange(len(P)) - ref + len(P) / 2) % len(P) - len(P) / 2 + ref
+    return m, float(np.sqrt(np.sum(P * (x - m) ** 2)))
+m2['position instrument: outcomes, total probability'] = [256, float(P1.sum())]
+m2['position: mean, std (cells) at t = 0'] = list(moments(P0))
+m2['position: mean, std (cells) at t = 60'] = list(moments(P1))
+m2['momentum record M = 256 after 60 ticks minus before (max)'] = float(np.abs(qpe(psi, 0, 256) - qpe(psi0, 0, 256)).max())
+m2['sigma_x sigma_p at t = 0 (the engine packet takes the eigenvector phases of numpy.linalg.eig)'] = moments(P0)[1] * circ_stats(exact)[1]
+gq = GenRouting((256, 1, 1), SIG)
+smooth = branch_packet(gq, (12, 0, 0), (circ_stats(exact)[1], 0, 0), np.linalg.eigh(np.kron(SIG[0], SIG[0]))[1][:, -1], (128, 0, 0), theta)
+ms = moments(cell_distribution(smooth)[:, 0, 0])
+m2['packet with the spectral projector as coin (r2lib.branch_packet), same sigma_p: sigma_x, sigma_x sigma_p'] = [ms[1], ms[1] * circ_stats(qpe(smooth, 0, 256))[1]]
+out['M2_engine_packet'] = m2
+print('M2:', {k: v for k, v in m2.items() if k not in ('registers', 'M = 32, all outcomes')})
+for r in rows: print('   ', {k: (round(v, 6) if isinstance(v, float) else v) for k, v in r.items()})
+
+# ---- M3: resolution against register size and patch size -----------------------------------------------------------
+N = 512
+g1 = GenRouting((N, 1, 1), SIG)
+table = []
+coin = np.array([1, 0, 0, 0], complex)
+for patch in (32, 64, 128, 256):
+    sx = patch / 8
+    n0 = 25                                                     # p0 = 2 pi 25/512 = 0.3068
+    psi = g1.gaussian((N // 2, 0, 0), (sx, 0, 0), (n0, 0, 0), coin)
+    inside = float(cell_distribution(psi)[N // 2 - patch // 2: N // 2 + patch // 2].sum())
+    row = {'patch (cells)': patch, 'sigma_x': sx, 'sigma_p = 1/(2 sigma_x)': 1 / (2 * sx), 'probability inside the patch': inside}
+    for M in (8, 16, 32, 64, 128, 256, 512):
+        P = qpe(psi, 0, M)
+        row[f'M={M}'] = central_halfwidth(P, n0 * M / N, 0.68) * 2 * np.pi / M
+    table.append(row)
+out['M3_resolution'] = {'quantity': 'half-width (rad per cell) of the central interval of outcomes that holds 68% of the probability (interpolated quantiles)',
+                        'lattice': N, 'rows': table,
+                        'reading': 'the width is the larger of about one bin 2 pi/M and the intrinsic sigma_p = 4/patch of a packet that fills the patch'}
+print('M3: half-width of the central 68% (rad)')
+for r in table: print('   ', {k: (round(v, 4) if isinstance(v, float) else v) for k, v in r.items()})
+
+# ---- M4: three axes on a three-dimensional packet; the record is a constant of the tick ---------------------------
+shape = (24, 24, 24)
+g3 = GenRouting(shape, SIG)
+n0 = (2, 1, 1); th = 0.157935
+p0v = g3.momentum(n0)
+coin0 = np.linalg.eigh(np.kron(SIG[0], sum(p0v[i] * SIG[i] for i in range(3))))[1][:, -1]
+psi0 = branch_packet(g3, n0, (0.15, 0.15, 0.15), coin0, (9, 11, 11), th)
+psiT = g3.run(psi0, 6, th)
+m4 = {'p0': [float(x) for x in p0v]}
+for name, s in (('t = 0', psi0), ('t = 6', psiT)):
+    m4[name] = {'mean momentum per axis (rad), M = 24': [circ_stats(qpe(s, i, 24))[0] for i in range(3)],
+                'std per axis (rad)': [circ_stats(qpe(s, i, 24))[1] for i in range(3)]}
+m4['momentum record after 6 ticks minus before, three axes (max)'] = float(max(
+    np.abs(qpe(psiT, i, 24) - qpe(psi0, i, 24)).max() for i in range(3)))
+m4['position: mean cell at t = 0 and t = 6'] = [[linear_mean(cell_distribution(s), i, 12) for i in range(3)] for s in (psi0, psiT)]
+out['M4_three_axes'] = m4
+print('M4:', m4)
+
+# ---- M5: the flux pair with the commuting pointer ---------------------------------------------------------------------
+hq = TAB['frames'][0]['half_turns_on_pairs']
+seed = next(i for i in range(190) if len({i, hq[0][i], hq[1][i], hq[2][i]}) == 4 and TAB['separation'][i] == 2)
+orb = [seed, hq[0][seed], hq[1][seed], hq[2][seed]]
+RHO = [np.array([[1.0 if orb.index(hq[i][orb[c]]) == r else 0.0 for c in range(4)] for r in range(4)]) for i in range(3)]
+gb = GenRouting((16, 16, 16), RHO)
+vec = (np.eye(4) + RHO[0] - RHO[1] - RHO[2])[:, 0] / 2            # character (+,-,-)
+psi0 = gb.gaussian((8, 8, 8), (2.0, 2.0, 2.0), (0, 0, 0), np.kron(np.array([1, 1]) / np.sqrt(2), vec))
+psiT = gb.run(psi0, 3)
+synd = lambda s: [float(x) for x in (np.abs(s) ** 2).sum(axis=(0, 1, 2, 3))]
+m5 = {'pairs of the orbit (face indices)': [TAB['pairs'][i] for i in orb],
+      'mean momentum per axis (rad), M = 16, t = 0': [(circ_stats(qpe(psi0, i, 16))[0] + np.pi) % (2 * np.pi) - np.pi for i in range(3)],
+      'momentum record after 3 ticks minus before (max)': float(max(np.abs(qpe(psiT, i, 16) - qpe(psi0, i, 16)).max() for i in range(3))),
+      'displacement per tick': [displacement(cell_distribution(psi0), cell_distribution(psiT), i) / 3 for i in range(3)],
+      'face syndrome distribution over the orbit, t = 0': synd(psi0), 'face syndrome distribution over the orbit, t = 3': synd(psiT),
+      'joint outcomes cell x pair: number, total probability': [16 ** 3 * 4, float((np.abs(psiT) ** 2).sum())]}
+out['M5_flux_pair'] = m5
+print('M5:', m5)
+
+# ---- S: the code-carrying seam reflector at register level -------------------------------------------------------------
+Lc, NC = 4, 3                                                   # four carriers on a ring; code register: flat, pair A, pair B
+confs = list(itertools.product(range(NC), repeat=Lc))
+cidx = {c: k for k, c in enumerate(confs)}
+dimq = Lc * 2 * 2                                              # quantum: cell, record, spin (spin basis: sigma_1 eigenstates)
+def qi(x, r, s): return (x * 2 + r) * 2 + s
+D = dimq * len(confs)
+def idx(x, r, s, c): return qi(x, r, s) * len(confs) + cidx[c]
+def local_reflector(x):
+    """1 - 2|u><u| on the quantum for the link x -> x+1: s = 0 oriented x -> x+1, s = 1 oriented x+1 -> x"""
+    Q = np.eye(dimq)
+    y = (x + 1) % Lc
+    for s, (a, b) in ((0, (x, y)), (1, (y, x))):
+        u = np.zeros(dimq)
+        u[qi(a, 0, s)], u[qi(b, 0, s)], u[qi(a, 1, s)], u[qi(b, 1, s)] = 0.5, -0.5, -0.5, -0.5
+        Q -= 2 * np.outer(u, u)
+    return Q
+def cswap(x):
+    """swap the code registers of the carriers x and x+1 on the branch where the quantum is at x+1"""
+    y = (x + 1) % Lc
+    C = np.zeros((D, D))
+    for xx in range(Lc):
+        for r in range(2):
+            for s in range(2):
+                for c in confs:
+                    c2 = list(c)
+                    if xx == y: c2[x], c2[y] = c[y], c[x]
+                    C[idx(xx, r, s, tuple(c2)), idx(xx, r, s, c)] = 1
+    return C
+QC = []
+for x in range(Lc):
+    C = cswap(x)
+    QC.append(C @ np.kron(local_reflector(x), np.eye(len(confs))) @ C.T)
+S = {'dimension': D,
+     'each local factor is an involution (max)': float(max(np.abs(q @ q - np.eye(D)).max() for q in QC)),
+     'local factors commute pairwise (max)': float(max(np.abs(QC[i] @ QC[j] - QC[j] @ QC[i]).max() for i in range(Lc) for j in range(i)))}
+Qcomp = np.linalg.multi_dot(QC)
+# one-composite sector: the carrier of the quantum holds the code, all others flat
+def one(x, c): return tuple(c if k == x else 0 for k in range(Lc))
+sector = [idx(x, r, s, one(x, c)) for c in (1, 2) for x in range(Lc) for r in range(2) for s in range(2)]
+Qlab = np.kron(np.eye(2), np.linalg.multi_dot([local_reflector(x) for x in range(Lc)]))
+S['one-composite sector (32 states): leakage out of the sector (max)'] = float(np.abs(np.delete(Qcomp[:, sector], sector, axis=0)).max())
+S['one-composite sector: code-carrying reflector minus reflector with the code as a label (max)'] = float(
+    np.abs(Qcomp[np.ix_(sector, sector)] - Qlab).max())
+# joint position readout (cell of the quantum, cell of the nonflat carrier) after three ticks S = Q R
+R = np.kron(np.kron(np.eye(Lc), np.kron(np.diag([1.0, -1.0]), np.eye(2))), np.eye(len(confs)))
+psi = np.zeros(D); psi[idx(0, 0, 0, one(0, 1))] = 1.0
+for _ in range(3): psi = Qcomp @ (R @ psi)
+joint = np.zeros((Lc, Lc + 1))
+for xx in range(Lc):
+    for r in range(2):
+        for s in range(2):
+            for c in confs:
+                nonflat = [k for k in range(Lc) if c[k]]
+                col = nonflat[0] if len(nonflat) == 1 else Lc
+                joint[xx, col] += psi[idx(xx, r, s, c)] ** 2
+S['after 3 ticks: probability that the quantum and the single nonflat carrier are in the same cell'] = float(np.trace(joint[:, :Lc]))
+S['after 3 ticks: distribution over the cell'] = [float(joint[k, k]) for k in range(Lc)]
+# a second, unattached pair in the way: the code registers are exchanged, nothing is lost
+psi = np.zeros(D); c0 = [0] * Lc; c0[0] = 1; c0[1] = 2
+psi[idx(0, 0, 0, tuple(c0))] = 1.0
+psi = Qcomp @ (R @ psi)
+wA = sum(psi[idx(xx, r, s, c)] ** 2 for xx in range(Lc) for r in range(2) for s in range(2) for c in confs if c[xx] == 1)
+S['with a second pair on the neighbour: norm, probability that the quantum still sits on its own pair'] = [float(psi @ psi), float(wA)]
+out['S_code_carrying_reflector'] = S
+print('S:', S)
+
+print('seconds', round(time.time() - t00, 1))
+json.dump(out, open(os.path.join(HERE, 'item4.json'), 'w'), indent=1)

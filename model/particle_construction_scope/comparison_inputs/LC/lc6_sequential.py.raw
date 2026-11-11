@@ -1,0 +1,152 @@
+"""LC addendum 2 (B1 to B8 of CANDIDATES.md): the flags as values of the native signed current record; two events in
+sequence on one cell; later ticks of two double loads in one cell. EXACT (Fractions). Writes lc6_sequential.json.
+Run from RL/work/LC:
+    PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B lc6_sequential.py
+"""
+from __future__ import annotations
+
+import itertools
+import sys
+import time
+from fractions import Fraction as Fr
+
+import lc_common as L
+import fr_common as FC
+
+OUT = 'lc6_sequential.json'
+FP = L.frame_plain()
+Z = Fr(0)
+
+
+def main():
+    t0 = time.time()
+    out = {'task': 'LC addendum 2: current records and sequential events', 'provenance': L.provenance()}
+    FC.rer_root()
+    from model.observer import native as nat
+
+    # ---------------- B1: classical native rule with ordered addresses
+    b1 = {}
+    for x, y in itertools.combinations_with_replacement(range(12), 2):
+        loads = L.cfg_of(x, y)
+        cnt = {1: 0, 0: 0, -1: 0}
+        for (a, b) in L.ADDR:
+            for coin in (0, 1):
+                _, (_, cur) = nat.native(loads, (a, b), coin)
+                cnt[cur] += 1
+        kind = 'double' if x == y else f'pair at port distance {L.port_distance(x, y)}'
+        b1.setdefault(kind, set()).add((str(Fr(cnt[1], 120)), str(Fr(cnt[-1], 120)), str(Fr(cnt[0], 120))))
+    out['B1_classical_current (P(J=+1), P(J=-1), P(J=0)) by kind of configuration'] = {k: sorted(v) for k, v in sorted(b1.items())}
+    print('B1', out['B1_classical_current (P(J=+1), P(J=-1), P(J=0)) by kind of configuration'])
+
+    # ---------------- B2: coherent record against the classical current, address by address
+    ok_double, ok_single = True, True
+    for p in range(12):
+        loads = L.cfg_of(p, p)
+        for k, (a, b) in enumerate(L.ADDR):
+            img = L.Qstep({(loads, ((0, k),)): Fr(1)}, FP)
+            assert len(img) == 1
+            (cfg2, regs2), amp = next(iter(img.items()))
+            _, (_, cur) = nat.native(loads, (a, b), 0)
+            ok_double &= ({2: 1, 3: -1, 0: 0}[regs2[0][0]] == cur) and amp == 1
+        loads = L.cfg_of(p)
+        for k, (a, b) in enumerate(L.ADDR):
+            img = L.Qstep({(loads, ((0, k),)): Fr(1)}, FP)
+            rec1 = [amp for (cfg2, regs2), amp in img.items() if regs2[0][0] == 1]
+            curs = {nat.native(loads, (a, b), coin)[1][1] for coin in (0, 1)} - {0}
+            if not curs:
+                ok_single &= not rec1
+            else:
+                cur = curs.pop()
+                ok_single &= bool(rec1) and all((amp > 0) == (cur > 0) for amp in rec1)
+    out['B2_coherent_records_against_the_classical_current'] = {
+        'double load: record 2 is J = +1, record 3 is J = -1, blank is J = 0, amplitude one (12 ports x 60 addresses)': ok_double,
+        'single load: the record-1 amplitudes have the sign of the classical current (12 ports x 60 addresses)': ok_single}
+    print('B2', out['B2_coherent_records_against_the_classical_current'])
+
+    # ---------------- B3, B7: coherent, two events in sequence on one cell (two register systems on the same loads)
+    def sequential(cfg0, flag_plus, flag_minus, hold):
+        S = {(cfg0, ((0, k1), (0, k2))): Fr(1) for k1 in range(60) for k2 in range(60)}
+        n2 = Fr(len(S))
+        st = L.Qstep(S, FP, reg=0)
+        st = L.Qstep(st, FP, reg=1)
+        w = {'R+': Z, 'R-': Z, 'H': Z, 'R+ and H': Z, 'R- and H': Z}
+        for (cfg, regs), amp in st.items():
+            wgt = amp * amp / n2
+            rp, rm, h = flag_plus(cfg, regs), flag_minus(cfg, regs), hold(cfg, regs)
+            w['R+'] += wgt if rp else 0
+            w['R-'] += wgt if rm else 0
+            w['H'] += wgt if h else 0
+            w['R+ and H'] += wgt if (rp and h) else 0
+            w['R- and H'] += wgt if (rm and h) else 0
+        count = w['R+'] + w['H'] - 2 * w['R+ and H']
+        return {**{k: str(v) for k, v in w.items()}, 'count': str(count), 'count as float': round(float(count), 9),
+                'equals 2/9': count == Fr(2, 9), 'H : R+ : R-': f"{w['H']} : {w['R+']} : {w['R-']}"}
+    seq = {}
+    seq['B3 DL at port 2, H = any current in the second event'] = sequential(
+        L.cfg_of(2, 2), lambda c, r: r[0][0] == 2, lambda c, r: r[0][0] == 3, lambda c, r: r[1][0] in (1, 2, 3))
+    seq['G6a DL at port 2, H = emission in the second event'] = sequential(
+        L.cfg_of(2, 2), lambda c, r: r[0][0] == 2, lambda c, r: r[0][0] == 3, lambda c, r: r[1][0] in (2, 3))
+    for name, y in (('antipodal ports', L.antipode(2)), ('port distance two', next(p for p in range(12) if L.port_distance(2, p) == 2))):
+        ports = (2, y)
+
+        def fp_(c, r, ports=ports):
+            a, b = L.ADDR[r[0][1]]
+            return r[0][0] == 1 and a in ports and b not in ports
+
+        def fm_(c, r, ports=ports):
+            a, b = L.ADDR[r[0][1]]
+            return r[0][0] == 1 and b in ports and a not in ports
+        seq[f'B7 NP on {name}, coherent, H = record 1 in the second event'] = sequential(
+            L.cfg_of(*ports), fp_, fm_, lambda c, r: r[1][0] == 1)
+    out['coherent_two_events_in_sequence_on_one_cell'] = seq
+    for k, v in seq.items():
+        print('seq', k, v)
+
+    # ---------------- B5, B6: classical rule, two events in sequence on one cell
+    cls = {}
+    for name, ports in (('double load at port 2', (2, 2)), ('pair on antipodal ports', (2, L.antipode(2))),
+                        ('pair at port distance two', (2, next(p for p in range(12) if L.port_distance(2, p) == 2)))):
+        loads = L.cfg_of(*ports)
+        w = {'R+': Z, 'R-': Z, 'H': Z, 'R+ and H': Z}
+        for (a, b) in L.ADDR:
+            for coin in (0, 1):
+                out1, (_, j1) = nat.native(loads, (a, b), coin)
+                for (c, d) in L.ADDR:
+                    for coin2 in (0, 1):
+                        _, (_, j2) = nat.native(out1, (c, d), coin2)
+                        wgt = Fr(1, 120 * 120)
+                        w['R+'] += wgt if j1 == 1 else 0
+                        w['R-'] += wgt if j1 == -1 else 0
+                        w['H'] += wgt if j2 != 0 else 0
+                        w['R+ and H'] += wgt if (j1 == 1 and j2 != 0) else 0
+        count = w['R+'] + w['H'] - 2 * w['R+ and H']
+        cls[name] = {**{k: str(v) for k, v in w.items()}, 'count': str(count), 'equals 2/9': count == Fr(2, 9),
+                     'H : R+ : R-': f"{w['H']} : {w['R+']} : {w['R-']}",
+                     'second event independent of the first': w['R+ and H'] == w['R+'] * w['H']}
+    out['classical_two_events_in_sequence_on_one_cell'] = cls
+    for k, v in cls.items():
+        print('classical', k, v)
+
+    # ---------------- B8: two double loads on antipodal ports in one cell, one register: later ticks
+    a, b = 2, L.antipode(2)
+    st, n2 = L.uniform([L.cfg_of(a, a, b, b)])
+    leak = []
+    for tick in range(1, 8):
+        st = L.Rstep(st)
+        st, und = L.Qstep(st, FP, strict=False)
+        leak.append(und / n2)
+        if time.time() - t0 > 80:
+            break
+    out['B8_two_double_loads_in_one_cell_later_ticks'] = {
+        'ports': [a, b], 'weight of events outside the completion (seam total above two) at ticks 1, 2, ... (removed and not renormalized)': [str(x) for x in leak],
+        'ticks computed': len(leak),
+        'as float': [float(x) for x in leak]}
+    print('B8', out['B8_two_double_loads_in_one_cell_later_ticks'])
+
+    out['seconds'] = round(time.time() - t0, 2)
+    L.jdump(out, OUT)
+    print('written', OUT, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

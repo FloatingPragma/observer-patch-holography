@@ -1,0 +1,85 @@
+"""Second computation of the headline counts of one level, by plain loops, against census_L<level>.json.
+
+    python il_crosscheck.py --run <SIM>/runs/universe/L5 --history history_L5.npz --census census_L5.json
+
+The end values are rebuilt with a Python loop over the applied twists and the seam tables of run.json and
+geometry.npz. Classes come from the stored end cut. Counted again: faces per class and value in both tiers, the words
+of {4,4,4}, {2,2,2}, {2,4} and {3,3}, carrier totals, and the valued flat faces.
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import sys
+from collections import Counter
+from pathlib import Path
+
+import numpy as np
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--run', required=True)
+    ap.add_argument('--history', required=True)
+    ap.add_argument('--census', required=True)
+    args = ap.parse_args()
+    run = Path(args.run)
+    meta = json.loads((run / 'run.json').read_text())
+    g = meta['geometry']
+    N, SI, FI, F = g['carriers'], g['intra_seams'], g['intra_faces'], g['faces']
+    plus, minus = g['template_face_plus'], g['template_face_minus']
+    with np.load(run / 'geometry.npz') as z:
+        gfp, gfm = z['glue_fp'].tolist(), z['glue_fm'].tolist()
+    hz = np.load(args.history)
+    val = [0] * F
+    for s, j in zip(hz['ev_seam'].tolist(), hz['ev_j'].tolist()):
+        if s < SI:
+            c, k = divmod(s, 30)
+            p, q = 20 * c + plus[k], 20 * c + minus[k]
+        else:
+            p, q = gfp[s - SI], gfm[s - SI]
+        val[p] += j
+        val[q] -= j
+    cls = [0] * F
+    with np.load(run / 'cuts/end.npz') as z:
+        for f, k in zip(z['intra_face'].tolist(), z['intra_cls'].tolist()):
+            cls[f] = k
+        for f, k in zip(z['screen_face'].tolist(), z['screen_cls'].tolist()):
+            cls[f] = k
+    ok = {'value_mod_6_is_the_stored_class': all(v % 6 == k for v, k in zip(val, cls)),
+          'carrier_totals_zero': all(sum(val[20 * c:20 * c + 20]) == 0 for c in range(N)),
+          'screen_total_zero': sum(val[FI:]) == 0}
+    hist = {'internal': Counter(), 'screen': Counter()}
+    for f, v in enumerate(val):
+        if v:
+            hist['internal' if f < FI else 'screen'][(cls[f], v)] += 1
+    words = Counter()
+    for c in range(N):
+        row = val[20 * c:20 * c + 20]
+        ks = sorted(cls[20 * c + i] for i in range(20) if cls[20 * c + i])
+        if ks in ([4, 4, 4], [2, 2, 2], [2, 4], [3, 3]):
+            d = sorted((v for v in row if v % 6), key=lambda v: (v % 6, -v))
+            h = sorted((v for v in row if v and v % 6 == 0), reverse=True)
+            text = '(' + ','.join(f'{v:+d}' for v in d) + ('|' + ','.join(f'{v:+d}' for v in h) if h else '') + ')'
+            words[('{' + ','.join(map(str, ks)) + '}', text)] += 1
+    census = json.loads(Path(args.census).read_text())
+    for tier in ('internal', 'screen'):
+        mine = {str(k): {} for k in range(6)}
+        for (k, v), n in hist[tier].items():
+            mine[str(k)][f'{v:+d}'] = n
+        theirs = census['end'][tier]['values_by_class']
+        ok[f'{tier}_values_by_class_equal'] = all(mine[k] == theirs[k] for k in mine)
+    for comp in ('{4,4,4}', '{2,2,2}', '{2,4}', '{3,3}'):
+        theirs = {w['word']: w['count'] for w in census['end']['words'].get(comp, {'words': []})['words']}
+        mine = {w: n for (c, w), n in words.items() if c == comp}
+        ok[f'words_{comp}_equal'] = mine == theirs
+    out = dict(level=g['level'], applied_twists=int(hz['ev_j'].size), checks=ok, all_equal=all(ok.values()),
+               defect_faces=sum(n for t in hist.values() for (k, v), n in t.items() if k),
+               valued_flat_faces=sum(n for t in hist.values() for (k, v), n in t.items() if not k),
+               words_444=dict(sorted(((w, n) for (c, w), n in words.items() if c == '{4,4,4}'), key=lambda kv: -kv[1])[:4]))
+    print(json.dumps(out))
+    return 0 if out['all_equal'] else 1
+
+
+if __name__ == '__main__':
+    sys.exit(main())

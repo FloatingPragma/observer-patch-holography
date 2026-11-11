@@ -1,0 +1,81 @@
+{
+  "status": "EXACT isolated-carrier one-load construction and exact local total-two completion",
+  "description": {
+    "state_space": "12 ports with nonnegative integer loads; sectors total1 and total2",
+    "event": "Apply a recorded random endpoint quarter-turn, pump antisymmetric parity forward with probability1 and reverse with probability3/4, and split double loads.",
+    "memory": "Retain seam, phase setting and complete Kraus outcome as classical records; no unbounded memory theorem",
+    "wiring": "actual isolated icosahedral graph; federation unspecified",
+    "scheduler": "independent uniform seam and five-setting draws",
+    "declared_numbers": {
+      "reverse_probability": "3/4",
+      "phase_values": [
+        "1",
+        "i",
+        "-i"
+      ],
+      "phase_setting_count": 5
+    },
+    "port_response": "Not selected; native number phase is declared control, not closed SM response algebra",
+    "input_ancestry": "DECLARED instrument and scheduler; NATIVE graph and population law",
+    "complete_law_accepted": false
+  },
+  "orbital_transition": [
+    [
+      "1",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "1/120",
+      "151/200",
+      "1/50",
+      "0"
+    ],
+    [
+      "0",
+      "1/50",
+      "221/300",
+      "1/100"
+    ],
+    [
+      "0",
+      "0",
+      "1/20",
+      "43/60"
+    ]
+  ],
+  "rho_by_graph_distance": [
+    "1/12",
+    "3335/1169244",
+    "85/389748",
+    "5/129916"
+  ],
+  "rho_eigenvalues": [
+    "28858/292311",
+    "770*sqrt(5)/292311 + 8116/97437",
+    "8116/97437 - 770*sqrt(5)/292311",
+    "23473/292311"
+  ],
+  "rho_eigenvalue_multiplicities": [
+    1,
+    3,
+    3,
+    5
+  ],
+  "stationary_density_faithful_nontracial": true,
+  "stationary_density_unique": "proved from faithful invariant state and full history-effect algebra",
+  "native_history_effect_real_span_dimension": 144,
+  "effect_depth_upper": 3,
+  "independent_incidence_rank": 12,
+  "exact_history_propagation_checks": 84,
+  "local_total_two_matrix_units_checked": 36,
+  "double_loads_split_not_held": true,
+  "population_shadow_for_arbitrary_inputs_and_seam_sequences": true,
+  "native_coin_current_instrument_preserved": false,
+  "strict_diagonal_channel_shadow_preserved": false,
+  "T4_extra_fixed_source_labels": false,
+  "physical_modular_time_implemented": false,
+  "federation_transport_or_gauge_or_mass_claim": false,
+  "complete_law_accepted": false
+}

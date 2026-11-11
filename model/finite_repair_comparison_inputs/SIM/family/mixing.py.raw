@@ -1,0 +1,51 @@
+"""Follow-up (b) to the rank-one run: the mixing between two species whose sources of mass are ordered on different kinds
+of cell. 8^3 carriers, one of the four independent lattices (cells with all coordinates of equal parity), half-step
+frame, exact diagonalisation of the two-tick period. A background is a table of source angles on the kinds of cell of
+a period-four pattern: four kinds on the even cells and four on the odd cells. The four levels that grow out of the
+rest states define the mass eigenspaces of a species (eight states each); the mixing between species A and B is
+|U_ij|^2 = Tr(P_i^A P_j^B)/8. Declared strengths (0.16, 0.08, 0.04, 0.02) only serve to tell the levels apart.
+"""
+import json, sys
+import numpy as np
+sys.path.insert(0, 'cf1')
+from cf1_lib import Engine
+L = 8; shape = (L, L, L); N = 4 * L ** 3; eng = Engine(shape)
+def kind(x):
+    """period-four kind of a cell of the lattice: parity class (0 even, 1 odd) and which of m_i = floor(x_i / 2) has the odd-one-out parity (0 = none)"""
+    par = x[0] % 2; m = [(xi - par) // 2 % 2 for xi in x]
+    k = 0 if m[0] == m[1] == m[2] else (1 if m[1] == m[2] else (2 if m[0] == m[2] else 3))
+    return par, k
+cells = [(a, b, c) for a in range(L) for b in range(L) for c in range(L) if (a - b) % 2 == 0 and (b - c) % 2 == 0]
+def background(even, odd):
+    th = np.zeros(shape)
+    for x in cells:
+        par, k = kind(x); th[x] = (odd if par else even)[k]
+    return th
+def levels(th):
+    P = np.zeros((N, N), complex)
+    for n in range(N):
+        q = np.zeros(N, complex); q[n] = 1; q = q.reshape(shape + (2, 2))
+        for t in (0, 1): q = eng.step_half(q, th, 'Y', t)
+        P[:, n] = q.reshape(-1)
+    w, U = np.linalg.eig(P); ph = np.abs(np.angle(w)) / 2
+    # the 32 states of this lattice that grow out of rest: smallest nonzero phases plus zeros supported on the lattice
+    mask = np.zeros(shape, bool)
+    for x in cells: mask[x] = True
+    onlat = np.array([np.sum(np.abs(U[:, j].reshape(shape + (2, 2))[mask]) ** 2) / np.sum(np.abs(U[:, j]) ** 2) for j in range(N)])
+    idx = np.where((onlat > 0.999) & (ph < 0.2))[0]; idx = idx[np.argsort(ph[idx])][:32]
+    vals = np.round(ph[idx], 6); groups = []
+    for v in sorted(set(vals)):
+        sel = idx[vals == v]; Q, _ = np.linalg.qr(U[:, sel]); groups.append((float(v), Q))
+    return groups
+A = (0.16, 0.08, 0.04, 0.02); Z = (0.0, 0.0, 0.0, 0.0)
+cases = {'A: ordered on the even cells': (A, Z), 'B: same order, kinds permuted cyclically': ((0.02, 0.16, 0.08, 0.04), Z),
+         'C: ordered on the odd cells': (Z, A), 'D: half of each strength on the even cells and half on the odd cells': (tuple(x / 2 for x in A), tuple(x / 2 for x in A)),
+         'E: even cells as A, odd cells reversed': (tuple(x / 2 for x in A), tuple(x / 2 for x in A[::-1]))}
+G = {name: levels(background(*tab)) for name, tab in cases.items()}
+out = {'lattice': L, 'cases': {name: {'even': list(tab[0]), 'odd': list(tab[1]), 'levels_per_tick': [[g[0], g[1].shape[1]] for g in G[name]]} for name, tab in cases.items()}, 'mixing': {}}
+for name in cases: print(name, [(round(v, 5), q.shape[1]) for v, q in G[name]], flush=True)
+ref = G['A: ordered on the even cells']
+for name in list(cases)[1:]:
+    M = [[float(np.sum(np.abs(a[1].conj().T @ b[1]) ** 2) / a[1].shape[1]) for b in G[name]] for a in ref]
+    out['mixing'][name] = M; print('mixing A against', name); [print('   ', [round(x, 3) for x in r]) for r in M]
+json.dump(out, open('family/mixing.json', 'w'), indent=1)

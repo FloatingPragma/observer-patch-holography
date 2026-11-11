@@ -1,0 +1,17 @@
+"""S6 (c), step 1: dump the glue data of the federation for both gluings (simulation repository on the path, read only).
+
+Run:  cd SCR/research/S6 && OPH_UNIVERSE_CACHE=$PWD/cache PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=SIM nice -n 10 python s6_c_dump_wiring.py OUTDIR
+"""
+import sys
+import numpy as np
+from oph_defects import fedgeom
+from oph_exact import carrier as C
+
+outdir = sys.argv[1]
+for gluing in ('face_axis', 'port_pair'):
+    for level in (0, 1, 2, 3, 4):
+        g = fedgeom.build(level, cache=False, gluing=gluing)
+        np.savez(f'{outdir}/wiring_L{level}_{gluing}.npz', glue_a=g.glue_a, glue_b=g.glue_b, tri=g.tri, mesh_xyz=g.mesh_xyz,
+                 carrier_xyz=g.carrier_xyz, control_face=np.array(fedgeom.CONTROL_FACE), control_ports=np.array(fedgeom._control_ports()),
+                 seams=np.array(C.seams()), faces=np.array(C.oriented_faces()))
+        print(gluing, level, g.carriers, g.vertices, g.glue_seams)

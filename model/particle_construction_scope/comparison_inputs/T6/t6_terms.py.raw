@@ -1,0 +1,360 @@
+"""T6, item 1: mass terms at representation level on the 32 patterns. Exact (integers and rationals, sympy).
+
+Convention of work/MAP/build_source_map.py and work/FAMILY/mass_operator.py: levels (v1, v2, v3, s1, s2);
+6Y = 3 n2 - 2 n3; T3 = +1/2 on s1, -1/2 on s2; Q = T3 + Y = n_s1 - n3/3; left-handed = even occupation.
+
+Computed here, nothing typed in:
+  A  every operator bilinear in the five level operators (10 a a, 10 a* a*, 25 a* a) with its charges; those that
+     conserve colour and electric charge
+  B  the complete commutant of (colour, electric charge) on the 32 patterns, its handedness-changing part, and the
+     ten mass links with their charges (weak isospin, hypercharge, the five level numbers, B - L, Q6 mod 6)
+  C  the same list as bilinear forms of the mode operators of one family (sixteen Weyl fields), with and without the
+     neutral singlet, and the forms with one Higgs doublet (the audit's selection rules, recomputed)
+
+    python t6_terms.py [out.json]
+"""
+import itertools, json, sys
+from fractions import Fraction as F
+import sympy as sp
+from sympy.polys.matrices import DomainMatrix
+from sympy import QQ
+
+LEVELS = ('v1', 'v2', 'v3', 's1', 's2')
+N = 5
+states = list(itertools.product((0, 1), repeat=N))
+index = {s: i for i, s in enumerate(states)}
+DIM = 32
+
+
+def annihilate(k):
+    A = sp.zeros(DIM, DIM)
+    for s in states:
+        if s[k]:
+            t = list(s); t[k] = 0
+            A[index[tuple(t)], index[s]] = (-1) ** sum(s[:k])
+    return A
+
+
+a = [annihilate(k) for k in range(N)]
+ad = [x.T for x in a]
+num = [ad[k] * a[k] for k in range(N)]
+ID = sp.eye(DIM)
+N3 = num[0] + num[1] + num[2]
+N2 = num[3] + num[4]
+Y6 = 3 * N2 - 2 * N3                      # six times the hypercharge
+T3x2 = num[3] - num[4]                    # twice the third weak isospin
+Q3 = 3 * num[3] - N3                      # three times the electric charge
+Tp, Tm = ad[3] * a[4], ad[4] * a[3]       # weak raising and lowering
+colour_ladders = [ad[i] * a[j] for i in range(3) for j in range(3) if i != j]
+colour_cartan = [num[0] - num[1], num[1] - num[2]]
+colour = colour_ladders + colour_cartan
+parity = sp.diag(*[(-1) ** sum(s) for s in states])
+comm = lambda A, B: A * B - B * A
+
+
+def nullity(columns):
+    """dimension of {c : sum_m c_m columns[m] = 0}, exact over Q"""
+    M = sp.Matrix.hstack(*columns)
+    dm = DomainMatrix.from_Matrix(M).convert_to(QQ)
+    return M.cols - dm.rank()
+
+
+def vec(M):
+    return sp.Matrix(M).reshape(M.rows * M.cols, 1)
+
+
+def weight(O, G):
+    """eigenvalue w of ad(G) on O, [G, O] = w O, or None"""
+    C = comm(G, O)
+    nz = [(i, j) for i in range(O.rows) for j in range(O.cols) if O[i, j] != 0]
+    if not nz:
+        return None
+    w = sp.nsimplify(C[nz[0]] / O[nz[0]])
+    return w if (C - w * O).is_zero_matrix else None
+
+
+def weak_casimir(O):
+    """t(t+1) of the weak-isospin tensor O under the adjoint action, or None if O is not in one multiplet"""
+    T3 = T3x2 / 2
+    C = comm(T3, comm(T3, O)) + (comm(Tp, comm(Tm, O)) + comm(Tm, comm(Tp, O))) / 2
+    nz = [(i, j) for i in range(O.rows) for j in range(O.cols) if O[i, j] != 0]
+    w = sp.nsimplify(C[nz[0]] / O[nz[0]])
+    return w if (C - w * O).is_zero_matrix else None
+
+
+ISO = {sp.Integer(0): '0', sp.Rational(3, 4): '1/2', sp.Integer(2): '1'}
+out = {'convention': '6Y = 3 n2 - 2 n3; T3 = +1/2 on s1, -1/2 on s2; Q = n_s1 - n3/3; left = even occupation; '
+                     'levels (v1, v2, v3, s1, s2)'}
+
+# ------------------------------------------------------------------------------------------------------------
+# A. bilinears in the five level operators
+# ------------------------------------------------------------------------------------------------------------
+mono = []
+for i, j in itertools.combinations(range(N), 2):
+    mono.append((f'a_{LEVELS[i]} a_{LEVELS[j]}', a[i] * a[j], 'pairing a a'))
+for i, j in itertools.combinations(range(N), 2):
+    mono.append((f'a*_{LEVELS[i]} a*_{LEVELS[j]}', ad[i] * ad[j], 'pairing a* a*'))
+for i in range(N):
+    for j in range(N):
+        mono.append((f'a*_{LEVELS[i]} a_{LEVELS[j]}', ad[i] * a[j], 'number conserving a* a'))
+assert len(mono) == 45
+assert nullity([vec(m[1]) for m in mono]) == 0                       # the 45 monomials are independent
+
+
+def commutant_dim(ops, gens):
+    cols = [sp.Matrix.vstack(*[vec(comm(G, O)) for G in gens]) for O in ops]
+    return nullity(cols)
+
+
+gensCQ = colour + [Q3]
+rowsA = []
+for name, O, kind in mono:
+    colour_ok = all(comm(G, O).is_zero_matrix for G in colour)
+    rowsA.append({'operator': name, 'kind': kind,
+                  'three_Q': str(weight(O, Q3)), 'six_Y': str(weight(O, Y6)), 'two_T3': str(weight(O, T3x2)),
+                  'changes_handedness': bool((O * parity + parity * O).is_zero_matrix),
+                  'colour_invariant_alone': bool(colour_ok),
+                  'conserves_colour_and_charge': bool(colour_ok and comm(Q3, O).is_zero_matrix)})
+classes = {}
+for r in rowsA:
+    lv = r['operator'].replace('a*_', '').replace('a_', '').split()
+    typ = ''.join(sorted(x[0] for x in lv))
+    key = (r['kind'], typ)
+    classes.setdefault(key, []).append(r)
+class_rows = []
+for (kind, typ), rs in sorted(classes.items()):
+    class_rows.append({'kind': kind, 'levels': {'vv': 'two vector levels', 'sv': 'one vector, one spinor level',
+                                                 'ss': 'two spinor levels'}[typ],
+                       'monomials': len(rs), 'three_Q_values': sorted({r['three_Q'] for r in rs}),
+                       'six_Y_values': sorted({r['six_Y'] for r in rs}),
+                       'conserving_colour_and_charge_as_monomials': [r['operator'] for r in rs if r['conserves_colour_and_charge']]})
+dim_pair = commutant_dim([m[1] for m in mono if m[2].startswith('pairing')], gensCQ)
+dim_numc = commutant_dim([m[1] for m in mono if m[2].startswith('number')], gensCQ)
+dim_all = commutant_dim([m[1] for m in mono], gensCQ)
+assert (dim_pair, dim_numc, dim_all) == (0, 3, 3)
+# the three survivors are N3, n_s1, n_s2: diagonal, handedness preserving
+for O in (N3, num[3], num[4]):
+    assert all(comm(G, O).is_zero_matrix for G in gensCQ) and comm(O, parity).is_zero_matrix
+out['A_bilinears_in_the_level_operators'] = {
+    'monomials': 45, 'classes': class_rows,
+    'dimension_of_colour_and_charge_conserving_combinations': {'pairing (20 monomials)': dim_pair,
+                                                               'number conserving (25 monomials)': dim_numc, 'all 45': dim_all},
+    'the_conserving_ones': ['N3 = n_v1 + n_v2 + n_v3 (T = 0, Y = 0)', 'n_s1', 'n_s2 (n_s1 + n_s2: T = 0, Y = 0; n_s1 - n_s2 = 2 T3: T = 1, Y = 0)'],
+    'they_change_handedness': False,
+    'statement': 'No pairing bilinear of the level operators conserves colour and electric charge, and the three number-'
+                 'conserving ones are diagonal: at bilinear order in the level operators there is no mass term. '
+                 'a_v a_v is a colour triplet with Q = 2/3, a_v a_s a colour triplet, a_s1 a_s2 a colour and weak singlet '
+                 'with Q = -1, Y = -1.'}
+
+# ------------------------------------------------------------------------------------------------------------
+# B. complete commutant of colour and charge on the 32 patterns; the mass links
+# ------------------------------------------------------------------------------------------------------------
+diag_gens = colour_cartan + [Q3]
+wts = [tuple(G[i, i] for G in diag_gens) for i in range(DIM)]
+units = [(b, c) for b in range(DIM) for c in range(DIM) if wts[b] == wts[c]]      # weight-preserving matrix units
+assert len(units) == 72
+
+
+def unit(b, c):
+    E = sp.zeros(DIM, DIM); E[b, c] = 1
+    return E
+
+
+cols = [sp.Matrix.vstack(*[vec(comm(G, unit(b, c))) for G in colour_ladders]) for b, c in units]
+dim_comm = nullity(cols)
+odd_units = [(b, c) for b, c in units if parity[b, b] != parity[c, c]]
+cols_odd = [sp.Matrix.vstack(*[vec(comm(G, unit(b, c))) for G in colour_ladders]) for b, c in odd_units]
+dim_odd = nullity(cols_odd)
+assert (dim_comm, dim_odd) == (40, 20)
+
+G0 = a[4] + ad[4]                                                    # the toggle of the neutral doublet level
+
+
+def proj(n3, ns1):
+    return sp.diag(*[1 if (sum(s[:3]) == n3 and s[3] == ns1) else 0 for s in states])
+
+
+PL = (ID + parity) / 2                                               # projector on left-handed (even) patterns
+species = {(1, 0): 'd', (1, 1): 'u', (3, 0): 'e', (3, 1): 'nu', (2, 1): 'd-bar', (2, 0): 'u-bar', (0, 1): 'e-bar', (0, 0): 'nu-bar'}
+links = []
+for (n3, ns1), nm in species.items():
+    O = PL * proj(n3, ns1) * G0 * proj(n3, ns1) * (ID - PL)          # left <- right inside one species block
+    links.append((f'toggle on {nm}', O, 'Dirac'))
+full, empty = index[(1, 1, 1, 1, 1)], index[(0, 0, 0, 0, 0)]
+nuL, nuLc = index[(1, 1, 1, 1, 0)], index[(0, 0, 0, 0, 1)]
+links.append(('singlet link |00000><11111|', unit(empty, full), 'Majorana, neutral singlet'))
+links.append(('doublet link |11110><00001|', unit(nuL, nuLc), 'Majorana, left neutrino'))
+allops = [O for _, O, _ in links] + [O.T for _, O, _ in links]
+assert nullity([vec(O) for O in allops]) == 0                        # twenty independent operators
+for O in allops:
+    assert all(comm(G, O).is_zero_matrix for G in gensCQ) and (O * parity + parity * O).is_zero_matrix
+# so they span the handedness-changing part of the commutant (dimension 20)
+top = a[0] * a[1] * a[2] * a[3] * a[4]
+assert (top - top[empty, full] * unit(empty, full)).is_zero_matrix and abs(top[empty, full]) == 1
+# the top form commutes with every traceless operator of the five levels (it is the determinant)
+assert all(comm(ad[i] * a[j], top).is_zero_matrix for i in range(N) for j in range(N) if i != j)
+assert all(comm(num[i] - num[i + 1], top).is_zero_matrix for i in range(N - 1))
+assert weight(top, N3 + N2) == -5
+dbl = ad[4] * a[0] * a[1] * a[2] * a[3]
+assert (dbl - dbl[nuLc, nuL] * unit(nuLc, nuL)).is_zero_matrix and abs(dbl[nuLc, nuL]) == 1
+twelve = colour + [Tp, Tm, T3x2, Y6]
+# inside the handedness-changing commutant of colour and charge, the operators that commute with all twelve responses:
+dim_odd_twelve = nullity([sp.Matrix.vstack(*[vec(comm(G, O)) for G in (Tp, Tm, T3x2, Y6)]) for O in allops])
+assert dim_odd_twelve == 2                                            # the singlet link and its adjoint, nothing else
+rowsB = []
+for name, O, typ in links:
+    cas = weak_casimir(O)
+    lev = [weight(O, num[k]) for k in range(N)]                       # change of the five level numbers (pattern register)
+    src = [(i, j) for i in range(DIM) for j in range(DIM) if O[i, j] != 0]
+    tgt, sr = states[src[0][0]], states[src[0][1]]
+    all_left = [tgt[k] + 1 - sr[k] for k in range(N)]                 # level numbers of the two left-handed fields created
+    q6 = (3 * (tgt[3] + tgt[4]) - 2 * sum(tgt[:3])) - (3 * (sr[3] + sr[4]) - 2 * sum(sr[:3]))
+    rowsB.append({'link (left <- right)': name, 'type': typ, 'matrix_elements': len(src),
+                  'six_Y_carried': str(weight(O, Y6)), 'two_T3_carried': str(weight(O, T3x2)),
+                  'weak_isospin': ISO[cas], 'three_Q_carried': str(weight(O, Q3)),
+                  'commutes_with_all_twelve_responses': bool(all(comm(G, O).is_zero_matrix for G in twelve)),
+                  'level_numbers_carried_on_the_pattern_register': [str(x) for x in lev],
+                  'level_numbers_of_the_two_left_fields_it_creates': all_left,
+                  'change_of_Q6_mod_6': q6 % 6, 'change_of_Z2_charge_n2_mod_2': ((tgt[3] + tgt[4]) - (sr[3] + sr[4])) % 2,
+                  'change_of_B_minus_L': str(F(-2, 3) * (sum(tgt[:3]) - sum(sr[:3]))),
+                  'form': ('the toggle a_s2 + a*_s2 times the projector on the species' if typ == 'Dirac' else
+                           ('the top form a_v1 a_v2 a_v3 a_s1 a_s2 (degree five)' if 'singlet' in typ else
+                            'a*_s2 a_v1 a_v2 a_v3 a_s1 (degree five)'))})
+assert [r['weak_isospin'] for r in rowsB] == ['1/2'] * 8 + ['0', '1']
+assert [r['commutes_with_all_twelve_responses'] for r in rowsB] == [False] * 8 + [True, False]
+out['B_commutant_of_colour_and_charge'] = {
+    'dimension': dim_comm, 'handedness_changing_part': dim_odd, 'handedness_preserving_part': dim_comm - dim_odd,
+    'handedness_changing_and_invariant_under_the_twelve_responses': dim_odd_twelve,
+    'links': rowsB,
+    'top_form': 'a_v1 a_v2 a_v3 a_s1 a_s2 = +-|00000><11111|: (colour singlet of the three vector levels) x (weak singlet of the two spinor levels); '
+                'it commutes with all 24 traceless operators of the five levels and carries degree -5',
+    'B_minus_L_on_patterns': '1 - (2/3) n3',
+    'statement': 'The handedness-changing operators on the 32 patterns that conserve colour and electric charge are spanned by ten '
+                 'links and their adjoints: the toggle restricted to each of the eight species blocks (weak isospin 1/2, |Y| = 1/2), '
+                 'the singlet link 11111 <-> 00000 (isospin 0, Y = 0: commutes with all twelve responses) and the doublet link '
+                 '11110 <-> 00001 (isospin 1, |Y| = 1).'}
+
+# ------------------------------------------------------------------------------------------------------------
+# C. one family as sixteen left-handed Weyl fields: invariant bilinear forms of the mode operators
+# ------------------------------------------------------------------------------------------------------------
+even = [i for i in range(DIM) if sum(states[i]) % 2 == 0]
+odd = [i for i in range(DIM) if sum(states[i]) % 2 == 1]
+
+
+import numpy as np
+from sympy import ZZ
+
+
+def npm(G):
+    return np.array(G.tolist(), dtype=np.int64)
+
+
+def restrict(G, idx):
+    return npm(G)[np.ix_(idx, idx)]
+
+
+def nullity_int(M):
+    """exact nullity of an integer matrix (columns = unknowns): sparse elimination over Q"""
+    M = M[np.any(M != 0, axis=1)]
+    if M.shape[0] == 0: return M.shape[1]
+    M = np.unique(M, axis=0)
+    dm = DomainMatrix([[ZZ(int(v)) for v in row] for row in M], M.shape, ZZ).to_sparse().convert_to(QQ)
+    return M.shape[1] - dm.rank()
+
+
+def invariant_forms(idx, gens, symmetric=False):
+    """dimension of {B : G^T B + B G = 0 for all G} on span(idx), exact (integer generators)"""
+    n = len(idx); gs = [restrict(G, idx) for G in gens]
+    pairs = [(i, j) for i in range(n) for j in range(n) if (not symmetric or i <= j)]
+    cols = []
+    for i, j in pairs:
+        B = np.zeros((n, n), dtype=np.int64); B[i, j] = 1
+        if symmetric and i != j: B[j, i] = 1
+        cols.append(np.concatenate([(g.T @ B + B @ g).ravel() for g in gs]))
+    return nullity_int(np.array(cols).T)
+
+
+sixteen = even                                                         # all-left labelling: even patterns, including 00000
+fifteen = [i for i in even if i != empty]                               # the audit's R15 = degree two and four
+gens12 = colour + [Tp, Tm, T3x2, Y6]
+gens13 = gens12 + [N3 + N2]
+C = {}
+C['sixteen_fields_colour_and_charge_invariant_symmetric_forms'] = invariant_forms(sixteen, gensCQ, True)
+C['sixteen_fields_colour_and_charge_invariant_all_forms'] = invariant_forms(sixteen, gensCQ, False)
+C['sixteen_fields_forms_invariant_under_the_twelve_responses'] = invariant_forms(sixteen, gens12, True)
+C['sixteen_fields_forms_invariant_under_the_twelve_and_the_degree'] = invariant_forms(sixteen, gens13, True)
+C['sixteen_fields_forms_invariant_under_all_five_level_numbers_and_colour'] = invariant_forms(sixteen, colour + [Tp, Tm] + num, True)
+C['fifteen_fields_forms_invariant_under_the_twelve_responses'] = invariant_forms(fifteen, gens12, True)
+C['fifteen_fields_colour_and_charge_invariant_symmetric_forms'] = invariant_forms(fifteen, gensCQ, True)
+C['right_handed_labelling_forms_invariant_under_the_twelve'] = invariant_forms(odd, gens12, True)
+C['right_handed_labelling_forms_invariant_under_the_twelve_and_the_degree'] = invariant_forms(odd, gens13, True)
+assert C['sixteen_fields_colour_and_charge_invariant_symmetric_forms'] == 6
+assert C['sixteen_fields_colour_and_charge_invariant_all_forms'] == 10
+assert C['sixteen_fields_forms_invariant_under_the_twelve_responses'] == 1
+assert C['sixteen_fields_forms_invariant_under_the_twelve_and_the_degree'] == 1
+assert C['sixteen_fields_forms_invariant_under_all_five_level_numbers_and_colour'] == 1
+assert C['fifteen_fields_forms_invariant_under_the_twelve_responses'] == 0
+assert C['fifteen_fields_colour_and_charge_invariant_symmetric_forms'] == 4
+assert C['right_handed_labelling_forms_invariant_under_the_twelve'] == 1
+assert C['right_handed_labelling_forms_invariant_under_the_twelve_and_the_degree'] == 0
+# the single invariant form is the (00000, 00000) entry
+e0 = sixteen.index(empty)
+B0 = sp.zeros(16, 16); B0[e0, e0] = 1
+B0n = np.zeros((16, 16), dtype=np.int64); B0n[e0, e0] = 1
+assert all(not (restrict(G, sixteen).T @ B0n + B0n @ restrict(G, sixteen)).any() for G in gens13 + num)
+
+
+def yukawa_forms(idx, conjugate):
+    """dimension of the invariant vertices sum_k B_k(psi, psi) h_k (h the Higgs doublet with the charges of (s1, s2);
+    conjugate=True: its conjugate) under the twelve responses; symmetric B_k; exact (integer generators)"""
+    n = len(idx)
+    hig = {'Tp': np.array([[0, 1], [0, 0]]), 'Tm': np.array([[0, 0], [1, 0]]), 'T3x2': np.diag([1, -1]), 'Y6': np.diag([3, 3])}
+    gl = [(restrict(G, idx), np.zeros((2, 2), dtype=np.int64)) for G in colour] + \
+         [(restrict(Tp, idx), hig['Tp']), (restrict(Tm, idx), hig['Tm']), (restrict(T3x2, idx), hig['T3x2']), (restrict(Y6, idx), hig['Y6'])]
+    pairs = [(i, j) for i in range(n) for j in range(i, n)]
+    cols = []
+    for k in range(2):
+        for i, j in pairs:
+            B = [np.zeros((n, n), dtype=np.int64), np.zeros((n, n), dtype=np.int64)]
+            B[k][i, j] = 1; B[k][j, i] = 1
+            blocks = []
+            for g, h in gl:
+                hh = -h.T if conjugate else h
+                for jj in range(2):
+                    blocks.append((g.T @ B[jj] + B[jj] @ g + hh[0, jj] * B[0] + hh[1, jj] * B[1]).ravel())
+            cols.append(np.concatenate(blocks))
+    return nullity_int(np.array(cols).T)
+
+
+C['yukawa_channels'] = {'sixteen_fields_with_H': yukawa_forms(sixteen, False), 'sixteen_fields_with_conjugate_H': yukawa_forms(sixteen, True),
+                        'fifteen_fields_with_H': yukawa_forms(fifteen, False), 'fifteen_fields_with_conjugate_H': yukawa_forms(fifteen, True)}
+assert C['yukawa_channels'] == {'sixteen_fields_with_H': 2, 'sixteen_fields_with_conjugate_H': 2,
+                                'fifteen_fields_with_H': 1, 'fifteen_fields_with_conjugate_H': 2}
+# the six colour- and charge-conserving symmetric forms on the sixteen fields, by the pair of multiplets they join
+name16 = {(0, 0): 'N^c (00000)', (2, 0): 'u^c', (2, 2): 'd^c', (0, 2): 'e^c', (1, 1): 'Q', (3, 1): 'L'}
+table = [
+    {'term': 'Dirac, up type', 'fields': 'Q (upper) with u^c', 'six_Y': 1 - 4, 'weak_isospin': '1/2', 'needs': 'the toggle (Higgs, Y = +1/2)'},
+    {'term': 'Dirac, down type', 'fields': 'Q (lower) with d^c', 'six_Y': 1 + 2, 'weak_isospin': '1/2', 'needs': 'the toggle (conjugate Higgs)'},
+    {'term': 'Dirac, charged lepton', 'fields': 'L (lower) with e^c', 'six_Y': -3 + 6, 'weak_isospin': '1/2', 'needs': 'the toggle (conjugate Higgs)'},
+    {'term': 'Dirac, neutrino', 'fields': 'L (upper) with N^c', 'six_Y': -3 + 0, 'weak_isospin': '1/2', 'needs': 'the toggle (Higgs)'},
+    {'term': 'Majorana, neutral singlet', 'fields': 'N^c with N^c', 'six_Y': 0, 'weak_isospin': '0', 'needs': 'nothing: invariant under the twelve responses, the degree and every level number'},
+    {'term': 'Majorana, left neutrino', 'fields': 'L (upper) with L (upper)', 'six_Y': -6, 'weak_isospin': '1', 'needs': 'the toggle twice (isospin 1, |Y| = 1)'},
+]
+C['terms'] = table
+C['forbidden'] = 'every other pair: 130 of the 136 symmetric entries violate colour or electric charge'
+C['statement'] = ('One family as sixteen left-handed Weyl fields (the even patterns): the symmetric bilinear forms of the mode operators '
+                  'that conserve colour and electric charge are six: four Dirac terms, the pairing of the neutral singlet with itself and '
+                  'the pairing of the left neutrino with itself. Exactly one is invariant under the twelve responses: the singlet pairing; '
+                  'it is also invariant under the degree and under each of the five level numbers. Without the singlet (the fifteen states '
+                  'of the audit) no invariant form exists and three Higgs channels remain; with it there are four Higgs channels and one '
+                  'bare term. Labelled by the odd patterns instead, the same pairing carries degree ten: the two labellings differ by five '
+                  'units of fermion number per field.')
+out['C_one_family_mode_bilinears'] = C
+
+print(json.dumps({k: (v if not isinstance(v, dict) else {kk: vv for kk, vv in v.items() if not isinstance(vv, list)}) for k, v in out.items()}, indent=1))
+for r in rowsB:
+    print(r['link (left <- right)'], '| 6Y', r['six_Y_carried'], '| 2T3', r['two_T3_carried'], '| T', r['weak_isospin'],
+          '| twelve', r['commutes_with_all_twelve_responses'], '| levels', r['level_numbers_carried_on_the_pattern_register'],
+          '| all-left', r['level_numbers_of_the_two_left_fields_it_creates'], '| dQ6', r['change_of_Q6_mod_6'], '| d(B-L)', r['change_of_B_minus_L'])
+if len(sys.argv) > 1:
+    json.dump(out, open(sys.argv[1], 'w'), indent=1)

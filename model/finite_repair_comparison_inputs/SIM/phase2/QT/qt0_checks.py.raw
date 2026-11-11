@@ -1,0 +1,133 @@
+"""QT checks C1, C2 and N of CANDIDATES.md (sections 3 and 7).
+
+C2  each candidate completion is a real symmetric involution that conserves the load; on totals 0 to 2 it equals
+    the public `local_repair_unitary` entry by entry; the scaled form is rational and similar to it.
+N   configuration weights after one event on a blank record against the public native rule over its two coins.
+C1  the engine with two loads against LP's table (gate/lp6_classes.json): counts and lowest A, hexagon and carrier.
+Writes qt0_checks.json.
+"""
+from __future__ import annotations
+
+import json
+import sys
+import time
+from fractions import Fraction as Fr
+
+import numpy as np
+import sympy as sp
+
+import qt_common as Q
+import qt_analysis as QA
+
+OUT = 'qt0_checks.json'
+
+
+def main():
+    t0 = time.time()
+    out = {'task': 'QT checks C1, C2, N', 'provenance': Q.FC.provenance(),
+           'primes': {str(p): {'prime': bool(sp.isprime(p)), 'p mod 6': p % 6, 'sixth root': Q.sixth_root_mod(p)} for p in Q.PRIMES}}
+    Q.FC.rer_root()
+    from model.coherent_seam_repair.common import local_repair_unitary
+    from model.observer import native as nat
+    Upub = local_repair_unitary()
+    names = ['00', '10', '01', '11', '20', '02']
+
+    # ---------------- C2 and N
+    c2 = {}
+    for name in ('T-A', 'T-B', 'T-C'):
+        law = Q.Law(name)
+        U = law.U_true
+        n = U.shape[0]
+        load = sp.diag(*[k[0][0] + k[0][1] for k in law.keys])
+        same = True
+        for i, ki in enumerate(law.keys):
+            for j, kj in enumerate(law.keys):
+                if sum(ki[0]) <= 2 and sum(kj[0]) <= 2 and ki[1] <= 3 and kj[1] <= 3:
+                    a = names.index(f'{ki[0][0]}{ki[0][1]}') * 4 + ki[1]
+                    b = names.index(f'{kj[0][0]}{kj[0][1]}') * 4 + kj[1]
+                    same &= sp.simplify(U[i, j] - Upub[a, b]) == 0
+        # totals 0 to 2 are closed and, for T-C, records 4 and 5 act trivially there
+        closed = all(U[i, j] == 0 for i, ki in enumerate(law.keys) for j, kj in enumerate(law.keys)
+                     if (sum(ki[0]) <= 2) != (sum(kj[0]) <= 2))
+        # scaled form: S U~ S^-1 = U
+        Ut = sp.zeros(n, n)
+        for kj, col in law.col.items():
+            j = law.idx[((kj[0], kj[1]), kj[2])]
+            for (na, nb, r), v in col:
+                Ut[law.idx[((na, nb), r)], j] = sp.Rational(v.numerator, v.denominator)
+        S = sp.diag(*[sp.sqrt(sp.Rational(law.tau2[k].numerator, law.tau2[k].denominator)) for k in law.keys])
+        sim = (S * Ut * S.inv() - U).applyfunc(sp.simplify) == sp.zeros(n, n)
+        # N: populations after one event on a blank record
+        pops = {}
+        native_ok = {}
+        for st in Q.SEAM_STATES:
+            j = law.idx[(st, 0)]
+            w = {}
+            for i, ki in enumerate(law.keys):
+                if U[i, j] != 0:
+                    w[ki[0]] = w.get(ki[0], 0) + sp.nsimplify(U[i, j] ** 2)
+            natw = {}
+            for coin in (0, 1):
+                o, rec = nat.native((st[0], st[1]) + (0,) * 10, (0, 1), coin)
+                natw[(o[0], o[1])] = natw.get((o[0], o[1]), 0) + sp.Rational(1, 2)
+            pops[str(st)] = {str(k): str(v) for k, v in sorted(w.items())}
+            native_ok[str(st)] = ({k: sp.nsimplify(v) for k, v in w.items()} == natw)
+        c2[name] = {
+            'dimension': n, 'records': law.nrec,
+            'real symmetric': U == U.T and all(x.is_real for x in U),
+            'involution': (U * U).applyfunc(sp.simplify) == sp.eye(n),
+            'conserves the load': (U * load - load * U).applyfunc(sp.simplify) == sp.zeros(n, n),
+            'equals the public completion on totals 0 to 2 (576 entries)': bool(same),
+            'totals 0 to 2 closed': bool(closed),
+            'scaled form rational and similar to it': bool(sim),
+            'N: configuration weights after one event on a blank record': pops,
+            'N: equal to the native rule over the two coins, by seam state': native_ok,
+            'N: all total-three states pass': all(native_ok[str(s)] for s in Q.SEAM_STATES if sum(s) == 3),
+            'N: all states of totals 0 to 2 pass': all(native_ok[str(s)] for s in Q.SEAM_STATES if sum(s) <= 2)}
+        print(name, {k: v for k, v in c2[name].items() if not k.startswith('N: configuration') and not k.startswith('N: equal')})
+        print('   N by state', native_ok)
+    out['C2_and_N'] = c2
+
+    # ---------------- C1: two loads against LP's table
+    ref = json.load(open('gate/lp6_classes.json'))
+    law = Q.Law('T-A')
+    c1 = {}
+    ok = True
+    for geo in ('hexagon', 'carrier'):
+        rows = {}
+        for k in range(6):
+            m = Q.hexagon(law, k, nloads=2) if geo == 'hexagon' else Q.carrier(law, k, nloads=2)
+            res = QA.analyse(m, exact_limit=140)
+            sep, dbl = res['by type']['separated'], res['by type']['double']
+            lp = (ref['Z1_hexagon']['FP'] if geo == 'hexagon' else ref['Z2_carrier (FP)']['rows'])[f'class {k}']
+            mine_counts = [sep['fixed vectors on these components (float)'], dbl['fixed vectors on these components (float)']]
+            mine_A = [sep['lowest A on the cyclic subspace'], dbl['lowest A on the cyclic subspace']]
+            agree = (mine_counts == lp['fixed vectors (hard-core, cycle)']
+                     and all(abs(a - b) < 2e-9 for a, b in zip(mine_A, lp['lowest A (hard-core, cycle)'])))
+            ok &= agree
+            rows[f'class {k}'] = {
+                'states in the components of (separated, double)': [sep['states in these components'], dbl['states in these components']],
+                'fixed vectors on the components (separated, double)': mine_counts,
+                'LP fixed vectors (hard-core, cycle)': lp['fixed vectors (hard-core, cycle)'],
+                'consensus states on the blank cyclic subspace (separated, double), float': [
+                    sep['consensus states on the blank cyclic subspace (float)'], dbl['consensus states on the blank cyclic subspace (float)']],
+                'the same, exact': [sep['consensus states on the blank cyclic subspace (exact)'], dbl['consensus states on the blank cyclic subspace (exact)']],
+                'modular nullity (separated, double)': [sep['modular nullity (upper bound, exact)'], dbl['modular nullity (upper bound, exact)']],
+                'lowest A (separated, double)': mine_A, 'LP lowest A (hard-core, cycle)': lp['lowest A (hard-core, cycle)'],
+                'agrees with LP': bool(agree)}
+            if geo == 'carrier':
+                rows[f'class {k}']['faces with flux'] = Q.face_fluxes(m, list(Q.FC.faces()))
+                rows[f'class {k}']['LP faces with flux'] = lp['faces with flux (class)']
+                ok &= rows[f'class {k}']['faces with flux'] == lp['faces with flux (class)']
+            print(geo, k, rows[f'class {k}'])
+        c1[geo] = rows
+    c1['all rows agree with LP'] = bool(ok)
+    out['C1_two_loads_against_LP'] = c1
+    out['seconds'] = round(time.time() - t0, 2)
+    Q.jdump(out, OUT)
+    print('C1 all rows agree with LP:', ok)
+    print('written', OUT, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

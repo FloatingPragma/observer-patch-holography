@@ -1,0 +1,43 @@
+"""Worker HR: stability limit of the symmetric side at lambda_L = 0 (CANDIDATES.md, Addendum 6).
+
+At lambda_L = 0 the doublet is Gaussian on every link configuration; the ensemble ends where its quadratic form loses
+positivity on typical links. kappa_H ascends in steps from a symmetric start; the first value at which the lattice
+average of rho^2 exceeds 50 is recorded. Usage: python hr_spinodal.py <model su2|u1> <L> <seed> [sweeps per value]
+Writes spinodal_<model>_L<L>_s<seed>.json. Reads no measured value.
+"""
+import json
+import sys
+import time
+
+import numpy as np
+
+import hr_lib as H
+import hr_u1 as HU
+
+model, L, seed = sys.argv[1], int(sys.argv[2]), int(sys.argv[3])
+nsw = int(sys.argv[4]) if len(sys.argv) > 4 else 150
+t0 = time.time()
+lat = (HU.LatticeU1 if model == "u1" else H.Lattice)(L, 5.171, 0.1270, 0.0, seed=seed)
+for _ in range(150):
+    lat.sweep()
+rows, limit = [], None
+for kap in np.arange(0.1280, 0.1400001, 0.0005):
+    lat.kappa = float(kap)
+    r2 = []
+    for i in range(nsw):
+        lat.sweep()
+        r2.append(float((lat.phi ** 2).sum(1).mean()))
+        if r2[-1] > 50.0:
+            break
+    rows.append({"kappa_H": float(kap), "rho2_mean_second_half": float(np.mean(r2[len(r2) // 2:])), "rho2_max": float(max(r2)),
+                 "sweeps": len(r2)})
+    print(f"{model} L={L} kappa {kap:.4f} rho2 {rows[-1]['rho2_mean_second_half']:.3f} max {rows[-1]['rho2_max']:.2f} "
+          f"sweeps {len(r2)} t {time.time() - t0:.0f}s", flush=True)
+    if r2[-1] > 50.0:
+        limit = float(kap)
+        break
+    if time.time() - t0 > 95:
+        break
+json.dump({"model": model, "L": L, "seed": seed, "sweeps_per_value": nsw, "stability_limit": limit, "rows": rows,
+           "seconds": time.time() - t0}, open(f"spinodal_{model}_L{L}_s{seed}.json", "w"), indent=1)
+print("stability limit", limit)

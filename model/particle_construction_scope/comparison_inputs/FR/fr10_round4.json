@@ -1,0 +1,328 @@
+{
+ "task": "FR round 4",
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "item1_phase_count": {
+  "occupation_weights_of_S_per_tick (FN)": {
+   "1": {
+    "I": "1/6",
+    "F": "1/12",
+    "B": "1/12",
+    "double": "2/3",
+    "other": "0",
+    "I:F:B = 2:1:1": true,
+    "P1 two independent objects: X = p + q - 2pq": "2/9",
+    "P2 one object: P(F) + P(I)": "1/4"
+   },
+   "2": {
+    "I": "7/18",
+    "F": "7/36",
+    "B": "7/36",
+    "double": "2/9",
+    "other": "0",
+    "I:F:B = 2:1:1": true,
+    "P1 two independent objects: X = p + q - 2pq": "35/81",
+    "P2 one object: P(F) + P(I)": "7/12"
+   },
+   "3": {
+    "I": "4/9",
+    "F": "2/9",
+    "B": "2/9",
+    "double": "1/9",
+    "other": "0",
+    "I:F:B = 2:1:1": true,
+    "P1 two independent objects: X = p + q - 2pq": "38/81",
+    "P2 one object: P(F) + P(I)": "2/3"
+   },
+   "4": {
+    "I": "7/18",
+    "F": "7/36",
+    "B": "7/36",
+    "double": "2/9",
+    "other": "0",
+    "I:F:B = 2:1:1": true,
+    "P1 two independent objects: X = p + q - 2pq": "35/81",
+    "P2 one object: P(F) + P(I)": "7/12"
+   },
+   "5": {
+    "I": "1/6",
+    "F": "1/12",
+    "B": "1/12",
+    "double": "2/3",
+    "other": "0",
+    "I:F:B = 2:1:1": true,
+    "P1 two independent objects: X = p + q - 2pq": "2/9",
+    "P2 one object: P(F) + P(I)": "1/4"
+   },
+   "6": {
+    "I": "0",
+    "F": "0",
+    "B": "0",
+    "double": "1",
+    "other": "0",
+    "I:F:B = 2:1:1": true,
+    "P1 two independent objects: X = p + q - 2pq": "0",
+    "P2 one object: P(F) + P(I)": "0"
+   }
+  },
+  "P1_sum_of_X_over_the_period": "16/9",
+  "P1_mean_per_tick": "8/27",
+  "P1_ticks_with_X = 2/9": [
+   1,
+   5
+  ],
+  "tick-1 object weights equal the round-1 object weights (2/3, 1/6, 1/12, 1/12)": true,
+  "P1 tick-1 round-1 analyzer: lambda(y)": "sqrt(6)*y/18 + sqrt(3)/9 + sqrt(6)/(18*y)",
+  "equals (sqrt2/3) C(theta) in sector y": true,
+  "tr(M^dag M) at tick 1": "2/9",
+  "P3 double load with the round-1 E object as hold, tick 1": "2/9",
+  "P4 both objects in the period-averaged state (p = 1/6, q = 1/3)": "7/18"
+ },
+ "item2_source": {
+  "Q1_classical_rule_creates_a_double_from_none": [],
+  "Q1_classical_images": {
+   "(0,0) coin 0": "(0, 0)",
+   "(0,0) coin 1": "(0, 0)",
+   "(0,1) coin 0": "(0, 1)",
+   "(0,1) coin 1": "(1, 0)",
+   "(0,2) coin 0": "(1, 1)",
+   "(0,2) coin 1": "(1, 1)",
+   "(1,0) coin 0": "(0, 1)",
+   "(1,0) coin 1": "(1, 0)",
+   "(1,1) coin 0": "(1, 1)",
+   "(1,1) coin 1": "(1, 1)",
+   "(2,0) coin 0": "(1, 1)",
+   "(2,0) coin 1": "(1, 1)"
+  },
+  "Q2_one_tick_from_the_E_kept_dimer (FN)": {
+   "record 2": {
+    "double [2, 2] rec 0": "1/6"
+   },
+   "record 3": {
+    "double [10, 10] rec 0": "1/6"
+   },
+   "record (2 + 3)/sqrt2 (times sqrt2)": {
+    "double [2, 2] rec 0": "1/12",
+    "double [10, 10] rec 0": "1/12"
+   },
+   "blank record": "no double load"
+  },
+  "Q3_native_total_two_states": {
+   "states": 78,
+   "with a doubly loaded port": 12,
+   "share": "2/13"
+  },
+  "Q4_reset_port": {
+   "stationary weight of the native family memory at port 2": "1206/1291",
+   "two independent memories at port 2": "1454436/1666681",
+   "float": 0.9341595662277304,
+   "note": "memory labels, not loads"
+  },
+  "Q5_link_sign: |11,0> kept under the gauge-conjugated local unitary": true
+ },
+ "item3_neutral_carrier": {
+  "G1_seam_object": {
+   "tick 1 at (2,3)": [
+    [
+     [
+      2,
+      3
+     ],
+     2,
+     "1"
+    ]
+   ],
+   "tick 2 at (3,2) (plain law)": [
+    [
+     [
+      3,
+      3
+     ],
+     0,
+     "1"
+    ]
+   ],
+   "tick 2 at (2,3) (native frame)": [
+    [
+     [
+      2,
+      2
+     ],
+     0,
+     "1"
+    ]
+   ],
+   "pair crosses with amplitude one in the plain law": true,
+   "gauge sign (-1)^(n_3): pair amplitude": "1",
+   "gauge sign: single-load crossing 2 -> 3": "-1 (one load ends on port 3)"
+  },
+  "G2_dimer_transfer_of_the_double_load (FP)": {
+   "rows": {
+    "1": {
+     "r (hold)": "2/3",
+     "t+ (to d1)": "0",
+     "t- (to d2)": "0"
+    },
+    "2": {
+     "r (hold)": "-1/36",
+     "t+ (to d1)": "1/72",
+     "t- (to d2)": "1/72"
+    },
+    "3": {
+     "r (hold)": "-49/108",
+     "t+ (to d1)": "13/216",
+     "t- (to d2)": "13/216"
+    },
+    "4": {
+     "r (hold)": "-20/81",
+     "t+ (to d1)": "10/81",
+     "t- (to d2)": "10/81"
+    },
+    "5": {
+     "r (hold)": "173/486",
+     "t+ (to d1)": "151/972",
+     "t- (to d2)": "151/972"
+    },
+    "6": {
+     "r (hold)": "8743/11664",
+     "t+ (to d1)": "2921/23328",
+     "t- (to d2)": "2921/23328"
+    },
+    "7": {
+     "r (hold)": "18709/34992",
+     "t+ (to d1)": "4619/69984",
+     "t- (to d2)": "4619/69984"
+    },
+    "8": {
+     "r (hold)": "-11495/104976",
+     "t+ (to d1)": "11495/209952",
+     "t- (to d2)": "11495/209952"
+    },
+    "9": {
+     "r (hold)": "-189683/314928",
+     "t+ (to d1)": "84707/629856",
+     "t- (to d2)": "84707/629856"
+    },
+    "10": {
+     "r (hold)": "-1934969/3779136",
+     "t+ (to d1)": "1934969/7558272",
+     "t- (to d2)": "1934969/7558272"
+    },
+    "11": {
+     "r (hold)": "514339/11337408",
+     "t+ (to d1)": "7043933/22674816",
+     "t- (to d2)": "7043933/22674816"
+    },
+    "12": {
+     "r (hold)": "9008405/17006112",
+     "t+ (to d1)": "7997707/34012224",
+     "t- (to d2)": "7997707/34012224"
+    }
+   },
+   "t+ = t- at every tick": true
+  },
+  "G2_dimer_transfer_of_the_double_load (FN)": {
+   "rows": {
+    "1": {
+     "r (hold)": "2/3",
+     "t+ (to d1)": "0",
+     "t- (to d2)": "0"
+    },
+    "2": {
+     "r (hold)": "0",
+     "t+ (to d1)": "0",
+     "t- (to d2)": "0"
+    },
+    "3": {
+     "r (hold)": "-1/3",
+     "t+ (to d1)": "0",
+     "t- (to d2)": "0"
+    },
+    "4": {
+     "r (hold)": "0",
+     "t+ (to d1)": "0",
+     "t- (to d2)": "0"
+    },
+    "5": {
+     "r (hold)": "2/3",
+     "t+ (to d1)": "0",
+     "t- (to d2)": "0"
+    },
+    "6": {
+     "r (hold)": "1",
+     "t+ (to d1)": "0",
+     "t- (to d2)": "0"
+    },
+    "7": {
+     "r (hold)": "2/3",
+     "t+ (to d1)": "0",
+     "t- (to d2)": "0"
+    },
+    "8": {
+     "r (hold)": "0",
+     "t+ (to d1)": "0",
+     "t- (to d2)": "0"
+    },
+    "9": {
+     "r (hold)": "-1/3",
+     "t+ (to d1)": "0",
+     "t- (to d2)": "0"
+    },
+    "10": {
+     "r (hold)": "0",
+     "t+ (to d1)": "0",
+     "t- (to d2)": "0"
+    },
+    "11": {
+     "r (hold)": "2/3",
+     "t+ (to d1)": "0",
+     "t- (to d2)": "0"
+    },
+    "12": {
+     "r (hold)": "1",
+     "t+ (to d1)": "0",
+     "t- (to d2)": "0"
+    }
+   },
+   "t+ = t- at every tick": true
+  },
+  "G2_generations": "M(n) = r 1 + t (R + R^-1) with real t: eigenvalues r + 2t, r - t, r - t; the w and w^2 generations do not split",
+  "G3": "a double load at each end of one seam has seam total four; the local unitary is defined for total at most two"
+ },
+ "item4_cycle_projector": {
+  "eigenvectors of the block (double, forward, in-dimer)": {
+   "1/2": [
+    [
+     "-2",
+     "1",
+     "1"
+    ]
+   ],
+   "5/6": [
+    [
+     "0",
+     "-1",
+     "1"
+    ]
+   ],
+   "1": [
+    [
+     "1",
+     "1",
+     "1"
+    ]
+   ]
+  },
+  "period average of S on the normalized flags (I, F, B)": "coefficients (sqrt2, 1, 1)/sqrt6: the matched vector",
+  "family operator from the matched vector: b/a": "1/2",
+  "uniform Fourier zero (1,1,1)/sqrt3: b/a": "sqrt(2)/2",
+  "reading": "the spectral projector of the cycle sums the flags coherently with coefficients proportional to their amplitudes; it gives abs(b)/a = 1/2; the uniform Fourier zero is not a spectral projector of the cycle"
+ },
+ "seconds": 3.69
+}

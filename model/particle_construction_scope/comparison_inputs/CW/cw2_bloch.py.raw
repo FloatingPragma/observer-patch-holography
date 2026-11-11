@@ -1,0 +1,152 @@
+"""CW tasks 2 and 3, zero-mean-field glue class (rule a): Bloch bands of the twisted port operator on the flat
+honeycomb federation with flux k inside every carrier, wirings F (face triple), B (belt triple) and the staggered
+F up / B down; per carrier multiplet: the flat bands at the carrier level and the dispersive bands, both clock
+readings (kept apart), species tables.
+
+Glue rule (a) (DECLARED): every carrier carries the same internal connection (its own spinor phases); the glue link
+is the phase of the overlap of the two glued port spinors after the frame transport of the wiring. For the uniform
+wirings F and B the S3 transport is the identity automorphism, so the glue link is 1.
+Lemma checked here ('gauge_class'): the three translation-invariant glue phases are a gauge transformation composed
+with a shift of the zone origin, so every translation-invariant one-cell glue rule has these bands.
+
+Structure found (and asserted below): the 24 bands of flux k are, for every carrier multiplet of dimension d at
+carrier level l_m = 5 - a_m, max(0, 2d - 3) exactly flat bands at l_m and 3 dispersive bands (2 for d = 1).
+
+Run (box B): python cw2_bloch.py [M_eff=30]   -> cw2_bloch.json
+"""
+import json
+import math
+import multiprocessing as mp_
+import os
+import sys
+import time
+
+import numpy as np
+
+import cw_lib as C
+import cw_shell as R
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+M_EFF = float(sys.argv[1]) if len(sys.argv) > 1 else 30.0
+GRID = C.zone_grid(30)
+SNAP = (np.zeros(2), C.KPT, -C.KPT, C.MPT, C.B1 / 2, (C.B1 + C.B2) / 2)
+WIRINGS = {'F': (C.F_TRIPLE, C.F_TRIPLE), 'B': (C.B_TRIPLE, C.B_TRIPLE), 'F_up_B_down': (C.F_TRIPLE, C.B_TRIPLE)}
+
+
+def analyse(name, pu, pd, k):
+    f = lambda q: C.bands(q, k, pu, pd)
+    wc = np.linalg.eigvalsh(C.L_float(k))
+    mults = C.multiplets(wc)                                   # ascending carrier levels with dimensions
+    l0 = mults[0][0]
+    ev = np.array([f(q) for q in GRID])
+    width = ev.max(0) - ev.min(0)
+    flat = width < 1e-9
+    row = {'k': k, 'carrier_multiplets_level_dim': [[lv, d] for lv, d in mults], 'spectrum_minimum_minus_l0_on_grid': float(ev.min() - l0),
+           'flat_bands_total': int(flat.sum()), 'levels_at_points': {nm: f(p).tolist() for nm, p in (('Gamma', np.zeros(2)), ('K', C.KPT), ("K'", -C.KPT), ('M', C.MPT))}}
+    start = 0
+    comps = []
+    for (lev, d) in mults:
+        idx = list(range(start, start + 2 * d))
+        lam = 1 - lev / (2 * M_EFF)
+        at_lev = flat[idx] & (np.abs(ev[:, idx].mean(0) - lev) < 1e-8)
+        nflat = int(np.sum(at_lev))
+        below = float(ev[:, idx[0]].min() - ev[:, idx[0] - 1].max()) if idx[0] > 0 else None
+        above = float(ev[:, idx[-1] + 1].min() - ev[:, idx[-1]].max()) if idx[-1] + 1 < 24 else None
+        comp = {'carrier_level': lev, 'dim': d, 'carrier_lambda': 1 - lev / 60, 'band_indices': [idx[0], idx[-1]],
+                'gap_below_complex': below, 'gap_above_complex': above,
+                'separated': bool((below is None or below > 1e-9) and (above is None or above > 1e-9)),
+                'flat_bands_at_carrier_level_per_cell': nflat, 'predicted_2d_minus_3': max(0, 2 * d - 3),
+                'flat_band': None if not nflat else {'level': lev, 'degeneracy_per_cell': nflat, 'degeneracy_per_carrier': nflat / 2,
+                                                     'flatness_defect_on_grid': float(np.abs(ev[:, idx][:, at_lev] - lev).max()),
+                                                     'recurrence_clock': {'omega0': math.acos(lam), 'c': 0.0, 'note': 'rest frequency without a kinetic term'},
+                                                     'first_order_clock': {'E0': -math.log(lam), 'kinetic_mass': None, 'note': 'a rate without dispersion'}},
+                'levels_minus_carrier_level': {nm: (f(p)[idx] - lev).tolist() for nm, p in (('Gamma', np.zeros(2)), ('K', C.KPT), ("K'", -C.KPT), ('M', C.MPT))}}
+        bands = []
+        for b in idx:
+            if flat[b]:
+                continue
+            ex = R.band_extrema(f, GRID, b, SNAP)
+            qmin, vmin = ex['min']; qmax, vmax = ex['max']
+            rd = R.quad_readout(f, b, qmin, M_EFF)
+            deg = int(np.sum(np.abs(f(qmin) - vmin) < 1e-9))
+            bands.append({'band_index': b, 'min_minus_carrier_level': float(vmin - lev), 'min_at': C.name_point(qmin), 'min_q': [float(x) for x in qmin],
+                          'degeneracy_at_min': deg, 'max_minus_carrier_level': float(vmax - lev), 'max_at': C.name_point(qmax), 'width': float(vmax - vmin),
+                          'at_minimum': rd})
+        comp['dispersive_bands'] = bands
+        pairs = []
+        for lo in idx[:-1]:
+            hi = lo + 1
+            if flat[lo] and flat[hi]:
+                continue
+            gap = ev[:, hi] - ev[:, lo]
+            cands = [R.refine_min(lambda x: float(f(x)[hi] - f(x)[lo]), GRID[i]) for i in np.argsort(gap)[:2]]
+            cands += [(np.asarray(p, float), float(f(p)[hi] - f(p)[lo])) for p in SNAP]
+            cands.sort(key=lambda t: t[1])
+            q0, g = cands[0]
+            for p in SNAP:
+                if abs(float(f(p)[hi] - f(p)[lo]) - g) < 1e-11:
+                    q0 = np.asarray(p, float); break
+            cr = R.cone_readout(f, lo, hi, q0, M_EFF)
+            pairs.append({'bands': [lo, hi], 'lower_is_flat': bool(flat[lo]), 'upper_is_flat': bool(flat[hi]), 'min_splitting_at': C.name_point(q0), 'q': [float(x) for x in q0], **cr})
+        comp['pairs'] = pairs
+        comps.append(comp)
+        start += 2 * d
+    row['complexes'] = comps
+    return row
+
+
+def _job(args):
+    name, k = args
+    return analyse(name, *WIRINGS[name], k)
+
+
+if __name__ == '__main__':
+    T0 = time.time()
+    out = {'M_eff': M_EFF, 'conventions': {'mesh_edge': 1, 'K': C.KPT.tolist(), 'zone_radius_Gamma_to_K': float(np.linalg.norm(C.KPT)),
+                                          'levels': 'eigenvalues l of the twisted port Laplacian; lambda = 1 - l/(2 M_eff)'},
+           'wirings': {}}
+    JOBS = [(name, k) for name in WIRINGS for k in range(0, 11)]
+    with mp_.Pool(int(os.environ.get('CW_PROCS', '11'))) as pool:
+        RES = dict(zip(JOBS, pool.map(_job, JOBS, chunksize=1)))
+    structure_ok = True
+    for name in WIRINGS:
+        rows = []
+        for k in range(0, 11):
+            r = RES[(name, k)]
+            rows.append(r)
+            print(f"\n{name} k={k}: spectrum min - l0 {r['spectrum_minimum_minus_l0_on_grid']:.1e}, flat bands total {r['flat_bands_total']}", flush=True)
+            for cpx in r['complexes']:
+                structure_ok &= (cpx['flat_bands_at_carrier_level_per_cell'] >= cpx['predicted_2d_minus_3'])
+                print(f"  multiplet d={cpx['dim']} carrier level {cpx['carrier_level']:.6f} (lambda {cpx['carrier_lambda']:.6f}): flat per cell {cpx['flat_bands_at_carrier_level_per_cell']} "
+                      f"(2d-3 = {cpx['predicted_2d_minus_3']}), separated {cpx['separated']} (gaps {cpx['gap_below_complex']}, {cpx['gap_above_complex']})", flush=True)
+                for b in cpx['dispersive_bands']:
+                    a = b['at_minimum']; rc = a['recurrence_clock']; fo = a['first_order_clock']
+                    print(f"     band {b['band_index']}: min {b['min_minus_carrier_level']:+.6f} at {b['min_at']} (deg {b['degeneracy_at_min']}), max {b['max_minus_carrier_level']:+.6f} at {b['max_at']}, "
+                          f"h {a['second_derivative_mean']:.6f} aniso {a['second_derivative_anisotropy']:.1e} quad {a['quadratic_point']} | REC omega0 {rc['omega0']:.6f} c {rc.get('c', float('nan')):.6f} "
+                          f"m {rc.get('mass_omega0_over_c2', float('nan')):.2f} Compton {rc.get('compton_length_edges') or float('nan'):.4f} dev(1.0) {rc.get('shell_deviation_rel_to_c2q2_at_dq', {}).get('1.0')} "
+                          f"| FIRST E0 {fo['E0']:.6f} m_kin {fo.get('kinetic_mass') or float('nan'):.1f}", flush=True)
+                for c in cpx['pairs']:
+                    if 'slope_v' in c:
+                        print(f"     pair {c['bands']} (flat: {c['lower_is_flat']}/{c['upper_is_flat']}) at {c['min_splitting_at']}: b {c['half_splitting_b']:.6f} v {c['slope_v']:.6f} aniso {c['slope_anisotropy']:.1e} "
+                              f"resid {c['hyperbola_residual_rel_in_window']:.2e} mid drift/split change {c['mid_drift_over_splitting_change']:.2e}", flush=True)
+        out['wirings'][name] = rows
+    out['structure_flat_bands_at_least_2d_minus_3_in_every_multiplet'] = bool(structure_ok)
+    print('\nflat bands >= 2d - 3 in every multiplet, every k, every wiring:', structure_ok, flush=True)
+
+    # ------------------------------------------------------------ gauge class: glue phases are a shift of the zone
+    rng = np.random.default_rng(11)
+    gc = []
+    for name in ('F', 'B', 'F_up_B_down'):
+        pu, pd = WIRINGS[name]
+        for k in (1, 2, 7):
+            g = np.exp(2j * np.pi * rng.random(3))
+            kap = np.linalg.solve(np.array([C.A1, C.A2]), np.array([np.angle(g[1] / g[0]), np.angle(g[2] / g[0])]))
+            worst = 0.0
+            for q in GRID[::37]:
+                worst = max(worst, float(np.abs(C.bands(q, k, pu, pd, glue=g) - C.bands(q - kap, k, pu, pd)).max()))
+            gc.append({'wiring': name, 'k': k, 'random_glue_phases': [float(np.angle(x)) for x in g], 'zone_shift': kap.tolist(), 'max_band_difference_after_shift': worst})
+    out['gauge_class'] = gc
+    print('random glue phases = shift of the zone origin; max band difference', max(x['max_band_difference_after_shift'] for x in gc), flush=True)
+    out['seconds'] = time.time() - T0
+    json.dump(out, open(os.path.join(HERE, 'cw2_bloch.json' if M_EFF == 30.0 else f'cw2_bloch_M{M_EFF:g}.json'), 'w'), indent=1)
+    print('written', round(time.time() - T0, 1), 's')

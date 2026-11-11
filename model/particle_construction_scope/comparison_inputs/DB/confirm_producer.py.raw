@@ -1,0 +1,46 @@
+"""Confirm the float closures of run_sets.json with the copied producer (paper_math_db.py, Decimal arithmetic).
+
+Run:
+    /tmp/oph-completion-venv/bin/python confirm_producer.py [out.json]
+For each set with a closure in the producer windows: the producer's fixed-point residual at alpha_root (1 -+ 1e-8)
+must change sign (a bracket of the producer's own map), and its D10 point at the closure pixel must agree with the
+float chain. Precision 20, cutoffs su2 = 40, su3 = 30 (the heat sums at these couplings converge far inside them).
+"""
+import json
+import sys
+import time
+from decimal import Decimal
+from pathlib import Path
+
+from paper_math_db import PaperMathContext
+
+HERE = Path(__file__).parent
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / 'confirm_producer.json'
+runs = json.loads((HERE / 'run_sets.json').read_text())
+
+out = {}
+for key in ('D', 'C', 'D0', 'D1', 'D1E'):
+    r = runs[key]['producer_windows']
+    assert r['status'] == 'closure'
+    t0 = time.time()
+    ctx = PaperMathContext(precision=20, su2_cutoff=40, su3_cutoff=30, b_coefficients=tuple(runs[key]['b']))
+    a = Decimal(repr(1 / r['alpha0_inv']))
+    lo = ctx.evaluate_alpha_fixed_point(a * (1 - Decimal('1e-8')), 'thomson_structured_running')
+    hi = ctx.evaluate_alpha_fixed_point(a * (1 + Decimal('1e-8')), 'thomson_structured_running')
+    d10 = ctx.build_d10_from_p(Decimal(repr(r['P'])))
+    entry = dict(
+        b=runs[key]['b'], residual_lo=float(lo.residual_alpha), residual_hi=float(hi.residual_alpha),
+        bracket_sign_change=bool(lo.residual_alpha * hi.residual_alpha < 0),
+        producer_alpha_U=float(d10.alpha_u), float_alpha_U=r['alpha_U'],
+        producer_v_over_Estar=float(d10.v), float_v_over_Estar=r['v_GeV'] / 1.220890e19,
+        producer_alpha3=float(d10.alpha3_mz), float_alpha3=r['alpha_s_mZ'],
+        producer_sin2w=float(d10.sin2w_mz), float_sin2w=r['sin2_theta_W_mZ'],
+        seconds=round(time.time() - t0, 1))
+    for k in ('alpha_U', 'v_over_Estar', 'alpha3', 'sin2w'):
+        p, f = entry['producer_' + k], entry['float_' + k]
+        entry['rel_diff_' + k] = abs(p - f) / abs(p)
+    assert entry['bracket_sign_change'], entry
+    assert max(entry['rel_diff_' + k] for k in ('alpha_U', 'v_over_Estar', 'alpha3', 'sin2w')) < 1e-7, entry
+    out[key] = entry
+    print(key, json.dumps(entry), flush=True)
+OUT.write_text(json.dumps(out, indent=1) + '\n')

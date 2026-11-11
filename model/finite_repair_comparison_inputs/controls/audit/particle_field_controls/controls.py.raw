@@ -1,0 +1,144 @@
+"""Exact structural countercontrols and a finite source scalar-response consumer.
+
+The Gibbs preparation and beta are declared comparison inputs. This consumer
+does not derive a cosmological temperature, crossover or physical particle mass.
+"""
+from fractions import Fraction as F
+from pathlib import Path
+import hashlib
+import json
+import math
+import sys
+
+import numpy as np
+import sympy as s
+
+HERE = Path(__file__).resolve().parent
+WORKSPACE = HERE.parents[2]
+RER = WORKSPACE / 'reverse-engineering-reality'
+sys.path.insert(0, str(RER))
+
+
+def centre_controls():
+    # A central circle in S(U3 x U2), with angles measured in turns.
+    phases = [F(2, 14)] * 3 + [F(-3, 14)] * 2
+    assert sum(phases) == 0
+    order = next(k for k in range(1, 15) if all((k*p).denominator == 1 for p in phases))
+    assert order == 14  # An element of order 14 cannot lie in a six-element centre.
+    kernel = []
+    for n in range(6):
+        z, a, b = F(n, 6), F(n, 3), F(-n, 2)
+        assert (3*a).denominator == (2*b).denominator == 1
+        assert -2*z+a == 3*z+b == 0
+        kernel.append({'z_turns': str(z), 'SU3_scalar_turns': str(a), 'SU2_scalar_turns': str(b)})
+    # This actual central subgroup of G is distinct from the kernel above.
+    holonomy = [F(-1, 3)]*3 + [F(1, 2)]*2
+    holonomy_order = next(k for k in range(1, 7) if all((k*p).denominator == 1 for p in holonomy))
+    assert sum(holonomy) == 0 and holonomy_order == 6
+    # Same quotient-admissible centre data, inequivalent full representations.
+    representations = [(1, 0, 1, F(1, 6)), (0, 2, 1, F(1, 6)), (1, 0, 3, F(1, 6))]
+    rows = []
+    for p, q, twice_j, y in representations:
+        triality = (p+2*q) % 3
+        assert (F(triality, 3)+F(twice_j, 2)+y).denominator == 1
+        rows.append({'SU3_Dynkin': [p, q], 'SU3_dimension': (p+1)*(q+1)*(p+q+2)//2,
+                     'SU2_dimension': twice_j+1, 'Y': str(y), 'k': int(6*y) % 6,
+                     'colour_triality': triality, 'weak_centre_parity': twice_j % 2})
+    return {'centre_contains_element_of_order': order, 'centre': 'U(1)',
+            'quotient_kernel': kernel, 'declared_central_holonomy_order': holonomy_order,
+            'central_holonomy_turns': list(map(str, holonomy)),
+            'same_k_inequivalent_representations': rows,
+            'claim': 'Centre compatibility is insufficient for species identification.'}
+
+
+def thermal_response(h, x, beta):
+    """Finite Gibbs Kubo susceptibility for H(lambda)=H+lambda X.
+
+    chi=-d<X>/d lambda. Off-diagonal divided differences are essential when
+    H and X do not commute. Results here are floating diagnostics, not bounds.
+    """
+    h, x = np.asarray(h, complex), np.asarray(x, complex)
+    if h.ndim != 2 or h.shape[0] != h.shape[1] or x.shape != h.shape:
+        raise ValueError('Equal square matrices required')
+    if not (np.isfinite(h).all() and np.isfinite(x).all() and np.isfinite(beta) and beta > 0):
+        raise ValueError('Finite matrices and positive finite beta required')
+    if not np.allclose(h, h.conj().T, atol=1e-13, rtol=0) or not np.allclose(x, x.conj().T, atol=1e-13, rtol=0):
+        raise ValueError('Hermitian Hamiltonian and observable required')
+    e, u = np.linalg.eigh(h)
+    weights = np.exp(-beta*(e-e[0])); weights /= weights.sum()
+    a = u.conj().T @ x @ u
+    mean = float(np.dot(weights, a.diagonal().real))
+    chi = -beta*mean*mean
+    for i in range(len(e)):
+        for j in range(len(e)):
+            gap = e[j]-e[i]
+            # expm1 gives the continuous degenerate-energy limit stably.
+            if gap == 0:
+                factor = beta*weights[i]
+            elif gap > 0:
+                factor = weights[i]*(-np.expm1(-beta*gap))/gap
+            else:
+                factor = weights[j]*(-np.expm1(beta*gap))/(-gap)
+            chi += factor*abs(a[i, j])**2
+    variance = float(np.dot(weights, np.diag(a@a).real)-mean*mean)
+    return {'mean': mean, 'susceptibility': float(chi), 'beta_times_variance': beta*variance,
+            'commutator_norm': float(np.linalg.norm(h@x-x@h)), 'probability_sum': float(weights.sum())}
+
+
+def source_scalar_control():
+    from model.coherent_defect_wave.chiral_higgs.model import quantum_lepton_block, higgs_memory
+    h, charges, support, block, ward = quantum_lepton_block()
+    fields, _, number, _ = higgs_memory()
+    n = s.kronecker_product(s.eye(64), number)
+    blank = s.eye(320)[:, 0]
+    coupled = -h*blank/2
+    b = blank.row_join(coupled)
+    assert b.H*b == s.eye(2)
+    assert all(q*b == s.zeros(320, 2) for q in charges)
+    assert h*b == b*s.Matrix([[0, -2], [-2, 1]])
+    assert n*b == b*s.diag(0, 1)
+    quadratic = s.kronecker_product(s.eye(64), sum((phi.H*phi for phi in fields), s.zeros(5)))
+    assert quadratic*b == b*s.diag(2, 0)
+    # This is the full cyclic physical space of the blank under H and N.
+    hc, nc = b.H*h*b, b.H*n*b
+    assert hc*nc-nc*hc != s.zeros(2)
+    beta, omega = s.symbols('beta omega', positive=True, real=True)
+    delta = s.sqrt(omega**2+16)
+    mean = s.Rational(1, 2)-omega/(2*delta)*s.tanh(beta*delta/2)
+    chi = 8/delta**3*s.tanh(beta*delta/2)+beta*omega**2/(4*delta**2)/s.cosh(beta*delta/2)**2
+    assert s.simplify(-s.diff(mean, omega)-chi) == 0
+    numeric = [dict(beta=t, **thermal_response(np.array(hc).astype(complex), np.array(nc).astype(complex), t))
+               for t in (0.1, 0.5, 1.0, 2.0, 10.0)]
+    source = RER/'model/coherent_defect_wave/chiral_higgs/model.py'
+    return {'source': str(source.relative_to(RER)), 'source_sha256': hashlib.sha256(source.read_bytes()).hexdigest(),
+            'complete_active_source_dimension': 320, 'all_native_current_Ward_checks': ward,
+            'physical_cyclic_sector_dimension': 2, 'all_twelve_Gauss_constraints_exact': True,
+            'Hamiltonian': [[str(v) for v in row] for row in hc.tolist()],
+            'scalar_occupation': [[str(v) for v in row] for row in nc.tolist()],
+            'scalar_quadratic_compression': [['2', '0'], ['0', '0']],
+            'quadratic_response_relation': 'X=sum phi^dagger phi=2(I-N); chi_X=4 chi_N for H+lambda X at lambda=0',
+            'quartic_in_this_sector': 'X^2=2X; this sector cannot independently resolve quadratic and quartic coefficients',
+            'scalar_response_noncommuting': True, 'exact_mean_N': str(mean),
+            'exact_negative_derivative_in_scalar_penalty': str(chi), 'numeric_diagnostics': numeric,
+            'scope': 'Actual reducing gauge-singlet vacuum sector; NOT a Gibbs trace over all physical sectors.',
+            'observable_scope': 'N is the truncated scalar occupation, not an identified continuum Higgs condensate.',
+            'sector_gibbs_filter': {'input': 'I_2/2 in the proved physical sector',
+                'success_operator': 'exp(-beta*(H_sector-E_sector_min)/2)',
+                'failure_operator': 'sqrt(I-K_success^dagger*K_success)',
+                'success_probability': '(1+exp(-beta*sqrt(omega^2+16)))/2',
+                'all_failure_records_retained': True,
+                'initial_sector_preparation_and_coherent_filter_are_declared_services': True,
+                'global_physical_ground_or_thermalization_claimed': False},
+            'supplied_inputs': ['Gibbs-state preparation', 'inverse temperature beta in source units'],
+            'cosmological_temperature_derived': False, 'electroweak_crossover_derived': False,
+            'GeV_mass_derived': False, 'spontaneous_symmetry_breaking_claimed': False}
+
+
+def certificate():
+    return {'centre_information': centre_controls(), 'finite_quantum_scalar': source_scalar_control()}
+
+
+if __name__ == '__main__':
+    result = certificate()
+    (HERE/'results.json').write_text(json.dumps(result, indent=2, sort_keys=True)+'\n')
+    print('PASS exact centre/kernel controls and actual physical scalar-sector identities; thermal numerics are diagnostics')

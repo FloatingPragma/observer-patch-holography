@@ -1,0 +1,652 @@
+{
+ "schema": "oph.viewer.kinds_census.v1",
+ "label": "MEASURED: counts on stored states of the current universe runs (law C, schedule 1, preparation exact06)",
+ "method": "the extended register of worker X3 (face separation 1 to 5 on the carrier, chirality of the path between two faces) applied to the per-face classes of the last checkpoint of each run; script repair-law/work/SIM/cf1/observer/x3census.py, unchanged",
+ "register_sha256": "4cdea34a6ce9bc9902473a7674167c1cc37ee462e10936953c7bafa47689a119",
+ "reader_sha256": "a4537248401aed543cb75f36c376dda942dd56c2c705059a82ffd55de5a87606",
+ "census_script_sha256": "25d25151792de2203443fa83b08b2a6df0a9ceddf11595438a50cc8770e7a1b1",
+ "archived": {
+  "run": "level 10 of 2026-11-10 (retired), checkpoint at sweep 300",
+  "carriers": 20971520,
+  "source": "repair-law/work/SIM/cf1/runs/X3_census.json"
+ },
+ "levels": {
+  "6": {
+   "run": "L6",
+   "level": 6,
+   "sweep": 500,
+   "decay_of_classes_1_5": {
+    "rate_per_sweep": 0.009077164698060863,
+    "half_life_sweeps": 76.36163974286167,
+    "e_folding_sweeps": 110.1665589711761,
+    "fit": "log-linear least squares of the internal-tier count of classes 1 and 5 over sweeps 120 to the end (stats.npz, counts_intra)"
+   },
+   "end_densities": {
+    "faces_per_carrier": {
+     "1": 0.00841064453125,
+     "2": 0.267236328125,
+     "3": 0.08128662109375,
+     "4": 0.26751708984375,
+     "5": 0.0083984375
+    },
+    "pairs_2_4_per_carrier": 0.267376708984375,
+    "pairs_3_3_per_carrier": 0.040643310546875,
+    "source": "run.json end.counts_intra: classes on the internal faces after the last sweep"
+   },
+   "checkpoint": "runs/universe/L6/checkpoints/ckpt_000500.npz",
+   "checkpoint_sha256": "57fc0fb3b5ce0fd7bf9a80e9c8a72eb53907edc894f87d1d4f8e8232d998a129",
+   "carriers": 81920,
+   "carriers_with_defects": 24758,
+   "carriers_with_class_total_nonzero_mod6": 0,
+   "verification": {
+    "faces_equal_template": true,
+    "separation_equals_dual_distance": true,
+    "seams_with_both_faces_at_separation_1": "30 of 30",
+    "rotations_equal_independent_computation": true,
+    "chirality_antisymmetric_at_2_symmetric_at_3": true,
+    "carriers_with_class_total_nonzero_mod6": 0,
+    "sample_matches_reader_classify": true,
+    "pair_labels_match_types": true,
+    "h2_equals_chi_at_d2_one_pair_sample": true,
+    "h3_equals_chi_at_d3_one_pair_sample": true
+   },
+   "compositions": {
+    "{2,4}": 19513,
+    "{3,3}": 3073,
+    "{1,5}": 688,
+    "{2,2,4,4}": 555,
+    "{2,2,2}": 335,
+    "{4,4,4}": 334,
+    "{2,3,3,4}": 227,
+    "{3,3,4,4,4}": 13,
+    "{3,3,3,3}": 6,
+    "{2,2,2,2,4}": 4,
+    "{2,2,2,3,3}": 3,
+    "{2,4,4,4,4}": 3,
+    "{2,2,2,4,4,4}": 2,
+    "{1,2,3}": 1,
+    "{2,2,3,3,4,4}": 1
+   },
+   "pairs": {
+    "{1,5}": {
+     "carriers": 688,
+     "adjacent": 76,
+     "kinds": [
+      {
+       "separation": 1,
+       "chirality": 0,
+       "count": 76
+      },
+      {
+       "separation": 2,
+       "chirality": 1,
+       "count": 98
+      },
+      {
+       "separation": 2,
+       "chirality": -1,
+       "count": 111
+      },
+      {
+       "separation": 3,
+       "chirality": 1,
+       "count": 124
+      },
+      {
+       "separation": 3,
+       "chirality": -1,
+       "count": 121
+      },
+      {
+       "separation": 4,
+       "chirality": 0,
+       "count": 116
+      },
+      {
+       "separation": 5,
+       "chirality": 0,
+       "count": 42
+      }
+     ],
+     "lasting_kinds": 6,
+     "lasting_kinds_occupied": 6,
+     "share_by_separation": {
+      "1": 0.11046511627906977,
+      "2": 0.30377906976744184,
+      "3": 0.3561046511627907,
+      "4": 0.1686046511627907,
+      "5": 0.061046511627906974
+     }
+    },
+    "{2,4}": {
+     "carriers": 19513,
+     "adjacent": 0,
+     "kinds": [
+      {
+       "separation": 1,
+       "chirality": 0,
+       "count": 0
+      },
+      {
+       "separation": 2,
+       "chirality": 1,
+       "count": 4388
+      },
+      {
+       "separation": 2,
+       "chirality": -1,
+       "count": 4238
+      },
+      {
+       "separation": 3,
+       "chirality": 1,
+       "count": 3376
+      },
+      {
+       "separation": 3,
+       "chirality": -1,
+       "count": 3437
+      },
+      {
+       "separation": 4,
+       "chirality": 0,
+       "count": 3103
+      },
+      {
+       "separation": 5,
+       "chirality": 0,
+       "count": 971
+      }
+     ],
+     "lasting_kinds": 6,
+     "lasting_kinds_occupied": 6,
+     "share_by_separation": {
+      "1": 0.0,
+      "2": 0.44206426484907496,
+      "3": 0.3491518474862912,
+      "4": 0.1590221903346487,
+      "5": 0.04976169732998514
+     }
+    },
+    "{3,3}": {
+     "carriers": 3073,
+     "adjacent": 0,
+     "kinds": [
+      {
+       "separation": 1,
+       "chirality": 0,
+       "count": 0
+      },
+      {
+       "separation": 2,
+       "chirality": 0,
+       "count": 1571
+      },
+      {
+       "separation": 3,
+       "chirality": 1,
+       "count": 500
+      },
+      {
+       "separation": 3,
+       "chirality": -1,
+       "count": 531
+      },
+      {
+       "separation": 4,
+       "chirality": 0,
+       "count": 357
+      },
+      {
+       "separation": 5,
+       "chirality": 0,
+       "count": 114
+      }
+     ],
+     "lasting_kinds": 5,
+     "lasting_kinds_occupied": 5,
+     "share_by_separation": {
+      "1": 0.0,
+      "2": 0.5112268141880898,
+      "3": 0.335502766026684,
+      "4": 0.11617312072892938,
+      "5": 0.03709729905629678
+     }
+    }
+   },
+   "triples": {
+    "{2,2,2}": {
+     "carriers": 335,
+     "lasting_shapes": 13,
+     "lasting_shapes_occupied": 13,
+     "adjacent_carriers": 0,
+     "counts_of_lasting_shapes": [
+      47,
+      37,
+      36,
+      33,
+      33,
+      29,
+      28,
+      25,
+      24,
+      18,
+      15,
+      8,
+      2
+     ]
+    },
+    "{4,4,4}": {
+     "carriers": 334,
+     "lasting_shapes": 13,
+     "lasting_shapes_occupied": 13,
+     "adjacent_carriers": 0,
+     "counts_of_lasting_shapes": [
+      45,
+      40,
+      38,
+      32,
+      32,
+      31,
+      25,
+      25,
+      20,
+      16,
+      13,
+      10,
+      7
+     ]
+    }
+   },
+   "mirror_pairs": {
+    "(2,4) d=2": {
+     "counts": [
+      4388,
+      4238
+     ],
+     "z": 1.6150520826804506
+    },
+    "(2,4) d=3": {
+     "counts": [
+      3376,
+      3437
+     ],
+     "z": -0.7390275702545608
+    },
+    "(3,3) d=3": {
+     "counts": [
+      500,
+      531
+     ],
+     "z": -0.9654557227896644
+    },
+    "(1,5) d=2": {
+     "counts": [
+      98,
+      111
+     ],
+     "z": -0.899228803025897
+    },
+    "(1,5) d=3": {
+     "counts": [
+      124,
+      121
+     ],
+     "z": 0.19166296949998196
+    }
+   },
+   "tests_summary": {
+    "conjugation": {
+     "tests": 15,
+     "chi2": 14.535212850252037,
+     "largest_abs_z": -2.3094010767585034,
+     "at": "{2,2,2} vs {4,4,4} shape 20",
+     "counts_at_largest": [
+      2,
+      10
+     ]
+    },
+    "bare_mirror": {
+     "tests": 17,
+     "chi2": 15.418352125235211,
+     "largest_abs_z": 1.8973665961010275,
+     "at": "{2,2,2} shape 19 vs 20",
+     "counts_at_largest": [
+      8,
+      2
+     ]
+    },
+    "mirror_with_conjugation": {
+     "tests": 16,
+     "chi2": 11.628525792507473,
+     "largest_abs_z": 1.6876318513890358,
+     "at": "{2,2,2} shape 9 vs {4,4,4} shape 4",
+     "counts_at_largest": [
+      47,
+      32
+     ]
+    }
+   }
+  },
+  "7": {
+   "run": "L7",
+   "level": 7,
+   "sweep": 400,
+   "decay_of_classes_1_5": {
+    "rate_per_sweep": 0.00921049145216367,
+    "half_life_sweeps": 75.25626446318623,
+    "e_folding_sweeps": 108.57183953686709,
+    "fit": "log-linear least squares of the internal-tier count of classes 1 and 5 over sweeps 120 to the end (stats.npz, counts_intra)"
+   },
+   "end_densities": {
+    "faces_per_carrier": {
+     "1": 0.019757080078125,
+     "2": 0.2691162109375,
+     "3": 0.0818023681640625,
+     "4": 0.268743896484375,
+     "5": 0.0197235107421875
+    },
+    "pairs_2_4_per_carrier": 0.2689300537109375,
+    "pairs_3_3_per_carrier": 0.04090118408203125,
+    "source": "run.json end.counts_intra: classes on the internal faces after the last sweep"
+   },
+   "checkpoint": "runs/universe/L7/checkpoints/ckpt_000400.npz",
+   "checkpoint_sha256": "135ee18c1605262cf6019d73d3ff4bf184bf5de5128b01e9c27e8b9bc5dd81da",
+   "carriers": 327680,
+   "carriers_with_defects": 103331,
+   "carriers_with_class_total_nonzero_mod6": 0,
+   "verification": {
+    "faces_equal_template": true,
+    "separation_equals_dual_distance": true,
+    "seams_with_both_faces_at_separation_1": "30 of 30",
+    "rotations_equal_independent_computation": true,
+    "chirality_antisymmetric_at_2_symmetric_at_3": true,
+    "carriers_with_class_total_nonzero_mod6": 0,
+    "sample_matches_reader_classify": true,
+    "pair_labels_match_types": true,
+    "h2_equals_chi_at_d2_one_pair_sample": true,
+    "h3_equals_chi_at_d3_one_pair_sample": true
+   },
+   "compositions": {
+    "{2,4}": 78483,
+    "{3,3}": 12438,
+    "{1,5}": 6433,
+    "{2,2,4,4}": 2199,
+    "{2,2,2}": 1376,
+    "{4,4,4}": 1325,
+    "{2,3,3,4}": 865,
+    "{2,4,4,4,4}": 43,
+    "{1,2,3}": 39,
+    "{2,2,2,2,4}": 38,
+    "{3,4,5}": 28,
+    "{3,3,4,4,4}": 22,
+    "{3,3,3,3}": 14,
+    "{2,2,2,3,3}": 13,
+    "{2,2,2,4,4,4}": 10,
+    "{2,2,3,3,4,4}": 3,
+    "{2,5,5}": 1,
+    "{1,1,4}": 1
+   },
+   "pairs": {
+    "{1,5}": {
+     "carriers": 6433,
+     "adjacent": 727,
+     "kinds": [
+      {
+       "separation": 1,
+       "chirality": 0,
+       "count": 727
+      },
+      {
+       "separation": 2,
+       "chirality": 1,
+       "count": 1011
+      },
+      {
+       "separation": 2,
+       "chirality": -1,
+       "count": 958
+      },
+      {
+       "separation": 3,
+       "chirality": 1,
+       "count": 1094
+      },
+      {
+       "separation": 3,
+       "chirality": -1,
+       "count": 1147
+      },
+      {
+       "separation": 4,
+       "chirality": 0,
+       "count": 1105
+      },
+      {
+       "separation": 5,
+       "chirality": 0,
+       "count": 391
+      }
+     ],
+     "lasting_kinds": 6,
+     "lasting_kinds_occupied": 6,
+     "share_by_separation": {
+      "1": 0.11301103684128712,
+      "2": 0.30607803513135395,
+      "3": 0.3483600186538163,
+      "4": 0.1717705580600031,
+      "5": 0.06078035131353956
+     }
+    },
+    "{2,4}": {
+     "carriers": 78483,
+     "adjacent": 0,
+     "kinds": [
+      {
+       "separation": 1,
+       "chirality": 0,
+       "count": 0
+      },
+      {
+       "separation": 2,
+       "chirality": 1,
+       "count": 17368
+      },
+      {
+       "separation": 2,
+       "chirality": -1,
+       "count": 17280
+      },
+      {
+       "separation": 3,
+       "chirality": 1,
+       "count": 13663
+      },
+      {
+       "separation": 3,
+       "chirality": -1,
+       "count": 13565
+      },
+      {
+       "separation": 4,
+       "chirality": 0,
+       "count": 12566
+      },
+      {
+       "separation": 5,
+       "chirality": 0,
+       "count": 4041
+      }
+     ],
+     "lasting_kinds": 6,
+     "lasting_kinds_occupied": 6,
+     "share_by_separation": {
+      "1": 0.0,
+      "2": 0.4414714014499955,
+      "3": 0.34692863422652037,
+      "4": 0.16011110686390684,
+      "5": 0.051488857459577236
+     }
+    },
+    "{3,3}": {
+     "carriers": 12438,
+     "adjacent": 0,
+     "kinds": [
+      {
+       "separation": 1,
+       "chirality": 0,
+       "count": 0
+      },
+      {
+       "separation": 2,
+       "chirality": 0,
+       "count": 6230
+      },
+      {
+       "separation": 3,
+       "chirality": 1,
+       "count": 2067
+      },
+      {
+       "separation": 3,
+       "chirality": -1,
+       "count": 2137
+      },
+      {
+       "separation": 4,
+       "chirality": 0,
+       "count": 1563
+      },
+      {
+       "separation": 5,
+       "chirality": 0,
+       "count": 441
+      }
+     ],
+     "lasting_kinds": 5,
+     "lasting_kinds_occupied": 5,
+     "share_by_separation": {
+      "1": 0.0,
+      "2": 0.5008843865573244,
+      "3": 0.3379964624537707,
+      "4": 0.12566328991799325,
+      "5": 0.03545586107091172
+     }
+    }
+   },
+   "triples": {
+    "{2,2,2}": {
+     "carriers": 1376,
+     "lasting_shapes": 13,
+     "lasting_shapes_occupied": 13,
+     "adjacent_carriers": 0,
+     "counts_of_lasting_shapes": [
+      175,
+      163,
+      148,
+      137,
+      117,
+      116,
+      114,
+      111,
+      110,
+      70,
+      58,
+      31,
+      26
+     ]
+    },
+    "{4,4,4}": {
+     "carriers": 1325,
+     "lasting_shapes": 13,
+     "lasting_shapes_occupied": 13,
+     "adjacent_carriers": 0,
+     "counts_of_lasting_shapes": [
+      173,
+      160,
+      156,
+      123,
+      119,
+      106,
+      99,
+      98,
+      91,
+      70,
+      69,
+      37,
+      24
+     ]
+    }
+   },
+   "mirror_pairs": {
+    "(2,4) d=2": {
+     "counts": [
+      17368,
+      17280
+     ],
+     "z": 0.47276311638229407
+    },
+    "(2,4) d=3": {
+     "counts": [
+      13663,
+      13565
+     ],
+     "z": 0.5939066727100525
+    },
+    "(3,3) d=3": {
+     "counts": [
+      2067,
+      2137
+     ],
+     "z": -1.0796094723323626
+    },
+    "(1,5) d=2": {
+     "counts": [
+      1011,
+      958
+     ],
+     "z": 1.1944088469412808
+    },
+    "(1,5) d=3": {
+     "counts": [
+      1094,
+      1147
+     ],
+     "z": -1.119579509259911
+    }
+   },
+   "tests_summary": {
+    "conjugation": {
+     "tests": 15,
+     "chi2": 10.545604458113083,
+     "largest_abs_z": 1.60638968027003,
+     "at": "{2,2,2} vs {4,4,4} shape 16",
+     "counts_at_largest": [
+      114,
+      91
+     ]
+    },
+    "bare_mirror": {
+     "tests": 17,
+     "chi2": 13.601736903630972,
+     "largest_abs_z": -1.6644794391276478,
+     "at": "{4,4,4} shape 19 vs 20",
+     "counts_at_largest": [
+      24,
+      37
+     ]
+    },
+    "mirror_with_conjugation": {
+     "tests": 16,
+     "chi2": 14.365784523509099,
+     "largest_abs_z": -1.395363930464869,
+     "at": "{2,2,2} shape 4 vs {4,4,4} shape 9",
+     "counts_at_largest": [
+      148,
+      173
+     ]
+    }
+   }
+  }
+ }
+}

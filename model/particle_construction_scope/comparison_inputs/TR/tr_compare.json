@@ -1,0 +1,314 @@
+{
+ "needed_NOT_BLIND": {
+  "r_mu_c": 0.02429361209121211,
+  "r_Q0": 0.010400492242551053,
+  "ln_needed_mu_c": 3.7175418400986757,
+  "ln_needed_Q0": 4.565902142940363
+ },
+ "measured_IMPORTED_via_LS": {
+  "running_mZ_GeV": [
+   0.000486570161,
+   0.1027181359,
+   1.74624
+  ],
+  "pole_GeV": [
+   0.0005109989506900001,
+   0.10565837550000001,
+   1.7769299999999995
+  ]
+ },
+ "rows": [
+  {
+   "id": "A1",
+   "weight": "structural",
+   "estimated_before_listing": true,
+   "r": 0.1353352832366127,
+   "r_over_needed_mu_c": 5.57081765891736,
+   "r_over_needed_Q0": 13.012392113800317,
+   "excess_reads_ln": 2.0,
+   "pass_mu_c_5pct": false,
+   "within_5pct_Q0": false,
+   "masses_GeV_stated_at_mu_c": [
+    0.0027957230499465104,
+    0.5780725384096826,
+    9.722050966256212
+   ],
+   "masses_over_running_mZ": [
+    5.7457757874028585,
+    5.627755345681684,
+    5.567419693888705
+   ],
+   "formula": "e^-(n(1) - n_q(1)) = e^-(3 - 1)"
+  },
+  {
+   "id": "A2",
+   "weight": "structural",
+   "estimated_before_listing": true,
+   "r": 0.002655712149563607,
+   "r_over_needed_mu_c": 0.10931730281987483,
+   "r_over_needed_Q0": 0.2553448517271533,
+   "excess_reads_ln": 5.931042430664547,
+   "pass_mu_c_5pct": false,
+   "within_5pct_Q0": false,
+   "masses_GeV_stated_at_mu_c": [
+    5.486104948387443e-05,
+    0.011343636536376258,
+    0.1907778093952246
+   ],
+   "masses_over_running_mZ": [
+    0.11275054222627194,
+    0.1104346027795882,
+    0.10925062385194738
+   ],
+   "formula": "< e^-(n(d) - n_q(1)) >"
+  },
+  {
+   "id": "A3",
+   "weight": "structural",
+   "estimated_before_listing": true,
+   "r": 0.007863633387867077,
+   "r_over_needed_mu_c": 0.32369140325211837,
+   "r_over_needed_Q0": 0.756082808820813,
+   "excess_reads_ln": 4.845506516264273,
+   "pass_mu_c_5pct": false,
+   "within_5pct_Q0": false,
+   "masses_GeV_stated_at_mu_c": [
+    0.0001624450076359792,
+    0.03358880555708386,
+    0.5648981015773668
+   ],
+   "masses_over_running_mZ": [
+    0.3338573152577254,
+    0.3269997577621914,
+    0.323493965077748
+   ],
+   "formula": "< e^-(n(d) - n_q(d)) >"
+  },
+  {
+   "id": "A4",
+   "weight": "structural",
+   "estimated_before_listing": true,
+   "r": 0.19918532440254103,
+   "r_over_needed_mu_c": 8.199082279517983,
+   "r_over_needed_Q0": 19.151528577428607,
+   "excess_reads_ln": 1.613519609223611,
+   "pass_mu_c_5pct": false,
+   "within_5pct_Q0": false,
+   "masses_GeV_stated_at_mu_c": [
+    0.004114721522174389,
+    0.8508022692797883,
+    14.308832325611123
+   ],
+   "masses_over_running_mZ": [
+    8.4565841721938,
+    8.282882684982491,
+    8.194081183348866
+   ],
+   "formula": "< e^-nu(d) >"
+  },
+  {
+   "id": "A5",
+   "weight": "structural",
+   "estimated_before_listing": true,
+   "r": 0.006944444444444444,
+   "r_over_needed_mu_c": 0.2858547513795408,
+   "r_over_needed_Q0": 0.6677034396538425,
+   "excess_reads_ln": 4.969813299576001,
+   "pass_mu_c_5pct": false,
+   "within_5pct_Q0": false,
+   "masses_GeV_stated_at_mu_c": [
+    0.00014345662814672404,
+    0.02966257233028047,
+    0.49886652768284784
+   ],
+   "masses_over_running_mZ": [
+    0.29483235850692463,
+    0.2887763886131862,
+    0.2856803919752427
+   ],
+   "formula": "p^(n(1) - n_q(1)) = (1/12)^2"
+  },
+  {
+   "id": "A6",
+   "weight": "structural",
+   "estimated_before_listing": true,
+   "r": 0.03396568769290124,
+   "r_over_needed_mu_c": 1.3981324623680755,
+   "r_over_needed_Q0": 3.2657769363972013,
+   "excess_reads_ln": 3.382404449439433,
+   "pass_mu_c_5pct": false,
+   "within_5pct_Q0": false,
+   "masses_GeV_stated_at_mu_c": [
+    0.0007016548361915943,
+    0.14508139218312963,
+    2.439985633879346
+   ],
+   "masses_over_running_mZ": [
+    1.442042468756308,
+    1.4124223625355883,
+    1.3972796602296054
+   ],
+   "formula": "< p^nu(d) >"
+  },
+  {
+   "id": "B1",
+   "weight": "structural",
+   "estimated_before_listing": true,
+   "r": 0.3554156066244714,
+   "r_over_needed_mu_c": 14.630002540998762,
+   "r_over_needed_Q0": 34.17296011917359,
+   "excess_reads_ln": 1.034467451382532,
+   "pass_mu_c_5pct": false,
+   "within_5pct_Q0": false,
+   "masses_GeV_stated_at_mu_c": [
+    0.007342088330457957,
+    1.518125923988481,
+    25.531912736790197
+   ],
+   "masses_over_running_mZ": [
+    15.089475103381766,
+    14.779531488640275,
+    14.621078853302064
+   ],
+   "formula": "< e^-S(d) >, S in nats = cost units / kappa"
+  },
+  {
+   "id": "B2",
+   "weight": "structural",
+   "estimated_before_listing": true,
+   "r": 0.5488116360940264,
+   "r_over_needed_mu_c": 22.5907795857394,
+   "r_over_needed_Q0": 52.767852068452946,
+   "excess_reads_ln": 0.6000000000000001,
+   "pass_mu_c_5pct": false,
+   "within_5pct_Q0": false,
+   "masses_GeV_stated_at_mu_c": [
+    0.011337216019449979,
+    2.3441997385927618,
+    39.42486075602442
+   ],
+   "masses_over_running_mZ": [
+    23.300269782573,
+    22.821673291218303,
+    22.57700015806786
+   ],
+   "formula": "< e^-(B(d)/kappa) >"
+  },
+  {
+   "id": "C1",
+   "weight": "structural",
+   "estimated_before_listing": true,
+   "r": 0.27546327902579965,
+   "r_over_needed_mu_c": 11.338918148176278,
+   "r_over_needed_Q0": 26.485600162154775,
+   "excess_reads_ln": 1.2893009477454622,
+   "pass_mu_c_5pct": false,
+   "within_5pct_Q0": false,
+   "masses_GeV_stated_at_mu_c": [
+    0.005690452778968526,
+    1.1766167191352181,
+    19.788394969689428
+   ],
+   "masses_over_running_mZ": [
+    11.695030306160772,
+    11.454809891416831,
+    11.33200188387016
+   ],
+   "formula": "< (t3/tau)^(d-1) >, t3/tau = 25/54 (tau = sqrt p, eps = 1/kappa)"
+  },
+  {
+   "id": "C2",
+   "weight": "structural",
+   "estimated_before_listing": true,
+   "r": 0.015036661390925127,
+   "r_over_needed_mu_c": 0.6189553589012989,
+   "r_over_needed_Q0": 1.445764396554841,
+   "excess_reads_ln": 4.197263967088452,
+   "pass_mu_c_5pct": false,
+   "within_5pct_Q0": false,
+   "masses_GeV_stated_at_mu_c": [
+    0.00031062365880856537,
+    0.06422775208045235,
+    1.0801853360688327
+   ],
+   "masses_over_running_mZ": [
+    0.6383943852417316,
+    0.6252815193509792,
+    0.6185778221028224
+   ],
+   "formula": "< (t3/tau)^(d-1) >, t3/tau = 25/648 (tau = p, eps = 1/kappa)"
+  },
+  {
+   "id": "PH-TR0",
+   "weight": "post hoc",
+   "estimated_before_listing": true,
+   "r": 0.02430997420092727,
+   "r_over_needed_mu_c": 1.0006735148998727,
+   "r_over_needed_Q0": 2.3373868884271647,
+   "excess_reads_ln": 3.716868551908174,
+   "pass_mu_c_5pct": true,
+   "within_5pct_Q0": false,
+   "masses_GeV_stated_at_mu_c": [
+    0.0005021894778046384,
+    0.10383787700384506,
+    1.7463502681453729
+   ],
+   "masses_over_running_mZ": [
+    1.0321008521618702,
+    1.0109011042113847,
+    1.0000631460425673
+   ],
+   "formula": "(det C^2)^(1/3) (POST HOC coincidence)"
+  },
+  {
+   "id": "PH-TR7",
+   "weight": "post hoc",
+   "estimated_before_listing": true,
+   "r": 0.022881367512377394,
+   "r_over_needed_mu_c": 0.9418676574923341,
+   "r_over_needed_Q0": 2.2000273620477224,
+   "excess_reads_ln": 3.7774323453590157,
+   "pass_mu_c_5pct": false,
+   "within_5pct_Q0": false,
+   "masses_GeV_stated_at_mu_c": [
+    0.0004726776716224784,
+    0.09773571151463388,
+    1.6437237637730158
+   ],
+   "masses_over_running_mZ": [
+    0.9714481271334647,
+    0.9514942094527816,
+    0.9412931577406404
+   ],
+   "formula": "uphill cost units read as nats, as estimated before listing with the guess U = 3 (d = 2), 5 (d >= 3) (POST HOC)"
+  },
+  {
+   "id": "PH-TR7x",
+   "weight": "post hoc",
+   "estimated_before_listing": true,
+   "r": 0.049787068367863944,
+   "r_over_needed_mu_c": 2.049389287230521,
+   "r_over_needed_Q0": 4.786991539128544,
+   "excess_reads_ln": 3.0,
+   "pass_mu_c_5pct": false,
+   "within_5pct_Q0": false,
+   "masses_GeV_stated_at_mu_c": [
+    0.0010284890332844427,
+    0.2126610023867112,
+    3.576542676506617
+   ],
+   "masses_over_running_mZ": [
+    2.113752785766168,
+    2.0703354916189753,
+    2.0481392457546597
+   ],
+   "formula": "uphill cost units read as nats with the exact minimal total uphill cost U(d) (POST HOC)"
+  }
+ ],
+ "passing_mu_c": [
+  "PH-TR0"
+ ],
+ "passing_mu_c_structural_unestimated": [],
+ "within_5pct_Q0": [],
+ "looks_in_this_comparison": 26
+}

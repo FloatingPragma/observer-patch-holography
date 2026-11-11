@@ -1,0 +1,146 @@
+"""PM helpers: the generation register, the charged-lepton circulant, PMNS parameters and splitting ratios.
+
+No measured value enters this module. Conventions: CANDIDATES.md (written before any value was computed).
+"""
+import mpmath as mp
+
+mp.mp.dps = 40
+
+W = mp.exp(2j * mp.pi / 3)
+A_HOLD = 1 / mp.sqrt(6)          # E agreeing half, weight 1/6 (DA3, LNAT2)
+B_STEP = 1 / mp.sqrt(12)         # each oriented C repair component, weight 1/12
+THETA = mp.mpf(2) / 9            # clock phase (LNAT2 T2, premises (a) and (b))
+
+
+def shift_counter():
+    """S|n> = |n+1> on the counter basis."""
+    S = mp.zeros(3, 3)
+    for n in range(3):
+        S[(n + 1) % 3, n] = 1
+    return S
+
+
+def fourier_counter():
+    """f_k = 3^(-1/2) sum_n w^(-k n)|n>, S f_k = w^k f_k (columns k = 0, 1, 2)."""
+    Fm = mp.matrix(3, 3)
+    for k in range(3):
+        for n in range(3):
+            Fm[n, k] = W ** (-k * n) / mp.sqrt(3)
+    return Fm
+
+
+def col(M, j):
+    return mp.matrix([M[i, j] for i in range(M.rows)])
+
+
+def dagger(M):
+    return M.transpose_conj()
+
+
+def circulant(S, theta, a=A_HOLD, b=B_STEP):
+    """C_2(theta) = a 1 + b (e^{i theta} S + e^{-i theta} S^-1) for a unitary S of order three."""
+    Sinv = dagger(S)
+    return a * mp.eye(3) + b * (mp.exp(1j * theta) * S + mp.exp(-1j * theta) * Sinv)
+
+
+def lam(theta, k, a=A_HOLD, b=B_STEP):
+    return a + 2 * b * mp.cos(theta + 2 * mp.pi * k / 3)
+
+
+def lepton_rows(theta, a=A_HOLD, b=B_STEP):
+    """Characters k of e, mu, tau: ascending lambda_k^2."""
+    ks = sorted(range(3), key=lambda k: lam(theta, k, a, b) ** 2)
+    return {'e': ks[0], 'mu': ks[1], 'tau': ks[2]}
+
+
+def eigvec_of(S, k):
+    """Unit eigenvector of a unitary S of order three for the eigenvalue w^k (nondegenerate)."""
+    target = W ** k
+    E, V = mp.eig(S)
+    j = min(range(3), key=lambda i: abs(E[i] - target))
+    assert abs(E[j] - target) < mp.mpf(10) ** (-30)
+    v = col(V, j)
+    return v / mp.norm(v)
+
+
+def normalize(v):
+    return v / mp.norm(v)
+
+
+def pmns(rows, cols):
+    """U[alpha, i] = <rows[alpha] | cols[i]>."""
+    U = mp.matrix(3, 3)
+    for a in range(3):
+        for i in range(3):
+            U[a, i] = (dagger(rows[a]) * cols[i])[0]
+    return U
+
+
+def params(U):
+    """Standard angles, J and delta from the moduli and the Jarlskog invariant (rephasing invariant)."""
+    U2 = [[abs(U[a, i]) ** 2 for i in range(3)] for a in range(3)]
+    s13s = U2[0][2]
+    c13s = 1 - s13s
+    out = {'abs_U_squared': [[float(x) for x in r] for r in U2]}
+    J = mp.im(U[0, 0] * U[1, 1] * mp.conj(U[0, 1]) * mp.conj(U[1, 0]))
+    out['J'] = float(J)
+    if c13s < mp.mpf(10) ** (-25):
+        out.update({'sin2_theta13': float(s13s), 'sin2_theta12': None, 'sin2_theta23': None,
+                    'theta13_deg': 90.0, 'theta12_deg': None, 'theta23_deg': None, 'delta_deg': None,
+                    'note': 'abs(U_e3) = 1: theta12 and theta23 undefined'})
+        return out
+    clamp = lambda z: min(max(z, mp.mpf(0)), mp.mpf(1))         # rounding at the 1e-40 level
+    s12s = clamp(U2[0][1] / c13s)
+    s23s = clamp(U2[1][2] / c13s)
+    s13s = clamp(s13s)
+    s12, c12 = mp.sqrt(s12s), mp.sqrt(1 - s12s)
+    s23, c23 = mp.sqrt(s23s), mp.sqrt(1 - s23s)
+    s13, c13 = mp.sqrt(s13s), mp.sqrt(c13s)
+    out.update({'sin2_theta12': float(s12s), 'sin2_theta23': float(s23s), 'sin2_theta13': float(s13s),
+                'theta12_deg': float(mp.degrees(mp.asin(s12))), 'theta23_deg': float(mp.degrees(mp.asin(s23))),
+                'theta13_deg': float(mp.degrees(mp.asin(s13)))})
+    den = s12 * c12 * s23 * c23 * s13
+    if abs(den) < mp.mpf(10) ** (-25):
+        out['delta_deg'] = None
+        out['note'] = 'one of the angles is 0 or 90 degrees: delta undefined'
+        return out
+    sd = J / (den * c13s)
+    cd = (U2[1][0] - s12s * c23 ** 2 - c12 ** 2 * s23s * s13s) / (2 * den)
+    out['sin_delta'] = float(sd)
+    out['cos_delta'] = float(cd)
+    out['delta_deg'] = float(mp.degrees(mp.atan2(sd, cd)) % 360)
+    out['unit_circle_defect'] = float(abs(sd ** 2 + cd ** 2 - 1))
+    return out
+
+
+def ratio(masses, labelling):
+    """r = Delta m21^2 / abs(Delta m31^2) from three masses (any order, sorted here)."""
+    m = sorted(masses)
+    if labelling == 'NO':                       # (nu1, nu2, nu3) = ascending
+        m1, m2, m3 = m
+        den = m3 ** 2 - m1 ** 2
+    else:                                       # IO: (nu3, nu1, nu2) = ascending
+        m3, m1, m2 = m
+        den = m1 ** 2 - m3 ** 2
+    if den == 0:
+        return None
+    return (m2 ** 2 - m1 ** 2) / den
+
+
+def label_columns(vecs_ascending, labelling):
+    """Neutrino eigenvectors ordered by ascending mass -> columns (nu1, nu2, nu3)."""
+    a, b, c = vecs_ascending
+    if labelling == 'NO':
+        return [a, b, c]
+    return [b, c, a]                            # IO: nu3 = lightest, nu1 = middle, nu2 = heaviest
+
+
+def pdg_matrix(s12s, s23s, s13s, delta):
+    """PDG parametrization (Dirac), used only to check params()."""
+    s12, c12 = mp.sqrt(s12s), mp.sqrt(1 - s12s)
+    s23, c23 = mp.sqrt(s23s), mp.sqrt(1 - s23s)
+    s13, c13 = mp.sqrt(s13s), mp.sqrt(1 - s13s)
+    e = mp.exp(1j * delta)
+    return mp.matrix([[c12 * c13, s12 * c13, s13 / e],
+                      [-s12 * c23 - c12 * s23 * s13 * e, c12 * c23 - s12 * s23 * s13 * e, s23 * c13],
+                      [s12 * s23 - c12 * c23 * s13 * e, -c12 * s23 - s12 * c23 * s13 * e, c23 * c13]])

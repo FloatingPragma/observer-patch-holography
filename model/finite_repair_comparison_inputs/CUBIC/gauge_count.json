@@ -1,0 +1,50 @@
+[
+ {
+  "patch": [
+   2,
+   2,
+   2
+  ],
+  "cells": 8,
+  "ports": 48,
+  "seams": 216,
+  "faces": 160,
+  "rank_gauge": 47,
+  "rank_face_flux": 152,
+  "gauge_invariant_bits": 169,
+  "not_face_fluxes": 17,
+  "per_cell": {
+   "gauge_invariant": 21.125,
+   "face_flux": 19.0,
+   "other": 2.125
+  },
+  "cubic_lattice_gauge_theory_would_give": {
+   "plaquette_fluxes": 14,
+   "torus_holonomies": 3
+  }
+ },
+ {
+  "patch": [
+   3,
+   3,
+   3
+  ],
+  "cells": 27,
+  "ports": 162,
+  "seams": 729,
+  "faces": 540,
+  "rank_gauge": 161,
+  "rank_face_flux": 513,
+  "gauge_invariant_bits": 568,
+  "not_face_fluxes": 55,
+  "per_cell": {
+   "gauge_invariant": 21.037037037037038,
+   "face_flux": 19.0,
+   "other": 2.037037037037037
+  },
+  "cubic_lattice_gauge_theory_would_give": {
+   "plaquette_fluxes": 52,
+   "torus_holonomies": 3
+  }
+ }
+]

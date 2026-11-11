@@ -1,0 +1,117 @@
+"""Task 6: memory and horizon contract of the area record, and what a bounded observer can estimate.
+
+Numbers are float64 evaluations of the proved truncation bound (STATEMENTS.md S6) and of the sampling-error formula
+(S7, checked against simulation by t3_mc.py).  Usage: python t6_memory.py [out.json]
+"""
+import json
+import math
+import sys
+import numpy as np
+import ca_core as c
+import ca_corr as cc
+
+out_path = sys.argv[1] if len(sys.argv) > 1 else 't6_memory.json'
+res = {'schema': 'repair_law.CA.t6.v1'}
+secs = {'one': cc.Sector('one'), 'two': cc.Sector('two')}
+
+# --- registers ---------------------------------------------------------------------------------------------------
+bits = lambda n: int(math.ceil(math.log2(n)))
+reg = {}
+for name, r, Lmax in (('one', 3, 1024), ('two', 3, 1024)):
+    d = secs[name].d
+    reg[name] = {
+        'area_counter_bits': bits(20),
+        'configuration_register_bits': bits(d),
+        'initial_configuration_bits': bits(d),
+        'insertion_records_bits': (r - 1) * bits(d),
+        'lag_clock_bits': bits(Lmax),
+        'working_total_bits': bits(20) + bits(d) * (r + 1) + bits(Lmax),
+        'seam_table_rom_bits': 30 * bits(20),
+        'accumulators': '20 area bins per port word; by rotation symmetry the 12^r words fall into orbits',
+    }
+# orbits of port words under the 60 rotations
+for r in (2, 3):
+    seen = set()
+    orbits = 0
+    for w in np.ndindex(*([12] * r)):
+        if w in seen:
+            continue
+        orbits += 1
+        for rot in c.ROTS:
+            seen.add(tuple(rot[p] for p in w))
+    reg[f'orbits_of_port_words_r{r}'] = orbits
+res['registers'] = reg
+print('registers (bits):', json.dumps(reg, indent=1))
+
+
+# --- cost model -------------------------------------------------------------------------------------------------
+def model(name, k, r):
+    sec = secs[name]
+    sp = sec.spectrum(k)
+    lim = cc.limits(sec, k, orders=(r,))
+    key = {2: 'G', 3: 'T3'}[r]
+    scale = float(np.abs(lim[key]).max())
+    idx = np.unravel_index(np.argmax(np.abs(lim[key])), lim[key].shape)
+    w0 = np.linalg.eigvalsh(sec.P(0))
+    wk = np.linalg.eigvalsh(sec.P(k))
+    P0 = sec.P(0)
+
+    def at(lag):
+        L = r * lag
+        p_c = float((w0 ** L).sum()) / sec.d
+        chi = float((wk ** L).sum() / (w0 ** L).sum())
+        X0 = np.linalg.matrix_power(P0, lag)
+        prod = None
+        for a in idx:
+            Y = sec.occ[a][:, None] * X0
+            prod = Y if prod is None else prod @ Y
+        f_w = float(np.trace(prod).real) / sec.d / p_c
+        trunc = cc.error_bound(sec, k, lag, r) / scale
+        return dict(L=L, p_c=p_c, chi=chi, f_w=f_w, trunc_rel=trunc, scale=scale)
+    return at
+
+
+def closed_needed(a, eta):
+    """closed histories for a relative sampling error eta on the largest correlation"""
+    return a['f_w'] / (a['chi'] ** 2 * (eta * a['scale']) ** 2)
+
+
+# (i) at the lags where the reconstruction from exact counts first returned the matrix answer (t4_reconstruct.json)
+print('\ncost of the decision lags (statistical error set equal to the proved truncation error):')
+res['decision_cost'] = []
+for label, parts, lag in (('one quantum k=1 -> (4,4,1)', [('one', 1)], 160),
+                          ('two quanta k=1 -> (9,9,1)', [('two', 1)], 200),
+                          ('sum (k=1, k=1) -> (9,12,1)', [('one', 1), ('two', 1)], 240),
+                          ('pairing (one k=7, two k=1) -> (12,12,1)', [('one', 7), ('two', 1)], 400)):
+    rows = []
+    for name, k in parts:
+        a = model(name, k, 3)(lag)
+        n_cl = closed_needed(a, a['trunc_rel'])
+        rows.append({'sector': name, 'k': k, 'lag': lag, 'L': a['L'], 'mean_character': a['chi'],
+                     'relative_truncation_bound': a['trunc_rel'], 'closed_histories': n_cl,
+                     'samples': n_cl / a['p_c'], 'attempts': n_cl / a['p_c'] * a['L']})
+        print(f"   {label}: {name} k={k}, lag {lag}, L = {a['L']}: mean character {a['chi']:.2e}, relative truncation "
+              f"{a['trunc_rel']:.1e}; closed histories {n_cl:.2e}, attempts {n_cl / a['p_c'] * a['L']:.2e}")
+    res['decision_cost'].append({'case': label, 'rows': rows})
+
+# (ii) best relative accuracy of the three-point correlations at a horizon of T attempts
+print('\nbest relative accuracy of three-point correlations (truncation bound + one sigma) at a horizon of T attempts:')
+res['horizon'] = {}
+for name, k in (('one', 1), ('one', 2), ('two', 1), ('one', 7)):
+    at = model(name, k, 3)
+    cache = {lag: at(lag) for lag in list(range(4, 100, 2)) + list(range(100, 400, 5)) + list(range(400, 1201, 20))}
+    row = {}
+    for T in (1e6, 1e9, 1e12, 1e15, 1e18, 1e24, 1e30):
+        best = None
+        for lag, a in cache.items():
+            n_cl = T / a['L'] * a['p_c']
+            stat = math.sqrt(a['f_w'] / n_cl) / (a['chi'] * a['scale'])
+            tot = a['trunc_rel'] + stat
+            if best is None or tot < best[0]:
+                best = (tot, lag, a['trunc_rel'], stat)
+        row['%g' % T] = {'relative_error': best[0], 'lag': best[1], 'truncation': best[2], 'sampling': best[3]}
+    res['horizon'][f'{name}_k{k}'] = row
+    print(f'   {name} k={k}: ' + '; '.join(f"T=1e{int(round(math.log10(float(T))))}: {v['relative_error']:.2g} (lag {v['lag']})"
+                                        for T, v in row.items()))
+json.dump(res, open(out_path, 'w'), indent=1)
+print('wrote', out_path)

@@ -1,0 +1,280 @@
+"""Block 4: many carriers. Reference rule on the federation (levels 0 to 2, geometry oph_defects.fedgeom), binary
+loads at filling 1/6, independent uniform seam draws. Every carrier keeps its tape; a record is an accepted move
+that brings a load to port p of carrier c and appends k_p = (1, u_p) to the momentum sum of c. A second tape follows
+each quantum across glue seams.
+
+Frames (how port axes of different carriers are compared):
+  flat     one global frame, the same twelve axes for every carrier (DECLARED; exact integer arithmetic)
+  tangent  the routing frames of fedgeom (tangent_x, tangent_y, normal) of each cell (DECLARED; floats)
+Worker MG's exact result (reports/MG.md): the transport fixed by the glue triples has holonomy group Z3 (a third of
+a turn at the twelve five-valent mesh vertices); no frame file exists yet. The sensitivity of the order to a third
+of a turn applied to half of the carriers is measured here instead.
+
+python b4_federation.py [--procs 12 --seeds 6]     writes results/b4_federation.json
+"""
+import argparse, json, os, time
+from multiprocessing import Pool
+import numpy as np
+from numba import njit
+import mc_lib as L
+
+os.environ.setdefault('OPH_UNIVERSE_CACHE', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'cache'))
+from oph_defects import fedgeom
+
+PU = fedgeom.PORT_UNIT
+ANTI = np.array([int(np.argmin(np.linalg.norm(PU + PU[p], axis=1))) for p in range(12)])
+AX = [p for p in range(12) if p < ANTI[p]]
+AXI = np.zeros(12, np.int64); SGN = np.zeros(12, np.int64)
+for _a, _p in enumerate(AX):
+    AXI[_p] = _a; SGN[_p] = 1; AXI[ANTI[_p]] = _a; SGN[ANTI[_p]] = -1
+U6 = PU[AX]
+S = L.axis_gram_signs(U6)
+
+
+@njit(cache=False)
+def simulate(seam_a, seam_b, loads, qid, attempts, seed, carriers, Tmax, axi, sgn, pdir):
+    np.random.seed(seed)
+    nseams = seam_a.size
+    Q = int(loads.sum())
+    cn = np.zeros(carriers, np.int64); cm = np.zeros((carriers, 6), np.int64)
+    crec = np.zeros((carriers, Tmax, 6), np.int32); ctime = np.zeros((carriers, Tmax), np.int64)
+    cglue = np.zeros((carriers, Tmax), np.int8)
+    qn = np.zeros(Q, np.int64); qm = np.zeros((Q, 6), np.int64); qx = np.zeros((Q, 3))
+    qrec = np.zeros((Q, Tmax, 6), np.int32); qrecx = np.zeros((Q, Tmax, 3)); qcar = np.zeros((Q, Tmax), np.int32)
+    moves = 0; glue_moves = 0
+    for it in range(attempts):
+        s = np.random.randint(nseams)
+        a = seam_a[s]; b = seam_b[s]
+        d = loads[a] - loads[b]
+        if d == 0:
+            continue
+        coin = np.random.randint(2)
+        j = (d - (2 * coin - 1)) // 2
+        if j == 0:
+            continue
+        if j == 1:
+            src = a; dst = b
+        else:
+            src = b; dst = a
+        loads[src] -= 1; loads[dst] += 1
+        q = qid[src]; qid[dst] = q; qid[src] = -1
+        c = dst // 12; p = dst % 12
+        moves += 1
+        g = 1 if (src // 12) != c else 0
+        glue_moves += g
+        if cn[c] < Tmax:
+            cm[c, axi[p]] += sgn[p]
+            for k in range(6):
+                crec[c, cn[c], k] = cm[c, k]
+            ctime[c, cn[c]] = it; cglue[c, cn[c]] = g
+            cn[c] += 1
+        if qn[q] < Tmax:
+            qm[q, axi[p]] += sgn[p]
+            for k in range(3):
+                qx[q, k] += pdir[c, p, k]
+            for k in range(6):
+                qrec[q, qn[q], k] = qm[q, k]
+            for k in range(3):
+                qrecx[q, qn[q], k] = qx[q, k]
+            qcar[q, qn[q]] = c
+            qn[q] += 1
+    return cn, crec, ctime, cglue, qn, qrec, qrecx, qcar, moves, glue_moves
+
+
+def stats_exact(n, m, rng, cap=4000, profile=False):
+    key = np.unique(np.column_stack([n, m]), axis=0)
+    if key.shape[0] > cap:
+        key = key[rng.choice(key.shape[0], cap, replace=False)]
+    R = L.relation_axis_counts(key[:, 0], key[:, 1:], S)
+    st = L.order_stats(R)
+    if profile:
+        st['profile'] = L.profile_means(L.interval_profile(R, rng))
+    return st, key
+
+
+def stats_float(P, rng, cap=4000):
+    P = P[L.dedup_rows(P, 9)]
+    if P.shape[0] > cap:
+        P = P[rng.choice(P.shape[0], cap, replace=False)]
+    return L.order_stats(L.relation_cone(P))
+
+
+def third_turn():
+    f = fedgeom.TEMPLATE_FACES[0]
+    ax = PU[f].sum(axis=0); ax /= np.linalg.norm(ax)
+    K = np.array([[0, -ax[2], ax[1]], [ax[2], 0, -ax[0]], [-ax[1], ax[0], 0]])
+    return np.eye(3) + np.sin(2 * np.pi / 3) * K + (1 - np.cos(2 * np.pi / 3)) * K @ K
+
+
+def one(a):
+    level, seed, gluing = a
+    rng = np.random.default_rng([seed, level, 41, 0 if gluing == 'port_pair' else 1])
+    geo = fedgeom.build(level, gluing=gluing)
+    N = geo.carriers
+    sa, sb = geo.all_seam_ends()
+    loads = np.zeros(12 * N, np.int64)
+    loads[rng.choice(12 * N, 2 * N, replace=False)] = 1
+    qid = np.full(12 * N, -1, np.int64); qid[np.nonzero(loads)[0]] = np.arange(2 * N)
+    frames = geo.frames(np.arange(N))
+    pdir = np.einsum('cij,pj->cpi', frames, PU)
+    Tmax = 240
+    sweeps = 170
+    cn, crec, ctime, cglue, qn, qrec, qrecx, qcar, moves, glue_moves = simulate(
+        sa.astype(np.int64), sb.astype(np.int64), loads, qid, sweeps * sa.size, int(seed * 1000 + level), N, Tmax, AXI, SGN, pdir)
+    out = {'level': level, 'seed': seed, 'gluing': gluing, 'carriers': N, 'quanta': 2 * N, 'sweeps': sweeps,
+           'moves_per_carrier_per_sweep': moves / (N * sweeps), 'glue_move_fraction': glue_moves / max(1, moves),
+           'records_per_carrier_min': int(cn.min()), 'records_per_quantum_min': int(qn.min())}
+    Tfull = int(min(cn.min(), qn.min(), Tmax))
+    out['T_available'] = Tfull
+    # ---- joint population of carrier tapes against tape length (flat frame, exact), tangent frame (floats), quanta
+    res = {}
+    for T in (5, 10, 20, 50, 100, 200):
+        if T > Tfull:
+            continue
+        n = np.tile(np.arange(1, T + 1), N); m = crec[:, :T, :].reshape(-1, 6).astype(np.int64)
+        st, key = stats_exact(n, m, rng, profile=(T in (10, 50, 200)))
+        x = m @ U6
+        row = {'carrier_flat': {k: st[k] for k in ('N', 'r', 'd_r', 'm', 'd_m', 'links', 'height')},
+               'x2_over_t': float(np.mean((x.reshape(N, T, 3)[:, -1, :] ** 2).sum(axis=1)) / T)}
+        if 'profile' in st:
+            row['carrier_flat_profile'] = st['profile']
+        # tangent frames: rotate each carrier's spatial sums by its own frame
+        xt = np.einsum('cij,ctj->cti', frames, x.reshape(N, T, 3)).reshape(-1, 3)
+        stt = stats_float(np.column_stack([n.astype(float), xt]), rng)
+        row['carrier_tangent'] = {k: stt[k] for k in ('N', 'r', 'd_r', 'm', 'd_m', 'links', 'height')}
+        # quanta (tapes follow the load): flat exact, tangent floats
+        Qn = 2 * N
+        nq = np.tile(np.arange(1, T + 1), Qn); mq = qrec[:, :T, :].reshape(-1, 6).astype(np.int64)
+        stq, _ = stats_exact(nq, mq, rng)
+        row['quantum_flat'] = {k: stq[k] for k in ('N', 'r', 'd_r', 'm', 'd_m', 'links', 'height')}
+        stqt = stats_float(np.column_stack([nq.astype(float), qrecx[:, :T, :].reshape(-1, 3)]), rng)
+        row['quantum_tangent'] = {k: stqt[k] for k in ('N', 'r', 'd_r', 'm', 'd_m', 'links', 'height')}
+        row['quantum_x2_over_t_flat'] = float(np.mean(((mq @ U6).reshape(Qn, T, 3)[:, -1, :] ** 2).sum(axis=1)) / T)
+        row['quantum_x2_over_t_tangent'] = float(np.mean((qrecx[:, T - 1, :] ** 2).sum(axis=1)) / T)
+        res[str(T)] = row
+    out['by_tape_length'] = res
+    # ---- memory horizon at T = Tfull_used: (i) accumulator kept, last H records retained; (ii) sliding window of H letters
+    Tu = max(t for t in (5, 10, 20, 50, 100, 200) if t <= Tfull)
+    hor = {}
+    for H in (2, 5, 10, 20, 50, 100):
+        if H > Tu:
+            continue
+        idx = np.arange(Tu - H, Tu)
+        n = np.tile(idx + 1, N); m = crec[:, idx, :].reshape(-1, 6).astype(np.int64)
+        st, _ = stats_exact(n, m, rng)
+        # sliding window: X = (H, sum of the last H records) at every time t >= H
+        mm = crec[:, :Tu, :].astype(np.int64)
+        win = mm[:, H:, :] - mm[:, :-H, :]
+        nw = np.full(win.shape[0] * win.shape[1], H)
+        stw, _ = stats_exact(nw, win.reshape(-1, 6), rng)
+        hor[str(H)] = {'accumulator_kept': {k: st[k] for k in ('N', 'r', 'd_r', 'd_m', 'height')},
+                       'sliding_window': {'N': stw['N'], 'r': stw['r'], 'height': stw['height']}}
+    out['horizon'] = {'T': Tu, 'by_H': hor}
+    # ---- agreement and spatial statistics (flat frame), at T = Tu
+    T = Tu
+    x = (crec[:, :T, :].astype(np.int64) @ U6)                          # [N, T, 3]
+    nb = geo.neighbours()
+    # increments on a common clock (global attempt time): position of every carrier at K equally spaced times
+    tgrid = np.linspace(0, ctime[:, T - 1].min(), 17)[1:]
+    pos = np.zeros((N, tgrid.size, 3))
+    for c in range(N):
+        k = np.searchsorted(ctime[c, :T], tgrid, side='right') - 1
+        pos[c] = np.where(k[:, None] >= 0, x[c, np.maximum(k, 0), :], 0.0)
+    inc = np.diff(pos, axis=1)                                           # [N, 15, 3]
+    inc = inc - inc.mean(axis=0, keepdims=True)
+    norm = np.sqrt((inc ** 2).sum(axis=2).mean())
+    cn_ = np.mean([(inc[c] * inc[nb[c, k]]).sum(axis=1).mean() for c in range(N) for k in range(3)]) / norm ** 2
+    perm = rng.permutation(N)
+    cr_ = np.mean([(inc[c] * inc[perm[c]]).sum(axis=1).mean() for c in range(N) if perm[c] != c]) / norm ** 2
+    out['increment_correlation'] = {'glued_neighbours': float(cn_), 'random_pairs': float(cr_)}
+    xf = x[:, -1, :]
+    cx = geo.carrier_xyz / np.linalg.norm(geo.carrier_xyz, axis=1, keepdims=True)
+    iu = np.triu_indices(N, 1)
+    ang = np.arccos(np.clip((cx @ cx.T)[iu], -1, 1))
+    dist = np.linalg.norm(xf[:, None, :] - xf[None, :, :], axis=2)[iu]
+    out['screen_angle_vs_sum_distance_correlation'] = float(np.corrcoef(ang, dist)[0, 1])
+    # ---- frame sensitivity: a third of a turn on half of the carriers; tangent frames
+    Tq = min(T, 50)
+    n = np.tile(np.arange(1, Tq + 1), N).astype(float)
+    xs = x[:, :Tq, :]
+    car = np.repeat(np.arange(N), Tq)
+    P0 = np.column_stack([n, xs.reshape(-1, 3)])
+    keep = rng.choice(P0.shape[0], min(4000, P0.shape[0]), replace=False)
+    half = rng.permutation(N)[:N // 2]
+    turned = np.isin(np.arange(N), half)
+    G = third_turn()
+    x1 = xs.copy(); x1[turned] = x1[turned] @ G.T
+    P1 = np.column_stack([n, x1.reshape(-1, 3)])
+    x2 = np.einsum('cij,ctj->cti', frames, xs)
+    P2 = np.column_stack([n, x2.reshape(-1, 3)])
+    R0 = L.relation_cone(P0[keep]); R1 = L.relation_cone(P1[keep]); R2 = L.relation_cone(P2[keep])
+    cross = turned[car[keep]][:, None] != turned[car[keep]][None, :]
+    other = car[keep][:, None] != car[keep][None, :]
+    out['frame_sensitivity'] = {
+        'T': Tq, 'third_turn_cross_pairs_related_flat': int((R0 & cross).sum()),
+        'third_turn_flip_fraction': float(((R0 != R1) & cross).sum() / max(1, ((R0 | R1) & cross).sum())),
+        'tangent_flip_fraction_other_carrier_pairs': float(((R0 != R2) & other).sum() / max(1, ((R0 | R2) & other).sum())),
+        'same_carrier_pairs_changed': int(((R0 != R1) & ~other).sum() + ((R0 != R2) & ~other).sum())}
+    return out
+
+
+if __name__ == '__main__':
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--procs', type=int, default=12)
+    ap.add_argument('--seeds', type=int, default=6)
+    a = ap.parse_args()
+    t0 = time.time()
+    for lv in (0, 1, 2):
+        fedgeom.build(lv); fedgeom.build(lv, gluing='face_axis')
+    jobs = [(lv, s, g) for g in ('port_pair', 'face_axis') for lv in (0, 1, 2) for s in range(a.seeds)]
+    with Pool(a.procs) as pool:
+        rows = pool.map(one, jobs, chunksize=1)
+
+    def agg(sel, path):
+        vals = []
+        for r in sel:
+            v = r
+            try:
+                for k in path:
+                    v = v[k]
+                vals.append(float(v))
+            except (KeyError, TypeError):
+                pass
+        vals = np.array([v for v in vals if np.isfinite(v)])
+        return [float(vals.mean()), float(vals.std(ddof=1) / np.sqrt(vals.size)) if vals.size > 1 else float('nan'), int(vals.size)] if vals.size else None
+
+    out = {}
+    for g in ('port_pair', 'face_axis'):
+        for lv in (0, 1, 2):
+            sel = [r for r in rows if r['level'] == lv and r['gluing'] == g]
+            d = {'carriers': sel[0]['carriers'], 'seeds': len(sel)}
+            for key in ('moves_per_carrier_per_sweep', 'glue_move_fraction', 'T_available', 'screen_angle_vs_sum_distance_correlation'):
+                d[key] = agg(sel, (key,))
+            d['increment_correlation'] = {k: agg(sel, ('increment_correlation', k)) for k in ('glued_neighbours', 'random_pairs')}
+            d['frame_sensitivity'] = {k: agg(sel, ('frame_sensitivity', k)) for k in sel[0]['frame_sensitivity']}
+            d['by_tape_length'] = {}
+            for T in ('5', '10', '20', '50', '100', '200'):
+                if not any(T in r['by_tape_length'] for r in sel):
+                    continue
+                row = {}
+                for pop in ('carrier_flat', 'carrier_tangent', 'quantum_flat', 'quantum_tangent'):
+                    row[pop] = {k: agg(sel, ('by_tape_length', T, pop, k)) for k in ('N', 'r', 'd_r', 'd_m', 'links', 'height')}
+                for k in ('x2_over_t', 'quantum_x2_over_t_flat', 'quantum_x2_over_t_tangent'):
+                    row[k] = agg(sel, ('by_tape_length', T, k))
+                profs = [r['by_tape_length'][T]['carrier_flat_profile'] for r in sel if T in r['by_tape_length'] and 'carrier_flat_profile' in r['by_tape_length'][T]]
+                if profs:
+                    row['carrier_flat_profile'] = L.across_seeds(profs)
+                d['by_tape_length'][T] = row
+            d['horizon'] = {'T': sel[0]['horizon']['T'], 'by_H': {}}
+            for H in ('2', '5', '10', '20', '50', '100'):
+                if not any(H in r['horizon']['by_H'] for r in sel):
+                    continue
+                d['horizon']['by_H'][H] = {
+                    'accumulator_kept': {k: agg(sel, ('horizon', 'by_H', H, 'accumulator_kept', k)) for k in ('N', 'r', 'd_r', 'd_m', 'height')},
+                    'sliding_window': {k: agg(sel, ('horizon', 'by_H', H, 'sliding_window', k)) for k in ('N', 'r', 'height')}}
+            out[f'{g}|level={lv}'] = d
+    res = {'seconds': time.time() - t0, 'result': out}
+    os.makedirs('results', exist_ok=True)
+    json.dump(res, open('results/b4_federation.json', 'w'), indent=1, default=float)
+    print(json.dumps(res, default=float)[:2500])
+    print('seconds', round(res['seconds'], 1))

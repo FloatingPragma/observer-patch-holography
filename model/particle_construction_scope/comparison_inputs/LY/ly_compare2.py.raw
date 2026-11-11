@@ -1,0 +1,177 @@
+"""Worker LY: comparison of addenda B and C with measurement. NOT BLIND.
+
+Measured inputs: charged-lepton pole masses and their running values at m_Z (work/LS/compare.json, the running values
+IMPORTED there), v = 246.21965 GeV from G_F (the brief); for the third-family table the running masses at M_Z of the
+table used by LS2 and UD (m_t 171.7, m_b 2.89 GeV, IMPORTED) and the Higgs signal strength of the tau channel
+(IMPORTED from memory, ATLAS and CMS Run 2: kappa_tau about 0.93 with an uncertainty of about 0.07).
+  cd RL/work/LY && PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B ly_compare2.py
+Writes compare2.json.
+"""
+from __future__ import annotations
+
+import json
+import math
+import os
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+V_GF = 246.21965
+PASS = 0.05
+MT_MZ, MB_MZ = 171.7, 2.89            # IMPORTED (Xing, Zhang, Zhou 2008 table as used by LS2)
+KAPPA_TAU, KAPPA_TAU_ERR = 0.93, 0.07  # IMPORTED from memory
+
+
+def load(path):
+    with open(path) as fh:
+        return json.load(fh)
+
+
+def main():
+    v2 = load(os.path.join(HERE, 'values2.json'))
+    v1 = load(os.path.join(HERE, 'values.json'))
+    run = load(os.path.join(HERE, 'run.json'))
+    ls = load(os.path.join(HERE, '..', 'LS', 'compare.json'))
+    pole = ls['measured']['pole_GeV']
+    runmz = ls['measured']['running_mZ_GeV_IMPORTED']
+    s2 = math.sqrt(2.0)
+    yJ_pole = s2 * sum(pole) / V_GF
+    yJ_run = s2 * sum(runmz) / V_GF
+    f_sum = sum(pole) / sum(runmz)
+    f_tau = pole[2] / runmz[2]
+    lam2 = v1['structure']['lambda_sq_e_mu_tau']
+    half_U = v2['g_U_over_2']
+    contents = v2['contents']
+    out = {'NOT_BLIND': True, 'yJ_pole_convention': yJ_pole, 'yJ_MSbar_Q0': yJ_run,
+           'y0_pole_no_running': 4.5 * yJ_pole, 'y0_MSbar_Q0': 4.5 * yJ_run}
+    looks = 0
+
+    # the target as a ratio of toggle amplitudes, at one scale each
+    g2_q0 = run['gauge_chart_Q0'][1]
+    g2c = v2['g_2_cell']
+    f2c, f1c = run['factor_yJ_Q0_over_yJ_cell']['two_loops'], run['factor_yJ_Q0_over_yJ_cell']['one_loop']
+    S = {'mixed: y_0 from pole masses at Q0, g_U at M_U (the look)': 4.5 * yJ_pole / half_U,
+         'm_Z: y_0 MSbar, chart g_2(Q0)': 4.5 * yJ_run / (0.5 * g2_q0),
+         'cell, Standard Model chart two loops, chart g_2': 4.5 * yJ_run / f2c / (0.5 * g2c['two_loops']),
+         'cell, Standard Model chart one loop, chart g_2': 4.5 * yJ_run / f1c / (0.5 * g2c['one_loop'])}
+    for cname, c in contents.items():
+        y0 = 4.5 * yJ_run / c['factor_Q0_over_MU']
+        S[f'M_U, {cname}, g_U'] = y0 / half_U
+        if cname.startswith('S-SM'):
+            S[f'M_U, {cname}, chart g_2'] = y0 / (0.5 * c['g_MU'][1])
+    out['needed_ratio_y0_over_half_g'] = S
+    looks += len(S)
+    out['reference_values'] = {'exp(-2)': math.exp(-2), '1/sqrt55': 1 / math.sqrt(55), **v2['amplitudes']}
+
+    # E rows
+    erows = []
+    for r in v2['E_rows']:
+        row = {'id': r['id'], 'A': r['A'], 'A_value': r['A_value'],
+               'no_running_ratio': r['yJ_MU'] / yJ_pole, 'by_content': {}}
+        for cname, y in r['yJ_MSbar_Q0_by_content'].items():
+            ratio = f_sum * y / yJ_pole
+            row['by_content'][cname] = {'yJ_Q0_pole_convention': f_sum * y, 'ratio_to_measured': ratio,
+                                        'pass_5_percent': abs(ratio - 1) <= PASS}
+            looks += 1
+        looks += 1
+        erows.append(row)
+    out['E_rows'] = erows
+
+    # F rows
+    frows = []
+    for r in v2['F_rows']:
+        p2, p1 = f_sum * r['yJ_MSbar_Q0_two_loops'], f_sum * r['yJ_MSbar_Q0_one_loop']
+        frows.append({'id': r['id'], 'formula': r['formula'], 'amplitude': r['amplitude'],
+                      'yJ_cell_two_loops': r['yJ_cell_two_loops'], 'yJ_Q0_pole_convention_two_loops': p2,
+                      'ratio_two_loops': p2 / yJ_pole, 'ratio_one_loop': p1 / yJ_pole,
+                      'pass_5_percent_two_loops': abs(p2 / yJ_pole - 1) <= PASS,
+                      'masses_GeV_e_mu_tau_two_loops': [p2 * l * V_GF / s2 for l in lam2],
+                      'deviation_percent': 100 * (p2 / yJ_pole - 1)})
+        looks += 2
+    f5 = v2['F-5']
+    f5c = {'no_running_ratio': f5['yJ_MU'] / yJ_pole,
+           'by_content': {c: f_sum * y / yJ_pole for c, y in f5['yJ_MSbar_Q0_by_content'].items()}}
+    looks += 1 + len(f5c['by_content'])
+    out['F_rows'] = frows
+    out['F-5'] = f5c
+
+    # third-family table: masses at Q0
+    tab = {}
+    for name, row in v2['third_family_table'].items():
+        rec = {'y_MU_t_b_tau': row['y_MU_t_b_tau']}
+        for content in ('S-SM two loops', 'S-CH1'):
+            y = row[content]
+            if y is None:
+                rec[content] = None
+                continue
+            mt, mb, mtau = [x * V_GF / s2 for x in y]
+            rec[content] = {'y_Q0_t_b_tau': y, 'm_t_Q0_GeV': mt, 'm_b_Q0_GeV': mb, 'm_tau_pole_GeV': mtau * f_tau,
+                            'm_t_over_table': mt / MT_MZ, 'm_b_over_table': mb / MB_MZ,
+                            'm_tau_over_measured': mtau * f_tau / pole[2]}
+            looks += 3
+        tab[name] = rec
+    alone = v2['top_alone_at_g_U_over_2']
+    rec = {'y_MU_t_b_tau': alone['y_MU_t_b_tau']}
+    for content in ('S-SM two loops', 'S-CH1'):
+        y = alone[content]
+        mt, mb, mtau = [x * V_GF / s2 for x in y]
+        rec[content] = {'y_Q0_t_b_tau': y, 'm_t_Q0_GeV': mt, 'm_tau_pole_GeV': mtau * f_tau,
+                        'm_t_over_table': mt / MT_MZ, 'm_tau_over_measured': mtau * f_tau / pole[2]}
+        looks += 2
+    tab['top alone at g_U/2, bottom negligible (Q-C without the equal bottom)'] = rec
+    out['third_family_table'] = tab
+
+    # the rule of section 7.2 on the quark vertex at the cell
+    ct = v2.get('cell_rule_table')
+    if ct:
+        ctab = {}
+        for name, row in ct.items():
+            if not isinstance(row, dict) or row.get('y_Q0_t_b_tau') is None:
+                continue
+            mt, mb, mtau = [x * V_GF / s2 for x in row['y_Q0_t_b_tau']]
+            ctab[name] = {'y_cell_t_b_tau': row['y_cell_t_b_tau'], 'y_Q0_t_b_tau': row['y_Q0_t_b_tau'],
+                          'm_t_Q0_GeV': mt, 'm_b_Q0_GeV': mb, 'm_tau_pole_GeV': mtau * f_tau,
+                          'm_t_over_table': mt / MT_MZ, 'm_b_over_table': mb / MB_MZ,
+                          'm_tau_over_measured': mtau * f_tau / pole[2]}
+            looks += 3
+            print(f"cell rule | {name[:62]:62s} m_t {mt:.1f} m_b {mb:.3g} m_tau {mtau * f_tau:.4f} "
+                  f"[t {mt / MT_MZ:.3f}, b {mb / MB_MZ:.3g}, tau {mtau * f_tau / pole[2]:.3f}]")
+        out['cell_rule_table'] = ctab
+
+    # LT's question: dependence of the lepton mass on the Higgs amplitude
+    out['mass_round'] = {'weak_kick_clock': {'F': 'h', 'd_ln_m_d_ln_v': 1, 'Higgs_tau_coupling_over_SM': 1.0},
+                         'onsite_rule': {'F': '1 - cos h', 'd_ln_m_d_ln_v': 2, 'Higgs_tau_coupling_over_SM': 2.0},
+                         'kappa_tau_measured_IMPORTED': [KAPPA_TAU, KAPPA_TAU_ERR],
+                         'onsite_rule_deviation_sigma': (2.0 - KAPPA_TAU) / KAPPA_TAU_ERR,
+                         'weak_kick_deviation_sigma': (1.0 - KAPPA_TAU) / KAPPA_TAU_ERR}
+    looks += 2
+    out['looks_printed_by_this_script'] = looks
+    with open(os.path.join(HERE, 'compare2.json'), 'w') as fh:
+        json.dump(out, fh, indent=1)
+        fh.write('\n')
+
+    print('y_0 needed (pole, no running):', 4.5 * yJ_pole, ' (MSbar at Q0):', 4.5 * yJ_run)
+    print('needed ratio y_0/(g/2):')
+    for k, v in S.items():
+        print(f'   {k:62s} {v:.5f}')
+    print('reference values:', {k: round(v, 5) for k, v in out['reference_values'].items()})
+    names = list(contents)
+    print(f"{'id':5s} {'A':10s} {'value':>8s} {'no run':>8s} " + ' '.join(f'{n[:14]:>14s}' for n in names))
+    for r in erows:
+        print(f"{r['id']:5s} {r['A']:10s} {r['A_value']:8.5f} {r['no_running_ratio']:8.4f} "
+              + ' '.join(f"{r['by_content'][n]['ratio_to_measured']:14.4f}" for n in names))
+    print(f"F-5   sqrt(<K>) g_U/2     {f5c['no_running_ratio']:8.4f} " + ' '.join(f"{f5c['by_content'][n]:14.4f}" for n in names))
+    for r in frows:
+        print(f"{r['id']} {r['formula']:28s} amplitude {r['amplitude']:.5f}  y_J(cell) {r['yJ_cell_two_loops']:.6f}  "
+              f"y_J(Q0) {r['yJ_Q0_pole_convention_two_loops']:.6f}  ratio 2L {r['ratio_two_loops']:.4f}  1L {r['ratio_one_loop']:.4f}  "
+              f"masses {[f'{m:.6g}' for m in r['masses_GeV_e_mu_tau_two_loops']]}")
+    for name, rec in tab.items():
+        for content in ('S-SM two loops', 'S-CH1'):
+            c = rec[content]
+            if c:
+                print(f"{name[:40]:40s} {content:15s} m_t {c['m_t_Q0_GeV']:.1f} m_b {c.get('m_b_Q0_GeV', float('nan')):.1f} "
+                      f"m_tau {c['m_tau_pole_GeV']:.4f}  [t {c['m_t_over_table']:.3f}, tau {c['m_tau_over_measured']:.3f}]")
+    print('mass round', json.dumps(out['mass_round']))
+    print('looks printed:', looks)
+
+
+if __name__ == '__main__':
+    main()

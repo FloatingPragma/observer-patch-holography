@@ -1,0 +1,346 @@
+{
+ "DO7": {
+  "rows": [
+   {
+    "channel": "down",
+    "initial": "d_R",
+    "final": "Q_L",
+    "initial_degree_parity": "odd",
+    "right": "d_R",
+    "left": "Q_L",
+    "junction_classes": "4 + 5 -> 3",
+    "product": [
+     "d_R",
+     "conj Q_L"
+    ],
+    "six_Y_of_product": -3,
+    "contains_colour_singlet_weak_doublet": true
+   },
+   {
+    "channel": "up",
+    "initial": "Q_L",
+    "final": "u_R",
+    "initial_degree_parity": "even",
+    "right": "u_R",
+    "left": "Q_L",
+    "junction_classes": "4 + 5 -> 3",
+    "product": [
+     "u_R",
+     "conj Q_L"
+    ],
+    "six_Y_of_product": 3,
+    "contains_colour_singlet_weak_doublet": true
+   },
+   {
+    "channel": "charged lepton",
+    "initial": "e_R",
+    "final": "L_L",
+    "initial_degree_parity": "odd",
+    "right": "e_R",
+    "left": "L_L",
+    "junction_classes": "0 + 3 -> 3",
+    "product": [
+     "e_R",
+     "conj L_L"
+    ],
+    "six_Y_of_product": -3,
+    "contains_colour_singlet_weak_doublet": true
+   },
+   {
+    "channel": "neutrino",
+    "initial": "L_L",
+    "final": "nu_R",
+    "initial_degree_parity": "even",
+    "right": "nu_R",
+    "left": "L_L",
+    "junction_classes": "0 + 3 -> 3",
+    "product": [
+     "nu_R",
+     "conj L_L"
+    ],
+    "six_Y_of_product": 3,
+    "contains_colour_singlet_weak_doublet": true
+   },
+   {
+    "channel": "conjugate down",
+    "initial": "conj Q_L",
+    "final": "conj d_R",
+    "initial_degree_parity": "odd",
+    "right": "conj Q_L",
+    "left": "conj d_R",
+    "junction_classes": "5 + 4 -> 3",
+    "product": [
+     "conj Q_L",
+     "d_R"
+    ],
+    "six_Y_of_product": -3,
+    "contains_colour_singlet_weak_doublet": true
+   },
+   {
+    "channel": "conjugate up",
+    "initial": "conj u_R",
+    "final": "conj Q_L",
+    "initial_degree_parity": "even",
+    "right": "conj Q_L",
+    "left": "conj u_R",
+    "junction_classes": "5 + 4 -> 3",
+    "product": [
+     "conj Q_L",
+     "u_R"
+    ],
+    "six_Y_of_product": 3,
+    "contains_colour_singlet_weak_doublet": true
+   },
+   {
+    "channel": "conjugate charged lepton",
+    "initial": "conj L_L",
+    "final": "conj e_R",
+    "initial_degree_parity": "odd",
+    "right": "conj L_L",
+    "left": "conj e_R",
+    "junction_classes": "3 + 0 -> 3",
+    "product": [
+     "conj L_L",
+     "e_R"
+    ],
+    "six_Y_of_product": -3,
+    "contains_colour_singlet_weak_doublet": true
+   },
+   {
+    "channel": "conjugate neutrino",
+    "initial": "conj nu_R",
+    "final": "conj L_L",
+    "initial_degree_parity": "even",
+    "right": "conj L_L",
+    "left": "conj nu_R",
+    "junction_classes": "3 + 0 -> 3",
+    "product": [
+     "conj L_L",
+     "nu_R"
+    ],
+    "six_Y_of_product": 3,
+    "contains_colour_singlet_weak_doublet": true
+   }
+  ],
+  "products_per_junction_type": {
+   "4 + 5 -> 3": [
+    {
+     "pair": [
+      "d_R",
+      "conj Q_L"
+     ],
+     "six_Y": -3
+    },
+    {
+     "pair": [
+      "u_R",
+      "conj Q_L"
+     ],
+     "six_Y": 3
+    }
+   ],
+   "0 + 3 -> 3": [
+    {
+     "pair": [
+      "e_R",
+      "conj L_L"
+     ],
+     "six_Y": -3
+    },
+    {
+     "pair": [
+      "nu_R",
+      "conj L_L"
+     ],
+     "six_Y": 3
+    }
+   ],
+   "5 + 4 -> 3": [
+    {
+     "pair": [
+      "conj Q_L",
+      "d_R"
+     ],
+     "six_Y": -3
+    },
+    {
+     "pair": [
+      "conj Q_L",
+      "u_R"
+     ],
+     "six_Y": 3
+    }
+   ],
+   "3 + 0 -> 3": [
+    {
+     "pair": [
+      "conj L_L",
+      "e_R"
+     ],
+     "six_Y": -3
+    },
+    {
+     "pair": [
+      "conj L_L",
+      "nu_R"
+     ],
+     "six_Y": 3
+    }
+   ]
+  },
+  "statement": "junction 4 + 5 -> 3 (right quark with left antiquark): (u_R, conj Q) has 6Y = +3, (d_R, conj Q) has 6Y = -3; junction 0 + 3 -> 3: (nu_R, conj L) +3, (e_R, conj L) -3. The two orientations of one junction type are the up-type leg and the down-type leg. They are not conjugates of each other: the conjugates are the products of the conjugate junction 1 + 2 -> 3 (and 0 + 3 -> 3 with the left lepton).",
+  "independent_doublet_states": {
+   "quark_junction_products": 2,
+   "their_conjugates": 2,
+   "complex_doublets_quark": 2,
+   "lepton_junction_products": 2,
+   "complex_doublets_lepton": 2
+  }
+ },
+ "DO8": {
+  "one register": false,
+  "partitions_conserving_chirality_number": [
+   {
+    "register_0": [
+     "up",
+     "neutrino"
+    ],
+    "register_1": [
+     "down",
+     "charged lepton"
+    ],
+    "charges": {
+     "1": -2,
+     "0": 2
+    }
+   }
+  ],
+  "statement": "the one-register vertex changes the chirality number by +2 on the up-type legs and by -2 on the down-type legs with the same register operator, so no register charge restores it; among the seven two-register partitions exactly S1 conserves it, with register charges +2 and -2"
+ },
+ "DO9": [
+  {
+   "register_0": [
+    "up",
+    "charged lepton",
+    "neutrino"
+   ],
+   "register_1": [
+    "down"
+   ],
+   "conserves_chirality_number": false,
+   "register_charges": null,
+   "free_ratios": [
+    "up/down",
+    "charged lepton/down"
+   ],
+   "pattern_property": null
+  },
+  {
+   "register_0": [
+    "up",
+    "down",
+    "neutrino"
+   ],
+   "register_1": [
+    "charged lepton"
+   ],
+   "conserves_chirality_number": false,
+   "register_charges": null,
+   "free_ratios": [
+    "charged lepton/down",
+    "neutrino/charged lepton"
+   ],
+   "pattern_property": null
+  },
+  {
+   "register_0": [
+    "up",
+    "neutrino"
+   ],
+   "register_1": [
+    "down",
+    "charged lepton"
+   ],
+   "conserves_chirality_number": true,
+   "register_charges": {
+    "1": -2,
+    "0": 2
+   },
+   "free_ratios": [
+    "up/down",
+    "neutrino/charged lepton"
+   ],
+   "pattern_property": "S1: degree parity of the initial pattern (handedness of the pattern the toggle acts on)"
+  },
+  {
+   "register_0": [
+    "up",
+    "down",
+    "charged lepton"
+   ],
+   "register_1": [
+    "neutrino"
+   ],
+   "conserves_chirality_number": false,
+   "register_charges": null,
+   "free_ratios": [
+    "neutrino/up",
+    "neutrino/charged lepton"
+   ],
+   "pattern_property": null
+  },
+  {
+   "register_0": [
+    "up",
+    "charged lepton"
+   ],
+   "register_1": [
+    "down",
+    "neutrino"
+   ],
+   "conserves_chirality_number": false,
+   "register_charges": null,
+   "free_ratios": [
+    "up/down",
+    "charged lepton/down",
+    "neutrino/up",
+    "neutrino/charged lepton"
+   ],
+   "pattern_property": "product of the two properties above"
+  },
+  {
+   "register_0": [
+    "up",
+    "down"
+   ],
+   "register_1": [
+    "charged lepton",
+    "neutrino"
+   ],
+   "conserves_chirality_number": false,
+   "register_charges": null,
+   "free_ratios": [
+    "charged lepton/down",
+    "neutrino/up"
+   ],
+   "pattern_property": "S4: coloured against colourless (n3 in {1, 2} against {0, 3})"
+  },
+  {
+   "register_0": [
+    "up"
+   ],
+   "register_1": [
+    "down",
+    "charged lepton",
+    "neutrino"
+   ],
+   "conserves_chirality_number": false,
+   "register_charges": null,
+   "free_ratios": [
+    "up/down",
+    "neutrino/up"
+   ],
+   "pattern_property": null
+  }
+ ]
+}

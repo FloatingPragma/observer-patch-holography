@@ -1,0 +1,232 @@
+"""Worker DA, parts 1 and 2: the charged-lepton scale candidates S0-S6 and the dressing candidates Z0-Z7 of
+CANDIDATES.md, evaluated in the order written there. Measured values enter only in the comparison blocks (NOT BLIND).
+
+Run:  /tmp/oph-completion-venv/bin/python da_scale_dressing.py <RER root> <out.json>
+Reads (read only): code/particles/data/particle_reference_values.json (comparison) and
+code/particles/runs/leptons/charged_mcpr_completion_conditional.json (the declared MCPR packet, candidates S0, Z1).
+"""
+import json
+import sys
+from pathlib import Path
+
+from mpmath import mp, mpf, sqrt, cos, pi, exp, log, e as E_, arg, mpc, fsum, findroot
+
+mp.dps = 50
+RER = Path(sys.argv[1])
+OUT = Path(sys.argv[2])
+
+# ---------------------------------------------------------------- source inputs (no measured value)
+p, q = mpf(1) / 12, mpf(1) / 6
+delta0 = p + q - 2 * p * q            # 2/9
+r0 = 2 * sqrt(p / q)                  # sqrt 2
+mcpr = json.loads((RER / 'code/particles/runs/leptons/charged_mcpr_completion_conditional.json').read_text())
+P = mpf(mcpr['source_input']['P'])
+alpha_U = mpf(mcpr['source_input']['alpha_U'])
+phi = (1 + sqrt(5)) / 2
+alpha_P = (P - phi) / sqrt(pi)
+v_over_Estar = P ** (-mpf(1) / 2) * exp(-2 * pi / (4 * alpha_U))
+E_STAR_GEV = mpf('1.220890e19')        # external display unit
+v_source = v_over_Estar * E_STAR_GEV   # GeV
+kappa = mpf(mcpr['response_map']['fixed_point']['kappa'])
+chi_mcpr = mpf(mcpr['response_map']['fixed_point']['chi'])
+zeta_mcpr = mpf(mcpr['response_map']['fixed_point']['zeta'])
+ALPHA_0 = mpf('7.2973525693e-3')       # CODATA fine-structure constant, used only inside the imported QED candidates
+
+
+def roots(delta, r):
+    """k = 0 heaviest (tau), k = 1 lightest (e), k = 2 middle (mu)."""
+    return [1 + r * cos(delta + 2 * pi * k / 3) for k in range(3)]
+
+
+def masses_from_shape(delta, r, A2=1):
+    x = roots(delta, r)
+    return {'tau': A2 * x[0] ** 2, 'e': A2 * x[1] ** 2, 'mu': A2 * x[2] ** 2}
+
+
+def shape_from_masses(m):
+    x = [sqrt(m['tau']), sqrt(m['e']), sqrt(m['mu'])]
+    A = fsum(x) / 3
+    B = fsum(x[k] * mp.expj(-2 * pi * k / 3) for k in range(3)) / 3
+    return {'A2': A ** 2, 'r': 2 * abs(B) / A, 'delta': arg(B), 'Q': fsum(m.values()) / fsum(x) ** 2}
+
+
+def ln_ratios(m):
+    return log(m['mu'] / m['e']), log(m['tau'] / m['e'])
+
+
+out = {'source_inputs': {'p': '1/12', 'q': '1/6', 'delta0': str(delta0), 'r0': str(r0), 'P': str(P),
+                         'alpha_U': str(alpha_U), 'alpha_P': str(alpha_P), 'v_over_Estar': str(v_over_Estar),
+                         'v_source_GeV_display': str(v_source), 'kappa_MCPR': str(kappa),
+                         'chi_MCPR': str(chi_mcpr), 'zeta_MCPR': str(zeta_mcpr)}}
+
+# ---------------------------------------------------------------- comparison data (NOT BLIND)
+ref = json.loads((RER / 'code/particles/data/particle_reference_values.json').read_text())['entries']
+meas = {'e': mpf(str(ref['electron']['raw_value'])), 'mu': mpf(str(ref['muon']['raw_value'])),
+        'tau': mpf(str(ref['tau']['raw_value']))}
+sig = {'e': mpf('1.6e-10'), 'mu': mpf('2.3e-6'), 'tau': mpf('0.09')}
+sig_ln_mue = sqrt((sig['mu'] / meas['mu']) ** 2 + (sig['e'] / meas['e']) ** 2)
+sig_ln_taue = sqrt((sig['tau'] / meas['tau']) ** 2 + (sig['e'] / meas['e']) ** 2)
+L_meas = ln_ratios(meas)
+sh_meas = shape_from_masses(meas)
+M_meas = fsum(meas.values()) / 1000     # GeV
+V_MEAS = mpf('246.21965')                # GeV, from G_F
+out['measured_NOT_BLIND'] = {'masses_MeV': {k: str(v) for k, v in meas.items()},
+                             'shape': {k: str(v) for k, v in sh_meas.items()},
+                             'sum_GeV': str(M_meas), 'sigma_ln_mu_e': str(sig_ln_mue),
+                             'sigma_ln_tau_e': str(sig_ln_taue), 'v_GF_GeV': str(V_MEAS),
+                             'trY_with_v_GF': str(sqrt(2) * M_meas / V_MEAS),
+                             'trY_with_v_source': str(sqrt(2) * M_meas / v_source)}
+
+
+def score(m, label):
+    L = ln_ratios(m)
+    d_mue, d_taue = L[0] - L_meas[0], L[1] - L_meas[1]
+    sh = shape_from_masses(m)
+    return {'label': label, 'delta': str(sh['delta']), 'r': str(sh['r']), 'Q': str(sh['Q']),
+            'mu_e_residual_ppm': float(d_mue * 1e6), 'mu_e_pull': float(d_mue / sig_ln_mue),
+            'tau_e_residual_ppm': float(d_taue * 1e6), 'tau_e_pull': float(d_taue / sig_ln_taue),
+            'pass_rule': bool(abs(d_mue / sig_ln_mue) <= 3 and abs(d_taue / sig_ln_taue) <= 1)}
+
+
+# ---------------------------------------------------------------- the pinned line (NOT BLIND)
+m0 = masses_from_shape(delta0, r0)
+h = mpf('1e-20')
+J = [[(ln_ratios(masses_from_shape(delta0 + h, r0))[i] - ln_ratios(masses_from_shape(delta0 - h, r0))[i]) / (2 * h),
+      (ln_ratios(masses_from_shape(delta0, r0 * (1 + h)))[i] - ln_ratios(masses_from_shape(delta0, r0 * (1 - h)))[i]) / (2 * h)]
+     for i in range(2)]
+delta_pure = findroot(lambda d: ln_ratios(masses_from_shape(d, r0))[0] - L_meas[0], delta0)
+r_pure = findroot(lambda r: ln_ratios(masses_from_shape(delta0, r))[0] - L_meas[0], r0)
+out['pinned'] = {'jacobian_rows_lnmue_lntaue_cols_ddelta_drr': [[float(x) for x in row] for row in J],
+                 'native_point': score(m0, 'Z0 native point'),
+                 'pure_phase_delta': str(delta_pure), 'pure_phase_ddelta': str(delta_pure - delta0),
+                 'pure_phase_relative_ppm': float((delta_pure / delta0 - 1) * 1e6),
+                 'pure_phase_point': score(masses_from_shape(delta_pure, r0), 'Q = 2/3 held, mu/e fitted'),
+                 'pure_amplitude_r': str(r_pure), 'pure_amplitude_drr': str(r_pure / r0 - 1),
+                 'pure_amplitude_point': score(masses_from_shape(delta0, r_pure), 'delta = 2/9 held, mu/e fitted')}
+
+# ---------------------------------------------------------------- part 1: scale candidates
+Sfrac = {'S1 tr Y = 1/3 (analyzer, marginal)': mpf(1) / 3, 'S2 tr Y = 5/18 (analyzer, exclusive)': mpf(5) / 18,
+         'S3 tr Y = pq = 1/72 (joint coin-0 junction)': p * q, 'S4 tr Y = 1/128 (one label of the menu)': mpf(1) / 128,
+         'S6 tr Y = 7/648 (POST HOC FIT)': mpf(7) / 648}
+scale = {}
+m_mcpr = {'e': mpf(mcpr['optional_scale_display']['masses_MeV'][0]) / 1000,
+          'mu': mpf(mcpr['optional_scale_display']['masses_MeV'][1]) / 1000,
+          'tau': mpf(mcpr['optional_scale_display']['masses_MeV'][2]) / 1000}
+M_S0 = fsum(m_mcpr.values())
+scale['S0 MCPR determinant attachment (DECLARED, target-informed)'] = {
+    'M_GeV': str(M_S0), 'ratio_to_measured_sum': float(M_S0 / M_meas)}
+gm = v_source * (exp(3 * kappa) / (2 * mpf(6) ** 14)) ** (mpf(1) / 3)
+x0 = roots(delta0, r0)
+M_S5 = gm * fsum(x ** 2 for x in x0) / (x0[0] * x0[1] * x0[2]) ** (mpf(2) / 3)
+scale['S5 S0 with the native shape (control)'] = {'M_GeV': str(M_S5), 'ratio_to_measured_sum': float(M_S5 / M_meas),
+                                                  'geometric_mean_GeV': str(gm),
+                                                  'shape_product_prod_rho': str(x0[0] * x0[1] * x0[2]),
+                                                  'prod_rho_formula_cos3delta_over_sqrt2_minus_half': str(cos(3 * delta0) / sqrt(2) - mpf(1) / 2)}
+for name, t in Sfrac.items():
+    Ms, Mm = v_source * t / sqrt(2), V_MEAS * t / sqrt(2)
+    scale[name] = {'trY': str(t), 'M_GeV_v_source': str(Ms), 'M_GeV_v_GF': str(Mm),
+                   'ratio_to_measured_sum_v_source': float(Ms / M_meas), 'ratio_to_measured_sum_v_GF': float(Mm / M_meas),
+                   'pass_5_percent': bool(abs(Ms / M_meas - 1) <= mpf('0.05'))}
+out['scale'] = scale
+out['scale_identities'] = {
+    'A2_equals_M_over_6_at_r_sqrt2': True,
+    'sum_of_Fourier_probabilities_balanced_reading': '1',
+    'm_k = M lambda_k^2 with sum_k lambda_k^2 = 1': True,
+    'measured_A2_MeV': str(sh_meas['A2']), 'measured_M_over_6_MeV': str(fsum(meas.values()) / 6),
+}
+
+# ---------------------------------------------------------------- part 2: dressing candidates
+dress = {}
+dress['Z0'] = score(m0, 'Z0 undressed native point')
+dress['Z1'] = score(masses_from_shape(delta0 + zeta_mcpr, r0 * exp(-chi_mcpr)), 'Z1 MCPR packet (DECLARED)')
+
+
+def Delta_light(rr):  # light-fermion mass correction of the two-loop on-shell relation (Gray et al. 1990)
+    return pi ** 2 / 8 * rr - mpf('0.597') * rr ** 2 + mpf('0.230') * rr ** 3
+
+
+d_FL = -(mpf(71) / 96 + pi ** 2 / 12)
+a2 = (ALPHA_0 / pi) ** 2
+mm = meas  # logs inside O(alpha^2) terms; the tree masses differ from these at 1e-5, irrelevant here
+light = {'e': mpf(0),
+         'mu': d_FL * (1 - mpf(4) / 3 * Delta_light(mm['e'] / mm['mu'])),
+         'tau': d_FL * ((1 - mpf(4) / 3 * Delta_light(mm['e'] / mm['tau'])) + (1 - mpf(4) / 3 * Delta_light(mm['mu'] / mm['tau'])))}
+run = {'e': mpf(0), 'mu': mpf(2) / 3 * log(mm['mu'] / mm['e']),
+       'tau': mpf(2) / 3 * (log(mm['mu'] / mm['e']) + 2 * log(mm['tau'] / mm['mu']))}
+for zid, use_run in (('Z2', True), ('Z3', False)):
+    shift = {k: a2 * ((run[k] if use_run else 0) + light[k]) for k in ('e', 'mu', 'tau')}
+    mp_ = {k: m0[k] * (1 + shift[k]) for k in m0}
+    rec = score(mp_, f'{zid} QED own-scale masses, {"running alpha between own scales" if use_run else "common alpha(0)"}')
+    rec['nonuniversal_ln_mu_e_in_units_alpha_over_pi_sq'] = float((shift['mu'] - shift['e']) / a2)
+    rec['nonuniversal_ln_tau_e_in_units_alpha_over_pi_sq'] = float((shift['tau'] - shift['e']) / a2)
+    rec['note'] = 'hadronic vacuum polarization at the tau scale omitted; three-loop terms omitted'
+    dress[zid] = rec
+needed = (L_meas[0] - ln_ratios(m0)[0]) / a2
+dress['needed_ln_mu_e_shift_in_units_alpha_over_pi_sq'] = float(needed)
+
+a4 = (alpha_P / pi) ** 2
+pp, qq = p * (1 + a4), q * (1 + a4)
+dress['Z4'] = score(masses_from_shape(pp + qq - 2 * pp * qq, 2 * sqrt(pp / qq)), 'Z4 common rate rise a = (alpha_P/pi)^2')
+
+
+def stark(phase):
+    lam = [sqrt(q) * mp.expj(phase) + 2 * sqrt(p) * cos(delta0 + 2 * pi * k / 3) for k in range(3)]
+    return {'tau': abs(lam[0]) ** 2, 'e': abs(lam[1]) ** 2, 'mu': abs(lam[2]) ** 2}
+
+
+dress['Z5'] = score(stark(alpha_P), 'Z5 relative phase alpha_P between hold and rotation branches')
+dress['Z6'] = score(masses_from_shape(delta0 * (1 - a4), r0), 'Z6 holonomy shift -(alpha_P/pi)^2 delta')
+a7 = -(ALPHA_0 / pi) ** 2 / 6
+pp, qq = p * (1 + a7), q * (1 + a7)
+dress['Z7'] = score(masses_from_shape(pp + qq - 2 * pp * qq, 2 * sqrt(pp / qq)), 'Z7 POST HOC FIT a = -(alpha/pi)^2/6')
+out['dressing'] = dress
+
+# ---------------------------------------------------------------- controls computed after the candidate list
+controls = {}
+controls['MCPR zeta alone, r = sqrt2 (chi = 0)'] = score(masses_from_shape(delta0 + zeta_mcpr, r0), 'control')
+controls['MCPR chi alone, delta = 2/9 (zeta = 0)'] = score(masses_from_shape(delta0, r0 * exp(-chi_mcpr)), 'control')
+# a consensus phase formed as arg of the product of n equal factors (7/9 + (2/9) e^{-i/n}): magnitude
+# 2/9 - 35/(2187 n^2) + O(n^-4); n is not native, it is solved here for the pure-phase target (a fit)
+circ = lambda n: -n * arg(mpf(7) / 9 + mpf(2) / 9 * mp.expj(-1 / n))
+n_fit = findroot(lambda n: circ(n) - delta_pure, 300)
+controls['circular consensus bias (observation, n fitted)'] = {
+    'formula': 'n arg(7/9 + (2/9) exp(-i/n)) = -(2/9) + 35/(2187 n^2) + O(n^-4)',
+    'check_n_10_exact_minus_series': str(circ(10) - (delta0 - mpf(35) / (2187 * 100))),
+    'n_for_pure_phase_target': str(n_fit), 'sign_matches_target': True}
+out['controls_after_list'] = controls
+
+# ---------------------------------------------------------------- readout power: clock energy against Floquet rest phase
+# A-clock (energy = one-tick correction probability, lead L30): E_k = c lambda_k^2, so sqrt(m_k) ~ lambda_k.
+# Floquet rest phase: cos(omega_k) = 1 - c lambda_k^2, omega_k ~ sqrt(2c) |lambda_k| for small c.
+lam = roots(delta0, r0)  # proportional to lambda_k (tau, e, mu)
+def q_of(ms):
+    return fsum(ms) / fsum(sqrt(x) for x in ms) ** 2
+readout = {}
+for c in (mpf('1e-6'), mpf('1e-2')):
+    E = [c * x ** 2 for x in lam]
+    W = [mp.acos(1 - c * x ** 2) for x in lam]
+    readout[f'c={c}'] = {'Q_clock_energy': str(q_of(E)), 'Q_floquet_phase': str(q_of(W)),
+                         'mu_e_clock': str(E[2] / E[1]), 'tau_e_clock': str(E[0] / E[1]),
+                         'mu_e_floquet': str(W[2] / W[1]), 'tau_e_floquet': str(W[0] / W[1])}
+out['readout_power'] = readout
+
+# ---------------------------------------------------------------- the pinned line in rate space (target for a computed dressing)
+def lnmue_rates(a, b):
+    pp, qq = p * (1 + a), q * (1 + b)
+    return ln_ratios(masses_from_shape(pp + qq - 2 * pp * qq, 2 * sqrt(pp / qq)))
+hh = mpf('1e-20')
+ca = (lnmue_rates(hh, 0)[0] - lnmue_rates(-hh, 0)[0]) / (2 * hh)
+cb = (lnmue_rates(0, hh)[0] - lnmue_rates(0, -hh)[0]) / (2 * hh)
+need = L_meas[0] - ln_ratios(m0)[0]
+out['rate_space_line'] = {'statement': 'p -> p(1 + a), q -> q(1 + b): c_a a + c_b b = needed shift of ln(mu/e)',
+                          'c_a': str(ca), 'c_b': str(cb), 'needed': str(need), 'sigma': str(sig_ln_mue),
+                          'common_a_equal_b': str(need / (ca + cb)),
+                          'Q_preserved_iff_a_equals_b': True}
+out['dressing_passes'] = [k for k, v in dress.items() if isinstance(v, dict) and v.get('pass_rule')]
+OUT.write_text(json.dumps(out, indent=1))
+print(json.dumps({'pinned': {k: out['pinned'][k] for k in ('pure_phase_ddelta', 'pure_phase_relative_ppm', 'pure_amplitude_drr')},
+                  'scale': {k: {kk: vv for kk, vv in v.items() if 'ratio' in kk} for k, v in scale.items()},
+                  'dressing': {k: (v if not isinstance(v, dict) else {kk: v[kk] for kk in ('mu_e_residual_ppm', 'mu_e_pull', 'tau_e_pull', 'pass_rule')})
+                               for k, v in dress.items()},
+                  'passes': out['dressing_passes'],
+                  'controls': {k: (v if 'formula' in v else {kk: v[kk] for kk in ('delta', 'r', 'mu_e_residual_ppm', 'tau_e_pull')}) for k, v in controls.items()}}, indent=1))

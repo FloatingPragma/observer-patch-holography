@@ -1,0 +1,111 @@
+"""X4, part 4: the Z3 holonomy of the port-to-port frame rule as a copy label (candidate c).
+
+Independent of the code of worker MG (reports/MG.md, rule S): the federation is the face-glued tower (carriers =
+triangles of the subdivided icosahedron, three glue neighbours each). Rule S moves the chart by r^(k' - k) at a
+crossing, r the third of a turn of the glue triple, k and k' the positions of the shared glue seam in the cyclic
+glue triples of the two carriers. Holonomy counts are exact (integers mod 3). Eigenvalues are float64 (sparse
+Hermitian solves).
+
+  1. Holonomy around every vertex, levels 0 to 4: the group generated is Z3; nontrivial exactly at the twelve
+     five-valent vertices.
+  2. A three-valued chart record (tape) splits into the three characters of Z3. In character c the hop carries the
+     phase w^(c (k' - k)). Lowest level of the connection Laplacian of the cell graph (3 - largest eigenvalue of the
+     twisted adjacency) for c = 0, 1, 2: the place for a mass difference between the three copies.
+"""
+import os
+import sys
+from collections import defaultdict
+
+for _v in ('OMP_NUM_THREADS', 'OPENBLAS_NUM_THREADS', 'VECLIB_MAXIMUM_THREADS'):
+    os.environ.setdefault(_v, '1')
+import numpy as np
+import scipy.sparse as sp
+import scipy.sparse.linalg as sla
+
+from model.common_source import slow_geometry
+from x4lib import dump
+
+src = slow_geometry.source()
+faces0 = [tuple(int(v) for v in f) for f in src.oriented_faces()]
+
+
+def subdivide(tris, nv):
+    mid, out = {}, []
+    def m(a, b):
+        nonlocal nv
+        key = (min(a, b), max(a, b))
+        if key not in mid:
+            mid[key] = nv; nv += 1
+        return mid[key]
+    for a, b, c in tris:
+        ab, bc, ca = m(a, b), m(b, c), m(c, a)
+        out += [(a, ab, ca), (b, bc, ab), (c, ca, bc), (ab, bc, ca)]
+    return out, nv
+
+
+out = {'levels': []}
+w = np.exp(2j * np.pi / 3)
+tris, nv = list(faces0), 12
+for level in range(5):
+    if level:
+        tris, nv = subdivide(tris, nv)
+    N = len(tris)
+    # directed edge (a, b) -> (cell, position); consistent orientation means the reverse edge belongs to the neighbour
+    owner = {}
+    for c, t in enumerate(tris):
+        for k in range(3):
+            owner[(t[k], t[(k + 1) % 3])] = (c, k)
+    assert len(owner) == 3 * N and all((b, a) in owner for a, b in owner)       # closed, consistently oriented
+    # holonomy around every vertex: counter-clockwise, each cell is entered through its edge leaving the vertex
+    # (position i) and left through its edge arriving at the vertex (position i - 1)
+    valence = defaultdict(int); hol = defaultdict(int)
+    shifts = {}
+    for (a, b), (c, k) in owner.items():
+        c2, k2 = owner[(b, a)]
+        shifts[(c, c2)] = (k2 - k) % 3                                          # chart shift of the hop c -> c2
+    for c, t in enumerate(tris):
+        for i in range(3):
+            v = t[i]
+            valence[v] += 1
+            # hop out of cell c through its edge (t[i-1], t[i]) (position i - 1) into the neighbour
+            c2, k2 = owner[(t[i], t[(i - 1) % 3])]
+            hol[v] = (hol[v] + (k2 - (i - 1))) % 3
+    census = defaultdict(int)
+    for v in valence:
+        census[(valence[v], hol[v])] += 1
+    assert set(k[0] for k in census) <= {5, 6}
+    nontrivial = sum(n for (val, h), n in census.items() if h != 0)
+    assert all(h == 0 for (val, h) in census if val == 6) and census.get((5, 0), 0) == 0
+    row = {'level': level, 'carriers': N, 'vertices': nv,
+           'vertex_census_valence_holonomy': {f'valence {val}, holonomy r^{h}': n for (val, h), n in sorted(census.items())},
+           'vertices_with_nontrivial_holonomy': nontrivial, 'holonomy_group_order': 3 if nontrivial else 1}
+    # spectrum per character
+    I, J = zip(*shifts.keys())
+    S = np.array(list(shifts.values()))
+    for c in (0, 1, 2):
+        Amat = sp.csr_matrix((w ** (c * S), (J, I)), shape=(N, N))            # amplitude at the target cell
+        assert abs(Amat - Amat.getH()).max() < 1e-12
+        if N <= 320:                                                           # dense
+            ev = np.sort(np.linalg.eigvalsh(Amat.toarray()))[::-1][:12]
+        else:                                                                  # sparse, with a wide Krylov space for the multiplet
+            ev = np.sort(sla.eigsh(Amat, k=14, which='LA', return_eigenvectors=False, tol=1e-13, ncv=80))[::-1][:12]
+            # (a narrow Krylov space misses one member of the five-fold lowest level; dense solves at 1,280 carriers agree with these settings)
+        lam0 = 3 - ev[0]
+        deg = int(np.sum(np.abs(ev - ev[0]) < 1e-7))
+        row[f'character_{c}'] = {'lowest_level': float(lam0), 'lowest_level_times_carriers': float(lam0 * N), 'degeneracy': deg,
+                                 'next_level': float(3 - ev[deg]) if deg < len(ev) else None}
+    row['characters_1_and_2_equal'] = abs(row['character_1']['lowest_level'] - row['character_2']['lowest_level']) < 1e-9
+    out['levels'].append(row)
+    print(f"level {level}: carriers {N}, census {dict(census)}; lowest level c=0: {row['character_0']['lowest_level']:.2e}, "
+          f"c=1: {row['character_1']['lowest_level']:.6f} (x N = {row['character_1']['lowest_level_times_carriers']:.4f}, "
+          f"degeneracy {row['character_1']['degeneracy']}), c=2: {row['character_2']['lowest_level']:.6f}")
+vals = [r['character_1']['lowest_level_times_carriers'] for r in out['levels']]
+out['summary'] = {
+    'copies': 3, 'label': 'character of the three-valued chart record under the third of a turn of the glue triple',
+    'holonomy': 'a third of a turn at the twelve five-valent vertices, identity at every six-valent vertex, levels 0 to 4 (EXACT; agrees with reports/MG.md item 2)',
+    'masses': 'character 0 is untwisted; characters 1 and 2 are complex conjugates and have equal spectra; their lowest level times the number of carriers is '
+              + ', '.join(f'{v:.3f}' for v in vals) + ' at levels 0 to 4: it falls as 1/N',
+    'tag': 'holonomy EXACT, levels MEASURED (float64)'}
+print(out['summary']['masses'])
+if len(sys.argv) > 1:
+    dump(out, sys.argv[1])

@@ -1,0 +1,90 @@
+"""LT (step L3): NOT BLIND comparison of the registered clock times with the measured lepton ratios (NB1 to NB3).
+
+Run last, from RL/work/LT:  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B lt_not_blind.py
+Reads lt_spectrum.json (source side) and the measured values of LEPTON_STEPS.md section 2. Writes lt_not_blind.json.
+Every number in the output file is NOT BLIND.
+"""
+import json
+import os
+import sys
+
+sys.dont_write_bytecode = True
+import mpmath as mp  # noqa: E402
+
+mp.mp.dps = 40
+HERE = os.path.dirname(os.path.abspath(__file__))
+P = mp.mpf(2) / 9
+MU_E, MU_E_ERR = mp.mpf('206.7682827'), mp.mpf('0.0000046')
+M_E, M_TAU, M_TAU_ERR = mp.mpf('0.51099895069'), mp.mpf('1776.93'), mp.mpf('0.09')
+TAU_E, TAU_E_ERR = M_TAU / M_E, M_TAU_ERR / M_E
+
+
+def ratios(kappa):
+    lam = [1 + mp.sqrt(2) * mp.cos(kappa * P + 2 * mp.pi * k / 3) for k in range(3)]
+    y = sorted(l * l for l in lam)
+    return y[1] / y[0], y[2] / y[0]
+
+
+src = json.load(open(os.path.join(HERE, 'lt_spectrum.json')))
+rows = []
+for r in src['candidates']:
+    r1 = mp.mpf(r['ratio middle/smallest'])
+    r2 = mp.mpf(r['ratio largest/smallest'])
+    rows.append({'id': r['id'], 'kappa': r['kappa'], 'in positive chamber': r['in positive chamber'],
+                 'mu/e': mp.nstr(r1, 10), 'mu/e over measured': mp.nstr(r1 / MU_E, 8),
+                 'mu/e deviation in measurement uncertainties': mp.nstr((r1 - MU_E) / MU_E_ERR, 6),
+                 'tau/e': mp.nstr(r2, 10), 'tau/e over measured': mp.nstr(r2 / TAU_E, 8),
+                 'tau/e deviation in sigma': mp.nstr((r2 - TAU_E) / TAU_E_ERR, 6),
+                 'within 1 percent on both': bool(abs(r1 / MU_E - 1) < 0.01 and abs(r2 / TAU_E - 1) < 0.01)})
+OUT = {'label': 'NOT BLIND', 'measured': {'mu/e': '206.7682827(46)', 'tau/e': mp.nstr(TAU_E, 9) + '(' + mp.nstr(TAU_E_ERR, 3) + ')'},
+       'NB1 registered candidates': rows,
+       'NB1 candidates within 1 percent on both ratios': [r['id'] for r in rows if r['within 1 percent on both']]}
+
+# NB2: kappa from the measured mu/e inside the chamber of n = 0
+k_star = mp.findroot(lambda k: ratios(k)[0] - MU_E, mp.mpf(1))
+k_lo = mp.findroot(lambda k: ratios(k)[0] - (MU_E - MU_E_ERR), mp.mpf(1))
+k_hi = mp.findroot(lambda k: ratios(k)[0] - (MU_E + MU_E_ERR), mp.mpf(1))
+OUT['NB2 kappa from the measured mu/e'] = {
+    'kappa': mp.nstr(k_star, 15), 'kappa - 1': mp.nstr(k_star - 1, 8), 'half width from the uncertainty of mu/e': mp.nstr((k_hi - k_lo) / 2, 4),
+    'theta - 2/9': mp.nstr((k_star - 1) * P, 8), 'tau/e at this kappa': mp.nstr(ratios(k_star)[1], 12),
+    'tau/e deviation in sigma': mp.nstr((ratios(k_star)[1] - TAU_E) / TAU_E_ERR, 4),
+}
+# NB3: kappa interval from the measured tau/e
+kt = mp.findroot(lambda k: ratios(k)[1] - TAU_E, mp.mpf(1))
+kt_lo = mp.findroot(lambda k: ratios(k)[1] - (TAU_E - TAU_E_ERR), mp.mpf(1))
+kt_hi = mp.findroot(lambda k: ratios(k)[1] - (TAU_E + TAU_E_ERR), mp.mpf(1))
+OUT['NB3 kappa from the measured tau/e'] = {
+    'kappa': mp.nstr(kt, 12), 'kappa - 1': mp.nstr(kt - 1, 6), 'one sigma interval of kappa - 1': [mp.nstr(kt_lo - 1, 6), mp.nstr(kt_hi - 1, 6)],
+    'kappa = 1 in units of sigma': mp.nstr((ratios(1)[1] - TAU_E) / TAU_E_ERR, 4),
+}
+# solutions of mu/e outside the chamber between the windows n = 0 and n = 1, with their tau/e
+outside = []
+lo, hi = 3 * mp.pi / 8, 3 * mp.pi - 3 * mp.pi / 8
+grid = [lo + (hi - lo) * i / 4000 for i in range(1, 4000)]
+prev_k, prev_v = grid[0], ratios(grid[0])[0] - MU_E
+for k in grid[1:]:
+    v = ratios(k)[0] - MU_E
+    if prev_v * v < 0 and abs(prev_v) < 1e5 and abs(v) < 1e5:
+        try:
+            root = mp.findroot(lambda x: ratios(x)[0] - MU_E, (prev_k, k), solver='anderson')
+            r2 = ratios(root)[1]
+            outside.append({'kappa': mp.nstr(root, 10), 'theta': mp.nstr(root * P, 10), 'tau/e': mp.nstr(r2, 10),
+                            'tau/e deviation in sigma': mp.nstr((r2 - TAU_E) / TAU_E_ERR, 6)})
+        except (ValueError, ZeroDivisionError):
+            pass
+    prev_k, prev_v = k, v
+OUT['kappa outside the chambers with the measured mu/e (between the windows n = 0 and n = 1)'] = outside
+OUT['symmetry class'] = {
+    'statement': 'the spectrum is invariant under theta -> -theta and theta -> theta + 2 pi/3, so the measured ratios fix kappa '
+                 'only in the class +-kappa* + 3 pi Z',
+    'members next to kappa*': [mp.nstr(s * k_star + 3 * mp.pi * n, 10) for n in (-1, 0, 1) for s in (1, -1)],
+    'members of the class in 1 + 4 Z with |n| <= 10^4 at kappa* = 1':
+        [1 + 4 * n for n in range(-10 ** 4, 10 ** 4 + 1)
+         if min(abs(mp.mpf(1 + 4 * n) - (s * 1 + 3 * mp.pi * mp.nint((mp.mpf(1 + 4 * n) - s) / (3 * mp.pi)))) for s in (1, -1)) < mp.mpf(10) ** -6],
+}
+OUT['count of comparisons'] = {'NB1': f'{len(rows)} rows, one event', 'NB2': 1, 'NB3': 1, 'outside scan': 1}
+json.dump(OUT, open(os.path.join(HERE, 'lt_not_blind.json'), 'w'), indent=1)
+for r in rows:
+    print(f"{r['id']:4s} {r['kappa']:18s} ch={str(r['in positive chamber']):5s} mu/e={r['mu/e']:12s} x{r['mu/e over measured']:10s} "
+          f"tau/e={r['tau/e']:12s} x{r['tau/e over measured']}")
+print(json.dumps({k: v for k, v in OUT.items() if k != 'NB1 registered candidates'}, indent=1))

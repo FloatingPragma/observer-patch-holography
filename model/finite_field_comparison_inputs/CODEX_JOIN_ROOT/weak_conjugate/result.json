@@ -1,0 +1,136 @@
+{
+  "W_is_conjugation_invariant": false,
+  "actual_all12_Gauss_and3_spin_commutators_zero": true,
+  "complete_charged_contractions": {
+    "all_source_local_reference_and_target_complements_retained": true,
+    "atomic_pumped_bin_norm_squared_interval": [
+      "532351802705416061679184259299/1267650600228229401496703205376",
+      "133087950676354015419796064825/316912650057057350374175801344"
+    ],
+    "atomic_unnormalized_charged_current_insertion_interval": [
+      "-20069487434807741027641905013/1267650600228229401496703205376",
+      "-5017371858701935256910476253/316912650057057350374175801344"
+    ],
+    "atomic_unnormalized_charged_current_second_moment_interval": [
+      "5017371858701935256910476253/633825300114114700748351602688",
+      "10034743717403870513820952507/1267650600228229401496703205376"
+    ],
+    "both_initial_ground_magnetic_states_and_both_native_removal_maps_checked": 4,
+    "charged_target_ground_current": {
+      "W": {
+        "coefficients_in_charged_energy": [
+          "991825/100725009473",
+          "147657925/100725009473",
+          "-285583600/100725009473",
+          "-3967300/18125789"
+        ],
+        "outward_interval": [
+          "-23895004829245511319809281675/633825300114114700748351602688",
+          "-47790009658491022639618563349/1267650600228229401496703205376"
+        ]
+      },
+      "W2": {
+        "coefficients_in_charged_energy": [
+          "-991825/201450018946",
+          "-147657925/201450018946",
+          "142791800/100725009473",
+          "1983650/18125789"
+        ],
+        "outward_interval": [
+          "11947502414622755659904640837/633825300114114700748351602688",
+          "23895004829245511319809281675/1267650600228229401496703205376"
+        ]
+      },
+      "probability_-1": {
+        "coefficients_in_charged_energy": [
+          "0"
+        ],
+        "outward_interval": [
+          "0",
+          "0"
+        ]
+      },
+      "probability_-1/2": {
+        "coefficients_in_charged_energy": [
+          "-1983650/100725009473",
+          "-295315850/100725009473",
+          "571167200/100725009473",
+          "7934600/18125789"
+        ],
+        "outward_interval": [
+          "47790009658491022639618563349/633825300114114700748351602688",
+          "95580019316982045279237126699/1267650600228229401496703205376"
+        ]
+      },
+      "probability_0": {
+        "coefficients_in_charged_energy": [
+          "1983650/100725009473",
+          "295315850/100725009473",
+          "-571167200/100725009473",
+          "10191189/18125789"
+        ],
+        "outward_interval": [
+          "1172070580911247356217466078677/1267650600228229401496703205376",
+          "586035290455623678108733039339/633825300114114700748351602688"
+        ]
+      },
+      "probability_2": {
+        "coefficients_in_charged_energy": [
+          "0"
+        ],
+        "outward_interval": [
+          "0",
+          "0"
+        ]
+      },
+      "probability_3/2": {
+        "coefficients_in_charged_energy": [
+          "0"
+        ],
+        "outward_interval": [
+          "0",
+          "0"
+        ]
+      },
+      "variance": {
+        "coefficients_in_charged_energy": [
+          "-3117472775/1119457755282922",
+          "-618452426725/1119457755282922",
+          "538522515725/559728877641461",
+          "8629044300/100725009473"
+        ],
+        "outward_interval": [
+          "11046668611227927577643655097/633825300114114700748351602688",
+          "22093337222455855155287310195/1267650600228229401496703205376"
+        ]
+      }
+    },
+    "complete_target_controls": [
+      {
+        "complete_charged_target_dimension": 7,
+        "full_polynomial_images_and_metric_Hermiticity_checked": true,
+        "selected_energy_projector_rank": 1,
+        "twice_magnetic_spin": -2
+      },
+      {
+        "complete_charged_target_dimension": 17,
+        "full_polynomial_images_and_metric_Hermiticity_checked": true,
+        "selected_energy_projector_rank": 1,
+        "twice_magnetic_spin": 0
+      },
+      {
+        "complete_charged_target_dimension": 7,
+        "full_polynomial_images_and_metric_Hermiticity_checked": true,
+        "selected_energy_projector_rank": 1,
+        "twice_magnetic_spin": 2
+      }
+    ],
+    "rank_one_compression_identity": "P_e W P_e=tr(P_e W)P_e in all three complete magnetic target blocks",
+    "selected_charged_energy_interval": [
+      "-6679839591211978879444814778235/633825300114114700748351602688",
+      "-13359679182423957758889629556469/1267650600228229401496703205376"
+    ],
+    "selected_charged_energy_minimal_polynomial": "x**4 - 2*x**3 - 212*x**2 + 213*x + 11114"
+  },
+  "formula": "Theta W Theta^-1 = -sum_a tr(sigma_a^* [phi_i^dagger phi_j]_(ij)) j_a"
+}

@@ -1,0 +1,396 @@
+{
+  "checks": {
+    "actual_effect_trace_5_18": true,
+    "actual_source_gram_equals_diagonal_effect": true,
+    "equal_analyzer_flags_make_pulled_vectors_orthogonal": true,
+    "explicit_preparation_is_unitary_and_uniform": true,
+    "mass_all_branch_grams_positive": true,
+    "mass_complete_actual_channel_matches_formula": true,
+    "mass_diagonal_normalization": true,
+    "mass_four_outcome_history_sums_to_channel": true,
+    "mass_nontrivial_finite_cycle_not_unitary": true,
+    "mass_offdiagonal_multiplier": true,
+    "mass_reset_preserves_exported_source_and_reference_map": true,
+    "mass_stationary_diagonal_register": true,
+    "native_address_flags_50_5_5": true,
+    "native_pair_to_double_load_rate_factor": true,
+    "positive_nonreturn_gram_weight": true,
+    "weak_all_branch_grams_positive": true,
+    "weak_complete_actual_channel_matches_formula": true,
+    "weak_complete_channel_including_nonreturns": true,
+    "weak_four_outcome_history_sums_to_channel": true,
+    "weak_no_reset_control_changes_count": true,
+    "weak_nontrivial_finite_cycle_not_unitary": true,
+    "weak_reset_preserves_exported_source_and_reference_map": true,
+    "weak_stationary_diagonal_register": true
+  },
+  "finite_budgets": [
+    {
+      "cycle": "weak",
+      "declared_time": "1",
+      "ideal_half_diamond_bound": "7/405",
+      "implemented_half_diamond_bound": "7/405",
+      "per_cycle_channel_error": "0",
+      "per_fresh_pair_preparation_error": "0",
+      "rounds": 10
+    },
+    {
+      "cycle": "weak",
+      "declared_time": "1",
+      "ideal_half_diamond_bound": "7/4050",
+      "implemented_half_diamond_bound": "7/4050",
+      "per_cycle_channel_error": "0",
+      "per_fresh_pair_preparation_error": "0",
+      "rounds": 100
+    },
+    {
+      "cycle": "weak",
+      "declared_time": "1",
+      "ideal_half_diamond_bound": "7/40500",
+      "implemented_half_diamond_bound": "7/40500",
+      "per_cycle_channel_error": "0",
+      "per_fresh_pair_preparation_error": "0",
+      "rounds": 1000
+    },
+    {
+      "cycle": "mass",
+      "declared_time": "1",
+      "ideal_half_diamond_bound": "349/12960",
+      "implemented_half_diamond_bound": "349/12960",
+      "per_cycle_channel_error": "0",
+      "per_fresh_pair_preparation_error": "0",
+      "rounds": 10
+    },
+    {
+      "cycle": "mass",
+      "declared_time": "1",
+      "ideal_half_diamond_bound": "349/129600",
+      "implemented_half_diamond_bound": "349/129600",
+      "per_cycle_channel_error": "0",
+      "per_fresh_pair_preparation_error": "0",
+      "rounds": 100
+    },
+    {
+      "cycle": "mass",
+      "declared_time": "1",
+      "ideal_half_diamond_bound": "349/1296000",
+      "implemented_half_diamond_bound": "349/1296000",
+      "per_cycle_channel_error": "0",
+      "per_fresh_pair_preparation_error": "0",
+      "rounds": 1000
+    }
+  ],
+  "implementation_designs_1e_minus_6": {
+    "mass": {
+      "certified_total_error": "87250061/87250122000000",
+      "maximum_combined_channel_and_fresh_pair_error_per_cycle": "1/1077162000000",
+      "rounds": 538581,
+      "target_trace_distance": "1/1000000"
+    },
+    "weak": {
+      "certified_total_error": "700001/700002000000",
+      "maximum_combined_channel_and_fresh_pair_error_per_cycle": "1/691360000000",
+      "rounds": 345680,
+      "target_trace_distance": "1/1000000"
+    }
+  },
+  "instrument": {
+    "discarded_or_renormalized_outcomes": false,
+    "mass_effect_eigenvalues_k0_k1_k2": [
+      "0.2621169450289541407393589",
+      "0.00007537569876381753410561485",
+      "0.01558545705005981950431322"
+    ],
+    "mass_effect_trace": "5/18",
+    "mass_nonreturn_gram": "diag(e)-e e^T",
+    "outcomes": [
+      "yes_yes",
+      "x_no",
+      "y_no",
+      "both_no"
+    ],
+    "register_dimension": 3,
+    "reset": "SWAP with a freshly prepared pair; old source and its correlations exported",
+    "source_address_dimension": 3600,
+    "weak_exclusive_probability": "2/9",
+    "weak_projected_X_norms": {
+      "both_no": "55/1296",
+      "x_no": "11/324",
+      "y_no": "125/1296",
+      "yes_yes": "4/81"
+    }
+  },
+  "reference": {
+    "archive_stationary": false,
+    "fixed_register_states": "Every density diagonal in the indicated three-character/current basis.",
+    "physical_Gibbs_or_vacuum_identification": false,
+    "unique_stationary_reference": false
+  },
+  "resources_for_1000_complete_cycles": {
+    "binary_embedding_qubits_per_exported_pair": 12,
+    "binary_return_tests": 2000,
+    "blank_double_loads_prepared": 2002,
+    "cell_register_swaps": 2000,
+    "classical_record_bits": 2000,
+    "compiled_pulse_count_claimed": false,
+    "controlled_analyzer_or_exclusive_kicks": 1000,
+    "cycles": 1000,
+    "declared_uniform_address_preparation_gates": 2002,
+    "exported_address_hilbert_dimension_per_pair": 3600,
+    "exported_address_pairs": 1000,
+    "formal_complete_history_count": "4^1000",
+    "forward_native_cell_ticks": 2000,
+    "fresh_prepared_pairs_including_terminal_active_pair": 1001,
+    "inverse_native_cell_ticks": 2000,
+    "physical_duration_or_energy_cost_claimed": false
+  },
+  "rounds_for_ideal_trace_distance_1e_minus_6": {
+    "mass": 269291,
+    "weak": 172840
+  },
+  "schema": "oph.complete_lepton_cycle.v1",
+  "scope": {
+    "derived": "Complete finite instruments, declared-clock weak limits, reference families and input sensitivities.",
+    "not_claimed": "Autonomous preparation/reset, a physical mass pole, GeV scale, interacting relativistic limit or new Lean formalization.",
+    "supplied": "Fresh double loads, uniform-address preparation gate, analyzer, controlled kick, inverse ticks, return apparatus, SWAP/archive services and declared clock."
+  },
+  "sensitivity": {
+    "balance_2b_over_a": "sqrt(2)",
+    "common_normalization_log_sensitivity": [
+      "0",
+      "0"
+    ],
+    "comparison_only": {
+      "linear_phase_displacement_for_residual_diagnostic": "-0.0000001751229452709475895628256",
+      "phase_displacement_applied": false,
+      "reference_convention": "Rounded CODATA central value used by the retained paper table; no uncertainty supplied here.",
+      "reference_muon_ratio": "206.768283",
+      "reference_used_to_select_parameters": false,
+      "relative_residual_ppm": "9.832130440376160353081414"
+    },
+    "exclusive_count_input_derivatives": {
+      "dtheta_d_forward_probability_at_independence": "2/3",
+      "dtheta_d_joint_probability_at_fixed_marginals": "-2",
+      "dtheta_d_written_probability_at_independence": "5/6"
+    },
+    "finite_round_diagnostics": [
+      {
+        "gap_one_phase_per_unit": "0.2053340309702779409512723",
+        "gap_two_phase_per_unit": "0.1433661550979809600846579",
+        "muon_ratio_fractional_bias_from_infinite_round_value": "-0.5536694606764717414860624",
+        "muon_ratio_if_one_assigns_gap_one_phase": "92.28790664420465755961381",
+        "rounds": 1,
+        "tau_ratio_if_one_assigns_gap_one_phase": "1688.514583725120921605111"
+      },
+      {
+        "gap_one_phase_per_unit": "0.2220620996705027175270471",
+        "gap_two_phase_per_unit": "0.2215806990889546355395838",
+        "muon_ratio_fractional_bias_from_infinite_round_value": "-0.008933539612639138418223164",
+        "muon_ratio_if_one_assigns_gap_one_phase": "204.9231251642690994549373",
+        "rounds": 10,
+        "tau_ratio_if_one_assigns_gap_one_phase": "3449.121609699571117462698"
+      },
+      {
+        "gap_one_phase_per_unit": "0.2222206218478297467536782",
+        "gap_two_phase_per_unit": "0.2222158206215160395667628",
+        "muon_ratio_fractional_bias_from_infinite_round_value": "-0.00008984557136985035664810675",
+        "muon_ratio_if_one_assigns_gap_one_phase": "206.7517385755484942450952",
+        "rounds": 100,
+        "tau_ratio_if_one_assigns_gap_one_phase": "3477.187764128340999313988"
+      },
+      {
+        "gap_one_phase_per_unit": "0.2222222062185633884257969",
+        "gap_two_phase_per_unit": "0.2222221582075765596886756",
+        "muon_ratio_fractional_bias_from_infinite_round_value": "-0.0000008985069789482300920849515",
+        "muon_ratio_if_one_assigns_gap_one_phase": "206.7701301881574477845012",
+        "rounds": 1000,
+        "tau_ratio_if_one_assigns_gap_one_phase": "3477.469986218020656334438"
+      },
+      {
+        "gap_one_phase_per_unit": "0.2222222220621856529958851",
+        "gap_two_phase_per_unit": "0.2222222215820759123377028",
+        "muon_ratio_fractional_bias_from_infinite_round_value": "-8.985074320987628580349748e-9",
+        "muon_ratio_if_one_assigns_gap_one_phase": "206.7703141148827322234814",
+        "rounds": 10000,
+        "tau_ratio_if_one_assigns_gap_one_phase": "3477.472808595718960011218"
+      }
+    ],
+    "interpretation": "Squared-eigenvalue architecture ratios; no physical pole-mass or absolute-unit identification.",
+    "jacobian_determinant": "263.8294384458045932393589",
+    "koide_positive_chamber": "1/3 + balance^2/6",
+    "log_ratio_jacobian_columns_theta_balance": [
+      [
+        "56.14388274527039637725465",
+        "32.61133431214913598431401"
+      ],
+      [
+        "51.22679357809863342733842",
+        "34.45439529605011510080945"
+      ]
+    ],
+    "marginals_without_independence": {
+      "allowed_exclusive_phase": [
+        "1/12",
+        "1/4"
+      ],
+      "allowed_joint_probability": [
+        "0",
+        "1/12"
+      ],
+      "forward_probability": "1/12",
+      "independent_exclusive_phase": "2/9",
+      "independent_joint_probability": "1/72",
+      "written_probability": "1/6"
+    },
+    "muon_over_electron": "206.7703159727293886125503",
+    "positive_chamber_phase_margin": "0.03957716557692721431633139",
+    "tau_over_electron": "3477.472837104598532313001",
+    "theta": "2/9"
+  },
+  "source_bindings": {
+    "Lean/EventAlgebra/SlotLocalitySurface.lean": "36619cf280b2f5cb8d6510b44b2ca17e547cad9640d47dbaf864ac23e97a4f30",
+    "model/coherent_seam_repair/common.py": "b788b17ef298902067f6132d170ce8aff1d9ce8d5c5ec8b08e42809ef606348d",
+    "model/coherent_seam_repair/program.py": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+    "model/lepton_cycle/PROOF.md": "3aff945e1fdd27d5036b90933b27d72727952f58bf69a5c312fc43b3000773bb",
+    "model/lepton_cycle/README.md": "2ffc77fe02f436b9d27d1b3bf457de5446870cfd28488c60586810977bced8a0",
+    "model/lepton_cycle/__init__.py": "aaaf87869230232102ef73d973833229a1ea6307fe88d677be9fcb6284a808c3",
+    "model/lepton_cycle/__main__.py": "2163ee77c77b12b7e53d7c99294c256ed98e9d63c9fb1ffb4fe8383f9b2e6486",
+    "model/lepton_cycle/certificate.py": "7dd740bcb0fc7e7d10163c37097c8c635776ee988afd771c0a160695d451cb11",
+    "model/lepton_cycle/composition.py": "542761d2e068af18caadc2d69c432b107cb60288a12a54ed12bda5ad199767f7",
+    "model/lepton_cycle/instrument.py": "18d6fceae8b68a8982a8b1505d97c2bd80a38cb0d50097768b05e7bc114a14b1",
+    "model/lepton_cycle/sensitivity.py": "e7418131bac66b0e418f1080a2cd5b184d42be0c2f23e1776bb558c321930c4d",
+    "model/lepton_cycle/test_cycle.py": "00371f93843b354c151afb8d2105aa0dc580262fab8481de8757dbed7b7879f2",
+    "model/lepton_register_round/carrier.py": "a156c39dc746e9347a30d1f8d37b7d3383f00106fed58a877375ed783eed0fd4",
+    "model/lepton_register_round/rounds.py": "a4a62cb8448144aa80ab6dd0c0505953b8303f0a4800d18a8c79e1a8bcd4a30b",
+    "model/lepton_register_round/walk.py": "fec6a98a5a5361992491e0bea86783f42d2f5515719b98f01fdd2e0f0faa380f"
+  },
+  "viewer_projection": {
+    "mass": {
+      "complete_channel_half_diamond_bound": "349*t^2/(1296*N)",
+      "double_load_to_native_pair_common_rate_factor": "5/4",
+      "effect_trace": "5/18",
+      "native_pair_effect_trace": "2/9",
+      "nonreturn_environment_rank": 3,
+      "rates_k0_k1_k2": [
+        "0.2621169450289541407393589",
+        "0.00007537569876381753410561485",
+        "0.01558545705005981950431322"
+      ]
+    },
+    "physical_pole_mass_identification": false,
+    "reset": {
+      "all_nonreturn_states_exported": true,
+      "archive_stationary": false,
+      "fresh_pair_required_each_cycle": true
+    },
+    "sensitivity": {
+      "balance_2b_over_a": "sqrt(2)",
+      "common_normalization_log_sensitivity": [
+        "0",
+        "0"
+      ],
+      "comparison_only": {
+        "linear_phase_displacement_for_residual_diagnostic": "-0.0000001751229452709475895628256",
+        "phase_displacement_applied": false,
+        "reference_convention": "Rounded CODATA central value used by the retained paper table; no uncertainty supplied here.",
+        "reference_muon_ratio": "206.768283",
+        "reference_used_to_select_parameters": false,
+        "relative_residual_ppm": "9.832130440376160353081414"
+      },
+      "exclusive_count_input_derivatives": {
+        "dtheta_d_forward_probability_at_independence": "2/3",
+        "dtheta_d_joint_probability_at_fixed_marginals": "-2",
+        "dtheta_d_written_probability_at_independence": "5/6"
+      },
+      "finite_round_diagnostics": [
+        {
+          "gap_one_phase_per_unit": "0.2053340309702779409512723",
+          "gap_two_phase_per_unit": "0.1433661550979809600846579",
+          "muon_ratio_fractional_bias_from_infinite_round_value": "-0.5536694606764717414860624",
+          "muon_ratio_if_one_assigns_gap_one_phase": "92.28790664420465755961381",
+          "rounds": 1,
+          "tau_ratio_if_one_assigns_gap_one_phase": "1688.514583725120921605111"
+        },
+        {
+          "gap_one_phase_per_unit": "0.2220620996705027175270471",
+          "gap_two_phase_per_unit": "0.2215806990889546355395838",
+          "muon_ratio_fractional_bias_from_infinite_round_value": "-0.008933539612639138418223164",
+          "muon_ratio_if_one_assigns_gap_one_phase": "204.9231251642690994549373",
+          "rounds": 10,
+          "tau_ratio_if_one_assigns_gap_one_phase": "3449.121609699571117462698"
+        },
+        {
+          "gap_one_phase_per_unit": "0.2222206218478297467536782",
+          "gap_two_phase_per_unit": "0.2222158206215160395667628",
+          "muon_ratio_fractional_bias_from_infinite_round_value": "-0.00008984557136985035664810675",
+          "muon_ratio_if_one_assigns_gap_one_phase": "206.7517385755484942450952",
+          "rounds": 100,
+          "tau_ratio_if_one_assigns_gap_one_phase": "3477.187764128340999313988"
+        },
+        {
+          "gap_one_phase_per_unit": "0.2222222062185633884257969",
+          "gap_two_phase_per_unit": "0.2222221582075765596886756",
+          "muon_ratio_fractional_bias_from_infinite_round_value": "-0.0000008985069789482300920849515",
+          "muon_ratio_if_one_assigns_gap_one_phase": "206.7701301881574477845012",
+          "rounds": 1000,
+          "tau_ratio_if_one_assigns_gap_one_phase": "3477.469986218020656334438"
+        },
+        {
+          "gap_one_phase_per_unit": "0.2222222220621856529958851",
+          "gap_two_phase_per_unit": "0.2222222215820759123377028",
+          "muon_ratio_fractional_bias_from_infinite_round_value": "-8.985074320987628580349748e-9",
+          "muon_ratio_if_one_assigns_gap_one_phase": "206.7703141148827322234814",
+          "rounds": 10000,
+          "tau_ratio_if_one_assigns_gap_one_phase": "3477.472808595718960011218"
+        }
+      ],
+      "interpretation": "Squared-eigenvalue architecture ratios; no physical pole-mass or absolute-unit identification.",
+      "jacobian_determinant": "263.8294384458045932393589",
+      "koide_positive_chamber": "1/3 + balance^2/6",
+      "log_ratio_jacobian_columns_theta_balance": [
+        [
+          "56.14388274527039637725465",
+          "32.61133431214913598431401"
+        ],
+        [
+          "51.22679357809863342733842",
+          "34.45439529605011510080945"
+        ]
+      ],
+      "marginals_without_independence": {
+        "allowed_exclusive_phase": [
+          "1/12",
+          "1/4"
+        ],
+        "allowed_joint_probability": [
+          "0",
+          "1/12"
+        ],
+        "forward_probability": "1/12",
+        "independent_exclusive_phase": "2/9",
+        "independent_joint_probability": "1/72",
+        "written_probability": "1/6"
+      },
+      "muon_over_electron": "206.7703159727293886125503",
+      "positive_chamber_phase_margin": "0.03957716557692721431633139",
+      "tau_over_electron": "3477.472837104598532313001",
+      "theta": "2/9"
+    },
+    "weak": {
+      "complete_channel_half_diamond_bound": "14*t^2/(81*N)",
+      "current_eigenvalues": [
+        -1,
+        0,
+        1
+      ],
+      "limiting_phase_per_unit": "2/9",
+      "nonreturn_probabilities": {
+        "both_no": "(55/1296) * 4*sin(h*j/2)^2",
+        "x_no": "(11/324) * 4*sin(h*j/2)^2",
+        "y_no": "(125/1296) * 4*sin(h*j/2)^2"
+      },
+      "probability": "2/9",
+      "return_probability": "1 - (14/81) * 4*sin(h*j/2)^2"
+    }
+  }
+}

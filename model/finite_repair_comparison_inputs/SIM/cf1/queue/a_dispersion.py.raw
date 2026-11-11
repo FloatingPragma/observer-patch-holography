@@ -1,0 +1,158 @@
+"""Run A (QUEUE_BRIEF.md): free dispersion by execution, and the shell of a low-momentum point preparation.
+
+Part 1 (mode disp): 64^3 lattice, theta = 0, 0.087847, 0.157935. Lattice momenta n (p = 2 pi n / 64) along 100, 110, 111 and
+  twenty random directions (seed 20261110), |p| <= 0.6. Phase estimation: return amplitude <psi0|U^t|psi0> of a plane wave
+  with a blank record (spin up and spin down), sampled every two ticks for 96 ticks, matrix pencil; distinct |phases| per
+  tick. Compared with the symbol (exact, Routing.symbol in the alternating order) and with sqrt(|p|^2 + theta^2).
+  A dense curve of the symbol phase along each direction (|p| = 0.02..0.6) is added (EXACT, not executed).
+Part 2 (mode shell): 208^3 lattice, Gaussian at rest (amplitude exp(-r^2 / (2 w^2)), w = 3, 6, 12), blank spin-up coin,
+  64 ticks. Radius by direction: density-weighted mean radius and peak of the radial profile inside cones of half-angle
+  10 degrees around the 100, 110 and 111 families; cubic ratio <x^4 + y^4 + z^4> / <r^4> (0.6 for an isotropic shell).
+`python a_dispersion.py disp|shell|merge [quick]`
+"""
+import json, sys, time, os
+import numpy as np
+from multiprocessing import Pool
+from cq_common import EngineC, BLANK_UP, BLANK_DOWN, phases, matrix_pencil
+
+THETAS = (0.0, 0.087847, 0.157935)
+L = 64
+QUICK = len(sys.argv) > 2 and sys.argv[2] == 'quick'
+RUNS = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'runs')
+
+
+def directions():
+    rng = np.random.default_rng(20261110)
+    d = {'100': np.array([1.0, 0, 0]), '110': np.array([1.0, 1, 0]) / np.sqrt(2), '111': np.ones(3) / np.sqrt(3)}
+    for j in range(20):
+        v = rng.normal(size=3); d[f'random{j:02d}'] = v / np.linalg.norm(v)
+    return d
+
+
+def momenta_for(u):
+    ns = []
+    for target in (0.1, 0.2, 0.3, 0.4, 0.5, 0.6):
+        n = tuple(int(x) for x in np.round(target * u * L / (2 * np.pi)))
+        p = 2 * np.pi * np.array(n) / L
+        if any(n) and np.linalg.norm(p) <= 0.6 + 1e-9 and n not in ns: ns.append(n)
+    return ns
+
+
+def estimate(engine, n, theta, coin, ticks=96):
+    psi0 = engine.plane_wave(n, coin); psi = psi0.copy(); a = [1.0 + 0j]
+    for t in range(ticks):
+        psi = engine.step(psi, theta, 'Y', t)
+        if t % 2 == 1: a.append(np.vdot(psi0, psi))
+    w, c, _ = matrix_pencil(np.array(a), tol=1e-9)
+    keep = c > 1e-9 * c.max()
+    return sorted({round(abs(float(x)) / 2, 10) for x in w[keep]})
+
+
+def job_disp(args):
+    name, u, theta = args
+    shape = (16, 16, 16) if QUICK else (L, L, L)
+    e = EngineC(shape)
+    rows = []
+    for n in momenta_for(u):
+        nn = tuple(int(round(x * shape[0] / L)) for x in n) if QUICK else n
+        p = 2 * np.pi * np.array(nn) / shape[0]
+        sym = [float(x) for x in phases(p, theta)]
+        est = sorted(set(estimate(e, nn, theta, BLANK_UP) + estimate(e, nn, theta, BLANK_DOWN)))
+        rel = float(np.hypot(np.linalg.norm(p), theta))
+        rows.append({'n': list(nn), 'p': [float(x) for x in p], 'p_norm': float(np.linalg.norm(p)),
+                     'angle_to_direction_deg': float(np.degrees(np.arccos(min(1.0, abs(np.dot(p, u)) / np.linalg.norm(p))))),
+                     'phases_estimated': est, 'phases_symbol': sym, 'relativistic': rel,
+                     'max_abs_estimated_minus_symbol': float(max(min(abs(x - y) for y in sym) for x in est)) if est else None,
+                     'relative_error_symbol_vs_relativistic': [s / rel - 1 for s in sym],
+                     'relative_error_estimated_vs_relativistic': [x / rel - 1 for x in est]})
+    curve = []
+    for q in np.arange(0.02, 0.6001, 0.02):
+        p = q * u; s = phases(p, theta); rel = float(np.hypot(q, theta))
+        curve.append({'p_norm': float(q), 'phases_symbol': [float(x) for x in s], 'relative_error': [float(x / rel - 1) for x in s]})
+    return {'direction': name, 'unit_vector': [float(x) for x in u], 'theta': theta, 'executed': rows, 'symbol_curve': curve}
+
+
+def cones(shape, c):
+    g = [np.arange(s) - c[i] for i, s in enumerate(shape)]
+    x, y, z = np.meshgrid(*g, indexing='ij')
+    ax, ay, az = np.abs(x), np.abs(y), np.abs(z)
+    r = np.sqrt(x * x + y * y + z * z); rs = np.where(r > 0, r, 1.0)
+    cosc = np.cos(np.radians(10.0))
+    m100 = np.maximum(np.maximum(ax, ay), az) / rs > cosc
+    m110 = np.maximum(np.maximum(ax + ay, ay + az), ax + az) / (np.sqrt(2) * rs) > cosc
+    m111 = (ax + ay + az) / (np.sqrt(3) * rs) > cosc
+    return x, y, z, r, {'100': m100 & (r > 0), '110': m110 & (r > 0), '111': m111 & (r > 0)}
+
+
+def job_shell(args):
+    theta, width = args
+    t0 = time.time()
+    N = 64 if QUICK else 208; T = 16 if QUICK else 64
+    shape = (N, N, N); c = (N // 2,) * 3
+    e = EngineC(shape)
+    g = np.arange(N) - c[0]
+    env = np.exp(-(g[:, None, None] ** 2 + g[None, :, None] ** 2 + g[None, None, :] ** 2) / (2 * width * width))
+    psi = env[..., None, None] * BLANK_UP.reshape(2, 2)
+    psi /= np.linalg.norm(psi)
+    for t in range(T):
+        psi = e.step(psi, theta, 'Y', t)
+    rho = np.sum(np.abs(psi) ** 2, axis=(3, 4))
+    edge = float(rho[[0, -1], :, :].sum() + rho[:, [0, -1], :].sum() + rho[:, :, [0, -1]].sum())
+    del psi
+    x, y, z, r, masks = cones(shape, c)
+    tot = rho.sum()
+    out = {'theta': theta, 'width': width, 'lattice': N, 'ticks': T, 'norm': float(tot), 'weight_on_lattice_faces': edge,
+           'mean_radius': float((rho * r).sum() / tot), 'rms_radius': float(np.sqrt((rho * r * r).sum() / tot)),
+           'cubic_ratio_x4_over_r4': float((rho * (x ** 4 + y ** 4 + z ** 4)).sum() / (rho * r ** 4).sum()),
+           'x2_y2_z2': [float((rho * q * q).sum() / tot) for q in (x, y, z)], 'cones': {}}
+    bins = np.arange(0, N // 2 + 1)
+    for name, m in masks.items():
+        w_ = rho[m]; rr = r[m]
+        h, _ = np.histogram(rr, bins=bins, weights=w_)
+        cnt, _ = np.histogram(rr, bins=bins)
+        dens = np.where(cnt > 0, h / np.maximum(cnt, 1), 0.0)       # mean density per cell at radius (shell profile)
+        imax = int(np.argmax(dens))
+        if 0 < imax < len(dens) - 1:
+            y0, y1, y2 = dens[imax - 1], dens[imax], dens[imax + 1]
+            peak = bins[imax] + 0.5 + 0.5 * (y0 - y2) / (y0 - 2 * y1 + y2)
+        else:
+            peak = bins[imax] + 0.5
+        out['cones'][name] = {'weight': float(w_.sum()), 'mean_radius': float((w_ * rr).sum() / w_.sum()),
+                              'peak_radius_of_density_per_cell': float(peak),
+                              'density_per_cell_profile': [float(v) for v in dens]}
+    for a_ in ('110', '111'):
+        out[f'mean_radius_ratio_{a_}_over_100'] = out['cones'][a_]['mean_radius'] / out['cones']['100']['mean_radius']
+        out[f'peak_radius_ratio_{a_}_over_100'] = out['cones'][a_]['peak_radius_of_density_per_cell'] / out['cones']['100']['peak_radius_of_density_per_cell']
+    out['seconds'] = time.time() - t0
+    return out
+
+
+if __name__ == '__main__':
+    mode = sys.argv[1]
+    t0 = time.time()
+    if mode == 'disp':
+        jobs = [(nm, u, th) for nm, u in directions().items() for th in THETAS]
+        with Pool(16) as pool:
+            res = pool.map(job_disp, jobs)
+        json.dump({'part': 'dispersion', 'rows': res, 'seconds': time.time() - t0}, open(os.path.join(RUNS, 'A_part_disp.json'), 'w'), indent=1)
+        worst = max(r_['max_abs_estimated_minus_symbol'] for x in res for r_ in x['executed'])
+        print('disp done, worst |estimated - symbol|', worst, time.time() - t0)
+    elif mode == 'shell':
+        jobs = [(th, w) for th in THETAS for w in (3.0, 6.0, 12.0)]
+        with Pool(9) as pool:
+            res = pool.map(job_shell, jobs)
+        for r_ in res:
+            print('shell theta', r_['theta'], 'w', r_['width'], 'cubic', round(r_['cubic_ratio_x4_over_r4'], 5),
+                  {k: round(v['peak_radius_of_density_per_cell'], 3) for k, v in r_['cones'].items()},
+                  {k: round(v['mean_radius'], 3) for k, v in r_['cones'].items()}, 'faces', r_['weight_on_lattice_faces'])
+        json.dump({'part': 'shell', 'rows': res, 'seconds': time.time() - t0}, open(os.path.join(RUNS, 'A_part_shell.json'), 'w'), indent=1)
+    elif mode == 'merge':
+        d = json.load(open(os.path.join(RUNS, 'A_part_disp.json'))); s = json.load(open(os.path.join(RUNS, 'A_part_shell.json')))
+        out = {'run': 'A', 'brief': 'repair-law/work/SIM/cf1/QUEUE_BRIEF.md', 'program': 'CF-1 routing tick, alternating order, mass option M1 (kind Y)',
+               'units': 'cells and ticks; phases in radians per tick', 'seed': 'directions: numpy default_rng(20261110)',
+               'clock': 'ticks; plane-wave return amplitude sampled every two ticks, 96 ticks; shell after 64 ticks',
+               'preparation_dispersion': 'plane wave on 64^3, blank record, spin up and spin down (phases of both merged)',
+               'preparation_shell': 'Gaussian at rest on 208^3, amplitude exp(-r^2/(2 w^2)), blank spin-up coin',
+               'frame': 'mass-last frame (Engine.step); phases are frame independent; shells are densities of preparations defined in this frame', 'dispersion': d['rows'], 'shell': s['rows'], 'cones_of_the_massless_two_tick_symbol': json.load(open(os.path.join(RUNS, 'A_part_cones.json'))), 'sublattices': 'plane waves and Gaussians fill all four sublattices'}
+        json.dump(out, open(os.path.join(RUNS, 'A_dispersion.json'), 'w'), indent=1)
+        print('merged')

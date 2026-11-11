@@ -1,0 +1,158 @@
+"""Worker HR: screening masses from time-slice correlators at one point (W channel, Z channel, scalar channel).
+
+Usage: python hr_corr.py <tag> <model> <beta_G> <lambda_L> <kappa_H> <L> <T> <ntherm> <nmeas> <seed> <start> [budget] [maxcalls]
+  model: su2 (hr_lib.Lattice) or u1 (hr_u1.LatticeU1, weak factor with the hypercharge angle)
+  start: sym (random doublet, unit links) or higgs (uniform doublet at the tree-level minimum, unit links)
+Chain protocol as hr_scan2.py: every call stays inside the wall-time budget (default 95 s), stores the configuration
+and the accumulated blocks in state_corr_<tag>.npz and exits with code 3 while blocks remain. Measurements are taken
+in 20 blocks of nmeas/20 sweeps; after maxcalls calls (default 4) the run closes with the blocks it has.
+Operators on a time slice t (spatial directions i = 1, 2, 3):
+  w_a,i(t) = slice average of the a-th vector component of alpha_x^dag V_(x,i) alpha_(x+i) [R(3a) with hypercharge]
+  channel W (su2): all nine components (custodial triplet); channel Z (u1): a = 3 (neutral, gauge invariant);
+  the components a = 1, 2 carry the unbroken charge in the u1 model and are not used there.
+  scalar channel: slice average of rho^2, connected.
+Effective masses from C(t)/C(t+1) = cosh(m (t - T/2)) / cosh(m (t + 1 - T/2)), jackknife over blocks.
+Writes corr_<tag>.json. Reads no measured value.
+"""
+import json
+import os
+import sys
+import time
+
+import numpy as np
+from scipy.optimize import brentq
+
+import hr_lib as H
+import hr_u1 as HU
+
+t0 = time.time()
+tag, model = sys.argv[1], sys.argv[2]
+beta, lam, kap = float(sys.argv[3]), float(sys.argv[4]), float(sys.argv[5])
+L, T, ntherm, nmeas, seed = (int(v) for v in sys.argv[6:11])
+start = sys.argv[11] if len(sys.argv) > 11 else "sym"
+budget = float(sys.argv[12]) if len(sys.argv) > 12 else 95.0
+maxcalls = int(sys.argv[13]) if len(sys.argv) > 13 else 4
+nbmax = 20
+per = max(1, nmeas // nbmax)
+sfile = f"state_corr_{tag}.npz"
+neutral = np.array([2, 5, 8]); charged = np.array([0, 1, 3, 4, 6, 7])
+
+if os.path.exists(sfile):
+    st = np.load(sfile)
+    call, therm_done, nb = int(st["call"]) + 1, int(st["therm_done"]), int(st["nb"])
+    cw, cz, cs, ms, rows = st["cw"], st["cz"], st["cs"], st["ms"], st["rows"]
+else:
+    call, therm_done, nb = 0, 0, 0
+    cw = np.zeros((nbmax, T)); cz = np.zeros((nbmax, T)); cs = np.zeros((nbmax, T)); ms = np.zeros(nbmax)
+    rows = np.zeros((nbmax * per, 5))
+lat = (HU.LatticeU1 if model == "u1" else H.Lattice)(L, beta, kap, lam, seed=seed + 7919 * call, T=T)
+if call > 0:
+    lat.U[:] = st["U"]; lat.phi[:] = st["phi"]
+    if model == "u1":
+        lat.a[:] = st["a"]
+elif start == "higgs":
+    r0 = max(9.0, (8 * kap - 1 + 2 * lam) / (2 * lam)) if lam > 0 else 9.0
+    lat.phi[:] = 0.0
+    lat.phi[:, 0] = np.sqrt(r0)
+
+tp = time.time()
+for _ in range(3):
+    lat.sweep(); lat.measure(); lat.slice_ops()
+persweep = (time.time() - tp) / 3.0
+while therm_done < ntherm and time.time() - t0 + 10 * persweep < budget:
+    for _ in range(10):
+        lat.sweep()
+    therm_done += 10
+while therm_done >= ntherm and nb < nbmax and time.time() - t0 + per * persweep < budget:
+    tq = time.time()
+    b = nb
+    for i in range(per):
+        lat.sweep()
+        rows[b * per + i] = lat.measure()
+        W, S, La = lat.slice_ops()
+        for t in range(T):
+            Wt = np.roll(W, -t, axis=0)
+            cw[b, t] += float((W[:, charged] * Wt[:, charged]).sum()) / (6.0 * T)
+            cz[b, t] += float((W[:, neutral] * Wt[:, neutral]).sum()) / (3.0 * T)
+            cs[b, t] += float((S * np.roll(S, -t)).sum()) / T
+        ms[b] += float(S.mean())
+    cw[b] /= per; cz[b] /= per; cs[b] /= per; ms[b] /= per
+    nb += 1
+    persweep = (time.time() - tq) / per
+
+finished = nb >= nbmax or (call + 1 >= maxcalls and nb >= 4)
+if not finished:
+    extra = {"a": lat.a} if model == "u1" else {}
+    np.savez(sfile, U=lat.U, phi=lat.phi, call=call, therm_done=therm_done, nb=nb, cw=cw, cz=cz, cs=cs, ms=ms, rows=rows,
+             **extra)
+    print(tag, "paused: thermalization", therm_done, "of", ntherm, "blocks", nb, "of", nbmax, "after",
+          round(time.time() - t0, 1), "s")
+    sys.exit(3)
+if os.path.exists(sfile):
+    os.remove(sfile)
+cw, cz, cs, ms, rows = cw[:nb], cz[:nb], cs[:nb], ms[:nb], rows[:nb * per]
+
+
+def eff_mass(c, t):
+    if not (c[t] > 0 and c[t + 1] > 0 and c[t] > c[t + 1]):
+        return None
+    r = c[t] / c[t + 1]
+    f = lambda m: np.cosh(m * (t - T / 2)) / np.cosh(m * (t + 1 - T / 2)) - r
+    try:
+        return float(brentq(f, 1e-6, 20.0))
+    except ValueError:
+        return None
+
+
+def channel(cb, connected=None):
+    """jackknife over blocks"""
+    full = cb.mean(0) - (connected.mean() ** 2 if connected is not None else 0.0)
+    jk = []
+    for b in range(nb):
+        keep = np.arange(nb) != b
+        jk.append(cb[keep].mean(0) - (connected[keep].mean() ** 2 if connected is not None else 0.0))
+    jk = np.array(jk)
+    err = np.sqrt((nb - 1) / nb * ((jk - jk.mean(0)) ** 2).sum(0))
+    masses = []
+    for t in range(0, T // 2):
+        m = eff_mass(full, t)
+        mj = [eff_mass(j, t) for j in jk]
+        if m is None or any(v is None for v in mj):
+            masses.append({"t": t, "m_eff": m, "err": None})
+        else:
+            mj = np.array(mj)
+            masses.append({"t": t, "m_eff": m, "err": float(np.sqrt((nb - 1) / nb * ((mj - mj.mean()) ** 2).sum()))})
+    return {"C": full.tolist(), "C_err": err.tolist(), "effective_masses": masses}
+
+
+res = H.summarize(rows, lat)
+res.update({"tag": tag, "model": model, "start": start, "ntherm": ntherm, "seed": seed, "blocks": nb,
+            "sweeps_per_block": per, "calls": call + 1})
+res["vector_channel_blocks"] = (cz if model == "u1" else (6 * cw + 3 * cz) / 9.0).tolist()
+if model == "u1":
+    res["channel_Z_(neutral_component)"] = channel(cz)
+    res["plaquettes_(weak_term, trV/2, cos2a, cos3a)"] = list(lat.plaquettes())
+    res["acc_u1"] = lat.acc_u1[0] / max(1, lat.acc_u1[1])
+else:
+    res["channel_W_(all_nine_components)"] = channel((6 * cw + 3 * cz) / 9.0)
+    res["channel_W_components_12"] = channel(cw)
+    res["channel_W_component_3"] = channel(cz)
+res["channel_scalar_rho2_connected"] = channel(cs, connected=ms)
+g2 = 4.0 / beta
+rho2 = res["rho2"]
+res["tree_level"] = {"note": "M_W^2 = g^2 kappa_H rho_v^2 / 2; rho_v^2 between rho2 - 2.4 (symmetric-side value removed) "
+                             "and rho2; M_Z^2 = (8/5) M_W^2 with the cell couplings",
+                     "M_W_tree_with_rho_v2 = rho2 - 2.4": float(np.sqrt(max(0.0, g2 * kap * (rho2 - 2.4) / 2))),
+                     "M_W_tree_with_rho_v2 = rho2": float(np.sqrt(max(0.0, g2 * kap * rho2 / 2))),
+                     "M_W_tree_with_rho_v2 = L_phi": float(np.sqrt(max(0.0, g2 * kap * res["L_phi"] / 2)))}
+res["seconds_last_call"] = time.time() - t0
+json.dump(res, open(f"corr_{tag}.json", "w"), indent=1)
+key = "channel_Z_(neutral_component)" if model == "u1" else "channel_W_(all_nine_components)"
+print(tag, "blocks", nb, "rho2", rho2, "L_alpha", res["L_alpha"], "plaq", res["plaq"], "sd", res["sd_residual"],
+      res["sd_residual_err"])
+print(" vector channel:", [(m["t"], None if m["m_eff"] is None else round(m["m_eff"], 4),
+                             None if m["err"] is None else round(m["err"], 4)) for m in res[key]["effective_masses"]])
+print(" scalar channel:", [(m["t"], None if m["m_eff"] is None else round(m["m_eff"], 4),
+                             None if m["err"] is None else round(m["err"], 4))
+                            for m in res["channel_scalar_rho2_connected"]["effective_masses"]])
+print(" tree M_W", res["tree_level"], "seconds", res["seconds_last_call"])

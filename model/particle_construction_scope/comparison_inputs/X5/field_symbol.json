@@ -1,0 +1,176 @@
+{
+ "A_exact": {
+  "curl_curl_is_s_minus_rank_one_so_eigenvalues_0_s_s": true,
+  "s": "4 (sin^2(k1/2) + sin^2(k2/2) + sin^2(k3/2))",
+  "determinant_lemma": true,
+  "charpoly_of_the_tick_is_(mu-1)^2_(mu^2-(2-eps*kappa*s)mu+1)^2_at_three_rational_points": true,
+  "divergence_row_annihilates_curl_curl": true,
+  "tick_is_symplectic_at_three_rational_points": true,
+  "dispersion": "cos(omega) = 1 - 2 eps kappa sum_i sin^2(k_i/2), i.e. sin^2(omega/2) = eps kappa sum_i sin^2(k_i/2)",
+  "polarizations": 2,
+  "longitudinal": "eigenvalue 1 twice (a shear theta_L += eps E_L, E_L conserved): the Gauss mode, no wave",
+  "speed_at_long_wavelength_cells_per_tick": "sqrt(eps kappa)",
+  "small_k": "omega = c|k| (1 + (c^2 |k|^4 - sum k_i^4) / (24 |k|^2)), c = sqrt(eps kappa)"
+ },
+ "B_lattice": {
+  "shape": [
+   8,
+   6,
+   4
+  ],
+  "eps": 0.37,
+  "kappa": 0.61,
+  "step_against_symbol_defect": 3.483199782139859e-14,
+  "eigenphases_at_k_(0.3,-0.2,0.5)": [
+   4.087e-09,
+   4.087e-09,
+   0.291580064954,
+   0.291580064954,
+   0.291580064954,
+   0.291580064954
+  ],
+  "closed_form_omega": 0.2915800649544157,
+  "count_at_omega": 4,
+  "count_at_zero": 2
+ },
+ "C_packets": {
+  "p0": 0.2945243112740431,
+  "rows": [
+   {
+    "eps": 1.0,
+    "kappa": 1.0,
+    "eps_kappa": 1.0,
+    "field_steps_per_tick": 1,
+    "ticks": 60,
+    "velocity_measured": 0.9999999992393508,
+    "d_omega_dk_averaged_over_the_packet": 0.9999999760483437,
+    "d_omega_dk_at_p0": 0.9999999999732445
+   },
+   {
+    "eps": 0.25,
+    "kappa": 4.0,
+    "eps_kappa": 1.0,
+    "field_steps_per_tick": 1,
+    "ticks": 60,
+    "velocity_measured": 0.9999999992393508,
+    "d_omega_dk_averaged_over_the_packet": 0.9999999760483437,
+    "d_omega_dk_at_p0": 0.9999999999732445
+   },
+   {
+    "eps": 0.5,
+    "kappa": 0.5,
+    "eps_kappa": 0.25,
+    "field_steps_per_tick": 2,
+    "ticks": 60,
+    "velocity_measured": 0.9915870463758855,
+    "d_omega_dk_averaged_over_the_packet": 0.9915917897211788,
+    "d_omega_dk_at_p0": 0.9918494053851035
+   },
+   {
+    "eps": 0.1,
+    "kappa": 2.5,
+    "eps_kappa": 0.25,
+    "field_steps_per_tick": 2,
+    "ticks": 60,
+    "velocity_measured": 0.9915870463758855,
+    "d_omega_dk_averaged_over_the_packet": 0.9915917897211788,
+    "d_omega_dk_at_p0": 0.9918494053851035
+   },
+   {
+    "eps": 0.3333333333333333,
+    "kappa": 0.3333333333333333,
+    "eps_kappa": 0.1111111111111111,
+    "field_steps_per_tick": 3,
+    "ticks": 60,
+    "velocity_measured": 0.9900550663783998,
+    "d_omega_dk_averaged_over_the_packet": 0.9900606125230244,
+    "d_omega_dk_at_p0": 0.9903617926854125
+   },
+   {
+    "eps": 0.5,
+    "kappa": 0.6666666666666666,
+    "eps_kappa": 0.3333333333333333,
+    "field_steps_per_tick": 1,
+    "ticks": 60,
+    "velocity_measured": 0.5730259517941837,
+    "d_omega_dk_averaged_over_the_packet": 0.5730284102139646,
+    "d_omega_dk_at_p0": 0.5731617067905592
+   }
+  ],
+  "matter_massless_routing_velocity_same_packet": 0.9999999992393508
+ },
+ "D_stability": {
+  "rule": "all modes stable iff 3 eps kappa <= 1 (per field step); speed per step at most 1/sqrt(3)",
+  "rows": [
+   {
+    "eps_kappa": 1.0,
+    "stable_for_all_k": false,
+    "unstable_share_of_the_zone": 0.7866726243095106,
+    "largest_growth_factor_per_step": 9.898979485566356
+   },
+   {
+    "eps_kappa": 0.5,
+    "stable_for_all_k": false,
+    "unstable_share_of_the_zone": 0.21332737568974447,
+    "largest_growth_factor_per_step": 3.7320508075688767
+   },
+   {
+    "eps_kappa": 0.3333333333333333,
+    "stable_for_all_k": true,
+    "unstable_share_of_the_zone": 0.0,
+    "largest_growth_factor_per_step": 1.0
+   },
+   {
+    "eps_kappa": 0.25,
+    "stable_for_all_k": true,
+    "unstable_share_of_the_zone": 0.0,
+    "largest_growth_factor_per_step": 1.0
+   }
+  ],
+  "compact_step_from_noise_12^3": {
+   "eps_kappa_1": {
+    "linear_step_rms_plaquette_angle_growth_per_step_at_steps_14_to_16": [
+     9.444647514455495,
+     9.473733088589674
+    ],
+    "predicted_exp_arccosh_5": 9.898979485566356,
+    "compact_step_after_300_steps_from_1e-3": {
+     "mean_1_minus_cos_B": 1.0069265789137296,
+     "value_for_uniformly_random_angles": 1.0
+    }
+   },
+   "eps_kappa_1/3_600_steps_from_1e-3": {
+    "rms_plaquette_angle_first_last_max": [
+     0.0030780910794934004,
+     0.005304485937740284,
+     0.01277617053935945
+    ],
+    "mean_1_minus_cos_B": 1.406871587878898e-05
+   },
+   "eps_kappa_1/4_600_steps_from_1e-3": {
+    "rms_plaquette_angle_first_last_max": [
+     0.0018843291368235906,
+     0.002099037141231399,
+     0.002292432295400561
+    ],
+    "mean_1_minus_cos_B": 2.202976033597539e-06
+   }
+  },
+  "corrected_field_step": "n field steps per tick with eps kappa = 1/n^2 and n >= 2: long-wavelength speed exactly 1 cell per tick, omega_tick = 2 n arcsin(sqrt(sum sin^2(k_i/2)) / n); n = 2: eps kappa = 1/4"
+ },
+ "E_quantum_mode": {
+  "eps": 0.5,
+  "kappa_s": 0.6,
+  "omega_closed_form": 0.5548110329800715,
+  "quasi_energy_spacings_of_the_eight_lowest_states": [
+   0.5548110329800728,
+   0.554811032980069,
+   0.5548110329800702,
+   0.5548110329800748,
+   0.5548110329800724,
+   0.5548110329800728,
+   0.5548110329800706
+  ],
+  "ground_phase_over_omega": 0.4999999999999982
+ }
+}

@@ -1,0 +1,228 @@
+"""S6 (coordinator request): the seventeen-dimensional algebra su(3) + su(3)' + u(1) and the fifteen states.
+
+A. Recompute the closures on the one-quantum space C^12 (numerical rank, tolerance 1e-9) and identify the centre.
+B. Second quantisation on the exterior algebra of C^6 = C^3 + C^3' (exact integers): where the fifteen sit,
+   the smallest invariant module that contains them, and the hypercharge that the algebra forces on it.
+C. The 3-3-1 reading (IMPORTED model): multiplets, exotic states, anomaly coefficients (exact fractions).
+D. The five triad classes of seams (perfect matchings) and whether the bare law conserves a count on them.
+
+Run:  cd SCR/rer-edit && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. nice -n 10 python SCR/research/S6/s6_e_seventeen.py OUT.json
+"""
+import itertools, json, sys, time
+from fractions import Fraction as F
+import numpy as np
+
+from s6_common import *   # noqa: F401,F403
+
+T0 = time.time()
+out = {'schema': 's6.e.seventeen.v1'}
+
+# ================================================================ A. closures on C^12
+n = 12
+A = np.zeros((n, n))
+for a, b in SEAMS:
+    A[a, b] = A[b, a] = 1
+w, v = np.linalg.eigh(A)
+def band(val):
+    sel = np.abs(w - val) < 1e-9
+    return v[:, sel] @ v[:, sel].T
+s5 = 5 ** 0.5
+P3, P3p = band(s5), band(-s5)
+N = [np.diag((np.arange(n) == p).astype(float)) for p in range(n)]
+nxt = [dict() for _ in range(n)]
+for f in FACES:
+    for k in range(3):
+        nxt[f[k]][f[(k + 1) % 3]] = f[(k + 2) % 3]
+C = []
+for p in range(n):
+    M = np.zeros((n, n), complex)
+    for a, b in nxt[p].items():
+        M[b, a] += 1j; M[a, b] -= 1j
+    C.append(M)
+
+
+def closure(herm, tol=1e-9, cap=200):
+    basis, elems = [], []
+    def add(X):
+        vec = np.concatenate([X.real.ravel(), X.imag.ravel()])
+        if basis:
+            B = np.array(basis)
+            vec = vec - B.T @ (B @ vec)
+        nv = np.linalg.norm(vec)
+        if nv > tol * max(1.0, np.linalg.norm(X)):
+            basis.append(vec / nv)
+            return True
+        return False
+    for X in herm:
+        G = 1j * np.asarray(X, complex)
+        if add(G): elems.append(G)
+    frontier = list(elems)
+    while frontier and len(elems) < cap:
+        new = []
+        for X in frontier:
+            for Y in list(elems):
+                Z = X @ Y - Y @ X
+                if add(Z): new.append(Z)
+        elems += new; frontier = new
+    return elems, np.array(basis)
+
+
+def in_span(basis, X):
+    vec = np.concatenate([(1j * X).real.ravel(), (1j * X).imag.ravel()])
+    return bool(np.linalg.norm(vec - basis.T @ (basis @ vec)) < 1e-7 * max(1.0, np.linalg.norm(vec)))
+
+
+def centre_dim(elems):
+    rows = [np.array([np.concatenate([(E @ Y - Y @ E).real.ravel(), (E @ Y - Y @ E).imag.ravel()]) for E in elems]).T for Y in elems]
+    return len(elems) - np.linalg.matrix_rank(np.vstack(rows), tol=1e-7)
+
+
+blk = [P3 @ X @ P3 + P3p @ X @ P3p for X in N]
+e17, b17 = closure(blk)
+e12, b12 = closure([P3 @ X @ P3 for X in N] + [P3 @ X @ P3 + P3p @ X @ P3p for X in C])
+out['A_closures'] = {
+    'block_compressed_loads': {'dimension': len(e17), 'centre': int(centre_dim(e17)),
+                               'centre_is_the_identity_of_the_six_space (P3 + P3\')': in_span(b17, P3 + P3p),
+                               'relative_generator_P3 - P3\'_is_in_the_algebra': in_span(b17, P3 - P3p),
+                               'contains_P3_alone': in_span(b17, P3)},
+    'load_on_slow_triplet_plus_circulation_on_both': {'dimension': len(e12), 'centre': int(centre_dim(e12)),
+                                                      'is_subalgebra_of_the_seventeen': all(in_span(b17, -1j * E) for E in e12)},
+}
+print('A', out['A_closures'])
+
+# ================================================================ B. exterior algebra of C^6 = C^3 (modes 0,1,2) + C^3' (modes 3,4,5)
+M6 = 6
+DIM = 1 << M6
+def cdag(i):
+    m = np.zeros((DIM, DIM), dtype=np.int64)
+    for s in range(DIM):
+        if not s >> i & 1:
+            m[s | 1 << i, s] = (-1) ** bin(s & ((1 << i) - 1)).count('1')
+    return m
+CD = [cdag(i) for i in range(M6)]
+E = {(i, j): CD[i] @ CD[j].T for i in range(M6) for j in range(M6)}          # second-quantised matrix units
+NUM = [E[i, i] for i in range(M6)]
+g17 = [E[i, j] for i in range(3) for j in range(3) if i != j] + [E[i, j] for i in range(3, 6) for j in range(3, 6) if i != j] \
+    + [E[0, 0] - E[1, 1], E[1, 1] - E[2, 2], E[3, 3] - E[4, 4], E[4, 4] - E[5, 5], sum(NUM)]
+assert len(g17) == 17
+pop = lambda s: bin(s).count('1')
+fifteen = [s for s in range(DIM) if not s >> 5 & 1 and pop(s) in (2, 4)]
+assert len(fifteen) == 15
+# smallest subspace containing the fifteen and invariant under the seventeen generators (exact integer rank via float check on 0/1 data)
+def invariant_closure(states, gens):
+    vecs = np.zeros((DIM, len(states)))
+    for k, s in enumerate(states):
+        vecs[s, k] = 1
+    basis = np.linalg.qr(vecs)[0]
+    while True:
+        cand = np.hstack([basis] + [g @ basis for g in gens])
+        u, sv, _ = np.linalg.svd(cand, full_matrices=False)
+        new = u[:, sv > 1e-9]
+        if new.shape[1] == basis.shape[1]:
+            return new
+        basis = new
+inv17 = invariant_closure(fifteen, g17)
+support = sorted(s for s in range(DIM) if np.linalg.norm(inv17[s, :]) > 1e-9)
+# hypercharge inside the Cartan of the seventeen: Y = x N_total + y (N_3 + N_4 - 2 N_5); fixed by the fifteen
+x, y = F(-1, 3), F(5, 6)
+def labels(s):
+    nc, nw, n5 = pop(s & 7), pop(s >> 3 & 3), s >> 5 & 1
+    Y = x * (nc + nw + n5) + y * (nw - 2 * n5)
+    crep = {0: '1', 1: '3', 2: '3bar', 3: '1'}[nc]
+    wrep = {0: '1', 1: '2', 2: '1'}[nw]
+    return crep, wrep, Y, n5
+def content(states):
+    rows = {}
+    for s in states:
+        c, wr, Y, n5 = labels(s)
+        rows[(c, wr, str(Y), n5)] = rows.get((c, wr, str(Y), n5), 0) + 1
+    return [{'colour': c, 'weak': wr, 'Y': Y, 'sixth_mode_occupied': bool(n5), 'states': k} for (c, wr, Y, n5), k in sorted(rows.items(), key=lambda kv: (kv[0][3], kv[0]))]
+sm = {('3', '2', '1/6'), ('3bar', '1', '-2/3'), ('3bar', '1', '1/3'), ('1', '2', '-1/2'), ('1', '1', '1')}
+even = [s for s in range(DIM) if pop(s) % 2 == 0]
+# vector-likeness of the even exterior algebra under su(3)_c + su(2): count (colour, weak) contents with the sixth mode a singlet of zero hypercharge
+def content0(states):
+    rows = {}
+    for s in states:
+        nc, nw = pop(s & 7), pop(s >> 3 & 3)
+        Y = F(-1, 3) * nc + F(1, 2) * nw
+        key = ({0: '1', 1: '3', 2: '3bar', 3: '1'}[nc], {0: '1', 1: '2', 2: '1'}[nw], str(Y))
+        rows[key] = rows.get(key, 0) + 1
+    return rows
+c_even = content0(even)
+conj = lambda k: ({'3': '3bar', '3bar': '3', '1': '1'}[k[0]], k[1], str(-F(k[2])))
+out['B_exterior_C6'] = {
+    'generators': 17, 'fifteen_states': len(fifteen),
+    'smallest_invariant_module_containing_the_fifteen': {'dimension': int(inv17.shape[1]), 'equals_Lambda2_plus_Lambda4_of_C6': support == sorted(s for s in range(DIM) if pop(s) in (2, 4))},
+    'hypercharge_forced_inside_the_algebra': {'Y': 'x N_total + y (N_3 + N_4 - 2 N_5)', 'x': str(x), 'y': str(y), 'Y_of_sixth_mode': str(x - 2 * y)},
+    'content_of_the_thirty': content(support),
+    'fifteen_recovered_with_sixth_mode_empty': {(r['colour'], r['weak'], r['Y']) for r in content(support) if not r['sixth_mode_occupied']} == sm,
+    'Lambda2_of_C6': {'dimension': sum(1 for s in range(DIM) if pop(s) == 2),
+                      'colour_content (triplet, antitriplet states)': [sum(1 for s in range(DIM) if pop(s) == 2 and pop(s & 7) == 1), sum(1 for s in range(DIM) if pop(s) == 2 and pop(s & 7) == 2)],
+                      'one_generation_needs (triplet, antitriplet states)': [6, 6]},
+    'even_exterior_algebra_of_C6': {'dimension': len(even), 'is_self_conjugate_under_colour_weak_hypercharge (sixth mode neutral)': all(c_even.get(conj(k), 0) == v for k, v in c_even.items())},
+    'weak_algebra_so(3)_on_the_second_triplet': 'exterior powers of a spin-1 triplet are spin 0, 1, 1, 0: no weak doublet in any state',
+}
+print('B', {k: v for k, v in out['B_exterior_C6'].items() if k != 'content_of_the_thirty'})
+for r in out['B_exterior_C6']['content_of_the_thirty']:
+    print('   ', r)
+
+# ================================================================ C. the 3-3-1 reading (imported)
+# SU(3)_L triplet 3 -> doublet (Y_d) + singlet (Y_s); delta = Y_s - Y_d; antitriplet: -delta. X = (2 Y_d + Y_s)/3.
+def triplet(Yd, Ys): return {'X': str((2 * Yd + Ys) / 3), 'doublet_Y': str(Yd), 'singlet_Y': str(Ys)}
+readings = {}
+for name, lepton_singlet in (('lepton triplet (nu, e, e^c)', F(1)), ('lepton triplet (nu, e, nu^c)', F(0))):
+    delta = lepton_singlet - F(-1, 2)
+    q_a, q_b = F(1, 6) + delta, F(1, 6) - delta
+    per_gen = 3 + 9 + 3 + 3 + 3 + (1 if lepton_singlet == 0 else 0)
+    readings[name] = {'delta = Y_singlet - Y_doublet': str(delta), 'lepton_multiplet': triplet(F(-1, 2), lepton_singlet),
+                      'quark_multiplet_(3,3)_partner_Y': str(q_a), 'quark_multiplet_(3,3bar)_partner_Y': str(q_b),
+                      'partner_electric_charge': [str(q_a), str(q_b)],
+                      'states_per_generation_with_colour_anomaly_cancelled': per_gen, 'of_which_exotic': per_gen - (16 if lepton_singlet == 0 else 15)}
+# anomaly of SU(3)_L^3: triplets minus antitriplets, with k of N quark generations conjugated
+def a3(Ngen, k): return -Ngen + 3 * (Ngen - k) - 3 * k
+out['C_331'] = {'identification': 'su(3) + su(3)\' + u(1) is the gauge algebra of the 3-3-1 models, SU(3)_C x SU(3)_L x U(1)_X (also the Levi subalgebra s(u(3)+u(3)) of su(6))',
+                'readings': readings,
+                'SU3L_cubic_anomaly (leptons in 3bar; N generations, k quark generations in 3bar)': {f'N={N_},k={k}': a3(N_, k) for N_ in (1, 2, 3, 4, 6) for k in range(N_ + 1) if a3(N_, k) == 0 or (N_ in (1, 3) and k <= 1)},
+                'anomaly_free_solutions_N_up_to_6': [(N_, k) for N_ in range(1, 7) for k in range(N_ + 1) if a3(N_, k) == 0]}
+print('C', json.dumps(out['C_331'])[:1500])
+
+# ================================================================ D. the five triad classes of seams
+def seam_image(r, s):
+    a, b = SEAMS[s]; u, vv = r[a], r[b]
+    return SEAM_INDEX[(min(u, vv), max(u, vv))]
+colour = []
+for s in range(NSEAM):
+    fix = [g for g in INVOLUTIONS if seam_image(g, s) == s]
+    assert len(fix) == 1
+    colour.append(next(i for i, K in enumerate(TRIADS) if fix[0] in K))
+classes = [[s for s in range(NSEAM) if colour[s] == i] for i in range(5)]
+def sector_ops(npart):
+    states = list(itertools.combinations(range(12), npart)); index = {s: i for i, s in enumerate(states)}
+    Hs = []
+    for c in classes:
+        H = np.zeros((len(states), len(states)))
+        for i, s in enumerate(states):
+            ss = set(s)
+            for k in c:
+                a, b = SEAMS[k]
+                if (a in ss) != (b in ss):
+                    H[i, i] += 1; H[index[tuple(sorted(ss ^ {a, b}))], i] -= 1
+        Hs.append(H)
+    return Hs
+Hs1, Hs2 = sector_ops(1), sector_ops(2)
+out['D_triad_classes_of_seams'] = {
+    'class_sizes': [len(c) for c in classes],
+    'each_class_is_a_perfect_matching': all(sorted(p for s in c for p in SEAMS[s]) == list(range(12)) for c in classes),
+    'five_classes_meet_at_every_port': all(len({colour[s] for s in range(NSEAM) if p in SEAMS[s]}) == 5 for p in range(12)),
+    'rotations_permute_classes_as_triads': all(colour[seam_image(g, s)] == RHO[g][colour[s]] for g in ROT for s in range(NSEAM)),
+    'spectrum_of_one_class_exchange_operator_two_quanta': sorted({round(float(t), 8) for t in np.linalg.eigvalsh(Hs2[0])}),
+    'class_operators_commute_with_generator': {'one_quantum': bool(max(np.linalg.norm(sum(Hs1) @ h - h @ sum(Hs1)) for h in Hs1) < 1e-9),
+                                               'two_quanta': bool(max(np.linalg.norm(sum(Hs2) @ h - h @ sum(Hs2)) for h in Hs2) < 1e-9)},
+    'norm_of_commutator_two_quanta': round(float(max(np.linalg.norm(sum(Hs2) @ h - h @ sum(Hs2)) for h in Hs2)), 6),
+    'reading': 'the carrier has five classes of seams (five perfect matchings = the five triads), permuted by the rotations as five objects; '
+               'the bare law conserves no count on them (the class operators do not commute with the generator).',
+}
+print('D', out['D_triad_classes_of_seams'])
+out['seconds'] = round(time.time() - T0, 1)
+json.dump(out, open(sys.argv[1], 'w'), indent=1, default=str)
+print('written', sys.argv[1], out['seconds'])

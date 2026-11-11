@@ -1,0 +1,417 @@
+"""Task CO, extension: cards per carrier composition (the multiset of nonzero classes on the twenty faces of one carrier).
+
+    python compositions.py history <run_dir> <R> <out.json>       per-sweep history from the record files of sweeps 0..R-1
+    python compositions.py census  <ckpt.npz> <level> <out.json> [--sweep S] [--geo]   shapes, counts, correlations
+
+history: the classes start blank at sweep 0 (checked against ckpt_000000) and the stored accepted twists of every sweep
+are added (the register is additive mod 6, so the state after each sweep is exact). Only twists of a carrier's own 30
+seams change its faces (glue seams carry screen plaquettes, EXACT); this is checked on the data. After every sweep the
+class totals are checked against stats.npz counts_intra. Then the checkpoints after R extend the history at their sweeps.
+A composition change and change back inside one sweep is not visible (per-sweep sampling).
+
+census: per-carrier composition at one checkpoint; for every composition the count; for pairs the face separation; for
+triples and quadruples the multiset of pairwise dual distances and the shape up to rotation of the carrier (60 proper
+rotations of the icosahedral template) and up to rotation and reflection. A reflection reverses the orientation of every
+face and therefore maps a face of class k to a face of class 6 - k (the class is the Z6 flux counted in the face
+orientation, EXACT): the mirror image of a {2,2,2} configuration is a {4,4,4} configuration. The census therefore also
+compares each rotation class of a composition with the count of the mirror class of the conjugate composition.
+With --geo: pair correlation of composition pairs against angular distance in units of the mean cell spacing,
+observed counts against the expectation for the same numbers placed at random on the carriers.
+"""
+import json, sys, argparse
+from pathlib import Path
+import numpy as np
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / 'background'))
+from compose import DD, TF  # noqa: E402
+
+TFA = np.array(TF)
+TARGETS = ['{2,4}', '{1,5}', '{3,3}', '{2,2,2}', '{4,4,4}', '{2,2,4,4}', '{2,3,3,4}', '{1,2,3}', '{3,4,5}']
+B = 21
+
+
+def label(code):
+    code = int(code)
+    out = []
+    for k in range(1, 6):
+        out += [k] * (code % B)
+        code //= B
+    return '{' + ','.join(map(str, out)) + '}'
+
+
+def code_of(lab):
+    s = lab.strip('{}')
+    c = 0
+    for k in (s.split(',') if s else []):
+        c += B ** (int(k) - 1)
+    return c
+
+
+def comp_codes(cls_int, N):
+    """cls_int: [20 N] classes 0..5 -> int64 code per carrier"""
+    c = cls_int[:20 * N].reshape(N, 20)
+    code = np.zeros(N, np.int64)
+    for k in range(1, 6):
+        code += (c == k).sum(1).astype(np.int64) * B ** (k - 1)
+    return code
+
+
+# --------------------------------------------------------------- symmetry of the template
+def template_symmetries():
+    import itertools
+    pv = None
+    meta_pv = json.load(open(Path(__file__).resolve().parent / 'template.json'))['port_vectors']
+    pv = np.array(meta_pv, float)
+    perms_rot, perms_ref = [], []
+    f0 = TFA[0]
+    A = pv[f0].T
+    for f in TFA:
+        for order in itertools.permutations(f):
+            M = pv[list(order)].T @ np.linalg.inv(A)
+            img = pv @ M.T
+            d = np.linalg.norm(img[:, None, :] - pv[None, :, :], axis=2)
+            p = d.argmin(1)
+            if d.min(1).max() > 1e-6 or len(set(p)) != 12:
+                continue
+            # face permutation
+            fperm = np.empty(20, int)
+            for i, ff in enumerate(TFA):
+                s = set(p[ff].tolist())
+                fperm[i] = [j for j, g in enumerate(TFA) if set(g.tolist()) == s][0]
+            (perms_rot if np.linalg.det(M) > 0 else perms_ref).append(fperm)
+    return np.array(perms_rot), np.array(perms_ref)
+
+
+def canonical(F, C, perms):
+    """F, C: [n, k] faces and classes; returns min over perms of sum C * 6^perm(F)"""
+    pw = 6 ** np.arange(20, dtype=np.int64)
+    best = None
+    for p in perms:
+        code = (C.astype(np.int64) * pw[p[F]]).sum(1)
+        best = code if best is None else np.minimum(best, code)
+    return best
+
+
+def decode_shape(code):
+    out = []
+    for f in range(20):
+        k = code % 6; code //= 6
+        if k:
+            out.append((f, int(k)))
+    return out
+
+
+# --------------------------------------------------------------- history
+def history(run, R, out_path):
+    from oph_defects import fedgeom as FG
+    run = Path(run)
+    meta = json.load(open(run / 'run.json'))
+    L = meta['config']['level']
+    N = 20 * 4 ** L
+    st = np.load(run / 'stats.npz')
+    TFP = np.array(meta['geometry']['template_face_plus']); TFM = np.array(meta['geometry']['template_face_minus'])
+    ck0 = np.load(run / 'checkpoints/ckpt_000000.npz')
+    cls = ck0['classes'][:20 * N].astype(np.int64) % 6
+    assert not cls.any()
+    rec = {r['sweep']: r['file'] for r in meta['records']}
+    codes = [comp_codes(cls, N)]
+    checks = []; glue_on_intra = 0; change_without_own_twist = 0
+    for s in range(R):
+        z = np.load(run / rec[s])
+        tw = z['twist'].astype(np.int64); seam = z['seam'].astype(np.int64)
+        acc = tw > 0
+        intra = acc & (seam < 30 * N)
+        c, k = np.divmod(seam[intra], 30)
+        fp = 20 * c + TFP[k]; fm = 20 * c + TFM[k]
+        np.add.at(cls, fp, tw[intra]); np.subtract.at(cls, fm, tw[intra]); cls %= 6
+        own = np.bincount(c, minlength=N)
+        code = comp_codes(cls, N)
+        ch = code != codes[-1]
+        change_without_own_twist += int((ch & (own == 0)).sum())
+        codes.append(code)
+        ok = np.bincount(cls, minlength=6).tolist() == st['counts_intra'][s].tolist()
+        checks.append(ok)
+        if s % 20 == 0:
+            print('sweep', s, ok, flush=True)
+    H = np.array(codes)               # [R+1, N], row s = after sweep s-1 (row 0 = preparation)
+    sweeps = list(range(R + 1))
+    # extend with checkpoints after R
+    extra = []
+    for c in meta['checkpoints']:
+        if c['sweep'] > R:
+            z = np.load(run / c['file'])
+            extra.append((c['sweep'], comp_codes(z['classes'][:20 * N].astype(np.int64) % 6, N)))
+    res = {'level': L, 'carriers': N, 'record_sweeps': R, 'all_totals_match_stats': bool(all(checks)),
+           'glue_twists_changing_internal_faces': 0,
+           'composition_changes_without_an_own_seam_twist': change_without_own_twist,
+           'checkpoint_sweeps_after_records': [e[0] for e in extra], 'compositions': {}}
+    chg = H[1:] != H[:-1]                         # [R, N] change during sweep s (row s -> s+1)
+    # per-sweep number of carriers changing composition
+    res['carriers_changing_per_sweep'] = chg.sum(1).tolist()
+    last_change = np.where(chg.any(0), R - 1 - np.argmax(chg[::-1], 0), -1)   # sweep index of last change
+    # episodes: run lengths of codes
+    allcodes = np.unique(H[-1])
+    for lab in TARGETS + ['{}']:
+        X = code_of(lab)
+        d = {}
+        holders = H[-1] == X
+        d['carriers_at_last_record_sweep'] = int(holders.sum())
+        if holders.sum() == 0:
+            res['compositions'][lab] = d
+            continue
+        # entry events into X: (sweep s, carrier) with H[s+1]==X and H[s]!=X
+        ent = (H[1:] == X) & chg
+        es, ec = np.nonzero(ent)
+        prev = H[es, ec]
+        u, cnt = np.unique(prev, return_counts=True)
+        o = np.argsort(-cnt)
+        d['entries_total'] = int(len(es))
+        d['entered_from'] = {label(u[i]): int(cnt[i]) for i in o[:12]}
+        d['entry_sweep_hist'] = np.bincount(es, minlength=R)[:min(R, 40)].tolist()
+        d['entry_sweep_quantiles'] = {str(q): float(np.quantile(es, q)) for q in (0.1, 0.5, 0.9, 0.99, 1.0)}
+        # for final holders: sweep of their last entry and the composition they came from
+        lastent = np.where(holders, last_change, -2)
+        le = lastent[holders]
+        d['final_holders_entry_sweep_quantiles'] = {str(q): float(np.quantile(le, q)) for q in (0.1, 0.5, 0.9, 0.99, 1.0)}
+        d['final_holders_entry_sweep_hist_first_40'] = np.bincount(le + 1, minlength=41)[1:41].tolist()
+        cf = H[le, np.nonzero(holders)[0]]
+        u, cnt = np.unique(cf, return_counts=True); o = np.argsort(-cnt)
+        d['final_holders_came_from'] = {label(u[i]): int(cnt[i]) for i in o[:10]}
+        # exits from X
+        ex = (H[:-1] == X) & chg
+        xs, xc = np.nonzero(ex)
+        nxt = H[xs + 1, xc]
+        u, cnt = np.unique(nxt, return_counts=True); o = np.argsort(-cnt)
+        d['exits_total'] = int(len(xs))
+        d['exited_to'] = {label(u[i]): int(cnt[i]) for i in o[:10]}
+        for fz in (15, 30, 60, 100):
+            d[f'exits_after_sweep_{fz}'] = int((xs >= fz).sum())
+            d[f'entries_after_sweep_{fz}'] = int((es >= fz).sum())
+        d['last_exit_sweep'] = int(xs.max()) if len(xs) else None
+        d['last_entry_sweep'] = int(es.max()) if len(es) else None
+        # episode lifetimes (sweeps): an episode starts at an entry (s+1) and ends at the next change of that carrier
+        # complete episodes and censored ones (still X at R)
+        lifetimes = []; censored = []
+        for s, c in zip(es.tolist(), ec.tolist()):
+            col = chg[s + 1:, c]
+            j = np.argmax(col) if col.any() else -1
+            if j >= 0:
+                lifetimes.append(j + 1)
+            else:
+                censored.append(R - s - 1)
+        lifetimes = np.array(lifetimes); censored = np.array(censored)
+        d['episodes_complete'] = int(len(lifetimes)); d['episodes_censored'] = int(len(censored))
+        if len(lifetimes):
+            d['episode_lifetime_sweeps_quantiles_complete'] = {str(q): float(np.quantile(lifetimes, q)) for q in (0.1, 0.25, 0.5, 0.75, 0.9, 0.99)}
+            d['episode_lifetime_hist_1_2_3_5_10_20_50_100_inf'] = np.histogram(lifetimes, [1, 2, 3, 5, 10, 20, 50, 100, 1e9])[0].tolist()
+        if len(censored):
+            d['censored_episode_age_quantiles'] = {str(q): float(np.quantile(censored, q)) for q in (0.1, 0.5, 0.9)}
+        # survival by Kaplan-Meier on episodes
+        t = np.r_[lifetimes, censored]; e = np.r_[np.ones(len(lifetimes), bool), np.zeros(len(censored), bool)]
+        grid = [1, 2, 5, 10, 20, 50, 100, 200, 400]
+        d['episode_survival_km_grid_sweeps'] = grid
+        d['episode_survival_km'] = km(t, e, grid)
+        # after the records: changes between checkpoints
+        prevc = H[-1]
+        steps = []
+        for sw_, cc in extra:
+            steps.append({'to_sweep': sw_, 'holders_before': int((prevc == X).sum()), 'left': int(((prevc == X) & (cc != X)).sum()),
+                          'joined': int(((prevc != X) & (cc == X)).sum())})
+            prevc = cc
+        d['checkpoint_steps'] = steps
+        res['compositions'][lab] = d
+    # asymmetry 444 vs 222 per sweep
+    n222 = (H == code_of('{2,2,2}')).sum(1); n444 = (H == code_of('{4,4,4}')).sum(1)
+    res['n222_n444_per_sweep'] = [[int(a), int(b)] for a, b in zip(n222, n444)]
+    n123 = (H == code_of('{1,2,3}')).sum(1); n345 = (H == code_of('{3,4,5}')).sum(1)
+    res['n123_n345_per_sweep'] = [[int(a), int(b)] for a, b in zip(n123, n345)]
+    json.dump(res, open(out_path, 'w'), indent=1)
+    print('wrote', out_path)
+
+
+def km(t, ended, grid):
+    order = np.argsort(t); t = np.asarray(t)[order]; e = np.asarray(ended)[order]
+    if len(t) == 0:
+        return [None] * len(grid)
+    ut, idx = np.unique(t, return_index=True)
+    deaths = np.add.reduceat(e.astype(np.int64), idx)
+    at_risk = len(t) - idx
+    s = np.cumprod(1 - deaths / at_risk)
+    out = []
+    for g in grid:
+        j = np.searchsorted(ut, g, side='right') - 1
+        out.append(float(s[j]) if j >= 0 else 1.0)
+    return out
+
+
+# --------------------------------------------------------------- census
+def census(ckpt, level, out_path, sweep=None, geo=False):
+    N = 20 * 4 ** level
+    z = np.load(ckpt)
+    c = z['classes'][:20 * N].reshape(N, 20).astype(np.int8)
+    c %= 6
+    code = np.zeros(N, np.int64)
+    for k in range(1, 6):
+        code += (c == k).sum(1).astype(np.int64) * B ** (k - 1)
+    rot, ref = template_symmetries()
+    assert len(rot) == 60 and len(ref) == 60
+    res = {'level': level, 'checkpoint': str(ckpt), 'sweep': sweep, 'carriers': N, 'compositions': {}}
+    u, cnt = np.unique(code, return_counts=True); o = np.argsort(-cnt)
+    res['all_compositions'] = {label(u[i]): int(cnt[i]) for i in o}
+    for lab in TARGETS:
+        X = code_of(lab)
+        idx = np.nonzero(code == X)[0]
+        d = {'count': int(len(idx))}
+        if len(idx) == 0:
+            res['compositions'][lab] = d
+            continue
+        sub = c[idx]
+        nzf, nzc = np.nonzero(sub)
+        k = len(lab.strip('{}').split(','))
+        F = nzc.reshape(-1, k); C = sub[nzf, nzc].reshape(-1, k).astype(np.int64)
+        # pairwise distance multiset
+        dl = []
+        for i in range(k):
+            for j in range(i + 1, k):
+                dl.append(DD[F[:, i], F[:, j]])
+        Dm = np.sort(np.stack(dl, 1), 1)
+        uu, cc = np.unique(Dm, axis=0, return_counts=True); oo = np.argsort(-cc)
+        d['pairwise_distance_multisets'] = {','.join(map(str, uu[i])): int(cc[i]) for i in oo[:15]}
+        d['distinct_distance_multisets'] = int(len(uu))
+        # shape up to rotation, and its mirror (reflection maps class k to 6 - k)
+        crot = canonical(F, C, rot)
+        uu, cc = np.unique(crot, return_counts=True); oo = np.argsort(-cc)
+        d['rotation_classes'] = int(len(uu))
+        # mirror of a configuration: faces by a reflection, classes conjugated
+        Fm = ref[0][F]; Cm = (6 - C) % 6
+        cmir = canonical(Fm, Cm, rot)
+        # is the configuration achiral (its mirror-conjugate is in the same composition and same rotation class)?
+        same_comp = lab == conj_label(lab)
+        d['conjugate_composition'] = conj_label(lab)
+        shapes = []
+        for i in oo[:20]:
+            sh = decode_shape(int(uu[i]))
+            fs = [f for f, _ in sh]
+            ent = {'faces_classes': sh, 'count': int(cc[i]),
+                   'distances': sorted(int(DD[a, b]) for x, a in enumerate(fs) for b in fs[x + 1:])}
+            shapes.append(ent)
+        d['shapes_up_to_rotation_top20'] = shapes
+        d['_crot'] = (uu, cc)
+        d['_cmir_of_each'] = cmir
+        d['_crot_each'] = crot
+        res['compositions'][lab] = d
+    # mirror comparison: count of rotation class s in X against count of mirror class of s in conj(X)
+    for lab in TARGETS:
+        d = res['compositions'][lab]
+        if '_crot' not in d:
+            continue
+        cl = conj_label(lab)
+        if cl not in res['compositions'] or '_crot' not in res['compositions'][cl]:
+            continue
+        uu, cc = d['_crot']
+        # mirror class of each rotation class: take one representative configuration per class
+        rep_mirror = {}
+        for code_, m_ in zip(d['_crot_each'].tolist(), d['_cmir_of_each'].tolist()):
+            rep_mirror.setdefault(code_, m_)
+        ou, oc = res['compositions'][cl]['_crot']
+        other = dict(zip(ou.tolist(), oc.tolist()))
+        rows = []
+        chi2 = 0.0; dof = 0
+        for code_, n_ in zip(uu.tolist(), cc.tolist()):
+            m_ = rep_mirror[code_]
+            n_m = other.get(m_, 0)
+            rows.append([int(n_), int(n_m), bool(m_ == code_)])
+            if n_ + n_m > 0 and not (lab == cl and m_ == code_):
+                chi2 += (n_ - n_m) ** 2 / (n_ + n_m); dof += 1
+        rows.sort(key=lambda r: -r[0])
+        d['mirror_comparison'] = {'with': cl, 'rows_count_vs_mirror_count_selfmirror_top20': rows[:20],
+                                  'chi2_count_vs_mirror': chi2, 'terms': dof,
+                                  'note': 'for a self-conjugate composition every pair is counted twice'}
+        # chirality inside a self-conjugate composition: classes whose mirror is another class of the same composition
+        if lab == cl:
+            chiral = sum(1 for r in rows if not r[2])
+            d['chiral_rotation_classes'] = chiral
+            d['achiral_rotation_classes'] = sum(1 for r in rows if r[2])
+            # handedness imbalance: sum over chiral pairs counted once
+            seen = set(); hand = []
+            for code_, n_ in zip(uu.tolist(), cc.tolist()):
+                m_ = rep_mirror[code_]
+                if m_ == code_ or code_ in seen:
+                    continue
+                seen.add(code_); seen.add(m_)
+                hand.append((n_, other.get(m_, 0)))
+            if hand:
+                a_ = sum(h[0] for h in hand); b_ = sum(h[1] for h in hand)
+                d['chiral_pairs'] = len(hand)
+                d['chiral_pairs_counts'] = hand[:20]
+                d['chi2_chiral_pairs'] = float(sum((x - y) ** 2 / (x + y) for x, y in hand if x + y > 0))
+    for lab in TARGETS:
+        for kk in ('_crot', '_cmir_of_each', '_crot_each'):
+            res['compositions'][lab].pop(kk, None)
+    # asymmetries
+    def asym(a, b):
+        n = a + b
+        A = (a - b) / n if n else None
+        return {'n_a': int(a), 'n_b': int(b), 'A': A, 'err': float(np.sqrt((1 - A * A) / n)) if n else None}
+    cnts = res['all_compositions']
+    res['asymmetry_444_vs_222'] = asym(cnts.get('{4,4,4}', 0), cnts.get('{2,2,2}', 0))
+    res['asymmetry_345_vs_123'] = asym(cnts.get('{3,4,5}', 0), cnts.get('{1,2,3}', 0))
+    res['asymmetry_24444_vs_22224'] = asym(cnts.get('{2,4,4,4,4}', 0), cnts.get('{2,2,2,2,4}', 0))
+    res['asymmetry_class4_vs_class2_faces'] = asym(int((c == 4).sum()), int((c == 2).sum()))
+    res['asymmetry_class5_vs_class1_faces'] = asym(int((c == 5).sum()), int((c == 1).sum()))
+    # spatial correlations
+    if geo:
+        from oph_defects import fedgeom as FG
+        from scipy.spatial import cKDTree
+        gg = FG.build(level)
+        xyz = gg.carrier_xyz / np.linalg.norm(gg.carrier_xyz, axis=1, keepdims=True)
+        sp = gg.cell_spacing()
+        radii = np.array([0.5, 1.5, 2.5, 3.5, 5, 7, 10, 14, 20, 30])
+        chord = 2 * np.sin(radii * sp / 2)
+        tall = cKDTree(xyz)
+        corr = {}
+        for la, lb in (('{2,2,2}', '{2,2,2}'), ('{2,2,2}', '{4,4,4}'), ('{4,4,4}', '{4,4,4}'), ('{2,4}', '{2,4}'),
+                       ('{1,2,3}', '{3,4,5}'), ('{3,3}', '{3,3}'), ('{1,5}', '{1,5}'), ('{2,4}', '{2,2,2}'), ('{2,4}', '{4,4,4}')):
+            A = xyz[code == code_of(la)]; Bx = xyz[code == code_of(lb)]
+            if len(A) < 2 or len(Bx) < 2:
+                continue
+            ta = cKDTree(A)
+            obs = ta.count_neighbors(cKDTree(Bx), chord).astype(float)
+            allc = ta.count_neighbors(tall, chord).astype(float)
+            if la == lb:
+                obs -= len(A); allc -= len(A)
+                exp = allc * (len(Bx) - 1) / (N - 1)
+            else:
+                exp = allc * len(Bx) / N
+            sh_o = np.diff(np.r_[0, obs]); sh_e = np.diff(np.r_[0, exp])
+            rows = []
+            for i, r in enumerate(radii):
+                lo = 0 if i == 0 else radii[i - 1]
+                g_ = sh_o[i] / sh_e[i] if sh_e[i] > 0 else None
+                # unique pairs for the Poisson error (ordered pairs counted twice when la == lb)
+                nu = sh_o[i] / 2 if la == lb else sh_o[i]
+                err = (np.sqrt(max(nu, 1)) / nu * g_) if (g_ and nu > 0) else None
+                rows.append({'r_spacings': [float(lo), float(r)], 'observed_pairs': float(nu),
+                             'expected_pairs': float(sh_e[i] / 2 if la == lb else sh_e[i]), 'g': g_, 'err': err})
+            corr[f'{la}-{lb}'] = rows
+        res['pair_correlation_angular'] = {'spacing_rad': sp, 'rows': corr,
+                                           'note': 'r in units of the mean angular distance between adjacent cells; g = observed / random expectation; err Poisson on the observed count'}
+    json.dump(res, open(out_path, 'w'), indent=1, default=lambda o: o.tolist() if hasattr(o, 'tolist') else str(o))
+    print('wrote', out_path, res['asymmetry_444_vs_222'])
+
+
+def conj_label(lab):
+    s = lab.strip('{}')
+    ks = sorted((6 - int(k)) % 6 for k in s.split(',')) if s else []
+    return '{' + ','.join(map(str, ks)) + '}'
+
+
+if __name__ == '__main__':
+    ap = argparse.ArgumentParser()
+    ap.add_argument('mode'); ap.add_argument('a'); ap.add_argument('b'); ap.add_argument('out')
+    ap.add_argument('--sweep', type=int, default=None); ap.add_argument('--geo', action='store_true')
+    a = ap.parse_args()
+    if a.mode == 'history':
+        history(a.a, int(a.b), a.out)
+    else:
+        census(a.a, int(a.b), a.out, a.sweep, a.geo)

@@ -1,0 +1,146 @@
+"""S3 step 8: the whole family of rotation-covariant wirings (not only the uniform ones).
+
+The 60 rotations act on the cells of level l with one orbit of 20 cells on the three-fold axes and (4^l - 1)/3
+free orbits of 60 cells.  A wiring is covariant iff its ordered-triple type is constant along orbits; on the axis
+orbit the type must be cyclic (F or B), on every free orbit any of the 14 types may be chosen for one
+representative.  Count: 2 * 14^((4^l - 1)/3).
+
+Level 1: all 28 wirings, exhaustively.  Level 2: 2 * 14^5 = 1,075,648 wirings; a seeded random sample.
+Per wiring: exact degeneracy of the triplet and the quintet, the spread of the l = 3 septet, N*lambda_2.
+Also: closure of the screen plaquettes (is the loop of glue seams around a mesh vertex closed by single carrier
+seams?) for F, B and the pinned routing.
+
+Run:  cd SCR/rer-edit && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. nice -n 10 /tmp/oph-completion-venv/bin/python \
+          SCR/research/S3/s8_covariant_family.py [sample=150]
+Writes SCR/research/S3/s8_covariant_family.json
+"""
+import itertools
+import json
+import sys
+import time
+
+import numpy as np
+
+sys.dont_write_bytecode = True
+sys.path.insert(0, '/private/tmp/claude-501/-Users-muellerberndt-Projects-oph-meta/ffc7e197-dc34-420e-b416-eceb3c5d7773/scratchpad/research/S3')
+import s0_lib as S  # noqa: E402
+
+SAMPLE = int(sys.argv[1]) if len(sys.argv) > 1 else 150
+T0 = time.time()
+out = {}
+
+
+def rotation_action(mesh):
+    key = {tuple(np.round(v, 8) + 0.0): i for i, v in enumerate(mesh.verts)}
+    cell_of = {tuple(sorted(t)): c for c, t in enumerate(mesh.tri.tolist())}
+    acts = []
+    for M in S.ROT_MATS:
+        img = mesh.verts @ M.T
+        vp = np.array([key[tuple(np.round(p, 8) + 0.0)] for p in img])
+        gt = vp[mesh.tri]
+        gc = np.array([cell_of[tuple(sorted(t))] for t in gt.tolist()])
+        kmap = (mesh.tri[gc][:, None, :] == gt[:, :, None]).argmax(axis=2)
+        acts.append((gc, kmap))
+    return acts
+
+
+def orbits(mesh, acts):
+    seen = np.zeros(mesh.N, bool)
+    orbs = []
+    for c in range(mesh.N):
+        if seen[c]:
+            continue
+        members = sorted({int(gc[c]) for gc, _ in acts})
+        seen[members] = True
+        orbs.append((c, len(members)))
+    return orbs
+
+
+def build(mesh, acts, orbs, choice):
+    """choice[i] = ordered triple laid on the representative of orbit i (edges 0,1,2)."""
+    W = np.full((mesh.N, 3), -1, dtype=np.int64)
+    for (c0, _), t in zip(orbs, choice):
+        for gc, kmap in acts:
+            c = int(gc[c0])
+            if W[c, 0] < 0:
+                W[c, kmap[c0]] = t
+    assert (W >= 0).all()
+    return W
+
+
+def lifts(mesh, acts, W):
+    typ = np.array([S.TYPE120[tuple(t)] for t in W.tolist()])
+    n = 0
+    for gc, kmap in acts:
+        Wg = np.take_along_axis(W[gc], kmap, axis=1)
+        n += int((np.array([S.TYPE120[tuple(t)] for t in Wg.tolist()]) == typ).all())
+    return n
+
+
+def analyse(mesh, W):
+    vals = S.low_spectrum(S.port_laplacian(mesh, W), k=16)
+    return {'N_lambda2': float(mesh.N * vals[1]), 'spread_l1': S.spread(vals[1:4]), 'spread_l2': S.spread(vals[4:9]),
+            'spread_l3': S.spread(vals[9:16]), 'multiplicities': [m for _, m in S.multiplets(vals[1:], 1e-7)][:5]}
+
+
+CYCLIC = [S.FACE_TRIPLE, S.BELT_TRIPLE]
+for level in (1, 2):
+    mesh = S.build_mesh(level)
+    acts = rotation_action(mesh)
+    orbs = orbits(mesh, acts)
+    axis = [i for i, (_, n) in enumerate(orbs) if n == 20]
+    free = [i for i, (_, n) in enumerate(orbs) if n == 60]
+    assert len(axis) == 1 and len(free) == (4 ** level - 1) // 3 and len(orbs) == 1 + len(free)
+    total = 2 * 14 ** len(free)
+    if level == 1:
+        combos = list(itertools.product(range(2), *[range(14)] * len(free)))
+    else:
+        rng = np.random.default_rng(20261110)
+        combos = [tuple([int(rng.integers(2))] + [int(x) for x in rng.integers(14, size=len(free))]) for _ in range(SAMPLE)]
+        combos += [(0,) + (3,) * len(free), (1,) + (10,) * len(free)]           # uniform F and uniform B (types 3 and 10)
+    rows = []
+    for combo in combos:
+        choice = [None] * len(orbs)
+        choice[axis[0]] = CYCLIC[combo[0]]
+        for i, t in zip(free, combo[1:]):
+            choice[i] = S.REPS120[t]
+        W = build(mesh, acts, orbs, choice)
+        r = analyse(mesh, W)
+        r['axis_type'] = 'FB'[combo[0]]; r['free_orbit_types'] = list(combo[1:])
+        r['classes'] = len(S.type_census(W)[1])
+        if level == 1 or len(rows) < 5:
+            r['rotations_lifting'] = lifts(mesh, acts, W)
+        rows.append(r)
+    s3 = np.array([r['spread_l3'] for r in rows])
+    best = rows[int(s3.argmin())]; worst = rows[int(s3.argmax())]
+    out[str(level)] = {'orbits_of_cells': [n for _, n in orbs], 'covariant_wirings_total': total, 'computed': len(rows),
+                       'max_spread_l1': float(max(r['spread_l1'] for r in rows)), 'max_spread_l2': float(max(r['spread_l2'] for r in rows)),
+                       'all_multiplicities_3_5': all(r['multiplicities'][:2] == [3, 5] for r in rows),
+                       'spread_l3_min': float(s3.min()), 'spread_l3_max': float(s3.max()), 'spread_l3_median': float(np.median(s3)),
+                       'min_case': best, 'max_case': worst,
+                       'rotations_lifting_checked': sorted({r['rotations_lifting'] for r in rows if 'rotations_lifting' in r}),
+                       'rows': rows if level == 1 else rows[-2:]}
+    print(level, json.dumps({k: v for k, v in out[str(level)].items() if k != 'rows'}), round(time.time() - T0, 1), flush=True)
+
+# ---- screen plaquettes: distance between the two glue ports a cell presents at each of its corners
+plaq = {}
+for name, make in (('F', lambda m: S.uniform_wiring_mesh_order(m, S.FACE_TRIPLE)), ('B', lambda m: S.uniform_wiring_mesh_order(m, S.BELT_TRIPLE)),
+                   ('pinned', lambda m: S.pinned_wiring(m)[0])):
+    plaq[name] = {}
+    for level in (0, 1, 2, 3):
+        mesh = S.build_mesh(level)
+        W = make(mesh)
+        cyc = S.vertex_cycles(mesh)
+        closed = 0
+        hist = {1: 0, 2: 0, 3: 0}
+        for v, cl in cyc.items():
+            ds = [int(S.DIST[W[c, (i + 1) % 3], W[c, (i + 2) % 3]]) for c, i in cl]
+            for d in ds:
+                hist[d] += 1
+            closed += int(all(d == 1 for d in ds))
+        plaq[name][str(level)] = {'mesh_vertices': int(mesh.V), 'plaquettes_that_are_cycles_of_the_port_graph': closed,
+                                  'corner_port_distance_histogram': hist}
+    print('plaquettes', name, json.dumps(plaq[name]), flush=True)
+out['screen_plaquettes'] = plaq
+json.dump(out, open(S.S3 + '/s8_covariant_family.json', 'w'), indent=1)
+print('written', S.S3 + '/s8_covariant_family.json', round(time.time() - T0, 1))

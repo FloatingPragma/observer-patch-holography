@@ -1,0 +1,315 @@
+"""The chiral mass step of CF-1 with the Higgs register of worker R8 (reports/R8.md, result 2; work/R8/r8_gauss.py,
+work/R8/r8_higgs_state.py), on top of the engine of cf1_lib.py (not modified).
+
+Reading executed (chiral reading, option M2 of CF-1 section 8, as R8 defines it):
+  record r   the handedness class is X_r: right-handed X_r = +1 (neutral, routes without link signs), left-handed
+             X_r = -1 (Z2-charged, routes with the link word). The toggle is Z_r.
+  register   one Higgs bit h_x per cell (Z2 charge one). Mass step exp(-i theta K), K = Z_r x X_h(cell of the quantum).
+             Without the register: exp(-i theta Z_r) (option M2, kind 'Z').
+  Gauss      G_x = (flip of the star links of x) (X_r on the quantum at x); extended: times (-1)^(h_x).
+  tick       half-step frame: M(theta/2), the three routing shifts in the alternating order (t even: axes 1, 2, 3;
+             t odd: 3, 2, 1), M(theta/2), then the field step F = E K (plaquette phases first, then link rotations;
+             R1 DEFINITION.md section 5). R8's own tick is F M S with one order; `tick_end` gives that one.
+
+(i)  RegisterLattice: small lattices with quantum link bits and the full register, dense state
+     P[z, x1, x2, x3, h, r, s], z the link word and h the register word (bit of cell index c = (x1 L2 + x2) L3 + x3).
+     Lattice conventions (cells, link ids, plaquettes, stars) are those of work/R1/cf1.py (Lattice), imported.
+(ii) RegisterLine: a line of cells with flat static links (as R8's 256-cell runs). The register is a cyclic counter
+     with m levels (m = 2: the Higgs bit, B = X_h) or the integer counter (m = None), with lowering operator B and
+     K = |F><E| B + |E><F| B*, E, F the X_r = +1, -1 states. Organisation of the reachable space (R8 result 3):
+       - the register is static in the eigenbasis of B; a register phase field phi(x) (B = exp(i phi)) is an invariant
+         sector in which the quantum sees the chiral mass exp(-i theta (cos phi Z_r - sin phi Y_r)) (`sector_tick`);
+       - a common phase state (every cell in the same eigenstate of B) is one sector: exact, register unchanged;
+       - a number state is the uniform superposition of all sectors; the sectors are orthogonal, so the reduced state of
+         the quantum is the uniform average over the static phase fields (exact). On 256 cells the average is sampled
+         (as R8 did); on small lines `joint_run` evolves quantum and register exactly in the number basis, over the
+         configurations reachable from the preparation, and `sector_average` enumerates all phase fields.
+"""
+import itertools, os, sys
+import numpy as np
+from cf1_lib import Engine, HERE
+
+sys.path.insert(0, os.path.join(HERE, '..', '..', 'R1'))
+from cf1 import Lattice          # noqa: E402  binding conventions of the program (work/R1/DEFINITION.md section 1)
+
+ZS = np.array([1.0, -1.0])       # Z_r on the record axis
+
+
+def xr(P):
+    """X_r: exchange of the two record states"""
+    return P[..., ::-1, :]
+
+
+def toggle(P, theta):
+    """exp(-i theta Z_r): the mass step without the register (M2, kind 'Z')"""
+    o = P.copy(); o[..., 0, :] *= np.exp(-1j * theta); o[..., 1, :] *= np.exp(1j * theta)
+    return o
+
+
+def chiral_mass(q, theta, phi):
+    """exp(-i theta (cos phi Z_r - sin phi Y_r)): the mass step in the sector where the register has B = exp(i phi) at
+    every cell. q[x, 1, 1, b, r, s], phi[x, b] (b: a batch of sectors). phi = 0 is the toggle Z_r."""
+    c, sn = np.cos(theta), np.sin(theta)
+    cp, sp = np.cos(phi)[:, None, None, :, None], np.sin(phi)[:, None, None, :, None]
+    o = np.empty_like(q)
+    o[..., 0, :] = (c - 1j * sn * cp) * q[..., 0, :] + sn * sp * q[..., 1, :]
+    o[..., 1, :] = -sn * sp * q[..., 0, :] + (c + 1j * sn * cp) * q[..., 1, :]
+    return o
+
+
+def order(t):
+    return (2, 1, 0) if t % 2 == 1 else (0, 1, 2)
+
+
+# ------------------------------------------------------------------------------------------------ (i) small lattices
+class RegisterLattice:
+    """One quantum in the chiral reading, quantum Z2 links on the axes of length >= 2, one Higgs bit per cell."""
+
+    def __init__(self, shape, eps=0.0, kappa=0.0, seam=False):
+        """seam=True routes with the seam form Q_i R of the reference engine (Routing.shift) instead of shift_fast"""
+        self.lat = Lattice(shape); self.shape = self.lat.shape; self.seam = seam
+        self.cells = self.lat.cells; self.NL, self.NZ = self.lat.NL, self.lat.NZ; self.NH = 1 << self.lat.N
+        self.eps, self.kappa = eps, kappa
+        self.free = Engine(self.shape)
+        self.eng = [Engine(self.shape, [a[..., None] for a in self.lat.signs(z)]) for z in range(self.NZ)]   # trailing axis: register word
+        self.W = self.lat.wsum()
+        self.full = (self.NZ,) + self.shape + (self.NH, 2, 2)
+
+    def random_state(self, rng):
+        P = rng.normal(size=self.full) + 1j * rng.normal(size=self.full)
+        return P / np.linalg.norm(P)
+
+    def route(self, P, t=0, axes=None):
+        """the three shifts in the order of tick t; right-handed part without links, left-handed part with the word z"""
+        o = np.empty_like(P)
+        for z in range(self.NZ):
+            R = (P[z] + xr(P[z])) / 2; L = (P[z] - xr(P[z])) / 2
+            for i in (order(t) if axes is None else axes):
+                if self.seam: R = self.free.shift(R, i); L = self.eng[z].shift(L, i)
+                else: R = self.free.shift_fast(R, i); L = self.eng[z].shift_fast(L, i)
+            o[z] = R + L
+        return o
+
+    def mass(self, P, theta, register=True):
+        if not register: return toggle(P, theta)
+        o = np.cos(theta) * P
+        for ci, c in enumerate(self.cells):
+            src = P[(slice(None),) + c][:, np.arange(self.NH) ^ (1 << ci)]          # [z, h, r, s], Higgs bit of c flipped
+            o[(slice(None),) + c] += -1j * np.sin(theta) * ZS[None, None, :, None] * src
+        return o
+
+    def field(self, P):
+        o = P * np.exp(-1j * self.kappa * self.W).reshape((self.NZ,) + (1,) * 6)
+        for k in range(self.NL):
+            o = np.cos(self.eps) * o - 1j * np.sin(self.eps) * o[np.arange(self.NZ) ^ (1 << k)]
+        return o
+
+    def tick(self, P, theta, t=0, register=True):
+        """half-step frame: F M(theta/2) S_t M(theta/2)"""
+        P = self.mass(P, theta / 2, register)
+        P = self.route(P, t)
+        return self.field(self.mass(P, theta / 2, register))
+
+    def tick_end(self, P, theta, register=True, t=0, alternating=False):
+        """R8's frame: F M(theta) S (one axis order unless alternating)"""
+        return self.field(self.mass(self.route(P, t if alternating else 0), theta, register))
+
+    def gauss(self, P, ci, extended=True):
+        c = self.cells[ci]
+        o = np.empty_like(P)
+        o[np.arange(self.NZ) ^ self.lat.star[ci]] = P
+        o[(slice(None),) + c] = xr(o[(slice(None),) + c])
+        if extended:
+            sg = np.array([(-1) ** ((h >> ci) & 1) for h in range(self.NH)], float)
+            o = o * sg[None, None, None, None, :, None, None]
+        return o
+
+    def localize(self, P, ci):
+        """the part of P with the quantum on cell ci, normalized"""
+        c = self.cells[ci]; o = np.zeros_like(P); o[(slice(None),) + c] = P[(slice(None),) + c]
+        return o / np.linalg.norm(o)
+
+    def commutator(self, op, P, extended):
+        """max over cells of |op(G_x P) - G_x op(P)|"""
+        oP = op(P)
+        return float(max(np.linalg.norm(op(self.gauss(P, ci, extended)) - self.gauss(oP, ci, extended)) for ci in range(len(self.cells))))
+
+
+# ------------------------------------------------------------------------------------------------ (ii) a line of cells
+def chart_rotation():
+    """V = exp(-i pi/4 X_r) on the record: V Y_r V* = Z_r. It commutes with the routing (which contains X_r only), so it
+    maps R8's line chart (common phase = kind 'Y') onto the register chart of this file (common phase 0 = Z_r)
+    without changing densities or the handedness X_r."""
+    X = np.array([[0, 1], [1, 0]], complex); Y = np.array([[0, -1j], [1j, 0]]); Z = np.diag([1.0, -1.0]).astype(complex)
+    for a in (np.pi / 4, -np.pi / 4):
+        V = np.cos(a) * np.eye(2) - 1j * np.sin(a) * X
+        if np.allclose(V @ Y @ V.conj().T, Z) and np.allclose(V @ Z @ V.conj().T, -Y): return V
+    raise RuntimeError('no chart rotation')
+
+
+class RegisterLine:
+    """line of L cells (flat static links), one quantum, the register of R8 (bit, cyclic counter, integer counter)"""
+
+    def __init__(self, L):
+        self.L = L; self.eng = Engine((L, 1, 1))
+        self.xs = ((np.arange(L) + L // 2) % L) - L // 2        # positions in (-L/2, L/2], R8's convention
+
+    def route(self, q, t=0):
+        for i in order(t):
+            if i == 0: q = self.eng.shift_fast(q, i)          # S_i = 1 on an axis of length 1 (R1 DEFINITION.md 13.5)
+        return q
+
+    def sector_tick(self, q, theta, phi, t=0, frame='half'):
+        """q[x, 1, 1, b, r, s]; phi[x, b]. frame 'half': M^(1/2) S M^(1/2); 'end': M S (R8's line runs)"""
+        if frame == 'half':
+            return chiral_mass(self.route(chiral_mass(q, theta / 2, phi), t), theta / 2, phi)
+        return chiral_mass(self.route(q, t), theta, phi)
+
+    # ---- exact joint evolution in the number basis, over the reachable register configurations ----
+    def _mass_joint(self, J, theta, m):
+        """J: dict register offsets (tuple) -> q[x, 1, 1, r, s]. exp(-i theta K): |F, n> -> |E, n+1>, |E, n> -> |F, n-1>
+        at the cell of the quantum (B lowers; m levels cyclic, or the integer counter for m None; m = 2 is the bit)."""
+        c, sn = np.cos(theta), np.sin(theta); h = 2 ** -0.5
+        out = {}
+        def acc(key, x, dE, dF):
+            if key not in out: out[key] = [np.zeros((self.L, 1, 1, 2), complex), np.zeros((self.L, 1, 1, 2), complex)]
+            if x is None: out[key][0] += dE; out[key][1] += dF
+            else:
+                if dE is not None: out[key][0][x] += dE
+                if dF is not None: out[key][1][x] += dF
+        for key, q in J.items():
+            E = (q[..., 0, :] + q[..., 1, :]) * h; F = (q[..., 0, :] - q[..., 1, :]) * h
+            acc(key, None, c * E, c * F)
+            for x in range(self.L):
+                if np.any(F[x]):
+                    k = list(key); k[x] = k[x] + 1 if m is None else (k[x] + 1) % m; acc(tuple(k), x, -1j * sn * F[x], None)
+                if np.any(E[x]):
+                    k = list(key); k[x] = k[x] - 1 if m is None else (k[x] - 1) % m; acc(tuple(k), x, None, -1j * sn * E[x])
+        return {k: np.stack([(E + F) * h, (E - F) * h], axis=-2) for k, (E, F) in out.items()}
+
+    def joint_run(self, q0, theta, T, m=2, frame='half', each=None):
+        """quantum and register evolved exactly from q0 x (number state of every cell). Returns the dict of branches."""
+        J = {(0,) * self.L: q0.copy()}
+        for t in range(T):
+            if frame == 'half':
+                J = self._mass_joint(J, theta / 2, m); J = {k: self.route(v, t) for k, v in J.items()}; J = self._mass_joint(J, theta / 2, m)
+            else:
+                J = {k: self.route(v, t) for k, v in J.items()}; J = self._mass_joint(J, theta, m)
+            if each is not None: each(t + 1, J)
+        return J
+
+    @staticmethod
+    def reduced(J):
+        """reduced density matrix of the quantum, flattened one-body index"""
+        V = np.array([v.ravel() for v in J.values()])
+        return V.T @ V.conj()
+
+    def sector_average(self, q0, theta, T, m=2, frame='half'):
+        """uniform average over all m^L static phase fields phi_j = 2 pi j / m (exact for a number state of a cyclic
+        counter with m levels, and of the integer counter when m exceeds twice the largest reachable offset)"""
+        phis = np.array(list(itertools.product(range(m), repeat=self.L)), float).T * 2 * np.pi / m     # [x, b]
+        q = np.repeat(q0[:, :, :, None], phis.shape[1], axis=3)
+        for t in range(T): q = self.sector_tick(q, theta, phis, t, frame)
+        Q = np.moveaxis(q, 3, 0).reshape(phis.shape[1], -1)
+        return Q.T @ Q.conj() / phis.shape[1]
+
+    # ---- the 256-cell observables ----
+    def observables(self, q, weights=None):
+        """q[x, 1, 1, b, r, s] for a batch of sectors (uniform weights): density, mean position, width, X_r = +1, -1"""
+        rho_b = np.sum(np.abs(q) ** 2, axis=(1, 2, 4, 5))                         # [x, b]
+        right_b = np.sum(np.abs((q + xr(q)) / 2) ** 2, axis=(0, 1, 2, 4, 5))       # [b]
+        rho = rho_b.mean(axis=1)
+        mu = float(np.sum(rho * self.xs)); sd = float(np.sqrt(np.sum(rho * self.xs ** 2) - mu ** 2))
+        return rho, mu, sd, float(right_b.mean()), rho_b
+
+    def packet_R8(self, theta, n0=12, width=3.0):
+        """R8's preparation (r8_higgs_state.py section C = routing.py packet test): Routing((L,1,1)).packet(n0, width,
+        branch_projected(p, theta)) with the coin of kind 'Y', transported to the register chart by V."""
+        from routing import branch_projected
+        pk = Engine((self.L, 1, 1)).packet(n0, width, lambda p: branch_projected(p, theta))
+        return np.einsum('rk,xyzks->xyzrs', chart_rotation(), pk), pk
+
+
+def sample_phases(kind, L, n, rng):
+    """register phase fields of a number state: 'bit' (B = X_h: phi in {0, pi}) or 'counter' (integer counter: uniform)"""
+    if kind == 'bit': return np.stack([np.pi * rng.integers(0, 2, L) for _ in range(n)], axis=1)
+    return np.stack([rng.uniform(0, 2 * np.pi, L) for _ in range(n)], axis=1)
+
+
+# ------------------------------------------------------------------------------------------------ the line data
+if __name__ == '__main__':
+    """python cf1_register.py runs/R8_register_line.json: the two regimes of R8 result 3 on 256 cells, 60 ticks."""
+    import json, time
+    t_start = time.time()
+    TH, T, Lc, NS = 0.157935, 60, 256, 4000
+    out = {'what': 'one quantum on a line of 256 cells, 60 ticks, mass step exp(-i theta K) with the Higgs register of R8',
+           'theta': TH, 'ticks': T, 'cells': Lc,
+           'tick': 'half-step frame M(theta/2) S M(theta/2), S the three routing shifts in the alternating order (on a line only axis 1 moves); flat static links',
+           'register_chart': 'K = |F><E| B + |E><F| B*, E/F the X_r = +1/-1 states; register phase phi (B = exp(i phi)) gives exp(-i theta (cos phi Z_r - sin phi Y_r)); phi = 0 is the toggle Z_r, the Higgs bit is B = X_h, K = Z_r X_h',
+           'preparation': 'R8 (r8_higgs_state.py section C, the packet test of routing.py): Routing((256,1,1)).packet(n0 = 12, width 3.0 in momentum index, coin branch_projected(p, theta) of the full-step symbol with kind Y, blank spin-up coin projected on the positive-phase branch), centre x = 0, carrier wave number 2 pi 12/256 = 0.2945; transported to the register chart by V = exp(-i pi/4 X_r) (V Y_r V* = Z_r; V commutes with the routing and with X_r, so densities and handedness are those of R8\'s packet in R8\'s chart)',
+           'positions': 'x in -128 .. 127 (x = cell index mod 256 taken in [-128, 128), R8 convention; initial mean 0); the density arrays below are ordered by x',
+           'handedness': 'right = X_r = +1 (neutral class), left = X_r = -1 (charged class)'}
+    line = RegisterLine(Lc); q0, pk = line.packet_R8(TH)
+    xs = line.xs; perm = np.argsort(xs); out['x'] = xs[perm].tolist()
+    rho0 = np.sum(np.abs(q0) ** 2, axis=(1, 2, 3, 4)); mu0 = float(np.sum(rho0 * xs))
+    out['initial_mean_position'] = mu0
+    out['frame_map'] = ('primary data: R8\'s packet carried into the half-step frame by the frame map of the common-phase sector, '
+                        'q = exp(+i theta/2 Z_r) q_R8 (the half-step tick is the end-frame tick conjugated by half a mass step, '
+                        'cf1_conformance.py item l3); the same quantum state is used with the register in number states. '
+                        'Variant without the frame map (R8\'s array as the initial state of the half-step tick) and R8\'s own frame: summaries below.')
+    q_half = toggle(q0, -TH / 2)
+    def run(qi, kind, n, frame, keep):
+        phis = np.zeros((Lc, 1)) if kind is None else sample_phases(kind, Lc, n, np.random.default_rng(21))
+        q = np.repeat(qi[:, :, :, None], phis.shape[1], axis=3)
+        mean, width, right, prof = [], [], [], {}
+        for t in range(T + 1):
+            if t > 0: q = line.sector_tick(q, TH, phis, t - 1, frame)
+            if keep or t == T:
+                rho, mu, sd, pr, rho_b = line.observables(q)
+                mean.append(mu); width.append(sd); right.append(pr)
+                if t in (0, 20, 40, 60): prof[str(t)] = rho[perm].tolist()
+        disp_b = np.sum(rho_b * xs[:, None], axis=0) - mu0
+        row = {'sectors': int(phis.shape[1]), 'seed': None if kind is None else 21,
+               'final_displacement': mean[-1] - mu0, 'final_width': width[-1], 'final_P_right_handed': right[-1]}
+        if kind is not None:
+            row['final_displacement_standard_error'] = float(np.std(disp_b) / np.sqrt(n))
+            row['amplitude_with_register_unchanged_norm'] = float(np.linalg.norm(q.mean(axis=3)))
+        if keep: row.update({'mean_position': mean, 'width': width, 'P_right_handed': right, 'P_left_handed': [1 - r for r in right], 'density': prof})
+        return row
+    runs = {'common_phase': ('one sector: every cell in the eigenstate of B with phase 0 (Higgs bit: X_h = +1 on every cell); exact, the register is unchanged', None),
+            'number_states_bit': ('Higgs bit of every cell in a number state h_x (the register of the Gauss test): uniform average over the 2^256 sign fields phi in {0, pi}, sampled', 'bit'),
+            'number_states_integer_counter': ('integer counter of every cell in a number state (R8 headline 16.5): uniform average over phase fields phi in [0, 2 pi), sampled', 'counter')}
+    R8 = {'common_phase': 52.14023736409772, 'number_states_integer_counter': 16.46109124573425, 'number_states_bit': 15.057710439470434}
+    var_half, var_end = {}, {}
+    for name, (desc, kind) in runs.items():
+        out[name] = dict(register_state=desc, **run(q_half, kind, NS, 'half', True))
+        var_half[name] = run(q0, kind, 500, 'half', False)
+        var_end[name] = run(q0, kind, 500, 'end', False)
+        var_end[name]['R8_displacement'] = R8[name]; var_end[name]['difference_to_R8'] = abs(var_end[name]['final_displacement'] - R8[name])
+        print(name, 'primary', round(out[name]['final_displacement'], 4), round(out[name]['final_width'], 3), out[name].get('final_displacement_standard_error'),
+              '| no frame map', round(var_half[name]['final_displacement'], 4), round(var_half[name]['final_width'], 3),
+              '| R8 frame', round(var_end[name]['final_displacement'], 6), var_end[name]['difference_to_R8'], flush=True)
+    out['variant_half_step_without_frame_map_500_sectors'] = var_half
+    out['R8_frame_reproduction_500_sectors'] = var_end
+    # exactness of the sector organisation on small lines: joint quantum x register (number basis, reachable
+    # configurations) against the enumeration of all phase fields, half-step frame
+    rng = np.random.default_rng(3); chk = {}
+    for label, L, T_, m_joint, m_avg in (('bit_L6_T6', 6, 6, 2, 2), ('integer_counter_L3_T3', 3, 3, None, 13), ('cyclic_counter_m3_L4_T4', 4, 4, 3, 3)):
+        ln = RegisterLine(L); q = rng.normal(size=(L, 1, 1, 2, 2)) + 1j * rng.normal(size=(L, 1, 1, 2, 2)); q /= np.linalg.norm(q)
+        J = ln.joint_run(q, TH, T_, m=m_joint, frame='half')
+        chk[label] = {'reachable_register_configurations': len(J), 'phase_fields': m_avg ** L,
+                      'reduced_state_difference': float(np.abs(ln.reduced(J) - ln.sector_average(q, TH, T_, m=m_avg, frame='half')).max())}
+    # common phase of the joint run: register in the eigenstate of B with phase 0 stays a product (bit, L = 6)
+    ln = RegisterLine(6); q = rng.normal(size=(6, 1, 1, 2, 2)) + 1j * rng.normal(size=(6, 1, 1, 2, 2)); q /= np.linalg.norm(q)
+    plus = {}
+    J = ln.joint_run(q / 8, TH, 4, m=2, frame='half')       # |+>^6 = sum over the 64 number states h / 8; offsets relative to h
+    for h in itertools.product((0, 1), repeat=6):
+        for k, v in J.items():
+            kk = tuple((a + b) % 2 for a, b in zip(k, h)); plus[kk] = plus.get(kk, 0) + v
+    qs = np.repeat(q[:, :, :, None], 1, axis=3)
+    for t in range(4): qs = ln.sector_tick(qs, TH, np.zeros((6, 1)), t, 'half')
+    chk['common_phase_bit_L6_T4_product_defect'] = float(max(np.abs(v - qs[:, :, :, 0] / 8).max() for v in plus.values()))
+    out['checks_of_the_sector_organisation'] = chk
+    print('checks', chk, flush=True)
+    out['seconds'] = time.time() - t_start
+    json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, 'runs', 'R8_register_line.json'), 'w'))

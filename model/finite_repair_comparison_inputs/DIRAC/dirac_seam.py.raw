@@ -1,0 +1,84 @@
+"""The Dirac routing shift as a seam involution of the public type times a reflection of the record.
+
+Registers: cell x on a periodic cubic lattice (the carriers of the cubic family), repair record r in {0, 1},
+spin doublet with three anticommuting involutions sigma_i (the frame lifts of lead L28).
+Public reflector for an oriented pair (a -> b):  v = (a0 - b0 - a1 - b1)/sqrt2,  U(a -> b) = 1 - v v^T
+(model/coherent_seam_repair/walk.py), with the two carriers in the place of the two ports.
+
+Claims checked here (float64 on a 4 x 4 x 4 lattice, 256 dimensions):
+  1. Q_i = sum over links [P(sigma_i = +) U(x -> x + e_i) + P(sigma_i = -) U(x + e_i -> x)] is an involution;
+  2. S_i = Q_i R with R = 2|blank><blank| - 1 on the record equals P_i^+ T_i + P_i^- T_i^*, alpha_i = X_r sigma_i;
+  3. the tick S_3 S_2 S_1 has the symbol exp(-i p_3 alpha_3) exp(-i p_2 alpha_2) exp(-i p_1 alpha_1);
+  4. with the mass rotation exp(-i theta Z_r) (or Y_r) the phases follow cos-type Dirac dispersion.
+"""
+import itertools, json, sys
+import numpy as np
+from scipy.linalg import expm
+
+L = 4
+sig = [np.array([[0, 1], [1, 0]], complex), np.array([[0, -1j], [1j, 0]]), np.diag([1.0, -1.0]).astype(complex)]
+X = sig[0]; Y = sig[1]; Z = sig[2]; I2 = np.eye(2)
+cells = list(itertools.product(range(L), repeat=3))
+cidx = {c: i for i, c in enumerate(cells)}
+N = len(cells)
+def shift(i):
+    T = np.zeros((N, N))
+    for c in cells:
+        d = list(c); d[i] = (d[i] + 1) % L
+        T[cidx[tuple(d)], cidx[c]] = 1
+    return T
+def kron(*ms):
+    out = np.array([[1.0 + 0j]])
+    for m in ms: out = np.kron(out, m)
+    return out
+# ordering: cell x record x spin
+alpha = [kron(np.eye(N), X, s) for s in sig]
+R = kron(np.eye(N), 2 * np.diag([1.0, 0.0]) - np.eye(2), I2)          # reflection about the blank record
+out = {'lattice': [L, L, L], 'dimension': 4 * N, 'defects': {}}
+S = []
+for i in range(3):
+    T = shift(i)
+    Pp = (np.eye(4 * N) + alpha[i]) / 2; Pm = (np.eye(4 * N) - alpha[i]) / 2
+    Si = Pp @ kron(T, I2, I2) + Pm @ kron(T.T, I2, I2)
+    # seam involution of the public type between carriers, orientation chosen by the spin along axis i
+    Q = np.eye(4 * N, dtype=complex)
+    for sgn in (+1, -1):
+        w, v = np.linalg.eigh(sig[i]); spin_state = v[:, np.argmin(np.abs(w - sgn))]
+        for c in cells:
+            d = list(c); d[i] = (d[i] + 1) % L; d = tuple(d)
+            a, b = (c, d) if sgn > 0 else (d, c)                # oriented pair a -> b
+            vec = np.zeros((N, 2), complex)
+            vec[cidx[a], 0] = 1; vec[cidx[b], 0] = -1; vec[cidx[a], 1] = -1; vec[cidx[b], 1] = -1
+            vec = np.kron(vec.reshape(-1) / np.sqrt(2), spin_state)
+            Q -= np.outer(vec, vec.conj())
+    out['defects'][f'Q_{i}_involution'] = float(np.abs(Q @ Q - np.eye(4 * N)).max())
+    out['defects'][f'S_{i}_equals_Q_R'] = float(np.abs(Q @ R - Si).max())
+    out['defects'][f'S_{i}_unitary'] = float(np.abs(Si.conj().T @ Si - np.eye(4 * N)).max())
+    S.append(Si)
+D0 = S[2] @ S[1] @ S[0]
+# symbol check at the lattice momenta
+worst = 0
+a4 = [np.kron(X, s) for s in sig]
+for n in itertools.product(range(L), repeat=3):
+    p = 2 * np.pi * np.array(n) / L
+    sym = expm(-1j * p[2] * a4[2]) @ expm(-1j * p[1] * a4[1]) @ expm(-1j * p[0] * a4[0])
+    plane = np.array([np.exp(1j * (p @ np.array(c))) for c in cells]) / np.sqrt(N)
+    for col in range(4):
+        e = np.zeros(4, complex); e[col] = 1
+        psi = np.kron(plane, e)
+        worst = max(worst, np.abs(D0 @ psi - np.kron(plane, sym @ e)).max())
+out['defects']['tick_against_symbol'] = float(worst)
+for k, v in out['defects'].items(): print(f'{k}: {v:.2e}')
+# dispersion with a mass rotation: phases of exp(-i theta beta) * symbol against sqrt(p^2 + theta^2)
+rows = []
+for beta_name, beta in (('Z_r', np.kron(Z, I2)), ('Y_r', np.kron(Y, I2))):
+    for theta in (0.0, 0.157935, 0.215043):
+        for pvec in ((0.0, 0.0, 0.0), (0.1, 0.0, 0.0), (0.1, 0.1, 0.1), (0.2, -0.1, 0.15)):
+            p = np.array(pvec)
+            sym = expm(-1j * theta * beta) @ expm(-1j * p[2] * a4[2]) @ expm(-1j * p[1] * a4[1]) @ expm(-1j * p[0] * a4[0])
+            ph = np.sort(np.abs(np.angle(np.linalg.eigvals(sym))))
+            rows.append({'beta': beta_name, 'theta': theta, 'p': list(pvec), 'walk_phases': [round(float(x), 6) for x in ph],
+                         'sqrt_p2_theta2': round(float(np.sqrt(p @ p + theta ** 2)), 6)})
+out['dispersion'] = rows
+for r in rows[:12]: print(r)
+if len(sys.argv) > 1: json.dump(out, open(sys.argv[1], 'w'), indent=1)

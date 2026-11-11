@@ -1,0 +1,193 @@
+{
+ "A_frame_stabilizer_in_the_cover_exact": [
+  {
+   "frame": 0,
+   "stabilizer_in_cover": 24,
+   "components_rational": true,
+   "equals_the_24_Hurwitz_units": true
+  },
+  {
+   "frame": 1,
+   "stabilizer_in_cover": 24,
+   "components_rational": true,
+   "equals_the_24_Hurwitz_units": true
+  },
+  {
+   "frame": 2,
+   "stabilizer_in_cover": 24,
+   "components_rational": true,
+   "equals_the_24_Hurwitz_units": true
+  },
+  {
+   "frame": 3,
+   "stabilizer_in_cover": 24,
+   "components_rational": true,
+   "equals_the_24_Hurwitz_units": true
+  },
+  {
+   "frame": 4,
+   "stabilizer_in_cover": 24,
+   "components_rational": true,
+   "equals_the_24_Hurwitz_units": true
+  }
+ ],
+ "B_group_law_of_the_24_lattice_operators_exact": true,
+ "B_central_element_is_minus_one_exact": true,
+ "B_invariance_table_by_class": [
+  {
+   "order_of_element": 1,
+   "axes_1_2_3_go_to": [
+    1,
+    2,
+    3
+   ],
+   "elements": 1,
+   "substeps_covariant_exact": true,
+   "fixes_forward_tick": true,
+   "fixes_reverse_tick": true,
+   "fixes_two_tick_product": true,
+   "fixes_two_tick_product_with_mass": true,
+   "forward_tick_goes_to_S1.fwd.S1^-1": false,
+   "forward_tick_goes_to_S3^-1.fwd.S3": false,
+   "forward_tick_goes_to_reverse_tick": false,
+   "two_tick_product_goes_to_a_substep_shift_of_itself": true
+  },
+  {
+   "order_of_element": 2,
+   "axes_1_2_3_go_to": [
+    1,
+    2,
+    3
+   ],
+   "elements": 1,
+   "substeps_covariant_exact": true,
+   "fixes_forward_tick": true,
+   "fixes_reverse_tick": true,
+   "fixes_two_tick_product": true,
+   "fixes_two_tick_product_with_mass": true,
+   "forward_tick_goes_to_S1.fwd.S1^-1": false,
+   "forward_tick_goes_to_S3^-1.fwd.S3": false,
+   "forward_tick_goes_to_reverse_tick": false,
+   "two_tick_product_goes_to_a_substep_shift_of_itself": true
+  },
+  {
+   "order_of_element": 3,
+   "axes_1_2_3_go_to": [
+    2,
+    3,
+    1
+   ],
+   "elements": 4,
+   "substeps_covariant_exact": true,
+   "fixes_forward_tick": false,
+   "fixes_reverse_tick": false,
+   "fixes_two_tick_product": false,
+   "fixes_two_tick_product_with_mass": false,
+   "forward_tick_goes_to_S1.fwd.S1^-1": true,
+   "forward_tick_goes_to_S3^-1.fwd.S3": false,
+   "forward_tick_goes_to_reverse_tick": false,
+   "two_tick_product_goes_to_a_substep_shift_of_itself": false
+  },
+  {
+   "order_of_element": 3,
+   "axes_1_2_3_go_to": [
+    3,
+    1,
+    2
+   ],
+   "elements": 4,
+   "substeps_covariant_exact": true,
+   "fixes_forward_tick": false,
+   "fixes_reverse_tick": false,
+   "fixes_two_tick_product": false,
+   "fixes_two_tick_product_with_mass": false,
+   "forward_tick_goes_to_S1.fwd.S1^-1": false,
+   "forward_tick_goes_to_S3^-1.fwd.S3": true,
+   "forward_tick_goes_to_reverse_tick": false,
+   "two_tick_product_goes_to_a_substep_shift_of_itself": false
+  },
+  {
+   "order_of_element": 4,
+   "axes_1_2_3_go_to": [
+    1,
+    2,
+    3
+   ],
+   "elements": 6,
+   "substeps_covariant_exact": true,
+   "fixes_forward_tick": true,
+   "fixes_reverse_tick": true,
+   "fixes_two_tick_product": true,
+   "fixes_two_tick_product_with_mass": true,
+   "forward_tick_goes_to_S1.fwd.S1^-1": false,
+   "forward_tick_goes_to_S3^-1.fwd.S3": false,
+   "forward_tick_goes_to_reverse_tick": false,
+   "two_tick_product_goes_to_a_substep_shift_of_itself": true
+  },
+  {
+   "order_of_element": 6,
+   "axes_1_2_3_go_to": [
+    2,
+    3,
+    1
+   ],
+   "elements": 4,
+   "substeps_covariant_exact": true,
+   "fixes_forward_tick": false,
+   "fixes_reverse_tick": false,
+   "fixes_two_tick_product": false,
+   "fixes_two_tick_product_with_mass": false,
+   "forward_tick_goes_to_S1.fwd.S1^-1": true,
+   "forward_tick_goes_to_S3^-1.fwd.S3": false,
+   "forward_tick_goes_to_reverse_tick": false,
+   "two_tick_product_goes_to_a_substep_shift_of_itself": false
+  },
+  {
+   "order_of_element": 6,
+   "axes_1_2_3_go_to": [
+    3,
+    1,
+    2
+   ],
+   "elements": 4,
+   "substeps_covariant_exact": true,
+   "fixes_forward_tick": false,
+   "fixes_reverse_tick": false,
+   "fixes_two_tick_product": false,
+   "fixes_two_tick_product_with_mass": false,
+   "forward_tick_goes_to_S1.fwd.S1^-1": false,
+   "forward_tick_goes_to_S3^-1.fwd.S3": true,
+   "forward_tick_goes_to_reverse_tick": false,
+   "two_tick_product_goes_to_a_substep_shift_of_itself": false
+  }
+ ],
+ "B_elements_fixing_forward_tick": 8,
+ "B_elements_fixing_two_tick_product": 8,
+ "B_elements_fixing_two_tick_product_with_mass": 8,
+ "B_commutator_norm_of_a_third_of_a_turn_with_the_two_tick_product": 1.8371173070873847,
+ "B_screw_S1^-1.g_commutes_with_forward_tick_exact": true,
+ "B_screw_cubed_equals_minus_inverse_forward_tick_exact": true,
+ "B_screw_commutes_with_two_tick_product": false,
+ "B_words_of_up_to_4_substeps_conjugating_the_two_alternating_products": 0,
+ "B_two_tick_eigenphases_massless_same_for_both_middle_axes_defect": 2.220446049250313e-16,
+ "B_two_tick_eigenphases_with_mass_same_for_both_middle_axes_defect": 0.0,
+ "B_two_tick_eigenphases_with_mass": [
+  -1.62833753107749,
+  -1.62833753107749,
+  1.62833753107749,
+  1.6283375310774901
+ ],
+ "C_rest_doublet": {
+  "character_values": [
+   -2.0,
+   -1.0,
+   0.0,
+   1.0,
+   2.0
+  ],
+  "norm_of_character_over_the_24": 1.0,
+  "norm_over_the_quaternion_group": 1.0,
+  "statement": "at p = 0 every sub-step is the identity, so all 24 elements commute with the tick there; the positive rest branch (Y_r = +1 with mass) is the two-dimensional faithful representation, irreducible already under the eight elements that are symmetries of the alternating product"
+ },
+ "C_patterns_with_centre_minus_one_if_the_cover_also_acts_on_the_code_levels": 16
+}

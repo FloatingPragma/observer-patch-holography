@@ -1,0 +1,48 @@
+"""Batched 4 x 4 symbols of the CF-1 free tick (worker R3), built from the matrices of the reference engine
+work/DIRAC/routing.py (imported by path, unchanged). p: (..., 3); th: (...)."""
+import importlib.util, os
+import numpy as np
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+RL = os.path.dirname(os.path.dirname(HERE))
+_spec = importlib.util.spec_from_file_location('routing', os.path.join(RL, 'work', 'DIRAC', 'routing.py'))
+routing = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(routing)
+Routing, SIG, I2 = routing.Routing, routing.SIG, routing.I2
+
+AL = [np.kron(SIG[0], SIG[i]) for i in range(3)]                  # alpha_i = X_r sigma_i
+BE = {'Y': np.kron(SIG[1], I2), 'Z': np.kron(SIG[2], I2)}         # beta = Y_r (M1) or Z_r (M2)
+ONE = np.eye(4, dtype=complex)
+
+
+def Efac(x, i):
+    x = np.asarray(x, float)[..., None, None]
+    return np.cos(x) * ONE - 1j * np.sin(x) * AL[i]
+
+
+def Mfac(th, kind='Y'):
+    th = np.asarray(th, float)[..., None, None]
+    return np.cos(th) * ONE - 1j * np.sin(th) * BE[kind]
+
+
+def dag(a): return np.conj(np.swapaxes(a, -1, -2))
+def D_fwd(p, th, kind='Y'): return Mfac(th, kind) @ Efac(p[..., 2], 2) @ Efac(p[..., 1], 1) @ Efac(p[..., 0], 0)
+def D_rev(p, th, kind='Y'): return Mfac(th, kind) @ Efac(p[..., 0], 0) @ Efac(p[..., 1], 1) @ Efac(p[..., 2], 2)
+def W2(p, th, kind='Y'): return D_rev(p, th, kind) @ D_fwd(p, th, kind)
+
+
+def What(p, th, kind='Y'):
+    """half-step frame: M^(-1/2) W2 M^(1/2)"""
+    Mh = Mfac(np.asarray(th, float) / 2, kind)
+    return dag(Mh) @ W2(p, th, kind) @ Mh
+
+
+def expH(p, th, t, kind='Y'):
+    """exp(-i t H), H = alpha.p + theta beta"""
+    th = np.broadcast_to(np.asarray(th, float), p.shape[:-1])
+    E = np.sqrt(np.sum(p * p, -1) + th * th)
+    H = sum(p[..., i, None, None] * AL[i] for i in range(3)) + th[..., None, None] * BE[kind]
+    sinc = np.where(E > 0, np.sin(t * E) / np.where(E > 0, E, 1.0), t)
+    return np.cos(t * E)[..., None, None] * ONE - 1j * sinc[..., None, None] * H
+
+
+def opnorm(a): return np.linalg.norm(a, 2, axis=(-2, -1))

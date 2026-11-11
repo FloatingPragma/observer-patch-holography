@@ -1,0 +1,1384 @@
+{
+ "vacuum": [
+  {
+   "shape": [
+    4,
+    1,
+    1
+   ],
+   "eps": 0.0,
+   "kappa": 0.2,
+   "sector_dimension": 2,
+   "flat_holonomy_classes": 2,
+   "unitarity": 0.0,
+   "flat_trivial_holonomy_defect_against_phase": 0.0,
+   "one_tick_survival_flat_trivial_holonomy": 1.0,
+   "one_tick_survival_flat_symmetric": 0.9999999999999996,
+   "largest_weight_of_flat_symmetric_on_one_eigenphase": 0.9999999999999998,
+   "that_eigenphase": 0.0,
+   "its_multiplicity": 2
+  },
+  {
+   "shape": [
+    4,
+    1,
+    1
+   ],
+   "eps": 0.3,
+   "kappa": 0.2,
+   "sector_dimension": 2,
+   "flat_holonomy_classes": 2,
+   "unitarity": 2.220446049250313e-16,
+   "flat_trivial_holonomy_defect_against_phase": 0.9320390859672263,
+   "one_tick_survival_flat_trivial_holonomy": 0.1313031422293771,
+   "one_tick_survival_flat_symmetric": 0.9999999999999993,
+   "largest_weight_of_flat_symmetric_on_one_eigenphase": 0.9999999999999998,
+   "that_eigenphase": -1.2000000000000002,
+   "its_multiplicity": 1
+  },
+  {
+   "shape": [
+    6,
+    1,
+    1
+   ],
+   "eps": 0.0,
+   "kappa": 0.2,
+   "sector_dimension": 2,
+   "flat_holonomy_classes": 2,
+   "unitarity": 0.0,
+   "flat_trivial_holonomy_defect_against_phase": 0.0,
+   "one_tick_survival_flat_trivial_holonomy": 1.0,
+   "one_tick_survival_flat_symmetric": 0.9999999999999996,
+   "largest_weight_of_flat_symmetric_on_one_eigenphase": 0.9999999999999998,
+   "that_eigenphase": 0.0,
+   "its_multiplicity": 2
+  },
+  {
+   "shape": [
+    6,
+    1,
+    1
+   ],
+   "eps": 0.3,
+   "kappa": 0.2,
+   "sector_dimension": 2,
+   "flat_holonomy_classes": 2,
+   "unitarity": 9.992007221626409e-16,
+   "flat_trivial_holonomy_defect_against_phase": 1.227202094693087,
+   "one_tick_survival_flat_trivial_holonomy": 0.05162079183292647,
+   "one_tick_survival_flat_symmetric": 0.9999999999999987,
+   "largest_weight_of_flat_symmetric_on_one_eigenphase": 1.0,
+   "that_eigenphase": -1.8,
+   "its_multiplicity": 1
+  },
+  {
+   "shape": [
+    2,
+    2,
+    1
+   ],
+   "eps": 0.0,
+   "kappa": 0.2,
+   "sector_dimension": 32,
+   "flat_holonomy_classes": 4,
+   "unitarity": 2.372661450000529e-17,
+   "flat_trivial_holonomy_defect_against_phase": 0.0,
+   "one_tick_survival_flat_trivial_holonomy": 1.0,
+   "one_tick_survival_flat_symmetric": 1.0,
+   "largest_weight_of_flat_symmetric_on_one_eigenphase": 1.0,
+   "that_eigenphase": -0.8,
+   "its_multiplicity": 4
+  },
+  {
+   "shape": [
+    2,
+    2,
+    1
+   ],
+   "eps": 0.3,
+   "kappa": 0.2,
+   "sector_dimension": 32,
+   "flat_holonomy_classes": 4,
+   "unitarity": 4.684685283547145e-16,
+   "flat_trivial_holonomy_defect_against_phase": 0.2679976686021595,
+   "one_tick_survival_flat_trivial_holonomy": 0.535827413171874,
+   "one_tick_survival_flat_symmetric": 0.3199616999045157,
+   "largest_weight_of_flat_symmetric_on_one_eigenphase": 0.6901994100907649,
+   "that_eigenphase": -0.5543710017384239,
+   "its_multiplicity": 1
+  },
+  {
+   "shape": [
+    3,
+    2,
+    1
+   ],
+   "eps": 0.0,
+   "kappa": 0.2,
+   "sector_dimension": 128,
+   "flat_holonomy_classes": 4,
+   "unitarity": 2.1285471334023225e-17,
+   "flat_trivial_holonomy_defect_against_phase": 0.0,
+   "one_tick_survival_flat_trivial_holonomy": 1.0,
+   "one_tick_survival_flat_symmetric": 1.0,
+   "largest_weight_of_flat_symmetric_on_one_eigenphase": 1.0,
+   "that_eigenphase": -1.2000000000000002,
+   "its_multiplicity": 4
+  },
+  {
+   "shape": [
+    3,
+    2,
+    1
+   ],
+   "eps": 0.3,
+   "kappa": 0.2,
+   "sector_dimension": 128,
+   "flat_holonomy_classes": 4,
+   "unitarity": 1.1208933931475023e-15,
+   "flat_trivial_holonomy_defect_against_phase": 0.38074857793599415,
+   "one_tick_survival_flat_trivial_holonomy": 0.38347232372829354,
+   "one_tick_survival_flat_symmetric": 0.2294984586436449,
+   "largest_weight_of_flat_symmetric_on_one_eigenphase": 0.5236188659018878,
+   "that_eigenphase": -1.6645501950510317,
+   "its_multiplicity": 1
+  }
+ ],
+ "sea": {
+  "3x3x3_theta_0.157935": {
+   "modes": 108,
+   "filled_modes": 54.0,
+   "undecided_modes_at_phase_0_or_pi": 0,
+   "two_tick_stationarity_defect": 1.1661384294055161e-15,
+   "one_tick_defect_max_entry": 0.2487509965623448,
+   "quanta_outside_the_filled_branch_after_one_tick": 24.108589249124314,
+   "cell_charge_parity_expectation": 0.0012041139546545823,
+   "forward_and_reverse_tick_differ": 0.3491531253251591,
+   "V_U2_Vdagger_equals_U2_inverse": 5.598187827739415e-17,
+   "V_maps_positive_branch_to_negative": 3.8896859138458366e-16
+  },
+  "3x3x3_theta_0.0": {
+   "modes": 108,
+   "filled_modes": 52.0,
+   "undecided_modes_at_phase_0_or_pi": 4,
+   "two_tick_stationarity_defect": 8.88305594182758e-16,
+   "one_tick_defect_max_entry": 0.25612469827793616,
+   "quanta_outside_the_filled_branch_after_one_tick": 25.028571428571425,
+   "cell_charge_parity_expectation": 1.8816764231588937e-06,
+   "forward_and_reverse_tick_differ": 0.3535533905932737,
+   "V_U2_Vdagger_equals_U2_inverse": 8.326672684688674e-17,
+   "V_maps_positive_branch_to_negative": 6.128526725099648e-16
+  },
+  "4x4x4_theta_0.157935": {
+   "modes": 256,
+   "filled_modes": 64.0,
+   "undecided_modes_at_phase_0_or_pi": 128,
+   "two_tick_stationarity_defect": 1.054920786270035e-15,
+   "one_tick_defect_max_entry": 1.1379861874899565e-15,
+   "quanta_outside_the_filled_branch_after_one_tick": -7.230327447871332e-15,
+   "cell_charge_parity_expectation": 2.804443147606442e-31,
+   "forward_and_reverse_tick_differ": 0.3491531253251591
+  },
+  "4x4x4_theta_0.0": {
+   "modes": 256,
+   "filled_modes": 0.0,
+   "undecided_modes_at_phase_0_or_pi": 256,
+   "two_tick_stationarity_defect": 0.0,
+   "one_tick_defect_max_entry": 0.0,
+   "quanta_outside_the_filled_branch_after_one_tick": 0.0,
+   "cell_charge_parity_expectation": 1.0,
+   "forward_and_reverse_tick_differ": 0.3535533905932737
+  },
+  "8x1x1_theta_0.157935": {
+   "modes": 32,
+   "filled_modes": 12.0,
+   "undecided_modes_at_phase_0_or_pi": 8,
+   "two_tick_stationarity_defect": 9.436899952087266e-16,
+   "one_tick_defect_max_entry": 6.66218361197016e-16,
+   "quanta_outside_the_filled_branch_after_one_tick": -6.106226635438361e-16,
+   "cell_charge_parity_expectation": 0.002013966242341175,
+   "forward_and_reverse_tick_differ": 1.7930375064288823e-17
+  },
+  "5x5x1_theta_0.157935": {
+   "modes": 100,
+   "filled_modes": 50.000000000000014,
+   "undecided_modes_at_phase_0_or_pi": 0,
+   "two_tick_stationarity_defect": 1.2215641607846536e-15,
+   "one_tick_defect_max_entry": 0.2625002995299664,
+   "quanta_outside_the_filled_branch_after_one_tick": 21.90482163655934,
+   "cell_charge_parity_expectation": 0.001602445170678016,
+   "forward_and_reverse_tick_differ": 0.4937770851797929
+  }
+ },
+ "filter": {
+  "instance": "ring of 6, one charged quantum, background charge at cell 0, eps 0.3, kappa 0.2, theta 0.157935",
+  "input": "links all +1, quantum at cell 3 with blank record and spin up, projected on the Gauss sector",
+  "probability_of_this_Gauss_outcome": 0.031249999999999993,
+  "outcomes": [
+   {
+    "filter": "success",
+    "probability": 0.5464817202110566,
+    "record_written_after_one_tick": 0.22993657096475273,
+    "record_blank_after_one_tick": 0.31654514924630384
+   },
+   {
+    "filter": "failure",
+    "probability": 0.4535182797889427,
+    "record_written_after_one_tick": 0.11360242745749308,
+    "record_blank_after_one_tick": 0.3399158523314496
+   }
+  ],
+  "total_probability": 0.9999999999999993
+ },
+ "herald": [
+  {
+   "shape": [
+    4,
+    1,
+    1
+   ],
+   "quanta": 0,
+   "eps": 0.0,
+   "kappa": 0.0,
+   "theta": 0.157935,
+   "sector_dimension": 2,
+   "background_charge_at_cells": [],
+   "tr_one_tick": [
+    2.0,
+    0.0
+   ],
+   "tr_period": [
+    2.0,
+    0.0
+   ],
+   "filter_with_one_tick": {
+    "Z": 4.5,
+    "p_success": 1.0,
+    "p_failure": 0.0,
+    "lambda_min_lower_bound": 0.05555555555555555
+   },
+   "filter_with_period": {
+    "Z": 4.5,
+    "p_success": 1.0,
+    "p_failure": 0.0,
+    "lambda_min_lower_bound": 0.05555555555555555
+   },
+   "dense": {
+    "unitarity": 0.0,
+    "trace_formula_against_dense": 0.0,
+    "trace_rho": 1.0,
+    "stationarity_under_the_period": 0.0,
+    "trace_distance_between_even_and_odd_tick_states": 0.0,
+    "lambda_min": 0.5,
+    "kraus_completeness": 0.0
+   }
+  },
+  {
+   "shape": [
+    4,
+    1,
+    1
+   ],
+   "quanta": 0,
+   "eps": 0.3,
+   "kappa": 0.2,
+   "theta": 0.157935,
+   "sector_dimension": 2,
+   "background_charge_at_cells": [],
+   "tr_one_tick": [
+    0.7247155089533468,
+    0.0
+   ],
+   "tr_period": [
+    -1.474787431082491,
+    0.0
+   ],
+   "filter_with_one_tick": {
+    "Z": 3.224715508953347,
+    "p_success": 0.716603446434077,
+    "p_failure": 0.28339655356592297,
+    "lambda_min_lower_bound": 0.0775262187643781
+   },
+   "filter_with_period": {
+    "Z": 1.025212568917509,
+    "p_success": 0.227825015315002,
+    "p_failure": 0.772174984684998,
+    "lambda_min_lower_bound": 0.2438518679730658
+   },
+   "dense": {
+    "unitarity": 2.220446049250313e-16,
+    "trace_formula_against_dense": 0.0,
+    "trace_rho": 1.0,
+    "stationarity_under_the_period": 2.7755575615628914e-16,
+    "trace_distance_between_even_and_odd_tick_states": 1.1102230246251565e-16,
+    "lambda_min": 0.5,
+    "kraus_completeness": 2.220446049250313e-16
+   }
+  },
+  {
+   "shape": [
+    4,
+    1,
+    1
+   ],
+   "quanta": 1,
+   "eps": 0.0,
+   "kappa": 0.0,
+   "theta": 0.157935,
+   "sector_dimension": 32,
+   "background_charge_at_cells": [
+    0
+   ],
+   "tr_one_tick": [
+    0.0,
+    0.0
+   ],
+   "tr_period": [
+    -0.791576339372466,
+    0.0
+   ],
+   "filter_with_one_tick": {
+    "Z": 40.0,
+    "p_success": 0.5555555555555556,
+    "p_failure": 0.4444444444444444,
+    "lambda_min_lower_bound": 0.00625
+   },
+   "filter_with_period": {
+    "Z": 39.20842366062753,
+    "p_success": 0.544561439730938,
+    "p_failure": 0.45543856026906204,
+    "lambda_min_lower_bound": 0.006376180847358217
+   },
+   "dense": {
+    "unitarity": 8.881784197001252e-16,
+    "trace_formula_against_dense": 4.440892098500626e-16,
+    "trace_rho": 1.0,
+    "stationarity_under_the_period": 5.898059818321144e-17,
+    "trace_distance_between_even_and_odd_tick_states": 4.2500725161431774e-16,
+    "lambda_min": 0.006376180847358222,
+    "kraus_completeness": 6.661338147750939e-16
+   }
+  },
+  {
+   "shape": [
+    4,
+    1,
+    1
+   ],
+   "quanta": 1,
+   "eps": 0.3,
+   "kappa": 0.2,
+   "theta": 0.157935,
+   "sector_dimension": 32,
+   "background_charge_at_cells": [
+    0
+   ],
+   "tr_one_tick": [
+    0.0,
+    0.0
+   ],
+   "tr_period": [
+    -0.23673417119450832,
+    0.0
+   ],
+   "filter_with_one_tick": {
+    "Z": 40.0,
+    "p_success": 0.5555555555555556,
+    "p_failure": 0.4444444444444444,
+    "lambda_min_lower_bound": 0.00625
+   },
+   "filter_with_period": {
+    "Z": 39.763265828805494,
+    "p_success": 0.5522675809556319,
+    "p_failure": 0.4477324190443681,
+    "lambda_min_lower_bound": 0.006287209935832127
+   },
+   "dense": {
+    "unitarity": 1.3322676295501878e-15,
+    "trace_formula_against_dense": 8.326672684688674e-17,
+    "trace_rho": 1.0,
+    "stationarity_under_the_period": 8.673617379884035e-17,
+    "trace_distance_between_even_and_odd_tick_states": 6.084929696473999e-16,
+    "lambda_min": 0.006328406246715249,
+    "kraus_completeness": 1.1102230246251565e-15
+   }
+  },
+  {
+   "shape": [
+    4,
+    1,
+    1
+   ],
+   "quanta": 2,
+   "eps": 0.0,
+   "kappa": 0.0,
+   "theta": 0.157935,
+   "sector_dimension": 240,
+   "background_charge_at_cells": [],
+   "tr_one_tick": [
+    0.3957881696862333,
+    -3.0814879110195774e-33
+   ],
+   "tr_period": [
+    0.9188530630240983,
+    2.4230352056144844e-34
+   ],
+   "filter_with_one_tick": {
+    "Z": 300.3957881696862,
+    "p_success": 0.55628849661053,
+    "p_failure": 0.44371150338946996,
+    "lambda_min_lower_bound": 0.0008322353702868202
+   },
+   "filter_with_period": {
+    "Z": 300.9188530630241,
+    "p_success": 0.5572571353018965,
+    "p_failure": 0.44274286469810353,
+    "lambda_min_lower_bound": 0.0008307887573519374
+   },
+   "dense": {
+    "unitarity": 2.7755575615628914e-15,
+    "trace_formula_against_dense": 2.6645352591003757e-14,
+    "trace_rho": 1.0000000000000004,
+    "stationarity_under_the_period": 2.688821387764051e-17,
+    "trace_distance_between_even_and_odd_tick_states": 8.992403933441657e-16,
+    "lambda_min": 0.0008348556831627985,
+    "kraus_completeness": 1.5543122344752192e-15
+   }
+  },
+  {
+   "shape": [
+    4,
+    1,
+    1
+   ],
+   "quanta": 2,
+   "eps": 0.3,
+   "kappa": 0.2,
+   "theta": 0.157935,
+   "sector_dimension": 240,
+   "background_charge_at_cells": [],
+   "tr_one_tick": [
+    0.32665807240196276,
+    -7.703719777548943e-34
+   ],
+   "tr_period": [
+    0.3471577864232547,
+    2.5688488194359894e-33
+   ],
+   "filter_with_one_tick": {
+    "Z": 300.326658072402,
+    "p_success": 0.5561604779118555,
+    "p_failure": 0.4438395220881445,
+    "lambda_min_lower_bound": 0.0008324269367380988
+   },
+   "filter_with_period": {
+    "Z": 300.3471577864233,
+    "p_success": 0.5561984403452283,
+    "p_failure": 0.44380155965477175,
+    "lambda_min_lower_bound": 0.0008323701207712938
+   },
+   "dense": {
+    "unitarity": 2.220446049250313e-15,
+    "trace_formula_against_dense": 2.3092638912203256e-14,
+    "trace_rho": 0.9999999999999998,
+    "stationarity_under_the_period": 2.42861286636753e-17,
+    "trace_distance_between_even_and_odd_tick_states": 1.0359460273031925e-15,
+    "lambda_min": 0.0008342904537853996,
+    "kraus_completeness": 1.5543122344752192e-15
+   }
+  },
+  {
+   "shape": [
+    6,
+    1,
+    1
+   ],
+   "quanta": 0,
+   "eps": 0.0,
+   "kappa": 0.0,
+   "theta": 0.157935,
+   "sector_dimension": 2,
+   "background_charge_at_cells": [],
+   "tr_one_tick": [
+    2.0,
+    0.0
+   ],
+   "tr_period": [
+    2.0,
+    0.0
+   ],
+   "filter_with_one_tick": {
+    "Z": 4.5,
+    "p_success": 1.0,
+    "p_failure": 0.0,
+    "lambda_min_lower_bound": 0.05555555555555555
+   },
+   "filter_with_period": {
+    "Z": 4.5,
+    "p_success": 1.0,
+    "p_failure": 0.0,
+    "lambda_min_lower_bound": 0.05555555555555555
+   },
+   "dense": {
+    "unitarity": 0.0,
+    "trace_formula_against_dense": 0.0,
+    "trace_rho": 1.0,
+    "stationarity_under_the_period": 0.0,
+    "trace_distance_between_even_and_odd_tick_states": 0.0,
+    "lambda_min": 0.5,
+    "kraus_completeness": 0.0
+   }
+  },
+  {
+   "shape": [
+    6,
+    1,
+    1
+   ],
+   "quanta": 0,
+   "eps": 0.3,
+   "kappa": 0.2,
+   "theta": 0.157935,
+   "sector_dimension": 2,
+   "background_charge_at_cells": [],
+   "tr_one_tick": [
+    -0.454404189386174,
+    0.0
+   ],
+   "tr_period": [
+    -1.7935168326682922,
+    0.0
+   ],
+   "filter_with_one_tick": {
+    "Z": 2.045595810613826,
+    "p_success": 0.4545768468030724,
+    "p_failure": 0.5454231531969276,
+    "lambda_min_lower_bound": 0.1222137817758739
+   },
+   "filter_with_period": {
+    "Z": 0.7064831673317078,
+    "p_success": 0.15699625940704617,
+    "p_failure": 0.8430037405929538,
+    "lambda_min_lower_bound": 0.35386547275318175
+   },
+   "dense": {
+    "unitarity": 9.992007221626409e-16,
+    "trace_formula_against_dense": 0.0,
+    "trace_rho": 1.0,
+    "stationarity_under_the_period": 9.43689570931383e-16,
+    "trace_distance_between_even_and_odd_tick_states": 4.996003610813204e-16,
+    "lambda_min": 0.5,
+    "kraus_completeness": 7.771561172376096e-16
+   }
+  },
+  {
+   "shape": [
+    6,
+    1,
+    1
+   ],
+   "quanta": 1,
+   "eps": 0.0,
+   "kappa": 0.0,
+   "theta": 0.157935,
+   "sector_dimension": 48,
+   "background_charge_at_cells": [
+    0
+   ],
+   "tr_one_tick": [
+    0.0,
+    0.0
+   ],
+   "tr_period": [
+    -1.187364509058699,
+    0.0
+   ],
+   "filter_with_one_tick": {
+    "Z": 60.0,
+    "p_success": 0.5555555555555556,
+    "p_failure": 0.4444444444444444,
+    "lambda_min_lower_bound": 0.004166666666666667
+   },
+   "filter_with_period": {
+    "Z": 58.812635490941304,
+    "p_success": 0.544561439730938,
+    "p_failure": 0.45543856026906204,
+    "lambda_min_lower_bound": 0.004250787231572144
+   },
+   "dense": {
+    "unitarity": 8.881784197001252e-16,
+    "trace_formula_against_dense": 4.440892098500626e-16,
+    "trace_rho": 1.0,
+    "stationarity_under_the_period": 4.163336342344337e-17,
+    "trace_distance_between_even_and_odd_tick_states": 4.17132863842539e-16,
+    "lambda_min": 0.004250787231572149,
+    "kraus_completeness": 6.661338147750939e-16
+   }
+  },
+  {
+   "shape": [
+    6,
+    1,
+    1
+   ],
+   "quanta": 1,
+   "eps": 0.3,
+   "kappa": 0.2,
+   "theta": 0.157935,
+   "sector_dimension": 48,
+   "background_charge_at_cells": [
+    0
+   ],
+   "tr_one_tick": [
+    0.0,
+    0.0
+   ],
+   "tr_period": [
+    0.1550931470380859,
+    0.0
+   ],
+   "filter_with_one_tick": {
+    "Z": 60.0,
+    "p_success": 0.5555555555555556,
+    "p_failure": 0.4444444444444444,
+    "lambda_min_lower_bound": 0.004166666666666667
+   },
+   "filter_with_period": {
+    "Z": 60.15509314703809,
+    "p_success": 0.5569916032133156,
+    "p_failure": 0.44300839678668436,
+    "lambda_min_lower_bound": 0.004155924077599229
+   },
+   "dense": {
+    "unitarity": 1.5543122344752192e-15,
+    "trace_formula_against_dense": 1.3877787807814457e-16,
+    "trace_rho": 0.9999999999999999,
+    "stationarity_under_the_period": 6.938893903907228e-17,
+    "trace_distance_between_even_and_odd_tick_states": 6.661671671327981e-16,
+    "lambda_min": 0.004300837851779325,
+    "kraus_completeness": 1.1102230246251565e-15
+   }
+  },
+  {
+   "shape": [
+    6,
+    1,
+    1
+   ],
+   "quanta": 2,
+   "eps": 0.0,
+   "kappa": 0.0,
+   "theta": 0.157935,
+   "sector_dimension": 552,
+   "background_charge_at_cells": [],
+   "tr_one_tick": [
+    0.5936822545293492,
+    -1.5407439555097887e-33
+   ],
+   "tr_period": [
+    1.4957658009838712,
+    4.010991627236071e-33
+   ],
+   "filter_with_one_tick": {
+    "Z": 690.5936822545293,
+    "p_success": 0.5560335605914085,
+    "p_failure": 0.4439664394085915,
+    "lambda_min_lower_bound": 0.00036200736616043717
+   },
+   "filter_with_period": {
+    "Z": 691.4957658009839,
+    "p_success": 0.5567598758462028,
+    "p_failure": 0.4432401241537972,
+    "lambda_min_lower_bound": 0.00036153511324890934
+   },
+   "dense": {
+    "unitarity": 2.7755575615628914e-15,
+    "trace_formula_against_dense": 2.220446049250313e-15,
+    "trace_rho": 1.0,
+    "stationarity_under_the_period": 8.239936510889834e-18,
+    "trace_distance_between_even_and_odd_tick_states": 9.55507374611475e-16,
+    "lambda_min": 0.0007175897069084162,
+    "kraus_completeness": 3.3306690738754696e-15
+   }
+  },
+  {
+   "shape": [
+    6,
+    1,
+    1
+   ],
+   "quanta": 2,
+   "eps": 0.3,
+   "kappa": 0.2,
+   "theta": 0.157935,
+   "sector_dimension": 552,
+   "background_charge_at_cells": [],
+   "tr_one_tick": [
+    0.2151253686239038,
+    3.851859888774472e-34
+   ],
+   "tr_period": [
+    -0.874043169214086,
+    -2.1392673044044556e-33
+   ],
+   "filter_with_one_tick": {
+    "Z": 690.215125368624,
+    "p_success": 0.5557287643869758,
+    "p_failure": 0.4442712356130242,
+    "lambda_min_lower_bound": 0.00036220591350628867
+   },
+   "filter_with_period": {
+    "Z": 689.1259568307859,
+    "p_success": 0.5548518170940305,
+    "p_failure": 0.44514818290596947,
+    "lambda_min_lower_bound": 0.00036277838256118283
+   },
+   "dense": {
+    "unitarity": 2.6645352591003757e-15,
+    "trace_formula_against_dense": 6.661338147750939e-16,
+    "trace_rho": 1.0,
+    "stationarity_under_the_period": 1.1492543028346347e-17,
+    "trace_distance_between_even_and_odd_tick_states": 1.1914524017466643e-15,
+    "lambda_min": 0.0003718603772508565,
+    "kraus_completeness": 1.9984014443252818e-15
+   }
+  },
+  {
+   "shape": [
+    2,
+    2,
+    1
+   ],
+   "quanta": 0,
+   "eps": 0.0,
+   "kappa": 0.0,
+   "theta": 0.157935,
+   "sector_dimension": 32,
+   "background_charge_at_cells": [],
+   "tr_one_tick": [
+    32.0,
+    0.0
+   ],
+   "tr_period": [
+    32.0,
+    0.0
+   ],
+   "filter_with_one_tick": {
+    "Z": 72.0,
+    "p_success": 1.0,
+    "p_failure": 0.0,
+    "lambda_min_lower_bound": 0.003472222222222222
+   },
+   "filter_with_period": {
+    "Z": 72.0,
+    "p_success": 1.0,
+    "p_failure": 0.0,
+    "lambda_min_lower_bound": 0.003472222222222222
+   },
+   "dense": {
+    "unitarity": 0.0,
+    "trace_formula_against_dense": 0.0,
+    "trace_rho": 1.0,
+    "stationarity_under_the_period": 0.0,
+    "trace_distance_between_even_and_odd_tick_states": 0.0,
+    "lambda_min": 0.03125,
+    "kraus_completeness": 0.0
+   }
+  },
+  {
+   "shape": [
+    2,
+    2,
+    1
+   ],
+   "quanta": 0,
+   "eps": 0.3,
+   "kappa": 0.2,
+   "theta": 0.157935,
+   "sector_dimension": 32,
+   "background_charge_at_cells": [],
+   "tr_one_tick": [
+    21.647983437889312,
+    0.0
+   ],
+   "tr_period": [
+    12.383133265547531,
+    2.220446049250313e-16
+   ],
+   "filter_with_one_tick": {
+    "Z": 61.64798343788931,
+    "p_success": 0.8562219921929071,
+    "p_failure": 0.14377800780709293,
+    "lambda_min_lower_bound": 0.004055282688230612
+   },
+   "filter_with_period": {
+    "Z": 52.38313326554753,
+    "p_success": 0.727543517577049,
+    "p_failure": 0.27245648242295095,
+    "lambda_min_lower_bound": 0.0047725285681684375
+   },
+   "dense": {
+    "unitarity": 4.684685283547145e-16,
+    "trace_formula_against_dense": 2.220446049250313e-16,
+    "trace_rho": 1.0,
+    "stationarity_under_the_period": 3.4695358977947e-17,
+    "trace_distance_between_even_and_odd_tick_states": 2.0161228970591834e-16,
+    "lambda_min": 0.005698835047220017,
+    "kraus_completeness": 6.661338373961979e-16
+   }
+  },
+  {
+   "shape": [
+    2,
+    2,
+    1
+   ],
+   "quanta": 1,
+   "eps": 0.0,
+   "kappa": 0.0,
+   "theta": 0.157935,
+   "sector_dimension": 512,
+   "background_charge_at_cells": [
+    0
+   ],
+   "tr_one_tick": [
+    0.0,
+    0.0
+   ],
+   "tr_period": [
+    -12.665221429959503,
+    0.0
+   ],
+   "filter_with_one_tick": {
+    "Z": 640.0,
+    "p_success": 0.5555555555555556,
+    "p_failure": 0.4444444444444444,
+    "lambda_min_lower_bound": 0.000390625
+   },
+   "filter_with_period": {
+    "Z": 627.3347785700405,
+    "p_success": 0.544561439730938,
+    "p_failure": 0.45543856026906204,
+    "lambda_min_lower_bound": 0.00039851130295988856
+   },
+   "dense": {
+    "unitarity": 8.881784197001252e-16,
+    "trace_formula_against_dense": 3.730349362740526e-14,
+    "trace_rho": 1.0,
+    "stationarity_under_the_period": 6.5052130349130266e-18,
+    "trace_distance_between_even_and_odd_tick_states": 0.39798110644226825,
+    "lambda_min": 0.00039851130295988943,
+    "kraus_completeness": 7.771561172376096e-16
+   }
+  },
+  {
+   "shape": [
+    2,
+    2,
+    1
+   ],
+   "quanta": 1,
+   "eps": 0.3,
+   "kappa": 0.2,
+   "theta": 0.157935,
+   "sector_dimension": 512,
+   "background_charge_at_cells": [
+    0
+   ],
+   "tr_one_tick": [
+    0.0,
+    0.0
+   ],
+   "tr_period": [
+    -3.1123793971391374,
+    0.0
+   ],
+   "filter_with_one_tick": {
+    "Z": 640.0,
+    "p_success": 0.5555555555555556,
+    "p_failure": 0.4444444444444444,
+    "lambda_min_lower_bound": 0.000390625
+   },
+   "filter_with_period": {
+    "Z": 636.8876206028608,
+    "p_success": 0.5528538373288723,
+    "p_failure": 0.4471461626711277,
+    "lambda_min_lower_bound": 0.0003925339289266711
+   },
+   "dense": {
+    "unitarity": 1.7779168331792535e-15,
+    "trace_formula_against_dense": 8.884518017641014e-15,
+    "trace_rho": 1.0,
+    "stationarity_under_the_period": 9.541007967391346e-18,
+    "trace_distance_between_even_and_odd_tick_states": 0.37638974894904054,
+    "lambda_min": 0.0003925339289266702,
+    "kraus_completeness": 1.5547493683086234e-15
+   }
+  },
+  {
+   "shape": [
+    2,
+    2,
+    1
+   ],
+   "quanta": 2,
+   "eps": 0.0,
+   "kappa": 0.0,
+   "theta": 0.157935,
+   "sector_dimension": 3840,
+   "background_charge_at_cells": [],
+   "tr_one_tick": [
+    0.0,
+    0.0
+   ],
+   "tr_period": [
+    745.1759295442973,
+    9.771552507554546e-48
+   ],
+   "filter_with_one_tick": {
+    "Z": 4800.0,
+    "p_success": 0.5555555555555556,
+    "p_failure": 0.4444444444444444,
+    "lambda_min_lower_bound": 5.208333333333334e-05
+   },
+   "filter_with_period": {
+    "Z": 5545.175929544297,
+    "p_success": 0.6418027696231825,
+    "p_failure": 0.3581972303768175,
+    "lambda_min_lower_bound": 4.508423234473374e-05
+   }
+  },
+  {
+   "shape": [
+    2,
+    2,
+    1
+   ],
+   "quanta": 2,
+   "eps": 0.3,
+   "kappa": 0.2,
+   "theta": 0.157935,
+   "sector_dimension": 3840,
+   "background_charge_at_cells": [],
+   "tr_one_tick": [
+    0.0,
+    -15.636730130528592
+   ],
+   "tr_period": [
+    -17.146605266663297,
+    1.5407439555097887e-33
+   ],
+   "filter_with_one_tick": {
+    "Z": 4800.0,
+    "p_success": 0.5555555555555556,
+    "p_failure": 0.4444444444444444,
+    "lambda_min_lower_bound": 5.208333333333334e-05
+   },
+   "filter_with_period": {
+    "Z": 4782.853394733337,
+    "p_success": 0.553570994760803,
+    "p_failure": 0.44642900523919704,
+    "lambda_min_lower_bound": 5.227005290927143e-05
+   }
+  },
+  {
+   "shape": [
+    3,
+    2,
+    1
+   ],
+   "quanta": 0,
+   "eps": 0.0,
+   "kappa": 0.0,
+   "theta": 0.157935,
+   "sector_dimension": 128,
+   "background_charge_at_cells": [],
+   "tr_one_tick": [
+    128.0,
+    0.0
+   ],
+   "tr_period": [
+    128.0,
+    0.0
+   ],
+   "filter_with_one_tick": {
+    "Z": 288.0,
+    "p_success": 1.0,
+    "p_failure": 0.0,
+    "lambda_min_lower_bound": 0.0008680555555555555
+   },
+   "filter_with_period": {
+    "Z": 288.0,
+    "p_success": 1.0,
+    "p_failure": 0.0,
+    "lambda_min_lower_bound": 0.0008680555555555555
+   },
+   "dense": {
+    "unitarity": 0.0,
+    "trace_formula_against_dense": 0.0,
+    "trace_rho": 1.0,
+    "stationarity_under_the_period": 0.0,
+    "trace_distance_between_even_and_odd_tick_states": 0.0,
+    "lambda_min": 0.0078125,
+    "kraus_completeness": 0.0
+   }
+  },
+  {
+   "shape": [
+    3,
+    2,
+    1
+   ],
+   "quanta": 0,
+   "eps": 0.3,
+   "kappa": 0.2,
+   "theta": 0.157935,
+   "sector_dimension": 128,
+   "background_charge_at_cells": [],
+   "tr_one_tick": [
+    70.23932407932162,
+    4.440892098500626e-16
+   ],
+   "tr_period": [
+    10.587532616318178,
+    8.326672684688674e-17
+   ],
+   "filter_with_one_tick": {
+    "Z": 230.23932407932162,
+    "p_success": 0.7994420974976445,
+    "p_failure": 0.2005579025023555,
+    "lambda_min_lower_bound": 0.0010858266762191781
+   },
+   "filter_with_period": {
+    "Z": 170.58753261631819,
+    "p_success": 0.5923178215844381,
+    "p_failure": 0.40768217841556187,
+    "lambda_min_lower_bound": 0.0014655232780832503
+   },
+   "dense": {
+    "unitarity": 1.1208933931475023e-15,
+    "trace_formula_against_dense": 1.2434776667520737e-14,
+    "trace_rho": 1.0,
+    "stationarity_under_the_period": 1.0420490104777969e-17,
+    "trace_distance_between_even_and_odd_tick_states": 5.758337439255501e-16,
+    "lambda_min": 0.0014892625901420907,
+    "kraus_completeness": 2.2205789322727793e-15
+   }
+  },
+  {
+   "shape": [
+    3,
+    2,
+    1
+   ],
+   "quanta": 1,
+   "eps": 0.0,
+   "kappa": 0.0,
+   "theta": 0.157935,
+   "sector_dimension": 3072,
+   "background_charge_at_cells": [
+    0
+   ],
+   "tr_one_tick": [
+    0.0,
+    0.0
+   ],
+   "tr_period": [
+    -75.99132857975674,
+    0.0
+   ],
+   "filter_with_one_tick": {
+    "Z": 3840.0,
+    "p_success": 0.5555555555555556,
+    "p_failure": 0.4444444444444444,
+    "lambda_min_lower_bound": 6.510416666666667e-05
+   },
+   "filter_with_period": {
+    "Z": 3764.0086714202434,
+    "p_success": 0.544561439730938,
+    "p_failure": 0.45543856026906204,
+    "lambda_min_lower_bound": 6.641855049331475e-05
+   }
+  },
+  {
+   "shape": [
+    3,
+    2,
+    1
+   ],
+   "quanta": 1,
+   "eps": 0.3,
+   "kappa": 0.2,
+   "theta": 0.157935,
+   "sector_dimension": 3072,
+   "background_charge_at_cells": [
+    0
+   ],
+   "tr_one_tick": [
+    0.0,
+    0.0
+   ],
+   "tr_period": [
+    -9.191629389143788,
+    2.7755575615628914e-16
+   ],
+   "filter_with_one_tick": {
+    "Z": 3840.0,
+    "p_success": 0.5555555555555556,
+    "p_failure": 0.4444444444444444,
+    "lambda_min_lower_bound": 6.510416666666667e-05
+   },
+   "filter_with_period": {
+    "Z": 3830.8083706108564,
+    "p_success": 0.5542257480629132,
+    "p_failure": 0.44577425193708675,
+    "lambda_min_lower_bound": 6.526037739656899e-05
+   }
+  }
+ ],
+ "herald2": [
+  {
+   "shape": [
+    3,
+    2,
+    1
+   ],
+   "quanta": 2,
+   "eps": 0.0,
+   "kappa": 0.0,
+   "theta": 0.157935,
+   "sector_dimension": 35328,
+   "background_charge_at_cells": [],
+   "tr_one_tick": [
+    0.0,
+    0.0
+   ],
+   "tr_period": [
+    95.72901126296767,
+    -7.975910336064098e-32
+   ],
+   "filter_with_one_tick": {
+    "Z": 44160.0,
+    "p_success": 0.5555555555555556,
+    "p_failure": 0.4444444444444444,
+    "lambda_min_lower_bound": 5.661231884057971e-06
+   },
+   "filter_with_period": {
+    "Z": 44255.72901126297,
+    "p_success": 0.5567598758462028,
+    "p_failure": 0.4432401241537972,
+    "lambda_min_lower_bound": 5.6489861445142085e-06
+   }
+  },
+  {
+   "shape": [
+    3,
+    2,
+    1
+   ],
+   "quanta": 2,
+   "eps": 0.3,
+   "kappa": 0.2,
+   "theta": 0.157935,
+   "sector_dimension": 35328,
+   "background_charge_at_cells": [],
+   "tr_one_tick": [
+    -2.7755575615628914e-16,
+    -80.96309772026974
+   ],
+   "tr_period": [
+    15.570425719023126,
+    2.7755575615628914e-16
+   ],
+   "filter_with_one_tick": {
+    "Z": 44160.0,
+    "p_success": 0.5555555555555556,
+    "p_failure": 0.4444444444444444,
+    "lambda_min_lower_bound": 5.661231884057971e-06
+   },
+   "filter_with_period": {
+    "Z": 44175.57042571902,
+    "p_success": 0.5557514395345087,
+    "p_failure": 0.4442485604654913,
+    "lambda_min_lower_bound": 5.659236487288232e-06
+   }
+  }
+ ],
+ "sea2": {
+  "zone_average_fraction_of_the_filled_branch_displaced_by_one_tick_theta_0.157935": 0.48243800366246264,
+  "small_p_theta_0.157935": [
+   {
+    "p": [
+     0.4,
+     0.4,
+     0.4
+    ],
+    "fraction": 0.07327038228506778
+   },
+   {
+    "p": [
+     0.2,
+     0.2,
+     0.2
+    ],
+    "fraction": 0.0037263421767055214
+   },
+   {
+    "p": [
+     0.1,
+     0.1,
+     0.1
+    ],
+    "fraction": 0.0001484993703567106
+   },
+   {
+    "p": [
+     0.05,
+     0.05,
+     0.05
+    ],
+    "fraction": 3.895364516705451e-06
+   }
+  ],
+  "on_axis_theta_0.157935": -4.806187104279184e-17,
+  "zone_average_fraction_of_the_filled_branch_displaced_by_one_tick_theta_0.0": 0.5,
+  "small_p_theta_0.0": [
+   {
+    "p": [
+     0.4,
+     0.4,
+     0.4
+    ],
+    "fraction": 0.07693515886473279
+   },
+   {
+    "p": [
+     0.2,
+     0.2,
+     0.2
+    ],
+    "fraction": 0.0044774526240669126
+   },
+   {
+    "p": [
+     0.1,
+     0.1,
+     0.1
+    ],
+    "fraction": 0.000270163194341007
+   },
+   {
+    "p": [
+     0.05,
+     0.05,
+     0.05
+    ],
+    "fraction": 1.6721997916879754e-05
+   }
+  ],
+  "on_axis_theta_0.0": 2.2853198018223183e-16
+ },
+ "cycle": [
+  {
+   "shape": [
+    6,
+    1,
+    1
+   ],
+   "dimension": 24,
+   "tr_period": -0.5936822545293499,
+   "tr_period_closed_form": -0.5936822545293499,
+   "Z": 29.406317745470652,
+   "p_success": 0.544561439730938,
+   "p_success_closed_form_5/9-(4/9)sin^2(theta)": 0.544561439730938,
+   "stationarity_under_the_period": 4.85722573273506e-17,
+   "trace_distance_between_even_and_odd_tick_states": 2.498001805406601e-16,
+   "lambda_min": 0.02508412056490545,
+   "lambda_min_lower_bound": 0.008501574463144288
+  },
+  {
+   "shape": [
+    3,
+    3,
+    1
+   ],
+   "dimension": 36,
+   "tr_period": -0.8905233817940246,
+   "tr_period_closed_form": -0.8905233817940247,
+   "Z": 44.109476618205974,
+   "p_success": 0.544561439730938,
+   "p_success_closed_form_5/9-(4/9)sin^2(theta)": 0.544561439730938,
+   "stationarity_under_the_period": 3.123243048061893e-17,
+   "trace_distance_between_even_and_odd_tick_states": 2.4980018054066027e-16,
+   "lambda_min": 0.016722747043270297,
+   "lambda_min_lower_bound": 0.005667716308762859
+  },
+  {
+   "shape": [
+    5,
+    5,
+    1
+   ],
+   "dimension": 100,
+   "tr_period": -2.473676060538957,
+   "tr_period_closed_form": -2.4736760605389576,
+   "Z": 122.52632393946104,
+   "p_success": 0.544561439730938,
+   "p_success_closed_form_5/9-(4/9)sin^2(theta)": 0.544561439730938,
+   "stationarity_under_the_period": 1.3877907509841e-17,
+   "trace_distance_between_even_and_odd_tick_states": 2.8189256484623125e-16,
+   "lambda_min": 0.00356053042896119,
+   "lambda_min_lower_bound": 0.0020403778711546292
+  },
+  {
+   "shape": [
+    3,
+    3,
+    3
+   ],
+   "dimension": 108,
+   "tr_period": -2.6715701453820726,
+   "tr_period_closed_form": -2.671570145382074,
+   "Z": 132.32842985461792,
+   "p_success": 0.544561439730938,
+   "p_success_closed_form_5/9-(4/9)sin^2(theta)": 0.544561439730938,
+   "stationarity_under_the_period": 8.674490149884086e-18,
+   "trace_distance_between_even_and_odd_tick_states": 1.8854948698248427e-16,
+   "lambda_min": 0.005574249014423432,
+   "lambda_min_lower_bound": 0.0018892387695876197
+  },
+  {
+   "shape": [
+    2,
+    2,
+    1
+   ],
+   "quantum_links_sector_dimension": 512,
+   "eps": 0.0,
+   "kappa": 0.2,
+   "gauge_classes_of_link_words": 32,
+   "flat_classes": 4,
+   "p_success": 0.5473902244196434,
+   "trace_distance_between_even_and_odd_tick_states": 0.39592443314034453,
+   "part_from_flat_classes": 5.377642775528102e-17,
+   "part_from_classes_with_plaquette_flux": 0.39592443314034437
+  },
+  {
+   "shape": [
+    3,
+    2,
+    1
+   ],
+   "quantum_links_sector_dimension": 3072,
+   "eps": 0.0,
+   "kappa": 0.2,
+   "gauge_classes_of_link_words": 128,
+   "flat_classes": 4,
+   "p_success": 0.5488812979331644,
+   "trace_distance_between_even_and_odd_tick_states": 0.3176743597365401,
+   "part_from_flat_classes": 0.004872603302511181,
+   "part_from_classes_with_plaquette_flux": 0.3128017564340289
+  }
+ ]
+}

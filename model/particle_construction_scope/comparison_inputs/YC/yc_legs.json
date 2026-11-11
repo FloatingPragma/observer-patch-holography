@@ -1,0 +1,98 @@
+{
+ "[degree, generator] max over the twelve": 0.0,
+ "toggle changes the degree by one": true,
+ "legs by degree": {
+  "neutrino (conjugate family)": {
+   "pairs": 1,
+   "degree transition": "0 <-> 1"
+  },
+  "bottom": {
+   "pairs": 3,
+   "degree transition": "1 <-> 2"
+  },
+  "top (conjugate family)": {
+   "pairs": 3,
+   "degree transition": "2 <-> 3"
+  },
+  "tau": {
+   "pairs": 1,
+   "degree transition": "3 <-> 4"
+  },
+  "tau (conjugate family)": {
+   "pairs": 1,
+   "degree transition": "1 <-> 2"
+  },
+  "top": {
+   "pairs": 3,
+   "degree transition": "2 <-> 3"
+  },
+  "bottom (conjugate family)": {
+   "pairs": 3,
+   "degree transition": "3 <-> 4"
+  },
+  "neutrino": {
+   "pairs": 1,
+   "degree transition": "4 <-> 5"
+  }
+ },
+ "pairs per degree transition (binomial 1, 4, 6, 4, 1)": {
+  "0 <-> 1": [
+   "neutrino (conjugate family) (1)"
+  ],
+  "1 <-> 2": [
+   "bottom (3)",
+   "tau (conjugate family) (1)"
+  ],
+  "2 <-> 3": [
+   "top (conjugate family) (3)",
+   "top (3)"
+  ],
+  "3 <-> 4": [
+   "tau (1)",
+   "bottom (conjugate family) (3)"
+  ],
+  "4 <-> 5": [
+   "neutrino (1)"
+  ]
+ },
+ "reachable from a code state (degree 1) by one toggle": [
+  "bottom",
+  "neutrino (conjugate family)",
+  "tau (conjugate family)"
+ ],
+ "[n3, generators], [n2, generators] max": [
+  0.0,
+  0.0
+ ],
+ "link-invariant amplitude classes (n3, doublet occupation before the toggle)": {
+  "all": 8,
+  "after particle-conjugation": 4,
+  "under a degree rule symmetric in N <-> 4 - N": 3,
+  "degree classes": {
+   "min(N, 4 - N) = 0": [
+    "n3=0, n2 0->1",
+    "n3=3, n2 1->2"
+   ],
+   "min(N, 4 - N) = 1": [
+    "n3=0, n2 1->2",
+    "n3=1, n2 0->1",
+    "n3=2, n2 1->2",
+    "n3=3, n2 0->1"
+   ],
+   "min(N, 4 - N) = 2": [
+    "n3=1, n2 1->2",
+    "n3=2, n2 0->1"
+   ]
+  }
+ },
+ "degree-dependent toggle": {
+  "[K_f, gluons] max": 0.0,
+  "[K_f, Q_em]": 0.0,
+  "hermitian": true,
+  "doublet member: [T3, K_f] = -(up - dn)/2 and [Y, K_f] = (up - dn)/2, as for K": true
+ },
+ "sum rule weights": {
+  "tr_family K_f^2": 25.759999999999998,
+  "2 (3 f_top^2 + 3 f_bottom^2 + f_tau^2 + f_nu^2)": 25.76
+ }
+}

@@ -1,0 +1,78 @@
+{
+ "g_bosons": 28,
+ "g_fermions": 90,
+ "g_star_energy": 106.75,
+ "g_star_number": 95.5,
+ "g_star_energy_with_three_nuR": 112.0,
+ "n_total_over_T3": 11.63131059630623,
+ "rho_over_T4": 35.11934232720963,
+ "s_over_T3": 46.82578976961284,
+ "nB_over_s": 8.693181818181817e-11,
+ "nB_over_T3": 4.070651042472025e-09,
+ "quark_excess_fraction": 1.8568041042575266e-09,
+ "one_excess_quark_per_pairs": 269279887.3362751,
+ "B_over_BminusL_sphaleron": 0.35443037974683544,
+ "per_generation_fermion_number_shares": {
+  "Q_L quark doublet (3 x 2)": 0.4,
+  "u_R (3)": 0.2,
+  "d_R (3)": 0.2,
+  "L_L lepton doublet (2)": 0.13333333333333333,
+  "e_R (1)": 0.06666666666666667
+ },
+ "species": {
+  "gluons (8 x 2)": {
+   "g": 16,
+   "number_weight": 16,
+   "number_fraction": 0.16753926701570682,
+   "energy_fraction": 0.14988290398126464
+  },
+  "SU(2) gauge bosons (3 x 2)": {
+   "g": 6,
+   "number_weight": 6,
+   "number_fraction": 0.06282722513089005,
+   "energy_fraction": 0.05620608899297424
+  },
+  "U(1) gauge boson (1 x 2)": {
+   "g": 2,
+   "number_weight": 2,
+   "number_fraction": 0.020942408376963352,
+   "energy_fraction": 0.01873536299765808
+  },
+  "Higgs doublet (4 real)": {
+   "g": 4,
+   "number_weight": 4,
+   "number_fraction": 0.041884816753926704,
+   "energy_fraction": 0.03747072599531616
+  },
+  "Q_L quark doublet (3 x 2), three generations, with antiparticles": {
+   "g": 36,
+   "number_weight": 27.0,
+   "number_fraction": 0.28272251308900526,
+   "energy_fraction": 0.29508196721311475
+  },
+  "u_R (3), three generations, with antiparticles": {
+   "g": 18,
+   "number_weight": 13.5,
+   "number_fraction": 0.14136125654450263,
+   "energy_fraction": 0.14754098360655737
+  },
+  "d_R (3), three generations, with antiparticles": {
+   "g": 18,
+   "number_weight": 13.5,
+   "number_fraction": 0.14136125654450263,
+   "energy_fraction": 0.14754098360655737
+  },
+  "L_L lepton doublet (2), three generations, with antiparticles": {
+   "g": 12,
+   "number_weight": 9.0,
+   "number_fraction": 0.09424083769633508,
+   "energy_fraction": 0.09836065573770492
+  },
+  "e_R (1), three generations, with antiparticles": {
+   "g": 6,
+   "number_weight": 4.5,
+   "number_fraction": 0.04712041884816754,
+   "energy_fraction": 0.04918032786885246
+  }
+ }
+}

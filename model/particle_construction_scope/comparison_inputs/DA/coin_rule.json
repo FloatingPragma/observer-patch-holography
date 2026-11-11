@@ -1,0 +1,346 @@
+{
+ "seams": {
+  "C": [
+   2,
+   3
+  ],
+  "E": [
+   2,
+   10
+  ],
+  "shared_port": 2
+ },
+ "matchings": [
+  [
+   [
+    0,
+    3
+   ],
+   [
+    1,
+    4
+   ],
+   [
+    2,
+    5
+   ],
+   [
+    6,
+    11
+   ],
+   [
+    7,
+    9
+   ],
+   [
+    8,
+    10
+   ]
+  ],
+  [
+   [
+    0,
+    6
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    3,
+    7
+   ],
+   [
+    4,
+    8
+   ],
+   [
+    5,
+    10
+   ],
+   [
+    9,
+    11
+   ]
+  ],
+  [
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    11
+   ],
+   [
+    3,
+    10
+   ],
+   [
+    4,
+    7
+   ],
+   [
+    5,
+    8
+   ],
+   [
+    6,
+    9
+   ]
+  ],
+  [
+   [
+    0,
+    8
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    2,
+    9
+   ],
+   [
+    4,
+    10
+   ],
+   [
+    5,
+    6
+   ],
+   [
+    7,
+    11
+   ]
+  ],
+  [
+   [
+    0,
+    9
+   ],
+   [
+    1,
+    10
+   ],
+   [
+    2,
+    7
+   ],
+   [
+    3,
+    5
+   ],
+   [
+    4,
+    6
+   ],
+   [
+    8,
+    11
+   ]
+  ],
+  [
+   [
+    0,
+    4
+   ],
+   [
+    1,
+    6
+   ],
+   [
+    2,
+    8
+   ],
+   [
+    3,
+    11
+   ],
+   [
+    5,
+    7
+   ],
+   [
+    9,
+    10
+   ]
+  ]
+ ],
+ "coin_meaning": {
+  "C": {
+   "coin0_raw1": [
+    "('ends_at', 3, 'shared_port_empty_after', True)"
+   ],
+   "coin1_raw2": [
+    "('ends_at', 2, 'shared_port_empty_after', False)"
+   ]
+  },
+  "E": {
+   "coin0_raw5": [
+    "('ends_at', 10, 'shared_port_empty_after', True)"
+   ],
+   "coin0_raw4": [
+    "('ends_at', 10, 'shared_port_empty_after', True)"
+   ],
+   "coin1_raw4": [
+    "('ends_at', 2, 'shared_port_empty_after', False)"
+   ],
+   "coin1_raw6": [
+    "('ends_at', 2, 'shared_port_empty_after', False)"
+   ]
+  }
+ },
+ "K0_hold_both_coins_independent": {
+  "hold": "1/3",
+  "plus": "1/12",
+  "minus": "1/12",
+  "abs_b_over_a": "1/2",
+  "Q": "1/2",
+  "P(plus xor hold)": "13/36",
+  "P(minus xor hold)": "13/36"
+ },
+ "K1_hold_leaves_shared_port_empty_independent": {
+  "hold": "1/6",
+  "plus": "1/12",
+  "minus": "1/12",
+  "abs_b_over_a": "sqrt(2)/2",
+  "Q": "2/3",
+  "P(plus xor hold)": "2/9",
+  "P(minus xor hold)": "2/9"
+ },
+ "K1_equals_E_coin0_hold": true,
+ "K2_shared_coin_hold_both": {
+  "hold": "1/3",
+  "plus": "1/12",
+  "minus": "1/12",
+  "abs_b_over_a": "1/2",
+  "Q": "1/2",
+  "P(plus xor hold)": "13/36",
+  "P(minus xor hold)": "13/36"
+ },
+ "K2_shared_coin_hold_coin0": {
+  "hold": "1/6",
+  "plus": "1/12",
+  "minus": "1/12",
+  "abs_b_over_a": "sqrt(2)/2",
+  "Q": "2/3",
+  "P(plus xor hold)": "7/36",
+  "P(minus xor hold)": "1/4"
+ },
+ "K2_shared_coin_hold_shared_empty": {
+  "hold": "1/6",
+  "plus": "1/12",
+  "minus": "1/12",
+  "abs_b_over_a": "sqrt(2)/2",
+  "Q": "2/3",
+  "P(plus xor hold)": "7/36",
+  "P(minus xor hold)": "1/4"
+ },
+ "K3_sequential_C_then_E_one_copy": {
+  "hold E coin 0": {
+   "P(hold | C current)": {
+    "plus": "0",
+    "minus": "5/12",
+    "none": "17/120"
+   },
+   "independent_of_C_current": false,
+   "reading": {
+    "hold": "11/72",
+    "plus": "1/12",
+    "minus": "1/12",
+    "abs_b_over_a": "sqrt(66)/11",
+    "Q": "23/33",
+    "P(plus xor hold)": "17/72",
+    "P(minus xor hold)": "1/6"
+   }
+  },
+  "hold E coin 1": {
+   "P(hold | C current)": {
+    "plus": "0",
+    "minus": "5/12",
+    "none": "17/120"
+   },
+   "independent_of_C_current": false,
+   "reading": {
+    "hold": "11/72",
+    "plus": "1/12",
+    "minus": "1/12",
+    "abs_b_over_a": "sqrt(66)/11",
+    "Q": "23/33",
+    "P(plus xor hold)": "17/72",
+    "P(minus xor hold)": "1/6"
+   }
+  },
+  "hold both coins": {
+   "P(hold | C current)": {
+    "plus": "0",
+    "minus": "5/6",
+    "none": "17/60"
+   },
+   "independent_of_C_current": false,
+   "reading": {
+    "hold": "11/36",
+    "plus": "1/12",
+    "minus": "1/12",
+    "abs_b_over_a": "sqrt(33)/11",
+    "Q": "17/33",
+    "P(plus xor hold)": "7/18",
+    "P(minus xor hold)": "1/4"
+   }
+  }
+ },
+ "K4_coherent_orientation_signs": {
+  "2->10": {
+   "written_record_amplitudes_from_(lo-hi)/sqrt2": [
+    "1",
+    "1"
+   ],
+   "blank_symmetric_state_kept": [
+    "1",
+    "1"
+   ]
+  },
+  "10->2": {
+   "written_record_amplitudes_from_(lo-hi)/sqrt2": [
+    "-1",
+    "-1"
+   ],
+   "blank_symmetric_state_kept": [
+    "1",
+    "1"
+   ]
+  },
+  "2->3": {
+   "written_record_amplitudes_from_(lo-hi)/sqrt2": [
+    "1",
+    "1"
+   ],
+   "blank_symmetric_state_kept": [
+    "1",
+    "1"
+   ]
+  },
+  "3->2": {
+   "written_record_amplitudes_from_(lo-hi)/sqrt2": [
+    "-1",
+    "-1"
+   ],
+   "blank_symmetric_state_kept": [
+    "1",
+    "1"
+   ]
+  }
+ },
+ "K4_reading": "The blank (hold) branch is unchanged for both orientations; the written branch carries the sign of the orientation. The uniform address superposition of the program weights both orientations of the E seam equally, so the hold is summed over both E-coin values: reading K0.",
+ "checks": {
+  "coin0_leaves_shared_port_empty_both_seams": true,
+  "coin1_ends_at_shared_port_both_seams": true,
+  "K2_shared_coin_breaks_per_branch_phase": true,
+  "K3_no_hold_reading_independent_of_C": true,
+  "K1_is_E_coin0": true,
+  "K1_balanced": true,
+  "K0_unbalanced": true
+ }
+}

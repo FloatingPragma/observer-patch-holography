@@ -1,0 +1,288 @@
+"""Block 4: the tradeoff between native populations and a protected quantum factor; records against a quantum factor.
+
+Statements and proofs: TRADEOFF.md. This script checks every computable clause.
+
+A. Hypothesis checks: in laws C and E the no-current Kraus branches are projectors on sets of load configurations,
+   and these sets separate all configurations (12, 66, 78). So every operator that commutes with the Kraus
+   operators commutes with every population projector.
+B. Existence of the other alternative (a subsystem whose logical operators have zero diagonal): a four-state
+   register with a Bell basis, exact.
+C. Flat transport against the Levi-Civita frame of the path against the area counter:
+   C1 (exact, Q(zeta_20)) for spin j = 1/2 .. 2: Pi_p (sum over neighbours Pi_q) = 5 c^(4j) Pi_p; the Bargmann
+      invariant of a face is c^(6j) zeta^(-+2j); hence the top band of the flux-k adjacency is 5 c^k, k = 2j <= 4.
+   C2 (exact) twisted adjacencies from an integer seam table with coboundary 1 mod 20: nullities of A_k - lambda.
+   C3 (exact) the identity transport of a spinor between adjacent ports is c U_LC + s U_flip with U_LC the geodesic
+      rotation (helicity preserved, the area phase) and U_flip a helicity flip; both unitary.
+   C4 (float) the family u_t = geodesic rotation by t theta (t = 0 flat, t = 1 Levi-Civita): transfer of amplitudes
+      and of Bloch vectors, number of protected directions, leading factors; holonomy group at t = 1.
+   C5 (float) the classical chain on (port, area counter mod 20) and its Fourier blocks.
+"""
+import itertools, json, time
+from fractions import Fraction as Fr
+import numpy as np
+from scipy.linalg import expm
+import framed as fq
+from framed import SEAMS, STATES78, BIN66, current, record_of
+from mt_lib import (Z, ZERO, ONE, IM, R, RG, SQRT5, PHI, CH, SH, zmat, zeye, zzeros, ztrace, znum, zrank, zis_zero,
+                    helicity_projector, N_EX, NG_EX, AXES, Span)
+from carrier_tools import C
+
+t0 = time.time()
+out = {}
+ONE12 = [tuple(int(i == p) for i in range(12)) for p in range(12)]
+
+# ---------------------------------------------------------------- A: no-current branches separate configurations
+resA = {}
+for law in ('C', 'E'):
+    for name, states in (('12', ONE12), ('66', BIN66), ('78', STATES78)):
+        sig = {}
+        for x in states:
+            s = []
+            for (a, b) in SEAMS:
+                for coin in (0, 1):
+                    j = current(x[a], x[b], coin)
+                    s.append(record_of(law, coin, x[a], x[b], j) if j == 0 else None)   # which no-current branch contains x
+            sig.setdefault(tuple(s), []).append(x)
+        resA[f'{law},{name}'] = {'configurations': len(states), 'distinct_signatures': len(sig)}
+out['A_no_current_branches_separate_configurations'] = resA
+print('A', resA, flush=True)
+
+# ---------------------------------------------------------------- B: Bell-basis register with a protected qubit
+# register C^2 (logical) x C^2 (gauge); load basis = the four Bell vectors; channel = identity x (replace by 1/2)
+s2 = 1 / np.sqrt(2)
+bell = np.array([[s2, 0, 0, s2], [s2, 0, 0, -s2], [0, s2, s2, 0], [0, s2, -s2, 0]])        # rows = load states
+paulis = [np.eye(2), np.array([[0, 1], [1, 0.]]), np.array([[0, -1j], [1j, 0]]), np.diag([1., -1.])]
+kraus = [np.kron(np.eye(2), P) / 2 for P in paulis]                                     # full depolarization of the gauge qubit
+def chan(rho): return sum(K @ rho @ K.conj().T for K in kraus)
+lump = 0.0
+for i in range(4):
+    for j in range(4):
+        unit = np.outer(bell[i], bell[j].conj())
+        img = chan(unit)
+        pops = np.array([np.real(bell[k].conj() @ img @ bell[k]) for k in range(4)])
+        lump = max(lump, np.abs(pops - (0.25 if i == j else 0.0)).max())
+logical_diag = max(abs(bell[k].conj() @ np.kron(P, np.eye(2)) @ bell[k]) for k in range(4) for P in paulis[1:])
+Ex = [np.einsum('aibi->ab', (np.outer(bell[k], bell[k].conj()) @ np.kron(np.eye(2), np.eye(2) / 2)).reshape(2, 2, 2, 2)) for k in range(4)]
+S = np.zeros((16, 16), complex)
+for K in kraus:
+    S += np.kron(K, K.conj())
+fixdim = int((np.abs(np.linalg.eigvals(S) - 1) < 1e-9).sum())
+out['B_bell_register'] = {
+    'population_kernel': 'T(x|y) = 1/4 for all x, y (irreducible, uniform)', 'lumping_defect_all_16_matrix_units': float(lump),
+    'fixed_point_dimension': fixdim, 'max_abs_diagonal_of_logical_Paulis_in_load_basis': float(logical_diag),
+    'E_x_equals_quarter_identity': bool(all(np.allclose(E, np.eye(2) / 4) for E in Ex)),
+    'reading': 'a protected qubit inside a load register exists when every load vector is maximally entangled between '
+               'the logical and a gauge factor of at least the same dimension; its logical operators have zero diagonal'}
+print('B', out['B_bell_register'], flush=True)
+
+# ---------------------------------------------------------------- C1: exact section identities
+resC1 = {}
+nbr = C.nbr
+for j2 in (1, 2, 3, 4, 5):
+    for real, axes in (('convex', N_EX), ('great', NG_EX)):
+        if real == 'great' and j2 > 2:
+            continue
+        P = [helicity_projector(j2, axes[p], j2) for p in range(12)]
+        cc = CH if real == 'convex' else SH                 # cos(theta/2): adjacent axes at cos theta = +1/sqrt5 or -1/sqrt5
+        mu = 5 * cc ** (2 * j2)
+        eig = all(zis_zero(P[p] @ sum((P[q] for q in nbr[p][1:]), P[nbr[p][0]]) - P[p] * mu) for p in range(12))
+        barg = set()
+        for (a, b, c3) in C.F:
+            tr = ztrace(P[a] @ P[b] @ P[c3])
+            hit = [e for e in range(20) if tr == cc ** (3 * j2) * Z.zeta(e)]
+            barg.add(hit[0] if hit else None)
+        resC1[f'spin {j2}/2, {real}'] = {
+            'Pi_p sum_nbr Pi_q = 5 c^(4j) Pi_p': bool(eig), 'mu': float(complex(mu).real),
+            'face Bargmann invariant = c^(6j) zeta^e, exponents e found over the 20 faces': sorted(barg, key=lambda v: -1 if v is None else v),
+            'top_band_eigenvalue_mu_over_c^(2j)': float(complex(mu / cc ** j2).real)}
+out['C1_exact_section_identities'] = resC1
+print('C1', json.dumps(resC1, indent=1), flush=True)
+
+# ---------------------------------------------------------------- C2: twisted adjacency from an integer table
+def integer_table():
+    faces = [tuple(f) for f in C.F]
+    edge_face = {}
+    for f, (a, b, c3) in enumerate(faces):
+        for e in ((a, b), (b, c3), (c3, a)):
+            edge_face[e] = f
+    t = {}
+    parent = {0: None}; order = [0]
+    for f in order:
+        a, b, c3 = faces[f]
+        for e in ((a, b), (b, c3), (c3, a)):
+            g = edge_face[(e[1], e[0])]
+            if g not in parent:
+                parent[g] = (f, e); order.append(g)
+    tree = set()
+    for g, pe in parent.items():
+        if pe is not None:
+            tree.add(pe[1]); tree.add((pe[1][1], pe[1][0]))
+    for f, (a, b, c3) in enumerate(faces):
+        for e in ((a, b), (b, c3), (c3, a)):
+            if e not in tree:
+                t[e] = 0
+    for g in reversed(order[1:]):
+        f, e = parent[g]                                   # e is oriented as in the parent f; in g it is reversed
+        a, b, c3 = faces[g]
+        mine = (e[1], e[0])
+        others = [x for x in ((a, b), (b, c3), (c3, a)) if x != mine]
+        val = (1 - sum(t[x] for x in others)) % 20
+        t[mine] = val; t[e] = (-val) % 20
+    for (a, b, c3) in faces:
+        assert (t[(a, b)] + t[(b, c3)] + t[(c3, a)]) % 20 == 1
+    assert all((t[(a, b)] + t[(b, a)]) % 20 == 0 for (a, b) in t)
+    return t
+TAB = integer_table()
+def A_exact(k):
+    A = zzeros(12)
+    for (a, b), val in TAB.items():
+        A[b, a] = Z.zeta((k * val) % 20)                    # amplitude of the hop a -> b
+    return A
+cands = {'5': Z(5), 'sqrt5': SQRT5, '-sqrt5': -SQRT5, '-1': Z(-1), '1': Z(1), 'r': R, '-r': -R, 'r_g': RG, '-r_g': -RG,
+         'phi': PHI, '-phi': -PHI, '1/phi': PHI - 1, '-1/phi': 1 - PHI, 'phi^2': PHI + 1, '-phi^2': -PHI - 1,
+         '1/phi^2': 2 - PHI, '-1/phi^2': PHI - 2, 'r_g/phi': RG * (PHI - 1), '-r_g/phi': -RG * (PHI - 1), 'r phi': R * PHI, '-r phi': -R * PHI,
+         'r/phi': R * (PHI - 1), '-r/phi': -R * (PHI - 1), 'r_g phi': RG * PHI, '-r_g phi': -RG * PHI, '0': Z(0),
+         '2': Z(2), '-2': Z(-2), '3': Z(3), '-3': Z(-3)}
+for k in range(1, 6):
+    cands[f'5c^{k}'] = 5 * CH ** k; cands[f'-5c^{k}'] = -5 * CH ** k
+    cands[f'5s^{k}'] = 5 * SH ** k; cands[f'-5s^{k}'] = -5 * SH ** k
+resC2 = {}
+for k in range(0, 11):
+    A = A_exact(k)
+    ev = np.linalg.eigvalsh(znum(A))
+    levels = []
+    evs = np.sort(ev)[::-1]; groups = [[evs[0]]]
+    for v in evs[1:]:
+        if abs(v - groups[-1][-1]) < 1e-7: groups[-1].append(v)
+        else: groups.append([v])
+    for g in groups:
+        val = float(np.mean(g)); mult = len(g)
+        name = next((nm for nm, z in cands.items() if abs(complex(z).real - val) < 1e-7), None)
+        exact_null = None
+        if name is not None:
+            M = A - zeye(12) * cands[name]
+            exact_null = 12 - zrank([list(row) for row in M])
+        levels.append({'value': val, 'multiplicity': mult, 'closed_form': name, 'exact_nullity': exact_null})
+    lead = levels[0]
+    resC2[f'k={k}'] = {'levels': levels, 'relaxation_factor_of_top_band_per_attempt': float(1 - (5 - lead['value']) / 60)}
+    print(f'C2 k={k}:', [(l['closed_form'], l['multiplicity'], l['exact_nullity'], round(l['value'], 6)) for l in levels], 'factor', round(resC2[f"k={k}"]['relaxation_factor_of_top_band_per_attempt'], 6), flush=True)
+c = complex(CH).real; s = complex(SH).real
+resC2['closed_form'] = {'statement': 'top band of flux k = 0..4: adjacency eigenvalue 5 c^k, multiplicity k + 1; relaxation factor 1 - (1 - c^k)/12',
+                        'c': c, 'factors_k_0_to_4': [1 - (1 - c ** k) / 12 for k in range(5)],
+                        'L16_values': [1, 0.987554, 0.976967, 0.967961, 0.960301]}
+out['C2_twisted_adjacency_exact'] = resC2
+
+# ---------------------------------------------------------------- C3: identity transport = c U_LC + s U_flip (spinor), exact
+Pp = {m: [helicity_projector(1, N_EX[p], m) for p in range(12)] for m in (1, -1)}
+okU = okF = okD = okdet = okmap = True
+for (a, b) in SEAMS:
+    for (p, q) in ((a, b), (b, a)):
+        U = (Pp[1][q] @ Pp[1][p] + Pp[-1][q] @ Pp[-1][p]) * (1 / CH)
+        X = (Pp[1][q] @ Pp[-1][p] + Pp[-1][q] @ Pp[1][p]) * (1 / SH)
+        Ud = zmat([[U[j, i].conj() for j in range(2)] for i in range(2)])
+        Xd = zmat([[X[j, i].conj() for j in range(2)] for i in range(2)])
+        okU &= zis_zero(U @ Ud - zeye(2)); okF &= zis_zero(X @ Xd - zeye(2))
+        okD &= zis_zero(U * CH + X * SH - zeye(2))
+        okdet &= (U[0, 0] * U[1, 1] - U[0, 1] * U[1, 0]) == 1
+        okmap &= zis_zero(U @ Pp[1][p] - Pp[1][q] @ U) and zis_zero(X @ Pp[1][p] - Pp[-1][q] @ X)
+out['C3_identity_transport_decomposition'] = {
+    'U_LC unitary': bool(okU), 'U_flip unitary': bool(okF), '1 = c U_LC + s U_flip': bool(okD), 'det U_LC = 1': bool(okdet),
+    'U_LC keeps helicity, U_flip reverses it': bool(okmap), 'c^2': float(c * c), 's^2': float(s * s),
+    'per_attempt_balance_of_one_helicity_component_of_the_protected_state': {
+        'stays_at_port': 1 - 5 / 60, 'arrives_with_the_same_helicity': 5 * c * c / 60, 'arrives_from_the_other_helicity': 5 * s * s / 60,
+        'sum': 1 - 5 / 60 + 5 * c * c / 60 + 5 * s * s / 60},
+    'projected_on_one_helicity_after_every_hop': 1 - s * s / 12, 'unit_modulus_phase_record_(area counter)': 1 - (1 - c) / 12}
+print('C3', out['C3_identity_transport_decomposition'], flush=True)
+
+# ---------------------------------------------------------------- C4: the family u_t (float)
+sx = np.array([[0, 1], [1, 0]], complex); sy = np.array([[0, -1j], [1j, 0]]); sz = np.diag([1, -1]).astype(complex)
+theta = np.arccos(1 / np.sqrt(5))
+def link_rot(p, q, t):
+    """Rotation by t * theta about n_p x n_q (takes n_p towards n_q): returns (SU(2), SO(3)) for the hop p -> q."""
+    k = np.cross(C.N[p], C.N[q]); k /= np.linalg.norm(k)
+    ang = t * theta
+    u = np.cos(ang / 2) * np.eye(2) - 1j * np.sin(ang / 2) * (k[0] * sx + k[1] * sy + k[2] * sz)
+    K = np.array([[0, -k[2], k[1]], [k[2], 0, -k[0]], [-k[1], k[0], 0]])
+    return u, expm(ang * K)
+def transfers(t):
+    Ma = np.zeros((24, 24), complex); Mb = np.zeros((36, 36))
+    for p in range(12):
+        Ma[2 * p:2 * p + 2, 2 * p:2 * p + 2] = (1 - 5 / 60) * np.eye(2)
+        Mb[3 * p:3 * p + 3, 3 * p:3 * p + 3] = (1 - 5 / 60) * np.eye(3)
+        for q in C.nbr[p]:
+            u, Rm = link_rot(p, q, t)
+            Ma[2 * q:2 * q + 2, 2 * p:2 * p + 2] = u / 60
+            Mb[3 * q:3 * q + 3, 3 * p:3 * p + 3] = Rm / 60
+    return Ma, Mb
+def holonomy_group(t, cap=130):
+    # fundamental cycles of a BFS tree rooted at port 0
+    par = {0: None}; order = [0]
+    for p in order:
+        for q in C.nbr[p]:
+            if q not in par:
+                par[q] = p; order.append(q)
+    def to_root(p):
+        u = np.eye(2, dtype=complex)                        # transport from 0 to p along the tree
+        path = []
+        while p != 0:
+            path.append((par[p], p)); p = par[p]
+        for (a, b) in reversed(path):
+            u = link_rot(a, b, t)[0] @ u
+        return u
+    gens = []
+    for (a, b) in SEAMS:
+        if par.get(b) != a and par.get(a) != b:
+            ua, ub = to_root(a), to_root(b)
+            gens.append(ub.conj().T @ link_rot(a, b, t)[0] @ ua)
+    group = [np.eye(2, dtype=complex)]
+    frontier = [np.eye(2, dtype=complex)]
+    def known(g): return any(np.abs(g - h).max() < 1e-8 for h in group)
+    while frontier and len(group) <= cap:
+        new = []
+        for g in frontier:
+            for h in gens + [x.conj().T for x in gens]:
+                gh = h @ g
+                if not known(gh):
+                    group.append(gh); new.append(gh)
+                    if len(group) > cap:
+                        break
+            if len(group) > cap:
+                break
+        frontier = new
+    abel = all(np.abs(g @ h - h @ g).max() < 1e-8 for g in gens for h in gens)
+    return (len(group) if len(group) <= cap else f'> {cap}'), bool(abel)
+resC4 = {}
+for t in (0.0, 0.25, 0.5, 0.75, 0.9, 1.0, 1.25):
+    Ma, Mb = transfers(t)
+    ea = np.sort(np.linalg.eigvalsh((Ma + Ma.conj().T) / 2))[::-1]
+    eb = np.sort(np.linalg.eigvalsh((Mb + Mb.T) / 2))[::-1]
+    herm = float(np.abs(Ma - Ma.conj().T).max() + np.abs(Mb - Mb.T).max())
+    order, abel = holonomy_group(t)
+    nb = int((np.abs(eb - 1) < 1e-10).sum())
+    resC4[f't={t}'] = {
+        'amplitude_transfer_top': round(float(ea[0]), 9), 'amplitude_top_multiplicity': int((np.abs(ea - ea[0]) < 1e-9).sum()),
+        'protected_Bloch_directions': nb, 'protected_internal_algebra_dimension': 1 + nb,
+        'Bloch_transfer_leading_values': [round(float(v), 9) for v in eb[:8]],
+        'holonomy_group_order': order, 'holonomy_abelian': abel, 'symmetry_defect': herm}
+    print('C4', t, resC4[f't={t}'], flush=True)
+out['C4_family_between_flat_and_Levi_Civita'] = resC4
+
+# ---------------------------------------------------------------- C5: the area-counter chain
+idx = lambda p, a: 20 * p + a
+T = np.zeros((240, 240))
+for p in range(12):
+    for a in range(20):
+        T[idx(p, a), idx(p, a)] = 1 - 5 / 60
+        for q in C.nbr[p]:
+            T[idx(q, (a + TAB[(p, q)]) % 20), idx(p, a)] = 1 / 60
+ev = np.sort(np.linalg.eigvalsh((T + T.T) / 2))[::-1]
+union = np.sort(np.concatenate([np.linalg.eigvalsh(np.eye(12) - (5 * np.eye(12) - znum(A_exact(k))) / 60) for k in range(20)]))[::-1]
+out['C5_area_counter_chain'] = {'states': 240, 'symmetric': bool(np.abs(T - T.T).max() < 1e-15),
+    'spectrum_equals_union_of_twisted_transfers': float(np.abs(ev - union).max()),
+    'leading_values': [round(float(v), 9) for v in ev[:8]],
+    'reading': 'eigenvalue 1 once (uniform on ports and counter); next 0.987554 four times (the k = +-1 doublets): '
+               'every character of the counter relaxes; the counter is classical (a commutative algebra)'}
+print('C5', out['C5_area_counter_chain'], flush=True)
+out['seconds'] = round(time.time() - t0, 1)
+json.dump(out, open('b4_tradeoff.json', 'w'), indent=1)
+print('written b4_tradeoff.json', out['seconds'], 's')

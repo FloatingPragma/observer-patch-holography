@@ -1,0 +1,65 @@
+"""Assemble cones.json (symbols and counts) from the T3 result files. python t3_cones_json.py"""
+import json, os
+import numpy as np
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+ld = lambda f: json.load(open(os.path.join(HERE, f)))
+i1, i2, i3, i4, i5, ex, lk, sc = (ld(f) for f in ('item1.json', 'item2.json', 'item3.json', 'item4.json', 'item5.json',
+                                                 'exact.json', 'links.json', 'scan.json'))
+tie = ld('engine_tie_B.json')
+
+
+def row(r):
+    return {'count_phase0': r['count_phase0'], 'count_phasepi': r['count_phasepi'],
+            'lightest_doubler_phase_per_period': r['lightest_nonzero_minimum_of_Omega'], 'gap_at_pi_per_period': r['gap_at_pi'],
+            'massless_speed_per_tick_100': r['speeds_per_period']['100'] / 2, 'theta': r['theta'], 'zone': r['zone'],
+            'zeros_phase0_over_pi': r['zeros_phase0'], 'zeros_phasepi_over_pi': r['zeros_phasepi'][:40]}
+
+
+res = {r['name']: r for r in i1['results']}
+B_scan = {('%.6f' % r['parameter']): row(r) for r in i1['results'] if r['member'] == 'B' and r['theta'] == 0.0}
+B_mass = {('%.6f' % r['theta']): row(r) for r in i1['results'] if r['member'] == 'B' and r['theta'] != 0.0}
+C_scan = {('%.6f' % r['parameter']): row(r) for r in i1['results'] if r['member'] == 'C' and r['zone'] == 'reduced'}
+out = {
+    'conventions': 'coin index 2r + s (record r, spin s in the frame basis); alpha_i = X_r sigma_i; beta = Y_r; '
+                   'M(a) = exp(-i a beta); S_i(p) = exp(-i p_i alpha_i); periods of two ticks in the half-step frame; '
+                   'phases Omega per period (two ticks); counts over the full zone [-pi, pi)^3 unless zone = reduced '
+                   '(one two-tick sublattice, [-pi/2, pi/2)^3); MEASURED counts: 48^3 (full) or 32^3 (reduced) grids, two '
+                   'shifts, low extrema refined, zero accepted at 1 - cos(Omega) < 1e-11',
+    'members': {
+        'W2 (CF-1)': {'symbol': 'M(th/2) S1 S2 S3 M(th) S3 S2 S1 M(th/2)', 'full': row(res['W2 full']),
+                      'reduced': row(res['W2 reduced']), 'k_c_light_Dirac_points': {'full lattice': 32, 'per sublattice': 4},
+                      'b0': {'full lattice': -117, 'per sublattice': -5}},
+        'B (recommended, phi = 5 pi/16)': {
+            'letter': 'L_i(phi): seam reflector 1 - 2|v><v|, v = cos(eta)|x,-> - sin(eta)|x+e_i,+> (spin +1 along i; '
+                      'orientation reversed for spin -1), eta = pi/4 - phi/2, then R; B_i = M(-phi/2) L_i(phi) M(-phi/2)',
+            'symbol_B_i': '[cos^2(phi) cos p_i + sin^2(phi)] - i cos(phi) sin(p_i) alpha_i - i sin(phi) cos(phi) (1 - cos p_i) beta (EXACT)',
+            'period': 'M(th/2) B1 B2 B3 M(th) B3 B2 B1 M(th/2)',
+            'corner_phases_EXACT': 'P(pi c) = exp(-i (2 th - 4 k phi) beta), k = number of pi components',
+            'phi': 5 * np.pi / 16, 'eta': 3 * np.pi / 32, 'weights': [np.cos(3 * np.pi / 32), np.sin(3 * np.pi / 32)],
+            'result_theta0': row(res['B phi=0.981748']),
+            'window_one_cone': '(pi/4, 3 pi/8) except phi = pi/3 (MEASURED edges: 13 zeros at 0.75, 1 at 0.79; no pi point at 1.17, one at 1.18)',
+            'mass_window': '|theta| < pi/8', 'k_c_light_Dirac_points': 1, 'b0': 7,
+            'engine_tie': tie, 'public_type': 'reflector between neighbours with unequal weights (DECLARED weight); beta term toggles the arrow'},
+        'B phi scan (theta = 0)': B_scan,
+        'B phi = 5 pi/16 with mass': B_mass,
+        'C (parity preserving)': {'letter': 'N_i = S_i^-1 M(tau) S_i M(-tau), before the routing', 'reduced_zone_scan': C_scan,
+                                  'full_zone_tau_pi16': row(res['C tau=pi/16 full']), 'k_c_light_Dirac_points': 8, 'b0': -21,
+                                  'obstruction': 'W(p + pi c) = W(p) for every word of equal-weight letters (EXACT): eight corner images'},
+        'other members (previous worker, scan.json, MEASURED)': {k: v['count_zeros'] for k, v in sc['candidates'].items()},
+    },
+    'theorem': {
+        'statement': 'block symbol U: T^3 -> SU(2) continuous: sum of chiralities at phase 0 = sum at phase pi = deg U (EXACT); '
+                     'finite range => deg U = 0 for every block cut out by a constant projector (EXACT; K_1(C[Z^3]) = C^x + Z^3 IMPORTED; '
+                     'elementary proof for words of single-direction letters)',
+        'cf1_blocks_exact': {k: {kk: v[kk] for kk in ('n_nodes', 'net_phase0', 'net_phasepi')} for k, v in ex['E4_node_chiralities_exact'].items()},
+        'cf1_W3_numeric': i2['W3'],
+        'control_smooth_degree_one': i2['flattened_m2_nodes'],
+        'control_spectral_block': i2['spectral_eps0.5'],
+    },
+    'copies': i3['copies'], 'b0_table': i3['b0'],
+    'vacuum_member_B': i4, 'chiral_coupling': i5, 'oriented_link': lk,
+    'exact_certificates': {k: v for k, v in ex.items() if k != 'E4_node_chiralities_exact' and k != 'note'},
+}
+json.dump(out, open(os.path.join(HERE, 'cones.json'), 'w'), indent=1, default=float)
+print('written', os.path.join(HERE, 'cones.json'))

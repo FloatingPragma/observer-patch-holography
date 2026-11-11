@@ -1,0 +1,211 @@
+"""Kernel of the family walk on the flat honeycomb federation with a periodic or random background of link phases.
+
+Geometry and conventions are those of the simulation session's reference engine work/SIM/lib/family_walk.py
+(FlatPatch): unit cell = one up and one down carrier (24 ports), glue seam k joins the up carrier of cell R to the
+down carrier of cell R + DEL[k]; gluing 'bridge' (one glue seam per neighbour, NA = 66 addresses per carrier) or
+'seam' (two crossed glue seams per neighbour, NA = 72). Sector 'scalar' = a fibre level with flat links (hop 1),
+'spinor' / 'vector' = recharted section sectors (hop phase of <chi_b|chi_a>).
+A defect is a link phase w multiplying the hop of one internal seam of one carrier (w = -1: a central link sign,
+i.e. a pair of flux faces in that carrier; w = exp(2 pi i alpha) for a charge phase alpha).
+
+The blank-record discriminant of the family walk is 1 - L/NA (derivation in family_walk.py and STEPS.md), so a
+level lambda of L is a correction probability p = lambda/NA and a walk phase omega = arccos(1 - p) per tick.
+
+Bloch convention: psi(R + B) = exp(i q.B) psi(R) on the superlattice; a hop a(R) -> b(R + d) carries exp(-i q.d).
+"""
+import itertools
+import numpy as np
+import scipy.sparse as sp
+import scipy.sparse.linalg as spla
+
+PHI = (1 + 5 ** 0.5) / 2
+PV = np.array([(-1, PHI, 0), (1, PHI, 0), (-1, -PHI, 0), (1, -PHI, 0), (0, -1, PHI), (0, 1, PHI),
+               (0, -1, -PHI), (0, 1, -PHI), (PHI, 0, -1), (PHI, 0, 1), (-PHI, 0, -1), (-PHI, 0, 1)], float)
+NV = PV / np.linalg.norm(PV, axis=1)[:, None]
+E = [(a, b) for a in range(12) for b in range(a + 1, 12) if abs(np.linalg.norm(PV[a] - PV[b]) - 2) < 1e-9]
+_ES = set(E)
+_adj = lambda a, b: (min(a, b), max(a, b)) in _ES
+F = [f for f in itertools.combinations(range(12), 3) if _adj(f[0], f[1]) and _adj(f[1], f[2]) and _adj(f[0], f[2])]
+TOP = (0, 11, 5)
+GLUE = []
+for k in range(3):
+    e = {TOP[(k + 1) % 3], TOP[(k + 2) % 3]}
+    GLUE.append([v for f in F if e <= set(f) and set(f) != set(TOP) for v in f if v not in e][0])
+A1 = np.array([1.0, 0.0]); A2 = np.array([0.5, 3 ** 0.5 / 2])
+AREA_CELL = 3 ** 0.5 / 2
+SEAM_FACES = {i: [f for f in F if set(E[i]) <= set(f)] for i in range(30)}
+
+
+def spin_matrices(j):
+    d = int(round(2 * j + 1)); m = np.array([j - i for i in range(d)])
+    Jz = np.diag(m).astype(complex); Jp = np.zeros((d, d), complex)
+    for i in range(1, d):
+        Jp[i - 1, i] = np.sqrt(j * (j + 1) - m[i] * (m[i] + 1))
+    return (Jp + Jp.conj().T) / 2, (Jp - Jp.conj().T) / (2j), Jz
+
+
+def coherent(j, m, n):
+    Jx, Jy, Jz = spin_matrices(j)
+    w, U = np.linalg.eigh(n[0] * Jx + n[1] * Jy + n[2] * Jz)
+    return U[:, int(np.argmin(abs(w - m)))]
+
+
+def ambient_axes():
+    tau = -(A1 + A2) / 3
+    DEL = [np.zeros(2), A1, A2]
+    def frame(DEL):
+        dirs = [(tau + d) / np.linalg.norm(tau + d) for d in DEL]
+        n = NV[list(TOP)].sum(0); n /= np.linalg.norm(n)
+        v = np.cross(n, [0, 0, 1.0]); s = np.linalg.norm(v); c = n[2]
+        K = np.array([[0, -v[2], v[1]], [v[2], 0, -v[0]], [-v[1], v[0], 0]])
+        X = NV @ (np.eye(3) + K + K @ K * ((1 - c) / s ** 2)).T
+        rz = lambda t: np.array([[np.cos(t), -np.sin(t), 0], [np.sin(t), np.cos(t), 0], [0, 0, 1]])
+        a0 = np.arctan2(X[TOP[0]][1], X[TOP[0]][0]); t0 = np.arctan2(-dirs[0][1], -dirs[0][0])
+        X = X @ rz(t0 - a0).T
+        ok = all(np.allclose(X[TOP[k]][:2] / np.linalg.norm(X[TOP[k]][:2]), -dirs[k], atol=1e-9) for k in range(3))
+        return X, ok, rz
+    X, ok, rz = frame(DEL)
+    if not ok:
+        DEL = [DEL[0], DEL[2], DEL[1]]; X, ok, rz = frame(DEL)
+    assert ok
+    return np.vstack([X, X @ rz(np.pi).T]), DEL
+
+
+AX, DEL = ambient_axes()
+DISP = []
+for d in DEL:
+    sol = np.linalg.solve(np.array([A1, A2]).T, d); DISP.append((int(round(sol[0])), int(round(sol[1]))))
+NA = {'bridge': 66, 'seam': 72}
+
+
+class Template:
+    """Hop phases of the unit cell for one sector, gluing and frame rule."""
+
+    def __init__(self, sector='scalar', gluing='bridge', rule='template'):
+        self.sector, self.gluing, self.rule = sector, gluing, rule
+        j, m = {'scalar': (0, 0), 'spinor': (0.5, 0.5), 'vector': (1, 1)}[sector]
+        chi = [coherent(j, m, AX[p]) if j else np.ones(1) for p in range(24)]
+        def z(a, b):
+            if not j: return 1.0 + 0j
+            v = np.vdot(chi[b], chi[a]); return v / abs(v)
+        self.zint = np.array([[z(blk + a, blk + b) for a, b in E] for blk in (0, 12)])       # [carrier type][seam]
+        self.glue = []                                                                         # (k, up port, down port, z)
+        for k in range(3):
+            pairs = [(GLUE[k], 12 + GLUE[k])] if gluing == 'bridge' else [(TOP[(k + 1) % 3], 12 + TOP[(k + 2) % 3]), (TOP[(k + 2) % 3], 12 + TOP[(k + 1) % 3])]
+            for a, b in pairs:
+                self.glue.append((k, a, b, (1.0 + 0j) if rule == 'template' else z(a, b)))
+        self.NA = NA[gluing]
+        self.real = (sector == 'scalar')
+
+    def cell_matrix(self, kappa, defects=()):
+        """24 x 24 Bloch matrix L0(kappa) of the defect-free federation (or with a defect in every cell).
+        defects: iterable of (carrier type 0/1, seam index, link phase w)."""
+        zint = self.zint.copy()
+        for t, e, w in defects:
+            zint[t, e] *= w
+        L = np.zeros((24, 24), complex)
+        for t, blk in ((0, 0), (1, 12)):
+            for e, (a, b) in enumerate(E):
+                zz = zint[t, e]
+                L[blk + a, blk + a] += 1; L[blk + b, blk + b] += 1; L[blk + b, blk + a] -= zz; L[blk + a, blk + b] -= np.conj(zz)
+        for k, a, b, zz in self.glue:
+            ph = np.exp(-1j * (np.asarray(kappa) @ DEL[k]))
+            L[a, a] += 1; L[b, b] += 1; L[b, a] -= zz * ph; L[a, b] -= np.conj(zz * ph)
+        return L
+
+    def cell_matrices(self, kappas):
+        """Batched L0(kappa) for an array of wave vectors (K, 2) -> (K, 24, 24)."""
+        kappas = np.asarray(kappas, float)
+        base = np.zeros((24, 24), complex)
+        for t, blk in ((0, 0), (1, 12)):
+            for e, (a, b) in enumerate(E):
+                zz = self.zint[t, e]
+                base[blk + a, blk + a] += 1; base[blk + b, blk + b] += 1; base[blk + b, blk + a] -= zz; base[blk + a, blk + b] -= np.conj(zz)
+        for k, a, b, zz in self.glue:
+            base[a, a] += 1; base[b, b] += 1
+        L = np.broadcast_to(base, (len(kappas), 24, 24)).copy()
+        for k, a, b, zz in self.glue:
+            ph = np.exp(-1j * (kappas @ DEL[k]))
+            L[:, b, a] -= zz * ph; L[:, a, b] -= np.conj(zz * ph)
+        return L
+
+
+class Supercell:
+    """n1 x n2 cells with shear s: superlattice vectors B1 = n1 A1, B2 = s A1 + n2 A2 (Hermite normal form).
+
+    defects: list of ((i, k), carrier type 0 = up / 1 = down, seam index 0..29, link phase w)."""
+
+    def __init__(self, tpl, n1, n2, shear=0, defects=()):
+        self.tpl, self.n1, self.n2, self.shear = tpl, n1, n2, shear
+        self.ncell = n1 * n2; self.P = 24 * self.ncell; self.ncar = 2 * self.ncell
+        self.defects = list(defects)
+        zint = np.broadcast_to(tpl.zint, (self.ncell, 2, 30)).copy()
+        for (i, k), t, e, w in self.defects:
+            zint[self.cell(i, k), t, e] *= w
+        self.zint = zint
+        self.defect_carriers = sorted({2 * self.cell(i, k) + t for (i, k), t, e, w in self.defects})
+
+    def cell(self, i, k):
+        t = k // self.n2
+        return ((i - t * self.shear) % self.n1) * self.n2 + (k - t * self.n2)
+
+    def matrix(self, q=(0.0, 0.0), dtype=None):
+        q = np.asarray(q, float)
+        rows, cols, vals = [], [], []
+        ea = np.array([a for a, b in E]); eb = np.array([b for a, b in E])
+        base = 24 * np.arange(self.ncell)
+        for t, blk in ((0, 0), (1, 12)):
+            a = (base[:, None] + blk + ea[None, :]).ravel(); b = (base[:, None] + blk + eb[None, :]).ravel()
+            zz = self.zint[:, t, :].ravel()
+            rows += [a, b, b, a]; cols += [a, b, a, b]; vals += [np.ones(len(a), complex), np.ones(len(a), complex), -zz, -np.conj(zz)]
+        ii, kk = np.divmod(np.arange(self.ncell), self.n2)
+        for k, pa, pb, zz in self.tpl.glue:
+            tgt = np.array([self.cell(i + DISP[k][0], k2 + DISP[k][1]) for i, k2 in zip(ii, kk)])
+            a = base + pa; b = 24 * tgt + pb
+            ph = zz * np.exp(-1j * (q @ DEL[k]))
+            rows += [a, b, b, a]; cols += [a, b, a, b]
+            vals += [np.ones(len(a), complex), np.ones(len(a), complex), np.full(len(a), -ph), np.full(len(a), -np.conj(ph))]
+        L = sp.coo_matrix((np.concatenate(vals), (np.concatenate(rows), np.concatenate(cols))), shape=(self.P, self.P)).tocsc()
+        if dtype is float or (dtype is None and self.tpl.real and not q.any() and all(abs(np.imag(w)) < 1e-15 for *_, w in self.defects)):
+            L = L.real.tocsc()
+        return L
+
+    def lowest(self, q=(0.0, 0.0), k=4, sigma=None, dense_below=2500):
+        """k lowest eigenpairs."""
+        L = self.matrix(q)
+        if self.P <= dense_below:
+            w, U = np.linalg.eigh(L.toarray())
+            return w[:k], U[:, :k]
+        if sigma is None:
+            sigma = -1e-3
+        w, U = spla.eigsh(L, k=k, sigma=sigma, which='LM', tol=0)
+        o = np.argsort(w)
+        return w[o], U[:, o]
+
+
+def honeycomb_family(m, seam=0, w=-1.0):
+    """m x m cells, two defect carriers forming a honeycomb superlattice: one defect per N = m^2 carriers."""
+    d = [((0, 0), 0, seam, w)]
+    if m % 3 == 0:
+        d.append(((m // 3, m // 3), 0, seam, w))
+    elif m % 3 == 2:
+        j = (m + 1) // 3; d.append(((j, j), 1, seam, w))
+    else:
+        j = (2 * m + 1) // 3; d.append(((j % m, j % m), 1, seam, w))
+    return d
+
+
+def carrier_weight(sc, vec):
+    """Weight of a normalized vector on each carrier."""
+    return (abs(vec) ** 2).reshape(sc.ncar, 12).sum(1)
+
+
+def curvature(sc, E0, delta, k=1, sigma=None):
+    """Curvature tensor of the lowest band at q = 0 from three directions at |q| = delta."""
+    dirs = [(1.0, 0.0), (0.0, 1.0), (2 ** -0.5, 2 ** -0.5)]
+    vals = []
+    for d in dirs:
+        w, _ = sc.lowest(np.array(d) * delta, k=max(k, 2), sigma=sigma)
+        vals.append((w[0] - E0) / delta ** 2)
+    Dxx, Dyy = vals[0], vals[1]; Dxy = vals[2] - (Dxx + Dyy) / 2
+    return Dxx, Dyy, Dxy

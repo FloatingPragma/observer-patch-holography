@@ -1,0 +1,62 @@
+"""S8 script B2: the one logarithmic level dependence of the port Laplacian.
+
+Two-point resistance between two carriers at FIXED places on the screen (the carriers nearest to the centres of level-0
+cell 0 and of its antipodal cell), levels 0..LMAX, for both declared routings. Contacts: all twelve ports of each carrier
+(smeared), and one unglued port of each. In two dimensions R(l) = const + (ln 2 / (pi sigma)) l, sigma the sheet
+conductance; sigma itself converges geometrically. Sparse grounded LU only.
+
+Run:  cd SCR/rer-edit && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. nice -n 10 /tmp/oph-completion-venv/bin/python \
+          ../research/S8/b2_resistance_levels.py [LMAX=5]
+"""
+import json
+import sys
+import time
+from math import log, pi
+from pathlib import Path
+
+import numpy as np
+import scipy.sparse.linalg as sla
+from scipy.spatial import cKDTree
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+import fedlib as FL  # noqa: E402
+
+LMAX = int(sys.argv[1]) if len(sys.argv) > 1 else 5
+OUT = HERE / 'b2_resistance_levels.json'
+res = {}
+_, _, pts0 = FL.seams(0, 'face_axis')
+# six fixed places: centres of level-0 cells 0..5 paired with their antipodes
+anti0 = cKDTree(pts0).query(-pts0)[1]
+places = [(pts0[c], pts0[anti0[c]]) for c in range(20) if c < anti0[c]][:6]
+for gluing in ('face_axis', 'port_pair'):
+    rows = []
+    for level in range(LMAX + 1):
+        t0 = time.time()
+        a, b, pts = FL.seams(level, gluing)
+        N = 20 * 4 ** level; P = 12 * N
+        Lap, A, deg = FL.laplacian(a, b, P)
+        lu = sla.splu(Lap[:P - 1, :P - 1].tocsc())
+        tree = cKDTree(pts)
+        glued = np.zeros(P, bool); glued[a[30 * N:]] = True; glued[b[30 * N:]] = True
+        Rs, Rp = [], []
+        for src, snk in places:
+            c = int(tree.query(src)[1]); d = int(tree.query(snk)[1])
+            rhs = np.zeros((P, 2))
+            rhs[12 * c:12 * c + 12, 0] = 1 / 12; rhs[12 * d:12 * d + 12, 0] = -1 / 12
+            pc = 12 * c + int(np.flatnonzero(~glued[12 * c:12 * c + 12])[0]); pd = 12 * d + int(np.flatnonzero(~glued[12 * d:12 * d + 12])[0])
+            rhs[pc, 1] = 1; rhs[pd, 1] = -1
+            x = np.zeros((P, 2)); x[:P - 1] = lu.solve(rhs[:P - 1])
+            Rs.append(x[12 * c:12 * c + 12, 0].mean() - x[12 * d:12 * d + 12, 0].mean())
+            Rp.append(x[pc, 1] - x[pd, 1])
+        rows.append({'level': level, 'ports': P, 'R_smeared_mean': float(np.mean(Rs)), 'R_smeared_spread': float(np.ptp(Rs)),
+                     'R_port_mean': float(np.mean(Rp)), 'R_port_spread': float(np.ptp(Rp)), 'seconds': round(time.time() - t0, 2)})
+        print(gluing, rows[-1], flush=True)
+    ys = np.array([r['R_smeared_mean'] for r in rows]); yp = np.array([r['R_port_mean'] for r in rows])
+    res[gluing] = {'rows': rows, 'increments_smeared': np.diff(ys).tolist(), 'increments_port': np.diff(yp).tolist()}
+    print(gluing, 'increments smeared', np.round(np.diff(ys), 5).tolist(), 'port', np.round(np.diff(yp), 5).tolist(), flush=True)
+sigma_flat = 0.39364790908  # flat symmetric wiring, script c_bloch_wirings.py
+res['prediction'] = {'sigma_flat_face_axis': sigma_flat, 'ln2/(pi sigma)': log(2) / (pi * sigma_flat), '1/(pi sigma) per e-fold': 1 / (pi * sigma_flat),
+                     'analogue of a one-loop coefficient b = 2/sigma': 2 / sigma_flat}
+print(res['prediction'])
+OUT.write_text(json.dumps(res, indent=1))

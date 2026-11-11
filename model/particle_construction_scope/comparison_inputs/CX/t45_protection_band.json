@@ -1,0 +1,182 @@
+{
+ "doublet_flux_1": {
+  "flux": 1,
+  "band": "spinor doublet",
+  "band_dimension": 2,
+  "band_adjacency_eigenvalue": "1*sqrt5*r",
+  "l = 5 - a": "5 + -1*sqrt5*r",
+  "l_float": 0.7467459582398004,
+  "check_family": "face",
+  "number_of_checks": 20,
+  "checks_annihilate_band_exactly": true,
+  "rank_of_checks": 10,
+  "common_kernel_equals_band": true,
+  "parent_operator_gap_float": 1.381966011250105,
+  "CAP_event_band_retention_exact": "1 - l (12 - d)/360",
+  "CAP_event_band_retention_float": 0.9792570567155611,
+  "CAP_event_band_leak_float": 0.0207429432844389,
+  "q = <-_e|P|-_e> = d l/60": 0.024891531941326678,
+  "code_invariance_defect_keep_row_|(1-P)K P|": 0.15579455567811282,
+  "code_invariance_defect_corrected_row": 0.13120191686837965,
+  "code_invariance_defect_keep_row_squared_exact": "(1/8 + -1/360*sqrt5) + -1/45*sqrt5*r",
+  "band_test_lower_bound_for_any_protocol_starting_with_a_CAP_event_|E - P| >=": 0.15579455567811282,
+  "sweep_contraction_|F^m - P|_m=1..8": [
+   "0.459572587287",
+   "0.119503496431",
+   "0.0302087621879",
+   "0.00751804006201",
+   "0.00183221347344",
+   "0.000435668527061",
+   "0.000101451096261",
+   "2.3266082013e-5"
+  ],
+  "records_per_sweep": 20
+ },
+ "triplet_flux_2": {
+  "flux": 2,
+  "band": "triplet",
+  "band_dimension": 3,
+  "band_adjacency_eigenvalue": "(5/2 + 1/2*sqrt5)",
+  "l = 5 - a": "(5/2 + -1/2*sqrt5)",
+  "l_float": 1.381966011250105,
+  "check_family": "rhombus",
+  "number_of_checks": 30,
+  "checks_annihilate_band_exactly": true,
+  "rank_of_checks": 9,
+  "common_kernel_equals_band": true,
+  "parent_operator_gap_float": 3.1055728090000843,
+  "CAP_event_band_retention_exact": "1 - l (12 - d)/360",
+  "CAP_event_band_retention_float": 0.9654508497187474,
+  "CAP_event_band_leak_float": 0.034549150281252626,
+  "q = <-_e|P|-_e> = d l/60": 0.06909830056250525,
+  "code_invariance_defect_keep_row_|(1-P)K P|": 0.25362122431271195,
+  "code_invariance_defect_corrected_row": 0.1983021064484161,
+  "code_invariance_defect_keep_row_squared_exact": "(17/160 + -3/160*sqrt5)",
+  "band_test_lower_bound_for_any_protocol_starting_with_a_CAP_event_|E - P| >=": 0.25362122431271195,
+  "sweep_contraction_|F^m - P|_m=1..8": [
+   "0.254367413503",
+   "0.0209953574601",
+   "0.00173583094279",
+   "0.000152324348258",
+   "1.52453527311e-5",
+   "1.55410770013e-6",
+   "1.56548429389e-7",
+   "1.56326756007e-8"
+  ],
+  "records_per_sweep": 30,
+  "face_checks": "none (the triplet restricted to a face has rank 3)"
+ },
+ "tradeoff_counterexample": {
+  "state": "doublet vector with spinor chi_0: psi_p = <chi_p|chi_0>/sqrt6",
+  "populations": [
+   "(1/12 + -1/60*sqrt5)",
+   "(1/12 + 1/60*sqrt5)",
+   "0",
+   "1/6"
+  ],
+  "native_kernel_changes_population_of_port_0_by": "(-1/144 + 1/720*sqrt5)",
+  "float": -0.0038387944756947366,
+  "meaning": "a channel that fixes every doublet state leaves these populations unchanged; the native kernel moves them: population lumping fails by exactly (5 - sqrt5)/720 at port 0 on this input"
+ },
+ "face_reset_L17": {
+  "face": [
+   0,
+   11,
+   5
+  ],
+  "population_shadow_from_first_port": [
+   "5/9",
+   "2/9",
+   "2/9"
+  ],
+  "fixed_space": "every doublet state (K0 P = P, reset rows vanish on P)",
+  "population_lumping_onto_an_ergodic_chain": "impossible by the tradeoff lemma"
+ },
+ "zeno_with_face_check_band_test": {
+  "bound": "|K - exp(i t P N_p P)| <= p(1-p) t^2/(2r) + |F^m - P| t sqrt(p(1-p)); failure probability <= p(1-p) t^2/r + 2 |F^m - P| t sqrt(p(1-p))",
+  "p(1-p)": "5/36",
+  "asymptotic_sweep_contraction_per_sweep": 0.23586019580884493,
+  "rows": [
+   {
+    "pulse_angle": 0.2,
+    "operator_error_target": 0.01,
+    "pulses_r": 1,
+    "sweeps_per_test_m": 3,
+    "face_records": 60,
+    "failure_probability_bound": 0.010058811940106868
+   },
+   {
+    "pulse_angle": 0.2,
+    "operator_error_target": 0.001,
+    "pulses_r": 6,
+    "sweeps_per_test_m": 5,
+    "face_records": 600,
+    "failure_probability_bound": 0.001199056184319449
+   },
+   {
+    "pulse_angle": 0.2,
+    "operator_error_target": 0.0001,
+    "pulses_r": 56,
+    "sweeps_per_test_m": 6,
+    "face_records": 6720,
+    "failure_probability_bound": 0.00016415197868405607
+   },
+   {
+    "pulse_angle": 1.0,
+    "operator_error_target": 0.01,
+    "pulses_r": 14,
+    "sweeps_per_test_m": 4,
+    "face_records": 1120,
+    "failure_probability_bound": 0.01552425113270862
+   },
+   {
+    "pulse_angle": 1.0,
+    "operator_error_target": 0.001,
+    "pulses_r": 139,
+    "sweeps_per_test_m": 6,
+    "face_records": 16680,
+    "failure_probability_bound": 0.0013239287868769434
+   },
+   {
+    "pulse_angle": 1.0,
+    "operator_error_target": 0.0001,
+    "pulses_r": 1389,
+    "sweeps_per_test_m": 7,
+    "face_records": 194460,
+    "failure_probability_bound": 0.0001756091831837724
+   },
+   {
+    "pulse_angle": 3.0,
+    "operator_error_target": 0.01,
+    "pulses_r": 125,
+    "sweeps_per_test_m": 5,
+    "face_records": 12500,
+    "failure_probability_bound": 0.014096953875902846
+   },
+   {
+    "pulse_angle": 3.0,
+    "operator_error_target": 0.001,
+    "pulses_r": 1250,
+    "sweeps_per_test_m": 6,
+    "face_records": 150000,
+    "failure_probability_bound": 0.0019741844421656027
+   },
+   {
+    "pulse_angle": 3.0,
+    "operator_error_target": 0.0001,
+    "pulses_r": 12500,
+    "sweeps_per_test_m": 8,
+    "face_records": 2000000,
+    "failure_probability_bound": 0.00015202454095115315
+   }
+  ],
+  "records": "20 m r face-check outcomes plus r pulse times"
+ },
+ "two_load_leading_triplet": {
+  "status": "MEASURED (float64 from the exact stationary density)",
+  "CAP_event_retention": 0.9602217364555944,
+  "leak_per_event": 0.03977826354440561,
+  "level_gap_to_next": 0.10932077341844604
+ },
+ "seconds": 3.6166329383850098
+}

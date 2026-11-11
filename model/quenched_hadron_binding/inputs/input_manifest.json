@@ -1,0 +1,117 @@
+{
+  "schema": "oph.scientific_comparison_inputs.v1",
+  "scope": "Source and numerical comparison inputs. Checksum admission does not validate their physical interpretations or transfer their construction to the owning source. Source text is inert .raw data; executable verified results are linked in README.md.",
+  "files": [
+    {
+      "path": "HAD/analysis_A.json",
+      "source": "work/SIM/phase2/HAD/analysis_A.json",
+      "sha256": "1ec6ad92879c0cd9c847c989cf6fd0aa41902b726b08c9c9edc10dc35c296b30",
+      "bytes": 52068
+    },
+    {
+      "path": "HAD/analysis_B.json",
+      "source": "work/SIM/phase2/HAD/analysis_B.json",
+      "sha256": "91537362ac11f278d1839c54a776c12633f1389820819015f6ea3d308acc794f",
+      "bytes": 65676
+    },
+    {
+      "path": "HAD/gates.json",
+      "source": "work/SIM/phase2/HAD/gates.json",
+      "sha256": "6e2a2bd44834c2234bb7acf98e40b766db8fa8130ea9f53d7166f943a3056c18",
+      "bytes": 4210
+    },
+    {
+      "path": "HAD/had_analyze.py.raw",
+      "source": "work/SIM/phase2/HAD/had_analyze.py",
+      "sha256": "7c9713445f6588a9518bc6f316ec6c9def53e9ae37713beeb0026819d8d48700",
+      "bytes": 22338
+    },
+    {
+      "path": "HAD/had_gates.py.raw",
+      "source": "work/SIM/phase2/HAD/had_gates.py",
+      "sha256": "a2a2e1d593d671bb43faabc4abbf2445392cc4b185dd05f337a63c1f83fc6cf5",
+      "bytes": 14487
+    },
+    {
+      "path": "HAD/had_gen.py.raw",
+      "source": "work/SIM/phase2/HAD/had_gen.py",
+      "sha256": "4b114d00ae5f9215a38c3046437e50ec7700ac25dde2514f5409319e32127000",
+      "bytes": 2202
+    },
+    {
+      "path": "HAD/had_lib.py.raw",
+      "source": "work/SIM/phase2/HAD/had_lib.py",
+      "sha256": "2ae2d19abcddf1e2a35002f4e1f04a9f0d4095d54efffd02fe0a385e7184fc1b",
+      "bytes": 34976
+    },
+    {
+      "path": "HAD/had_meas.py.raw",
+      "source": "work/SIM/phase2/HAD/had_meas.py",
+      "sha256": "04ec25af7b2eb1daff4641ee415d97370ac7b0deb34f16f6a457fa1275df7632",
+      "bytes": 4141
+    },
+    {
+      "path": "HAD/had_melt.py.raw",
+      "source": "work/SIM/phase2/HAD/had_melt.py",
+      "sha256": "0691e2d69b72396ef948b5094f32f04e963db890b521525206da75ca8728140d",
+      "bytes": 2406
+    },
+    {
+      "path": "HAD/had_melt_analyze.py.raw",
+      "source": "work/SIM/phase2/HAD/had_melt_analyze.py",
+      "sha256": "1003fe9da7521f747be1575d860d2b140a6e32e243db9af57ad979ca764739d5",
+      "bytes": 3301
+    },
+    {
+      "path": "HAD/had_site.py.raw",
+      "source": "work/SIM/phase2/HAD/had_site.py",
+      "sha256": "fbeaeda8a17718100832552cff4c64ffaca7209ec6f7e0b5502fd154bd6818c4",
+      "bytes": 12315,
+      "original_source_sha256": "589d395890a623e9514a60545de74ff59c7ea35a2a8ebdf1b107e12b147a16c4",
+      "original_source_bytes": 12344,
+      "adaptation": "Machine-local workspace/home prefixes and compute-host metadata replaced by symbolic labels; numerical data unchanged."
+    },
+    {
+      "path": "HAD/hadrons_site.json",
+      "source": "work/SIM/phase2/HAD/hadrons_site.json",
+      "bytes": 20502,
+      "sha256": "c13a0d8aea92485dce8b828c4ced9f91bc974160dcfd429479cfc20ea79d9071"
+    },
+    {
+      "path": "HAD/jk_A.json",
+      "source": "work/SIM/phase2/HAD/jk_A.json",
+      "sha256": "10df490924a295a150ccdfba35323fed45fc7af382c4e0c96356b9ce42970646",
+      "bytes": 164847
+    },
+    {
+      "path": "HAD/jk_B.json",
+      "source": "work/SIM/phase2/HAD/jk_B.json",
+      "sha256": "310be4dbdc6e6c3fa9a0b822869bf9f9d8a3dbf21e85864ef7892438a88ef85b",
+      "bytes": 239615
+    },
+    {
+      "path": "HAD/melting.json",
+      "source": "work/SIM/phase2/HAD/melting.json",
+      "sha256": "1651fc84f96760a3f731a0a8da76f1bb825a727ee2f23b10accdec6d5fce0524",
+      "bytes": 34296
+    },
+    {
+      "path": "HAD/sigma.json",
+      "source": "work/SIM/phase2/HAD/sigma.json",
+      "sha256": "a3ff410a70051510f07118c5c6c65905ef28c610076ff89ce188f80b6b6cef50",
+      "bytes": 2686
+    },
+    {
+      "path": "HAD/su3_gates.py.raw",
+      "source": "work/SIM/phase2/HAD/su3_gates.py",
+      "sha256": "63671a804650612acb98a58cd2a596c0a0fb0f396ac86288babfc807a26604cb",
+      "bytes": 6480
+    },
+    {
+      "path": "HAD/su3_lib.py.raw",
+      "source": "work/SIM/phase2/HAD/su3_lib.py",
+      "sha256": "cbfe5ebebe952c046bb3ad1978ba4b804e6185da6a4cc4f08f8c96114d3f435a",
+      "bytes": 15446
+    }
+  ]
+}

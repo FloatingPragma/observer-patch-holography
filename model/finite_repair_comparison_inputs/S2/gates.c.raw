@@ -1,0 +1,57 @@
+// Two-port gate kernels for one-quantum simulations (S2).
+// psi: complex amplitudes on ports. Gate e acts on ports (a[e], b[e]) with the 2x2 matrix u[4e..4e+3]
+// (row-major): psi_a' = u0 psi_a + u1 psi_b ; psi_b' = u2 psi_a + u3 psi_b.
+#include <complex.h>
+#include <stdint.h>
+static inline uint64_t rotl(const uint64_t x, int k){return (x<<k)|(x>>(64-k));}
+static inline uint64_t next(uint64_t *s){
+  const uint64_t result = rotl(s[1]*5,7)*9; const uint64_t t = s[1]<<17;
+  s[2]^=s[0]; s[3]^=s[1]; s[1]^=s[2]; s[0]^=s[3]; s[2]^=t; s[3]=rotl(s[3],45);
+  return result;
+}
+void seed(uint64_t *s, uint64_t x){
+  for(int i=0;i<4;i++){ x += 0x9e3779b97f4a7c15ULL; uint64_t z=x; z=(z^(z>>30))*0xbf58476d1ce4e5b9ULL; z=(z^(z>>27))*0x94d049bb133111ebULL; s[i]=z^(z>>31);} }
+// apply gates in the listed order
+void apply_order(double complex *psi, const int32_t *a, const int32_t *b, const double complex *u, const int32_t *order, int64_t count){
+  for(int64_t n=0;n<count;n++){
+    int32_t e=order[n]; const double complex *m=u+4*(int64_t)e;
+    double complex x=psi[a[e]], y=psi[b[e]];
+    psi[a[e]]=m[0]*x+m[1]*y; psi[b[e]]=m[2]*x+m[3]*y;
+  }
+}
+// independent uniform draws among M gates
+void apply_uniform(double complex *psi, const int32_t *a, const int32_t *b, const double complex *u, int64_t M, int64_t count, uint64_t *s){
+  for(int64_t n=0;n<count;n++){
+    int64_t e=(int64_t)((next(s)>>11) % (uint64_t)M); const double complex *m=u+4*e;
+    double complex x=psi[a[e]], y=psi[b[e]];
+    psi[a[e]]=m[0]*x+m[1]*y; psi[b[e]]=m[2]*x+m[3]*y;
+  }
+}
+// one uniformly random permutation of the M gates per sweep (Fisher-Yates on a caller-supplied work array)
+void apply_permutations(double complex *psi, const int32_t *a, const int32_t *b, const double complex *u, int64_t M, int64_t sweeps, int32_t *work, uint64_t *s){
+  for(int64_t t=0;t<sweeps;t++){
+    for(int64_t i=0;i<M;i++) work[i]=(int32_t)i;
+    for(int64_t i=M-1;i>0;i--){ int64_t j=(int64_t)((next(s)>>11) % (uint64_t)(i+1)); int32_t tmp=work[i]; work[i]=work[j]; work[j]=tmp; }
+    for(int64_t n=0;n<M;n++){
+      int32_t e=work[n]; const double complex *m=u+4*(int64_t)e;
+      double complex x=psi[a[e]], y=psi[b[e]];
+      psi[a[e]]=m[0]*x+m[1]*y; psi[b[e]]=m[2]*x+m[3]*y;
+    }
+  }
+}
+// grouped version: G groups (seams), group g owns gates grp_start[g]..grp_start[g+1]-1 (commuting lifts of one seam)
+void apply_group_uniform(double complex *psi, const int32_t *a, const int32_t *b, const double complex *u, const int32_t *grp_start, int64_t G, int64_t count, uint64_t *s){
+  for(int64_t n=0;n<count;n++){
+    int64_t g=(int64_t)((next(s)>>11) % (uint64_t)G);
+    for(int32_t e=grp_start[g]; e<grp_start[g+1]; e++){ const double complex *m=u+4*(int64_t)e; double complex x=psi[a[e]], y=psi[b[e]]; psi[a[e]]=m[0]*x+m[1]*y; psi[b[e]]=m[2]*x+m[3]*y; }
+  }
+}
+void apply_group_permutations(double complex *psi, const int32_t *a, const int32_t *b, const double complex *u, const int32_t *grp_start, int64_t G, int64_t sweeps, int32_t *work, uint64_t *s){
+  for(int64_t t=0;t<sweeps;t++){
+    for(int64_t i=0;i<G;i++) work[i]=(int32_t)i;
+    for(int64_t i=G-1;i>0;i--){ int64_t j=(int64_t)((next(s)>>11) % (uint64_t)(i+1)); int32_t tmp=work[i]; work[i]=work[j]; work[j]=tmp; }
+    for(int64_t n=0;n<G;n++){ int32_t g=work[n];
+      for(int32_t e=grp_start[g]; e<grp_start[g+1]; e++){ const double complex *m=u+4*(int64_t)e; double complex x=psi[a[e]], y=psi[b[e]]; psi[a[e]]=m[0]*x+m[1]*y; psi[b[e]]=m[2]*x+m[3]*y; }
+    }
+  }
+}

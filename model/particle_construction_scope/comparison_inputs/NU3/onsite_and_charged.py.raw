@@ -1,0 +1,155 @@
+"""N3, C1, C2 and the onsite partner vertex (part of N5).
+
+N3: rotation eigenvalues of the cell-0 composite doublet (onsite spin flip zero at every order),
+    second-order onsite shift of HL per channel as a rational function of the gaps.
+C1: elementary first-order hop amplitudes of e^c (index 9) and of the doublet L (index 10).
+C2: charged mass vertex ||V_e Omega_cell||^2 on one cell.
+N5 (onsite part): F_k = D_{0,sigma} P_particle (V_Y,cell0)^k Omega for k = 1, 2, 3 with symbolic couplings.
+Usage (from the RER root): onsite_and_charged.py out.json
+"""
+import json
+import sys
+import time
+from collections import defaultdict
+
+import sympy as s
+
+from nu3_lib import (config_for, vapply, tagged, energy_class, substitute, preparation,
+                     norm2, inner, DS, DL)
+from model.coherent_defect_wave.chiral_joint.periodic_family.model import (
+    local_yukawa, apply_state, empty_key)
+from model.coherent_defect_wave.chiral_joint.oriented_links.rotations import axial_rotation_column
+from model.coherent_defect_wave.chiral_joint.model import sequence
+
+out_path = sys.argv[1]
+start = time.time()
+log = {}
+
+# ---- N3: rotation eigenvalues on the cell-0 doublet and at the destination cell
+config = config_for(1, 1, 1)
+rot = {}
+for cell in (0, 4):
+    for spin in (0, 1):
+        state = preparation(cell=cell, spin=spin, config=config)
+        for axis in (2, 0):
+            image = apply_state(state, lambda key: axial_rotation_column(key, axis, config))
+            other = preparation(cell=cell, spin=1 - spin, config=config)
+            if image.keys() == state.keys():
+                ratio = {s.simplify(image[k] / state[k]) for k in state}
+                assert len(ratio) == 1
+                rot['cell%d_spin%d_axis%d' % (cell, spin, axis)] = 'eigenvalue ' + str(ratio.pop())
+            else:
+                assert image.keys() == other.keys()
+                ratio = {s.simplify(image[k] / other[k]) for k in other}
+                assert len(ratio) == 1
+                rot['cell%d_spin%d_axis%d' % (cell, spin, axis)] = 'maps to spin %d times %s' % (
+                    1 - spin, ratio.pop())
+log['N3_rotation_actions'] = rot
+print('rotations', rot, flush=True)
+
+# ---- N3: second-order onsite shift of HL, per channel
+p_keys = set()
+for cell in range(8):
+    for spin in (0, 1):
+        p_keys |= set(preparation(cell=cell, spin=spin, config=config))
+shift = {}
+for name, cp in (('e', (0, 0, 1)), ('d', (0, 1, 0)), ('u', (1, 0, 0))):
+    cfg = config_for(*cp)
+    s0 = preparation(cell=0, spin=0, config=cfg)
+    image = vapply(s0, cfg)
+    by_class = defaultdict(lambda: s.Integer(0))
+    for key, value in image.items():
+        if key in p_keys:
+            continue
+        by_class[energy_class(key)] += s.expand(s.conjugate(value) * value)
+    e2 = sum((w / ((1 - c[0]) * DS - c[1] * DL) for c, w in by_class.items()), s.Integer(0))
+    shift[name] = {'weights_by_class': {str(c): str(w) for c, w in by_class.items()},
+                   'second_order_shift': str(s.factor(s.together(e2)))}
+log['N3_second_order_onsite_shift_of_HL'] = shift
+print('onsite shift', shift, flush=True)
+
+# ---- C1: elementary hop amplitudes from cell 0 to cell 4 (first order), any link state
+hops = {}
+for label, mode in (('e^c index 9', 9), ('L index 10', 10)):
+    key = (1 << mode, (0,) * 24, (0,) * 8)
+    image = vapply({key: s.Integer(1)}, config)
+    entries = []
+    for (mask, links, scalars), value in image.items():
+        if scalars != (0,) * 8:
+            continue
+        moved = [j for j in range(240) if mask >> j & 1]
+        if len(moved) == 1 and moved[0] // 30 == 4:
+            entries.append({'target_mode': moved[0], 'excited_edges': [e for e, v in enumerate(links) if v],
+                            'amplitude': str(value)})
+    hops[label] = {'entries': entries,
+                   'sum_abs_squared': str(s.nsimplify(sum(abs(s.sympify(e['amplitude'])) ** 2 for e in entries)))}
+log['C1_elementary_hop_cell0_to_cell4'] = hops
+print('hops', {k: (len(v['entries']), v['sum_abs_squared']) for k, v in hops.items()}, flush=True)
+
+# ---- C2 and N5 onsite: one-cell computation with symbolic couplings
+yu, yd, ye = s.symbols('y_u y_d y_e', real=True)
+couplings = (yu, yd, ye)
+
+
+def onsite_apply(state):
+    out = defaultdict(lambda: s.Integer(0))
+    for (mask, scalar), value in state.items():
+        for (target, h), coefficient in local_yukawa(mask, scalar, couplings).items():
+            out[target, h] += value * coefficient
+    return {k: s.expand(v) for k, v in out.items() if s.expand(v) != 0}
+
+
+def lepton_number(mask):
+    total = 0
+    for spin in (0, 1):
+        total += -(mask >> (15 * spin + 9) & 1) + (mask >> (15 * spin + 10) & 1) + (mask >> (15 * spin + 11) & 1)
+    return total
+
+
+omega = {(0, 0): s.Integer(1)}
+one = onsite_apply(omega)
+e_part = {k: v for k, v in one.items() if v.has(ye)}
+log['C2_charged_mass_vertex_norm_squared'] = str(s.factor(sum(s.conjugate(v) * v for v in e_part.values())))
+print('C2', log['C2_charged_mass_vertex_norm_squared'], flush=True)
+
+powers = [omega]
+for k in range(3):
+    powers.append(onsite_apply(powers[-1]))
+
+
+def d_annihilate(state, spin):
+    """D_{spin} restricted to scalar particle inputs: phi_0 c_11 - phi_1 c_10 over sqrt 2."""
+    out = defaultdict(lambda: s.Integer(0))
+    for (mask, scalar), value in state.items():
+        if scalar == 1:
+            step = sequence(mask, ((15 * spin + 11, False),))
+            sign = 1
+        elif scalar == 2:
+            step = sequence(mask, ((15 * spin + 10, False),))
+            sign = -1
+        else:
+            continue
+        if step is None:
+            continue
+        out[step[0], 0] += sign * value * step[1] / s.sqrt(2)
+    return {k: s.expand(v) for k, v in out.items() if s.expand(v) != 0}
+
+
+partner = {}
+for k in (1, 2, 3):
+    rows = {}
+    for spin in (0, 1):
+        f = d_annihilate(powers[k], spin)
+        n2 = s.factor(s.expand(sum(s.conjugate(v) * v for v in f.values())))
+        lepton = sorted({lepton_number(m) for (m, _) in f})
+        fermions = sorted({bin(m).count('1') for (m, _) in f})
+        rows['spin%d' % spin] = {'norm_squared': str(n2), 'terms': len(f),
+                                 'raw_lepton_number_of_remainder': lepton,
+                                 'fermion_numbers_of_remainder': fermions}
+    partner['k%d' % k] = rows
+log['N5_onsite_partner_vertex'] = partner
+print('partner', partner, flush=True)
+log['seconds'] = round(time.time() - start, 1)
+with open(out_path, 'w') as handle:
+    json.dump(log, handle, indent=1)
+print('wrote', out_path)

@@ -1,0 +1,360 @@
+"""Task 1: the area class of closed native histories, the seam table theta, the lifted chain and its Fourier blocks.
+
+Exact integer arithmetic throughout, except section G (comparison with the spinor-frame connection, float64, defect
+printed).  Usage:  python t1_area_record.py [--walk 7] [--tree 4] [--literal 2] [--out t1_area_record.json]
+  --walk    L : move-only closed walks of one quantum, all 12 starts, lengths 1..L (5^L per start)
+  --tree    L : complete native histories of L attempts as the tree of distinct outcomes with multiplicities,
+                sectors one (12), two (66) and full (78)
+  --literal L : literal enumeration of all 60^L branch sequences with native.native, sectors one and full
+"""
+import argparse
+import json
+import sys
+import time
+import numpy as np
+import sympy as sp
+from sympy.matrices.normalforms import smith_normal_form
+import ca_core as c
+from model.observer import native
+
+ap = argparse.ArgumentParser()
+ap.add_argument('--walk', type=int, default=7)
+ap.add_argument('--tree', type=int, default=4)
+ap.add_argument('--literal', type=int, default=2)
+ap.add_argument('--out', default='t1_area_record.json')
+args = ap.parse_args()
+res = {'schema': 'repair_law.CA.t1.v1', 'args': vars(args), 'checks': {}}
+t0 = time.time()
+
+
+def check(name, ok, detail=None):
+    res['checks'][name] = bool(ok) if detail is None else {'pass': bool(ok), 'detail': detail}
+    print(('PASS  ' if ok else 'FAIL  ') + name + ('' if detail is None else '  ' + str(detail)), flush=True)
+    if not ok:
+        raise AssertionError(name)
+
+
+# --- A. the table ---------------------------------------------------------------------------------------------
+th = c.THETA
+cob = c.coboundary(th)
+check('A1 theta is integer with coboundary 1 on 19 oriented faces and 1 - 20 on the outside face',
+      sorted(cob.tolist()) == [-19] + [1] * 19, {'theta': th.tolist()})
+check('A2 no integer table has coboundary exactly 1 on all faces: the sum of the 20 face boundaries is zero',
+      not c.BND2.sum(axis=0).any())
+check('A3 coboundary is 1 modulo 20 on every oriented face', all(int(v) % 20 == 1 for v in cob))
+
+# --- B. the freedom -------------------------------------------------------------------------------------------
+snf2 = smith_normal_form(sp.Matrix(c.BND2.tolist()), domain=sp.ZZ)
+snf1 = smith_normal_form(sp.Matrix(c.BND1.tolist()), domain=sp.ZZ)
+d2 = sorted(abs(int(snf2[i, i])) for i in range(20))
+d1 = sorted(abs(int(snf1[i, i])) for i in range(12))
+check('B1 Smith forms: face coboundary diag(1^19, 0), port coboundary diag(1^11, 0)',
+      d2 == [0] + [1] * 19 and d1 == [0] + [1] * 11)
+# modulo 20: kernel of the face coboundary on (Z/20)^30 has 20^(30-19) elements; the port coboundaries are
+# 20^(12-1) elements and lie in it; hence they are equal (H^1 of the sphere with Z/20 coefficients vanishes).
+check('B2 kernel of the face coboundary modulo 20 = port coboundaries (both have 20^11 elements)', 30 - 19 == 12 - 1)
+trees = [c.spanning_tree(root=r) for r in (0, 3, 7)] + [c.spanning_tree(root=5, order=lambda q: -q)]
+worst = 0
+count = 0
+for of in range(20):
+    for tr in trees:
+        t2 = c.theta_table(outside_face=of, tree=tr)
+        diff = (t2 - th) % 20
+        # propagate g along a spanning tree from port 0, then test all 30 seams
+        g = {0: 0}
+        todo = [0]
+        for a in todo:
+            for b in c.NBRS[a]:
+                if b not in g:
+                    e, s = c.SIDX[(a, b)]
+                    g[b] = (g[a] + s * int(diff[e])) % 20
+                    todo.append(b)
+        gv = np.array([g[p] for p in range(12)])
+        bad = ((c.BND1 @ gv - diff) % 20 != 0).sum()
+        worst = max(worst, int(bad))
+        count += 1
+check('B3 every pair of tables (20 outside faces x 4 trees) differs modulo 20 by g(b) - g(a) for a port function g',
+      worst == 0, {'tables': count})
+
+# --- C, D. brute force ----------------------------------------------------------------------------------------
+area_memo = {}
+
+
+def area_hom(cyc):
+    key = tuple(cyc)
+    if key not in area_memo:
+        a = c.area_class(key)
+        if len(area_memo) < 400:                              # independence of the outside face, on a sample
+            assert a == c.area_class(key, outside_face=0) == c.area_class(key, outside_face=7)
+        area_memo[key] = a
+    return area_memo[key]
+
+
+# C. one quantum, move-only closed walks
+walk_hist = {}
+walk_total = 0
+mism = parity_bad = 0
+for start in range(12):
+    hist = np.zeros((args.walk + 1, 20), dtype=object)
+    cyc = [0] * 30
+
+    def rec(p, steps, counter):
+        global walk_total, mism, parity_bad
+        if steps and p == start:
+            a = area_hom(cyc)
+            walk_total += 1
+            mism += (a != counter % 20)
+            parity_bad += ((a - steps) % 2 != 0)
+            hist[steps, a] += 1
+        if steps == args.walk:
+            return
+        for q in c.NBRS[p]:
+            e, s = c.SIDX[(p, q)]
+            cyc[e] += s
+            rec(q, steps + 1, counter + s * int(th[e]))
+            cyc[e] -= s
+    rec(start, 0, 0)
+    walk_hist[start] = hist
+check('C1 one quantum: homological area = sum of theta along the moves, every closed walk, all starts, lengths <= %d'
+      % args.walk, mism == 0, {'closed_walks': walk_total, 'distinct_cycles': len(area_memo)})
+check('C2 area = number of moves modulo 2 on every closed walk', parity_bad == 0)
+check('C3 the area histogram is the same from every port (rotation invariance)',
+      all((walk_hist[s] == walk_hist[0]).all() for s in range(12)),
+      {'length_%d' % args.walk: [int(v) for v in walk_hist[0][args.walk]]})
+# against the move-only lifted matrix
+Cmove = np.zeros((12, 12, 20), dtype=object)
+for (a, b), (e, s) in c.SIDX.items():
+    Cmove[b, a, (s * int(th[e])) % 20] += 1
+pw = np.zeros((12, 12, 20), dtype=object)
+for x in range(12):
+    pw[x, x, 0] = 1
+okc = True
+for ell in range(1, args.walk + 1):
+    pw = c.ring_mul(pw, Cmove)
+    okc &= all((pw[x, x] == walk_hist[x][ell]).all() for x in range(12))
+check('C4 one quantum: brute-force histograms = diagonal of the powers of the lifted move matrix in Z[Z/20]', okc)
+
+# D. complete native histories as the tree of distinct outcomes
+tree_data = {}
+for name in ('one', 'two', 'full'):
+    states = c.sector(name)
+    br = c.branches(states)
+    agg = []
+    for x, rows in enumerate(br):
+        holds = sum(1 for y, e, j in rows if j == 0)
+        assert all(y == x for y, e, j in rows if j == 0)
+        moves = [(y, e, j) for y, e, j in rows if j != 0]
+        assert holds + len(moves) == 60
+        agg.append((holds, moves))
+    Clift = c.lifted_counts(states, br=br)
+    d = len(states)
+    hist = np.zeros((d, args.tree + 1, 20), dtype=object)
+    leaves = [0]
+    bad = [0]
+    for start in range(d):
+        cyc = [0] * 30
+
+        def rec(x, steps, weight, counter):
+            if steps and x == start:
+                a = area_hom(cyc)
+                bad[0] += (a != counter % 20)
+                hist[start, steps, a] += weight
+            if steps == args.tree:
+                leaves[0] += 1
+                return
+            holds, moves = agg[x]
+            rec(x, steps + 1, weight * holds, counter)
+            for y, e, j in moves:
+                cyc[e] += j
+                rec(y, steps + 1, weight, counter + j * int(th[e]))
+                cyc[e] -= j
+        rec(start, 0, 1, 0)
+    pw = np.zeros((d, d, 20), dtype=object)
+    for x in range(d):
+        pw[x, x, 0] = 1
+    okd = True
+    for L in range(1, args.tree + 1):
+        pw = c.ring_mul(pw, Clift)
+        okd &= all((pw[x, x] == hist[x, L]).all() for x in range(d))
+        okd &= all(int(sum(pw[y, x].sum() for y in range(d))) == 60 ** L for x in range(d))
+    check('D1 %s (%d states): complete histories of L <= %d attempts, homological area = counter on every closed '
+          'history, and area-resolved return counts = diagonal of the powers of the lifted chain' % (name, d, args.tree),
+          okd and bad[0] == 0, {'tree_leaves': leaves[0], 'closed_histories_at_L': int(sum(hist[x, args.tree].sum() for x in range(d)))})
+    tree_data[name] = (states, br, Clift, hist)
+
+# D2. literal enumeration with native.native
+for name in ('one', 'full'):
+    states = c.sector(name)
+    index = {s: i for i, s in enumerate(states)}
+    Clift = tree_data[name][2]
+    d = len(states)
+    lit = np.zeros((d, 20), dtype=object)
+    Lq = args.literal + (1 if name == 'one' else 0)
+    calls = 0
+    for start, s0 in enumerate(states):
+        cyc = [0] * 30
+
+        def lit_rec(s, depth):
+            # one call of the public rule per branch, no merging of branches; the area is read off the cycle record
+            global calls
+            if depth == Lq:
+                if s == s0:
+                    lit[start, area_hom(cyc)] += 1
+                return
+            for e, seam in enumerate(c.SEAMS):
+                for coin in (0, 1):
+                    t, (_, j) = native.native(s, seam, coin)
+                    calls += 1
+                    if j:
+                        cyc[e] += j
+                        lit_rec(tuple(t), depth + 1)
+                        cyc[e] -= j
+                    else:
+                        lit_rec(tuple(t), depth + 1)
+        lit_rec(s0, 0)
+    pw = c.ring_power(Clift, Lq)
+    check('D2 %s: literal native.native enumeration of all 60^%d branch sequences per start = lifted chain power'
+          % (name, Lq), all((pw[x, x] == lit[x]).all() for x in range(d)), {'native_calls': calls})
+
+
+# --- E. Fourier blocks, exactly in Z[zeta_20] -----------------------------------------------------------------
+def cyc_reduce(v):
+    """Reduce an integer polynomial in x (coefficients v[0..19]) modulo Phi_20 = x^8 - x^6 + x^4 - x^2 + 1."""
+    w = [0] * 10
+    for i, x in enumerate(v):
+        if i < 10:
+            w[i] += x
+        else:
+            w[i - 10] -= x                                    # x^10 = -1
+    # x^8 = x^6 - x^4 + x^2 - 1 ; x^9 = x^7 - x^5 + x^3 - x
+    a8, a9 = w[8], w[9]
+    out = w[:8]
+    out[6] += a8; out[4] -= a8; out[2] += a8; out[0] -= a8
+    out[7] += a9; out[5] -= a9; out[3] += a9; out[1] -= a9
+    return out
+
+
+def cyc_mat(C, k):
+    """Matrix over Z[zeta_20] (shape d, d, 8) of the block k: entry = sum_s C[y, x, s] zeta^(k s)."""
+    d = C.shape[0]
+    out = np.zeros((d, d, 8), dtype=np.int64)
+    for y in range(d):
+        for x in range(d):
+            v = [0] * 20
+            for s in range(20):
+                v[(k * s) % 20] += int(C[y, x, s])
+            out[y, x] = cyc_reduce(v)
+    return out
+
+
+def cyc_mul(A, B):
+    """Matrix product over Z[zeta_20], int64 (callers keep 60^L below 2^53)."""
+    T = np.einsum('yza,zxb->yxab', A, B, optimize=True)
+    d = A.shape[0]
+    full = np.zeros((d, d, 20), dtype=np.int64)
+    for a in range(8):
+        for b in range(8):
+            full[:, :, a + b] += T[:, :, a, b]
+    out = np.zeros((d, d, 8), dtype=np.int64)
+    red = np.array([cyc_reduce([int(i == j) for i in range(20)]) for j in range(20)], dtype=np.int64)   # 20 x 8
+    out = full @ red
+    return out
+
+
+for name in ('one', 'two', 'full'):
+    states, br, Clift, hist = tree_data[name]
+    d = len(states)
+    oke = True
+    herm = True
+    for k in range(20):
+        Ck = cyc_mat(Clift, k)
+        if name != 'full':
+            # Hermitian: entry (x, y) is the conjugate of (y, x); conjugation is zeta -> zeta^-1 = -zeta^9
+            Cm = cyc_mat(Clift, (-k) % 20)
+            herm &= bool((Cm == np.transpose(Ck, (1, 0, 2))).all())
+        pw = None
+        for L in range(1, args.tree + 1):
+            pw = Ck if pw is None else cyc_mul(pw, Ck)
+            for x in range(d):
+                v = [0] * 20
+                for a in range(20):
+                    v[(k * a) % 20] += int(hist[x, L, a])
+                oke &= (list(pw[x, x]) == cyc_reduce(v))
+    check('E1 %s: for all 20 characters and L <= %d, sum over closed histories of zeta^(k area) = diagonal entry of '
+          'the L-th power of the twisted count matrix, exactly in Z[zeta_20]' % (name, args.tree), oke)
+    if name != 'full':
+        check('E2 %s: the twisted count matrix of character -k is the transpose of that of k (Hermitian blocks)' % name, herm)
+
+# --- F. the double-load split ---------------------------------------------------------------------------------
+states, br, Clift, hist = tree_data['full']
+binary = [i for i, s in enumerate(states) if max(s) == 1]
+double = [i for i, s in enumerate(states) if max(s) == 2]
+into_double = sum(1 for x in binary for y, e, j in br[x] if y in double)
+split_ok = True
+for x in double:
+    p = states[x].index(2)
+    moves = [(y, e, j) for y, e, j in br[x] if j != 0]
+    split_ok &= len(moves) == 10 and sum(1 for y, e, j in br[x] if j == 0) == 50
+    for y, e, j in moves:
+        a, b = c.SEAMS[e]
+        q = b if a == p else a
+        split_ok &= (states[y][p] == 1 and states[y][q] == 1 and j == (1 if a == p else -1))
+        # counter increment = theta(p -> q), once per split (the two coins give the same record)
+        split_ok &= ((j * int(th[e])) % 20 == (c.SIDX[(p, q)][1] * int(th[c.SIDX[(p, q)][0]])) % 20)
+check('F1 no native branch leads from a binary configuration to a double load', into_double == 0)
+check('F2 a double load at p has 50 holds and 10 splits; a split over the seam (p, q) carries one unit of current '
+      'p -> q and adds theta(p -> q) to the counter', split_ok)
+check('F3 closed histories of a double load are the all-hold histories: 50^L at area 0',
+      all(int(hist[x, L, 0]) == 50 ** L and int(hist[x, L].sum()) == 50 ** L for x in double for L in range(1, args.tree + 1)))
+tr78 = [sum(hist[x, args.tree, a] for x in range(78)) for a in range(20)]
+tr66 = [sum(tree_data['two'][3][x, args.tree, a] for x in range(66)) for a in range(20)]
+check('F4 area-resolved closed-history counts: full carrier = exclusion chain + 12 * 50^L at area 0',
+      all(int(tr78[a]) == int(tr66[a]) + (12 * 50 ** args.tree if a == 0 else 0) for a in range(20)))
+
+# --- G. the spinor-frame connection of L13 / CAP is theta, up to the sign of the flux and a port rephasing ------
+A = c.ADJ.astype(float)
+w, v = np.linalg.eigh(A)
+U = v[:, np.abs(w - 5 ** .5) < 1e-9] * 2.0
+f0 = c.FACES[0]
+if np.linalg.det(np.array([U[f0[0]], U[f0[1]], U[f0[2]]])) < 0:
+    U[:, 2] *= -1
+R = np.linalg.qr(np.random.default_rng(3).normal(size=(3, 3)))[0]
+if np.linalg.det(R) < 0:
+    R[:, 0] *= -1
+U = U @ R.T
+
+
+def spinor(u):
+    t, ph = np.arccos(np.clip(u[2], -1, 1)), np.arctan2(u[1], u[0])
+    return np.array([np.cos(t / 2), np.exp(1j * ph) * np.sin(t / 2)])
+
+
+chi = [spinor(u) for u in U]
+z = {}
+for a, b in c.SEAMS:
+    val = np.vdot(chi[b], chi[a])
+    z[(a, b)] = val / abs(val)
+    z[(b, a)] = np.conj(z[(a, b)])
+flux = [np.angle(z[(f[0], f[1])] * z[(f[1], f[2])] * z[(f[2], f[0])]) / (2 * np.pi) * 20 for f in c.FACES]
+sgn = int(round(flux[0]))
+# port rephasing: z(a -> b) = omega^(sgn * theta(a -> b)) * u_b / u_a
+u = {0: 1.0 + 0j}
+todo = [0]
+for a in todo:
+    for b in c.NBRS[a]:
+        if b not in u:
+            e, s = c.SIDX[(a, b)]
+            u[b] = u[a] * z[(a, b)] / c.OMEGA ** (sgn * s * int(th[e]))
+            todo.append(b)
+gdef = max(abs(z[(a, b)] - c.OMEGA ** (sgn * s * int(th[e])) * u[b] / u[a]) for (a, b), (e, s) in c.SIDX.items())
+check('G1 (float64) spinor-frame links = omega^(sgn theta) up to a port rephasing; flux per oriented face = sgn',
+      gdef < 1e-12 and max(abs(f - sgn) for f in flux) < 1e-9, {'sgn': sgn, 'defect': float(gdef)})
+
+res['seconds'] = round(time.time() - t0, 2)
+res['theta'] = th.tolist()
+res['seams'] = [list(s) for s in c.SEAMS]
+res['faces'] = [list(f) for f in c.FACES]
+res['one_quantum_walk_histogram_by_length'] = {str(ell): [int(v) for v in walk_hist[0][ell]] for ell in range(1, args.walk + 1)}
+res['all_pass'] = True
+json.dump(res, open(args.out, 'w'), indent=1)
+print('all checks passed in %.1f s; wrote %s' % (time.time() - t0, args.out))

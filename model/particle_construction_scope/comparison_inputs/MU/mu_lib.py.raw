@@ -1,0 +1,204 @@
+"""Shared tools of worker MU (Lorentz kinematics from the spinor sector). numpy only; runs on the boxes.
+
+Point sets: icosphere(level) = vertices of the midpoint-refined icosahedron (level 0 = the twelve carrier ports in
+the order of carrier_tools.C). Spinors: spinor(u) is the eigenvector of u.sigma with eigenvalue +1; sections(U) has
+row p = <chi_p|. Herm(2) <-> four-vectors: X = t + r.sigma. lorentz(A) is the 4 x 4 matrix of X -> A X A^dagger.
+"""
+import numpy as np
+from carrier_tools import C
+
+SIG = np.array([[[0, 1], [1, 0]], [[0, -1j], [1j, 0]], [[1, 0], [0, -1]]], dtype=complex)
+I2 = np.eye(2, dtype=complex)
+ETA = np.diag([1.0, -1.0, -1.0, -1.0])        # X = t + r.sigma, det X = t^2 - |r|^2
+
+
+def icosphere(level):
+    V = [np.array(v, float) for v in C.N]
+    F = [tuple(int(x) for x in f) for f in C.F]
+    for _ in range(level):
+        cache, F2 = {}, []
+
+        def mid(a, b):
+            key = (min(a, b), max(a, b))
+            if key not in cache:
+                m = V[a] + V[b]
+                cache[key] = len(V)
+                V.append(m / np.linalg.norm(m))
+            return cache[key]
+        for a, b, c in F:
+            ab, bc, ca = mid(a, b), mid(b, c), mid(c, a)
+            F2 += [(a, ab, ca), (b, bc, ab), (c, ca, bc), (ab, bc, ca)]
+        F = F2
+    return np.array(V), F
+
+
+def mesh_edges(F):
+    return sorted({(min(a, b), max(a, b)) for f in F for a, b in ((f[0], f[1]), (f[1], f[2]), (f[2], f[0]))})
+
+
+def spinor(u):
+    u = np.asarray(u, float)
+    if u[2] > -1 + 1e-12:
+        return np.array([1 + u[2], u[0] + 1j * u[1]]) / np.sqrt(2 * (1 + u[2]))
+    return np.array([0, 1], complex)
+
+
+def sections(U):
+    return np.array([spinor(u).conj() for u in U])
+
+
+def herm(t, r):
+    return t * I2 + np.einsum('i,ijk->jk', np.asarray(r, float), SIG)
+
+
+def vec(X):
+    return np.concatenate([[np.real(np.trace(X)) / 2], np.real(np.einsum('ij,kji->k', X, SIG)) / 2])
+
+
+def direction(psi):
+    psi = np.asarray(psi)
+    return np.real(np.einsum('i,kij,j->k', psi.conj(), SIG, psi)) / np.real(np.vdot(psi, psi))
+
+
+def moebius(A, U):
+    """Normalized action of A in GL(2,C) on screen points U (n x 3): chi_u -> A chi_u."""
+    return np.array([direction(A @ spinor(u)) for u in np.atleast_2d(U)])
+
+
+def lorentz(A):
+    """4 x 4 real matrix L with vec(A X A^dagger) = L vec(X)."""
+    basis = [I2, SIG[0], SIG[1], SIG[2]]
+    return np.array([vec(A @ B @ A.conj().T) for B in basis]).T
+
+
+def expm_herm(H, s=1.0):
+    w, V = np.linalg.eigh(H)
+    return (V * np.exp(s * w)) @ V.conj().T
+
+
+def powm_pos(P, z):
+    """P^z for positive definite Hermitian P and complex z."""
+    w, V = np.linalg.eigh(P)
+    return (V * np.exp(z * np.log(w))) @ V.conj().T
+
+
+def boost(n, eta):
+    """exp(eta/2 n.sigma): boost of rapidity eta along n."""
+    n = np.asarray(n, float) / np.linalg.norm(n)
+    return np.cosh(eta / 2) * I2 + np.sinh(eta / 2) * herm(0, n)
+
+
+def rot(n, ang):
+    """exp(-i ang/2 n.sigma): rotation by ang about n."""
+    n = np.asarray(n, float) / np.linalg.norm(n)
+    return np.cos(ang / 2) * I2 - 1j * np.sin(ang / 2) * herm(0, n)
+
+
+def cap_ports(U, n, alpha_deg, margin=1e-7):
+    """Indices of points with angle to n below alpha; raises if a point is within margin of the boundary."""
+    n = np.asarray(n, float) / np.linalg.norm(n)
+    c = U @ n
+    ca = np.cos(np.radians(alpha_deg))
+    if np.any(abs(c - ca) < margin):
+        raise ValueError('point on the cap boundary')
+    return np.nonzero(c > ca)[0]
+
+
+def cap_effect(U, idx):
+    """E_C = sum_{p in C} |chi_p><chi_p| = (n_C/2)(1 + m.sigma); returns E, n_C, mean vector m."""
+    m = U[idx].mean(axis=0)
+    return herm(len(idx) / 2, len(idx) / 2 * m), len(idx), m
+
+
+def axes_of_carrier():
+    """Representative cap axes: a port (5-fold), a face centre (3-fold), a seam midpoint (2-fold), a generic one."""
+    f = C.F[0]
+    e = C.E[0]
+    g = np.array([0.3, 0.5, 0.81]); g /= np.linalg.norm(g)
+    face = C.N[list(f)].sum(axis=0); face /= np.linalg.norm(face)
+    seam = C.N[list(e)].sum(axis=0); seam /= np.linalg.norm(seam)
+    return {'port': C.N[0].copy(), 'face': face, 'seam': seam, 'generic': g}
+
+
+def mesh_spacing(U, edges):
+    return float(np.mean([np.arccos(np.clip(U[a] @ U[b], -1, 1)) for a, b in edges]))
+
+
+# ---------------------------------------------------------------- candidate CAP on a point set
+def twisted_Q(U, edges):
+    """Q = sum_e |-_e><-_e| with |-> = (|a> - z|b>)/sqrt2, z = phase of <chi_b|chi_a> (cap.link(a, b))."""
+    N = len(U)
+    chi = [spinor(u) for u in U]
+    Q = np.zeros((N, N), complex)
+    zs = []
+    for a, b in edges:
+        z = np.vdot(chi[b], chi[a]); z /= abs(z)
+        zs.append(z)
+        Q[a, a] += .5; Q[b, b] += .5; Q[a, b] -= .5 * np.conj(z); Q[b, a] -= .5 * z
+    return Q, np.array(zs)
+
+
+def cap_stationary(U, edges, iters=400, tol=1e-13, verbose=False):
+    """Stationary density of the one-load covariant agreement pump with uniformly drawn seams = edges.
+
+    Channel: rho -> rho - (Q rho + rho Q)/M + (1/M) sum_e <-_e|rho|-_e> (N_a + N_b). Fixed point:
+    Q rho + rho Q = diag(d), d_p = sum_{e at p} <-_e|rho|-_e>, solved by iterating d (trace normalized).
+    """
+    Q, zs = twisted_Q(U, edges)
+    lam, Uq = np.linalg.eigh(Q)
+    N = len(U)
+    ea = np.array([e[0] for e in edges]); eb = np.array([e[1] for e in edges])
+    den = lam[:, None] + lam[None, :]
+    d = np.ones(N) / N
+    hist = []
+    for it in range(iters):
+        Dt = (Uq.conj().T * d) @ Uq
+        rho = Uq @ (Dt / den) @ Uq.conj().T
+        rho = rho / np.real(np.trace(rho))
+        w = 0.5 * np.real(rho[ea, ea] + rho[eb, eb]) - np.real(zs * rho[ea, eb])
+        d2 = np.zeros(N)
+        np.add.at(d2, ea, w); np.add.at(d2, eb, w)
+        d2 = d2 / d2.sum()
+        err = float(np.abs(d2 - d).max() * N)
+        hist.append(err)
+        d = d2
+        if verbose:
+            print('  iteration', it, 'relative change of d', err, flush=True)
+        if err < tol:
+            break
+    Dt = (Uq.conj().T * d) @ Uq
+    rho = Uq @ (Dt / den) @ Uq.conj().T
+    rho = rho / np.real(np.trace(rho))
+    rho = (rho + rho.conj().T) / 2
+    return rho, Q, {'iterations': len(hist), 'last_change': hist[-1], 'lam_min_Q': float(lam[0]), 'lam_max_Q': float(lam[-1])}
+
+
+def channel_defect(rho, U, edges):
+    """Norm of Phi(rho) - rho for the pump channel (per attempt, times the number of seams)."""
+    Q, zs = twisted_Q(U, edges)
+    ea = np.array([e[0] for e in edges]); eb = np.array([e[1] for e in edges])
+    w = 0.5 * np.real(rho[ea, ea] + rho[eb, eb]) - np.real(zs * rho[ea, eb])
+    d = np.zeros(len(U))
+    np.add.at(d, ea, w); np.add.at(d, eb, w)
+    return float(np.linalg.norm(-(Q @ rho + rho @ Q) + np.diag(d)))
+
+
+# ---------------------------------------------------------------- vectorized helpers
+def spinors(U):
+    return np.array([spinor(u) for u in U])
+
+
+def directions(Psi):
+    """Rows of Psi (n x 2) -> unit vectors (n x 3)."""
+    a, b = Psi[..., 0], Psi[..., 1]
+    nrm = np.abs(a) ** 2 + np.abs(b) ** 2
+    ab = a.conj() * b
+    return np.stack([2 * ab.real / nrm, 2 * ab.imag / nrm, (np.abs(a) ** 2 - np.abs(b) ** 2) / nrm], axis=-1)
+
+
+def moebius_v(A, U):
+    return directions(spinors(U) @ np.asarray(A).T)
+
+
+def angle(u, v):
+    return float(np.arccos(np.clip(np.dot(u, v) / (np.linalg.norm(u) * np.linalg.norm(v)), -1, 1)))

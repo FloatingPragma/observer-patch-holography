@@ -1,0 +1,107 @@
+"""EB step 1: reproduction grid for the supplement's edge-sector shifts (CANDIDATES.md Part A).
+
+Printed values (RER PARTICLE_TECHNICAL_SUPPLEMENT_PORT.tex:447-460): ungraded (2.49, 4.38, 3.97), graded with the
+half-integer SU(2) restriction (2.50, 4.17, 3.97), at t_U(P) ~ 1.64. Every row uses c(R) = 1.
+
+Run:  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python eb_reproduce.py [out.json]
+"""
+import itertools
+import json
+import math
+import sys
+from pathlib import Path
+
+import numpy as np
+from scipy.optimize import brentq
+
+HERE = Path(__file__).parent
+sys.path.insert(0, str(HERE))
+import eb_lib as L  # noqa: E402
+
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / 'eb_reproduce.json'
+UNG = np.array([2.49, 4.38, 3.97])
+GRD = np.array([2.50, 4.17, 3.97])
+T_PRINTED = 1.64
+T_D10 = 4 * math.pi ** 2 * 0.0411242474418166851
+M1 = sorted(L.menus(1)[1], key=str)
+assert len(M1) == 11
+
+
+def triple(structure, t, k, normalized, umode, graded, renorm, unit=1.0 / 6.0):
+    coeff = (0.0, 1.0) if graded else (1.0, 1.0)
+    if structure == 'S4':
+        return L.explicit_sum(M1, t, k=k, normalized=normalized, umode=umode, coeff=coeff,
+                              renorm_odd=renorm and graded)
+    return L.delta_b(structure, t, k=k, normalized=normalized, umode=umode, coeff=coeff,
+                     renorm_odd=renorm and graded, unit=unit)
+
+
+def rounds_to(x, target):
+    return bool(np.all(np.round(np.array(x), 2) == target))
+
+
+rows = []
+for structure, k, normalized, umode, t in itertools.product(('S1', 'S2', 'S3', 'S4'), (1, 2), (True, False),
+                                                            ('Ua', 'Ub'), (T_PRINTED, T_D10)):
+    renorms = (False, True) if normalized else (False,)
+    for renorm in renorms:
+        u = triple(structure, t, k, normalized, umode, False, False)
+        g = triple(structure, t, k, normalized, umode, True, renorm)
+        dev = float(max(np.max(np.abs(np.array(u) - UNG)), np.max(np.abs(np.array(g) - GRD))))
+        rows.append(dict(structure=structure, k=k, normalized=normalized, umode=umode, t=t,
+                         graded_normalization='renormalized over odd sectors' if renorm else 'over all sectors',
+                         ungraded=[float(x) for x in u], graded=[float(x) for x in g],
+                         reproduces=rounds_to(u, UNG) and rounds_to(g, GRD), max_abs_deviation=dev))
+
+# S1 U(1) charge-unit sub-axis (the U(1) entry only; SU(3), SU(2) unchanged)
+units = {}
+for unit, name in ((1 / 6, '1/6'), (1 / 3, '1/3'), (1 / 2, '1/2'), (1.0, '1')):
+    for normalized, umode, t in itertools.product((True, False), ('Ua', 'Ub'), (T_PRINTED, T_D10)):
+        u = L.delta_b('S1', t, k=1, normalized=normalized, umode=umode, unit=unit)
+        units[f'unit {name}, k=1, normalized={normalized}, {umode}, t={t:.5f}'] = float(u[0])
+
+# FIT diagnostic: t returning Delta b_3 = 3.97 in each cell, other components there
+fits = []
+for structure, k, normalized, umode in itertools.product(('S1', 'S2', 'S3', 'S4'), (1, 2), (True, False), ('Ua', 'Ub')):
+    renorms = (False, True) if normalized else (False,)
+    for renorm in renorms:
+        f = lambda t: triple(structure, t, k, normalized, umode, False, False)[2] - 3.97  # noqa: E731
+        grid = np.linspace(0.4, 6.0, 113)
+        vals = [f(t) for t in grid]
+        roots = []
+        for a, b, fa, fb in zip(grid[:-1], grid[1:], vals[:-1], vals[1:]):
+            if fa * fb < 0:
+                roots.append(brentq(f, a, b, xtol=1e-12))
+        for t in roots:
+            u = triple(structure, t, k, normalized, umode, False, False)
+            g = triple(structure, t, k, normalized, umode, True, renorm)
+            fits.append(dict(structure=structure, k=k, normalized=normalized, umode=umode,
+                             graded_normalization='renormalized over odd sectors' if renorm else 'over all sectors',
+                             t_FIT=t, ungraded=[float(x) for x in u], graded=[float(x) for x in g],
+                             max_abs_deviation=float(max(np.max(np.abs(np.array(u) - UNG)),
+                                                         np.max(np.abs(np.array(g) - GRD))))))
+
+# convergence check of the cutoffs used (largest-t-range point of the grid)
+conv = {}
+for structure in ('S1', 'S2', 'S3'):
+    a = L.delta_b(structure, 0.4, k=2, normalized=False)
+    conv[structure + ' at t = 0.4, k = 2, unnormalized'] = [float(x) for x in a]
+
+best = sorted(rows, key=lambda r: r['max_abs_deviation'])[:8]
+best_fit = sorted(fits, key=lambda r: r['max_abs_deviation'])[:8]
+out = dict(printed=dict(ungraded=UNG.tolist(), graded=GRD.tolist(), t=T_PRINTED), t_D10=T_D10,
+           grid_rows=len(rows), reproducing_rows=[r for r in rows if r['reproduces']],
+           closest_grid_rows=best, s1_u1_unit_axis=units, fit_rows=len(fits), closest_fit_rows=best_fit,
+           all_rows=rows, all_fits=fits, check_large_values=conv)
+OUT.write_text(json.dumps(out, indent=1) + '\n')
+print('grid rows', len(rows), 'reproducing', len(out['reproducing_rows']))
+for r in best:
+    print('GRID', r['structure'], 'k', r['k'], 'norm', r['normalized'], r['umode'], f"t={r['t']:.5f}",
+          r['graded_normalization'], np.round(r['ungraded'], 3), np.round(r['graded'], 3),
+          f"dev={r['max_abs_deviation']:.3f}")
+for r in best_fit:
+    print('FIT ', r['structure'], 'k', r['k'], 'norm', r['normalized'], r['umode'], f"t={r['t_FIT']:.5f}",
+          r['graded_normalization'], np.round(r['ungraded'], 3), np.round(r['graded'], 3),
+          f"dev={r['max_abs_deviation']:.3f}")
+print('S1 at t=1.64, k=1, unnormalized:', np.round(L.delta_b('S1', 1.64, normalized=False), 4),
+      ' graded:', np.round(L.delta_b('S1', 1.64, normalized=False, coeff=(0.0, 1.0)), 4))

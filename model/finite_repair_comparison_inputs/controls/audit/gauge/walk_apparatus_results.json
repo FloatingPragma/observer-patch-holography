@@ -1,0 +1,29 @@
+{
+  "status": "EXACT same-walk optional apparatus support certificate plus general span proof",
+  "walk_dimension": 1440,
+  "W_rational_denominator": 60,
+  "nonzero_W_entries": 129600,
+  "nonzero_diagonals": 1440,
+  "trace_W": -1276,
+  "directed_source_support_path_pairs_checked": 2073600,
+  "maximum_constructed_directed_path_length": 4,
+  "general_symbolic_ordered_pair_projections_checked": 12,
+  "matrix_unit_projection_max_quarter_turn_gates": 5,
+  "full_complex_Hermitian_effect_span_dimension": 2073600,
+  "maximum_unitary_setting_depth_before_detector": 24,
+  "minimum_diagonal_magnitude": "29/60",
+  "minimum_nonzero_entry_magnitude": "1/60",
+  "matrix_unit_reconstruction_coefficient_l1_bound": "167961600000000/707281",
+  "Hermitian_pair_reconstruction_coefficient_l1_bound": "335923200000000/707281",
+  "noncommuting_probe_witness_E_xy": "841/3600",
+  "prepared_reference_noncommuting_projector_witness_rho_xy": "-29/31440",
+  "quarter_turn_probe_witness_E_xy": "-841*i/3600",
+  "new_optional_apparatus": [
+    "basis projector detector {P_i,I-P_i}",
+    "basis-selective quarter turn V_i=I+(i-1)P_i"
+  ],
+  "same_existing_operation": "W and its finite iterates; inverse W not needed for the span proof",
+  "stationary_reference_scope": "reduced walk algebra A_walk; optional probes disturb it and are not idle events",
+  "arbitrary_POVM_or_modular_gate_implementation": false,
+  "new_idle_dynamics": false
+}

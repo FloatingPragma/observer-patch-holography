@@ -1,0 +1,632 @@
+{
+ "NOT_BLIND": true,
+ "measured": {
+  "pole_GeV": [
+   0.0005109989506900001,
+   0.10565837550000001,
+   1.7769299999999995
+  ],
+  "running_mZ_GeV_IMPORTED": [
+   0.000486570161,
+   0.1027181359,
+   1.74624
+  ],
+  "v_GF_GeV": 246.21965
+ },
+ "needed": {
+  "yJ_Q0_pole_convention": 0.010815971327408094,
+  "yJ_Q0_MSbar_from_running_masses": 0.010622668768193719,
+  "pole_sum_over_running_sum_IMPORTED": 1.0181971746867566,
+  "pole_sum_over_running_sum_one_loop_QED_chart_alpha": 1.0177431486500166,
+  "yJ_cell_two_loops": 0.009750014066102878,
+  "yJ_cell_one_loop": 0.00986905866363372,
+  "y_tau_cell_two_loops": 0.009200318043586385,
+  "y_tau_cell_one_loop": 0.009312651026003533,
+  "r_needed_two_loops": 0.024658196084211666,
+  "r_needed_one_loop": 0.023454506890242404,
+  "vertex_amplitude_per_Higgs_amplitude_(9/2)yJ_cell": 0.04387506329746295,
+  "w_needed_uniform_chain_two_loops": 0.8238932176300066,
+  "w_needed_uniform_chain_one_loop": 0.783674891858772,
+  "w_needed_committed_law_N6_two_loops": 0.8045307186452595
+ },
+ "rows": [
+  {
+   "id": "D1-1",
+   "formula": "<K>",
+   "marks": "est.",
+   "r_cell": 0.02992887373820469,
+   "yJ_cell": 0.011834074923143022,
+   "yJ_Q0_pole_convention_two_loops": 0.013127880040718241,
+   "ratio_to_measured_two_loops": 1.2137495231197295,
+   "ratio_to_measured_one_loop": 1.2760393504864418,
+   "pass_5_percent_two_loops": false,
+   "pass_5_percent_one_loop": false,
+   "masses_GeV_e_mu_tau": [
+    0.0006202062856606914,
+    0.1282402496543338,
+    2.1567505117865906
+   ],
+   "deviation_percent_e_mu_tau": [
+    21.37134231356621,
+    21.372535823564508,
+    21.375097037395463
+   ]
+  },
+  {
+   "id": "D1-2",
+   "formula": "(2/9) <K>",
+   "marks": "est.",
+   "r_cell": 0.006650860830712153,
+   "yJ_cell": 0.002629794427365116,
+   "yJ_Q0_pole_convention_two_loops": 0.0029173066757151645,
+   "ratio_to_measured_two_loops": 0.26972211624882875,
+   "ratio_to_measured_one_loop": 0.2835643001080982,
+   "pass_5_percent_two_loops": false,
+   "pass_5_percent_one_loop": false,
+   "masses_GeV_e_mu_tau": [
+    0.00013782361903570917,
+    0.028497833256518623,
+    0.4792778915081312
+   ],
+   "deviation_percent_e_mu_tau": [
+    -73.0285905969853,
+    -73.02832537254122,
+    -73.02775621391213
+   ]
+  },
+  {
+   "id": "D1-3",
+   "formula": "(1/3) <K>",
+   "marks": "est.",
+   "r_cell": 0.00997629124606823,
+   "yJ_cell": 0.003944691641047674,
+   "yJ_Q0_pole_convention_two_loops": 0.004375960013572747,
+   "ratio_to_measured_two_loops": 0.40458317437324315,
+   "ratio_to_measured_one_loop": 0.4253464501621472,
+   "pass_5_percent_two_loops": false,
+   "pass_5_percent_one_loop": false,
+   "masses_GeV_e_mu_tau": [
+    0.0002067354285535638,
+    0.04274674988477793,
+    0.7189168372621967
+   ],
+   "deviation_percent_e_mu_tau": [
+    -59.54288589547792,
+    -59.54248805881184,
+    -59.541634320868184
+   ]
+  },
+  {
+   "id": "D1-4",
+   "formula": "(1/6) <K>",
+   "marks": "est.",
+   "r_cell": 0.004988145623034115,
+   "yJ_cell": 0.001972345820523837,
+   "yJ_Q0_pole_convention_two_loops": 0.0021879800067863735,
+   "ratio_to_measured_two_loops": 0.20229158718662157,
+   "ratio_to_measured_one_loop": 0.2126732250810736,
+   "pass_5_percent_two_loops": false,
+   "pass_5_percent_one_loop": false,
+   "masses_GeV_e_mu_tau": [
+    0.0001033677142767819,
+    0.021373374942388966,
+    0.35945841863109834
+   ],
+   "deviation_percent_e_mu_tau": [
+    -79.77144294773896,
+    -79.77124402940592,
+    -79.77081716043409
+   ]
+  },
+  {
+   "id": "D1-5",
+   "formula": "(1/12) <K>",
+   "marks": "est.",
+   "r_cell": 0.0024940728115170575,
+   "yJ_cell": 0.0009861729102619186,
+   "yJ_Q0_pole_convention_two_loops": 0.0010939900033931868,
+   "ratio_to_measured_two_loops": 0.10114579359331079,
+   "ratio_to_measured_one_loop": 0.1063366125405368,
+   "pass_5_percent_two_loops": false,
+   "pass_5_percent_one_loop": false,
+   "masses_GeV_e_mu_tau": [
+    5.168385713839095e-05,
+    0.010686687471194483,
+    0.17972920931554917
+   ],
+   "deviation_percent_e_mu_tau": [
+    -89.88572147386948,
+    -89.88562201470296,
+    -89.88540858021705
+   ]
+  },
+  {
+   "id": "D1-6",
+   "formula": "W_G = (K_G(2) + K_G(3))/16",
+   "marks": "est.",
+   "r_cell": 0.0019202311019285668,
+   "yJ_cell": 0.0007592720971977101,
+   "yJ_Q0_pole_convention_two_loops": 0.0008422823984985205,
+   "ratio_to_measured_two_loops": 0.07787394890407522,
+   "ratio_to_measured_one_loop": 0.08187045291186343,
+   "pass_5_percent_two_loops": false,
+   "pass_5_percent_one_loop": false,
+   "masses_GeV_e_mu_tau": [
+    3.97923226164371e-05,
+    0.008227871120689472,
+    0.13837672102396306
+   ],
+   "deviation_percent_e_mu_tau": [
+    -92.21283672643443,
+    -92.21276015104976,
+    -92.21259582403566
+   ]
+  },
+  {
+   "id": "D1-7",
+   "formula": "sqrt(<K>)",
+   "marks": "est.",
+   "r_cell": 0.1729996350811316,
+   "yJ_cell": 0.06840520165024165,
+   "yJ_Q0_pole_convention_two_loops": 0.07588385972352871,
+   "ratio_to_measured_two_loops": 7.015907996282871,
+   "ratio_to_measured_one_loop": 7.375965561360973,
+   "pass_5_percent_two_loops": false,
+   "pass_5_percent_one_loop": false,
+   "masses_GeV_e_mu_tau": [
+    0.0035850149936433886,
+    0.7412746830026148,
+    12.466792261007607
+   ],
+   "deviation_percent_e_mu_tau": [
+    601.5699325414574,
+    601.576831457734,
+    601.5916361931877
+   ]
+  },
+  {
+   "id": "D1-8",
+   "formula": "<K> <T_q> / 5",
+   "marks": "est.",
+   "r_cell": 3.673769251364626,
+   "yJ_cell": 1.452632696815806,
+   "yJ_Q0_pole_convention_two_loops": 1.611447274998164,
+   "ratio_to_measured_two_loops": 148.98775396294678,
+   "ratio_to_measured_one_loop": 156.63383027221073,
+   "pass_5_percent_two_loops": false,
+   "pass_5_percent_one_loop": false,
+   "masses_GeV_e_mu_tau": [
+    0.07613032156484986,
+    15.741490645069474,
+    264.74112532180396
+   ],
+   "deviation_percent_e_mu_tau": [
+    14798.33226899025,
+    14798.47877234254,
+    14798.79316134029
+   ]
+  },
+  {
+   "id": "D5-1",
+   "formula": "<K_33>/<W_43>",
+   "marks": "post-D1",
+   "r_cell": 0.15809313076125883,
+   "yJ_cell": 0.06251107110237723,
+   "yJ_Q0_pole_convention_two_loops": 0.06934533100208418,
+   "ratio_to_measured_two_loops": 6.411382658380426,
+   "ratio_to_measured_one_loop": 6.740415882587968,
+   "pass_5_percent_two_loops": false,
+   "pass_5_percent_one_loop": false,
+   "masses_GeV_e_mu_tau": [
+    0.0032761123681292244,
+    0.6774027895202454,
+    11.392591771471805
+   ],
+   "deviation_percent_e_mu_tau": [
+    541.1191967626355,
+    541.1255012341594,
+    541.1390303203732
+   ]
+  },
+  {
+   "id": "D5-2",
+   "formula": "<K_33>/<K_43 minimal rise>",
+   "marks": "post-D1",
+   "r_cell": 0.08300995885159078,
+   "yJ_cell": 0.03282268758288635,
+   "yJ_Q0_pole_convention_two_loops": 0.0364111523714828,
+   "ratio_to_measured_two_loops": 3.3664246390165173,
+   "ratio_to_measured_one_loop": 3.539190111309684,
+   "pass_5_percent_two_loops": false,
+   "pass_5_percent_one_loop": false,
+   "masses_GeV_e_mu_tau": [
+    0.0017201882938372211,
+    0.35568387704931187,
+    5.981908066524243
+   ],
+   "deviation_percent_e_mu_tau": [
+    236.6324513023866,
+    236.6357615911971,
+    236.6428653083827
+   ]
+  },
+  {
+   "id": "D5-3",
+   "formula": "sqrt(D5-1)",
+   "marks": "post-D1",
+   "r_cell": 0.39760926895792914,
+   "yJ_cell": 0.15721733868581295,
+   "yJ_Q0_pole_convention_two_loops": 0.17440572042957478,
+   "ratio_to_measured_two_loops": 16.124831986899213,
+   "ratio_to_measured_one_loop": 16.952361045942236,
+   "pass_5_percent_two_loops": false,
+   "pass_5_percent_one_loop": false,
+   "masses_GeV_e_mu_tau": [
+    0.008239527153668717,
+    1.7036896330299613,
+    28.652731867468745
+   ],
+   "deviation_percent_e_mu_tau": [
+    1512.4352393567372,
+    1512.4510953038086,
+    1512.485121387379
+   ]
+  },
+  {
+   "id": "D6-2 (N = 4)",
+   "formula": "<K_C>(N = 4)",
+   "marks": "post-D1",
+   "r_cell": 0.0307203125,
+   "yJ_cell": 0.012147015051999574,
+   "yJ_Q0_pole_convention_two_loops": 0.013475033535878351,
+   "ratio_to_measured_two_loops": 1.245845900287484,
+   "ratio_to_measured_one_loop": 1.3097829190679053,
+   "pass_5_percent_two_loops": false,
+   "pass_5_percent_one_loop": false,
+   "masses_GeV_e_mu_tau": [
+    0.0006366070129007003,
+    0.13163143320793302,
+    2.2137835952724836
+   ],
+   "deviation_percent_e_mu_tau": [
+    24.580884567589067,
+    24.582109638750804,
+    24.5847385812882
+   ]
+  },
+  {
+   "id": "D6-1",
+   "formula": "<K_C>(N = 6)",
+   "marks": "post-D1",
+   "r_cell": 0.03064916666666667,
+   "yJ_cell": 0.01211888351823386,
+   "yJ_Q0_pole_convention_two_loops": 0.013443826415504668,
+   "ratio_to_measured_two_loops": 1.2429606189355815,
+   "ratio_to_measured_one_loop": 1.3067495645972163,
+   "pass_5_percent_two_loops": false,
+   "pass_5_percent_one_loop": false,
+   "masses_GeV_e_mu_tau": [
+    0.0006351326810091005,
+    0.13132658513685824,
+    2.2086566461665678
+   ],
+   "deviation_percent_e_mu_tau": [
+    24.29236501395613,
+    24.293587247949144,
+    24.296210102061888
+   ]
+  },
+  {
+   "id": "D3-1",
+   "formula": "exp(-t/5)",
+   "marks": "est.",
+   "r_cell": 0.615064098655789,
+   "yJ_cell": 0.24320041875604034,
+   "yJ_Q0_pole_convention_two_loops": 0.26978922678932865,
+   "ratio_to_measured_two_loops": 24.9435967073685,
+   "ratio_to_measured_one_loop": 26.223706238380533,
+   "pass_5_percent_two_loops": false,
+   "pass_5_percent_one_loop": false,
+   "masses_GeV_e_mu_tau": [
+    0.012745772641073346,
+    2.6354474363113014,
+    44.32307814724352
+   ],
+   "deviation_percent_e_mu_tau": [
+    2394.2854821644496,
+    2394.310009821513,
+    2394.3626449687686
+   ]
+  },
+  {
+   "id": "D3-2",
+   "formula": "exp(-t/10)",
+   "marks": "est.",
+   "r_cell": 0.7842602238133648,
+   "yJ_cell": 0.31010168738828736,
+   "yJ_Q0_pole_convention_two_loops": 0.3440047303145289,
+   "ratio_to_measured_two_loops": 31.805255385876205,
+   "ratio_to_measured_one_loop": 33.43750638132727,
+   "pass_5_percent_two_loops": false,
+   "pass_5_percent_one_loop": false,
+   "masses_GeV_e_mu_tau": [
+    0.01625196873953222,
+    3.360424711451992,
+    56.51577984119638
+   ],
+   "deviation_percent_e_mu_tau": [
+    3080.430941704918,
+    3080.462216601079,
+    3080.529330992014
+   ]
+  },
+  {
+   "id": "D3-3",
+   "formula": "sqrt3 p q",
+   "marks": "post hoc",
+   "r_cell": 0.024056261216234404,
+   "yJ_cell": 0.009512005032124361,
+   "yJ_Q0_pole_convention_two_loops": 0.010551941053223607,
+   "ratio_to_measured_two_loops": 0.9755888522452509,
+   "ratio_to_measured_one_loop": 1.025656234377809,
+   "pass_5_percent_two_loops": true,
+   "pass_5_percent_one_loop": true,
+   "masses_GeV_e_mu_tau": [
+    0.0004985100524099796,
+    0.1030770810523932,
+    1.7335551662792952
+   ],
+   "deviation_percent_e_mu_tau": [
+    -2.444016423743478,
+    -2.443057103037527,
+    -2.4409984479244695
+   ]
+  },
+  {
+   "id": "PH-1",
+   "formula": "y_J(cell) = sqrt2 p^2",
+   "marks": "post hoc",
+   "r_cell": 0.024837539185929028,
+   "yJ_cell": 0.009820927516479826,
+   "yJ_Q0_pole_convention_two_loops": 0.010894637659662034,
+   "ratio_to_measured_two_loops": 1.0072731639048076,
+   "ratio_to_measured_one_loop": 0.9951230255291469,
+   "pass_5_percent_two_loops": true,
+   "pass_5_percent_one_loop": true,
+   "masses_GeV_e_mu_tau": [
+    0.0005147002208704214,
+    0.1064247273006105,
+    1.7898560373286292
+   ],
+   "deviation_percent_e_mu_tau": [
+    0.7243205050467383,
+    0.7253109817219272,
+    0.7274364960144553
+   ]
+  },
+  {
+   "id": "PH-2",
+   "formula": "y_J(Q0) = 7/648",
+   "marks": "post hoc",
+   "r_cell": null,
+   "yJ_cell": null,
+   "yJ_Q0_pole_convention_two_loops": 0.010802469135802469,
+   "ratio_to_measured_two_loops": 0.9987516431768444,
+   "ratio_to_measured_one_loop": 0.9987516431768444,
+   "pass_5_percent_two_loops": true,
+   "pass_5_percent_one_loop": true,
+   "masses_GeV_e_mu_tau": [
+    0.0005103458622336525,
+    0.10552437518942716,
+    1.7747138734462529
+   ],
+   "deviation_percent_e_mu_tau": [
+    -0.127806222589244,
+    -0.12682412533671084,
+    -0.12471659287347503
+   ]
+  },
+  {
+   "id": "PH-3",
+   "formula": "y_J(Q0) = (2/9)^3",
+   "marks": "post hoc",
+   "r_cell": null,
+   "yJ_cell": null,
+   "yJ_Q0_pole_convention_two_loops": 0.010973936899862823,
+   "ratio_to_measured_two_loops": 1.0146048438621909,
+   "ratio_to_measured_one_loop": 1.0146048438621909,
+   "pass_5_percent_two_loops": true,
+   "pass_5_percent_one_loop": true,
+   "masses_GeV_e_mu_tau": [
+    0.0005184465902056151,
+    0.107199365271799,
+    1.8028839349295263
+   ],
+   "deviation_percent_e_mu_tau": [
+    1.457466694512477,
+    1.4584643806103026,
+    1.4606053659697693
+   ]
+  },
+  {
+   "id": "PH-4",
+   "formula": "(det C^2)^(1/3)",
+   "marks": "post hoc",
+   "r_cell": 0.024309974200927252,
+   "yJ_cell": 0.00961232482685144,
+   "yJ_Q0_pole_convention_two_loops": 0.010663228689937064,
+   "ratio_to_measured_two_loops": 0.9858780471168619,
+   "ratio_to_measured_one_loop": 1.0364734724412707,
+   "pass_5_percent_two_loops": true,
+   "pass_5_percent_one_loop": true,
+   "masses_GeV_e_mu_tau": [
+    0.0005037676638134911,
+    0.10416419902355908,
+    1.7518383671230575
+   ],
+   "deviation_percent_e_mu_tau": [
+    -1.4151275392531804,
+    -1.4141581009268211,
+    -1.4120777338973323
+   ]
+  },
+  {
+   "id": "PH-5",
+   "formula": "det Y_e = sqrt2 6^-14",
+   "marks": "post hoc",
+   "r_cell": null,
+   "yJ_cell": null,
+   "yJ_Q0_pole_convention_two_loops": 0.01078983159080728,
+   "ratio_to_measured_two_loops": 0.9975832280051838,
+   "ratio_to_measured_one_loop": 0.9975832280051838,
+   "pass_5_percent_two_loops": true,
+   "pass_5_percent_one_loop": true,
+   "masses_GeV_e_mu_tau": [
+    0.0005097488210650078,
+    0.1054009247983378,
+    1.7726376789996583
+   ],
+   "deviation_percent_e_mu_tau": [
+    -0.24464426459275268,
+    -0.2436633162717916,
+    -0.24155824935935266
+   ]
+  },
+  {
+   "id": "PH-6",
+   "formula": "q^2",
+   "marks": "post hoc",
+   "r_cell": 0.027777777777777776,
+   "yJ_cell": 0.010983517331660149,
+   "yJ_Q0_pole_convention_two_loops": 0.012184332015103425,
+   "ratio_to_measured_two_loops": 1.1265129729243875,
+   "ratio_to_measured_one_loop": 1.1843258060280921,
+   "pass_5_percent_two_loops": false,
+   "pass_5_percent_one_loop": false,
+   "masses_GeV_e_mu_tau": [
+    0.0005756298259052724,
+    0.11902316098576021,
+    2.0017370838128348
+   ],
+   "deviation_percent_e_mu_tau": [
+    12.64794675762082,
+    12.649054485756505,
+    12.651431615923837
+   ]
+  },
+  {
+   "id": "PH-7",
+   "formula": "y_J(Q0) = (4/9)(det C^2)^(1/3)",
+   "marks": "post hoc",
+   "r_cell": null,
+   "yJ_cell": null,
+   "yJ_Q0_pole_convention_two_loops": 0.01080443297818989,
+   "ratio_to_measured_two_loops": 0.9989332119262404,
+   "ratio_to_measured_one_loop": 0.9989332119262404,
+   "pass_5_percent_two_loops": true,
+   "pass_5_percent_one_loop": true,
+   "masses_GeV_e_mu_tau": [
+    0.000510438640914517,
+    0.10554355906658505,
+    1.7750365087888214
+   ],
+   "deviation_percent_e_mu_tau": [
+    -0.10964988768107364,
+    -0.10866761188748075,
+    -0.10655969628393658
+   ]
+  },
+  {
+   "id": "PH-8",
+   "formula": "y_J(cell) = g/90",
+   "marks": "post hoc",
+   "r_cell": 0.02471465851952234,
+   "yJ_cell": 0.009772339687028488,
+   "yJ_Q0_pole_convention_two_loops": 0.010840737781503528,
+   "ratio_to_measured_two_loops": 1.0022898039709733,
+   "ratio_to_measured_one_loop": 0.9901997769086498,
+   "pass_5_percent_two_loops": true,
+   "pass_5_percent_one_loop": true,
+   "masses_GeV_e_mu_tau": [
+    0.0005121538049124325,
+    0.10589820406837909,
+    1.7810009450027526
+   ],
+   "deviation_percent_e_mu_tau": [
+    0.2259993334375876,
+    0.22698490985135766,
+    0.2290999084237022
+   ]
+  }
+ ],
+ "D2": {
+  "D2-1": {
+   "N_q": 13,
+   "R_predicted": 6.0,
+   "S1_own": {
+    "R_u_measured": 4945.9895838004,
+    "R_d_measured": 19.16033406727671,
+    "miss_factor_u": 824.3315973000667,
+    "miss_factor_d": 3.193389011212785
+   },
+   "S2_MZ": {
+    "R_u_measured": 1546.5648359876259,
+    "R_d_measured": 5.281557307719176,
+    "miss_factor_u": 257.76080599793767,
+    "miss_factor_d": 1.136028570821488
+   },
+   "S3_2e16": {
+    "R_u_measured": 106.34998867964589,
+    "R_d_measured": 0.3195392126803621,
+    "miss_factor_u": 17.724998113274314,
+    "miss_factor_d": 18.777038190933556
+   },
+   "pass_factor_3_at_MZ": false
+  },
+  "D2-2": {
+   "N_q": 4,
+   "R_predicted": 60466176.0,
+   "S1_own": {
+    "R_u_measured": 4945.9895838004,
+    "R_d_measured": 19.16033406727671,
+    "miss_factor_u": 12225.293841710638,
+    "miss_factor_d": 3155799.673830747
+   },
+   "S2_MZ": {
+    "R_u_measured": 1546.5648359876259,
+    "R_d_measured": 5.281557307719176,
+    "miss_factor_u": 39097.084449994436,
+    "miss_factor_d": 11448550.584053423
+   },
+   "S3_2e16": {
+    "R_u_measured": 106.34998867964589,
+    "R_d_measured": 0.3195392126803621,
+    "miss_factor_u": 568558.3679951298,
+    "miss_factor_d": 189229282.66861835
+   },
+   "pass_factor_3_at_MZ": false
+  }
+ },
+ "D3": {
+  "m_b_over_m_tau_MZ_IMPORTED": 1.6549844236760125,
+  "c_b = 1/sqrt3": {
+   "two_loops": 1.6930595591675912,
+   "one_loop": 1.6221068908073912,
+   "deviation_percent_two_loops": 2.3006340692323324,
+   "deviation_percent_one_loop": -1.986576574273402
+  },
+  "c_b = 1": {
+   "two_loops": 2.9323090609120865,
+   "one_loop": 2.8094360769846753,
+   "deviation_percent_two_loops": 77.1804627864056,
+   "deviation_percent_one_loop": 69.75604342815637
+  },
+  "neutrino_under_n_nu_2": {
+   "rho_needed_from_the_tau": 0.024658196084211666,
+   "m_nu3_GeV_estimate": 0.043032864068509896,
+   "bound_GeV": 8e-10,
+   "note": "rho^2 y_t at the cell, run with the tau factor"
+  }
+ },
+ "looks_printed_by_this_script": 64
+}

@@ -1,0 +1,325 @@
+{
+ "A_gapless_branch_k0": [
+  {
+   "wiring": "F",
+   "c_recurrence_from_exact_second_derivative": 0.02254174077728,
+   "sqrt_2D": 0.022541740866685808,
+   "c2_exact_rational": "1/1968",
+   "relative_difference": -3.966233563801325e-09,
+   "omega0": 0.0,
+   "c_anisotropy": 1.1379786040966163e-09,
+   "omega_over_q_min_max_at_q": {
+    "0.05": [
+     0.022541073303876974,
+     0.022541073329488716
+    ],
+    "0.2": [
+     0.022531056209922476,
+     0.02253106248502046
+    ],
+    "0.5": [
+     0.022474830734733244,
+     0.02247507866505368
+    ],
+    "1.0": [
+     0.022272063724770367,
+     0.02227620094945108
+    ]
+   },
+   "first_order_clock": {
+    "E0": -0.0,
+    "second_derivative_of_E": 0.0005081300839389671,
+    "kinetic_mass": 1967.9999897823661,
+    "speed": null,
+    "note": "quadratic band: a rate with a kinetic mass, no speed; not a shell in this clock"
+   }
+  },
+  {
+   "wiring": "B",
+   "c_recurrence_from_exact_second_derivative": 0.02175970700484099,
+   "sqrt_2D": 0.021759706994462228,
+   "c2_exact_rational": "1/2112",
+   "relative_difference": 4.769715733488056e-10,
+   "omega0": 0.0,
+   "c_anisotropy": 1.9539925257117692e-08,
+   "omega_over_q_min_max_at_q": {
+    "0.05": [
+     0.02175928802011883,
+     0.021759288044609845
+    ],
+    "0.2": [
+     0.02175299678807085,
+     0.021753002848561357
+    ],
+    "0.5": [
+     0.02171753251421601,
+     0.021717772586506787
+    ],
+    "1.0": [
+     0.021587450368724084,
+     0.021591493556576715
+    ]
+   },
+   "first_order_clock": {
+    "E0": -0.0,
+    "second_derivative_of_E": 0.00047348485405586323,
+    "kinetic_mass": 2111.9999751502437,
+    "speed": null,
+    "note": "quadratic band: a rate with a kinetic mass, no speed; not a shell in this clock"
+   }
+  }
+ ],
+ "B_staggered_honeycomb": [
+  {
+   "tA": 1.0,
+   "tB": 0.9,
+   "half_splitting": 0.1499999999999999,
+   "half_splitting_exact": 0.14999999999999997,
+   "slope": 0.8215838105688719,
+   "slope_exact": 0.8215838362577492,
+   "R4": 0.22222223611889197,
+   "R4_exact": 0.22222222222222215,
+   "S4_L48_values": 0.22254
+  },
+  {
+   "tA": 1.0,
+   "tB": 0.6,
+   "half_splitting": 0.6000000000000001,
+   "half_splitting_exact": 0.6000000000000001,
+   "slope": 0.6708203722080367,
+   "slope_exact": 0.6708203932499369,
+   "R4": 1.3333334169797717,
+   "R4_exact": 1.3333333333333335,
+   "S4_L48_values": 1.3352
+  },
+  {
+   "tA": 0.3,
+   "tB": 0.5,
+   "half_splitting": 0.30000000000000004,
+   "half_splitting_exact": 0.30000000000000004,
+   "slope": 0.3354101862152152,
+   "slope_exact": 0.33541019662496846,
+   "R4": 2.66666683219141,
+   "R4_exact": 2.666666666666667,
+   "S4_L48_values": 2.6705
+  }
+ ],
+ "C_site_term_carrier_honeycomb": [
+  {
+   "m": 0.001,
+   "half_splitting_per_m": 0.9809805306188191,
+   "slope": 0.05696909335316824,
+   "half_splitting_over_slope2_per_m": 302.26076167646704,
+   "R3_half_splitting_curvature_times_b_over_v2": 1.0000185254179836,
+   "S4_values": {
+    "half_splitting_per_m": 0.98098,
+    "slope": 0.05697,
+    "ratio_per_m": 302.25,
+    "R3": 1.0
+   }
+  },
+  {
+   "m": 0.01,
+   "half_splitting_per_m": 0.9809798966059713,
+   "slope": 0.05697065667929714,
+   "half_splitting_over_slope2_per_m": 302.2439779470278,
+   "R3_half_splitting_curvature_times_b_over_v2": 1.0000241461550416,
+   "S4_values": {
+    "half_splitting_per_m": 0.98098,
+    "slope": 0.05697,
+    "ratio_per_m": 302.25,
+    "R3": 1.0
+   }
+  },
+  {
+   "m": 0.05,
+   "half_splitting_per_m": 0.9809645102162956,
+   "slope": 0.057008580354732614,
+   "half_splitting_over_slope2_per_m": 301.8372553807018,
+   "R3_half_splitting_curvature_times_b_over_v2": 1.000024135212774,
+   "S4_values": {
+    "half_splitting_per_m": 0.98098,
+    "slope": 0.05697,
+    "ratio_per_m": 302.25,
+    "R3": 1.0
+   }
+  }
+ ],
+ "D_uniform_site_term": [
+  {
+   "m": 0.001,
+   "omega0": 0.0057735107106797485,
+   "omega0_closed_form": 0.0057735107106797485,
+   "c": 0.0225418035603085,
+   "c_closed_form": 0.022541803482963134,
+   "c_over_c_gapless": 1.0000027812236447,
+   "compton_length_edges": 3.9043494833413974,
+   "shell_deviation": {
+    "0.25": [
+     -0.0014809966322741265,
+     -0.0014796367245738934
+    ],
+    "0.5": [
+     -0.005927750158539673,
+     -0.0059058178900587965
+    ],
+    "1.0": [
+     -0.02378379558676016,
+     -0.023421081026155834
+    ]
+   },
+   "first_order_clock": {
+    "E0": 1.666680555709695e-05,
+    "second_derivative_of_E": 0.0005081385502730489,
+    "kinetic_mass": 1967.96720001395,
+    "speed": null,
+    "note": "quadratic band: a rate with a kinetic mass, no speed; not a shell in this clock"
+   }
+  },
+  {
+   "m": 0.01,
+   "omega0": 0.01825767216827218,
+   "omega0_closed_form": 0.01825767216827218,
+   "c": 0.02254236720476953,
+   "c_closed_form": 0.022542367059203695,
+   "c_over_c_gapless": 1.0000277857015314,
+   "compton_length_edges": 1.2346791527971022,
+   "shell_deviation": {
+    "0.25": [
+     -0.0014810024910620924,
+     -0.0014796425833669949
+    ],
+    "0.5": [
+     -0.005927755442796434,
+     -0.0059058231761637625
+    ],
+    "1.0": [
+     -0.023783798669673752,
+     -0.02342108410960141
+    ]
+   },
+   "first_order_clock": {
+    "E0": 0.00016668055709894,
+    "second_derivative_of_E": 0.0005082147847497763,
+    "kinetic_mass": 1967.671996186333,
+    "speed": null,
+    "note": "quadratic band: a rate with a kinetic mass, no speed; not a shell in this clock"
+   }
+  },
+  {
+   "m": 0.1,
+   "omega0": 0.057743048681225144,
+   "omega0_closed_form": 0.05774304868122707,
+   "c": 0.022548006008317672,
+   "c_closed_form": 0.02254800576816665,
+   "c_over_c_gapless": 1.000277935127944,
+   "compton_length_edges": 0.39048866527286497,
+   "shell_deviation": {
+    "0.25": [
+     -0.0014810090163501672,
+     -0.0014796491086724128
+    ],
+    "0.5": [
+     -0.005927756450299681,
+     -0.005905824181781505
+    ],
+    "1.0": [
+     -0.02378377858239822,
+     -0.023421064004353558
+    ]
+   },
+   "first_order_clock": {
+    "E0": 0.0016680571006969474,
+    "second_derivative_of_E": 0.0005089783800731373,
+    "kinetic_mass": 1964.719994307628,
+    "speed": null,
+    "note": "quadratic band: a rate with a kinetic mass, no speed; not a shell in this clock"
+   }
+  },
+  {
+   "m": 0.746746,
+   "omega0": 0.15793459960497777,
+   "omega0_closed_form": 0.15793459960497777,
+   "c": 0.022588684298604448,
+   "c_closed_form": 0.022588684219794618,
+   "c_over_c_gapless": 1.0020825113817193,
+   "compton_length_edges": 0.1430255583963408,
+   "shell_deviation": {
+    "0.25": [
+     -0.0014809813498288095,
+     -0.0014796214421751962
+    ],
+    "0.5": [
+     -0.005927689229138741,
+     -0.005905756959720472
+    ],
+    "1.0": [
+     -0.023783560206832848,
+     -0.02342084547125766
+    ]
+   },
+   "first_order_clock": {
+    "E0": 0.012523863883675174,
+    "second_derivative_of_E": 0.0005145338533239863,
+    "kinetic_mass": 1943.506716885216,
+    "speed": null,
+    "note": "quadratic band: a rate with a kinetic mass, no speed; not a shell in this clock"
+   }
+  },
+  {
+   "m": 1.381966,
+   "omega0": 0.21504293453705126,
+   "omega0_closed_form": 0.21504293453705126,
+   "c": 0.022628910728644817,
+   "c_closed_form": 0.022628910621814855,
+   "c_over_c_gapless": 1.0038670421452602,
+   "compton_length_edges": 0.10522973366858479,
+   "shell_deviation": {
+    "0.25": [
+     -0.0014809705471243485,
+     -0.0014796106464415673
+    ],
+    "0.5": [
+     -0.005927639098759334,
+     -0.005905706825361748
+    ],
+    "1.0": [
+     -0.02378335976567355,
+     -0.023420644880665434
+    ]
+   },
+   "first_order_clock": {
+    "E0": 0.023302165543391005,
+    "second_derivative_of_E": 0.0005201096409351286,
+    "kinetic_mass": 1922.6715317217631,
+    "speed": null,
+    "note": "quadratic band: a rate with a kinetic mass, no speed; not a shell in this clock"
+   }
+  }
+ ],
+ "E_walk_on_one_twisted_cell": {
+  "k": 1,
+  "wiring": "F",
+  "q": [
+   0.37,
+   -0.21
+  ],
+  "ports": 24,
+  "seams": 63,
+  "walk_dimension": 6048,
+  "discriminant_minus_diag(1-L/126, 1-(2Deg-L)/126)_max_abs": 1.110224332980257e-16,
+  "embedded_amplitudes_minus_Chebyshev_t1_to_8_max_abs": 9.548187489423334e-15,
+  "isometry_defect_after_8_steps": 4.7184478553331874e-14,
+  "M_eff_of_this_object": 63
+ },
+ "F_record_one_block_is_flux_k_plus_10": [
+  {
+   "wiring": "F",
+   "max_abs_levels_of_record_one_block_minus_levels_of_flux_k_plus_10": 7.105427357601002e-15
+  },
+  {
+   "wiring": "B",
+   "max_abs_levels_of_record_one_block_minus_levels_of_flux_k_plus_10": 1.0658141036401503e-14
+  }
+ ]
+}

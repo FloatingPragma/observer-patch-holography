@@ -1,0 +1,218 @@
+{
+  "native_stationary_reference": {
+    "status": "EXACT",
+    "global_fixed_charge_dimension": 66,
+    "global_density": "I_66/66",
+    "global_modular_generator": "log(66) I_66",
+    "caps": [
+      {
+        "cap": [
+          0
+        ],
+        "configuration_weights_by_cap_load": {
+          "1": "1/6",
+          "0": "5/6"
+        },
+        "faithful_on_full_cap_algebra": true
+      },
+      {
+        "cap": [
+          0,
+          11,
+          5
+        ],
+        "configuration_weights_by_cap_load": {
+          "1": "3/22",
+          "2": "1/66",
+          "0": "6/11"
+        },
+        "faithful_on_full_cap_algebra": false
+      },
+      {
+        "cap": [
+          0,
+          1,
+          5,
+          7,
+          10,
+          11
+        ],
+        "configuration_weights_by_cap_load": {
+          "2": "1/66",
+          "1": "1/11",
+          "0": "5/22"
+        },
+        "faithful_on_full_cap_algebra": false
+      }
+    ],
+    "one_port_charge_changing_modular_frequency": "log(5), sign depends on convention",
+    "number_conserving_cap_modular_flow": "identity",
+    "connected_occupation_correlation": "-5/396",
+    "all_pairs_same_correlation": true
+  },
+  "faithful_swap_reference": {
+    "status": "EXACT",
+    "input_label": "DECLARED preparation",
+    "density": "(I_66+J_66)/132",
+    "diagonal": "1/66",
+    "eigenvalues": [
+      [
+        "67/132",
+        1
+      ],
+      [
+        "1/132",
+        65
+      ]
+    ],
+    "ambient_modular_gap": "log(67)",
+    "stationary_for_every_swap_parity_channel": true,
+    "all_parity_history_effects_commute_with_density": true,
+    "accessible_modular_flow": "identity on permutation-history algebra",
+    "T5_geometric_modular_pass": false
+  },
+  "wiring": {
+    "status": "MEASURED (float64, independent finite matrix)",
+    "inputs": "DECLARED 2D honeycomb wiring F-up/B-down; port Laplacian",
+    "matrix_dimension": 24,
+    "momentum_dimensions": 2,
+    "half_gap": 0.010494375036531473,
+    "band_midpoint": 0.18010740913821,
+    "bands_at_K": [
+      0.16961303410167852,
+      0.19060178417474147,
+      2.763932022500209,
+      2.7639320225002093
+    ],
+    "massless_laplacian_curvature": 0.014705883480369131,
+    "wave_lift_speed": 0.12126781716667094,
+    "first_order_acoustic_group_speed_limit": 0,
+    "small_k_half_gap_slope": 0.05270829624871134,
+    "finite_k_exact_relativistic_shell": false,
+    "reason": "odd cubic term and k-dependent band midpoint; underlying native generator is dissipative",
+    "shell_diagnostics": [
+      {
+        "k": 0.08,
+        "even_slope_squared": 0.0027770515034565165,
+        "odd_cubic_coefficient": 0.0008016638872316795,
+        "midpoint_even_curvature": 0.00020530740173912987,
+        "direct_signed_shell_asymmetry": 8.2090382052524e-07
+      },
+      {
+        "k": 0.04,
+        "even_slope_squared": 0.0027778894783983227,
+        "odd_cubic_coefficient": 0.000801907163462843,
+        "midpoint_even_curvature": 0.00020537166606215962,
+        "direct_signed_shell_asymmetry": 1.0264411692324392e-07
+      },
+      {
+        "k": 0.02,
+        "even_slope_squared": 0.002778099010570514,
+        "odd_cubic_coefficient": 0.0008019679911319877,
+        "midpoint_even_curvature": 0.0002053877318219932,
+        "direct_signed_shell_asymmetry": 1.2831487858111805e-08
+      },
+      {
+        "k": 0.01,
+        "even_slope_squared": 0.002778151396294582,
+        "odd_cubic_coefficient": 0.0008019832220058008,
+        "midpoint_even_curvature": 0.0002053917480537848,
+        "direct_signed_shell_asymmetry": 1.6039664440116019e-09
+      },
+      {
+        "k": 0.005,
+        "even_slope_squared": 0.002778164493441918,
+        "odd_cubic_coefficient": 0.000801986765192053,
+        "midpoint_even_curvature": 0.00020539271616826227,
+        "direct_signed_shell_asymmetry": 2.0049669129801329e-10
+      }
+    ]
+  },
+  "order_dimension": {
+    "status": "EXACT formula; finite-order application is conditional",
+    "fractions": {
+      "d3": 0.22857142857142848,
+      "d4": 0.1
+    },
+    "ratio_is_unique_dimension_certificate": false,
+    "reason": "manifoldlike order and uniform interval population are premises; many non-isomorphic finite posets share a pair count"
+  },
+  "clock_dictionary": {
+    "status": "EXACT",
+    "symbol": "lambda(k)=4 sin(k/2)^2",
+    "native_heat_flow": "exp(-t lambda): decay, no oscillation",
+    "declared_unitary_flow": "exp(-it lambda): omega~k^2",
+    "declared_wave_lift": "qddot=-Lq: omega=2|sin(k/2)|~|k|",
+    "same_spectrum_implies_same_physical_clock": false,
+    "tracial_state_allows_other_declared_dynamics": true
+  },
+  "archived_scope_checks": {
+    "status": "AUDITED archived outputs; large calculations not rerun",
+    "S11_double_load_stay_probability": "5/6",
+    "therefore_double_load_leave_probability": "1/6",
+    "icosphere_staggering_has_gap_window_intruders": {
+      "3": 8,
+      "4": 40
+    },
+    "octahedral_gap_control_intruders": {
+      "3": 0,
+      "4": 0,
+      "2": 0
+    }
+  },
+  "natural_wiring": {
+    "status": "EXACT integer/rational finite checks",
+    "input": "DECLARED face-triple recursive wiring; original saved builder",
+    "ancestry_levels_0_to_2": [
+      {
+        "fine_seams": 2520,
+        "to_coarse_seam": 2520,
+        "to_non_seam": 0,
+        "collapsed": 0
+      },
+      {
+        "fine_seams": 10080,
+        "to_coarse_seam": 10080,
+        "to_non_seam": 0,
+        "collapsed": 0
+      }
+    ],
+    "generator_intertwining_residual_minimised_over_clock_rescale": "240",
+    "best_clock_rescale": "1",
+    "relative_squared_residual": "1/133",
+    "graph_morphism_implies_generator_intertwining": false,
+    "proof_scope": "graph support refinement is repaired; exact dynamical coarse-graining is not supplied"
+  },
+  "reflection_positivity_control": {
+    "status": "EXACT rational counterexample",
+    "full_covariance_spectrum": [
+      "1/4",
+      "3/4",
+      "5/4",
+      "7/4"
+    ],
+    "reflection_block": "[[1/4,1/2],[1/2,1/4]]",
+    "positive_time_test_vector": [
+      1,
+      -1
+    ],
+    "reflected_quadratic_form": "-1/2",
+    "positive_covariance_and_reflection_symmetry_imply_OS_positivity": false,
+    "scope": "This is a missing-premise counterexample, not a calculation on the native record covariance."
+  },
+  "input_sha256": {
+    "repair-law/LEADS.md": "9d4422ae77365bac774eea0953095a1e637b38a237a031172ff452f7b515a313",
+    "repair-law/PROBLEM.md": "903deeda3b0887b3e3adcf91641ec339fcd0f5c68a5685045a267537f08c4254",
+    "repair-law/REQUIREMENTS.md": "0ac71cc8ff10f9ad4dd5f132612ba6d16dee72e6864d3bbaa31e48c405544f63",
+    "repair-law/work/S3/s0_lib.py": "cb0d6f3a4bf20927cb5c66cf324eaa7b7b48833f3d11be256d1d409937293612",
+    "repair-law/work/S3/s5_ancestry.json": "608b03fcd60a982dd2cfadad2f2ef55f13bf06c5fb9eaed03421ec2ac1436112",
+    "repair-law/work/S3/s10_mass_shell.py": "6614851ab2ef454b1f6039befc8c71d69f94c0a1d13eed8af4afd7c55305329a",
+    "repair-law/work/S3/s10_mass_shell.json": "22c0770ee022e0fb310fd22f1f775743a13d93437a720925e782dab927ecf523",
+    "repair-law/work/S11/s2_native_state.py": "3db947d9d982a5369b9b6f9801814fb36951fd0dac2612d3a5fefd0d318c2b17",
+    "repair-law/work/S11/out/s2_native_state.json": "0cda3a7d3554038a9decf180a6e1a1e5b41ac0b6ad7870f5f032ab55d4120a5f",
+    "repair-law/work/S11/CONVENTIONS.md": "4163c2a7eaead915c048a9f035de692291ea044c012c8ce887c3cdfb140b2d78",
+    "reverse-engineering-reality/Lean/QFT/FiniteModularInclusion.lean": "bf6ab2f70bc66df67f1c975bd07a73896dccc29edef9f8dc61431b668c4bf668",
+    "reverse-engineering-reality/Lean/QFT/ModularClockComparison.lean": "e9ea518b35bdd8ac09f87b90bfa27bdc8ef5b6d6a4f0583bea7f4541dd21644c",
+    "reverse-engineering-reality/Lean/Geometry/GoldenSourceCausalLimit.lean": "4a5a844e27d74e690d9c0e4a3185af7076d82f873a4fa087c801b2c3a60ff7f6"
+  }
+}

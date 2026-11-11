@@ -1,0 +1,49 @@
+"""T3 Addendum 2: control F, v_source read as the Fermi-constant VEV (P_fwd packet).
+Writes t3_fermi_control.json.
+"""
+from __future__ import annotations
+
+import json
+import math
+
+import lewlib as L
+
+
+def gf_of(pk, vq0):
+    new = dict(pk)
+    new["v"] = vq0
+    return L.readout(new)
+
+
+def main():
+    t1 = json.loads((L.LANE / "t1_chain.json").read_text())
+    refs = t1["references_compare_only_GeV"]
+    pk = dict(t1["pixels"]["P_fwd"]["packet_Q0"])
+    vs = pk["v"]
+    target = 1.0 / (math.sqrt(2.0) * vs * vs)
+    x0, x1 = vs * 1.006, vs * 1.008
+    o0, o1 = gf_of(pk, x0), gf_of(pk, x1)
+    f0, f1 = o0["GF_local"] / target - 1, o1["GF_local"] / target - 1
+    hist = [(x0, f0), (x1, f1)]
+    for _ in range(12):
+        x2 = x1 - f1 * (x1 - x0) / (f1 - f0)
+        o2 = gf_of(pk, x2)
+        f2 = o2["GF_local"] / target - 1
+        hist.append((x2, f2))
+        x0, f0, x1, f1, o1 = x1, f1, x2, f2, o2
+        if abs(f2) < 1e-12:
+            break
+    out = {"schema": "lew.t3_fermi_control.v1", "v_source_GeV": vs, "GF_target_GeVm2": target,
+           "v_Q0_GeV": x1, "eta_v(Q0)_over_v_source": x1 / vs, "outputs_GeV": o1,
+           "residual_percent_compare_only": {k: 100 * (o1[k] / refs[k] - 1) for k in ("W", "Z", "H", "t")},
+           "measured_GF_compare_only": 1.1663788e-5,
+           "v_F_measured_compare_only_GeV": (math.sqrt(2.0) * 1.1663788e-5) ** -0.5,
+           "v_source_over_v_F_measured_minus_1": vs / (math.sqrt(2.0) * 1.1663788e-5) ** -0.5 - 1,
+           "secant_history": hist}
+    (L.LANE / "t3_fermi_control.json").write_text(json.dumps(out, indent=2) + "\n")
+    print(json.dumps({k: out[k] for k in ("v_Q0_GeV", "eta_v(Q0)_over_v_source", "outputs_GeV",
+                                          "residual_percent_compare_only", "v_source_over_v_F_measured_minus_1")}, indent=1))
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,39 @@
+{
+ "task": "LR addendum 2, O11: the current read from the pair cell itself",
+ "limit": "1/18",
+ "limit_float": 0.05555555555555555,
+ "rows": [
+  {
+   "N": 1,
+   "rounds": 10000,
+   "phase_per_unit_clock_time": 0.04857233404236498,
+   "closed_form": 0.04857233404235984,
+   "round_amplitude_minus_closed_form": 3.44269848777947e-15,
+   "max_change_of_the_round_amplitude": 8.226546713904289e-15
+  },
+  {
+   "N": 10,
+   "rounds": 10000,
+   "phase_per_unit_clock_time": 0.05548553979284879,
+   "closed_form": 0.05548553979284807,
+   "round_amplitude_minus_closed_form": 3.5527222549987404e-15,
+   "max_change_of_the_round_amplitude": 8.995765650287991e-15
+  },
+  {
+   "N": 100,
+   "rounds": 10000,
+   "phase_per_unit_clock_time": 0.05555485539554211,
+   "closed_form": 0.05555485539554149,
+   "round_amplitude_minus_closed_form": 3.219647182150887e-15,
+   "max_change_of_the_round_amplitude": 8.328248042357336e-15
+  },
+  {
+   "N": 1000,
+   "rounds": 10000,
+   "phase_per_unit_clock_time": 0.05555554855396423,
+   "closed_form": 0.055555548553955204,
+   "round_amplitude_minus_closed_form": 2.7755575680479875e-15,
+   "max_change_of_the_round_amplitude": 7.444159554702037e-15
+  }
+ ]
+}

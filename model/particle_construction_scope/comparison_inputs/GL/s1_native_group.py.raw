@@ -1,0 +1,146 @@
+"""GL step 1: the group over which the seam transport of the source ranges today, and why it is discrete.
+
+S1/S3. Group generated on the code by the native transports: the cover of order 120 (implementers U_a of the
+       rotations, which contain every chart transport of worker MG and the half-turn lifts of worker KD), and the
+       central alphabets: link sign exp(i pi 6Y) restricted as worker X5 (Z2), sixth roots exp(i (pi k / 3) 6Y) (Z6),
+       area characters of lead L16 on the code (base flux k0 = 11, load charges 2 and -3): exp(i (2 pi 11/20) 6Y).
+S2.    The elements of G = exp(span i X_p) that carry the response frame {X_p} onto itself up to a permutation of
+       ports. Every automorphism of the port graph is tested for a unitary implementer (Bargmann invariants of the
+       triplet and doublet projectors decide; the reflections need an antiunitary). Centralizer of the frame in g.
+Writes s1_native_group.json.
+"""
+import itertools
+import json
+import sys
+
+import numpy as np
+
+import gl_lib as L
+
+out = {}
+
+
+def key(M):
+    return tuple(np.round(np.concatenate([M.real.ravel(), M.imag.ravel()]), 6).tolist())
+
+
+def generate(gens, cap=200000):
+    elems = {key(L.I5): L.I5}
+    frontier = [L.I5]
+    while frontier:
+        new = []
+        for A in frontier:
+            for g in gens:
+                B = g @ A
+                k = key(B)
+                if k not in elems:
+                    elems[k] = B
+                    new.append(B)
+                    if len(elems) > cap:
+                        return elems, False
+        frontier = new
+    return elems, True
+
+
+cover = [U for U, _ in L.COVER]
+z2 = L.expm_herm(L.Y6, np.pi)                     # (1, -1): weak centre, the link sign on Z2-charged patterns
+z6 = L.expm_herm(L.Y6, np.pi / 3)                 # sixth root (omega, -1)
+z20 = L.expm_herm(L.Y6, 2 * np.pi * 11 / 20)      # area character, unit face, base flux 11
+rows = {}
+for name, gens in [('cover', cover), ('cover + Z2', cover + [z2]), ('cover + Z6', cover + [z6]),
+                   ('cover + Z6 + Z20 area character', cover + [z6, z20]),
+                   ('Z6 + Z20 alone', [z6, z20])]:
+    el, finite = generate(gens)
+    orders = []
+    for M in el.values():
+        P, k = M.copy(), 1
+        while not np.allclose(P, L.I5, atol=1e-8) and k < 200:
+            P = P @ M; k += 1
+        orders.append(k)
+    rows[name] = {'finite': finite, 'order': len(el), 'element_orders': sorted(set(orders))}
+    print(name, rows[name], flush=True)
+out['S1_S3_native_groups'] = rows
+
+# intersections with the Standard Model subgroups for the largest native group
+el, _ = generate(cover + [z6, z20])
+def in_colour(M):  # SU(3) x 1
+    return np.allclose(M[3:, 3:], L.I2, atol=1e-8) and abs(np.linalg.det(M[:3, :3]) - 1) < 1e-8
+def in_weak(M):    # 1 x SU(2)
+    return np.allclose(M[:3, :3], L.I3, atol=1e-8) and abs(np.linalg.det(M[3:, 3:]) - 1) < 1e-8
+def central(M):
+    return np.allclose(M[:3, :3], M[0, 0] * L.I3, atol=1e-8) and np.allclose(M[3:, 3:], M[3, 3] * L.I2, atol=1e-8)
+inter = {'with SU(3) x 1': sum(in_colour(M) for M in el.values()),
+         'with 1 x SU(2)': sum(in_weak(M) for M in el.values()),
+         'central elements (U(1)_Y)': sum(central(M) for M in el.values()),
+         'colour block and weak block both non-central': sum((not np.allclose(M[:3, :3], M[0, 0] * L.I3, atol=1e-8)) and
+                                                              (not np.allclose(M[3:, 3:], M[3, 3] * L.I2, atol=1e-8)) for M in el.values())}
+out['S3_intersections_largest_native_group'] = inter
+print('intersections', inter, flush=True)
+
+# ----------------------------------------------------------------------------- S2 frame normalizer
+# automorphisms of the port graph (the full symmetry group of the icosahedron, 120)
+def graph_automorphisms():
+    autos = []
+    nb = {p: [q for q in range(12) if L.ADJ[p, q]] for p in range(12)}
+    p0 = 0; q0 = nb[0][0]
+    for a in range(12):
+        for b in nb[a]:
+            # extend p0 -> a, q0 -> b; the third vertex of a face is chosen in both orientations
+            for orient in (0, 1):
+                common0 = [r for r in nb[p0] if r in nb[q0]]
+                commona = [r for r in nb[a] if r in nb[b]]
+                perm = {p0: a, q0: b, common0[0]: commona[orient]}
+                ok = True
+                changed = True
+                while changed and ok:
+                    changed = False
+                    for (u, v) in list(perm.items()):
+                        for w in nb[u]:
+                            if w in perm:
+                                continue
+                            # w adjacent to u and to another mapped neighbour of u that is adjacent to w
+                            known = [x for x in nb[w] if x in perm and x != u and L.ADJ[u, x]]
+                            if known:
+                                x = known[0]
+                                cand = [y for y in nb[v] if L.ADJ[perm[x], y] and y not in perm.values()]
+                                if len(cand) == 1:
+                                    perm[w] = cand[0]; changed = True
+                if len(perm) == 12:
+                    P = [perm[i] for i in range(12)]
+                    if all(L.ADJ[P[i], P[j]] == L.ADJ[i, j] for i in range(12) for j in range(12)):
+                        autos.append(tuple(P))
+    return sorted(set(autos))
+
+
+autos = graph_automorphisms()
+rot_perms = {tuple(perm) for _, _, perm in L.ROTS}
+Pt = [L.helicity_projector(L.N[p]) for p in range(12)]
+Qd = [L.spin_projector(L.NC[p]) for p in range(12)]
+trip = list(itertools.combinations(range(12), 3))
+def bargmann_ok(proj, perm):
+    return max(abs(np.trace(proj[p] @ proj[q] @ proj[r]) - np.trace(proj[perm[p]] @ proj[perm[q]] @ proj[perm[r]]))
+               for p, q, r in trip) < 1e-9
+impl = []
+for perm in autos:
+    t_ok, d_ok = bargmann_ok(Pt, perm), bargmann_ok(Qd, perm)
+    impl.append({'rotation': perm in rot_perms, 'triplet_unitary_exists': t_ok, 'doublet_unitary_exists': d_ok})
+n_impl = sum(r['triplet_unitary_exists'] and r['doublet_unitary_exists'] for r in impl)
+n_rot_impl = sum(r['triplet_unitary_exists'] and r['doublet_unitary_exists'] and r['rotation'] for r in impl)
+# centralizer of the frame inside g (Lie algebra)
+basis = L.lie_closure([1j * x for x in L.X])
+M = np.array([np.concatenate([L.vec(B @ (1j * x) - (1j * x) @ B) for x in L.X]) for B in basis]).T
+cent = len(basis) - int(np.linalg.matrix_rank(M, tol=1e-9))
+from scipy.linalg import null_space
+ns = null_space(M, rcond=1e-9)
+Cgen = sum(c * B for c, B in zip(ns[:, 0], basis))
+prop = Cgen / Cgen[0, 0] * 2 if abs(Cgen[0, 0]) > 1e-12 else Cgen
+out['S2_frame_normalizer'] = {
+    'port_graph_automorphisms': len(autos),
+    'with_unitary_implementer_on_both_blocks': n_impl,
+    'of_which_rotations': n_rot_impl,
+    'reflections_with_implementer': n_impl - n_rot_impl,
+    'centralizer_dimension_in_g': cent,
+    'centralizer_generator_proportional_to_6Y': np.round(np.diag(prop).real, 9).tolist(),
+    'statement': 'N_G(frame) = rho(2I) . U(1)_Y; identity component U(1)_Y; the non-abelian part is finite'}
+print('S2', out['S2_frame_normalizer'], flush=True)
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 's1_native_group.json', 'w'), indent=1, default=L.jsonable)

@@ -1,0 +1,259 @@
+#!/usr/bin/env python3
+"""Worker CA (coupling item A): exact statements E1 to E8 of CANDIDATES.md.
+
+Objects: the five-level code C^5 = triplet (0, 1, 2) + doublet (3, 4); the twelve generators of
+G = S(U(3) x U(2)) in the trace-orthonormal basis tr(T_a T_b) = delta_ab / 2 (GL's action has equal Hessians in
+these twelve directions); the class-3 register in a Higgs state beta on one doublet level (UH, R8).
+E1 to E7 use sympy (EXACT). E1p and E8 use GL's port responses X_p in float64 (MEASURED, tolerance printed).
+No measured value is read. Writes anchor_exact.json.
+"""
+import itertools
+import json
+import sys
+from pathlib import Path
+
+import numpy as np
+import sympy as s
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, "WORKSPACE/repair-law/work/GL")
+import gl_lib as L  # noqa: E402  (read only)
+
+out = {}
+I = s.I
+half = s.Rational(1, 2)
+
+
+def blk(t=None, d=None):
+    M = s.zeros(5, 5)
+    if t is not None:
+        M[:3, :3] = t
+    if d is not None:
+        M[3:, 3:] = d
+    return M
+
+
+# ------------------------------------------------------------------ the twelve generators, tr(T_a T_b) = 1/2
+gm = []
+for i, j in [(0, 1), (0, 2), (1, 2)]:
+    A = s.zeros(3, 3); A[i, j] = A[j, i] = 1; gm.append(A)
+    A = s.zeros(3, 3); A[i, j] = -I; A[j, i] = I; gm.append(A)
+gm.append(s.diag(1, -1, 0))
+gm.append(s.diag(1, 1, -2) / s.sqrt(3))
+PAULI = [s.Matrix([[0, 1], [1, 0]]), s.Matrix([[0, -I], [I, 0]]), s.Matrix([[1, 0], [0, -1]])]
+Ymat = s.diag(-s.Rational(1, 3), -s.Rational(1, 3), -s.Rational(1, 3), half, half)   # Y on the code (doublet 6Y = +3)
+T_col = [blk(t=g / 2) for g in gm]
+T_weak = [blk(d=p / 2) for p in PAULI]
+T_Y1 = s.sqrt(s.Rational(3, 5)) * Ymat
+GEN = T_col + T_weak + [T_Y1]
+gram = s.Matrix(12, 12, lambda a, b: (GEN[a] * GEN[b]).trace())
+out["E0_trace_orthonormal_basis"] = bool(gram == s.eye(12) / 2)
+
+# ------------------------------------------------------------------ E1 mass form of the register transport term
+g1, g2, g3, b = s.symbols("g1 g2 g3 b", positive=True)
+beta = s.Matrix([0, 0, 0, 0, b])                      # Higgs state on the doublet level s2 (index 4)
+coup = [g3] * 8 + [g2] * 3 + [g1]
+vecs = [coup[a] * GEN[a] * beta for a in range(12)]   # first-order displacement of beta along each coupled direction
+M = s.Matrix(12, 12, lambda a, c: s.re(s.simplify((vecs[a].H * vecs[c])[0, 0])))
+M = M.applyfunc(s.simplify)
+eig = M.eigenvals()
+eig = {s.simplify(k): v for k, v in eig.items()}
+mW2 = g2 ** 2 * b ** 2 / 4
+mZ2 = (g2 ** 2 + s.Rational(3, 5) * g1 ** 2) * b ** 2 / 4
+out["E1_rank"] = int(M.rank())
+out["E1_eigenvalues"] = {str(k): int(v) for k, v in eig.items()}
+out["E1_eigenvalues_are_0x9_mW2x2_mZ2x1"] = bool(
+    eig.get(s.Integer(0)) == 9 and eig.get(s.simplify(mW2)) == 2 and eig.get(s.simplify(mZ2)) == 1)
+out["E1_ratio_neutral_over_charged"] = str(s.simplify(mZ2 / mW2))
+out["E1_ratio_at_equal_couplings"] = str(s.simplify((mZ2 / mW2).subs(g1, g2)))
+# kernel: colour and q = g_Y-weighted combination; the photon generator is Q = T3 + Y
+Q = T_weak[2] + Ymat
+out["E1_Q_annihilates_beta"] = bool((Q * beta) == s.zeros(5, 1))
+# the frozen neutral field direction in (W3, B) coordinates and the photon direction
+sub = M.extract([10, 11], [10, 11])
+out["E1_neutral_block"] = str(sub)
+zdir = s.Matrix([g2, -s.sqrt(s.Rational(3, 5)) * g1])
+qdir = s.Matrix([s.sqrt(s.Rational(3, 5)) * g1, g2])
+out["E1_z_is_eigenvector_with_mZ2"] = bool((sub * zdir - mZ2 * zdir).applyfunc(s.simplify) == s.zeros(2, 1))
+out["E1_q_is_null_vector"] = bool((sub * qdir).applyfunc(s.simplify) == s.zeros(2, 1))
+# the mass form is not of the factorwise shape c2 * (W1^2 + W2^2 + W3^2) + c1 * B^2: it has a W3-B cross term
+out["E1_cross_term_W3_B"] = str(s.simplify(M[10, 11]))
+out["E1_SU2_block_is_isotropic"] = bool(M.extract([8, 9, 10], [8, 9, 10]) == mW2 * s.eye(3))
+
+# ------------------------------------------------------------------ E7 dependence on the register's hypercharge
+Y = s.symbols("Y", real=True)
+gY = s.symbols("gY", positive=True)
+# doublet with hypercharge Y, Higgs state on the T3 = -1/2 member: generators t_i = sigma_i / 2, hypercharge Y * 1
+bet2 = s.Matrix([0, b])
+tw = [p / 2 for p in PAULI]
+v7 = [g2 * t * bet2 for t in tw] + [gY * Y * bet2]
+M7 = s.Matrix(4, 4, lambda a, c: s.re(s.simplify((v7[a].H * v7[c])[0, 0]))).applyfunc(s.simplify)
+e7 = {s.factor(k): v for k, v in M7.eigenvals().items()}
+out["E7_eigenvalues_general_Y"] = {str(k): int(v) for k, v in e7.items()}
+neutral = s.simplify(b ** 2 * (g2 ** 2 / 4 + gY ** 2 * Y ** 2))
+out["E7_neutral_minus_charged"] = str(s.simplify(neutral - g2 ** 2 * b ** 2 / 4))
+out["E7_neutral_eigenvalue_present"] = bool(any(s.simplify(k - neutral) == 0 for k in e7))
+out["E7_equal_at_Y0"] = bool(s.simplify(neutral.subs(Y, 0) - g2 ** 2 * b ** 2 / 4) == 0)
+
+# ------------------------------------------------------------------ E2 stabilizer of beta in the algebra: u(3)
+def vec(A):
+    return s.Matrix([list(A)]).T
+
+
+def real_rank(mats):
+    rows = []
+    for A in mats:
+        v = list(A)
+        rows.append([s.re(x) for x in v] + [s.im(x) for x in v])
+    return s.Matrix(rows).rank()
+
+
+# real-linear map R^12 -> C^2: T -> (i T beta) restricted to the doublet block, at b = 1
+imgs = []
+for a in range(12):
+    w = (I * GEN[a] * beta.subs(b, 1))
+    imgs.append([s.re(w[3]), s.im(w[3]), s.re(w[4]), s.im(w[4])])
+Jm = s.Matrix(imgs)                 # 12 x 4
+out["E2_rank_of_action_on_beta"] = int(Jm.rank())
+kernel = Jm.T.nullspace()           # coefficient vectors c with sum_a c_a T_a beta = 0
+out["E2_stabilizer_dimension"] = len(kernel)
+stab = [sum((c[a] * GEN[a] for a in range(12)), s.zeros(5, 5)) for c in kernel]
+stab_std = T_col + [Q]
+out["E2_stabilizer_is_span_of_colour_and_Q"] = bool(real_rank(stab + stab_std) == 9 and real_rank(stab_std) == 9)
+# closed under commutators, centre of dimension one (Q), derived algebra su(3)
+comm = [A * B - B * A for A, B in itertools.combinations(stab_std, 2)]
+out["E2_closed"] = bool(real_rank(stab_std + [c / I for c in comm]) == 9)
+out["E2_Q_central_in_stabilizer"] = bool(all((Q * A - A * Q) == s.zeros(5, 5) for A in T_col))
+out["E2_derived_algebra_dimension"] = int(real_rank([c / I for c in comm]))
+# group statement: for A in U(3), diag(A, diag(1/det A on the level orthogonal to beta, 1 on beta)) lies in G and fixes beta
+th = s.symbols("theta", real=True)
+A3 = s.diag(s.exp(I * th), 1, 1)
+elem = blk(t=A3, d=s.diag(s.exp(-I * th), 1))
+out["E2_U3_element_has_det_one_and_fixes_beta"] = bool(s.simplify(elem.det()) == 1 and (elem * beta - beta) == s.zeros(5, 1))
+
+# ------------------------------------------------------------------ E3 live sets and their Lie closures
+def lie_closure_dim(gens):
+    basis = list(gens)
+    dim = real_rank(basis)
+    while True:
+        new = [(A * B - B * A) / I for A, B in itertools.combinations(basis, 2)]
+        d2 = real_rank(basis + new)
+        if d2 == dim:
+            return dim
+        # keep an independent subset
+        keep = list(basis)
+        for C in new:
+            if real_rank(keep + [C]) > real_rank(keep):
+                keep.append(C)
+        basis, dim = keep, d2
+
+
+live_between = T_col + [T_weak[0], T_weak[1], Q]       # colour, the two charged directions, the photon generator
+live_below = T_col + [Q]
+out["E3_live_between_span_dim"] = int(real_rank(live_between))
+out["E3_live_between_closure_dim"] = int(lie_closure_dim(live_between))
+out["E3_live_below_span_dim"] = int(real_rank(live_below))
+out["E3_live_below_closure_dim"] = int(lie_closure_dim(live_below))
+out["E3_commutator_T1_T2_is_iT3"] = bool((T_weak[0] * T_weak[1] - T_weak[1] * T_weak[0]) == I * T_weak[2])
+out["E3_T3_outside_live_between"] = bool(real_rank(live_between + [T_weak[2]]) == 12)
+
+# ------------------------------------------------------------------ E4 the edge generator with one direction removed
+c, cq = s.symbols("c c_q", positive=True)
+e4 = {}
+for twoj in (1, 2, 3):
+    j = s.Rational(twoj, 2)
+    ms = [j - k for k in range(twoj + 1)]
+    dim = twoj + 1
+    Jz = s.diag(*ms)
+    Jp = s.zeros(dim, dim)
+    for k in range(1, dim):
+        m = ms[k]
+        Jp[k - 1, k] = s.sqrt(j * (j + 1) - m * (m + 1))
+    Jx = (Jp + Jp.H) / 2
+    Jy = (Jp - Jp.H) / (2 * I)
+    cas = (Jx * Jx + Jy * Jy + Jz * Jz).applyfunc(s.simplify)
+    full_scalar = bool(cas == j * (j + 1) * s.eye(dim))
+    Hlive = (c * (Jx * Jx + Jy * Jy) + cq * (Jz + Y * s.eye(dim)) ** 2).applyfunc(s.simplify)
+    diag = bool(Hlive == s.diag(*[Hlive[k, k] for k in range(dim)]))
+    vals = [s.expand(Hlive[k, k]) for k in range(dim)]
+    diffs = [s.factor(vals[k] - vals[k + 1]) for k in range(dim - 1)]
+    e4[str(j)] = {"casimir_scalar_with_all_three": full_scalar, "live_generator_diagonal_in_m": diag,
+                  "eigenvalue_by_member": [str(v) for v in vals], "differences_between_neighbours": [str(d) for d in diffs]}
+out["E4_edge_generator_without_z"] = e4
+# the fundamental doublet: members split only through the hypercharge
+jh = s.Rational(1, 2)
+d_half = s.simplify((c * (jh * (jh + 1) - jh ** 2) + cq * (jh + Y) ** 2) - (c * (jh * (jh + 1) - jh ** 2) + cq * (-jh + Y) ** 2))
+out["E4_doublet_splitting"] = str(s.factor(d_half))
+out["E4_doublet_splitting_vanishes_at_Y0"] = bool(d_half.subs(Y, 0) == 0)
+
+# ------------------------------------------------------------------ E5 branching G -> U(3) is multiplicity free
+ok5 = True
+for twoj in range(0, 7):
+    for sixY in range(-12, 13):
+        charges = [s.Rational(twoj, 2) - k + s.Rational(sixY, 6) for k in range(twoj + 1)]
+        ok5 &= len(set(charges)) == twoj + 1
+out["E5_charges_distinct_within_every_multiplet"] = bool(ok5)
+
+# ------------------------------------------------------------------ E6 toggle with one amplitude: all 32 patterns
+Z2m = np.diag([1, -1]).astype(int); am = np.array([[0, 1], [0, 0]], dtype=int)
+
+
+def fann(k, nm=5):
+    ops = [Z2m] * k + [am] + [np.eye(2, dtype=int)] * (nm - k - 1)
+    Mx = ops[0]
+    for o in ops[1:]:
+        Mx = np.kron(Mx, o)
+    return Mx
+
+
+C = [fann(k) for k in range(5)]
+V1 = C[4] + C[4].T                                   # beta = 1 on level s2
+out["E6_V_squared_is_identity_level_s2"] = bool(np.array_equal(V1 @ V1, np.eye(32, dtype=int)))
+out["E6_trace_V"] = int(np.trace(V1))
+ev = np.linalg.eigvalsh(V1.astype(float))
+out["E6_eigenvalues_plus_minus_one_counts"] = [int((ev > 0.5).sum()), int((ev < -0.5).sum())]
+# general direction beta = (b1, b2) over the two doublet levels, Gaussian integers
+b1, b2 = 2 + 1j, 1 - 3j
+Vg = b1 * C[3].T + np.conj(b1) * C[3] + b2 * C[4].T + np.conj(b2) * C[4]
+out["E6_V_squared_is_norm_beta_squared_general_direction"] = bool(
+    np.allclose(Vg @ Vg, (abs(b1) ** 2 + abs(b2) ** 2) * np.eye(32)))
+
+# ------------------------------------------------------------------ E1p and E8 in GL's port coordinates (float64)
+X = L.X                                               # twelve port responses on the code, sum = diag(2,2,2,-3,-3)
+p0 = 0
+w, vv = np.linalg.eigh(L.spin_projector(L.NC[p0]))
+beta_p = np.zeros(5, complex); beta_p[3:] = vv[:, np.argmax(w)]      # spin up along the conjugate direction of port p0
+Kmet = np.array([[2 * np.trace(X[p] @ X[q]).real for q in range(12)] for p in range(12)])
+disp = [X[p] @ beta_p for p in range(12)]
+Mp = np.array([[np.vdot(disp[p], disp[q]).real for q in range(12)] for p in range(12)])
+out["E1p_port_metric_rank"] = int(np.linalg.matrix_rank(Kmet, tol=1e-9))
+from scipy.linalg import eigh  # noqa: E402
+lam = eigh(Mp, Kmet, eigvals_only=True)
+lam = np.sort(lam)
+out["E1p_generalized_eigenvalues"] = [float(x) for x in lam]
+nz = lam[lam > 1e-9]
+out["E1p_number_of_nonzero"] = int(len(nz))
+out["E1p_ratios_to_smallest_nonzero"] = [float(x / nz[0]) for x in nz]
+out["E1p_ratio_defect_from_1_1_8over5"] = float(max(abs(nz[1] / nz[0] - 1), abs(nz[2] / nz[0] - 8 / 5)))
+# E8: antipodal port
+pbar = int(np.argmin(np.linalg.norm(L.N + L.N[p0], axis=1)))
+out["E8_antipodal_port"] = [p0, pbar]
+out["E8_conjugate_directions_antipodal"] = bool(np.allclose(L.NC[pbar], -L.NC[p0]))
+out["E8_X_pbar_annihilates_beta"] = float(np.linalg.norm(X[pbar] @ beta_p))
+# charge operator of the frame fixed by beta in GL's sign convention (6Y = diag(2,2,2,-3,-3))
+Pb = np.outer(beta_p[3:], beta_p[3:].conj())
+Qd = -(np.eye(2) - Pb)                                # 0 on beta, -1 on the orthogonal level
+Qgl = L.blk(np.eye(3) / 3, Qd)
+R = X[pbar] - Qgl / 2
+out["E8_remainder_vanishes_on_doublet"] = float(np.linalg.norm(R[3:, 3:]))
+out["E8_remainder_traceless_on_triplet"] = float(abs(np.trace(R[:3, :3])))
+out["E8_remainder_hermitian"] = float(np.linalg.norm(R - R.conj().T))
+out["E8_Q_annihilates_beta"] = float(np.linalg.norm(Qgl @ beta_p))
+out["E8_statement"] = "X_pbar = Q/2 + (colour generator): the phase of the port antipodal to the register direction is the unbroken neutral current up to colour"
+# which port currents move beta: norms |X_p beta|^2
+out["E8_norms_X_p_beta_squared"] = [float(np.vdot(d, d).real) for d in disp]
+
+ok = all(v for k, v in out.items() if isinstance(v, bool))
+out["all_boolean_checks_pass"] = bool(ok)
+(HERE / "anchor_exact.json").write_text(json.dumps(out, indent=1) + "\n")
+print(json.dumps(out, indent=1))

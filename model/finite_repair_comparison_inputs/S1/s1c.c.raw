@@ -1,0 +1,250 @@
+// S1 kernels: (A) exact chain construction in contrast space with symmetry lumping, (B) Monte Carlo in (x, b) space.
+// Law = order (0 TC_excl, 1 TC_then, 2 CT) + twist table tau[(clip d), u, v][twist coin] in {-1, 0, 1}.
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+
+static inline int iabs(int v){ return v < 0 ? -v : v; }
+static inline int refcur(int d, int coin){ int j2 = d - (2*coin - 1)*(iabs(d) & 1); return j2 / 2; }   // j2 is even
+static inline int clipd(int d, int D){ int a = iabs(d); if(a <= D) return d; a = D - ((a - D) & 1); return d < 0 ? -a : a; }
+static inline int clipq(int q, int Q){ return q > Q ? Q : (q < -Q ? -Q : q); }
+static inline int tau_at(const int8_t *tau, int D, int Q, int d, int u, int v, int coin){
+  const int W = 2*Q + 1;
+  return tau[((((clipd(d, D) + D) * W) + (clipq(u, Q) + Q)) * W + (clipq(v, Q) + Q)) * 2 + coin];
+}
+// twist event type: 0 hop, 1 annihilate, 2 create, 3 merge, 4 split, 5 exchange/other
+static inline int ev_type(int u, int v, int k){
+  const int u2 = u + k, v2 = v - k;
+  const int b = iabs(u) + iabs(v), a = iabs(u2) + iabs(v2);
+  if(a > b) return 2;
+  if(a < b) return 1;
+  if(u2 == v && v2 == u) return (u == 0 || v == 0) ? 0 : 5;
+  const int mb = iabs(u) > iabs(v) ? iabs(u) : iabs(v), ma = iabs(u2) > iabs(v2) ? iabs(u2) : iabs(v2);
+  if(ma > mb) return 3;
+  if(ma < mb) return 4;
+  return 5;
+}
+// one attempt outcome for local data (d, u, v) and the two coins: returns j and k
+static inline void outcome(int order, const int8_t *tau, int D, int Q, int d, int u, int v, int ct, int cc, int *j, int *k){
+  if(order == 2){ *j = refcur(d, cc); *k = tau_at(tau, D, Q, d - 2*(*j), u, v, ct); return; }
+  *k = tau_at(tau, D, Q, d, u, v, ct);
+  if(order == 0) *j = (*k) ? 0 : refcur(d, cc);
+  else *j = refcur(d - *k, cc);
+}
+
+// ------------------------------------------------------------------------------------------------------------
+// (A) chain construction
+// ------------------------------------------------------------------------------------------------------------
+typedef struct {
+  int32_t M, F, NG, conj;
+  const int32_t *L, *R;            // [M]
+  const int32_t *fs_e, *fs_s;      // [F*3]
+  const int32_t *g_ptr, *g_e, *g_c;// current coupling rows
+  const int32_t *gperm;            // [NG*M]
+  const int8_t *gsign;             // [NG*M]
+  int32_t order, D, Q;
+  const int8_t *tau;
+  int32_t dcap;                    // states with max |d| > dcap are frozen (flagged)
+  int32_t qcap;                    // states with sum |q| > qcap are frozen (flagged)
+  int32_t reflect;                 // 1: an outcome leading to max |d| > dcap is replaced by "nothing happens" (counted in ev[6])
+} chain_cfg;
+
+static inline uint64_t hash_state(const int8_t *s, int M){
+  uint64_t h = 1469598103934665603ULL;
+  for(int i = 0; i < M; i++){ h ^= (uint8_t)s[i]; h *= 1099511628211ULL; }
+  h ^= h >> 29; h *= 0xbf58476d1ce4e5b9ULL; h ^= h >> 32;
+  return h;
+}
+static void canon(const chain_cfg *c, const int8_t *d, int8_t *best){
+  const int M = c->M;
+  int8_t t[64];
+  if(c->NG == 0){ memcpy(best, d, M); return; }
+  int first = 1;
+  for(int g = 0; g < c->NG; g++){
+    const int32_t *perm = c->gperm + (int64_t)g*M; const int8_t *sg = c->gsign + (int64_t)g*M;
+    for(int e = 0; e < M; e++) t[perm[e]] = (int8_t)(sg[e] * d[e]);
+    if(first || memcmp(t, best, M) < 0){ memcpy(best, t, M); first = 0; }
+    if(c->conj){
+      for(int e = 0; e < M; e++) t[e] = (int8_t)(-t[e]);
+      if(memcmp(t, best, M) < 0) memcpy(best, t, M);
+    }
+  }
+}
+static inline int charge_of(const chain_cfg *c, const int8_t *d, int f){
+  const int32_t *fe = c->fs_e + 3*f, *fsg = c->fs_s + 3*f;
+  return -(fsg[0]*d[fe[0]] + fsg[1]*d[fe[1]] + fsg[2]*d[fe[2]]);
+}
+
+// Returns the number of states (>= 0), or -1 on state overflow, -2 on transition overflow.
+// states: [cap*M] (first n0 rows = initial states, canonicalised in place); row_ptr [cap+1]; col, w [tcap];
+// ev [cap*7] counts (out of 4M) of twist outcomes by type; flags [cap]: 1 = frozen by dcap, 2 = frozen by qcap;
+// seen [(2D+1)*(2Q+1)^2]: local data read (clipped).
+int64_t s1_chain(const chain_cfg *c, int8_t *states, int64_t n0, int64_t cap, int64_t *row_ptr, int32_t *col, int32_t *w,
+                 int64_t tcap, int32_t *ev, uint8_t *flags, uint8_t *seen, int32_t *init_index){
+  const int M = c->M;
+  uint64_t tsize = 1; while(tsize < (uint64_t)cap * 2 + 16) tsize <<= 1;
+  int64_t *table = (int64_t*)malloc(tsize * sizeof(int64_t));
+  if(!table) return -3;
+  for(uint64_t i = 0; i < tsize; i++) table[i] = -1;
+  int64_t n = 0;
+  int8_t cs[64], nd[64];
+  // insert initial states (dedupe)
+  for(int64_t i = 0; i < n0; i++){
+    canon(c, states + i*M, cs);
+    uint64_t h = hash_state(cs, M) & (tsize - 1);
+    int64_t found = -1;
+    while(table[h] >= 0){ if(memcmp(states + table[h]*M, cs, M) == 0){ found = table[h]; break; } h = (h + 1) & (tsize - 1); }
+    if(found < 0){ memmove(states + n*M, cs, M); table[h] = n; found = n; n++; }
+    init_index[i] = (int32_t)found;
+  }
+  int64_t nt = 0;
+  const int W = 2*c->Q + 1;
+  int32_t lc[512]; int32_t lw[512];
+  for(int64_t i = 0; i < n; i++){
+    row_ptr[i] = nt;
+    const int8_t *d = states + i*M;
+    int32_t *evi = ev + 7*i; for(int t = 0; t < 7; t++) evi[t] = 0;
+    int mx = 0; for(int e = 0; e < M; e++){ int a = iabs(d[e]); if(a > mx) mx = a; }
+    int sq = 0; for(int f = 0; f < c->F; f++) sq += iabs(charge_of(c, d, f));
+    flags[i] = 0;
+    if(mx > c->dcap) flags[i] |= 1;
+    if(sq > c->qcap) flags[i] |= 2;
+    if(flags[i]){ if(nt + 1 > tcap){ free(table); return -2; } col[nt] = (int32_t)i; w[nt] = 4*M; nt++; continue; }
+    int nl = 0; int32_t selfw = 0;
+    for(int e = 0; e < M; e++){
+      const int de = d[e], u = charge_of(c, d, c->L[e]), v = charge_of(c, d, c->R[e]);
+      seen[(((clipd(de, c->D) + c->D) * W) + (clipq(u, c->Q) + c->Q)) * W + (clipq(v, c->Q) + c->Q)] = 1;
+      for(int ct = 0; ct < 2; ct++) for(int cc = 0; cc < 2; cc++){
+        int j, k; outcome(c->order, c->tau, c->D, c->Q, de, u, v, ct, cc, &j, &k);
+        if(j == 0 && k == 0){ selfw++; continue; }
+        memcpy(nd, d, M);
+        if(j) for(int32_t p = c->g_ptr[e]; p < c->g_ptr[e+1]; p++) nd[c->g_e[p]] = (int8_t)(nd[c->g_e[p]] - j * c->g_c[p]);
+        if(k) nd[e] = (int8_t)(nd[e] - k);
+        if(c->reflect){ int m2 = 0; for(int e2 = 0; e2 < M; e2++){ int a2 = iabs(nd[e2]); if(a2 > m2) m2 = a2; }
+          if(m2 > c->dcap){ evi[6]++; selfw++; continue; } }
+        if(k) evi[ev_type(u, v, k)]++;
+        canon(c, nd, cs);
+        uint64_t h = hash_state(cs, M) & (tsize - 1);
+        int64_t found = -1;
+        while(table[h] >= 0){ if(memcmp(states + table[h]*M, cs, M) == 0){ found = table[h]; break; } h = (h + 1) & (tsize - 1); }
+        if(found < 0){
+          if(n >= cap){ free(table); return -1; }
+          memcpy(states + n*M, cs, M); table[h] = n; found = n; n++;
+        }
+        int q = 0; for(; q < nl; q++) if(lc[q] == (int32_t)found) break;
+        if(q == nl){ lc[nl] = (int32_t)found; lw[nl] = 0; nl++; }
+        lw[q]++;
+      }
+    }
+    if(selfw){ int q = 0; for(; q < nl; q++) if(lc[q] == (int32_t)i) break; if(q == nl){ lc[nl] = (int32_t)i; lw[nl] = 0; nl++; } lw[q] += selfw; }
+    if(nt + nl > tcap){ free(table); return -2; }
+    for(int q = 0; q < nl; q++){ col[nt] = lc[q]; w[nt] = lw[q]; nt++; }
+  }
+  row_ptr[n] = nt;
+  free(table);
+  return n;
+}
+
+// ------------------------------------------------------------------------------------------------------------
+// (B) Monte Carlo in (x, b) space on an arbitrary seam list
+// ------------------------------------------------------------------------------------------------------------
+static inline uint64_t rotl(const uint64_t x, int k){ return (x << k) | (x >> (64 - k)); }
+typedef struct { uint64_t s[4]; } rng_t;
+static inline uint64_t rnext(rng_t *g){
+  uint64_t *s = g->s; const uint64_t result = rotl(s[1]*5, 7)*9; const uint64_t t = s[1] << 17;
+  s[2] ^= s[0]; s[3] ^= s[1]; s[1] ^= s[2]; s[0] ^= s[3]; s[2] ^= t; s[3] = rotl(s[3], 45); return result; }
+void s1_seed(uint64_t *state, uint64_t z){
+  for(int i = 0; i < 4; i++){ z += 0x9e3779b97f4a7c15ULL; uint64_t y = z; y = (y ^ (y >> 30))*0xbf58476d1ce4e5b9ULL;
+    y = (y ^ (y >> 27))*0x94d049bb133111ebULL; state[i] = y ^ (y >> 31); } }
+
+typedef struct {
+  int64_t M;
+  const int32_t *sa, *sb, *fL, *fR;
+  int32_t order, D, Q;
+  const int8_t *tau;
+  const double *hopvec;            // [2*M] displacement of a charge crossing seam e from L to R (may be NULL)
+} mc_cfg;
+
+// counters: 0 hops(+), 1 hops(-), 2 annihilations, 3 creations, 4 merges, 5 splits, 6 other twists, 7 nonzero currents,
+//           8 release sum j(d-j), 9 max |d| at uncharged seam, 10 max |d| at a charged seam, 11 attempts done,
+//           12 sum of |q| over faces (maintained; caller initialises), 13 max sum|q| reached
+// disp: [0,1] displacement of + units, [2,3] of - units (accumulated).
+// stop_neutral: stop as soon as sum |q| == 0. Returns attempts executed.
+int64_t s1_mc(const mc_cfg *c, int32_t *x, int32_t *off, int32_t *q, int64_t attempts, uint64_t *state, int stop_neutral,
+              double *disp, int64_t *cnt){
+  rng_t g; for(int i = 0; i < 4; i++) g.s[i] = state[i];
+  const int64_t M = c->M; int64_t n = 0;
+  int64_t sabs = cnt[12];
+  for(; n < attempts; n++){
+    if(stop_neutral && sabs == 0) break;
+    const uint64_t r = rnext(&g);
+    const int64_t e = (int64_t)((r >> 11) % (uint64_t)M);
+    const int cc = (int)(r & 1), ct = (int)((r >> 1) & 1);
+    const int32_t a = c->sa[e], b = c->sb[e];
+    const int d = x[a] - x[b] - off[e];
+    const int32_t f1 = c->fL[e], f2 = c->fR[e];
+    const int u = q[f1], v = q[f2];
+    const int ad = iabs(d);
+    if(u == 0 && v == 0){ if(ad > cnt[9]) cnt[9] = ad; } else { if(ad > cnt[10]) cnt[10] = ad; }
+    int j, k; outcome(c->order, c->tau, c->D, c->Q, d, u, v, ct, cc, &j, &k);
+    if(k){
+      const int t = ev_type(u, v, k);
+      off[e] += k; q[f1] = u + k; q[f2] = v - k;
+      sabs += iabs(u + k) + iabs(v - k) - iabs(u) - iabs(v);
+      if(sabs > cnt[13]) cnt[13] = sabs;
+      if(t == 0){
+        int plus = (u == 1 || v == 1);
+        // direction: + unit moves L->R when k = -1; - unit moves L->R when k = +1
+        int sgn = plus ? (k == -1 ? 1 : -1) : (k == 1 ? 1 : -1);
+        cnt[plus ? 0 : 1]++;
+        if(c->hopvec){ disp[plus ? 0 : 2] += sgn * c->hopvec[2*e]; disp[plus ? 1 : 3] += sgn * c->hopvec[2*e + 1]; }
+      } else if(t == 1) cnt[2]++; else if(t == 2) cnt[3]++; else if(t == 3) cnt[4]++; else if(t == 4) cnt[5]++; else cnt[6]++;
+    }
+    if(j){ const int dj = (c->order == 2) ? d : d - k; x[a] -= j; x[b] += j; cnt[7]++; cnt[8] += (int64_t)j * (dj - j); }
+  }
+  for(int i = 0; i < 4; i++) state[i] = g.s[i];
+  cnt[11] += n; cnt[12] = sabs;
+  return n;
+}
+
+// Many independent pair trajectories on one carrier. For each trajectory: loads = base + (m ports chosen at random get +1),
+// offsets = off0, charges = q0; 'burn' attempts with the static law; then the law until neutral or 'cap' attempts.
+// tree: ports in BFS order with parent seam and sign, to integrate the final pure-gauge register (label of the final vacuum).
+// out_T [ntraj] attempts until neutral (-1 if cap reached); out_h [ntraj] hops; out_lab [ntraj] final label change mod P
+// (-1 if not neutral or loads not yet balanced within 'settle' further attempts).
+void s1_survival(const mc_cfg *c, int32_t P, int32_t F, int32_t base, int32_t m, const int32_t *off0, const int32_t *q0,
+                 int64_t burn, int64_t cap, int64_t ntraj, uint64_t *state, const int8_t *tau_static,
+                 const int32_t *tree_port, const int32_t *tree_parent, const int32_t *tree_seam, const int32_t *tree_sign,
+                 int64_t *out_T, int32_t *out_h, int32_t *out_lab, int64_t *agg){
+  int32_t *x = (int32_t*)malloc(sizeof(int32_t)*P), *off = (int32_t*)malloc(sizeof(int32_t)*c->M), *q = (int32_t*)malloc(sizeof(int32_t)*F);
+  int32_t *phi = (int32_t*)malloc(sizeof(int32_t)*P), *perm = (int32_t*)malloc(sizeof(int32_t)*P);
+  mc_cfg cs = *c; cs.tau = tau_static; cs.order = 0; cs.hopvec = NULL;
+  double disp[4]; int64_t cnt[14];
+  rng_t g;
+  int64_t sabs0 = 0; for(int f = 0; f < F; f++) sabs0 += iabs(q0[f]);
+  for(int64_t t = 0; t < ntraj; t++){
+    for(int i = 0; i < 4; i++) g.s[i] = state[i];
+    for(int p = 0; p < P; p++){ x[p] = base; perm[p] = p; }
+    for(int i = 0; i < m; i++){ int r = i + (int)((rnext(&g) >> 11) % (uint64_t)(P - i)); int tmp = perm[i]; perm[i] = perm[r]; perm[r] = tmp; x[perm[i]] += 1; }
+    for(int i = 0; i < 4; i++) state[i] = g.s[i];
+    memcpy(off, off0, sizeof(int32_t)*c->M); memcpy(q, q0, sizeof(int32_t)*F);
+    memset(cnt, 0, sizeof(cnt)); cnt[12] = sabs0;
+    if(burn) s1_mc(&cs, x, off, q, burn, state, 0, disp, cnt);
+    memset(cnt, 0, sizeof(cnt)); cnt[12] = sabs0;
+    int64_t n = s1_mc(c, x, off, q, cap, state, 1, disp, cnt);
+    out_h[t] = (int32_t)(cnt[0] + cnt[1]);
+    if(cnt[12] != 0){ out_T[t] = -1; out_lab[t] = -1; }
+    else {
+      out_T[t] = n;
+      // final register is pure gauge: off = B phi; label shift = -(sum phi) mod P
+      phi[tree_port[0]] = 0; long s = 0;
+      for(int i = 1; i < P; i++){ int p = tree_port[i]; phi[p] = phi[tree_parent[i]] + tree_sign[i] * off[tree_seam[i]]; s += phi[p]; }
+      out_lab[t] = (int32_t)(((-s) % P + P) % P);
+    }
+    for(int i = 0; i < 12; i++) agg[i] += cnt[i];
+    if(cnt[9] > agg[12]) agg[12] = cnt[9];
+    if(cnt[10] > agg[13]) agg[13] = cnt[10];
+    if(cnt[13] > agg[14]) agg[14] = cnt[13];
+  }
+  free(x); free(off); free(q); free(phi); free(perm);
+}

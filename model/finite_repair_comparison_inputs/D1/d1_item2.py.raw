@@ -1,0 +1,324 @@
+"""D1 item 2. The cover of a frame group: decompositions and the kernel on the multiplicity index in every flux sector.
+
+Exact: integers, Q(sqrt5, i) (kdlib) and Q(zeta_60) (d1lib.C60). Floats appear only as printed values of exact numbers.
+Run from the public checkout:
+  PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:RL/work/KD:RL/work/D1 python RL/work/D1/d1_item2.py [out.json]
+"""
+import json
+import sys
+from fractions import Fraction as F
+
+import numpy as np
+
+import kdlib as kd
+from kdlib import K, ONE, ZERO
+
+import d1lib as d
+from d1lib import (C60, C0, C1, IU, W3, Z20, S5, PHI60, frame, torsor, pmul, pinv, IDP, imm, cmm, cdag, ceq, ceye, cscale,
+                   csub, cadd, cfloat)
+import d1cover as dc
+from d1cover import IRREPS, frame_cover, irreducible_characters, multiplicities, flux_data, twisted_adjacency, \
+    implementers, second_index_matrix, spinor
+
+checks, counts = {}, {}
+
+
+def ok(name, cond):
+    assert cond, name
+    checks[name] = True
+
+
+def bump(name, n=1):
+    counts[name] = counts.get(name, 0) + n
+
+
+V = kd.carrier()['V']
+ADJ = d.adjacency()
+
+
+def ccw(a, b, c):
+    return (a, b, c) if kd.vdot(V[a], kd.vcross(V[b], V[c])).sign() > 0 else (a, c, b)
+
+
+FACES = [ccw(*fc) for fc in d.faces()]
+
+# ---------------------------------------------------------------------------------------------------------
+# 1. the frame cover and its seven characters, all five frames
+# ---------------------------------------------------------------------------------------------------------
+for f in range(5):
+    fc = frame_cover(f)
+    ok('frame cover: 24 lifts in 7 classes of sizes 1, 1, 6, 4, 4, 4, 4', sorted(len(c) for c in fc['classes']) == [1, 1, 4, 4, 4, 4, 6])
+    irr = irreducible_characters(f)
+    for a in IRREPS:
+        for b in IRREPS:
+            s = C0
+            for q in fc['Q']:
+                s = s + irr[a][q] * irr[b][q].conj()
+            assert s == C60.lift(24 if a == b else 0)
+            bump('character orthogonality relations')
+    ok("the seven characters 1, 1', 1'', 2, 2', 2'', 3 are orthonormal: they are the irreducible characters", True)
+    ok('class functions', all(len({irr[a][q] for q in cl}) == 1 for a in IRREPS for cl in fc['classes']))
+
+# exponents of the hop amplitudes: the same table (body rotation, sign of the lift) -> exponent for all frames and base ports
+tables = set()
+for f in range(5):
+    fc = frame_cover(f)
+    for p0 in range(12):
+        fd = flux_data(f, p0); to = torsor(f, p0)
+        tab = frozenset((to['rhoB'][fc['perm'][q]], str(q[0]), e) for q, e in fd['lifts'].items())
+        tables.add(tab)
+        bump('flux tables computed (frame, base port)')
+ok('the exponent table of the hop amplitudes in body axes is the same for all five frames and all base ports', len(tables) == 1)
+exp_table = sorted(([list(r) for r in rb], w, e) for rb, w, e in next(iter(tables)))
+
+# ---------------------------------------------------------------------------------------------------------
+# 2. decompositions by characters (frame 1, base port 0; the characters do not depend on the choice)
+# ---------------------------------------------------------------------------------------------------------
+F0, P0 = 1, 0
+fc = frame_cover(F0); fr = frame(F0); to = torsor(F0, P0); fd = flux_data(F0, P0)
+Q = fc['Q']
+decomp = {}
+chi_load = {q: sum(1 for p in range(12) if fc['perm'][q][p] == p) for q in Q}
+decomp['load space (12 ports)'] = multiplicities(F0, chi_load)
+ok("load space = 1 + 1' + 1'' + 3 x 3 under the frame cover (no doublet)",
+   decomp['load space (12 ports)'] == {"1": 1, "1'": 1, "1''": 1, "2": 0, "2'": 0, "2''": 0, "3": 3})
+
+imp_odd = implementers(F0, P0, 1)
+imp_even = implementers(F0, P0, 0)
+for q1 in Q:
+    for q2 in Q:
+        assert imm(imp_odd[q1], imp_odd[q2]) == imp_odd[kd.qmul(q1, q2)]
+        bump('implementer products checked')
+ok('odd flux: the 24 implementers are signed permutations, a representation of the frame cover with centre -> -1',
+   imp_odd[kd.qneg(dc.QID)] == [[-int(i == j) for j in range(12)] for i in range(12)])
+chi_odd = {q: sum(imp_odd[q][p][p] for p in range(12)) for q in Q}
+decomp['port space at odd flux (k = 1, 3, 5, 7, 9)'] = multiplicities(F0, chi_odd)
+ok("port space at odd flux = 2 x (2 + 2' + 2'')",
+   decomp['port space at odd flux (k = 1, 3, 5, 7, 9)'] == {"1": 0, "1'": 0, "1''": 0, "2": 2, "2'": 2, "2''": 2, "3": 0})
+chi_even = {q: sum(imp_even[q][p][p] for p in range(12)) for q in Q}
+decomp['port space at even flux (k = 0, 2, ..., 10)'] = multiplicities(F0, chi_even)
+ok("port space at even flux = 1 + 1' + 1'' + 3 x 3", decomp['port space at even flux (k = 0, 2, ..., 10)'] == decomp['load space (12 ports)'])
+
+# public walk: basis (port, record, ordered seam); a rotation other than the identity fixes no basis state
+seams = kd.carrier()['seams']
+addresses = [(a, b) for e in seams for a, b in (e, e[::-1])]
+chi_walk = {}
+for q in Q:
+    g = fc['perm'][q]
+    chi_walk[q] = sum(1 for p in range(12) for r in range(2) for (a, b) in addresses if g[p] == p and g[a] == a and g[b] == b)
+decomp['public walk (1440 = 12 ports x 2 records x 60 ordered seams)'] = multiplicities(F0, chi_walk)
+ok("public walk = 120 x (1 + 1' + 1'' + 3 x 3), no doublet",
+   decomp['public walk (1440 = 12 ports x 2 records x 60 ordered seams)'] == {"1": 120, "1'": 120, "1''": 120, "2": 0, "2'": 0, "2''": 0, "3": 360})
+
+# five-level code R(q) + U(sigma(q)) and its occupation patterns
+chi3 = {q: F(fc['chi3'][q]) for q in Q}
+chi2 = {q: fc['chi2'][q] for q in Q}
+sq = {q: kd.qmul(q, q) for q in Q}
+lam3 = {0: {q: F(1) for q in Q}, 1: chi3, 2: {q: (chi3[q] ** 2 - chi3[sq[q]]) / 2 for q in Q}, 3: {q: F(1) for q in Q}}
+lam2 = {0: {q: F(1) for q in Q}, 1: chi2, 2: {q: (chi2[q] ** 2 - chi2[sq[q]]) / 2 for q in Q}}
+ok('exterior squares: the second power of the triplet is the triplet, of the doublet the trivial character',
+   lam3[2] == chi3 and lam2[2] == {q: F(1) for q in Q})
+decomp['five-level code'] = multiplicities(F0, {q: chi3[q] + chi2[q] for q in Q})
+ok('five-level code = 3 + 2', decomp['five-level code'] == {"1": 0, "1'": 0, "1''": 0, "2": 1, "2'": 0, "2''": 0, "3": 1})
+patterns = {}
+for n3 in range(4):
+    for n2 in range(3):
+        patterns[f'n3={n3}, n2={n2}'] = multiplicities(F0, {q: lam3[n3][q] * lam2[n2][q] for q in Q})
+ok("the patterns with one doublet level and one or two triplet levels (the quark doublet and its conjugate) are 2 + 2' + 2''",
+   all(patterns[k_] == {"1": 0, "1'": 0, "1''": 0, "2": 1, "2'": 1, "2''": 1, "3": 0} for k_ in ('n3=1, n2=1', 'n3=2, n2=1')))
+ok('all other patterns contain 1, 2 or 3 once and nothing else',
+   all(sum(v.values()) == 1 for k_, v in patterns.items() if k_ not in ('n3=1, n2=1', 'n3=2, n2=1')))
+decomp['load space x spin doublet'] = multiplicities(F0, {q: chi_load[q] * chi2[q] for q in Q})
+ok("load space x doublet = 4 x (2 + 2' + 2''): singlets x 2 give one of each, every triplet copy x 2 gives one of each",
+   decomp['load space x spin doublet'] == {"1": 0, "1'": 0, "1''": 0, "2": 4, "2'": 4, "2''": 4, "3": 0})
+decomp['triplet x doublet'] = multiplicities(F0, {q: chi3[q] * chi2[q] for q in Q})
+
+# ---------------------------------------------------------------------------------------------------------
+# 3. the twisted adjacency: Hermitian, uniform face flux, covariance
+# ---------------------------------------------------------------------------------------------------------
+sec = fd['section']
+Eexp = [[None] * 12 for _ in range(12)]
+for p in range(12):
+    for q_ in range(12):
+        if ADJ[p][q_]:
+            Eexp[p][q_] = fd['lifts'][kd.qmul(kd.qinv(sec[p]), sec[q_])]
+ok('hop exponents: e(q,p) = -e(p,q) mod 20 (Hermitian for every k)', all((Eexp[p][q_] + Eexp[q_][p]) % 20 == 0 for p in range(12) for q_ in range(12) if ADJ[p][q_]))
+ok('flux through each of the twenty faces, counterclockwise seen from outside, is exactly 2 pi k/20',
+   all((Eexp[a][b] + Eexp[b][c] + Eexp[c][a]) % 20 == 1 for a, b, c in FACES))
+A1 = twisted_adjacency(F0, P0, 1)
+for q in Q:
+    U = imp_odd[q]
+    # U A = A U with U a signed permutation: compare entries
+    src = {p: next(s_ for s_ in range(12) if U[p][s_]) for p in range(12)}
+    for p in range(12):
+        for r in range(12):
+            # (U A)[p][r] = U[p][src p] A[src p][r];  (A U)[p][r] = A[p][t] U[t][r] with src[t] = r
+            t = next(t_ for t_ in range(12) if src[t_] == r)
+            assert A1[src[p]][r] * U[p][src[p]] == A1[p][t] * U[t][r]
+    bump('covariance identities U(q) A_1 = A_1 U(q)', 144)
+ok('the 24 implementers of the frame cover commute with the twisted adjacency (k = 1, entrywise)', True)
+
+# ---------------------------------------------------------------------------------------------------------
+# 4. intertwiners and second-index matrices
+# ---------------------------------------------------------------------------------------------------------
+c18 = Z20 + Z20.conj()                     # 2 cos 18 = sqrt(phi + 2)
+c54 = Z20 * Z20 * Z20 + (Z20 * Z20 * Z20).conj()   # 2 cos 54
+half = F(1, 2)
+closed = {                                 # eigenvalues of A_k with the dimension of the multiplet of the full cover (120)
+    0: {'5 [1]': C60.lift(5), 'sqrt5 [3]': S5, '-1 [5]': C60.lift(-1), '-sqrt5 [3\']': -S5},
+    1: {'sqrt5*2cos18 [2]': S5 * c18, '(phi-1)*2cos54 [4]': (PHI60 - 1) * c54, '-2cos18 [6]': -c18},
+    2: {'(5+sqrt5)/2 [3]': (S5 + 5) * half, '-(3-sqrt5)/2 [5]': (S5 - 3) * half, '-sqrt5 [4]': -S5},
+    5: {'sqrt5 [6]': S5, '-sqrt5 [6]': -S5},
+}
+closed[3] = {'-sqrt5*2cos54 [2\']': -S5 * c54, 'phi*2cos18 [4]': PHI60 * c18, '-2cos54 [6]': -c54}
+closed[6] = {'(5-sqrt5)/2 [3\']': (5 - S5) * half, '-(3+sqrt5)/2 [5]': -(S5 + 3) * half, 'sqrt5 [4]': S5}
+for k_, src_ in ((4, 6), (7, 3), (8, 2), (9, 1), (10, 0)):
+    closed[k_] = {('-(' + name.split(' [')[0] + ') [' + name.split(' [')[1]): -val for name, val in closed[src_].items()}
+ok('Galois images: the closed forms at k = 3 and k = 6 are the images of those at k = 1 and k = 2 under zeta_20 -> zeta_20^3',
+   all(any(v.gal(43) == w for w in closed[3].values()) for v in closed[1].values())
+   and all(any(v.gal(43) == w for w in closed[6].values()) for v in closed[2].values()))
+
+
+def charpoly_roots(M, cands):
+    """Which candidates are eigenvalues of the small Hermitian matrix M, with multiplicities (exact)."""
+    n = len(M)
+    out = {}
+    for name, lam in cands.items():
+        B = csub(M, cscale(lam, ceye(n)))
+        # rank of B by exact elimination over C60
+        rows = [list(r) for r in B]
+        rk = 0
+        for col in range(n):
+            piv = next((i for i in range(rk, n) if not rows[i][col].is_zero()), None)
+            if piv is None:
+                continue
+            rows[rk], rows[piv] = rows[piv], rows[rk]
+            pinv_ = rows[rk][col].inv()
+            for i in range(rk + 1, n):
+                if not rows[i][col].is_zero():
+                    fct = rows[i][col] * pinv_
+                    rows[i] = [x - fct * y for x, y in zip(rows[i], rows[rk])]
+            rk += 1
+        if n - rk:
+            out[name] = n - rk
+    assert sum(out.values()) == n, (out, n)
+    return out
+
+
+second = {}
+PhiCache = {}
+for irrep in ("2", "2'", "2''"):
+    tw = {"2": 0, "2'": 1, "2''": 2}[irrep]
+    Phi = []
+    for p in range(12):
+        R = spinor(sec[p])
+        ph = C60.root(20 * tw * fc['kappa'][sec[p]])
+        Phi.append(tuple(ph * R[i][j] for i in range(2) for j in range(2)))
+    PhiCache[irrep] = tuple(Phi)
+for a in ("2", "2'", "2''"):
+    for b in ("2", "2'", "2''"):
+        G = cmm(cdag(PhiCache[a]), PhiCache[b])
+        assert ceq(G, cscale(6 if a == b else 0, ceye(4)))
+ok("odd flux: the twelve matrix coefficients of 2, 2', 2'' on a section are orthogonal (Gram = 6): 4 + 4 + 4 = 12", True)
+
+
+def kron2(X, Y):
+    n, m = len(X), len(Y)
+    return tuple(tuple(X[i][k] * Y[j][l] for k in range(n) for l in range(m)) for i in range(n) for j in range(m))
+
+
+def sparse_apply(k, Phi):
+    """A_k Phi using the five nonzero entries of each row."""
+    ncol = len(Phi[0])
+    out = []
+    for p in range(12):
+        row = [C0] * ncol
+        for q_ in range(12):
+            if ADJ[p][q_]:
+                t = C60.root(3 * ((k * Eexp[p][q_]) % 20))
+                for j in range(ncol):
+                    if not Phi[q_][j].is_zero():
+                        row[j] = row[j] + t * Phi[q_][j]
+        out.append(tuple(row))
+    return tuple(out)
+
+
+E2 = ceye(2)
+for k in (1, 3, 5, 7, 9):
+    second[k] = {}
+    for irrep in ("2", "2'", "2''"):
+        m = second_index_matrix(F0, P0, k, irrep)
+        assert ceq(m, cdag(m))
+        assert ceq(sparse_apply(k, PhiCache[irrep]), cmm(PhiCache[irrep], kron2(E2, m)))
+        bump('intertwining identities A_k Phi = Phi (1 x m)')
+        roots = charpoly_roots(m, closed[k])
+        ev = sorted(np.linalg.eigvalsh(np.array(cfloat(m))).tolist(), reverse=True)
+        second[k][irrep] = {'eigenvalues': roots, 'float': ev,
+                            'kernel_levels': [1 - (5 - x) / 60 for x in ev]}
+ok("odd flux: the twisted kernel acts on the second index only, by a Hermitian 2x2 matrix for each of 2, 2', 2''", True)
+
+# even flux: singlets and the triplet
+Phi3 = tuple(tuple(C60.lift(to['rhoB'][fc['perm'][sec[p]]][i][j]) for i in range(3) for j in range(3)) for p in range(12))
+E3 = ceye(3)
+for k in (0, 2, 4, 6, 8, 10):
+    second[k] = {}
+    for irrep in ("1", "1'", "1''"):
+        tw = {"1": 0, "1'": 1, "1''": 2}[irrep]
+        vec = tuple((C60.root(20 * tw * fc['kappa'][sec[p]]),) for p in range(12))
+        m = second_index_matrix(F0, P0, k, irrep)
+        assert ceq(sparse_apply(k, vec), cmm(vec, m))
+        roots = charpoly_roots(m, closed[k])
+        second[k][irrep] = {'eigenvalues': roots, 'float': [complex(m[0][0]).real],
+                            'kernel_levels': [1 - (5 - complex(m[0][0]).real) / 60]}
+        bump('intertwining identities A_k Phi = Phi (1 x m)')
+    m = second_index_matrix(F0, P0, k, "3")
+    assert ceq(m, cdag(m))
+    assert ceq(sparse_apply(k, Phi3), cmm(Phi3, kron2(E3, m)))
+    bump('intertwining identities A_k Phi = Phi (1 x m)')
+    roots = charpoly_roots(m, closed[k])
+    ev = sorted(np.linalg.eigvalsh(np.array(cfloat(m))).tolist(), reverse=True)
+    second[k]["3"] = {'eigenvalues': roots, 'float': ev, 'kernel_levels': [1 - (5 - x) / 60 for x in ev],
+                      'matrix_float': [[[complex(x).real, complex(x).imag] for x in r] for r in m]}
+ok('even flux: the twisted kernel acts on the second index only: a number on each singlet and a Hermitian 3x3 matrix on the triplet', True)
+ok('k = 0 reproduces M3', [[int(complex(x).real) for x in r] for r in second_index_matrix(F0, P0, 0, "3")] == [[-1, 0, 0], [0, -1, 2], [0, 2, 1]])
+
+# where the doublets of the full cover go
+ok("k = 1: the section doublet (top eigenvalue sqrt5*2cos18) lies in the 2 only; 2' and 2'' share the quartet; the sextet holds 2, 2', 2''",
+   second[1]["2"]['eigenvalues'] == {'sqrt5*2cos18 [2]': 1, '-2cos18 [6]': 1}
+   and second[1]["2'"]['eigenvalues'] == {'(phi-1)*2cos54 [4]': 1, '-2cos18 [6]': 1}
+   and second[1]["2''"]['eigenvalues'] == {'(phi-1)*2cos54 [4]': 1, '-2cos18 [6]': 1})
+ok("k = 7: the doublet of the conjugate frame (top eigenvalue sqrt5*2cos54) lies in the 2 only",
+   second[7]["2"]['eigenvalues'] == {'-(-sqrt5*2cos54) [2\']': 1, '-(-2cos54) [6]': 1})
+ok("k = 2: the section triplet (top eigenvalue (5+sqrt5)/2) is one of three copies of the 3; the others lie in the quintet and the quartet",
+   second[2]["3"]['eigenvalues'] == {'(5+sqrt5)/2 [3]': 1, '-(3-sqrt5)/2 [5]': 1, '-sqrt5 [4]': 1})
+ok("the primed pairs are degenerate in every sector: 1' = 1'' and 2' = 2'' level by level",
+   all(second[k]["1'"]['eigenvalues'] == second[k]["1''"]['eigenvalues'] for k in (0, 2, 4, 6, 8, 10))
+   and all(second[k]["2'"]['eigenvalues'] == second[k]["2''"]['eigenvalues'] for k in (1, 3, 5, 7, 9)))
+
+out = {
+    'arithmetic': 'integers, Q(sqrt5, i), Q(zeta_60); every identity exact; floats are printed values of exact numbers',
+    'frame_cover': {'order': 24, 'class_sizes': [1, 1, 6, 4, 4, 4, 4], 'irreducible': list(IRREPS),
+                    'characters': "1' and 1'' are the characters of the third of a turn; 2 is the doublet of the five-level code; "
+                                  "2' = 2 x 1', 2'' = 2 x 1''; 3 is the frame triplet"},
+    'decompositions': decomp,
+    'patterns_of_the_five_level_code': patterns,
+    'flux_gauge': {'statement': 'in the gauge of the frame group the twisted adjacency of flux k is the same sum of five right '
+                                'translations, with the phases zeta_20^(k e)',
+                   'exponent_table_body_rotation_lift_sign_exponent': exp_table},
+    'second_index': {str(k): v for k, v in sorted(second.items())},
+    'answer': {
+        'where_the_doublets_occur': "2, 2', 2'' occur (i) twice each in the port space of every odd flux sector; (ii) once each in "
+                                    "triplet x doublet: the quark-doublet patterns of the code and every triplet copy of the load "
+                                    "space tensored with a spin doublet; (iii) once each in (1 + 1' + 1'') x doublet. They do not "
+                                    "occur in the load space, in the public walk or in the five-level code itself (3 + 2).",
+        'kernel_on_multiplicity': 'yes, in every flux sector, by Schur: 2x2 Hermitian matrices on the doublets, a number on each '
+                                  'singlet, a 3x3 Hermitian matrix on the triplet',
+        'second_index_dimension': 'three for the triplet (even flux), two for each doublet (odd flux), one for each singlet',
+    },
+    'checks': checks, 'counts': counts,
+}
+path = sys.argv[1] if len(sys.argv) > 1 else 'item2.json'
+json.dump(out, open(path, 'w'), indent=1)
+print('all checks passed:', len(checks), '| counts:', counts)
+for k in sorted(second):
+    print(k, {ir: [round(x, 6) for x in v['float']] for ir, v in second[k].items()})

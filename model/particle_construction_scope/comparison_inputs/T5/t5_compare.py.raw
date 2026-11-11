@@ -1,0 +1,247 @@
+"""T5, item 5: the parameter-free predictions of the three structures against the measured values that the public
+checkout ships. NOT BLIND: every measured number was known before these predictions were listed, and no measured
+value enters any prediction. Output: compare.json.
+
+Measured tables (read only, cited in the output):
+  RER/code/particles/data/particle_reference_values.json            charged-lepton pole masses (PDG 2026 API)
+  RER/evidence/custody/falsification/frozen_targets/fz10_2026-07-28/koide_balance_comparison_frozen_2026-07-28.json
+                                                                     measured Koide quotient with its enclosure
+  RER/model/common_source/calibrated_matter_results.json            Yukawa couplings at one scale (M_Z), CKM sines,
+                                                                     NuFIT 6.1 oscillation inputs
+  RER/code/particles/results_status.json                            lepton mixing angles with uncertainties (PDG 2025, NO)
+  RER/code/particles/data/pdg_2026_conditional_quark_comparison.json quark masses with quoted ranges
+
+Verdict rule (declared before the numbers were compared): with a shipped uncertainty, |pull| <= 2 compatible,
+2 < |pull| <= 3 tension, above 3 fails; without one, a deviation above 10 percent of the measured value fails
+(the quoted ranges of the shipped mass tables are below 4 percent), an exact zero or an exact equality fails when the
+measured value excludes it.
+"""
+import json
+import math
+import os
+import re
+import sys
+
+RER = os.getcwd()
+HERE = os.path.dirname(os.path.abspath(__file__))
+ld = lambda rel: json.load(open(os.path.join(RER, rel)))
+S5 = 5 ** 0.5
+PHI = (1 + S5) / 2
+out = {'not_blind': True,
+       'verdict_rule': 'with a shipped uncertainty: |pull| <= 2 compatible, <= 3 tension, above fails; without: more than 10 percent off fails; an exact zero or equality fails when the measured value excludes it'}
+
+# ---------------------------------------------------------------------------------------------------------------
+# measured
+ref = ld('code/particles/data/particle_reference_values.json')['entries']
+lep = {k: (ref[k]['raw_value'], ref[k]['error_plus_gev'] * 1e3) for k in ('electron', 'muon', 'tau')}        # MeV
+koide = ld('evidence/custody/falsification/frozen_targets/fz10_2026-07-28/koide_balance_comparison_frozen_2026-07-28.json')['balance_comparison']
+cal = ld('model/common_source/calibrated_matter_results.json')
+yuk = {k: [float(x) for x in v] for k, v in cal['calibration']['matched_SM']['yukawa'].items()}
+ckm = {k: float(cal['calibration']['CKM'][k]) for k in ('sin_theta12', 'sin_theta23', 'sin_theta13', 'delta_radians')}
+nufit = {k: float(v) for k, v in cal['optional_phenomenological_neutrino_extension']['calibration']['oscillation_inputs'].items()}
+rows = {r['observable_id']: r for r in ld('code/particles/results_status.json')['comparison_rows']}
+def parse(disp):
+    m = re.match(r'([\d.]+) \+([\d.]+) -([\d.]+)', disp)
+    if m:
+        return float(m.group(1)), float(m.group(2)), float(m.group(3))
+    m = re.match(r'([\d.]+) \+- ([\d.]+)', disp)
+    return float(m.group(1)), float(m.group(2)), float(m.group(2))
+pmns = {k: parse(rows[k]['reference_display']) for k in ('theta12_deg', 'theta23_deg', 'theta13_deg', 'delta_cp_deg')}
+quark = {q['quark']: q for q in ld('code/particles/data/pdg_2026_conditional_quark_comparison.json')['masses']}
+me, mmu, mtau = (lep[k][0] for k in ('electron', 'muon', 'tau'))
+ratio = {'charged leptons, pole masses': (me / mtau, mmu / mtau),
+         'charged leptons, Yukawa couplings at M_Z': (yuk['charged_lepton'][0] / yuk['charged_lepton'][2], yuk['charged_lepton'][1] / yuk['charged_lepton'][2]),
+         'up-type quarks, Yukawa couplings at M_Z': (yuk['up'][0] / yuk['up'][2], yuk['up'][1] / yuk['up'][2]),
+         'down-type quarks, Yukawa couplings at M_Z': (yuk['down'][0] / yuk['down'][2], yuk['down'][1] / yuk['down'][2])}
+sq = [math.sqrt(x) for x in (me, mmu, mtau)]
+abar = sum(sq) / 3
+Qm = (me + mmu + mtau) / sum(sq) ** 2
+rho_m = math.sqrt((3 * Qm - 1) / 2)
+delta_m = math.acos((sq[2] - abar) / (2 * rho_m * abar))
+out['measured'] = {
+    'charged_lepton_pole_masses_MeV': {k: v[0] for k, v in lep.items()},
+    'mass_ratios (lightest/heaviest, middle/heaviest)': ratio,
+    'koide_quotient_central': float(koide['measured_Q_central']), 'koide_quotient_enclosure': [float(x) for x in koide['measured_Q_enclosure_outward']],
+    'koide_quotient_recomputed_here': Qm,
+    'charged_leptons_in_circulant_variables (readback of measured values, not a prediction)': {'b_over_a': rho_m, 'delta': delta_m},
+    'quark_mixing (sines, PDG global fit as shipped)': ckm,
+    'lepton_mixing_deg (PDG 2025, normal ordering: value, plus, minus)': pmns,
+    'lepton_mixing_sin2 (NuFIT 6.1 as shipped)': {k: nufit[k] for k in ('sin2_theta12', 'sin2_theta23', 'sin2_theta13')},
+    'largest_quoted_relative_range_of_a_quark_mass': max(float(q['plus']) / float(q['central']) for q in quark.values()),
+    'files': ['RER/code/particles/data/particle_reference_values.json',
+              'RER/evidence/custody/falsification/frozen_targets/fz10_2026-07-28/koide_balance_comparison_frozen_2026-07-28.json',
+              'RER/model/common_source/calibrated_matter_results.json', 'RER/code/particles/results_status.json',
+              'RER/code/particles/data/pdg_2026_conditional_quark_comparison.json']}
+assert abs(Qm - float(koide['measured_Q_central'])) < 1e-9
+print('measured ratios:', {k: (f'{a:.4e}', f'{b:.4e}') for k, (a, b) in ratio.items()})
+print('measured Q', Qm, 'circulant variables', rho_m, delta_m)
+
+# ---------------------------------------------------------------------------------------------------------------
+# helpers
+def pull(pred, meas):
+    v, up, dn = meas
+    return (pred - v) / (up if pred > v else dn)
+def verdict_pull(p):
+    return 'compatible' if abs(p) <= 2 else ('tension' if abs(p) <= 3 else 'fails')
+def ratio_rows(pred):
+    res = {}
+    for name, (r1, r2) in ratio.items():
+        d1, d2 = pred[0] / r1 - 1, pred[1] / r2 - 1
+        res[name] = {'measured': [r1, r2], 'predicted_over_measured_minus_1': [d1, d2],
+                     'verdict': 'fails' if max(abs(d1), abs(d2)) > 0.10 else 'compatible'}
+    return res
+def lepton_angles(s12sq, s23sq, s13sq):
+    res = {}
+    for key, s in (('theta12_deg', s12sq), ('theta23_deg', s23sq), ('theta13_deg', s13sq)):
+        ang = math.degrees(math.asin(math.sqrt(s)))
+        p = pull(ang, pmns[key])
+        res[key] = {'predicted': ang, 'measured': list(pmns[key]), 'pull': p, 'verdict': verdict_pull(p)}
+    return res
+def quark_angles(s12sq, s23sq, s13sq):
+    res = {}
+    for key, s in (('sin_theta12', s12sq), ('sin_theta23', s23sq), ('sin_theta13', s13sq)):
+        pr = math.sqrt(s)
+        res[key] = {'predicted': pr, 'measured': ckm[key], 'predicted_over_measured_minus_1': pr / ckm[key] - 1,
+                    'verdict': 'fails' if abs(pr / ckm[key] - 1) > 0.10 else 'compatible'}
+    return res
+
+g12 = (5 - S5) / 10
+preds = []
+
+# ---------------------------------------------------------------------------------------------------------------
+# structure 1: the band with a fixed frame
+rho, dl = (5 + S5) / 10, math.pi / 15
+lam = sorted(1 + 2 * rho * math.cos(dl + 2 * math.pi * k / 3) for k in range(3))
+Qc = (8 + S5) / 15
+enc = [float(x) for x in koide['measured_Q_enclosure_outward']]
+band = {
+    'copies': 3,
+    'fixed': ['the eigenvectors of every operator that keeps a residual group (frame axes; axis and circular states of a port or of a face)',
+              'the mixing matrix between two such bases',
+              'the spectrum of each named operator (kernel: three equal; port projector, port response, axis projector: one nonzero)'],
+    'free': ['which operator is the mass operator: a real weight on each of the twelve ports (9 independent numbers per sector), 3 per sector once a residual group is kept',
+             'which residual group belongs to which sector', 'the map from eigenvalue to mass'],
+    'predictions': [
+        {'id': 'B1', 'statement': 'operator invariant under all rotations or under the frame stabilizer: three equal masses',
+         'comparison': {'measured middle/heaviest': {k: v[1] for k, v in ratio.items()}}, 'verdict': 'fails (every measured ratio differs from 1)'},
+        {'id': 'B2', 'statement': 'one sector keeps the Klein group of the frame, the other the fifth-turn of a port: sin^2 theta12 = (5 - sqrt5)/10, sin^2 theta23 = 1/2, theta13 = 0, no phase',
+         'leptons': lepton_angles(g12, 0.5, 0.0), 'quarks': quark_angles(g12, 0.5, 0.0)},
+        {'id': 'B3', 'statement': 'one sector keeps the Klein group, the other the third-turn of the same frame: every squared entry 1/3',
+         'leptons': lepton_angles(0.5, 0.5, 1 / 3), 'quarks': quark_angles(0.5, 0.5, 1 / 3)},
+        {'id': 'B4', 'statement': 'both sectors keep the same residual group: no mixing',
+         'leptons': lepton_angles(0.0, 0.0, 0.0), 'quarks': quark_angles(0.0, 0.0, 0.0)},
+        {'id': 'B5', 'statement': 'mass operator = a port projector, a port response or a frame axis projector: one massive copy, two massless',
+         'comparison': ratio_rows((0.0, 0.0)), 'verdict': 'fails as an exact statement; the measured ratios are small (largest middle/heaviest: %.4f)' % max(v[1] for v in ratio.values())},
+        {'id': 'B6', 'statement': 'mass operator = sum of the responses of the three ports of a face (declared choice; the smallest port set with three nonzero eigenvalues); eigenvalues 0.031625, 0.552786, 2.415589',
+         'eigenvalues': lam,
+         'mass = eigenvalue squared': {'predicted (lightest/heaviest, middle/heaviest)': [(lam[0] / lam[2]) ** 2, (lam[1] / lam[2]) ** 2],
+                                       'comparison': ratio_rows(((lam[0] / lam[2]) ** 2, (lam[1] / lam[2]) ** 2))},
+         'mass = eigenvalue': {'predicted (lightest/heaviest, middle/heaviest)': [lam[0] / lam[2], lam[1] / lam[2]],
+                               'comparison': ratio_rows((lam[0] / lam[2], lam[1] / lam[2]))},
+         'koide_quotient (mass = eigenvalue squared)': {'predicted': Qc, 'exact': '(8 + sqrt5)/15', 'measured_enclosure': enc,
+                                                        'distance_in_half_widths': abs(Qc - (enc[0] + enc[1]) / 2) / ((enc[1] - enc[0]) / 2),
+                                                        'verdict': 'fails'},
+         'circulant_variables': {'carrier': {'b_over_a': rho, 'delta': dl}, 'measured_charged_leptons': {'b_over_a': rho_m, 'delta': delta_m}}},
+    ]}
+for p in band['predictions']:
+    for sec in ('leptons', 'quarks'):
+        if sec in p:
+            p[sec + '_verdict'] = 'fails' if any(v['verdict'] == 'fails' for v in p[sec].values()) else (
+                'tension' if any(v['verdict'] == 'tension' for v in p[sec].values()) else 'compatible')
+out['band_with_frame'] = band
+
+# ---------------------------------------------------------------------------------------------------------------
+# structure 2: the second index of the regular representation, kernel as mass operator
+cost = [5 - S5, 6.0, 5 + S5]
+level = [1 - c / 60 for c in cost]
+phase = [math.acos(x) for x in level]
+second = {
+    'copies': 3,
+    'fixed': ['the kernel on the second index, M3 (integer matrix): levels sqrt5, -1, -sqrt5; seam costs 5 - sqrt5, 6, 5 + sqrt5',
+              'its eigenvectors: the base port direction, its conjugate, the normal of their plane',
+              'the mixing against the frame axes of the second index and between two anchors'],
+    'free': ['the reading of the second index as the generation', 'the map from kernel level to mass (cost, rest phase, modulus)',
+             'what the second sector is (frame axes of the second index: three free masses; another anchor: nothing free)',
+             'the base port (anchor) of each sector'],
+    'predictions': [
+        {'id': 'D1', 'statement': 'masses proportional to the seam cost (equivalently to the correction probability 1 - T): 0.381966 : 0.829180 : 1',
+         'predicted (lightest/heaviest, middle/heaviest)': [cost[0] / cost[2], cost[1] / cost[2]],
+         'comparison': ratio_rows((cost[0] / cost[2], cost[1] / cost[2]))},
+        {'id': 'D2', 'statement': 'masses proportional to the rest phase arccos(T) of the internal walk: 0.614086 : 0.908965 : 1',
+         'predicted (lightest/heaviest, middle/heaviest)': [phase[0] / phase[2], phase[1] / phase[2]],
+         'comparison': ratio_rows((phase[0] / phase[2], phase[1] / phase[2]))},
+        {'id': 'D3', 'statement': 'kernel against the frame axes of the second index: the middle copy unmixed, the lightest and heaviest rotated by arctan(1/phi): with copies ordered by cost sin^2 theta13 = (5 - sqrt5)/10, theta12 = theta23 = 0',
+         'leptons': lepton_angles(0.0, 0.0, g12), 'quarks': quark_angles(0.0, 0.0, g12),
+         'with the mixed pair relabelled as copies 1 and 2 (declared relabelling)': {'leptons': lepton_angles(g12, 0.0, 0.0), 'quarks': quark_angles(g12, 0.0, 0.0)}},
+        {'id': 'D4', 'statement': 'two kernels anchored at ports of the same coordinate plane: the middle copy unmixed, squared sine 4/5 (or 1/5 after relabelling) between the other two',
+         'leptons': lepton_angles(0.0, 0.0, 0.2), 'quarks': quark_angles(0.0, 0.0, 0.2)},
+        {'id': 'D5', 'statement': 'two kernels anchored in different coordinate planes: squared moduli (rows and columns ordered by cost) 1/5, (5 - sqrt5)/10, (3 + sqrt5)/10 / (5 + sqrt5)/10, 0, (5 - sqrt5)/10 / (3 - sqrt5)/10, (5 + sqrt5)/10, 1/5',
+         'leptons': lepton_angles(g12 / (1 - (3 + S5) / 10), g12 / (1 - (3 + S5) / 10), (3 + S5) / 10),
+         'quarks': quark_angles(g12 / (1 - (3 + S5) / 10), g12 / (1 - (3 + S5) / 10), (3 + S5) / 10),
+         'with the zero entry relabelled as U_e3 (declared relabelling)': {'leptons': lepton_angles(g12, g12, 0.0), 'quarks': quark_angles(g12, g12, 0.0)}},
+    ]}
+for p in second['predictions']:
+    if 'comparison' in p:
+        p['verdict'] = 'fails' if all(v['verdict'] == 'fails' for v in p['comparison'].values()) else 'mixed'
+    for sec in ('leptons', 'quarks'):
+        if sec in p:
+            p[sec + '_verdict'] = 'fails' if any(v['verdict'] == 'fails' for v in p[sec].values()) else (
+                'tension' if any(v['verdict'] == 'tension' for v in p[sec].values()) else 'compatible')
+out['second_index'] = second
+
+# ---------------------------------------------------------------------------------------------------------------
+# structure 3: the cone copies with ordered sources
+cones = {
+    'copies': 4,
+    'fixed': ['four copies per parity class (two of each handedness), each twofold in spin',
+              'eigenstates of a source ordered on the kinds of one parity: the kinds; level = half the kind angle',
+              'the unitary between even-kind and odd-kind states (four third-turn lifts, every squared overlap 1/4)'],
+    'free': ['the source pattern: eight kind angles per species (a preparation, not part of the tick)'],
+    'predictions': [
+        {'id': 'C1', 'statement': 'uniform source, or any on-site step invariant under the tick\'s group: four equal masses', 'verdict': 'fails (measured ratios differ from 1); and four copies, not three'},
+        {'id': 'C2', 'statement': 'source on one kind of cell: one massive copy (four times the lattice average), three massless',
+         'comparison': ratio_rows((0.0, 0.0)), 'verdict': 'fails as an exact statement; three massless copies and one massive is the leading-order shape of one heavy generation only if the three light ones are the generations and the fourth is removed'},
+        {'id': 'C3', 'statement': 'two species ordered on the same parity: no mixing', 'leptons': lepton_angles(0.0, 0.0, 0.0), 'quarks': quark_angles(0.0, 0.0, 0.0)},
+        {'id': 'C4', 'statement': 'two species ordered on opposite parities: every squared entry 1/4 (4 x 4)', 'verdict': 'fails for quarks (measured matrix near the identity); not comparable entry by entry (four copies)'},
+    ]}
+for p in cones['predictions']:
+    for sec in ('leptons', 'quarks'):
+        if sec in p:
+            p[sec + '_verdict'] = 'fails' if any(v['verdict'] == 'fails' for v in p[sec].values()) else 'compatible'
+out['cone_copies'] = cones
+
+# ---------------------------------------------------------------------------------------------------------------
+# summary
+def brief(p):
+    res = {'id': p['id'], 'statement': p['statement']}
+    for k in ('verdict', 'leptons_verdict', 'quarks_verdict'):
+        if k in p:
+            res[k] = p[k]
+    return res
+out['verdicts'] = [brief(p) for s in (band, second, cones) for p in s['predictions']]
+b6 = band['predictions'][5]
+b6['verdict'] = 'fails (both attachments, every sector; nearest: charged leptons with mass = eigenvalue squared)'
+d_factor = min(min(1 + x for x in v['predicted_over_measured_minus_1']) for p in second['predictions'][:2] for v in p['comparison'].values())
+lz = b6['mass = eigenvalue squared']['comparison']['charged leptons, Yukawa couplings at M_Z']['predicted_over_measured_minus_1']
+lp = b6['mass = eigenvalue squared']['comparison']['charged leptons, pole masses']['predicted_over_measured_minus_1']
+out['verdicts'] = [brief(p) for s in (band, second, cones) for p in s['predictions']]
+out['decision'] = {
+    'most_constrained_nontrivial_pattern': 'the kernel on the second index (structure 2): three different levels and the mixing are fixed with no parameter and no choice of operator; the levels have no hierarchy: every predicted mass ratio exceeds the measured one by a factor of at least %.1f' % d_factor,
+    'most_constrained_on_the_band': 'the sum of the responses of the three ports of a face: all three circulant parameters fixed (a = 1, |b| = phi/sqrt5, delta = pi/15) once that operator is declared; with mass = eigenvalue squared it misses the charged-lepton ratios by %.1f and %.1f percent (couplings at M_Z; %.1f and %.1f percent for pole masses) and the Koide quotient by %.4f' % (
+        100 * abs(lz[1]), 100 * abs(lz[0]), 100 * abs(lp[1]), 100 * abs(lp[0]), Qc - Qm),
+    'most_constrained_on_the_cone_copies': 'a source on one kind of cell: one massive and three massless copies; the source pattern is a preparation',
+    'smallest_factor_by_which_the_kernel_levels_miss_a_measured_ratio': d_factor,
+    'no_prediction_passes': True}
+print('B2 leptons:', {k: (round(v['predicted'], 3), round(v['pull'], 2), v['verdict']) for k, v in band['predictions'][1]['leptons'].items()})
+print('B2 quarks:', {k: (round(v['predicted'], 4), v['measured'], v['verdict']) for k, v in band['predictions'][1]['quarks'].items()})
+print('B6 squared:', b6['mass = eigenvalue squared']['predicted (lightest/heaviest, middle/heaviest)'],
+      {k: [round(x, 4) for x in v['predicted_over_measured_minus_1']] for k, v in b6['mass = eigenvalue squared']['comparison'].items()})
+print('B6 linear:', b6['mass = eigenvalue']['predicted (lightest/heaviest, middle/heaviest)'])
+print('B6 Q:', b6['koide_quotient (mass = eigenvalue squared)'])
+print('D1:', second['predictions'][0]['predicted (lightest/heaviest, middle/heaviest)'],
+      {k: [round(x, 1) for x in v['predicted_over_measured_minus_1']] for k, v in second['predictions'][0]['comparison'].items()})
+print('D3 leptons relabelled:', {k: (round(v['predicted'], 3), round(v['pull'], 2), v['verdict']) for k, v in second['predictions'][2]['with the mixed pair relabelled as copies 1 and 2 (declared relabelling)']['leptons'].items()})
+for v in out['verdicts']:
+    print(v['id'], {k: x for k, x in v.items() if k not in ('id', 'statement')})
+if len(sys.argv) > 1:
+    json.dump(out, open(sys.argv[1], 'w'), indent=1)

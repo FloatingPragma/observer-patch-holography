@@ -1,0 +1,150 @@
+"""CC section C: the closure's left side in the link vacuum of GL's action, against the collar law.
+
+Harmonic level: per factor, sector weights d_R^2 exp(-C_R/(2 sigma^2)), sigma^2 = <omega>/(3 g^2).
+Product-state level: BF's class `Link` (work/BF/bf_meanfield.py, imported read only), sector weights psi_R^2.
+Collar law: ellbar_SU(2)(4 pi^2 alpha_2) + ellbar_SU(3)(4 pi^2 alpha_3), weights d_R.
+Source only: no measured value is read. Usage: python cc_linkvac.py [harmonic|product|all]. Writes
+cc_linkvac_<part>.json.
+"""
+import json
+import os
+import sys
+import time
+
+import numpy as np
+from scipy.optimize import brentq
+
+sys.dont_write_bytecode = True
+HERE = os.path.dirname(os.path.abspath(__file__))
+BF = os.path.join(os.path.dirname(HERE), 'BF')
+sys.path.insert(0, BF)
+import cc_lib as C          # noqa: E402
+
+t0 = time.time()
+P4 = C.P_FWD / 4
+part = sys.argv[1] if len(sys.argv) > 1 else 'all'
+
+
+def harmonic_factor(table, inv_alpha):
+    g2 = 4 * np.pi / inv_alpha
+    sig2 = C.OMEGA_MEAN / (3 * g2)
+    tprime = 1 / (2 * sig2)
+    ell, p0, meanC = C.law(table, tprime, w=2)
+    return {'g2': g2, 'sigma2': sig2, 'heat_time_of_the_link_law': tprime, 'mean_log_d': ell, 'trivial_weight': p0,
+            'mean_Casimir': meanC}
+
+
+def collar_factor(table, inv_alpha):
+    t = C.FOUR_PI_SQ / inv_alpha
+    ell, p0, meanC = C.law(table, t, w=1)
+    return {'heat_time': t, 'mean_log_d': ell, 'trivial_weight': p0, 'mean_Casimir': meanC}
+
+
+def harmonic_row(inv2, inv3):
+    h2, h3 = harmonic_factor(C.SU2, inv2), harmonic_factor(C.SU3, inv3)
+    c2, c3 = collar_factor(C.SU2, inv2), collar_factor(C.SU3, inv3)
+    LH = h2['mean_log_d'] + h3['mean_log_d']
+    LC = c2['mean_log_d'] + c3['mean_log_d']
+    return {'inv_alpha (SU2, SU3)': [inv2, inv3],
+            'link_vacuum_harmonic': {'SU2': h2, 'SU3': h3, 'left_side': LH,
+                                     'trivial_weight (SU2 x SU3)': h2['trivial_weight'] * h3['trivial_weight']},
+            'collar_law': {'SU2': c2, 'SU3': c3, 'left_side': LC,
+                           'trivial_weight (SU2 x SU3)': c2['trivial_weight'] * c3['trivial_weight']},
+            'left_side_over_P/4': LH / P4, 'left_side_over_collar_law': LH / LC, 'collar_law_over_P/4': LC / P4}
+
+
+out = {'P_over_4': P4, 'mean_lattice_frequency': C.OMEGA_MEAN}
+
+if part in ('harmonic', 'all'):
+    rows = {
+        'C1a: 16.2453 both (retired value)': (16.2453, 16.2453),
+        'C1b: 24.3166 both (chain alpha_U)': (24.3166, 24.3166),
+        'C1c: (23.368, 27.161) declared slopes extended to the cell': (23.368, 27.161),
+        'C1d: (28.377, 30.532) bare equivalents of C1b': (28.377, 30.532),
+        'C1e: (27.428, 33.376) bare equivalents of C1c': (27.428, 33.376),
+        'C4: blocked link at the anchor (29.605, 8.451)': (29.605, 8.451),
+    }
+    H = {}
+    for name, (i2, i3) in rows.items():
+        H[name] = harmonic_row(i2, i3)
+        r = H[name]
+        print(name, '| link vacuum', round(r['link_vacuum_harmonic']['left_side'], 4), '| collar law',
+              round(r['collar_law']['left_side'], 4), '| over P/4', round(r['left_side_over_P/4'], 2), '| over collar',
+              round(r['left_side_over_collar_law'], 2), '| trivial weights', '%.3g' % r['link_vacuum_harmonic']['trivial_weight (SU2 x SU3)'],
+              '%.3g' % r['collar_law']['trivial_weight (SU2 x SU3)'], '| mean C (SU2, SU3)',
+              round(r['link_vacuum_harmonic']['SU2']['mean_Casimir'], 3), round(r['link_vacuum_harmonic']['SU3']['mean_Casimir'], 3), flush=True)
+    out['harmonic_rows'] = H
+    # check against BF G1 at the retired value: mean Casimir 8 sigma^2 and 3 sigma^2 in the flat limit
+    a = H['C1a: 16.2453 both (retired value)']['link_vacuum_harmonic']
+    out['check_against_BF_G1'] = {'sigma2': a['SU2']['sigma2'], 'BF electric flux per direction': 1.0288654777167932,
+                                  'flat-limit mean Casimir (SU3, SU2)': [8 * a['SU3']['sigma2'], 3 * a['SU2']['sigma2']],
+                                  'discrete-law mean Casimir (SU3, SU2)': [a['SU3']['mean_Casimir'], a['SU2']['mean_Casimir']]}
+    # monotonicity of the harmonic left side in the coupling, equal couplings
+    grid = np.linspace(4.0, 60.0, 57)
+    vals = [harmonic_row(z, z)['link_vacuum_harmonic']['left_side'] for z in grid]
+    out['harmonic_left_side_equal_couplings'] = {'inv_alpha': grid.tolist(), 'left_side': vals,
+                                                 'strictly_increasing_with_inv_alpha': bool(np.all(np.diff(vals) > 0))}
+    # C5: where the link vacuum's left side would equal P/4
+    fh = lambda tp: C.ell2(tp, 2) + C.ell3(tp, 2) - P4
+    tp = brentq(fh, 0.5, 8.0, xtol=1e-13)
+    g2h = 2 * C.OMEGA_MEAN * tp / 3
+    sc = lambda g2: (8 * np.log(3) / (4 * g2 ** 4 * 1.4 ** 2) + 8 * np.log(2) / (4 * g2 ** 4 * 0.9 ** 2)) - P4
+    g2s = brentq(sc, 0.5, 10.0, xtol=1e-13)
+    out['C5_closing_coupling_of_the_link_vacuum'] = {
+        'harmonic form': {'heat_time_of_the_link_law': tp, 'g2': g2h, 'inv_alpha': 4 * np.pi / g2h},
+        'leading strong-coupling series (5-trace Hamiltonian)': {
+            'g2': g2s, 'inv_alpha': 4 * np.pi / g2s,
+            'excited weight at this coupling (3-type, 2-type)': [8 / (4 * g2s ** 4 * 1.96), 8 / (4 * g2s ** 4 * 0.81)]}}
+    print('C5', json.dumps(out['C5_closing_coupling_of_the_link_vacuum']), flush=True)
+
+if part in ('product', 'all'):
+    import bf_lib as L          # noqa: E402  (read only)
+    import bf_meanfield as BM   # noqa: E402  (read only; its main block does not run on import)
+    MEN = L.menus(2)
+
+    def product_row(inv_alpha, F, ccut, solve=False):
+        g2 = 4 * np.pi / inv_alpha
+        lk = BM.Link(L.reference_menu(ccut), F)
+        if solve:
+            r = lk.solve(g2)
+        else:
+            r = lk.descend(g2, u=np.full(len(lk.blocks), 0.95), itmax=300)
+            r['confined_energy_per_link'] = lk.bg / g2
+        p = r['psi'] ** 2
+        p = p / p.sum()
+        d3 = np.array([(a + 1) * (b + 1) * (a + b + 2) / 2.0 for (a, b), n, m in lk.sec])
+        d2 = np.array([n + 1.0 for (a, b), n, m in lk.sec])
+        parts = np.array([[float(x) for x in L.casimir_parts(s)] for s in lk.sec])
+        L3, L2 = float(p @ np.log(d3)), float(p @ np.log(d2))
+        c2, c3 = collar_factor(C.SU2, inv_alpha), collar_factor(C.SU3, inv_alpha)
+        LC = c2['mean_log_d'] + c3['mean_log_d']
+        ordered = bool(r['energy_per_link'] < r['confined_energy_per_link'] - 1e-9 and np.max(r['u']) > 1e-4)
+        return {'inv_alpha': inv_alpha, 'g2': g2, 'trace': F, 'Casimir_cut': ccut, 'sectors': len(lk.sec),
+                'u_per_block': [float(z) for z in r['u']], 'ordered_product_state_wins': ordered,
+                'energy_per_link': float(r['energy_per_link']), 'confined_energy_per_link': float(r['confined_energy_per_link']),
+                'mean_log_d (SU3, SU2)': [L3, L2], 'left_side': L3 + L2,
+                'trivial_weight': float(p[lk.idx[L.VAC]]),
+                'mean_Casimir (SU3, SU2, U1)': [float(p @ parts[:, 0]), float(p @ parts[:, 1]), float(p @ parts[:, 2])],
+                'weight_in_M1': float(sum(p[lk.idx[s]] for s in MEN[1] if s in lk.idx)),
+                'weight_in_M2': float(sum(p[lk.idx[s]] for s in MEN[2] if s in lk.idx)),
+                'weight_above_0.8_of_the_cut': float(p[lk.C > 0.8 * ccut].sum()),
+                'collar_law_left_side': LC, 'left_side_over_P/4': (L3 + L2) / P4, 'left_side_over_collar_law': (L3 + L2) / LC}
+
+    jobs = [('C1a', 16.2453, '5', 45.0, False), ('C1a', 16.2453, '15', 45.0, False),
+            ('C1b', 24.3166, '5', 70.0, False), ('C1b', 24.3166, '15', 70.0, False),
+            ('C1f', 30.532, '5', 90.0, False), ('C5 just above threshold', 12.0, '5', 45.0, True)]
+    PR = {}
+    for name, inv, F, cc, sv in jobs:
+        key = f'{name}: 1/alpha = {inv:g}, F = {F}'
+        PR[key] = product_row(inv, F, cc, solve=sv)
+        r = PR[key]
+        print(key, '| left side', round(r['left_side'], 4), '| over P/4', round(r['left_side_over_P/4'], 2),
+              '| over collar', round(r['left_side_over_collar_law'], 2), '| trivial', '%.3g' % r['trivial_weight'],
+              '| mean C', [round(z, 3) for z in r['mean_Casimir (SU3, SU2, U1)']], '| M1, M2', '%.3g' % r['weight_in_M1'],
+              '%.3g' % r['weight_in_M2'], '| tail', '%.2g' % r['weight_above_0.8_of_the_cut'], '| ordered', r['ordered_product_state_wins'],
+              round(time.time() - t0, 1), 's', flush=True)
+    out['product_rows'] = PR
+
+out['seconds'] = round(time.time() - t0, 1)
+json.dump(out, open(os.path.join(HERE, f'cc_linkvac_{part}.json'), 'w'), indent=1, default=C.jsonable)
+print('seconds', out['seconds'])

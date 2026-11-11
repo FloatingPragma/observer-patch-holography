@@ -1,0 +1,195 @@
+"""X5 item 2: link alphabets. Which are native, what they can carry, and the Gauss constraint for each.
+
+A. Executed: the tick of CF-1 section 8 with a Z_N link (N = 2, 3, 4, 6) commutes with the Z_N Gauss operators.
+   Link value a in Z_N, a pattern of charge q routes with z = zeta^(q a) (reference engine, link word as a batch axis).
+   Field step, two forms that agree at N = 2 with section 8:
+     clock       exp(-i eps cos(2 pi E / N)) per link, exp(-i kappa cos(2 pi B / N)) per plaquette
+     reflection  exp(-i eps (2 [E = 0] - 1)) per link (partial reflection about the uniform state), same for [B = 0]
+   Gauss: G_x = (outgoing links of x raised by one, incoming lowered by one) times zeta^q on a quantum at x.
+   Also: gauge covariance of the routing tick for arbitrary link phases (the U(1) link of item 1).
+B. Exact (Q(sqrt5)): the cover of order 120 on the five levels (triplet = rotation, doublet = Galois-conjugate
+   spinor), its classes and traces; which of its elements, with the centre, lie in the Standard Model subgroups.
+C. Charges of the chart rows under the central alphabets; smallest excitation of every alphabet in the two solvable
+   limits of the field step.
+"""
+import itertools, json, sys
+from fractions import Fraction as Fr
+import numpy as np
+from routing import Routing
+
+out = {}
+
+# ---------------------------------------------------------------- A. Z_N links
+def zn_check(N, shape, q, form, matter=True, eps=0.3, kappa=0.2, theta=0.1, seed=2):
+    cells = list(itertools.product(*[range(n) for n in shape]))
+    axes = [i for i in range(3) if shape[i] > 1]
+    links = [(c, i) for i in axes for c in cells]; lid = {l: k for k, l in enumerate(links)}
+    NL = len(links); NW = N ** NL; words = np.arange(NW)
+    dg = np.array([(words // N ** k) % N for k in range(NL)])            # dg[k, w] = value of link k in word w
+    zeta = np.exp(2j * np.pi / N)
+    def nb(c, i, sgn=1):
+        t = list(c); t[i] = (t[i] + sgn) % shape[i]; return tuple(t)
+    if matter:
+        lk = [np.ones(shape + (NW,), complex) for _ in range(3)]
+        for (c, i), k in lid.items(): lk[i][c] = zeta ** (q * dg[k])
+        eng = Routing(shape, lk)
+    B = [(dg[lid[(c, i)]] + dg[lid[(nb(c, i), j)]] - dg[lid[(nb(c, j), i)]] - dg[lid[(c, j)]]) % N
+         for c in cells for i, j in itertools.combinations(axes, 2)]
+    f = (lambda v: np.cos(2 * np.pi * v / N)) if form == 'clock' else (lambda v: 2.0 * (v == 0) - 1.0)
+    plaq_phase = np.exp(-1j * kappa * sum(f(b) for b in B)) if B else np.ones(NW)
+    link_phase = np.exp(-1j * eps * f(np.arange(N)))
+    tail = (2, 2) if matter else ()
+    def field(P):
+        Pw = P * plaq_phase.reshape((NW,) + (1,) * len(tail))
+        T = Pw.reshape(P.shape[:-1 - len(tail)] + (N,) * NL + tail)
+        first = len(P.shape) - 1 - len(tail)
+        for ax in range(first, first + NL):
+            sh = [1] * T.ndim; sh[ax] = N
+            T = np.fft.ifft(np.fft.fft(T, axis=ax) * link_phase.reshape(sh), axis=ax)
+        return T.reshape(P.shape)
+    def tick(P): return field(eng.tick(P, theta)) if matter else field(P)
+    def gauss(P, c):
+        d2 = dg.copy()
+        for i in axes:
+            d2[lid[(c, i)]] = (d2[lid[(c, i)]] + 1) % N
+            d2[lid[(nb(c, i, -1), i)]] = (d2[lid[(nb(c, i, -1), i)]] - 1) % N
+        target = sum(d2[k] * N ** k for k in range(NL))
+        o = np.empty_like(P)
+        if matter:
+            o[..., target, :, :] = P
+            o[c] = o[c] * zeta ** q
+        else:
+            o[target] = P
+        return o
+    rng = np.random.default_rng(seed)
+    full = (shape + (NW, 2, 2)) if matter else (NW,)
+    P = rng.normal(size=full) + 1j * rng.normal(size=full); P /= np.linalg.norm(P)
+    UP = tick(P)
+    row = {'N': N, 'lattice': shape, 'links': NL, 'plaquettes': len(B), 'charge_q': q if matter else None, 'form': form,
+           'matter': matter, 'amplitudes': int(P.size), 'unitarity': float(abs(np.linalg.norm(UP) - 1)),
+           'commutator_with_Gauss': float(max(np.abs(tick(gauss(P, c)) - gauss(UP, c)).max() for c in cells))}
+    if matter:
+        def shift_only(S):                                               # control: the link shift without the charge phase
+            o = gauss(S, cells[0]); o[cells[0]] = o[cells[0]] * zeta ** (-q); return o
+        row['control_commutator_of_link_shift_without_charge_phase'] = float(np.abs(tick(shift_only(P)) - shift_only(UP)).max())
+        g = gauss(P, cells[0])
+        for _ in range(N - 1): g = gauss(g, cells[0])
+        row['Gauss_to_the_power_N_is_one'] = float(np.abs(g - P).max())
+    return row
+rowsA = [zn_check(2, (3, 2, 1), 1, 'clock'), zn_check(3, (2, 2, 1), 1, 'clock'), zn_check(3, (2, 2, 1), 2, 'reflection'),
+         zn_check(4, (2, 2, 1), 1, 'clock'), zn_check(6, (3, 1, 1), 1, 'clock'), zn_check(6, (3, 1, 1), 3, 'reflection'),
+         zn_check(6, (3, 1, 1), 4, 'clock'), zn_check(6, (2, 2, 1), None, 'clock', matter=False),
+         zn_check(6, (2, 2, 1), None, 'reflection', matter=False)]
+for r in rowsA: print('A.', r)
+# U(1): gauge covariance of the routing tick with arbitrary link phases and an integer charge
+shape = (4, 3, 2); rng = np.random.default_rng(11); qq = 2
+th = [rng.uniform(0, 2 * np.pi, size=shape) for _ in range(3)]; lam = rng.uniform(0, 2 * np.pi, size=shape)
+z = [np.exp(1j * qq * t) for t in th]; g = np.exp(1j * qq * lam)
+zg = [g * z[i] * np.conj(np.roll(g, -1, axis=i)) for i in range(3)]      # theta_l -> theta_l + lambda(x) - lambda(x + e_i)
+psi = rng.normal(size=shape + (2, 2)) + 1j * rng.normal(size=shape + (2, 2)); psi /= np.linalg.norm(psi)
+w0, w1 = Routing(shape, z), Routing(shape, zg)
+cov = max(np.abs(w1.tick(g[..., None, None] * psi, 0.1, reverse=r) - g[..., None, None] * w0.tick(psi, 0.1, reverse=r)).max() for r in (False, True))
+out['A_ZN_and_U1'] = {'rows': rowsA, 'U1_gauge_covariance_of_the_routing_tick': float(cov),
+                      'U1_unitarity': float(abs(np.linalg.norm(w0.tick(psi, 0.1)) - 1)), 'U1_lattice': shape, 'U1_charge': qq}
+print('A. U(1) covariance', cov)
+
+# ---------------------------------------------------------------- B. the cover of order 120 on the five levels
+class Q5:
+    """a + b sqrt5, exact"""
+    __slots__ = ('a', 'b')
+    def __init__(s, a=0, b=0): s.a, s.b = Fr(a), Fr(b)
+    @staticmethod
+    def c(o): return o if isinstance(o, Q5) else Q5(o)
+    def __add__(s, o): o = Q5.c(o); return Q5(s.a + o.a, s.b + o.b)
+    __radd__ = __add__
+    def __neg__(s): return Q5(-s.a, -s.b)
+    def __sub__(s, o): return s + (-Q5.c(o))
+    def __rsub__(s, o): return Q5.c(o) - s
+    def __mul__(s, o): o = Q5.c(o); return Q5(s.a * o.a + 5 * s.b * o.b, s.a * o.b + s.b * o.a)
+    __rmul__ = __mul__
+    def __eq__(s, o): o = Q5.c(o); return s.a == o.a and s.b == o.b
+    def __hash__(s): return hash((s.a, s.b))
+    def gal(s): return Q5(s.a, -s.b)
+    def __float__(s): return float(s.a) + float(s.b) * 5 ** .5
+    def __repr__(s): return f'{s.a}+{s.b}r5' if s.b else f'{s.a}'
+phi = Q5(Fr(1, 2), Fr(1, 2)); phin = phi - 1                           # phi and 1/phi
+half = Fr(1, 2)
+def qmul(p, r):
+    a1, b1, c1, d1 = p; a2, b2, c2, d2 = r
+    return (a1 * a2 - b1 * b2 - c1 * c2 - d1 * d2, a1 * b2 + b1 * a2 + c1 * d2 - d1 * c2,
+            a1 * c2 - b1 * d2 + c1 * a2 + d1 * b2, a1 * d2 + b1 * c2 - c1 * b2 + d1 * a2)
+els = set()
+for k in range(4):
+    for sg in (1, -1):
+        e = [Q5(0)] * 4; e[k] = Q5(sg); els.add(tuple(e))
+for sg in itertools.product((1, -1), repeat=4): els.add(tuple(Q5(Fr(x, 2)) for x in sg))
+even = [p for p in itertools.permutations(range(4)) if sum(1 for i in range(4) for j in range(i) if p[j] > p[i]) % 2 == 0]
+base = (phi * half, Q5(half), phin * half, Q5(0))
+for p in even:
+    for sg in itertools.product((1, -1), repeat=3):
+        v = [base[0] * sg[0], base[1] * sg[1], base[2] * sg[2], base[3]]
+        els.add(tuple(v[p[i]] for i in range(4)))
+els = sorted(els, key=lambda t: tuple(float(x) for x in t))
+assert len(els) == 120 and all(sum((x * x for x in e), Q5(0)) == 1 for e in els)
+elset = set(els)
+assert all(qmul(els[i], els[j]) in elset for i in range(0, 120, 7) for j in range(120))      # closure on a sample of left factors
+one = (Q5(1), Q5(0), Q5(0), Q5(0))
+def order(e):
+    p, n = e, 1
+    while p != one: p = qmul(p, e); n += 1
+    return n
+classes = {}
+for e in els: classes.setdefault(e[0], []).append(e)
+rowsB = []
+for re_, members in sorted(classes.items(), key=lambda kv: -float(kv[0])):
+    chi2 = 2 * re_; chi3 = 4 * re_ * re_ - 1; chi2c = chi2.gal(); tr5 = chi3 + chi2c
+    rowsB.append({'real_part': float(re_), 'size': len(members), 'order': order(members[0]), 'trace_triplet': float(chi3),
+                  'trace_doublet_conjugate_frame': float(chi2c), 'trace_five_levels': float(tr5), 'trace_five_levels_exact': repr(tr5),
+                  'one_minus_trace_over_five': float(1 - float(tr5) / 5),
+                  'cost_triplet': float(1 - float(chi3) / 3), 'cost_doublet': float(1 - float(chi2c) / 2)})
+nontrivial = [r for r in rowsB if r['real_part'] != 1.0]
+trivial_on_triplet = sum(len(m) for re_, m in classes.items() if 4 * re_ * re_ - 1 == 3)
+trivial_on_doublet = sum(len(m) for re_, m in classes.items() if (2 * re_).gal() == 2)
+out['B_cover_120'] = {
+    'elements': 120, 'classes_by_real_part': len(classes), 'rows': rowsB,
+    'elements_acting_trivially_on_the_triplet': trivial_on_triplet, 'elements_acting_trivially_on_the_doublet': trivial_on_doublet,
+    'largest_five_level_trace_of_a_nontrivial_element': max(r['trace_five_levels'] for r in nontrivial),
+    'smallest_of_max(cost_triplet,cost_doublet)_over_nontrivial_elements': min(max(r['cost_triplet'], r['cost_doublet']) for r in nontrivial),
+    'intersection_orders_of_cover_times_colour_centre_with': {
+        'SU3_colour (identity on the doublet)': 3 * trivial_on_doublet,
+        'SU2_weak (identity on the triplet)': trivial_on_triplet,
+        'U1_Y = diag(e^-2ia 1_3, e^3ia 1_2)': 3 * trivial_on_triplet,
+        'U1_em = diag(e^-2ia 1_3, e^6ia, 1)': 3 * trivial_on_doublet},
+    'argument': 'an element (w^j R(g), u(g)) is a multiple of the identity on the triplet only for g = +1 or -1 (the two elements counted above); '
+                'then the doublet block is +1 or -1, which is diag(e^6ia, 1) only for +1'}
+for r in rowsB: print('B.', {k: (round(v, 6) if isinstance(v, float) else v) for k, v in r.items()})
+print('B.', {k: v for k, v in out['B_cover_120'].items() if k != 'rows'})
+
+# ---------------------------------------------------------------- C. charges under the central alphabets; smallest excitations
+names = {(1, 0): 'd_R', (1, 1): 'Q_L', (1, 2): 'u_R', (3, 0): 'e_R', (3, 1): 'L_L', (3, 2): 'nu_R',
+         (2, 2): 'conj d_R', (2, 1): 'conj Q_L', (2, 0): 'conj u_R', (0, 2): 'conj e_R', (0, 1): 'conj L_L', (0, 0): 'conj nu_R'}
+rowsC = []
+for n3 in range(4):
+    for n2 in range(3):
+        q6 = 3 * n2 - 2 * n3
+        sixQ = sorted({6 * s1 - 2 * n3 for s1 in ((0,) if n2 == 0 else (1,) if n2 == 2 else (0, 1))})
+        rowsC.append({'row': names[(n3, n2)], 'n3': n3, 'n2': n2, 'Q6': q6, 'Z6_class': q6 % 6, 'Z2_class': n2 % 2, 'Z3_class': q6 % 3,
+                      'six_times_electric_charge_of_members': sixQ, 'six_Q_mod_6_of_members': sorted({x % 6 for x in sixQ})})
+blind = [r['row'] for r in rowsC if r['Z6_class'] == 0]
+same_class_different_charge = [r['row'] for r in rowsC if len(r['six_times_electric_charge_of_members']) > 1]
+c60 = Fr(1, 2)
+tr_max = max(r['trace_five_levels'] for r in nontrivial)
+out['C_charges_and_costs'] = {
+    'rows': rowsC, 'rows_neutral_under_every_central_alphabet': blind,
+    'rows_whose_members_differ_in_electric_charge_but_not_in_any_central_class': same_class_different_charge,
+    'electric_charge_seen_by_the_centre': '6Q mod 6 = -2 n3 mod 6: the colour class only',
+    'smallest_flux_loop_in_units_of_kappa (one link changed, four plaquettes, eps -> 0)': {
+        'Z2 (section 8)': 8.0, 'Z6 clock': float(4 * (1 - c60)), 'Z6 reflection form': 8.0,
+        'cover of order 120, plaquette function trace/5': float(4 * (1 - tr_max / 5)), 'cover of order 120, reflection form': 8.0,
+        'Z_N clock': '4 (1 - cos(2 pi / N))', 'U(1)': 0.0},
+    'smallest_electric_loop_in_units_of_eps (four links of one plaquette, kappa -> 0)': {
+        'Z2 (section 8)': 8.0, 'Z6 clock': float(4 * (1 - c60)), 'any alphabet, reflection form': 8.0, 'Z_N clock': '4 (1 - cos(2 pi / N))',
+        'U(1), eps E^2/2': 2.0}}
+print('C.', {k: v for k, v in out['C_charges_and_costs'].items() if k != 'rows'})
+for r in rowsC: print('C.', r)
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 'alphabets.json', 'w'), indent=1)

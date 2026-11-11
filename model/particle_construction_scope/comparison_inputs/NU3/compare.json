@@ -1,0 +1,122 @@
+{
+ "NOT_BLIND": true,
+ "charged_lepton_scale_eV_declared": 510940.0,
+ "rows": [
+  {
+   "ratio": "eps_K Ds=1,Dl=2",
+   "eps": 2.5989583333333335,
+   "m_nu_eV": 1327911.7708333335,
+   "over_KATRIN": 2950915.0462962966,
+   "over_heaviest_floor": 26489452.143406574,
+   "implied_velocity_over_c_if_kinetic_equals_mass_suppression": 2.5989583333333335
+  },
+  {
+   "ratio": "eps_three_fermion Ds=1,Dl=2",
+   "eps": 0.09375,
+   "m_nu_eV": 47900.625,
+   "over_KATRIN": 106445.83333333333,
+   "over_heaviest_floor": 955531.3398423212,
+   "implied_velocity_over_c_if_kinetic_equals_mass_suppression": 0.09375
+  },
+  {
+   "ratio": "eps_K Ds=2,Dl=1",
+   "eps": 0.07291666666666667,
+   "m_nu_eV": 37256.04166666667,
+   "over_KATRIN": 82791.20370370371,
+   "over_heaviest_floor": 743191.0420995833,
+   "implied_velocity_over_c_if_kinetic_equals_mass_suppression": 0.07291666666666667
+  },
+  {
+   "ratio": "eps_three_fermion Ds=2,Dl=1",
+   "eps": 0.375,
+   "m_nu_eV": 191602.5,
+   "over_KATRIN": 425783.3333333333,
+   "over_heaviest_floor": 3822125.359369285,
+   "implied_velocity_over_c_if_kinetic_equals_mass_suppression": 0.375
+  },
+  {
+   "ratio": "eps_K Ds=1,Dl=4",
+   "eps": 0.4179340277777778,
+   "m_nu_eV": 213539.21215277776,
+   "over_KATRIN": 474531.58256172837,
+   "over_heaviest_floor": 4259723.322967444,
+   "implied_velocity_over_c_if_kinetic_equals_mass_suppression": 0.4179340277777778
+  },
+  {
+   "ratio": "eps_three_fermion Ds=1,Dl=4",
+   "eps": 0.0234375,
+   "m_nu_eV": 11975.15625,
+   "over_KATRIN": 26611.458333333332,
+   "over_heaviest_floor": 238882.8349605803,
+   "implied_velocity_over_c_if_kinetic_equals_mass_suppression": 0.0234375
+  },
+  {
+   "ratio": "eps_K Ds=4,Dl=1",
+   "eps": 0.011493055555555555,
+   "m_nu_eV": 5872.261805555555,
+   "over_KATRIN": 13049.470679012344,
+   "over_heaviest_floor": 117141.06425474382,
+   "implied_velocity_over_c_if_kinetic_equals_mass_suppression": 0.011493055555555555
+  },
+  {
+   "ratio": "eps_three_fermion Ds=4,Dl=1",
+   "eps": 0.375,
+   "m_nu_eV": 191602.5,
+   "over_KATRIN": 425783.3333333333,
+   "over_heaviest_floor": 3822125.359369285,
+   "implied_velocity_over_c_if_kinetic_equals_mass_suppression": 0.375
+  },
+  {
+   "ratio": "eps_K Ds=1,Dl=10",
+   "eps": 0.05873131568207326,
+   "m_nu_eV": 30008.17843459851,
+   "over_KATRIN": 66684.84096577446,
+   "over_heaviest_floor": 598609.2028202005,
+   "implied_velocity_over_c_if_kinetic_equals_mass_suppression": 0.05873131568207326
+  },
+  {
+   "ratio": "eps_three_fermion Ds=1,Dl=10",
+   "eps": 0.00375,
+   "m_nu_eV": 1916.0249999999999,
+   "over_KATRIN": 4257.833333333333,
+   "over_heaviest_floor": 38221.25359369285,
+   "implied_velocity_over_c_if_kinetic_equals_mass_suppression": 0.00375
+  },
+  {
+   "ratio": "audit spectroscopy: neutral line 0.62436 / charged line 0.97010 (IMPORTED)",
+   "eps": 0.6436095351790404,
+   "m_nu_eV": 328845.8559043789,
+   "over_KATRIN": 730768.5686763976,
+   "over_heaviest_floor": 6559883.535839169,
+   "implied_velocity_over_c_if_kinetic_equals_mass_suppression": 0.6436095351790404
+  },
+  {
+   "ratio": "bare partner / charged vertex (x neighbour, unit couplings)",
+   "eps": 1.299038105676658,
+   "m_nu_eV": 663730.5297144316,
+   "over_KATRIN": 1474956.732698737,
+   "over_heaviest_floor": 13240230.63065011,
+   "implied_velocity_over_c_if_kinetic_equals_mass_suppression": 1.299038105676658
+  }
+ ],
+ "eps_window_required_by_data": {
+  "lower_from_heaviest_floor": 9.811295149719562e-08,
+  "upper_from_KATRIN": 8.807296355736486e-07
+ },
+ "velocity_in_that_window_under_the_hypothesis": {
+  "v_over_c_max": 8.807296355736486e-07,
+  "one_minus_v_over_c": 0.9999991192703644,
+  "SN1987A_bound": 2e-09,
+  "MINOS_scale": 2.2e-06,
+  "excluded": true
+ },
+ "massless_option": {
+  "reason": "onsite doublet term proportional to identity at every order; Majorana pairing zero (raw lepton number); B-L anomaly matching (argued)",
+  "excluded_by": "two nonzero splittings dm2_21 and dm2_31"
+ },
+ "kappa_needed_for_eps_1e-7_fit": "0.00700277503978963",
+ "cosmology_sum_bound_eV": [
+  0.064,
+  0.072
+ ]
+}

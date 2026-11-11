@@ -1,0 +1,178 @@
+"""ctypes front end of s1c.c: exact lumped chains in contrast space and Monte Carlo in (x, b) space."""
+import ctypes, hashlib, os, subprocess
+from collections import deque
+from pathlib import Path
+import numpy as np
+import scipy.sparse as sp
+import s1lib as S
+
+HERE = Path(__file__).resolve().parent
+ORDER = {'TC_excl': 0, 'TC_then': 1, 'CT': 2}
+
+
+def _lib():
+    src = HERE / 's1c.c'
+    tag = hashlib.sha256(src.read_bytes()).hexdigest()[:12]
+    lib = HERE / f's1c_{tag}.dylib'
+    if not lib.exists():
+        tmp = HERE / f's1c_{tag}.{os.getpid()}.dylib'
+        subprocess.run(['cc', '-O2', '-shared', '-fPIC', '-o', str(tmp), str(src)], check=True)
+        os.replace(tmp, lib)
+    return ctypes.CDLL(str(lib))
+
+
+lib = _lib()
+VP = ctypes.c_void_p
+
+
+class ChainCfg(ctypes.Structure):
+    _fields_ = [('M', ctypes.c_int32), ('F', ctypes.c_int32), ('NG', ctypes.c_int32), ('conj', ctypes.c_int32),
+                ('L', VP), ('R', VP), ('fs_e', VP), ('fs_s', VP), ('g_ptr', VP), ('g_e', VP), ('g_c', VP),
+                ('gperm', VP), ('gsign', VP), ('order', ctypes.c_int32), ('D', ctypes.c_int32), ('Q', ctypes.c_int32),
+                ('tau', VP), ('dcap', ctypes.c_int32), ('qcap', ctypes.c_int32), ('reflect', ctypes.c_int32)]
+
+
+class McCfg(ctypes.Structure):
+    _fields_ = [('M', ctypes.c_int64), ('sa', VP), ('sb', VP), ('fL', VP), ('fR', VP),
+                ('order', ctypes.c_int32), ('D', ctypes.c_int32), ('Q', ctypes.c_int32), ('tau', VP), ('hopvec', VP)]
+
+
+lib.s1_chain.restype = ctypes.c_int64
+lib.s1_chain.argtypes = [ctypes.POINTER(ChainCfg), VP, ctypes.c_int64, ctypes.c_int64, VP, VP, VP, ctypes.c_int64, VP, VP, VP, VP]
+lib.s1_mc.restype = ctypes.c_int64
+lib.s1_mc.argtypes = [ctypes.POINTER(McCfg), VP, VP, VP, ctypes.c_int64, VP, ctypes.c_int, VP, VP]
+lib.s1_seed.argtypes = [VP, ctypes.c_uint64]
+lib.s1_survival.restype = None
+lib.s1_survival.argtypes = [ctypes.POINTER(McCfg), ctypes.c_int32, ctypes.c_int32, ctypes.c_int32, ctypes.c_int32, VP, VP,
+                            ctypes.c_int64, ctypes.c_int64, ctypes.c_int64, VP, VP, VP, VP, VP, VP, VP, VP, VP, VP]
+
+DTAB, QTAB = 8, 4
+
+
+def tau_table(law, D=DTAB, Q=QTAB):
+    """Twist table [(2D+1), (2Q+1), (2Q+1), 2] of k for the two twist-coin values."""
+    W = 2 * Q + 1
+    t = np.zeros((2 * D + 1, W, W, 2), np.int8)
+    for d in range(-D, D + 1):
+        for u in range(-Q, Q + 1):
+            for v in range(-Q, Q + 1):
+                dist = {k: p for k, p in law.tau(d, u, v).items() if p}
+                if len(dist) == 1:
+                    (k,) = dist
+                    t[d + D, u + Q, v + Q] = (k, k)
+                else:
+                    assert len(dist) == 2 and all(p == S.HALF for p in dist.values()), (law.name, d, u, v, dist)
+                    ks = sorted(dist, key=lambda k: (k == 0, k))    # twist on coin 0
+                    t[d + D, u + Q, v + Q] = (ks[0], ks[1])
+    return np.ascontiguousarray(t)
+
+
+def ptr(a):
+    return a.ctypes.data
+
+
+class CarrierArrays:
+    def __init__(self, C):
+        self.C = C
+        self.L = np.array(C.L, np.int32); self.R = np.array(C.R, np.int32)
+        self.fs_e = np.array([[e for e, s in C.fs[f]] for f in range(C.F)], np.int32)
+        self.fs_s = np.array([[s for e, s in C.fs[f]] for f in range(C.F)], np.int32)
+        gp, ge, gc = [0], [], []
+        for row in C.G:
+            for e2, c in row:
+                ge.append(e2); gc.append(c)
+            gp.append(len(ge))
+        self.g_ptr, self.g_e, self.g_c = np.array(gp, np.int32), np.array(ge, np.int32), np.array(gc, np.int32)
+        self.gperm = np.array([sm[0] for sm in C.seam_maps], np.int32)
+        self.gsign = np.array([sm[1] for sm in C.seam_maps], np.int8)
+        self.sa = np.array([a for a, b in C.seams], np.int32); self.sb = np.array([b for a, b in C.seams], np.int32)
+        self.Kmat = np.array(C.K, np.int32)
+
+
+_CA = {}
+
+
+def arrays(C):
+    if C.name not in _CA:
+        _CA[C.name] = CarrierArrays(C)
+    return _CA[C.name]
+
+
+def build_chain(C, law, init, cap=200000, tcap=None, dcap=12, qcap=64, canon=True, conj=True, reflect=False):
+    """Lumped chain reachable from init. Returns dict(n, states, T (csr, row-stochastic), ev, flags, seen, overflow)."""
+    A = arrays(C)
+    tau = tau_table(law)
+    cfg = ChainCfg(C.M, C.F, len(C.rotations) if canon else 0, 1 if conj else 0, ptr(A.L), ptr(A.R), ptr(A.fs_e), ptr(A.fs_s),
+                   ptr(A.g_ptr), ptr(A.g_e), ptr(A.g_c), ptr(A.gperm), ptr(A.gsign), ORDER[law.order], DTAB, QTAB, ptr(tau),
+                   dcap, qcap, 1 if reflect else 0)
+    init = np.asarray(init, np.int8).reshape(-1, C.M)
+    cap = max(cap, len(init) + 8)
+    if tcap is None:
+        tcap = cap * 40
+    states = np.zeros((cap, C.M), np.int8); states[:len(init)] = init
+    row_ptr = np.zeros(cap + 1, np.int64); col = np.zeros(tcap, np.int32); w = np.zeros(tcap, np.int32)
+    ev = np.zeros((cap, 7), np.int32); flags = np.zeros(cap, np.uint8)
+    seen = np.zeros((2 * DTAB + 1, 2 * QTAB + 1, 2 * QTAB + 1), np.uint8)
+    init_index = np.zeros(len(init), np.int32)
+    n = lib.s1_chain(ctypes.byref(cfg), ptr(states), len(init), cap, ptr(row_ptr), ptr(col), ptr(w), tcap, ptr(ev), ptr(flags), ptr(seen),
+                     ptr(init_index))
+    if n < 0:
+        return dict(n=int(n), overflow=True)
+    nt = int(row_ptr[n])
+    T = sp.csr_matrix((w[:nt].astype(np.float64) / (4 * C.M), col[:nt].copy(), row_ptr[:n + 1].copy()), shape=(n, n))
+    Wint = sp.csr_matrix((w[:nt].copy(), col[:nt].copy(), row_ptr[:n + 1].copy()), shape=(n, n))
+    st = states[:n].copy()
+    q = -(st.astype(np.int32) @ A.Kmat.T)
+    return dict(n=int(n), overflow=False, states=st, T=T, W=Wint, ev=ev[:n].copy(), flags=flags[:n].copy(), seen=seen,
+                init_index=init_index,
+                q=q, absq=np.abs(q).sum(axis=1), maxd=np.abs(st).max(axis=1))
+
+
+def seen_keys(seen):
+    out = []
+    for d, u, v in zip(*np.nonzero(seen)):
+        out.append((int(d) - DTAB, int(u) - QTAB, int(v) - QTAB))
+    return out
+
+
+def spanning_tree(C):
+    """BFS tree from port 0: arrays (port, parent, seam, sign) with phi_child = phi_parent + sign * off[seam]."""
+    nb = [[] for _ in range(C.P)]
+    for e, (a, b) in enumerate(C.seams):
+        nb[a].append((b, e, -1))       # child b: phi_b = phi_a - off_e
+        nb[b].append((a, e, +1))       # child a: phi_a = phi_b + off_e
+    order, parent, seam, sign = [0], [0], [0], [0]
+    seenp = {0}; dq = deque([0])
+    while dq:
+        p = dq.popleft()
+        for r, e, s in nb[p]:
+            if r not in seenp:
+                seenp.add(r); dq.append(r); order.append(r); parent.append(p); seam.append(e); sign.append(s)
+    return tuple(np.array(v, np.int32) for v in (order, parent, seam, sign))
+
+
+class MC:
+    """Monte Carlo of a law on an arbitrary closed triangulation given by seam / face arrays."""
+
+    def __init__(self, sa, sb, fL, fR, law, hopvec=None):
+        self.sa, self.sb = np.ascontiguousarray(sa, np.int32), np.ascontiguousarray(sb, np.int32)
+        self.fL, self.fR = np.ascontiguousarray(fL, np.int32), np.ascontiguousarray(fR, np.int32)
+        self.M = len(self.sa)
+        self.tau = tau_table(law)
+        self.tau_static = tau_table(S.static_law())
+        self.hopvec = None if hopvec is None else np.ascontiguousarray(hopvec, np.float64)
+        self.cfg = McCfg(self.M, ptr(self.sa), ptr(self.sb), ptr(self.fL), ptr(self.fR), ORDER[law.order], DTAB, QTAB,
+                         ptr(self.tau), None if self.hopvec is None else ptr(self.hopvec))
+        self.cfg_static = McCfg(self.M, ptr(self.sa), ptr(self.sb), ptr(self.fL), ptr(self.fR), 0, DTAB, QTAB,
+                                ptr(self.tau_static), None)
+        self.state = np.zeros(4, np.uint64)
+        self.disp = np.zeros(4, np.float64)
+        self.cnt = np.zeros(14, np.int64)
+
+    def seed(self, z):
+        lib.s1_seed(ptr(self.state), ctypes.c_uint64(z))
+
+    def run(self, x, off, q, attempts, static=False, stop_neutral=False):
+        cfg = self.cfg_static if static else self.cfg
+        return lib.s1_mc(ctypes.byref(cfg), ptr(x), ptr(off), ptr(q), attempts, ptr(self.state), 1 if stop_neutral else 0,
+                         ptr(self.disp), ptr(self.cnt))

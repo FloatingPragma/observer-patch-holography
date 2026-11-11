@@ -1,0 +1,94 @@
+{
+ "rates at theta = 2/9 (electron, muon, tau)": [
+  "6.03005590111e-5",
+  "0.01246836564",
+  "0.209693556023"
+ ],
+ "sum": "0.222222222222222",
+ "S: C4 mass kick of angle h per round (ratios of the phases per round)": {
+  "rate ratios": [
+   "206.770315973",
+   "3477.4728371"
+  ],
+  "rows": {
+   "1": {
+    "phase ratios (muon/electron, tau/electron)": [
+     "207.948806366",
+     "3800.51394733"
+    ],
+    "relative shift of tau/electron against the rate ratio": "0.0928954",
+    "relative shift of muon/electron against the rate ratio": "0.00569951",
+    "amplitude kept per round on the tau mode": "0.920671386798"
+   },
+   "pi/2": {
+    "phase ratios (muon/electron, tau/electron)": [
+     "209.357204625",
+     "4300.79332492"
+    ],
+    "relative shift of tau/electron against the rate ratio": "0.236758",
+    "relative shift of muon/electron against the rate ratio": "0.0125109",
+    "amplitude kept per round on the tau mode": "0.817652531843"
+   },
+   "1/10": {
+    "phase ratios (muon/electron, tau/electron)": [
+     "206.783027373",
+     "3480.60912326"
+    ],
+    "relative shift of tau/electron against the rate ratio": "0.000901887",
+    "relative shift of muon/electron against the rate ratio": "6.14759e-5",
+    "amplitude kept per round on the tau mode": "0.999171736426"
+   },
+   "1/1000": {
+    "phase ratios (muon/electron, tau/electron)": [
+     "206.770317245",
+     "3477.47315063"
+    ],
+    "relative shift of tau/electron against the rate ratio": "9.01595e-8",
+    "relative shift of muon/electron against the rate ratio": "6.15221e-9",
+    "amplitude kept per round on the tau mode": "0.999999917139"
+   }
+  },
+  "leading relative shift of a ratio": "(1 - cos h)(y_k - y_e): first order in h^2",
+  "dilute rounds of angle h at a small rate": "phase per round sin(h) y, loss per round (1 - cos h) y, loss over phase tan(h/2)",
+  "tan(1/2)": "0.5463024898"
+ },
+ "S: C3 both couplings with the angle h per tick": {
+  "theta": "h P",
+  "ratio of the two light rates minus one": "c theta + O(theta^2), c = 4 sqrt(3/2)/(1 - 1/sqrt2)",
+  "c": "16.7261622014",
+  "check at theta = 1e-6: (ratio - 1)/theta": "16.7263020845",
+  "ratio largest/smallest at theta = 0": "67.941125497"
+ },
+ "S: C6 onsite rule on the mass round": {
+  "exp(-i h X (x) P) = I + (cos h - 1) I (x) P - i sin(h) X (x) P": true,
+  "I - Re(exp(-i h X (x) P)) = (1 - cos h) I (x) P": true,
+  "reading": "counted by the onsite rule the mass round has the rates (1 - cos h) y_k per tick, F = 1 - cos h; on the weak-kick clock of the stack F = h"
+ },
+ "S: C5 finite-round terms": "The terms 35/(2187 N^2) and 7/(81 N) belong to the phase clock: N is the number of fresh reads of the pair within one tick (or the number of carriers in the read mean). The number of mass rounds per unit mass-clock time, 1/h, is a different number; it enters the bound 9 t^2/(4 N) of the mass round.",
+ "N: NOT BLIND": {
+  "E_cell in GeV (DC)": "9.55993e+18",
+  "sum of the measured masses in GeV": "1.8830994",
+  "F = sum m/(sum y E_cell)": "8.86402e-19",
+  "unit of rate of the mass clock in GeV": "8.47395",
+  "cell ticks per unit of mass-clock time, 1/F": "1.12816e+18",
+  "C1 one clock, one unit: m_tau = y_tau E_cell in GeV": "2.00466e+18",
+  "C1 over the measured tau mass": "1.12816e+18",
+  "C1 clock energy of the oriented current, (2/9) E_cell, in GeV": "2.12443e+18",
+  "C2 weak-kick angle per tick of the mass round, h = F": "8.86402e-19",
+  "C2 loss over phase, tan(h/2)": "4.43201e-19",
+  "C2 relative shift of tau/e from a kick of angle h = F": "7.08281e-38",
+  "C2 stack bound 9 t^2/(4 N) with N = t/h at t = 1/y_e (one radian on the electron)": "3.30744e-14",
+  "C3 both couplings h = F: theta": "1.96978e-19",
+  "C3 muon/electron - 1": "3.29469e-18",
+  "electroweak dictionary: (9/2) sum m in GeV": "8.4739472",
+  "C6 kick angle under the onsite rule, h = arccos(1 - F)": "1.331467e-9",
+  "C6 h E_cell in GeV": "1.27287e+10",
+  "look L1: colour pole of the source frame with census B (DC3), 1.066e-9 E*, in GeV": "1.30147e+10",
+  "look L1: ratio of h E_cell to that pole": "0.97803",
+  "look L1: mass-clock unit from the pole, pole^2/(2 E_cell), in GeV": "8.859",
+  "look L2: pole with the coupling of the cut-closure fixed point (DC2), E_cell exp(-2 pi 16.2735/5), in GeV": "1.25656e+10",
+  "look L2: ratio of h E_cell to that pole": "1.013",
+  "look L2: mass-clock unit from that pole in GeV": "8.2581",
+  "looks L1 and L2: 1/alpha at the cell that gives the measured unit, (5/(4 pi)) ln(1/(2 F))": "16.26324"
+ }
+}

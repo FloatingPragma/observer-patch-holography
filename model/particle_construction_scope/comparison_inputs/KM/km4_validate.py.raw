@@ -1,0 +1,86 @@
+"""Validation of km_lib against the simulation session's reference engine (work/SIM/lib/family_walk.py, read only)
+and against the published band numbers (work/SIM/bands/walk_spectrum.json), and the executed check that the family
+walk in a defect background has blank-record discriminant 1 - L/NA and the record law of item 1.
+
+Run locally from RER with PYTHONPATH=.:RL/work/SIM/lib:RL/work/KM  (light: a few CPU seconds).
+"""
+import json, sys
+import numpy as np
+import km_lib as K
+import family_walk as FW
+
+out = {}
+# 1. defect-free patches: identical matrices
+worst = 0.0
+for sector, gluing, rule in (('scalar', 'bridge', 'template'), ('spinor', 'bridge', 'template'), ('vector', 'bridge', 'template'),
+                             ('scalar', 'seam', 'template'), ('spinor', 'seam', 'ambient'), ('vector', 'seam', 'ambient')):
+    tpl = K.Template(sector, gluing, rule)
+    for n1, n2 in ((2, 2), (3, 2)):
+        a = K.Supercell(tpl, n1, n2).matrix().toarray()
+        b = FW.FlatPatch(n1, n2, sector, gluing, rule).laplacian()
+        worst = max(worst, abs(a - b).max())
+print('km_lib patch matrix against FlatPatch.laplacian, six sector/gluing cases, two sizes: max difference', worst)
+out['patch_matrix_difference'] = float(worst)
+# 2. flips in the spinor sector: FlatPatch(flips=...) against km_lib defects
+tpl = K.Template('spinor', 'bridge', 'template')
+flips = {60 * 0 + 7, 60 * 3 + 30 + 11}                       # seam 7 of the up carrier of cell 0, seam 11 of the down carrier of cell 3
+a = K.Supercell(tpl, 2, 2, defects=[((0, 0), 0, 7, -1.0), ((1, 1), 1, 11, -1.0)]).matrix().toarray()
+b = FW.FlatPatch(2, 2, 'spinor', 'bridge', 'template', flips=flips).laplacian()
+print('spinor sector with two flipped seams: max difference', abs(a - b).max())
+out['flip_matrix_difference'] = float(abs(a - b).max())
+# 3. published band numbers
+ws = json.load(open('WORKSPACE/repair-law/work/SIM/bands/walk_spectrum.json'))
+for g in ('bridge', 'seam'):
+    tpl = K.Template('scalar', g, 'template')
+    q = 0.01
+    lam = np.linalg.eigvalsh(tpl.cell_matrix((q, 0.0)))[0]
+    om = np.arccos(1 - lam / tpl.NA); v0 = om / q
+    D0 = lam / q ** 2
+    print(f'{g}: load curvature {D0:.6f}, speed {v0:.6f} edges per tick (published {ws[g]["massless_speed_edges_per_step"]:.6f})')
+    out[f'load_{g}'] = {'curvature': float(D0), 'speed': float(v0), 'published_speed': ws[g]['massless_speed_edges_per_step']}
+tpl = K.Template('spinor', 'bridge', 'template')
+lam = np.linalg.eigvalsh(tpl.cell_matrix((0.0, 0.0)))
+print('spinor sector, bridge: lowest levels', np.round(lam[:3], 6), 'rest phase', np.arccos(1 - lam[0] / 66), '(published 0.150570)')
+out['spinor_bridge_levels'] = lam[:3].tolist()
+# 4. isolated carrier with one flipped seam (reference 0.231362 of work/DIRAC/defect_phases.json)
+L = np.zeros((12, 12))
+for e, (a_, b_) in enumerate(K.E):
+    z = -1 if e == 0 else 1
+    L[a_, a_] += 1; L[b_, b_] += 1; L[a_, b_] -= z; L[b_, a_] -= z
+iso = np.linalg.eigvalsh(L)[0]
+print('isolated carrier, one flipped seam: lambda_min', iso, '(reference 0.231361631876)')
+out['isolated_carrier_flipped_seam'] = float(iso)
+# 5. executed family walk in a defect background (flat level with sign flips): discriminant and record law
+patch = FW.FlatPatch(3, 3, 'scalar', 'bridge', 'template')
+flip_index = {60 * 0 + 0, 60 * 4 + 30 + 0}
+patch.seams = [(a_, b_, (-z if s in flip_index else z), glue) for s, (a_, b_, z, glue) in enumerate(patch.seams)]   # instance attribute only
+walk = FW.FamilyWalk(patch)
+Dm = walk.discriminant()
+sc = K.Supercell(K.Template('scalar', 'bridge', 'template'), 3, 3, defects=[((0, 0), 0, 0, -1.0), ((1, 1), 1, 0, -1.0)])
+Lm = sc.matrix().toarray()
+err = abs(Dm - (np.eye(sc.P) - Lm / 66)).max()
+print('executed family walk with two flipped seams on a 3 x 3 patch: |A* Q A - (1 - L/66)| =', err)
+out['executed_discriminant_defect'] = float(err)
+w, U = np.linalg.eigh(Lm)
+# record-one probability after t ticks from the uniform state and from the lowest eigenvector, against the law of item 1
+res = {}
+for name, x in (('uniform', np.ones(sc.P) / np.sqrt(sc.P)), ('lowest eigenvector', U[:, 0])):
+    walk.psi[:] = 0
+    for p in range(sc.P):
+        walk.embed(p, x[p])
+    c = U.conj().T @ x; om = np.arccos(1 - w / 66)
+    worst = 0.0; series = []
+    for t in range(1, 401):
+        walk.step()
+        p_exec = float((abs(walk.psi[:, 1, :]) ** 2).sum())
+        p_law = float((abs(c) ** 2 * np.sin(t * om) ** 2 / (1 + np.cos(om))).sum())
+        worst = max(worst, abs(p_exec - p_law)); series.append(p_exec)
+    res[name] = {'max_defect_over_400_ticks': worst, 'p_1': series[0], 'p_2': series[1], 'max_p_t': max(series), 'argmax_t': int(np.argmax(series)) + 1}
+    print(f'{name}: executed record-one probability against sum_n w_n sin^2(t omega_n)/(1 + cos omega_n), 400 ticks: max defect {worst:.1e}; '
+          f'p_1 {series[0]:.9f}, p_2 {series[1]:.9f}, maximum {max(series):.6f} at t = {int(np.argmax(series)) + 1}')
+print('lowest level', w[0], 'p0 = lambda0/66 =', w[0] / 66, ' Born value 4 x 2 / (P x 66) =', 8 / (sc.P * 66), ' weight of the uniform state on the lowest level', abs(U[:, 0].sum()) ** 2 / sc.P,
+      ' pi/(2 omega0) =', np.pi / (2 * np.arccos(1 - w[0] / 66)))
+out['executed_record_law'] = res
+out['patch_3x3'] = {'lambda0': float(w[0]), 'p0': float(w[0] / 66), 'born': 8 / (sc.P * 66), 'uniform_weight_on_lowest': float(abs(U[:, 0].sum()) ** 2 / sc.P)}
+if len(sys.argv) > 1:
+    json.dump(out, open(sys.argv[1], 'w'), indent=1)

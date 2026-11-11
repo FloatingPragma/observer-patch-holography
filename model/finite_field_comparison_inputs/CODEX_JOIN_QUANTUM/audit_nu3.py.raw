@@ -1,0 +1,53 @@
+"""Separate actual source charge identities from the all-order mass claim."""
+import hashlib
+import json
+from pathlib import Path
+import sympy as s
+from model.coherent_defect_wave.chiral_joint.higgs_composites import model as car
+from model.coherent_defect_wave.chiral_joint.periodic_family.model import native_blocks
+from model.coherent_defect_wave.physical_attachment.chiral import representation
+from model.coherent_defect_wave.chiral_joint.family_cell.model import column
+
+raw = s.diag(*(1 if a%15 in (10,11) else -1 if a%15==9 else 0 for a in range(30)))
+charge = car.one_body(raw)
+parts,_ = car.quantum_yukawa()
+for name,part in parts.items():
+    assert car.commutator(charge,part)=={}
+for current in representation()[2]:
+    gauge=s.kronecker_product(s.eye(2),current)
+    assert raw*gauge==gauge*raw
+for block in native_blocks():
+    assert len({raw[a,a] for a in block})==1
+vacuum_image=column((0,0))
+variance=sum(value**2 for key,value in vacuum_image.items() if key!=(0,0))
+assert variance>0
+
+# A finite spin-half energy gap coexists with both symmetry facts used by NU3.
+mass=s.Symbol('m',positive=True)
+h=mass*s.diag(0,1,1)
+lepton=s.diag(0,1,1)
+rx=s.diag(s.ones(1),s.Matrix([[0,-s.I],[-s.I,0]]))
+rz=s.diag(1,-s.I,s.I)
+assert h*lepton==lepton*h and h*rx==rx*h and h*rz==rz*h
+assert h.extract((1,2),(1,2))==mass*s.eye(2)
+
+here=Path(__file__).resolve().parent
+report=here.parents[1]/'reports'/'NU3.md'
+result={'checked_report_sha256':hashlib.sha256(report.read_bytes()).hexdigest(),
+    'actual_raw_lepton_current':'L=N_L-N_ec, scalar charge zero',
+    'separate_native_Yukawa_charge_commutators':{name:'0' for name in parts},
+    'all_native_gauge_generators_commute':12,
+    'hopping_preserves_raw_L_by_complete_native_irrep_blocks':len(native_blocks()),
+    'raw_L_commutes_with_full_H_at_all_hopping_coefficients':True,
+    'bare_empty_local_state_H_variance':str(variance),
+    'bare_empty_local_state_stationary':False,
+    'charge_selection_rule':'charge-changing Majorana matrix elements vanish between states of fixed equal raw L',
+    'finite_counterexample':{'H':'diag(0,m,m), m>0','raw_L':'diag(0,1,1)',
+        'pi_rotations':'1 direct-sum (-i sigma_x), 1 direct-sum (-i sigma_z)',
+        'onsite_spin_flip':'0','ground_to_doublet_energy_gap':'m',
+        'implied_gaplessness_from_scalar_onsite_block_and_charge_conservation':False},
+    'scope':{'NU3_fifth_order_amplitudes_recomputed_here':False,
+        'NU3_mass_or_velocity_dictionary_admitted':False,
+        'relativistic_continuum_anomaly_matching_theorem_proved':False}}
+(here/'nu3_scope_results.json').write_text(json.dumps(result,indent=2,sort_keys=True)+'\n')
+print('PASS: actual conserved raw L, nonstationary bare vacuum, and finite counterexample to the mass inference')

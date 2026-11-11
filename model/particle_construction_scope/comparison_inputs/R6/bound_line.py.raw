@@ -1,0 +1,66 @@
+"""Item 3 of TASK_R6 on a line (configuration of the simulation session's run D): 256 cells, background rest angle
+theta0 = 0.171237, a cavity of n = 1..8 cells at angle 0. Exact bound-state phases from the one-body operator, then
+the phase recovered from sampled records.
+
+Exact:   (i) infinite line, tan(n E) sin E = sqrt(sin^2 theta0 - sin^2 E)   (transfer matrices; derivation in the R6 report)
+         (ii) ring of 256 cells: E = arccos(top eigenvalue of C), C = P0 U_s P0 the blank-return operator (Hermitian)
+Records: (1) clock register of T levels on a blank Gaussian packet at rest on the cavity; line fitted in the gap
+         (2) time of the first record write (record read after every tick of the symmetric frame): the hazard
+             decreases monotonically to sin^2 E_bound; estimator = writes / reads at reads >= 150
+Run: python bound_line.py [n ...]   (writes bound_line.json, bound_line_records.npz)"""
+import json, sys
+import numpy as np
+from scipy.optimize import brentq
+from r6lib import Field, Routing, dense, autocorr, qpe_probs, fit_line, sample, first_write, hazard_estimate
+
+TH0, L, X0, SEED, NREC, SIGMA = 0.171237, 256, 128, 20261110, 2000, 12.0
+OFFSETS, MMAX, M1, NRUN = (0.0, 0.5), 400, 150, 1000000
+ns = [int(a) for a in sys.argv[1:]] or list(range(1, 9))
+try:
+    out = json.load(open('bound_line.json')); store = dict(np.load('bound_line_records.npz'))
+except FileNotFoundError:
+    out, store = {'theta0': TH0, 'cells': L, 'rows': {}}, {}
+
+
+def infinite_line(n):
+    g = lambda E: np.tan(n * E) * np.sin(E) - np.sqrt(np.sin(TH0) ** 2 - np.sin(E) ** 2)
+    return brentq(g, 1e-9, min(TH0, np.pi / (2 * n)) - 1e-12, xtol=1e-15)
+
+
+for n in ns:
+    theta = np.full((L, 1, 1), TH0); theta[X0:X0 + n] = 0.0; xc = X0 + (n - 1) / 2
+    f = Field((L, 1, 1), theta); fd = Field((L, 1, 1), theta, direct=True)
+    C = dense(f.C, (L, 1, 1), inner=(2,)); herm = float(np.abs(C - C.conj().T).max())
+    ev, vec = np.linalg.eigh((C + C.conj().T) / 2); E = np.arccos(np.clip(ev[::-1], -1, 1))
+    chi = vec[:, -1].reshape(L, 1, 1, 2)
+    row = {'cavity_cells': n, 'E_infinite_line': infinite_line(n), 'E_ring_256': float(E[0]), 'kramers_partner': float(E[1]),
+           'next_levels_ring': [float(e) for e in E[2:7:2]], 'C_hermitian_defect': herm,
+           'eigen_residual': float(np.abs(f.C(chi) - ev[-1] * chi).max()),
+           'weight_in_cavity': float(np.sum(np.abs(chi[X0:X0 + n]) ** 2)),
+           'record_write_probability_of_bound_profile_minus_sin2E': float(Routing.record_probability(f.sym(f.blank(chi))) - np.sin(E[0]) ** 2)}
+    # (1) clock register, read with offsets 0 and 1/2
+    T = 16384 if n == 1 else 4096
+    psi0 = f.gaussian((xc, 0, 0), SIGMA)
+    c = autocorr(lambda q: fd.tick(q), psi0, T); P, info = qpe_probs(c, OFFSETS)
+    seed = SEED + 100 + n; h = sample(P, NREC, seed); store[f'clock_n{n}'] = h; store[f'clock_exactP_n{n}'] = P
+    rng_ = [0.03, TH0 - 2 * (2 * np.pi / T)]
+    fit = fit_line(h, T, rng_[0], rng_[1], halfwidth=10, limit=True)
+    inf = fit_line(P * 1e9, T, rng_[0], rng_[1], halfwidth=10)                     # the estimator applied to the exact distribution
+    row['clock'] = {'T': T, 'offsets': OFFSETS, 'phase_at_infinite_records': inf['phase'], 'systematic_vs_ring': inf['phase'] - float(E[0]), 'records': NREC, 'seed': seed, 'packet_sigma': SIGMA, 'search_range_phase': rng_, **info, **fit,
+                    'pull_vs_ring': (fit['phase'] - E[0]) / fit['se'], 'exact_probability_in_window': float(P[fit['window_index'][0]:fit['window_index'][1] + 1].sum())}
+    # (2) time of the first record write (symmetric frame; record read after every tick)
+    chi0 = f.gaussian((xc, 0, 0), SIGMA)[..., 0, :]
+    Pw, surv = first_write(f, chi0, MMAX); hw = sample(Pw, NRUN, seed + 1000); store[f'first_write_n{n}'] = hw
+    Eb, se, hz, reads = hazard_estimate(hw, M1)
+    hz_exact = (surv[M1 - 1] - surv[MMAX]) / surv[M1 - 1:MMAX].sum()
+    row['first_write'] = {'runs': NRUN, 'seed': seed + 1000, 'max_reads': MMAX, 'window_from_read': M1, 'reads_in_window': reads, 'hazard': hz,
+                          'E_estimate': Eb, 'se': se, 'E_of_exact_window_hazard': float(np.arcsin(np.sqrt(hz_exact))),
+                          'exact_first_hazard_as_phase': float(np.arcsin(np.sqrt(1 - surv[1]))), 'exact_last_hazard_as_phase': float(np.arcsin(np.sqrt(1 - surv[MMAX] / surv[MMAX - 1]))),
+                          'runs_never_written': int(hw[-1]), 'pull_vs_ring': (Eb - E[0]) / se}
+    out['rows'][str(n)] = row
+    r = row; cl = r['clock']; fw = r['first_write']
+    print(f"n={n} E_inf={r['E_infinite_line']:.6f} E_ring={r['E_ring_256']:.6f} next={r['next_levels_ring'][0]:.6f} | clock T={cl['T']} est={cl['phase']:.6f}+-{cl['se']:.6f} pull={cl['pull_vs_ring']:.2f} syst={cl['systematic_vs_ring']:.1e} "
+          f"w={cl['weight']:.3f} gamma95<{cl['gamma_upper_95']:.2e} | first write est={fw['E_estimate']:.5f}+-{fw['se']:.5f} (exact window {fw['E_of_exact_window_hazard']:.5f}, first {fw['exact_first_hazard_as_phase']:.5f}, last {fw['exact_last_hazard_as_phase']:.5f})")
+
+np.savez_compressed('bound_line_records.npz', **store)
+json.dump(out, open('bound_line.json', 'w'), indent=1)

@@ -1,0 +1,45 @@
+{
+ "one_quantum_states": {
+  "a_1^dag|0>": {
+   "six_Y": 3.0,
+   "two_T3": 1.0
+  },
+  "a_2^dag|0>": {
+   "six_Y": 3.0,
+   "two_T3": -1.0
+  },
+  "b_1^dag|0>": {
+   "six_Y": -3.0,
+   "two_T3": -1.0
+  },
+  "b_2^dag|0>": {
+   "six_Y": -3.0,
+   "two_T3": 1.0
+  }
+ },
+ "B_dag_B_on_the_vacuum": {
+  "k=1": {
+   "defect": 0.0,
+   "six_Y_of_the_pair": 0.0,
+   "pair_content": "one +3 quantum and one -3 quantum"
+  },
+  "k=2": {
+   "defect": 0.0,
+   "six_Y_of_the_pair": 0.0,
+   "pair_content": "one +3 quantum and one -3 quantum"
+  }
+ },
+ "canonical_pairs": {
+  "count": 2,
+  "defect": 2.220446049250313e-16,
+  "statement": "[Phi_k, Pi_l] = i delta_kl, [Phi_k, Pi_l^dag] = 0, [Phi_k, Phi_k^dag] = 0: two complex canonical pairs"
+ },
+ "one_orientation_alone": {
+  "defects": {
+   "a": 4.440892098500626e-16,
+   "b_dag": 4.440892098500626e-16
+  },
+  "statement": "[a_k, a_k^dag] = 1 and [b_k^dag, b_k] = -1: neither lowering operator is normal, so neither has a common eigenvector with its adjoint (R8 result 3)"
+ },
+ "result": "LV confirmed: four oscillators, two complex canonical pairs, one-quantum charges (6Y, 2 T3) = (+-3, +-1), B^dag B creates a (+3, -3) pair; one complex doublet with indices (1/10, 1/6, 0). Slopes of the source as built: (81/10, 5/6, -3)."
+}

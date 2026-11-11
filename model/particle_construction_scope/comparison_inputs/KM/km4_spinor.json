@@ -1,0 +1,490 @@
+{
+ "carrier_spinor": {
+  "clean_levels": [
+   0.7467459582397976,
+   0.7467459582398002,
+   4.273457471994636,
+   4.2734574719946385,
+   4.273457471994639,
+   4.27345747199464,
+   6.902113032590299,
+   6.902113032590305,
+   6.902113032590306,
+   6.902113032590307,
+   6.902113032590308,
+   6.902113032590309
+  ],
+  "lowest_with_one_flipped_seam_over_30_seams": [
+   0.666534675
+  ],
+  "full_levels_flip_seam_0": [
+   0.6665346749479185,
+   1.201267881245078,
+   3.366896072291006,
+   4.273457471994638,
+   4.273457471994642,
+   4.928105082635116,
+   5.88888571558582,
+   6.902113032590303,
+   6.902113032590306,
+   6.902113032590307,
+   6.90211303259031,
+   7.792943498944549
+  ]
+ },
+ "carrier_vector": {
+  "clean_levels": [
+   1.381966011250104,
+   1.381966011250105,
+   1.3819660112501062,
+   5.381966011250104,
+   5.381966011250107,
+   5.3819660112501095,
+   5.38196601125011,
+   5.381966011250111,
+   7.236067977499786,
+   7.236067977499791,
+   7.236067977499791,
+   7.2360679774997925
+  ],
+  "lowest_with_one_flipped_seam_over_30_seams": [
+   1.162114607
+  ],
+  "full_levels_flip_seam_0": [
+   1.1621146074866753,
+   1.3819660112501069,
+   2.0440934366501766,
+   4.16282213557409,
+   5.3819660112501015,
+   5.381966011250104,
+   5.381966011250105,
+   6.063052741378839,
+   6.675063256939241,
+   7.236067977499787,
+   7.236067977499791,
+   7.89285382197099
+  ]
+ },
+ "rows": [
+  {
+   "sector": "spinor",
+   "gluing": "bridge",
+   "rule": "template",
+   "m": 1,
+   "N": 1,
+   "clean_bottom": 0.7467459582397964,
+   "E0": 0.666534674947917,
+   "levels_below_clean_bottom": 1,
+   "lowest_levels": [
+    0.666534674947917,
+    1.0150830399828465,
+    1.2012678812450786,
+    1.5720418343468225,
+    3.366896072291006,
+    3.870496857415768
+   ],
+   "weight_of_lowest_on_defect_carriers": 0.9999999999999991,
+   "lowest_band_min_max_over_zone": [
+    0.666534674947917,
+    0.8086836329294146
+   ],
+   "levels_at_clean_flat_value": 0,
+   "levels_at_clean_flat_value_without_defects": 2,
+   "p0": 0.01009901022648359,
+   "omega0": 0.14223961816530434,
+   "omega_clean": 0.15057046852654632
+  },
+  {
+   "sector": "spinor",
+   "gluing": "bridge",
+   "rule": "template",
+   "m": 2,
+   "N": 4,
+   "clean_bottom": 0.7467459582397964,
+   "E0": 0.7093817144112047,
+   "levels_below_clean_bottom": 2,
+   "lowest_levels": [
+    0.7093817144112047,
+    0.7190326253141972,
+    0.7467459582397976,
+    0.7821473947448577,
+    0.8120868004919857,
+    0.8282273713558175
+   ],
+   "weight_of_lowest_on_defect_carriers": 0.5420591682481763,
+   "lowest_band_min_max_over_zone": [
+    0.7093817144112047,
+    0.7135976913348904
+   ],
+   "levels_at_clean_flat_value": 1,
+   "levels_at_clean_flat_value_without_defects": 5,
+   "p0": 0.010748207794109161,
+   "omega0": 0.14674820044014064,
+   "omega_clean": 0.15057046852654632
+  },
+  {
+   "sector": "spinor",
+   "gluing": "bridge",
+   "rule": "template",
+   "m": 3,
+   "N": 9,
+   "clean_bottom": 0.7467459582397964,
+   "E0": 0.7139872821053537,
+   "levels_below_clean_bottom": 2,
+   "lowest_levels": [
+    0.7139872821053537,
+    0.7161801620896021,
+    0.7467459582397973,
+    0.7467459582397978,
+    0.7467459582398013,
+    0.746745958239802
+   ],
+   "weight_of_lowest_on_defect_carriers": 0.50854044754899,
+   "lowest_band_min_max_over_zone": [
+    0.7139872821053537,
+    0.7150709299590187
+   ],
+   "levels_at_clean_flat_value": 6,
+   "levels_at_clean_flat_value_without_defects": 10,
+   "p0": 0.010817989122808389,
+   "omega0": 0.14722466098740214,
+   "omega_clean": 0.15057046852654632
+  },
+  {
+   "sector": "spinor",
+   "gluing": "bridge",
+   "rule": "template",
+   "m": 4,
+   "N": 16,
+   "clean_bottom": 0.7467459582397964,
+   "E0": 0.7142575730869898,
+   "levels_below_clean_bottom": 2,
+   "lowest_levels": [
+    0.7142575730869898,
+    0.7163418425552234,
+    0.7467459582397916,
+    0.7467459582397961,
+    0.7467459582397963,
+    0.7467459582397971
+   ],
+   "weight_of_lowest_on_defect_carriers": 0.5052312459424135,
+   "lowest_band_min_max_over_zone": [
+    0.7142575730869898,
+    0.7153859951970883
+   ],
+   "levels_at_clean_flat_value": 13,
+   "levels_at_clean_flat_value_without_defects": 17,
+   "p0": 0.010822084440711966,
+   "omega0": 0.1472525758963347,
+   "omega_clean": 0.15057046852654632
+  },
+  {
+   "sector": "spinor",
+   "gluing": "bridge",
+   "rule": "template",
+   "m": 5,
+   "N": 25,
+   "clean_bottom": 0.7467459582397964,
+   "E0": 0.7152888507955019,
+   "levels_below_clean_bottom": 2,
+   "lowest_levels": [
+    0.7152888507955019,
+    0.7153253412594621,
+    0.7467459582397927,
+    0.7467459582397956,
+    0.7467459582397964,
+    0.7467459582397968
+   ],
+   "weight_of_lowest_on_defect_carriers": 0.5072549570417717,
+   "lowest_band_min_max_over_zone": [
+    0.7151752772077321,
+    0.7153057882450844
+   ],
+   "levels_at_clean_flat_value": 22,
+   "levels_at_clean_flat_value_without_defects": 26,
+   "p0": 0.010837709860537907,
+   "omega0": 0.14735903519365326,
+   "omega_clean": 0.15057046852654632
+  },
+  {
+   "sector": "spinor",
+   "gluing": "seam",
+   "rule": "ambient",
+   "m": 1,
+   "N": 1,
+   "clean_bottom": 0.7506568982434341,
+   "E0": 0.7451826470217966,
+   "levels_below_clean_bottom": 1,
+   "lowest_levels": [
+    0.7451826470217966,
+    0.8011151183965376,
+    1.219605742178655,
+    1.9472547063035746,
+    3.5938626795297752,
+    3.8778175415541285
+   ],
+   "weight_of_lowest_on_defect_carriers": 0.9999999999999994,
+   "lowest_band_min_max_over_zone": [
+    0.7451826470217966,
+    0.7998032765913098
+   ],
+   "levels_at_clean_flat_value": 0,
+   "levels_at_clean_flat_value_without_defects": 1,
+   "p0": 0.010349758986413842,
+   "omega0": 0.1439976481916044,
+   "omega_clean": 0.14452651641369405
+  },
+  {
+   "sector": "spinor",
+   "gluing": "seam",
+   "rule": "ambient",
+   "m": 2,
+   "N": 4,
+   "clean_bottom": 0.7506568982434341,
+   "E0": 0.7275257845944891,
+   "levels_below_clean_bottom": 1,
+   "lowest_levels": [
+    0.7275257845944891,
+    0.7798647612175242,
+    0.7937412735759973,
+    0.7951624441437813,
+    0.805917730720096,
+    0.8204549938795197
+   ],
+   "weight_of_lowest_on_defect_carriers": 0.6205305251870885,
+   "lowest_band_min_max_over_zone": [
+    0.7275257845944891,
+    0.7598676509249603
+   ],
+   "levels_at_clean_flat_value": 0,
+   "levels_at_clean_flat_value_without_defects": 1,
+   "p0": 0.010104524786034571,
+   "omega0": 0.1422785134287495,
+   "omega_clean": 0.14452651641369405
+  },
+  {
+   "sector": "spinor",
+   "gluing": "seam",
+   "rule": "ambient",
+   "m": 3,
+   "N": 9,
+   "clean_bottom": 0.7506568982434341,
+   "E0": 0.7357699033860953,
+   "levels_below_clean_bottom": 1,
+   "lowest_levels": [
+    0.7357699033860953,
+    0.765432612108045,
+    0.7826601049509674,
+    0.7841657496832298,
+    0.7844070375581599,
+    0.7844070375581633
+   ],
+   "weight_of_lowest_on_defect_carriers": 0.45747397166989245,
+   "lowest_band_min_max_over_zone": [
+    0.7357699033860953,
+    0.750881361183975
+   ],
+   "levels_at_clean_flat_value": 0,
+   "levels_at_clean_flat_value_without_defects": 1,
+   "p0": 0.01021902643591799,
+   "omega0": 0.14308374311374508,
+   "omega_clean": 0.14452651641369405
+  },
+  {
+   "sector": "spinor",
+   "gluing": "seam",
+   "rule": "ambient",
+   "m": 4,
+   "N": 16,
+   "clean_bottom": 0.7506568982434341,
+   "E0": 0.7387065216283187,
+   "levels_below_clean_bottom": 1,
+   "lowest_levels": [
+    0.7387065216283187,
+    0.7604391351985273,
+    0.773947185681605,
+    0.776714601431152,
+    0.7767146014311525,
+    0.7789947167635604
+   ],
+   "weight_of_lowest_on_defect_carriers": 0.38250554128338404,
+   "lowest_band_min_max_over_zone": [
+    0.7387065216283187,
+    0.751781816420024
+   ],
+   "levels_at_clean_flat_value": 0,
+   "levels_at_clean_flat_value_without_defects": 1,
+   "p0": 0.010259812800393316,
+   "omega0": 0.14336948711944716,
+   "omega_clean": 0.14452651641369405
+  },
+  {
+   "sector": "spinor",
+   "gluing": "seam",
+   "rule": "ambient",
+   "m": 5,
+   "N": 25,
+   "clean_bottom": 0.7506568982434341,
+   "E0": 0.741223443244186,
+   "levels_below_clean_bottom": 1,
+   "lowest_levels": [
+    0.741223443244186,
+    0.7567941537775492,
+    0.7679554715160334,
+    0.7722524715751606,
+    0.7722524715751634,
+    0.7737482484497096
+   ],
+   "weight_of_lowest_on_defect_carriers": 0.3344584716758114,
+   "lowest_band_min_max_over_zone": [
+    0.741223443244186,
+    0.7492380167595314
+   ],
+   "levels_at_clean_flat_value": 0,
+   "levels_at_clean_flat_value_without_defects": 1,
+   "p0": 0.01029477004505814,
+   "omega0": 0.14361394370225897,
+   "omega_clean": 0.14452651641369405
+  },
+  {
+   "sector": "vector",
+   "gluing": "bridge",
+   "rule": "template",
+   "m": 1,
+   "N": 1,
+   "clean_bottom": 1.3819660112501007,
+   "E0": 1.1621146074866724,
+   "levels_below_clean_bottom": 1,
+   "lowest_levels": [
+    1.1621146074866724,
+    1.3819660112501062,
+    1.4831551562688137,
+    1.778608332933169,
+    2.0440934366501735,
+    2.377748257583277
+   ],
+   "weight_of_lowest_on_defect_carriers": 0.9999999999999996,
+   "lowest_band_min_max_over_zone": [
+    1.1621146074866724,
+    1.2563748599285556
+   ],
+   "levels_at_clean_flat_value": 1,
+   "levels_at_clean_flat_value_without_defects": 3,
+   "p0": 0.0176077970831314,
+   "omega0": 0.18793463495568757,
+   "omega_clean": 0.2049993293496836
+  },
+  {
+   "sector": "vector",
+   "gluing": "bridge",
+   "rule": "template",
+   "m": 2,
+   "N": 4,
+   "clean_bottom": 1.3819660112501007,
+   "E0": 1.2475655614556296,
+   "levels_below_clean_bottom": 2,
+   "lowest_levels": [
+    1.2475655614556296,
+    1.2481554922044558,
+    1.381966011250101,
+    1.3819660112501038,
+    1.3819660112501049,
+    1.3819660112501053
+   ],
+   "weight_of_lowest_on_defect_carriers": 0.7453641627226817,
+   "lowest_band_min_max_over_zone": [
+    1.2465420685800355,
+    1.2477244153040956
+   ],
+   "levels_at_clean_flat_value": 8,
+   "levels_at_clean_flat_value_without_defects": 12,
+   "p0": 0.01890250850690348,
+   "omega0": 0.19474270884217137,
+   "omega_clean": 0.2049993293496836
+  },
+  {
+   "sector": "vector",
+   "gluing": "bridge",
+   "rule": "template",
+   "m": 3,
+   "N": 9,
+   "clean_bottom": 1.3819660112501007,
+   "E0": 1.2478554110102476,
+   "levels_below_clean_bottom": 2,
+   "lowest_levels": [
+    1.2478554110102476,
+    1.2478650147497878,
+    1.3819660112501,
+    1.3819660112501,
+    1.3819660112501024,
+    1.3819660112501033
+   ],
+   "weight_of_lowest_on_defect_carriers": 0.7449388501672474,
+   "lowest_band_min_max_over_zone": [
+    1.2477401268218506,
+    1.2478554110102476
+   ],
+   "levels_at_clean_flat_value": 23,
+   "levels_at_clean_flat_value_without_defects": 27,
+   "p0": 0.018906900166821932,
+   "omega0": 0.19476540179834798,
+   "omega_clean": 0.2049993293496836
+  },
+  {
+   "sector": "vector",
+   "gluing": "bridge",
+   "rule": "template",
+   "m": 4,
+   "N": 16,
+   "clean_bottom": 1.3819660112501007,
+   "E0": 1.2478386023907397,
+   "levels_below_clean_bottom": 2,
+   "lowest_levels": [
+    1.2478386023907397,
+    1.2478819378402404,
+    1.3819660112500982,
+    1.3819660112500993,
+    1.3819660112500993,
+    1.3819660112501004
+   ],
+   "weight_of_lowest_on_defect_carriers": 0.7449656675376355,
+   "lowest_band_min_max_over_zone": [
+    1.2478386023907397,
+    1.247857638746946
+   ],
+   "levels_at_clean_flat_value": 44,
+   "levels_at_clean_flat_value_without_defects": 48,
+   "p0": 0.018906645490768783,
+   "omega0": 0.1947640858860336,
+   "omega_clean": 0.2049993293496836
+  },
+  {
+   "sector": "vector",
+   "gluing": "bridge",
+   "rule": "template",
+   "m": 5,
+   "N": 25,
+   "clean_bottom": 1.3819660112501007,
+   "E0": 1.2478599683842964,
+   "levels_below_clean_bottom": 2,
+   "lowest_levels": [
+    1.2478599683842964,
+    1.247860561837898,
+    1.3819660112500969,
+    1.3819660112500969,
+    1.381966011250097,
+    1.3819660112500995
+   ],
+   "weight_of_lowest_on_defect_carriers": 0.7450598469851768,
+   "lowest_band_min_max_over_zone": [
+    1.2478599237140797,
+    1.2478601728240972
+   ],
+   "levels_at_clean_flat_value": 71,
+   "levels_at_clean_flat_value_without_defects": 75,
+   "p0": 0.018906969217943884,
+   "omega0": 0.19476575858429354,
+   "omega_clean": 0.2049993293496836
+  }
+ ]
+}

@@ -1,0 +1,150 @@
+"""Item 3: a source reason for a second Higgs doublet (tests TE, TF; censuses A3H, B2H, BHH of CANDIDATES.md).
+
+Run:
+    PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python higgs_doublets.py [out.json]
+
+TE  Classes k = Q6 mod 6 whose patterns have both degree parities; under a class-based flux grading g(k) the
+    composite statistics is g(k) + n mod 2, so such a class holds a fermion multiplet and a boson multiplet for every
+    choice of g(k). Content of class 3.
+TF  Five-level Fock space with Jordan-Wigner level operators. (a) A Hermitian operator linear in the doublet level
+    operators, O = sum_k (u_k a_k^dag + w_k a_k) + h.c., depends on (u, w) only through u_k + conj(w_k): real rank 4,
+    one complex doublet. (b) The three-body forms a_k^dag (1 - N_2) and a_k^dag N_2 (N_2 = doublet occupation) are
+    independent: real rank 8, two complex doublets, both of hypercharge +1/2 as operators; the first raises n2 from 0
+    to 1, the second from 1 to 2.
+Censuses A3H, B2H, BHH: exact slopes and the closure of the declared chain (float chain of d10_float.py; a closure is
+confirmed with the copied producer).
+"""
+import json
+import sys
+from fractions import Fraction as F
+from pathlib import Path
+
+import numpy as np
+
+from d10_float import Chain, readout
+
+HERE = Path(__file__).parent
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / 'higgs_doublets.json'
+
+# ---------------------------------------------------------------- TE
+classes = {}
+for m in range(32):
+    n3 = bin(m & 0b00111).count('1')
+    n2 = bin(m & 0b11000).count('1')
+    k = (3 * n2 - 2 * n3) % 6
+    classes.setdefault(k, set()).add((n3, n2, (n3 + n2) % 2))
+both = sorted(k for k, s in classes.items() if len({p for _, _, p in s}) == 2)
+assert both == [0, 3]
+cls3 = sorted(classes[3])
+assert cls3 == [(0, 1, 1), (3, 1, 0)]          # (1,2)_{+1/2} at degree 1, (1,2)_{-1/2} at degree 4
+te = {}
+for g in (0, 1):
+    stat = {f'(n3,n2)=({a},{b}) Y={F(3 * b - 2 * a, 6)}': ('fermion' if (g + p) % 2 else 'boson') for a, b, p in cls3}
+    assert sorted(stat.values()) == ['boson', 'fermion']
+    te[f'g(3)={g}'] = stat
+
+# ---------------------------------------------------------------- TF
+N = 5
+
+
+def create(j):
+    op = np.zeros((32, 32))
+    for m in range(32):
+        if not (m >> j) & 1:
+            op[m | (1 << j), m] = (-1) ** bin(m & ((1 << j) - 1)).count('1')
+    return op
+
+
+AD = [create(j) for j in range(N)]
+AA = [a.T for a in AD]
+N2 = AD[3] @ AA[3] + AD[4] @ AA[4]
+Y = sum(c * AD[j] @ AA[j] for j, c in enumerate([-1 / 3] * 3 + [1 / 2] * 2))
+ONE = np.eye(32)
+
+
+def real_rank(ops):
+    """real rank of the real-linear map from real coefficient vectors to the Hermitian operators sum c_i ops_i"""
+    cols = [np.concatenate([o.real.ravel(), o.imag.ravel()]) for o in ops]
+    return int(np.linalg.matrix_rank(np.array(cols).T, tol=1e-9))
+
+
+def herm(o):
+    return o + o.conj().T
+
+
+lin = []
+for k in (3, 4):
+    for base in (AD[k], AA[k]):
+        lin += [herm(base), herm(1j * base)]       # Re and Im parts of u_k (on a^dag) and w_k (on a)
+rank_linear = real_rank(lin)
+three = []
+for k in (3, 4):
+    for base in (AD[k] @ (ONE - N2), AD[k] @ N2):
+        three += [herm(base), herm(1j * base)]
+rank_three = real_rank(three)
+assert rank_linear == 4 and rank_three == 8
+# hypercharge of the operators: [Y, O] = +1/2 O for both three-body doublets
+for k in (3, 4):
+    for base in (AD[k] @ (ONE - N2), AD[k] @ N2):
+        assert np.allclose(Y @ base - base @ Y, 0.5 * base)
+# transitions: a_k^dag (1 - N2) raises n2 0 -> 1 only, a_k^dag N2 raises 1 -> 2 only
+n2_of = np.array([bin(m & 0b11000).count('1') for m in range(32)])
+for k in (3, 4):
+    lo, hi = AD[k] @ (ONE - N2), AD[k] @ N2
+    assert all(n2_of[c] == 0 for r, c in zip(*np.nonzero(lo)))
+    assert all(n2_of[c] == 1 for r, c in zip(*np.nonzero(hi)))
+
+# ---------------------------------------------------------------- censuses
+SM3 = (F(41, 10), F(-19, 6), F(-7))
+H = (F(1, 10), F(1, 6), F(0))           # one complex doublet
+WD = (F(1, 5), F(1, 3), F(0))           # one Weyl doublet
+SF3 = (F(2), F(2), F(2))                # one complex scalar per Weyl multiplet, three copies
+
+
+def add(*vs, sign=None):
+    return tuple(sum(x) for x in zip(*vs))
+
+
+def sub(a, b):
+    return tuple(x - y for x, y in zip(a, b))
+
+
+censuses = {
+    'A3H': add(SM3, H, H),                                  # three doublets in all
+    'B2H': add(SM3, SF3, H),                                # B plus a second doublet
+    'BHH': add(sub(add(SM3, SF3), H), H, WD, H, WD),        # copies without separate H, plus two class-3 units
+}
+assert censuses['A3H'] == (F(43, 10), F(-17, 6), F(-7))
+assert censuses['B2H'] == (F(31, 5), F(-1), F(-5))
+assert censuses['BHH'] == (F(33, 5), F(-1, 3), F(-5))
+
+P0 = 1.6309720958588974
+results = {}
+for key, b in censuses.items():
+    ch = Chain(tuple(float(x) for x in b))
+    res = ch.closure()
+    entry = dict(b=[str(x) for x in b])
+    if res is None:
+        entry['closure'] = 'none in the producer windows'
+        wide = Chain(tuple(float(x) for x in b), lwin=400.0)
+        best = None
+        for i in range(300):
+            a = 0.004 + (0.3 - 0.004) * i / 299
+            d = wide.d10_at(a, P0)
+            if d.get('positive'):
+                r = d['pixel_residual']
+                best = r if best is None else max(best, r)
+        entry['widened_max_pixel_residual_at_P0'] = best
+        entry['required_heat_sum'] = P0 / 4
+    else:
+        alpha, d, p = res
+        entry['closure'] = readout(alpha, d, p)
+    results[key] = entry
+
+out = dict(TE=dict(classes_with_both_parities=both, class3_patterns=[list(x) for x in cls3], gradings=te),
+           TF=dict(real_rank_linear_doublet_operators=rank_linear, complex_doublets_linear=rank_linear // 4,
+                   real_rank_three_body=rank_three, complex_doublets_three_body=rank_three // 4,
+                   three_body_operator_hypercharge='+1/2 for both', transitions='a^dag(1-N2): n2 0->1; a^dag N2: n2 1->2'),
+           censuses=results)
+OUT.write_text(json.dumps(out, indent=1, default=str) + '\n')
+print(json.dumps(out, indent=1, default=str))

@@ -1,0 +1,210 @@
+"""T6, item 4: what the public programs and CF-1 do to the neutral singlet. Exact unless a number is tagged float.
+
+Reads (never writes): work/KD/kdlib.py (exact cover lifts over Q(sqrt5, i)), work/R1/cf1.py (table of option M1),
+the public checkout (model.common_source.slow_geometry, the audit packets field_identity_audit, mobile_flux,
+physical_attachment, chiral_particle_map/results.json).
+
+    cd RER && PYTHONPATH=.:RL/work/KD python RL/work/T6/t6_native.py [out.json]
+"""
+import importlib.util, itertools, json, os, sys
+from fractions import Fraction as F
+import sympy as sp
+import numpy as np
+
+RL = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+RER = os.getcwd()
+
+
+def load(name, path):
+    spec = importlib.util.spec_from_file_location(name, path)
+    mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
+    return mod
+
+
+kd = load('kdlib', os.path.join(RL, 'work', 'KD', 'kdlib.py'))
+cf1 = load('cf1', os.path.join(RL, 'work', 'R1', 'cf1.py'))
+out = {}
+
+# ------------------------------------------------------------------------------------------------------------
+# 1. the link alphabet on the five-level code has determinant one: the full pattern is a scalar of every link
+# ------------------------------------------------------------------------------------------------------------
+lifts, rots = kd.cover()
+ONE = kd.K(1)
+ok_det3 = ok_det2 = 0
+central = None
+for q, perm in lifts.items():
+    R = rots[q]; U = kd.spinor_lift(q)
+    d3 = kd.det3(R); d2 = U[0][0] * U[1][1] - U[0][1] * U[1][0]
+    ok_det3 += (d3 == ONE); ok_det2 += (d2 == ONE)
+    if perm == kd.IDP and not (q[0] == ONE):
+        central = (R, U)
+assert ok_det3 == 120 and ok_det2 == 120 and central is not None
+Rc, Uc = central
+assert all(Rc[i][j] == (ONE if i == j else kd.K(0)) for i in range(3) for j in range(3))
+assert Uc[0][0] == kd.K(-1) and Uc[1][1] == kd.K(-1) and Uc[0][1] == kd.K(0) and Uc[1][0] == kd.K(0)
+# exterior powers: a pattern with n3 vector and n2 spinor levels transforms as Lambda^n3(R) x Lambda^n2(U);
+# Lambda^3(R) = det R = 1, Lambda^2(U) = det U = 1, Lambda^0 = 1
+scalar_patterns = [occ for occ in itertools.product((0, 1), repeat=5) if sum(occ[:3]) in (0, 3) and sum(occ[3:]) in (0, 2)]
+out['link_alphabet'] = {
+    'cover_lifts': 120, 'det_of_the_triplet_block_is_one': ok_det3, 'det_of_the_doublet_block_is_one': ok_det2,
+    'central_element': 'diag(1, 1, 1, -1, -1), determinant one',
+    'patterns_that_are_scalars_of_every_cover_valued_link': [''.join(map(str, o)) for o in scalar_patterns],
+    'statement': 'Every link value of the public alphabet (the 120 cover lifts R + U and the central element) has determinant one on the '
+                 'triplet block and on the doublet block. The pattern 11111 is the top exterior power: it is a parallel section of every '
+                 'link field, flat or with flux. The same holds for 00000, 11100 and 00011.'}
+
+# ------------------------------------------------------------------------------------------------------------
+# 2. the twelve port responses are traceless: they annihilate 11111 and 00000
+# ------------------------------------------------------------------------------------------------------------
+V = kd.carrier()['V']
+tr_ok = 0
+for p in range(12):
+    outer, cr = kd.triplet_response(p)
+    n2 = sum((V[p][i] * V[p][i] for i in range(3)), kd.K(0))
+    t_outer = sum((outer[i][i] for i in range(3)), kd.K(0))
+    t_cr = sum((cr[i][i] for i in range(3)), kd.K(0))
+    dq = kd.doublet_response(p); t_dq = dq[0][0] + dq[1][1]
+    # P_p = (1 - v v^T/|v|^2 + i [v]_x/|v|)/2 has trace (3 - 1)/2 = 1; Q_p = (1 + w.sigma/|w|)/2 has trace 1
+    tr_ok += (t_outer == n2 and t_cr == kd.K(0) and t_dq == kd.K(0))
+assert tr_ok == 12
+out['port_responses'] = {
+    'ports_checked': tr_ok, 'trace_of_P_p': '1', 'trace_of_Q_p': '1', 'trace_of_X_p = P_p/2 - Q_p/2': '0',
+    'statement': 'The second-quantised action of a one-level operator X on the full pattern 11111 is tr(X), on the empty pattern 0. '
+                 'All twelve port responses are traceless, so they act as zero on both: no public response sees the neutral singlet.'}
+
+# ------------------------------------------------------------------------------------------------------------
+# 3. the internal walk of the neutral singlet: the scalar walk; its sectors (the tower of CF-1 section 10)
+# ------------------------------------------------------------------------------------------------------------
+from model.common_source import slow_geometry
+seams = [tuple(int(v) for v in e) for e in slow_geometry.source().seams()]
+n = 12
+A = sp.zeros(n, n)
+for a, b in seams: A[a, b] = A[b, a] = 1
+x = sp.symbols('x')
+P = sp.eye(n) - (5 * sp.eye(n) - A) / 60
+Ps = sp.eye(n) - (5 * sp.eye(n) + A) / 60
+blank = sp.factor(P.charpoly(x).as_expr()); recorded = sp.factor(Ps.charpoly(x).as_expr())
+assert sp.expand(blank - (x - 1) * (x - sp.Rational(9, 10)) ** 5 * ((x - sp.Rational(11, 12)) ** 2 - sp.Rational(1, 720)) ** 3) == 0
+assert sp.expand(recorded - (x - sp.Rational(5, 6)) * (x - sp.Rational(14, 15)) ** 5 * ((x - sp.Rational(11, 12)) ** 2 - sp.Rational(1, 720)) ** 3) == 0
+assert (sp.eye(n) - P).nullspace().__len__() == 1                       # the uniform load state: kernel eigenvalue 1
+# one central link on one seam: a pattern sees the sign (-1)^(n2)
+ce = seams[0]
+Az = A.copy(); Az[ce[0], ce[1]] = Az[ce[1], ce[0]] = -1
+null_even = len((5 * sp.eye(n) - A).nullspace()); det_odd = (5 * sp.eye(n) - Az).det()
+assert null_even == 1 and det_odd > 0
+lam_min = float(min(np.linalg.eigvalsh(np.array((5 * sp.eye(n) - Az).tolist(), float))))
+angle_odd = float(np.arccos(1 - lam_min / 60))
+s5 = sp.sqrt(5)
+tower = [('uniform load, blank record', sp.Integer(1)), ('slow triplet', sp.Rational(11, 12) + s5 / 60), ('quintet, recorded', sp.Rational(14, 15)),
+         ('quintet, blank', sp.Rational(9, 10)), ('fast triplet', sp.Rational(11, 12) - s5 / 60), ('uniform load, recorded', sp.Rational(5, 6))]
+out['internal_walk'] = {
+    'walk_of_the_pattern_11111': 'the scalar public walk (coherent-seam-repair-v1 without fibre), for every link word',
+    'blank_record_kernel_characteristic_polynomial': str(blank), 'recorded_kernel_characteristic_polynomial': str(recorded),
+    'sectors': [{'sector': nm, 'kernel_eigenvalue': str(l), 'mass_angle_arccos': float(sp.acos(l))} for nm, l in tower],
+    'lowest_sector_of_the_neutral_singlet': {'sector': 'uniform load, blank record', 'kernel_eigenvalue': '1', 'correction_probability': '0', 'mass_angle': 0.0},
+    'one_central_link': {'seam': list(ce), 'patterns_with_even_n2 (N, N^c, e_R, ...)': {'constant_section_dimension': null_even, 'mass_angle': 0.0},
+                         'patterns_with_n2 = 1 (nu_L, e_L, ...)': {'det_of_5_minus_signed_adjacency': str(det_odd), 'lowest_level_float': lam_min,
+                                                               'mass_angle_float': angle_odd}},
+    'statement': 'In CF-1 a quantum carries the pattern as a label of the five-level fibre. For 11111 the fibre factor is the determinant, so its '
+                 'internal walk is the scalar walk in every link background; its lowest sector is the uniform load state with kernel eigenvalue 1, '
+                 'correction probability 0 and mass angle 0 (option M3). The nonzero angles are the load multiplets of the same walk: reached by '
+                 'preparation, not by a step.'}
+# option M1 over the 25 flux classes (class k = 1..5, separation d = 1..5); engine table of cf1.py
+Q6 = {'nu_L 11110': 3 * 1 - 2 * 3, 'N 11111': 3 * 2 - 2 * 3, 'N^c 00000': 0, 'nu_L^c 00001': 3}
+m1 = {}
+for nm, q in Q6.items():
+    vals = [cf1.m1_theta(q, k, d) for k in range(1, 6) for d in range(1, 6)]
+    m1[nm] = {'Q6': q, 'classes_with_nonzero_angle': int(sum(v != 0 for v in vals)), 'of': 25,
+              'range_of_nonzero_angles': [min([v for v in vals if v] or [0.0]), max(vals)]}
+assert m1['N 11111']['classes_with_nonzero_angle'] == 0 and m1['nu_L 11110']['classes_with_nonzero_angle'] == 15
+out['option_M1_flux_classes'] = m1
+
+# ------------------------------------------------------------------------------------------------------------
+# 4. the audit's native tick on the dark wedges of all 32 patterns (its own code, exact rationals)
+# ------------------------------------------------------------------------------------------------------------
+from model.coherent_defect_wave.field_identity_audit.model import dark_orbital, exterior_word, current_action, dark_code
+from model.coherent_defect_wave.mobile_flux.model import observer, STAR
+from model.coherent_defect_wave.model import SparseState
+from model.coherent_defect_wave.species.fock import FockState
+from model.coherent_defect_wave.physical_attachment.chiral import representation, yukawa_certificate
+
+source = observer()
+words = list(source.base.link_words)
+subs = [c for k in range(6) for c in itertools.combinations(range(5), k)]
+sign_ok = 0; total = 0; by_degree = {}
+for word in words:
+    images = {j: source.base.wave_step(dark_orbital(word, j)) for j in range(5)}
+    assert all(images[j] == SparseState({key: -v for key, v in dark_orbital(word, j).amplitudes}, 2) for j in range(5))
+    for subset in subs:
+        original = exterior_word(word, subset)
+        actual = source.controls(exterior_word(word, subset, images))
+        expect = original if len(subset) % 2 == 0 else FockState({key: -v for key, v in original.amplitudes}, original.norm_denominator)
+        total += 1; sign_ok += (actual == expect)
+        by_degree.setdefault(len(subset), set()).add(+1 if actual == original else -1)
+assert sign_ok == total == len(words) * 32
+assert all(by_degree[d] == {(-1) ** d} for d in range(6))
+# the twelve native currents and the degree on the full and the empty wedge
+subsets15, g5, currents, vertices = representation()
+full = dark_code(1, (0, 1, 2, 3, 4)); vacuum = FockState({(1, ()): 1, (1 ^ STAR, ()): 1}, 2)
+cur_full = [current_action(full, t).norm_squared() for t in g5]
+cur_vac = [current_action(vacuum, t).norm_squared() for t in g5]
+deg_full = current_action(full, sp.eye(5))
+assert all(v == 0 for v in cur_full) and all(v == 0 for v in cur_vac)
+assert deg_full == FockState({key: 5 * v for key, v in full.amplitudes}, full.norm_denominator)
+assert current_action(vacuum, sp.eye(5)).norm_squared() == 0
+out['audit_native_tick'] = {
+    'link_words': len(words), 'wedges_checked': total, 'sign_of_the_native_tick_by_degree': {str(d): (-1) ** d for d in range(6)},
+    'full_wedge_11111': {'native_tick': -1, 'twelve_native_currents': 'zero', 'degree_current': 5},
+    'empty_wedge_00000': {'native_tick': +1, 'twelve_native_currents': 'zero', 'degree_current': 0},
+    'statement': 'In the audit\'s native module (dark orbitals on port 2) the joined tick acts on a wedge of degree n as (-1)^n: the wedge with '
+                 'all five levels occupied has eigenvalue -1 (phase pi per native tick, K = 1 - Re U = 2); the empty wedge has +1 (K = 0). '
+                 'The sign is the handedness of the chart (even = left). Both are annihilated by the twelve currents; the degree current '
+                 'gives 5 and 0. The audit keeps the even wedges of degree two and four and omits the empty one by a stated domain choice.'}
+
+# ------------------------------------------------------------------------------------------------------------
+# 5. the audit's fifteen states against the sixteen even patterns
+# ------------------------------------------------------------------------------------------------------------
+y = currents[-1]; t3 = currents[-2]
+even_nonempty = [c for c in subs if len(c) in (2, 4)]
+assert [tuple(c) for c in subsets15] == even_nonempty
+Y_mine = [F(3 * sum(1 for j in c if j >= 3) - 2 * sum(1 for j in c if j < 3), 6) for c in subsets15]
+T3_mine = [F((3 in c) - (4 in c), 2) for c in subsets15]
+assert [F(str(v)) for v in y.diagonal()] == Y_mine and [F(str(v)) for v in t3.diagonal()] == T3_mine
+cert = yukawa_certificate()
+pm = json.load(open(os.path.join(RER, 'model', 'coherent_defect_wave', 'chiral_particle_map', 'results.json')))
+
+
+def find(o, key):
+    if isinstance(o, dict):
+        if key in o: return o[key]
+        for v in o.values():
+            r = find(v, key)
+            if r is not None: return r
+    elif isinstance(o, list):
+        for v in o:
+            r = find(v, key)
+            if r is not None: return r
+    return None
+
+
+out['audit_fifteen_states'] = {
+    'basis': 'the even subsets of degree two and four of (0, 1, 2 | 3, 4) = (v1, v2, v3 | s1, s2): the same levels and charges as the chart',
+    'hypercharges_and_T3_equal_the_chart': True,
+    'massless_neutral_subset_of_the_audit': cert['massless_neutral_auxiliary_subset'],
+    'which_is_the_pattern': '11110 = nu_L',
+    'unbroken_invariant_Weyl_mass_dimension (audit)': cert['unbroken_hypercharge_invariant_Weyl_mass_dimension'],
+    'Higgs_channels (audit)': [r['channel'] for r in cert['allowed_channels']],
+    'chiral_particle_map_results_json': {'massless_left_Weyl_fields': find(pm, 'massless_left_Weyl_fields'),
+                                         'massive_neutrino_sector_present': find(pm, 'massive_neutrino_sector_present'),
+                                         'family_count': find(pm, 'family_count')},
+    'with_the_sixteenth_even_state_00000 (this worker, t6_terms.py)': {'invariant_Weyl_mass_dimension': 1, 'Higgs_channels': 4,
+                                                                      'the_new_ones': ['Dirac neutrino: 11110 with 00000 and the Higgs',
+                                                                                       'bare pairing of 00000 with itself']},
+    'statement': 'The audit\'s one neutral Weyl field is nu_L = 11110, massless because its module has no partner for it: the fifteen states are '
+                 'the even wedges without the empty one. The neutral singlet of the chart is that empty wedge in the left-handed labelling '
+                 '(00000), or its conjugate 11111. Adding it changes the audit\'s two counts from (0 invariant mass entries, 3 Higgs channels) to '
+                 '(1, 4).'}
+
+print(json.dumps(out, indent=1, default=str))
+if len(sys.argv) > 1:
+    json.dump(out, open(sys.argv[1], 'w'), indent=1, default=str)

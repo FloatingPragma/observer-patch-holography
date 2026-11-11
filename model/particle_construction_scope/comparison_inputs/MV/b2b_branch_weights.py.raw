@@ -1,0 +1,33 @@
+"""Block 2, supplement: which uniform section states sit in which low branch near q = 0, and flat-branch counts.
+
+For a spin state psi (in the template frame, the same in the up and the down carrier) the uniform section state is
+s(c, p) = <chi_p|psi>. Printed: its weight in every low branch at small q, for psi the eigenstates of the spin
+component along the control axis (m_c), per gluing and type.
+"""
+import json
+import numpy as np
+import mv_lib as M
+
+out = {}
+for gluing, rule in (('bridge', 'template'), ('seam', 'template')):
+    S = M.register_size(gluing)
+    for name in ('spinor', 'vector', 'spinor_g'):
+        t = M.TYPES[name]; j = t['j']; d = int(2 * j + 1)
+        chi = M.type_frames(name)
+        rho, n, ang = M.third_turn(t['axes'])
+        links = M.flat_links(name, gluing, rule)
+        rows = []
+        for mc in [j - i for i in range(d)]:
+            psi = M.axis_state(j, mc, n)
+            s = np.array([np.vdot(chi[p], psi) for p in range(12)]); s /= np.linalg.norm(s)
+            u = np.concatenate([s, s]) / np.sqrt(2)
+            for q in (0.0, 0.2, 0.6, 1.5):
+                wts = []
+                for th in (0.0, np.pi / 6, np.pi / 2):
+                    L, _, _ = M.kernel_L(q * np.array([np.cos(th), np.sin(th)]), links)
+                    w, V = np.linalg.eigh(L)
+                    wts.append(np.round(abs(V[:, :2 * d].conj().T @ u) ** 2, 4).tolist() + [round(float(1 - (abs(V[:, :2 * d].conj().T @ u) ** 2).sum()), 4)])
+                rows.append({'m_control': mc, 'q': q, 'levels': np.round(w[:2 * d], 6).tolist(), 'weights_low_branches_then_rest_by_direction': wts})
+                print(gluing, name, 'm_c', mc, 'q', q, 'levels', np.round(w[:2 * d], 5), 'weights', wts[0], wts[2], flush=True)
+        out[f'{gluing}|{name}'] = rows
+json.dump(out, open('b2b_branch_weights.json', 'w'), indent=1)

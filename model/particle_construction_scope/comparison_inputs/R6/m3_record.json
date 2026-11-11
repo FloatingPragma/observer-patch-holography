@@ -1,0 +1,50 @@
+{
+ "ports": 12,
+ "ordered_addresses": 60,
+ "kernel_eigenvalues": [
+  1.0,
+  0.953934466292,
+  0.9,
+  0.879398867042
+ ],
+ "rows": [
+  {
+   "sector": "slow triplet, blank record",
+   "multiplicity": 3,
+   "kernel_eigenvalue": 0.9539344662916631,
+   "omega_true": 0.3047084373702735,
+   "exact_P_record_written": 0.046065533708336846,
+   "defect_vs_1_minus_cos_omega": 3.469446951953614e-17,
+   "records": 52600,
+   "records_written": 2373,
+   "seed": 20262020,
+   "estimate": 0.3015208870218726,
+   "error_bar": 0.0030473487879540966,
+   "pull": -1.046007716937756,
+   "records_for_stated_error_formula": "p(1-p)/(sin^2(omega) eps^2 omega^2), p = 1 - cos(omega)",
+   "replicates": 400,
+   "mean_minus_true": 3.630888813932476e-05,
+   "rms_scatter": 0.002844020899215295
+  },
+  {
+   "sector": "quintet, blank record",
+   "multiplicity": 5,
+   "kernel_eigenvalue": 0.9,
+   "omega_true": 0.45102681179626236,
+   "exact_P_record_written": 0.10000000000000002,
+   "defect_vs_1_minus_cos_omega": 4.163336342344337e-17,
+   "records": 23300,
+   "records_written": 2330,
+   "seed": 20262021,
+   "estimate": 0.45102681179626236,
+   "error_bar": 0.004508857332317083,
+   "pull": 0.0,
+   "records_for_stated_error_formula": "p(1-p)/(sin^2(omega) eps^2 omega^2), p = 1 - cos(omega)",
+   "replicates": 400,
+   "mean_minus_true": 2.730469752076914e-05,
+   "rms_scatter": 0.0047673431058553335
+  }
+ ],
+ "tick_norm_defect": 0.0,
+ "Q_involution_defect": 1.3877787807814457e-17
+}

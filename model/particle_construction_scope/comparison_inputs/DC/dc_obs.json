@@ -1,0 +1,119 @@
+{
+ "inputs": {
+  "P_fwd": 1.6309720958588974,
+  "measured_values_read": "none"
+ },
+ "O_E1": {
+  "coefficient_ratio_coarse_over_fine": "b**(-2)",
+  "reads_per_pixel_fine_minus_coarse": "0",
+  "planck_dictionary_length_ratio": "b",
+  "pass": true
+ },
+ "O_E2": {
+  "SU2_argument": "d = n + 1 and C2 = n(n+2)/4 both increase strictly with n, so Cov_p(log d, C2) > 0 and d ellbar/dt = -Cov_p(log d, C2) < 0 for every t > 0 (EXACT)",
+  "SU2_strictly_decreasing_on_grid": true,
+  "SU3_strictly_decreasing_on_grid": true,
+  "grid": [
+   0.01,
+   50,
+   2000
+  ]
+ },
+ "O1_source_frame": {
+  "alpha_cell_inv": 16.245298035421587,
+  "v_over_Estar_D10_law_with_alpha_cell": 6.47778432511676e-12,
+  "census_B": {
+   "slopes": [
+    6.1,
+    -1.1666666666666667,
+    -5.0
+   ],
+   "F_at_cell_over_P4": 0.9999999999999999,
+   "F_strictly_decreasing_downward": true,
+   "roots_of_F_eq_P4_below_cell": 0,
+   "max_F_below_cell_over_P4": 0.9995674438424266,
+   "colour_pole_ln_Ecell_over_mu": 20.414443585382863,
+   "colour_pole_mu_over_Estar": 1.0663420472556229e-09
+  },
+  "SM": {
+   "slopes": [
+    4.1,
+    -3.1666666666666665,
+    -7.0
+   ],
+   "F_at_cell_over_P4": 0.9999999999999999,
+   "F_strictly_decreasing_downward": true,
+   "roots_of_F_eq_P4_below_cell": 0,
+   "max_F_below_cell_over_P4": 0.9995268684289097,
+   "colour_pole_ln_Ecell_over_mu": 14.581745418130618,
+   "colour_pole_mu_over_Estar": 3.639193624535609e-07
+  }
+ },
+ "O2_D10_mu_obs_mW": {
+  "P_star": 1.6309632283239348,
+  "alpha_U": 0.04109636247012029,
+  "mu_obs_over_Estar": 6.406812401964671e-18,
+  "F_at_mu_obs_over_P4": 1.0000000000000002,
+  "F_at_MU_over_P4": 2.140930286351526,
+  "F_at_cell_over_P4_no_running_above_MU": 2.140930286351526,
+  "F_increasing_upward_on_[mu_obs,M_U]": true,
+  "share_of_ln_range_mu_obs_to_cell_with_F_above_P4": 0.9995757038299251,
+  "outputs": {
+   "v_over_Estar": 1.968141357058704e-17,
+   "sin2w_mZ": 0.23072702221424507,
+   "alpha_em_inv_mZ": 128.40243482813418,
+   "alpha3_mZ": 0.11828047160228702,
+   "A": 137.08879325465946
+  }
+ },
+ "O3_D10_mu_obs_mZ": {
+  "P_star": 1.6309720958588974,
+  "alpha_U": 0.04112424744181668,
+  "mu_obs_over_Estar": 7.501767358163773e-18,
+  "F_at_mu_obs_over_P4": 1.0000000000000002,
+  "F_at_MU_over_P4": 2.1386998314678944,
+  "F_at_cell_over_P4_no_running_above_MU": 2.1386998314678944,
+  "F_increasing_upward_on_[mu_obs,M_U]": true,
+  "share_of_ln_range_mu_obs_to_cell_with_F_above_P4": 0.999576008593222,
+  "outputs": {
+   "v_over_Estar": 2.019811407857628e-17,
+   "sin2w_mZ": 0.23073517991130943,
+   "alpha_em_inv_mZ": 128.3082680579876,
+   "alpha3_mZ": 0.11833586195777325,
+   "A": 136.99483517741294
+  }
+ },
+ "O4_D10_with_census_B": {
+  "mW": {
+   "roots_alpha_U_at_P_fwd": [],
+   "roots_alpha_U_at_phi": []
+  },
+  "mZ": {
+   "roots_alpha_U_at_P_fwd": [],
+   "roots_alpha_U_at_phi": []
+  }
+ },
+ "O6_bound_at_cell": {
+  "alpha_cut_inv": 16.245298035421587,
+  "alpha_U_inv": 24.316554398103403,
+  "R": 5.957067830590499,
+  "b_above_min_for_bound_with_unified_running": 8.513114309033332,
+  "F_cell_over_P4_no_running_above_MU": 2.1386998314678944,
+  "SM_above_MU": {
+   "inv_alpha_at_cell": [
+    20.429357552657418,
+    27.318860904748675,
+    30.953231939108743
+   ],
+   "F_cell_over_P4": 2.858582512068109
+  },
+  "census_B_above_MU": {
+   "inv_alpha_at_cell": [
+    18.533163969513037,
+    25.422667321604294,
+    29.05703835596436
+   ],
+   "F_cell_over_P4": 2.624716961570648
+  }
+ }
+}

@@ -1,0 +1,645 @@
+{
+ "A_dispersion": {
+  "tag": "EXACT",
+  "laplacian_characteristic_polynomial": "x*(x - 6)**5*(x**2 - 10*x + 20)**3",
+  "onsite_energies_L_over_60": [
+   "0",
+   "1/12 - sqrt(5)/60",
+   "1/10",
+   "sqrt(5)/60 + 1/12"
+  ],
+  "multiplicities": [
+   1,
+   3,
+   5,
+   3
+  ],
+  "port_weights": [
+   "1/12",
+   "1/4",
+   "5/12",
+   "1/4"
+  ],
+  "ratios_of_positive_energies": [
+   1.0,
+   2.170820393249937,
+   2.618033988749895
+  ],
+  "ratio_closed_forms": [
+   "1",
+   "(3*sqrt(5) + 15)/10",
+   "(sqrt(5) + 5)**2/20 = golden ratio squared"
+  ],
+  "same_spectrum_read_as_CF1_M3_angles_arccos(1-E)": [
+   0.3047084373702733,
+   0.4510268117962624,
+   0.49619825950207297
+  ],
+  "ratios_of_M3_angles": [
+   1.0,
+   1.4801914108081853,
+   1.6284362316462753
+  ],
+  "square_roots_of_energy_ratios": [
+   1.0,
+   1.473370419565269,
+   1.618033988749895
+  ]
+ },
+ "B_mobile_flux": {
+  "tag": "face count EXACT (integers); tick MEASURED (float64, defects printed)",
+  "orbits": [
+   {
+    "orbit_representative": 0,
+    "flipped_faces": [],
+    "face_count": 0
+   },
+   {
+    "orbit_representative": 1,
+    "flipped_faces": [
+     [
+      0,
+      1,
+      5
+     ],
+     [
+      0,
+      1,
+      7
+     ]
+    ],
+    "face_count": 2,
+    "inside_region_of_port_5": [
+     true,
+     false
+    ],
+    "dual_distance": 1
+   },
+   {
+    "orbit_representative": 3,
+    "flipped_faces": [
+     [
+      0,
+      1,
+      7
+     ],
+     [
+      0,
+      5,
+      11
+     ]
+    ],
+    "face_count": 2,
+    "inside_region_of_port_5": [
+     false,
+     true
+    ],
+    "dual_distance": 2
+   },
+   {
+    "orbit_representative": 33,
+    "flipped_faces": [
+     [
+      0,
+      1,
+      7
+     ],
+     [
+      1,
+      5,
+      9
+     ]
+    ],
+    "face_count": 2,
+    "inside_region_of_port_5": [
+     false,
+     true
+    ],
+    "dual_distance": 2
+   },
+   {
+    "orbit_representative": 2097185,
+    "flipped_faces": [
+     [
+      0,
+      1,
+      7
+     ],
+     [
+      4,
+      5,
+      9
+     ]
+    ],
+    "face_count": 2,
+    "inside_region_of_port_5": [
+     false,
+     true
+    ],
+    "dual_distance": 3
+   },
+   {
+    "orbit_representative": 2359329,
+    "flipped_faces": [
+     [
+      0,
+      1,
+      7
+     ],
+     [
+      4,
+      5,
+      11
+     ]
+    ],
+    "face_count": 2,
+    "inside_region_of_port_5": [
+     false,
+     true
+    ],
+    "dual_distance": 3
+   }
+  ],
+  "dual_distances_of_the_five_pairs": [
+   1,
+   2,
+   2,
+   3,
+   3
+  ],
+  "rest_frequency": {
+   "a=0.261799": {
+    "eigenphases_over_a": [
+     -2.0,
+     -2.0,
+     2.0,
+     2.0
+    ],
+    "defect_from_2": 0.0
+   },
+   "a=0.100000": {
+    "eigenphases_over_a": [
+     -2.0,
+     -2.0,
+     2.0,
+     2.0
+    ],
+    "defect_from_2": 0.0
+   },
+   "a=0.010000": {
+    "eigenphases_over_a": [
+     -2.0,
+     -2.0,
+     2.0,
+     2.0
+    ],
+    "defect_from_2": 0.0
+   }
+  },
+  "window": [
+   {
+    "a": 0.05,
+    "window": "|p_i| <= 1",
+    "one_tick_operator_error_within_a^2_C(p)": true,
+    "largest_frequency_error_ordered_tick": 0.06450681641523648,
+    "largest_frequency_error_alternating_order": 0.0032426515884078633
+   },
+   {
+    "a": 0.01,
+    "window": "|p_i| <= 1",
+    "one_tick_operator_error_within_a^2_C(p)": true,
+    "largest_frequency_error_ordered_tick": 0.01175193859804713,
+    "largest_frequency_error_alternating_order": 0.00011893360699266609
+   }
+  ],
+  "inertial_mass": {
+   "a=0.261799": {
+    "rest_frequency": 2.0,
+    "inertial_mass_p^2/(2(w-2))": 2.2053157104350305,
+    "tan(2a)/a": 2.205315581687168,
+    "wilson_rest_energy": 2.0,
+    "wilson_kinetic_mass_p^2/(2(E-2))": 1.3126816827762853,
+    "2/(1+2a)": 1.312681548470413
+   },
+   "a=0.100000": {
+    "rest_frequency": 2.0,
+    "inertial_mass_p^2/(2(w-2))": 2.027100510146872,
+    "tan(2a)/a": 2.027100355086725,
+    "wilson_rest_energy": 2.0,
+    "wilson_kinetic_mass_p^2/(2(E-2))": 1.6666667952195842,
+    "2/(1+2a)": 1.6666666666666667
+   },
+   "a=0.010000": {
+    "rest_frequency": 2.0,
+    "inertial_mass_p^2/(2(w-2))": 2.000265481287506,
+    "tan(2a)/a": 2.0002667093402424,
+    "wilson_rest_energy": 2.0,
+    "wilson_kinetic_mass_p^2/(2(E-2))": 1.9607844349143466,
+    "2/(1+2a)": 1.9607843137254901
+   }
+  },
+  "zone_a=pi/12": {
+   "corners": [
+    {
+     "k_over_pi": [
+      0,
+      0,
+      0
+     ],
+     "defect_from_(-1)^n_exp(-2ia beta)": 0.0
+    },
+    {
+     "k_over_pi": [
+      0,
+      0,
+      1
+     ],
+     "defect_from_(-1)^n_exp(-2ia beta)": 1.2246467991473532e-16
+    },
+    {
+     "k_over_pi": [
+      0,
+      1,
+      0
+     ],
+     "defect_from_(-1)^n_exp(-2ia beta)": 1.2246467991473532e-16
+    },
+    {
+     "k_over_pi": [
+      0,
+      1,
+      1
+     ],
+     "defect_from_(-1)^n_exp(-2ia beta)": 1.2246467991473532e-16
+    },
+    {
+     "k_over_pi": [
+      1,
+      0,
+      0
+     ],
+     "defect_from_(-1)^n_exp(-2ia beta)": 1.2246467991473532e-16
+    },
+    {
+     "k_over_pi": [
+      1,
+      0,
+      1
+     ],
+     "defect_from_(-1)^n_exp(-2ia beta)": 1.2246467991473532e-16
+    },
+    {
+     "k_over_pi": [
+      1,
+      1,
+      0
+     ],
+     "defect_from_(-1)^n_exp(-2ia beta)": 1.7319121124709863e-16
+    },
+    {
+     "k_over_pi": [
+      1,
+      1,
+      1
+     ],
+     "defect_from_(-1)^n_exp(-2ia beta)": 1.7319121124709863e-16
+    }
+   ],
+   "half_way": [
+    {
+     "k_over_pi": [
+      0.5,
+      0.5,
+      0.5
+     ],
+     "involution_defect": 1.4998798865218466e-16,
+     "eigenphases": [
+      -0.0,
+      0.0,
+      3.14159265359,
+      3.14159265359
+     ],
+     "slope_of_the_zero_branch_per_axis": [
+      0.8660254034224072,
+      0.8660254034221245,
+      0.8660254034232752
+     ]
+    },
+    {
+     "k_over_pi": [
+      0.5,
+      0.5,
+      -0.5
+     ],
+     "involution_defect": 1.4998798865218466e-16,
+     "eigenphases": [
+      -0.0,
+      0.0,
+      3.14159265359,
+      3.14159265359
+     ],
+     "slope_of_the_zero_branch_per_axis": [
+      0.8660254034221299,
+      0.8660254034210193,
+      0.8660254034232402
+     ]
+    },
+    {
+     "k_over_pi": [
+      0.5,
+      -0.5,
+      0.5
+     ],
+     "involution_defect": 1.4998798865218466e-16,
+     "eigenphases": [
+      -3.14159265359,
+      -0.0,
+      0.0,
+      3.14159265359
+     ],
+     "slope_of_the_zero_branch_per_axis": [
+      0.866025403422685,
+      0.8660254034210196,
+      0.8660254034231286
+     ]
+    },
+    {
+     "k_over_pi": [
+      0.5,
+      -0.5,
+      -0.5
+     ],
+     "involution_defect": 1.4998798865218466e-16,
+     "eigenphases": [
+      -3.14159265359,
+      -0.0,
+      0.0,
+      3.14159265359
+     ],
+     "slope_of_the_zero_branch_per_axis": [
+      0.8660254034221299,
+      0.8660254034199091,
+      0.8660254034240583
+     ]
+    },
+    {
+     "k_over_pi": [
+      -0.5,
+      0.5,
+      0.5
+     ],
+     "involution_defect": 1.4998798865218466e-16,
+     "eigenphases": [
+      -3.14159265359,
+      -0.0,
+      0.0,
+      3.14159265359
+     ],
+     "slope_of_the_zero_branch_per_axis": [
+      0.8660254034232402,
+      0.8660254034221295,
+      0.8660254034231286
+     ]
+    },
+    {
+     "k_over_pi": [
+      -0.5,
+      0.5,
+      -0.5
+     ],
+     "involution_defect": 1.4998798865218466e-16,
+     "eigenphases": [
+      -3.14159265359,
+      -0.0,
+      0.0,
+      3.14159265359
+     ],
+     "slope_of_the_zero_branch_per_axis": [
+      0.8660254034232397,
+      0.8660254034226847,
+      0.8660254034240581
+     ]
+    },
+    {
+     "k_over_pi": [
+      -0.5,
+      -0.5,
+      0.5
+     ],
+     "involution_defect": 1.4998798865218466e-16,
+     "eigenphases": [
+      -0.0,
+      0.0,
+      3.14159265359,
+      3.14159265359
+     ],
+     "slope_of_the_zero_branch_per_axis": [
+      0.8660254034243504,
+      0.8660254034232348,
+      0.8660254034232752
+     ]
+    },
+    {
+     "k_over_pi": [
+      -0.5,
+      -0.5,
+      -0.5
+     ],
+     "involution_defect": 1.4998798865218466e-16,
+     "eigenphases": [
+      -0.0,
+      0.0,
+      3.14159265359,
+      3.14159265359
+     ],
+     "slope_of_the_zero_branch_per_axis": [
+      0.8660254034237952,
+      0.8660254034210196,
+      0.8660254034232402
+     ]
+    }
+   ]
+  },
+  "half_way_points_are_involutions_for_the_mass_coin": true,
+  "cos(2a)_at_a=pi/12": 0.8660254037844387
+ },
+ "C_chiral_higgs": {
+  "tag": "EXACT (integers, sympy) for the multiplicities, the kernel, the sector polynomial, the cyclic identity; MEASURED for the full spectrum",
+  "WdaggerW_minimal_polynomial_divides_prod_k=0..6": true,
+  "WdaggerW_multiplicities_0..6": [
+   6,
+   20,
+   22,
+   8,
+   2,
+   4,
+   2
+  ],
+  "full_spectrum_against_lambda_pm_(1 +- sqrt(1+4r))/2_defect": 3.6637359812630166e-15,
+  "ground_energy": -2,
+  "ground_multiplicity_exact_kernel_of_H+2": 2,
+  "gap": 0.2087121525220772,
+  "(5-sqrt21)/2": 0.20871215252208009,
+  "H_commutes_with_lepton_number_hypercharge_isospin": true,
+  "sector_dimension": 5,
+  "sector_characteristic_polynomial": "(E - 1)**3*(E**2 - E - 4)",
+  "sector_ground": -1.5615528128088303,
+  "empty_state_(H-1/2)^2=17/4_exact": true,
+  "conversion_at_t=pi/sqrt17": {
+   "probabilities": [
+    0.23529411764705876,
+    0.23529411764705876,
+    0.23529411764705876,
+    0.23529411764705876,
+    0.058823529411764636
+   ],
+   "expected": [
+    0.23529411764705882,
+    0.23529411764705882,
+    0.23529411764705882,
+    0.23529411764705882,
+    0.058823529411764705
+   ],
+   "empty_state_probability": 0.058823529411764636
+  }
+ },
+ "D_chiral_dictionary": {
+  "tag": "EXACT (integers) for the tensors, pairs and charges; MEASURED for the Nambu spectrum",
+  "fifteen_even_patterns_hypercharges": {
+   "-2/3": 3,
+   "-1/2": 2,
+   "1/6": 6,
+   "1/3": 3,
+   "1": 1
+  },
+  "tensor_identities_checked": 72,
+  "largest_residual": 0.0,
+  "pairs_of_the_neutral_background": {
+   "up": [
+    [
+     "{v1,v2}",
+     "{v3,s1}"
+    ],
+    [
+     "{v1,v3}",
+     "{v2,s1}"
+    ],
+    [
+     "{v2,v3}",
+     "{v1,s1}"
+    ]
+   ],
+   "down": [
+    [
+     "{v1,s2}",
+     "{v2,v3,s1,s2}"
+    ],
+    [
+     "{v2,s2}",
+     "{v1,v3,s1,s2}"
+    ],
+    [
+     "{v3,s2}",
+     "{v1,v2,s1,s2}"
+    ]
+   ],
+   "charged lepton": [
+    [
+     "{v1,v2,v3,s2}",
+     "{s1,s2}"
+    ]
+   ]
+  },
+  "each_pair_is_pattern_and_complement_of_its_toggle": true,
+  "unpaired": [
+   "{v1,v2,v3,s1}"
+  ],
+  "partner_of_the_unpaired_under_the_toggle": "the empty pattern (absent from the fifteen)",
+  "electric_charges_of_the_paired_fields": {
+   "up": [
+    "2/3"
+   ],
+   "down": [
+    "-1/3"
+   ],
+   "charged lepton": [
+    "-1"
+   ]
+  },
+  "weak_generators_act_on_exactly_one_member_of_each_pair": true,
+  "MdaggerM_multiplicities_(value: count)_for_y=(1,2,3)": {
+   "0": 1,
+   "1": 6,
+   "4": 6,
+   "9": 2
+  },
+  "nambu_hermiticity_defect": 0.0,
+  "nambu_square_defect": 3.559197668115873e-15,
+  "nambu_spectrum_defect_against_sqrt(p^2+m^2)_with_multiplicities_12_12_4_2": 6.661338147750939e-15,
+  "count": "7 pairs x 4 components + 1 x 2 = 30"
+ },
+ "E_chiral_regulator": {
+  "tag": "MEASURED (float64, defects printed); closed forms in the comments",
+  "closed_form_of_P_xy_defect": {
+   "N=2": 1.1102230246251565e-16,
+   "N=4": 1.1102230246251565e-16,
+   "N=6": 7.773014470796782e-16
+  },
+  "P_(0,3)_at_N=6_L=2pi": [
+   0.0,
+   -0.5000000000000001
+  ],
+  "first_energy_sqrt3_pi_over_L_at_L=2pi": 0.8660254037844386,
+  "w_(3+sqrt3)/6": 0.7886751345948129,
+  "(3+sqrt3)/6": 0.7886751345948128,
+  "absolute_row_sum_a*sum|P_0r|": {
+   "8": 4.4058729683777464,
+   "32": 7.182470024760304,
+   "128": 9.955309714046347,
+   "512": 12.727914123482652,
+   "2048": 15.500503826178925
+  },
+  "row_sum_minus_2ln(N)": {
+   "8": 0.24698988501807495,
+   "32": 0.2509982191608513,
+   "128": 0.25124918620711334,
+   "512": 0.25126487340363646,
+   "2048": 0.25126585386012756
+  },
+  "tails_of_a_site_localized_mover_N=512": {
+   "t=0.5a": {
+    "norm": 0.9999999999999999,
+    "weight_beyond_1_cells_from_the_front": 0.18942798772500005,
+    "weight_beyond_4_cells_from_the_front": 0.05039207075474546,
+    "weight_beyond_16_cells_from_the_front": 0.012620314556957517,
+    "weight_beyond_64_cells_from_the_front": 0.0030017639924265873
+   },
+   "t=1.0a": {
+    "norm": 1.0,
+    "weight_beyond_1_cells_from_the_front": 1.263513653497389e-28,
+    "weight_beyond_4_cells_from_the_front": 1.2633989967188056e-28,
+    "weight_beyond_16_cells_from_the_front": 1.2632180017797869e-28,
+    "weight_beyond_64_cells_from_the_front": 1.2428136513492126e-28
+   },
+   "t=4.5a": {
+    "norm": 1.0,
+    "weight_beyond_1_cells_from_the_front": 0.18942798772500005,
+    "weight_beyond_4_cells_from_the_front": 0.05039207075474545,
+    "weight_beyond_16_cells_from_the_front": 0.012620314556957508,
+    "weight_beyond_64_cells_from_the_front": 0.003001763992426579
+   }
+  },
+  "2/(pi^2 R)_for_R=1,4,16,64": [
+   0.20264236728467555,
+   0.05066059182116889,
+   0.012665147955292222,
+   0.0031662869888230555
+  ]
+ },
+ "F_physical_attachment": {
+  "tag": "MEASURED (float64)",
+  "rotation_of_the_alpha_matrices_defect": 2.220446049250313e-16,
+  "squared_Hilbert_Schmidt_residual_at_p=(pi/2,pi/3,0)": 11.999999999999998,
+  "audit_value": 12
+ }
+}

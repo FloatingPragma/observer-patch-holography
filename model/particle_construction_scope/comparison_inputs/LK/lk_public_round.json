@@ -1,0 +1,49 @@
+{
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "model/coherent_seam_repair/program.py sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "model/coherent_seam_repair/common.py sha256": "b788b17ef298902067f6132d170ce8aff1d9ce8d5c5ec8b08e42809ef606348d",
+  "model/common_source/slow_geometry.py sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "program": "model/coherent_seam_repair/program.py, Observer(fibre=1)",
+ "R6 strong round on the public program": {
+  "operations used": [
+   "Observer.embedded_port",
+   "Observer.step",
+   "Observer.quarter_turn",
+   "Observer.inverse_step",
+   "Observer.embedded_return_amplitude",
+   "Observer.embedded_return_measurement"
+  ],
+  "inverse_step(step(prepared)) equals prepared": true,
+  "register addresses with record 1 and nonzero amplitude": 20,
+  "P(record 1) after one step": "1/12",
+  "quarter-turn records kept": 20,
+  "return amplitude": "11/12 + I/12",
+  "expected 1 - p + p exp(-i h j), h j = -pi/2": "11/12 + I/12",
+  "equal": true,
+  "norm squared of the yes branch": "61/72",
+  "norm squared of the no branch": "11/72",
+  "expected no weight 4 sin^2(pi/4) p (1 - p)": "11/72",
+  "phase of the return amplitude": 0.09065988720074511,
+  "arctan(p/(1 - p))": 0.09065988720074511
+ },
+ "R6 no branch": {
+  "weight at the prepared port with blank record (non-uniform address)": "5/72",
+  "weight at the neighbour ports with blank record": "1/12",
+  "weight with record 1": "0",
+  "total weight": "11/72",
+  "reading": "the complement has a blank record; the load sits at the prepared port with a non-uniform address or at a neighbour port; the public preparation embedded_port(port) restores the prepared state"
+ },
+ "A3 public event on one seam": {
+  "seam": [
+   0,
+   1
+  ],
+  "address (a,b): U = 1 - K^2 + K": true,
+  "address (b,a): U = 1 - K^2 - K": true,
+  "K^3 = K": true,
+  "statement": "on the two addresses of one seam the public event is Q = 1 - K^2 + sigma_z(o) K, K the exchange of |m,0> and |p,1>; the two orientations apply the exchange with opposite signs"
+ },
+ "seconds": 1.07
+}

@@ -1,0 +1,183 @@
+"""Worker LY: absorbing-chain engine for the committed register rule on one carrier (structure, no candidate value).
+
+A chain state is a tuple of 20 face classes. One tick draws one of the 60 proposals (seam, delta) uniformly and
+applies the twist iff the cost does not rise. Absorbing classes are the closed communicating classes of the allowed
+moves (single states with no allowed move in every case met here; the solver checks this).
+"""
+from __future__ import annotations
+
+from collections import deque
+from fractions import Fraction
+
+import numpy as np
+import scipy.sparse as sp
+import scipy.sparse.linalg as spla
+
+import ly_lib as L
+
+
+def allowed_fast(cfg, table):
+    """Allowed proposals (k, delta, new_cfg, rise) with the cost change computed on the two faces only."""
+    out = []
+    for k in range(L.NS):
+        p, m = L.PLUS[k], L.MINUS[k]
+        xp, xm = cfg[p], cfg[m]
+        base = table[xp] + table[xm]
+        for d in (1, 5):
+            yp, ym = (xp + d) % 6, (xm - d) % 6
+            r = table[yp] + table[ym] - base
+            if r <= 0:
+                y = list(cfg)
+                y[p], y[m] = yp, ym
+                out.append((k, d, tuple(y), r))
+    return out
+
+
+def rises(cfg, table):
+    out = []
+    for k in range(L.NS):
+        p, m = L.PLUS[k], L.MINUS[k]
+        xp, xm = cfg[p], cfg[m]
+        base = table[xp] + table[xm]
+        for d in (1, 5):
+            yp, ym = (xp + d) % 6, (xm - d) % 6
+            out.append((k, d, table[yp] + table[ym] - base))
+    return out
+
+
+def label_of(cfg):
+    """Label of an absorbing configuration: classes and pairwise dual separations."""
+    d = L.defects(cfg)
+    faces = sorted(d)
+    cls = tuple(sorted(d.values()))
+    if not faces:
+        return ('vacuum',)
+    if len(faces) == 1:
+        return (cls, 'single')
+    if len(faces) == 2:
+        return (cls, L.DIST[faces[0]][faces[1]])
+    seps = tuple(sorted(L.DIST[a][b] for i, a in enumerate(faces) for b in faces[i + 1:]))
+    return (cls, seps)
+
+
+def explore(starts, table, stop=None):
+    """All states reachable from the start states by allowed moves; returns (states list, moves dict).
+    stop: optional predicate; a state for which it holds is treated as absorbing (its moves are dropped)."""
+    index, order, moves = {}, [], {}
+    dq = deque()
+    for s in starts:
+        if s not in index:
+            index[s] = len(order)
+            order.append(s)
+            dq.append(s)
+    while dq:
+        x = dq.popleft()
+        mv = [] if (stop is not None and stop(x)) else allowed_fast(x, table)
+        moves[x] = mv
+        for _, _, y, _ in mv:
+            if y not in index:
+                index[y] = len(order)
+                order.append(y)
+                dq.append(y)
+    return order, index, moves
+
+
+def solve_absorption(starts, table=L.T0, want_time=True, stop=None):
+    """Absorption distribution over labels for each start state (float64) and the mean number of ticks."""
+    order, index, moves = explore(starts, table, stop)
+    transient = [x for x in order if moves[x]]
+    absorbing = [x for x in order if not moves[x]]
+    tidx = {x: i for i, x in enumerate(transient)}
+    labels = sorted(set(label_of(x) for x in absorbing), key=str)
+    lidx = {lab: j for j, lab in enumerate(labels)}
+    nt, nl = len(transient), len(labels)
+    rows, cols, vals = [], [], []
+    R = np.zeros((nt, nl))
+    hold = np.zeros(nt)
+    for x in transient:
+        i = tidx[x]
+        mv = moves[x]
+        w = 1.0 / len(mv)
+        hold[i] = 60.0 / len(mv)                       # expected ticks per jump
+        for _, _, y, _ in mv:
+            if y in tidx:
+                rows.append(i)
+                cols.append(tidx[y])
+                vals.append(w)
+            else:
+                R[i, lidx[label_of(y)]] += w
+    Q = sp.csc_matrix((vals, (rows, cols)), shape=(nt, nt))
+    A = (sp.identity(nt, format='csc') - Q).tocsc()
+    lu = spla.splu(A)
+    X = lu.solve(R)
+    resid = float(np.max(np.abs(A @ X - R))) if nt else 0.0
+    rowsum = X.sum(axis=1)
+    T = lu.solve(hold) if want_time else None
+    out = []
+    for s in starts:
+        if s in tidx:
+            i = tidx[s]
+            dist = {str(labels[j]): float(X[i, j]) for j in range(nl) if X[i, j] > 1e-15}
+            out.append({'dist': dist, 'sum': float(rowsum[i]), 'ticks': float(T[i]) if want_time else None})
+        else:
+            out.append({'dist': {str(label_of(s)): 1.0}, 'sum': 1.0, 'ticks': 0.0})
+    info = {'states': len(order), 'transient': nt, 'absorbing_states': len(absorbing), 'labels': [str(x) for x in labels],
+            'residual': resid, 'max_row_sum_deviation': float(np.max(np.abs(rowsum - 1.0))) if nt else 0.0,
+            'class_census_of_transient': census(transient), 'class_census_of_absorbing': census(absorbing)}
+    return out, info
+
+
+def census(states):
+    c = {}
+    for x in states:
+        key = str(L.classes(x))
+        c[key] = c.get(key, 0) + 1
+    return c
+
+
+def exact_small(starts, table=L.T0):
+    """Exact rational absorption probabilities by Gaussian elimination (small systems only)."""
+    order, index, moves = explore(starts, table)
+    transient = [x for x in order if moves[x]]
+    tidx = {x: i for i, x in enumerate(transient)}
+    absorbing = [x for x in order if not moves[x]]
+    labels = sorted(set(label_of(x) for x in absorbing), key=str)
+    lidx = {lab: j for j, lab in enumerate(labels)}
+    nt, nl = len(transient), len(labels)
+    A = [dict() for _ in range(nt)]
+    B = [[Fraction(0)] * (nl + 1) for _ in range(nt)]
+    for x in transient:
+        i = tidx[x]
+        mv = moves[x]
+        w = Fraction(1, len(mv))
+        A[i][i] = A[i].get(i, Fraction(0)) + 1
+        B[i][nl] = Fraction(60, len(mv))
+        for _, _, y, _ in mv:
+            if y in tidx:
+                j = tidx[y]
+                A[i][j] = A[i].get(j, Fraction(0)) - w
+            else:
+                B[i][lidx[label_of(y)]] += w
+    # sparse Gaussian elimination, natural order
+    for i in range(nt):
+        piv = A[i].get(i, Fraction(0))
+        if piv == 0:
+            raise ArithmeticError('zero pivot')
+        inv = 1 / piv
+        for j in list(A[i]):
+            A[i][j] *= inv
+        B[i] = [b * inv for b in B[i]]
+        for r in range(nt):
+            if r != i and i in A[r]:
+                f = A[r].pop(i)
+                for j, v in A[i].items():
+                    if j != i:
+                        A[r][j] = A[r].get(j, Fraction(0)) - f * v
+                        if A[r][j] == 0:
+                            del A[r][j]
+                B[r] = [br - f * bi for br, bi in zip(B[r], B[i])]
+    out = []
+    for s in starts:
+        i = tidx[s]
+        out.append({'dist': {str(labels[j]): B[i][j] for j in range(nl) if B[i][j] != 0}, 'ticks': B[i][nl]})
+    return out, {'transient': nt, 'labels': [str(x) for x in labels]}

@@ -1,0 +1,212 @@
+"""MG block 6b: ancestral chart transports on the recursive natural tower of wiring F.
+
+    python b8_ancestral.py         (box B, about two minutes)
+
+Tower labels (S3): children keep the parent's glue face, the central child's assignment is turned by a third of a
+turn; the label-retaining ancestry is a graph morphism. Ancestral transport with base level L0 and base rule g:
+carriers that descend from the same level-L0 cell share one chart (identity on labels); two glued carriers with
+different level-L0 ancestors P, P' are compared by the uniform rule g of level L0, T(P -> P').
+Reported for (L0, rule) in {(0, R1), (0, S), (1, R1), (1, R0), (1, R2), (2, R1)} at levels L0..4: holonomy group, vertices
+with curvature, port distance of the glued ports after transport, the joint group of (fine holonomy, holonomy of
+the ancestry image) per refinement step, the lowest eigenvalue of the polarization transfer, plaquette fluxes.
+For (0, R1) (trivial holonomy: one global chart) the frame files frames_L{0,1,2}_Fnat_flat.json are written.
+"""
+import collections
+import json
+import math
+import sys
+
+import numpy as np
+import scipy.sparse as sp
+import scipy.sparse.linalg as sla
+
+sys.dont_write_bytecode = True
+import s0_lib as S
+import mg_lib as M
+
+RT = np.stack(M.ROT_MATS)
+U12 = M.PORT_UNIT
+UNIT = 2 * math.pi / 20
+MAXL = 4
+out = {}
+
+
+def ancestral(L0, g, level):
+    """T at `level` pulled back from the uniform rule g at level L0 (tower labels)."""
+    mesh0 = S.build_mesh(L0); W0, base = M.wiring('Fnat', L0)
+    T = M.transports(mesh0, W0, base, g); mprev = mesh0
+    for lv in range(L0 + 1, level + 1):
+        mf = S.build_mesh(lv)
+        P = np.arange(mf.N) // 4
+        Tf = np.full((mf.N, 3), M.E60, dtype=np.int64)
+        for k in range(3):
+            Q = mf.nbr[:, k] // 4
+            dif = np.flatnonzero(P != Q)
+            kc = np.array([int(np.where(mprev.nbr[P[c]] == Q[c])[0][0]) for c in dif], dtype=np.int64)
+            Tf[dif, k] = T[P[dif], kc]
+        T, mprev = Tf, mf
+    return T
+
+
+def twisted_laplacian(mesh, W, T):
+    N = mesh.N; n = 12 * N
+    ia, ib = S.intra_seams(N)
+    A = sp.coo_matrix((np.ones(ia.size), (ia, ib)), shape=(n, n)); A = (A + A.T).tocsr()
+    c = np.repeat(np.arange(N), 3); k = np.tile(np.arange(3), N)
+    d = mesh.nbr[c, k]; k2 = mesh.nbk[c, k]
+    x = 12 * c + W[c, k]; y = 12 * d + W[d, k2]
+    Rm = RT[T[c, k]]                                              # (3N, 3, 3)
+    rows = (3 * y[:, None, None] + np.arange(3)[None, :, None]) + 0 * np.arange(3)[None, None, :]
+    cols = (3 * x[:, None, None] + np.arange(3)[None, None, :]) + 0 * np.arange(3)[None, :, None]
+    G = sp.coo_matrix((Rm.ravel(), (rows.ravel(), cols.ravel())), shape=(3 * n, 3 * n)).tocsr()
+    deg = np.asarray(A.sum(axis=1)).ravel() + np.bincount(x, minlength=n)
+    return (sp.kron(sp.diags(deg) - A, sp.identity(3), format='csr') - G).tocsc()
+
+
+def chi(n):
+    return M.spinor(n)
+
+
+def plaquette_fluxes(mesh, W, TL):
+    res = {5: collections.Counter(), 6: collections.Counter()}
+    for v, cl in S.vertex_cycles(mesh).items():
+        n = len(cl); z = 1.0 + 0j
+        ring = []
+        for j in range(n):
+            c, i = cl[j]; cp, ip = cl[(j - 1) % n]
+            ring.append((c, int(W[c, int(mesh.nbk[cp, (ip + 1) % 3])]), int(W[c, (i + 1) % 3]), (i + 1) % 3))
+        for j, (c, a, b, kout) in enumerate(ring):
+            z *= np.vdot(chi(U12[b]), chi(U12[a]))
+            a2 = ring[(j + 1) % n][1]
+            z *= np.vdot(chi(U12[a2]), M.B2[int(TL[c, kout])] @ chi(U12[b]))
+        res[n][round(float(np.angle(z) / UNIT), 6) + 0.0] += 1
+    return {str(n): {str(k): v for k, v in sorted(c.items())} for n, c in res.items()}
+
+
+cases = [(0, 'R1'), (0, 'S'), (1, 'R1'), (1, 'R0'), (1, 'R2'), (2, 'R1')]
+for L0, rname in cases:
+    g = M.E60 if rname == 'S' else M.crosswise_rule(M.TOP, int(rname[1]))
+    key = f'base_level_{L0}_rule_{rname}'
+    out[key] = {}
+    Tprev = None
+    for level in range(L0, MAXL + 1):
+        mesh = S.build_mesh(level)
+        W, base = M.wiring('Fnat', level)
+        T = ancestral(L0, g, level)
+        for k in range(3):
+            assert (T[mesh.nbr[:, k], mesh.nbk[:, k]] == M.INV[T[:, k]]).all()
+        hol = M.vertex_holonomies(mesh, T)
+        cls = {5: collections.Counter(), 6: collections.Counter()}
+        for v, (n, c0, H) in hol.items():
+            cls[n][M.CLASS_NAME[int(M.ANGLE[H])]] += 1
+        grp = M.holonomy_group(mesh, T)
+        dset = collections.Counter(int(M.DIST[M.ROT60[int(T[c, k])][int(W[c, k])], int(W[mesh.nbr[c, k], mesh.nbk[c, k]])]) for c in range(mesh.N) for k in range(3))
+        row = {'group_order': len(grp), 'group': M.GROUP_NAME.get(len(grp), str(len(grp))),
+               'vertex_holonomy': {str(n): dict(c) for n, c in cls.items()},
+               'vertices_with_curvature': int(sum(1 for v, (n, c0, H) in hol.items() if H != M.E60)), 'vertices': int(mesh.V),
+               'glued_port_distance_after_transport_counts': {str(k): v // 2 for k, v in sorted(dset.items())}}
+        # joint group with the ancestry image (step level-1 -> level)
+        if Tprev is not None:
+            mc = S.build_mesh(level - 1)
+            Timg = np.full((mesh.N, 3), M.E60, dtype=np.int64)
+            for c in range(mesh.N):
+                for k in range(3):
+                    d = int(mesh.nbr[c, k]); P, Qp = c // 4, d // 4
+                    if P != Qp:
+                        Timg[c, k] = Tprev[P, int(np.where(mc.nbr[P] == Qp)[0][0])]
+            row['fine_transport_equals_ancestry_image_on_every_seam'] = bool((Timg == T).all())
+        # spin lift (odd-order class) and plaquette fluxes of the helicity-keeping hop
+        TL, unsolved, raw = M.lift_transports(mesh, T)
+        row['lift_parity_obstruction'] = int(unsolved)
+        row['plaquette_flux_units'] = plaquette_fluxes(mesh, W, TL)
+        if level >= 2:
+            L = twisted_laplacian(mesh, W, T)
+            w = np.sort(sla.eigsh(L, k=6, sigma=-1e-4, which='LM', tol=1e-11, return_eigenvectors=False))
+            row['lowest_eigenvalues_polarization_transfer'] = [float(x) for x in w]
+            row['decay_rate_per_sweep'] = float(max(w[0], 0) / 2); row['carriers_times_lowest'] = float(mesh.N * w[0])
+        out[key][str(level)] = row
+        Tprev = T
+        print(key, 'level', level, row['group'], row['vertex_holonomy'], 'curved', row['vertices_with_curvature'], 'glued ports', row['glued_port_distance_after_transport_counts'],
+              'seamwise image', row.get('fine_transport_equals_ancestry_image_on_every_seam'), 'flux', row['plaquette_flux_units'],
+              'lowest', [round(x, 7) for x in row.get('lowest_eigenvalues_polarization_transfer', [])[:4]], 'N*lam', row.get('carriers_times_lowest'), flush=True)
+
+# ----------------------------------------------------------------------------- the global chart (base level 0, R1): frame files
+g = M.crosswise_rule(M.TOP, 1)
+CONV = {'port_labels': 'template labels of oph_defects.fedgeom / RL/work/S3/s0_lib.py; W in the labels of the recursive natural tower (s0_lib.natural_tower(level, (0, 11, 5), r))',
+        'global_label': 'global_label[c][p] is the port of the base icosahedron whose axis port p of carrier c has; every carrier is a parallel copy of the base icosahedron',
+        'spinor': 'chi+(n) = (cos(theta/2), exp(i phi) sin(theta/2)); complex numbers are [re, im]',
+        'z_rule': 'z of the hop from port p of c to port q of c\' = phase of <chi(u_G\')|chi(u_G)>, G and G\' the global labels of the two ports; G and G\' are adjacent ports on every glue seam',
+        'template_port_axes': [[round(float(x), 12) for x in r] for r in U12]}
+flat_summary = {}
+for level in range(0, 5):
+    mesh = S.build_mesh(level)
+    W, base = M.wiring('Fnat', level)
+    T = ancestral(0, g, level)
+    G, _, _ = M.tree_transport(mesh, T, 0)                 # transport from carrier 0; path independent (trivial holonomy)
+    assert len(M.holonomy_group(mesh, T)) == 1
+    # global label of port p of carrier c: the base-icosahedron port. Carrier 0 sits on base face (0, 11, 5) with TOP[j] at vertex j+1.
+    E0 = M.R3
+    glob = np.array([[M.ROT60[E0][M.ROT60[int(M.INV[G[c]])][p]] for p in range(12)] for c in range(mesh.N)])
+    seams = []
+    dist = collections.Counter()
+    for c in range(mesh.N):
+        for k in range(3):
+            d, k2 = int(mesh.nbr[c, k]), int(mesh.nbk[c, k])
+            if c > d:
+                continue
+            p, q = int(W[c, k]), int(W[d, k2])
+            gp, gq = int(glob[c, p]), int(glob[d, q])
+            dist[int(M.DIST[gp, gq])] += 1
+            keep = np.vdot(chi(U12[gq]), chi(U12[gp]))
+            seams.append({'cells': [c, d], 'ports': [p, q], 'global_labels': [gp, gq], 'keep': [round(float(keep.real), 12), round(float(keep.imag), 12)],
+                          'z_keep': [round(float((keep / abs(keep)).real), 12), round(float((keep / abs(keep)).imag), 12)]})
+    # level 0: the carrier's glue face lies on its cell
+    if level == 0:
+        for c in range(mesh.N):
+            for j in range(3):
+                assert int(glob[c, int(W[c, j])]) == int(mesh.tri[c, (j + 1) % 3])
+    flat_summary[str(level)] = {'glue_seams': len(seams), 'global_label_distance_of_glued_ports': {str(k): v for k, v in sorted(dist.items())}}
+    if level <= 2:
+        doc = {'wiring': 'F, recursive natural tower, global chart (ancestral transport from level 0 with rule R1)', 'level': level, 'conventions': CONV,
+               'W': W.tolist(), 'neighbour': mesh.nbr.tolist(), 'neighbour_edge_index': mesh.nbk.tolist(),
+               'global_label': glob.tolist(), 'port_axes_note': 'ambient axis of port p of carrier c = template_port_axes[global_label[c][p]]',
+               'glue_seams': seams, 'holonomy': 'trivial', 'angle_between_glued_axes_deg': M.DIST_ANGLE[1]}
+        json.dump(doc, open(f'frames_L{level}_Fnat_flat.json', 'w'))
+    print('global chart level', level, flat_summary[str(level)], flush=True)
+out['global_chart'] = flat_summary
+
+# ----------------------------------------------------------------------------- frame files of the level-1 ancestral rolling transport
+def cj(z):
+    return [round(float(np.real(z)), 12), round(float(np.imag(z)), 12)]
+
+
+for level in (1, 2):
+    mesh = S.build_mesh(level)
+    W, base = M.wiring('Fnat', level)
+    T = ancestral(1, g, level)
+    TL, unsolved, raw = M.lift_transports(mesh, T, even_at=lambda n, h: M.ORDER[h] == 5)       # short lift at the curved vertices
+    assert unsolved == 0
+    seams = []
+    for c in range(mesh.N):
+        for k in range(3):
+            d, k2 = int(mesh.nbr[c, k]), int(mesh.nbk[c, k])
+            if c > d:
+                continue
+            p, q = int(W[c, k]), int(W[d, k2]); t, tl = int(T[c, k]), int(TL[c, k])
+            v = M.B2[tl] @ chi(U12[p])
+            keep = np.vdot(chi(U12[q]), v); flip = np.vdot(chi(-U12[q]), v)
+            seams.append({'cells': [c, d], 'ports': [p, q], 'edge_index': [k, k2], 'transport_perm': list(M.ROT60[t]),
+                          'transport_rotation': [[round(float(x), 12) for x in r] for r in M.ROT_MATS[t]],
+                          'transport_su2': [[cj(x) for x in r] for r in M.B2[tl]],
+                          'angle_deg': M.DIST_ANGLE[int(M.DIST[M.ROT60[t][p], q])], 'keep': cj(keep), 'flip': cj(flip)})
+    hol = M.vertex_holonomies(mesh, TL, M.BMUL, M.ONE)
+    cls = collections.Counter(f'{len(S.vertex_cycles(mesh)[v])}-valent: {M.CLASS_NAME[int(M.ANGLE[H // 2])]}, lifted order {int(M.BORD[H])}' for v, (n, c0, H) in hol.items())
+    doc = {'wiring': 'F, recursive natural tower; ancestral rolling transport: carriers with the same level-1 ancestor share one chart, level-1 cells are compared by rule R1',
+           'level': level, 'conventions': dict(CONV, hop='amplitude of the hop from port p of the first carrier to port q of the second: keep = <chi+_q| U |chi+_p>, flip = <chi-_q| U |chi+_p>, U = transport_su2, chi the template spinors; the reverse hop uses the inverse',
+                                              su2='U(n, t) = cos(t/2) - i sin(t/2) n.sigma'),
+           'W': W.tolist(), 'neighbour': mesh.nbr.tolist(), 'neighbour_edge_index': mesh.nbk.tolist(), 'glue_seams': seams,
+           'vertex_holonomy': dict(cls), 'group_of_closed_paths': 'all 60 rotations'}
+    json.dump(doc, open(f'frames_L{level}_Fnat_roll1.json', 'w'))
+    print('frames level-1 ancestral rolling, level', level, dict(cls), flush=True)
+json.dump(out, open('b8_ancestral.json', 'w'), indent=1)
+print('written b8_ancestral.json')

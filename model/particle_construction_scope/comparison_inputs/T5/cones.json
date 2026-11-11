@@ -1,0 +1,592 @@
+{
+ "arithmetic": "float64 with printed defects; Clifford products at the cone points exact (entries 0, +-1, +-i)",
+ "cone_points": {
+  "points_in_units_of_pi_over_2": {
+   "0": [
+    0,
+    0,
+    0
+   ],
+   "1": [
+    0,
+    1,
+    1
+   ],
+   "2": [
+    1,
+    0,
+    1
+   ],
+   "3": [
+    1,
+    1,
+    0
+   ]
+  },
+  "forward_tick_at_the_cone_points": "1, i sigma_1, -i sigma_2, i sigma_3 (record untouched); axis 2 has the opposite sign",
+  "exact_match": true,
+  "reverse_tick_is_the_inverse_there": true,
+  "translation_characters (exp(i K.e_j), j = 1, 2, 3)": {
+   "0": [
+    "1",
+    "1",
+    "1"
+   ],
+   "1": [
+    "1",
+    "i",
+    "i"
+   ],
+   "2": [
+    "i",
+    "1",
+    "i"
+   ],
+   "3": [
+    "i",
+    "i",
+    "1"
+   ]
+  },
+  "on_site_mass_steps": {
+   "identity": "W2(K_a) = M A_a^-1 M A_a with A_a the forward tick at the cone point",
+   "step_invariant_under_the_ticks_group (M = m x 1 on the spin)": {
+    "max |W2(K_a) - M^2| over the four cones": 0.0,
+    "result": "the four cones have the same rest phases: four equal"
+   },
+   "step_that_keeps_only_the_half_turn_about_axis_2": {
+    "origin_equals_cone_2": 6.661338147750939e-16,
+    "cone_1_equals_cone_3": 1.942890293094024e-16,
+    "origin_differs_from_cone_1": 0.9500479866759736,
+    "result": "two and two"
+   },
+   "generic_on_site_step": {
+    "pairwise_differences": {
+     "0-1": 2.4069588266324944,
+     "0-2": 0.5890128670749166,
+     "0-3": 2.6984889209219487,
+     "1-2": 2.7951369063598115,
+     "1-3": 0.5116990799794632,
+     "2-3": 3.086667000649266
+    },
+    "result": "four different"
+   }
+  },
+  "handedness_sign_in_the_arrow_sector_plus": {
+   "0": 1,
+   "1": -1,
+   "2": 1,
+   "3": -1
+  },
+  "reading": "origin and the cone of axis 2 have one handedness, the cones of axes 1 and 3 the other: the copies are 2 + 2, not 1 + 3"
+ },
+ "kinds": {
+  "lattice": "cells with all coordinates of equal parity (one of the four independent lattices), 4^3 torus",
+  "kinds": "four on the even cells and four on the odd cells: which coordinate of floor(x/2) has the odd-one-out parity (0 = none); a Klein four-group",
+  "rest_space_of_a_parity_class = functions constant on kinds x coin (defect of W0 = 1)": [
+   1.1102230246251565e-16,
+   1.1102230246251565e-16
+  ],
+  "copies": "four per parity class, each with two spin states and two record states; the four cone waves are the four characters of the group of kinds",
+  "X = forward tick from even-kind states to odd-kind states": {
+   "unitary_defect": 8.881784197001252e-16,
+   "structure_defect of X = (1/2) sum_(c, c2) |c2><c| x 1_record x u_(c + c2)": 8.931900869229959e-35,
+   "u_g = (1 + i n_g . sigma)/2, the lift of a third of a turn about a body diagonal n_g": {
+    "0": {
+     "scalar_part": 0.4999999999999998,
+     "vector_part_times_2": [
+      -1.0,
+      1.0,
+      -1.0
+     ],
+     "unitary_defect": 8.881784197001252e-16,
+     "cube_plus_identity_defect": 1.3322676295501878e-15
+    },
+    "1": {
+     "scalar_part": 0.4999999999999998,
+     "vector_part_times_2": [
+      -1.0,
+      -1.0,
+      1.0
+     ],
+     "unitary_defect": 8.881784197001252e-16,
+     "cube_plus_identity_defect": 1.3322676295501878e-15
+    },
+    "2": {
+     "scalar_part": 0.4999999999999998,
+     "vector_part_times_2": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "unitary_defect": 8.881784197001252e-16,
+     "cube_plus_identity_defect": 1.3322676295501878e-15
+    },
+    "3": {
+     "scalar_part": 0.4999999999999998,
+     "vector_part_times_2": [
+      1.0,
+      -1.0,
+      -1.0
+     ],
+     "unitary_defect": 8.881784197001252e-16,
+     "cube_plus_identity_defect": 1.3322676295501878e-15
+    }
+   },
+   "pairwise_dot_products_of_the_four_axes n_g (each -1: four diagonals of one tetrahedron)": [
+    -1.0,
+    -1.0,
+    -1.0,
+    -1.0,
+    -1.0,
+    -1.0
+   ],
+   "squared_overlap_of_an_even_kind_with_an_odd_kind, Tr/2": 0.25
+  }
+ },
+ "ordered_sources": {
+  "exact_statement": "if the source angle is constant on each kind, the rest space of a parity class is invariant and the period on it is exp(-i Th_E Y/2) X^+ exp(-i Th_O Y) X exp(-i Th_E Y/2), Th_E and Th_O the diagonal matrices of the even and odd kind angles",
+  "even_cells_only": "levels per tick = half the angle of each kind, exactly; eigenstates = the kinds of even cells",
+  "odd_cells_only": "the same levels; eigenstates = the kinds of odd cells, each an equal mixture (1/4) of the four even kinds",
+  "cases": {
+   "A: ordered on the even cells": {
+    "even": [
+     0.16,
+     0.08,
+     0.04,
+     0.02
+    ],
+    "odd": [
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "levels_per_tick_full_period_4^3": [
+     0.01,
+     0.02,
+     0.04,
+     0.08
+    ],
+    "states_per_level": [
+     8,
+     8,
+     8,
+     8
+    ],
+    "levels_per_tick_8x8_model": [
+     0.01,
+     0.02,
+     0.04,
+     0.08
+    ],
+    "levels_per_tick_simulation_session_8^3": [
+     0.01,
+     0.02,
+     0.04,
+     0.08
+    ],
+    "lattice_leak": 0.0
+   },
+   "B: same order, kinds permuted cyclically": {
+    "even": [
+     0.02,
+     0.16,
+     0.08,
+     0.04
+    ],
+    "odd": [
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "levels_per_tick_full_period_4^3": [
+     0.01,
+     0.02,
+     0.04,
+     0.08
+    ],
+    "states_per_level": [
+     8,
+     8,
+     8,
+     8
+    ],
+    "levels_per_tick_8x8_model": [
+     0.01,
+     0.02,
+     0.04,
+     0.08
+    ],
+    "levels_per_tick_simulation_session_8^3": [
+     0.01,
+     0.02,
+     0.04,
+     0.08
+    ],
+    "lattice_leak": 0.0
+   },
+   "C: ordered on the odd cells": {
+    "even": [
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "odd": [
+     0.16,
+     0.08,
+     0.04,
+     0.02
+    ],
+    "levels_per_tick_full_period_4^3": [
+     0.01,
+     0.02,
+     0.04,
+     0.08
+    ],
+    "states_per_level": [
+     8,
+     8,
+     8,
+     8
+    ],
+    "levels_per_tick_8x8_model": [
+     0.01,
+     0.02,
+     0.04,
+     0.08
+    ],
+    "levels_per_tick_simulation_session_8^3": [
+     0.01,
+     0.02,
+     0.04,
+     0.08
+    ],
+    "lattice_leak": 0.0
+   },
+   "D: half of each strength on the even cells and half on the odd cells": {
+    "even": [
+     0.08,
+     0.04,
+     0.02,
+     0.01
+    ],
+    "odd": [
+     0.08,
+     0.04,
+     0.02,
+     0.01
+    ],
+    "levels_per_tick_full_period_4^3": [
+     0.017339,
+     0.023801,
+     0.042811,
+     0.066049
+    ],
+    "states_per_level": [
+     8,
+     8,
+     8,
+     8
+    ],
+    "levels_per_tick_8x8_model": [
+     0.017339,
+     0.023801,
+     0.042811,
+     0.066049
+    ],
+    "levels_per_tick_simulation_session_8^3": [
+     0.017339,
+     0.023801,
+     0.042811,
+     0.066049
+    ],
+    "lattice_leak": 0.0
+   },
+   "E: even cells as A, odd cells reversed": {
+    "even": [
+     0.08,
+     0.04,
+     0.02,
+     0.01
+    ],
+    "odd": [
+     0.01,
+     0.02,
+     0.04,
+     0.08
+    ],
+    "levels_per_tick_full_period_4^3": [
+     0.017339,
+     0.023801,
+     0.042811,
+     0.066049
+    ],
+    "states_per_level": [
+     8,
+     8,
+     8,
+     8
+    ],
+    "levels_per_tick_8x8_model": [
+     0.017339,
+     0.023801,
+     0.042811,
+     0.066049
+    ],
+    "levels_per_tick_simulation_session_8^3": [
+     0.017339,
+     0.023801,
+     0.042811,
+     0.066049
+    ],
+    "lattice_leak": 0.0
+   }
+  },
+  "mixing_against_case_A (rows: levels of A ascending; columns: levels of the case ascending)": {
+   "B: same order, kinds permuted cyclically": [
+    [
+     3.3758430665635207e-28,
+     1.0,
+     1.3745442286049535e-27,
+     1.1900402242392917e-28
+    ],
+    [
+     6.8158820745234e-29,
+     9.863887857493975e-28,
+     1.0000000000000004,
+     1.9898763985160105e-28
+    ],
+    [
+     4.7344080630687805e-29,
+     1.193441728283222e-28,
+     1.9594609425627789e-28,
+     1.0000000000000004
+    ],
+    [
+     1.0000000000000004,
+     2.989873294511478e-28,
+     6.246029234333453e-29,
+     4.9641784608907755e-29
+    ]
+   ],
+   "C: ordered on the odd cells": [
+    [
+     0.25000000000000155,
+     0.24999999999999625,
+     0.2500000000000012,
+     0.249999999999999
+    ],
+    [
+     0.25000000000000155,
+     0.25000000000000044,
+     0.250000000000003,
+     0.24999999999999922
+    ],
+    [
+     0.25000000000000194,
+     0.2499999999999984,
+     0.24999999999999956,
+     0.25000000000000006
+    ],
+    [
+     0.24999999999999706,
+     0.25000000000000144,
+     0.24999999999999883,
+     0.25000000000000094
+    ]
+   ],
+   "D: half of each strength on the even cells and half on the odd cells": [
+    [
+     0.6744128732066238,
+     0.1856867531563078,
+     0.06899287475827945,
+     0.07090749887878389
+    ],
+    [
+     0.16927540998194474,
+     0.6151961656915028,
+     0.13175615746424948,
+     0.0837722668623064
+    ],
+    [
+     0.1324006284716176,
+     0.15724055387696312,
+     0.6113726557167967,
+     0.09898616193462259
+    ],
+    [
+     0.02391108833981851,
+     0.04187652727522053,
+     0.18787831206067612,
+     0.7463340723242875
+    ]
+   ],
+   "E: even cells as A, odd cells reversed": [
+    [
+     0.6744128732066147,
+     0.1856867531563167,
+     0.0689928747582792,
+     0.07090749887878534
+    ],
+    [
+     0.16927540998194396,
+     0.6151961656915061,
+     0.13175615746424812,
+     0.08377226686230639
+    ],
+    [
+     0.13240062847161865,
+     0.15724055387696226,
+     0.6113726557167953,
+     0.0989861619346218
+    ],
+    [
+     0.02391108833981792,
+     0.04187652727521986,
+     0.18787831206067723,
+     0.746334072324287
+    ]
+   ]
+  },
+  "largest_difference_full_period_against_8x8_model": 0.0,
+  "largest_difference_against_the_simulation_session_levels (they round to 6 places)": 0.0,
+  "largest_difference_against_the_simulation_session_mixing": 3.297362383136715e-14,
+  "third_turn_invariant_source (even kinds 0.12, 0.05, 0.05, 0.05)": {
+   "levels_per_tick": [
+    0.025,
+    0.06
+   ],
+   "states_per_level": [
+    24,
+    8
+   ],
+   "reading": "one level for the kind of the centre cell and three equal levels for the kinds labelled by the axes"
+  }
+ },
+ "reversal_on_the_odd_cells": {
+  "half_turns": {
+   "half-turn about axis 1": {
+    "commutes_with_the_forward_and_reverse_ticks": 4.400527252257787e-19,
+    "kinds_of_even_cells": {
+     "0": [
+      0
+     ],
+     "1": [
+      1
+     ],
+     "2": [
+      2
+     ],
+     "3": [
+      3
+     ]
+    },
+    "kinds_of_odd_cells": {
+     "0": [
+      1
+     ],
+     "1": [
+      0
+     ],
+     "2": [
+      3
+     ],
+     "3": [
+      2
+     ]
+    }
+   },
+   "half-turn about axis 2": {
+    "commutes_with_the_forward_and_reverse_ticks": 1.118557158537869e-17,
+    "kinds_of_even_cells": {
+     "0": [
+      0
+     ],
+     "1": [
+      1
+     ],
+     "2": [
+      2
+     ],
+     "3": [
+      3
+     ]
+    },
+    "kinds_of_odd_cells": {
+     "0": [
+      2
+     ],
+     "1": [
+      3
+     ],
+     "2": [
+      0
+     ],
+     "3": [
+      1
+     ]
+    }
+   },
+   "half-turn about axis 3": {
+    "commutes_with_the_forward_and_reverse_ticks": 1.118557158537869e-17,
+    "kinds_of_even_cells": {
+     "0": [
+      0
+     ],
+     "1": [
+      1
+     ],
+     "2": [
+      2
+     ],
+     "3": [
+      3
+     ]
+    },
+    "kinds_of_odd_cells": {
+     "0": [
+      3
+     ],
+     "1": [
+      2
+     ],
+     "2": [
+      1
+     ],
+     "3": [
+      0
+     ]
+    }
+   }
+  },
+  "statement": "a half-turn of the frame about an axis through an even cell (spin part alpha_j alpha_k, an element of the tick's quaternion group) commutes with every sub-step, fixes each kind of even cell and translates the kinds of odd cells by the group element of its axis; about axis 3 this is the reversal 0<->3, 1<->2",
+  "G period(D) G^-1 = period(E), defect": 1.2696007439805257e-16,
+  "G period(A) G^-1 = period(A), defect": 7.51753141499583e-17,
+  "consequence": "cases D and E are images of each other under a symmetry that leaves the reference case A unchanged: same levels, same mixing. The three double transpositions of the odd kinds are all of this type."
+ },
+ "one_kind_lifted": {
+  "weight_on_the_four_cones (with their corner images)": {
+   "0": 0.25,
+   "1": 0.25,
+   "2": 0.25,
+   "3": 0.25
+  },
+  "arrow_expectation_X_record": 0.0,
+  "reading": "a state on one kind of cell is the equal-weight combination of the four cones (signs = a character of the group of kinds) and, as an eigenstate of Y_record, an equal mixture of the two arrow classes; a source on one kind lifts it alone (rank one, level = half the kind angle = four times the lattice average of a one-kind source) and leaves three copies at rest"
+ },
+ "classification": {
+  "copies": 4,
+  "uniform_source (invariant under all translations)": "four equal levels",
+  "on_site_step_invariant_under_the_ticks_group": "four equal levels (section 1)",
+  "source_ordered_on_the_kinds_of_one_parity": "four free levels (half the kind angles), eigenstates fixed = the kinds; in the cone basis the matrix a + b1 T1 + b2 T2 + b3 T3 of the Klein four-group of kinds (4 real parameters)",
+  "source_on_one_kind": "one level and three zeros (rank one)",
+  "sources_on_both_parities": "eight kind angles; four levels, each twofold (spin); eigenstates depend on the angles",
+  "ticks_group_with_centre_on_an_even_cell": "requires the odd-kind angles to be equal; the even-kind angles stay free: four free levels (half of even-kind angle plus common odd angle)",
+  "third_turn_about_a_diagonal_through_an_even_cell, imposed on the source": "kinds 1, 2, 3 equal: one level and three equal levels (the turn is not a symmetry of the alternating tick; the levels follow from the exact formula)",
+  "mixing_between_two_species": "both ordered on even kinds (or both on odd kinds): a permutation; one on even and one on odd kinds: every squared entry 1/4; otherwise fixed by the split of each source between the parities",
+  "what_is_declared": "the source pattern (which cells carry the mass angle, with which strength) is a preparation, not part of the tick"
+ }
+}

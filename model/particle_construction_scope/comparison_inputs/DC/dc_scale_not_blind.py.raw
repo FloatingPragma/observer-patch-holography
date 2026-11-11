@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+"""Worker DC, round 2: the single NOT BLIND comparison of rows R0 to R6, run after dc_scale.json was written.
+
+Measured values (read here only): v = (sqrt2 G_F)^(-1/2) with G_F = 1.1663788e-5 GeV^-2 (PDG); E* = 1.220890e19 GeV
+(CODATA 2022); sin^2 theta_W(m_Z) MSbar = 0.23122, alpha_em^-1(m_Z) MSbar = 127.951 (PDG); alpha^-1(0) =
+137.035999177 (CODATA 2022); m_W/m_Z = 80.369/91.1876 (PDG pole masses; the source value is the tree ratio).
+"""
+import json
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+src = json.loads((HERE / "dc_scale.json").read_text())["rows"]
+meas = {"v_over_Estar": (2 ** 0.5 * 1.1663788e-5) ** -0.5 / 1.220890e19, "sin2w_mZ": 0.23122,
+        "alpha_em_inv_mZ": 127.951, "A_T": 137.035999177, "mW_over_mZ_tree": 80.369 / 91.1876}
+out = {"label": "NOT BLIND", "measured": meas, "rows": {}}
+for r, e in src.items():
+    f = e["fixed_point"]
+    out["rows"][r] = {k: {"source": f[k], "ratio_source_over_measured": f[k] / m} for k, m in meas.items()}
+(HERE / "dc_scale_not_blind.json").write_text(json.dumps(out, indent=1) + "\n")
+print(f"{'row':4} " + " ".join(f"{k:>16}" for k in meas))
+for r, e in out["rows"].items():
+    print(f"{r:4} " + " ".join(f"{e[k]['ratio_source_over_measured']:16.6f}" for k in meas))

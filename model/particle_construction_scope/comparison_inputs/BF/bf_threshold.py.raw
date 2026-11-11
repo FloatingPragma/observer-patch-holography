@@ -1,0 +1,65 @@
+"""BF row G4: mean-field thresholds of the menus in the bare coupling.
+
+For each plaquette trace F and each menu the largest g^2 at which (i) a product state with u > 0 beats the confined
+product state, (ii) the winning product state has ordered colour blocks (stiffness of SU(3) above zero). Bisection
+with the monotone descent of bf_meanfield.Link (two starts). Reference: all sectors with Casimir <= 30, scanned
+from the cell coupling upward only (the reference menu is too small for weaker couplings).
+Usage: bf_threshold.py <F: 5 or 15> <menu index 1..4 or ref>; one row per call, appended to bf_threshold.json.
+"""
+import json
+import sys
+import time
+
+import numpy as np
+
+import bf_lib as L
+from bf_meanfield import Link
+
+t0 = time.time()
+MEN = L.menus(4)
+
+
+def state(lk, g2):
+    r = lk.solve(g2)
+    s = lk.summary(r)
+    return s['product_state_with_u_above_zero_wins'], s['product_state_with_u_above_zero_wins'] and s['colour_blocks_ordered']
+
+
+def bisect(lk, which, lo, hi, steps=26):
+    if not state(lk, lo)[which]:
+        return None
+    if state(lk, hi)[which]:
+        return hi
+    for _ in range(steps):
+        mid = np.sqrt(lo * hi)
+        if state(lk, mid)[which]:
+            lo = mid
+        else:
+            hi = mid
+    return float(np.sqrt(lo * hi))
+
+
+F, target = sys.argv[1], sys.argv[2]
+if target == 'ref':
+    lk = Link(L.reference_menu(30.0), F)
+    row = {'g2_below_which_u>0_wins': bisect(lk, 0, L.G2, 8.0, steps=10),
+           'g2_below_which_colour_blocks_order': bisect(lk, 1, L.G2, 8.0, steps=10)}
+    key = f'F={F}, reference C<=30 (scan from the cell coupling upward)'
+else:
+    n = int(target)
+    lk = Link(sorted(MEN[n]), F)
+    any_thr = bisect(lk, 0, 0.01, 8.0, steps=16)
+    col_thr = bisect(lk, 1, 0.01, 8.0, steps=16)
+    row = {'g2_below_which_u>0_wins': any_thr, 'g2_below_which_colour_blocks_order': col_thr,
+           'inv_alpha_bare_needed_for_colour_order': None if col_thr is None else 4 * np.pi / col_thr,
+           'colour_ordered_at_the_cell_coupling': bool(col_thr is not None and col_thr > L.G2)}
+    key = f'F={F}, M{n}'
+row['seconds'] = round(time.time() - t0, 1)
+print(key, row, flush=True)
+name = 'bf_threshold.json'
+try:
+    out = json.load(open(name))
+except FileNotFoundError:
+    out = {'cell_coupling_g2': L.G2, 'inv_alpha_cell': L.INV_ALPHA_BARE, 'rows': {}}
+out['rows'][key] = row
+json.dump(out, open(name, 'w'), indent=1, default=L.jsonable)

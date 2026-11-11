@@ -1,0 +1,432 @@
+{
+ "N1_record_after_repair": {
+  "central seam [0, 1], symmetric input, record-1 probability by level 0..4": [
+   "0",
+   "0",
+   "0",
+   "1",
+   "1"
+  ],
+  "central seam [0, 1], antisymmetric input, record-1 probability by level 0..4": [
+   "1",
+   "1",
+   "1",
+   "0",
+   "0"
+  ],
+  "central seam [1, 0], symmetric input, record-1 probability by level 0..4": [
+   "0",
+   "0",
+   "0",
+   "1",
+   "1"
+  ],
+  "central seam [1, 0], antisymmetric input, record-1 probability by level 0..4": [
+   "1",
+   "1",
+   "1",
+   "0",
+   "0"
+  ],
+  "plain seam [1, 5], symmetric input, record-1 probability by level 0..4": [
+   "0",
+   "0",
+   "0",
+   "0",
+   "0"
+  ],
+  "plain seam [1, 5], antisymmetric input, record-1 probability by level 0..4": [
+   "1",
+   "1",
+   "1",
+   "1",
+   "1"
+  ],
+  "plain seam [5, 1], symmetric input, record-1 probability by level 0..4": [
+   "0",
+   "0",
+   "0",
+   "0",
+   "0"
+  ],
+  "plain seam [5, 1], antisymmetric input, record-1 probability by level 0..4": [
+   "1",
+   "1",
+   "1",
+   "1",
+   "1"
+  ]
+ },
+ "N1_record_equals_seam_character_xor_centre_class": true,
+ "N2_coherent_inputs_on_the_central_seam": {
+  "inside triplet: levels 0, 1 with amplitudes 1, 2": {
+   "record_probabilities": [
+    "1",
+    "0"
+   ],
+   "record_coherence": "0",
+   "record_entropy": -0.0,
+   "fibre_entropy_before": -0.0,
+   "fibre_entropy_after": -0.0,
+   "fibre_offdiagonal_between_blocks_after": "0",
+   "fibre_offdiagonal_inside_triplet_after": "2/5",
+   "fibre_offdiagonal_inside_doublet_after": "0"
+  },
+  "inside doublet: levels 3, 4 with amplitudes 1, 2": {
+   "record_probabilities": [
+    "0",
+    "1"
+   ],
+   "record_coherence": "0",
+   "record_entropy": -0.0,
+   "fibre_entropy_before": -0.0,
+   "fibre_entropy_after": -0.0,
+   "fibre_offdiagonal_between_blocks_after": "0",
+   "fibre_offdiagonal_inside_triplet_after": "0",
+   "fibre_offdiagonal_inside_doublet_after": "2/5"
+  },
+  "across blocks: levels 0, 3 with amplitudes 1, 2": {
+   "record_probabilities": [
+    "1/5",
+    "4/5"
+   ],
+   "record_coherence": "0",
+   "record_entropy": 0.5004024235381879,
+   "fibre_entropy_before": -0.0,
+   "fibre_entropy_after": 0.5004024235381879,
+   "fibre_offdiagonal_between_blocks_after": "0",
+   "fibre_offdiagonal_inside_triplet_after": "0",
+   "fibre_offdiagonal_inside_doublet_after": "0"
+  },
+  "across blocks: levels 0, 1, 2, 3, 4 with equal amplitudes": {
+   "record_probabilities": [
+    "3/5",
+    "2/5"
+   ],
+   "record_coherence": "0",
+   "record_entropy": 0.6730116670092565,
+   "fibre_entropy_before": -4.440892098500627e-16,
+   "fibre_entropy_after": 0.6730116670092565,
+   "fibre_offdiagonal_between_blocks_after": "0",
+   "fibre_offdiagonal_inside_triplet_after": "1/5",
+   "fibre_offdiagonal_inside_doublet_after": "1/5"
+  }
+ },
+ "N2_code_uniform_mixture": {
+  "record_one_probability": "2/5",
+  "record_entropy": 0.6730116670092565,
+  "predicted_h_3_over_5": 0.6730116670092565,
+  "mutual_information_record_block": 0.6730116670092565,
+  "mutual_information_record_level_given_block": 0.0,
+  "hidden_index_entropy_left_in_fibre": 0.936426245424844,
+  "ln5_total": 1.6094379124341003,
+  "identity_ln5_equals_block_plus_hidden": 2.220446049250313e-16
+ },
+ "N3_one_tick_record_one_probability": {
+  "fibre1_all_ports": [
+   "1/12"
+  ],
+  "fibre5_values": [
+   "1/12"
+  ],
+  "binary_entropy_of_1_over_12": 0.2868359830561607,
+  "all_equal_one_twelfth": true
+ },
+ "N4_binary_carrier_all_subsets": {
+  "1": {
+   "subsets": 12,
+   "crossing_seams_min_max": [
+    5,
+    5
+   ],
+   "distinct_crossing_counts": 1,
+   "distinct_label_laws": 1,
+   "label_law": [
+    "5/6",
+    "1/6",
+    "0"
+   ],
+   "H_label": 0.45056120886630463,
+   "S_region": 0.450561208866,
+   "distinct_S_region": 1,
+   "ln_a_cap_multiplicity": 0.0,
+   "ln_b_complement_multiplicity": 3.7390935331601214,
+   "S_region_minus_H_minus_ln_a": 0.0
+  },
+  "2": {
+   "subsets": 66,
+   "crossing_seams_min_max": [
+    8,
+    10
+   ],
+   "distinct_crossing_counts": 2,
+   "distinct_label_laws": 1,
+   "label_law": [
+    "15/22",
+    "10/33",
+    "1/66"
+   ],
+   "H_label": 0.6864053858030285,
+   "S_region": 0.896449985973,
+   "distinct_S_region": 1,
+   "ln_a_cap_multiplicity": 0.2100446001696804,
+   "ln_b_complement_multiplicity": 3.2932047560537163,
+   "S_region_minus_H_minus_ln_a": 0.0
+  },
+  "3": {
+   "subsets": 220,
+   "crossing_seams_min_max": [
+    9,
+    15
+   ],
+   "distinct_crossing_counts": 4,
+   "distinct_label_laws": 1,
+   "label_law": [
+    "6/11",
+    "9/22",
+    "1/22"
+   ],
+   "H_label": 0.8367742263818623,
+   "S_region": 1.336143448504,
+   "distinct_S_region": 1,
+   "ln_a_cap_multiplicity": 0.49936922212186813,
+   "ln_b_complement_multiplicity": 2.853511293522695,
+   "S_region_minus_H_minus_ln_a": 0.0
+  },
+  "4": {
+   "subsets": 495,
+   "crossing_seams_min_max": [
+    10,
+    18
+   ],
+   "distinct_crossing_counts": 5,
+   "distinct_label_laws": 1,
+   "label_law": [
+    "14/33",
+    "16/33",
+    "1/11"
+   ],
+   "H_label": 0.9327481967254363,
+   "S_region": 1.767778141744,
+   "distinct_S_region": 1,
+   "ln_a_cap_multiplicity": 0.835029945018255,
+   "ln_b_complement_multiplicity": 2.4218766002827343,
+   "S_region_minus_H_minus_ln_a": 0.0
+  },
+  "5": {
+   "subsets": 792,
+   "crossing_seams_min_max": [
+    11,
+    19
+   ],
+   "distinct_crossing_counts": 5,
+   "distinct_label_laws": 1,
+   "label_law": [
+    "7/22",
+    "35/66",
+    "5/33"
+   ],
+   "H_label": 0.9866546772648829,
+   "S_region": 2.189021008555,
+   "distinct_S_region": 1,
+   "ln_a_cap_multiplicity": 1.2023663312899084,
+   "ln_b_complement_multiplicity": 2.000633733471634,
+   "S_region_minus_H_minus_ln_a": 0.0
+  },
+  "6": {
+   "subsets": 924,
+   "crossing_seams_min_max": [
+    10,
+    20
+   ],
+   "distinct_crossing_counts": 6,
+   "distinct_label_laws": 1,
+   "label_law": [
+    "5/22",
+    "6/11",
+    "5/22"
+   ],
+   "H_label": 1.0040761387311792,
+   "S_region": 2.596865440379,
+   "distinct_S_region": 1,
+   "ln_a_cap_multiplicity": 1.5927893016476231,
+   "ln_b_complement_multiplicity": 1.5927893016476231,
+   "S_region_minus_H_minus_ln_a": 4.440892098500626e-16
+  },
+  "7": {
+   "subsets": 792,
+   "crossing_seams_min_max": [
+    11,
+    19
+   ],
+   "distinct_crossing_counts": 5,
+   "distinct_label_laws": 1,
+   "label_law": [
+    "5/33",
+    "35/66",
+    "7/22"
+   ],
+   "H_label": 0.9866546772648829,
+   "S_region": 2.987288410737,
+   "distinct_S_region": 1,
+   "ln_a_cap_multiplicity": 2.000633733471634,
+   "ln_b_complement_multiplicity": 1.2023663312899084,
+   "S_region_minus_H_minus_ln_a": 4.440892098500626e-16
+  },
+  "8": {
+   "subsets": 495,
+   "crossing_seams_min_max": [
+    10,
+    18
+   ],
+   "distinct_crossing_counts": 5,
+   "distinct_label_laws": 1,
+   "label_law": [
+    "1/11",
+    "16/33",
+    "14/33"
+   ],
+   "H_label": 0.9327481967254363,
+   "S_region": 3.354624797008,
+   "distinct_S_region": 1,
+   "ln_a_cap_multiplicity": 2.4218766002827343,
+   "ln_b_complement_multiplicity": 0.835029945018255,
+   "S_region_minus_H_minus_ln_a": 4.440892098500626e-16
+  },
+  "9": {
+   "subsets": 220,
+   "crossing_seams_min_max": [
+    9,
+    15
+   ],
+   "distinct_crossing_counts": 4,
+   "distinct_label_laws": 1,
+   "label_law": [
+    "1/22",
+    "9/22",
+    "6/11"
+   ],
+   "H_label": 0.8367742263818623,
+   "S_region": 3.690285519905,
+   "distinct_S_region": 1,
+   "ln_a_cap_multiplicity": 2.853511293522695,
+   "ln_b_complement_multiplicity": 0.49936922212186813,
+   "S_region_minus_H_minus_ln_a": 0.0
+  },
+  "10": {
+   "subsets": 66,
+   "crossing_seams_min_max": [
+    8,
+    10
+   ],
+   "distinct_crossing_counts": 2,
+   "distinct_label_laws": 1,
+   "label_law": [
+    "1/66",
+    "10/33",
+    "15/22"
+   ],
+   "H_label": 0.6864053858030285,
+   "S_region": 3.979610141857,
+   "distinct_S_region": 1,
+   "ln_a_cap_multiplicity": 3.2932047560537163,
+   "ln_b_complement_multiplicity": 0.2100446001696804,
+   "S_region_minus_H_minus_ln_a": 4.440892098500626e-16
+  },
+  "11": {
+   "subsets": 12,
+   "crossing_seams_min_max": [
+    5,
+    5
+   ],
+   "distinct_crossing_counts": 1,
+   "distinct_label_laws": 1,
+   "label_law": [
+    "0",
+    "1/6",
+    "5/6"
+   ],
+   "H_label": 0.45056120886630463,
+   "S_region": 4.189654742026,
+   "distinct_S_region": 1,
+   "ln_a_cap_multiplicity": 3.7390935331601214,
+   "ln_b_complement_multiplicity": 0.0,
+   "S_region_minus_H_minus_ln_a": 8.881784197001252e-16
+  }
+ },
+ "N4_claims": {
+  "label_law_depends_on_m_only": true,
+  "H_label_at_most_ln3": true,
+  "crossing_count_varies_at_fixed_m": {
+   "1": 1,
+   "2": 2,
+   "3": 4,
+   "4": 5,
+   "5": 5,
+   "6": 6,
+   "7": 5,
+   "8": 5,
+   "9": 4,
+   "10": 2,
+   "11": 1
+  },
+  "S_region_increases_up_to_m6": true,
+  "H_label_max": 1.0040761387311792,
+  "ln3": 1.0986122886681098
+ },
+ "N5_collar_law_at_anchor": {
+  "t1_t2_t3": [
+   0.6666194358832552,
+   1.3334946511653858,
+   4.671712575940568
+  ],
+  "P_over_4": 0.40774302396472434,
+  "exp_P_over_4_effective_dimension": 1.5034207684169805,
+  "SU2_sector_probabilities_j_0_to_2": [
+   0.5069152545353827,
+   0.37292227912975406,
+   0.10563257775249754,
+   0.013654010091070909,
+   0.0008494330468444972
+  ],
+  "SU3_probabilities_singlet_fundamentals_adjoint": [
+   0.9883007448130663,
+   0.011690732302098895,
+   6.475631565178357e-06
+  ],
+  "SU2_label_shannon": 1.0146024063792976,
+  "SU2_hidden_index": 0.39488230749417663,
+  "SU3_label_shannon": 0.07185114347098365,
+  "SU3_hidden_index": 0.012860716470547704,
+  "product_label_shannon": 1.0864535498502812,
+  "product_hidden_index": 0.40774302396472434,
+  "G_label_with_hypercharge_shannon": 2.6169992828484467,
+  "G_hidden_index": 0.40774302395513823,
+  "G_hidden_index_weak_part": 0.3948823074847565,
+  "G_hidden_index_colour_part": 0.012860716470381782,
+  "hypercharge_marginal_shannon": 2.2694973309795885,
+  "after_first_freeze_U3_label_shannon": 3.0118815903332035,
+  "after_first_freeze_hidden_index": 0.012860716470381782,
+  "entropy_moved_from_hidden_index_to_records_at_the_freeze": 0.3948823074847565,
+  "share_of_P_over_4_written_at_the_freeze": 0.9684587700485576,
+  "largest_doublet_index_probability_P_over_4_can_hold": 0.5882488386309775,
+  "largest_triplet_index_probability_P_over_4_can_hold": 0.3711436947961387,
+  "probability_of_a_nontrivial_weak_label_at_anchor": 0.49308474546461734,
+  "probability_of_a_nontrivial_colour_label_at_anchor": 0.01169925518693371
+ },
+ "native_numbers_next_to_P_over_4": {
+  "P_over_4": 0.40774302396472434,
+  "h(1/12) record of one tick": 0.2868359830561607,
+  "h(3/5) class label of the code": 0.6730116670092565,
+  "(3/5) ln 3 + (2/5) ln 2 hidden index of the code": 0.936426245424844,
+  "ln 2 capacity of the owned record": 0.6931471805599453,
+  "H_label binary carrier m=1..6": [
+   0.45056120886630463,
+   0.6864053858030285,
+   0.8367742263818623,
+   0.9327481967254363,
+   0.9866546772648829,
+   1.0040761387311792
+  ]
+ }
+}

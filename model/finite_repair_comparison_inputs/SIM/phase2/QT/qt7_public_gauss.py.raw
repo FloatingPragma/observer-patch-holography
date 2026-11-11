@@ -1,0 +1,98 @@
+"""QT supplement added after the hash (no candidate, no row, no measured value): LP's two further selecting statements
+for the pair, executed on the public program with three quanta on one port.
+
+Public program: `model/coherent_defect_wave/species/fock.py` (imported read only), the construction of LP's
+`lp2b_public.py` (items G5 and G6) with three occupied modes.
+
+P1  public Gauss operator `gamma` on the charge-free link state (|g> + |g xor star_5>)/sqrt2: weight of the positive
+    branch for one, two and three quanta on port 5.
+P2  public parity control (f(n) = n mod 2) with the regional defect on a face around port 5: which three-quanta
+    contents on one port leave the link word unchanged.
+EXACT. Writes qt7_public_gauss.json.
+"""
+from __future__ import annotations
+
+import sys
+import time
+from fractions import Fraction as Fr
+
+import qt_common as Q
+
+OUT = 'qt7_public_gauss.json'
+
+
+def main():
+    t0 = time.time()
+    Q.FC.rer_root()
+    from model.coherent_defect_wave.species.fock import FockObserver, FockState, mode
+    out = {'task': 'QT supplement: public Gauss readout and parity control with three quanta', 'provenance': Q.FC.provenance()}
+    obs = FockObserver('parity')
+    law = obs.base.law
+    words = obs.base.link_words
+    star = law.vertex_stars[5]
+    faces = law.faces
+    region = law.region
+    interior = [law.edges[e] for e in law.interior]
+
+    def doublets(p, n):
+        """n quanta in doublet levels on port p: levels 3 and 4 with parity 0, then level 3 with parity 1."""
+        ms = [mode(p, 3, 0, 0), mode(p, 4, 0, 0), mode(p, 3, 1, 0)][:n]
+        return tuple(sorted(ms))
+
+    def triplets(p):
+        return tuple(sorted((mode(p, 0, 0, 0), mode(p, 1, 0, 0), mode(p, 2, 0, 0))))
+
+    # ---------------- P1
+    def positive_weight(g, occ):
+        psi = FockState({(g, occ): Fr(1), (g ^ star, occ): Fr(1)}, 2)
+        gam = obs.gamma(psi).as_dict()
+        ov = sum(v * gam.get(k, Fr(0)) for k, v in psi.as_dict().items()) / 2
+        return (1 + ov) / 2
+    cases = {'one doublet quantum on port 5': doublets(5, 1), 'two doublet quanta on port 5': doublets(5, 2),
+             'three doublet quanta on port 5': doublets(5, 3), 'three triplet quanta on port 5 (levels 0, 1, 2)': triplets(5),
+             'three doublet quanta on port 0': doublets(0, 3)}
+    p1 = {}
+    for name, occ in cases.items():
+        vals = {str(positive_weight(g, occ)) for g in words}
+        p1[name] = sorted(vals)
+    p1['reading'] = ('the public Gauss operator counts the doublet quanta at its vertex modulo two; an odd content has '
+                     'positive weight 0 on the charge-free link state')
+    out['P1_public_gauss'] = p1
+    print('P1', p1)
+
+    # ---------------- P2
+    def defect_face(g):
+        syn = law.syndrome(g)
+        hit = [f for f in region if syn >> f & 1]
+        assert len(hit) == 1
+        return hit[0]
+    p2 = {}
+    for f in region:
+        face = faces[f]
+        wf = [g for g in words if defect_face(g) == f]
+        rows = {}
+        for n in (2, 3):
+            unmoved = []
+            for p in range(12):
+                res = set()
+                for g in wf:
+                    st = obs.controls(obs.basis_state(g, doublets(p, n)))
+                    (key, val), = st.amplitudes
+                    res.add(key[0] == g)
+                assert len(res) == 1
+                if res.pop():
+                    unmoved.append(p)
+            rows[f'{n} quanta on one port'] = {'ports that leave the defect unmoved': unmoved,
+                                               'of these on the defect face': [p for p in unmoved if p in face]}
+        p2[str(list(face))] = rows
+    out['P2_public_parity_control'] = p2
+    out['P2_reading'] = ('two quanta on a port of the defect face leave the defect unmoved; three quanta on a port of the defect '
+                         'face move it; the public control reads the occupation modulo two')
+    print('P2', p2)
+    out['seconds'] = round(time.time() - t0, 2)
+    Q.jdump(out, OUT)
+    print('written', OUT, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

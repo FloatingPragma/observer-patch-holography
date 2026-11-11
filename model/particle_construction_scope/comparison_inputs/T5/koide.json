@@ -1,0 +1,349 @@
+{
+ "arithmetic": "exact invariants (trace, trace of the square, determinant) in Q(sqrt5); eigenvalues from them",
+ "conditions_of_the_public_packet": {
+  "K1 form": "C = a 1 + b R + conj(b) R^2 for a regular three-cycle R; eigenvalues a + 2 |b| cos(delta + 2 pi k/3)",
+  "K2 quotient": "Q = sum of squares / (sum)^2 = 1/3 + (2/3) |b|^2 / a^2; Q = 2/3 exactly when |b|/a = 1/sqrt2 (balance)",
+  "K3 attachment": "the eigenvalues are square roots of masses, m_k = s lambda_k^2 with one scale s, on the positive chamber (all lambda_k >= 0; for the balanced modulus |delta| <= pi/12 modulo 2 pi/3); C_mass = (Y^+ Y)^(1/4)",
+  "K4 phase": "not selected by the identity; the packet's geometric connection gives loop phases in multiples of pi/10 (spin one half) and pi/5 (spin one), link phase one third of a loop: classes delta = 0, pi/30, pi/15",
+  "K5 balanced source": "a configured coherent source with native record weights (10, 5, 5, 2, 50)/72: a = sqrt(10/72), |b| = sqrt(5/72), so |b|/a = 1/sqrt2; its phase is supplied, not selected",
+  "K6 native flavour action": "the four duty policies give Q in [0.7675, 0.7677], [0.5797, 0.5799], [0.9502, 0.9503], [0.7754, 0.7755]: none is 2/3",
+  "K7 conditional third mass": "sqrt(m3) = 2 (x + y) + sqrt(3 (x^2 + 4 x y + y^2)) from two masses under balance",
+  "sources": [
+   "RER/model/standard_model_source_map/KOIDE_ATTACHMENT.md",
+   "RER/model/standard_model_source_map/KOIDE_SOURCE.md",
+   "RER/model/common_source/native_mass_holonomy.py",
+   "RER/Lean/ObserverPatchHolography/KoideCirculant.lean"
+  ]
+ },
+ "packet_weights_replayed": {
+  "labels": 128,
+  "weights": [
+   "5/36",
+   "5/72",
+   "5/72",
+   "1/36",
+   "25/36"
+  ],
+  "b2_over_a2": "1/2",
+  "quotient": "2/3",
+  "tag": "IMPORTED module, executed"
+ },
+ "form": {
+  "third_turn_on_the_band": {
+   "order": 3,
+   "trace": "0",
+   "is_the_cyclic_permutation_of_the_frame_axes": true
+  },
+  "hermitian_operators_commuting_with_it": {
+   "real_dimension": 3,
+   "real_symmetric_dimension": 2,
+   "1, R, R^2 independent and commuting": true,
+   "general_member": "a 1 + b R + conj(b) R^-1: the form K1, with 3 real parameters a, |b|, delta"
+  },
+  "packet_rotation (product of its two seam half-turns)": {
+   "is_a_rotation_of_the_carrier_of_order": 3,
+   "trace_on_the_band": "0",
+   "equals_the_matrix_printed_by_koide_source._native_rotation": true,
+   "frames_whose_stabilizer_contains_it": [
+    1,
+    3
+   ],
+   "permutes_the_three_axes_of_each_cyclically": [
+    true,
+    true
+   ],
+   "its_two_half_turns_belong_to_different_frames": true
+  },
+  "every_third_turn_is_a_product_of_two_half_turns: ordered pairs for one third-turn": 3,
+  "answer": "yes: a Hermitian mass operator on the band that commutes with a third of a turn has exactly the packet's circulant form; in the axes of either cubic frame whose stabilizer contains the turn it is the circulant matrix; the symmetry fixes the eigenvectors and none of a, |b|, delta"
+ },
+ "carrier_fixed_parameters": {
+  "table": [
+   {
+    "operator": "the kernel T = 1 - L/60",
+    "a": "11/12 + (1/60)*sqrt5",
+    "b_modulus_squared": "0",
+    "b_modulus": "0",
+    "b_over_a": 0.0,
+    "cos_3_delta": null,
+    "delta_in_[0, pi/3]": null,
+    "b_entry_in_the_frame_axes": [
+     0.0,
+     0.0
+    ],
+    "eigenvalue_on_the_axis": "11/12 + (1/60)*sqrt5",
+    "eigenvalues_on_the_circular_states": "11/12 + (1/60)*sqrt5 +- sqrt(0)",
+    "eigenvalues_ascending": [
+     0.9539344662916631,
+     0.9539344662916631,
+     0.9539344662916631
+    ],
+    "all_nonnegative": true,
+    "quotient_sum_of_squares_over_square_of_sum": "1/3",
+    "quotient_value": 0.3333333333333333
+   },
+   {
+    "operator": "projector on the axis of the turn",
+    "a": "1/3",
+    "b_modulus_squared": "1/9",
+    "b_modulus": "1/3",
+    "b_over_a": 1.0,
+    "cos_3_delta": "1",
+    "delta_in_[0, pi/3]": 0.0,
+    "b_entry_in_the_frame_axes": [
+     0.3333333333333333,
+     0.0
+    ],
+    "eigenvalue_on_the_axis": "1",
+    "eigenvalues_on_the_circular_states": "0 +- sqrt(0)",
+    "eigenvalues_ascending": [
+     0.0,
+     0.0,
+     1.0
+    ],
+    "all_nonnegative": true,
+    "quotient_sum_of_squares_over_square_of_sum": "1",
+    "quotient_value": 1.0
+   },
+   {
+    "operator": "sum of the load projectors of the three ports of a face",
+    "a": "1/4",
+    "b_modulus_squared": "1/80",
+    "b_modulus": "(1/20)*sqrt5",
+    "b_over_a": 0.4472135954999579,
+    "cos_3_delta": "1",
+    "delta_in_[0, pi/3]": 0.0,
+    "b_entry_in_the_frame_axes": [
+     0.1118033988749895,
+     0.0
+    ],
+    "eigenvalue_on_the_axis": "1/4 + (1/10)*sqrt5",
+    "eigenvalues_on_the_circular_states": "1/4 + (-1/20)*sqrt5 +- sqrt(0)",
+    "eigenvalues_ascending": [
+     0.1381966011250105,
+     0.1381966011250105,
+     0.473606797749979
+    ],
+    "all_nonnegative": true,
+    "quotient_sum_of_squares_over_square_of_sum": "7/15",
+    "quotient_value": 0.4666666666666667
+   },
+   {
+    "operator": "sum of the responses of the three ports of a face",
+    "a": "1",
+    "b_modulus_squared": "3/10 + (1/10)*sqrt5",
+    "b_modulus": "1/2 + (1/10)*sqrt5",
+    "b_over_a": 0.7236067977499789,
+    "cos_3_delta": "1/4 + (1/4)*sqrt5",
+    "delta_in_[0, pi/3]": 0.20943951023931953,
+    "b_entry_in_the_frame_axes": [
+     -0.223606797749979,
+     0.6881909602355867
+    ],
+    "eigenvalue_on_the_axis": "1 + (-1/5)*sqrt5",
+    "eigenvalues_on_the_circular_states": "1 + (1/10)*sqrt5 +- sqrt(3/4 + (3/10)*sqrt5)",
+    "eigenvalues_ascending": [
+     0.03162508931232977,
+     0.552786404500042,
+     2.4155885061876283
+    ],
+    "all_nonnegative": true,
+    "quotient_sum_of_squares_over_square_of_sum": "8/15 + (1/15)*sqrt5",
+    "quotient_value": 0.6824045318333193
+   },
+   {
+    "operator": "the same for the opposite face (orientation reversed)",
+    "a": "1",
+    "b_modulus_squared": "3/10 + (1/10)*sqrt5",
+    "b_modulus": "1/2 + (1/10)*sqrt5",
+    "b_over_a": 0.7236067977499789,
+    "cos_3_delta": "1/4 + (1/4)*sqrt5",
+    "delta_in_[0, pi/3]": 0.20943951023931953,
+    "b_entry_in_the_frame_axes": [
+     -0.223606797749979,
+     -0.6881909602355867
+    ],
+    "eigenvalue_on_the_axis": "1 + (-1/5)*sqrt5",
+    "eigenvalues_on_the_circular_states": "1 + (1/10)*sqrt5 +- sqrt(3/4 + (3/10)*sqrt5)",
+    "eigenvalues_ascending": [
+     0.03162508931232977,
+     0.552786404500042,
+     2.4155885061876283
+    ],
+    "all_nonnegative": true,
+    "quotient_sum_of_squares_over_square_of_sum": "8/15 + (1/15)*sqrt5",
+    "quotient_value": 0.6824045318333193
+   },
+   {
+    "operator": "sum of the responses of a belt triple (three ports at mutual distance two)",
+    "a": "1",
+    "b_modulus_squared": "3/10 + (-1/10)*sqrt5",
+    "b_modulus": "1/2 + (-1/10)*sqrt5",
+    "b_over_a": 0.27639320225002095,
+    "cos_3_delta": "1/4 + (-1/4)*sqrt5",
+    "delta_in_[0, pi/3]": 0.6283185307179586,
+    "b_entry_in_the_frame_axes": [
+     0.223606797749979,
+     0.16245984811645317
+    ],
+    "eigenvalue_on_the_axis": "1 + (1/5)*sqrt5",
+    "eigenvalues_on_the_circular_states": "1 + (-1/10)*sqrt5 +- sqrt(3/4 + (-3/10)*sqrt5)",
+    "eigenvalues_ascending": [
+     0.49500449112240125,
+     1.057781913377641,
+     1.4472135954999579
+    ],
+    "all_nonnegative": true,
+    "quotient_sum_of_squares_over_square_of_sum": "8/15 + (-1/15)*sqrt5",
+    "quotient_value": 0.38426213483334737
+   },
+   {
+    "operator": "the turn itself, R + R^-1",
+    "a": "0",
+    "b_modulus_squared": "1",
+    "b_modulus": "1",
+    "b_over_a": null,
+    "cos_3_delta": "1",
+    "delta_in_[0, pi/3]": 0.0,
+    "b_entry_in_the_frame_axes": [
+     1.0,
+     0.0
+    ],
+    "eigenvalue_on_the_axis": "2",
+    "eigenvalues_on_the_circular_states": "-1 +- sqrt(0)",
+    "eigenvalues_ascending": [
+     -1.0,
+     -1.0,
+     2.0
+    ],
+    "all_nonnegative": false,
+    "quotient_sum_of_squares_over_square_of_sum": null,
+    "quotient_value": null
+   }
+  ],
+  "face_sum_of_responses_exact": {
+   "a": "1",
+   "b_modulus": "(5 + sqrt5)/10 = phi/sqrt5 = (1 + cos gamma)/2 with cos gamma = 1/sqrt5 between adjacent ports",
+   "cos_3_delta": "(1 + sqrt5)/4 = cos(pi/5)",
+   "delta": "pi/15 (one third of the spin-one loop phase pi/5 of a face: the class \"pi/15\" of the packet)",
+   "quotient": "(8 + sqrt5)/15",
+   "balance_would_need": "|b|/a = 1/sqrt2 = 0.707107; the carrier gives 0.723607",
+   "eigenvalues": "1 - 1/sqrt5 on the axis; 1 + 1/(2 sqrt5) +- (1/2) sqrt(3 + 6/sqrt5) on the circular states",
+   "general_rule": "N ports on a cone of half-angle psi about the axis: (N/2) sin^2 psi on the axis, (N/4)(1 +- cos psi)^2 on the circular states"
+  },
+  "summary": {
+   "symmetry_alone": "fixes the eigenvectors; a, |b|, delta free",
+   "kernel": "b = 0: three equal",
+   "real_operators (kernel, load projectors, exchanges)": "delta = 0 or pi/3: two equal and one different",
+   "sum_of_the_three_port_responses_of_a_face": "a, |b|, delta all fixed; unbalanced: Q = (8 + sqrt5)/15",
+   "packet_coherent_source": "|b|/a = 1/sqrt2 fixed by native record weights under a configured service; delta supplied",
+   "packet_connection": "delta in {0, pi/30, pi/15} with the balance supplied"
+  }
+ },
+ "fixed_cases": {
+  "carrier: face sum of responses (|b|/a = phi/sqrt5, delta = pi/15)": {
+   "eigenvalues": [
+    0.03162508931233032,
+    0.5527864045000419,
+    2.4155885061876283
+   ],
+   "positive": true,
+   "mass = eigenvalue": {
+    "m1/m3": 0.013092084695436068,
+    "m2/m3": 0.22884129605852033,
+    "m2/m1": 17.479362636440545,
+    "m3/m1": 76.3820295440498
+   },
+   "mass = eigenvalue squared": {
+    "m1/m3": 0.00017140268167247134,
+    "m2/m3": 0.05236833878174335,
+    "m2/m1": 305.52811817619374,
+    "m3/m1": 5834.214437268097
+   }
+  },
+  "packet: balance with delta = 0": {
+   "eigenvalues": [
+    0.29289321881345176,
+    0.29289321881345265,
+    2.414213562373095
+   ],
+   "positive": true,
+   "mass = eigenvalue": {
+    "m1/m3": 0.12132034355964229,
+    "m2/m3": 0.12132034355964265,
+    "m2/m1": 1.000000000000003,
+    "m3/m1": 8.242640687119305
+   },
+   "mass = eigenvalue squared": {
+    "m1/m3": 0.014718625761429637,
+    "m2/m3": 0.014718625761429726,
+    "m2/m1": 1.0000000000000062,
+    "m3/m1": 67.94112549695461
+   },
+   "packet_quotes (KOIDE_ATTACHMENT.md eq. 6)": [
+    1.0,
+    67.9411
+   ],
+   "difference_from_the_quoted_values": [
+    6.217248937900877e-15,
+    2.549695460629664e-05
+   ]
+  },
+  "packet: balance with delta = pi/30": {
+   "eigenvalues": [
+    0.16874612444509318,
+    0.4247875230480974,
+    2.4064663525068086
+   ],
+   "positive": true,
+   "mass = eigenvalue": {
+    "m1/m3": 0.07012195465326614,
+    "m2/m3": 0.17651920319002073,
+    "m2/m1": 2.517317209180204,
+    "m3/m1": 14.260868866886645
+   },
+   "mass = eigenvalue squared": {
+    "m1/m3": 0.0049170885243947126,
+    "m2/m3": 0.031159029094839825,
+    "m2/m1": 6.336885931634812,
+    "m3/m1": 203.37238083853677
+   },
+   "packet_quotes (KOIDE_ATTACHMENT.md eq. 6)": [
+    6.33689,
+    203.37238
+   ],
+   "difference_from_the_quoted_values": [
+    4.068365188736323e-06,
+    8.385367777918873e-07
+   ]
+  },
+  "packet: balance with delta = pi/15": {
+   "eigenvalues": [
+    0.05370642148837035,
+    0.5629839755511787,
+    2.383309602960451
+   ],
+   "positive": true,
+   "mass = eigenvalue": {
+    "m1/m3": 0.022534387232635827,
+    "m2/m3": 0.23621940466813995,
+    "m2/m1": 10.482619395393677,
+    "m3/m1": 44.37662270007201
+   },
+   "mass = eigenvalue squared": {
+    "m1/m3": 0.0005077986079503805,
+    "m2/m3": 0.05579960714177046,
+    "m2/m1": 109.8853093886837,
+    "m3/m1": 1969.2846422645466
+   },
+   "packet_quotes (KOIDE_ATTACHMENT.md eq. 6)": [
+    109.88531,
+    1969.28464
+   ],
+   "difference_from_the_quoted_values": [
+    6.113163095733398e-07,
+    2.2645465378445806e-06
+   ]
+  }
+ }
+}

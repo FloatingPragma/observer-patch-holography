@@ -1,0 +1,122 @@
+"""Task GEN: the three groups of a property that passed the pre-registered three-way test, and their reaction rates.
+
+    python gen_groups.py <GEN_three_populations.json> <out.json> <level>:<catalogue.npz> [<level>:<catalogue.npz> ...]
+
+For every class / tier / subset of P3.3 (identity lifetime) marked three_way, the histogram is cut at the two valley
+bins of the discovery sample (valley bin assigned to the lower group) and every identity of the class is put in group
+1, 2 or 3 by its lifetime. Per group: size, share, ratio, alive share, ending causes, birth sweep quantiles, and the
+reaction counts per identity: reactant in 1 + 3 -> 4, product of 1 + 3 -> 4, party of a 3 + 3 annihilation.
+Diagnostics: lifetime histogram of ended identities only (no censoring at the end of the run).
+"""
+import json
+import sys
+
+import numpy as np
+
+CAUSES = ('alive', 'annihilation', 'fusion', 'split', 'exchange')
+
+
+def load(cat_path):
+    z = np.load(cat_path)
+    return {k: z[k] for k in z.files if k not in ('birth_xyz', 'last_xyz', 'id')}
+
+
+def flags(cat):
+    cls = cat['cls'].astype(np.int64)
+    cause = cat['cause'].astype(np.int64)
+    p1, p2, c1, partner = (cat[k].astype(np.int64) for k in ('parent1', 'parent2', 'child1', 'partner'))
+    n = len(cls)
+    fr = np.zeros(n, bool)
+    ii = np.nonzero((cause == 2) & ((cls == 1) | (cls == 3)) & (partner >= 0))[0]
+    ok = (cls[partner[ii]] == 4 - cls[ii]) & (c1[ii] >= 0)
+    ok &= cls[np.where(c1[ii] >= 0, c1[ii], 0)] == 4
+    fr[ii[ok]] = True
+    fp = np.zeros(n, bool)
+    jj = np.nonzero((p1 >= 0) & (p2 >= 0) & (cls == 4))[0]
+    okp = (cause[p1[jj]] == 2) & (np.sort(np.stack([cls[p1[jj]], cls[p2[jj]]], 1), 1) == np.array([1, 3])).all(1)
+    fp[jj[okp]] = True
+    an = np.zeros(n, bool)
+    kk = np.nonzero((cause == 1) & (cls == 3) & (partner >= 0))[0]
+    an[kk[cls[partner[kk]] == 3]] = True
+    # how was the identity created
+    origin = np.full(n, 'pair birth', dtype=object)
+    origin[(p1 >= 0) & (p2 < 0)] = 'split product'
+    two = (p1 >= 0) & (p2 >= 0)
+    origin[two & (cause[np.where(p1 >= 0, p1, 0)] == 2)] = 'fusion product'
+    origin[two & (cause[np.where(p1 >= 0, p1, 0)] == 4)] = 'exchange product'
+    return fr, fp, an, origin
+
+
+def main():
+    res_path, out_path = sys.argv[1], sys.argv[2]
+    cats = {int(a.split(':')[0]): a.split(':')[1] for a in sys.argv[3:]}
+    R = json.load(open(res_path))
+    pr = R['properties']['P3.3']
+    edges = np.array(pr['edges'], float)
+    out = {'edges': edges.tolist(), 'cases': {}}
+    loaded = {}
+    for tier, Ld, Lv, tid in (('carrier', 6, 5, 0), ('screen', 10, 9, 1)):
+        for key, both in pr['tiers'][tier].items():
+            sub, k = key.split()
+            k = int(k)
+            for reading in ('i', 'ii'):
+                c = both.get(reading, {})
+                if not c.get('three_way'):
+                    continue
+                valleys = [d['valley'] for d in c['discovery']['dips']]
+                case = {'tier': tier, 'subset': sub, 'class': k, 'reading': reading,
+                        'modes_bins': c['discovery']['modes'], 'valley_bins': valleys,
+                        'mode_lifetime_ranges_depth': [[float(edges[b]), float(edges[b + 1])] for b in c['discovery']['modes']],
+                        'cuts_depth': [float(edges[v + 1]) for v in valleys], 'levels': {}}
+                for L in (Ld, Lv):
+                    if L not in cats:
+                        continue
+                    if L not in loaded:
+                        cat = load(cats[L])
+                        cause = cat['cause'].astype(np.int64)
+                        alive = cause == 0
+                        end_depth = int(max(cat['death_depth'].max(), cat['birth_depth'].max()))
+                        life = np.where(alive, end_depth - cat['birth_depth'], cat['death_depth'] - cat['birth_depth']).astype(np.int64)
+                        loaded[L] = (cat, alive, life, flags(cat), end_depth)
+                    cat, alive, life, (fr, fp, an, origin), end_depth = loaded[L]
+                    sel = (cat['tier'] == tid) & (cat['cls'] == k)
+                    if sub == 'alive':
+                        sel &= alive
+                    idx = np.nonzero(sel)[0]
+                    lf = life[idx]
+                    cuts = case['cuts_depth']
+                    grp = np.searchsorted(np.array(cuts), lf, side='right')        # 0, 1, 2
+                    G = []
+                    for g in range(3):
+                        m = idx[grp == g]
+                        n = len(m)
+                        cz = cat['cause'][m].astype(np.int64)
+                        bs = cat['birth_sweep'][m]
+                        orig = {o: int((origin[m] == o).sum()) for o in ('pair birth', 'split product', 'fusion product', 'exchange product')}
+                        G.append({'size': int(n), 'share': n / max(len(idx), 1),
+                                  'lifetime_range_depth': [int(lf[grp == g].min()), int(lf[grp == g].max())] if n else None,
+                                  'median_lifetime_depth': float(np.median(lf[grp == g])) if n else None,
+                                  'alive_share': float(alive[m].mean()) if n else None,
+                                  'ending': {CAUSES[q]: int((cz == q).sum()) for q in range(5)},
+                                  'origin': orig,
+                                  'birth_sweep_quantiles': {str(q): float(np.quantile(bs, q)) for q in (0.1, 0.5, 0.9)} if n else None,
+                                  'per_identity': {'fusion_1_3_to_4_as_reactant': float(fr[m].mean()) if n else None,
+                                                   'fusion_1_3_to_4_as_product': float(fp[m].mean()) if n else None,
+                                                   'annihilation_3_3': float(an[m].mean()) if n else None},
+                                  'counts': {'fusion_1_3_to_4_as_reactant': int(fr[m].sum()), 'fusion_1_3_to_4_as_product': int(fp[m].sum()),
+                                             'annihilation_3_3': int(an[m].sum())}})
+                    sizes = [g_['size'] for g_ in G]
+                    # diagnostic: ended identities only
+                    ended = idx[~alive[idx]]
+                    eb = np.clip(np.searchsorted(edges, life[ended], side='right') - 1, 0, len(edges) - 2)
+                    case['levels'][f'L{L}'] = {'identities': int(len(idx)), 'end_depth': end_depth, 'groups': G,
+                                               'ratios_to_group1': [s / sizes[0] if sizes[0] else None for s in sizes],
+                                               'ended_only_lifetime_hist': np.bincount(eb, minlength=len(edges) - 1).tolist(),
+                                               'alive_lifetime_hist': np.bincount(np.clip(np.searchsorted(edges, life[idx[alive[idx]]], side='right') - 1, 0, len(edges) - 2), minlength=len(edges) - 1).tolist()}
+                out['cases'][f'{tier} {sub} {k} reading {reading}'] = case
+                print(tier, sub, k, reading, {L: [g['size'] for g in case['levels'][L]['groups']] for L in case['levels']}, flush=True)
+    json.dump(out, open(out_path, 'w'), indent=1)
+
+
+if __name__ == '__main__':
+    main()

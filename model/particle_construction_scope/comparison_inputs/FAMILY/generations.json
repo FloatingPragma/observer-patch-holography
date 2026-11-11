@@ -1,0 +1,41 @@
+{
+ "port frame (3)": {
+  "cubic_frames": 5,
+  "distinct_patterns_over_all_port_frame_pairs": 1,
+  "squared_overlaps_axis_state": [
+   0.0,
+   0.276393,
+   0.723607
+  ],
+  "squared_overlaps_circular_state": [
+   0.138197,
+   0.361803,
+   0.5
+  ]
+ },
+ "conjugate frame (3prime)": {
+  "cubic_frames": 5,
+  "distinct_patterns_over_all_port_frame_pairs": 1,
+  "squared_overlaps_axis_state": [
+   0.0,
+   0.276393,
+   0.723607
+  ],
+  "squared_overlaps_circular_state": [
+   0.138197,
+   0.361803,
+   0.5
+  ]
+ },
+ "closed_forms": {
+  "1/(1+phi^2)": 0.276393202250021,
+  "(5-sqrt5)/10": 0.276393202250021,
+  "phi^2/(1+phi^2)": 0.7236067977499789
+ },
+ "as_mixing_angles": {
+  "sin2_theta12": 0.276393202250021,
+  "sin2_theta23": 0.5,
+  "sin2_theta13": 0.0,
+  "note": "the golden-ratio pattern of A5 flavour models (literature); theta13 = 0 at this order"
+ }
+}

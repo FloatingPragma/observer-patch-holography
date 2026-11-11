@@ -1,0 +1,329 @@
+"""Defect classes against particles: the exact class-level match.
+
+Run from anywhere:
+    /tmp/oph-completion-venv/bin/python match.py [out.json]
+
+Parts (all exact integer or permutation arithmetic, except the census statistics):
+  1. the 32 patterns of the five-level code with charges, handedness, names;
+  2. centre class k = 6Y mod 6 of every pattern, the Higgs and the gauge bosons, and the identity
+     k = 3 (n2 mod 2) - 2 (n3 mod 3) (the Z6 element (omega, -1, exp(2 pi i Y)) acts trivially);
+  3. which flux class each pattern sees (Aharonov-Bohm phase exp(2 pi i f k / 6));
+  4. the Yukawa vertices as three-class junctions and the catalogue reactions they correspond to;
+  5. kinds of conjugate face pairs on one carrier: rotation orbits of ordered and unordered face pairs by
+     separation, the mirror map between them, and the census of the simulation session against them;
+  6. particle cards for the Map tab (measured masses read from the public reference file, display only).
+"""
+import itertools
+import json
+import math
+import sys
+from collections import Counter, defaultdict
+from fractions import Fraction
+from pathlib import Path
+
+import numpy as np
+
+RER = Path('WORKSPACE/reverse-engineering-reality')
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).with_name('match.json')
+
+# ---------------------------------------------------------------- 1. patterns
+LEVELS = ('v1', 'v2', 'v3', 's1', 's2')
+COLOUR = {0: '1', 1: '3', 2: '3bar', 3: '1'}
+
+
+def pattern_data(bits):
+    v = bits[:3]
+    s1, s2 = bits[3], bits[4]
+    n3, n2 = sum(v), s1 + s2
+    q6 = 3 * n2 - 2 * n3
+    y = Fraction(q6, 6)
+    t3 = Fraction(s1 - s2, 2)
+    q = t3 + y
+    return dict(bits=''.join(map(str, bits)), n3=n3, n2=n2, Q6=q6, Y=str(y), T3=str(t3), Q=str(q),
+                colour=COLOUR[n3], weak='2' if n2 == 1 else '1',
+                hand='L' if (n3 + n2) % 2 == 0 else 'R', family='F' if n3 % 2 == 1 else 'Fbar')
+
+
+def family_name(d, bits):
+    n3, n2, s1, s2 = d['n3'], d['n2'], bits[3], bits[4]
+    if n3 == 1:
+        return {0: 'd_R', 2: 'u_R'}.get(n2) or ('u_L' if s1 else 'd_L')
+    return {0: 'e_R', 2: 'nu_R'}.get(n2) or ('nu_L' if s1 else 'e_L')
+
+
+patterns = []
+for bits in itertools.product((0, 1), repeat=5):
+    d = pattern_data(bits)
+    if d['family'] == 'F':
+        d['name'] = family_name(d, bits)
+    else:
+        comp = tuple(1 - b for b in bits)
+        d['name'] = 'anti-' + family_name(pattern_data(comp), comp)
+    patterns.append(d)
+
+# consistency with the Standard Model charges (Q = T3 + Y)
+EXPECT = {'u_L': ('2/3', '1/6'), 'd_L': ('-1/3', '1/6'), 'u_R': ('2/3', '2/3'), 'd_R': ('-1/3', '-1/3'),
+          'nu_L': ('0', '-1/2'), 'e_L': ('-1', '-1/2'), 'e_R': ('-1', '-1'), 'nu_R': ('0', '0')}
+for d in patterns:
+    base = d['name'].replace('anti-', '')
+    q, y = EXPECT[base]
+    if d['name'].startswith('anti-'):
+        q, y = str(-Fraction(q)), str(-Fraction(y))
+    assert (d['Q'], d['Y']) == (q, y), d
+    assert (d['hand'] == 'L') == (base.endswith('_L') != d['name'].startswith('anti-')), d
+
+# ---------------------------------------------------------------- 2. centre classes
+for d in patterns:
+    k = d['Q6'] % 6
+    assert k == (3 * (d['n2'] % 2) - 2 * (d['n3'] % 3)) % 6
+    # Z6 generator (omega 1_3, -1_2, exp(2 pi i Y)) acts by exp(2 pi i (t/3 + n/2 + Y)), t = n3, n = n2
+    assert (Fraction(d['n3'], 3) + Fraction(d['n2'], 2) + Fraction(d['Q6'], 6)).denominator == 1
+    d['k'] = k
+    d['triality'] = d['n3'] % 3
+    d['weak_parity'] = d['n2'] % 2
+
+BOSONS = [
+    dict(name='H (Higgs doublet)', colour='1', weak='2', Y='1/2', spin=0, k=3),
+    dict(name='gluon (8)', colour='8', weak='1', Y='0', spin=1, k=0),
+    dict(name='W (3)', colour='1', weak='3', Y='0', spin=1, k=0),
+    dict(name='B (photon and Z after mixing)', colour='1', weak='1', Y='0', spin=1, k=0),
+]
+for b in BOSONS:  # adjoints have trivial centre action; H: t = 0, n = 1, 6Y = 3
+    assert b['k'] == (int(Fraction(b['Y']) * 6)) % 6
+
+classes = defaultdict(list)
+for d in patterns:
+    classes[d['k']].append(d['name'])
+class_table = {}
+for k in range(6):
+    c = Counter(classes[k])
+    class_table[k] = dict(
+        triality=k % 3, weak_centre=k % 2, states=len(classes[k]),
+        fields=dict(sorted(c.items())),
+        bosons=[b['name'] for b in BOSONS if b['k'] == k],
+        conjugate_class=(-k) % 6)
+
+# ---------------------------------------------------------------- 3. which flux each pattern sees
+sees = {}
+for f in range(6):
+    sees[f] = sorted({d['k'] for d in patterns if (f * d['k']) % 6 != 0})
+# colour flux (f = 2, 4) is seen exactly by coloured classes, weak flux (f = 3) exactly by doublet classes
+assert sees[2] == sees[4] == [1, 2, 4, 5]
+assert sees[3] == [1, 3, 5]
+
+# ---------------------------------------------------------------- 4. Yukawa vertices as junctions
+CLS = {'Q': 1, 'u_R': 4, 'd_R': 4, 'L': 3, 'e_R': 0, 'nu_R': 0, 'H': 3, 'Htilde': 3}
+YUKAWA = {
+    'down quark: Q^dag H d_R': ('Q', 'H', 'd_R'),
+    'up quark: Q^dag Htilde u_R': ('Q', 'Htilde', 'u_R'),
+    'charged lepton: L^dag H e_R': ('L', 'H', 'e_R'),
+    'neutrino (Dirac): L^dag Htilde nu_R': ('L', 'Htilde', 'nu_R'),
+}
+junctions = {}
+for name, (left, higgs, right) in YUKAWA.items():
+    # left-handed field plus scalar turns into the right-handed field: k_left + k_scalar = k_right mod 6
+    assert (CLS[left] + CLS[higgs] - CLS[right]) % 6 == 0
+    junctions[name] = f'{CLS[left]} + {CLS[higgs]} -> {CLS[right]}'
+CATALOGUE = {  # reaction counts of the level-10 runs (simulation session, CO.md and CH.md)
+    '1+5->0': 609494, '1+1->2': 458209, '5+5->4': 456755, '1+4->5': 394861, '1+2->3': 315024,
+    '4+5->3': 314514, '1+3->4': 238523, '3+5->2': 239773, '2+2->4': 3118, '2+3->5': 1373,
+    'split 2->1+1': 377308, 'split 3->1+2': 182353, 'split 1->2+5': 102928, 'split 4->2+2': 52478,
+    'split 4->1+3': 36547, 'split 5->2+3': 24966}
+for r in CATALOGUE:
+    lhs, rhs = r.replace('split ', '').split('->')
+    a = sum(int(x) for x in lhs.split('+'))
+    b = sum(int(x) for x in rhs.split('+'))
+    assert (a - b) % 6 == 0, r
+READING = {
+    '1+5->0': 'left quark doublet with its antiparticle: annihilation (meson channel)',
+    '1+1->2': 'two left quark doublets into the antitriplet singlet class: diquark (baryon number changes by one if both sides are read as elementary)',
+    '5+5->4': 'conjugate of 1+1->2',
+    '1+4->5': 'left quark doublet with a right quark: the antitriplet doublet class (diquark)',
+    '1+2->3': 'left quark with a right antiquark into the Higgs class: the quark Yukawa vertex Q dbar_R -> Hbar (also the top-condensate channel)',
+    '4+5->3': 'conjugate of 1+2->3',
+    '1+3->4': 'left quark absorbs the Higgs class and becomes a right quark: the mass vertex Q H -> d_R, Q Htilde -> u_R',
+    '3+5->2': 'conjugate of 1+3->4',
+    '2+2->4': 'two right antiquarks into a right quark class: antidiquark (colour only)',
+    '2+3->5': 'right antiquark with the Higgs class into the left antiquark class: conjugate mass vertex',
+}
+
+# ---------------------------------------------------------------- 5. kinds of face pairs on one carrier
+phi = (1 + 5 ** 0.5) / 2
+V = []
+for a, b in itertools.product((1, -1), repeat=2):
+    V += [(0, a, b * phi), (a, b * phi, 0), (b * phi, 0, a)]
+V = np.array(V, float)
+edges = [(i, j) for i, j in itertools.combinations(range(12), 2) if abs(np.linalg.norm(V[i] - V[j]) - 2) < 1e-9]
+assert len(edges) == 30
+adj = defaultdict(set)
+for i, j in edges:
+    adj[i].add(j)
+    adj[j].add(i)
+faces = sorted(tuple(sorted(t)) for t in itertools.combinations(range(12), 3)
+               if t[1] in adj[t[0]] and t[2] in adj[t[0]] and t[2] in adj[t[1]])
+assert len(faces) == 20
+C = np.array([V[list(f)].mean(axis=0) for f in faces])
+
+
+def rot(axis, ang):
+    a = np.asarray(axis, float) / np.linalg.norm(axis)
+    K = np.array([[0, -a[2], a[1]], [a[2], 0, -a[0]], [-a[1], a[0], 0]])
+    return np.eye(3) + math.sin(ang) * K + (1 - math.cos(ang)) * K @ K
+
+
+def face_perm(M):
+    img = C @ M.T
+    perm = []
+    for c in img:
+        dist = np.linalg.norm(C - c, axis=1)
+        j = int(np.argmin(dist))
+        assert dist[j] < 1e-9
+        perm.append(j)
+    return tuple(perm)
+
+
+gens = [face_perm(rot(V[0], 2 * math.pi / 5)), face_perm(rot(C[0], 2 * math.pi / 3))]
+group = {tuple(range(20))}
+frontier = list(group)
+while frontier:
+    new = []
+    for g in frontier:
+        for h in gens:
+            gh = tuple(h[g[i]] for i in range(20))
+            if gh not in group:
+                group.add(gh)
+                new.append(gh)
+    frontier = new
+assert len(group) == 60
+inversion = face_perm(-np.eye(3))
+assert inversion not in group  # orientation reversing on the sphere
+
+fadj = {i: {j for j in range(20) if i != j and len(set(faces[i]) & set(faces[j])) == 2} for i in range(20)}
+assert all(len(s) == 3 for s in fadj.values())
+dist = np.full((20, 20), -1, int)
+for s in range(20):
+    dist[s, s] = 0
+    q = [s]
+    while q:
+        nq = []
+        for u in q:
+            for w in fadj[u]:
+                if dist[s, w] < 0:
+                    dist[s, w] = dist[s, u] + 1
+                    nq.append(w)
+        q = nq
+sphere = Counter(int(x) for x in dist[0])
+assert dict(sphere) == {0: 1, 1: 3, 2: 6, 3: 6, 4: 3, 5: 1}
+
+
+def orbits(items, act):
+    seen, out = set(), []
+    for it in items:
+        if it in seen:
+            continue
+        orb = {act(g, it) for g in group}
+        seen |= orb
+        out.append(sorted(orb))
+    return out
+
+
+ordered = [(i, j) for i in range(20) for j in range(20) if i != j]
+unordered = [tuple(sorted(p)) for p in itertools.combinations(range(20), 2)]
+ord_orbits = orbits(ordered, lambda g, p: (g[p[0]], g[p[1]]))
+unord_orbits = orbits(unordered, lambda g, p: tuple(sorted((g[p[0]], g[p[1]]))))
+
+
+def describe(orbs, key):
+    rows = []
+    for o in orbs:
+        d = int(dist[o[0][0], o[0][1]])
+        mirror = sorted({key((inversion[a], inversion[b])) for a, b in o})
+        swap = sorted({key((b, a)) for a, b in o})
+        rows.append(dict(separation=d, size=len(o), mirror_self=(mirror == o), swap_self=(swap == o), members=o))
+    rows.sort(key=lambda r: (r['separation'], r['members'][0]))
+    return rows
+
+
+ord_rows = describe(ord_orbits, lambda p: p)
+unord_rows = describe(unord_orbits, lambda p: tuple(sorted(p)))
+kinds = dict(
+    ordered=[dict(separation=r['separation'], size=r['size'], mirror_self=r['mirror_self']) for r in ord_rows],
+    unordered=[dict(separation=r['separation'], size=r['size'], mirror_self=r['mirror_self']) for r in unord_rows])
+assert [r['separation'] for r in kinds['ordered']] == [1, 2, 2, 3, 3, 4, 5]
+assert [r['separation'] for r in kinds['unordered']] == [1, 2, 3, 3, 4, 5]
+# the swap of the two faces exchanges the two chiral kinds at separation 2 and keeps them at separation 3
+swap_at = {r['separation']: r['swap_self'] for r in ord_rows}
+assert swap_at[2] is False and swap_at[3] is True
+
+# census of lasting pairs (simulation session, X3 register, level 10): counts per kind
+CENSUS = {
+    '(2,4)': [(2, '+', 1107653), (2, '-', 1109692), (3, '+', 861343), (3, '-', 861518), (4, '', 792175), (5, '', 259535)],
+    '(3,3)': [(2, '', 395030), (3, '+', 131873), (3, '-', 132124), (4, '', 98431), (5, '', 28090)],
+}
+orbit_size = {'(2,4)': {(2, '+'): 60, (2, '-'): 60, (3, '+'): 60, (3, '-'): 60, (4, ''): 60, (5, ''): 20},
+              '(3,3)': {(2, ''): 60, (3, '+'): 30, (3, '-'): 30, (4, ''): 30, (5, ''): 10}}
+census = {}
+for pair, rows in CENSUS.items():
+    out = []
+    for d, ch, n in rows:
+        out.append(dict(separation=d, chirality=ch, count=n, per_face_pair=round(n / orbit_size[pair][(d, ch)], 1)))
+    mirror = {}
+    for d in (2, 3):
+        a = [n for dd, ch, n in rows if dd == d and ch == '+']
+        b = [n for dd, ch, n in rows if dd == d and ch == '-']
+        if a and b:
+            mirror[d] = dict(plus=a[0], minus=b[0], difference_in_sigma=round((a[0] - b[0]) / math.sqrt(a[0] + b[0]), 2))
+    census[pair] = dict(kinds=out, mirror=mirror)
+
+# Aharonov-Bohm rest phases of reading C (a charged level on a carrier with a flux pair), work/DIRAC
+dp = Path('WORKSPACE/repair-law/work/DIRAC/defect_phases.json')
+reading_c = None
+if dp.exists():
+    reading_c = json.loads(dp.read_text())
+
+# ---------------------------------------------------------------- 6. particle cards
+ref = json.loads((RER / 'code/particles/data/particle_reference_values.json').read_text())['entries']
+MEASURED = {  # display only; never an input
+    ('e', 1): 'electron', ('e', 2): 'muon', ('e', 3): 'tau', ('u', 1): 'up_quark', ('u', 2): 'charm_quark',
+    ('u', 3): 'top_quark', ('d', 1): 'down_quark', ('d', 2): 'strange_quark', ('d', 3): 'bottom_quark'}
+cards = []
+for fam_name, left, right, chan, junction in [
+        ('up quark', 'u_L (in Q, class 1)', 'u_R (class 4)', 'u', '1 + 3 -> 4 (Q Htilde -> u_R)'),
+        ('down quark', 'd_L (in Q, class 1)', 'd_R (class 4)', 'd', '1 + 3 -> 4 (Q H -> d_R)'),
+        ('charged lepton', 'e_L (in L, class 3)', 'e_R (class 0)', 'e', '3 + 3 -> 0 (L H -> e_R)'),
+        ('neutrino', 'nu_L (in L, class 3)', 'nu_R (class 0) if present', 'nu', '3 + 3 -> 0 (L Htilde -> nu_R)')]:
+    gens_out = []
+    for g in (1, 2, 3):
+        key = MEASURED.get((chan, g))
+        m = ref[key]['value_gev'] if key else None
+        gens_out.append(dict(generation=g, measured_mass_gev=m, measured_source=key, derived_mass=None))
+    cards.append(dict(
+        species=fam_name, left_handed=left, right_handed=right, mass_junction=junction,
+        mass_form='m = |v y| (audit chiral_particle_map: one Yukawa number per channel and one scalar background)',
+        mass_status='not derived: v and y are inputs in every construction so far; the class label is the same for all three generations',
+        generations=gens_out))
+
+result = dict(
+    patterns=patterns, class_table=class_table, bosons=BOSONS, flux_seen_by=sees,
+    yukawa_junctions=junctions, catalogue_reactions=CATALOGUE, reaction_reading=READING,
+    pair_kinds=kinds, census=census, reading_c_phases=reading_c, particle_cards=cards,
+    checks=dict(
+        z6_trivial_on_all_32='pass', class_formula='pass', colour_flux_seen_by_coloured_only='pass',
+        weak_flux_seen_by_doublets_only='pass', yukawa_vertices_conserve_class='pass',
+        catalogue_reactions_conserve_class='pass', rotation_group_order=60,
+        face_distance_sphere=dict(sphere), ordered_kinds=7, unordered_kinds=6,
+        lasting_ordered_kinds_separation_ge_2=6, lasting_unordered_kinds_separation_ge_2=5))
+OUT.write_text(json.dumps(result, indent=1, default=str))
+
+# ---------------------------------------------------------------- printout
+print('class  triality weak  states  fields')
+for k in range(6):
+    ct = class_table[k]
+    print(f'  {k}      {ct["triality"]}       {ct["weak_centre"]}     {ct["states"]:2d}    {ct["fields"]}  {ct["bosons"]}')
+print('flux class f is seen by pattern classes:', sees)
+print('Yukawa junctions:', junctions)
+print('ordered pair kinds:', [(r['separation'], r['size'], r['mirror_self']) for r in kinds['ordered']])
+print('unordered pair kinds:', [(r['separation'], r['size'], r['mirror_self']) for r in kinds['unordered']])
+for pair, c in census.items():
+    print(pair, [(r['separation'], r['chirality'], r['per_face_pair']) for r in c['kinds']], c['mirror'])
+print('wrote', OUT)

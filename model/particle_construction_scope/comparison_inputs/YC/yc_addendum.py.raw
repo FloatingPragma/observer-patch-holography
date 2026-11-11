@@ -1,0 +1,17 @@
+"""YC Addendum 1 rows (post hoc, zero weight; registered in CANDIDATES.md at 08:15 before this script existed).
+A1: the F1 sum rule of one family carried by the top leg alone, y_t = sqrt(2/3) g. A2: three copies, y_t = sqrt2 g.
+Reads no measured value. Writes yc_addendum.json."""
+import json
+import math
+import sys
+
+import yc_run as Y
+
+Y.LEGS = (1.0, 0.0, 0.0)
+rF1 = Y.r["F1"]
+Y.add("A1 D-a", Y.d_row, math.sqrt(8 / 3) * rF1, "G1", "g2")
+Y.add("A1 D-b", Y.d_row, math.sqrt(8 / 3) * rF1, "G1", "source")
+Y.add("A1 S2", Y.s2_row, math.sqrt(8 / 3) * rF1, "G1")
+Y.add("A2 D-a", Y.d_row, math.sqrt(8) * rF1, "G1", "g2")
+json.dump({"note": "top leg alone: y_t^2 = (8/3) r^2 g^2 (A1), 8 r^2 g^2 (A2); r = 1/2", "rows": Y.rows},
+          open(sys.argv[1] if len(sys.argv) > 1 else "yc_addendum.json", "w"), indent=1, default=float)

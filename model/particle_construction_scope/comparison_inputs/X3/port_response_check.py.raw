@@ -1,0 +1,55 @@
+"""Do the twelve port responses act on a placement space? Float64 check (MEASURED residuals).
+
+On the five-level code the response of port p is P_p (triplet) and Q_p (doublet) of kdlib.triplet_response and
+kdlib.doublet_response. Shown here: each is the spectral projector of the code lift of the fifth-turns about port p
+for one character of that cyclic group. The same character defines a projector on any space on which the rotations
+act; on the space of the twenty face positions its rank in each irreducible component is printed.
+"""
+import json, sys
+import numpy as np
+import kdlib, x3lib as X
+
+quats, rotm = kdlib.cover()
+cx = lambda M: np.array([[complex(x) for x in r] for r in M])
+V = np.array([[float(x) for x in v] for v in kdlib.carrier()['V']])
+SX, SY, SZ = cx(kdlib.SX), cx(kdlib.SY), cx(kdlib.SZ)
+perm_matrix = lambda g: np.array([[1.0 if g[f] == h else 0.0 for f in range(20)] for h in range(20)])    # e_f -> e_{g f}
+res = {'triplet_residual': 0.0, 'doublet_residual': 0.0}
+# isotypic projectors on the face space from exact characters (float)
+import irreps as IR
+PM = [perm_matrix(fp) for fp in IR.FACEP]
+iso = {n: sum(complex(c[n]).conjugate() * P for c, P in zip(IR.CH, PM)) * IR.DIMS[n] / 120 for n in ('1', '3', "3'", '4', '5')}
+ranks = {}
+for p in range(12):
+    n = V[p] / np.linalg.norm(V[p])
+    cross = np.array([[0, -n[2], n[1]], [n[2], 0, -n[0]], [-n[1], n[0], 0]])
+    P = (np.eye(3) - np.outer(n, n) + 1j * cross) / 2
+    w = np.array([float(x.gal()) for x in kdlib.carrier()['V'][p]]); w /= np.linalg.norm(w)
+    Q = (np.eye(2) + w[0] * SZ + w[1] * SY + w[2] * SX) / 2
+    assert np.allclose(P @ P, P) and np.allclose(Q @ Q, Q) and abs(np.trace(P) - 1) < 1e-12 and abs(np.trace(Q) - 1) < 1e-12
+    lifts = [q for q, perm in quats.items() if perm[p] == p]
+    assert len(lifts) == 10
+    # characters: P R(q) = lam(q) P, Q U(q) = mu(q) Q
+    lam, mu = {}, {}
+    for q in lifts:
+        R, U = cx(rotm[q]), cx(kdlib.spinor_lift(q))
+        l = np.trace(P @ R); m = np.trace(Q @ U)
+        res['triplet_residual'] = max(res['triplet_residual'], float(np.abs(P @ R - l * P).max()), float(np.abs(R @ P - l * P).max()))
+        res['doublet_residual'] = max(res['doublet_residual'], float(np.abs(Q @ U - m * Q).max()), float(np.abs(U @ Q - m * Q).max()))
+        lam[q], mu[q] = l, m
+    # spectral projector from the character: (1/10) sum conj(lam(q)) R(q) equals P
+    Pc = sum(np.conj(lam[q]) * cx(rotm[q]) for q in lifts) / 10
+    Qc = sum(np.conj(mu[q]) * cx(kdlib.spinor_lift(q)) for q in lifts) / 10
+    res['triplet_residual'] = max(res['triplet_residual'], float(np.abs(Pc - P).max()))
+    res['doublet_residual'] = max(res['doublet_residual'], float(np.abs(Qc - Q).max()))
+    # the same characters on the face space
+    Pf = sum(np.conj(lam[q]) * perm_matrix(X.face_perm(quats[q])) for q in lifts) / 10
+    Qf = sum(np.conj(mu[q]) * perm_matrix(X.face_perm(quats[q])) for q in lifts) / 10
+    r = {n: int(np.linalg.matrix_rank(iso[n] @ Pf, tol=1e-9)) for n in iso}
+    r['total'] = int(np.linalg.matrix_rank(Pf, tol=1e-9)); r['doublet_character'] = int(np.linalg.matrix_rank(Qf, tol=1e-9))
+    ranks[p] = r
+assert all(r == ranks[0] for r in ranks.values())
+res['rank_of_the_triplet_character_projector_on_the_face_space'] = ranks[0]
+print(json.dumps(res))
+if len(sys.argv) > 1:
+    json.dump(res, open(sys.argv[1], 'w'), indent=1)

@@ -1,0 +1,172 @@
+"""Native origin of the Clifford data of a Dirac routing coin (representation level).
+
+Carrier facts used: the thirty seams, the sixty rotations, the two port frames (slow band N1, fast band N2).
+Computed:
+  1. the perfect matchings of the seam graph that are preserved by a Klein four-group of rotations (five of them);
+     the six seams of such a matching are centred on three mutually perpendicular two-fold axes: a cubic frame;
+  2. the cover lifts of the three half-turns of a frame on the spinor doublet of the five-level code: they generate
+     the quaternion group, so alpha_i = i * lift_i are three anticommuting Hermitian involutions;
+  3. with the two-state repair record as chirality: alpha_i = tau_z x alpha_i, beta = tau_x x 1 satisfy the sixteen
+     Clifford relations of a four-component Dirac coin; the walk symbol has H^2 = (p^2 + m^2);
+  4. the same half-turns on the vector triplet are commuting reflections (no Clifford structure there).
+Declared (not derived): using these operators as the routing coin, the cubic shifts, the mass angle.
+"""
+import itertools, json, sys
+import numpy as np
+from scipy.linalg import expm, logm
+from model.common_source import slow_geometry
+
+src = slow_geometry.source()
+seams = [tuple(sorted(int(v) for v in e)) for e in src.seams()]
+n = 12
+A = np.zeros((n, n))
+for a, b in seams: A[a, b] = A[b, a] = 1
+w, v = np.linalg.eigh(A)
+N1 = v[:, np.abs(w - 5 ** .5) < 1e-9] * 2.0
+N2 = v[:, np.abs(w + 5 ** .5) < 1e-9] * 2.0
+if np.linalg.det(N1[[0, *[b for a, b in seams if a == 0][:2]]]) < 0: N1 = -N1   # orientation is a convention
+sig = [np.array([[0, 1], [1, 0]], complex), np.array([[0, -1j], [1j, 0]]), np.diag([1.0, -1.0]).astype(complex)]
+
+# the sixty rotations as port permutations: automorphisms of the seam graph realised by proper rotations of N1
+def rotation_of(perm):
+    R, *_ = np.linalg.lstsq(N1, N1[list(perm)], rcond=None)
+    R = R.T
+    ok = np.allclose(N1 @ R.T, N1[list(perm)], atol=1e-9) and np.allclose(R @ R.T, np.eye(3), atol=1e-9)
+    return R if ok and np.linalg.det(R) > 0 else None
+nbrs = {p: [q for q in range(n) if A[p, q]] for p in range(n)}
+perms = []
+p0 = 0; q0 = nbrs[0][0]
+for a in range(n):
+    for b in nbrs[a]:
+        # a rotation is fixed by the image of one oriented seam
+        Ra = None
+        for c in nbrs[a]:
+            if c == b or not A[b, c]: continue
+            # frame (p0, q0, r0) -> (a, b, c) with r0 a common neighbour of p0, q0
+            for r0 in nbrs[p0]:
+                if r0 == q0 or not A[q0, r0]: continue
+                M0 = np.array([N1[p0], N1[q0], N1[r0]]); M1 = np.array([N1[a], N1[b], N1[c]])
+                R = np.linalg.solve(M0, M1).T
+                if np.allclose(R @ R.T, np.eye(3), atol=1e-9) and np.linalg.det(R) > 0:
+                    img = N1 @ R.T
+                    perm = tuple(int(np.argmin(np.linalg.norm(N1 - x, axis=1))) for x in img)
+                    if np.allclose(N1[list(perm)], img, atol=1e-9) and perm not in perms:
+                        perms.append(perm)
+assert len(perms) == 60, len(perms)
+ROT = {perm: rotation_of(perm) for perm in perms}
+half = [perm for perm in perms if perm != tuple(range(n)) and tuple(perm[perm[i]] for i in range(n)) == tuple(range(n))]
+assert len(half) == 15
+
+# perfect matchings of the seam graph
+def matchings(free, chosen):
+    if not free:
+        yield tuple(chosen); return
+    a = min(free)
+    for b in nbrs[a]:
+        if b in free:
+            yield from matchings(free - {a, b}, chosen + [(a, b) if a < b else (b, a)])
+ALL = list(matchings(frozenset(range(n)), []))
+def image(m, perm): return tuple(sorted(tuple(sorted((perm[a], perm[b]))) for a, b in m))
+frames = []
+def commute(g, h): return tuple(g[h[i]] for i in range(n)) == tuple(h[g[i]] for i in range(n))
+kleins = [trio for trio in itertools.combinations(half, 3) if all(commute(g, h) for g, h in itertools.combinations(trio, 2))]
+assert len(kleins) == 5, len(kleins)
+stab_orders = {}
+for m in ALL:
+    ms = tuple(sorted(m)); stab_orders[ms] = len([perm for perm in perms if image(ms, perm) == ms])
+for trio in kleins:
+    # the seams exchanged end for end by one of the three half-turns: two per axis
+    ms = tuple(sorted(e for e in seams if any(g[e[0]] == e[1] and g[e[1]] == e[0] for g in trio)))
+    assert len(ms) == 6 and len({x for e in ms for x in e}) == 12, ms          # a perfect matching
+    stab = [perm for perm in perms if image(ms, perm) == ms]
+    frames.append((ms, stab, list(trio)))
+from collections import Counter
+out = {'perfect_matchings_total': len(ALL), 'klein_four_groups': len(kleins),
+       'stabilizer_order_histogram_of_all_matchings': dict(sorted(Counter(stab_orders.values()).items())),
+       'stabilizer_orders_of_the_five_frames': sorted({len(s) for _, s, _ in frames})}
+print('perfect matchings:', len(ALL), '| stabilizer orders:', out['stabilizer_order_histogram_of_all_matchings'],
+      '| Klein four-groups:', len(kleins), '| stabilizer of a frame matching:', out['stabilizer_orders_of_the_five_frames'])
+disjoint = len({e for ms, _, _ in frames for e in ms}) == 30
+out['the_five_frame_matchings_partition_the_thirty_seams'] = disjoint
+print('the five frame matchings partition the thirty seams:', disjoint)
+
+def axis(R):
+    wv, vv = np.linalg.eig(R); k = int(np.argmin(np.abs(wv - 1))); return np.real(vv[:, k]) / np.linalg.norm(np.real(vv[:, k]))
+def conj_rotation(perm):
+    R, *_ = np.linalg.lstsq(N2, N2[list(perm)], rcond=None)
+    return R.T
+worst = {'covariance_doublet': 0, 'covariance_triplet': 0, 'clifford': 0, 'quaternion': 0, 'axes_orthogonal': 0,
+         'midpoints_on_axes': 0, 'dirac_square': 0, 'triplet_commute': 0}
+rows = []
+for ms, stab, klein in frames:
+    lifts, alphas, trip = [], [], []
+    for perm in klein:
+        R1 = ROT[perm]; R2 = conj_rotation(perm)
+        assert np.allclose(R2 @ R2.T, np.eye(3), atol=1e-9) and np.allclose(N2 @ R2.T, N2[list(perm)], atol=1e-9)
+        a2 = axis(R2)
+        u = -1j * sum(a2[i] * sig[i] for i in range(3))           # cover lift of the half-turn, conjugate frame
+        for p in range(n):
+            Q = (np.eye(2) + sum(N2[p][i] * sig[i] for i in range(3))) / 2
+            Qi = (np.eye(2) + sum(N2[perm[p]][i] * sig[i] for i in range(3))) / 2
+            worst['covariance_doublet'] = max(worst['covariance_doublet'], np.abs(u @ Q @ u.conj().T - Qi).max())
+            P = np.outer(N1[p], N1[p]); Pi = np.outer(N1[perm[p]], N1[perm[p]])
+            worst['covariance_triplet'] = max(worst['covariance_triplet'], np.abs(R1 @ P @ R1.T - Pi).max())
+        lifts.append(u); alphas.append(1j * u); trip.append(R1)
+    # seam midpoints of the matching lie on the three axes (port frame)
+    axes1 = [axis(R) for R in trip]
+    for a, b in ms:
+        mid = N1[a] + N1[b]; mid /= np.linalg.norm(mid)
+        worst['midpoints_on_axes'] = max(worst['midpoints_on_axes'], min(1 - abs(mid @ ax) for ax in axes1))
+    for i in range(3):
+        for j in range(3):
+            anti = alphas[i] @ alphas[j] + alphas[j] @ alphas[i] - 2 * (i == j) * np.eye(2)
+            worst['clifford'] = max(worst['clifford'], np.abs(anti).max())
+            worst['triplet_commute'] = max(worst['triplet_commute'], np.abs(trip[i] @ trip[j] - trip[j] @ trip[i]).max())
+            if i != j: worst['axes_orthogonal'] = max(worst['axes_orthogonal'], abs(axes1[i] @ axes1[j]))
+    # quaternion group: closure of the three lifts has eight elements
+    grp = [np.eye(2, dtype=complex)]
+    changed = True
+    while changed:
+        changed = False
+        for g in list(grp):
+            for u in lifts:
+                h = g @ u
+                if not any(np.allclose(h, k, atol=1e-9) for k in grp):
+                    grp.append(h); changed = True
+    worst['quaternion'] = max(worst['quaternion'], abs(len(grp) - 8))
+    # four-component coin: chirality = repair record
+    tz = np.diag([1.0, -1.0]); tx = np.array([[0, 1.0], [1.0, 0]])
+    al = [np.kron(tz, a) for a in alphas]; be = np.kron(tx, np.eye(2))
+    gens = al + [be]
+    for i in range(4):
+        for j in range(4):
+            worst['clifford'] = max(worst['clifford'], np.abs(gens[i] @ gens[j] + gens[j] @ gens[i] - 2 * (i == j) * np.eye(4)).max())
+    rng = np.random.default_rng(7)
+    for _ in range(20):
+        pvec = rng.normal(size=3); m = rng.normal()
+        H = sum(pvec[i] * al[i] for i in range(3)) + m * be
+        worst['dirac_square'] = max(worst['dirac_square'], np.abs(H @ H - (pvec @ pvec + m * m) * np.eye(4)).max())
+    rows.append({'matching': [list(e) for e in ms], 'half_turns': [list(k) for k in klein],
+                 'triplet_reflections_diagonal_in_frame': True})
+print('worst defects:', {k: float(f'{v:.2e}') for k, v in worst.items()})
+
+# the walk symbol of the Dirac routing coin with the native generators (frame 0): phase against a*sqrt(p^2+m^2)
+ms, stab, klein = frames[0]
+alph = [np.kron(np.diag([1.0, -1.0]), 1j * (-1j * sum(axis(conj_rotation(perm))[i] * sig[i] for i in range(3)))) for perm in klein]
+beta = np.kron(np.array([[0, 1.0], [1.0, 0]]), np.eye(2))
+table = []
+for a in (0.2, 0.1, 0.05):
+    pvec = np.array([0.7, -0.4, 0.5]); m = 0.6
+    D = expm(-1j * a * m * beta)
+    for i in (2, 1, 0): D = D @ expm(-1j * a * pvec[i] * alph[i])
+    ph = np.sort(np.angle(np.linalg.eigvals(D)))
+    exact = a * np.sqrt(pvec @ pvec + m * m)
+    table.append({'a': a, 'walk_phases': [round(float(x), 8) for x in ph], 'a_sqrt_p2_m2': round(float(exact), 8),
+                  'relative_error': float(np.abs(np.abs(ph) - exact).max() / exact)})
+    print(f'a = {a}: walk phases {np.round(ph, 6)}  a*sqrt(p^2+m^2) = {exact:.6f}  rel. error {table[-1]["relative_error"]:.2e}')
+out.update({'worst_defects': {k: float(v) for k, v in worst.items()}, 'frames': rows, 'walk_symbol_check': table,
+            'declared': ['use of these operators as a routing coin', 'cubic shifts along the three axes of a frame',
+                         'the mass angle', 'identification of the record with chirality'],
+            'not_established': ['any dynamics of the public programs with this coin', 'spin of a physical particle',
+                                'a mass value', 'which of the five frames, or how frames of different carriers relate']})
+if len(sys.argv) > 1: json.dump(out, open(sys.argv[1], 'w'), indent=1)

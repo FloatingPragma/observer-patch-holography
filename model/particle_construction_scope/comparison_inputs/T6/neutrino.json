@@ -1,0 +1,1310 @@
+{
+ "worker": "T6",
+ "step": "E6 (neutrino masses)",
+ "date": "2026-11-10",
+ "scope": "candidate program CF-1 (declared tick on the cubic family) with the chart of work/MAP; algebra of a declared program at instrument level; level 1 for every premise; a rest phase is not a mass",
+ "corrections_stated_first": [
+  "Among the operators bilinear in the five level operators no pairing term conserves colour and electric charge and the three number-conserving ones are diagonal. The pairing of the neutral singlet with itself is bilinear in the mode operators of the quanta; on the pattern register it is the top form a_v1 a_v2 a_v3 a_s1 a_s2 (degree five), the link 11111 <-> 00000.",
+  "Every step of CF-1 section 8 conserves the number of quanta. A pairing step does not, and it does not fix the empty state (amplitude cos(theta_M) per cell): with it the reference of report R1 is lost.",
+  "The pairing exists as such only with the conjugation that identifies 00000 with the hole of 11111 (one family; reports R4, R8). With 32 independent patterns the same link is a number-conserving rotation between two neutral singlets, it fixes the empty state, and it changes the record-independent Gauss charge (-1)^(n_s1)."
+ ],
+ "results": {
+  "1_allowed_terms": {
+   "tag": "EXACT; chart DECLARED",
+   "detail": {
+    "convention": "6Y = 3 n2 - 2 n3; T3 = +1/2 on s1, -1/2 on s2; Q = n_s1 - n3/3; left = even occupation; levels (v1, v2, v3, s1, s2)",
+    "A_bilinears_in_the_level_operators": {
+     "monomials": 45,
+     "classes": [
+      {
+       "kind": "number conserving a* a",
+       "levels": "two spinor levels",
+       "monomials": 4,
+       "three_Q_values": [
+        "-3",
+        "0",
+        "3"
+       ],
+       "six_Y_values": [
+        "0"
+       ],
+       "conserving_colour_and_charge_as_monomials": [
+        "a*_s1 a_s1",
+        "a*_s2 a_s2"
+       ]
+      },
+      {
+       "kind": "number conserving a* a",
+       "levels": "one vector, one spinor level",
+       "monomials": 12,
+       "three_Q_values": [
+        "-1",
+        "-4",
+        "1",
+        "4"
+       ],
+       "six_Y_values": [
+        "-5",
+        "5"
+       ],
+       "conserving_colour_and_charge_as_monomials": []
+      },
+      {
+       "kind": "number conserving a* a",
+       "levels": "two vector levels",
+       "monomials": 9,
+       "three_Q_values": [
+        "0"
+       ],
+       "six_Y_values": [
+        "0"
+       ],
+       "conserving_colour_and_charge_as_monomials": []
+      },
+      {
+       "kind": "pairing a a",
+       "levels": "two spinor levels",
+       "monomials": 1,
+       "three_Q_values": [
+        "-3"
+       ],
+       "six_Y_values": [
+        "-6"
+       ],
+       "conserving_colour_and_charge_as_monomials": []
+      },
+      {
+       "kind": "pairing a a",
+       "levels": "one vector, one spinor level",
+       "monomials": 6,
+       "three_Q_values": [
+        "-2",
+        "1"
+       ],
+       "six_Y_values": [
+        "-1"
+       ],
+       "conserving_colour_and_charge_as_monomials": []
+      },
+      {
+       "kind": "pairing a a",
+       "levels": "two vector levels",
+       "monomials": 3,
+       "three_Q_values": [
+        "2"
+       ],
+       "six_Y_values": [
+        "4"
+       ],
+       "conserving_colour_and_charge_as_monomials": []
+      },
+      {
+       "kind": "pairing a* a*",
+       "levels": "two spinor levels",
+       "monomials": 1,
+       "three_Q_values": [
+        "3"
+       ],
+       "six_Y_values": [
+        "6"
+       ],
+       "conserving_colour_and_charge_as_monomials": []
+      },
+      {
+       "kind": "pairing a* a*",
+       "levels": "one vector, one spinor level",
+       "monomials": 6,
+       "three_Q_values": [
+        "-1",
+        "2"
+       ],
+       "six_Y_values": [
+        "1"
+       ],
+       "conserving_colour_and_charge_as_monomials": []
+      },
+      {
+       "kind": "pairing a* a*",
+       "levels": "two vector levels",
+       "monomials": 3,
+       "three_Q_values": [
+        "-2"
+       ],
+       "six_Y_values": [
+        "-4"
+       ],
+       "conserving_colour_and_charge_as_monomials": []
+      }
+     ],
+     "dimension_of_colour_and_charge_conserving_combinations": {
+      "pairing (20 monomials)": 0,
+      "number conserving (25 monomials)": 3,
+      "all 45": 3
+     },
+     "the_conserving_ones": [
+      "N3 = n_v1 + n_v2 + n_v3 (T = 0, Y = 0)",
+      "n_s1",
+      "n_s2 (n_s1 + n_s2: T = 0, Y = 0; n_s1 - n_s2 = 2 T3: T = 1, Y = 0)"
+     ],
+     "they_change_handedness": false,
+     "statement": "No pairing bilinear of the level operators conserves colour and electric charge, and the three number-conserving ones are diagonal: at bilinear order in the level operators there is no mass term. a_v a_v is a colour triplet with Q = 2/3, a_v a_s a colour triplet, a_s1 a_s2 a colour and weak singlet with Q = -1, Y = -1."
+    },
+    "B_commutant_of_colour_and_charge": {
+     "dimension": 40,
+     "handedness_changing_part": 20,
+     "handedness_preserving_part": 20,
+     "handedness_changing_and_invariant_under_the_twelve_responses": 2,
+     "links": [
+      {
+       "link (left <- right)": "toggle on d",
+       "type": "Dirac",
+       "matrix_elements": 3,
+       "six_Y_carried": "3",
+       "two_T3_carried": "-1",
+       "weak_isospin": "1/2",
+       "three_Q_carried": "0",
+       "commutes_with_all_twelve_responses": false,
+       "level_numbers_carried_on_the_pattern_register": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "1"
+       ],
+       "level_numbers_of_the_two_left_fields_it_creates": [
+        1,
+        1,
+        1,
+        1,
+        2
+       ],
+       "change_of_Q6_mod_6": 3,
+       "change_of_Z2_charge_n2_mod_2": 1,
+       "change_of_B_minus_L": "0",
+       "form": "the toggle a_s2 + a*_s2 times the projector on the species"
+      },
+      {
+       "link (left <- right)": "toggle on u",
+       "type": "Dirac",
+       "matrix_elements": 3,
+       "six_Y_carried": "-3",
+       "two_T3_carried": "1",
+       "weak_isospin": "1/2",
+       "three_Q_carried": "0",
+       "commutes_with_all_twelve_responses": false,
+       "level_numbers_carried_on_the_pattern_register": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "-1"
+       ],
+       "level_numbers_of_the_two_left_fields_it_creates": [
+        1,
+        1,
+        1,
+        1,
+        0
+       ],
+       "change_of_Q6_mod_6": 3,
+       "change_of_Z2_charge_n2_mod_2": 1,
+       "change_of_B_minus_L": "0",
+       "form": "the toggle a_s2 + a*_s2 times the projector on the species"
+      },
+      {
+       "link (left <- right)": "toggle on e",
+       "type": "Dirac",
+       "matrix_elements": 1,
+       "six_Y_carried": "3",
+       "two_T3_carried": "-1",
+       "weak_isospin": "1/2",
+       "three_Q_carried": "0",
+       "commutes_with_all_twelve_responses": false,
+       "level_numbers_carried_on_the_pattern_register": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "1"
+       ],
+       "level_numbers_of_the_two_left_fields_it_creates": [
+        1,
+        1,
+        1,
+        1,
+        2
+       ],
+       "change_of_Q6_mod_6": 3,
+       "change_of_Z2_charge_n2_mod_2": 1,
+       "change_of_B_minus_L": "0",
+       "form": "the toggle a_s2 + a*_s2 times the projector on the species"
+      },
+      {
+       "link (left <- right)": "toggle on nu",
+       "type": "Dirac",
+       "matrix_elements": 1,
+       "six_Y_carried": "-3",
+       "two_T3_carried": "1",
+       "weak_isospin": "1/2",
+       "three_Q_carried": "0",
+       "commutes_with_all_twelve_responses": false,
+       "level_numbers_carried_on_the_pattern_register": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "-1"
+       ],
+       "level_numbers_of_the_two_left_fields_it_creates": [
+        1,
+        1,
+        1,
+        1,
+        0
+       ],
+       "change_of_Q6_mod_6": 3,
+       "change_of_Z2_charge_n2_mod_2": 1,
+       "change_of_B_minus_L": "0",
+       "form": "the toggle a_s2 + a*_s2 times the projector on the species"
+      },
+      {
+       "link (left <- right)": "toggle on d-bar",
+       "type": "Dirac",
+       "matrix_elements": 3,
+       "six_Y_carried": "3",
+       "two_T3_carried": "-1",
+       "weak_isospin": "1/2",
+       "three_Q_carried": "0",
+       "commutes_with_all_twelve_responses": false,
+       "level_numbers_carried_on_the_pattern_register": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "1"
+       ],
+       "level_numbers_of_the_two_left_fields_it_creates": [
+        1,
+        1,
+        1,
+        1,
+        2
+       ],
+       "change_of_Q6_mod_6": 3,
+       "change_of_Z2_charge_n2_mod_2": 1,
+       "change_of_B_minus_L": "0",
+       "form": "the toggle a_s2 + a*_s2 times the projector on the species"
+      },
+      {
+       "link (left <- right)": "toggle on u-bar",
+       "type": "Dirac",
+       "matrix_elements": 3,
+       "six_Y_carried": "-3",
+       "two_T3_carried": "1",
+       "weak_isospin": "1/2",
+       "three_Q_carried": "0",
+       "commutes_with_all_twelve_responses": false,
+       "level_numbers_carried_on_the_pattern_register": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "-1"
+       ],
+       "level_numbers_of_the_two_left_fields_it_creates": [
+        1,
+        1,
+        1,
+        1,
+        0
+       ],
+       "change_of_Q6_mod_6": 3,
+       "change_of_Z2_charge_n2_mod_2": 1,
+       "change_of_B_minus_L": "0",
+       "form": "the toggle a_s2 + a*_s2 times the projector on the species"
+      },
+      {
+       "link (left <- right)": "toggle on e-bar",
+       "type": "Dirac",
+       "matrix_elements": 1,
+       "six_Y_carried": "3",
+       "two_T3_carried": "-1",
+       "weak_isospin": "1/2",
+       "three_Q_carried": "0",
+       "commutes_with_all_twelve_responses": false,
+       "level_numbers_carried_on_the_pattern_register": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "1"
+       ],
+       "level_numbers_of_the_two_left_fields_it_creates": [
+        1,
+        1,
+        1,
+        1,
+        2
+       ],
+       "change_of_Q6_mod_6": 3,
+       "change_of_Z2_charge_n2_mod_2": 1,
+       "change_of_B_minus_L": "0",
+       "form": "the toggle a_s2 + a*_s2 times the projector on the species"
+      },
+      {
+       "link (left <- right)": "toggle on nu-bar",
+       "type": "Dirac",
+       "matrix_elements": 1,
+       "six_Y_carried": "-3",
+       "two_T3_carried": "1",
+       "weak_isospin": "1/2",
+       "three_Q_carried": "0",
+       "commutes_with_all_twelve_responses": false,
+       "level_numbers_carried_on_the_pattern_register": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "-1"
+       ],
+       "level_numbers_of_the_two_left_fields_it_creates": [
+        1,
+        1,
+        1,
+        1,
+        0
+       ],
+       "change_of_Q6_mod_6": 3,
+       "change_of_Z2_charge_n2_mod_2": 1,
+       "change_of_B_minus_L": "0",
+       "form": "the toggle a_s2 + a*_s2 times the projector on the species"
+      },
+      {
+       "link (left <- right)": "singlet link |00000><11111|",
+       "type": "Majorana, neutral singlet",
+       "matrix_elements": 1,
+       "six_Y_carried": "0",
+       "two_T3_carried": "0",
+       "weak_isospin": "0",
+       "three_Q_carried": "0",
+       "commutes_with_all_twelve_responses": true,
+       "level_numbers_carried_on_the_pattern_register": [
+        "-1",
+        "-1",
+        "-1",
+        "-1",
+        "-1"
+       ],
+       "level_numbers_of_the_two_left_fields_it_creates": [
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "change_of_Q6_mod_6": 0,
+       "change_of_Z2_charge_n2_mod_2": 0,
+       "change_of_B_minus_L": "2",
+       "form": "the top form a_v1 a_v2 a_v3 a_s1 a_s2 (degree five)"
+      },
+      {
+       "link (left <- right)": "doublet link |11110><00001|",
+       "type": "Majorana, left neutrino",
+       "matrix_elements": 1,
+       "six_Y_carried": "-6",
+       "two_T3_carried": "2",
+       "weak_isospin": "1",
+       "three_Q_carried": "0",
+       "commutes_with_all_twelve_responses": false,
+       "level_numbers_carried_on_the_pattern_register": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "-1"
+       ],
+       "level_numbers_of_the_two_left_fields_it_creates": [
+        2,
+        2,
+        2,
+        2,
+        0
+       ],
+       "change_of_Q6_mod_6": 0,
+       "change_of_Z2_charge_n2_mod_2": 0,
+       "change_of_B_minus_L": "-2",
+       "form": "a*_s2 a_v1 a_v2 a_v3 a_s1 (degree five)"
+      }
+     ],
+     "top_form": "a_v1 a_v2 a_v3 a_s1 a_s2 = +-|00000><11111|: (colour singlet of the three vector levels) x (weak singlet of the two spinor levels); it commutes with all 24 traceless operators of the five levels and carries degree -5",
+     "B_minus_L_on_patterns": "1 - (2/3) n3",
+     "statement": "The handedness-changing operators on the 32 patterns that conserve colour and electric charge are spanned by ten links and their adjoints: the toggle restricted to each of the eight species blocks (weak isospin 1/2, |Y| = 1/2), the singlet link 11111 <-> 00000 (isospin 0, Y = 0: commutes with all twelve responses) and the doublet link 11110 <-> 00001 (isospin 1, |Y| = 1)."
+    },
+    "C_one_family_mode_bilinears": {
+     "sixteen_fields_colour_and_charge_invariant_symmetric_forms": 6,
+     "sixteen_fields_colour_and_charge_invariant_all_forms": 10,
+     "sixteen_fields_forms_invariant_under_the_twelve_responses": 1,
+     "sixteen_fields_forms_invariant_under_the_twelve_and_the_degree": 1,
+     "sixteen_fields_forms_invariant_under_all_five_level_numbers_and_colour": 1,
+     "fifteen_fields_forms_invariant_under_the_twelve_responses": 0,
+     "fifteen_fields_colour_and_charge_invariant_symmetric_forms": 4,
+     "right_handed_labelling_forms_invariant_under_the_twelve": 1,
+     "right_handed_labelling_forms_invariant_under_the_twelve_and_the_degree": 0,
+     "yukawa_channels": {
+      "sixteen_fields_with_H": 2,
+      "sixteen_fields_with_conjugate_H": 2,
+      "fifteen_fields_with_H": 1,
+      "fifteen_fields_with_conjugate_H": 2
+     },
+     "terms": [
+      {
+       "term": "Dirac, up type",
+       "fields": "Q (upper) with u^c",
+       "six_Y": -3,
+       "weak_isospin": "1/2",
+       "needs": "the toggle (Higgs, Y = +1/2)"
+      },
+      {
+       "term": "Dirac, down type",
+       "fields": "Q (lower) with d^c",
+       "six_Y": 3,
+       "weak_isospin": "1/2",
+       "needs": "the toggle (conjugate Higgs)"
+      },
+      {
+       "term": "Dirac, charged lepton",
+       "fields": "L (lower) with e^c",
+       "six_Y": 3,
+       "weak_isospin": "1/2",
+       "needs": "the toggle (conjugate Higgs)"
+      },
+      {
+       "term": "Dirac, neutrino",
+       "fields": "L (upper) with N^c",
+       "six_Y": -3,
+       "weak_isospin": "1/2",
+       "needs": "the toggle (Higgs)"
+      },
+      {
+       "term": "Majorana, neutral singlet",
+       "fields": "N^c with N^c",
+       "six_Y": 0,
+       "weak_isospin": "0",
+       "needs": "nothing: invariant under the twelve responses, the degree and every level number"
+      },
+      {
+       "term": "Majorana, left neutrino",
+       "fields": "L (upper) with L (upper)",
+       "six_Y": -6,
+       "weak_isospin": "1",
+       "needs": "the toggle twice (isospin 1, |Y| = 1)"
+      }
+     ],
+     "forbidden": "every other pair: 130 of the 136 symmetric entries violate colour or electric charge",
+     "statement": "One family as sixteen left-handed Weyl fields (the even patterns): the symmetric bilinear forms of the mode operators that conserve colour and electric charge are six: four Dirac terms, the pairing of the neutral singlet with itself and the pairing of the left neutrino with itself. Exactly one is invariant under the twelve responses: the singlet pairing; it is also invariant under the degree and under each of the five level numbers. Without the singlet (the fifteen states of the audit) no invariant form exists and three Higgs channels remain; with it there are four Higgs channels and one bare term. Labelled by the odd patterns instead, the same pairing carries degree ten: the two labellings differ by five units of fermion number per field."
+    }
+   }
+  },
+  "2_3_tick_and_phases": {
+   "tag": "EXACT (closed forms, identities); MEASURED (engine, float64 with printed defects); steps and angles DECLARED",
+   "detail": {
+    "rest_block": {
+     "basis": [
+      "nu_L = 11110",
+      "N = 11111",
+      "N^c = 00000",
+      "nu_L^c = 00001"
+     ],
+     "characteristic_polynomial_of_M_M_M_D": "(lam^2 - 2 cos(th_l) lam + 1)(lam^2 - 2 cos(th_h) lam + 1)",
+     "cos_th_l_plus_cos_th_h": "cos(theta_D) (1 + cos(theta_M))",
+     "cos_th_l_times_cos_th_h": "cos^2(theta_D) cos(theta_M) - (1 - cos(theta_M)) sin^2(theta_D) / 2",
+     "closed_form": "th_h = A + theta_M/2, th_l = A - theta_M/2, A = arccos(cos(theta_D) cos(theta_M/2))",
+     "sum_rule": "th_h - th_l = theta_M",
+     "product_rule": "sin(th_l) sin(th_h) = sin^2(theta_D) cos^2(theta_M/2)",
+     "product_rule_half_angles": "tan(th_l/2) tan(th_h/2) = tan^2(theta_D/2)",
+     "order_of_the_two_steps": "M_M M_D, M_D M_M and the palindromic M_D^(1/2) M_M M_D^(1/2) are conjugate: same rest phases",
+     "palindromic_step": "G M G = M^-1 with G the handedness: M = exp(-i K), K handedness-odd",
+     "identities_checked": "characteristic polynomial (five coefficients), root form, product rule, G M G = M^-1, unitarity: polynomial identities modulo the three circle relations"
+    },
+    "single_exponential_variant": {
+     "step": "exp(-i (theta_D H_D + theta_M H_M))",
+     "rest_phases": "sqrt(theta_D^2 + theta_M^2/4) +- theta_M/2; product theta_l theta_h = theta_D^2 exactly",
+     "with_doublet_angle_theta_T": "theta_l theta_h = |theta_D^2 - theta_T theta_M|, theta_l^2 + theta_h^2 = 2 theta_D^2 + theta_M^2 + theta_T^2",
+     "majorana_matrix": "[[theta_T, theta_D], [theta_D, theta_M]] on the left-handed fields (nu_L, N^c); rest phases = its Takagi values"
+    },
+    "light_phase": {
+     "exact": "th_l = arccos(cos(theta_D) cos(theta_M/2)) - theta_M/2",
+     "series": "th_l = (theta_D^2/2) cot(theta_M/2) - (theta_D^4/24) cot(theta_M/2) (1 + 3 cot^2(theta_M/2)) + O(theta_D^6)",
+     "bound": "0 <= th_l <= (theta_D^2/2) cot(theta_M/2) for 0 <= theta_D <= pi, 0 < theta_M < pi (d th_l/d theta_D = sin(theta_D) cos(a)/sqrt(1 - cos^2(theta_D) cos^2(a)) <= theta_D cot(a), a = theta_M/2)",
+     "admixture_of_the_singlet_in_the_light_left_state": "amplitude ratio N^c : nu_L = tan(th_l/2)/tan(theta_D/2) = sqrt(tan(th_l/2)/tan(th_h/2)) (left block of the palindromic step; checked to 30 digits at 20 points); (theta_D/2) cot(theta_M/2) to leading order"
+    },
+    "period": {
+     "tick": "U_t = M S_t, M = M_D^(1/2) M_M M_D^(1/2), S_t the alternating routing of CF-1 section 8",
+     "identity": "(U2 + U2^-1)/2 = ((Pi - 1)/2) 1 + ((Pi + 1)/2) cos(2 Theta), Pi = prod_i cos(2 p_i), cos(2 Theta) = (M^2 + M^-2)/2 with the two eigenvalues cos(2 th_l), cos(2 th_h), each four times, commuting with the routing",
+     "phases": "cos(E2_j) = cos^2(th_j) Pi - sin^2(th_j), j = light, heavy; each sign twice (two helicities)",
+     "argument": "M = exp(-i K) with K handedness-odd; singular value decomposition of its block gives a rotation of the species label that depends on the handedness only; the routing is diagonal in handedness and blind to the label, so the rotation commutes with it and the tick is the direct sum of two CF-1 ticks with mass angles th_l and th_h (reports R1, R3 apply to each)",
+     "rational_points_checked": 40,
+     "plain_order_M_M_M_D_S_violates_the_identity_at": "40 of 40 points",
+     "conjugation": "C = (Y_r sigma_2 tau_x) K: C H C^-1 = -H for the three generators and C alpha_i C^-1 = alpha_i: the block is the doubled (particle and hole) form of two Weyl fields"
+    },
+    "occupations_of_one_cell": {
+     "modes": [
+      "nu_L up",
+      "nu_L down",
+      "N up",
+      "N down"
+     ],
+     "Dirac_step": "exp(-i theta_D sum_s (c*_(nu_L s) c_(N s) + h.c.))",
+     "pairing_step": "exp(-i theta_M (c_(N up) c_(N down) + h.c.)): a rotation by theta_M between the empty cell and the cell holding the spin-singlet pair of neutral singlets",
+     "bogoliubov_identity": "U^-1 c_m U = sum_n M[m, n] c_n with the 4 x 4 one-body step M = M_M M_D and the dictionary c_(N^c up) = -c*_(N down), c_(N^c down) = c*_(N up), c_(nu_L^c up) = c*_(nu_L down), c_(nu_L^c down) = -c*_(nu_L up): eight operator identities on the 16 states, symbolic in the two angles",
+     "normalisation": "the rest phase of N under the pairing step alone is theta_M",
+     "empty_state": "<empty| pairing step |empty> = cos(theta_M) per cell: the empty state is not stationary under a pairing step; with all 32 patterns as independent modes the link 11111 <-> 00000 is number conserving and fixes it"
+    },
+    "audit_form": {
+     "fields": "two left Weyl fields (nu_L, N^c) of the sixteen even patterns",
+     "pair_matrix": "Delta = epsilon x [[0, m_D], [m_D, M]], m_D = v y_nu (fourth Higgs channel), M the bare term",
+     "identity": "B(p)^2 = (|p|^2 + M_nu^2) on every Nambu row; E^2 = |p|^2 + m^2, m = (sqrt(M^2 + 4 m_D^2) +- M)/2",
+     "reading": "the continuum form of the product rule; the audit's massless neutral row is the case without the sixteenth state"
+    },
+    "tower_table": {
+     "law": "th_l = k theta_D^2 (1 - (theta_D^2/12)(1 + 12 k^2) + ...), k = (1/2) cot(theta_M/2) = (1/2) sqrt((1 + lambda)/(1 - lambda)) for theta_M = arccos(lambda)",
+     "theta_D_values": [
+      "1e-6",
+      "1e-5",
+      "1e-4",
+      "1e-3",
+      "1e-2",
+      "0.042383",
+      "0.087847",
+      "0.157935"
+     ],
+     "rows": [
+      {
+       "sector": "slow triplet (either record)",
+       "kernel_eigenvalue": "sqrt(5)/60 + 11/12",
+       "theta_M": "0.30470843737",
+       "coefficient_k_exact": "sqrt(5 - sqrt(5))*(sqrt(5) + 5)*sqrt(sqrt(5) + 115)/40",
+       "coefficient_k": "3.25639401275",
+       "k_times_theta_M (1 in the continuum seesaw)": "0.99225073",
+       "light_phase": {
+        "1e-6": "3.256394013e-12",
+        "1e-5": "3.256394009e-10",
+        "1e-4": "3.256393665e-8",
+        "1e-3": "3.256359211e-6",
+        "1e-2": "0.0003252921182",
+        "0.042383": "0.005741337313",
+        "0.087847": "0.02334174287",
+        "0.157935": "0.06664728429"
+       },
+       "heavy_phase": {
+        "1e-6": "0.304708437374",
+        "1e-5": "0.304708437696",
+        "1e-4": "0.304708469934",
+        "1e-3": "0.304711693729",
+        "1e-2": "0.305033729488",
+        "0.042383": "0.310449774683",
+        "0.087847": "0.328050180244",
+        "0.157935": "0.371355721665"
+       },
+       "light_over_theta_D": {
+        "1e-6": "3.256394e-6",
+        "1e-5": "3.256394e-5",
+        "1e-4": "0.00032563937",
+        "1e-3": "0.0032563592",
+        "1e-2": "0.032529212",
+        "0.042383": "0.13546321",
+        "0.087847": "0.26570905",
+        "0.157935": "0.42199186"
+       }
+      },
+      {
+       "sector": "quintet, recorded",
+       "kernel_eigenvalue": "14/15",
+       "theta_M": "0.367208020558",
+       "coefficient_k_exact": "sqrt(29)/2",
+       "coefficient_k": "2.69258240357",
+       "k_times_theta_M (1 in the continuum seesaw)": "0.98873785",
+       "light_phase": {
+        "1e-6": "2.692582404e-12",
+        "1e-5": "2.692582402e-10",
+        "1e-4": "2.692582206e-8",
+        "1e-3": "2.692562658e-6",
+        "1e-2": "0.0002690610734",
+        "0.042383": "0.004774646886",
+        "0.087847": "0.01971980189",
+        "0.157935": "0.05800003716"
+       },
+       "heavy_phase": {
+        "1e-6": "0.367208020561",
+        "1e-5": "0.367208020827",
+        "1e-4": "0.367208047484",
+        "1e-3": "0.36721071312",
+        "1e-2": "0.367477081631",
+        "0.042383": "0.371982667444",
+        "0.087847": "0.386927822443",
+        "0.157935": "0.425208057719"
+       },
+       "light_over_theta_D": {
+        "1e-6": "2.6925824e-6",
+        "1e-5": "2.6925824e-5",
+        "1e-4": "0.00026925822",
+        "1e-3": "0.0026925627",
+        "1e-2": "0.026906107",
+        "0.042383": "0.11265476",
+        "0.087847": "0.22447895",
+        "0.157935": "0.36723992"
+       }
+      },
+      {
+       "sector": "quintet, blank",
+       "kernel_eigenvalue": "9/10",
+       "theta_M": "0.451026811796",
+       "coefficient_k_exact": "sqrt(19)/2",
+       "coefficient_k": "2.17944947177",
+       "k_times_theta_M (1 in the continuum seesaw)": "0.98299015",
+       "light_phase": {
+        "1e-6": "2.179449472e-12",
+        "1e-5": "2.179449471e-10",
+        "1e-4": "2.179449366e-8",
+        "1e-3": "2.179438938e-6",
+        "1e-2": "0.0002178397088",
+        "0.042383": "0.003881572687",
+        "0.087847": "0.01623451715",
+        "0.157935": "0.04903126793"
+       },
+       "heavy_phase": {
+        "1e-6": "0.451026811798",
+        "1e-5": "0.451026812014",
+        "1e-4": "0.451026833591",
+        "1e-3": "0.451028991235",
+        "1e-2": "0.451244651505",
+        "0.042383": "0.454908384483",
+        "0.087847": "0.467261328944",
+        "0.157935": "0.500058079726"
+       },
+       "light_over_theta_D": {
+        "1e-6": "2.1794495e-6",
+        "1e-5": "2.1794495e-5",
+        "1e-4": "0.00021794494",
+        "1e-3": "0.0021794389",
+        "1e-2": "0.021783971",
+        "0.042383": "0.091583245",
+        "0.087847": "0.18480446",
+        "0.157935": "0.3104522"
+       }
+      },
+      {
+       "sector": "fast triplet (either record)",
+       "kernel_eigenvalue": "11/12 - sqrt(5)/60",
+       "theta_M": "0.496198259502",
+       "coefficient_k_exact": "(5 - sqrt(5))*sqrt(115 - sqrt(5))*sqrt(sqrt(5) + 5)/40",
+       "coefficient_k": "1.97380293691",
+       "k_times_theta_M (1 in the continuum seesaw)": "0.97939758",
+       "light_phase": {
+        "1e-6": "1.973802937e-12",
+        "1e-5": "1.973802936e-10",
+        "1e-4": "1.973802858e-8",
+        "1e-3": "1.973795083e-6",
+        "1e-2": "0.0001973018139",
+        "0.042383": "0.00352059126",
+        "0.087847": "0.01479096557",
+        "0.157935": "0.04512758095"
+       },
+       "heavy_phase": {
+        "1e-6": "0.496198259504",
+        "1e-5": "0.496198259699",
+        "1e-4": "0.49619827924",
+        "1e-3": "0.496200233297",
+        "1e-2": "0.496395561316",
+        "0.042383": "0.499718850762",
+        "0.087847": "0.510989225074",
+        "0.157935": "0.541325840455"
+       },
+       "light_over_theta_D": {
+        "1e-6": "1.9738029e-6",
+        "1e-5": "1.9738029e-5",
+        "1e-4": "0.00019738029",
+        "1e-3": "0.0019737951",
+        "1e-2": "0.019730181",
+        "0.042383": "0.083066118",
+        "0.087847": "0.16837189",
+        "0.157935": "0.28573515"
+       }
+      },
+      {
+       "sector": "uniform load, recorded",
+       "kernel_eigenvalue": "5/6",
+       "theta_M": "0.585685543457",
+       "coefficient_k_exact": "sqrt(11)/2",
+       "coefficient_k": "1.65831239518",
+       "k_times_theta_M (1 in the continuum seesaw)": "0.9712496",
+       "light_phase": {
+        "1e-6": "1.658312395e-12",
+        "1e-5": "1.658312395e-10",
+        "1e-4": "1.658312348e-8",
+        "1e-3": "1.658307697e-6",
+        "1e-2": "0.0001657842806",
+        "0.042383": "0.002963848731",
+        "0.087847": "0.01252913772",
+        "0.157935": "0.03879264549"
+       },
+       "heavy_phase": {
+        "1e-6": "0.585685543459",
+        "1e-5": "0.585685543623",
+        "1e-4": "0.58568556004",
+        "1e-3": "0.585687201765",
+        "1e-2": "0.585851327738",
+        "0.042383": "0.588649392188",
+        "0.087847": "0.598214681178",
+        "0.157935": "0.624478188945"
+       },
+       "light_over_theta_D": {
+        "1e-6": "1.6583124e-6",
+        "1e-5": "1.6583124e-5",
+        "1e-4": "0.00016583123",
+        "1e-3": "0.0016583077",
+        "1e-2": "0.016578428",
+        "0.042383": "0.069930131",
+        "0.087847": "0.14262454",
+        "0.157935": "0.24562412"
+       }
+      }
+     ]
+    }
+   },
+   "engine": {
+    "lattice": {
+     "shape": [
+      5,
+      4,
+      3
+     ],
+     "one_body_dimension": 480,
+     "theta_D": 0.157935,
+     "theta_M": 0.45102681179626236,
+     "rest_phase_light": 0.049031267930002675,
+     "rest_phase_heavy": 0.500058079726265,
+     "period_unitarity_defect": 3.1087320602941212e-15,
+     "period_phases_engine_against_closed_form_max_abs": 7.105427357601002e-15,
+     "conjugation_defect_of_both_ticks": 2.0630814761166827e-16,
+     "single_steps": {
+      "Dirac step alone": {
+       "rest_phases": [
+        0.15793499999999977,
+        0.15793499999999977
+       ],
+       "period_phases_against_closed_form_at_three_momenta": 4.440892098500626e-16
+      },
+      "pairing step alone": {
+       "rest_phases": [
+        -2.220446049250313e-16,
+        0.45102681179626214
+       ],
+       "period_phases_against_closed_form_at_three_momenta": 4.440892098500626e-16
+      }
+     },
+     "cpu_seconds": 1.61
+    },
+    "order_of_the_mass_steps": {
+     "theta_D": 0.157935,
+     "theta_M": 0.45102681179626236,
+     "rows": [
+      {
+       "p": [
+        0.1,
+        0.1,
+        0.1
+       ],
+       "closed_form_light_per_tick": 0.17882745733016273,
+       "closed_form_heavy_per_tick": 0.5264438511210012,
+       "massless_per_tick": 0.17204349525098117,
+       "palindromic_light_per_tick": [
+        0.17882745733016273,
+        0.17882745733016295
+       ],
+       "palindromic_heavy_per_tick": [
+        0.5264438511210014,
+        0.5264438511210019
+       ],
+       "plain_light_per_tick": [
+        0.17711766225147224,
+        0.17711766225147235
+       ],
+       "plain_heavy_per_tick": [
+        0.5270459585154845,
+        0.5270459585154849
+       ]
+      },
+      {
+       "p": [
+        0.1,
+        0.23,
+        -0.17
+       ],
+       "closed_form_light_per_tick": 0.3015970831282406,
+       "closed_form_heavy_per_tick": 0.5754398068127394,
+       "massless_per_tick": 0.2977048746185423,
+       "palindromic_light_per_tick": [
+        0.30159708312824046,
+        0.3015970831282406
+       ],
+       "palindromic_heavy_per_tick": [
+        0.5754398068127395,
+        0.5754398068127398
+       ],
+       "plain_light_per_tick": [
+        0.2985151096832993,
+        0.2985151096832996
+       ],
+       "plain_heavy_per_tick": [
+        0.577111567056568,
+        0.5771115670565682
+       ]
+      },
+      {
+       "p": [
+        0.3,
+        0.0,
+        0.0
+       ],
+       "closed_form_light_per_tick": 0.30386098045756144,
+       "closed_form_heavy_per_tick": 0.5765285550928329,
+       "massless_per_tick": 0.3,
+       "palindromic_light_per_tick": [
+        0.3038609804575613,
+        0.30386098045756155
+       ],
+       "palindromic_heavy_per_tick": [
+        0.5765285550928329,
+        0.5765285550928331
+       ],
+       "plain_light_per_tick": [
+        0.3007535301794127,
+        0.30075353017941314
+       ],
+       "plain_heavy_per_tick": [
+        0.5782235257358619,
+        0.5782235257358623
+       ]
+      },
+      {
+       "p": [
+        0.02,
+        0.01,
+        -0.015
+       ],
+       "closed_form_light_per_tick": 0.05593103736520168,
+       "closed_form_heavy_per_tick": 0.5007209117783482,
+       "massless_per_tick": 0.02692204759228547,
+       "palindromic_light_per_tick": [
+        0.05593103736520172,
+        0.055931037365202184
+       ],
+       "palindromic_heavy_per_tick": [
+        0.5007209117783484,
+        0.5007209117783487
+       ],
+       "plain_light_per_tick": [
+        0.05579860807644087,
+        0.05579860807644112
+       ],
+       "plain_heavy_per_tick": [
+        0.5007363144714136,
+        0.5007363144714138
+       ]
+      }
+     ],
+     "reading": "palindromic order: the closed form to rounding. Plain order M_M M_D S: same rest phases, different phases at p != 0, both helicities degenerate"
+    },
+    "mixing": {
+     "theta_M": 0.45102681179626236,
+     "rows": [
+      {
+       "theta_D": 0.001,
+       "light_phase": 2.1794389375995316e-06,
+       "left_block_eigenvalue_minus_cos_light": 5.531058573875739e-17,
+       "amplitude_ratio_Nc_over_nuL": 0.002179438756246178,
+       "light_over_theta_D": 0.0021794389375995316,
+       "half_theta_D_cot_half_theta_M": 0.002179449471770337
+      },
+      {
+       "theta_D": 0.01,
+       "light_phase": 0.00021783970880071002,
+       "left_block_eigenvalue_minus_cos_light": 7.790197195226004e-16,
+       "amplitude_ratio_Nc_over_nuL": 0.02178378943284111,
+       "light_over_theta_D": 0.021783970880071002,
+       "half_theta_D_cot_half_theta_M": 0.021794494717703373
+      },
+      {
+       "theta_D": 0.157935,
+       "light_phase": 0.049031267930002675,
+       "left_block_eigenvalue_minus_cos_light": 3.331414288528668e-16,
+       "amplitude_ratio_Nc_over_nuL": 0.3098686982406244,
+       "light_over_theta_D": 0.31045219824613085,
+       "half_theta_D_cot_half_theta_M": 0.3442113523240482
+      }
+     ]
+    },
+    "one_cell_occupations": {
+     "states": 16,
+     "many_body_phases_against_sums_of_rest_phases_max_abs": 1.2212453270876722e-15,
+     "empty_state_survival_amplitude": 0.8999999999999999,
+     "cos_theta_M": 0.9,
+     "reading": "phases (n1 + n2 - 1) th_l + (n3 + n4 - 1) th_h: a reference state and four excitations with rest phases th_l, th_l, th_h, th_h"
+    },
+    "gauss": {
+     "lattice": [
+      2,
+      2,
+      1
+     ],
+     "quantum_links": 8,
+     "amplitudes": 8192,
+     "eps": 0.3,
+     "kappa": 0.2,
+     "record_independent_charge_as_a_function_on_32_independent_patterns_one_cell_commutator_norms": {
+      "Dirac step": 0.0,
+      "pairing step": 0.8717797887081342,
+      "doublet step": 0.3973386615901222
+     },
+     "two_sin_theta_M": 0.8717797887081346,
+     "charge": "n2 mod 2 of the pattern (nu_L, nu_L^c charged; N, N^c neutral)",
+     "full_tick": {
+      "routing and field step alone": {
+       "commutator_norm_on_a_random_state_max_over_cells": 7.169802464316227e-17,
+       "norm_defect": 1.1102230246251565e-15
+      },
+      "Dirac step": {
+       "commutator_norm_on_a_random_state_max_over_cells": 0.15905180090063165,
+       "norm_defect": 6.661338147750939e-16
+      },
+      "pairing step (neutral singlet)": {
+       "commutator_norm_on_a_random_state_max_over_cells": 2.8664919303580013e-16,
+       "norm_defect": 9.992007221626409e-16
+      },
+      "doublet step (left neutrino)": {
+       "commutator_norm_on_a_random_state_max_over_cells": 2.6307928903308965e-16,
+       "norm_defect": 9.992007221626409e-16
+      },
+      "pairing and doublet steps": {
+       "commutator_norm_on_a_random_state_max_over_cells": 4.3790846322860887e-16,
+       "norm_defect": 1.5543122344752192e-15
+      }
+     },
+     "gauss_operator_squares_to_one_defect": 3.501763031230149e-17,
+     "one_cell_operator_norm_of_the_commutator_with_the_charge_sign": {
+      "Dirac step": 0.3145584880774294,
+      "pairing step": 6.585364190007696e-16,
+      "doublet step": 6.026367786510358e-16
+     },
+     "two_sin_theta_D": 0.3145584880774294,
+     "Z6_classes_one_cell_commutator_norms": {
+      "1": {
+       "Dirac step": 0.3145584880774294,
+       "pairing step": 6.585364190007695e-16,
+       "doublet step": 6.046004966686719e-16
+      },
+      "2": {
+       "Dirac step": 3.852230455686548e-17,
+       "pairing step": 8.435517326663132e-32,
+       "doublet step": 9.731990401876734e-17
+      },
+      "3": {
+       "Dirac step": 0.3145584880774294,
+       "pairing step": 6.585364190007695e-16,
+       "doublet step": 6.200853717273719e-16
+      },
+      "4": {
+       "Dirac step": 7.704460911373096e-17,
+       "pairing step": 1.7281558675174617e-31,
+       "doublet step": 1.9463980803753458e-16
+      },
+      "5": {
+       "Dirac step": 0.3145584880774294,
+       "pairing step": 6.585364190007697e-16,
+       "doublet step": 1.1244141566577548e-15
+      }
+     },
+     "cpu_seconds": 0.23
+    }
+   }
+  },
+  "4_native": {
+   "tag": "EXACT; carrier and cover NATIVE; audit packets IMPORTED (their code executed, read only)",
+   "detail": {
+    "link_alphabet": {
+     "cover_lifts": 120,
+     "det_of_the_triplet_block_is_one": 120,
+     "det_of_the_doublet_block_is_one": 120,
+     "central_element": "diag(1, 1, 1, -1, -1), determinant one",
+     "patterns_that_are_scalars_of_every_cover_valued_link": [
+      "00000",
+      "00011",
+      "11100",
+      "11111"
+     ],
+     "statement": "Every link value of the public alphabet (the 120 cover lifts R + U and the central element) has determinant one on the triplet block and on the doublet block. The pattern 11111 is the top exterior power: it is a parallel section of every link field, flat or with flux. The same holds for 00000, 11100 and 00011."
+    },
+    "port_responses": {
+     "ports_checked": 12,
+     "trace_of_P_p": "1",
+     "trace_of_Q_p": "1",
+     "trace_of_X_p = P_p/2 - Q_p/2": "0",
+     "statement": "The second-quantised action of a one-level operator X on the full pattern 11111 is tr(X), on the empty pattern 0. All twelve port responses are traceless, so they act as zero on both: no public response sees the neutral singlet."
+    },
+    "internal_walk": {
+     "walk_of_the_pattern_11111": "the scalar public walk (coherent-seam-repair-v1 without fibre), for every link word",
+     "blank_record_kernel_characteristic_polynomial": "(x - 1)*(10*x - 9)**5*(180*x**2 - 330*x + 151)**3/583200000000",
+     "recorded_kernel_characteristic_polynomial": "(6*x - 5)*(15*x - 14)**5*(180*x**2 - 330*x + 151)**3/26572050000000",
+     "sectors": [
+      {
+       "sector": "uniform load, blank record",
+       "kernel_eigenvalue": "1",
+       "mass_angle_arccos": 0.0
+      },
+      {
+       "sector": "slow triplet",
+       "kernel_eigenvalue": "sqrt(5)/60 + 11/12",
+       "mass_angle_arccos": 0.3047084373702733
+      },
+      {
+       "sector": "quintet, recorded",
+       "kernel_eigenvalue": "14/15",
+       "mass_angle_arccos": 0.36720802055783713
+      },
+      {
+       "sector": "quintet, blank",
+       "kernel_eigenvalue": "9/10",
+       "mass_angle_arccos": 0.4510268117962624
+      },
+      {
+       "sector": "fast triplet",
+       "kernel_eigenvalue": "11/12 - sqrt(5)/60",
+       "mass_angle_arccos": 0.49619825950207297
+      },
+      {
+       "sector": "uniform load, recorded",
+       "kernel_eigenvalue": "5/6",
+       "mass_angle_arccos": 0.585685543457151
+      }
+     ],
+     "lowest_sector_of_the_neutral_singlet": {
+      "sector": "uniform load, blank record",
+      "kernel_eigenvalue": "1",
+      "correction_probability": "0",
+      "mass_angle": 0.0
+     },
+     "one_central_link": {
+      "seam": [
+       0,
+       1
+      ],
+      "patterns_with_even_n2 (N, N^c, e_R, ...)": {
+       "constant_section_dimension": 1,
+       "mass_angle": 0.0
+      },
+      "patterns_with_n2 = 1 (nu_L, e_L, ...)": {
+       "det_of_5_minus_signed_adjacency": "13132800",
+       "lowest_level_float": 0.23136163187600522,
+       "mass_angle_float": 0.08784654696624322
+      }
+     },
+     "statement": "In CF-1 a quantum carries the pattern as a label of the five-level fibre. For 11111 the fibre factor is the determinant, so its internal walk is the scalar walk in every link background; its lowest sector is the uniform load state with kernel eigenvalue 1, correction probability 0 and mass angle 0 (option M3). The nonzero angles are the load multiplets of the same walk: reached by preparation, not by a step."
+    },
+    "option_M1_flux_classes": {
+     "nu_L 11110": {
+      "Q6": -3,
+      "classes_with_nonzero_angle": 15,
+      "of": 25,
+      "range_of_nonzero_angles": [
+       0.08784654696624196,
+       0.17123678913697477
+      ]
+     },
+     "N 11111": {
+      "Q6": 0,
+      "classes_with_nonzero_angle": 0,
+      "of": 25,
+      "range_of_nonzero_angles": [
+       0.0,
+       0.0
+      ]
+     },
+     "N^c 00000": {
+      "Q6": 0,
+      "classes_with_nonzero_angle": 0,
+      "of": 25,
+      "range_of_nonzero_angles": [
+       0.0,
+       0.0
+      ]
+     },
+     "nu_L^c 00001": {
+      "Q6": 3,
+      "classes_with_nonzero_angle": 15,
+      "of": 25,
+      "range_of_nonzero_angles": [
+       0.08784654696624196,
+       0.17123678913697477
+      ]
+     }
+    },
+    "audit_native_tick": {
+     "link_words": 12,
+     "wedges_checked": 384,
+     "sign_of_the_native_tick_by_degree": {
+      "0": 1,
+      "1": -1,
+      "2": 1,
+      "3": -1,
+      "4": 1,
+      "5": -1
+     },
+     "full_wedge_11111": {
+      "native_tick": -1,
+      "twelve_native_currents": "zero",
+      "degree_current": 5
+     },
+     "empty_wedge_00000": {
+      "native_tick": 1,
+      "twelve_native_currents": "zero",
+      "degree_current": 0
+     },
+     "statement": "In the audit's native module (dark orbitals on port 2) the joined tick acts on a wedge of degree n as (-1)^n: the wedge with all five levels occupied has eigenvalue -1 (phase pi per native tick, K = 1 - Re U = 2); the empty wedge has +1 (K = 0). The sign is the handedness of the chart (even = left). Both are annihilated by the twelve currents; the degree current gives 5 and 0. The audit keeps the even wedges of degree two and four and omits the empty one by a stated domain choice."
+    },
+    "audit_fifteen_states": {
+     "basis": "the even subsets of degree two and four of (0, 1, 2 | 3, 4) = (v1, v2, v3 | s1, s2): the same levels and charges as the chart",
+     "hypercharges_and_T3_equal_the_chart": true,
+     "massless_neutral_subset_of_the_audit": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "which_is_the_pattern": "11110 = nu_L",
+     "unbroken_invariant_Weyl_mass_dimension (audit)": 0,
+     "Higgs_channels (audit)": [
+      "charged_lepton",
+      "down",
+      "up"
+     ],
+     "chiral_particle_map_results_json": {
+      "massless_left_Weyl_fields": 1,
+      "massive_neutrino_sector_present": false,
+      "family_count": 1
+     },
+     "with_the_sixteenth_even_state_00000 (this worker, t6_terms.py)": {
+      "invariant_Weyl_mass_dimension": 1,
+      "Higgs_channels": 4,
+      "the_new_ones": [
+       "Dirac neutrino: 11110 with 00000 and the Higgs",
+       "bare pairing of 00000 with itself"
+      ]
+     },
+     "statement": "The audit's one neutral Weyl field is nu_L = 11110, massless because its module has no partner for it: the fifteen states are the even wedges without the empty one. The neutral singlet of the chart is that empty wedge in the left-handed labelling (00000), or its conjugate 11111. Adding it changes the audit's two counts from (0 invariant mass entries, 3 Higgs channels) to (1, 4)."
+    }
+   }
+  }
+ },
+ "gauss_constraint": {
+  "central_charge_(-1)^n2 (CF-1 section 8)": {
+   "Dirac toggle": "fails, operator norm 2 |sin(theta_D)| on the occupied cell",
+   "pairing of the neutral singlet": "commutes",
+   "pairing of the left neutrino": "commutes"
+  },
+  "Z6_classes": "pairings commute for every class; the toggle fails for the odd classes",
+  "record_independent_charge_(-1)^n_s1, one family": "all three commute (a pair on one cell has even charge)",
+  "executed": "full tick with eight quantum links on 2 x 2 x 1, eps = 0.3, kappa = 0.2: engine.json, key gauss"
+ },
+ "verdict": {
+  "as_the_programs_stand": "absent. The left neutrino has rest phase zero in every public program and in options M0 and M3 of CF-1; option M1 gives it the vector-like angle of the electron doublet and leaves 11111 at zero. No step changes the occupation of the neutral doublet level and no step changes the number of quanta or the degree.",
+  "at_representation_level": "an option with one structural distinction: the pairing of the neutral singlet is the only mass term invariant under the twelve responses, the only one that needs no charge-taking register, and it commutes with the Gauss constraint.",
+  "conditional_statement": "With a Dirac toggle of angle theta_D on the neutrino (step E3) and a pairing step of angle theta_M, the light rest phase is arccos(cos(theta_D) cos(theta_M/2)) - theta_M/2 <= (theta_D^2/2) cot(theta_M/2). For theta_M at the lattice scale the neutrino is lighter than a charged fermion of the same Dirac angle by the factor (theta_D/2) cot(theta_M/2).",
+  "what_fixes_theta_M": "nothing in the public programs or in CF-1. Its native value is zero.",
+  "smallest_declared_input": [
+   "the conjugation identifying 00000 with the hole of 11111",
+   "one pairing step on the neutral singlet with its angle",
+   "the Dirac toggle of step E3 for the neutrino"
+  ]
+ },
+ "not_blind": {
+  "exposure": "retrospective, not blind; no measured value enters any derivation above",
+  "inputs": {
+   "KATRIN_upper_limit_eV": "0.45",
+   "confidence_percent": "90",
+   "source_file": "RER/code/particles/neutrino/README.md",
+   "electron_mass_GeV": "0.00051099895069",
+   "top_mass_GeV": "172.60",
+   "source_file_masses": "RER/model/particle_candidate_atlas/reference_values.json"
+  },
+  "bound_on_neutrino_over_electron": "8.806e-7",
+  "electron_angle_ceiling_if_the_top_shares_the_clock": "9.301e-6",
+  "assumption": "one common Dirac angle for neutrino and electron (lead L31), pairing angle at the tower values",
+  "rows": [
+   {
+    "sector": "slow triplet (either record)",
+    "theta_M": "0.30470843737",
+    "largest_common_Dirac_angle_per_tick": "2.704e-7",
+    "fraction_of_the_top_ceiling": "0.0291",
+    "tick_energy_at_least_GeV": "1890.0",
+    "heavy_state_at_least_GeV": "575.8",
+    "light_mass_eV_if_the_electron_angle_is_at_the_top_ceiling": "15.5"
+   },
+   {
+    "sector": "quintet, recorded",
+    "theta_M": "0.367208020558",
+    "largest_common_Dirac_angle_per_tick": "3.271e-7",
+    "fraction_of_the_top_ceiling": "0.0352",
+    "tick_energy_at_least_GeV": "1562.0",
+    "heavy_state_at_least_GeV": "573.7",
+    "light_mass_eV_if_the_electron_angle_is_at_the_top_ceiling": "12.8"
+   },
+   {
+    "sector": "quintet, blank",
+    "theta_M": "0.451026811796",
+    "largest_common_Dirac_angle_per_tick": "4.041e-7",
+    "fraction_of_the_top_ceiling": "0.0434",
+    "tick_energy_at_least_GeV": "1265.0",
+    "heavy_state_at_least_GeV": "570.4",
+    "light_mass_eV_if_the_electron_angle_is_at_the_top_ceiling": "10.4"
+   },
+   {
+    "sector": "fast triplet (either record)",
+    "theta_M": "0.496198259502",
+    "largest_common_Dirac_angle_per_tick": "4.462e-7",
+    "fraction_of_the_top_ceiling": "0.048",
+    "tick_energy_at_least_GeV": "1145.0",
+    "heavy_state_at_least_GeV": "568.3",
+    "light_mass_eV_if_the_electron_angle_is_at_the_top_ceiling": "9.38"
+   },
+   {
+    "sector": "uniform load, recorded",
+    "theta_M": "0.585685543457",
+    "largest_common_Dirac_angle_per_tick": "5.31e-7",
+    "fraction_of_the_top_ceiling": "0.0571",
+    "tick_energy_at_least_GeV": "962.3",
+    "heavy_state_at_least_GeV": "563.6",
+    "light_mass_eV_if_the_electron_angle_is_at_the_top_ceiling": "7.88"
+   }
+  ],
+  "without_the_pairing_step": "neutrino over electron = 1 against the bound 8.81e-7 (report R7)",
+  "sentence": "Not blind: with one common Dirac angle and the pairing angle at the tower values, the KATRIN limit of 0.45 eV against the electron mass requires an electron angle below 2.704e-7 to 5.31e-7 per tick, 34.0 to 18.0 times below the ceiling 9.3e-6 that the top quark sets, that is a tick shorter than hbar/(962.3 to 1890.0 GeV)."
+ },
+ "files": {
+  "scripts": [
+   "t6_terms.py",
+   "t6_seesaw.py",
+   "t6_engine.py",
+   "t6_native.py",
+   "t6_build.py"
+  ],
+  "results": [
+   "terms.json",
+   "seesaw.json",
+   "engine.json",
+   "native.json",
+   "neutrino.json"
+  ],
+  "note": "NEUTRINO.md"
+ }
+}

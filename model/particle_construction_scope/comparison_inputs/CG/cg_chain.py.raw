@@ -1,0 +1,302 @@
+#!/usr/bin/env python3
+"""Worker CG, task 1: the source's collar chain on sector labels, exact checks C1 to C7 of CANDIDATES.md.
+
+Run from RER:  PYTHONPATH=.:<CG> python <CG>/cg_chain.py   (reads RER code only; writes cg_chain.json here)
+No measured value is read.
+"""
+from __future__ import annotations
+
+import itertools
+import json
+import math
+import sys
+from fractions import Fraction as F
+from pathlib import Path
+
+import numpy as np
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+from cg_lib import (su2_labels, su3_labels, su2_fuse, su3_fuse, solve_stationary, metropolis_kernel,
+                    weight_power_check, detailed_balance_measure)
+
+out = {}
+
+# ===================================================================== C2: the S3 menu of S-c on L^2(S3)
+els = list(itertools.permutations(range(3)))            # S3 as tuples
+idx = {g: i for i, g in enumerate(els)}
+mul = lambda g, h: tuple(g[h[i]] for i in range(3))     # (g h)(i) = g(h(i))
+inv = lambda g: tuple(g.index(i) for i in range(3))
+
+
+def lam(g):   # left regular: |h> -> |g h>
+    M = [[F(0)] * 6 for _ in range(6)]
+    for h in els:
+        M[idx[mul(g, h)]][idx[h]] = F(1)
+    return M
+
+
+def rho(g):   # right regular: |h> -> |h g^-1>
+    M = [[F(0)] * 6 for _ in range(6)]
+    for h in els:
+        M[idx[mul(h, inv(g))]][idx[h]] = F(1)
+    return M
+
+
+def mm(A, B):
+    return [[sum(A[i][k] * B[k][j] for k in range(len(B))) for j in range(len(B[0]))] for i in range(len(A))]
+
+
+def sub(A, B):
+    return [[a - b for a, b in zip(ra, rb)] for ra, rb in zip(A, B)]
+
+
+def zero(A):
+    return all(x == 0 for r in A for x in r)
+
+
+fix = lambda g: sum(1 for i in range(3) if g[i] == i)
+sign = lambda g: 1 if fix(g) in (3, 0) else -1           # identity and 3-cycles even
+chars = {"trivial": lambda g: 1, "sign": sign, "standard": lambda g: fix(g) - 1}
+dims = {"trivial": 1, "sign": 1, "standard": 2}
+P = {}
+for R, ch in chars.items():
+    M = [[F(0)] * 6 for _ in range(6)]
+    for g in els:
+        L = lam(g)
+        for i in range(6):
+            for j in range(6):
+                M[i][j] += F(dims[R] * ch(g), 6) * L[i][j]
+    P[R] = M
+idem = all(mm(P[R], P[R]) == P[R] for R in P)
+summ = all(sum(P[R][i][j] for R in P) == (1 if i == j else 0) for i in range(6) for j in range(6))
+ranks = {R: sum(P[R][i][i] for i in range(6)) for R in P}
+s, r = (1, 0, 2), (1, 2, 0)                              # a transposition and a 3-cycle (S-c: s=(12), r=(123))
+menu = [s, r, inv(r)]
+comm_lr = all(zero(sub(mm(P[R], T(g)), mm(T(g), P[R]))) for R in P for g in menu for T in (lam, rho))
+# face move: inserting g inside an ordered product h = a b gives a g b = (a g a^-1) h: a left translation
+comm_face = all(zero(sub(mm(P[R], lam(mul(mul(a, g), inv(a)))), mm(lam(mul(mul(a, g), inv(a))), P[R])))
+                for R in P for g in menu for a in els)
+out["C2_S3_menu_on_quantum_register"] = {
+    "isotypic_projectors_idempotent": idem, "projectors_sum_to_identity": summ,
+    "projector_traces_d_R_squared": {R: str(v) for R, v in ranks.items()},
+    "left_right_multiplication_commute_with_every_projector": comm_lr,
+    "face_moves_commute_with_every_projector": comm_face,
+    "statement": "every move of the S3 menu (L_e(g), R_e(g), M_f(g)) is a translation of the register and "
+                 "commutes with the electric-sector projectors; Refresh rewrites records only. The menu induces "
+                 "the identity on electric sector labels (EXACT).",
+}
+
+# C2b: conjugacy-class reading. The uniform law on S3 is stationary for every translation walk.
+cls = {"e": [g for g in els if fix(g) == 3], "transpositions": [g for g in els if fix(g) == 1],
+       "three_cycles": [g for g in els if fix(g) == 0]}
+class_law = {k: F(len(v), 6) for k, v in cls.items()}
+irreps = ["trivial", "sign", "standard"]
+cand_d = {R: F(dims[R], 4) for R in irreps}
+cand_d2 = {R: F(dims[R] ** 2, 6) for R in irreps}
+match_d = [p for p in itertools.permutations(irreps) if all(class_law[c] == cand_d[R] for c, R in zip(cls, p))]
+match_d2 = [p for p in itertools.permutations(irreps) if all(class_law[c] == cand_d2[R] for c, R in zip(cls, p))]
+out["C2b_class_reading"] = {"stationary_class_law": {k: str(v) for k, v in class_law.items()},
+                            "bijections_matching_d_over_4": len(match_d), "bijections_matching_d2_over_6": len(match_d2)}
+
+
+# ===================================================================== C3: SU(2) link operator on L^2(SU(2))
+def link_operator_rates(nmax):
+    """Golden-rule sector rates of the multiplication operators D^(1/2)_ab, from the maximally mixed two-sided
+    block of sector j (all d_j^2 Peter-Weyl states), exact via sympy Clebsch-Gordan coefficients."""
+    from sympy import Rational, S
+    from sympy.physics.quantum.cg import CG
+    half = Rational(1, 2)
+    res = {}
+    for n in range(nmax + 1):
+        j = Rational(n, 2)
+        ms = [j - k for k in range(n + 1)]
+        for J in (j + half, j - half):
+            if J < 0:
+                continue
+            Ms = [J - k for k in range(int(2 * J) + 1)]
+            table = {}
+            for a in (half, -half):
+                for m in ms:
+                    for M in Ms:
+                        if a + m != M:
+                            continue
+                        c = CG(half, a, j, m, J, M).doit()
+                        if c != 0:
+                            table[(a, m, M)] = c
+            tot = S(0)
+            # explicit double sum over (a, m, M) for the left index and (b, m', M') for the right index
+            for c1 in table.values():
+                for c2 in table.values():
+                    tot += Rational(n + 1, int(2 * J) + 1) * (c1 * c2) ** 2
+            q = tot / (2 * (n + 1) ** 2)       # CP map (1/d_F) sum_ab D rho D^dag, initial state 1/d_j^2
+            res[(n, int(2 * J))] = q
+    return res
+
+
+rates = link_operator_rates(5)
+c3 = {}
+ok = True
+for (n, n2), q in rates.items():
+    pred = F(n2 + 1, 2 * (n + 1))
+    c3[f"{n}->{n2}"] = str(q)
+    ok &= (F(int(q.p), int(q.q)) == pred)
+rev2 = all(F((n + 1) ** 2) * F(int(rates[(n, n + 1)].p), int(rates[(n, n + 1)].q))
+           == F((n + 2) ** 2) * F(int(rates[(n + 1, n)].p), int(rates[(n + 1, n)].q)) for n in range(5))
+out["C3_SU2_link_operator"] = {"rates_2j_to_2J": c3, "equal_to_N_dJ_over_dj_dF": ok,
+                               "reversible_for_d_squared": rev2,
+                               "statement": "the multiplication operator of the action's plaquette term induces "
+                                            "q(j->J) = d_J/(2 d_j): the Plancherel walk, reversible for d_j^2 (EXACT)"}
+
+
+# ===================================================================== C4: SU(2) one-sided register (Schwinger pair)
+def schwinger_rates(Nmax):
+    """Golden-rule weights of X_k = a_k + a_k^dag on the two-mode Fock space N = n1+n2 <= Nmax (V_j once each)."""
+    W = {}
+    for N in range(Nmax + 1):
+        up = sum((n1 + 1) + (N - n1 + 1) for n1 in range(N + 1))       # sum_k |<f|a_k^dag|i>|^2 over V_j
+        W[(N, N + 1)] = up
+        if N >= 1:
+            W[(N, N - 1)] = sum(n1 + (N - n1) for n1 in range(N + 1))  # sum_k |<f|a_k|i>|^2
+    return W
+
+
+Wsch = schwinger_rates(12)
+sym = all(Wsch[(N, N + 1)] == Wsch[(N + 1, N)] for N in range(12))
+prod = all(Wsch[(N, N + 1)] == (N + 1) * (N + 2) for N in range(12))
+out["C4_SU2_one_sided_Schwinger"] = {"weights_symmetric": sym, "weight_equals_d_j_d_jprime": prod,
+                                     "statement": "the Hermitian charged hop on the one-sided register (each j "
+                                                  "once) has symmetric total weight d_j d_j'; its sector proposal "
+                                                  "q(j->j') = c d_j' is reversible for d_j (EXACT)"}
+
+
+# ===================================================================== C5: label-set chains
+def build(labels, neigh, kind):
+    """Proposal on the truncated label set. neigh(a) -> list of (b_label, N, F_dim, weight_of_F)."""
+    pos = {lab["lab"]: i for i, lab in enumerate(labels)}
+    n = len(labels)
+    raw = [dict() for _ in range(n)]
+    for a, la in enumerate(labels):
+        for blab, N, dF, pF in neigh(la["lab"]):
+            db = (blab[0] + 1) * (blab[1] + 1) * (blab[0] + blab[1] + 2) // 2 if isinstance(blab, tuple) else blab + 1
+            da = la["d"]
+            if kind == "fusion":
+                val = pF * F(N * db, da * dF)
+            elif kind == "one_sided":
+                val = pF * F(N * (da + db), da)
+            elif kind == "schwinger":
+                val = pF * F(N * da * db, da)
+            elif kind == "symmetric":
+                val = pF * F(N)
+            else:
+                raise ValueError(kind)
+            raw[a][blab] = raw[a].get(blab, F(0)) + val
+    # scale non-fusion proposals so that the largest untruncated row is at most 1/2 (lazy chain)
+    if kind == "fusion":
+        c = F(1)
+    else:
+        c = F(1, 2) / max(sum(r.values()) for r in raw)
+    prop = [dict() for _ in range(n)]
+    for a in range(n):
+        for blab, v in raw[a].items():
+            if blab in pos:                       # moves leaving the truncated set are rejected
+                prop[a][pos[blab]] = c * v
+    return prop
+
+
+su2_neigh = lambda n: [(m, N, 2, F(1)) for m, N in su2_fuse(n).items()]
+su3_neigh = lambda lab: ([(m, N, 3, F(1, 2)) for m, N in su3_fuse(lab).items()]
+                         + [(m, N, 3, F(1, 2)) for m, N in su3_fuse(lab, conj=True).items()])
+c5 = {}
+for gname, labels, neigh, kinds in (
+        ("SU2_n_le_12", su2_labels(12), su2_neigh, ("fusion", "one_sided", "schwinger", "symmetric")),
+        ("SU3_p_q_le_4", su3_labels(4, "square"), su3_neigh, ("fusion", "one_sided", "symmetric")),
+        ("SU3_p_plus_q_le_6", su3_labels(6, "triangle"), su3_neigh, ("fusion", "one_sided", "symmetric"))):
+    for kind in kinds:
+        prop = build(labels, neigh, kind)
+        db = detailed_balance_measure(labels, prop)
+        rows = {}
+        for y in (F(9, 10), F(4, 5)):
+            K = metropolis_kernel(labels, prop, y)
+            pi = solve_stationary(K)
+            rows[str(y)] = {"weight_powers_matching_exactly": weight_power_check(labels, pi, y),
+                            "pi_trivial": str(pi[0]) if len(str(pi[0])) < 80 else float(pi[0])}
+        c5[f"{gname}:{kind}"] = {"states": len(labels), "proposal_reversible_for_d_power": db,
+                                 "stationary_law_by_y=exp(-beta/12)": rows,
+                                 "declared_condition_d_a_q_ab_equals_d_b_q_ba": 1 in db}
+out["C5_label_set_chains"] = c5
+out["C1_C7_exponent"] = ("in every row the stationary law equals d^w y^(12 C2) with y the acceptance's "
+                         "exp(-beta/12): the exponent is the acceptance's beta exactly; w is the proposal's measure")
+
+# ===================================================================== C6: the source's IBM sampler (S-d)
+try:
+    sys.path.insert(0, "code/ibm_quantum_cloud/programs")
+    import generative_repair_kernel as grk
+    lab2 = su2_labels(10)
+    spec = grk.SectorSpectrum(name="su2_n_le_10", family="su2_truncated",
+                              labels=tuple(f"n{l['lab']}" for l in lab2),
+                              dimensions=tuple(l["d"] for l in lab2),
+                              penalties=tuple(l["E12"] / 12.0 for l in lab2),
+                              provenance="CG check", role="control")
+    c6 = {}
+    for k in (0.0, 1.0, 2.0):
+        cert = grk.kernel_certificate(spec, beta=1.3335, kappa=k)
+        tgt = np.array(cert["target_distribution"])
+        d = np.array(spec.dimensions, float)
+        C = np.array(spec.penalties)
+        law = d ** k * np.exp(-1.3335 * C)
+        law /= law.sum()
+        c6[f"k={k:g}"] = {"stationary_residual": cert["checks"]["stationary_residual"],
+                          "detailed_balance_error": cert["checks"]["detailed_balance_error"],
+                          "max_dev_from_d^k_exp(-beta C)": float(np.max(np.abs(tgt - law)))}
+    out["C6_IBM_sampler"] = {"rows": c6, "statement": "the power is placed in the acceptance target by "
+                                                      "declaration (OPH_KAPPA = 1); its proposal is the "
+                                                      "complete graph (power 0)"}
+except Exception as exc:  # pragma: no cover
+    out["C6_IBM_sampler"] = {"error": repr(exc)}
+
+
+# ===================================================================== C7: constant-energy uniform resampling
+def log_omega(M, N):
+    """log of the number of ways to put M quanta into N units: C(M+N-1, N-1)."""
+    if M < 0:
+        return -math.inf
+    return math.lgamma(M + N) - math.lgamma(M + 1) - math.lgamma(N)
+
+
+beta_q = 1.0 / 3.0
+u = 1.0 / math.expm1(beta_q)
+c7 = {}
+nmax = 8
+for w in (1, 2):
+    rows = {}
+    for N in (10 ** 2, 10 ** 3, 10 ** 4, 10 ** 5, 10 ** 6):
+        Q = int(round(u * N)) + 0
+        logp = []
+        for n in range(nmax + 1):
+            E = n * (n + 2)                                  # 4 C2 in quanta
+            logp.append(w * math.log(n + 1) + log_omega(Q - E, N))
+        beff = math.log1p(N / Q)                             # bath inverse temperature per quantum
+        dev = [lp - (w * math.log(n + 1) - beff * n * (n + 2)) for n, lp in enumerate(logp)]
+        spread = max(dev) - min(dev)
+        # best single power for the marginal: fit log p + beff E against log d
+        x = np.log(np.arange(1, nmax + 2))
+        yv = np.array(logp) + beff * np.array([n * (n + 2) for n in range(nmax + 1)])
+        slope = float(np.polyfit(x, yv, 1)[0])
+        rows[str(N)] = {"Q": Q, "beta_bath_per_quantum": beff, "max_minus_min_log_deviation": spread,
+                        "fitted_power": slope}
+    c7[f"w={w}"] = rows
+# exact finite law for N = 100 with big integers
+N, Q = 100, int(round(u * 100))
+exact = [math.comb(Q - n * (n + 2) + N - 1, N - 1) * (n + 1) for n in range(nmax + 1)]
+tot = sum(exact)
+c7["exact_N100_w1_law"] = [str(F(x, tot)) for x in exact[:4]]
+out["C7_constant_energy_resampling"] = {
+    "rows": c7, "beta_per_quantum_target": beta_q,
+    "statement": "uniform resampling on a constant-energy shell gives the collar marginal d^w Omega(Q - E_R); "
+                 "the log deviation from d^w exp(-beta_bath E_R) falls as 1/N and the fitted power stays w: the "
+                 "power is the register's own count and the exponent is the bath's inverse temperature (EXACT "
+                 "finite formula, MEASURED convergence)"}
+
+(HERE / "cg_chain.json").write_text(json.dumps(out, indent=1, default=str) + "\n")
+print(json.dumps(out, indent=1, default=str)[:6000])

@@ -1,0 +1,243 @@
+{
+ "note": "T3 extra item: the routing tick with the audit's oriented quantum link in place of the bare link signs.\n\nLink carrier: the audit's 119-state link (RER model/coherent_defect_wave/chiral_joint/oriented_links, read only)\nrestricted to the one-dimensional native block (index 9): states blank 0, (+), (-); backward transport (quantum from\nx + e_i to x) U = |+><0| + |0><-|, forward transport U^dagger; orientation reversal J: (+) <-> (-). (For d = 1 the\nblock normalisation 1/sqrt(d) is 1.) One quantum: coin = record x spin (frame basis), index 2 r + s.\n\nSeam involution with a quantum link (one-quantum sector): for the routing pair (A, B) of a link, h = |A><B| x V +\n|B><A| x V^dagger with V the transport, h^2 = P a projection (V a partial isometry), and G = (1 - P) + h is a unitary\ninvolution: the swap with transport where the move is allowed, the identity where the link is saturated. With a\nclassical unit link (P = 1) it is the CF-1 seam involution. S_i = G_i R as in CF-1.\n\nTests (MEASURED on states of the carrier, exact zeros printed as 0.0):\n  (a) the 24 proper rotations (spin lift S with S sigma_i S^dag = sum_j R_ji sigma_j, cells x -> R x, edges with J on\n      reversed edges): which commute with the forward tick, the reverse tick and the period, bare and with links\n  (b) the screw of R4 C4 (S_1^-1 g with the third of a turn) with links\n  (c) coherence: a plane wave with blank links, purity of the matter state and weight left at its momentum after t ticks\n  (d) spreading from one cell: <x^2> per axis after t ticks, bare against links\npython t3_links.py -> links.json (local, < 20 CPU s)\n",
+ "rotations": {
+  "bare (flat) links": {
+   "forward tick": {
+    "commuting": 4,
+    "kinds": [
+     "half-turn",
+     "identity"
+    ],
+    "smallest_failure": 0.1767766952966368
+   },
+   "reverse tick": {
+    "commuting": 4,
+    "kinds": [
+     "half-turn",
+     "identity"
+    ],
+    "smallest_failure": 0.1767766952966368
+   },
+   "period": {
+    "commuting": 4,
+    "kinds": [
+     "half-turn",
+     "identity"
+    ],
+    "smallest_failure": 0.24999999999999964
+   }
+  },
+  "oriented quantum link": {
+   "forward tick": {
+    "commuting": 4,
+    "kinds": [
+     "half-turn",
+     "identity"
+    ],
+    "smallest_failure": 0.1767766952966367
+   },
+   "reverse tick": {
+    "commuting": 4,
+    "kinds": [
+     "half-turn",
+     "identity"
+    ],
+    "smallest_failure": 0.1767766952966367
+   },
+   "period": {
+    "commuting": 4,
+    "kinds": [
+     "half-turn",
+     "identity"
+    ],
+    "smallest_failure": 0.08838834764831827
+   }
+  }
+ },
+ "substep_covariance_g_S_i_ginv_eq_S_pi(i)": {
+  "bare": 2.7755575615628914e-16,
+  "quantum": 2.7755575615628914e-16
+ },
+ "screw_S1inv_g": {
+  "bare": {
+   "best_third_turn_defect": 4.3743694760035055e-17,
+   "rotation": [
+    [
+     0,
+     0,
+     1
+    ],
+    [
+     1,
+     0,
+     0
+    ],
+    [
+     0,
+     1,
+     0
+    ]
+   ]
+  },
+  "quantum": {
+   "best_third_turn_defect": 4.3743694760035055e-17,
+   "rotation": [
+    [
+     0,
+     0,
+     1
+    ],
+    [
+     1,
+     0,
+     0
+    ],
+    [
+     0,
+     1,
+     0
+    ]
+   ]
+  }
+ },
+ "coherence_plane_wave": {
+  "bare": [
+   {
+    "ticks": 1,
+    "purity": 0.9999999999999963,
+    "link_configurations": 1,
+    "weight_at_initial_momentum": 0.9999999999999973,
+    "norm": 0.9999999999999981
+   },
+   {
+    "ticks": 2,
+    "purity": 0.9999999999999925,
+    "link_configurations": 1,
+    "weight_at_initial_momentum": 0.9999999999999962,
+    "norm": 0.999999999999996
+   }
+  ],
+  "quantum": [
+   {
+    "ticks": 1,
+    "purity": 0.0039062499999999857,
+    "link_configurations": 512,
+    "weight_at_initial_momentum": 0.015624999999999997,
+    "norm": 0.9999999999999981
+   },
+   {
+    "ticks": 2,
+    "purity": 0.0039062499999999714,
+    "link_configurations": 2145,
+    "weight_at_initial_momentum": 0.015624999999999997,
+    "norm": 0.9999999999999963
+   }
+  ]
+ },
+ "spreading": {
+  "bare": [
+   {
+    "ticks": 1,
+    "mean_x2_per_axis": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "branches": 8,
+    "norm": 0.999999999999998
+   },
+   {
+    "ticks": 2,
+    "mean_x2_per_axis": [
+     0.9999999999999997,
+     2.0,
+     4.0
+    ],
+    "branches": 15,
+    "norm": 0.999999999999996
+   },
+   {
+    "ticks": 3,
+    "mean_x2_per_axis": [
+     2.9999999999999947,
+     2.9999999999999947,
+     2.9999999999999947
+    ],
+    "branches": 64,
+    "norm": 0.9999999999999959
+   },
+   {
+    "ticks": 4,
+    "mean_x2_per_axis": [
+     3.1249999999999973,
+     3.4999999999999973,
+     3.999999999999996
+    ],
+    "branches": 61,
+    "norm": 0.9999999999999925
+   },
+   {
+    "ticks": 5,
+    "mean_x2_per_axis": [
+     5.2499999999999964,
+     5.249999999999995,
+     5.249999999999993
+    ],
+    "branches": 200,
+    "norm": 0.9999999999999922
+   }
+  ],
+  "quantum": [
+   {
+    "ticks": 1,
+    "mean_x2_per_axis": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "branches": 8,
+    "norm": 0.999999999999998
+   },
+   {
+    "ticks": 2,
+    "mean_x2_per_axis": [
+     1.9999999999999996,
+     1.9999999999999996,
+     4.0
+    ],
+    "branches": 33,
+    "norm": 0.9999999999999962
+   },
+   {
+    "ticks": 3,
+    "mean_x2_per_axis": [
+     4.999999999999994,
+     2.9999999999999956,
+     4.999999999999994
+    ],
+    "branches": 136,
+    "norm": 0.9999999999999966
+   },
+   {
+    "ticks": 4,
+    "mean_x2_per_axis": [
+     5.999999999999985,
+     3.999999999999984,
+     7.999999999999979
+    ],
+    "branches": 545,
+    "norm": 0.9999999999999972
+   },
+   {
+    "ticks": 5,
+    "mean_x2_per_axis": [
+     8.953124999999986,
+     4.976562499999993,
+     8.976562499999986
+    ],
+    "branches": 2192,
+    "norm": 0.9999999999999992
+   }
+  ]
+ }
+}

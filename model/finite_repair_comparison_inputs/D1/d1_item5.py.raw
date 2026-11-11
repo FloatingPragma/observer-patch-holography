@@ -1,0 +1,102 @@
+"""D1 item 5. Native functions of the kernel on the second index: three values each and the ratio
+r = log(m3/m2)/log(m2/m1) with the values sorted ascending (m1 <= m2 <= m3). Candidate list: CANDIDATES.md (H0 to H6).
+
+Exact: the values are closed forms over Q(sqrt5) (sympy); logarithms and arccos are evaluated with mpmath at 40 digits
+and printed to 12. No fit, no measured input.
+Run: /tmp/oph-completion-venv/bin/python RL/work/D1/d1_item5.py [out.json]
+"""
+import json
+import sys
+
+import mpmath as mp
+import sympy as s
+
+mp.mp.dps = 40
+r5 = s.sqrt(5)
+
+
+def num(x):
+    return mp.mpf(str(s.N(x, 60)))
+
+
+def ratio(vals):
+    """vals: three positive numbers (mpf). r = log(m3/m2)/log(m2/m1) with ascending order; None when two coincide."""
+    v = sorted(vals)
+    if v[0] <= 0:
+        return None
+    a, b = mp.log(v[2] / v[1]), mp.log(v[1] / v[0])
+    if b == 0:
+        return None
+    return a / b
+
+
+def row(name, exact_vals, note, values=None):
+    vals = values if values is not None else [num(x) for x in exact_vals]
+    r = ratio(vals) if all(v > 0 for v in vals) else None
+    spread = (max(vals) / min(vals)) if min(vals) > 0 else None
+    return {'function': name,
+            'values_slow_middle_fast_exact': [str(s.nsimplify(x)) if x is not None else None for x in exact_vals] if exact_vals else None,
+            'values': [float(mp.nstr(v, 15)) for v in vals],
+            'largest_over_smallest': None if spread is None else float(mp.nstr(spread, 15)),
+            'r = log(m3/m2)/log(m2/m1), ascending': None if r is None else float(mp.nstr(r, 15)),
+            'note': note}
+
+
+out = {'definition': 'values on the three copies of the triplet second index, ordered slow, middle, fast; r with the values '
+                     'sorted ascending', 'rows': {}}
+
+for k, levels in ((0, [r5, s.Integer(-1), -r5]), (2, [(5 + r5) / 2, -(3 - r5) / 2, -r5]), (4, [(3 + r5) / 2, -(5 - r5) / 2, -r5])):
+    K = [1 - (5 - a) / 60 for a in levels]
+    rows = {}
+    rows['H0 kernel K'] = row('K = 1 - (5 - A)/60', [s.simplify(x) for x in K], 'the levels')
+    rows['H0c correction probability 1 - K'] = row('1 - K = (5 - A)/60', [s.simplify(1 - x) for x in K], 'seam cost / 60')
+    rows['H0w rest phase arccos K'] = row('arccos K', [None, None, None], 'CF-1 option M3 mass angle per tick',
+                                          values=[mp.acos(num(x)) for x in K])
+    rows['H1 powers K^n'] = row('K^n, any n >= 1', [s.simplify(x) for x in K],
+                                'r is the same for every n; the spread is (largest/smallest)^n; n = 1 printed')
+    for n in (10, 100):
+        rows[f'H1 powers K^{n}'] = row(f'K^{n}', [None, None, None], f'{n} events', values=[num(x) ** n for x in K])
+    rows['H1i inverse powers K^-n'] = row('K^-n, any n >= 1', [s.simplify(1 / x) for x in K], 'r(K^-n) = 1/r(K^n)')
+    rows['H1r rates -log K'] = row('-log K', [None, None, None], 'exponents of H1 per event', values=[-mp.log(num(x)) for x in K])
+    res = [s.simplify(1 / (5 - a)) for a in levels]
+    rows['H2 resolvent (5 - A)^-1'] = row('(5 - A)^-1 on the second index', res,
+                                          'CAP stationary state (lead L25: normalized Green function of the twisted Laplacian), '
+                                          'unnormalized')
+    rows['H3 log(5 - A)'] = row('log(5 - A) = -log of the resolvent up to the normalization constant', [None, None, None],
+                                'the additive constant is not fixed by the second index; gaps are canonical',
+                                values=[mp.log(num(5 - a)) for a in levels])
+    Z = sum(res)
+    rows['H3n -log of the resolvent normalized on the second index'] = row(
+        '-log((5 - A)^-1 / trace over the second index)', [None, None, None], 'normalization over the three copies',
+        values=[-mp.log(num(x / Z)) for x in res])
+    rows['H4 projector on the slowest level'] = {'function': 'projector on the copy with the largest kernel level',
+                                                 'values': [1.0, 0.0, 0.0], 'largest_over_smallest': None,
+                                                 'r = log(m3/m2)/log(m2/m1), ascending': None,
+                                                 'note': 'rank one: two levels vanish exactly; r undefined'}
+    out['rows'][f'triplet second index, flux {k}'] = {'adjacency_levels': [str(x) for x in levels], 'functions': rows}
+
+# singlets (flux 0): 5, -1, -1
+lev1 = [s.Integer(5), s.Integer(-1), s.Integer(-1)]
+K1 = [1 - (5 - a) / 60 for a in lev1]
+out['rows']['singlets, flux 0 (uniform, 1prime, 1second)'] = {
+    'adjacency_levels': ['5', '-1', '-1'],
+    'functions': {'H0 kernel K': {'values': [float(x) for x in K1], 'r = log(m3/m2)/log(m2/m1), ascending': None,
+                                  'note': 'two levels coincide exactly (1prime = 1second): every function has a degenerate pair'},
+                  'H2 resolvent': {'values': [None, 1 / 6, 1 / 6], 'note': 'the uniform state is the zero mode of 5 - A'}}}
+
+# the lepton-like spread: number of events at which K^n spans a factor 3477 (no measured input enters the functions)
+lam = [num(1 - (5 - a) / 60) for a in (r5, s.Integer(-1), -r5)]
+out['powers_shape'] = {
+    'rates_c = -log K (slow, middle, fast)': [float(mp.nstr(-mp.log(x), 15)) for x in lam],
+    'r for masses proportional to K^n (slow heaviest)': float(mp.nstr((mp.log(lam[0] / lam[1])) / (mp.log(lam[1] / lam[2])), 15)),
+    'r for masses proportional to K^-n (slow lightest)': float(mp.nstr((mp.log(lam[1] / lam[2])) / (mp.log(lam[0] / lam[1])), 15)),
+    'note': 'K^n = exp(-n c): the spread grows without bound, the shape r is fixed by the three rates',
+}
+path = sys.argv[1] if len(sys.argv) > 1 else 'item5.json'
+json.dump(out, open(path, 'w'), indent=1)
+for sec, d in out['rows'].items():
+    print(sec, d['adjacency_levels'])
+    for nm, rr in d['functions'].items():
+        print(f"   {nm:60s} {[round(v, 6) if v is not None else None for v in rr['values']]}  spread "
+              f"{rr.get('largest_over_smallest')}  r {rr.get('r = log(m3/m2)/log(m2/m1), ascending')}")
+print(out['powers_shape'])

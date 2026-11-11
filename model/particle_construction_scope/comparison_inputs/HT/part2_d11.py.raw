@@ -1,0 +1,36 @@
+"""Part 2: m_H (tree) and m_t (pole) at every scale produced in Part 1, with the private copy of the repository's
+D11 engine (two loops for y_t and lambda, one-loop gauge chart, v at m_t). Conditional rows; no measured value read.
+Writes part2_d11.json."""
+import json
+import math
+import sys
+
+sys.path.insert(0, ".")
+import d11_scan_copy as D  # noqa: E402
+
+root = json.load(open("R_P_source_audit_pixel_certificate.json"))
+p, au = float(root["P_cand"]), float(root["alpha_U_P_cand"])
+sc = D.source_scales(p, au)
+v, mz = sc["v_transmutation_gev"], sc["mz_run_gev"]
+s1 = json.load(open("part1_scales.json"))
+c3 = s1["C3"]["D11_chart_[Q0,E*]"]
+scales = {
+    "K1_E_cell (C2a after GL, C2d, C1 scale if it held)": sc["E_cell_pixel_energy"],
+    "C2b_sqrt(E* E_cell)": math.sqrt(sc["E_star"] * sc["E_cell_pixel_energy"]),
+    "C3b_su2_factor_vs_trivial (D11 chart)": c3["C3b_su2_factor_vs_trivial"]["roots_GeV"][0],
+    "C3c_doublet_vs_triplet_block (D11 chart)": c3["C3c_doublet_vs_triplet_block"]["roots_GeV"][0],
+    "C3d_su2_vs_u1_factor (D11 chart)": c3["C3d_su2_factor_vs_u1_factor"]["roots_GeV"][0],
+    "reference_K4_midpoint (adopted, post exposure)": sc["log_midpoint_half_turn"],
+    "reference_K2_E_star": sc["E_star"],
+    "reference_K3_M_U": sc["mu_U_gauge_unification"],
+}
+rows = {}
+for name, mu in scales.items():
+    r1 = D.run_boundary(mu, v, mz, loops=1)
+    r2 = D.run_boundary(mu, v, mz, loops=2)
+    rows[name] = {"mu_c_GeV": mu, "one_loop": {"mh_tree": r1["mh_tree_gev"], "mt_pole": r1["mt_pole_gev"]},
+                  "two_loop": {"mh_tree": r2["mh_tree_gev"], "mt_pole": r2["mt_pole_gev"], "yt_mu_c": r2["y_t_u"],
+                               "yt_mt": r2["y_t_mt"], "lambda_mt": r2["lambda_mt"]}}
+    print("%-55s mu=%.4e  1L H=%.3f t=%.3f  2L H=%.4f t=%.4f" % (name, mu, r1["mh_tree_gev"], r1["mt_pole_gev"],
+                                                               r2["mh_tree_gev"], r2["mt_pole_gev"]))
+json.dump({"v_GeV": v, "Q0_GeV": mz, "rows": rows}, open("part2_d11.json", "w"), indent=1)

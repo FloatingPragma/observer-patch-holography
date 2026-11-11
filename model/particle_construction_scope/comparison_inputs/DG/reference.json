@@ -1,0 +1,101 @@
+{
+ "cases": [
+  {
+   "theta_D": 0.157935,
+   "theta_M": 0.45102681179626236,
+   "th_l": 0.049031267930002675,
+   "th_h": 0.500058079726265,
+   "unitarity_defect": 2.220446049250313e-16,
+   "spectrum_vs_T6_formula_defect": 6.661338147750939e-16,
+   "stationarity_defect": 5.003707553108401e-16,
+   "weight_on_empty_cell": 0.17006820636068687,
+   "weights_by_number_of_quanta": {
+    "N=0 (B-L=0)": 0.17006820636068687,
+    "N=1 (B-L=-1)": 3.0562266238134437e-31,
+    "N=2 (B-L=-2)": 0.6598635872786269,
+    "N=3 (B-L=-3)": 2.642765916610391e-31,
+    "N=4 (B-L=-4)": 0.1700682063606863
+   },
+   "mean_number_of_quanta": 1.9999999999999991,
+   "empty_cell_survival_per_step |<0|M|0>|^2": 0.81
+  },
+  {
+   "theta_D": 0.042383,
+   "theta_M": 0.45102681179626236,
+   "th_l": 0.0038815726867282296,
+   "th_h": 0.4549083844829906,
+   "unitarity_defect": 2.220446049250313e-16,
+   "spectrum_vs_T6_formula_defect": 1.0547118733938987e-15,
+   "stationarity_defect": 9.18873053048877e-16,
+   "weight_on_empty_cell": 0.24175386655172446,
+   "weights_by_number_of_quanta": {
+    "N=0 (B-L=0)": 0.24175386655172446,
+    "N=1 (B-L=-1)": 4.8407992320362027e-29,
+    "N=2 (B-L=-2)": 0.5164922668965441,
+    "N=3 (B-L=-3)": 4.774392388325046e-29,
+    "N=4 (B-L=-4)": 0.24175386655173128
+   },
+   "mean_number_of_quanta": 2.0000000000000133,
+   "empty_cell_survival_per_step |<0|M|0>|^2": 0.81
+  },
+  {
+   "theta_D": 0.001,
+   "theta_M": 0.45102681179626236,
+   "th_l": 2.1794389375995316e-06,
+   "th_h": 0.45102899123519996,
+   "unitarity_defect": 2.220446049250313e-16,
+   "spectrum_vs_T6_formula_defect": 6.661338147750939e-16,
+   "stationarity_defect": 5.064917260848194e-16,
+   "weight_on_empty_cell": 0.24999525008672713,
+   "weights_by_number_of_quanta": {
+    "N=0 (B-L=0)": 0.24999525008672713,
+    "N=1 (B-L=-1)": 1.4422398133046393e-24,
+    "N=2 (B-L=-2)": 0.5000094998163371,
+    "N=3 (B-L=-3)": 1.4422297011708473e-24,
+    "N=4 (B-L=-4)": 0.24999525009693585
+   },
+   "mean_number_of_quanta": 2.0000000000204174,
+   "empty_cell_survival_per_step |<0|M|0>|^2": 0.81
+  },
+  {
+   "theta_D": 0.001,
+   "theta_M": 0.002026072805868004,
+   "th_l": 0.00041042501614347335,
+   "th_h": 0.0024364978220114773,
+   "unitarity_defect": 4.440892098500626e-16,
+   "spectrum_vs_T6_formula_defect": 9.708379933304201e-15,
+   "stationarity_defect": 4.8435647853617425e-15,
+   "weight_on_empty_cell": 0.12661899310279842,
+   "weights_by_number_of_quanta": {
+    "N=0 (B-L=0)": 0.12661899310279842,
+    "N=1 (B-L=-1)": 1.0476008777520217e-26,
+    "N=2 (B-L=-2)": 0.7467620137943816,
+    "N=3 (B-L=-3)": 6.682494405761106e-27,
+    "N=4 (B-L=-4)": 0.12661899310282
+   },
+   "mean_number_of_quanta": 2.000000000000043,
+   "empty_cell_survival_per_step |<0|M|0>|^2": 0.9999958950346023
+  },
+  {
+   "theta_D": 1e-06,
+   "theta_M": 0.002026072805868004,
+   "th_l": 4.936356887488835e-10,
+   "th_h": 0.002026073299503693,
+   "unitarity_defect": 2.220446049250313e-16,
+   "spectrum_vs_T6_formula_defect": 1.4056030644971074e-13,
+   "stationarity_defect": 7.047446411661118e-14,
+   "weight_on_empty_cell": 0.24999969800110966,
+   "weights_by_number_of_quanta": {
+    "N=0 (B-L=0)": 0.24999969800110966,
+    "N=1 (B-L=-1)": 1.1979646709623026e-16,
+    "N=2 (B-L=-2)": 0.5000004872133296,
+    "N=3 (B-L=-3)": 1.1979640872946957e-16,
+    "N=4 (B-L=-4)": 0.24999981478556071
+   },
+   "mean_number_of_quanta": 2.000000233568902,
+   "empty_cell_survival_per_step |<0|M|0>|^2": 0.9999958950346023
+  }
+ ],
+ "pairing_block": "on span(empty, N-pair) the pairing generator is an involution with zero diagonal: its eigenvectors are (|0> +- |pair>)/sqrt2, weight 1/2 on the empty cell for every theta_M",
+ "statement": "For theta_D > 0 the one-cell step with the pairing has a unique stationary state with all quasi-particle numbers zero (phase -(th_l + th_h)). Its weights on 0, 2 and 4 quanta tend to 1/4, 1/2, 1/4 when theta_D is small against theta_M: at rest each of the two Majorana pairs (light and heavy) mixes the empty and the paired occupation with equal weight. Odd numbers of quanta have weight zero (number parity is kept). The reference has no definite number of quanta and no definite B - L (both modes carry B - L = -1). The empty cell survives one step with probability cos^2(theta_M) (T6). The empty reference of CF-1 is replaced by this paired reference; on the lattice the reference is the filled negative branch of the doubled period (T6: direct sum of two CF-1 ticks with angles th_l and th_h; report R4: that branch is stationary under the period and undefined at the phase-pi cones)."
+}

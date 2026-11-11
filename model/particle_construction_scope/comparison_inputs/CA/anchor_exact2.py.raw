@@ -1,0 +1,154 @@
+#!/usr/bin/env python3
+"""Worker CA (coupling item A): statements E10 and E11 of CANDIDATES.md (Addendum 1).
+
+E10 (float64, MEASURED with printed tolerance): GL's 27-state link register (rebuilt from work/GL/s3_gauss.py, read
+only): the register transport term on a Higgs state against the link's Casimir operators and generators.
+E11 (sympy, EXACT): stationary space of the frame-scrambling generator for five live sets on j = 1/2 and j = 1.
+No measured value is read. Writes anchor_exact2.json.
+"""
+import itertools
+import json
+import sys
+from pathlib import Path
+
+import numpy as np
+import sympy as s
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, "WORKSPACE/repair-law/work/GL")
+import gl_lib as L  # noqa: E402  (read only)
+
+out = {}
+
+# ------------------------------------------------------------------ E10: the 27-state link
+blocks = {3: [0, 1, 2], 2: [3, 4]}
+lstates = [("0",)]
+for sgn in ("+", "-"):
+    for r, lev in blocks.items():
+        for i in range(len(lev)):
+            for j in range(len(lev)):
+                lstates.append((sgn, r, i, j))
+idx = {st: k for k, st in enumerate(lstates)}
+DL = len(lstates)
+
+
+def blockT(T, r):
+    lev = blocks[r]
+    return T[np.ix_(lev, lev)]
+
+
+def U_link(r, a, b):
+    M = np.zeros((DL, DL), complex)
+    d = len(blocks[r])
+    M[idx[("+", r, a, b)], idx[("0",)]] += 1 / np.sqrt(d)
+    M[idx[("0",)], idx[("-", r, a, b)]] += 1 / np.sqrt(d)
+    return M
+
+
+def L_gen(T):
+    M = np.zeros((DL, DL), complex)
+    for r in blocks:
+        Tr = blockT(T, r); d = len(blocks[r])
+        for a, b in itertools.product(range(d), repeat=2):
+            for c in range(d):
+                M[idx[("+", r, c, b)], idx[("+", r, a, b)]] += -Tr[a, c]
+                M[idx[("-", r, c, b)], idx[("-", r, a, b)]] += Tr[c, a]
+    return M
+
+
+def R_gen(T):
+    M = np.zeros((DL, DL), complex)
+    for r in blocks:
+        Tr = blockT(T, r); d = len(blocks[r])
+        for a, b in itertools.product(range(d), repeat=2):
+            for c in range(d):
+                M[idx[("+", r, a, c)], idx[("+", r, a, b)]] += Tr[c, b]
+                M[idx[("-", r, a, c)], idx[("-", r, a, b)]] += -Tr[b, c]
+    return M
+
+
+def comm(A, B):
+    return float(np.abs(A @ B - B @ A).max())
+
+
+out["E10_link_dimension"] = DL
+k0 = 1                                              # Higgs state on the second doublet level (code index 4)
+O = U_link(2, k0, k0); O = O + O.conj().T
+gl, wk, yb = L.GLUONS, L.WEAK, L.BGUT
+C_col = sum(L_gen(T) @ L_gen(T) for T in gl)
+C_weak = sum(L_gen(T) @ L_gen(T) for T in wk)
+C_Y = L_gen(yb) @ L_gen(yb)
+out["E10_casimirs_diagonal"] = bool(all(np.allclose(C, np.diag(np.diag(C))) for C in (C_col, C_weak, C_Y)))
+out["E10_weak_casimir_values"] = sorted(set(np.round(np.diag(C_weak).real, 12).tolist()))
+out["E10_colour_casimir_values"] = sorted(set(np.round(np.diag(C_col).real, 12).tolist()))
+out["E10_comm_C_weak_O"] = comm(C_weak, O)
+out["E10_comm_C_Y_O"] = comm(C_Y, O)
+out["E10_comm_C_colour_O"] = comm(C_col, O)
+# amplitude from the trivial sector into the doublet sector
+v0 = np.zeros(DL, complex); v0[idx[("0",)]] = 1
+w = O @ v0
+out["E10_O_on_trivial_sector"] = {str(lstates[i]): float(abs(w[i])) for i in range(DL) if abs(w[i]) > 1e-12}
+# stabilizer of the Higgs state: colour and Q = T3 + Y with beta on the level with T3 = -1/2
+Qm = wk[2] + L.Y5
+beta = np.zeros(5, complex); beta[3 + k0] = 1
+out["E10_Q_annihilates_beta"] = float(np.linalg.norm(Qm @ beta))
+stab = gl + [Qm]
+out["E10_max_comm_left_stabilizer_O"] = max(comm(L_gen(T), O) for T in stab)
+out["E10_max_comm_right_stabilizer_O"] = max(comm(R_gen(T), O) for T in stab)
+# the three frozen directions: T1, T2 and z = cos(theta) T3 - sin(theta) Y-direction (any nonzero mixing angle)
+g2, gY = 1.0, np.sqrt(3 / 5)                         # equal GUT couplings
+z = (g2 * wk[2] - gY * L.Y5) / np.hypot(g2, gY)
+out["E10_comm_left_T1_O"] = comm(L_gen(wk[0]), O)
+out["E10_comm_left_T2_O"] = comm(L_gen(wk[1]), O)
+out["E10_comm_left_z_O"] = comm(L_gen(z), O)
+out["E10_comm_left_T3_O"] = comm(L_gen(wk[2]), O)
+out["E10_comm_left_Y_O"] = comm(L_gen(L.Y5), O)
+out["E10_pass"] = bool(out["E10_comm_C_weak_O"] > 0.1 and out["E10_comm_C_Y_O"] > 0.01 and out["E10_comm_C_colour_O"] < 1e-12
+                       and out["E10_max_comm_left_stabilizer_O"] < 1e-12 and out["E10_max_comm_right_stabilizer_O"] < 1e-12
+                       and min(out["E10_comm_left_T1_O"], out["E10_comm_left_T2_O"], out["E10_comm_left_z_O"]) > 0.1)
+
+# ------------------------------------------------------------------ E11: stationary space of the scrambling generator
+I = s.I
+Yv = s.Rational(1, 2)
+cth, sth = s.symbols("c s", positive=True)          # generic mixing angle: z = c T3 - s Y (only its direction matters)
+
+
+def spin(twoj):
+    j = s.Rational(twoj, 2); dim = twoj + 1
+    ms = [j - k for k in range(dim)]
+    Jz = s.diag(*ms)
+    Jp = s.zeros(dim, dim)
+    for k in range(1, dim):
+        m = ms[k]
+        Jp[k - 1, k] = s.sqrt(j * (j + 1) - m * (m + 1))
+    return (Jp + Jp.H) / 2, (Jp - Jp.H) / (2 * I), Jz, dim
+
+
+def stationary_dim(Xs, dim):
+    """dimension of the kernel of rho -> sum_a (X rho X - {X^2, rho}/2) on dim x dim matrices."""
+    basis = []
+    for a in range(dim):
+        for b in range(dim):
+            E = s.zeros(dim, dim); E[a, b] = 1
+            img = s.zeros(dim, dim)
+            for X in Xs:
+                img += X * E * X - (X * X * E + E * X * X) / 2
+            basis.append(list(img))
+    M = s.Matrix(basis).T
+    return dim * dim - M.rank()
+
+
+e11 = {}
+for twoj in (1, 2):
+    T1, T2, T3, dim = spin(twoj)
+    Q = T3 + Yv * s.eye(dim)
+    Z = (3 * T3 - 2 * Yv * s.eye(dim))                # a neutral direction with rational mixing (c : s = 3 : 2)
+    sets = {"T1,T2,T3": [T1, T2, T3], "T1,T2,Q": [T1, T2, Q], "T1,T2": [T1, T2], "Q": [Q], "z,Q": [Z, Q]}
+    e11["j=%s" % s.Rational(twoj, 2)] = {name: int(stationary_dim(Xs, dim)) for name, Xs in sets.items()}
+out["E11_stationary_space_dimension"] = e11
+out["E11_pass"] = bool(all(v["T1,T2,T3"] == 1 and v["T1,T2,Q"] == 1 and v["T1,T2"] == 1 for v in e11.values())
+                       and e11["j=1/2"]["Q"] == 2 and e11["j=1/2"]["z,Q"] == 2
+                       and e11["j=1"]["Q"] == 3 and e11["j=1"]["z,Q"] == 3)
+
+(HERE / "anchor_exact2.json").write_text(json.dumps(out, indent=1) + "\n")
+print(json.dumps(out, indent=1))

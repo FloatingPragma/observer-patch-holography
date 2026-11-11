@@ -1,0 +1,111 @@
+"""Icosahedron: Monte Carlo survival law of one unit pair for named laws, with the exact control for the law that
+reads charges only (U_free: the pair performs an autonomous walk on the dodecahedron graph).
+
+Usage: m10_ico_survival.py laws ntraj [fillings] [distances]
+Protocol per trajectory: m randomly chosen ports get one extra unit on a uniform background, a unit pair is inserted on a
+shortest string at dual distance r, 20 sweeps with frozen offsets, then the law until the pair is gone (cap 3000 sweeps).
+"""
+import ctypes, json, sys, time
+from fractions import Fraction as Fr
+from pathlib import Path
+import numpy as np
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import s1lib as S, s1laws, s1c
+
+HERE = Path(__file__).resolve().parent
+C = S.icosahedron()
+A = s1c.arrays(C)
+tree = s1c.spanning_tree(C)
+laws = s1laws.named()
+names = sys.argv[1].split(',')
+ntraj = int(sys.argv[2])
+fillings = [int(v) for v in sys.argv[3].split(',')] if len(sys.argv) > 3 else [0, 3, 6]
+dists = [int(v) for v in sys.argv[4].split(',')] if len(sys.argv) > 4 else [1, 3, 5]
+BURN, CAP = 20 * C.M, 3000 * C.M
+path = HERE / 'm10_ico_survival.json'
+out = json.loads(path.read_text()) if path.exists() else {}
+
+
+def exact_free_walk():
+    """U_free on the icosahedron: exact mean lifetime (attempts) and mean hops by initial dual distance."""
+    # lump ordered pairs by dual distance; check that the partition is equitable
+    F = C.F
+    rows = {}
+    for f in range(F):
+        for g in range(F):
+            if f == g: continue
+            r = C.ddist[f][g]
+            tr = {}
+            for e in range(C.M):
+                a, b = C.L[e], C.R[e]
+                if {a, b} == {f, g}:
+                    key = 0
+                elif f in (a, b):
+                    key = C.ddist[b if a == f else a][g]
+                elif g in (a, b):
+                    key = C.ddist[f][b if a == g else a]
+                else:
+                    key = r
+                tr[key] = tr.get(key, 0) + Fr(1, C.M)
+            if r in rows:
+                assert rows[r] == tr, 'partition by distance is not equitable'
+            rows[r] = tr
+    rs = sorted(rows)
+    Amat = [[(Fr(1) if r == s else Fr(0)) - rows[r].get(s, Fr(0)) for s in rs] for r in rs]
+    t = S.solve_fraction(Amat, [Fr(1)] * len(rs))
+    hop = [sum(p for s, p in rows[r].items() if s != 0 and True) - rows[r].get(r, 0) + (rows[r].get(r, 0) - (Fr(C.M - 6 + (1 if r == 1 else 0), C.M))) for r in rs]
+    # hop probability per attempt: seams touching exactly one charge: 6 - 2*[adjacent]
+    hop = [Fr(6 - 2 * (1 if r == 1 else 0), C.M) for r in rs]
+    h = S.solve_fraction(Amat, hop)
+    return {r: dict(mean_lifetime_attempts=str(tv), mean_lifetime_sweeps=float(tv / C.M), mean_hops=str(hv), mean_hops_float=float(hv))
+            for r, tv, hv in zip(rs, t, h)}, {r: {str(s): str(p) for s, p in rows[r].items()} for r in rs}
+
+
+if 'exact_U_free' not in out:
+    ex, rows = exact_free_walk()
+    out['exact_U_free'] = dict(by_distance={str(r): v for r, v in ex.items()}, transition_by_distance={str(r): v for r, v in rows.items()})
+    print('exact U_free:', json.dumps({str(r): (v['mean_lifetime_sweeps'], v['mean_hops_float']) for r, v in ex.items()}), flush=True)
+
+t_start = time.time()
+for name in names:
+    law = laws[name]
+    mc = s1c.MC(A.sa, A.sb, A.L, A.R, law)
+    for m in fillings:
+        for r in dists:
+            key = f'{name}|m{m}|r{r}'
+            if key in out and out[key].get('ntraj', 0) >= ntraj:
+                continue
+            if time.time() - t_start > 150:
+                print('time budget reached at', key); path.write_text(json.dumps(out, indent=1)); sys.exit(0)
+            g = C.ddist[0].index(r)
+            off0 = np.array(C.string(0, g), np.int32)
+            q0 = np.array([sum(s * off0[e] for e, s in C.fs[f]) for f in range(C.F)], np.int32)
+            T = np.zeros(ntraj, np.int64); H = np.zeros(ntraj, np.int32); LAB = np.zeros(ntraj, np.int32)
+            agg = np.zeros(15, np.int64)
+            mc.seed(1000003 * (hash(name) % 1000) + 97 * m + r)
+            mc.seed(abs(hash((name, m, r))) % (2 ** 31))
+            seed = sum(ord(ch) for ch in name) * 1009 + 97 * m + r
+            mc.seed(seed)
+            t0 = time.time()
+            s1c.lib.s1_survival(ctypes.byref(mc.cfg), C.P, C.F, 4, m, s1c.ptr(off0), s1c.ptr(q0), BURN, CAP, ntraj, s1c.ptr(mc.state),
+                                s1c.ptr(mc.tau_static), s1c.ptr(tree[0]), s1c.ptr(tree[1]), s1c.ptr(tree[2]), s1c.ptr(tree[3]),
+                                s1c.ptr(T), s1c.ptr(H), s1c.ptr(LAB), s1c.ptr(agg))
+            done = T >= 0
+            Ts = np.where(done, T, CAP) / C.M
+            res = dict(law=name, m=m, r=r, ntraj=ntraj, seed=seed, censored_fraction=float(1 - done.mean()),
+                       mean_lifetime_sweeps=float(Ts.mean()), sem=float(Ts.std() / np.sqrt(ntraj)), median_sweeps=float(np.median(Ts)),
+                       survival={str(s): float((Ts > s).mean()) for s in (0.2, 1, 2, 5, 10, 20, 50, 100, 300, 1000)},
+                       mean_hops=float(H.mean()), hops_per_charge_per_sweep=float(H.sum() / (2 * Ts.sum())),
+                       p_label_kept=float((LAB[done] == 0).mean()) if done.any() else None,
+                       label_shift_hist={str(k): int(v) for k, v in zip(*np.unique(LAB[done], return_counts=True))},
+                       annihilations=int(agg[2]), creations=int(agg[3]), merges=int(agg[4]), splits=int(agg[5]),
+                       max_abs_contrast_uncharged_seam=int(agg[12]), max_abs_contrast_charged_seam=int(agg[13]),
+                       max_total_abs_charge=int(agg[14]), seconds=round(time.time() - t0, 1))
+            # tail decay rate from the survival curve between the median and the 95th percentile (per sweep)
+            out[key] = res
+            print(json.dumps({k: res[k] for k in ('law', 'm', 'r', 'mean_lifetime_sweeps', 'sem', 'median_sweeps', 'censored_fraction',
+                                                  'mean_hops', 'hops_per_charge_per_sweep', 'p_label_kept',
+                                                  'max_abs_contrast_uncharged_seam', 'max_abs_contrast_charged_seam',
+                                                  'creations', 'max_total_abs_charge', 'seconds')}), flush=True)
+    path.write_text(json.dumps(out, indent=1))
+path.write_text(json.dumps(out, indent=1))

@@ -1,0 +1,183 @@
+"""Test TG: the native triplet and doublet clocks U_t, U_d of model/coherent_defect_wave and their common spectrum.
+
+Run (from anywhere; RER on the path, read only):
+    cd WORKSPACE/reverse-engineering-reality && OPENBLAS_NUM_THREADS=4 \
+      PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. /tmp/oph-completion-venv/bin/python \
+      WORKSPACE/repair-law/work/DB/leptoquark_gap.py [build|spectrum t|spectrum d|compare]
+
+The one-wave clock U = controls . repair . reflect acts on (link word g, port p, internal j, parity r, address a).
+The internal level enters only through the repair link sign (doublet levels j >= 3 read the link word, triplet levels
+do not) and the Gauss sign at port 5 (doublet levels). For a fixed level the clock is a real orthogonal matrix on
+10 x 12 x 2 x 60 = 14400 states. Steps:
+  build      sparse U_t, U_d; check every column against JointObserver.step on 120 basis states each; check
+             orthogonality and commutation with the Gauss operator G = J (x) D; positive-sector basis (7200 states)
+  spectrum   eigenvalues of (U_+ + U_+^T)/2 = cos(theta) in the positive sector (dense symmetric, about 1.3 GB)
+  compare    common eigenvalues and the smallest cross-block phase difference
+For real orthogonal matrices the spectrum is closed under conjugation, so two spectra share an eigenvalue iff their
+cos(theta) sets intersect. Cross-block operators X with U_t X = X U_d exist iff the spectra share an eigenvalue.
+"""
+import json
+import sys
+from fractions import Fraction as F
+from pathlib import Path
+
+import numpy as np
+import scipy.sparse as sp
+
+HERE = Path('WORKSPACE/repair-law/work/DB')
+CACHE = Path('/private/tmp/claude-501/-Users-muellerberndt-Projects-oph-meta/ffc7e197-dc34-420e-b416-eceb3c5d7773/scratchpad/lqgap')
+CACHE.mkdir(parents=True, exist_ok=True)
+
+
+def build():
+    from model.coherent_defect_wave.model import JointObserver
+    obs = JointObserver()
+    words = obs.link_words
+    wid = {g: i for i, g in enumerate(words)}
+    law = obs.law
+    star = law.vertex_stars[5]
+    NW, NP, NR, NA = len(words), 12, 2, 60
+    dim = NW * NP * NR * NA
+
+    def idx(gi, p, r, a):
+        return ((gi * NP + p) * NR + r) * NA + a
+
+    out = {}
+    for label, j in (('t', 0), ('d', 3)):
+        # reflect: per (g, p, r) the 60 x 60 matrix (2/60) 11^T - I
+        rows, cols, vals = [], [], []
+        for gi in range(NW):
+            for p in range(NP):
+                for r in range(NR):
+                    base = idx(gi, p, r, 0)
+                    for a in range(NA):
+                        for b in range(NA):
+                            v = 2.0 / 60 - (1.0 if a == b else 0.0)
+                            rows.append(base + a); cols.append(base + b); vals.append(v)
+        REF = sp.csr_matrix((vals, (rows, cols)), shape=(dim, dim))
+        # repair: per (g, address) the 4 x 4 reflection I - s s^T / 2 on (port a, port b) x (parity 0, 1)
+        REP = sp.lil_matrix((dim, dim))
+        REP.setdiag(1.0)
+        for gi, g in enumerate(words):
+            for addr in range(NA):
+                pa, pb = obs.addresses[addr]
+                link = -1 if (j >= 3 and (g >> (addr // 2) & 1)) else 1
+                keys = [idx(gi, pa, 0, addr), idx(gi, pb, 0, addr), idx(gi, pa, 1, addr), idx(gi, pb, 1, addr)]
+                s = np.array([1, -link, -1, -link], float)
+                blk = np.eye(4) - np.outer(s, s) / 2
+                for u in range(4):
+                    for w in range(4):
+                        REP[keys[u], keys[w]] = blk[u, w]
+        REP = REP.tocsr()
+        # controls: one permutation per interior edge, in the law's order
+        C = sp.identity(dim, format='csr')
+        for edge in law.interior:
+            ends = law.edges[edge]
+            perm = np.empty(dim, dtype=np.int64)
+            for gi, g in enumerate(words):
+                for p in range(NP):
+                    h = obs._transports[(g, edge)] if p in ends else g
+                    hi = wid[h]
+                    for r in range(NR):
+                        for a in range(NA):
+                            perm[idx(gi, p, r, a)] = idx(hi, p, r, a)
+            Pm = sp.csr_matrix((np.ones(dim), (perm, np.arange(dim))), shape=(dim, dim))
+            C = Pm @ C
+        U = (C @ REP @ REF).tocsr()
+        # check against the RER implementation on 120 basis columns
+        rng = np.random.default_rng(5 + j)
+        maxdev = 0.0
+        for _ in range(120):
+            gi, p, r, a = int(rng.integers(NW)), int(rng.integers(NP)), int(rng.integers(NR)), int(rng.integers(NA))
+            st = obs.step(obs.basis_state(words[gi], p, j, r, a))
+            col = U[:, idx(gi, p, r, a)].toarray().ravel()
+            ref = np.zeros(dim)
+            for (g2, p2, j2, r2, a2), v in st.amplitudes:
+                assert j2 == j
+                ref[idx(wid[g2], p2, r2, a2)] += float(v)
+            assert st.norm_denominator == 1
+            maxdev = max(maxdev, float(np.max(np.abs(col - ref))))
+        # Gauss operator and positive sector
+        grow, gcol, gval = [], [], []
+        for gi, g in enumerate(words):
+            hi = wid[g ^ star]
+            for p in range(NP):
+                sign = -1.0 if (p == 5 and j >= 3) else 1.0
+                for r in range(NR):
+                    for a in range(NA):
+                        grow.append(idx(hi, p, r, a)); gcol.append(idx(gi, p, r, a)); gval.append(sign)
+        G = sp.csr_matrix((gval, (grow, gcol)), shape=(dim, dim))
+        xs = rng.standard_normal((dim, 4))
+        orth = float(np.max(np.abs(U.T @ (U @ xs) - xs)))
+        comm = (U @ G - G @ U)
+        comm_max = float(np.max(np.abs(comm.data))) if comm.nnz else 0.0
+        # positive-sector basis: one representative per pair {x, Gx}
+        Gcoo = G.tocoo()
+        partner = np.empty(dim, dtype=np.int64); psign = np.empty(dim)
+        partner[Gcoo.col] = Gcoo.row; psign[Gcoo.col] = Gcoo.data
+        reps = [x for x in range(dim) if x < partner[x]]
+        brow, bcol, bval = [], [], []
+        for c, x in enumerate(reps):
+            brow += [x, int(partner[x])]; bcol += [c, c]; bval += [2 ** -0.5, psign[x] * 2 ** -0.5]
+        B = sp.csr_matrix((bval, (brow, bcol)), shape=(dim, len(reps)))
+        Up = (B.T @ (U @ B)).tocsr()
+        sp.save_npz(CACHE / f'Uplus_{label}.npz', Up)
+        out[label] = dict(level=j, dim=dim, positive_dim=len(reps), nnz=int(U.nnz),
+                          max_column_deviation_vs_JointObserver=maxdev, orthogonality_defect=orth,
+                          gauss_commutator_max=comm_max)
+        print(label, out[label], flush=True)
+    (HERE / 'leptoquark_gap_build.json').write_text(json.dumps(out, indent=1) + '\n')
+
+
+def spectrum(label):
+    Up = sp.load_npz(CACHE / f'Uplus_{label}.npz').toarray()
+    S = (Up + Up.T) / 2
+    del Up
+    ev = np.linalg.eigvalsh(S)
+    np.save(CACHE / f'cos_{label}.npy', ev)
+    print(label, 'eigenvalues', len(ev), 'min', ev.min(), 'max', ev.max(), flush=True)
+
+
+def compare():
+    """eigenphases theta in [0, pi] clustered with tolerance 1e-6 (float64 eigvalsh spread inside a cluster < 2e-7)"""
+    def clusters(c, tol=1e-6):
+        th = np.sort(np.arccos(np.clip(c, -1, 1)))
+        out, start = [], 0
+        for i in range(1, len(th) + 1):
+            if i == len(th) or th[i] - th[i - 1] > tol:
+                seg = th[start:i]
+                out.append((float(seg.mean()), int(len(seg)), float(seg.max() - seg.min())))
+                start = i
+        return out
+    ct, cd = np.load(CACHE / 'cos_t.npy'), np.load(CACHE / 'cos_d.npy')
+    Ct, Cd = clusters(ct), clusters(cd)
+    inner = lambda C: [c for c in C if 1e-4 < c[0] < np.pi - 1e-4]
+    it, idd = inner(Ct), inner(Cd)
+    common = [(a, b) for a in Ct for b in Cd if abs(a[0] - b[0]) < 1e-6]
+    A = np.array([c[0] for c in it]); B = np.array([c[0] for c in idd])
+    D = np.abs(A[:, None] - B[None, :])
+    res = dict(
+        positive_sector_dimension=[len(ct), len(cd)],
+        theta0_multiplicity=dict(t=Ct[0][1] if Ct[0][0] < 1e-4 else 0, d=Cd[0][1] if Cd[0][0] < 1e-4 else 0),
+        thetapi_multiplicity=dict(t=Ct[-1][1] if Ct[-1][0] > np.pi - 1e-4 else 0,
+                                  d=Cd[-1][1] if Cd[-1][0] > np.pi - 1e-4 else 0),
+        inner_clusters=dict(t=len(it), d=len(idd)), inner_states=dict(t=sum(c[1] for c in it), d=sum(c[1] for c in idd)),
+        lowest_nonzero_theta=dict(t=float(A.min()), d=float(B.min())),
+        common_eigenphases=[dict(theta=a[0], mult_t=a[1], mult_d=b[1]) for a, b in common],
+        smallest_difference_between_distinct_inner_values=float(D[D > 1e-6].min()),
+        max_spread_inside_a_cluster=max(c[2] for c in Ct + Cd),
+        stationary_cross_block_operators_exist=bool(common),
+        dimension_of_stationary_cross_block_operators_at_least=int(sum(a[1] * b[1] for a, b in common)),
+    )
+    (HERE / 'leptoquark_gap.json').write_text(json.dumps(res, indent=1) + '\n')
+    print(json.dumps(res, indent=1))
+
+
+if __name__ == '__main__':
+    cmd = sys.argv[1] if len(sys.argv) > 1 else 'build'
+    if cmd == 'build':
+        build()
+    elif cmd == 'spectrum':
+        spectrum(sys.argv[2])
+    else:
+        compare()

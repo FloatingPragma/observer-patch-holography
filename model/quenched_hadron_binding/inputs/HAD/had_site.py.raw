@@ -1,0 +1,195 @@
+"""Builds the site file hadrons.json and sigma.json from the analysis files of lane HAD.
+
+    python had_site.py STATUS_TEXT [OUT.json]
+
+Reads analysis_A.json, analysis_B.json, melting.json, compare.json when they exist in this directory.
+"""
+import json, os, sys
+import numpy as np
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+SITE = 'WORKSPACE/oph-physics-sim/oph_defects/viewer2/research/HAD/hadrons.json'
+SQRT_SIGMA_MEV = 440.0
+HBARC = 197.3269804
+
+
+def load(name):
+    p = os.path.join(HERE, name)
+    return json.load(open(p)) if os.path.exists(p) else None
+
+
+def rnd(x, n=6):
+    if x is None:
+        return None
+    if isinstance(x, (list, tuple)):
+        return [rnd(v, n) for v in x]
+    if isinstance(x, float):
+        if not np.isfinite(x):
+            return None
+        return float(f'{x:.{n}g}')
+    return x
+
+
+def main():
+    args = [a for a in sys.argv[1:] if not a.startswith('--')]
+    status = args[0]
+    outfn = args[1] if len(args) > 1 else SITE
+    pot_only = '--potential-only' in sys.argv
+    A = load('analysis_A.json')
+    B = load('analysis_B.json')
+    melt = load('melting.json')
+    cmp_ = load('compare.json')
+    main_ = B if (B is not None and 'chiral' in B) else A
+    if pot_only:
+        main_ = None
+    potl = B if B is not None else A
+    out = dict(lane='HAD', title='Quarks bind: static potential and hadron masses in quenched SU(3)', status=status)
+    p = potl['potential']
+    f1 = p['fits']['F1_primary']
+    sig, sig_stat, sig_syst = p['sigma'], p['sigma_stat'], p['sigma_syst']
+    a_fm = np.sqrt(sig) * HBARC / SQRT_SIGMA_MEV
+    out['lattice'] = dict(beta=5.7, size=potl['lattice'], configurations=potl['configurations'], streams=potl['streams'],
+                          a_fm_from_sigma=rnd(a_fm, 4), sqrt_sigma_convention_MeV=SQRT_SIGMA_MEV,
+                          a_fm_note='uses the conventional string tension root 440 MeV (IMPORTED)',
+                          plaquette=rnd(potl['plaquette']['value']), plaquette_err=rnd(potl['plaquette']['err'], 2),
+                          other_lattices=[dict(size=x['lattice'], configurations=x['configurations'],
+                                               a2_sigma=rnd(x['potential']['sigma']),
+                                               a2_sigma_err=rnd(float(np.hypot(x['potential']['sigma_stat'], x['potential']['sigma_syst'])), 2))
+                                          for x in (A, B) if x is not None and x is not potl])
+    r = np.array(p['r'])
+    V = np.array([np.nan if v is None else v for v in p['V_t2']])
+    Ve = np.array([np.nan if v is None else v for v in p['V_t2_err']])
+    ok = np.isfinite(V) & np.isfinite(Ve)
+    rc = np.linspace(0.8, float(r[ok].max()) + 0.3, 60)
+    out['potential'] = dict(
+        r=rnd(r[ok].tolist()), V=rnd(V[ok].tolist()), V_err=rnd(Ve[ok].tolist(), 3), separations=[n for n, k in zip(p['names'], ok) if k],
+        fit=dict(sigma=rnd(sig), sigma_err=rnd(float(np.hypot(sig_stat, sig_syst)), 2), sigma_stat=rnd(sig_stat, 2),
+                 sigma_syst=rnd(sig_syst, 2), V0=rnd(f1['V0']), e=rnd(f1['e']), e_err=rnd(f1['e_err'], 2),
+                 r_min=1.414, chi2=rnd(f1['chi2'], 3), dof=f1['dof'], r0_over_a=rnd(p['r0']),
+                 r0_err=rnd(float(np.hypot(p['r0_stat'], p['r0_syst'])), 2),
+                 sigma_over_error=rnd(p['sigma_over_err'], 3), estimator='ln W(r,2)/W(r,3), APE-smeared spatial links'),
+        fit_curve=dict(r=rnd(rc.tolist(), 4), V=rnd((f1['V0'] + sig * rc - f1['e'] / rc).tolist(), 5)))
+    if melt is not None:
+        out['melting'] = melt['site']
+    if main_ is not None and 'hadrons' in main_:
+        hs = []
+        for row in main_['hadrons']:
+            hs.append(dict(
+                kappa=row['kappa'], t=row['t'],
+                pion=rnd(row['pion_SP']), rho=rnd(row['rho_SP']), nucleon=rnd(row['nucleon_SP']),
+                pion_err=rnd(row['pion_SP_err'], 3), rho_err=rnd(row['rho_SP_err'], 3), nucleon_err=rnd(row['nucleon_SP_err'], 3),
+                meff=dict(pion=rnd(row['meff_pion_SP'], 5), rho=rnd(row['meff_rho_SP'], 5), nucleon=rnd(row['meff_nucleon_SP'], 5)),
+                meff_err=dict(pion=rnd(row['meff_pion_SP_err'], 3), rho=rnd(row['meff_rho_SP_err'], 3),
+                              nucleon=rnd(row['meff_nucleon_SP_err'], 3)),
+                mass=dict(pion=rnd([row['mass_pion'][0], float(np.hypot(row['mass_pion'][1], row['mass_pion'][2]))], 5),
+                          rho=rnd([row['mass_rho'][0], float(np.hypot(row['mass_rho'][1], row['mass_rho'][2]))], 5),
+                          nucleon=rnd([row['mass_nucleon'][0], float(np.hypot(row['mass_nucleon'][1], row['mass_nucleon'][2]))], 5)),
+                mass_stat_syst=dict(pion=rnd(row['mass_pion'], 5), rho=rnd(row['mass_rho'], 5), nucleon=rnd(row['mass_nucleon'], 5)),
+                fit_window=dict(pion=row['mass_pion_SP_primary'][4], rho=row['mass_rho_SP_primary'][4],
+                                nucleon=row['mass_nucleon_SP_primary'][4]),
+                mN_over_mrho=rnd(row['mN_over_mrho'], 5), mpi_over_mrho=rnd(row['mpi_over_mrho'], 5)))
+        out['hadrons'] = hs
+        out['hadron_lattice'] = dict(size=main_['lattice'], configurations=main_['configurations'], streams=main_['streams'],
+                                     correlator='smeared source, point sink', error='jackknife over streams; second number adds the window and sink systematic')
+        c = main_['chiral']['primary']
+        sy = main_['chiral']['systematic']
+        kc = c['kappa_c'][0]
+        mq = [0.5 * (1.0 / row['kappa'] - 1.0 / kc) for row in main_['hadrons']]
+
+        def tot(k):
+            return [c[k][0], float(np.hypot(c[k][1], sy[k]))]
+        out['chiral'] = dict(
+            mq=rnd(mq, 5), m_pi2=rnd([row['mass_pion'][0] ** 2 for row in main_['hadrons']], 5),
+            m_rho=rnd([row['mass_rho'][0] for row in main_['hadrons']], 5),
+            m_N=rnd([row['mass_nucleon'][0] for row in main_['hadrons']], 5),
+            m_rho_err=rnd([row['mass_rho'][1] for row in main_['hadrons']], 3),
+            m_N_err=rnd([row['mass_nucleon'][1] for row in main_['hadrons']], 3),
+            kappa_c=rnd(tot('kappa_c'), 6),
+            limit=dict(m_rho=rnd(tot('mrho_chiral'), 5), m_N=rnd(tot('mN_chiral'), 5)),
+            physical=dict(m_rho=rnd(tot('mrho_phys'), 5), m_N=rnd(tot('mN_phys'), 5), input_m_pi_over_m_rho=main_['ratio_phys_input'],
+                          note='the measured ratio m_pi/m_rho fixes the light quark mass (IMPORTED input)'),
+            slopes=dict(m_rho=rnd(c['mrho_slope'][0], 5), m_N=rnd(c['mN_slope'][0], 5)),
+            form='m = m0 + c m_pi^2, four hopping parameters')
+        lit = (cmp_ or {}).get('site_ratios', {})
+        ratios = []
+
+        def add(name, key, measured, note=None):
+            e = dict(name=name, value=rnd(c[key][0], 5), err=rnd(float(np.hypot(c[key][1], sy[key])), 3),
+                     err_stat=rnd(c[key][1], 3), err_syst=rnd(sy[key], 3), measured=measured)
+            if key in lit:
+                e['quenched_literature'] = lit[key]['value']
+                e['quenched_literature_err'] = lit[key].get('err')
+                e['quenched_literature_label'] = 'published lattice value, same theory'
+                e['quenched_literature_source'] = lit[key]['source']
+            if note:
+                e['note'] = note
+            ratios.append(e)
+        add('m_N/m_rho (chiral limit)', 'mN_over_mrho_chiral', 1.211)
+        add('m_N/m_rho (physical m_pi/m_rho)', 'mN_over_mrho_phys', 1.211)
+        add('m_rho/sqrt(sigma) (chiral limit)', 'mrho_over_sqrtsigma_chiral', 1.762, 'measured column uses sqrt(sigma) = 440 MeV (convention, IMPORTED)')
+        add('m_N/sqrt(sigma) (chiral limit)', 'mN_over_sqrtsigma_chiral', 2.134, 'measured column uses sqrt(sigma) = 440 MeV (convention, IMPORTED)')
+        add('m_rho/sqrt(sigma) (physical m_pi/m_rho)', 'mrho_over_sqrtsigma_phys', 1.762, 'measured column uses sqrt(sigma) = 440 MeV (convention, IMPORTED)')
+        add('m_N/sqrt(sigma) (physical m_pi/m_rho)', 'mN_over_sqrtsigma_phys', 2.134, 'measured column uses sqrt(sigma) = 440 MeV (convention, IMPORTED)')
+        out['ratios'] = ratios
+        out['ratios_note'] = 'NOT BLIND. Measured values: PDG 2024 masses; the string tension root 440 MeV is a convention.'
+    if cmp_ is not None:
+        if 'GeV' in cmp_:
+            out['GeV'] = cmp_['GeV']
+        if 'statements' in cmp_:
+            out['statements'] = cmp_['statements']
+        if 'literature' in cmp_:
+            out['literature'] = cmp_['literature']
+    if 'statements' not in out:
+        st = [dict(text=f"The energy of a separated static colour pair grows linearly with distance: a^2 sigma = "
+                        f"{sig:.4f} +- {np.hypot(sig_stat, sig_syst):.4f} at beta = 5.7.", label='MEASURED'),
+              dict(text='Gauge group SU(3), plaquette action and colour triplet are the source\'s. The law that writes '
+                        'continuous link phases is a declared step.', label='DECLARED'),
+              dict(text='Quark loops are dropped (quenched approximation). The Wilson fermion is a standard discretisation chosen here.',
+                   label='DECLARED')]
+        out['statements'] = st
+    out['references'] = [
+        dict(cite='K. G. Wilson, Confinement of quarks, Phys. Rev. D 10, 2445 (1974)', url='https://doi.org/10.1103/PhysRevD.10.2445'),
+        dict(cite='F. Butler et al. (GF11), Hadron masses from the valence approximation to lattice QCD, Nucl. Phys. B 430, 179 (1994)',
+             url='https://arxiv.org/abs/hep-lat/9405003'),
+        dict(cite='M. Albanese et al. (APE), Phys. Lett. B 192, 163 (1987)', url='https://doi.org/10.1016/0370-2693(87)91160-9'),
+        dict(cite='R. Sommer, A new way to set the energy scale in lattice gauge theories, Nucl. Phys. B 411, 839 (1994)',
+             url='https://arxiv.org/abs/hep-lat/9310022'),
+        dict(cite='S. Necco and R. Sommer, The N_f = 0 heavy quark potential, Nucl. Phys. B 622, 328 (2002)',
+             url='https://arxiv.org/abs/hep-lat/0108008'),
+        dict(cite='R. G. Edwards, U. M. Heller, T. R. Klassen, Accurate scale determinations for the Wilson gauge action, Nucl. Phys. B 517, 377 (1998)',
+             url='https://arxiv.org/abs/hep-lat/9711003'),
+        dict(cite='S. Aoki et al. (CP-PACS), Quenched light hadron spectrum, Phys. Rev. Lett. 84, 238 (2000)',
+             url='https://arxiv.org/abs/hep-lat/9904012'),
+        dict(cite='G. Boyd et al., Thermodynamics of SU(3) lattice gauge theory, Nucl. Phys. B 469, 419 (1996)',
+             url='https://arxiv.org/abs/hep-lat/9602007'),
+        dict(cite='Particle Data Group, Review of Particle Physics, Phys. Rev. D 110, 030001 (2024)', url='https://pdg.lbl.gov/'),
+    ]
+    txt = json.dumps(out, indent=1)
+    assert 'placeholder' not in txt
+    os.makedirs(os.path.dirname(outfn), exist_ok=True)
+    open(outfn, 'w').write(txt)
+    print('wrote', outfn, len(txt), 'bytes')
+    # sigma.json for lane QCD
+    sj = dict(lane='HAD', beta=5.7, estimator='V(r) = ln W(r,2)/W(r,3), APE-smeared spatial links (alpha 0.5, 12 steps), thin time-like links',
+              fit='V0 + sigma r - e/r, all separations with r >= sqrt(2)', lattices=[])
+    for x in (A, B):
+        if x is None:
+            continue
+        px = x['potential']
+        fx = px['fits']['F1_primary']
+        sj['lattices'].append(dict(
+            lattice=x['lattice'], configurations=x['configurations'], a2_sigma=px['sigma'], err_stat=px['sigma_stat'],
+            err_syst=px['sigma_syst'], err=float(np.hypot(px['sigma_stat'], px['sigma_syst'])),
+            a_sqrt_sigma=float(np.sqrt(px['sigma'])), a_sqrt_sigma_err=float(0.5 * np.hypot(px['sigma_stat'], px['sigma_syst']) / np.sqrt(px['sigma'])),
+            fit_window_r=[min(fx['r_used']), max(fx['r_used'])], e=fx['e'], V0=fx['V0'], chi2=fx['chi2'], dof=fx['dof'],
+            r0_over_a=px['r0'], r0_err=float(np.hypot(px['r0_stat'], px['r0_syst'])),
+            alternative_fits={k: dict(sigma=v['sigma'], sigma_err=v['sigma_err'], e=v['e'], r0=v['r0']) for k, v in px['fits'].items()}))
+    extra = load('scale_extra.json')
+    if extra is not None:
+        sj['other_couplings'] = extra
+    json.dump(sj, open(os.path.join(HERE, 'sigma.json'), 'w'), indent=1)
+    print('wrote sigma.json')
+
+
+if __name__ == '__main__':
+    main()

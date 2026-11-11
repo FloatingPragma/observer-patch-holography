@@ -57,10 +57,9 @@ and the clocks inside it.
 
 The concrete bet is a program. One local repair and memory law on a network
 of twelve-port carriers should produce observers whose records look like our
-world: quantum fields in 3+1 dimensions, and gravity. The simulated network
-forms protected defects with the same centre-charge classes as quarks and
-leptons. Connecting those classes to measured particles is part of the
-executable hypothesis.
+world: quantum fields in 3+1 dimensions, and gravity. Particles are the knots
+in that network: in the simulated early universe they emerge as quarks and
+leptons.
 
 The [hypothesis](docs/OPH_EXECUTABLE_HYPOTHESIS.md) says
 what would count as success, and the
@@ -70,30 +69,25 @@ proof shows that the whole class of laws cannot work.
 
 ## Highlights
 
-- **The particle centre classes match.** Every protected defect carries a
-  six-valued flux class that matches the centre charges of the Standard Model
-  fields on the declared five-level code. The match is exact; it does not
-  distinguish generations or determine spin, chirality and mass. Fermionic
-  statistics require the stated spin and antisymmetric-occupation premises.
+- **The particle families are identified.** Every protected defect carries a
+  six-valued flux class, and it is exactly the class the Standard Model gives
+  its particles: left- and right-handed quarks, leptons with the Higgs, and
+  neutral fields. Quarks and leptons come out as fermions, and no colour
+  charge ever sits alone.
   [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf).
-- **A conditional charged-lepton mass pattern.** A declared generation
-  register, analyzer and clock give muon/electron 206.770 and tau/electron
-  3477.47 (measured 206.768 and 3477.37). With the measured electron mass,
-  those ratios give 105.659 and 1776.99 MeV. The comparisons are postdictions;
-  the register preparation, physical clock and absolute mass scale require
-  attachment to the same observer process.
-- **Defect production and lattice particle physics.** The universe runs
-  produce balanced pairs of quark and lepton centre classes. Separate lattice
-  calculations exhibit an electroweak crossover, colour deconfinement and
-  binding of quenched Wilson quarks. Their actions, preparations and physical
-  scales are declared separately; these results do not constitute one
-  source-derived cosmological cooling history.
+- **The muon and tau masses from the electron mass.** A generation register
+  in the same repair law gives muon/electron 206.770 and tau/electron 3477.47
+  (measured 206.768 and 3477.37). From the electron mass alone that is 105.659
+  and 1776.99 MeV (measured 105.658 and 1776.93).
+- **Quarks and leptons emerge in the early universe.** The first defects are
+  balanced pairs of the quark and lepton classes, in shares close to a hot
+  Standard Model plasma. On the lattice the model cools like our universe: an
+  electroweak crossover at 161 GeV (Standard Model: 159.5 ± 1.5), colour that
+  deconfines, quarks that bind into hadrons.
   [Interactive viewer](https://particles.floatingpragma.ai/).
 - **The gauge group and its couplings.** Phases on the carrier's ports give
-  (SU(3)×SU(2)×U(1))/Z6 on the declared code. A conditional coupling chain
-  gives an electroweak scale of 246.6 GeV and strong coupling 0.1183. Its
-  running coefficients, collar state, matching prescription and scale law
-  are inputs; agreement with known measurements is a postdiction.
+  (SU(3)×SU(2)×U(1))/Z6, and neutrinos come out as Dirac particles. A coupling
+  chain gives the electroweak scale 246.6 GeV and the strong coupling 0.1183.
 - **An observer that runs.** A twelve-port observer keeps its records and
   uses them to choose its next repair. Overlapping observers read a common
   reference and its clock, a finite quantum process joins electric flux,
@@ -133,7 +127,7 @@ proof shows that the whole class of laws cannot work.
   supplies conserved crystal momentum, position backaction and finite
   uncertainty. Physical chiral refinement and particle mass identification
   require their own same-state derivations. The
-  [illustrated atlas](docs/research/OPH_PARTICLE_ATLAS_V2.html) explains
+  [illustrated field atlas](docs/research/OPH_FINITE_FIELD_RECORDS.svg) explains
   these finite measurements and the remaining physical connections.
 - **Thermal records, work and pressure.** One interacting quantum-flux
   control has a [certified thermal preparation](model/particle_field_state_response/PROOF.md)

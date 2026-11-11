@@ -1,0 +1,228 @@
+"""X4, part 1: what the five-level code itself can and cannot repeat (candidates a and c read on the code).
+
+Exact arithmetic over Q(sqrt5, i) (library of worker KD) and integers; one float64 rank computation, printed with its gap.
+
+  1. Commutant of the twelve port responses on C^5.
+  2. Multiplicity of every gauge multiplet in the occupation algebra of one code (the chart of work/FAMILY).
+  3. Candidate (a) on the code's own triplet: the lifts of a frame's half-turns are elements of the gauge group; the
+     projector on a frame axis does not commute with the responses.
+  4. Candidate (c) read on the code: the lifted third of a turn about a face grades the five levels; sizes and content of
+     its three charge sectors on the 32 patterns.
+  5. Anomaly sums of the sixteen states (exact), and of three copies.
+"""
+import itertools
+import sys
+from fractions import Fraction as F
+
+import numpy as np
+
+import kdlib as kd
+from kdlib import K, ZERO, ONE, I
+from x4lib import geometry, dump
+
+geo = geometry()
+V = geo['V']
+out = {}
+
+# ---------------------------------------------------------------------------------------------------------------
+# 1. commutant of the responses on C^5 (exact)
+# X_p = (P_p/2) + (-Q_p/2); the sum over an antipodal pair is ((1 - v v^T/|v|^2)/2) + (-1/2), the difference is
+# proportional to i[v]_x on the triplet and to w.sigma' on the doublet (two different irrational scales).
+# Off-diagonal blocks: (X_p + X_-p) B = B (X_p + X_-p)  gives  (2|v|^2 - v v^T) B = 0.
+N2 = kd.vdot(V[0], V[0])                                        # |v|^2 = phi + 2
+def outer(v):
+    return tuple(tuple(v[i] * v[j] for j in range(3)) for i in range(3))
+def cross(v):
+    x, y, z = v
+    return ((ZERO, -z, y), (z, ZERO, -x), (-y, x, ZERO))
+def unit(n, i, j):
+    return tuple(tuple(ONE if (a, b) == (i, j) else ZERO for b in range(n)) for a in range(n))
+def flat(M):
+    return tuple(x for row in M for x in row)
+
+cols = []
+for i in range(3):
+    for j in range(3):
+        A = unit(3, i, j)
+        img = ()
+        for p in range(12):
+            img += flat(kd.comm(A, outer(V[p]))) + flat(kd.comm(A, cross(V[p])))
+        cols.append(img)
+dim_triplet = kd.nullity_of_linear_map(cols)
+cols = []
+for i in range(2):
+    for j in range(2):
+        D = unit(2, i, j)
+        img = ()
+        for p in range(12):
+            img += flat(kd.comm(D, kd.doublet_response(p)))
+        cols.append(img)
+dim_doublet = kd.nullity_of_linear_map(cols)
+cols = []
+for i in range(3):
+    for j in range(2):
+        B = tuple(tuple(ONE if (a, b) == (i, j) else ZERO for b in range(2)) for a in range(3))
+        img = ()
+        for p in range(12):
+            M = kd.msub(kd.mscale(K(2) * N2, kd.eye(3)), outer(V[p]))
+            img += flat(kd.mm(M, B))
+        cols.append(img)
+dim_offdiag = kd.nullity_of_linear_map(cols)
+out['commutant_of_the_twelve_responses_on_C5'] = {
+    'triplet_block': dim_triplet, 'doublet_block': dim_doublet, 'off_diagonal_block': dim_offdiag,
+    'total': dim_triplet + dim_doublet + 2 * dim_offdiag, 'tag': 'EXACT',
+    'statement': 'only a 1_3 + b 1_2 commutes with all twelve responses: no gauge-invariant label inside a multiplet of the code'}
+print('1. commutant of the responses on C^5: triplet', dim_triplet, 'doublet', dim_doublet, 'off-diagonal', dim_offdiag)
+assert (dim_triplet, dim_doublet, dim_offdiag) == (1, 1, 0)
+
+# ---------------------------------------------------------------------------------------------------------------
+# 2. multiplicities in the occupation algebra (exact labels; float64 rank as a cross-check)
+rep3 = {0: '1', 1: '3', 2: '3bar', 3: '1'}
+rep2 = {0: '1', 1: '2', 2: '1'}
+sectors = {}
+for n3 in range(4):
+    for n2 in range(3):
+        key = (rep3[n3], rep2[n2], 2 * n3 - 3 * n2)             # convention of work/FAMILY/FAMILY.md: 6Y = 2 n3 - 3 n2
+        sectors.setdefault(key, []).append((n3, n2))
+mult = {str(k): v for k, v in sectors.items()}
+repeated = {str(k): v for k, v in sectors.items() if len(v) > 1}
+out['gauge_multiplets_of_one_code'] = {'distinct': len(sectors), 'sectors': 12, 'repeated': repeated,
+                                       'largest_multiplicity': max(len(v) for v in sectors.values()), 'tag': 'EXACT'}
+print('2. twelve sectors,', len(sectors), 'distinct gauge multiplets; repeated:', repeated)
+assert max(len(v) for v in sectors.values()) == 2 and list(repeated) == ["('1', '1', 0)"]
+
+# float64 cross-check: commutant of the second-quantized responses on the 32 patterns
+src_seams = geo['seams']
+Vf = np.array([[float(x) for x in v] for v in V]); Vf /= np.linalg.norm(Vf, axis=1)[:, None]
+Wf = np.array([[float(x.gal()) for x in v] for v in V]); Wf /= np.linalg.norm(Wf, axis=1)[:, None]
+sx = np.array([[0, 1], [1, 0]], complex); sy = np.array([[0, -1j], [1j, 0]]); sz = np.diag([1.0, -1.0]).astype(complex)
+def crossf(u):
+    return np.array([[0, -u[2], u[1]], [u[2], 0, -u[0]], [-u[1], u[0], 0]])
+X = []
+for p in range(12):
+    P = (np.eye(3) - np.outer(Vf[p], Vf[p]) + 1j * crossf(Vf[p])) / 2
+    Q = (np.eye(2) + Wf[p][0] * sz + Wf[p][1] * sy + Wf[p][2] * sx) / 2      # sigma' = (sz, sy, sx), convention of kdlib
+    Z = np.zeros((5, 5), complex); Z[:3, :3] = P / 2; Z[3:, 3:] = -Q / 2
+    X.append(Z)
+subsets = [c for k in range(6) for c in itertools.combinations(range(5), k)]
+index = {c: i for i, c in enumerate(subsets)}
+def second_quantize(Mx):
+    o = np.zeros((32, 32), complex)
+    for c in subsets:
+        for j in c:
+            for i in range(5):
+                if Mx[i, j] == 0: continue
+                rest = [x for x in c if x != j]
+                if i in rest: continue
+                sign = (-1) ** c.index(j)
+                new = sorted(rest + [i]); sign *= (-1) ** new.index(i)
+                o[index[tuple(new)], index[c]] += sign * Mx[i, j]
+    return o
+G = [second_quantize(x) for x in X]
+rows = []
+for g in G:
+    # vec([M, g]) = (g^T kron 1 - 1 kron g) vec(M), row-major
+    rows.append(np.kron(np.eye(32), g) - np.kron(g.T, np.eye(32)))
+sv = np.linalg.svd(np.vstack(rows), compute_uv=False)
+nullity = int(np.sum(sv < 1e-9))
+out['gauge_multiplets_of_one_code']['float64_commutant_dimension_on_32_patterns'] = nullity
+out['gauge_multiplets_of_one_code']['float64_singular_value_gap'] = [float(sv[-nullity - 1]), float(sv[-nullity])]
+print('   float64 commutant of the lifted responses on the 32 patterns:', nullity, '(expected 10 + 2^2 = 14); gap',
+      f'{sv[-nullity - 1]:.3e} / {sv[-nullity]:.1e}')
+assert nullity == 14
+
+# ---------------------------------------------------------------------------------------------------------------
+# 3. candidate (a) on the code's own triplet
+fr = geo['frames'][0]
+lifts_in_gauge_group = True
+for h in fr['half_turns']:
+    R, u = h['R'], h['u']
+    detR = kd.det3(R)
+    detu = u[0][0] * u[1][1] - u[0][1] * u[1][0]
+    lifts_in_gauge_group &= (detR == ONE and detu == ONE and kd.is_unitary(u))
+moved = []
+for e in fr['axes']:
+    proj = outer(e)
+    moved.append(sum(1 for p in range(12) if not kd.is_zero(kd.comm(proj, outer(V[p])))))
+out['candidate_a_on_the_code_triplet'] = {
+    'half_turn_lifts_have_det_one_on_both_blocks': bool(lifts_in_gauge_group),
+    'ports_whose_response_does_not_commute_with_the_axis_projector': moved, 'tag': 'EXACT',
+    'statement': 'the Klein characters of a frame on the code triplet are values of gauge group elements (colour); '
+                 'the three axis states are three colours, not three copies'}
+print('3. frame half-turn lifts in S(U(3) x U(2)):', lifts_in_gauge_group, '; ports that do not commute with an axis projector:', moved)
+assert lifts_in_gauge_group and all(m > 0 for m in moved)
+
+# ---------------------------------------------------------------------------------------------------------------
+# 4. candidate (c) read on the code: lifted third of a turn about a face
+quats, rotm = kd.cover()
+f = geo['face_axes'][0]
+g = next(g for g in geo['face_groups'][f] if g != tuple(range(12)))
+lifts = [q for q, perm in quats.items() if perm == g]
+rowsc = []
+for q in lifts:
+    R = rotm[q]; u = kd.spinor_lift(q)
+    trR = kd.trace(R); tru = kd.trace(u)
+    # order of the lift
+    qq, order = q, 1
+    while not (qq[0] == ONE and all(x.is_zero() for x in qq[1:])):
+        qq = kd.qmul(qq, q); order += 1
+    rowsc.append({'trace_on_triplet': str(trR), 'trace_on_doublet': str(tru), 'order_of_the_lift': order})
+print('4. lifts of a face third-turn:', rowsc)
+assert sorted(r['order_of_the_lift'] for r in rowsc) == [3, 6]
+# order-3 lift: triplet eigenvalues 1, w, w^2 (trace 0), doublet w, w^2 (trace -1): charges (0, 1, 2 | 1, 2)
+charges = (0, 1, 2, 1, 2)
+size = {0: 0, 1: 0, 2: 0}
+content = {}
+for occ in itertools.product((0, 1), repeat=5):
+    c = sum(q for q, o in zip(charges, occ) if o) % 3
+    size[c] += 1
+    key = (sum(occ[:3]), sum(occ[3:]))
+    content.setdefault(str(key), [0, 0, 0])[c] += 1
+out['candidate_c_on_the_code'] = {
+    'lifts': rowsc, 'level_charges_mod_3': {'triplet': [0, 1, 2], 'doublet': [1, 2]},
+    'patterns_per_charge': size, 'patterns_per_sector_and_charge': content, 'tag': 'EXACT',
+    'statement': 'the three charge sectors hold 12, 10 and 10 patterns and split every colour triplet 1 + 1 + 1: '
+                 'the holonomy acts as a gauge rotation of the code, its sectors are not copies of the family'}
+print('   patterns per Z3 charge:', size, '; colour triplet (1,0):', content['(1, 0)'], '; quark doublet (2,1):', content['(2, 1)'])
+assert [size[c] for c in range(3)] == [12, 10, 10]
+
+# ---------------------------------------------------------------------------------------------------------------
+# 5. anomaly sums of the sixteen odd patterns (left-handed fields in the convention of FAMILY.md), exact
+dim3 = {0: 1, 1: 3, 2: 3, 3: 1}; dim2 = {0: 1, 1: 2, 2: 1}
+sign3 = {0: 0, 1: 1, 2: -1, 3: 0}                              # 3 counts +1, 3bar counts -1
+odd = [(n3, n2) for n3 in range(4) for n2 in range(3) if (n3 + n2) % 2]
+Y = lambda s: F(2 * s[0] - 3 * s[1], 6)
+sums = {
+    'states': sum(dim3[a] * dim2[b] for a, b in odd),
+    'sum_Y': sum(dim3[a] * dim2[b] * Y((a, b)) for a, b in odd),
+    'sum_Y_cubed': sum(dim3[a] * dim2[b] * Y((a, b)) ** 3 for a, b in odd),
+    'SU2_SU2_Y': sum(dim3[a] * Y((a, b)) for a, b in odd if b == 1),
+    'SU3_SU3_Y': sum(dim2[b] * Y((a, b)) for a, b in odd if a in (1, 2)),
+    'SU3_cubed': sum(dim2[b] * sign3[a] for a, b in odd),
+    'number_of_SU2_doublets': sum(dim3[a] for a, b in odd if b == 1),
+    'fundamental_index_sum_SU3': sum(dim2[b] for a, b in odd if a in (1, 2)),
+    'fundamental_index_sum_SU2': sum(dim3[a] for a, b in odd if b == 1),
+}
+out['anomaly_sums_one_family'] = {k: str(v) for k, v in sums.items()}
+out['anomaly_sums_three_copies'] = {k: str(3 * v) for k, v in sums.items() if k not in ('states',)}
+print('5. anomaly sums of one family:', {k: str(v) for k, v in sums.items()})
+assert sums['states'] == 16 and all(sums[k] == 0 for k in ('sum_Y', 'sum_Y_cubed', 'SU2_SU2_Y', 'SU3_SU3_Y', 'SU3_cubed'))
+assert sums['number_of_SU2_doublets'] % 2 == 0
+# a threefold label acting on the copies with charges q (mod N): mixed sums q-sum times the index sums
+label_sets = {'Klein half-turn on a triplet (charges 0,1,1 mod 2)': ((0, 1, 1), 2),
+              'third of a turn on a triplet (0,1,2 mod 3)': ((0, 1, 2), 3),
+              'fifth of a turn on a triplet (0,1,4 mod 5)': ((0, 1, 4), 5)}
+disc = {}
+for name, (q, N) in label_sets.items():
+    disc[name] = {'with_SU3_squared': (sum(q) * sums['fundamental_index_sum_SU3']) % N,
+                  'with_SU2_squared': (sum(q) * sums['fundamental_index_sum_SU2']) % N,
+                  'with_gravity': (sum(q) * sums['states']) % N}
+out['discrete_label_sums'] = disc
+print('   mixed sums of a triplet label with SU(3)^2, SU(2)^2, gravity (mod N):', disc)
+assert all(v == 0 for d in disc.values() for v in d.values())
+out['gauged_conjugate_triplet'] = {'cubic_sum_if_the_copies_were_a_gauged_SU3_triplet': sums['states'],
+                                   'cubic_sum_for_a_real_SO3_triplet': 0,
+                                   'note': 'sixteen left-handed states in one complex triplet give the cubic sum 16; '
+                                           'the real rotation triplet has no cubic invariant'}
+if len(sys.argv) > 1:
+    dump(out, sys.argv[1])

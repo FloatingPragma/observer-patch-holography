@@ -1,0 +1,114 @@
+"""S11 step 1: federation port Laplacian with the symmetric face_axis wiring; checks against the simulation
+side; flat bands; cone shells on the sphere.
+
+Run: cd SCR/rer-edit && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. nice -n 10 python SCR/research/S11/s1_geometry.py
+"""
+from __future__ import annotations
+
+import json
+import signal
+import sys
+import time
+from pathlib import Path
+
+import numpy as np
+import scipy.sparse.linalg as spl
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+import geom as G  # noqa: E402
+
+signal.alarm(225)          # hard wall-time guard
+LEVELS = tuple(int(v) for v in sys.argv[1:]) or (1, 2)
+out = {}
+t0 = time.time()
+out['template'] = G.check_template()
+out['glue_ports'] = list(G.GLUE)
+
+# ---- 1. seam-for-seam equality with the simulation side when built on its cell list; isospectral on my mesh
+ref_rows = []
+for level in (0, 1, 2):
+    z = np.load(HERE / 'ref' / f'sim_face_axis_L{level}.npz')
+    assert tuple(int(v) for v in z['control_ports']) == G.GLUE
+    assert (z['template_seams'] == G.TEMPLATE_SEAMS).all() and (z['template_faces'] == G.TEMPLATE_FACES).all()
+    a, b, _ = G.federation_seams(z['tri'].astype(np.int64))
+    mine = {(int(min(x, y)), int(max(x, y))) for x, y in zip(a, b)}
+    sim = {(int(min(x, y)), int(max(x, y))) for x, y in zip(z['seam_a'], z['seam_b'])}
+    S = G.Sphere(level)
+    row = {'level': level, 'ports': S.ports, 'seams': int(S.seam_a.size), 'seam_set_equal_on_sim_cells': mine == sim}
+    if level <= 1:
+        ev_mine = np.linalg.eigvalsh(S.port_laplacian().toarray())
+        ev_sim = np.linalg.eigvalsh(G.laplacian(S.ports, z['seam_a'], z['seam_b']).toarray())
+        row['max_spectrum_difference_my_mesh_vs_sim'] = float(np.abs(ev_mine - ev_sim).max())
+    ref_rows.append(row)
+    print(row, flush=True)
+out['reference_check'] = ref_rows
+
+# ---- 2. flat bands of the 24-port unit cell
+ev0 = np.linalg.eigvalsh(G.bloch_fed(np.zeros(2)))
+grid = [np.array([x, y]) for x in np.linspace(-np.pi, np.pi, 25) for y in np.linspace(-2 * np.pi / 3 ** 0.5, 2 * np.pi / 3 ** 0.5, 25)]
+allv = np.array([np.linalg.eigvalsh(G.bloch_fed(g)) for g in grid])
+width = allv.max(axis=0) - allv.min(axis=0)
+h = 1e-3
+dirs = [np.array([np.cos(t), np.sin(t)]) for t in np.radians([0, 30, 60, 90])]
+curv = [float(np.linalg.eigvalsh(G.bloch_fed(h * d))[0] / h ** 2) for d in dirs]
+evK = np.linalg.eigvalsh(G.bloch_fed(G.KPOINT))
+slope = [float((np.linalg.eigvalsh(G.bloch_fed(G.KPOINT + h * d))[1] - np.linalg.eigvalsh(G.bloch_fed(G.KPOINT + h * d))[0]) / (2 * h)) for d in dirs]
+# fine scan of the two lowest bands on a shifted grid for the band extrema
+fine = [(i + 0.5) / 120 * 2 * np.pi * np.array([1.0, -1 / 3 ** 0.5]) + (j + 0.5) / 120 * 2 * np.pi * np.array([0.0, 2 / 3 ** 0.5])
+        for i in range(120) for j in range(120)]
+fv = np.array([np.linalg.eigvalsh(G.bloch_fed(g))[:3] for g in fine])
+out['flat'] = {
+    'levels_at_q0': ev0.tolist(), 'flat_band_count': int((width < 1e-9).sum()), 'flat_band_levels': sorted(set(np.round(allv[0][width < 1e-9], 6).tolist())),
+    'massless_curvature_by_direction': curv, 'lambda_K_two_lowest': evK[:2].tolist(), 'cone_slope_by_direction': slope,
+    'band1_max_on_grid': float(fv[:, 0].max()), 'band2_min_on_grid': float(fv[:, 1].min()), 'band2_max_on_grid': float(fv[:, 1].max()),
+    'band3_min_on_grid': float(fv[:, 2].min()),
+}
+print(json.dumps(out['flat'], indent=1), flush=True)
+
+# plain honeycomb fit of the lowest pair: on-site e0, hopping t with e0 = lambda_K and slope = sqrt(3)/2 t
+out['flat']['honeycomb_t_from_slope'] = float(np.mean(slope) / (3 ** 0.5 / 2))
+out['flat']['honeycomb_t_from_bandwidth'] = float((fv[:, 1].max() - 0.0) / 6)
+
+# ---- 3. sphere: lowest multiplets and the shells at the cone
+sph = []
+lamK = float(evK[:2].mean()); s = float(np.mean(slope))
+for level in LEVELS:
+    S = G.Sphere(level)
+    L = S.port_laplacian()
+    tt = time.time()
+    if level <= 2:
+        ev, vec = np.linalg.eigh(L.toarray())
+        keep = S.N + 24
+        np.savez(HERE / 'cache' / f'eig_L{level}.npz', ev=ev[:keep], vec=vec[:, :keep], ev_all=ev)
+    else:
+        keep = S.N // 2 + 60
+        ev, vec = spl.eigsh(L.astype(float).tocsc(), k=keep, sigma=-0.01, which='LM')
+        o = np.argsort(ev); ev = ev[o]; vec = vec[:, o]
+        np.savez(HERE / 'cache' / f'eig_L{level}.npz', ev=ev, vec=vec)
+    print('level', level, 'eigen seconds', time.time() - tt, flush=True)
+    low = ev[:keep]
+
+    def groups(vals, tol):
+        g = [[vals[0]]]
+        for v in vals[1:]:
+            if v - g[-1][-1] < tol:
+                g[-1].append(v)
+            else:
+                g.append([v])
+        return [(float(np.mean(x)), len(x)) for x in g]
+    gr = groups(low, 1e-7)
+    # index of the first level above lambda_K
+    below = int((low < lamK).sum())
+    near = [(m, d, int(sum(dd for mm, dd in gr if mm < m - 1e-9))) for m, d in gr if abs(m - lamK) < 4.6 * s / S.R]
+    row = {'level': level, 'carriers': S.N, 'R_area_edges': S.R, 'count_below_lambda_K': below, 'half_of_carriers': S.N // 2,
+           'multiplets_low': gr[:8],
+           'multiplets_near_cone': [{'lambda': m, 'degeneracy': d, 'states_below': nb_, 'x=(lambda-lambda_K)R/s': (m - lamK) * S.R / s} for m, d, nb_ in near],
+           'top_of_two_band_block': float(low[S.N - 1]) if low.size > S.N else None, 'next_level': float(low[S.N]) if low.size > S.N else None}
+    sph.append(row)
+    print(json.dumps(row, indent=1), flush=True)
+out['sphere'] = sph
+out['lambda_K'] = lamK; out['cone_slope'] = s
+out['seconds'] = time.time() - t0
+(HERE / 'out' / ('s1_geometry_L' + '_'.join(map(str, LEVELS)) + '.json')).write_text(json.dumps(out, indent=1))
+print('written', out['seconds'])

@@ -1,0 +1,97 @@
+"""Item 3 of TASK_R6 in three dimensions (configuration of the simulation session's run D): an N^3 torus, background
+rest angle theta0 = 0.171237, a cubic cavity of side n at angle 0, alternating order of the axes.
+
+spectrum: for each of the eight parity classes of cells (the two-tick step preserves the parity of every coordinate)
+          the top eigenvalue cos(2E) of the blank-return operator C = P0 W_s P0 (Hermitian; W_s the two-tick step in
+          the symmetric frame), by Lanczos on the engine's operations. E is the phase per tick.
+clock:    clock register over T2 two-tick steps, offsets 0 and 1/2, on a blank Gaussian packet at rest on the cavity;
+          records sampled from the exact distribution; line fitted from records alone.
+
+  python bound_3d.py spectrum N side [class ...] [k=K]   class as three digits, e.g. 000 111; K levels per class
+  python bound_3d.py clock N side T2 [sigma] [records] [gap]   gap=1: search the line below theta0 only
+  python bound_3d.py batch NAME 'spectrum 24 1' 'clock 24 4 256' ...   (parallel, one process per job; NAME.json)
+"""
+import json, sys, time, hashlib
+import numpy as np
+from scipy.sparse.linalg import LinearOperator, eigsh, ArpackNoConvergence
+import r6lib
+from r6lib import Field, Routing, autocorr, qpe_probs, fit_line, sample
+
+TH0, SEED = 0.171237, 20261110
+
+
+def field(N, side):
+    theta = np.full((N, N, N), TH0); c0 = N // 2 - 2; s = slice(c0, c0 + side)
+    theta[s, s, s] = 0.0
+    return Field((N, N, N), theta, direct=True), c0
+
+
+def spectrum(N, side, classes=None, k=1):
+    f, c0 = field(N, side); g = np.indices((N, N, N)); cav = f.theta == 0.0
+    d = [np.abs((g[i] - (c0 + (side - 1) / 2) + N / 2) % N - N / 2) for i in range(3)]; near = (d[0] <= side) & (d[1] <= side) & (d[2] <= side)
+    rng = np.random.default_rng(SEED + 7); rows = []
+    for cls in classes or [(a, b, c) for a in (0, 1) for b in (0, 1) for c in (0, 1)]:
+        mask = ((g[0] % 2 == cls[0]) & (g[1] % 2 == cls[1]) & (g[2] % 2 == cls[2]))[..., None]
+        nmv = [0]
+
+        def mv(v):
+            nmv[0] += 1
+            return (f.C(v.reshape(N, N, N, 2) * mask) * mask).ravel()
+        v0 = ((rng.normal(size=(N, N, N, 2)) + 1j * rng.normal(size=(N, N, N, 2))) * mask).ravel()
+        t0 = time.time()
+        try:
+            val, vec = eigsh(LinearOperator((2 * N ** 3, 2 * N ** 3), matvec=mv, dtype=complex), k=k, which='LA', v0=v0, tol=1e-13, ncv=max(24, 8 * k), maxiter=400)
+        except ArpackNoConvergence as err:                      # keep what converged; residuals are reported per level
+            val, vec = err.eigenvalues, err.eigenvectors
+        for j in np.argsort(-val.real):
+            chi = vec[:, j].reshape(N, N, N, 2) * mask; chi /= np.linalg.norm(chi); c = float(val[j].real)
+            rho = np.sum(np.abs(chi) ** 2, axis=-1); E = 0.5 * np.arccos(c)
+            rows.append({'class': ''.join(map(str, cls)), 'cavity_cells_in_class': int((cav & mask[..., 0]).sum()), 'cos_2E': c, 'E_per_tick': float(E),
+                         'theta0_minus_E': float(TH0 - E), 'shift_times_volume': float((TH0 - E) * N ** 3),
+                         'residual': float(np.linalg.norm(f.C(chi) * mask - c * chi)), 'weight_in_cavity': float(rho[cav].sum()),
+                         'weight_within_cube_of_twice_the_side': float(rho[near].sum()),
+                         'participation_over_class_volume': float(1 / np.sum(rho ** 2) / (N ** 3 / 8)), 'matvecs': nmv[0], 'seconds': round(time.time() - t0, 1)})
+    return {'job': 'spectrum', 'N': N, 'side': side, 'cavity_from_cell': c0, 'theta0': TH0, 'levels_per_class': k, 'rows': rows}
+
+
+def clock(N, side, T2, sigma=4.0, records=2000, gap=0):
+    f, c0 = field(N, side); xc = c0 + (side - 1) / 2
+    psi0 = f.gaussian((xc, xc, xc), sigma)                                  # blank record, spin up, at rest
+    c = autocorr(f.sym, psi0, T2); P, info = qpe_probs(c, (0.0, 0.5))
+    seed = SEED + 300 + 10 * N + side; h = sample(P, records, seed)
+    # declared search range of the clock phase (two ticks per step): gap=1 searches below the band edge theta0 only
+    lo, hi = 2 * 0.03, (2 * TH0 - 2 * (2 * np.pi / T2) if gap else 2 * 0.25)
+    fit = fit_line(h, T2, lo, hi, halfwidth=10, per_clock=2, limit=True)
+    inf = fit_line(P * 1e9, T2, lo, hi, halfwidth=10, per_clock=2)
+    return {'job': 'clock', 'N': N, 'side': side, 'T2': T2, 'packet_sigma': sigma, 'seed': seed, 'offsets': [0.0, 0.5], **info, **fit,
+            'phase_at_infinite_records': inf['phase'], 'counts': h.tolist(), 'autocorr_imag_max': float(np.abs(c.imag).max())}
+
+
+def run(spec):
+    a = spec.split(); t0 = time.time()
+    if a[0] == 'spectrum':
+        k = int([x for x in a[3:] if x.startswith('k=')][0][2:]) if any(x.startswith('k=') for x in a[3:]) else 1
+        cls = [tuple(int(ch) for ch in s) for s in a[3:] if not s.startswith('k=')] or None
+        out = spectrum(int(a[1]), int(a[2]), cls, k)
+    else:
+        out = clock(int(a[1]), int(a[2]), int(a[3]), *(float(x) for x in a[4:5]), *(int(x) for x in a[5:7]))
+    out['spec'] = spec; out['seconds_total'] = round(time.time() - t0, 1)
+    return out
+
+
+if __name__ == '__main__':
+    eng = hashlib.sha256(open(r6lib.ENGINE, 'rb').read()).hexdigest()
+    if sys.argv[1] == 'batch':
+        from multiprocessing import Pool
+        name, specs = sys.argv[2], sys.argv[3:]
+        with Pool(min(12, len(specs))) as pool: res = pool.map(run, specs, chunksize=1)
+        json.dump({'engine_file': r6lib.ENGINE, 'engine_sha256': eng, 'results': res}, open(name + '.json', 'w'), indent=1)
+    else:
+        res = [run(' '.join(sys.argv[1:]))]
+    for r in res:
+        if r['job'] == 'spectrum':
+            for q in r['rows']:
+                print(f"N={r['N']} side={r['side']} class={q['class']} cells={q['cavity_cells_in_class']} E={q['E_per_tick']:.8f} theta0-E={q['theta0_minus_E']:.3e} xV={q['shift_times_volume']:.4f} "
+                      f"res={q['residual']:.1e} w_cav={q['weight_in_cavity']:.4f} w_2x={q['weight_within_cube_of_twice_the_side']:.4f} PN/V={q['participation_over_class_volume']:.3f} mv={q['matvecs']} {q['seconds']}s")
+        else:
+            print(f"N={r['N']} side={r['side']} clock T2={r['T2']} est={r['phase']:.6f}+-{r['se']:.6f} w={r['weight']:.3f} infinite-records={r['phase_at_infinite_records']:.6f} gamma95<{r['gamma_upper_95']} {r['seconds_total']}s")

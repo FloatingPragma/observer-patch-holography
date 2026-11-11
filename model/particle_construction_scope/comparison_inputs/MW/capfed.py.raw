@@ -1,0 +1,556 @@
+"""CAP (covariant agreement pump, RL/candidates/CAP.md) on the federation. Worker MW.
+
+One quantum, pure state psi on the ports. One event: a seam e = (a, b) drawn uniformly, recharting phase z_e,
+    |+> = (|a> + z|b>)/sqrt2,   |-> = (|a> - z|b>)/sqrt2,
+    keep = 1 - |-><-|,   corrected = |+><-|          (the two Kraus rows of cap.py in the one-load sector).
+c_minus = <-|psi> = (psi_a - conj(z) psi_b)/sqrt2. With probability |c_minus|^2/|psi|^2 the state becomes |+>;
+otherwise psi -> psi - c_minus |->.
+
+Objects
+  template     ports, seams, oriented faces of S3's library (the pinned template labels)
+  gauges       spinor frames chi_p of the twelve ports; internal recharting z_ab = phase <chi_b|chi_a>
+  Fed          a federation: seam ends A, B (global ports 12 c + p), carrier neighbours nbr/nbk, positions
+               build_sphere(level): wiring F of S3 (face triple, cyclic order of the neighbours)
+               build_flat(n1, n2): the same wiring on a periodic honeycomb patch
+  plaquettes   holonomy of the recharting connection around every mesh vertex (gauge invariant)
+  exact        stationary density by conjugate gradients on (L X + X L)_off = H_off / P, rho = X + 1/P
+  trajectories numba kernel with skipping of idle events (seams that do not touch the support of psi)
+
+Conventions: hop matrix H[a, b] = conj(z_ab), H[b, a] = z_ab for a stored seam (a, b); link(x -> y) = H[y, x];
+L = sum_e |-_e><-_e| = (Deg - H)/2; flux unit = 2 pi / 20.
+"""
+from __future__ import annotations
+
+import math
+
+import numba as nb
+import numpy as np
+import scipy.sparse as sp
+
+import s0_lib as S
+
+SQH = math.sqrt(0.5)
+PORT_UNIT = S.PORT_UNIT
+TSEAMS = np.asarray(S.SEAMS, dtype=np.int64)        # (30, 2), a < b
+TFACES = np.asarray(S.BASE_FACES, dtype=np.int64)   # (20, 3), counter-clockwise seen from outside
+F3 = tuple(int(v) for v in S.FACE_TRIPLE)           # glue face (0, 11, 5)
+UNIT = 2 * math.pi / 20
+SX = np.array([[0, 1], [1, 0]], complex); SY = np.array([[0, -1j], [1j, 0]]); SZ = np.diag([1.0 + 0j, -1.0])
+
+
+# ------------------------------------------------------------------------------------------------ spinor frames
+def coherent(u):
+    """Spin-1/2 coherent state of the direction u (standard section; its phase is a gauge choice)."""
+    th = math.acos(max(-1.0, min(1.0, float(u[2])))); ph = math.atan2(float(u[1]), float(u[0]))
+    return np.array([math.cos(th / 2), np.exp(1j * ph) * math.sin(th / 2)])
+
+
+def su2(axis, angle):
+    n = np.asarray(axis, float) / np.linalg.norm(axis)
+    return math.cos(angle / 2) * np.eye(2) - 1j * math.sin(angle / 2) * (n[0] * SX + n[1] * SY + n[2] * SZ)
+
+
+def glue_turn():
+    """The carrier rotation r with r(F3[k]) = F3[k+1], its matrix, and its order-three lift T to SU(2)."""
+    r = S.find_aut(F3, (F3[1], F3[2], F3[0]), proper_only=True)[0]
+    n = PORT_UNIT[list(F3)].sum(axis=0); n /= np.linalg.norm(n)
+    for ang in (2 * math.pi / 3, -2 * math.pi / 3):
+        R = S._rot(n, ang)
+        if np.allclose(PORT_UNIT @ R.T, PORT_UNIT[list(r)], atol=1e-9):
+            break
+    else:
+        raise ArithmeticError('glue turn not found')
+    T = -su2(n, ang)
+    assert np.allclose(T @ T @ T, np.eye(2), atol=1e-12)
+    return r, R, T, n
+
+
+def gauge_c3(j=0):
+    """Spinor frame with chi[r(p)] = w^j T chi[p] for every port (w a cube root of one). The internal recharting
+    table is then exactly invariant under the third of a turn about the glue face, so 'z = 1 on glue seams' does
+    not depend on which cyclic shift of the face triple a carrier uses. j = 0: glue recharting = S3's frame
+    transport lifted to SU(2) through the order-three lift."""
+    r, R, T, n = glue_turn()
+    w = np.exp(2j * math.pi * j / 3)
+    chi = np.zeros((12, 2), complex); done = [False] * 12
+    for p in range(12):
+        if done[p]:
+            continue
+        v = coherent(PORT_UNIT[p]); q = p
+        for _ in range(3):
+            chi[q] = v; done[q] = True
+            v = w * (T @ v); q = r[q]
+    check_frame(chi)
+    return chi
+
+
+def gauge_standard(R=None):
+    """Standard section in the frame turned by R (the construction of cap.py, which uses its own random R)."""
+    V = PORT_UNIT if R is None else PORT_UNIT @ np.asarray(R).T
+    chi = np.array([coherent(v) for v in V])
+    if R is None:
+        check_frame(chi)
+    return chi
+
+
+def check_frame(chi, axes=None):
+    axes = PORT_UNIT if axes is None else axes
+    for p in range(12):
+        M = axes[p, 0] * SX + axes[p, 1] * SY + axes[p, 2] * SZ
+        assert np.allclose(M @ chi[p], chi[p], atol=1e-10), 'chi_p is not the coherent state of u_p'
+
+
+def internal_links(chi, flux=1):
+    """z[k] for template seam k = (a, b), a < b: phase of <chi_b|chi_a>, to the power flux."""
+    z = np.array([np.vdot(chi[b], chi[a]) for a, b in TSEAMS])
+    return (z / np.abs(z)) ** flux
+
+
+def face_fluxes(z):
+    """Holonomy phase of every oriented template face in units of 2 pi / 20."""
+    key = {(int(a), int(b)): k for k, (a, b) in enumerate(TSEAMS)}
+    out = []
+    for f in TFACES:
+        h = 1.0 + 0j
+        for x, y in ((f[0], f[1]), (f[1], f[2]), (f[2], f[0])):
+            h *= z[key[(x, y)]] if (int(x), int(y)) in key else np.conj(z[key[(int(y), int(x))]])
+        out.append(np.angle(h) / UNIT)
+    return np.array(out)
+
+
+def carrier_hop(z):
+    H = np.zeros((12, 12), complex)
+    for (a, b), zz in zip(TSEAMS, z):
+        H[a, b] = np.conj(zz); H[b, a] = zz
+    return H
+
+
+# ------------------------------------------------------------------------------------------------ federations
+class Fed:
+    pass
+
+
+def _finish(fed, W, nbr, nbk, xyz):
+    N = nbr.shape[0]
+    fed.N, fed.P = N, 12 * N
+    fed.W, fed.nbr, fed.nbk, fed.xyz = W, nbr, nbk, xyz
+    ia, ib = S.intra_seams(N)
+    ga, gb, gk = [], [], []
+    for c in range(N):
+        for k in range(3):
+            c2 = int(nbr[c, k])
+            if c < c2:
+                ga.append(12 * c + int(W[c, k])); gb.append(12 * c2 + int(W[c2, nbk[c, k]])); gk.append((k, int(nbk[c, k])))
+    assert len(ga) == 3 * N // 2
+    fed.A = np.concatenate([ia, np.asarray(ga, np.int64)]).astype(np.int32)
+    fed.B = np.concatenate([ib, np.asarray(gb, np.int64)]).astype(np.int32)
+    fed.n_int = int(ia.size); fed.M = int(fed.A.size)
+    fed.glue_kk = np.asarray(gk, np.int64)
+    # incident seams per port (CSR)
+    deg = np.bincount(np.concatenate([fed.A, fed.B]), minlength=fed.P)
+    ptr = np.zeros(fed.P + 1, np.int64); ptr[1:] = np.cumsum(deg)
+    idx = np.empty(ptr[-1], np.int32); fill = ptr[:-1].copy()
+    for e in range(fed.M):
+        for p in (int(fed.A[e]), int(fed.B[e])):
+            idx[fill[p]] = e; fill[p] += 1
+    fed.ptr, fed.idx, fed.deg = ptr, idx, deg
+    return fed
+
+
+def build_sphere(level, labelling='mesh'):
+    """Wiring F on the icosahedral tower. labelling 'mesh': W[c, k] = F3[k] (every carrier identical);
+    'natural': S3's recursive tower (cyclic shifts of the same triple; the same unlabelled port graph)."""
+    mesh = S.build_mesh(level)
+    if labelling == 'mesh':
+        W = S.uniform_wiring_mesh_order(mesh, F3)
+    elif labelling == 'natural':
+        r = S.find_aut(F3, (F3[1], F3[2], F3[0]), proper_only=True)[0]
+        W = S.natural_tower(level, F3, r)[level]
+    else:
+        raise ValueError(labelling)
+    fed = Fed(); fed.kind = f'sphere L{level} wiring F ({labelling} labels)'; fed.level = level
+    fed.tri = mesh.tri; fed.V = mesh.V
+    fed.radius = 0.83022 * 2 ** level                    # equal-area radius in mesh edges
+    return _finish(fed, W, mesh.nbr, mesh.nbk, mesh.points)
+
+
+def build_flat(n1, n2):
+    """Wiring F on a periodic patch of n1 x n2 rhombi of the triangular mesh (2 n1 n2 carriers on a honeycomb).
+    Edge classes 0 (along a1), 1 (diagonal), 2 (along a2); a carrier is glued across the edge of class k through
+    port F3[k]. Vertex order of each cell is chosen so that edge k (opposite vertex k) has class k."""
+    assert n1 >= 3 and n2 >= 3
+    N = 2 * n1 * n2
+    up = lambda i, j: 2 * ((i % n1) * n2 + (j % n2))
+    dn = lambda i, j: up(i, j) + 1
+    v = lambda i, j: (i % n1) * n2 + (j % n2)
+    nbr = np.zeros((N, 3), np.int64); nbk = np.zeros((N, 3), np.int64); tri = np.zeros((N, 3), np.int64)
+    a1 = np.array([1.0, 0.0]); a2 = np.array([0.5, math.sqrt(3) / 2])
+    xy = np.zeros((N, 2))
+    for i in range(n1):
+        for j in range(n2):
+            u, d = up(i, j), dn(i, j)
+            tri[u] = (v(i, j + 1), v(i, j), v(i + 1, j))
+            tri[d] = (v(i + 1, j), v(i + 1, j + 1), v(i, j + 1))
+            nbr[u] = (dn(i, j - 1), dn(i, j), dn(i - 1, j))
+            nbr[d] = (up(i, j + 1), up(i, j), up(i + 1, j))
+            xy[u] = (i + 1 / 3) * a1 + (j + 1 / 3) * a2
+            xy[d] = (i + 2 / 3) * a1 + (j + 2 / 3) * a2
+    for c in range(N):
+        for k in range(3):
+            nbk[c, k] = k
+            assert nbr[nbr[c, k], k] == c
+    fed = Fed(); fed.kind = f'flat periodic patch {n1}x{n2} wiring F'; fed.level = None
+    fed.tri = tri; fed.V = n1 * n2; fed.n1, fed.n2 = n1, n2; fed.a1, fed.a2 = a1, a2
+    W = np.tile(np.asarray(F3, np.int64), (N, 1))
+    return _finish(fed, W, nbr, nbk, xy)
+
+
+def build_single():
+    """One carrier, no glue (for the verification against cap.py)."""
+    fed = Fed(); fed.kind = 'one carrier'; fed.level = None
+    fed.N, fed.P = 1, 12
+    fed.W = np.asarray([F3], np.int64); fed.nbr = np.zeros((1, 3), np.int64); fed.nbk = np.zeros((1, 3), np.int64)
+    fed.xyz = np.zeros((1, 3))
+    fed.A = TSEAMS[:, 0].astype(np.int32); fed.B = TSEAMS[:, 1].astype(np.int32)
+    fed.n_int = 30; fed.M = 30
+    deg = np.bincount(np.concatenate([fed.A, fed.B]), minlength=12)
+    ptr = np.zeros(13, np.int64); ptr[1:] = np.cumsum(deg)
+    idx = np.empty(ptr[-1], np.int32); fill = ptr[:-1].copy()
+    for e in range(30):
+        for p in (int(fed.A[e]), int(fed.B[e])):
+            idx[fill[p]] = e; fill[p] += 1
+    fed.ptr, fed.idx, fed.deg = ptr, idx, deg
+    return fed
+
+
+def phases(fed, z_int, z_glue=None):
+    """Seam phases Z[M]: the internal table in every carrier, then the glue phases (default 1)."""
+    zg = np.ones(fed.M - fed.n_int, complex) if z_glue is None else np.asarray(z_glue, complex)
+    return np.concatenate([np.tile(np.asarray(z_int, complex), fed.N), zg])
+
+
+def hop_matrix(fed, Z):
+    P = fed.P
+    A, B = fed.A.astype(np.int64), fed.B.astype(np.int64)
+    return sp.coo_matrix((np.concatenate([np.conj(Z), Z]), (np.concatenate([A, B]), np.concatenate([B, A]))),
+                         shape=(P, P)).tocsr()
+
+
+def vertex_cycles(fed):
+    """For every mesh vertex the cells around it counter-clockwise, as (cell, index of the vertex in the cell)."""
+    tri, nbr = fed.tri, fed.nbr
+    first = {}
+    for c in range(fed.N):
+        for i in range(3):
+            first.setdefault(int(tri[c, i]), (c, i))
+    out = {}
+    for vtx, (c0, i0) in first.items():
+        cyc = []; c, i = c0, i0
+        while True:
+            cyc.append((c, i))
+            k = (i + 1) % 3
+            c2 = int(nbr[c, k]); k2 = int(fed.nbk[c, k])
+            i2 = (k2 + 1) % 3                    # the entry edge of c2 is opposite its vertex i2 + 2
+            assert int(tri[c2, i2]) == vtx
+            c, i = c2, i2
+            if (c, i) == (c0, i0):
+                break
+        out[vtx] = cyc
+    return out
+
+
+def plaquette_fluxes(fed, Z):
+    """Holonomy (units of 2 pi / 20, in (-10, 10]) of the loop around every mesh vertex: inside a carrier from the
+    entry glue port to the exit glue port (one internal seam of the glue face), then across the glue seam."""
+    H = hop_matrix(fed, Z).todok()
+    link = lambda x, y: complex(H[y, x])
+    out = {}
+    for vtx, cyc in vertex_cycles(fed).items():
+        h = 1.0 + 0j; n = len(cyc)
+        for t in range(n):
+            c, i = cyc[t]; c2, i2 = cyc[(t + 1) % n]
+            pin = 12 * c + int(fed.W[c, (i + 2) % 3]); pout = 12 * c + int(fed.W[c, (i + 1) % 3])
+            pnext = 12 * c2 + int(fed.W[c2, (i2 + 2) % 3])
+            a = link(pin, pout); b = link(pout, pnext)
+            assert abs(abs(a) - 1) < 1e-9 and abs(abs(b) - 1) < 1e-9
+            h *= a * b
+        out[vtx] = (n, float(np.angle(h) / UNIT))
+    return out
+
+
+def flux_summary(fl):
+    res = {}
+    for n, f in fl.values():
+        res.setdefault(n, {})
+        key = round(f, 4)
+        res[n][key] = res[n].get(key, 0) + 1
+    return {str(n): {str(k): v for k, v in sorted(d.items())} for n, d in sorted(res.items())}
+
+
+# ------------------------------------------------------------------------------------------------ exact solver
+def exact_stationary(fed, Z, tol=1e-13, maxit=5000, verbose=False):
+    """Stationary one-quantum density of the seam-averaged CAP channel. The diagonal is uniform (population
+    lumping); the off-diagonal part X solves (L X + X L)_off = H_off / P with L = (Deg - H)/2. Conjugate gradients
+    on Hermitian matrices. Returns rho (dense), iterations, relative residual."""
+    P = fed.P
+    H = hop_matrix(fed, Z)
+    L = ((sp.diags(fed.deg.astype(float)) - H) * 0.5).tocsr()
+    Rm = H.toarray() / P
+    X = np.zeros((P, P), complex)
+    Pd = Rm.copy()
+    rs = float(np.vdot(Rm, Rm).real); rs0 = rs
+    it = 0
+    while it < maxit and rs > tol * tol * rs0:
+        Wm = L @ Pd
+        Wm += Wm.conj().T                      # X L = (L X)^dagger for Hermitian X
+        np.fill_diagonal(Wm, 0.0)
+        alpha = rs / float(np.vdot(Pd, Wm).real)
+        X += alpha * Pd
+        Rm -= alpha * Wm
+        rs_new = float(np.vdot(Rm, Rm).real)
+        Pd *= rs_new / rs
+        Pd += Rm
+        rs = rs_new; it += 1
+        if verbose and it % 20 == 0:
+            print('  cg', it, math.sqrt(rs / rs0), flush=True)
+    X[np.diag_indices(P)] = 1.0 / P
+    return X, it, math.sqrt(rs / rs0)
+
+
+def channel_check(fed, Z, rho, n_seams=None):
+    """Largest entry of Phi(rho) - rho for the seam-averaged channel, in units of the largest entry of rho/M."""
+    P = fed.P
+    H = hop_matrix(fed, Z)
+    L = ((sp.diags(fed.deg.astype(float)) - H) * 0.5).tocsr()
+    A, B = fed.A.astype(np.int64), fed.B.astype(np.int64)
+    m = 0.5 * (rho[A, A] + rho[B, B]).real - (Z * rho[A, B]).real          # <-|rho|-> per seam
+    d = np.bincount(A, weights=m, minlength=P) + np.bincount(B, weights=m, minlength=P)
+    Y = L @ rho
+    D = -(Y + Y.conj().T)
+    D[np.diag_indices(P)] += d
+    return float(np.abs(D).max() / np.abs(rho).max())
+
+
+# ------------------------------------------------------------------------------------------------ trajectories
+@nb.njit(cache=True)
+def _add_port(p, in_sup, sup, in_car, car, act_flag, act, cnt, ptr, idx):
+    if not in_sup[p]:
+        in_sup[p] = True; sup[cnt[0]] = p; cnt[0] += 1
+        c = p // 12
+        if not in_car[c]:
+            in_car[c] = True; car[cnt[2]] = c; cnt[2] += 1
+        for t in range(ptr[p], ptr[p + 1]):
+            e = idx[t]
+            if not act_flag[e]:
+                act_flag[e] = True; act[cnt[1]] = e; cnt[1] += 1
+
+
+@nb.njit(cache=True)
+def run_traj(A, B, Z, ptr, idx, nbr, nbk, psi, n_events, seed, stride, R0, R1, stats, hist):
+    """n_events active events (events on seams touching the support). Stationary averages are weighted by the
+    expected number of raw events spent in each state (M / active seams). psi is the unnormalized state on entry
+    and exit. stats: 0 raw time (events), 1 time x ports in support, 2 time x carriers in support,
+    3 jumps on internal seams, 4 jumps on glue seams, 5 time x port participation ratio (1/sum p^2),
+    6 time x largest carrier weight, 7 time x carrier participation ratio, 8 accumulations, 9 sum of weights of
+    accumulations, 10 active events, 11 time x |c_minus|^2/|psi|^2 on drawn internal seams (per raw event:
+    jump probability), 12 same on glue seams."""
+    np.random.seed(seed)
+    P = psi.size; M = A.size; N = P // 12
+    n_int = 30 * N
+    in_sup = np.zeros(P, np.bool_); sup = np.empty(P, np.int32)
+    in_car = np.zeros(N, np.bool_); car = np.empty(N, np.int32)
+    act_flag = np.zeros(M, np.bool_); act = np.empty(M, np.int32)
+    cnt = np.zeros(3, np.int64)
+    norm2 = 0.0
+    for p in range(P):
+        if psi[p] != 0:
+            norm2 += psi[p].real ** 2 + psi[p].imag ** 2
+            _add_port(p, in_sup, sup, in_car, car, act_flag, act, cnt, ptr, idx)
+    cw = np.zeros(N)
+    for it in range(n_events):
+        n_act = cnt[1]
+        w = M / n_act
+        stats[0] += w; stats[10] += 1.0
+        if it % stride == 0:
+            f = w / norm2
+            stats[1] += w * cnt[0]; stats[2] += w * cnt[2]; stats[8] += 1.0; stats[9] += w
+            if cnt[2] < hist.size:
+                hist[cnt[2]] += w
+            else:
+                hist[hist.size - 1] += w
+            s4 = 0.0; cmax = 0.0; c4 = 0.0
+            for ci in range(cnt[2]):
+                c = car[ci]; base = 12 * c
+                wc = 0.0
+                for i in range(12):
+                    xi = psi[base + i]
+                    pi = xi.real ** 2 + xi.imag ** 2
+                    wc += pi; s4 += pi * pi
+                    if pi != 0.0:
+                        xf = f * xi
+                        for j in range(12):
+                            R0[i, j] += xf * np.conj(psi[base + j])
+                wc /= norm2
+                c4 += wc * wc
+                if wc > cmax:
+                    cmax = wc
+                for k in range(3):
+                    c2 = nbr[c, k]
+                    if in_car[c2]:
+                        k2 = nbk[c, k]; b2 = 12 * c2
+                        for i in range(12):
+                            xi = psi[base + i]
+                            if xi != 0:
+                                xf = f * xi
+                                for j in range(12):
+                                    R1[k, k2, i, j] += xf * np.conj(psi[b2 + j])
+            stats[5] += w * norm2 * norm2 / s4
+            stats[6] += w * cmax
+            stats[7] += w / c4
+        e = act[int(np.random.random() * n_act)]
+        a = A[e]; b = B[e]; z = Z[e]
+        c = (psi[a] - np.conj(z) * psi[b]) * SQH
+        pm = c.real ** 2 + c.imag ** 2
+        if e < n_int:
+            stats[11] += pm / norm2
+        else:
+            stats[12] += pm / norm2
+        if np.random.random() * norm2 < pm:
+            for t in range(cnt[0]):
+                p = sup[t]; psi[p] = 0.0; in_sup[p] = False
+            for t in range(cnt[1]):
+                act_flag[act[t]] = False
+            for t in range(cnt[2]):
+                in_car[car[t]] = False
+            cnt[0] = 0; cnt[1] = 0; cnt[2] = 0
+            psi[a] = SQH; psi[b] = z * SQH; norm2 = 1.0
+            _add_port(a, in_sup, sup, in_car, car, act_flag, act, cnt, ptr, idx)
+            _add_port(b, in_sup, sup, in_car, car, act_flag, act, cnt, ptr, idx)
+            if e < n_int:
+                stats[3] += 1.0
+            else:
+                stats[4] += 1.0
+        elif pm > 0.0:
+            psi[a] -= c * SQH; psi[b] += z * c * SQH; norm2 -= pm
+            _add_port(a, in_sup, sup, in_car, car, act_flag, act, cnt, ptr, idx)
+            _add_port(b, in_sup, sup, in_car, car, act_flag, act, cnt, ptr, idx)
+            if norm2 < 1e-150:
+                s = 1.0 / math.sqrt(norm2)
+                for t in range(cnt[0]):
+                    psi[sup[t]] *= s
+                norm2 = 1.0
+    return norm2
+
+
+@nb.njit(cache=True)
+def run_timed(A, B, Z, ptr, idx, psi0, n_traj, times, seed, weights, out_m, out_m2, out_pop):
+    """n_traj trajectories from the pure state psi0, observed at raw event counts times[] (ascending).
+    out_m[k], out_m2[k]: sum and sum of squares over trajectories of sum_p |psi_p|^2 weights[p] / |psi|^2;
+    out_pop[k, p]: sum over trajectories of |psi_p|^2 / |psi|^2 (only filled when out_pop has P columns)."""
+    np.random.seed(seed)
+    P = psi0.size; M = A.size; N = P // 12
+    in_sup = np.zeros(P, np.bool_); sup = np.empty(P, np.int32)
+    in_car = np.zeros(N, np.bool_); car = np.empty(N, np.int32)
+    act_flag = np.zeros(M, np.bool_); act = np.empty(M, np.int32)
+    cnt = np.zeros(3, np.int64)
+    psi = np.zeros(P, np.complex128)
+    full = out_pop.shape[1] == P
+    nt = times.size
+    for tr in range(n_traj):
+        for t in range(cnt[0]):
+            p = sup[t]; psi[p] = 0.0; in_sup[p] = False
+        for t in range(cnt[1]):
+            act_flag[act[t]] = False
+        for t in range(cnt[2]):
+            in_car[car[t]] = False
+        cnt[0] = 0; cnt[1] = 0; cnt[2] = 0
+        norm2 = 0.0
+        for p in range(P):
+            if psi0[p] != 0:
+                psi[p] = psi0[p]; norm2 += psi[p].real ** 2 + psi[p].imag ** 2
+                _add_port(p, in_sup, sup, in_car, car, act_flag, act, cnt, ptr, idx)
+        t_now = 0; k = 0
+        while k < nt:
+            q = cnt[1] / M
+            if q >= 1.0:
+                G = 1
+            else:
+                G = 1 + int(math.floor(math.log(1.0 - np.random.random()) / math.log(1.0 - q)))
+            # the state is unchanged for raw events t_now .. t_now + G - 1; the active event is number t_now + G
+            while k < nt and times[k] < t_now + G:
+                m = 0.0
+                for t in range(cnt[0]):
+                    p = sup[t]
+                    pp = (psi[p].real ** 2 + psi[p].imag ** 2) / norm2
+                    m += pp * weights[p]
+                    if full:
+                        out_pop[k, p] += pp
+                out_m[k] += m; out_m2[k] += m * m
+                k += 1
+            if k >= nt:
+                break
+            t_now += G
+            e = act[int(np.random.random() * cnt[1])]
+            a = A[e]; b = B[e]; z = Z[e]
+            c = (psi[a] - np.conj(z) * psi[b]) * SQH
+            pm = c.real ** 2 + c.imag ** 2
+            if np.random.random() * norm2 < pm:
+                for t in range(cnt[0]):
+                    p = sup[t]; psi[p] = 0.0; in_sup[p] = False
+                for t in range(cnt[1]):
+                    act_flag[act[t]] = False
+                for t in range(cnt[2]):
+                    in_car[car[t]] = False
+                cnt[0] = 0; cnt[1] = 0; cnt[2] = 0
+                psi[a] = SQH; psi[b] = z * SQH; norm2 = 1.0
+                _add_port(a, in_sup, sup, in_car, car, act_flag, act, cnt, ptr, idx)
+                _add_port(b, in_sup, sup, in_car, car, act_flag, act, cnt, ptr, idx)
+            elif pm > 0.0:
+                psi[a] -= c * SQH; psi[b] += z * c * SQH; norm2 -= pm
+                _add_port(a, in_sup, sup, in_car, car, act_flag, act, cnt, ptr, idx)
+                _add_port(b, in_sup, sup, in_car, car, act_flag, act, cnt, ptr, idx)
+                if norm2 < 1e-150:
+                    s = 1.0 / math.sqrt(norm2)
+                    for t in range(cnt[0]):
+                        psi[sup[t]] *= s
+                    norm2 = 1.0
+
+
+def trajectories(fed, Z, n_events, seed=1, stride=1, burn=200000, psi0=None):
+    """Run one trajectory chain and return normalized accumulators."""
+    P = fed.P
+    psi = np.zeros(P, complex)
+    if psi0 is None:
+        e = int(np.random.default_rng(seed).integers(fed.M))
+        psi[fed.A[e]] = SQH; psi[fed.B[e]] = Z[e] * SQH
+    else:
+        psi[:] = psi0
+    R0 = np.zeros((12, 12), complex); R1 = np.zeros((3, 3, 12, 12), complex)
+    stats = np.zeros(16); hist = np.zeros(64)
+    args = (fed.A, fed.B, np.ascontiguousarray(Z), fed.ptr, fed.idx, fed.nbr.astype(np.int64), fed.nbk.astype(np.int64))
+    if burn:
+        run_traj(*args, psi, burn, seed, 1 << 30, R0.copy(), R1.copy(), stats.copy(), hist.copy())
+    run_traj(*args, psi, n_events, seed + 7919, stride, R0, R1, stats, hist)
+    return {'R0': R0, 'R1': R1, 'stats': stats, 'hist': hist, 'psi': psi}
+
+
+# ------------------------------------------------------------------------------------------------ read-outs
+def doublet_projector(z_int):
+    """Projector on the top level of the twisted adjacency of one carrier (the spinor doublet for flux 1; the
+    uniform state for flux 0)."""
+    H = carrier_hop(z_int)
+    w, v = np.linalg.eigh(H)
+    k = int((w > w[-1] - 1e-9).sum())
+    return v[:, -k:] @ v[:, -k:].conj().T, w
+
+
+def block_report(R0, z_int):
+    """Levels and doublet weight of a carrier block (normalized to trace one)."""
+    Pd, w = doublet_projector(z_int)
+    rho = R0 / np.trace(R0).real
+    lev = np.sort(np.linalg.eigvalsh((rho + rho.conj().T) / 2))[::-1]
+    H = carrier_hop(z_int)
+    return {'levels': lev.tolist(), 'doublet_weight': float(np.trace(Pd @ rho).real),
+            'top2_weight': float(lev[:2].sum()),
+            'mean_internal_agreement': float(np.trace(H @ rho).real * 12 / 60),
+            'diagonal_min_max': [float(np.diag(rho).real.min()), float(np.diag(rho).real.max())]}

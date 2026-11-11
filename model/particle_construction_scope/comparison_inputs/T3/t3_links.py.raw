@@ -1,0 +1,238 @@
+"""T3 extra item: the routing tick with the audit's oriented quantum link in place of the bare link signs.
+
+Link carrier: the audit's 119-state link (RER model/coherent_defect_wave/chiral_joint/oriented_links, read only)
+restricted to the one-dimensional native block (index 9): states blank 0, (+), (-); backward transport (quantum from
+x + e_i to x) U = |+><0| + |0><-|, forward transport U^dagger; orientation reversal J: (+) <-> (-). (For d = 1 the
+block normalisation 1/sqrt(d) is 1.) One quantum: coin = record x spin (frame basis), index 2 r + s.
+
+Seam involution with a quantum link (one-quantum sector): for the routing pair (A, B) of a link, h = |A><B| x V +
+|B><A| x V^dagger with V the transport, h^2 = P a projection (V a partial isometry), and G = (1 - P) + h is a unitary
+involution: the swap with transport where the move is allowed, the identity where the link is saturated. With a
+classical unit link (P = 1) it is the CF-1 seam involution. S_i = G_i R as in CF-1.
+
+Tests (MEASURED on states of the carrier, exact zeros printed as 0.0):
+  (a) the 24 proper rotations (spin lift S with S sigma_i S^dag = sum_j R_ji sigma_j, cells x -> R x, edges with J on
+      reversed edges): which commute with the forward tick, the reverse tick and the period, bare and with links
+  (b) the screw of R4 C4 (S_1^-1 g with the third of a turn) with links
+  (c) coherence: a plane wave with blank links, purity of the matter state and weight left at its momentum after t ticks
+  (d) spreading from one cell: <x^2> per axis after t ticks, bare against links
+python t3_links.py -> links.json (local, < 20 CPU s)
+"""
+import json, os, itertools
+from collections import defaultdict
+import numpy as np
+from scipy.spatial.transform import Rotation
+from scipy.linalg import expm
+import t3sym as T
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+ARROW = T.ARROW
+EIG = []
+for i in range(3):
+    w, v = np.linalg.eigh(T.SIG[i]); EIG.append(v[:, [int(np.argmax(w)), int(np.argmin(w))]])
+WP = [np.kron(ARROW, EIG[i]) for i in range(3)]      # columns: (+,up), (+,down), (-,up), (-,down) for axis i
+R_REC = np.kron(T.SZ, T.I2)                           # record reflection about blank
+
+
+def fwd(l):  # U^dagger: 0 -> -, + -> 0, - -> blocked
+    return {0: -1, 1: 0}.get(l, None)
+
+
+def bwd(l):  # U: 0 -> +, - -> 0, + -> blocked
+    return {0: 1, -1: 0}.get(l, None)
+
+
+def add(state, key, vec):
+    if key in state: state[key] = state[key] + vec
+    else: state[key] = vec.copy()
+
+
+def apply_R(state):
+    return {k: R_REC @ v for k, v in state.items()}
+
+
+def apply_G(state, i, N, quantum=True):
+    """the seam involutions of axis i on a one-quantum state {(cell, links): coin}"""
+    out = {}
+    for (x, links), c in state.items():
+        L = dict(links)
+        cp = np.conj(WP[i].T) @ c
+        for k in range(4):
+            a = cp[k]
+            if abs(a) < 1e-300: continue
+            arrow, spin = (k // 2, k % 2)          # arrow 0 = +, 1 = -; spin 0 = up_i, 1 = down_i
+            move_fwd = (arrow == 1 and spin == 0) or (arrow == 0 and spin == 1)
+            if move_fwd:
+                y = list(x); y[i] = (y[i] + 1) % N; y = tuple(y); edge = (x, i)
+            else:
+                y = list(x); y[i] = (y[i] - 1) % N; y = tuple(y); edge = (y, i)
+            knew = (1 - arrow) * 2 + spin          # the partner mode has the other arrow, same spin
+            if quantum:
+                l0 = L.get(edge, 0)
+                l1 = fwd(l0) if move_fwd else bwd(l0)
+                if l1 is None:                      # saturated link: G acts as the identity on this mode
+                    add(out, (x, links), a * WP[i][:, k]); continue
+                L2 = dict(L)
+                if l1 == 0: L2.pop(edge, None)
+                else: L2[edge] = l1
+                key = (y, tuple(sorted(L2.items())))
+            else:
+                key = (y, links)
+            add(out, key, a * WP[i][:, knew])
+    return out
+
+
+def tick(state, N, reverse=False, quantum=True):
+    for i in ((2, 1, 0) if reverse else (0, 1, 2)):
+        state = apply_G(apply_R(state), i, N, quantum)
+    return state
+
+
+def inv_sub(state, i, N, quantum=True):         # S_i^-1 = R G_i
+    return apply_R(apply_G(state, i, N, quantum))
+
+
+def rotations():
+    out = []
+    for perm in itertools.permutations(range(3)):
+        for sg in itertools.product((1, -1), repeat=3):
+            Rm = np.zeros((3, 3))
+            for c in range(3): Rm[perm[c], c] = sg[c]
+            if np.linalg.det(Rm) < 0: continue
+            rv = Rotation.from_matrix(Rm).as_rotvec()
+            S = expm(-0.5j * sum(rv[k] * T.SIG[k] for k in range(3)))
+            M = np.array([[np.real(np.trace(T.SIG[j] @ S @ T.SIG[i] @ np.conj(S.T))) / 2 for i in range(3)] for j in range(3)])
+            if np.abs(M - Rm).max() > 1e-9:
+                S = expm(0.5j * sum(rv[k] * T.SIG[k] for k in range(3)))
+                M = np.array([[np.real(np.trace(T.SIG[j] @ S @ T.SIG[i] @ np.conj(S.T))) / 2 for i in range(3)] for j in range(3)])
+            assert np.abs(M - Rm).max() < 1e-9
+            out.append((Rm.astype(int), S))
+    assert len(out) == 24
+    return out
+
+
+def rotate(state, Rm, S, N):
+    out = {}
+    U = np.kron(T.I2, S)
+    for (x, links), c in state.items():
+        y = tuple(int(v) % N for v in Rm @ np.array(x))
+        L2 = {}
+        for (e, ax), l in links:
+            j = int(np.nonzero(Rm[:, ax])[0][0]); s = int(Rm[j, ax])
+            ye = [int(v) % N for v in Rm @ np.array(e)]
+            if s == -1:
+                ye[j] = (ye[j] - 1) % N; l = -l               # J on a reversed edge
+            L2[(tuple(ye), j)] = l
+        add(out, (y, tuple(sorted(L2.items()))), U @ c)
+    return out
+
+
+def diff(a, b):
+    keys = set(a) | set(b); z = np.zeros(4, complex)
+    return max(float(np.abs(a.get(k, z) - b.get(k, z)).max()) for k in keys)
+
+
+def label(Rm):
+    tr = int(np.trace(Rm))
+    return {3: 'identity', -1: 'half-turn', 0: 'third-turn', 1: 'quarter-turn'}[tr]
+
+
+if __name__ == '__main__':
+    out = {'note': __doc__}
+    N = 6
+    rots = rotations()
+    starts = [((0, 0, 0), k) for k in range(4)] + [((1, 0, 2), k) for k in range(4)] + [((2, 3, 1), k) for k in range(4)]
+    def basis(x, k):
+        v = np.zeros(4, complex); v[k] = 1; return {(x, ()): v}
+    table = {}
+    for quantum in (False, True):
+        name = 'oriented quantum link' if quantum else 'bare (flat) links'
+        counts = {}
+        for which in ('forward tick', 'reverse tick', 'period'):
+            comm = []
+            for Rm, S in rots:
+                worst = 0.0
+                for x, k in starts:
+                    psi = basis(x, k)
+                    def U(st):
+                        if which == 'forward tick': return tick(st, N, False, quantum)
+                        if which == 'reverse tick': return tick(st, N, True, quantum)
+                        return tick(tick(st, N, False, quantum), N, True, quantum)
+                    worst = max(worst, diff(rotate(U(psi), Rm, S, N), U(rotate(psi, Rm, S, N))))
+                comm.append((label(Rm), worst))
+            ok = [l for l, w in comm if w < 1e-12]
+            counts[which] = {'commuting': len(ok), 'kinds': sorted(set(ok)),
+                             'smallest_failure': min([w for l, w in comm if w >= 1e-12], default=None)}
+        table[name] = counts
+        print(name, {k: (v['commuting'], v['kinds']) for k, v in counts.items()})
+    out['rotations'] = table
+    # sub-step covariance: g S_i g^-1 = S_pi(i) (pi(i) the axis that R sends axis i to)
+    sub = {}
+    for quantum in (False, True):
+        worst = 0.0
+        for Rm, S in rots:
+            for i in range(3):
+                j = int(np.nonzero(Rm[:, i])[0][0])
+                for x, k in starts:
+                    psi = basis(x, k)
+                    A = rotate(apply_G(apply_R(psi), i, N, quantum), Rm, S, N)
+                    B = apply_G(apply_R(rotate(psi, Rm, S, N)), j, N, quantum)
+                    worst = max(worst, diff(A, B))
+        sub['quantum' if quantum else 'bare'] = worst
+    out['substep_covariance_g_S_i_ginv_eq_S_pi(i)'] = sub; print('sub-step covariance', sub)
+    # (b) screw S_1^-1 g with a third of a turn, on the forward tick
+    screw = {}
+    for quantum in (False, True):
+        best = None
+        for Rm, S in rots:
+            if label(Rm) != 'third-turn': continue
+            worst = 0.0
+            for x, k in starts:
+                psi = basis(x, k)
+                A = tick(inv_sub(rotate(psi, Rm, S, N), 0, N, quantum), N, False, quantum)
+                B = inv_sub(rotate(tick(psi, N, False, quantum), Rm, S, N), 0, N, quantum)
+                worst = max(worst, diff(A, B))
+            if best is None or worst < best[0]: best = (worst, Rm.tolist())
+        screw['quantum' if quantum else 'bare'] = {'best_third_turn_defect': best[0], 'rotation': best[1]}
+    out['screw_S1inv_g'] = screw; print('screw', screw)
+    # (c) coherence of a plane wave with blank links (N = 4)
+    N4 = 4; coh = {}
+    p = 2 * np.pi * np.array([1, 0, 0]) / N4
+    coin = np.array([1, 0, 0, 0], complex)
+    allc = list(itertools.product(range(N4), repeat=3))
+    for quantum in (False, True):
+        st = {(x, ()): np.exp(1j * p @ np.array(x)) * coin / N4 ** 1.5 for x in allc}
+        rows = []
+        for t in range(1, 3):
+            st = tick(st, N4, reverse=(t % 2 == 0), quantum=quantum)
+            # reduced matter state: rho = sum over link configurations of |phi_L><phi_L|
+            groups = defaultdict(lambda: np.zeros((N4 ** 3, 4), complex))
+            for (x, links), c in st.items():
+                groups[links][allc.index(x)] += c
+            rho = np.zeros((4 * N4 ** 3, 4 * N4 ** 3), complex)
+            wmom = 0.0
+            ph = np.exp(-1j * np.array([p @ np.array(x) for x in allc])) / N4 ** 1.5
+            for L, phi in groups.items():
+                f = phi.reshape(-1); rho += np.outer(f, np.conj(f))
+                wmom += float(np.sum(np.abs(ph @ phi) ** 2))
+            rows.append({'ticks': t, 'purity': float(np.real(np.trace(rho @ rho))), 'link_configurations': len(groups),
+                         'weight_at_initial_momentum': wmom, 'norm': float(np.real(np.trace(rho)))})
+        coh['quantum' if quantum else 'bare'] = rows
+        print('coherence', 'quantum' if quantum else 'bare', [(r['ticks'], round(r['purity'], 4), r['link_configurations'], round(r['weight_at_initial_momentum'], 4)) for r in rows])
+    out['coherence_plane_wave'] = coh
+    # (d) spreading from one cell
+    N12 = 12; spread = {}
+    for quantum in (False, True):
+        st = {((0, 0, 0), ()): np.array([1, 0, 0, 0], complex)}
+        rows = []
+        for t in range(1, 6):
+            st = tick(st, N12, reverse=(t % 2 == 0), quantum=quantum)
+            var = np.zeros(3); nrm = 0.0
+            for (x, links), c in st.items():
+                w = float(np.sum(np.abs(c) ** 2)); nrm += w
+                d = np.array([((v + N12 // 2) % N12) - N12 // 2 for v in x]); var += w * d ** 2
+            rows.append({'ticks': t, 'mean_x2_per_axis': (var / nrm).tolist(), 'branches': len(st), 'norm': nrm})
+        spread['quantum' if quantum else 'bare'] = rows
+        print('spread', 'quantum' if quantum else 'bare', [(r['ticks'], [round(v, 3) for v in r['mean_x2_per_axis']], r['branches']) for r in rows])
+    out['spreading'] = spread
+    json.dump(out, open(os.path.join(HERE, 'links.json'), 'w'), indent=1)

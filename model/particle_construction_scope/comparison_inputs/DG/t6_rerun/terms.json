@@ -1,0 +1,493 @@
+{
+ "convention": "6Y = 3 n2 - 2 n3; T3 = +1/2 on s1, -1/2 on s2; Q = n_s1 - n3/3; left = even occupation; levels (v1, v2, v3, s1, s2)",
+ "A_bilinears_in_the_level_operators": {
+  "monomials": 45,
+  "classes": [
+   {
+    "kind": "number conserving a* a",
+    "levels": "two spinor levels",
+    "monomials": 4,
+    "three_Q_values": [
+     "-3",
+     "0",
+     "3"
+    ],
+    "six_Y_values": [
+     "0"
+    ],
+    "conserving_colour_and_charge_as_monomials": [
+     "a*_s1 a_s1",
+     "a*_s2 a_s2"
+    ]
+   },
+   {
+    "kind": "number conserving a* a",
+    "levels": "one vector, one spinor level",
+    "monomials": 12,
+    "three_Q_values": [
+     "-1",
+     "-4",
+     "1",
+     "4"
+    ],
+    "six_Y_values": [
+     "-5",
+     "5"
+    ],
+    "conserving_colour_and_charge_as_monomials": []
+   },
+   {
+    "kind": "number conserving a* a",
+    "levels": "two vector levels",
+    "monomials": 9,
+    "three_Q_values": [
+     "0"
+    ],
+    "six_Y_values": [
+     "0"
+    ],
+    "conserving_colour_and_charge_as_monomials": []
+   },
+   {
+    "kind": "pairing a a",
+    "levels": "two spinor levels",
+    "monomials": 1,
+    "three_Q_values": [
+     "-3"
+    ],
+    "six_Y_values": [
+     "-6"
+    ],
+    "conserving_colour_and_charge_as_monomials": []
+   },
+   {
+    "kind": "pairing a a",
+    "levels": "one vector, one spinor level",
+    "monomials": 6,
+    "three_Q_values": [
+     "-2",
+     "1"
+    ],
+    "six_Y_values": [
+     "-1"
+    ],
+    "conserving_colour_and_charge_as_monomials": []
+   },
+   {
+    "kind": "pairing a a",
+    "levels": "two vector levels",
+    "monomials": 3,
+    "three_Q_values": [
+     "2"
+    ],
+    "six_Y_values": [
+     "4"
+    ],
+    "conserving_colour_and_charge_as_monomials": []
+   },
+   {
+    "kind": "pairing a* a*",
+    "levels": "two spinor levels",
+    "monomials": 1,
+    "three_Q_values": [
+     "3"
+    ],
+    "six_Y_values": [
+     "6"
+    ],
+    "conserving_colour_and_charge_as_monomials": []
+   },
+   {
+    "kind": "pairing a* a*",
+    "levels": "one vector, one spinor level",
+    "monomials": 6,
+    "three_Q_values": [
+     "-1",
+     "2"
+    ],
+    "six_Y_values": [
+     "1"
+    ],
+    "conserving_colour_and_charge_as_monomials": []
+   },
+   {
+    "kind": "pairing a* a*",
+    "levels": "two vector levels",
+    "monomials": 3,
+    "three_Q_values": [
+     "-2"
+    ],
+    "six_Y_values": [
+     "-4"
+    ],
+    "conserving_colour_and_charge_as_monomials": []
+   }
+  ],
+  "dimension_of_colour_and_charge_conserving_combinations": {
+   "pairing (20 monomials)": 0,
+   "number conserving (25 monomials)": 3,
+   "all 45": 3
+  },
+  "the_conserving_ones": [
+   "N3 = n_v1 + n_v2 + n_v3 (T = 0, Y = 0)",
+   "n_s1",
+   "n_s2 (n_s1 + n_s2: T = 0, Y = 0; n_s1 - n_s2 = 2 T3: T = 1, Y = 0)"
+  ],
+  "they_change_handedness": false,
+  "statement": "No pairing bilinear of the level operators conserves colour and electric charge, and the three number-conserving ones are diagonal: at bilinear order in the level operators there is no mass term. a_v a_v is a colour triplet with Q = 2/3, a_v a_s a colour triplet, a_s1 a_s2 a colour and weak singlet with Q = -1, Y = -1."
+ },
+ "B_commutant_of_colour_and_charge": {
+  "dimension": 40,
+  "handedness_changing_part": 20,
+  "handedness_preserving_part": 20,
+  "handedness_changing_and_invariant_under_the_twelve_responses": 2,
+  "links": [
+   {
+    "link (left <- right)": "toggle on d",
+    "type": "Dirac",
+    "matrix_elements": 3,
+    "six_Y_carried": "3",
+    "two_T3_carried": "-1",
+    "weak_isospin": "1/2",
+    "three_Q_carried": "0",
+    "commutes_with_all_twelve_responses": false,
+    "level_numbers_carried_on_the_pattern_register": [
+     "0",
+     "0",
+     "0",
+     "0",
+     "1"
+    ],
+    "level_numbers_of_the_two_left_fields_it_creates": [
+     1,
+     1,
+     1,
+     1,
+     2
+    ],
+    "change_of_Q6_mod_6": 3,
+    "change_of_Z2_charge_n2_mod_2": 1,
+    "change_of_B_minus_L": "0",
+    "form": "the toggle a_s2 + a*_s2 times the projector on the species"
+   },
+   {
+    "link (left <- right)": "toggle on u",
+    "type": "Dirac",
+    "matrix_elements": 3,
+    "six_Y_carried": "-3",
+    "two_T3_carried": "1",
+    "weak_isospin": "1/2",
+    "three_Q_carried": "0",
+    "commutes_with_all_twelve_responses": false,
+    "level_numbers_carried_on_the_pattern_register": [
+     "0",
+     "0",
+     "0",
+     "0",
+     "-1"
+    ],
+    "level_numbers_of_the_two_left_fields_it_creates": [
+     1,
+     1,
+     1,
+     1,
+     0
+    ],
+    "change_of_Q6_mod_6": 3,
+    "change_of_Z2_charge_n2_mod_2": 1,
+    "change_of_B_minus_L": "0",
+    "form": "the toggle a_s2 + a*_s2 times the projector on the species"
+   },
+   {
+    "link (left <- right)": "toggle on e",
+    "type": "Dirac",
+    "matrix_elements": 1,
+    "six_Y_carried": "3",
+    "two_T3_carried": "-1",
+    "weak_isospin": "1/2",
+    "three_Q_carried": "0",
+    "commutes_with_all_twelve_responses": false,
+    "level_numbers_carried_on_the_pattern_register": [
+     "0",
+     "0",
+     "0",
+     "0",
+     "1"
+    ],
+    "level_numbers_of_the_two_left_fields_it_creates": [
+     1,
+     1,
+     1,
+     1,
+     2
+    ],
+    "change_of_Q6_mod_6": 3,
+    "change_of_Z2_charge_n2_mod_2": 1,
+    "change_of_B_minus_L": "0",
+    "form": "the toggle a_s2 + a*_s2 times the projector on the species"
+   },
+   {
+    "link (left <- right)": "toggle on nu",
+    "type": "Dirac",
+    "matrix_elements": 1,
+    "six_Y_carried": "-3",
+    "two_T3_carried": "1",
+    "weak_isospin": "1/2",
+    "three_Q_carried": "0",
+    "commutes_with_all_twelve_responses": false,
+    "level_numbers_carried_on_the_pattern_register": [
+     "0",
+     "0",
+     "0",
+     "0",
+     "-1"
+    ],
+    "level_numbers_of_the_two_left_fields_it_creates": [
+     1,
+     1,
+     1,
+     1,
+     0
+    ],
+    "change_of_Q6_mod_6": 3,
+    "change_of_Z2_charge_n2_mod_2": 1,
+    "change_of_B_minus_L": "0",
+    "form": "the toggle a_s2 + a*_s2 times the projector on the species"
+   },
+   {
+    "link (left <- right)": "toggle on d-bar",
+    "type": "Dirac",
+    "matrix_elements": 3,
+    "six_Y_carried": "3",
+    "two_T3_carried": "-1",
+    "weak_isospin": "1/2",
+    "three_Q_carried": "0",
+    "commutes_with_all_twelve_responses": false,
+    "level_numbers_carried_on_the_pattern_register": [
+     "0",
+     "0",
+     "0",
+     "0",
+     "1"
+    ],
+    "level_numbers_of_the_two_left_fields_it_creates": [
+     1,
+     1,
+     1,
+     1,
+     2
+    ],
+    "change_of_Q6_mod_6": 3,
+    "change_of_Z2_charge_n2_mod_2": 1,
+    "change_of_B_minus_L": "0",
+    "form": "the toggle a_s2 + a*_s2 times the projector on the species"
+   },
+   {
+    "link (left <- right)": "toggle on u-bar",
+    "type": "Dirac",
+    "matrix_elements": 3,
+    "six_Y_carried": "-3",
+    "two_T3_carried": "1",
+    "weak_isospin": "1/2",
+    "three_Q_carried": "0",
+    "commutes_with_all_twelve_responses": false,
+    "level_numbers_carried_on_the_pattern_register": [
+     "0",
+     "0",
+     "0",
+     "0",
+     "-1"
+    ],
+    "level_numbers_of_the_two_left_fields_it_creates": [
+     1,
+     1,
+     1,
+     1,
+     0
+    ],
+    "change_of_Q6_mod_6": 3,
+    "change_of_Z2_charge_n2_mod_2": 1,
+    "change_of_B_minus_L": "0",
+    "form": "the toggle a_s2 + a*_s2 times the projector on the species"
+   },
+   {
+    "link (left <- right)": "toggle on e-bar",
+    "type": "Dirac",
+    "matrix_elements": 1,
+    "six_Y_carried": "3",
+    "two_T3_carried": "-1",
+    "weak_isospin": "1/2",
+    "three_Q_carried": "0",
+    "commutes_with_all_twelve_responses": false,
+    "level_numbers_carried_on_the_pattern_register": [
+     "0",
+     "0",
+     "0",
+     "0",
+     "1"
+    ],
+    "level_numbers_of_the_two_left_fields_it_creates": [
+     1,
+     1,
+     1,
+     1,
+     2
+    ],
+    "change_of_Q6_mod_6": 3,
+    "change_of_Z2_charge_n2_mod_2": 1,
+    "change_of_B_minus_L": "0",
+    "form": "the toggle a_s2 + a*_s2 times the projector on the species"
+   },
+   {
+    "link (left <- right)": "toggle on nu-bar",
+    "type": "Dirac",
+    "matrix_elements": 1,
+    "six_Y_carried": "-3",
+    "two_T3_carried": "1",
+    "weak_isospin": "1/2",
+    "three_Q_carried": "0",
+    "commutes_with_all_twelve_responses": false,
+    "level_numbers_carried_on_the_pattern_register": [
+     "0",
+     "0",
+     "0",
+     "0",
+     "-1"
+    ],
+    "level_numbers_of_the_two_left_fields_it_creates": [
+     1,
+     1,
+     1,
+     1,
+     0
+    ],
+    "change_of_Q6_mod_6": 3,
+    "change_of_Z2_charge_n2_mod_2": 1,
+    "change_of_B_minus_L": "0",
+    "form": "the toggle a_s2 + a*_s2 times the projector on the species"
+   },
+   {
+    "link (left <- right)": "singlet link |00000><11111|",
+    "type": "Majorana, neutral singlet",
+    "matrix_elements": 1,
+    "six_Y_carried": "0",
+    "two_T3_carried": "0",
+    "weak_isospin": "0",
+    "three_Q_carried": "0",
+    "commutes_with_all_twelve_responses": true,
+    "level_numbers_carried_on_the_pattern_register": [
+     "-1",
+     "-1",
+     "-1",
+     "-1",
+     "-1"
+    ],
+    "level_numbers_of_the_two_left_fields_it_creates": [
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "change_of_Q6_mod_6": 0,
+    "change_of_Z2_charge_n2_mod_2": 0,
+    "change_of_B_minus_L": "2",
+    "form": "the top form a_v1 a_v2 a_v3 a_s1 a_s2 (degree five)"
+   },
+   {
+    "link (left <- right)": "doublet link |11110><00001|",
+    "type": "Majorana, left neutrino",
+    "matrix_elements": 1,
+    "six_Y_carried": "-6",
+    "two_T3_carried": "2",
+    "weak_isospin": "1",
+    "three_Q_carried": "0",
+    "commutes_with_all_twelve_responses": false,
+    "level_numbers_carried_on_the_pattern_register": [
+     "1",
+     "1",
+     "1",
+     "1",
+     "-1"
+    ],
+    "level_numbers_of_the_two_left_fields_it_creates": [
+     2,
+     2,
+     2,
+     2,
+     0
+    ],
+    "change_of_Q6_mod_6": 0,
+    "change_of_Z2_charge_n2_mod_2": 0,
+    "change_of_B_minus_L": "-2",
+    "form": "a*_s2 a_v1 a_v2 a_v3 a_s1 (degree five)"
+   }
+  ],
+  "top_form": "a_v1 a_v2 a_v3 a_s1 a_s2 = +-|00000><11111|: (colour singlet of the three vector levels) x (weak singlet of the two spinor levels); it commutes with all 24 traceless operators of the five levels and carries degree -5",
+  "B_minus_L_on_patterns": "1 - (2/3) n3",
+  "statement": "The handedness-changing operators on the 32 patterns that conserve colour and electric charge are spanned by ten links and their adjoints: the toggle restricted to each of the eight species blocks (weak isospin 1/2, |Y| = 1/2), the singlet link 11111 <-> 00000 (isospin 0, Y = 0: commutes with all twelve responses) and the doublet link 11110 <-> 00001 (isospin 1, |Y| = 1)."
+ },
+ "C_one_family_mode_bilinears": {
+  "sixteen_fields_colour_and_charge_invariant_symmetric_forms": 6,
+  "sixteen_fields_colour_and_charge_invariant_all_forms": 10,
+  "sixteen_fields_forms_invariant_under_the_twelve_responses": 1,
+  "sixteen_fields_forms_invariant_under_the_twelve_and_the_degree": 1,
+  "sixteen_fields_forms_invariant_under_all_five_level_numbers_and_colour": 1,
+  "fifteen_fields_forms_invariant_under_the_twelve_responses": 0,
+  "fifteen_fields_colour_and_charge_invariant_symmetric_forms": 4,
+  "right_handed_labelling_forms_invariant_under_the_twelve": 1,
+  "right_handed_labelling_forms_invariant_under_the_twelve_and_the_degree": 0,
+  "yukawa_channels": {
+   "sixteen_fields_with_H": 2,
+   "sixteen_fields_with_conjugate_H": 2,
+   "fifteen_fields_with_H": 1,
+   "fifteen_fields_with_conjugate_H": 2
+  },
+  "terms": [
+   {
+    "term": "Dirac, up type",
+    "fields": "Q (upper) with u^c",
+    "six_Y": -3,
+    "weak_isospin": "1/2",
+    "needs": "the toggle (Higgs, Y = +1/2)"
+   },
+   {
+    "term": "Dirac, down type",
+    "fields": "Q (lower) with d^c",
+    "six_Y": 3,
+    "weak_isospin": "1/2",
+    "needs": "the toggle (conjugate Higgs)"
+   },
+   {
+    "term": "Dirac, charged lepton",
+    "fields": "L (lower) with e^c",
+    "six_Y": 3,
+    "weak_isospin": "1/2",
+    "needs": "the toggle (conjugate Higgs)"
+   },
+   {
+    "term": "Dirac, neutrino",
+    "fields": "L (upper) with N^c",
+    "six_Y": -3,
+    "weak_isospin": "1/2",
+    "needs": "the toggle (Higgs)"
+   },
+   {
+    "term": "Majorana, neutral singlet",
+    "fields": "N^c with N^c",
+    "six_Y": 0,
+    "weak_isospin": "0",
+    "needs": "nothing: invariant under the twelve responses, the degree and every level number"
+   },
+   {
+    "term": "Majorana, left neutrino",
+    "fields": "L (upper) with L (upper)",
+    "six_Y": -6,
+    "weak_isospin": "1",
+    "needs": "the toggle twice (isospin 1, |Y| = 1)"
+   }
+  ],
+  "forbidden": "every other pair: 130 of the 136 symmetric entries violate colour or electric charge",
+  "statement": "One family as sixteen left-handed Weyl fields (the even patterns): the symmetric bilinear forms of the mode operators that conserve colour and electric charge are six: four Dirac terms, the pairing of the neutral singlet with itself and the pairing of the left neutrino with itself. Exactly one is invariant under the twelve responses: the singlet pairing; it is also invariant under the degree and under each of the five level numbers. Without the singlet (the fifteen states of the audit) no invariant form exists and three Higgs channels remain; with it there are four Higgs channels and one bare term. Labelled by the odd patterns instead, the same pairing carries degree ten: the two labellings differ by five units of fermion number per field."
+ }
+}

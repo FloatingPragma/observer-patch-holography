@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+"""Worker DC, round 3: the single NOT BLIND comparison (colour pole in GeV; P_meas against P_fwd and P_x).
+
+Measured values read here only: E* = 1.220890e19 GeV (CODATA 2022), alpha^-1(0) = 137.035999177 (CODATA 2022),
+m_Z = 91.1876 GeV and alpha_s(m_Z) = 0.1180 (PDG). Writes dc_obs_not_blind.json.
+"""
+import json
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+obs = json.loads((HERE / "dc_obs.json").read_text())
+th = json.loads((HERE / "dc_thalf.json").read_text())
+ESTAR, AINV, MZ, ALS = 1.220890e19, 137.035999177, 91.1876, 0.1180
+phi, sqpi = (1 + 5 ** 0.5) / 2, 3.141592653589793 ** 0.5
+P_meas = phi + sqpi / AINV
+P_fwd = float(th["inputs"]["P_fwd"][:20])
+P_x = th["Z2_P_dependence"]["P_x"]
+out = {"label": "NOT BLIND",
+       "colour_pole_GeV": {k: v["colour_pole_mu_over_Estar"] * ESTAR for k, v in obs["O1_source_frame"].items()
+                           if isinstance(v, dict)},
+       "measured_mZ_GeV_and_alpha_s": [MZ, ALS],
+       "P_meas": P_meas, "P_fwd_minus_P_meas": P_fwd - P_meas, "P_x_minus_P_meas": P_x - P_meas}
+(HERE / "dc_obs_not_blind.json").write_text(json.dumps(out, indent=1) + "\n")
+print(json.dumps(out, indent=1))

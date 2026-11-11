@@ -1,0 +1,542 @@
+{
+ "A_no_current_branches_separate_configurations": {
+  "C,12": {
+   "configurations": 12,
+   "distinct_signatures": 12
+  },
+  "C,66": {
+   "configurations": 66,
+   "distinct_signatures": 66
+  },
+  "C,78": {
+   "configurations": 78,
+   "distinct_signatures": 78
+  },
+  "E,12": {
+   "configurations": 12,
+   "distinct_signatures": 12
+  },
+  "E,66": {
+   "configurations": 66,
+   "distinct_signatures": 66
+  },
+  "E,78": {
+   "configurations": 78,
+   "distinct_signatures": 78
+  }
+ },
+ "B_bell_register": {
+  "population_kernel": "T(x|y) = 1/4 for all x, y (irreducible, uniform)",
+  "lumping_defect_all_16_matrix_units": 8.326672684688674e-17,
+  "fixed_point_dimension": 4,
+  "max_abs_diagonal_of_logical_Paulis_in_load_basis": 2.2371143170757382e-17,
+  "E_x_equals_quarter_identity": true,
+  "reading": "a protected qubit inside a load register exists when every load vector is maximally entangled between the logical and a gauge factor of at least the same dimension; its logical operators have zero diagonal"
+ },
+ "C1_exact_section_identities": {
+  "spin 1/2, convex": {
+   "Pi_p sum_nbr Pi_q = 5 c^(4j) Pi_p": true,
+   "mu": 3.6180339887498945,
+   "face Bargmann invariant = c^(6j) zeta^e, exponents e found over the 20 faces": [
+    1
+   ],
+   "top_band_eigenvalue_mu_over_c^(2j)": 4.253254041760198
+  },
+  "spin 1/2, great": {
+   "Pi_p sum_nbr Pi_q = 5 c^(4j) Pi_p": true,
+   "mu": 1.3819660112501055,
+   "face Bargmann invariant = c^(6j) zeta^e, exponents e found over the 20 faces": [
+    7
+   ],
+   "top_band_eigenvalue_mu_over_c^(2j)": 2.628655560595667
+  },
+  "spin 2/2, convex": {
+   "Pi_p sum_nbr Pi_q = 5 c^(4j) Pi_p": true,
+   "mu": 2.6180339887498945,
+   "face Bargmann invariant = c^(6j) zeta^e, exponents e found over the 20 faces": [
+    2
+   ],
+   "top_band_eigenvalue_mu_over_c^(2j)": 3.6180339887498945
+  },
+  "spin 2/2, great": {
+   "Pi_p sum_nbr Pi_q = 5 c^(4j) Pi_p": true,
+   "mu": 0.38196601125010543,
+   "face Bargmann invariant = c^(6j) zeta^e, exponents e found over the 20 faces": [
+    14
+   ],
+   "top_band_eigenvalue_mu_over_c^(2j)": 1.3819660112501055
+  },
+  "spin 3/2, convex": {
+   "Pi_p sum_nbr Pi_q = 5 c^(4j) Pi_p": true,
+   "mu": 1.8944271909999155,
+   "face Bargmann invariant = c^(6j) zeta^e, exponents e found over the 20 faces": [
+    3
+   ],
+   "top_band_eigenvalue_mu_over_c^(2j)": 3.0776835371752527
+  },
+  "spin 4/2, convex": {
+   "Pi_p sum_nbr Pi_q = 5 c^(4j) Pi_p": true,
+   "mu": 1.3708203932499368,
+   "face Bargmann invariant = c^(6j) zeta^e, exponents e found over the 20 faces": [
+    4
+   ],
+   "top_band_eigenvalue_mu_over_c^(2j)": 2.6180339887498945
+  },
+  "spin 5/2, convex": {
+   "Pi_p sum_nbr Pi_q = 5 c^(4j) Pi_p": false,
+   "mu": 0.9919349550499535,
+   "face Bargmann invariant = c^(6j) zeta^e, exponents e found over the 20 faces": [
+    5
+   ],
+   "top_band_eigenvalue_mu_over_c^(2j)": 2.227032728823213
+  }
+ },
+ "C2_twisted_adjacency_exact": {
+  "k=0": {
+   "levels": [
+    {
+     "value": 4.999999999999998,
+     "multiplicity": 1,
+     "closed_form": "5",
+     "exact_nullity": 1
+    },
+    {
+     "value": 2.23606797749979,
+     "multiplicity": 3,
+     "closed_form": "sqrt5",
+     "exact_nullity": 3
+    },
+    {
+     "value": -1.0000000000000004,
+     "multiplicity": 5,
+     "closed_form": "-1",
+     "exact_nullity": 5
+    },
+    {
+     "value": -2.23606797749979,
+     "multiplicity": 3,
+     "closed_form": "-sqrt5",
+     "exact_nullity": 3
+    }
+   ],
+   "relaxation_factor_of_top_band_per_attempt": 1.0
+  },
+  "k=1": {
+   "levels": [
+    {
+     "value": 4.253254041760199,
+     "multiplicity": 2,
+     "closed_form": "5c^1",
+     "exact_nullity": 2
+    },
+    {
+     "value": 0.7265425280053601,
+     "multiplicity": 4,
+     "closed_form": "r_g/phi",
+     "exact_nullity": 4
+    },
+    {
+     "value": -1.902113032590307,
+     "multiplicity": 6,
+     "closed_form": "-r",
+     "exact_nullity": 6
+    }
+   ],
+   "relaxation_factor_of_top_band_per_attempt": 0.9875542340293366
+  },
+  "k=2": {
+   "levels": [
+    {
+     "value": 3.6180339887498945,
+     "multiplicity": 3,
+     "closed_form": "5c^2",
+     "exact_nullity": 3
+    },
+    {
+     "value": -0.38196601125010454,
+     "multiplicity": 5,
+     "closed_form": "-1/phi^2",
+     "exact_nullity": 5
+    },
+    {
+     "value": -2.23606797749979,
+     "multiplicity": 4,
+     "closed_form": "-sqrt5",
+     "exact_nullity": 4
+    }
+   ],
+   "relaxation_factor_of_top_band_per_attempt": 0.9769672331458316
+  },
+  "k=3": {
+   "levels": [
+    {
+     "value": 3.0776835371752527,
+     "multiplicity": 4,
+     "closed_form": "r phi",
+     "exact_nullity": 4
+    },
+    {
+     "value": -1.1755705045849456,
+     "multiplicity": 6,
+     "closed_form": "-r_g",
+     "exact_nullity": 6
+    },
+    {
+     "value": -2.628655560595668,
+     "multiplicity": 2,
+     "closed_form": "-5s^1",
+     "exact_nullity": 2
+    }
+   ],
+   "relaxation_factor_of_top_band_per_attempt": 0.9679613922862542
+  },
+  "k=4": {
+   "levels": [
+    {
+     "value": 2.6180339887498945,
+     "multiplicity": 5,
+     "closed_form": "phi^2",
+     "exact_nullity": 5
+    },
+    {
+     "value": -1.381966011250105,
+     "multiplicity": 3,
+     "closed_form": "-5s^2",
+     "exact_nullity": 3
+    },
+    {
+     "value": -2.23606797749979,
+     "multiplicity": 4,
+     "closed_form": "-sqrt5",
+     "exact_nullity": 4
+    }
+   ],
+   "relaxation_factor_of_top_band_per_attempt": 0.960300566479165
+  },
+  "k=5": {
+   "levels": [
+    {
+     "value": 2.2360679774997902,
+     "multiplicity": 6,
+     "closed_form": "sqrt5",
+     "exact_nullity": 6
+    },
+    {
+     "value": -2.2360679774997902,
+     "multiplicity": 6,
+     "closed_form": "-sqrt5",
+     "exact_nullity": 6
+    }
+   ],
+   "relaxation_factor_of_top_band_per_attempt": 0.9539344662916631
+  },
+  "k=6": {
+   "levels": [
+    {
+     "value": 2.2360679774997907,
+     "multiplicity": 4,
+     "closed_form": "sqrt5",
+     "exact_nullity": 4
+    },
+    {
+     "value": 1.3819660112501044,
+     "multiplicity": 3,
+     "closed_form": "5s^2",
+     "exact_nullity": 3
+    },
+    {
+     "value": -2.618033988749895,
+     "multiplicity": 5,
+     "closed_form": "-phi^2",
+     "exact_nullity": 5
+    }
+   ],
+   "relaxation_factor_of_top_band_per_attempt": 0.9539344662916632
+  },
+  "k=7": {
+   "levels": [
+    {
+     "value": 2.628655560595668,
+     "multiplicity": 2,
+     "closed_form": "5s^1",
+     "exact_nullity": 2
+    },
+    {
+     "value": 1.175570504584946,
+     "multiplicity": 6,
+     "closed_form": "r_g",
+     "exact_nullity": 6
+    },
+    {
+     "value": -3.0776835371752527,
+     "multiplicity": 4,
+     "closed_form": "-r phi",
+     "exact_nullity": 4
+    }
+   ],
+   "relaxation_factor_of_top_band_per_attempt": 0.9604775926765945
+  },
+  "k=8": {
+   "levels": [
+    {
+     "value": 2.236067977499789,
+     "multiplicity": 4,
+     "closed_form": "sqrt5",
+     "exact_nullity": 4
+    },
+    {
+     "value": 0.38196601125010476,
+     "multiplicity": 5,
+     "closed_form": "1/phi^2",
+     "exact_nullity": 5
+    },
+    {
+     "value": -3.618033988749895,
+     "multiplicity": 3,
+     "closed_form": "-5c^2",
+     "exact_nullity": 3
+    }
+   ],
+   "relaxation_factor_of_top_band_per_attempt": 0.9539344662916631
+  },
+  "k=9": {
+   "levels": [
+    {
+     "value": 1.9021130325903073,
+     "multiplicity": 6,
+     "closed_form": "r",
+     "exact_nullity": 6
+    },
+    {
+     "value": -0.7265425280053613,
+     "multiplicity": 4,
+     "closed_form": "-r_g/phi",
+     "exact_nullity": 4
+    },
+    {
+     "value": -4.253254041760197,
+     "multiplicity": 2,
+     "closed_form": "-5c^1",
+     "exact_nullity": 2
+    }
+   ],
+   "relaxation_factor_of_top_band_per_attempt": 0.9483685505431718
+  },
+  "k=10": {
+   "levels": [
+    {
+     "value": 2.23606797749979,
+     "multiplicity": 3,
+     "closed_form": "sqrt5",
+     "exact_nullity": 3
+    },
+    {
+     "value": 1.0000000000000004,
+     "multiplicity": 5,
+     "closed_form": "1",
+     "exact_nullity": 5
+    },
+    {
+     "value": -2.23606797749979,
+     "multiplicity": 3,
+     "closed_form": "-sqrt5",
+     "exact_nullity": 3
+    },
+    {
+     "value": -4.999999999999998,
+     "multiplicity": 1,
+     "closed_form": null,
+     "exact_nullity": null
+    }
+   ],
+   "relaxation_factor_of_top_band_per_attempt": 0.9539344662916631
+  },
+  "closed_form": {
+   "statement": "top band of flux k = 0..4: adjacency eigenvalue 5 c^k, multiplicity k + 1; relaxation factor 1 - (1 - c^k)/12",
+   "c": 0.8506508083520397,
+   "factors_k_0_to_4": [
+    1.0,
+    0.9875542340293366,
+    0.9769672331458316,
+    0.9679613922862542,
+    0.9603005664791648
+   ],
+   "L16_values": [
+    1,
+    0.987554,
+    0.976967,
+    0.967961,
+    0.960301
+   ]
+  }
+ },
+ "C3_identity_transport_decomposition": {
+  "U_LC unitary": true,
+  "U_flip unitary": true,
+  "1 = c U_LC + s U_flip": true,
+  "det U_LC = 1": true,
+  "U_LC keeps helicity, U_flip reverses it": true,
+  "c^2": 0.7236067977499785,
+  "s^2": 0.276393202250021,
+  "per_attempt_balance_of_one_helicity_component_of_the_protected_state": {
+   "stays_at_port": 0.9166666666666666,
+   "arrives_with_the_same_helicity": 0.06030056647916487,
+   "arrives_from_the_other_helicity": 0.02303276685416842,
+   "sum": 0.9999999999999999
+  },
+  "projected_on_one_helicity_after_every_hop": 0.9769672331458316,
+  "unit_modulus_phase_record_(area counter)": 0.9875542340293366
+ },
+ "C4_family_between_flat_and_Levi_Civita": {
+  "t=0.0": {
+   "amplitude_transfer_top": 1.0,
+   "amplitude_top_multiplicity": 2,
+   "protected_Bloch_directions": 3,
+   "protected_internal_algebra_dimension": 4,
+   "Bloch_transfer_leading_values": [
+    1.0,
+    1.0,
+    1.0,
+    0.953934466,
+    0.953934466,
+    0.953934466,
+    0.953934466,
+    0.953934466
+   ],
+   "holonomy_group_order": 1,
+   "holonomy_abelian": true,
+   "symmetry_defect": 0.0
+  },
+  "t=0.25": {
+   "amplitude_transfer_top": 0.99920324,
+   "amplitude_top_multiplicity": 2,
+   "protected_Bloch_directions": 0,
+   "protected_internal_algebra_dimension": 1,
+   "Bloch_transfer_leading_values": [
+    0.997892193,
+    0.997892193,
+    0.997892193,
+    0.972884077,
+    0.963409272,
+    0.963409272,
+    0.963409272,
+    0.94275945
+   ],
+   "holonomy_group_order": "> 130",
+   "holonomy_abelian": false,
+   "symmetry_defect": 8.673617379884035e-19
+  },
+  "t=0.5": {
+   "amplitude_transfer_top": 0.996828196,
+   "amplitude_top_multiplicity": 2,
+   "protected_Bloch_directions": 0,
+   "protected_internal_algebra_dimension": 1,
+   "Bloch_transfer_leading_values": [
+    0.991843909,
+    0.991843909,
+    0.991843909,
+    0.987554234,
+    0.97074435,
+    0.97074435,
+    0.97074435,
+    0.930708917
+   ],
+   "holonomy_group_order": "> 130",
+   "holonomy_abelian": false,
+   "symmetry_defect": 8.673617379884035e-19
+  },
+  "t=0.75": {
+   "amplitude_transfer_top": 0.992920285,
+   "amplitude_top_multiplicity": 2,
+   "protected_Bloch_directions": 0,
+   "protected_internal_algebra_dimension": 1,
+   "Bloch_transfer_leading_values": [
+    0.996828196,
+    0.983051134,
+    0.983051134,
+    0.983051134,
+    0.975381331,
+    0.975381331,
+    0.975381331,
+    0.945722855
+   ],
+   "holonomy_group_order": "> 130",
+   "holonomy_abelian": false,
+   "symmetry_defect": 5.204170427930421e-18
+  },
+  "t=0.9": {
+   "amplitude_transfer_top": 0.989869668,
+   "amplitude_top_multiplicity": 2,
+   "protected_Bloch_directions": 0,
+   "protected_internal_algebra_dimension": 1,
+   "Bloch_transfer_leading_values": [
+    0.999489781,
+    0.978235593,
+    0.978235593,
+    0.978235593,
+    0.976712123,
+    0.976712123,
+    0.976712123,
+    0.952323841
+   ],
+   "holonomy_group_order": "> 130",
+   "holonomy_abelian": false,
+   "symmetry_defect": 3.469446951953614e-18
+  },
+  "t=1.0": {
+   "amplitude_transfer_top": 0.987554234,
+   "amplitude_top_multiplicity": 4,
+   "protected_Bloch_directions": 1,
+   "protected_internal_algebra_dimension": 2,
+   "Bloch_transfer_leading_values": [
+    1.0,
+    0.976967233,
+    0.976967233,
+    0.976967233,
+    0.976967233,
+    0.976967233,
+    0.976967233,
+    0.953934466
+   ],
+   "holonomy_group_order": 20,
+   "holonomy_abelian": true,
+   "symmetry_defect": 5.204170427930421e-18
+  },
+  "t=1.25": {
+   "amplitude_transfer_top": 0.992920285,
+   "amplitude_top_multiplicity": 2,
+   "protected_Bloch_directions": 0,
+   "protected_internal_algebra_dimension": 1,
+   "Bloch_transfer_leading_values": [
+    0.996828196,
+    0.983051134,
+    0.983051134,
+    0.983051134,
+    0.975381331,
+    0.975381331,
+    0.975381331,
+    0.945722855
+   ],
+   "holonomy_group_order": "> 130",
+   "holonomy_abelian": false,
+   "symmetry_defect": 5.204170427930421e-18
+  }
+ },
+ "C5_area_counter_chain": {
+  "states": 240,
+  "symmetric": true,
+  "spectrum_equals_union_of_twisted_transfers": 1.887379141862766e-15,
+  "leading_values": [
+   1.0,
+   0.987554234,
+   0.987554234,
+   0.987554234,
+   0.987554234,
+   0.976967233,
+   0.976967233,
+   0.976967233
+  ],
+  "reading": "eigenvalue 1 once (uniform on ports and counter); next 0.987554 four times (the k = +-1 doublets): every character of the counter relaxes; the counter is classical (a commutative algebra)"
+ },
+ "seconds": 0.3
+}

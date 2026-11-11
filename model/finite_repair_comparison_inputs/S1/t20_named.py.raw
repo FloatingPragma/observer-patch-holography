@@ -1,0 +1,44 @@
+"""Pair-sector analysis of named laws on a carrier with the C chain builder.
+
+Usage: t20_named.py carrier laws dcap reflect [cap] [qcap]
+  dcap     contrast cap; reflect = 0: states above the cap are frozen (exact when none is reached);
+           reflect = 1: outcomes that would exceed the cap are replaced by "nothing happens" (truncated chain).
+Results accumulate in t20_<carrier>_named.json under the key "<law>|dcap<dcap>|reflect<r>".
+"""
+import json, sys, time
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import s1lib as S, s1laws, s1can
+
+HERE = Path(__file__).resolve().parent
+which = sys.argv[1]
+C = {'tetrahedron': S.tetrahedron, 'octahedron': S.octahedron}[which]()
+names = sys.argv[2].split(',')
+dcap = int(sys.argv[3]); reflect = bool(int(sys.argv[4]))
+cap = int(sys.argv[5]) if len(sys.argv) > 5 else 400000
+qcap = int(sys.argv[6]) if len(sys.argv) > 6 else 2
+laws = s1laws.named()
+groups = s1can.initial_groups(C); labels = s1can.initial_labels(C)
+path = HERE / f't20_{which}_named.json'
+out = json.loads(path.read_text()) if path.exists() else {}
+budget = time.time() + 140
+for name in names:
+    if time.time() > budget:
+        print('time budget reached before', name); break
+    law = laws[name]
+    t0 = time.time()
+    res, ch = s1can.analyse(C, law, groups, cap=cap, dcap=dcap, qcap=qcap, reflect=reflect, labels=labels)
+    res['seconds'] = round(time.time() - t0, 2); res['note'] = law.note; res['charge_cap'] = qcap
+    out[f'{name}|dcap{dcap}|reflect{int(reflect)}|qcap{qcap}'] = res
+    brief = {k: res.get(k) for k in ('law', 'lumped_states', 'max_abs_contrast', 'max_abs_contrast_at_uncharged_seam', 'frozen_by_contrast_cap',
+                                    'frozen_by_charge_cap', 'states_with_reflected_outcome', 'charge_content_reached', 'event_types',
+                                    'closed_classes', 'survival_decay_per_attempt', 'lifetime_sweeps_tail',
+                                    'hop_rate_per_charge_per_sweep_qsd', 'reflected_outcomes_per_sweep_qsd', 'contrasts_at_hop_seam',
+                                    'seconds', 'overflow')}
+    print(json.dumps(brief), flush=True)
+    for k, v in res.get('starts', {}).items():
+        print('   ', k, json.dumps({kk: (round(vv, 6) if isinstance(vv, float) else vv) for kk, vv in v.items()
+                                   if kk != 'charged_transient_mass_after_sweeps'}), flush=True)
+    for c in res.get('closed_charged_classes', []):
+        print('    closed charged:', json.dumps(c), flush=True)
+    path.write_text(json.dumps(out, indent=1))

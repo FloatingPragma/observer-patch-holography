@@ -1,0 +1,261 @@
+"""Gates of lane HAD. Writes gates.json and prints PASS / FAIL lines.
+
+    python had_gates.py
+"""
+import json, sys, time, hashlib
+import numpy as np
+import su3_lib as S
+import had_lib as H
+
+
+def main():
+    out = {}
+    ok_all = True
+
+    def gate(name, ok, detail):
+        nonlocal ok_all
+        ok_all = ok_all and bool(ok)
+        out[name] = dict(ok=bool(ok), **detail)
+        print(('PASS ' if ok else 'FAIL ') + name + ' ' + json.dumps(detail), flush=True)
+
+    out['su3_lib_sha256'] = hashlib.sha256(open('su3_lib.py', 'rb').read()).hexdigest()
+    rng = np.random.default_rng(2026)
+    g, g5 = H.gammas()
+    C = H.charge_conjugation()
+
+    # ---- gamma algebra
+    e = 0.0
+    for mu in range(4):
+        e = max(e, np.abs(g[mu] - g[mu].conj().T).max())
+        for nu in range(4):
+            e = max(e, np.abs(g[mu] @ g[nu] + g[nu] @ g[mu] - 2 * (mu == nu) * np.eye(4)).max())
+    e5 = max(np.abs(g5 @ g5 - np.eye(4)).max(), np.abs(g5 - g5.conj().T).max(),
+             max(np.abs(g5 @ g[mu] + g[mu] @ g5).max() for mu in range(4)))
+    eC = max(np.abs(C @ g[mu] @ np.linalg.inv(C) + g[mu].T).max() for mu in range(4))
+    gate('gamma_algebra', max(e, e5, eC) < 1e-14, dict(clifford=float(e), gamma5=float(e5), charge_conjugation=float(eC)))
+
+    # ---- a thermalised small lattice
+    dims = (4, 4, 4, 8)
+    up, dn = S.neighbours(*dims)
+    V = int(np.prod(dims))
+    S.seed_rng(31)
+    U = S.hot_start(V)
+    S.compound_sweeps(U, up, dn, 5.7, 60, 4)
+    S.reunitarize(U)
+    even, odd = H.parity_sites(dims)
+    allsites = np.arange(V, dtype=np.int64)
+    Uf = H.fermion_links(U, dims)
+    plaq = sum(S.plaquette(U, up)) / 2
+
+    # ---- gate 2: fast kernel against the reference
+    psi = rng.normal(size=(V, 4, 3)) + 1j * rng.normal(size=(V, 4, 3))
+    o1 = np.zeros_like(psi)
+    H.hop(Uf, up, dn, psi, o1, allsites)
+    o2 = H.hop_reference(Uf, up, dn, psi)
+    d = float(np.abs(o1 - o2).max() / np.abs(o2).max())
+    gate('kernel_equals_reference', d < 1e-12, dict(relative_difference=d, plaquette=float(plaq)))
+    # gamma5 routine
+    w = psi.copy(); H.gamma5_inplace(w)
+    d = float(np.abs(w - np.einsum('ts,xsa->xta', g5, psi)).max())
+    gate('gamma5_routine', d < 1e-14, dict(difference=d))
+
+    # ---- gate 3a: gamma5-hermiticity of the operator
+    kap = 0.150
+    phi = rng.normal(size=(V, 4, 3)) + 1j * rng.normal(size=(V, 4, 3))
+    chi = rng.normal(size=(V, 4, 3)) + 1j * rng.normal(size=(V, 4, 3))
+    Mphi = np.zeros_like(phi); H.apply_M(Uf, up, dn, kap, phi, Mphi, allsites)
+    work = np.zeros_like(phi); Mdchi = np.zeros_like(phi)
+    H.apply_Mdag(Uf, up, dn, kap, chi, Mdchi, allsites, work)
+    lhs = np.vdot(phi, Mdchi); rhs = np.vdot(Mphi, chi)
+    d = float(abs(lhs - rhs) / abs(rhs))
+    gate('gamma5_hermiticity_operator', d < 1e-12, dict(relative_difference=d))
+
+    # ---- gate 4: even-odd solve, true residual; CGNR agrees
+    b = rng.normal(size=(V, 4, 3)) + 1j * rng.normal(size=(V, 4, 3))
+    x, info = H.solve(Uf, up, dn, 0.160, b, even, odd, allsites)
+    x2 = np.zeros_like(b)
+    it2, rel2 = H.cgnr(Uf, up, dn, 0.160, b, x2, allsites, 1e-11, 20000)
+    d = float(np.abs(x - x2).max() / np.abs(x).max())
+    gate('even_odd_solve', info['true_residual'] < 1e-9 and not info['fallback'] and d < 1e-8,
+         dict(kappa=0.160, iterations=info['iterations'], true_residual=info['true_residual'],
+              cg_iterations=int(it2), cg_residual=float(rel2), max_relative_difference_to_cg=d))
+
+    # ---- APE smearing gates (9) and loops (10)
+    Vs = H.ape_smear(U, up, dn, 0.5, 12)
+    e1, e2 = S.unitarity_defect(Vs)
+    gm = S.random_su3(V, rng)
+    Ug = S.gauge_transform(U, up, gm)
+    Vsg = H.ape_smear(Ug, up, dn, 0.5, 12)
+    dcov = float(np.abs(Vsg - S.gauge_transform(Vs, up, gm)).max())
+    classes = H.displacement_classes(2, diag2=(1, 2), diag3=(1,), with_210=True)
+    W = H.wilson_loops_classes(U, Vs, up, dn, classes, 3)
+    Wg = H.wilson_loops_classes(Ug, Vsg, up, dn, classes, 3)
+    dW = float(np.abs(W - Wg).max())
+    gate('ape_smearing', max(e1, e2) < 1e-12 and dcov < 1e-11 and dW < 1e-12,
+         dict(unitarity=float(e1), determinant=float(e2), covariance=dcov, smeared_loop_invariance=dW,
+              classes=[c['name'] for c in classes]))
+    W0 = H.wilson_loops_classes(U, U, up, dn, H.displacement_classes(2, diag2=(), diag3=(), with_210=False), 2)
+    Wq = S.wilson_loops(U, up, 2)
+    # lane QCD averages R x T over all six planes and both orientations; compare the space-time part by recomputation
+    # W0[r-1, t-1] is the average over the three spatial directions of the r x t loop in the (i, time) plane.
+    # Build the same from su3_lib on a lattice rotated so that the comparison is exact: use the 1 x 1 loop and the
+    # temporal plaquette, and R x T loops on a symmetric lattice below.
+    ps, pt = S.plaquette(U, up)
+    d1 = abs(W0[0, 0] - pt)
+    gate('loop_1x1_equals_temporal_plaquette', d1 < 1e-12, dict(difference=float(d1)))
+    dims4 = (4, 4, 4, 4); up4, dn4 = S.neighbours(*dims4); V4 = 256
+    S.seed_rng(32); U4 = S.hot_start(V4); S.compound_sweeps(U4, up4, dn4, 5.7, 20, 2); S.reunitarize(U4)
+    Wq = S.wilson_loops(U4, up4, 2)
+    # all-plane average from this lane's routine: permute the axes so that each axis serves as time once
+    acc = np.zeros((2, 2)); cnt = 0
+    Ugrid = U4.reshape(4, 4, 4, 4, 4, 3, 3).transpose(3, 2, 1, 0, 4, 5, 6)   # [i0, i1, i2, i3, mu, a, b]
+    for tax in range(4):
+        perm = [a for a in range(4) if a != tax] + [tax]
+        Up = np.transpose(Ugrid, perm + [4, 5, 6])[:, :, :, :, perm]
+        Uflat = np.ascontiguousarray(Up.transpose(3, 2, 1, 0, 4, 5, 6).reshape(V4, 4, 3, 3))
+        acc += H.wilson_loops_classes(Uflat, Uflat, up4, dn4,
+                                      H.displacement_classes(2, diag2=(), diag3=(), with_210=False), 2)
+        cnt += 1
+    acc /= cnt
+    # acc[r-1, t-1] averages the r x t loops with r along a "space" axis and t along the "time" axis over all ordered
+    # pairs of axes; the lane QCD routine symmetrises R x T and T x R over the six planes
+    sym = 0.5 * (acc + acc.T)
+    d2 = float(np.abs(sym - Wq).max())
+    gate('loops_equal_lane_qcd_routine', d2 < 1e-12, dict(max_difference=d2, W11=float(Wq[0, 0]), W22=float(Wq[1, 1])))
+
+    # ---- gate 3b and 6: propagators on the thermalised lattice
+    kap = 0.150
+    P, st = H.propagator(Uf, Vs, up, dn, dims, kap, even, odd, allsites)
+    ysrc = int(rng.integers(1, V))
+    Py, sty = H.propagator(Uf, Vs, up, dn, dims, kap, even, odd, allsites, src=ysrc)
+    # S(y; 0)[alpha a, beta b] = P[3 beta + b, y, alpha, a];  S(0; y) = Py[3 beta + b, 0, alpha, a]
+    Sy0 = np.transpose(P[:, ysrc].reshape(4, 3, 4, 3), (2, 3, 0, 1)).reshape(12, 12)
+    S0y = np.transpose(Py[:, 0].reshape(4, 3, 4, 3), (2, 3, 0, 1)).reshape(12, 12)
+    G5 = np.kron(g5, np.eye(3))
+    d = float(np.abs(Sy0 - G5 @ S0y.conj().T @ G5).max() / np.abs(Sy0).max())
+    gate('gamma5_hermiticity_propagator', d < 1e-7,
+         dict(relative_difference=d, max_true_residual=max(s['true_residual'] for s in st + sty),
+              iterations=[min(s['iterations'] for s in st), max(s['iterations'] for s in st)]))
+    Ufg = H.fermion_links(Ug, dims)
+    Pg, stg = H.propagator(Ufg, Vsg, up, dn, dims, kap, even, odd, allsites)
+    # expected: g(x) S(x, 0) g(0)^dag
+    # sink colour: g(x); source colour b: sum_b' P[..b'..] conj(g(0)[b, b'])
+    Pexp = np.einsum('jxsc,xac->jxsa', P, gm)
+    Pexp = Pexp.reshape(4, 3, V, 4, 3)
+    Pexp = np.einsum('sdxta,bd->sbxta', Pexp, np.conj(gm[0])).reshape(12, V, 4, 3)
+    d = float(np.abs(Pg - Pexp).max() / np.abs(P).max())
+    mes = H.meson_correlators(P, dims); mesg = H.meson_correlators(Pg, dims)
+    cp, cm = H.nucleon_correlators(P, dims); cpg, cmg = H.nucleon_correlators(Pg, dims)
+    dm = float(max(np.abs(mes['pion'] / mesg['pion'] - 1).max(), np.abs(mes['rho'] / mesg['rho'] - 1).max()))
+    dn_ = float(max(np.abs(cp - cpg).max() / np.abs(cp).max(), np.abs(cm - cmg).max() / np.abs(cm).max()))
+    gate('gauge_covariance_point_source', d < 1e-7 and dm < 1e-7 and dn_ < 1e-7,
+         dict(propagator=d, mesons=dm, nucleon=dn_, kappa=kap))
+    Ps, _ = H.propagator(Uf, Vs, up, dn, dims, kap, even, odd, allsites, smear=(3.0, 20))
+    Psg, _ = H.propagator(Ufg, Vsg, up, dn, dims, kap, even, odd, allsites, smear=(3.0, 20))
+    Pss = H.smear_sink(Ps, Vs, up, dn, 3.0, 20); Pssg = H.smear_sink(Psg, Vsg, up, dn, 3.0, 20)
+    res = []
+    for A_, B_ in ((Ps, Psg), (Pss, Pssg)):
+        m1 = H.meson_correlators(A_, dims); m2 = H.meson_correlators(B_, dims)
+        c1 = H.nucleon_correlators(A_, dims); c2 = H.nucleon_correlators(B_, dims)
+        res.append(float(max(np.abs(m1['pion'] / m2['pion'] - 1).max(), np.abs(m1['rho'] / m2['rho'] - 1).max(),
+                             np.abs(c1[0] - c2[0]).max() / np.abs(c1[0]).max(),
+                             np.abs(c1[1] - c2[1]).max() / np.abs(c1[1]).max())))
+    gate('gauge_invariance_smeared_correlators', max(res) < 1e-7, dict(smeared_point=res[0], smeared_smeared=res[1]))
+    # smearing operator Hermitian
+    f1 = rng.normal(size=(V, 4, 3)) + 1j * rng.normal(size=(V, 4, 3))
+    f2 = rng.normal(size=(V, 4, 3)) + 1j * rng.normal(size=(V, 4, 3))
+    a1 = f1.copy(); H.smear_field(Vs, up, dn, a1, 3.0, 20)
+    a2 = f2.copy(); H.smear_field(Vs, up, dn, a2, 3.0, 20)
+    d = float(abs(np.vdot(f1, a2) - np.vdot(a1, f2)) / abs(np.vdot(f1, a2)))
+    gate('smearing_hermitian', d < 1e-12, dict(relative_difference=d))
+    pos = bool((mes['pion'] > 0).all() and (mes['rho'] > 0).all())
+    gate('meson_correlators_positive', pos, dict(pion=[float(v) for v in mes['pion']], rho=[float(v) for v in mes['rho']]))
+
+    # ---- gate 7: nucleon contraction against the brute-force Wick sum
+    G = C @ g5
+    Gb = g[3] @ G.conj().T @ g[3]
+    Pr = rng.normal(size=(12, 2, 4, 3)) + 1j * rng.normal(size=(12, 2, 4, 3))     # two sites, N3 = 2, V3 = 1
+    cp_ = np.zeros(2, complex); cm_ = np.zeros(2, complex)
+    H.nucleon_kernel(Pr, np.ascontiguousarray(G), np.ascontiguousarray(Gb), H.eps_terms(), 2, 1, cp_, cm_)
+    dmax = 0.0
+    for t in range(2):
+        # S[a, alpha, a', alpha'] = P[3 alpha' + a', x, alpha, a]
+        Ssite = np.transpose(Pr[:, t].reshape(4, 3, 4, 3), (3, 2, 1, 0))
+        Cm = H.nucleon_site_reference(Ssite, G, Gb)
+        dmax = max(dmax, abs(cp_[t] - (Cm[0, 0] + Cm[1, 1])) / abs(cp_[t]), abs(cm_[t] - (Cm[2, 2] + Cm[3, 3])) / abs(cm_[t]))
+    gate('nucleon_contraction_equals_wick_sum', dmax < 1e-12, dict(relative_difference=float(dmax)))
+
+    # ---- gate 5: free field against the momentum-space sum
+    dimsf = (4, 4, 4, 16)
+    upf, dnf = S.neighbours(*dimsf); Vf = int(np.prod(dimsf))
+    U1 = S.cold_start(Vf); U1f = H.fermion_links(U1, dimsf)
+    evf, odf = H.parity_sites(dimsf); allf = np.arange(Vf, dtype=np.int64)
+    kf = 0.120
+    Pf, stf = H.propagator(U1f, U1, upf, dnf, dimsf, kf, evf, odf, allf, tol=1e-12)
+    mf = H.meson_correlators(Pf, dimsf)
+    Sx = H.free_propagator_momentum(dimsf, kf)                    # [i0, i1, i2, i3, 4, 4]
+    pion_ref = 3.0 * (np.abs(Sx) ** 2).sum(axis=(0, 1, 2, 4, 5))
+    rho_ref = np.zeros(dimsf[3])
+    for i in range(3):
+        A = g5 @ g[i]
+        rho_ref += 3.0 * np.einsum('ij,xyztjk,kl,xyztil->t', A, Sx, A.conj().T, np.conj(Sx)).real / 3.0
+    dpi = float(np.abs(mf['pion'] / pion_ref - 1).max()); drho = float(np.abs(mf['rho'] / rho_ref - 1).max())
+    # the propagator itself
+    Sxf = Sx.transpose(3, 2, 1, 0, 4, 5).reshape(Vf, 4, 4)
+    Pfree = np.zeros_like(Pf)
+    for be in range(4):
+        for b_ in range(3):
+            Pfree[3 * be + b_, :, :, b_] = Sxf[:, :, be]
+    dprop = float(np.abs(Pf - Pfree).max() / np.abs(Pfree).max())
+    gate('free_field_correlators', dpi < 1e-7 and drho < 1e-7 and dprop < 1e-8,
+         dict(lattice=list(dimsf), kappa=kf, pion_max_relative=dpi, rho_max_relative=drho, propagator_max_relative=dprop,
+              pion_at_t=[float(v) for v in mf['pion'][:9]], max_true_residual=max(s['true_residual'] for s in stf)))
+
+    # ---- gate 8: free nucleon mass on a long lattice
+    dimsn = (8, 8, 8, 32)
+    upn, dnn = S.neighbours(*dimsn); Vn = int(np.prod(dimsn))
+    Un = S.cold_start(Vn); Unf = H.fermion_links(Un, dimsn)
+    evn, odn = H.parity_sites(dimsn); alln = np.arange(Vn, dtype=np.int64)
+    kn = 0.110
+    t0 = time.time()
+    Pn, stn = H.propagator(Unf, Un, upn, dnn, dimsn, kn, evn, odn, alln, tol=1e-13)
+    tsolve = time.time() - t0
+    cpn, cmn = H.nucleon_correlators(Pn, dimsn)
+    mfree = np.log(1.0 + 1.0 / (2 * kn) - 4.0)
+    T = dimsn[3]
+    meff = np.log(np.abs(cpn[1:T // 2].real / cpn[2:T // 2 + 1].real))
+    # time-reflection relation between the two parity projections
+    refl = float(np.abs(cpn[1:T].real + cmn[T - 1:0:-1].real).max() / np.abs(cpn[1].real))
+    mesn = H.meson_correlators(Pn, dimsn)
+    mpi_eff = np.log(mesn['pion'][1:T // 2 - 1] / mesn['pion'][2:T // 2])
+    ok = abs(meff[9] / (3 * mfree) - 1) < 0.03 and abs(meff[11] / (3 * mfree) - 1) < 0.03
+    gate('free_nucleon_mass', ok,
+         dict(lattice=list(dimsn), kappa=kn, quark_pole_mass=float(mfree), three_quark_mass=float(3 * mfree),
+              meff_nucleon=[float(v) for v in meff], sign_of_C_plus=float(np.sign(cpn[3].real)),
+              imag_over_real=float(np.abs(cpn[1:8].imag).max() / np.abs(cpn[1].real)),
+              reflection_Cplus_plus_Cminus=refl, reflection_Cplus_minus_Cminus=float(np.abs(cpn[1:T].real - cmn[T - 1:0:-1].real).max() / np.abs(cpn[1].real)), meff_pion=[float(v) for v in mpi_eff[:12]],
+              two_quark_mass=float(2 * mfree), solve_seconds=tsolve,
+              iterations=[min(s['iterations'] for s in stn), max(s['iterations'] for s in stn)]))
+
+    # ---- timing of the kernel on the production sizes
+    tim = {}
+    for dims_t in ((8, 8, 8, 16), (12, 12, 12, 24)):
+        upt, dnt = S.neighbours(*dims_t); Vt = int(np.prod(dims_t))
+        S.seed_rng(5); Ut = S.hot_start(Vt)
+        pt_ = rng.normal(size=(Vt, 4, 3)) + 1j * rng.normal(size=(Vt, 4, 3)); ot = np.zeros_like(pt_)
+        allt = np.arange(Vt, dtype=np.int64)
+        H.hop(Ut, upt, dnt, pt_, ot, allt)
+        t0 = time.time()
+        for _ in range(20):
+            H.hop(Ut, upt, dnt, pt_, ot, allt)
+        tim['x'.join(map(str, dims_t))] = (time.time() - t0) / 20
+    out['hop_seconds'] = tim
+    print('hop seconds', tim, flush=True)
+
+    out['all_pass'] = ok_all
+    json.dump(out, open('gates.json', 'w'), indent=1)
+    print('ALL PASS' if ok_all else 'SOME FAIL', flush=True)
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,157 @@
+"""Task CO, part (g): what on a carrier or around a defect correlates with the defect class, read at stored checkpoints.
+
+    python correlates.py <run_dir_or_ckpt_dir> <level> <out.json> --sweeps 100,200,300 [--series <run_dir>]
+
+Per checkpoint (complete state: loads of every port, face classes, incident clocks `ticks`):
+carrier tier, for each class k (carriers holding at least one face of class k) against carriers without any defect:
+  - load excess: carrier total load (sum of 12 ports) minus that of defect-free carriers;
+  - face-local load: mean load of the three ports of the defect face minus the mean of the carrier's twelve ports;
+  - incident clock: ticks of the carrier minus the mean of defect-free carriers;
+  - recent currents (with --series): attempts with nonzero current on the carrier in the series window ending at the
+    checkpoint sweep, minus defect-free carriers;
+  - glue contact: share of class-k faces that contain a glued port (a port of a glue seam) against the share of all
+    faces (9 of 20 faces contain at least one of the 3 glued ports when they are pairwise non-adjacent; computed exactly
+    per carrier);
+  - template face occupancy: counts of class-k faces per template face index (orientation on the carrier); chi^2 against
+    uniform over the 20 faces.
+screen tier, for each class k: mean load of the ports of the glue seams that bound the plaquette, minus the same over all
+plaquettes; mean ticks of the carriers whose cell has the plaquette as a corner, minus all plaquettes.
+Errors: delete-one jackknife over the 80 cells of level 1 (blocks of N / 80 consecutive carriers, which are cells).
+"""
+import argparse, json, sys
+from pathlib import Path
+import numpy as np
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / 'background'))
+from compose import TF  # noqa: E402
+
+TFA = np.array(TF)
+NB = 80
+
+
+def jk_diff(val, grpA, grpR, blk):
+    """mean(val[A]) - mean(val[R]) with jackknife over blocks; grpA, grpR boolean masks over the same index"""
+    SA = np.bincount(blk[grpA], val[grpA], NB); NA = np.bincount(blk[grpA], None, NB)
+    SR = np.bincount(blk[grpR], val[grpR], NB); NR = np.bincount(blk[grpR], None, NB)
+    if NA.sum() == 0 or NR.sum() == 0:
+        return None, None, int(NA.sum())
+    d = SA.sum() / NA.sum() - SR.sum() / NR.sum()
+    loo = []
+    for b in range(NB):
+        na, nr = NA.sum() - NA[b], NR.sum() - NR[b]
+        if na > 0 and nr > 0:
+            loo.append((SA.sum() - SA[b]) / na - (SR.sum() - SR[b]) / nr)
+    loo = np.array(loo); g = len(loo)
+    return float(d), float(np.sqrt((g - 1) / g * ((loo - loo.mean()) ** 2).sum())), int(NA.sum())
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('ckdir'); ap.add_argument('level', type=int); ap.add_argument('out')
+    ap.add_argument('--sweeps', default='300'); ap.add_argument('--series', default=None)
+    ap.add_argument('--prefix', default='checkpoints/ckpt_')
+    a = ap.parse_args()
+    from oph_defects import fedgeom as FG
+    L = a.level; N = 20 * 4 ** L
+    geo = FG.build(L)
+    V = geo.vertices
+    blk = (np.arange(N) // (N // NB)).astype(np.int64)
+    # glued ports per carrier
+    glued = np.zeros(12 * N, bool); glued[geo.glue_a] = True; glued[geo.glue_b] = True
+    gl = glued.reshape(N, 12)
+    face_has_glued = gl[:, TFA].any(2)                 # [N, 20]
+    # screen: ports bounding each plaquette (ends of glue seams whose fp or fm is the plaquette)
+    gfp = geo.glue_fp.astype(np.int64) - 20 * N; gfm = geo.glue_fm.astype(np.int64) - 20 * N
+    corners = geo.tri.astype(np.int64)                # [N, 3] mesh vertices of each cell
+    out = {'level': L, 'carriers': N, 'snapshots': []}
+    series_snap = {}
+    if a.series:
+        meta = json.load(open(Path(a.series) / 'run.json'))
+        want = set(int(s) for s in a.sweeps.split(','))
+        for b in meta['series']:
+            if b['last_sweep'] < min(want) or b['first_sweep'] > max(want):
+                continue
+            z = np.load(Path(a.series) / b['file'])
+            for i, sw in enumerate(z['sweep'].tolist()):
+                if sw in want:
+                    series_snap[sw] = {'nonzero': z['nonzero_current_events'][i].astype(np.float64),
+                                       'descent': z['descent_events'][i].astype(np.float64),
+                                       'window': int(z['sweep'][i] - z['sweep'][i - 1]) if i > 0 else None}
+    for s in [int(x) for x in a.sweeps.split(',')]:
+        path = Path(a.ckdir) / f'{a.prefix}{s:06d}.npz'
+        z = np.load(path)
+        loads = z['loads'].astype(np.int64).reshape(N, 12)
+        cls = (z['classes'][:20 * N].astype(np.int64) % 6).reshape(N, 20)
+        scls = z['classes'][20 * N:].astype(np.int64) % 6
+        ticks = z['ticks'].astype(np.float64)
+        tot = loads.sum(1).astype(np.float64)
+        face_load = loads[:, TFA].mean(2)              # [N, 20]
+        clean = (cls == 0).all(1)
+        snap = {'sweep': s, 'mean_carrier_load': float(tot.mean()), 'mean_ticks': float(ticks.mean()),
+                'carrier': {}, 'screen': {}}
+        cur = series_snap.get(s)
+        if cur:
+            snap['series_window_sweeps'] = cur['window']
+        for k in range(1, 6):
+            has = (cls == k).any(1)
+            d = {'carriers': int(has.sum())}
+            d['load_excess'] = jk_diff(tot, has, clean, blk)[:2]
+            d['ticks_excess'] = jk_diff(ticks, has, clean, blk)[:2]
+            if cur:
+                d['nonzero_current_events_excess'] = jk_diff(cur['nonzero'], has, clean, blk)[:2]
+                d['descent_events_excess'] = jk_diff(cur['descent'], has, clean, blk)[:2]
+            # face-local load: per defect face, its 3-port mean minus the carrier mean; reference: empty faces on clean carriers
+            ci, fi = np.nonzero(cls == k)
+            loc = face_load[ci, fi] - tot[ci] / 12
+            Sg = np.bincount(blk[ci], loc, NB); Ng = np.bincount(blk[ci], None, NB)
+            m = Sg.sum() / max(Ng.sum(), 1)
+            loo = [(Sg.sum() - Sg[b]) / (Ng.sum() - Ng[b]) for b in range(NB) if Ng.sum() - Ng[b] > 0]
+            loo = np.array(loo)
+            d['face_local_load_excess'] = [float(m), float(np.sqrt((len(loo) - 1) / len(loo) * ((loo - loo.mean()) ** 2).sum()))]
+            # glue contact
+            hg = face_has_glued[ci, fi]
+            base = float(face_has_glued.mean())
+            p = float(hg.mean()) if len(hg) else None
+            d['share_on_faces_with_glued_port'] = [p, float(np.sqrt(p * (1 - p) / len(hg))) if len(hg) else None, base]
+            # template face occupancy
+            occ = np.bincount(fi, minlength=20)
+            e = occ.sum() / 20
+            d['template_face_occupancy'] = occ.tolist()
+            d['template_face_chi2_vs_uniform_19dof'] = float(((occ - e) ** 2 / e).sum()) if e > 0 else None
+            snap['carrier'][str(k)] = d
+        # one-pair carriers: {1,5}, {2,4}, {3,3}: load excess
+        cnt = np.stack([(cls == k).sum(1) for k in range(1, 6)], 1)
+        for lab, vec in (('{1,5}', [1, 0, 0, 0, 1]), ('{2,4}', [0, 1, 0, 1, 0]), ('{3,3}', [0, 0, 2, 0, 0]),
+                         ('{2,2,2}', [0, 3, 0, 0, 0]), ('{4,4,4}', [0, 0, 0, 3, 0])):
+            mm = (cnt == np.array(vec)).all(1)
+            ent = {'carriers': int(mm.sum()), 'load_excess': jk_diff(tot, mm, clean, blk)[:2], 'ticks_excess': jk_diff(ticks, mm, clean, blk)[:2]}
+            if cur:
+                ent['nonzero_current_events_excess'] = jk_diff(cur['nonzero'], mm, clean, blk)[:2]
+            snap['carrier']['composition ' + lab] = ent
+        # screen tier
+        gl_load = loads.reshape(-1)[geo.glue_a].astype(np.float64) + loads.reshape(-1)[geo.glue_b]
+        Sload = np.zeros(V); Scnt = np.zeros(V)
+        np.add.at(Sload, gfp, gl_load); np.add.at(Scnt, gfp, 2); np.add.at(Sload, gfm, gl_load); np.add.at(Scnt, gfm, 2)
+        pl_load = Sload / np.maximum(Scnt, 1)
+        Tt = np.zeros(V); Tc = np.zeros(V); Lt = np.zeros(V)
+        for j in range(3):
+            np.add.at(Tt, corners[:, j], ticks); np.add.at(Tc, corners[:, j], 1); np.add.at(Lt, corners[:, j], tot)
+        pl_ticks = Tt / np.maximum(Tc, 1); pl_tot = Lt / np.maximum(Tc, 1)
+        # block of a plaquette: block of the first carrier touching it
+        pblk = np.zeros(V, np.int64); pblk[corners[:, 0]] = blk; pblk[corners[:, 1]] = blk; pblk[corners[:, 2]] = blk
+        allp = np.ones(V, bool)
+        sclean = scls == 0
+        for k in range(1, 6):
+            mk = scls == k
+            snap['screen'][str(k)] = {'plaquettes': int(mk.sum()),
+                                      'bounding_port_load_excess': jk_diff(pl_load, mk, sclean, pblk)[:2],
+                                      'corner_carrier_load_excess': jk_diff(pl_tot, mk, sclean, pblk)[:2],
+                                      'corner_carrier_ticks_excess': jk_diff(pl_ticks, mk, sclean, pblk)[:2]}
+        out['snapshots'].append(snap)
+        print('sweep', s, {k: (v['load_excess'], v['ticks_excess'], v['face_local_load_excess']) for k, v in snap['carrier'].items() if not k.startswith('comp')}, flush=True)
+    json.dump(out, open(a.out, 'w'), indent=1)
+    print('wrote', a.out)
+
+
+if __name__ == '__main__':
+    main()

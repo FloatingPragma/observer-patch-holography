@@ -1,0 +1,88 @@
+{
+ "B1_sharp_cutoff_1_per_cell": {
+  "c_cell": 0.8862943611198906,
+  "A2": 0.006332573977646111
+ },
+ "B2_sharp_cutoff_pi_per_cell": {
+  "c_cell": 3.175754132818691,
+  "A2": 0.0625
+ },
+ "B3_cubic_zone_continuum": {
+  "label": "cube |p_i| <= pi, omega = |p|",
+  "zone_half_width": 3.141592653589793,
+  "speed": 1.0,
+  "Delta": -0.0012179764515824036,
+  "c_cell": 3.560424396721439,
+  "A2": 0.0947002693546185,
+  "closed_form_check_c": 3.560424396721438
+ },
+ "B4_fermion_CF1_cone_cell": {
+  "label": "cos w = cos(theta) cos(rho), |p_i| <= pi/4",
+  "zone_half_width": 0.7853981633974483,
+  "speed": 1.0,
+  "Delta": -0.001169041087773439,
+  "c_cell": 0.7723805486570864,
+  "A2": 0.0057097330883762246,
+  "finite_theta_check": [
+   {
+    "theta": 0.2,
+    "F": 0.005274871365351695,
+    "residual": -8.736604759779221e-08,
+    "residual_over_theta6": -0.0013650944937155028
+   },
+   {
+    "theta": 0.1,
+    "F": 0.005112923663991628,
+    "residual": -1.7018098753124322e-09,
+    "residual_over_theta6": -0.0017018098753124316
+   },
+   {
+    "theta": 0.05,
+    "F": 0.005070886753084691,
+    "residual": -3.214162963560696e-11,
+    "residual_over_theta6": -0.0020570642966788446
+   },
+   {
+    "theta": 0.025,
+    "F": 0.005060242920781466,
+    "residual": -5.906750782935788e-13,
+    "residual_over_theta6": -0.002419405120690498
+   }
+  ]
+ },
+ "B4_vector_GL_links_full_zone": {
+  "label": "omega^2 = khat^2 + M^2, |k_i| <= pi",
+  "zone_half_width": 3.141592653589793,
+  "speed": 1.0,
+  "Delta": -0.0058138967598254255,
+  "c_cell": 5.011941686362761,
+  "A2": 0.1138360129111076
+ },
+ "B5_CF1_full_zone": {
+  "zero_phase_points_of_rho": 32,
+  "log_coefficient_relative_to_one_cone": 32,
+  "status": "the logarithm's coefficient is 32 times the one-cone value: this regulator changes beta_lambda and is no threshold; no row"
+ },
+ "B6_member_B": {
+  "label": "member B, phi = 5 pi/16, full zone, even part",
+  "zone_half_width": 3.141592653589793,
+  "speed": 0.5555702330196023,
+  "Delta": 0.06732596010814987,
+  "c_cell": -1.6460393859096834,
+  "A2": -0.051792459661680404,
+  "gate_phi0_equals_CF1_alternating_tick": 1.1102230246251565e-16,
+  "gate_taylor_vs_finite_differences": {
+   "T1": 8.232256138496208e-05,
+   "T2": 8.972449433097829e-05,
+   "T4_rel": 0.005941852148329874
+  },
+  "odd_part_max_at_theta_0.1_on_test_points": 0.09495715441485797,
+  "speed_at_origin": 0.555570221917793,
+  "cos_phi": 0.5555702330196023,
+  "A1_linear_term_(tadpole)": -0.016889979837078958,
+  "gate_phi0_cone_cell_c_equals_B4": [
+   0.7723805488235718,
+   0.7723805486570864
+  ]
+ }
+}

@@ -1,0 +1,300 @@
+"""Worker CH, direction 2: the count of Higgs doublets (CANDIDATES.md section 4, DO-1 to DO-6).
+
+Run: /tmp/oph-completion-venv/bin/python ch_doublet.py [out.json]
+
+DO-1  UH's register: lowering operators x a_k + y b_k^dag, the normality condition, number of commuting normal doublets.
+DO-2  normal modes of omega N - kappa sum (B_x^dag B_y + h.c.) on a ring: branches per wave number and their charges.
+DO-3  all operator doublets on the 32 patterns covariant under the twelve currents; the level toggles among them;
+      the action of the complement map.
+DO-4  splits S1, S2, S3 of the toggle between two registers: mass angle of every species for classical amplitudes,
+      particle against conjugate, and the conserved diagonal charges.
+DO-5  eight oscillators: two normal doublets.
+No measured value is read.
+"""
+import itertools
+import json
+import sys
+from fractions import Fraction as F
+from pathlib import Path
+
+import numpy as np
+
+from ch_lib import PATTERNS, MULTIPLETS, NAME, INDEX, clean
+
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).with_name('doublet.json')
+out = {}
+rng = np.random.default_rng(20261111)
+
+# ----------------------------------------------------------------------------- DO-1: register algebra
+d = 5                                              # levels per oscillator (occupations 0..4)
+lower = np.diag(np.sqrt(np.arange(1, d)), 1)
+
+
+def osc(i, n=4):
+    mats = [np.eye(d)] * n
+    mats[i] = lower
+    M = mats[0]
+    for m in mats[1:]:
+        M = np.kron(M, m)
+    return M
+
+
+a1, a2, b1, b2 = (osc(i) for i in range(4))
+a, b = [a1, a2], [b1, b2]
+occ = sum(o.T @ o for o in (a1, a2, b1, b2))
+low = (np.diag(occ) <= d - 3).astype(float)       # states at least two quanta below the truncation edge
+Plow = np.diag(low)
+
+
+def comm(A, B):
+    return A @ B - B @ A
+
+
+def doublet_op(x, y):
+    return [x * a[k] + y * b[k].T for k in range(2)]
+
+
+tests = []
+for _ in range(6):
+    x, y = rng.normal(size=2) + 1j * rng.normal(size=2)
+    B = doublet_op(x, y)
+    worst = 0.0
+    for k, l in itertools.product(range(2), repeat=2):
+        C = comm(B[k], B[l].conj().T)
+        target = (abs(x) ** 2 - abs(y) ** 2) * (k == l)
+        worst = max(worst, np.abs((C - target * np.eye(d ** 4)) @ Plow).max())
+    tests.append(worst)
+# two operators with their own (x, y): commutator of one with the adjoint of the other
+x1, y1, x2, y2 = rng.normal(size=4) + 1j * rng.normal(size=4)
+B1, B2 = doublet_op(x1, y1), doublet_op(x2, y2)
+cross = max(np.abs((comm(B1[k], B2[k].conj().T) - (x1 * np.conj(x2) - y1 * np.conj(y2)) * np.eye(d ** 4)) @ Plow).max() for k in range(2))
+out['DO1'] = dict(
+    covariant_lowering_operators='B_k(x, y) = x a_k + y b_k^dag (a_k removes a +3 quantum, b_k^dag adds a -3 quantum)',
+    identity='[B_k(x, y), B_l(x, y)^dag] = (|x|^2 - |y|^2) delta_kl', identity_defect=max(tests),
+    cross_identity='[B_k(x1, y1), B_k(x2, y2)^dag] = x1 conj(x2) - y1 conj(y2)', cross_defect=float(cross),
+    normal_iff='|x| = |y|',
+    two_commuting_normal_doublets_need='x1/y1 = x2/y2, so the two operators are proportional',
+    result='the four oscillators carry exactly one normal doublet operator up to a factor and the phase of b: one complex doublet')
+assert max(tests) < 1e-10 and cross < 1e-10
+
+# ----------------------------------------------------------------------------- DO-2: normal modes on a ring
+def branches(L, omega, kappa, registers=1, relativistic=True):
+    """Positive Bogoliubov frequencies of one doublet component. Modes per register: a_x, b_x.
+    relativistic: hopping -kappa (B_x^dag B_y + h.c.), B = a + b^dag; otherwise -kappa (a_x^dag a_y + b_x^dag b_y + h.c.)."""
+    n = 2 * L * registers
+    A = np.zeros((n, n)); Bm = np.zeros((n, n))
+    for r in range(registers):
+        o = 2 * L * r
+        for x in range(L):
+            y = (x + 1) % L
+            ia, ib, ja, jb = o + x, o + L + x, o + y, o + L + y
+            A[ia, ia] += omega; A[ib, ib] += omega
+            A[ia, ja] -= kappa; A[ja, ia] -= kappa
+            A[ib, jb] -= kappa; A[jb, ib] -= kappa
+            if relativistic:
+                Bm[ia, jb] -= kappa; Bm[jb, ia] -= kappa
+                Bm[ja, ib] -= kappa; Bm[ib, ja] -= kappa
+    D = np.block([[A, Bm], [-Bm, -A]])
+    ev = np.linalg.eigvals(D)
+    assert np.abs(ev.imag).max() < 1e-9
+    pos = np.sort(ev.real[ev.real > 1e-12])
+    return pos
+
+
+L, omega, kappa = 12, 1.0, 0.11
+pos = branches(L, omega, kappa)
+ps = 2 * np.pi * np.arange(L) / L
+kg = np.sort(np.concatenate([np.sqrt(omega ** 2 - 4 * omega * kappa * np.cos(ps))] * 2))
+out['DO2'] = dict(ring=L, omega=omega, kappa=kappa, positive_frequencies=len(pos), per_wave_number=len(pos) / L,
+                  defect_against_complex_klein_gordon=float(np.abs(pos - kg).max()),
+                  dispersion='Omega^2 = omega^2 - 4 omega kappa cos p, twice per wave number (charge +1 and charge -1)',
+                  result='per doublet component one complex scalar field; UH register = one complex doublet, n_H = 1',
+                  eight_oscillators_per_wave_number=len(branches(L, omega, kappa, registers=2)) / L,
+                  number_conserving_hop_per_wave_number=len(branches(L, omega, kappa, relativistic=False)) / L,
+                  number_conserving_note='with a_x^dag a_y and b_x^dag b_y hops the empty register is an exact eigenstate; '
+                                         'it has no pair fluctuations and adds nothing to a vacuum polarisation')
+assert len(pos) == 2 * L and np.abs(pos - kg).max() < 1e-9
+
+# ----------------------------------------------------------------------------- DO-3: covariant doublets on the patterns
+states = [p['bits'] for p in PATTERNS]
+
+
+def ann(k):
+    A = np.zeros((32, 32))
+    for s in states:
+        if s[k]:
+            t = list(s); t[k] = 0
+            A[INDEX[tuple(t)], INDEX[s]] = (-1) ** sum(s[:k])
+    return A
+
+
+c = [ann(k) for k in range(5)]
+cd = [x.T for x in c]
+
+
+def E(i, j):
+    M = np.zeros((5, 5), complex); M[i, j] = 1; return M
+
+
+gens = []
+for i, j in ((0, 1), (0, 2), (1, 2)):
+    gens += [E(i, j) + E(j, i), -1j * E(i, j) + 1j * E(j, i)]
+gens += [E(0, 0) - E(1, 1), (E(0, 0) + E(1, 1) - 2 * E(2, 2)) / np.sqrt(3)]
+gens += [E(3, 4) + E(4, 3), -1j * E(3, 4) + 1j * E(4, 3), E(3, 3) - E(4, 4)]
+gens += [np.diag([-2, -2, -2, 3, 3]).astype(complex)]
+G = [sum(T[i, j] * cd[i] @ c[j] for i in range(5) for j in range(5)) for T in gens]
+sel = {m: [i for i, p in enumerate(PATTERNS) if p['multiplet'] == m] for m in MULTIPLETS}
+proj = {m: np.diag([1.0 if p['multiplet'] == m else 0.0 for p in PATTERNS]) for m in MULTIPLETS}
+
+# all pairs (O_1, O_2) with [dGamma(T), O_k] = sum_j t_jk O_j, t the doublet block of T (the law of c^dag_{s_k}).
+# The currents preserve the twelve multiplets, so the system splits into blocks (from multiplet mp to multiplet m).
+def covariant_doublets(m, mp):
+    """Null space of the covariance system on the block mp -> m. Returns the list of solutions (O_1, O_2) as arrays."""
+    ra, rb = sel[m], sel[mp]
+    da, db = len(ra), len(rb)
+    n = da * db
+    rows = []
+    for T, g in zip(gens, G):
+        t = T[3:, 3:]
+        ga, gb = g[np.ix_(ra, ra)], g[np.ix_(rb, rb)]
+        ad = np.kron(ga, np.eye(db)) - np.kron(np.eye(da), gb.T)        # vec([g, O]) for row-major vec(O)
+        rows.append(np.block([[ad - t[0, 0] * np.eye(n), -t[1, 0] * np.eye(n)],
+                              [-t[0, 1] * np.eye(n), ad - t[1, 1] * np.eye(n)]]))
+    Msys = np.vstack(rows)
+    u, sv, vh = np.linalg.svd(Msys)
+    tol = 1e-9
+    rank = int((sv > tol).sum())
+    sols = vh[rank:].conj()
+    return [(v[:n].reshape(da, db), v[n:].reshape(da, db)) for v in sols]
+
+
+def covariance_defect(O):
+    worst = 0.0
+    for T, g in zip(gens, G):
+        t = T[3:, 3:]
+        for k in range(2):
+            worst = max(worst, np.abs(g @ O[k] - O[k] @ g - sum(t[j, k] * O[j] for j in range(2))).max())
+    return worst
+
+
+cov_blocks = {}
+for m, mp in itertools.product(MULTIPLETS, repeat=2):
+    sols = covariant_doublets(m, mp)
+    if sols:
+        cov_blocks[(mp, m)] = len(sols)
+ncov = sum(cov_blocks.values())
+# the level toggles c^dag_{s_k} P_m for the eight multiplets with n2 <= 1
+toggles = {}
+for m in MULTIPLETS:
+    if m[1] <= 1:
+        O = [cd[3] @ proj[m], cd[4] @ proj[m]]
+        assert covariance_defect(O) < 1e-12 and np.abs(O[0]).max() > 0
+        assert cov_blocks.get((m, (m[0], m[1] + 1))) == 1                # the toggle is the only covariant doublet of its block
+        toggles[m] = O
+rank_toggles = len(toggles)
+extra_blocks = sorted(k for k in cov_blocks if not (k[0][0] == k[1][0] and k[1][1] == k[0][1] + 1))
+out['DO3'] = dict(covariant_operator_doublets=int(ncov), level_toggles=rank_toggles,
+                  others=[dict(frm=NAME[a], to=NAME[b], d_B_minus_L=PATTERNS[sel[b][0]]['BL'] - PATTERNS[sel[a][0]]['BL'])
+                          for a, b in extra_blocks])
+assert ncov == 10 and rank_toggles == 8
+
+# complement map C (c_j -> c_j^dag): |p> -> sign |p^c>
+Cmap = np.zeros((32, 32))
+for s in states:
+    comp = tuple(1 - x for x in s)
+    Cmap[INDEX[comp], INDEX[s]] = 1.0
+# fix signs so that C c_j C^-1 = c_j^dag exactly: solve signs by propagation from the empty pattern
+sign = {tuple([0] * 5): 1.0}
+order = sorted(states, key=sum)
+for s in order:
+    if s in sign:
+        continue
+    k = max(i for i in range(5) if s[i])
+    t = list(s); t[k] = 0; t = tuple(t)
+    # |s> = sgn c_k^dag |t>, C|s> = sgn c_k C|t>
+    sgn = (-1) ** sum(t[:k])
+    ct = tuple(1 - x for x in t)                      # C|t> = sign[t] |ct>, and c_k |ct> = (-1)^(sum ct[:k]) |ct - k>
+    sign[s] = sgn * sign[t] * (-1) ** sum(ct[:k])
+Cmap = np.zeros((32, 32))
+for s in states:
+    Cmap[INDEX[tuple(1 - x for x in s)], INDEX[s]] = sign[s]
+for j in range(5):
+    assert np.allclose(Cmap @ c[j] @ Cmap.T, cd[j])
+chan_name = {(1, 0): 'down', (1, 1): 'up', (3, 0): 'charged lepton', (3, 1): 'neutrino',
+             (2, 1): 'conjugate down', (2, 0): 'conjugate up', (0, 1): 'conjugate charged lepton', (0, 0): 'conjugate neutrino'}
+partner = {}
+for m, O in toggles.items():
+    img = Cmap @ O[1] @ Cmap.T                       # image of the neutral toggle of channel m
+    hits = [mp for mp, Op in toggles.items() if np.allclose(img, Op[1].T) or np.allclose(img, -Op[1].T)]
+    assert len(hits) == 1
+    partner[m] = hits[0]
+    assert hits[0] == (3 - m[0], 1 - m[1])
+out['DO3']['channels'] = {str(m): dict(name=chan_name[m], initial_degree=m[0] + m[1], complement_image='adjoint of ' + chan_name[partner[m]])
+                          for m in toggles}
+out['DO3']['conjugation_pairs'] = sorted({tuple(sorted((chan_name[m], chan_name[partner[m]]))) for m in toggles})
+assert len(out['DO3']['conjugation_pairs']) == 4
+
+# ----------------------------------------------------------------------------- DO-4: splits between two registers
+SPLITS = {'one register': lambda m: 0,
+          'S1 degree parity of the initial pattern': lambda m: (m[0] + m[1]) % 2,
+          'S2 n2 of the initial pattern': lambda m: m[1],
+          'S3 parity of n3': lambda m: m[0] % 2}
+beta = [0.37, 0.011]                               # two classical amplitudes of the neutral component (declared numbers)
+do4 = {}
+for label, reg in SPLITS.items():
+    Mm = np.zeros((32, 32))
+    for m, O in toggles.items():
+        Mm += beta[reg(m)] * (O[1] + O[1].T)
+    M2 = Mm @ Mm
+    assert np.allclose(M2, np.diag(np.diag(M2)))
+    # a species is a toggle channel: its patterns are the initial states (s2 empty) and their images (s2 occupied)
+    species = {}
+    for m in toggles:
+        vals = set()
+        for i, pt in enumerate(PATTERNS):
+            if (pt['multiplet'] == m and pt['bits'][4] == 0) or (pt['multiplet'] == (m[0], m[1] + 1) and pt['bits'][4] == 1):
+                vals.add(round(float(np.sqrt(M2[i, i])), 12))
+        assert len(vals) == 1, (label, m, vals)
+        species[chan_name[m]] = vals.pop()
+    conj_equal = all(abs(species[chan_name[m]] - species[chan_name[partner[m]]]) < 1e-12 for m in toggles)
+    # diagonal charges d(n3, n2) on patterns with register charges q_r: d(n3, n2 + 1) - d(n3, n2) = q_reg(m)
+    nreg = len({reg(m) for m in toggles})
+    cols = {m: i for i, m in enumerate(MULTIPLETS)}
+    A = np.zeros((len(toggles), 12 + nreg))
+    for r, m in enumerate(toggles):
+        A[r, cols[(m[0], m[1] + 1)]] = 1; A[r, cols[m]] = -1; A[r, 12 + reg(m)] = -1
+    dim = 12 + nreg - np.linalg.matrix_rank(A)
+    do4[label] = dict(registers=nreg, amplitudes=beta[:nreg], mass_angle_per_species=species,
+                      up_over_down=species['up'] / species['down'], lepton_over_down=species['charged lepton'] / species['down'],
+                      neutrino_over_up=species['neutrino'] / species['up'],
+                      species_and_conjugate_equal=conj_equal, conserved_diagonal_charges=int(dim))
+out['DO4'] = do4
+assert do4['one register']['up_over_down'] == 1.0
+assert abs(do4['S1 degree parity of the initial pattern']['up_over_down'] - beta[0] / beta[1]) < 1e-9
+assert do4['S1 degree parity of the initial pattern']['species_and_conjugate_equal']
+assert not do4['S2 n2 of the initial pattern']['species_and_conjugate_equal']
+assert not do4['S3 parity of n3']['species_and_conjugate_equal']
+# the extra conserved charge of S1 on the patterns: d = ceil(degree / 2) with q_even = 1, q_odd = 0
+dPQ = {m: (m[0] + m[1] + 1) // 2 for m in MULTIPLETS}
+assert all(dPQ[(m[0], m[1] + 1)] - dPQ[m] == (1 if (m[0] + m[1]) % 2 == 0 else 0) for m in toggles)
+out['DO4']['extra_charge_of_S1'] = 'pattern charge ceil(degree/2); the register of the even-degree toggles carries 1, the other 0'
+
+# ----------------------------------------------------------------------------- DO-5 and the slopes
+out['DO5'] = dict(
+    four_oscillators='a_k (+3), b_k (-3): one normal doublet B = a + b^dag; the two orientations are particle and antiparticle of one complex doublet; slopes (81/10, 5/6, -3)',
+    eight_oscillators='B_u = a_u + b_u^dag on the even-degree toggles (up, neutrino), B_d = a_d + b_d^dag on the odd-degree toggles (down, charged lepton); '
+                      'each field has a +3 and a -3 quantum; slopes (41/5, 1, -3)',
+    orientation_as_label='reading the +3 oscillators as one doublet and the -3 oscillators as a second one gives two lowering operators a and b^dag '
+                         'with [a, a^dag] = 1: no common eigenvector of the operator and its adjoint (R8 result 3), and no pair fluctuation')
+OUT.write_text(json.dumps(clean(out), indent=1))
+print('DO-1:', out['DO1']['result'], '| defects', out['DO1']['identity_defect'], out['DO1']['cross_defect'])
+print('DO-2: positive frequencies per wave number', out['DO2']['per_wave_number'], '| eight oscillators', out['DO2']['eight_oscillators_per_wave_number'],
+      '| defect against the complex Klein-Gordon chain', out['DO2']['defect_against_complex_klein_gordon'])
+print('DO-3: covariant operator doublets', ncov, ', level toggles', rank_toggles, ', others', out['DO3']['others'])
+print('      conjugation pairs', out['DO3']['conjugation_pairs'])
+for label, v in do4.items():
+    if isinstance(v, dict):
+        print('DO-4:', label, '| registers', v['registers'], '| up/down', round(v['up_over_down'], 6), '| lepton/down', round(v['lepton_over_down'], 6),
+              '| neutrino/up', round(v['neutrino_over_up'], 6), '| species = conjugate:', v['species_and_conjugate_equal'], '| conserved charges', v['conserved_diagonal_charges'])
+        print('       ', v['mass_angle_per_species'])
+print('wrote', OUT)

@@ -1,0 +1,44 @@
+"""S3 step 9: check the own builder against the simulation side's geometry module (read-only source file).
+
+Loads SIM/oph_defects/fedgeom.py as a single file (its imports resolve to the byte-identical pinned copies in the
+repository archive), builds `face_axis` and `port_pair` with cache disabled, and compares glue seams with the own
+builder: B in mesh order must equal `face_axis`, the own pinned routing must equal `port_pair`.
+
+Run:  cd SCR/rer-edit && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. nice -n 10 /tmp/oph-completion-venv/bin/python \
+          SCR/research/S3/s9_sim_check.py
+Writes SCR/research/S3/s9_sim_check.json
+"""
+import hashlib
+import importlib.util
+import json
+import os
+import sys
+
+import numpy as np
+
+sys.dont_write_bytecode = True
+sys.path.insert(0, '/private/tmp/claude-501/-Users-muellerberndt-Projects-oph-meta/ffc7e197-dc34-420e-b416-eceb3c5d7773/scratchpad/research/S3')
+import s0_lib as S  # noqa: E402
+
+SIM = 'WORKSPACE/oph-physics-sim'
+os.environ['OPH_UNIVERSE_CACHE'] = S.S3 + '/cache_unused'
+sys.path.insert(0, S.ARCH)
+spec = importlib.util.spec_from_file_location('sim_fedgeom', SIM + '/oph_defects/fedgeom.py')
+FG = importlib.util.module_from_spec(spec)
+sys.modules['sim_fedgeom'] = FG
+spec.loader.exec_module(FG)
+out = {'sim_fedgeom_sha256': hashlib.sha256(open(SIM + '/oph_defects/fedgeom.py', 'rb').read()).hexdigest(),
+       'defining_sources_identical_to_pinned': {n: hashlib.sha256(open(SIM + '/' + n, 'rb').read()).hexdigest() == hashlib.sha256(open(S.ARCH + '/' + n, 'rb').read()).hexdigest()
+                                                for n in ('oph_fpe/core/icosahedral.py', 'oph_fpe/core/screen_ports.py', 'oph_exact/carrier.py')},
+       'control_ports_sim': list(FG._control_ports()), 'belt_triple_own': list(S.BELT_TRIPLE), 'levels': {}}
+for level in range(4):
+    mesh = S.build_mesh(level)
+    row = {}
+    for gl, W in (('face_axis', S.uniform_wiring_mesh_order(mesh, S.BELT_TRIPLE)), ('port_pair', S.pinned_wiring(mesh)[0])):
+        geo = FG.build(level, cache=False, gluing=gl)
+        ga, gb = S.glue_seams(mesh, W)
+        row[gl] = bool(np.array_equal(ga, geo.glue_a) and np.array_equal(gb, geo.glue_b) and np.array_equal(mesh.tri, geo.tri))
+    out['levels'][level] = row
+    print(level, row, flush=True)
+json.dump(out, open(S.S3 + '/s9_sim_check.json', 'w'), indent=1)
+print(json.dumps({k: v for k, v in out.items() if k != 'levels'}))

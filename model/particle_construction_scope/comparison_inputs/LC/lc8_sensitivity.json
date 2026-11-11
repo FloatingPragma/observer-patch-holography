@@ -1,0 +1,75 @@
+{
+ "task": "LC addendum 4: sensitivities of the count",
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "A13_register_size": {
+  "theta(N)": "5*(3*N - 20)/N**2",
+  "theta(60)": "2/9",
+  "theta(61)": "815/3721",
+  "theta(62)": "415/1922",
+  "theta(84) with six tails and six heads at the port": "19/98",
+  "d ln theta / d ln N at N = 60": "-7/8",
+  "local unitary, 61 addresses": "815/3721",
+  "local unitary, 62 addresses": "415/1922"
+ },
+ "A14_adjacent_pair_admixture": {
+  "theta(w), both cells": "-w**2/900 - 7*w/180 + 2/9",
+  "d ln theta / d w at w = 0": "-7/40",
+  "theta(w = 30/66) (uniform over the 66 pairs)": "445/2178",
+  "one cell only (object A): d ln theta / d w": "-1/20",
+  "one cell only (object B): d ln theta / d w": "-1/8"
+ },
+ "A15_loads_per_cell": {
+  "theta(m)": "-m**2/144 + m/8",
+  "theta(2)": "2/9",
+  "d ln theta / d ln m at m = 2": "7/8"
+ },
+ "A16_partners_read_one_at_a_time": {
+  "1": {
+   "<G> (shared kick)": "2/9",
+   "phase per unit clock time, N rounds": {
+    "1": "0.20533403097",
+    "10": "0.222062099671",
+    "1000": "0.222222206219",
+    "1000000": "0.222222222222"
+   },
+   "simultaneous read of the n partners": "2/9"
+  },
+  "2": {
+   "<G> (shared kick)": "2/9",
+   "phase per unit clock time, N rounds": {
+    "1": "0.215732955808",
+    "10": "0.222158623247",
+    "1000": "0.222222215864",
+    "1000000": "0.222222222222"
+   },
+   "simultaneous read of the n partners": "73/216"
+  },
+  "3": {
+   "<G> (shared kick)": "2/9",
+   "phase per unit clock time, N rounds": {
+    "1": "0.217602641007",
+    "10": "0.222176492688",
+    "1000": "0.22222221765",
+    "1000000": "0.222222222222"
+   },
+   "simultaneous read of the n partners": "563/1296"
+  },
+  "6": {
+   "<G> (shared kick)": "2/9",
+   "phase per unit clock time, N rounds": {
+    "1": "0.218715911051",
+    "10": "0.222187213558",
+    "1000": "0.222222218721",
+    "1000000": "0.222222222222"
+   },
+   "simultaneous read of the n partners": "178483/279936"
+  }
+ }
+}

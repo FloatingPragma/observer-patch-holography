@@ -1,0 +1,580 @@
+{
+ "measured_values_read": false,
+ "labels": "EXACT (Q(sqrt5, i))",
+ "g_cycles": [
+  [
+   0,
+   2,
+   9
+  ],
+  [
+   1,
+   3,
+   10
+  ],
+  [
+   4,
+   5,
+   11
+  ],
+  [
+   6,
+   7,
+   8
+  ]
+ ],
+ "gC": [
+  1,
+  0,
+  3,
+  2,
+  6,
+  7,
+  4,
+  5,
+  11,
+  10,
+  9,
+  8
+ ],
+ "gE": [
+  3,
+  9,
+  10,
+  0,
+  7,
+  8,
+  11,
+  4,
+  5,
+  1,
+  2,
+  6
+ ],
+ "face_orbit_positions": [
+  4,
+  11,
+  5
+ ],
+ "lifts": {
+  "plus": {
+   "quaternion": [
+    "1/2",
+    "(-1/4+1/4*r5)",
+    "0",
+    "(-1/4+-1/4*r5)"
+   ],
+   "U_sigma_q": [
+    [
+     "1/2+(-1/4+-1/4*r5)*i",
+     "(-1/4+1/4*r5)*i"
+    ],
+    [
+     "(-1/4+1/4*r5)*i",
+     "1/2+(1/4+1/4*r5)*i"
+    ]
+   ],
+   "R_q": [
+    [
+     "(1/4+-1/4*r5)",
+     "(1/4+1/4*r5)",
+     "-1/2"
+    ],
+    [
+     "(-1/4+-1/4*r5)",
+     "-1/2",
+     "(1/4+-1/4*r5)"
+    ],
+    [
+     "-1/2",
+     "(-1/4+1/4*r5)",
+     "(1/4+1/4*r5)"
+    ]
+   ],
+   "U_cubed": [
+    [
+     "-1",
+     "0"
+    ],
+    [
+     "0",
+     "-1"
+    ]
+   ],
+   "R_cubed_is_identity": true,
+   "U_unitary": true,
+   "det_U": "1",
+   "U11": "1/2+(-1/4+-1/4*r5)*i",
+   "U22": "1/2+(1/4+1/4*r5)*i",
+   "U22_is_conj_U11": true,
+   "alpha_n": [
+    "1",
+    "1/2+(-1/4+-1/4*r5)*i",
+    "-1/2+(-1/4+-1/4*r5)*i"
+   ],
+   "delta_n": [
+    "1",
+    "1/2+(1/4+1/4*r5)*i",
+    "-1/2+(1/4+1/4*r5)*i"
+   ],
+   "legs": {
+    "up": {
+     "per_colour": {
+      "0": {
+       "closure_L": -1,
+       "closure_R": 1,
+       "t_n": [
+        "1",
+        "1/2+(-1/4+-1/4*r5)*i",
+        "-1/2+(-1/4+-1/4*r5)*i"
+       ],
+       "toggle_maps_orbit_into_orbit": true,
+       "orbit_states_orthonormal": true,
+       "abs_t_n_squared": [
+        "1",
+        "(5/8+1/8*r5)",
+        "(5/8+1/8*r5)"
+       ]
+      },
+      "1": {
+       "closure_L": -1,
+       "closure_R": 1,
+       "t_n": [
+        "1",
+        "1/2+(-1/4+-1/4*r5)*i",
+        "-1/2+(-1/4+-1/4*r5)*i"
+       ],
+       "toggle_maps_orbit_into_orbit": true,
+       "orbit_states_orthonormal": true,
+       "abs_t_n_squared": [
+        "1",
+        "(5/8+1/8*r5)",
+        "(5/8+1/8*r5)"
+       ]
+      },
+      "2": {
+       "closure_L": -1,
+       "closure_R": 1,
+       "t_n": [
+        "1",
+        "1/2+(-1/4+-1/4*r5)*i",
+        "-1/2+(-1/4+-1/4*r5)*i"
+       ],
+       "toggle_maps_orbit_into_orbit": true,
+       "orbit_states_orthonormal": true,
+       "abs_t_n_squared": [
+        "1",
+        "(5/8+1/8*r5)",
+        "(5/8+1/8*r5)"
+       ]
+      }
+     },
+     "colour_blind": true
+    },
+    "down": {
+     "per_colour": {
+      "0": {
+       "closure_L": -1,
+       "closure_R": 1,
+       "t_n": [
+        "-1",
+        "-1/2+(-1/4+-1/4*r5)*i",
+        "1/2+(-1/4+-1/4*r5)*i"
+       ],
+       "toggle_maps_orbit_into_orbit": true,
+       "orbit_states_orthonormal": true,
+       "abs_t_n_squared": [
+        "1",
+        "(5/8+1/8*r5)",
+        "(5/8+1/8*r5)"
+       ]
+      },
+      "1": {
+       "closure_L": -1,
+       "closure_R": 1,
+       "t_n": [
+        "-1",
+        "-1/2+(-1/4+-1/4*r5)*i",
+        "1/2+(-1/4+-1/4*r5)*i"
+       ],
+       "toggle_maps_orbit_into_orbit": true,
+       "orbit_states_orthonormal": true,
+       "abs_t_n_squared": [
+        "1",
+        "(5/8+1/8*r5)",
+        "(5/8+1/8*r5)"
+       ]
+      },
+      "2": {
+       "closure_L": -1,
+       "closure_R": 1,
+       "t_n": [
+        "-1",
+        "-1/2+(-1/4+-1/4*r5)*i",
+        "1/2+(-1/4+-1/4*r5)*i"
+       ],
+       "toggle_maps_orbit_into_orbit": true,
+       "orbit_states_orthonormal": true,
+       "abs_t_n_squared": [
+        "1",
+        "(5/8+1/8*r5)",
+        "(5/8+1/8*r5)"
+       ]
+      }
+     },
+     "colour_blind": true
+    },
+    "nu": {
+     "per_colour": {
+      "None": {
+       "closure_L": -1,
+       "closure_R": 1,
+       "t_n": [
+        "1",
+        "1/2+(-1/4+-1/4*r5)*i",
+        "-1/2+(-1/4+-1/4*r5)*i"
+       ],
+       "toggle_maps_orbit_into_orbit": true,
+       "orbit_states_orthonormal": true,
+       "abs_t_n_squared": [
+        "1",
+        "(5/8+1/8*r5)",
+        "(5/8+1/8*r5)"
+       ]
+      }
+     },
+     "colour_blind": true
+    },
+    "e": {
+     "per_colour": {
+      "None": {
+       "closure_L": -1,
+       "closure_R": 1,
+       "t_n": [
+        "-1",
+        "-1/2+(-1/4+-1/4*r5)*i",
+        "1/2+(-1/4+-1/4*r5)*i"
+       ],
+       "toggle_maps_orbit_into_orbit": true,
+       "orbit_states_orthonormal": true,
+       "abs_t_n_squared": [
+        "1",
+        "(5/8+1/8*r5)",
+        "(5/8+1/8*r5)"
+       ]
+      }
+     },
+     "colour_blind": true
+    }
+   },
+   "nu_equals_up": true,
+   "e_equals_down": true
+  },
+  "minus": {
+   "quaternion": [
+    "-1/2",
+    "(1/4+-1/4*r5)",
+    "0",
+    "(1/4+1/4*r5)"
+   ],
+   "U_sigma_q": [
+    [
+     "-1/2+(1/4+1/4*r5)*i",
+     "(1/4+-1/4*r5)*i"
+    ],
+    [
+     "(1/4+-1/4*r5)*i",
+     "-1/2+(-1/4+-1/4*r5)*i"
+    ]
+   ],
+   "R_q": [
+    [
+     "(1/4+-1/4*r5)",
+     "(1/4+1/4*r5)",
+     "-1/2"
+    ],
+    [
+     "(-1/4+-1/4*r5)",
+     "-1/2",
+     "(1/4+-1/4*r5)"
+    ],
+    [
+     "-1/2",
+     "(-1/4+1/4*r5)",
+     "(1/4+1/4*r5)"
+    ]
+   ],
+   "U_cubed": [
+    [
+     "1",
+     "0"
+    ],
+    [
+     "0",
+     "1"
+    ]
+   ],
+   "R_cubed_is_identity": true,
+   "U_unitary": true,
+   "det_U": "1",
+   "U11": "-1/2+(1/4+1/4*r5)*i",
+   "U22": "-1/2+(-1/4+-1/4*r5)*i",
+   "U22_is_conj_U11": true,
+   "alpha_n": [
+    "1",
+    "-1/2+(1/4+1/4*r5)*i",
+    "-1/2+(-1/4+-1/4*r5)*i"
+   ],
+   "delta_n": [
+    "1",
+    "-1/2+(-1/4+-1/4*r5)*i",
+    "-1/2+(1/4+1/4*r5)*i"
+   ],
+   "legs": {
+    "up": {
+     "per_colour": {
+      "0": {
+       "closure_L": 1,
+       "closure_R": 1,
+       "t_n": [
+        "1",
+        "-1/2+(1/4+1/4*r5)*i",
+        "-1/2+(-1/4+-1/4*r5)*i"
+       ],
+       "toggle_maps_orbit_into_orbit": true,
+       "orbit_states_orthonormal": true,
+       "abs_t_n_squared": [
+        "1",
+        "(5/8+1/8*r5)",
+        "(5/8+1/8*r5)"
+       ]
+      },
+      "1": {
+       "closure_L": 1,
+       "closure_R": 1,
+       "t_n": [
+        "1",
+        "-1/2+(1/4+1/4*r5)*i",
+        "-1/2+(-1/4+-1/4*r5)*i"
+       ],
+       "toggle_maps_orbit_into_orbit": true,
+       "orbit_states_orthonormal": true,
+       "abs_t_n_squared": [
+        "1",
+        "(5/8+1/8*r5)",
+        "(5/8+1/8*r5)"
+       ]
+      },
+      "2": {
+       "closure_L": 1,
+       "closure_R": 1,
+       "t_n": [
+        "1",
+        "-1/2+(1/4+1/4*r5)*i",
+        "-1/2+(-1/4+-1/4*r5)*i"
+       ],
+       "toggle_maps_orbit_into_orbit": true,
+       "orbit_states_orthonormal": true,
+       "abs_t_n_squared": [
+        "1",
+        "(5/8+1/8*r5)",
+        "(5/8+1/8*r5)"
+       ]
+      }
+     },
+     "colour_blind": true
+    },
+    "down": {
+     "per_colour": {
+      "0": {
+       "closure_L": 1,
+       "closure_R": 1,
+       "t_n": [
+        "-1",
+        "1/2+(1/4+1/4*r5)*i",
+        "1/2+(-1/4+-1/4*r5)*i"
+       ],
+       "toggle_maps_orbit_into_orbit": true,
+       "orbit_states_orthonormal": true,
+       "abs_t_n_squared": [
+        "1",
+        "(5/8+1/8*r5)",
+        "(5/8+1/8*r5)"
+       ]
+      },
+      "1": {
+       "closure_L": 1,
+       "closure_R": 1,
+       "t_n": [
+        "-1",
+        "1/2+(1/4+1/4*r5)*i",
+        "1/2+(-1/4+-1/4*r5)*i"
+       ],
+       "toggle_maps_orbit_into_orbit": true,
+       "orbit_states_orthonormal": true,
+       "abs_t_n_squared": [
+        "1",
+        "(5/8+1/8*r5)",
+        "(5/8+1/8*r5)"
+       ]
+      },
+      "2": {
+       "closure_L": 1,
+       "closure_R": 1,
+       "t_n": [
+        "-1",
+        "1/2+(1/4+1/4*r5)*i",
+        "1/2+(-1/4+-1/4*r5)*i"
+       ],
+       "toggle_maps_orbit_into_orbit": true,
+       "orbit_states_orthonormal": true,
+       "abs_t_n_squared": [
+        "1",
+        "(5/8+1/8*r5)",
+        "(5/8+1/8*r5)"
+       ]
+      }
+     },
+     "colour_blind": true
+    },
+    "nu": {
+     "per_colour": {
+      "None": {
+       "closure_L": 1,
+       "closure_R": 1,
+       "t_n": [
+        "1",
+        "-1/2+(1/4+1/4*r5)*i",
+        "-1/2+(-1/4+-1/4*r5)*i"
+       ],
+       "toggle_maps_orbit_into_orbit": true,
+       "orbit_states_orthonormal": true,
+       "abs_t_n_squared": [
+        "1",
+        "(5/8+1/8*r5)",
+        "(5/8+1/8*r5)"
+       ]
+      }
+     },
+     "colour_blind": true
+    },
+    "e": {
+     "per_colour": {
+      "None": {
+       "closure_L": 1,
+       "closure_R": 1,
+       "t_n": [
+        "-1",
+        "1/2+(1/4+1/4*r5)*i",
+        "1/2+(-1/4+-1/4*r5)*i"
+       ],
+       "toggle_maps_orbit_into_orbit": true,
+       "orbit_states_orthonormal": true,
+       "abs_t_n_squared": [
+        "1",
+        "(5/8+1/8*r5)",
+        "(5/8+1/8*r5)"
+       ]
+      }
+     },
+     "colour_blind": true
+    }
+   },
+   "nu_equals_up": true,
+   "e_equals_down": true
+  }
+ },
+ "base_port_check_same_compressions": {
+  "plus|port11|up": true,
+  "plus|port11|down": true,
+  "plus|port5|up": true,
+  "plus|port5|down": true,
+  "minus|port11|up": true,
+  "minus|port11|down": true,
+  "minus|port5|up": true,
+  "minus|port5|down": true
+ },
+ "reading_F_basis_checks": {
+  "0": {
+   "lifted_shift_is_S_x_U_in_fixed_basis": true,
+   "right_orbits_periodic_plain_shift": true,
+   "T_u_amplitudes": [
+    "1",
+    "1",
+    "1"
+   ],
+   "T_d_amplitudes": [
+    "-1",
+    "-1",
+    "-1"
+   ],
+   "T_u_kills_s2_side": true,
+   "T_d_kills_s1_side": true,
+   "T_u_exact": true,
+   "T_d_exact": true
+  },
+  "1": {
+   "lifted_shift_is_S_x_U_in_fixed_basis": true,
+   "right_orbits_periodic_plain_shift": true,
+   "T_u_amplitudes": [
+    "1",
+    "1",
+    "1"
+   ],
+   "T_d_amplitudes": [
+    "-1",
+    "-1",
+    "-1"
+   ],
+   "T_u_kills_s2_side": true,
+   "T_d_kills_s1_side": true,
+   "T_u_exact": true,
+   "T_d_exact": true
+  },
+  "2": {
+   "lifted_shift_is_S_x_U_in_fixed_basis": true,
+   "right_orbits_periodic_plain_shift": true,
+   "T_u_amplitudes": [
+    "1",
+    "1",
+    "1"
+   ],
+   "T_d_amplitudes": [
+    "-1",
+    "-1",
+    "-1"
+   ],
+   "T_u_kills_s2_side": true,
+   "T_d_kills_s1_side": true,
+   "T_u_exact": true,
+   "T_d_exact": true
+  }
+ },
+ "X3": {
+  "S_x_1_commutes_with_lifted_shift": true,
+  "S_x_1_intertwines_T_u": true,
+  "S_x_1_intertwines_T_d": true,
+  "S_x_1_commutes_with_tau_plus": true,
+  "lifted_shift_commutes_with_T_u": false,
+  "compressions": {
+   "k1": {
+    "s1_side_equals_U11k_S^k": true,
+    "s2_side_equals_U22k_S^k": true,
+    "(U^k)_11": "1/2+(-1/4+-1/4*r5)*i",
+    "(U^k)_22": "1/2+(1/4+1/4*r5)*i"
+   },
+   "k2": {
+    "s1_side_equals_U11k_S^k": true,
+    "s2_side_equals_U22k_S^k": true,
+    "(U^k)_11": "-1/2+(-1/4+-1/4*r5)*i",
+    "(U^k)_22": "-1/2+(1/4+1/4*r5)*i"
+   },
+   "k3": {
+    "s1_side_equals_U11k_S^k": true,
+    "s2_side_equals_U22k_S^k": true,
+    "(U^k)_11": "-1",
+    "(U^k)_22": "-1"
+   }
+  }
+ }
+}

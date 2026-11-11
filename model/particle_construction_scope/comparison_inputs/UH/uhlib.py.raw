@@ -1,0 +1,69 @@
+"""Worker UH: the induced quartic at the cell from the constants of uh_constants.py (group B of CANDIDATES.md).
+
+lambda(E_cell) = (1/16 pi^2) [ -3 y_t^4 (3/2 - c_f) + (3/16) X (5/6 - c_V) ],  X = 2 g2^4 + (g2^2 + gY^2)^2.
+"""
+import json
+import math
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+K = 16 * math.pi ** 2
+
+
+def regulators():
+    c = json.loads((HERE / "constants.json").read_text())
+    b1, b2, b3 = c["B1_sharp_cutoff_1_per_cell"], c["B2_sharp_cutoff_pi_per_cell"], c["B3_cubic_zone_continuum"]
+    f4, v4, m6 = c["B4_fermion_CF1_cone_cell"], c["B4_vector_GL_links_full_zone"], c["B6_member_B"]
+    # member B in cell units (E_cell = hbar c / l_link): c -> c - 2 ln(speed); A2 scales with speed^-2 (not used)
+    return {
+        "B1": {"c_f": b1["c_cell"], "c_V": b1["c_cell"], "A_f": b1["A2"], "A_V": b1["A2"],
+               "text": "sharp cutoff 1/cell, both"},
+        "B2": {"c_f": b2["c_cell"], "c_V": b2["c_cell"], "A_f": b2["A2"], "A_V": b2["A2"],
+               "text": "sharp cutoff pi/cell, both"},
+        "B3": {"c_f": b3["c_cell"], "c_V": b3["c_cell"], "A_f": b3["A2"], "A_V": b3["A2"],
+               "text": "cubic zone, continuum dispersion, both"},
+        "B4": {"c_f": f4["c_cell"], "c_V": v4["c_cell"], "A_f": f4["A2"], "A_V": v4["A2"],
+               "text": "CF-1 alternating tick on the cone cell; GL link waves on the full zone"},
+        "B6t": {"c_f": m6["c_cell"], "c_V": v4["c_cell"], "A_f": m6["A2"], "A_V": v4["A2"],
+                "text": "member B (even part), E_cell = hbar/tick; GL link waves"},
+        "B6c": {"c_f": m6["c_cell"] - 2 * math.log(m6["speed"]), "c_V": v4["c_cell"],
+                "A_f": m6["A2"], "A_V": v4["A2"],
+                "text": "member B (even part), E_cell = hbar c/l_link; GL link waves"},
+        **_addendum2(f4, m6),
+    }
+
+
+def _addendum2(f4, m6):
+    """B4t (CANDIDATES.md, Addendum 2): link waves with two leapfrog field steps per tick"""
+    path = HERE / "constants_b4t.json"
+    if not path.exists():
+        return {}
+    vt = json.loads(path.read_text())
+    return {"B4t": {"c_f": f4["c_cell"], "c_V": vt["c_cell"], "A_f": f4["A2"], "A_V": vt["A2"],
+                    "text": "CF-1 alternating tick on the cone cell; GL links with two field steps per tick"},
+            "B6tt": {"c_f": m6["c_cell"], "c_V": vt["c_cell"], "A_f": m6["A2"], "A_V": vt["A2"],
+                     "text": "member B (even part), E_cell = hbar/tick; GL links with two field steps per tick"}}
+
+
+def X_of(g2, gY):
+    return 2 * g2 ** 4 + (g2 ** 2 + gY ** 2) ** 2
+
+
+def lam_ind(y, g2, gY, reg):
+    return (-3 * y ** 4 * (1.5 - reg["c_f"]) + (3.0 / 16) * X_of(g2, gY) * (5.0 / 6 - reg["c_V"])) / K
+
+
+def y_crit_1loop(g2, gY):
+    return (X_of(g2, gY) / 16) ** 0.25
+
+
+def y_veltman(g2, gY, reg):
+    """vanishing quadratic term of the zero-point sums: -6 y^2 A_f + (3/4)(3 g2^2 + gY^2) A_V = 0"""
+    r = reg["A_V"] / reg["A_f"]
+    val = r * (3 * g2 ** 2 + gY ** 2) / 8
+    return math.sqrt(val) if val > 0 else None
+
+
+def mu_zero(reg):
+    """scales (in units of E_cell) at which the fermion and the vector part of the induced quartic vanish in MSbar"""
+    return {"fermion": math.exp((reg["c_f"] - 1.5) / 2), "vector": math.exp((reg["c_V"] - 5.0 / 6) / 2)}

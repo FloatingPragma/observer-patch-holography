@@ -1,0 +1,81 @@
+"""LC addendum 4 (A13 to A15): sensitivities of the count of two cells (row G2a). EXACT (sympy). Writes
+lc8_sensitivity.json. Run from RL/work/LC:
+    PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B lc8_sensitivity.py
+No measured value is read.
+"""
+from __future__ import annotations
+
+import itertools
+import sys
+from fractions import Fraction as Fr
+
+import sympy as sp
+
+import lc_common as L
+
+
+def main():
+    out = {'task': 'LC addendum 4: sensitivities of the count', 'provenance': L.provenance()}
+    N, w, m = sp.symbols('N w m', positive=True)
+    # A13: N addresses, five with the port as tail, five as head
+    th = 5 / N + 10 / N - 2 * (5 / N) * (10 / N)
+    out['A13_register_size'] = {
+        'theta(N)': str(sp.simplify(th)), 'theta(60)': str(th.subs(N, 60)), 'theta(61)': str(th.subs(N, 61)),
+        'theta(62)': str(th.subs(N, 62)), 'theta(84) with six tails and six heads at the port': str(
+            (sp.Rational(6, 84) + sp.Rational(12, 84) - 2 * sp.Rational(6, 84) * sp.Rational(12, 84))),
+        'd ln theta / d ln N at N = 60': str(sp.simplify((sp.diff(th, N) * N / th).subs(N, 60)))}
+    # explicit check of theta(61), theta(62) against the local unitary: registers with one or two extra idle addresses
+    for extra in (1, 2):
+        addr = list(L.ADDR) + [(20 + i, 30 + i) for i in range(extra)]
+        cfg = tuple(2 if p == 2 else 0 for p in range(40))
+        r2 = r3 = Fr(0)
+        for (a, b) in addr:
+            for c2, rec, u in L.local(cfg, 0, a, b):
+                r2 += u * u / len(addr) if rec == 2 else 0
+                r3 += u * u / len(addr) if rec == 3 else 0
+        cnt = r2 + (r2 + r3) - 2 * r2 * (r2 + r3)
+        out['A13_register_size'][f'local unitary, {60 + extra} addresses'] = str(cnt)
+    # A14: adjacent-pair admixture in both cells
+    p = (1 - w) / 12 + w / 15
+    th2 = 3 * p - 4 * p ** 2
+    out['A14_adjacent_pair_admixture'] = {
+        'theta(w), both cells': str(sp.simplify(th2)), 'd ln theta / d w at w = 0': str(sp.simplify((sp.diff(th2, w) / th2).subs(w, 0))),
+        'theta(w = 30/66) (uniform over the 66 pairs)': str(th2.subs(w, sp.Rational(30, 66))),
+        'one cell only (object A): d ln theta / d w': str(sp.simplify((sp.diff(p + sp.Rational(1, 6) - 2 * p * sp.Rational(1, 6), w)
+                                                                      / sp.Rational(2, 9)).subs(w, 0))),
+        'one cell only (object B): d ln theta / d w': str(sp.simplify((sp.diff(sp.Rational(1, 12) + 2 * p - 2 * sp.Rational(1, 12) * 2 * p, w)
+                                                                      / sp.Rational(2, 9)).subs(w, 0)))}
+    # A15: number of loads per cell
+    th3 = m / 8 - m ** 2 / 144
+    out['A15_loads_per_cell'] = {'theta(m)': str(th3), 'theta(2)': str(th3.subs(m, 2)),
+                                 'd ln theta / d ln m at m = 2': str(sp.simplify((sp.diff(th3, m) * m / th3).subs(m, 2)))}
+    # A16: n partner cells read one at a time, the kick shared among them
+    import mpmath as mp
+    from math import comb
+    mp.mp.dps = 30
+    a16 = {}
+    for n in (1, 2, 3, 6):
+        dist = {}                                   # distribution of G = (1/n) #{partners with H_l != R+}
+        for rp, prp in ((1, Fr(1, 12)), (0, Fr(11, 12))):
+            for k in range(n + 1):
+                pk = comb(n, k) * Fr(1, 6) ** k * Fr(5, 6) ** (n - k)
+                g = Fr(n - k, n) if rp else Fr(k, n)
+                dist[g] = dist.get(g, Fr(0)) + prp * pk
+        mean = sum(g * pr for g, pr in dist.items())
+        rows = {}
+        for N in (1, 10, 1000, 10 ** 6):
+            z = sum(mp.mpf(pr.numerator) / pr.denominator * mp.exp(-1j * (mp.mpf(g.numerator) / g.denominator) / N)
+                    for g, pr in dist.items()) ** N
+            rows[N] = mp.nstr(-mp.arg(z), 12)
+        q = 1 - Fr(5, 6) ** n
+        a16[n] = {'<G> (shared kick)': str(mean), 'phase per unit clock time, N rounds': rows,
+                  'simultaneous read of the n partners': str(Fr(1, 12) + q - 2 * Fr(1, 12) * q)}
+    out['A16_partners_read_one_at_a_time'] = a16
+    L.jdump(out, 'lc8_sensitivity.json')
+    for k, v in out.items():
+        if k != 'provenance':
+            print(k, v)
+
+
+if __name__ == '__main__':
+    sys.exit(main())

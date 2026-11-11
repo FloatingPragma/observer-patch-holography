@@ -1,0 +1,231 @@
+"""UD addendum G: the toggle with a link for the thirteenth current (the overall occupation phase of the code).
+
+Reads no measured value in the construction; the last block (marked NOT BLIND) compares with the needed cell ratios.
+Writes degree.json. Run: cd RL/work/UD && PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B ud_degree.py
+Imports work/GL/gl_lib.py read only (the twelve generators T_a on the code, tr(T_a T_b) = delta/2).
+Pattern space as in work/YC/yc_functional.py: Lambda(C^5), levels 0, 1, 2 colour, 3 = s1, 4 = s2.
+"""
+import itertools
+import json
+import math
+import os
+import sys
+from collections import deque
+from fractions import Fraction as Fr
+
+import numpy as np
+from scipy.linalg import expm
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(HERE, '..', 'GL'))
+import gl_lib as L  # noqa: E402
+
+NL, DIM = 5, 32
+rng = np.random.default_rng(13)
+
+
+def annihilator(i):
+    a = np.zeros((DIM, DIM), complex)
+    for s in range(DIM):
+        if s >> i & 1:
+            a[s ^ (1 << i), s] = (-1) ** bin(s & ((1 << i) - 1)).count('1')
+    return a
+
+
+A = [annihilator(i) for i in range(NL)]
+AD = [a.conj().T for a in A]
+dL = lambda T: sum(T[i, j] * AD[i] @ A[j] for i in range(NL) for j in range(NL))
+TG = [dL(T) for T in L.TBASIS]
+deg = np.array([bin(s).count('1') for s in range(DIM)])
+n3 = np.array([bin(s & 7).count('1') for s in range(DIM)])
+n2 = np.array([bin(s & 24).count('1') for s in range(DIM)])
+Ndeg = np.diag(deg).astype(complex)
+T13 = np.eye(5, dtype=complex) / math.sqrt(10)
+G13u = dL(T13)                                           # N / sqrt 10
+G13c = (Ndeg - 2.5 * np.eye(DIM)) / math.sqrt(10)        # centred
+K = A[4] + AD[4]
+
+
+def K_of(phi):
+    return sum(phi[i] * AD[i] + np.conj(phi[i]) * A[i] for i in range(NL))
+
+
+def cost(P, W):
+    return 1 - np.trace(P @ W @ P).real / np.trace(P).real
+
+
+out = {'measured_values_read_in_construction': False}
+
+# ---------------------------------------------------------------- G1: classical link in the seam-cost functional
+P_all = np.eye(DIM, dtype=complex)
+P_fam = np.diag((n3 % 2 == 1).astype(complex))
+P_gen = np.diag((n3 <= 1).astype(complex))
+carriers = {'all patterns, 32': P_all, 'family half n3 odd, 16': P_fam, 'generated from the code (n3 at most 1), 16': P_gen}
+g1 = {'[N, twelve generators] max': float(max(abs(Ndeg @ T - T @ Ndeg).max() for T in TG)),
+      'tr(T_13 T_13) on the code': float(np.trace(T13 @ T13).real),
+      'tr(T_13 T_a) max': float(max(abs(np.trace(T13 @ T)) for T in L.TBASIS))}
+hess = {}
+for name, P in carriers.items():
+    d = np.trace(P).real
+    mean = np.trace(P @ Ndeg).real / d
+    hess[name] = {'H_gauge (first of the twelve)': float(np.trace(P @ TG[0] @ TG[0] @ P).real / d),
+                  'H_13 centred at 5/2': float(np.trace(P @ G13c @ G13c @ P).real / d),
+                  'H_13 uncentred': float(np.trace(P @ G13u @ G13u @ P).real / d),
+                  'mean degree on the carrier': float(mean),
+                  'H_13 about the carrier mean (variance / 10)': float((np.trace(P @ Ndeg @ Ndeg).real / d - mean ** 2) / 10),
+                  'H_toggle': float(np.trace(P @ K @ K @ P).real / d)}
+g1['hessians'] = hess
+phi_ = 0.731
+U5 = np.exp(1j * phi_) * np.eye(5)
+UF = expm(1j * phi_ * Ndeg)
+vec = np.zeros(5, complex); vec[4] = 0.3 - 0.2j; vec[3] = 0.1 + 0.25j
+g1['covariance |Lam(e^{i phi}) K_theta Lam^dag - K_(e^{i phi} theta)|'] = float(abs(UF @ K_of(vec) @ UF.conj().T - K_of(U5 @ vec)).max())
+rows = []
+for scale in (0.08, 0.04, 0.02):
+    worst = 0.0
+    for _ in range(6):
+        ph = rng.normal() * scale * 3
+        a, b = (rng.normal(size=2) + 1j * rng.normal(size=2)) * scale
+        p0 = np.zeros(5, complex); p0[4] = a
+        p1 = np.zeros(5, complex); p1[4] = b
+        W = expm(1j * ph * Ndeg) @ expm(-1j * K_of(p1)) @ expm(-1j * ph * Ndeg) @ expm(1j * K_of(p0))
+        for P in (P_all, P_fam):
+            c = cost(P, W)
+            pred = 0.5 * abs(np.exp(1j * ph) * b - a) ** 2
+            worst = max(worst, abs(c - pred) / pred)
+    rows.append({'field scale': scale, 'largest relative deviation from (1/2) |e^{i phi} phi_prime - phi|^2': worst})
+g1['higgs_plaquette_with_thirteenth_link'] = rows
+# toggle Hessian resolved by degree transition (all patterns): pairs and weight per pair
+per = {}
+for s in range(DIM):
+    if s >> 4 & 1:
+        continue
+    key = f'{deg[s]}-{deg[s] + 1}'
+    per.setdefault(key, {'pairs': 0, 'sum |K|^2': 0.0})
+    per[key]['pairs'] += 1
+    per[key]['sum |K|^2'] += float(abs(K[s | 16, s]) ** 2)
+for v in per.values():
+    v['weight per pair'] = v['sum |K|^2'] / v['pairs']
+g1['toggle_by_degree_transition'] = per
+g1['per_pair_weight_ratio (2-3 : 1-2 : 0-1)'] = [per['2-3']['weight per pair'], per['1-2']['weight per pair'], per['0-1']['weight per pair']]
+# phase picked up by a toggle pair around a plaquette with thirteenth flux F: e^{i F (N+1)} e^{-i F N} = e^{i F} for every N
+g1['phase of a toggle pair under the thirteenth link is degree independent'] = True
+out['G1'] = g1
+
+# ---------------------------------------------------------------- G2: Casimirs with thirteen currents
+mult = {'Q': (Fr(4, 3), Fr(3, 4), Fr(1, 6), 2), 'u_R': (Fr(4, 3), Fr(0), Fr(2, 3), 3), 'd_R': (Fr(4, 3), Fr(0), Fr(-1, 3), 1),
+        'L': (Fr(0), Fr(3, 4), Fr(-1, 2), 4), 'e_R': (Fr(0), Fr(0), Fr(-1), 3), 'nu_R': (Fr(0), Fr(0), Fr(0), 5)}
+t3r = {'u_R': Fr(1, 2), 'd_R': Fr(-1, 2), 'e_R': Fr(-1, 2), 'nu_R': Fr(1, 2), 'Q': Fr(0), 'L': Fr(0)}
+bl = {'Q': Fr(1, 3), 'u_R': Fr(1, 3), 'd_R': Fr(1, 3), 'L': Fr(-1), 'e_R': Fr(-1), 'nu_R': Fr(-1)}
+g2 = {}
+for name, (c3, c2, y, N) in mult.items():
+    c12 = c3 + c2 + Fr(3, 5) * y * y
+    c13 = (Fr(N) - Fr(5, 2)) ** 2 / 10
+    X = 5 * bl[name] - 4 * y
+    assert Fr(N) - Fr(5, 2) == -X / 2, name
+    closed = c3 + c2 + t3r[name] ** 2 + Fr(3, 8) * bl[name] ** 2 if name not in ('Q', 'L') else None
+    g2[name] = {'degree N (family half, n3 odd)': N, 'X = 5(B-L) - 4Y': str(X), 'C twelve': str(c12), 'C thirteenth': str(c13),
+                'C thirteen currents': str(c12 + c13),
+                'C3 + C2 + T3R^2 + (3/8)(B-L)^2 (right-handed)': str(closed) if closed is not None else None}
+    if closed is not None:
+        assert closed == c12 + c13
+g2['H (degree charge 1)'] = {'C twelve': '9/10', 'C thirteenth': '1/10', 'C thirteen currents': '1'}
+g2['cross term T3R (B-L) of the U(1) part'] = {'twelve currents': '(3/5) T3R (B-L): +1/10 (u_R), -1/10 (d_R), +3/10 (e_R), -3/10 (nu_R)',
+                                               'thirteen currents': '0 (3/5 - 24/40 = 0)'}
+g2['C(u_R) - C(d_R)'] = {'twelve': str(Fr(8, 5) - Fr(7, 5)), 'thirteen': str(Fr(13, 8) - Fr(13, 8))}
+out['G2'] = g2
+
+# ---------------------------------------------------------------- G3: quantum link, the toggle carries the link operator
+G_SRC = math.sqrt(4 * math.pi / 16.2453)
+EPS = G_SRC ** 2 / 2
+KAPPA = EPS / 10
+THETA = G_SRC / 2
+legs = {'top': 2, 'bottom': 1, 'tau': 3, 'neutrino': 4,
+        'top (conjugate family)': 2, 'bottom (conjugate family)': 3, 'tau (conjugate family)': 1, 'neutrino (conjugate family)': 0}
+
+
+def cone_gap(delta, theta, n=20001):
+    p = np.linspace(-math.pi, math.pi, n)
+    return float(np.min(2 * np.sqrt((np.sin(p) + delta / 2) ** 2 + theta ** 2)))
+
+
+def g3(kind, kappa=KAPPA, theta=THETA):
+    r = {}
+    for leg, N in legs.items():
+        delta = kappa * ((2 * N - 4) if kind == 'centred' else (2 * N + 1))
+        w = 0.5 * (1 - abs(delta) / math.sqrt(delta ** 2 + 4 * theta ** 2))
+        r[leg] = {'N -> N+1': f'{N}-{N + 1}', 'Delta': delta, 'Delta/kappa': delta / kappa, 'mixing weight': w,
+                  'cone gap / (2 theta)': cone_gap(delta, theta) / (2 * theta),
+                  'rest energy at p = 0': math.sqrt(theta ** 2 + delta ** 2 / 4)}
+    top = r['top']
+    for leg, v in r.items():
+        v['(m) amplitude ratio to top'] = math.sqrt(v['mixing weight'] / top['mixing weight'])
+        v['(m) weight ratio to top'] = v['mixing weight'] / top['mixing weight']
+        v['(g) gap ratio to top'] = v['cone gap / (2 theta)'] / top['cone gap / (2 theta)']
+        v['(r) rest energy ratio to top'] = v['rest energy at p = 0'] / top['rest energy at p = 0']
+    return r
+
+
+out['G3'] = {'theta = g/2': THETA, 'kappa = eps/10': KAPPA, 'kappa/theta': KAPPA / THETA,
+             'centred (q = N - 5/2)': g3('centred'), 'uncentred (q = N)': g3('uncentred'),
+             "G3' register quantum carries the degree charge": 'the on-site toggle conserves N + n_b: Delta = 0 on every pair, ratios 1 : 1 : 1',
+             'strong detuning limit of (m), centred': 'weight ratio to top -> 2 theta^2/Delta^2: bottom, tau (theta/kappa)^2/2, neutrino (theta/kappa)^2/8; '
+                                                      'neutrino/bottom weight -> 1/4, amplitude -> 1/2'}
+
+# ---------------------------------------------------------------- G4: reach from the code (shortest word in toggle and link generators)
+ops = {'toggle': K}
+for a_, T in enumerate(TG):
+    ops[f'link{a_ + 1}'] = T
+adj = {s: set() for s in range(DIM)}
+kind = {}
+for name, M in ops.items():
+    for s in range(DIM):
+        for t in np.nonzero(np.abs(M[:, s]) > 1e-12)[0]:
+            if t != s:
+                adj[s].add(int(t)); kind[(s, int(t))] = 'toggle' if name == 'toggle' else kind.get((s, int(t)), 'link')
+dist = {}
+dq = deque()
+for s in range(DIM):
+    if deg[s] == 1:
+        dist[s] = (0, 0); dq.append(s)                      # (steps, toggles)
+while dq:
+    s = dq.popleft()
+    for t in adj[s]:
+        if t not in dist:
+            dist[t] = (dist[s][0] + 1, dist[s][1] + (kind[(s, t)] == 'toggle')); dq.append(t)
+members = {'bottom (d_R, Q)': (0b00001, 0b10001), 'tau (e_R, L)': (0b00111, 0b10111), 'top (Q, u_R)': (0b01001, 0b11001),
+           'neutrino (L, nu_R)': (0b01111, 0b11111), 'tau conjugate family (s1, s1 s2)': (0b01000, 0b11000),
+           'neutrino conjugate family (empty, s2)': (0b00000, 0b10000), 'top conjugate family': (0b01011, 0b11011),
+           'bottom conjugate family': (0b00011, 0b10011)}
+out['G4'] = {k: {'steps to the nearer member': min(dist.get(a, (99, 99)), dist.get(b, (99, 99)))[0],
+                 'steps until the pair has been toggled (reach both members)': max(dist.get(a, (99, 99))[0], dist.get(b, (99, 99))[0]),
+                 'reachable': a in dist and b in dist}
+             for k, (a, b) in members.items()}
+
+# ---------------------------------------------------------------- NOT BLIND block
+need = {'y_b/y_t': 0.0138, 'y_tau/y_t': 0.0246}
+nb = {}
+for label, target in need.items():
+    # reading (m), centred, amplitude ratio sqrt(w/w_top) with Delta = 2 kappa: solve for kappa/theta
+    lo, hi = 1e-3, 1e6
+    for _ in range(200):
+        mid = math.sqrt(lo * hi)
+        d = 2 * mid
+        w = 0.5 * (1 - d / math.sqrt(d * d + 4))
+        if math.sqrt(w / 0.5) > target:
+            lo = mid
+        else:
+            hi = mid
+    kt = math.sqrt(lo * hi)
+    d2 = 4 * kt
+    nb[label] = {'kappa/theta needed in (m) amplitude reading': kt, 'over the source value': kt / (KAPPA / THETA),
+                 'neutrino amplitude ratio at that kappa': math.sqrt((1 - d2 / math.sqrt(d2 * d2 + 4)))}
+c = out['G3']['centred (q = N - 5/2)']
+nb['source point, centred, (m) amplitude ratios'] = {k: c[k]['(m) amplitude ratio to top'] for k in ('bottom', 'tau', 'neutrino')}
+nb['source point over needed'] = {'bottom': c['bottom']['(m) amplitude ratio to top'] / need['y_b/y_t'],
+                                  'tau': c['tau']['(m) amplitude ratio to top'] / need['y_tau/y_t']}
+out['NOT_BLIND'] = nb
+
+with open(os.path.join(HERE, 'degree.json'), 'w') as fh:
+    json.dump(out, fh, indent=1, default=str)
+print(json.dumps(out, indent=1, default=str))

@@ -1,0 +1,321 @@
+"""ST9 block 1: kernel-level numbers of the declared family walk, with numerical errors and executed checks.
+
+Run on box B:   box.sh B ST9 run 'python st9_kernel.py kernel.json'
+
+Engine: repair-law/work/SIM/lib/family_walk.py (on the boxes' PYTHONPATH). Nothing here reads a measured value.
+
+Sections of the output file:
+  families        per gluing: massless branch of the loads and the low branches of the spinor and vector sectors,
+                  each with kernel level, correction probability, rest phase, curvature (Richardson), anisotropy,
+                  zone scan (location of the minimum, band width), quartic term against the shell and parabola forms,
+                  weight of a port-localized blank-record preparation on the branch
+  executed        checks on the executed step W = Q R of a 6 x 6 patch: P(record = 1) after one tick from an embedded
+                  kernel eigenvector against lambda / NA (lead L30), return amplitude against cos(omega t)
+  threshold       lowest level with one flipped link (static flux): recharted spinor sector (carrier and family) and
+                  the scalar-frame doublet of the public fibre (carrier and family, against 4 / N)
+  carrier         levels of one carrier by flux class (float check of the exact tables of CX and CW)
+  mass_operator   operators linear in the five level operators that conserve colour and electric charge (lead L31)
+"""
+import itertools, json, sys, time
+import numpy as np
+import family_walk as FW
+from family_walk import N, E, F, TOP, GLUE, A1, A2, coherent, ambient_axes, FlatPatch, FamilyWalk
+
+T0 = time.time()
+AX, DEL = ambient_axes()
+B1 = 2 * np.pi * np.array([1.0, -1 / 3 ** 0.5]); B2 = 2 * np.pi * np.array([0.0, 2 / 3 ** 0.5])     # reciprocal vectors
+ZONE_K = 4 * np.pi / 3; ZONE_M = 2 * np.pi / 3 ** 0.5
+SECT = {'scalar': (0, 0), 'spinor': (0.5, 0.5), 'vector': (1, 1)}
+
+
+def chis(j, m):
+    return [coherent(j, m, AX[p]) if j else np.ones(1) for p in range(24)]
+
+
+def bloch(q, gluing, rule, sector, chi=None):
+    """L(q) in the convention of FlatPatch.laplacian: psi(R, port) = exp(i q.R) u(port)."""
+    j, m = SECT[sector]
+    chi = chi or chis(j, m)
+    def z(a, b):
+        if not j: return 1.0 + 0j
+        v = np.vdot(chi[b], chi[a]); return v / abs(v)
+    L = np.zeros((24, 24), complex)
+    def add(a, b, w):
+        L[a, a] += 1; L[b, b] += 1; L[b, a] -= w; L[a, b] -= np.conj(w)
+    for blk in (0, 12):
+        for a, b in E: add(blk + a, blk + b, z(blk + a, blk + b))
+    for k, d in enumerate(DEL):
+        ph = np.exp(-1j * (q @ d))
+        pairs = [(GLUE[k], 12 + GLUE[k])] if gluing == 'bridge' else [(TOP[(k + 1) % 3], 12 + TOP[(k + 2) % 3]), (TOP[(k + 2) % 3], 12 + TOP[(k + 1) % 3])]
+        for a, b in pairs: add(a, b, ph * ((1.0 + 0j) if rule == 'template' else z(a, b)))
+    return L
+
+
+def om(lam, NA): return np.arccos(np.clip(1 - np.asarray(lam) / NA, -1, 1))
+def unit(deg): return np.array([np.cos(np.radians(deg)), np.sin(np.radians(deg))])
+def reduce_zone(q):
+    """Shortest representative of q modulo the reciprocal lattice."""
+    best = q
+    for i, k in itertools.product((-1, 0, 1), repeat=2):
+        c = q + i * B1 + k * B2
+        if np.linalg.norm(c) < np.linalg.norm(best) - 1e-12: best = c
+    return best
+
+
+def analyse(gluing, rule, sector, NA, nlow):
+    j, m = SECT[sector]; chi = chis(j, m)
+    ev = lambda q: np.linalg.eigvalsh(bloch(q, gluing, rule, sector, chi))
+    w0 = ev(np.zeros(2))
+    # zone scan: location of the minimum of every low band, band width
+    G = 72; grid = [(a / G) * B1 + (b / G) * B2 for a in range(G) for b in range(G)]
+    lamgrid = np.array([ev(q)[:nlow] for q in grid])
+    rows = []
+    for n in range(nlow):
+        lam0 = float(w0[n]); p0 = lam0 / NA; om0 = float(om(lam0, NA))
+        hs = (0.08, 0.04, 0.02, 0.01)
+        per_dir = {}
+        for deg in (0, 15, 30, 45, 60, 90):
+            e = unit(deg)
+            lam = np.array([ev(h * e)[n] for h in hs])
+            f_om = (om(lam, NA) ** 2 - om0 ** 2) / np.array(hs) ** 2            # d(omega^2)/d(q^2) at finite step
+            f_la = (lam - lam0) / np.array(hs) ** 2                             # d(lambda)/d(q^2) at finite step
+            rich = lambda f: [(4 * f[i + 1] - f[i]) / 3 for i in range(len(f) - 1)]
+            ro, rl = rich(f_om), rich(f_la)
+            per_dir[deg] = {'v2': float(ro[-1]), 'v2_err': float(abs(ro[-1] - ro[-2])), 'kappa': float(rl[-1]), 'kappa_err': float(abs(rl[-1] - rl[-2])),
+                            'linear_term': float((ev(0.01 * e)[n] - ev(-0.01 * e)[n]) / 0.02)}
+        v2s = np.array([per_dir[d]['v2'] for d in per_dir]); kap = np.array([per_dir[d]['kappa'] for d in per_dir])
+        v2 = float(v2s.mean()); kappa = float(kap.mean())
+        flat = bool(np.ptp(lamgrid[:, n]) < 1e-9)
+        imin = int(np.argmin(lamgrid[:, n])); qmin = reduce_zone(grid[imin])
+        row = {'band': n, 'kernel_level': lam0, 'correction_probability': p0, 'rest_phase': om0, 'flat': flat,
+               'kappa_dlambda_dq2': kappa, 'kappa_spread_over_directions': float(np.ptp(kap)), 'kappa_richardson_error': float(max(per_dir[d]['kappa_err'] for d in per_dir)),
+               'v2_domega2_dq2': v2, 'v2_spread_over_directions': float(np.ptp(v2s)), 'v2_richardson_error': float(max(per_dir[d]['v2_err'] for d in per_dir)),
+               'max_linear_term_at_q0': float(max(abs(per_dir[d]['linear_term']) for d in per_dir)),
+               'zone_minimum_level': float(lamgrid[imin, n]), 'zone_minimum_at_q': [float(x) for x in qmin], 'zone_minimum_is_q0': bool(np.linalg.norm(qmin) < 1e-9),
+               'zone_maximum_level': float(lamgrid[:, n].max()),
+               'band_width_in_phase': float(om(lamgrid[:, n].max(), NA) - om(lamgrid[:, n].min(), NA)),
+               'band_width_over_rest_phase': (float((om(lamgrid[:, n].max(), NA) - om(lamgrid[:, n].min(), NA)) / om0) if om0 > 1e-9 else None)}
+        if not flat and v2 > 0:
+            v = v2 ** 0.5
+            # shell and parabola forms along two directions
+            qs = np.array([0.05, 0.1, 0.2, 0.3, 0.5, 0.8, 1.0, 1.5, 2.0, 3.0, 4.0])
+            tab = []
+            for deg in (0, 90):
+                e = unit(deg)
+                for q in qs:
+                    w = float(om(ev(q * e)[n], NA))
+                    kin = v2 * q * q
+                    shell = (om0 ** 2 + kin) ** 0.5
+                    parab = om0 + kin / (2 * om0) if om0 > 1e-9 else None
+                    tab.append({'direction_deg': deg, 'q': float(q), 'phase': w,
+                                'shell_defect_over_kinetic_term': float((w * w - om0 ** 2 - kin) / kin),
+                                'parabola_defect_over_kinetic_term': (float((w * w - parab ** 2) / kin) if parab else None),
+                                'shell_minus_parabola_over_kinetic_term': (float((shell ** 2 - parab ** 2) / kin) if parab else None)})
+            row['forms'] = tab
+            ok = [t['q'] for t in tab if t['direction_deg'] == 0 and abs(t['shell_defect_over_kinetic_term']) < 0.01]
+            row['shell_within_one_percent_of_kinetic_term_up_to_q'] = float(max(ok)) if ok else 0.0
+            if om0 > 1e-9:
+                # quartic coefficient of omega(q) = om0 + v2 q^2/(2 om0) + c4 q^4: measured against the shell value -v2^2/(8 om0^3)
+                e = unit(0); c4 = []
+                for h in (0.4, 0.2, 0.1):
+                    w = float(om(ev(h * e)[n], NA)); c4.append((w - om0 - v2 * h * h / (2 * om0)) / h ** 4)
+                c4r = (4 * c4[-1] - c4[-2]) / 3
+                row.update({'quartic_measured': float(c4r), 'quartic_of_a_shell': float(-v2 ** 2 / (8 * om0 ** 3)), 'quartic_richardson_error': float(abs(c4r - (4 * c4[-2] - c4[-3]) / 3)),
+                            'compton_wave_number_v': float(om0 / v), 'compton_wave_number_v_over_zone_K': float(om0 / v / ZONE_K), 'compton_length_v_edges': float(v / om0)})
+        rows.append(row)
+    # weight of a port-localized blank-record preparation on each low band (zone average), per port of the up carrier
+    G2 = 96; W = np.zeros((nlow, 24)); Wlong = np.zeros((nlow, 24)); nlong = 0
+    for a in range(G2):
+        for b in range(G2):
+            q = ((a + 0.5) / G2) * B1 + ((b + 0.5) / G2) * B2
+            w, U = np.linalg.eigh(bloch(q, gluing, rule, sector, chi))
+            P = abs(U[:, :nlow]) ** 2
+            W += P.T
+            if np.linalg.norm(reduce_zone(q)) <= 0.5: Wlong += P.T; nlong += 1
+    W /= G2 * G2; Wlong /= G2 * G2
+    for n in range(nlow):
+        rows[n]['port_weight_zone_average'] = {'mean_over_ports': float(W[n].mean()), 'min': float(W[n].min()), 'max': float(W[n].max()),
+                                               'glue_ports_up': [float(W[n][g]) for g in (GLUE if gluing == 'bridge' else TOP)],
+                                               'note': 'probability of the branch (both signs of the phase together) in a blank-record excitation of one port; per sign one half of this'}
+        rows[n]['port_weight_inside_q_below_0.5'] = {'mean_over_ports': float(Wlong[n].mean()), 'max': float(Wlong[n].max()), 'zone_fraction': nlong / (G2 * G2)}
+    return rows
+
+
+out = {'meta': {'engine': 'repair-law/work/SIM/lib/family_walk.py', 'zone_K': ZONE_K, 'zone_M': ZONE_M, 'lattice': 'triangular, mesh edge 1; q in radians per mesh edge',
+                'glue_ports_bridge': [int(g) for g in GLUE], 'control_face': [int(t) for t in TOP]}, 'families': {}}
+
+for gluing, rule, NA in (('bridge', 'template', 66), ('seam', 'ambient', 72)):
+    fam = {'addresses': NA, 'frame_rule': rule, 'sectors': {}}
+    sc = analyse(gluing, rule, 'scalar', NA, 2)
+    fam['massless'] = sc[0]; fam['massless']['speed_v0'] = sc[0]['v2_domega2_dq2'] ** 0.5
+    fam['scalar_second_band'] = sc[1]
+    v0 = fam['massless']['speed_v0']; k0 = sc[0]['kappa_dlambda_dq2']
+    # lattice cubic of the massless branch: omega = v0 q (1 + c q^2)
+    j, m = SECT['scalar']
+    cub = []
+    for h in (0.4, 0.2, 0.1):
+        w = float(om(np.linalg.eigvalsh(bloch(h * unit(0), gluing, rule, 'scalar'))[0], NA)); cub.append((w / (v0 * h) - 1) / h ** 2)
+    fam['massless']['relative_cubic_term'] = float((4 * cub[-1] - cub[-2]) / 3)
+    print(f'[{time.time() - T0:6.1f}s] {gluing}: NA {NA}, massless speed {v0:.8f} edges per tick (kappa {k0:.8f}, spread {sc[0]["kappa_spread_over_directions"]:.1e}), cubic {fam["massless"]["relative_cubic_term"]:+.5f}', flush=True)
+    for sector, nlow in (('spinor', 4), ('vector', 6)):
+        rows = analyse(gluing, rule, sector, NA, nlow)
+        for r in rows:
+            r['mu_walk_clock'] = r['rest_phase'] / v0                    # rest phase per massless edge crossing
+            r['mu_kernel'] = (r['kernel_level'] / k0) ** 0.5             # clock-free form sqrt(lambda0 / kappa0)
+            r['compton_length_v0_edges'] = v0 / r['rest_phase']
+            r['compton_wave_number_v0_over_zone_K'] = r['rest_phase'] / v0 / ZONE_K
+            if not r['flat'] and r['v2_domega2_dq2'] > 0:
+                r['speed_ratio_v_over_v0'] = r['v2_domega2_dq2'] ** 0.5 / v0
+                r['rest_over_kinetic_mass'] = r['v2_domega2_dq2'] / v0 ** 2      # (omega0 / v0^2) / (omega0 / v^2)
+            s = 'FLAT' if r['flat'] else f"v2 {r['v2_domega2_dq2']:+.6e} (dir spread {r['v2_spread_over_directions']:.1e}, Rich err {r['v2_richardson_error']:.1e})"
+            print(f"    {sector} band {r['band']}: level {r['kernel_level']:.9f} p {r['correction_probability']:.9f} phase {r['rest_phase']:.9f} {s} "
+                  f"min at q0 {r['zone_minimum_is_q0']} width/rest {r['band_width_over_rest_phase']:.4f} mu {r['mu_walk_clock']:.4f} "
+                  + (f"v/v0 {r['speed_ratio_v_over_v0']:.5f} qC/K {r['compton_wave_number_v_over_zone_K']:.3f} c4 {r['quartic_measured']:+.3e} shell c4 {r['quartic_of_a_shell']:+.3e}" if 'speed_ratio_v_over_v0' in r else ''), flush=True)
+        fam['sectors'][sector] = rows
+    out['families'][gluing] = fam
+
+# ---------------------------------------------------------------- executed checks on the step W = Q R
+def patch_bloch_vector(n, u, q):
+    psi = np.zeros(24 * n * n, complex)
+    for i in range(n):
+        for k in range(n):
+            c = i * n + k; R = i * A1 + k * A2
+            psi[24 * c:24 * c + 24] = np.exp(1j * (q @ R)) * u
+    return psi / np.linalg.norm(psi)
+
+ex = []
+n = 6
+for gluing, rule, sector, band, mq in (('bridge', 'template', 'scalar', 0, (1, 0)), ('bridge', 'template', 'spinor', 0, (1, 0)), ('bridge', 'template', 'spinor', 1, (1, 0)),
+                                       ('bridge', 'template', 'spinor', 1, (0, 0)), ('bridge', 'template', 'vector', 0, (0, 0)), ('bridge', 'template', 'vector', 3, (1, 1)),
+                                       ('seam', 'ambient', 'spinor', 0, (0, 0)), ('seam', 'ambient', 'spinor', 1, (1, 0)), ('seam', 'ambient', 'vector', 2, (0, 1))):
+    g = FlatPatch(n, n, sector, gluing, rule); NA = g.NA
+    q = (mq[0] / n) * B1 + (mq[1] / n) * B2
+    lam, U = np.linalg.eigh(bloch(q, gluing, rule, sector))
+    psi = patch_bloch_vector(n, U[:, band], q)
+    Lp = g.laplacian()
+    resid = float(np.linalg.norm(Lp @ psi - lam[band] * psi))
+    w = FamilyWalk(g); w.psi[:, 0, :] = psi[:, None] / np.sqrt(NA)
+    amp = [complex(np.vdot(psi, w.psi[:, 0, :].sum(axis=1)) / np.sqrt(NA))]
+    w.step(); p1 = float((abs(w.psi[:, 1, :]) ** 2).sum()); norm1 = float((abs(w.psi) ** 2).sum())
+    amp.append(complex(np.vdot(psi, w.psi[:, 0, :].sum(axis=1)) / np.sqrt(NA)))
+    T = 600
+    for t in range(2, T + 1):
+        w.step(); amp.append(complex(np.vdot(psi, w.psi[:, 0, :].sum(axis=1)) / np.sqrt(NA)))
+    omega = float(om(lam[band], NA)); amp = np.array(amp)
+    dev = float(abs(amp - np.cos(omega * np.arange(T + 1))).max())
+    ex.append({'gluing': gluing, 'sector': sector, 'band': band, 'q_patch_index': list(mq), 'q_norm': float(np.linalg.norm(reduce_zone(q))), 'kernel_level': float(lam[band]),
+               'bloch_vector_residual_on_patch': resid, 'record_one_probability_after_one_tick': p1, 'kernel_level_over_NA': float(lam[band] / NA),
+               'readout_defect': abs(p1 - float(lam[band] / NA)), 'phase_from_readout': float(np.arccos(1 - p1)), 'phase_from_kernel': omega,
+               'norm_after_one_tick': norm1, 'return_amplitude_max_defect_against_cos_over_600_ticks': dev})
+    print(f'[{time.time() - T0:6.1f}s] executed {gluing} {sector} band {band} q {mq}: P(record 1) {p1:.12f} lambda/NA {lam[band] / NA:.12f} defect {abs(p1 - lam[band] / NA):.1e}; '
+          f'return amplitude against cos(omega t), 600 ticks: {dev:.1e}; residual {resid:.1e}', flush=True)
+out['executed'] = {'patch': f'{n} x {n} cells, periodic', 'rows': ex,
+                   'trials_for_relative_error': 'n = (1 - p) / (4 p eps^2) fresh preparations for relative error eps on the phase',
+                   'trials_one_percent': {f"{r['gluing']}|{r['sector']}|band{r['band']}|q{r['q_patch_index']}": (float((1 - r['record_one_probability_after_one_tick']) / (4 * r['record_one_probability_after_one_tick'] * 1e-4)) if r['record_one_probability_after_one_tick'] > 1e-12 else None) for r in ex}}
+
+# ---------------------------------------------------------------- thresholds with one flipped link (static flux)
+thr = {}
+# (a) recharted spinor sector, isolated carrier: all thirty seams
+chi = [coherent(0.5, 0.5, N[p]) for p in range(12)]
+def carrier_lap(k, flip=None, scalar=False):
+    L = np.zeros((12, 12), complex)
+    for s, (a, b) in enumerate(E):
+        v = np.vdot(chi[b], chi[a]); zz = (1.0 + 0j) if scalar else (v / abs(v)) ** k
+        if flip is not None and s == flip: zz = -zz
+        L[a, a] += 1; L[b, b] += 1; L[b, a] -= zz; L[a, b] -= np.conj(zz)
+    return L
+base = np.linalg.eigvalsh(carrier_lap(1))
+fl = np.array([np.linalg.eigvalsh(carrier_lap(1, s)) for s in range(30)])
+thr['recharted_spinor_carrier'] = {'levels_without_flip': [float(x) for x in base[:4]], 'lowest_with_one_flipped_link_min_over_seams': float(fl[:, 0].min()), 'max_over_seams': float(fl[:, 0].max()),
+                                   'second_level_min_max': [float(fl[:, 1].min()), float(fl[:, 1].max())], 'levels_with_flip_seam0': [float(x) for x in fl[0][:6]],
+                                   'walk_phase_60_addresses': float(om(fl[:, 0].min(), 60)), 'walk_phase_without_flip': float(om(base[0], 60))}
+print(f'[{time.time() - T0:6.1f}s] carrier, recharted spinor: lowest level {base[0]:.9f} (x2); with one flipped link {fl[:, 0].min():.9f} .. {fl[:, 0].max():.9f}, second {fl[:, 1].min():.9f}', flush=True)
+fv = np.array([np.linalg.eigvalsh(carrier_lap(2, s)) for s in range(30)]); bv = np.linalg.eigvalsh(carrier_lap(2))
+thr['recharted_vector_carrier_if_the_link_acted'] = {'levels_without_flip': [float(x) for x in bv[:4]], 'lowest_with_one_flipped_link': [float(fv[:, 0].min()), float(fv[:, 0].max())],
+                                                     'note': 'the central link sign of the public fibre is diag(1,1,1,-1,-1): it does not act on the triplet levels; listed as a control only'}
+# (b) recharted spinor sector on the family (bridge): every internal seam of the up carrier of cell 0 and the three glue seams of cell 0
+fam_rows = {}
+for n in (4, 6):
+    g0 = FlatPatch(n, n, 'spinor', 'bridge', 'template'); ncell = n * n
+    lam_free = np.linalg.eigvalsh(g0.laplacian())
+    seams = list(range(30)) + [60 * ncell + k for k in range(3)]
+    rows = []
+    for s in seams:
+        g = FlatPatch(n, n, 'spinor', 'bridge', 'template', flips={s})
+        lam = np.linalg.eigvalsh(g.laplacian())
+        rows.append({'seam': s, 'glue': bool(g.seams[s][3]), 'ports': [int(g.seams[s][0]), int(g.seams[s][1])], 'lowest': float(lam[0]),
+                     'levels_below_free_bottom': int((lam < lam_free[0] - 1e-9).sum()), 'first_levels': [float(x) for x in lam[:3]]})
+    vals = sorted({round(r['lowest'], 9) for r in rows if not r['glue']})
+    fam_rows[f'{n}x{n}'] = {'ports': 24 * ncell, 'free_bottom': float(lam_free[0]), 'free_bottom_multiplicity': int((abs(lam_free - lam_free[0]) < 1e-9).sum()), 'rows': rows,
+                            'distinct_lowest_levels_internal_flips': vals, 'lowest_over_all_flips': float(min(r['lowest'] for r in rows)),
+                            'glue_flip_lowest': [r['lowest'] for r in rows if r['glue']]}
+    print(f'[{time.time() - T0:6.1f}s] family {n}x{n}, recharted spinor, one flipped link: free bottom {lam_free[0]:.9f} (x{fam_rows[f"{n}x{n}"]["free_bottom_multiplicity"]}); '
+          f'internal flips give lowest levels {vals[:6]}; glue flips {fam_rows[f"{n}x{n}"]["glue_flip_lowest"]}', flush=True)
+thr['recharted_spinor_family_bridge'] = fam_rows
+# (c) public fibre: scalar frames, doublet level with one negative link (central sign): carrier and family against 4 / N
+pub = {'carrier': {'lowest': float(np.linalg.eigvalsh(carrier_lap(0, 0, scalar=True))[0]), 'trial_bound_4_over_N': 4 / 12}}
+pub['carrier']['walk_phase_60_addresses'] = float(om(pub['carrier']['lowest'], 60))
+for n in (2, 3, 4, 6, 8, 10):
+    g = FlatPatch(n, n, 'scalar', 'bridge', 'template'); P = g.P
+    L = np.zeros((P, P))
+    for s, (a, b, z, glue) in enumerate(g.seams):
+        sg = -1.0 if s == 0 else 1.0
+        L[a, a] += 1; L[b, b] += 1; L[b, a] -= sg; L[a, b] -= sg
+    lam = np.linalg.eigvalsh(L)
+    pub[f'{n}x{n}'] = {'ports': P, 'lowest': float(lam[0]), 'lowest_times_ports': float(lam[0] * P), 'second': float(lam[1]), 'walk_phase_66_addresses': float(om(lam[0], 66)),
+                       'lowest_free_nonzero': float(np.linalg.eigvalsh(g.laplacian().real)[1])}
+    print(f'[{time.time() - T0:6.1f}s] family {n}x{n}, scalar frames, one negative link: lowest {lam[0]:.6e} ({P} ports; N x lowest {lam[0] * P:.4f}); second {lam[1]:.6e}', flush=True)
+thr['public_fibre_doublet_one_negative_link'] = pub
+out['threshold'] = thr
+
+# ---------------------------------------------------------------- one carrier by flux class (float check of the exact tables)
+car = {}
+for k in range(0, 11):
+    w = np.linalg.eigvalsh(carrier_lap(k))
+    lev = []
+    for x in w:
+        if not lev or abs(lev[-1][0] - x) > 1e-9: lev.append([float(x), 1])
+        else: lev[-1][1] += 1
+    car[str(k)] = [{'kernel_level': l, 'multiplicity': mlt, 'correction_probability_60': l / 60, 'rest_phase_60': float(om(l, 60))} for l, mlt in lev]
+out['carrier'] = car
+print(f'[{time.time() - T0:6.1f}s] carrier levels: flux 0 {[(round(r["kernel_level"], 6), r["multiplicity"]) for r in car["0"]]}; flux 1 lowest {car["1"][0]}; flux 2 lowest {car["2"][0]}; flux 7 lowest {car["7"][0]}', flush=True)
+
+# ---------------------------------------------------------------- mass operator on the exterior algebra of five levels (lead L31), independent check
+states = list(itertools.product((0, 1), repeat=5)); index = {s: i for i, s in enumerate(states)}
+def ann(k):
+    A = np.zeros((32, 32))
+    for s in states:
+        if s[k]:
+            t = list(s); t[k] = 0; A[index[tuple(t)], index[s]] = (-1) ** sum(s[:k])
+    return A
+a = [ann(k) for k in range(5)]; ad = [x.T for x in a]; num = [ad[k] @ a[k] for k in range(5)]
+Y6 = -2 * (num[0] + num[1] + num[2]) + 3 * (num[3] + num[4]); T3 = (num[3] - num[4]) / 2; Q = T3 + Y6 / 6
+su3 = [ad[i] @ a[j] for i in range(3) for j in range(3) if i != j] + [num[0] - num[1], num[1] - num[2]]
+comm = lambda A, B: A @ B - B @ A
+basis = a + ad                                             # ten operators linear in the level operators
+rows = []
+for X in su3 + [Q]:
+    rows.append(np.array([comm(b, X).ravel() for b in basis]).T)       # columns = basis elements
+M = np.vstack(rows)
+sv = np.linalg.svd(M, compute_uv=False); null_dim = int((sv < 1e-10).sum())
+u, s_, vh = np.linalg.svd(M); null = vh[len(s_) - null_dim:] if null_dim else np.zeros((0, 10))
+support = sorted({int(i) for v in null for i in np.nonzero(abs(v) > 1e-10)[0]})
+G = a[4] + ad[4]
+eig = np.linalg.eigvalsh(G)
+pairs = {}
+names = {(1, 0): 'd_R', (1, 1): 'Q_L', (1, 2): 'u_R', (3, 0): 'e_R', (3, 1): 'L_L', (3, 2): 'nu_R', (2, 2): 'dbar_L', (2, 1): 'Qbar_R', (2, 0): 'ubar_L', (0, 2): 'ebar_L', (0, 1): 'Lbar_R', (0, 0): 'nubar_L'}
+for s in states:
+    t = list(s); t[4] = 1 - t[4]; t = tuple(t)
+    if s < t:
+        key = f'{names[(sum(s[:3]), sum(s[3:]))]} with {names[(sum(t[:3]), sum(t[3:]))]}, Q = {Q[index[s], index[s]]:+.4f}'
+        pairs[key] = pairs.get(key, 0) + 1
+out['mass_operator'] = {'linear_operators_conserving_colour_and_charge_complex_dimension': null_dim, 'supported_on_basis_elements': support,
+                        'basis_order': ['a_v1', 'a_v2', 'a_v3', 'a_s1', 'a_s2', 'a+_v1', 'a+_v2', 'a+_v3', 'a+_s1', 'a+_s2'],
+                        'hermitian_operator': 'm a_s2 + conj(m) a+_s2; its square is |m|^2 times the identity', 'square_defect': float(abs(G @ G - np.eye(32)).max()),
+                        'eigenvalues_of_a_s2_plus_adjoint': sorted({round(float(x), 12) for x in eig}), 'multiplicities': [int((eig < 0).sum()), int((eig > 0).sum())],
+                        'pairs': pairs, 'statement': 'one amplitude gives the same Dirac mass |m| to all sixteen pairs: up type, down type, charged lepton, neutrino and conjugates'}
+print(f'[{time.time() - T0:6.1f}s] mass operator: null space dimension {null_dim} on basis elements {support}; eigenvalues {out["mass_operator"]["eigenvalues_of_a_s2_plus_adjoint"]} x {out["mass_operator"]["multiplicities"]}; pairs {len(pairs)}', flush=True)
+
+out['meta']['seconds'] = time.time() - T0
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 'kernel.json', 'w'), indent=1)
+print('written', sys.argv[1] if len(sys.argv) > 1 else 'kernel.json', f'{time.time() - T0:.1f}s')

@@ -1,0 +1,338 @@
+"""FR round 3: the two-load walk on the hexagon around f and the emission from a double load
+(H1 to H4, E1 to E4 of ROUND3_REGISTER.md). EXACT (Fractions; Laurent polynomials in y = z w^k), floats only for the
+spectrum listing. Writes fr9_hexagon.json. Runs in well under two minutes.
+"""
+from __future__ import annotations
+
+import itertools
+import sys
+import time
+from fractions import Fraction as Fr
+
+import numpy as np
+import sympy as sp
+
+import fr_common as FC
+
+OUT = 'fr9_hexagon.json'
+H = [2, 3, 9, 1, 0, 10]                                   # screen sense
+SEAMS = [(2, 3), (3, 9), (9, 1), (1, 0), (0, 10), (10, 2)]  # forward (screen) orientation
+TYPES = ['C', 'E', 'C', 'E', 'C', 'E']
+AORB = {2, 9, 0}
+NAMES = ['00', '10', '01', '11', '20', '02']
+CFG = [c for c in itertools.product(range(3), repeat=6) if sum(c) == 2]
+CI = {c: i for i, c in enumerate(CFG)}
+NA = 12
+
+
+def cfg_of(*ports):
+    c = [0] * 6
+    for p in ports:
+        c[H.index(p)] += 1
+    return tuple(c)
+
+
+D0, D1, D2 = cfg_of(10, 2), cfg_of(3, 9), cfg_of(1, 0)
+
+
+def load_U():
+    FC.rer_root()
+    from model.coherent_seam_repair.common import local_repair_unitary
+    U = local_repair_unitary()
+    assert sp.simplify(U * U) == sp.eye(24)
+    return [[Fr(int(sp.nsimplify(U[i, j]).p), int(sp.nsimplify(U[i, j]).q)) for j in range(24)] for i in range(24)]
+
+
+U24 = load_U()
+
+
+def ref_pair(frame, s, o):
+    x, yv = SEAMS[s]
+    if frame == 'FP':
+        return (x, yv) if o == 0 else (yv, x)
+    if frame == 'FS':
+        return (x, yv)
+    return (x, yv) if x in AORB else (yv, x)             # FN: tail in the orbit A
+
+
+def local(cfg, rec, a, b):
+    """Images of (cfg, rec) under the law's local unitary on the ordered pair (a, b): list of (cfg', rec', amp)."""
+    ia, ib = H.index(a), H.index(b)
+    col = 4 * NAMES.index(f'{cfg[ia]}{cfg[ib]}') + rec
+    out = []
+    for row in range(24):
+        u = U24[row][col]
+        if u:
+            s2, r2 = divmod(row, 4)
+            c2 = list(cfg)
+            c2[ia], c2[ib] = int(NAMES[s2][0]), int(NAMES[s2][1])
+            out.append((tuple(c2), r2, u))
+    return out
+
+
+# ------------------------------------------------------------------ Laurent-polynomial states
+def lp_add(d, key, poly, coef=Fr(1), shift=0):
+    tgt = d.setdefault(key, {})
+    for p, c in poly.items():
+        v = tgt.get(p + shift, Fr(0)) + coef * c
+        if v:
+            tgt[p + shift] = v
+        else:
+            tgt.pop(p + shift, None)
+    if not tgt:
+        d.pop(key, None)
+
+
+def Qstep(state, frame):
+    new = {}
+    for (cfg, rec, k), poly in state.items():
+        s, o = divmod(k, 2)
+        a, b = ref_pair(frame, s, o)
+        for c2, r2, u in local(cfg, rec, a, b):
+            lp_add(new, (c2, r2, k), poly, u)
+    return new
+
+
+def Rstep(state):
+    groups = {}
+    for (cfg, rec, k), poly in state.items():
+        groups.setdefault((cfg, rec), {})[k] = poly
+    new = {}
+    for (cfg, rec), g in groups.items():
+        mean = {}
+        for poly in g.values():
+            for p, c in poly.items():
+                mean[p] = mean.get(p, Fr(0)) + c / NA
+        for k in range(NA):
+            lp_add(new, (cfg, rec, k), mean, Fr(2))
+            if k in g:
+                lp_add(new, (cfg, rec, k), g[k], Fr(-1))
+    return new
+
+
+def Pstep(state, rule):
+    """rule(rec, seam) -> power shift of y."""
+    new = {}
+    for (cfg, rec, k), poly in state.items():
+        lp_add(new, (cfg, rec, k), poly, Fr(1), rule(rec, k // 2))
+    return new
+
+
+def poly_str(poly, scale=1):
+    yv = sp.Symbol('y')
+    return str(sp.nsimplify(sp.expand(sum(sp.Rational(c.numerator, c.denominator) * yv ** p for p, c in poly.items())
+                                      * scale)))
+
+
+def weight(poly):
+    """|amplitude|^2 for a monomial or a y-independent sum (used at one tick only)."""
+    return sum(c * c for c in poly.values())
+
+
+def uniform(cfg):
+    return {(cfg, 0, k): {0: Fr(1)} for k in range(NA)}   # true state = this / sqrt(12)
+
+
+def main():
+    t0 = time.time()
+    out = {'task': 'FR round 3: two-load hexagon walk and double-load emission', 'provenance': FC.provenance()}
+
+    # ---------------- H1 discriminant and its spectrum
+    n = len(CFG) * 4
+    spec = {}
+    Dmats = {}
+    for frame in ('FN', 'FS', 'FP'):
+        D = [[Fr(0)] * n for _ in range(n)]
+        for ci, cfg in enumerate(CFG):
+            for rec in range(4):
+                for k in range(NA):
+                    s, o = divmod(k, 2)
+                    a, b = ref_pair(frame, s, o)
+                    for c2, r2, u in local(cfg, rec, a, b):
+                        D[CI[c2] * 4 + r2][ci * 4 + rec] += u / NA
+        Dmats[frame] = D
+        Df = np.array([[float(x) for x in row] for row in D])
+        ev = np.linalg.eigvalsh((Df + Df.T) / 2)
+        m1 = int(sum(1 for x in ev if abs(x - 1) < 1e-9))      # float count (MEASURED); the fixed vector is checked exactly
+        mm1 = int(sum(1 for x in ev if abs(x + 1) < 1e-9))
+        # closed sector: distinct ports, records 0 and 1
+        idx = [CI[c] * 4 + r for c in CFG if max(c) == 1 for r in (0, 1)]
+        closed = all(D[i][j] == 0 for j in idx for i in range(n) if i not in idx)
+        Dsub = np.array([[float(D[i][j]) for j in idx] for i in idx])
+        evs = sorted(set(round(float(x), 9) for x in np.linalg.eigvalsh((Dsub + Dsub.T) / 2)))
+        # blank-record eigenvalue 1: uniform state over the 15 distinct configurations
+        uni = [Fr(0)] * n
+        for c in CFG:
+            if max(c) == 1:
+                uni[CI[c] * 4] = Fr(1)
+        uni_fixed = all(sum(D[i][j] * uni[j] for j in range(n) if uni[j]) == uni[i] for i in range(n))
+        spec[frame] = {
+            'symmetric': all(D[i][j] == D[j][i] for i in range(n) for j in range(n)),
+            'multiplicity_eigenvalue_+1 (84 states, float)': m1, 'multiplicity_eigenvalue_-1 (float)': mm1,
+            'sector (distinct ports, records 0,1) closed': closed,
+            'distinct eigenvalues on that sector (30 states)': evs,
+            'walk phases arccos on that sector': [round(float(np.arccos(max(-1, min(1, x)))), 6) for x in evs],
+            'uniform distinct-port blank state is fixed by D (exact)': uni_fixed,
+            'weight of the E-kept dimer on it': '1/15',
+            'min/max eigenvalue (84 states)': [round(float(ev.min()), 9), round(float(ev.max()), 9)],
+        }
+        print('H1', frame, {k: v for k, v in spec[frame].items() if 'phases' not in k})
+    out['H1_discriminant'] = spec
+
+    # ---------------- H2 return of the dimer and the native dimer-index compression (Chebyshev recurrence on D)
+    h2 = {}
+    for frame in ('FN', 'FP'):
+        D = Dmats[frame]
+
+        def apply(v):
+            return [sum(D[i][j] * v[j] for j in range(n) if v[j]) for i in range(n)]
+        rows = {}
+        e0 = [Fr(0)] * n
+        e0[CI[D0] * 4] = Fr(1)
+        x_prev, x = e0, apply(e0)
+        for step in range(1, 9):
+            rows[step] = {'return <A d0|W^n|A d0>': str(x[CI[D0] * 4]), 'to d1': str(x[CI[D1] * 4]),
+                          'to d2': str(x[CI[D2] * 4])}
+            x_prev, x = x, [2 * a - b for a, b in zip(apply(x), x_prev)]
+        h2[frame] = rows
+    out['H2_dimer_return_and_native_index_compression'] = h2
+    print('H2 FN', {k: v for k, v in h2['FN'].items()})
+
+    # ---------------- H3 / H4 ticks from A|d0> with the declared phases (y on repairs at seam (2,3), 1/y at (0,10))
+    cfgF, cfgB = cfg_of(10, 3), cfg_of(2, 0)
+
+    def rule(rec, seam):
+        return (1 if seam == 0 else -1 if seam == 4 else 0) if rec == 1 else 0
+    h34 = {}
+    for frame in ('FN', 'FS', 'FP'):
+        st = uniform(D0)
+        rows = {}
+        for tick in range(1, 6):
+            st = Pstep(Qstep(Rstep(st), frame), rule)
+            XH = {}
+            for k in (10, 11):
+                for p, c in st.get((D0, 0, k), {}).items():
+                    XH[p] = XH.get(p, Fr(0)) + c
+            Xp, Xm = {}, {}
+            for cfg in (D0, cfgF):
+                for k in (0, 1):
+                    for p, c in st.get((cfg, 1, k), {}).items():
+                        Xp[p] = Xp.get(p, Fr(0)) + c
+            for cfg in (D0, cfgB):
+                for k in (8, 9):
+                    for p, c in st.get((cfg, 1, k), {}).items():
+                        Xm[p] = Xm.get(p, Fr(0)) + c
+            ret = {}
+            for k in range(NA):
+                for p, c in st.get((D0, 0, k), {}).items():
+                    ret[p] = ret.get(p, Fr(0)) + c / NA
+            row = {'a_H': poly_str(XH, 1 / sp.sqrt(24)), 'b_forward (flag R+)': poly_str(Xp, 1 / (2 * sp.sqrt(12))),
+                   'b_backward (flag R-)': poly_str(Xm, 1 / (2 * sp.sqrt(12))), 'return to A|d0>, blank': poly_str(ret)}
+            if tick == 1:
+                cls = {}
+                for (cfg, rec, k), poly in st.items():
+                    key = f'{TYPES[k // 2]} seam {SEAMS[k // 2]} record {rec}'
+                    cls[key] = cls.get(key, Fr(0)) + weight(poly) / NA
+                row['class_weights'] = {k: str(v) for k, v in sorted(cls.items())}
+                pH = cls['E seam (10, 2) record 0']
+                pRp = cls['C seam (2, 3) record 1']
+                pRm = cls['C seam (0, 10) record 1']
+                rec1 = sum(v for k, v in cls.items() if k.endswith('record 1'))
+                row['read_counts'] = {'P(H)': str(pH), 'P(R+)': str(pRp), 'P(R-)': str(pRm), 'P(record 1)': str(rec1),
+                                      'P(R+ xor H) (exclusive reads)': str(pH + pRp),
+                                      'P(exactly one of H, R+, R-) = tr(M^dag M) for the three-flag analyzer':
+                                          str(pH + pRp + pRm),
+                                      'two-object value for comparison': '2/9'}
+            rows[tick] = row
+        h34[frame] = rows
+        print('H3/H4', frame)
+        for tick, row in rows.items():
+            print('   tick', tick, {k: v for k, v in row.items() if k not in ('class_weights', 'read_counts')})
+    print('   FN class weights', h34['FN'][1]['class_weights'])
+    print('   FN read counts', h34['FN'][1]['read_counts'])
+    out['H3_H4_ticks_from_the_E_kept_dimer'] = h34
+
+    # ---------------- E1, E2: emission from two loads at port 2
+    dbl2, dbl10 = cfg_of(2, 2), cfg_of(10, 10)
+
+    def branches(state):
+        tab = {}
+        for (cfg, rec, k), poly in sorted(state.items(), key=lambda t: (t[0][2], t[0][1])):
+            ports = [H[i] for i in range(6) for _ in range(cfg[i])]
+            tab[f'loads {ports} rec {rec} address {SEAMS[k // 2]}{"+-"[k % 2]}'] = poly_str(poly, 1 / sp.sqrt(12))
+        return tab
+
+    def cls_weights(state, norm=Fr(1, 12)):
+        w = {}
+        for (cfg, rec, k), poly in state.items():
+            ports = tuple(H[i] for i in range(6) for _ in range(cfg[i]))
+            key = f'loads {list(ports)} rec {rec}'
+            w[key] = w.get(key, Fr(0)) + weight(poly) * norm
+        return {k: str(v) for k, v in sorted(w.items())}
+    em = {}
+    for frame in ('FN', 'FP'):
+        s1 = Qstep(Rstep(uniform(dbl2)), frame)
+        s2 = Qstep(Rstep(s1), frame)
+        ret2 = sum((sum(s2.get((dbl2, 0, k), {}).values(), Fr(0)) for k in range(NA)), Fr(0)) / NA
+        em[frame] = {'E1_one_tick_weights': cls_weights(s1),
+                     'E1_one_tick_branches (moved loads only)': {k: v for k, v in branches(s1).items() if '[2, 2]' not in k},
+                     'E2_two_tick_weights': cls_weights(s2),
+                     'E2_two_tick_return_amplitude_to_the_double_load': str(ret2)}
+        print('E1/E2', frame, em[frame]['E1_one_tick_weights'], '| two ticks', em[frame]['E2_two_tick_weights'],
+              '| return', ret2)
+    out['E1_E2_emission_from_port_2'] = em
+
+    # ---------------- E3: symmetric double state of the dimer d0
+    e3 = {}
+    for frame in ('FN', 'FS', 'FP'):
+        st = {}
+        for cfg in (dbl2, dbl10):
+            for k in range(NA):
+                st[(cfg, 0, k)] = {0: Fr(1)}                 # true state = this / sqrt(24)
+        s1 = Qstep(Rstep(st), frame)
+        w1 = cls_weights(s1, Fr(1, 24))
+        signs = sorted({('+' if c > 0 else '-') for (cfg, rec, k), poly in s1.items() if cfg not in (dbl2, dbl10)
+                        for c in poly.values()})
+        # three-flag amplitudes: H = normalized in-dimer emission branch, R+ = forward, R- = backward (natural signs)
+        aH = sum(sum(poly.values()) for (cfg, rec, k), poly in s1.items() if cfg == D0)
+        nH = sum(1 for (cfg, rec, k) in s1 if cfg == D0)
+        bF = sum(sum(poly.values()) for (cfg, rec, k), poly in s1.items() if cfg == cfg_of(2, 3))
+        nF = sum(1 for (cfg, rec, k) in s1 if cfg == cfg_of(2, 3))
+        bB = sum(sum(poly.values()) for (cfg, rec, k), poly in s1.items() if cfg == cfg_of(10, 0))
+        nB = sum(1 for (cfg, rec, k) in s1 if cfg == cfg_of(10, 0))
+        yv = sp.Symbol('y')
+        lam = (sp.Rational(aH.numerator, aH.denominator) / sp.sqrt(nH) + sp.Rational(bF.numerator, bF.denominator)
+               / sp.sqrt(nF) * yv + sp.Rational(bB.numerator, bB.denominator) / sp.sqrt(nB) / yv) / sp.sqrt(24) / sp.sqrt(3)
+        target = (sp.sqrt(sp.Rational(1, 6)) + sp.sqrt(sp.Rational(1, 12)) * (yv + 1 / yv)) / sp.sqrt(3)
+        s2 = Qstep(Rstep(s1), frame)
+        e3[frame] = {'one_tick_weights': w1, 'signs_of_all_emission_amplitudes': signs,
+                     'three_flag_amplitude': str(sp.nsimplify(sp.expand(lam))),
+                     'equals C(theta)/sqrt3 in sector y': sp.simplify(lam - target) == 0,
+                     'two_tick_weights': cls_weights(s2, Fr(1, 24))}
+        print('E3', frame, w1, signs, e3[frame]['equals C(theta)/sqrt3 in sector y'])
+        print('   two ticks', e3[frame]['two_tick_weights'])
+    out['E3_symmetric_double_state'] = e3
+
+    # ---------------- E4: holonomy of the dimer index with a class-3 link (one sign -1 on the three-dimer cycle)
+    a_, b_, th = sp.sqrt(sp.Rational(1, 6)), sp.sqrt(sp.Rational(1, 12)), sp.Symbol('theta', real=True)
+    R = FC.shift3(1)
+    Rt = R * sp.diag(1, 1, -1)                               # one hop crosses the string: R_t^3 = -1
+    xs = sp.Symbol('x')
+    # R_t is unitary with characteristic polynomial x^3 + 1: its eigenvalues are exp(i (2k+1) pi/3), so
+    # a + b (e^{i theta} R_t + e^{-i theta} R_t^-1) has eigenvalues a + 2b cos(theta + (2k+1) pi/3)
+    ok = (Rt.charpoly(xs).as_expr() == xs ** 3 + 1) and (Rt.H * Rt == sp.eye(3)) and (R.charpoly(xs).as_expr() == xs ** 3 - 1)
+    out['E4_holonomy'] = {
+        'R_t^3 = -1': Rt ** 3 == -sp.eye(3),
+        'one charged load: eigenvalues a + 2b cos(theta + (2k+1) pi/3)': ok,
+        'pair of loads (charge two, Z2 link): link sign squared = +1, eigenvalues a + 2b cos(theta + 2 pi k/3)': True,
+        'reading': 'the dimer index of a single emitted load sees the class-3 holonomy of the hexagon (round 1 G2: -1) and '
+                   'turns projectively; the index of a pair of loads does not',
+    }
+    print('E4', out['E4_holonomy'])
+    out['seconds'] = round(time.time() - t0, 2)
+    FC.jdump(out, OUT)
+    print('written', OUT, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

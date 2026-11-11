@@ -1,0 +1,77 @@
+{
+ "global_scalar": {
+  "plus": 38,
+  "minus": 1356,
+  "oscillatory": 46,
+  "mapping_defect": 3.219646771412954e-15,
+  "cross_parity": 3.4786302318815024e-18,
+  "T_blank_defect": 1.3322676295501878e-15,
+  "T_parity_defect": 1.3322676295501878e-15,
+  "top_blank_eigenvalue": 1.0000000000000009,
+  "rest_phase_rad": 0.0,
+  "rest_phase_deg": 0.0,
+  "T_blank_eigs": [
+   1.0,
+   0.953934,
+   0.9,
+   0.879399
+  ]
+ },
+ "local_scalar": {
+  "plus": 38,
+  "minus": 1356,
+  "oscillatory": 46,
+  "mapping_defect": 3.219646771412954e-15,
+  "cross_parity": 2.5664246486848643e-17,
+  "T_blank_defect": 1.3877787807814457e-17,
+  "T_parity_defect": 1.3877787807814457e-17,
+  "top_blank_eigenvalue": 1.0,
+  "rest_phase_rad": 0.0,
+  "rest_phase_deg": 0.0,
+  "T_blank_eigs": [
+   1.0,
+   0.723607,
+   0.4,
+   0.276393
+  ]
+ },
+ "global_spinor": {
+  "plus": 36,
+  "minus": 1356,
+  "oscillatory": 48,
+  "mapping_defect": 8.215650382226158e-15,
+  "cross_parity": 6.942417663838142e-18,
+  "T_blank_defect": 1.3322676313326226e-15,
+  "T_parity_defect": 1.3322676313326226e-15,
+  "top_blank_eigenvalue": 0.9875542340293378,
+  "rest_phase_rad": 0.15793459517968794,
+  "rest_phase_deg": 9.048985742903314,
+  "T_blank_eigs": [
+   0.987554,
+   0.928776,
+   0.884965
+  ]
+ },
+ "local_spinor": {
+  "plus": 36,
+  "minus": 1356,
+  "oscillatory": 48,
+  "mapping_defect": 1.3322676295501878e-15,
+  "cross_parity": 3.444381221710898e-17,
+  "T_blank_defect": 1.1102354205478944e-16,
+  "T_parity_defect": 1.1102354205478944e-16,
+  "top_blank_eigenvalue": 0.9253254041760198,
+  "rest_phase_rad": 0.38890343717989306,
+  "rest_phase_deg": 22.282525588539016,
+  "T_blank_eigs": [
+   0.925325,
+   0.572654,
+   0.309789
+  ]
+ },
+ "closed_forms": {
+  "cos_half_seam": 0.8506508083520399,
+  "local_spinor_top": 0.9253254041760199,
+  "global_spinor_top": 0.9875542340293366
+ }
+}

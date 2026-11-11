@@ -1,0 +1,148 @@
+"""APE smearing of the spatial links and Wilson loops with smeared spatial lines (numba). Uses su3_lib.py."""
+import numpy as np
+from numba import njit
+
+
+@njit(cache=True, fastmath=True)
+def inv3(M, out):
+    c00 = M[1, 1] * M[2, 2] - M[1, 2] * M[2, 1]
+    c01 = M[1, 2] * M[2, 0] - M[1, 0] * M[2, 2]
+    c02 = M[1, 0] * M[2, 1] - M[1, 1] * M[2, 0]
+    det = M[0, 0] * c00 + M[0, 1] * c01 + M[0, 2] * c02
+    inv = 1.0 / det
+    out[0, 0] = c00 * inv
+    out[0, 1] = (M[0, 2] * M[2, 1] - M[0, 1] * M[2, 2]) * inv
+    out[0, 2] = (M[0, 1] * M[1, 2] - M[0, 2] * M[1, 1]) * inv
+    out[1, 0] = c01 * inv
+    out[1, 1] = (M[0, 0] * M[2, 2] - M[0, 2] * M[2, 0]) * inv
+    out[1, 2] = (M[0, 2] * M[1, 0] - M[0, 0] * M[1, 2]) * inv
+    out[2, 0] = c02 * inv
+    out[2, 1] = (M[0, 1] * M[2, 0] - M[0, 0] * M[2, 1]) * inv
+    out[2, 2] = (M[0, 0] * M[1, 1] - M[0, 1] * M[1, 0]) * inv
+    return det
+
+
+@njit(cache=True)
+def project_su3(M, tmp):
+    """Unitary polar factor of M by Newton iteration X -> (X + X^-dag)/2, then division by det^(1/3)."""
+    for _ in range(40):
+        inv3(M, tmp)
+        d = 0.0
+        for i in range(3):
+            for j in range(3):
+                new = 0.5 * (M[i, j] + np.conj(tmp[j, i]))
+                d += abs(new - M[i, j])
+                M[i, j] = new
+        if d < 1e-14:
+            break
+    det = (M[0, 0] * (M[1, 1] * M[2, 2] - M[1, 2] * M[2, 1]) - M[0, 1] * (M[1, 0] * M[2, 2] - M[1, 2] * M[2, 0])
+           + M[0, 2] * (M[1, 0] * M[2, 1] - M[1, 1] * M[2, 0]))
+    ph = np.exp(-1j * np.angle(det) / 3.0)
+    for i in range(3):
+        for j in range(3):
+            M[i, j] *= ph
+
+
+@njit(cache=True, fastmath=True)
+def ape_step(U, up, dn, c):
+    """One APE step on the spatial links: U_i(x) -> P[U_i(x) + c sum of the four spatial staples]."""
+    V = U.shape[0]
+    out = U.copy()
+    t1 = np.empty((3, 3), np.complex128)
+    S = np.empty((3, 3), np.complex128)
+    tmp = np.empty((3, 3), np.complex128)
+    for x in range(V):
+        for i in range(3):
+            for a in range(3):
+                for b in range(3):
+                    S[a, b] = U[x, i, a, b]
+            xpi = up[x, i]
+            for j in range(3):
+                if j == i:
+                    continue
+                xpj = up[x, j]
+                xmj = dn[x, j]
+                xmjpi = up[xmj, i]
+                # U_j(x) U_i(x+j) U_j(x+i)^dag
+                for a in range(3):
+                    for b in range(3):
+                        t1[a, b] = U[x, j, a, 0] * U[xpj, i, 0, b] + U[x, j, a, 1] * U[xpj, i, 1, b] + U[x, j, a, 2] * U[xpj, i, 2, b]
+                for a in range(3):
+                    for b in range(3):
+                        S[a, b] += c * (t1[a, 0] * np.conj(U[xpi, j, b, 0]) + t1[a, 1] * np.conj(U[xpi, j, b, 1])
+                                        + t1[a, 2] * np.conj(U[xpi, j, b, 2]))
+                # U_j(x-j)^dag U_i(x-j) U_j(x-j+i)
+                for a in range(3):
+                    for b in range(3):
+                        t1[a, b] = (np.conj(U[xmj, j, 0, a]) * U[xmj, i, 0, b] + np.conj(U[xmj, j, 1, a]) * U[xmj, i, 1, b]
+                                    + np.conj(U[xmj, j, 2, a]) * U[xmj, i, 2, b])
+                for a in range(3):
+                    for b in range(3):
+                        S[a, b] += c * (t1[a, 0] * U[xmjpi, j, 0, b] + t1[a, 1] * U[xmjpi, j, 1, b] + t1[a, 2] * U[xmjpi, j, 2, b])
+            project_su3(S, tmp)
+            for a in range(3):
+                for b in range(3):
+                    out[x, i, a, b] = S[a, b]
+    return out
+
+
+@njit(cache=True, fastmath=True)
+def wilson_loops_st(Us, U, up, Rmax, Tmax):
+    """W[R-1, T-1]: R links of Us along a spatial direction, T links of U along time. Average of Re tr / 3 over
+    sites and the three spatial directions."""
+    V = U.shape[0]
+    LS = np.empty((Rmax, V, 3, 3, 3), np.complex128)
+    shS = np.empty((Rmax + 1, V, 3), np.int64)
+    LT = np.empty((Tmax, V, 3, 3), np.complex128)
+    shT = np.empty((Tmax + 1, V), np.int64)
+    for s in range(V):
+        shT[0, s] = s
+        shT[1, s] = up[s, 3]
+        for a in range(3):
+            for b in range(3):
+                LT[0, s, a, b] = U[s, 3, a, b]
+        for i in range(3):
+            shS[0, s, i] = s
+            shS[1, s, i] = up[s, i]
+            for a in range(3):
+                for b in range(3):
+                    LS[0, s, i, a, b] = Us[s, i, a, b]
+    for R in range(2, Rmax + 1):
+        for s in range(V):
+            for i in range(3):
+                e = shS[R - 1, s, i]
+                shS[R, s, i] = up[e, i]
+                for a in range(3):
+                    for b in range(3):
+                        LS[R - 1, s, i, a, b] = (LS[R - 2, s, i, a, 0] * Us[e, i, 0, b] + LS[R - 2, s, i, a, 1] * Us[e, i, 1, b]
+                                                 + LS[R - 2, s, i, a, 2] * Us[e, i, 2, b])
+    for T in range(2, Tmax + 1):
+        for s in range(V):
+            e = shT[T - 1, s]
+            shT[T, s] = up[e, 3]
+            for a in range(3):
+                for b in range(3):
+                    LT[T - 1, s, a, b] = LT[T - 2, s, a, 0] * U[e, 3, 0, b] + LT[T - 2, s, a, 1] * U[e, 3, 1, b] + LT[T - 2, s, a, 2] * U[e, 3, 2, b]
+    W = np.zeros((Rmax, Tmax))
+    t1 = np.empty((3, 3), np.complex128)
+    t2 = np.empty((3, 3), np.complex128)
+    for s in range(V):
+        for i in range(3):
+            for R in range(1, Rmax + 1):
+                xa = shS[R, s, i]
+                for T in range(1, Tmax + 1):
+                    xb = shT[T, s]
+                    for a in range(3):
+                        for b in range(3):
+                            t1[a, b] = (LS[R - 1, s, i, a, 0] * LT[T - 1, xa, 0, b] + LS[R - 1, s, i, a, 1] * LT[T - 1, xa, 1, b]
+                                        + LS[R - 1, s, i, a, 2] * LT[T - 1, xa, 2, b])
+                    for a in range(3):
+                        for b in range(3):
+                            t2[a, b] = (LT[T - 1, s, a, 0] * LS[R - 1, xb, i, 0, b] + LT[T - 1, s, a, 1] * LS[R - 1, xb, i, 1, b]
+                                        + LT[T - 1, s, a, 2] * LS[R - 1, xb, i, 2, b])
+                    tr = 0.0
+                    for a in range(3):
+                        for b in range(3):
+                            tr += (t1[a, b] * np.conj(t2[a, b])).real
+                    W[R - 1, T - 1] += tr
+    return W / (9.0 * V)

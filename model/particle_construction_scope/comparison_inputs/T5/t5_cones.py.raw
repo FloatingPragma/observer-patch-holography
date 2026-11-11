@@ -1,0 +1,336 @@
+"""T5, space (c): the copies of the routing cone, their symmetry, and the mass mechanism with ordered sources
+(coordinator's notes; simulation session `RL/work/SIM/family/rank_one.py`, `mixing.py`, read only).
+
+Float64 on a 4^3 lattice with the reference engine `RL/work/DIRAC/routing.py` (imported by path, unchanged); the
+Clifford products at the cone points are products of matrices with entries 0, +-1, +-i and are exact. Every other
+number carries its printed defect. Output: cones.json.
+
+  1. Cone points of the two-tick period and the coin there; on-site mass steps; translation characters; handedness.
+  2. Kinds of cell. Rest space of one parity class = functions constant on kinds, times the coin. The forward tick
+     maps even-kind states to odd-kind states by a fixed unitary X built from four third-turn lifts.
+  3. With sources constant on kinds the period on the rest space is exp(-i Th_E Y/2) X^+ exp(-i Th_O Y) X exp(-i Th_E Y/2)
+     exactly: levels and mixing of the simulation session's cases reproduced from an 8 x 8 matrix.
+  4. The half-turns of the tick's group fix the kinds of even cells and translate the kinds of odd cells:
+     this is why reversing the order on the odd cells changes nothing.
+"""
+import itertools
+import json
+import math
+import os
+import sys
+
+import numpy as np
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+RL = os.path.dirname(os.path.dirname(HERE))
+sys.path.insert(0, os.path.join(RL, 'work', 'DIRAC'))
+from routing import Routing, SIG                                     # noqa: E402  (reference engine, unchanged)
+
+I2 = np.eye(2, dtype=complex)
+X, Y, Z = SIG
+out = {'arithmetic': 'float64 with printed defects; Clifford products at the cone points exact (entries 0, +-1, +-i)'}
+rng = np.random.default_rng(11)
+
+# ---------------------------------------------------------------------------------------------------------------
+# 1. cone points
+alpha = [np.kron(X, s) for s in SIG]                                 # alpha_i = X_record x sigma_i
+YR = np.kron(Y, I2)
+XR = np.kron(X, I2)
+K = {0: (0, 0, 0), 1: (0, 1, 1), 2: (1, 0, 1), 3: (1, 1, 0)}         # in units of pi/2; label = the axis with entry 0
+def Ei(i, quarter):                                                   # exp(-i p alpha_i) at p = quarter * pi/2, exact
+    return [np.eye(4), -1j * alpha[i], -np.eye(4), 1j * alpha[i]][quarter % 4].astype(complex)
+def Sfwd(k): return Ei(2, k[2]) @ Ei(1, k[1]) @ Ei(0, k[0])
+def Srev(k): return Ei(0, k[0]) @ Ei(1, k[1]) @ Ei(2, k[2])
+A = {a: Sfwd(k) for a, k in K.items()}
+expected = {0: np.eye(4), 1: np.kron(I2, 1j * SIG[0]), 2: np.kron(I2, -1j * SIG[1]), 3: np.kron(I2, 1j * SIG[2])}
+cone = {'points_in_units_of_pi_over_2': {str(a): list(k) for a, k in K.items()},
+        'forward_tick_at_the_cone_points': '1, i sigma_1, -i sigma_2, i sigma_3 (record untouched); axis 2 has the opposite sign',
+        'exact_match': all(np.array_equal(A[a], expected[a]) for a in K),
+        'reverse_tick_is_the_inverse_there': all(np.array_equal(Srev(k) @ Sfwd(k), np.eye(4)) for k in K.values()),
+        'translation_characters (exp(i K.e_j), j = 1, 2, 3)': {str(a): [['1', 'i', '-1', '-i'][x] for x in k] for a, k in K.items()}}
+assert cone['exact_match'] and cone['reverse_tick_is_the_inverse_there']
+def unitary(n):
+    q, r = np.linalg.qr(rng.normal(size=(n, n)) + 1j * rng.normal(size=(n, n)))
+    return q
+def phases(W):
+    return np.sort(np.angle(np.linalg.eigvals(W)))
+def W2_at(a, M):
+    return M @ Srev(K[a]) @ M @ Sfwd(K[a])
+m = unitary(2)
+Ms = np.kron(m, I2)                                                   # on-site, invariant under the tick's group
+d_scalar = max(np.abs(W2_at(a, Ms) - Ms @ Ms).max() for a in K)
+h0, h2 = rng.normal(size=(2, 2)), rng.normal(size=(2, 2))
+H = np.kron(h0 + h0.T, I2) + np.kron(h2 + h2.T, SIG[1])              # keeps only the half-turn about axis 2
+ev, vec = np.linalg.eigh(H)
+M2 = (vec * np.exp(-1j * 0.3 * ev)) @ vec.conj().T
+ph2 = {a: phases(W2_at(a, M2)) for a in K}
+Mg = unitary(4)
+phg = {a: phases(W2_at(a, Mg)) for a in K}
+cone['on_site_mass_steps'] = {
+    'identity': 'W2(K_a) = M A_a^-1 M A_a with A_a the forward tick at the cone point',
+    'step_invariant_under_the_ticks_group (M = m x 1 on the spin)': {'max |W2(K_a) - M^2| over the four cones': float(d_scalar),
+                                                                      'result': 'the four cones have the same rest phases: four equal'},
+    'step_that_keeps_only_the_half_turn_about_axis_2': {
+        'origin_equals_cone_2': float(np.abs(ph2[0] - ph2[2]).max()), 'cone_1_equals_cone_3': float(np.abs(ph2[1] - ph2[3]).max()),
+        'origin_differs_from_cone_1': float(np.abs(ph2[0] - ph2[1]).max()), 'result': 'two and two'},
+    'generic_on_site_step': {'pairwise_differences': {f'{a}-{b}': float(np.abs(phg[a] - phg[b]).max()) for a, b in itertools.combinations(K, 2)},
+                             'result': ('four different' if min(float(np.abs(phg[a] - phg[b]).max()) for a, b in itertools.combinations(K, 2)) > 1e-6
+                                        else 'some cones coincide')}}
+# handedness: sign of det of the linearised sigma . q term in the arrow sector X_record = +1 (massless)
+def block(p):
+    W = np.eye(4, dtype=complex)
+    for order in ((0, 1, 2), (2, 1, 0)):
+        for i in order:
+            W = (np.cos(p[i]) * np.eye(4) - 1j * np.sin(p[i]) * alpha[i]) @ W
+    v = np.kron(np.array([[1], [1]]) / np.sqrt(2), I2)                # X_record = +1
+    return v.conj().T @ W @ v
+hand = {}
+for a, k in K.items():
+    J = np.zeros((3, 3))
+    for j in range(3):
+        q = np.array(k, float) * np.pi / 2
+        q[j] += 1e-6
+        B = block(q)
+        gen = (B - B.conj().T) / (-2j) / 1e-6                         # ~ sum_c J[c, j] sigma_c
+        J[:, j] = [np.real(np.trace(gen @ s)) / 2 for s in SIG]
+    hand[str(a)] = int(np.sign(np.linalg.det(J)))
+cone['handedness_sign_in_the_arrow_sector_plus'] = hand
+cone['reading'] = 'origin and the cone of axis 2 have one handedness, the cones of axes 1 and 3 the other: the copies are 2 + 2, not 1 + 3'
+out['cone_points'] = cone
+print('1.', {k: cone[k] for k in ('exact_match', 'handedness_sign_in_the_arrow_sector_plus')}, 'scalar step defect', d_scalar)
+print('1. axis-2 step: 0=2', cone['on_site_mass_steps']['step_that_keeps_only_the_half_turn_about_axis_2'])
+
+# ---------------------------------------------------------------------------------------------------------------
+# 2. lattice, kinds, rest space, the unitary X
+L = 4
+shape = (L, L, L)
+N = 4 * L ** 3
+w = Routing(shape)
+def matrix_of(op):
+    M = np.zeros((N, N), complex)
+    for n in range(N):
+        e = np.zeros(N, complex)
+        e[n] = 1
+        M[:, n] = op(e.reshape(shape + (2, 2))).reshape(-1)
+    return M
+SF = matrix_of(lambda q: w.shift(w.shift(w.shift(q, 0), 1), 2))       # S_3 S_2 S_1
+SR = matrix_of(lambda q: w.shift(w.shift(w.shift(q, 2), 1), 0))       # S_1 S_2 S_3
+cells = list(itertools.product(range(L), repeat=3))
+cidx = {x: i for i, x in enumerate(cells)}
+def kind(x):                                                          # the simulation session's definition
+    par = x[0] % 2
+    mm = [(xi - par) // 2 % 2 for xi in x]
+    k = 0 if mm[0] == mm[1] == mm[2] else (1 if mm[1] == mm[2] else (2 if mm[0] == mm[2] else 3))
+    return par, k
+lat = [x for x in cells if (x[0] - x[1]) % 2 == 0 and (x[1] - x[2]) % 2 == 0]
+def mass_matrix(theta_of_cell, half=False):
+    M = np.zeros((N, N), complex)
+    for x in cells:
+        th = theta_of_cell(x) * (0.5 if half else 1.0)
+        i = 4 * cidx[x]
+        M[i:i + 4, i:i + 4] = np.cos(th) * np.eye(4) - 1j * np.sin(th) * YR
+    return M
+def period(theta_of_cell):                                            # half-step frame: M^1/2 S_rev M S_fwd M^1/2
+    Mh, Mf = mass_matrix(theta_of_cell, True), mass_matrix(theta_of_cell)
+    return Mh @ SR @ Mf @ SF @ Mh
+def kind_basis(par):
+    """columns: (kind c, coin k) -> normalised function constant on the cells of kind c of parity par"""
+    B = np.zeros((N, 16), complex)
+    for c in range(4):
+        cs = [x for x in lat if kind(x) == (par, c)]
+        for x in cs:
+            for k in range(4):
+                B[4 * cidx[x] + k, 4 * c + k] = 1 / np.sqrt(len(cs))
+    return B
+BE, BO = kind_basis(0), kind_basis(1)
+W0 = SR @ SF
+rest_E = float(np.abs(W0 @ BE - BE).max())
+rest_O = float(np.abs(W0 @ BO - BO).max())
+Xf = BO.conj().T @ SF @ BE                                            # 16 x 16: even-kind states -> odd-kind states
+x_unitary = float(np.abs(Xf.conj().T @ Xf - np.eye(16)).max())
+# structure: X = (1/2) sum |c'><c| x (1_record x u_(c + c'))
+def kadd(a, b):                                                       # Klein four-group on labels 0..3 (0 neutral, a + a = 0, 1 + 2 = 3)
+    if a == 0: return b
+    if b == 0: return a
+    if a == b: return 0
+    return 6 - a - b
+u = {}
+struct_defect = 0.0
+for c in range(4):
+    for c2 in range(4):
+        blk = Xf[4 * c2:4 * c2 + 4, 4 * c:4 * c + 4] * 2
+        g = kadd(c, c2)
+        ug = blk[:2, :2]
+        struct_defect = max(struct_defect, float(np.abs(blk - np.kron(I2, ug)).max()))
+        if g in u:
+            struct_defect = max(struct_defect, float(np.abs(u[g] - ug).max()))
+        else:
+            u[g] = ug
+axes = {}
+for g, ug in u.items():
+    n = np.array([np.imag(np.trace(ug @ s)) / 2 for s in SIG])        # ug = cos(t) + i sin(t) n.sigma
+    axes[g] = {'scalar_part': float(np.real(np.trace(ug)) / 2), 'vector_part_times_2': [float(round(2 * x, 12)) for x in n],
+               'unitary_defect': float(np.abs(ug.conj().T @ ug - I2).max()), 'cube_plus_identity_defect': float(np.abs(ug @ ug @ ug + I2).max())}
+dots = [float(np.dot(axes[a]['vector_part_times_2'], axes[b]['vector_part_times_2'])) for a, b in itertools.combinations(range(4), 2)]
+out['kinds'] = {
+    'lattice': 'cells with all coordinates of equal parity (one of the four independent lattices), 4^3 torus',
+    'kinds': 'four on the even cells and four on the odd cells: which coordinate of floor(x/2) has the odd-one-out parity (0 = none); a Klein four-group',
+    'rest_space_of_a_parity_class = functions constant on kinds x coin (defect of W0 = 1)': [rest_E, rest_O],
+    'copies': 'four per parity class, each with two spin states and two record states; the four cone waves are the four characters of the group of kinds',
+    'X = forward tick from even-kind states to odd-kind states': {
+        'unitary_defect': x_unitary,
+        'structure_defect of X = (1/2) sum_(c, c2) |c2><c| x 1_record x u_(c + c2)': struct_defect,
+        'u_g = (1 + i n_g . sigma)/2, the lift of a third of a turn about a body diagonal n_g': axes,
+        'pairwise_dot_products_of_the_four_axes n_g (each -1: four diagonals of one tetrahedron)': dots,
+        'squared_overlap_of_an_even_kind_with_an_odd_kind, Tr/2': 0.25}}
+print('2. rest space defects', rest_E, rest_O, '| X unitary', x_unitary, '| structure', struct_defect)
+print('2. axes of the third-turn lifts:', {g: a['vector_part_times_2'] for g, a in axes.items()}, 'dots', dots)
+assert max(rest_E, rest_O, x_unitary, struct_defect) < 1e-12 and all(abs(d + 1) < 1e-9 for d in dots)
+
+# ---------------------------------------------------------------------------------------------------------------
+# 3. ordered sources: model against the full period and against the simulation session's numbers
+Xk = np.zeros((8, 8), complex)                                        # on kind x spin
+for c in range(4):
+    for c2 in range(4):
+        Xk[2 * c2:2 * c2 + 2, 2 * c:2 * c + 2] = u[kadd(c, c2)] / 2
+def model_period(even, odd):
+    """8 x 8 period on (even kind) x spin in the sector Y_record = +1"""
+    DE = np.kron(np.diag(np.exp(-0.5j * np.array(even))), I2)
+    DO = np.kron(np.diag(np.exp(-1j * np.array(odd))), I2)
+    return DE @ Xk.conj().T @ DO @ Xk @ DE
+def model_levels(even, odd):
+    wv, U = np.linalg.eig(model_period(even, odd))
+    ph = -np.angle(wv) / 2
+    order = np.argsort(ph)
+    return ph[order], U[:, order]
+def full_levels(even, odd):
+    th = lambda x: ((odd if kind(x)[0] else even)[kind(x)[1]] if x in latset else 0.0)
+    P = period(th)
+    idx = [4 * cidx[x] + k for x in lat for k in range(4)]
+    Pl = P[np.ix_(idx, idx)]
+    leak = float(np.abs(P[:, idx]).sum() - np.abs(Pl).sum())
+    wv, U = np.linalg.eig(Pl)
+    ph = np.abs(np.angle(wv)) / 2
+    sel = np.where(ph < 0.2)[0]
+    vals = np.round(ph[sel], 6)
+    groups = []
+    for v in sorted(set(vals)):
+        Q, _ = np.linalg.qr(U[:, sel[vals == v]])
+        groups.append((float(v), Q))
+    return groups, leak
+latset = set(lat)
+Astr = (0.16, 0.08, 0.04, 0.02)
+Zs = (0.0, 0.0, 0.0, 0.0)
+cases = {'A: ordered on the even cells': (Astr, Zs), 'B: same order, kinds permuted cyclically': ((0.02, 0.16, 0.08, 0.04), Zs),
+         'C: ordered on the odd cells': (Zs, Astr),
+         'D: half of each strength on the even cells and half on the odd cells': (tuple(x / 2 for x in Astr), tuple(x / 2 for x in Astr)),
+         'E: even cells as A, odd cells reversed': (tuple(x / 2 for x in Astr), tuple(x / 2 for x in Astr[::-1]))}
+sim = json.load(open(os.path.join(RL, 'work', 'SIM', 'family', 'mixing.json')))
+G, rows = {}, {}
+worst_model, worst_sim, worst_mix = 0.0, 0.0, 0.0
+for name, (ev_, od_) in cases.items():
+    groups, leak = full_levels(ev_, od_)
+    G[name] = groups
+    lv_full = [g[0] for g in groups]
+    lv_model = sorted(set(np.round(np.abs(model_levels(ev_, od_)[0]), 6)))
+    lv_sim = [r[0] for r in sim['cases'][name]['levels_per_tick']]
+    worst_model = max(worst_model, max(abs(a - b) for a, b in zip(lv_full, lv_model)))
+    worst_sim = max(worst_sim, max(abs(a - b) for a, b in zip(lv_full, lv_sim)))
+    rows[name] = {'even': list(ev_), 'odd': list(od_), 'levels_per_tick_full_period_4^3': lv_full, 'states_per_level': [g[1].shape[1] for g in groups],
+                  'levels_per_tick_8x8_model': [float(x) for x in lv_model], 'levels_per_tick_simulation_session_8^3': lv_sim,
+                  'lattice_leak': leak}
+    print('3.', name, lv_full, [g[1].shape[1] for g in groups], '| model', [float(x) for x in lv_model], '| sim', lv_sim)
+mix = {}
+ref = G['A: ordered on the even cells']
+for name in list(cases)[1:]:
+    M = [[float(np.sum(np.abs(a[1].conj().T @ b[1]) ** 2) / a[1].shape[1]) for b in G[name]] for a in ref]
+    S = sim['mixing'][name]
+    worst_mix = max(worst_mix, max(abs(M[i][j] - S[i][j]) for i in range(4) for j in range(4)))
+    mix[name] = M
+    print('3. mixing A against', name, [[round(x, 4) for x in r] for r in M])
+out['ordered_sources'] = {
+    'exact_statement': 'if the source angle is constant on each kind, the rest space of a parity class is invariant and the period on it is exp(-i Th_E Y/2) X^+ exp(-i Th_O Y) X exp(-i Th_E Y/2), Th_E and Th_O the diagonal matrices of the even and odd kind angles',
+    'even_cells_only': 'levels per tick = half the angle of each kind, exactly; eigenstates = the kinds of even cells',
+    'odd_cells_only': 'the same levels; eigenstates = the kinds of odd cells, each an equal mixture (1/4) of the four even kinds',
+    'cases': rows, 'mixing_against_case_A (rows: levels of A ascending; columns: levels of the case ascending)': mix,
+    'largest_difference_full_period_against_8x8_model': worst_model,
+    'largest_difference_against_the_simulation_session_levels (they round to 6 places)': worst_sim,
+    'largest_difference_against_the_simulation_session_mixing': worst_mix}
+print('3. differences: model', worst_model, 'sim levels', worst_sim, 'sim mixing', worst_mix)
+assert worst_model < 2e-6 and worst_sim < 2e-6 and worst_mix < 1e-6
+
+# a source pattern that a third of a turn about a body diagonal through an even cell preserves: kinds 1, 2, 3 equal
+gF, _ = full_levels((0.12, 0.05, 0.05, 0.05), Zs)
+out['ordered_sources']['third_turn_invariant_source (even kinds 0.12, 0.05, 0.05, 0.05)'] = {
+    'levels_per_tick': [g[0] for g in gF], 'states_per_level': [g[1].shape[1] for g in gF],
+    'reading': 'one level for the kind of the centre cell and three equal levels for the kinds labelled by the axes'}
+print('3. third-turn invariant source:', [(g[0], g[1].shape[1]) for g in gF])
+assert [g[1].shape[1] for g in gF] == [24, 8] and abs(gF[0][0] - 0.025) < 1e-9 and abs(gF[1][0] - 0.06) < 1e-9
+
+# ---------------------------------------------------------------------------------------------------------------
+# 4. the half-turns of the tick's group on the kinds: explanation of the reversal
+def half_turn_operator(axis):
+    """spatial half-turn about the axis through the cell 0 (an even cell), with the coin alpha_j alpha_k"""
+    j, k = [i for i in range(3) if i != axis]
+    coin = alpha[j] @ alpha[k]
+    Gm = np.zeros((N, N), complex)
+    for x in cells:
+        y = tuple((x[i] if i == axis else -x[i]) % L for i in range(3))
+        Gm[4 * cidx[y]:4 * cidx[y] + 4, 4 * cidx[x]:4 * cidx[x] + 4] = coin
+    return Gm
+sym = {}
+for axis in range(3):
+    Gm = half_turn_operator(axis)
+    even_map = {c: {kind(tuple((x[i] if i == axis else -x[i]) % L for i in range(3)))[1] for x in lat if kind(x) == (0, c)} for c in range(4)}
+    odd_map = {c: {kind(tuple((x[i] if i == axis else -x[i]) % L for i in range(3)))[1] for x in lat if kind(x) == (1, c)} for c in range(4)}
+    sym[f'half-turn about axis {axis + 1}'] = {
+        'commutes_with_the_forward_and_reverse_ticks': float(max(np.abs(Gm @ SF - SF @ Gm).max(), np.abs(Gm @ SR - SR @ Gm).max())),
+        'kinds_of_even_cells': {str(c): sorted(v) for c, v in even_map.items()},
+        'kinds_of_odd_cells': {str(c): sorted(v) for c, v in odd_map.items()}}
+thD = lambda x: ((cases['D: half of each strength on the even cells and half on the odd cells'][1] if kind(x)[0] else cases['D: half of each strength on the even cells and half on the odd cells'][0])[kind(x)[1]] if x in latset else 0.0)
+thE = lambda x: ((cases['E: even cells as A, odd cells reversed'][1] if kind(x)[0] else cases['E: even cells as A, odd cells reversed'][0])[kind(x)[1]] if x in latset else 0.0)
+G3 = half_turn_operator(2)
+d_DE = float(np.abs(G3 @ period(thD) @ G3.conj().T - period(thE)).max())
+thA = lambda x: ((Zs if kind(x)[0] else Astr)[kind(x)[1]] if x in latset else 0.0)
+d_AA = float(np.abs(G3 @ period(thA) @ G3.conj().T - period(thA)).max())
+out['reversal_on_the_odd_cells'] = {
+    'half_turns': sym,
+    'statement': 'a half-turn of the frame about an axis through an even cell (spin part alpha_j alpha_k, an element of the tick\'s quaternion group) commutes with every sub-step, fixes each kind of even cell and translates the kinds of odd cells by the group element of its axis; about axis 3 this is the reversal 0<->3, 1<->2',
+    'G period(D) G^-1 = period(E), defect': d_DE, 'G period(A) G^-1 = period(A), defect': d_AA,
+    'consequence': 'cases D and E are images of each other under a symmetry that leaves the reference case A unchanged: same levels, same mixing. The three double transpositions of the odd kinds are all of this type.'}
+print('4.', {k: (v['kinds_of_even_cells'], v['kinds_of_odd_cells'], v['commutes_with_the_forward_and_reverse_ticks']) for k, v in sym.items()})
+print('4. G3 period(D) G3^-1 - period(E):', d_DE, '| A invariant:', d_AA)
+assert d_DE < 1e-12 and d_AA < 1e-12
+
+# ---------------------------------------------------------------------------------------------------------------
+# 5. the lifted copy of one kind: cone content and arrow
+c = 2
+f = BE[:, 4 * c] + 1j * BE[:, 4 * c + 2]                              # kind c, an eigenstate of Y_record, spin up
+f = f / np.linalg.norm(f)
+psi = f.reshape(shape + (2, 2))
+ft = np.fft.fftn(psi, axes=(0, 1, 2))
+wgt = np.sum(np.abs(ft) ** 2, axis=(-1, -2))
+wgt /= wgt.sum()
+cw = {}
+for a, k in K.items():
+    cw[str(a)] = float(sum(wgt[(k[0] + i) % L, (k[1] + j) % L, (k[2] + l) % L] for i in (0, 2) for j in (0, 2) for l in (0, 2)))
+arrow = float(np.real(np.vdot(psi, psi[..., ::-1, :])))
+out['one_kind_lifted'] = {'weight_on_the_four_cones (with their corner images)': cw, 'arrow_expectation_X_record': arrow,
+                          'reading': 'a state on one kind of cell is the equal-weight combination of the four cones (signs = a character of the group of kinds) and, as an eigenstate of Y_record, an equal mixture of the two arrow classes; a source on one kind lifts it alone (rank one, level = half the kind angle = four times the lattice average of a one-kind source) and leaves three copies at rest'}
+print('5. cone weights of a one-kind state', cw, 'arrow', arrow)
+
+# ---------------------------------------------------------------------------------------------------------------
+# 6. classification on the copies
+out['classification'] = {
+    'copies': 4,
+    'uniform_source (invariant under all translations)': 'four equal levels',
+    'on_site_step_invariant_under_the_ticks_group': 'four equal levels (section 1)',
+    'source_ordered_on_the_kinds_of_one_parity': 'four free levels (half the kind angles), eigenstates fixed = the kinds; in the cone basis the matrix a + b1 T1 + b2 T2 + b3 T3 of the Klein four-group of kinds (4 real parameters)',
+    'source_on_one_kind': 'one level and three zeros (rank one)',
+    'sources_on_both_parities': 'eight kind angles; four levels, each twofold (spin); eigenstates depend on the angles',
+    'ticks_group_with_centre_on_an_even_cell': 'requires the odd-kind angles to be equal; the even-kind angles stay free: four free levels (half of even-kind angle plus common odd angle)',
+    'third_turn_about_a_diagonal_through_an_even_cell, imposed on the source': 'kinds 1, 2, 3 equal: one level and three equal levels (the turn is not a symmetry of the alternating tick; the levels follow from the exact formula)',
+    'mixing_between_two_species': 'both ordered on even kinds (or both on odd kinds): a permutation; one on even and one on odd kinds: every squared entry 1/4; otherwise fixed by the split of each source between the parities',
+    'what_is_declared': 'the source pattern (which cells carry the mass angle, with which strength) is a preparation, not part of the tick'}
+if len(sys.argv) > 1:
+    json.dump(out, open(sys.argv[1], 'w'), indent=1)

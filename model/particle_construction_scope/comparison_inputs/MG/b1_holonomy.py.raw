@@ -1,0 +1,300 @@
+"""MG block 1 and 2a: chart transports of the one-class wirings F and B, holonomy, generators, spin lift, refinement.
+
+    python b1_holonomy.py [max_level=3]      (box B; about a minute)
+
+Writes b1_holonomy.json. Every number is a count or a group order obtained from permutation arithmetic (EXACT).
+"""
+import collections
+import json
+import sys
+import time
+
+import numpy as np
+
+sys.dont_write_bytecode = True
+import s0_lib as S
+import mg_lib as M
+
+MAXL = int(sys.argv[1]) if len(sys.argv) > 1 else 3
+T0 = time.time()
+out = {'conventions': {
+    'ports': 'template labels of RL/work/S3/s0_lib.py (equal to oph_defects.fedgeom)',
+    'cells': 'cell indices of s0_lib.build_mesh(level) (the pinned order; children of c are 4c..4c+3)',
+    'rule': 'T(c -> c\') = h_c\' r^k\' g r^-k h_c^-1, g = identity or one of the 15 half turns; k, k\' positions of the shared edge',
+    'S': 'g = identity: the three glue ports of c go to the three glue ports of c\' in cyclic order, glued port to glued port',
+    'R0': 'the two glue ports of c that are not on this seam go crosswise to the two of c\' that are not on it',
+    'R1': 'the glue port of this seam and the next one (cyclic order) go crosswise to the next one and the seam port of c\'',
+    'R2': 'the glue port of this seam and the previous one go crosswise to the previous one and the seam port of c\'',
+    'holonomy': 'product of the transports once counter-clockwise around a mesh vertex',
+}}
+
+# ----------------------------------------------------------------------------- group controls
+ctl = {}
+ctl['rotations'] = 60
+ctl['binary_group'] = 120
+ctl['binary_orders'] = dict(sorted(collections.Counter(int(x) for x in M.BORD).items()))          # 1:1 2:1 3:20 4:30 5:24 6:20 10:24
+ctl['rotation_orders'] = dict(sorted(collections.Counter(int(x) for x in M.ORDER).items()))
+# known answer: the binary cover does not split: no subgroup of order 60 maps onto the rotations
+gens = [2 * M.R3, 2 * M.INVOLUTIONS[0], 2 * [i for i in range(60) if M.ORDER[i] == 5][0]]
+ctl['closure_of_any_lifts_of_generators'] = len(M.group_closure(gens, M.BMUL, M.ONE))
+ctl['closure_with_other_signs'] = len(M.group_closure([g + 1 for g in gens], M.BMUL, M.ONE))
+# commutator of the lifts of two commuting half turns is the central element
+comm = None
+for a in M.INVOLUTIONS:
+    for b in M.INVOLUTIONS:
+        if a != b and M.MUL[a, b] == M.MUL[b, a]:
+            x, y = 2 * a, 2 * b
+            comm = int(M.BMUL[M.BMUL[x, y], M.BMUL[M.BINV[x], M.BINV[y]]])
+            break
+    if comm is not None:
+        break
+ctl['commutator_of_lifted_commuting_half_turns_is_minus_one'] = bool(comm == M.CENTRAL)
+out['controls'] = ctl
+print('controls', ctl, flush=True)
+
+# ----------------------------------------------------------------------------- the sixteen rules
+rules = []
+for g in M.RULES16:
+    gr = int(M.MUL[g, M.R3])
+    row = {'g': int(g), 'g_class': M.CLASS_NAME[int(M.ANGLE[g])], 'g_axis': M.axis_label(g),
+           'g_perm': list(M.ROT60[g]),
+           'gr_order': int(M.ORDER[gr]), 'gr_class': M.CLASS_NAME[int(M.ANGLE[gr])], 'gr_axis': M.axis_label(gr),
+           'generated_by_g_and_r': M.GROUP_NAME[len(M.group_closure([g, M.R3], M.MUL, M.E60))],
+           'name_F': M.rule_name(g, M.TOP), 'name_B': M.rule_name(g, M.BELT),
+           'F_glued_ports_after_transport': {'distance': int(M.DIST[M.ROT60[g][M.TOP[0]], M.TOP[0]]),
+                                             'angle_deg': M.DIST_ANGLE[int(M.DIST[M.ROT60[g][M.TOP[0]], M.TOP[0]])]},
+           'B_glued_ports_after_transport': {'distance': int(M.DIST[M.ROT60[g][M.BELT[0]], M.BELT[0]]),
+                                             'angle_deg': M.DIST_ANGLE[int(M.DIST[M.ROT60[g][M.BELT[0]], M.BELT[0]])]}}
+    rules.append(row)
+out['rules'] = rules
+out['r'] = {'index': int(M.R3), 'perm': list(M.ROT60[M.R3]), 'axis': M.axis_label(M.R3)}
+for r in rules:
+    print(r['g'], r['name_F'], r['name_B'], r['g_axis'], '| g r:', r['gr_class'], r['gr_axis'], '| <g,r> =', r['generated_by_g_and_r'],
+          '| glued ports after transport F', r['F_glued_ports_after_transport']['distance'], 'B', r['B_glued_ports_after_transport']['distance'], flush=True)
+
+
+def class_counts(hol):
+    res = {5: collections.Counter(), 6: collections.Counter()}
+    for v, (n, c0, H) in hol.items():
+        res[n][M.CLASS_NAME[int(M.ANGLE[H])]] += 1
+    return {str(n): dict(c) for n, c in res.items()}
+
+
+def lifted_class_counts(hol):
+    res = {5: collections.Counter(), 6: collections.Counter()}
+    for v, (n, c0, H) in hol.items():
+        res[n][f'{M.CLASS_NAME[int(M.ANGLE[H // 2])]}, lifted order {int(M.BORD[H])}'] += 1
+    return {str(n): dict(c) for n, c in res.items()}
+
+
+# ----------------------------------------------------------------------------- holonomy of the sixteen rules, F and B
+table = {}
+for kind, base in (('F', M.TOP), ('B', M.BELT)):
+    table[kind] = {}
+    for level in range(MAXL + 1):
+        mesh = S.build_mesh(level)
+        W, _ = M.wiring(kind, level)
+        table[kind][str(level)] = {}
+        for g in M.RULES16:
+            T = M.transports(mesh, W, base, g)
+            hol = M.vertex_holonomies(mesh, T)
+            grp = M.holonomy_group(mesh, T)
+            # angle between the glued ports after transport, on every seam
+            d = {int(M.DIST[M.ROT60[int(T[c, k])][int(W[c, k])], int(W[mesh.nbr[c, k], mesh.nbk[c, k]])]) for c in range(mesh.N) for k in range(3)}
+            TL, unsolved, raw = M.lift_transports(mesh, T)
+            lhol = M.vertex_holonomies(mesh, TL, M.BMUL, M.ONE)
+            lgrp = M.holonomy_group(mesh, TL, 0, M.BMUL, M.BINV, M.ONE)
+            row = {'vertex_holonomy': class_counts(hol), 'group_order': len(grp), 'group': M.GROUP_NAME.get(len(grp), str(len(grp))),
+                   'glued_port_distance_after_transport': sorted(d),
+                   'lift_parity_obstruction': int(unsolved), 'lifted_vertex_holonomy': lifted_class_counts(lhol),
+                   'lifted_group_order': len(lgrp), 'lifted_group': M.BGROUP_NAME.get(len(lgrp), str(len(lgrp))),
+                   'lifted_group_contains_minus_one': bool(M.CENTRAL in lgrp),
+                   'vertices_with_curvature': int(sum(1 for v, (n, c0, H) in hol.items() if H != M.E60)), 'vertices': int(mesh.V)}
+            table[kind][str(level)][M.rule_name(g, base)] = row
+        names = [M.rule_name(g, base) for g in M.RULES16]
+        summ = collections.Counter(table[kind][str(level)][n]['group'] for n in names)
+        print(kind, 'level', level, dict(summ), round(time.time() - T0, 1), flush=True)
+        for n in ('S', 'R0', 'R1', 'R2'):
+            r = table[kind][str(level)][n]
+            print('   ', n, r['vertex_holonomy'], r['group'], '| lift', r['lifted_group'], 'obstruction', r['lift_parity_obstruction'],
+                  '| glued ports', r['glued_port_distance_after_transport'], flush=True)
+out['holonomy'] = table
+
+# gauge control: the recursive natural tower is the same wiring in other labels -> identical classes and groups
+gc = {}
+for level in range(MAXL + 1):
+    mesh = S.build_mesh(level)
+    for kind in ('Fnat', 'Fnat2'):
+        W, base = M.wiring(kind, level)
+        same = True
+        for g in M.RULES16:
+            T = M.transports(mesh, W, base, g)
+            a = class_counts(M.vertex_holonomies(mesh, T)); b = len(M.holonomy_group(mesh, T))
+            ref = table['F'][str(level)][M.rule_name(g, base)]
+            same &= (a == ref['vertex_holonomy'] and b == ref['group_order'])
+        gc[f'{kind}_L{level}'] = bool(same)
+out['gauge_control_natural_tower_equals_mesh_order'] = gc
+print('gauge control', gc, flush=True)
+
+# negative control: a wiring with random cyclic relabelling per cell and an inconsistent rule (T not built from h) must fail reversibility
+# known-answer control: a transport that is a pure gauge (T = f(c') f(c)^-1) has trivial holonomy group
+rng = np.random.default_rng(7)
+mesh = S.build_mesh(2)
+f = rng.integers(0, 60, size=mesh.N)
+Tg = np.stack([M.MUL[f[mesh.nbr[:, k]], M.INV[f]] for k in range(3)], axis=1)
+out['controls']['pure_gauge_transport_group_order'] = len(M.holonomy_group(mesh, Tg))
+Tr = rng.integers(0, 60, size=(mesh.N, 3))
+for c in range(mesh.N):
+    for k in range(3):
+        d, k2 = int(mesh.nbr[c, k]), int(mesh.nbk[c, k])
+        if c < d:
+            Tr[d, k2] = M.INV[Tr[c, k]]
+out['controls']['random_transport_group_order'] = len(M.holonomy_group(mesh, Tr))
+print('pure gauge group', out['controls']['pure_gauge_transport_group_order'], 'random transport group', out['controls']['random_transport_group_order'], flush=True)
+
+
+# ----------------------------------------------------------------------------- generators as explicit closed paths (wiring F)
+def describe(i, hc=M.E60):
+    return {'index': int(i), 'class': M.CLASS_NAME[int(M.ANGLE[i])], 'axis_through': M.axis_label(i), 'perm': list(M.ROT60[i])}
+
+
+gen = {}
+for name in ('S', 'R0', 'R1', 'R2'):
+    gen[name] = {}
+    for level in range(MAXL + 1):
+        mesh = S.build_mesh(level)
+        W, base = M.wiring('F', level)
+        g = M.E60 if name == 'S' else M.crosswise_rule(base, int(name[1]))
+        T = M.transports(mesh, W, base, g)
+        dist, path = M.cover_bfs(mesh, T, 0)
+        reach = [a for a in range(60) if dist[0, a] >= 0]
+        by_class = collections.defaultdict(list)
+        for a in reach:
+            by_class[M.CLASS_NAME[int(M.ANGLE[a])]].append(int(dist[0, a]))
+        row = {'rotations_reached_by_closed_paths': len(reach),
+               'shortest_closed_path_length_by_class': {k: {'count': len(v), 'min': min(v), 'max': max(v)} for k, v in by_class.items()}}
+        # two generators: the shortest closed paths whose rotations generate the whole holonomy group
+        order = sorted((a for a in reach if a != M.E60), key=lambda a: (int(dist[0, a]), a))
+        chosen = []
+        for a in order:
+            if len(M.group_closure(chosen + [a], M.MUL, M.E60)) > len(M.group_closure(chosen, M.MUL, M.E60)):
+                chosen.append(a)
+            if len(M.group_closure(chosen, M.MUL, M.E60)) == len(reach):
+                break
+        gens_out = []
+        for a in chosen:
+            cells = path(a)
+            assert M.path_holonomy(mesh, T, cells) == a and cells[0] == 0 and cells[-1] == 0
+            gens_out.append({'closed_path_cells': [int(c) for c in cells], 'glue_crossings': len(cells) - 1, 'rotation': describe(a)})
+        row['generators'] = gens_out
+        row['group_generated_by_these_paths'] = len(M.group_closure(chosen, M.MUL, M.E60))
+        # spin lift: shortest closed path with trivial rotation and central sign
+        TL, unsolved, raw = M.lift_transports(mesh, T)
+        bdist, bpath = M.cover_bfs(mesh, TL, 0, M.BMUL, 120, M.ONE)
+        row['lift'] = {'parity_obstruction': int(unsolved),
+                       'binary_elements_reached_by_closed_paths': int((bdist[0] >= 0).sum()),
+                       'minus_one_reached': bool(bdist[0, M.CENTRAL] >= 0)}
+        if bdist[0, M.CENTRAL] >= 0:
+            cells = bpath(M.CENTRAL)
+            assert M.path_holonomy(mesh, TL, cells, M.BMUL, M.ONE) == M.CENTRAL
+            # which mesh vertices does the path wind around: report the cells and the vertex of each turn
+            row['lift']['shortest_closed_path_with_identity_rotation_and_sign_minus_one'] = {'cells': [int(c) for c in cells], 'glue_crossings': len(cells) - 1}
+        # lifted generators: the lifted holonomy of the generator paths and their orders
+        for gdesc in gens_out:
+            H = M.path_holonomy(mesh, TL, gdesc['closed_path_cells'], M.BMUL, M.ONE)
+            gdesc['lifted_order'] = int(M.BORD[H]); gdesc['lifted_su2'] = [[[float(z.real), float(z.imag)] for z in rowm] for rowm in M.B2[H]]
+        gen[name][str(level)] = row
+        print('generators', name, 'level', level, 'reached', len(reach), [(x['glue_crossings'], x['rotation']['class'], x['rotation']['axis_through'], x['lifted_order']) for x in gens_out],
+              '| binary reached', row['lift']['binary_elements_reached_by_closed_paths'],
+              '| -1 path length', row['lift'].get('shortest_closed_path_with_identity_rotation_and_sign_minus_one', {}).get('glue_crossings'), round(time.time() - T0, 1), flush=True)
+out['generators_F'] = gen
+
+# ----------------------------------------------------------------------------- refinement
+ref = {}
+for name_g, g in [(M.rule_name(g, M.TOP), g) for g in M.RULES16]:
+    ref[name_g] = {}
+    for level in range(MAXL):
+        mc, mf = S.build_mesh(level), S.build_mesh(level + 1)
+        Wc, base = M.wiring('Fnat', level); Wf, _ = M.wiring('Fnat', level + 1)
+        Tc = M.transports(mc, Wc, base, g); Tf = M.transports(mf, Wf, base, g)
+        sib_id = sib = cous_eq = cous = corner_eq = corner = 0
+        for c in range(mf.N):
+            for k in range(3):
+                d = int(mf.nbr[c, k])
+                P, Q = c // 4, d // 4
+                if P == Q:
+                    sib += 1; sib_id += int(Tf[c, k] == M.E60)
+                else:
+                    kc = int(np.where(mc.nbr[P] == Q)[0][0])
+                    cous += 1; cous_eq += int(Tf[c, k] == Tc[P, kc])
+        # vertices: old vertices keep their holonomy element (same base cell: the corner child), new vertices trivial
+        hc = M.vertex_holonomies(mc, Tc); hf = M.vertex_holonomies(mf, Tf)
+        cyc_c = S.vertex_cycles(mc); cyc_f = S.vertex_cycles(mf)
+        old_same = old = new_triv = new = 0
+        for v, (n, c0, H) in hf.items():
+            if v < mc.V:
+                old += 1
+                # coarse loop based at the parent of the fine base cell
+                P0 = c0 // 4
+                cl = cyc_c[v]
+                j0 = [j for j, (c, i) in enumerate(cl) if c == P0][0]
+                Hc = M.E60
+                for j in range(len(cl)):
+                    c, i = cl[(j0 + j) % len(cl)]
+                    Hc = int(M.MUL[Tc[c, (i + 1) % 3], Hc])
+                old_same += int(Hc == H)
+            else:
+                new += 1; new_triv += int(H == M.E60)
+        # joint holonomy: K = {(fine holonomy, holonomy of the ancestry image)} over all closed fine paths at fine cell 0.
+        # Ancestry image: a fine step between siblings is a stay of the coarse path (identity), between cousins the coarse step.
+        Tcimg = np.empty((mf.N, 3), dtype=np.int64)
+        for c in range(mf.N):
+            for k in range(3):
+                d = int(mf.nbr[c, k]); P, Q = c // 4, d // 4
+                Tcimg[c, k] = M.E60 if P == Q else Tc[P, int(np.where(mc.nbr[P] == Q)[0][0])]
+        Gf, parent, pk = M.tree_transport(mf, Tf, 0)
+        Gc, _, _ = M.tree_transport(mf, Tcimg, 0)
+        gens = set()
+        for c in range(mf.N):
+            for k in range(3):
+                d = int(mf.nbr[c, k])
+                if parent[d] == c and pk[d] == k:
+                    continue
+                gens.add((int(M.MUL[M.INV[Gf[d]], M.MUL[Tf[c, k], Gf[c]]]), int(M.MUL[M.INV[Gc[d]], M.MUL[Tcimg[c, k], Gc[c]]])))
+        K = {(M.E60, M.E60)}; frontier = [(M.E60, M.E60)]
+        while frontier:
+            nxt = []
+            for x in frontier:
+                for gg in gens:
+                    y = (int(M.MUL[gg[0], x[0]]), int(M.MUL[gg[1], x[1]]))
+                    if y not in K:
+                        K.add(y); nxt.append(y)
+            frontier = nxt
+        fine_grp = {x[0] for x in K}; coarse_grp = {x[1] for x in K}
+        diag_in = all((a, a) in K for a in fine_grp)
+        is_graph_of_identity = all(x[0] == x[1] for x in K)
+        # K the graph of an automorphism (fine -> coarse image)? inner (one fixed conjugation)?
+        is_graph = (len(K) == len(fine_grp) == len(coarse_grp))
+        inner = False
+        if is_graph:
+            sigma = dict(K)
+            inner = any(all(int(M.MUL[x, M.MUL[a, M.INV[x]]]) == sigma[a] for a in fine_grp) for x in range(60))
+        ref[name_g][f'{level}->{level + 1}'] = {
+            'sibling_seams_directed': sib, 'sibling_transport_identity': sib_id,
+            'cousin_seams_directed': cous, 'cousin_transport_equals_coarse': cous_eq,
+            'old_vertices': old, 'old_vertex_holonomy_equal_as_element': old_same,
+            'new_vertices': new, 'new_vertex_holonomy_trivial': new_triv,
+            'joint_holonomy_group_order': len(K), 'fine_group_order': len(fine_grp), 'coarse_image_group_order': len(coarse_grp),
+            'every_fine_holonomy_has_a_path_whose_coarse_image_has_the_same_holonomy': bool(diag_in),
+            'fine_holonomy_equals_coarse_image_holonomy_for_every_closed_path': bool(is_graph_of_identity),
+            'joint_group_is_graph_of_an_isomorphism': bool(is_graph), 'isomorphism_is_one_fixed_conjugation': bool(inner)}
+    for step, v in ref[name_g].items():
+        print('refinement', name_g, step, 'sib id', v['sibling_transport_identity'], '/', v['sibling_seams_directed'], 'cousin eq', v['cousin_transport_equals_coarse'], '/', v['cousin_seams_directed'],
+              'old same', v['old_vertex_holonomy_equal_as_element'], '/', v['old_vertices'], 'new trivial', v['new_vertex_holonomy_trivial'], '/', v['new_vertices'],
+              '| K', v['joint_holonomy_group_order'], 'fine', v['fine_group_order'], 'coarse', v['coarse_image_group_order'],
+              'diag in K', v['every_fine_holonomy_has_a_path_whose_coarse_image_has_the_same_holonomy'], 'strict', v['fine_holonomy_equals_coarse_image_holonomy_for_every_closed_path'],
+              'graph', v['joint_group_is_graph_of_an_isomorphism'], 'inner', v['isomorphism_is_one_fixed_conjugation'], flush=True)
+out['refinement_Fnat'] = ref
+
+json.dump(out, open('b1_holonomy.json', 'w'), indent=1)
+print('written b1_holonomy.json', round(time.time() - T0, 1))

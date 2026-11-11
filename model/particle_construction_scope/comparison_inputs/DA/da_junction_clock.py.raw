@@ -1,0 +1,105 @@
+"""Worker DA, second round, item 2: the junction weight of the charged-lepton vertex in the audit's electroweak clock.
+
+Run from the RER checkout (read only, no byte code written):
+  cd reverse-engineering-reality && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:../repair-law/work/DA \
+    /tmp/oph-completion-venv/bin/python ../repair-law/work/DA/da_junction_clock.py ../repair-law/work/DA/junction_clock.json
+
+Candidates J0-J5 of CANDIDATES.md section 5, in that order. The local block is the repository's exact 320-state
+charged-lepton/scalar operator (model.coherent_defect_wave.chiral_higgs.model.quantum_lepton_block) at the declared
+unit point y_e = omega = 1. The comparison target is read only at the end (NOT BLIND).
+"""
+import json
+import sys
+from pathlib import Path
+
+import numpy as np
+import sympy as s
+from scipy.linalg import expm
+
+from model.coherent_defect_wave.chiral_higgs import model as higgs
+
+h_sym, charges, support, block, ward = higgs.quantum_lepton_block()
+H = np.array(h_sym.tolist(), dtype=complex)  # 320 x 320, index = 5*mask + scalar (kron(64-fermion, 5-scalar))
+fields, hq, number, _ = higgs.higgs_memory()
+N_H = np.kron(np.eye(64), np.array(number.tolist(), dtype=complex))
+H_int = H - N_H  # the Yukawa part at y_e = 1 (H = I x N_H + interaction, omega = 1)
+assert np.allclose(H_int, H_int.conj().T)
+
+
+def scalar_state(k):
+    v = np.zeros(5, complex); v[k] = 1; return v
+
+
+def fermion_vacuum():
+    v = np.zeros(64, complex); v[0] = 1; return v
+
+
+vac = np.kron(fermion_vacuum(), scalar_state(0))
+results = {'clock': 'exp(-i t H), H = I x N_H + H_Y on the exact 320-state local block; declared y_e = omega = 1',
+           'block_dimension': int(H.shape[0]), 'ward_identities_checked': int(ward)}
+
+# The pair annihilated by the vertex together with the raised scalar component k: H_int maps |0_f, H_(1+k)> to the
+# pair state; that pair state with the scalar vacuum is the junction input.
+rows = []
+for k in (0, 1):
+    target = np.kron(fermion_vacuum(), scalar_state(1 + k))  # |0_f, H_(1+k)>
+    pair = H_int.conj().T @ target  # amplitude vector of states that the vertex sends to target
+    pair_in = pair.copy()
+    # keep only components with scalar vacuum (the junction input: a fermion pair, no scalar)
+    mask = np.zeros(320, bool); mask[0::5] = True
+    pair_in[~mask] = 0
+    g = np.linalg.norm(pair_in)
+    psi0 = pair_in / g
+    rec = {'k': k, 'vertex_amplitude_norm_g': float(g)}
+    for ye in (1.0, 0.1, 0.01):
+        Ht = N_H + ye * H_int
+        psi1 = expm(-1j * Ht * 1.0) @ psi0
+        p_target = abs(target.conj() @ psi1) ** 2
+        p_scalar = float(np.real(psi1.conj() @ (N_H @ psi1)))
+        rec[f'y_e={ye}'] = {'P_J_one_tick_to_H_k': float(p_target), 'P_scalar_excited': p_scalar}
+    # the pair also couples through the conjugate term, so a two-level estimate fails at y_e = 1; small-coupling law:
+    rec['small_y_law'] = 'P_J = 2 y_e^2 (sin(omega/2)/(omega/2))^2 + O(y_e^4) = 1.839 y_e^2 at omega = t = 1'
+    rec['small_y_law_value_at_0.01'] = float(2 * 0.01 ** 2 * (np.sin(0.5) / 0.5) ** 2)
+    rows.append(rec)
+results['junction_rows'] = rows
+
+# receipts (read only) for J3, J4, J5
+root = Path('.')
+ps = json.loads((root / 'model/coherent_defect_wave/chiral_joint/periodic_spectrum/results.json').read_text())
+hc = json.loads((root / 'model/coherent_defect_wave/chiral_joint/higgs_composites/results.json').read_text())
+
+
+def find(d, keys, path=''):
+    out = []
+    if isinstance(d, dict):
+        for kk, vv in d.items():
+            p = f'{path}/{kk}'
+            if any(x in kk.lower() for x in keys):
+                out.append((p, vv if not isinstance(vv, (dict, list)) else str(vv)[:160]))
+            out += find(vv, keys, p)
+    elif isinstance(d, list):
+        for i, vv in enumerate(d[:50]):
+            out += find(vv, keys, f'{path}[{i}]')
+    return out
+
+
+results['receipt_fields_periodic_spectrum'] = find(ps, ['weight', 'transfer', 'threshold'])[:20]
+results['receipt_fields_higgs_composites'] = find(hc, ['residue'])[:20]
+
+E_line = s.Rational(2083265509, 2147483648)  # lower end of the certified first-transfer window (receipt text)
+w_line = s.Rational(29863037, 134217728)     # lower end of the certified weight window
+res_comp = s.Rational(56785389, 134217728)   # lower end of the certified composite residue window
+P_J = rows[0]['y_e=1.0']['P_J_one_tick_to_H_k']
+cands = {'J0 y_J = y_e': 1.0, 'J1 y_J = P_J': P_J, 'J2 y_J = sqrt(P_J)': float(np.sqrt(P_J)),
+         'J3 y_J = first-line weight': float(w_line), 'J4 y_J = composite residue': float(res_comp),
+         'J5 tr Y = sqrt2 E_line (M = E_line v)': float(np.sqrt(2) * E_line)}
+results['candidates_trY'] = cands
+results['all_candidates_depend_on_declared_coefficients'] = True
+
+# comparison (NOT BLIND), read only now
+need_trY_source_v = 0.010799431139821740  # from scale_dressing.json: sqrt2 * (m_e + m_mu + m_tau) / v_source
+results['comparison_NOT_BLIND'] = {k: {'trY': v, 'ratio_to_needed': v / need_trY_source_v,
+                                       'pass_5_percent': abs(v / need_trY_source_v - 1) <= 0.05}
+                                   for k, v in cands.items()}
+Path(sys.argv[1]).write_text(json.dumps(results, indent=1, default=str))
+print(json.dumps({'junction_rows': rows, 'comparison': results['comparison_NOT_BLIND']}, indent=1))

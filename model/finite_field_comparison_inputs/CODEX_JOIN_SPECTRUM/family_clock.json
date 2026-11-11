@@ -1,0 +1,304 @@
+{
+  "source_root": "WORKSPACE/repair-law/reverse-engineering-reality",
+  "domain": "declared FR family instrument and explicit collision extension",
+  "native_event": {
+    "actual_Observer_repair_columns": 360,
+    "exact_mismatches": 0,
+    "two_address_reflection_is_original_60_address_reflection": false
+  },
+  "exact_instrument": {
+    "B_unitary": true,
+    "analyzer_norm": "1",
+    "compression": "Matrix([[sqrt(3)/9, sqrt(6)/(18*z), sqrt(6)*z/18], [sqrt(6)*z/18, sqrt(3)/9, sqrt(6)/(18*z)], [sqrt(6)/(18*z), sqrt(6)*z/18, sqrt(3)/9]])",
+    "M_equals_sqrt2_over3_C": true,
+    "R_order": 3,
+    "two_tick_compression_for_all_phases": "sqrt(3)/9 * I3",
+    "family_characters": [
+      "1",
+      "exp(2*pi*i/3)",
+      "exp(4*pi*i/3)"
+    ],
+    "physical_generations_from_characters": false,
+    "read_probabilities": {
+      "R+": "1/12",
+      "H": "1/6",
+      "independent_XOR": "2/9"
+    },
+    "clock_coefficient_inferred_from_read_probability": false
+  },
+  "one_tick_squared_amplitude_spectrum": {
+    "m2/m1": "206.7703159727293886125503393177750774621787949100341561202502337507262",
+    "m3/m1": "3477.472837104598532313001225522648344599331860199226461797159304031647",
+    "Q": "0.6666666666666666666666666666666666666666666666666666666666666666666667"
+  },
+  "C_eigenvalues": [
+    "0.9714015658337363966294288441737409225938657198166943421079222213693198",
+    "0.01647278105086518542901002469513039835020181443228845875289862123500954",
+    "0.2368705245069874670402031684840743750389062060793522633555254410211508"
+  ],
+  "multi_tick": [
+    {
+      "ticks": 1,
+      "compression_eigenvalues": [
+        [
+          0.4579230896375104,
+          1.7967876121407672e-19
+        ],
+        [
+          0.007765343457378737,
+          1.509292376890253e-18
+        ],
+        [
+          0.11166183609473664,
+          1.8715532804212254e-17
+        ]
+      ],
+      "distance_from_M_power": 0.0,
+      "squared_amplitude_ratios": {
+        "m2/m1": "206.7703159727264393162795813108439405791592993297284586000720593982537",
+        "m3/m1": "3477.472837104557101207400173726604956043122343885966452395722317539508",
+        "Q": "0.6666666666666667770432003308184458185718420975136486068251990433300104"
+      }
+    },
+    {
+      "ticks": 2,
+      "compression_eigenvalues": [
+        [
+          0.19245008972987526,
+          9.442638579934155e-19
+        ],
+        [
+          0.19245008972987526,
+          -2.079611634410596e-35
+        ],
+        [
+          0.19245008972987526,
+          3.777055431973662e-18
+        ]
+      ],
+      "distance_from_M_power": 0.19238978917086422,
+      "squared_amplitude_ratios": {
+        "m2/m1": "1.0",
+        "m3/m1": "1.0",
+        "Q": "0.3333333333333333333333333333333333333333333333333333333333333333333333"
+      }
+    },
+    {
+      "ticks": 3,
+      "compression_eigenvalues": [
+        [
+          0.1924500897298752,
+          -0.11701930025634025
+        ],
+        [
+          0.19245008972987523,
+          0.2713133579934066
+        ],
+        [
+          0.19245008972987518,
+          -0.15429405773706664
+        ]
+      ],
+      "distance_from_M_power": 0.33263763321616785,
+      "squared_amplitude_ratios": {
+        "m2/m1": "1.199350073850303929799967529848188335157778119308003453534503364724194",
+        "m3/m1": "2.181091418467485254646383653298373395317555272390534454474239857996619",
+        "Q": "0.3433166878370811695463619426735369793528465892643612526021267331003017"
+      }
+    },
+    {
+      "ticks": 4,
+      "compression_eigenvalues": [
+        [
+          0.19245008972987526,
+          1.0328538542332574e-18
+        ],
+        [
+          0.19245008972987526,
+          4.6271308083881444e-35
+        ],
+        [
+          0.19245008972987523,
+          2.655893190661313e-18
+        ]
+      ],
+      "distance_from_M_power": 0.19245008609371783,
+      "squared_amplitude_ratios": {
+        "m2/m1": "1.000000000000000374700270810990423393165560277568012786904361985932163",
+        "m3/m1": "1.000000000000000374700270810990423393165560277568012786904361985932163",
+        "Q": "0.3333333333333333333333333333333359333387582561018612470361076792797243"
+      }
+    }
+  ],
+  "actual_FR_Floquet": {
+    "character_sector_factorization": "U_k=(D(z*omega^k)B) tensor B",
+    "C_factor_characteristic_polynomial": "(eigenvalue - 1)**2*(eigenvalue + 1)**2*(eigenvalue**2 + 1)**2*(eigenvalue**2 + zeta)*(eigenvalue**2*zeta - 1)/zeta",
+    "E_factor_characteristic_polynomial": "(eigenvalue^4-1)^3",
+    "FR_report_arccos_readout_is_eigenphase_of_this_U": false
+  },
+  "neutral_background_comparison": {
+    "Y=y*C_rest_parameters": {
+      "m2/m1": "14.3795102827853420820667965336175162269205297948022891336746747872791",
+      "m3/m1": "58.97010121328094288683887981490501584710426617764340934321578875572276",
+      "Q": "0.4780353415280491598704454604753790079669100439245179422654813123232845"
+    },
+    "Y=y*C_squared_rest_parameters": {
+      "m2/m1": "206.7703159727293886125503393177750774621787949100341561202502337507262",
+      "m3/m1": "3477.472837104598532313001225522648344599331860199226461797159304031647",
+      "Q": "0.6666666666666666666666666666666666666666666666666666666666666666666667"
+    },
+    "these_are_different_Yukawa_operators": true,
+    "v_convention": "v=v_EW/sqrt(2) for H=(0,v)"
+  },
+  "complete_binary_instrument": {
+    "family_character_k": [
+      0,
+      1,
+      2
+    ],
+    "probability": [
+      0.20969355602316336,
+      6.030055901105476e-05,
+      0.01246836564004783
+    ],
+    "no_operation_probability": [
+      0.7903064439768366,
+      0.9999396994409889,
+      0.9875316343599522
+    ],
+    "tracial_success_probability": 0.07407407407407408
+  },
+  "collision_clock": {
+    "Hamiltonian": "A=M^dag M=(2/9) C(theta)^2",
+    "ancilla_generator": "P=U^dag(|Phi><Phi| tensor I)U",
+    "input": "fresh copies of the same prepared object pair",
+    "discarded_outcomes": [],
+    "time": 1.0,
+    "rows": [
+      {
+        "N": 1,
+        "max_coherence_multiplier_error": 0.08800867349573892,
+        "diamond_error_upper_bound": 2.0,
+        "min_coherence_modulus": 0.9130814996042961
+      },
+      {
+        "N": 2,
+        "max_coherence_multiplier_error": 0.04483877507361094,
+        "diamond_error_upper_bound": 2.0,
+        "min_coherence_modulus": 0.9552872715595807
+      },
+      {
+        "N": 10,
+        "max_coherence_multiplier_error": 0.009121804021597167,
+        "diamond_error_upper_bound": 0.4,
+        "min_coherence_modulus": 0.9908791901949163
+      },
+      {
+        "N": 100,
+        "max_coherence_multiplier_error": 0.0009159014867283804,
+        "diamond_error_upper_bound": 0.04,
+        "min_coherence_modulus": 0.9990840995102591
+      },
+      {
+        "N": 1000,
+        "max_coherence_multiplier_error": 9.162787541546224e-05,
+        "diamond_error_upper_bound": 0.004,
+        "min_coherence_modulus": 0.999908372125582
+      },
+      {
+        "N": 10000,
+        "max_coherence_multiplier_error": 9.163167016483714e-06,
+        "diamond_error_upper_bound": 0.0004,
+        "min_coherence_modulus": 0.9999908368329844
+      }
+    ],
+    "fixed_FR_tick_has_this_generator": false,
+    "primary_Wilson_source_transfer": false
+  },
+  "comparison": {
+    "blind": false,
+    "reference": "reverse-engineering-reality/code/particles/data/particle_reference_values.json",
+    "mu_over_e": "206.7682827084671796902080640552322774868514476087915663034803090115911",
+    "tau_over_e": "3477.370086053414866357638782258220374507282141362473097958212169337791",
+    "mu_over_e_offset_ppm": "9.833540403659114922303118189764791593188560770241347383870262592665142",
+    "phase_fitted_here": false,
+    "absolute_energy_scale_selected": false
+  },
+  "input_hashes": {
+    "reverse-engineering-reality/code/particles/data/particle_reference_values.json": "1c47e0ebf7f02d41a29c4ea133336de02ddc1064c1992ccd91580de44eb408d2",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/__init__.py": "3ceeb20c7231ce9f8d3002529c5416523986dd9c79ea963b2e314bd13364726e",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py": "83354f120a0d40d9fd3c04721bbbb3c6140cc3c5bf10655d899e9aa4325804bb",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/__init__.py": "7f72d89ca6a367344b39089fbf24163e3eb6c742476ee5db3c813b12ff73617e",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/claims.py": "962a829a454f8909773d818b96b656fc971aa9d1579cc4c53bbe6cde3cabfe14",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/constants/__init__.py": "bc732866538c149253d0e72723ef8891e5ed68fd676b46dfaec237875540f6aa",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/constants/oph_pixel.py": "9ab43098d6648010b6bd17cbfa7382d4355619a92fe2d32d3339d79af615ec9f",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/__init__.py": "56d3d5e684d53b61f38b24f32111728866fc5dc0151495dece8702d3c591d161",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/array_geometry.py": "e9b0d0c20c8598cb6e49a4965d892c8323b513b36a47dbb53b0cd49a6f873cb8",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/echosahedral_dynamics.py": "a20b928552bb51257bcc7b976f513fe227f5f36158b6e3b4786c315477c862da",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/echosahedral_federation.py": "ead1a96812ac1b243bbe2c1d175a368cd23d5c7b29a179e8718a82baf2edeec1",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/graph.py": "533bb11fc2f53600d4f3bfec25c5781ddd2d1b31f41e3fbadbb73a6a219f8667",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/icosahedral.py": "89fac4f2d24bb4d85c4a84624b3c826e99cb717df68060dd23a4b26c6cfe9adc",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/patch_state.py": "85b7c4b9fe8b983571ca1944b5871c959e198ac4970c2412e85b195d4f34221f",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/patchnet.py": "4664fe5717aac6e1433ab8ec618786cf7fbbd381b421632153ebf9ae78918dc7",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/pixel_scale.py": "0c6ce1b055df4334abba2a8b150905b4bb551e8b7f18fb2674cb6bcbb06963e5",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/screen_microphysics.py": "8fe76b1b9bde24060afa6adcbb51e925865799866d1884490c26e4b172d59cf9",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/screen_ports.py": "37b79a8a949fad2d18f17e850533c6ef33581f64c8f1a72dd94e45da93cef68e",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/__init__.py": "0f8ea883cedb9b67cb2c6af038ebdcb9fc332b0a0d62a5ea1c5cc87d0b22794c",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/anneal.py": "ff008ea37005cf667825a8cd8c7b2c5c6a2110523722da5ab089f8422dd366eb",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/consensus_certificate.py": "e6d282be435e41269ac8d581997508e5559d558ab8ffdc9e5756e3030cd7fc0f",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/kernel_dispatcher.py": "5ecb419adbdd7a341359a8aab13bef3c2feb4490130c20defadc7a196f01e500",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/modular.py": "8978134a5846ad215c7a69205401c479a02019b7902e31bef283f18a6290ef9e",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/positive_geometry.py": "b87cfb52bdc1e1d5762fa65259a026b50072d54d4e1c68bdbcac0159b05bf435",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/repair.py": "fdc6326cdbac39c86e00e9ad314a2d9fd6cf06714a2e06f0470b298177d80949",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py": "7e7cda89350be6330c7425df69bf9647549e6e1890a64eaaf28289be6c640b2f",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/__init__.py": "1875a81eb0bbac4cedfd2c3df77cabe06270b2ce8313e781b1af43174cdc04f3",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/bundle.py": "b84548c3f62187ecc19b64fa11a5dc24915bc1b9a05066b3a6496524c5f61a71",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/cross_repo_artifacts.py": "f026e8653752e5bcb1c703ed253861d3444d7beff2fe572863b09508d7efbff6",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/hashes.py": "e4a7ada049fa1137e2d53c8eadd36a574f03fca25793322906e854d8ef04773f",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/particle_input_policy.py": "8d3683c8a3b6d249c484d253e08fd8425899c71a8d69ab5c78ee34780a7e06d3",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/production_envelope.py": "f34f03314efae563a3b42cae6646164354c74e7bf062f5091790a584d08c6d1e",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/verifier.py": "4997bb27fe34846b9c2a4fff14f8a8b9a6b238f4029e2ec0273f8e1f7de60f45",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/finite_groups.py": "1329f07ef90beb9d4be1efa5cd0cb76e323014670d8e90c8f7945eba54e401f6",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/__init__.py": "ede5295ec9dac5c42571287b5971c61a24647c3c9dee0b8b7187b7f195c9bb54",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/a5_sm_certificate.py": "8d7a99cc1ae093bc570bbb3b1677a028d23b82be23e90de4635a76380bde92f1",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/covariant_overlap.py": "f03127e7314b0be60ba18b0a0b4cc934aa8d314785636258796c68baae374aa9",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/higgs_carrier.py": "c150b9850364a4948995eca273e3571a9808960e840ad9fa361801c2beec5958",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/mar_sieve.py": "0043cc7d784f1be263dca5e3882b3d1698b8b91d75a8f2ba28beee516086a366",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/physical_a5_sm_requirements.py": "6e4b35bdf56d025793973d6dcc15cb34d0e60b5e7e5796926fdf96fa2cd03015",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/repair_projection.py": "e2fdd6165ae39006e3b83c0376137162d423adeabec293ab5c06c6fe0b2b0cec",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/source_to_eft.py": "6414f00bda171fad6e8e6c77295cab106fb163eae9f00a6656e0e89db4f87562",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/yang_mills_gap.py": "29d4bb3ba2ee6e25365196c48c6e6f96a61aee00325de0acde470a577098bc4c",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/__init__.py": "8e99c23175f57934eecaf9103dabd7b3d20d56ed55fe38174571290b3ef2b815",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/base.py": "8c3e34417a51c60fc2b3a6c7b9611a9ea476d90fd1e7c5e7816604855a90d2b2",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/clock.py": "15434d1fc409eb29d585bc4d5feefd8819279276e082d9ed711de3b598de19bc",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/registry.py": "7876a6087be4ca9ef4314625799a165e396f269fffbf51b7f6984805057f434f",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/s3.py": "65d34b9ec87c46a1befeb4a1945e1827fb1987a61493e890bb4b3c9ba384a675",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/z2.py": "a32eb994598592ba9f9b763eee455a1e13720b0a8311a4d46c299794466a3624",
+    "reverse-engineering-reality/model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+    "reverse-engineering-reality/model/coherent_seam_repair/__init__.py": "c63891b72256135bc8ba4824a67b620f1faad917a504291f59231410d438bb4d",
+    "reverse-engineering-reality/model/coherent_seam_repair/program.py": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+    "reverse-engineering-reality/model/coherent_seam_repair/session.py": "4e7bc7ee7eec0d1374f1e5194bcbd5db2be7365267bf5c9c2058b7cf0bccff00",
+    "reverse-engineering-reality/model/common_source/__init__.py": "becb29d889d8b0712a6b2d36734793bcb22575fc8999e80026e5c3e2f7a39ab5",
+    "reverse-engineering-reality/model/common_source/experiment.py": "10b9040d1d2f870f6d4a5e72df2848bbc0f55c136be0be3bacd2fbda28ff4ab8",
+    "reverse-engineering-reality/model/common_source/gauge_matter.py": "5ae518551305352707d30f27568df549ab057e13a3a734d9eddc6410b84161bc",
+    "reverse-engineering-reality/model/common_source/native_join.py": "5103e163bfec42ea0a5c87647c4ff8998846cbdbc6fde8c33cb4a89581c38be0",
+    "reverse-engineering-reality/model/common_source/records.py": "7ff9a1a68b4b94c018364b73e0b9c651c9154f7e9b2ede21c51f17be79c1dafa",
+    "reverse-engineering-reality/model/common_source/scalar_coupling.py": "90e4000b0e48e4429e69891c0274966701cd59951f79d151dbe98a66e61ba0cf",
+    "reverse-engineering-reality/model/common_source/slow_geometry.py": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38",
+    "reverse-engineering-reality/model/observer/__init__.py": "8c075559977af21e4de61a648f42a2f57efbb1e6bae727183acc70c35a316af0",
+    "reverse-engineering-reality/model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "reverse-engineering-reality/model/observer/p_response/__init__.py": "12283bebf1bb3465a7184dac216f9a569b98b911308416f22f6cb80f238b98a5",
+    "reverse-engineering-reality/model/observer/p_response/experiment.py": "44049e5702af83ab8a62e40f8f7d3b25b088ed24e47078a0b412c3b2400ed61e",
+    "reverse-engineering-reality/model/observer/scalar_response/__init__.py": "d58d04679545f488798fee6962710741ec695f20bc73e6a70fb29475219d0b93",
+    "reverse-engineering-reality/model/observer/scalar_response/experiment.py": "c4948be6d905dbb1a1f74e0bc39406228d5da949e1b50c1e2054cba26f0358fb",
+    "reverse-engineering-reality/model/observer/source_scalar/__init__.py": "d3dcf546c13e23ceb9a58c19481e2e3f04134013d8047d83b020ec836d8e1e86",
+    "reverse-engineering-reality/model/observer/source_scalar/bounds.py": "1c110719845e5b27f34845f5f68c8397f8cb9eb3108bd1636577b1e4ca17d327",
+    "reverse-engineering-reality/model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
+    "reverse-engineering-reality/model/observer/source_scalar/cutoff.py": "df4057037cbdabed68734e1d746aa29caa5babe27527574a0828599d6118fd4e",
+    "reverse-engineering-reality/model/observer/source_scalar/experiment.py": "0eafa4e47c0c3e855b82bdd997aa0c4fa0c08fc7572f63a818aaba4a7a5f5bb0",
+    "reverse-engineering-reality/model/observer/source_scalar/field.py": "7368e6b0fada5ed89f5a1ea7969e6bf4f6fdad8648fa82d3851320a5146fb708",
+    "work/CODEX_JOIN_SPECTRUM/family_clock.py": "6b8795c3bc809f06e54282112024e945b2a6fafc4c0af7d049f08bb71d2768fb",
+    "work/FR/fr2_register.py": "4cd4460b40af8c98b878db667f02b0937157f2521f40bfbef0e22819e0fd3e83",
+    "work/FR/fr_common.py": "2837144d3bd4c1aee0bed2f6db0b2e973ca204eb7b87a0f998b87bed32ed6e9f"
+  }
+}

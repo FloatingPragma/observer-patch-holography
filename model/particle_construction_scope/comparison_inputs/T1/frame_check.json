@@ -1,0 +1,221 @@
+{
+ "level": "algebraic property of the carrier table (level 1); nothing here is a premise supplied",
+ "carrier": {
+  "ports": 12,
+  "rotations": 60,
+  "klein_groups": 5,
+  "half_turns": 15
+ },
+ "frame_group": {
+  "order": 12,
+  "elements_fixing_a_port": 0,
+  "port_orbits": [
+   12
+  ],
+  "acts_freely_and_transitively_on_ports": true,
+  "trace_classes": [
+   "-1",
+   "0",
+   "3"
+  ]
+ },
+ "klein_group": {
+  "port_orbits": [
+   [
+    0,
+    3,
+    6,
+    9
+   ],
+   [
+    1,
+    4,
+    7,
+    10
+   ],
+   [
+    2,
+    5,
+    8,
+    11
+   ]
+  ],
+  "each_orbit_lies_in_one_coordinate_plane": [
+   [
+    0
+   ],
+   [
+    1
+   ],
+   [
+    2
+   ]
+  ]
+ },
+ "commutant_dimension_of_the_port_space": {
+  "full_rotation_group": 4,
+  "frame_group": 12,
+  "klein_group": 36
+ },
+ "bands": {
+  "1": {
+   "rank": "1",
+   "adjacency_eigenvalue": "5",
+   "seam_cost": "0",
+   "walk_kernel_eigenvalue_blank_record": "1",
+   "rest_phase_arccos_float": 0.0,
+   "under_frame_group": {
+    "trivial": "1",
+    "each_of_the_two_conjugate_characters": "0",
+    "triplet": "0"
+   },
+   "under_klein_group": {
+    "trivial": "1",
+    "x": "0",
+    "y": "0",
+    "z": "0"
+   }
+  },
+  "3": {
+   "rank": "3",
+   "adjacency_eigenvalue": "(1)*sqrt5",
+   "seam_cost": "5 + (-1)*sqrt5",
+   "walk_kernel_eigenvalue_blank_record": "11/12 + (1/60)*sqrt5",
+   "rest_phase_arccos_float": 0.304708,
+   "under_frame_group": {
+    "trivial": "0",
+    "each_of_the_two_conjugate_characters": "0",
+    "triplet": "1"
+   },
+   "under_klein_group": {
+    "trivial": "0",
+    "x": "1",
+    "y": "1",
+    "z": "1"
+   }
+  },
+  "5": {
+   "rank": "5",
+   "adjacency_eigenvalue": "-1",
+   "seam_cost": "6",
+   "walk_kernel_eigenvalue_blank_record": "9/10",
+   "rest_phase_arccos_float": 0.451027,
+   "under_frame_group": {
+    "trivial": "0",
+    "each_of_the_two_conjugate_characters": "1",
+    "triplet": "1"
+   },
+   "under_klein_group": {
+    "trivial": "2",
+    "x": "1",
+    "y": "1",
+    "z": "1"
+   }
+  },
+  "3p": {
+   "rank": "3",
+   "adjacency_eigenvalue": "(-1)*sqrt5",
+   "seam_cost": "5 + (1)*sqrt5",
+   "walk_kernel_eigenvalue_blank_record": "11/12 + (-1/60)*sqrt5",
+   "rest_phase_arccos_float": 0.496198,
+   "under_frame_group": {
+    "trivial": "0",
+    "each_of_the_two_conjugate_characters": "0",
+    "triplet": "1"
+   },
+   "under_klein_group": {
+    "trivial": "0",
+    "x": "1",
+    "y": "1",
+    "z": "1"
+   }
+  }
+ },
+ "triplets_3_and_3p": {
+  "characters_equal_on_the_frame_group": true,
+  "characters_on_a_fifth_turn": [
+   "1/2 + (1/2)*sqrt5",
+   "1/2 + (-1/2)*sqrt5"
+  ],
+  "characters_equal_on_the_full_group": false
+ },
+ "spinor_times_vector_triplet": {
+  "full_group_cover_120": {
+   "multiplicity_of_the_doublet": "1",
+   "norm_squared_of_the_character": "2"
+  },
+  "frame_group_cover_24": {
+   "multiplicity_of_the_doublet": "1",
+   "norm_squared_of_the_character": "3"
+  },
+  "klein_group_cover_8": {
+   "multiplicity_of_the_doublet": "3",
+   "norm_squared_of_the_character": "9"
+  },
+  "reading": "norm 2 = two inequivalent constituents (2 + 4); norm 3 = three inequivalent doublets (2 + 2' + 2''); norm 9 = one doublet three times"
+ },
+ "port_space_total": {
+  "under_frame_group": {
+   "trivial": "1",
+   "each_of_the_two_conjugate_characters": "1",
+   "triplet": "3"
+  },
+  "under_klein_group": {
+   "trivial": "3",
+   "x": "3",
+   "y": "3",
+   "z": "3"
+  }
+ },
+ "lie_type_theorem_with_the_frame_group": {
+  "statement": "A faithful, commutator-closed, compact twelve-port response on which the twelve frame rotations act by inner automorphisms exists with Lie type su(2)^4: the exclusion step of the finite-current fixed-space theorem needs rotations outside the frame group.",
+  "algebra": "su(2)^4 = four copies of (R^3, cross product); centre 0",
+  "action": "first factor through the third-turn quotient (cyclic permutation matrices), three factors by the frame rotations",
+  "rho_is_a_homomorphism": true,
+  "rho_acts_by_proper_rotations_hence_inner_automorphisms": true,
+  "response_is_equivariant": true,
+  "response_determinant": "717850771456",
+  "response_is_injective_rank_12": true,
+  "fixed_dimension_per_factor": [
+   "1",
+   "0",
+   "0",
+   "0"
+  ],
+  "fixed_dimension_total": "1",
+  "fixed_dimension_of_the_port_space_under_the_frame_group": "1",
+  "public_exclusion_step": "Lean/Screen/A2HolonomyBridge.lean, four_factor_fixed_dimension_ne_one: factorwise fixed dimensions each zero or three (uses simplicity of the sixty-rotation group)"
+ },
+ "frame_matching_between_the_triplet_copies": {
+  "operator": "port permutation exchanging the two ports of each frame seam",
+  "commutes_with_the_frame_group": true,
+  "commutes_with_all_sixty_rotations": false,
+  "diagonal_elements_m_bb": {
+   "3": "(1/5)*sqrt5",
+   "5": "-1",
+   "3p": "(-1/5)*sqrt5"
+  },
+  "squared_off_diagonal_elements": {
+   "3|5": "0",
+   "3|3p": "4/5",
+   "5|3p": "0"
+  },
+  "squared_off_diagonal_elements_float": {
+   "3|5": 0.0,
+   "3|3p": 0.8,
+   "5|3p": 0.0
+  },
+  "trace_on_one_klein_character": "-1",
+  "weights_of_its_single_odd_or_even_direction_on_the_bands_3_5_3p": {
+   "3": "1/2 + (1/10)*sqrt5",
+   "5": "0",
+   "3p": "1/2 + (-1/10)*sqrt5"
+  },
+  "weights_float": {
+   "3": 0.723607,
+   "5": 0.0,
+   "3p": 0.276393
+  },
+  "reading": "nonzero off-diagonal elements: an operator that respects the frame group only connects the three copies; no such operator exists under the sixty rotations (commutant dimension 4)"
+ }
+}

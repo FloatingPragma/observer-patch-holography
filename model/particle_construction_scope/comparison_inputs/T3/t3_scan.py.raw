@@ -1,0 +1,98 @@
+"""T3 scan (float64, MEASURED): engine tie of the words, then the degeneracy points and gaps of the candidate periods.
+
+For a palindromic period P the phases are exp(-+i Omega), each twice; cos Omega = tr P / 4.
+gap0 = min over the zone of Omega (distance to phase 0), gappi = min of pi - Omega.
+"""
+import sys, json, itertools
+import numpy as np
+from t3lib import *
+
+OUT = {}
+rng = np.random.default_rng(3)
+
+# ---- 1. engine tie: every word on a lattice against its symbol ------------------------------------------------------
+w = Routing((4, 4, 2))
+words = {'W2(0.2)': period_W2(0.2), 'C(pi/16, 0.1)': period_C(np.pi / 16, 0.1), 'anti(pi/12)': period_anti(np.pi / 12),
+         'B(1.0, 0.1)': period_B(1.0, 0.1), 'F1': period_F1([0.3, -0.2, 0.5, 0.1, -0.4, -0.3])}
+tie = {}
+for name, wd in words.items():
+    worst = 0.0
+    for n in ((0, 0, 0), (1, 0, 1), (1, 3, 0), (2, 1, 1)):
+        for col in range(4):
+            e = np.zeros(4, complex); e[col] = 1
+            got = apply(w, wd, w.plane_wave(n, e)); want = w.plane_wave(n, symbol(wd, w.momentum(n)) @ e)
+            worst = max(worst, float(np.abs(got - want).max()))
+    psi = rng.normal(size=w.shape + (2, 2)) + 1j * rng.normal(size=w.shape + (2, 2)); psi /= np.linalg.norm(psi)
+    tie[name] = {'engine_against_symbol': worst, 'norm_defect': float(abs(np.linalg.norm(apply(w, wd, psi)) - 1))}
+psi = rng.normal(size=w.shape + (2, 2)) + 0j
+tie['lazy_reflector(phi=0) equals Routing.seam_involution'] = float(max(np.abs(lazy_reflector(w, psi, i, 0.0) - w.seam_involution(psi, i)).max() for i in range(3)))
+tie['lazy_reflector is an involution (phi=0.7)'] = float(max(np.abs(lazy_reflector(w, lazy_reflector(w, psi, i, 0.7), i, 0.7) - psi).max() for i in range(3)))
+OUT['engine_tie'] = tie
+print(json.dumps(tie, indent=1))
+
+
+# ---- 2. spectra over the zone ---------------------------------------------------------------------------------------
+def scan(word, n=48, lo=-np.pi, hi=np.pi):
+    """two shifted grids; also the helicity degeneracy defect |P + P^-1 - 2 cos Omega|"""
+    res = {'gap0': np.inf, 'gappi': np.inf, 'degeneracy_defect': 0.0}
+    for sh in (0.0, 0.5):
+        p = grid(n, sh, lo, hi); P = symbol(word, p)
+        c = np.clip(np.real(np.trace(P, axis1=-2, axis2=-1)) / 4, -1, 1)
+        res['degeneracy_defect'] = max(res['degeneracy_defect'], float(np.abs(P + np.conj(np.swapaxes(P, -1, -2)) - 2 * c[..., None, None] * I4).max()))
+        om = np.arccos(c)
+        k0 = np.unravel_index(np.argmin(om), om.shape); kp = np.unravel_index(np.argmax(om), om.shape)
+        if om[k0] < res['gap0']: res['gap0'] = float(om[k0]); res['at0'] = [round(float(x), 4) for x in p[k0]]
+        if np.pi - om[kp] < res['gappi']: res['gappi'] = float(np.pi - om[kp]); res['atpi'] = [round(float(x), 4) for x in p[kp]]
+    return res
+
+
+def special(word):
+    """Omega at the 64 points of (pi/2) Z^3, grouped by (number of pi/2 components, number of pi components)"""
+    out = {}
+    for k in itertools.product(range(4), repeat=3):
+        om = float(np.arccos(np.clip(cosOmega(word, np.array(k) * np.pi / 2), -1, 1)))
+        key = ''.join(str(x % 2) for x in k)
+        out.setdefault(key, set()).add(round(om, 6))
+    return {k: sorted(v) for k, v in out.items()}
+
+
+def minima(word, n=40, lo=-np.pi, hi=np.pi, tol=1e-9):
+    """local minima of Omega and of pi - Omega refined by Nelder-Mead from grid seeds; returns the distinct zeros"""
+    from scipy.optimize import minimize
+    found = {0: [], 1: []}
+    p = grid(n, 0.37, lo, hi); om = np.arccos(np.clip(cosOmega(word, p), -1, 1))
+    for which, f in ((0, om), (1, np.pi - om)):
+        idx = np.argwhere(f < 0.35)
+        seeds = p[tuple(idx.T)] if len(idx) else np.zeros((0, 3))
+        if len(seeds) > 400: seeds = seeds[rng.choice(len(seeds), 400, replace=False)]
+        for s0 in seeds:
+            fun = (lambda q: float(1 - cosOmega(word, q))) if which == 0 else (lambda q: float(1 + cosOmega(word, q)))
+            r = minimize(fun, s0, method='Nelder-Mead', options={'xatol': 1e-10, 'fatol': 1e-14, 'maxiter': 2000})
+            if r.fun < tol:
+                q = (r.x + np.pi) % (2 * np.pi) - np.pi
+                if not any(np.linalg.norm(((q - z + np.pi) % (2 * np.pi)) - np.pi) < 1e-3 for z in found[which]): found[which].append(q)
+    return {('phase0' if k == 0 else 'phasepi'): sorted([[round(float(x) / np.pi, 4) for x in z] for z in v]) for k, v in found.items()}
+
+
+which = sys.argv[1] if len(sys.argv) > 1 else 'all'
+cands = {
+    'W2 (CF-1 period, theta=0)': period_W2(0.0),
+    'W2 with theta_fwd=-theta_rev=0.3 (alternating mass angle)': period_W2(0.3, -0.3),
+    'F1 alternating +-0.3 after every sub-step': period_F1([-0.3, 0.3, -0.3, 0.3, -0.3, 0.3]),
+    'C tau=pi/16': period_C(np.pi / 16),
+    'C tau=pi/16 theta=0.1': period_C(np.pi / 16, 0.1),
+    'C tau=0.1': period_C(0.1),
+    'C tau=3pi/16': period_C(3 * np.pi / 16),
+    'anti tau=pi/12': period_anti(np.pi / 12),
+    'B phi=1.0': period_B(1.0),
+    'B phi=0.5': period_B(0.5),
+}
+res = {}
+for name, wd in cands.items():
+    if which != 'all' and which not in name: continue
+    r = scan(wd); r['special_points_Omega'] = special(wd); r['zeros_in_units_of_pi'] = minima(wd)
+    r['count_zeros'] = {k: len(v) for k, v in r['zeros_in_units_of_pi'].items()}
+    res[name] = r
+    print(name, '| gap0 %.4f at %s | gappi %.4f at %s | degeneracy defect %.1e | zeros %s' % (r['gap0'], r['at0'], r['gappi'], r['atpi'], r['degeneracy_defect'], r['count_zeros']))
+OUT['candidates'] = res
+json.dump(OUT, open(HERE + '/scan.json', 'w'), indent=1)

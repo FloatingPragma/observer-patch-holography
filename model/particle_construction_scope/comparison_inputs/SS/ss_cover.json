@@ -1,0 +1,200 @@
+{
+ "inputs_sha256": {
+  "work/GL/gl_lib.py": "0a6f2ced8c749da0c8c28c33b53b316930ee0b899dde9121c9a5cf6b89e5d2a1",
+  "work/GL/s5_links_couplings.json": "139af630207323f18e87e354b6f9d1feccb2fb39f687b44417980c36ad8f3103",
+  "work/X3/irreps.json": "adba5cf9f90ddaadce4432f7bfadd400ad6b701bdfcb5e74bcbfc48c2e5869b4"
+ },
+ "T1a_cover_centre": {
+  "group_closed_under_products": true,
+  "order": 120,
+  "central_elements": 2,
+  "central_involution_diagonal": [
+   1,
+   1,
+   1,
+   -1,
+   -1
+  ],
+  "equals_exp_i_pi_sum_p_X_p": true,
+  "statement": "the unique central involution of rho(2I) is diag(1,1,1,-1,-1) = exp(i pi 6Y) on the code"
+ },
+ "T1b_patterns": {
+  "z_on_pattern_equals_(-1)^n2": true,
+  "z_on_pattern_equals_(-1)^Q6": true,
+  "z_equals_class3_holonomy_exp(2 pi i 3 Q6/6)": true,
+  "class3_sixth_root_on_code_equals_z": true,
+  "patterns_with_z_minus1": 16,
+  "classes_with_z_minus1": [
+   1,
+   3,
+   5
+  ],
+  "statement": "z is the weak centre (-1)^n2 = (-1)^(6Y) on every pattern and the Z6 holonomy of class 3"
+ },
+ "T1c_central_involutions_of_G": {
+  "involutions_found_on_a_7200_point_grid_of_the_centre": [
+   [
+    1,
+    1,
+    1,
+    -1,
+    -1
+   ],
+   [
+    1,
+    1,
+    1,
+    1,
+    1
+   ]
+  ],
+  "analytic": "c^2 = 1 with a = e^{2it}, b = e^{-3it}: 4t and 6t in 2 pi Z, so t in {0, pi}; t = pi gives diag(1,1,1,-1,-1)",
+  "unique_nontrivial_equals_rho_z": true
+ },
+ "T1d_GL_grading": {
+  "menu_M2_sectors": 48,
+  "Z6_constraint_holds_on_M2": true,
+  "parity_of_2j_equals_parity_of_6Y_on_every_sector": true,
+  "sectors_with_odd_2j": 16,
+  "GL_odd_sector_counts": [
+   0,
+   16
+  ],
+  "GL_nontrivial_grading_equals_left_action_of_z": true,
+  "GL_37_channel_odd_sectors_6Y": [
+   [],
+   [
+    -3,
+    -1,
+    1,
+    3
+   ]
+  ],
+  "left_action_of_z_on_V_r": "(-1)^(2j)",
+  "two_sided_action_on_V_r (x) V_r^*": "+1 on every sector",
+  "statement": "GL's only nontrivial grading is the left action of z on the link sectors; the two-sided action (the rotation of a whole link) is +1"
+ },
+ "T1e_flux_sectors": {
+  "centre_acts_as_(-1)^k_for_k_0_to_19_both_frames": true,
+  "largest_covariance_defect": 1.711121669669773e-14,
+  "code_sectors": {
+   "triplet: load 2, flux 11 x 2 mod 20": 2,
+   "doublet: load -3, flux 11 x (-3) mod 20": 7
+  },
+  "centre_on_code_from_the_flux_rule": [
+   1,
+   1,
+   1,
+   -1,
+   -1
+  ],
+  "agrees_with_rho_z": true,
+  "pattern_rule": "flux seen by a pattern = 11 x load mod 20, load = 2 n3 - 3 n2 = -Q6; parity = n2 mod 2",
+  "per_k_face_flux_check": {
+   "1": [
+    1.0
+   ],
+   "2": [
+    2.0
+   ],
+   "3": [
+    3.0
+   ],
+   "7": [
+    7.0
+   ]
+  }
+ },
+ "T1f_native_scalars_and_flux6": {
+  "scalars_of_rho(2I) x Z60_on_the_code": [
+   [
+    -0.809016994,
+    -0.587785252
+   ],
+   [
+    -0.809016994,
+    0.587785252
+   ],
+   [
+    0.309016994,
+    -0.951056516
+   ],
+   [
+    0.309016994,
+    0.951056516
+   ],
+   [
+    1.0,
+    0.0
+   ]
+  ],
+  "are_the_fifth_roots_of_unity": true,
+  "(-1)^deg_realized_by_a_native_rotation_or_holonomy": false,
+  "det_argument": "Lambda(U) = (-1)^deg needs U = -I5, det -1; every native element lies in G = S(U(3) x U(2)), det 1",
+  "integer_flux_6_holonomy_on_all_32_patterns_is_identity": true,
+  "statement": "no native operation acts as (-1)^deg; a flux of 6 (Z6 units) acts as the identity on every pattern"
+ },
+ "X3_placements": {
+  "spaces_read": 27,
+  "spaces_with_spinorial_irreps": [],
+  "statement": "every placement space of flux defects (faces, pairs, triples) holds only 1, 3, 3prime, 4, 5: z acts as +1"
+ },
+ "T5_screen_D_Z6": {
+  "rule": "theta(q, m) = exp(2 pi i q m / 6) for charge q and flux m; pure fluxes q = 0 (IMPORTED, standard)",
+  "pure_flux_every_class": "boson",
+  "mutual_braiding_of_pure_fluxes": "trivial",
+  "carrier_contents_of_pure_fluxes": {
+   "{1,5}": "boson (q = 0, trivial mutual braiding)",
+   "{2,4}": "boson (q = 0, trivial mutual braiding)",
+   "{3,3}": "boson (q = 0, trivial mutual braiding)",
+   "{2,2,2}": "boson (q = 0, trivial mutual braiding)",
+   "{4,4,4}": "boson (q = 0, trivial mutual braiding)",
+   "{1,2,3}": "boson (q = 0, trivial mutual braiding)",
+   "{3,4,5}": "boson (q = 0, trivial mutual braiding)",
+   "{2,2,4,4}": "boson (q = 0, trivial mutual braiding)",
+   "{2,3,3,4}": "boson (q = 0, trivial mutual braiding)"
+  },
+  "pattern_bound_to_flux_of_its_own_class": {
+   "0": [
+    "boson"
+   ],
+   "1": [
+    "anyon, spin 1/6"
+   ],
+   "2": [
+    "anyon, spin 2/3"
+   ],
+   "3": [
+    "fermion"
+   ],
+   "4": [
+    "anyon, spin 2/3"
+   ],
+   "5": [
+    "anyon, spin 1/6"
+   ]
+  },
+  "pattern_bound_to_class3_flux": {
+   "0": [
+    "boson"
+   ],
+   "1": [
+    "fermion"
+   ],
+   "2": [
+    "boson"
+   ],
+   "3": [
+    "fermion"
+   ],
+   "4": [
+    "boson"
+   ],
+   "5": [
+    "fermion"
+   ]
+  },
+  "class3_bound_theta_equals_z_on_pattern": true,
+  "statement": "pure defects and every carrier content are bosons; binding a pattern to a class-3 flux gives theta = (-1)^n2, the action of z on the code (fermion iff weak doublet)"
+ }
+}

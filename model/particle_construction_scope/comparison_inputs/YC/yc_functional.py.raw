@@ -1,0 +1,274 @@
+"""YC step 1: the Yukawa term in GL's seam-cost functional. Reads no measured value.
+
+Seam cost of a state v under a transport W: |v - W v|^2 / 2 = 1 - Re <v|W|v>; averaged over a carrier of
+dimension d: 1 - Re tr W / d (GL's A1). Gauge transport: Lambda(U) on the pattern space (second quantization of
+the code C^5). Toggle transport: exp(-i K_theta), K_theta = theta a_s2^dagger + conj(theta) a_s2.
+
+Outputs (yc_functional.json): Hessians on each registered carrier, the Higgs plaquette expansion, the W mass check,
+leg matrix elements and shares, r = y/g per reading, circulant factors for the generation readings, L2.
+Usage: python yc_functional.py [out.json]   (imports RL/work/GL/gl_lib.py read only)
+"""
+import itertools
+import json
+import math
+import sys
+from fractions import Fraction
+
+import numpy as np
+from scipy.linalg import expm
+
+sys.path.insert(0, "WORKSPACE/repair-law/work/GL")
+import gl_lib as L  # noqa: E402
+
+rng = np.random.default_rng(11)
+out = {}
+NL = 5            # levels: 0, 1, 2 colour; 3 = s1 (charged doublet level); 4 = s2 (neutral doublet level)
+DIM = 1 << NL
+
+
+# ------------------------------------------------------------------ pattern space
+def annihilator(i):
+    a = np.zeros((DIM, DIM), complex)
+    for s in range(DIM):
+        if s >> i & 1:
+            sign = (-1) ** bin(s & ((1 << i) - 1)).count("1")
+            a[s ^ (1 << i), s] = sign
+    return a
+
+
+A = [annihilator(i) for i in range(NL)]
+AD = [a.conj().T for a in A]
+for i, j in itertools.product(range(NL), repeat=2):
+    acomm = A[i] @ AD[j] + AD[j] @ A[i]
+    assert np.allclose(acomm, np.eye(DIM) * (i == j)) and np.allclose(A[i] @ A[j] + A[j] @ A[i], 0)
+
+
+def dLambda(T):
+    return sum(T[i, j] * AD[i] @ A[j] for i in range(NL) for j in range(NL))
+
+
+def K_of(phi):
+    """Clifford action of a vector phi in C^5 (supported on the doublet levels): phi.a^dagger + h.c."""
+    return sum(phi[i] * AD[i] + np.conj(phi[i]) * A[i] for i in range(NL))
+
+
+TG = [dLambda(T) for T in L.TBASIS]                       # twelve generators on patterns
+NAMES = [f"gluon{a + 1}" for a in range(8)] + ["W1", "W2", "W3", "B_GUT"]
+K = K_of(np.array([0, 0, 0, 0, 1.0]))                     # toggle of s2
+N3 = np.array([bin(s & 0b00111).count("1") for s in range(DIM)])
+N2 = np.array([bin(s & 0b11000).count("1") for s in range(DIM)])
+NTOT = N3 + N2
+QEM = dLambda(np.diag([-1 / 3, -1 / 3, -1 / 3, 1.0, 0.0]).astype(complex))
+YH = dLambda(L.Y5)
+out["toggle_charges"] = {"[K, Q_em]": float(abs(K @ QEM - QEM @ K).max()),
+                         "[K, gluons] max": float(max(abs(K @ T - T @ K).max() for T in TG[:8])),
+                         "[K, W1] (nonzero: the toggle carries weak isospin)": float(abs(K @ TG[8] - TG[8] @ K).max()),
+                         "K^2 = 1 on patterns": bool(np.allclose(K @ K, np.eye(DIM)))}
+
+
+def proj(mask):
+    return np.diag(np.asarray(mask, float)).astype(complex)
+
+
+def orbit_span(P0, ops, rounds=6):
+    """Span generated from the range of P0 by the operators (numerical rank)."""
+    B = P0[:, np.abs(P0).sum(0) > 0]
+    for _ in range(rounds):
+        cols = [B] + [op @ B for op in ops]
+        M = np.concatenate(cols, axis=1)
+        u, s, _ = np.linalg.svd(M, full_matrices=False)
+        Bn = u[:, s > 1e-9]
+        if Bn.shape[1] == B.shape[1]:
+            break
+        B = Bn
+    return B
+
+
+code_mask = NTOT == 1
+Bgen = orbit_span(proj(code_mask), TG + [K])
+Pgen = Bgen @ Bgen.conj().T
+gen_is_n3_le_1 = bool(np.allclose(Pgen, proj(N3 <= 1)))
+CARRIERS = {"code (N = 1), 5": proj(code_mask),
+            "generated from the code by links and toggle, 16": Pgen,
+            "family half n3 odd, 16": proj(N3 % 2 == 1),
+            "all patterns, 32": np.eye(DIM, dtype=complex)}
+out["generated_carrier"] = {"dimension": int(round(np.trace(Pgen).real)), "equals_n3_at_most_1": gen_is_n3_le_1}
+
+
+def frac(x, den=10000):
+    f = Fraction(float(x)).limit_denominator(den)
+    return f"{f.numerator}/{f.denominator}" if abs(float(f) - x) < 1e-10 else float(x)
+
+
+def cost(P, W):
+    d = np.trace(P).real
+    return 1 - np.trace(P @ W @ P).real / d
+
+
+def hess_fd(P, G, sign=1j, eps=1e-3):
+    f = lambda t: cost(P, expm(sign * t * G))
+    return (f(eps) + f(-eps) - 2 * f(0.0)) / eps ** 2
+
+
+hess = {}
+for name, P in CARRIERS.items():
+    d = np.trace(P).real
+    invariant = bool(np.allclose(P @ K @ P, K @ P))
+    hg = [np.trace(P @ T @ T @ P).real / d for T in TG]
+    ht = np.trace(P @ K @ K @ P).real / d
+    row = {"dimension": int(round(d)), "invariant_under_toggle": invariant,
+           "H_gauge_per_direction (exact trace)": [frac(x) for x in hg],
+           "H_gauge equal in all twelve": bool(np.ptp(hg) < 1e-12),
+           "H_gauge finite difference (gluon1, W1, B_GUT)": [float(hess_fd(P, TG[i])) for i in (0, 8, 11)]}
+    if invariant:
+        row["H_toggle (exact trace)"] = frac(ht)
+        row["H_toggle finite difference"] = float(hess_fd(P, K, sign=-1j))
+        row["sum over Dirac species of y^2 / g^2 at r from this carrier (must equal tr T_a^2 on the carrier)"] = \
+            [float(d / 2 * 2 * hg[0] / ht), float(np.trace(P @ TG[0] @ TG[0] @ P).real)]
+    hess[name] = row
+    print(name, row, flush=True)
+out["hessians"] = hess
+
+Pf = CARRIERS["generated from the code by links and toggle, 16"]
+dF = 16.0
+HG = float(np.trace(Pf @ TG[0] @ TG[0] @ Pf).real / dF)
+HT = float(np.trace(Pf @ K @ K @ Pf).real / dF)
+
+# ------------------------------------------------------------------ Higgs plaquette: W = Lam(U) V(phi') Lam(U)^dag V(phi)^dag
+T5 = L.TBASIS
+
+
+def rand_link(scale):
+    c = rng.normal(size=12) * scale
+    U5 = L.expm_herm(sum(ci * T for ci, T in zip(c, T5)))
+    return U5, expm(1j * sum(ci * T for ci, T in zip(c, TG)))
+
+
+def rand_doublet(scale, neutral_only=False):
+    phi = np.zeros(5, complex)
+    phi[4] = (rng.normal() + 1j * rng.normal()) * scale
+    if not neutral_only:
+        phi[3] = (rng.normal() + 1j * rng.normal()) * scale
+    return phi
+
+
+plq = []
+for scale in (0.08, 0.04, 0.02):
+    worst = 0.0
+    for _ in range(6):
+        U5, UF = rand_link(scale * 3)
+        phi, phip = rand_doublet(scale), rand_doublet(scale)
+        W = UF @ expm(-1j * K_of(phip)) @ UF.conj().T @ expm(1j * K_of(phi))
+        c = cost(Pf, W)
+        pred = HT / 2 * np.linalg.norm(U5 @ phip - phi) ** 2
+        worst = max(worst, abs(c - pred) / pred)
+    plq.append({"field scale": scale, "largest relative deviation of the cost from (H_toggle/2)|U phi' - phi|^2": worst})
+out["higgs_plaquette"] = {"rows": plq, "statement": "cost = (H_toggle/2) |U phi(x+mu) - phi(x)|^2 at second order; "
+                          "the deviation falls as the square of the field scale (fourth-order remainder)"}
+print("plaquette", plq, flush=True)
+
+# covariance: transport identity Lam(U) K_phi Lam(U)^dag = K_{U phi}
+U5, UF = rand_link(1.0)
+phi = rand_doublet(1.0)
+out["covariance"] = {"|Lam(U) K_phi Lam(U)^dag - K_(U phi)|": float(abs(UF @ K_of(phi) @ UF.conj().T - K_of(U5 @ phi)).max()),
+                     "exact form": "Re tr W/d = cos|phi'| cos|phi| + sin|phi'| sin|phi| Re<phi'^, phi^> on any carrier with K^2 = |phi|^2"}
+
+# W mass: constant neutral theta, link exp(i eps T_W1)
+eps, th = 1e-2, 1e-2
+phi0 = np.array([0, 0, 0, 0, th], complex)
+U5 = L.expm_herm(T5[8], eps); UF = expm(1j * eps * TG[8])
+cW = cost(Pf, UF @ expm(-1j * K_of(phi0)) @ UF.conj().T @ expm(1j * K_of(phi0)))
+out["W_mass_check"] = {"cost / (eps^2 theta^2)": float(cW / (eps * th) ** 2), "predicted H_toggle / 8": HT / 8,
+                       "m_f / M_W = 2 sqrt(H_g / H_toggle)": 2 * math.sqrt(HG / HT)}
+
+# ------------------------------------------------------------------ legs
+def state(colour_bits, s1, s2):
+    s = colour_bits | (s1 << 3) | (s2 << 4)
+    v = np.zeros(DIM, complex); v[s] = 1
+    return v
+
+
+legs = {"top (u_L <-> u_R: colour, s1 occupied)": (0b001, 1), "bottom (d_R <-> d_L: colour, s1 empty)": (0b001, 0),
+        "neutrino (nu_L <-> nu_R: three colour levels, s1 occupied)": (0b111, 1),
+        "tau (e_R <-> e_L: three colour levels, s1 empty)": (0b111, 0)}
+legrows = {}
+for name, (cb, s1) in legs.items():
+    lo, hi = state(cb, s1, 0), state(cb, s1, 1)
+    q = [float((v.conj() @ QEM @ v).real) for v in (lo, hi)]
+    y = [float((v.conj() @ YH @ v).real) for v in (lo, hi)]
+    legrows[name] = {"|<with s2| K |without s2>|": float(abs(hi.conj() @ K @ lo)), "Q_em (without, with s2)": [frac(x) for x in q],
+                     "Y (without, with s2)": [frac(x) for x in y]}
+Pfam = CARRIERS["family half n3 odd, 16"]
+shares = {"top": float(np.trace(proj((N3 == 1) & ((np.arange(DIM) >> 3 & 1) == 1)) @ K @ K).real),
+          "bottom": float(np.trace(proj((N3 == 1) & ((np.arange(DIM) >> 3 & 1) == 0)) @ K @ K).real),
+          "neutrino": float(np.trace(proj((N3 == 3) & ((np.arange(DIM) >> 3 & 1) == 1)) @ K @ K).real),
+          "tau": float(np.trace(proj((N3 == 3) & ((np.arange(DIM) >> 3 & 1) == 0)) @ K @ K).real)}
+out["legs"] = {"matrix_elements": legrows,
+               "share of tr K^2 on the family half (states per leg; times spin 2 these are 12 : 12 : 4 : 4)": shares,
+               "L0": "one amplitude on the four legs", "L3 (s1-dependence of a linear toggle)":
+               float(abs((AD[3] @ A[3]) @ K - K @ (AD[3] @ A[3])).max())}
+print("legs", legrows, shares, flush=True)
+
+# ------------------------------------------------------------------ F2: code with the empty-or-one register in the empty state
+REG = 3                                     # register states: 0 empty, 1 h1, 2 h0
+b0 = np.zeros((REG, REG), complex); b0[0, 2] = 1          # removes the h0 quantum
+V2 = np.kron(AD[4], b0) + np.kron(A[4], b0.conj().T)
+P2 = np.kron(proj(code_mask), np.diag([1.0, 0, 0]).astype(complex))
+h2 = float(np.trace(P2 @ V2 @ V2 @ P2).real / 5)
+h2fd = float(hess_fd(P2, V2, sign=-1j))
+out["F2_code_with_empty_register"] = {"H_toggle": frac(h2), "finite difference": h2fd, "H_gauge (code)": frac(0.1),
+                                      "V^2 is a projector": bool(np.allclose(V2 @ V2 @ V2, V2))}
+
+# ------------------------------------------------------------------ F3: seven-level code
+def lift7(T):
+    M = np.zeros((7, 7), complex); M[:5, :5] = T; M[5:, 5:] = T[3:, 3:]
+    return M
+
+
+T7 = [lift7(T) for T in T5]
+X7 = np.zeros((7, 7), complex); X7[4, 6] = X7[6, 4] = 1
+h7g = [float(np.trace(T @ T).real / 7) for T in T7]
+h7t = float(np.trace(X7 @ X7).real / 7)
+out["F3_seven_level_code"] = {"H_gauge (gluon, W, B_GUT)": [frac(h7g[0]), frac(h7g[8]), frac(h7g[11])], "H_toggle": frac(h7t),
+                              "gauge Hessians equal": bool(np.ptp(h7g) < 1e-12),
+                              "r against g_3, g_2, g_1": [math.sqrt(2 * h7g[i] / h7t) for i in (0, 8, 11)]}
+
+# ------------------------------------------------------------------ readings: r = y/g per family
+r = {"F1": math.sqrt(2 * HG / HT),
+     "F1_prime_family_half": math.sqrt(2 * hess["family half n3 odd, 16"]["H_gauge finite difference (gluon1, W1, B_GUT)"][0] / 1.0),
+     "F1_prime_all_32": math.sqrt(2 * float(np.trace(TG[0] @ TG[0]).real / 32) / 1.0),
+     "F1b": math.sqrt(2 * 0.1 / HT), "F2": math.sqrt(2 * 0.1 / h2), "F4": math.sqrt(4 / 3 * HG / HT),
+     "F7": math.sqrt(2 * HG / (2 * HT))}
+out["r_per_family"] = r
+out["F5"] = "doublet plaquette rows above use both components: the kinetic term is |D phi|^2 for the doublet"
+out["F6"] = "register in a number state: no rest phase (R8); no value"
+print("r", r, flush=True)
+
+# ------------------------------------------------------------------ generations
+a_, b_, delta = 1 / math.sqrt(6), 1 / math.sqrt(12), 2 / 9
+S = np.roll(np.eye(3), 1, axis=0)
+C = a_ * np.eye(3) + b_ * (np.exp(1j * delta) * S + np.exp(-1j * delta) * S.T)
+ck = np.sort(np.linalg.eigvalsh(C))
+trC2, trC4 = float(np.sum(ck ** 2)), float(np.sum(ck ** 4))
+# explicit three-copy carrier: Hessian of the cost for K (x) C against the one-copy value
+K3 = np.kron(K, C); P3 = np.kron(Pf, np.eye(3))
+h3 = float(np.trace(P3 @ K3 @ K3 @ P3).real / 48)
+gen = {"circulant eigenvalues c_k": ck.tolist(), "tr C^2": trC2, "tr C^4": trC4, "lambda_max": float(ck[-1]),
+       "H_toggle on three copies with K (x) C": frac(h3), "H_toggle one copy": frac(HT),
+       "G1 third-family factor": 1.0,
+       "G3a factors y_k / (r g), k = 1, 2, 3": (math.sqrt(3) * ck).tolist(),
+       "G3b factors y_k / (r g), k = 1, 2, 3": (math.sqrt(3 / trC4) * ck ** 2).tolist()}
+out["generations"] = gen
+print("generations", gen, flush=True)
+
+# ------------------------------------------------------------------ L2
+g_sq = 4 * math.pi / 16.2453
+beta5 = 10 / g_sq
+ck_cost = [1 - (3 * math.cos(2 * math.pi * k / 3) + 2 * (-1) ** k) / 5 for k in range(6)]
+Delta = ck_cost[2] + ck_cost[1] - ck_cost[3]
+out["L2"] = {"code cost of a class-k holonomy, k = 0..5": ck_cost, "Delta = c_2 + c_1 - c_3": Delta, "beta_5": beta5,
+             "weight exp(-beta_5 Delta)": math.exp(-beta5 * Delta)}
+out["source_coupling"] = {"1/alpha (GL B1, DC cut closure)": 16.2453, "g": math.sqrt(g_sq)}
+out["y_cell_source_frame"] = {k: v * math.sqrt(g_sq) for k, v in r.items()}
+print("L2", out["L2"], flush=True)
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else "yc_functional.json", "w"), indent=1, default=L.jsonable)

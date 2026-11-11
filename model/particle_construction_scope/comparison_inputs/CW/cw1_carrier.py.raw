@@ -1,0 +1,207 @@
+"""CW task 1: one carrier. Spectrum of the twisted transfer T_k = 1 - (5 - A_k)/60 by multiplet, exactly, for
+k = 0..10; recurrence frequencies arccos(lambda) and first-order energies -log(lambda); the recharted reversible
+walk and its discriminant.
+
+EXACT parts (integers / Fractions in Q(zeta_20)):
+  (E1) the integer seam table has coboundary SIGN on each of the 20 oriented faces (asserted in cw_lib);
+  (E2) the eigenvalues of A_k, as elements r0 + r1 sqrt5 + (r2 + r3 sqrt5) c of the real subfield (c = 2 cos(pi/10)),
+       with their multiplicities, reproduce the power traces tr A_k^j for j = 1..12 exactly (Newton: the multiset
+       of eigenvalues is determined);
+  (E3) the blank-record discriminant of the recharted walk, (1/60) sum over the 60 ordered addresses of the
+       reflector I - v v^*, v = |-,0> - |+,1>, |+-> = (|a> +- z_ab|b>)/sqrt2, equals diag(T_k, 1 - (5 + A_k)/60).
+MEASURED parts (float64): the 1440-dimensional walk W_k = Q_k R, its eigenphases against arccos of the discriminant
+spectrum, the +1/-1 multiplicities, the second-event return probability for k = 0 (audit: 643/900).
+
+Writes cw1_carrier.json next to this file.
+"""
+import json
+import os
+import sys
+import time
+from fractions import Fraction as Fr
+
+import numpy as np
+import mpmath as mp
+
+import cw_lib as C
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+T0 = time.time()
+out = {'sign_of_unit_flux_per_oriented_face': C.SIGN, 'M': C.M}
+mp.mp.dps = 40
+cc = 2 * mp.cos(mp.pi / 10); s5 = mp.sqrt(5)
+BASIS_MP = [mp.mpf(1), s5, cc, s5 * cc]
+
+
+def identify(val):
+    """Rational coordinates of a real algebraic number in the basis (1, sqrt5, c, sqrt5 c), by PSLQ at 40 digits."""
+    rel = mp.pslq([val] + BASIS_MP, maxcoeff=2000, maxsteps=20000)
+    assert rel is not None and rel[0] != 0, val
+    return [Fr(-r, rel[0]) for r in rel[1:]]
+
+
+def pretty(r):
+    names = C.REAL_BASIS_NAMES
+    terms = []
+    for coef, nm in zip(r, names):
+        if coef:
+            terms.append((str(coef) if nm == '1' else (('' if abs(coef) == 1 else str(abs(coef)) + '*') + nm) if coef > 0 else '-' + ('' if abs(coef) == 1 else str(abs(coef)) + '*') + nm))
+    s = ' + '.join(terms).replace('+ -', '- ')
+    return s or '0'
+
+
+rows = []
+for k in range(0, 11):
+    Af = C.A_float(k)
+    # 40-digit eigenvalues of the Hermitian matrix with exact entries zeta^(k n)
+    Amp = mp.matrix(12, 12)
+    z = mp.e ** (2j * mp.pi / 20)
+    for (a, b), m in C.NTAB.items():
+        Amp[b, a] = z ** ((k * m) % 20)
+    ev = sorted([mp.re(x) for x in mp.eigh(Amp, eigvals_only=True)], reverse=True)
+    groups = []
+    for x in ev:
+        if groups and abs(groups[-1][0] - x) < mp.mpf(10) ** -25:
+            groups[-1][1] += 1
+        else:
+            groups.append([x, 1])
+    exact = [(identify(x), m) for x, m in groups]
+    # exact verification by power traces
+    pt = C.power_traces(C.A_exact(k), 12)
+    ok = True
+    for j in range(1, 13):
+        acc = C.CZERO
+        for r, m in exact:
+            e = C.real_element(r); p = C.CONE
+            for _ in range(j):
+                p = C.cmul(p, e)
+            acc = C.cadd(acc, C.cscale(p, m))
+        ok &= (acc == pt[j - 1])
+    mult = []
+    for (x, m), (r, _) in zip(groups, exact):
+        a = float(x); lam = (55 + a) / 60
+        mult.append({'dim': m, 'adjacency_exact': pretty(r), 'adjacency': a, 'L_level_5_minus_a': 5 - a, 'lambda_T': lam,
+                     'omega_recurrence_arccos': float(mp.acos((55 + x) / 60)), 'E_first_order_minus_log': float(-mp.log((55 + x) / 60)),
+                     'coords_1_sqrt5_c_sqrt5c': [str(v) for v in r]})
+    rows.append({'k': k, 'content_dims': [m['dim'] for m in mult], 'exact_power_traces_1_to_12_match': bool(ok), 'multiplets': mult})
+    print(f'k = {k:2d}  exact check {ok}  ' + ' | '.join(f"dim {m['dim']}: a = {m['adjacency_exact']} = {m['adjacency']:+.6f}, lambda = {m['lambda_T']:.6f}, omega = {m['omega_recurrence_arccos']:.6f}, E1 = {m['E_first_order_minus_log']:.6f}" for m in mult), flush=True)
+out['spectrum_by_k'] = rows
+out['closed_forms_note'] = 'c = 2 cos(pi/10) = sqrt(10 + 2 sqrt5)/2 = 1.9021130326; lambda = (55 + a)/60; omega = arccos(lambda); E1 = -log(lambda)'
+
+
+# ---------------------------------------------------------------- (E3) exact discriminant of the recharted walk
+def exact_discriminant(k):
+    """24 x 24 over Q(zeta_20): (1/60) sum_addresses (I - v v^*), index 2 p + record."""
+    D = [[C.CZERO] * 24 for _ in range(24)]
+    for i in range(24):
+        D[i][i] = C.cscale(C.CONE, 60)
+    for (a, b), m in C.NTAB.items():                      # all 60 ordered addresses
+        zz = C.zpow(k * m)                                # z(a->b)^k
+        # v = (|a,0> - z|b,0> - |a,1> - z|b,1>)/sqrt2 ; (v v^*)_{ij} = v_i conj(v_j)
+        comp = {2 * a: C.CONE, 2 * b: C.cscale(zz, -1), 2 * a + 1: C.cscale(C.CONE, -1), 2 * b + 1: C.cscale(zz, -1)}
+        for i, vi in comp.items():
+            for j, vj in comp.items():
+                D[i][j] = C.csub(D[i][j], C.cscale(C.cmul(vi, C.cconj(vj)), Fr(1, 2)))
+    return [[C.cscale(x, Fr(1, 60)) for x in row] for row in D]
+
+
+def exact_target(k):
+    A = C.A_exact(k)
+    Tg = [[C.CZERO] * 24 for _ in range(24)]
+    for p in range(12):
+        for q in range(12):
+            base = C.cscale(A[p][q], Fr(1, 60))
+            diag = C.cscale(C.CONE, Fr(55, 60)) if p == q else C.CZERO
+            Tg[2 * p][2 * q] = C.cadd(diag, base)                    # record 0: 1 - (5 - A_k)/60
+            Tg[2 * p + 1][2 * q + 1] = C.csub(diag, base)            # record 1: 1 - (5 + A_k)/60
+    return Tg
+
+
+disc_ok = {}
+for k in range(0, 11):
+    disc_ok[k] = exact_discriminant(k) == exact_target(k)
+out['exact_discriminant_equals_diag_Tk_and_Tk_plus_10'] = {str(k): bool(v) for k, v in disc_ok.items()}
+print('exact discriminant of the recharted walk = diag(T_k, 1-(5+A_k)/60) for k = 0..10:', all(disc_ok.values()), flush=True)
+
+# one instance with the public module's local(G) for a 1 x 1 link (model/coherent_seam_repair/gauge_walk.py)
+try:
+    import sympy as s
+    from model.coherent_seam_repair.gauge_walk import local as public_local
+    k = 1
+    acc = np.zeros((24, 24), complex)
+    for (a, b), m in C.NTAB.items():
+        zz = s.exp(2 * s.pi * s.I * s.Rational((k * m) % 20, 20))
+        U, _, _ = public_local(s.Matrix([[zz]]))                     # basis: (a, b) x record, index 2*site + record
+        Un = np.array(U.evalf(30).tolist(), dtype=complex)
+        idx = [2 * a, 2 * a + 1, 2 * b, 2 * b + 1]
+        full = np.eye(24, dtype=complex)
+        full[np.ix_(idx, idx)] = Un
+        acc += full / 60
+    tgt = np.zeros((24, 24), complex)
+    tgt[0::2, 0::2] = C.T_float(k); tgt[1::2, 1::2] = np.eye(12) - (5 * np.eye(12) + C.A_float(k)) / 60
+    # exact symbolic single seam: the orientation average has no cross blocks and blank block 1 - |-><-|
+    zz = s.exp(2 * s.pi * s.I * s.Rational(3, 20))
+    U, m_, p_ = public_local(s.Matrix([[zz]]))
+    sw = s.kronecker_product(s.Matrix([[0, 1], [1, 0]]), s.eye(2))
+    Urev = sw * public_local(s.Matrix([[s.conjugate(zz)]]))[0] * sw
+    expected = s.eye(4) - s.kronecker_product(m_ * m_.H, s.diag(1, 0)) - s.kronecker_product(p_ * p_.H, s.diag(0, 1))
+    sym_ok = ((U + Urev) / 2 - expected).applyfunc(lambda e: s.simplify(s.expand_complex(e))) == s.zeros(4)
+    out['public_local_G_check'] = {'module': 'model.coherent_seam_repair.gauge_walk.local', 'k': k,
+                                   'carrier_sum_of_60_addresses_minus_diag_T1_T11_max_abs': float(np.abs(acc - tgt).max()),
+                                   'single_seam_orientation_average_exact_sympy': bool(sym_ok)}
+    print('public local(G), 1 x 1 link, k = 1: |sum - diag(T_1, T_11)| =', float(np.abs(acc - tgt).max()), '; single seam exact:', bool(sym_ok), flush=True)
+except Exception as exc:  # the public module is not on the box
+    out['public_local_G_check'] = {'skipped': repr(exc)}
+    print('public local(G) check skipped:', repr(exc), flush=True)
+
+
+# ---------------------------------------------------------------- the 1440-dimensional walk (float)
+def walk(k):
+    addresses = list(C.NTAB.keys())
+    Dn = len(addresses)                       # 60
+    dim = 24 * Dn
+
+    def idx(p, r, a):
+        return (2 * p + r) * Dn + a
+    Q = np.eye(dim, dtype=complex)
+    for ai, (a, b) in enumerate(addresses):
+        zz = C.ZETA ** ((k * C.NTAB[(a, b)]) % 20)
+        sites = [idx(a, 0, ai), idx(b, 0, ai), idx(a, 1, ai), idx(b, 1, ai)]
+        v = np.array([1, -zz, -1, -zz]) / np.sqrt(2)
+        Q[np.ix_(sites, sites)] -= np.outer(v, v.conj())
+    Aiso = np.kron(np.eye(24), np.ones((Dn, 1)) / np.sqrt(Dn))
+    R = 2 * Aiso @ Aiso.T - np.eye(dim)
+    return Q @ R, Aiso, Q
+
+
+walk_rows = []
+for k in (0, 1, 2, 7):
+    W, Aiso, Q = walk(k)
+    unit = float(np.abs(W.conj().T @ W - np.eye(W.shape[0])).max())
+    disc = Aiso.T @ Q @ Aiso
+    tgt = np.zeros((24, 24), complex)
+    tgt[0::2, 0::2] = C.T_float(k); tgt[1::2, 1::2] = np.eye(12) - (5 * np.eye(12) + C.A_float(k)) / 60
+    ev = np.linalg.eigvals(W)
+    ph = np.angle(ev)
+    plus = int(np.sum(np.abs(ev - 1) < 1e-8)); minus = int(np.sum(np.abs(ev + 1) < 1e-8))
+    osc = np.sort(ph[(np.abs(ev - 1) >= 1e-8) & (np.abs(ev + 1) >= 1e-8)])
+    lam = np.concatenate([np.linalg.eigvalsh(C.T_float(k)), np.linalg.eigvalsh(tgt[1::2, 1::2])])
+    lam = lam[np.abs(lam - 1) > 1e-9]
+    pred = np.sort(np.concatenate([np.arccos(lam), -np.arccos(lam)]))
+    match = float(np.abs(osc - pred).max()) if osc.size == pred.size else None
+    row = {'k': k, 'dimension': int(W.shape[0]), 'unitarity_defect': unit, 'discriminant_defect': float(np.abs(disc - tgt).max()),
+           'eigenvalue_plus_one': plus, 'eigenvalue_minus_one': minus, 'oscillatory_dimension': int(osc.size),
+           'max_abs_phase_minus_arccos_of_discriminant_eigenvalue': match,
+           'smallest_positive_phase': float(osc[osc > 0].min()), 'arccos_top_T_k': float(np.arccos(np.linalg.eigvalsh(C.T_float(k)).max())) if k else 0.0}
+    if k == 0:
+        Dn = 60
+        psi = np.zeros(W.shape[0], complex); psi[(2 * 0 + 0) * Dn:(2 * 0 + 0) * Dn + Dn] = 1 / np.sqrt(Dn)
+        p2 = W @ (W @ psi)
+        row['second_event_return_probability_port0'] = float(np.sum(np.abs(p2[:2 * Dn]) ** 2))
+        row['audit_value_643_over_900'] = 643 / 900
+    walk_rows.append(row)
+    print('walk', json.dumps(row), flush=True)
+out['recharted_walk'] = walk_rows
+out['seconds'] = time.time() - T0
+json.dump(out, open(os.path.join(HERE, 'cw1_carrier.json'), 'w'), indent=1)
+print('written cw1_carrier.json', round(time.time() - T0, 1), 's')

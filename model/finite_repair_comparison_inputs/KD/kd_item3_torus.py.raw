@@ -1,0 +1,161 @@
+"""Item 3 of task KD, part 2: the tick on a 3-torus and its symbol. Exact, Q(i) (frame of the raw chart).
+
+  D  exp(-i theta beta) F3 Z_r F2 Z_r F1 Z_r, with the dressed public reflectors applied link by link, equals
+     exp(-i theta beta) S3 S2 S1 on all basis states (L = 3); Bloch columns reproduce the symbol (L = 4);
+     counterexample without the dressing;
+  E  eigenphases of the symbol (closed form) at exact rational points.
+  cd RER && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:RL/work/KD python RL/work/KD/kd_item3_torus.py [out.json]
+"""
+import json
+import sys
+from itertools import product
+
+from kdlib import (K, ZERO, ONE, I, F, mat, eye, zeros, mm, madd, msub, mscale, dag, kron, meq, anti, trace,
+                   is_hermitian, is_unitary, is_involution, SX, SY, SZ, E2, frames)
+from kdwalk import (half, BETA, ZR, PLUS, MINUS, PM, MP, RX, XG, Cu, public_reflector, embed_link, cond_shift, ring_Q,
+                    su2, PH, rot_beta, apply_coin, apply_links, apply_cond_shift, same)
+
+out, checks = {}, {}
+
+
+def ok(name, cond):
+    assert cond, name
+    checks[name] = True
+
+
+FR = [f for f in frames() if all(sum(1 for c in h['axis'] if not c.is_zero()) == 1 for h in f['half_turns'])]
+assert len(FR) == 1                                           # the frame whose axes are those of the raw chart
+# --- D. the tick on a 3-torus from dressed reflectors and record reflections ----------------------------------
+u = []
+for i in range(3):                                           # lifts ordered by hop axis of the raw chart
+    h = next(h for h in FR[0]['half_turns'] if not h['axis'][i].is_zero())
+    u.append(h['u'])
+alpha = [mm(Cu(x), BETA, dag(Cu(x))) for x in u]
+U8 = public_reflector(E2)
+D8s = [mm(kron(E2, Cu(x)), U8, dag(kron(E2, Cu(x)))) for x in u]
+rot = rot_beta(F(3, 5), F(4, 5))                             # exp(-i theta beta), cos theta = 3/5
+
+
+def tick_reflectors(vec, L):
+    """exp(-i theta beta) F3 Z_r F2 Z_r F1 Z_r, the F_i applied link by link."""
+    for axis in range(3):
+        vec = apply_coin(vec, ZR)
+        vec = apply_links(vec, L, axis, D8s[axis])
+    return apply_coin(vec, rot)
+
+
+def tick_shifts(vec, L):
+    """exp(-i theta beta) S3 S2 S1, S_i = P+_i T_i + P-_i T_i^*."""
+    for axis in range(3):
+        vec = apply_cond_shift(vec, L, axis, alpha[axis])
+    return apply_coin(vec, rot)
+
+
+L = 3
+for x0 in product(range(L), repeat=3):
+    for c in range(4):
+        v0 = {x0 + (c,): ONE}
+        assert same(tick_reflectors(v0, L), tick_shifts(v0, L))
+ok('3-torus L = 3, all 108 basis states: exp(-i theta beta) F3 Z_r F2 Z_r F1 Z_r (dressed public reflectors link by '
+   'link, record reflections) = exp(-i theta beta) S3 S2 S1, at cos theta = 3/5', True)
+
+L = 4
+phases = {0: ONE, 1: I, 2: -ONE, 3: -I}
+
+
+def symbol(zs):
+    Dm = eye(4)
+    for i in range(3):
+        z = zs[i]                                            # plane wave z^x; T multiplies it by 1/z
+        Pp = mscale(half, madd(eye(4), alpha[i])); Pm = mscale(half, msub(eye(4), alpha[i]))
+        Dm = mm(madd(mscale(z.conj(), Pp), mscale(z, Pm)), Dm)
+    return mm(rot, Dm)
+
+
+n_bloch = 0
+for ks in ((1, 0, 2), (3, 1, 1), (2, 2, 3)):
+    zs = [phases[k] for k in ks]
+    Dk = symbol(zs)
+    for c in range(4):
+        wave = {}
+        for x in product(range(L), repeat=3):
+            ph = ONE
+            for i in range(3):
+                for _ in range(x[i]):
+                    ph = ph * zs[i]
+            wave[x + (c,)] = ph
+        img = tick_reflectors(wave, L)
+        for x in product(range(L), repeat=3):
+            for r in range(4):
+                assert img.get(x + (r,), ZERO) == wave[x + (c,)] * Dk[r][c]
+        n_bloch += 1
+ok('3-torus L = 4: 12 Bloch columns (3 momenta with z in {1, i, -1, -i}) reproduce the symbol '
+   'D(k) = exp(-i theta beta) prod_i (cos k_i - i sin k_i alpha_i)', n_bloch == 12)
+
+# counterexample without the dressing: public reflectors with flat links and record reflections only
+def tick_undressed(vec, L):
+    for axis in range(3):
+        vec = apply_coin(vec, ZR)
+        vec = apply_links(vec, L, axis, U8)
+    return apply_coin(vec, rot)
+
+
+zs = [phases[1], phases[0], phases[2]]                       # k = (pi/2, 0, pi): z1 z2 z3 = -i
+ztot = zs[0] * zs[1] * zs[2]
+target = mm(rot, madd(mscale(ztot.conj(), madd(mscale(half, eye(4)), mscale(half, BETA))),
+                      mscale(ztot, msub(mscale(half, eye(4)), mscale(half, BETA)))))
+for c in range(4):
+    wave = {}
+    for x in product(range(L), repeat=3):
+        ph = ONE
+        for i in range(3):
+            for _ in range(x[i]):
+                ph = ph * zs[i]
+        wave[x + (c,)] = ph
+    img = tick_undressed(wave, L)
+    for x in product(range(L), repeat=3):
+        for r in range(4):
+            assert img.get(x + (r,), ZERO) == wave[x + (c,)] * target[r][c]
+ok('counterexample without the dressing: exp(-i theta beta) Q3 Z_r Q2 Z_r Q1 Z_r has the symbol '
+   'exp(-i theta beta) exp(-i (k1+k2+k3) beta): motion along one lattice diagonal, no cone (Bloch columns, L = 4)', True)
+
+# --- E. eigenphases of the symbol: closed form ---------------------------------------------------------------
+pyth = [(F(3, 5), F(4, 5)), (F(5, 13), F(12, 13)), (F(15, 17), F(-8, 17)), (F(7, 25), F(24, 25)), (F(1), F(0)),
+        (F(21, 29), F(20, 29))]
+n_disp = 0
+for (ct, st), (c1, s1), (c2, s2), (c3, s3) in [(pyth[0], pyth[1], pyth[2], pyth[3]), (pyth[4], pyth[1], pyth[2], pyth[3]),
+                                                (pyth[5], pyth[0], pyth[0], pyth[1]), (pyth[3], pyth[4], pyth[4], pyth[4]),
+                                                (pyth[1], pyth[2], pyth[4], pyth[5])]:
+    def e(c, sn, A):
+        return msub(mscale(c, eye(4)), mscale(K(0, 0, sn), A))
+    Dk = mm(e(ct, st, BETA), e(c3, s3, alpha[2]), e(c2, s2, alpha[1]), e(c1, s1, alpha[0]))
+    assert is_unitary(Dk)
+    Hm = mscale(half, madd(Dk, dag(Dk)))
+    cc = [ct, c1, c2, c3]; ss = [st, s1, s2, s3]
+    prod_c = cc[0] * cc[1] * cc[2] * cc[3]
+    rad = (ss[0] * ss[1] * ss[2] * ss[3]) ** 2
+    for q in range(4):
+        term = cc[q] ** 2
+        for r in range(4):
+            if r != q:
+                term *= ss[r] ** 2
+        rad += term
+    Nm = msub(Hm, mscale(prod_c, eye(4)))
+    assert meq(mm(Nm, Nm), mscale(rad, eye(4))) and trace(Nm).is_zero()
+    assert meq(mm(Dk, Hm), mm(Hm, Dk))
+    n_disp += 1
+ok('symbol: ((D + D^*)/2 - c_t c_1 c_2 c_3)^2 = (s_t s_1 s_2 s_3)^2 + sum_q c_q^2 prod_{r != q} s_r^2, traceless: '
+   'cos omega = c_t c_1 c_2 c_3 +- sqrt(...), each sign twice (5 exact rational points)', n_disp == 5)
+
+out['checks'] = checks
+out['tick'] = {'formula': 'D = exp(-i theta beta) F3 Z_r F2 Z_r F1 Z_r, F_i = C(u_i) Q_i C(u_i)^*',
+               'Q_i': 'product over the equally oriented shared seams of axis i of the public reflector (flat link)',
+               'Z_r': 'tau_z x 1 = 1 - 2|1><1| on the record', 'beta': 'tau_x x 1 = 2|+><+| - 1 on the record',
+               'C(u)': '|0><0| x 1 + |1><1| x u',
+               'symbol': 'exp(-i theta beta) exp(-i k3 alpha3) exp(-i k2 alpha2) exp(-i k1 alpha1), alpha_i = tau_y x (-i u_i)',
+               'eigenphases': 'cos(omega) = c_t c1 c2 c3 +- sqrt(s_t^2 s1^2 s2^2 s3^2 + c_t^2 s1^2 s2^2 s3^2 + s_t^2 c1^2 s2^2 s3^2 '
+                              '+ s_t^2 s1^2 c2^2 s3^2 + s_t^2 s1^2 s2^2 c3^2)'}
+for k in checks:
+    print('EXACT ok:', k)
+if len(sys.argv) > 1:
+    json.dump(out, open(sys.argv[1], 'w'), indent=1)

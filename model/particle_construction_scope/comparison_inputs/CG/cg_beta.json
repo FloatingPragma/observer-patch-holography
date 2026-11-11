@@ -1,0 +1,31 @@
+{
+ "flat_wedge": {
+  "t_over_C2": "pi*g**2*l*(l + 2*x0)/(2*A_perp)",
+  "kappa": "l*(l + 2*x0)/(2*A_perp)",
+  "kappa_scale_free": true,
+  "rows": {
+   "G1_adjacent_cubic_element": "1/2",
+   "G2_element_centred_at_distance_l": "1",
+   "half_link_on_the_cut": "1/8"
+  }
+ },
+ "static_patch": {
+  "killing_energy_over_C2": "L*g**2/(2*A_perp)",
+  "t_over_C2": "pi*L**2*g**2/A_perp",
+  "swept_euclidean_area": "2*pi*L**2",
+  "two_dimensional_heat_time": "pi*L**2*g**2/A_perp",
+  "kmS_route_equals_2d_route": true,
+  "kappa": "L**2/A_perp",
+  "rows": {
+   "G3_A_perp_L^2": "1",
+   "G4_A_perp_port_cap_(pi/3)L^2": "3/pi",
+   "G5_A_perp_hemisphere_2piL^2": "1/(2*pi)"
+  },
+  "source_A_equals_2pi": "the gauge paper's 'A = 2 pi' is the swept area 2 pi L^2 in units of A_perp = L^2"
+ },
+ "factor_chain": {
+  "t": "t = 2 pi (modular period, IMPORTED) x g^2/2 (electric coefficient of GL's action, EXACT in CC row B1) x kappa (shape number) = 4 pi^2 kappa alpha",
+  "check": "0",
+  "unit_heat_time": "g^2/2 is the heat time of one electric step (LV); the collar's t is 2 pi kappa unit heat times"
+ }
+}

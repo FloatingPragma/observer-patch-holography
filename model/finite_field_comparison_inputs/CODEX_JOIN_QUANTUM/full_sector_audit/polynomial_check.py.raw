@@ -1,0 +1,62 @@
+"""Independent total-cutoff Peierls polynomial and photon-frame controls."""
+import importlib.util
+from pathlib import Path
+from fractions import Fraction as F
+import math
+import mpmath as mp
+import sympy as s
+HERE=Path(__file__).resolve().parent
+ROOT=HERE.parents[2]/'reverse-engineering-reality'
+TARGET=HERE.parents[1]/'CODEX_MOBILE_SPECTRAL/full_sector.py'
+spec=importlib.util.spec_from_file_location('full_sector_audited',TARGET)
+m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+
+def endpoint(x,upper=False):
+    a,b,c,_=x._mpi_[int(upper)];return F((-1)**a*b)*F(2)**c
+
+def mul(A,B):
+    return [[sum((A[i][k]*B[k][j] for k in range(len(B))),mp.iv.mpf(0)) for j in range(len(B[0]))] for i in range(len(A))]
+
+def check():
+    mp.iv.dps=100;rows=[]
+    for edge in (0,12):
+        variance=m.ivalue(m.parent.exact_peierls_data(edge)[2]);sigma=mp.iv.sqrt(variance)
+        coeff=m.peierls_coefficients(variance)
+        for size in (1,2,3,4):
+            # Each spectator sector leaves exactly size=4-n_spectator
+            # active-direction levels. This covers every state at cutoff3.
+            D=[[mp.iv.mpf(0) for _ in range(size)] for _ in range(size)]
+            for j in range(size-1):
+                D[j+1][j]=sigma*mp.iv.sqrt(j+1);D[j][j+1]=-D[j+1][j]
+            identity=[[mp.iv.mpf(int(i==j)) for j in range(size)] for i in range(size)]
+            power=identity;P=[[mp.iv.mpf(int(i==j)) for j in range(size)] for i in range(size)]
+            series=[[mp.iv.mpf(int(i==j)) for j in range(size)] for i in range(size)]
+            for n in range(1,101):
+                power=mul(power,D)
+                if n<=8:P=[[P[i][j]+coeff[n]*power[i][j] for j in range(size)] for i in range(size)]
+                series=[[series[i][j]+power[i][j]/math.factorial(n) for j in range(size)] for i in range(size)]
+            # Skew-adjoint D permits the unitary Taylor remainder, without
+            # an exp(||D||) multiplier. ||D||<5/3 on every spectator block.
+            error=F(5,3)**101/math.factorial(101)
+            for i in range(size):
+                for j in range(size):
+                    lo=endpoint(P[i][j]);hi=endpoint(P[i][j],True)
+                    a=endpoint(series[i][j])-error;b=endpoint(series[i][j],True)+error
+                    assert max(lo,a)<=min(hi,b)
+            rows.append({'edge':edge,'active_levels':size,'all_matrix_entries_match_independent_Taylor':True})
+    # Exact characteristic-polynomial identity across all spectator blocks.
+    x=s.Symbol('x');minimal=x*(x*x+1)*(x*x+3)*(x**4+6*x*x+3)
+    for size in (1,2,3,4):
+        D=s.zeros(size)
+        for j in range(size-1):D[j+1,j]=s.sqrt(j+1);D[j,j+1]=-s.sqrt(j+1)
+        assert s.rem(minimal,D.charpoly(x).as_expr(),x)==0
+    # Exact phase rotation, independent of interpolation.
+    a=s.zeros(4)
+    for j in range(3):a[j,j+1]=s.sqrt(j+1)
+    U=s.diag(*(s.I**(-n) for n in range(4)))
+    assert U*(s.I*(a+a.T))*U.H==a.T-a
+    print({'total_spectator_blocks':len(rows),'all_entries_verified':True,
+           'degree8_polynomial_minimal_degree9_identity':True,'photon_phase_rotation_verified':True})
+    return rows
+
+if __name__=='__main__':check()

@@ -1,0 +1,120 @@
+"""S6 (4), second part of the multiplet census: are the level coincidences of the bare law symmetry or accident?
+
+Metric that needs no character table: for an eigenspace E and a symmetry group G of the generator,
+c(E) = (1/|G|) sum_g |trace of g on E|^2 = sum of squared multiplicities of the irreducibles of G in E.
+c = 1: one irreducible (a geometric multiplet). c > 1: a level coincidence or an internal symmetry.
+An internal symmetry gives c > 1 at EVERY level and survives any change of the graph; a coincidence does not.
+
+Systems:
+  A. one carrier, bare law, sectors N = 1..6, G = automorphisms of the port graph (120);
+  B. control, three species on one carrier (hidden SU(3)): c = 9 at every level;
+  C. two carriers joined by one glue seam (belt port of the marked face on each side), bare law,
+     N = 1, 2, 3, G = the 200 automorphisms that keep the bridge;
+  D. one carrier with one seam removed (the smallest change of the graph), G = stabilizer of that seam.
+
+Run:  cd SCR/rer-edit && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. nice -n 10 python SCR/research/S6/s6_census2.py OUT.json
+"""
+import itertools, json, sys, time
+import numpy as np
+
+from s6_common import *   # noqa: F401,F403
+
+T0 = time.time()
+TOL = 1e-8
+AUT = [tuple(int(v) for v in a) for a in SRC.incidence_automorphisms()]
+
+
+def sector(n, seams, nports):
+    states = list(itertools.combinations(range(nports), n))
+    index = {s: i for i, s in enumerate(states)}
+    H = np.zeros((len(states), len(states)))
+    for i, s in enumerate(states):
+        ss = set(s)
+        for a, b in seams:
+            if (a in ss) != (b in ss):
+                H[i, i] += 1.0
+                H[index[tuple(sorted(ss ^ {a, b}))], i] -= 1.0
+    return states, index, H
+
+
+def census(states, index, H, group):
+    w, V = np.linalg.eigh(H)
+    perms = [np.array([index[tuple(sorted(a[p] for p in s))] for s in states]) for a in group]
+    rows, start = [], 0
+    while start < len(w):
+        end = start
+        while end + 1 < len(w) and w[end + 1] - w[start] < TOL:
+            end += 1
+        E = V[:, start:end + 1]
+        c = sum(float(np.sum(E[p, :] * E)) ** 2 for p in perms) / len(group)
+        rows.append((round(float(w[start]), 9), end - start + 1, int(round(c)), abs(c - round(c))))
+        start = end + 1
+    return rows
+
+
+def summarize(rows):
+    multi = [(lv, d, c) for lv, d, c, _ in rows if c > 1]
+    return {'levels': len(rows), 'levels_with_c_above_1': len(multi), 'max_dimension': max(d for _, d, _, _ in rows),
+            'max_c': max(c for _, _, c, _ in rows), 'max_residual': max(r for _, _, _, r in rows),
+            'coincident_levels (level, dimension, c)': multi[:40]}
+
+
+out = {'schema': 's6.census2.v1', 'tolerance': TOL}
+
+# A. one carrier
+out['A_one_carrier'] = {}
+for n in (1, 2, 3, 4, 5, 6):
+    st, ix, H = sector(n, SEAMS, 12)
+    out['A_one_carrier'][f'N={n}'] = {'states': len(st), **summarize(census(st, ix, H, AUT))}
+    print('A N=%d' % n, out['A_one_carrier'][f'N={n}'], round(time.time() - T0, 1))
+
+# B. control: three species, one quantum (state = (colour, port)); group = automorphisms only
+st, ix, H = sector(1, SEAMS, 12)
+H3 = np.kron(np.eye(3), H)
+w, V = np.linalg.eigh(H3)
+perm1 = [np.array([ix[(a[s[0]],)] for s in st]) for a in AUT]
+rows, start = [], 0
+while start < len(w):
+    end = start
+    while end + 1 < len(w) and w[end + 1] - w[start] < TOL:
+        end += 1
+    E = V[:, start:end + 1]
+    c = sum(float(np.sum(E[np.concatenate([p + 12 * k for k in range(3)]), :] * E)) ** 2 for p in perm1) / len(AUT)
+    rows.append((round(float(w[start]), 9), end - start + 1, int(round(c)), abs(c - round(c))))
+    start = end + 1
+out['B_control_three_species'] = {**summarize(rows), 'c_at_every_level': sorted({c for _, _, c, _ in rows})}
+print('B', out['B_control_three_species'])
+
+# C. two carriers joined by one glue seam
+g = 4                                             # a belt port of the marked face (0, 11, 5)
+seams2 = list(SEAMS) + [(a + 12, b + 12) for a, b in SEAMS] + [(g, g + 12)]
+fix = [a for a in AUT if a[g] == g]
+group2 = []
+for a in fix:
+    for b in fix:
+        same = tuple(a) + tuple(v + 12 for v in b)
+        swap = tuple(v + 12 for v in b) + tuple(a)        # port p of A -> b(p) in B, port p of B -> a(p) in A
+        group2 += [same, swap]
+def is_aut(p, seams):
+    s = {tuple(sorted(e)) for e in seams}
+    return all(tuple(sorted((p[a], p[b]))) in s for a, b in seams)
+assert all(is_aut(p, seams2) for p in group2) and len(set(group2)) == 200
+out['C_two_glued_carriers'] = {'group_order': len(group2)}
+for n in (1, 2, 3):
+    st, ix, H = sector(n, seams2, 24)
+    out['C_two_glued_carriers'][f'N={n}'] = {'states': len(st), **summarize(census(st, ix, H, group2))}
+    print('C N=%d' % n, out['C_two_glued_carriers'][f'N={n}'], round(time.time() - T0, 1))
+
+# D. one carrier with one seam removed
+cut = SEAMS[0]
+seamsD = [s for s in SEAMS if s != cut]
+groupD = [a for a in AUT if tuple(sorted((a[cut[0]], a[cut[1]]))) == cut]
+out['D_one_seam_removed'] = {'group_order': len(groupD)}
+for n in (1, 2, 3):
+    st, ix, H = sector(n, seamsD, 12)
+    out['D_one_seam_removed'][f'N={n}'] = {'states': len(st), **summarize(census(st, ix, H, groupD))}
+    print('D N=%d' % n, out['D_one_seam_removed'][f'N={n}'], round(time.time() - T0, 1))
+
+out['seconds'] = round(time.time() - T0, 1)
+json.dump(out, open(sys.argv[1], 'w'), indent=1)
+print('written', sys.argv[1], out['seconds'])

@@ -1,0 +1,122 @@
+#!/usr/bin/env python
+"""Worker R3: what run A of the simulation session (work/SIM/cf1/queue/a_dispersion.py, read only) should find,
+and the comparison once its result files exist under work/SIM/cf1/runs/ (A_dispersion.json or A_part_*.json).
+
+Part 1 (EXACT closed form): for the momenta of run A (64^3, its directions and seed) the phase per tick is one value
+  w(p, theta) = arccos(cos(theta) cos(rho)), cos 2 rho = cos 2p1 cos 2p2 cos 2p3, for both spins and both signs.
+Part 2 (ARGUED, transport of the momentum distribution with the closed-form group velocity; far field): the shell
+  of a blank spin-up Gaussian at rest after 64 ticks: radius by direction and the cubic ratio.
+
+    python r3_run_A.py [out.json]
+"""
+import json, os, sys, time
+import numpy as np
+
+HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
+RL = os.path.dirname(os.path.dirname(HERE)); RUNS = os.path.join(RL, 'work', 'SIM', 'cf1', 'runs')
+import r3_closed_forms as cf
+
+T0 = time.time(); THETAS = (0.0, 0.087847, 0.157935); L = 64
+f = lambda x, d=3: float(f'{float(x):.{d}e}')
+
+
+def directions():                                            # as in a_dispersion.py
+    rng = np.random.default_rng(20261110)
+    d = {'100': np.array([1.0, 0, 0]), '110': np.array([1.0, 1, 0]) / np.sqrt(2), '111': np.ones(3) / np.sqrt(3)}
+    for j in range(20):
+        v = rng.normal(size=3); d[f'random{j:02d}'] = v / np.linalg.norm(v)
+    return d
+
+
+def momenta_for(u):                                          # as in a_dispersion.py
+    ns = []
+    for target in (0.1, 0.2, 0.3, 0.4, 0.5, 0.6):
+        n = tuple(int(x) for x in np.round(target * u * L / (2 * np.pi)))
+        p = 2 * np.pi * np.array(n) / L
+        if any(n) and np.linalg.norm(p) <= 0.6 + 1e-9 and n not in ns: ns.append(n)
+    return ns
+
+
+out = {'part 1 prediction': [], 'part 2 prediction': []}
+worst_rel = 0.0; viol = 0; count = 0
+for name, u in directions().items():
+    for th in THETAS:
+        rows = []
+        for n in momenta_for(u):
+            p = 2 * np.pi * np.array(n, float)[None] / L
+            w = float(cf.omega(p, th)[0]); E = float(cf.energy(p, th)[0]); bnd = float(cf.phase_bound(p, th)[0])
+            viol += int(not (-1e-14 <= E - w <= bnd + 1e-14)); count += 1          # 1e-14: rounding on the axes, where E = w
+            worst_rel = max(worst_rel, (E - w) / E)
+            rows.append({'n': list(n), 'phase per tick (both helicities)': round(w, 10), 'sqrt(p^2 + theta^2)': round(E, 10),
+                         'E - w': f(E - w), 'Theorem 2 ceiling E - sqrt(E^2 - B)': f(bnd)})
+        if name in ('100', '110', '111'):
+            out['part 1 prediction'].append({'direction': name, 'theta': th, 'rows': rows})
+out['part 1 summary'] = {'momenta x angles': count, 'violations of 0 <= E - w <= ceiling': viol, 'largest (E - w)/E': f(worst_rel),
+                         'statement': 'run A must find exactly one distinct |phase| per momentum, equal to w(p, theta); full table for 100, 110, 111 above, '
+                                      'the random directions follow from r3_closed_forms.omega'}
+
+# ---- part 2: shell of a Gaussian at rest (amplitude exp(-r^2/(2 wd^2))), blank spin-up coin, 64 ticks
+rng = np.random.default_rng(1); NS = 400000; T = 64
+cosc = np.cos(np.radians(10.0))
+for th in THETAS:
+    for wd in (3.0, 6.0, 12.0):
+        p = rng.normal(size=(NS, 3)) / (np.sqrt(2) * wd)          # |f(p)|^2 ~ exp(-wd^2 p^2)
+        x0 = rng.normal(size=(NS, 3)) * wd / np.sqrt(2)           # |psi|^2 ~ exp(-r^2/wd^2)
+        v = cf.group_velocity(p, th)
+        expN = -np.sin(th) * cf.axis4(p, th)[:, 2]                # <blank, up| Nhat |blank, up>, beta = Y_r
+        s = np.where(rng.uniform(size=NS) < (1 + expN) / 2, 1.0, -1.0)
+        x = x0 + T * s[:, None] * v
+        r = np.linalg.norm(x, axis=1); ax = np.abs(x)
+        masks = {'100': ax.max(1) / r > cosc,
+                 '110': np.maximum(np.maximum(ax[:, 0] + ax[:, 1], ax[:, 1] + ax[:, 2]), ax[:, 0] + ax[:, 2]) / (np.sqrt(2) * r) > cosc,
+                 '111': ax.sum(1) / (np.sqrt(3) * r) > cosc}
+        row = {'theta': th, 'width': wd, 'mean radius': round(float(r.mean()), 3), 'rms radius': round(float(np.sqrt((r * r).mean())), 3),
+               'cubic ratio <x^4+y^4+z^4>/<r^4> (0.6 if isotropic)': round(float((x ** 4).sum() / (r ** 4).sum()), 4),
+               'mean z (drift of the blank spin-up coin)': round(float(x[:, 2].mean()), 3)}
+        for nm, m in masks.items():
+            row[f'mean radius in the {nm} cones'] = round(float(r[m].mean()), 3)
+        for nm in ('110', '111'):
+            row[f'mean radius ratio {nm}/100'] = round(row[f'mean radius in the {nm} cones'] / row['mean radius in the 100 cones'], 4)
+        if th == 0.0:
+            p2 = 3 / (2 * wd * wd)
+            row['leading order: 1 - <p^2>/2 and 1 - 2<p^2>/3, <p^2> = 3/(2 wd^2)'] = [round(1 - p2 / 2, 4), round(1 - 2 * p2 / 3, 4)]
+        out['part 2 prediction'].append(row)
+
+# ---- comparison, if run A is there
+cmp_ = {}
+src = next((os.path.join(RUNS, n) for n in ('A_dispersion.json', 'A_part_disp.json') if os.path.exists(os.path.join(RUNS, n))), None)
+if src is None:
+    cmp_['dispersion'] = 'no result file of run A under work/SIM/cf1/runs/ at the time of this call'
+else:
+    d = json.load(open(src)); rows = d.get('dispersion', d.get('rows'))
+    worst = 0.0; multi = 0; nrow = 0; worst_bound = 0
+    for blk in rows:
+        th = blk['theta']
+        for r_ in blk['executed']:
+            p = np.array(r_['p'], float)[None]; w = float(cf.omega(p, th)[0]); E = float(cf.energy(p, th)[0])
+            est = r_['phases_estimated']; nrow += 1
+            multi += int(len(est) != 1)
+            worst = max(worst, max(abs(x - w) for x in est) if est else np.inf)
+            worst_bound += int(any(not (-1e-6 <= E - x <= float(cf.phase_bound(p, th)[0]) + 1e-6) for x in est))
+    cmp_['dispersion'] = {'file': src, 'momenta x angles': nrow, 'rows with other than one distinct phase': multi,
+                          'max | estimated phase - closed form w(p, theta) |': f(worst), 'rows violating 0 <= E - w <= ceiling (tolerance 1e-6)': worst_bound}
+src = next((os.path.join(RUNS, n) for n in ('A_dispersion.json', 'A_part_shell.json') if os.path.exists(os.path.join(RUNS, n))), None)
+if src is None:
+    cmp_['shell'] = 'no result file of run A under work/SIM/cf1/runs/ at the time of this call'
+else:
+    d = json.load(open(src)); rows = d.get('shell', d.get('rows')); tab = []
+    pred = {(r_['theta'], r_['width']): r_ for r_ in out['part 2 prediction']}
+    for r_ in rows:
+        q = pred.get((r_['theta'], r_['width']))
+        if q is None: continue
+        tab.append({'theta': r_['theta'], 'width': r_['width'],
+                    'cubic ratio: run, transport': [round(r_['cubic_ratio_x4_over_r4'], 4), q['cubic ratio <x^4+y^4+z^4>/<r^4> (0.6 if isotropic)']],
+                    'mean radius 100: run, transport': [round(r_['cones']['100']['mean_radius'], 3), q['mean radius in the 100 cones']],
+                    'ratio 110/100: run, transport': [round(r_['mean_radius_ratio_110_over_100'], 4), q['mean radius ratio 110/100']],
+                    'ratio 111/100: run, transport': [round(r_['mean_radius_ratio_111_over_100'], 4), q['mean radius ratio 111/100']]})
+    cmp_['shell'] = {'file': src, 'rows': tab}
+out['comparison with run A'] = cmp_
+out['seconds'] = round(time.time() - T0, 2)
+print(json.dumps({k: v for k, v in out.items() if k != 'part 1 prediction'}, indent=1))
+if len(sys.argv) > 1:
+    json.dump(out, open(sys.argv[1], 'w'), indent=1)

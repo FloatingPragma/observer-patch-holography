@@ -1,0 +1,25 @@
+"""Worker UH: convergence gate of the Taylor coefficients of member B (uh_constants.member_coeffs) against central
+finite differences at two step sizes (truncation error falls as h^2). Writes gate_memberB.json."""
+import json
+import math
+
+import numpy as np
+
+src = open("uh_constants.py").read()
+head = src.split("# ------------------------------------------------------------------ B1, B2")[0]
+mid = "sig = [" + src.split("sig = [", 1)[1].split("rng = np.random.default_rng(5)")[0]
+ns = {}
+exec(compile(head + mid, "uh_constants_parts", "exec"), ns)
+rng = np.random.default_rng(7)
+p = rng.uniform(-2.5, 2.5, size=(8, 3))
+PHI_B = 5 * math.pi / 16
+w = lambda t: np.arccos(ns["period_trace"](p, t, PHI_B)) / 2
+_, t1, t2, t3, t4 = ns["member_coeffs"](p, PHI_B)
+out = {}
+for h in (2e-2, 1e-2, 5e-3):
+    fd3 = (w(2 * h) - 2 * w(h) + 2 * w(-h) - w(-2 * h)) / (12 * h ** 3)
+    fd4 = (w(2 * h) - 4 * w(h) + 6 * w(0.0) - 4 * w(-h) + w(-2 * h)) / (24 * h ** 4)
+    out[str(h)] = {"T3_max_abs_dev": float(np.abs(fd3 - t3).max()), "T4_max_abs_dev": float(np.abs(fd4 - t4).max()),
+                   "T4_scale": float(np.abs(t4).max())}
+    print(h, out[str(h)])
+json.dump(out, open("gate_memberB.json", "w"), indent=1)

@@ -1,0 +1,165 @@
+"""S6 (2): the target. The charge lattice of one Standard Model generation, exactly.
+
+Fifteen Weyl states (sixteen with a right-handed neutrino) as weights of (SU(3) x SU(2) x U(1))/Z6, of SU(5)
+(5bar + 10) and of Spin(10) (16). All inputs IMPORTED (textbook representation theory); integer arithmetic.
+
+Conventions: C^5 = C^3 (colour, modes 1,2,3, Y = -1/3) + C^2 (weak, modes 4,5, Y = +1/2, T3 = +1/2, -1/2).
+A state of the even exterior algebra is an occupied set S; 10 = |S| = 2, 5bar = |S| = 4, nu^c = empty set.
+Q = T3 + Y (Y = Y_PDG / 2).
+
+Run:  PYTHONDONTWRITEBYTECODE=1 nice -n 10 python SCR/research/S6/s6_target.py OUT.json
+"""
+import itertools, json, sys
+from fractions import Fraction as F
+
+sys.path.insert(0, __file__.rsplit('/', 1)[0])
+
+
+def echelon(rows):
+    rows = [list(map(int, r)) for r in rows if any(r)]
+    ncol, basis, col = len(rows[0]), [], 0
+    while rows and col < ncol:
+        nz = [r for r in rows if r[col] != 0]
+        zero = [r for r in rows if r[col] == 0]
+        if not nz:
+            col += 1
+            continue
+        while len(nz) > 1:
+            nz.sort(key=lambda r: abs(r[col]))
+            piv, keep = nz[0], [nz[0]]
+            for r in nz[1:]:
+                k = r[col] // piv[col]
+                r2 = [x - k * y for x, y in zip(r, piv)]
+                (keep if r2[col] else zero).append(r2) if any(r2) else None
+            nz = keep
+        piv = nz[0]
+        basis.append(piv if piv[col] > 0 else [-x for x in piv])
+        rows, col = zero, col + 1
+    return basis
+
+
+def index(rows, n):
+    b = echelon(rows)
+    if len(b) < n:
+        return None
+    out = 1
+    for r in b:
+        out *= next(x for x in r if x)
+    return abs(out)
+
+
+def smith(rows):
+    import sympy
+    from sympy.matrices.normalforms import smith_normal_form
+    m = smith_normal_form(sympy.Matrix(echelon(rows)), domain=sympy.ZZ)
+    return sorted(abs(int(m[i, i])) for i in range(min(m.shape)) if m[i, i] != 0)
+
+
+Y5 = [F(-1, 3)] * 3 + [F(1, 2)] * 2
+T35 = [F(0)] * 3 + [F(1, 2), F(-1, 2)]
+
+
+def state(S):
+    n = [1 if i in S else 0 for i in range(5)]
+    y = sum(a * b for a, b in zip(Y5, n))
+    t = sum(a * b for a, b in zip(T35, n))
+    colour = (n[0] - n[1], n[1] - n[2])
+    nc, nw = sum(n[:3]), sum(n[3:])
+    crep = {0: '1', 1: '3', 2: '3bar', 3: '1'}[nc]
+    wrep = {0: '1', 1: '2', 2: '1'}[nw]
+    names = {(2, 0): 'u^c', (1, 1): 'Q', (0, 2): 'e^c', (2, 2): 'd^c', (3, 1): 'L', (0, 0): 'nu^c'}
+    comp = {('Q', F(1, 2)): 'u_L', ('Q', F(-1, 2)): 'd_L', ('L', F(1, 2)): 'nu_L', ('L', F(-1, 2)): 'e_L'}
+    mult = names[(nc, nw)]
+    x = 2 * len(S) - 5
+    return {
+        'occupied': sorted(i + 1 for i in S), 'multiplet': mult, 'component': comp.get((mult, t), mult),
+        'SU5_rep': {0: '1', 2: '10', 4: '5bar'}[len(S)],
+        'SU5_weight_eps': [str(F(a) - F(len(S), 5)) for a in n], 'SU5_dynkin': [n[i] - n[i + 1] for i in range(4)],
+        'five_ality': len(S) % 5,
+        'SM': {'colour_rep': crep, 'weak_rep': wrep, 'colour_dynkin': list(colour), 'twoT3': n[3] - n[4], '6Y': str(6 * y), 'Y': str(y), 'T3': str(t), 'Q': str(y + t)},
+        'triality': nc % 3, 'duality': nw % 2, 'Z6_condition_2t+3d+6Y_mod_6': int((2 * (nc % 3) + 3 * (nw % 2) + 6 * y) % 6),
+        'Z6_class_6Y_mod_6': int((6 * y) % 6),
+        'Spin10_weight': [str(F(1, 2) if i in S else F(-1, 2)) for i in range(5)], 'X': x, 'B_minus_L': str((4 * y - x) / 5),
+    }
+
+
+sets = [frozenset(c) for k in (0, 2, 4) for c in itertools.combinations(range(5), k)]
+table = [state(S) for S in sets]
+fifteen = [r for r in table if r['SU5_rep'] != '1']
+out = {'schema': 's6.target.v1', 'states': table}
+
+# counts and sums (anomaly check as a known-answer control of the table)
+def tr(f, rows=fifteen):
+    return sum(f(r) for r in rows)
+Yf = lambda r: F(r['SM']['Y'])
+out['controls'] = {
+    'states': len(fifteen), 'distinct_weights': len({tuple(r['SU5_weight_eps']) for r in fifteen}),
+    'sum_Y': str(tr(Yf)), 'sum_Y3': str(tr(lambda r: Yf(r) ** 3)),
+    'sum_Y_colour_triplets': str(tr(lambda r: Yf(r) if r['SM']['colour_rep'] != '1' else 0)),
+    'sum_Y_weak_doublets': str(tr(lambda r: Yf(r) if r['SM']['weak_rep'] == '2' else 0)),
+    'sum_Q': str(tr(lambda r: F(r['SM']['Q']))),
+    'all_states_fixed_by_Z6': all(r['Z6_condition_2t+3d+6Y_mod_6'] == 0 for r in table),
+    'multiplets': {m: sum(1 for r in fifteen if r['multiplet'] == m) for m in ('Q', 'u^c', 'd^c', 'L', 'e^c')},
+}
+
+# lattices. SU(5) weight lattice P = Z^5 / Z(1,1,1,1,1); root lattice = zero-sum vectors.
+eps = [[1 if i == j else 0 for j in range(5)] for i in range(5)]
+roots = [[eps[i][k] - eps[j][k] for k in range(5)] for i in range(5) for j in range(5) if i != j]
+ONE = [1] * 5
+out['SU5'] = {'rank': 4, 'weight_lattice': 'A4* = Z^5 / Z(1,1,1,1,1)', 'roots': len(roots),
+              'index_of_root_lattice': index(roots + [ONE], 5), 'quotient': smith(roots + [ONE]),
+              'five_ality': 'coordinate sum mod 5: 5 -> 1, 10 -> 2, 5bar -> 4, adjoint -> 0',
+              'span_of_weights_of_10_is_weight_lattice': index([[1 if i in S else 0 for i in range(5)] for S in sets if len(S) == 2] + [ONE], 5) == 1,
+              'span_of_weights_of_5bar_is_weight_lattice': index([[1 if i in S else 0 for i in range(5)] for S in sets if len(S) == 4] + [ONE], 5) == 1}
+
+# Standard Model coordinates (a1, a2, b, q) = (colour Dynkin, 2 T3, 6Y)
+M = [[1, -1, 0, 0, 0], [0, 1, -1, 0, 0], [0, 0, 0, 1, -1], [-2, -2, -2, 3, 3]]
+img = [[sum(M[r][c] * e[c] for c in range(5)) for r in range(4)] for e in eps]
+cong = lambda v: (2 * (v[0] + 2 * v[1]) + 3 * v[2] + v[3]) % 6 == 0
+box = [v for v in itertools.product(range(-3, 4), repeat=4)]
+lam0 = [[2, -1, 0, 0], [-1, 2, 0, 0], [0, 0, 2, 0], [0, 0, 0, 6]]
+out['SM_lattice'] = {
+    'coordinates': '(a1, a2, b, q) = (colour Dynkin labels, 2 T3, 6Y)',
+    'definition': 'Lambda = {2 (a1 + 2 a2) + 3 b + q = 0 mod 6}: the characters of (SU(3) x SU(2) x U(1)) / Z6',
+    'image_of_SU5_weight_lattice_index_in_Z4': index(img, 4),
+    'image_satisfies_congruence': all(cong(v) for v in img),
+    'congruence_lattice_index_in_Z4 (count in a box)': F(len(box), sum(1 for v in box if cong(v))).limit_denominator(1000).__str__(),
+    'so_SM_charge_lattice_equals_SU5_weight_lattice': index(img, 4) == 6 and all(cong(v) for v in img),
+    'index_of_roots_plus_6Z_in_Z4': index(lam0, 4),
+    'quotient_Lambda_by_(roots + integer Y)': 'Z6' if index(lam0, 4) // index(img, 4) == 6 else '?',
+    'Z6_class_of_each_multiplet (= 6Y mod 6)': {m: sorted({r['Z6_class_6Y_mod_6'] for r in table if r['multiplet'] == m}) for m in ('Q', 'u^c', 'd^c', 'L', 'e^c', 'nu^c')},
+    'distinct_Z6_classes_among_the_five_multiplets': len({r['Z6_class_6Y_mod_6'] for r in fifteen}),
+    'pairs_not_separated_by_Z6': [['u^c', 'd^c'], ['e^c', 'nu^c', 'gauge bosons', 'vacuum'], ['L', 'conjugate of L', 'Higgs doublet']],
+}
+# Spin(10)
+d5roots = [[(s1 if k == i else 0) + (s2 if k == j else 0) for k in range(5)] for i in range(5) for j in range(i + 1, 5) for s1 in (1, -1) for s2 in (1, -1)]
+w16 = [[1 if i in S else -1 for i in range(5)] for S in sets]          # doubled weights
+out['Spin10'] = {'roots': len(d5roots), 'sixteen_weights': len(w16),
+                 'index_of_root_lattice_in_lattice_spanned_by_16 (doubled coordinates)':
+                     index([[2 * a for a in r] for r in d5roots], 5) // index(w16, 5),
+                 'branching': '16 = 1 (X = -5) + 10 (X = -1) + 5bar (X = 3), X = 2|S| - 5, B - L = (4Y - X)/5'}
+
+# Weyl orbits
+def orbits(group, points, act):
+    left, res = set(points), []
+    while left:
+        p = next(iter(left))
+        o = {act(g, p) for g in group}
+        res.append(len(o))
+        left -= o
+    return sorted(res)
+S5 = list(itertools.permutations(range(5)))
+actS = lambda g, S: frozenset(g[i] for i in S)
+even = lambda g: sum(1 for i in range(5) for j in range(i) if g[j] > g[i]) % 2 == 0
+Wsm = [g for g in S5 if {g[3], g[4]} == {3, 4}]
+pts = [S for S in sets if len(S) in (2, 4)]
+out['Weyl'] = {'W(SU5)': len(S5), 'W(SM) = S3 x S2': len(Wsm), 'orbits_of_W(SU5)_on_fifteen': orbits(S5, pts, actS),
+               'orbits_of_W(SM)_on_fifteen': orbits(Wsm, pts, actS),
+               'orbits_of_even_part_of_W(SU5)_on_fifteen': orbits([g for g in S5 if even(g)], pts, actS),
+               'orbits_of_even_part_of_W(SM)_on_fifteen': orbits([g for g in Wsm if even(g)], pts, actS),
+               'even_part_of_W(SM)_order': len([g for g in Wsm if even(g)])}
+json.dump(out, open(sys.argv[1], 'w'), indent=1)
+for r in table:
+    print(f"{r['component']:5s} S={r['occupied']!s:13s} SU5 {r['SU5_rep']:4s} dynkin {r['SU5_dynkin']!s:15s} | colour {r['SM']['colour_rep']:4s} {r['SM']['colour_dynkin']!s:8s} 2T3 {r['SM']['twoT3']:2d} 6Y {r['SM']['6Y']:>3s} Q {r['SM']['Q']:>4s} | Z6 class {r['Z6_class_6Y_mod_6']} | X {r['X']:2d} B-L {r['B_minus_L']:>4s}")
+for k in ('controls', 'SU5', 'SM_lattice', 'Spin10', 'Weyl'):
+    print(k, out[k])

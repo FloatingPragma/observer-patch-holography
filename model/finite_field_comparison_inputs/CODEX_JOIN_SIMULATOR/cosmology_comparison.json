@@ -1,0 +1,30 @@
+{
+  "status": "external_standard_cosmology_comparison_not_an_OPH_output",
+  "sources": [
+    {"id": "pdg-bbang", "title": "PDG 2025 Big-Bang Cosmology", "url": "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-bbang-cosmology.pdf", "sections": "22.3.1-22.3.3: thermal distributions, relativistic degrees of freedom, equilibrium versus expansion"},
+    {"id": "pdg-inflation", "title": "PDG 2025 Inflation", "url": "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-inflation.pdf", "sections": "23.2.2 and 23.6: reheating and its model dependence"},
+    {"id": "nasa-cmb", "title": "NASA LAMBDA: Cosmic Microwave Background", "url": "https://lambda.gsfc.nasa.gov/resources/graphic_history/microwaves.html", "sections": "CMB temperature anisotropies at about 380,000 years"}
+  ],
+  "reheating": "In inflationary scenarios, field energy transfers to particles and thermalizes. Its duration, temperature and initial products depend on the reheating model; all Standard Model species need not be produced simultaneously.",
+  "uniformity": "Large-scale near homogeneity is part of the cosmological reconstruction. The observed anisotropy of order 1e-5 refers to CMB temperature at last scattering, not an instantaneous uniformity measurement at reheating.",
+  "hot_plasma": "For a thermalized Standard Model plasma well above the electroweak scale, all Standard Model degrees of freedom are approximately relativistic. The unbroken electroweak gauge basis is B and W^a; the low-temperature photon/Z basis is not used here.",
+  "thermal_weights": {
+    "scope": "Ideal relativistic equilibrium, common temperature, negligible chemical potentials; no right-handed neutrinos included.",
+    "fermion_number_weight": 0.75,
+    "fermion_energy_weight": 0.875,
+    "boson_weight": 1,
+    "fermion_degrees": 90,
+    "boson_degrees": 28,
+    "effective_number_degrees": 95.5,
+    "effective_energy_degrees": 106.75,
+    "groups": [
+      {"id": "qL", "label": "left chiral quark fields and their antiparticles", "statistics": "fermion", "degrees": 36, "number_weight": 27, "energy_weight": 31.5},
+      {"id": "qR", "label": "right chiral quark fields and their antiparticles", "statistics": "fermion", "degrees": 36, "number_weight": 27, "energy_weight": 31.5},
+      {"id": "lep", "label": "lepton fields and their antiparticles", "statistics": "fermion", "degrees": 18, "number_weight": 13.5, "energy_weight": 15.75},
+      {"id": "g", "label": "gluons", "statistics": "boson", "degrees": 16, "number_weight": 16, "energy_weight": 16},
+      {"id": "W", "label": "B and W^a gauge fields", "statistics": "boson", "degrees": 8, "number_weight": 8, "energy_weight": 8},
+      {"id": "H", "label": "Higgs doublet", "statistics": "boson", "degrees": 4, "number_weight": 4, "energy_weight": 4}
+    ]
+  },
+  "freeze_out": "Thermal freeze-out compares an interaction rate with the cosmic expansion rate. The passive register's zero-work cost barrier is a different mechanism."
+}

@@ -1,0 +1,137 @@
+"""The five-level code (exterior algebra of C^5) under the statistics readings of the source.
+
+Run:
+    /tmp/oph-completion-venv/bin/python five_level_code.py [out.json]
+
+Convention of RER (species/PROOF.md, field_identity_audit/PROOF.md): C^5 = three triplet levels + two doublet
+levels, 6Y = -2 n3 + 3 n2, so one native wave carries (3,1)_{-1/3} + (1,2)_{1/2}, and the retained fifteen-state
+module R = Lambda^2 + Lambda^4 has hypercharges -2/3 (x3), 1/6 (x6), 1 (x1), -1/2 (x2), 1/3 (x3).
+
+Exact checks (fractions):
+  1. the 32 patterns group into 12 irreducible multiplets labelled by (n3, n2); the even-degree and odd-degree
+     halves are conjugate (complement map) and carry equal one-loop index sums (T_SU3, T_SU2, sum dim Y^2);
+  2. no multiplet is an SU(3) octet or an SU(2) triplet (no adjoint state in a single object);
+  3. class 3 holds exactly one doublet and its conjugate (four states) per copy;
+  4. the one-loop contributions per copy in three statistics readings:
+       R15:  the declared chiral source (Lambda^2 + Lambda^4 as left-Weyl fermions, odd flux grading declared);
+       COMP: the same declared odd flux grading applied to every cloud degree n (composite parity (-1)^(n+1)):
+             even clouds fermions, odd clouds bosons;
+       NAT:  even flux grading (bosonic register, as in the catalogue runs): even clouds bosons, odd clouds
+             fermions.
+  5. the native idle rule on the dark clouds, U_F = (-1)^n on degree n (IMPORTED from the RER receipt
+     field_identity_audit/results.json: native_U_on_module = +I on degrees 2 and 4, and PROOF section 2),
+     assigns rest phase 0 to even clouds and pi to odd clouds.
+"""
+import itertools
+import json
+import sys
+from collections import defaultdict
+from fractions import Fraction as F
+from math import comb
+from pathlib import Path
+
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).with_name('five_level_code.json')
+RER = Path('WORKSPACE/reverse-engineering-reality')
+
+SU3 = {0: ('1', 1, F(0)), 1: ('3', 3, F(1, 2)), 2: ('3b', 3, F(1, 2)), 3: ('1', 1, F(0))}
+SU2 = {0: ('1', 1, F(0)), 1: ('2', 2, F(1, 2)), 2: ('1', 1, F(0))}
+
+groups = defaultdict(list)
+for bits in itertools.product((0, 1), repeat=5):
+    n3, n2 = sum(bits[:3]), sum(bits[3:])
+    groups[(n3, n2)].append(bits)
+
+mult = {}
+for (n3, n2), states in sorted(groups.items()):
+    r3, d3, t3 = SU3[n3]
+    r2, d2, t2 = SU2[n2]
+    assert len(states) == comb(3, n3) * comb(2, n2) == d3 * d2
+    y = F(3 * n2 - 2 * n3, 6)
+    mult[(n3, n2)] = dict(n3=n3, n2=n2, degree=n3 + n2, parity='even' if (n3 + n2) % 2 == 0 else 'odd',
+                          su3=r3, su2=r2, Y=y, dim=d3 * d2, k=(3 * n2 - 2 * n3) % 6,
+                          T3=t3 * d2, T2=t2 * d3, DY2=d3 * d2 * y * y)
+
+# 1. complement map: (n3, n2) -> (3 - n3, 2 - n2) conjugates the representation and flips the parity
+for (n3, n2), m in mult.items():
+    c = mult[(3 - n3, 2 - n2)]
+    assert c['Y'] == -m['Y'] and c['parity'] != m['parity'] and c['dim'] == m['dim']
+    assert {m['su3'], c['su3']} in ({'1'}, {'3', '3b'}) and m['su2'] == c['su2']
+
+
+def index_sums(sel):
+    return dict(T3=sum(m['T3'] for m in sel), T2=sum(m['T2'] for m in sel), DY2=sum(m['DY2'] for m in sel))
+
+
+even = [m for m in mult.values() if m['parity'] == 'even']
+odd = [m for m in mult.values() if m['parity'] == 'odd']
+s_even, s_odd = index_sums(even), index_sums(odd)
+assert s_even == s_odd == dict(T3=F(2), T2=F(2), DY2=F(10, 3))   # equal to one family (RER receipt values)
+
+# the retained fifteen-state module R of the chiral source = even nonempty degrees 2 and 4
+R15 = [m for m in mult.values() if m['degree'] in (2, 4)]
+assert sum(m['dim'] for m in R15) == 15
+assert sorted((str(m['Y']), m['dim']) for m in R15) == sorted(
+    [('-2/3', 3), ('1/6', 6), ('1', 1), ('-1/2', 2), ('1/3', 3)])
+assert index_sums(R15) == dict(T3=F(2), T2=F(2), DY2=F(10, 3))
+
+# 2. no adjoint state in a single object
+assert all(m['su3'] in ('1', '3', '3b') and m['su2'] in ('1', '2') for m in mult.values())
+
+# 3. class 3: exactly one doublet and its conjugate
+cls3 = [m for m in mult.values() if m['k'] == 3]
+assert sorted((m['n3'], m['n2']) for m in cls3) == [(0, 1), (3, 1)]
+assert sum(m['dim'] for m in cls3) == 4 and sorted(m['Y'] for m in cls3) == [F(-1, 2), F(1, 2)]
+
+
+# 4. one-loop contributions per copy (convention of b_coefficients.py)
+def contrib(fermions, scalars):
+    sf, ss = index_sums(fermions), index_sums(scalars)
+    b1 = F(3, 5) * (F(2, 3) * sf['DY2'] + F(1, 3) * ss['DY2'])
+    b2 = F(2, 3) * sf['T2'] + F(1, 3) * ss['T2']
+    b3 = F(2, 3) * sf['T3'] + F(1, 3) * ss['T3']
+    return [b1, b2, b3]
+
+
+readings = {
+    'R15_declared_chiral_source': contrib(R15, []),
+    'COMP_odd_flux_all_clouds': contrib([m for m in even], [m for m in odd]),
+    'NAT_even_flux_all_clouds': contrib([m for m in odd], [m for m in even]),
+}
+assert readings['R15_declared_chiral_source'] == [F(4, 3), F(4, 3), F(4, 3)]
+assert readings['COMP_odd_flux_all_clouds'] == readings['NAT_even_flux_all_clouds'] == [F(2), F(2), F(2)]
+
+# 5. receipt fields of the native idle rule on the dark module (read only)
+rec = json.loads((RER / 'model/coherent_defect_wave/field_identity_audit/results.json').read_text())
+dark = rec['native_dark_current_module']
+assert dark['native_U_on_module'] == '+I' and dark['native_occupation_degrees'] == [2, 4]
+assert dark['empty_native_flux_code_actual_current_representation'] == 'trivial'
+assert dark['current_intertwiner_from_empty_native_flux_to_R15_dimension'] == 0
+assert rec['face_charge_obstruction']['full_pure_face_current_constraint_rank'] == 24
+assert rec['bound_composite_transport']['occupied_flux_grade'].startswith('odd declared')
+src = json.loads((RER / 'model/coherent_defect_wave/chiral_source/results.json').read_text())['source']
+assert src['families'] == 1 and src['native_cloud_parity'] == 'even' and src['occupied_object_grading'] == 'odd, declared'
+
+table = []
+for m in sorted(mult.values(), key=lambda m: (m['degree'], m['n3'])):
+    rest_phase = '0' if m['parity'] == 'even' else 'pi'
+    table.append(dict(n3=m['n3'], n2=m['n2'], degree=m['degree'], rep=f"({m['su3']},{m['su2']})_{m['Y']}",
+                      dim=m['dim'], k=m['k'], native_rest_phase=rest_phase,
+                      COMP_statistics='fermion' if m['parity'] == 'even' else 'boson',
+                      NAT_statistics='boson' if m['parity'] == 'even' else 'fermion'))
+
+out = dict(
+    multiplets=table,
+    index_sums_even=dict((k, str(v)) for k, v in s_even.items()),
+    index_sums_odd=dict((k, str(v)) for k, v in s_odd.items()),
+    per_copy_contribution=dict((k, [str(x) for x in v]) for k, v in readings.items()),
+    adjoint_states_in_one_object=0,
+    class3_states_per_copy=4,
+    receipt_fields=dict(native_U_on_dark_module_degrees_2_4='+I', bare_flux_current_representation='trivial',
+                        flux_to_R15_intertwiner_dimension=0, pure_face_current_constraint_rank=24,
+                        chiral_source_families=1, chiral_source_grading='odd, declared'),
+)
+OUT.write_text(json.dumps(out, indent=1) + '\n')
+for row in table:
+    print(row)
+print('index sums even', out['index_sums_even'], 'odd', out['index_sums_odd'])
+print('per copy (b1, b2, b3):', out['per_copy_contribution'])

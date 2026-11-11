@@ -1,0 +1,398 @@
+{
+ "task": "LP addendum 6: double load on one port and the crossing",
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "X1_crossing_on_the_seam_object": {
+  "FP, sign +1": {
+   "orientation +": {
+    "tick 1": {
+     "[10, 2], record 2, address -": "1"
+    },
+    "tick 2": {
+     "[10, 10], record 0, address +": "1"
+    },
+    "tick 3": {
+     "[10, 2], record 3, address -": "1"
+    },
+    "tick 4": {
+     "[2, 2], record 0, address +": "1"
+    },
+    "two ticks carry the double to port 10 with amplitude +1": true,
+    "four ticks return it": true
+   },
+   "orientation -": {
+    "tick 1": {
+     "[10, 2], record 3, address +": "1"
+    },
+    "tick 2": {
+     "[10, 10], record 0, address -": "1"
+    },
+    "tick 3": {
+     "[10, 2], record 2, address +": "1"
+    },
+    "tick 4": {
+     "[2, 2], record 0, address -": "1"
+    },
+    "two ticks carry the double to port 10 with amplitude +1": true,
+    "four ticks return it": true
+   },
+   "uniform address: two ticks give the double at port 10 with the uniform address": true
+  },
+  "FP, sign -1": {
+   "orientation +": {
+    "tick 1": {
+     "[10, 2], record 2, address -": "-1"
+    },
+    "tick 2": {
+     "[10, 10], record 0, address +": "1"
+    },
+    "tick 3": {
+     "[10, 2], record 3, address -": "-1"
+    },
+    "tick 4": {
+     "[2, 2], record 0, address +": "1"
+    },
+    "two ticks carry the double to port 10 with amplitude +1": true,
+    "four ticks return it": true
+   },
+   "orientation -": {
+    "tick 1": {
+     "[10, 2], record 3, address +": "-1"
+    },
+    "tick 2": {
+     "[10, 10], record 0, address -": "1"
+    },
+    "tick 3": {
+     "[10, 2], record 2, address +": "-1"
+    },
+    "tick 4": {
+     "[2, 2], record 0, address -": "1"
+    },
+    "two ticks carry the double to port 10 with amplitude +1": true,
+    "four ticks return it": true
+   },
+   "uniform address: two ticks give the double at port 10 with the uniform address": true
+  },
+  "FN, sign +1": {
+   "orientation +": {
+    "tick 1": {
+     "[10, 2], record 2, address -": "1"
+    },
+    "tick 2": {
+     "[2, 2], record 0, address +": "1"
+    },
+    "tick 3": {
+     "[10, 2], record 2, address -": "1"
+    },
+    "tick 4": {
+     "[2, 2], record 0, address +": "1"
+    },
+    "two ticks carry the double to port 10 with amplitude +1": false,
+    "four ticks return it": true
+   },
+   "orientation -": {
+    "tick 1": {
+     "[10, 2], record 2, address +": "1"
+    },
+    "tick 2": {
+     "[2, 2], record 0, address -": "1"
+    },
+    "tick 3": {
+     "[10, 2], record 2, address +": "1"
+    },
+    "tick 4": {
+     "[2, 2], record 0, address -": "1"
+    },
+    "two ticks carry the double to port 10 with amplitude +1": false,
+    "four ticks return it": true
+   },
+   "uniform address: two ticks give the double at port 10 with the uniform address": false
+  },
+  "FN, sign -1": {
+   "orientation +": {
+    "tick 1": {
+     "[10, 2], record 2, address -": "-1"
+    },
+    "tick 2": {
+     "[2, 2], record 0, address +": "1"
+    },
+    "tick 3": {
+     "[10, 2], record 2, address -": "-1"
+    },
+    "tick 4": {
+     "[2, 2], record 0, address +": "1"
+    },
+    "two ticks carry the double to port 10 with amplitude +1": false,
+    "four ticks return it": true
+   },
+   "orientation -": {
+    "tick 1": {
+     "[10, 2], record 2, address +": "-1"
+    },
+    "tick 2": {
+     "[2, 2], record 0, address -": "1"
+    },
+    "tick 3": {
+     "[10, 2], record 2, address +": "-1"
+    },
+    "tick 4": {
+     "[2, 2], record 0, address -": "1"
+    },
+    "two ticks carry the double to port 10 with amplitude +1": false,
+    "four ticks return it": true
+   },
+   "uniform address: two ticks give the double at port 10 with the uniform address": false
+  }
+ },
+ "X2_crossing_with_the_link_register": {
+  "orientation +": {
+   "Gauss invariant at the six ports before, after one tick, after two ticks": [
+    true,
+    true,
+    true
+   ],
+   "configurations after one tick": [
+    "[2, 10] record 2"
+   ],
+   "after two ticks: |h = -1> (x) double at port 10, same orientation": true
+  },
+  "orientation -": {
+   "Gauss invariant at the six ports before, after one tick, after two ticks": [
+    true,
+    true,
+    true
+   ],
+   "configurations after one tick": [
+    "[2, 10] record 3"
+   ],
+   "after two ticks: |h = -1> (x) double at port 10, same orientation": true
+  }
+ },
+ "X3_crossing_with_a_Z6_phase (MEASURED)": {
+  "class 0": {
+   "one crossing (port 2 to port 10): amplitude": [
+    1.0,
+    0.0
+   ],
+   "modulus": 1.0,
+   "phase over 2 pi/3": 0.0,
+   "return crossing (four ticks)": [
+    1.0,
+    0.0
+   ]
+  },
+  "class 1": {
+   "one crossing (port 2 to port 10): amplitude": [
+    -0.5,
+    -0.866025403784
+   ],
+   "modulus": 1.0,
+   "phase over 2 pi/3": -1.0,
+   "return crossing (four ticks)": [
+    1.0,
+    -0.0
+   ]
+  },
+  "class 2": {
+   "one crossing (port 2 to port 10): amplitude": [
+    -0.5,
+    0.866025403784
+   ],
+   "modulus": 1.0,
+   "phase over 2 pi/3": 1.0,
+   "return crossing (four ticks)": [
+    1.0,
+    -0.0
+   ]
+  },
+  "class 3": {
+   "one crossing (port 2 to port 10): amplitude": [
+    1.0,
+    0.0
+   ],
+   "modulus": 1.0,
+   "phase over 2 pi/3": 0.0,
+   "return crossing (four ticks)": [
+    1.0,
+    0.0
+   ]
+  },
+  "class 4": {
+   "one crossing (port 2 to port 10): amplitude": [
+    -0.5,
+    -0.866025403784
+   ],
+   "modulus": 1.0,
+   "phase over 2 pi/3": -1.0,
+   "return crossing (four ticks)": [
+    1.0,
+    0.0
+   ]
+  },
+  "class 5": {
+   "one crossing (port 2 to port 10): amplitude": [
+    -0.5,
+    0.866025403784
+   ],
+   "modulus": 1.0,
+   "phase over 2 pi/3": 1.0,
+   "return crossing (four ticks)": [
+    1.0,
+    0.0
+   ]
+  }
+ },
+ "X4_round_coefficients": {
+  "FP": {
+   "D_2": {
+    "tick-1 weights": {
+     "double": "2/3",
+     "forward": "1/6",
+     "in-dimer": "1/6"
+    },
+    "<D|W^-1 Pi_F W|D>": "1/6",
+    "<D|W^-1 Pi_I W|D>": "1/6",
+    "inverse tick restores the state": true
+   },
+   "D_10": {
+    "tick-1 weights": {
+     "backward": "1/6",
+     "double": "2/3",
+     "in-dimer": "1/6"
+    },
+    "<D|W^-1 Pi_F W|D>": "0",
+    "<D|W^-1 Pi_I W|D>": "1/6",
+    "inverse tick restores the state": true
+   },
+   "round coefficient, A at port 2, B at port 2": "5/18",
+   "round coefficient, A at port 10, B at port 2": "1/6",
+   "mean of the two coefficients": "2/9"
+  },
+  "FN": {
+   "D_2": {
+    "tick-1 weights": {
+     "double": "2/3",
+     "forward": "1/6",
+     "in-dimer": "1/6"
+    },
+    "<D|W^-1 Pi_F W|D>": "1/6",
+    "<D|W^-1 Pi_I W|D>": "1/6",
+    "inverse tick restores the state": true
+   },
+   "D_10": {
+    "tick-1 weights": {
+     "backward": "1/6",
+     "double": "2/3",
+     "in-dimer": "1/6"
+    },
+    "<D|W^-1 Pi_F W|D>": "0",
+    "<D|W^-1 Pi_I W|D>": "1/6",
+    "inverse tick restores the state": true
+   },
+   "round coefficient, A at port 2, B at port 2": "5/18",
+   "round coefficient, A at port 10, B at port 2": "1/6",
+   "mean of the two coefficients": "2/9"
+  }
+ },
+ "X5_gauss_acceptance_of_embedded_pairs": {
+  "weight 1": [
+   [
+    10,
+    10
+   ],
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    1
+   ],
+   [
+    9,
+    9
+   ],
+   [
+    3,
+    3
+   ],
+   [
+    2,
+    2
+   ]
+  ],
+  "number with weight 0": 15,
+  "weight 0 configurations are the pairs on two ports": true
+ },
+ "X6_return_detector_on_the_consensus_pair": {
+  "weight of yes at each port": {
+   "2": "1/18",
+   "3": "1/18",
+   "9": "1/18",
+   "1": "1/18",
+   "0": "1/18",
+   "10": "1/18"
+  },
+  "total over the six ports": "1/3",
+  "state left on yes": "D_p"
+ },
+ "X7_idle_double_at_one_port": {
+  "record 1": {
+   "fixed by the tick": true,
+   "record reset gives D_2": true
+  },
+  "record 2": {
+   "fixed by the tick": true,
+   "record reset gives D_2": true
+  },
+  "record 3": {
+   "fixed by the tick": true,
+   "record reset gives D_2": true
+  }
+ },
+ "X8_crossing_with_the_twelve_address_register": {
+  "FP": {
+   "<A D_10|W^2|A D_2>": "1/36",
+   "<A D_2|W^2|A D_2>": "-1/18",
+   "weights after two ticks": {
+    "double at 10": "1/216",
+    "double at 2": "11/36",
+    "double at 3": "1/216",
+    "split pair": "37/54"
+   }
+  },
+  "FN": {
+   "<A D_10|W^2|A D_2>": "0",
+   "<A D_2|W^2|A D_2>": "0",
+   "weights after two ticks": {
+    "double at 2": "2/9",
+    "split pair": "7/9"
+   }
+  }
+ },
+ "X9_non_return_of_the_round_with_one_port": {
+  "A at port 2, B at port 2": {
+   "non-return norm^2 of A and of B": [
+    "5/36",
+    "5/36"
+   ],
+   "every non-return component has a blank record and the double at the same port": true,
+   "weight of the outcome no per round over |1 - z|^2": "65/324"
+  },
+  "A at port 10, B at port 2": {
+   "non-return norm^2 of A and of B": [
+    "0",
+    "5/36"
+   ],
+   "every non-return component has a blank record and the double at the same port": true,
+   "weight of the outcome no per round over |1 - z|^2": "5/36"
+  }
+ },
+ "seconds": 0.07
+}

@@ -1,0 +1,221 @@
+{
+ "geometry": {
+  "gram_entries_equal_carrier_exact_gram": 144,
+  "oriented_faces_positive_determinant": 20,
+  "spinor_projectors_equal_(1+u.sigma)/2": 12
+ },
+ "link": {
+  "all_60_link_phases_are_20th_roots_of_unity": true,
+  "exponents": {
+   "0,1": 0,
+   "0,5": 0,
+   "0,7": 0,
+   "0,10": 0,
+   "0,11": 0,
+   "1,5": 1,
+   "1,7": 19,
+   "1,8": 19,
+   "1,9": 1,
+   "2,3": 10,
+   "2,4": 17,
+   "2,6": 3,
+   "2,10": 1,
+   "2,11": 19,
+   "3,4": 6,
+   "3,6": 14,
+   "3,8": 18,
+   "3,9": 2,
+   "4,5": 19,
+   "4,9": 17,
+   "4,11": 1,
+   "5,9": 19,
+   "5,11": 1,
+   "6,7": 1,
+   "6,8": 3,
+   "6,10": 19,
+   "7,8": 1,
+   "7,10": 19,
+   "8,9": 3,
+   "10,11": 19
+  },
+  "face_holonomy_exponent_mod_20": 19,
+  "face_holonomy": "exp(-2 pi i/20) on each of the 20 oriented faces"
+ },
+ "cover": {
+  "elements": 120,
+  "products_closed": 14400,
+  "element_orders": {
+   "1": 1,
+   "2": 1,
+   "5": 24,
+   "10": 24,
+   "4": 30,
+   "3": 20,
+   "6": 20
+  },
+  "central_element": "identity permutation with port phases zeta^10 = -1: acts as (-1)^(k * load)",
+  "lifts_are_special_unitary_with_g_chi_p=zeta^t_chi_gp": true
+ },
+ "total_1_flux_0": {
+  "dimension": 12,
+  "completeness_exact_on_seams": 30,
+  "population_lumping_matrix_units_checked": 4320,
+  "covariance_row_identities_checked": 7200,
+  "covariance_row_phase_exponents_by_label": {
+   "keep": [
+    0
+   ],
+   "corrected": [
+    0
+   ]
+  },
+  "central_element_acts_as": "+1",
+  "endpoint_swap": "keep equal; corrected changes sign; split_a and split_b exchange"
+ },
+ "total_1_flux_1": {
+  "dimension": 12,
+  "completeness_exact_on_seams": 30,
+  "population_lumping_matrix_units_checked": 4320,
+  "covariance_row_identities_checked": 7200,
+  "covariance_row_phase_exponents_by_label": {
+   "keep": [
+    0
+   ],
+   "corrected": [
+    0
+   ]
+  },
+  "central_element_acts_as": "-1",
+  "endpoint_swap": "keep equal; corrected changes sign; split_a and split_b exchange"
+ },
+ "total_1_flux_2": {
+  "dimension": 12,
+  "completeness_exact_on_seams": 30,
+  "population_lumping_matrix_units_checked": 4320,
+  "covariance_row_identities_checked": 7200,
+  "covariance_row_phase_exponents_by_label": {
+   "keep": [
+    0
+   ],
+   "corrected": [
+    0
+   ]
+  },
+  "central_element_acts_as": "+1",
+  "endpoint_swap": "keep equal; corrected changes sign; split_a and split_b exchange"
+ },
+ "total_1_flux_3": {
+  "dimension": 12,
+  "completeness_exact_on_seams": 30,
+  "population_lumping_matrix_units_checked": 4320,
+  "covariance_row_identities_checked": 7200,
+  "covariance_row_phase_exponents_by_label": {
+   "keep": [
+    0
+   ],
+   "corrected": [
+    0
+   ]
+  },
+  "central_element_acts_as": "-1",
+  "endpoint_swap": "keep equal; corrected changes sign; split_a and split_b exchange"
+ },
+ "total_1_flux_7": {
+  "dimension": 12,
+  "completeness_exact_on_seams": 30,
+  "population_lumping_matrix_units_checked": 4320,
+  "covariance_row_identities_checked": 7200,
+  "covariance_row_phase_exponents_by_label": {
+   "keep": [
+    0
+   ],
+   "corrected": [
+    0
+   ]
+  },
+  "central_element_acts_as": "-1",
+  "endpoint_swap": "keep equal; corrected changes sign; split_a and split_b exchange"
+ },
+ "total_1_flux_10": {
+  "dimension": 12,
+  "completeness_exact_on_seams": 30,
+  "population_lumping_matrix_units_checked": 4320,
+  "covariance_row_identities_checked": 7200,
+  "covariance_row_phase_exponents_by_label": {
+   "keep": [
+    0
+   ],
+   "corrected": [
+    0
+   ]
+  },
+  "central_element_acts_as": "+1",
+  "endpoint_swap": "keep equal; corrected changes sign; split_a and split_b exchange"
+ },
+ "total_2_flux_1": {
+  "dimension": 78,
+  "completeness_exact_on_seams": 30,
+  "population_lumping_matrix_units_checked": 182520,
+  "covariance_row_identities_checked": 14400,
+  "covariance_row_phase_exponents_by_label": {
+   "keep": [
+    0
+   ],
+   "corrected": [
+    0
+   ],
+   "split_a": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "split_b": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ]
+  },
+  "central_element_acts_as": "+1",
+  "endpoint_swap": "keep equal; corrected changes sign; split_a and split_b exchange"
+ },
+ "float_code_comparison": {
+  "status": "MEASURED",
+  "gauge_defect_on_links": 7.550332863779066e-16,
+  "row_defect_after_port_rephasing": 6.66261606395534e-16
+ },
+ "seconds": 22.791518926620483
+}

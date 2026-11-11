@@ -1,0 +1,55 @@
+{
+  "schema": "lw.a_chart.v1",
+  "basis_P_fwd": {
+    "P": "1.630972095858897376964514",
+    "alpha_U": "0.04112424744181668514088993",
+    "muZ_GeV": 91.5883371732096,
+    "v_GeV": 246.5967810209997,
+    "eta": "0.0221466261774071",
+    "lambda": "0.000227690833730276",
+    "tau2_carrier": "-0.000231154208975046",
+    "dn_carrier": "0.000234627607712058",
+    "A_T_fixed_point": "136.9948351774129373",
+    "d_closure_d_ln_alpha2": "-0.38587945"
+  },
+  "rows": {
+    "unsliced_chart": {
+      "alpha2_on_chart": "0.033777814109200802544",
+      "alphaY_on_chart": "0.01013140054240183613",
+      "MW_GeV": 80.33006348366055,
+      "MZ_GeV": 91.5883371732096,
+      "E1_closure_residual_if_chart_alpha2_is_read": "1.29002e-41",
+      "E2_MZ_minus_muZ_GeV": 0.0,
+      "E2_relative": 0.0,
+      "E3_A_T_if_chart_is_read": "136.994835177413",
+      "E3_G_of_P_fwd_minus_P_fwd": "1.26808e-40"
+    },
+    "zero_selector_law": {
+      "alpha2_on_chart": "0.033777814109200802544",
+      "alphaY_on_chart": "0.0096826478614695295029",
+      "MW_GeV": 80.33006348366055,
+      "MZ_GeV": 91.11911830689769,
+      "E1_closure_residual_if_chart_alpha2_is_read": "1.29002e-41",
+      "E2_MZ_minus_muZ_GeV": -0.4692188663119028,
+      "E2_relative": -0.005123129000852235,
+      "E3_A_T_if_chart_is_read": "141.569333082172",
+      "E3_G_of_P_fwd_minus_P_fwd": "-0.000418066"
+    },
+    "carrier_value_law": {
+      "alpha2_on_chart": "0.033770006225299484068",
+      "alphaY_on_chart": "0.0096952921867488772744",
+      "MW_GeV": 80.3207786309306,
+      "MZ_GeV": 91.12418820254929,
+      "E1_closure_residual_if_chart_alpha2_is_read": "8.92107e-5",
+      "E2_MZ_minus_muZ_GeV": -0.46414897066029953,
+      "E2_relative": -0.005067773747027556,
+      "E3_A_T_if_chart_is_read": "141.441486404713",
+      "E3_G_of_P_fwd_minus_P_fwd": "-0.000406749"
+    }
+  },
+  "reading": {
+    "E1": "the pixel closure reads alpha2(mu_Z); a chart with tau2 != 0 carries a second alpha2 that violates it",
+    "E2": "the source's Z-scale law is the tree Z-mass readout at mu = mu_Z; only the unsliced chart reports the same Z mass",
+    "E3": "the outer Thomson map reads 1/alpha2 + 1/alphaY at mu_Z; P_fwd is its fixed point only with the unsliced couplings"
+  }
+}

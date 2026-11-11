@@ -1,0 +1,315 @@
+{
+ "gate": "no threshold reproduces SA and SB of chain.json (c_Y = 5/3 and 1) to relative 1e-9",
+ "mirror_shift": [
+  4.0,
+  4.0,
+  4.0
+ ],
+ "comparison_run": 4,
+ "rows": {
+  "SA c_Y=5/3 M_m=none": {
+   "variant": "one doublet, m = 2",
+   "c_Y": 1.6666666666666667,
+   "M_m": null,
+   "roots": 1,
+   "inv_alpha_U": 24.82226172655921,
+   "v": 222.8588021922145,
+   "m_Z": 81.95211390488952,
+   "inv_alpha_2": 29.244236701609754,
+   "alpha_s": 0.1123197740108746,
+   "sin2": 0.20558242160720236,
+   "inv_alpha_em": 142.2506675083606,
+   "threshold_below_m_Z": false,
+   "percent": {
+    "v": -9.487936726417633,
+    "m_Z": -10.128400771055935,
+    "inv_alpha_2": -1.1351024286350375,
+    "alpha_s": -4.813750838241859,
+    "sin2": -11.087958823976152,
+    "inv_alpha_em": 11.176762413724584
+   }
+  },
+  "SA c_Y=5/3 M_m=3e+02": {
+   "variant": "one doublet, m = 2",
+   "c_Y": 1.6666666666666667,
+   "M_m": 300.0,
+   "closure": "no root"
+  },
+  "SA c_Y=5/3 M_m=1e+03": {
+   "variant": "one doublet, m = 2",
+   "c_Y": 1.6666666666666667,
+   "M_m": 1000.0,
+   "closure": "no root"
+  },
+  "SA c_Y=5/3 M_m=3e+03": {
+   "variant": "one doublet, m = 2",
+   "c_Y": 1.6666666666666667,
+   "M_m": 3000.0,
+   "closure": "no root"
+  },
+  "SA c_Y=5/3 M_m=1e+04": {
+   "variant": "one doublet, m = 2",
+   "c_Y": 1.6666666666666667,
+   "M_m": 10000.0,
+   "closure": "no root"
+  },
+  "SA c_Y=5/3 M_m=1e+05": {
+   "variant": "one doublet, m = 2",
+   "c_Y": 1.6666666666666667,
+   "M_m": 100000.0,
+   "closure": "no root"
+  },
+  "SA c_Y=5/3 M_m=1e+08": {
+   "variant": "one doublet, m = 2",
+   "c_Y": 1.6666666666666667,
+   "M_m": 100000000.0,
+   "closure": "no root"
+  },
+  "SA c_Y=5/3 M_m=1e+12": {
+   "variant": "one doublet, m = 2",
+   "c_Y": 1.6666666666666667,
+   "M_m": 1000000000000.0,
+   "closure": "no root"
+  },
+  "SA c_Y=1 M_m=none": {
+   "variant": "one doublet, m = 2",
+   "c_Y": 1.0,
+   "M_m": null,
+   "roots": 1,
+   "inv_alpha_U": 24.818756346254602,
+   "v": 224.08930051004697,
+   "m_Z": 83.8577518048887,
+   "inv_alpha_2": 29.237682597948464,
+   "alpha_s": 0.11222561319945024,
+   "sin2": 0.2327043472965446,
+   "inv_alpha_em": 125.64304422164359,
+   "threshold_below_m_Z": false,
+   "percent": {
+    "v": -8.98818109412437,
+    "m_Z": -8.038610557432236,
+    "inv_alpha_2": -1.1572596418239822,
+    "alpha_s": -4.8935481360591115,
+    "sin2": 0.64196319373091,
+    "inv_alpha_em": -1.8030135039909467
+   }
+  },
+  "SA c_Y=1 M_m=3e+02": {
+   "variant": "one doublet, m = 2",
+   "c_Y": 1.0,
+   "M_m": 300.0,
+   "roots": 1,
+   "inv_alpha_U": 35.381459209787536,
+   "v": 1.3953080863340035e-05,
+   "m_Z": 4.992928758289211e-06,
+   "inv_alpha_2": 30.60421550461594,
+   "alpha_s": 7.857943018961001,
+   "sin2": 0.19832543502791214,
+   "inv_alpha_em": 154.31311420196172,
+   "threshold_below_m_Z": false,
+   "percent": {
+    "v": -99.99999433308389,
+    "m_Z": -99.99999452457696,
+    "inv_alpha_2": 3.462527060905818,
+    "alpha_s": 6559.2737448822045,
+    "sin2": -14.22652234758579,
+    "inv_alpha_em": 20.60423149821158
+   }
+  },
+  "SA c_Y=1 M_m=1e+03": {
+   "variant": "one doublet, m = 2",
+   "c_Y": 1.0,
+   "M_m": 1000.0,
+   "closure": "no root"
+  },
+  "SA c_Y=1 M_m=3e+03": {
+   "variant": "one doublet, m = 2",
+   "c_Y": 1.0,
+   "M_m": 3000.0,
+   "closure": "no root"
+  },
+  "SA c_Y=1 M_m=1e+04": {
+   "variant": "one doublet, m = 2",
+   "c_Y": 1.0,
+   "M_m": 10000.0,
+   "closure": "no root"
+  },
+  "SA c_Y=1 M_m=1e+05": {
+   "variant": "one doublet, m = 2",
+   "c_Y": 1.0,
+   "M_m": 100000.0,
+   "closure": "no root"
+  },
+  "SA c_Y=1 M_m=1e+08": {
+   "variant": "one doublet, m = 2",
+   "c_Y": 1.0,
+   "M_m": 100000000.0,
+   "closure": "no root"
+  },
+  "SA c_Y=1 M_m=1e+12": {
+   "variant": "one doublet, m = 2",
+   "c_Y": 1.0,
+   "M_m": 1000000000000.0,
+   "closure": "no root"
+  },
+  "SB c_Y=5/3 M_m=none": {
+   "variant": "two doublets, m = 1",
+   "c_Y": 1.6666666666666667,
+   "M_m": null,
+   "roots": 1,
+   "inv_alpha_U": 24.318452207564338,
+   "v": 245.86272658706687,
+   "m_Z": 89.97984891000102,
+   "inv_alpha_2": 29.609949045642054,
+   "alpha_s": 0.1184278229009225,
+   "sin2": 0.20785063088433373,
+   "inv_alpha_em": 142.45782617864472,
+   "threshold_below_m_Z": false,
+   "percent": {
+    "v": -0.14510332748481902,
+    "m_Z": -1.324901401499079,
+    "inv_alpha_2": 0.10124761880343502,
+    "alpha_s": 0.36256178044280496,
+    "sin2": -10.106984307441525,
+    "inv_alpha_em": 11.338668369397986
+   }
+  },
+  "SB c_Y=5/3 M_m=3e+02": {
+   "variant": "two doublets, m = 1",
+   "c_Y": 1.6666666666666667,
+   "M_m": 300.0,
+   "roots": 1,
+   "inv_alpha_U": 31.422043335673035,
+   "v": 0.0035051516491594135,
+   "m_Z": 0.0012430858209255225,
+   "inv_alpha_2": 30.604215435729348,
+   "alpha_s": 0.4320371633143716,
+   "sin2": 0.1838311389542616,
+   "inv_alpha_em": 166.48004037740245,
+   "threshold_below_m_Z": false,
+   "percent": {
+    "v": -99.99857641473106,
+    "m_Z": -99.9986367879316,
+    "inv_alpha_2": 3.4625268280235044,
+    "alpha_s": 266.1331892494675,
+    "sin2": -20.495139281090914,
+    "inv_alpha_em": 30.11335707495306
+   }
+  },
+  "SB c_Y=5/3 M_m=1e+03": {
+   "variant": "two doublets, m = 1",
+   "c_Y": 1.6666666666666667,
+   "M_m": 1000.0,
+   "closure": "no root"
+  },
+  "SB c_Y=5/3 M_m=3e+03": {
+   "variant": "two doublets, m = 1",
+   "c_Y": 1.6666666666666667,
+   "M_m": 3000.0,
+   "closure": "no root"
+  },
+  "SB c_Y=5/3 M_m=1e+04": {
+   "variant": "two doublets, m = 1",
+   "c_Y": 1.6666666666666667,
+   "M_m": 10000.0,
+   "closure": "no root"
+  },
+  "SB c_Y=5/3 M_m=1e+05": {
+   "variant": "two doublets, m = 1",
+   "c_Y": 1.6666666666666667,
+   "M_m": 100000.0,
+   "closure": "no root"
+  },
+  "SB c_Y=5/3 M_m=1e+08": {
+   "variant": "two doublets, m = 1",
+   "c_Y": 1.6666666666666667,
+   "M_m": 100000000.0,
+   "closure": "no root"
+  },
+  "SB c_Y=5/3 M_m=1e+12": {
+   "variant": "two doublets, m = 1",
+   "c_Y": 1.6666666666666667,
+   "M_m": 1000000000000.0,
+   "closure": "no root"
+  },
+  "SB c_Y=1 M_m=none": {
+   "variant": "two doublets, m = 1",
+   "c_Y": 1.0,
+   "M_m": null,
+   "roots": 1,
+   "inv_alpha_U": 24.31622761352337,
+   "v": 246.72336823198287,
+   "m_Z": 91.86749803273123,
+   "inv_alpha_2": 29.604420147357633,
+   "alpha_s": 0.11832009117482667,
+   "sin2": 0.23459709397152878,
+   "inv_alpha_em": 126.19261238994926,
+   "threshold_below_m_Z": false,
+   "percent": {
+    "v": 0.20443840142265746,
+    "m_Z": 0.7451616799702077,
+    "inv_alpha_2": 0.08255627909949936,
+    "alpha_s": 0.2712637074802293,
+    "sin2": 1.4605544379935775,
+    "inv_alpha_em": -1.3734955920677971
+   }
+  },
+  "SB c_Y=1 M_m=3e+02": {
+   "variant": "two doublets, m = 1",
+   "c_Y": 1.0,
+   "M_m": 300.0,
+   "roots": 1,
+   "inv_alpha_U": 31.390386095873552,
+   "v": 0.0036838590663870133,
+   "m_Z": 0.0013282994950209845,
+   "inv_alpha_2": 30.604215401097377,
+   "alpha_s": 0.4242995918876463,
+   "sin2": 0.21044457545633852,
+   "inv_alpha_em": 145.4264874004648,
+   "threshold_below_m_Z": false,
+   "percent": {
+    "v": -99.9985038343488,
+    "m_Z": -99.99854333958962,
+    "inv_alpha_2": 3.4625267109444913,
+    "alpha_s": 259.57592532851385,
+    "sin2": -8.985133009108859,
+    "inv_alpha_em": 13.658841266482845
+   }
+  },
+  "SB c_Y=1 M_m=1e+03": {
+   "variant": "two doublets, m = 1",
+   "c_Y": 1.0,
+   "M_m": 1000.0,
+   "closure": "no root"
+  },
+  "SB c_Y=1 M_m=3e+03": {
+   "variant": "two doublets, m = 1",
+   "c_Y": 1.0,
+   "M_m": 3000.0,
+   "closure": "no root"
+  },
+  "SB c_Y=1 M_m=1e+04": {
+   "variant": "two doublets, m = 1",
+   "c_Y": 1.0,
+   "M_m": 10000.0,
+   "closure": "no root"
+  },
+  "SB c_Y=1 M_m=1e+05": {
+   "variant": "two doublets, m = 1",
+   "c_Y": 1.0,
+   "M_m": 100000.0,
+   "closure": "no root"
+  },
+  "SB c_Y=1 M_m=1e+08": {
+   "variant": "two doublets, m = 1",
+   "c_Y": 1.0,
+   "M_m": 100000000.0,
+   "closure": "no root"
+  },
+  "SB c_Y=1 M_m=1e+12": {
+   "variant": "two doublets, m = 1",
+   "c_Y": 1.0,
+   "M_m": 1000000000000.0,
+   "closure": "no root"
+  }
+ }
+}

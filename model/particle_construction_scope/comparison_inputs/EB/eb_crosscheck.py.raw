@@ -1,0 +1,52 @@
+"""EB cross-check: two F1 rows against the Decimal producer copy (paper_math_eb.py = DB's paper_math_db.py, the RER
+producer with the slope constant as a constructor argument, same sha256 as DB's copy).
+
+Rows: (1) A + L1 with the slopes frozen at the self-consistent solution, at the solution's P: the producer's alpha_U
+must equal the chain's alpha_U, and 4 pi^2 alpha_U must return the t at which the slopes were evaluated (this
+checks the self-consistency). (2) FIT-1 with base A at its P.
+
+Run:  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python eb_crosscheck.py [out.json]
+"""
+import json
+import math
+import sys
+from fractions import Fraction
+from pathlib import Path
+
+HERE = Path(__file__).parent
+sys.path.insert(0, str(HERE))
+import eb_lib as L  # noqa: E402
+from paper_math_eb import PaperMathContext  # noqa: E402
+
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / 'eb_crosscheck.json'
+
+
+def frac(x):
+    f = Fraction(x).limit_denominator(10 ** 15)
+    return f'{f.numerator}/{f.denominator}'
+
+
+out = {}
+row = json.loads((HERE / 'eb_F1_A_TU.json').read_text())['L1']['closure']
+fit = json.loads((HERE / 'eb_fit1.json').read_text())
+cases = {'A + L1 (self-consistent, slopes frozen at the solution)': (row['slopes_at_solution'], row['P'], row['alpha_U'],
+                                                                    row['t_at_solution']),
+         'FIT-1, base A': (fit['rows']['A']['slopes'], fit['rows']['A']['F1']['P'], fit['rows']['A']['F1']['alpha_U'],
+                           None)}
+for name, (slopes, P, aU_chain, t_sol) in cases.items():
+    ctx = PaperMathContext(precision=30, b_coefficients=tuple(frac(s) for s in slopes))
+    d10 = ctx.build_d10_from_p(repr(P))
+    aU = float(d10.alpha_u)
+    entry = dict(slopes=slopes, P=P, alpha_U_chain=aU_chain, alpha_U_producer=aU, rel_diff=aU / aU_chain - 1,
+                 v_over_Estar_producer=float(d10.v), sin2w_producer=float(d10.sin2w_mz),
+                 alpha3_producer=float(d10.alpha3_mz))
+    if t_sol is not None:
+        t_back = 4 * math.pi ** 2 * aU
+        db = L.delta_b('S3', t_back, k=1, normalized=True, umode='Ua', coeff=L.LOOP_RULES['L1'])
+        base = (41 / 10, -19 / 6, -7)
+        entry['t_from_producer_alpha_U'] = t_back
+        entry['t_used_for_slopes'] = t_sol
+        entry['slopes_recomputed_at_t_back'] = [base[i] + db[i] for i in range(3)]
+    out[name] = entry
+    print(name, json.dumps({k: v for k, v in entry.items() if k != 'slopes'}, default=float))
+OUT.write_text(json.dumps(out, indent=1, default=float) + '\n')

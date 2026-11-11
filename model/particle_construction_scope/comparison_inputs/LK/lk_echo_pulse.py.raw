@@ -1,0 +1,159 @@
+"""Worker LK, addendum 3 (statements R13, R14): the round with the exchange X_E between rounds and the return test
+T_blk T_addr only.
+
+Run from RL/work/LK:
+  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B lk_echo_pulse.py
+Round: tick on A and B, kick exp(-i h j Qx), inverse tick on A and B, return test (T_blk, T_addr on each object),
+then X_E on A (the double is carried to the other end of its E seam; R11: two ticks of the plain law on that seam).
+Exact rational coefficients for the one-round operator; complex floats for the executed rounds. Writes
+lk_echo_pulse.json.
+"""
+from __future__ import annotations
+
+import cmath
+import json
+import math
+import os
+import time
+from fractions import Fraction as Fr
+
+import mpmath as mp
+
+import lk_common as L
+
+mp.mp.dps = 30
+HERE = os.path.dirname(os.path.abspath(__file__))
+T0 = time.time()
+OUT = {'provenance': L.provenance()}
+
+# exact one-round coefficients on the uniform doubles of A (from the compressions of W^-1 Pi W)
+D = {'D2': L.uniform(L.DBL2), 'D10': L.uniform(L.DBL10)}
+WD = {n: L.step(v) for n, v in D.items()}
+
+
+def gram(name):
+    return [[Fr(L.dot(L.restrict(WD[a], lambda k: L.flag(k) == name), L.restrict(WD[b], lambda k: L.flag(k) == name))) / 12
+             for b in ('D2', 'D10')] for a in ('D2', 'D10')]
+
+
+GF, GI = gram('F'), gram('I')
+gI = GI[0][0]
+ca = GF[0][0] * (1 - gI) + (1 - GF[0][0]) * gI
+cb = GF[1][1] * (1 - gI) + (1 - GF[1][1]) * gI
+OUT['R13 exact coefficients'] = {
+    'c_a (double at port 2)': str(ca), 'c_b (double at port 10)': str(cb), 'mean': str((ca + cb) / 2),
+    'one round on (D2, D10) of A': 'diag(1 - c_a (1 - z), 1 - c_b (1 - z)), z = exp(-i h j)',
+    'round, X_E, round, X_E': 'scalar (1 - c_a (1 - z)) (1 - c_b (1 - z))',
+    'coefficient of (1 - z)^2: c_a c_b': str(ca * cb), 'P^2': str(((ca + cb) / 2) ** 2), 'difference': str(ca * cb - ((ca + cb) / 2) ** 2),
+    'non-return weight per round over |1 - z|^2 (at port 2, at port 10, mean)': [str(ca * (1 - ca)), str(cb * (1 - cb)), str((ca * (1 - ca) + cb * (1 - cb)) / 2)],
+}
+rows = []
+for N in (2, 10, 100, 1000, 10 ** 6):
+    z = mp.exp(-1j / mp.mpf(N))
+    a = 1 - mp.mpf(ca.numerator) / ca.denominator * (1 - z)
+    b = 1 - mp.mpf(cb.numerator) / cb.denominator * (1 - z)
+    amp = (a * b) ** (N // 2)
+    rows.append({'N': N, 'phase per unit clock time (j = +1)': mp.nstr(-mp.arg(amp), 15), 'modulus': mp.nstr(abs(amp), 12),
+                 'modulus of the round with T_sym': mp.nstr(abs((1 - mp.mpf(2) / 9 * (1 - z)) ** N), 12)})
+OUT['R13 N rounds, t = 1'] = rows
+
+# executed rounds, floats; A starts in D2 (one location), B in S
+S = L.S_raw()
+Sc = {k: complex(c) / math.sqrt(24.0) for k, c in S.items()}
+D2c = {k: complex(c) / math.sqrt(12.0) for k, c in D['D2'].items()}
+START = L.tensor(D2c, Sc)
+
+
+def no_sym(st):
+    return L.t_addr(L.t_blk(st))
+
+
+def run(N, j, t=1.0):
+    h = t / N
+    pair, p_no = dict(START), 0.0
+    for _ in range(N):
+        pair = L.on_both(pair, L.step)
+        pair = {k: (c * cmath.exp(-1j * h * j) if L.qx_value(*k) else c) for k, c in pair.items()}
+        pair = L.on_both(pair, L.inverse_step)
+        yes = L.on_both(pair, no_sym)
+        p_no += L.norm2(L.axpy(pair, yes, -1))
+        pair = L.on_a(yes, L.x_e)
+    return L.dot(START, pair), p_no
+
+
+ex = []
+for N in (2, 10):
+    amp, p_no = run(N, 1)
+    z = cmath.exp(-1j / N)
+    pred = ((1 - float(ca) * (1 - z)) * (1 - float(cb) * (1 - z))) ** (N // 2)
+    ex.append({'N': N, 'executed zero-return amplitude': [amp.real, amp.imag], 'formula (a b)^(N/2)': [pred.real, pred.imag],
+               'difference': abs(amp - pred), 'phase per unit clock time': -cmath.phase(amp), 'summed weight of the outcome no': p_no})
+OUT['R14 executed, A started in D2'] = ex
+
+
+# the same with the return test in the literal form of the public return detector: projector on A|configuration>
+# (blank record, uniform address) for the double at its current port; A alternates between port 2 and port 10,
+# B stays in D2. No superposition of locations in either object.
+def detector(cfg):
+    def op(st):
+        tot = sum((c for (c2, rec, k), c in st.items() if c2 == cfg and rec == 0), 0)
+        return {(cfg, 0, k): tot / L.NA for k in range(L.NA)} if tot else {}
+    return op
+
+
+START2 = L.tensor(D2c, D2c)
+
+
+def run_detectors(N, j, t=1.0):
+    h = t / N
+    pair, p_no = dict(START2), 0.0
+    here = L.DBL2
+    for _ in range(N):
+        pair = L.on_both(pair, L.step)
+        pair = {k: (c * cmath.exp(-1j * h * j) if L.qx_value(*k) else c) for k, c in pair.items()}
+        pair = L.on_both(pair, L.inverse_step)
+        yes = L.on_b(L.on_a(pair, detector(here)), detector(L.DBL2))
+        p_no += L.norm2(L.axpy(pair, yes, -1))
+        pair = L.on_a(yes, L.x_e)
+        here = L.DBL10 if here == L.DBL2 else L.DBL2
+    return L.dot(START2, pair), p_no
+
+
+ex2 = []
+for N in (2, 10, 100):
+    amp, p_no = run_detectors(N, 1)
+    z = cmath.exp(-1j / N)
+    pred = ((1 - float(ca) * (1 - z)) * (1 - float(cb) * (1 - z))) ** (N // 2)
+    ex2.append({'N': N, 'executed zero-return amplitude': [amp.real, amp.imag], 'difference to (a b)^(N/2)': abs(amp - pred),
+                'phase per unit clock time': -cmath.phase(amp), 'modulus': abs(amp), 'summed weight of the outcome no': p_no})
+OUT['R14b executed with return detectors of the public form, A and B started in D2'] = ex2
+
+# what a reset has to restore when the double sits at one port: content of W^-1 Pi W D for the three flags
+content = {}
+for dname, dvec in D.items():
+    for fl in ('F', 'I', 'B'):
+        v = L.inverse_step(L.restrict(L.step(dvec), lambda k: L.flag(k) == fl))
+        if v:
+            content[f'{dname}, flag {fl}'] = {
+                'norm squared': str(L.norm2(v) / 12),
+                'blank record and the double at the same port in every component': all(
+                    k[1] == 0 and k[0] == (L.DBL2 if dname == 'D2' else L.DBL10) for k in v)}
+OUT['reset content (native frame)'] = content
+L.set_frame('FP')
+WDp = {n: L.step(v) for n, v in D.items()}
+content_p = {}
+for dname, dvec in D.items():
+    for fl in ('F', 'I', 'B'):
+        v = L.inverse_step(L.restrict(WDp[dname], lambda k: L.flag(k) == fl))
+        if v:
+            content_p[f'{dname}, flag {fl}'] = {
+                'norm squared': str(L.norm2(v) / 12),
+                'blank record and the double at the same port in every component': all(
+                    k[1] == 0 and k[0] == (L.DBL2 if dname == 'D2' else L.DBL10) for k in v)}
+L.set_frame('FN')
+OUT['reset content (plain frame)'] = content_p
+
+OUT['seconds'] = round(time.time() - T0, 2)
+with open(os.path.join(HERE, 'lk_echo_pulse.json'), 'w') as fh:
+    json.dump(OUT, fh, indent=1, default=str)
+print(json.dumps({k: v for k, v in OUT.items() if k != 'provenance'}, indent=1, default=str))

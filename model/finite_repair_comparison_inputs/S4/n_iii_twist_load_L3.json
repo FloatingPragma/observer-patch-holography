@@ -1,0 +1,74 @@
+{
+ "L": 3,
+ "ports": 6,
+ "seams": 12,
+ "faces": 6,
+ "cost_table": [
+  0,
+  5,
+  8,
+  10
+ ],
+ "kappa": 5,
+ "load_quantum": {
+  "rows": [
+   {
+    "L": 3,
+    "lowest_band_E_at_smallest_k": 2.0,
+    "D_edge2_per_sweep": 0.45594532639052004,
+    "D_from_khat": 0.666666666666667,
+    "check_lowest_levels_of_full_laplacian_over_2": [
+     4.0493671948791906e-16,
+     2.0,
+     2.0
+    ]
+   },
+   {
+    "L": 6,
+    "lowest_band_E_at_smallest_k": 0.6339745962155614,
+    "D_edge2_per_sweep": 0.5781155083896047,
+    "D_from_khat": 0.6339745962155628,
+    "check_lowest_levels_of_full_laplacian_over_2": [
+     -9.746196559402584e-16,
+     0.6339745962155616,
+     0.6339745962155617
+    ]
+   },
+   {
+    "L": 12,
+    "lowest_band_E_at_smallest_k": 0.16804876992649292,
+    "D_edge2_per_sweep": 0.6129684100292818,
+    "D_from_khat": 0.6271665475151258,
+    "check_lowest_levels_of_full_laplacian_over_2": [
+     1.0269562977782698e-15,
+     0.16804876992649298,
+     0.16804876992649323
+    ]
+   },
+   {
+    "L": 48,
+    "lowest_band_E_at_smallest_k": 0.010696215387586056,
+    "D_edge2_per_sweep": 0.624241845252637,
+    "D_from_khat": 0.6251339607076662,
+    "check_lowest_levels_of_full_laplacian_over_2": [
+     -1.7726705520564862e-16,
+     0.010696215387586024,
+     0.010696215387587998
+    ]
+   },
+   {
+    "L": 192,
+    "lowest_band_E_at_smallest_k": 0.0006692746140726055,
+    "D_edge2_per_sweep": 0.6249525910696416,
+    "D_from_khat": 0.6250083669406841,
+    "check_lowest_levels_of_full_laplacian_over_2": [
+     8.258910048903499e-16,
+     0.0006692746140734167,
+     0.0006692746140736396
+    ]
+   }
+  ],
+  "D_continuum_exact": 0.625,
+  "statement": "E(k) = (1 - cos k) + 1 - cos(k / 2) for the rail-symmetric mode: D = 5/8 edge^2 per sweep, m_kin = 4/5; rest cost 1/2 in Phi units"
+ }
+}

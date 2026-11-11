@@ -1,0 +1,156 @@
+"""LP direction 1 (lead A): UH's register on the dimer {10, 2} of FR's hexagon and its weight on the symmetric double
+load S (items A1 to A7 of CANDIDATES.md). Closed forms EXACT (sympy); the displaced squeezed scan MEASURED (float64,
+truncated Fock space). Writes lp1_lead_a.json. Runs in seconds.
+
+Register of one port (neutral level): oscillators a (orientation +3) and b (orientation -3), B = a + b^dag,
+truncated at NMAX quanta per mode for the numerical checks.
+"""
+from __future__ import annotations
+
+import json
+import math
+import sys
+import time
+
+import numpy as np
+import scipy.linalg as sla
+import sympy as sp
+
+OUT = 'lp1_lead_a.json'
+NMAX = 60
+
+
+def lower(n):
+    M = np.zeros((n + 1, n + 1))
+    for k in range(1, n + 1):
+        M[k - 1, k] = math.sqrt(k)
+    return M
+
+
+def main():
+    t0 = time.time()
+    out = {'task': 'LP direction 1: lead A, UH register against the symmetric double load'}
+    x, t = sp.symbols('x t', positive=True)
+
+    # ---------------- closed forms
+    # A3: R1, coherent amplitude alpha on a at both ports, x = |alpha|^2.
+    #   <2|alpha> = alpha^2 exp(-x/2)/sqrt2, <0|alpha> = exp(-x/2); <S_same|psi (x) psi> = sqrt2 <2|alpha><0|alpha>
+    wA3 = sp.simplify((sp.sqrt(2) * (x / sp.sqrt(2)) * sp.exp(-x)) ** 2)
+    xs = sp.solve(sp.diff(wA3, x), x)
+    two = {'|2,0>': x ** 2 / 2, '|0,2>': x ** 2 / 2, '|1,1>': x ** 2}           # squared amplitudes up to exp(-2x)
+    share_S = sp.simplify((sp.sqrt(two['|2,0>']) + sp.sqrt(two['|0,2>'])) ** 2 / 2 / sum(two.values()))
+    share_six = sp.Rational(6, 2) / (sp.Rational(6, 2) + 15)                     # six equal ports: doubles / all pairs
+    out['A3_R1_coherent'] = {
+        'weight on S_same': str(wA3), 'stationary points x = |alpha|^2': [str(v) for v in xs],
+        'maximum': str(sp.simplify(wA3.subs(x, 1))), 'maximum_float': float(wA3.subs(x, 1)),
+        'share of S in the two-quanta sector of the dimer': str(share_S),
+        'share of the doubles in the two-quanta sector, six equal ports': str(share_six)}
+
+    # A4: R1, squeezed family at both ports: amplitudes <0,0|psi_t> = sqrt(1-t), <1,1|psi_t> = -sqrt(t (1-t))
+    wA4 = sp.simplify((sp.sqrt(2) * sp.sqrt(t * (1 - t)) * sp.sqrt(1 - t)) ** 2)
+    ts = sp.solve(sp.diff(wA4, t), t)
+    BdB = sp.simplify((1 - sp.sqrt(t)) ** 2 / (1 - t))
+    out['A4_R1_squeezed'] = {
+        'weight on S_neutral': str(sp.factor(wA4)), 'stationary points t': [str(v) for v in ts],
+        'maximum': str(wA4.subs(t, sp.Rational(1, 3))), 'limit t -> 1 (eigenvector of B, eigenvalue 0)': str(sp.limit(wA4, t, 1)),
+        '<B^dag B> on psi_t': str(BdB), 'limit of <B^dag B>': str(sp.limit(BdB, t, 1)),
+        'weight of one neutral pair at one port': 't (1 - t), maximum 1/4'}
+
+    # A5: R2, a at port 2 and b at port 10: psi_t has the components |n,n> only
+    out['A5_R2_squeezed_across_the_dimer'] = {
+        'components of psi_t': '|n at port 2, n at port 10>', 'weight on S = (|2,0> + |0,2>)/sqrt2': '0 for every t',
+        'one-pair term': 'one quantum on each port (the E-kept dimer of FR round 3), weight t (1 - t) <= 1/4',
+        'R2 coherent product, equal real amplitudes': 'weight x^2 exp(-2x), maximum exp(-2)'}
+
+    # A2: five-state truncation: at most one quantum per cell
+    out['A2_R3_truncation'] = {
+        'states per cell': 5, 'largest occupation of one cell': 1, 'weight on S (two quanta on one port)': '0 for every state',
+        'two-quanta content on the dimer': 'one quantum on each port: the E-kept dimer'}
+
+    # A7: even projection of a coherent state at one port
+    cond = (x ** 2 / 2) / (sp.cosh(x) - 1)
+    out['A7_even_projection'] = {
+        'conditional weight of the double load given a nonempty port': str(cond),
+        'values': {str(v): float(cond.subs(x, v)) for v in (sp.Rational(1, 10), sp.Rational(1, 2), 1, 2)},
+        'limit x -> 0': str(sp.limit(cond, x, 0))}
+
+    # ---------------- numerical checks in the truncated Fock space of one port (modes a, b)
+    n = NMAX
+    d = n + 1
+    low = lower(n)
+
+    def ket(na, nb):
+        v = np.zeros((d, d))
+        v[na, nb] = 1.0
+        return v
+
+    vac = ket(0, 0)
+
+    def squeezed(tv):
+        v = np.zeros((d, d))
+        for k in range(d):
+            v[k, k] = math.sqrt(1 - tv) * (-math.sqrt(tv)) ** k
+        return v / np.linalg.norm(v)
+
+    def disp1(g):
+        return sla.expm(g * (low.T - low))
+
+    def displace(v, ga, gb):
+        return disp1(ga) @ v @ disp1(gb).T
+
+    def B_apply(v):
+        """B = a + b^dag on the matrix of amplitudes v[n_a, n_b]."""
+        return low @ v + v @ low            # (a v)[i,j] = sum_k low[i,k] v[k,j]; (b^dag v)[i,j] = sum_k v[i,k] low[k,j]
+
+    def ov(u, v):
+        return float(np.sum(u * v))
+
+    chk = {}
+    v = displace(vac, 1.0, 0.0)
+    chk['A3 at x = 1 (truncated)'] = 2 * ov(v, ket(2, 0)) ** 2 * ov(v, vac) ** 2
+    v = squeezed(1 / 3)
+    chk['A4 at t = 1/3 (truncated)'] = 2 * ov(v, ket(1, 1)) ** 2 * ov(v, vac) ** 2
+    for tv in (0.5, 0.8, 0.9):
+        v = squeezed(tv)
+        chk[f'||B psi_t||^2 at t = {tv}'] = float(np.sum(B_apply(v) ** 2))
+        chk[f'closed form at t = {tv}'] = float((1 - math.sqrt(tv)) / (1 + math.sqrt(tv)))
+    # A6: a number state of two quanta has <B> = 0
+    for name, v in (('|2,0>', ket(2, 0)), ('|1,1>', ket(1, 1))):
+        chk[f'<B> on {name}'] = ov(v, B_apply(v))
+    out['numerical_checks'] = chk
+
+    # scan of the displaced squeezed family D(gamma_a, gamma_b) psi_t at both ports (MEASURED):
+    # weight on S_same = 2 |<2,0|psi>|^2 |<0,0|psi>|^2, on S_neutral = 2 |<1,1|psi>|^2 |<0,0|psi>|^2
+    best = {'S_same': (0.0, None), 'S_neutral': (0.0, None)}
+    grid_t = [0.0, 0.1, 0.2, 1 / 3, 0.45, 0.6, 0.75]
+    grid_g = [0.0, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5]
+    dcache = {g: disp1(g) for g in grid_g}
+    for tv in grid_t:
+        base = squeezed(tv)
+        for ga in grid_g:
+            for gb in grid_g:
+                v = dcache[ga] @ base @ dcache[gb].T
+                p0 = ov(v, vac) ** 2
+                for name, kv in (('S_same', ket(2, 0)), ('S_neutral', ket(1, 1))):
+                    w = 2 * ov(v, kv) ** 2 * p0
+                    if w > best[name][0]:
+                        best[name] = (float(w), {'t': tv, 'gamma_a': ga, 'gamma_b': gb, 'Higgs amplitude gamma_a + gamma_b': ga + gb})
+    out['scan_displaced_squeezed (MEASURED)'] = {
+        'grid': {'t': grid_t, 'gamma': grid_g}, 'largest weight on S_same': best['S_same'],
+        'largest weight on S_neutral': best['S_neutral'],
+        'bound for every product state of the two ports': '2 p_pair p_0 <= 1/2'}
+
+    out['A1_vacuum'] = 'weight 0 in every reading (no quantum)'
+    out['A6_statement'] = ('a state with weight one on S lies in the two-quanta sector; B and B^dag change the number of '
+                           'quanta by one, so <B> = 0 on it; a common eigenvector of B and B^dag with a nonzero eigenvalue '
+                           'has weight below one on every sector of fixed number')
+    out['verdict'] = ('no Higgs state of UH\'s register has weight one on the symmetric double load; the largest weights found '
+                      'are exp(-2) (coherent, S_same) and 8/27 (squeezed, S_neutral); the five-state truncation has weight 0')
+    out['seconds'] = round(time.time() - t0, 2)
+    with open(OUT, 'w') as fh:
+        json.dump(out, fh, indent=1, default=str)
+    print(json.dumps(out, indent=1, default=str))
+
+
+if __name__ == '__main__':
+    sys.exit(main())

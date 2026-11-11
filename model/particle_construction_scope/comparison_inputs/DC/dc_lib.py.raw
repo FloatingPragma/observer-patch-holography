@@ -1,0 +1,163 @@
+"""Worker DC: shared float64 library for round 3 (towers, edge entropies, D10 chain, outer map).
+
+The D10 chain is the one validated in round 2 (`dc_scale.py`, deviation 0.0 against the producer's printed point).
+The outer map calls the producer's Decimal Stage-5 running from the unchanged copy `paper_math_dc.py`.
+"""
+from __future__ import annotations
+
+import json
+import sys
+from decimal import Decimal
+from pathlib import Path
+
+import numpy as np
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+from paper_math_dc import D10Point, PaperMathContext  # noqa: E402
+
+RER = next((p for p in (Path("WORKSPACE/repair-law/reverse-engineering-reality"),
+                        Path("WORKSPACE/reverse-engineering-reality")) if p.is_dir()))
+REP = json.loads((RER / "code/P_derivation/runtime/full_p_alpha_report_current.json").read_text())
+P_FWD = float(REP["p"][:30])
+PHI = (1 + 5 ** 0.5) / 2
+SQPI = np.pi ** 0.5
+K = 4 * np.pi ** 2
+MSSM = (33 / 5, 1.0, -3.0)
+CENSUS_B = (61 / 10, -7 / 6, -5.0)
+SM = (41 / 10, -19 / 6, -7.0)
+
+
+class Towers:
+    def __init__(self, n2=120, n3=90):
+        n = np.arange(n2 + 1)
+        self.d2 = (n + 1).astype(float)
+        self.c2 = (n / 2) * (n / 2 + 1)
+        p, q = np.meshgrid(np.arange(n3 + 1), np.arange(n3 + 1), indexing="ij")
+        self.d3 = ((p + 1) * (q + 1) * (p + q + 2) / 2).ravel().astype(float)
+        self.c3 = ((p ** 2 + q ** 2 + p * q + 3 * p + 3 * q) / 3).ravel().astype(float)
+        self.l2, self.l3 = np.log(self.d2), np.log(self.d3)
+
+    @staticmethod
+    def _ellbar(t, lnd, cas):
+        logw = lnd - t * cas
+        w = np.exp(logw - logw.max())
+        return float((w * lnd).sum() / w.sum())
+
+    def ell2(self, t):
+        return self._ellbar(t, self.l2, self.c2)
+
+    def ell3(self, t):
+        return self._ellbar(t, self.l3, self.c3)
+
+    def F(self, a2, a3):
+        return self.ell2(K * a2) + self.ell3(K * a3)
+
+    def Z3(self, t):
+        return float(np.exp(self.l3 - t * self.c3).sum())
+
+
+TW = Towers()
+
+
+def bisect(f, lo, hi, it=200):
+    flo = f(lo)
+    for _ in range(it):
+        mid = 0.5 * (lo + hi)
+        fm = f(mid)
+        if (fm > 0) == (flo > 0):
+            lo, flo = mid, fm
+        else:
+            hi = mid
+    return 0.5 * (lo + hi)
+
+
+def alpha_cut(P, tw=TW):
+    return bisect(lambda a: tw.F(a, a) - P / 4, 1e-4, 1.0)
+
+
+def anchors(P):
+    return np.exp(-2 * np.pi) * P ** (1 / 6), P ** -0.5  # M_U/E*, E_cell/E*
+
+
+def run(aU, mu, MU, b):
+    inv = [1 / aU + bi / (2 * np.pi) * np.log(MU / mu) for bi in b]
+    return None if min(inv) <= 0 else [1 / x for x in inv]
+
+
+def vev(aU, P):
+    return P ** -0.5 * np.exp(-2 * np.pi / (4 * aU))
+
+
+def tree_scale(aU, P, kind, b):
+    MU, _ = anchors(P)
+    v = vev(aU, P)
+    mu = v / 2
+    for _ in range(100):
+        a = run(aU, mu, MU, b)
+        if a is None:
+            return None
+        mu = v / 2 * np.sqrt(4 * np.pi * (a[1] + (0.6 * a[0] if kind == "mZ" else 0.0)))
+    return mu
+
+
+def d10_residual(aU, P, kind, b, tw=TW):
+    MU, _ = anchors(P)
+    mu = tree_scale(aU, P, kind, b)
+    if mu is None:
+        return float("nan")
+    a = run(aU, mu, MU, b)
+    if a is None:
+        return float("nan")
+    return tw.F(a[1], a[2]) - P / 4
+
+
+def solve_aU(P, kind="mZ", b=MSSM, tw=TW, lo=0.005, hi=0.3, npts=600):
+    grid = np.geomspace(lo, hi, npts)
+    vals = [d10_residual(a, P, kind, b, tw) for a in grid]
+    roots = []
+    for i in range(1, len(grid)):
+        f0, f1 = vals[i - 1], vals[i]
+        if np.isfinite(f0) and np.isfinite(f1) and (f0 > 0) != (f1 > 0):
+            roots.append(bisect(lambda a: d10_residual(a, P, kind, b, tw), grid[i - 1], grid[i]))
+    return roots
+
+
+CTX = PaperMathContext(precision=30, su2_cutoff=2, su3_cutoff=2)
+
+
+def point(P, aU, b=MSSM, readout="exact"):
+    MU, _ = anchors(P)
+    v = vev(aU, P)
+    mZ = tree_scale(aU, P, "mZ", b)
+    a1, a2, a3 = run(aU, mZ, MU, b)
+    aY = 0.6 * a1
+    aem = 1 / (1 / a2 + 1 / aY)
+    out = {"alpha_U": aU, "v_over_Estar": v, "mZ_over_Estar": mZ, "sin2w_mZ": aem / a2, "alpha_em_inv_mZ": 1 / aem,
+           "alpha2_mZ": a2, "alpha3_mZ": a3}
+    if readout == "mz_anchor":
+        out["A"] = 1 / aem
+        return out
+    D = lambda x: Decimal(repr(float(x)))  # noqa: E731
+    d10 = D10Point(p=D(P), n_c=3, mu_u=D(MU), alpha_u=D(aU), mz_run=D(mZ), v=D(v), alpha1_mz=D(a1),
+                   alpha2_mz=D(a2), alpha3_mz=D(a3), alpha_y_mz=D(aY), alpha_em_mz=D(aem),
+                   alpha_em_inv_mz=D(1 / aem), sin2w_mz=D(aem / a2))
+    run_fn = CTX.structured_thomson_running if readout == "exact" else CTX.structured_thomson_running_asymptotic
+    out["A"] = float(d10.alpha_em_inv_mz + run_fn(d10)["total_delta_alpha_inv"])
+    return out
+
+
+def outer_fixed_point(kind="mZ", b=MSSM, readout="exact", P0=P_FWD, iters=12):
+    P = P0
+    for _ in range(iters):
+        r = solve_aU(P, kind, b)
+        if len(r) != 1:
+            return None
+        pt = point(P, r[0], b, readout)
+        P_new = PHI + SQPI / pt["A"]
+        done = abs(P_new - P) < 1e-14
+        P = P_new
+        if done:
+            break
+    r = solve_aU(P, kind, b)
+    return {"P_star": P, **point(P, r[0], b, readout)}

@@ -1,0 +1,366 @@
+"""Worker DR (S5), round 3 (CANDIDATES.md section 8): source couplings to the oriented current J, to the repair record
+r_C and to the read statistics of FR's register, after CK's verdict.
+
+Run (FR's code imported read only; its fr_common picks the repository checkout):
+  cd <DR> && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=<FR> /tmp/oph-completion-venv/bin/python -B dr_round3.py round3.json
+
+Conventions: flag energies E(j), j = J in {+1, 0, -1}; clock phase exp(-i E t), t = 1 per tick; K_theta = exp(i theta J).
+  odd phase   theta_eff - theta = -(E(+1) - E(-1))/2
+  even phase  phi = E(0) - (E(+1) + E(-1))/2          (CK's sign)
+Dressed compression: lambda_k = (1/sqrt3) [A_H w_H e^{-iE(0)} + A_+ w_+ e^{i theta - i E(+1)} w^k
+                                           + A_- w_- e^{-i theta - i E(-1)} w^-k], masses abs(lambda_k)^2 (energy clock).
+Sections A to D use no measured value. Section E (NOT BLIND) compares.
+"""
+import itertools
+import json
+import sys
+from fractions import Fraction
+from pathlib import Path
+
+import numpy as np
+import sympy as sp
+from mpmath import mp, mpf, mpc, sqrt, exp, log, pi, findroot
+
+import fr2_register as F2
+
+FC = F2.FC
+mp.dps = 40
+OUT = Path(sys.argv[1])
+out = {'provenance_FR': FC.provenance()}
+
+# ------------------------------------------------------------------ FR's flags and bare overlaps
+a13, a23 = F2.a13, F2.a23
+psiC = F2.psi((a13, 0, a23))
+psiE = F2.psi((a13, 0, a23))
+fl = F2.flags()
+Phi, (Hf, Rp, Rm) = F2.analyzer_E1(fl)
+
+
+def overlap(f):
+    return sp.nsimplify(sum(sp.conjugate(c) * psiC[iC] * psiE[iE] for (iC, iE), c in f.items()))
+
+
+A_H, A_P, A_M = overlap(Hf), overlap(Rp), overlap(Rm)
+out['bare_overlaps'] = {'H': str(A_H), 'R+': str(A_P), 'R-': str(A_M)}
+assert A_H == sp.Rational(1, 3) and A_P == sp.sqrt(2) / 6 and A_M == sp.sqrt(2) / 6
+THETA = mpf(2) / 9
+W3 = exp(2j * pi / 3)
+
+
+def masses(E0=0, Ep=0, Em=0, wH=1, wp=1, wm=1, theta=THETA, aH=None, ap=None, am=None):
+    aH = mpf(1) / 3 if aH is None else aH
+    ap = sqrt(2) / 6 if ap is None else ap
+    am = sqrt(2) / 6 if am is None else am
+    lam = [(aH * wH * exp(-1j * E0) + ap * wp * exp(1j * theta - 1j * Ep) * W3 ** k
+            + am * wm * exp(-1j * theta - 1j * Em) * W3 ** (-k)) / sqrt(3) for k in range(3)]
+    return sorted(abs(x) ** 2 for x in lam)          # e, mu, tau
+
+
+def summary(m):
+    return {'mu_over_e': str(m[1] / m[0]), 'tau_over_e': str(m[2] / m[0]),
+            'Q': str(sum(m) / sum(sqrt(x) for x in m) ** 2)}
+
+
+bare = masses()
+out['bare'] = summary(bare)
+
+# ------------------------------------------------------------------ A. T5: parity selection rule (numerical witness)
+rng = np.random.default_rng(20261111)
+d = 8
+P = np.diag([1, 1, 1, 1, -1, -1, -1, -1]).astype(complex)
+
+
+def herm(n):
+    M = rng.normal(size=(n, n)) + 1j * rng.normal(size=(n, n))
+    return M + M.conj().T
+
+
+def even_part(M):
+    return (M + P @ M @ P) / 2
+
+
+def odd_part(M):
+    return (M - P @ M @ P) / 2
+
+
+HE, X, Y = even_part(herm(d)), odd_part(herm(d)), even_part(herm(d))
+spec = {j: np.linalg.eigvalsh(HE + j * X + abs(j) * Y) for j in (1, 0, -1)}
+sym_ok = bool(np.allclose(spec[1], spec[-1], atol=1e-12))
+HEb = HE + 0.3 * odd_part(herm(d))                    # an orientation-odd background in the environment
+specb = {j: np.linalg.eigvalsh(HEb + j * X + abs(j) * Y) for j in (1, -1)}
+out['T5_parity'] = {
+    'statement': 'H(-1) = P H(+1) P for a symmetry P with P X P = -X, P Y P = Y, P H_E P = H_E: equal spectra and '
+                 'equal reference overlaps, so E(+1) = E(-1) at every order; the odd phase needs an environment that '
+                 'is odd under the orientation reversal',
+    'symmetric_environment_spectra_equal': sym_ok,
+    'with_odd_background_ground_difference': float(specb[1][0] - specb[-1][0])}
+assert sym_ok
+
+# ------------------------------------------------------------------ B. carrier graph: R_eff, Green function, c_T
+car = FC.carrier()
+seams = [tuple(sorted(e)) for e in car['seams']]
+assert len(seams) == 30
+Lap = sp.zeros(12, 12)
+for a, b in seams:
+    Lap[a, a] += 1; Lap[b, b] += 1; Lap[a, b] -= 1; Lap[b, a] -= 1
+J12 = sp.ones(12, 12) / 12
+G = (Lap + J12).inv() - J12                            # pseudo-inverse (uniform compensation)
+assert (Lap * G * Lap - Lap).applyfunc(sp.simplify) == sp.zeros(12, 12)
+TAIL, HEAD = 2, 3                                      # C seam in screen orientation 2 -> 3 (FR)
+R_eff = sp.nsimplify(G[TAIL, TAIL] + G[HEAD, HEAD] - 2 * G[TAIL, HEAD])
+R_all = {sp.nsimplify(G[a, a] + G[b, b] - 2 * G[a, b]) for a, b in seams}
+g_ht = sp.nsimplify(G[HEAD, TAIL] - G[TAIL, TAIL])
+# plaquette form on the links: faces outward oriented
+faces = [FC.outward(f) for f in FC.faces()]
+Cinc = np.zeros((20, 30))
+for i, (p_, q_, r_) in enumerate(faces):
+    for x, y in ((p_, q_), (q_, r_), (r_, p_)):
+        e = seams.index(tuple(sorted((x, y))))
+        Cinc[i, e] += 1 if x < y else -1
+Mmag = Cinc.T @ Cinc
+mu, vec = np.linalg.eigh(Mmag)
+pos = mu > 1e-9
+expected = sorted([3 - 5 ** 0.5] * 3 + [2.0] * 5 + [3.0] * 4 + [5.0] * 4 + [3 + 5 ** 0.5] * 3)
+inv_sqrt = (vec[:, pos] / np.sqrt(mu[pos])) @ vec[:, pos].T
+cT_diag = np.diag(inv_sqrt)
+PT = vec[:, pos] @ vec[:, pos].T
+iC = seams.index((2, 3))
+c_T = sp.Rational(1, 30) * (3 / sp.sqrt(3 - sp.sqrt(5)) + 5 / sp.sqrt(2) + 4 / sp.sqrt(3) + 4 / sp.sqrt(5)
+                            + 3 / sp.sqrt(3 + sp.sqrt(5)))
+out['B_graph'] = {
+    'R_eff_C_seam': str(R_eff), 'R_eff_equal_on_all_seams': len(R_all) == 1,
+    'G(head,tail)-G(tail,tail)': str(g_ht), 'equals_-R_eff/2': bool(sp.simplify(g_ht + R_eff / 2) == 0),
+    'cycle_space_dimension': int(pos.sum()),
+    'plaquette_form_spectrum_matches_3_minus_dodecahedron': bool(np.allclose(sorted(mu[pos]), expected, atol=1e-9)),
+    'transverse_weight_of_a_link': float(PT[iC, iC]), 'equals_1_minus_R_eff': bool(abs(PT[iC, iC] - (1 - float(R_eff))) < 1e-12),
+    'c_T': str(c_T), 'c_T_float': float(c_T), 'c_T_equal_on_all_links': bool(np.allclose(cT_diag, cT_diag[0])),
+    'c_T_matrix_value': float(cT_diag[iC])}
+assert R_eff == sp.Rational(11, 30) and abs(float(c_T) - cT_diag[iC]) < 1e-12
+
+# ------------------------------------------------------------------ C. rows E1 to E4, H1, H2
+G2 = 4 * pi * mpf('0.06155627294861437')              # GL B1: alpha_cell, 1/alpha = 16.2453
+REFF, CT = mpf(11) / 30, mpf(str(sp.N(c_T, 40)))
+CAS = {'L_doublet_9/10': mpf(9) / 10, 'e^c_3/5': mpf(3) / 5, 'em_part_3/8': mpf(3) / 8}
+ALPHA_P = mpf('0.0072995452617244017571725360595355818930943140296429')
+
+
+def row(eps, kind):
+    if kind == 'E1':
+        Ep = Em = eps; w = 1
+    elif kind == 'E2':
+        Ep = Em = eps * REFF; w = 1
+    elif kind == 'E3':
+        Ep, Em, w = mpf(0), 2 * eps * REFF, 1
+    elif kind == 'E4':
+        Ep = Em = mpf(0); w = exp(-eps * CT / 2)
+    elif kind == 'E2+E4':
+        Ep = Em = eps * REFF; w = exp(-eps * CT / 2)
+    r = {'eps': str(eps), 'E(+1)': str(Ep), 'E(-1)': str(Em), 'odd_phase': str(-(Ep - Em) / 2),
+         'even_phase': str(-(Ep + Em) / 2), 'Z_current_flags': str(w ** 2)}
+    theta = THETA
+    if kind in ('E4', 'E2+E4'):                         # the read statistics also enter the clock phase P(R+ xor H)
+        Zc = w ** 2
+        p_, q_ = mpf(1) / 12, mpf(1) / 6
+        r['theta_from_diluted_statistics'] = str(Zc * p_ + q_ - 2 * Zc * p_ * q_)
+        r['amplitudes_only'] = summary(masses(0, Ep, Em, 1, w, w))
+        theta = Zc * p_ + q_ - 2 * Zc * p_ * q_
+    m = masses(0, Ep, Em, 1, w, w, theta)
+    r.update(summary(m)); r['_m'] = m
+    return r
+
+
+rows = {}
+epsL = G2 / 2 * CAS['L_doublet_9/10']
+for kind in ('E1', 'E2', 'E3', 'E4', 'E2+E4'):
+    rows[f'{kind}_L_doublet'] = row(epsL, kind)
+for name in ('e^c_3/5', 'em_part_3/8'):
+    rows[f'E2_{name}'] = row(G2 / 2 * CAS[name], 'E2')
+out['couplings'] = {'g2_cell': str(G2), 'eps_L_doublet': str(epsL), 'eps_e^c': str(G2 / 2 * CAS['e^c_3/5']),
+                    'eps_em_part': str(G2 / 2 * CAS['em_part_3/8']), 'R_eff': '11/30', 'c_T': str(CT)}
+
+
+# H1: memory on the repair record. Weight 4 y^2 (two components, particle and antiparticle), gap omega.
+def memory(y, om):
+    E = (om - sqrt(om ** 2 + 16 * y ** 2)) / 2
+    Z = 1 / (1 + 4 * y ** 2 / (om - E) ** 2)
+    return E, Z
+
+
+E_R, Z_R = memory(mpf(1), mpf(1))
+m = masses(0, E_R, E_R, 1, Z_R, Z_R)
+rows['H1_memory_on_r_C_declared'] = {'E(+1)=E(-1)': str(E_R), 'second_order': '-4 y^2/omega = -4', 'odd_phase': '0',
+                                     'even_phase': str(-E_R), 'Z_current_flags_(pole residue)': str(Z_R),
+                                     **summary(m), '_m': m}
+
+# ------------------------------------------------------------------ D. S1, S2: one carrier, shared port 2
+FC.rer_root()
+from model.common_source import native_code_transport as transport   # noqa: E402
+
+PORTS = (2, 3, 10)                                      # occupancy bits n2, n3, n10
+
+
+def idx(n2, n3, n10, rC, oC, aC, rE, oE, aE):
+    v = 0
+    for b in (n2, n3, n10, rC, oC, aC, rE, oE, aE):
+        v = 2 * v + b
+    return v
+
+
+DIM = 2 ** 9
+S2_ = 1 / np.sqrt(2)
+
+
+# FR's own object operators on (load l in {tail, head, idle}, record, address): W = Q R_2, then the oriented record V
+VW = np.array((FC.obj_orient() * FC.obj_event(1) * FC.obj_address_reflection()).tolist(), dtype=float)
+
+
+def seam_event(obj):
+    """FR's event V Q R_2 on the single-occupancy sector of the seam, with an activity bit; on the empty and the doubly
+    occupied seam FR's idle action (address reflection). obj 'C': tail = port 2 (bit 0), head = port 3 (bit 1).
+    obj 'E': tail = port 10 (bit 2), head = port 2 (bit 0)."""
+    U = np.zeros((DIM, DIM))
+    t_bit, h_bit = (0, 1) if obj == 'C' else (2, 0)
+    for bits in itertools.product((0, 1), repeat=9):
+        n = list(bits[:3]); rC, oC, aC, rE, oE, aE = bits[3:]
+        r, o, a = (rC, oC, aC) if obj == 'C' else (rE, oE, aE)
+        col = idx(*bits)
+        single = n[t_bit] + n[h_bit] == 1
+        l = (0 if n[t_bit] == 1 else 1) if single else 2
+        for l2 in range(3):
+            for r2 in range(2):
+                for o2 in range(2):
+                    amp = VW[FC.oidx(l2, r2, o2), FC.oidx(l, r, o)]
+                    if amp == 0:
+                        continue
+                    n_new = list(n)
+                    if single:
+                        assert l2 in (0, 1)
+                        n_new[t_bit], n_new[h_bit] = (1, 0) if l2 == 0 else (0, 1)
+                    else:
+                        assert l2 == 2
+                    a_new = (1 - a) if single else a
+                    reg = (r2, o2, a_new, rE, oE, aE) if obj == 'C' else (rC, oC, aC, r2, o2, a_new)
+                    U[idx(*n_new, *reg), col] += amp
+    return U
+
+
+UC, UE = seam_event('C'), seam_event('E')
+assert np.allclose(UC.T @ UC, np.eye(DIM)) and np.allclose(UE.T @ UE, np.eye(DIM))
+
+
+def stats(pairs, order):
+    acc = {k: 0.0 for k in ('R+', 'R-', 'H', 'R+&H', 'C_agrees', 'E_active', 'C_active')}
+    for pair in pairs:
+        n = [int(p_ in pair) for p_ in PORTS]
+        v = np.zeros(DIM)
+        for oC in (0, 1):
+            for oE in (0, 1):
+                v[idx(*n, 0, oC, 0, 0, oE, 0)] = 0.5      # consensus addresses u (x) u, blank records
+        v = (UE @ (UC @ v)) if order == 'C_then_E' else (UC @ (UE @ v))
+        pr = v ** 2
+        for bits in itertools.product((0, 1), repeat=9):
+            pv = pr[idx(*bits)]
+            if pv == 0:
+                continue
+            rC, oC, aC, rE, oE, aE = bits[3:]
+            Rp_, Rm_, H_ = (rC == 1 and oC == 0), (rC == 1 and oC == 1), (aE == 1 and rE == 0)
+            acc['R+'] += pv * Rp_; acc['R-'] += pv * Rm_; acc['H'] += pv * H_; acc['R+&H'] += pv * (Rp_ and H_)
+            acc['C_agrees'] += pv * (aC == 1 and rC == 0); acc['E_active'] += pv * aE; acc['C_active'] += pv * aC
+    return {k: v / len(pairs) for k, v in acc.items()}
+
+
+ens = {
+    'C_code_36_pairs': [tuple(p_) for m_ in transport.code.MATCHINGS for p_ in m_],
+    'E_code_36_pairs': [tuple(p_) for m_ in transport.PAIR_CODES['E'].MATCHINGS for p_ in m_],
+    'all_66_pairs': list(itertools.combinations(range(12), 2))}
+out['D_ensembles'] = {k: {'pairs': len(v), 'both_seams_singly_occupied': sum(
+    1 for p_ in v if ((2 in p_) != (3 in p_)) and ((2 in p_) != (10 in p_))),
+    'C_active': sum(1 for p_ in v if (2 in p_) != (3 in p_)), 'E_active': sum(1 for p_ in v if (2 in p_) != (10 in p_))}
+    for k, v in ens.items()}
+frac = lambda x: str(Fraction(x).limit_denominator(100000))
+for order in ('C_then_E', 'E_then_C'):
+    for name, pairs in ens.items():
+        s_ = stats(pairs, order)
+        xor = s_['R+'] + s_['H'] - 2 * s_['R+&H']
+        cov = s_['R+&H'] - s_['R+'] * s_['H']
+        # circulant from these statistics: a = sqrt(P(H)), b = sqrt(P(R+-)), theta = P(R+ xor H)
+        m = masses(theta=mpf(xor), aH=sqrt(mpf(s_['H'])), ap=sqrt(mpf(s_['R+'])), am=sqrt(mpf(s_['R-'])))
+        rows[f"{'S1' if order == 'C_then_E' else 'S2'}_{name}"] = {
+            'P(R+)': frac(s_['R+']), 'P(R-)': frac(s_['R-']), 'P(H)': frac(s_['H']), 'P(R+ and H)': frac(s_['R+&H']),
+            'P(R+ xor H)': frac(xor), 'cov': frac(cov), 'cov_float': cov, 'P(C active)': frac(s_['C_active']),
+            'P(E active at its event)': frac(s_['E_active']), 'd_theta_statistics': float(xor - 2 / 9),
+            'balance_P(R+)/P(H)': frac(s_['R+'] / s_['H']), **summary(m), '_m': m}
+
+# ------------------------------------------------------------------ E. NOT BLIND
+ME, MMU, MTAU = mpf('0.51099895069'), mpf('105.6583755'), mpf('1776.93')
+SE, SMU, STAU = mpf('1.6e-10'), mpf('2.3e-6'), mpf('0.09')
+meas = (log(MMU / ME), log(MTAU / ME))
+sig = (sqrt((SMU / MMU) ** 2 + (SE / ME) ** 2), sqrt((STAU / MTAU) ** 2 + (SE / ME) ** 2))
+# H2: y^2/omega from the measured lepton mass sum in cell units (NOT BLIND scale)
+E_CELL_GEV = mpf('0.78303') * mpf('1.22089e19')
+M_SUM = (ME + MMU + MTAU) / 1000
+y2om = M_SUM / (2 * E_CELL_GEV)
+m = masses(0, -4 * y2om, -4 * y2om)
+rows['H2_memory_on_r_C_lepton_scale'] = {'y^2/omega': str(y2om), 'even_phase': str(4 * y2om), 'odd_phase': '0',
+                                         **summary(m), '_m': m}
+# comparison scale alpha_P (NOT BLIND scale only)
+epsA = 2 * pi * ALPHA_P
+for kind in ('E2', 'E3', 'E4'):
+    rows[f'{kind}_scale_alpha_P'] = row(epsA, kind)
+TARGET = {'odd': mpf('-1.7515e-7'), 'even_abs': mpf('1.2930e-4'), 'cov': mpf('8.757e-8'), 'Zc': mpf('3.7563e-7')}
+for k, r in rows.items():
+    m = r.pop('_m')
+    r['dln_mu_e'] = float(log(m[1] / m[0]) - log(bare[1] / bare[0]))
+    r['residual_mu_e_sigma'] = float((log(m[1] / m[0]) - meas[0]) / sig[0])
+    r['residual_tau_e_sigma'] = float((log(m[2] / m[0]) - meas[1]) / sig[1])
+    r['pass'] = bool(abs(r['residual_mu_e_sigma']) <= 3 and abs(r['residual_tau_e_sigma']) <= 1)
+out['rows'] = rows
+out['needed_NOT_BLIND'] = {
+    'eps_for_even_target_relaxed (eps R_eff = 1.2930e-4)': str(TARGET['even_abs'] / REFF),
+    'source_eps_L_over_needed': str(epsL / (TARGET['even_abs'] / REFF)),
+    'bare_string_eps_L_over_even_target': str(epsL / TARGET['even_abs']),
+    'odd_E3_over_target_magnitude': str(epsL * REFF / abs(TARGET['odd'])),
+    'odd_E3_sign': 'theta rises; the target is a fall',
+    'dilution_E4_(1 - Z)_over_target_current_only': str((1 - exp(-epsL * CT)) / TARGET['Zc']),
+    'alpha_P_scale: eps R_eff over even target': str(epsA * REFF / TARGET['even_abs']),
+    'memory_H1_even_over_target': str(-E_R / TARGET['even_abs']),
+    'memory_y2_over_omega_needed': str(TARGET['even_abs'] / 4),
+    'shared_port_cov_over_target': {k: float(mpf(r['cov_float']) / TARGET['cov']) for k, r in rows.items() if k[0] == 'S'}}
+# one-parameter FIT (zero weight): fraction s of ticks in which the two objects share one carrier (C code), the rest
+# independent (FR). Statistics mix linearly.
+IND = {'R+': mpf(1) / 12, 'R-': mpf(1) / 12, 'H': mpf(1) / 6, 'J': mpf(1) / 72}
+SH = {'S1': {'R+': mpf(1) / 12, 'R-': mpf(1) / 12, 'H': mpf(11) / 72, 'J': mpf(1) / 48},
+      'S2': {'R+': mpf(11) / 144, 'R-': mpf(11) / 144, 'H': mpf(1) / 6, 'J': mpf(1) / 48}}
+assert all(rows[f'{k}_C_code_36_pairs']['P(R+)'] == str(Fraction(float(v['R+'])).limit_denominator(100000))
+           and rows[f'{k}_C_code_36_pairs']['P(H)'] == str(Fraction(float(v['H'])).limit_denominator(100000))
+           for k, v in SH.items())
+
+
+def mixed(s, key):
+    q_ = {k: (1 - s) * IND[k] + s * SH[key][k] for k in IND}
+    th = q_['R+'] + q_['H'] - 2 * q_['J']
+    return masses(theta=th, aH=sqrt(q_['H']), ap=sqrt(q_['R+']), am=sqrt(q_['R-']))
+
+
+fit = {}
+for key in ('S1', 'S2'):
+    slope = (log(mixed(mpf('1e-9'), key)[1] / mixed(mpf('1e-9'), key)[0]) - log(bare[1] / bare[0])) / mpf('1e-9')
+    if slope * (meas[0] - log(bare[1] / bare[0])) <= 0:
+        fit[key] = {'dln_mu_e_per_share_fraction': str(slope), 'fit': 'none: the shift has the wrong sign'}
+        continue
+    s_fit = findroot(lambda s: log(mixed(s, key)[1] / mixed(s, key)[0]) - meas[0], mpf('3e-6'))
+    mm = mixed(s_fit, key)
+    fit[key] = {'dln_mu_e_per_share_fraction': str(slope), 'share_fraction_FIT': str(s_fit),
+                'tau_e_residual_sigma': float((log(mm[2] / mm[0]) - meas[1]) / sig[1]),
+                'Q_minus_2/3': str(sum(mm) / sum(sqrt(x) for x in mm) ** 2 - mpf(2) / 3)}
+out['needed_NOT_BLIND']['shared_carrier_fraction_FIT_zero_weight'] = fit
+out['looks'] = {'evaluations': ['E1', 'E2', 'E3', 'E4', 'E2+E4 (combination)', 'E2 e^c', 'E2 em', 'H1', 'H2',
+                                'S1 x3', 'S2 x3', 'alpha_P scale (E2, E3, E4)', 'shared-carrier fraction fit'],
+                'count': 17, 'passes': [k for k, r in rows.items() if r['pass']]}
+OUT.write_text(json.dumps(out, indent=1, default=str))
+for k in ('T5_parity', 'B_graph', 'couplings', 'D_ensembles', 'needed_NOT_BLIND', 'looks'):
+    print(k, json.dumps(out[k], indent=1, default=str))
+for k, r in rows.items():
+    keys = [x for x in ('odd_phase', 'even_phase', 'Z_current_flags', 'P(R+)', 'P(H)', 'P(R+ and H)', 'P(R+ xor H)', 'cov',
+                        'balance_P(R+)/P(H)', 'mu_over_e', 'Q', 'dln_mu_e', 'residual_mu_e_sigma', 'pass') if x in r]
+    print(k, {x: (r[x][:14] if isinstance(r[x], str) else r[x]) for x in keys})

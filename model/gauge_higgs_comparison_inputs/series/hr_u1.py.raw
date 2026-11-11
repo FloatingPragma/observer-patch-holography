@@ -1,0 +1,153 @@
+"""Worker HR: the weak factor with the hypercharge angle (SPEC.md, section 3), reference Monte Carlo.
+
+Link on the doublet block: exp(3 i a) V, a the hypercharge angle of the link (phases exp(i 6Y a), 6Y = 3 on the
+doublet, -2 on the colour triplet). Gauge term of the 5-trace with colour links at the identity:
+  S_G = (2/g^2) sum_P [5 - 3 cos(2 a_P) - cos(3 a_P) tr V_P]
+      = (6/g^2) sum_P (1 - cos 2 a_P) + beta_G sum_P (1 - cos(3 a_P) tr V_P / 2),      beta_G = 4/g^2.
+Hop term: -2 kappa_H Re Phi_x^dag exp(3 i a) V Phi_(x+mu) = -2 kappa_H dot(phi_x, (V phi_(x+mu)) R(3a)),
+R(w) = exp(-i w sigma_3) acting from the right on the quaternion field.
+Updates: SU(2) heat bath with the plaquette weights cos(3 a_P), Metropolis for the angles, heat bath for phi.
+"""
+import numpy as np
+
+import hr_lib as H
+from hr_lib import qc, qmul
+
+K3 = np.array([0.0, 0.0, 0.0, -1.0])        # -i sigma_3 as a quaternion
+
+
+def rot(q, w):
+    """q R(w) = q (cos w - i sin w sigma_3) for q of shape (n, 4), w of shape (n,)"""
+    return np.cos(w)[:, None] * q + np.sin(w)[:, None] * qmul(q, K3)
+
+
+class LatticeU1(H.Lattice):
+    def __init__(self, L, beta, kappa, lam, seed, T=None, u1_step=0.1):
+        super().__init__(L, beta, kappa, lam, seed, T=T)
+        self.a = np.zeros((4, self.V))
+        self.beta_u1 = 1.5 * self.beta            # 6/g^2 = (3/2) beta_G
+        self.u1_step = u1_step
+        self.acc_u1 = [0, 0]
+
+    # ---------------------------------------------------------------- plaquette pieces around a link
+    def link_env(self, m, s):
+        """for the links (s, m): the six staples (quaternions) and the six angle offsets c_j with a_P = +-(a + c_j)"""
+        U, a, up, dn = self.U, self.a, self.up, self.dn
+        xm = up[m][s]
+        st, cs = [], []
+        for n in range(4):
+            if n == m:
+                continue
+            xn = up[n][s]
+            st.append(qmul(qmul(U[n][xm], qc(U[m][xn])), qc(U[n][s])))
+            cs.append(a[n][xm] - a[m][xn] - a[n][s])
+            xd = dn[n][s]
+            xdm = dn[n][xm]
+            st.append(qmul(qmul(qc(U[n][xdm]), qc(U[m][xd])), U[n][xd]))
+            cs.append(-(a[m][xd] + a[n][xdm] - a[n][xd]))
+        return st, cs
+
+    def update_links(self):
+        rng = self.rng
+        for m in range(4):
+            for p in (0, 1):
+                s = self.sub[p]
+                xm = self.up[m][s]
+                st, cs = self.link_env(m, s)
+                a0 = self.a[m][s]
+                # SU(2) heat bath
+                W = np.zeros((s.size, 4))
+                for A, c in zip(st, cs):
+                    W += (self.beta * np.cos(3.0 * (a0 + c)))[:, None] * A
+                if self.kappa != 0.0:
+                    W += 2.0 * self.kappa * qmul(rot(self.phi[xm], 3.0 * a0), qc(self.phi[s]))
+                Vn = H.su2_heatbath(W, rng)
+                self.U[m][s] = Vn
+                # Metropolis for the angle
+                t = [qmul(Vn, A)[:, 0] for A in st]
+                if self.kappa != 0.0:
+                    vp = qmul(Vn, self.phi[xm])
+                    hc = (self.phi[s] * vp).sum(1)
+                    hs = (self.phi[s] * qmul(vp, K3)).sum(1)
+                else:
+                    hc = hs = np.zeros(s.size)
+
+                def local(aa):
+                    e = -2.0 * self.kappa * (hc * np.cos(3.0 * aa) + hs * np.sin(3.0 * aa))
+                    for tj, c in zip(t, cs):
+                        e -= self.beta_u1 * np.cos(2.0 * (aa + c)) + self.beta * tj * np.cos(3.0 * (aa + c))
+                    return e
+
+                e0 = local(a0)
+                for _ in range(2):
+                    a1 = a0 + rng.uniform(-self.u1_step, self.u1_step, size=s.size)
+                    e1 = local(a1)
+                    acc = np.log(rng.random(s.size)) < e0 - e1
+                    a0 = np.where(acc, a1, a0)
+                    e0 = np.where(acc, e1, e0)
+                    self.acc_u1[0] += int(acc.sum()); self.acc_u1[1] += s.size
+                self.a[m][s] = a0
+
+    def neighbour_sum(self, s):
+        b = np.zeros((s.size, 4))
+        for m in range(4):
+            b += rot(qmul(self.U[m][s], self.phi[self.up[m][s]]), 3.0 * self.a[m][s])
+            xd = self.dn[m][s]
+            b += rot(qmul(qc(self.U[m][xd]), self.phi[xd]), -3.0 * self.a[m][xd])
+        return b
+
+    def hop_sum(self):
+        h = 0.0
+        for m in range(4):
+            h += float((self.phi * rot(qmul(self.U[m], self.phi[self.up[m]]), 3.0 * self.a[m])).sum())
+        return h
+
+    def gauge_transform_u1(self, chi):
+        """Phi_x -> exp(3 i chi_x) Phi_x, a_(x,mu) -> a + chi_x - chi_(x+mu)"""
+        self.phi = rot(self.phi, 3.0 * chi)
+        for m in range(4):
+            self.a[m] = self.a[m] + chi - chi[self.up[m]]
+
+    # ---------------------------------------------------------------- observables
+    def plaquettes(self):
+        """mean of cos(3 a_P) tr V_P / 2 (the weak term), tr V_P / 2, cos 2 a_P, cos 3 a_P"""
+        U, a, up = self.U, self.a, self.up
+        w = v = c2 = c3 = 0.0
+        for m in range(4):
+            for n in range(m + 1, 4):
+                P = qmul(qmul(U[m], U[n][up[m]]), qc(qmul(U[n], U[m][up[n]])))[:, 0]
+                ap = a[m] + a[n][up[m]] - a[m][up[n]] - a[n]
+                w += float((np.cos(3 * ap) * P).sum()); v += float(P.sum())
+                c2 += float(np.cos(2 * ap).sum()); c3 += float(np.cos(3 * ap).sum())
+        nrm = 6.0 * self.V
+        return w / nrm, v / nrm, c2 / nrm, c3 / nrm
+
+    def plaquette(self):
+        return self.plaquettes()[1]
+
+    def measure(self):
+        r2 = (self.phi * self.phi).sum(1)
+        rho = np.sqrt(r2)
+        lphi = lalpha = 0.0
+        for m in range(4):
+            t = rot(qmul(self.U[m], self.phi[self.up[m]]), 3.0 * self.a[m])
+            d = (self.phi * t).sum(1)
+            lphi += float(d.sum())
+            lalpha += float((d / (rho * rho[self.up[m]])).sum())
+        return np.array([self.plaquette(), lphi / (4.0 * self.V), lalpha / (4.0 * self.V),
+                         float(r2.mean()), float((r2 * r2).mean())])
+
+    def slice_ops(self):
+        """W-channel: components 1, 2 of the vector part of alpha_x^dag V alpha_(x+i) R(3a); Z-channel: component 3;
+        photon channel: sin of the spatial hypercharge plaquette angle at the lowest nonzero momentum (not built here)"""
+        r2 = (self.phi * self.phi).sum(1)
+        rho = np.sqrt(r2)
+        alpha = self.phi / np.maximum(rho, 1e-300)[:, None]
+        T = self.T
+        W = np.empty((T, 9))
+        la = np.zeros(T)
+        for i in (1, 2, 3):
+            w = qmul(qc(alpha), rot(qmul(self.U[i], alpha[self.up[i]]), 3.0 * self.a[i]))
+            W[:, 3 * (i - 1):3 * i] = w[:, 1:].reshape(T, -1, 3).mean(1)
+            la += w[:, 0].reshape(T, -1).mean(1) / 3.0
+        return W, r2.reshape(T, -1).mean(1), la

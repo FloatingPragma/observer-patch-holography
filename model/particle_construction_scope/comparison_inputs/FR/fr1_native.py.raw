@@ -1,0 +1,223 @@
+"""FR item 1: native facts the register rests on (EXACT unless stated). Writes fr1_native.json.
+
+Formulas written before evaluation:
+  (a) Geometry: g = gE o gC fixes f = {4,5,11} and f' = {6,7,8}; rho_f = the third-turn that turns f counterclockwise
+      seen from outside; LNAT2 found rho_f = g^-1. Screen orientation of a seam {a,b}: a -> b when
+      n_f . (x_a x x_b) > 0, n_f = x_4 + x_5 + x_11. Expected: C seam 2 -> 3, E seam 10 -> 2; the six seams between
+      the g-orbits {0,9,2} and {1,3,10} form the hexagon 2 -> 3 -> 9 -> 1 -> 0 -> 10 -> 2 and rho_f advances it by two.
+  (b) The repository's repair at address k = (a,b) is the SWAP of the seam parity (p_k, m_k) and the owned record:
+      |p,0> -> |p,0>, |m,1> -> |m,1>, |m,0> <-> |p,1>; off the seam it is the identity. Hence
+      U_k |a,0> = |p_k> (x) |+>, U_k |b,0> = |p_k> (x) |->: the record read in its conjugate basis is the source endpoint
+      relative to the address (first endpoint +, second endpoint -).
+  (c) Gram obstruction (LNAT2 E1) for keying on the repair branch; keying on the conjugate basis of the record is unitary
+      and then sends the agreeing branch to (T_+ + T_-)/2.
+  (d) Activity of the C and E seams on the native matching code: P = 1/3 (DA3).
+  (e) Consensus block of the full 1440-state walk, record 1 <- record 0: (1/60) sum_k K1^(k) = 0 for the plain law;
+      with the oriented record (Z_r at the reversed address of every seam with a screen orientation) it is
+      (1/60) sum_k |p_k><m_ref(k)| = (1/30) sum_seams |p><m_ref|, nonzero.
+  (f) Address-keyed coupling on the C seam under the walk consensus (LNAT2 E4): plain (1/120)(S - S^-1) for a load at
+      the screen tail; oriented (1/120)(S + S^-1).
+"""
+from __future__ import annotations
+
+import sys
+import time
+from fractions import Fraction as Fr
+
+import sympy as sp
+
+import fr_common as FC
+
+OUT = 'fr1_native.json'
+
+
+def main():
+    t0 = time.time()
+    out = {'task': 'FR item 1: native facts', 'provenance': FC.provenance()}
+    car = FC.carrier()
+    gC, gE, g = FC.native_rotations()
+    g2 = FC.compose(g, g)
+    fs = FC.faces()
+    fixed = [x for x in fs if set(g[i] for i in x) == set(x)]
+    f = [x for x in fixed if 4 in x][0]
+    fp = [x for x in fixed if x != f][0]
+    rho_f = FC.stabilizer_turn(f)
+    rho_fp = FC.stabilizer_turn(fp)
+    hexa_ports = sorted(set(range(12)) - set(f) - set(fp))
+    hexa_seams = [s for s in car['seams'] if s[0] in hexa_ports and s[1] in hexa_ports]
+    # walk the hexagon in the screen sense starting at 2
+    orient = {s: FC.screen_orientation(f, s) for s in car['seams']}
+    nxt = {orient[s][0]: orient[s][1] for s in hexa_seams}
+    loop = [2]
+    while len(loop) < 7:
+        loop.append(nxt[loop[-1]])
+    pos = {p: i for i, p in enumerate(loop[:6])}
+    adv = {(pos[rho_f[p]] - pos[p]) % 6 for p in loop[:6]}
+    zero = [s for s in car['seams'] if orient[s] is None]
+    out['geometry'] = {
+        'gC_cycles': FC.cycles(gC), 'gE_cycles': FC.cycles(gE), 'g_cycles': FC.cycles(g),
+        'axis_faces': {'f': f, "f'": fp}, 'f_outward_order': FC.outward(f), "f'_outward_order": FC.outward(fp),
+        'rho_f_is_g_inverse': rho_f == g2, "rho_f'_is_g": rho_fp == g,
+        'hexagon_ports': hexa_ports, 'hexagon_seams': hexa_seams,
+        'hexagon_in_screen_sense_from_2': loop,
+        'rho_f_advances_hexagon_by': sorted(adv),
+        'screen_orientation_C_seam': orient[(2, 3)] if (2, 3) in orient else None,
+        'screen_orientation_E_seam': orient[(2, 10)] if (2, 10) in orient else None,
+        'seams_without_screen_orientation (n_f . x_a x x_b = 0)': zero,
+        'count_oriented_seams': 30 - len(zero),
+        'screen_orientation_all_seams': {f'{s[0]}-{s[1]}': orient[s] for s in car['seams']},
+        "half-turns map f to f' and invert g": all(
+            set(h[i] for i in f) == set(fp) and FC.compose(FC.compose(h, g), h) == g2 for h in (gC, gE)),
+    }
+    ok_expect = (orient[(2, 3)] == (2, 3) and orient[(2, 10)] == (10, 2) and loop == [2, 3, 9, 1, 0, 10, 2]
+                 and adv == {2} and rho_f == g2)
+    out['geometry']['matches_DEFINITION_expectations'] = ok_expect
+    print('geometry', ok_expect, 'zero-orientation seams:', zero)
+
+    # (b) SWAP structure on the repository's own Observer.repair
+    from model.coherent_seam_repair.program import Observer, State
+    obs = Observer()
+    D = obs.dimension
+
+    def apply_repair(port, rec, k):
+        st = obs.basis_state(port, rec, k)
+        return obs.repair(st).amplitudes
+
+    half = Fr(1, 2)
+    swap_ok, offseam_ok, rows = True, True, 0
+    for k, (a, b) in enumerate(obs.addresses):
+        expect = {
+            (a, 0): {(a, 0): half, (b, 0): half, (a, 1): half, (b, 1): half},
+            (b, 0): {(a, 0): half, (b, 0): half, (a, 1): -half, (b, 1): -half},
+            (a, 1): {(a, 0): half, (b, 0): -half, (a, 1): half, (b, 1): -half},
+            (b, 1): {(a, 0): half, (b, 0): -half, (a, 1): -half, (b, 1): half},
+        }
+        for (x, r), exp in expect.items():
+            amps = apply_repair(x, r, k)
+            got = {}
+            for i, z in enumerate(amps):
+                if z != 0:
+                    got[i] = z
+            want = {obs.index(p, rr, k): Fr(v) for (p, rr), v in exp.items()}
+            swap_ok &= got == want
+            rows += 1
+        y = next(p for p in range(12) if p not in (a, b))
+        for r in (0, 1):
+            amps = apply_repair(y, r, k)
+            offseam_ok &= [i for i, z in enumerate(amps) if z != 0] == [obs.index(y, r, k)] and \
+                amps[obs.index(y, r, k)] == 1
+    out['swap_structure'] = {
+        'statement': 'U_k = SWAP(seam parity p_k/m_k, owned record) on the seam; identity off the seam',
+        'checked_on': 'model.coherent_seam_repair.program.Observer.repair, all 60 addresses, 4 seam basis states each',
+        'basis_rows_checked': rows, 'swap_holds': swap_ok, 'identity_off_seam': offseam_ok,
+        'source_record': 'U_k|a,0> = |p_k>(|0>+|1>)/sqrt2, U_k|b,0> = |p_k>(|0>-|1>)/sqrt2 for k = (a,b): the record in '
+                         'its conjugate basis is the source endpoint relative to the address; the Z basis (repaired or '
+                         'not) is complementary to it',
+    }
+    print('swap', swap_ok, offseam_ok)
+
+    # (c) Gram obstruction and the conjugate-basis key
+    S = FC.shift3(1)
+    Si = FC.shift3(-1)
+    gram = (sp.eye(3) - S.T * Si) / 2
+    # conjugate-basis key: Ctrl = |+><+| (x) S + |-><-| (x) S^-1 on record (x) F
+    plus = sp.Matrix([1, 1]) / FC.I2
+    minus = sp.Matrix([1, -1]) / FC.I2
+    ctrl = sp.kronecker_product(plus * plus.T, S) + sp.kronecker_product(minus * minus.T, Si)
+    e0 = sp.Matrix([1, 0])
+    e1 = sp.Matrix([0, 1])
+    blk00 = (sp.kronecker_product(e0.T, sp.eye(3)) * ctrl * sp.kronecker_product(e0, sp.eye(3))).applyfunc(sp.simplify)
+    blk10 = (sp.kronecker_product(e1.T, sp.eye(3)) * ctrl * sp.kronecker_product(e0, sp.eye(3))).applyfunc(sp.simplify)
+    out['keying'] = {
+        'gram_block_T_a=S_T_b=S^-1': [[str(x) for x in gram.row(i)] for i in range(3)],
+        'gram_nonzero': gram != sp.zeros(3, 3),
+        'conjugate_basis_key_unitary': FC.is_unitary(ctrl),
+        'conjugate_basis_key_agree_block_equals_(S+S^-1)/2': blk00 == (S + Si) / 2,
+        'conjugate_basis_key_repair_block_equals_(S-S^-1)/2': blk10 == (S - Si) / 2,
+        'reading': 'the source endpoint is a record of the coherent event (conjugate basis); a unitary key on it acts '
+                   'on the agreeing branch as well, so one object cannot give the hold and the source-keyed pair together',
+    }
+
+    # (d) activity of the C and E seams on the native matching code
+    from model.common_source import native_code_transport as transport
+    act = {}
+    for name, seam, code in (('C', transport.SEAMS['C'], transport.code),
+                             ('E', transport.SEAMS['E'], transport.PAIR_CODES['E'])):
+        a, b = seam
+        n_act = n_tot = 0
+        for m in code.MATCHINGS:
+            for pair in m:
+                n_tot += 1
+                n_act += int((a in pair) != (b in pair))
+        act[name] = {'seam': seam, 'active_pairs': n_act, 'pairs': n_tot, 'P_active': str(Fr(n_act, n_tot))}
+    out['activity'] = act
+    print('activity', act)
+
+    # (e) consensus block record 1 <- record 0 on the full walk, plain and oriented
+    ref = {}
+    for a, b in car['seams']:
+        o = orient[(a, b)]
+        ref[(a, b)] = o
+        ref[(b, a)] = o
+    B_plain = [[Fr(0)] * 12 for _ in range(12)]
+    B_or = [[Fr(0)] * 12 for _ in range(12)]
+    for y in range(12):
+        st = obs.embedded_port(y)
+        amps = obs.repair(State(st.amplitudes, 1)).amplitudes  # integer amplitudes, true state / sqrt60
+        for x in range(12):
+            for k, (a, b) in enumerate(obs.addresses):
+                z = amps[obs.index(x, 1, k)]
+                if z == 0:
+                    continue
+                B_plain[x][y] += Fr(z) / 60
+                o = ref[(a, b)]
+                sgn = 1 if (o is None or o == (a, b)) else -1
+                B_or[x][y] += sgn * Fr(z) / 60
+    plain_zero = all(v == 0 for row in B_plain for v in row)
+    # prediction (1/30) sum_seams |p><m_ref| for oriented seams
+    pred = [[Fr(0)] * 12 for _ in range(12)]
+    for a, b in car['seams']:
+        o = ref[(a, b)]
+        if o is None:
+            continue
+        t, h = o
+        # |p><m_ref| = (|t>+|h>)(<t|-<h|)/2
+        for x in (t, h):
+            pred[x][t] += Fr(1, 60)
+            pred[x][h] -= Fr(1, 60)
+    or_match = B_or == pred
+    out['walk_consensus_block'] = {
+        'definition': 'B[x][y] = <A x, record 1| Q |A y, record 0>, A = uniform address over the 60 oriented addresses',
+        'plain_law_block_is_zero': plain_zero,
+        'oriented_record_block_equals_(1/30) sum_seams |p><m_ref|': or_match,
+        'oriented_block_nonzero_entries': sum(1 for row in B_or for v in row if v != 0),
+        'oriented_block_row_2': [str(v) for v in B_or[2]],
+        'seams_without_reference_left_plain': len(zero),
+    }
+    print('walk consensus block: plain zero', plain_zero, ' oriented = prediction', or_match)
+
+    # (f) LNAT2 E4 analogue: address-keyed coupling on the C seam under the walk consensus
+    kC = obs.addresses.index((2, 3))
+    kCr = obs.addresses.index((3, 2))
+    e4 = {}
+    for x in (2, 3):
+        st = obs.embedded_port(x)
+        amps = obs.repair(State(st.amplitudes, 1)).amplitudes
+        for y in (2, 3):
+            cp = Fr(amps[obs.index(y, 1, kC)]) / 60
+            cm = Fr(amps[obs.index(y, 1, kCr)]) / 60
+            sgn_m = 1 if ref[(3, 2)] == (3, 2) else -1
+            e4[f'{y}<-{x}'] = {'plain': f'{cp} S + ({cm}) S^-1', 'oriented': f'{cp} S + ({sgn_m * cm}) S^-1'}
+    out['walk_C_seam_address_keyed'] = {
+        'entries': e4,
+        'plain_tail_source': 'S/120 - S^-1/120 (LNAT2 E4, quadrature pair)',
+        'oriented_tail_source': 'S/120 + S^-1/120 (equal-sign pair)',
+    }
+    print('E4 analogue', e4)
+    out['seconds'] = round(time.time() - t0, 2)
+    FC.jdump(out, OUT)
+    print('written', OUT, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

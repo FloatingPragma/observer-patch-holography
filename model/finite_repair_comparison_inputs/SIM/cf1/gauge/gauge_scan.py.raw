@@ -1,0 +1,141 @@
+"""Run H4 (task MA), part 1-2: coupling scans of the Z2 and Z3 plaquette-action ensembles on L^3 tori.
+
+    python gauge_scan.py PLAN [--procs 24]
+
+PLAN is one of the plans defined below. Each task (group N, size L, kappa, start) writes out/<plan>/<tag>.json:
+time-series statistics of the share of nontrivial plaquettes f and of e = mean Re W (binned errors, integrated
+autocorrelation time), the specific heat 3V var(e), Polyakov-loop moments and Binder cumulant, Wilson loops W(R, T),
+flux-cluster statistics, and the thinned series of e (thermalisation included) for hysteresis plots.
+Starts: 'cold' (all links 1) and 'hot' (independent uniform links). No parameter is tuned to a target.
+"""
+import json, os, sys, time, zlib
+import numpy as np
+from multiprocessing import Pool
+import gauge_mc as G
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+
+
+def task(args):
+    N, L, kappa, start, ntherm, nmeas, wevery, cevery, Rmax, plan = args
+    tag = f'Z{N}_L{L}_k{kappa:.4f}_{start}'
+    outf = os.path.join(HERE, 'out', plan, tag + '.json')
+    if os.path.exists(outf):
+        return tag, 'exists'
+    seed = zlib.crc32(tag.encode()) + 7919 * N
+    rng = np.random.default_rng(seed); shape = (L, L, L); V = L ** 3
+    if start == 'cold':
+        n = G.cold(shape)
+    elif start == 'hot':
+        n = G.hot(shape, N, rng)
+    else:                                                      # 'mixed': half of the lattice (x0 < L/2) hot, half cold
+        n = G.cold(shape); n[:, :L // 2] = G.hot(shape, N, rng)[:, :L // 2]
+    hb = G.HeatBath(n, N, kappa, seed)
+    t0 = time.time(); f_s, e_s, P_s, W_s, C_s = [], [], [], [], []
+    for sw in range(ntherm + nmeas):
+        hb.sweeps(1)
+        f, e = G.plaquette_obs(n, N); f_s.append(f); e_s.append(e)
+        if sw >= ntherm:
+            k = sw - ntherm + 1
+            if k % 10 == 0:
+                P_s.append(G.polyakov(n, N))
+            if k % wevery == 0:
+                W_s.append(G.wilson_loops(n, N, Rmax))
+            if cevery and k % cevery == 0:
+                C_s.append(G.flux_clusters(n, N, wrap_check=True))
+    f_m = np.array(f_s[ntherm:]); e_m = np.array(e_s[ntherm:]); nb = 20
+    # specific heat with block jackknife
+    blocks = np.array_split(np.arange(len(e_m)), nb)
+    def cv(idx):
+        x = e_m[idx]; return 3 * V * x.var()
+    jk = np.array([cv(np.concatenate([b for j, b in enumerate(blocks) if j != i])) for i in range(nb)])
+    C = cv(np.arange(len(e_m))); C_err = float(np.sqrt((nb - 1) * jk.var()))
+    P = np.array(P_s)                                              # (meas, 3) complex
+    a2 = np.abs(P) ** 2; a4 = a2 ** 2
+    c = 3.0 if N == 2 else 2.0
+    def binder(i2, i4):
+        return 1 - i4.mean() / (c * i2.mean() ** 2)
+    pb = [np.array_split(np.arange(len(P)), nb)][0]
+    B = binder(a2, a4)
+    Bjk = np.array([binder(a2[np.concatenate([b for j, b in enumerate(pb) if j != i])], a4[np.concatenate([b for j, b in enumerate(pb) if j != i])]) for i in range(nb)])
+    W = np.array(W_s); Wm = W.mean(0); We = W.std(0, ddof=1) / np.sqrt(len(W)) if len(W) > 1 else np.full_like(Wm, np.nan)
+    # Wilson errors with binning (10 bins) if enough
+    if len(W) >= 20:
+        m = len(W) // 10; Wb = W[:10 * m].reshape(10, m, Rmax, Rmax).mean(1); We = Wb.std(0, ddof=1) / np.sqrt(10)
+    out = {'group': f'Z{N}', 'N': N, 'L': L, 'kappa': kappa, 'start': start, 'seed': int(seed), 'ntherm': ntherm, 'nmeas': nmeas,
+           'f_plaquette': G.binned(f_m, nb), 'f_per_carrier': [3 * x for x in G.binned(f_m, nb)], 'mean_ReW': G.binned(e_m, nb),
+           'tau_int_e_sweeps': G.tau_int(e_m), 'specific_heat_3V_var_e': [float(C), C_err],
+           'first_half_vs_second_half_e': [float(e_m[:len(e_m) // 2].mean()), float(e_m[len(e_m) // 2:].mean())],
+           'e_histogram': [x.tolist() for x in np.histogram(e_m, bins=40)],
+           'polyakov_abs_mean': float(np.sqrt(a2).mean()), 'polyakov_abs2_mean': G.binned(a2.mean(1), nb),
+           'polyakov_binder': [float(B), float(np.sqrt((nb - 1) * Bjk.var()))],
+           'wilson_Rmax': Rmax, 'wilson_measurements': len(W), 'W': Wm.tolist(), 'W_err': We.tolist(),
+           'series_e_every_5': [round(x, 6) for x in e_s[::5]], 'seconds': time.time() - t0}
+    if C_s:
+        keys = ['clusters_per_carrier', 'mean_size', 'largest_share_of_flux', 'flux_share_in_wrapping_clusters']
+        out['clusters'] = {k: G.binned([c[k] for c in C_s], min(10, len(C_s))) for k in keys if all(k in c for c in C_s)}
+        out['clusters']['largest_sizes'] = [c['largest'][0] for c in C_s]
+        out['clusters']['flux_share_by_size_bin'] = np.mean([c['flux_share_by_size_bin'] for c in C_s], 0).tolist()
+        out['clusters']['clusters_by_size_bin_per_config'] = np.mean([c['clusters_by_size_bin'] for c in C_s], 0).tolist()
+        out['clusters']['size_bins_lower_edges'] = C_s[0]['size_bins_lower_edges']
+        sc = {}
+        for cc in C_s:
+            for s_, k_ in cc['size_counts_small'].items():
+                sc[s_] = sc.get(s_, 0) + k_ / len(C_s)
+        out['clusters']['small_size_counts_per_config'] = {int(k): v for k, v in sorted(sc.items())}
+        out['clusters']['wraps_any_axis_fraction'] = float(np.mean([any(any(x['wraps_axes']) for x in c.get('large_clusters', [])) for c in C_s]))
+        out['clusters']['measurements'] = len(C_s)
+    os.makedirs(os.path.dirname(outf), exist_ok=True)
+    json.dump(out, open(outf, 'w'))
+    return tag, f'{time.time() - t0:.0f}s f={out["f_plaquette"][0]:.5f} e={out["mean_ReW"][0]:.5f} C={C:.2f}'
+
+
+def plans(name):
+    T = []
+    if name == 'test':
+        T = [(2, 8, 0.8, 'cold', 20, 200, 20, 50, 4, name), (3, 8, 0.5, 'hot', 20, 200, 20, 50, 4, name)]
+    if name == 'validate':                                     # Z2 near beta_c, three sizes, both starts; Z3 near its transition
+        for L in (24, 32, 48):
+            nm = {24: 20000, 32: 16000, 48: 10000}[L]
+            for k in (0.70, 0.72, 0.73, 0.74, 0.75, 0.755, 0.76, 0.765, 0.77, 0.78, 0.80):
+                for st in (('cold', 'hot') if L == 48 else ('cold',)):
+                    T.append((2, L, k, st, 2000, nm, 50, 0, 8, name))
+        for L in (24, 48):
+            nm = {24: 20000, 48: 10000}[L]
+            for k in (1.0, 1.04, 1.06, 1.07, 1.08, 1.09, 1.10, 1.12, 1.16):
+                for st in ('cold', 'hot'):
+                    T.append((3, L, k, st, 2000, nm, 50, 0, 8, name))
+    if name == 'refine':                                       # Z2 finer around kappa_c; Z3 hysteresis and two-phase starts
+        for L in (16, 24, 32, 48):
+            nm = {16: 40000, 24: 30000, 32: 24000, 48: 16000}[L]
+            for k in (0.757, 0.759, 0.7605, 0.7614, 0.7625, 0.764):
+                T.append((2, L, k, 'cold', 2000, nm, 50, 0, 8, name))
+        for k in (1.082, 1.084, 1.086):
+            for st in ('cold', 'hot', 'mixed'):
+                T.append((3, 48, k, st, 1000, 8000, 50, 0, 8, name))
+    if name == 'kstar':                                        # dense points around the four interpolated kappa* (48^3)
+        for k in (0.92, 0.925, 0.93, 0.935, 0.94, 1.074, 1.076, 1.078):
+            T.append((3, 48, k, 'hot', 1500, 6000, 30, 300, 8, name))
+        for k in (0.79, 0.795, 0.797, 0.799, 0.802):
+            T.append((2, 48, k, 'cold', 1500, 6000, 30, 300, 8, name))
+        for k in (0.752, 0.753, 0.754, 0.7545):
+            for st in ('cold', 'hot'):
+                T.append((2, 48, k, st, 2000, 10000, 30, 300, 8, name))
+    if name == 'scan':                                         # full kappa range on 48^3 with clusters
+        for k in (0.2, 0.3, 0.4, 0.5, 0.55, 0.6, 0.65, 0.68, 0.82, 0.84, 0.86, 0.88, 0.9, 0.95, 1.0, 1.1, 1.2):
+            st = 'hot' if k < 0.7 else 'cold'
+            T.append((2, 48, k, st, 1500, 6000, 30, 300, 8, name))
+        for k in (0.3, 0.5, 0.6, 0.7, 0.8, 0.85, 0.9, 0.95, 1.2, 1.25, 1.3, 1.4, 1.5, 1.6, 1.8, 2.0):
+            st = 'hot' if k < 1.08 else 'cold'
+            T.append((3, 48, k, st, 1500, 6000, 30, 300, 8, name))
+    return T
+
+
+if __name__ == '__main__':
+    plan = sys.argv[1]; procs = int(sys.argv[sys.argv.index('--procs') + 1]) if '--procs' in sys.argv else 24
+    T = plans(plan)
+    T.sort(key=lambda t: -t[1] ** 3 * (t[4] + t[5]))           # largest first
+    print(plan, len(T), 'tasks', flush=True)
+    with Pool(procs) as pool:
+        for tag, msg in pool.imap_unordered(task, T):
+            print(tag, msg, flush=True)

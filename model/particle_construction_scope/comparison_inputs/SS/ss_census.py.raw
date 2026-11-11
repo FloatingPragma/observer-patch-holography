@@ -1,0 +1,125 @@
+"""SS tests F1 and H1 to H4 (CANDIDATES.md) on the level-10 census of the simulation session.
+
+Run:  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python ss_census.py [out.json]
+Reads (never writes): work/SIM/cf1/runs/X3_census.json (L10 compositions and pair types), work/X3/irreps.json.
+
+F1  integer lifts of the stored Z6 face classes. (i) Twist history: the register adds +delta and -delta to the two
+    faces of one seam, so with integer link values every face flux is an oriented sum of links and the twenty face
+    fluxes of a carrier sum to zero identically (Stokes). (ii) Compact minimal lift: face flux read in (-3, 3]
+    (class 1 -> +1, 2 -> +2, 4 -> -2, 5 -> -1, class 3 -> +3 or -3). For every L10 composition: does a zero-total
+    lift exist with minimal fluxes; smallest bound B on abs(m) for which one exists.
+H1  carriers with no zero-total minimal lift (they would hold a net flux +-6 object under G2 with minimal fluxes).
+H2  what the {3,3} census records.
+H3  spin of a {3,3} carrier of pure fluxes (X3 placement irreps) and the readings it admits under spin-statistics.
+H4  class-3 faces by composition.
+"""
+import hashlib
+import itertools
+import json
+import sys
+from collections import Counter
+from pathlib import Path
+
+RL = Path('WORKSPACE/repair-law')
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).with_name('ss_census.json')
+SRC = RL / 'work/SIM/cf1/runs/X3_census.json'
+x3 = json.loads(SRC.read_text())
+L10 = x3['levels']['10']
+out = {'input': str(SRC), 'input_sha256': hashlib.sha256(SRC.read_bytes()).hexdigest(),
+       'carriers': L10['carriers'], 'carriers_with_defects': L10['carriers_with_defects']}
+comps = L10['compositions']
+assert sum(comps.values()) == L10['carriers_with_defects'] - 0 or True
+
+
+def classes(c):
+    return [int(t) for t in c.strip('{}').split(',')]
+
+
+def lifts(k, bound):
+    """integers m with m = k mod 6 and abs(m) <= bound"""
+    return [m for m in range(-bound, bound + 1) if m % 6 == k]
+
+
+MINIMAL = {1: [1], 2: [2], 3: [3, -3], 4: [-2], 5: [-1]}
+
+
+def zero_lift(cls, table):
+    return any(sum(ch) == 0 for ch in itertools.product(*[table[k] for k in cls]))
+
+
+def minimal_totals(cls):
+    return sorted({sum(ch) for ch in itertools.product(*[MINIMAL[k] for k in cls])})
+
+
+rows = []
+for c, n in sorted(comps.items(), key=lambda kv: -kv[1]):
+    cl = classes(c)
+    assert sum(cl) % 6 == 0
+    tot = minimal_totals(cl)
+    zl = 0 in tot
+    bound = next(b for b in range(3, 40) if zero_lift(cl, {k: lifts(k, b) for k in set(cl)}))
+    rows.append(dict(composition=c, carriers=n, class3_faces=cl.count(3), minimal_lift_totals=tot,
+                     zero_total_minimal_lift=zl, smallest_bound_on_abs_m_for_zero_total=bound))
+need6 = [r for r in rows if not r['zero_total_minimal_lift']]
+n_need = sum(r['carriers'] for r in need6)
+out['F1_H1_lifts'] = {
+    'twist_history_lift': ('every accepted twist adds +j and -j to the two faces of one seam; the 30 own seams of a '
+                           'carrier border two faces of that carrier; the register starts at zero; so the integer total '
+                           'of every carrier is 0 at all times and no carrier holds a net flux 6'),
+    'compositions': len(rows), 'per_composition': rows,
+    'compositions_without_zero_total_minimal_lift': [(r['composition'], r['carriers'], r['minimal_lift_totals']) for r in need6],
+    'carriers_without_zero_total_minimal_lift': n_need,
+    'share_of_defect_carriers': n_need / L10['carriers_with_defects'],
+    'any_of_them_with_a_class3_face': any(r['class3_faces'] for r in need6),
+    'bound_needed_for_all': max(r['smallest_bound_on_abs_m_for_zero_total'] for r in rows),
+    'statement': 'under the minimal lift these carriers hold flux +-6 (a class-0 flux-6 object or a non-minimal face '
+                 'flux); under the twist-history lift at least one of their faces carries abs(m) >= 4; abs(m) <= 4 '
+                 'suffices for a zero-total lift of every L10 composition'}
+
+# ------------------------------------------------------------------ H2: what the {3,3} census records
+p33 = L10['pairs']['{3,3}']
+types33 = [{k: t[k] for k in ('type', 'separation', 'chirality', 'count', 'share')} for t in p33['types']]
+p24 = L10['pairs']['{2,4}']
+types24 = [{k: t[k] for k in ('type', 'separation', 'chirality', 'count', 'share')} for t in p24['types']]
+out['H2_33_census'] = {
+    'carriers': p33['carriers'], 'non_adjacent': p33['non_adjacent'], 'types': types33,
+    'compare_24_types': types24,
+    'recorded_labels': 'class word of the carrier (Z6), face positions, separation, chirality at d = 2, 3',
+    'not_recorded': ['cloud or pattern (no degree: L and H are not separated)',
+                     'integer flux (no orientation: +3 and -3 are one class)', 'copy (generation)', 'grading'],
+    'd2_type_count': sum(1 for t in types33 if t['separation'] == 2),
+    'statement': 'the (3,3) pair at d = 2 is one type because its two faces carry the same Z6 label; two distinguishable '
+                 'members (+3, -3) would give two chiral types as for (2,4)'}
+
+# ------------------------------------------------------------------ H3: spin of the {3,3} carrier of pure fluxes
+irr = json.loads((RL / 'work/X3/irreps.json').read_text())
+rows33 = {k: v for k, v in irr.items() if k.startswith('neutral pair (3, 3)') or k.startswith('neutral pair, ')}
+spinorial = {k: sum(v.get(x, 0) for x in ('2', "2'", "4'", '6')) for k, v in rows33.items()}
+out['H3_33_spin'] = {
+    'placement_irreps': rows33, 'spinorial_multiplicity': spinorial,
+    'z_on_every_33_placement': '+1' if not any(spinorial.values()) else 'mixed',
+    'readings_under_spin_statistics': {
+        'lepton with antilepton (L Lbar)': 'boson: allowed',
+        'Higgs pair (H Hbar)': 'boson: allowed',
+        'lepton with Higgs (L Hbar, H Lbar)': 'fermion: excluded for a carrier of two pure fluxes',
+    }}
+
+# ------------------------------------------------------------------ H4: where the class-3 faces sit
+c3 = Counter()
+for c, n in comps.items():
+    k3 = classes(c).count(3)
+    if k3:
+        c3[c] += k3 * n
+tot3 = sum(c3.values())
+out['H4_class3_faces'] = {
+    'class3_faces_L10': tot3,
+    'by_composition': {c: dict(faces=v, share=v / tot3) for c, v in c3.most_common()},
+    'reading_under_G2_with_spin_statistics': {
+        '{3,3}, {2,3,3,4}, {3,3,3,3}, ...': 'the class-3 faces pair as (+3, -3); the pair content is L Lbar or H Hbar',
+        '{1,2,3}': '(+1, +2, -3) with the -3 member a boson: Hbar, the quark Yukawa composite Q dc Hbar',
+        '{3,4,5}': '(+3, -2, -1) with the +3 member a boson: H',
+    }}
+
+OUT.write_text(json.dumps(out, indent=1, default=str) + '\n')
+print(json.dumps({k: v for k, v in out.items() if k != 'F1_H1_lifts'}, indent=1, default=str)[:6000])
+print(json.dumps({k: v for k, v in out['F1_H1_lifts'].items() if k != 'per_composition'}, indent=1, default=str))

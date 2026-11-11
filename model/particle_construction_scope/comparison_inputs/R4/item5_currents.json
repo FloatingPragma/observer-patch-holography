@@ -1,0 +1,59 @@
+{
+ "A_continuity": {
+  "lattice": [
+   3,
+   2,
+   2
+  ],
+  "Z2_links": true,
+  "substep_identity_exact_all_cells_and_axes": true,
+  "one_tick_identity_exact_forward": true,
+  "one_tick_identity_exact_reverse": true,
+  "current_commutes_with_the_link_signs": "J_i(x) contains no link sign: the same operator in every link word"
+ },
+ "B_eight_class_numbers": {
+  "lattice": [
+   4,
+   4,
+   2
+  ],
+  "Z2_links": true,
+  "mass_step": true,
+  "one_tick_maps_class_c_to_c+(1,1,1)_exact": true,
+  "two_tick_product_commutes_with_all_eight_class_projectors_exact": true
+ },
+ "C_quantum_links_two_quanta": {
+  "lattice": [
+   2,
+   2,
+   1
+  ],
+  "links": 8,
+  "link_words": 256,
+  "antisymmetric": {
+   "unitarity": 8.881784197001252e-16,
+   "stays_in_the_subspace": 4.358438792651351e-18,
+   "commutator_with_Gauss_max": 0.0,
+   "product_of_all_Gauss_operators_is_identity_on_two_charged_quanta": 0.0,
+   "Z2_continuity_X_l_U_equals_U_Gamma(K_l)_X_l_max_defect_all_links": 5.676826692685389e-18
+  },
+  "symmetric": {
+   "unitarity": 1.1102230246251565e-15,
+   "stays_in_the_subspace": 3.903127820947816e-18,
+   "commutator_with_Gauss_max": 0.0,
+   "product_of_all_Gauss_operators_is_identity_on_two_charged_quanta": 0.0,
+   "Z2_continuity_X_l_U_equals_U_Gamma(K_l)_X_l_max_defect_all_links": 6.969320381211996e-18
+  },
+  "one_charged_quantum_product_of_all_Gauss_operators_plus_identity_defect": 0.0
+ },
+ "D_chiral_reading": {
+  "X_r_commutes_with_every_substep_exact": true,
+  "norm_of_M*_X_r_M_minus_X_r": 0.3145584880774294,
+  "2_sin_theta": 0.3145584880774294,
+  "statement": "a charge q0 + q1 X_r (the handedness label of the chiral reading) has the on-site source q1 (M* X_r M - X_r) per tick; for Q6 the two classes differ by 3 and for n2 mod 2 by 1, so with the toggle neither is conserved and (-1)^(n2) in G_x does not commute with Gamma(M); the part that is conserved is the charge of the four levels other than the neutral doublet level",
+  "class_dependent_link_sign_substep_still_unitary_exact": true,
+  "class_dependent_link_sign_norm_of_Q^2_minus_1": 2.0,
+  "norm_of_commutator_of_Z_r_with_a_substep": 1.7320508075688776,
+  "statement_2": "if only one handedness class sees the link sign, the sub-step is still a unitary conditional shift but S_i R is no longer an involution: the reflector form needs the same link sign on both arrow states. A label read in the record basis (Z_r) is changed by every sub-step."
+ }
+}

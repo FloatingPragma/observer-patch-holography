@@ -1,0 +1,90 @@
+"""Worker LY, D4: running of the lepton scale between the cell and Q0 on worker UD's two-loop chart.
+
+Reads no measured value. Imports work/UD/ud_rge.py read only (gauge chart, quartic and y_t(Q0) of the declared
+chain; Standard Model renormalization group at one and two loops).
+  cd RL/work/LY && PYTHONDONTWRITEBYTECODE=1 nice -n 10 /tmp/oph-completion-venv/bin/python -B ly_run.py
+Writes run.json.
+"""
+from __future__ import annotations
+
+import json
+import math
+import os
+import sys
+
+from scipy.optimize import brentq
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(HERE, '..', 'UD'))
+import ud_rge as U  # noqa: E402
+
+LAMBDA_MAX_SQ = 0.2096935560 / (2.0 / 9.0)
+
+
+def lepton_row(k_cell, loops, ytau_q0=0.01, t1=None):
+    """Small y_tau, y_b = k_cell y_tau at the upper scale, y_t(Q0) of the chart. Returns the upper-scale values."""
+    t1 = U.T_CELL if t1 is None else t1
+    if k_cell == 0.0:
+        top = U.up([U.YT_Q0, 1e-9, ytau_q0], loops, t1)
+        yb0 = 1e-9
+    else:
+        def f(lyb):
+            top = U.up([U.YT_Q0, math.exp(lyb), ytau_q0], loops, t1)
+            return math.log(top[4] / top[5]) - math.log(k_cell)
+        lyb = brentq(f, math.log(1e-7), math.log(0.5), xtol=1e-13)
+        yb0 = math.exp(lyb)
+        top = U.up([U.YT_Q0, yb0, ytau_q0], loops, t1)
+    return {'y_tau_Q0': ytau_q0, 'y_b_Q0': yb0, 'y_t_upper': float(top[3]), 'y_b_upper': float(top[4]),
+            'y_tau_upper': float(top[5]), 'g_upper': [float(x) for x in top[:3]], 'lambda_upper': float(top[6]),
+            'factor_Q0_over_upper': ytau_q0 / float(top[5]), 'm_b_over_m_tau_Q0': yb0 / ytau_q0}
+
+
+def chart_alpha():
+    g1, g2, _ = U.G_Q0
+    gy2 = 0.6 * g1 * g1
+    e2 = g2 * g2 * gy2 / (g2 * g2 + gy2)
+    return e2 / (4 * math.pi)
+
+
+def pole_over_running(m_pole, mu, alpha):
+    """One-loop QED: m_pole / m(mu) = 1 + (alpha/pi) (1 + (3/4) ln(mu^2/m^2))."""
+    return 1.0 + (alpha / math.pi) * (1.0 + 0.75 * math.log(mu * mu / (m_pole * m_pole)))
+
+
+def main():
+    out = {'measured_values_read': False, 'Q0_GeV': U.Q0, 'E_cell_GeV': U.E_CELL, 'mu_c_GeV': U.MU_C,
+           't_cell': U.T_CELL, 'y_t_Q0_declared_chain': U.YT_Q0, 'gauge_chart_Q0': list(U.G_Q0),
+           'v_declared_chain_GeV': U.V, 'lambda_max_sq': LAMBDA_MAX_SQ}
+    rows = {}
+    for loops in (1, 2):
+        for name, k in (('y_b_equals_y_tau', 1.0), ('y_b_equals_y_tau_over_sqrt3', 1 / math.sqrt(3)), ('y_b_zero', 0.0)):
+            rows[f'{loops}_loop|{name}'] = lepton_row(k, loops)
+        rows[f'{loops}_loop|linearity_0.005'] = lepton_row(1.0, loops, 0.005)
+        rows[f'{loops}_loop|linearity_0.02'] = lepton_row(1.0, loops, 0.02)
+        rows[f'{loops}_loop|at_mu_c'] = lepton_row(1.0, loops, 0.01, math.log(U.MU_C / U.Q0))
+    out['rows'] = rows
+    f2 = rows['2_loop|y_b_equals_y_tau']
+    f1 = rows['1_loop|y_b_equals_y_tau']
+    out['factor_yJ_Q0_over_yJ_cell'] = {'two_loops': f2['factor_Q0_over_upper'], 'one_loop': f1['factor_Q0_over_upper'],
+                                        'two_loops_y_b_zero': rows['2_loop|y_b_zero']['factor_Q0_over_upper'],
+                                        'two_loops_y_b_over_sqrt3': rows['2_loop|y_b_equals_y_tau_over_sqrt3']['factor_Q0_over_upper'],
+                                        'two_loops_linearity': [rows['2_loop|linearity_0.005']['factor_Q0_over_upper'],
+                                                                rows['2_loop|linearity_0.02']['factor_Q0_over_upper']]}
+    out['y_t_cell'] = {'two_loops': f2['y_t_upper'], 'one_loop': f1['y_t_upper']}
+    out['y_t_mu_c'] = {'two_loops': rows['2_loop|at_mu_c']['y_t_upper'], 'one_loop': rows['1_loop|at_mu_c']['y_t_upper']}
+    out['g_cell_two_loops'] = f2['g_upper']
+    out['m_b_over_m_tau_Q0'] = {'y_b_equals_y_tau': {'two_loops': f2['m_b_over_m_tau_Q0'], 'one_loop': f1['m_b_over_m_tau_Q0']},
+                                'y_b_equals_y_tau_over_sqrt3': {'two_loops': rows['2_loop|y_b_equals_y_tau_over_sqrt3']['m_b_over_m_tau_Q0'],
+                                                                'one_loop': rows['1_loop|y_b_equals_y_tau_over_sqrt3']['m_b_over_m_tau_Q0']}}
+    out['alpha_em_chart_Q0'] = chart_alpha()
+    out['inverse_alpha_em_chart_Q0'] = 1.0 / chart_alpha()
+    for k in ('factor_yJ_Q0_over_yJ_cell', 'y_t_cell', 'y_t_mu_c', 'g_cell_two_loops', 'm_b_over_m_tau_Q0',
+              'inverse_alpha_em_chart_Q0'):
+        print(k, json.dumps(out[k]))
+    with open(os.path.join(HERE, 'run.json'), 'w') as fh:
+        json.dump(out, fh, indent=1)
+        fh.write('\n')
+
+
+if __name__ == '__main__':
+    main()

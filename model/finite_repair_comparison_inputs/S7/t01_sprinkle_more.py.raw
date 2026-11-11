@@ -1,0 +1,24 @@
+"""More repetitions of the Minkowski sprinkling control (ordering fraction, endpoints excluded and included)."""
+import numpy as np, json
+from pathlib import Path
+import s7lib as S
+rng = np.random.default_rng(77)
+out = {}
+for dim, target, n_try, reps in ((1, 0.5, 6000, 60), (2, 8 / 35, 24000, 40), (3, 0.1, 70000, 24)):
+    f_all, f_in = [], []
+    for rep in range(reps):
+        t = rng.uniform(0, 1, n_try); x = rng.uniform(-0.5, 0.5, (n_try, dim))
+        r = np.linalg.norm(x, axis=1)
+        keep = (r <= t) & (r <= 1 - t)
+        t = np.concatenate([[0.0], t[keep], [1.0]]); x = np.vstack([np.zeros((1, dim)), x[keep], np.zeros((1, dim))])
+        o = np.argsort(t, kind='stable'); t = np.ascontiguousarray(t[o]); x = np.ascontiguousarray(x[o])
+        n = t.size
+        chain = np.zeros(n, np.int32)
+        rel = S.lib.s7_minkowski(S.pd(t), S.pd(x), dim, n, None, S.p32(chain))
+        f_all.append(2 * rel / (n * (n - 1)))
+        f_in.append(2 * (rel - (2 * n - 3)) / ((n - 2) * (n - 3)))
+    fa, fi = np.array(f_all), np.array(f_in)
+    out[f'd{dim+1}'] = dict(target=target, reps=reps, N=int(n), f=float(fa.mean()), f_sem=float(fa.std(ddof=1) / reps ** 0.5),
+                            f_inner=float(fi.mean()), f_inner_sem=float(fi.std(ddof=1) / reps ** 0.5), mm_dim_inner=S.mm_dim(float(fi.mean())))
+    print(f'd={dim+1} reps={reps} N~{n}: f(with endpoints)={fa.mean():.4f}+-{out[f"d{dim+1}"]["f_sem"]:.4f}  f(inner)={fi.mean():.4f}+-{out[f"d{dim+1}"]["f_inner_sem"]:.4f} target {target:.4f}', flush=True)
+Path(__file__).with_name('t01_sprinkle_more.json').write_text(json.dumps(out, indent=1))

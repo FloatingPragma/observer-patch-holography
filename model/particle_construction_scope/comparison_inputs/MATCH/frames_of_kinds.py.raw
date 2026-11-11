@@ -1,0 +1,112 @@
+"""Label the faces of the carrier by ordered pairs of cubic frames and read the pair kinds in those labels.
+
+Each three-fold axis fixes exactly two of the five frames (a frame = three perpendicular two-fold axes through
+seam midpoints). A face is labelled by its two fixed frames, ordered by the orientation of the face: the
+counterclockwise third of a turn about the outward normal acts on the other three frames as a three-cycle,
+and the label is (a, b) with a < b for one orientation and (b, a) for the antipodal face. The script checks
+that the label is a bijection faces -> ordered pairs of distinct frames, then tabulates, for every separation,
+how many frames two faces share and in which positions.
+"""
+import itertools, json, math, sys
+from collections import Counter, defaultdict
+import numpy as np
+
+phi = (1 + 5 ** 0.5) / 2
+V = []
+for a, b in itertools.product((1, -1), repeat=2):
+    V += [(0, a, b * phi), (a, b * phi, 0), (b * phi, 0, a)]
+V = np.array(V, float)
+edges = [(i, j) for i, j in itertools.combinations(range(12), 2) if abs(np.linalg.norm(V[i] - V[j]) - 2) < 1e-9]
+adj = defaultdict(set)
+for i, j in edges:
+    adj[i].add(j); adj[j].add(i)
+faces = sorted(tuple(sorted(t)) for t in itertools.combinations(range(12), 3)
+               if t[1] in adj[t[0]] and t[2] in adj[t[0]] and t[2] in adj[t[1]])
+C = np.array([V[list(f)].mean(axis=0) for f in faces])
+
+# two-fold axes through seam midpoints, grouped into five frames of three perpendicular axes
+mids = [(V[i] + V[j]) / 2 for i, j in edges]
+axes = []
+for m in mids:
+    u = m / np.linalg.norm(m)
+    if not any(abs(abs(u @ w) - 1) < 1e-9 for w in axes):
+        axes.append(u)
+assert len(axes) == 15
+frames = []
+used = set()
+for i in range(15):
+    if i in used:
+        continue
+    perp = [j for j in range(15) if j != i and abs(axes[i] @ axes[j]) < 1e-9]
+    for j, k in itertools.combinations(perp, 2):
+        if abs(axes[j] @ axes[k]) < 1e-9:
+            fr = frozenset((i, j, k))
+            if fr not in frames:
+                frames.append(fr)
+    used |= {i}
+frames = [fr for fr in frames]
+assert len(frames) == 5 and len(set().union(*frames)) == 15
+
+
+def rot(axis, ang):
+    a = np.asarray(axis, float) / np.linalg.norm(axis)
+    K = np.array([[0, -a[2], a[1]], [a[2], 0, -a[0]], [-a[1], a[0], 0]])
+    return np.eye(3) + math.sin(ang) * K + (1 - math.cos(ang)) * K @ K
+
+
+def frame_perm(M):
+    img = []
+    for fr in frames:
+        imaxes = [M @ axes[i] for i in fr]
+        idx = frozenset(next(j for j in range(15) if abs(abs(axes[j] @ w) - 1) < 1e-9) for w in imaxes)
+        img.append(frames.index(idx))
+    return img
+
+
+labels = []
+for f in range(20):
+    p = frame_perm(rot(C[f], 2 * math.pi / 3))
+    fixed = [a for a in range(5) if p[a] == a]
+    assert len(fixed) == 2
+    others = [a for a in range(5) if p[a] != a]
+    # orientation: the cycle on the other three frames, read from the smallest
+    c0 = min(others)
+    cyc = (c0, p[c0], p[p[c0]])
+    even = cyc in [(others[0], others[1], others[2])]  # cycle in increasing order or not
+    a, b = fixed
+    labels.append((a, b) if even else (b, a))
+assert len(set(labels)) == 20
+
+fadj = {i: {j for j in range(20) if i != j and len(set(faces[i]) & set(faces[j])) == 2} for i in range(20)}
+dist = np.full((20, 20), -1, int)
+for s in range(20):
+    dist[s, s] = 0; q = [s]
+    while q:
+        nq = []
+        for u in q:
+            for w in fadj[u]:
+                if dist[s, w] < 0:
+                    dist[s, w] = dist[s, u] + 1; nq.append(w)
+        q = nq
+
+
+def relation(l1, l2):
+    a, b = l1; c, d = l2
+    if (c, d) == (b, a): return 'reverse (b,a)'
+    if c == a and d != b: return 'same first (a,x)'
+    if d == b and c != a: return 'same second (x,b)'
+    if c == b and d != a: return 'second to first (b,x)'
+    if d == a and c != b: return 'first to second (x,a)'
+    if not ({a, b} & {c, d}): return 'disjoint (x,y)'
+    return 'other'
+
+
+table = defaultdict(Counter)
+for i in range(20):
+    for j in range(20):
+        if i != j:
+            table[int(dist[i, j])][relation(labels[i], labels[j])] += 1
+out = {d: dict(c) for d, c in sorted(table.items())}
+for d, c in out.items():
+    print(d, c)
+json.dump(dict(face_labels=labels, separation_vs_frame_relation=out), open('frames_of_kinds.json', 'w'), indent=1)

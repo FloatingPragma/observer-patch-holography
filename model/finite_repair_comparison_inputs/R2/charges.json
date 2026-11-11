@@ -1,0 +1,82 @@
+{
+ "1_port_responses": {
+  "A_p^2 = (3 - phi) 1 (so Q_p = (1 + A_p/|w|)/2 is a projector), 12 ports": true,
+  "S_p^3 = (phi + 2) S_p and S_p^2 = (phi + 2) 1 - C_p (so P_p = (S_p^2/|v|^2 + S_p/|v|)/2 is a projector), 12 ports": true,
+  "sum_p C_p = 4 (phi + 2) 1_3": true,
+  "sum_p S_p = 0": true,
+  "sum_p A_p = 0": true,
+  "consequence": "sum_p P_p = 4 on the triplet, sum_p Q_p = 6 on the doublet; sum_p dGamma(E_p) = 4 N3 + 6 N2",
+  "float: projector defects of E_p (max)": 1.1102230246251565e-16,
+  "float: sum of the lifted responses minus (4 N3 + 6 N2) (max)": 3.552713678800501e-15,
+  "float: smallest singular values of the stacked twelve lifted responses": [
+   1.9999999999999998,
+   1.9999999999999998,
+   0.0
+  ],
+  "float: every lifted response annihilates the empty pattern (max)": 0.0,
+  "joint kernel": "the empty pattern only (one zero singular value; exact argument: positivity and the sum rule)"
+ },
+ "2_pattern_charges": {
+  "patterns with Q6 = 0 (n2, n3)": [
+   [
+    0,
+    0
+   ],
+   [
+    2,
+    3
+   ]
+  ],
+  "number of patterns with Q6 = 0": 2,
+  "patterns with odd n2 (Z2-charged)": 16,
+  "Q6 values (pattern counts)": {
+   "-6": 1,
+   "-4": 3,
+   "-3": 2,
+   "-2": 3,
+   "-1": 6,
+   "0": 2,
+   "1": 6,
+   "2": 3,
+   "3": 2,
+   "4": 3,
+   "6": 1
+  }
+ },
+ "3_cover_action": {
+  "code lift of -1: +1 on the triplet, -1 on the doublet (central element = (-1)^n2 on patterns)": true,
+  "stabilizer of port 5: lifts (non-central)": 8,
+  "trace on the five region faces (regular representation of C5)": [
+   0
+  ],
+  "trace on the five levels (triplet + doublet), over the 8 lifts": [
+   "-1*r5",
+   "1",
+   "1*r5"
+  ],
+  "trace on the doublet alone (changes sign with the lift)": [
+   "(-1/2+-1/2*r5)",
+   "(-1/2+1/2*r5)",
+   "(1/2+-1/2*r5)",
+   "(1/2+1/2*r5)"
+  ],
+  "reading": "the five face positions carry the regular representation of the stabilizer (trace 0, central element +1); the five levels carry triplet + spinor doublet (trace nonzero, central element -1 on two levels): no equivariant renaming",
+  "flux pairs under the frame: characters (from item2.json)": {
+   "+++": 55,
+   "+--": 45,
+   "-+-": 45,
+   "--+": 45
+  }
+ },
+ "4_port_gauge_transformations": {
+  "rank of the twelve stars": 11,
+  "every star has zero face syndrome": true,
+  "consequence": "a Gauss-positive codeword (uniform superposition over the star orbit of a word with a given flux pair) is fixed by each of the twelve star operators: eigenvalue +1 at every port, for all 190 pairs and for the flat word"
+ },
+ "candidates": {
+  "a quantum": "charged: Z2 = n2 mod 2 and the weights of its pattern (Q6 = 3 n2 - 2 n3); 30 of 32 patterns have Q6 != 0, 16 are Z2-odd",
+  "b flux pair of a carrier": "neutral: no quantum, annihilated by all twelve lifted port responses and by every native current; central element +1; star operators +1. It carries the frame characters (55, 45, 45, 45) and its separation class",
+  "c composite": "the charges of its quantum; the flux pair adds a neutral label",
+  "d plaquette flux between carriers": "neutral: a function of the Z of the links, commutes with every G_x"
+ }
+}

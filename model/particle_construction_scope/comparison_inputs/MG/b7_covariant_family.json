@@ -1,0 +1,193 @@
+{
+ "0": {
+  "orbits_of_directed_dual_edges": 1,
+  "members": 16,
+  "count_by_flat_at_six_valent_and_group_order": [
+   {
+    "flat_at_every_six_valent_vertex": true,
+    "group_order": 1,
+    "count": 6
+   },
+   {
+    "flat_at_every_six_valent_vertex": true,
+    "group_order": 3,
+    "count": 1
+   },
+   {
+    "flat_at_every_six_valent_vertex": true,
+    "group_order": 6,
+    "count": 3
+   },
+   {
+    "flat_at_every_six_valent_vertex": true,
+    "group_order": 12,
+    "count": 6
+   }
+  ],
+  "group_orders_of_members_flat_at_six_valent": {
+   "1": 6,
+   "3": 1,
+   "6": 3,
+   "12": 6
+  },
+  "largest_group_order_among_flat_members": 12,
+  "members_with_all_60_rotations": 0,
+  "their_vertex_holonomy_angles_deg (five-valent, six-valent)": []
+ },
+ "1": {
+  "orbits_of_directed_dual_edges": 4,
+  "members": 3600,
+  "count_by_flat_at_six_valent_and_group_order": [
+   {
+    "flat_at_every_six_valent_vertex": false,
+    "group_order": 3,
+    "count": 120
+   },
+   {
+    "flat_at_every_six_valent_vertex": false,
+    "group_order": 12,
+    "count": 720
+   },
+   {
+    "flat_at_every_six_valent_vertex": false,
+    "group_order": 60,
+    "count": 1800
+   },
+   {
+    "flat_at_every_six_valent_vertex": true,
+    "group_order": 1,
+    "count": 360
+   },
+   {
+    "flat_at_every_six_valent_vertex": true,
+    "group_order": 3,
+    "count": 60
+   },
+   {
+    "flat_at_every_six_valent_vertex": true,
+    "group_order": 6,
+    "count": 180
+   },
+   {
+    "flat_at_every_six_valent_vertex": true,
+    "group_order": 12,
+    "count": 360
+   }
+  ],
+  "group_orders_of_members_flat_at_six_valent": {
+   "1": 360,
+   "3": 60,
+   "6": 180,
+   "12": 360
+  },
+  "largest_group_order_among_flat_members": 12,
+  "members_with_all_60_rotations": 1800,
+  "their_vertex_holonomy_angles_deg (five-valent, six-valent)": [
+   {
+    "five_valent": [
+     [
+      0,
+      12
+     ]
+    ],
+    "six_valent": [
+     [
+      120,
+      30
+     ]
+    ],
+    "count": 360
+   },
+   {
+    "five_valent": [
+     [
+      0,
+      12
+     ]
+    ],
+    "six_valent": [
+     [
+      72,
+      30
+     ]
+    ],
+    "count": 360
+   },
+   {
+    "five_valent": [
+     [
+      0,
+      12
+     ]
+    ],
+    "six_valent": [
+     [
+      144,
+      30
+     ]
+    ],
+    "count": 360
+   },
+   {
+    "five_valent": [
+     [
+      120,
+      12
+     ]
+    ],
+    "six_valent": [
+     [
+      144,
+      30
+     ]
+    ],
+    "count": 180
+   },
+   {
+    "five_valent": [
+     [
+      180,
+      12
+     ]
+    ],
+    "six_valent": [
+     [
+      72,
+      30
+     ]
+    ],
+    "count": 180
+   },
+   {
+    "five_valent": [
+     [
+      120,
+      12
+     ]
+    ],
+    "six_valent": [
+     [
+      72,
+      30
+     ]
+    ],
+    "count": 180
+   },
+   {
+    "five_valent": [
+     [
+      180,
+      12
+     ]
+    ],
+    "six_valent": [
+     [
+      144,
+      30
+     ]
+    ],
+    "count": 180
+   }
+  ]
+ }
+}

@@ -1,0 +1,205 @@
+"""CM candidate D2 (DF10-Z20): area-record classes as a flux pair on the axis faces of g, family bands per sector,
+junction between the left band (Q_L, k = 9) and the right bands (u_R 16, d_R 2), Higgs leg 7 (up) and 13 (down).
+
+Readings (CANDIDATES.md D2):
+  naive    Y_s = B(k_L)^dag B(k_R), evaluated for two Dirac strings (gauge check);
+  covariant Y_s = average over the lifted third turn of the naive junction, (1/3) sum_j Gt_L^-j Y Gt_R^j
+            (the part of the junction that intertwines the two lifts);
+  own-band left frame: the left frame of each sector is the eigenbasis of A(k_L) on its own band (same for u and d).
+Labels: float64 tracking of the band (MEASURED), eigenvectors checked by residual; V permutation decided at 1e-9.
+Reads no measured value. Writes df10.json.
+Run from the RER checkout: PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. /tmp/oph-completion-venv/bin/python -B RL/work/CM/cm_df10.py
+"""
+import itertools
+import json
+import os
+
+import numpy as np
+
+from model.common_source import slow_geometry as sg
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+SQ5 = 5 ** 0.5
+W = np.exp(2j * np.pi / 3)
+
+src = sg.source()
+Vx = np.array([[float(a) + float(b) * SQ5 for (a, b) in row] for row in sg.raw_frame()])
+seams = sorted(tuple(sorted(int(v) for v in e)) for e in src.seams())
+rots = [tuple(int(x) for x in p) for p in src.rotations()]
+adj = {i: set() for i in range(12)}
+for u, v in seams:
+    adj[u].add(v)
+    adj[v].add(u)
+faces = []
+for t in itertools.combinations(range(12), 3):
+    a, b, c = t
+    if b in adj[a] and c in adj[a] and c in adj[b]:
+        nrm = np.cross(Vx[b] - Vx[a], Vx[c] - Vx[a])
+        if nrm @ (Vx[a] + Vx[b] + Vx[c]) < 0:
+            t = (a, c, b)
+        faces.append(t)
+assert len(faces) == 20
+
+
+def compose(g, h):
+    return tuple(g[h[i]] for i in range(12))
+
+
+def order(g):
+    k, x = 1, g
+    while x != tuple(range(12)):
+        x = compose(g, x)
+        k += 1
+    return k
+
+
+gC = next(g for g in rots if g[2] == 3 and g[3] == 2 and order(g) == 2)
+gE = next(g for g in rots if g[2] == 10 and g[10] == 2 and order(g) == 2)
+g = compose(gE, gC)
+fA = next(i for i, f in enumerate(faces) if set(f) == {4, 5, 11})
+fB = next(i for i, f in enumerate(faces) if set(f) == {6, 7, 8})
+sidx = {e: i for i, e in enumerate(seams)}
+D = np.zeros((20, 30), dtype=np.int64)
+for i, f in enumerate(faces):
+    a, b, c = f
+    for x, y in ((a, b), (b, c), (c, a)):
+        if (x, y) in sidx:
+            D[i, sidx[(x, y)]] = 1
+        else:
+            D[i, sidx[(y, x)]] = -1
+
+
+def string(root):
+    """Integer seam table with oriented face sums +1 on fA, -1 on fB, 0 elsewhere (dual spanning tree from root)."""
+    target = np.zeros(20, dtype=np.int64)
+    target[fA], target[fB] = 1, -1
+    dual = {i: [] for i in range(20)}
+    for j in range(30):
+        fs = [i for i in range(20) if D[i, j] != 0]
+        dual[fs[0]].append((fs[1], j))
+        dual[fs[1]].append((fs[0], j))
+    parent, order_ = {root: None}, [root]
+    for x in order_:
+        for y, j in dual[x]:
+            if y not in parent:
+                parent[y] = (x, j)
+                order_.append(y)
+    n = np.zeros(30, dtype=np.int64)
+    excess = target.copy()
+    for y in reversed(order_[1:]):
+        x, j = parent[y]
+        n[j] = excess[y] * D[y, j]
+        excess[x] -= D[x, j] * n[j]
+    assert np.all(D @ n == target)
+    return n
+
+
+def twisted(kflux, n):
+    A = np.zeros((12, 12), complex)
+    for j, (u, v) in enumerate(seams):
+        ph = np.exp(2j * np.pi * kflux * n[j] / 20)
+        A[v, u] = ph
+        A[u, v] = np.conj(ph)
+    return A
+
+
+def lift(A, gg):
+    P = np.zeros((12, 12))
+    for j in range(12):
+        P[gg[j], j] = 1.0
+    B = P @ A @ P.T
+    d = np.zeros(12, complex)
+    d[0] = 1.0
+    seen, queue = {0}, [0]
+    while queue:
+        u = queue.pop()
+        for v in adj[u]:
+            if v not in seen:
+                d[v] = A[v, u] * d[u] / B[v, u]
+                seen.add(v)
+                queue.append(v)
+    M = np.diag(d) @ P
+    assert np.allclose(M @ A @ M.conj().T, A, atol=1e-10)
+    M3 = M @ M @ M
+    c = M3[0, 0]
+    assert np.allclose(M3, c * np.eye(12), atol=1e-10)
+    return M / c ** (1 / 3)
+
+
+def band(kflux, n, steps=80):
+    """Family band at flux k: in each character sector of the lifted g, the level continued from sqrt5."""
+    cur = None
+    for t in np.linspace(0, 1, steps + 1):
+        A = twisted(t * kflux, n)
+        Gt = lift(A, g)
+        vecs, levels = [], []
+        for j in range(3):
+            Pj = sum(W ** (-d * j) * np.linalg.matrix_power(Gt, d) for d in range(3)) / 3
+            U, s, _ = np.linalg.svd(Pj)
+            Bj = U[:, s > 0.5]
+            ev, evec = np.linalg.eigh(Bj.conj().T @ A @ Bj)
+            if cur is None:
+                i = int(np.argmin(np.abs(ev - SQ5)))
+            else:
+                i = int(np.argmin(np.abs(ev - cur[j])))
+            levels.append(ev[i])
+            vecs.append(Bj @ evec[:, i])
+        cur = levels
+    A = twisted(kflux, n)
+    Bm = np.array(vecs).T
+    res = max(np.linalg.norm(A @ Bm[:, j] - cur[j] * Bm[:, j]) for j in range(3))
+    return np.array(cur), Bm, res, lift(A, g)
+
+
+def frames_from(Y):
+    E, Q = np.linalg.eigh(Y.conj().T @ Y)
+    return E, Q
+
+
+def ckm(Vm):
+    A = np.abs(Vm)
+    s13 = A[0, 2]
+    c13 = np.sqrt(max(1 - s13 ** 2, 0))
+    J = float(np.imag(Vm[0, 0] * Vm[1, 1] * np.conj(Vm[0, 1]) * np.conj(Vm[1, 0])))
+    isperm = bool(all(sum(abs(x - 1) < 1e-9 for x in row) == 1 for row in A))
+    return {'abs_V': np.round(A, 10).tolist(), 's12': float(A[0, 1] / c13) if c13 > 1e-12 else None,
+            's23': float(A[1, 2] / c13) if c13 > 1e-12 else None, 's13': float(s13), 'J': J, 'is_permutation': isperm}
+
+
+OUT = {'measured_values_read': False, 'axis_faces': [list(faces[fA]), list(faces[fB])]}
+SECT = {'Q_L': 9, 'u_R': 16, 'd_R': 2, 'H_up': 7, 'H_down': 13}
+for root in (0, 7):
+    n = string(root)
+    bands = {name: band(k, n) for name, k in SECT.items() if name in ('Q_L', 'u_R', 'd_R')}
+    rec = {'levels': {k: np.round(v[0], 10).tolist() for k, v in bands.items()},
+           'band_residual': {k: float(v[2]) for k, v in bands.items()}}
+    BL = bands['Q_L'][1]
+    GL = bands['Q_L'][3]
+    fr = {}
+    for sec, rname in (('up', 'u_R'), ('down', 'd_R')):
+        BR, GR = bands[rname][1], bands[rname][3]
+        Yn = BL.conj().T @ BR
+        Pl = BL.conj().T                      # coordinates on the left band
+        Yc = sum(np.linalg.matrix_power(GL.conj().T, j) @ BL @ Yn @ BR.conj().T @ np.linalg.matrix_power(GR, j)
+                 for j in range(3)) / 3        # 12x12 covariant average, then compressed
+        Yc = BL.conj().T @ Yc @ BR
+        fr[sec] = {'naive': frames_from(Yn), 'covariant': frames_from(Yc),
+                   'svals_naive': np.linalg.svd(Yn, compute_uv=False).tolist(),
+                   'svals_cov': np.linalg.svd(Yc, compute_uv=False).tolist()}
+    for kind in ('naive', 'covariant'):
+        Vm = fr['up'][kind][1].conj().T @ fr['down'][kind][1]
+        rec[kind] = ckm(Vm)
+        rec[kind]['svals_up'] = fr['up']['svals_' + ('naive' if kind == 'naive' else 'cov')]
+        rec[kind]['svals_down'] = fr['down']['svals_' + ('naive' if kind == 'naive' else 'cov')]
+    OUT[f'string_root_{root}'] = rec
+OUT['naive_gauge_dependent'] = bool(not np.allclose(np.array(OUT['string_root_0']['naive']['abs_V']),
+                                                    np.array(OUT['string_root_7']['naive']['abs_V']), atol=1e-8))
+OUT['own_band_left_frame'] = 'u_L and d_L share the band of k = 9, so the left frames coincide and V = 1 exactly'
+with open(os.path.join(HERE, 'df10.json'), 'w') as fh:
+    json.dump(OUT, fh, indent=1, default=str)
+for root in (0, 7):
+    r = OUT[f'string_root_{root}']
+    print('root', root, 'levels', r['levels'], 'res', r['band_residual'])
+    for kind in ('naive', 'covariant'):
+        print('   ', kind, r[kind])
+print('naive gauge dependent', OUT['naive_gauge_dependent'])

@@ -1,0 +1,106 @@
+"""Worker UH, Addendum 3: the induced quartic at the cell with worker YC's Yukawa values.
+
+lambda(E_cell) = (1/16 pi^2) [ -S4f (3/2 - c_f) + (3/16) X (5/6 - c_V) ],  S4f = sum over Dirac species of N_c y_f^4.
+Cases: E1 equal legs y = g/2, one family; E3 equal legs with YC's three-copy factors; T1 the sum rule
+(sum N_c y^2 = 2 g^2) saturated by the top alone.
+Frames: source (g = 0.8795 for all three factors, gY^2 = 3 g^2/5) and the declared chart (g2, gY of the packet at
+E_cell, read from this worker's SMDR gate row).
+Flows: YC's primary rows through YC's library (work/YC/yc_run.py and yc_rge.py, imported read only; the quartic at
+the cell is replaced in this process only). Outputs: m_t (pole, tree G_F as in YC's table) and YC's tree m_H
+by-product. No measured value is read. Writes yc_quartic.json."""
+import json
+import math
+import os
+import sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+import uhlib as U  # noqa: E402
+
+regs = U.regulators()
+YC_DIR = "WORKSPACE/repair-law/work/YC"
+ycf = json.load(open(os.path.join(YC_DIR, "yc_functional.json")))
+G3A = ycf["generations"]["G3a factors y_k / (r g), k = 1, 2, 3"]
+gate = json.load(open(os.path.join(HERE, "smdr_gate_C4.json")))["boundary"]
+G_SRC = 0.8795112278987688                                   # sqrt(4 pi / 16.2453...), GL's cut closure (flows_d11.json)
+frames = {
+    "source (g = 0.8795)": {"g_ref": G_SRC, "g2": G_SRC, "gY": math.sqrt(0.6) * G_SRC},
+    "declared chart, reference g2": {"g_ref": gate["g2"], "g2": gate["g2"], "gY": gate["gY"]},
+    "declared chart, source g (YC's D-b)": {"g_ref": G_SRC, "g2": gate["g2"], "gY": gate["gY"]},
+}
+
+
+def s4f(case, g):
+    y = g / 2
+    if case == "E1":
+        return 8 * y ** 4
+    if case == "E3":
+        return 8 * sum((f * y) ** 4 for f in G3A)
+    if case == "T1":
+        return 3 * (2 * g * g / 3) ** 2
+    raise ValueError(case)
+
+
+def lam(S4, g2, gY, reg):
+    return (-S4 * (1.5 - reg["c_f"]) + (3.0 / 16) * U.X_of(g2, gY) * (5.0 / 6 - reg["c_V"])) / U.K
+
+
+out = {"values_at_cell": {}}
+for fname, fr in frames.items():
+    out["values_at_cell"][fname] = {}
+    for case in ("E1", "E3", "T1"):
+        S4 = s4f(case, fr["g_ref"])
+        beta0 = (-2 * S4 + (3.0 / 8) * U.X_of(fr["g2"], fr["gY"])) / U.K
+        row = {"S4f": S4, "one_loop_beta_lambda_at_lambda_0": beta0,
+               "y_third_family": {"E1": fr["g_ref"] / 2, "E3": G3A[2] * fr["g_ref"] / 2,
+                                  "T1": math.sqrt(2.0 / 3) * fr["g_ref"]}[case]}
+        for rname in ("B1", "B4", "B4t", "B6t", "B6tt"):
+            row[rname] = lam(S4, fr["g2"], fr["gY"], regs[rname])
+        out["values_at_cell"][fname][case] = row
+        print("%-36s %s y3=%.4f beta0=%+.2e" % (fname, case, row["y_third_family"], beta0),
+              {r: "%.3e" % row[r] for r in ("B1", "B4", "B4t", "B6t")})
+
+# ---------------------------------------------------------------- flows through YC's library (read only)
+os.chdir(YC_DIR)
+sys.path.insert(0, YC_DIR)
+import yc_rge as R  # noqa: E402
+import yc_run as Y  # noqa: E402
+os.chdir(HERE)
+orig_cell_state = Y.cell_state
+law = {"name": "zero"}
+
+
+def cell_state(rv, g_ref, gname, gauge, nu=False):
+    x = orig_cell_state(rv, g_ref, gname, gauge, nu)
+    if law["name"] != "zero":
+        names = ("yt", "yb", "yc", "ys", "yu", "yd")
+        S4 = 3 * sum(x[R.IDX[n]] ** 4 for n in names) + sum(x[R.IDX[n]] ** 4 for n in ("ytau", "ymu", "ye"))
+        # Dirac neutrinos of the equal legs (B - L exact): one more colourless species per copy with the lepton's value
+        S4 += sum(x[R.IDX[n]] ** 4 for n in ("ytau", "ymu", "ye"))
+        x[R.IDX["k"]] = lam(S4, gauge[1], gauge[0], regs[law["name"]])
+    return x
+
+
+Y.cell_state = cell_state
+flows = {}
+r = Y.r["F1"]
+for row_name, gname, kind in (("F1 G1 D-a", "G1", "g2"), ("F1 G1 D-b", "G1", "source"),
+                              ("F1 G3a D-a", "G3a", "g2"), ("F1 G3a D-b", "G3a", "source")):
+    flows[row_name] = {}
+    for q in ("zero", "B1", "B4", "B4t"):
+        law["name"] = q
+        res = Y.d_row(r, gname, kind)
+        xc = cell_state(r, res["cell"]["g_ref"], gname, (res["cell"]["gY"], res["cell"]["g2"], res["cell"]["g3"]))
+        flows[row_name][q] = {
+            "y_third_family_cell": res["cell"]["y_third_family"], "lambda_cell": float(xc[R.IDX["k"]]),
+            "m_t_pole_tree_GF": (res.get("t") or {}).get("m_pole_GeV"),
+            "m_b_running": (res.get("b") or {}).get("m_running_at_m_GeV"),
+            "m_tau": (res.get("tau") or {}).get("m_running_at_m_GeV"),
+            "m_H_tree_by_product": res.get("m_H tree from lambda(Q0) (by-product), GeV"),
+            "min_lambda": res.get("min lambda on the trajectory")}
+        f = flows[row_name][q]
+        print("%-12s %-4s lam_cell=%+.3e t=%s H=%s b=%s tau=%s" % (
+            row_name, q, f["lambda_cell"], *(("%.2f" % v) if v is not None else "none"
+                                             for v in (f["m_t_pole_tree_GF"], f["m_H_tree_by_product"], f["m_b_running"], f["m_tau"]))))
+out["flows_YC_rows"] = flows
+json.dump(out, open(os.path.join(HERE, "yc_quartic.json"), "w"), indent=1, default=float)

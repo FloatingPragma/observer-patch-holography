@@ -1,0 +1,33 @@
+"""Actual finite representation and conserved-number controls."""
+from pathlib import Path
+import importlib.util
+
+spec=importlib.util.spec_from_file_location('finite_particle_identity_tests',Path(__file__).with_name('model.py'))
+model=importlib.util.module_from_spec(spec);spec.loader.exec_module(model)
+
+
+def test_actual_cone_frequency_irreps_and_fixed_reference_stabilizer():
+    result=model.actual_transverse_irreps()
+    assert result['total_transverse_representation']=='2*(3+3_prime+4+5)'
+    assert result['fixed_reference_rotation_stabilizer_order']==5
+    rows=result['neutral_transverse_modes']
+    assert sum(row['dimension'] for row in rows)==30
+    assert [row['proper_icosahedral_irrep'] for row in rows]==['3','5','3','4','4','3_prime','5','3_prime']
+
+
+def test_same_finite_rotation_data_do_not_select_continuum_spin():
+    result=model.spin_restriction_controls()
+    assert result['native_binary_cube_spinor_G1_occurs_in_half_integer_spins']==['1/2','7/2']
+
+
+def test_conserved_number_shift_preserves_nonenergy_record_laws():
+    result=model.exact_number_shift()
+    assert result['actual_charged_energy_mean_shift']=='mu'
+    assert result['actual_neutral_ground_and_all_neutral_field_records_unchanged']
+
+
+def test_supported_roles_do_not_silently_assign_measured_particles():
+    rows=model.classification()
+    assert len(rows)==4
+    assert all(row['physical_particle_identification'] is None for row in rows)
+    assert all(row['defensible_identity'] for row in rows)

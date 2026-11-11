@@ -1,0 +1,337 @@
+"""Lane AV, task 2: the exact gate on the Cartan circle (Villain weight) and the single-register laws.
+METHOD.md sections 2 to 4. Reads no measured value. Writes abelian.json.
+
+Form of every row: <A> = M exp(-c S), S = 2 pi/(4 alpha) = 2 pi^2/g^2. Count of LV = 4/c.
+"""
+import json
+import math
+
+import mpmath as mp
+import numpy as np
+from scipy import optimize, sparse
+from scipy.sparse import linalg as splinalg
+
+import av_complex as C
+
+mp.mp.dps = 50
+pi = math.pi
+X_U = 24.3166
+G2U = 4 * pi / X_U
+S_U = 2 * pi ** 2 / G2U
+out = {"x_U": X_U, "g2_U": G2U, "S_U": S_U, "exp(-S_U)": math.exp(-S_U)}
+
+# ------------------------------------------------------------------------------------------- A: one register
+def register_law(w, t, nmax=4000):
+    """<A> for p_j proportional to d_j^w exp(-t C_j), n = 2j + 1"""
+    num = mp.mpf(0); den = mp.mpf(0)
+    for n in range(1, nmax):
+        e = mp.mpf(n) ** w * mp.exp(-mp.mpf(t) * (n * n - 1) / 4)
+        num += (-1) ** (n - 1) * e; den += e
+        if n > 10 and e < mp.mpf(10) ** (-60) * den:
+            break
+    return num / den
+
+
+def cartan_law(t, nmax=4000):
+    num = mp.mpf(0); den = mp.mpf(0)
+    for m in range(-nmax, nmax + 1):
+        e = mp.exp(-mp.mpf(t) * m * m / 4)
+        num += (-1) ** m * e; den += e
+    return num / den
+
+
+tau = G2U / 2
+rows = {}
+a1 = cartan_law(tau)
+rows["A1_cartan_one_tick"] = {"w": None, "t_over_tau": 1, "<A>": float(a1), "c": 1.0, "M": float(a1 / mp.exp(-S_U)),
+                              "M_exact": 2}
+a2 = register_law(2, tau)
+rows["A2_full_link_w2_one_tick"] = {"w": 2, "t_over_tau": 1, "<A>": float(a2), "c": 1.0, "M": float(a2 / mp.exp(-S_U)),
+                                    "M_closed_form_2(2S-1)": 2 * (2 * S_U - 1)}
+a3 = register_law(1, tau)
+rows["A3_one_sided_w1_one_tick"] = {"w": 1, "t_over_tau": 1, "<A>": float(a3), "c": 0.0, "M": float(a3),
+                                    "leading_form_tau/8": tau / 8, "law": "power law in alpha, no exponential"}
+a4 = register_law(0, tau)
+rows["A4_labels_w0_one_tick"] = {"w": 0, "t_over_tau": 1, "<A>": float(a4), "c": 0.0, "M": float(a4),
+                                 "leading_form_1/(2 sqrt(pi/tau) - 1)": 1 / (2 * math.sqrt(pi / tau) - 1),
+                                 "law": "power law in alpha, no exponential"}
+# the same powers at other heat times t = tau/c
+for c in (0.5, 1.0 / 3.0):
+    rows["w2_at_t=tau/c_c=%.4f" % c] = {"w": 2, "<A>": float(register_law(2, tau / c)), "c": c,
+                                        "M": float(register_law(2, tau / c) / mp.exp(-c * S_U)),
+                                        "M_closed_form_2(2cS-1)": 2 * (2 * c * S_U - 1)}
+    rows["w1_at_t=tau/c_c=%.4f" % c] = {"w": 1, "<A>": float(register_law(1, tau / c)), "c": 0.0}
+out["A_single_register_at_x_U"] = rows
+# scan of the one-register laws over x for the site
+scan = []
+for x in (7.854, 9.425, 12.566, 15.708, 18.850, 24.3166, 28.274):
+    t = 4 * pi / x / 2
+    scan.append({"x": x, "S": (pi / 2) * x, "cartan": float(cartan_law(t)), "w2": float(register_law(2, t)),
+                 "w1": float(register_law(1, t)), "w0": float(register_law(0, t))})
+out["A_scan"] = scan
+
+
+# ------------------------------------------------------------------------------------------- projectors
+def sp_cob(cx):
+    rows, cols, vals = [], [], []
+    for p in range(cx["nplaq"]):
+        for k in range(cx["pn"][p]):
+            rows.append(p); cols.append(int(cx["pl"][p, k])); vals.append(float(cx["ps"][p, k]))
+    return sparse.csr_matrix((vals, (rows, cols)), shape=(cx["nplaq"], cx["nlink"]))
+
+
+def projector_entry(D, cols=None, vec=None):
+    """Pi v for the coboundary D restricted to the free links (cols); v defaults to e_0. Sparse least squares."""
+    Dm = sparse.csr_matrix(D) if cols is None else sparse.csr_matrix(D)[:, cols]
+    v = np.zeros(Dm.shape[0]) if vec is None else vec
+    if vec is None:
+        v[0] = 1.0
+    sol = splinalg.lsqr(Dm, v, atol=1e-14, btol=1e-14, iter_lim=50000)[0]
+    return Dm @ sol
+
+
+def one_minus_pi(cx, P0=None, cols=None):
+    D = sp_cob(cx)
+    P0 = cx["P0"] if P0 is None else P0
+    e = np.zeros(cx["nplaq"]); e[P0] = 1.0
+    pe = projector_entry(D, cols, e)
+    return 1.0 - float(pe[P0])
+
+
+def villain_weak(c, g2=G2U):
+    """leading weak-coupling form on the Cartan circle"""
+    return 2.0 * math.exp(-c * 2 * pi ** 2 / g2)
+
+
+def theta_ratio(c, g2=G2U):
+    """exact class sum when the classes are n = N e_P (closed two-dimensional complexes, pinned pairs):
+    sum_N exp(-8 pi^2 c (N - 1/2)^2/g2) / sum_N exp(-8 pi^2 c N^2/g2)"""
+    num = mp.mpf(0); den = mp.mpf(0)
+    for N in range(-60, 61):
+        num += mp.exp(-8 * mp.pi ** 2 * c * (N - mp.mpf(1) / 2) ** 2 / g2)
+        den += mp.exp(-8 * mp.pi ** 2 * c * N ** 2 / g2)
+    return float(num / den)
+
+
+tab = {}
+
+# pinned link: the plaquette cannot move
+tab["pinned"] = {"Pi": 0.0, "c": 1.0, "count": 4.0, "<A>_x_U": float(a1), "M": 2.0, "exact": True}
+
+# pair2: two faces on one seam. Free boundary: every outer link is free. Pinned: only the shared seam (link 0) moves.
+cx = C.pair2()
+c_free = one_minus_pi(cx)
+c_pin = one_minus_pi(cx, cols=[0])
+tab["pair2_free_boundary"] = {"Pi": 1 - c_free, "c": c_free, "count": None, "<A>_x_U": 1.0, "M": 1.0, "exact": True}
+tab["pair2_pinned_boundary"] = {"Pi": 1 - c_pin, "c": c_pin, "count": 4 / c_pin, "<A>_x_U": theta_ratio(c_pin),
+                                "M": theta_ratio(c_pin) / math.exp(-c_pin * S_U), "exact": True}
+# brute-force check of the pinned pair: one angle, two Villain faces
+def vil(F, g2):
+    return sum(math.exp(-(F - 4 * pi * n) ** 2 / (2 * g2)) for n in range(-3, 4))
+for g2c in (2.0, 6.0):
+    eps = np.linspace(0, 4 * pi, 200001)[:-1]
+    z0 = sum(vil(e, g2c) * vil(-e, g2c) for e in eps[::20])
+    z1 = sum(vil(e + 2 * pi, g2c) * vil(-e, g2c) for e in eps[::20])
+    tab["pair2_pinned_boundary"]["quadrature_check_g2=%.0f" % g2c] = [z1 / z0, theta_ratio(c_pin, g2c)]
+
+# ico2: the icosahedral surface as a Euclidean two-complex
+cx = C.ico2()
+D = C.coboundary(cx)
+rank = int(np.linalg.matrix_rank(D))
+c_i = one_minus_pi(cx)
+tab["ico2"] = {"Pi": 1 - c_i, "c": c_i, "count": 4 / c_i, "<A>_x_U": theta_ratio(c_i), "M": theta_ratio(c_i) / math.exp(-c_i * S_U),
+               "exact": True, "rank": rank, "note": "the half turn spreads over all 20 faces: heat time 20 tau"}
+
+# torus2
+for L in (4, 8, 16):
+    cL = 1.0 / L ** 2
+    tab["torus2_L%d" % L] = {"Pi": 1 - cL, "c": cL, "count": 4 / cL, "<A>_x_U": theta_ratio(cL),
+                             "M": theta_ratio(cL) / math.exp(-cL * S_U), "exact": True}
+cx = C.cubic(4, 2)
+tab["torus2_L4"]["dense_check_c"] = one_minus_pi(cx)
+
+# cub3, cub4: Fourier value (2/d)(1 - L^-d), dense check on small lattices, next classes
+def next_class_gap(cx):
+    """smallest increase of Q g^2 over the leading class among v = +-e_0/2 + (+-e_P'), P' != P0.
+    Q g^2 = v^T (1 - Pi) v. Needs the row of 1 - Pi at P0 and its diagonal (one value per plaquette type)."""
+    D = sp_cob(cx)
+    P0 = cx["P0"]
+    e = np.zeros(cx["nplaq"]); e[P0] = 1.0
+    row = e - projector_entry(D, None, e.copy())
+    diag = np.zeros(cx["nplaq"])
+    for ty in sorted(set(cx["ptype"].tolist())):
+        p = int(np.nonzero(cx["ptype"] == ty)[0][0])
+        ee = np.zeros(cx["nplaq"]); ee[p] = 1.0
+        diag[cx["ptype"] == ty] = 1.0 - float(projector_entry(D, None, ee.copy())[p])
+    q0 = 0.25 * row[P0]
+    inc = diag - np.abs(row)
+    inc[P0] = 1e9
+    return q0, float(inc.min())
+
+
+for d, Ls, Ld in ((3, (4, 6, 8, 12, 16), 6), (4, (4, 6, 8), 4)):
+    cxs = C.cubic(Ld, d)
+    c_dense = one_minus_pi(cxs)
+    q0, gap = next_class_gap(cxs)
+    for L in Ls:
+        cL = 1 - (2 / d) * (1 - L ** (-d))
+        tab["cub%d_L%d" % (d, L)] = {"Pi": 1 - cL, "c": cL, "count": 4 / cL, "<A>_x_U": villain_weak(cL), "M": 2.0,
+                                     "exact": "weak-coupling form; relative correction below 4 nplaq exp(-8 pi^2 gap/g^2)"}
+    tab["cub%d_L%d" % (d, Ld)]["dense_check_c"] = c_dense
+    tab["cub%d_L%d" % (d, Ld)]["next_class_gap_Q_g2"] = gap
+    tab["cub%d_L%d" % (d, Ld)]["relative_correction_bound_at_x_U"] = 4 * cxs["nplaq"] * math.exp(-8 * pi ** 2 * gap / G2U)
+    tab["cub%d_infinite" % d] = {"Pi": 2 / d, "c": 1 - 2 / d, "count": 4 / (1 - 2 / d), "<A>_x_U": villain_weak(1 - 2 / d), "M": 2.0}
+
+# icoT and pairT: the surface as space, NT ticks
+V, E, F = C.icosahedron()
+eidx = {e: n for n, e in enumerate(E)}
+Dg = np.zeros((30, 12))
+for e, (i, j) in enumerate(E):
+    Dg[e, j] += 1; Dg[e, i] -= 1
+pe = projector_entry(Dg)
+tab["icoT_NT1_Gauss"] = {"Pi": float(pe[0]), "c": 1 - float(pe[0]), "count": 4 / (1 - float(pe[0])),
+                         "<A>_x_U": villain_weak(1 - float(pe[0])), "M": 2.0, "expected_Pi": 11 / 30,
+                         "note": "one tick with the Gauss law: the time-like plaquettes are gradients of the gauge function"}
+for NT in (2, 3, 4, 6, 8, 12, 16, 24):
+    cx = C.icoT(NT)
+    cT = one_minus_pi(cx)
+    # a spatial face of the same complex
+    f0 = int(np.nonzero(cx["ptype"] == 0)[0][0])
+    cF = one_minus_pi(cx, P0=f0)
+    tab["icoT_NT%d" % NT] = {"Pi": 1 - cT, "c": cT, "count": 4 / cT, "<A>_x_U": villain_weak(cT), "M": 2.0,
+                             "Pi_of_a_face": 1 - cF}
+# closed form at many ticks: c = (1/30) sum over the nonzero eigenvalues lam of the face Laplacian of sqrt(lam/(lam + 4))
+Df = C.coboundary(C.ico2())
+lam = np.linalg.eigvalsh(Df @ Df.T)
+lam = lam[lam > 1e-9]
+tab["icoT_infinite"] = {"Pi": 1 - float(np.sqrt(lam / (lam + 4)).sum() / 30), "c": float(np.sqrt(lam / (lam + 4)).sum() / 30),
+                        "count": 30 / float(np.sqrt(lam / (lam + 4)).sum()) * 4, "<A>_x_U": villain_weak(float(np.sqrt(lam / (lam + 4)).sum() / 30)),
+                        "M": 2.0, "face_laplacian_eigenvalues": sorted(set(np.round(lam, 9).tolist())),
+                        "closed_form": "(1/30) sum sqrt(lam/(lam+4)), lam = 3-sqrt5 (x3), 2 (x5), 3 (x4), 5 (x4), 3+sqrt5 (x3)"}
+tab["icoT_continuous_time"] = {"c_E": float(np.sqrt(lam).sum() / 60), "note": "Hamiltonian limit: <E^2> g^2 = (1/30) sum sqrt(lam)/2"}
+cx = C.icoT(8)
+q0, gap = next_class_gap(cx)
+tab["icoT_NT8"]["next_class_gap_Q_g2"] = gap
+tab["icoT_NT8"]["relative_correction_bound_at_x_U"] = 4 * cx["nplaq"] * math.exp(-8 * pi ** 2 * gap / G2U)
+for NT in (2, 4, 8, 16, 32):
+    cx = C.pairT(NT)
+    cT = one_minus_pi(cx)
+    tab["pairT_NT%d" % NT] = {"Pi": 1 - cT, "c": cT, "count": 4 / cT, "<A>_x_U": villain_weak(cT), "M": 2.0}
+out["C_twist_reading"] = tab
+
+# ------------------------------------------------------------------------------------------- B: LV's statements
+B = {}
+cx = C.ico2()
+D = C.coboundary(cx)
+cols_two = bool(all(int(np.count_nonzero(D[:, e])) == 2 for e in range(30)))
+opp = bool(all(abs(D[:, e].sum()) < 1e-12 for e in range(30)))
+U_, s_, Vt = np.linalg.svd(D, full_matrices=False)
+r = int((s_ > 1e-9).sum())
+Pr = U_[:, :r] @ U_[:, :r].T
+eps = D[:, 0] * 2 * pi
+B["B1_icosahedral_pair"] = {
+    "corners_seams_faces": [12, 30, 20], "rank": r, "every_seam_in_two_faces": cols_two, "opposite_orientation": opp,
+    "face_flux_variance_over_g2": float(Pr[0, 0]),
+    "seam_at_2pi_gives_face_fluxes_over_pi": sorted(set(np.round(eps / pi, 12).tolist())),
+    "pair_lies_in_the_range_of_d": float(np.linalg.norm(Pr @ eps - eps)),
+    "Gaussian_action_of_the_pair_times_g2": float(eps @ eps / 2), "4pi^2": 4 * pi ** 2,
+    "Villain_joint_density_ratio_pair_over_vacuum_at_x_U": float((cartan_law(tau)) ** 2),
+    "per_orientation": math.exp(-2 * S_U), "c_density": 2.0, "count_density": 2.0,
+    "statement": "EXACT: the joint flux density of (+2 pi, -2 pi) on the two faces of one seam relative to (0, 0) is the "
+                 "square of the one-face ratio. The closure sum of the 20 fluxes is unchanged by the pair.",
+}
+B["B2_one_free_face"] = {"density_ratio_at_x_U": float(cartan_law(tau)), "c_density": 1.0, "count_density": 4.0}
+B["B3_cubic_density"] = {str(d): {"plaquette_variance_over_g2": 2 / d, "c_density": d / 2, "count_density": 8 / d,
+                                  "density_ratio_at_x_U": 2 * math.exp(-(d / 2) * S_U)} for d in (2, 3, 4)}
+B["B3_note"] = ("Gaussian flux density of one plaquette at 2 pi relative to 0: 2 exp(-(2 pi)^2/(2 Pi g^2)) = 2 exp(-S/Pi), "
+                "Pi = 2/d. This is LV's count 8/d. It is the density of the flux. The class balance is the twist "
+                "expectation 2 exp(-S (1 - Pi)).")
+B["B4_LV_row_N8"] = {"d=3": {"LV_c_E": 2 / 3, "this_lane_c": 1 / 3}, "d=4": {"LV_c_E": 1 / 2, "this_lane_c": 1 / 2},
+                     "note": "the electric variance of a link is (1 - Pi)/g^2, Pi the variance of its time-like plaquette "
+                             "over g^2. LV's row used Pi itself. The two agree for d = 4 only."}
+out["B_LV_statements"] = B
+
+# ------------------------------------------------------------------------------------------- face-step midpoint
+def face_mid(cx):
+    """exponent in units of S for A read at the midpoint of the face step (METHOD section 2 and 4)"""
+    D = sp_cob(cx)
+    P0 = cx["P0"]
+    # the seam of the twisted plaquette: its first link on the surface complexes, its spatial link on the cubic lattice
+    l = int(cx["pl"][P0, 3]) if cx["name"].startswith("cub") else int(cx["pl"][P0, 0])
+    u = np.zeros(cx["nplaq"])
+    nface = 0
+    for a in range(cx["lp_ptr"][l], cx["lp_ptr"][l + 1]):
+        p = int(cx["lp_idx"][a]); k = int(cx["lp_pos"][a])
+        s = float(cx["ps"][p, k])
+        if p == P0:
+            u[p] = 2 * pi * s
+        elif cx["ptype"][p] == 0:
+            # faces of the same time slice (plaquettes of the seam that do not contain the tick)
+            u[p] = pi * s; nface += 1
+    pu = projector_entry(D, None, u.copy())
+    return {"c": float(u @ (u - pu)) / (4 * pi ** 2) + nface * 0.25, "faces": nface,
+            "quadratic_part": float(u @ (u - pu)) / (4 * pi ** 2)}
+
+
+fm = {}
+for nm in ("cub3_L6", "cub4_L4", "icoT_NT8"):
+    fm[nm] = face_mid(C.build(nm))
+out["face_step_midpoint_c"] = fm
+
+# ------------------------------------------------------------------------------------------- D: Wilson classical minimum
+def wilson_min(cx, seeds=3):
+    Dm = sp_cob(cx)
+    P0 = cx["P0"]
+    sg = np.ones(cx["nplaq"]); sg[P0] = -1.0
+
+    def fun(e):
+        Fl = Dm @ e
+        val = 4.0 * (1.0 - sg * np.cos(Fl / 2)).sum()
+        grad = Dm.T @ (2.0 * sg * np.sin(Fl / 2))
+        return val, grad
+    best = None
+    rng = np.random.default_rng(5)
+    e0 = np.zeros(cx["nplaq"]); e0[P0] = 2 * pi
+    gauss = splinalg.lsqr(Dm, e0, atol=1e-13, btol=1e-13, iter_lim=50000)[0]
+    starts = [gauss] + [gauss * rng.uniform(0.2, 1.2) + 0.05 * rng.normal(size=cx["nlink"]) for _ in range(seeds)]
+    starts.append(0.01 * rng.normal(size=cx["nlink"]))
+    vals = []
+    for s0 in starts:
+        r_ = optimize.minimize(fun, s0, jac=True, method="L-BFGS-B", options={"maxiter": 20000, "ftol": 1e-15, "gtol": 1e-10})
+        vals.append(float(r_.fun))
+        if best is None or r_.fun < best[0]:
+            best = (float(r_.fun), r_.x)
+    Fl = Dm @ best[1]
+    return {"s_W": best[0], "c_W": best[0] / (2 * pi ** 2), "count": 4 / (best[0] / (2 * pi ** 2)), "all_minima": vals,
+            "flux_on_P0_over_2pi": float(abs(Fl[P0]) / (2 * pi)), "pinned_value": 8.0,
+            "gaussian_value_2pi^2(1-Pi)": 2 * pi ** 2 * one_minus_pi(cx)}
+
+
+W = {"pinned": {"s_W": 8.0, "c_W": 4 / pi ** 2, "count": pi ** 2, "M": 1.0, "<A>_x_U": math.exp(-8 / G2U),
+                "exact": "exp(-2 beta) = exp(-8/g^2)"}}
+for nm in ("cub3_L6", "cub3_L8", "cub4_L4", "cub4_L6", "icoT_NT8", "icoT_NT16", "ico2"):
+    W[nm] = wilson_min(C.build(nm))
+out["D_wilson_classical"] = W
+
+# ------------------------------------------------------------------------------------------- E: Gaussian estimate with a link mass
+def massive_c(d, m2, L=16):
+    k = 2 * np.sin(pi * np.arange(L) / L)
+    g = np.meshgrid(*([k] * d), indexing="ij")
+    k2 = sum(x ** 2 for x in g)
+    return 1.0 - (2 / d) * float((k2 / (k2 + m2)).mean())   # the zero mode contributes 0
+
+
+out["E_gaussian_link_mass_c_d4"] = {"m2=%.2f" % m2: massive_c(4, m2) for m2 in (1e-9, 0.25, 0.5, 1.0, 2.0, 4.0, 8.0, 16.0, 32.0, 64.0, 1e6)}
+
+json.dump(out, open("abelian.json", "w"), indent=1)
+print(json.dumps(out["A_single_register_at_x_U"], indent=0))
+print("%-24s %10s %10s %10s %14s" % ("complex", "Pi", "c", "count", "<A> at x_U"))
+for k, v in tab.items():
+    if "Pi" in v:
+        print("%-24s %10.6f %10.6f %10s %14.6e" % (k, v["Pi"], v["c"], ("%.3f" % v["count"]) if v["count"] else "inf", v["<A>_x_U"]))
+print("icoT continuous time c_E:", tab["icoT_continuous_time"])
+print(json.dumps(out["B_LV_statements"], indent=0)[:1500])
+print("face-step midpoint c:", fm)
+for k, v in W.items():
+    print("Wilson", k, {a: (round(b, 5) if isinstance(b, float) else b) for a, b in v.items() if a != "all_minima"}, v.get("all_minima"))
+print("link mass:", out["E_gaussian_link_mass_c_d4"])

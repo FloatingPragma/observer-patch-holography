@@ -1,0 +1,264 @@
+#!/usr/bin/env python
+"""QF block C. The array edge-slot kernel of the earlier simulator, driven through its own primitives
+(oph_fpe/gauge/covariant_overlap.py), group S3, on one edge (exact) and on the icosahedral graph
+(12 patches, 30 edges, 20 triangles; simulation with the real functions).
+
+1. One edge, exact over all 216 states (p_i, p_j, g_ij): the three event branches (rewrite left endpoint,
+   rewrite right endpoint, link absorbs the discrepancy), what each keeps, the terminal law from a uniform
+   start and from a non-uniform start.
+2. Local-frame covariance of the mismatch predicate and of the repair (control: raw label inequality).
+3. Triangle holonomy of the links on the icosahedron: conservation at q = 0, change probability at q > 0
+   during the initial relaxation, and lifetime under the endpoint-refresh drive.
+
+Run on a box: python array_exact.py  -> array_exact.json
+"""
+from __future__ import annotations
+
+import itertools
+import json
+from fractions import Fraction
+
+import networkx as nx
+import numpy as np
+
+from oph_fpe.finite_groups import S3_CLASS, S3_INV, S3_MUL
+from oph_fpe.gauge.covariant_overlap import (
+    absorb_discrepancy_into_gauge,
+    covariant_discrepancy,
+    covariant_mismatch_mask,
+    gauge_invariant_edge_residual,
+    repair_covariant_port_pairs,
+    repair_production_sector_links,
+    transform_local_frames,
+)
+
+G = dict(group_name="S3", group_order=6)
+
+
+def one_edge_exact():
+    trip = np.array(list(itertools.product(range(6), repeat=3)), dtype=np.int16)  # (p_i, p_j, g)
+    pl0, pr0, g0 = trip[:, 0].copy(), trip[:, 1].copy(), trip[:, 2].copy()
+    mis = covariant_mismatch_mask(pl0, pr0, g0, **G)
+    idx = np.arange(216)
+
+    def code(pl, pr, g):
+        return pl.astype(np.int64) * 36 + pr.astype(np.int64) * 6 + g.astype(np.int64)
+
+    out = {"states": 216, "mismatched": int(mis.sum()), "consistent": int((~mis).sum())}
+    # branch L: rewrite left endpoint
+    pl, pr, g = pl0.copy(), pr0.copy(), g0.copy()
+    repair_covariant_port_pairs(pl, pr, g, idx, np.ones(216, bool), **G)
+    L = code(pl, pr, g)
+    out["left_rewrite"] = {
+        "all_consistent_after": bool(not covariant_mismatch_mask(pl, pr, g, **G).any()),
+        "keeps_right_port_and_link": bool(np.array_equal(pr, pr0) and np.array_equal(g, g0)),
+        "idempotent": True,
+    }
+    pl2, pr2, g2 = pl.copy(), pr.copy(), g.copy()
+    repair_covariant_port_pairs(pl2, pr2, g2, idx, np.ones(216, bool), **G)
+    out["left_rewrite"]["idempotent"] = bool(np.array_equal(code(pl2, pr2, g2), L))
+    # branch R
+    pl, pr, g = pl0.copy(), pr0.copy(), g0.copy()
+    repair_covariant_port_pairs(pl, pr, g, idx, np.zeros(216, bool), **G)
+    R = code(pl, pr, g)
+    out["right_rewrite"] = {
+        "all_consistent_after": bool(not covariant_mismatch_mask(pl, pr, g, **G).any()),
+        "keeps_left_port_and_link": bool(np.array_equal(pl, pl0) and np.array_equal(g, g0)),
+    }
+    # branch K: link absorbs the discrepancy (the production 'repair_coupled_group_compose' move)
+    pl, pr, g = pl0.copy(), pr0.copy(), g0.copy()
+    delta = covariant_discrepancy(pl, pr, g, **G)
+    absorb_discrepancy_into_gauge(g, idx, delta, **G)
+    K = code(pl, pr, g)
+    out["link_absorbs"] = {
+        "all_consistent_after": bool(not covariant_mismatch_mask(pl, pr, g, **G).any()),
+        "keeps_both_ports": bool(np.array_equal(pl, pl0) and np.array_equal(pr, pr0)),
+        "new_link_equals_pi_pj_inverse": bool(np.array_equal(g, S3_MUL[pl0.astype(int), S3_INV[pr0.astype(int)]])),
+        "link_changed_on_every_mismatched_state": bool(np.all(g[mis] != g0[mis])),
+    }
+    # terminal law of one event from the uniform law on the 180 mismatched states, exact
+    for q in (Fraction(0), Fraction(2, 25)):
+        law = {}
+        for s in np.flatnonzero(mis):
+            w = Fraction(1, int(mis.sum()))
+            for tgt, p in ((int(K[s]), q), (int(L[s]), (1 - q) / 2), (int(R[s]), (1 - q) / 2)):
+                if p:
+                    law[tgt] = law.get(tgt, Fraction(0)) + w * p
+        vals = sorted(set(law.values()))
+        out[f"terminal_law_from_uniform_mismatched_start_q={q}"] = {
+            "support": len(law),
+            "distinct_probabilities": [str(v) for v in vals],
+            "uniform_on_36_consistent_states": len(law) == 36 and len(vals) == 1,
+        }
+    # terminal law from a non-uniform start (left label biased to the identity): the terminal law inherits it
+    law = {}
+    wsum = Fraction(0)
+    for s in np.flatnonzero(mis):
+        w = Fraction(3 if pl0[s] == 0 else 1)
+        wsum += w
+        for tgt, p in ((int(L[s]), Fraction(1, 2)), (int(R[s]), Fraction(1, 2))):
+            law[tgt] = law.get(tgt, Fraction(0)) + w * p
+    vals = sorted(set(v / wsum for v in law.values()))
+    # response to a port perturbation: start consistent, overwrite the left label by another value, one event
+    cons = np.flatnonzero(~mis)
+    healed = copied = absorbed = other = 0
+    for s in cons:
+        for new in range(6):
+            if new == pl0[s]:
+                continue
+            t = int(new * 36 + int(pr0[s]) * 6 + int(g0[s]))  # perturbed state index (code == index)
+            orig = int(code(pl0[s:s + 1], pr0[s:s + 1], g0[s:s + 1])[0])
+            healed += int(L[t] == orig)
+            copied += int(R[t] // 36 == new and R[t] % 6 == g0[s] and (R[t] // 6) % 6 != pr0[s])
+            absorbed += int(K[t] // 36 == new and (K[t] // 6) % 6 == pr0[s] and K[t] % 6 != g0[s])
+    n_pert = cons.size * 5
+    out["port_perturbation_response"] = {
+        "perturbations": int(n_pert),
+        "left_rewrite_restores_the_unperturbed_state": healed == n_pert,
+        "right_rewrite_copies_the_perturbation_to_the_facing_port": copied == n_pert,
+        "link_branch_writes_the_perturbation_into_the_link": absorbed == n_pert,
+        "branch_probabilities": "healed (1-q)/2, copied (1-q)/2, written into the link q",
+    }
+    out["terminal_law_from_biased_start_q=0"] = {
+        "support": len(law),
+        "distinct_probabilities": [str(v) for v in vals],
+        "uniform": len(vals) == 1,
+        "note": "every consistent state is absorbing; the terminal law is the image of the initial law",
+    }
+    return out
+
+
+def icosa():
+    g = nx.icosahedral_graph()
+    edges = np.array(sorted((min(a, b), max(a, b)) for a, b in g.edges()), dtype=np.int64)
+    eidx = {(int(a), int(b)): i for i, (a, b) in enumerate(edges)}
+    faces = sorted({tuple(sorted((a, b, c))) for a, b in g.edges() for c in set(g[a]) & set(g[b])})
+    return edges[:, 0].copy(), edges[:, 1].copy(), eidx, faces
+
+
+def link(gauge, eidx, a, b):
+    """g_ab as stored for a<b, inverse for the reversed direction."""
+    if (a, b) in eidx:
+        return int(gauge[eidx[(a, b)]])
+    return int(S3_INV[int(gauge[eidx[(b, a)]])])
+
+
+def face_holonomy(gauge, eidx, faces):
+    out = np.zeros(len(faces), dtype=np.int64)
+    for k, (a, b, c) in enumerate(faces):
+        out[k] = S3_MUL[S3_MUL[link(gauge, eidx, a, b), link(gauge, eidx, b, c)], link(gauge, eidx, c, a)]
+    return out
+
+
+def covariance_checks(rng):
+    left, right, eidx, faces = icosa()
+    n = left.size
+    fails = {"mask_changed": 0, "naive_mask_changed": 0, "repair_not_equivariant": 0, "holonomy_class_changed": 0,
+             "residual_changed": 0, "trials": 200}
+    for _ in range(fails["trials"]):
+        pl = rng.integers(0, 6, n, dtype=np.int16)
+        pr = rng.integers(0, 6, n, dtype=np.int16)
+        ga = rng.integers(0, 6, n, dtype=np.int16)
+        frames = rng.integers(0, 6, 12, dtype=np.int16)
+        tl, tr, tg = transform_local_frames(pl, pr, ga, left, right, frames, **G)
+        m0 = covariant_mismatch_mask(pl, pr, ga, **G)
+        m1 = covariant_mismatch_mask(tl, tr, tg, **G)
+        fails["mask_changed"] += int(not np.array_equal(m0, m1))
+        fails["naive_mask_changed"] += int(not np.array_equal(pl != pr, tl != tr))
+        fails["residual_changed"] += int(not np.array_equal(
+            gauge_invariant_edge_residual(pl, pr, ga, **G), gauge_invariant_edge_residual(tl, tr, tg, **G)))
+        h0 = S3_CLASS[face_holonomy(ga, eidx, faces)]
+        h1 = S3_CLASS[face_holonomy(np.asarray(tg), eidx, faces)]
+        fails["holonomy_class_changed"] += int(not np.array_equal(h0, h1))
+        chosen = np.flatnonzero(m0)
+        direction = rng.random(chosen.size) < 0.5
+        a_l, a_r, a_g = pl.copy(), pr.copy(), ga.copy()
+        repair_covariant_port_pairs(a_l, a_r, a_g, chosen, direction, **G)
+        b_l, b_r, b_g = np.array(tl, copy=True), np.array(tr, copy=True), np.array(tg, copy=True)
+        repair_covariant_port_pairs(b_l, b_r, b_g, chosen, direction, **G)
+        c_l, c_r, c_g = transform_local_frames(a_l, a_r, a_g, left, right, frames, **G)
+        fails["repair_not_equivariant"] += int(not (np.array_equal(b_l, c_l) and np.array_equal(b_r, c_r)
+                                                    and np.array_equal(b_g, c_g)))
+    return fails
+
+
+def relax(rng, q, budget, drive=0.0, cycles=64, runs=2000):
+    """Array loop with the real primitives: optional endpoint refresh, choose active edges, link move with
+    probability q on chosen mismatches (repair_production_sector_links), then endpoint rewrite by a fair coin."""
+    left, right, eidx, faces = icosa()
+    n = left.size
+    cfg = {"enabled": q > 0, "probability": q, "mode": "repair_coupled_group_compose"}
+    stats = {"runs": runs, "q": q, "budget": budget, "drive_edge_fraction": drive, "cycles": cycles,
+             "phi_increases": 0, "cycles_to_zero_max": 0, "faces_changed_element": 0, "faces_changed_class": 0,
+             "faces_total": runs * len(faces), "link_writes": 0, "initial_mismatch_fraction": 0.0,
+             "final_phi_nonzero_runs": 0}
+    survive = np.zeros(cycles + 1)
+    for _ in range(runs):
+        pl = rng.integers(0, 6, n, dtype=np.int16)
+        pr = rng.integers(0, 6, n, dtype=np.int16)
+        ga = rng.integers(0, 6, n, dtype=np.int16)
+        h0 = face_holonomy(ga, eidx, faces)
+        alive = np.ones(len(faces), bool)
+        survive[0] += alive.mean()
+        stats["initial_mismatch_fraction"] += float(covariant_mismatch_mask(pl, pr, ga, **G).mean()) / runs
+        tzero = None
+        for cyc in range(cycles):
+            if drive > 0:
+                hit = np.flatnonzero(rng.random(n) < drive)
+                side = rng.random(hit.size) < 0.5
+                pl[hit[side]] = rng.integers(0, 6, int(side.sum()), dtype=np.int16)
+                pr[hit[~side]] = rng.integers(0, 6, int((~side).sum()), dtype=np.int16)
+            mis = covariant_mismatch_mask(pl, pr, ga, **G)
+            before = int(mis.sum())
+            active = np.flatnonzero(mis)
+            if active.size:
+                chosen = rng.choice(active, size=min(budget, active.size), replace=False)
+                delta = covariant_discrepancy(pl[chosen], pr[chosen], ga[chosen], **G)
+                stats["link_writes"] += repair_production_sector_links(ga, chosen, delta, rng=rng, config=cfg, **G)
+                direction = rng.random(chosen.size) < 0.5
+                repair_covariant_port_pairs(pl, pr, ga, chosen, direction, **G)
+            after = int(covariant_mismatch_mask(pl, pr, ga, **G).sum())
+            if after > before:
+                stats["phi_increases"] += 1
+            if tzero is None and after == 0:
+                tzero = cyc + 1
+            alive &= face_holonomy(ga, eidx, faces) == h0
+            survive[cyc + 1] += alive.mean()
+        h1 = face_holonomy(ga, eidx, faces)
+        stats["faces_changed_element"] += int((h1 != h0).sum())
+        stats["faces_changed_class"] += int((S3_CLASS[h1] != S3_CLASS[h0]).sum())
+        stats["cycles_to_zero_max"] = max(stats["cycles_to_zero_max"], tzero or 0)
+        stats["final_phi_nonzero_runs"] += int(covariant_mismatch_mask(pl, pr, ga, **G).any())
+    survive /= runs
+    stats["fraction_faces_changed_element"] = stats["faces_changed_element"] / stats["faces_total"]
+    stats["fraction_faces_changed_class"] = stats["faces_changed_class"] / stats["faces_total"]
+    stats["survival_of_initial_face_holonomy"] = {str(t): float(survive[t]) for t in (0, 1, 2, 4, 8, 16, 32, cycles) if t <= cycles}
+    if drive > 0 and q > 0:
+        # per-cycle hazard from the tail of the survival curve
+        t1, t2 = cycles // 2, cycles
+        if survive[t2] > 0:
+            rate = float(np.log(survive[t1] / survive[t2]) / (t2 - t1))
+            stats["measured_hazard_per_cycle"] = rate
+            stats["measured_lifetime_cycles"] = 1.0 / rate
+        stats["predicted_hazard_per_cycle = 3*drive*(5/6)*q"] = 3 * drive * (5 / 6) * q
+    return stats
+
+
+def main():
+    rng = np.random.default_rng(20261110)
+    res = {"one_edge_exact": one_edge_exact(), "frame_covariance": covariance_checks(rng)}
+    res["relaxation_q0_full_budget"] = relax(rng, 0.0, 30, cycles=8)
+    res["relaxation_q0_budget4"] = relax(rng, 0.0, 4, cycles=16)
+    res["relaxation_q0.08_full_budget"] = relax(rng, 0.08, 30, cycles=8, runs=20000)
+    res["predicted_fraction_faces_changed_q0.08 = 1-(1-q*5/6)^3"] = 1 - (1 - 0.08 * 5 / 6) ** 3
+    res["driven_q0_drive0.1"] = relax(rng, 0.0, 30, drive=0.1, cycles=64)
+    res["driven_q0.08_drive0.1"] = relax(rng, 0.08, 30, drive=0.1, cycles=128, runs=4000)
+    res["driven_q0.08_drive0.3"] = relax(rng, 0.08, 30, drive=0.3, cycles=64, runs=4000)
+    res["b12_parameters_lifetime_cycles_by_formula (drive 0.003, q 0.08)"] = 1 / (3 * 0.003 * (5 / 6) * 0.08)
+    with open("array_exact.json", "w") as fh:
+        json.dump(res, fh, indent=1)
+    print(json.dumps(res, indent=1))
+
+
+if __name__ == "__main__":
+    main()

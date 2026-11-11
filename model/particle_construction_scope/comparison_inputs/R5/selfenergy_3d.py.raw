@@ -1,0 +1,17 @@
+"""Item 5: convergence of the second-order self-energy in three dimensions (L = 64, 96), windows as in selfenergy_run.py.
+NOTE (R5): forward-only schedule; in three dimensions it has no resonance-free window (PROOFS.md 1c), so these sums do not
+converge. Kept as the record of that. The binding (alternating) schedule is in selfenergy_alt_run.py.
+"""
+import json, sys, time
+from multiprocessing import Pool
+import numpy as np
+from selfenergy_run import one, TH
+if __name__ == '__main__':
+    t0 = time.time(); ps = (0.0, 0.05, 0.1, 0.15, 0.2)
+    jobs = [(3, L, kap, p, 0, 0.0, TH) for L in (64, 96) for kap in (-0.0125, 0.355) for p in ps]
+    with Pool(10) as pool: rows = pool.map(one, jobs, chunksize=1)
+    for kap in (-0.0125, 0.355):
+        for L in (64, 96):
+            sel = sorted([r for r in rows if r['kappa'] == kap and r['L'] == L], key=lambda r: r['p'])
+            print(f'3D kappa={kap} L={L}: sigma = ' + ' '.join('%+.5f' % r['sigma_re'] for r in sel) + '   2E sigma = ' + ' '.join('%+.5f' % (2 * r['E'] * r['sigma_re']) for r in sel))
+    json.dump(dict(rows=rows, seconds=time.time() - t0), open('selfenergy_3d.json', 'w'), indent=1)

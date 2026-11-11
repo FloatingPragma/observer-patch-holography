@@ -1,0 +1,1614 @@
+{
+ "level": 6,
+ "window": [
+  496,
+  500
+ ],
+ "checkpoint": 500,
+ "balanced_sweep": 61,
+ "regime": "balanced",
+ "checks": [
+  {
+   "before_sweep": 496,
+   "intra_ok": true,
+   "screen_ok": true
+  },
+  {
+   "after_sweep": 496,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 518
+  },
+  {
+   "after_sweep": 497,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 544
+  },
+  {
+   "after_sweep": 498,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 556
+  },
+  {
+   "after_sweep": 499,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 542
+  }
+ ],
+ "all_checks_ok": true,
+ "seeded_identities": {
+  "carrier": 51873,
+  "screen": 1959
+ },
+ "tiers": {
+  "carrier": {
+   "hops": {
+    "1": {
+     "hops": 1062,
+     "direction_vs_current": {
+      "fm_to_fp,j>0": 537,
+      "fm_to_fp,j<0": 0,
+      "fp_to_fm,j>0": 0,
+      "fp_to_fm,j<0": 525
+     },
+     "handedness_chi_plus": 0,
+     "handedness_chi_minus": 1062,
+     "handedness_chi_zero": 0,
+     "contrast_hist_-2_to_2": [
+      0,
+      525,
+      0,
+      537,
+      0
+     ],
+     "abs_current_hist_0_to_3": [
+      0,
+      1062,
+      0,
+      0
+     ],
+     "back_hop": {
+      "successive_hop_pairs": 518,
+      "back_hops": 263,
+      "p": 0.5077220077220077,
+      "err": 0.021966118636376725,
+      "random_choice": 0.3333333333333333
+     }
+    },
+    "5": {
+     "hops": 1057,
+     "direction_vs_current": {
+      "fm_to_fp,j>0": 0,
+      "fm_to_fp,j<0": 511,
+      "fp_to_fm,j>0": 546,
+      "fp_to_fm,j<0": 0
+     },
+     "handedness_chi_plus": 1057,
+     "handedness_chi_minus": 0,
+     "handedness_chi_zero": 0,
+     "contrast_hist_-2_to_2": [
+      0,
+      511,
+      0,
+      546,
+      0
+     ],
+     "abs_current_hist_0_to_3": [
+      0,
+      1057,
+      0,
+      0
+     ],
+     "back_hop": {
+      "successive_hop_pairs": 528,
+      "back_hops": 293,
+      "p": 0.5549242424242424,
+      "err": 0.021628024731277434,
+      "random_choice": 0.3333333333333333
+     }
+    }
+   },
+   "per_sweep": {
+    "1": {
+     "msd_by_lag_sweeps": [
+      {
+       "lag_sweeps": 1,
+       "n": 2789,
+       "msd": 0.3248476156328433,
+       "err": 0.009640336862656218,
+       "step_dual_hist_0_to_5": [
+        2033,
+        706,
+        50,
+        0,
+        0,
+        0
+       ],
+       "mean_step": 0.2889924704195052
+      },
+      {
+       "lag_sweeps": 2,
+       "n": 2085,
+       "msd": 0.6724220623501199,
+       "err": 0.023528397327216597
+      },
+      {
+       "lag_sweeps": 3,
+       "n": 1386,
+       "msd": 1.0454545454545454,
+       "err": 0.047307170594161306
+      }
+     ],
+     "alpha_fit_all_lags": 1.0623908109048052,
+     "persistence_per_sweep": {
+      "pairs": 2085,
+      "autocorrelation": -0.05287637467997462,
+      "both_moved": 157,
+      "mean_cos_turn": [
+       -0.20813902794986383,
+       0.05105177890078548
+      ],
+      "mean_sin_turn_left_positive": [
+       -0.021796079494316965,
+       0.04499883567354263
+      ]
+     }
+    },
+    "2": {
+     "msd_by_lag_sweeps": [
+      {
+       "lag_sweeps": 1,
+       "n": 87684,
+       "msd": 0.0,
+       "err": 0.0,
+       "step_dual_hist_0_to_5": [
+        87684,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "mean_step": 0.0
+      },
+      {
+       "lag_sweeps": 2,
+       "n": 65763,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 3,
+       "n": 43842,
+       "msd": 0.0,
+       "err": 0.0
+      }
+     ],
+     "persistence_per_sweep": {
+      "pairs": 65763,
+      "autocorrelation": null,
+      "both_moved": 0,
+      "mean_cos_turn": null,
+      "mean_sin_turn_left_positive": null
+     }
+    },
+    "3": {
+     "msd_by_lag_sweeps": [
+      {
+       "lag_sweeps": 1,
+       "n": 26304,
+       "msd": 0.0,
+       "err": 0.0,
+       "step_dual_hist_0_to_5": [
+        26304,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "mean_step": 0.0
+      },
+      {
+       "lag_sweeps": 2,
+       "n": 19728,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 3,
+       "n": 13152,
+       "msd": 0.0,
+       "err": 0.0
+      }
+     ],
+     "persistence_per_sweep": {
+      "pairs": 19728,
+      "autocorrelation": null,
+      "both_moved": 0,
+      "mean_cos_turn": null,
+      "mean_sin_turn_left_positive": null
+     }
+    },
+    "4": {
+     "msd_by_lag_sweeps": [
+      {
+       "lag_sweeps": 1,
+       "n": 87832,
+       "msd": 0.0,
+       "err": 0.0,
+       "step_dual_hist_0_to_5": [
+        87832,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "mean_step": 0.0
+      },
+      {
+       "lag_sweeps": 2,
+       "n": 65874,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 3,
+       "n": 43916,
+       "msd": 0.0,
+       "err": 0.0
+      }
+     ],
+     "persistence_per_sweep": {
+      "pairs": 65874,
+      "autocorrelation": null,
+      "both_moved": 0,
+      "mean_cos_turn": null,
+      "mean_sin_turn_left_positive": null
+     }
+    },
+    "5": {
+     "msd_by_lag_sweeps": [
+      {
+       "lag_sweeps": 1,
+       "n": 2781,
+       "msd": 0.3074433656957929,
+       "err": 0.011564708881330455,
+       "step_dual_hist_0_to_5": [
+        2058,
+        679,
+        44,
+        0,
+        0,
+        0
+       ],
+       "mean_step": 0.2758000719165768
+      },
+      {
+       "lag_sweeps": 2,
+       "n": 2079,
+       "msd": 0.6267436267436267,
+       "err": 0.031929088261548014
+      },
+      {
+       "lag_sweeps": 3,
+       "n": 1382,
+       "msd": 0.9558610709117221,
+       "err": 0.0503911264833271
+      }
+     ],
+     "alpha_fit_all_lags": 1.0319711378283292,
+     "persistence_per_sweep": {
+      "pairs": 2079,
+      "autocorrelation": -0.06845766420002815,
+      "both_moved": 145,
+      "mean_cos_turn": [
+       -0.2604689471164007,
+       0.05358472335543918
+      ],
+      "mean_sin_turn_left_positive": [
+       -0.03648502895540136,
+       0.04570223213053735
+      ]
+     }
+    }
+   },
+   "events": {
+    "identities": 51873,
+    "births": {
+     "events": 0,
+     "table_unordered": {},
+     "table_by_regime": {
+      "quench": {},
+      "balanced": {}
+     },
+     "last_birth_sweep": null
+    },
+    "annihilations": {
+     "events": 17,
+     "table_unordered": {
+      "1,5": 17
+     },
+     "table_by_regime": {
+      "quench": {},
+      "balanced": {
+       "1,5": 17
+      }
+     }
+    },
+    "fusions": {
+     "events": 0,
+     "table_a_b_to_c": {},
+     "table_by_regime": {
+      "quench": {},
+      "balanced": {}
+     }
+    },
+    "splits": {
+     "events": 0,
+     "table_a_to_b_c": {},
+     "table_by_regime": {
+      "quench": {},
+      "balanced": {}
+     }
+    },
+    "exchanges": {
+     "events": 0,
+     "table_fp_fm_to_fp_fm": {},
+     "table_by_regime": {
+      "quench": {},
+      "balanced": {}
+     }
+    },
+    "moves": {
+     "hops_total": 2119
+    },
+    "addition_mod6_violations": {
+     "births": 0,
+     "annihilations": 0,
+     "fusions": 0,
+     "splits": 0,
+     "exchanges": 0
+    },
+    "class_out_of_range": 0,
+    "per_class": {
+     "1": {
+      "identities": 710,
+      "alive_at_end": 693,
+      "created_by": {
+       "present in the preparation": 710
+      },
+      "ended_by": {
+       "alive at end": 693,
+       "annihilation with 5": 17
+      },
+      "lifetime_depth_quantiles_ended": {
+       "0.1": 10826.0,
+       "0.25": 10829.0,
+       "0.5": 10855.0,
+       "0.75": 10866.0,
+       "0.9": 10881.0,
+       "0.99": 10893.36
+      },
+      "lifetime_sweeps_quantiles_ended": {
+       "0.1": 497.0,
+       "0.25": 497.0,
+       "0.5": 498.0,
+       "0.75": 499.0,
+       "0.9": 499.0,
+       "0.99": 499.0
+      },
+      "lifetime_depth_hist_bins": [
+       0,
+       1,
+       3,
+       10,
+       30,
+       100,
+       300,
+       1000,
+       3000,
+       10000,
+       100000
+      ],
+      "lifetime_depth_hist_ended": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       17
+      ],
+      "lifetime_depth_hist_alive_censored": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       693
+      ],
+      "median_lifetime_depth_by_ending": {
+       "annihilation": 10855.0,
+       "fusion": null,
+       "split": null,
+       "exchange": null
+      },
+      "born_in_balanced_regime": 0,
+      "hops_quantiles": {
+       "0.5": 1.0,
+       "0.9": 3.0,
+       "0.99": 5.0
+      },
+      "hops_hist_0_1_2_5_10_30_100_1000_inf": [
+       166,
+       241,
+       286,
+       17,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "2": {
+      "identities": 21921,
+      "alive_at_end": 21921,
+      "created_by": {
+       "present in the preparation": 21921
+      },
+      "ended_by": {
+       "alive at end": 21921
+      },
+      "lifetime_depth_quantiles_ended": {
+       "0.1": null,
+       "0.25": null,
+       "0.5": null,
+       "0.75": null,
+       "0.9": null,
+       "0.99": null
+      },
+      "lifetime_sweeps_quantiles_ended": {
+       "0.1": null,
+       "0.25": null,
+       "0.5": null,
+       "0.75": null,
+       "0.9": null,
+       "0.99": null
+      },
+      "lifetime_depth_hist_bins": [
+       0,
+       1,
+       3,
+       10,
+       30,
+       100,
+       300,
+       1000,
+       3000,
+       10000,
+       100000
+      ],
+      "lifetime_depth_hist_ended": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ],
+      "lifetime_depth_hist_alive_censored": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       21921
+      ],
+      "median_lifetime_depth_by_ending": {
+       "annihilation": null,
+       "fusion": null,
+       "split": null,
+       "exchange": null
+      },
+      "born_in_balanced_regime": 0,
+      "hops_quantiles": {
+       "0.5": 0.0,
+       "0.9": 0.0,
+       "0.99": 0.0
+      },
+      "hops_hist_0_1_2_5_10_30_100_1000_inf": [
+       21921,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "3": {
+      "identities": 6576,
+      "alive_at_end": 6576,
+      "created_by": {
+       "present in the preparation": 6576
+      },
+      "ended_by": {
+       "alive at end": 6576
+      },
+      "lifetime_depth_quantiles_ended": {
+       "0.1": null,
+       "0.25": null,
+       "0.5": null,
+       "0.75": null,
+       "0.9": null,
+       "0.99": null
+      },
+      "lifetime_sweeps_quantiles_ended": {
+       "0.1": null,
+       "0.25": null,
+       "0.5": null,
+       "0.75": null,
+       "0.9": null,
+       "0.99": null
+      },
+      "lifetime_depth_hist_bins": [
+       0,
+       1,
+       3,
+       10,
+       30,
+       100,
+       300,
+       1000,
+       3000,
+       10000,
+       100000
+      ],
+      "lifetime_depth_hist_ended": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ],
+      "lifetime_depth_hist_alive_censored": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       6576
+      ],
+      "median_lifetime_depth_by_ending": {
+       "annihilation": null,
+       "fusion": null,
+       "split": null,
+       "exchange": null
+      },
+      "born_in_balanced_regime": 0,
+      "hops_quantiles": {
+       "0.5": 0.0,
+       "0.9": 0.0,
+       "0.99": 0.0
+      },
+      "hops_hist_0_1_2_5_10_30_100_1000_inf": [
+       6576,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "4": {
+      "identities": 21958,
+      "alive_at_end": 21958,
+      "created_by": {
+       "present in the preparation": 21958
+      },
+      "ended_by": {
+       "alive at end": 21958
+      },
+      "lifetime_depth_quantiles_ended": {
+       "0.1": null,
+       "0.25": null,
+       "0.5": null,
+       "0.75": null,
+       "0.9": null,
+       "0.99": null
+      },
+      "lifetime_sweeps_quantiles_ended": {
+       "0.1": null,
+       "0.25": null,
+       "0.5": null,
+       "0.75": null,
+       "0.9": null,
+       "0.99": null
+      },
+      "lifetime_depth_hist_bins": [
+       0,
+       1,
+       3,
+       10,
+       30,
+       100,
+       300,
+       1000,
+       3000,
+       10000,
+       100000
+      ],
+      "lifetime_depth_hist_ended": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ],
+      "lifetime_depth_hist_alive_censored": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       21958
+      ],
+      "median_lifetime_depth_by_ending": {
+       "annihilation": null,
+       "fusion": null,
+       "split": null,
+       "exchange": null
+      },
+      "born_in_balanced_regime": 0,
+      "hops_quantiles": {
+       "0.5": 0.0,
+       "0.9": 0.0,
+       "0.99": 0.0
+      },
+      "hops_hist_0_1_2_5_10_30_100_1000_inf": [
+       21958,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "5": {
+      "identities": 708,
+      "alive_at_end": 691,
+      "created_by": {
+       "present in the preparation": 708
+      },
+      "ended_by": {
+       "alive at end": 691,
+       "annihilation with 1": 17
+      },
+      "lifetime_depth_quantiles_ended": {
+       "0.1": 10826.0,
+       "0.25": 10829.0,
+       "0.5": 10855.0,
+       "0.75": 10866.0,
+       "0.9": 10881.0,
+       "0.99": 10893.36
+      },
+      "lifetime_sweeps_quantiles_ended": {
+       "0.1": 497.0,
+       "0.25": 497.0,
+       "0.5": 498.0,
+       "0.75": 499.0,
+       "0.9": 499.0,
+       "0.99": 499.0
+      },
+      "lifetime_depth_hist_bins": [
+       0,
+       1,
+       3,
+       10,
+       30,
+       100,
+       300,
+       1000,
+       3000,
+       10000,
+       100000
+      ],
+      "lifetime_depth_hist_ended": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       17
+      ],
+      "lifetime_depth_hist_alive_censored": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       691
+      ],
+      "median_lifetime_depth_by_ending": {
+       "annihilation": 10855.0,
+       "fusion": null,
+       "split": null,
+       "exchange": null
+      },
+      "born_in_balanced_regime": 0,
+      "hops_quantiles": {
+       "0.5": 1.0,
+       "0.9": 3.0,
+       "0.99": 5.0
+      },
+      "hops_hist_0_1_2_5_10_30_100_1000_inf": [
+       179,
+       219,
+       294,
+       16,
+       0,
+       0,
+       0,
+       0
+      ]
+     }
+    },
+    "note": "identities present at sweep 496 are seeded (birth sweep -1); lifetimes are censored by the window"
+   }
+  },
+  "screen": {
+   "hops": {
+    "1": {
+     "hops": 21,
+     "direction_vs_current": {
+      "fm_to_fp,j>0": 14,
+      "fm_to_fp,j<0": 0,
+      "fp_to_fm,j>0": 0,
+      "fp_to_fm,j<0": 7
+     },
+     "handedness_chi_plus": 0,
+     "handedness_chi_minus": 21,
+     "handedness_chi_zero": 0,
+     "contrast_hist_-2_to_2": [
+      0,
+      7,
+      0,
+      14,
+      0
+     ],
+     "abs_current_hist_0_to_3": [
+      0,
+      21,
+      0,
+      0
+     ],
+     "back_hop": {
+      "successive_hop_pairs": 17,
+      "back_hops": 5,
+      "p": 0.29411764705882354,
+      "err": 0.11051016901502637,
+      "random_choice": "1/degree (1/6 or 1/5)"
+     }
+    },
+    "5": {
+     "hops": 3,
+     "direction_vs_current": {
+      "fm_to_fp,j>0": 0,
+      "fm_to_fp,j<0": 1,
+      "fp_to_fm,j>0": 2,
+      "fp_to_fm,j<0": 0
+     },
+     "handedness_chi_plus": 3,
+     "handedness_chi_minus": 0,
+     "handedness_chi_zero": 0,
+     "contrast_hist_-2_to_2": [
+      0,
+      1,
+      0,
+      2,
+      0
+     ],
+     "abs_current_hist_0_to_3": [
+      0,
+      3,
+      0,
+      0
+     ],
+     "back_hop": {
+      "successive_hop_pairs": 2,
+      "back_hops": 1,
+      "p": 0.5,
+      "err": 0.3535533905932738,
+      "random_choice": "1/degree (1/6 or 1/5)"
+     }
+    }
+   },
+   "per_sweep": {
+    "1": {
+     "msd_by_lag_sweeps": [
+      {
+       "lag_sweeps": 1,
+       "n": 20,
+       "msd": 1.0372340674617024,
+       "err": 0.5601559265952031,
+       "step_edges_hist_bins": [
+        0,
+        0.5,
+        1.5,
+        2.5,
+        3.5,
+        5.5,
+        1000000000.0
+       ],
+       "step_edges_hist": [
+        10,
+        7,
+        2,
+        1,
+        0,
+        0
+       ],
+       "mean_step": 0.6584033682919621
+      },
+      {
+       "lag_sweeps": 2,
+       "n": 15,
+       "msd": 2.107764077307843,
+       "err": 1.2164055876476934
+      },
+      {
+       "lag_sweeps": 3,
+       "n": 10,
+       "msd": 2.603266239430989,
+       "err": 1.3363073759342323
+      }
+     ],
+     "persistence_per_sweep": {
+      "pairs": 15,
+      "autocorrelation": -0.07121667011852909,
+      "both_moved": 4,
+      "mean_cos_turn": [
+       -0.23759470870280502,
+       0.37458246974997045
+      ],
+      "mean_sin_turn_left_positive": [
+       -0.4361867827760089,
+       0.21887337078142857
+      ]
+     }
+    },
+    "2": {
+     "msd_by_lag_sweeps": [
+      {
+       "lag_sweeps": 1,
+       "n": 2596,
+       "msd": 1.0624050704275305e-14,
+       "err": 4.433068951737958e-15,
+       "step_edges_hist_bins": [
+        0,
+        0.5,
+        1.5,
+        2.5,
+        3.5,
+        5.5,
+        1000000000.0
+       ],
+       "step_edges_hist": [
+        2596,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "mean_step": 9.61080415496548e-09
+      },
+      {
+       "lag_sweeps": 2,
+       "n": 1947,
+       "msd": 1.0624050704275305e-14,
+       "err": 4.4330689517379594e-15
+      },
+      {
+       "lag_sweeps": 3,
+       "n": 1298,
+       "msd": 1.0624050704275305e-14,
+       "err": 4.433068951737958e-15
+      }
+     ],
+     "alpha_fit_all_lags": 1.1530819707028883e-14,
+     "persistence_per_sweep": {
+      "pairs": 1947,
+      "autocorrelation": null,
+      "both_moved": 0,
+      "mean_cos_turn": null,
+      "mean_sin_turn_left_positive": null
+     }
+    },
+    "3": {
+     "msd_by_lag_sweeps": [
+      {
+       "lag_sweeps": 1,
+       "n": 2648,
+       "msd": 9.468564827073157e-15,
+       "err": 4.199564852793237e-15,
+       "step_edges_hist_bins": [
+        0,
+        0.5,
+        1.5,
+        2.5,
+        3.5,
+        5.5,
+        1000000000.0
+       ],
+       "step_edges_hist": [
+        2648,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "mean_step": 8.926693572271916e-09
+      },
+      {
+       "lag_sweeps": 2,
+       "n": 1986,
+       "msd": 9.468564827073158e-15,
+       "err": 4.199564852793238e-15
+      },
+      {
+       "lag_sweeps": 3,
+       "n": 1324,
+       "msd": 9.468564827073157e-15,
+       "err": 4.199564852793237e-15
+      }
+     ],
+     "alpha_fit_all_lags": 8.763451721135033e-15,
+     "persistence_per_sweep": {
+      "pairs": 1986,
+      "autocorrelation": null,
+      "both_moved": 0,
+      "mean_cos_turn": null,
+      "mean_sin_turn_left_positive": null
+     }
+    },
+    "4": {
+     "msd_by_lag_sweeps": [
+      {
+       "lag_sweeps": 1,
+       "n": 2568,
+       "msd": 4.881767846980085e-15,
+       "err": 3.99518137456813e-15,
+       "step_edges_hist_bins": [
+        0,
+        0.5,
+        1.5,
+        2.5,
+        3.5,
+        5.5,
+        1000000000.0
+       ],
+       "step_edges_hist": [
+        2568,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "mean_step": 4.6023918573551465e-09
+      },
+      {
+       "lag_sweeps": 2,
+       "n": 1926,
+       "msd": 4.881767846980086e-15,
+       "err": 3.99518137456813e-15
+      },
+      {
+       "lag_sweeps": 3,
+       "n": 1284,
+       "msd": 4.881767846980085e-15,
+       "err": 3.99518137456813e-15
+      }
+     ],
+     "alpha_fit_all_lags": 4.105772171840178e-15,
+     "persistence_per_sweep": {
+      "pairs": 1926,
+      "autocorrelation": null,
+      "both_moved": 0,
+      "mean_cos_turn": null,
+      "mean_sin_turn_left_positive": null
+     }
+    },
+    "5": {
+     "msd_by_lag_sweeps": [
+      {
+       "lag_sweeps": 1,
+       "n": 4,
+       "msd": 0.6609352151420705,
+       "err": 1.2161883888976235e-15,
+       "step_edges_hist_bins": [
+        0,
+        0.5,
+        1.5,
+        2.5,
+        3.5,
+        5.5,
+        1000000000.0
+       ],
+       "step_edges_hist": [
+        1,
+        3,
+        0,
+        0,
+        0,
+        0
+       ],
+       "mean_step": 0.7039583649909078
+      },
+      {
+       "lag_sweeps": 2,
+       "n": 3,
+       "msd": 1.107699231172971,
+       "err": 2.432376777795247e-15
+      },
+      {
+       "lag_sweeps": 3,
+       "n": 2,
+       "msd": 0.46199218965369954,
+       "err": 3.040470972244059e-16
+      }
+     ],
+     "persistence_per_sweep": {
+      "pairs": 3,
+      "autocorrelation": -0.23838056638391805,
+      "both_moved": 2,
+      "mean_cos_turn": [
+       -0.30939210523677535,
+       0.48822583462449587
+      ],
+      "mean_sin_turn_left_positive": [
+       0.46226158074853063,
+       0.3268682984292988
+      ]
+     }
+    }
+   },
+   "events": {
+    "identities": 1959,
+    "births": {
+     "events": 0,
+     "table_unordered": {},
+     "table_by_regime": {
+      "quench": {},
+      "balanced": {}
+     },
+     "last_birth_sweep": null
+    },
+    "annihilations": {
+     "events": 0,
+     "table_unordered": {},
+     "table_by_regime": {
+      "quench": {},
+      "balanced": {}
+     }
+    },
+    "fusions": {
+     "events": 0,
+     "table_a_b_to_c": {},
+     "table_by_regime": {
+      "quench": {},
+      "balanced": {}
+     }
+    },
+    "splits": {
+     "events": 0,
+     "table_a_to_b_c": {},
+     "table_by_regime": {
+      "quench": {},
+      "balanced": {}
+     }
+    },
+    "exchanges": {
+     "events": 0,
+     "table_fp_fm_to_fp_fm": {},
+     "table_by_regime": {
+      "quench": {},
+      "balanced": {}
+     }
+    },
+    "moves": {
+     "hops_total": 24
+    },
+    "addition_mod6_violations": {
+     "births": 0,
+     "annihilations": 0,
+     "fusions": 0,
+     "splits": 0,
+     "exchanges": 0
+    },
+    "class_out_of_range": 0,
+    "per_class": {
+     "1": {
+      "identities": 5,
+      "alive_at_end": 5,
+      "created_by": {
+       "present in the preparation": 5
+      },
+      "ended_by": {
+       "alive at end": 5
+      },
+      "lifetime_depth_quantiles_ended": {
+       "0.1": null,
+       "0.25": null,
+       "0.5": null,
+       "0.75": null,
+       "0.9": null,
+       "0.99": null
+      },
+      "lifetime_sweeps_quantiles_ended": {
+       "0.1": null,
+       "0.25": null,
+       "0.5": null,
+       "0.75": null,
+       "0.9": null,
+       "0.99": null
+      },
+      "lifetime_depth_hist_bins": [
+       0,
+       1,
+       3,
+       10,
+       30,
+       100,
+       300,
+       1000,
+       3000,
+       10000,
+       100000
+      ],
+      "lifetime_depth_hist_ended": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ],
+      "lifetime_depth_hist_alive_censored": [
+       5,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ],
+      "median_lifetime_depth_by_ending": {
+       "annihilation": null,
+       "fusion": null,
+       "split": null,
+       "exchange": null
+      },
+      "born_in_balanced_regime": 0,
+      "hops_quantiles": {
+       "0.5": 3.0,
+       "0.9": 7.6,
+       "0.99": 7.96
+      },
+      "hops_hist_0_1_2_5_10_30_100_1000_inf": [
+       1,
+       0,
+       2,
+       2,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "2": {
+      "identities": 649,
+      "alive_at_end": 649,
+      "created_by": {
+       "present in the preparation": 649
+      },
+      "ended_by": {
+       "alive at end": 649
+      },
+      "lifetime_depth_quantiles_ended": {
+       "0.1": null,
+       "0.25": null,
+       "0.5": null,
+       "0.75": null,
+       "0.9": null,
+       "0.99": null
+      },
+      "lifetime_sweeps_quantiles_ended": {
+       "0.1": null,
+       "0.25": null,
+       "0.5": null,
+       "0.75": null,
+       "0.9": null,
+       "0.99": null
+      },
+      "lifetime_depth_hist_bins": [
+       0,
+       1,
+       3,
+       10,
+       30,
+       100,
+       300,
+       1000,
+       3000,
+       10000,
+       100000
+      ],
+      "lifetime_depth_hist_ended": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ],
+      "lifetime_depth_hist_alive_censored": [
+       649,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ],
+      "median_lifetime_depth_by_ending": {
+       "annihilation": null,
+       "fusion": null,
+       "split": null,
+       "exchange": null
+      },
+      "born_in_balanced_regime": 0,
+      "hops_quantiles": {
+       "0.5": 0.0,
+       "0.9": 0.0,
+       "0.99": 0.0
+      },
+      "hops_hist_0_1_2_5_10_30_100_1000_inf": [
+       649,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "3": {
+      "identities": 662,
+      "alive_at_end": 662,
+      "created_by": {
+       "present in the preparation": 662
+      },
+      "ended_by": {
+       "alive at end": 662
+      },
+      "lifetime_depth_quantiles_ended": {
+       "0.1": null,
+       "0.25": null,
+       "0.5": null,
+       "0.75": null,
+       "0.9": null,
+       "0.99": null
+      },
+      "lifetime_sweeps_quantiles_ended": {
+       "0.1": null,
+       "0.25": null,
+       "0.5": null,
+       "0.75": null,
+       "0.9": null,
+       "0.99": null
+      },
+      "lifetime_depth_hist_bins": [
+       0,
+       1,
+       3,
+       10,
+       30,
+       100,
+       300,
+       1000,
+       3000,
+       10000,
+       100000
+      ],
+      "lifetime_depth_hist_ended": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ],
+      "lifetime_depth_hist_alive_censored": [
+       662,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ],
+      "median_lifetime_depth_by_ending": {
+       "annihilation": null,
+       "fusion": null,
+       "split": null,
+       "exchange": null
+      },
+      "born_in_balanced_regime": 0,
+      "hops_quantiles": {
+       "0.5": 0.0,
+       "0.9": 0.0,
+       "0.99": 0.0
+      },
+      "hops_hist_0_1_2_5_10_30_100_1000_inf": [
+       662,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "4": {
+      "identities": 642,
+      "alive_at_end": 642,
+      "created_by": {
+       "present in the preparation": 642
+      },
+      "ended_by": {
+       "alive at end": 642
+      },
+      "lifetime_depth_quantiles_ended": {
+       "0.1": null,
+       "0.25": null,
+       "0.5": null,
+       "0.75": null,
+       "0.9": null,
+       "0.99": null
+      },
+      "lifetime_sweeps_quantiles_ended": {
+       "0.1": null,
+       "0.25": null,
+       "0.5": null,
+       "0.75": null,
+       "0.9": null,
+       "0.99": null
+      },
+      "lifetime_depth_hist_bins": [
+       0,
+       1,
+       3,
+       10,
+       30,
+       100,
+       300,
+       1000,
+       3000,
+       10000,
+       100000
+      ],
+      "lifetime_depth_hist_ended": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ],
+      "lifetime_depth_hist_alive_censored": [
+       642,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ],
+      "median_lifetime_depth_by_ending": {
+       "annihilation": null,
+       "fusion": null,
+       "split": null,
+       "exchange": null
+      },
+      "born_in_balanced_regime": 0,
+      "hops_quantiles": {
+       "0.5": 0.0,
+       "0.9": 0.0,
+       "0.99": 0.0
+      },
+      "hops_hist_0_1_2_5_10_30_100_1000_inf": [
+       642,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "5": {
+      "identities": 1,
+      "alive_at_end": 1,
+      "created_by": {
+       "present in the preparation": 1
+      },
+      "ended_by": {
+       "alive at end": 1
+      },
+      "lifetime_depth_quantiles_ended": {
+       "0.1": null,
+       "0.25": null,
+       "0.5": null,
+       "0.75": null,
+       "0.9": null,
+       "0.99": null
+      },
+      "lifetime_sweeps_quantiles_ended": {
+       "0.1": null,
+       "0.25": null,
+       "0.5": null,
+       "0.75": null,
+       "0.9": null,
+       "0.99": null
+      },
+      "lifetime_depth_hist_bins": [
+       0,
+       1,
+       3,
+       10,
+       30,
+       100,
+       300,
+       1000,
+       3000,
+       10000,
+       100000
+      ],
+      "lifetime_depth_hist_ended": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ],
+      "lifetime_depth_hist_alive_censored": [
+       1,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ],
+      "median_lifetime_depth_by_ending": {
+       "annihilation": null,
+       "fusion": null,
+       "split": null,
+       "exchange": null
+      },
+      "born_in_balanced_regime": 0,
+      "hops_quantiles": {
+       "0.5": 3.0,
+       "0.9": 3.0,
+       "0.99": 3.0
+      },
+      "hops_hist_0_1_2_5_10_30_100_1000_inf": [
+       0,
+       0,
+       1,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     }
+    },
+    "note": "identities present at sweep 496 are seeded (birth sweep -1); lifetimes are censored by the window"
+   }
+  }
+ }
+}

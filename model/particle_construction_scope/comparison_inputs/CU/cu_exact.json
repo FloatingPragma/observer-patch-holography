@@ -1,0 +1,414 @@
+{
+ "A1_unit_time_image_of_half_line": "sigma_{-1}(M_a) = M_{exp(2 pi) a}; supports between: (a, exp(2 pi) a]; ratio exp(2 pi)",
+ "A2_modulus_one_ratio": "dilation rapidity ln(r_out/r_in); rapidity 2 pi at r_out/r_in = exp(2 pi)",
+ "A3_contraction_exp_minus_s_at_p_plus": "the flow dilates by exp(s) about p- and contracts by exp(-s) about p+ (the stack normalisation v -> exp(-s) v)",
+ "A3a_end_to_end": "D = (exp(pi) + 1) eps",
+ "A3b_end_to_centre": "D = (exp(2 pi) + 1) eps",
+ "A4_central_horodisc_image": "image diameter D/(exp(2 pi) + 1)",
+ "A5_stereographic_radius": "tan^2(theta/2) = 1/(K - 1)",
+ "A5_pole_to_pole_rapidity": "rapidity = ln(K - 1)",
+ "A5a_one_period_between_polar_cells": "K = exp(2 pi) + 1",
+ "A5b_one_period_each_side_of_equator": "K = exp(4 pi) + 1",
+ "A5_midpoint_identity": "(K_a - 1)^2 = K_b - 1",
+ "A5_closed_screen": {
+  "a: K = exp(2 pi) + 1": {
+   "K": 536.4916555247647,
+   "capacity_nats_at_P_fwd": 218.7507305109255,
+   "R = ln(size/l_cell)": {
+    "area map sqrt(K)": 3.142525504203942,
+    "radius": 1.8770133807192968,
+    "diameter": 2.570160561279242,
+    "geodesic width pi r": 3.021743266568697,
+    "circumference": 3.714890447128642
+   },
+   "size_in_cells": {
+    "area map sqrt(K)": 23.162289513879337,
+    "radius": 6.533961237424073,
+    "diameter": 13.067922474848146,
+    "geodesic width pi r": 20.527044622331942,
+    "circumference": 41.054089244663885
+   }
+  },
+  "b: K = exp(4 pi) + 1": {
+   "K": 286752.3131366533,
+   "capacity_nats_at_P_fwd": 116921.25558408623,
+   "R = ln(size/l_cell)": {
+    "area map sqrt(K)": 6.283187050847724,
+    "radius": 5.017674927363079,
+    "diameter": 5.710822107923024,
+    "geodesic width pi r": 6.162404813212479,
+    "circumference": 6.8555519937724245
+   },
+   "size_in_cells": {
+    "area map sqrt(K)": 535.4925892453166,
+    "radius": 151.05967045961242,
+    "diameter": 302.11934091922484,
+    "geodesic width pi r": 474.5679509696135,
+    "circumference": 949.135901939227
+   }
+  }
+ },
+ "A5_icosahedral_levels_equal_area": {
+  "m=0": {
+   "K": 20,
+   "rapidity": 2.9444389791664403,
+   "periods": 0.4686220181667932
+  },
+  "m=1": {
+   "K": 80,
+   "rapidity": 4.3694478524670215,
+   "periods": 0.6954192243023931
+  },
+  "m=2": {
+   "K": 320,
+   "rapidity": 5.765191102784844,
+   "periods": 0.9175586618776232
+  },
+  "m=3": {
+   "K": 1280,
+   "rapidity": 7.153833801578843,
+   "periods": 1.1385680115791579
+  },
+  "m=4": {
+   "K": 5120,
+   "rapidity": 8.540714386457584,
+   "periods": 1.3592969121407885
+  },
+  "m=5": {
+   "K": 20480,
+   "rapidity": 9.927155249836312,
+   "periods": 1.5799558288521083
+  },
+  "m=6": {
+   "K": 81920,
+   "rapidity": 11.313486233167579,
+   "periods": 1.8005972576107272
+  },
+  "m=7": {
+   "K": 327680,
+   "rapidity": 12.699789749630757,
+   "periods": 2.021234314881519
+  },
+  "m=8": {
+   "K": 1310720,
+   "rapidity": 14.086086399573372,
+   "periods": 2.241870279311621
+  },
+  "m=9": {
+   "K": 5242880,
+   "rapidity": 15.472381332898125,
+   "periods": 2.462505970533505
+  },
+  "m=10": {
+   "K": 20971520,
+   "rapidity": 16.858675837069182,
+   "periods": 2.683141593453456
+  },
+  "12 ports": {
+   "K": 12,
+   "rapidity": 2.3978952727983707,
+   "periods": 0.3816368856825495
+  }
+ },
+ "A5_first_level_one_period": 3,
+ "A5_first_level_one_period_each_side": 7,
+ "A6_self_dual_width": "W = pi, q = exp(-2 pi)",
+ "A7_local_temperature_R": 1.8378770664093456,
+ "A8_diamond_clock_remaining": "remaining proper time on the axis after one period: 2/(exp(2 pi) + 1) of the half-height",
+ "B_reference_lengths": {
+  "B1 cell side": {
+   "reading": "direct",
+   "c": "0",
+   "kappa": "1",
+   "kappa_value": 1.0,
+   "R_at_P_fwd": 6.283185307179586,
+   "status": "STACK",
+   "gives_declared_form": false
+  },
+  "B2 Planck length (area-law unit)": {
+   "reading": "direct",
+   "c": "1/2",
+   "kappa": "1",
+   "kappa_value": 1.0,
+   "R_at_P_fwd": 6.038597198468251,
+   "status": "STACK",
+   "gives_declared_form": false
+  },
+  "B3a dual length l*^2/l_cell": {
+   "reading": "direct",
+   "c": "1",
+   "kappa": "1",
+   "kappa_value": 1.0,
+   "R_at_P_fwd": 5.794009089756916,
+   "status": "ADDED PREMISE",
+   "gives_declared_form": false
+  },
+  "B3b l_cell P": {
+   "reading": "direct",
+   "c": "-1",
+   "kappa": "1",
+   "kappa_value": 1.0,
+   "R_at_P_fwd": 6.772361524602257,
+   "status": "ADDED PREMISE",
+   "gives_declared_form": false
+  },
+  "B4a (l*^2 l_cell)^(1/3)": {
+   "reading": "direct",
+   "c": "1/3",
+   "kappa": "1",
+   "kappa_value": 1.0,
+   "R_at_P_fwd": 6.120126568038696,
+   "status": "ADDED PREMISE",
+   "gives_declared_form": false
+  },
+  "B4b (l*^2 l_cell)^(1/3), two-sided": {
+   "reading": "two-sided",
+   "c": "2/3",
+   "kappa": "1",
+   "kappa_value": 1.0,
+   "R_at_P_fwd": 5.957067828897806,
+   "status": "ADDED PREMISE",
+   "gives_declared_form": true
+  },
+  "B5 (l*^4/l_cell)^(1/3)": {
+   "reading": "direct",
+   "c": "2/3",
+   "kappa": "1",
+   "kappa_value": 1.0,
+   "R_at_P_fwd": 5.957067828897806,
+   "status": "ADDED PREMISE",
+   "gives_declared_form": true
+  },
+  "B6 (l_cell^2 l*)^(1/3)": {
+   "reading": "direct",
+   "c": "1/6",
+   "kappa": "1",
+   "kappa_value": 1.0,
+   "R_at_P_fwd": 6.201655937609141,
+   "status": "ADDED PREMISE",
+   "gives_declared_form": false
+  },
+  "B7a two-sided, l_cell": {
+   "reading": "two-sided",
+   "c": "0",
+   "kappa": "1",
+   "kappa_value": 1.0,
+   "R_at_P_fwd": 6.283185307179586,
+   "status": "STACK",
+   "gives_declared_form": false
+  },
+  "B7b two-sided, sqrt(l* l_cell)": {
+   "reading": "two-sided",
+   "c": "1/2",
+   "kappa": "1",
+   "kappa_value": 1.0,
+   "R_at_P_fwd": 6.038597198468251,
+   "status": "ADDED PREMISE",
+   "gives_declared_form": false
+  },
+  "B7c two-sided, l*": {
+   "reading": "two-sided",
+   "c": "1",
+   "kappa": "1",
+   "kappa_value": 1.0,
+   "R_at_P_fwd": 5.794009089756916,
+   "status": "ADDED PREMISE",
+   "gives_declared_form": false
+  },
+  "B8 brick wall g=192": {
+   "reading": "direct",
+   "c": "1/2",
+   "kappa": "4*sqrt(30)/(15*sqrt(pi))",
+   "kappa_value": 0.8240516309828044,
+   "R_at_P_fwd": 5.84507510639231,
+   "status": "ADDED PREMISE",
+   "gives_declared_form": false
+  },
+  "B8 brick wall g=196": {
+   "reading": "direct",
+   "c": "1/2",
+   "kappa": "7*sqrt(10)/(15*sqrt(pi))",
+   "kappa_value": 0.8325912542046265,
+   "R_at_P_fwd": 5.855384749993677,
+   "status": "ADDED PREMISE",
+   "gives_declared_form": false
+  },
+  "B8 brick wall g=200": {
+   "reading": "direct",
+   "c": "1/2",
+   "kappa": "2*sqrt(5)/(3*sqrt(pi))",
+   "kappa_value": 0.84104417400672,
+   "R_at_P_fwd": 5.865486103652437,
+   "status": "ADDED PREMISE",
+   "gives_declared_form": false
+  },
+  "B9 Bekenstein 8 pi l*^2/l_cell": {
+   "reading": "direct",
+   "c": "1",
+   "kappa": "8*pi",
+   "kappa_value": 25.132741228718345,
+   "R_at_P_fwd": 9.018180517286153,
+   "status": "ADDED PREMISE",
+   "gives_declared_form": false
+  },
+  "B10 square inradius": {
+   "reading": "direct",
+   "c": "0",
+   "kappa": "1/2",
+   "kappa_value": 0.5,
+   "R_at_P_fwd": 5.590038126619641,
+   "status": "CONSTANT",
+   "gives_declared_form": false
+  },
+  "B10 square circumradius": {
+   "reading": "direct",
+   "c": "0",
+   "kappa": "sqrt(2)/2",
+   "kappa_value": 0.7071067811865476,
+   "R_at_P_fwd": 5.9366117168996135,
+   "status": "CONSTANT",
+   "gives_declared_form": false
+  },
+  "B10 equal-area disc radius": {
+   "reading": "direct",
+   "c": "0",
+   "kappa": "1/sqrt(pi)",
+   "kappa_value": 0.5641895835477563,
+   "R_at_P_fwd": 5.710820364254887,
+   "status": "CONSTANT",
+   "gives_declared_form": false
+  },
+  "B10 triangle inradius": {
+   "reading": "direct",
+   "c": "0",
+   "kappa": "3**(1/4)/3",
+   "kappa_value": 0.4386913376508308,
+   "R_at_P_fwd": 5.459226090678504,
+   "status": "CONSTANT",
+   "gives_declared_form": false
+  },
+  "B10 triangle circumradius": {
+   "reading": "direct",
+   "c": "0",
+   "kappa": "2*3**(1/4)/3",
+   "kappa_value": 0.8773826753016616,
+   "R_at_P_fwd": 6.152373271238449,
+   "status": "CONSTANT",
+   "gives_declared_form": false
+  },
+  "B10 triangle side": {
+   "reading": "direct",
+   "c": "0",
+   "kappa": "2*3**(3/4)/3",
+   "kappa_value": 1.519671371303185,
+   "R_at_P_fwd": 6.701679415572505,
+   "status": "CONSTANT",
+   "gives_declared_form": false
+  },
+  "B11 l_cell P^(-2/3)": {
+   "reading": "direct",
+   "c": "2/3",
+   "kappa": "1",
+   "kappa_value": 1.0,
+   "R_at_P_fwd": 5.957067828897806,
+   "status": "ADDED PREMISE",
+   "gives_declared_form": true
+  },
+  "B12 sqrt(8 pi) l*": {
+   "reading": "direct",
+   "c": "1/2",
+   "kappa": "2*sqrt(2)*sqrt(pi)",
+   "kappa_value": 5.013256549262001,
+   "R_at_P_fwd": 7.6506829122328694,
+   "status": "ADDED PREMISE",
+   "gives_declared_form": false
+  }
+ },
+ "B_count": {
+  "rows": 23,
+  "rows_with_declared_form": [
+   "B4b (l*^2 l_cell)^(1/3), two-sided",
+   "B5 (l*^4/l_cell)^(1/3)",
+   "B11 l_cell P^(-2/3)"
+  ],
+  "STACK_rows": {
+   "B1 cell side": "0",
+   "B2 Planck length (area-law unit)": "1/2",
+   "B7a two-sided, l_cell": "0"
+  }
+ },
+ "B_target_reference_identities": "l_ref = (l*^4/l_cell)^(1/3) = l_cell P^(-2/3) = d^2/l_cell with d = (l*^2 l_cell)^(1/3); l_ref^3 l_cell = l*^4",
+ "C2_one_weyl_family_is_universal": "one 16: (4/3, 4/3, 4/3)",
+ "C2_three_copies": "three copies of 16 + 16bar: (8, 8, 8)",
+ "C2_sum_matches_COUPLING_FIX": "source census (8 + n_H/10, 2/3 + n_H/6, -3)",
+ "C1_difference_lemma": "differences at M_U and at E_cell agree for every R exactly when b_i = b_j",
+ "C3_window_shifts_at_R_declared": {
+  "R": 5.957067828897806,
+  "R_over_2pi": 0.9480967913027908,
+  "links (0, -22/3, -11)": [
+   0.0,
+   -6.952709802887132,
+   -10.429064704330699
+  ],
+  "three copies (8, 8, 8)": [
+   7.584774330422326,
+   7.584774330422326,
+   7.584774330422326
+  ],
+  "one doublet (1/10, 1/6, 0)": [
+   0.09480967913027909,
+   0.15801613188379848,
+   0.0
+  ],
+  "two doublets": [
+   0.18961935826055817,
+   0.31603226376759697,
+   0.0
+  ],
+  "differential part of links: d(1/a1 - 1/a2), d(1/a2 - 1/a3)": [
+   6.952709802887132,
+   3.476354901443566
+  ]
+ },
+ "C7_adjoint_cancellation_count": "per factor: 4 Weyl and 6 real adjoints, 4 n_W + n_r = 22",
+ "F_looks_no_weight": {
+  "F1 zeta(3) 192/(180 pi)": 0.4081350357665817,
+  "F1 P_fwd/4": 0.407743025,
+  "F1 ratio": 1.0009614162414715,
+  "F2 exp(P/5)": 1.38568474751425,
+  "F2 P^(2/3)": 1.3855781346504066,
+  "F3 16.2453 + 8": 24.2453,
+  "F3 engine 1/alpha_U": 24.3166
+ },
+ "checks": {
+  "A1_unit_time_image_of_half_line": true,
+  "A2_modulus_one_ratio": true,
+  "A3_group_law": true,
+  "A3_fixed_points": true,
+  "A3_dilation_exp_s_at_p_minus": true,
+  "A3_contraction_exp_minus_s_at_p_plus": true,
+  "A3_axis_coordinate_shifts_by_s": true,
+  "A3a_end_to_end": true,
+  "A3b_end_to_centre": true,
+  "A4_central_horodisc_image": true,
+  "A5_stereographic_radius": true,
+  "A5_pole_to_pole_rapidity": true,
+  "A5a_one_period_between_polar_cells": true,
+  "A5b_one_period_each_side_of_equator": true,
+  "A5_midpoint_identity": true,
+  "A6_self_dual_width": true,
+  "A6_nome_value": true,
+  "A8_diamond_clock_remaining": true,
+  "B_no_STACK_row_gives_declared_form": true,
+  "B_target_reference_identities": true,
+  "C2_one_weyl_family_is_universal": true,
+  "C2_three_copies": true,
+  "C2_links": true,
+  "C2_doublet": true,
+  "C2_sum_matches_COUPLING_FIX": true,
+  "C1_difference_lemma": true,
+  "C7_adjoint_cancellation_count": true
+ },
+ "all_checks_pass": true,
+ "number_of_checks": 27
+}

@@ -1,0 +1,348 @@
+"""Worker LV, groups A and D of CANDIDATES.md: the register's one-loop zero-point potential on the four-sphere in the
+source's tick (compatibility tests of directions 1 and 4). No measured value is read. Writes lv_potential.json.
+
+Dictionary (A0): m_f = theta, M_W^2 = 2 sin^2 theta, M_Z^2 = (16/5) sin^2 theta, v/E_cell = (2 sqrt2/g) sin theta.
+Zero-point sums in UH's convention, per cell and tick. Quadrature helpers `pyramid_nodes`, `radial`, `cf1_sin2rho`,
+`period_trace` are copied from `work/UH/uh_constants.py` (unchanged formulas).
+"""
+import json
+import math
+import sys
+
+import numpy as np
+from scipy.linalg import expm
+
+out = {}
+pi = math.pi
+UH = json.load(open("WORKSPACE/repair-law/work/UH/constants.json"))
+UHt = json.load(open("WORKSPACE/repair-law/work/UH/constants_b4t.json"))
+
+# ------------------------------------------------------------------------------------------------ A0: dictionary
+sys.path.insert(0, "WORKSPACE/repair-law/work/GL")
+import gl_lib as L  # noqa: E402  (read only)
+
+NL, DIM = 5, 32
+
+
+def annihilator(i):
+    a = np.zeros((DIM, DIM), complex)
+    for s in range(DIM):
+        if s >> i & 1:
+            a[s ^ (1 << i), s] = (-1) ** bin(s & ((1 << i) - 1)).count("1")
+    return a
+
+
+A = [annihilator(i) for i in range(NL)]
+AD = [a.conj().T for a in A]
+dLam = lambda T: sum(T[i, j] * AD[i] @ A[j] for i in range(NL) for j in range(NL))
+TG = [dLam(T) for T in L.TBASIS]
+N3 = np.array([bin(s & 0b00111).count("1") for s in range(DIM)])
+P_half = np.diag((N3 % 2 == 1).astype(float)).astype(complex)
+
+
+def K_of(theta):
+    return sum(theta[k] * AD[3 + k] + np.conj(theta[k]) * A[3 + k] for k in range(2))
+
+
+def cost(P, W):
+    return 1 - np.trace(P @ W @ P).real / np.trace(P).real
+
+
+rows = []
+HG = float(np.trace(P_half @ TG[0] @ TG[0] @ P_half).real / 16)
+for th0 in (0.05, 0.3, 0.9, 1.4):
+    theta = np.array([0.0, th0], complex)                # neutral level s2
+    Kt = K_of(theta)
+    msq = []
+    for T5, Tg in zip(L.TBASIS, TG):
+        eps = 1e-3
+        UF = expm(1j * eps * Tg)
+        W = UF @ expm(-1j * Kt) @ UF.conj().T @ expm(1j * Kt)
+        hm = 2 * cost(P_half, W) / eps ** 2            # Hessian of the register link term in this direction
+        # functional: beta [ (H_g/2) sum_P eps_P^2 + (hm/2) sum_links A^2 ] = beta [ (H_g/4) F.F + (hm/2) A.A ],
+        # canonical form (1/4) F.F + (1/2) M^2 A.A: M^2 = hm / H_g in tick units
+        msq.append(hm / HG)
+    msq = np.array(msq)
+    # mass matrix on the neutral pair (T3, hypercharge): mixed second difference
+    i3, iy = 10, 11
+    eps = 1e-3
+    UF = expm(1j * eps * (TG[i3] + TG[iy]))
+    W = UF @ expm(-1j * Kt) @ UF.conj().T @ expm(1j * Kt)
+    hsum = 2 * cost(P_half, W) / eps ** 2 / HG
+    off = (hsum - msq[i3] - msq[iy]) / 2
+    mz2 = np.linalg.eigvalsh(np.array([[msq[i3], off], [off, msq[iy]]]))
+    rows.append({"theta_0": th0, "gluon_directions_max": float(abs(msq[:8]).max()),
+                 "M_W^2_(T1,T2)": [float(msq[8]), float(msq[9])], "2_sin^2": 2 * math.sin(th0) ** 2,
+                 "neutral_pair_eigenvalues": [float(mz2[0]), float(mz2[1])], "(16/5)_sin^2": 3.2 * math.sin(th0) ** 2,
+                 "sum_over_broken_directions": float(msq[8] + msq[9] + mz2[1]), "8_C_H_sin^2": 7.2 * math.sin(th0) ** 2})
+out["A0_dictionary"] = {"H_g": HG, "rows": rows,
+                        "statement": "M_W^2 = 2 sin^2 theta_0, M_Z^2 = (16/5) sin^2 theta_0, photon and gluons massless, "
+                                     "sum = 8 C_H sin^2 theta_0; fermion rest phase theta_0; v/E_cell = (2 sqrt2/g) sin theta_0"}
+
+# ------------------------------------------------------------------------------------------------ quadrature (from UH)
+NG_FACE, NG_RAD = 28, 32
+xg, wg = np.polynomial.legendre.leggauss(NG_FACE)
+xr, wr = np.polynomial.legendre.leggauss(NG_RAD)
+
+
+def pyramid_nodes(Lc):
+    S, T_ = np.meshgrid(xg, xg, indexing="ij")
+    W = np.outer(wg, wg)
+    norm = np.sqrt(1 + S ** 2 + T_ ** 2)
+    dirs, wts, rmax = [], [], []
+    for axis in range(3):
+        for sign in (1.0, -1.0):
+            comp = [None, None, None]
+            comp[axis] = sign * np.ones_like(S) / norm
+            comp[(axis + 1) % 3] = S / norm
+            comp[(axis + 2) % 3] = T_ / norm
+            dirs.append(np.stack(comp, axis=-1).reshape(-1, 3))
+            wts.append((W / norm ** 3).ravel())
+            rmax.append((Lc * norm).ravel())
+    return np.concatenate(dirs), np.concatenate(wts), np.concatenate(rmax)
+
+
+def radial(f, n, w_ang, r0, r1):
+    r0 = np.broadcast_to(r0, w_ang.shape); r1 = np.broadcast_to(r1, w_ang.shape)
+    half = 0.5 * (r1 - r0); mid = 0.5 * (r1 + r0)
+    tot = 0.0
+    for x, w in zip(xr, wr):
+        r = mid + half * x
+        tot += np.sum(w_ang * half * w * r ** 2 * f(r[:, None] * n, r))
+    return tot
+
+
+def cell_integral(f, centre, Lc, split=None):
+    """int over the cube of half width Lc around centre of f(p) d^3p/(2 pi)^3; split: inner radius for a second segment"""
+    n, w_ang, rmax = pyramid_nodes(Lc)
+    c = np.array(centre)
+    g = lambda q, r: f(q + c)
+    if split is None:
+        tot = radial(g, n, w_ang, 0.0, rmax)
+    else:
+        tot = radial(g, n, w_ang, 0.0, split) + radial(g, n, w_ang, split, rmax)
+    return tot / (2 * pi) ** 3
+
+
+def cf1_sin2rho(p):
+    s2 = np.sin(p) ** 2
+    return (s2.sum(-1) - 2 * (s2[..., 0] * s2[..., 1] + s2[..., 0] * s2[..., 2] + s2[..., 1] * s2[..., 2])
+            + 4 * s2[..., 0] * s2[..., 1] * s2[..., 2])
+
+
+def cf1_w(p, theta):
+    x = np.clip(cf1_sin2rho(p), 0.0, 1.0)
+    return np.arccos(np.clip(math.cos(theta) * np.sqrt(1 - x), -1.0, 1.0))
+
+
+def cf1_cot(p):
+    x = np.clip(cf1_sin2rho(p), 1e-300, 1.0)
+    return np.sqrt(np.clip(1 - x, 0.0, None) / x)
+
+
+# A_f on the full zone (B5): 32 cells around the zero-phase points and 32 around the points with rho = pi/2
+A_zero = 0.5 * cell_integral(lambda p: cf1_cot(p) / 2, (0, 0, 0), pi / 4)
+A_max = 0.5 * cell_integral(lambda p: cf1_cot(p) / 2, (pi / 2, 0, 0), pi / 4)
+A_f_full = 32 * (A_zero + A_max)
+out["A1_constants"] = {"A_f_cone_cell_here": A_zero, "A_f_cone_cell_UH": UH["B4_fermion_CF1_cone_cell"]["A2"],
+                       "A_f_cell_around_rho_pi/2": A_max, "A_f_full_zone_(B5)": A_f_full}
+
+REG = {
+    "B1": (UH["B1_sharp_cutoff_1_per_cell"]["A2"], UH["B1_sharp_cutoff_1_per_cell"]["A2"]),
+    "B2": (UH["B2_sharp_cutoff_pi_per_cell"]["A2"], UH["B2_sharp_cutoff_pi_per_cell"]["A2"]),
+    "B3": (UH["B3_cubic_zone_continuum"]["A2"], UH["B3_cubic_zone_continuum"]["A2"]),
+    "B4": (UH["B4_fermion_CF1_cone_cell"]["A2"], UH["B4_vector_GL_links_full_zone"]["A2"]),
+    "B4t": (UH["B4_fermion_CF1_cone_cell"]["A2"], UHt["A2"]),
+    "B5": (A_f_full, UH["B4_vector_GL_links_full_zone"]["A2"]),
+    "B5t": (A_f_full, UHt["A2"]),
+    "B6": (UH["B6_member_B"]["A2"], UH["B4_vector_GL_links_full_zone"]["A2"]),
+    "B6t": (UH["B6_member_B"]["A2"], UHt["A2"]),
+}
+C_H = 0.9
+G2 = {"main_24.3166": 4 * pi / 24.3166, "retired_16.2453": 4 * pi / 16.2453}
+a1 = {}
+for name, (Af, AV) in REG.items():
+    row = {"A_f": Af, "A_V": AV, "ratio_A_V_over_A_f": AV / Af}
+    for nf in (1, 3):
+        K = 24 * C_H * AV - 32 * nf * Af
+        row["n_fam_%d" % nf] = {"K": K, "sign": "positive" if K > 0 else "negative",
+                                "m_h^2_over_E_cell^2": {k: g2 * K / 4 for k, g2 in G2.items()},
+                                "share_s_that_cancels": 24 * C_H * AV / (32 * nf * Af) if Af > 0 else None}
+    a1[name] = row
+out["A1_curvature"] = {"formula": "K = 24 C_H A_V - 32 s n_fam A_f, m_h^2 = (g^2/4) K", "rows": a1,
+                       "one_regulator_zero_at_s_n_fam": 24 * C_H / 32}
+
+# ------------------------------------------------------------------------------------------------ vectors F_V(M)
+ngv = 40
+xv, wv = np.polynomial.legendre.leggauss(ngv)
+kv = pi * xv
+KX, KY, KZ = np.meshgrid(kv, kv, kv, indexing="ij")
+WV = np.einsum("i,j,k->ijk", wv, wv, wv) / 8
+KH2 = 4 * (np.sin(KX / 2) ** 2 + np.sin(KY / 2) ** 2 + np.sin(KZ / 2) ** 2)
+
+
+def F_V(M, two_step=False):
+    s = np.sqrt(KH2 + M * M)
+    om = 4 * np.arcsin(np.clip(s / 4, 0, 1)) if two_step else s
+    return 0.5 * float((WV * om).sum())
+
+
+def F_f_cone(theta):
+    Lc = pi / 4
+    sp = min(max(6 * abs(theta), 0.05), 0.5 * Lc)
+    return 0.5 * cell_integral(lambda p: cf1_w(p, theta), (0, 0, 0), Lc, split=sp)
+
+
+def F_f_full(theta):
+    sp = min(max(6 * abs(theta), 0.05), 0.5 * pi / 4)
+    return 32 * 0.5 * (cell_integral(lambda p: cf1_w(p, theta), (0, 0, 0), pi / 4, split=sp)
+                       + cell_integral(lambda p: cf1_w(p, theta), (pi / 2, 0, 0), pi / 4))
+
+
+def F_sharp(M, cut):
+    """continuum dispersion, sharp cutoff |p| <= cut: (1/2) int d^3p/(2 pi)^3 sqrt(p^2 + M^2), closed form"""
+    L_ = cut
+    e = math.sqrt(L_ * L_ + M * M)
+    if M == 0:
+        return L_ ** 4 / (16 * pi ** 2)
+    val = (L_ * e * (2 * L_ * L_ + M * M) - M ** 4 * math.asinh(L_ / M)) / 8
+    return val / (4 * pi ** 2)
+
+
+thetas = np.linspace(0.0, pi / 2, 17)
+gate = {"F_V_quadratic_coefficient_fit": (F_V(0.2) - F_V(0.1)) / (0.04 - 0.01),
+        "A_V_UH": UH["B4_vector_GL_links_full_zone"]["A2"],
+        "F_f_cone_quadratic_fit": (F_f_cone(0.2) - F_f_cone(0.1)) / (0.04 - 0.01),
+        "A_f_UH": UH["B4_fermion_CF1_cone_cell"]["A2"]}
+out["A2_gates"] = gate
+pot = {}
+Ff_cone = [F_f_cone(t) for t in thetas]
+Ff_full = [F_f_full(t) for t in thetas]
+FW = [F_V(math.sqrt(2) * math.sin(t)) for t in thetas]
+FZ = [F_V(4 / math.sqrt(5) * math.sin(t)) for t in thetas]
+FWt = [F_V(math.sqrt(2) * math.sin(t), True) for t in thetas]
+FZt = [F_V(4 / math.sqrt(5) * math.sin(t), True) for t in thetas]
+for reg, Ff, Fw, Fz in (("B4", Ff_cone, FW, FZ), ("B4t", Ff_cone, FWt, FZt), ("B5", Ff_full, FW, FZ)):
+    for nf in (1, 3):
+        Vv = np.array([-4 * 8 * nf * (Ff[i] - Ff[0]) + 6 * (Fw[i] - Fw[0]) + 3 * (Fz[i] - Fz[0])
+                       for i in range(len(thetas))])
+        imin = int(Vv.argmin())
+        pot["%s_n_fam_%d" % (reg, nf)] = {"V_minus_V0": Vv.tolist(), "theta_at_minimum_on_[0,pi/2]": float(thetas[imin]),
+                                          "V_at_pi/2": float(Vv[-1]),
+                                          "v_over_E_cell_at_minimum_(g_U)": 2 * math.sqrt(2) / math.sqrt(G2["main_24.3166"]) * math.sin(thetas[imin])}
+for cut, nm in ((1.0, "B1"), (pi, "B2")):
+    for nf in (1, 3):
+        Vv = np.array([-4 * 8 * nf * (F_sharp(t, cut) - F_sharp(0, cut))
+                       + 6 * (F_sharp(math.sqrt(2) * math.sin(t), cut) - F_sharp(0, cut))
+                       + 3 * (F_sharp(4 / math.sqrt(5) * math.sin(t), cut) - F_sharp(0, cut)) for t in thetas])
+        imin = int(Vv.argmin())
+        pot["%s_n_fam_%d" % (nm, nf)] = {"V_minus_V0": Vv.tolist(), "theta_at_minimum_on_[0,pi/2]": float(thetas[imin]),
+                                         "V_at_pi/2": float(Vv[-1]),
+                                         "v_over_E_cell_at_minimum_(g_U)": 2 * math.sqrt(2) / math.sqrt(G2["main_24.3166"]) * math.sin(thetas[imin])}
+out["A2_potential_on_the_sphere"] = {"theta_grid": thetas.tolist(), "rows": pot,
+                                     "note": "fermion sum defined on [0, pi/2]; beyond pi/2 the filled branch of the tick "
+                                             "is the one that closes at phase pi (no row)"}
+
+# ------------------------------------------------------------------------------------------------ A3: selection rules
+sr = {}
+dF = (F_f_cone(0.31) - F_f_cone(0.29)) / 0.02
+sr["SR1_four_sphere_shift"] = {
+    "dF_f/dtheta_at_0.3_(cone_cell)": dF,
+    "link_term_dV_g/dtheta_at_0.3_(B4)": (6 * (F_V(math.sqrt(2) * math.sin(0.31)) - F_V(math.sqrt(2) * math.sin(0.29)))
+                                         + 3 * (F_V(4 / math.sqrt(5) * math.sin(0.31)) - F_V(4 / math.sqrt(5) * math.sin(0.29)))) / 0.02,
+    "verdict": "fails: the tick's spectrum depends on theta (rest phase theta at p = 0, link masses sin theta); the "
+               "shift is a symmetry of the register's own cost and of nothing else"}
+pt = np.random.default_rng(3).uniform(-0.7, 0.7, size=(200, 3))
+sr["SR2_even_spectrum"] = {"max_|w(theta) - w(-theta)|_CF1": float(abs(cf1_w(pt, 0.2) - cf1_w(pt, -0.2)).max()),
+                           "verdict": "holds for the CF-1 tick: no linear term; the quadratic term is untouched"}
+sr["SR3_gauss"] = {"verdict": "the potential is a function of the invariant modulus (M_W, M_Z and the rest phase depend "
+                              "on |theta| only); UH's Gauss generators commute with (B^dag B) and its powers; the "
+                              "constraint fixes no coefficient", "source": "work/UH/register.json (commutators 1.1e-16)"}
+sr["SR4_supertrace"] = {"K_with_one_regulator_over_A": "24 C_H - 32 s n_fam = 108/5 - 32 s n_fam",
+                        "zero_at_s_n_fam": 27 / 40, "UH_share_bound": "s <= 1; n_fam integer",
+                        "verdict": "fails for s = 1; zero needs s = 27/40 (one family) or 9/40 (three)"}
+sr["SR5_classical_flatness"] = {"verdict": "holds for the cost functional (UH, S2: cost 0.0 at every amplitude); it says "
+                                           "nothing about the zero-point sums; with the cost functional alone the "
+                                           "amplitude is a modulus and no potential exists"}
+out["A3_selection_rules"] = sr
+
+# ------------------------------------------------------------------------------------------------ D: member B tadpole
+sig = [np.array([[0, 1], [1, 0]], complex), np.array([[0, -1j], [1j, 0]], complex), np.array([[1, 0], [0, -1]], complex)]
+I2 = np.eye(2)
+ALPHA = [np.kron(sig[0], s_) for s_ in sig]
+BETA = np.kron(sig[2], I2)
+I4 = np.eye(4)
+PHI_B = 5 * pi / 16
+
+
+def period_trace(p, theta, phi):
+    cph, sph = math.cos(phi), math.sin(phi)
+
+    def Bi(i):
+        pi_ = p[..., i]
+        a_ = (cph ** 2 * np.cos(pi_) + sph ** 2)[..., None, None] * I4
+        b_ = (-1j * cph * np.sin(pi_))[..., None, None] * ALPHA[i]
+        c_ = (-1j * sph * cph * (1 - np.cos(pi_)))[..., None, None] * BETA
+        return a_ + b_ + c_
+    B1, B2, B3 = Bi(0), Bi(1), Bi(2)
+    Mh = math.cos(theta / 2) * I4 - 1j * math.sin(theta / 2) * BETA
+    Mf = math.cos(theta) * I4 - 1j * math.sin(theta) * BETA
+    P = Mh @ B1 @ B2 @ B3 @ Mf @ B3 @ B2 @ B1 @ Mh
+    return np.real(np.trace(P, axis1=-2, axis2=-1)) / 4
+
+
+# three evaluations give Re tr P / 4 = u + v cos 2 theta + w sin 2 theta at every p (UH's identity)
+ngb = 36
+xb, wb = np.polynomial.legendre.leggauss(ngb)
+# two panels per axis: [-pi, 0], [0, pi]
+nodes = np.concatenate([-pi / 2 + (pi / 2) * xb, pi / 2 + (pi / 2) * xb])
+wts = np.concatenate([wb, wb]) * (pi / 2)
+PX, PY, PZ = np.meshgrid(nodes, nodes, nodes, indexing="ij")
+WB = np.einsum("i,j,k->ijk", wts, wts, wts).ravel() / (2 * pi) ** 3
+PB = np.stack([PX.ravel(), PY.ravel(), PZ.ravel()], axis=-1)
+f0 = np.empty(len(PB)); fp = np.empty(len(PB)); fm = np.empty(len(PB))
+CH = 20000
+for i in range(0, len(PB), CH):
+    sl = slice(i, i + CH)
+    f0[sl] = period_trace(PB[sl], 0.0, PHI_B)
+    fp[sl] = period_trace(PB[sl], pi / 4, PHI_B)
+    fm[sl] = period_trace(PB[sl], -pi / 4, PHI_B)
+wq_ = 0.5 * (fp - fm); u_ = 0.5 * (fp + fm); v_ = f0 - u_
+
+
+def F_B(theta):
+    c = np.clip(u_ + v_ * math.cos(2 * theta) + wq_ * math.sin(2 * theta), -1.0, 1.0)
+    return 0.5 * float((WB * np.arccos(c) / 2).sum())        # phase per tick = Omega / 2
+
+
+tb = np.linspace(-0.38, 0.38, 39)
+FB = np.array([F_B(t) for t in tb])
+h = 0.02
+A1_fit = (F_B(h) - F_B(-h)) / (2 * h)
+A2_fit = (F_B(h) - 2 * F_B(0.0) + F_B(-h)) / (2 * h * h)
+dB = {"gate": {"A1_here": A1_fit, "A1_UH": UH["B6_member_B"]["A1_linear_term_(tadpole)"],
+               "A2_here_(half_the_second_difference_at_0.02)": A2_fit, "A2_UH": UH["B6_member_B"]["A2"]},
+      "admissible_window": pi / 8, "theta_grid": tb.tolist(), "F_B": FB.tolist()}
+gU = math.sqrt(G2["main_24.3166"])
+for nm, ND, two in (("D1_sea_alone_N_D_8", 8, None), ("D1_sea_alone_N_D_24", 24, None),
+                    ("D2_B4_N_D_8", 8, False), ("D2_B4_N_D_24", 24, False),
+                    ("D2_B4t_N_D_8", 8, True), ("D2_B4t_N_D_24", 24, True)):
+    Vv = -4 * ND * (FB - F_B(0.0))
+    if two is not None:
+        Vv = Vv + np.array([6 * (F_V(math.sqrt(2) * abs(math.sin(t)), two) - F_V(0.0, two))
+                            + 3 * (F_V(4 / math.sqrt(5) * abs(math.sin(t)), two) - F_V(0.0, two)) for t in tb])
+    i = int(Vv.argmin())
+    # parabolic refinement
+    if 0 < i < len(tb) - 1:
+        y0, y1, y2 = Vv[i - 1], Vv[i], Vv[i + 1]
+        tmin = tb[i] + 0.5 * (tb[1] - tb[0]) * (y0 - y2) / (y0 - 2 * y1 + y2)
+        edge = False
+    else:
+        tmin, edge = tb[i], True
+    dB[nm] = {"theta_B": float(tmin), "at_window_edge": edge, "V_min_minus_V0": float(Vv[i]),
+              "fermion_rest_phase": abs(float(tmin)), "v_over_E_cell_(g_U)": 2 * math.sqrt(2) / gU * abs(math.sin(tmin))}
+out["D_member_B_tadpole"] = dB
+
+json.dump(out, open("lv_potential.json", "w"), indent=1)
+for k, v in out.items():
+    print(k, json.dumps(v)[:1800])

@@ -1,0 +1,129 @@
+"""Calibration of the contrast-space chain builder on known answers (controls).
+
+C1  geometry: closed oriented surfaces; rotation groups 12 / 24 / 60.
+C2  contrast-space attempt == (x, b)-space attempt of model.transported_contrast.law on random states (static law).
+C3  bare law, icosahedron: vacuum class of m high ports has C(12, m) states, doubly stochastic; a doubly loaded
+    port (the 12 non-binary states of the 78) is left with probability 1/6 per attempt.
+C4  static law, tetrahedron, one unit pair: exact stationary release per sweep = (1/2) q^T D^+ q = 1/4, loop current
+    -q/(2M) per attempt on every face; negative control: hop rate 0, survival 1.
+C5  symmetry: every listed law is covariant under rotations, charge conjugation (checked on the tetra chain).
+"""
+import json, random, sys
+from fractions import Fraction as Fr
+from math import comb
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import s1lib as S
+from model.transported_contrast import law as tc
+from model.observer import native
+
+HERE = Path(__file__).resolve().parent
+out = {}
+
+tet, octa, ico = S.tetrahedron(), S.octahedron(), S.icosahedron()
+for C in (tet, octa, ico):
+    tc.check_surface(C.seams, C.faces, C.P)
+out['C1_rotations'] = {C.name: len(C.rotations) for C in (tet, octa, ico)}
+assert out['C1_rotations'] == {'tetrahedron': 12, 'octahedron': 24, 'icosahedron': 60}
+# rotations preserve charges: q(g d) = q(d) permuted
+rng = random.Random(1)
+for C in (tet, octa, ico):
+    for _ in range(200):
+        d = tuple(rng.randint(-2, 2) for _ in range(C.M))
+        gi = rng.randrange(len(C.rotations))
+        q, q2 = C.charges(d), C.charges(C.act(gi, d))
+        assert all(q2[C.face_maps[gi][f]] == q[f] for f in range(C.F))
+
+# C2: (x, b) attempt versus contrast attempt
+static = S.static_law()
+n2 = 0
+for C in (tet, ico):
+    for _ in range(3000):
+        x = tuple(rng.randint(0, 4) for _ in range(C.P))
+        b = tuple(rng.randint(-2, 2) for _ in range(C.M))
+        e = rng.randrange(C.M); coin = rng.randint(0, 1)
+        d = tc.contrast(x, b, C.seams)
+        assert tc.charges(b, C.seams, C.faces) == C.charges(d)
+        x2, j = tc.attempt(x, b, C.seams, e, coin)
+        assert j == S.ref(d[e], coin)
+        assert tc.contrast(x2, b, C.seams) == C.apply(d, e, j, 0)
+        # a twist k changes only d_e and the two face charges
+        k = rng.choice((-1, 1))
+        b2 = list(b); b2[e] += k
+        d3 = tc.contrast(x, tuple(b2), C.seams)
+        assert d3 == C.apply(d, e, 0, k)
+        q, q3 = C.charges(d), C.charges(d3)
+        assert q3[C.L[e]] == q[C.L[e]] + k and q3[C.R[e]] == q[C.R[e]] - k
+        assert sum(abs(a - c) for a, c in zip(q, q3)) == 2
+        n2 += 1
+out['C2_cases'] = n2
+
+# C3: bare law on the icosahedron
+sizes = {}
+for m in (0, 1, 2, 3):
+    x = tuple(1 if p < m else 0 for p in range(12))
+    ch = S.Chain(ico, static, [ico.grad(x)])
+    comp, members, closed = ch.classes()
+    assert len(members) == 1 and closed[0]
+    col = [Fr(0)] * ch.n
+    for i, row in enumerate(ch.rows):
+        for jdx, p in row.items():
+            col[jdx] += p
+    assert all(c == 1 for c in col)            # doubly stochastic -> uniform stationary law
+    sizes[m] = ch.n
+    assert ch.n == comb(12, m)
+out['C3_vacuum_class_sizes'] = sizes
+leave = set()
+for s in native.states():
+    if max(s) == 2:
+        d = ico.grad(s)
+        stay = Fr(0)
+        for e in range(ico.M):
+            for p, j, k in static.outcomes(d[e], 0, 0):
+                if j == 0:
+                    stay += p / ico.M
+        leave.add(1 - stay)
+out['C3_double_load_leave_probability'] = sorted(str(v) for v in leave)
+assert leave == {Fr(1, 6)}
+# all 78 x 30 x 2 native branches agree
+for s in native.states():
+    d = ico.grad(s)
+    for e, seam in enumerate(ico.seams):
+        for coin in (0, 1):
+            nxt, (_, cur) = native.native(s, seam, coin)
+            assert ico.grad(nxt) == ico.apply(d, e, S.ref(d[e], coin), 0) and cur == S.ref(d[e], coin)
+out['C3_native_branches'] = 78 * 30 * 2
+
+# C4: static law on the tetrahedron with one unit pair
+res = {}
+for m in range(4):
+    x = tuple(1 if p < m else 0 for p in range(4))
+    b = tet.string(0, 1)
+    d0 = tuple(g - o for g, o in zip(tet.grad(x), b))
+    ch = S.Chain(tet, static, [d0])
+    comp, members, closed = ch.classes()
+    rec = [mem for mem, c in zip(members, closed) if c]
+    assert len(rec) == 1
+    pi = S.stationary_fraction(ch.rows, rec[0])
+    release = sum(p * sum(Fr(dv * dv // 4) for dv in ch.states[v]) for p, v in zip(pi, rec[0]))
+    nodd = sum(p * sum(abs(dv) % 2 for dv in ch.states[v]) for p, v in zip(pi, rec[0]))
+    # loop current per attempt on every face: sum over seams of the face of s_e E[j_e] / M
+    loop = []
+    for f in range(tet.F):
+        tot = Fr(0)
+        for p, v in zip(pi, rec[0]):
+            dd = ch.states[v]
+            for e, s in tet.fs[f]:
+                tot += p * s * Fr(dd[e], 2) / tet.M
+        loop.append(tot)
+    q = tet.charges(d0)
+    assert release == Fr(1, 4)
+    assert all(l == Fr(-qq, 2 * tet.M) for l, qq in zip(loop, q))
+    maxd = max(max(abs(v) for v in ch.states[s]) for s in rec[0])
+    res[m] = dict(reachable=ch.n, recurrent=len(rec[0]), release_per_sweep=str(release), E_N_odd=str(nodd),
+                  loop_current_per_attempt=[str(l) for l in loop], max_abs_contrast=maxd,
+                  charges_change=False)
+out['C4_static_tetrahedron_pair'] = res
+
+Path(HERE / 'c00_calibrate.json').write_text(json.dumps(out, indent=1))
+print(json.dumps(out, indent=1))

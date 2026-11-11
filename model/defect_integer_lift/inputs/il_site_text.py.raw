@@ -1,0 +1,201 @@
+"""Text and layout of the site data file il_census.json (statements with labels, reading table, field notes)."""
+from __future__ import annotations
+
+R1_NAME = {1: 'Q = (u_L, d_L)', -1: 'the conjugate of Q', 4: 'u_R', -2: 'd_R', -4: 'the conjugate of u_R',
+           2: 'the conjugate of d_R', -3: 'L and the conjugate of H', 3: 'H and the conjugate of L', -6: 'e_R',
+           6: 'the conjugate of e_R', 0: 'nu_R and the gauge fields'}
+SIM_COMMIT = '476aff7219fe05592563cb0a1281aba4cffc9d96'
+
+
+def pct(x, n=1):
+    return f'{100 * x:.{n}f}'
+
+
+def num(n):
+    return f'{n:,}'
+
+
+def reading_table(levels):
+    """One row per class and value under reading R1, with the measured share inside the class at the end."""
+    rows = []
+    order = [(1, (1, -5, 7)), (5, (-1, 5, -7)), (4, (-2, 4, -8, 10)), (2, (2, -4, 8, -10)), (3, (-3, 3, -9, 9)), (0, (-6, 6, -12, 12))]
+    for k, values in order:
+        for v in values:
+            row = dict(cls=k, value=v, hypercharge_integer=v in R1_NAME,
+                       flux_seen_by=R1_NAME.get(v), statistics='pure flux, boson')
+            if v not in R1_NAME:
+                row['note'] = {5: 'a value -1 on a face that holds +6', -5: 'a value +1 on a face that holds -6',
+                               7: 'a value +1 on a face that holds +6', -7: 'a value -1 on a face that holds -6'}.get(
+                                   v, 'no Standard Model multiplet has this 6Y')
+            elif k == 1 or k == 5:
+                row['note'] = 'the lift does not separate u_L from d_L'
+            elif k == 3:
+                row['note'] = 'the lift does not separate the lepton doublet from the Higgs doublet'
+            elif k == 0:
+                row['note'] = 'class 0: no quantum sees this flux, and the register cannot see the value'
+            share = {}
+            for name, d in levels.items():
+                vb = d['end']['internal']['values_by_class'][str(k)]
+                key = f'{v:+d}'
+                if k == 0:
+                    share[name] = dict(faces=vb.get(key, 0), of_flat_faces=d['end']['internal']['flat_faces'])
+                else:
+                    tot = sum(vb.values())
+                    share[name] = dict(faces=vb.get(key, 0), of_class_faces=tot)
+            row['end_internal'] = share
+            rows.append(row)
+    return rows
+
+
+def build(summary, series):
+    lv = summary['levels']
+    L5, L6, L7 = lv['L5'], lv['L6'], lv['L7']
+    e5, e6, e7 = L5['end']['internal'], L6['end']['internal'], L7['end']['internal']
+    t6, t7 = L6['word_tests_end'], L7['word_tests_end']
+    g1 = {n: next(v for k, v in d['gates'].items() if k.startswith('G1 value')) for n, d in lv.items()}
+    faces_compared = sum(v['faces_compared'] for v in g1.values())
+    carrier_cuts = sum(next(v for k, v in d['gates'].items() if k.startswith('G2'))['carrier_cuts'] for d in lv.values())
+    late6 = L6['loads']['late']
+    early6 = L6['loads']['early']
+    w444 = t7['{4,4,4}']
+    statements = [
+        dict(label='DECLARED', status='declared', text=(
+            'The Z6 register of the runs is a declared layer on the exact loads. The integer lift keeps the unreduced '
+            'current j of every applied twist on the link of its seam. A face value m is the signed sum of the links '
+            'around the face. The class is m modulo 6.')),
+        dict(label='EXACT', status='derived', text=(
+            f'The value modulo 6 equals the stored class of every face on every stored cut at levels 4, 5 and 6, and on '
+            f'the screen at level 7: {num(faces_compared)} face comparisons, no mismatch. At level 7 the end state equals '
+            f'the stored checkpoint on all {num(6717442)} faces.')),
+        dict(label='EXACT', status='derived', text=(
+            f'Stokes: the twenty face values of a carrier sum to zero, on {num(carrier_cuts)} carrier states with no '
+            'exception. The plaquette values of the screen sum to zero on every cut. The integer word of a carrier has '
+            'total 0. The word (+4,-2,-2) occurs. The word (+4,+4,-2) occurs only with -6 on a flat face of the same carrier.')),
+        dict(label='EXACT', status='derived', text=(
+            'The law reads the class only. Two faces of equal class and different value have the same future. '
+            'The value is a record of the path of the applied current, and no step of the run depends on it.')),
+        dict(label='EXACT', status='derived', text=(
+            'A pair birth on two faces of value 0 gives (j,-j). A face of absolute value 4 or more does not move with its '
+            'value: when it empties it keeps a nonzero multiple of 6. In the band every current is 1 or -1, and a defect of value +1 or -1 '
+            'moves intact across faces of value 0.')),
+        dict(label='MEASURED', status='declared', text=(
+            f'End of level 6, carrier faces: class 4 holds -2 on {pct(e6["class_4"]["share_-2"])} percent and +4 on '
+            f'{pct(e6["class_4"]["share_+4"])} percent of its faces. Class 2 holds +2 on {pct(e6["class_2"]["share_+2"])} and -4 on '
+            f'{pct(e6["class_2"]["share_-4"])} percent. Class 3 holds +3 on {num(e6["class_3"]["plus_3"])} and -3 on '
+            f'{num(e6["class_3"]["minus_3"])} faces. {pct(e6["share_minimal"])} percent of the defect faces take the value of '
+            'least absolute size.')),
+        dict(label='MEASURED', status='declared', text=(
+            f'{pct(e6["share_hypercharge_integers"], 2)} percent of the defect faces at the end of level 6 hold a value '
+            f'that is 6Y of a Standard Model multiplet (level 5: {pct(e5["share_hypercharge_integers"], 2)}, level 7: '
+            f'{pct(e7["share_hypercharge_integers"], 2)}). {num(e6["outside_hypercharge_integers"])} faces hold another value: '
+            f'8, 9 or 10 in absolute size, and a few 5 and 7. During the run the share of 5 peaks at '
+            f'{pct(L6["time"]["peak_abs_5"]["share"], 2)} percent of the defect faces at depth {L6["time"]["peak_abs_5"]["depth"]}.')),
+        dict(label='MEASURED', status='declared', text=(
+            f'Flat faces hold +6 or -6: {num(e6["hidden_faces"])} carrier faces at the end of level 6, '
+            f'{pct(e6["hidden_per_flat_face"], 2)} percent of the flat faces. The register cannot see them. '
+            'Most of them are left behind when a defect of value 5 or 7 moves on.')),
+        dict(label='MEASURED', status='declared', text=(
+            f'Carriers of composition {{4,4,4}} at the end of level 7 ({num(w444["carriers"])} carriers): the word (+4,-2,-2) on '
+            f'{pct(w444["R1_strict_share"])} percent, the word (-2,-2,-2) with +6 on a flat face on {pct(w444["R2_share"])} percent, '
+            f'other words on {pct(1 - w444["R1_strict_share"] - w444["R2_share"])} percent. Level 6: '
+            f'{pct(t6["{4,4,4}"]["R1_strict_share"])}, {pct(t6["{4,4,4}"]["R2_share"])} and '
+            f'{pct(1 - t6["{4,4,4}"]["R1_strict_share"] - t6["{4,4,4}"]["R2_share"])} percent.')),
+        dict(label='MEASURED', status='declared', text=(
+            f'Null model: the same twists with a random representative of each class leave {pct(e6["null_N2"]["share_hypercharge_integers"])} '
+            f'percent of the defect faces at a hypercharge integer and {pct(e6["null_N2"]["share_minimal"])} percent at the least value. '
+            f'The run has {pct(e6["share_hypercharge_integers"], 1)} and {pct(e6["share_minimal"])} percent. The free sum of all currents '
+            'agrees with the class on one face in six, which is chance.')),
+        dict(label='ARGUED', status='open', text=(
+            'Reading as hypercharge: m = 6Y. A class-4 face of value +4 is then the flux that u_R sees, and a face of value -2 the '
+            'flux that d_R sees. A pure flux content is a boson. The word (+4,-2,-2) is the flux that a u d d content sees. '
+            'It is not a neutron.')),
+        dict(label='ARGUED', status='open', text=(
+            'The lift separates u_R from d_R. It does not separate u_L from d_L, both have 6Y = +1. It does not separate the '
+            'lepton doublet from the Higgs doublet. T3 stays outside it.')),
+        dict(label='ARGUED', status='open', text=(
+            'Verdict on the reading. As a statement about the set of values it holds on 99.7 percent of the defect faces and '
+            'fails as an exact law. A value of size 4 or more does not travel with its defect, the register never reads it, and one composition '
+            'carries several words. The lift records how often the applied current wound around the face. It is no member label.')),
+        dict(label='MEASURED', status='declared', text=(
+            f'Class-3 pair check on the stored loads of level 6. In the band no face holds a double load on one port: the share is '
+            f'exactly 0 for every class. The three loads have equal parity on {pct(late6["class 3 at rest"]["H_par"]["share"], 2)} percent '
+            f'of the resting class-3 faces and on {pct(late6["flat"]["H_par"]["share"], 2)} percent of the flat faces. Before the band, '
+            f'resting class-3 faces hold a double on {pct(early6["class 3 at rest"]["H_double"]["share"], 2)} percent, flat faces on '
+            f'{pct(early6["flat"]["H_double"]["share"], 2)} percent, moving class-3 faces on '
+            f'{pct(early6["class 3 moving"]["H_double"]["share"], 2)} percent.')),
+    ]
+    comparison = [
+        dict(question='share of defect faces outside the hypercharge integers', R1='0', R2_prime='0', null_N2='large',
+             measured={n: d['end']['internal']['outside_hypercharge_integers'] / d['end']['internal']['defect_faces'] for n, d in lv.items()},
+             null_measured={n: 1 - d['end']['internal']['null_N2']['share_hypercharge_integers'] for n, d in lv.items()}),
+        dict(question='share of class-4 faces at +4', R1='allowed', R2_prime='0', null_N2='common',
+             measured={n: d['end']['internal']['class_4']['share_+4'] for n, d in lv.items()}),
+        dict(question='{4,4,4} carriers with the word (+4,-2,-2)', R1='all', R2_prime='none', null_N2='mixed',
+             measured={n: d['word_tests_end']['{4,4,4}']['R1_strict_share'] for n, d in lv.items()}),
+        dict(question='{4,4,4} carriers with the word (-2,-2,-2|+6)', R1='none (strict form)', R2_prime='all', null_N2='mixed',
+             measured={n: d['word_tests_end']['{4,4,4}']['R2_share'] for n, d in lv.items()}),
+        dict(question='flat faces with a value of 6 or -6, per flat face', R1='none (strict form)', R2_prime='only on {4,4,4}, {2,2,2}',
+             null_N2='common', measured={n: d['end']['internal']['hidden_per_flat_face'] for n, d in lv.items()},
+             null_measured={n: d['end']['internal']['null_N2']['hidden_faces'] / d['end']['internal']['flat_faces'] for n, d in lv.items()}),
+        dict(question='class-1 faces away from +1 at the end', R1='0', R2_prime='0', null_N2='common',
+             measured={n: 1 - d['end']['internal']['values_by_class']['1'].get('+1', 0) / max(1, sum(d['end']['internal']['values_by_class']['1'].values()))
+                       for n, d in lv.items()}),
+    ]
+    runs = {}
+    for name, d in lv.items():
+        runs[name] = dict(carriers=d['carriers'], sweeps=d['sweeps'], applied_twists=d['applied_twists'], all_gates_pass=d['all_gates_pass'],
+                          gates=d['gates'], custody=d['custody'])
+    hist = {name: {tier: dict(values_by_class=d['end'][tier]['values_by_class'], defect_faces=d['end'][tier]['defect_faces'],
+                              flat_faces=d['end'][tier]['flat_faces'], hidden_faces=d['end'][tier]['hidden_faces'],
+                              share_hypercharge_integers=d['end'][tier]['share_hypercharge_integers'],
+                              share_minimal=d['end'][tier]['share_minimal'], share_abs_4=d['end'][tier]['share_abs_4'],
+                              mirror_pairs=d['end'][tier]['mirror_pairs'], null_N2=d['end'][tier]['null_N2'])
+                   for tier in ('internal', 'screen')} for name, d in lv.items()}
+    words = {name: d['words_end'] for name, d in lv.items()}
+    return {
+        'schema': 'oph.il_census.v1',
+        'title': 'Integer lift of the Z6 defect register',
+        'map_into_this_step': 'defects to particles: the unreduced current of every twist gives each face an integer beyond its class',
+        'fields': {
+            'definition': 'the lift in three sentences',
+            'runs': 'per level: size, the exact gates with their counts, and the custody hashes of the run and of the twist history',
+            'histograms': 'per level and tier (internal = carrier faces, screen = plaquettes) at the end state: faces per class and '
+                          'value (class 0 lists the flat faces of nonzero value), shares, mirror pairs with their difference in '
+                          'standard errors, and the null model N2',
+            'words': 'per level at the end state: for each composition of a carrier the integer words with counts; a word lists the '
+                     'values of the defect faces by class and after a bar the values of flat faces of the same carrier',
+            'word_tests': 'the registered tests on {4,4,4}, {2,2,2}, {2,4} and {3,3}',
+            'words_at_peak': 'the words of {1,2,3} and {3,4,5} on the stored cut where these carriers are most numerous',
+            'reading_table': 'reading R1 (ARGUED): each class and value with the multiplet whose 6Y it is, and the measured faces',
+            'comparison': 'the comparisons fixed before the census, with the measured value at every level',
+            'events': 'per level: applied twists by kind and the share that keeps the sum over the defect faces',
+            'two_lifts': 'per level: the two integer lifts of the reactions that involve class 3, counted without flat faces',
+            'identities': 'per level, tier and class: identities by value at birth, lifetime in depth, moves, moves that changed the value',
+            'series': 'levels 5 and 6: counts over the stored cuts; internal_values is keyed class:value; the last entry is the end state',
+            'loads_check': 'item (h): loads on the three ports of carrier faces on the stored cuts of levels 5 and 6',
+            'statements': 'sentences for the page with label (EXACT, MEASURED, ARGUED, DECLARED) and site status: derived for an exact '
+                          'identity, declared for a definition and for a count on the declared register, open for a reading',
+            'labels': 'EXACT: integer identity checked on every listed state. MEASURED: count in the listed run. ARGUED: reading. '
+                      'DECLARED: definition.'},
+        'definition': [
+            'Integer link per seam, zero at the start. Every applied twist adds its integer current j, with |j| at most 3.',
+            'Face value m = sum of the links the face traverses a to b minus the sum of those it traverses b to a.',
+            'Class = m modulo 6. A defect face has a nonzero class. A flat face has class 0 and can hold a multiple of 6.'],
+        'source': dict(simulator='https://github.com/muellerberndt/oph-physics-sim', simulator_commit=SIM_COMMIT,
+                       runs='universe runs L4 to L7: law C, schedule 1, preparation exact06, cost (0,5,8,10,8,5), kappa 5',
+                       hypercharge_integers=[0, 1, -1, 2, -2, 3, -3, 4, -4, 6, -6],
+                       note='no measured value enters; the hypercharge integers are 6Y = 3 n2 - 2 n3 on the 32 patterns of the code'),
+        'runs': runs,
+        'histograms': hist,
+        'words': words,
+        'word_tests': {name: d['word_tests_end'] for name, d in lv.items()},
+        'words_at_peak': {name: {k: v for k, v in d['words_at_peak'].items() if k in ('{1,2,3}', '{3,4,5}')} for name, d in lv.items()},
+        'reading_table': reading_table({n: lv[n] for n in ('L5', 'L6', 'L7')}),
+        'comparison': comparison,
+        'events': {name: d['events'] for name, d in lv.items()},
+        'two_lifts': {name: d['two_lifts'] for name, d in lv.items()},
+        'identities': {name: d['identities'] for name, d in lv.items() if name in ('L5', 'L6')},
+        'series': series,
+        'loads_check': {name: d['loads'] for name, d in lv.items() if 'loads' in d and name in ('L5', 'L6')},
+        'statements': statements,
+    }

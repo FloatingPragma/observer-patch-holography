@@ -1,0 +1,85 @@
+"""Item 5: second-order dressed branch on large tori (selfenergy.kspace), on-axis momenta, forward tick.
+
+For each (dimension, kappa): convergence in L, the table sigma(p), and the fit of
+    omega^2 - p^2 = [E^2 - p^2]_free + eps^2 * 2 E sigma(p),     2 E sigma(p) = A + B p^2
+A is the shift of the squared rest phase per eps^2, B the change of the squared cone slope per eps^2.
+Windows without a resonance: y = E(p) + 2a (a = kappa * n_p, the phase of one flipped link relative to flat is -2a) must lie in a gap
+of the one-body tick, (-theta, theta) or (pi - theta, pi + theta), AND must not meet the rest phase of the level that a flipped link
+binds (mid-gap, see `bound_levels`). Outside them the retarded value (eta > 0) is complex: -2 Im sigma eps^2 is a decay rate per tick.
+
+NOTE (R5): forward-only schedule. The two-dimensional tables are valid. The three-dimensional ones are not (no window,
+PROOFS.md 1c). The binding (alternating) schedule is in selfenergy_alt_run.py.
+"""
+import json, sys, time
+from multiprocessing import Pool
+import numpy as np
+from selfenergy import kspace, I4
+from r5lib import ALPHA, BETA, SIG
+
+TH = 0.157935
+def coin_axis(p, theta, axis):
+    """positive branch at momentum p along `axis`, spin +1 along that axis"""
+    X = np.array([[0, 1], [1, 0]], complex); Y = np.array([[0, -1j], [1j, 0]])
+    U2 = (np.cos(theta) * np.eye(2) - 1j * np.sin(theta) * Y) @ (np.cos(p) * np.eye(2) - 1j * np.sin(p) * X)
+    lam, v = np.linalg.eig(U2); j = int(np.argmax(-np.angle(lam))); r = v[:, j] / np.linalg.norm(v[:, j])
+    w, sv = np.linalg.eigh(SIG[axis]); spin = sv[:, int(np.argmax(w))]
+    return np.kron(r, spin), float(-np.angle(lam[j]))
+
+def one(args):
+    dims, L, kappa, p, axis, eta, theta = args
+    coin, E = coin_axis(p, theta, axis); pv = [0.0, 0.0, 0.0]; pv[axis] = p
+    s = kspace(dims, L, theta, kappa, tuple(pv), coin, E, eta)
+    return dict(dims=dims, L=L, kappa=kappa, p=p, axis=axis + 1, eta=eta, theta=theta, E=E, sigma_re=float(np.real(s)), sigma_im=float(np.imag(s)))
+
+def bound_levels(shape, theta, tol=None):
+    """eigenphases of the one-body forward tick with ONE flipped link that lie in the gaps of the flat tick"""
+    from selfenergy import one_body
+    ev = np.linalg.eigvals(one_body(shape, theta, (0.0, 0.0, 0.0), flip=((0, 0, 0), 0))); E = np.sort(-np.angle(ev))
+    return [float(e) for e in E if abs(e) < theta - 1e-6 or abs(abs(e) - np.pi) < theta - 1e-6]
+
+if __name__ == '__main__':
+    t0 = time.time(); jobs = []
+    bl = {'2D 20x20': bound_levels((20, 20, 1), TH), '3D 8x8x8': bound_levels((8, 8, 8), TH)}
+    for k, v in bl.items(): print('eigenphases in the gaps of the tick with one flipped link,', k, ':', [round(x, 6) for x in v])
+    ps = (0.0, 0.05, 0.1, 0.15, 0.2)
+    windows = {2: (-0.025, 0.71, -0.06), 3: (-0.0125, 0.355, -0.03)}     # b = 0.10 below the mid-gap level; the pi window; b = 0.24 (crosses the mid-gap level)
+    Ls = {2: (32, 64, 128, 256), 3: (16, 24, 32, 48)}
+    for dims in (2, 3):
+        for kap in windows[dims]:
+            for L in Ls[dims]: jobs += [(dims, L, kap, p, 0, 0.0, TH) for p in ps]
+            jobs += [(dims, Ls[dims][-1], kap, p, dims - 1, 0.0, TH) for p in ps]            # momentum along the last axis
+    # resonant values of kappa, retarded
+    for kap in (0.06, 0.3):
+        for eta in (0.04, 0.02):
+            jobs += [(2, 512, kap, p, 0, eta, TH) for p in (0.0, 0.1, 0.2, 0.3)]
+    for kap in (0.03,):
+        for eta in (0.08, 0.04):
+            jobs += [(3, 48, kap, p, 0, eta, TH) for p in (0.0, 0.1, 0.2, 0.3)]
+    with Pool(12) as pool: rows = pool.map(one, jobs, chunksize=1)
+    out = dict(theta=TH, rows=rows, fits=[], levels_bound_to_one_flipped_link=bl)
+    for dims in (2, 3):
+        for kap in windows[dims]:
+            for axis in (1, dims):
+                Lmax = Ls[dims][-1]
+                sel = sorted([r for r in rows if r['dims'] == dims and r['kappa'] == kap and r['L'] == Lmax and r['axis'] == axis and r['eta'] == 0], key=lambda r: r['p'])
+                if axis == 1:
+                    conv = {L: [r['sigma_re'] for r in sorted([r for r in rows if r['dims'] == dims and r['kappa'] == kap and r['L'] == L and r['axis'] == 1 and r['eta'] == 0], key=lambda r: r['p'])] for L in Ls[dims]}
+                    print(f'\n{dims}D kappa={kap}: sigma(p) for p = {ps}')
+                    for L in Ls[dims]: print(f'   L={L:4d}: ' + ' '.join(f'{v:+11.5f}' for v in conv[L]))
+                y = np.array([2 * r['E'] * r['sigma_re'] for r in sel]); p = np.array([r['p'] for r in sel])
+                m = p <= 0.2001
+                B, A = np.polyfit(p[m] ** 2, y[m], 1)
+                resid = float(np.abs(y[m] - (A + B * p[m] ** 2)).max())
+                a = kap * 2 * (dims - 1)
+                fit = dict(dims=dims, kappa=kap, momentum_axis=axis, L=Lmax, A_mass2_shift_per_eps2=float(A), B_cone_slope2_shift_per_eps2=float(B), fit_residual=resid,
+                           two_E_sigma=[float(v) for v in y], p=[float(v) for v in p], inverse_sin2_a=float(1 / np.sin(a) ** 2),
+                           free_tick_defect_coefficient=-TH ** 2 / 3, eps_at_which_cone_shift_equals_free_defect=float(np.sqrt(TH ** 2 / 3 / abs(B))))
+                out['fits'].append(fit)
+                print(f'   axis {axis}: 2E sigma = {["%+.5f" % v for v in y]}')
+                print(f'   fit p <= 0.2: omega^2 - p^2 shift = eps^2 (A + B p^2), A = {A:+.5f}, B = {B:+.5f} (residual {resid:.1e}); 1/sin^2(a) = {1/np.sin(a)**2:.3f};'
+                      f' free tick: -theta^2/3 = {-TH**2/3:+.5f}; equal at eps = {np.sqrt(TH**2/3/abs(B)):.4f}')
+    print('\nresonant kappa (retarded, complex sigma):')
+    for r in rows:
+        if r['eta'] > 0: print(f"   {r['dims']}D L={r['L']} kappa={r['kappa']} eta={r['eta']} p={r['p']}: sigma = {r['sigma_re']:+.4f} {r['sigma_im']:+.4f} i")
+    out['seconds'] = time.time() - t0
+    json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 'selfenergy_run.json', 'w'), indent=1)

@@ -1,0 +1,158 @@
+{
+ "suite": "CF-1 conformance, items (a) to (j)",
+ "float": "float64",
+ "items": {
+  "a1": {
+   "value": 8.777083671441753e-17,
+   "bound": 1e-14,
+   "pass": true,
+   "what": "Q_i Q_i = 1"
+  },
+  "a2": {
+   "value": 4.654751537338637e-17,
+   "bound": 1e-14,
+   "pass": true,
+   "what": "Q_i R = P+ T + P- T* (reference engine)"
+  },
+  "a3": {
+   "value": 4.654751537338637e-17,
+   "bound": 1e-14,
+   "pass": true,
+   "what": "fast shift of this engine equals the seam form"
+  },
+  "a4": {
+   "value": 5.003707553108402e-17,
+   "bound": 1e-14,
+   "pass": true,
+   "what": "the same with a random Z2 link field"
+  },
+  "a5": {
+   "value": 4.3885418357208765e-17,
+   "bound": 1e-14,
+   "pass": true,
+   "what": "the same with random link phases"
+  },
+  "a6": {
+   "value": 3.1031676915590914e-17,
+   "bound": 1e-14,
+   "pass": true,
+   "what": "inverse shift with link phases"
+  },
+  "b1": {
+   "value": 2.2887833992611187e-16,
+   "bound": 1e-13,
+   "pass": true,
+   "what": "two-component tick against the closed form u - i sigma.n, both orders, 1,000 momenta"
+  },
+  "b2": {
+   "value": 3.7238012298709097e-16,
+   "bound": 1e-13,
+   "pass": true,
+   "what": "four-component massless tick = direct sum over the two arrow states of the record (the second at -p)"
+  },
+  "c1": {
+   "value": 1.762479051592436e-15,
+   "bound": 1e-12,
+   "pass": true,
+   "what": "one axis: cos E = cos(theta) cos(p)"
+  },
+  "c2": {
+   "value": 2.220446049250313e-16,
+   "bound": 1e-07,
+   "pass": true,
+   "what": "alternating order: the two helicities have equal phase per tick (eigenphases of a degenerate pair)"
+  },
+  "d1": {
+   "value": 3.160304384191109e-15,
+   "bound": 1e-11,
+   "pass": true,
+   "what": "200 ticks forward and 200 inverse, 32^3, random Z2 links and rest angles: relative return error"
+  },
+  "e1": {
+   "value": 0.0,
+   "bound": 0.0,
+   "pass": true,
+   "what": "gauge covariance, random Z2 transformation and Z2 links (a relabelling: exactly zero)"
+  },
+  "e2": {
+   "value": 5.1019748043878786e-17,
+   "bound": 1e-13,
+   "pass": true,
+   "what": "gauge covariance with link phases"
+  },
+  "f1": {
+   "value": 0.0,
+   "bound": 0.0,
+   "pass": true,
+   "what": "translation covariance (exactly zero)"
+  },
+  "f2": {
+   "value": 0.0,
+   "bound": 0.0,
+   "pass": true,
+   "what": "a state on one of the four body-centred sublattices stays on it (weight elsewhere)"
+  },
+  "g1": {
+   "value": 6.661338147750939e-16,
+   "bound": 1e-12,
+   "pass": true,
+   "what": "norm drift over 1,000 ticks, float64"
+  },
+  "h1": {
+   "value": 2.220446049250313e-16,
+   "bound": 1e-13,
+   "pass": true,
+   "what": "record after one tick: sin^2(theta) at rest; 1 - (c1c2c3)^2 - (s1s2c3)^2 - (s1c2s3)^2 - (c1s2s3)^2 massless"
+  },
+  "i1": {
+   "value": 0.00010728043038854551,
+   "bound": 0.0002,
+   "pass": true,
+   "what": "packet velocity against dE/dp averaged over the packet weights (three rest angles)"
+  },
+  "k1": {
+   "value": 5.757191532588118e-16,
+   "bound": 1e-13,
+   "pass": true,
+   "what": "reference executable work/R1/cf1.py (OneBody.tick) against this engine: six random cases with link signs and angle fields, five ticks"
+  },
+  "l1": {
+   "value": 4.996003610813204e-16,
+   "bound": 1e-07,
+   "pass": true,
+   "what": "closed form: cos w = cos(theta) cos(rho), cos 2 rho = product of cos 2 p_i, both helicities, both mass kinds"
+  },
+  "l2": {
+   "value": 4.1887386706166503e-16,
+   "bound": 1e-13,
+   "pass": true,
+   "what": "half-step frame: R P R = P^-1 for the two-tick period, random angle field and link signs"
+  },
+  "l3": {
+   "value": 3.469446951953614e-17,
+   "bound": 1e-13,
+   "pass": true,
+   "what": "half-step frame equals the end frame conjugated by half a mass step (six ticks)"
+  },
+  "j1": {
+   "value": 7.473417450352271e-17,
+   "bound": 1e-12,
+   "pass": true,
+   "what": "browser engine against this engine, ten random cases with link signs, Z3 link phases and angle fields, five ticks (5 of 10 bit for bit)"
+  }
+ },
+ "hashes": {
+  "cf1_lib.py": "df8fbe4df1f206180df0c1a00d690239be73f329ada978aa4c3d3b71e1c81baf",
+  "ref/routing.py": "692285e9ecef2542d290c720e8bfd7af53d2d908086b45e4205e4febf5719891",
+  "R1/cf1.py": "096e24b9111daa7ffe29532c774aec2b52162500564b4524a3a001b784735779",
+  "cf1_engine.js": "4de34b1668432819897b70ac4714490d9c1bea45a227e04021f4bf1f6265b81a"
+ },
+ "ticks_per_second_32cubed_numpy": 18.37317220665561,
+ "complex64": {
+  "norm_drift_1000_ticks": 7.08218419465112e-07,
+  "return_error_200_ticks": 1.5464434000023175e-06
+ },
+ "reflection_defect_with_the_mass_step_at_the_end": 0.39000359550546615,
+ "note_on_rest": "A blank record is not a rest state of the tick: a blank packet oscillates along the spin axis with amplitude of order 1/(2 theta) (the record rotates between blank and written). In the half-step frame its position is even in time.",
+ "all_pass": true
+}

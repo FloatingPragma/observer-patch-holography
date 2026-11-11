@@ -1,0 +1,74 @@
+"""Item 1: Landau levels of the discrete tick in a uniform field strength B (links of axis 2: exp(-i B x_1)).
+
+Exact (float64 diagonalization) levels of the tick on the reduced problem (plane wave along axis 2, uniform along 3),
+against the relativistic levels sqrt(theta^2 + 2 n B) and against the leading lattice correction derived in
+PROOFS.md (alternating order):   E_n^2 = theta^2 + 2 n B (1 - theta^2/3) - (2/3) (n B)^2.
+If the simulation session's run B is readable (work/SIM/cf1/runs/B_landau.json) its exact eigenphases are compared.
+"""
+import json, os, sys
+import numpy as np
+from r5lib import Routing, tick, matrix_of
+
+def levels(L1, k, theta, alternating=True, kmax=7):
+    B = 2 * np.pi * k / L1
+    x = np.arange(L1).reshape(L1, 1, 1)
+    w = Routing((L1, 1, 1), [np.ones((L1, 1, 1), complex), np.exp(-1j * B * x), np.ones((L1, 1, 1), complex)])
+    if alternating:
+        f = lambda psi: tick(w, tick(w, psi, theta), theta, reverse=True); per = 2
+    else:
+        f = lambda psi: tick(w, psi, theta); per = 1
+    ev = np.linalg.eigvals(matrix_of(f, (L1, 1, 1, 2, 2)))
+    E = np.sort(-np.angle(ev) / per); E = E[E > -1e-9]
+    bands = []                                              # clusters of positive eigenphases
+    for e in E:
+        if bands and e - bands[-1][-1] < 2e-4: bands[-1].append(e)
+        else: bands.append([e])
+        if len(bands) > kmax + 1: break
+    return B, [(float(np.mean(b)), float(b[-1] - b[0]), len(b)) for b in bands[:kmax]], float(np.abs(np.abs(ev) - 1).max())
+
+out = {'rows': []}
+for L1, k in ((128, 1), (128, 2), (128, 4), (256, 1), (512, 1)):
+    for theta in (0.0, 0.087847, 0.157935):
+        if L1 == 512 and theta == 0.157935: continue
+        for alt in (True, False):
+            if not alt and L1 != 128: continue
+            B, bands, unit = levels(L1, k, theta, alt)
+            row = dict(L1=L1, k=k, B=B, theta=theta, order='alternating' if alt else 'forward only', unitarity=unit, levels=[])
+            n0 = 0 if theta > 0 or abs(bands[0][0]) < 1e-9 else 1
+            for j, (e, width, mult) in enumerate(bands):
+                n = j + n0
+                rel = float(np.sqrt(theta ** 2 + 2 * n * B))
+                corr = float(np.sqrt(max(theta ** 2 + 2 * n * B * (1 - theta ** 2 / 3) - (2 / 3) * (n * B) ** 2, 0.0)))
+                row['levels'].append(dict(n=n, tick=e, band_width=width, multiplicity=mult, relativistic=rel, with_lattice_correction=corr))
+            out['rows'].append(row)
+            print(f"L1={L1} k={k} B={B:.6f} theta={theta} {row['order']}: " + '  '.join(
+                f"n={l['n']}: {l['tick']:.6f} (rel {l['relativistic']:.6f}, corr {l['with_lattice_correction']:.6f}, x{l['multiplicity']})" for l in row['levels'][:5]))
+
+# coefficients of the lattice correction, from the smallest field (alternating)
+for theta in (0.0, 0.087847):
+    r = [x for x in out['rows'] if x['L1'] == 512 and x['theta'] == theta and x['order'] == 'alternating'][0]
+    for l in r['levels'][1:5]:
+        n, B = l['n'], r['B']
+        d = l['tick'] ** 2 - theta ** 2 - 2 * n * B
+        msg = f"   theta={theta} n={n}: (E^2 - theta^2 - 2nB)/(nB)^2 = {d / (n * B) ** 2:+.5f}"
+        if theta > 0: msg += f"   (E^2 - theta^2 - 2nB + (2/3)(nB)^2)/(theta^2 n B) = {(d + (2 / 3) * (n * B) ** 2) / (theta ** 2 * n * B):+.5f}  (derived: -2/3)"
+        else: msg += '  (derived: -2/3)'
+        print(msg)
+
+# comparison with the simulation session's run B
+p = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'simruns', 'B_landau_light.json')
+if os.path.exists(p):
+    d = json.load(open(p)); cmp_rows = []
+    for line in d['lines']:
+        mine = [x for x in out['rows'] if x['L1'] == 128 and x['k'] == line['k'] and abs(x['theta'] - line['theta']) < 1e-9 and x['order'] == 'alternating']
+        if not mine or 'up' not in line['coin']: continue
+        theirs = sorted(v[0] for v in line['exact_distinct_eigenphases_mult_weight'])
+        worst = max(min(abs(l['tick'] - t) for t in theirs) for l in mine[0]['levels'][:5])
+        cmp_rows.append(dict(k=line['k'], theta=line['theta'], max_abs_difference_first_5_levels=worst, their_first=theirs[:5]))
+        print(f"run B k={line['k']} theta={line['theta']}: max |my level - nearest SIM exact eigenphase| over the first 5 levels = {worst:.2e}")
+    out['run_B_comparison'] = cmp_rows
+    out['run_B_keys'] = list(d.keys())
+    for key in d:
+        if 'orbit' in key and isinstance(d[key], list) and d[key]:
+            print('run B', key, 'first row keys:', list(d[key][0].keys()))
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 'item1_landau.json', 'w'), indent=1)

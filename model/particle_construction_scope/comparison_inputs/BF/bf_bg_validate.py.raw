@@ -1,0 +1,220 @@
+"""BF validation of the background-field machinery (bf_bg_lib.py).
+
+V1  F(lam, inf) against the elliptic closed form; F(lam, 1) and F(lam, 2) against adaptive quadrature.
+V2  Plaquette form against finite differences of the SU(2) Wilson plaquette action on an 8 x 4 torus with flux pi/2
+    per plaquette (charged directions): spectrum of the finite-difference Hessian against the Bloch spectra.
+V3  Gauge directions are zero modes of the plaquette operator (isotropic and anisotropic, random site functions).
+V4  Three-dimensional operator on a 6 x 3 x 4 torus: zero modes = sites; nonzero spectrum = two-dimensional
+    gauge-fixed spectrum + 4 sin^2(k_z/2).
+V5  MSbar constant c from the Hurwitz zeta sum, numerically (mpmath), against the closed form.
+V6  References at zero flux and the plaquette fluctuations w_sigma, w_tau; w_sigma(1) = 1/2.
+Writes bf_bg_validate.json.
+"""
+import json
+import sys
+import time
+
+import mpmath as mp
+import numpy as np
+from scipy.integrate import quad
+
+import bf_bg_lib as B
+
+t0 = time.time()
+out = {}
+rng = np.random.default_rng(5)
+
+# ------------------------------------------------------------------ V1
+lams = np.concatenate([10.0 ** np.arange(-12, 3.1, 0.5), -(10.0 ** np.arange(-12, 0.01, 0.5))])
+d_inf = np.max(np.abs(B.F(lams, np.inf) / B.F_inf_closed(lams) - 1))
+worst = 0.0
+for xi in (1.0, 2.0):
+    for lam in (1e-9, 1e-5, 1e-2, 0.3, 3.0, 50.0, 900.0, -1e-9, -1e-5, -1e-2, -0.3):
+        f = lambda k: 2 * xi * np.arcsinh(np.sqrt(max(lam + 4 * np.sin(k / 2) ** 2, 0.0)) / (2 * xi))
+        k0 = 2 * np.arcsin(np.sqrt(-lam) / 2) if lam < 0 else 0.0
+        pts = sorted({k0 + (np.pi - k0) * 2.0 ** (-j) for j in range(1, 40)})
+        ref = sum(quad(f, a, b, epsabs=1e-15, epsrel=1e-13, limit=200)[0] for a, b in zip([k0] + pts, pts + [np.pi])) / np.pi
+        worst = max(worst, abs(B.F(lam, xi)[0] / ref - 1))
+out['V1_free_direction_integral'] = {'max_relative_deviation_from_elliptic_form (xi = inf)': float(d_inf),
+                                     'max_relative_deviation_from_adaptive_quadrature (xi = 1, 2)': float(worst)}
+print('V1', out['V1_free_direction_integral'], flush=True)
+
+# ------------------------------------------------------------------ V2: finite differences of the SU(2) plaquette action
+SIG = np.array([[[0, 1], [1, 0]], [[0, -1j], [1j, 0]], [[1, 0], [0, -1]]], dtype=complex)
+Lx, Ly, phi = 8, 4, np.pi / 2
+
+
+def action(A):
+    """A[b, mu, x, y, c]: c = 0, 1 the components along sigma_1/2, sigma_2/2. S = 2 sum_P Re tr(1 - U_P), g = 1."""
+    a, b = A[..., 0], A[..., 1]
+    r = np.sqrt(a * a + b * b)
+    sc = np.where(r > 1e-300, np.sin(r / 2) / np.where(r > 1e-300, r, 1.0), 0.5)
+    E = np.cos(r / 2)[..., None, None] * np.eye(2) + 1j * sc[..., None, None] * (a[..., None, None] * SIG[0] + b[..., None, None] * SIG[1])
+    x = np.arange(Lx)
+    V = np.zeros((2, Lx, Ly, 2, 2), complex)
+    V[0] = np.eye(2)
+    ph = np.exp(1j * phi * x / 2)
+    V[1, :, :, 0, 0] = ph[:, None]; V[1, :, :, 1, 1] = np.conj(ph)[:, None]
+    U = E @ V
+    U1, U2 = U[:, 0], U[:, 1]
+    U2s = np.roll(U2, -1, axis=1)             # U_y(x + 1, y)
+    U1s = np.roll(U1, -1, axis=2)             # U_x(x, y + 1)
+    P = U1 @ U2s @ np.conj(np.swapaxes(U1s, -1, -2)) @ np.conj(np.swapaxes(U2, -1, -2))
+    tr = np.trace(P, axis1=-2, axis2=-1).real
+    return 2 * np.sum(2 - tr, axis=(1, 2))
+
+
+nv = 2 * Lx * Ly * 2
+h = 2e-3
+base = np.zeros((2, Lx, Ly, 2))
+H = np.zeros((nv, nv))
+pairs = [(i, j) for i in range(nv) for j in range(i, nv)]
+for c0 in range(0, len(pairs), 1500):
+    chunk = pairs[c0:c0 + 1500]
+    conf = np.zeros((4 * len(chunk), nv))
+    for k, (i, j) in enumerate(chunk):
+        for s, (si, sj) in enumerate(((1, 1), (1, -1), (-1, 1), (-1, -1))):
+            conf[4 * k + s, i] += si * h
+            conf[4 * k + s, j] += sj * h
+    S = action(conf.reshape(-1, 2, Lx, Ly, 2))
+    for k, (i, j) in enumerate(chunk):
+        val = (S[4 * k] - S[4 * k + 1] - S[4 * k + 2] + S[4 * k + 3]) / (4 * h * h)
+        H[i, j] = H[j, i] = val
+ev_fd = np.sort(np.linalg.eigvalsh(H))
+ev_bl = []
+n = 4
+for kap in (0.0, np.pi):
+    for k2 in 2 * np.pi * np.arange(Ly) / Ly:
+        ev_bl.extend(np.linalg.eigvalsh(B.assemble(n, phi, np.cos(phi / 2), np.sin(phi / 2), 1.0, k2, kap, gauge_fix=False, dense=True)))
+ev_bl = np.sort(np.repeat(ev_bl, 2))
+ev_wrong = []
+for kap in (0.0, np.pi):
+    for k2 in 2 * np.pi * np.arange(Ly) / Ly:
+        ev_wrong.extend(np.linalg.eigvalsh(B.assemble(n, phi, np.cos(phi / 2), -np.sin(phi / 2), 1.0, k2, kap, gauge_fix=False, dense=True)))
+ev_wrong = np.sort(np.repeat(ev_wrong, 2))
+out['V2_finite_difference_check'] = {
+    'lattice': [Lx, Ly], 'flux_per_plaquette': phi, 'real_variables': nv,
+    'max_abs_difference_of_sorted_spectra': float(np.max(np.abs(ev_fd - ev_bl))),
+    'control_with_the_sign_of_S_reversed': float(np.max(np.abs(ev_fd - ev_wrong))),
+    'lowest_eigenvalues_finite_difference': ev_fd[:6].round(6).tolist(), 'lowest_eigenvalues_bloch': ev_bl[:6].round(6).tolist(),
+    'zero_modes_in_finite_difference_spectrum (abs < 1e-4)': int(np.sum(np.abs(ev_fd) < 1e-4)), 'sites_times_two': 2 * Lx * Ly}
+print('V2', out['V2_finite_difference_check'], round(time.time() - t0, 1), 's', flush=True)
+
+# ------------------------------------------------------------------ V3
+worst = 0.0
+for n, xi in ((16, 1.0), (40, 1.0), (40, 2.0), (64, 8.0)):
+    ph = 2 * np.pi / n
+    for cbar in (1.0, np.cos(ph / 2), np.cos(ph / 6)):
+        k2, kap = rng.uniform(0, 2 * np.pi, 2)
+        K = B.assemble(n, ph, cbar * np.cos(ph / 2), cbar * np.sin(ph / 2), xi, k2, kap, gauge_fix=False, dense=True)
+        chi = rng.normal(size=n) + 1j * rng.normal(size=n)
+        g = B.gauge_mode(n, ph, xi, k2, kap, chi)
+        worst = max(worst, np.max(np.abs(K @ g)) / np.max(np.abs(K)) / np.max(np.abs(g)))
+        # banded and dense spectra agree
+        e1 = B.spectrum(n, ph, cbar * np.cos(ph / 2), cbar * np.sin(ph / 2), xi, k2, kap)
+        e2 = np.linalg.eigvalsh(B.assemble(n, ph, cbar * np.cos(ph / 2), cbar * np.sin(ph / 2), xi, k2, kap, dense=True))
+        worst = max(worst, np.max(np.abs(e1 - e2)) / np.max(np.abs(e2)))
+out['V3_gauge_zero_modes_and_banded_solver'] = {'max_relative_defect': float(worst)}
+print('V3', out['V3_gauge_zero_modes_and_banded_solver'], flush=True)
+
+# ------------------------------------------------------------------ V4: three-dimensional separation
+n, Ly, Lz = 6, 3, 4
+ph = 2 * np.pi / n
+dims = (n, Ly, Lz)
+ns = n * Ly * Lz
+
+
+def sidx(s):
+    return (s[0] % n) * Ly * Lz + (s[1] % Ly) * Lz + (s[2] % Lz)
+
+
+def vidx(s, mu):
+    return 3 * sidx(s) + mu
+
+
+def theta(mu, s):
+    return ph * (s[0] % n) if mu == 1 else 0.0
+
+
+K3 = np.zeros((3 * ns, 3 * ns), complex)
+Dm = np.zeros((3 * ns, ns), complex)
+for x in range(n):
+    for y in range(Ly):
+        for z in range(Lz):
+            s = (x, y, z)
+            for mu in range(3):
+                e = [0, 0, 0]; e[mu] = 1
+                sp = (x + e[0], y + e[1], z + e[2])
+                Dm[vidx(s, mu), sidx(s)] += 1
+                Dm[vidx(s, mu), sidx(sp)] += -np.exp(1j * theta(mu, s))
+            for i, j in ((0, 1), (0, 2), (1, 2)):
+                ei = [0, 0, 0]; ei[i] = 1
+                ej = [0, 0, 0]; ej[j] = 1
+                si = (x + ei[0], y + ei[1], z + ei[2]); sj = (x + ej[0], y + ej[1], z + ej[2])
+                t1 = theta(i, s); t2 = theta(j, si); t3 = theta(i, sj); t4 = theta(j, s)
+                Phi = t1 + t2 - t3 - t4
+                rows = np.zeros((4, 3 * ns), complex)
+                rows[0, vidx(s, i)] = 1
+                rows[1, vidx(si, j)] = np.exp(1j * t1)
+                rows[2, vidx(sj, i)] = -np.exp(1j * (t1 + t2 - t3))
+                rows[3, vidx(s, j)] = -np.exp(1j * Phi)
+                # reduce the flux to (-pi, pi] (the wrap in x adds 2 pi to the phase of the charged field only)
+                Phi = (Phi + np.pi) % (2 * np.pi) - np.pi
+                C, S = np.cos(Phi / 2), np.sin(Phi / 2)
+                sv = rows.sum(axis=0)
+                K3 += C * np.outer(sv.conj(), sv)
+                for l in range(4):
+                    for m in range(l + 1, 4):
+                        X = np.outer(rows[m].conj(), rows[l])
+                        K3 += -2 * S * (X - X.conj().T) / 2j
+ev3 = np.sort(np.linalg.eigvalsh(K3))
+zero = int(np.sum(np.abs(ev3) < 1e-9))
+gauge_defect = float(np.max(np.abs(K3 @ Dm)))
+pred = []
+for k2 in 2 * np.pi * np.arange(Ly) / Ly:
+    lam = np.linalg.eigvalsh(B.assemble(n, ph, np.cos(ph / 2), np.sin(ph / 2), 1.0, k2, 0.0, dense=True))
+    for kz in 2 * np.pi * np.arange(Lz) / Lz:
+        pred.extend(lam + 4 * np.sin(kz / 2) ** 2)
+pred = np.sort(pred)
+nonzero = ev3[np.abs(ev3) >= 1e-9]
+out['V4_three_dimensional_separation'] = {
+    'lattice': dims, 'zero_modes': zero, 'sites': ns, 'max_abs_K_times_gauge_direction': gauge_defect,
+    'nonzero_modes': int(len(nonzero)), 'predicted_modes': int(len(pred)),
+    'max_abs_difference_nonzero_spectrum_vs_2d_plus_kz': float(np.max(np.abs(np.sort(nonzero) - pred))) if len(nonzero) == len(pred) else None,
+    'negative_modes (Nielsen-Olesen)': int(np.sum(ev3 < -1e-9))}
+print('V4', out['V4_three_dimensional_separation'], round(time.time() - t0, 1), 's', flush=True)
+
+# ------------------------------------------------------------------ V5: MSbar constant
+mp.mp.dps = 30
+S0 = lambda e: (-1 + 2 ** (1 - e) * (2 - 2 * e) * mp.zeta(-1 + e, mp.mpf(1) / 2))      # real part; (-1)^(1-e) -> -cos(pi e)
+Sre = lambda e: -mp.cos(mp.pi * e) - 1 + 2 ** (1 - e) * (2 - 2 * e) * mp.zeta(-1 + e, mp.mpf(1) / 2)
+s0 = Sre(0)
+s1 = mp.diff(Sre, 0)
+c_ms = 1 - mp.mpf(6) / 11 * s1
+c_closed = 1 + mp.mpf(1) / 11 + 2 * mp.log(2) / 11 + mp.mpf(12) / 11 * mp.zeta(-1, derivative=1)
+out['V5_MSbar_constant'] = {'S(0) (must be -11/6)': float(s0), 'S_prime(0)': float(s1), 'c_numeric': float(c_ms),
+                            'c_closed_form': float(c_closed)}
+print('V5', out['V5_MSbar_constant'], flush=True)
+
+# ------------------------------------------------------------------ V6: references
+refs, om = B.references([1.0, 2.0, 4.0, 8.0, 16.0, np.inf])
+out['V6_references'] = {str(k): v for k, v in refs.items()}
+out['V6_mean_lattice_frequency'] = om
+# independent check of the magnetic reference at xi = inf and xi = 1 by a two-dimensional quadrature of F
+g = np.polynomial.legendre.leggauss(12)
+nodes, wts = [], []
+edges = [0.0] + [np.pi * 2.0 ** (-j) for j in range(15, -1, -1)]
+for a, b in zip(edges[:-1], edges[1:]):
+    nodes.extend((a + b) / 2 + (b - a) / 2 * g[0]); wts.extend((b - a) / 2 * g[1])
+nodes, wts = np.array(nodes), np.array(wts)
+KX, KY = np.meshgrid(nodes, nodes, indexing='ij')
+WW = np.outer(wts, wts)
+lam2 = 4 * np.sin(KX / 2) ** 2 + 4 * np.sin(KY / 2) ** 2
+chk = {}
+for xi in (np.inf, 1.0, 2.0):
+    val = 2 * np.sum(WW * B.F(lam2.ravel(), xi).reshape(lam2.shape)) / np.pi ** 2
+    chk[str(xi)] = {'two_dimensional_quadrature': float(val), 'reference': refs[xi]['magnetic'], 'difference': float(val - refs[xi]['magnetic'])}
+out['V6_reference_check'] = chk
+print('V6', json.dumps(out['V6_references']), json.dumps(chk), flush=True)
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 'bf_bg_validate.json', 'w'), indent=1)
+print('seconds', round(time.time() - t0, 1))

@@ -26,7 +26,7 @@ def test_every_named_check_passes(result):
     assert not failed and result['all_checks_pass']
     sections = {name.split('.')[0] for name in result['checks']}
     assert sections == {'1_gamma', '2_gauge', '3_dirac', '4_hadrons', '5_potential', '5_gauge', '6_solver', '7_hadrons',
-                        '8_chiral', '9_volume', '10_melting', '11_recorded_gates'}
+                        '8_chiral', '8_covariance', '9_volume', '10_melting', '11_recorded_gates'}
 
 
 def test_stored_receipt_equals_recomputation(result, stored):
@@ -179,3 +179,19 @@ def test_compiled_kernel_equals_numpy_reference():
     fast.hop(flat_u, up, dn, flat_psi, out, np.arange(vol, dtype=np.int64))
     back = np.transpose(out.reshape(dims[3], dims[2], dims[1], dims[0], 4, 3), (3, 2, 1, 0, 4, 5))
     assert np.abs(back - ref).max() < 1e-12
+
+
+def test_shared_jackknife_covariance_cancels_a_common_scale():
+    samples = np.array([[1., 2.], [2., 4.], [3., 6.], [4., 8.]])
+    covariance = an.jk_cov(samples)
+    contrast = np.array([-2., 1.])
+    assert abs(contrast @ covariance @ contrast) < 1e-12
+    assert an.jk_err(samples[:, 1]/samples[:, 0]) == 0
+    assert covariance[0, 0] + covariance[1, 1] > 0
+
+
+def test_joint_covariance_rejects_unpaired_or_nonfinite_replicas():
+    import pytest
+    for samples in ([[1., 2.]], [[1., 2.], [float('nan'), 3.]], [1., 2.]):
+        with pytest.raises(ValueError):
+            an.jk_cov(samples)

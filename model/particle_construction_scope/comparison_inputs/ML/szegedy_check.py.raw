@@ -1,0 +1,109 @@
+"""Worker ML. The audit's coherent seam walk read as an abstract Szegedy walk (Higuchi-Segawa-Suzuki,
+arXiv:1506.06457, Theorem 1.1): U = S(2 d*d - 1), T = d S d*, spectrum(U) = {e^{+-i xi}: cos xi in spec T}
+plus +1 (M+) and -1 (M-).
+
+Known-answer control: the public numbers of model/coherent_seam_repair/PROOF.md for the global address
+reflection: +1 multiplicity 38, -1 multiplicity 1356, 46 oscillatory dimensions, T = diag(1 - L/60, 1 - (5+A)/60).
+New (local coin): the reflection acts on the ten oriented seams at the walker's port only.
+Claim checked: T_loc = diag(1/2 + A/10, 1/2 - A/10); with the spinor connection (one unit of flux per face)
+T_loc = diag(1/2 + A_z/10, 1/2 - A_z/10), so cos(omega_0) = (1 + cos(theta_s/2))/2.
+
+Run: OMP_NUM_THREADS=1 nice -n 15 /tmp/oph-completion-venv/bin/python szegedy_check.py   (a few seconds)
+"""
+import itertools
+import json
+
+import numpy as np
+
+phi = (1 + 5 ** 0.5) / 2
+V = []
+for s1, s2 in itertools.product((1, -1), repeat=2):
+    V += [(0, s1, s2 * phi), (s1, s2 * phi, 0), (s1 * phi, 0, s2)]
+V = np.array(V, float)
+V /= np.linalg.norm(V[0])
+n = len(V)
+edges = [(a, b) for a in range(n) for b in range(a + 1, n) if abs(np.linalg.norm(V[a] - V[b]) ** 2 - (2 - 2 / 5 ** 0.5)) < 1e-9]
+assert n == 12 and len(edges) == 30
+addr = edges + [(b, a) for a, b in edges]            # 60 oriented seams
+Adj = np.zeros((n, n))
+for a, b in edges:
+    Adj[a, b] = Adj[b, a] = 1
+
+
+def spinor(u):
+    th = np.arccos(u[2])
+    ph = np.arctan2(u[1], u[0])
+    return np.array([np.cos(th / 2), np.exp(1j * ph) * np.sin(th / 2)])
+
+
+chi = [spinor(u) for u in V]
+
+
+def link(a, b, twisted):
+    if not twisted:
+        return 1.0
+    z = np.vdot(chi[b], chi[a])                      # <chi_b|chi_a>
+    return z / abs(z)
+
+
+def build(twisted, local):
+    dim = n * 2 * 60
+    idx = lambda x, r, k: (x * 2 + r) * 60 + k
+    Q = np.eye(dim, dtype=complex)
+    for k, (a, b) in enumerate(addr):
+        z = link(a, b, twisted)
+        v = np.zeros(dim, complex)                   # v = |-,0> - |+,1>,  |+-> = (|a> +- z|b>)/sqrt2
+        v[idx(a, 0, k)] += 1 / 2 ** 0.5
+        v[idx(b, 0, k)] += -z / 2 ** 0.5
+        v[idx(a, 1, k)] += -1 / 2 ** 0.5
+        v[idx(b, 1, k)] += -z / 2 ** 0.5
+        Q -= np.outer(v, v.conj())
+    A = np.zeros((dim, n * 2), complex)              # isometry appending the coin state
+    for x in range(n):
+        ks = [k for k, (a, b) in enumerate(addr) if (x in (a, b))] if local else list(range(60))
+        for r in range(2):
+            for k in ks:
+                A[idx(x, r, k), x * 2 + r] = 1 / len(ks) ** 0.5
+    R = 2 * A @ A.conj().T - np.eye(dim)
+    W = Q @ R
+    T = A.conj().T @ Q @ A
+    assert np.allclose(Q @ Q, np.eye(dim)) and np.allclose(W @ W.conj().T, np.eye(dim))
+    ev = np.linalg.eigvals(W)
+    plus = int(np.sum(abs(ev - 1) < 1e-7))
+    minus = int(np.sum(abs(ev + 1) < 1e-7))
+    osc = dim - plus - minus
+    # spectral mapping: cos(phase) of the oscillatory eigenvalues = eigenvalues of T in (-1, 1)
+    tev = np.linalg.eigvalsh((T + T.conj().T) / 2)
+    cosw = np.sort(ev.real[(abs(ev - 1) >= 1e-7) & (abs(ev + 1) >= 1e-7)])
+    tin = np.sort(np.repeat(tev[(tev < 1 - 1e-9) & (tev > -1 + 1e-9)], 2))
+    defect = float(np.max(abs(cosw - tin))) if len(cosw) == len(tin) else None
+    blank = T[0::2, 0::2]
+    par = T[1::2, 1::2]
+    cross = float(np.max(abs(T[0::2, 1::2])))
+    return dict(plus=plus, minus=minus, oscillatory=osc, mapping_defect=defect, cross_parity=cross,
+                T_blank=blank, T_parity=par, T_eigs=tev)
+
+
+res = {}
+Az = np.zeros((n, n), complex)                       # (A_z)_{ba} = phase of <chi_b|chi_a>
+for a, b in addr:
+    Az[b, a] = link(a, b, True)
+for name, tw, loc in (("global_scalar", False, False), ("local_scalar", False, True),
+                      ("global_spinor", True, False), ("local_spinor", True, True)):
+    out = build(tw, loc)
+    Aref = Az if tw else Adj
+    ref_blank = (np.eye(n) * 0.5 + Aref / 10) if loc else (np.eye(n) * (11 / 12) + Aref / 60)
+    ref_par = (np.eye(n) * 0.5 - Aref / 10) if loc else (np.eye(n) * (11 / 12) - Aref / 60)
+    top = float(np.max(np.linalg.eigvalsh(out["T_blank"])))
+    res[name] = dict(plus=out["plus"], minus=out["minus"], oscillatory=out["oscillatory"],
+                     mapping_defect=out["mapping_defect"], cross_parity=out["cross_parity"],
+                     T_blank_defect=float(np.max(abs(out["T_blank"] - ref_blank))),
+                     T_parity_defect=float(np.max(abs(out["T_parity"] - ref_par))),
+                     top_blank_eigenvalue=top, rest_phase_rad=float(np.arccos(min(top, 1.0))),
+                     rest_phase_deg=float(np.degrees(np.arccos(min(top, 1.0)))),
+                     T_blank_eigs=sorted(set(np.round(np.linalg.eigvalsh(out["T_blank"]), 6).tolist()), reverse=True))
+    print(name, {k: v for k, v in res[name].items()})
+c = (0.5 * (1 + 5 ** -0.5)) ** 0.5                   # cos(theta_s / 2)
+res["closed_forms"] = dict(cos_half_seam=c, local_spinor_top=(1 + c) / 2, global_spinor_top=11 / 12 + 5 * c / 60)
+print(res["closed_forms"])
+json.dump(res, open("szegedy_check.json", "w"), indent=1)

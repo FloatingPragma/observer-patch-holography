@@ -1,0 +1,12 @@
+"""Common candidate interface for the two-setting phase/parity diagnostic."""
+import numpy as np
+from carrier_candidate import describe as _describe, space, instrument as _instrument
+
+def describe():return _describe(0,2)
+
+def instrument(seam,sector):
+    # Omit only exactly zero matrices, never a positive-probability outcome.
+    return [(label,K) for label,K in _instrument(seam,sector,0,2) if np.any(K)]
+
+def port_response(p,sector):
+    raise NotImplementedError('No law-generated closed twelve-dimensional gauge response is claimed')

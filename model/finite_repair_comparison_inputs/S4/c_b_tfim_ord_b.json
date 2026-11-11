@@ -1,0 +1,37 @@
+{
+ "paramagnet_periodic": [],
+ "ordered_periodic": [
+  {
+   "g": 0.5,
+   "N": 14,
+   "odd_sector_lowest_at_k0": 1.6653598616895627e-05,
+   "odd_sector_lowest_at_k1": 2.1815937897681286,
+   "odd_k1_exact_two_kink_bottom": 2.1815937896292414,
+   "even_sector_gap_at_k0": 2.0978926106206073,
+   "exact_2eps(pi/N)": 2.0978926104762423,
+   "half_threshold": 1.0489463053103036,
+   "E0_exact": 1.0
+  }
+ ],
+ "ordered_twisted": [
+  {
+   "g": 0.5,
+   "N": 14,
+   "max_abs(escape - (V - E0))": 3.8411940295191016e-10,
+   "detailed_balance_defect": 3.469446951953614e-18,
+   "R1_E0_in_own_sector": -4.315264886777262e-16,
+   "band_max_abs_error_vs_eps(k)-eps(0)": 1.6653598620713916e-05,
+   "R2_m_kin": 0.512410920128733,
+   "R2_m_kin_extrapolated": 0.5021168210333717,
+   "m_exact": 0.5,
+   "R1s_m": 0.5000120537285435,
+   "R1s_c": 1.4142222646839284,
+   "c_exact": 1.4142135623730951,
+   "R1s_E0": 1.0000364147176466,
+   "E0_exact": 1.0,
+   "R1s_fit_residual": 0.0003251375523304308,
+   "largest_slope": 0.9969651986125047,
+   "largest_group_velocity_exact": 1.0
+  }
+ ]
+}

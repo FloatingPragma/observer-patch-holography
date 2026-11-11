@@ -1,0 +1,146 @@
+"""MG block 2: face_axis and port_pair of the simulation package against the transports of block 1.
+
+    python b2_wirings.py [max_level=3]        (box A: needs oph_defects.fedgeom and its geometry caches)
+
+1. Control: the simulation package's `face_axis` equals wiring B (mesh order) and `port_pair` equals the pinned
+   wiring of the S3 library, seam for seam.
+2. port_pair: on which glue seams the glue triples fix a carrier rotation (rule S), the vertex holonomy where it is
+   defined, and the transport read from the declared tangent frames (nearest carrier rotation to E_c'^T E_c).
+3. Angle between the ambient axes of the two glued ports in the declared tangent frames (port_pair).
+Writes b2_wirings.json.
+"""
+import collections
+import json
+import math
+import sys
+
+import numpy as np
+
+sys.dont_write_bytecode = True
+import s0_lib as S
+import mg_lib as M
+
+MAXL = int(sys.argv[1]) if len(sys.argv) > 1 else 3
+out = {}
+try:
+    from oph_defects import fedgeom as FG
+except Exception as e:                                   # pragma: no cover
+    FG = None
+    out['fedgeom_import_error'] = repr(e)
+
+
+def glue_set(mesh, W):
+    ga, gb = S.glue_seams(mesh, W)
+    return {(int(min(a, b)), int(max(a, b))) for a, b in zip(ga, gb)}
+
+
+# ----------------------------------------------------------------------------- 1. controls against the simulation package
+ctl = {}
+if FG is not None:
+    for level in range(MAXL + 1):
+        mesh = S.build_mesh(level)
+        for gl, W in (('face_axis', M.wiring('B', level)[0]), ('port_pair', S.pinned_wiring(mesh)[0])):
+            geo = FG.build(level, gluing=gl)
+            sim = {(int(min(a, b)), int(max(a, b))) for a, b in zip(geo.glue_a, geo.glue_b)}
+            mine = glue_set(mesh, W)
+            ctl[f'{gl}_L{level}'] = {'glue_seams': len(sim), 'equal_to_this_builder': bool(sim == mine),
+                                     'cells_equal': bool((np.asarray(geo.tri) == mesh.tri).all())}
+            print(gl, level, ctl[f'{gl}_L{level}'], flush=True)
+    # negative control: face_axis against wiring F must differ
+    mesh = S.build_mesh(1)
+    geo = FG.build(1, gluing='face_axis')
+    sim = {(int(min(a, b)), int(max(a, b))) for a, b in zip(geo.glue_a, geo.glue_b)}
+    ctl['negative_control_face_axis_vs_F_L1_equal'] = bool(sim == glue_set(mesh, M.wiring('F', 1)[0]))
+out['controls'] = ctl
+
+# ----------------------------------------------------------------------------- 2. port_pair
+pp = {}
+for level in range(MAXL + 1):
+    mesh = S.build_mesh(level)
+    W, coll = S.pinned_wiring(mesh)
+    N = mesh.N
+    # rule S on the glue triples
+    T = np.full((N, 3), -1, dtype=np.int64)
+    cache = {}
+    for c in range(N):
+        for k in range(3):
+            d, k2 = int(mesh.nbr[c, k]), int(mesh.nbk[c, k])
+            src = tuple(int(W[c, (k + t) % 3]) for t in range(3)); dst = tuple(int(W[d, (k2 + t) % 3]) for t in range(3))
+            if (src, dst) not in cache:
+                cands = S.find_aut(src, dst, proper_only=True)
+                cache[(src, dst)] = M.IDX[tuple(cands[0])] if len(cands) == 1 else -1
+            T[c, k] = cache[(src, dst)]
+    defined = int((T >= 0).sum()) // 2
+    types = collections.Counter(S.dist_pattern(tuple(int(x) for x in W[c])) for c in range(N))
+    res = {5: collections.Counter(), 6: collections.Counter()}
+    for v, cl in S.vertex_cycles(mesh).items():
+        H = M.E60; ok = True
+        for c, i in cl:
+            t = T[c, (i + 1) % 3]
+            if t < 0:
+                ok = False; break
+            H = int(M.MUL[t, H])
+        res[len(cl)]['undefined' if not ok else M.CLASS_NAME[int(M.ANGLE[H])]] += 1
+    # crosswise matches: for how many seams does at least one crosswise pair match exist, and are they unambiguous
+    cross = collections.Counter()
+    for c in range(N):
+        for k in range(3):
+            d, k2 = int(mesh.nbr[c, k]), int(mesh.nbk[c, k])
+            if c > d:
+                continue
+            n = 0
+            for a, b in ((1, 2), (0, 1), (0, 2)):
+                pa, pb = int(W[c, (k + a) % 3]), int(W[c, (k + b) % 3]); qa, qb = int(W[d, (k2 + a) % 3]), int(W[d, (k2 + b) % 3])
+                if M.DIST[pa, pb] == M.DIST[qa, qb] and M.DIST[pa, pb] != 3:
+                    n += 1
+            cross[n] += 1
+    # ambient frames of the declared router: columns (tangent_x, tangent_y, normal); ambient axis of port p = E_c u_p
+    normals = mesh.points / np.linalg.norm(mesh.points, axis=1, keepdims=True)
+    refv = np.tile(np.array([0.0, 0.0, 1.0]), (N, 1)); refv[np.abs(normals[:, 2]) > 0.9] = np.array([1.0, 0.0, 0.0])
+    tx = np.cross(refv, normals); tx /= np.linalg.norm(tx, axis=1, keepdims=True)
+    ty = np.cross(normals, tx)
+    E = np.stack((tx, ty, normals), axis=2)
+    if FG is not None:
+        geo = FG.build(level, gluing='port_pair')
+        assert np.allclose(geo.frames(np.arange(N)), E, atol=1e-12), 'frames differ from fedgeom'
+    ang = []
+    Tn = np.full((N, 3), -1, dtype=np.int64); resid = []; margin = []
+    RT = np.stack(M.ROT_MATS)                                             # 60 x 3 x 3
+    dist_after = collections.Counter()
+    for c in range(N):
+        for k in range(3):
+            d, k2 = int(mesh.nbr[c, k]), int(mesh.nbk[c, k])
+            p, q = int(W[c, k]), int(W[d, k2])
+            if c < d:
+                ang.append(math.degrees(math.acos(max(-1.0, min(1.0, float((E[c] @ M.PORT_UNIT[p]) @ (E[d] @ M.PORT_UNIT[q])))))))
+            Q = E[c].T @ E[d]                                             # tr(Q R_T) is the score of T
+            sc = np.einsum('ij,gji->g', Q, RT)
+            o = np.argsort(-sc)
+            Tn[c, k] = int(o[0]); margin.append(float(sc[o[0]] - sc[o[1]]))
+            resid.append(math.degrees(math.acos(max(-1.0, min(1.0, (float(sc[o[0]]) - 1) / 2)))))
+            dist_after[int(M.DIST[M.ROT60[int(o[0])][p], q])] += 1
+    rev_ok = int(sum(1 for c in range(N) for k in range(3) if Tn[mesh.nbr[c, k], mesh.nbk[c, k]] == M.INV[Tn[c, k]]))
+    resn = {5: collections.Counter(), 6: collections.Counter()}
+    for v, (n, c0, H) in M.vertex_holonomies(mesh, Tn).items():
+        resn[n][M.CLASS_NAME[int(M.ANGLE[H])]] += 1
+    ang = np.array(ang)
+    pp[str(level)] = {
+        'cells': N, 'glue_seams': 3 * N // 2, 'router_collisions': int(coll),
+        'cell_types_by_distance_pattern': {str(k): v for k, v in types.items()},
+        'rule_S': {'defined_glue_seams': defined, 'vertex_holonomy': {str(n): dict(c) for n, c in res.items()}},
+        'crosswise_matches_available_per_seam': {str(k): v for k, v in sorted(cross.items())},
+        'ambient_angle_between_glued_port_axes_deg': {'antipodal_count': int((ang > 179.999).sum()), 'min': float(ang.min()), 'mean': float(ang.mean()),
+                                                     'histogram_10deg': np.histogram(ang, bins=np.arange(0, 190, 10))[0].tolist()},
+        'nearest_rotation_to_frame_transport': {
+            'identity_fraction': float((Tn == M.E60).mean()), 'classes': dict(collections.Counter(M.CLASS_NAME[int(M.ANGLE[t])] for t in Tn.ravel())),
+            'reversible_directed_seams': rev_ok, 'directed_seams': 3 * N,
+            'residual_angle_deg_mean_max': [float(np.mean(resid)), float(np.max(resid))], 'smallest_margin': float(np.min(margin)),
+            'glued_port_distance_after_transport': {str(k): v for k, v in sorted(dist_after.items())},
+            'vertex_holonomy': {str(n): dict(c) for n, c in resn.items()},
+            'group_order': len(M.holonomy_group(mesh, Tn)) if rev_ok == 3 * N else None}}
+    r = pp[str(level)]
+    print('port_pair', level, 'S defined', defined, '/', 3 * N // 2, r['rule_S']['vertex_holonomy'], '| ambient angle', r['ambient_angle_between_glued_port_axes_deg'],
+          '| nearest rotation', r['nearest_rotation_to_frame_transport'], flush=True)
+out['port_pair'] = pp
+json.dump(out, open('b2_wirings.json', 'w'), indent=1)
+print('written b2_wirings.json')

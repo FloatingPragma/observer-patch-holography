@@ -1,0 +1,14 @@
+"""Turn the values table of repair-law/SPECTRUM.md (theory session) into derive/spectrum.json for the web app."""
+import json, re, datetime, pathlib
+src = pathlib.Path(__file__).resolve().parents[3] / 'SPECTRUM.md'
+rows, on = [], False
+for line in src.read_text().splitlines():
+    if line.startswith('## Values'): on = True; continue
+    if on and line.startswith('## '): break
+    if on and line.startswith('|') and not set(line.replace('|', '').strip()) <= set('- '):
+        cells = [c.strip() for c in line.strip('|').split('|')]
+        if cells[0].lower() == 'particles': continue
+        rows.append({'particles': cells[0], 'mechanism': cells[1], 'value': cells[2], 'status': cells[3] if len(cells) > 3 else ''})
+out = {'source': 'repair-law/SPECTRUM.md (theory session), status words: SOURCE, CONDITIONAL, FIT, OPEN', 'read': datetime.datetime.now().strftime('%Y-%m-%d %H:%M'), 'rows': rows}
+json.dump(out, open(pathlib.Path(__file__).with_name('spectrum.json'), 'w'), indent=1, ensure_ascii=False)
+print(len(rows), 'rows')

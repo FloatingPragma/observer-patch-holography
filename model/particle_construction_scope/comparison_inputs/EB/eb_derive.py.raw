@@ -1,0 +1,112 @@
+"""EB step 2: edge-sector slope shift from source items (CANDIDATES.md Part B).
+
+Items: sector set X1 (all irreps of G = S(U(3) x U(2))), X2 (menu M1, the audit's 119-state link), X3 (menu M2);
+Casimir C3 + C2 + (3/5) Y^2 (GL's electric term E1); one-sided weights (k = 1) and the two-sided variant (k = 2);
+t from the cut closure (Tc1: DC's SU(2) + SU(3) sums; Tc2: the closure on G with the Z6 constraint) and TUc
+(4 pi^2 alpha_U of DC2's cut chain); GL's grading (odd = n odd); multiplicity d_R p_R; loop rules L1 to L6.
+
+Run:  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python eb_derive.py [out.json]
+"""
+import itertools
+import json
+import math
+import sys
+from fractions import Fraction as Fr
+from pathlib import Path
+
+import numpy as np
+from scipy.optimize import brentq
+
+HERE = Path(__file__).parent
+sys.path.insert(0, str(HERE))
+import eb_lib as L  # noqa: E402
+
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / 'eb_derive.json'
+P_FWD = 1.63097209585889737696
+ALPHA_U_CUT_CHAIN = 0.041124270385288784          # DB cut_chain_censuses.json (DC2 chain at P_fwd)
+TARGET = (Fr(5, 2), Fr(25, 6), Fr(4))
+
+# ------------------------------------------------------------------ the heat time from the cut closure
+t_c1 = brentq(lambda t: L.ellbar_factor_sum(t) - P_FWD / 4, 0.5, 10, xtol=1e-14, rtol=1e-15)
+t_c2 = brentq(lambda t: L.ellbar_G(t) - P_FWD / 4, 0.5, 10, xtol=1e-14, rtol=1e-15)
+t_uc = 4 * math.pi ** 2 * ALPHA_U_CUT_CHAIN
+times = {'Tc1': t_c1, 'Tc2': t_c2, 'TUc': t_uc}
+closure = {'Tc1': {'t': t_c1, 'inv_alpha': 4 * math.pi ** 2 / t_c1},
+           'Tc2': {'t': t_c2, 'inv_alpha': 4 * math.pi ** 2 / t_c2},
+           'TUc': {'t': t_uc, 'inv_alpha': 1 / ALPHA_U_CUT_CHAIN}}
+
+# ------------------------------------------------------------------ sector sets
+menus = L.menus(2)
+M1 = sorted(menus[1], key=str)
+M2 = sorted(menus[2], key=str)
+assert len(M1) == 11 and len(M2) == 48
+
+
+def shift(X, t, k, rule):
+    coeff = L.LOOP_RULES[rule]
+    if X == 'X1':
+        return L.delta_b('S3', t, k=k, normalized=True, umode='Ua', coeff=coeff)
+    sectors = M1 if X == 'X2' else M2
+    return L.explicit_sum(sectors, t, k=k, normalized=True, umode='Ua', coeff=coeff)
+
+
+grid = []
+for X, k, tname, rule in itertools.product(('X1', 'X2', 'X3'), (1, 2), ('Tc1', 'Tc2', 'TUc'), L.LOOP_RULES):
+    t = times[tname]
+    db = shift(X, t, k, rule)
+    grid.append(dict(X=X, k=k, t_name=tname, t=t, rule=rule, delta_b=[float(x) for x in db],
+                     ratio_3_over_2=float(db[2] / db[1]) if db[1] else None,
+                     differences={'b1-b2': float(db[0] - db[1]), 'b2-b3': float(db[1] - db[2])}))
+
+# principal reading D* in the cell frame and its t-dependence
+dstar = {}
+for tname in ('Tc1', 'Tc2', 'TUc'):
+    dstar[tname] = [float(x) for x in shift('X1', times[tname], 1, 'L4')]
+deriv = {}
+for rule in L.LOOP_RULES:
+    h = 1e-5
+    a = np.array(shift('X1', t_c2 + h, 1, rule)); b = np.array(shift('X1', t_c2 - h, 1, rule))
+    deriv[rule] = ((a - b) / (2 * h)).tolist()
+
+# sector table of the principal reading at Tc2: the ten largest contributions per factor
+rows = []
+for p in range(0, 8):
+    for q in range(0, 8):
+        for n in range(0, 8):
+            for m in range(-30, 31):
+                if (m - (-2 * (p - q) - 3 * n)) % 6:
+                    continue
+                s = L.sector_data(((p, q), n, m))
+                rows.append((((p, q), n, m), s))
+Z = sum(s['d'] * math.exp(-t_c2 * s['C']) for _, s in rows)
+Zfull = None
+contrib = []
+for R, s in rows:
+    pR = s['d'] * math.exp(-t_c2 * s['C'])
+    c = L.LOOP_RULES['L4'][1 if s['odd'] else 0]
+    contrib.append(dict(sector=str(R), d=s['d'], C=s['C'], odd=s['odd'], weight_unnormalized=pR,
+                        contrib_L4=[c * pR * s['d'] * x for x in s['T']]))
+A3, B3, A2, B2, A1, B1 = L.class_sums(t_c2, 1)
+Zexact = sum(A3[tau, 1] * A2[nu, 1] * A1[L.z6_class(tau, nu)] for tau in range(3) for nu in range(2))
+for c in contrib:
+    c['p_R'] = c['weight_unnormalized'] / Zexact
+    c['contrib_L4'] = [x / Zexact for x in c['contrib_L4']]
+top = {a: sorted(contrib, key=lambda c: -c['contrib_L4'][i])[:10] for i, a in enumerate(('b1', 'b2', 'b3'))}
+captured = [sum(c['contrib_L4'][i] for c in contrib) / dstar['Tc2'][i] for i in range(3)]
+
+# exact rational form of the one-generation (M1) part at any t is not rational; record the target for reference
+out = dict(P=P_FWD, closure=closure, target_MSSM_minus_SM=[str(x) for x in TARGET],
+           principal_D_star={'definition': 'X1, k = 1, Casimir C3 + C2 + (3/5)Y^2, GL grading, L4 (1/3 odd, 1/6 even)',
+                             'delta_b': dstar, 'd_delta_b_dt_at_Tc2': deriv['L4']},
+           d_delta_b_dt_at_Tc2_all_rules=deriv,
+           grid=grid, menu_sizes={'M1': len(M1), 'M2': len(M2)},
+           principal_top_sectors_at_Tc2=top, principal_box_fraction_captured=captured,
+           partition_function_at_Tc2=float(Zexact), p_trivial_at_Tc2=float(1 / Zexact))
+OUT.write_text(json.dumps(out, indent=1) + '\n')
+print('closure t: Tc1 %.6f (1/alpha %.5f)  Tc2 %.6f (1/alpha %.5f)  TUc %.6f' % (
+    t_c1, 4 * math.pi ** 2 / t_c1, t_c2, 4 * math.pi ** 2 / t_c2, t_uc))
+print('p_trivial at Tc2', 1 / Zexact)
+for r in grid:
+    if r['k'] == 1:
+        print(r['X'], r['t_name'], r['rule'], np.round(r['delta_b'], 4))
+print('D* d(Delta b)/dt at Tc2', np.round(deriv['L4'], 4), ' box captured', np.round(captured, 6))

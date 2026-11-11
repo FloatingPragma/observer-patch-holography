@@ -1,0 +1,106 @@
+"""NM step 2 (X1, X3, X4, X5): PM's number x and the splitting ratio. No measured value enters.
+
+Run in this directory:  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B nm2_x.py [out.json]
+Reads: x0_own_e.json, x1_spectator_e.json, x2_spectator_d.json (if present), work/NU3/transfer_{d,u}.json,
+work/PM/pm_lib.py (read only).
+"""
+import json
+import sys
+from pathlib import Path
+
+import mpmath as mp
+import sympy as s
+
+HERE = Path(__file__).parent
+RL = Path('WORKSPACE/repair-law')
+sys.path.insert(0, str(RL / 'work/PM'))
+import pm_lib as L  # noqa: E402
+
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / 'x.json'
+DS, DL = s.symbols('Delta_s Delta_l', positive=True)
+rho = s.Symbol('rho', positive=True)
+NS = {'Delta_s': DS, 'Delta_l': DL, 'I': s.I}
+out, checks = {}, {}
+
+
+def ok(name, cond):
+    assert cond, name
+    checks[name] = True
+
+
+def load(path, key='1'):
+    d = json.loads(Path(path).read_text())
+    t = d['targets'][key]
+    return s.sympify(t['bare_V_moment_k5'], locals=NS), s.sympify(t['RS_fifth_order_amplitude'], locals=NS), d
+
+
+own_b, own_rs, own_log = load(HERE / 'x0_own_e.json')
+cl_b, cl_rs, _ = load(HERE / 'x1_spectator_e.json')
+d_b, d_rs, _ = load(RL / 'work/NU3/transfer_d.json')
+u_b, u_rs, _ = load(RL / 'work/NU3/transfer_u.json')
+nu3_e_b, nu3_e_rs, _ = load(RL / 'work/NU3/transfer_e.json')
+ok('X0 the extended code reproduces NU3 lepton channel (bare and Rayleigh-Schroedinger)',
+   s.simplify(own_b - nu3_e_b) == 0 and s.simplify(own_rs - nu3_e_rs) == 0 and own_b == -31 * s.I / 32)
+ok('X0 every lower moment vanishes', all(v == '0' for v in own_log['targets']['1']['bare_V_moments_k0_to_k4']))
+ex_b, ex_rs = own_b - cl_b, s.factor(s.simplify(own_rs - cl_rs))
+ok('X1 closed loop of one lepton family equals one colour of the down loop', s.simplify(3 * cl_rs - d_rs) == 0 and 3 * cl_b == d_b)
+x2 = HERE / 'x2_spectator_d.json'
+if x2.exists():
+    sd_b, sd_rs, _ = load(x2)
+    ok('X2 the spectator sees the down loop of NU3 exactly (family-blind hops)', s.simplify(sd_rs - d_rs) == 0 and sd_b == d_b)
+unit = -s.I / 32
+out['bare_fifth_moments_in_units_of_-i/32'] = {'own (closed + exchange)': str(own_b / unit), 'closed loop (spectator)': str(cl_b / unit),
+                                              'exchange': str(ex_b / unit), 'down loop': str(d_b / unit), 'up loop': str(u_b / unit)}
+out['Rayleigh_Schroedinger'] = {'own': str(own_rs), 'closed': str(cl_rs), 'exchange': str(ex_rs), 'down': str(d_rs), 'up': str(u_rs)}
+
+x_lep_bare = s.nsimplify(cl_b / ex_b)
+x_lep_rs = s.factor(s.simplify((cl_rs / ex_rs).subs(DL, rho * DS)))
+x_all_bare = s.nsimplify((cl_b + d_b + u_b) / ex_b)
+x_all_rs = s.factor(s.simplify(((cl_rs + d_rs + u_rs) / ex_rs).subs(DL, rho * DS)))
+ok('X1 bare x of the lepton channel is 20/11', x_lep_bare == s.Rational(20, 11))
+qd, qu = s.symbols('q_d q_u', nonnegative=True)
+x_general_bare = s.simplify((cl_b * (1 + 3 * qd) + u_b * qu) / ex_b)
+x_general_rs = s.simplify(((cl_rs * (1 + 3 * qd) + u_rs * qu) / ex_rs).subs(DL, rho * DS))
+out['x'] = {
+    'definition': 'T = X 1 + sigma Y_e Y_e^dag, Y_e = y_J C_e with tr C_e^2 = 1, x = X / (sigma y_J^2)',
+    'lepton_channel_bare': str(x_lep_bare),
+    'lepton_channel_RS_of_rho=Delta_l/Delta_s': str(x_lep_rs),
+    'all_channels_equal_unit_Yukawas_bare': str(x_all_bare),
+    'all_channels_equal_unit_Yukawas_RS': str(x_all_rs),
+    'general_bare (q_d = tr Y_d Y_d^dag / y_J^2, q_u likewise; colour included in the loop)': str(x_general_bare),
+    'general_RS': str(x_general_rs),
+    'limits_of_the_lepton_channel': {'rho -> infinity': str(s.limit(x_lep_rs, rho, s.oo)), 'rho = 1 (audit point; the double pole cancels)': str(x_lep_rs.subs(rho, 1)),
+                                     'zero at rho': '2/3', 'rho -> 0': str(s.limit(x_lep_rs, rho, 0))}}
+
+# ---------------------------------------------------------------- splitting ratio (PM's two readings)
+lam2 = sorted(L.lam(L.THETA, k) ** 2 for k in range(3))
+le, lmu, ltau = lam2
+
+
+def readings(xv):
+    xv = mp.mpf(str(float(xv)))
+    row = {'x': float(xv)}
+    T = [xv + le, xv + lmu, xv + ltau]
+    for reading, ms in (('linear', [abs(t) for t in T]), ('square', [t ** 2 for t in T])):
+        order = sorted(range(3), key=lambda i: ms[i])
+        srt = sorted(ms)
+        row[reading] = {'ascending_characters': [('e', 'mu', 'tau')[i] for i in order],
+                        'r_NO': float(L.ratio(ms, 'NO')), 'r_IO': float(L.ratio(ms, 'IO')),
+                        'masses_over_heaviest': [float(m / srt[-1]) for m in srt]}
+    return row
+
+
+table = {}
+table['lepton channel, bare (20/11)'] = readings(x_lep_bare)
+table['all channels at equal unit Yukawas, bare'] = readings(x_all_bare)
+for name, val in (('rho = 2', 2), ('rho = 4', 4), ('rho = 1/2', s.Rational(1, 2)), ('rho = 1/4', s.Rational(1, 4))):
+    table[f'lepton channel, RS, {name}'] = readings(x_lep_rs.subs(rho, val))
+    table[f'all channels, RS, {name}'] = readings(x_all_rs.subs(rho, val))
+table['lepton channel, RS, rho = 1'] = readings(x_lep_rs.subs(rho, 1))
+table['lepton channel, RS, rho -> infinity'] = readings(2)
+out['splitting_ratio'] = table
+out['lambda_squared'] = {'e': mp.nstr(le, 15), 'mu': mp.nstr(lmu, 15), 'tau': mp.nstr(ltau, 15)}
+out['count'] = {'values_of_x': len(table), 'readings_per_value': 4}
+out['checks'] = checks
+OUT.write_text(json.dumps(out, indent=1) + '\n')
+print(json.dumps(out, indent=1))

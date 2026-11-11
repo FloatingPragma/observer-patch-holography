@@ -1,0 +1,1752 @@
+{
+ "level": 8,
+ "window": [
+  298,
+  300
+ ],
+ "checkpoint": 300,
+ "balanced_sweep": 74,
+ "regime": "balanced",
+ "checks": [
+  {
+   "before_sweep": 298,
+   "intra_ok": true,
+   "screen_ok": true
+  },
+  {
+   "after_sweep": 298,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 48898
+  },
+  {
+   "after_sweep": 299,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 48894
+  }
+ ],
+ "all_checks_ok": true,
+ "seeded_identities": {
+  "carrier": 944484,
+  "screen": 31314
+ },
+ "tiers": {
+  "carrier": {
+   "hops": {
+    "1": {
+     "hops": 47843,
+     "direction_vs_current": {
+      "fm_to_fp,j>0": 23872,
+      "fm_to_fp,j<0": 0,
+      "fp_to_fm,j>0": 0,
+      "fp_to_fm,j<0": 23971
+     },
+     "handedness_chi_plus": 0,
+     "handedness_chi_minus": 47843,
+     "handedness_chi_zero": 0,
+     "contrast_hist_-2_to_2": [
+      0,
+      23971,
+      0,
+      23872,
+      0
+     ],
+     "abs_current_hist_0_to_3": [
+      0,
+      47843,
+      0,
+      0
+     ],
+     "back_hop": {
+      "successive_hop_pairs": 14863,
+      "back_hops": 9466,
+      "p": 0.6368835362981902,
+      "err": 0.003944570681135553,
+      "random_choice": 0.3333333333333333
+     }
+    },
+    "5": {
+     "hops": 47890,
+     "direction_vs_current": {
+      "fm_to_fp,j>0": 0,
+      "fm_to_fp,j<0": 24001,
+      "fp_to_fm,j>0": 23889,
+      "fp_to_fm,j<0": 0
+     },
+     "handedness_chi_plus": 47890,
+     "handedness_chi_minus": 0,
+     "handedness_chi_zero": 0,
+     "contrast_hist_-2_to_2": [
+      0,
+      24001,
+      0,
+      23889,
+      0
+     ],
+     "abs_current_hist_0_to_3": [
+      0,
+      47890,
+      0,
+      0
+     ],
+     "back_hop": {
+      "successive_hop_pairs": 14799,
+      "back_hops": 9372,
+      "p": 0.6332860328400568,
+      "err": 0.003961389038163315,
+      "random_choice": 0.3333333333333333
+     }
+    }
+   },
+   "per_sweep": {
+    "1": {
+     "msd_by_lag_sweeps": [
+      {
+       "lag_sweeps": 1,
+       "n": 132068,
+       "msd": 0.30023169882181905,
+       "err": 0.0017481642504640434,
+       "step_dual_hist_0_to_5": [
+        97913,
+        32357,
+        1779,
+        18,
+        1,
+        0
+       ],
+       "mean_step": 0.27238240906199834
+      },
+      {
+       "lag_sweeps": 2,
+       "n": 65708,
+       "msd": 0.5940676934315456,
+       "err": 0.0037597365785785614
+      }
+     ],
+     "persistence_per_sweep": {
+      "pairs": 65708,
+      "autocorrelation": -0.08891249618756739,
+      "both_moved": 4637,
+      "mean_cos_turn": [
+       -0.3232744338515383,
+       0.009394171328877888
+      ],
+      "mean_sin_turn_left_positive": [
+       -0.016728761101105494,
+       0.008009640052879746
+      ]
+     }
+    },
+    "2": {
+     "msd_by_lag_sweeps": [
+      {
+       "lag_sweeps": 1,
+       "n": 703005,
+       "msd": 0.0,
+       "err": 0.0,
+       "step_dual_hist_0_to_5": [
+        703005,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "mean_step": 0.0
+      },
+      {
+       "lag_sweeps": 2,
+       "n": 351488,
+       "msd": 0.0,
+       "err": 0.0
+      }
+     ],
+     "persistence_per_sweep": {
+      "pairs": 351488,
+      "autocorrelation": null,
+      "both_moved": 0,
+      "mean_cos_turn": null,
+      "mean_sin_turn_left_positive": null
+     }
+    },
+    "3": {
+     "msd_by_lag_sweeps": [
+      {
+       "lag_sweeps": 1,
+       "n": 215324,
+       "msd": 0.0,
+       "err": 0.0,
+       "step_dual_hist_0_to_5": [
+        215324,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "mean_step": 0.0
+      },
+      {
+       "lag_sweeps": 2,
+       "n": 107648,
+       "msd": 0.0,
+       "err": 0.0
+      }
+     ],
+     "persistence_per_sweep": {
+      "pairs": 107648,
+      "autocorrelation": null,
+      "both_moved": 0,
+      "mean_cos_turn": null,
+      "mean_sin_turn_left_positive": null
+     }
+    },
+    "4": {
+     "msd_by_lag_sweeps": [
+      {
+       "lag_sweeps": 1,
+       "n": 702597,
+       "msd": 0.0,
+       "err": 0.0,
+       "step_dual_hist_0_to_5": [
+        702597,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "mean_step": 0.0
+      },
+      {
+       "lag_sweeps": 2,
+       "n": 351283,
+       "msd": 0.0,
+       "err": 0.0
+      }
+     ],
+     "persistence_per_sweep": {
+      "pairs": 351283,
+      "autocorrelation": null,
+      "both_moved": 0,
+      "mean_cos_turn": null,
+      "mean_sin_turn_left_positive": null
+     }
+    },
+    "5": {
+     "msd_by_lag_sweeps": [
+      {
+       "lag_sweeps": 1,
+       "n": 132152,
+       "msd": 0.3046567588837097,
+       "err": 0.0015614053217393024,
+       "step_dual_hist_0_to_5": [
+        97706,
+        32546,
+        1877,
+        23,
+        0,
+        0
+       ],
+       "mean_step": 0.27520582359707
+      },
+      {
+       "lag_sweeps": 2,
+       "n": 65747,
+       "msd": 0.6029628728306995,
+       "err": 0.0032138551596925125
+      }
+     ],
+     "persistence_per_sweep": {
+      "pairs": 65747,
+      "autocorrelation": -0.08894205721696088,
+      "both_moved": 4718,
+      "mean_cos_turn": [
+       -0.32243594406262777,
+       0.00932985720128783
+      ],
+      "mean_sin_turn_left_positive": [
+       -0.008955840917458536,
+       0.007931638262970967
+      ]
+     }
+    }
+   },
+   "events": {
+    "identities": 944653,
+    "births": {
+     "events": 0,
+     "table_unordered": {},
+     "table_by_regime": {
+      "quench": {},
+      "balanced": {}
+     },
+     "last_birth_sweep": null
+    },
+    "annihilations": {
+     "events": 1205,
+     "table_unordered": {
+      "1,5": 1205
+     },
+     "table_by_regime": {
+      "quench": {},
+      "balanced": {
+       "1,5": 1205
+      }
+     }
+    },
+    "fusions": {
+     "events": 61,
+     "table_a_b_to_c": {
+      "1,1,2": 1,
+      "1,2,3": 15,
+      "1,3,4": 14,
+      "1,4,5": 2,
+      "2,5,1": 1,
+      "3,5,2": 16,
+      "4,5,3": 10,
+      "5,5,4": 2
+     },
+     "table_by_regime": {
+      "quench": {},
+      "balanced": {
+       "1,1,2": 1,
+       "1,2,3": 15,
+       "1,3,4": 14,
+       "1,4,5": 2,
+       "2,5,1": 1,
+       "3,5,2": 16,
+       "4,5,3": 10,
+       "5,5,4": 2
+      }
+     }
+    },
+    "splits": {
+     "events": 0,
+     "table_a_to_b_c": {},
+     "table_by_regime": {
+      "quench": {},
+      "balanced": {}
+     }
+    },
+    "exchanges": {
+     "events": 54,
+     "table_fp_fm_to_fp_fm": {
+      "1,2,2,1": 7,
+      "2,1,1,2": 10,
+      "2,4,1,5": 1,
+      "3,2,4,1": 1,
+      "3,4,2,5": 1,
+      "3,4,4,3": 1,
+      "4,2,5,1": 2,
+      "4,3,5,2": 1,
+      "4,5,5,4": 17,
+      "5,4,4,5": 13
+     },
+     "table_by_regime": {
+      "quench": {},
+      "balanced": {
+       "1,2,2,1": 7,
+       "2,1,1,2": 10,
+       "2,4,1,5": 1,
+       "3,2,4,1": 1,
+       "3,4,2,5": 1,
+       "3,4,4,3": 1,
+       "4,2,5,1": 2,
+       "4,3,5,2": 1,
+       "4,5,5,4": 17,
+       "5,4,4,5": 13
+      }
+     }
+    },
+    "moves": {
+     "hops_total": 95733
+    },
+    "addition_mod6_violations": {
+     "births": 0,
+     "annihilations": 0,
+     "fusions": 0,
+     "splits": 0,
+     "exchanges": 0
+    },
+    "class_out_of_range": 0,
+    "per_class": {
+     "1": {
+      "identities": 66980,
+      "alive_at_end": 65725,
+      "created_by": {
+       "present in the preparation": 66958,
+       "exchange of 1,2": 17,
+       "exchange of 2,4": 3,
+       "fusion 2+5": 1,
+       "exchange of 2,3": 1
+      },
+      "ended_by": {
+       "alive at end": 65725,
+       "annihilation with 5": 1205,
+       "exchange with 2 into 1,2": 17,
+       "fusion with 2 into 3": 15,
+       "fusion with 3 into 4": 14,
+       "fusion with 1 into 2": 2,
+       "fusion with 4 into 5": 2
+      },
+      "lifetime_depth_quantiles_ended": {
+       "0.1": 6483.0,
+       "0.25": 6498.0,
+       "0.5": 6515.0,
+       "0.75": 6531.0,
+       "0.9": 6545.0,
+       "0.99": 6566.0
+      },
+      "lifetime_sweeps_quantiles_ended": {
+       "0.1": 299.0,
+       "0.25": 299.0,
+       "0.5": 300.0,
+       "0.75": 300.0,
+       "0.9": 300.0,
+       "0.99": 300.0
+      },
+      "lifetime_depth_hist_bins": [
+       0,
+       1,
+       3,
+       10,
+       30,
+       100,
+       300,
+       1000,
+       3000,
+       10000,
+       100000
+      ],
+      "lifetime_depth_hist_ended": [
+       0,
+       2,
+       1,
+       2,
+       0,
+       0,
+       0,
+       0,
+       1250,
+       0
+      ],
+      "lifetime_depth_hist_alive_censored": [
+       0,
+       0,
+       0,
+       0,
+       15,
+       2,
+       0,
+       0,
+       65708,
+       0
+      ],
+      "median_lifetime_depth_by_ending": {
+       "annihilation": 6515.0,
+       "fusion": 6519.0,
+       "split": null,
+       "exchange": 6507.0
+      },
+      "born_in_balanced_regime": 22,
+      "balanced_born_lifetime_depth_quantiles_ended": {
+       "0.1": 1.4,
+       "0.25": 2.0,
+       "0.5": 3.0,
+       "0.75": 10.0,
+       "0.9": 14.200000000000001,
+       "0.99": 16.72
+      },
+      "hops_quantiles": {
+       "0.5": 0.0,
+       "0.9": 2.0,
+       "0.99": 3.0
+      },
+      "hops_hist_0_1_2_5_10_30_100_1000_inf": [
+       34000,
+       21771,
+       11108,
+       101,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "2": {
+      "identities": 351554,
+      "alive_at_end": 351517,
+      "created_by": {
+       "present in the preparation": 351518,
+       "exchange of 1,2": 17,
+       "fusion 3+5": 16,
+       "exchange of 3,4": 2,
+       "fusion 1+1": 1
+      },
+      "ended_by": {
+       "alive at end": 351517,
+       "exchange with 1 into 1,2": 17,
+       "fusion with 1 into 3": 15,
+       "exchange with 4 into 1,5": 3,
+       "fusion with 5 into 1": 1,
+       "exchange with 3 into 1,4": 1
+      },
+      "lifetime_depth_quantiles_ended": {
+       "0.1": 7.200000000000001,
+       "0.25": 6490.0,
+       "0.5": 6507.0,
+       "0.75": 6524.0,
+       "0.9": 6538.6,
+       "0.99": 6547.64
+      },
+      "lifetime_sweeps_quantiles_ended": {
+       "0.1": 0.0,
+       "0.25": 299.0,
+       "0.5": 299.0,
+       "0.75": 300.0,
+       "0.9": 300.0,
+       "0.99": 300.0
+      },
+      "lifetime_depth_hist_bins": [
+       0,
+       1,
+       3,
+       10,
+       30,
+       100,
+       300,
+       1000,
+       3000,
+       10000,
+       100000
+      ],
+      "lifetime_depth_hist_ended": [
+       0,
+       3,
+       1,
+       3,
+       0,
+       0,
+       0,
+       0,
+       30,
+       0
+      ],
+      "lifetime_depth_hist_alive_censored": [
+       0,
+       0,
+       0,
+       0,
+       28,
+       1,
+       0,
+       0,
+       351488,
+       0
+      ],
+      "median_lifetime_depth_by_ending": {
+       "annihilation": null,
+       "fusion": 6519.5,
+       "split": null,
+       "exchange": 6499.0
+      },
+      "born_in_balanced_regime": 36,
+      "balanced_born_lifetime_depth_quantiles_ended": {
+       "0.1": 1.0,
+       "0.25": 1.5,
+       "0.5": 3.0,
+       "0.75": 13.5,
+       "0.9": 18.200000000000003,
+       "0.99": 19.82
+      },
+      "hops_quantiles": {
+       "0.5": 0.0,
+       "0.9": 0.0,
+       "0.99": 0.0
+      },
+      "hops_hist_0_1_2_5_10_30_100_1000_inf": [
+       351554,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "3": {
+      "identities": 107707,
+      "alive_at_end": 107673,
+      "created_by": {
+       "present in the preparation": 107681,
+       "fusion 1+2": 15,
+       "fusion 4+5": 10,
+       "exchange of 3,4": 1
+      },
+      "ended_by": {
+       "alive at end": 107673,
+       "fusion with 5 into 2": 16,
+       "fusion with 1 into 4": 14,
+       "exchange with 4 into 2,5": 2,
+       "exchange with 2 into 1,4": 1,
+       "exchange with 4 into 3,4": 1
+      },
+      "lifetime_depth_quantiles_ended": {
+       "0.1": 6478.4,
+       "0.25": 6495.5,
+       "0.5": 6516.5,
+       "0.75": 6526.75,
+       "0.9": 6544.7,
+       "0.99": 6548.68
+      },
+      "lifetime_sweeps_quantiles_ended": {
+       "0.1": 299.0,
+       "0.25": 299.0,
+       "0.5": 299.0,
+       "0.75": 300.0,
+       "0.9": 300.0,
+       "0.99": 300.0
+      },
+      "lifetime_depth_hist_bins": [
+       0,
+       1,
+       3,
+       10,
+       30,
+       100,
+       300,
+       1000,
+       3000,
+       10000,
+       100000
+      ],
+      "lifetime_depth_hist_ended": [
+       0,
+       0,
+       0,
+       0,
+       1,
+       0,
+       0,
+       0,
+       33,
+       0
+      ],
+      "lifetime_depth_hist_alive_censored": [
+       0,
+       0,
+       0,
+       0,
+       25,
+       0,
+       0,
+       0,
+       107648,
+       0
+      ],
+      "median_lifetime_depth_by_ending": {
+       "annihilation": null,
+       "fusion": 6518.5,
+       "split": null,
+       "exchange": 6494.5
+      },
+      "born_in_balanced_regime": 26,
+      "balanced_born_lifetime_depth_quantiles_ended": {
+       "0.1": 37.0,
+       "0.25": 37.0,
+       "0.5": 37.0,
+       "0.75": 37.0,
+       "0.9": 37.0,
+       "0.99": 37.0
+      },
+      "hops_quantiles": {
+       "0.5": 0.0,
+       "0.9": 0.0,
+       "0.99": 0.0
+      },
+      "hops_hist_0_1_2_5_10_30_100_1000_inf": [
+       107707,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "4": {
+      "identities": 351370,
+      "alive_at_end": 351322,
+      "created_by": {
+       "present in the preparation": 351322,
+       "exchange of 4,5": 30,
+       "fusion 1+3": 14,
+       "fusion 5+5": 2,
+       "exchange of 2,3": 1,
+       "exchange of 3,4": 1
+      },
+      "ended_by": {
+       "alive at end": 351322,
+       "exchange with 5 into 4,5": 30,
+       "fusion with 5 into 3": 10,
+       "exchange with 2 into 1,5": 3,
+       "fusion with 1 into 5": 2,
+       "exchange with 3 into 2,5": 2,
+       "exchange with 3 into 3,4": 1
+      },
+      "lifetime_depth_quantiles_ended": {
+       "0.1": 25.4,
+       "0.25": 6483.0,
+       "0.5": 6501.0,
+       "0.75": 6518.25,
+       "0.9": 6540.3,
+       "0.99": 6559.12
+      },
+      "lifetime_sweeps_quantiles_ended": {
+       "0.1": 1.0,
+       "0.25": 299.0,
+       "0.5": 299.0,
+       "0.75": 300.0,
+       "0.9": 300.0,
+       "0.99": 300.0
+      },
+      "lifetime_depth_hist_bins": [
+       0,
+       1,
+       3,
+       10,
+       30,
+       100,
+       300,
+       1000,
+       3000,
+       10000,
+       100000
+      ],
+      "lifetime_depth_hist_ended": [
+       0,
+       2,
+       2,
+       2,
+       3,
+       0,
+       0,
+       0,
+       39,
+       0
+      ],
+      "lifetime_depth_hist_alive_censored": [
+       0,
+       0,
+       0,
+       2,
+       30,
+       7,
+       0,
+       0,
+       351283,
+       0
+      ],
+      "median_lifetime_depth_by_ending": {
+       "annihilation": null,
+       "fusion": 6512.5,
+       "split": null,
+       "exchange": 6496.0
+      },
+      "born_in_balanced_regime": 48,
+      "balanced_born_lifetime_depth_quantiles_ended": {
+       "0.1": 1.0,
+       "0.25": 3.0,
+       "0.5": 24.0,
+       "0.75": 38.0,
+       "0.9": 39.6,
+       "0.99": 45.36
+      },
+      "hops_quantiles": {
+       "0.5": 0.0,
+       "0.9": 0.0,
+       "0.99": 0.0
+      },
+      "hops_hist_0_1_2_5_10_30_100_1000_inf": [
+       351370,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "5": {
+      "identities": 67042,
+      "alive_at_end": 65776,
+      "created_by": {
+       "present in the preparation": 67005,
+       "exchange of 4,5": 30,
+       "exchange of 2,4": 3,
+       "fusion 1+4": 2,
+       "exchange of 3,4": 2
+      },
+      "ended_by": {
+       "alive at end": 65776,
+       "annihilation with 1": 1205,
+       "exchange with 4 into 4,5": 30,
+       "fusion with 3 into 2": 16,
+       "fusion with 4 into 3": 10,
+       "fusion with 5 into 4": 4,
+       "fusion with 2 into 1": 1
+      },
+      "lifetime_depth_quantiles_ended": {
+       "0.1": 6483.0,
+       "0.25": 6498.0,
+       "0.5": 6515.0,
+       "0.75": 6531.0,
+       "0.9": 6546.0,
+       "0.99": 6566.0
+      },
+      "lifetime_sweeps_quantiles_ended": {
+       "0.1": 299.0,
+       "0.25": 299.0,
+       "0.5": 300.0,
+       "0.75": 300.0,
+       "0.9": 300.0,
+       "0.99": 300.0
+      },
+      "lifetime_depth_hist_bins": [
+       0,
+       1,
+       3,
+       10,
+       30,
+       100,
+       300,
+       1000,
+       3000,
+       10000,
+       100000
+      ],
+      "lifetime_depth_hist_ended": [
+       0,
+       2,
+       2,
+       2,
+       2,
+       0,
+       0,
+       0,
+       1258,
+       0
+      ],
+      "lifetime_depth_hist_alive_censored": [
+       0,
+       0,
+       0,
+       2,
+       24,
+       3,
+       0,
+       0,
+       65747,
+       0
+      ],
+      "median_lifetime_depth_by_ending": {
+       "annihilation": 6515.0,
+       "fusion": 6519.0,
+       "split": null,
+       "exchange": 6500.0
+      },
+      "born_in_balanced_regime": 37,
+      "balanced_born_lifetime_depth_quantiles_ended": {
+       "0.1": 1.0,
+       "0.25": 2.5,
+       "0.5": 12.5,
+       "0.75": 29.0,
+       "0.9": 40.4,
+       "0.99": 45.44
+      },
+      "hops_quantiles": {
+       "0.5": 0.0,
+       "0.9": 2.0,
+       "0.99": 3.0
+      },
+      "hops_hist_0_1_2_5_10_30_100_1000_inf": [
+       33950,
+       21905,
+       11076,
+       111,
+       0,
+       0,
+       0,
+       0
+      ]
+     }
+    },
+    "note": "identities present at sweep 298 are seeded (birth sweep -1); lifetimes are censored by the window"
+   }
+  },
+  "screen": {
+   "hops": {
+    "1": {
+     "hops": 365,
+     "direction_vs_current": {
+      "fm_to_fp,j>0": 193,
+      "fm_to_fp,j<0": 0,
+      "fp_to_fm,j>0": 0,
+      "fp_to_fm,j<0": 172
+     },
+     "handedness_chi_plus": 0,
+     "handedness_chi_minus": 365,
+     "handedness_chi_zero": 0,
+     "contrast_hist_-2_to_2": [
+      0,
+      172,
+      0,
+      193,
+      0
+     ],
+     "abs_current_hist_0_to_3": [
+      0,
+      365,
+      0,
+      0
+     ],
+     "back_hop": {
+      "successive_hop_pairs": 194,
+      "back_hops": 56,
+      "p": 0.28865979381443296,
+      "err": 0.03253351303437654,
+      "random_choice": "1/degree (1/6 or 1/5)"
+     }
+    },
+    "5": {
+     "hops": 361,
+     "direction_vs_current": {
+      "fm_to_fp,j>0": 0,
+      "fm_to_fp,j<0": 188,
+      "fp_to_fm,j>0": 173,
+      "fp_to_fm,j<0": 0
+     },
+     "handedness_chi_plus": 361,
+     "handedness_chi_minus": 0,
+     "handedness_chi_zero": 0,
+     "contrast_hist_-2_to_2": [
+      0,
+      188,
+      0,
+      173,
+      0
+     ],
+     "abs_current_hist_0_to_3": [
+      0,
+      361,
+      0,
+      0
+     ],
+     "back_hop": {
+      "successive_hop_pairs": 183,
+      "back_hops": 45,
+      "p": 0.2459016393442623,
+      "err": 0.031832384025447004,
+      "random_choice": "1/degree (1/6 or 1/5)"
+     }
+    }
+   },
+   "per_sweep": {
+    "1": {
+     "msd_by_lag_sweeps": [
+      {
+       "lag_sweeps": 1,
+       "n": 403,
+       "msd": 0.7536118795469455,
+       "err": 0.04605726228381818,
+       "step_edges_hist_bins": [
+        0,
+        0.5,
+        1.5,
+        2.5,
+        3.5,
+        5.5,
+        1000000000.0
+       ],
+       "step_edges_hist": [
+        190,
+        178,
+        35,
+        0,
+        0,
+        0
+       ],
+       "mean_step": 0.6055279594166009
+      },
+      {
+       "lag_sweeps": 2,
+       "n": 199,
+       "msd": 1.568119924565518,
+       "err": 0.10418817119997044
+      }
+     ],
+     "persistence_per_sweep": {
+      "pairs": 199,
+      "autocorrelation": 0.046322740109972525,
+      "both_moved": 56,
+      "mean_cos_turn": [
+       0.12500805556475098,
+       0.09634000053006125
+      ],
+      "mean_sin_turn_left_positive": [
+       -0.07047557264736116,
+       0.09059623691903204
+      ]
+     }
+    },
+    "2": {
+     "msd_by_lag_sweeps": [
+      {
+       "lag_sweeps": 1,
+       "n": 20507,
+       "msd": 8.215791314868896e-14,
+       "err": 1.3554427090473062e-14,
+       "step_edges_hist_bins": [
+        0,
+        0.5,
+        1.5,
+        2.5,
+        3.5,
+        5.5,
+        1000000000.0
+       ],
+       "step_edges_hist": [
+        20507,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "mean_step": 2.035394872007482e-08
+      },
+      {
+       "lag_sweeps": 2,
+       "n": 10253,
+       "msd": 8.216191967912633e-14,
+       "err": 1.3556095450314079e-14
+      }
+     ],
+     "persistence_per_sweep": {
+      "pairs": 10253,
+      "autocorrelation": null,
+      "both_moved": 0,
+      "mean_cos_turn": null,
+      "mean_sin_turn_left_positive": null
+     }
+    },
+    "3": {
+     "msd_by_lag_sweeps": [
+      {
+       "lag_sweeps": 1,
+       "n": 20943,
+       "msd": 9.577085223043978e-14,
+       "err": 1.347117721619493e-14,
+       "step_edges_hist_bins": [
+        0,
+        0.5,
+        1.5,
+        2.5,
+        3.5,
+        5.5,
+        1000000000.0
+       ],
+       "step_edges_hist": [
+        20943,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "mean_step": 2.3633674046892287e-08
+      },
+      {
+       "lag_sweeps": 2,
+       "n": 10471,
+       "msd": 9.577542537781016e-14,
+       "err": 1.347205546975393e-14
+      }
+     ],
+     "persistence_per_sweep": {
+      "pairs": 10471,
+      "autocorrelation": null,
+      "both_moved": 0,
+      "mean_cos_turn": null,
+      "mean_sin_turn_left_positive": null
+     }
+    },
+    "4": {
+     "msd_by_lag_sweeps": [
+      {
+       "lag_sweeps": 1,
+       "n": 20335,
+       "msd": 7.989380163227447e-14,
+       "err": 1.2659954638457136e-14,
+       "step_edges_hist_bins": [
+        0,
+        0.5,
+        1.5,
+        2.5,
+        3.5,
+        5.5,
+        1000000000.0
+       ],
+       "step_edges_hist": [
+        20335,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "mean_step": 2.103450273317461e-08
+      },
+      {
+       "lag_sweeps": 2,
+       "n": 10165,
+       "msd": 7.991345087025585e-14,
+       "err": 1.2663778973402036e-14
+      }
+     ],
+     "persistence_per_sweep": {
+      "pairs": 10165,
+      "autocorrelation": null,
+      "both_moved": 0,
+      "mean_cos_turn": null,
+      "mean_sin_turn_left_positive": null
+     }
+    },
+    "5": {
+     "msd_by_lag_sweeps": [
+      {
+       "lag_sweeps": 1,
+       "n": 409,
+       "msd": 0.7994020780015351,
+       "err": 0.06304895406963835,
+       "step_edges_hist_bins": [
+        0,
+        0.5,
+        1.5,
+        2.5,
+        3.5,
+        5.5,
+        1000000000.0
+       ],
+       "step_edges_hist": [
+        192,
+        182,
+        31,
+        4,
+        0,
+        0
+       ],
+       "mean_step": 0.6185237744316868
+      },
+      {
+       "lag_sweeps": 2,
+       "n": 202,
+       "msd": 1.5884798122634731,
+       "err": 0.13107360422497807
+      }
+     ],
+     "persistence_per_sweep": {
+      "pairs": 202,
+      "autocorrelation": -0.005762104694656994,
+      "both_moved": 54,
+      "mean_cos_turn": [
+       -0.034380360974167155,
+       0.09762944763043889
+      ],
+      "mean_sin_turn_left_positive": [
+       -0.028151570257948167,
+       0.09460535171776994
+      ]
+     }
+    }
+   },
+   "events": {
+    "identities": 31330,
+    "births": {
+     "events": 0,
+     "table_unordered": {},
+     "table_by_regime": {
+      "quench": {},
+      "balanced": {}
+     },
+     "last_birth_sweep": null
+    },
+    "annihilations": {
+     "events": 1,
+     "table_unordered": {
+      "1,5": 1
+     },
+     "table_by_regime": {
+      "quench": {},
+      "balanced": {
+       "1,5": 1
+      }
+     }
+    },
+    "fusions": {
+     "events": 8,
+     "table_a_b_to_c": {
+      "1,2,3": 1,
+      "1,4,5": 3,
+      "2,5,1": 2,
+      "3,5,2": 1,
+      "4,5,3": 1
+     },
+     "table_by_regime": {
+      "quench": {},
+      "balanced": {
+       "1,2,3": 1,
+       "1,4,5": 3,
+       "2,5,1": 2,
+       "3,5,2": 1,
+       "4,5,3": 1
+      }
+     }
+    },
+    "splits": {
+     "events": 0,
+     "table_a_to_b_c": {},
+     "table_by_regime": {
+      "quench": {},
+      "balanced": {}
+     }
+    },
+    "exchanges": {
+     "events": 4,
+     "table_fp_fm_to_fp_fm": {
+      "1,2,2,1": 1,
+      "2,1,1,2": 1,
+      "5,4,4,5": 2
+     },
+     "table_by_regime": {
+      "quench": {},
+      "balanced": {
+       "1,2,2,1": 1,
+       "2,1,1,2": 1,
+       "5,4,4,5": 2
+      }
+     }
+    },
+    "moves": {
+     "hops_total": 726
+    },
+    "addition_mod6_violations": {
+     "births": 0,
+     "annihilations": 0,
+     "fusions": 0,
+     "splits": 0,
+     "exchanges": 0
+    },
+    "class_out_of_range": 0,
+    "per_class": {
+     "1": {
+      "identities": 209,
+      "alive_at_end": 202,
+      "created_by": {
+       "present in the preparation": 205,
+       "fusion 2+5": 2,
+       "exchange of 1,2": 2
+      },
+      "ended_by": {
+       "alive at end": 202,
+       "fusion with 4 into 5": 3,
+       "exchange with 2 into 1,2": 2,
+       "annihilation with 5": 1,
+       "fusion with 2 into 3": 1
+      },
+      "lifetime_depth_quantiles_ended": {
+       "0.1": 3914.4000000000005,
+       "0.25": 6522.0,
+       "0.5": 6525.0,
+       "0.75": 6527.0,
+       "0.9": 6536.8,
+       "0.99": 6548.68
+      },
+      "lifetime_sweeps_quantiles_ended": {
+       "0.1": 179.8,
+       "0.25": 299.0,
+       "0.5": 299.0,
+       "0.75": 300.0,
+       "0.9": 300.0,
+       "0.99": 300.0
+      },
+      "lifetime_depth_hist_bins": [
+       0,
+       1,
+       3,
+       10,
+       30,
+       100,
+       300,
+       1000,
+       3000,
+       10000,
+       100000
+      ],
+      "lifetime_depth_hist_ended": [
+       0,
+       0,
+       1,
+       0,
+       0,
+       0,
+       0,
+       0,
+       6,
+       0
+      ],
+      "lifetime_depth_hist_alive_censored": [
+       0,
+       0,
+       0,
+       2,
+       1,
+       0,
+       0,
+       0,
+       199,
+       0
+      ],
+      "median_lifetime_depth_by_ending": {
+       "annihilation": 6525.0,
+       "fusion": 6525.0,
+       "split": null,
+       "exchange": 3264.5
+      },
+      "born_in_balanced_regime": 4,
+      "balanced_born_lifetime_depth_quantiles_ended": {
+       "0.1": 3.0,
+       "0.25": 3.0,
+       "0.5": 3.0,
+       "0.75": 3.0,
+       "0.9": 3.0,
+       "0.99": 3.0
+      },
+      "hops_quantiles": {
+       "0.5": 2.0,
+       "0.9": 4.0,
+       "0.99": 5.0
+      },
+      "hops_hist_0_1_2_5_10_30_100_1000_inf": [
+       37,
+       66,
+       100,
+       6,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "2": {
+      "identities": 10260,
+      "alive_at_end": 10255,
+      "created_by": {
+       "present in the preparation": 10257,
+       "exchange of 1,2": 2,
+       "fusion 3+5": 1
+      },
+      "ended_by": {
+       "alive at end": 10255,
+       "fusion with 5 into 1": 2,
+       "exchange with 1 into 1,2": 2,
+       "fusion with 1 into 3": 1
+      },
+      "lifetime_depth_quantiles_ended": {
+       "0.1": 2597.8,
+       "0.25": 6490.0,
+       "0.5": 6526.0,
+       "0.75": 6527.0,
+       "0.9": 6527.6,
+       "0.99": 6527.96
+      },
+      "lifetime_sweeps_quantiles_ended": {
+       "0.1": 120.2,
+       "0.25": 299.0,
+       "0.5": 299.0,
+       "0.75": 299.0,
+       "0.9": 299.0,
+       "0.99": 299.0
+      },
+      "lifetime_depth_hist_bins": [
+       0,
+       1,
+       3,
+       10,
+       30,
+       100,
+       300,
+       1000,
+       3000,
+       10000,
+       100000
+      ],
+      "lifetime_depth_hist_ended": [
+       0,
+       0,
+       1,
+       0,
+       0,
+       0,
+       0,
+       0,
+       4,
+       0
+      ],
+      "lifetime_depth_hist_alive_censored": [
+       0,
+       0,
+       0,
+       2,
+       0,
+       0,
+       0,
+       0,
+       10253,
+       0
+      ],
+      "median_lifetime_depth_by_ending": {
+       "annihilation": null,
+       "fusion": 6527.0,
+       "split": null,
+       "exchange": 3264.5
+      },
+      "born_in_balanced_regime": 3,
+      "balanced_born_lifetime_depth_quantiles_ended": {
+       "0.1": 3.0,
+       "0.25": 3.0,
+       "0.5": 3.0,
+       "0.75": 3.0,
+       "0.9": 3.0,
+       "0.99": 3.0
+      },
+      "hops_quantiles": {
+       "0.5": 0.0,
+       "0.9": 0.0,
+       "0.99": 0.0
+      },
+      "hops_hist_0_1_2_5_10_30_100_1000_inf": [
+       10260,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "3": {
+      "identities": 10474,
+      "alive_at_end": 10473,
+      "created_by": {
+       "present in the preparation": 10472,
+       "fusion 1+2": 1,
+       "fusion 4+5": 1
+      },
+      "ended_by": {
+       "alive at end": 10473,
+       "fusion with 5 into 2": 1
+      },
+      "lifetime_depth_quantiles_ended": {
+       "0.1": 6536.0,
+       "0.25": 6536.0,
+       "0.5": 6536.0,
+       "0.75": 6536.0,
+       "0.9": 6536.0,
+       "0.99": 6536.0
+      },
+      "lifetime_sweeps_quantiles_ended": {
+       "0.1": 299.0,
+       "0.25": 299.0,
+       "0.5": 299.0,
+       "0.75": 299.0,
+       "0.9": 299.0,
+       "0.99": 299.0
+      },
+      "lifetime_depth_hist_bins": [
+       0,
+       1,
+       3,
+       10,
+       30,
+       100,
+       300,
+       1000,
+       3000,
+       10000,
+       100000
+      ],
+      "lifetime_depth_hist_ended": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       1,
+       0
+      ],
+      "lifetime_depth_hist_alive_censored": [
+       0,
+       1,
+       0,
+       1,
+       0,
+       0,
+       0,
+       0,
+       10471,
+       0
+      ],
+      "median_lifetime_depth_by_ending": {
+       "annihilation": null,
+       "fusion": 6536.0,
+       "split": null,
+       "exchange": null
+      },
+      "born_in_balanced_regime": 2,
+      "balanced_born_lifetime_depth_quantiles_ended": {
+       "0.1": null,
+       "0.25": null,
+       "0.5": null,
+       "0.75": null,
+       "0.9": null,
+       "0.99": null
+      },
+      "hops_quantiles": {
+       "0.5": 0.0,
+       "0.9": 0.0,
+       "0.99": 0.0
+      },
+      "hops_hist_0_1_2_5_10_30_100_1000_inf": [
+       10474,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "4": {
+      "identities": 10173,
+      "alive_at_end": 10167,
+      "created_by": {
+       "present in the preparation": 10171,
+       "exchange of 4,5": 2
+      },
+      "ended_by": {
+       "alive at end": 10167,
+       "fusion with 1 into 5": 3,
+       "exchange with 5 into 4,5": 2,
+       "fusion with 5 into 3": 1
+      },
+      "lifetime_depth_quantiles_ended": {
+       "0.1": 6503.0,
+       "0.25": 6522.0,
+       "0.5": 6535.5,
+       "0.75": 6549.0,
+       "0.9": 6549.5,
+       "0.99": 6549.95
+      },
+      "lifetime_sweeps_quantiles_ended": {
+       "0.1": 299.0,
+       "0.25": 299.25,
+       "0.5": 300.0,
+       "0.75": 300.0,
+       "0.9": 300.0,
+       "0.99": 300.0
+      },
+      "lifetime_depth_hist_bins": [
+       0,
+       1,
+       3,
+       10,
+       30,
+       100,
+       300,
+       1000,
+       3000,
+       10000,
+       100000
+      ],
+      "lifetime_depth_hist_ended": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       6,
+       0
+      ],
+      "lifetime_depth_hist_alive_censored": [
+       0,
+       1,
+       0,
+       0,
+       1,
+       0,
+       0,
+       0,
+       10165,
+       0
+      ],
+      "median_lifetime_depth_by_ending": {
+       "annihilation": null,
+       "fusion": 6535.5,
+       "split": null,
+       "exchange": 6516.5
+      },
+      "born_in_balanced_regime": 2,
+      "balanced_born_lifetime_depth_quantiles_ended": {
+       "0.1": null,
+       "0.25": null,
+       "0.5": null,
+       "0.75": null,
+       "0.9": null,
+       "0.99": null
+      },
+      "hops_quantiles": {
+       "0.5": 0.0,
+       "0.9": 0.0,
+       "0.99": 0.0
+      },
+      "hops_hist_0_1_2_5_10_30_100_1000_inf": [
+       10173,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "5": {
+      "identities": 214,
+      "alive_at_end": 207,
+      "created_by": {
+       "present in the preparation": 209,
+       "fusion 1+4": 3,
+       "exchange of 4,5": 2
+      },
+      "ended_by": {
+       "alive at end": 207,
+       "fusion with 2 into 1": 2,
+       "exchange with 4 into 4,5": 2,
+       "annihilation with 1": 1,
+       "fusion with 3 into 2": 1,
+       "fusion with 4 into 3": 1
+      },
+      "lifetime_depth_quantiles_ended": {
+       "0.1": 6487.6,
+       "0.25": 6507.5,
+       "0.5": 6527.0,
+       "0.75": 6542.5,
+       "0.9": 6549.0,
+       "0.99": 6549.0
+      },
+      "lifetime_sweeps_quantiles_ended": {
+       "0.1": 299.0,
+       "0.25": 299.0,
+       "0.5": 299.0,
+       "0.75": 300.0,
+       "0.9": 300.0,
+       "0.99": 300.0
+      },
+      "lifetime_depth_hist_bins": [
+       0,
+       1,
+       3,
+       10,
+       30,
+       100,
+       300,
+       1000,
+       3000,
+       10000,
+       100000
+      ],
+      "lifetime_depth_hist_ended": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       7,
+       0
+      ],
+      "lifetime_depth_hist_alive_censored": [
+       1,
+       1,
+       0,
+       2,
+       1,
+       0,
+       0,
+       0,
+       202,
+       0
+      ],
+      "median_lifetime_depth_by_ending": {
+       "annihilation": 6525.0,
+       "fusion": 6531.5,
+       "split": null,
+       "exchange": 6516.5
+      },
+      "born_in_balanced_regime": 5,
+      "balanced_born_lifetime_depth_quantiles_ended": {
+       "0.1": null,
+       "0.25": null,
+       "0.5": null,
+       "0.75": null,
+       "0.9": null,
+       "0.99": null
+      },
+      "hops_quantiles": {
+       "0.5": 1.5,
+       "0.9": 3.0,
+       "0.99": 6.0
+      },
+      "hops_hist_0_1_2_5_10_30_100_1000_inf": [
+       36,
+       71,
+       99,
+       8,
+       0,
+       0,
+       0,
+       0
+      ]
+     }
+    },
+    "note": "identities present at sweep 298 are seeded (birth sweep -1); lifetimes are censored by the window"
+   }
+  }
+ }
+}

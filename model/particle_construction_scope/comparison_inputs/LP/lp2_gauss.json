@@ -1,0 +1,126 @@
+{
+ "task": "LP direction 2: Gauss law with a class-3 link register on the hexagon",
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "G1_definite_word": {
+  "full gauge set acts as the identity": true,
+  "word 1 (holonomy -1)": {
+   "weight of the positive branch for each of the 21 configurations": [
+    "1/32"
+   ]
+  },
+  "word 0 (holonomy 1)": {
+   "weight of the positive branch for each of the 21 configurations": [
+    "1/32"
+   ]
+  },
+  "reading": "the positive Gauss branch of a definite link word has the same weight for every load configuration: the Gauss law with a definite class-3 flux forces no port occupation"
+ },
+ "G2_charge_free_flux_state": {
+  "J_i fixes |h = +1> and |h = -1> for the six ports": true,
+  "uniform two-boson state on the hexagon": {
+   "weight of the positive branch": "1/6",
+   "configurations that pass": [
+    "[0, 0]",
+    "[1, 1]",
+    "[10, 10]",
+    "[2, 2]",
+    "[3, 3]",
+    "[9, 9]"
+   ],
+   "normalized amplitudes": {
+    "[10, 10]": "sqrt(6)/6",
+    "[0, 0]": "sqrt(6)/6",
+    "[1, 1]": "sqrt(6)/6",
+    "[9, 9]": "sqrt(6)/6",
+    "[3, 3]": "sqrt(6)/6",
+    "[2, 2]": "sqrt(6)/6"
+   },
+   "only double loads pass": true
+  },
+  "uniform two-boson state on the dimer {10,2}": {
+   "weight of the positive branch": "1/2",
+   "configurations that pass": [
+    "[10, 10]",
+    "[2, 2]"
+   ],
+   "normalized amplitudes": {
+    "[2, 2]": "sqrt(2)/2",
+    "[10, 10]": "sqrt(2)/2"
+   },
+   "only double loads pass": true
+  }
+ },
+ "G3_covariance": {
+  "FP": {
+   "identity holds": true,
+   "columns checked": 387072
+  },
+  "FN": {
+   "identity holds": true,
+   "columns checked": 387072
+  },
+  "consequence": "the address reflection acts on the address only, so W_L commutes with every Gamma_i; the tick keeps each Gauss sector"
+ },
+ "G4_tick_with_links": {
+  "FP, U6": {
+   "Gauss invariant before the tick (six ports)": true,
+   "Gauss invariant after the tick": true,
+   "tick-1 weights": {
+    "backward": "1/12",
+    "double": "2/3",
+    "forward": "1/12",
+    "in-dimer": "1/6"
+   },
+   "X = p_F + p_I - 2 p_F p_I (two independent objects)": "2/9",
+   "inverse tick restores the state": true,
+   "components": 2304
+  },
+  "FP, S": {
+   "Gauss invariant before the tick (six ports)": true,
+   "Gauss invariant after the tick": true,
+   "tick-1 weights": {
+    "backward": "1/12",
+    "double": "2/3",
+    "forward": "1/12",
+    "in-dimer": "1/6"
+   },
+   "X = p_F + p_I - 2 p_F p_I (two independent objects)": "2/9",
+   "inverse tick restores the state": true,
+   "components": 768
+  },
+  "FN, U6": {
+   "Gauss invariant before the tick (six ports)": true,
+   "Gauss invariant after the tick": true,
+   "tick-1 weights": {
+    "backward": "1/12",
+    "double": "2/3",
+    "forward": "1/12",
+    "in-dimer": "1/6"
+   },
+   "X = p_F + p_I - 2 p_F p_I (two independent objects)": "2/9",
+   "inverse tick restores the state": true,
+   "components": 2304
+  },
+  "FN, S": {
+   "Gauss invariant before the tick (six ports)": true,
+   "Gauss invariant after the tick": true,
+   "tick-1 weights": {
+    "backward": "1/12",
+    "double": "2/3",
+    "forward": "1/12",
+    "in-dimer": "1/6"
+   },
+   "X = p_F + p_I - 2 p_F p_I (two independent objects)": "2/9",
+   "inverse tick restores the state": true,
+   "components": 768
+  }
+ },
+ "seconds": 13.41
+}

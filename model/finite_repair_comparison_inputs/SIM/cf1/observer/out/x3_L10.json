@@ -1,0 +1,4720 @@
+{
+ "level": 10,
+ "checkpoint": "USER_HOME/cf1bg_data/L10/ckpt_000300.npz",
+ "register_sha256": "4cdea34a6ce9bc9902473a7674167c1cc37ee462e10936953c7bafa47689a119",
+ "reader_sha256": "a4537248401aed543cb75f36c376dda942dd56c2c705059a82ffd55de5a87606",
+ "verification": {
+  "faces_equal_template": true,
+  "separation_equals_dual_distance": true,
+  "seams_with_both_faces_at_separation_1": "30 of 30",
+  "rotations_equal_independent_computation": true,
+  "chirality_antisymmetric_at_2_symmetric_at_3": true,
+  "carriers_with_class_total_nonzero_mod6": 0,
+  "sample_matches_reader_classify": true,
+  "pair_labels_match_types": true,
+  "h2_equals_chi_at_d2_one_pair_sample": true,
+  "h3_equals_chi_at_d3_one_pair_sample": true
+ },
+ "carriers": 20971520,
+ "carriers_with_defects": 7218131,
+ "compositions": {
+  "{2,4}": 4991967,
+  "{1,5}": 1041883,
+  "{3,3}": 785555,
+  "{2,2,4,4}": 139090,
+  "{2,2,2}": 86788,
+  "{4,4,4}": 86476,
+  "{2,3,3,4}": 55690,
+  "{3,4,5}": 11177,
+  "{1,2,3}": 11174,
+  "{2,4,4,4,4}": 1680,
+  "{2,2,2,2,4}": 1608,
+  "{3,3,3,3}": 1290,
+  "{3,3,4,4,4}": 1174,
+  "{2,2,2,3,3}": 1153,
+  "{2,2,2,4,4,4}": 451,
+  "{2,2,3,3,4,4}": 357,
+  "{2,5,5}": 196,
+  "{1,1,4}": 195,
+  "{2,2,3,5}": 84,
+  "{1,3,4,4}": 80,
+  "{2,3,3,3,3,4}": 36,
+  "{1,2,4,5}": 10,
+  "{2,2,4,4,4,4,4}": 6,
+  "{1,2,2,3,4}": 3,
+  "{4,4,4,4,4,4}": 3,
+  "{2,3,4,4,5}": 1,
+  "{3,3,3,3,3,3}": 1,
+  "{2,2,2,2,3,3,4}": 1,
+  "{2,2,2,2,2,4,4}": 1,
+  "{2,3,3,4,4,4,4}": 1
+ },
+ "tabled_compositions_with_unknown_shape": {},
+ "carriers_in_compositions_without_table": 8331,
+ "compositions_without_table_top": {
+  "{2,4,4,4,4}": 1680,
+  "{2,2,2,2,4}": 1608,
+  "{3,3,3,3}": 1290,
+  "{3,3,4,4,4}": 1174,
+  "{2,2,2,3,3}": 1153,
+  "{2,2,2,4,4,4}": 451,
+  "{2,2,3,3,4,4}": 357,
+  "{2,5,5}": 196,
+  "{1,1,4}": 195,
+  "{2,2,3,5}": 84,
+  "{1,3,4,4}": 80,
+  "{2,3,3,3,3,4}": 36
+ },
+ "pairs": {
+  "{1,5}": {
+   "carriers": 1041883,
+   "non_adjacent": 925910,
+   "types": [
+    {
+     "type": 0,
+     "separation": 1,
+     "chirality": 0,
+     "count": 115973,
+     "share": 0.11131096293921679,
+     "null_non_adjacent_expected": 0.0,
+     "mirror_type": 0,
+     "conjugate_type": 0
+    },
+    {
+     "type": 1,
+     "separation": 2,
+     "chirality": 1,
+     "count": 160551,
+     "share": 0.15409695714394034,
+     "null_non_adjacent_expected": 173608.125,
+     "mirror_type": 2,
+     "conjugate_type": 2
+    },
+    {
+     "type": 2,
+     "separation": 2,
+     "chirality": -1,
+     "count": 160199,
+     "share": 0.15375910730859416,
+     "null_non_adjacent_expected": 173608.125,
+     "mirror_type": 1,
+     "conjugate_type": 1
+    },
+    {
+     "type": 3,
+     "separation": 3,
+     "chirality": 1,
+     "count": 178157,
+     "share": 0.1709952077152617,
+     "null_non_adjacent_expected": 173608.125,
+     "mirror_type": 4,
+     "conjugate_type": 3
+    },
+    {
+     "type": 4,
+     "separation": 3,
+     "chirality": -1,
+     "count": 179016,
+     "share": 0.17181967648958665,
+     "null_non_adjacent_expected": 173608.125,
+     "mirror_type": 3,
+     "conjugate_type": 4
+    },
+    {
+     "type": 5,
+     "separation": 4,
+     "chirality": 0,
+     "count": 185198,
+     "share": 0.1777531642228542,
+     "null_non_adjacent_expected": 173608.125,
+     "mirror_type": 5,
+     "conjugate_type": 5
+    },
+    {
+     "type": 6,
+     "separation": 5,
+     "chirality": 0,
+     "count": 62789,
+     "share": 0.06026492418054619,
+     "null_non_adjacent_expected": 57869.375,
+     "mirror_type": 6,
+     "conjugate_type": 6
+    }
+   ]
+  },
+  "{2,4}": {
+   "carriers": 4991967,
+   "non_adjacent": 4991916,
+   "types": [
+    {
+     "type": 7,
+     "separation": 1,
+     "chirality": 0,
+     "count": 51,
+     "share": 1.0216413690234731e-05,
+     "null_non_adjacent_expected": 0.0,
+     "mirror_type": 7,
+     "conjugate_type": 7
+    },
+    {
+     "type": 8,
+     "separation": 2,
+     "chirality": 1,
+     "count": 1107653,
+     "share": 0.2218870837888151,
+     "null_non_adjacent_expected": 935984.25,
+     "mirror_type": 9,
+     "conjugate_type": 9
+    },
+    {
+     "type": 9,
+     "separation": 2,
+     "chirality": -1,
+     "count": 1109692,
+     "share": 0.22229554001458743,
+     "null_non_adjacent_expected": 935984.25,
+     "mirror_type": 8,
+     "conjugate_type": 8
+    },
+    {
+     "type": 10,
+     "separation": 3,
+     "chirality": 1,
+     "count": 861343,
+     "share": 0.17254581210172262,
+     "null_non_adjacent_expected": 935984.25,
+     "mirror_type": 11,
+     "conjugate_type": 10
+    },
+    {
+     "type": 11,
+     "separation": 3,
+     "chirality": -1,
+     "count": 861518,
+     "share": 0.17258086842320872,
+     "null_non_adjacent_expected": 935984.25,
+     "mirror_type": 10,
+     "conjugate_type": 11
+    },
+    {
+     "type": 12,
+     "separation": 4,
+     "chirality": 0,
+     "count": 792175,
+     "share": 0.15868995127571958,
+     "null_non_adjacent_expected": 935984.25,
+     "mirror_type": 12,
+     "conjugate_type": 12
+    },
+    {
+     "type": 13,
+     "separation": 5,
+     "chirality": 0,
+     "count": 259535,
+     "share": 0.05199052798225629,
+     "null_non_adjacent_expected": 311994.75,
+     "mirror_type": 13,
+     "conjugate_type": 13
+    }
+   ]
+  },
+  "{3,3}": {
+   "carriers": 785555,
+   "non_adjacent": 785548,
+   "types": [
+    {
+     "type": 14,
+     "separation": 1,
+     "chirality": 0,
+     "count": 7,
+     "share": 8.910897391016543e-06,
+     "null_non_adjacent_expected": 0.0,
+     "mirror_type": 14,
+     "conjugate_type": 14
+    },
+    {
+     "type": 15,
+     "separation": 2,
+     "chirality": 0,
+     "count": 395030,
+     "share": 0.502867399481895,
+     "null_non_adjacent_expected": 294580.5,
+     "mirror_type": 15,
+     "conjugate_type": 15
+    },
+    {
+     "type": 16,
+     "separation": 3,
+     "chirality": 1,
+     "count": 131873,
+     "share": 0.16787239594936065,
+     "null_non_adjacent_expected": 147290.25,
+     "mirror_type": 17,
+     "conjugate_type": 16
+    },
+    {
+     "type": 17,
+     "separation": 3,
+     "chirality": -1,
+     "count": 132124,
+     "share": 0.16819191527009567,
+     "null_non_adjacent_expected": 147290.25,
+     "mirror_type": 16,
+     "conjugate_type": 17
+    },
+    {
+     "type": 18,
+     "separation": 4,
+     "chirality": 0,
+     "count": 98431,
+     "share": 0.1253012201564499,
+     "null_non_adjacent_expected": 147290.25,
+     "mirror_type": 18,
+     "conjugate_type": 18
+    },
+    {
+     "type": 19,
+     "separation": 5,
+     "chirality": 0,
+     "count": 28090,
+     "share": 0.03575815824480781,
+     "null_non_adjacent_expected": 49096.75,
+     "mirror_type": 19,
+     "conjugate_type": 19
+    }
+   ]
+  }
+ },
+ "triples": {
+  "{2,2,2}": {
+   "carriers": 86788,
+   "non_adjacent": 86788,
+   "shapes": [
+    {
+     "id": 0,
+     "separations": [
+      2,
+      2,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 0,
+     "multiplicity": 60,
+     "count": 10432,
+     "share": 0.12020094944001475,
+     "null_non_adjacent_expected": 7889.818181818182
+    },
+    {
+     "id": 1,
+     "separations": [
+      2,
+      4,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 1,
+     "multiplicity": 60,
+     "count": 6484,
+     "share": 0.07471078951007051,
+     "null_non_adjacent_expected": 7889.818181818182
+    },
+    {
+     "id": 2,
+     "separations": [
+      1,
+      2,
+      2
+     ],
+     "non_adjacent": false,
+     "mirror": 2,
+     "multiplicity": 60,
+     "count": 0,
+     "share": 0.0,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 3,
+     "separations": [
+      1,
+      3,
+      4
+     ],
+     "non_adjacent": false,
+     "mirror": 5,
+     "multiplicity": 60,
+     "count": 0,
+     "share": 0.0,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 4,
+     "separations": [
+      2,
+      2,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 9,
+     "multiplicity": 60,
+     "count": 10587,
+     "share": 0.12198691063280638,
+     "null_non_adjacent_expected": 7889.818181818182
+    },
+    {
+     "id": 5,
+     "separations": [
+      1,
+      3,
+      4
+     ],
+     "non_adjacent": false,
+     "mirror": 3,
+     "multiplicity": 60,
+     "count": 0,
+     "share": 0.0,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 6,
+     "separations": [
+      2,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 8,
+     "multiplicity": 60,
+     "count": 6911,
+     "share": 0.07963082453795456,
+     "null_non_adjacent_expected": 7889.818181818182
+    },
+    {
+     "id": 7,
+     "separations": [
+      2,
+      3,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 7,
+     "multiplicity": 60,
+     "count": 8277,
+     "share": 0.09537032769507305,
+     "null_non_adjacent_expected": 7889.818181818182
+    },
+    {
+     "id": 8,
+     "separations": [
+      2,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 6,
+     "multiplicity": 60,
+     "count": 6896,
+     "share": 0.07945798958381343,
+     "null_non_adjacent_expected": 7889.818181818182
+    },
+    {
+     "id": 9,
+     "separations": [
+      2,
+      2,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 4,
+     "multiplicity": 60,
+     "count": 10787,
+     "share": 0.12429137668802138,
+     "null_non_adjacent_expected": 7889.818181818182
+    },
+    {
+     "id": 10,
+     "separations": [
+      1,
+      1,
+      2
+     ],
+     "non_adjacent": false,
+     "mirror": 10,
+     "multiplicity": 60,
+     "count": 0,
+     "share": 0.0,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 11,
+     "separations": [
+      1,
+      2,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 13,
+     "multiplicity": 60,
+     "count": 0,
+     "share": 0.0,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 12,
+     "separations": [
+      1,
+      3,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 12,
+     "multiplicity": 60,
+     "count": 0,
+     "share": 0.0,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 13,
+     "separations": [
+      1,
+      2,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 11,
+     "multiplicity": 60,
+     "count": 0,
+     "share": 0.0,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 14,
+     "separations": [
+      2,
+      2,
+      2
+     ],
+     "non_adjacent": true,
+     "mirror": 14,
+     "multiplicity": 20,
+     "count": 4019,
+     "share": 0.04630824537954556,
+     "null_non_adjacent_expected": 2629.939393939394
+    },
+    {
+     "id": 15,
+     "separations": [
+      1,
+      4,
+      5
+     ],
+     "non_adjacent": false,
+     "mirror": 15,
+     "multiplicity": 60,
+     "count": 0,
+     "share": 0.0,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 16,
+     "separations": [
+      2,
+      3,
+      5
+     ],
+     "non_adjacent": true,
+     "mirror": 18,
+     "multiplicity": 60,
+     "count": 6836,
+     "share": 0.07876664976724893,
+     "null_non_adjacent_expected": 7889.818181818182
+    },
+    {
+     "id": 17,
+     "separations": [
+      3,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 17,
+     "multiplicity": 60,
+     "count": 4830,
+     "share": 0.05565285523344241,
+     "null_non_adjacent_expected": 7889.818181818182
+    },
+    {
+     "id": 18,
+     "separations": [
+      2,
+      3,
+      5
+     ],
+     "non_adjacent": true,
+     "mirror": 16,
+     "multiplicity": 60,
+     "count": 7035,
+     "share": 0.08105959349218786,
+     "null_non_adjacent_expected": 7889.818181818182
+    },
+    {
+     "id": 19,
+     "separations": [
+      3,
+      3,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 20,
+     "multiplicity": 20,
+     "count": 1843,
+     "share": 0.021235654698806287,
+     "null_non_adjacent_expected": 2629.939393939394
+    },
+    {
+     "id": 20,
+     "separations": [
+      3,
+      3,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 19,
+     "multiplicity": 20,
+     "count": 1851,
+     "share": 0.021327833341014887,
+     "null_non_adjacent_expected": 2629.939393939394
+    }
+   ],
+   "chi2_against_uniform_non_adjacent": [
+    5940.998456007743,
+    12
+   ],
+   "non_adjacent_shapes_occupied": "13 of 13",
+   "adjacent_shapes_occupied": {}
+  },
+  "{4,4,4}": {
+   "carriers": 86476,
+   "non_adjacent": 86476,
+   "shapes": [
+    {
+     "id": 0,
+     "separations": [
+      2,
+      2,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 0,
+     "multiplicity": 60,
+     "count": 10357,
+     "share": 0.11976733428928257,
+     "null_non_adjacent_expected": 7861.454545454546
+    },
+    {
+     "id": 1,
+     "separations": [
+      2,
+      4,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 1,
+     "multiplicity": 60,
+     "count": 6489,
+     "share": 0.07503816087700634,
+     "null_non_adjacent_expected": 7861.454545454546
+    },
+    {
+     "id": 2,
+     "separations": [
+      1,
+      2,
+      2
+     ],
+     "non_adjacent": false,
+     "mirror": 2,
+     "multiplicity": 60,
+     "count": 0,
+     "share": 0.0,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 3,
+     "separations": [
+      1,
+      3,
+      4
+     ],
+     "non_adjacent": false,
+     "mirror": 5,
+     "multiplicity": 60,
+     "count": 0,
+     "share": 0.0,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 4,
+     "separations": [
+      2,
+      2,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 9,
+     "multiplicity": 60,
+     "count": 10634,
+     "share": 0.12297053517739026,
+     "null_non_adjacent_expected": 7861.454545454546
+    },
+    {
+     "id": 5,
+     "separations": [
+      1,
+      3,
+      4
+     ],
+     "non_adjacent": false,
+     "mirror": 3,
+     "multiplicity": 60,
+     "count": 0,
+     "share": 0.0,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 6,
+     "separations": [
+      2,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 8,
+     "multiplicity": 60,
+     "count": 7044,
+     "share": 0.08145612655534483,
+     "null_non_adjacent_expected": 7861.454545454546
+    },
+    {
+     "id": 7,
+     "separations": [
+      2,
+      3,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 7,
+     "multiplicity": 60,
+     "count": 8167,
+     "share": 0.09444238863962255,
+     "null_non_adjacent_expected": 7861.454545454546
+    },
+    {
+     "id": 8,
+     "separations": [
+      2,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 6,
+     "multiplicity": 60,
+     "count": 6798,
+     "share": 0.07861140663305426,
+     "null_non_adjacent_expected": 7861.454545454546
+    },
+    {
+     "id": 9,
+     "separations": [
+      2,
+      2,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 4,
+     "multiplicity": 60,
+     "count": 10748,
+     "share": 0.12428882001942736,
+     "null_non_adjacent_expected": 7861.454545454546
+    },
+    {
+     "id": 10,
+     "separations": [
+      1,
+      1,
+      2
+     ],
+     "non_adjacent": false,
+     "mirror": 10,
+     "multiplicity": 60,
+     "count": 0,
+     "share": 0.0,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 11,
+     "separations": [
+      1,
+      2,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 13,
+     "multiplicity": 60,
+     "count": 0,
+     "share": 0.0,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 12,
+     "separations": [
+      1,
+      3,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 12,
+     "multiplicity": 60,
+     "count": 0,
+     "share": 0.0,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 13,
+     "separations": [
+      1,
+      2,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 11,
+     "multiplicity": 60,
+     "count": 0,
+     "share": 0.0,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 14,
+     "separations": [
+      2,
+      2,
+      2
+     ],
+     "non_adjacent": true,
+     "mirror": 14,
+     "multiplicity": 20,
+     "count": 4016,
+     "share": 0.04644063092649984,
+     "null_non_adjacent_expected": 2620.4848484848485
+    },
+    {
+     "id": 15,
+     "separations": [
+      1,
+      4,
+      5
+     ],
+     "non_adjacent": false,
+     "mirror": 15,
+     "multiplicity": 60,
+     "count": 0,
+     "share": 0.0,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 16,
+     "separations": [
+      2,
+      3,
+      5
+     ],
+     "non_adjacent": true,
+     "mirror": 18,
+     "multiplicity": 60,
+     "count": 6873,
+     "share": 0.07947869929228919,
+     "null_non_adjacent_expected": 7861.454545454546
+    },
+    {
+     "id": 17,
+     "separations": [
+      3,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 17,
+     "multiplicity": 60,
+     "count": 4757,
+     "share": 0.05500948239974097,
+     "null_non_adjacent_expected": 7861.454545454546
+    },
+    {
+     "id": 18,
+     "separations": [
+      2,
+      3,
+      5
+     ],
+     "non_adjacent": true,
+     "mirror": 16,
+     "multiplicity": 60,
+     "count": 6967,
+     "share": 0.08056570609186364,
+     "null_non_adjacent_expected": 7861.454545454546
+    },
+    {
+     "id": 19,
+     "separations": [
+      3,
+      3,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 20,
+     "multiplicity": 20,
+     "count": 1800,
+     "share": 0.020815023821638374,
+     "null_non_adjacent_expected": 2620.4848484848485
+    },
+    {
+     "id": 20,
+     "separations": [
+      3,
+      3,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 19,
+     "multiplicity": 20,
+     "count": 1826,
+     "share": 0.021115685276839817,
+     "null_non_adjacent_expected": 2620.4848484848485
+    }
+   ],
+   "chi2_against_uniform_non_adjacent": [
+    6003.135737083122,
+    12
+   ],
+   "non_adjacent_shapes_occupied": "13 of 13",
+   "adjacent_shapes_occupied": {}
+  },
+  "{1,2,3}": {
+   "carriers": 11174,
+   "non_adjacent": 9069,
+   "shapes": [
+    {
+     "id": 0,
+     "separations": [
+      2,
+      2,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 5,
+     "multiplicity": 60,
+     "count": 214,
+     "share": 0.019151601933058888,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 1,
+     "separations": [
+      2,
+      2,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 3,
+     "multiplicity": 60,
+     "count": 218,
+     "share": 0.01950957580096653,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 2,
+     "separations": [
+      2,
+      2,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 4,
+     "multiplicity": 60,
+     "count": 40,
+     "share": 0.0035797386790764273,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 3,
+     "separations": [
+      2,
+      2,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 1,
+     "multiplicity": 60,
+     "count": 219,
+     "share": 0.01959906926794344,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 4,
+     "separations": [
+      2,
+      2,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 2,
+     "multiplicity": 60,
+     "count": 61,
+     "share": 0.005459101485591551,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 5,
+     "separations": [
+      2,
+      2,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 0,
+     "multiplicity": 60,
+     "count": 213,
+     "share": 0.019062108466081976,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 6,
+     "separations": [
+      2,
+      4,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 7,
+     "multiplicity": 60,
+     "count": 268,
+     "share": 0.023984249149812065,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 7,
+     "separations": [
+      2,
+      4,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 6,
+     "multiplicity": 60,
+     "count": 289,
+     "share": 0.02586361195632719,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 8,
+     "separations": [
+      2,
+      4,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 11,
+     "multiplicity": 60,
+     "count": 53,
+     "share": 0.004743153749776266,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 9,
+     "separations": [
+      2,
+      4,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 10,
+     "multiplicity": 60,
+     "count": 70,
+     "share": 0.006264542688383748,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 10,
+     "separations": [
+      2,
+      4,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 9,
+     "multiplicity": 60,
+     "count": 51,
+     "share": 0.004564166815822445,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 11,
+     "separations": [
+      2,
+      4,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 8,
+     "multiplicity": 60,
+     "count": 60,
+     "share": 0.005369608018614641,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 12,
+     "separations": [
+      1,
+      2,
+      2
+     ],
+     "non_adjacent": false,
+     "mirror": 24,
+     "multiplicity": 60,
+     "count": 110,
+     "share": 0.009844281367460175,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 13,
+     "separations": [
+      1,
+      2,
+      2
+     ],
+     "non_adjacent": false,
+     "mirror": 27,
+     "multiplicity": 60,
+     "count": 91,
+     "share": 0.008143905494898872,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 14,
+     "separations": [
+      1,
+      3,
+      4
+     ],
+     "non_adjacent": false,
+     "mirror": 18,
+     "multiplicity": 60,
+     "count": 36,
+     "share": 0.0032217648111687847,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 15,
+     "separations": [
+      2,
+      2,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 29,
+     "multiplicity": 60,
+     "count": 210,
+     "share": 0.018793628065151245,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 16,
+     "separations": [
+      1,
+      3,
+      4
+     ],
+     "non_adjacent": false,
+     "mirror": 21,
+     "multiplicity": 60,
+     "count": 54,
+     "share": 0.004832647216753177,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 17,
+     "separations": [
+      2,
+      2,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 26,
+     "multiplicity": 60,
+     "count": 190,
+     "share": 0.01700375872561303,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 18,
+     "separations": [
+      1,
+      3,
+      4
+     ],
+     "non_adjacent": false,
+     "mirror": 14,
+     "multiplicity": 60,
+     "count": 32,
+     "share": 0.002863790943261142,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 19,
+     "separations": [
+      2,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 28,
+     "multiplicity": 60,
+     "count": 59,
+     "share": 0.00528011455163773,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 20,
+     "separations": [
+      2,
+      3,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 23,
+     "multiplicity": 60,
+     "count": 251,
+     "share": 0.022462860211204583,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 21,
+     "separations": [
+      1,
+      3,
+      4
+     ],
+     "non_adjacent": false,
+     "mirror": 16,
+     "multiplicity": 60,
+     "count": 45,
+     "share": 0.004027206013960981,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 22,
+     "separations": [
+      2,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 25,
+     "multiplicity": 60,
+     "count": 60,
+     "share": 0.005369608018614641,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 23,
+     "separations": [
+      2,
+      3,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 20,
+     "multiplicity": 60,
+     "count": 218,
+     "share": 0.01950957580096653,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 24,
+     "separations": [
+      1,
+      2,
+      2
+     ],
+     "non_adjacent": false,
+     "mirror": 12,
+     "multiplicity": 60,
+     "count": 114,
+     "share": 0.010202255235367818,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 25,
+     "separations": [
+      2,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 22,
+     "multiplicity": 60,
+     "count": 53,
+     "share": 0.004743153749776266,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 26,
+     "separations": [
+      2,
+      2,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 17,
+     "multiplicity": 60,
+     "count": 196,
+     "share": 0.017540719527474494,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 27,
+     "separations": [
+      1,
+      2,
+      2
+     ],
+     "non_adjacent": false,
+     "mirror": 13,
+     "multiplicity": 60,
+     "count": 121,
+     "share": 0.010828709504206193,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 28,
+     "separations": [
+      2,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 19,
+     "multiplicity": 60,
+     "count": 57,
+     "share": 0.005101127617683909,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 29,
+     "separations": [
+      2,
+      2,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 15,
+     "multiplicity": 60,
+     "count": 180,
+     "share": 0.016108824055843924,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 30,
+     "separations": [
+      1,
+      2,
+      2
+     ],
+     "non_adjacent": false,
+     "mirror": 41,
+     "multiplicity": 60,
+     "count": 6,
+     "share": 0.0005369608018614641,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 31,
+     "separations": [
+      1,
+      3,
+      4
+     ],
+     "non_adjacent": false,
+     "mirror": 35,
+     "multiplicity": 60,
+     "count": 4,
+     "share": 0.00035797386790764276,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 32,
+     "separations": [
+      2,
+      2,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 45,
+     "multiplicity": 60,
+     "count": 217,
+     "share": 0.01942008233398962,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 33,
+     "separations": [
+      1,
+      3,
+      4
+     ],
+     "non_adjacent": false,
+     "mirror": 38,
+     "multiplicity": 60,
+     "count": 56,
+     "share": 0.005011634150706998,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 34,
+     "separations": [
+      2,
+      2,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 43,
+     "multiplicity": 60,
+     "count": 83,
+     "share": 0.007427957759083587,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 35,
+     "separations": [
+      1,
+      3,
+      4
+     ],
+     "non_adjacent": false,
+     "mirror": 31,
+     "multiplicity": 60,
+     "count": 1,
+     "share": 8.949346697691069e-05,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 36,
+     "separations": [
+      2,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 44,
+     "multiplicity": 60,
+     "count": 251,
+     "share": 0.022462860211204583,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 37,
+     "separations": [
+      2,
+      3,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 40,
+     "multiplicity": 60,
+     "count": 93,
+     "share": 0.008322892428852693,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 38,
+     "separations": [
+      1,
+      3,
+      4
+     ],
+     "non_adjacent": false,
+     "mirror": 33,
+     "multiplicity": 60,
+     "count": 57,
+     "share": 0.005101127617683909,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 39,
+     "separations": [
+      2,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 42,
+     "multiplicity": 60,
+     "count": 95,
+     "share": 0.008501879362806514,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 40,
+     "separations": [
+      2,
+      3,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 37,
+     "multiplicity": 60,
+     "count": 107,
+     "share": 0.009575800966529444,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 41,
+     "separations": [
+      1,
+      2,
+      2
+     ],
+     "non_adjacent": false,
+     "mirror": 30,
+     "multiplicity": 60,
+     "count": 5,
+     "share": 0.0004474673348845534,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 42,
+     "separations": [
+      2,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 39,
+     "multiplicity": 60,
+     "count": 83,
+     "share": 0.007427957759083587,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 43,
+     "separations": [
+      2,
+      2,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 34,
+     "multiplicity": 60,
+     "count": 92,
+     "share": 0.008233398961875783,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 44,
+     "separations": [
+      2,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 36,
+     "multiplicity": 60,
+     "count": 252,
+     "share": 0.022552353678181494,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 45,
+     "separations": [
+      2,
+      2,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 32,
+     "multiplicity": 60,
+     "count": 189,
+     "share": 0.01691426525863612,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 46,
+     "separations": [
+      1,
+      3,
+      4
+     ],
+     "non_adjacent": false,
+     "mirror": 50,
+     "multiplicity": 60,
+     "count": 3,
+     "share": 0.00026848040093073206,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 47,
+     "separations": [
+      2,
+      2,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 59,
+     "multiplicity": 60,
+     "count": 190,
+     "share": 0.01700375872561303,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 48,
+     "separations": [
+      1,
+      3,
+      4
+     ],
+     "non_adjacent": false,
+     "mirror": 53,
+     "multiplicity": 60,
+     "count": 62,
+     "share": 0.005548594952568463,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 49,
+     "separations": [
+      2,
+      2,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 57,
+     "multiplicity": 60,
+     "count": 81,
+     "share": 0.007248970825129765,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 50,
+     "separations": [
+      1,
+      3,
+      4
+     ],
+     "non_adjacent": false,
+     "mirror": 46,
+     "multiplicity": 60,
+     "count": 1,
+     "share": 8.949346697691069e-05,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 51,
+     "separations": [
+      2,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 58,
+     "multiplicity": 60,
+     "count": 276,
+     "share": 0.02470019688562735,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 52,
+     "separations": [
+      2,
+      3,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 55,
+     "multiplicity": 60,
+     "count": 97,
+     "share": 0.008680866296760336,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 53,
+     "separations": [
+      1,
+      3,
+      4
+     ],
+     "non_adjacent": false,
+     "mirror": 48,
+     "multiplicity": 60,
+     "count": 61,
+     "share": 0.005459101485591551,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 54,
+     "separations": [
+      2,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 56,
+     "multiplicity": 60,
+     "count": 99,
+     "share": 0.008859853230714159,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 55,
+     "separations": [
+      2,
+      3,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 52,
+     "multiplicity": 60,
+     "count": 81,
+     "share": 0.007248970825129765,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 56,
+     "separations": [
+      2,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 54,
+     "multiplicity": 60,
+     "count": 87,
+     "share": 0.00778593162699123,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 57,
+     "separations": [
+      2,
+      2,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 49,
+     "multiplicity": 60,
+     "count": 67,
+     "share": 0.005996062287453016,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 58,
+     "separations": [
+      2,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 51,
+     "multiplicity": 60,
+     "count": 239,
+     "share": 0.021388938607481655,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 59,
+     "separations": [
+      2,
+      2,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 47,
+     "multiplicity": 60,
+     "count": 200,
+     "share": 0.017898693395382137,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 60,
+     "separations": [
+      1,
+      1,
+      2
+     ],
+     "non_adjacent": false,
+     "mirror": 70,
+     "multiplicity": 60,
+     "count": 13,
+     "share": 0.0011634150706998389,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 61,
+     "separations": [
+      1,
+      1,
+      2
+     ],
+     "non_adjacent": false,
+     "mirror": 66,
+     "multiplicity": 60,
+     "count": 36,
+     "share": 0.0032217648111687847,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 62,
+     "separations": [
+      1,
+      2,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 73,
+     "multiplicity": 60,
+     "count": 70,
+     "share": 0.006264542688383748,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 63,
+     "separations": [
+      1,
+      3,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 72,
+     "multiplicity": 60,
+     "count": 47,
+     "share": 0.004206192947914802,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 64,
+     "separations": [
+      1,
+      2,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 71,
+     "multiplicity": 60,
+     "count": 121,
+     "share": 0.010828709504206193,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 65,
+     "separations": [
+      1,
+      1,
+      2
+     ],
+     "non_adjacent": false,
+     "mirror": 74,
+     "multiplicity": 60,
+     "count": 7,
+     "share": 0.0006264542688383748,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 66,
+     "separations": [
+      1,
+      1,
+      2
+     ],
+     "non_adjacent": false,
+     "mirror": 61,
+     "multiplicity": 60,
+     "count": 31,
+     "share": 0.0027742974762842315,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 67,
+     "separations": [
+      1,
+      2,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 80,
+     "multiplicity": 60,
+     "count": 57,
+     "share": 0.005101127617683909,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 68,
+     "separations": [
+      1,
+      3,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 79,
+     "multiplicity": 60,
+     "count": 63,
+     "share": 0.005638088419545374,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 69,
+     "separations": [
+      1,
+      2,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 78,
+     "multiplicity": 60,
+     "count": 142,
+     "share": 0.012708072310721318,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 70,
+     "separations": [
+      1,
+      1,
+      2
+     ],
+     "non_adjacent": false,
+     "mirror": 60,
+     "multiplicity": 60,
+     "count": 5,
+     "share": 0.0004474673348845534,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 71,
+     "separations": [
+      1,
+      2,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 64,
+     "multiplicity": 60,
+     "count": 107,
+     "share": 0.009575800966529444,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 72,
+     "separations": [
+      1,
+      3,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 63,
+     "multiplicity": 60,
+     "count": 62,
+     "share": 0.005548594952568463,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 73,
+     "separations": [
+      1,
+      2,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 62,
+     "multiplicity": 60,
+     "count": 66,
+     "share": 0.0059065688204761055,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 74,
+     "separations": [
+      1,
+      1,
+      2
+     ],
+     "non_adjacent": false,
+     "mirror": 65,
+     "multiplicity": 60,
+     "count": 4,
+     "share": 0.00035797386790764276,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 75,
+     "separations": [
+      1,
+      2,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 83,
+     "multiplicity": 60,
+     "count": 12,
+     "share": 0.0010739216037229282,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 76,
+     "separations": [
+      1,
+      3,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 82,
+     "multiplicity": 60,
+     "count": 3,
+     "share": 0.00026848040093073206,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 77,
+     "separations": [
+      1,
+      2,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 81,
+     "multiplicity": 60,
+     "count": 2,
+     "share": 0.00017898693395382138,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 78,
+     "separations": [
+      1,
+      2,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 69,
+     "multiplicity": 60,
+     "count": 130,
+     "share": 0.01163415070699839,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 79,
+     "separations": [
+      1,
+      3,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 68,
+     "multiplicity": 60,
+     "count": 52,
+     "share": 0.0046536602827993555,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 80,
+     "separations": [
+      1,
+      2,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 67,
+     "multiplicity": 60,
+     "count": 48,
+     "share": 0.004295686414891713,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 81,
+     "separations": [
+      1,
+      2,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 77,
+     "multiplicity": 60,
+     "count": 1,
+     "share": 8.949346697691069e-05,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 82,
+     "separations": [
+      1,
+      3,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 76,
+     "multiplicity": 60,
+     "count": 0,
+     "share": 0.0,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 83,
+     "separations": [
+      1,
+      2,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 75,
+     "multiplicity": 60,
+     "count": 3,
+     "share": 0.00026848040093073206,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 84,
+     "separations": [
+      2,
+      2,
+      2
+     ],
+     "non_adjacent": true,
+     "mirror": 85,
+     "multiplicity": 60,
+     "count": 135,
+     "share": 0.012081618041882942,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 85,
+     "separations": [
+      2,
+      2,
+      2
+     ],
+     "non_adjacent": true,
+     "mirror": 84,
+     "multiplicity": 60,
+     "count": 153,
+     "share": 0.013692500447467336,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 86,
+     "separations": [
+      1,
+      4,
+      5
+     ],
+     "non_adjacent": false,
+     "mirror": 86,
+     "multiplicity": 60,
+     "count": 50,
+     "share": 0.004474673348845534,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 87,
+     "separations": [
+      2,
+      3,
+      5
+     ],
+     "non_adjacent": true,
+     "mirror": 93,
+     "multiplicity": 60,
+     "count": 281,
+     "share": 0.025147664220511904,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 88,
+     "separations": [
+      1,
+      4,
+      5
+     ],
+     "non_adjacent": false,
+     "mirror": 88,
+     "multiplicity": 60,
+     "count": 42,
+     "share": 0.0037587256130302486,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 89,
+     "separations": [
+      2,
+      3,
+      5
+     ],
+     "non_adjacent": true,
+     "mirror": 91,
+     "multiplicity": 60,
+     "count": 238,
+     "share": 0.021299445140504743,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 90,
+     "separations": [
+      3,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 92,
+     "multiplicity": 60,
+     "count": 74,
+     "share": 0.006622516556291391,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 91,
+     "separations": [
+      2,
+      3,
+      5
+     ],
+     "non_adjacent": true,
+     "mirror": 89,
+     "multiplicity": 60,
+     "count": 254,
+     "share": 0.022731340612135314,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 92,
+     "separations": [
+      3,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 90,
+     "multiplicity": 60,
+     "count": 70,
+     "share": 0.006264542688383748,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 93,
+     "separations": [
+      2,
+      3,
+      5
+     ],
+     "non_adjacent": true,
+     "mirror": 87,
+     "multiplicity": 60,
+     "count": 254,
+     "share": 0.022731340612135314,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 94,
+     "separations": [
+      2,
+      3,
+      5
+     ],
+     "non_adjacent": true,
+     "mirror": 96,
+     "multiplicity": 60,
+     "count": 119,
+     "share": 0.010649722570252372,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 95,
+     "separations": [
+      2,
+      3,
+      5
+     ],
+     "non_adjacent": true,
+     "mirror": 97,
+     "multiplicity": 60,
+     "count": 102,
+     "share": 0.00912833363164489,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 96,
+     "separations": [
+      2,
+      3,
+      5
+     ],
+     "non_adjacent": true,
+     "mirror": 94,
+     "multiplicity": 60,
+     "count": 113,
+     "share": 0.010112761768390908,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 97,
+     "separations": [
+      2,
+      3,
+      5
+     ],
+     "non_adjacent": true,
+     "mirror": 95,
+     "multiplicity": 60,
+     "count": 94,
+     "share": 0.008412385895829605,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 98,
+     "separations": [
+      3,
+      3,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 102,
+     "multiplicity": 60,
+     "count": 115,
+     "share": 0.010291748702344729,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 99,
+     "separations": [
+      3,
+      3,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 103,
+     "multiplicity": 60,
+     "count": 114,
+     "share": 0.010202255235367818,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 100,
+     "separations": [
+      1,
+      4,
+      5
+     ],
+     "non_adjacent": false,
+     "mirror": 100,
+     "multiplicity": 60,
+     "count": 3,
+     "share": 0.00026848040093073206,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 101,
+     "separations": [
+      1,
+      4,
+      5
+     ],
+     "non_adjacent": false,
+     "mirror": 101,
+     "multiplicity": 60,
+     "count": 0,
+     "share": 0.0,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 102,
+     "separations": [
+      3,
+      3,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 98,
+     "multiplicity": 60,
+     "count": 102,
+     "share": 0.00912833363164489,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 103,
+     "separations": [
+      3,
+      3,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 99,
+     "multiplicity": 60,
+     "count": 99,
+     "share": 0.008859853230714159,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 104,
+     "separations": [
+      1,
+      4,
+      5
+     ],
+     "non_adjacent": false,
+     "mirror": 104,
+     "multiplicity": 60,
+     "count": 37,
+     "share": 0.0033112582781456954,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 105,
+     "separations": [
+      2,
+      3,
+      5
+     ],
+     "non_adjacent": true,
+     "mirror": 107,
+     "multiplicity": 60,
+     "count": 48,
+     "share": 0.004295686414891713,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 106,
+     "separations": [
+      3,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 108,
+     "multiplicity": 60,
+     "count": 131,
+     "share": 0.0117236441739753,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 107,
+     "separations": [
+      2,
+      3,
+      5
+     ],
+     "non_adjacent": true,
+     "mirror": 105,
+     "multiplicity": 60,
+     "count": 45,
+     "share": 0.004027206013960981,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 108,
+     "separations": [
+      3,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 106,
+     "multiplicity": 60,
+     "count": 113,
+     "share": 0.010112761768390908,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 109,
+     "separations": [
+      2,
+      3,
+      5
+     ],
+     "non_adjacent": true,
+     "mirror": 110,
+     "multiplicity": 60,
+     "count": 50,
+     "share": 0.004474673348845534,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 110,
+     "separations": [
+      2,
+      3,
+      5
+     ],
+     "non_adjacent": true,
+     "mirror": 109,
+     "multiplicity": 60,
+     "count": 33,
+     "share": 0.0029532844102380528,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 111,
+     "separations": [
+      1,
+      4,
+      5
+     ],
+     "non_adjacent": false,
+     "mirror": 111,
+     "multiplicity": 60,
+     "count": 32,
+     "share": 0.002863790943261142,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 112,
+     "separations": [
+      3,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 113,
+     "multiplicity": 60,
+     "count": 109,
+     "share": 0.009754787900483265,
+     "null_non_adjacent_expected": 137.4090909090909
+    },
+    {
+     "id": 113,
+     "separations": [
+      3,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 112,
+     "multiplicity": 60,
+     "count": 114,
+     "share": 0.010202255235367818,
+     "null_non_adjacent_expected": 137.4090909090909
+    }
+   ],
+   "chi2_against_uniform_non_adjacent": [
+    2737.6496857426387,
+    65
+   ],
+   "non_adjacent_shapes_occupied": "66 of 66",
+   "adjacent_shapes_occupied": {
+    "12": 110,
+    "13": 91,
+    "14": 36,
+    "16": 54,
+    "18": 32,
+    "21": 45,
+    "24": 114,
+    "27": 121,
+    "30": 6,
+    "31": 4,
+    "33": 56,
+    "35": 1,
+    "38": 57,
+    "41": 5,
+    "46": 3,
+    "48": 62,
+    "50": 1,
+    "53": 61,
+    "60": 13,
+    "61": 36,
+    "62": 70,
+    "63": 47,
+    "64": 121,
+    "65": 7,
+    "66": 31,
+    "67": 57,
+    "68": 63,
+    "69": 142,
+    "70": 5,
+    "71": 107,
+    "72": 62,
+    "73": 66,
+    "74": 4,
+    "75": 12,
+    "76": 3,
+    "77": 2,
+    "78": 130,
+    "79": 52,
+    "80": 48,
+    "81": 1,
+    "83": 3,
+    "86": 50,
+    "88": 42,
+    "100": 3,
+    "104": 37,
+    "111": 32
+   }
+  },
+  "{3,4,5}": {
+   "carriers": 11177,
+   "non_adjacent": 9002,
+   "shapes": [
+    {
+     "id": 0,
+     "separations": [
+      2,
+      2,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 5,
+     "multiplicity": 60,
+     "count": 194,
+     "share": 0.017357072559720854,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 1,
+     "separations": [
+      2,
+      2,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 3,
+     "multiplicity": 60,
+     "count": 204,
+     "share": 0.018251767021562136,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 2,
+     "separations": [
+      2,
+      2,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 4,
+     "multiplicity": 60,
+     "count": 39,
+     "share": 0.003489308401180997,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 3,
+     "separations": [
+      2,
+      2,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 1,
+     "multiplicity": 60,
+     "count": 212,
+     "share": 0.018967522591035162,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 4,
+     "separations": [
+      2,
+      2,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 2,
+     "multiplicity": 60,
+     "count": 57,
+     "share": 0.005099758432495303,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 5,
+     "separations": [
+      2,
+      2,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 0,
+     "multiplicity": 60,
+     "count": 196,
+     "share": 0.01753601145208911,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 6,
+     "separations": [
+      2,
+      4,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 7,
+     "multiplicity": 60,
+     "count": 254,
+     "share": 0.022725239330768542,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 7,
+     "separations": [
+      2,
+      4,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 6,
+     "multiplicity": 60,
+     "count": 287,
+     "share": 0.02567773105484477,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 8,
+     "separations": [
+      2,
+      4,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 11,
+     "multiplicity": 60,
+     "count": 59,
+     "share": 0.005278697324863559,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 9,
+     "separations": [
+      2,
+      4,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 10,
+     "multiplicity": 60,
+     "count": 76,
+     "share": 0.006799677909993737,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 10,
+     "separations": [
+      2,
+      4,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 9,
+     "multiplicity": 60,
+     "count": 63,
+     "share": 0.005636575109600072,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 11,
+     "separations": [
+      2,
+      4,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 8,
+     "multiplicity": 60,
+     "count": 59,
+     "share": 0.005278697324863559,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 12,
+     "separations": [
+      1,
+      2,
+      2
+     ],
+     "non_adjacent": false,
+     "mirror": 24,
+     "multiplicity": 60,
+     "count": 114,
+     "share": 0.010199516864990606,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 13,
+     "separations": [
+      1,
+      2,
+      2
+     ],
+     "non_adjacent": false,
+     "mirror": 27,
+     "multiplicity": 60,
+     "count": 116,
+     "share": 0.010378455757358861,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 14,
+     "separations": [
+      1,
+      3,
+      4
+     ],
+     "non_adjacent": false,
+     "mirror": 18,
+     "multiplicity": 60,
+     "count": 32,
+     "share": 0.0028630222778920997,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 15,
+     "separations": [
+      2,
+      2,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 29,
+     "multiplicity": 60,
+     "count": 209,
+     "share": 0.018699114252482777,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 16,
+     "separations": [
+      1,
+      3,
+      4
+     ],
+     "non_adjacent": false,
+     "mirror": 21,
+     "multiplicity": 60,
+     "count": 43,
+     "share": 0.003847186185917509,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 17,
+     "separations": [
+      2,
+      2,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 26,
+     "multiplicity": 60,
+     "count": 218,
+     "share": 0.01950433926813993,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 18,
+     "separations": [
+      1,
+      3,
+      4
+     ],
+     "non_adjacent": false,
+     "mirror": 14,
+     "multiplicity": 60,
+     "count": 28,
+     "share": 0.0025051444931555875,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 19,
+     "separations": [
+      2,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 28,
+     "multiplicity": 60,
+     "count": 53,
+     "share": 0.004741880647758791,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 20,
+     "separations": [
+      2,
+      3,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 23,
+     "multiplicity": 60,
+     "count": 246,
+     "share": 0.022009483761295516,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 21,
+     "separations": [
+      1,
+      3,
+      4
+     ],
+     "non_adjacent": false,
+     "mirror": 16,
+     "multiplicity": 60,
+     "count": 50,
+     "share": 0.004473472309206406,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 22,
+     "separations": [
+      2,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 25,
+     "multiplicity": 60,
+     "count": 52,
+     "share": 0.004652411201574662,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 23,
+     "separations": [
+      2,
+      3,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 20,
+     "multiplicity": 60,
+     "count": 262,
+     "share": 0.02344099490024157,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 24,
+     "separations": [
+      1,
+      2,
+      2
+     ],
+     "non_adjacent": false,
+     "mirror": 12,
+     "multiplicity": 60,
+     "count": 123,
+     "share": 0.011004741880647758,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 25,
+     "separations": [
+      2,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 22,
+     "multiplicity": 60,
+     "count": 65,
+     "share": 0.005815514001968328,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 26,
+     "separations": [
+      2,
+      2,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 17,
+     "multiplicity": 60,
+     "count": 204,
+     "share": 0.018251767021562136,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 27,
+     "separations": [
+      1,
+      2,
+      2
+     ],
+     "non_adjacent": false,
+     "mirror": 13,
+     "multiplicity": 60,
+     "count": 104,
+     "share": 0.009304822403149324,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 28,
+     "separations": [
+      2,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 19,
+     "multiplicity": 60,
+     "count": 49,
+     "share": 0.0043840028630222775,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 29,
+     "separations": [
+      2,
+      2,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 15,
+     "multiplicity": 60,
+     "count": 182,
+     "share": 0.016283439205511317,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 30,
+     "separations": [
+      1,
+      2,
+      2
+     ],
+     "non_adjacent": false,
+     "mirror": 41,
+     "multiplicity": 60,
+     "count": 5,
+     "share": 0.0004473472309206406,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 31,
+     "separations": [
+      1,
+      3,
+      4
+     ],
+     "non_adjacent": false,
+     "mirror": 35,
+     "multiplicity": 60,
+     "count": 1,
+     "share": 8.946944618412812e-05,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 32,
+     "separations": [
+      2,
+      2,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 45,
+     "multiplicity": 60,
+     "count": 192,
+     "share": 0.0171781336673526,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 33,
+     "separations": [
+      1,
+      3,
+      4
+     ],
+     "non_adjacent": false,
+     "mirror": 38,
+     "multiplicity": 60,
+     "count": 72,
+     "share": 0.006441800125257225,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 34,
+     "separations": [
+      2,
+      2,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 43,
+     "multiplicity": 60,
+     "count": 88,
+     "share": 0.007873311264203275,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 35,
+     "separations": [
+      1,
+      3,
+      4
+     ],
+     "non_adjacent": false,
+     "mirror": 31,
+     "multiplicity": 60,
+     "count": 0,
+     "share": 0.0,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 36,
+     "separations": [
+      2,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 44,
+     "multiplicity": 60,
+     "count": 254,
+     "share": 0.022725239330768542,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 37,
+     "separations": [
+      2,
+      3,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 40,
+     "multiplicity": 60,
+     "count": 99,
+     "share": 0.008857475172228685,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 38,
+     "separations": [
+      1,
+      3,
+      4
+     ],
+     "non_adjacent": false,
+     "mirror": 33,
+     "multiplicity": 60,
+     "count": 60,
+     "share": 0.005368166771047687,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 39,
+     "separations": [
+      2,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 42,
+     "multiplicity": 60,
+     "count": 90,
+     "share": 0.00805225015657153,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 40,
+     "separations": [
+      2,
+      3,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 37,
+     "multiplicity": 60,
+     "count": 94,
+     "share": 0.008410127941308044,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 41,
+     "separations": [
+      1,
+      2,
+      2
+     ],
+     "non_adjacent": false,
+     "mirror": 30,
+     "multiplicity": 60,
+     "count": 10,
+     "share": 0.0008946944618412812,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 42,
+     "separations": [
+      2,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 39,
+     "multiplicity": 60,
+     "count": 99,
+     "share": 0.008857475172228685,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 43,
+     "separations": [
+      2,
+      2,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 34,
+     "multiplicity": 60,
+     "count": 88,
+     "share": 0.007873311264203275,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 44,
+     "separations": [
+      2,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 36,
+     "multiplicity": 60,
+     "count": 231,
+     "share": 0.020667442068533597,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 45,
+     "separations": [
+      2,
+      2,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 32,
+     "multiplicity": 60,
+     "count": 164,
+     "share": 0.014672989174197012,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 46,
+     "separations": [
+      1,
+      3,
+      4
+     ],
+     "non_adjacent": false,
+     "mirror": 50,
+     "multiplicity": 60,
+     "count": 0,
+     "share": 0.0,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 47,
+     "separations": [
+      2,
+      2,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 59,
+     "multiplicity": 60,
+     "count": 170,
+     "share": 0.01520980585130178,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 48,
+     "separations": [
+      1,
+      3,
+      4
+     ],
+     "non_adjacent": false,
+     "mirror": 53,
+     "multiplicity": 60,
+     "count": 77,
+     "share": 0.006889147356177865,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 49,
+     "separations": [
+      2,
+      2,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 57,
+     "multiplicity": 60,
+     "count": 74,
+     "share": 0.0066207390176254806,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 50,
+     "separations": [
+      1,
+      3,
+      4
+     ],
+     "non_adjacent": false,
+     "mirror": 46,
+     "multiplicity": 60,
+     "count": 1,
+     "share": 8.946944618412812e-05,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 51,
+     "separations": [
+      2,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 58,
+     "multiplicity": 60,
+     "count": 253,
+     "share": 0.022635769884584413,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 52,
+     "separations": [
+      2,
+      3,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 55,
+     "multiplicity": 60,
+     "count": 104,
+     "share": 0.009304822403149324,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 53,
+     "separations": [
+      1,
+      3,
+      4
+     ],
+     "non_adjacent": false,
+     "mirror": 48,
+     "multiplicity": 60,
+     "count": 71,
+     "share": 0.006352330679073096,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 54,
+     "separations": [
+      2,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 56,
+     "multiplicity": 60,
+     "count": 93,
+     "share": 0.008320658495123916,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 55,
+     "separations": [
+      2,
+      3,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 52,
+     "multiplicity": 60,
+     "count": 104,
+     "share": 0.009304822403149324,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 56,
+     "separations": [
+      2,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 54,
+     "multiplicity": 60,
+     "count": 91,
+     "share": 0.008141719602755658,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 57,
+     "separations": [
+      2,
+      2,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 49,
+     "multiplicity": 60,
+     "count": 87,
+     "share": 0.007783841818019147,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 58,
+     "separations": [
+      2,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 51,
+     "multiplicity": 60,
+     "count": 261,
+     "share": 0.02335152545405744,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 59,
+     "separations": [
+      2,
+      2,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 47,
+     "multiplicity": 60,
+     "count": 192,
+     "share": 0.0171781336673526,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 60,
+     "separations": [
+      1,
+      1,
+      2
+     ],
+     "non_adjacent": false,
+     "mirror": 70,
+     "multiplicity": 60,
+     "count": 9,
+     "share": 0.0008052250156571531,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 61,
+     "separations": [
+      1,
+      1,
+      2
+     ],
+     "non_adjacent": false,
+     "mirror": 66,
+     "multiplicity": 60,
+     "count": 35,
+     "share": 0.003131430616444484,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 62,
+     "separations": [
+      1,
+      2,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 73,
+     "multiplicity": 60,
+     "count": 76,
+     "share": 0.006799677909993737,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 63,
+     "separations": [
+      1,
+      3,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 72,
+     "multiplicity": 60,
+     "count": 61,
+     "share": 0.005457636217231815,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 64,
+     "separations": [
+      1,
+      2,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 71,
+     "multiplicity": 60,
+     "count": 112,
+     "share": 0.01002057797262235,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 65,
+     "separations": [
+      1,
+      1,
+      2
+     ],
+     "non_adjacent": false,
+     "mirror": 74,
+     "multiplicity": 60,
+     "count": 4,
+     "share": 0.00035787778473651247,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 66,
+     "separations": [
+      1,
+      1,
+      2
+     ],
+     "non_adjacent": false,
+     "mirror": 61,
+     "multiplicity": 60,
+     "count": 42,
+     "share": 0.0037577167397333812,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 67,
+     "separations": [
+      1,
+      2,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 80,
+     "multiplicity": 60,
+     "count": 53,
+     "share": 0.004741880647758791,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 68,
+     "separations": [
+      1,
+      3,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 79,
+     "multiplicity": 60,
+     "count": 52,
+     "share": 0.004652411201574662,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 69,
+     "separations": [
+      1,
+      2,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 78,
+     "multiplicity": 60,
+     "count": 131,
+     "share": 0.011720497450120784,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 70,
+     "separations": [
+      1,
+      1,
+      2
+     ],
+     "non_adjacent": false,
+     "mirror": 60,
+     "multiplicity": 60,
+     "count": 10,
+     "share": 0.0008946944618412812,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 71,
+     "separations": [
+      1,
+      2,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 64,
+     "multiplicity": 60,
+     "count": 110,
+     "share": 0.009841639080254093,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 72,
+     "separations": [
+      1,
+      3,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 63,
+     "multiplicity": 60,
+     "count": 68,
+     "share": 0.006083922340520713,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 73,
+     "separations": [
+      1,
+      2,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 62,
+     "multiplicity": 60,
+     "count": 68,
+     "share": 0.006083922340520713,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 74,
+     "separations": [
+      1,
+      1,
+      2
+     ],
+     "non_adjacent": false,
+     "mirror": 65,
+     "multiplicity": 60,
+     "count": 7,
+     "share": 0.0006262861232888969,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 75,
+     "separations": [
+      1,
+      2,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 83,
+     "multiplicity": 60,
+     "count": 3,
+     "share": 0.00026840833855238435,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 76,
+     "separations": [
+      1,
+      3,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 82,
+     "multiplicity": 60,
+     "count": 0,
+     "share": 0.0,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 77,
+     "separations": [
+      1,
+      2,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 81,
+     "multiplicity": 60,
+     "count": 5,
+     "share": 0.0004473472309206406,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 78,
+     "separations": [
+      1,
+      2,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 69,
+     "multiplicity": 60,
+     "count": 156,
+     "share": 0.013957233604723987,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 79,
+     "separations": [
+      1,
+      3,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 68,
+     "multiplicity": 60,
+     "count": 74,
+     "share": 0.0066207390176254806,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 80,
+     "separations": [
+      1,
+      2,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 67,
+     "multiplicity": 60,
+     "count": 51,
+     "share": 0.004562941755390534,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 81,
+     "separations": [
+      1,
+      2,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 77,
+     "multiplicity": 60,
+     "count": 2,
+     "share": 0.00017893889236825623,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 82,
+     "separations": [
+      1,
+      3,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 76,
+     "multiplicity": 60,
+     "count": 7,
+     "share": 0.0006262861232888969,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 83,
+     "separations": [
+      1,
+      2,
+      3
+     ],
+     "non_adjacent": false,
+     "mirror": 75,
+     "multiplicity": 60,
+     "count": 5,
+     "share": 0.0004473472309206406,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 84,
+     "separations": [
+      2,
+      2,
+      2
+     ],
+     "non_adjacent": true,
+     "mirror": 85,
+     "multiplicity": 60,
+     "count": 161,
+     "share": 0.014404580835644627,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 85,
+     "separations": [
+      2,
+      2,
+      2
+     ],
+     "non_adjacent": true,
+     "mirror": 84,
+     "multiplicity": 60,
+     "count": 148,
+     "share": 0.013241478035250961,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 86,
+     "separations": [
+      1,
+      4,
+      5
+     ],
+     "non_adjacent": false,
+     "mirror": 86,
+     "multiplicity": 60,
+     "count": 38,
+     "share": 0.0033998389549968686,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 87,
+     "separations": [
+      2,
+      3,
+      5
+     ],
+     "non_adjacent": true,
+     "mirror": 93,
+     "multiplicity": 60,
+     "count": 230,
+     "share": 0.020577972622349467,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 88,
+     "separations": [
+      1,
+      4,
+      5
+     ],
+     "non_adjacent": false,
+     "mirror": 88,
+     "multiplicity": 60,
+     "count": 36,
+     "share": 0.0032209000626286124,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 89,
+     "separations": [
+      2,
+      3,
+      5
+     ],
+     "non_adjacent": true,
+     "mirror": 91,
+     "multiplicity": 60,
+     "count": 248,
+     "share": 0.022188422653663775,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 90,
+     "separations": [
+      3,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 92,
+     "multiplicity": 60,
+     "count": 75,
+     "share": 0.006710208463809609,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 91,
+     "separations": [
+      2,
+      3,
+      5
+     ],
+     "non_adjacent": true,
+     "mirror": 89,
+     "multiplicity": 60,
+     "count": 244,
+     "share": 0.02183054486892726,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 92,
+     "separations": [
+      3,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 90,
+     "multiplicity": 60,
+     "count": 82,
+     "share": 0.007336494587098506,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 93,
+     "separations": [
+      2,
+      3,
+      5
+     ],
+     "non_adjacent": true,
+     "mirror": 87,
+     "multiplicity": 60,
+     "count": 243,
+     "share": 0.021741075422743134,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 94,
+     "separations": [
+      2,
+      3,
+      5
+     ],
+     "non_adjacent": true,
+     "mirror": 96,
+     "multiplicity": 60,
+     "count": 98,
+     "share": 0.008768005726044555,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 95,
+     "separations": [
+      2,
+      3,
+      5
+     ],
+     "non_adjacent": true,
+     "mirror": 97,
+     "multiplicity": 60,
+     "count": 98,
+     "share": 0.008768005726044555,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 96,
+     "separations": [
+      2,
+      3,
+      5
+     ],
+     "non_adjacent": true,
+     "mirror": 94,
+     "multiplicity": 60,
+     "count": 87,
+     "share": 0.007783841818019147,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 97,
+     "separations": [
+      2,
+      3,
+      5
+     ],
+     "non_adjacent": true,
+     "mirror": 95,
+     "multiplicity": 60,
+     "count": 106,
+     "share": 0.009483761295517581,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 98,
+     "separations": [
+      3,
+      3,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 102,
+     "multiplicity": 60,
+     "count": 119,
+     "share": 0.010646864095911247,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 99,
+     "separations": [
+      3,
+      3,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 103,
+     "multiplicity": 60,
+     "count": 113,
+     "share": 0.010110047418806478,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 100,
+     "separations": [
+      1,
+      4,
+      5
+     ],
+     "non_adjacent": false,
+     "mirror": 100,
+     "multiplicity": 60,
+     "count": 1,
+     "share": 8.946944618412812e-05,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 101,
+     "separations": [
+      1,
+      4,
+      5
+     ],
+     "non_adjacent": false,
+     "mirror": 101,
+     "multiplicity": 60,
+     "count": 1,
+     "share": 8.946944618412812e-05,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 102,
+     "separations": [
+      3,
+      3,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 98,
+     "multiplicity": 60,
+     "count": 112,
+     "share": 0.01002057797262235,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 103,
+     "separations": [
+      3,
+      3,
+      3
+     ],
+     "non_adjacent": true,
+     "mirror": 99,
+     "multiplicity": 60,
+     "count": 106,
+     "share": 0.009483761295517581,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 104,
+     "separations": [
+      1,
+      4,
+      5
+     ],
+     "non_adjacent": false,
+     "mirror": 104,
+     "multiplicity": 60,
+     "count": 31,
+     "share": 0.002773552831707972,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 105,
+     "separations": [
+      2,
+      3,
+      5
+     ],
+     "non_adjacent": true,
+     "mirror": 107,
+     "multiplicity": 60,
+     "count": 40,
+     "share": 0.0035787778473651247,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 106,
+     "separations": [
+      3,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 108,
+     "multiplicity": 60,
+     "count": 130,
+     "share": 0.011631028003936656,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 107,
+     "separations": [
+      2,
+      3,
+      5
+     ],
+     "non_adjacent": true,
+     "mirror": 105,
+     "multiplicity": 60,
+     "count": 43,
+     "share": 0.003847186185917509,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 108,
+     "separations": [
+      3,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 106,
+     "multiplicity": 60,
+     "count": 113,
+     "share": 0.010110047418806478,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 109,
+     "separations": [
+      2,
+      3,
+      5
+     ],
+     "non_adjacent": true,
+     "mirror": 110,
+     "multiplicity": 60,
+     "count": 56,
+     "share": 0.005010288986311175,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 110,
+     "separations": [
+      2,
+      3,
+      5
+     ],
+     "non_adjacent": true,
+     "mirror": 109,
+     "multiplicity": 60,
+     "count": 57,
+     "share": 0.005099758432495303,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 111,
+     "separations": [
+      1,
+      4,
+      5
+     ],
+     "non_adjacent": false,
+     "mirror": 111,
+     "multiplicity": 60,
+     "count": 20,
+     "share": 0.0017893889236825623,
+     "null_non_adjacent_expected": 0.0
+    },
+    {
+     "id": 112,
+     "separations": [
+      3,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 113,
+     "multiplicity": 60,
+     "count": 117,
+     "share": 0.01046792520354299,
+     "null_non_adjacent_expected": 136.3939393939394
+    },
+    {
+     "id": 113,
+     "separations": [
+      3,
+      3,
+      4
+     ],
+     "non_adjacent": true,
+     "mirror": 112,
+     "multiplicity": 60,
+     "count": 108,
+     "share": 0.009662700187885837,
+     "null_non_adjacent_expected": 136.3939393939394
+    }
+   ],
+   "chi2_against_uniform_non_adjacent": [
+    2495.0211064207956,
+    65
+   ],
+   "non_adjacent_shapes_occupied": "66 of 66",
+   "adjacent_shapes_occupied": {
+    "12": 114,
+    "13": 116,
+    "14": 32,
+    "16": 43,
+    "18": 28,
+    "21": 50,
+    "24": 123,
+    "27": 104,
+    "30": 5,
+    "31": 1,
+    "33": 72,
+    "38": 60,
+    "41": 10,
+    "48": 77,
+    "50": 1,
+    "53": 71,
+    "60": 9,
+    "61": 35,
+    "62": 76,
+    "63": 61,
+    "64": 112,
+    "65": 4,
+    "66": 42,
+    "67": 53,
+    "68": 52,
+    "69": 131,
+    "70": 10,
+    "71": 110,
+    "72": 68,
+    "73": 68,
+    "74": 7,
+    "75": 3,
+    "77": 5,
+    "78": 156,
+    "79": 74,
+    "80": 51,
+    "81": 2,
+    "82": 7,
+    "83": 5,
+    "86": 38,
+    "88": 36,
+    "100": 1,
+    "101": 1,
+    "104": 31,
+    "111": 20
+   }
+  }
+ },
+ "quadruples": {
+  "{2,2,4,4}": {
+   "carriers": 139090,
+   "shapes_occupied": 160,
+   "non_adjacent_shapes_in_table": 160,
+   "adjacent_shapes_occupied": 0
+  },
+  "{2,3,3,4}": {
+   "carriers": 55690,
+   "shapes_occupied": 302,
+   "non_adjacent_shapes_in_table": 302,
+   "adjacent_shapes_occupied": 0
+  }
+ },
+ "triples_123_345_chi2": {
+  "conjugation": [
+   114.1677539111062,
+   114
+  ],
+  "bare_mirror": [
+   62.0144745875616,
+   54
+  ],
+  "mirror_with_conjugation": [
+   106.42006397132423,
+   113
+  ]
+ },
+ "tests": {
+  "conjugation": [
+   {
+    "what": "{1,5} type 1 vs 2 (d=2)",
+    "counts": [
+     160551,
+     160199
+    ],
+    "z": 0.6215260428813382,
+    "relative_difference": 0.0021948558067030398,
+    "relative_error": 0.003531397970916694
+   },
+   {
+    "what": "{2,4} type 8 vs 9 (d=2)",
+    "counts": [
+     1107653,
+     1109692
+    ],
+    "z": -1.3693062496694872,
+    "relative_difference": -0.0018391364447120316,
+    "relative_error": 0.0013431154974688447
+   },
+   {
+    "what": "{2,2,2} vs {4,4,4} shape 0",
+    "counts": [
+     10432,
+     10357
+    ],
+    "z": 0.5201689968376209
+   },
+   {
+    "what": "{2,2,2} vs {4,4,4} shape 1",
+    "counts": [
+     6484,
+     6489
+    ],
+    "z": -0.04389851157596067
+   },
+   {
+    "what": "{2,2,2} vs {4,4,4} shape 4",
+    "counts": [
+     10587,
+     10634
+    ],
+    "z": -0.3226375679235381
+   },
+   {
+    "what": "{2,2,2} vs {4,4,4} shape 6",
+    "counts": [
+     6911,
+     7044
+    ],
+    "z": -1.1258660427033513
+   },
+   {
+    "what": "{2,2,2} vs {4,4,4} shape 7",
+    "counts": [
+     8277,
+     8167
+    ],
+    "z": 0.8578057461494277
+   },
+   {
+    "what": "{2,2,2} vs {4,4,4} shape 8",
+    "counts": [
+     6896,
+     6798
+    ],
+    "z": 0.8374539087129727
+   },
+   {
+    "what": "{2,2,2} vs {4,4,4} shape 9",
+    "counts": [
+     10787,
+     10748
+    ],
+    "z": 0.2657615628069908
+   },
+   {
+    "what": "{2,2,2} vs {4,4,4} shape 14",
+    "counts": [
+     4019,
+     4016
+    ],
+    "z": 0.0334678885561328
+   },
+   {
+    "what": "{2,2,2} vs {4,4,4} shape 16",
+    "counts": [
+     6836,
+     6873
+    ],
+    "z": -0.3160085519673134
+   },
+   {
+    "what": "{2,2,2} vs {4,4,4} shape 17",
+    "counts": [
+     4830,
+     4757
+    ],
+    "z": 0.7455581060775317
+   },
+   {
+    "what": "{2,2,2} vs {4,4,4} shape 18",
+    "counts": [
+     7035,
+     6967
+    ],
+    "z": 0.5746638472636041
+   },
+   {
+    "what": "{2,2,2} vs {4,4,4} shape 19",
+    "counts": [
+     1843,
+     1800
+    ],
+    "z": 0.7124245388667262
+   },
+   {
+    "what": "{2,2,2} vs {4,4,4} shape 20",
+    "counts": [
+     1851,
+     1826
+    ],
+    "z": 0.4122808794070038
+   }
+  ],
+  "bare_mirror": [
+   {
+    "what": "{1,5} type 1 vs 2 (d=2)",
+    "counts": [
+     160551,
+     160199
+    ],
+    "z": 0.6215260428813382,
+    "relative_difference": 0.0021948558067030398,
+    "relative_error": 0.003531397970916694
+   },
+   {
+    "what": "{1,5} type 3 vs 4 (d=3)",
+    "counts": [
+     178157,
+     179016
+    ],
+    "z": -1.437321271907633,
+    "relative_difference": -0.004809994036503319,
+    "relative_error": 0.0033464988868629406
+   },
+   {
+    "what": "{2,4} type 8 vs 9 (d=2)",
+    "counts": [
+     1107653,
+     1109692
+    ],
+    "z": -1.3693062496694872,
+    "relative_difference": -0.0018391364447120316,
+    "relative_error": 0.0013431154974688447
+   },
+   {
+    "what": "{2,4} type 10 vs 11 (d=3)",
+    "counts": [
+     861343,
+     861518
+    ],
+    "z": -0.1333254102300906,
+    "relative_difference": -0.00020315045729167935,
+    "relative_error": 0.0015237189740581782
+   },
+   {
+    "what": "{3,3} type 16 vs 17 (d=3)",
+    "counts": [
+     131873,
+     132124
+    ],
+    "z": -0.488510863099145,
+    "relative_difference": -0.001901536759887423,
+    "relative_error": 0.0038925168374433863
+   },
+   {
+    "what": "{2,2,2} shape 3 vs 5",
+    "counts": [
+     0,
+     0
+    ],
+    "z": 0.0
+   },
+   {
+    "what": "{4,4,4} shape 3 vs 5",
+    "counts": [
+     0,
+     0
+    ],
+    "z": 0.0
+   },
+   {
+    "what": "{2,2,2} shape 4 vs 9",
+    "counts": [
+     10587,
+     10787
+    ],
+    "z": -1.368003136561187
+   },
+   {
+    "what": "{4,4,4} shape 4 vs 9",
+    "counts": [
+     10634,
+     10748
+    ],
+    "z": -0.7796159016294625
+   },
+   {
+    "what": "{2,2,2} shape 6 vs 8",
+    "counts": [
+     6911,
+     6896
+    ],
+    "z": 0.12765610716957326
+   },
+   {
+    "what": "{4,4,4} shape 6 vs 8",
+    "counts": [
+     7044,
+     6798
+    ],
+    "z": 2.0909116608484544
+   },
+   {
+    "what": "{2,2,2} shape 11 vs 13",
+    "counts": [
+     0,
+     0
+    ],
+    "z": 0.0
+   },
+   {
+    "what": "{4,4,4} shape 11 vs 13",
+    "counts": [
+     0,
+     0
+    ],
+    "z": 0.0
+   },
+   {
+    "what": "{2,2,2} shape 16 vs 18",
+    "counts": [
+     6836,
+     7035
+    ],
+    "z": -1.689659484788815
+   },
+   {
+    "what": "{4,4,4} shape 16 vs 18",
+    "counts": [
+     6873,
+     6967
+    ],
+    "z": -0.7990239710787039
+   },
+   {
+    "what": "{2,2,2} shape 19 vs 20",
+    "counts": [
+     1843,
+     1851
+    ],
+    "z": -0.13162595689462042
+   },
+   {
+    "what": "{4,4,4} shape 19 vs 20",
+    "counts": [
+     1800,
+     1826
+    ],
+    "z": -0.43177694390561444
+   }
+  ],
+  "mirror_with_conjugation": [
+   {
+    "what": "{1,5} type 3 vs 4 (d=3)",
+    "counts": [
+     178157,
+     179016
+    ],
+    "z": -1.437321271907633,
+    "relative_difference": -0.004809994036503319,
+    "relative_error": 0.0033464988868629406
+   },
+   {
+    "what": "{2,4} type 10 vs 11 (d=3)",
+    "counts": [
+     861343,
+     861518
+    ],
+    "z": -0.1333254102300906,
+    "relative_difference": -0.00020315045729167935,
+    "relative_error": 0.0015237189740581782
+   },
+   {
+    "what": "{3,3} type 16 vs 17 (d=3)",
+    "counts": [
+     131873,
+     132124
+    ],
+    "z": -0.488510863099145,
+    "relative_difference": -0.001901536759887423,
+    "relative_error": 0.0038925168374433863
+   },
+   {
+    "what": "{2,2,2} shape 0 vs {4,4,4} shape 0",
+    "counts": [
+     10432,
+     10357
+    ],
+    "z": 0.5201689968376209
+   },
+   {
+    "what": "{2,2,2} shape 1 vs {4,4,4} shape 1",
+    "counts": [
+     6484,
+     6489
+    ],
+    "z": -0.04389851157596067
+   },
+   {
+    "what": "{2,2,2} shape 4 vs {4,4,4} shape 9",
+    "counts": [
+     10587,
+     10748
+    ],
+    "z": -1.1022485912344677
+   },
+   {
+    "what": "{2,2,2} shape 6 vs {4,4,4} shape 8",
+    "counts": [
+     6911,
+     6798
+    ],
+    "z": 0.9651071992515248
+   },
+   {
+    "what": "{2,2,2} shape 7 vs {4,4,4} shape 7",
+    "counts": [
+     8277,
+     8167
+    ],
+    "z": 0.8578057461494277
+   },
+   {
+    "what": "{2,2,2} shape 8 vs {4,4,4} shape 6",
+    "counts": [
+     6896,
+     7044
+    ],
+    "z": -1.2535172896330131
+   },
+   {
+    "what": "{2,2,2} shape 9 vs {4,4,4} shape 4",
+    "counts": [
+     10787,
+     10634
+    ],
+    "z": 1.0453736771273578
+   },
+   {
+    "what": "{2,2,2} shape 14 vs {4,4,4} shape 14",
+    "counts": [
+     4019,
+     4016
+    ],
+    "z": 0.0334678885561328
+   },
+   {
+    "what": "{2,2,2} shape 16 vs {4,4,4} shape 18",
+    "counts": [
+     6836,
+     6967
+    ],
+    "z": -1.1150248635253808
+   },
+   {
+    "what": "{2,2,2} shape 17 vs {4,4,4} shape 17",
+    "counts": [
+     4830,
+     4757
+    ],
+    "z": 0.7455581060775317
+   },
+   {
+    "what": "{2,2,2} shape 18 vs {4,4,4} shape 16",
+    "counts": [
+     7035,
+     6873
+    ],
+    "z": 1.3736708219870588
+   },
+   {
+    "what": "{2,2,2} shape 19 vs {4,4,4} shape 20",
+    "counts": [
+     1843,
+     1826
+    ],
+    "z": 0.2806564745221398
+   },
+   {
+    "what": "{2,2,2} shape 20 vs {4,4,4} shape 19",
+    "counts": [
+     1851,
+     1800
+    ],
+    "z": 0.8440423920471766
+   }
+  ]
+ },
+ "tests_summary": {
+  "conjugation": {
+   "tests": 15,
+   "chi2": 7.077856572387325,
+   "largest_abs_z": -1.3693062496694872,
+   "at": "{2,4} type 8 vs 9 (d=2)",
+   "counts_at_largest": [
+    1107653,
+    1109692
+   ]
+  },
+  "bare_mirror": {
+   "tests": 17,
+   "chi2": 15.1481915880173,
+   "largest_abs_z": 2.0909116608484544,
+   "at": "{4,4,4} shape 6 vs 8",
+   "counts_at_largest": [
+    7044,
+    6798
+   ]
+  },
+  "mirror_with_conjugation": {
+   "tests": 16,
+   "chi2": 12.619544691763481,
+   "largest_abs_z": -1.437321271907633,
+   "at": "{1,5} type 3 vs 4 (d=3)",
+   "counts_at_largest": [
+    178157,
+    179016
+   ]
+  }
+ },
+ "chirality_census": {
+  "(2,4) d=2": {
+   "left_chi+1": 1107653,
+   "right_chi-1": 1109692,
+   "z": -1.3693062496694872,
+   "relative_difference": -0.0009195682223560158,
+   "relative_error": 0.0006715577487344224
+  },
+  "(2,4) d=3": {
+   "LR_chi+1": 861343,
+   "RL_chi-1": 861518,
+   "z": -0.1333254102300906,
+   "relative_difference": -0.00010157522864583968,
+   "relative_error": 0.0007618594870290891
+  },
+  "(3,3) d=3": {
+   "LR_chi+1": 131873,
+   "RL_chi-1": 132124,
+   "z": -0.488510863099145,
+   "relative_difference": -0.0009507683799437115,
+   "relative_error": 0.0019462584187216931
+  },
+  "(1,5) d=2": {
+   "left_chi+1": 160551,
+   "right_chi-1": 160199,
+   "z": 0.6215260428813382,
+   "relative_difference": 0.0010974279033515199,
+   "relative_error": 0.001765698985458347
+  },
+  "(1,5) d=3": {
+   "LR_chi+1": 178157,
+   "RL_chi-1": 179016,
+   "z": -1.437321271907633,
+   "relative_difference": -0.0024049970182516596,
+   "relative_error": 0.0016732494434314703
+  }
+ }
+}

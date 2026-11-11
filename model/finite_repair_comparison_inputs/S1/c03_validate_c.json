@@ -1,0 +1,92 @@
+{
+ "chain_c_equals_python_tetrahedron": {
+  "S_static": {
+   "states": 36,
+   "equal": true
+  },
+  "SIM": {
+   "states": 13,
+   "equal": true
+  },
+  "D_excl": {
+   "states": 13,
+   "equal": true
+  },
+  "D_then": {
+   "states": 13,
+   "equal": true
+  },
+  "M1": {
+   "states": 13,
+   "equal": true
+  },
+  "M1_hard": {
+   "states": 16,
+   "equal": true
+  },
+  "J_parity": {
+   "states": 13,
+   "equal": true
+  },
+  "U_free": {
+   "states": 54,
+   "equal": true
+  },
+  "U_hard": {
+   "states": 46,
+   "equal": true
+  },
+  "CT_R": {
+   "states": 48,
+   "equal": true
+  },
+  "CT_RX": {
+   "states": 54,
+   "equal": true
+  },
+  "CT_X": {
+   "states": 54,
+   "equal": true
+  },
+  "X_up": {
+   "states": 54,
+   "equal": true
+  },
+  "D_hard": {
+   "states": 16,
+   "equal": true
+  },
+  "D_excl_create2": {
+   "states": 13,
+   "equal": true
+  },
+  "D_excl_create3": {
+   "states": 13,
+   "equal": true
+  }
+ },
+ "mc_static_release": {
+  "tetrahedron": {
+   "measured": [
+    0.25039125,
+    0.00037638447555325694
+   ],
+   "exact": 0.25
+  },
+  "icosahedron_d1": {
+   "measured": [
+    0.31713874999999997,
+    0.0005275517969237721
+   ],
+   "exact": 0.31666666666666665
+  },
+  "icosahedron_d5": {
+   "measured": [
+    0.5836775,
+    0.0006978380677134197
+   ],
+   "exact": 0.5833333333333334
+  },
+  "seconds": 8.0
+ }
+}

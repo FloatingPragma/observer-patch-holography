@@ -1,0 +1,212 @@
+"""NOT BLIND comparison of the CM readings (values.json) with the measured CKM matrix, and the conditional reading O-M.
+
+The only CM script that reads measured values. Inputs (read only, after values.json exists):
+  - the brief (L1): abs V_us = 0.2250, abs V_cb = 0.0418, abs V_ub = 0.00369, J = 3.1e-5;
+  - RER model/common_source/calibrated_matter_results.json: CKM sines and delta, Yukawas at M_Z (MSbar SM), the file
+    DF and QM used.
+Rules (CANDIDATES.md E): modulus within 10 percent passes; abs J within 10 percent passes; an exact zero or one fails
+when the measurement excludes it; a permutation other than the identity fails; generation phases within 10 percent after
+folding into [0, pi/3].
+O-M (CONDITIONAL on measured mass ratios): per sector (x = p/q, theta) solved from y1/y3 and y2/y3 (A-clock reading,
+y proportional to the eigenvalues of Y^dag Y), from 198 starting points; every solution kept; V and J for every
+up/down pair.
+Run: cd RL/work/CM && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. /tmp/oph-completion-venv/bin/python -B cm_compare.py
+"""
+import itertools
+import json
+import math
+import os
+
+import mpmath as mp
+import numpy as np
+from scipy.optimize import root
+
+import cm_frames_lib as FL
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+RER = 'WORKSPACE/repair-law/reverse-engineering-reality'
+vals = json.load(open(os.path.join(HERE, 'values.json')))
+assert vals['measured_values_read'] is False
+cal = json.load(open(os.path.join(RER, 'model/common_source/calibrated_matter_results.json')))['calibration']
+yuk = cal['matched_SM']['yukawa']
+ck = cal['CKM']
+s12m, s23m, s13m, dm = (float(ck['sin_theta12']), float(ck['sin_theta23']), float(ck['sin_theta13']),
+                        float(ck['delta_radians']))
+c12m, c23m, c13m = (math.sqrt(1 - s12m ** 2), math.sqrt(1 - s23m ** 2), math.sqrt(1 - s13m ** 2))
+J_file = c12m * c23m * c13m ** 2 * s12m * s23m * s13m * math.sin(dm)
+BRIEF = {'V12': 0.2250, 'V23': 0.0418, 'V13': 0.00369, 'J': 3.1e-5}
+W3 = complex(-0.5, 3 ** 0.5 / 2)
+
+
+def chart(ys):
+    """Circulant chart of a measured triple (DF's convention, as in RL/work/QM/qm_compare.py)."""
+    y = np.sort(np.array([float(v) for v in ys]))
+    sq = np.sqrt(y)
+    best = None
+    for perm in itertools.permutations(range(3)):
+        z = sum(sq[perm[k]] * W3 ** (-k) for k in range(3)) * 2 / (3 * sq.mean())
+        d = math.atan2(z.imag, z.real)
+        if 0 <= d <= math.pi / 3 + 1e-12:
+            best = (abs(z), d)
+    r, d = best
+    return {'y1_over_y3': y[0] / y[2], 'y2_over_y3': y[1] / y[2], 'x': r * r / 4, 'delta': d}
+
+
+M = {'up': chart(yuk['up']), 'down': chart(yuk['down'])}
+
+
+def verdict_mod(pred, meas):
+    if pred is None:
+        return 'fails (undefined)'
+    if pred < 1e-12:
+        return 'fails (exact zero)'
+    rel = pred / meas - 1
+    return ('passes' if abs(rel) <= 0.10 else 'fails') + f' ({100 * rel:+.1f} percent)'
+
+
+def judge(Vrec):
+    A = np.array([[float(x) for x in row] for row in Vrec['abs_V']])
+    J = abs(float(Vrec['J']))
+    out = {'V12': [A[0, 1], BRIEF['V12'], verdict_mod(A[0, 1], BRIEF['V12'])],
+           'V23': [A[1, 2], BRIEF['V23'], verdict_mod(A[1, 2], BRIEF['V23'])],
+           'V13': [A[0, 2], BRIEF['V13'], verdict_mod(A[0, 2], BRIEF['V13'])],
+           'J': [J, BRIEF['J'], verdict_mod(J, BRIEF['J'])]}
+    out['all_pass'] = all(v[2].startswith('passes') for v in out.values() if isinstance(v, list))
+    return out
+
+
+OUT = {'NOT_BLIND': True, 'measured': {'brief': BRIEF, 'file_CKM': {'s12': s12m, 's23': s23m, 's13': s13m,
+                                                                     'delta': dm, 'J': J_file},
+                                       'charts_MZ': M},
+       'verdicts': {}}
+for name, r in vals['readings'].items():
+    Vrec = r['V']
+    OUT['verdicts'][name] = judge(Vrec)
+npass = sum(1 for v in OUT['verdicts'].values() if v['all_pass'])
+OUT['readings_compared'] = len(OUT['verdicts'])
+OUT['readings_passing_all_four'] = npass
+OUT['element_passes'] = {k: [n for n, v in OUT['verdicts'].items() if v[k][2].startswith('passes')]
+                         for k in ('V12', 'V23', 'V13', 'J')}
+
+
+# ------------------------------------------------------------------------------------------------ generation phases
+def fold(d):
+    t = d % (2 * math.pi / 3)
+    return t if t <= math.pi / 3 else 2 * math.pi / 3 - t
+
+
+gp = {}
+for key, r in vals['generation_phases_GP_F'].items():
+    du, dd = fold(float(r['delta_u'])), fold(float(r['delta_d']))
+    gp[key] = {'delta_u_folded': du, 'delta_d_folded': dd,
+               'delta_u_vs': [du, M['up']['delta'], verdict_mod(du, M['up']['delta'])],
+               'delta_d_vs': [dd, M['down']['delta'], verdict_mod(dd, M['down']['delta'])]}
+split_pred = math.atan(2) - math.pi / 3
+split_meas = abs(M['down']['delta'] - M['up']['delta'])
+OUT['generation_phases'] = {'GP_F': gp, 'split_pred_atan2_minus_pi_over_3': split_pred, 'split_meas': split_meas,
+                            'split_verdict': verdict_mod(split_pred, split_meas)}
+
+
+# ------------------------------------------------------------------------------------------------ O-M (conditional)
+def to_c(s):
+    z = FL.parse(s)
+    return complex(float(mp.re(z)), float(mp.im(z)))
+
+
+def shift_np(cl):
+    S = np.zeros((3, 3), complex)
+    S[1, 0] = 1
+    S[2, 1] = 1
+    S[0, 2] = cl
+    return S
+
+
+def circ_np(S, x, th):
+    return np.eye(3) + np.sqrt(x) * (np.exp(1j * th) * S + np.exp(-1j * th) * S.conj().T)
+
+
+def model_levels(form, D, SL, SR, x, th):
+    CR = circ_np(SR, x, th)
+    Y = CR @ D if form == 'O2' else CR @ D @ circ_np(SL, x, th)
+    return np.linalg.eigvalsh(Y.conj().T @ Y), Y
+
+
+def residual(v, form, D, SL, SR, r1, r2):
+    x, th = v
+    if x <= 0:
+        return [1e3, 1e3]
+    E, _ = model_levels(form, D, SL, SR, x, th)
+    if E[0] <= 0:
+        return [1e3 * (1 - E[0]), 1e3]
+    return [math.log(E[0] / E[2]) - math.log(r1), math.log(E[1] / E[2]) - math.log(r2)]
+
+
+def solve_sector(form, D, SL, SR, r1, r2):
+    sols = []
+    for x0 in (0.1, 0.3, 0.6, 1.0, 1.5, 2.5):
+        for th0 in np.linspace(0, 2 * math.pi, 33, endpoint=False):
+            try:
+                res = root(residual, [x0, th0], args=(form, D, SL, SR, r1, r2), method='hybr', tol=1e-14)
+            except Exception:
+                continue
+            if not res.success:
+                continue
+            x, th = res.x
+            if x <= 0 or max(abs(t) for t in residual(res.x, form, D, SL, SR, r1, r2)) > 1e-9:
+                continue
+            th = th % (2 * math.pi)
+            if not any(abs(x - a) < 1e-7 and min(abs(th - b), 2 * math.pi - abs(th - b)) < 1e-7 for a, b in sols):
+                sols.append((x, th))
+    return sorted(sols)
+
+
+def frame_mp(form, Dm, SLm, SRm, x, th):
+    mp.mp.dps = 30
+    CR = FL.circ(SRm, 1, x, th)
+    Y = CR * Dm if form == 'O2' else CR * Dm * FL.circ(SLm, 1, x, th)
+    E, Q = FL.herm_eig(Y.H * Y)
+    return E, Q
+
+
+OM = {}
+for lname, od in vals['orbit_for_OM'].items():
+    Du = np.diag([to_c(s) for s in od['t_up']])
+    Dd = np.diag([to_c(s) for s in od['t_down']])
+    SL, SR = shift_np(od['closure_L']), shift_np(od['closure_R'])
+    Dum = mp.diag([FL.parse(s) for s in od['t_up']])
+    Ddm = mp.diag([FL.parse(s) for s in od['t_down']])
+    SLm, SRm = FL.shift(3, od['closure_L']), FL.shift(3, od['closure_R'])
+    for form in ('O2', 'O3'):
+        su = solve_sector(form, Du, SL, SR, M['up']['y1_over_y3'], M['up']['y2_over_y3'])
+        sd = solve_sector(form, Dd, SL, SR, M['down']['y1_over_y3'], M['down']['y2_over_y3'])
+        pairs = []
+        fu = [frame_mp(form, Dum, SLm, SRm, mp.mpf(x), mp.mpf(t)) for x, t in su]
+        fd = [frame_mp(form, Ddm, SLm, SRm, mp.mpf(x), mp.mpf(t)) for x, t in sd]
+        for i, (x1, t1) in enumerate(su):
+            for j, (x2, t2) in enumerate(sd):
+                V = fu[i][1].H * fd[j][1]
+                rec = FL.ckm(V)
+                pairs.append({'up': [x1, t1], 'down': [x2, t2], 'V': rec, 'verdict': judge(rec)})
+        OM[f'{form}|{lname}'] = {'up_solutions': su, 'down_solutions': sd, 'pairs': pairs,
+                                 'pairs_passing_all_four': sum(1 for p in pairs if p['verdict']['all_pass']),
+                                 'max_abs_J': max((abs(p['V']['J']) for p in pairs), default=None)}
+OUT['O_M_conditional'] = OM
+
+with open(os.path.join(HERE, 'compare.json'), 'w') as fh:
+    json.dump(OUT, fh, indent=1, default=str)
+
+print('measured charts', {s: {k: round(v, 6) for k, v in M[s].items()} for s in M})
+print('file CKM', OUT['measured']['file_CKM'])
+print('readings compared', OUT['readings_compared'], 'passing all four', npass)
+for k, v in OUT['element_passes'].items():
+    print('passes on', k, ':', v)
+for key, r in gp.items():
+    print('GP-F', key, 'du %.4f dd %.4f' % (r['delta_u_folded'], r['delta_d_folded']), r['delta_u_vs'][2], '|', r['delta_d_vs'][2])
+print('split', split_pred, split_meas, OUT['generation_phases']['split_verdict'])
+for k, r in OM.items():
+    print('O-M', k, 'up sols', len(r['up_solutions']), 'down sols', len(r['down_solutions']), 'pairs', len(r['pairs']),
+          'passing', r['pairs_passing_all_four'], 'max|J|', r['max_abs_J'])
+    for p in r['pairs']:
+        v = p['V']
+        print('    s12 %.5f s23 %.5f s13 %.5f J %.2e' % (v['s12'] or -1, v['s23'] or -1, v['s13'], v['J']),
+              'up', [round(z, 5) for z in p['up']], 'down', [round(z, 5) for z in p['down']])

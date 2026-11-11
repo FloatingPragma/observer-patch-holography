@@ -1,6 +1,6 @@
 % Defect classes, particle classes and the charged-lepton register.
 % Input by deriving_the_particle_zoo_from_observer_consistency.tex as its own section.
-\section{Centre classes and conditional particle readings}
+\section{Which defect is which particle}
 \label{sec:defect-particle-classes}
 
 The universe runs of the executable observer carry a protected register on the
@@ -8,9 +8,9 @@ faces of every carrier. A face holds a flux class $k\in\mathbb Z_6=\mathbb Z_3\t
 \mathbb Z_2$, the product of a colour-centre charge and a weak-centre parity. Accepted
 register twists create conjugate pairs of classes, the pairs move, fuse and
 annihilate, and the classes on one closed carrier always add to zero modulo six. This
-section matches these classes to Standard Model representation classes, states the
-premises of the statistics assignment, and reads the census of the largest run.
-The class match does not identify physical particles, their chirality or their masses.
+section identifies the classes with the particles of the Standard Model, states the
+statistics of each object, and reads the census of the largest run. The class carries
+neither the generation nor the chirality nor the mass of a particle.
 
 \subsection{The class rule}
 
@@ -22,7 +22,7 @@ occupied, so there are $32$ patterns, and
  6Y=3n_2-2n_3,\qquad Q_{\rm em}=T_3+Y .
 \]
 
-\begin{theorem}[Centre-class match on the five-level code]
+\begin{theorem}[Defect classes are particle classes]
 \label{thm:defect-particle-classes}
 On every one of the $32$ patterns the centre element
 $(\omega I_3,-I_2,e^{2\pi iY})$ of $\mathrm{SU}(3)\times\mathrm{SU}(2)\times\mathrm U(1)$,
@@ -140,7 +140,7 @@ $1.20$ percent each, and rarer neutral mixtures such as $\{1,2,3\}$, the centre 
 the quark mass term. These are the centre classes of mesons, baryons and antibaryons and of
 lepton pairs; no carrier holds a net colour or weak centre charge.
 
-\subsection{Production of defect classes in the runs}
+\subsection{The early universe of the runs}
 
 The runs start from independent random loads and a blank register, so the preparation is
 statistically homogeneous. In the level-10 run every class is created in pairs within the
@@ -162,9 +162,9 @@ register's declared costs. The pair births alone, $50.6$, $43.4$ and $6.0$ perce
 pairs $(1,5)$, $(2,4)$ and $(3,3)$, lie further from the corresponding $42.9$, $42.9$ and
 $14.3$ percent.
 
-The resulting register is centre-neutral on every carrier, with balanced conjugate classes.
-This resembles a coarse centre-charge census of a matter--antimatter mixture, but supplies
-neither a thermal occupation law nor a physical early-universe state. The
+The resulting state is a colour-neutral mixture of quark-like and lepton-like pairs with
+matter and antimatter balanced, the composition of the early universe before baryogenesis.
+It supplies no thermal occupation law of its own. The
 runs carry no temperature or seconds of their own, and the measured excess of about
 $6\times10^{-10}$ baryons per photon is far below their resolution.
 
@@ -193,8 +193,8 @@ Every operation in the declared sector conserves
 \]
 a combination of the number of quanta and the three colour-level numbers. It is anomaly free
 on the sixteen states of one family with $\nu^c$, and it forbids number-violating
-Majorana pairing in that sector. This conservation law alone does not identify a
-physical Dirac neutrino or determine a neutrino mass.
+Majorana pairing in that sector. The neutrinos of the source are Dirac particles; their
+masses are open.
 
 \subsection{The charged-lepton register}
 \label{sec:lepton-register}
@@ -479,6 +479,18 @@ assumes $\hbar/E_{\rm cell}=6.885\times10^{-44}$ s per tick. With the declared s
 content and assumed Higgs and top masses the
 crossover lies between $145$ and $149$ GeV.
 
+The $0.13$ GeV lattice error is statistical within the declared combined
+cutoff and size fit. A separate comparison at matched physical size
+$Lg_3^2=8$ gives $160.8546\pm0.0720$ GeV for a linear cutoff fit.
+Linear, quadratic and omitted-set variants span a maximum displacement
+of $0.3490$ GeV from that value. This finite-design sensitivity is separate
+from the reduction estimate and does not bound omitted cutoff powers or
+the infinite-volume limit. Three points fitted to a constant, linear and
+quadratic term have zero residual degrees of freedom. The measured
+susceptibility-volume exponent decreases from $0.227(38)$ to $0.089(89)$
+across the two largest-size comparisons; the first-order control grows
+from $2.163(32)$ to $2.881(88)$, toward the volume exponent three.
+
 \paragraph{Colour deconfines.}
 Restricted to a colour holonomy $W$, the seam cost $1-\operatorname{Re}\operatorname{tr}_5U/5$
 is $(3/5)(1-\operatorname{Re}\operatorname{tr}W/3)$, the Wilson plaquette action with
@@ -507,6 +519,13 @@ and in the chiral limit
 The normalized-mass errors combine same-stream jackknife errors with the largest displacement
 over crossed hadron and potential fit choices. They do not bound quenching, finite-volume
 or continuum effects.
+Keeping the paired jackknife replicas also determines the joint mass
+covariance. The same-stream contrast is
+$(m_N-m_\rho)/\sqrt\sigma=0.59903\pm0.04286$ statistically, whereas
+discarding the covariance gives $0.04407$ for that statistical error.
+This contrast does not include fit-systematic variation. The common scale
+cancels from $m_N/m_\rho$ in every paired replica. The retained covariance
+therefore belongs in joint comparisons of the normalized masses.
 The measured ratio $m_N/m_\rho$ is $1.211$. Above the transition the binding melts: the slope
 of the free energy of a static pair falls from $0.9896(51)$ per lattice unit at $\beta=5.6$
 to $0.00107(1)$ at $\beta=5.85$. Masses in GeV need the light-quark masses and the lattice
@@ -521,6 +540,8 @@ once continuous, are that theory. The crossover temperature takes the declared c
 couplings as inputs. The class shares of the stored runs lie near equal occupation per state
 without equalling it, and the baryon excess and the light-element abundances are not
 computed.
+
+\input{tex_fragments/FINITE_PARTICLE_RECORD_DYNAMICS.tex}
 
 \subsection{Open items}
 

@@ -1,0 +1,118 @@
+{
+ "placements": {
+  "primary: HotQCD 2019 with FLAG 2021": {
+   "T_lattice_MeV": 156.5,
+   "T_err": 1.5,
+   "Lambda3_MeV": 338.0,
+   "Lambda3_err": 12.0,
+   "ratio": 0.4630177514792899,
+   "ratio_err": 0.01702700715152248,
+   "T_chain_MeV": 157.42603550295857,
+   "err_from_ratio_MeV": 5.789182431517643,
+   "err_from_T_import_MeV": 1.5088757396449701,
+   "err_from_Lambda_import_MeV": 5.589090017856517,
+   "chain_corners_MeV": [
+    150.52707100591715,
+    164.23239644970414
+   ]
+  },
+  "Borsanyi et al. 2020 with FLAG 2021": {
+   "T_lattice_MeV": 158.0,
+   "T_err": 0.6,
+   "Lambda3_MeV": 338.0,
+   "Lambda3_err": 12.0,
+   "ratio": 0.46745562130177515,
+   "ratio_err": 0.016690724272426332,
+   "T_chain_MeV": 158.93491124260356,
+   "err_from_ratio_MeV": 5.674846252624953,
+   "err_from_T_import_MeV": 0.6035502958579881,
+   "err_from_Lambda_import_MeV": 5.642659570743322,
+   "chain_corners_MeV": [
+    151.9698224852071,
+    165.80650887573964
+   ]
+  },
+  "HotQCD 2019 with FLAG 2024": {
+   "T_lattice_MeV": 156.5,
+   "T_err": 1.5,
+   "Lambda3_MeV": 338.0,
+   "Lambda3_err": 10.0,
+   "ratio": 0.4630177514792899,
+   "ratio_err": 0.014399668097664721,
+   "T_chain_MeV": 157.42603550295857,
+   "err_from_ratio_MeV": 4.895887153206006,
+   "err_from_T_import_MeV": 1.5088757396449701,
+   "err_from_Lambda_import_MeV": 4.657575014880432,
+   "chain_corners_MeV": [
+    150.52707100591715,
+    164.23239644970414
+   ]
+  },
+  "HotQCD 2019 with ALPHA 2017": {
+   "T_lattice_MeV": 156.5,
+   "T_err": 1.5,
+   "Lambda3_MeV": 341.0,
+   "Lambda3_err": 12.0,
+   "ratio": 0.45894428152492667,
+   "ratio_err": 0.0167388577712476,
+   "T_chain_MeV": 156.04105571847506,
+   "err_from_ratio_MeV": 5.691211642224184,
+   "err_from_T_import_MeV": 1.4956011730205279,
+   "err_from_Lambda_import_MeV": 5.49118084639795,
+   "chain_corners_MeV": [
+    149.20278592375365,
+    162.7875366568915
+   ]
+  }
+ },
+ "primary": {
+  "ratio": 0.4630177514792899,
+  "ratio_err": 0.01702700715152248,
+  "T_chain_MeV": 157.42603550295857,
+  "err_ratio_MeV": 5.789182431517643,
+  "err_chain_corners_MeV": 6.898964497041419,
+  "err_total_MeV": 9.006128155696569,
+  "Lambda_chain_over_Lambda_lattice": 1.0059171597633136,
+  "T_over_E_cell": 1.6467330777828072e-20
+ },
+ "time": {
+  "tick_seconds": 6.885134330903042e-44,
+  "E_cell_GeV": 9.5599e+18,
+  "E_Planck_GeV": 1.22089e+19,
+  "g_above": 61.75,
+  "g_below": 17.25,
+  "t_seconds_g_above": 1.2427740094102261e-05,
+  "t_seconds_g_below": 2.3513435810715353e-05,
+  "ticks_g_above": 1.8050105483522584e+38,
+  "ticks_g_below": 3.415101969060837e+38,
+  "coefficient_seconds_MeV2": 2.420269680992352
+ },
+ "pure_gauge": {
+  "Tc_over_sqrt_sigma": [
+   {
+    "value": 0.629,
+    "err": 0.003,
+    "cite": "Boyd et al. 1996"
+   },
+   {
+    "value": 0.6463333333333333,
+    "err": 0.005206833117271103,
+    "cite": "Lucini, Teper, Wenger 2004, fit at N = 3"
+   }
+  ],
+  "Tc_over_Lambda0": {
+   "value": 1.2455149501661131,
+   "err": 0.09965687176619017,
+   "cite": "T_c r_0 = 0.7498(50), Necco 2004; r_0 Lambda0 = 0.602(48), Capitani et al. 1999"
+  },
+  "Tc_over_Lambda0_alt": {
+   "value": 1.2387043189368772,
+   "err": 0.09904958965365168,
+   "cite": "T_c r_0 = 0.7457(45), Francis et al. 2015; r_0 Lambda0 = 0.602(48)"
+  },
+  "Tc_MeV_if_sqrt_sigma_440": [
+   276.76,
+   284.38666666666666
+  ]
+ }
+}

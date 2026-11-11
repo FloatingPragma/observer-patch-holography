@@ -1,0 +1,431 @@
+"""Pure SU(3) lattice gauge theory, Wilson plaquette action, numba kernel.
+
+Action S = beta sum_P (1 - Re tr U_P / 3) on a periodic lattice with extents dims = (N0, N1, N2, N3).
+Axis 3 is the time (tick) direction. Site index s = i0 + N0 (i1 + N1 (i2 + N2 i3)).
+Links U[s, mu] (complex 3 x 3) point from s to s + e_mu.
+Update: Cabibbo-Marinari heat bath over the SU(2) subgroups (0,1), (0,2), (1,2) with the Kennedy-Pendleton or the
+Creutz generator, and SU(2)-subgroup overrelaxation. Sequential order over all links.
+"""
+import numpy as np
+from numba import njit
+
+TWO_PI = 2.0 * np.pi
+
+
+@njit(cache=True)
+def neighbours(N0, N1, N2, N3):
+    V = N0 * N1 * N2 * N3
+    up = np.empty((V, 4), np.int64)
+    dn = np.empty((V, 4), np.int64)
+    for i3 in range(N3):
+        for i2 in range(N2):
+            for i1 in range(N1):
+                for i0 in range(N0):
+                    s = i0 + N0 * (i1 + N1 * (i2 + N2 * i3))
+                    up[s, 0] = (i0 + 1) % N0 + N0 * (i1 + N1 * (i2 + N2 * i3))
+                    dn[s, 0] = (i0 - 1 + N0) % N0 + N0 * (i1 + N1 * (i2 + N2 * i3))
+                    up[s, 1] = i0 + N0 * ((i1 + 1) % N1 + N1 * (i2 + N2 * i3))
+                    dn[s, 1] = i0 + N0 * ((i1 - 1 + N1) % N1 + N1 * (i2 + N2 * i3))
+                    up[s, 2] = i0 + N0 * (i1 + N1 * ((i2 + 1) % N2 + N2 * i3))
+                    dn[s, 2] = i0 + N0 * (i1 + N1 * ((i2 - 1 + N2) % N2 + N2 * i3))
+                    up[s, 3] = i0 + N0 * (i1 + N1 * (i2 + N2 * ((i3 + 1) % N3)))
+                    dn[s, 3] = i0 + N0 * (i1 + N1 * (i2 + N2 * ((i3 - 1 + N3) % N3)))
+    return up, dn
+
+
+@njit(cache=True)
+def seed_rng(seed):
+    np.random.seed(seed)
+
+
+@njit(cache=True)
+def cold_start(V):
+    U = np.zeros((V, 4, 3, 3), np.complex128)
+    for s in range(V):
+        for mu in range(4):
+            for i in range(3):
+                U[s, mu, i, i] = 1.0
+    return U
+
+
+@njit(cache=True)
+def reunit_one(M):
+    # Gram-Schmidt on the rows, third row = conj(row0 x row1)
+    n = 0.0
+    for j in range(3):
+        n += M[0, j].real ** 2 + M[0, j].imag ** 2
+    n = 1.0 / np.sqrt(n)
+    for j in range(3):
+        M[0, j] *= n
+    d = 0j
+    for j in range(3):
+        d += np.conj(M[0, j]) * M[1, j]
+    for j in range(3):
+        M[1, j] -= d * M[0, j]
+    n = 0.0
+    for j in range(3):
+        n += M[1, j].real ** 2 + M[1, j].imag ** 2
+    n = 1.0 / np.sqrt(n)
+    for j in range(3):
+        M[1, j] *= n
+    M[2, 0] = np.conj(M[0, 1] * M[1, 2] - M[0, 2] * M[1, 1])
+    M[2, 1] = np.conj(M[0, 2] * M[1, 0] - M[0, 0] * M[1, 2])
+    M[2, 2] = np.conj(M[0, 0] * M[1, 1] - M[0, 1] * M[1, 0])
+
+
+@njit(cache=True)
+def reunitarize(U):
+    V = U.shape[0]
+    for s in range(V):
+        for mu in range(4):
+            reunit_one(U[s, mu])
+
+
+@njit(cache=True)
+def hot_start(V):
+    U = np.empty((V, 4, 3, 3), np.complex128)
+    for s in range(V):
+        for mu in range(4):
+            for i in range(3):
+                for j in range(3):
+                    U[s, mu, i, j] = np.random.normal() + 1j * np.random.normal()
+            reunit_one(U[s, mu])
+    return U
+
+
+@njit(cache=True)
+def unitarity_defect(U):
+    """max over links of |U U^dag - 1| (entrywise) and of |det U - 1|."""
+    V = U.shape[0]
+    e1 = 0.0
+    e2 = 0.0
+    for s in range(V):
+        for mu in range(4):
+            M = U[s, mu]
+            for i in range(3):
+                for j in range(3):
+                    z = 0j
+                    for k in range(3):
+                        z += M[i, k] * np.conj(M[j, k])
+                    if i == j:
+                        z -= 1.0
+                    a = abs(z)
+                    if a > e1:
+                        e1 = a
+            det = (M[0, 0] * (M[1, 1] * M[2, 2] - M[1, 2] * M[2, 1])
+                   - M[0, 1] * (M[1, 0] * M[2, 2] - M[1, 2] * M[2, 0])
+                   + M[0, 2] * (M[1, 0] * M[2, 1] - M[1, 1] * M[2, 0]))
+            a = abs(det - 1.0)
+            if a > e2:
+                e2 = a
+    return e1, e2
+
+
+@njit(cache=True, fastmath=True)
+def staple_sum(U, up, dn, x, mu, A, t1):
+    for i in range(3):
+        for j in range(3):
+            A[i, j] = 0.0
+    xpmu = up[x, mu]
+    for nu in range(4):
+        if nu == mu:
+            continue
+        xpnu = up[x, nu]
+        xmnu = dn[x, nu]
+        xpmumnu = dn[xpmu, nu]
+        # forward: U_nu(x+mu) U_mu(x+nu)^dag U_nu(x)^dag
+        for i in range(3):
+            for j in range(3):
+                t1[i, j] = (U[xpmu, nu, i, 0] * np.conj(U[xpnu, mu, j, 0])
+                            + U[xpmu, nu, i, 1] * np.conj(U[xpnu, mu, j, 1])
+                            + U[xpmu, nu, i, 2] * np.conj(U[xpnu, mu, j, 2]))
+        for i in range(3):
+            for j in range(3):
+                A[i, j] += (t1[i, 0] * np.conj(U[x, nu, j, 0])
+                            + t1[i, 1] * np.conj(U[x, nu, j, 1])
+                            + t1[i, 2] * np.conj(U[x, nu, j, 2]))
+        # backward: U_nu(x+mu-nu)^dag U_mu(x-nu)^dag U_nu(x-nu)
+        for i in range(3):
+            for j in range(3):
+                t1[i, j] = (np.conj(U[xpmumnu, nu, 0, i]) * np.conj(U[xmnu, mu, j, 0])
+                            + np.conj(U[xpmumnu, nu, 1, i]) * np.conj(U[xmnu, mu, j, 1])
+                            + np.conj(U[xpmumnu, nu, 2, i]) * np.conj(U[xmnu, mu, j, 2]))
+        for i in range(3):
+            for j in range(3):
+                A[i, j] += (t1[i, 0] * U[xmnu, nu, 0, j]
+                            + t1[i, 1] * U[xmnu, nu, 1, j]
+                            + t1[i, 2] * U[xmnu, nu, 2, j])
+
+
+@njit(cache=True)
+def gen_x0(a):
+    """x0 in [-1, 1] with density sqrt(1 - x0^2) exp(a x0)."""
+    if a > 1.5:
+        while True:                                   # Kennedy-Pendleton
+            r1 = 1.0 - np.random.random()
+            r2 = np.random.random()
+            r3 = 1.0 - np.random.random()
+            c = np.cos(TWO_PI * r2)
+            delta = -(np.log(r1) + c * c * np.log(r3)) / a
+            r4 = np.random.random()
+            if r4 * r4 <= 1.0 - 0.5 * delta:
+                return 1.0 - delta
+    else:
+        if a < 1e-6:
+            a = 1e-6
+        ea = np.exp(-2.0 * a)
+        while True:                                   # Creutz
+            r = np.random.random()
+            x0 = 1.0 + np.log(ea + r * (1.0 - ea)) / a
+            r2 = np.random.random()
+            if r2 * r2 <= 1.0 - x0 * x0:
+                return x0
+
+
+@njit(cache=True, fastmath=True)
+def left_mult_su2(M, i, j, a0, a1, a2, a3):
+    # rows i, j of M <- alpha * rows, alpha = [[a0 + i a3, a2 + i a1], [-a2 + i a1, a0 - i a3]]
+    c11 = complex(a0, a3)
+    c12 = complex(a2, a1)
+    c21 = complex(-a2, a1)
+    c22 = complex(a0, -a3)
+    for c in range(3):
+        u = M[i, c]
+        v = M[j, c]
+        M[i, c] = c11 * u + c12 * v
+        M[j, c] = c21 * u + c22 * v
+
+
+@njit(cache=True, fastmath=True)
+def update_link(U, up, dn, x, mu, beta, heat, A, t1, W):
+    staple_sum(U, up, dn, x, mu, A, t1)
+    M = U[x, mu]
+    for i in range(3):
+        for j in range(3):
+            W[i, j] = M[i, 0] * A[0, j] + M[i, 1] * A[1, j] + M[i, 2] * A[2, j]
+    for sub in range(3):
+        if sub == 0:
+            i = 0
+            j = 1
+        elif sub == 1:
+            i = 0
+            j = 2
+        else:
+            i = 1
+            j = 2
+        v0 = 0.5 * (W[i, i].real + W[j, j].real)
+        v3 = 0.5 * (W[i, i].imag - W[j, j].imag)
+        v1 = 0.5 * (W[i, j].imag + W[j, i].imag)
+        v2 = 0.5 * (W[i, j].real - W[j, i].real)
+        k = np.sqrt(v0 * v0 + v1 * v1 + v2 * v2 + v3 * v3)
+        if k < 1e-14:
+            continue
+        v0 /= k
+        v1 /= k
+        v2 /= k
+        v3 /= k
+        if heat:
+            x0 = gen_x0(2.0 * beta * k / 3.0)
+            r = np.sqrt(max(0.0, 1.0 - x0 * x0))
+            ct = 2.0 * np.random.random() - 1.0
+            st = np.sqrt(max(0.0, 1.0 - ct * ct))
+            ph = TWO_PI * np.random.random()
+            x1 = r * st * np.cos(ph)
+            x2 = r * st * np.sin(ph)
+            x3 = r * ct
+            # alpha = x * conj(v)
+            a0 = x0 * v0 + x1 * v1 + x2 * v2 + x3 * v3
+            a1 = -x0 * v1 + v0 * x1 + (x2 * v3 - x3 * v2)
+            a2 = -x0 * v2 + v0 * x2 + (x3 * v1 - x1 * v3)
+            a3 = -x0 * v3 + v0 * x3 + (x1 * v2 - x2 * v1)
+        else:
+            # alpha = conj(v)^2
+            a0 = v0 * v0 - v1 * v1 - v2 * v2 - v3 * v3
+            a1 = -2.0 * v0 * v1
+            a2 = -2.0 * v0 * v2
+            a3 = -2.0 * v0 * v3
+        left_mult_su2(M, i, j, a0, a1, a2, a3)
+        left_mult_su2(W, i, j, a0, a1, a2, a3)
+
+
+@njit(cache=True)
+def sweep(U, up, dn, beta, heat):
+    V = U.shape[0]
+    A = np.empty((3, 3), np.complex128)
+    t1 = np.empty((3, 3), np.complex128)
+    W = np.empty((3, 3), np.complex128)
+    for mu in range(4):
+        for x in range(V):
+            update_link(U, up, dn, x, mu, beta, heat, A, t1, W)
+
+
+@njit(cache=True)
+def compound_sweeps(U, up, dn, beta, n, n_or):
+    for _ in range(n):
+        sweep(U, up, dn, beta, True)
+        for _ in range(n_or):
+            sweep(U, up, dn, beta, False)
+
+
+@njit(cache=True, fastmath=True)
+def plaquette(U, up):
+    """(spatial average, temporal average) of Re tr U_P / 3."""
+    V = U.shape[0]
+    t1 = np.empty((3, 3), np.complex128)
+    t2 = np.empty((3, 3), np.complex128)
+    ss = 0.0
+    st = 0.0
+    for x in range(V):
+        for mu in range(3):
+            for nu in range(mu + 1, 4):
+                xpmu = up[x, mu]
+                xpnu = up[x, nu]
+                for i in range(3):
+                    for j in range(3):
+                        t1[i, j] = (U[x, mu, i, 0] * U[xpmu, nu, 0, j] + U[x, mu, i, 1] * U[xpmu, nu, 1, j]
+                                    + U[x, mu, i, 2] * U[xpmu, nu, 2, j])
+                for i in range(3):
+                    for j in range(3):
+                        t2[i, j] = (U[x, nu, i, 0] * U[xpnu, mu, 0, j] + U[x, nu, i, 1] * U[xpnu, mu, 1, j]
+                                    + U[x, nu, i, 2] * U[xpnu, mu, 2, j])
+                tr = 0.0
+                for i in range(3):
+                    for j in range(3):
+                        tr += (t1[i, j] * np.conj(t2[i, j])).real
+                if nu == 3:
+                    st += tr
+                else:
+                    ss += tr
+    return ss / (9.0 * V), st / (9.0 * V)
+
+
+@njit(cache=True, fastmath=True)
+def polyakov(U, up, N3):
+    """Complex volume average of tr prod_t U_3(x, t) / 3."""
+    V = U.shape[0]
+    V3 = V // N3
+    P = np.empty((3, 3), np.complex128)
+    Q = np.empty((3, 3), np.complex128)
+    tot = 0j
+    for x in range(V3):
+        s = x
+        for i in range(3):
+            for j in range(3):
+                P[i, j] = U[s, 3, i, j]
+        for _ in range(N3 - 1):
+            s = up[s, 3]
+            for i in range(3):
+                for j in range(3):
+                    Q[i, j] = P[i, 0] * U[s, 3, 0, j] + P[i, 1] * U[s, 3, 1, j] + P[i, 2] * U[s, 3, 2, j]
+            for i in range(3):
+                for j in range(3):
+                    P[i, j] = Q[i, j]
+        tot += P[0, 0] + P[1, 1] + P[2, 2]
+    return tot / (3.0 * V3)
+
+
+@njit(cache=True, fastmath=True)
+def polyakov_field(U, up, N3):
+    """tr prod_t U_3(x, t) / 3 for every spatial site."""
+    V = U.shape[0]
+    V3 = V // N3
+    out = np.empty(V3, np.complex128)
+    P = np.empty((3, 3), np.complex128)
+    Q = np.empty((3, 3), np.complex128)
+    for x in range(V3):
+        s = x
+        for i in range(3):
+            for j in range(3):
+                P[i, j] = U[s, 3, i, j]
+        for _ in range(N3 - 1):
+            s = up[s, 3]
+            for i in range(3):
+                for j in range(3):
+                    Q[i, j] = P[i, 0] * U[s, 3, 0, j] + P[i, 1] * U[s, 3, 1, j] + P[i, 2] * U[s, 3, 2, j]
+            for i in range(3):
+                for j in range(3):
+                    P[i, j] = Q[i, j]
+        out[x] = (P[0, 0] + P[1, 1] + P[2, 2]) / 3.0
+    return out
+
+
+@njit(cache=True, fastmath=True)
+def wilson_loops(U, up, Rmax):
+    """W[R-1, T-1] = average of Re tr of the R x T loop / 3 over sites, the six planes and both orientations."""
+    V = U.shape[0]
+    # line products Ln[R-1, s, mu] = U_mu(s) U_mu(s+mu) ... (R links); shifted sites sh[R, s, mu] = s + R e_mu
+    Ln = np.empty((Rmax, V, 4, 3, 3), np.complex128)
+    sh = np.empty((Rmax + 1, V, 4), np.int64)
+    for s in range(V):
+        for mu in range(4):
+            sh[0, s, mu] = s
+            sh[1, s, mu] = up[s, mu]
+            for i in range(3):
+                for j in range(3):
+                    Ln[0, s, mu, i, j] = U[s, mu, i, j]
+    for R in range(2, Rmax + 1):
+        for s in range(V):
+            for mu in range(4):
+                e = sh[R - 1, s, mu]
+                sh[R, s, mu] = up[e, mu]
+                for i in range(3):
+                    for j in range(3):
+                        Ln[R - 1, s, mu, i, j] = (Ln[R - 2, s, mu, i, 0] * U[e, mu, 0, j]
+                                                   + Ln[R - 2, s, mu, i, 1] * U[e, mu, 1, j]
+                                                   + Ln[R - 2, s, mu, i, 2] * U[e, mu, 2, j])
+    Wl = np.zeros((Rmax, Rmax))
+    t1 = np.empty((3, 3), np.complex128)
+    t2 = np.empty((3, 3), np.complex128)
+    for s in range(V):
+        for mu in range(3):
+            for nu in range(mu + 1, 4):
+                for R in range(1, Rmax + 1):
+                    a = sh[R, s, mu]
+                    for T in range(1, Rmax + 1):
+                        b = sh[T, s, nu]
+                        # tr[ L_mu^R(s) L_nu^T(s + R mu) (L_nu^T(s) L_mu^R(s + T nu))^dag ]
+                        for i in range(3):
+                            for j in range(3):
+                                t1[i, j] = (Ln[R - 1, s, mu, i, 0] * Ln[T - 1, a, nu, 0, j]
+                                            + Ln[R - 1, s, mu, i, 1] * Ln[T - 1, a, nu, 1, j]
+                                            + Ln[R - 1, s, mu, i, 2] * Ln[T - 1, a, nu, 2, j])
+                        for i in range(3):
+                            for j in range(3):
+                                t2[i, j] = (Ln[T - 1, s, nu, i, 0] * Ln[R - 1, b, mu, 0, j]
+                                            + Ln[T - 1, s, nu, i, 1] * Ln[R - 1, b, mu, 1, j]
+                                            + Ln[T - 1, s, nu, i, 2] * Ln[R - 1, b, mu, 2, j])
+                        tr = 0.0
+                        for i in range(3):
+                            for j in range(3):
+                                tr += (t1[i, j] * np.conj(t2[i, j])).real
+                        Wl[R - 1, T - 1] += 0.5 * tr
+                        Wl[T - 1, R - 1] += 0.5 * tr
+    return Wl / (3.0 * 6.0 * V)
+
+
+def random_su3(n, rng):
+    """n Haar-random SU(3) matrices (numpy)."""
+    z = rng.normal(size=(n, 3, 3)) + 1j * rng.normal(size=(n, 3, 3))
+    q, r = np.linalg.qr(z)
+    d = np.diagonal(r, axis1=1, axis2=2)
+    q = q * (d / np.abs(d))[:, None, :]
+    det = np.linalg.det(q)
+    q = q / (det ** (1.0 / 3.0))[:, None, None]
+    return q
+
+
+def gauge_transform(U, up, g):
+    """U_mu(x) -> g(x) U_mu(x) g(x + mu)^dag."""
+    out = np.empty_like(U)
+    for mu in range(4):
+        out[:, mu] = np.einsum('xij,xjk,xlk->xil', g, U[:, mu], np.conj(g[up[:, mu]]))
+    return out
+
+
+def centre_transform(U, dims, t_slice, k=1):
+    """Multiply every time-like link leaving the time slice t_slice by exp(2 pi i k / 3)."""
+    N0, N1, N2, N3 = dims
+    V3 = N0 * N1 * N2
+    out = U.copy()
+    out[t_slice * V3:(t_slice + 1) * V3, 3] *= np.exp(2j * np.pi * k / 3.0)
+    return out

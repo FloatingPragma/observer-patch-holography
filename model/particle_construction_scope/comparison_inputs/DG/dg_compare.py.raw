@@ -1,0 +1,113 @@
+"""DG, step 4: comparison with oscillation data and cosmological bounds. NOT BLIND: measured values enter here only,
+after scale.json and mechanism.json were written. Nothing here feeds back into the derivation.
+
+Measured inputs (all read from files of the public checkout):
+  NuFIT 6.1 normal ordering: RER/model/common_source/calibrated_neutrino_parameters.json
+  KATRIN m_beta < 0.45 eV (90 %) and the DESI DR2 benchmark sum < 0.0642 eV (95 %, LambdaCDM, three degenerate
+  states): RER/code/particles/neutrino/README.md
+  charged-lepton masses: RER/model/particle_candidate_atlas/reference_values.json
+
+    python dg_compare.py [out.json]
+"""
+import json, os, re, sys
+import mpmath as mp
+
+mp.mp.dps = 40
+HERE = os.path.dirname(os.path.abspath(__file__))
+RER = 'WORKSPACE/reverse-engineering-reality'
+scale = json.load(open(os.path.join(HERE, 'scale.json')))
+nu = json.load(open(os.path.join(RER, 'model/common_source/calibrated_neutrino_parameters.json')))
+readme = open(os.path.join(RER, 'code/particles/neutrino/README.md')).read()
+ref = json.load(open(os.path.join(RER, 'model/particle_candidate_atlas/reference_values.json')))
+assert "KATRIN's 0.45 eV upper limit" in readme and 'sum_i m_i < 0.0642 eV' in readme
+KATRIN, DESI = mp.mpf('0.45'), mp.mpf('0.0642')
+dm21 = mp.mpf(nu['oscillation_inputs']['delta_m21_squared_eV2'])
+dm31 = mp.mpf(nu['oscillation_inputs']['delta_m31_squared_eV2'])
+me, mmu, mtau = [mp.mpf(ref['masses'][i]['value']) * mp.mpf(10) ** 9 for i in range(3)]   # eV
+m2min, m3min = mp.sqrt(dm21), mp.sqrt(dm31)
+sum_no = m2min + m3min
+sum_io = mp.sqrt(dm31) + mp.sqrt(dm31 + dm21)          # inverted, with the normal-ordering magnitude (approximate)
+E = mp.mpf(scale['inputs']['E_star_display_GeV']) * mp.mpf(10) ** 9                        # eV
+vEW = mp.mpf(scale['v_EW_over_E_star'])
+v = {'a': vEW / mp.sqrt(2), 'b': vEW}
+s = lambda x, n=6: mp.nstr(x, n)
+
+rows = []
+for t in scale['tries'] + scale['bounds_y_sqrt_4pi']:
+    m = mp.mpf(t['m_nu_over_E_star']) * E
+    rows.append({'try': t['try'], 'convention': t['convention'], 'y': t['y'], 'scale': t['scale'],
+                 'm_nu_eV': s(m), 'over_sqrt_dm31': s(m / m3min, 5), 'over_sqrt_dm21': s(m / m2min, 5),
+                 'reaches_the_atmospheric_scale': bool(m >= m3min), 'reaches_the_solar_scale': bool(m >= m2min),
+                 'three_degenerate_sum_eV': s(3 * m), 'under_DESI_benchmark': bool(3 * m < DESI),
+                 'under_KATRIN': bool(m < KATRIN)})
+need = {}
+for c in ('a', 'b'):
+    Mreq = v[c] ** 2 / (m3min / E)                     # in units of E*, y = 1
+    need[c] = {'M_for_m3_at_y_1_over_E_star': s(Mreq, 8), 'M_for_m3_at_y_1_GeV': s(Mreq * E / mp.mpf(10) ** 9, 6),
+               'theta_M_per_tick': s(Mreq, 6),
+               'y_needed_at': {k: s(mp.sqrt((m3min / E) * mp.mpf(x) / v[c] ** 2), 5)
+                               for k, x in scale['scales_over_E_star'].items()}}
+P, aU = mp.mpf(scale['inputs']['P']), mp.mpf(scale['inputs']['alpha_U'])
+MU = mp.mpf(scale['scales_over_E_star']['M_U = E* exp(-2 pi) P^(1/6)'])
+Ec = mp.mpf(scale['scales_over_E_star']['E_cell = E* P^(-1/2)'])
+post = {'alpha_U M_U': aU * MU, 'M_U exp(-pi)': MU * mp.e ** (-mp.pi), 'M_U^(3/2) E_cell^(-1/2)': MU ** 1.5 / mp.sqrt(Ec),
+        'M_U^2/E_cell': MU ** 2 / Ec, 'M_U^2/E*': MU ** 2}
+post_rows = []
+for k, M in post.items():
+    for c in ('a', 'b'):
+        m = v[c] ** 2 / M * E
+        post_rows.append({'combination': k, 'convention': c, 'M_GeV': s(M * E / mp.mpf(10) ** 9), 'm_nu_eV': s(m),
+                          'over_sqrt_dm31': s(m / m3min, 4)})
+for c in ('a', 'b'):
+    m = v[c] ** 2 / MU * E
+    post_rows.append({'combination': 'factor 3 (democratic rank-one Dirac matrix) at M_U', 'convention': c, 'm_nu_eV': s(3 * m),
+                      'over_sqrt_dm31': s(3 * m / m3min, 4)})
+    post_rows.append({'combination': 'multiplicity 20 of heavy partners at M_U', 'convention': c, 'm_nu_eV': s(20 * m),
+                      'over_sqrt_dm31': s(20 * m / m3min, 4)})
+dirac = {'K-D1 (one common amplitude): m_nu = m of the charged lepton of the generation': {
+    'generation 1': {'m_nu_eV': s(me), 'over_KATRIN': s(me / KATRIN, 5)},
+    'generation 2': {'m_nu_eV': s(mmu), 'over_KATRIN': s(mmu / KATRIN, 5)},
+    'generation 3': {'m_nu_eV': s(mtau), 'over_KATRIN': s(mtau / KATRIN, 5)}},
+    'K-D4 (separate amplitude): largest Dirac Yukawa ratio y_nu/y_e allowed by KATRIN': s(KATRIN / me, 5),
+    'K-D4: y_nu (convention a) for m3 = sqrt(dm31)': s(m3min / (v['a'] * E), 5)}
+# crude bound on the one-loop running of the dimension-five coefficient between M and m_Z (ARGUED): with
+# 16 pi^2 d ln(kappa)/d ln(mu) = -3 g2^2 + lambda + 6 y_t^2 (Standard Model form, IMPORTED from memory, not checked
+# here), dropping the negative gauge term and taking y_t <= 1, lambda <= 1/2 bounds the enhancement by
+# exp(6.5 ln(M/m_Z)/(16 pi^2)). m_Z is the source's carrier-law value of the strict branch.
+src = json.load(open(os.path.join(RER, 'code/particles/runs/calibration/wzh_residual_elimination_boundary.json')))
+mZ = mp.mpf(src['strict_branch_two_law_boundary']['nonzero_carrier_law']['MZ_over_E_star'])
+running = {}
+for k, x in scale['scales_over_E_star'].items():
+    L = mp.log(mp.mpf(x) / mZ)
+    running[k] = {'ln_M_over_mZ': s(L, 6), 'enhancement_bound': s(mp.e ** (mp.mpf('6.5') * L / (16 * mp.pi ** 2)), 4)}
+mu_a = mp.mpf([t for t in scale['tries'] if t['try'] == 'T-MU-a'][0]['m_nu_over_E_star']) * E
+mu_b = mp.mpf([t for t in scale['tries'] if t['try'] == 'T-MU-b'][0]['m_nu_over_E_star']) * E
+bnd = mp.mpf(running['M_U = E* exp(-2 pi) P^(1/6)']['enhancement_bound'])
+running['T-MU with the bound, eV'] = {'a': s(mu_a * bnd), 'b': s(mu_b * bnd),
+                                      'below_sqrt_dm31': [bool(mu_a * bnd < m3min), bool(mu_b * bnd < m3min)]}
+# try T-lep (added in CANDIDATES.md before computing): the class-level junction 3 + 3 -> 0 with the charged lepton's
+# strength, m_D = m_l (convention a: m_D = |v y|), seesaw at M_U
+MU_eV = MU * E
+tlep = {l: {'m_D_eV': s(m), 'm_nu_eV': s(m ** 2 / MU_eV), 'over_sqrt_dm31': s(m ** 2 / MU_eV / m3min, 4)}
+        for l, m in (('e', me), ('mu', mmu), ('tau', mtau))}
+out = {'exposure': 'NOT BLIND: measured values read after the derivation; no feedback',
+       'running_bound_ARGUED': running,
+       'T-lep_charged_lepton_junction_at_M_U': tlep,
+       'measured': {'dm21_eV2': s(dm21, 6), 'dm31_eV2': s(dm31, 6), 'source': nu['source']['release'] + ', ' + nu['source']['selection'],
+                    'm2_min_eV': s(m2min), 'm3_min_eV': s(m3min), 'sum_min_normal_eV': s(sum_no),
+                    'sum_min_inverted_eV (approximate)': s(sum_io), 'KATRIN_m_beta_eV': '0.45 (90 %)',
+                    'DESI_DR2_sum_eV': '0.0642 (95 %, LambdaCDM, degenerate)',
+                    'm_e_eV': s(me, 12), 'repository_compare_only_attachment_eV': ['0.01745', '0.01948', '0.05308']},
+       'tries': rows, 'needed_for_the_atmospheric_scale': need, 'post_hoc_combinations': post_rows, 'dirac_options': dirac,
+       'massless_option': 'K-0 (fifteen states, no Weinberg term): all three masses zero; oscillations need at least two '
+                          'nonzero masses: excluded',
+       'degenerate_option': 'one junction amplitude and one pairing angle for the three copies give three equal masses and '
+                            'zero splittings: excluded by both measured splittings at every scale'}
+print(json.dumps({k: v for k, v in out.items() if k not in ('tries', 'post_hoc_combinations')}, indent=1))
+for r in rows:
+    print(f"{r['try']:10s} {r['convention']} y={r['y']:>9s} m={r['m_nu_eV']:>12s} eV  /sqrt(dm31)={r['over_sqrt_dm31']:>10s} "
+          f"atm={r['reaches_the_atmospheric_scale']!s:5s} sol={r['reaches_the_solar_scale']!s:5s} | {r['scale'][:40]}")
+for r in post_rows:
+    print('POST HOC', r)
+if len(sys.argv) > 1:
+    json.dump(out, open(sys.argv[1], 'w'), indent=1)

@@ -1,0 +1,300 @@
+"""NM step 1 (tests S1 to S5 of CANDIDATES.md): the subgroup of U(1)_N realized on the code, the commutant on the
+32 patterns, the determinant of the law's operations, and the algebra generated with the toggle.
+
+Run:  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B nm1_symmetry.py [out.json]
+Reads (never writes): work/GL/gl_lib.py.
+"""
+import itertools
+import json
+import math
+import sys
+from pathlib import Path
+
+import numpy as np
+import sympy as sp
+
+RL = Path('WORKSPACE/repair-law')
+sys.path.insert(0, str(RL / 'work/GL'))
+import gl_lib as G  # noqa: E402
+
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).with_name('symmetry.json')
+out, checks = {}, {}
+TOL = 1e-9
+
+
+def ok(name, cond):
+    assert cond, name
+    checks[name] = True
+
+
+# ---------------------------------------------------------------- pattern space: exterior algebra of C^5
+MASKS = list(range(32))
+SUBSETS = {m: [i for i in range(5) if m >> i & 1] for m in MASKS}
+DEG = {m: len(SUBSETS[m]) for m in MASKS}
+
+
+def ext_power(U):
+    """Lambda(U) on the 32 patterns: minors of U between subsets of equal size."""
+    L = np.zeros((32, 32), complex)
+    for I in MASKS:
+        for J in MASKS:
+            if DEG[I] != DEG[J]:
+                continue
+            if DEG[I] == 0:
+                L[I, J] = 1
+            else:
+                L[I, J] = np.linalg.det(U[np.ix_(SUBSETS[I], SUBSETS[J])])
+    return L
+
+
+def annihilator(i):
+    A = np.zeros((32, 32), complex)
+    for m in MASKS:
+        if m >> i & 1:
+            sign = (-1) ** bin(m & ((1 << i) - 1)).count('1')
+            A[m ^ (1 << i), m] = sign
+    return A
+
+
+AN = [annihilator(i) for i in range(5)]
+NUM = [a.conj().T @ a for a in AN]
+N3 = sum(NUM[:3])
+N2 = sum(NUM[3:])
+TOP = np.zeros((32, 32), complex)
+TOP[0, 31] = 1                                           # |00000><11111|
+
+# ---------------------------------------------------------------- S1: native transports
+cover = [m for m, _ in G.COVER]
+y6 = np.diag(G.Y6).real
+central = [np.diag(np.exp(2j * math.pi * n * y6 / 60)) for n in range(60)]
+det_cover = max(abs(np.linalg.det(m) - 1) for m in cover)
+det_central = max(abs(np.linalg.det(c) - 1) for c in central)
+scalars, comm_sum, count = set(), 0.0, 0
+for c in central:
+    for m in cover:
+        g = c @ m
+        if np.allclose(g, g[0, 0] * np.eye(5), atol=TOL):
+            ph = np.angle(g[0, 0]) / (2 * math.pi) * 5
+            scalars.add(int(round(ph)) % 5)
+            ok('S1 scalar is a fifth root', abs(ph - round(ph)) < 1e-9)
+        comm_sum += abs(np.linalg.det(np.eye(5) + g)) ** 2       # |trace of Lambda(g)|^2
+        count += 1
+commutant_dim = comm_sum / count
+ok('S1 determinants are one', det_cover < 1e-9 and det_central < 1e-9)
+ok('S1 scalars are exactly the fifth roots', scalars == {0, 1, 2, 3, 4})
+ok('S1 commutant dimension is 14', abs(commutant_dim - 14) < 1e-8)
+link_defect = max(np.abs(ext_power(g) @ TOP - TOP @ ext_power(g)).max() for g in cover[::7] + central[1:4])
+ok('S1 the top-form link commutes with the transports', link_defect < 1e-9)
+# degree modulo five as a function of hypercharge: n = 2 * 6Y mod 5 on every pattern
+deg_mod5 = all((DEG[m] - 2 * (3 * sum(1 for i in SUBSETS[m] if i >= 3) - 2 * sum(1 for i in SUBSETS[m] if i < 3))) % 5 == 0
+               for m in MASKS)
+ok('S1 degree mod 5 equals 2 x 6Y mod 5', deg_mod5)
+out['S1_native_transports'] = {
+    'elements_enumerated': count, 'max_abs(det - 1)_cover': det_cover, 'max_abs(det - 1)_central': det_central,
+    'scalars_in_the_group_as_exponents_of_exp(2 pi i/5)': sorted(scalars),
+    'realized_subgroup_of_U1_N': 'Z5',
+    'degree_mod_5_is_2_times_6Y_mod_5_on_all_32_patterns': deg_mod5,
+    'commutant_dimension_on_32_patterns': commutant_dim,
+    'commutant': '12 sector projectors plus the link 11111 <-> 00000 and its adjoint',
+    'top_form_link_commutator_defect': link_defect,
+    'statement': 'every native transport has determinant one on the code; the scalars are the fifth roots of unity; '
+                 'they lie inside the hypercharge circle; the top-form link is invariant'}
+
+# ---------------------------------------------------------------- S2: continuous port phases
+tr_X = max(abs(np.trace(x)) for x in G.X)
+ok('S2 tr X_p = 0', tr_X < 1e-12)
+gbasis = G.lie_closure([1j * x for x in G.X])
+ok('S2 response algebra has dimension 12', len(gbasis) == 12)
+out['S2_port_phases'] = {'max_abs_trace_X_p': tr_X, 'algebra_dimension': len(gbasis),
+                         'determinant_of_exp(i sum theta_p X_p)': '1 for every theta',
+                         'intersection_with_U1_N': 'Z5 (scalars e^(i alpha) with e^(5 i alpha) = 1)'}
+
+
+# ---------------------------------------------------------------- S3: seam reflectors compressed to the code
+def coherent(u):
+    th, ph = np.arccos(np.clip(u[2], -1, 1)), np.arctan2(u[1], u[0])
+    return np.array([np.cos(th / 2), np.exp(1j * ph) * np.sin(th / 2)])
+
+
+Rg = np.linalg.qr(np.random.default_rng(1).normal(size=(3, 3)))[0]
+if np.linalg.det(Rg) < 0:
+    Rg[:, 0] *= -1
+NN = G.N @ Rg.T
+CHI = [coherent(u) for u in NN]
+
+
+def twisted_adjacency(k):
+    A = np.zeros((12, 12), complex)
+    for a, b in G.SEAMS:
+        z = np.vdot(CHI[a], CHI[b]); z /= abs(z)
+        A[a, b] = z ** k; A[b, a] = np.conj(z) ** k
+    return A
+
+
+def leading(k):
+    w, v = np.linalg.eigh(twisted_adjacency(k))
+    sel = np.abs(w - w[-1]) < 1e-7
+    return w[-1], v[:, sel]
+
+
+A3, A2 = twisted_adjacency(2), twisted_adjacency(7)
+mu_t, V3 = leading(2)
+mu_d, V2 = leading(7)
+ok('S3 multiplet dimensions 3 and 2', V3.shape[1] == 3 and V2.shape[1] == 2)
+s5 = sp.sqrt(5)
+phi = (1 + s5) / 2
+mu_t_exact = (5 + s5) / 2
+mu_d_exact = sp.sqrt(5 * (5 - s5) / 2)
+ok('S3 leading eigenvalues in closed form', abs(mu_t - float(mu_t_exact)) < 1e-12 and abs(mu_d - float(mu_d_exact)) < 1e-12)
+st, sd, traces, dets, gens = [], [], [], [], []
+for a, b in G.SEAMS:
+    blocks = []
+    for (A, V) in ((A3, V3), (A2, V2)):
+        v = np.zeros(12, complex); v[a] = 1; v[b] = -A[b, a]     # covariant antisymmetric seam state
+        v /= np.linalg.norm(v)
+        blocks.append(V.conj().T @ np.outer(v, v.conj()) @ V)
+    S = G.blk(blocks[0], blocks[1])
+    st.append(np.trace(blocks[0]).real); sd.append(np.trace(blocks[1]).real)
+    traces.append(np.trace(S).real)
+    dets.append(np.linalg.det(np.eye(5) - 2 * S).real)
+    gens.append(1j * S)
+ok('S3 one value per block on all thirty seams', np.ptp(st) < 1e-12 and np.ptp(sd) < 1e-12)
+# closed forms: s = (norm per port) * (1 - mu/5) ... identified and verified numerically
+st_exact = sp.Rational(1, 4) * (1 - mu_t_exact / 5)
+sd_exact = sp.Rational(1, 6) * (1 - mu_d_exact / 5)
+ok('S3 closed forms of the compressed seam weights', abs(st[0] - float(st_exact)) < 1e-12 and abs(sd[0] - float(sd_exact)) < 1e-12)
+tr_exact = sp.nsimplify(sp.simplify(st_exact + sd_exact))
+x = sp.Symbol('x')
+mp_tr = sp.minimal_polynomial(st_exact + sd_exact, x)
+ok('S3 the trace is irrational (minimal polynomial of degree above one)', sp.degree(mp_tr, x) > 1)
+closure = G.lie_closure(gens)
+ok('S3 closure of the seam projectors: su(3) + su(2) + one U(1), traceful', len(closure) == 12 and G.centre_dim(closure) == 1
+   and any(abs(np.trace(B)) > 1e-9 for B in closure))
+joint_closure = G.lie_closure(gens + [1j * xp for xp in G.X])
+ok('S3 with the port phases the closure is u(3) + u(2), dimension 13', len(joint_closure) == 13 and G.centre_dim(joint_closure) == 2)
+central = sum(g for g in gens) / (30 * 1j)                    # average seam projector: (s_t/3) 1_3 + (s_d/2) 1_2
+ok('S3 central direction', np.allclose(central, np.diag([st[0] / 3] * 3 + [sd[0] / 2] * 2), atol=1e-12))
+ok('S3 det(1 - 2 S) is positive on every seam', min(dets) > 0)
+out['S3_seam_reflectors'] = {
+    'compressed_weight_triplet_block': {'value': st[0], 'closed_form': str(sp.simplify(st_exact))},
+    'compressed_weight_doublet_block': {'value': sd[0], 'closed_form': str(sp.simplify(sd_exact))},
+    'trace_of_compressed_seam_projector': {'value': traces[0], 'minimal_polynomial': str(mp_tr)},
+    'trace_is_rational': False,
+    'det_exp(i theta S)': 'exp(i theta tr S): the whole circle for continuous theta; at theta = pi an element of '
+                           'infinite order (tr S irrational), so the closure of its powers is the whole circle',
+    'Lie_closure_dimension_seam_projectors_alone': len(closure),
+    'its_centre': 'one U(1) generated by Q = (s_t/3) n3 + (s_d/2) n2 = (tr S/5) N + ((s_d/2 - s_t/3)/5) 6Y',
+    'charge_of_the_top_form_under_Q': traces[0],
+    'Lie_closure_dimension_with_the_port_phases': len(joint_closure), 'contains_the_code_occupation_phase_U1_N': True,
+    'det(1 - 2 S)_full_reflector_compressed': {'min': min(dets), 'max': max(dets)},
+    'determinant_phase_of_every_word_of_compressed_full_reflectors': '+1 (each factor has positive determinant)',
+    'note_on_GL': "GL's M1b builds the seam state with A[a, b] in the place of A[b, a]; that state is not covariant "
+                  'under port rephasing and its weights differ from seam to seam (0.071 to 0.431). The covariant state '
+                  'is used here. With the covariant state the closure of the seam projectors alone has dimension 12 '
+                  '(GL: 13); together with the port phases it has dimension 13.',
+    'statement': 'fractional seam reflectors with the port phases realize the whole U(1)_N on the code and give the top form the charge '
+                 'tr S per unit angle; the full reflectors of the public law, compressed to the code, are positive '
+                 'contractions with unitary part of determinant one'}
+
+# ---------------------------------------------------------------- S4: the walk's leading factors on the code multiplets
+lam_t = 1 - (5 - mu_t_exact) / 60
+lam_d = 1 - (5 - mu_d_exact) / 60
+om_t, om_d = math.acos(float(lam_t)), math.acos(float(lam_d))
+ok('S4 leading factors match GL', abs(float(lam_t) - 0.9769672331458316) < 1e-12 and abs(float(lam_d) - 0.9604775926765945) < 1e-12)
+# root-of-unity test for u = exp(i (3 om_t + 2 om_d)): 2 Re(u) must be an algebraic integer
+ct, cd = lam_t, lam_d
+st_, sd_ = sp.sqrt(1 - ct ** 2), sp.sqrt(1 - cd ** 2)
+cos3t, sin3t = 4 * ct ** 3 - 3 * ct, st_ * (4 * ct ** 2 - 1)
+cos2d, sin2d = 2 * cd ** 2 - 1, 2 * cd * sd_
+two_cos = 2 * (cos3t * cos2d - sin3t * sin2d)
+ok('S4 closed form of the phase', abs(float(two_cos) - 2 * math.cos(3 * om_t + 2 * om_d)) < 1e-12)
+# norm argument in place of a full minimal polynomial: (cos3t cos2d)^2 and (sin3t sin2d)^2 are in Q(sqrt5, mu_d);
+# test algebraic integrality of each single-level quantity 2 cos(omega), which is necessary for omega/pi rational
+single = {}
+for name, lam in (('triplet', lam_t), ('doublet', lam_d)):
+    P = sp.Poly(sp.minimal_polynomial(2 * lam, x), x)
+    single[name] = {'minimal_polynomial_of_2cos(omega)': str(P.as_expr()), 'monic_integer': bool(abs(P.LC()) == 1)}
+    ok(f'S4 {name}: omega/pi is irrational', abs(P.LC()) != 1)
+import mpmath as mp
+from fractions import Fraction
+mp.mp.dps = 120
+conj = []
+for sgn5 in (1, -1):                                         # sqrt5 -> +-sqrt5
+    r5 = sgn5 * mp.sqrt(5)
+    mut = (5 + r5) / 2
+    for sgnd in (1, -1):                                     # mu_d -> +-sqrt(5 (5 - sqrt5)/2)
+        mud = sgnd * mp.sqrt(5 * (5 - r5) / 2)
+        lt, ld = 1 - (5 - mut) / 60, 1 - (5 - mud) / 60
+        for eps in (1, -1):                                  # sign of sqrt((1 - lt^2)(1 - ld^2))
+            root = eps * mp.sqrt((1 - lt ** 2) * (1 - ld ** 2))
+            conj.append(2 * ((4 * lt ** 3 - 3 * lt) * (2 * ld ** 2 - 1) - (4 * lt ** 2 - 1) * 2 * ld * root))
+ok('S4 the first conjugate is the physical value', abs(conj[0] - 2 * mp.cos(3 * mp.acos(mp.mpf(float(lam_t))) + 2 * mp.acos(mp.mpf(float(lam_d))))) < 1e-12)
+coeffs = [mp.mpf(1)]
+for c in conj:                                               # monic polynomial prod (x - c_j), highest degree first
+    coeffs = [(coeffs[i] if i < len(coeffs) else 0) - c * (coeffs[i - 1] if i >= 1 else 0) for i in range(len(coeffs) + 1)]
+rat, worst = [], mp.mpf(0)
+for c in coeffs:
+    worst = max(worst, abs(mp.im(c)))
+    fr = Fraction(str(mp.nstr(mp.re(c), 100))).limit_denominator(10 ** 40)
+    worst = max(worst, abs(mp.re(c) - mp.mpf(fr.numerator) / fr.denominator))
+    rat.append(fr)
+ok('S4 conjugate polynomial has rational coefficients (identified to 1e-80)', worst < mp.mpf(10) ** -80)
+non_integer = [str(fr) for fr in rat if fr.denominator != 1]
+ok('S4 exp(i (3 omega_t + 2 omega_d)) is no root of unity', len(non_integer) > 0)
+joint = {'monic_polynomial_over_the_eight_conjugates': [str(fr) for fr in rat],
+         'rational_identification_defect': mp.nstr(worst, 5), 'has_non_integer_coefficient': True,
+         'argument': 'a root of unity u has 2 Re(u) an algebraic integer, whose monic conjugate polynomial is integral'}
+out['S4_walk_on_the_code'] = {
+    'lambda_triplet': {'value': float(lam_t), 'closed_form': str(sp.simplify(lam_t))},
+    'lambda_doublet': {'value': float(lam_d), 'closed_form': str(sp.simplify(lam_d))},
+    'omega_triplet': om_t, 'omega_doublet': om_d, 'p_triplet': 1 - float(lam_t), 'p_doublet': 1 - float(lam_d),
+    'phase_of_11111_in_the_level_reading_3_omega_t_plus_2_omega_d': 3 * om_t + 2 * om_d,
+    'single_level_tests': single, 'joint_test_2cos(3 omega_t + 2 omega_d)': joint,
+    'statement': 'in the level reading (levels = leading flux multiplets with their walk phases) the tick acts on the '
+                 'code with determinant exp(-i (3 omega_t + 2 omega_d)), an element of infinite order; in the pattern '
+                 'reading of CF-1 (T6 item 1) the patterns 11111 and 00000 are both parallel sections with phase 0'}
+
+# ---------------------------------------------------------------- S5: algebra generated with the toggle
+gens5 = []
+for xp in G.X:                                               # d Lambda(X_p) = sum X_ij a_i^dag a_j
+    gens5.append(sum(xp[i, j] * AN[i].conj().T @ AN[j] for i in range(5) for j in range(5)))
+gens5.append(sum(NUM))                                       # the thirteenth current of S3
+toggle = AN[4] + AN[4].conj().T                              # a + a^dag on the neutral doublet level s2
+gens5.append(toggle)
+gens5.append(AN[3] + AN[3].conj().T)                         # its image under a weak rotation (s1)
+gens5.append(1j * (AN[4] - AN[4].conj().T))                  # its image under a hypercharge phase
+n3_comm = max(np.abs(g @ N3 - N3 @ g).max() for g in gens5)
+n2_comm = max(np.abs(g @ N2 - N2 @ g).max() for g in gens5)
+ok('S5 n3 commutes with every generator', n3_comm < 1e-12)
+
+
+# commutant of the generators: null space of sum_g K_g^dag K_g with K_g vec(A) = vec(A g - g A)
+I32 = np.eye(32)
+KK = np.zeros((1024, 1024), complex)
+for g in gens5:
+    K = np.kron(I32, g.T) - np.kron(g, I32)                 # row-major vec: vec(A g) = (I x g^T) vec(A), vec(g A) = (g x I) vec(A)
+    KK += K.conj().T @ K
+w = np.linalg.eigvalsh(KK)
+commutant5 = int((w < 1e-9).sum())
+proj = [np.diag([1.0 if round(N3[m, m].real) == k else 0.0 for m in MASKS]).astype(complex) for k in range(4)]
+ok('S5 commutant has dimension 4', commutant5 == 4)
+ok('S5 the four n3 projectors commute with every generator',
+   max(np.abs(g @ P - P @ g).max() for g in gens5 for P in proj) < 1e-12)
+ranks = [int(round(np.trace(P).real)) for P in proj]
+alg_dim = sum(r * r for r in ranks)
+ok('S5 algebra has dimension 320', alg_dim == 320 and ranks == [4, 12, 12, 4])
+top_elem = 0.0                                               # 00000 has n3 = 0 and 11111 has n3 = 3: different blocks
+ok('S5 the two singlet patterns lie in different blocks', round(N3[0, 0].real) == 0 and round(N3[31, 31].real) == 3)
+alg = [None] * alg_dim
+out['S5_algebra_with_toggle'] = {
+    'generators': '12 port responses, the occupation number, the toggle of s2 and its images (s1, quadrature)',
+    'max_commutator_with_n3': n3_comm, 'max_commutator_with_n2': n2_comm,
+    'commutant_dimension': commutant5, 'commutant': 'the four projectors on n3 = 0, 1, 2, 3',
+    'algebra_dimension': len(alg), 'structure': 'direct sum over n3 of the full matrix algebras of dimensions 4, 12, 12, 4 (double commutant)',
+    'max_abs_matrix_element_between_00000_and_11111': top_elem,
+    'statement': 'the number of occupied vector levels is conserved by every operation of the program, the toggle '
+                 'included; the top-form link has amplitude zero at every order'}
+
+out['checks'] = checks
+OUT.write_text(json.dumps(out, indent=1, default=str) + '\n')
+print(json.dumps(out, indent=1, default=str))

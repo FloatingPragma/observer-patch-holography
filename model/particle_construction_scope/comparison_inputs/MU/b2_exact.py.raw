@@ -1,0 +1,142 @@
+"""Block 2, exact part: identities of the twelve-port carrier in Q(sqrt5) (Fractions, no floating point).
+
+Writes exact.json. Every entry is an identity checked by exact arithmetic; value strings are a + b*sqrt5.
+"""
+import itertools, json
+from fractions import Fraction as Fr
+
+
+class Q5:
+    """a + b sqrt5 with rational a, b."""
+    __slots__ = ('a', 'b')
+
+    def __init__(self, a=0, b=0):
+        self.a, self.b = Fr(a), Fr(b)
+
+    def _c(self, o):
+        return o if isinstance(o, Q5) else Q5(o)
+
+    def __add__(self, o): o = self._c(o); return Q5(self.a + o.a, self.b + o.b)
+    __radd__ = __add__
+    def __neg__(self): return Q5(-self.a, -self.b)
+    def __sub__(self, o): o = self._c(o); return Q5(self.a - o.a, self.b - o.b)
+    def __rsub__(self, o): return self._c(o) - self
+    def __mul__(self, o): o = self._c(o); return Q5(self.a * o.a + 5 * self.b * o.b, self.a * o.b + self.b * o.a)
+    __rmul__ = __mul__
+    def inv(self): n = self.a * self.a - 5 * self.b * self.b; return Q5(self.a / n, -self.b / n)
+    def __truediv__(self, o): return self * self._c(o).inv()
+    def __eq__(self, o): o = self._c(o); return self.a == o.a and self.b == o.b
+    def iszero(self): return self.a == 0 and self.b == 0
+    def __float__(self): return float(self.a) + float(self.b) * 5 ** 0.5
+    def __repr__(self): return f'{self.a} + {self.b}*sqrt5' if self.b else f'{self.a}'
+
+
+PHI = Q5(Fr(1, 2), Fr(1, 2))
+V = []
+for s1 in (1, -1):
+    for s2 in (1, -1):
+        V += [(Q5(0), Q5(s1), s2 * PHI), (Q5(s1), s2 * PHI, Q5(0)), (s2 * PHI, Q5(0), Q5(s1))]
+dot = lambda x, y: x[0] * y[0] + x[1] * y[1] + x[2] * y[2]
+add = lambda x, y: (x[0] + y[0], x[1] + y[1], x[2] + y[2])
+S2 = dot(V[0], V[0])                                   # |V|^2 = phi + 2
+assert all(dot(v, v) == S2 for v in V)
+E = [(a, b) for a in range(12) for b in range(a + 1, 12) if dot(add(V[a], tuple(-x for x in V[b])), add(V[a], tuple(-x for x in V[b]))) == 4]
+assert len(E) == 30
+nbr = [[q for q in range(12) if (min(p, q), max(p, q)) in set(E)] for p in range(12)]
+F = [(a, b, c) for a, b, c in itertools.combinations(range(12), 3) if (a, b) in E and (b, c) in E and (a, c) in E]
+assert len(F) == 20
+anti = [next(q for q in range(12) if all((V[p][i] + V[q][i]).iszero() for i in range(3))) for p in range(12)]
+out = {}
+
+# E1: first and second moments of the port axes u_p = V_p/|V|
+tot = (Q5(0), Q5(0), Q5(0))
+for v in V:
+    tot = add(tot, v)
+assert all(x.iszero() for x in tot)
+M2 = [[sum((V[p][i] * V[p][j] for p in range(12)), Q5(0)) / S2 for j in range(3)] for i in range(3)]
+assert all(M2[i][j] == (4 if i == j else 0) for i in range(3) for j in range(3))
+out['E1'] = 'sum_p u_p = 0 and sum_p u_p u_p^T = 4 * identity: Phi(a + b.u) = 12 a + 4 b.sigma (EXACT)'
+
+# E2: cosines between ports, inradius of the hull of the port axes
+cos_adj = dot(V[E[0][0]], V[E[0][1]]) / S2
+assert cos_adj * cos_adj * 5 == 1 and float(cos_adj) > 0
+f = F[0]
+g = add(add(V[f[0]], V[f[1]]), V[f[2]])
+rin2 = dot(g, g) / (9 * S2)
+assert rin2 == Q5(Fr(1, 3), Fr(2, 15))
+out['E2'] = {'cos_adjacent': '1/sqrt5', 'inradius_squared': repr(rin2), 'inradius': float(rin2) ** 0.5,
+             'cone_deficit_1_minus_inradius': 1 - float(rin2) ** 0.5}
+
+# E3: cap effects E_C = (n_C/2)(1 + cbar n.sigma); cbar^2 exact
+def cbar2(idx):
+    s = (Q5(0), Q5(0), Q5(0))
+    for p in idx:
+        s = add(s, V[p])
+    return dot(s, s) / (S2 * len(idx) ** 2)
+
+star = [0] + nbr[0]
+caps = {'seam (2 ports)': list(E[0]), 'face (3 ports)': list(F[0]), 'star (port and 5 neighbours)': star,
+        'all but the antipode (11 ports)': [p for p in range(12) if p != anti[0]]}
+out['E3'] = {}
+import math
+for name, idx in caps.items():
+    c2 = cbar2(idx)
+    c = float(c2) ** 0.5
+    out['E3'][name] = {'n_C': len(idx), 'cbar_squared': repr(c2), 'cbar': c, 'eta': math.atanh(c),
+                       'exp_2eta': (1 + c) / (1 - c)}
+assert cbar2(star) == Q5(Fr(1, 6), Fr(1, 18)) and (Q5(Fr(1, 6), Fr(1, 6)) * Q5(Fr(1, 6), Fr(1, 6))) == cbar2(star)   # cbar = (1 + sqrt5)/6
+assert cbar2(caps['seam (2 ports)']) == Q5(Fr(1, 2), Fr(1, 10))
+assert cbar2(caps['face (3 ports)']) == Q5(Fr(1, 3), Fr(2, 15))
+assert cbar2(caps['all but the antipode (11 ports)']) == Q5(Fr(1, 121))
+# star: exp(2 eta) = (1 + cbar)/(1 - cbar) = 2 + (3/5) sqrt5
+cb = Q5(Fr(1, 6), Fr(1, 6))
+assert (1 + cb) / (1 - cb) == Q5(2, Fr(3, 5))
+out['E3']['star_exact'] = 'cbar = (1 + sqrt5)/6, exp(2 eta) = 2 + (3/5) sqrt5'
+
+# E5: the light cone is the only quadric cone through the twelve null rays k_p = (1, u_p)
+rows = []
+for v in V:
+    x, y, z = v
+    rows.append([S2, x, y, z, x * x, y * y, z * z, x * y, y * z, z * x])   # t^2, t r_i (column scaled by |V|), r_i r_j
+def rank(Mx):
+    Mx = [r[:] for r in Mx]; rk = 0
+    for c in range(len(Mx[0])):
+        piv = next((i for i in range(rk, len(Mx)) if not Mx[i][c].iszero()), None)
+        if piv is None:
+            continue
+        Mx[rk], Mx[piv] = Mx[piv], Mx[rk]
+        pv = Mx[rk][c]
+        for i in range(len(Mx)):
+            if i != rk and not Mx[i][c].iszero():
+                fct = Mx[i][c] / pv
+                Mx[i] = [a - fct * b for a, b in zip(Mx[i], Mx[rk])]
+        rk += 1
+    return rk
+rk = rank(rows)
+ker = [1, 0, 0, 0, -1, -1, -1, 0, 0, 0]
+assert rk == 9 and all(sum((r[i] * ker[i] for i in range(10)), Q5(0)).iszero() for r in rows)
+out['E5'] = 'rank of the 12 x 10 quadric conditions = 9; kernel = t^2 - |r|^2 (EXACT): every linear automorphism of the load cone preserves the Minkowski form up to scale'
+
+# E7: the coordinate functions are adjacency eigenvectors with eigenvalue sqrt5 (slow triplet)
+for p in range(12):
+    s = (Q5(0), Q5(0), Q5(0))
+    for q in nbr[p]:
+        s = add(s, V[q])
+    assert all(s[i] == Q5(0, 1) * V[p][i] for i in range(3))
+lam = 1 - (5 - Q5(0, 1)) / 60
+out['E7'] = {'statement': 'sum over neighbours of u_q = sqrt5 u_p; the mean map per attempt multiplies the three-momentum by lambda = (55 + sqrt5)/60 and keeps the total load',
+             'lambda': repr(lam), 'lambda_float': float(lam)}
+
+# E9: two quanta at ports p, q: invariant mass squared = |u_p - u_q|^2; average over the 66 binary states
+vals = {}
+tot2 = Q5(0)
+for p, q in itertools.combinations(range(12), 2):
+    d = add(V[p], tuple(-x for x in V[q]))
+    m2 = dot(d, d) / S2
+    vals.setdefault(repr(m2), [0, float(m2) ** 0.5])[0] += 1
+    tot2 = tot2 + m2
+assert tot2 / 66 == Q5(Fr(24, 11))
+out['E9'] = {'mass_squared_values (count, mass)': vals, 'mean_mass_squared_uniform': '24/11'}
+
+json.dump(out, open('exact.json', 'w'), indent=1)
+print(json.dumps(out, indent=1))

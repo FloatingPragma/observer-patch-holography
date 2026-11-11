@@ -1,0 +1,228 @@
+{
+ "task": "LC checks against the repository",
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "addresses of the model equal Observer.addresses": true,
+ "A8a Observer.repair equals the model event on the 1440 one-load basis states": true,
+ "A8a Observer.reflect equals the model reflection on a random one-load state": true,
+ "A8a P(record 1) after Observer.step from an embedded port": [
+  "1/12"
+ ],
+ "A8b classical native rule: a double load leaves with probability": [
+  "1/6"
+ ],
+ "A8b classical native rule: non-adjacent pair, P(a load moves), P(seam active)": [
+  [
+   "1/6"
+  ],
+  [
+   "1/3"
+  ]
+ ],
+ "A8b native state space": {
+  "total-two configurations": 78,
+  "with a doubly loaded port": 12,
+  "binary pairs": 66,
+  "non-adjacent binary pairs": 36
+ },
+ "entries of the local unitary": [
+  "-1/2",
+  "0",
+  "1",
+  "1/2"
+ ],
+ "one register, definite configuration: every one-tick weight is a multiple of 1/240": true,
+ "2/9 as a multiple of 1/240": "160/3",
+ "source_rules": {
+  "repository_commit (read only)": "3ee5e0652",
+  "unmatched statements": 0,
+  "rules": {
+   "D1a one address register per program": {
+    "file": "model/coherent_seam_repair/program.py",
+    "statements": [
+     {
+      "text": "self.addresses = tuple(pair for edge in self.seams for pair in (edge, edge[::-1]))",
+      "line": 46
+     },
+     {
+      "text": "self.dimension = 12 * fibre * 2 * self.address_count",
+      "line": 53
+     }
+    ]
+   },
+   "D1b the one-load state space": {
+    "file": "model/coherent_seam_repair/PROOF.md",
+    "statements": [
+     {
+      "text": "The scalar one-load state space is `C^12 tensor C^2 tensor C^60`: port, parity",
+      "line": 12
+     }
+    ]
+   },
+   "D1c every cell carries its own register and its own tick": {
+    "file": "model/coherent_defect_wave/spatial/PROOF.md",
+    "statements": [
+     {
+      "text": "Each cell carries the complete Hilbert space of the owning",
+      "line": 5
+     },
+     {
+      "text": "`12 \u00d7 5 \u00d7 2 \u00d7 60` wave register. Its dimension is 72,000. Its unitary is",
+      "line": 7
+     },
+     {
+      "text": "carrier forces three spatial dimensions. An onsite layer applies `U` in",
+      "line": 15
+     },
+     {
+      "text": "The Hilbert space of a box is a finite tensor product. The propagator",
+      "line": 21
+     }
+    ]
+   },
+   "D1d the uniform reflection is a supplied operation": {
+    "file": "model/coherent_defect_wave/PROOF.md",
+    "statements": [
+     {
+      "text": "coherent reflection of all sixty addresses is an additional supplied",
+      "line": 77
+     }
+    ]
+   },
+   "D2a native load content: total two": {
+    "file": "model/observer/native.py",
+    "statements": [
+     {
+      "text": "\"\"\"All twelve-port nonnegative integer configurations of total two.",
+      "line": 29
+     },
+     {
+      "text": "# Fixed controller data for uniform binary total-two preparation. These values",
+      "line": 22
+     }
+    ]
+   },
+   "D2b the matching code": {
+    "file": "model/common_source/native_code_transport.py",
+    "statements": [
+     {
+      "text": "A source-derived axis coloring gives a six-dimensional matching code carrying",
+      "line": 3
+     }
+    ]
+   },
+   "D2c caveat: the federation does not keep two loads per carrier": {
+    "file": "model/federated_observer/README.md",
+    "statements": [
+     {
+      "text": "can move between elementary carriers. Keeping exactly two particles in",
+      "line": 23
+     }
+    ]
+   },
+   "D3a the local completion": {
+    "file": "model/coherent_seam_repair/common.py",
+    "statements": [
+     {
+      "text": "\"\"\"Complete pump on (00,10,01,11,20,02), including both double loads.\"\"\"",
+      "line": 11
+     },
+     {
+      "text": "\"\"\"Reversible 24-dimensional completion on source times four record values.\"\"\"",
+      "line": 22
+     }
+    ]
+   },
+   "D3b no many-load federation is claimed": {
+    "file": "model/coherent_seam_repair/PROOF.md",
+    "statements": [
+     {
+      "text": "one-load rule; the double-load result is the exact local completion, without a",
+      "line": 50
+     },
+     {
+      "text": "claim of a complete many-load coherent federation.",
+      "line": 51
+     }
+    ]
+   },
+   "D4 closed-carrier neutrality": {
+    "file": "model/defect_particle_classes/PROOF.md",
+    "statements": [
+     {
+      "text": "the classes on a closed carrier add to 0 modulo 6. The contents",
+      "line": 102
+     }
+    ]
+   },
+   "D5 a cell meets one partner cell per edge layer; the exchange gate": {
+    "file": "model/coherent_defect_wave/spatial/PROOF.md",
+    "statements": [
+     {
+      "text": "Every layer is a matching. One complete seven-layer cycle is the clock tick.",
+      "line": 19
+     },
+     {
+      "text": "E_{xy}=aI+bS_{xy},\\quad",
+      "line": 49
+     },
+     {
+      "text": "a=\\frac{1-i}{2},\\quad b=\\frac{1+i}{2}.",
+      "line": 50
+     }
+    ]
+   },
+   "D6 the lepton mass vertex has two class-3 legs": {
+    "file": "model/defect_particle_classes/PROOF.md",
+    "statements": [
+     {
+      "text": "| `3+3\u21920` | Yukawa `L` with the Higgs into `e_R` or `nu_R`; also `L` anti-`L` and `H` anti-`H` gauge currents |",
+      "line": 87
+     }
+    ]
+   },
+   "D7 the native cycle: a rotation from the C record, then an E repair": {
+    "file": "model/common_source/native_code_transport.py",
+    "statements": [
+     {
+      "text": "The controller chooses an actual port rotation from a committed C record.",
+      "line": 9
+     },
+     {
+      "text": "A following E repair and a transported quintet marker retain the same object",
+      "line": 10
+     }
+    ]
+   },
+   "D8 the native signed current of an ordered seam": {
+    "file": "model/observer/native.py",
+    "statements": [
+     {
+      "text": "current = (d - (2 * coin - 1) * (abs(d) % 2)) // 2",
+      "line": 48
+     }
+    ]
+   },
+   "D9 the consensus and the reflection of the program are over all sixty addresses": {
+    "file": "model/coherent_seam_repair/program.py",
+    "statements": [
+     {
+      "text": "\"\"\"A blank parity record and uniform coherent seam address.\"\"\"",
+      "line": 70
+     },
+     {
+      "text": "\"\"\"The declared address reflection R=2AA*\u2212I.\"\"\"",
+      "line": 87
+     }
+    ]
+   }
+  }
+ },
+ "seconds": 4.79
+}

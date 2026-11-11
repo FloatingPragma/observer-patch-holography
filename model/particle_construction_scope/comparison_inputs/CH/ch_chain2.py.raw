@@ -1,0 +1,32 @@
+"""Worker CH, addendum 3 of CANDIDATES.md (computed after the comparison run): row V13 (hypercharge stiffness on the
+colour block, c_Y = 2/3) and the sensitivity of the hypercharge outputs to c_Y, for the two source variants.
+
+Run: /tmp/oph-completion-venv/bin/python ch_chain2.py [out.json]
+Engine: work/LV/lv_chain.py through the class Chain of ch_lib.py. The reference values of the comparison are read here
+for the percent columns (NOT BLIND).
+"""
+import json
+import sys
+from pathlib import Path
+
+from ch_lib import Chain, load_lv, clean
+
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).with_name('chain2.json')
+lv = load_lv()
+REF = dict(sin2=0.23122, inv_alpha_em=127.95)
+SRC = {'SA one doublet, m = 2': ((81 / 10, 5 / 6, -3.0), 2.0), 'SB two doublets, m = 1': ((41 / 5, 1.0, -3.0), 1.0)}
+out = {}
+for name, (b, pf) in SRC.items():
+    run = lambda cy: Chain(lv, b=b, c=(0.6 * cy, 1.0, 1.0), pref=pf).solve()[0]
+    r = run(2 / 3)
+    h = 0.01
+    lo, hi = run(1.0 - h), run(1.0 + h)
+    out[name] = dict(V13=dict(c_Y=2 / 3, inv_alpha_U=r['inv_alpha_U'], v=r['v'], m_Z=r['m_Z'], inv_alpha_1=r['inv_alpha_1'],
+                              inv_alpha_2=r['inv_alpha_2'], alpha_s=r['alpha_s'], sin2=r['sin2'], inv_alpha_em=r['inv_alpha_em'],
+                              percent_sin2=100 * (r['sin2'] / REF['sin2'] - 1), percent_inv_alpha_em=100 * (r['inv_alpha_em'] / REF['inv_alpha_em'] - 1)),
+                     sensitivity_at_cY_1=dict(dsin2_dcY=(hi['sin2'] - lo['sin2']) / (2 * h),
+                                              dinv_alpha_em_dcY=(hi['inv_alpha_em'] - lo['inv_alpha_em']) / (2 * h),
+                                              dlnv_dcY=(hi['v'] - lo['v']) / (2 * h) / run(1.0)['v'],
+                                              cY_window_for_half_percent_in_sin2=0.005 * REF['sin2'] / abs((hi['sin2'] - lo['sin2']) / (2 * h))))
+OUT.write_text(json.dumps(clean(out), indent=1))
+print(json.dumps(clean(out), indent=1))

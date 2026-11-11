@@ -1,0 +1,28 @@
+"""Block 1, dense control: all eigenvalues cos(omega) of (W + W^T)/2 on the 18,720-dimensional two-quanta walk.
+Checks the multiplicities +1: 628, -1: 17,688, oscillatory: 404 and the interior phases against the discriminant."""
+import json, time
+import numpy as np
+import mplib as M
+
+t0 = time.time()
+T = M.two_quanta_T()
+Us = [x / 2.0 for x in T]
+W = M.dense_W(Us)
+print('W built', W.shape, round(time.time() - t0, 1), 's', flush=True)
+Sm = (W + W.T) / 2
+del W
+ev = np.linalg.eigvalsh(Sm)
+print('eigvalsh done', round(time.time() - t0, 1), 's', flush=True)
+tol = 1e-8
+plus = int(np.sum(ev > 1 - tol)); minus = int(np.sum(ev < -1 + tol))
+inner = np.sort(ev[(ev <= 1 - tol) & (ev >= -1 + tol)])
+D = sum(Us) / 60
+evD = np.linalg.eigvalsh(D)
+innerD = np.sort(np.repeat(evD[(evD < 1 - tol) & (evD > -1 + tol)], 2))
+ok = len(inner) == len(innerD)
+defect = float(np.max(np.abs(inner - innerD))) if ok else None
+out = {'dimension': int(Sm.shape[0]), 'plus_one': plus, 'minus_one': minus, 'oscillatory': int(len(inner)),
+       'interior_cosines_equal_discriminant_eigenvalues_twice_each': bool(ok), 'max_defect': defect,
+       'range_outside_unit_interval': [float(ev.min()), float(ev.max())], 'seconds': time.time() - t0}
+print(out)
+json.dump(out, open('b1_dense.json', 'w'), indent=1)

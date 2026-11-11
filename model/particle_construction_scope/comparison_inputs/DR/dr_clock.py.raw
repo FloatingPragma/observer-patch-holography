@@ -1,0 +1,320 @@
+"""Worker DR (S5): the three-family clock built from the chiral_joint lepton operators, and the pole shifts of the
+charged line at low order in the source's couplings (rows D1, D2, D3 and the residue used by D4 to D7).
+
+Run from an RER checkout (read only, no byte code):
+  cd <RER> && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. /tmp/oph-completion-venv/bin/python -B \
+      <DR>/dr_clock.py <DR>/clock.json
+
+Construction (CANDIDATES.md section 1). Each lepton mode of the repository's six-mode lepton block (e^c, L1, L2 at
+native indices 9, 10, 11; both spins) carries a family label f = 0, 1, 2 on the Fourier modes of the circulant. The
+Yukawa of family f has coefficient y_f (the circulant eigenvalue times a common y); the five-state Higgs memory of a
+cell is shared by the families; the two oriented six-state links of the periodic two-cell control are family blind
+(their label records the native indices a, b only). Unit penalties kappa = omega = 1 as declared; the hopping is the
+repository's i(-1)^(spin+site)/4 sigma3 term. Mode number inside a cell: 6 f + 3 spin + i.
+
+Checks against the repository: family 0 alone reproduces quantum_lepton_block (320 states, every entry) and the
+periodic two-cell column (every column of a sample, with y = 1).
+No measured value is read.
+"""
+import json
+import sys
+from collections import defaultdict
+from fractions import Fraction
+from itertools import product
+from pathlib import Path
+
+import numpy as np
+import sympy as s
+
+from model.coherent_defect_wave.chiral_joint.model import sequence, active_terms
+from model.coherent_defect_wave.chiral_higgs.model import quantum_lepton_block, higgs_memory
+from model.coherent_defect_wave.chiral_joint.two_cell import symmetries as periodic
+
+OUT = Path(sys.argv[1])
+NF = 3
+_, CS, FIELDS, LABELS = active_terms()          # CS: the two 3x3 charged-lepton tensors on (e^c, L1, L2)
+PHI = [np.array(f.tolist(), dtype=int) for f in FIELDS]   # phi_k = |0><1+k| + |3+k><0| (integer entries)
+CK = [np.array(c.tolist(), dtype=int) for c in CS]
+assert all(np.array_equal(np.array(f.tolist(), dtype=object).astype(int), P) for f, P in zip(FIELDS, PHI))
+out = {'construction': __doc__.split('Construction')[1].split('Checks')[0].strip()}
+
+
+def mode(cell, f, spin, i):
+    return 18 * cell + 6 * f + 3 * spin + i
+
+
+# ------------------------------------------------------------------ local Yukawa with families (one cell)
+def local_yukawa_f(mask, scalar, cell, ys):
+    """sum_{k,f} y_f (A_{k,f} phi_k^dag + A_{k,f}^dag phi_k) on one cell; returns {(mask, scalar): coeff}."""
+    res = defaultdict(lambda: 0)
+    for f in range(NF):
+        if ys[f] == 0:
+            continue
+        for k in range(2):
+            c = CK[k]
+            phid = PHI[k].T          # real matrices: dagger = transpose
+            for i, j in product(range(3), repeat=2):
+                if c[i, j] == 0:
+                    continue
+                ann = ((mode(cell, f, 0, i), False), (mode(cell, f, 1, j), False))
+                cre = ((mode(cell, f, 1, j), True), (mode(cell, f, 0, i), True))
+                for matrix, ops in ((phid, ann), (PHI[k], cre)):
+                    step = sequence(mask, ops)
+                    if step is None:
+                        continue
+                    for dest in range(5):
+                        if matrix[dest, scalar] != 0:
+                            res[step[0], dest] += ys[f] * c[i, j] * step[1] * matrix[dest, scalar]
+    return res
+
+
+def one_cell_column(key, ys, omega=1):
+    mask, scalar = key
+    col = defaultdict(lambda: 0)
+    if scalar:
+        col[key] += omega
+    for (m2, h2), v in local_yukawa_f(mask, scalar, 0, ys).items():
+        col[m2, h2] += v
+    return {k: v for k, v in col.items() if v != 0}
+
+
+# check 1: family 0 alone equals the repository's 320-state block
+h320 = quantum_lepton_block()[0]
+bad = 0
+for mask in range(64):
+    for sc in range(5):
+        col = one_cell_column((mask, sc), (1, 0, 0))
+        for (m2, h2), v in col.items():
+            if s.sympify(v) != h320[5 * m2 + h2, 5 * mask + sc]:
+                bad += 1
+        nz = sum(1 for r in range(320) if h320[r, 5 * mask + sc] != 0)
+        bad += (nz != len(col))
+out['check_family0_equals_quantum_lepton_block'] = (bad == 0)
+assert bad == 0
+
+
+def component(seed, column):
+    seen, front, edges = {seed}, [seed], {}
+    while front:
+        nxt = []
+        for k in front:
+            col = column(k)
+            edges[k] = col
+            for t in col:
+                if t not in seen:
+                    seen.add(t); nxt.append(t)
+        front = nxt
+    return seen, edges
+
+
+# ------------------------------------------------------------------ D2: shared memory, three families, exact
+Y = s.symbols('y0 y1 y2', positive=True)
+OM = s.Symbol('omega', positive=True)
+col_sym = lambda key: one_cell_column(key, Y, OM)
+
+
+def star_energy(seed):
+    comp, edges = component(seed, col_sym)
+    centre = edges[seed]
+    leaves = [k for k in comp if k != seed]
+    # star: every leaf has diagonal omega and couples to the centre only
+    ok = all(set(edges[l]) <= {l, seed} and s.simplify(edges[l].get(l, 0) - OM) == 0 for l in leaves)
+    ok = ok and seed not in centre
+    S_ = s.expand(sum(v * s.conjugate(v) for k, v in centre.items() if k != seed))
+    return ok, len(comp), S_
+
+
+ok_v, n_v, S_vac = star_energy((0, 0))
+lines = {}
+for f in range(NF):
+    for name, i in (('e^c', 0), ('L1', 1)):
+        okl, nl, S_l = star_energy((1 << mode(0, f, 0, i), 0))
+        lines[f'{name} family {f}'] = {'star': okl, 'component_size': nl, 'S_line': str(S_l),
+                                       'S_vac_minus_S_line': str(s.factor(S_vac - S_l))}
+assert ok_v and all(v['star'] for v in lines.values())
+E = lambda S_: (OM - s.sqrt(OM ** 2 + 4 * S_)) / 2
+m_ec = [s.simplify(E(S_vac - 2 * Y[f] ** 2) - E(S_vac)) for f in range(NF)]
+u = s.Symbol('u', positive=True); Ssym = s.Symbol('S', positive=True)
+mass_u = (s.sqrt(OM ** 2 + 4 * Ssym) - s.sqrt(OM ** 2 + 4 * Ssym - 4 * u)) / 2
+series = s.series(mass_u, u, 0, 3).removeO()
+out['D2_shared_memory'] = {
+    'vacuum_component_is_star': ok_v, 'vacuum_component_size': n_v, 'S_vac': str(S_vac),
+    'lines': lines,
+    'exact_mass_e^c_line': 'm_f = [sqrt(omega^2 + 4S) - sqrt(omega^2 + 4S - 8 y_f^2)]/2, S = 4(y0^2 + y1^2 + y2^2)',
+    'mass_of_blocked_weight_u': str(mass_u), 'series_in_u': str(s.simplify(series)),
+    'second_order_in_y': 'm_f = 2 y_f^2/omega: the A-clock circulant with Y = y C (EXACT)',
+    'convexity': 'd2m/du2 = 2/(omega^2 + 4S - 4u)^(3/2) > 0: m_f/u_f increases with u_f, so every ratio heavy/light '
+                 'rises (EXACT)'}
+
+# numerical rows of D2 with the circulant amplitudes (no data): y_f = y lambda_f, sum lambda_f^2 = 1
+from mpmath import mp, mpf, sqrt as msqrt, cos as mcos, pi as mpi, log as mlog
+mp.dps = 40
+pn, qn = mpf(1) / 12, mpf(1) / 6
+th = pn + qn - 2 * pn * qn
+lam = [msqrt(qn) + 2 * msqrt(pn) * mcos(th + 2 * mpi * k / 3) for k in range(3)]   # tau, e, mu (DA convention)
+
+
+def d2_shifts(y, omega):
+    S_ = 4 * y ** 2 * sum(l ** 2 for l in lam)
+    m = [(msqrt(omega ** 2 + 4 * S_) - msqrt(omega ** 2 + 4 * S_ - 8 * (y * l) ** 2)) / 2 for l in lam]
+    m0 = [2 * (y * l) ** 2 / omega for l in lam]
+    eps = [mi / m0i - 1 for mi, m0i in zip(m, m0)]
+    return {'eps_tau_e_mu': [str(x) for x in eps], 'dln_mu_e': str(eps[2] - eps[1]), 'dln_tau_e': str(eps[0] - eps[1])}
+
+
+out['D2_rows'] = {'declared_y=omega=1': d2_shifts(mpf(1), mpf(1)),
+                  'y=0.01_omega=1': d2_shifts(mpf('0.01'), mpf(1)),
+                  'leading_family_dependent_term': 'eps_f - eps_e = 2 (y_f^2 - y_e^2)/(omega^2 + 4S) + O(y^4) '
+                                                   '= (m_f - m_e)/sqrt(omega^2 + 4S) at leading order: positive'}
+
+# ------------------------------------------------------------------ periodic two-cell three-family column
+def hop_f(mask, link, site, scale=1):
+    """The repository's oriented hopping on one link, for every family (family-blind link label)."""
+    res = defaultdict(lambda: 0)
+    for label, (a, b) in enumerate(LABELS[1:], 1):
+        for spin in range(2):
+            coef = 1j * (-1) ** (spin + site) / 4 * scale
+            for f in range(NF):
+                tgt = mode(site, f, spin, a); org = mode(1 - site, f, spin, b)
+                if link == 0:
+                    st = sequence(mask, ((tgt, True), (org, False)))
+                    if st:
+                        res[st[0], label] += coef * st[1]
+                if link == label:
+                    st = sequence(mask, ((org, True), (tgt, False)))
+                    if st:
+                        res[st[0], 0] += np.conj(coef) * st[1]
+    return res
+
+
+def split_cells(mask):
+    return mask & ((1 << 18) - 1), mask >> 18
+
+
+def two_cell_parts(key, ys, t):
+    """Return (H0 diagonal, V_Y column, V_h column) for key = (mask, l01, l10, hl, hr)."""
+    mask, l01, l10, hl, hr = key
+    h0 = int(l01 != 0) + int(l10 != 0) + int(hl != 0) + int(hr != 0)
+    vy, vh = defaultdict(lambda: 0), defaultdict(lambda: 0)
+    for (tm, lk), v in hop_f(mask, l01, 0, t).items():
+        vh[tm, lk, l10, hl, hr] += v
+    for (tm, lk), v in hop_f(mask, l10, 1, t).items():
+        vh[tm, l01, lk, hl, hr] += v
+    lm, rm = split_cells(mask)
+    for (tm, h2), v in local_yukawa_f(lm, hl, 0, ys).items():
+        vy[tm | (rm << 18), l01, l10, h2, hr] += v
+    # the right cell: modes of cell 1 are 18..35; local_yukawa_f(cell=1) acts on the full mask
+    for (tm, h2), v in local_yukawa_f(mask, hr, 1, ys).items():
+        vy[tm, l01, l10, hl, h2] += v
+    return h0, {k: v for k, v in vy.items() if v != 0}, {k: v for k, v in vh.items() if v != 0}
+
+
+# check 2: family 0 with y = 1 equals the repository's periodic column on every reachable column of two seeds
+def to_rep(key):
+    mask, l01, l10, hl, hr = key
+    lm, rm = split_cells(mask)
+    assert lm < 64 and rm < 64
+    return (lm | (rm << 6), l01, l10, hl, hr)
+
+
+bad2, checked2 = 0, 0
+for seed in ((0, 0, 0, 0, 0), (1 << mode(0, 0, 0, 0), 0, 0, 0, 0)):
+    frontier, seen = [seed], {seed}
+    for depth in range(3):
+        nxt = []
+        for k in frontier:
+            h0, vy, vh = two_cell_parts(k, (1, 0, 0), 1)
+            mine = defaultdict(lambda: 0)
+            if h0:
+                mine[k] += h0
+            for d in (vy, vh):
+                for t2, v in d.items():
+                    mine[t2] += v
+            mine = {to_rep(t2): complex(v) for t2, v in mine.items() if abs(complex(v)) > 0}
+            rep = {t2: complex(v) for t2, v in periodic.periodic_column(to_rep(k)).items()}
+            checked2 += 1
+            if set(mine) != set(rep) or any(abs(mine[t2] - rep[t2]) > 1e-15 for t2 in rep):
+                bad2 += 1
+            for t2 in list(vy) + list(vh):
+                if t2 not in seen:
+                    seen.add(t2); nxt.append(t2)
+        frontier = nxt
+out['check_family0_equals_periodic_column'] = {'columns_compared': checked2, 'mismatches': bad2}
+assert bad2 == 0
+
+
+# ------------------------------------------------------------------ D1 and residue: link self-energy of the line
+def rspt(seed, ys, t, order_terms):
+    """Exact-in-floats Rayleigh-Schroedinger terms around a seed with H0 = 0, using split V = V_Y + V_h.
+    order_terms: list of words over {'Y', 'h'}; returns {word: <0|V_w1 R V_w2 R ... V_wn|0>} with R = -Q/H0."""
+    cache = {}
+
+    def parts(k):
+        if k not in cache:
+            cache[k] = two_cell_parts(k, ys, t)
+        return cache[k]
+
+    res = {}
+    for word in order_terms:
+        state = {seed: 1.0 + 0j}
+        for n, letter in enumerate(reversed(word)):
+            new = defaultdict(lambda: 0j)
+            for k, a in state.items():
+                h0, vy, vh = parts(k)
+                for t2, v in (vy if letter == 'Y' else vh).items():
+                    new[t2] += a * complex(v)
+            state = new
+            if n < len(word) - 1:      # apply R = -Q/H0 between factors
+                state = {k: -a / parts(k)[0] for k, a in state.items() if k != seed and abs(a) > 0}
+                assert all(parts(k)[0] > 0 for k in state), 'degenerate intermediate state'
+        res[word] = state.get(seed, 0j)
+    return res
+
+
+line0 = (1 << mode(0, 0, 0, 0), 0, 0, 0, 0)   # e^c, family 0, spin 0, left cell, blank links and memories
+r_h = rspt(line0, (0, 0, 0), 1, ['hh'])
+# residue loss at second order: sum |V|^2 / E^2
+h0, vy, vh = two_cell_parts(line0, (0, 0, 0), 1)
+loss = sum(abs(complex(v)) ** 2 / two_cell_parts(k, (0, 0, 0), 1)[0] ** 2 for k, v in vh.items())
+out['D1_link_second_order'] = {
+    'Sigma_line_e^c': str(r_h['hh']), 'channels': len(vh),
+    'one_minus_Z_line_e^c': loss,
+    'Sigma_vacuum_at_y=0': 0.0,
+    'statement': 'family blind and additive (T1); the neutral ground has no hopping term at y = 0, so the charged '
+                 'line moves by Sigma relative to it'}
+lineL = (1 << mode(0, 0, 0, 1), 0, 0, 0, 0)
+hL, vyL, vhL = two_cell_parts(lineL, (0, 0, 0), 1)
+out['D1_link_second_order']['Sigma_line_L1'] = str(rspt(lineL, (0, 0, 0), 1, ['hh'])['hh'])
+out['D1_link_second_order']['channels_L1'] = len(vhL)
+
+# ------------------------------------------------------------------ D3: mixed order y^2 h^2 on the two-cell block
+words_yh = ['YYhh', 'YhYh', 'YhhY', 'hYYh', 'hYhY', 'hhYY']
+
+
+def mixed(seed, ys):
+    r = rspt(seed, ys, 1, words_yh + ['YY', 'hh'])
+    # renormalization term -E2 <V R^2 V> split by type
+    def r2(letter):
+        h0, vy, vh = two_cell_parts(seed, ys, 1)
+        d = vy if letter == 'Y' else vh
+        return sum(abs(complex(v)) ** 2 / two_cell_parts(k, ys, 1)[0] ** 2 for k, v in d.items() if k != seed)
+    e4 = sum(r[w] for w in words_yh) - r['YY'] * r2('h') - r['hh'] * r2('Y')
+    return {'E2_Y': r['YY'], 'E2_h': r['hh'], 'E4_yyhh': e4}
+
+
+vac = (0, 0, 0, 0, 0)
+d3 = {}
+basis_y = {'only_f0': (1.0, 0.0, 0.0), 'only_f1': (0.0, 1.0, 0.0), 'all_equal': (1.0, 1.0, 1.0)}
+for label_y, ys in basis_y.items():
+    mv = mixed(vac, ys)
+    row = {'vacuum': {k: str(v) for k, v in mv.items()}}
+    for f in range(NF):
+        lk = (1 << mode(0, f, 0, 0), 0, 0, 0, 0)
+        ml = mixed(lk, ys)
+        row[f'line_family_{f}'] = {k: str(v) for k, v in ml.items()}
+        row[f'mass_family_{f}'] = {'order_y2': str(ml['E2_Y'] - mv['E2_Y']), 'order_h2': str(ml['E2_h'] - mv['E2_h']),
+                                   'order_y2h2': str(ml['E4_yyhh'] - mv['E4_yyhh'])}
+    d3[label_y] = row
+out['D3_mixed_y2h2'] = d3
+OUT.write_text(json.dumps(out, indent=1, default=str))
+print(json.dumps({k: v for k, v in out.items() if k != 'construction'}, indent=1, default=str)[:6000])

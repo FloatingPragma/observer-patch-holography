@@ -1,0 +1,222 @@
+{
+ "mean_map": {
+  "configurations_tested": 290,
+  "max_defect_of_E[x_next] = T x (exact rationals)": "0",
+  "T": "1 - (5 - A)/60",
+  "energy": "sum_p x_p is conserved by every event",
+  "three_momentum_factor_per_attempt": 0.9539344662916631,
+  "exact": "(55 + sqrt5)/60",
+  "defect_T u = lambda u": 1.1102230246251565e-16,
+  "half_life_attempts": 14.697682775573076,
+  "half_life_sweeps_of_30_attempts": 0.4899227591857692
+ },
+ "mass_of_the_mean_four_momentum": {
+  "one quantum": {
+   "t": 1,
+   "r0_squared": 1.0,
+   "mass_squared_at_n=0": 0.0,
+   "mass_squared_of_mean_at_n=30": 0.9409646115398834,
+   "limit": 1
+  },
+  "two quanta adjacent": {
+   "t": 2,
+   "r0_squared": 2.894427190999916,
+   "mass_squared_at_n=0": 1.1055728090000838,
+   "mass_squared_of_mean_at_n=30": 3.829126366409796,
+   "limit": 4
+  },
+  "two quanta antipodal": {
+   "t": 2,
+   "r0_squared": 0.0,
+   "mass_squared_at_n=0": 4.0,
+   "mass_squared_of_mean_at_n=30": 4.0,
+   "limit": 4
+  }
+ },
+ "realized_mass_two_quanta": {
+  "values": "M^2 = |u_p - u_q|^2 in {2 - 2/sqrt5, 2 + 2/sqrt5, 4}",
+  "stationary_mean": 2.1818181818181817,
+  "E[M^2]_from_adjacent_start (n, value)": [
+   [
+    0,
+    1.1055728090000838
+   ],
+   [
+    1,
+    1.2248297678000737
+   ],
+   [
+    5,
+    1.5821376057375665
+   ],
+   [
+    10,
+    1.8463183046165512
+   ],
+   [
+    30,
+    2.148534057918936
+   ],
+   [
+    60,
+    2.180772359294519
+   ],
+   [
+    120,
+    2.181817148777229
+   ],
+   [
+    300,
+    2.1818181818188163
+   ]
+  ],
+  "asymptotic_factor_per_attempt": 0.8910673715819578,
+  "leading_eigenvalue_moduli_of_the_pair_chain": [
+   1.000000000000003,
+   0.9539344662916649,
+   0.953934466291664,
+   0.9539344662916622,
+   0.9163621205120401,
+   0.9163621205120389
+  ]
+ },
+ "wave_completion": {
+  "doublet_adjacency_eigenvalue_exact": "sqrt((25 + 5 sqrt5)/2) = 5 cos(theta_adj/2)",
+  "check_from_twisted_Q": 4.253254041760202,
+  "sectors": {
+   "untwisted slow triplet (three-momentum)": {
+    "lambda": 0.9539344662916631,
+    "omega = arccos(lambda)": 0.3047084373702734,
+    "period_attempts": 20.620319415521895
+   },
+   "flux 1 spinor doublet": {
+    "lambda": 0.9875542340293366,
+    "omega = arccos(lambda)": 0.1579345951796957,
+    "period_attempts": 39.78346416141864
+   },
+   "flux 2 vector triplet": {
+    "lambda": 0.9769672331458316,
+    "omega = arccos(lambda)": 0.21504293541573508,
+    "period_attempts": 29.21828282818276
+   }
+  },
+  "ratio_omega_doublet_over_triplet": 0.51831382334772,
+  "ratio_rate_doublet_over_triplet": 0.2701752257873214
+ },
+ "refined_point_sets": {
+  "levels": {
+   "0": {
+    "N": 12,
+    "seams": 30,
+    "twisted_lowest_six (doublet, then quartet)": [
+     0.3733729791198993,
+     0.3733729791199001,
+     2.1367287359973184,
+     2.136728735997319,
+     2.1367287359973197,
+     2.136728735997321
+    ],
+    "untwisted_lowest_four (0, then triplet)": [
+     1.238158880978446e-16,
+     1.3819660112501047,
+     1.3819660112501053,
+     1.3819660112501058
+    ],
+    "rate_ratio_doublet_over_dipole": 0.2701752257873202,
+    "frequency_ratio_sqrt": 0.5197838260155083,
+    "doublet_splitting_relative": 2.0814471338271256e-15,
+    "dipole_splitting_relative": 8.033649276373059e-16
+   },
+   "1": {
+    "N": 42,
+    "seams": 120,
+    "twisted_lowest_six (doublet, then quartet)": [
+     0.12419163657048378,
+     0.12419163657048793,
+     0.8157531415690231,
+     0.8157531415690245,
+     0.8157531415690249,
+     0.8157531415690256
+    ],
+    "untwisted_lowest_four (0, then triplet)": [
+     -3.9551875908516983e-16,
+     0.48444018291953594,
+     0.4844401829195364,
+     0.48444018291953944
+    ],
+    "rate_ratio_doublet_over_dipole": 0.25636113796759846,
+    "frequency_ratio_sqrt": 0.5063211806428786,
+    "doublet_splitting_relative": 3.34117390600738e-14,
+    "dipole_splitting_relative": 7.219059547234375e-15
+   },
+   "2": {
+    "N": 162,
+    "seams": 480,
+    "twisted_lowest_six (doublet, then quartet)": [
+     0.03327120430645877,
+     0.033271204306459475,
+     0.2289080357964851,
+     0.22890803579648783,
+     0.22890803579648897,
+     0.22890803579649094
+    ],
+    "untwisted_lowest_four (0, then triplet)": [
+     8.153200337090993e-17,
+     0.1321626432351896,
+     0.13216264323519028,
+     0.13216264323519286
+    ],
+    "rate_ratio_doublet_over_dipole": 0.2517443923034371,
+    "frequency_ratio_sqrt": 0.5017413599688958,
+    "doublet_splitting_relative": 2.127266484493145e-14,
+    "dipole_splitting_relative": 2.4781268310561218e-14
+   },
+   "3": {
+    "N": 642,
+    "seams": 1920,
+    "twisted_lowest_six (doublet, then quartet)": [
+     0.00845670696151805,
+     0.008456706961520897,
+     0.05886546260245953,
+     0.05886546260246101,
+     0.05886546260246253,
+     0.05886546260246301
+    ],
+    "untwisted_lowest_four (0, then triplet)": [
+     7.811237618376141e-16,
+     0.03374654608979755,
+     0.03374654608979985,
+     0.03374654608980054
+    ],
+    "rate_ratio_doublet_over_dipole": 0.2505947405407136,
+    "frequency_ratio_sqrt": 0.5005943872445172,
+    "doublet_splitting_relative": 3.3661817029154067e-13,
+    "dipole_splitting_relative": 8.862131444877466e-14
+   },
+   "4": {
+    "N": 2562,
+    "seams": 7680,
+    "twisted_lowest_six (doublet, then quartet)": [
+     0.0021225972964149845,
+     0.002122597296417481,
+     0.014817930210185293,
+     0.014817930210186764,
+     0.014817930210187869,
+     0.014817930210203991
+    ],
+    "untwisted_lowest_four (0, then triplet)": [
+     -1.9925067302871023e-15,
+     0.008479889524072743,
+     0.008479889524075622,
+     0.008479889524079166
+    ],
+    "rate_ratio_doublet_over_dipole": 0.2503095459427092,
+    "frequency_ratio_sqrt": 0.5003094501832933,
+    "doublet_splitting_relative": 1.17624797083106e-12,
+    "dipole_splitting_relative": 7.575194244343097e-13
+   }
+  },
+  "continuum": "lowest Landau level of monopole charge 1/2: 1/2; scalar l = 1: 2; rate ratio 1/4, frequency ratio 1/2 (IMPORTED spectrum)"
+ },
+ "what_gives_a_number": "a rest mass needs the band lambda(q) of the twisted (section) transfer on the federation in one declared wave completion: E0 = arccos lambda(0), inertial mass from the curvature of omega(q) at q = 0, c from the cone; E0 = m c^2 is then a test"
+}

@@ -1,0 +1,119 @@
+"""LT (step L3): refinement of one tick with its edge layer (route D6) and the cross term of the joint tick (D10).
+
+Run from RL/work/LT:
+  PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=../FR /tmp/oph-completion-venv/bin/python -B lt_refine.py
+FR's hexagon model (`fr9_hexagon.py`) is imported read only; the pair numbers are recomputed as in CK's `ck_fresh.py`.
+EXACT for the model numbers (Fractions); mpmath (40 digits) for the round tables. Writes lt_refine.json.
+No measured value enters.
+"""
+import json
+import os
+import sys
+from fractions import Fraction as Fr
+
+sys.dont_write_bytecode = True
+import mpmath as mp  # noqa: E402
+
+import fr_common as FC  # noqa: E402
+import fr9_hexagon as X  # noqa: E402
+
+mp.mp.dps = 40
+HERE = os.path.dirname(os.path.abspath(__file__))
+OUT = {'provenance': FC.provenance()}
+dbl2, dbl10 = X.cfg_of(2, 2), X.cfg_of(10, 10)
+cI, cF, cB = X.cfg_of(2, 10), X.cfg_of(2, 3), X.cfg_of(10, 0)
+
+
+def W(st):
+    return X.Qstep(X.Rstep(st), 'FN')
+
+
+def Winv(st):
+    return X.Rstep(X.Qstep(st, 'FN'))
+
+
+def vec(st):
+    out = {}
+    for key, poly in st.items():
+        assert set(poly) <= {0}
+        if poly.get(0):
+            out[key] = poly[0]
+    return out
+
+
+def dot(u, v):
+    return sum((c * v[k] for k, c in u.items() if k in v), Fr(0))
+
+
+def flag(key):
+    cfg, rec, _ = key
+    if rec in (2, 3) and cfg == cI:
+        return 'I'
+    if rec in (2, 3) and cfg == cF:
+        return 'F'
+    return None
+
+
+S = {(c, 0, k): {0: Fr(1)} for c in (dbl2, dbl10) for k in range(12)}     # true state = this / sqrt(24)
+NS = Fr(24)
+Sv = vec(S)
+w = W(S)
+wv = vec(w)
+Fv = vec(Winv({k: dict(p) for k, p in w.items() if flag(k) == 'F'}))
+Iv = vec(Winv({k: dict(p) for k, p in w.items() if flag(k) == 'I'}))
+sF, sI = dot(Sv, Fv) / NS, dot(Sv, Iv) / NS
+P = sF * (1 - sI) + (1 - sF) * sI
+sw = dot(Sv, wv) / NS
+rec_weight = sum(c * c for (cfg, rec, k), c in wv.items() if rec != 0) / NS
+OUT['pair numbers (FR hexagon model)'] = {
+    '<S|W^-1 Pi_F W|S>': str(sF), '<S|W^-1 Pi_I W|S>': str(sI), 'P = <X_W> on S (x) S': str(P),
+    'W^-1 W S = S': vec(Winv(w)) == Sv,
+}
+
+# ---------------------------------------------------------------- D10
+OUT['D10 cross term of the joint tick'] = {
+    '<S|W|S>': str(sw), 'weight with a written record after one tick': str(rec_weight), '1 - <S|W|S>': str(1 - sw),
+    'Im <W_A (x) W_B> on S (x) S': str(Fr(0)) if sw.denominator else None,
+    'reading': 'the amplitudes of FR\'s model are rational, so <S|W|S> is real; the first-order compression of '
+               'I - Re(U_0 (x) W_A (x) W_B) on the pair is I - <W_A><W_B> Re(U_0), with coefficient zero on Im(U_0); '
+               'the pair enters through the one number <W_A><W_B> = 4/9 and its exclusive read X_W does not appear, '
+               'so the declared onsite functional of the joint tick holds no term J (x) X at first order',
+    'even count': f'1 - <W_A><W_B> = {1 - sw * sw} (at least one written record on the pair)',
+}
+
+# ---------------------------------------------------------------- D6
+Pm = mp.mpf(P.numerator) / P.denominator
+
+
+def edge_coeffs(tau):
+    z = mp.exp(-1j * mp.pi * tau / 2)
+    return (1 + z) / 2, (1 - z) / 2
+
+
+a_gate, b_gate = mp.mpc(0.5, -0.5), mp.mpc(0.5, 0.5)
+rows = []
+for name, tau in (('1', mp.mpf(1)), ('5', mp.mpf(5)), ('-3', mp.mpf(-3)), ('9', mp.mpf(9)), ('pi/2', mp.pi / 2),
+                  ('2/pi', 2 / mp.pi), ('2', mp.mpf(2)), ('1/2', mp.mpf(1) / 2), ('4/5', mp.mpf(4) / 5)):
+    c0, c1 = edge_coeffs(tau)
+    edge_ok = abs(c0 - a_gate) < mp.mpf(10) ** -30 and abs(c1 - b_gate) < mp.mpf(10) ** -30
+    per_n = {}
+    for N in (1, 10, 100, 1000, 10 ** 6):
+        zr = 1 - Pm * (1 - mp.exp(-1j * tau / N))            # zero-return amplitude of one part, j = +1
+        phase = -N * mp.arg(zr)                               # accumulated phase of the current over the tick
+        amp = abs(zr) ** N
+        dist = abs(zr ** N - mp.exp(-1j * tau * Pm))
+        per_n[str(N)] = {'phase': mp.nstr(phase, 15), 'amplitude kept': mp.nstr(amp, 12),
+                         'distance to exp(-i tau P)': mp.nstr(dist, 6), 'bound tau^2/N': mp.nstr(tau ** 2 / N, 6),
+                         'within bound': bool(dist <= tau ** 2 / N)}
+    rows.append({'tau': name, 'edge layer of the refined clock equals E': bool(edge_ok),
+                 'limit phase tau P': mp.nstr(tau * Pm, 15), 'parts': per_n})
+OUT['D6 refinement of the tick'] = {
+    'construction': 'N parts per tick; each part applies exp(-i (tau/N) h) on the edge, exp(-i (tau/N) J (x) X_W) on the '
+                    'current and the pair, and the return test on S (x) S; the edge parts commute with the kick',
+    'edge after N parts': 'exp(-i tau h) = E^tau, independent of N',
+    'rows': rows,
+    'reading': 'the refined clock reproduces the edge layer of the tick only for tau in 1 + 4 Z; at tau = 1 the '
+               'accumulated kick angle is one and the phase tends to P',
+}
+json.dump(OUT, open(os.path.join(HERE, 'lt_refine.json'), 'w'), indent=1, default=str)
+print(json.dumps({k: v for k, v in OUT.items() if k != 'provenance'}, indent=1, default=str))

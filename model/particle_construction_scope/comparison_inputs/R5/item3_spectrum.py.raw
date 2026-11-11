@@ -1,0 +1,29 @@
+"""Item 3, supplement: the spectrum of the symbol under the 24 cube rotations (only 4 commute with an ordered tick)."""
+import itertools, json, sys
+import numpy as np
+from r5lib import Routing, ALPHA, BETA
+def sym_r(p, th):
+    o = np.eye(4, dtype=complex)
+    for i in (2, 1, 0): o = (np.cos(p[i]) * np.eye(4) - 1j * np.sin(p[i]) * ALPHA[i]) @ o
+    return (np.cos(th) * np.eye(4) - 1j * np.sin(th) * BETA) @ o
+spec = lambda m: np.sort(np.angle(np.linalg.eigvals(m)))
+rng = np.random.default_rng(2); ps = [rng.uniform(-1.5, 1.5, 3) for _ in range(40)]; th = 0.157935
+worst = dict(forward_massless=0.0, forward_massive=0.0, alternating_pair_massive=0.0)
+for perm in itertools.permutations(range(3)):
+    for s in itertools.product((1, -1), repeat=3):
+        R = np.zeros((3, 3))
+        for i in range(3): R[perm[i], i] = s[i]
+        if np.linalg.det(R) < 0: continue
+        for p in ps:
+            worst['forward_massless'] = max(worst['forward_massless'], np.abs(spec(Routing.symbol(p, 0)) - spec(Routing.symbol(R @ p, 0))).max())
+            worst['forward_massive'] = max(worst['forward_massive'], np.abs(spec(Routing.symbol(p, th)) - spec(Routing.symbol(R @ p, th))).max())
+            worst['alternating_pair_massive'] = max(worst['alternating_pair_massive'], np.abs(spec(sym_r(p, th) @ Routing.symbol(p, th)) - spec(sym_r(R @ p, th) @ Routing.symbol(R @ p, th))).max())
+print('max spectral defect over the 24 rotations and 40 random momenta:', {k: float('%.2e' % v) for k, v in worst.items()})
+# closed form of the massive forward tick: cos E = cos(theta) (c1 c2 c3 +- s1 s2 s3) ?
+d = 0
+for p in ps:
+    c, s = np.cos(p), np.sin(p)
+    want = np.sort(np.concatenate([[e, -e] for e in (np.arccos(np.cos(th) * (c.prod() + s.prod())), np.arccos(np.cos(th) * (c.prod() - s.prod())))]))
+    d = max(d, np.abs(spec(Routing.symbol(p, th)) - want).max())
+print('forward tick, cos E = cos(theta)(c1 c2 c3 +- s1 s2 s3): defect %.2e' % d)
+json.dump(dict(worst=worst, closed_form_defect=float(d)), open(sys.argv[1] if len(sys.argv) > 1 else 'item3_spectrum.json', 'w'), indent=1)

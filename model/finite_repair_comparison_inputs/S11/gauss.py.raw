@@ -1,0 +1,195 @@
+"""S11 instruments for Gaussian states: entanglement entropy, the Bisognano-Wichmann / Casini-Huerta-Myers
+comparison by relative entropy (well conditioned in double precision), profile fits, direct modular generators.
+
+Fermions. State: correlation matrix C_A = <c_i^+ c_j> on the region. Ansatz: rho_BW = exp(-c^+ K c)/Z with
+K = (1/2)(B h_A + h_A B), B = diag(beta_i), h_A the single-particle generator restricted to the region.
+    D(rho_A || rho_BW) = Tr(C_A K) + sum_k log(1 + exp(-kappa_k)) - S_A          (kappa = spectrum of K)
+With beta_i = u * g_i (u = 1/speed, g_i = 2 pi * geometric factor) this is a convex function of u given by ONE
+eigen-decomposition; the minimiser is the fitted speed and D at u = 1/v_theory is a zero-parameter test.
+
+Bosons. State: X_A = <x x>, P_A = <p p> (real, no xp correlation). Ansatz K = (1/2) p^T B p + (1/2) x^T V x with
+V = (1/2)(B W + W B), W the restricted potential matrix.
+    D = (1/2) Tr(B P_A) + (1/2) Tr(V X_A) + sum_k [-w_k/2 - log(1 - exp(-w_k))] ... with the sign convention below.
+"""
+from __future__ import annotations
+
+import numpy as np
+import scipy.sparse as sp
+from scipy.optimize import brentq, minimize
+
+
+# ------------------------------------------------------------------------------------------------ fermions
+def fermi_entropy(nu: np.ndarray) -> float:
+    nu = np.clip(np.asarray(nu, float), 0.0, 1.0)
+    a = nu[(nu > 0) & (nu < 1)]
+    return float(-(a * np.log(a)).sum() - ((1 - a) * np.log1p(-a)).sum())
+
+
+def fermi_logZ(kappa: np.ndarray) -> float:
+    return float(np.logaddexp(0.0, -kappa).sum())
+
+
+class FermionBW:
+    """One-parameter family K = u * K1 for a pure Gaussian state given by its filled orbitals on the region."""
+
+    def __init__(self, hA, PsiA: np.ndarray, g: np.ndarray, nu: np.ndarray | None = None, CA: np.ndarray | None = None):
+        hA = sp.csr_matrix(hA)
+        self.n = hA.shape[0]
+        if CA is None:
+            hPsi = hA @ PsiA
+            self.e_local = np.einsum('ik,ik->i', PsiA, hPsi)          # (C_A h_A)_ii
+            if nu is None:
+                nu = np.linalg.eigvalsh(PsiA.T @ PsiA)
+        else:
+            self.e_local = np.einsum('ij,ji->i', CA, hA.toarray())
+            if nu is None:
+                nu = np.linalg.eigvalsh(CA)
+        self.nu = np.asarray(nu)
+        self.S = fermi_entropy(self.nu)
+        self.g = np.asarray(g, float)
+        B = sp.diags(self.g)
+        K1 = 0.5 * (B @ hA + hA @ B)
+        self.kappa1 = np.linalg.eigvalsh(K1.toarray())
+        self.T1 = float(self.g @ self.e_local)
+
+    def D(self, u: float) -> float:
+        return u * self.T1 + fermi_logZ(u * self.kappa1) - self.S
+
+    def dD(self, u: float) -> float:
+        k = self.kappa1
+        return self.T1 - float((k / (np.exp(np.clip(u * k, -700, 700)) + 1)).sum())
+
+    def fit(self, u_lo: float = 1e-6, u_hi: float = 1e6) -> dict:
+        lo, hi = u_lo, u_hi
+        f_lo, f_hi = self.dD(lo), self.dD(hi)
+        if f_lo * f_hi > 0:
+            return {'u': None, 'D_min': None}
+        u = brentq(self.dD, lo, hi, xtol=1e-14, rtol=1e-12, maxiter=500)
+        return {'u': float(u), 'D_min': float(self.D(u))}
+
+
+def fermion_profile_fit(hA, PsiA: np.ndarray, bins: np.ndarray, beta0: np.ndarray, S: float, maxiter: int = 60, CA=None):
+    """Free radial profile: K = (1/2)(B h + h B), B = diag(beta_{bin(i)}); minimise D over the bin values.
+    Stationarity: the ansatz reproduces the local energy of the state in every bin."""
+    hA = sp.csr_matrix(hA)
+    hd = hA.toarray()
+    nb = int(bins.max()) + 1
+    if CA is None:
+        e_local = np.einsum('ik,ik->i', PsiA, hA @ PsiA)
+    else:
+        e_local = np.einsum('ij,ji->i', CA, hd)
+    e_bin = np.bincount(bins, weights=e_local, minlength=nb)
+
+    def fun(beta):
+        b = beta[bins]
+        K = 0.5 * (b[:, None] * hd + hd * b[None, :])
+        kap, V = np.linalg.eigh(K)
+        f = 1.0 / (np.exp(np.clip(kap, -700, 700)) + 1.0)
+        eBW_local = np.einsum('ik,k,ik->i', V, f, hd @ V)
+        D = float(beta @ e_bin) + fermi_logZ(kap) - S
+        grad = e_bin - np.bincount(bins, weights=eBW_local, minlength=nb)
+        return D, grad
+    res = minimize(fun, beta0, jac=True, method='L-BFGS-B', bounds=[(0.0, None)] * nb, options={'maxiter': maxiter, 'ftol': 1e-13, 'gtol': 1e-9})
+    return res.x, float(res.fun), int(res.nit)
+
+
+def direct_K(CA: np.ndarray, floor: float = 1e-11):
+    """K = log((1 - C)/C) from a faithful correlation matrix; returns K, entanglement energies and the smallest
+    distance of the spectrum from {0, 1} (K is trustworthy in double precision when that is >> 1e-13)."""
+    nu, U = np.linalg.eigh(CA)
+    margin = float(min(nu.min(), (1 - nu).min()))
+    nu_c = np.clip(nu, 1e-300, 1 - 1e-16)
+    eps = np.log1p(-nu_c) - np.log(nu_c)
+    return (U * eps) @ U.T, eps, margin
+
+
+# ------------------------------------------------------------------------------------------------ bosons
+def bose_entropy(sig: np.ndarray) -> float:
+    s = np.asarray(sig, float)
+    s = s[s > 0.5 + 1e-13]
+    return float(((s + 0.5) * np.log(s + 0.5) - (s - 0.5) * np.log(s - 0.5)).sum())
+
+
+def bose_symplectic(XA: np.ndarray, PA: np.ndarray) -> np.ndarray:
+    w, U = np.linalg.eigh(XA)
+    Xh = (U * np.sqrt(np.clip(w, 0, None))) @ U.T
+    return np.sqrt(np.clip(np.linalg.eigvalsh(Xh @ PA @ Xh), 0.25, None))
+
+
+class BosonBW:
+    """K = u * [ (1/2) p^T G p + (1/2) x^T V1 x ],  G = diag(g),  V1 a positive matrix supplied by the caller
+    (the beta-weighted gradient energy: a weighted graph Laplacian plus weighted on-site terms)."""
+
+    def __init__(self, V1: np.ndarray, XA: np.ndarray, PA: np.ndarray, g: np.ndarray):
+        self.g = np.asarray(g, float)
+        V1 = np.asarray(V1, float)
+        self.sig = bose_symplectic(XA, PA)
+        self.S = bose_entropy(self.sig)
+        self.T1 = 0.5 * float(self.g @ np.diag(PA)) + 0.5 * float(np.einsum('ij,ji->', V1, XA))
+        sg = np.sqrt(self.g)
+        M = sg[:, None] * V1 * sg[None, :]
+        w2 = np.linalg.eigvalsh(0.5 * (M + M.T))
+        self.min_w2 = float(w2.min())
+        self.w1 = np.sqrt(np.clip(w2, 1e-300, None))
+
+    def D(self, u: float) -> float:
+        w = u * self.w1
+        logZ = float((-0.5 * w - np.log1p(-np.exp(-w))).sum())
+        return u * self.T1 + logZ - self.S
+
+    def fit(self) -> dict:
+        res = minimize(lambda t: self.D(float(np.exp(t[0]))), x0=[0.0], method='Nelder-Mead', options={'xatol': 1e-10, 'fatol': 1e-13, 'maxiter': 400})
+        u = float(np.exp(res.x[0]))
+        return {'u': u, 'D_min': float(res.fun)}
+
+
+def weighted_laplacian(n_total: int, a: np.ndarray, b: np.ndarray, region: np.ndarray, g: np.ndarray, cut_weight: float = 0.5) -> np.ndarray:
+    """Beta-weighted gradient form on a region: bonds inside get (g_i + g_j)/2, bonds cut by the boundary leave the
+    on-site term cut_weight * g_i (the profile vanishes just outside)."""
+    pos = np.full(n_total, -1, dtype=np.int64); pos[region] = np.arange(region.size)
+    ia, ib = pos[a], pos[b]
+    V = np.zeros((region.size, region.size))
+    both = (ia >= 0) & (ib >= 0)
+    w = 0.5 * (g[ia[both]] + g[ib[both]])
+    np.add.at(V, (ia[both], ia[both]), w); np.add.at(V, (ib[both], ib[both]), w)
+    np.add.at(V, (ia[both], ib[both]), -w); np.add.at(V, (ib[both], ia[both]), -w)
+    for x, y in ((ia, ib), (ib, ia)):
+        cut = (x >= 0) & (y < 0)
+        np.add.at(V, (x[cut], x[cut]), cut_weight * g[x[cut]])
+    return V
+
+
+# ------------------------------------------------------------------------------------------------ helpers
+def power_law_fit(d: np.ndarray, y: np.ndarray, dmin: float, dmax: float, nbins: int = 10) -> dict:
+    """Log-binned means of y against d; least-squares slope of log<y> on log d and the rms residual."""
+    m = (d >= dmin) & (d <= dmax) & (y > 0)
+    d, y = d[m], y[m]
+    edges = np.exp(np.linspace(np.log(dmin), np.log(dmax), nbins + 1))
+    xs, ys = [], []
+    for a, b in zip(edges[:-1], edges[1:]):
+        k = (d >= a) & (d < b)
+        if k.sum() >= 3:
+            xs.append(np.log(d[k].mean())); ys.append(np.log(y[k].mean()))
+    xs, ys = np.array(xs), np.array(ys)
+    if xs.size < 3:
+        return {'exponent': None}
+    A = np.vstack([xs, np.ones_like(xs)]).T
+    coef, *_ = np.linalg.lstsq(A, ys, rcond=None)
+    res = ys - A @ coef
+    return {'exponent': float(coef[0]), 'log_prefactor': float(coef[1]), 'rms_log_residual': float(np.sqrt((res ** 2).mean())),
+            'bins': int(xs.size), 'd_range': [float(dmin), float(dmax)], 'points': [[float(np.exp(a)), float(np.exp(b))] for a, b in zip(xs, ys)]}
+
+
+def shell_bins(r: np.ndarray, nb: int) -> np.ndarray:
+    """Radial bins of about equal population that never split a shell of equal radius."""
+    key = np.round(r, 6)
+    shells, inv, counts = np.unique(key, return_inverse=True, return_counts=True)
+    target = r.size / nb
+    label = np.zeros(shells.size, dtype=np.int64)
+    acc, b = 0, 0
+    for i, c in enumerate(counts):
+        label[i] = b
+        acc += c
+        if acc >= target * (b + 1) and b < nb - 1:
+            b += 1
+    return label[inv]

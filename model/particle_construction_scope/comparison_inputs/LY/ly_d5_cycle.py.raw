@@ -1,0 +1,184 @@
+"""Worker LY, X10 and X11: the return half of the quark mass cycle (4 + 3 -> 1) and the completion probability of
+the quark mass term {1,2,3} under the committed chain (structure; no measured value, no candidate value).
+
+  cd RL/work/LY && PYTHONDONTWRITEBYTECODE=1 nice -n 10 /tmp/oph-completion-venv/bin/python -B ly_d5_cycle.py
+Writes d5_cycle.json.
+"""
+from __future__ import annotations
+
+import json
+import os
+import time
+
+import ly_chain as CH
+import ly_lib as L
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+T = L.T0
+INF = 1 << 60
+
+
+def single_one(cfg):
+    d = L.defects(cfg)
+    return len(d) == 1 and list(d.values())[0] == 1
+
+
+def cheapest_pred(start, pred, max_rise=5, max_uphill=3):
+    """Fewest cost-raising reads, then fewest reads, from start to any configuration with pred."""
+    dist = [dict() for _ in range(max_uphill + 1)]
+    dist[0][start] = (0, None, None)
+    for u in range(max_uphill + 1):
+        layer = sorted(dist[u].items(), key=lambda kv: kv[1][0])
+        buckets = {}
+        for x, (dx, _, _) in layer:
+            buckets.setdefault(dx, []).append(x)
+        best = None
+        while buckets:
+            ell = min(buckets)
+            if best is not None and ell >= best[0]:
+                break
+            for x in buckets.pop(ell):
+                if dist[u][x][0] != ell:
+                    continue
+                if pred(x):
+                    if best is None or ell < best[0]:
+                        best = (ell, x)
+                    continue
+                for k in range(L.NS):
+                    p, m = L.PLUS[k], L.MINUS[k]
+                    xp, xm = x[p], x[m]
+                    base = T[xp] + T[xm]
+                    for d in (1, 5):
+                        yp, ym = (xp + d) % 6, (xm - d) % 6
+                        r = T[yp] + T[ym] - base
+                        if r > max_rise:
+                            continue
+                        y = list(x)
+                        y[p], y[m] = yp, ym
+                        y = tuple(y)
+                        if r <= 0:
+                            if ell + 1 < dist[u].get(y, (INF,))[0]:
+                                dist[u][y] = (ell + 1, x, r)
+                                buckets.setdefault(ell + 1, []).append(y)
+                        elif u < max_uphill:
+                            if ell + 1 < dist[u + 1].get(y, (INF,))[0]:
+                                dist[u + 1][y] = (ell + 1, x, r)
+        if best is not None:
+            rises, y, uu = [], best[1], u
+            while True:
+                _, x, r = dist[uu][y]
+                if x is None:
+                    break
+                rises.append(r)
+                if r > 0:
+                    uu -= 1
+                y = x
+            rises.reverse()
+            return {'uphill': u, 'length': best[0], 'rises': rises}
+    return {'uphill': None}
+
+
+def main():
+    t0 = time.time()
+    out = {}
+    reps = L.pair_orbit_reps()
+    placements = []
+    for a, b, d, size in reps:
+        if d < 2:
+            continue
+        placements.append((a, b, d, size, 1.0 if d != 2 else 0.5))
+        if d == 2:
+            placements.append((b, a, d, size, 0.5))
+    wsum = {}
+    for _, _, d, size, share in placements:
+        wsum[d] = wsum.get(d, 0.0) + size * share
+
+    # ---------------- X10: 4 + 3 -> 1
+    x10 = []
+    for f4, f3, d, size, share in [(reps[0][0], reps[0][1], 1, reps[0][3], 1.0)] + placements:
+        start = L.config({f4: 4, f3: 3})
+        route = cheapest_pred(start, single_one)
+        row = {'d': d, 'face_of_4': f4, 'face_of_3': f3, 'orbit_size': size, 'route': route}
+        if d >= 2:
+            rs = CH.rises(start, T)
+            hist = {}
+            for _, _, r in rs:
+                hist[r] = hist.get(r, 0) + 1
+            paid = [(k, dl, r) for k, dl, r in rs if 0 < r <= L.KAPPA]
+            starts = [L.twist(start, k, dl) for k, dl, _ in paid]
+            res, info = CH.solve_absorption(starts, T, want_time=False, stop=single_one)
+            per = []
+            for (k, dl, r), rr in zip(paid, res):
+                per.append({'seam': k, 'delta': 1 if dl == 1 else -1, 'rise': r,
+                            'split_face_class': 4 if f4 in (L.PLUS[k], L.MINUS[k]) else 3,
+                            'K_43': rr['dist'].get("((1,), 'single')", 0.0), 'dist': rr['dist']})
+            kmin = [p['K_43'] for p in per if p['rise'] == min(q['rise'] for q in per)]
+            row.update({'rise_histogram': hist, 'paid_leaks': len(paid), 'per_leak': per,
+                        'W_43': sum(p['K_43'] for p in per) / 12.0, 'K_43_mean_over_paid': sum(p['K_43'] for p in per) / len(per),
+                        'K_43_minimal_rise': sum(kmin) / len(kmin), 'chain': {k: info[k] for k in ('states', 'transient', 'labels', 'residual', 'max_row_sum_deviation')},
+                        'share_in_separation': share})
+            print(f"X10 d={d} (4 on {f4}, 3 on {f3}): route {route['uphill']} raising, {route['length']} reads, rises "
+                  f"{route['rises']}; paid leaks {len(paid)} hist {hist}; W_43 {row['W_43']:.6f} K_43(min rise) "
+                  f"{row['K_43_minimal_rise']:.6f} mean paid {row['K_43_mean_over_paid']:.6f} states {info['states']} "
+                  f"{time.time() - t0:.1f}s", flush=True)
+            print('    per leak', [(p['split_face_class'], p['rise'], round(p['K_43'], 5)) for p in per], flush=True)
+        else:
+            print(f"X10 d=1: route {route}", flush=True)
+        x10.append(row)
+    out['X10_return_half_of_the_quark_cycle'] = x10
+    W, Kmin, Kpaid = {}, {}, {}
+    for row in x10:
+        if row['d'] < 2:
+            continue
+        w = row['orbit_size'] * row['share_in_separation'] / wsum[row['d']]
+        W[row['d']] = W.get(row['d'], 0.0) + w * row['W_43']
+        Kmin[row['d']] = Kmin.get(row['d'], 0.0) + w * row['K_43_minimal_rise']
+        Kpaid[row['d']] = Kpaid.get(row['d'], 0.0) + w * row['K_43_mean_over_paid']
+    pw = {d: float(v) for d, v in L.PLACEMENT_WEIGHTS.items()}
+    out['W_43_by_separation'] = W
+    out['K_43_minimal_rise_by_separation'] = Kmin
+    out['K_43_paid_by_separation'] = Kpaid
+    out['W_43_placement_mean'] = sum(pw[d] * W[d] for d in W)
+    out['K_43_minimal_rise_placement_mean'] = sum(pw[d] * Kmin[d] for d in Kmin)
+    out['K_43_paid_placement_mean'] = sum(pw[d] * Kpaid[d] for d in Kpaid)
+    print('W_43(d)', W, 'mean', out['W_43_placement_mean'], '; K_43 minimal rise mean',
+          out['K_43_minimal_rise_placement_mean'], flush=True)
+
+    # ---------------- X11: completion probability of the quark mass term {1,2,3}
+    x11 = []
+    for f2, f3, d, size, share in placements:
+        others = [c for c in range(L.NF) if c not in (f2, f3)]
+        starts = [L.config({f2: 2, f3: 3, c: 1}) for c in others]
+        res, info = CH.solve_absorption(starts, T, want_time=False)
+        per = [{'class1_face': c, 'd_1_to_2': L.DIST[c][f2], 'd_1_to_3': L.DIST[c][f3],
+                'K_vacuum': r['dist'].get("('vacuum',)", 0.0), 'dist': r['dist']} for c, r in zip(others, res)]
+        mean = {}
+        for p in per:
+            for k, v in p['dist'].items():
+                mean[k] = mean.get(k, 0.0) + v / len(per)
+        row = {'d_23': d, 'face_of_2': f2, 'face_of_3': f3, 'orbit_size': size, 'share_in_separation': share,
+               'K_q_mean_over_class1_positions': sum(p['K_vacuum'] for p in per) / len(per),
+               'K_q_class1_adjacent_to_2': [p['K_vacuum'] for p in per if p['d_1_to_2'] == 1],
+               'K_q_max': max(p['K_vacuum'] for p in per), 'K_q_min': min(p['K_vacuum'] for p in per),
+               'outcome_mean': mean, 'per_position': per, 'states': info['states']}
+        x11.append(row)
+        print(f"X11 d_23={d} (2 on {f2}, 3 on {f3}): K_q mean {row['K_q_mean_over_class1_positions']:.6f} "
+              f"[min {row['K_q_min']:.6f}, max {row['K_q_max']:.6f}] adjacent to 2: "
+              f"{[round(x, 6) for x in row['K_q_class1_adjacent_to_2']]} {time.time() - t0:.1f}s", flush=True)
+        print('    outcome mean', {k: round(v, 5) for k, v in sorted(mean.items())}, flush=True)
+    out['X11_quark_mass_term_completion'] = x11
+    Kq = {}
+    for row in x11:
+        w = row['orbit_size'] * row['share_in_separation'] / wsum[row['d_23']]
+        Kq[row['d_23']] = Kq.get(row['d_23'], 0.0) + w * row['K_q_mean_over_class1_positions']
+    out['K_q_by_separation'] = Kq
+    out['K_q_placement_mean'] = sum(pw[d] * Kq[d] for d in Kq)
+    print('K_q(d)', Kq, 'mean', out['K_q_placement_mean'], flush=True)
+    out['seconds'] = round(time.time() - t0, 1)
+    with open(os.path.join(HERE, 'd5_cycle.json'), 'w') as fh:
+        json.dump(out, fh, indent=1, default=str)
+        fh.write('\n')
+
+
+if __name__ == '__main__':
+    main()

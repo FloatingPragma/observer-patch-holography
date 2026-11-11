@@ -1,0 +1,44 @@
+"""Worker CH, addendum 4 (second run): comparison run 3 with measurement (NOT BLIND), rows of chain3.json.
+
+Run once, after chain3.json and its hash in ROWS_BEFORE_COMPARISON.sha256 are on file:
+    /tmp/oph-completion-venv/bin/python ch_compare3.py [out.json]
+
+Reference values and rule: CANDIDATES.md section 7 (the "Measured" column of RL/COUPLING_FIX.md section 2). A row passes
+when sin^2 theta_W(m_Z) and 1/alpha_em(m_Z) both lie within 0.5 percent of the reference. Rows V14 to V16 were
+registered after comparison run 1; FA' carries no weight.
+"""
+import json
+import sys
+from pathlib import Path
+
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).with_name('compare3.json')
+HERE = Path(__file__).resolve().parent
+REF = dict(v=246.22, m_Z=91.188, m_W=80.37, inv_alpha_2=29.58, alpha_s=0.1180, sin2=0.23122, inv_alpha_em=127.95)
+rows = json.loads((HERE / 'chain3.json').read_text())['rows']
+out = {'reference': REF, 'rows': {}}
+for key, r in rows.items():
+    if 'closure' in r:
+        out['rows'][key] = dict(variant=r['variant'], result='no root')
+        continue
+    dev = {k: 100 * (r[k] / REF[k] - 1) for k in REF}
+    passes = abs(dev['sin2']) <= 0.5 and abs(dev['inv_alpha_em']) <= 0.5
+    out['rows'][key] = dict(variant=r['variant'], status=r['status'], percent=dev, passes_registered_rule=bool(passes),
+                            carries_weight=bool(r['carries_weight']))
+out['passing_with_weight'] = [k for k, v in out['rows'].items() if v.get('passes_registered_rule') and v.get('carries_weight')]
+out['passing_without_weight'] = [k for k, v in out['rows'].items() if v.get('passes_registered_rule') and not v.get('carries_weight')]
+out['count'] = dict(comparison_run=3, rows_compared=len(out['rows']),
+                    rows_with_weight=sum(1 for v in out['rows'].values() if v.get('carries_weight')),
+                    passing_with_weight=len(out['passing_with_weight']))
+OUT.write_text(json.dumps(out, indent=1))
+print(f"{'row':22s} {'v':>8s} {'m_Z':>8s} {'m_W':>8s} {'1/a2':>8s} {'a_s':>8s} {'sin2':>8s} {'1/a_em':>8s}  pass  weight")
+for k, v in out['rows'].items():
+    if 'percent' not in v:
+        print(f'{k:22s} no root')
+        continue
+    p = v['percent']
+    print(f"{k:22s} " + ' '.join(f"{p[c]:+8.2f}" for c in ('v', 'm_Z', 'm_W', 'inv_alpha_2', 'alpha_s', 'sin2', 'inv_alpha_em'))
+          + f"  {str(v['passes_registered_rule']):5s} {str(v['carries_weight']):5s}")
+print('passing with weight:', out['passing_with_weight'])
+print('passing without weight:', out['passing_without_weight'])
+print(out['count'])
+print('wrote', OUT)

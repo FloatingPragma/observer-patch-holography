@@ -1,0 +1,119 @@
+"""Forward map and closure of the declared D10 chain for every candidate state set (float64 chain).
+
+Run:
+    /tmp/oph-completion-venv/bin/python run_sets.py [out.json]
+Reads b_coefficients.json. For each set:
+  1. the outer closure with the producer's windows (alpha in [0.005, 0.01], alpha_U in [0.02, 0.08],
+     ln(M_U/m_Z) in [0, 50]);
+  2. when there is none, a widened diagnostic at the declared closure pixel P0: alpha_U in [0.004, 0.3],
+     ln(M_U/m_Z) in [0, 400], counting points with an m_Z root, points with all couplings positive at m_Z,
+     and sign changes of the pixel residual among admissible points;
+  3. a closure attempt with the widened windows when the diagnostic finds a pixel root.
+No measured value enters; comparison is done in compare.py.
+"""
+import json
+import math
+import sys
+from fractions import Fraction as F
+from pathlib import Path
+
+from d10_float import Chain, readout
+
+HERE = Path(__file__).parent
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / 'run_sets.json'
+P0 = 1.6309720958588974     # closure pixel of the declared chain (crosscheck.json)
+
+sets = json.loads((HERE / 'b_coefficients.json').read_text())['sets']
+
+
+def frac(s):
+    return float(F(s))
+
+
+def diagnose(b):
+    ch = Chain(b, lwin=400.0)
+    n_scan, n_mz, n_pos = 0, 0, 0
+    min_inv3 = None
+    prev = None
+    roots = []
+    adm = []          # (alpha_U, pixel residual, 1/alpha_2, 1/alpha_3) at admissible points
+    landau = []       # alpha_U values whose m_Z root has a non-positive coupling
+    for k in range(300):
+        a = 0.004 + (0.3 - 0.004) * k / 299
+        n_scan += 1
+        d = ch.d10_at(a, P0)
+        if 'mz' not in d:
+            continue
+        n_mz += 1
+        min_inv3 = d['inv3'] if min_inv3 is None else min(min_inv3, d['inv3'])
+        if not d['positive']:
+            landau.append(a)
+            continue
+        n_pos += 1
+        r = d['pixel_residual']
+        adm.append((a, r, d['inv2'], d['inv3']))
+        if prev is not None and r * prev[1] < 0:
+            roots.append((prev[0], a))
+        prev = (a, r)
+    best = max(adm, key=lambda x: x[1]) if adm else None
+    return dict(alpha_u_points=n_scan, with_mz_root=n_mz, with_positive_couplings=n_pos,
+                min_inv_alpha3_at_mz=min_inv3, pixel_root_brackets=roots,
+                inadmissible_alpha_u_range=[min(landau), max(landau)] if landau else None,
+                admissible_alpha_u_range=[adm[0][0], adm[-1][0]] if adm else None,
+                max_pixel_residual_admissible=dict(alpha_u=best[0], residual=best[1], inv_alpha2=best[2],
+                                                   inv_alpha3=best[3], required_heat_sum=P0 / 4) if best else None)
+
+
+def closure(b, wide=False):
+    ch = Chain(b, lwin=400.0 if wide else 50.0)
+    if wide:
+        orig = ch.solve_alpha_u
+        ch.solve_alpha_u = lambda p, lo=0.004, hi=0.3, n=300: orig(p, lo, hi, n)
+    try:
+        res = ch.closure()
+    except ValueError as exc:
+        return dict(status=f'closure failed: {exc}')
+    if res is None:
+        return None
+    alpha, d, p = res
+    return dict(status='closure', **readout(alpha, d, p))
+
+
+results = {}
+for key, row in sets.items():
+    b = (frac(row['b1']), frac(row['b2']), frac(row['b3']))
+    entry = dict(b=[row['b1'], row['b2'], row['b3']], content=row['content'])
+    c = closure(b)
+    if c is not None:
+        entry['producer_windows'] = c
+    else:
+        entry['producer_windows'] = dict(status='no closure in the producer windows')
+        entry['diagnostic_at_P0'] = diag = diagnose(b)
+        if diag['pixel_root_brackets']:
+            w = closure(b, wide=True)
+            entry['widened_windows'] = w if w is not None else dict(status='no closure in widened windows')
+            if w is None or w.get('status') != 'closure':
+                ch = Chain(b, lwin=400.0)
+                d = ch.solve_alpha_u(P0, lo=0.004, hi=0.3, n=300)
+                if d is not None:
+                    a0inv, anchor = ch.alpha0_inv(d)
+                    entry['d10_at_P0_widened'] = dict(
+                        alpha_U=d['alpha_u'], v_over_Estar=d['v'], mZ_over_Estar=d['mz'],
+                        inv_alpha_123=[d['inv1'], d['inv2'], d['inv3']], alpha_em_inv_mZ=anchor,
+                        inner_alpha0_inv=a0inv, outer_alpha_range_inv=[100.0, 200.0])
+    results[key] = entry
+    s = entry['producer_windows']
+    if s.get('status') == 'closure':
+        print(f"{key:5s} b=({row['b1']},{row['b2']},{row['b3']}): P={s['P']:.10f} 1/alpha={s['alpha0_inv']:.6f} "
+              f"alpha_U={s['alpha_U']:.6f} M_U={s['M_U_GeV']:.4e} v={s['v_GeV']:.6g} mZ={s['m_Z_GeV']:.6g} "
+              f"mW={s['m_W_GeV']:.6g} s2w={s['sin2_theta_W_mZ']:.5f} as={s['alpha_s_mZ']:.5f}", flush=True)
+    else:
+        print(f"{key:5s} b=({row['b1']},{row['b2']},{row['b3']}): no closure; diagnostic {entry.get('diagnostic_at_P0')}"
+              f" widened {entry.get('widened_windows', {}).get('status')}", flush=True)
+        w = entry.get('widened_windows')
+        if w and w.get('status') == 'closure':
+            print(f"       widened: P={w['P']:.10f} 1/alpha={w['alpha0_inv']:.6f} alpha_U={w['alpha_U']:.6f} "
+                  f"v={w['v_GeV']:.6g} mZ={w['m_Z_GeV']:.6g} s2w={w['sin2_theta_W_mZ']:.5f} as={w['alpha_s_mZ']:.5f}",
+                  flush=True)
+
+OUT.write_text(json.dumps(results, indent=1) + '\n')

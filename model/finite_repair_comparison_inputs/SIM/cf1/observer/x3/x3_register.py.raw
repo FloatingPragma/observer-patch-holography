@@ -1,0 +1,123 @@
+"""Reference reader of register.json for the simulation session. Needs numpy only (no model import).
+
+    reg = Register('register.json')
+    keys = reg.canonical_keys(words)            # words: int array [n, 20], the classes of n carriers (template face order)
+    comp, shape = reg.classify(words)           # composition name ('{2,4}', '{2,2,2}', ..., or the multiset) and shape id
+                                                # for the three pair compositions the id is the pair type 0..19
+    k, d, chi = reg.pair_labels(words)          # for carriers with exactly one conjugate pair; zeros elsewhere
+    h2, h3 = handedness(reg, words)             # handedness sums, any composition
+
+classify returns (composition names, shape ids, canonical keys). A carrier without defects gets ('{}', 0). A
+composition without a table gets its multiset string and the shape id -1; its canonical key still identifies the
+shape. Pass only the carriers with defects, in chunks of a few million rows (one million rows: about 2 s for the
+keys, 5 s for the handedness sums).
+"""
+import json
+import numpy as np
+
+
+class Register:
+    def __init__(self, path):
+        r = json.load(open(path))
+        self.raw = r
+        T = r['tables']
+        self.rot = np.array(T['rotations'], dtype=np.int64)            # [60, 20] face permutations
+        self.sep = np.array(T['separation'], dtype=np.int64)
+        self.chi = np.array(T['chirality'], dtype=np.int64)
+        self.lr = np.array(T['frame_pair'], dtype=np.int64)
+        self.inv = np.array(T['inversion'], dtype=np.int64)
+        pow6 = 6 ** (19 - np.arange(20, dtype=np.int64))
+        self.W = pow6[self.rot]                                        # weight of face f after rotation g
+        self.shape = {}
+        self.rows = {}
+        for p in r['pairs']:
+            name = '{%d,%d}' % tuple(p['classes'])
+            self.shape[p['key']] = (name, p['type'])
+            self.rows[(name, p['type'])] = p
+        for name, t in r['triples'].items():
+            for row in t['shape_rows']:
+                self.shape[row['key']] = (name, row['id'])
+                self.rows[(name, row['id'])] = row
+        for name, t in r['quadruples'].items():
+            cols = t['shape_row_columns']
+            for row in t['shape_rows']:
+                self.shape[row[1]] = (name, row[0])
+                self.rows[(name, row[0])] = dict(zip(['id', 'key', 'multiplicity', 'non_adjacent', 'mirror', 'conjugate', 'faces'], row))
+
+    def canonical_keys(self, words):
+        words = np.asarray(words, dtype=np.int64)
+        best = words @ self.W[0]
+        for g in range(1, 60):
+            np.minimum(best, words @ self.W[g], out=best)
+        return best
+
+    def classify(self, words):
+        words = np.asarray(words, dtype=np.int64)
+        keys = self.canonical_keys(words)
+        comp, shape = [], []
+        cache = {}
+        for i, k in enumerate(keys.tolist()):
+            if k not in cache:
+                if k == 0:
+                    cache[k] = ('{}', 0)
+                elif k in self.shape:
+                    cache[k] = self.shape[k]
+                else:
+                    ms = sorted(int(c) for c in words[i] if c)
+                    cache[k] = ('{' + ','.join(map(str, ms)) + '}', -1)
+            c, s = cache[k]
+            comp.append(c); shape.append(s)
+        return comp, np.array(shape), keys
+
+    def pair_labels(self, words):
+        """(k, separation, chirality) for carriers that hold exactly one conjugate pair (k = 1, 2, 3); else zeros."""
+        words = np.asarray(words, dtype=np.int64)
+        n = len(words)
+        k = np.zeros(n, np.int64); d = np.zeros(n, np.int64); chi = np.zeros(n, np.int64)
+        nz = (words != 0).sum(axis=1)
+        two = np.nonzero(nz == 2)[0]
+        if len(two):
+            f = np.argsort(words[two] == 0, axis=1, kind='stable')[:, :2]
+            c = np.take_along_axis(words[two], f, axis=1)
+            ok = (c.sum(axis=1) % 6) == 0
+            swap = c[:, 0] > c[:, 1]                      # first face = face of the smaller class
+            f1 = np.where(swap, f[:, 1], f[:, 0]); f2 = np.where(swap, f[:, 0], f[:, 1])
+            kk = np.minimum(c[:, 0], c[:, 1])
+            dd = self.sep[f1, f2]
+            cc = self.chi[f1, f2]
+            cc = np.where((kk == 3) & (dd == 2), 0, cc)   # unordered pair: no chirality at separation 2
+            k[two[ok]] = kk[ok]; d[two[ok]] = dd[ok]; chi[two[ok]] = cc[ok]
+        return k, d, chi
+
+
+def handedness(reg, words):
+    """(h2, h3) per carrier; see conventions.handedness_sums of register.json."""
+    words = np.asarray(words, dtype=np.int64)
+    nz = (words != 0).astype(np.int64)
+    c3 = np.where(reg.sep == 3, reg.chi, 0)
+    c2 = np.where(reg.sep == 2, reg.chi, 0)
+    h3 = np.einsum('nf,fg,ng->n', nz, c3, nz) // 2
+    h2 = np.zeros(len(words), np.int64)
+    for a in range(1, 6):
+        A = (words == a).astype(np.int64)
+        if not A.any():
+            continue
+        for b in range(a + 1, 6):
+            B = (words == b).astype(np.int64)
+            if B.any():
+                h2 += np.einsum('nf,fg,ng->n', A, c2, B)
+    return h2, h3
+
+
+def words_from_cut(path, carriers):
+    """class words [carriers, 20] from a cut file of a run with config.track_intra (intra_face, intra_cls)."""
+    z = np.load(path)
+    w = np.zeros(20 * carriers, np.int8)
+    w[z['intra_face']] = z['intra_cls']
+    return w.reshape(carriers, 20)
+
+
+def words_from_checkpoint(path, carriers):
+    """class words [carriers, 20] from a checkpoint (member 'classes', internal faces first)."""
+    z = np.load(path)
+    return np.asarray(z['classes'][:20 * carriers]).reshape(carriers, 20)

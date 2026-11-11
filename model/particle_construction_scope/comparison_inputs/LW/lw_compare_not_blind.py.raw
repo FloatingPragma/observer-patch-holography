@@ -1,0 +1,67 @@
+"""LW comparison with measured values (NOT BLIND). Run once, after lw_a_*.json and lw_b_*.json were on file.
+
+References: PDG 2026 values as stored in the audit package (W 80.3625, Z 91.1879, H 125.13, t 172.1 GeV, via LEW's
+t1_chain.json) and G_F = 1.1663788e-5 GeV^-2 (PDG). Rows LB2, LB5, LB6 and the 172.4 GeV control are LEW's
+(work/SIM/derive/lew/t3_*.json). Writes lw_compare_not_blind.json.
+"""
+from __future__ import annotations
+
+import json
+import math
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+LEW = HERE.parent / "SIM" / "derive" / "lew"
+GF_MEASURED = 1.1663788e-5
+
+
+def pct(x, ref):
+    return 100.0 * (x / ref - 1.0)
+
+
+def main():
+    t1 = json.loads((LEW / "t1_chain.json").read_text())
+    refs = t1["references_compare_only_GeV"]
+    v_f = (math.sqrt(2.0) * GF_MEASURED) ** -0.5
+    rows = {}
+    for cid in ("LB1", "LB3", "LB4", "LB7", "LB8"):
+        d = json.loads((HERE / f"lw_b_{cid}.json").read_text())
+        rows[cid] = {"scale_GeV": d.get("attachment_scale_GeV", "G_F record" if cid == "LB4" else d["Q0_GeV"]),
+                     "v_Q0_GeV": d["v_Q0_GeV"], "outputs_GeV": {k: d["outputs_GeV"][k] for k in ("W", "Z", "H", "t")}}
+    lew = json.loads((LEW / "t3_vev_attachment.json").read_text())["pixels"]["P_fwd"]
+    for cid, key in (("LB2", "A2"), ("LB5", "A3"), ("C1_172.4", "C1")):
+        r = lew[key]
+        rows[cid] = {"scale_GeV": r["attachment_scale_GeV"], "v_Q0_GeV": r["v_Q0_GeV"],
+                     "outputs_GeV": {k: r["outputs_GeV"][k] for k in ("W", "Z", "H", "t")}, "source": "LEW"}
+    add = json.loads((LEW / "t3_addendum.json").read_text())["controls"]
+    for cid, key in (("LB6_E_cell", "A4_E_cell"), ("LB6_M_U", "A5_M_U")):
+        r = add[key]
+        out = r.get("outputs_GeV", r)
+        rows[cid] = {"scale_GeV": r.get("attachment_scale_GeV"), "v_Q0_GeV": r.get("v_Q0_GeV"),
+                     "outputs_GeV": {k: out[k] for k in ("W", "Z", "H", "t") if k in out}, "source": "LEW"}
+    for row in rows.values():
+        o = row["outputs_GeV"]
+        row["residual_percent"] = {k: pct(o[k], refs[k]) for k in o}
+        if "W" in o and "Z" in o:
+            row["W_over_Z"] = o["W"] / o["Z"]
+    a = json.loads((HERE / "lw_a_chart.json").read_text())["rows"]
+    chart = {name: {"MW_GeV": r["MW_GeV"], "MZ_GeV": r["MZ_GeV"], "W_pct": pct(r["MW_GeV"], refs["W"]),
+                    "Z_pct": pct(r["MZ_GeV"], refs["Z"]), "W_over_Z": r["MW_GeV"] / r["MZ_GeV"]}
+             for name, r in a.items()}
+    vs = json.loads((HERE / "lw_b_LB4.json").read_text())["v_source_GeV"]
+    out = {"schema": "lw.compare_not_blind.v1", "NOT_BLIND": True,
+           "references_GeV": refs, "W_over_Z_measured": refs["W"] / refs["Z"],
+           "GF_measured": GF_MEASURED, "v_F_measured_GeV": v_f,
+           "derived_attachment_LB4": {"v_source_GeV": vs, "v_source_over_v_F_minus_1": vs / v_f - 1},
+           "attachment_rows": rows, "strict_chart_rows": chart}
+    (HERE / "lw_compare_not_blind.json").write_text(json.dumps(out, indent=2) + "\n")
+    print(json.dumps({k: out[k] for k in ("v_F_measured_GeV", "derived_attachment_LB4", "W_over_Z_measured")}, indent=1))
+    for cid, row in rows.items():
+        print(cid, row["scale_GeV"], {k: round(v, 5) for k, v in row["outputs_GeV"].items()},
+              {k: round(v, 4) for k, v in row["residual_percent"].items()})
+    for name, row in chart.items():
+        print(name, {k: round(v, 5) for k, v in row.items()})
+
+
+if __name__ == "__main__":
+    main()

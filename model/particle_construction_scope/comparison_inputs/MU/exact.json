@@ -1,0 +1,63 @@
+{
+ "E1": "sum_p u_p = 0 and sum_p u_p u_p^T = 4 * identity: Phi(a + b.u) = 12 a + 4 b.sigma (EXACT)",
+ "E2": {
+  "cos_adjacent": "1/sqrt5",
+  "inradius_squared": "1/3 + 2/15*sqrt5",
+  "inradius": 0.7946544722917661,
+  "cone_deficit_1_minus_inradius": 0.2053455277082339
+ },
+ "E3": {
+  "seam (2 ports)": {
+   "n_C": 2,
+   "cbar_squared": "1/2 + 1/10*sqrt5",
+   "cbar": 0.8506508083520399,
+   "eta": 1.2585027561639646,
+   "exp_2eta": 12.391435051850292
+  },
+  "face (3 ports)": {
+   "n_C": 3,
+   "cbar_squared": "1/3 + 2/15*sqrt5",
+   "cbar": 0.7946544722917661,
+   "eta": 1.0839368632782485,
+   "exp_2eta": 8.739681318220423
+  },
+  "star (port and 5 neighbours)": {
+   "n_C": 6,
+   "cbar_squared": "1/6 + 1/18*sqrt5",
+   "cbar": 0.5393446629166316,
+   "eta": 0.603230969903108,
+   "exp_2eta": 3.341640786499874
+  },
+  "all but the antipode (11 ports)": {
+   "n_C": 11,
+   "cbar_squared": "1/121",
+   "cbar": 0.09090909090909091,
+   "eta": 0.09116077839697731,
+   "exp_2eta": 1.2
+  },
+  "star_exact": "cbar = (1 + sqrt5)/6, exp(2 eta) = 2 + (3/5) sqrt5"
+ },
+ "E5": "rank of the 12 x 10 quadric conditions = 9; kernel = t^2 - |r|^2 (EXACT): every linear automorphism of the load cone preserves the Minkowski form up to scale",
+ "E7": {
+  "statement": "sum over neighbours of u_q = sqrt5 u_p; the mean map per attempt multiplies the three-momentum by lambda = (55 + sqrt5)/60 and keeps the total load",
+  "lambda": "11/12 + 1/60*sqrt5",
+  "lambda_float": 0.9539344662916631
+ },
+ "E9": {
+  "mass_squared_values (count, mass)": {
+   "2 + -2/5*sqrt5": [
+    30,
+    1.0514622242382672
+   ],
+   "2 + 2/5*sqrt5": [
+    30,
+    1.7013016167040798
+   ],
+   "4": [
+    6,
+    2.0
+   ]
+  },
+  "mean_mass_squared_uniform": "24/11"
+ }
+}

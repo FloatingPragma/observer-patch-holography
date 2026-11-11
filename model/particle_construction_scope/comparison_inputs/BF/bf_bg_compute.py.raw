@@ -1,0 +1,79 @@
+"""BF sections D and E: one-loop energy of one complex unit-charge link field in a uniform flux, raw series.
+
+Jobs (each below two minutes):
+  iso            flux through space-like plaquettes (magnetic background). Spectrum of the isotropic two-dimensional
+                 operator at flux 2 pi/n; sums (1/n) sum_i F(lambda_i, xi) for xi in {1, 2, 4, 8, 16, inf}.
+  aniso <xi>     flux through (x,t)-plaquettes with time step a/xi (electric background). Spectrum of the anisotropic
+                 operator at flux 2 pi/n per plaquette; sum xi (1/n) sum_i F(lambda_i, 1); field phi_E = 2 pi xi/n.
+  variant        isotropic operator with C = cbar cos(phi/2), S = cbar sin(phi/2), cbar = cos(phi/2) (the root of
+                 SU(3) with a second weight pair, background T3) and cbar = cos(phi/6) (background T8).
+Each row stores d = (sum - reference)/phi^2 with phi the field in isotropic lattice units.
+Writes bf_bg_data_<job>.json.
+"""
+import json
+import sys
+import time
+
+import numpy as np
+
+import bf_bg_lib as B
+
+t0 = time.time()
+job = sys.argv[1]
+XIS = [1.0, 2.0, 4.0, 8.0, 16.0, np.inf]
+refs, om = B.references(XIS)
+NLIST = [16, 24, 32, 48, 64, 96, 128, 192, 256, 384, 512, 768, 1024, 1536, 2048, 3072, 4096, 6144, 8192]
+
+
+def spectra(n, xi2, cbar=lambda ph: 1.0):
+    ph = 2 * np.pi / n
+    Nk = 2 if n <= 64 else 1
+    c = cbar(ph)
+    out = []
+    for i in range(Nk):
+        for j in range(Nk):
+            out.append(B.spectrum(n, ph, c * np.cos(ph / 2), c * np.sin(ph / 2), xi2,
+                                  k2=(j + 0.5) / Nk * ph, kappa1=(i + 0.5) / Nk * 2 * np.pi))
+    return ph, out
+
+
+rows = []
+if job == 'iso':
+    for n in NLIST:
+        ph, lams = spectra(n, 1.0)
+        row = {'n': n, 'phi': ph, 'lowest_levels_over_phi': (np.sort(lams[0])[:6] / ph).tolist(),
+               'negative_eigenvalues_per_cell': int(np.sum(lams[0] < 0)), 'd': {}, 'sum': {}}
+        for xi in XIS:
+            s = float(np.mean([B.F(l, xi).sum() / n for l in lams]))
+            row['sum'][str(xi)] = s
+            row['d'][str(xi)] = (s - refs[xi]['magnetic']) / ph ** 2
+        rows.append(row)
+        print(n, ph, {k: round(v, 8) for k, v in row['d'].items()}, round(time.time() - t0, 1), 's', flush=True)
+    name = 'bf_bg_data_iso.json'
+elif job == 'aniso':
+    xi = float(sys.argv[2])
+    for n in [int(xi) * m for m in (16, 24, 32, 48, 64, 96, 128, 192, 256, 384, 512, 768, 1024, 1536, 2048, 3072, 4096) if int(xi) * m <= 8192]:
+        ph, lams = spectra(n, xi)
+        s = float(np.mean([xi * B.F(l, 1.0).sum() / n for l in lams]))
+        phiE = xi * ph
+        row = {'n': n, 'flux_per_plaquette': ph, 'phi': phiE, 'lowest_levels_over_phi_E': (np.sort(lams[0])[:6] / phiE).tolist(),
+               'largest_eigenvalue': float(np.max(lams[0])), 'sum': s, 'd': (s - refs[xi]['electric']) / phiE ** 2}
+        rows.append(row)
+        print(n, phiE, row['d'], row['lowest_levels_over_phi_E'][:3], round(time.time() - t0, 1), 's', flush=True)
+    name = f'bf_bg_data_aniso_{int(xi)}.json'
+elif job == 'variant':
+    for label, cb in (('cbar = cos(phi/2)', lambda ph: np.cos(ph / 2)), ('cbar = cos(phi/6)', lambda ph: np.cos(ph / 6))):
+        for n in [32, 64, 128, 256, 512, 1024, 2048, 4096]:
+            ph, lams = spectra(n, 1.0, cb)
+            row = {'variant': label, 'n': n, 'phi': ph, 'd': {}}
+            for xi in (1.0, np.inf):
+                s = float(np.mean([B.F(l, xi).sum() / n for l in lams]))
+                row['d'][str(xi)] = (s - refs[xi]['magnetic']) / ph ** 2
+            rows.append(row)
+            print(label, n, row['d'], round(time.time() - t0, 1), 's', flush=True)
+    name = 'bf_bg_data_variant.json'
+else:
+    raise SystemExit('job')
+json.dump({'job': sys.argv[1:], 'references': {str(k): v for k, v in refs.items()}, 'rows': rows,
+           'seconds': round(time.time() - t0, 1)}, open(name, 'w'), indent=1)
+print('seconds', round(time.time() - t0, 1))

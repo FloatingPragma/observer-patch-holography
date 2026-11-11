@@ -1,0 +1,15 @@
+{
+ "label": "candidate CF-1, free tick in a static background, validation",
+ "block": "q1",
+ "lattice": 128,
+ "clock": "tick of CF-1, alternating order",
+ "kernel_against_engine": 0.0,
+ "kernel_inverse": 1.878377932716794e-15,
+ "sublattices": "all four filled (Gaussian or random preparation); densities are sums over the four",
+ "norm_drift_64_ticks": 1.4876988529977098e-14,
+ "seconds_per_tick_float64": 1.6853344179689884,
+ "return_error_64_forward_64_inverse": 1.7309107556228633e-15,
+ "preparation": "random state, random Z2 links, random rest angles in [0, 0.3]",
+ "peak_memory_GB": 1.19176,
+ "seconds": 194.56348967552185
+}

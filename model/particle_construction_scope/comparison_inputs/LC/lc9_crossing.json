@@ -1,0 +1,415 @@
+{
+ "task": "LC addendum 6: crossing and kick of worker LK on sixty addresses",
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "X1_crossing_on_every_seam": {
+  "FP plain law": {
+   "starts (30 seams x 2 ends)": 60,
+   "crossed with amplitude one": 60,
+   "returned to its port": 0,
+   "other": 0,
+   "seams that cross": 30
+  },
+  "FE echo frame": {
+   "starts (30 seams x 2 ends)": 60,
+   "crossed with amplitude one": 0,
+   "returned to its port": 60,
+   "other": 0,
+   "seams that cross": 0
+  },
+  "FS(F0) screen frame": {
+   "starts (30 seams x 2 ends)": 60,
+   "crossed with amplitude one": 12,
+   "returned to its port": 48,
+   "other": 0,
+   "seams that cross": 6
+  },
+  "seams without screen sense about F0": [
+   [
+    0,
+    7
+   ],
+   [
+    1,
+    5
+   ],
+   [
+    2,
+    6
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    8,
+    9
+   ],
+   [
+    10,
+    11
+   ]
+  ]
+ },
+ "X2_two_ticks_of_the_sixty_address_walk": {
+  "weight on the blank double at each neighbour of port 2": {
+   "3": "1/27000",
+   "4": "1/27000",
+   "6": "1/27000",
+   "10": "1/27000",
+   "11": "1/27000"
+  },
+  "total on the five neighbours": "1/5400"
+ },
+ "X3_both_registers_on_one_object": {
+  "final state is the blank double at the other end, every address of sixty with amplitude one, orientation back at its start": true
+ },
+ "X4_X8_round_coefficients_and_phases": {
+  "record flags (RD-rec), sixty addresses": {
+   "coefficient with A at port 2": "2/9",
+   "with A at port 10": "2/9",
+   "mean": "2/9",
+   "c (1 - c) at the two ends (weight of the outcome no over abs(1 - z)^2)": [
+    "14/81",
+    "14/81"
+   ],
+   "phase per unit clock time, N rounds with the crossing between rounds": {
+    "2": {
+     "phase per unit clock time": "0.218167184002",
+     "modulus": "0.9576828609"
+    },
+    "10": {
+     "phase per unit clock time": "0.222062099671",
+     "modulus": "0.991394996221"
+    },
+    "100": {
+     "phase per unit clock time": "0.222220621848",
+     "modulus": "0.999136175514"
+    },
+    "1000": {
+     "phase per unit clock time": "0.222222206219",
+     "modulus": "0.999913583981"
+    },
+    "1000000": {
+     "phase per unit clock time": "0.222222222222",
+     "modulus": "0.99999991358"
+    }
+   }
+  },
+  "FR's hexagon flags (RD-FR), sixty addresses": {
+   "coefficient with A at port 2": "29/450",
+   "with A at port 10": "1/30",
+   "mean": "11/225",
+   "c (1 - c) at the two ends (weight of the outcome no over abs(1 - z)^2)": [
+    "12209/202500",
+    "29/900"
+   ],
+   "phase per unit clock time, N rounds with the crossing between rounds": {
+    "2": {
+     "phase per unit clock time": "0.0471768866064",
+     "modulus": "0.988668753303"
+    },
+    "10": {
+     "phase per unit clock time": "0.0488200738456",
+     "modulus": "0.997691173266"
+    },
+    "100": {
+     "phase per unit clock time": "0.0488882006024",
+     "modulus": "0.999768744136"
+    },
+    "1000": {
+     "phase per unit clock time": "0.048888882006",
+     "modulus": "0.999976871874"
+    },
+    "1000000": {
+     "phase per unit clock time": "0.0488888888889",
+     "modulus": "0.999999976872"
+    }
+   }
+  },
+  "RD-mix1 (A record 2, B in-dimer), sixty addresses": {
+   "coefficient with A at port 2": "1/9",
+   "with A at port 10": "1/9",
+   "mean": "1/9",
+   "c (1 - c) at the two ends (weight of the outcome no over abs(1 - z)^2)": [
+    "8/81",
+    "8/81"
+   ],
+   "phase per unit clock time, N rounds with the crossing between rounds": {
+    "2": {
+     "phase per unit clock time": "0.107903312047",
+     "modulus": "0.975818777657"
+    },
+    "10": {
+     "phase per unit clock time": "0.110983070014",
+     "modulus": "0.99507557101"
+    },
+    "100": {
+     "phase per unit clock time": "0.111109830817",
+     "modulus": "0.999506296428"
+    },
+    "1000": {
+     "phase per unit clock time": "0.111111098308",
+     "modulus": "0.999950618505"
+    },
+    "1000000": {
+     "phase per unit clock time": "0.111111111111",
+     "modulus": "0.999999950617"
+    }
+   }
+  },
+  "control: FR's hexagon flags on the hexagon of twelve addresses (LK)": {
+   "coefficient with A at port 2": "5/18",
+   "with A at port 10": "1/6",
+   "mean": "2/9",
+   "c (1 - c) at the two ends (weight of the outcome no over abs(1 - z)^2)": [
+    "65/324",
+    "5/36"
+   ],
+   "phase per unit clock time, N rounds with the crossing between rounds": {
+    "2": {
+     "phase per unit clock time": "0.218386466746",
+     "modulus": "0.958408734199"
+    },
+    "10": {
+     "phase per unit clock time": "0.222070680996",
+     "modulus": "0.991547899188"
+    },
+    "100": {
+     "phase per unit clock time": "0.222220707583",
+     "modulus": "0.999151594299"
+    },
+    "1000": {
+     "phase per unit clock time": "0.222222207076",
+     "modulus": "0.999915127058"
+    },
+    "1000000": {
+     "phase per unit clock time": "0.222222222222",
+     "modulus": "0.999999915123"
+    }
+   }
+  },
+  "record 2 weight of a double load at each of the twelve ports": [
+   "1/12"
+  ]
+ },
+ "X5_crossing_by_configuration": {
+  "G1a one cell, two double loads on non-adjacent ports, A crosses one of its five seams": {
+   "from port distance 2": {
+    "crossings": 300,
+    "defined with amplitude one": 300,
+    "landing distance to B": {
+     "3": 60,
+     "2": 120,
+     "1": 120
+    }
+   },
+   "from port distance 3": {
+    "crossings": 60,
+    "defined with amplitude one": 60,
+    "landing distance to B": {
+     "2": 60
+    }
+   }
+  },
+  "G1c one cell, two symmetric double loads (a clean choice), A crosses its E seam": {
+   "faces": [
+    [
+     0,
+     1,
+     5
+    ],
+    [
+     0,
+     1,
+     7
+    ]
+   ],
+   "dimers": [
+    [
+     4,
+     9
+    ],
+    [
+     6,
+     10
+    ]
+   ],
+   "state after the crossing of A equals the state before": true
+  },
+  "G6 one double load on a seam held by two carriers": {
+   "double at port 2, the carrier of the defect first": {
+    "P(R+)": "1/12",
+    "P(H)": "5/36",
+    "count": "2/9"
+   },
+   "double at port 10, the carrier of the defect first": {
+    "P(R+)": "1/12",
+    "P(H)": "5/36",
+    "count": "2/9"
+   },
+   "crossing along the shared seam: blank double at port 10": true
+  },
+  "two cells (G2a, G2b, G2c, G2d, G2e, G7, A12)": "object A is alone in its cell: X1 applies, amplitude one on every seam (plain law)",
+  "native pairs (G2f, G1d, G1e, A5)": "no double load in the cell: the crossing has no object",
+  "rows marked not defined (G1b, G1c at separation 5, G3c, G5b)": "the tick is outside the local completion before any crossing"
+ },
+ "X6_round_with_the_oriented_toggle": {
+  "branches compared (60 x 60 address pairs)": 3600,
+  "T(eta)^-1, tick, T(eta) equals tick, exp(-2 i eta j Qx) on every branch": true,
+  "weight of the branches with Qx = 1 (the coefficient c)": "2/9",
+  "weight with Qx = 0": "7/9",
+  "one round on the returned state": "1 - c (1 - z), z = exp(-2 i eta j), c = 2/9; the hold flag (j = 0) keeps amplitude 1",
+  "coefficient for a double load at each of the twelve ports": [
+   "2/9"
+  ],
+  "weight of the outcome no over abs(1 - z)^2": "14/81",
+  "non-return content (lc3_round.json)": "blank record, the double at the same port, non-uniform address; the reset restores the address consensus"
+ },
+ "X7_non_return_of_object_A": {
+  "hexagon forward flag, sixty addresses, FS(F0)": {
+   "s": "1/60",
+   "norm^2 of the non-return": "59/3600",
+   "part with uniform address": "1/3600",
+   "that part is antisymmetric in the two double locations": true,
+   "part with non-uniform address": "29/1800"
+  },
+  "hexagon forward flag, sixty addresses, FP": {
+   "s": "1/60",
+   "norm^2 of the non-return": "59/3600",
+   "part with uniform address": "1/3600",
+   "that part is antisymmetric in the two double locations": true,
+   "part with non-uniform address": "29/1800"
+  },
+  "record 2 flag, sixty addresses, FP": {
+   "s": "1/12",
+   "norm^2 of the non-return": "11/144",
+   "part with uniform address": "0",
+   "that part is antisymmetric in the two double locations": false,
+   "part with non-uniform address": "11/144"
+  },
+  "record 2 flag, double at one port, FP": {
+   "s": "1/12",
+   "norm^2 of the non-return": "11/144",
+   "part with uniform address": "0",
+   "that part is antisymmetric in the two double locations": false,
+   "part with non-uniform address": "11/144"
+  }
+ },
+ "X9_crossing_with_the_sixty_address_register_alone": {
+  "consensus over sixty addresses": {
+   "weight on the blank double at the other end": "1/30",
+   "weight back at the port": "29/30",
+   "weight of the final address on the seam": "1/30"
+  },
+  "address uniform on the two addresses of the seam": {
+   "weight on the blank double at the other end": "1",
+   "weight back at the port": "0",
+   "weight of the final address on the seam": "1"
+  },
+  "address (2, 10)": {
+   "weight on the blank double at the other end": "1",
+   "weight back at the port": "0",
+   "weight of the final address on the seam": "1"
+  },
+  "address (10, 2)": {
+   "weight on the blank double at the other end": "1",
+   "weight back at the port": "0",
+   "weight of the final address on the seam": "1"
+  }
+ },
+ "X10_twelve_address_register_as_a_sub_register": {
+  "address prepared on the twelve hexagon addresses": {
+   "double at port 2": {
+    "forward C": "1/6",
+    "backward C": "0",
+    "in-dimer": "1/6",
+    "record 2": "1/6",
+    "record 3": "1/6",
+    "off the hexagon": "0",
+    "blank": "2/3",
+    "W_hex^-1 W_hex = 1": true,
+    "weight of the address on the hexagon after the tick": "1"
+   },
+   "double at port 10": {
+    "forward C": "0",
+    "backward C": "1/6",
+    "in-dimer": "1/6",
+    "record 2": "1/6",
+    "record 3": "1/6",
+    "off the hexagon": "0",
+    "blank": "2/3",
+    "W_hex^-1 W_hex = 1": true,
+    "weight of the address on the hexagon after the tick": "1"
+   },
+   "symmetric double on (2,10)": {
+    "forward C": "1/12",
+    "backward C": "1/12",
+    "in-dimer": "1/6",
+    "record 2": "1/6",
+    "record 3": "1/6",
+    "off the hexagon": "0",
+    "blank": "2/3",
+    "W_hex^-1 W_hex = 1": true,
+    "weight of the address on the hexagon after the tick": "1"
+   },
+   "coefficients (hexagon flags): A at port 2, A at port 10, mean": [
+    "5/18",
+    "1/6",
+    "2/9"
+   ],
+   "count of two symmetric doubles (hexagon flags)": "2/9",
+   "count with record flags (double at port 2 in each cell)": "7/18"
+  },
+  "consensus over sixty addresses": {
+   "double at port 2": {
+    "forward C": "1/30",
+    "backward C": "0",
+    "in-dimer": "1/30",
+    "record 2": "1/12",
+    "record 3": "1/12",
+    "off the hexagon": "1/10",
+    "blank": "5/6",
+    "W_hex^-1 W_hex = 1": true,
+    "weight of the address on the hexagon after the tick": "1/5"
+   },
+   "double at port 10": {
+    "forward C": "0",
+    "backward C": "1/30",
+    "in-dimer": "1/30",
+    "record 2": "1/12",
+    "record 3": "1/12",
+    "off the hexagon": "1/10",
+    "blank": "5/6",
+    "W_hex^-1 W_hex = 1": true,
+    "weight of the address on the hexagon after the tick": "1/5"
+   },
+   "symmetric double on (2,10)": {
+    "forward C": "1/60",
+    "backward C": "1/60",
+    "in-dimer": "1/30",
+    "record 2": "1/12",
+    "record 3": "1/12",
+    "off the hexagon": "1/10",
+    "blank": "5/6",
+    "W_hex^-1 W_hex = 1": true,
+    "weight of the address on the hexagon after the tick": "1/5"
+   },
+   "coefficients (hexagon flags): A at port 2, A at port 10, mean": [
+    "29/450",
+    "1/30",
+    "11/225"
+   ],
+   "count of two symmetric doubles (hexagon flags)": "11/225",
+   "count with record flags (double at port 2 in each cell)": "2/9"
+  },
+  "weight of the consensus over sixty on the hexagon addresses": "1/5"
+ },
+ "seconds": 1.18
+}

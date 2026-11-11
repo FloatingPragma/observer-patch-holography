@@ -1,0 +1,215 @@
+{
+  "actual_full119_occupied_H_replay": {
+    "actual_H_G_controls": 3,
+    "all_native_blocks_and_both_link_orientations_tested": true,
+    "complete_basis_translation_controls": 3,
+    "complete_occupied_basis_rotation_controls": 33,
+    "star_commutator_witness_norm_squared": "1/4",
+    "star_commutator_witness_terms": 1,
+    "star_witness_is_physical_preparation": false
+  },
+  "checked_native_source_sha256": {
+    "model/coherent_defect_wave/chiral_joint/atomic_momentum_response/checks.py": "050a0261c9ead30dd05738b539188d794f24a30c07c510de9daa78eb14dafff6",
+    "model/coherent_defect_wave/chiral_joint/collective_spin_response/model.py": "f578c7f6ad02ead9020c0e0bfe3d6a50a9325fc91377c3943f01766176e44a3f",
+    "model/coherent_defect_wave/chiral_joint/oriented_links/checks.py": "4e56385022efc658723856553eef5cfba20bf7a4a4847e208b1784bb47b195b5",
+    "model/coherent_defect_wave/chiral_joint/oriented_links/rotations.py": "acbc8f0917ffdeaea2a815c4c155bc41e8ffbe6019b204ee58e9416e349cac49",
+    "model/coherent_defect_wave/chiral_joint/peter_weyl_links/checks.py": "13725f0f0e93fd9129e4bf9e8927b15f3ab70b88da69056ed1acbcf154e49245",
+    "model/coherent_defect_wave/chiral_joint/peter_weyl_links/clebsch.py": "05cb0ab454f5a4483859c2acfc3f4049fad6b57df5011336c4bf596352b1786a"
+  },
+  "exact_retained_reference_check": {
+    "actual_admitted_low_representation_image_order": 48,
+    "all_four_Kraus_intertwiners": 192,
+    "exact_joint_covariance_generator_blocks": 240,
+    "full_reference_output_retained": true,
+    "isometry_Gram_identity": true,
+    "reference_Hamiltonian": "0",
+    "test_source_H": "two sites, N=1, D=2, t=1/8",
+    "test_source_components": 3,
+    "test_source_dimension": 16,
+    "unreferenced_character_changing_contraction_rejected": true
+  },
+  "full119_coordinate_current_orientation_replay": {
+    "all_matrix_columns_retained": true,
+    "blocks": [
+      {
+        "exact_Gram_projection_rank": 45,
+        "full_internal_link_dimension": 357,
+        "native_dimension": 3,
+        "operator_norm": "1",
+        "six_Y": -4,
+        "transporter_nonzero_entries": 144
+      },
+      {
+        "exact_Gram_projection_rank": 72,
+        "full_internal_link_dimension": 714,
+        "native_dimension": 6,
+        "operator_norm": "1",
+        "six_Y": 1,
+        "transporter_nonzero_entries": 504
+      },
+      {
+        "exact_Gram_projection_rank": 24,
+        "full_internal_link_dimension": 119,
+        "native_dimension": 1,
+        "operator_norm": "1",
+        "six_Y": 6,
+        "transporter_nonzero_entries": 24
+      },
+      {
+        "exact_Gram_projection_rank": 80,
+        "full_internal_link_dimension": 238,
+        "native_dimension": 2,
+        "operator_norm": "1",
+        "six_Y": -3,
+        "transporter_nonzero_entries": 160
+      },
+      {
+        "exact_Gram_projection_rank": 90,
+        "full_internal_link_dimension": 357,
+        "native_dimension": 3,
+        "operator_norm": "1",
+        "six_Y": 2,
+        "transporter_nonzero_entries": 324
+      }
+    ],
+    "complete_endpoint_Ward_identities": 1416,
+    "excited_to_excited_witness": {
+      "amplitude": "1",
+      "field_six_Y": 6,
+      "source_label": [
+        1,
+        10,
+        10
+      ],
+      "target_label": [
+        -1,
+        11,
+        11
+      ]
+    },
+    "full_link_basis": 119,
+    "link_excitation_parity_anticommutation": false,
+    "omitted_Haar_normalization_norm_squared_mutation": "6",
+    "orientation_coordinate_identities": 59,
+    "unitary_orientation_and_endpoint_exchange": true,
+    "wrong_orientation_transpose_rejected": true
+  },
+  "full_native_rotation_word_replay": {
+    "continuous_rotation_or_little_group_claim": false,
+    "exact_spin_lifts_checked": 24,
+    "full_hopping_operator_word_executions": [
+      {
+        "all_proper_cubic_rotations": 24,
+        "complete_hopping_words": 48,
+        "side": 2
+      },
+      {
+        "all_proper_cubic_rotations": 24,
+        "complete_hopping_words": 1152,
+        "side": 4
+      }
+    ],
+    "missing_antiperiodic_seam_mutation_rejected": true,
+    "proper_spatial_rotations": 24,
+    "rotation_does_not_conjugate_matter_internal_representation": true,
+    "spin_singlet_Yukawa_identities": 24,
+    "two_pi_spin_rotation": "fermion parity",
+    "word_expansion_retains_all_native_blocks_and_link_columns": true
+  },
+  "native_Fourier_spin_covariance_replay": {
+    "Fourier_operator": "O_a=sum_x (-1)^x_a S_x,a",
+    "Gauss_and_even_CAR_preserved": true,
+    "actual_full_occupied_source_translation_controls": 9,
+    "actual_native_current_commutators": 36,
+    "all_other_reference_input_sectors": "included in the full Halmos block unitary",
+    "atomic_compression": "P0 S_x,a P0 = the actual local ground doublet spin S_x,a",
+    "atomic_subspace_preserved_by_native_spin": true,
+    "complete_Fock_operator_norm": "60",
+    "complete_cubic_Fourier_word_checks": 576,
+    "continuous_spin_symmetry_at_nonzero_hopping_assumed": false,
+    "failure_effect": "I-BdaggerB",
+    "full_CAR_modes_per_site": 30,
+    "full_finite_unitary": "[[sqrt(I-BdaggerB),-Bdagger],[B,sqrt(I-BBdagger)]]",
+    "full_link_states": 119,
+    "full_one_body_eigenvalues": {
+      "-1/2": 120,
+      "1/2": 120
+    },
+    "full_onsite_Yukawa_spin_commutators": 3,
+    "full_scalar_states_per_site": 5,
+    "joint_proper_cubic_rotations_and_translations_preserved": true,
+    "native_spin": "S_x,a = sum_15_native_indices c_x^dagger (sigma_a/2) c_x",
+    "norm_uses_all_quark_and_lepton_modes": true,
+    "pump": "B=(sum_a O_a tensor |a>)/(60 sqrt(3)), with reference vacuum input",
+    "pump_effect": "Bdagger B=sum_a O_a^2/10800 <= I",
+    "reference_clock": "identity",
+    "reference_fermion_parity": "even in all four states",
+    "reference_sectors": "one scalar vacuum plus a three-dimensional cubic vector",
+    "reference_translation": "vacuum has phase zero; vector a has inverse X_a character",
+    "retained_reference_dimension": 4,
+    "retained_reference_rotation_translation_checks": 72,
+    "source_momenta_called_zero_by_reference_compensation": false,
+    "source_momentum_in_each_success_reference_branch": "X_a, relative to the source momentum zero ground",
+    "source_sites": 8
+  },
+  "native_finite_group": {
+    "admitted_even_translation_image": "Z2^3",
+    "admitted_translation_reference_dimension": 8,
+    "full_native_representation_may_have_a_kernel": true,
+    "native_AP_rotation_composition_checks": 576,
+    "native_cubic_cover": "Z4^3 semidirect binary octahedral group",
+    "native_full_cover_order": 3072,
+    "native_translation_cover": "Z4^3, each actual AP translation has fourth power I",
+    "spin_lift_composition_checks_up_to_central_parity": 576,
+    "translation_reference_dimension_sufficient_on_full_source": 64
+  },
+  "native_rotation_translation_replay": {
+    "actual_proper_cubic_rotations": 24,
+    "complete119_link_lift": "identical oriented edge map and the same full-state orientation involution",
+    "even_N2_restriction": "T_j^(-1)=T_j, so the three X momentum sectors are permuted",
+    "exact_AP_one_fermion_rotation_translation_conjugations": 72,
+    "exact_oriented_link_label_rotation_translation_conjugations": 1728,
+    "exact_scalar_rotation_translation_conjugations": 72,
+    "full_Fock_lift": "second quantization of the exact one-fermion identity, with unchanged native R15 indices",
+    "interacting_spectral_cluster_or_gap_inferred_here": false,
+    "semidirect_relation": "R T_i Rdagger = T_j^(sign), R e_i = sign e_j"
+  },
+  "native_translation_replay": {
+    "actual_all_current_translation_covariance_controls": 36,
+    "actual_occupied_PW_H_translation_controls": 3,
+    "all_N2_spin_basis_actual_CAR_translation_controls": 768,
+    "atomic_reference_is_full_PW_stationary_vacuum": false,
+    "full_30_CAR_and_scalar_five_source_join": true,
+    "full_onsite_operator_compiler_replayed": true,
+    "graded_and_AP_factor_per_axis_cycle": "(-1)^(N-1) * (-1) = (-1)^N = 1",
+    "local_reference": {
+      "density": "P_ground/2",
+      "fermion_parity": "odd",
+      "global_zero_boundary_local_ground_energy_interval": [
+        "-1580564367072699/140737488355328",
+        "-3161128734145397/281474976710656"
+      ],
+      "rank": 2,
+      "twice_spin": 1
+    },
+    "size_dependent_word_controls": [
+      {
+        "complete_actual_PW_hopping_word_translation_identities": 72,
+        "full_local_odd_occupation_translation_controls": 3,
+        "local_even_insertion_T_to_N_is_minus_one": 3,
+        "side": 2
+      },
+      {
+        "complete_actual_PW_hopping_word_translation_identities": 1728,
+        "full_local_odd_occupation_translation_controls": 3,
+        "local_even_insertion_T_to_N_is_minus_one": 3,
+        "side": 4
+      }
+    ],
+    "source_spin_restriction": "ordinary permutation of N^3 identical odd ground doublets for even N",
+    "translations_commute_with_each_local_Gauss_generator": false,
+    "translations_permute_Gauss_generators_and_preserve_their_common_kernel": true
+  },
+  "schema": "oph.quantum_worker.quadrature_reference_audit.v1",
+  "worker_check_sha256": "f10a7b6ee7379d28164a90450536277ed3bb817c50037883e6c3d7c9b5fd3920"
+}

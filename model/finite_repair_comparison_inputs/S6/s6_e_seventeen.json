@@ -1,0 +1,191 @@
+{
+ "schema": "s6.e.seventeen.v1",
+ "A_closures": {
+  "block_compressed_loads": {
+   "dimension": 17,
+   "centre": 1,
+   "centre_is_the_identity_of_the_six_space (P3 + P3')": true,
+   "relative_generator_P3 - P3'_is_in_the_algebra": false,
+   "contains_P3_alone": false
+  },
+  "load_on_slow_triplet_plus_circulation_on_both": {
+   "dimension": 12,
+   "centre": 1,
+   "is_subalgebra_of_the_seventeen": false
+  }
+ },
+ "B_exterior_C6": {
+  "generators": 17,
+  "fifteen_states": 15,
+  "smallest_invariant_module_containing_the_fifteen": {
+   "dimension": 27,
+   "equals_Lambda2_plus_Lambda4_of_C6": false
+  },
+  "hypercharge_forced_inside_the_algebra": {
+   "Y": "x N_total + y (N_3 + N_4 - 2 N_5)",
+   "x": "-1/3",
+   "y": "5/6",
+   "Y_of_sixth_mode": "-2"
+  },
+  "content_of_the_thirty": [
+   {
+    "colour": "1",
+    "weak": "1",
+    "Y": "1",
+    "sixth_mode_occupied": false,
+    "states": 1
+   },
+   {
+    "colour": "1",
+    "weak": "2",
+    "Y": "-1/2",
+    "sixth_mode_occupied": false,
+    "states": 2
+   },
+   {
+    "colour": "3",
+    "weak": "2",
+    "Y": "1/6",
+    "sixth_mode_occupied": false,
+    "states": 6
+   },
+   {
+    "colour": "3bar",
+    "weak": "1",
+    "Y": "-2/3",
+    "sixth_mode_occupied": false,
+    "states": 3
+   },
+   {
+    "colour": "3bar",
+    "weak": "1",
+    "Y": "1/3",
+    "sixth_mode_occupied": false,
+    "states": 3
+   },
+   {
+    "colour": "1",
+    "weak": "1",
+    "Y": "-3",
+    "sixth_mode_occupied": true,
+    "states": 1
+   },
+   {
+    "colour": "1",
+    "weak": "2",
+    "Y": "-3/2",
+    "sixth_mode_occupied": true,
+    "states": 2
+   },
+   {
+    "colour": "3",
+    "weak": "1",
+    "Y": "-7/3",
+    "sixth_mode_occupied": true,
+    "states": 3
+   },
+   {
+    "colour": "3bar",
+    "weak": "2",
+    "Y": "-13/6",
+    "sixth_mode_occupied": true,
+    "states": 6
+   }
+  ],
+  "fifteen_recovered_with_sixth_mode_empty": true,
+  "Lambda2_of_C6": {
+   "dimension": 15,
+   "colour_content (triplet, antitriplet states)": [
+    9,
+    3
+   ],
+   "one_generation_needs (triplet, antitriplet states)": [
+    6,
+    6
+   ]
+  },
+  "even_exterior_algebra_of_C6": {
+   "dimension": 32,
+   "is_self_conjugate_under_colour_weak_hypercharge (sixth mode neutral)": true
+  },
+  "weak_algebra_so(3)_on_the_second_triplet": "exterior powers of a spin-1 triplet are spin 0, 1, 1, 0: no weak doublet in any state"
+ },
+ "C_331": {
+  "identification": "su(3) + su(3)' + u(1) is the gauge algebra of the 3-3-1 models, SU(3)_C x SU(3)_L x U(1)_X (also the Levi subalgebra s(u(3)+u(3)) of su(6))",
+  "readings": {
+   "lepton triplet (nu, e, e^c)": {
+    "delta = Y_singlet - Y_doublet": "3/2",
+    "lepton_multiplet": {
+     "X": "0",
+     "doublet_Y": "-1/2",
+     "singlet_Y": "1"
+    },
+    "quark_multiplet_(3,3)_partner_Y": "5/3",
+    "quark_multiplet_(3,3bar)_partner_Y": "-4/3",
+    "partner_electric_charge": [
+     "5/3",
+     "-4/3"
+    ],
+    "states_per_generation_with_colour_anomaly_cancelled": 21,
+    "of_which_exotic": 6
+   },
+   "lepton triplet (nu, e, nu^c)": {
+    "delta = Y_singlet - Y_doublet": "1/2",
+    "lepton_multiplet": {
+     "X": "-1/3",
+     "doublet_Y": "-1/2",
+     "singlet_Y": "0"
+    },
+    "quark_multiplet_(3,3)_partner_Y": "2/3",
+    "quark_multiplet_(3,3bar)_partner_Y": "-1/3",
+    "partner_electric_charge": [
+     "2/3",
+     "-1/3"
+    ],
+    "states_per_generation_with_colour_anomaly_cancelled": 22,
+    "of_which_exotic": 6
+   }
+  },
+  "SU3L_cubic_anomaly (leptons in 3bar; N generations, k quark generations in 3bar)": {
+   "N=1,k=0": 2,
+   "N=1,k=1": -4,
+   "N=3,k=0": 6,
+   "N=3,k=1": 0,
+   "N=6,k=2": 0
+  },
+  "anomaly_free_solutions_N_up_to_6": [
+   [
+    3,
+    1
+   ],
+   [
+    6,
+    2
+   ]
+  ]
+ },
+ "D_triad_classes_of_seams": {
+  "class_sizes": [
+   6,
+   6,
+   6,
+   6,
+   6
+  ],
+  "each_class_is_a_perfect_matching": true,
+  "five_classes_meet_at_every_port": true,
+  "rotations_permute_classes_as_triads": true,
+  "spectrum_of_one_class_exchange_operator_two_quanta": [
+   -0.0,
+   2.0,
+   4.0
+  ],
+  "class_operators_commute_with_generator": {
+   "one_quantum": false,
+   "two_quanta": false
+  },
+  "norm_of_commutator_two_quanta": 33.941125,
+  "reading": "the carrier has five classes of seams (five perfect matchings = the five triads), permuted by the rotations as five objects; the bare law conserves no count on them (the class operators do not commute with the generator)."
+ },
+ "seconds": 0.1
+}

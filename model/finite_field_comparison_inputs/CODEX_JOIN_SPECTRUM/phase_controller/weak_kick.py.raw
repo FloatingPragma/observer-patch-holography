@@ -1,0 +1,91 @@
+"""Complete record channel for repeated native XOR phase kicks, without fits."""
+from pathlib import Path
+import hashlib
+import json
+import math
+
+import mpmath as mp
+import sympy as s
+
+HERE=Path(__file__).resolve().parent
+
+
+def main():
+    mp.mp.dps=90
+    p=mp.mpf(2)/9
+    variance=p*(1-p)
+    a,b=1/mp.sqrt(6),1/mp.sqrt(12)
+    phase=lambda k:2*mp.pi*k/3
+    amplitude=lambda theta,k:a+2*b*mp.cos(theta+phase(k))
+    baseline=[amplitude(p,k)**2 for k in range(3)]
+    order=sorted(range(3),key=lambda k:baseline[k])
+    e,mu,tau=order
+    def report(vals):
+        sorted_values=sorted(vals)
+        return {"values_character_order":[str(v) for v in vals],
+                "ratios":[str(sorted_values[1]/sorted_values[0]),str(sorted_values[2]/sorted_values[0])],
+                "Q":str(sum(vals)/sum(mp.sqrt(v) for v in vals)**2)}
+    rows=[]
+    for n in (1,2,3,6,12,60,360,3600,36000,360000,3600000):
+        z=lambda d:mp.exp(n*mp.log(1+p*mp.expm1(1j*mp.mpf(d)/n)))
+        z1,z2=z(1),z(2)
+        # Complete trace over every retained XOR count. This uses z2, not z1².
+        complete=[a*a+2*b*b+4*a*b*mp.re(z1*mp.exp(1j*phase(k)))
+                  +2*b*b*mp.re(z2*mp.exp(2j*phase(k))) for k in range(3)]
+        # Projecting all clock ancillas back onto their preparation is a
+        # different, heralded experiment, with a retained failure branch.
+        coherent=[(a+2*b*mp.re(z1*mp.exp(1j*phase(k))))**2 for k in range(3)]
+        assert min(complete)>0
+        assert abs(sum(complete)-1)<mp.mpf("1e-80")
+        if n<=6:
+            binomial=[sum(mp.mpf(math.comb(n,j))*p**j*(1-p)**(n-j)*amplitude(mp.mpf(j)/n,k)**2
+                          for j in range(n+1)) for k in range(3)]
+            assert max(abs(x-y) for x,y in zip(binomial,complete))<mp.mpf("1e-80")
+        rows.append({"N":n,"clock_mean":"2/9","clock_phase_arg_z1":str(mp.arg(z1)),
+                     "phase_shift_from_mean":str(mp.arg(z1)-p),"abs_z1":str(abs(z1)),
+                     "phase_nonadditivity_arg_z2_minus_twice_arg_z1":str(mp.arg(z2)-2*mp.arg(z1)),
+                     "clock_dephasing_rate_d1_at_time1":str(-mp.log(abs(z1))),
+                     "complete_record_effect":report(complete),
+                     "coherent_postselected_effect":report(coherent),
+                     "complete_mu_e_relative_shift":str((complete[mu]/complete[e])/(baseline[mu]/baseline[e])-1),
+                     "channel_is_unitary":False})
+    second=[mp.diff(lambda theta:amplitude(theta,k)**2,p,2) for k in range(3)]
+    correction=[variance/2*x for x in second]
+    ratio_coefficient=correction[mu]/baseline[mu]-correction[e]/baseline[e]
+    tau_coefficient=correction[tau]/baseline[tau]-correction[e]/baseline[e]
+    assert ratio_coefficient<0 and tau_coefficient<0
+    # Exact symbolic cumulants of a Bernoulli record at native p.
+    ps=s.Rational(2,9)
+    cumulant2=ps*(1-ps)
+    cumulant3=ps*(1-ps)*(1-2*ps)
+    assert cumulant2==s.Rational(14,81)
+    assert cumulant3/6==s.Rational(35,2187)
+    out={"schema":"oph.codex.complete_xor_kick_channel.v1","measured_inputs":[],"fitted_parameters":[],
+         "source_probabilities":{"C":"1/12","E":"1/6","XOR":"2/9"},
+         "declared_clock":{"interaction":"H=-X tensor J","J_spectrum":[-1,0,1],
+                           "total_time":"1","collision_duration":"1/N","fresh_record_preparation_each_collision":True,
+                           "all_XOR_outcomes_retained":True,"source_selects_N":False},
+         "exact_channel":{"coherence_d":"z_d=(1-p+p exp(i*d/N))^N",
+                          "retained_record_count":"binomial(N,p)",
+                          "complete_effect":"a^2+2b^2+4ab Re(z1 exp(i phi_k))+2b^2 Re(z2 exp(2i phi_k))",
+                          "postselected_effect":"[a+2b Re(z1 exp(i phi_k))]^2",
+                          "these_are_same_instrument":False},
+         "asymptotic":{"arg_z1":"p - 35/(2187*N^2) + O(N^-4)",
+                       "negative_log_abs_z1":"7/(81*N) + O(N^-3)",
+                       "complete_effect":"lambda_k(p)^2 + [p(1-p)/(2N)] d_theta^2 lambda_k(theta)^2|p + O(N^-2)",
+                       "mu_e_relative_coefficient_of_1_over_N":str(ratio_coefficient),
+                       "tau_e_relative_coefficient_of_1_over_N":str(tau_coefficient),
+                       "phase_drift_order":"N^-2","complete_effect_variance_order":"N^-1"},
+         "baseline_squared_circulant":report(baseline),"rows":rows,
+         "interpretation":{"negative_effect_ratio_correction_exists":True,
+                           "effect_is_Hamiltonian_mass_pole":False,"small_correction_scale_selected":False,
+                           "same_FR_or_primary_Hamiltonian":False}}
+    out["input_hashes"]={Path(__file__).name:hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+    path=HERE/"weak_kick.json"
+    path.write_text(json.dumps(out,indent=2)+"\n")
+    print(json.dumps({"output":str(path),"asymptotic":out["asymptotic"],
+                      "final_row":rows[-1]},indent=2))
+
+
+if __name__=="__main__":
+    main()

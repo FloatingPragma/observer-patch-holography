@@ -1,0 +1,154 @@
+"""QT comparison with measured quark mass ratios (CANDIDATES.md section 8). NOT BLIND.
+
+Run only after the hash of the result files (addendum A of CANDIDATES.md, RESULTS.sha256). This is the only script of
+the lane that contains measured values. It reads the rows of qt2_analyzer.json and changes nothing in them.
+
+Registered source: Huang and Zhou, Phys. Rev. D 103, 016010 (2021), arXiv:2009.04851, Table 2, MSbar running masses
+at mu = M_Z = 91.1876 GeV (IMPORTED; read on 2026-11-11 from the ar5iv rendering after the hash).
+Second source, added after the hash as a cross-check and not used for the verdict: the MSbar Yukawa couplings at
+mu = M_Z pinned in the public repository, RER/model/common_source/calibrated_matter_results.json, block
+`rounded_table_control`: Antusch, Hinze and Saad, Phys. Rev. D 113, 095011 (2026), arXiv:2510.01312v2, Eq. (4).
+Mass ratios at one scale equal Yukawa ratios.
+Writes qt4_compare.json and COMPARISON.md.
+"""
+from __future__ import annotations
+
+import json
+import math
+import sys
+
+OUT = 'qt4_compare.json'
+
+SOURCES = {
+    'Huang and Zhou 2021 (registered)': {
+        'reference': 'G.-y. Huang and S. Zhou, Phys. Rev. D 103, 016010 (2021), arXiv:2009.04851, Table 2',
+        'quantity': 'MSbar running masses at mu = M_Z = 91.1876 GeV, in GeV',
+        'up': [(1.23e-3, 0.21e-3), (0.620, 0.017), (168.26, 0.75)],
+        'down': [(2.67e-3, 0.19e-3), (53.16e-3, 4.61e-3), (2.839, 0.026)]},
+    'Antusch, Hinze and Saad 2026 (repository pin, cross-check)': {
+        'reference': ('S. Antusch, K. Hinze and S. Saad, Phys. Rev. D 113, 095011 (2026), arXiv:2510.01312v2, Eq. (4), as pinned in '
+                      'RER/model/common_source/calibrated_matter_results.json (rounded_table_control)'),
+        'quantity': 'MSbar Yukawa couplings at mu = M_Z = 91.1880 GeV (ratios equal mass ratios)',
+        'up': [(0.00000704, 0.00000015), (0.00356, 0.00006), (0.967, 0.004)],
+        'down': [(0.0000154, 0.0000002), (0.000306, 0.000004), (0.01630, 0.00009)]},
+}
+
+
+def ratio(a, b):
+    """a/b with the uncertainty propagated in quadrature."""
+    v = a[0] / b[0]
+    return v, v * math.sqrt((a[1] / a[0]) ** 2 + (b[1] / b[0]) ** 2)
+
+
+def koide(ms):
+    m = [x[0] for x in ms]
+    S = sum(math.sqrt(x) for x in m)
+    T = sum(m)
+    q = T / S ** 2
+    var = 0.0
+    for (x, dx) in ms:
+        dq = (1.0 - T / (S * math.sqrt(x))) / S ** 2
+        var += (dq * dx) ** 2
+    return q, math.sqrt(var)
+
+
+def main():
+    an = json.load(open('qt2_analyzer.json'))
+    rows = {
+        'R1 (T-A, hexagon, triple, A1; selected in classes 2 and 4)': an['law T-A']['R1 and R3, class 2']['circulants']['A1'],
+        'R2 (T-A, carrier, triple, A1; selected in classes 2 and 4)': an['law T-A']['R2, class 2']['circulants']['A1'],
+        'R3 (T-A, hexagon, triple, A2; selected in classes 2 and 4)': an['law T-A']['R1 and R3, class 2']['circulants']['A2'],
+        'R4 (T-C, hexagon, uniform triple, flag set single, A1; not selected)':
+            an['laws T-B and T-C (uniform triple)']['R4: T-C, flag set single, hexagon, class 2']['circulants']['A1'],
+    }
+    # classes 2 and 4 give identical rows
+    same = (an['law T-A']['R1 and R3, class 2']['circulants'] == an['law T-A']['R1 and R3, class 4']['circulants']
+            and an['law T-A']['R2, class 2']['circulants'] == an['law T-A']['R2, class 4']['circulants'])
+    out = {'task': 'QT comparison, NOT BLIND', 'classes 2 and 4 give identical rows': bool(same), 'sources': {}, 'rows': {}}
+    meas = {}
+    for sname, src in SOURCES.items():
+        m = {}
+        for sector, label in (('up', '(u, c, t)'), ('down', '(d, s, b)')):
+            a, b, c = src[sector]
+            r21, r31, r32 = ratio(b, a), ratio(c, a), ratio(c, b)
+            q = koide(src[sector])
+            m[label] = {'m2/m1': r21, 'm3/m1': r31, 'm3/m2': r32, 'Q': q,
+                        'branch ratio 3 (Q - 1/3)/2 that a circulant with Q would need': 1.5 * (q[0] - 1 / 3)}
+        meas[sname] = m
+        out['sources'][sname] = {'reference': src['reference'], 'quantity': src['quantity'],
+                                 'values': {'up': src['up'], 'down': src['down']},
+                                 'derived': {lab: {k: (list(v) if isinstance(v, tuple) else v) for k, v in d.items()} for lab, d in m.items()}}
+    for rname, c in rows.items():
+        p21, p31, p32, pq = (float(c['y_mid / y_min']), float(c['y_max / y_min']), float(c['y_max / y_mid']), float(c['Q = sum y / (sum sqrt y)^2']))
+        res = {'predicted': {'m2/m1': p21, 'm3/m1': p31, 'm3/m2': p32, 'Q': pq}, 'against': {}}
+        for sname, m in meas.items():
+            for lab, d in m.items():
+                dev = {k: (res['predicted'][k] - d[k][0]) / d[k][1] for k in ('m2/m1', 'm3/m1', 'm3/m2', 'Q')}
+                fac = {k: res['predicted'][k] / d[k][0] for k in ('m2/m1', 'm3/m1', 'm3/m2')}
+                agree = abs(dev['m2/m1']) <= 2 and abs(dev['m3/m1']) <= 2
+                res['against'][f'{sname}, {lab}'] = {
+                    'measured': {k: [d[k][0], d[k][1]] for k in ('m2/m1', 'm3/m1', 'm3/m2', 'Q')},
+                    'deviation in standard deviations': dev, 'predicted over measured': fac,
+                    'verdict': 'agreement' if agree else 'disagreement'}
+        out['rows'][rname] = res
+    with open(OUT, 'w') as fh:
+        json.dump(out, fh, indent=1)
+
+    # ---------------- COMPARISON.md
+    L = []
+    A = L.append
+    A('# Worker QT: comparison with measured quark mass ratios (NOT BLIND; made after the hash of addendum A)')
+    A('')
+    A('Predicted rows: `qt2_analyzer.json` (hashed in `RESULTS.sha256` before this file existed). Classes 2 and 4 give identical rows: '
+      + str(same) + '.')
+    A('Verdict rule (registered): agreement if m2/m1 and m3/m1 both lie within two standard deviations of the measured ratios.')
+    A('')
+    A('## Measured values (IMPORTED)')
+    A('')
+    for sname, src in SOURCES.items():
+        A(f'- {sname}: {src["reference"]}. {src["quantity"]}.')
+        A(f'  - up: ' + ', '.join(f'{v:g} +- {e:g}' for v, e in src['up']) + '; down: ' + ', '.join(f'{v:g} +- {e:g}' for v, e in src['down']) + '.')
+    A('')
+    A('| Source | Triple | m2/m1 | m3/m1 | m3/m2 | Q = sum m/(sum sqrt m)^2 | needed branch ratio w_+/w_H |')
+    A('| --- | --- | --- | --- | --- | --- | --- |')
+    for sname, m in meas.items():
+        for lab, d in m.items():
+            A(f"| {sname} | {lab} | {d['m2/m1'][0]:.2f} +- {d['m2/m1'][1]:.2f} | {d['m3/m1'][0]:.0f} +- {d['m3/m1'][1]:.0f} | "
+              f"{d['m3/m2'][0]:.2f} +- {d['m3/m2'][1]:.2f} | {d['Q'][0]:.4f} +- {d['Q'][1]:.4f} | "
+              f"{d['branch ratio 3 (Q - 1/3)/2 that a circulant with Q would need']:.3f} |")
+    A('')
+    A('The last column is 3 (Q - 1/3)/2: the ratio w_+/w_H that the circulant A1 would need for the measured Q. The rows R1, R2, R4 have 1/2.')
+    A('')
+    A('## Rows against the measured triples')
+    A('')
+    A('| Row | Source, triple | predicted m2/m1 | measured | sigma | predicted m3/m1 | measured | sigma | predicted Q | measured Q | sigma | Verdict |')
+    A('| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |')
+    for rname, res in out['rows'].items():
+        p = res['predicted']
+        for key, a in res['against'].items():
+            mm, dv = a['measured'], a['deviation in standard deviations']
+            A(f"| {rname.split(' (')[0]} | {key} | {p['m2/m1']:.4f} | {mm['m2/m1'][0]:.2f} +- {mm['m2/m1'][1]:.2f} | {dv['m2/m1']:+.1f} | "
+              f"{p['m3/m1']:.3f} | {mm['m3/m1'][0]:.0f} +- {mm['m3/m1'][1]:.0f} | {dv['m3/m1']:+.1f} | {p['Q']:.5f} | "
+              f"{mm['Q'][0]:.4f} +- {mm['Q'][1]:.4f} | {dv['Q']:+.1f} | {a['verdict']} |")
+    A('')
+    A('Factors predicted over measured (registered source):')
+    A('')
+    for rname, res in out['rows'].items():
+        parts = []
+        for key, a in res['against'].items():
+            if key.startswith('Huang'):
+                f = a['predicted over measured']
+                parts.append(f"{key.split(', ', 1)[1]}: m2/m1 x {f['m2/m1']:.4g}, m3/m1 x {f['m3/m1']:.4g}")
+        A(f"- {rname}: " + '; '.join(parts) + '.')
+    A('')
+    verdicts = sorted({a['verdict'] for res in out['rows'].values() for a in res['against'].values()})
+    A(f'Verdicts over all rows, both triples, both sources: {verdicts}.')
+    A('No definition, law, flag reading or row was changed after this comparison.')
+    A('')
+    with open('COMPARISON.md', 'w') as fh:
+        fh.write('\n'.join(L))
+    print('\n'.join(L))
+
+
+if __name__ == '__main__':
+    sys.exit(main())

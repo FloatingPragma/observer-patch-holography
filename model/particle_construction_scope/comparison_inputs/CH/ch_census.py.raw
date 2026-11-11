@@ -1,0 +1,182 @@
+"""Worker CH, direction 1: exact one-loop slopes of the census readings CEN-1 to CEN-8 (CANDIDATES.md section 2),
+per-multiplet contributions, and the Weyl content of the 32 pattern blocks under R8's handedness functions.
+
+Run: /tmp/oph-completion-venv/bin/python ch_census.py [out.json]
+Exact arithmetic (fractions). No measured value is read.
+"""
+import itertools
+import json
+import sys
+from fractions import Fraction as F
+from pathlib import Path
+
+from ch_lib import (PATTERNS, MULTIPLETS, NAME, SU3_DIM, SU2_DIM, SU3_NAME, multiplet_index, index_of_patterns, slopes,
+                    check_against_match, clean, GAUGE, HIGGS, WEYL, SCALAR)
+
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).with_name('census.json')
+out = {'patterns_checked_against_match_json': check_against_match()}
+
+ALL = PATTERNS
+ODD3 = [p for p in ALL if p['n3'] % 2 == 1]           # the family half of R8 and match.py
+EVEN3 = [p for p in ALL if p['n3'] % 2 == 0]
+EVEN_DEG = [p for p in ALL if p['degree'] % 2 == 0]
+ODD_DEG = [p for p in ALL if p['degree'] % 2 == 1]
+CLASS0 = [p for p in ALL if p['k'] == 0]
+
+# ----------------------------------------------------------------------------- per-multiplet table (T-CEN-b)
+rows = []
+for m in MULTIPLETS:
+    ty, t2, t3 = multiplet_index(m)
+    rows.append(dict(multiplet=m, name=NAME[m], colour=SU3_NAME[m[0]], weak=SU2_DIM[m[1]], six_Y=3 * m[1] - 2 * m[0],
+                     states=SU3_DIM[m[0]] * SU2_DIM[m[1]], class_k=(3 * m[1] - 2 * m[0]) % 6,
+                     index_Y_2_3=(ty, t2, t3),
+                     weyl_contribution_b123=(WEYL * F(3, 5) * ty, WEYL * t2, WEYL * t3),
+                     scalar_contribution_b123=(SCALAR * F(3, 5) * ty, SCALAR * t2, SCALAR * t3)))
+out['per_multiplet'] = rows
+# index sums of the halves: each half is a complete family (2, 2, 10/3 in the order T_3, T_2, T_Y)
+for name, half in (('n3_odd', ODD3), ('n3_even', EVEN3), ('degree_even', EVEN_DEG), ('degree_odd', ODD_DEG)):
+    ty, t2, t3 = index_of_patterns(half)
+    assert (t3, t2, ty) == (F(2), F(2), F(10, 3)), name
+    assert (WEYL * F(3, 5) * ty, WEYL * t2, WEYL * t3) == (F(4, 3),) * 3
+out['index_sums_of_each_half_T3_T2_TY'] = ['2', '2', '10/3']
+
+# ----------------------------------------------------------------------------- census readings
+census = {}
+
+
+def add(key, text, b):
+    census[key] = dict(reading=text, b=b, b_float=[float(x) for x in b])
+
+
+for nh in range(4):
+    b = slopes(weyl_patterns=ALL, copies=3, n_h=nh)
+    assert b == (8 + F(nh, 10), F(2, 3) + F(nh, 6), F(-3))                      # T-CEN-a
+    add(f'CEN-1 n_H={nh}', 'every pattern one Weyl block, 3 copies, 12 links', b)
+for nh in range(4):
+    b = slopes(weyl_patterns=ODD3, copies=3, n_h=nh)
+    assert b == (4 + F(nh, 10), F(-10, 3) + F(nh, 6), F(-7))
+    add(f'CEN-2 n_H={nh}', 'complements are holes: 16 Weyl blocks per copy, 3 copies', b)
+for nh in (0, 1, 2):
+    add(f'CEN-3 n_H={nh}', 'both record states per pattern (four components), 3 copies',
+        slopes(weyl_patterns=ALL + ALL, copies=3, n_h=nh))
+for kc in (1, 2, 4, 32):
+    add(f'CEN-4 k_c={kc} n_H=2', f'CEN-1 with {kc} zero-phase cones per block', slopes(weyl_patterns=ALL, copies=3, n_h=2, cones=kc))
+for nh in (0, 1, 2):
+    add(f'CEN-5 n_H={nh}', 'even-degree patterns Weyl, odd-degree patterns complex scalars, 3 copies',
+        slopes(weyl_patterns=EVEN_DEG, scalar_patterns=ODD_DEG, copies=3, n_h=nh))
+add('CEN-6 with class 0', 'G2: one Weyl family and one scalar doublet per copy', slopes(weyl_patterns=ODD3, copies=3, n_h=3))
+add('CEN-6 without class 0', 'G2 without the class-0 singlets',
+    slopes(weyl_patterns=[p for p in ODD3 if p['k'] != 0], copies=3, n_h=3))
+# CEN-7: CEN-5 plus two scalar doublets and two Weyl doublets of hypercharge +1/2 and -1/2
+b5 = slopes(weyl_patterns=EVEN_DEG, scalar_patterns=ODD_DEG, copies=3, n_h=2)
+higgsino = (2 * WEYL * F(3, 5) * 2 * F(1, 4), 2 * WEYL * F(1, 2), F(0))
+add('CEN-7', 'G3: CEN-5 plus two scalar doublets and two Weyl doublets', tuple(x + y for x, y in zip(b5, higgsino)))
+add('CEN-8', 'RER chiral source: fifteen Weyl components per family, three families, one doublet',
+    slopes(weyl_patterns=[p for p in ODD3 if p['multiplet'] != (3, 2)], copies=3, n_h=1))
+assert census['CEN-8']['b'] == (F(41, 10), F(-19, 6), F(-7))
+assert census['CEN-5 n_H=1']['b'] == (F(61, 10), F(-7, 6), F(-5))               # DB's census B
+assert census['CEN-5 n_H=0']['b'] == (F(6), F(-4, 3), F(-5))                    # DB's BnoH
+assert census['CEN-6 with class 0']['b'] == (F(43, 10), F(-17, 6), F(-7))       # DB's Ha2
+assert census['CEN-7']['b'] == (F(33, 5), F(-1, 3), F(-5))                      # DB's Hb
+assert census['CEN-3 n_H=1']['b'] == (F(161, 10), F(53, 6), F(5))               # DB's T2
+out['census'] = census
+
+# which readings have the declared weak and colour slopes
+out['readings_with_b2_1_and_b3_minus3'] = [k for k, v in census.items() if v['b'][1:] == (F(1), F(-3))]
+# general statement: n16 Weyl sixteens (complete), n_H doublets
+sol = [(n16, nh) for n16 in range(0, 40) for nh in range(0, 40)
+       if (F(4, 3) * n16 + F(nh, 6) - F(22, 3), F(4, 3) * n16 - 11) == (F(1), F(-3))]
+out['complete_sixteens_and_doublets_with_b2_1_b3_minus3'] = sol
+assert sol == [(6, 2)]
+out['hypercharge_slope_of_that_content'] = F(4, 3) * 6 + F(2, 10)
+# the hypercharge slope has a floor: every contribution is positive
+contrib_e = WEYL * F(3, 5) * 1
+out['b1_floor_note'] = dict(
+    all_contributions_positive=True,
+    b1_without_any_charged_singlet=F(4, 3) * 6 + F(2, 10) - 6 * contrib_e,
+    charged_singlet_weyl_contribution=contrib_e,
+    number_of_charged_singlet_weyl_blocks_in_CEN1=6,
+    removed_singlets_needed_for_33_over_5=(F(41, 5) - F(33, 5)) / contrib_e)
+
+# ----------------------------------------------------------------------------- handedness functions (T-CEN-c)
+FAMILY_L = {(1, 1): 'Q', (2, 0): 'u^c', (2, 2): 'd^c', (3, 1): 'L', (0, 2): 'e^c', (0, 0): 'nu^c'}
+MIRROR_L = {(2, 1): 'Qbar', (1, 2): 'u', (1, 0): 'd', (0, 1): 'Lbar', (3, 0): 'e', (3, 2): 'nu'}
+
+
+def conj(m):
+    return (3 - m[0], 2 - m[1])
+
+
+def content(f):
+    """Left-handed Weyl multiplets of the 32 pattern blocks for chi = f(n3) (-1)^n2 (chi = -1 left-handed)."""
+    left = []
+    for m in MULTIPLETS:
+        chi = f[m[0]] * (-1) ** m[1]
+        left.append(m if chi == -1 else conj(m))
+    return left
+
+
+def anomalies(left):
+    """Anomaly sums of a list of left-handed multiplets (n3, n2)."""
+    y = lambda m: F(3 * m[1] - 2 * m[0], 6)
+    dim = lambda m: SU3_DIM[m[0]] * SU2_DIM[m[1]]
+    grav = sum(dim(m) * y(m) for m in left)
+    cubic = sum(dim(m) * y(m) ** 3 for m in left)
+    su2 = sum(SU3_DIM[m[0]] * y(m) for m in left if m[1] == 1)
+    su3 = sum(SU2_DIM[m[1]] * y(m) for m in left if m[0] in (1, 2))
+    su3cube = sum(SU2_DIM[m[1]] * (1 if m[0] == 1 else -1) for m in left if m[0] in (1, 2))
+    doublets = sum(SU3_DIM[m[0]] for m in left if m[1] == 1)
+    return dict(grav_Y=grav, Y_cubed=cubic, SU2_SU2_Y=su2, SU3_SU3_Y=su3, SU3_cubed=su3cube, weak_doublets=doublets,
+                free=(grav == 0 and cubic == 0 and su2 == 0 and su3 == 0 and su3cube == 0 and doublets % 2 == 0))
+
+
+hand = []
+for signs in itertools.product((1, -1), repeat=4):
+    f = dict(zip(range(4), signs))
+    left = content(f)
+    nf = sum(1 for m in left if m in FAMILY_L)
+    nm = sum(1 for m in left if m in MIRROR_L)
+    an = anomalies(left)
+    # every multiplet of the family or of the mirror family occurs 0, 1 or 2 times
+    count = {m: left.count(m) for m in set(left)}
+    kind = None
+    if nf == 12:
+        kind = 'two families (16 + 16)'
+    elif nm == 12:
+        kind = 'two mirror families (16bar + 16bar)'
+    elif all(c == 1 for c in count.values()):
+        kind = 'one family and one mirror family (16 + 16bar)'
+    else:
+        kind = 'mixed quark and lepton sectors'
+    # is the complement of a block its CPT partner (opposite handedness) or a partner of equal handedness
+    cpt = all(f[m[0]] * (-1) ** m[1] == -f[conj(m)[0]] * (-1) ** conj(m)[1] for m in MULTIPLETS)
+    same = all(f[m[0]] * (-1) ** m[1] == f[conj(m)[0]] * (-1) ** conj(m)[1] for m in MULTIPLETS)
+    idx = index_of_patterns(ALL)
+    hand.append(dict(f=[f[i] for i in range(4)], family_multiplets=nf, mirror_multiplets=nm, kind=kind,
+                     anomaly_free=an['free'], anomalies=an, complement_is_CPT_partner=cpt,
+                     complement_has_equal_handedness=same))
+out['handedness_functions'] = hand
+free = [h for h in hand if h['anomaly_free']]
+out['handedness_summary'] = dict(
+    functions=len(hand), anomaly_free=len(free),
+    kinds_of_the_anomaly_free=sorted({h['kind'] for h in free}),
+    degree_parity=[h for h in hand if h['f'] == [-1, 1, -1, 1]][0]['kind'],          # chi = -(-1)^(n3 + n2)
+    minus1_to_n2=[h for h in hand if h['f'] == [1, 1, 1, 1]][0]['kind'],             # chi = (-1)^n2
+    slopes_identical_for_all_16='the slopes count Weyl blocks per representation and its conjugate; they do not depend on f')
+assert [h for h in hand if h['f'] == [-1, 1, -1, 1]][0]['complement_is_CPT_partner']
+assert [h for h in hand if h['f'] == [1, 1, 1, 1]][0]['complement_has_equal_handedness']
+
+OUT.write_text(json.dumps(clean(out), indent=1))
+print('per multiplet (name, 6Y, class, Weyl contribution to b1, b2, b3):')
+for r in rows:
+    print(f"  {r['name']:11s} {r['six_Y']:3d}  k={r['class_k']}  " + ', '.join(str(x) for x in r['weyl_contribution_b123']))
+print('census:')
+for k, v in census.items():
+    print(f"  {k:24s} ({', '.join(str(x) for x in v['b'])})")
+print('readings with b2 = 1 and b3 = -3:', out['readings_with_b2_1_and_b3_minus3'])
+print('complete sixteens and doublets with b2 = 1, b3 = -3:', sol, ' b1 =', out['hypercharge_slope_of_that_content'])
+print('b1 floor:', {k: str(v) for k, v in out['b1_floor_note'].items()})
+print('handedness functions: ', out['handedness_summary'])
+for h in hand:
+    print('  f =', h['f'], '|', h['kind'], '| anomaly free:', h['anomaly_free'], '| complement CPT partner:', h['complement_is_CPT_partner'])
+print('wrote', OUT)

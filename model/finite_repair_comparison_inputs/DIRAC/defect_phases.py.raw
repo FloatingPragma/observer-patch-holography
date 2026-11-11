@@ -1,0 +1,91 @@
+"""Rest phases of a charged level on one carrier that holds a flux pair (a table for the simulation's app).
+
+A level of charge Q6 sees a centre flux of class k as the link phase exp(2 pi i alpha), alpha = k Q6 / 6 mod 1.
+A flux pair (k on face f1, -k on face f2) is realised by a string of link phases along a dual path from f1 to f2.
+For every separation class of the two faces (dual-graph distance 1..5) and alpha = 1/6, 1/3, 1/2:
+  lambda_min of the phase-coupled port Laplacian, and the rest phase of the public walk arccos(1 - lambda_min/60).
+The value does not depend on the path (checked with two different paths).
+Declared: the walk and its clock, the charge reading of the levels, the flux pair as a background. Not a mass.
+"""
+import itertools, json, sys
+from collections import deque
+import numpy as np
+from model.common_source import slow_geometry
+
+src = slow_geometry.source()
+seams = [tuple(sorted(int(v) for v in e)) for e in src.seams()]
+faces = [tuple(int(v) for v in f) for f in src.oriented_faces()]
+n = 12
+seam_faces = {e: [i for i, f in enumerate(faces) if set(e) <= set(f)] for e in seams}
+assert all(len(v) == 2 for v in seam_faces.values())
+dual = {i: [] for i in range(len(faces))}
+for e, (f, g) in seam_faces.items():
+    dual[f].append((g, e)); dual[g].append((f, e))
+def paths(f1, f2, forbid=()):
+    """shortest dual path from f1 to f2 as a list of crossed seams, avoiding seams in forbid"""
+    prev = {f1: None}; q = deque([f1])
+    while q:
+        f = q.popleft()
+        if f == f2: break
+        for g, e in dual[f]:
+            if g not in prev and e not in forbid:
+                prev[g] = (f, e); q.append(g)
+    out = []; f = f2
+    while prev[f] is not None:
+        f, e = prev[f]; out.append(e)
+    return out[::-1]
+def dist(f1, f2): return len(paths(f1, f2))
+def orient(e, f):
+    """+1 if seam e = (a, b), a < b, is traversed a -> b in the orientation of face f"""
+    a, b = e; i = f.index(a)
+    return 1 if f[(i + 1) % 3] == b else -1
+def laplacian(phases):
+    L = np.zeros((n, n), complex)
+    for a, b in seams:
+        z = phases.get((a, b), 1.0)
+        v = np.zeros(n, complex); v[a] = 1; v[b] = -z
+        L += np.outer(v, v.conj())
+    return L
+def face_flux(phases, f):
+    w = 1.0
+    for i in range(3):
+        a, b = f[i], f[(i + 1) % 3]
+        e = (min(a, b), max(a, b)); z = phases.get(e, 1.0)
+        w *= z if a < b else np.conj(z)
+    return np.angle(w) / (2 * np.pi)
+def string(f1, f2, alpha, forbid=()):
+    """link phases that put flux +alpha on f1 and -alpha on f2 (in units of a full turn)"""
+    ph = {}
+    f = f1
+    for e in paths(f1, f2, forbid):
+        g = [x for x in seam_faces[e] if x != f][0]
+        # crossing seam e from face f to face g: phase so that f gains +alpha and g loses it
+        s = orient(e, faces[f])
+        ph[e] = ph.get(e, 1.0) * np.exp(2j * np.pi * alpha * s)
+        f = g
+    return ph
+rows = []
+f1 = 0
+by_d = {}
+for f2 in range(1, len(faces)):
+    by_d.setdefault(dist(f1, f2), f2)
+counts = {d: sum(1 for a, b in itertools.combinations(range(20), 2) if dist(a, b) == d) for d in by_d}
+for alpha_name, alpha in (('1/6', 1 / 6), ('1/3', 1 / 3), ('1/2', 1 / 2)):
+    for d, f2 in sorted(by_d.items()):
+        ph = string(f1, f2, alpha)
+        fl = [face_flux(ph, f) for f in faces]
+        expect = np.zeros(20); expect[f1] = alpha; expect[f2] = -alpha
+        fl_err = max(abs(((x - y + 0.5) % 1) - 0.5) for x, y in zip(fl, expect))
+        lam = np.linalg.eigvalsh(laplacian(ph))
+        # second path for the gauge check
+        alt = string(f1, f2, alpha, forbid=tuple(paths(f1, f2)[:1]))
+        lam2 = np.linalg.eigvalsh(laplacian(alt))
+        rows.append({'alpha': alpha_name, 'separation': d, 'pairs_in_class': counts[d], 'lambda_min': float(lam[0]),
+                     'second_level': float(lam[1]), 'rest_phase': float(np.arccos(1 - lam[0] / 60)),
+                     'correction_probability': float(lam[0] / 60), 'flux_check': float(fl_err),
+                     'path_independence': float(np.abs(lam - lam2).max())})
+        print(f"alpha {alpha_name} separation {d} ({counts[d]:2d} pairs): lambda_min {lam[0]:.6f}  next {lam[1]:.6f}  "
+              f"rest phase {rows[-1]['rest_phase']:.6f}  [flux check {fl_err:.1e}, path {rows[-1]['path_independence']:.1e}]")
+out = {'rows': rows, 'reference': {'no_flux': 0.0, 'flux_in_every_face_k1_doublet': 0.157935, 'flux_in_every_face_k2_triplet': 0.215043},
+       'note': 'rest phase = arccos(1 - lambda_min/60) of the public walk on one carrier; lattice-scale numbers of a declared program'}
+if len(sys.argv) > 1: json.dump(out, open(sys.argv[1], 'w'), indent=1)

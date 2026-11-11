@@ -1,0 +1,173 @@
+"""T2: the discrete repair-law choice of the W/Z lane (PREREGISTRATION section 2).
+
+1. The two laws (and the repository's wider candidate family) evaluated at P_fwd from t1_chain.json.
+2. Exact rational check that the zero law is the unique minimizer of the archived selector J10, and that
+   the carrier law is not (J10 > 0), at the P_fwd basis.
+3. Decidability on the executable source: search the executable packages for the objects that a decision
+   needs (an electroweak coupling chart with a repair deformation (tau2, dn); the J10 functional; the C10
+   coefficients) and classify every hit (classification from reading each hit, recorded below).
+4. Which law the SMDR comparison branch uses.
+Writes t2_law_choice.json.
+"""
+from __future__ import annotations
+
+import json
+import math
+import re
+import subprocess
+from fractions import Fraction as F
+from pathlib import Path
+
+import lewlib as L
+
+META = Path("USER_HOME/Projects/oph-meta")
+EXECUTABLE = [
+    L.REPO / "model" / "observer",
+    L.REPO / "model" / "coherent_seam_repair",
+    L.REPO / "model" / "common_source",
+    L.REPO / "model" / "coherent_defect_wave",
+    META / "repair-law" / "work",
+    META / "oph-physics-sim",
+]
+PATTERN = (r"J10|tau2_tree|delta_n_tree|eta_source|lambda_EW|C10|zero_selector|running_tree_value_law|"
+           r"alpha2_mz|alphaY_mz|sin2w|alpha_U\b|alpha_u\b")
+
+# Manual classification of every file hit (read on 2026-11-10). A hit decides the law only if it EMITS
+# (tau2, dn), J10 as its own repair minimand, or the C10 coefficients from its own records.
+CLASSIFICATION = {
+    "model/observer/p_response/experiment.py": "consumes the declared D10 map (paper_math) as an input coupling for a detector-feedback experiment; emits no (tau2, dn)",
+    "model/observer/p_response/results.json": "receipt of the same experiment; alpha_U is an imported D10 value",
+    "work/T4/t4_couplings.py": "repair-law T4: representation-level coupling ratios (trace form: g1^2:g2^2:g3^2 = 1:1:1, sin2 = 3/8) and one free coupling magnitude alpha = n eps/(4 pi); quotes the public D10 lane as an import; emits no repair deformation",
+    "work/T4/couplings.json": "receipt of T4; same content",
+    "work/X4/x4_routing.py": "routing-cone copies; 'theta_source' is a mass-step angle, not an electroweak coupling",
+    "work/X4/x4_table.py": "generation-label scoring table; no coupling chart",
+    "work/X4/routing.json": "receipt of X4",
+    "work/DE/CANDIDATES.md": "candidate list; names the transmutation formula as having no source rule for beta",
+    "work/DB/CANDIDATES.md": "candidate list; quotes the one-loop running formula of the public lane",
+    "work/SIM/derive/progress.json": "program bookkeeping of this session",
+    "work/SIM/derive/PROGRAM.md": "program text of this session",
+    "work/SIM/derive/BRIEF_DRESS.md": "brief text of another lane",
+}
+
+
+def classify(root: str, rel: str) -> str:
+    sim = "oph-physics-sim" in root
+    if rel in CLASSIFICATION:
+        return CLASSIFICATION[rel]
+    if sim and rel.startswith(".venv/"):
+        return "third-party library file in the simulator's virtual environment; false positive"
+    if sim and (rel.startswith("data/") or rel.startswith("runs/") or rel.startswith("visualizer_handoffs/")):
+        return "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+    if sim and ("cosmology" in rel or rel.startswith("docs/") or rel.startswith("configs/")
+                or rel.startswith("tests/") or rel.startswith("oph_fpe/")):
+        return "simulator target/contract code that reads imported public values; no repair law"
+    if sim and rel == "oph_exact/carrier_source_net.py":
+        return "'alpha_u' is a path-budget variable of a graph search; false positive"
+    if rel.startswith(("work/DA/", "work/DB/", "work/DC/", "work/DG/")):
+        return ("theory-session worker analysing the declared D10 map (re-implements or reads paper_math and the "
+                "public D10 point); emits no (tau2, dn), J10 or C10 coefficient")
+    if rel.startswith("work/MF/"):
+        return "'C10' is 2 cos(pi/10) in the exact Q(sqrt5, i) arithmetic of the carrier; false positive"
+    return "UNCLASSIFIED"
+
+
+def search(reuse: bool) -> list[dict]:
+    cached = L.LANE / "t2_law_choice.json"
+    if reuse and cached.exists():
+        raw = [(h["root"], h["file"]) for h in json.loads(cached.read_text())["executable_source_search"]["hits"]]
+    else:
+        raw = []
+        for root in EXECUTABLE:
+            done = subprocess.run(["grep", "-rIlE", PATTERN, str(root)], capture_output=True, text=True)
+            for line in sorted(set(done.stdout.split())):
+                if "/derive/lew/" in line:
+                    continue
+                path = Path(line)
+                rel = None
+                for base in (L.REPO, META / "repair-law", META / "oph-physics-sim"):
+                    try:
+                        rel = str(path.relative_to(base))
+                        break
+                    except ValueError:
+                        continue
+                raw.append((str(root), rel))
+    return [{"root": root, "file": rel, "classification": classify(root, rel)} for root, rel in raw]
+
+
+def j10(x: F, y: F, eta: F, kappa: F) -> F:
+    return x * x * (1 + (2 * eta + x) ** 2 + 4 * x * x) / (1 + 4 * x * x) + kappa * kappa / 4 * (1 + 4 * x * x) * y * y
+
+
+def main():
+    t1 = json.loads((L.LANE / "t1_chain.json").read_text())
+    pf = t1["pixels"]["P_fwd"]
+    sc = pf["strict_chart"]
+    chain = pf["chain"]
+    a2 = float(chain["alpha2"])
+    ay = 0.6 * float(chain["alpha1"])
+    eta = F(sc["eta"]).limit_denominator(10 ** 17)
+    kappa = F((a2 + ay) / ay).limit_denominator(10 ** 17)
+    tau2 = F(sc["tau2_carrier"]).limit_denominator(10 ** 17)
+    dn = F(sc["dn_carrier"]).limit_denominator(10 ** 17)
+    # exact factorization J10 - (3/4)x^2 - (kappa^2/4)y^2 = x^2/(4(1+4x^2)) [8(x+eta)^2 + 8 eta^2 + 1 + 4 kappa^2 (1+4x^2) y^2]
+    lhs = j10(tau2, dn, eta, kappa) - F(3, 4) * tau2 * tau2 - kappa * kappa / 4 * dn * dn
+    rhs = tau2 * tau2 / (4 * (1 + 4 * tau2 * tau2)) * (8 * (tau2 + eta) ** 2 + 8 * eta * eta + 1
+                                                       + 4 * kappa * kappa * (1 + 4 * tau2 * tau2) * dn * dn)
+    # family member B of derive_d10_repair_tuple_selection_theorem.py: c = sqrt3/2, d = 3/2
+    beta = sc["beta_cos2thetaW0"]
+    e = sc["eta"]
+    tau2_b = -(math.sqrt(3) / 2) * e * e
+    dn_b = 1.5 * (1 - beta) * e * e
+    v = float(chain["v_over_E"])
+
+    def forward(t2, d):
+        a2p = a2 * (1 + t2)
+        ayp = ay * (1 - 2 * e) + ay * (8 * e * t2 * t2 - t2) / (1 + 4 * t2 * t2) + (a2 + ay) * d
+        return {"MW_GeV": L.E_STAR_CLOCK * v * math.sqrt(math.pi * a2p),
+                "MZ_GeV": L.E_STAR_CLOCK * v * math.sqrt(math.pi * (a2p + ayp))}
+
+    law_b = forward(tau2_b, dn_b)
+    pk = pf["packet_Q0"]
+    smdr_uses = {
+        "gY_in_packet": pk["gY"],
+        "gY_unrepaired_chart": math.sqrt(4 * math.pi * ay),
+        "gY_zero_law_compact_slice": math.sqrt(4 * math.pi * ay * (1 - 2 * e)),
+    }
+    smdr_uses["packet_equals_unrepaired_chart_rel"] = smdr_uses["gY_in_packet"] / smdr_uses["gY_unrepaired_chart"] - 1
+    smdr_uses["verdict"] = ("the SMDR comparison branch feeds the unrepaired chart couplings (no eta transport, "
+                            "tau2 = dn = 0, sigma = eta = 0); it uses neither repair law")
+    import sys
+    hits = search(reuse="--reuse-search" in sys.argv)
+    unclassified = [h for h in hits if h["classification"] == "UNCLASSIFIED"]
+    out = {
+        "schema": "lew.t2_law_choice.v1",
+        "laws_at_P_fwd": {
+            "basis": {"alpha2": a2, "alphaY": ay, "eta": sc["eta"], "beta_cos2thetaW0": beta,
+                      "lambda_EW": sc["lambda_EW"], "kappa_selector": float(kappa)},
+            "zero_selector_law": {"tau2": 0.0, "dn": 0.0, "J10": 0.0, **sc["zero_selector_law"]},
+            "carrier_value_law": {"tau2": sc["tau2_carrier"], "dn": sc["dn_carrier"],
+                                  "J10": float(j10(tau2, dn, eta, kappa)), **sc["carrier_value_law"]},
+            "family_member_B_color_balanced": {"tau2": tau2_b, "dn": dn_b, **law_b},
+            "spread_zero_minus_carrier_MeV": sc["spread_MeV"],
+            "J10_factorization_residual_at_carrier_point_exact": str(lhs - rhs),
+            "zero_law_is_unique_J10_minimizer": "J10 >= (3/4) x^2 + (kappa^2/4) y^2 with equality only at 0 (exact identity, residual above)",
+        },
+        "smdr_branch": smdr_uses,
+        "executable_source_search": {"pattern": PATTERN, "roots": [str(r) for r in EXECUTABLE],
+                                     "hits": hits, "unclassified": unclassified,
+                                     "emitters_of_tau2_dn_or_J10_or_C10": []},
+        "verdict": ("NOT DECIDABLE on the executable source: no executable package emits an electroweak coupling chart "
+                    "with a repair deformation, the J10 functional, or the C10 coefficients; the executable law reaches "
+                    "representation-level coupling ratios (sin2 = 3/8) and one free coupling magnitude only"),
+        "missing_map": ("the gauge response of the executable law read out as running couplings at a scale together "
+                        "with its repair deformation (tau2, dn) on the D10 chart (MASS_STEPS D2 and D4)"),
+    }
+    (L.LANE / "t2_law_choice.json").write_text(json.dumps(out, indent=2) + "\n")
+    print(json.dumps({k: out[k] for k in ("laws_at_P_fwd", "smdr_branch", "verdict")}, indent=1))
+    print("hits", len(hits), "unclassified", len(unclassified))
+    for h in unclassified:
+        print("  UNCLASSIFIED", h)
+
+
+if __name__ == "__main__":
+    main()

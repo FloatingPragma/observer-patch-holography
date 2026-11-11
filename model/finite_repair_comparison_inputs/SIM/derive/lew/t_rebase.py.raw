@@ -1,0 +1,88 @@
+"""Rebase on the cut closure (PREREGISTRATION Addendum 5, after DC2).
+
+B1: b_above needed at P_C, P_fwd, P_br for the producer's alpha_U(P).
+B2: the rebased chain at fixed b_above(P_fwd): v, couplings and W, Z, H, t (A1, K4) at P_C and P_br; changes to P_fwd.
+Writes t_rebase.json. SMDR work file r.dat.
+"""
+from __future__ import annotations
+
+import json
+import math
+
+import lewlib as L
+
+ICC = L.ICC
+E = L.E_STAR_BRANCH
+
+
+def cut_alpha(p_str: str, dps: int = 50, cutoff: int = 40):
+    b = ICC.MpBackend(dps)
+    su2 = ICC.build_su2_terms(b, cutoff)
+    su3 = ICC.build_su3_terms(b, cutoff)
+    p = b.num(p_str)
+    f = lambda a: ICC.ellbar(b, su2, b.four_pi_sq * a) + ICC.ellbar(b, su3, b.four_pi_sq * a) - p / 4
+    return b.ctx.findroot(f, b.num("0.0616")), b
+
+
+def rebased_point(p_str: str, b_above, dps: int = 50, cutoff: int = 40) -> dict:
+    a_cut, b = cut_alpha(p_str, dps, cutoff)
+    ctx = b.ctx
+    p = b.num(p_str)
+    R = 2 * ctx.pi - ctx.mpf(2) / 3 * ctx.log(p)
+    au = 1 / (1 / a_cut + b.num(b_above) * R / (2 * ctx.pi))
+    solver = ICC.PointSolver(b, cutoff, cutoff)
+    mu_u = ICC.mu_u_of_p(b, p)
+    mz = solver.solve_mz(au, p, mu_u)
+    a1, a2, a3 = (ICC.alpha_run(b, au, c, mz, mu_u) for c in b.b_mssm)
+    v = ICC.v_transmutation(b, au, p)
+    return {"P": p_str, "alpha_cut": float(a_cut), "inv_alpha_cut": float(1 / a_cut), "R": float(R),
+            "alpha_U": float(au), "muZ_over_E": float(mz), "v_over_E": float(v),
+            "alpha1": float(a1), "alpha2": float(a2), "alpha3": float(a3)}
+
+
+def main():
+    t1 = json.loads((L.LANE / "t1_chain.json").read_text())
+    out = {"schema": "lew.t_rebase.v1", "B1_b_above_needed": {}, "B2_rebased": {}}
+    pix = {"P_C": L.P_C, "P_fwd": L.P_FWD, "P_br": L.P_BR}
+    for name, ps in pix.items():
+        a_cut, b = cut_alpha(ps)
+        ctx = b.ctx
+        p = b.num(ps)
+        R = 2 * ctx.pi - ctx.mpf(2) / 3 * ctx.log(p)
+        au_prod = ctx.mpf(t1["pixels"][name]["chain"]["alpha_U"])
+        b_above = 2 * ctx.pi * (1 / au_prod - 1 / a_cut) / R
+        out["B1_b_above_needed"][name] = {"inv_alpha_cut": ctx.nstr(1 / a_cut, 12), "R": ctx.nstr(R, 12),
+                                          "inv_alpha_U_producer": ctx.nstr(1 / au_prod, 12),
+                                          "b_above": ctx.nstr(b_above, 12)}
+    b_fwd = out["B1_b_above_needed"]["P_fwd"]["b_above"]
+    out["gate"] = {"inv_alpha_cut_P_fwd": out["B1_b_above_needed"]["P_fwd"]["inv_alpha_cut"], "DC2": "16.2453",
+                   "b_above_P_fwd": b_fwd, "DC2_b_above": "8.5131"}
+    ref = {}
+    for name, ps in pix.items():
+        rp = rebased_point(ps, b_fwd)
+        chain = dict(t1["pixels"][name]["chain"])
+        pk = L.packet_from_chain({**chain, "muZ_over_E": repr(rp["muZ_over_E"]), "v_over_E": repr(rp["v_over_E"]),
+                                  "gY": repr(math.sqrt(0.6 * 4 * math.pi * rp["alpha1"])),
+                                  "g2": repr(math.sqrt(4 * math.pi * rp["alpha2"])),
+                                  "g3": repr(math.sqrt(4 * math.pi * rp["alpha3"]))})
+        crit = L.solve_criticality(pk, pk["mu_c"], 2, name="r.dat")
+        pk["yt"], pk["lambda"] = crit["yt_Q0"], crit["lambda_Q0"]
+        rp["outputs_A1_GeV"] = L.readout(pk)
+        rp["v_GeV"] = pk["v"]
+        rp["alpha_U_rel_to_producer"] = rp["alpha_U"] / float(chain["alpha_U"]) - 1
+        out["B2_rebased"][name] = rp
+    f = out["B2_rebased"]["P_fwd"]
+    for name in ("P_C", "P_br"):
+        o = out["B2_rebased"][name]
+        o["P_fwd_change_ppm"] = {"v": 1e6 * (f["v_over_E"] / o["v_over_E"] - 1),
+                                 **{k: 1e6 * (f["outputs_A1_GeV"][k] / o["outputs_A1_GeV"][k] - 1) for k in ("W", "Z", "H", "t")}}
+    (L.LANE / "t_rebase.json").write_text(json.dumps(out, indent=2) + "\n")
+    print(json.dumps(out["B1_b_above_needed"], indent=1))
+    print(json.dumps(out["gate"], indent=1))
+    for name, o in out["B2_rebased"].items():
+        print(name, "alphaU_rel_prod=%.3e" % o["alpha_U_rel_to_producer"], "v=%.6f" % o["v_GeV"],
+              {k: round(o["outputs_A1_GeV"][k], 6) for k in ("W", "Z", "H", "t")}, o.get("P_fwd_change_ppm"))
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,156 @@
+"""Engine of lane LR: the two-cell lepton register on the sixty-address carrier, executed.
+
+Three forms of the same round (CANDIDATES.md, section 2):
+  E1  the public package's own Walk.step and Walk.inverse_step on the unreduced basis (configuration, record,
+      address) with complex amplitudes; the pair is a dictionary over both cells;
+  E2  complex128 arrays over the 60 x 60 addresses of the pair. For a blank double at a port the event Q maps the
+      basis state |D, 0, k> to one basis state Q|D, 0, k> (amplitude one, record 0, 2 or 3), so one array index k
+      labels |D, 0, k> at the round boundaries and Q|D, 0, k> after the tick. The tick is the address reflection
+      followed by this relabelling; the tables are built from `walk.images` of the public package;
+  E3  one round in rational arithmetic through the public package (`carrier.weak_round`).
+
+The public repository is imported read only (LR_RER overrides its path). Nothing is written by this module.
+"""
+import os
+import sys
+from fractions import Fraction as F
+
+sys.dont_write_bytecode = True
+RER = os.environ.get('LR_RER', 'WORKSPACE/reverse-engineering-reality')
+if RER not in sys.path:
+    sys.path.insert(0, RER)
+
+import numpy as np  # noqa: E402
+
+from model.coherent_seam_repair.program import Observer  # noqa: E402
+from model.lepton_register_round import walk as wk  # noqa: E402
+
+ADDR = tuple(tuple(a) for a in Observer().addresses)
+NA = len(ADDR)
+assert NA == 60
+WALK = wk.Walk(ADDR)
+SQ = np.sqrt(NA)
+
+
+# ------------------------------------------------------------------------------------------------ tables
+def dl_tables(port):
+    """Blank double at `port`: record written by the event at each address, and the mid-round keys Q|D, 0, k>."""
+    cfg0 = wk.config(port, port)
+    rec = np.zeros(NA, dtype=np.int64)
+    keys = []
+    for k, (a, b) in enumerate(ADDR):
+        im = wk.images(cfg0, 0, a, b)
+        assert len(im) == 1 and im[0][2] == 1, 'the event maps a blank double to one basis state'
+        c2, r2, _ = im[0]
+        back = wk.images(c2, r2, a, b)
+        assert len(back) == 1 and back[0][:2] == (cfg0, 0) and back[0][2] == 1, 'the event is an involution here'
+        rec[k] = r2
+        keys.append((c2, r2, k))
+    assert sorted(set(rec.tolist())) == [0, 2, 3]
+    assert int((rec == 2).sum()) == 5 and int((rec == 3).sum()) == 5
+    assert all((rec[k] == 2) == (ADDR[k][0] == port) and (rec[k] == 3) == (ADDR[k][1] == port) for k in range(NA))
+    return cfg0, rec, keys
+
+
+class Pair:
+    """Two cells X and Y, each a blank double at its port, with record flags R+ (X reads 2), R- (X reads 3),
+    H (Y written)."""
+
+    def __init__(self, port_x=2, port_y=2):
+        self.cfg_x, self.rec_x, self.keys_x = dl_tables(port_x)
+        self.cfg_y, self.rec_y, self.keys_y = dl_tables(port_y)
+        self.rp = (self.rec_x == 2)
+        self.rm = (self.rec_x == 3)
+        self.h = (self.rec_y != 0)
+        self.xor = (self.rp[:, None] ^ self.h[None, :])
+        self.uu = np.full((NA, NA), 1.0 / NA, dtype=np.complex128)
+
+    @staticmethod
+    def reflect(psi):
+        """R (x) R on the two address registers (the last two axes)."""
+        psi = 2 * psi.mean(axis=-2, keepdims=True) - psi
+        return 2 * psi.mean(axis=-1, keepdims=True) - psi
+
+    def tick(self, psi):
+        return self.reflect(psi)            # then Q: the relabelling k -> Q|D, 0, k>
+
+    def inverse_tick(self, psi):
+        return self.reflect(psi)            # Q first (the relabelling back), then R
+
+    def kick(self, psi, angle):
+        """exp(-i angle Qx) on the ticked pair; angle = h j."""
+        return psi * np.where(self.xor, np.exp(-1j * angle), 1.0)
+
+    def round(self, psi, angle):
+        return self.inverse_tick(self.kick(self.tick(psi), angle))
+
+    def count(self, psi):
+        """<Qx> read by the round after its tick."""
+        t = self.tick(psi)
+        return float((np.abs(t) ** 2 * self.xor).sum() / (np.abs(t) ** 2).sum())
+
+    @staticmethod
+    def test(psi):
+        """Return tests of both cells. Returns the amplitude on yes/yes and the four unnormalized components."""
+        a = psi.sum() / NA                                       # <uu|psi>
+        col = psi.sum(axis=1) / SQ                               # Y projected on its uniform state: vector over kX
+        row = psi.sum(axis=0) / SQ                               # X projected on its uniform state: vector over kY
+        yy = np.full((NA, NA), a / NA, dtype=np.complex128)
+        ny = np.outer(col - col.mean(), np.full(NA, 1 / SQ))     # X no, Y yes
+        yn = np.outer(np.full(NA, 1 / SQ), row - row.mean())     # X yes, Y no
+        nn = psi - yy - ny - yn
+        return a, dict(yy=yy, ny=ny, yn=yn, nn=nn)
+
+
+# ------------------------------------------------------------------------------------------------ E1, public Walk
+def public_standing(port):
+    amp = 1.0 / SQ
+    return {(wk.config(port, port), 0, k): amp for k in range(NA)}
+
+
+def public_round(pair, angle, rp_flag=lambda key: key[1] == 2, h_flag=lambda key: key[1] in (2, 3)):
+    """One round on a pair dictionary through Walk.step and Walk.inverse_step of the public package."""
+    ticked = wk.on_both(pair, WALK.step)
+    z = complex(np.exp(-1j * angle))
+    kicked = {k: (v * z if rp_flag(k[0]) != h_flag(k[1]) else v) for k, v in ticked.items()}
+    return wk.on_both(kicked, WALK.inverse_step)
+
+
+def public_count(pair, rp_flag=lambda key: key[1] == 2, h_flag=lambda key: key[1] in (2, 3)):
+    ticked = wk.on_both(pair, WALK.step)
+    tot = sum(abs(v) ** 2 for v in ticked.values())
+    return sum(abs(v) ** 2 for k, v in ticked.items() if rp_flag(k[0]) != h_flag(k[1])) / tot
+
+
+def pair_dict_to_array(pair_dict, port_x=2, port_y=2):
+    """A pair dictionary supported on blank doubles at the two ports, as a 60 x 60 array."""
+    cx, cy = wk.config(port_x, port_x), wk.config(port_y, port_y)
+    out = np.zeros((NA, NA), dtype=np.complex128)
+    rest = 0.0
+    for ((c1, r1, k1), (c2, r2, k2)), v in pair_dict.items():
+        if c1 == cx and c2 == cy and r1 == 0 and r2 == 0:
+            out[k1, k2] = v
+        else:
+            rest += abs(v) ** 2
+    return out, rest
+
+
+def cdot(u, v):
+    """<u|v> = sum of conj(u_k) v_k over the keys of both dictionaries. (`walk.dot` exchanges its arguments when the
+    first is longer, which conjugates the result for complex amplitudes; this function does not.)"""
+    if len(u) > len(v):
+        return sum((complex(u[k]).conjugate() * c for k, c in v.items() if k in u), 0j)
+    return sum((complex(c).conjugate() * v[k] for k, c in u.items() if k in v), 0j)
+
+
+# ------------------------------------------------------------------------------------------------ closed forms
+def closed_amplitude(angle, P=2.0 / 9.0):
+    return 1 - P + P * np.exp(-1j * angle)
+
+
+def closed_theta(N, P=F(2, 9), dps=40):
+    import mpmath as mp
+    with mp.workdps(dps):
+        p = mp.mpf(P.numerator) / P.denominator
+        z = 1 - p + p * mp.exp(-1j / mp.mpf(N))
+        return float(-N * mp.arg(z)), float(N * mp.log(abs(z)))

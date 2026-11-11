@@ -1,0 +1,6262 @@
+{
+ "engine_sha256": "692285e9ecef2542d290c720e8bfd7af53d2d908086b45e4205e4febf5719891",
+ "set": "r2angle",
+ "results": [
+  {
+   "config": {
+    "L": 128,
+    "theta0": 0.157935,
+    "n": 1,
+    "xi_c": 0.0,
+    "window": 0.9,
+    "block": 128,
+    "classes": [
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      1
+     ]
+    ],
+    "velocity": true
+   },
+   "classes": [
+    {
+     "class": [
+      0,
+      0
+     ],
+     "dimension": 16384,
+     "block": 128,
+     "solver": "robust",
+     "ritz_values_in_window": 8,
+     "states_in_window": 8,
+     "largest_residual_in_window": 1.7734678544971503e-15,
+     "block_saturated": false,
+     "unitarity_defect_of_the_compression": 5.329070518200751e-15,
+     "phases_per_tick_all_cores": [
+      -0.0038541993748290094,
+      -0.003854199374828979,
+      -0.00385419937482891,
+      -0.0038541993748288914,
+      0.00385419937482888,
+      0.0038541993748289344,
+      0.0038541993748289795,
+      0.003854199374828994
+     ],
+     "cores": [
+      {
+       "core": 0,
+       "winding": 1,
+       "states": 2,
+       "smallest_core_weight_kept": 0.99721991747438,
+       "largest_core_weight_dropped": 1.1269102445092167e-05,
+       "phases_per_tick": [
+        -0.0038541993748289474,
+        0.003854199374828945
+       ],
+       "group_residual_of_U": 2.2064501653503893e-15,
+       "near_zero_group": {
+        "size": 2,
+        "phases_per_tick": [
+         -0.0038541993748289474,
+         0.003854199374828945
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.02440370642877733,
+         0.024403706428777313
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         1.0
+        ],
+        "n_plus": 1,
+        "n_minus": 1,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.0038541993748289457
+        ],
+        "plus_two_cell_shift_correlation": [
+         0.97521
+        ],
+        "plus_smooth": 1,
+        "plus_staggered": 0,
+        "plus_shift_correlation_axis1": [
+         0.97524
+        ],
+        "plus_shift_correlation_axis2": [
+         0.97519
+        ],
+        "minus_two_cell_shift_correlation": [
+         -0.97521
+        ],
+        "minus_smooth": 0,
+        "minus_staggered": 1,
+        "minus_shift_correlation_axis1": [
+         -0.97524
+        ],
+        "minus_shift_correlation_axis2": [
+         -0.97519
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.987554
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.987554
+        ],
+        "dE_dp3_block_between_plus_and_minus": 4.803922495445732e-14
+       },
+       "smooth_modes_plus": {
+        "handedness": "plus",
+        "modes": 1,
+        "weight_right_handed_component": 0.5000000000000004,
+        "weight_left_handed_component": 0.5000000000000004,
+        "angular_content_right_component": {
+         "-4": 0.0005,
+         "-3": 0.0051,
+         "-2": 0.0133,
+         "-1": 0.0022,
+         "0": 0.9581,
+         "1": 0.0018,
+         "2": 0.013,
+         "3": 0.0056,
+         "4": 0.0004
+        },
+        "angular_content_left_component": {
+         "-4": 0.0004,
+         "-3": 0.0056,
+         "-2": 0.013,
+         "-1": 0.0018,
+         "0": 0.9581,
+         "1": 0.0022,
+         "2": 0.0133,
+         "3": 0.0051,
+         "4": 0.0005
+        },
+        "overlaps": [
+         {
+          "width": 1.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.03454820374582097
+          ],
+          "left_component_weights": [
+           0.03454820374582096
+          ],
+          "density_weights": [
+           0.06909640749164192
+          ],
+          "toggle_Z_singular_values": [
+           0.019527038885489463
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.401307715331872e-17,
+          "toggle_Y_singular_values": [
+           0.0021065749327219894
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 1.1503277753408587e-17
+         },
+         {
+          "width": 1.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.013936552989363232
+          ],
+          "left_component_weights": [
+           0.013936552989363233
+          ],
+          "density_weights": [
+           0.027873105978726463
+          ],
+          "toggle_Z_singular_values": [
+           0.0020849887905069592
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 4.007975173071288e-18,
+          "toggle_Y_singular_values": [
+           0.0012177705091857016
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 5.7893883409035314e-18
+         },
+         {
+          "width": 2.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.09819322905781303
+          ],
+          "left_component_weights": [
+           0.09819322905781303
+          ],
+          "density_weights": [
+           0.19638645811562605
+          ],
+          "toggle_Z_singular_values": [
+           0.0064635134671665595
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.570858918313846e-17,
+          "toggle_Y_singular_values": [
+           0.003953605277064301
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 1.1862975330010774e-17
+         },
+         {
+          "width": 2.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.05573187341005457
+          ],
+          "left_component_weights": [
+           0.055731873410054575
+          ],
+          "density_weights": [
+           0.11146374682010915
+          ],
+          "toggle_Z_singular_values": [
+           0.0014280480512795781
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.5636586103463756e-18,
+          "toggle_Y_singular_values": [
+           0.003677001362351299
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 1.0963315984298678e-17
+         }
+        ],
+        "radial_profiles_[r, |right|^2, |left|^2]_modes_by_core_weight": [
+         [
+          [
+           1.0,
+           0.021762196229293807,
+           0.021762196229293804
+          ],
+          [
+           3.0,
+           0.011952178661070036,
+           0.011952178661070042
+          ],
+          [
+           5.0,
+           0.00645697629654504,
+           0.006456976296545038
+          ],
+          [
+           7.0,
+           0.003433532167862278,
+           0.003433532167862277
+          ],
+          [
+           9.0,
+           0.001802587096651369,
+           0.0018025870966513688
+          ],
+          [
+           11.0,
+           0.0009894873550813038,
+           0.0009894873550813036
+          ],
+          [
+           13.0,
+           0.000530942731976452,
+           0.000530942731976452
+          ],
+          [
+           15.0,
+           0.00027656005298463157,
+           0.00027656005298463146
+          ]
+         ]
+        ]
+       }
+      },
+      {
+       "core": 2,
+       "winding": -1,
+       "states": 2,
+       "smallest_core_weight_kept": 0.9972199174743799,
+       "largest_core_weight_dropped": 1.1269102445097124e-05,
+       "phases_per_tick": [
+        -0.0038541993748289413,
+        0.0038541993748289357
+       ],
+       "group_residual_of_U": 1.896155122309518e-15,
+       "near_zero_group": {
+        "size": 2,
+        "phases_per_tick": [
+         -0.0038541993748289413,
+         0.0038541993748289357
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.024403706428777292,
+         0.024403706428777254
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         1.0
+        ],
+        "n_plus": 1,
+        "n_minus": 1,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.0038541993748289387
+        ],
+        "plus_two_cell_shift_correlation": [
+         -0.97521
+        ],
+        "plus_smooth": 0,
+        "plus_staggered": 1,
+        "plus_shift_correlation_axis1": [
+         -0.97524
+        ],
+        "plus_shift_correlation_axis2": [
+         -0.97519
+        ],
+        "minus_two_cell_shift_correlation": [
+         0.97521
+        ],
+        "minus_smooth": 1,
+        "minus_staggered": 0,
+        "minus_shift_correlation_axis1": [
+         0.97524
+        ],
+        "minus_shift_correlation_axis2": [
+         0.97519
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.987554
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.987554
+        ],
+        "dE_dp3_block_between_plus_and_minus": 2.0913644150718048e-14
+       },
+       "smooth_modes_minus": {
+        "handedness": "minus",
+        "modes": 1,
+        "weight_right_handed_component": 0.5,
+        "weight_left_handed_component": 0.5000000000000002,
+        "angular_content_right_component": {
+         "-4": 0.0004,
+         "-3": 0.0056,
+         "-2": 0.013,
+         "-1": 0.0018,
+         "0": 0.9581,
+         "1": 0.0022,
+         "2": 0.0133,
+         "3": 0.0051,
+         "4": 0.0005
+        },
+        "angular_content_left_component": {
+         "-4": 0.0005,
+         "-3": 0.0051,
+         "-2": 0.0133,
+         "-1": 0.0022,
+         "0": 0.9581,
+         "1": 0.0018,
+         "2": 0.013,
+         "3": 0.0056,
+         "4": 0.0004
+        },
+        "overlaps": [
+         {
+          "width": 1.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.03454820374582096
+          ],
+          "left_component_weights": [
+           0.03454820374582095
+          ],
+          "density_weights": [
+           0.06909640749164192
+          ],
+          "toggle_Z_singular_values": [
+           0.019527038885489477
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 7.785145389033988e-18,
+          "toggle_Y_singular_values": [
+           0.0021065749327219612
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 6.505438906444315e-18
+         },
+         {
+          "width": 1.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.013936552989363223
+          ],
+          "left_component_weights": [
+           0.013936552989363223
+          ],
+          "density_weights": [
+           0.027873105978726446
+          ],
+          "toggle_Z_singular_values": [
+           0.0020849887905069705
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 3.0705373108894164e-18,
+          "toggle_Y_singular_values": [
+           0.0012177705091857048
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 4.445972581229671e-18
+         },
+         {
+          "width": 2.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.09819322905781294
+          ],
+          "left_component_weights": [
+           0.09819322905781294
+          ],
+          "density_weights": [
+           0.19638645811562588
+          ],
+          "toggle_Z_singular_values": [
+           0.006463513467166616
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.939479807224432e-18,
+          "toggle_Y_singular_values": [
+           0.003953605277064247
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 2.0816681711721685e-17
+         },
+         {
+          "width": 2.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.05573187341005452
+          ],
+          "left_component_weights": [
+           0.05573187341005452
+          ],
+          "density_weights": [
+           0.11146374682010904
+          ],
+          "toggle_Z_singular_values": [
+           0.001428048051279615
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 8.50114066984862e-18,
+          "toggle_Y_singular_values": [
+           0.003677001362351308
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 1.0631817190634495e-17
+         }
+        ],
+        "radial_profiles_[r, |right|^2, |left|^2]_modes_by_core_weight": [
+         [
+          [
+           1.0,
+           0.02176219622929379,
+           0.021762196229293793
+          ],
+          [
+           3.0,
+           0.01195217866107003,
+           0.011952178661070031
+          ],
+          [
+           5.0,
+           0.006456976296545033,
+           0.0064569762965450365
+          ],
+          [
+           7.0,
+           0.0034335321678622744,
+           0.0034335321678622753
+          ],
+          [
+           9.0,
+           0.001802587096651367,
+           0.0018025870966513675
+          ],
+          [
+           11.0,
+           0.000989487355081303,
+           0.000989487355081303
+          ],
+          [
+           13.0,
+           0.0005309427319764516,
+           0.0005309427319764515
+          ],
+          [
+           15.0,
+           0.0002765600529846313,
+           0.0002765600529846313
+          ]
+         ]
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "class": [
+      0,
+      1
+     ],
+     "dimension": 16384,
+     "block": 128,
+     "solver": "robust",
+     "ritz_values_in_window": 8,
+     "states_in_window": 8,
+     "largest_residual_in_window": 1.4702657597072584e-15,
+     "block_saturated": false,
+     "unitarity_defect_of_the_compression": 4.440892098500626e-15,
+     "phases_per_tick_all_cores": [
+      -0.003854199374829021,
+      -0.0038541993748289483,
+      -0.003854199374828895,
+      -0.003854199374828859,
+      0.003854199374828891,
+      0.0038541993748289244,
+      0.0038541993748289712,
+      0.0038541993748290094
+     ],
+     "cores": [
+      {
+       "core": 0,
+       "winding": 1,
+       "states": 2,
+       "smallest_core_weight_kept": 0.9972199174743785,
+       "largest_core_weight_dropped": 1.126910244519073e-05,
+       "phases_per_tick": [
+        -0.003854199374828943,
+        0.0038541993748289404
+       ],
+       "group_residual_of_U": 1.8178319948252557e-15,
+       "near_zero_group": {
+        "size": 2,
+        "phases_per_tick": [
+         -0.003854199374828943,
+         0.0038541993748289404
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.024403706428777303,
+         0.024403706428777285
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         1.0
+        ],
+        "n_plus": 1,
+        "n_minus": 1,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.0038541993748289404
+        ],
+        "plus_two_cell_shift_correlation": [
+         0.97521
+        ],
+        "plus_smooth": 1,
+        "plus_staggered": 0,
+        "plus_shift_correlation_axis1": [
+         0.97524
+        ],
+        "plus_shift_correlation_axis2": [
+         0.97519
+        ],
+        "minus_two_cell_shift_correlation": [
+         -0.97521
+        ],
+        "minus_smooth": 0,
+        "minus_staggered": 1,
+        "minus_shift_correlation_axis1": [
+         -0.97524
+        ],
+        "minus_shift_correlation_axis2": [
+         -0.97519
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.987554
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.987554
+        ],
+        "dE_dp3_block_between_plus_and_minus": 1.1129810745030719e-14
+       },
+       "smooth_modes_plus": {
+        "handedness": "plus",
+        "modes": 1,
+        "weight_right_handed_component": 0.49999999999999967,
+        "weight_left_handed_component": 0.49999999999999967,
+        "angular_content_right_component": {
+         "-4": 0.0005,
+         "-3": 0.0051,
+         "-2": 0.0133,
+         "-1": 0.0022,
+         "0": 0.9581,
+         "1": 0.0018,
+         "2": 0.013,
+         "3": 0.0056,
+         "4": 0.0004
+        },
+        "angular_content_left_component": {
+         "-4": 0.0004,
+         "-3": 0.0056,
+         "-2": 0.013,
+         "-1": 0.0018,
+         "0": 0.9581,
+         "1": 0.0022,
+         "2": 0.0133,
+         "3": 0.0051,
+         "4": 0.0005
+        },
+        "overlaps": [
+         {
+          "width": 1.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.03454820374582091
+          ],
+          "left_component_weights": [
+           0.03454820374582092
+          ],
+          "density_weights": [
+           0.06909640749164184
+          ],
+          "toggle_Z_singular_values": [
+           0.019527038885489453
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.460829159019477e-17,
+          "toggle_Y_singular_values": [
+           0.0021065749327219946
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 5.638893702646192e-18
+         },
+         {
+          "width": 1.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.013936552989363214
+          ],
+          "left_component_weights": [
+           0.01393655298936321
+          ],
+          "density_weights": [
+           0.027873105978726425
+          ],
+          "toggle_Z_singular_values": [
+           0.002084988790506963
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 8.809809827516756e-18,
+          "toggle_Y_singular_values": [
+           0.0012177705091856953
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 1.478903031472557e-18
+         },
+         {
+          "width": 2.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.09819322905781284
+          ],
+          "left_component_weights": [
+           0.09819322905781284
+          ],
+          "density_weights": [
+           0.1963864581156257
+          ],
+          "toggle_Z_singular_values": [
+           0.006463513467166598
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 2.5645908039531107e-17,
+          "toggle_Y_singular_values": [
+           0.003953605277064303
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 5.222209201006512e-18
+         },
+         {
+          "width": 2.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.05573187341005448
+          ],
+          "left_component_weights": [
+           0.05573187341005448
+          ],
+          "density_weights": [
+           0.11146374682010896
+          ],
+          "toggle_Z_singular_values": [
+           0.0014280480512796005
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.6286145809231262e-17,
+          "toggle_Y_singular_values": [
+           0.0036770013623512766
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 5.637851296924623e-18
+         }
+        ],
+        "radial_profiles_[r, |right|^2, |left|^2]_modes_by_core_weight": [
+         [
+          [
+           1.0,
+           0.021762196229293772,
+           0.021762196229293776
+          ],
+          [
+           3.0,
+           0.011952178661070017,
+           0.011952178661070019
+          ],
+          [
+           5.0,
+           0.006456976296545029,
+           0.006456976296545027
+          ],
+          [
+           7.0,
+           0.003433532167862271,
+           0.003433532167862272
+          ],
+          [
+           9.0,
+           0.0018025870966513662,
+           0.0018025870966513658
+          ],
+          [
+           11.0,
+           0.0009894873550813017,
+           0.0009894873550813019
+          ],
+          [
+           13.0,
+           0.000530942731976451,
+           0.000530942731976451
+          ],
+          [
+           15.0,
+           0.000276560052984631,
+           0.00027656005298463103
+          ]
+         ]
+        ]
+       }
+      },
+      {
+       "core": 2,
+       "winding": -1,
+       "states": 2,
+       "smallest_core_weight_kept": 0.9972199174743793,
+       "largest_core_weight_dropped": 1.1269102445093766e-05,
+       "phases_per_tick": [
+        -0.003854199374828937,
+        0.0038541993748289413
+       ],
+       "group_residual_of_U": 1.9244336814307418e-15,
+       "near_zero_group": {
+        "size": 2,
+        "phases_per_tick": [
+         -0.003854199374828937,
+         0.0038541993748289413
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.024403706428777264,
+         0.024403706428777292
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         1.0
+        ],
+        "n_plus": 1,
+        "n_minus": 1,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.0038541993748289474
+        ],
+        "plus_two_cell_shift_correlation": [
+         -0.97521
+        ],
+        "plus_smooth": 0,
+        "plus_staggered": 1,
+        "plus_shift_correlation_axis1": [
+         -0.97524
+        ],
+        "plus_shift_correlation_axis2": [
+         -0.97519
+        ],
+        "minus_two_cell_shift_correlation": [
+         0.97521
+        ],
+        "minus_smooth": 1,
+        "minus_staggered": 0,
+        "minus_shift_correlation_axis1": [
+         0.97524
+        ],
+        "minus_shift_correlation_axis2": [
+         0.97519
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.987554
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.987554
+        ],
+        "dE_dp3_block_between_plus_and_minus": 4.087926817277485e-14
+       },
+       "smooth_modes_minus": {
+        "handedness": "minus",
+        "modes": 1,
+        "weight_right_handed_component": 0.5,
+        "weight_left_handed_component": 0.49999999999999994,
+        "angular_content_right_component": {
+         "-4": 0.0004,
+         "-3": 0.0056,
+         "-2": 0.013,
+         "-1": 0.0018,
+         "0": 0.9581,
+         "1": 0.0022,
+         "2": 0.0133,
+         "3": 0.0051,
+         "4": 0.0005
+        },
+        "angular_content_left_component": {
+         "-4": 0.0005,
+         "-3": 0.0051,
+         "-2": 0.0133,
+         "-1": 0.0022,
+         "0": 0.9581,
+         "1": 0.0018,
+         "2": 0.013,
+         "3": 0.0056,
+         "4": 0.0004
+        },
+        "overlaps": [
+         {
+          "width": 1.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.03454820374582094
+          ],
+          "left_component_weights": [
+           0.03454820374582093
+          ],
+          "density_weights": [
+           0.06909640749164186
+          ],
+          "toggle_Z_singular_values": [
+           0.019527038885489463
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 8.50114066984862e-18,
+          "toggle_Y_singular_values": [
+           0.002106574932721983
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 6.133173666733497e-19
+         },
+         {
+          "width": 1.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.01393655298936322
+          ],
+          "left_component_weights": [
+           0.013936552989363218
+          ],
+          "density_weights": [
+           0.027873105978726435
+          ],
+          "toggle_Z_singular_values": [
+           0.002084988790506972
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 5.854691731421724e-18,
+          "toggle_Y_singular_values": [
+           0.0012177705091856949
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 1.7482234731686756e-18
+         },
+         {
+          "width": 2.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.09819322905781293
+          ],
+          "left_component_weights": [
+           0.0981932290578129
+          ],
+          "density_weights": [
+           0.19638645811562583
+          ],
+          "toggle_Z_singular_values": [
+           0.006463513467166582
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 3.314184547378654e-17,
+          "toggle_Y_singular_values": [
+           0.0039536052770643045
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 1.734723475976807e-18
+         },
+         {
+          "width": 2.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.055731873410054505
+          ],
+          "left_component_weights": [
+           0.055731873410054505
+          ],
+          "density_weights": [
+           0.11146374682010901
+          ],
+          "toggle_Z_singular_values": [
+           0.0014280480512796072
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.839952100020049e-17,
+          "toggle_Y_singular_values": [
+           0.0036770013623512875
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 4.336808689942018e-18
+         }
+        ],
+        "radial_profiles_[r, |right|^2, |left|^2]_modes_by_core_weight": [
+         [
+          [
+           1.0,
+           0.021762196229293786,
+           0.02176219622929378
+          ],
+          [
+           3.0,
+           0.011952178661070026,
+           0.011952178661070024
+          ],
+          [
+           5.0,
+           0.006456976296545032,
+           0.006456976296545031
+          ],
+          [
+           7.0,
+           0.0034335321678622744,
+           0.003433532167862274
+          ],
+          [
+           9.0,
+           0.0018025870966513664,
+           0.0018025870966513668
+          ],
+          [
+           11.0,
+           0.0009894873550813025,
+           0.0009894873550813027
+          ],
+          [
+           13.0,
+           0.0005309427319764514,
+           0.0005309427319764515
+          ],
+          [
+           15.0,
+           0.00027656005298463124,
+           0.00027656005298463124
+          ]
+         ]
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "seconds": 187.9
+  },
+  {
+   "config": {
+    "L": 128,
+    "theta0": 0.157935,
+    "n": 1,
+    "xi_c": 4.0,
+    "window": 0.9,
+    "block": 128,
+    "classes": [
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      1
+     ]
+    ],
+    "velocity": true
+   },
+   "classes": [
+    {
+     "class": [
+      0,
+      0
+     ],
+     "dimension": 16384,
+     "block": 128,
+     "solver": "robust",
+     "ritz_values_in_window": 8,
+     "states_in_window": 8,
+     "largest_residual_in_window": 1.7348233171843557e-15,
+     "block_saturated": false,
+     "unitarity_defect_of_the_compression": 3.9968028886505635e-15,
+     "phases_per_tick_all_cores": [
+      -1.4642085367946522e-06,
+      -1.46420853674047e-06,
+      -1.4642085367079257e-06,
+      -1.4642085366762367e-06,
+      1.464208536695122e-06,
+      1.464208536718745e-06,
+      1.4642085367722492e-06,
+      1.4642085367934583e-06
+     ],
+     "cores": [
+      {
+       "core": 0,
+       "winding": 1,
+       "states": 2,
+       "smallest_core_weight_kept": 0.9967820890301742,
+       "largest_core_weight_dropped": 1.304271896553276e-05,
+       "phases_per_tick": [
+        -1.4642085367287452e-06,
+        1.4642085367311476e-06
+       ],
+       "group_residual_of_U": 2.2964038806749e-15,
+       "near_zero_group": {
+        "size": 2,
+        "phases_per_tick": [
+         -1.4642085367287452e-06,
+         1.4642085367311476e-06
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -9.270956638672525e-06,
+         9.270956638687736e-06
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         1.0
+        ],
+        "n_plus": 1,
+        "n_minus": 1,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         1.4642085367293603e-06
+        ],
+        "plus_two_cell_shift_correlation": [
+         0.98251
+        ],
+        "plus_smooth": 1,
+        "plus_staggered": 0,
+        "plus_shift_correlation_axis1": [
+         0.98251
+        ],
+        "plus_shift_correlation_axis2": [
+         0.98251
+        ],
+        "minus_two_cell_shift_correlation": [
+         -0.98251
+        ],
+        "minus_smooth": 0,
+        "minus_staggered": 1,
+        "minus_shift_correlation_axis1": [
+         -0.98251
+        ],
+        "minus_shift_correlation_axis2": [
+         -0.98251
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.99115
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.99115
+        ],
+        "dE_dp3_block_between_plus_and_minus": 5.5967766815704635e-15
+       },
+       "smooth_modes_plus": {
+        "handedness": "plus",
+        "modes": 1,
+        "weight_right_handed_component": 0.4999999999999998,
+        "weight_left_handed_component": 0.5,
+        "angular_content_right_component": {
+         "-4": 0.0003,
+         "-3": 0.0044,
+         "-2": 0.0116,
+         "-1": 0.002,
+         "0": 0.9634,
+         "1": 0.002,
+         "2": 0.0116,
+         "3": 0.0044,
+         "4": 0.0003
+        },
+        "angular_content_left_component": {
+         "-4": 0.0003,
+         "-3": 0.0044,
+         "-2": 0.0116,
+         "-1": 0.002,
+         "0": 0.9634,
+         "1": 0.002,
+         "2": 0.0116,
+         "3": 0.0044,
+         "4": 0.0003
+        },
+        "overlaps": [
+         {
+          "width": 1.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.02232058003846096
+          ],
+          "left_component_weights": [
+           0.022320580038460956
+          ],
+          "density_weights": [
+           0.04464116007692191
+          ],
+          "toggle_Z_singular_values": [
+           0.00901731056349889
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.1362521530871283e-16,
+          "toggle_Y_singular_values": [
+           6.836063271868469e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 6.050469855208629e-17
+         },
+         {
+          "width": 1.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.013465149249309982
+          ],
+          "left_component_weights": [
+           0.01346514924930998
+          ],
+          "density_weights": [
+           0.026930298498619963
+          ],
+          "toggle_Z_singular_values": [
+           0.002956024744540567
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 7.437753339747013e-17,
+          "toggle_Y_singular_values": [
+           4.150156472695226e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 5.3997186850609195e-17
+         },
+         {
+          "width": 2.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.07490919646321688
+          ],
+          "left_component_weights": [
+           0.07490919646321689
+          ],
+          "density_weights": [
+           0.14981839292643379
+          ],
+          "toggle_Z_singular_values": [
+           0.00024238671026990824
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 4.1461342701877293e-16,
+          "toggle_Y_singular_values": [
+           4.096790953915194e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 2.2725539633847855e-16
+         },
+         {
+          "width": 2.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.050886519336936775
+          ],
+          "left_component_weights": [
+           0.050886519336936775
+          ],
+          "density_weights": [
+           0.10177303867387355
+          ],
+          "toggle_Z_singular_values": [
+           0.00010609450050507588
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 3.0617869350990645e-16,
+          "toggle_Y_singular_values": [
+           1.7289273138510077e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 2.133727504682262e-16
+         }
+        ],
+        "radial_profiles_[r, |right|^2, |left|^2]_modes_by_core_weight": [
+         [
+          [
+           1.0,
+           0.014256875105414207,
+           0.014256875105414216
+          ],
+          [
+           3.0,
+           0.010753521786976857,
+           0.010753521786976854
+          ],
+          [
+           5.0,
+           0.006758649037474535,
+           0.006758649037474539
+          ],
+          [
+           7.0,
+           0.003820477938914643,
+           0.0038204779389146453
+          ],
+          [
+           9.0,
+           0.0020613857413398448,
+           0.0020613857413398413
+          ],
+          [
+           11.0,
+           0.0011434482146939037,
+           0.0011434482146939046
+          ],
+          [
+           13.0,
+           0.0006141080185842944,
+           0.0006141080185842953
+          ],
+          [
+           15.0,
+           0.00031993946454125376,
+           0.00031993946454125365
+          ]
+         ]
+        ]
+       }
+      },
+      {
+       "core": 2,
+       "winding": -1,
+       "states": 2,
+       "smallest_core_weight_kept": 0.9967820890301745,
+       "largest_core_weight_dropped": 1.304271896563755e-05,
+       "phases_per_tick": [
+        -1.4642085367363553e-06,
+        1.464208536732465e-06
+       ],
+       "group_residual_of_U": 3.8680454101544766e-15,
+       "near_zero_group": {
+        "size": 2,
+        "phases_per_tick": [
+         -1.4642085367363553e-06,
+         1.464208536732465e-06
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -9.270956638720711e-06,
+         9.270956638696078e-06
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         1.0
+        ],
+        "n_plus": 1,
+        "n_minus": 1,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         1.464208536739225e-06
+        ],
+        "plus_two_cell_shift_correlation": [
+         -0.98251
+        ],
+        "plus_smooth": 0,
+        "plus_staggered": 1,
+        "plus_shift_correlation_axis1": [
+         -0.98251
+        ],
+        "plus_shift_correlation_axis2": [
+         -0.98251
+        ],
+        "minus_two_cell_shift_correlation": [
+         0.98251
+        ],
+        "minus_smooth": 1,
+        "minus_staggered": 0,
+        "minus_shift_correlation_axis1": [
+         0.98251
+        ],
+        "minus_shift_correlation_axis2": [
+         0.98251
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.99115
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.99115
+        ],
+        "dE_dp3_block_between_plus_and_minus": 7.640513771777387e-15
+       },
+       "smooth_modes_minus": {
+        "handedness": "minus",
+        "modes": 1,
+        "weight_right_handed_component": 0.5000000000000004,
+        "weight_left_handed_component": 0.5000000000000008,
+        "angular_content_right_component": {
+         "-4": 0.0003,
+         "-3": 0.0044,
+         "-2": 0.0116,
+         "-1": 0.002,
+         "0": 0.9634,
+         "1": 0.002,
+         "2": 0.0116,
+         "3": 0.0044,
+         "4": 0.0003
+        },
+        "angular_content_left_component": {
+         "-4": 0.0003,
+         "-3": 0.0044,
+         "-2": 0.0116,
+         "-1": 0.002,
+         "0": 0.9634,
+         "1": 0.002,
+         "2": 0.0116,
+         "3": 0.0044,
+         "4": 0.0003
+        },
+        "overlaps": [
+         {
+          "width": 1.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.022320580038460963
+          ],
+          "left_component_weights": [
+           0.022320580038461
+          ],
+          "density_weights": [
+           0.04464116007692197
+          ],
+          "toggle_Z_singular_values": [
+           0.009017310563498795
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.0801398152184379e-16,
+          "toggle_Y_singular_values": [
+           6.836063271868848e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 7.994649467767079e-17
+         },
+         {
+          "width": 1.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.013465149249309982
+          ],
+          "left_component_weights": [
+           0.013465149249310004
+          ],
+          "density_weights": [
+           0.026930298498619984
+          ],
+          "toggle_Z_singular_values": [
+           0.002956024744540498
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 7.424421105681694e-17,
+          "toggle_Y_singular_values": [
+           4.150156472695833e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 7.56281144184031e-17
+         },
+         {
+          "width": 2.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.07490919646321698
+          ],
+          "left_component_weights": [
+           0.074909196463217
+          ],
+          "density_weights": [
+           0.14981839292643398
+          ],
+          "toggle_Z_singular_values": [
+           0.0002423867102695032
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 4.2115855718980686e-16,
+          "toggle_Y_singular_values": [
+           4.0967909539179584e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 2.8408215586340075e-16
+         },
+         {
+          "width": 2.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.05088651933693685
+          ],
+          "left_component_weights": [
+           0.05088651933693684
+          ],
+          "density_weights": [
+           0.10177303867387369
+          ],
+          "toggle_Z_singular_values": [
+           0.00010609450050538337
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 3.117624101078428e-16,
+          "toggle_Y_singular_values": [
+           1.728927313847568e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 2.78862194429503e-16
+         }
+        ],
+        "radial_profiles_[r, |right|^2, |left|^2]_modes_by_core_weight": [
+         [
+          [
+           1.0,
+           0.014256875105414258,
+           0.014256875105414235
+          ],
+          [
+           3.0,
+           0.010753521786976852,
+           0.010753521786976871
+          ],
+          [
+           5.0,
+           0.006758649037474553,
+           0.006758649037474545
+          ],
+          [
+           7.0,
+           0.003820477938914657,
+           0.003820477938914648
+          ],
+          [
+           9.0,
+           0.002061385741339835,
+           0.0020613857413398482
+          ],
+          [
+           11.0,
+           0.00114344821469391,
+           0.0011434482146939057
+          ],
+          [
+           13.0,
+           0.0006141080185842968,
+           0.0006141080185842955
+          ],
+          [
+           15.0,
+           0.00031993946454125343,
+           0.00031993946454125435
+          ]
+         ]
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "class": [
+      0,
+      1
+     ],
+     "dimension": 16384,
+     "block": 128,
+     "solver": "robust",
+     "ritz_values_in_window": 8,
+     "states_in_window": 8,
+     "largest_residual_in_window": 2.1602732626263626e-15,
+     "block_saturated": false,
+     "unitarity_defect_of_the_compression": 2.55351295663786e-15,
+     "phases_per_tick_all_cores": [
+      -1.4642085367875604e-06,
+      -1.4642085367727828e-06,
+      -1.4642085367219888e-06,
+      -1.464208536689897e-06,
+      1.4642085366503698e-06,
+      1.4642085367277626e-06,
+      1.464208536758942e-06,
+      1.4642085367670965e-06
+     ],
+     "cores": [
+      {
+       "core": 0,
+       "winding": 1,
+       "states": 2,
+       "smallest_core_weight_kept": 0.9967820890301738,
+       "largest_core_weight_dropped": 1.3042718965505915e-05,
+       "phases_per_tick": [
+        -1.464208536733661e-06,
+        1.464208536736964e-06
+       ],
+       "group_residual_of_U": 3.668993618736064e-15,
+       "near_zero_group": {
+        "size": 2,
+        "phases_per_tick": [
+         -1.464208536733661e-06,
+         1.464208536736964e-06
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -9.27095663870365e-06,
+         9.270956638724563e-06
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         1.0
+        ],
+        "n_plus": 1,
+        "n_minus": 1,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         1.4642085367290139e-06
+        ],
+        "plus_two_cell_shift_correlation": [
+         0.98251
+        ],
+        "plus_smooth": 1,
+        "plus_staggered": 0,
+        "plus_shift_correlation_axis1": [
+         0.98251
+        ],
+        "plus_shift_correlation_axis2": [
+         0.98251
+        ],
+        "minus_two_cell_shift_correlation": [
+         -0.98251
+        ],
+        "minus_smooth": 0,
+        "minus_staggered": 1,
+        "minus_shift_correlation_axis1": [
+         -0.98251
+        ],
+        "minus_shift_correlation_axis2": [
+         -0.98251
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.99115
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.99115
+        ],
+        "dE_dp3_block_between_plus_and_minus": 1.2445322144671481e-14
+       },
+       "smooth_modes_plus": {
+        "handedness": "plus",
+        "modes": 1,
+        "weight_right_handed_component": 0.4999999999999994,
+        "weight_left_handed_component": 0.5000000000000002,
+        "angular_content_right_component": {
+         "-4": 0.0003,
+         "-3": 0.0044,
+         "-2": 0.0116,
+         "-1": 0.002,
+         "0": 0.9634,
+         "1": 0.002,
+         "2": 0.0116,
+         "3": 0.0044,
+         "4": 0.0003
+        },
+        "angular_content_left_component": {
+         "-4": 0.0003,
+         "-3": 0.0044,
+         "-2": 0.0116,
+         "-1": 0.002,
+         "0": 0.9634,
+         "1": 0.002,
+         "2": 0.0116,
+         "3": 0.0044,
+         "4": 0.0003
+        },
+        "overlaps": [
+         {
+          "width": 1.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.022320580038460935
+          ],
+          "left_component_weights": [
+           0.022320580038460953
+          ],
+          "density_weights": [
+           0.044641160076921885
+          ],
+          "toggle_Z_singular_values": [
+           0.009017310563498812
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 2.3868212798249337e-17,
+          "toggle_Y_singular_values": [
+           6.836063271866127e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 1.5179078230413518e-16
+         },
+         {
+          "width": 1.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.01346514924930996
+          ],
+          "left_component_weights": [
+           0.013465149249309978
+          ],
+          "density_weights": [
+           0.02693029849861994
+          ],
+          "toggle_Z_singular_values": [
+           0.0029560247445404985
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.637468355182975e-17,
+          "toggle_Y_singular_values": [
+           4.15015647269373e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 1.4203052597735736e-16
+         },
+         {
+          "width": 2.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.07490919646321686
+          ],
+          "left_component_weights": [
+           0.07490919646321686
+          ],
+          "density_weights": [
+           0.14981839292643373
+          ],
+          "toggle_Z_singular_values": [
+           0.0002423867102696078
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 9.454242944073599e-17,
+          "toggle_Y_singular_values": [
+           4.0967909539075934e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 5.464406484550837e-16
+         },
+         {
+          "width": 2.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.05088651933693675
+          ],
+          "left_component_weights": [
+           0.05088651933693675
+          ],
+          "density_weights": [
+           0.1017730386738735
+          ],
+          "toggle_Z_singular_values": [
+           0.00010609450050533072
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 6.941061969544859e-17,
+          "toggle_Y_singular_values": [
+           1.7289273138561522e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 5.082739784612045e-16
+         }
+        ],
+        "radial_profiles_[r, |right|^2, |left|^2]_modes_by_core_weight": [
+         [
+          [
+           1.0,
+           0.014256875105414226,
+           0.014256875105414207
+          ],
+          [
+           3.0,
+           0.010753521786976836,
+           0.010753521786976852
+          ],
+          [
+           5.0,
+           0.006758649037474538,
+           0.006758649037474534
+          ],
+          [
+           7.0,
+           0.003820477938914648,
+           0.0038204779389146427
+          ],
+          [
+           9.0,
+           0.002061385741339835,
+           0.0020613857413398435
+          ],
+          [
+           11.0,
+           0.0011434482146939061,
+           0.001143448214693904
+          ],
+          [
+           13.0,
+           0.0006141080185842954,
+           0.0006141080185842944
+          ],
+          [
+           15.0,
+           0.00031993946454125295,
+           0.0003199394645412539
+          ]
+         ]
+        ]
+       }
+      },
+      {
+       "core": 2,
+       "winding": -1,
+       "states": 2,
+       "smallest_core_weight_kept": 0.9967820890301736,
+       "largest_core_weight_dropped": 1.3042718965491298e-05,
+       "phases_per_tick": [
+        -1.4642085367285054e-06,
+        1.4642085367336914e-06
+       ],
+       "group_residual_of_U": 3.0980258228795355e-15,
+       "near_zero_group": {
+        "size": 2,
+        "phases_per_tick": [
+         -1.4642085367285054e-06,
+         1.4642085367336914e-06
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -9.270956638671007e-06,
+         9.270956638703843e-06
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         1.0
+        ],
+        "n_plus": 1,
+        "n_minus": 1,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         1.4642085367321979e-06
+        ],
+        "plus_two_cell_shift_correlation": [
+         -0.98251
+        ],
+        "plus_smooth": 0,
+        "plus_staggered": 1,
+        "plus_shift_correlation_axis1": [
+         -0.98251
+        ],
+        "plus_shift_correlation_axis2": [
+         -0.98251
+        ],
+        "minus_two_cell_shift_correlation": [
+         0.98251
+        ],
+        "minus_smooth": 1,
+        "minus_staggered": 0,
+        "minus_shift_correlation_axis1": [
+         0.98251
+        ],
+        "minus_shift_correlation_axis2": [
+         0.98251
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.99115
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.99115
+        ],
+        "dE_dp3_block_between_plus_and_minus": 1.4706773180536443e-14
+       },
+       "smooth_modes_minus": {
+        "handedness": "minus",
+        "modes": 1,
+        "weight_right_handed_component": 0.5000000000000002,
+        "weight_left_handed_component": 0.49999999999999967,
+        "angular_content_right_component": {
+         "-4": 0.0003,
+         "-3": 0.0044,
+         "-2": 0.0116,
+         "-1": 0.002,
+         "0": 0.9634,
+         "1": 0.002,
+         "2": 0.0116,
+         "3": 0.0044,
+         "4": 0.0003
+        },
+        "angular_content_left_component": {
+         "-4": 0.0003,
+         "-3": 0.0044,
+         "-2": 0.0116,
+         "-1": 0.002,
+         "0": 0.9634,
+         "1": 0.002,
+         "2": 0.0116,
+         "3": 0.0044,
+         "4": 0.0003
+        },
+        "overlaps": [
+         {
+          "width": 1.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.02232058003846097
+          ],
+          "left_component_weights": [
+           0.022320580038460953
+          ],
+          "density_weights": [
+           0.044641160076921926
+          ],
+          "toggle_Z_singular_values": [
+           0.009017310563498884
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 2.0672753231849665e-17,
+          "toggle_Y_singular_values": [
+           6.836063271881869e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 7.892991815694472e-17
+         },
+         {
+          "width": 1.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.013465149249309982
+          ],
+          "left_component_weights": [
+           0.013465149249309975
+          ],
+          "density_weights": [
+           0.026930298498619956
+          ],
+          "toggle_Z_singular_values": [
+           0.002956024744540551
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 6.303309373479404e-18,
+          "toggle_Y_singular_values": [
+           4.15015647270751e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 6.68995790826352e-17
+         },
+         {
+          "width": 2.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.07490919646321689
+          ],
+          "left_component_weights": [
+           0.07490919646321686
+          ],
+          "density_weights": [
+           0.14981839292643376
+          ],
+          "toggle_Z_singular_values": [
+           0.00024238671026985468
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 7.112366251504909e-17,
+          "toggle_Y_singular_values": [
+           4.096790953964232e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 2.9490809299979243e-16
+         },
+         {
+          "width": 2.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.05088651933693678
+          ],
+          "left_component_weights": [
+           0.05088651933693678
+          ],
+          "density_weights": [
+           0.10177303867387356
+          ],
+          "toggle_Z_singular_values": [
+           0.0001060945005051435
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 4.597017211338539e-17,
+          "toggle_Y_singular_values": [
+           1.7289273138046608e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 2.550176265679941e-16
+         }
+        ],
+        "radial_profiles_[r, |right|^2, |left|^2]_modes_by_core_weight": [
+         [
+          [
+           1.0,
+           0.014256875105414206,
+           0.014256875105414226
+          ],
+          [
+           3.0,
+           0.010753521786976859,
+           0.010753521786976847
+          ],
+          [
+           5.0,
+           0.006758649037474537,
+           0.0067586490374745385
+          ],
+          [
+           7.0,
+           0.003820477938914643,
+           0.0038204779389146466
+          ],
+          [
+           9.0,
+           0.002061385741339846,
+           0.0020613857413398396
+          ],
+          [
+           11.0,
+           0.0011434482146939042,
+           0.001143448214693906
+          ],
+          [
+           13.0,
+           0.0006141080185842941,
+           0.0006141080185842951
+          ],
+          [
+           15.0,
+           0.00031993946454125414,
+           0.00031993946454125354
+          ]
+         ]
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "seconds": 187.7
+  },
+  {
+   "config": {
+    "L": 128,
+    "theta0": 0.157935,
+    "n": 2,
+    "xi_c": 0.0,
+    "window": 0.9,
+    "block": 128,
+    "classes": [
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      1
+     ]
+    ],
+    "velocity": true
+   },
+   "classes": [
+    {
+     "class": [
+      0,
+      0
+     ],
+     "dimension": 16384,
+     "block": 128,
+     "solver": "robust",
+     "ritz_values_in_window": 52,
+     "states_in_window": 48,
+     "largest_residual_in_window": 2.3896045876251756e-15,
+     "block_saturated": false,
+     "unitarity_defect_of_the_compression": 4.218847493575595e-15,
+     "phases_per_tick_all_cores": [
+      -0.13509761900149564,
+      -0.13509761900149556,
+      -0.13469947998660448,
+      -0.13469947998660436,
+      -0.13420819227991007,
+      -0.13420819227991007,
+      -0.13366043766888888,
+      -0.13366043766888874,
+      -0.13354696849714764,
+      -0.13354696849714756,
+      -0.1335266158558474,
+      -0.1335266158558473,
+      -0.13350956693373248,
+      -0.13350956693373237,
+      -0.13348393182220775,
+      -0.1334839318222076,
+      -0.0030013102019225447,
+      -0.003001310201922528,
+      -0.0028143249568384618,
+      -0.0028143249568384297,
+      -0.0025507014036229314,
+      -0.002550701403622889,
+      -0.0023637905766277036,
+      -0.0023637905766277015,
+      0.0023637905766276915,
+      0.0023637905766277344,
+      0.0025507014036228897,
+      0.002550701403622913,
+      0.0028143249568383256,
+      0.002814324956838445,
+      0.003001310201922515,
+      0.003001310201922522,
+      0.1334839318222077,
+      0.13348393182220783,
+      0.13350956693373234,
+      0.13350956693373245,
+      0.13352661585584727,
+      0.1335266158558475,
+      0.13354696849714753,
+      0.13354696849714767,
+      0.1336604376688888,
+      0.13366043766888883,
+      0.13420819227991007,
+      0.1342081922799101,
+      0.13469947998660414,
+      0.1346994799866043,
+      0.13509761900149542,
+      0.1350976190014957
+     ],
+     "cores": [
+      {
+       "core": 0,
+       "winding": 2,
+       "states": 0,
+       "smallest_core_weight_kept": null,
+       "largest_core_weight_dropped": 0.4946878366066225
+      },
+      {
+       "core": 2,
+       "winding": -2,
+       "states": 0,
+       "smallest_core_weight_kept": null,
+       "largest_core_weight_dropped": 0.4946878366067632
+      }
+     ]
+    },
+    {
+     "class": [
+      0,
+      1
+     ],
+     "dimension": 16384,
+     "block": 128,
+     "solver": "robust",
+     "ritz_values_in_window": 52,
+     "states_in_window": 48,
+     "largest_residual_in_window": 2.4916574219378644e-15,
+     "block_saturated": false,
+     "unitarity_defect_of_the_compression": 5.773159728050814e-15,
+     "phases_per_tick_all_cores": [
+      -0.13509761900149553,
+      -0.13509761900149547,
+      -0.13469947998660423,
+      -0.13469947998660417,
+      -0.13420819227991015,
+      -0.13420819227990993,
+      -0.13366043766888874,
+      -0.13366043766888855,
+      -0.13354696849714762,
+      -0.13354696849714756,
+      -0.1335266158558475,
+      -0.1335266158558471,
+      -0.13350956693373237,
+      -0.1335095669337323,
+      -0.13348393182220764,
+      -0.13348393182220764,
+      -0.0030013102019226237,
+      -0.0030013102019225404,
+      -0.002814324956838503,
+      -0.0028143249568384253,
+      -0.0025507014036229305,
+      -0.002550701403622911,
+      -0.0023637905766277266,
+      -0.0023637905766276937,
+      0.002363790576627661,
+      0.002363790576627691,
+      0.0025507014036228607,
+      0.0025507014036228854,
+      0.002814324956838421,
+      0.002814324956838434,
+      0.0030013102019224255,
+      0.0030013102019225274,
+      0.13348393182220752,
+      0.13348393182220766,
+      0.13350956693373228,
+      0.13350956693373256,
+      0.13352661585584716,
+      0.13352661585584744,
+      0.1335469684971475,
+      0.13354696849714762,
+      0.13366043766888844,
+      0.13366043766888852,
+      0.13420819227991018,
+      0.13420819227991032,
+      0.1346994799866044,
+      0.13469947998660448,
+      0.1350976190014954,
+      0.13509761900149547
+     ],
+     "cores": [
+      {
+       "core": 0,
+       "winding": 2,
+       "states": 0,
+       "smallest_core_weight_kept": null,
+       "largest_core_weight_dropped": 0.49468783660667726
+      },
+      {
+       "core": 2,
+       "winding": -2,
+       "states": 0,
+       "smallest_core_weight_kept": null,
+       "largest_core_weight_dropped": 0.4946878366065225
+      }
+     ]
+    }
+   ],
+   "seconds": 187.6
+  },
+  {
+   "config": {
+    "L": 128,
+    "theta0": 0.157935,
+    "n": 2,
+    "xi_c": 4.0,
+    "window": 0.9,
+    "block": 128,
+    "classes": [
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      1
+     ]
+    ],
+    "velocity": true
+   },
+   "classes": [
+    {
+     "class": [
+      0,
+      0
+     ],
+     "dimension": 16384,
+     "block": 128,
+     "solver": "robust",
+     "ritz_values_in_window": 56,
+     "states_in_window": 56,
+     "largest_residual_in_window": 7.0565250006894865e-12,
+     "block_saturated": false,
+     "unitarity_defect_of_the_compression": 4.6629367034256575e-15,
+     "phases_per_tick_all_cores": [
+      -0.14041169060871467,
+      -0.14041169060871442,
+      -0.14041132776603504,
+      -0.1404113277660349,
+      -0.1350618371500079,
+      -0.13506183715000775,
+      -0.1350610741730141,
+      -0.13506107417301388,
+      -0.1336731013704115,
+      -0.1336731013704111,
+      -0.13367289500329704,
+      -0.13367289500329665,
+      -0.13321456427552097,
+      -0.1332145642755209,
+      -0.13321412651945858,
+      -0.13321412651945852,
+      -0.13321408141453675,
+      -0.13321408141453675,
+      -0.1332136431900782,
+      -0.1332136431900782,
+      -0.00033053302873736,
+      -0.0003305330287373335,
+      -0.000323479783887966,
+      -0.00032347978388793736,
+      -5.0151402285513146e-06,
+      -5.015140228514591e-06,
+      -2.037958855774513e-06,
+      -2.037958855683363e-06,
+      2.0379588555058897e-06,
+      2.0379588556571444e-06,
+      5.015140228550982e-06,
+      5.015140228553917e-06,
+      0.00032347978388795465,
+      0.00032347978388795904,
+      0.00033053302873727324,
+      0.00033053302873731503,
+      0.13321364319007803,
+      0.1332136431900782,
+      0.13321408141453658,
+      0.1332140814145367,
+      0.1332141265194584,
+      0.13321412651945877,
+      0.13321456427552075,
+      0.13321456427552097,
+      0.13367289500329702,
+      0.13367289500329704,
+      0.13367310137041133,
+      0.13367310137041163,
+      0.13506107417301397,
+      0.13506107417301408,
+      0.13506183715000772,
+      0.13506183715000786,
+      0.14041132776603477,
+      0.14041132776603527,
+      0.14041169060871436,
+      0.1404116906087144
+     ],
+     "cores": [
+      {
+       "core": 0,
+       "winding": 2,
+       "states": 0,
+       "smallest_core_weight_kept": null,
+       "largest_core_weight_dropped": 0.4940120897464476
+      },
+      {
+       "core": 2,
+       "winding": -2,
+       "states": 0,
+       "smallest_core_weight_kept": null,
+       "largest_core_weight_dropped": 0.49401208974654065
+      }
+     ]
+    },
+    {
+     "class": [
+      0,
+      1
+     ],
+     "dimension": 16384,
+     "block": 128,
+     "solver": "robust",
+     "ritz_values_in_window": 56,
+     "states_in_window": 56,
+     "largest_residual_in_window": 6.615608727293469e-12,
+     "block_saturated": false,
+     "unitarity_defect_of_the_compression": 4.773959005888173e-15,
+     "phases_per_tick_all_cores": [
+      -0.14041169060871442,
+      -0.14041169060871436,
+      -0.1404113277660349,
+      -0.1404113277660347,
+      -0.13506183715000772,
+      -0.1350618371500077,
+      -0.13506107417301408,
+      -0.13506107417301408,
+      -0.1336731013704115,
+      -0.13367310137041144,
+      -0.133672895003297,
+      -0.13367289500329693,
+      -0.1332145642755209,
+      -0.1332145642755208,
+      -0.1332141265194587,
+      -0.13321412651945855,
+      -0.13321408141453683,
+      -0.13321408141453667,
+      -0.1332136431900781,
+      -0.13321364319007806,
+      -0.00033053302873732745,
+      -0.00033053302873732213,
+      -0.0003234797838879597,
+      -0.0003234797838879551,
+      -5.015140228519087e-06,
+      -5.015140228492261e-06,
+      -2.0379588556908203e-06,
+      -2.03795885566998e-06,
+      2.0379588556450064e-06,
+      2.0379588556862247e-06,
+      5.015140228551621e-06,
+      5.015140228563949e-06,
+      0.00032347978388790906,
+      0.00032347978388792137,
+      0.0003305330287373032,
+      0.00033053302873731433,
+      0.13321364319007792,
+      0.13321364319007806,
+      0.1332140814145367,
+      0.1332140814145367,
+      0.1332141265194585,
+      0.13321412651945863,
+      0.13321456427552072,
+      0.13321456427552072,
+      0.1336728950032969,
+      0.13367289500329702,
+      0.13367310137041144,
+      0.13367310137041158,
+      0.13506107417301413,
+      0.13506107417301422,
+      0.1350618371500077,
+      0.13506183715000775,
+      0.1404113277660348,
+      0.14041132776603507,
+      0.14041169060871445,
+      0.14041169060871456
+     ],
+     "cores": [
+      {
+       "core": 0,
+       "winding": 2,
+       "states": 0,
+       "smallest_core_weight_kept": null,
+       "largest_core_weight_dropped": 0.49401208974644895
+      },
+      {
+       "core": 2,
+       "winding": -2,
+       "states": 0,
+       "smallest_core_weight_kept": null,
+       "largest_core_weight_dropped": 0.49401208974653765
+      }
+     ]
+    }
+   ],
+   "seconds": 187.8
+  },
+  {
+   "config": {
+    "L": 128,
+    "theta0": 0.157935,
+    "n": 3,
+    "xi_c": 0.0,
+    "window": 0.9,
+    "block": 192,
+    "classes": [
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      1
+     ]
+    ],
+    "velocity": true
+   },
+   "classes": [
+    {
+     "class": [
+      0,
+      0
+     ],
+     "dimension": 16384,
+     "block": 192,
+     "solver": "robust",
+     "ritz_values_in_window": 72,
+     "states_in_window": 72,
+     "largest_residual_in_window": 3.550905964331385e-15,
+     "block_saturated": false,
+     "unitarity_defect_of_the_compression": 8.659739592076221e-15,
+     "phases_per_tick_all_cores": [
+      -0.12953197350778498,
+      -0.12953197350778478,
+      -0.12953197350778475,
+      -0.12953197350778467,
+      -0.12922389973640575,
+      -0.12922389973640575,
+      -0.1292238997364057,
+      -0.12922389973640555,
+      -0.12324486269921867,
+      -0.12324486269921864,
+      -0.12324486269921864,
+      -0.12324486269921855,
+      -0.12317784937818947,
+      -0.1231778493781894,
+      -0.12317784937818937,
+      -0.12317784937818932,
+      -0.12067272296861355,
+      -0.12067272296861342,
+      -0.12067272296861334,
+      -0.12067272296861332,
+      -0.12051531709342014,
+      -0.12051531709342,
+      -0.12051531709341995,
+      -0.12051531709341981,
+      -0.0016867621502439218,
+      -0.0016867621502439044,
+      -0.0016867621502438797,
+      -0.0016867621502438597,
+      -0.0014564341878865856,
+      -0.0014564341878865585,
+      -0.0014564341878865483,
+      -0.0014564341878864917,
+      -6.302921627498728e-05,
+      -6.302921627496443e-05,
+      -6.3029216274931e-05,
+      -6.302921627490789e-05,
+      6.30292162749474e-05,
+      6.302921627495808e-05,
+      6.302921627496824e-05,
+      6.302921627497302e-05,
+      0.0014564341878865795,
+      0.001456434187886586,
+      0.0014564341878866018,
+      0.0014564341878866261,
+      0.0016867621502438968,
+      0.0016867621502439079,
+      0.001686762150243915,
+      0.0016867621502439265,
+      0.1205153170934199,
+      0.12051531709342,
+      0.12051531709342,
+      0.12051531709342006,
+      0.12067272296861317,
+      0.1206727229686132,
+      0.12067272296861331,
+      0.12067272296861337,
+      0.12317784937818925,
+      0.12317784937818929,
+      0.12317784937818951,
+      0.12317784937818957,
+      0.12324486269921821,
+      0.12324486269921847,
+      0.12324486269921865,
+      0.12324486269921878,
+      0.1292238997364056,
+      0.1292238997364056,
+      0.1292238997364057,
+      0.12922389973640575,
+      0.1295319735077847,
+      0.12953197350778475,
+      0.1295319735077848,
+      0.12953197350778495
+     ],
+     "cores": [
+      {
+       "core": 0,
+       "winding": 3,
+       "states": 10,
+       "smallest_core_weight_kept": 0.5695880991548435,
+       "largest_core_weight_dropped": 0.3813919557452027,
+       "phases_per_tick": [
+        -0.12953197350778478,
+        -0.12922389973640575,
+        -0.0016867621502439038,
+        -0.0014564341878865537,
+        -6.302921627495625e-05,
+        6.302921627496445e-05,
+        0.001456434187886599,
+        0.0016867621502439048,
+        0.1292238997364055,
+        0.12953197350778492
+       ],
+       "group_residual_of_U": 7.260991529123522e-15,
+       "near_zero_group": {
+        "size": 6,
+        "phases_per_tick": [
+         -0.0016867621502439038,
+         -0.0014564341878865537,
+         -6.302921627495625e-05,
+         6.302921627496445e-05,
+         0.001456434187886599,
+         0.0016867621502439048
+        ],
+        "next_phase_per_tick": 0.1292238997364055,
+        "over_theta0": [
+         -0.010680103525145812,
+         -0.009221731648377838,
+         -0.00039908327017416185,
+         0.00039908327017421373,
+         0.009221731648378124,
+         0.010680103525145819
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         -1.0,
+         -1.0,
+         1.0,
+         1.0,
+         1.0
+        ],
+        "n_plus": 3,
+        "n_minus": 3,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0,
+         1.0,
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         6.302921627496165e-05,
+         0.0014564341878865838,
+         0.0016867621502439018
+        ],
+        "plus_two_cell_shift_correlation": [
+         -0.09715,
+         0.31439,
+         0.56416
+        ],
+        "plus_smooth": 2,
+        "plus_staggered": 1,
+        "plus_shift_correlation_axis1": [
+         -0.09722,
+         0.31443,
+         0.56421
+        ],
+        "plus_shift_correlation_axis2": [
+         -0.09718,
+         0.31442,
+         0.56414
+        ],
+        "minus_two_cell_shift_correlation": [
+         -0.56416,
+         -0.31439,
+         0.09715
+        ],
+        "minus_smooth": 1,
+        "minus_staggered": 2,
+        "minus_shift_correlation_axis1": [
+         -0.56421,
+         -0.31443,
+         0.09722
+        ],
+        "minus_shift_correlation_axis2": [
+         -0.56414,
+         -0.31442,
+         0.09718
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.987554,
+         -0.987554,
+         -0.987554
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.987554,
+         0.987554,
+         0.987554
+        ],
+        "dE_dp3_block_between_plus_and_minus": 4.4203716987178773e-14
+       },
+       "smooth_modes_plus": {
+        "handedness": "plus",
+        "modes": 2,
+        "weight_right_handed_component": 0.5000000000000311,
+        "weight_left_handed_component": 0.499999999999969,
+        "angular_content_right_component": {
+         "-4": 0.0021,
+         "-3": 0.0014,
+         "-2": 0.0048,
+         "-1": 0.0036,
+         "0": 0.4305,
+         "1": 0.4037,
+         "2": 0.1474,
+         "3": 0.0044,
+         "4": 0.0022
+        },
+        "angular_content_left_component": {
+         "-4": 0.0022,
+         "-3": 0.0044,
+         "-2": 0.1474,
+         "-1": 0.4037,
+         "0": 0.4305,
+         "1": 0.0036,
+         "2": 0.0048,
+         "3": 0.0014,
+         "4": 0.0021
+        },
+        "overlaps": [
+         {
+          "width": 1.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.006802481377850264,
+           0.00046898671441509133
+          ],
+          "left_component_weights": [
+           0.006802481377845362,
+           0.00046898671441484283
+          ],
+          "density_weights": [
+           0.010102104304389466,
+           0.004440831880136096
+          ],
+          "toggle_Z_singular_values": [
+           0.0017981140827867208,
+           0.001533446886691393
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 2.1195119257277284e-16,
+          "toggle_Y_singular_values": [
+           0.004019498135993821,
+           0.0001923913227786587
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 2.624015030251784e-16
+         },
+         {
+          "width": 1.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.010888612311452803,
+           0.0002969083246891187
+          ],
+          "left_component_weights": [
+           0.010888612311449662,
+           0.0002969083246890953
+          ],
+          "density_weights": [
+           0.019965052844217956,
+           0.002405988428062722
+          ],
+          "toggle_Z_singular_values": [
+           0.004004441916571475,
+           0.0003563702551353106
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 9.99013528292748e-17,
+          "toggle_Y_singular_values": [
+           0.001885924098795173,
+           0.0002729173364025201
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 1.0691563571038962e-16
+         },
+         {
+          "width": 2.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.025319670383018127,
+           0.004965914273799921
+          ],
+          "left_component_weights": [
+           0.02531967038300315,
+           0.004965914273797233
+          ],
+          "density_weights": [
+           0.036981752733275856,
+           0.02358941658034257
+          ],
+          "toggle_Z_singular_values": [
+           0.00223409157276225,
+           0.00043813335018209095
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.2343127600114957e-16,
+          "toggle_Y_singular_values": [
+           0.0031383378290483193,
+           0.000444307056812179
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 2.1889250774694328e-16
+         },
+         {
+          "width": 2.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.037551762664025656,
+           0.003557578855699151
+          ],
+          "left_component_weights": [
+           0.037551762664014096,
+           0.0035575788556986175
+          ],
+          "density_weights": [
+           0.06762718456813012,
+           0.014591498471307422
+          ],
+          "toggle_Z_singular_values": [
+           0.002112548737637192,
+           0.0005615637569390018
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.170421018119847e-16,
+          "toggle_Y_singular_values": [
+           0.001092757059267436,
+           0.00010229042908308963
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 1.09554362706373e-16
+         }
+        ],
+        "radial_profiles_[r, |right|^2, |left|^2]_modes_by_core_weight": [
+         [
+          [
+           1.0,
+           0.004038019982674737,
+           0.0008396729654512224
+          ],
+          [
+           3.0,
+           0.00413048750181095,
+           0.0016238027867284104
+          ],
+          [
+           5.0,
+           0.003229513181601429,
+           0.00145396514209615
+          ],
+          [
+           7.0,
+           0.0026119278160469297,
+           0.0014376568555370848
+          ],
+          [
+           9.0,
+           0.0018866665154341805,
+           0.0011438268655278947
+          ],
+          [
+           11.0,
+           0.001342909667203336,
+           0.0008729242534468305
+          ],
+          [
+           13.0,
+           0.0010026250616897215,
+           0.0007153699583713735
+          ],
+          [
+           15.0,
+           0.0006010375376031965,
+           0.00043295596759536755
+          ]
+         ],
+         [
+          [
+           1.0,
+           0.0002874956199637356,
+           0.0034858426371841256
+          ],
+          [
+           3.0,
+           0.0010714066018484884,
+           0.0035780913169285063
+          ],
+          [
+           5.0,
+           0.0015709338335725411,
+           0.003346481873075937
+          ],
+          [
+           7.0,
+           0.001607642936316422,
+           0.002781913896825037
+          ],
+          [
+           9.0,
+           0.0014005484068087461,
+           0.002143388056714261
+          ],
+          [
+           11.0,
+           0.0011317302181248184,
+           0.0016017156318808268
+          ],
+          [
+           13.0,
+           0.0008356576040269031,
+           0.0011229127073449625
+          ],
+          [
+           15.0,
+           0.000589804426685913,
+           0.0007578859966935603
+          ]
+         ]
+        ]
+       },
+       "smooth_modes_minus": {
+        "handedness": "minus",
+        "modes": 1,
+        "weight_right_handed_component": 0.5000000000000017,
+        "weight_left_handed_component": 0.49999999999999867,
+        "angular_content_right_component": {
+         "-4": 0.1148,
+         "-3": 0.0948,
+         "-2": 0.1606,
+         "-1": 0.0385,
+         "0": 0.1505,
+         "1": 0.0453,
+         "2": 0.1347,
+         "3": 0.0927,
+         "4": 0.168
+        },
+        "angular_content_left_component": {
+         "-4": 0.168,
+         "-3": 0.0927,
+         "-2": 0.1347,
+         "-1": 0.0453,
+         "0": 0.1505,
+         "1": 0.0385,
+         "2": 0.1606,
+         "3": 0.0948,
+         "4": 0.1148
+        },
+        "overlaps": [
+         {
+          "width": 1.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.0027017240703654938
+          ],
+          "left_component_weights": [
+           0.0027017240703636424
+          ],
+          "density_weights": [
+           0.005403448140729137
+          ],
+          "toggle_Z_singular_values": [
+           0.0014365744947636037
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 2.0378258584858614e-16,
+          "toggle_Y_singular_values": [
+           0.00035959855941737016
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 5.328176051408451e-17
+         },
+         {
+          "width": 1.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.0008416464481533958
+          ],
+          "left_component_weights": [
+           0.0008416464481527746
+          ],
+          "density_weights": [
+           0.0016832928963061704
+          ],
+          "toggle_Z_singular_values": [
+           0.00013850401272657464
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 5.1374242763762464e-17,
+          "toggle_Y_singular_values": [
+           0.00010836644283354949
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 8.815960582955513e-18
+         },
+         {
+          "width": 2.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.011064633433379266
+          ],
+          "left_component_weights": [
+           0.011064633433372679
+          ],
+          "density_weights": [
+           0.022129266866751943
+          ],
+          "toggle_Z_singular_values": [
+           0.0013732682362701915
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 3.951950381598005e-17,
+          "toggle_Y_singular_values": [
+           0.0013430456673071672
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 3.426078865054194e-17
+         },
+         {
+          "width": 2.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.0042143169298961905
+          ],
+          "left_component_weights": [
+           0.004214316929893446
+          ],
+          "density_weights": [
+           0.008428633859789637
+          ],
+          "toggle_Z_singular_values": [
+           0.0005587818450656045
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 5.252959525692269e-17,
+          "toggle_Y_singular_values": [
+           0.0001544238840006149
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 1.3010489597142002e-17
+         }
+        ],
+        "radial_profiles_[r, |right|^2, |left|^2]_modes_by_core_weight": [
+         [
+          [
+           1.0,
+           0.001979751974201661,
+           0.001979751974200412
+          ],
+          [
+           3.0,
+           0.0016089296654093186,
+           0.0016089296654083248
+          ],
+          [
+           5.0,
+           0.0017382683416682038,
+           0.0017382683416675246
+          ],
+          [
+           7.0,
+           0.0013631424119224997,
+           0.0013631424119220496
+          ],
+          [
+           9.0,
+           0.0010914218192015334,
+           0.001091421819201249
+          ],
+          [
+           11.0,
+           0.0008276850635581523,
+           0.0008276850635579723
+          ],
+          [
+           13.0,
+           0.0005167150861566551,
+           0.0005167150861565409
+          ],
+          [
+           15.0,
+           0.00039314252725181585,
+           0.00039314252725175286
+          ]
+         ]
+        ]
+       }
+      },
+      {
+       "core": 2,
+       "winding": -3,
+       "states": 10,
+       "smallest_core_weight_kept": 0.5695880991548887,
+       "largest_core_weight_dropped": 0.3813919557451725,
+       "phases_per_tick": [
+        -0.12953197350778492,
+        -0.12922389973640577,
+        -0.001686762150243894,
+        -0.0014564341878865875,
+        -6.302921627495152e-05,
+        6.302921627496192e-05,
+        0.0014564341878865828,
+        0.0016867621502439074,
+        0.1292238997364057,
+        0.12953197350778511
+       ],
+       "group_residual_of_U": 8.557143318091403e-15,
+       "near_zero_group": {
+        "size": 6,
+        "phases_per_tick": [
+         -0.001686762150243894,
+         -0.0014564341878865875,
+         -6.302921627495152e-05,
+         6.302921627496192e-05,
+         0.0014564341878865828,
+         0.0016867621502439074
+        ],
+        "next_phase_per_tick": 0.1292238997364057,
+        "over_theta0": [
+         -0.01068010352514575,
+         -0.009221731648378051,
+         -0.0003990832701741319,
+         0.0003990832701741978,
+         0.009221731648378022,
+         0.010680103525145836
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         -1.0,
+         -1.0,
+         1.0,
+         1.0,
+         1.0
+        ],
+        "n_plus": 3,
+        "n_minus": 3,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0,
+         1.0,
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         6.302921627495859e-05,
+         0.001456434187886576,
+         0.001686762150243905
+        ],
+        "plus_two_cell_shift_correlation": [
+         -0.56416,
+         -0.31439,
+         0.09715
+        ],
+        "plus_smooth": 1,
+        "plus_staggered": 2,
+        "plus_shift_correlation_axis1": [
+         -0.56421,
+         -0.31443,
+         0.09722
+        ],
+        "plus_shift_correlation_axis2": [
+         -0.56414,
+         -0.31442,
+         0.09718
+        ],
+        "minus_two_cell_shift_correlation": [
+         -0.09715,
+         0.31439,
+         0.56416
+        ],
+        "minus_smooth": 2,
+        "minus_staggered": 1,
+        "minus_shift_correlation_axis1": [
+         -0.09722,
+         0.31443,
+         0.56421
+        ],
+        "minus_shift_correlation_axis2": [
+         -0.09718,
+         0.31442,
+         0.56414
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.987554,
+         -0.987554,
+         -0.987554
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.987554,
+         0.987554,
+         0.987554
+        ],
+        "dE_dp3_block_between_plus_and_minus": 5.259517212688359e-14
+       },
+       "smooth_modes_plus": {
+        "handedness": "plus",
+        "modes": 1,
+        "weight_right_handed_component": 0.5000000000000163,
+        "weight_left_handed_component": 0.4999999999999842,
+        "angular_content_right_component": {
+         "-4": 0.168,
+         "-3": 0.0927,
+         "-2": 0.1347,
+         "-1": 0.0453,
+         "0": 0.1505,
+         "1": 0.0385,
+         "2": 0.1606,
+         "3": 0.0948,
+         "4": 0.1148
+        },
+        "angular_content_left_component": {
+         "-4": 0.1148,
+         "-3": 0.0948,
+         "-2": 0.1606,
+         "-1": 0.0385,
+         "0": 0.1505,
+         "1": 0.0453,
+         "2": 0.1347,
+         "3": 0.0927,
+         "4": 0.168
+        },
+        "overlaps": [
+         {
+          "width": 1.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.0027017240703652136
+          ],
+          "left_component_weights": [
+           0.0027017240703641893
+          ],
+          "density_weights": [
+           0.005403448140729403
+          ],
+          "toggle_Z_singular_values": [
+           0.0014365744947622174
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.292640494833191e-16,
+          "toggle_Y_singular_values": [
+           0.00035959855941686443
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 3.9221128322361695e-17
+         },
+         {
+          "width": 1.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.0008416464481549228
+          ],
+          "left_component_weights": [
+           0.00084164644815368
+          ],
+          "density_weights": [
+           0.0016832928963086027
+          ],
+          "toggle_Z_singular_values": [
+           0.00013850401272609753
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 4.757953471316856e-17,
+          "toggle_Y_singular_values": [
+           0.00010836644283390416
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 2.4028708041458706e-17
+         },
+         {
+          "width": 2.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.01106463343337907
+          ],
+          "left_component_weights": [
+           0.01106463343337577
+          ],
+          "density_weights": [
+           0.02212926686675484
+          ],
+          "toggle_Z_singular_values": [
+           0.0013732682362704984
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 8.7061434450586e-17,
+          "toggle_Y_singular_values": [
+           0.001343045667307414
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 4.618701254788249e-17
+         },
+         {
+          "width": 2.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.004214316929899526
+          ],
+          "left_component_weights": [
+           0.0042143169298952
+          ],
+          "density_weights": [
+           0.008428633859794726
+          ],
+          "toggle_Z_singular_values": [
+           0.0005587818450657534
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 4.310470691546897e-18,
+          "toggle_Y_singular_values": [
+           0.00015442388400099816
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 1.3933685288454236e-17
+         }
+        ],
+        "radial_profiles_[r, |right|^2, |left|^2]_modes_by_core_weight": [
+         [
+          [
+           1.0,
+           0.0019797519742016695,
+           0.0019797519742011482
+          ],
+          [
+           3.0,
+           0.0016089296654093633,
+           0.0016089296654089352
+          ],
+          [
+           5.0,
+           0.0017382683416681864,
+           0.0017382683416678197
+          ],
+          [
+           7.0,
+           0.0013631424119224147,
+           0.0013631424119221788
+          ],
+          [
+           9.0,
+           0.0010914218192014716,
+           0.0010914218192013257
+          ],
+          [
+           11.0,
+           0.0008276850635580864,
+           0.0008276850635579894
+          ],
+          [
+           13.0,
+           0.0005167150861566121,
+           0.000516715086156563
+          ],
+          [
+           15.0,
+           0.00039314252725176837,
+           0.0003931425272517309
+          ]
+         ]
+        ]
+       },
+       "smooth_modes_minus": {
+        "handedness": "minus",
+        "modes": 2,
+        "weight_right_handed_component": 0.5000000000000004,
+        "weight_left_handed_component": 0.49999999999999994,
+        "angular_content_right_component": {
+         "-4": 0.0022,
+         "-3": 0.0044,
+         "-2": 0.1474,
+         "-1": 0.4037,
+         "0": 0.4305,
+         "1": 0.0036,
+         "2": 0.0048,
+         "3": 0.0014,
+         "4": 0.0021
+        },
+        "angular_content_left_component": {
+         "-4": 0.0021,
+         "-3": 0.0014,
+         "-2": 0.0048,
+         "-1": 0.0036,
+         "0": 0.4305,
+         "1": 0.4037,
+         "2": 0.1474,
+         "3": 0.0044,
+         "4": 0.0022
+        },
+        "overlaps": [
+         {
+          "width": 1.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.006802481377846585,
+           0.00046898671441504927
+          ],
+          "left_component_weights": [
+           0.006802481377847001,
+           0.0004689867144150664
+          ],
+          "density_weights": [
+           0.010102104304390501,
+           0.0044408318801332
+          ],
+          "toggle_Z_singular_values": [
+           0.0017981140827868982,
+           0.0015334468866909665
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 8.362467643609488e-17,
+          "toggle_Y_singular_values": [
+           0.004019498135994599,
+           0.00019239132277872184
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 3.9477992627849966e-16
+         },
+         {
+          "width": 1.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.010888612311449324,
+           0.0002969083246891595
+          ],
+          "left_component_weights": [
+           0.01088861231145174,
+           0.0002969083246890194
+          ],
+          "density_weights": [
+           0.019965052844216867,
+           0.002405988428062366
+          ],
+          "toggle_Z_singular_values": [
+           0.0040044419165715375,
+           0.00035637025513525966
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 2.0495016148539915e-16,
+          "toggle_Y_singular_values": [
+           0.001885924098795761,
+           0.0002729173364024083
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 1.5879687193719693e-16
+         },
+         {
+          "width": 2.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.025319670383005883,
+           0.004965914273799467
+          ],
+          "left_component_weights": [
+           0.02531967038300656,
+           0.00496591427379952
+          ],
+          "density_weights": [
+           0.0369817527332789,
+           0.023589416580332537
+          ],
+          "toggle_Z_singular_values": [
+           0.00223409157276242,
+           0.0004381333501821455
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 2.372914688934857e-16,
+          "toggle_Y_singular_values": [
+           0.0031383378290484264,
+           0.00044430705681174505
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 2.7620502925614737e-16
+         },
+         {
+          "width": 2.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.03755176266401267,
+           0.0035575788556998092
+          ],
+          "left_component_weights": [
+           0.037551762664021895,
+           0.0035575788556978924
+          ],
+          "density_weights": [
+           0.06762718456812666,
+           0.014591498471305574
+          ],
+          "toggle_Z_singular_values": [
+           0.0021125487376373775,
+           0.0005615637569386618
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.9258604571144716e-16,
+          "toggle_Y_singular_values": [
+           0.0010927570592669277,
+           0.00010229042908306155
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 8.791974799877773e-17
+         }
+        ],
+        "radial_profiles_[r, |right|^2, |left|^2]_modes_by_core_weight": [
+         [
+          [
+           1.0,
+           0.004038019982672384,
+           0.0008396729654528981
+          ],
+          [
+           3.0,
+           0.0041304875018094945,
+           0.001623802786730176
+          ],
+          [
+           5.0,
+           0.0032295131816001544,
+           0.0014539651420971947
+          ],
+          [
+           7.0,
+           0.002611927816046229,
+           0.0014376568555379094
+          ],
+          [
+           9.0,
+           0.0018866665154337835,
+           0.001143826865528458
+          ],
+          [
+           11.0,
+           0.001342909667203076,
+           0.0008729242534471842
+          ],
+          [
+           13.0,
+           0.00100262506168969,
+           0.0007153699583717109
+          ],
+          [
+           15.0,
+           0.0006010375376031053,
+           0.00043295596759549765
+          ]
+         ],
+         [
+          [
+           1.0,
+           0.000287495619963656,
+           0.0034858426371830345
+          ],
+          [
+           3.0,
+           0.0010714066018482318,
+           0.0035780913169274954
+          ],
+          [
+           5.0,
+           0.0015709338335724696,
+           0.003346481873075566
+          ],
+          [
+           7.0,
+           0.001607642936316356,
+           0.0027819138968247486
+          ],
+          [
+           9.0,
+           0.0014005484068086618,
+           0.0021433880567140275
+          ],
+          [
+           11.0,
+           0.001131730218124783,
+           0.001601715631880708
+          ],
+          [
+           13.0,
+           0.0008356576040268046,
+           0.0011229127073447772
+          ],
+          [
+           15.0,
+           0.0005898044266859168,
+           0.0007578859966935454
+          ]
+         ]
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "class": [
+      0,
+      1
+     ],
+     "dimension": 16384,
+     "block": 192,
+     "solver": "robust",
+     "ritz_values_in_window": 72,
+     "states_in_window": 72,
+     "largest_residual_in_window": 2.7935919862018195e-15,
+     "block_saturated": false,
+     "unitarity_defect_of_the_compression": 5.551115123125783e-15,
+     "phases_per_tick_all_cores": [
+      -0.129531973507785,
+      -0.1295319735077849,
+      -0.1295319735077848,
+      -0.12953197350778475,
+      -0.12922389973640572,
+      -0.12922389973640563,
+      -0.1292238997364056,
+      -0.12922389973640558,
+      -0.12324486269921875,
+      -0.12324486269921865,
+      -0.12324486269921853,
+      -0.1232448626992185,
+      -0.12317784937818926,
+      -0.12317784937818926,
+      -0.12317784937818926,
+      -0.12317784937818918,
+      -0.12067272296861331,
+      -0.1206727229686133,
+      -0.12067272296861326,
+      -0.1206727229686132,
+      -0.12051531709342003,
+      -0.12051531709341994,
+      -0.12051531709341975,
+      -0.12051531709341975,
+      -0.0016867621502439582,
+      -0.0016867621502439111,
+      -0.0016867621502439096,
+      -0.0016867621502439031,
+      -0.001456434187886607,
+      -0.0014564341878865845,
+      -0.0014564341878865374,
+      -0.0014564341878865333,
+      -6.302921627498327e-05,
+      -6.302921627496554e-05,
+      -6.302921627494624e-05,
+      -6.302921627490388e-05,
+      6.302921627493157e-05,
+      6.302921627494174e-05,
+      6.302921627494858e-05,
+      6.302921627497247e-05,
+      0.0014564341878865548,
+      0.0014564341878865778,
+      0.001456434187886589,
+      0.0014564341878865932,
+      0.0016867621502438344,
+      0.0016867621502439135,
+      0.0016867621502439185,
+      0.0016867621502439695,
+      0.12051531709341984,
+      0.12051531709341985,
+      0.12051531709341988,
+      0.12051531709341994,
+      0.12067272296861316,
+      0.12067272296861321,
+      0.12067272296861327,
+      0.1206727229686133,
+      0.12317784937818918,
+      0.12317784937818918,
+      0.12317784937818918,
+      0.12317784937818924,
+      0.1232448626992186,
+      0.12324486269921862,
+      0.12324486269921865,
+      0.12324486269921883,
+      0.12922389973640555,
+      0.1292238997364057,
+      0.1292238997364057,
+      0.12922389973640575,
+      0.12953197350778467,
+      0.12953197350778478,
+      0.12953197350778484,
+      0.129531973507785
+     ],
+     "cores": [
+      {
+       "core": 0,
+       "winding": 3,
+       "states": 10,
+       "smallest_core_weight_kept": 0.5695880991549224,
+       "largest_core_weight_dropped": 0.3813919557451808,
+       "phases_per_tick": [
+        -0.1295319735077849,
+        -0.12922389973640583,
+        -0.0016867621502439077,
+        -0.001456434187886578,
+        -6.30292162749569e-05,
+        6.302921627495935e-05,
+        0.0014564341878865808,
+        0.0016867621502438931,
+        0.1292238997364057,
+        0.12953197350778498
+       ],
+       "group_residual_of_U": 6.614386787930609e-15,
+       "near_zero_group": {
+        "size": 6,
+        "phases_per_tick": [
+         -0.0016867621502439077,
+         -0.001456434187886578,
+         -6.30292162749569e-05,
+         6.302921627495935e-05,
+         0.0014564341878865808,
+         0.0016867621502438931
+        ],
+        "next_phase_per_tick": 0.1292238997364057,
+        "over_theta0": [
+         -0.010680103525145836,
+         -0.00922173164837799,
+         -0.00039908327017416597,
+         0.0003990832701741815,
+         0.00922173164837801,
+         0.010680103525145744
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         -1.0,
+         -1.0,
+         1.0,
+         1.0,
+         1.0
+        ],
+        "n_plus": 3,
+        "n_minus": 3,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0,
+         1.0,
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         6.302921627495756e-05,
+         0.0014564341878865819,
+         0.001686762150243907
+        ],
+        "plus_two_cell_shift_correlation": [
+         -0.09715,
+         0.31439,
+         0.56416
+        ],
+        "plus_smooth": 2,
+        "plus_staggered": 1,
+        "plus_shift_correlation_axis1": [
+         -0.09722,
+         0.31443,
+         0.56421
+        ],
+        "plus_shift_correlation_axis2": [
+         -0.09718,
+         0.31442,
+         0.56414
+        ],
+        "minus_two_cell_shift_correlation": [
+         -0.56416,
+         -0.31439,
+         0.09715
+        ],
+        "minus_smooth": 1,
+        "minus_staggered": 2,
+        "minus_shift_correlation_axis1": [
+         -0.56421,
+         -0.31443,
+         0.09722
+        ],
+        "minus_shift_correlation_axis2": [
+         -0.56414,
+         -0.31442,
+         0.09718
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.987554,
+         -0.987554,
+         -0.987554
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.987554,
+         0.987554,
+         0.987554
+        ],
+        "dE_dp3_block_between_plus_and_minus": 4.0924956775730973e-14
+       },
+       "smooth_modes_plus": {
+        "handedness": "plus",
+        "modes": 2,
+        "weight_right_handed_component": 0.5000000000000071,
+        "weight_left_handed_component": 0.49999999999999245,
+        "angular_content_right_component": {
+         "-4": 0.0021,
+         "-3": 0.0014,
+         "-2": 0.0048,
+         "-1": 0.0036,
+         "0": 0.4305,
+         "1": 0.4037,
+         "2": 0.1474,
+         "3": 0.0044,
+         "4": 0.0022
+        },
+        "angular_content_left_component": {
+         "-4": 0.0022,
+         "-3": 0.0044,
+         "-2": 0.1474,
+         "-1": 0.4037,
+         "0": 0.4305,
+         "1": 0.0036,
+         "2": 0.0048,
+         "3": 0.0014,
+         "4": 0.0021
+        },
+        "overlaps": [
+         {
+          "width": 1.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.006802481377847124,
+           0.0004689867144150072
+          ],
+          "left_component_weights": [
+           0.006802481377845502,
+           0.0004689867144149426
+          ],
+          "density_weights": [
+           0.010102104304388652,
+           0.004440831880133921
+          ],
+          "toggle_Z_singular_values": [
+           0.0017981140827853504,
+           0.0015334468866910918
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 2.1633857690295545e-16,
+          "toggle_Y_singular_values": [
+           0.004019498135993671,
+           0.00019239132277872756
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 2.114918755482937e-16
+         },
+         {
+          "width": 1.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.010888612311450701,
+           0.00029690832468894047
+          ],
+          "left_component_weights": [
+           0.010888612311449549,
+           0.0002969083246889409
+          ],
+          "density_weights": [
+           0.019965052844217235,
+           0.002405988428060898
+          ],
+          "toggle_Z_singular_values": [
+           0.004004441916571213,
+           0.0003563702551350623
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.6133754507084723e-16,
+          "toggle_Y_singular_values": [
+           0.001885924098794907,
+           0.0002729173364022642
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 6.074658099916936e-17
+         },
+         {
+          "width": 2.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.025319670383008717,
+           0.004965914273799013
+          ],
+          "left_component_weights": [
+           0.025319670383003645,
+           0.004965914273798341
+          ],
+          "density_weights": [
+           0.036981752733276425,
+           0.02358941658033329
+          ],
+          "toggle_Z_singular_values": [
+           0.0022340915727626772,
+           0.00043813335018207637
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.1044801906673384e-16,
+          "toggle_Y_singular_values": [
+           0.0031383378290485093,
+           0.00044430705681192746
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 2.285496598850434e-16
+         },
+         {
+          "width": 2.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.037551762664017135,
+           0.0035575788556969747
+          ],
+          "left_component_weights": [
+           0.037551762664012854,
+           0.003557578855696913
+          ],
+          "density_weights": [
+           0.0676271845681265,
+           0.014591498471297374
+          ],
+          "toggle_Z_singular_values": [
+           0.0021125487376374296,
+           0.0005615637569383582
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 9.48837482237688e-17,
+          "toggle_Y_singular_values": [
+           0.0010927570592670717,
+           0.00010229042908317487
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 7.52073177646059e-17
+         }
+        ],
+        "radial_profiles_[r, |right|^2, |left|^2]_modes_by_core_weight": [
+         [
+          [
+           1.0,
+           0.004038019982672846,
+           0.0008396729654519564
+          ],
+          [
+           3.0,
+           0.00413048750180991,
+           0.0016238027867294853
+          ],
+          [
+           5.0,
+           0.003229513181600531,
+           0.0014539651420968644
+          ],
+          [
+           7.0,
+           0.002611927816046444,
+           0.0014376568555376508
+          ],
+          [
+           9.0,
+           0.0018866665154339004,
+           0.0011438268655282727
+          ],
+          [
+           11.0,
+           0.001342909667203155,
+           0.0008729242534470748
+          ],
+          [
+           13.0,
+           0.0010026250616896946,
+           0.0007153699583715881
+          ],
+          [
+           15.0,
+           0.0006010375376031365,
+           0.0004329559675954652
+          ]
+         ],
+         [
+          [
+           1.0,
+           0.0002874956199636871,
+           0.0034858426371835636
+          ],
+          [
+           3.0,
+           0.001071406601848328,
+           0.0035780913169279386
+          ],
+          [
+           5.0,
+           0.0015709338335722388,
+           0.003346481873075294
+          ],
+          [
+           7.0,
+           0.0016076429363161115,
+           0.0027819138968245053
+          ],
+          [
+           9.0,
+           0.0014005484068084812,
+           0.0021433880567138584
+          ],
+          [
+           11.0,
+           0.0011317302181245966,
+           0.001601715631880515
+          ],
+          [
+           13.0,
+           0.0008356576040267545,
+           0.001122912707344767
+          ],
+          [
+           15.0,
+           0.0005898044266857929,
+           0.0007578859966934049
+          ]
+         ]
+        ]
+       },
+       "smooth_modes_minus": {
+        "handedness": "minus",
+        "modes": 1,
+        "weight_right_handed_component": 0.5000000000000236,
+        "weight_left_handed_component": 0.4999999999999758,
+        "angular_content_right_component": {
+         "-4": 0.1148,
+         "-3": 0.0948,
+         "-2": 0.1606,
+         "-1": 0.0385,
+         "0": 0.1505,
+         "1": 0.0453,
+         "2": 0.1347,
+         "3": 0.0927,
+         "4": 0.168
+        },
+        "angular_content_left_component": {
+         "-4": 0.168,
+         "-3": 0.0927,
+         "-2": 0.1347,
+         "-1": 0.0453,
+         "0": 0.1505,
+         "1": 0.0385,
+         "2": 0.1606,
+         "3": 0.0948,
+         "4": 0.1148
+        },
+        "overlaps": [
+         {
+          "width": 1.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.0027017240703654517
+          ],
+          "left_component_weights": [
+           0.002701724070364773
+          ],
+          "density_weights": [
+           0.005403448140730224
+          ],
+          "toggle_Z_singular_values": [
+           0.0014365744947623142
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 2.334829697043606e-16,
+          "toggle_Y_singular_values": [
+           0.00035959855941689663
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 4.386954924458988e-17
+         },
+         {
+          "width": 1.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.0008416464481545893
+          ],
+          "left_component_weights": [
+           0.0008416464481542733
+          ],
+          "density_weights": [
+           0.0016832928963088625
+          ],
+          "toggle_Z_singular_values": [
+           0.0001385040127260655
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 5.558188635477231e-19,
+          "toggle_Y_singular_values": [
+           0.0001083664428339364
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 5.585674437302002e-17
+         },
+         {
+          "width": 2.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.011064633433380891
+          ],
+          "left_component_weights": [
+           0.011064633433378507
+          ],
+          "density_weights": [
+           0.0221292668667594
+          ],
+          "toggle_Z_singular_values": [
+           0.0013732682362709227
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 2.9387301885223537e-16,
+          "toggle_Y_singular_values": [
+           0.001343045667307752
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 3.208157938266544e-16
+         },
+         {
+          "width": 2.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.004214316929898323
+          ],
+          "left_component_weights": [
+           0.0042143169298970405
+          ],
+          "density_weights": [
+           0.008428633859795365
+          ],
+          "toggle_Z_singular_values": [
+           0.0005587818450658261
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.5355014224756355e-16,
+          "toggle_Y_singular_values": [
+           0.0001544238840010064
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 7.123210336018986e-17
+         }
+        ],
+        "radial_profiles_[r, |right|^2, |left|^2]_modes_by_core_weight": [
+         [
+          [
+           1.0,
+           0.0019797519742019948,
+           0.0019797519742015546
+          ],
+          [
+           3.0,
+           0.0016089296654097334,
+           0.0016089296654093796
+          ],
+          [
+           5.0,
+           0.0017382683416685661,
+           0.0017382683416683176
+          ],
+          [
+           7.0,
+           0.0013631424119227552,
+           0.0013631424119225917
+          ],
+          [
+           9.0,
+           0.001091421819201766,
+           0.0010914218192016624
+          ],
+          [
+           11.0,
+           0.000827685063558311,
+           0.0008276850635582452
+          ],
+          [
+           13.0,
+           0.0005167150861567776,
+           0.0005167150861567375
+          ],
+          [
+           15.0,
+           0.00039314252725187695,
+           0.00039314252725185353
+          ]
+         ]
+        ]
+       }
+      },
+      {
+       "core": 2,
+       "winding": -3,
+       "states": 10,
+       "smallest_core_weight_kept": 0.5695880991549077,
+       "largest_core_weight_dropped": 0.3813919557451736,
+       "phases_per_tick": [
+        -0.12953197350778498,
+        -0.12922389973640572,
+        -0.0016867621502438907,
+        -0.001456434187886596,
+        -6.30292162749661e-05,
+        6.302921627494624e-05,
+        0.0014564341878865736,
+        0.0016867621502438962,
+        0.12922389973640566,
+        0.12953197350778473
+       ],
+       "group_residual_of_U": 4.942565967235184e-15,
+       "near_zero_group": {
+        "size": 6,
+        "phases_per_tick": [
+         -0.0016867621502438907,
+         -0.001456434187886596,
+         -6.30292162749661e-05,
+         6.302921627494624e-05,
+         0.0014564341878865736,
+         0.0016867621502438962
+        ],
+        "next_phase_per_tick": 0.12922389973640566,
+        "over_theta0": [
+         -0.01068010352514573,
+         -0.009221731648378105,
+         -0.0003990832701742242,
+         0.0003990832701740985,
+         0.009221731648377965,
+         0.010680103525145763
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         -1.0,
+         -1.0,
+         1.0,
+         1.0,
+         1.0
+        ],
+        "n_plus": 3,
+        "n_minus": 3,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0,
+         1.0,
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         6.302921627496354e-05,
+         0.00145643418788658,
+         0.001686762150243897
+        ],
+        "plus_two_cell_shift_correlation": [
+         -0.56416,
+         -0.31439,
+         0.09715
+        ],
+        "plus_smooth": 1,
+        "plus_staggered": 2,
+        "plus_shift_correlation_axis1": [
+         -0.56421,
+         -0.31443,
+         0.09722
+        ],
+        "plus_shift_correlation_axis2": [
+         -0.56414,
+         -0.31442,
+         0.09718
+        ],
+        "minus_two_cell_shift_correlation": [
+         -0.09715,
+         0.31439,
+         0.56416
+        ],
+        "minus_smooth": 2,
+        "minus_staggered": 1,
+        "minus_shift_correlation_axis1": [
+         -0.09722,
+         0.31443,
+         0.56421
+        ],
+        "minus_shift_correlation_axis2": [
+         -0.09718,
+         0.31442,
+         0.56414
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.987554,
+         -0.987554,
+         -0.987554
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.987554,
+         0.987554,
+         0.987554
+        ],
+        "dE_dp3_block_between_plus_and_minus": 4.5730260535939056e-14
+       },
+       "smooth_modes_plus": {
+        "handedness": "plus",
+        "modes": 1,
+        "weight_right_handed_component": 0.49999999999999073,
+        "weight_left_handed_component": 0.5000000000000104,
+        "angular_content_right_component": {
+         "-4": 0.168,
+         "-3": 0.0927,
+         "-2": 0.1347,
+         "-1": 0.0453,
+         "0": 0.1505,
+         "1": 0.0385,
+         "2": 0.1606,
+         "3": 0.0948,
+         "4": 0.1148
+        },
+        "angular_content_left_component": {
+         "-4": 0.1148,
+         "-3": 0.0948,
+         "-2": 0.1606,
+         "-1": 0.0385,
+         "0": 0.1505,
+         "1": 0.0453,
+         "2": 0.1347,
+         "3": 0.0927,
+         "4": 0.168
+        },
+        "overlaps": [
+         {
+          "width": 1.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.0027017240703639876
+          ],
+          "left_component_weights": [
+           0.002701724070364205
+          ],
+          "density_weights": [
+           0.005403448140728193
+          ],
+          "toggle_Z_singular_values": [
+           0.0014365744947616526
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 7.890283172513422e-17,
+          "toggle_Y_singular_values": [
+           0.00035959855941671194
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 3.309592618096059e-18
+         },
+         {
+          "width": 1.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.0008416464481540545
+          ],
+          "left_component_weights": [
+           0.0008416464481544041
+          ],
+          "density_weights": [
+           0.0016832928963084587
+          ],
+          "toggle_Z_singular_values": [
+           0.00013850401272597285
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.8675382421062814e-17,
+          "toggle_Y_singular_values": [
+           0.00010836644283392707
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 5.500970939592488e-17
+         },
+         {
+          "width": 2.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.011064633433375184
+          ],
+          "left_component_weights": [
+           0.011064633433375843
+          ],
+          "density_weights": [
+           0.022129266866751027
+          ],
+          "toggle_Z_singular_values": [
+           0.0013732682362703817
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.9081970556220131e-16,
+          "toggle_Y_singular_values": [
+           0.0013430456673072318
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 1.7867651802561113e-16
+         },
+         {
+          "width": 2.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.0042143169298957915
+          ],
+          "left_component_weights": [
+           0.0042143169298969815
+          ],
+          "density_weights": [
+           0.008428633859792773
+          ],
+          "toggle_Z_singular_values": [
+           0.0005587818450656151
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.1752756550674334e-16,
+          "toggle_Y_singular_values": [
+           0.0001544238840009965
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 7.340066724358284e-17
+         }
+        ],
+        "radial_profiles_[r, |right|^2, |left|^2]_modes_by_core_weight": [
+         [
+          [
+           1.0,
+           0.0019797519742009973,
+           0.001979751974201091
+          ],
+          [
+           3.0,
+           0.0016089296654089066,
+           0.001608929665408984
+          ],
+          [
+           5.0,
+           0.0017382683416677217,
+           0.0017382683416677974
+          ],
+          [
+           7.0,
+           0.0013631424119221,
+           0.0013631424119221489
+          ],
+          [
+           9.0,
+           0.0010914218192012565,
+           0.0010914218192012853
+          ],
+          [
+           11.0,
+           0.0008276850635579288,
+           0.0008276850635579489
+          ],
+          [
+           13.0,
+           0.0005167150861565382,
+           0.0005167150861565469
+          ],
+          [
+           15.0,
+           0.00039314252725169724,
+           0.00039314252725170554
+          ]
+         ]
+        ]
+       },
+       "smooth_modes_minus": {
+        "handedness": "minus",
+        "modes": 2,
+        "weight_right_handed_component": 0.49999999999999456,
+        "weight_left_handed_component": 0.5000000000000048,
+        "angular_content_right_component": {
+         "-4": 0.0022,
+         "-3": 0.0044,
+         "-2": 0.1474,
+         "-1": 0.4037,
+         "0": 0.4305,
+         "1": 0.0036,
+         "2": 0.0048,
+         "3": 0.0014,
+         "4": 0.0021
+        },
+        "angular_content_left_component": {
+         "-4": 0.0021,
+         "-3": 0.0014,
+         "-2": 0.0048,
+         "-1": 0.0036,
+         "0": 0.4305,
+         "1": 0.4037,
+         "2": 0.1474,
+         "3": 0.0044,
+         "4": 0.0022
+        },
+        "overlaps": [
+         {
+          "width": 1.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.00680248137784647,
+           0.0004689867144149747
+          ],
+          "left_component_weights": [
+           0.006802481377847818,
+           0.00046898671441508114
+          ],
+          "density_weights": [
+           0.01010210430439009,
+           0.004440831880134257
+          ],
+          "toggle_Z_singular_values": [
+           0.0017981140827866315,
+           0.0015334468866911944
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.354476876143334e-16,
+          "toggle_Y_singular_values": [
+           0.004019498135994486,
+           0.00019239132277869714
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 2.053154114451228e-16
+         },
+         {
+          "width": 1.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.010888612311451547,
+           0.0002969083246890272
+          ],
+          "left_component_weights": [
+           0.010888612311451482,
+           0.00029690832468909703
+          ],
+          "density_weights": [
+           0.019965052844218976,
+           0.0024059884280621816
+          ],
+          "toggle_Z_singular_values": [
+           0.004004441916571817,
+           0.0003563702551352315
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.4400903084698262e-16,
+          "toggle_Y_singular_values": [
+           0.001885924098795674,
+           0.0002729173364024043
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 1.0278023574568046e-16
+         },
+         {
+          "width": 2.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.025319670383005935,
+           0.004965914273798548
+          ],
+          "left_component_weights": [
+           0.02531967038300996,
+           0.004965914273799816
+          ],
+          "density_weights": [
+           0.036981752733278216,
+           0.02358941658033604
+          ],
+          "toggle_Z_singular_values": [
+           0.002234091572762501,
+           0.00043813335018211584
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 8.912394010196974e-17,
+          "toggle_Y_singular_values": [
+           0.003138337829048361,
+           0.0004443070568119246
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 8.996659269137029e-17
+         },
+         {
+          "width": 2.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.03755176266402066,
+           0.0035575788556979956
+          ],
+          "left_component_weights": [
+           0.037551762664020244,
+           0.0035575788556990373
+          ],
+          "density_weights": [
+           0.06762718456813348,
+           0.014591498471304478
+          ],
+          "toggle_Z_singular_values": [
+           0.0021125487376375484,
+           0.0005615637569386885
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.0952532162057597e-16,
+          "toggle_Y_singular_values": [
+           0.0010927570592670773,
+           0.0001022904290830959
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 6.31205103544561e-17
+         }
+        ],
+        "radial_profiles_[r, |right|^2, |left|^2]_modes_by_core_weight": [
+         [
+          [
+           1.0,
+           0.0040380199826721445,
+           0.0008396729654524224
+          ],
+          [
+           3.0,
+           0.0041304875018093185,
+           0.001623802786729818
+          ],
+          [
+           5.0,
+           0.003229513181600414,
+           0.0014539651420972912
+          ],
+          [
+           7.0,
+           0.0026119278160464756,
+           0.0014376568555380515
+          ],
+          [
+           9.0,
+           0.0018866665154339906,
+           0.0011438268655285999
+          ],
+          [
+           11.0,
+           0.0013429096672032774,
+           0.000872924253447343
+          ],
+          [
+           13.0,
+           0.0010026250616897592,
+           0.0007153699583717599
+          ],
+          [
+           15.0,
+           0.0006010375376032306,
+           0.0004329559675956059
+          ]
+         ],
+         [
+          [
+           1.0,
+           0.0002874956199636416,
+           0.003485842637184379
+          ],
+          [
+           3.0,
+           0.0010714066018481815,
+           0.0035780913169284933
+          ],
+          [
+           5.0,
+           0.001570933833572158,
+           0.003346481873075824
+          ],
+          [
+           7.0,
+           0.001607642936316032,
+           0.0027819138968248175
+          ],
+          [
+           9.0,
+           0.0014005484068083979,
+           0.0021433880567140163
+          ],
+          [
+           11.0,
+           0.0011317302181245458,
+           0.001601715631880625
+          ],
+          [
+           13.0,
+           0.0008356576040266845,
+           0.001122912707344777
+          ],
+          [
+           15.0,
+           0.0005898044266857766,
+           0.0007578859966934513
+          ]
+         ]
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "seconds": 264.8
+  },
+  {
+   "config": {
+    "L": 128,
+    "theta0": 0.157935,
+    "n": 3,
+    "xi_c": 4.0,
+    "window": 0.9,
+    "block": 192,
+    "classes": [
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      1
+     ]
+    ],
+    "velocity": true
+   },
+   "classes": [
+    {
+     "class": [
+      0,
+      0
+     ],
+     "dimension": 16384,
+     "block": 192,
+     "solver": "robust",
+     "ritz_values_in_window": 72,
+     "states_in_window": 72,
+     "largest_residual_in_window": 2.8884355121498866e-15,
+     "block_saturated": false,
+     "unitarity_defect_of_the_compression": 5.551115123125783e-15,
+     "phases_per_tick_all_cores": [
+      -0.12794626672396034,
+      -0.12794626672396003,
+      -0.12794626672395998,
+      -0.12794626672395976,
+      -0.1279446238163533,
+      -0.12794462381635327,
+      -0.12794462381635327,
+      -0.12794462381635321,
+      -0.1244795631823059,
+      -0.12447956318230588,
+      -0.12447956318230581,
+      -0.12447956318230576,
+      -0.12447849804270572,
+      -0.12447849804270568,
+      -0.12447849804270564,
+      -0.12447849804270564,
+      -0.12030151307796612,
+      -0.12030151307796608,
+      -0.12030151307796601,
+      -0.12030151307796601,
+      -0.12030083847990898,
+      -0.12030083847990888,
+      -0.12030083847990884,
+      -0.12030083847990879,
+      -0.0010839210429989502,
+      -0.0010839210429989421,
+      -0.0010839210429989257,
+      -0.0010839210429989122,
+      -0.0010782005767938025,
+      -0.0010782005767937869,
+      -0.0010782005767937736,
+      -0.0010782005767937693,
+      -5.903462407602236e-06,
+      -5.9034624075958386e-06,
+      -5.903462407576526e-06,
+      -5.903462407561716e-06,
+      5.903462407523916e-06,
+      5.9034624075662974e-06,
+      5.903462407573147e-06,
+      5.903462407601134e-06,
+      0.0010782005767937493,
+      0.001078200576793764,
+      0.0010782005767937825,
+      0.0010782005767937875,
+      0.0010839210429989168,
+      0.00108392104299892,
+      0.001083921042998934,
+      0.0010839210429989426,
+      0.12030083847990866,
+      0.12030083847990876,
+      0.1203008384799088,
+      0.12030083847990906,
+      0.12030151307796604,
+      0.12030151307796604,
+      0.12030151307796612,
+      0.12030151307796615,
+      0.12447849804270561,
+      0.12447849804270568,
+      0.12447849804270568,
+      0.12447849804270572,
+      0.12447956318230564,
+      0.12447956318230573,
+      0.12447956318230581,
+      0.12447956318230587,
+      0.12794462381635313,
+      0.12794462381635321,
+      0.12794462381635324,
+      0.12794462381635338,
+      0.12794626672395978,
+      0.12794626672395987,
+      0.1279462667239601,
+      0.1279462667239601
+     ],
+     "cores": [
+      {
+       "core": 0,
+       "winding": 3,
+       "states": 4,
+       "smallest_core_weight_kept": 0.6573158485099593,
+       "largest_core_weight_dropped": 0.4864539451683721,
+       "phases_per_tick": [
+        -0.12794626672396006,
+        -0.12794462381635344,
+        0.12794462381635327,
+        0.12794626672395995
+       ],
+       "group_residual_of_U": 4.27910066527684e-15,
+       "near_zero_group": {
+        "size": 4,
+        "phases_per_tick": [
+         -0.12794626672396006,
+         -0.12794462381635344,
+         0.12794462381635327,
+         0.12794626672395995
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.8101197753756929,
+         -0.8101093729468037,
+         0.8101093729468026,
+         0.8101197753756922
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         -1.0,
+         1.0,
+         1.0
+        ],
+        "n_plus": 2,
+        "n_minus": 2,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0,
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.12794462381635333,
+         0.12794626672395992
+        ],
+        "plus_two_cell_shift_correlation": [
+         -0.99098,
+         0.98842
+        ],
+        "plus_smooth": 1,
+        "plus_staggered": 1,
+        "plus_shift_correlation_axis1": [
+         -0.99098,
+         0.98842
+        ],
+        "plus_shift_correlation_axis2": [
+         -0.99098,
+         0.98842
+        ],
+        "minus_two_cell_shift_correlation": [
+         -0.98842,
+         0.99098
+        ],
+        "minus_smooth": 1,
+        "minus_staggered": 1,
+        "minus_shift_correlation_axis1": [
+         -0.98842,
+         0.99098
+        ],
+        "minus_shift_correlation_axis2": [
+         -0.98842,
+         0.99098
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.989021,
+         -0.987795
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.987795,
+         0.989021
+        ],
+        "dE_dp3_block_between_plus_and_minus": 2.202086158890237e-14
+       },
+       "smooth_modes_plus": {
+        "handedness": "plus",
+        "modes": 1,
+        "weight_right_handed_component": 0.49999999999839434,
+        "weight_left_handed_component": 0.500000000001606,
+        "angular_content_right_component": {
+         "-4": 0.0013,
+         "-3": 0.0067,
+         "-2": 0.0006,
+         "-1": 0.7485,
+         "0": 0.0015,
+         "1": 0.0082,
+         "2": 0.0019,
+         "3": 0.2306,
+         "4": 0.0007
+        },
+        "angular_content_left_component": {
+         "-4": 0.0007,
+         "-3": 0.2306,
+         "-2": 0.0019,
+         "-1": 0.0082,
+         "0": 0.0015,
+         "1": 0.7485,
+         "2": 0.0006,
+         "3": 0.0067,
+         "4": 0.0013
+        },
+        "overlaps": [
+         {
+          "width": 1.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           2.444982521014122e-05
+          ],
+          "left_component_weights": [
+           2.4449825210214732e-05
+          ],
+          "density_weights": [
+           4.8899650420355955e-05
+          ],
+          "toggle_Z_singular_values": [
+           1.9444283044997094e-06
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 3.3679618169608745e-16,
+          "toggle_Y_singular_values": [
+           2.1417182977879446e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 1.2523260365958992e-16
+         },
+         {
+          "width": 1.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.00015876445482328628
+          ],
+          "left_component_weights": [
+           0.00015876445482330203
+          ],
+          "density_weights": [
+           0.0003175289096465883
+          ],
+          "toggle_Z_singular_values": [
+           6.80294859707396e-05
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 2.860570076255635e-15,
+          "toggle_Y_singular_values": [
+           9.795709545253337e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 5.3687150483743185e-16
+         },
+         {
+          "width": 2.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.0003907479830267895
+          ],
+          "left_component_weights": [
+           0.0003907479830288413
+          ],
+          "density_weights": [
+           0.0007814959660556308
+          ],
+          "toggle_Z_singular_values": [
+           1.8549886578344002e-07
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 7.751232381678601e-16,
+          "toggle_Y_singular_values": [
+           8.614069223237168e-07
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 2.2736364361760933e-15
+         },
+         {
+          "width": 2.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.0009508667251250348
+          ],
+          "left_component_weights": [
+           0.0009508667251271829
+          ],
+          "density_weights": [
+           0.0019017334502522175
+          ],
+          "toggle_Z_singular_values": [
+           6.658851265759758e-06
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.3266379097695569e-14,
+          "toggle_Y_singular_values": [
+           1.0993748332188306e-06
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 1.2226581855548265e-16
+         }
+        ],
+        "radial_profiles_[r, |right|^2, |left|^2]_modes_by_core_weight": [
+         [
+          [
+           1.0,
+           1.387968354035191e-05,
+           1.3879683540439066e-05
+          ],
+          [
+           3.0,
+           7.870132306490578e-05,
+           7.870132306535277e-05
+          ],
+          [
+           5.0,
+           0.00019853416068849435,
+           0.00019853416068954042
+          ],
+          [
+           7.0,
+           0.00035020154858736614,
+           0.00035020154858889503
+          ],
+          [
+           9.0,
+           0.00047291208553752945,
+           0.0004729120855390173
+          ],
+          [
+           11.0,
+           0.0005525587656277845,
+           0.0005525587656296828
+          ],
+          [
+           13.0,
+           0.0006225933737478598,
+           0.0006225933737499032
+          ],
+          [
+           15.0,
+           0.0006734748125661312,
+           0.000673474812567928
+          ]
+         ]
+        ]
+       },
+       "smooth_modes_minus": {
+        "handedness": "minus",
+        "modes": 1,
+        "weight_right_handed_component": 0.4999999999982386,
+        "weight_left_handed_component": 0.5000000000017611,
+        "angular_content_right_component": {
+         "-4": 0.0004,
+         "-3": 0.0023,
+         "-2": 0.0079,
+         "-1": 0.001,
+         "0": 0.8934,
+         "1": 0.0015,
+         "2": 0.0088,
+         "3": 0.0026,
+         "4": 0.082
+        },
+        "angular_content_left_component": {
+         "-4": 0.082,
+         "-3": 0.0026,
+         "-2": 0.0088,
+         "-1": 0.0015,
+         "0": 0.8934,
+         "1": 0.001,
+         "2": 0.0079,
+         "3": 0.0023,
+         "4": 0.0004
+        },
+        "overlaps": [
+         {
+          "width": 1.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.003187076666857267
+          ],
+          "left_component_weights": [
+           0.0031870766668738227
+          ],
+          "density_weights": [
+           0.00637415333373109
+          ],
+          "toggle_Z_singular_values": [
+           0.0011345205742555788
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 5.789980108511688e-15,
+          "toggle_Y_singular_values": [
+           1.7031019504751337e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 1.5365685883840022e-14
+         },
+         {
+          "width": 1.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.0026351258191927344
+          ],
+          "left_component_weights": [
+           0.0026351258192078403
+          ],
+          "density_weights": [
+           0.005270251638400575
+          ],
+          "toggle_Z_singular_values": [
+           0.0007033396848794597
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.0064878313120769e-14,
+          "toggle_Y_singular_values": [
+           0.00017027916305779992
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 9.829282028186263e-15
+         },
+         {
+          "width": 2.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.012201261613945625
+          ],
+          "left_component_weights": [
+           0.01220126161401255
+          ],
+          "density_weights": [
+           0.024402523227958176
+          ],
+          "toggle_Z_singular_values": [
+           3.713610080500105e-05
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.8677686350758014e-14,
+          "toggle_Y_singular_values": [
+           1.3418542468477604e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 7.262750513968993e-14
+         },
+         {
+          "width": 2.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.010662491164435966
+          ],
+          "left_component_weights": [
+           0.010662491164495361
+          ],
+          "density_weights": [
+           0.021324982328931326
+          ],
+          "toggle_Z_singular_values": [
+           1.0845528105085777e-05
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 3.6168096783587705e-14,
+          "toggle_Y_singular_values": [
+           7.080341203768332e-06
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 5.569839294813444e-14
+         }
+        ],
+        "radial_profiles_[r, |right|^2, |left|^2]_modes_by_core_weight": [
+         [
+          [
+           1.0,
+           0.0020303734991400126,
+           0.0020303734991519167
+          ],
+          [
+           3.0,
+           0.0019027856442677342,
+           0.001902785644277679
+          ],
+          [
+           5.0,
+           0.0017008139593577098,
+           0.0017008139593672176
+          ],
+          [
+           7.0,
+           0.0014937101663682097,
+           0.001493710166376165
+          ],
+          [
+           9.0,
+           0.001287351982258075,
+           0.0012873519822641968
+          ],
+          [
+           11.0,
+           0.001110324492109289,
+           0.0011103244921148087
+          ],
+          [
+           13.0,
+           0.0009649243621593905,
+           0.0009649243621637951
+          ],
+          [
+           15.0,
+           0.0008334386943326646,
+           0.0008334386943359025
+          ]
+         ]
+        ]
+       }
+      },
+      {
+       "core": 2,
+       "winding": -3,
+       "states": 4,
+       "smallest_core_weight_kept": 0.6573158485092461,
+       "largest_core_weight_dropped": 0.4864539451683556,
+       "phases_per_tick": [
+        -0.1279462667239601,
+        -0.12794462381635333,
+        0.12794462381635327,
+        0.12794626672395992
+       ],
+       "group_residual_of_U": 3.921040003445171e-15,
+       "near_zero_group": {
+        "size": 4,
+        "phases_per_tick": [
+         -0.1279462667239601,
+         -0.12794462381635333,
+         0.12794462381635327,
+         0.12794626672395992
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.8101197753756931,
+         -0.810109372946803,
+         0.8101093729468026,
+         0.8101197753756921
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         -1.0,
+         1.0,
+         1.0
+        ],
+        "n_plus": 2,
+        "n_minus": 2,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0,
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.12794462381635333,
+         0.12794626672395998
+        ],
+        "plus_two_cell_shift_correlation": [
+         -0.98842,
+         0.99098
+        ],
+        "plus_smooth": 1,
+        "plus_staggered": 1,
+        "plus_shift_correlation_axis1": [
+         -0.98842,
+         0.99098
+        ],
+        "plus_shift_correlation_axis2": [
+         -0.98842,
+         0.99098
+        ],
+        "minus_two_cell_shift_correlation": [
+         -0.99098,
+         0.98842
+        ],
+        "minus_smooth": 1,
+        "minus_staggered": 1,
+        "minus_shift_correlation_axis1": [
+         -0.99098,
+         0.98842
+        ],
+        "minus_shift_correlation_axis2": [
+         -0.99098,
+         0.98842
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.989021,
+         -0.987795
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.987795,
+         0.989021
+        ],
+        "dE_dp3_block_between_plus_and_minus": 2.668152593333464e-14
+       },
+       "smooth_modes_plus": {
+        "handedness": "plus",
+        "modes": 1,
+        "weight_right_handed_component": 0.500000000004169,
+        "weight_left_handed_component": 0.4999999999958317,
+        "angular_content_right_component": {
+         "-4": 0.082,
+         "-3": 0.0026,
+         "-2": 0.0088,
+         "-1": 0.0015,
+         "0": 0.8934,
+         "1": 0.001,
+         "2": 0.0079,
+         "3": 0.0023,
+         "4": 0.0004
+        },
+        "angular_content_left_component": {
+         "-4": 0.0004,
+         "-3": 0.0023,
+         "-2": 0.0079,
+         "-1": 0.001,
+         "0": 0.8934,
+         "1": 0.0015,
+         "2": 0.0088,
+         "3": 0.0026,
+         "4": 0.082
+        },
+        "overlaps": [
+         {
+          "width": 1.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.003187076666888288
+          ],
+          "left_component_weights": [
+           0.0031870766668472285
+          ],
+          "density_weights": [
+           0.006374153333735517
+          ],
+          "toggle_Z_singular_values": [
+           0.001134520574276224
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 4.116261639825492e-15,
+          "toggle_Y_singular_values": [
+           1.7031019507178106e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 8.539826831971384e-15
+         },
+         {
+          "width": 1.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.0026351258192225976
+          ],
+          "left_component_weights": [
+           0.002635125819186592
+          ],
+          "density_weights": [
+           0.00527025163840919
+          ],
+          "toggle_Z_singular_values": [
+           0.0007033396849205219
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 7.430342450802983e-16,
+          "toggle_Y_singular_values": [
+           0.0001702791630614757
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 6.335277899168063e-15
+         },
+         {
+          "width": 2.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.01220126161405617
+          ],
+          "left_component_weights": [
+           0.012201261613900775
+          ],
+          "density_weights": [
+           0.024402523227956947
+          ],
+          "toggle_Z_singular_values": [
+           3.713610088386924e-05
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.6806597346807886e-14,
+          "toggle_Y_singular_values": [
+           1.3418542464692162e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 1.755594367797153e-14
+         },
+         {
+          "width": 2.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.010662491164535274
+          ],
+          "left_component_weights": [
+           0.01066249116439603
+          ],
+          "density_weights": [
+           0.021324982328931305
+          ],
+          "toggle_Z_singular_values": [
+           1.0845527959087954e-05
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 5.3209932131203156e-15,
+          "toggle_Y_singular_values": [
+           7.080341207940013e-06
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 1.4510853456328743e-14
+         }
+        ],
+        "radial_profiles_[r, |right|^2, |left|^2]_modes_by_core_weight": [
+         [
+          [
+           1.0,
+           0.002030373499157073,
+           0.002030373499131653
+          ],
+          [
+           3.0,
+           0.0019027856442860327,
+           0.0019027856442614664
+          ],
+          [
+           5.0,
+           0.0017008139593725,
+           0.0017008139593511933
+          ],
+          [
+           7.0,
+           0.0014937101663807107,
+           0.0014937101663627089
+          ],
+          [
+           9.0,
+           0.0012873519822693257,
+           0.0012873519822541395
+          ],
+          [
+           11.0,
+           0.0011103244921180325,
+           0.0011103244921057027
+          ],
+          [
+           13.0,
+           0.000964924362166329,
+           0.0009649243621562004
+          ],
+          [
+           15.0,
+           0.0008334386943387312,
+           0.0008334386943307599
+          ]
+         ]
+        ]
+       },
+       "smooth_modes_minus": {
+        "handedness": "minus",
+        "modes": 1,
+        "weight_right_handed_component": 0.5000000000038167,
+        "weight_left_handed_component": 0.4999999999961831,
+        "angular_content_right_component": {
+         "-4": 0.0007,
+         "-3": 0.2306,
+         "-2": 0.0019,
+         "-1": 0.0082,
+         "0": 0.0015,
+         "1": 0.7485,
+         "2": 0.0006,
+         "3": 0.0067,
+         "4": 0.0013
+        },
+        "angular_content_left_component": {
+         "-4": 0.0013,
+         "-3": 0.0067,
+         "-2": 0.0006,
+         "-1": 0.7485,
+         "0": 0.0015,
+         "1": 0.0082,
+         "2": 0.0019,
+         "3": 0.2306,
+         "4": 0.0007
+        },
+        "overlaps": [
+         {
+          "width": 1.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           2.4449825209685018e-05
+          ],
+          "left_component_weights": [
+           2.444982520943311e-05
+          ],
+          "density_weights": [
+           4.889965041911813e-05
+          ],
+          "toggle_Z_singular_values": [
+           1.9444283045079667e-06
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 3.512179764286227e-17,
+          "toggle_Y_singular_values": [
+           2.141718297749228e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 2.264728931736728e-16
+         },
+         {
+          "width": 1.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.00015876445482354394
+          ],
+          "left_component_weights": [
+           0.0001587644548200255
+          ],
+          "density_weights": [
+           0.0003175289096435694
+          ],
+          "toggle_Z_singular_values": [
+           6.802948595695902e-05
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 2.3537165191108967e-15,
+          "toggle_Y_singular_values": [
+           9.795709545053024e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 4.7005034620432895e-16
+         },
+         {
+          "width": 2.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.0003907479830301677
+          ],
+          "left_component_weights": [
+           0.0003907479830254802
+          ],
+          "density_weights": [
+           0.0007814959660556479
+          ],
+          "toggle_Z_singular_values": [
+           1.8549886270075254e-07
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 4.849500792340361e-16,
+          "toggle_Y_singular_values": [
+           8.61406922857256e-07
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 6.719687071113736e-16
+         },
+         {
+          "width": 2.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.0009508667251334446
+          ],
+          "left_component_weights": [
+           0.0009508667251182868
+          ],
+          "density_weights": [
+           0.0019017334502517314
+          ],
+          "toggle_Z_singular_values": [
+           6.658851214951595e-06
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.10133392206396e-14,
+          "toggle_Y_singular_values": [
+           1.099374825714333e-06
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 9.773303323102257e-16
+         }
+        ],
+        "radial_profiles_[r, |right|^2, |left|^2]_modes_by_core_weight": [
+         [
+          [
+           1.0,
+           1.3879683539706867e-05,
+           1.3879683539601808e-05
+          ],
+          [
+           3.0,
+           7.870132306527034e-05,
+           7.870132306429616e-05
+          ],
+          [
+           5.0,
+           0.0001985341606913198,
+           0.00019853416068901797
+          ],
+          [
+           7.0,
+           0.0003502015485896367,
+           0.0003502015485864933
+          ],
+          [
+           9.0,
+           0.0004729120855393676,
+           0.0004729120855352789
+          ],
+          [
+           11.0,
+           0.0005525587656317006,
+           0.0005525587656272464
+          ],
+          [
+           13.0,
+           0.0006225933737509384,
+           0.0006225933737467248
+          ],
+          [
+           15.0,
+           0.0006734748125688004,
+           0.0006734748125646134
+          ]
+         ]
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "class": [
+      0,
+      1
+     ],
+     "dimension": 16384,
+     "block": 192,
+     "solver": "robust",
+     "ritz_values_in_window": 72,
+     "states_in_window": 72,
+     "largest_residual_in_window": 2.7618263546262235e-15,
+     "block_saturated": false,
+     "unitarity_defect_of_the_compression": 5.329070518200751e-15,
+     "phases_per_tick_all_cores": [
+      -0.12794626672396017,
+      -0.12794626672396012,
+      -0.12794626672395995,
+      -0.12794626672395992,
+      -0.1279446238163533,
+      -0.12794462381635321,
+      -0.12794462381635321,
+      -0.12794462381635316,
+      -0.12447956318230576,
+      -0.12447956318230569,
+      -0.12447956318230567,
+      -0.12447956318230559,
+      -0.12447849804270575,
+      -0.1244784980427057,
+      -0.12447849804270562,
+      -0.12447849804270548,
+      -0.12030151307796626,
+      -0.12030151307796615,
+      -0.12030151307796591,
+      -0.12030151307796577,
+      -0.12030083847990894,
+      -0.12030083847990888,
+      -0.1203008384799088,
+      -0.12030083847990879,
+      -0.0010839210429989846,
+      -0.001083921042998941,
+      -0.0010839210429989259,
+      -0.0010839210429989083,
+      -0.001078200576793808,
+      -0.0010782005767937983,
+      -0.0010782005767937882,
+      -0.0010782005767937864,
+      -5.90346240758803e-06,
+      -5.903462407587661e-06,
+      -5.9034624075758545e-06,
+      -5.903462407572079e-06,
+      5.903462407530264e-06,
+      5.9034624075662136e-06,
+      5.903462407570076e-06,
+      5.9034624075900194e-06,
+      0.0010782005767937834,
+      0.0010782005767937853,
+      0.0010782005767937912,
+      0.0010782005767938484,
+      0.0010839210429988097,
+      0.0010839210429989057,
+      0.0010839210429989107,
+      0.0010839210429989304,
+      0.12030083847990865,
+      0.12030083847990866,
+      0.12030083847990872,
+      0.12030083847990893,
+      0.1203015130779659,
+      0.12030151307796598,
+      0.120301513077966,
+      0.12030151307796605,
+      0.1244784980427054,
+      0.12447849804270558,
+      0.12447849804270561,
+      0.12447849804270578,
+      0.12447956318230578,
+      0.1244795631823058,
+      0.12447956318230581,
+      0.1244795631823059,
+      0.12794462381635313,
+      0.1279446238163532,
+      0.1279446238163533,
+      0.1279446238163533,
+      0.1279462667239599,
+      0.12794626672395995,
+      0.12794626672395998,
+      0.1279462667239602
+     ],
+     "cores": [
+      {
+       "core": 0,
+       "winding": 3,
+       "states": 4,
+       "smallest_core_weight_kept": 0.657315848510486,
+       "largest_core_weight_dropped": 0.48645394516838303,
+       "phases_per_tick": [
+        -0.12794626672395995,
+        -0.12794462381635321,
+        0.1279446238163532,
+        0.12794626672396012
+       ],
+       "group_residual_of_U": 7.466757613169817e-15,
+       "near_zero_group": {
+        "size": 4,
+        "phases_per_tick": [
+         -0.12794626672395995,
+         -0.12794462381635321,
+         0.1279446238163532,
+         0.12794626672396012
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.8101197753756922,
+         -0.8101093729468023,
+         0.8101093729468021,
+         0.8101197753756934
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         -1.0,
+         1.0,
+         1.0
+        ],
+        "n_plus": 2,
+        "n_minus": 2,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0,
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.12794462381635316,
+         0.12794626672395987
+        ],
+        "plus_two_cell_shift_correlation": [
+         -0.99098,
+         0.98842
+        ],
+        "plus_smooth": 1,
+        "plus_staggered": 1,
+        "plus_shift_correlation_axis1": [
+         -0.99098,
+         0.98842
+        ],
+        "plus_shift_correlation_axis2": [
+         -0.99098,
+         0.98842
+        ],
+        "minus_two_cell_shift_correlation": [
+         -0.98842,
+         0.99098
+        ],
+        "minus_smooth": 1,
+        "minus_staggered": 1,
+        "minus_shift_correlation_axis1": [
+         -0.98842,
+         0.99098
+        ],
+        "minus_shift_correlation_axis2": [
+         -0.98842,
+         0.99098
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.989021,
+         -0.987795
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.987795,
+         0.989021
+        ],
+        "dE_dp3_block_between_plus_and_minus": 2.4209227057555546e-14
+       },
+       "smooth_modes_plus": {
+        "handedness": "plus",
+        "modes": 1,
+        "weight_right_handed_component": 0.5000000000017438,
+        "weight_left_handed_component": 0.4999999999982554,
+        "angular_content_right_component": {
+         "-4": 0.0013,
+         "-3": 0.0067,
+         "-2": 0.0006,
+         "-1": 0.7485,
+         "0": 0.0015,
+         "1": 0.0082,
+         "2": 0.0019,
+         "3": 0.2306,
+         "4": 0.0007
+        },
+        "angular_content_left_component": {
+         "-4": 0.0007,
+         "-3": 0.2306,
+         "-2": 0.0019,
+         "-1": 0.0082,
+         "0": 0.0015,
+         "1": 0.7485,
+         "2": 0.0006,
+         "3": 0.0067,
+         "4": 0.0013
+        },
+        "overlaps": [
+         {
+          "width": 1.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           2.4449825209776545e-05
+          ],
+          "left_component_weights": [
+           2.4449825209954198e-05
+          ],
+          "density_weights": [
+           4.889965041973074e-05
+          ],
+          "toggle_Z_singular_values": [
+           1.944428304616744e-06
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 2.583649541873644e-16,
+          "toggle_Y_singular_values": [
+           2.14171829775828e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 2.7245132385822706e-16
+         },
+         {
+          "width": 1.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.00015876445482324126
+          ],
+          "left_component_weights": [
+           0.00015876445482142378
+          ],
+          "density_weights": [
+           0.000317528909644665
+          ],
+          "toggle_Z_singular_values": [
+           6.802948596341999e-05
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 2.310698256813216e-15,
+          "toggle_Y_singular_values": [
+           9.795709545227739e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 5.684056984589047e-17
+         },
+         {
+          "width": 2.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.00039074798302895326
+          ],
+          "left_component_weights": [
+           0.00039074798302678355
+          ],
+          "density_weights": [
+           0.0007814959660557368
+          ],
+          "toggle_Z_singular_values": [
+           1.8549886567564576e-07
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 6.726796853923083e-17,
+          "toggle_Y_singular_values": [
+           8.61406922367195e-07
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 1.096922278012659e-15
+         },
+         {
+          "width": 2.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.0009508667251305529
+          ],
+          "left_component_weights": [
+           0.0009508667251197212
+          ],
+          "density_weights": [
+           0.0019017334502502742
+          ],
+          "toggle_Z_singular_values": [
+           6.658851236989786e-06
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 7.372954243662578e-15,
+          "toggle_Y_singular_values": [
+           1.0993748335004174e-06
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 4.482769415607411e-16
+         }
+        ],
+        "radial_profiles_[r, |right|^2, |left|^2]_modes_by_core_weight": [
+         [
+          [
+           1.0,
+           1.3879683539849485e-05,
+           1.3879683540227216e-05
+          ],
+          [
+           3.0,
+           7.870132306513767e-05,
+           7.870132306493786e-05
+          ],
+          [
+           5.0,
+           0.00019853416069043494,
+           0.00019853416068877513
+          ],
+          [
+           7.0,
+           0.0003502015485885535,
+           0.00035020154858719137
+          ],
+          [
+           9.0,
+           0.00047291208553889755,
+           0.000472912085537501
+          ],
+          [
+           11.0,
+           0.0005525587656304806,
+           0.0005525587656278041
+          ],
+          [
+           13.0,
+           0.0006225933737494418,
+           0.0006225933737479628
+          ],
+          [
+           15.0,
+           0.0006734748125679741,
+           0.0006734748125661275
+          ]
+         ]
+        ]
+       },
+       "smooth_modes_minus": {
+        "handedness": "minus",
+        "modes": 1,
+        "weight_right_handed_component": 0.5000000000019048,
+        "weight_left_handed_component": 0.4999999999980957,
+        "angular_content_right_component": {
+         "-4": 0.0004,
+         "-3": 0.0023,
+         "-2": 0.0079,
+         "-1": 0.001,
+         "0": 0.8934,
+         "1": 0.0015,
+         "2": 0.0088,
+         "3": 0.0026,
+         "4": 0.082
+        },
+        "angular_content_left_component": {
+         "-4": 0.082,
+         "-3": 0.0026,
+         "-2": 0.0088,
+         "-1": 0.0015,
+         "0": 0.8934,
+         "1": 0.001,
+         "2": 0.0079,
+         "3": 0.0023,
+         "4": 0.0004
+        },
+        "overlaps": [
+         {
+          "width": 1.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.0031870766668745704
+          ],
+          "left_component_weights": [
+           0.0031870766668576434
+          ],
+          "density_weights": [
+           0.006374153333732214
+          ],
+          "toggle_Z_singular_values": [
+           0.001134520574254875
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.183447330090996e-15,
+          "toggle_Y_singular_values": [
+           1.7031019508693848e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 4.126283738107295e-15
+         },
+         {
+          "width": 1.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.0026351258192104654
+          ],
+          "left_component_weights": [
+           0.002635125819194491
+          ],
+          "density_weights": [
+           0.005270251638404957
+          ],
+          "toggle_Z_singular_values": [
+           0.0007033396848882854
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.8819445784731825e-15,
+          "toggle_Y_singular_values": [
+           0.00017027916306064502
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 2.081586856009232e-15
+         },
+         {
+          "width": 2.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.0122012616140157
+          ],
+          "left_component_weights": [
+           0.012201261613944945
+          ],
+          "density_weights": [
+           0.024402523227960646
+          ],
+          "toggle_Z_singular_values": [
+           3.713610080038376e-05
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 3.717403995125324e-15,
+          "toggle_Y_singular_values": [
+           1.3418542474789294e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 3.151580559024314e-14
+         },
+         {
+          "width": 2.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.01066249116450202
+          ],
+          "left_component_weights": [
+           0.010662491164437848
+          ],
+          "density_weights": [
+           0.021324982328939868
+          ],
+          "toggle_Z_singular_values": [
+           1.0845528076363242e-05
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 4.5857415087446896e-15,
+          "toggle_Y_singular_values": [
+           7.08034120805798e-06
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 2.3783709378490027e-14
+         }
+        ],
+        "radial_profiles_[r, |right|^2, |left|^2]_modes_by_core_weight": [
+         [
+          [
+           1.0,
+           0.002030373499152742,
+           0.002030373499140464
+          ],
+          [
+           3.0,
+           0.0019027856442781134,
+           0.0019027856442673428
+          ],
+          [
+           5.0,
+           0.001700813959367474,
+           0.0017008139593575828
+          ],
+          [
+           7.0,
+           0.0014937101663767404,
+           0.0014937101663682704
+          ],
+          [
+           9.0,
+           0.0012873519822644993,
+           0.0012873519822579533
+          ],
+          [
+           11.0,
+           0.001110324492115024,
+           0.0011103244921093407
+          ],
+          [
+           13.0,
+           0.0009649243621638407,
+           0.000964924362158999
+          ],
+          [
+           15.0,
+           0.0008334386943364362,
+           0.0008334386943330745
+          ]
+         ]
+        ]
+       }
+      },
+      {
+       "core": 2,
+       "winding": -3,
+       "states": 4,
+       "smallest_core_weight_kept": 0.6573158485093826,
+       "largest_core_weight_dropped": 0.48645394516840135,
+       "phases_per_tick": [
+        -0.12794626672396,
+        -0.1279446238163531,
+        0.1279446238163533,
+        0.12794626672396014
+       ],
+       "group_residual_of_U": 5.15131277938392e-15,
+       "near_zero_group": {
+        "size": 4,
+        "phases_per_tick": [
+         -0.12794626672396,
+         -0.1279446238163531,
+         0.1279446238163533,
+         0.12794626672396014
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.8101197753756926,
+         -0.8101093729468016,
+         0.8101093729468029,
+         0.8101197753756935
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         -1.0,
+         1.0,
+         1.0
+        ],
+        "n_plus": 2,
+        "n_minus": 2,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0,
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.12794462381635327,
+         0.1279462667239601
+        ],
+        "plus_two_cell_shift_correlation": [
+         -0.98842,
+         0.99098
+        ],
+        "plus_smooth": 1,
+        "plus_staggered": 1,
+        "plus_shift_correlation_axis1": [
+         -0.98842,
+         0.99098
+        ],
+        "plus_shift_correlation_axis2": [
+         -0.98842,
+         0.99098
+        ],
+        "minus_two_cell_shift_correlation": [
+         -0.99098,
+         0.98842
+        ],
+        "minus_smooth": 1,
+        "minus_staggered": 1,
+        "minus_shift_correlation_axis1": [
+         -0.99098,
+         0.98842
+        ],
+        "minus_shift_correlation_axis2": [
+         -0.99098,
+         0.98842
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.989021,
+         -0.987795
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.987795,
+         0.989021
+        ],
+        "dE_dp3_block_between_plus_and_minus": 3.1197675204918426e-14
+       },
+       "smooth_modes_plus": {
+        "handedness": "plus",
+        "modes": 1,
+        "weight_right_handed_component": 0.5000000000039375,
+        "weight_left_handed_component": 0.49999999999606326,
+        "angular_content_right_component": {
+         "-4": 0.082,
+         "-3": 0.0026,
+         "-2": 0.0088,
+         "-1": 0.0015,
+         "0": 0.8934,
+         "1": 0.001,
+         "2": 0.0079,
+         "3": 0.0023,
+         "4": 0.0004
+        },
+        "angular_content_left_component": {
+         "-4": 0.0004,
+         "-3": 0.0023,
+         "-2": 0.0079,
+         "-1": 0.001,
+         "0": 0.8934,
+         "1": 0.0015,
+         "2": 0.0088,
+         "3": 0.0026,
+         "4": 0.082
+        },
+        "overlaps": [
+         {
+          "width": 1.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.00318707666689035
+          ],
+          "left_component_weights": [
+           0.0031870766668526396
+          ],
+          "density_weights": [
+           0.006374153333742989
+          ],
+          "toggle_Z_singular_values": [
+           0.0011345205742798905
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.4392106215939653e-15,
+          "toggle_Y_singular_values": [
+           1.7031019513165125e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 2.6031599294194876e-14
+         },
+         {
+          "width": 1.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.0026351258192216804
+          ],
+          "left_component_weights": [
+           0.0026351258191877336
+          ],
+          "density_weights": [
+           0.005270251638409414
+          ],
+          "toggle_Z_singular_values": [
+           0.000703339684918541
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 3.739294708510925e-15,
+          "toggle_Y_singular_values": [
+           0.00017027916306466202
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 1.812426890454629e-14
+         },
+         {
+          "width": 2.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.012201261614066058
+          ],
+          "left_component_weights": [
+           0.01220126161392057
+          ],
+          "density_weights": [
+           0.02440252322798663
+          ],
+          "toggle_Z_singular_values": [
+           3.713610089360291e-05
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 3.260629613532906e-15,
+          "toggle_Y_singular_values": [
+           1.3418542511497767e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 6.458820023954646e-14
+         },
+         {
+          "width": 2.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.010662491164534183
+          ],
+          "left_component_weights": [
+           0.010662491164403421
+          ],
+          "density_weights": [
+           0.021324982328937606
+          ],
+          "toggle_Z_singular_values": [
+           1.0845527965680396e-05
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.1513657867697415e-14,
+          "toggle_Y_singular_values": [
+           7.0803412435798716e-06
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 4.825480293295967e-14
+         }
+        ],
+        "radial_profiles_[r, |right|^2, |left|^2]_modes_by_core_weight": [
+         [
+          [
+           1.0,
+           0.0020303734991583646,
+           0.0020303734991341626
+          ],
+          [
+           3.0,
+           0.0019027856442875868,
+           0.0019027856442653001
+          ],
+          [
+           5.0,
+           0.0017008139593741808,
+           0.0017008139593536133
+          ],
+          [
+           7.0,
+           0.0014937101663817967,
+           0.0014937101663648818
+          ],
+          [
+           9.0,
+           0.0012873519822702675,
+           0.0012873519822564588
+          ],
+          [
+           11.0,
+           0.0011103244921191811,
+           0.0011103244921072918
+          ],
+          [
+           13.0,
+           0.000964924362167346,
+           0.0009649243621580031
+          ],
+          [
+           15.0,
+           0.0008334386943390111,
+           0.0008334386943319263
+          ]
+         ]
+        ]
+       },
+       "smooth_modes_minus": {
+        "handedness": "minus",
+        "modes": 1,
+        "weight_right_handed_component": 0.5000000000036111,
+        "weight_left_handed_component": 0.499999999996389,
+        "angular_content_right_component": {
+         "-4": 0.0007,
+         "-3": 0.2306,
+         "-2": 0.0019,
+         "-1": 0.0082,
+         "0": 0.0015,
+         "1": 0.7485,
+         "2": 0.0006,
+         "3": 0.0067,
+         "4": 0.0013
+        },
+        "angular_content_left_component": {
+         "-4": 0.0013,
+         "-3": 0.0067,
+         "-2": 0.0006,
+         "-1": 0.7485,
+         "0": 0.0015,
+         "1": 0.0082,
+         "2": 0.0019,
+         "3": 0.2306,
+         "4": 0.0007
+        },
+        "overlaps": [
+         {
+          "width": 1.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           2.4449825209801566e-05
+          ],
+          "left_component_weights": [
+           2.4449825209615954e-05
+          ],
+          "density_weights": [
+           4.8899650419417524e-05
+          ],
+          "toggle_Z_singular_values": [
+           1.944428304038164e-06
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 7.646716986287615e-17,
+          "toggle_Y_singular_values": [
+           2.1417182977767095e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 3.0997890682805214e-16
+         },
+         {
+          "width": 1.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.0001587644548248922
+          ],
+          "left_component_weights": [
+           0.00015876445482112617
+          ],
+          "density_weights": [
+           0.00031752890964601837
+          ],
+          "toggle_Z_singular_values": [
+           6.802948596153449e-05
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 2.8372418889179187e-15,
+          "toggle_Y_singular_values": [
+           9.795709545015041e-05
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 1.3223514148434638e-15
+         },
+         {
+          "width": 2.0,
+          "offset": 0.0,
+          "right_component_weights": [
+           0.0003907479830304257
+          ],
+          "left_component_weights": [
+           0.00039074798302604115
+          ],
+          "density_weights": [
+           0.0007814959660564669
+          ],
+          "toggle_Z_singular_values": [
+           1.8549886250203522e-07
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 5.687995656872181e-17,
+          "toggle_Y_singular_values": [
+           8.614069211929074e-07
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 2.2154930241326947e-15
+         },
+         {
+          "width": 2.0,
+          "offset": 4.0,
+          "right_component_weights": [
+           0.0009508667251384542
+          ],
+          "left_component_weights": [
+           0.0009508667251218428
+          ],
+          "density_weights": [
+           0.001901733450260297
+          ],
+          "toggle_Z_singular_values": [
+           6.658851229616715e-06
+          ],
+          "toggle_Z_within_same_handedness_(must_vanish)": 1.2697145852086818e-14,
+          "toggle_Y_singular_values": [
+           1.0993748261222607e-06
+          ],
+          "toggle_Y_within_same_handedness_(must_vanish)": 1.3146493445267204e-15
+         }
+        ],
+        "radial_profiles_[r, |right|^2, |left|^2]_modes_by_core_weight": [
+         [
+          [
+           1.0,
+           1.3879683539804802e-05,
+           1.3879683539784682e-05
+          ],
+          [
+           3.0,
+           7.87013230651902e-05,
+           7.870132306447006e-05
+          ],
+          [
+           5.0,
+           0.00019853416069145083,
+           0.00019853416068904662
+          ],
+          [
+           7.0,
+           0.00035020154859024475,
+           0.00035020154858718535
+          ],
+          [
+           9.0,
+           0.00047291208553959204,
+           0.00047291208553598555
+          ],
+          [
+           11.0,
+           0.0005525587656318737,
+           0.0005525587656279091
+          ],
+          [
+           13.0,
+           0.0006225933737522935,
+           0.0006225933737478491
+          ],
+          [
+           15.0,
+           0.000673474812569409,
+           0.000673474812565439
+          ]
+         ]
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "seconds": 263.2
+  }
+ ]
+}

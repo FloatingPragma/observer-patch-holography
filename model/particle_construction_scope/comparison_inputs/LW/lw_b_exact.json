@@ -1,0 +1,147 @@
+{
+  "schema": "lw.b_exact.v1",
+  "tree_identity": {
+    "A_CC_at_0": "1/(2*v**2)",
+    "A_NC_at_0": "1/(2*v**2)",
+    "A_CC_at_0_equals_1_over_2v2": true,
+    "A_NC_at_0_equals_1_over_2v2": true,
+    "dA_CC_dg_at_0": "0",
+    "dA_CC_dg_at_q2": "-4*g*q2/(-g**2*v**2 + 4*q2)**2",
+    "couplings_in_each_tree_record": {
+      "G_F/sqrt2 = A(q^2=0)": [],
+      "M_W": [
+        "g"
+      ],
+      "M_Z": [
+        "g",
+        "gprime"
+      ],
+      "m_t": [
+        "y_t"
+      ],
+      "M_H": [
+        "lambda"
+      ]
+    },
+    "statement": "the zero-momentum weak amplitude is the only tree record that depends on v alone; M_W, M_Z, m_t and M_H each contain a coupling"
+  },
+  "census": [
+    {
+      "file": "extra/fine_structure_constant_derivation.tex",
+      "line": 375,
+      "role": "definition",
+      "content": "v(P, alpha_U) = E_cell exp(-2 pi/(beta_EW alpha_U)): no renormalization scale, no low-energy coupling",
+      "text": "v(P,\\alpha_U)"
+    },
+    {
+      "file": "extra/fine_structure_constant_derivation.tex",
+      "line": 418,
+      "role": "readout",
+      "content": "tree-level Z-mass readout m_Z(mu) = (v/2) sqrt(4 pi alpha_2 + 4 pi alpha_Y), consumes v with g2, gY at mu",
+      "text": "m_Z(\\mu;P,\\alpha_U)"
+    },
+    {
+      "file": "extra/fine_structure_constant_derivation.tex",
+      "line": 426,
+      "role": "readout",
+      "content": "self-consistency mu = m_Z(mu): fixes the reading scale Q0 of that readout",
+      "text": "\\mu=m_Z(\\mu;P,\\alpha_U)."
+    },
+    {
+      "file": "code/particles/calibration/derive_d11_criticality_boundary_scan.py",
+      "line": 210,
+      "role": "readout",
+      "content": "m_t = y_t(m_t) v/sqrt2 at its own scale, consumes v with y_t",
+      "text": "mu_g = y_g * v_gev / math.sqrt(2.0)"
+    },
+    {
+      "file": "code/particles/calibration/derive_d11_criticality_boundary_scan.py",
+      "line": 222,
+      "role": "readout",
+      "content": "m_H = sqrt(2 lambda(m_t)) v, consumes v with lambda",
+      "text": "\"mh_tree_gev\": math.sqrt(max(0.0, 2.0 * lam_mt)) * v_gev,"
+    },
+    {
+      "file": "model/particle_spectrum_audit/inputs.json",
+      "line": 31,
+      "role": "declared attachment",
+      "content": "v_Landau_MSbar(Q0) = v_source (SMDR branch)",
+      "text": "\"physical_attachment\": \"Canonical full-SM running couplings at source Q0; v_Landau_MSbar(Q0)=v_source; CKM=I; massless-neutrino renormalizable theory.\","
+    },
+    {
+      "file": "code/particles/calibration/source_ew_vev_matching_spec.json",
+      "line": 13,
+      "role": "declared attachment",
+      "content": "the same identification, 'a new conditional physical attachment, not a source theorem'",
+      "text": "\"vev_attachment\": \"v_Landau_MSbar(Q0)=v_source_chart; this finite normalization and reference-scale identification is a new conditional physical attachment, not a source theorem.\","
+    },
+    {
+      "file": "book/29-chapter-28.md",
+      "line": 143,
+      "role": "definition (physical identification)",
+      "content": "the size of the Higgs field is the reference's stiffness; the strength of the weak interaction fixes it",
+      "text": "Its size is the reference's stiffness, the amount of weak charge it can absorb and return per unit of volume, read in energy. The strength of the weak interaction fixes it at about 246 billion electron-volts. Everything else about electroweak physics is this reference doing what a pointing background does."
+    },
+    {
+      "file": "book/32-chapter-31.md",
+      "line": 155,
+      "role": "definition (physical identification)",
+      "content": "magnitude = stiffness of the reference, 246.22 GeV in laboratory units",
+      "text": "The fourth term belongs to the scalar field itself, which is the settled reference read as a field. Its spin is zero and it points in the two weak slots. Its magnitude is the stiffness of the reference, 246.22 billion electron-volts in laboratory units, and the shape of the term is what it costs to push the reference away from where it settled. A ripple in that magnitude is the Higgs boson."
+    },
+    {
+      "file": "book/34-chapter-33.md",
+      "line": 63,
+      "role": "definition (physical identification)",
+      "content": "the stiffness (246.22 GeV) is the bottom of the range, joined to the grain by the coupling in an exponent: the transmutation output is named as the stiffness",
+      "text": "Here the top of the range is the grain: one cell of the screen, whose area is Newton's constant read as an area. Nothing sits below the grain to contribute to anything, because there is no continuum of shorter scales stacked underneath it. The bottom of the range is the stiffness of the settled reference, the background every particle is maintained against, which reads 246.22 billion electron-volt"
+    },
+    {
+      "file": "book/45-appendix-b.md",
+      "line": 109,
+      "role": "definition (physical identification)",
+      "content": "magnitude = stiffness of the reference; the weak carriers drag it and acquire mass",
+      "text": "**Higgs field.** The settled reference read as a field: the background every particle's core is maintained against. It points in the two weak slots and its magnitude is the stiffness of the reference, about 246 billion electron-volts. The three weak carriers have to drag it and acquire mass; the photon leaves it alone and stays massless. A ripple in its magnitude is the Higgs boson."
+    }
+  ],
+  "criteria": [
+    "(i) a source statement names the record as what fixes v",
+    "(ii) v does not run at that record, as in the source chain",
+    "(iii) the record depends on v without a low-energy coupling"
+  ],
+  "verdicts": {
+    "LB1": [
+      "readout",
+      "fails (i) and (iii): the Z-mass readout consumes v together with g2 and gY at mu_Z"
+    ],
+    "LB2": [
+      "readout",
+      "fails (i) and (iii): the D11 top readout consumes v together with y_t"
+    ],
+    "LB3": [
+      "readout",
+      "fails (i) and (iii): a top rest-phase record contains y_t and the QCD pole map"
+    ],
+    "LB4": [
+      "definition",
+      "passes (i) book ch. 28 l. 143 and ch. 33 l. 63; (ii) G_F is scale independent below M_W (QED corrections to muon decay are finite, IMPORTED: Berman-Sirlin, Kinoshita-Sirlin); (iii) A(0) = 1/(2 v^2) for all couplings (tree identity above)"
+    ],
+    "LB5": [
+      "none",
+      "fails (i): no source statement reads v at mu = v; the chain runs no coupling with slope 4 down to v"
+    ],
+    "LB6": [
+      "none",
+      "fails (i): E_cell and M_U anchor the exponent of the definition; v is not read there"
+    ],
+    "LB7": [
+      "readout",
+      "fails (i) and (iii): the Higgs record contains lambda"
+    ],
+    "LB8": [
+      "readout",
+      "fails (i) and (iii): the W record contains g2"
+    ]
+  },
+  "derived": "LB4: v is attached at zero momentum transfer through G_F = 1/(sqrt2 v^2)"
+}

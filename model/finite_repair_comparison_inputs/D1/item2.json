@@ -1,0 +1,1253 @@
+{
+ "arithmetic": "integers, Q(sqrt5, i), Q(zeta_60); every identity exact; floats are printed values of exact numbers",
+ "frame_cover": {
+  "order": 24,
+  "class_sizes": [
+   1,
+   1,
+   6,
+   4,
+   4,
+   4,
+   4
+  ],
+  "irreducible": [
+   "1",
+   "1'",
+   "1''",
+   "2",
+   "2'",
+   "2''",
+   "3"
+  ],
+  "characters": "1' and 1'' are the characters of the third of a turn; 2 is the doublet of the five-level code; 2' = 2 x 1', 2'' = 2 x 1''; 3 is the frame triplet"
+ },
+ "decompositions": {
+  "load space (12 ports)": {
+   "1": 1,
+   "1'": 1,
+   "1''": 1,
+   "2": 0,
+   "2'": 0,
+   "2''": 0,
+   "3": 3
+  },
+  "port space at odd flux (k = 1, 3, 5, 7, 9)": {
+   "1": 0,
+   "1'": 0,
+   "1''": 0,
+   "2": 2,
+   "2'": 2,
+   "2''": 2,
+   "3": 0
+  },
+  "port space at even flux (k = 0, 2, ..., 10)": {
+   "1": 1,
+   "1'": 1,
+   "1''": 1,
+   "2": 0,
+   "2'": 0,
+   "2''": 0,
+   "3": 3
+  },
+  "public walk (1440 = 12 ports x 2 records x 60 ordered seams)": {
+   "1": 120,
+   "1'": 120,
+   "1''": 120,
+   "2": 0,
+   "2'": 0,
+   "2''": 0,
+   "3": 360
+  },
+  "five-level code": {
+   "1": 0,
+   "1'": 0,
+   "1''": 0,
+   "2": 1,
+   "2'": 0,
+   "2''": 0,
+   "3": 1
+  },
+  "load space x spin doublet": {
+   "1": 0,
+   "1'": 0,
+   "1''": 0,
+   "2": 4,
+   "2'": 4,
+   "2''": 4,
+   "3": 0
+  },
+  "triplet x doublet": {
+   "1": 0,
+   "1'": 0,
+   "1''": 0,
+   "2": 1,
+   "2'": 1,
+   "2''": 1,
+   "3": 0
+  }
+ },
+ "patterns_of_the_five_level_code": {
+  "n3=0, n2=0": {
+   "1": 1,
+   "1'": 0,
+   "1''": 0,
+   "2": 0,
+   "2'": 0,
+   "2''": 0,
+   "3": 0
+  },
+  "n3=0, n2=1": {
+   "1": 0,
+   "1'": 0,
+   "1''": 0,
+   "2": 1,
+   "2'": 0,
+   "2''": 0,
+   "3": 0
+  },
+  "n3=0, n2=2": {
+   "1": 1,
+   "1'": 0,
+   "1''": 0,
+   "2": 0,
+   "2'": 0,
+   "2''": 0,
+   "3": 0
+  },
+  "n3=1, n2=0": {
+   "1": 0,
+   "1'": 0,
+   "1''": 0,
+   "2": 0,
+   "2'": 0,
+   "2''": 0,
+   "3": 1
+  },
+  "n3=1, n2=1": {
+   "1": 0,
+   "1'": 0,
+   "1''": 0,
+   "2": 1,
+   "2'": 1,
+   "2''": 1,
+   "3": 0
+  },
+  "n3=1, n2=2": {
+   "1": 0,
+   "1'": 0,
+   "1''": 0,
+   "2": 0,
+   "2'": 0,
+   "2''": 0,
+   "3": 1
+  },
+  "n3=2, n2=0": {
+   "1": 0,
+   "1'": 0,
+   "1''": 0,
+   "2": 0,
+   "2'": 0,
+   "2''": 0,
+   "3": 1
+  },
+  "n3=2, n2=1": {
+   "1": 0,
+   "1'": 0,
+   "1''": 0,
+   "2": 1,
+   "2'": 1,
+   "2''": 1,
+   "3": 0
+  },
+  "n3=2, n2=2": {
+   "1": 0,
+   "1'": 0,
+   "1''": 0,
+   "2": 0,
+   "2'": 0,
+   "2''": 0,
+   "3": 1
+  },
+  "n3=3, n2=0": {
+   "1": 1,
+   "1'": 0,
+   "1''": 0,
+   "2": 0,
+   "2'": 0,
+   "2''": 0,
+   "3": 0
+  },
+  "n3=3, n2=1": {
+   "1": 0,
+   "1'": 0,
+   "1''": 0,
+   "2": 1,
+   "2'": 0,
+   "2''": 0,
+   "3": 0
+  },
+  "n3=3, n2=2": {
+   "1": 1,
+   "1'": 0,
+   "1''": 0,
+   "2": 0,
+   "2'": 0,
+   "2''": 0,
+   "3": 0
+  }
+ },
+ "flux_gauge": {
+  "statement": "in the gauge of the frame group the twisted adjacency of flux k is the same sum of five right translations, with the phases zeta_20^(k e)",
+  "exponent_table_body_rotation_lift_sign_exponent": [
+   [
+    [
+     [
+      -1,
+      0,
+      0
+     ],
+     [
+      0,
+      -1,
+      0
+     ],
+     [
+      0,
+      0,
+      1
+     ]
+    ],
+    "0",
+    5
+   ],
+   [
+    [
+     [
+      -1,
+      0,
+      0
+     ],
+     [
+      0,
+      -1,
+      0
+     ],
+     [
+      0,
+      0,
+      1
+     ]
+    ],
+    "0",
+    15
+   ],
+   [
+    [
+     [
+      0,
+      -1,
+      0
+     ],
+     [
+      0,
+      0,
+      1
+     ],
+     [
+      -1,
+      0,
+      0
+     ]
+    ],
+    "-1/2",
+    7
+   ],
+   [
+    [
+     [
+      0,
+      -1,
+      0
+     ],
+     [
+      0,
+      0,
+      1
+     ],
+     [
+      -1,
+      0,
+      0
+     ]
+    ],
+    "1/2",
+    17
+   ],
+   [
+    [
+     [
+      0,
+      0,
+      -1
+     ],
+     [
+      -1,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0
+     ]
+    ],
+    "-1/2",
+    13
+   ],
+   [
+    [
+     [
+      0,
+      0,
+      -1
+     ],
+     [
+      -1,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0
+     ]
+    ],
+    "1/2",
+    3
+   ],
+   [
+    [
+     [
+      0,
+      0,
+      1
+     ],
+     [
+      1,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0
+     ]
+    ],
+    "-1/2",
+    7
+   ],
+   [
+    [
+     [
+      0,
+      0,
+      1
+     ],
+     [
+      1,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0
+     ]
+    ],
+    "1/2",
+    17
+   ],
+   [
+    [
+     [
+      0,
+      1,
+      0
+     ],
+     [
+      0,
+      0,
+      1
+     ],
+     [
+      1,
+      0,
+      0
+     ]
+    ],
+    "-1/2",
+    13
+   ],
+   [
+    [
+     [
+      0,
+      1,
+      0
+     ],
+     [
+      0,
+      0,
+      1
+     ],
+     [
+      1,
+      0,
+      0
+     ]
+    ],
+    "1/2",
+    3
+   ]
+  ]
+ },
+ "second_index": {
+  "0": {
+   "1": {
+    "eigenvalues": {
+     "5 [1]": 1
+    },
+    "float": [
+     5.0
+    ],
+    "kernel_levels": [
+     1.0
+    ]
+   },
+   "1'": {
+    "eigenvalues": {
+     "-1 [5]": 1
+    },
+    "float": [
+     -1.0
+    ],
+    "kernel_levels": [
+     0.9
+    ]
+   },
+   "1''": {
+    "eigenvalues": {
+     "-1 [5]": 1
+    },
+    "float": [
+     -1.0
+    ],
+    "kernel_levels": [
+     0.9
+    ]
+   },
+   "3": {
+    "eigenvalues": {
+     "sqrt5 [3]": 1,
+     "-1 [5]": 1,
+     "-sqrt5 [3']": 1
+    },
+    "float": [
+     2.23606797749979,
+     -1.0,
+     -2.23606797749979
+    ],
+    "kernel_levels": [
+     0.9539344662916631,
+     0.9,
+     0.8793988670416701
+    ],
+    "matrix_float": [
+     [
+      [
+       -1.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0
+      ]
+     ],
+     [
+      [
+       0.0,
+       0.0
+      ],
+      [
+       -1.0,
+       0.0
+      ],
+      [
+       2.0,
+       0.0
+      ]
+     ],
+     [
+      [
+       0.0,
+       0.0
+      ],
+      [
+       2.0,
+       0.0
+      ],
+      [
+       1.0,
+       0.0
+      ]
+     ]
+    ]
+   }
+  },
+  "1": {
+   "2": {
+    "eigenvalues": {
+     "sqrt5*2cos18 [2]": 1,
+     "-2cos18 [6]": 1
+    },
+    "float": [
+     4.2532540417602,
+     -1.9021130325903068
+    ],
+    "kernel_levels": [
+     0.9875542340293366,
+     0.8849647827901616
+    ]
+   },
+   "2'": {
+    "eigenvalues": {
+     "(phi-1)*2cos54 [4]": 1,
+     "-2cos18 [6]": 1
+    },
+    "float": [
+     0.7265425280053606,
+     -1.902113032590307
+    ],
+    "kernel_levels": [
+     0.9287757088000893,
+     0.8849647827901616
+    ]
+   },
+   "2''": {
+    "eigenvalues": {
+     "(phi-1)*2cos54 [4]": 1,
+     "-2cos18 [6]": 1
+    },
+    "float": [
+     0.7265425280053611,
+     -1.9021130325903073
+    ],
+    "kernel_levels": [
+     0.9287757088000894,
+     0.8849647827901616
+    ]
+   }
+  },
+  "2": {
+   "1": {
+    "eigenvalues": {
+     "-sqrt5 [4]": 1
+    },
+    "float": [
+     -2.2360679774997894
+    ],
+    "kernel_levels": [
+     0.8793988670416701
+    ]
+   },
+   "1'": {
+    "eigenvalues": {
+     "-(3-sqrt5)/2 [5]": 1
+    },
+    "float": [
+     -0.38196601125010526
+    ],
+    "kernel_levels": [
+     0.9103005664791649
+    ]
+   },
+   "1''": {
+    "eigenvalues": {
+     "-(3-sqrt5)/2 [5]": 1
+    },
+    "float": [
+     -0.38196601125010526
+    ],
+    "kernel_levels": [
+     0.9103005664791649
+    ]
+   },
+   "3": {
+    "eigenvalues": {
+     "(5+sqrt5)/2 [3]": 1,
+     "-(3-sqrt5)/2 [5]": 1,
+     "-sqrt5 [4]": 1
+    },
+    "float": [
+     3.618033988749895,
+     -0.3819660112501056,
+     -2.2360679774997894
+    ],
+    "kernel_levels": [
+     0.9769672331458316,
+     0.9103005664791649,
+     0.8793988670416701
+    ],
+    "matrix_float": [
+     [
+      [
+       1.0,
+       0.0
+      ],
+      [
+       4.163336342344337e-17,
+       1.902113032590307
+      ],
+      [
+       -4.163336342344337e-17,
+       -1.902113032590307
+      ]
+     ],
+     [
+      [
+       -4.163336342344337e-17,
+       -1.902113032590307
+      ],
+      [
+       1.0,
+       0.0
+      ],
+      [
+       -0.6180339887498949,
+       0.0
+      ]
+     ],
+     [
+      [
+       4.163336342344337e-17,
+       1.902113032590307
+      ],
+      [
+       -0.6180339887498949,
+       0.0
+      ],
+      [
+       -1.0,
+       0.0
+      ]
+     ]
+    ]
+   }
+  },
+  "3": {
+   "2": {
+    "eigenvalues": {
+     "-sqrt5*2cos54 [2']": 1,
+     "-2cos54 [6]": 1
+    },
+    "float": [
+     -1.1755705045849465,
+     -2.628655560595668
+    ],
+    "kernel_levels": [
+     0.8970738249235842,
+     0.8728557406567389
+    ]
+   },
+   "2'": {
+    "eigenvalues": {
+     "phi*2cos18 [4]": 1,
+     "-2cos54 [6]": 1
+    },
+    "float": [
+     3.0776835371752536,
+     -1.1755705045849458
+    ],
+    "kernel_levels": [
+     0.9679613922862542,
+     0.8970738249235842
+    ]
+   },
+   "2''": {
+    "eigenvalues": {
+     "phi*2cos18 [4]": 1,
+     "-2cos54 [6]": 1
+    },
+    "float": [
+     3.0776835371752522,
+     -1.1755705045849465
+    ],
+    "kernel_levels": [
+     0.9679613922862542,
+     0.8970738249235842
+    ]
+   }
+  },
+  "4": {
+   "1": {
+    "eigenvalues": {
+     "-(sqrt5) [4]": 1
+    },
+    "float": [
+     -2.2360679774997894
+    ],
+    "kernel_levels": [
+     0.8793988670416701
+    ]
+   },
+   "1'": {
+    "eigenvalues": {
+     "-(-(3+sqrt5)/2) [5]": 1
+    },
+    "float": [
+     2.618033988749895
+    ],
+    "kernel_levels": [
+     0.960300566479165
+    ]
+   },
+   "1''": {
+    "eigenvalues": {
+     "-(-(3+sqrt5)/2) [5]": 1
+    },
+    "float": [
+     2.618033988749895
+    ],
+    "kernel_levels": [
+     0.960300566479165
+    ]
+   },
+   "3": {
+    "eigenvalues": {
+     "-((5-sqrt5)/2) [3']": 1,
+     "-(-(3+sqrt5)/2) [5]": 1,
+     "-(sqrt5) [4]": 1
+    },
+    "float": [
+     2.618033988749896,
+     -1.3819660112501047,
+     -2.2360679774997894
+    ],
+    "kernel_levels": [
+     0.960300566479165,
+     0.8936338998124982,
+     0.8793988670416701
+    ],
+    "matrix_float": [
+     [
+      [
+       -1.0,
+       0.0
+      ],
+      [
+       -4.163336342344337e-17,
+       -1.1755705045849463
+      ],
+      [
+       4.163336342344337e-17,
+       1.1755705045849463
+      ]
+     ],
+     [
+      [
+       4.163336342344337e-17,
+       1.1755705045849463
+      ],
+      [
+       -1.0,
+       0.0
+      ],
+      [
+       -1.6180339887498947,
+       0.0
+      ]
+     ],
+     [
+      [
+       -4.163336342344337e-17,
+       -1.1755705045849463
+      ],
+      [
+       -1.6180339887498947,
+       0.0
+      ],
+      [
+       1.0,
+       0.0
+      ]
+     ]
+    ]
+   }
+  },
+  "5": {
+   "2": {
+    "eigenvalues": {
+     "sqrt5 [6]": 1,
+     "-sqrt5 [6]": 1
+    },
+    "float": [
+     2.236067977499789,
+     -2.2360679774997902
+    ],
+    "kernel_levels": [
+     0.9539344662916631,
+     0.8793988670416701
+    ]
+   },
+   "2'": {
+    "eigenvalues": {
+     "sqrt5 [6]": 1,
+     "-sqrt5 [6]": 1
+    },
+    "float": [
+     2.236067977499789,
+     -2.236067977499789
+    ],
+    "kernel_levels": [
+     0.9539344662916631,
+     0.8793988670416701
+    ]
+   },
+   "2''": {
+    "eigenvalues": {
+     "sqrt5 [6]": 1,
+     "-sqrt5 [6]": 1
+    },
+    "float": [
+     2.236067977499789,
+     -2.236067977499789
+    ],
+    "kernel_levels": [
+     0.9539344662916631,
+     0.8793988670416701
+    ]
+   }
+  },
+  "6": {
+   "1": {
+    "eigenvalues": {
+     "sqrt5 [4]": 1
+    },
+    "float": [
+     2.2360679774997894
+    ],
+    "kernel_levels": [
+     0.9539344662916631
+    ]
+   },
+   "1'": {
+    "eigenvalues": {
+     "-(3+sqrt5)/2 [5]": 1
+    },
+    "float": [
+     -2.618033988749895
+    ],
+    "kernel_levels": [
+     0.8730327668541684
+    ]
+   },
+   "1''": {
+    "eigenvalues": {
+     "-(3+sqrt5)/2 [5]": 1
+    },
+    "float": [
+     -2.618033988749895
+    ],
+    "kernel_levels": [
+     0.8730327668541684
+    ]
+   },
+   "3": {
+    "eigenvalues": {
+     "(5-sqrt5)/2 [3']": 1,
+     "-(3+sqrt5)/2 [5]": 1,
+     "sqrt5 [4]": 1
+    },
+    "float": [
+     2.2360679774997894,
+     1.3819660112501047,
+     -2.618033988749896
+    ],
+    "kernel_levels": [
+     0.9539344662916631,
+     0.9396994335208351,
+     0.8730327668541684
+    ],
+    "matrix_float": [
+     [
+      [
+       1.0,
+       0.0
+      ],
+      [
+       -4.163336342344337e-17,
+       -1.1755705045849463
+      ],
+      [
+       4.163336342344337e-17,
+       1.1755705045849463
+      ]
+     ],
+     [
+      [
+       4.163336342344337e-17,
+       1.1755705045849463
+      ],
+      [
+       1.0,
+       0.0
+      ],
+      [
+       1.6180339887498947,
+       0.0
+      ]
+     ],
+     [
+      [
+       -4.163336342344337e-17,
+       -1.1755705045849463
+      ],
+      [
+       1.6180339887498947,
+       0.0
+      ],
+      [
+       -1.0,
+       0.0
+      ]
+     ]
+    ]
+   }
+  },
+  "7": {
+   "2": {
+    "eigenvalues": {
+     "-(-sqrt5*2cos54) [2']": 1,
+     "-(-2cos54) [6]": 1
+    },
+    "float": [
+     2.628655560595668,
+     1.1755705045849465
+    ],
+    "kernel_levels": [
+     0.9604775926765945,
+     0.9362595084097491
+    ]
+   },
+   "2'": {
+    "eigenvalues": {
+     "-(phi*2cos18) [4]": 1,
+     "-(-2cos54) [6]": 1
+    },
+    "float": [
+     1.175570504584946,
+     -3.077683537175253
+    ],
+    "kernel_levels": [
+     0.9362595084097491,
+     0.865371941047079
+    ]
+   },
+   "2''": {
+    "eigenvalues": {
+     "-(phi*2cos18) [4]": 1,
+     "-(-2cos54) [6]": 1
+    },
+    "float": [
+     1.1755705045849458,
+     -3.0776835371752536
+    ],
+    "kernel_levels": [
+     0.9362595084097491,
+     0.865371941047079
+    ]
+   }
+  },
+  "8": {
+   "1": {
+    "eigenvalues": {
+     "-(-sqrt5) [4]": 1
+    },
+    "float": [
+     2.2360679774997894
+    ],
+    "kernel_levels": [
+     0.9539344662916631
+    ]
+   },
+   "1'": {
+    "eigenvalues": {
+     "-(-(3-sqrt5)/2) [5]": 1
+    },
+    "float": [
+     0.38196601125010526
+    ],
+    "kernel_levels": [
+     0.9230327668541685
+    ]
+   },
+   "1''": {
+    "eigenvalues": {
+     "-(-(3-sqrt5)/2) [5]": 1
+    },
+    "float": [
+     0.38196601125010526
+    ],
+    "kernel_levels": [
+     0.9230327668541685
+    ]
+   },
+   "3": {
+    "eigenvalues": {
+     "-((5+sqrt5)/2) [3]": 1,
+     "-(-(3-sqrt5)/2) [5]": 1,
+     "-(-sqrt5) [4]": 1
+    },
+    "float": [
+     2.2360679774997894,
+     0.3819660112501056,
+     -3.618033988749895
+    ],
+    "kernel_levels": [
+     0.9539344662916631,
+     0.9230327668541685,
+     0.8563661001875018
+    ],
+    "matrix_float": [
+     [
+      [
+       -1.0,
+       0.0
+      ],
+      [
+       4.163336342344337e-17,
+       1.902113032590307
+      ],
+      [
+       -4.163336342344337e-17,
+       -1.902113032590307
+      ]
+     ],
+     [
+      [
+       -4.163336342344337e-17,
+       -1.902113032590307
+      ],
+      [
+       -1.0,
+       0.0
+      ],
+      [
+       0.6180339887498949,
+       0.0
+      ]
+     ],
+     [
+      [
+       4.163336342344337e-17,
+       1.902113032590307
+      ],
+      [
+       0.6180339887498949,
+       0.0
+      ],
+      [
+       1.0,
+       0.0
+      ]
+     ]
+    ]
+   }
+  },
+  "9": {
+   "2": {
+    "eigenvalues": {
+     "-(sqrt5*2cos18) [2]": 1,
+     "-(-2cos18) [6]": 1
+    },
+    "float": [
+     1.9021130325903068,
+     -4.2532540417602
+    ],
+    "kernel_levels": [
+     0.9483685505431718,
+     0.8457790993039966
+    ]
+   },
+   "2'": {
+    "eigenvalues": {
+     "-((phi-1)*2cos54) [4]": 1,
+     "-(-2cos18) [6]": 1
+    },
+    "float": [
+     1.9021130325903073,
+     -0.7265425280053611
+    ],
+    "kernel_levels": [
+     0.9483685505431718,
+     0.904557624533244
+    ]
+   },
+   "2''": {
+    "eigenvalues": {
+     "-((phi-1)*2cos54) [4]": 1,
+     "-(-2cos18) [6]": 1
+    },
+    "float": [
+     1.902113032590307,
+     -0.7265425280053606
+    ],
+    "kernel_levels": [
+     0.9483685505431718,
+     0.904557624533244
+    ]
+   }
+  },
+  "10": {
+   "1": {
+    "eigenvalues": {
+     "-(5) [1]": 1
+    },
+    "float": [
+     -5.0
+    ],
+    "kernel_levels": [
+     0.8333333333333334
+    ]
+   },
+   "1'": {
+    "eigenvalues": {
+     "-(-1) [5]": 1
+    },
+    "float": [
+     1.0
+    ],
+    "kernel_levels": [
+     0.9333333333333333
+    ]
+   },
+   "1''": {
+    "eigenvalues": {
+     "-(-1) [5]": 1
+    },
+    "float": [
+     1.0
+    ],
+    "kernel_levels": [
+     0.9333333333333333
+    ]
+   },
+   "3": {
+    "eigenvalues": {
+     "-(sqrt5) [3]": 1,
+     "-(-1) [5]": 1,
+     "-(-sqrt5) [3']": 1
+    },
+    "float": [
+     2.23606797749979,
+     1.0,
+     -2.23606797749979
+    ],
+    "kernel_levels": [
+     0.9539344662916631,
+     0.9333333333333333,
+     0.8793988670416701
+    ],
+    "matrix_float": [
+     [
+      [
+       1.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0
+      ]
+     ],
+     [
+      [
+       0.0,
+       0.0
+      ],
+      [
+       1.0,
+       0.0
+      ],
+      [
+       -2.0,
+       0.0
+      ]
+     ],
+     [
+      [
+       0.0,
+       0.0
+      ],
+      [
+       -2.0,
+       0.0
+      ],
+      [
+       -1.0,
+       0.0
+      ]
+     ]
+    ]
+   }
+  }
+ },
+ "answer": {
+  "where_the_doublets_occur": "2, 2', 2'' occur (i) twice each in the port space of every odd flux sector; (ii) once each in triplet x doublet: the quark-doublet patterns of the code and every triplet copy of the load space tensored with a spin doublet; (iii) once each in (1 + 1' + 1'') x doublet. They do not occur in the load space, in the public walk or in the five-level code itself (3 + 2).",
+  "kernel_on_multiplicity": "yes, in every flux sector, by Schur: 2x2 Hermitian matrices on the doublets, a number on each singlet, a 3x3 Hermitian matrix on the triplet",
+  "second_index_dimension": "three for the triplet (even flux), two for each doublet (odd flux), one for each singlet"
+ },
+ "checks": {
+  "frame cover: 24 lifts in 7 classes of sizes 1, 1, 6, 4, 4, 4, 4": true,
+  "the seven characters 1, 1', 1'', 2, 2', 2'', 3 are orthonormal: they are the irreducible characters": true,
+  "class functions": true,
+  "the exponent table of the hop amplitudes in body axes is the same for all five frames and all base ports": true,
+  "load space = 1 + 1' + 1'' + 3 x 3 under the frame cover (no doublet)": true,
+  "odd flux: the 24 implementers are signed permutations, a representation of the frame cover with centre -> -1": true,
+  "port space at odd flux = 2 x (2 + 2' + 2'')": true,
+  "port space at even flux = 1 + 1' + 1'' + 3 x 3": true,
+  "public walk = 120 x (1 + 1' + 1'' + 3 x 3), no doublet": true,
+  "exterior squares: the second power of the triplet is the triplet, of the doublet the trivial character": true,
+  "five-level code = 3 + 2": true,
+  "the patterns with one doublet level and one or two triplet levels (the quark doublet and its conjugate) are 2 + 2' + 2''": true,
+  "all other patterns contain 1, 2 or 3 once and nothing else": true,
+  "load space x doublet = 4 x (2 + 2' + 2''): singlets x 2 give one of each, every triplet copy x 2 gives one of each": true,
+  "hop exponents: e(q,p) = -e(p,q) mod 20 (Hermitian for every k)": true,
+  "flux through each of the twenty faces, counterclockwise seen from outside, is exactly 2 pi k/20": true,
+  "the 24 implementers of the frame cover commute with the twisted adjacency (k = 1, entrywise)": true,
+  "Galois images: the closed forms at k = 3 and k = 6 are the images of those at k = 1 and k = 2 under zeta_20 -> zeta_20^3": true,
+  "odd flux: the twelve matrix coefficients of 2, 2', 2'' on a section are orthogonal (Gram = 6): 4 + 4 + 4 = 12": true,
+  "odd flux: the twisted kernel acts on the second index only, by a Hermitian 2x2 matrix for each of 2, 2', 2''": true,
+  "even flux: the twisted kernel acts on the second index only: a number on each singlet and a Hermitian 3x3 matrix on the triplet": true,
+  "k = 0 reproduces M3": true,
+  "k = 1: the section doublet (top eigenvalue sqrt5*2cos18) lies in the 2 only; 2' and 2'' share the quartet; the sextet holds 2, 2', 2''": true,
+  "k = 7: the doublet of the conjugate frame (top eigenvalue sqrt5*2cos54) lies in the 2 only": true,
+  "k = 2: the section triplet (top eigenvalue (5+sqrt5)/2) is one of three copies of the 3; the others lie in the quintet and the quartet": true,
+  "the primed pairs are degenerate in every sector: 1' = 1'' and 2' = 2'' level by level": true
+ },
+ "counts": {
+  "character orthogonality relations": 245,
+  "flux tables computed (frame, base port)": 60,
+  "implementer products checked": 576,
+  "covariance identities U(q) A_1 = A_1 U(q)": 3456,
+  "intertwining identities A_k Phi = Phi (1 x m)": 39
+ }
+}

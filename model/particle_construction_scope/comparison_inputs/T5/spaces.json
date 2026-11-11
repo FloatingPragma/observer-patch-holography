@@ -1,0 +1,186 @@
+{
+ "arithmetic": "Q(sqrt5); every identity and rank below is exact",
+ "band": {
+  "definition": "loads f(p) = v_p . c, c in C^3; operator O on loads acts as V^T O V / (4 (phi + 2))",
+  "seam_cost": "5 - sqrt5",
+  "adjacency_eigenvalue": "sqrt5",
+  "rank": 3,
+  "kernel_T_eigenvalue": "11/12 + (1/60)*sqrt5 (T = 1 - L/60)",
+  "checks": {
+   "A V = sqrt5 V (the band is the sqrt5 eigenband of the adjacency; seam cost 5 - sqrt5)": true,
+   "V^T V = 4 (phi + 2) 1 (the three coordinate loads are orthogonal and of equal norm)": true,
+   "40 P3 = X + sqrt5 Y, X = 10 (1 - antipode), Y = 2 (adjacency - distance two) (tables of A5FamilyBand.lean)": true,
+   "P3 equals the exact slow-band projector of the public carrier module": true,
+   "P3 is idempotent of trace 3": true,
+   "public Laplacian band 1 is (5 - sqrt5, multiplicity 3)": true
+  }
+ },
+ "representation": {
+  "character_by_class (order, trace): count": {
+   "order 1, trace 3": 1,
+   "order 2, trace -1": 15,
+   "order 3, trace 0": 20,
+   "order 5, trace 1/2 + (-1/2)*sqrt5": 12,
+   "order 5, trace 1/2 + (1/2)*sqrt5": 12
+  },
+  "character_norm": "1",
+  "irreducible": true,
+  "all_matrices_real_orthogonal_det_1": true
+ },
+ "residual_groups": {
+  "frame": "the cubic frame whose axes are the coordinate axes of the raw port frame",
+  "table": [
+   {
+    "group": "full rotation group",
+    "order": 60,
+    "available_in": "space (a)",
+    "hermitian_invariant_operators_real_dimension": 1,
+    "real_symmetric_invariant_operators_dimension": 1,
+    "character_norm_check": "1",
+    "eigenvalue_pattern": "three equal"
+   },
+   {
+    "group": "frame stabilizer (order 12)",
+    "order": 12,
+    "available_in": "spaces (a), (b)",
+    "hermitian_invariant_operators_real_dimension": 1,
+    "real_symmetric_invariant_operators_dimension": 1,
+    "character_norm_check": "1",
+    "eigenvalue_pattern": "three equal"
+   },
+   {
+    "group": "Klein group of the frame (three half-turns)",
+    "order": 4,
+    "available_in": "spaces (a), (b)",
+    "hermitian_invariant_operators_real_dimension": 3,
+    "real_symmetric_invariant_operators_dimension": 3,
+    "character_norm_check": "3",
+    "eigenvalue_pattern": "free: three independent eigenvalues, eigenvectors fixed (real basis)"
+   },
+   {
+    "group": "third of a turn alone (in the frame stabilizer)",
+    "order": 3,
+    "available_in": "spaces (a), (b)",
+    "hermitian_invariant_operators_real_dimension": 3,
+    "real_symmetric_invariant_operators_dimension": 2,
+    "character_norm_check": "3",
+    "eigenvalue_pattern": "free with fixed eigenvectors (one axial, two circular); the real symmetric members have two equal and one different"
+   },
+   {
+    "group": "the tick's group (quaternion group, acting through the Klein group)",
+    "order": 4,
+    "available_in": "spaces (a), (b)",
+    "hermitian_invariant_operators_real_dimension": 3,
+    "real_symmetric_invariant_operators_dimension": 3,
+    "character_norm_check": "3",
+    "eigenvalue_pattern": "free: three independent eigenvalues, eigenvectors fixed (real basis)"
+   },
+   {
+    "group": "one half-turn alone",
+    "order": 2,
+    "available_in": "spaces (a), (b)",
+    "hermitian_invariant_operators_real_dimension": 5,
+    "real_symmetric_invariant_operators_dimension": 4,
+    "character_norm_check": "5",
+    "eigenvalue_pattern": "free: one eigenvector fixed, the other two in a free 2 x 2 block"
+   },
+   {
+    "group": "fifth of a turn about a port",
+    "order": 5,
+    "available_in": "space (a) only (not in a frame stabilizer)",
+    "hermitian_invariant_operators_real_dimension": 3,
+    "real_symmetric_invariant_operators_dimension": 2,
+    "character_norm_check": "3",
+    "eigenvalue_pattern": "free with fixed eigenvectors (one axial, two circular); the real symmetric members have two equal and one different"
+   },
+   {
+    "group": "stabilizer of a port axis (order 10)",
+    "order": 10,
+    "available_in": "space (a) only",
+    "hermitian_invariant_operators_real_dimension": 2,
+    "real_symmetric_invariant_operators_dimension": 2,
+    "character_norm_check": "2",
+    "eigenvalue_pattern": "two equal and one different"
+   },
+   {
+    "group": "stabilizer of a face axis (order 6)",
+    "order": 6,
+    "available_in": "space (a) only",
+    "hermitian_invariant_operators_real_dimension": 2,
+    "real_symmetric_invariant_operators_dimension": 2,
+    "character_norm_check": "2",
+    "eigenvalue_pattern": "two equal and one different"
+   }
+  ],
+  "general_forms": {
+   "Klein group": {
+    "half_turn_matrices_diagonal_signs": [
+     [
+      -1,
+      -1,
+      1
+     ],
+     [
+      -1,
+      1,
+      -1
+     ],
+     [
+      1,
+      -1,
+      -1
+     ],
+     [
+      1,
+      1,
+      1
+     ]
+    ],
+    "general_form": "diag(m1, m2, m3) in the frame axes",
+    "eigenvalues": "m1, m2, m3 (three free real numbers)",
+    "eigenvectors": "the three frame axes",
+    "the_three_axes_carry_the_three_nontrivial_characters": true,
+    "diagonal_units_commute": true
+   },
+   "third of a turn": {
+    "matrix_of_the_third_turn_in_the_frame_axes": "the cyclic permutation P of the three axes (x -> y -> z -> x), trace 0, P^3 = 1",
+    "general_form": "C = a 1 + b P + conj(b) P^2 (a real, b complex): 3 real parameters; the real symmetric members have b real",
+    "characteristic_polynomial_of_C_minus_a": "mu^3 - 3 |b|^2 mu - (b^3 + conj(b)^3) (sympy, exact)",
+    "eigenvalues": "a + 2 |b| cos(delta + 2 pi k / 3), k = 0, 1, 2, b = |b| exp(i delta) (triple-angle identity)",
+    "eigenvectors": "the axis of the turn (1,1,1)/sqrt3 and the two circular states about it; independent of a, b",
+    "trace_identities": "sum = 3 a, sum of squares = 3 a^2 + 6 |b|^2, so sum of squares / (sum)^2 = 1/3 + (2/3) |b|^2 / a^2",
+    "real_members": "b real: eigenvalues a + 2 b, a - b, a - b (two equal and one different)",
+    "frame_independent_form": "C = a 1 + b R + conj(b) R^-1 with R the third-turn on the band; any orthonormal triple that R permutes cyclically gives the same operator"
+   },
+   "frame stabilizer and full rotation group": {
+    "general_form": "m 1",
+    "eigenvalues": "m, m, m"
+   },
+   "one half-turn (about frame axis 1)": {
+    "general_form": "[[m1, 0, 0], [0, x, z], [0, conj(z), y]]: 5 real parameters (4 when real)",
+    "eigenvalues": "three free; eigenvector e_1 fixed; one free angle (and one phase) in the plane of e_2, e_3"
+   },
+   "fifth of a turn about a port": {
+    "general_form": "x n n^T + y (1 - n n^T) + k i [n]_x (n the unit port axis): 3 real parameters; real members have k = 0",
+    "eigenvalues": "x on the axial state, y + k and y - k on the two circular states",
+    "the_three_generators_commute_with_the_group": true
+   }
+  },
+  "tick_group": {
+   "order_of_the_group_generated_by_the_three_lifts": 8,
+   "centre_order": 2,
+   "centre_is_plus_minus_identity": true,
+   "image_in_the_rotations": "the Klein group of the frame (each lift u_i covers the half-turn about axis i; -1 acts as the identity on the band)"
+  },
+  "counts": {
+   "frames": 5,
+   "third_turn_axes_in_one_frame_stabilizer": 4,
+   "frames_whose_stabilizer_contains_a_given_third_turn": 2
+  }
+ },
+ "fixing_a_frame_does_not_split_the_band": {
+  "statement": "the stabilizer of a cubic frame (order 12) still acts irreducibly on the band: every Hermitian operator invariant under it is a multiple of the identity",
+  "character_norm_on_the_stabilizer": "1",
+  "what_splits": "giving up the third-turn (Klein group remains: diag(m1, m2, m3)) or giving up the half-turns (third-turn remains: circulant)"
+ }
+}

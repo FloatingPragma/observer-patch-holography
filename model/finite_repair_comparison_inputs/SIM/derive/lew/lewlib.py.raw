@@ -1,0 +1,239 @@
+"""Shared machinery for lane L-EW (preregistered in PREREGISTRATION.md).
+
+Reads only the private copy of the theory repository (/tmp/claude-501/lew_repo) and the
+scratch SMDR build (/tmp/claude-501/lew_smdr/SMDR). Writes nothing outside the lane
+directory and the scratch build directory.
+"""
+from __future__ import annotations
+
+import cmath
+import importlib.util
+import json
+import math
+import subprocess
+from pathlib import Path
+
+REPO = Path("/tmp/claude-501/lew_repo")
+SMDR = Path("/tmp/claude-501/lew_smdr/SMDR")
+BIN = Path("/tmp/claude-501/lew_smdr/bin")
+WORK = Path("/tmp/claude-501/lew_smdr/work")
+AUDIT = REPO / "model" / "particle_spectrum_audit"
+LANE = Path(__file__).resolve().parent
+
+# Pixel values (PREREGISTRATION section 1)
+P_C = "1.630968209403959324879279847782648941"
+P_FWD = "1.63097209585889737696451390350695562847912625483895268486516"
+P_BR = "1.630971465307864"
+E_STAR_BRANCH = 1.22089e19          # declared unit of the SMDR comparison branch (S5)
+E_STAR_CLOCK = 1.2208901289579269e19  # clock-candidate display of the calibration lanes
+
+ORDER_Y = ("yu", "yc", "yt", "yd", "ys", "yb", "ye", "ymu", "ytau")
+
+
+def load_module(name: str, path: Path):
+    spec = importlib.util.spec_from_file_location(name, path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+ICC = load_module("lew_icc", REPO / "code" / "P_derivation" / "interval_contraction_certificate.py")
+CLOSURE = load_module("lew_closure", REPO / "model" / "pixel_mass_closure" / "closure.py")
+
+
+# ---------------------------------------------------------------------------
+# D10 chain (F1 to F8)
+# ---------------------------------------------------------------------------
+
+def d10_chain(p_decimal: str, dps: int = 50, cutoff: int = 40) -> dict:
+    mpb = ICC.MpBackend(dps)
+    solver = ICC.PointSolver(mpb, cutoff, cutoff)
+    b = solver.b
+    p = b.num(p_decimal)
+    alpha_u, mu_u = solver.solve_alpha_u(p)
+    mz = solver.solve_mz(alpha_u, p, mu_u)
+    a1, a2, a3 = (ICC.alpha_run(b, alpha_u, coef, mz, mu_u) for coef in b.b_mssm)
+    v = ICC.v_transmutation(b, alpha_u, p)
+    resid = solver.pixel_residual(alpha_u, p, mu_u)
+    mz_resid = ICC.h_mz(b, mz, alpha_u, mu_u, v)
+    # MCPR lepton coefficients on the same coordinates (F8)
+    cb = ICC.MpBackend(dps)
+    coeffs = CLOSURE.mass_coefficients(cb, cb.num(p_decimal), cb.num(alpha_u))
+    ctx = b.ctx
+    g1 = ctx.sqrt(4 * ctx.pi * a1)
+    return {
+        "P": ctx.nstr(p, 40),
+        "alpha_U": ctx.nstr(alpha_u, 40),
+        "alpha_inv_outer": ctx.nstr(ctx.sqrt(ctx.pi) / (p - b.phi), 25),
+        "MU_over_E": ctx.nstr(mu_u, 30),
+        "Ecell_over_E": ctx.nstr(1 / ctx.sqrt(p), 30),
+        "mu_c_over_E": ctx.nstr(ctx.exp(-ctx.pi) * p ** (-ctx.mpf(1) / 6), 30),
+        "muZ_over_E": ctx.nstr(mz, 30),
+        "v_over_E": ctx.nstr(v, 30),
+        "alpha1": ctx.nstr(a1, 30), "alpha2": ctx.nstr(a2, 30), "alpha3": ctx.nstr(a3, 30),
+        "g1_GUT": ctx.nstr(g1, 30),
+        "gY": ctx.nstr(ctx.sqrt(ctx.mpf(3) / 5) * g1, 30),
+        "g2": ctx.nstr(ctx.sqrt(4 * ctx.pi * a2), 30),
+        "g3": ctx.nstr(ctx.sqrt(4 * ctx.pi * a3), 30),
+        "lepton_masses_over_v": [ctx.nstr(x, 30) for x in coeffs],
+        "pixel_residual": ctx.nstr(resid, 5),
+        "mz_fixed_point_residual": ctx.nstr(mz_resid, 5),
+    }
+
+
+def packet_from_chain(chain: dict, e_star: float = E_STAR_BRANCH) -> dict:
+    """Q0 input packet of the comparison branch (F6 to F8); y_t and lambda are set by F9."""
+    t = [float(x) for x in chain["lepton_masses_over_v"]]
+    sq2 = math.sqrt(2.0)
+    return {
+        "Q0": float(chain["muZ_over_E"]) * e_star,
+        "v": float(chain["v_over_E"]) * e_star,
+        "gY": float(chain["gY"]), "g2": float(chain["g2"]), "g3": float(chain["g3"]),
+        "yu": 6.0 ** -6, "yc": 6.0 ** -3, "yt": None, "yd": 6.0 ** -6, "ys": 6.0 ** -4,
+        "yb": 6.0 ** -2, "ye": sq2 * t[0], "ymu": sq2 * t[1], "ytau": sq2 * t[2],
+        "lambda": None,
+        "mu_c": float(chain["mu_c_over_E"]) * e_star,
+        "E_star": e_star,
+    }
+
+
+# ---------------------------------------------------------------------------
+# SMDR drivers
+# ---------------------------------------------------------------------------
+
+DRIVERS = {
+    "heavy": ["smdr_flavor_driver.c"],
+    "light": ["light_driver.c", "corrected_decouple_thZW.c"],
+    "wz": ["light_fermion_wz.c"],
+    "rg": ["rg_precise.c"],
+}
+
+
+def compile_drivers() -> None:
+    BIN.mkdir(parents=True, exist_ok=True)
+    WORK.mkdir(parents=True, exist_ok=True)
+    for name, sources in DRIVERS.items():
+        binary = BIN / name
+        if binary.exists():
+            continue
+        command = ["cc", "-O2", "-fcommon", "-I", str(SMDR), "-I", str(SMDR / "src"), "-I", str(AUDIT),
+                   *[str(AUDIT / s) for s in sources], "-L", str(SMDR), "-lsmdr", "-l3vil", "-ltsil",
+                   "-lm", "-o", str(binary)]
+        subprocess.run(command, check=True, capture_output=True, text=True)
+
+
+def invoke(name: str, *args, cwd: Path | None = None) -> dict:
+    argv = [format(x, ".18g") if isinstance(x, float) else str(x) for x in args]
+    done = subprocess.run([str(BIN / name), *argv], cwd=cwd, check=True, capture_output=True,
+                          text=True, timeout=300)
+    return json.loads(done.stdout.strip().splitlines()[-1])
+
+
+def native_args(pk: dict) -> list:
+    return [pk["Q0"], pk["v"], pk["gY"], pk["g2"], pk["g3"], *[pk[k] for k in ORDER_Y], pk["lambda"]]
+
+
+def write_input_dat(pk: dict, name: str = "in.dat") -> str:
+    """SMDR input file in WORK (short name: calc routines buffer the name)."""
+    names = {"Q": pk["Q0"], "v": pk["v"], "gp": pk["gY"], "g": pk["g2"], "g3": pk["g3"],
+             **{k: pk[k] for k in ORDER_Y}, "lambda": pk["lambda"],
+             "m2": -pk["lambda"] * pk["v"] ** 2, "Lambda": 0.0}
+    (WORK / name).write_text("\n".join(f"SMDR_{k}_in = {x!r};" for k, x in names.items()) + "\n")
+    return name
+
+
+def rg_to(pk: dict, q_final: float, loops: int, yt: float | None = None, lam: float | None = None,
+          name: str = "in.dat") -> dict:
+    tmp = dict(pk)
+    if tmp["yt"] is None:
+        tmp["yt"] = 0.95
+    if tmp["lambda"] is None:
+        tmp["lambda"] = 0.13
+    write_input_dat(tmp, name)
+    args = [q_final, loops, name]
+    if yt is not None:
+        args += [yt, lam]
+    return invoke("rg", *args, cwd=WORK)
+
+
+def solve_criticality(pk: dict, mu_c: float, loops: int = 2, guess=(0.96, 0.14),
+                      max_iter: int = 12, name: str = "in.dat") -> dict:
+    """F9: lambda(mu_c) = beta_lambda(mu_c) = 0 by two-variable Newton on finite differences."""
+    x = [guess[0], guess[1]]
+
+    def residual(y, l):
+        r = rg_to(pk, mu_c, loops, y, l, name=name)
+        return [r["lambda"], r["beta_lambda"]], r
+
+    history = []
+    for it in range(max_iter):
+        f, row = residual(*x)
+        history.append({"yt": x[0], "lambda": x[1], "res_lambda": f[0], "res_beta": f[1]})
+        if abs(f[0]) < 1e-13 and abs(f[1]) < 1e-14:
+            break
+        h = 1e-7
+        fy, _ = residual(x[0] + h, x[1])
+        fl, _ = residual(x[0], x[1] + h)
+        j = [[(fy[0] - f[0]) / h, (fl[0] - f[0]) / h], [(fy[1] - f[1]) / h, (fl[1] - f[1]) / h]]
+        det = j[0][0] * j[1][1] - j[0][1] * j[1][0]
+        dy = (f[0] * j[1][1] - f[1] * j[0][1]) / det
+        dl = (j[0][0] * f[1] - j[1][0] * f[0]) / det
+        x = [x[0] - dy, x[1] - dl]
+        if abs(dy) < 1e-15 and abs(dl) < 1e-15:
+            f, row = residual(*x)
+            history.append({"yt": x[0], "lambda": x[1], "res_lambda": f[0], "res_beta": f[1]})
+            break
+    return {"yt_Q0": x[0], "lambda_Q0": x[1], "boundary": row, "iterations": history}
+
+
+def readout(pk: dict) -> dict:
+    """F10: SMDR match at Q0 (order-2 row) plus finite-light W/Z shifts, BW conversion as replay_smdr."""
+    native = native_args(pk)
+    matched = invoke("heavy", "match", *native)["rows"][2]
+    shifts = invoke("wz", "light", *native)["delta_complex_pole_squared_GeV2"]
+    out = {"H": matched["higgs"]["mass_GeV"], "t": matched["top_QCD4_EW2"]["mass_GeV"]}
+    for key in ("W", "Z"):
+        row = matched[key]
+        ps = complex(row["mass_GeV"], -row["width_GeV"] / 2) ** 2 + complex(*shifts[key])
+        out[key] = math.sqrt(ps.real + ps.imag ** 2 / ps.real)
+        out[key + "_BW_noshift"] = row["BW_mass_GeV"]
+    out["GF_local"] = matched["GF_local_chiral_external_legs_GeVm2"]
+    return out
+
+
+# Compare-only references (PDG 2026 as stored in the audit package); never an input.
+def references() -> dict:
+    ref = json.loads((AUDIT / "pdg2026_reference.json").read_text())
+    return ref
+
+
+def strict_chart(chain: dict, e_star: float = E_STAR_CLOCK) -> dict:
+    """F11: the two discrete laws on the strict tree chart."""
+    a2 = float(chain["alpha2"])
+    ay = 0.6 * float(chain["alpha1"])
+    au = float(chain["alpha_U"])
+    v = float(chain["v_over_E"])
+    beta = (a2 - ay) / (a2 + ay)
+    eta = au * beta
+    lam = eta * eta / (4.0 * beta)
+    c2 = 1.0 + (2.0 / 3.0) * eta + (1.0 - beta / 6.0) * eta * eta
+    cn = 1.0 + (4.0 / 3.0) * eta + (2.0 - beta / 6.0) * eta * eta
+
+    def forward(tau2, dn):
+        a2p = a2 * (1.0 + tau2)
+        ay_star = ay * (1.0 - 2.0 * eta)
+        d_par = ay * (8.0 * eta * tau2 * tau2 - tau2) / (1.0 + 4.0 * tau2 * tau2)
+        d_perp = (a2 + ay) * dn
+        ayp = ay_star + d_par + d_perp
+        return {"MW_over_E": v * math.sqrt(math.pi * a2p), "MZ_over_E": v * math.sqrt(math.pi * (a2p + ayp)),
+                "MW_GeV": e_star * v * math.sqrt(math.pi * a2p),
+                "MZ_GeV": e_star * v * math.sqrt(math.pi * (a2p + ayp)), "sin2w_eff": ayp / (a2p + ayp)}
+
+    zero = forward(0.0, 0.0)
+    carrier = forward(-lam * c2, lam * cn)
+    plain = {"MW_GeV": e_star * v * math.sqrt(math.pi * a2), "MZ_GeV": e_star * v * math.sqrt(math.pi * (a2 + ay))}
+    return {"eta": eta, "beta_cos2thetaW0": beta, "lambda_EW": lam, "tau2_carrier": -lam * c2,
+            "dn_carrier": lam * cn, "zero_selector_law": zero, "carrier_value_law": carrier,
+            "unrepaired_tree": plain,
+            "spread_MeV": {"MW": 1e3 * (carrier["MW_GeV"] - zero["MW_GeV"]),
+                           "MZ": 1e3 * (carrier["MZ_GeV"] - zero["MZ_GeV"])}}

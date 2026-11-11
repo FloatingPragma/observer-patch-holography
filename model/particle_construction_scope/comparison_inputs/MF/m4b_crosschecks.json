@@ -1,0 +1,29 @@
+{
+ "seam_probes": {
+  "law": "compressed loads X_p = P_p/4 (+) Q_p/6; seam probe = compressed disagreement projector of the seam in each sector",
+  "compression_formula_checked_on_the_load_register": true,
+  "real_span_of_port_responses": 12,
+  "real_span_of_seam_responses": 9,
+  "real_span_of_both": 13,
+  "trace_ratio_triplet_to_doublet_seam": "9/4 - 3/4*s5 + 3/2*c - 3/5*s5*c",
+  "trace_ratio_port": "3/2",
+  "conclusion": "seam probes leave the twelve-dimensional port algebra: with them the response is u(3) + u(2), dimension 13, centre 2",
+  "framed_quanta": "the position register is dephased by the reference instrument, so a seam hop probe has no first-order response; sums N_a + N_b are sums of port probes"
+ },
+ "audit_encoded_controller": {
+  "response": "X_p = P_p/2 (+) -Q_p/2 with the audit's Pauli ordering; implementers W(q) of the audit",
+  "every_port_has_a_two_pulse_word_equal_to_a_fifth_turn_lift": true,
+  "pulse_areas_found_for_port_0_in_units_of_pi": [
+   0.8,
+   -0.8,
+   1.6,
+   -1.6,
+   2.4,
+   -2.4,
+   3.2,
+   -3.2
+  ],
+  "max_defect": 9.155133597044475e-16,
+  "reading": "exp(i s X_p) exp(-i s X_pbar) = W(q) for a lift q of a rotation about port p: the declared transport gates of the encoded controller are words in its own response pulses"
+ }
+}

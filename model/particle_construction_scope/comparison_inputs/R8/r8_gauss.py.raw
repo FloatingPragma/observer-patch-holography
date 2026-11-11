@@ -1,0 +1,148 @@
+"""R8: the Gauss operator of CF-1 section 8 with the toggle, without and with the Higgs bit (executed).
+
+Lattice 2 x 2 x 1 of carriers, eight quantum Z2 links (axes 0 and 1), one quantum of one species in the chiral
+reading (the left-handed class X_r = -1 is Z2-charged and routes with the link sign, the right-handed class is
+neutral), one Higgs bit per cell (Z2 charge one). State Psi[z, x1, x2, x3, h, record, spin]; the Higgs word h rides
+as a batch axis through the reference engine work/DIRAC/routing.py (it is never shifted).
+
+  routing      S_rev/S_fwd of the engine, right-handed part without links, left-handed part with the link word
+  field step   exp(-i eps X) on every link, exp(-i kappa W) on every plaquette (as work/DIRAC/interaction_check.py)
+  mass step    plain:   exp(-i theta Z_r)                      (option M2 of CF-1; Z_r is the toggle, see r8_chart.py)
+               lifted:  exp(-i theta Z_r x X_h(cell of the quantum))   (the toggle exchanges with the Higgs bit)
+  Gauss        section 8:  G_x = (flip of the four links at x) (X_r on the quantum at x)        [X_r = (-1)^charged]
+               extended:   G_x times (-1)^(h_x)
+"""
+import itertools, json, sys
+import numpy as np
+from routing import Routing
+
+shape = (2, 2, 1)
+cells = list(itertools.product(range(2), range(2), range(1)))
+links = [(c, i) for i in (0, 1) for c in cells]
+lid = {l: k for k, l in enumerate(links)}
+NL, NZ, NH = len(links), 2 ** len(links), 2 ** len(cells)
+cid = {c: k for k, c in enumerate(cells)}
+def signs(z):
+    o = [np.ones(shape + (1,)) for _ in range(3)]                      # trailing axis: the Higgs batch
+    for (c, i), k in lid.items():
+        if (z >> k) & 1: o[i][c] = -1.0
+    return o
+def star(c):
+    m = 0
+    for i in (0, 1):
+        m ^= 1 << lid[(c, i)]
+        back = list(c); back[i] = (back[i] - 1) % shape[i]
+        m ^= 1 << lid[(tuple(back), i)]
+    return m
+free = Routing(shape); eng = [Routing(shape, signs(z)) for z in range(NZ)]
+Xr = lambda e: e[..., ::-1, :]
+def route(Psi, reverse=False):
+    o = np.empty_like(Psi)
+    for z in range(NZ):
+        e = Psi[z]
+        o[z] = free.tick((e + Xr(e)) / 2, 0.0, reverse=reverse) + eng[z].tick((e - Xr(e)) / 2, 0.0, reverse=reverse)
+    return o
+def plaquette(z, c):
+    c0 = list(c); c0[0] = (c0[0] + 1) % 2; c1 = list(c); c1[1] = (c1[1] + 1) % 2
+    bits = [lid[(c, 0)], lid[(tuple(c0), 1)], lid[(tuple(c1), 0)], lid[(c, 1)]]
+    return (-1) ** sum((z >> b) & 1 for b in bits)
+W = np.array([[plaquette(z, c) for c in cells] for z in range(NZ)])
+def field(Psi, eps=0.3, kappa=0.2):
+    o = Psi * np.exp(-1j * kappa * W.sum(axis=1)).reshape((NZ,) + (1,) * 6)
+    for k in range(NL):
+        o = np.cos(eps) * o - 1j * np.sin(eps) * o[np.arange(NZ) ^ (1 << k)]
+    return o
+def mass_plain(Psi, th):
+    o = Psi.copy(); o[..., 0, :] *= np.exp(-1j * th); o[..., 1, :] *= np.exp(1j * th); return o
+def mass_lifted(Psi, th):
+    o = np.cos(th) * Psi
+    for c in cells:
+        flip = np.arange(NH) ^ (1 << cid[c])
+        src = Psi[(slice(None),) + c][:, flip]                         # [z, h, r, s] with the Higgs bit of c flipped
+        sgn = np.array([1.0, -1.0])[None, None, :, None]
+        o[(slice(None),) + c] += -1j * np.sin(th) * sgn * src
+    return o
+def gauss(Psi, c, extended):
+    o = np.empty_like(Psi)
+    o[np.arange(NZ) ^ star(c)] = Psi
+    o[(slice(None),) + c] = Xr(o[(slice(None),) + c])
+    if extended:
+        sg = np.array([(-1) ** ((h >> cid[c]) & 1) for h in range(NH)])
+        o = o * sg[None, None, None, None, :, None, None]
+    return o
+
+res = {'lattice': shape, 'quantum_links': NL, 'higgs_bits': len(cells), 'amplitudes': NZ * 4 * NH * 4}
+rng = np.random.default_rng(7)
+full = (NZ,) + shape + (NH, 2, 2)
+Psi = rng.normal(size=full) + 1j * rng.normal(size=full); Psi /= np.linalg.norm(Psi)
+for th in (0.087847, 0.157935):
+    row = {}
+    # mass step alone on a state with the quantum on the cell of the Gauss operator
+    c = cells[1]
+    loc = np.zeros(full, complex); loc[(slice(None),) + c] = Psi[(slice(None),) + c]; loc /= np.linalg.norm(loc)
+    row['mass_step_plain_commutator_norm_on_occupied_cell'] = float(np.linalg.norm(mass_plain(gauss(loc, c, False), th) - gauss(mass_plain(loc, th), c, False)))
+    row['two_sin_theta'] = float(2 * np.sin(th))
+    row['mass_step_lifted_commutator_with_extended_Gauss_on_occupied_cell'] = float(np.linalg.norm(mass_lifted(gauss(loc, c, True), th) - gauss(mass_lifted(loc, th), c, True)))
+    # full tick U = F . M . S on a random state, every cell
+    for lab, mass, ext in (('plain', mass_plain, False), ('lifted', mass_lifted, True)):
+        U = lambda P: field(mass(route(P), th))
+        UP = U(Psi)
+        row[f'full_tick_{lab}_commutator_norm_max_over_cells'] = float(max(np.linalg.norm(U(gauss(Psi, c_, ext)) - gauss(UP, c_, ext)) for c_ in cells))
+        row[f'full_tick_{lab}_unitarity'] = float(abs(np.linalg.norm(UP) - 1))
+    res[f'theta_{th}'] = row
+    print(th, json.dumps(row))
+# The Higgs state in the Gauss-invariant sector: flat links, every Higgs bit in its uniform state, projected on
+# G_x = +1 at every cell (equivalently X_h(x) Z(x,i) X_h(x+e_i) = +1 on every link). On it the lifted tick with a
+# static field is the plain M2 tick of the engine acting on the quantum.
+def omega(q):
+    base = np.zeros(full, complex)
+    base[0] = q[..., None, :, :] * (np.ones(NH) / np.sqrt(NH))[None, None, None, :, None, None]
+    acc = np.zeros(full, complex)
+    for subset in itertools.product((0, 1), repeat=len(cells)):
+        t = base
+        for c_, on in zip(cells, subset):
+            if on: t = gauss(t, c_, True)
+        acc += t
+    return acc / 2 ** len(cells)
+q = rng.normal(size=shape + (2, 2)) + 1j * rng.normal(size=shape + (2, 2)); q /= np.linalg.norm(q)
+Om = omega(q)
+th = 0.157935
+res['gauss_invariant_higgs_state'] = {
+    'norm_squared_of_projection': float(np.linalg.norm(Om) ** 2), 'expected': 1 / 2 ** len(cells),
+    'invariance_defect': float(max(np.linalg.norm(gauss(Om, c_, True) - Om) for c_ in cells)),
+    'lifted_tick_equals_projection_of_plain_M2_tick': float(np.linalg.norm(mass_lifted(route(Om), th) - omega(free.tick(q, th, kind='Z'))))}
+print('Gauss-invariant Higgs state:', res['gauss_invariant_higgs_state'])
+# The seam factor of the routing in the chiral reading. S_0(z) = class-diagonal shift along axis 0 (left class with the
+# link sign). Plain factor Q = S_0(z) R with R = Z_r; lifted factor Q~ = S_0(z) R~ with R~ = Z_r x X_h(cell of the quantum).
+def shift0(Psi):
+    o = np.empty_like(Psi)
+    for z in range(NZ):
+        e = Psi[z]
+        o[z] = free.shift((e + Xr(e)) / 2, 0) + eng[z].shift((e - Xr(e)) / 2, 0)
+    return o
+def R_plain(Psi):
+    o = Psi.copy(); o[..., 1, :] *= -1; return o
+def R_lift(Psi):
+    o = np.zeros_like(Psi)
+    for c_ in cells:
+        src = Psi[(slice(None),) + c_][:, np.arange(NH) ^ (1 << cid[c_])]
+        o[(slice(None),) + c_] = src * np.array([1.0, -1.0])[None, None, :, None]
+    return o
+flat = np.zeros(full, complex); flat[0] = Psi[0]; flat /= np.linalg.norm(flat)             # all links positive
+neg = np.zeros(full, complex); neg[1] = Psi[1]; neg /= np.linalg.norm(neg)                 # one negative link
+Qp = lambda P: shift0(R_plain(P)); Ql = lambda P: shift0(R_lift(P))
+Om1 = Om / np.linalg.norm(Om)
+res['seam_factor_of_the_routing'] = {
+    'plain_Q_squared_minus_1_flat_links': float(np.linalg.norm(Qp(Qp(flat)) - flat)),
+    'plain_Q_squared_minus_1_one_negative_link': float(np.linalg.norm(Qp(Qp(neg)) - neg)),
+    'lifted_Q_squared_minus_1_on_the_gauss_invariant_higgs_state': float(np.linalg.norm(Ql(Ql(Om1)) - Om1)),
+    'lifted_Q_squared_minus_1_random_state': float(np.linalg.norm(Ql(Ql(Psi)) - Psi)),
+    'lifted_Q_times_lifted_R_equals_shift': float(np.linalg.norm(Ql(R_lift(Psi)) - shift0(Psi)))}
+print('seam factor:', res['seam_factor_of_the_routing'])
+res['routing_alone_commutes_with_Gauss'] = float(max(np.linalg.norm(route(gauss(Psi, c_, False)) - gauss(route(Psi), c_, False)) for c_ in cells))
+res['extended_Gauss_squares_to_one'] = float(max(np.linalg.norm(gauss(gauss(Psi, c_, True), c_, True) - Psi) for c_ in cells))
+res['register_charges'] = {'Z2_charge_of_the_Higgs_bit': 1, 'six_Y_of_the_register_quantum': 3, 'T3_of_the_register_quantum': '-1/2',
+                           'electric_charge': 0, 'colour': 'singlet', 'phase_charges_N_j_of_the_register_quantum': [0, 0, 0, 0, 1],
+                           'determinant_weight': 1}
+print({k: v for k, v in res.items() if not k.startswith('theta')})
+json.dump(res, open(sys.argv[1] if len(sys.argv) > 1 else 'gauss.json', 'w'), indent=1)

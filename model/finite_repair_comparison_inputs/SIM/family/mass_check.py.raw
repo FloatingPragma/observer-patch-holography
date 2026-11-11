@@ -1,0 +1,46 @@
+"""The mass check the owner asked for: every named particle, the rest phase the executed model gives it, SI units from
+one declared anchor, GeV values, and the comparison with measurement.
+
+Model input: the only per-particle rest phases the executed model produces are those of mass option M1 in the frozen
+flux of the committed level-10 run (repair-law/work/SIM/cf1/runs/H_background_from_runs.json, separation-weighted
+rows; confirmed by execution at 16.8 million carriers to 0.3 percent). Rest phase theta per tick, for each pattern.
+SI units: one cell per tick is the speed limit, so a = c tau, and a rest phase theta per tick is a rest energy
+E0 = hbar theta / tau. The tick tau is not derived: it is fixed here by one declared anchor (the electron).
+Test that does not depend on the anchor: if the masses fit, every particle needs the same tick tau_i = hbar theta_i / m_i c^2.
+"""
+import json, math
+HBAR = 6.582119569e-22          # MeV s (CODATA)
+C = 299792458.0                 # m / s
+H = json.load(open('cf1/runs/H_background_from_runs.json'))['part_d_tables']
+def angles(table):
+    rows = {tuple(r['pattern_n3_n2']): r for r in H[table]['patterns']}
+    return {'quark_L': rows[(1, 1)]['separation_weighted'], 'quark_R': rows[(1, 2)]['separation_weighted'], 'lepton_L': rows[(3, 1)]['separation_weighted'], 'lepton_R': rows[(3, 0)]['separation_weighted']}
+TABLES = {'end of the level-10 run': angles('L10_end_300_sweeps_half_faces'), 'classes 1 and 5 gone (limit)': angles('limit_classes_1_5_gone_half_faces')}
+# measured masses, MeV (PDG 2024/2026; light quarks MS-bar at 2 GeV, heavy quarks MS-bar at their mass, top from direct measurements)
+P = [('u', 'up quark', 2.16, 'quark'), ('d', 'down quark', 4.70, 'quark'), ('s', 'strange quark', 93.5, 'quark'), ('c', 'charm quark', 1270.0, 'quark'),
+     ('b', 'bottom quark', 4180.0, 'quark'), ('t', 'top quark', 172570.0, 'quark'), ('e', 'electron', 0.51099895, 'lepton'), ('μ', 'muon', 105.6583755, 'lepton'),
+     ('τ', 'tau', 1776.93, 'lepton'), ('ν', 'neutrinos (each)', 0.45e-6, 'neutrino')]
+out = {'anchor': 'the left-handed electron pattern (the lepton doublet) is set to the electron mass 0.51099895 MeV', 'readings': {}}
+for name, A in TABLES.items():
+    tau = HBAR * A['lepton_L'] / 0.51099895; a = C * tau; mmax = 0.51099895 * (math.pi / 2) / A['lepton_L']
+    rows = []
+    for sym, nm, m, kind in P:
+        th_L = A['quark_L'] if kind == 'quark' else A['lepton_L']
+        th_R = A['quark_R'] if kind == 'quark' else A['lepton_R']
+        mL = 0.51099895 * th_L / A['lepton_L']; mR = 0.51099895 * th_R / A['lepton_L']
+        tau_i = HBAR * th_L / m
+        rows.append({'symbol': sym, 'name': nm, 'measured_MeV': m, 'upper_limit': kind == 'neutrino', 'rest_phase_left': th_L, 'rest_phase_right': th_R,
+                     'model_MeV_left': mL, 'model_MeV_right': mR, 'model_over_measured': mL / m, 'tick_this_particle_needs_s': tau_i})
+    taus = [r['tick_this_particle_needs_s'] for r in rows if not r['upper_limit']]
+    out['readings'][name] = {'rest_phases': A, 'tick_s': tau, 'cell_m': a, 'cell_fm': a * 1e15, 'heaviest_mass_the_clock_holds_MeV': mmax, 'rows': rows,
+                             'needed_ticks_span': max(taus) / min(taus), 'needed_tick_min_s': min(taus), 'needed_tick_max_s': max(taus)}
+    print(f'== {name}: tick {tau:.3e} s, cell {a * 1e15:.2f} fm, heaviest mass the clock holds {mmax:.1f} MeV; ticks needed span a factor {max(taus) / min(taus):.2e}')
+    for r in rows: print(f"   {r['symbol']:2s} model {r['model_MeV_left']:9.4f} MeV (right-handed {r['model_MeV_right']:7.4f})  measured {r['measured_MeV']:12.6g} MeV  ratio {r['model_over_measured']:.3g}  tick needed {r['tick_this_particle_needs_s']:.2e} s")
+out['bosons'] = [{'name': 'photon', 'model': '0, exact', 'measured': '0'}, {'name': 'gluons', 'model': '0, exact', 'measured': '0'},
+                 {'name': 'W and Z', 'model': 'nonzero, from the register state; value not fixed', 'measured': '80.37 and 91.19 GeV'},
+                 {'name': 'Higgs', 'model': 'the register itself; value not fixed', 'measured': '125.2 GeV'}]
+out['verdict'] = ('The relative masses do not fit. The executed model gives every quark of all three generations one rest phase and every lepton '
+                  'another; the right-handed electron gets zero and the neutrino gets the electron\'s value. With the electron as anchor the up and '
+                  'down quarks come out within a factor 1.4 and 3; every other particle misses by factors of 20 to 100,000, and the neutrinos by more than a million. '
+                  'If the masses fitted, every particle would need the same tick; they need ticks spread over five orders of magnitude.')
+json.dump(out, open('cf1/runs/MASS_CHECK.json', 'w'), indent=1, ensure_ascii=False)

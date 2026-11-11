@@ -1,0 +1,28 @@
+"""Worker UH, Addendum 3 comparison (NOT BLIND), run once after yc_quartic.json and the T1 rows are on file.
+Reads LEW's stored compare-only references. Writes not_blind_addendum3.json."""
+import json
+
+LEW = "WORKSPACE/repair-law/work/SIM/derive/lew/"
+refs = json.load(open(LEW + "t1_chain.json"))["references_compare_only_GeV"]
+out = {"references_GeV": refs, "rows": {}}
+for lab in ("T1_zero", "T1_B4"):
+    r = json.load(open(f"smdr_{lab}.json"))
+    o = r["GF"]["outputs_GeV"]
+    out["rows"][lab] = {"y_t_E_cell": r["boundary"]["yt"], "lambda_E_cell": r["boundary"]["lambda"],
+                        "H": o["H"], "t": o["t"], "H_percent": 100 * (o["H"] / refs["H"] - 1),
+                        "t_percent": 100 * (o["t"] / refs["t"] - 1)}
+yq = json.load(open("yc_quartic.json"))["flows_YC_rows"]
+for name, laws in yq.items():
+    for q, f in laws.items():
+        out["rows"][f"{name} {q}"] = {"y_third_family_cell": f["y_third_family_cell"], "lambda_E_cell": f["lambda_cell"],
+                                      "H": f["m_H_tree_by_product"], "t": f["m_t_pole_tree_GF"],
+                                      "H_percent": 100 * (f["m_H_tree_by_product"] / refs["H"] - 1),
+                                      "t_percent": 100 * (f["m_t_pole_tree_GF"] / refs["t"] - 1)}
+nb = json.load(open("not_blind.json"))["implied_by_reference_pair"]
+out["sum_rule_share_needed_by_the_top_alone"] = 3 * nb["y_over_g2"] ** 2 / 2
+out["own_kinetic_share_over_functional_share"] = (1 - out["sum_rule_share_needed_by_the_top_alone"]) / out["sum_rule_share_needed_by_the_top_alone"]
+json.dump(out, open("not_blind_addendum3.json", "w"), indent=1)
+for k, v in out["rows"].items():
+    print("%-16s lam=%+.3e H=%.2f (%+.1f%%) t=%.2f (%+.1f%%)" % (k, v["lambda_E_cell"], v["H"], v["H_percent"], v["t"], v["t_percent"]))
+print("sum-rule share needed by the top alone:", out["sum_rule_share_needed_by_the_top_alone"],
+      "own/functional kinetic share:", out["own_kinetic_share_over_functional_share"])

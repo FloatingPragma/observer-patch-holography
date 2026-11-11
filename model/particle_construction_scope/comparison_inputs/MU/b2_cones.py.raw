@@ -1,0 +1,112 @@
+"""Block 2(a): load cones in the 1+3 sector, convergence to the Lorentz cone, linear automorphisms.
+
+Map: Phi(x) = sum_p x_p (1 + u_p.sigma) = t + r.sigma, t = sum x_p, r = sum x_p u_p.
+K_N  = Phi(nonnegative loads) = cone over the convex hull of the port axes (inscribed in the Lorentz cone).
+K_N* = {t + r.u_p >= 0 for all p} (all port probabilities nonnegative; circumscribed).
+S_N  = nonnegative loads lying in the 1+3 sector, x_p = a + b.u_p >= 0: in (t, r) coordinates {t + 3 r.u_p >= 0}.
+Writes cones.json.
+"""
+import json, sys, time
+import numpy as np
+from scipy.spatial import ConvexHull
+from mu_lib import icosphere, mesh_edges, spinors, directions, moebius_v, boost, axes_of_carrier, mesh_spacing
+
+LEVELS = [0, 1, 2, 3, 4]
+out = {'levels': {}}
+
+
+def inradius(P):
+    h = ConvexHull(P)
+    return float((-h.equations[:, 3]).min()), h
+
+
+def moebius_count(U, reflect, prune=True, tol=1e-6):
+    """Number of (anti-)Moebius maps that permute the point set U (enumeration over images of three points)."""
+    N = len(U)
+    chi = spinors(U)
+    src = chi.conj() if reflect else chi
+    a1, a2, a3 = src[0], src[1], src[2]
+    M12 = np.array([a1, a2]).T
+    al, be = np.linalg.solve(M12, a3)
+    Ainv = np.linalg.inv(M12)
+    count = 0
+    found = []
+    idx = np.arange(N)
+    for q1 in range(N):
+        for q2 in range(N):
+            if q2 == q1:
+                continue
+            B = np.array([chi[q1], chi[q2]]).T
+            coef = np.linalg.solve(B, chi.T)                    # 2 x N, column q3
+            ok = (idx != q1) & (idx != q2)
+            D = np.zeros((N, 2, 2), complex)
+            D[:, 0, 0] = coef[0] / al; D[:, 1, 1] = coef[1] / be
+            A = np.einsum('ij,njk,kl->nil', B, D, Ainv)         # candidates, one per q3
+            # prune with the images of source points 3 and 4
+            cand = np.nonzero(ok)[0]
+            for probe in (3, 4):
+                img = directions(np.einsum('nij,j->ni', A[cand], src[probe]))
+                good = (img @ U.T).max(axis=1) > 1 - tol
+                cand = cand[good]
+                if len(cand) == 0:
+                    break
+            for q3 in cand:
+                img = directions(src @ A[q3].T)
+                dots = img @ U.T
+                tgt = dots.argmax(axis=1)
+                if dots.max(axis=1).min() > 1 - tol and len(set(tgt.tolist())) == N:
+                    count += 1
+                    found.append(tgt.tolist())
+    return count, found
+
+
+t0 = time.time()
+ax = axes_of_carrier()
+for L in LEVELS:
+    U, F = icosphere(L)
+    N = len(U)
+    E = mesh_edges(F)
+    r_in, hull = inradius(U)
+    res = {'N': N, 'facets': int(len(hull.simplices)), 'mesh_spacing_rad': mesh_spacing(U, E),
+           'inradius': r_in, 'deficit_inner': 1 - r_in, 'excess_outer_dual': 1 / r_in - 1,
+           'deficit_times_N': (1 - r_in) * N,
+           'section_cone_S_N': {'inradius': 1 / 3, 'circumradius': 1 / (3 * r_in)},
+           'first_moment_defect': float(np.abs(U.sum(axis=0)).max()),
+           'second_moment_defect': float(np.abs(U.T @ U - N / 3 * np.eye(3)).max())}
+    # uniqueness of the quadric cone through the null rays
+    k = np.hstack([np.ones((N, 1)), U])
+    mono = np.array([[k[p, i] * k[p, j] for i in range(4) for j in range(i, 4)] for p in range(N)])
+    sv = np.linalg.svd(mono, compute_uv=False)
+    res['quadric_conditions'] = {'rank': int((sv > 1e-9 * sv[0]).sum()), 'ninth_singular_value_rel': float(sv[8] / sv[0]),
+                                 'tenth_singular_value_rel': float(sv[9] / sv[0])}
+    # boosts as approximate automorphisms: deficit of the boosted port set
+    bd = {}
+    for eta in (0.1, 0.25, 0.5, 1.0, 1.5, 2.0):
+        worst = 0.0
+        for name, n in ax.items():
+            Ub = moebius_v(boost(n, eta), U)
+            worst = max(worst, 1 - inradius(Ub)[0])
+        bd[str(eta)] = {'deficit_boosted': worst, 'ratio_to_exp2eta_deficit': worst / (np.exp(2 * eta) * (1 - r_in))}
+    res['boost_as_approximate_automorphism'] = bd
+    if L <= 2:
+        c1, f1 = moebius_count(U, False)
+        c2, f2 = moebius_count(U, True)
+        res['automorphisms'] = {'moebius_maps_permuting_ports': c1, 'anti_moebius_maps_permuting_ports': c2,
+                                'order_of_Aut_mod_dilations': c1 + c2}
+        if L == 0:
+            # every such map is an orthogonal map (check: the permutation preserves all scalar products)
+            G = U @ U.T
+            res['automorphisms']['all_orthogonal'] = bool(all(np.allclose(G[np.ix_(p, p)], G, atol=1e-9) for p in f1 + f2))
+    if L <= 1:
+        res['rays_k_p'] = np.round(k, 12).tolist()
+        res['facets_as_covectors_(h,n)_with_h+n.r>=0'] = np.round(np.hstack([-hull.equations[:, 3:4], -hull.equations[:, :3]]), 12).tolist()
+    out['levels'][str(L)] = res
+    print(L, N, 'inradius', r_in, 'deficit*N', (1 - r_in) * N, res.get('automorphisms'), res['quadric_conditions'], 'time', round(time.time() - t0, 1), flush=True)
+
+Ns = np.array([out['levels'][str(L)]['N'] for L in LEVELS[1:]], float)
+ds = np.array([out['levels'][str(L)]['deficit_inner'] for L in LEVELS[1:]])
+slope, icpt = np.polyfit(np.log(Ns), np.log(ds), 1)
+out['rate'] = {'fit_levels_1_to_4': 'deficit = c N^p', 'p': float(slope), 'c': float(np.exp(icpt))}
+out['limit'] = 'IMPORTED: the linear automorphisms of the Lorentz cone are positive dilations times O+(3,1)'
+json.dump(out, open('cones.json', 'w'), indent=1)
+print(json.dumps(out['rate']))

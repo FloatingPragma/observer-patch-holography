@@ -1,0 +1,161 @@
+"""Item 3 of task KD, part 1: the seam involution F_i as a public-type reflector (ring algebra).
+
+Coin = (record) x (spinor doublet). beta = tau_x x 1 is the bare record flip. u_i are the cover lifts of the three
+half-turns of a frame. T shifts the carrier index along one frame axis.
+
+Exact (Q(i) for the frame of the raw chart, Q(sqrt5, i) for the other four):
+  A  the public reflector (model/coherent_seam_repair/gauge_walk.py: local(G)) across a link of two carriers;
+  B  on a ring: the reflectors of equally oriented links commute; their product is Q(G) = S^beta X_G;
+  C  S_i = F_i X_i with F_i an involution; F_i = V Q(G) V^* for an explicit coin unitary V, for every X_i and G;
+     obstruction to V being a product unitary; the dressed reflector.
+Part 2 (the tick on a 3-torus, its symbol): kd_item3_torus.py.
+  cd RER && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:RL/work/KD python RL/work/KD/kd_item3.py [out.json]
+"""
+import json
+import sys
+from itertools import product
+
+from kdlib import (K, ZERO, ONE, I, F, mat, eye, zeros, mm, madd, msub, mscale, dag, kron, meq, anti, trace,
+                   is_hermitian, is_unitary, is_involution, SX, SY, SZ, E2, frames)
+from kdwalk import (half, BETA, ZR, PLUS, MINUS, PM, MP, RX, XG, Cu, public_reflector, embed_link, cond_shift, ring_Q,
+                    su2, PH, rot_beta, apply_coin, apply_links, apply_cond_shift, same)
+
+out, checks = {}, {}
+
+
+def ok(name, cond):
+    assert cond, name
+    checks[name] = True
+
+
+samples_G = {'identity': E2, 'unit quaternion (1,2,2,4)/5': su2(1, 2, 2, 4, 5), 'phase (3+4i)/5': mscale(PH, E2),
+             'phase times quaternion (2,3,6,0)/7': mscale(PH, su2(2, 3, 6, 0, 7))}
+samples_M = {'identity': E2, 'unit quaternion (2,4,5,6)/9': su2(2, 4, 5, 6, 9),
+             'phase times quaternion (1,4,8,0)/9': mscale(PH.conj(), su2(1, 4, 8, 0, 9))}
+assert all(is_unitary(g) for g in list(samples_G.values()) + list(samples_M.values()))
+
+# --- A. the public reflector across a link ------------------------------------------------------------------
+for name, G in samples_G.items():
+    U8 = public_reflector(G)
+    assert is_hermitian(U8) and is_involution(U8) and trace(U8) == K(4)        # trace 2d = 4: negative rank 2
+    blocks = madd(kron(mat([[0, 0], [1, 0]]), kron(PM, G)), kron(mat([[0, 1], [0, 0]]), kron(MP, dag(G))))
+    fixed = madd(kron(mat([[1, 0], [0, 0]]), kron(PLUS, E2)), kron(mat([[0, 0], [0, 1]]), kron(MINUS, E2)))
+    assert meq(U8, madd(blocks, fixed))
+ok('public reflector across a link (x, x+1), fibre = doublet, link G: Hermitian involution of trace 4 that exchanges '
+   '|x, h, -> with |x+1, G h, +> and fixes |x, h, +>, |x+1, h, ->  (|+->: eigenstates of the record flip)', True)
+
+# --- B. ring: commuting reflectors, Q(G) = S^beta X_G --------------------------------------------------------
+for L in (3, 4, 5):
+    Sb = cond_shift(BETA, L)
+    for name, G in samples_G.items():
+        if L == 5 and name != 'identity':
+            continue
+        U8, links, Q = ring_Q(G, L)
+        for a in range(L):
+            for b in range(a + 1, L):
+                assert meq(mm(links[a], links[b]), mm(links[b], links[a]))
+        assert meq(Q, mm(Sb, kron(eye(L), XG(G))))
+        assert is_involution(Q) and trace(Q).is_zero()
+    U8, links, Q = ring_Q(E2, L)
+    assert meq(mm(Q, kron(eye(L), ZR)), Sb)                    # flat link: Q Z_r is the beta-controlled shift
+U8 = public_reflector(E2)
+A_ = embed_link(U8, 0, 1, 4); B_ = embed_link(U8, 2, 1, 4)
+ok('opposite orientations on adjacent links do not commute (orientation must be uniform along an axis)',
+   not meq(mm(A_, B_), mm(B_, A_)))
+ok('ring L = 3, 4, 5: reflectors of equally oriented links commute; product Q(G) = S^beta X_G with '
+   'S^beta = P+_beta T + P-_beta T^*, X_G = |+><-| x G + |-><+| x G^*; Q(1) Z_r = S^beta', True)
+for L in (3, 4):
+    Sb = cond_shift(BETA, L)
+    U8, links, Q = ring_Q(mscale(PH.conj(), E2), L)            # G = exp(-i phi), cos phi = 3/5, sin phi = 4/5
+    rot = rot_beta(F(3, 5), F(4, 5))                           # exp(-i phi beta)
+    assert meq(mm(Q, kron(eye(L), ZR)), mm(Sb, kron(eye(L), rot)))
+    U81, links1, Q1 = ring_Q(E2, L)
+    assert meq(mm(Q1, Q), kron(eye(L), dag(rot)))              # Q(1) Q(e^{-i phi}) = exp(+i phi beta)
+ok('link phase: Q(e^{-i phi}) Z_r = S^beta exp(-i phi beta) and Q(1) Q(e^{-i phi}) = exp(+i phi beta) '
+   '(checked at cos phi = 3/5)', True)
+
+# --- C. S_i = F_i X_i and F_i = V Q(G) V^* -------------------------------------------------------------------
+FR = frames()
+n_family = 0
+frame_rows = []
+for f, fr in enumerate(FR):
+    u = [h['u'] for h in fr['half_turns']]
+    alpha = []
+    for i in range(3):
+        C = Cu(u[i])
+        al = mm(C, BETA, dag(C))
+        assert meq(al, kron(SY, mscale(-I, u[i])))
+        alpha.append(al)
+        # no product unitary can do this: the partial trace of alpha_i over the spinor vanishes,
+        # that of (A x B) beta (A x B)^* = (A tau_x A^*) x 1 is 2 A tau_x A^* != 0
+        pt = tuple(tuple(al[2 * r][2 * c] + al[2 * r + 1][2 * c + 1] for c in range(2)) for r in range(2))
+        assert all(x.is_zero() for row in pt for x in row)
+    gens = alpha + [BETA]
+    for i in range(4):
+        for j in range(4):
+            assert meq(anti(gens[i], gens[j]), mscale(2 if i == j else 0, eye(4)))
+    fifth = mm(BETA, alpha[2], alpha[1], alpha[0])               # the product of the four generators
+    assert meq(fifth, ZR) or meq(fifth, mscale(-1, ZR))          # = +-Z_r: the record value
+    for L in ((3, 4) if f == 0 else (3,)):
+        for i in range(3):
+            C = Cu(u[i]); CL = kron(eye(L), C)
+            S = cond_shift(alpha[i], L)
+            assert is_unitary(S)
+            # simplest member: X_i = Z_r, V = C(u_i), flat link
+            U8, links, Q1 = ring_Q(E2, L)
+            Fi = mm(S, kron(eye(L), ZR))
+            assert is_hermitian(Fi) and is_involution(Fi) and trace(Fi).is_zero()
+            assert meq(Fi, mm(CL, Q1, dag(CL)))
+            # the dressed reflector v(h) = m(h)|0> - p(u_i h)|1>, link by link
+            D8 = mm(kron(E2, C), U8, dag(kron(E2, C)))
+            prod_ = eye(4 * L)
+            for x in range(L):
+                prod_ = mm(prod_, embed_link(D8, x, (x + 1) % L, L))
+            assert meq(prod_, Fi)
+            if L == 3:
+                # the whole family: every X = C X_M C^* (M in U(2)) and every link G in U(2)
+                Gs = list(samples_G.items()) if f == 0 else list(samples_G.items())[:2]
+                Ms = list(samples_M.items()) if f == 0 else list(samples_M.items())[:2]
+                for gname, G in Gs:
+                    QG = ring_Q(G, L)[2]
+                    for mname, M in Ms:
+                        X = mm(C, XG(M), dag(C))
+                        assert meq(anti(X, alpha[i]), zeros(4)) and is_hermitian(X) and is_involution(X)
+                        Fx = mm(S, kron(eye(L), X))
+                        assert is_hermitian(Fx) and is_involution(Fx)
+                        Vp = mm(C, madd(kron(PLUS, mm(M, dag(G))), kron(MINUS, E2)))
+                        assert is_unitary(Vp) and meq(mm(Vp, BETA, dag(Vp)), alpha[i]) and meq(mm(Vp, XG(G), dag(Vp)), X)
+                        VL = kron(eye(L), Vp)
+                        assert meq(Fx, mm(VL, QG, dag(VL)))
+                        n_family += 1
+    frame_rows.append({'frame': f, 'alpha': [[[repr(x) for x in r] for r in al] for al in alpha]})
+ok('all five frames: alpha_i := C(u_i) beta C(u_i)^* = tau_y x (-i u_i) and beta satisfy the sixteen relations; '
+   'their product beta alpha_3 alpha_2 alpha_1 = +-Z_r (the record value)', True)
+ok('all five frames, rings L = 3 (and 4 for the raw-chart frame): S_i Z_r = C(u_i) Q(1) C(u_i)^* = product over links '
+   'of the dressed reflector 1 - v v^*, v(h) = m(h)|0> - p(u_i h)|1>', True)
+ok('family: for X = C(u_i) X_M C(u_i)^* (M in U(2)) and link G in U(2): S_i X = V Q(G) V^*, '
+   'V = C(u_i)(|+><+| x M G^* + |-><-| x 1); V beta V^* = alpha_i, V X_G V^* = X', n_family > 0)
+ok('no product unitary A x B maps beta to alpha_i: the partial trace of alpha_i over the spinor levels is 0', True)
+out['family_instances_checked'] = n_family
+
+# CLIFFORD.md convention alpha_i = tau_z x (i u_i): V = sqrt(tau_x)^-1 C(u_i), X = -+ tau_y x 1
+u = [h['u'] for h in FR[0]['half_turns']]
+for i in range(3):
+    V = mm(dag(RX), Cu(u[i]))
+    aC = kron(SZ, mscale(I, u[i]))
+    assert meq(mm(V, BETA, dag(V)), aC)
+    X = mm(V, ZR, dag(V))
+    assert meq(X, mscale(-1, kron(SY, E2))) or meq(X, kron(SY, E2))
+    L = 3
+    S = cond_shift(aC, L); Q1 = ring_Q(E2, L)[2]; VL = kron(eye(L), V)
+    assert meq(mm(S, kron(eye(L), X)), mm(VL, Q1, dag(VL)))
+ok('CLIFFORD.md convention alpha_i = tau_z x (i u_i): F_i = S_i X with X = -+ tau_y x 1 equals V Q(1) V^*, '
+   'V = sqrt(tau_x)^-1 C(u_i)', True)
+
+out['frames'] = frame_rows
+out['checks'] = checks
+for k in checks:
+    print('EXACT ok:', k)
+print('family instances (frame, axis, link G, involution X):', n_family)
+if len(sys.argv) > 1:
+    json.dump(out, open(sys.argv[1], 'w'), indent=1)

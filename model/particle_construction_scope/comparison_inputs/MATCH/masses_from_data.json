@@ -1,0 +1,161 @@
+{
+ "rows": [
+  {
+   "species": "up-type quark",
+   "left_class": 1,
+   "right_class": 4,
+   "rest_phase_left_per_tick": [
+    0.051014,
+    0.059322
+   ],
+   "rest_phase_right_per_tick": [
+    0.092788,
+    0.116921
+   ],
+   "rest_energy_left_GeV": [
+    6.228248246e+17,
+    7.242563658e+17
+   ],
+   "rest_energy_right_GeV": [
+    1.1328394132e+18,
+    1.4274767969e+18
+   ],
+   "register_cost_units": {
+    "left": 5,
+    "right": 8
+   },
+   "same_value_for_all_three_generations": true,
+   "generations": [
+    {
+     "generation": 1,
+     "particle": "up_quark",
+     "measured_GeV": 0.00216
+    },
+    {
+     "generation": 2,
+     "particle": "charm_quark",
+     "measured_GeV": 1.2729
+    },
+    {
+     "generation": 3,
+     "particle": "top_quark",
+     "measured_GeV": 172.1
+    }
+   ]
+  },
+  {
+   "species": "down-type quark",
+   "left_class": 1,
+   "right_class": 4,
+   "rest_phase_left_per_tick": [
+    0.051014,
+    0.059322
+   ],
+   "rest_phase_right_per_tick": [
+    0.092788,
+    0.116921
+   ],
+   "rest_energy_left_GeV": [
+    6.228248246e+17,
+    7.242563658e+17
+   ],
+   "rest_energy_right_GeV": [
+    1.1328394132e+18,
+    1.4274767969e+18
+   ],
+   "register_cost_units": {
+    "left": 5,
+    "right": 8
+   },
+   "same_value_for_all_three_generations": true,
+   "generations": [
+    {
+     "generation": 1,
+     "particle": "down_quark",
+     "measured_GeV": 0.0047
+    },
+    {
+     "generation": 2,
+     "particle": "strange_quark",
+     "measured_GeV": 0.09290000000000001
+    },
+    {
+     "generation": 3,
+     "particle": "bottom_quark",
+     "measured_GeV": 4.186
+    }
+   ]
+  },
+  {
+   "species": "charged lepton",
+   "left_class": 3,
+   "right_class": 0,
+   "rest_phase_left_per_tick": [
+    0.110554,
+    0.171237
+   ],
+   "rest_phase_right_per_tick": [
+    0.0,
+    0.0
+   ],
+   "rest_energy_left_GeV": [
+    1.3497427306e+18,
+    2.0906154093e+18
+   ],
+   "rest_energy_right_GeV": [
+    0.0,
+    0.0
+   ],
+   "register_cost_units": {
+    "left": 10,
+    "right": 0
+   },
+   "same_value_for_all_three_generations": true,
+   "generations": [
+    {
+     "generation": 1,
+     "particle": "electron",
+     "measured_GeV": 0.0005109989506900001
+    },
+    {
+     "generation": 2,
+     "particle": "muon",
+     "measured_GeV": 0.10565837550000001
+    },
+    {
+     "generation": 3,
+     "particle": "tau",
+     "measured_GeV": 1.7769300000000001
+    }
+   ]
+  }
+ ],
+ "summary": {
+  "unit": {
+   "E_star_GeV": 1.22089e+19,
+   "tick_s": 5.391247012815302e-44,
+   "cell_m": 1.616255193657057e-35,
+   "E_star_kg": 2.1764341134962843e-08
+  },
+  "spread_of_data_rest_phases": 3.3566667973497473,
+  "spread_of_measured_charged_fermion_masses": 336791.29823576735,
+  "measured_lepton_ratios": {
+   "mu_over_e": 206.76828270846718,
+   "tau_over_e": 3477.365261906346
+  },
+  "data_lepton_ratios": {
+   "mu_over_e": 1.0,
+   "tau_over_e": 1.0
+  },
+  "electron_anchor": {
+   "note": "unit chosen so that the class-3 rest phase at separation 2 equals the electron mass",
+   "GeV_per_unit_phase": 0.004622166097020462,
+   "predicted_muon_GeV": 0.0005109989506900001,
+   "measured_muon_GeV": 0.10565837550000001,
+   "predicted_left_quark_range_GeV": [
+    0.0002357951812734018,
+    0.0002741961372074478
+   ]
+  }
+ }
+}

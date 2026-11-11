@@ -1,0 +1,319 @@
+{
+ "chart": {
+  "nu junction 11110 <-> 11111 toggles level": "s2 (adds it, left to right)",
+  "e junction 11101 <-> 11100 toggles level": "s2 (removes it, left to right)",
+  "correction": "both junctions toggle s2; the brief wrote s1 for the neutrino"
+ },
+ "J1_J4_coherent_program_register": {
+  "vertex": "V0 = a*_s2 B + a_s2 B* (R8, neutral component); both junctions are adjoint pieces of one Hermitian vertex",
+  "J1_J2_rest_phases_over_g": {
+   "J1 Z2 bit": {
+    "e": [
+     -1.0,
+     1.0
+    ],
+    "nu": [
+     -1.0,
+     1.0
+    ]
+   },
+   "J2 cyclic counter Z_2": {
+    "e": [
+     -1.0,
+     1.0
+    ],
+    "nu": [
+     -1.0,
+     1.0
+    ]
+   },
+   "J2 cyclic counter Z_3": {
+    "e": [
+     -1.0,
+     1.0
+    ],
+    "nu": [
+     -1.0,
+     1.0
+    ]
+   },
+   "J2 cyclic counter Z_4": {
+    "e": [
+     -1.0,
+     1.0
+    ],
+    "nu": [
+     -1.0,
+     1.0
+    ]
+   },
+   "J2 cyclic counter Z_5": {
+    "e": [
+     -1.0,
+     1.0
+    ],
+    "nu": [
+     -1.0,
+     1.0
+    ]
+   },
+   "J2 cyclic counter Z_6": {
+    "e": [
+     -1.0,
+     1.0
+    ],
+    "nu": [
+     -1.0,
+     1.0
+    ]
+   }
+  },
+  "J3_bounded_register": {
+   "active_blocks": {
+    "e, register 0": true,
+    "e, register 1": false,
+    "nu, register 0": false,
+    "nu, register 1": true
+   },
+   "states": [
+    {
+     "register_state": "sqrt(0.99)|0> + sqrt(0.01)|1>",
+     "mean_field_angle_over_g (both junctions)": 0.09949874371066204,
+     "weight_of_the_active_block_e": 0.99,
+     "weight_of_the_active_block_nu": 0.010000000000000009
+    },
+    {
+     "register_state": "sqrt(0.9)|0> + sqrt(0.10)|1>",
+     "mean_field_angle_over_g (both junctions)": 0.29999999999999993,
+     "weight_of_the_active_block_e": 0.8999999999999999,
+     "weight_of_the_active_block_nu": 0.09999999999999996
+    },
+    {
+     "register_state": "sqrt(0.5)|0> + sqrt(0.50)|1>",
+     "mean_field_angle_over_g (both junctions)": 0.5000000000000001,
+     "weight_of_the_active_block_e": 0.5000000000000001,
+     "weight_of_the_active_block_nu": 0.5000000000000001
+    },
+    {
+     "register_state": "sqrt(0.1)|0> + sqrt(0.90)|1>",
+     "mean_field_angle_over_g (both junctions)": 0.3,
+     "weight_of_the_active_block_e": 0.1,
+     "weight_of_the_active_block_nu": 0.8999999999999999
+    }
+   ]
+  },
+  "J4_number_states": [
+   {
+    "n": 0,
+    "e_block_amplitude_over_g": 1.0,
+    "nu_block_amplitude_over_g": 0.0
+   },
+   {
+    "n": 1,
+    "e_block_amplitude_over_g": 1.4142135623730951,
+    "nu_block_amplitude_over_g": 1.0
+   },
+   {
+    "n": 2,
+    "e_block_amplitude_over_g": 1.7320508075688772,
+    "nu_block_amplitude_over_g": 1.4142135623730951
+   },
+   {
+    "n": 3,
+    "e_block_amplitude_over_g": 2.0,
+    "nu_block_amplitude_over_g": 1.7320508075688772
+   },
+   {
+    "n": 4,
+    "e_block_amplitude_over_g": 2.23606797749979,
+    "nu_block_amplitude_over_g": 2.0
+   }
+  ],
+  "statement": "Every register state with a common phase (Z2 bit, cyclic counter) gives both junctions the rest phase g exactly; a mean field gives g|<B>| to both, because |<B*>| = |<B>|. Asymmetry appears only in populations: the electron junction emits into the register (needs a vacancy, weight |alpha|^2), the neutrino junction absorbs from it (needs a quantum, weight |beta|^2); number states give amplitudes sqrt(n+1) and sqrt(n). R8: populations give conversion and no rest phase."
+ },
+ "J5_J6_level_number_charges": {
+  "per_vertex": {
+   "up (Q u^c H)": {
+    "left_labelling": [
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "odd_counting": [
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ]
+   },
+   "down (Q d^c H*)": {
+    "left_labelling": [
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "odd_counting": [
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ]
+   },
+   "lepton (L e^c H*)": {
+    "left_labelling": [
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "odd_counting": [
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ]
+   },
+   "neutrino (L N^c H)": {
+    "left_labelling": [
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "odd_counting": [
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ]
+   },
+   "singlet pairing N^c N^c": {
+    "left_labelling": [
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "odd_counting": [
+     "-1",
+     "-1",
+     "-1",
+     "-1",
+     "-1"
+    ]
+   },
+   "dimension five L L H H": {
+    "left_labelling": [
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "odd_counting": [
+     "1",
+     "1",
+     "1",
+     "1",
+     "1"
+    ]
+   }
+  },
+  "J6_memory_charge_left_labelling_solutions": "none: up and neutrino need H to carry minus their pair, -(1,1,1,1,0); down and lepton need H* to carry minus their pair, that is H to carry +(1,1,1,1,2); no single assignment",
+  "J6_memory_charge_odd_counting": "unique: H carries (0,0,0,0,1), the doublet level s2 only",
+  "statement": "All four Dirac vertices carry the same charge: the determinant in the left labelling (the audit's yukawa_certificate states the same for up, down, lepton), zero in the odd counting. The neutrino vertex needs no extra determinant charge and no second step. The memory cannot carry a determinant charge consistently: in the odd counting its only charge is the doublet level."
+ },
+ "F1_F2_memory_cannot_supply_the_pairing": {
+  "memory_monomials_H^a (H*)^b, a, b = 0..5": "X = 4 Y in all 36 (B - L = 0)",
+  "singlet pairing (odd counting)": {
+   "X": "-10",
+   "Y": "0",
+   "B_minus_L": "2"
+  },
+  "statement": "No power of the Higgs memory carries the pairing's charge (X = -10 at Y = 0). A Majorana mass needs a separate register, a weak and colour singlet with B - L = -2 (odd charge +1 on every level), whose condensate sets M (F3). The determinant offset of the audit's left labelling is the counting shift between the labellings (J5), not a charge of the memory (J6)."
+ },
+ "J7_J8_audit_memory": {
+  "tensors": {
+   "charged lepton (audit)": "C^0: (9,10), C^1: (9,11); conjugate Higgs",
+   "neutrino (16th state)": "C^0: (15,11) = 1, C^1: (15,10) = -1; Higgs, from J_nu = phi_0 c_11 - phi_1 c_10"
+  },
+  "Ward_identities_checked": 48,
+  "memory_conjugation": "C_H swaps |1+k> and |3+k>; C_H phi_k C_H = phi_k^dagger (EXACT)",
+  "e_only_spectrum_reproduces_the_audit": {
+   "ground": -1.9999999999999998,
+   "multiplicity": 2,
+   "gap": 0.20871215252207653,
+   "gap_closed_form": "(5 - sqrt21)/2"
+  },
+  "e_only_vs_nu_only_max_spectrum_difference": 4.440892098500626e-15,
+  "joint (y_e, y_nu) = (1, 2) vs (2, 1), max spectrum difference": 2.4868995751603507e-14,
+  "joint (1, 1) ground energy": -3.9999999999999987,
+  "background": {
+   "y_e": 1.0,
+   "y_nu": 1.0,
+   "background singular values at (y_e, y_nu) = (1.0, 1.0)": [
+    0.0,
+    1.0
+   ],
+   "background singular values at (y_e, y_nu) = (1.0, 0.25)": [
+    0.0,
+    0.25,
+    1.0
+   ]
+  },
+  "statement": "With the audit's memory the neutrino junction (phi) and the electron junction (phi^dagger) are exchanged by the memory's particle-antiparticle conjugation. Equal coefficients give equal onsite spectra (320 states, difference below 1e-12), the joint spectrum is symmetric under exchanging the two coefficients, and the background masses are |v y_e| and |v y_nu|. No suppression; the ratio is the ratio of the two declared coefficients."
+ },
+ "J9_what_separates_nu_from_e": {
+  "class": "generators f(levels other than s2) times the toggle; the one-family reading needs C H C^-1 = -H, so f must be even under the complement",
+  "candidates": {
+   "n_s1 - 1/2": {
+    "under_the_complement": "odd (forbidden: C H C^-1 = -H fails)",
+    "value_on_species_blocks": {
+     "u": "1/2",
+     "d": "-1/2",
+     "nu": "1/2",
+     "e": "-1/2"
+    }
+   },
+   "n3 - 3/2": {
+    "under_the_complement": "odd (forbidden: C H C^-1 = -H fails)",
+    "value_on_species_blocks": {
+     "u": "-1/2",
+     "d": "-1/2",
+     "nu": "3/2",
+     "e": "3/2"
+    }
+   },
+   "(n_s1 - 1/2)(n3 - 3/2)": {
+    "under_the_complement": "even (allowed)",
+    "value_on_species_blocks": {
+     "u": "-1/4",
+     "d": "1/4",
+     "nu": "3/4",
+     "e": "-3/4"
+    }
+   },
+   "(n3 - 3/2)^2": {
+    "under_the_complement": "even (allowed)",
+    "value_on_species_blocks": {
+     "u": "1/4",
+     "d": "1/4",
+     "nu": "9/4",
+     "e": "9/4"
+    }
+   }
+  },
+  "statement": "The linear class (f constant, lead L31) gives one amplitude: y_nu = y_e = y_u = y_d. The degree-three terms n_s1 T and n3 T are odd under the complement and are excluded in the one-family reading. The lowest even term that separates nu from e is (n_s1 - 1/2)(n3 - 3/2) T (degree five); it shifts the four amplitudes by (u, d, nu, e) = (-1/4, +1/4, +3/4, -3/4) times its coefficient, so for that term alone y_nu - y_e = 3 (y_d - y_u). A neutrino amplitude far below the electron's needs a declared operator that the source does not contain, and at lowest order it moves the quark pair as well."
+ }
+}

@@ -1,0 +1,203 @@
+{
+ "rotations": {
+  "covariance_defect_of_sections_under_the_60_lifts": 4.008403564625951e-08,
+  "order_of_the_group_generated_by_the_lifts": 120,
+  "recharting_phase_around_a_face_rad": [
+   -0.3141592653589794,
+   -0.31415926535897915
+  ],
+  "minus_2pi_over_20": -0.3141592653589793
+ },
+ "sharp_port_readout": {
+  "completeness_defect": 4.440892098500626e-16,
+  "channel_on_(t,r)": [
+   [
+    1.0,
+    0.0,
+    -0.0,
+    -0.0
+   ],
+   [
+    0.0,
+    0.333333333333,
+    0.0,
+    0.0
+   ],
+   [
+    -0.0,
+    0.0,
+    0.333333333333,
+    0.0
+   ],
+   [
+    -0.0,
+    0.0,
+    0.0,
+    0.333333333333
+   ]
+  ],
+  "channel_defect_vs_diag(1,1/3,1/3,1/3)": 2.3592239273284576e-16,
+  "branch_p_is_the_null_map_(1/N) k_p k_p^T_defect": 8.326672684688674e-17,
+  "ranks_of_all_products_of_three_Kraus_operators": [
+   0,
+   1
+  ],
+  "statement": "every element of the generated semigroup is c |chi_p><chi_q| (rank at most one, determinant 0): no Lorentz transformation; the normalized action on the screen is the constant map onto port p"
+ },
+ "cap_readout_two_outcomes": {
+  "star": {
+   "n_C": 6,
+   "eta": 0.603230969903108,
+   "eta_complement": 0.6032309699031078,
+   "completeness_defect": 4.440892098500626e-16,
+   "channel_in_cap_frame_(t,r1,r2,r_axis)": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.842085111247,
+     -0.0,
+     0.0
+    ],
+    [
+     -0.0,
+     -0.0,
+     0.842085111247,
+     -0.0
+    ],
+    [
+     -0.0,
+     0.0,
+     -0.0,
+     1.0
+    ]
+   ],
+   "transverse_contraction_factor": 0.8420851112466874,
+   "predicted_(n_C sech eta + n_C' sech eta')/N": 0.8420851112466868,
+   "selective_branch_Lorentz_defect": 2.220446049250313e-16,
+   "rapidity_of_branch": 0.6032309699031079,
+   "aberration_formula_defect": 5.551115123125783e-16,
+   "null_rays_map_to_null_rays_defect": 2.220446049250313e-16,
+   "doppler_weight_defect": 3.3306690738754696e-16,
+   "distance_of_image_points_to_nearest_port_rad_(min,max)": [
+    0.4550976481727063,
+    0.5853650921736233
+   ],
+   "ports_fixed": 2
+  },
+  "face": {
+   "n_C": 3,
+   "eta": 1.0839368632782487,
+   "eta_complement": 0.2713545800135767,
+   "completeness_defect": 8.886119947416683e-17,
+   "channel_in_cap_frame_(t,r1,r2,r_axis)": [
+    [
+     1.0,
+     -0.0,
+     0.0,
+     0.0
+    ],
+    [
+     -0.0,
+     0.874975542938,
+     -0.0,
+     -0.0
+    ],
+    [
+     -0.0,
+     -0.0,
+     0.874975542938,
+     0.0
+    ],
+    [
+     0.0,
+     -0.0,
+     -0.0,
+     1.0
+    ]
+   ],
+   "transverse_contraction_factor": 0.8749755429375254,
+   "predicted_(n_C sech eta + n_C' sech eta')/N": 0.8749755429375252,
+   "selective_branch_Lorentz_defect": 4.440892098500626e-16,
+   "rapidity_of_branch": 1.0839368632782491,
+   "aberration_formula_defect": 5.551115123125783e-16,
+   "null_rays_map_to_null_rays_defect": 5.551115123125783e-17,
+   "doppler_weight_defect": 5.551115123125783e-17,
+   "distance_of_image_points_to_nearest_port_rad_(min,max)": [
+    0.12408423784749784,
+    0.5793919725301311
+   ],
+   "ports_fixed": 0
+  },
+  "seam": {
+   "n_C": 2,
+   "eta": 1.258502756163965,
+   "eta_complement": 0.17180070184587704,
+   "completeness_defect": 3.3306757645377894e-16,
+   "channel_in_cap_frame_(t,r1,r2,r_axis)": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     -0.0
+    ],
+    [
+     0.0,
+     0.908806517986,
+     -0.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     0.908806517986,
+     0.0
+    ],
+    [
+     -0.0,
+     -0.0,
+     -0.0,
+     1.0
+    ]
+   ],
+   "transverse_contraction_factor": 0.9088065179860779,
+   "predicted_(n_C sech eta + n_C' sech eta')/N": 0.9088065179860779,
+   "selective_branch_Lorentz_defect": 8.881784197001252e-16,
+   "rapidity_of_branch": 1.2585027561639632,
+   "aberration_formula_defect": 1.1345091532888318e-15,
+   "null_rays_map_to_null_rays_defect": 1.3877787807814457e-17,
+   "doppler_weight_defect": 1.6653345369377348e-16,
+   "distance_of_image_points_to_nearest_port_rad_(min,max)": [
+    0.07474417182090828,
+    0.6283185307179587
+   ],
+   "ports_fixed": 0
+  }
+ },
+ "port_response": {
+  "code_projector_defect": 5.557210413939996e-17,
+  "real_span_of_Hermitian_responses_P N_p P": 4,
+  "real_span_of_i P N_p P (unitary response, rotations and phase)": 4,
+  "real_span_of_both (complex port weights)": 8,
+  "statement": "real port potentials give u(2); absorptive (imaginary) port potentials give the Hermitian directions; together gl(2,C)"
+ },
+ "zeno_loss_on_star_cap": {
+  "max_abs_error_by_number_of_steps": {
+   "10": 0.006738576117921946,
+   "100": 0.000681300049910627,
+   "1000": 6.820336935642324e-05,
+   "10000": 6.821070048457223e-06
+  },
+  "limit_is_boost_along_minus_axis_with_rapidity": 0.5393446629166316,
+  "predicted_2 (n_C/N) cbar s (s = 1)": 0.5393446629166316
+ },
+ "filters": {
+  "cap_effect_covariance_defect_under_carrier_rotations": 2.9005080262451534e-08,
+  "random_invertible_Kraus_operator_is_dilation_times_Lorentz_relative_defect": 1.0224587741701255e-15,
+  "statement": "X -> A X A^dagger is |det A| times a proper orthochronous Lorentz map for every invertible A (EXACT identity); IMPORTED: these are all connected linear automorphisms of the cone of unnormalized qubit states (Hoehn and Mueller 2016 use this cone)"
+ }
+}

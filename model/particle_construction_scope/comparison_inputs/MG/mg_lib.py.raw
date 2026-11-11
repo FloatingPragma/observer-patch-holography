@@ -1,0 +1,440 @@
+"""MG library: carrier rotations and their binary cover, one-class wirings, chart transports, holonomy.
+
+Port labels, template faces, mesh tower and wirings are those of worker S3 (`s0_lib.py`, copied unchanged from
+RL/work/S3); these labels equal the labels of `oph_defects.fedgeom` and of the pinned builder.
+
+Objects
+  ROT60[i], ROT_MATS[i]   the 60 carrier rotations: port permutation g (g[p] = image of p) and matrix R with
+                          R u_p = u_{g[p]}.  MUL[i, j] = index of g_i o g_j (g_j first).  INV[i].
+  B2[a]                   the 120 elements of the binary icosahedral group as SU(2) matrices; element a covers the
+                          rotation a // 2;  B2[2 i] has trace >= 0, B2[2 i + 1] = -B2[2 i].
+                          BMUL, BINV, BORD (element orders), CENTRAL (index of -1).
+                          Convention: U(n, theta) = cos(theta/2) - i sin(theta/2) n.sigma; U (v.sigma) U^+ = (R v).sigma.
+  uniform rule g          for a one-class wiring with glue triple (W[c,0], W[c,1], W[c,2]) (cyclic order of the
+                          neighbours), h_c the rotation that takes the base triple to it and r the third of a turn of
+                          the base triple:   T(c -> c') = h_c' r^k' g r^-k h_c^-1,   k, k' the positions of the shared
+                          mesh edge in c and c'.  Reversibility forces g^2 = 1: sixteen rules.
+"""
+from __future__ import annotations
+
+import collections
+import math
+import sys
+
+import numpy as np
+
+sys.dont_write_bytecode = True
+import s0_lib as S  # noqa: E402
+
+PORT_UNIT = S.PORT_UNIT
+ROT_MATS = [np.asarray(M, float) for M in S.ROT_MATS]
+ROT60 = [tuple(int(x) for x in g) for g in S.ROT60]
+IDX = {g: i for i, g in enumerate(ROT60)}
+E60 = IDX[tuple(range(12))]
+MUL = np.array([[IDX[S.compose(ROT60[i], ROT60[j])] for j in range(60)] for i in range(60)], dtype=np.int64)
+INV = np.array([IDX[S.inverse(g)] for g in ROT60], dtype=np.int64)
+assert all(np.allclose(ROT_MATS[MUL[i, j]], ROT_MATS[i] @ ROT_MATS[j], atol=1e-9) for i in range(60) for j in range(0, 60, 7))
+
+
+def rot_angle(i):
+    tr = float(np.trace(ROT_MATS[i]))
+    return int(round(math.degrees(math.acos(max(-1.0, min(1.0, (tr - 1) / 2))))))
+
+
+ANGLE = np.array([rot_angle(i) for i in range(60)])
+ORDER = np.array([{0: 1, 180: 2, 120: 3, 72: 5, 144: 5}[int(a)] for a in ANGLE])
+CLASS_NAME = {0: 'identity', 180: 'C2 (half turn)', 120: 'C3 (third of a turn)', 72: 'C5 (fifth of a turn, 72 deg)',
+              144: 'C5^2 (two fifths, 144 deg)'}
+
+
+def rot_axis(i):
+    """Unit axis n of rotation i with angle in (0, pi] counter-clockwise about n (identity: zero vector)."""
+    R = ROT_MATS[i]
+    a = ANGLE[i]
+    if a == 0:
+        return np.zeros(3)
+    if a == 180:
+        M = (R + np.eye(3)) / 2
+        k = int(np.argmax(np.diag(M)))
+        return M[:, k] / math.sqrt(M[k, k])
+    n = np.array([R[2, 1] - R[1, 2], R[0, 2] - R[2, 0], R[1, 0] - R[0, 1]])
+    return n / np.linalg.norm(n)
+
+
+def axis_label(i):
+    """What the axis of rotation i passes through: a port, a face or a seam midpoint (with the labels)."""
+    n = rot_axis(i)
+    a = ANGLE[i]
+    if a == 0:
+        return 'none'
+    if a in (72, 144):
+        p = int(np.argmax(PORT_UNIT @ n))
+        return f'port {p}'
+    if a == 120:
+        best = max(S.BASE_FACES, key=lambda f: float(PORT_UNIT[list(f)].sum(axis=0) @ n))
+        return f'face {tuple(best)}'
+    best = max(S.SEAMS, key=lambda e: abs(float((PORT_UNIT[e[0]] + PORT_UNIT[e[1]]) @ n)))
+    return f'seam {tuple(best)}'
+
+
+# ----------------------------------------------------------------------------- binary cover
+SIG = [np.array([[0, 1], [1, 0]], complex), np.array([[0, -1j], [1j, 0]]), np.array([[1, 0], [0, -1]], complex)]
+
+
+def axis_angle(R):
+    """Unit axis and angle in [0, pi] of a rotation matrix (robust near 0 and pi; exact half turns give angle pi)."""
+    vee = np.array([R[2, 1] - R[1, 2], R[0, 2] - R[2, 0], R[1, 0] - R[0, 1]])
+    sn = float(np.linalg.norm(vee)) / 2
+    cs = (float(np.trace(R)) - 1) / 2
+    th = math.atan2(sn, cs)
+    if sn < 1e-9:
+        if cs > 0:
+            return np.array([0.0, 0.0, 1.0]), 0.0
+        Mx = (R + np.eye(3)) / 2
+        k = int(np.argmax(np.diag(Mx)))
+        return Mx[:, k] / math.sqrt(Mx[k, k]), math.pi
+    return vee / (2 * sn), th
+
+
+def su2_of(R):
+    """The lift of the rotation matrix R with non-negative trace (rotation angle in [0, pi])."""
+    n, th = axis_angle(R)
+    if th == 0.0:
+        return np.eye(2, dtype=complex)
+    return math.cos(th / 2) * np.eye(2) - 1j * math.sin(th / 2) * (n[0] * SIG[0] + n[1] * SIG[1] + n[2] * SIG[2])
+
+
+def log_su2(U):
+    """X in su(2) with exp(X) = U: X = -i phi v.sigma for U = cos(phi) - i sin(phi) v.sigma, phi in [0, pi]."""
+    w = float(U[0, 0].real); v = np.array([-float(U[0, 1].imag), -float(U[0, 1].real), -float(U[0, 0].imag)])
+    nv = float(np.linalg.norm(v))
+    phi = math.atan2(nv, w)
+    vh = v / nv if nv > 1e-12 else np.array([0.0, 0.0, 1.0])
+    return -1j * phi * (vh[0] * SIG[0] + vh[1] * SIG[1] + vh[2] * SIG[2])
+
+
+def so3_of(U):
+    return np.array([[0.5 * np.trace(SIG[a] @ U @ SIG[b] @ U.conj().T).real for b in range(3)] for a in range(3)])
+
+
+def _key(U):
+    return tuple(np.round(np.concatenate([U.real.ravel(), U.imag.ravel()]), 6) + 0.0)
+
+
+B2 = []
+for _i in range(60):
+    _U = su2_of(ROT_MATS[_i])
+    B2 += [_U, -_U]
+BKEY = {_key(U): a for a, U in enumerate(B2)}
+assert len(BKEY) == 120
+BMUL = np.array([[BKEY[_key(B2[a] @ B2[b])] for b in range(120)] for a in range(120)], dtype=np.int64)
+BINV = np.array([BKEY[_key(B2[a].conj().T)] for a in range(120)], dtype=np.int64)
+ONE = BKEY[_key(np.eye(2, dtype=complex))]
+CENTRAL = BKEY[_key(-np.eye(2, dtype=complex))]
+assert ONE == 2 * E60 and CENTRAL == 2 * E60 + 1
+assert all(BMUL[a, b] // 2 == MUL[a // 2, b // 2] for a in range(120) for b in range(120))        # covering map
+assert all(np.allclose(so3_of(B2[2 * i]), ROT_MATS[i], atol=1e-9) for i in range(60))
+
+
+def _bord(a):
+    x, n = a, 1
+    while x != ONE:
+        x = int(BMUL[a, x]); n += 1
+    return n
+
+
+BORD = np.array([_bord(a) for a in range(120)])
+# the lift of odd order of a rotation of odd order (the homomorphic section over a cyclic group of odd order)
+ODD_LIFT = {i: (2 * i if BORD[2 * i] % 2 else 2 * i + 1) for i in range(60) if ORDER[i] % 2}
+
+
+def group_closure(gens, mul, e):
+    seen = {int(e)}
+    frontier = [int(e)]
+    gens = sorted(set(int(g) for g in gens))
+    while frontier:
+        nxt = []
+        for x in frontier:
+            for g in gens:
+                y = int(mul[g, x])
+                if y not in seen:
+                    seen.add(y); nxt.append(y)
+        frontier = nxt
+    return seen
+
+
+GROUP_NAME = {1: 'trivial', 2: 'Z2', 3: 'Z3', 4: 'V4', 5: 'Z5', 6: 'S3', 10: 'D5', 12: 'A4', 60: 'A5 (all 60 rotations)'}
+BGROUP_NAME = {1: 'trivial', 2: 'Z2 (central)', 3: 'Z3', 4: 'Z4', 6: 'Z6', 5: 'Z5', 10: 'Z10', 8: 'Q8', 12: 'binary S3 (order 12)',
+               20: 'binary D5 (order 20)', 24: 'binary tetrahedral (order 24)', 120: 'binary icosahedral (order 120)'}
+
+# ----------------------------------------------------------------------------- wirings
+TOP = S.FACE_TRIPLE
+BELT = S.BELT_TRIPLE
+R3 = IDX[tuple(S.find_aut(TOP, (TOP[1], TOP[2], TOP[0]), proper_only=True)[0])]          # r: TOP[k] -> TOP[k+1]
+assert tuple(ROT60[R3][p] for p in BELT) == (BELT[1], BELT[2], BELT[0])
+RPOW = [E60, R3, int(MUL[R3, R3])]
+INVOLUTIONS = [i for i in range(60) if ORDER[i] == 2]
+RULES16 = [E60] + INVOLUTIONS
+DIST = S.DIST
+DIST_ANGLE = {0: 0.0, 1: math.degrees(math.acos(1 / 5 ** 0.5)), 2: math.degrees(math.acos(-1 / 5 ** 0.5)), 3: 180.0}
+
+
+def crosswise_rule(base, i):
+    """Index of the involution g that exchanges two ports of the base triple crosswise:
+    i = 0: base[1] <-> base[2]; i = 1: base[0] <-> base[1]; i = 2: base[0] <-> base[2]."""
+    a, b = ((1, 2), (0, 1), (0, 2))[i]
+    c = S.find_aut((base[a], base[b]), (base[b], base[a]), proper_only=True)
+    assert len(c) == 1
+    return IDX[tuple(c[0])]
+
+
+def rule_name(g, base):
+    if g == E60:
+        return 'S'
+    for i in range(3):
+        if g == crosswise_rule(base, i):
+            return f'R{i}'
+    return f'g{g}'
+
+
+def wiring(kind, level):
+    """W[N,3] and the base triple. Kinds: F (mesh order), Fnat (recursive natural tower), B (= face_axis), Bnat."""
+    mesh = S.build_mesh(level)
+    if kind == 'F':
+        return S.uniform_wiring_mesh_order(mesh, TOP), TOP
+    if kind == 'B':
+        return S.uniform_wiring_mesh_order(mesh, BELT), BELT
+    if kind == 'Fnat':
+        return S.natural_tower(level, TOP, ROT60[R3])[level], TOP
+    if kind == 'Fnat2':
+        return S.natural_tower(level, TOP, ROT60[RPOW[2]])[level], TOP
+    raise ValueError(kind)
+
+
+_HC = {}
+
+
+def chart_of(W, base):
+    """h[c]: index of the rotation with h(base[k]) = W[c, k]."""
+    out = np.empty(W.shape[0], dtype=np.int64)
+    for c, tr in enumerate(map(tuple, W.tolist())):
+        key = (tr, base)
+        if key not in _HC:
+            cands = S.find_aut(base, tr, proper_only=True)
+            _HC[key] = IDX[tuple(cands[0])] if len(cands) == 1 else -1
+        out[c] = _HC[key]
+    return out
+
+
+def transports(mesh, W, base, g):
+    """T[c, k]: rotation index of the chart transport from c to mesh.nbr[c, k] under the uniform rule g."""
+    h = chart_of(W, base)
+    assert (h >= 0).all(), 'not a one-class wiring of this base triple'
+    N = mesh.N
+    T = np.empty((N, 3), dtype=np.int64)
+    rp = np.array(RPOW); rinv = INV[rp]
+    for k in range(3):
+        c2 = mesh.nbr[:, k]; k2 = mesh.nbk[:, k]
+        x = MUL[rinv[k], INV[h]]                 # r^-k h_c^-1
+        x = MUL[g, x]
+        x = MUL[rp[k2], x]
+        T[:, k] = MUL[h[c2], x]
+    # reversibility
+    for k in range(3):
+        assert (T[mesh.nbr[:, k], mesh.nbk[:, k]] == INV[T[:, k]]).all()
+    return T
+
+
+def vertex_holonomies(mesh, T, mul=MUL, e=E60):
+    """For every mesh vertex: (valence, base cell, holonomy index of the counter-clockwise loop based at that cell)."""
+    out = {}
+    for v, cl in S.vertex_cycles(mesh).items():
+        H = e
+        for c, i in cl:
+            H = int(mul[T[c, (i + 1) % 3], H])
+        out[v] = (len(cl), cl[0][0], H)
+    return out
+
+
+def spanning_tree(mesh, root=0):
+    """Breadth-first tree of the cell graph: parent[c], pk[c] (position in the parent of the edge to c), order."""
+    N = mesh.N
+    parent = np.full(N, -1, dtype=np.int64); pk = np.full(N, -1, dtype=np.int64)
+    seen = np.zeros(N, bool); seen[root] = True
+    order = [root]
+    for c in order:
+        for k in range(3):
+            d = int(mesh.nbr[c, k])
+            if not seen[d]:
+                seen[d] = True; parent[d] = c; pk[d] = k; order.append(d)
+    return parent, pk, order
+
+
+def tree_transport(mesh, T, root=0, mul=MUL, e=E60):
+    """G[c]: transport from the root to c along the tree."""
+    parent, pk, order = spanning_tree(mesh, root)
+    G = np.empty(mesh.N, dtype=np.int64); G[root] = e
+    for c in order[1:]:
+        G[c] = mul[T[parent[c], pk[c]], G[parent[c]]]
+    return G, parent, pk
+
+
+def holonomy_group(mesh, T, root=0, mul=MUL, inv=INV, e=E60):
+    """The set of holonomies of all closed paths based at the root (generated by the fundamental loops of a tree)."""
+    G, parent, pk = tree_transport(mesh, T, root, mul, e)
+    gens = set()
+    for c in range(mesh.N):
+        for k in range(3):
+            d = int(mesh.nbr[c, k])
+            if parent[d] == c and pk[d] == k:
+                continue
+            gens.add(int(mul[inv[G[d]], mul[T[c, k], G[c]]]))
+    return group_closure(gens, mul, e)
+
+
+def cover_bfs(mesh, T, root=0, mul=MUL, size=60, e=E60):
+    """Shortest closed paths: breadth-first search on (cell, accumulated transport). Returns dist[N, size] and a
+    function path(a) giving the list of cells of a shortest closed path at the root with holonomy a."""
+    N = mesh.N
+    dist = np.full((N, size), -1, dtype=np.int32)
+    pc = np.full((N, size), -1, dtype=np.int32); pa = np.full((N, size), -1, dtype=np.int32)
+    dist[root, e] = 0
+    frontier = [(root, e)]
+    while frontier:
+        nxt = []
+        for c, a in frontier:
+            for k in range(3):
+                d = int(mesh.nbr[c, k]); b = int(mul[T[c, k], a])
+                if dist[d, b] < 0:
+                    dist[d, b] = dist[c, a] + 1; pc[d, b] = c; pa[d, b] = a
+                    nxt.append((d, b))
+        frontier = nxt
+
+    def path(a):
+        if dist[root, a] < 0:
+            return None
+        cells = [root]; c, x = root, a
+        while dist[c, x] > 0:
+            c, x = int(pc[c, x]), int(pa[c, x])
+            cells.append(c)
+        return cells[::-1]
+    return dist, path
+
+
+def path_holonomy(mesh, T, cells, mul=MUL, e=E60):
+    H = e
+    for c, d in zip(cells[:-1], cells[1:]):
+        k = int(np.where(mesh.nbr[c] == d)[0][0])
+        H = int(mul[T[c, k], H])
+    return H
+
+
+# ----------------------------------------------------------------------------- spin lift
+def lift_transports(mesh, T, target6=+1, even_at=None):
+    """A lift TL[c, k] in the binary group with TL(c' -> c) = TL(c -> c')^-1 and, where the rotation holonomy of a mesh
+    vertex has odd order (1, 3, 5), the lifted holonomy of odd order as well (the all-positive class). Returns TL, the
+    number of vertices where this was impossible (0 or 1: the parity obstruction), and the sign of every vertex before
+    the normalisation of the arbitrary initial lift. target6 = -1 asks instead for the lift of even order (minus the
+    odd-order lift) at every six-valent vertex: the class of a carrier that rolls physically (short lifts).
+    even_at(valence, rotation index) -> bool selects the vertices with the even-order lift individually."""
+    N = mesh.N
+    TL = np.empty((N, 3), dtype=np.int64)
+    for c in range(N):
+        for k in range(3):
+            d = int(mesh.nbr[c, k]); k2 = int(mesh.nbk[c, k])
+            if c < d:
+                TL[c, k] = 2 * T[c, k]; TL[d, k2] = BINV[2 * T[c, k]]
+    hol = vertex_holonomies(mesh, TL, BMUL, ONE)
+    V = mesh.V
+    defect = np.zeros(V, dtype=np.int64); free = np.zeros(V, bool)
+    for v, (n, c0, H) in hol.items():
+        if ORDER[H // 2] % 2 == 0:
+            free[v] = True
+        else:
+            want_even = even_at(n, H // 2) if even_at is not None else (n == 6 and target6 < 0)
+            defect[v] = (0 if BORD[H] % 2 else 1) ^ (1 if want_even else 0)
+    raw = defect.copy()
+    # mesh vertex graph: edge e joins edge_lo[e], edge_hi[e]; flipping the lift on the dual edge flips both ends
+    adj = collections.defaultdict(list)
+    for eidx in range(mesh.left.size):
+        a, b = int(mesh.edge_lo[eidx]), int(mesh.edge_hi[eidx])
+        adj[a].append((b, eidx)); adj[b].append((a, eidx))
+    root = int(np.flatnonzero(free)[0]) if free.any() else 0
+    par = {root: (None, None)}; order = [root]
+    for v in order:
+        for w, eidx in adj[v]:
+            if w not in par:
+                par[w] = (v, eidx); order.append(w)
+    flips = []
+    for v in reversed(order[1:]):
+        if defect[v] and not free[v]:
+            p, eidx = par[v]
+            flips.append(eidx); defect[v] ^= 1
+            if not free[p]:
+                defect[p] ^= 1
+        elif free[v]:
+            defect[v] = 0
+    unsolved = int(defect[root]) if not free[root] else 0
+    for eidx in flips:
+        c, k = int(mesh.left[eidx]), int(mesh.kl[eidx]); d, k2 = int(mesh.right[eidx]), int(mesh.kr[eidx])
+        TL[c, k] = BMUL[CENTRAL, TL[c, k]]; TL[d, k2] = BMUL[CENTRAL, TL[d, k2]]
+    for c in range(N):
+        for k in range(3):
+            assert TL[mesh.nbr[c, k], mesh.nbk[c, k]] == BINV[TL[c, k]] and TL[c, k] // 2 == T[c, k]
+    return TL, unsolved, raw
+
+
+# ----------------------------------------------------------------------------- spinors and spin one
+def spinor(n):
+    """Spin-1/2 coherent state along n, north gauge (the convention of RL/work/FLUXPUMP/cap.py)."""
+    th = math.acos(max(-1.0, min(1.0, float(n[2])))); ph = math.atan2(float(n[1]), float(n[0]))
+    return np.array([math.cos(th / 2), np.exp(1j * ph) * math.sin(th / 2)])
+
+
+def spin1_matrices():
+    s = 1 / math.sqrt(2)
+    Jx = np.array([[0, s, 0], [s, 0, s], [0, s, 0]], complex)
+    Jy = np.array([[0, -1j * s, 0], [1j * s, 0, -1j * s], [0, 1j * s, 0]], complex)
+    Jz = np.diag([1.0, 0.0, -1.0]).astype(complex)
+    return Jx, Jy, Jz
+
+
+def spin1_of(R, log=False):
+    """Spin-one representation matrix exp(-i theta n.J) of the rotation matrix R (or its generator -i theta n.J)."""
+    from scipy.linalg import expm
+    n, th = axis_angle(R)
+    Jx, Jy, Jz = spin1_matrices()
+    X = -1j * th * (n[0] * Jx + n[1] * Jy + n[2] * Jz)
+    return X if log else expm(X)
+
+
+def helicity_state(j, m, n):
+    """Eigenvector of n.J (spin j = 1/2 or 1) with eigenvalue m; phase fixed by the largest component real positive."""
+    if j == 0.5:
+        Js = [s / 2 for s in SIG]
+    else:
+        Js = spin1_matrices()
+    w, U = np.linalg.eigh(n[0] * Js[0] + n[1] * Js[1] + n[2] * Js[2])
+    v = U[:, int(np.argmin(abs(w - m)))]
+    k = int(np.argmax(abs(v)))
+    return v * (abs(v[k]) / v[k])
+
+
+def galois_axes():
+    """Unit axes of the great-icosahedron realization: phi -> -1/phi in the template coordinates."""
+    raw = S.RAW.copy()
+    G = np.where(np.isclose(abs(raw), S.PHI), np.sign(raw) * (-1 / S.PHI), raw)
+    return G / np.linalg.norm(G, axis=1, keepdims=True)
+
+
+PORT_GREAT = galois_axes()
+
+
+def galois_rotation(i):
+    """The rotation matrix R' with R' u'_p = u'_{g[p]} on the great axes (the conjugate three-dimensional rep)."""
+    g = ROT60[i]
+    A = PORT_GREAT; Bm = PORT_GREAT[list(g)]
+    U, s, Vt = np.linalg.svd(Bm.T @ A)
+    R = U @ Vt
+    assert np.allclose(A @ R.T, Bm, atol=1e-9) and np.linalg.det(R) > 0
+    return R

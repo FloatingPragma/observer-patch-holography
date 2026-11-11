@@ -1,0 +1,202 @@
+"""Block 4/6 variants.
+
+screen   Screen frame: the null direction of a record is the screen position n_c of the carrier where the load
+         arrives (a point of the screen read as a point of the celestial sphere). Quantum tapes on the federation.
+tower    Observer frames from caps: cell c of tower level l is read as the boost with tanh(eta_l) = 1 - 1/(20 4^l)
+         (the mean null direction of a cap of the cell's area; MU's cap-effect identity) along n_c. Events are the
+         proper-time ticks tau v_{l,c}. Order: tau' >= tau exp(d(v, v')), d the hyperbolic distance (this is the
+         Loewner order of tau v, evaluated without cancellation).
+Writes results/b5_<part>.json.
+"""
+import argparse, json, os, sys, time
+from multiprocessing import Pool
+import numpy as np
+import mc_lib as L
+
+os.environ.setdefault('OPH_UNIVERSE_CACHE', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'cache'))
+from oph_defects import fedgeom
+
+
+# ----------------------------------------------------------------------------- screen frame
+def screen_one(a):
+    import b4_federation as B4
+    level, seed = a
+    rng = np.random.default_rng([seed, level, 43])
+    geo = fedgeom.build(level)
+    N = geo.carriers
+    sa, sb = geo.all_seam_ends()
+    loads = np.zeros(12 * N, np.int64); loads[rng.choice(12 * N, 2 * N, replace=False)] = 1
+    qid = np.full(12 * N, -1, np.int64); qid[np.nonzero(loads)[0]] = np.arange(2 * N)
+    Tmax = 1200
+    sweeps = 900
+    pdir = np.zeros((N, 12, 3))
+    cn, crec, ctime, cglue, qn, qrec, qrecx, qcar, moves, glue_moves = B4.simulate(
+        sa.astype(np.int64), sb.astype(np.int64), loads, qid, sweeps * sa.size, int(seed * 1000 + level + 7), N, Tmax, B4.AXI, B4.SGN, pdir)
+    cx = geo.carrier_xyz / np.linalg.norm(geo.carrier_xyz, axis=1, keepdims=True)
+    Tfull = int(min(qn.min(), Tmax))
+    X = np.cumsum(cx[qcar[:, :Tfull]], axis=1)                      # [Q, T, 3] spatial part; time part = record count
+    out = {'level': level, 'seed': seed, 'carriers': N, 'T_available': Tfull, 'glue_move_fraction': glue_moves / max(1, moves)}
+    # direction autocorrelation of the quantum's screen position in records
+    lags = [1, 10, 30, 100, 300, 1000]
+    n = cx[qcar[:, :Tfull]]
+    out['direction_autocorrelation'] = {str(l): float((n[:, :-l] * n[:, l:]).sum(axis=2).mean()) for l in lags if l < Tfull}
+    res = {}
+    for T in (10, 50, 200, 1000):
+        if T > Tfull:
+            continue
+        x = X[:, T - 1, :]
+        r2 = (x ** 2).sum(axis=1)
+        tt = np.tile(np.arange(1, T + 1.0), 2 * N)
+        P = np.column_stack([tt, X[:, :T, :].reshape(-1, 3)])
+        P = P[L.dedup_rows(P, 9)]
+        if P.shape[0] > 4000:
+            P = P[rng.choice(P.shape[0], 4000, replace=False)]
+        st = L.order_stats(L.relation_cone(P))
+        rel = 1 - (P[:, 1:] ** 2).sum(axis=1) / P[:, 0] ** 2
+        res[str(T)] = {'x2_over_t2': float(r2.mean() / T ** 2), 'x2_over_t': float(r2.mean() / T),
+                       'null_fraction_exact': float((rel < 1e-12).mean()), 'mass2_over_t2_median': float(np.median(rel)),
+                       **{k: st[k] for k in ('N', 'r', 'd_r', 'd_m', 'links', 'height')}}
+    out['by_tape_length'] = res
+    return out
+
+
+def part_screen(procs, seeds):
+    jobs = [(lv, s) for lv in (0, 1, 2) for s in range(seeds)]
+    with Pool(procs) as pool:
+        rows = pool.map(screen_one, jobs, chunksize=1)
+    out = {}
+    for lv in (0, 1, 2):
+        sel = [r for r in rows if r['level'] == lv]
+        d = {'carriers': sel[0]['carriers'], 'seeds': len(sel), 'T_available': [r['T_available'] for r in sel],
+             'glue_move_fraction': float(np.mean([r['glue_move_fraction'] for r in sel])),
+             'direction_autocorrelation': {k: float(np.mean([r['direction_autocorrelation'][k] for r in sel if k in r['direction_autocorrelation']]))
+                                           for k in sel[0]['direction_autocorrelation']}, 'by_tape_length': {}}
+        for T in ('10', '50', '200', '1000'):
+            rr = [r['by_tape_length'][T] for r in sel if T in r['by_tape_length']]
+            if rr:
+                d['by_tape_length'][T] = {k: [float(np.mean([x[k] for x in rr])), float(np.std([x[k] for x in rr], ddof=1) / np.sqrt(len(rr))) if len(rr) > 1 else float('nan')]
+                                          for k in rr[0]}
+        out[f'level={lv}'] = d
+    return out
+
+
+# ----------------------------------------------------------------------------- tower of cap frames
+def eta_level(l):
+    return float(np.arctanh(1 - 1 / (20 * 4.0 ** l)))
+
+
+def relation_milne(logtau, eta, nvec, chunk=500):
+    """(tau, v) <= (tau', v') iff ln tau' - ln tau >= d(v, v'); v = (cosh eta, sinh eta n)."""
+    N = logtau.size
+    ch, sh = np.cosh(eta), np.sinh(eta)
+    R = np.zeros((N, N), bool)
+    for s in range(0, N, chunk):
+        cc = ch[s:s + chunk, None] * ch[None, :] - sh[s:s + chunk, None] * sh[None, :] * (nvec[s:s + chunk] @ nvec.T)
+        d = np.arccosh(np.maximum(cc, 1.0))
+        dl = logtau[None, :] - logtau[s:s + chunk, None]
+        R[s:s + chunk] = (dl > 1e-13) & (dl >= d - 1e-12)
+    return R
+
+
+def tower_population(Lmax, B, ticks, rng, cap, dust=False, delta=0.05):
+    """Events inside the diamond [e_0, B e_0]: e^eta <= tau <= B e^-eta. ticks: 'linear' (tau = 1, 2, ...) or 'log'."""
+    etas, ns = [0.0], [np.array([[0.0, 0.0, 1.0]])]
+    if dust:      # velocities drawn from the invariant measure on the ball of rapidity (ln B)/2, same number as the net
+        K = sum(20 * 4 ** l for l in range(Lmax + 1))
+        emax = 0.5 * np.log(B)
+        g = np.linspace(0, emax, 200001); cdf = np.cumsum(np.sinh(g) ** 2); cdf /= cdf[-1]
+        e = np.interp(rng.random(K), cdf, g)
+        v = rng.normal(size=(K, 3)); v /= np.linalg.norm(v, axis=1)[:, None]
+        eta = np.concatenate([[0.0], e]); nvec = np.vstack([ns[0], v])
+    else:
+        for l in range(Lmax + 1):
+            geo = fedgeom.build(l)
+            cx = geo.carrier_xyz / np.linalg.norm(geo.carrier_xyz, axis=1, keepdims=True)
+            etas += [eta_level(l)] * geo.carriers; ns.append(cx)
+        eta = np.array(etas); nvec = np.vstack(ns)
+    lt, ee, nn, wl = [], [], [], []
+    for i in range(eta.size):
+        lo, hi = np.exp(eta[i]), B * np.exp(-eta[i])
+        if hi < lo:
+            continue
+        if ticks == 'linear':
+            tau = np.arange(np.ceil(lo), np.floor(hi) + 1)
+        else:
+            tau = np.exp(np.arange(np.ceil(eta[i] / delta), np.floor((np.log(B) - eta[i]) / delta) + 1) * delta)
+        lt.append(np.log(tau)); ee.append(np.full(tau.size, eta[i])); nn.append(np.tile(nvec[i], (tau.size, 1))); wl.append(np.full(tau.size, i))
+    lt = np.concatenate(lt); ee = np.concatenate(ee); nn = np.vstack(nn); wl = np.concatenate(wl)
+    total = lt.size
+    if total > cap:
+        k = rng.choice(total, cap, replace=False)
+        lt, ee, nn, wl = lt[k], ee[k], nn[k], wl[k]
+    return lt, ee, nn, wl, total, int(eta.size)
+
+
+def tower_one(a):
+    Lmax, ticks, dust, seed = a
+    rng = np.random.default_rng([seed, Lmax, 1 if ticks == 'linear' else 2, int(dust), 47])
+    B = 4 * (40 * 4.0 ** Lmax - 1)
+    lt, ee, nn, wl, total, worldlines = tower_population(Lmax, B, ticks, rng, 4000, dust)
+    R = relation_milne(lt, ee, nn)
+    st = L.order_stats(R, check_transitive=True)
+    same = wl[:, None] == wl[None, :]
+    st.update({'Lmax': Lmax, 'ticks': ticks, 'dust': dust, 'seed': seed, 'B': B, 'events_in_diamond': total, 'worldlines': worldlines,
+               'worldlines_in_sample': int(np.unique(wl).size), 'cross_worldline_fraction': float((R & ~same).sum() / max(1, R.sum())),
+               'profile': L.profile_means(L.interval_profile(R, rng))})
+    return st
+
+
+def part_tower(procs, seeds):
+    # net geometry
+    geom = {'eta_by_level': {str(l): eta_level(l) for l in range(8)},
+            'cells_per_unit_hyperbolic_volume': {}, 'limit_2_over_3pi': 2 / (3 * np.pi)}
+    for l in range(7):
+        lo, hi = (eta_level(l - 1) + eta_level(l)) / 2 if l else eta_level(0) - (eta_level(1) - eta_level(0)) / 2, (eta_level(l) + eta_level(l + 1)) / 2
+        vol = np.pi * ((np.sinh(2 * hi) - 2 * hi) - (np.sinh(2 * lo) - 2 * lo))
+        geom['cells_per_unit_hyperbolic_volume'][str(l)] = 20 * 4 ** l / vol
+    nn_d = {}
+    for l in range(4):
+        geo = fedgeom.build(l)
+        cx = geo.carrier_xyz / np.linalg.norm(geo.carrier_xyz, axis=1, keepdims=True)
+        e = eta_level(l)
+        nb = geo.neighbours()
+        cosang = (cx[:, None, :] * cx[nb]).sum(axis=2)
+        d_same = np.arccosh(np.cosh(e) ** 2 - np.sinh(e) ** 2 * cosang)
+        row = {'glued_neighbour_distance_mean': float(d_same.mean()), 'min': float(d_same.min()), 'max': float(d_same.max())}
+        if l:
+            geop = fedgeom.build(l - 1)
+            cp = geop.carrier_xyz / np.linalg.norm(geop.carrier_xyz, axis=1, keepdims=True)
+            ep = eta_level(l - 1)
+            best = (cx @ cp.T).max(axis=1)
+            row['distance_to_nearest_cell_one_level_up_mean'] = float(np.arccosh(np.cosh(e) * np.cosh(ep) - np.sinh(e) * np.sinh(ep) * best).mean())
+        nn_d[str(l)] = row
+    geom['hyperbolic_distances'] = nn_d
+    geom['smallest_duration_ratio_seeing_a_second_worldline'] = float(np.exp(2 * eta_level(0)))
+    jobs = [(Lmax, ticks, dust, s) for Lmax in (1, 2, 3) for ticks in ('linear', 'log') for dust in (False, True) for s in range(seeds if dust else 3)]
+    with Pool(procs) as pool:
+        rows = pool.map(tower_one, jobs, chunksize=1)
+    out = {'geometry': geom, 'populations': {}}
+    for Lmax in (1, 2, 3):
+        for ticks in ('linear', 'log'):
+            for dust in (False, True):
+                sel = [r for r in rows if (r['Lmax'], r['ticks'], r['dust']) == (Lmax, ticks, dust)]
+                d = L.summarize(sel, keys=('r', 'd_r', 'm', 'd_m', 'links', 'height', 'N', 'events_in_diamond', 'worldlines', 'worldlines_in_sample', 'cross_worldline_fraction'))
+                d['transitive_all'] = all(r['transitive'] for r in sel)
+                d['profile'] = L.across_seeds([r['profile'] for r in sel])
+                out['populations'][f'{"dust" if dust else "tower"}|Lmax={Lmax}|{ticks} ticks'] = d
+    return out
+
+
+if __name__ == '__main__':
+    ap = argparse.ArgumentParser()
+    ap.add_argument('part')
+    ap.add_argument('--procs', type=int, default=12)
+    ap.add_argument('--seeds', type=int, default=6)
+    a = ap.parse_args()
+    t0 = time.time()
+    res = part_screen(a.procs, a.seeds) if a.part == 'screen' else part_tower(a.procs, a.seeds)
+    res = {'part': a.part, 'seconds': time.time() - t0, 'result': res}
+    os.makedirs('results', exist_ok=True)
+    json.dump(res, open(f'results/b5_{a.part}.json', 'w'), indent=1, default=float)
+    print(json.dumps(res, default=float)[:3000])
+    print('seconds', round(res['seconds'], 1))

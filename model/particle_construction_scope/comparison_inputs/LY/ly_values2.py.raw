@@ -1,0 +1,108 @@
+"""Worker LY: candidate values of addenda B and C (CANDIDATES.md sections 6 and 7). Reads no measured value.
+
+Inputs: values.json, run.json, run2.json (this directory).
+  cd RL/work/LY && PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B ly_values2.py
+Writes values2.json.
+"""
+from __future__ import annotations
+
+import json
+import math
+import os
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+PW = {2: 3 / 8, 3: 3 / 8, 4: 3 / 16, 5: 1 / 16}
+
+
+def load(name):
+    with open(os.path.join(HERE, name)) as fh:
+        return json.load(fh)
+
+
+def main():
+    v1, run, run2 = load('values.json'), load('run.json'), load('run2.json')
+    st = v1['structure']
+    Kd = {int(k): v for k, v in st['K_by_separation'].items()}
+    K = st['K_placement_mean']
+    KC = st['committed_law_K_C']
+    half_U = run2['g_U_over_2']
+    lmax = run2['lambda_max_sq']
+    contents = run2['X12_contents']
+    out = {'measured_values_read': False}
+
+    # amplitude numbers from the completion probabilities
+    amp = {'sqrt_of_mean_K': math.sqrt(K), 'mean_of_sqrt_K': sum(PW[d] * math.sqrt(Kd[d]) for d in PW),
+           'coherent_sum_sqrt_weight_K': sum(math.sqrt(PW[d] * Kd[d]) for d in PW)}
+    if '6' in KC and 'mean' in KC['6']:
+        amp['sqrt_of_mean_K_C_N6'] = math.sqrt(KC['6']['mean'])
+        amp['sqrt_of_mean_K_C_N6_standard_error'] = 0.5 * KC['6']['mean_standard_error'] / math.sqrt(KC['6']['mean'])
+    out['amplitudes'] = amp
+
+    # E rows: y_0(M_U) = (g_U/2) A
+    p, q = 1 / 12, 1 / 6
+    A = {'E-1': ('exp(-2)', math.exp(-2.0)), 'E-2': ('1/sqrt55', 1 / math.sqrt(55.0)), 'E-3': ('1/11', 1 / 11.0),
+         'E-4': ('1/5', 0.2), 'E-5': ('2/7', 2 / 7.0), 'E-6': ('sqrt(p q)', math.sqrt(p * q))}
+    assert abs((p / (1 - p)) * (q / (1 - q)) - 1 / 55.0) < 1e-15
+    erows = []
+    for cid, (name, a) in A.items():
+        yJ_MU = (2.0 / 9.0) * half_U * a
+        row = {'id': cid, 'A': name, 'A_value': a, 'yJ_MU': yJ_MU, 'yJ_MSbar_Q0_by_content': {}}
+        for cname, c in contents.items():
+            row['yJ_MSbar_Q0_by_content'][cname] = c['factor_Q0_over_MU'] * yJ_MU
+        erows.append(row)
+    out['E_rows'] = erows
+
+    # F rows: y_0(cell) = (g_2(cell)/2) X on the declared chart
+    g2_2L = run['rows']['2_loop|y_b_equals_y_tau']['g_upper'][1]
+    g2_1L = run['rows']['1_loop|y_b_equals_y_tau']['g_upper'][1]
+    f2, f1 = run['factor_yJ_Q0_over_yJ_cell']['two_loops'], run['factor_yJ_Q0_over_yJ_cell']['one_loop']
+    out['g_2_cell'] = {'two_loops': g2_2L, 'one_loop': g2_1L}
+    frows = []
+    forms = [('F-1', '(g_2/2) sqrt(<K>)', amp['sqrt_of_mean_K']), ('F-2', '(g_2/2) <sqrt(K)>', amp['mean_of_sqrt_K']),
+             ('F-3', '(g_2/2) sum sqrt(pi K)', amp['coherent_sum_sqrt_weight_K'])]
+    if 'sqrt_of_mean_K_C_N6' in amp:
+        forms.append(('F-4', '(g_2/2) sqrt(<K_C>), N = 6', amp['sqrt_of_mean_K_C_N6']))
+    for cid, formula, x in forms:
+        frows.append({'id': cid, 'formula': formula, 'amplitude': x,
+                      'y0_cell_two_loops': 0.5 * g2_2L * x, 'yJ_cell_two_loops': (2 / 9) * 0.5 * g2_2L * x,
+                      'yJ_MSbar_Q0_two_loops': f2 * (2 / 9) * 0.5 * g2_2L * x,
+                      'y0_cell_one_loop': 0.5 * g2_1L * x, 'yJ_cell_one_loop': (2 / 9) * 0.5 * g2_1L * x,
+                      'yJ_MSbar_Q0_one_loop': f1 * (2 / 9) * 0.5 * g2_1L * x})
+    f5 = {'id': 'F-5', 'formula': '(g_U/2) sqrt(<K>) at M_U', 'amplitude': amp['sqrt_of_mean_K'],
+          'yJ_MU': (2 / 9) * half_U * amp['sqrt_of_mean_K'], 'yJ_MSbar_Q0_by_content': {}}
+    for cname, c in contents.items():
+        f5['yJ_MSbar_Q0_by_content'][cname] = c['factor_Q0_over_MU'] * f5['yJ_MU']
+    out['F_rows'] = frows
+    out['F-5'] = f5
+
+    # E-X: modular energies of the read probabilities on file
+    reads = {'1/12 (oriented repair)': 1 / 12, '1/6 (hold)': 1 / 6, '2/9 (exclusive count)': 2 / 9,
+             '1/4 (one object)': 1 / 4, '5/18 (one of three reads)': 5 / 18, '11/36 (at least one)': 11 / 36,
+             '1/3 (activity)': 1 / 3}
+    ex = {k: math.log((1 - pp) / pp) for k, pp in reads.items()}
+    out['E-X_modular_energies_nats'] = ex
+    out['E-X_probability_for_one_nat_of_weight'] = 1 / (1 + math.e)
+    out['E-X_probability_for_one_nat_of_amplitude'] = 1 / (1 + math.e ** 2)
+    out['E-X_repair_plus_hold_nats_of_weight'] = math.log(55.0)
+    out['E-X_repair_plus_hold_nats_of_amplitude'] = 0.5 * math.log(55.0)
+
+    # third-family table (Yukawas at Q0)
+    out['third_family_table'] = run2['third_family_table']
+    out['top_alone_at_g_U_over_2'] = run2['top_alone_at_g_U_over_2']
+    out['contents'] = contents
+    out['cell_rule_table'] = run2.get('cell_rule_table')
+    out['g_U_over_2'] = half_U
+    out['lambda_max_sq'] = lmax
+    with open(os.path.join(HERE, 'values2.json'), 'w') as fh:
+        json.dump(out, fh, indent=1)
+        fh.write('\n')
+    print('amplitudes', json.dumps(amp))
+    for r in erows:
+        print(r['id'], r['A'], f"{r['A_value']:.5f}", 'y_J(M_U) =', f"{r['yJ_MU']:.6f}")
+    for r in frows:
+        print(r['id'], r['formula'], f"amplitude {r['amplitude']:.5f}  y_J(cell) 2L {r['yJ_cell_two_loops']:.6f}  1L {r['yJ_cell_one_loop']:.6f}")
+    print('E-X', json.dumps(ex), out['E-X_repair_plus_hold_nats_of_amplitude'])
+
+
+if __name__ == '__main__':
+    main()

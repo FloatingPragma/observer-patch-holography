@@ -1,0 +1,93 @@
+"""T3: the scale at which v_source is attached (PREREGISTRATION section 3).
+
+A1 v(Q0) = v_source (D10 Z-scale law); A2 v(Q_t) = v_source with Q_t = y_t(Q_t) v_source/sqrt2 (literal D11
+readout); A3 v(v_source) = v_source (ARGUED transmutation reading); C1 v(172.4 GeV) = v_source (control).
+SMDR five-loop running of the source packet gives r = v(Q)/v(Q0); then v(Q0) = v_source/r and the
+SMDR readout (F10) gives W, Z, H, t. Evaluated at P_fwd (primary) and at P_br (link to the 2026-11-06 audit).
+Writes t3_vev_attachment.json.
+"""
+from __future__ import annotations
+
+import json
+import math
+
+import lewlib as L
+
+LOOPS_V = 5
+
+
+def ratio(pk: dict, q: float) -> dict:
+    row = L.rg_to(pk, q, LOOPS_V, name="v.dat")
+    return {"v_at_Q": row["v"], "yt_at_Q": row["yt"], "r": row["v"] / pk["v"]}
+
+
+def attach(pk: dict, rule: str) -> dict:
+    vs = pk["v"]
+    if rule == "A1":
+        q, r = pk["Q0"], 1.0
+        info = {}
+    elif rule == "A2":
+        q = 163.0
+        for it in range(60):
+            rr = ratio(pk, q)
+            q_new = rr["yt_at_Q"] * vs / math.sqrt(2.0)  # v(Q_t) = v_source, so m_t = y_t(Q_t) v_source/sqrt2
+            if abs(q_new - q) < 1e-9:
+                q = q_new
+                break
+            q = q_new
+        rr = ratio(pk, q)
+        r = rr["r"]
+        info = {"iterations": it + 1, "yt_at_Qt": rr["yt_at_Q"],
+                "fixed_point_residual_GeV": rr["yt_at_Q"] * vs / math.sqrt(2.0) - q}
+    elif rule == "A3":
+        q = vs
+        r = ratio(pk, q)["r"]
+        info = {}
+    elif rule == "C1":
+        q = 172.4
+        r = ratio(pk, q)["r"]
+        info = {}
+    else:
+        raise ValueError(rule)
+    new = dict(pk)
+    new["v"] = vs / r
+    out = L.readout(new)
+    return {"rule": rule, "attachment_scale_GeV": q, "r_v(Q)_over_v(Q0)": r, "eta_v(Q0)_over_v_source": 1.0 / r,
+            "v_Q0_GeV": new["v"], "outputs_GeV": out, **info}
+
+
+def main():
+    t1 = json.loads((L.LANE / "t1_chain.json").read_text())
+    refs = t1["references_compare_only_GeV"]
+    result = {"schema": "lew.t3_vev_attachment.v1", "loops_for_v_running": LOOPS_V, "pixels": {}}
+    for name in ("P_fwd", "P_br"):
+        pk = dict(t1["pixels"][name]["packet_Q0"])
+        rows = {}
+        for rule in ("A1", "A2", "A3", "C1"):
+            row = attach(pk, rule)
+            row["residual_percent_compare_only"] = {k: 100.0 * (row["outputs_GeV"][k] / refs[k] - 1.0)
+                                                    for k in ("W", "Z", "H", "t")}
+            rows[rule] = row
+        conflict = abs(rows["A2"]["r_v(Q)_over_v(Q0)"] - 1.0)
+        rows["decision"] = {
+            "A1_vs_A2_ratio_minus_one": conflict,
+            "threshold": 1e-5,
+            "source_fixes_attachment": conflict <= 1e-5,
+            "verdict": ("two source statements attach the same v at different scales; under the MSbar dictionary they "
+                        "differ by the factor above, so the attachment is DECLARED, not fixed by the source")
+            if conflict > 1e-5 else "consistent",
+        }
+        result["pixels"][name] = rows
+    (L.LANE / "t3_vev_attachment.json").write_text(json.dumps(result, indent=2) + "\n")
+    for name, rows in result["pixels"].items():
+        print("==", name)
+        for rule in ("A1", "A2", "A3", "C1"):
+            r = rows[rule]
+            print(rule, "Q=%.6f r=%.8f v(Q0)=%.6f" % (r["attachment_scale_GeV"], r["r_v(Q)_over_v(Q0)"], r["v_Q0_GeV"]),
+                  {k: round(r["outputs_GeV"][k], 6) for k in ("W", "Z", "H", "t")},
+                  {k: round(v, 4) for k, v in r["residual_percent_compare_only"].items()})
+        print(rows["decision"])
+
+
+if __name__ == "__main__":
+    main()

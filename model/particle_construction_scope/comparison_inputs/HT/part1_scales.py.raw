@@ -1,0 +1,116 @@
+"""Part 1: scales produced by the candidate selections C2 and C3 (C1 is treated in part1_c1.py). Source charts only;
+no measured value is read. Writes part1_scales.json."""
+import json
+import math
+import sys
+
+import numpy as np
+
+sys.path.insert(0, ".")
+import htlib as H  # noqa: E402
+
+P = H.P_FWD
+EC = H.e_cell(P)
+ES = H.E_STAR
+MU_U = ES * math.exp(-2 * math.pi) * P ** (1 / 6)
+MID = ES * math.exp(-math.pi) * P ** (-1 / 6)
+QD10 = H.D11_MU_Z_OVER_E * ES
+out = {"P": P, "E_cell": EC, "E_star": ES, "M_U_declared": MU_U, "midpoint": MID}
+
+# ---- C3 readings: log of (weight of the first sector / weight of the second), zero = equalization ----
+LN2, LN3, PI2 = math.log(2), math.log(3), math.pi ** 2
+
+
+def readings(ay, a2, a3):
+    higgs = LN2 - 4 * PI2 * (0.75 * a2 + 0.25 * ay)
+    triplet = LN3 - 4 * PI2 * (4 / 3 * a3 + ay / 9)
+    return {
+        "C3a_higgs_vs_trivial": higgs,
+        "C3b_su2_factor_vs_trivial": LN2 - 3 * PI2 * a2,
+        "C3c_doublet_vs_triplet_block": higgs - triplet,
+        "C3d_su2_factor_vs_u1_factor": (LN2 - 3 * PI2 * a2) - (-PI2 * ay),
+    }
+
+
+def chart_d11(mu):
+    return H.d11_alphas(mu)  # (alpha_Y, alpha_2, alpha_3)
+
+
+def chart_rebuilt(census, matching):
+    b = H.CENSUS[census]
+
+    def f(mu):
+        x1, x2, x3 = H.inv_alphas_rebuilt(mu, P, b, matching)
+        if min(x1, x2, x3) <= 0:
+            return None
+        return (0.6 / x1, 1 / x2, 1 / x3)
+    return f
+
+
+def roots(chart, lo, hi, n=4000):
+    grid = np.geomspace(lo, hi, n)
+    vals = []
+    for mu in grid:
+        a = chart(float(mu))
+        vals.append(None if a is None else readings(*a))
+    res = {}
+    for key in ("C3a_higgs_vs_trivial", "C3b_su2_factor_vs_trivial", "C3c_doublet_vs_triplet_block",
+                "C3d_su2_factor_vs_u1_factor"):
+        found = []
+        for i in range(n - 1):
+            if vals[i] is None or vals[i + 1] is None:
+                continue
+            fa, fb = vals[i][key], vals[i + 1][key]
+            if fa == 0 or fa * fb < 0:
+                a, b = math.log(grid[i]), math.log(grid[i + 1])
+                for _ in range(100):
+                    m = 0.5 * (a + b)
+                    fm = readings(*chart(math.exp(m)))[key]
+                    if readings(*chart(math.exp(a)))[key] * fm <= 0:
+                        b = m
+                    else:
+                        a = m
+                found.append(math.exp(0.5 * (a + b)))
+        ends = [v for v in (vals[0], vals[-1])]
+        res[key] = {"roots_GeV": found,
+                    "sign_at_low_end": None if ends[0] is None else math.copysign(1, ends[0][key]),
+                    "sign_at_high_end": None if ends[1] is None else math.copysign(1, ends[1][key]),
+                    "value_at_low_end": None if ends[0] is None else ends[0][key],
+                    "value_at_high_end": None if ends[1] is None else ends[1][key]}
+    return res
+
+
+c3 = {"D11_chart_[Q0,E*]": roots(chart_d11, QD10, ES)}
+for census in H.CENSUS:
+    for matching in ("bare", "5trace"):
+        c3[f"rebuilt_{census}_{matching}_[Q0,E_cell]"] = roots(chart_rebuilt(census, matching), QD10, EC)
+out["C3"] = c3
+
+# ---- C2c: electric-magnetic self-duality of the U(1)_Y link (q = 6Y): tau = 2 pi^2 alpha_Y/9 = 2 pi ----
+alpha_y_selfdual = 9 / math.pi
+ay_max_d11 = max(chart_d11(float(m))[0] for m in np.geomspace(QD10, ES, 400))
+ay_rebuilt_cell = {m: 0.6 / H.inv_alphas_rebuilt(EC, P, (0, 0, 0), m)[0] for m in ("bare", "5trace")}
+out["C2c_u1_selfdual"] = {"alpha_Y_selfdual": alpha_y_selfdual, "max_alpha_Y_D11_chart_[Q0,E*]": ay_max_d11,
+                          "alpha_Y_rebuilt_at_E_cell (maximum of the rebuilt chart below E_cell; b1 > 0)": ay_rebuilt_cell,
+                          "reached": ay_max_d11 >= alpha_y_selfdual or max(ay_rebuilt_cell.values()) >= alpha_y_selfdual}
+
+# ---- C2: pairs of source scales and their geometric means against the midpoint ----
+v_d10 = 246.59678102099912  # D10 transmutation v at P_fwd (declared law), display GeV
+v_cell = H.v_cell(P)
+scales = {"E_star": ES, "E_cell": EC, "v_D10": v_d10, "v_cell": v_cell}
+pairs = {}
+names = list(scales)
+for i in range(len(names)):
+    for j in range(i + 1, len(names)):
+        gm = math.sqrt(scales[names[i]] * scales[names[j]])
+        pairs[f"{names[i]}*{names[j]}"] = {"geometric_mean_GeV": gm, "ln(gm/midpoint)": math.log(gm / MID)}
+out["C2_pairs"] = {"midpoint_GeV": MID, "pairs": pairs,
+                   "C2a_after_GL (unification at the cell)": EC, "C2b_sqrt(E* E_cell)": math.sqrt(ES * EC),
+                   "C2d_two_sides_of_the_cut": EC,
+                   "M_U_needed_for_midpoint = midpoint^2/E_cell": MID ** 2 / EC,
+                   "check_equals_declared_M_U": MID ** 2 / EC / MU_U - 1}
+json.dump(out, open("part1_scales.json", "w"), indent=1)
+for k, v in c3.items():
+    print(k, {kk: ["%.4e" % r for r in vv["roots_GeV"]] for kk, vv in v.items()})
+print(json.dumps(out["C2c_u1_selfdual"], indent=1))
+print(json.dumps(out["C2_pairs"], indent=1))

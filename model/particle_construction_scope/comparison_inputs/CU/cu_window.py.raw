@@ -1,0 +1,111 @@
+"""CU Part C (rows C4, C6, C8) and row G8: the window between M_U and E_cell. Engine at P = 1.6309721.
+
+No measured value. Menu thresholds are read from worker BF's bf_threshold.json (read only).
+Writes cu_window.json.
+"""
+import json
+import os
+
+import numpy as np
+from scipy.optimize import brentq
+
+import cu_chain as C
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+RL = os.path.dirname(os.path.dirname(HERE))
+pi = np.pi
+P = C.P_FWD
+R = float(C.R_decl(P))
+out = {'P': P, 'R_declared': R}
+SLOPES = {'declared (33/5, 1, -3)': C.B_DECL, 'source two doublets (41/5, 1, -3)': C.B_SRC2}
+
+
+def one(res):
+    return C.row(res[0]) if len(res) == 1 else ('no root' if not res else [C.row(x) for x in res])
+
+
+# ---------------------------------------------------------------- C4
+c4 = {}
+base = {}
+for lab, b in SLOPES.items():
+    a = C.solvex(P, R, b=b)
+    base[lab] = a[0]
+    c4[f'a equal at M_U | {lab}'] = one(a)
+    c4[f'b equal at the cell, census runs from the cell (R = 0) | {lab}'] = one(C.solvex(P, 0.0, b=b))
+    xU = a[0]['inv_aU']
+    x_cell = xU - 8 / (2 * pi) * R
+    c4[f'c matter only in the window | {lab}'] = {
+        'outputs': 'equal to row a', 'inv_alpha_at_cell': x_cell,
+        'retired cell closure: left side at that coupling over P/4': C.lhs_unified(x_cell) / (P / 4),
+        'retired cell closure value 1/alpha': C.cut_closure(P)}
+    for nH in (1, 2):
+        d = (nH / 10 * R / (2 * pi), nH / 6 * R / (2 * pi), 0.0)
+        c4[f'd matter and {nH} doublet(s) in the window, split {tuple(round(x, 4) for x in d)} | {lab}'] = one(
+            C.solvex(P, R, b=b, delta=d))
+    for tr, d in (('5-trace', (-2.750, -4.060, -6.215)), ('15-trace', (-3.000, -6.310, -7.215))):
+        c4[f'e BF constants as split, {tr}, law reads the bare value | {lab}'] = one(C.solvex(P, R, b=b, delta=d))
+        c4[f'e BF constants as split, {tr}, law reads the matched SU(2) value | {lab}'] = one(
+            C.solvex(P, R, b=b, delta=d, delta_v=d[1]))
+out['C4_chain_variants'] = c4
+
+# ---------------------------------------------------------------- C6: menus (thresholds from BF)
+thr = json.load(open(os.path.join(RL, 'work', 'BF', 'bf_threshold.json')))['rows']
+x_chain = base['declared (33/5, 1, -3)']['inv_aU']
+x_matter = x_chain - 8 / (2 * pi) * R
+menus = {}
+for F in ('5', '15'):
+    need = {}
+    for n in (1, 2, 3, 4):
+        v = thr[f'F={F}, M{n}'].get('inv_alpha_bare_needed_for_colour_order')
+        need[n] = v
+    ref = 4 * pi / thr[f'F={F}, reference C<=30 (scan from the cell coupling upward)']['g2_below_which_colour_blocks_order']
+    row = {'bare 1/alpha needed for colour order, M1..M4': need, 'reference register': ref}
+    for name, x in (('chain coupling 1/alpha = %.4f' % x_chain, x_chain), ('matter-only window value %.4f' % x_matter, x_matter)):
+        ordered = {n: (need[n] is not None and need[n] <= x) for n in need}
+        kstar = min([n for n, o in ordered.items() if o] or [None], key=lambda z: (z is None, z))
+        row[name] = {'menus that order colour': ordered, 'reference orders': bool(ref <= x), 'first ordering menu k*': kstar,
+                     'linear blocking sqrt(k*)': None if kstar is None else float(np.sqrt(kstar)),
+                     'R_menu = ln sqrt(k*)': None if kstar is None else float(0.5 * np.log(kstar)),
+                     'share of the declared window': None if kstar is None else float(0.5 * np.log(kstar) / R)}
+    menus[f'{F}-trace'] = row
+out['C6_menus'] = menus
+
+# ---------------------------------------------------------------- C8: two closures (diagnostic; the cell closure is retired)
+x_cut = C.cut_closure(P)
+c8 = {'cut closure 1/alpha (retired)': x_cut, 'coefficient at the declared R': (x_chain - x_cut) * 2 * pi / R}
+for name, bb in (('b = 8', 8.0), ('b = 8 + 1/5', 8.2), ('b = 8 + 1/3', 8 + 1 / 3)):
+    f = lambda r: C.solvex(P, r)[0]['inv_aU'] - x_cut - bb / (2 * pi) * r
+    r0 = brentq(f, 5.0, 7.5, xtol=1e-10)
+    c8[name] = {'R': r0, 'R_over_2pi': r0 / (2 * pi), 'c_equivalent': (2 * pi - r0) / np.log(P), **C.row(C.solvex(P, r0)[0])}
+out['C8_two_closures_diagnostic'] = c8
+
+# ---------------------------------------------------------------- G8: the law for v and the window
+g8 = {}
+for lab, b in SLOPES.items():
+    a = base[lab]
+    xU = a['inv_aU']
+    Ecell = a['Ecell']
+    rows = {'i law reads alpha_U': {'v': a['v']}}
+    for name, dv in (('ii law reads the cell coupling after matter-only running', -8 / (2 * pi) * R),
+                     ('iii law reads alpha_2 at the cell along the weak slope', -b[1] / (2 * pi) * R)):
+        v_fixed = Ecell * np.exp(-2 * pi * (xU + dv) / 4)
+        rows[name] = {'1/alpha in the law (chain fixed)': xU + dv, 'v, chain fixed': v_fixed,
+                      'chain solved again': one(C.solvex(P, R, b=b, delta_v=dv))}
+    g8[lab] = rows
+out['G8_law_for_v_and_window'] = g8
+
+json.dump(out, open(os.path.join(HERE, 'cu_window.json'), 'w'), indent=1)
+
+
+def show(d, ind=0):
+    for k, v in d.items():
+        if isinstance(v, dict) and 'inv_aU' in v:
+            print(' ' * ind + f"{k}: 1/aU={v['inv_aU']:.4f} v={v['v']:.4g} mZ={v['mz']:.4g} 1/a1={v['inv_a1']:.3f} 1/a2={v['inv_a2']:.3f} a3={v['a3']:.5f} sin2={v['s2']:.5f} 1/aem={v['inv_aem']:.3f}")
+        elif isinstance(v, dict):
+            print(' ' * ind + f'{k}:')
+            show(v, ind + 2)
+        else:
+            print(' ' * ind + f'{k}: {v}')
+
+
+show(out)

@@ -1,0 +1,164 @@
+"""CW task 4: controls.
+
+A. k = 0: the gapless branch in the recurrence clock, omega(q) = arccos(1 - l(q)/60), has speed sqrt(2 D) with the
+   native diffusion constant D = c2/60 per step (c2 = 5/328 for F, 5/352 for B, report S3): c^2 = 1/1968, 1/2112.
+B. Staggered honeycomb (report S4, control 4): two-site honeycomb with hop rates tA, tB. Closed form: half splitting
+   3|tA - tB|/2, slope sqrt(3 tA tB)/2, R4 = 2|tA - tB|/(tA tB). The pair readout must return it.
+C. Site term on the carrier honeycomb (report S4, item 11): +m on the ports of up carriers, -m on down carriers,
+   wiring B, k = 0: half splitting 0.98098 m, slope 0.05697, half splitting / slope^2 = 302.25 m, R3 = 1.000.
+D. Uniform site term m on every port (k = 0): l = m + l_0(q). Recurrence clock: omega0 = arccos(1 - m/60),
+   c^2 = omega0 * 2 c2 / (60 sin omega0); the quadratic readout must return it. This is the reference for the
+   species test: a site term gives one speed up to the factor omega0 / sin omega0.
+E. The walk itself on one periodic cell with a Bloch twist (24 ports, 63 seams, k = 1, wiring F): the embedded
+   amplitudes obey A^* W^t A = T_t(discriminant) (Chebyshev) with discriminant diag(1 - L(q)/126, 1 - (2 Deg - L(q))/126).
+   Here the address register is uniform over the 126 ordered seams of the cell, so M_eff = 63 for this object.
+
+Run: python cw4_controls.py -> cw4_controls.json
+"""
+import json
+import math
+import os
+
+import numpy as np
+
+import cw_lib as C
+import cw_shell as R
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+out = {}
+
+# ---------------------------------------------------------------- A
+rowsA = []
+for name, tr, c2x in (('F', C.F_TRIPLE, 5 / 328), ('B', C.B_TRIPLE, 5 / 352)):
+    f = lambda q: C.bands(q, 0, tr, tr)
+    rd = R.quad_readout(f, 0, np.zeros(2))
+    D = c2x / 60
+    lin = {}
+    for t in (0.05, 0.2, 0.5, 1.0):
+        w = [C.omega_rec(float(f(t * e)[0])) / t for e in R.DIRS12]
+        lin[str(t)] = [float(min(w)), float(max(w))]
+    rowsA.append({'wiring': name, 'c_recurrence_from_exact_second_derivative': rd['recurrence_clock']['c'], 'sqrt_2D': math.sqrt(2 * D),
+                  'c2_exact_rational': '1/1968' if name == 'F' else '1/2112', 'relative_difference': rd['recurrence_clock']['c'] / math.sqrt(2 * D) - 1,
+                  'omega0': rd['recurrence_clock']['omega0'], 'c_anisotropy': rd['recurrence_clock']['c_anisotropy'],
+                  'omega_over_q_min_max_at_q': lin, 'first_order_clock': rd['first_order_clock']})
+    print('A', json.dumps(rowsA[-1]), flush=True)
+out['A_gapless_branch_k0'] = rowsA
+
+# ---------------------------------------------------------------- B
+rowsB = []
+for tA, tB in ((1.0, 0.9), (1.0, 0.6), (0.3, 0.5)):
+    def f(q, tA=tA, tB=tB):
+        ff = 1 + np.exp(1j * (q @ C.A1)) + np.exp(1j * (q @ C.A2))
+        s = math.sqrt(tA * tB)
+        return np.linalg.eigvalsh(np.array([[3 * tA, -s * ff], [-s * np.conj(ff), 3 * tB]]))
+    cr = R.cone_readout(f, 0, 1, C.KPT, t0=1e-3)
+    rowsB.append({'tA': tA, 'tB': tB, 'half_splitting': cr['half_splitting_b'], 'half_splitting_exact': 1.5 * abs(tA - tB),
+                  'slope': cr['slope_v'], 'slope_exact': math.sqrt(3 * tA * tB) / 2,
+                  'R4': cr['half_splitting_b'] / cr['slope_v'] ** 2, 'R4_exact': 2 * abs(tA - tB) / (tA * tB), 'S4_L48_values': {'(1.0, 0.9)': 0.22254, '(1.0, 0.6)': 1.3352, '(0.3, 0.5)': 2.6705}[str((tA, tB))]})
+    print('B', json.dumps(rowsB[-1]), flush=True)
+out['B_staggered_honeycomb'] = rowsB
+
+# ---------------------------------------------------------------- C
+rowsC = []
+tr = C.B_TRIPLE
+for m in (0.001, 0.01, 0.05):
+    f = lambda q, m=m: C.bands(q, 0, tr, tr, site=(m, -m))
+    cr = R.cone_readout(f, 0, 1, C.KPT)
+    h = 1e-3
+    cu = np.mean([R.d2(lambda t, e=e: float(f(C.KPT + t * e)[1]), h) for e in R.DIRS12])
+    cm = np.mean([R.d2(lambda t, e=e: float(f(C.KPT + t * e)[:2].sum()) / 2, h) for e in R.DIRS12])
+    rowsC.append({'m': m, 'half_splitting_per_m': cr['half_splitting_b'] / m, 'slope': cr['slope_v'], 'half_splitting_over_slope2_per_m': cr['half_splitting_b'] / cr['slope_v'] ** 2 / m,
+                  'R3_half_splitting_curvature_times_b_over_v2': (cr['half_splitting_b'] / cr['slope_v'] ** 2) * (cu - cm),
+                  'S4_values': {'half_splitting_per_m': 0.98098, 'slope': 0.05697, 'ratio_per_m': 302.25, 'R3': 1.000}})
+    print('C', json.dumps(rowsC[-1]), flush=True)
+out['C_site_term_carrier_honeycomb'] = rowsC
+
+# ---------------------------------------------------------------- D
+rowsD = []
+tr = C.F_TRIPLE
+c2x = 5 / 328
+for m in (0.001, 0.01, 0.1, 0.746746, 1.381966):
+    f = lambda q, m=m: C.bands(q, 0, tr, tr, site=(m, m))
+    rd = R.quad_readout(f, 0, np.zeros(2))
+    w0 = math.acos(1 - m / 60)
+    c2pred = w0 * 2 * c2x / (60 * math.sin(w0))
+    rc = rd['recurrence_clock']
+    rowsD.append({'m': m, 'omega0': rc['omega0'], 'omega0_closed_form': w0, 'c': rc['c'], 'c_closed_form': math.sqrt(c2pred),
+                  'c_over_c_gapless': rc['c'] / math.sqrt(c2x / 30), 'compton_length_edges': rc['compton_length_edges'],
+                  'shell_deviation': rc['shell_deviation_rel_to_c2q2_at_dq'], 'first_order_clock': rd['first_order_clock']})
+    print('D', json.dumps(rowsD[-1]), flush=True)
+out['D_uniform_site_term'] = rowsD
+
+# ---------------------------------------------------------------- E
+k, tr = 1, C.F_TRIPLE
+q = np.array([0.37, -0.21])
+n = 24
+# links of the periodic cell: (a, b, amplitude a -> b)
+links = []
+for off in (0, 12):
+    for (a, b), mm in C.NTAB.items():
+        if a < b:
+            links.append((off + a, off + b, C.ZETA ** ((k * mm) % 20)))
+for j in range(3):
+    links.append((tr[j], 12 + tr[j], np.exp(-1j * (q @ C.DELTA[j]))))
+Mtot = len(links)
+addr = [(a, b, z) for a, b, z in links] + [(b, a, np.conj(z)) for a, b, z in links]
+Dn = len(addr)
+vs = []
+for a, b, z in addr:
+    v = np.zeros(2 * n, complex)
+    v[2 * a] = 1; v[2 * b] = -z; v[2 * a + 1] = -1; v[2 * b + 1] = -z
+    vs.append(v / math.sqrt(2))
+VS = np.array(vs)                                              # Dn x 2n
+
+
+def applyW(X):
+    """X: (2n, Dn, cols). W = Q R."""
+    mean = X.mean(axis=1, keepdims=True)
+    Y = 2 * mean - X
+    co = np.einsum('ai,iac->ac', VS.conj(), Y)                 # <v_a|Y[:, a, :]>
+    return Y - np.einsum('ai,ac->iac', VS, co)
+
+
+X0 = np.zeros((2 * n, Dn, 2 * n), complex)
+for i in range(2 * n):
+    X0[i, :, i] = 1 / math.sqrt(Dn)
+disc = np.eye(2 * n, dtype=complex) - (VS.T @ VS.conj()) / Dn   # A^* Q A = 1 - (1/Dn) sum_a v_a v_a^*
+L = C.bloch(q, k, tr, tr)
+tgt = np.zeros((2 * n, 2 * n), complex)
+tgt[0::2, 0::2] = np.eye(n) - L / (2 * Mtot)
+tgt[1::2, 1::2] = np.eye(n) - (2 * np.diag(np.diag(L).real) - L) / (2 * Mtot)
+cheb = [np.eye(2 * n, dtype=complex), disc]
+X = X0
+worst = 0.0
+for t in range(1, 9):
+    X = applyW(X)
+    emb = np.einsum('iac,iad->cd', X0.conj(), X)
+    if t > 1:
+        cheb.append(2 * disc @ cheb[-1] - cheb[-2])
+    worst = max(worst, float(np.abs(emb - cheb[t]).max()))
+norm = float(np.abs(np.einsum('iac,iad->cd', X.conj(), X) - np.eye(2 * n)).max())
+out['E_walk_on_one_twisted_cell'] = {'k': k, 'wiring': 'F', 'q': q.tolist(), 'ports': n, 'seams': Mtot, 'walk_dimension': 2 * n * Dn,
+                                     'discriminant_minus_diag(1-L/126, 1-(2Deg-L)/126)_max_abs': float(np.abs(disc - tgt).max()),
+                                     'embedded_amplitudes_minus_Chebyshev_t1_to_8_max_abs': worst, 'isometry_defect_after_8_steps': norm,
+                                     'M_eff_of_this_object': Mtot}
+print('E', json.dumps(out['E_walk_on_one_twisted_cell']), flush=True)
+# ---------------------------------------------------------------- F
+# record-one block of the discriminant on the federation, 1 - (2 Deg - L_k(q))/(2 M): its levels 2 Deg - L_k are the
+# levels of the blank block at flux k + 10 (all links negated; the negated glue links are a rephasing of the down
+# sublattice). So one walk at flux k carries the tables of k and of k + 10 (the same levels as 10 - k).
+rng = np.random.default_rng(5)
+rowsF = []
+for name, tr in (('F', C.F_TRIPLE), ('B', C.B_TRIPLE)):
+    worst = 0.0
+    for kk in (0, 1, 2, 7):
+        for _ in range(4):
+            qq = rng.normal(size=2)
+            LL = C.bloch(qq, kk, tr, tr)
+            SS = 2 * np.diag(np.diag(LL).real) - LL
+            worst = max(worst, float(np.abs(np.linalg.eigvalsh(SS) - C.bands(qq, kk + 10, tr, tr)).max()))
+    rowsF.append({'wiring': name, 'max_abs_levels_of_record_one_block_minus_levels_of_flux_k_plus_10': worst})
+    print('F', json.dumps(rowsF[-1]), flush=True)
+out['F_record_one_block_is_flux_k_plus_10'] = rowsF
+json.dump(out, open(os.path.join(HERE, 'cw4_controls.json'), 'w'), indent=1)
+print('written cw4_controls.json')

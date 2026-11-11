@@ -1,0 +1,190 @@
+"""CM round 3 appendix R3-E: self-consistent conditional base (NOT BLIND; reads measured values).
+
+Per sector the chart parameters (r, delta) are re-solved so that the eigenvalue ratios of Y Y^dag with the junction
+term included equal the measured y1/y3 and y2/y3 at M_Z (solution continued from the measured chart). Then V, J, delta,
+abs V_ub/abs V_cb. Readings SC (WB3 x PB3, PB2 x A, B), scan SC-S2 and fits SC-FIT (bond weight kappa of the hold,
+one bond phase alpha, bases re-solved at every alpha).
+Run: cd RL/work/CM && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. /tmp/oph-completion-venv/bin/python -B cm_r3_sc.py
+"""
+import itertools
+import json
+import math
+import os
+
+import mpmath as mp
+import numpy as np
+
+import cm_r3_lib as L
+
+mp.mp.dps = 30
+HERE = os.path.dirname(os.path.abspath(__file__))
+RER = 'WORKSPACE/repair-law/reverse-engineering-reality'
+assert json.load(open(os.path.join(HERE, 'r3.json')))['measured_values_read'] is False
+assert os.path.exists(os.path.join(HERE, 'r3_compare.json'))
+cal = json.load(open(os.path.join(RER, 'model/common_source/calibrated_matter_results.json')))['calibration']
+yuk = cal['matched_SM']['yukawa']
+T = {'V12': 0.2250, 'V23': 0.0418, 'V13': 0.00369, 'J': 3.1e-5, 'ratio': 0.00369 / 0.0418, 'delta_deg': 65.7}
+W3c = complex(-0.5, 3 ** 0.5 / 2)
+KAPPA = L.DEFICIT / mp.sqrt(2)
+
+
+def chart(ys):
+    y = np.sort(np.array([float(v) for v in ys]))
+    sq = np.sqrt(y)
+    best = None
+    for perm in itertools.permutations(range(3)):
+        z = sum(sq[perm[k]] * W3c ** (-k) for k in range(3)) * 2 / (3 * sq.mean())
+        d = math.atan2(z.imag, z.real)
+        if 0 <= d <= math.pi / 3 + 1e-12:
+            best = (abs(z), d)
+    r, d = best
+    return {'y1': float(y[0] / y[2]), 'y2': float(y[1] / y[2]), 'r': float(r), 'delta': float(d)}
+
+
+CH = {'up': chart(yuk['up']), 'down': chart(yuk['down'])}
+
+
+def solve(sector, make_Y, start):
+    """(r, d) with the measured ratios after the junction; start = (r0, d0)."""
+    y1, y2 = mp.mpf(CH[sector]['y1']), mp.mpf(CH[sector]['y2'])
+
+    def f(r, d):
+        E, _ = L.frame(make_Y(r, d))
+        if E[0] <= 0:
+            return [mp.mpf(50), mp.mpf(50)]
+        return [mp.log(E[0] / E[2]) - mp.log(y1), mp.log(E[1] / E[2]) - mp.log(y2)]
+    try:
+        sol = mp.findroot(f, (mp.mpf(start[0]), mp.mpf(start[1])), tol=mp.mpf('1e-18'), maxsteps=60)
+        r, d = sol[0], sol[1]
+        res = f(r, d)
+        if max(abs(res[0]), abs(res[1])) > mp.mpf('1e-12') or r <= 0:
+            return None
+        return r, d
+    except Exception:
+        return None
+
+
+def vd(pred, meas):
+    if pred is None or not (pred == pred):
+        return 'fails (undefined)'
+    if abs(pred) < 1e-12:
+        return 'fails (exact zero)'
+    rel = pred / meas - 1
+    return ('passes' if abs(rel) <= 0.10 else 'fails') + f' ({100 * rel:+.1f} percent)'
+
+
+def judge(r):
+    d = abs(r['delta_deg']) if r.get('delta_deg') is not None else None
+    return {'V12': vd(r['V12'], T['V12']), 'V23': vd(r['V23'], T['V23']), 'V13': vd(r['V13'], T['V13']),
+            'J': vd(abs(r['J']), T['J']), 'ratio': vd(r.get('V13_over_V23'), T['ratio']), 'delta': vd(d, T['delta_deg'])}
+
+
+OUT = {'NOT_BLIND': True, 'charts_MZ': CH, 'targets': T, 'SC': {}, 'SC_S2': {}, 'SC_FIT': {}}
+start = {s: (CH[s]['r'], CH[s]['delta']) for s in CH}
+
+# ------------------------------------------------------------------------------------------ SC readings (WB3)
+for pb in ('PB3', 'PB2'):
+    for an, asg in L.ASSIGN.items():
+        sols = {}
+        Ys = {}
+        for sec in ('up', 'down'):
+            a, c = L.BONDS['C'] if asg[sec] == 'C' else L.BONDS[pb]
+
+            def mk(r, d, a=a, c=c):
+                return L.base_chart(r, d)[0] + L.DEFICIT * (r / 2) * L.bond(a, c, d)
+            s = solve(sec, mk, start[sec])
+            sols[sec] = s
+            Ys[sec] = mk(*s) if s else None
+        if Ys['up'] is None or Ys['down'] is None:
+            OUT['SC'][f'WB3|{pb}|{an}'] = {'solved': False}
+            continue
+        r = L.analyse(Ys['up'], Ys['down'])
+        r['solved_base'] = {sec: [float(sols[sec][0]), float(sols[sec][1])] for sec in sols}
+        r['verdict'] = judge(r)
+        OUT['SC'][f'WB3|{pb}|{an}'] = r
+
+
+# ------------------------------------------------------------------------------------------ SC-S2 and SC-FIT
+def point(pb, alpha, guess):
+    """Assignment A: up on the C bond, down on the partner bond; bases re-solved. Returns (analysis, solutions)."""
+    sols, Ys = {}, {}
+    for sec, (a, c) in (('up', L.BONDS['C']), ('down', L.BONDS[pb])):
+        def mk(r, d, a=a, c=c):
+            return L.base_chart(r, d)[0] + KAPPA * L.bond(a, c, alpha)
+        s = solve(sec, mk, guess[sec]) or solve(sec, mk, start[sec])
+        if s is None:
+            return None, guess
+        sols[sec] = s
+        Ys[sec] = mk(*s)
+    return L.analyse(Ys['up'], Ys['down']), sols
+
+
+for pb in ('PB3', 'PB2'):
+    n = 180
+    guess = dict(start)
+    grid, vals, sol_at = [], [], []
+    rows = []
+    for i in range(n + 1):
+        al = mp.pi * i / n
+        r, sols = point(pb, al, guess)
+        if r is None:
+            grid.append(al)
+            vals.append(None)
+            sol_at.append(None)
+            continue
+        guess = {k: (float(v[0]), float(v[1])) for k, v in sols.items()}
+        grid.append(al)
+        vals.append((r.get('V13_over_V23') or 1e9) - T['ratio'])
+        sol_at.append(dict(guess))
+        if i % 5 == 0 and i < n:
+            rows.append({'alpha': float(al), 'V12': r['V12'], 'V23': r['V23'], 'V13': r['V13'],
+                         'V13_over_V23': r.get('V13_over_V23'), 'delta_deg': r.get('delta_deg'), 'J': r['J'],
+                         'same_characters': r['same_characters'],
+                         'base_up': list(guess['up']), 'base_down': list(guess['down'])})
+    OUT['SC_S2'][pb] = {'rows': rows, 'unsolved_points': sum(1 for v in vals if v is None),
+                        'min_ratio': min((v + T['ratio']) for v in vals if v is not None)}
+    fits = []
+    for i in range(n):
+        if vals[i] is None or vals[i + 1] is None or abs(vals[i]) > 1e6 or abs(vals[i + 1]) > 1e6:
+            continue
+        if vals[i] * vals[i + 1] < 0:
+            lo, hi, flo, g = grid[i], grid[i + 1], vals[i], sol_at[i]
+            for _ in range(45):
+                mid = (lo + hi) / 2
+                r, sols = point(pb, mid, g)
+                if r is None:
+                    break
+                fm = (r.get('V13_over_V23') or 1e9) - T['ratio']
+                if (fm < 0) == (flo < 0):
+                    lo = mid
+                else:
+                    hi = mid
+            al = (lo + hi) / 2
+            r, sols = point(pb, al, g)
+            if r is not None:
+                r['alpha_FIT'] = float(al)
+                r['solved_base'] = {k: [float(v[0]), float(v[1])] for k, v in sols.items()}
+                r['verdict'] = judge(r)
+                fits.append(r)
+    OUT['SC_FIT'][pb] = fits
+
+with open(os.path.join(HERE, 'r3_sc.json'), 'w') as fh:
+    json.dump(OUT, fh, indent=1, default=str)
+
+for k, r in OUT['SC'].items():
+    if not r.get('solved', True):
+        print('SC', k, 'not solved')
+        continue
+    print(f"SC {k:12s} V12 {r['V12']:.5f} V23 {r['V23']:.5f} V13 {r['V13']:.5f} ratio {r['V13_over_V23']:.4f} J {r['J']:+.3e}"
+          f" delta {r['delta_deg']:+8.2f} same {r['same_characters']} base {r['solved_base']} y up {r['spectra']['up']} down {r['spectra']['down']}")
+    print('    ', r['verdict'])
+for pb, d in OUT['SC_S2'].items():
+    print('SC-S2', pb, 'unsolved', d['unsolved_points'], 'min ratio', d['min_ratio'])
+    for s in d['rows'][::2]:
+        print('   alpha %.4f ratio %s delta %s J %+.3e V12 %.4f V23 %.4f same %s base_up %s base_down %s' % (
+            s['alpha'], s['V13_over_V23'] and round(s['V13_over_V23'], 4), s['delta_deg'] and round(s['delta_deg'], 2), s['J'],
+            s['V12'], s['V23'], s['same_characters'], [round(x, 4) for x in s['base_up']], [round(x, 4) for x in s['base_down']]))
+for pb, fits in OUT['SC_FIT'].items():
+    for r in fits:
+        print(f"SC-FIT {pb} alpha {r['alpha_FIT']:.6f} V12 {r['V12']:.5f} V23 {r['V23']:.5f} V13 {r['V13']:.5f} J {r['J']:+.3e}"
+              f" delta {r['delta_deg']:+8.2f}", r['verdict'])

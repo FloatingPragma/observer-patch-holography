@@ -1,0 +1,82 @@
+"""Driver for production runs of the 3d SU(2) + Higgs lattice theory.
+
+  python ew_run.py point --L 24 --bG 8 --x 0.29 --y -0.05 --ntherm 2000 --nmeas 20000 --out file.npz
+  python ew_run.py hyst  --L 24 --bG 8 --x 0.036 --y0 0.08 --y1 -0.03 --ny 28 --nsw 400 --out file.npz
+"""
+import argparse, json, math, sys, time
+import numpy as np
+import ewlat as E
+
+
+def run_point(a):
+    bH, bR = E.betas(a.x, a.y, a.bG)
+    L = a.L; V = L ** 3
+    rng = np.random.default_rng(a.seed); E.seed_numba(a.seed)
+    U, phi = E.cold_start(L, a.r0) if a.start == 'cold' else E.hot_start(L, rng, a.r0)
+    eps = a.eps / math.sqrt(V)
+    t0 = time.time()
+    E.run_series(U, phi, L, a.bG, bH, bR, a.nor, eps, a.ntherm, 0, True, True)
+    chunks = []; acc = np.zeros(2); done = 0
+    meta = dict(L=L, bG=a.bG, x=a.x, y=a.y, bH=bH, bR=bR, nor=a.nor, seed=a.seed, ntherm=a.ntherm,
+                start=a.start, eps=eps)
+    while done < a.nmeas:
+        n = min(a.chunk, a.nmeas - done)
+        ser, ac = E.run_series(U, phi, L, a.bG, bH, bR, a.nor, eps, n, a.plaq_every, True, True)
+        chunks.append(ser); acc += ac; done += n
+        meta.update(nmeas=done, seconds=time.time() - t0,
+                    acc_or=acc[0] / (done * max(a.nor, 1) * V), acc_gl=acc[1] / (done * 4))
+        np.savez_compressed(a.out, ser=np.concatenate(chunks), meta=json.dumps(meta))
+        r2 = np.concatenate(chunks)[:, 1] / V
+        print(f"{a.out} {done}/{a.nmeas} t={time.time()-t0:.0f}s R2={r2.mean():.5f} "
+              f"accOR={meta['acc_or']:.4f} accGL={meta['acc_gl']:.3f}", flush=True)
+
+
+def run_hyst(a):
+    L = a.L; V = L ** 3
+    rng = np.random.default_rng(a.seed); E.seed_numba(a.seed)
+    U, phi = E.cold_start(L, a.r0) if a.start == 'cold' else E.hot_start(L, rng, a.r0)
+    eps = a.eps / math.sqrt(V)
+    ys = np.linspace(a.y0, a.y1, a.ny)
+    ys = np.concatenate([ys, ys[::-1]])
+    rows = []
+    t0 = time.time()
+    bH, bR = E.betas(a.x, ys[0], a.bG)
+    E.run_series(U, phi, L, a.bG, bH, bR, a.nor, eps, a.ntherm, 0, True, True)
+    for i, y in enumerate(ys):
+        bH, bR = E.betas(a.x, float(y), a.bG)
+        ser, ac = E.run_series(U, phi, L, a.bG, bH, bR, a.nor, eps, a.nsw, 0, True, True)
+        r2 = ser[:, 1] / V
+        half = r2[len(r2) // 2:]
+        rows.append([y, bH, bR, r2.mean(), half.mean(), half.std(), 0 if i < a.ny else 1])
+        np.savez_compressed(a.out, rows=np.array(rows),
+                            meta=json.dumps(dict(L=L, bG=a.bG, x=a.x, nsw=a.nsw, nor=a.nor, seed=a.seed,
+                                                 seconds=time.time() - t0)))
+        print(f"{a.out} y={y:.5f} bH={bH:.7f} R2={half.mean():.4f}", flush=True)
+
+
+if __name__ == '__main__':
+    p = argparse.ArgumentParser()
+    p.add_argument('mode')
+    p.add_argument('--L', type=int, default=16)
+    p.add_argument('--bG', type=float, default=8.0)
+    p.add_argument('--x', type=float, default=0.29)
+    p.add_argument('--y', type=float, default=0.0)
+    p.add_argument('--y0', type=float, default=0.1)
+    p.add_argument('--y1', type=float, default=-0.1)
+    p.add_argument('--ny', type=int, default=20)
+    p.add_argument('--nsw', type=int, default=200)
+    p.add_argument('--ntherm', type=int, default=1000)
+    p.add_argument('--nmeas', type=int, default=10000)
+    p.add_argument('--chunk', type=int, default=1000)
+    p.add_argument('--nor', type=int, default=4)
+    p.add_argument('--seed', type=int, default=1)
+    p.add_argument('--eps', type=float, default=0.5)
+    p.add_argument('--r0', type=float, default=1.0)
+    p.add_argument('--plaq_every', type=int, default=20)
+    p.add_argument('--start', default='cold')
+    p.add_argument('--out', default='out.npz')
+    a = p.parse_args()
+    if a.mode == 'point':
+        run_point(a)
+    elif a.mode == 'hyst':
+        run_hyst(a)

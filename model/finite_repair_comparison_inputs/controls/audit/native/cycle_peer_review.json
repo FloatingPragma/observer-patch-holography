@@ -1,0 +1,73 @@
+{
+  "status": "PASS independent exact branch, alternate-tree lattice and Bloch-Hessian checks",
+  "q2_native_edge_current_covariance_factor": "1/198 per complete attempt",
+  "q1_native_edge_current_covariance_factor": "1/360 per complete attempt",
+  "checks": [
+    {
+      "component": "face_even",
+      "q": 1,
+      "literal_native_branches": 720,
+      "all_exported_kernel_rows_match": true,
+      "raw_lattice_reproduced_from_different_root": true,
+      "corrected_drift_zero_in_every_state": true,
+      "exact_Bloch_covariance_Hessian_matches": true,
+      "conditional_covariance_varies_by_initial_internal_state": true,
+      "nonstationary_one_event_counterexample_state_index": 0,
+      "counterexample_entry": [
+        0,
+        0
+      ],
+      "counterexample_second_moment": "7/750",
+      "stationary_Sigma_entry": "1/150"
+    },
+    {
+      "component": "face_even",
+      "q": 2,
+      "literal_native_branches": 3960,
+      "all_exported_kernel_rows_match": true,
+      "raw_lattice_reproduced_from_different_root": true,
+      "corrected_drift_zero_in_every_state": true,
+      "exact_Bloch_covariance_Hessian_matches": true,
+      "conditional_covariance_varies_by_initial_internal_state": true,
+      "nonstationary_one_event_counterexample_state_index": 0,
+      "counterexample_entry": [
+        0,
+        0
+      ],
+      "counterexample_second_moment": "3/250",
+      "stationary_Sigma_entry": "2/165"
+    },
+    {
+      "component": "face_odd",
+      "q": 1,
+      "literal_native_branches": 720,
+      "all_exported_kernel_rows_match": true,
+      "raw_lattice_reproduced_from_different_root": true,
+      "corrected_drift_zero_in_every_state": true,
+      "exact_Bloch_covariance_Hessian_matches": true,
+      "conditional_covariance_varies_by_initial_internal_state": false,
+      "nonstationary_one_event_counterexample_state_index": null,
+      "counterexample_entry": null,
+      "counterexample_second_moment": null,
+      "stationary_Sigma_entry": null
+    },
+    {
+      "component": "face_odd",
+      "q": 2,
+      "literal_native_branches": 3960,
+      "all_exported_kernel_rows_match": true,
+      "raw_lattice_reproduced_from_different_root": true,
+      "corrected_drift_zero_in_every_state": true,
+      "exact_Bloch_covariance_Hessian_matches": true,
+      "conditional_covariance_varies_by_initial_internal_state": true,
+      "nonstationary_one_event_counterexample_state_index": 0,
+      "counterexample_entry": [
+        0,
+        0
+      ],
+      "counterexample_second_moment": "5/54",
+      "stationary_Sigma_entry": "34/297"
+    }
+  ],
+  "scope": "Confirms the finite diffusive coordinate construction. Conditional martingale drift holds for every input; exact nSigma second moment uses the explicitly declared stationary uniform internal preparation. No field, OS, physical time or mass premise supplied."
+}

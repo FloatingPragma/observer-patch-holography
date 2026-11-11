@@ -1,0 +1,126 @@
+{
+ "note": "c = g^2 <E^2> of the seam link; <A> = 2 exp(-c S) on the Cartan circle. a = 1/(electric steps per tick).",
+ "cubic_space_3d": {
+  "rows": [
+   {
+    "electric_steps_per_tick": 1,
+    "a": 1.0,
+    "c_electric_step": 0.4999998947255192,
+    "c_face_step": 1.2844372677156928
+   },
+   {
+    "electric_steps_per_tick": 2,
+    "a": 0.5,
+    "c_electric_step": 0.673094432530255,
+    "c_face_step": 0.943616744184122
+   },
+   {
+    "electric_steps_per_tick": 3,
+    "a": 0.3333333333333333,
+    "c_electric_step": 0.7328565541476418,
+    "c_face_step": 0.8649490315237347
+   },
+   {
+    "electric_steps_per_tick": 4,
+    "a": 0.25,
+    "c_electric_step": 0.7583180489247595,
+    "c_face_step": 0.8355043640198778
+   },
+   {
+    "electric_steps_per_tick": 8,
+    "a": 0.125,
+    "c_electric_step": 0.7858960311087241,
+    "c_face_step": 0.8059809676471072
+   },
+   {
+    "electric_steps_per_tick": "continuous",
+    "a": 1e-09,
+    "c_electric_step": 0.7958673090470338,
+    "c_face_step": 0.7958673090470338
+   }
+  ],
+  "a_where_face_step_c_is_1": 0.5979393571968123
+ },
+ "cubic_space_2d": {
+  "rows": [
+   {
+    "electric_steps_per_tick": 1,
+    "a": 1.0,
+    "c_electric_step": 0.3333333119088626,
+    "c_face_step": 0.6975395547468695
+   },
+   {
+    "electric_steps_per_tick": 2,
+    "a": 0.5,
+    "c_electric_step": 0.4236423045435904,
+    "c_face_step": 0.5428125182763516
+   },
+   {
+    "electric_steps_per_tick": 3,
+    "a": 0.3333333333333333,
+    "c_electric_step": 0.4515285114772969,
+    "c_face_step": 0.5085049050786676
+   },
+   {
+    "electric_steps_per_tick": 4,
+    "a": 0.25,
+    "c_electric_step": 0.46288276662564265,
+    "c_face_step": 0.4958630757580405
+   },
+   {
+    "electric_steps_per_tick": 8,
+    "a": 0.125,
+    "c_electric_step": 0.4748216035475887,
+    "c_face_step": 0.4833133932912044
+   },
+   {
+    "electric_steps_per_tick": "continuous",
+    "a": 1e-09,
+    "c_electric_step": 0.47904567791716157,
+    "c_face_step": 0.47904567791716157
+   }
+  ],
+  "a_where_face_step_c_is_1": null
+ },
+ "icosahedral_space": {
+  "rows": [
+   {
+    "electric_steps_per_tick": 1,
+    "a": 1.0,
+    "c_electric_step": 0.3982314331214007,
+    "c_face_step": 0.7422440027317656
+   },
+   {
+    "electric_steps_per_tick": 2,
+    "a": 0.5,
+    "c_electric_step": 0.4891985554414961,
+    "c_face_step": 0.5981562157380387
+   },
+   {
+    "electric_steps_per_tick": 3,
+    "a": 0.3333333333333333,
+    "c_electric_step": 0.5154809998676492,
+    "c_face_step": 0.5669656647403293
+   },
+   {
+    "electric_steps_per_tick": 4,
+    "a": 0.25,
+    "c_electric_step": 0.5259196189859766,
+    "c_face_step": 0.5555707438217771
+   },
+   {
+    "electric_steps_per_tick": 8,
+    "a": 0.125,
+    "c_electric_step": 0.5367256354210725,
+    "c_face_step": 0.5443183649524088
+   },
+   {
+    "electric_steps_per_tick": "continuous",
+    "a": 1e-09,
+    "c_electric_step": 0.540506265544088,
+    "c_face_step": 0.540506265544088
+   }
+  ],
+  "a_where_face_step_c_is_1": null
+ }
+}

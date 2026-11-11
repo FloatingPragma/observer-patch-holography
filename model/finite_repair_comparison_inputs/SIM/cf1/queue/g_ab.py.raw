@@ -1,0 +1,112 @@
+"""Run G (QUEUE_BRIEF.md): scattering of a packet by a Z2 flux line along axis 3 on 96 x 96 x 2.
+
+Flux line: the x-links (axis 1) from (x0, y) to (x0 + 1, y) carry -1 for y > y0 (x0 = y0 = 47): the plaquette centred at
+(47.5, 47.5) has holonomy -1 (half a flux quantum for a Z2-charged pattern); on the torus its partner sits at (47.5, 95.5),
+48 cells away across the direction of motion. Gauge check: a random Z2 gauge transformation g(x) of all links (seed 5) must leave the
+executed density unchanged (EXACT up to rounding).
+Charged pattern: Engine with these links. Neutral pattern: z = 1 on every link (the program's rule for neutral patterns),
+i.e. the free tick.
+Preparation: Gaussian, amplitude widths 8 (along x) and 8 (along y), centred at (17.5, 47.5) (30 cells before the line,
+impact parameter 0), uniform along axis 3, kinetic momentum p0 along x, coin positive_coin((p0,0,0), theta). Fills all four
+sublattices. Readout after T ticks: probability in angular bins of 10 degrees of the scattering angle phi (phi = 0
+forward) around the line, radii 6 to 46.
+Reference (ARGUED: continuum, scalar): Aharonov-Bohm cross-section for alpha = 1/2, d sigma / d phi = 1 / (2 pi k sin^2(phi/2));
+probability in a bin = F <1/k> / (2 pi) [ -2 cot(phi/2) ] over the bin, F = integral of the incident density along x at the
+line's y (from the free run at the time its centre crosses the line), <1/k> over the packet's momentum weights.
+`python g_ab.py out.json`
+"""
+import json, sys, time
+import numpy as np
+from cq_common import EngineC, positive_coin
+
+N = 96; SH = (N, N, 2); X0 = Y0 = 47
+XL, YL = X0 + 0.5, Y0 + 0.5
+
+
+def links(gauge=None):
+    l = [np.ones(SH), np.ones(SH), np.ones(SH)]
+    l[0][X0, Y0 + 1:, :] = -1.0
+    if gauge is not None:
+        l = [gauge * l[i] * np.roll(gauge, -1, axis=i) for i in range(3)]
+    return l
+
+
+def prep(p0, theta, wx=8.0, wy=8.0, cx=XL - 30, cy=YL):
+    x = np.arange(N)[:, None] - cx; y = np.arange(N)[None, :] - cy
+    env = np.exp(-x * x / (2 * wx * wx) - y * y / (2 * wy * wy)) * np.exp(1j * p0 * x)
+    psi = env[:, :, None, None, None] * np.ones((1, 1, 2, 1, 1)) * positive_coin((p0, 0, 0), theta).reshape(1, 1, 1, 2, 2)
+    return psi / np.linalg.norm(psi)
+
+
+def density2d(psi): return np.sum(np.abs(psi) ** 2, axis=(2, 3, 4))
+
+
+def bins_of(rho, rmin=6, rmax=46, width=10):
+    x = np.arange(N)[:, None] - XL; y = np.arange(N)[None, :] - YL
+    r = np.hypot(x, y) * np.ones((1, N)); phi = np.degrees(np.arctan2(y * np.ones((N, 1)), x * np.ones((1, N))))
+    sel = (r >= rmin) & (r <= rmax)
+    edges = np.arange(-180, 181, width)
+    h, _ = np.histogram(phi[sel], bins=edges, weights=rho[sel])
+    return edges, h
+
+
+def run(p0, theta, T):
+    g = np.random.default_rng(5).choice([-1.0, 1.0], size=SH)
+    e_c = EngineC(SH, links()); e_c2 = EngineC(SH, links(g)); e_n = EngineC(SH)
+    psi = prep(p0, theta); pc, pc2, pn = psi.copy(), g[..., None, None] * psi, psi.copy()
+    F = None; t_cross = None
+    for t in range(T):
+        pc = e_c.step(pc, theta, 'Y', t); pc2 = e_c2.step(pc2, theta, 'Y', t); pn = e_n.step(pn, theta, 'Y', t)
+        rn = density2d(pn)
+        xm = float((rn.sum(1) * np.arange(N)).sum())
+        if F is None and xm >= XL:
+            F = float(0.5 * (rn[:, Y0] + rn[:, Y0 + 1]).sum()); t_cross = t + 1
+    rc, rc2, rn = density2d(pc), density2d(pc2), density2d(pn)
+    # momentum weights of the preparation (2D, p3 = 0)
+    k1 = 2 * np.pi * np.fft.fftfreq(N); K = np.hypot(k1[:, None], k1[None, :])
+    w = np.sum(np.abs(np.fft.fft2(prep(p0, theta)[:, :, 0], axes=(0, 1))) ** 2, axis=(2, 3)); w /= w.sum()
+    inv_k = float((w[K > 0] / K[K > 0]).sum() / w[K > 0].sum())
+    w_small_k = float(w[K < 0.1].sum())
+    edges, hc = bins_of(rc); _, hn = bins_of(rn); _, hc2 = bins_of(rc2)
+    rows = []
+    for a, b, c_, n_ in zip(edges[:-1], edges[1:], hc, hn):
+        lo_, hi_ = (a, b) if a >= 0 else (-b, -a)
+        ab = F * inv_k / (2 * np.pi) * (2 / np.tan(np.radians(lo_) / 2) - 2 / np.tan(np.radians(hi_) / 2)) if lo_ > 0 else None
+        rows.append({'phi_from': int(a), 'phi_to': int(b), 'P_charged': float(c_), 'P_neutral': float(n_), 'P_charged_minus_neutral': float(c_ - n_),
+                     'AB_scalar_prediction': (float(ab) if ab is not None else None),
+                     'ratio_to_AB': (float((c_ - n_) / ab) if ab else None)})
+    # bins away from the forward packet: |phi| >= 60
+    far = [r_ for r_ in rows if min(abs(r_['phi_from']), abs(r_['phi_to'])) >= 60]
+    tot_c = sum(r_['P_charged_minus_neutral'] for r_ in far); tot_ab = sum(r_['AB_scalar_prediction'] for r_ in far)
+    back = [r_ for r_ in rows if min(abs(r_['phi_from']), abs(r_['phi_to'])) >= 150]
+    return {'p0': p0, 'theta': theta, 'ticks': T, 'tick_free_centre_crossed_line': t_cross, 'incident_fluence_F_per_cell': F, 'mean_inverse_k': inv_k,
+            'gauge_check_random_Z2_gauge_max_density_difference': float(np.abs(rc - rc2).max()), 'packet_weight_at_k_below_0.1': w_small_k,
+            'neutral_equals_free_by_definition': True, 'norms': [float(rc.sum()), float(rn.sum())],
+            'probability_beyond_radius_46_charged': float(rc.sum() - sum(hc)) if False else None,
+            'bins': rows, 'sum_abs_phi_ge_60_charged_minus_neutral': float(tot_c), 'sum_abs_phi_ge_60_AB': float(tot_ab),
+            'ratio_sum_abs_phi_ge_60': float(tot_c / tot_ab),
+            'sum_abs_phi_ge_150_charged_minus_neutral': float(sum(r_['P_charged_minus_neutral'] for r_ in back)),
+            'sum_abs_phi_ge_150_AB': float(sum(r_['AB_scalar_prediction'] for r_ in back)),
+            'neutral_sum_abs_phi_ge_60': float(sum(r_['P_neutral'] for r_ in far)),
+            'up_down_asymmetry_charged_abs_phi_ge_60': float(sum(r_['P_charged'] for r_ in far if r_['phi_from'] >= 0) - sum(r_['P_charged'] for r_ in far if r_['phi_from'] < 0))}
+
+
+if __name__ == '__main__':
+    t0 = time.time()
+    out = {'run': 'G', 'brief': 'repair-law/work/SIM/cf1/QUEUE_BRIEF.md', 'program': 'CF-1 routing tick, alternating order, mass option M1 (kind Y); Z2 link signs',
+           'lattice': list(SH), 'flux_line': [XL, YL], 'partner_flux_on_torus': [XL, 95.5], 'units': 'cells and ticks', 'seed': 'none',
+           'clock': 'ticks', 'preparation': 'Gaussian amplitude widths (5, 7), centre (27.5, 47.5), uniform along axis 3, coin positive_coin((p0,0,0), theta)',
+           'sublattices': 'the Gaussian fills all four sublattices', 'rows': []}
+    for p0 in (0.5, 0.8):
+        for theta in (0.0, 0.087847):
+            T = 56
+            r = run(p0, theta, T)
+            out['rows'].append(r)
+            print('p0', p0, 'theta', theta, 'gauge', r['gauge_check_random_Z2_gauge_max_density_difference'], 'F', round(r['incident_fluence_F_per_cell'], 5), '<1/k>', round(r['mean_inverse_k'], 4),
+                  '|phi|>=60: charged-neutral', round(r['sum_abs_phi_ge_60_charged_minus_neutral'], 6), 'AB', round(r['sum_abs_phi_ge_60_AB'], 6), 'neutral', round(r['neutral_sum_abs_phi_ge_60'], 7),
+                  'back', round(r['sum_abs_phi_ge_150_charged_minus_neutral'], 6), round(r['sum_abs_phi_ge_150_AB'], 6), flush=True)
+            for b in r['bins']:
+                if b['phi_from'] >= 0: print('   ', b['phi_from'], b['phi_to'], round(b['P_charged'], 6), round(b['P_neutral'], 7), b['AB_scalar_prediction'] and round(b['AB_scalar_prediction'], 6), b['ratio_to_AB'] and round(b['ratio_to_AB'], 3))
+    out['seconds'] = time.time() - t0
+    json.dump(out, open(sys.argv[1], 'w'), indent=1)
+    print('written', sys.argv[1])

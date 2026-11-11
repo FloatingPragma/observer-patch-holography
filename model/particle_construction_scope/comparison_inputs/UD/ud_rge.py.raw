@@ -1,0 +1,375 @@
+"""UD: Standard Model running between the cell and Q0 (candidates B1, B2, B3, C rows, F rows of CANDIDATES.md).
+
+Reads no measured value. Writes rge.json.
+Run: cd RL/work/UD && PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B ud_rge.py
+
+Engine: SM MSbar RGEs for (g1 GUT, g2, g3, y_t, y_b, y_tau, lambda), d/dln(mu). One loop and two loops.
+Two-loop Yukawa and gauge coefficients IMPORTED from memory (Machacek and Vaughn; Arason et al. 1992; Luo and Xiao
+2003), third-family approximation. Quartic convention V = lam (H^dag H)^2 (lambda of Arason et al. = 2 lam). The
+top-only limit is validated against work/HT/sm_two_loop_rge_engine.py (which carries the Buttazzo et al. benchmark).
+Gauge chart: the source packet of RER model/particle_spectrum_audit/inputs.json at Q0 (declared D10 chain).
+"""
+import json
+import math
+import os
+import sys
+
+import numpy as np
+from scipy.integrate import solve_ivp
+from scipy.optimize import brentq
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+K1 = 1.0 / (16.0 * math.pi ** 2)
+K2 = K1 * K1
+
+# source packet (declared chain; RER model/particle_spectrum_audit/inputs.json, couplings_Q0 and boundary_packet)
+Q0 = 91.58958701476675
+G_Q0 = (0.4606426372698464, 0.6515095427099725, 1.2194476765272135)
+LAM_Q0 = 0.13996318581526215
+YT_Q0 = 0.9623049116902788
+V = 246.60010076754213
+E_STAR = 1.22089e19
+P_PIX = 1.630971465307864
+E_CELL = E_STAR * P_PIX ** -0.5
+MU_C = 4.862867714799784e17
+T_CELL = math.log(E_CELL / Q0)
+
+B1L = (41.0 / 10.0, -19.0 / 6.0, -7.0)
+B2L = ((199.0 / 50.0, 27.0 / 10.0, 44.0 / 5.0), (9.0 / 10.0, 35.0 / 6.0, 12.0), (11.0 / 10.0, 9.0 / 2.0, -26.0))
+C2L = ((17.0 / 10.0, 1.0 / 2.0, 3.0 / 2.0), (3.0 / 2.0, 3.0 / 2.0, 1.0 / 2.0), (2.0, 2.0, 0.0))
+
+
+FREEZE_LAMBDA = False       # set during the first phase of the downward iteration (the quartic enters the Yukawas at two loops only)
+
+
+def beta(t, s, loops=2):
+    g1, g2, g3, yt, yb, yl, lam = s
+    g = (g1, g2, g3)
+    gs = (g1 * g1, g2 * g2, g3 * g3)
+    a, b, c = yt * yt, yb * yb, yl * yl
+    Y2 = 3 * a + 3 * b + c
+    bg = [K1 * B1L[i] * g[i] ** 3 for i in range(3)]
+    byt = K1 * yt * (1.5 * (a - b) + Y2 - (17 / 20) * gs[0] - 2.25 * gs[1] - 8 * gs[2])
+    byb = K1 * yb * (1.5 * (b - a) + Y2 - 0.25 * gs[0] - 2.25 * gs[1] - 8 * gs[2])
+    byl = K1 * yl * (1.5 * c + Y2 - 2.25 * (gs[0] + gs[1]))
+    blam = K1 * (24 * lam * lam - 6 * a * a - 6 * b * b - 2 * c * c
+                 + 0.375 * (2 * gs[1] ** 2 + (gs[1] + 0.6 * gs[0]) ** 2)
+                 + lam * (12 * a + 12 * b + 4 * c - 9 * gs[1] - 1.8 * gs[0]))
+    if loops >= 2:
+        yy = (a, b, c)
+        for i in range(3):
+            bg[i] += K2 * g[i] ** 3 * (sum(B2L[i][j] * gs[j] for j in range(3)) - sum(C2L[i][f] * yy[f] for f in range(3)))
+        L = 2 * lam
+        chi4 = 2.25 * (3 * a * a + 3 * b * b + c * c - (2 / 3) * a * b)
+        Y4 = ((17 / 20) * gs[0] + 2.25 * gs[1] + 8 * gs[2]) * a + (0.25 * gs[0] + 2.25 * gs[1] + 8 * gs[2]) * b \
+            + 0.75 * (gs[0] + gs[1]) * c
+        common = -chi4 + 1.5 * L * L + 2.5 * Y4
+        t2 = (1.5 * a * a - a * b - 0.25 * a * b + 2.75 * b * b + Y2 * (1.25 * b - 2.25 * a) + common - 2 * L * (3 * a + b)
+              + ((223 / 80) * gs[0] + (135 / 16) * gs[1] + 16 * gs[2]) * a
+              - ((43 / 80) * gs[0] - (9 / 16) * gs[1] + 16 * gs[2]) * b
+              + (9 / 200 + 29 / 15) * gs[0] ** 2 - (9 / 20) * gs[0] * gs[1] + (19 / 15) * gs[0] * gs[2]
+              - (23 / 4) * gs[1] ** 2 + 9 * gs[1] * gs[2] - 108 * gs[2] ** 2)
+        b2 = (1.5 * b * b - a * b - 0.25 * a * b + 2.75 * a * a + Y2 * (1.25 * a - 2.25 * b) + common - 2 * L * (3 * b + a)
+              + ((187 / 80) * gs[0] + (135 / 16) * gs[1] + 16 * gs[2]) * b
+              - ((79 / 80) * gs[0] - (9 / 16) * gs[1] + 16 * gs[2]) * a
+              - (29 / 200 + 1 / 15) * gs[0] ** 2 - (27 / 20) * gs[0] * gs[1] + (31 / 15) * gs[0] * gs[2]
+              - (23 / 4) * gs[1] ** 2 + 9 * gs[1] * gs[2] - 108 * gs[2] ** 2)
+        l2 = (1.5 * c * c - 2.25 * Y2 * c + common - 6 * L * c
+              + ((387 / 80) * gs[0] + (135 / 16) * gs[1]) * c
+              + (51 / 200 + 33 / 5) * gs[0] ** 2 + (27 / 20) * gs[0] * gs[1] - (23 / 4) * gs[1] ** 2)
+        byt += K2 * yt * t2
+        byb += K2 * yb * b2
+        byl += K2 * yl * l2
+        # two-loop quartic: top-only terms (Buttazzo et al.), enough for the Yukawa ratios (lambda enters them at two loops)
+        blam += K2 * (-312 * lam ** 3 - 144 * lam * lam * a + lam * lam * (108 * gs[1] + 21.6 * gs[0])
+                      + lam * a * (-3 * a + 80 * gs[2] + 22.5 * gs[1] + 8.5 * gs[0])
+                      + lam * (-(73 / 8) * gs[1] ** 2 + (1887 / 200) * gs[0] ** 2 + (117 / 20) * gs[0] * gs[1])
+                      + a * a * (30 * a - 32 * gs[2] - 1.6 * gs[0])
+                      + a * (-2.25 * gs[1] ** 2 - 1.71 * gs[0] ** 2 + 6.3 * gs[0] * gs[1])
+                      + (305 / 16) * gs[1] ** 3 - (3411 / 2000) * gs[0] ** 3 - (289 / 80) * gs[1] ** 2 * gs[0]
+                      - (1677 / 400) * gs[1] * gs[0] ** 2)
+    if FREEZE_LAMBDA:
+        blam = 0.0
+    return [bg[0], bg[1], bg[2], byt, byb, byl, blam]
+
+
+def run(s0, t0, t1, loops=2):
+    def blow(t, s, *a):
+        return 30.0 - max(abs(x) for x in s)
+    blow.terminal = True
+    sol = solve_ivp(beta, (t0, t1), list(s0), args=(loops,), method='DOP853', rtol=1e-10, atol=1e-14, events=blow)
+    if sol.status != 0 or not np.all(np.isfinite(sol.y[:, -1])):
+        return None
+    return sol.y[:, -1]
+
+
+def up(yq0, loops=2, t1=T_CELL):
+    """from Q0 (gauge chart, lambda, given Yukawas) to the scale t1"""
+    return run(list(G_Q0) + list(yq0) + [LAM_Q0], 0.0, t1, loops)
+
+
+def down_from_cell(ycell, loops=2, tol=1e-11):
+    """Yukawas at Q0 for given Yukawas at E_cell, gauge chart and quartic fixed at Q0 (fixed-point iteration).
+    Phase 1 holds the quartic at its Q0 value (exact for the one-loop Yukawa and gauge flow); phase 2 (two loops)
+    repeats with the running quartic from the phase-1 point. If phase 2 fails the phase-1 result is returned with
+    lambda_frozen = True."""
+    global FREEZE_LAMBDA
+
+    def iterate(yq, nmax):
+        for it in range(nmax):
+            top = up(yq, loops)
+            if top is None:
+                yq = yq * 0.7
+                continue
+            bot = run(list(top[:3]) + list(ycell) + [top[6]], T_CELL, 0.0, loops)
+            if bot is None:
+                return None
+            new = bot[3:6]
+            if np.max(np.abs(new - yq)) < tol:
+                return {'y_Q0': new.tolist(), 'g_cell': top[:3].tolist(), 'lam_cell': float(top[6]), 'iterations': it + 1,
+                        'gauge_closure_at_Q0': float(np.max(np.abs(bot[:3] - np.array(G_Q0))))}
+            yq = new if it < 25 else 0.5 * (yq + new)
+        return None
+    yq = np.array(ycell, float) * (0.3 / max(ycell))
+    FREEZE_LAMBDA = True
+    try:
+        d1 = iterate(yq, 200)
+    finally:
+        FREEZE_LAMBDA = False
+    if d1 is None:
+        return None
+    d1['lambda_frozen'] = True
+    if loops == 1:
+        d1['lambda_frozen'] = False            # the quartic does not enter the one-loop Yukawa and gauge flow
+        return d1
+    d2 = iterate(np.array(d1['y_Q0']), 60)
+    if d2 is None:
+        return d1
+    d2['lambda_frozen'] = False
+    return d2
+
+
+def row(yq0, extra=None):
+    yt, yb, yl = yq0
+    m = [y * V / math.sqrt(2) for y in yq0]
+    r = {'y_t_Q0': yt, 'y_b_Q0': yb, 'y_tau_Q0': yl, 'y_t_over_y_b': yt / yb, 'y_b_over_y_tau': yb / yl,
+         'y_tau_over_y_t': yl / yt, 'm_t_Q0_GeV': m[0], 'm_b_Q0_GeV': m[1], 'm_tau_Q0_GeV': m[2]}
+    if extra:
+        r.update(extra)
+    return r
+
+
+def shoot(ycell_fn, n_free, guess, loops, yt_fixed=None):
+    """Solve for the Yukawas at Q0 (upward runs only, quartic and gauge chart fixed at Q0).
+    n_free = 3: all three free, targets ycell_fn(top) = 0 (three residuals).
+    n_free = 2: y_t(Q0) = yt_fixed, free (y_b, y_tau)(Q0), two residuals."""
+    from scipy.optimize import fsolve
+
+    def res(lv):
+        y = [math.exp(v) for v in lv]
+        yq = y if n_free == 3 else [yt_fixed] + y
+        top = up(yq, loops)
+        if top is None or min(top[3:6]) <= 0:
+            return [50.0] * n_free
+        return ycell_fn(top)
+    sol, info, ier, msg = fsolve(res, [math.log(g) for g in guess], full_output=True, xtol=1e-12)
+    r = res(sol)
+    if ier != 1 or max(abs(x) for x in r) > 1e-7:
+        return None
+    y = [math.exp(v) for v in sol]
+    yq = y if n_free == 3 else [yt_fixed] + y
+    top = up(yq, loops)
+    return {'y_Q0': yq, 'y_cell': top[3:6].tolist(), 'g_cell': top[:3].tolist(), 'lam_cell': float(top[6])}
+
+
+def common_row(y0, loops, guess=None):
+    """y_t = y_b = y_tau = y0 at the cell"""
+    if loops == 1:
+        return down_from_cell([y0, y0, y0], 1)
+    g = guess or down_from_cell([y0, y0, y0], 1)['y_Q0']
+    return shoot(lambda top: [math.log(top[3 + i] / y0) for i in range(3)], 3, g, loops)
+
+
+def solve_scale(ratios, loops, target=YT_Q0):
+    """(y_t, y_b, y_tau)(cell) = s * ratios with y_t(Q0) = target. One loop: bracket on s with the downward
+    iteration. Two loops: upward shooting from the one-loop solution. Returns (s, row data) or (None, reach)."""
+    def f(ls):
+        d = down_from_cell([math.exp(ls) * r for r in ratios], 1)
+        return (d['y_Q0'][0] - target) if d else float('nan')
+    lo = math.log(0.01 / max(ratios))
+    flo = f(lo)
+    hi, fhi, reach = lo, flo, flo
+    while hi < math.log(40.0) and math.isfinite(fhi) and fhi < 0:
+        hi += 0.25
+        fhi = f(hi)
+        if math.isfinite(fhi):
+            reach = max(reach, fhi)
+    if not math.isfinite(fhi) or fhi < 0:
+        return None, {'largest_y_t_Q0_reached_one_loop': reach + target}
+    ls = brentq(f, lo, hi, xtol=1e-12)
+    d1 = down_from_cell([math.exp(ls) * r for r in ratios], 1)
+    if loops == 1:
+        return math.exp(ls), d1
+    d2 = shoot(lambda top: [math.log(top[4] / top[5]) - math.log(ratios[1] / ratios[2]),
+                            math.log(top[3] / top[4]) - math.log(ratios[0] / ratios[1])], 2, d1['y_Q0'][1:], 2, target)
+    if d2 is None:
+        return None, {'two_loop_shooting_failed': True}
+    return d2['y_cell'][0] / ratios[0], d2
+
+
+def small_ratio_row(k_cell, loops, ytau_q0=0.01):
+    """y_b(cell) = k_cell y_tau(cell), both small against y_t, y_t(Q0) fixed: solve y_b(Q0) (one dimension)."""
+    def f(lyb):
+        top = up([YT_Q0, math.exp(lyb), ytau_q0], loops)
+        return math.log(top[4] / top[5]) - math.log(k_cell)
+    lyb = brentq(f, math.log(1e-5), math.log(0.5), xtol=1e-13)
+    top = up([YT_Q0, math.exp(lyb), ytau_q0], loops)
+    return row([YT_Q0, math.exp(lyb), ytau_q0], {'y_cell': top[3:6].tolist(), 'g_cell': top[:3].tolist(),
+                                                'y_tau_Q0_linearization_point': ytau_q0})
+
+
+# ---------------- two-doublet type II, one loop (B3)
+B_2HDM = (21.0 / 5.0, -3.0, -7.0)
+
+
+def g_2hdm(t):
+    return [1.0 / math.sqrt(1.0 / G_Q0[i] ** 2 - 2 * K1 * B_2HDM[i] * t) for i in range(3)]
+
+
+def beta_2hdm(t, y):
+    yt, yb, yl = y
+    g = g_2hdm(t)
+    gs = [x * x for x in g]
+    a, b, c = yt * yt, yb * yb, yl * yl
+    return [K1 * yt * (4.5 * a + 0.5 * b - (17 / 20) * gs[0] - 2.25 * gs[1] - 8 * gs[2]),
+            K1 * yb * (4.5 * b + 0.5 * a + c - 0.25 * gs[0] - 2.25 * gs[1] - 8 * gs[2]),
+            K1 * yl * (2.5 * c + 3 * b - 2.25 * gs[0] - 2.25 * gs[1])]
+
+
+def run_2hdm(y0, t0, t1):
+    sol = solve_ivp(beta_2hdm, (t0, t1), list(y0), method='DOP853', rtol=1e-10, atol=1e-14)
+    return sol.y[:, -1] if sol.status == 0 else None
+
+
+def main():
+    out = {'measured_values_read': False, 'Q0_GeV': Q0, 'E_cell_GeV': E_CELL, 't_cell': T_CELL, 'v_GeV': V,
+           'gauge_chart_Q0': G_Q0, 'y_t_Q0_stand_in': YT_Q0}
+
+    # ---------------- validation: top-only limit against worker HT's engine
+    sys.path.insert(0, os.path.join(HERE, '..', 'HT'))
+    import sm_two_loop_rge_engine as ht  # noqa: E402
+    s0 = list(ht.COUPLINGS_AT_MT)
+    s_test = [s0[0], s0[1], s0[2], s0[3], 0.0, 0.0, s0[4]]
+    dev = 0.0
+    for lp in (1, 2):
+        mine = beta(0.0, s_test, lp)
+        ref = (ht.beta_1loop if lp == 1 else ht.beta_2loop)(*s0)
+        dev = max(dev, max(abs(mine[i] - ref[j]) for i, j in ((0, 0), (1, 1), (2, 2), (3, 3), (6, 4))))
+    out['validation_top_only_max_beta_deviation_from_HT_engine'] = dev
+    end = run(s_test, math.log(ht.MT), math.log(ht.MPL), 2)
+    out['validation_buttazzo_endpoint'] = {'mine_two_loop': [end[i] for i in (0, 1, 2, 3, 6)], 'published_three_loop': ht.BENCHMARK_AT_MPL}
+    print('validation: beta deviation', dev, 'endpoint', [round(end[i], 4) for i in (0, 1, 2, 3, 6)], ht.BENCHMARK_AT_MPL)
+
+    # ---------------- B1: common Yukawa at the cell
+    B1 = {}
+    for lp in (1, 2):
+        rows = {}
+        for y0 in (0.1, 0.2, 0.3, 0.5, 1.0, 2.0, 3.0):
+            d = common_row(y0, lp)
+            rows[str(y0)] = row(d['y_Q0'], {'g_cell': d['g_cell'], 'lam_cell': d['lam_cell']}) if d else None
+        sc, d = solve_scale([1.0, 1.0, 1.0], lp)
+        rows['y_t_Q0_fixed'] = row(d['y_Q0'], {'y0_cell': sc, 'g_cell': d['g_cell']}) if sc else {'no_solution': d}
+        B1[f'{lp}_loop'] = rows
+        for k, r in rows.items():
+            if r and 'y_t_Q0' in r:
+                print(f"B1 {lp}L y0={k:12s} yt={r['y_t_Q0']:.5f} yb={r['y_b_Q0']:.5f} ytau={r['y_tau_Q0']:.5f} "
+                      f"t/b={r['y_t_over_y_b']:.4f} b/tau={r['y_b_over_y_tau']:.4f} y0={r.get('y0_cell')}")
+            else:
+                print('B1', lp, k, r)
+    out['B1'] = B1
+
+    # ---------------- B2, F2, F3: y_b = k y_tau at the cell, small against y_t
+    BF = {}
+    for name, k in (('B2_F1_equal_per_colour', 1.0), ('F2_amplitude_share', 1 / math.sqrt(3)), ('F3_weight_share', 1 / 3)):
+        BF[name] = {'k_cell': k}
+        for lp in (1, 2):
+            r = small_ratio_row(k, lp)
+            BF[name][f'{lp}_loop'] = r
+            print(f"{name:26s} {lp}L m_b/m_tau(Q0)={r['y_b_over_y_tau']:.5f} y_t(cell)={r['y_cell'][0]:.5f} g_cell={np.round(r['g_cell'], 5).tolist()}")
+        BF[name]['linearization_check_two_loop'] = {str(x): small_ratio_row(k, 2, x)['y_b_over_y_tau'] for x in (0.001, 0.02)}
+        # dependence on y_t(Q0)
+        dep = {}
+        for yt in (0.90, 0.94, 0.98, 1.02):
+            def f(lyb, yt=yt):
+                top = up([yt, math.exp(lyb), 0.01], 2)
+                return math.log(top[4] / top[5]) - math.log(k)
+            lyb = brentq(f, math.log(1e-5), math.log(0.5), xtol=1e-13)
+            dep[str(yt)] = math.exp(lyb) / 0.01
+        BF[name]['m_b_over_m_tau_vs_y_t_Q0_two_loop'] = dep
+    # running factor of the ratio at intermediate scales (two loops), for the comparison tables
+    r = BF['B2_F1_equal_per_colour']['2_loop']
+    ratio_at = {}
+    for label, mu in (('2e16', 2e16), ('mu_c', MU_C), ('E_cell', E_CELL)):
+        s = up([r['y_t_Q0'], r['y_b_Q0'], r['y_tau_Q0']], 2, math.log(mu / Q0))
+        ratio_at[label] = {'y_b_over_y_tau': s[4] / s[5], 'y_t': s[3], 'y_b_over_y_t': s[4] / s[3], 'y_tau_over_y_t': s[5] / s[3]}
+    BF['B2_running_of_the_ratio'] = ratio_at
+    out['B2_F'] = BF
+
+    # ---------------- C rows: y_t : y_b : y_tau = T : 1 : 1 at the cell, y_t(Q0) fixed
+    cell = json.load(open(os.path.join(HERE, 'cell.json'))) if os.path.exists(os.path.join(HERE, 'cell.json')) else None
+    t_cut = 4 * math.pi ** 2 / 16.2453
+    occ = {'C3_edge_law': 2 * math.exp(-0.9 * t_cut), 'C4_flux_lifts': math.exp(t_cut * (2.1 - 0.9))}
+    if cell:
+        occ['C1_undressed_cell'] = cell['grounds']['undressed']['summary']['pi_H_over_blank_per_member']
+        occ['C2_dressed_cell'] = cell['grounds']['dressed']['summary']['pi_H_over_blank_per_member']
+    C = {}
+    for name, ratio in sorted(occ.items()):
+        for reading, T in (('a', math.sqrt(ratio)), ('w', ratio)):
+            rec = {'occupation_ratio': ratio, 'T_cell': T}
+            for lp in (1, 2):
+                sc, d = solve_scale([T, 1.0, 1.0], lp)
+                if sc:
+                    rec[f'{lp}_loop'] = row(d['y_Q0'], {'y_t_cell': sc * T, 'y_b_cell': sc})
+                else:
+                    # y_t(Q0) out of reach: report the row at y_b(cell) = 1
+                    d1 = down_from_cell([T * 0.5, 0.5, 0.5], 1)
+                    rec[f'{lp}_loop'] = {'y_t_Q0_fixed_no_solution': d,
+                                         'one_loop_row_at_y_b_cell_0.5': row(d1['y_Q0']) if d1 else None}
+            C[f'{name}|{reading}'] = rec
+            r2 = rec['2_loop']
+            r2 = r2 if 'y_t_Q0' in r2 else (r2.get('one_loop_row_at_y_b_cell_0.5') or {})
+            print(f"{name:20s} {reading} ratio={ratio:.5f} T={T:.5f} t/b(Q0)={r2.get('y_t_over_y_b')} b/tau(Q0)={r2.get('y_b_over_y_tau')} "
+                  f"yt(Q0)={r2.get('y_t_Q0')}")
+    out['C'] = C
+
+    # ---------------- B3: two-doublet type II census, one loop
+    B3 = {}
+
+    def f(lyb):
+        top = run_2hdm([YT_Q0, math.exp(lyb), 0.01], 0.0, T_CELL)
+        return math.log(top[1] / top[2])
+    lyb = brentq(f, math.log(1e-5), math.log(0.3), xtol=1e-13)
+    top = run_2hdm([YT_Q0, math.exp(lyb), 0.01], 0.0, T_CELL)
+    B3['small_y_b'] = {'m_b_over_m_tau_Q0': math.exp(lyb) / 0.01, 'y_cell': top.tolist(), 'g_cell': g_2hdm(T_CELL)}
+
+    def h(ly0):
+        bot = run_2hdm([math.exp(ly0)] * 3, T_CELL, 0.0)
+        return bot[0] - YT_Q0
+    try:
+        ly0 = brentq(h, math.log(0.02), math.log(3.0), xtol=1e-12)
+        bot = run_2hdm([math.exp(ly0)] * 3, T_CELL, 0.0)
+        B3['common_y0'] = {'y0_cell': math.exp(ly0), 'y_Q0': bot.tolist(), 'y_t_over_y_b': bot[0] / bot[1],
+                           'y_b_over_y_tau': bot[1] / bot[2]}
+    except ValueError:
+        B3['common_y0'] = {'no_solution': [h(math.log(0.02)) + YT_Q0, h(math.log(3.0)) + YT_Q0]}
+    # SM one-loop counterpart of the small-y_b row is in B2 (1_loop)
+    out['B3'] = B3
+    print('B3', json.dumps(B3, indent=1))
+    print('B2 running of the ratio', json.dumps(ratio_at, indent=1))
+
+    with open(os.path.join(HERE, 'rge.json'), 'w') as fh:
+        json.dump(out, fh, indent=1, default=str)
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,103 @@
+#!/usr/bin/env python3
+"""Worker CA (coupling item A, extension H): check E12 of CANDIDATES.md (Addendum 3).
+
+N cells of a shared cut, each with one SU(2) label factor of the collar law exp(-t C2(j)) (weights d_j when the
+hidden index is free), t = t2 of the anchor (anchor_chain.json, row A1), spins up to j = 2.
+(i) closed cut, total singlet: law proportional to N_0({j}) prod exp(-t C2(j_c)), N_0 = dimension of the invariant
+    subspace of the tensor product (the hidden space under the constraint);
+(ii) unconstrained product law: the fused total spin and its Shannon entropy.
+Multiplicities come from the character integral, evaluated by a trapezoid rule that is exact for the trigonometric
+polynomials involved (float64). No measured value is read. Writes anchor_cells.json.
+"""
+import itertools
+import json
+import math
+from pathlib import Path
+
+import numpy as np
+
+HERE = Path(__file__).resolve().parent
+t = json.loads((HERE / "anchor_chain.json").read_text())["G1_detail"]["t1_t2_t3_at_anchor"][1]
+TWOJ = np.arange(0, 5)                         # j = 0, 1/2, 1, 3/2, 2
+DIM = TWOJ + 1.0
+CAS = (TWOJ / 2) * (TWOJ / 2 + 1)
+w1 = DIM * np.exp(-t * CAS)
+PI1 = w1 / w1.sum()                            # one-cell law with free hidden index
+ELLBAR = float((PI1 * np.log(DIM)).sum())      # hidden index per cell, truncated tower
+H1 = float(-(PI1 * np.log(PI1)).sum())         # Shannon entropy of one exposed factor
+
+out = {"t2_anchor": t, "one_cell_law": PI1.tolist(), "ellbar_one_cell": ELLBAR, "shannon_one_cell": H1, "rows": {}}
+
+
+def multisets(N, k=5):
+    """all (n_0..n_{k-1}) with sum N, as an integer array."""
+    res = []
+    for cuts in itertools.combinations(range(N + k - 1), k - 1):
+        prev = -1; row = []
+        for c in cuts:
+            row.append(c - prev - 1); prev = c
+        row.append(N + k - 2 - prev)
+        res.append(row)
+    return np.array(res, dtype=np.int64)
+
+
+def log_multinomial(N, n):
+    return math.lgamma(N + 1) - np.sum([np.vectorize(math.lgamma)(n[:, j] + 1) for j in range(n.shape[1])], axis=0)
+
+
+for N in (2, 4, 8, 16, 32):
+    n = multisets(N)
+    M = 8 * N + 16                                           # nodes; degree of every integrand is below M
+    th = 2 * np.pi * (np.arange(M) + 0.5) / M                # midpoints avoid sin(theta) = 0
+    chi = np.array([np.sin((tj + 1) * th) / np.sin(th) for tj in TWOJ])          # (5, M)
+    X = np.ones((n.shape[0], M))
+    for j in range(5):
+        X *= chi[j][None, :] ** n[:, j][:, None]
+    haar = (1 - np.cos(2 * th)) / M
+    N0 = np.rint(X @ haar)                                    # dimension of the invariant subspace
+    N0[(n @ TWOJ) % 2 == 1] = 0.0                             # an odd number of half-integer spins has no singlet
+    N0 = np.maximum(N0, 0.0)
+    lm = log_multinomial(N, n)
+    energy = n @ CAS
+    # ---- (i) total singlet
+    ok = N0 > 0.5
+    logw = lm[ok] + np.log(N0[ok]) - t * energy[ok]
+    wgt = np.exp(logw - logw.max()); wgt /= wgt.sum()
+    mean_lnN0 = float((wgt * np.log(N0[ok])).sum())
+    marg = (wgt[:, None] * n[ok]).sum(axis=0) / N
+    # Shannon entropy of the exposed factors under the constraint (ordered configurations)
+    logp_cfg = np.log(wgt) - lm[ok]                           # probability of one ordered configuration of the multiset
+    H_cfg = float(-(wgt * logp_cfg).sum())
+    # ---- (ii) unconstrained product with maximally mixed hidden indices: fused total
+    twoJ = np.arange(0, 4 * N + 1)
+    chiJ = np.array([np.sin((tj + 1) * th) / np.sin(th) for tj in twoJ])         # (4N+1, M)
+    mult = np.rint(X @ (haar[:, None] * chiJ.T))              # (multisets, 4N+1): multiplicity of total spin J
+    mult[((n @ TWOJ)[:, None] + twoJ[None, :]) % 2 == 1] = 0.0   # parity of the total spin
+    mult = np.maximum(mult, 0.0)
+    logpref = lm - t * energy - N * math.log(float((np.exp(-t * CAS) * DIM).sum()))
+    PJ = ((np.exp(logpref))[:, None] * mult).sum(axis=0) * (twoJ + 1.0)
+    norm = float(PJ.sum())
+    PJ = PJ / norm
+    H_tot = float(-(PJ[PJ > 0] * np.log(PJ[PJ > 0])).sum())
+    out["rows"][str(N)] = {
+        "multisets": int(n.shape[0]),
+        "singlet": {"mean_ln_N0": mean_lnN0, "N_times_ellbar": N * ELLBAR, "deficit": N * ELLBAR - mean_lnN0,
+                    "hidden_index_per_cell": mean_lnN0 / N, "per_cell_marginal": marg.tolist(),
+                    "max_abs_marginal_deviation": float(np.abs(marg - PI1).max()),
+                    "shannon_of_exposed_factors": H_cfg, "N_times_shannon_one_cell": N * H1},
+        "product": {"normalisation_check": norm, "shannon_of_fused_total": H_tot,
+                    "mean_total_spin": float((PJ * twoJ / 2).sum()),
+                    "total_hidden_index": N * ELLBAR}}
+    print(N, json.dumps(out["rows"][str(N)], default=float)[:420], flush=True)
+
+Ns = np.array([2, 4, 8, 16, 32], float)
+dfc = np.array([out["rows"][str(int(N))]["singlet"]["deficit"] for N in Ns])
+Ht = np.array([out["rows"][str(int(N))]["product"]["shannon_of_fused_total"] for N in Ns])
+dev = np.array([out["rows"][str(int(N))]["singlet"]["max_abs_marginal_deviation"] for N in Ns])
+out["fits"] = {
+    "deficit_increment_per_doubling": np.diff(dfc).tolist(), "three_halves_ln2": 1.5 * math.log(2),
+    "fused_total_entropy_increment_per_doubling": np.diff(Ht).tolist(), "half_ln2": 0.5 * math.log(2),
+    "marginal_deviation_times_N": (dev * Ns).tolist(),
+    "hidden_index_per_cell_over_ellbar": [out["rows"][str(int(N))]["singlet"]["hidden_index_per_cell"] / ELLBAR for N in Ns]}
+(HERE / "anchor_cells.json").write_text(json.dumps(out, indent=1, default=float) + "\n")
+print(json.dumps(out["fits"], indent=1))

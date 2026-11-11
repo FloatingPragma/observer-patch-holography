@@ -1,0 +1,45 @@
+{
+ "X1_native_controller_on_framed_bosons": {
+  "forecast_table_of_the_reference": {
+   "(0, 0)": [
+    "14/33",
+    "0"
+   ],
+   "(0, 1)": [
+    "5/66",
+    "0"
+   ],
+   "(1, -1)": [
+    "5/66",
+    "1/2"
+   ],
+   "(1, 0)": [
+    "14/33",
+    "5/56"
+   ]
+  },
+  "framed_tables_equal_reference_exactly": true,
+  "internal_states_tested": [
+   "triplet +1",
+   "triplet 0",
+   "triplet -1"
+  ]
+ },
+ "X2_exact_covariance_of_load_instruments_under_60_rotations": {
+  "C, 12": true,
+  "C, 78": true,
+  "C, 66 fermionic": true,
+  "E, 12": true,
+  "E, 78": true,
+  "E, 66 fermionic": true
+ },
+ "X3_apparatus_as_intervention_on_the_load_register": {
+  "probe_pulse": {
+   "population_change": 1.3985787785349405e-17,
+   "change_of_load_coherences_not_involving_the_probed_port": 0.0,
+   "coherence_p_q_becomes_Tr_int[exp(i eps Pi_p) rho_pq]_defect": 7.757919228897728e-18
+  },
+  "reading": "a probe at port p leaves populations, the tape law and all coherences among other ports unchanged and multiplies the coherence between p and another port by Tr(sigma exp(i eps Pi_p)) for a product input; a port readout summed over helicities is the occupancy readout N_p"
+ },
+ "seconds": 34.5
+}

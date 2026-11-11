@@ -1,0 +1,22 @@
+"""Block 1: the one-particle operator L = sum_e |-_e><-_e| = (Deg - H)/2 of CAP on the federation. Its lowest level
+is the isolated doublet level (5 - 4.2533)/2 with multiplicity at least N/2 for any glue phases.
+    python b1_twisted.py   ->  b1_twisted_levels.json"""
+import json
+import numpy as np
+import scipy.sparse as sp
+import capfed as CF
+import b1_fed as BF
+
+out = {}
+for geom, rule in (('flat:12', 'c3j0'), ('flat:12', 'flux0'), ('sphere:2', 'c3j0'), ('sphere:2', 'randglue:1')):
+    fed, z_int, Z = BF.setup(geom, rule)
+    H = CF.hop_matrix(fed, Z)
+    L = ((sp.diags(fed.deg.astype(float)) - H) * 0.5).toarray()
+    w = np.linalg.eigvalsh(L)
+    N = fed.N
+    nflat = int((w < w[0] + 1e-9).sum())
+    out[geom + ' ' + rule] = {'carriers': N, 'lowest': float(w[0]), 'multiplicity_of_lowest': nflat, 'N_over_2': N // 2,
+                              'next_levels': [float(x) for x in w[nflat:nflat + 4]], 'level_index_N': float(w[N - 1]),
+                              'level_index_2N': float(w[2 * N - 1]), 'level_2N_plus_1': float(w[2 * N]), 'largest': float(w[-1])}
+    print(geom, rule, json.dumps(out[geom + ' ' + rule]), flush=True)
+json.dump(out, open('b1_twisted_levels.json', 'w'), indent=1)

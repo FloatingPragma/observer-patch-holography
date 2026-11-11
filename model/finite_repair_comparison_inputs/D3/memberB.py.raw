@@ -1,0 +1,136 @@
+"""D3: modes bound to a vortex of the mass phase under worker T3's recommended tick, member B (work/T3/CONES.md).
+
+Member B (T3, DECLARED there): L_i(phi) = cos(phi) S_i - i sin(phi) beta, beta = Y_r (symbol cos(phi) exp(-i p_i alpha_i)
+- i sin(phi) beta, as t3sym.py), B_i = M(-phi/2) L_i M(-phi/2), M(a) = exp(-i a beta). Period (time order, first
+applied first): M_v(1/2), B_1, B_2, B_3, M_v(1), B_3, B_2, B_1, M_v(1/2), where M_v(f) = exp(-i f theta(x) N(x)),
+N = cos phi_v Z_r + sin phi_v Y_r is the vortex mass of vortex.py. phi = 5 pi/16. One cone in the whole zone (T3),
+so the parity classes are coupled and the whole lattice is diagonalized at once.
+
+Checks: theta = const, phi_v = pi/2 (mass along beta) reproduces T3's symbol (plane waves); Gamma = alpha_3 chiral at
+p_3 = 0. Readouts per core: number of states near zero phase, Gamma, velocity along axis 3; with a link flux 2 pi m/6
+through each core (m = 1, 2, 3) to compare with DF2 (DF-10).
+
+Usage: python memberB.py <out.json> <processes> <set>
+"""
+import json, sys, time
+import numpy as np
+import scipy.sparse as sp
+import d3lib as d3
+import vortex
+
+BETA = d3.YR
+
+
+def onsite(N, mat):
+    return sp.kron(sp.identity(N), mat, format='csr')
+
+
+def period_B(pt, theta, phi_v, phi, links_present=True):
+    N = pt.N; I4 = np.eye(4)
+    Mb = lambda a: onsite(N, np.cos(a) * I4 - 1j * np.sin(a) * BETA)
+    L = [(np.cos(phi) * pt.S[i] - 1j * np.sin(phi) * onsite(N, BETA)).tocsr() for i in range(3)]
+    Bi = [(Mb(-phi / 2) @ L[i] @ Mb(-phi / 2)).tocsr() for i in range(3)]
+    Mv, Mvh = d3.mass_matrix(theta, phi_v), d3.mass_matrix(theta, phi_v, 0.5)
+    first = (Bi[2] @ Bi[1] @ Bi[0]).tocsr()            # time order B_1, B_2, B_3
+    second = (Bi[0] @ Bi[1] @ Bi[2]).tocsr()           # time order B_3, B_2, B_1
+    return (Mvh @ second @ Mv @ first @ Mvh).tocsr()
+
+
+def symbol_check(phi=5 * np.pi / 16, th=0.2):
+    """uniform mass along beta (phi_v = pi/2) on a 6 x 4 x 1 patch at p_3 = 0.4 against T3's symbol"""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location('t3sym', 'WORKSPACE/repair-law/work/T3/t3sym.py')
+    if not __import__('os').path.exists(spec.origin): return None
+    t3 = importlib.util.module_from_spec(spec); spec.loader.exec_module(t3)
+    L1, L2, p3 = 6, 4, 0.4
+    theta = np.full((L1, L2), th); phv = np.full((L1, L2), np.pi / 2)
+    pt = d3.Patch((L1, L2), theta, phv, p3=p3); P = period_B(pt, theta, phv, phi)
+    worst = 0.0
+    for m1 in range(L1):
+        for m2 in range(L2):
+            p = np.array([2 * np.pi * m1 / L1, 2 * np.pi * m2 / L2, p3])
+            Usym = t3.symbol(t3.period_B(phi, th), p)
+            for col in range(4):
+                e = np.zeros(4, complex); e[col] = 1
+                x1, x2 = pt.x1, pt.x2
+                psi = (np.exp(1j * (p[0] * x1 + p[1] * x2))[:, None] * e[None, :]).ravel()
+                want = (np.exp(1j * (p[0] * x1 + p[1] * x2))[:, None] * (Usym @ e)[None, :]).ravel()
+                worst = max(worst, float(np.abs(P @ psi - want).max()))
+    return worst
+
+
+def analyse(cfg):
+    t0 = time.time()
+    L, n, th0, phi = cfg['L'], cfg['n'], cfg['theta0'], cfg.get('phi', 5 * np.pi / 16)
+    cores, theta, phv, links = vortex.build(cfg)
+    p3 = cfg.get('p3', 0.0); dq = 1e-4
+    pt = d3.Patch((L, L), theta, phv, p3=p3, links=links)
+    U = period_B(pt, theta, phv, phi)
+    out = {'config': cfg}
+    G = pt.gamma()
+    out['unitarity_defect_probe'] = float(np.abs((U.conj().T @ (U @ np.ones(U.shape[0]))) - np.ones(U.shape[0])).max())
+    if abs(np.sin(2 * p3)) < 1e-12:
+        v = np.random.default_rng(1).normal(size=U.shape[0]) + 0j
+        out['Gamma_chiral_probe'] = float(np.abs(G @ (U @ (G @ (U @ v))) - v).max())
+    a = float(np.cos(2 * th0 * cfg.get('window', 0.4)))
+    V, w, res, n_above, n_kept = d3.ingap_subspace_robust(U, cfg.get('block', 64), a, deg=60, sweeps=14, seed=0, tol=1e-9)
+    out['ritz_values_in_window'] = n_above; out['states_in_window'] = n_kept
+    if n_kept == 0:
+        out['seconds'] = round(time.time() - t0, 1); return out
+    E2, W, defect = d3.signed_phases(U, V)
+    out['phases_per_tick_all'] = sorted(float(e) / 2 for e in E2)
+    Up = period_B(d3.Patch((L, L), theta, phv, p3=p3 + dq, links=links), theta, phv, phi)
+    Um = period_B(d3.Patch((L, L), theta, phv, p3=p3 - dq, links=links), theta, phv, phi)
+    sH = lambda X: (1j * (X - X.conj().T) / 2).tocsr()
+    dS = (sH(Up) - sH(Um)) / (2 * dq)
+    out['cores'] = []
+    for ci, (c, sgn) in enumerate(cores):
+        d1 = (pt.x1 - c[0] + L / 2) % L - L / 2; d2 = (pt.x2 - c[1] + L / 2) % L - L / 2
+        near = np.repeat(np.hypot(d1, d2) < L / 5.0, 4).astype(float)
+        wts, R = np.linalg.eigh(W.conj().T @ (near[:, None] * W)); B = W @ R[:, wts > 0.5]
+        cr = {'core': ci, 'winding': sgn * n, 'states': int(B.shape[1])}
+        if B.shape[1]:
+            hc = B.conj().T @ (sH(U) @ B); hc = (hc + hc.conj().T) / 2; ev, Rv = np.linalg.eigh(hc); Z = B @ Rv
+            cr['phases_per_tick'] = [float(np.arcsin(np.clip(x, -1, 1))) / 2 for x in ev]
+            UZ = U @ Z; lam = np.einsum('ij,ij->j', Z.conj(), UZ); cr['residual'] = float(np.linalg.norm(UZ - Z * lam[None, :], axis=0).max())
+            g = Z.conj().T @ (G @ Z); g = (g + g.conj().T) / 2; gv, gR = np.linalg.eigh(g); Zg = Z @ gR
+            cr['Gamma_eigenvalues'] = [round(float(x), 6) for x in gv]
+            k = Zg.conj().T @ (dS @ Zg); k = (k + k.conj().T) / 2
+            cr['velocity_per_tick_(Gamma_basis_diagonal)'] = [round(float(np.real(k[j, j])) / 2, 6) for j in range(k.shape[0])]
+        out['cores'].append(cr)
+    out['seconds'] = round(time.time() - t0, 1)
+    return out
+
+
+def config_sets(name):
+    b = dict(L=48, theta0=0.3, xi_c=2.0)
+    S = {}
+    S['B'] = ([dict(b, n=nn) for nn in (1, 2, 3)] + [dict(b, n=3, p3=np.pi / 2)] +
+              [dict(b, n=3, flux=2 * np.pi * m / 6) for m in (1, 2, 3)] + [dict(b, n=3, xi_c=0.0), dict(b, n=3, theta0=0.157935, L=64)])
+    # native tick (vortex.py) with the class fluxes m = 1, 2, 3, for DF2 (DF-10): winding 3, xi_c = 0 and 2
+    S['native_flux'] = [dict(L=96, theta0=0.3, n=3, xi_c=x, flux=2 * np.pi * m / 6, window=0.4, block=160, classes=[(0, 0), (0, 1)],
+                             velocity=True, overlaps=False) for x in (0.0, 2.0) for m in (1, 2, 3)]
+    return S[name]
+
+
+if __name__ == '__main__':
+    outp, procs, name = sys.argv[1], int(sys.argv[2]), sys.argv[3]
+    cfgs = config_sets(name)
+    fn = vortex.analyse if name == 'native_flux' else analyse
+    if procs > 1:
+        import multiprocessing as mp
+        with mp.Pool(procs) as pool: res = pool.map(fn, cfgs)
+    else:
+        res = [fn(c) for c in cfgs]
+    out = {'engine_sha256': d3.ENGINE_SHA, 'set': name, 'results': res}
+    if name == 'B': out['symbol_check_against_t3sym'] = symbol_check()
+    json.dump(out, open(outp, 'w'), indent=1)
+    if name == 'B':
+        print('symbol check', out['symbol_check_against_t3sym'])
+        for r in res:
+            c = r['config']
+            print(f"n={c['n']} th0={c['theta0']} xi_c={c['xi_c']} p3={round(c.get('p3', 0), 4)} flux={round(c.get('flux', 0), 4)} | in-window {r['states_in_window']}"
+                  f" (ritz {r['ritz_values_in_window']}) | chiral {r.get('Gamma_chiral_probe')} | s {r['seconds']}")
+            for cr in r.get('cores', []):
+                print('    core', cr['core'], 'w', cr['winding'], 'states', cr['states'], 'Gamma', cr.get('Gamma_eigenvalues'), 'v', cr.get('velocity_per_tick_(Gamma_basis_diagonal)'),
+                      'E', [round(x, 8) for x in cr.get('phases_per_tick', [])], 'res', cr.get('residual'))

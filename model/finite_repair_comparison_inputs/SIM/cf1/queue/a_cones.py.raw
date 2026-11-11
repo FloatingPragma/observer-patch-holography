@@ -1,0 +1,146 @@
+"""Run A, addition (coordinator, worker R7's count): zeros of the massless two-tick symbol over the whole zone.
+
+Massless symbol of one tick in the order 1,2,3: S_fwd(p) = e3 e2 e1, e_i = exp(-i p_i alpha_i), alpha_i = X_r (x) sigma_i;
+reverse order S_rev = e1 e2 e3; two-tick symbol U2 = S_rev S_fwd. X_r commutes with every alpha_i, so U2 splits into the
+two arrow sectors X_r = s = +-1 (record states (|0> +- |1>)/sqrt2), where U2_s is the 2 x 2 SU(2) matrix with
+alpha_i -> s sigma_i. The phase per tick vanishes exactly where U2_s = 1.
+Search: grid p = 2 pi n / N, N = 96, all n in [0, N)^3, both sectors; every grid point with ||U2_s - 1|| < 1e-9 is a zero; in
+addition every local minimum of ||U2_s - 1|| below 0.3 is refined by Newton's method to catch zeros between grid points.
+Linearisation at a zero p*: U2_s(p* + q) = exp(-2 i sum_ij q_i A_ij sigma_j) + O(q^2), A from central differences
+(step 1e-6); chirality = sign det A (local Hamiltonian +sigma.q or -sigma.q up to a rotation); |det A| and the singular
+values of A are reported (a zero singular value would be a non-Weyl node).
+Two-tick sublattices: two ticks move a quantum by a vector with components in {-2, 0, 2}, so x mod 2 is conserved per
+axis by the two-tick walk: eight sublattices 2Z^3 + r, reduced zone p mod pi per axis (classes reported as well).
+Sublattices: a quantum moves by (+-1, +-1, +-1) per tick; one sublattice (x1 = x2 = x3 mod 2, a body-centred lattice) has
+reciprocal vectors (pi, pi, 0), (pi, 0, pi), (0, pi, pi); zeros are grouped into classes modulo these.
+`python a_cones.py`  (writes runs/A_part_cones.json; merged into A_dispersion.json by a_dispersion.py merge)
+"""
+import json, os, itertools
+import numpy as np
+
+S = [np.array([[0, 1], [1, 0]], complex), np.array([[0, -1j], [1j, 0]]), np.diag([1.0, -1.0]).astype(complex)]
+RUNS = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'runs')
+
+
+def ex(p, i, s):
+    """exp(-i s p sigma_i) for an array of p: shape (..., 2, 2)"""
+    c = np.cos(p)[..., None, None]; sn = np.sin(p)[..., None, None]
+    return c * np.eye(2) - 1j * s * sn * S[i]
+
+
+TARGET = 1.0
+
+
+def U2(p, s):
+    p = np.asarray(p, float)
+    e = [ex(p[..., i], i, s) for i in range(3)]
+    fwd = e[2] @ e[1] @ e[0]; rev = e[0] @ e[1] @ e[2]
+    return TARGET * (rev @ fwd)
+
+
+def dist(p, s):
+    d = U2(p, s) - np.eye(2)
+    return np.sqrt(np.sum(np.abs(d) ** 2, axis=(-1, -2)))
+
+
+def lin(p, s, h=1e-6):
+    A = np.zeros((3, 3))
+    for i in range(3):
+        dp = np.zeros(3); dp[i] = h
+        D = (U2(p + dp, s) - U2(p - dp, s)) / (2 * h)            # = -2 i sum_j A_ij sigma_j
+        for j in range(3):
+            A[i, j] = float(np.real(np.trace(1j * D @ S[j]) / 4))
+    return A
+
+
+def newton(p, s, it=60):
+    p = np.array(p, float)
+    for _ in range(it):
+        U = U2(p, s)
+        # vector v with U = exp(-2 i v.sigma) approx 1 - 2 i v.sigma near a zero
+        v = np.array([np.real(np.trace(1j * (U - np.eye(2)) @ S[j]) / 4) for j in range(3)])
+        A = lin(p, s)
+        try: dq = np.linalg.solve(A.T, v)
+        except np.linalg.LinAlgError: break
+        p = p - dq
+        if np.linalg.norm(dq) < 1e-15: break
+    return np.mod(p, 2 * np.pi)
+
+
+def canon(p):
+    q = np.mod(np.round(p / np.pi * 1e9) / 1e9 * np.pi, 2 * np.pi)
+    q[np.abs(q - 2 * np.pi) < 1e-9] = 0.0
+    return tuple(float(x) for x in q)
+
+
+def sub_class(p):
+    """representative modulo the reciprocal vectors of one sublattice: (pi,pi,0), (pi,0,pi), (0,pi,pi), 2 pi e_i"""
+    best = None
+    for a, b, c in itertools.product((0, 1), repeat=3):
+        G = np.pi * np.array([a + c, a + b, b + c]) * 1.0           # combinations of the three vectors (mod 2 pi)
+        q = canon(np.mod(np.array(p) + G, 2 * np.pi))
+        best = q if best is None or q < best else best
+    return best
+
+
+def census():
+    N = 96
+    g = 2 * np.pi * np.arange(N) / N
+    P = np.stack(np.meshgrid(g, g, g, indexing='ij'), axis=-1)
+    found = {}
+    report = {'grid': N}
+    for s in (+1, -1):
+        D = dist(P, s)
+        on_grid = np.argwhere(D < 1e-9)
+        cands = [P[tuple(i)] for i in on_grid]
+        # local minima below 0.3 (periodic neighbours)
+        mins = np.ones_like(D, bool)
+        for ax in range(3):
+            for sh in (1, -1):
+                mins &= D <= np.roll(D, sh, axis=ax)
+        for i in np.argwhere(mins & (D < 0.3)):
+            cands.append(newton(P[tuple(i)], s))
+        report[f'grid_points_with_zero_sector_{s:+d}'] = int(len(on_grid))
+        for p in cands:
+            if dist(p, s) > 1e-10: continue
+            key = (s, canon(p))
+            if key in found: continue
+            A = lin(np.array(key[1]), s)
+            sv = np.linalg.svd(A, compute_uv=False)
+            found[key] = {'arrow_sector_X_record': s, 'p': list(key[1]), 'p_over_pi': [round(x / np.pi, 9) for x in key[1]],
+                          'on_the_grid_of_this_search': bool(np.all(np.abs(np.array(key[1]) * N / (2 * np.pi) - np.round(np.array(key[1]) * N / (2 * np.pi))) < 1e-6)),
+                          'residual_norm_U2_minus_1': float(dist(np.array(key[1]), s)), 'A': A.tolist(), 'det_A': float(np.linalg.det(A)),
+                          'singular_values_A': [float(x) for x in sv], 'chirality': int(np.sign(np.linalg.det(A))) if sv.min() > 1e-6 else 0,
+                          'sublattice_class': [round(x / np.pi, 9) for x in sub_class(key[1])],
+                          'two_tick_sublattice_class': [round((x % np.pi) / np.pi, 9) % 1.0 for x in key[1]]}
+    zeros = sorted(found.values(), key=lambda r: (-r['arrow_sector_X_record'], r['p']))
+    for z in zeros:
+        print('sector', z['arrow_sector_X_record'], 'p/pi', z['p_over_pi'], 'chirality', z['chirality'], 'det', round(z['det_A'], 6), 'sv', [round(x, 6) for x in z['singular_values_A']], 'class', z['sublattice_class'])
+    summary = {}
+    for s in (+1, -1):
+        zs = [z for z in zeros if z['arrow_sector_X_record'] == s]
+        cls = {}
+        for z in zs: cls.setdefault(tuple(z['sublattice_class']), []).append(z['chirality'])
+        cls2 = {}
+        for z in zs: cls2.setdefault(tuple(z['two_tick_sublattice_class']), []).append(z['chirality'])
+        summary[f'sector_{s:+d}_two_tick_sublattice'] = {'classes_modulo_pi_per_axis': [{'class_p_over_pi': list(k), 'chiralities': v} for k, v in cls2.items()],
+                                     'cones_per_two_tick_sublattice_zone': len(cls2), 'chirality_sum': int(sum(v[0] for v in cls2.values()))}
+        summary[f'sector_{s:+d}'] = {'zeros_in_full_zone': len(zs), 'chirality_sum_full_zone': int(sum(z['chirality'] for z in zs)),
+                                     'classes_modulo_sublattice_reciprocal_vectors': [{'class_p_over_pi': list(k), 'chiralities': v} for k, v in cls.items()],
+                                     'cones_per_sublattice_zone': len(cls), 'chirality_sum_per_sublattice_zone': int(sum(v[0] for v in cls.values()))}
+    print(json.dumps(summary, indent=1))
+    report.update({'zeros': zeros, 'summary': summary,
+                   'populated': {'low_momentum_preparation': 'momentum weight concentrated at p = 0 (Gaussian of width w: weight near another zero p* ~ exp(-w^2 |p*|^2)); the blank record is (|+> + |->)/sqrt2, so both arrow sectors: the p = 0 cone of each sector; all four sublattices.',
+                                 'single_cell_preparation': 'equal momentum weight at every p of the full zone, so every zero of both arrow sectors (blank record); it sits on one sublattice, on which zeros in the same class modulo (pi,pi,0), (pi,0,pi), (0,pi,pi) are the same cone of that sublattice.'}})
+    return report
+
+
+if __name__ == '__main__':
+    report = census()
+    TARGET = -1.0
+    rp = census()
+    report['phase_pi_points'] = {'definition': 'points where U2_s = -1 (two-tick phase pi, pi/2 per tick); same search and linearisation applied to -U2',
+                                 'zeros': rp['zeros'], 'summary': rp['summary'],
+                                 'grid_points': {k: v for k, v in rp.items() if k.startswith('grid_points')}}
+    json.dump(report, open(os.path.join(RUNS, 'A_part_cones.json'), 'w'), indent=1)
+    print('written A_part_cones.json')

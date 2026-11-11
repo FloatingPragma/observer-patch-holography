@@ -1,0 +1,102 @@
+{
+ "A_exact": {
+  "circulant_eigenvalues": "lambda_k = sqrt(q) + 2 sqrt(p) cos(theta - 2 pi k/3) (Fourier mode k; EXACT)",
+  "Q_at_p_eq_q_over_2": "2/3 for every theta (EXACT)",
+  "T1_family_blind_blocks_equal_m_k_plus_environment": true,
+  "T1_pole_shift_common_to_all_sectors": true,
+  "T1_statement": "a family-blind environment shifts the three family poles by one common additive amount, to all orders; ratios move only through that common amount",
+  "T2_common_factor_keeps_r": true,
+  "T2_joint_statistics_do_not_enter_r": "r = 2 sqrt(p/q) uses the marginals only (EXACT)"
+ },
+ "A_rate_forms": {
+  "D4_independent_dilution": {
+   "theta(Z)": "-2*Z**2*p*q + Z*p + Z*q",
+   "d theta / dZ at Z = 1": "-4*p*q + p + q",
+   "native value": "7/36",
+   "r factor": "1",
+   "exact": "-(Z - 8)*(Z - 1)/36"
+  },
+  "D5_ticks_without_reads": {
+   "theta(Z)": "-2*Z*p*q + Z*p + Z*q",
+   "d theta / dZ at Z = 1": "-2*p*q + p + q",
+   "native value": "2/9",
+   "r factor": "1",
+   "exact": "(Z - 1) 2/9"
+  },
+  "D6_current_only": {
+   "theta(Z)": "-2*Z*p*q + Z*p + q",
+   "d theta / dZ at Z = 1": "-p*(2*q - 1)",
+   "native value": "1/18",
+   "r factor": "sqrt(Z)"
+  },
+  "correlation_fixed_marginals": {
+   "theta": "-2*cov - 2*p*q + p + q",
+   "d theta / d cov": "-2",
+   "r factor": "1"
+  }
+ },
+ "A_D9_D10": {
+  "D9_theta": "13/36",
+  "D9_theta_float": 0.3611111111111111,
+  "D10_theta": "-2*log(5/6)*log(11/12) - log(11/12) - log(5/6)",
+  "D10_theta_float": 0.23760483436051444,
+  "D10_r": 1.3816530695319682,
+  "D10_r_over_sqrt2": 0.9769762547132631
+ },
+ "B_jacobian_native": {
+  "roots_tau_e_mu": [
+   "2.3794381716332554119913588435514672750990296557571",
+   "0.040349908219207373268724779252050652626604367633718",
+   "0.5802119201475372147399163771964820722743659766092"
+  ],
+  "native_mu_over_e": "206.77031597272938861255033931777507746217879491002",
+  "native_tau_over_e": "3477.4728371045985323130012255226483445993318601989",
+  "dln_mu_e_per_d_delta": "56.143882745270396377254647027740852587987630235583",
+  "dln_tau_e_per_d_delta": "51.226793578098633427338417215534161800550322796963",
+  "dln_mu_e_per_d_r_over_r": "46.119391271324376842278565234671057866678884362574",
+  "dln_tau_e_per_d_r_over_r": "48.725873111037842101638209398461404056302302566449",
+  "dln_mu_e_per_a": "26.178800232621654886542318563321131854894310527708",
+  "dln_mu_e_per_b": "-15.261934143263522257631692752371521629452271315234",
+  "dln_tau_e_per_a": "27.208869532079956241226794544538155461515058105278",
+  "dln_tau_e_per_b": "-17.248104114116333074799880085962068444741384228091",
+  "per_relative_mass_shift": "dln(mu/e) = eps_mu - eps_e, dln(tau/e) = eps_tau - eps_e",
+  "additive_common_shift_Delta_over_m_e": {
+   "dln_mu_e": "-0.99516371585884751259280052933121941840212407266262",
+   "dln_tau_e": "-0.99971243484943145765618350874241166730152164598217",
+   "note": "per unit Delta/m_e; m_k -> m_k + Delta"
+  }
+ },
+ "B_row_maps": "rows D4 to D7 are evaluated in dr_compare.py from the coefficients of dr_clock.json",
+ "B_linearization_check_D4_at_1e-6": {
+  "linear": [
+   "-0.000010916867648910431108643858512467583218243500008951",
+   "-0.0000099607668409301114469445096624210096705003905765151"
+  ],
+  "exact": [
+   "-0.000010916843667096914253425976221393617154256118120162",
+   "-0.0000099607427042108388411500155505750003501527325025522"
+  ],
+  "rel_diff": [
+   "0.0000021967717270822322375218462528547647654579336153857",
+   "0.0000024231846950932839838070296009034706839132102631929"
+  ]
+ },
+ "C_needed_NOT_BLIND": {
+  "needed_dln_mu_e": "-0.0000098334920547176403107426113937457575554777501567557",
+  "sigma_ln_mu_e": "0.000000021770521335686555432431122352515087491716256618567",
+  "needed_dln_tau_e": "-0.000030935356576046534723087029131752526272902607622675",
+  "sigma_ln_tau_e": "0.000050649153315954911531604430837104755756855246205157",
+  "Q_held_delta": "0.22222204707381722922918354235067522537296867813212",
+  "Q_held_d_delta": "-0.00000017514840499299303867987154699684925354409010055611",
+  "Q_held_rel": "-0.00000078816782246846867405942196148582164094840545250251",
+  "Q_held_m_tau_MeV": "1776.9690272931573454044081080674379541418168878721",
+  "Q_held_tau_pull_sigma": "0.43363659063717116009008963819949046463208746795782",
+  "needed_1_minus_Z_D4": "0.00000090076132736738096037039798509954200998129511930868",
+  "needed_1_minus_Z_D5": "0.00000078816626286782945040485472327672065816554708519671",
+  "needed_1_minus_Z_D6": "0.00000037562803313857594249287697897503799266536084777355",
+  "needed_d_theta_D7": "-0.00000017514805841507321120107882739482681292567713004371",
+  "needed_cov": "0.000000087574029207536605600539413697413406462838565021857",
+  "needed_additive_Delta_over_m_e": "0.0000098812807360356048847372564666727525012353274591887",
+  "needed_additive_Delta_eV": "5.049324087587504966580176450819193483745325260404"
+ }
+}

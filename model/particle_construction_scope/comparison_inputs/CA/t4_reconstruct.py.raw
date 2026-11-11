@@ -1,0 +1,244 @@
+"""Task 4: the algebra of the compressed occupations reconstructed from ordered character-weighted correlations alone.
+
+Input of the reconstruction: the arrays G (two-point), T3 (three-point) and, for the direct bracket test, T4
+(four-point) of ca_corr.counts at a finite lag.  The reconstruction never sees a transfer matrix, an eigenvector or
+a compressed occupation.  The matrices are used afterwards, only to print the comparison.
+
+Float64 (MEASURED).  Usage: python t4_reconstruct.py [out.json]
+"""
+import itertools
+import json
+import sys
+import time
+import numpy as np
+import ca_core as c
+import ca_corr as cc
+
+out_path = sys.argv[1] if len(sys.argv) > 1 else 't4_reconstruct.json'
+t0 = time.time()
+res = {'schema': 'repair_law.CA.t4.v1'}
+secs = {'one': cc.Sector('one'), 'two': cc.Sector('two')}
+SECTORS = [('one', 1), ('one', 7), ('two', 1), ('two', 7)]
+CASES = {
+    'one quantum k=1': [('one', 1)],
+    'two quanta k=1': [('two', 1)],
+    'sum: one quantum k=1 + two quanta k=1': [('one', 1), ('two', 1)],
+    'pairing: one quantum k=7 + two quanta k=1': [('one', 7), ('two', 1)],
+    'single character: one quantum k=7 + two quanta k=7': [('one', 7), ('two', 7)],
+}
+
+# ------------------------------------------------------------------------------------------------------------
+# truth, from the matrices (comparison only)
+# ------------------------------------------------------------------------------------------------------------
+truth = {}
+lim = {}
+for name, k in SECTORS:
+    lim[(name, k)] = cc.limits(secs[name], k, orders=(2, 3))
+for label, parts in CASES.items():
+    ops = [c.block([lim[p]['n'][s] for p in parts]) for s in range(12)]
+    truth[label] = c.lie_data(ops, tol=1e-8)
+res['truth_from_matrices'] = {k: list(v) for k, v in truth.items()}
+
+
+# ------------------------------------------------------------------------------------------------------------
+# reconstruction at a sequence of lags
+# ------------------------------------------------------------------------------------------------------------
+def reconstruct(parts, lag, data, tol):
+    blocks, info = [], []
+    for p in parts:
+        d = data[(p, lag)]
+        r, w, gap, W, L = cc.gns(d['G'], d['T3'], thresh=THRESH * 12 * cc.error_bound(secs[p[0]], p[1], lag, 2))
+        blocks.append(L)
+        info.append({'sector': p[0], 'k': p[1], 'gns_rank': r, 'gap_ratio_at_cut': gap,
+                     'G_eigenvalues': [float(x) for x in w]})
+    ops = [c.block([b[s] for b in blocks]) for s in range(12)]
+    ops = [(o + o.conj().T) / 2 for o in ops]
+    return c.lie_data(ops, tol=tol, centre_tol=tol), info
+
+
+LAGS = [40, 80, 120, 160, 200, 240, 320, 400, 480, 640, 960, 1280]
+THRESH = 10.0          # rank threshold of a Gram matrix = THRESH x (dimension) x (proved entry error)
+data = {}
+for name, k in SECTORS:
+    for lag in LAGS:
+        data[((name, k), lag)] = cc.counts(secs[name], k, lag, orders=(2, 3))
+res['cases'] = {}
+print('reconstruction from correlations (span, closure, centre).  GNS rank: eigenvalues of G above 10 x 12 x proved '
+      'two-point error.  Lie and centre tolerance: max(1e-7, 30 x proved relative error of the three-point data).')
+for label, parts in CASES.items():
+    print(f'\n{label}: from the matrices {truth[label]}')
+    rows = []
+    first_ok = None
+    for lag in LAGS:
+        rel = max(cc.error_bound(secs[p[0]], p[1], lag, 3) / (np.abs(lim[p]['T3']).max()) for p in parts)
+        tol = max(1e-7, 30 * rel)
+        if tol > 0.05:
+            rows.append({'lag': lag, 'skipped': 'tolerance above 0.05', 'relative_error_bound': rel})
+            print(f'   lag {lag:4d}: proved relative error {rel:.1e}, tolerance would exceed 0.05: not attempted')
+            continue
+        got, info = reconstruct(parts, lag, data, tol)
+        ok = tuple(got) == tuple(truth[label])
+        if ok and first_ok is None:
+            first_ok = lag
+        rows.append({'lag': lag, 'relative_error_bound': rel, 'lie_tolerance': tol, 'result': list(got), 'matches': ok,
+                     'sectors': [{kk: vv for kk, vv in i.items() if kk != 'G_eigenvalues'} for i in info]})
+        print(f'   lag {lag:4d}: GNS ranks {[i["gns_rank"] for i in info]} (kept/dropped eigenvalue ratios '
+              f'{[float("%.2g" % i["gap_ratio_at_cut"]) for i in info]}), relative error bound {rel:.1e}, tolerance {tol:.1e}: '
+              f'{got} {"=" if ok else "DIFFERS FROM"} matrices')
+    res['cases'][label] = {'truth': list(truth[label]), 'rows': rows, 'first_lag_with_correct_result': first_ok}
+
+# ------------------------------------------------------------------------------------------------------------
+# commutators from ordered correlations
+# ------------------------------------------------------------------------------------------------------------
+print('\ncommutators from ordered three-point correlations: tau(n_c [n_a, n_b]) = T(c,a,b) - T(c,b,a) = 2i Im T(c,a,b)')
+res['commutators'] = {}
+for name, k in [('one', 1), ('two', 1), ('one', 7)]:
+    lag = 480
+    d = cc.counts(secs[name], k, lag, orders=(2, 3))
+    G, T3 = d['G'], d['T3']
+    herm = float(np.abs(np.transpose(T3, (0, 2, 1)) - T3.conj()).max())          # T(c,b,a) = conj T(c,a,b)
+    r, w, gap, W, L = cc.gns(G, T3, thresh=THRESH * 12 * cc.error_bound(secs[name], k, lag, 2))
+    Pinv = W @ W.conj().T
+    n = lim[(name, k)]['n']
+    worst = 0.0
+    nonzero = 0
+    for a, b in itertools.combinations(range(12), 2):
+        bvec = T3[:, a, b] - T3[:, b, a]
+        kappa = Pinv @ bvec                                                   # [n_a, n_b] = sum_c kappa_c n_c
+        rec = np.einsum('c,cij->ij', kappa, n)
+        tru = n[a] @ n[b] - n[b] @ n[a]
+        worst = max(worst, float(np.abs(rec - tru).max()))
+        nonzero += np.abs(tru).max() > 1e-9
+    res['commutators'][f'{name}_k{k}'] = {'lag': lag, 'gns_rank': r, 'conjugation_defect': herm,
+                                         'max_defect_of_reconstructed_commutators': worst,
+                                         'nonzero_commutators_of_66': int(nonzero)}
+    print(f'   {name} k={k}, lag {lag}: T(c,b,a) = conj T(c,a,b) defect {herm:.1e}; the 66 commutators expanded in the '
+          f'span of the insertions with coefficients from G and Im T3: max defect against the matrices {worst:.1e}; '
+          f'{nonzero} of 66 nonzero')
+
+# direct bracket test of the sum with four-point data: the real Gram of {i n_p} and {[n_a, n_b]}
+print('\nfirst bracket generation from two-, three- and four-point correlations (real Gram rank):')
+res['bracket_gram'] = {}
+pairs = list(itertools.combinations(range(12), 2))
+for label in ('sum: one quantum k=1 + two quanta k=1', 'pairing: one quantum k=7 + two quanta k=1'):
+    parts = CASES[label]
+    lag = 480
+    gram = np.zeros((12 + 66, 12 + 66))
+    entry_err = 0.0
+    for p in parts:
+        entry_err += lim[p]['m'] * max(cc.error_bound(secs[p[0]], p[1], lag, 2), 2 * cc.error_bound(secs[p[0]], p[1], lag, 3),
+                                       4 * cc.error_bound(secs[p[0]], p[1], lag, 4))
+        d = cc.counts(secs[p[0]], p[1], lag, orders=(2, 3, 4))
+        G, T3, T4 = d['G'], d['T3'], d['T4']
+        wgt = lim[p]['m']                                                        # tau_sum = sum_i m_i tau_i / sum m
+        g = np.zeros_like(gram)
+        g[:12, :12] = G.real
+        for j, (a, b) in enumerate(pairs):
+            g[:12, 12 + j] = 2 * T3[:, a, b].imag
+            g[12 + j, :12] = g[:12, 12 + j]
+            for j2, (cc_, e) in enumerate(pairs):
+                g[12 + j, 12 + j2] = (T4[b, a, cc_, e] - T4[b, a, e, cc_] - T4[a, b, cc_, e] + T4[a, b, e, cc_]).real
+        gram += wgt * g
+    w1 = np.linalg.eigvalsh(gram[:12, :12])[::-1]
+    w2 = np.linalg.eigvalsh((gram + gram.T) / 2)[::-1]
+
+    def rank(w, dim):
+        th = max(THRESH * dim * entry_err, 1e-11 * w[0])
+        j = int((w > th).sum())
+        return j, (float(w[j - 1] / max(abs(w[j]), 1e-300)) if j < len(w) else float('inf'))
+    r1, g1 = rank(w1, 12)
+    r2, g2 = rank(w2, 78)
+    res['bracket_gram'][label] = {'lag': lag, 'span': r1, 'span_gap_ratio': g1, 'span_plus_brackets': r2,
+                                  'gap_ratio': g2}
+    print(f'   {label}, lag {lag}: span {r1} (kept/dropped eigenvalue ratio {g1:.1e}); span and first brackets {r2} '
+          f'(ratio {g2:.1e})')
+
+# ------------------------------------------------------------------------------------------------------------
+# the multiplets and the 60 rotation implementers from the same numbers
+# ------------------------------------------------------------------------------------------------------------
+print('\nirreducible blocks and rotation implementers reconstructed from the correlation data:')
+res['implementers'] = {}
+rots = c.ROTS
+ridx = {r: i for i, r in enumerate(rots)}
+
+
+def compose(r1, r2):
+    return tuple(r1[r2[p]] for p in range(12))
+
+
+for name, k in [('one', 1), ('one', 7), ('two', 1)]:
+    lag = 640
+    d = cc.counts(secs[name], k, lag, orders=(2, 3))
+    r, w, gap, W, L = cc.gns(d['G'], d['T3'], thresh=THRESH * 12 * cc.error_bound(secs[name], k, lag, 2))
+    m, nrec, cdim, groups = cc.irreducible_from_regular(L)
+    # consistency of the m x m operators with the input data
+    Grec = np.einsum('aij,bji->ab', np.array(nrec), np.array(nrec)) / m
+    T3rec = np.einsum('aij,bjk,cki->abc', np.array(nrec), np.array(nrec), np.array(nrec)) / m
+    # implementers on the GNS space from the two-point data, and on the irreducible block
+    reg_unit = reg_cov = 0.0
+    us = []
+    worst_res = 0.0
+    for rot in rots:
+        Ureg = cc.implementer_regular(d['G'], W, rot)
+        reg_unit = max(reg_unit, float(np.abs(Ureg.conj().T @ Ureg - np.eye(r)).max()))
+        reg_cov = max(reg_cov, max(float(np.abs(Ureg @ L[p] - L[rot[p]] @ Ureg).max()) for p in range(12)))
+        u, s_last, s_next = cc.intertwiner(nrec, rot)
+        worst_res = max(worst_res, s_last)
+        us.append(u)
+    unit = max(float(np.abs(u.conj().T @ u - np.eye(m)).max()) for u in us)
+    half = [i for i, rot in enumerate(rots) if rot != tuple(range(12)) and compose(rot, rot) == tuple(range(12))]
+    raw_sq = sorted({complex(np.round(np.trace(us[i] @ us[i]) / m, 6)) for i in half}, key=lambda z: (z.real, z.imag))
+    if m == 3:
+        # determinant one leaves a cube root of unity free.  Fix it: real trace where the trace is nonzero (orders 1,
+        # 2, 5); an element of order 3 is a product of two half turns and takes the product of their implementers.
+        z3 = np.exp(2j * np.pi / 3)
+        fixed = {}
+        for i, u in enumerate(us):
+            cands = [u * z3 ** j for j in range(3)]
+            tr = [np.trace(x) for x in cands]
+            if max(abs(t) for t in tr) > 1e-6:
+                j = int(np.argmin([abs(t.imag) - 1e-9 * t.real for t in tr]))
+                fixed[i] = cands[j]
+        for i, rot in enumerate(rots):
+            if i not in fixed:
+                done = False
+                for a in half:
+                    for b in half:
+                        if compose(rots[a], rots[b]) == rot:
+                            fixed[i] = fixed[a] @ fixed[b]
+                            done = True
+                            break
+                    if done:
+                        break
+                assert done
+        us = [fixed[i] for i in range(len(rots))]
+    # projective composition u_a u_b = c(a, b) u_ab
+    cocycle = set()
+    comp_def = 0.0
+    for i, ra in enumerate(rots):
+        for j, rb in enumerate(rots):
+            uab = us[ridx[compose(ra, rb)]]
+            M = us[i] @ us[j] @ uab.conj().T
+            cval = np.trace(M) / m
+            comp_def = max(comp_def, float(np.abs(M - cval * np.eye(m)).max()))
+            cocycle.add(complex(np.round(cval, 6)))
+    # half turns: u^2 is a scalar independent of the phase convention up to m-th roots; for m = 2 it is -1
+    sq = sorted({complex(np.round(np.trace(us[i] @ us[i]) / m, 6)) for i in half}, key=lambda z: (z.real, z.imag))
+    info = {'lag': lag, 'gns_rank': r, 'commutant_dimension': cdim, 'block_dimension': m, 'eigen_groups': groups,
+            'G_defect_of_block_operators': float(np.abs(Grec - d['G']).max()),
+            'T3_defect_of_block_operators': float(np.abs(T3rec - d['T3']).max()),
+            'regular_implementer_unitarity_defect': reg_unit, 'regular_implementer_covariance_defect': reg_cov,
+            'block_implementer_unitarity_defect': unit, 'block_intertwiner_residual': worst_res,
+            'composition_defect': comp_def,
+            'cocycle_values': sorted([[z.real, z.imag] for z in cocycle]),
+            'half_turns': len(half), 'squares_of_half_turns': [[z.real, z.imag] for z in sq]}
+    res['implementers'][f'{name}_k{k}'] = info
+    print(f'   {name} k={k}, lag {lag}: GNS rank {r}, commutant dimension {cdim}, block dimension {m}; block operators '
+          f'reproduce G and T3 to {info["G_defect_of_block_operators"]:.1e}, {info["T3_defect_of_block_operators"]:.1e}')
+    print(f'      60 implementers: unitarity defect {unit:.1e}, covariance residual {worst_res:.1e}, projective '
+          f'composition defect {comp_def:.1e}, cocycle values {sorted(cocycle, key=lambda z: (z.real, z.imag))}, '
+          f'squares of the {len(half)} half turns {sq}')
+
+res['seconds'] = round(time.time() - t0, 2)
+json.dump(res, open(out_path, 'w'), indent=1)
+print('wrote', out_path, 'in %.1f s' % (time.time() - t0))

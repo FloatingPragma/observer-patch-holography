@@ -1,0 +1,241 @@
+"""Task CO, parts (c), (d), (e): creation channels, endings, the full fusion / split / exchange / annihilation tables
+and the lifetime distribution of every defect class, from the identity catalogue of a run (DATASET.md section 6).
+
+    python events.py <catalogue.npz> <run.json> <out.json>
+
+How events are read from the catalogue (the tracker `oph_defects/kernels.py: oph_track`, EXACT):
+- pair birth: two rows created consecutively with parent1 = -1 (first on the face traversing the seam a->b);
+- move: no row is created, `hops` of the identity grows, its class is unchanged;
+- split: the parent ends with cause 3, child1 and child2 are the two products (parent1 = parent, parent2 = -1);
+- annihilation: both parties end with cause 1, partner = the other party;
+- fusion: both parties end with cause 2, partner = other party, child1 = the product (parent1, parent2 = the parties);
+- exchange: both parties end with cause 4, child1, child2 = the two products (both have parent1, parent2 set).
+Every event is one accepted twist of one seam: the face traversing a->b gains delta, the other loses delta, so the class
+sum of the two faces is conserved mod 6 (EXACT); the tables below check it on every event.
+Times in causal depth and in sweeps. The balanced sweep is attempts_to_balanced_class // attempts per sweep.
+"""
+import json, sys
+import numpy as np
+
+CAUSES = ('alive', 'annihilation', 'fusion', 'split', 'exchange')
+LBINS = [0, 1, 3, 10, 30, 100, 300, 1000, 3000, 10000, 100000]
+
+
+def qs(x, ps=(0.1, 0.25, 0.5, 0.75, 0.9, 0.99)):
+    x = np.asarray(x)
+    return {str(p): (float(np.quantile(x, p)) if len(x) else None) for p in ps}
+
+
+def table(keys):
+    """counts of tuples, as a dict 'a+b->c' -> n"""
+    out = {}
+    if len(keys) == 0:
+        return out
+    arr = np.asarray(keys)
+    u, c = np.unique(arr, axis=0, return_counts=True)
+    for row, n in zip(u.tolist(), c.tolist()):
+        out[','.join(str(v) for v in row)] = int(n)
+    return out
+
+
+def pair_birth_rows(cat):
+    """first members of pair births: greedy left-to-right pairing of consecutive pair-birth rows (exact, every pair
+    birth creates two consecutive rows)"""
+    pb = (cat['parent1'] < 0) & (cat['birth_sweep'] >= 0)
+    idx = np.nonzero(pb)[0]
+    if len(idx) == 0:
+        return idx
+    # runs of consecutive indices
+    brk = np.nonzero(np.diff(idx) != 1)[0] + 1
+    starts = np.r_[0, brk]
+    run_id = np.repeat(np.arange(len(starts)), np.diff(np.r_[starts, len(idx)]))
+    offset = np.arange(len(idx)) - starts[run_id]
+    first = idx[offset % 2 == 0]
+    ok = (first + 1 < len(pb))
+    first = first[ok]
+    assert pb[first + 1].all(), 'unpaired pair-birth row'
+    return first
+
+
+def analyse(cat, sel, end_depth, end_sweep, bal_sweep, cps):
+    cls = cat['cls'].astype(np.int64)
+    n = len(cls)
+    cause = cat['cause']
+    p1, p2, c1, c2, partner = cat['parent1'], cat['parent2'], cat['child1'], cat['child2'], cat['partner']
+    alive = cause == 0
+    life_d = np.where(alive, end_depth - cat['birth_depth'], cat['death_depth'] - cat['birth_depth']).astype(np.int64)
+    life_s = np.where(alive, end_sweep - cat['birth_sweep'], cat['death_sweep'] - cat['birth_sweep']).astype(np.int64)
+    res = {'identities': int(sel.sum())}
+    # ---------------- events (deduplicated, each counted once)
+    first = pair_birth_rows(cat)
+    first = first[sel[first]]
+    bsw = cat['birth_sweep'][first]
+    births = np.stack([cls[first], cls[first + 1]], 1)
+    births_sorted = np.sort(births, 1)
+    viol = {}
+    viol['births'] = int(((births.sum(1)) % 6 != 0).sum())
+    res['births'] = {'events': int(len(first)), 'table_unordered': table(births_sorted),
+                     'table_by_regime': {'quench': table(births_sorted[bsw < bal_sweep]), 'balanced': table(births_sorted[bsw >= bal_sweep])},
+                     'last_birth_sweep': int(bsw.max()) if len(bsw) else None}
+    # annihilations
+    a = np.nonzero(sel & (cause == 1))[0]
+    a = a[a < partner[a]]
+    ann = np.stack([cls[a], cls[partner[a]]], 1)
+    viol['annihilations'] = int((ann.sum(1) % 6 != 0).sum())
+    asw = cat['death_sweep'][a]
+    res['annihilations'] = {'events': int(len(a)), 'table_unordered': table(np.sort(ann, 1)),
+                            'table_by_regime': {'quench': table(np.sort(ann[asw < bal_sweep], 1)), 'balanced': table(np.sort(ann[asw >= bal_sweep], 1))}}
+    # fusions: products with two parents whose cause is 2
+    prod = np.nonzero(sel & (p2 >= 0))[0]
+    isfus = cause[p1[prod]] == 2
+    f = prod[isfus]
+    fus = np.stack([cls[p1[f]], cls[p2[f]], cls[f]], 1)
+    fus_key = np.c_[np.sort(fus[:, :2], 1), fus[:, 2]]
+    viol['fusions'] = int(((fus[:, 0] + fus[:, 1] - fus[:, 2]) % 6 != 0).sum())
+    fsw = cat['birth_sweep'][f]
+    res['fusions'] = {'events': int(len(f)), 'table_a_b_to_c': table(fus_key),
+                      'table_by_regime': {'quench': table(fus_key[fsw < bal_sweep]), 'balanced': table(fus_key[fsw >= bal_sweep])}}
+    # splits
+    s = np.nonzero(sel & (cause == 3))[0]
+    spl = np.stack([cls[s], cls[c1[s]], cls[c2[s]]], 1)
+    spl_key = np.c_[spl[:, 0], np.sort(spl[:, 1:], 1)]
+    viol['splits'] = int(((spl[:, 1] + spl[:, 2] - spl[:, 0]) % 6 != 0).sum())
+    ssw = cat['death_sweep'][s]
+    res['splits'] = {'events': int(len(s)), 'table_a_to_b_c': table(spl_key),
+                     'table_by_regime': {'quench': table(spl_key[ssw < bal_sweep]), 'balanced': table(spl_key[ssw >= bal_sweep])}}
+    # exchanges: parent1 rows of products with cause[p1] == 4, take product h = c1[i] of party i with p1[h] == i
+    ex = prod[cause[p1[prod]] == 4]
+    i1 = p1[ex]; i2 = p2[ex]
+    keep = c1[i1] == ex                      # h (the product on fp) has parent1 = i1 and is child1 of i1
+    ex, i1, i2 = ex[keep], i1[keep], i2[keep]
+    w = c2[i1]
+    exc = np.stack([cls[i1], cls[i2], cls[ex], cls[w]], 1)
+    viol['exchanges'] = int(((exc[:, 0] + exc[:, 1] - exc[:, 2] - exc[:, 3]) % 6 != 0).sum())
+    exc_key = exc  # ordered: (class on fp before, class on fm before) -> (class on fp after, class on fm after)
+    esw = cat['birth_sweep'][ex]
+    res['exchanges'] = {'events': int(len(ex)), 'table_fp_fm_to_fp_fm': table(exc_key),
+                        'table_by_regime': {'quench': table(exc_key[esw < bal_sweep]), 'balanced': table(exc_key[esw >= bal_sweep])}}
+    res['moves'] = {'hops_total': int(cat['hops'][sel].sum())}
+    res['addition_mod6_violations'] = viol
+    res['class_out_of_range'] = int(((cls[sel] < 1) | (cls[sel] > 5)).sum())
+    # ---------------- per class: creation channel and ending, lifetimes
+    origin = np.full(n, 'pair_birth', dtype=object)
+    per = {}
+    for k in range(1, 6):
+        m = sel & (cls == k)
+        idx = np.nonzero(m)[0]
+        if len(idx) == 0:
+            continue
+        d = {'identities': int(len(idx)), 'alive_at_end': int(alive[idx].sum())}
+        # creation
+        cr = {}
+        pbm = (p1[idx] < 0) & (cat['birth_sweep'][idx] >= 0)
+        seeded = (p1[idx] < 0) & (cat['birth_sweep'][idx] < 0)
+        # pair birth partner = sibling: first members pair with +1, second with -1
+        isfirst = np.zeros(n, bool); isfirst[pair_birth_rows(cat)] = True
+        sib = np.where(isfirst[idx], idx + 1, idx - 1)
+        for j in np.nonzero(pbm)[0]:
+            pass
+        if pbm.any():
+            u, c = np.unique(cls[sib[pbm]], return_counts=True)
+            for uu, cc in zip(u, c):
+                cr[f'pair birth with {uu}'] = int(cc)
+        if seeded.any():
+            cr['present in the preparation'] = int(seeded.sum())
+        spm = (p1[idx] >= 0) & (p2[idx] < 0)
+        if spm.any():
+            par = p1[idx[spm]]
+            sibl = np.where(c1[par] == idx[spm], c2[par], c1[par])
+            keys = np.stack([cls[par], cls[sibl]], 1)
+            for key, cc in table(keys).items():
+                a_, b_ = key.split(',')
+                cr[f'split of {a_} (sibling {b_})'] = cc
+        twop = p2[idx] >= 0
+        if twop.any():
+            ii = idx[twop]
+            isf = cause[p1[ii]] == 2
+            if isf.any():
+                keys = np.sort(np.stack([cls[p1[ii[isf]]], cls[p2[ii[isf]]]], 1), 1)
+                for key, cc in table(keys).items():
+                    a_, b_ = key.split(',')
+                    cr[f'fusion {a_}+{b_}'] = cc
+            ise = cause[p1[ii]] == 4
+            if ise.any():
+                keys = np.sort(np.stack([cls[p1[ii[ise]]], cls[p2[ii[ise]]]], 1), 1)
+                for key, cc in table(keys).items():
+                    a_, b_ = key.split(',')
+                    cr[f'exchange of {a_},{b_}'] = cc
+        d['created_by'] = dict(sorted(cr.items(), key=lambda kv: -kv[1]))
+        # ending
+        en = {'alive at end': int(alive[idx].sum())}
+        for q, name in ((1, 'annihilation with'), (2, 'fusion with'), (4, 'exchange with')):
+            mm = idx[cause[idx] == q]
+            if len(mm) == 0:
+                continue
+            if q == 1:
+                keys = cls[partner[mm]][:, None]
+            elif q == 2:
+                keys = np.stack([cls[partner[mm]], cls[c1[mm]]], 1)
+            else:
+                keys = np.stack([cls[partner[mm]], np.minimum(cls[c1[mm]], cls[c2[mm]]), np.maximum(cls[c1[mm]], cls[c2[mm]])], 1)
+            for key, cc in table(keys).items():
+                parts = key.split(',')
+                if q == 1:
+                    en[f'annihilation with {parts[0]}'] = cc
+                elif q == 2:
+                    en[f'fusion with {parts[0]} into {parts[1]}'] = cc
+                else:
+                    en[f'exchange with {parts[0]} into {parts[1]},{parts[2]}'] = cc
+        mm = idx[cause[idx] == 3]
+        if len(mm):
+            keys = np.sort(np.stack([cls[c1[mm]], cls[c2[mm]]], 1), 1)
+            for key, cc in table(keys).items():
+                en[f'split into {key}'] = cc
+        d['ended_by'] = dict(sorted(en.items(), key=lambda kv: -kv[1]))
+        # lifetimes
+        ended = idx[~alive[idx]]
+        d['lifetime_depth_quantiles_ended'] = qs(life_d[ended])
+        d['lifetime_sweeps_quantiles_ended'] = qs(life_s[ended])
+        d['lifetime_depth_hist_bins'] = LBINS
+        d['lifetime_depth_hist_ended'] = np.histogram(life_d[ended], LBINS)[0].tolist()
+        d['lifetime_depth_hist_alive_censored'] = np.histogram(life_d[idx[alive[idx]]], LBINS)[0].tolist()
+        d['median_lifetime_depth_by_ending'] = {CAUSES[q]: (float(np.median(life_d[idx[cause[idx] == q]])) if (cause[idx] == q).any() else None) for q in range(1, 5)}
+        # identities born in the balanced regime (products of events after balance)
+        bb = idx[cat['birth_sweep'][idx] >= bal_sweep]
+        d['born_in_balanced_regime'] = int(len(bb))
+        if len(bb):
+            eb = bb[~alive[bb]]
+            d['balanced_born_lifetime_depth_quantiles_ended'] = qs(life_d[eb])
+        # hops
+        h = cat['hops'][idx]
+        d['hops_quantiles'] = qs(h, (0.5, 0.9, 0.99))
+        d['hops_hist_0_1_2_5_10_30_100_1000_inf'] = np.histogram(h, [0, 1, 2, 5, 10, 30, 100, 1000, 1e9])[0].tolist()
+        per[str(k)] = d
+    res['per_class'] = per
+    return res
+
+
+def main(cat_path, run_path, out_path):
+    z = np.load(cat_path)
+    cat = {k: z[k] for k in z.files if k not in ('birth_xyz', 'last_xyz', 'id')}
+    meta = json.load(open(run_path))
+    S = meta['geometry']['seams']
+    tot = meta['totals']
+    bal_attempt = tot.get('attempts_to_balanced_class')
+    bal_sweep = int(bal_attempt // S) if bal_attempt is not None else 10 ** 9
+    end_sweep = int(meta['config']['sweeps'])
+    end_depth = int(max(cat['death_depth'].max(), cat['birth_depth'].max()))
+    cps = None
+    out = {'level': meta['config']['level'], 'catalogue': cat_path, 'identities': int(len(cat['cls'])),
+           'balanced_sweep': bal_sweep, 'end_sweep': end_sweep, 'end_depth_max_seen': end_depth, 'tiers': {}}
+    for tier, name in ((1, 'screen'), (0, 'carrier')):
+        sel = cat['tier'] == tier
+        if sel.any():
+            out['tiers'][name] = analyse(cat, sel, end_depth, end_sweep, bal_sweep, cps)
+    json.dump(out, open(out_path, 'w'), indent=1)
+    for name, t in out['tiers'].items():
+        print(name, 'violations', t['addition_mod6_violations'], 'events', {k: t[k]['events'] for k in ('births', 'annihilations', 'fusions', 'splits', 'exchanges')})
+
+
+if __name__ == '__main__':
+    main(*sys.argv[1:4])

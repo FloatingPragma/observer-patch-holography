@@ -1,0 +1,411 @@
+"""S6 (a): integer face charges of the carrier as a label lattice for SU(5) / Standard Model weights.
+
+Exact character and lattice computations with the sixty rotations. No repair rule is executed; the standing
+release of static configurations uses the dual Green form of the transported-contrast law (a DECLARED extension).
+
+Run:  cd SCR/rer-edit && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. nice -n 10 python SCR/research/S6/s6_a_face_lattice.py OUT.json
+"""
+import itertools, json, sys, time
+from fractions import Fraction as F
+
+from s6_common import *   # noqa: F401,F403
+
+T0 = time.time()
+out = {'schema': 's6.a.face_lattice.v1'}
+
+# ================================================================ A. modules of the rotation group
+PAIRS10 = sorted({frozenset((f, FANTI[f])) for f in range(NFACE)}, key=sorted)
+AXES6 = sorted({frozenset((p, ANTI[p])) for p in range(NPORT)}, key=sorted)
+
+
+def seam_image(r, s):
+    a, b = SEAMS[s]
+    u, v = r[a], r[b]
+    return SEAM_INDEX[(min(u, v), max(u, v))], (1 if u < v else -1)
+
+
+EDGEPAIRS = sorted({frozenset((s, SEAM_INDEX[tuple(sorted((ANTI[SEAMS[s][0]], ANTI[SEAMS[s][1]])))])) for s in range(NSEAM)}, key=sorted)
+SUB2 = [frozenset(c) for c in itertools.combinations(range(5), 2)]
+ORD20 = [(i, j) for i in range(5) for j in range(5) if i != j]
+
+chars = {
+    'ports (12)': class_function(lambda r: sum(1 for p in range(NPORT) if r[p] == p)),
+    'port axes (6)': class_function(lambda r: sum(1 for a in AXES6 if frozenset(r[p] for p in a) == a)),
+    'seams, unsigned (30)': class_function(lambda r: sum(1 for s in range(NSEAM) if seam_image(r, s)[0] == s)),
+    'seams, oriented (30)': class_function(lambda r: sum(seam_image(r, s)[1] for s in range(NSEAM) if seam_image(r, s)[0] == s)),
+    'antipodal seam pairs = twofold axes (15)': class_function(lambda r: sum(1 for e in EDGEPAIRS if frozenset(seam_image(r, s)[0] for s in e) == e)),
+    'faces (20)': class_function(lambda r: sum(1 for f in range(NFACE) if FP[r][f] == f)),
+    'face pairs, antipodally even charges (10)': class_function(lambda r: sum(1 for p in PAIRS10 if frozenset(FP[r][f] for f in p) == p)),
+    'antipodally odd face charges (10)': class_function(lambda r: sum((1 if FP[r][min(p)] == min(p) else -1) for p in PAIRS10
+                                                                         if frozenset(FP[r][f] for f in p) == p)),
+    'triads (5)': class_function(lambda r: sum(1 for i in range(5) if RHO[r][i] == i)),
+    'unordered pairs of triads (10)': class_function(lambda r: sum(1 for p in SUB2 if frozenset(RHO[r][i] for i in p) == p)),
+    'ordered pairs of triads (20)': class_function(lambda r: sum(1 for (i, j) in ORD20 if (RHO[r][i], RHO[r][j]) == (i, j))),
+}
+mult = {k: decompose(v) for k, v in chars.items()}
+cyc = dict(mult['faces (20)']); cyc['1'] -= 1
+cut = dict(mult['ports (12)']); cut['1'] -= 1
+mult['cycle space = zero-sum face charges (19)'] = cyc
+mult['cut space = port gradients (11)'] = cut
+assert {k: cyc[k] + cut[k] for k in IRREPS} == mult['seams, oriented (30)']
+w15 = {k: mult['triads (5)'][k] + mult['unordered pairs of triads (10)'][k] for k in IRREPS}
+mult['weights of 5bar + 10 as a set (15 = triads + pairs)'] = w15
+w16 = dict(w15); w16['1'] += 1
+mult['weights of the 16 as a set (1 + 10 + 5)'] = w16
+out['modules'] = {k: show(v) for k, v in mult.items()}
+assert chars['faces (20)'] == chars['ordered pairs of triads (20)']
+assert chars['face pairs, antipodally even charges (10)'] == chars['unordered pairs of triads (10)']
+out['multiplicity_of_4'] = {k: v['4'] for k, v in mult.items()}
+for k, v in out['modules'].items():
+    print(f'{k:58s} {v}')
+
+# ================================================================ B. charts and their uniqueness
+# number of equivariant maps X = A5/H -> Y equals the number of H-fixed points of Y
+def fixed(H, points, act):
+    return [y for y in points if all(act(h, y) == y for h in H)]
+
+
+act_tri = lambda h, i: RHO[h][i]
+act_sub = lambda h, p: frozenset(RHO[h][i] for i in p)
+act_ord = lambda h, o: (RHO[h][o[0]], RHO[h][o[1]])
+H_pair = [g for g in ROT if frozenset(FP[g][f] for f in PAIRS10[0]) == PAIRS10[0]]
+H_face = STAB_FACE[0]
+H_port = [g for g in ROT if g[0] == 0]
+H_seam = [g for g in ROT if seam_image(g, 0)[0] == 0]
+H_edgepair = [g for g in ROT if frozenset(seam_image(g, s)[0] for s in EDGEPAIRS[0]) == EDGEPAIRS[0]]
+out['charts'] = {
+    'stabilizer_orders': {'face pair': len(H_pair), 'face': len(H_face), 'port': len(H_port), 'seam': len(H_seam), 'twofold axis': len(H_edgepair)},
+    'equivariant_maps_face_pairs_to_unordered_pairs': len(fixed(H_pair, SUB2, act_sub)),
+    'equivariant_maps_faces_to_ordered_pairs': len(fixed(H_face, ORD20, act_ord)),
+    'equivariant_maps_faces_to_triads': len(fixed(H_face, range(5), act_tri)),
+    'equivariant_maps_ports_to_triads': len(fixed(H_port, range(5), act_tri)),
+    'equivariant_maps_ports_to_unordered_pairs': len(fixed(H_port, SUB2, act_sub)),
+    'equivariant_maps_ports_to_ordered_pairs': len(fixed(H_port, ORD20, act_ord)),
+    'equivariant_maps_seams_to_triads': len(fixed(H_seam, range(5), act_tri)),
+    'equivariant_maps_seams_to_unordered_pairs': len(fixed(H_seam, SUB2, act_sub)),
+    'equivariant_maps_twofold_axes_to_triads': len(fixed(H_edgepair, range(5), act_tri)),
+    'equivariant_maps_twofold_axes_to_unordered_pairs': len(fixed(H_edgepair, SUB2, act_sub)),
+    'face_chart': {str(f): {'ports': list(FACES[f]), 'ordered_triads': list(ORD[f]), 'antipodal_face': FANTI[f]} for f in range(NFACE)},
+}
+# Petersen structure: dual distance against the relation of the ordered pairs
+rel = {}
+for f in range(NFACE):
+    for g in range(NFACE):
+        (i, j), (k, l) = ORD[f], ORD[g]
+        if (k, l) == (i, j): name = 'same'
+        elif (k, l) == (j, i): name = 'reversed (antipode)'
+        elif not {i, j} & {k, l}: name = 'disjoint'
+        elif k == i: name = 'same first'
+        elif l == j: name = 'same second'
+        elif l == i: name = 'second = my first'
+        else: name = 'first = my second'
+        rel.setdefault(name, set()).add(DIST[f][g])
+out['charts']['dual_distance_by_relation'] = {k: sorted(v) for k, v in rel.items()}
+out['charts']['adjacent_faces_have_disjoint_pairs'] = all(not (PAIR[f] & PAIR[g]) for f in range(NFACE) for g in range(NFACE) if DIST[f][g] == 1)
+# the full automorphism group of the port graph and its image on the triads
+AUT = [tuple(int(v) for v in a) for a in SRC.incidence_automorphisms()]
+def rho_any(a):
+    ai = inv(a)
+    return tuple(TRIAD_INDEX[frozenset(mul(mul(a, x), ai) for x in TRIADS[i])] for i in range(5))
+out['charts']['graph_automorphisms'] = len(AUT)
+out['charts']['image_of_graph_automorphisms_on_triads'] = len({rho_any(a) for a in AUT})
+out['charts']['antipodal_map_acts_trivially_on_triads'] = rho_any(ANTI) == (0, 1, 2, 3, 4)
+print('charts', {k: v for k, v in out['charts'].items() if k != 'face_chart'})
+
+# ================================================================ C. the equivariant maps face charges -> weight space
+def eps(i, c=1):
+    v = [0] * 5
+    v[i] = c
+    return v
+
+
+def phi(q, x, y):
+    """Phi_{x,y}(q) = sum_f q_f (x eps_i(f) + y eps_j(f)) in Z^5; the weight is its class modulo (1,1,1,1,1)."""
+    v = [0] * 5
+    for f, c in enumerate(q):
+        if c:
+            v[ORD[f][0]] += c * x
+            v[ORD[f][1]] += c * y
+    return tuple(v)
+
+
+def unit(f, c=1):
+    q = [0] * NFACE
+    q[f] = c
+    return q
+
+
+for (x, y) in ((1, 0), (0, 1)):
+    for g in ROT:
+        for f in range(NFACE):
+            a = phi(unit(FP[g][f]), x, y)
+            b = phi(unit(f), x, y)
+            assert a == tuple(b[inv(RHO[g])[i]] for i in range(5))     # permuted coordinates
+out['equivariant_maps'] = {'dimension_of_Hom(faces, 4)': mult['faces (20)']['4'],
+                           'family': 'Phi_{x,y}(e_f) = x eps_i(f) + y eps_j(f) modulo (1,1,1,1,1); x = y: antipodally even, x = -y: odd',
+                           'Hom(ports, 4)': mult['ports (12)']['4'], 'Hom(oriented seams, 4)': mult['seams, oriented (30)']['4']}
+
+# ================================================================ D. lattices
+ONE = [1, 1, 1, 1, 1]
+lat = {}
+for (x, y) in ((1, 1), (1, 0), (1, -1), (2, 1), (4, 1), (3, 2)):
+    gens = [phi(unit(f), x, y) for f in range(NFACE)]
+    neutral = [tuple(a - b for a, b in zip(gens[f], gens[0])) for f in range(1, NFACE)]
+    idx_all = lattice_index(gens + [ONE], 5)
+    idx_neu = lattice_index(neutral + [ONE], 5)
+
+    def kind(idx):
+        for k in range(1, 40):
+            if idx == k ** 4: return f'{k} * (weight lattice A4*)' if k > 1 else 'weight lattice A4*'
+            if idx == 5 * k ** 4: return f'{k} * (root lattice A4)' if k > 1 else 'root lattice A4'
+        return 'other'
+    lat[f'({x},{y})'] = {
+        'image_of_all_integer_charges': {'index_in_weight_lattice': idx_all, 'lattice': kind(idx_all),
+                                         'quotient_invariants': smith_invariants(gens + [ONE])},
+        'image_of_zero_sum_charges': {'index_in_weight_lattice': idx_neu, 'lattice': kind(idx_neu),
+                                      'quotient_invariants': smith_invariants(neutral + [ONE])},
+        'five_ality_of_unit_charge': (x + y) % 5,
+        'five_ality_formula_checked': all(sum(g) % 5 == (x + y) % 5 for g in gens) and all(sum(g) % 5 == 0 for g in neutral)}
+out['lattices'] = lat
+for k, v in lat.items():
+    print('lattice', k, v['image_of_all_integer_charges']['lattice'], '| zero-sum:', v['image_of_zero_sum_charges']['lattice'])
+
+# invariant sublattices of the weight lattice: submodules of A4*/p A4* for p = 2, 3, 5
+def submodules_mod(p):
+    vecs = [v for v in itertools.product(range(p), repeat=5)]
+    def reduce(v):          # class modulo (1,1,1,1,1) and p: normalise last coordinate to zero
+        return tuple((a - v[4]) % p for a in v[:4])
+    seen, dims = set(), set()
+    rot5 = sorted(set(RHO.values()))
+    for v in itertools.product(range(p), repeat=4):
+        if not any(v) or v in seen:
+            continue
+        full = tuple(v) + (0,)
+        orbit = {reduce(tuple(full[s[i]] for i in range(5))) for s in rot5}
+        # span over F_p
+        basis = []
+        for w in orbit:
+            w = list(w)
+            for b in basis:
+                piv = next(i for i, t in enumerate(b) if t)
+                if w[piv]:
+                    c = (w[piv] * pow(b[piv], -1, p)) % p
+                    w = [(a - c * t) % p for a, t in zip(w, b)]
+            if any(w):
+                basis.append(w)
+        dims.add(len(basis))
+        seen |= orbit
+    return sorted(dims)
+out['invariant_sublattices'] = {'dimensions_of_orbit_spans_mod_2': submodules_mod(2), 'mod_3': submodules_mod(3), 'mod_5': submodules_mod(5),
+                                'reading': 'mod 2 and 3 every nonzero orbit spans everything; mod 5 the only proper submodule has dimension 3 (the root lattice). '
+                                           'Every rotation-invariant full-rank sublattice of A4* is therefore k A4* or k A4.'}
+print('invariant sublattices', out['invariant_sublattices'])
+
+# ================================================================ E. weights of the 10, the 5 and the roots
+def proj(v):
+    m = F(sum(v), 5)
+    return tuple(F(a) - m for a in v)
+
+
+def dot(a, b):
+    return sum(x * y for x, y in zip(a, b))
+
+
+W10 = {p: proj(phi(unit(min(PAIRS10[k])), 1, 1)) for k, p in ((k, PAIR[min(PAIRS10[k])]) for k in range(10))}
+assert set(W10) == set(SUB2)
+gram_ok = all(dot(W10[p], W10[r]) == F(len(p & r)) - F(4, 5) for p in SUB2 for r in SUB2)
+out['weights'] = {
+    'even_unit_face_charge_is_weight_of_10': all(proj(phi(unit(f), 1, 1)) == proj([1 if i in PAIR[f] else 0 for i in range(5)]) for f in range(NFACE)),
+    'gram_of_ten_images_is_|p∩p\'| - 4/5': gram_ok,
+    'faces_per_weight_of_10': 2,
+    'fundamental_unit_face_charge_is_weight_of_5 (x,y)=(1,0)': all(proj(phi(unit(f), 1, 0)) == proj(eps(ORD[f][0])) for f in range(NFACE)),
+    'faces_per_weight_of_5': 4,
+    'odd_unit_face_charge_is_root (x,y)=(1,-1)': sorted(phi(unit(f), 1, -1) for f in range(NFACE)) == sorted(tuple(eps(i)[k] - eps(j)[k] for k in range(5)) for (i, j) in ORD20),
+    'faces_per_root': 1,
+}
+print('weights', out['weights'])
+
+# ================================================================ F. marking a face pair / a face: the Standard Model split
+i0, j0 = ORD[0]
+colour = [i for i in range(5) if i not in (i0, j0)]
+Yv = [F(1, 2) if i in (i0, j0) else F(-1, 3) for i in range(5)]          # hypercharge on the 5
+T3 = [F(1, 2) if i == i0 else F(-1, 2) if i == j0 else F(0) for i in range(5)]
+H1 = [1 if i == colour[0] else -1 if i == colour[1] else 0 for i in range(5)]
+H2 = [1 if i == colour[1] else -1 if i == colour[2] else 0 for i in range(5)]
+
+
+def sm_label(v):
+    """Quantum numbers of the weight with integer coordinates v (class modulo the all-ones vector)."""
+    y, t = dot(Yv, v), dot(T3, v)
+    return {'6Y': str(6 * y), 'T3': str(t), 'Q': str(y + t), 'colour_weight': [dot(H1, v), dot(H2, v)]}
+
+
+def name(lab):
+    key = (lab['6Y'], lab['T3'])
+    return {('6', '0'): 'e^c', ('1', '1/2'): 'u_L', ('1', '-1/2'): 'd_L', ('-4', '0'): 'u^c', ('2', '0'): 'd^c',
+            ('-3', '1/2'): 'nu_L', ('-3', '-1/2'): 'e_L', ('0', '0'): 'nu^c'}[key]
+
+
+objects = [('pair', p) for p in SUB2] + [('triad', i) for i in range(5)]
+def weight_of(obj):
+    kind_, x = obj
+    return [1 if i in x else 0 for i in range(5)] if kind_ == 'pair' else [-1 if i == x else 0 for i in range(5)]
+table = []
+for obj in objects:
+    lab = sm_label(weight_of(obj))
+    mask_bits = sorted(obj[1]) if obj[0] == 'pair' else [i for i in range(5) if i != obj[1]]
+    modes = {colour[0]: 0, colour[1]: 1, colour[2]: 2, i0: 3, j0: 4}
+    mask = sum(1 << modes[i] for i in mask_bits)
+    faces = [f for f in range(NFACE) if PAIR[f] == obj[1]] if obj[0] == 'pair' else []
+    table.append({'object': f"{obj[0]} {sorted(obj[1]) if obj[0] == 'pair' else obj[1]}", 'weight_eps': weight_of(obj), 'state': name(lab), **lab,
+                  'repository_occupation_mask': mask, 'faces': faces,
+                  'triads_shared_with_marked_pair': len(set(mask_bits) & {i0, j0}) if obj[0] == 'pair' else None})
+# compare with the repository's committed fifteen internal weights
+committed = json.load(open('model/standard_model_source_map/particle_map.json'))['source_weights']
+mine = sorted((r['repository_occupation_mask'], r['6Y'], r['T3'], r['Q'], [str(c) for c in r['colour_weight']]) for r in table)
+theirs = sorted((r['occupation_mask'], r['q6Y'], r['T3'], r['Q'], r['color_weight']) for r in committed)
+orbit_of = lambda H, obj: frozenset((o[0], (act_sub(h, o[1]) if o[0] == 'pair' else act_tri(h, o[1]))) for h in H for o in [obj])
+orb_pair = sorted({orbit_of(H_pair, o) for o in objects}, key=lambda s: (len(s), sorted(map(str, s))))
+orb_face = sorted({orbit_of(H_face, o) for o in objects}, key=lambda s: (len(s), sorted(map(str, s))))
+def orbit_row(orb):
+    labs = {name(sm_label(weight_of(o))) for o in orb}
+    ys = {sm_label(weight_of(o))['6Y'] for o in orb}
+    return {'size': len(orb), 'states': sorted(labs), '6Y': sorted(ys)}
+# fixed space of the marked-pair stabilizer in the 4 (sum-zero Q^5)
+def fixed_dim(H):
+    rows = []
+    for k in range(5):
+        v = [F(0)] * 5
+        for h in H:
+            v[RHO[h][k]] += F(1, len(H))
+        rows.append(proj(v))
+    # rank over Q
+    m, r = [list(x) for x in rows], 0
+    for c in range(5):
+        p = next((i for i in range(r, 5) if m[i][c] != 0), None)
+        if p is None: continue
+        m[r], m[p] = m[p], m[r]
+        for i in range(5):
+            if i != r and m[i][c] != 0:
+                fct = m[i][c] / m[r][c]
+                m[i] = [a - fct * b for a, b in zip(m[i], m[r])]
+        r += 1
+    return r
+weyl_sm = [s for s in itertools.permutations(range(5)) if {s[i0], s[j0]} == {i0, j0}]
+out['marking'] = {
+    'marked_face': 0, 'marked_face_ports': list(FACES[0]), 'weak_triads_(T3=+1/2,-1/2)': [i0, j0], 'colour_triads': colour,
+    'hypercharge_generator_6Y_on_triads': [str(6 * y) for y in Yv],
+    'hypercharge_generator_is_image_of_marked_pair': proj(phi(unit(0), 1, 1)) == tuple(F(6, 5) * y for y in Yv),
+    'T3_generator_is_half_image_of_marked_face_under_odd_map': tuple(F(1, 2) * a for a in phi(unit(0), 1, -1)) == tuple(T3),
+    'Y_of_unit_pair_charge = (5 s - 4)/6 with s shared triads': all(F(r['6Y'].replace('/', '/')) == 5 * r['triads_shared_with_marked_pair'] - 4 for r in table if r['triads_shared_with_marked_pair'] is not None),
+    'table_of_fifteen': table,
+    'equals_repository_committed_fifteen_weights': mine == theirs,
+    'stabilizer_of_marked_pair': {'order': len(H_pair), 'image_on_triads_is_even_part_of_S3xS2': sorted(RHO[h] for h in H_pair) == sorted(s for s in weyl_sm if perm_sign(s) == 1),
+                                  'order_of_S3xS2': len(weyl_sm), 'fixed_dimension_in_4': fixed_dim(H_pair),
+                                  'orbits_on_fifteen': [orbit_row(o) for o in orb_pair]},
+    'stabilizer_of_marked_face': {'order': len(H_face), 'fixed_dimension_in_4': fixed_dim(H_face), 'orbits_on_fifteen': [orbit_row(o) for o in orb_face]},
+    'fixed_dimension_of_all_rotations_in_4': fixed_dim(list(ROT)),
+}
+print('marking: equals committed fifteen weights:', mine == theirs)
+print('  marked pair orbits', [(o['size'], o['states']) for o in out['marking']['stabilizer_of_marked_pair']['orbits_on_fifteen']])
+print('  marked face orbits', [(o['size'], o['states']) for o in out['marking']['stabilizer_of_marked_face']['orbits_on_fifteen']])
+for r in table:
+    print('  ', r['object'], r['weight_eps'], r['state'], '6Y', r['6Y'], 'T3', r['T3'], 'Q', r['Q'], 'mask', r['repository_occupation_mask'])
+
+# ================================================================ G. standing release of static neutral configurations
+def dipole(f, g):
+    q = [0] * NFACE
+    q[f] += 1
+    q[g] -= 1
+    return q
+by_dist = {}
+for g in range(1, NFACE):
+    by_dist.setdefault(DIST[0][g], set()).add(release(dipole(0, g)))
+out['costs'] = {'unit_pair_by_dual_distance': {str(d): [str(v) for v in sorted(vals)] for d, vals in sorted(by_dist.items())},
+                'calibration_equals_established': {str(d): str(next(iter(v))) for d, v in sorted(by_dist.items())} ==
+                {'1': '19/60', '2': '9/20', '3': '8/15', '4': '17/30', '5': '7/12'}}
+print('unit pair by distance', out['costs']['unit_pair_by_dual_distance'])
+# channel eigenvalues of the dual Laplacian on the two copies of the 4
+Dm = exact.dual_laplacian(SEAMS, FACES)
+c = [1, -1, 0, 0, 0]
+v_even = [c[ORD[f][0]] + c[ORD[f][1]] for f in range(NFACE)]
+v_odd = [c[ORD[f][0]] - c[ORD[f][1]] for f in range(NFACE)]
+def eig(v):
+    w = [sum(Dm[f][g] * v[g] for g in range(NFACE)) for f in range(NFACE)]
+    ratios = {F(w[f], v[f]) for f in range(NFACE) if v[f]}
+    assert len(ratios) == 1 and all(w[f] == 0 for f in range(NFACE) if not v[f])
+    return next(iter(ratios))
+out['costs']['dual_laplacian_eigenvalue_even_4'] = str(eig(v_even))
+out['costs']['dual_laplacian_eigenvalue_odd_4'] = str(eig(v_odd))
+out['costs']['root_pattern_inside_even_4'] = {'charges': v_even, 'release': str(release(v_even)), 'faces_charged': sum(1 for a in v_even if a)}
+out['costs']['root_pattern_inside_odd_4'] = {'charges': v_odd, 'release': str(release(v_odd)), 'faces_charged': sum(1 for a in v_odd if a)}
+
+def label_type(v):
+    a, b = tuple(sorted(v, reverse=True)), tuple(sorted((-t for t in v), reverse=True))
+    return max(a, b)
+rows = {}
+def add(q):
+    le, lo = phi(q, 1, 1), phi(q, 1, -1)
+    key = (sum(abs(t) for t in q), label_type(le))
+    cost = release(q)
+    r = rows.setdefault(key, {'count': 0, 'min': None, 'example': None, 'odd_types_at_min': set()})
+    r['count'] += 1
+    if r['min'] is None or cost < r['min']:
+        r['min'], r['example'], r['odd_types_at_min'] = cost, list(q), {label_type(lo)}
+    elif cost == r['min']:
+        r['odd_types_at_min'].add(label_type(lo))
+for f in range(NFACE):
+    for g in range(NFACE):
+        if f != g:
+            add(dipole(f, g))
+pos = list(itertools.combinations_with_replacement(range(NFACE), 2))
+for p in pos:
+    for n in pos:
+        if set(p) & set(n):
+            continue
+        q = [0] * NFACE
+        for f in p: q[f] += 1
+        for f in n: q[f] -= 1
+        add(q)
+neutral_table = []
+for (l1, typ), r in sorted(rows.items(), key=lambda kv: (kv[0][0], kv[1]['min'])):
+    supp = [f for f, t in enumerate(r['example']) if t]
+    neutral_table.append({'total_absolute_charge': l1, 'even_label_type_eps': list(typ), 'label_norm2': sum(t * t for t in typ),
+                          'is_root': typ == (1, 0, 0, 0, -1), 'is_zero': not any(typ), 'configurations': r['count'],
+                          'min_release': str(r['min']), 'min_release_float': float(r['min']),
+                          'example': {str(f): r['example'][f] for f in supp},
+                          'example_dual_distances': sorted(DIST[a][b] for a, b in itertools.combinations(supp, 2)),
+                          'odd_label_types_at_min': sorted(map(list, r['odd_types_at_min']))})
+out['costs']['neutral_configurations_by_even_label'] = neutral_table
+out['costs']['all_neutral_even_labels_have_zero_five_ality'] = all(sum(phi(q, 1, 1)) == 0 for q in ([dipole(0, g) for g in range(1, NFACE)]))
+for r in neutral_table:
+    print('  neutral L1', r['total_absolute_charge'], 'label', r['even_label_type_eps'], 'n', r['configurations'], 'min release', r['min_release'],
+          'dist', r['example_dual_distances'])
+
+# ================================================================ H. which patterns would give the fifteen weights (they need net charge)
+targets = {}
+for obj in objects:
+    w = weight_of(obj)
+    sols = {}
+    for l1 in (1, 2, 3):
+        for supp in itertools.combinations(range(10), l1):
+            for signs in itertools.product((1, -1), repeat=l1):
+                v = [0] * 5
+                for k, s in zip(supp, signs):
+                    for i in SUB2[k]:
+                        v[i] += s
+                d = [a - b for a, b in zip(v, w)]
+                if len(set(d)) == 1:                      # equal modulo the all-ones vector
+                    net = sum(signs)
+                    sols.setdefault(net, []).append([(sorted(SUB2[k]), s) for k, s in zip(supp, signs)])
+    targets[f"{obj[0]} {sorted(obj[1]) if obj[0] == 'pair' else obj[1]}"] = {
+        'state': name(sm_label(w)), 'patterns_by_net_charge (pair charges in {-1,0,1}, at most 3 pairs)': {str(k): len(v) for k, v in sorted(sols.items())},
+        'smallest': min((p for v in sols.values() for p in v), key=len)}
+out['charged_patterns_for_the_fifteen'] = targets
+out['net_charge_rule'] = 'five-ality of Phi_{1,1}(q) = 2 * (sum of face charges) mod 5; the 10 needs net charge 1 mod 5, the 5bar 2 mod 5; a closed carrier has net charge 0'
+nets = sorted({(v['state'], k) for v in targets.values() for k in v['patterns_by_net_charge (pair charges in {-1,0,1}, at most 3 pairs)']})
+print('charged patterns (state, net charge):', nets)
+
+out['seconds'] = round(time.time() - T0, 1)
+json.dump(out, open(sys.argv[1], 'w'), indent=1)
+print('written', sys.argv[1], out['seconds'], 's')

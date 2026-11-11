@@ -1,0 +1,219 @@
+"""GL step 3a: plaquette action, electric term, coupling ratios, normalizations and one-loop cross tadpoles.
+
+A1  seam cost of a code state carried around a plaquette, averaged over the code: 1 - Re tr_5 U / 5
+A2  swap-test agreement averaged over the code:                                      1 - (|tr_5 U|^2 + 5)/30
+    (both checked against direct averages over random code states)
+A3  port-phase Laplacian: sum_p X_p (x) X_p against the Ad-invariant trace form on each simple factor
+A4  port-phase form sum_p (1 - cos theta_p(U)): class function or not
+E1/E2  Casimir of the code trace against the port Laplacian on the irreducible sectors 3, 2, 8, 6, (3,2), adj SU(2)
+Couplings: Hessians in the trace-orthonormal basis (gluons, W, B_GUT); sin^2 theta_W; normalizations of U(1) and Z6.
+One-loop cross tadpoles of the code trace between the factors, for a plaquette fluctuation w = <Phi_P^2> per canonical
+field: w = 1/2 (isotropic Euclidean, four dimensions, exact by equipartition) and w_H (Hamiltonian lattice, continuous
+time, computed here). Writes s3_action.json.
+"""
+import itertools
+import json
+import sys
+
+import numpy as np
+
+import gl_lib as L
+
+rng = np.random.default_rng(7)
+out = {}
+
+
+def haar_su(n):
+    Z = (rng.normal(size=(n, n)) + 1j * rng.normal(size=(n, n))) / np.sqrt(2)
+    Q, R = np.linalg.qr(Z)
+    Q = Q * (np.diag(R) / abs(np.diag(R)))
+    return Q / np.linalg.det(Q) ** (1 / n)
+
+
+def random_G(scale=1.0):
+    return L.expm_herm(sum(rng.normal() * scale * T for T in L.TBASIS))
+
+
+def A1(U):
+    return 1 - np.trace(U).real / 5
+
+
+def A2(U):
+    return 1 - (abs(np.trace(U)) ** 2 + 5) / 30
+
+
+# ---------------------------------------------------------------- A1, A2 against direct averages over code states
+def random_state():
+    v = rng.normal(size=5) + 1j * rng.normal(size=5)
+    return v / np.linalg.norm(v)
+
+
+chk = []
+for _ in range(3):
+    U = random_G(0.7)
+    vs = [random_state() for _ in range(20000)]
+    seam = np.mean([np.linalg.norm(v - U @ v) ** 2 / 2 for v in vs])
+    swap = np.mean([1 - abs(np.vdot(v, U @ v)) ** 2 for v in vs])
+    chk.append({'seam_cost_average': float(seam), 'A1': float(A1(U)), 'swap_failure_average': float(swap), 'A2': float(A2(U))})
+out['A1_A2_from_code_averages'] = chk
+print('A1/A2 averages', chk, flush=True)
+
+
+# ---------------------------------------------------------------- Hessians: coupling ratios
+def hessian_diag(f, eps=1e-4):
+    return [float((f(L.expm_herm(T, eps)) + f(L.expm_herm(T, -eps)) - 2 * f(L.I5)) / eps ** 2) for T in L.TBASIS]
+
+
+names = [f'gluon{a + 1}' for a in range(8)] + ['W1', 'W2', 'W3', 'B_GUT']
+hA1, hA2 = hessian_diag(A1), hessian_diag(A2)
+# off-diagonal check for A1 (kinetic mixing)
+offd = 0.0
+for a, b in itertools.combinations(range(12), 2):
+    eps = 1e-4
+    Ta, Tb = L.TBASIS[a], L.TBASIS[b]
+    fpp = A1(L.expm_herm(Ta + Tb, eps)); fmm = A1(L.expm_herm(Ta + Tb, -eps))
+    mixed = (fpp + fmm - 2 * A1(L.I5)) / eps ** 2 - hA1[a] - hA1[b]
+    offd = max(offd, abs(mixed) / 2)
+out['couplings_from_the_action'] = {
+    'hessian_A1_per_trace_orthonormal_direction': dict(zip(names, np.round(hA1, 8))),
+    'hessian_A2_per_trace_orthonormal_direction': dict(zip(names, np.round(hA2, 8))),
+    'largest_kinetic_mixing_A1': offd,
+    'ratio': 'equal Hessians: g_3 = g_2 = g_1 with g_1^2 = (5/3) g_Y^2 at the cell scale',
+    'sin2_thetaW_cell': 3 / 8,
+    'hypercharge_normalization': 'Y = diag(-1/3,-1/3,-1/3,1/2,1/2) on the code (6Y = -2, 3); T_B = sqrt(3/5) Y',
+    'trace_identity': 'tr_5(T_a T_b) = delta_ab / 2 for all twelve: tr_5 Y^2 = 5/6 gives the factor 3/5'}
+print('Hessians A1', np.round(hA1, 6), ' A2', np.round(hA2, 6), ' mixing', offd, flush=True)
+
+# ---------------------------------------------------------------- A3 and E1/E2: port Laplacian against the trace form
+Mport = np.array([[sum(4 * np.trace(X @ Ta).real * np.trace(X @ Tb).real for X in L.X) for Tb in L.TBASIS] for Ta in L.TBASIS])
+w_port = np.linalg.eigvalsh(Mport)
+# split su(3) into the rotation part (antisymmetric Gell-Mann: 2, 5, 7 -> indices 1, 3, 5) and the symmetric part
+rot = [1, 3, 5]; sym = [0, 2, 4, 6, 7]
+blocks = {'gluons, rotation part (3)': float(np.mean(np.diag(Mport)[rot])), 'gluons, symmetric part (5)': float(np.mean(np.diag(Mport)[sym])),
+          'W (3)': float(np.mean(np.diag(Mport)[8:11])), 'B_GUT (1)': float(Mport[11, 11])}
+out['A3_port_laplacian'] = {'eigenvalues_of_sum_p X_p(x)X_p_in_trace_orthonormal_basis': np.round(sorted(w_port), 9).tolist(),
+                            'block_values': blocks,
+                            'Ad_SU3_invariant': bool(abs(blocks['gluons, rotation part (3)'] - blocks['gluons, symmetric part (5)']) < 1e-9)}
+print('A3', out['A3_port_laplacian'], flush=True)
+
+
+def rep(R, Xm):
+    X3, X2 = Xm[:3, :3], Xm[3:, 3:]
+    if R == '3':
+        return X3
+    if R == '2':
+        return X2
+    if R == '8':
+        basis = [l / 2 for l in L.gellmann()]
+        return np.array([[2 * np.trace(B @ (X3 @ A - A @ X3)) for A in basis] for B in basis])
+    if R == 'adj SU(2)':
+        basis = [s / 2 for s in L.SIG]
+        return np.array([[2 * np.trace(B @ (X2 @ A - A @ X2)) for A in basis] for B in basis])
+    if R == '6':
+        K = np.kron(X3, np.eye(3)) + np.kron(np.eye(3), X3)
+        S = []
+        for i in range(3):
+            for j in range(i, 3):
+                v = np.zeros(9, complex); v[3 * i + j] += 1; v[3 * j + i] += 1
+                S.append(v / np.linalg.norm(v))
+        S = np.array(S).T
+        return S.conj().T @ K @ S
+    if R == '(3,2)':
+        return np.kron(X3, np.eye(2)) + np.kron(np.eye(3), X2)
+    raise ValueError(R)
+
+
+cent = {}
+for R in ('3', '2', '8', 'adj SU(2)', '6', '(3,2)'):
+    reps = [rep(R, X) for X in L.X]
+    E2 = sum(r @ r for r in reps)
+    E1 = sum(rep(R, T) @ rep(R, T) for T in L.TBASIS)
+    c2 = lambda M: max(np.abs(M @ r - r @ M).max() for r in reps)
+    cent[R] = {'dimension': reps[0].shape[0], 'E1_Casimir_commutator_with_generators': float(c2(E1)),
+               'E1_value': np.round(sorted(set(np.round(np.linalg.eigvalsh((E1 + E1.conj().T) / 2), 9))), 9).tolist(),
+               'E2_port_laplacian_commutator_with_generators': float(c2(E2)),
+               'E2_eigenvalues': np.round(sorted(set(np.round(np.linalg.eigvalsh((E2 + E2.conj().T) / 2), 9))), 9).tolist()}
+out['E1_E2_on_sectors'] = cent
+for R, v in cent.items():
+    print('sector', R, v, flush=True)
+
+# ---------------------------------------------------------------- A4: port-phase form is no class function
+Xmat = np.array([L.vec(1j * x) for x in L.X]).T
+
+
+def port_coords(U):
+    K = L.logm_unitary(U)
+    return np.linalg.lstsq(Xmat, L.vec(1j * K), rcond=None)[0]
+
+
+def A4(U):
+    return float(np.sum(1 - np.cos(port_coords(U))))
+
+
+dev = []
+for _ in range(20):
+    U = random_G(0.3); g = random_G(2.0)
+    dev.append(abs(A4(g @ U @ g.conj().T) - A4(U)))
+out['A4_port_phase_form'] = {'max_change_under_conjugation': float(max(dev)), 'class_function': bool(max(dev) < 1e-9)}
+print('A4', out['A4_port_phase_form'], flush=True)
+
+# ---------------------------------------------------------------- one-loop cross tadpoles of the code trace
+# U(1) angle phi with phases exp(i 6Y phi): canonical B with phi = g B / sqrt(60); quadratic term B^2/2 checked here
+g2 = 1.0
+quad = (10 / g2) / 5 * (3 * 4 + 2 * 9) / 2 * (g2 / 60)
+w_E = 0.5
+# Hamiltonian lattice (continuous time): <Phi_P^2> = (1/3) int d^3k/(2pi)^3 omega_k, omega_k^2 = 4 sum sin^2(k/2)
+nk = 64
+ks = (np.arange(nk) + 0.5) * 2 * np.pi / nk
+K1, K2, K3 = np.meshgrid(ks, ks, ks, indexing='ij')
+omega = np.sqrt(4 * (np.sin(K1 / 2) ** 2 + np.sin(K2 / 2) ** 2 + np.sin(K3 / 2) ** 2))
+w_H = float(np.mean(omega) / 3)
+
+
+def cross_shifts(w):
+    d3 = -w / 30                         # delta(1/g_3^2) from the U(1) phase on the triplet block
+    d2 = -3 * w / 40                     # delta(1/g_2^2) from the U(1) phase on the doublet block
+    nonab = (6 * (2 / 3) + 9 * (3 / 8)) / 15 * w      # SU(3), SU(2) fluctuations on the U(1) background
+    selfu = (6 * (1 / 30) + 9 * (3 / 40)) / 15 * w     # U(1) fluctuations on the U(1) background
+    d1 = -(nonab + selfu)
+    four_pi = 4 * np.pi
+    return {'delta_inv_alpha3': four_pi * d3, 'delta_inv_alpha2': four_pi * d2, 'delta_inv_alpha1': four_pi * d1,
+            'delta_inv_alpha1_from_nonabelian_fluctuations': -four_pi * nonab, 'delta_inv_alpha1_from_U1_self': -four_pi * selfu}
+
+
+# check the tadpole factors on the matrices: average of the code trace over Gaussian U(1) fluctuations
+phis = rng.normal(size=200000) * np.sqrt(g2 * w_E / 60) * 1.0
+tri = np.mean(np.cos(-2 * phis)); dbl = np.mean(np.cos(3 * phis))
+imported = {'SU3': 38.853 * np.exp(-3 * np.pi ** 2 / (11 * 9)), 'SU2': 38.853 * np.exp(-3 * np.pi ** 2 / (11 * 4))}
+wilson = {'delta_inv_alpha3': -(11 * 3 / (6 * np.pi)) * np.log(imported['SU3']),
+          'delta_inv_alpha2': -(11 * 2 / (6 * np.pi)) * np.log(imported['SU2'])}
+cE, cH = cross_shifts(w_E), cross_shifts(w_H)
+inv_a0 = 16.2453                        # DC's cut closure at P_fwd (prediction to be compared, not used to fit)
+tot = {'1/alpha_3^MS(E_cell)': inv_a0 + wilson['delta_inv_alpha3'] + cE['delta_inv_alpha3'],
+       '1/alpha_2^MS(E_cell)': inv_a0 + wilson['delta_inv_alpha2'] + cE['delta_inv_alpha2'],
+       '1/alpha_1^MS(E_cell)': inv_a0 + cE['delta_inv_alpha1']}
+out['one_loop_matching'] = {
+    'canonical_quadratic_coefficient_of_B (must be 0.5)': quad,
+    'tadpole_factor_check': {'<cos 2 dphi> measured': float(tri), '<cos 2 dphi> predicted to first order': 1 - 2 * g2 * w_E / 60,
+                             '<cos 3 dphi> measured': float(dbl), '<cos 3 dphi> predicted to first order': 1 - 4.5 * g2 * w_E / 60},
+    'plaquette_fluctuation_w': {'Euclidean_isotropic_4d': w_E, 'Hamiltonian_continuous_time': w_H},
+    'cross_terms_Euclidean': cE, 'cross_terms_Hamiltonian': cH,
+    'IMPORTED_Wilson_pure_gauge': {'Lambda_MS_over_Lambda_L': imported, **wilson,
+                                   'source': 'Hasenfratz and Hasenfratz 1980; Dashen and Gross 1981 (from memory, unchecked); '
+                                             'isotropic Euclidean Wilson action, no fermions'},
+    'MSbar_couplings_at_mu_equal_E_cell_with_DC_bare_value': tot,
+    'not_included': 'fermion (CF-1 routing) contributions to the matching; the clock regularization of CF-1'}
+print('matching', json.dumps(out['one_loop_matching'], indent=None, default=L.jsonable), flush=True)
+
+# ---------------------------------------------------------------- bare couplings and normalizations (value from DC's cut closure)
+g_sq = 4 * np.pi / inv_a0
+out['bare_couplings_cell'] = {
+    'alpha_3 = alpha_2 = alpha_1(GUT)': 1 / inv_a0, 'g^2': g_sq,
+    'alpha_Y = (3/5) alpha': 0.6 / inv_a0, 'alpha_em = (3/8) alpha (tree level, unbroken)': 0.375 / inv_a0,
+    'Wilson beta of the code trace, beta_5 = 10/g^2': 10 / g_sq,
+    'per factor at weak coupling: beta_SU3 = 6/g^2, beta_SU2 = 4/g^2': [6 / g_sq, 4 / g_sq],
+    'U(1) angle phi of the unit 6Y charge: quadratic term (30/g^2) phi^2, compact beta_eff = 60/g^2': 60 / g_sq,
+    'global_form': 'G = S(U(3) x U(2)) = (SU(3) x SU(2) x U(1))/Z6; (phi, V3, V2) ~ (phi + pi/3, omega V3, -V2); '
+                   'phi has period 2 pi with 6Y integer on all 32 patterns'}
+print('bare', out['bare_couplings_cell'], flush=True)
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 's3_action.json', 'w'), indent=1, default=L.jsonable)

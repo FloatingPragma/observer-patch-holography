@@ -1,0 +1,170 @@
+"""Task CH: assemble repair-law/work/SIM/cf1/runs/H_background_from_runs.json from the outputs in out/ and compute
+table (d): the M1 rest phase of the twelve patterns = sum over pair types of (pairs per carrier) x (angle of its charge
+phase at separation d), from work/DIRAC/defect_phases.json through cf1_lib (alpha_sixths, rest_angle).
+
+    /tmp/oph-completion-venv/bin/python build.py
+"""
+import json, os, sys
+import numpy as np
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.dirname(HERE))
+OUT = os.path.join(HERE, 'out')
+DEST = os.path.join(os.path.dirname(HERE), 'runs', 'H_background_from_runs.json')
+
+PHASES = json.load(open(os.path.join(os.path.dirname(HERE), 'ref', 'defect_phases.json')))
+REST = {}
+for row in PHASES['rows']:
+    REST[({'1/6': 1, '1/3': 2, '1/2': 3}[row['alpha']], row['separation'])] = row['rest_phase']
+PATTERNS = [(n3, n2) for n2 in range(3) for n3 in range(4)]
+NAMES = {(0, 0): 'antineutrino singlet', (1, 0): 'down quark, right-handed', (2, 0): 'up antiquark', (3, 0): 'electron, right-handed',
+         (0, 1): 'antilepton doublet', (1, 1): 'quark doublet', (2, 1): 'antiquark doublet', (3, 1): 'lepton doublet',
+         (0, 2): 'positron', (1, 2): 'up quark, right-handed', (2, 2): 'down antiquark', (3, 2): 'neutrino, right-handed'}
+SPECIES_CLASSES = {'quark doublets': [(1, 1), (2, 1)], 'quark singlets': [(1, 0), (2, 0), (1, 2), (2, 2)],
+                   'lepton doublets': [(0, 1), (3, 1)], 'lepton and neutrino singlets': [(0, 0), (3, 0), (0, 2), (3, 2)]}
+
+
+def q6(p):
+    return 3 * p[1] - 2 * p[0]
+
+
+def alpha_sixths(p, k):
+    a = (k * q6(p)) % 6
+    return min(a, 6 - a)
+
+
+def rest_angle(p, k, d):
+    a = alpha_sixths(p, k)
+    return 0.0 if a == 0 or k == 0 else REST[(a, d)]
+
+
+# cross-check against the session's own library
+try:
+    import cf1_lib as L   # noqa: E402
+    for p in PATTERNS:
+        for k in (1, 2, 3):
+            for d in range(1, 6):
+                assert abs(L.rest_angle(p, k, d) - rest_angle(p, k, d)) < 1e-15
+    assert L.NAMES == NAMES and L.SPECIES_CLASSES == SPECIES_CLASSES
+    LIBCHECK = 'cf1_lib.rest_angle, NAMES, SPECIES_CLASSES reproduced exactly'
+except ImportError as e:      # cf1_lib imports the routing engine; the check is skipped if that is unavailable
+    LIBCHECK = f'cf1_lib not importable here ({e}); table built from the same json and rule'
+
+KEYS = {1: '(1,5)', 2: '(2,4)', 3: '(3,3)'}
+
+
+def table(n, se, sepdist):
+    """n, se: pairs per carrier by k; sepdist: k -> fractions over d = 1..5 (or None)"""
+    rows = []
+    for p in PATTERNS:
+        r = {'pattern_n3_n2': list(p), 'name': NAMES[p], 'Q6': q6(p),
+             'alpha_sixths_by_pair': {KEYS[k]: alpha_sixths(p, k) for k in (1, 2, 3)}}
+        for d in range(1, 6):
+            r[f'd{d}'] = float(sum(n[k] * rest_angle(p, k, d) for k in (1, 2, 3)))
+            r[f'd{d}_se'] = float(np.sqrt(sum((se[k] * rest_angle(p, k, d)) ** 2 for k in (1, 2, 3))))
+        r['band_d2_to_d5'] = [min(r[f'd{d}'] for d in range(2, 6)), max(r[f'd{d}'] for d in range(2, 6))]
+        if sepdist is not None:
+            w = 0.0; wse2 = 0.0
+            for k in (1, 2, 3):
+                ang = sum(sepdist[k][d - 1] * rest_angle(p, k, d) for d in range(1, 6))
+                w += n[k] * ang; wse2 += (se[k] * ang) ** 2
+            r['separation_weighted'] = float(w); r['separation_weighted_se'] = float(np.sqrt(wse2))
+        rows.append(r)
+    cls = {}
+    for cname, pats in SPECIES_CLASSES.items():
+        vals = [next(x for x in rows if tuple(x['pattern_n3_n2']) == p) for p in pats]
+        cls[cname] = {key: vals[0][key] for key in ('d1', 'd1_se', 'band_d2_to_d5', 'separation_weighted', 'separation_weighted_se') if key in vals[0]}
+        for key in ('d1', 'separation_weighted'):
+            if key in vals[0]:
+                assert all(abs(v[key] - vals[0][key]) < 1e-15 for v in vals), (cname, key)
+    ratios = {}
+    for key in ('d1', 'separation_weighted', 'd2', 'd3', 'd4', 'd5'):
+        rr = {}
+        v = {c: next(x for x in rows if tuple(x['pattern_n3_n2']) == SPECIES_CLASSES[c][0]).get(key) for c in SPECIES_CLASSES}
+        if v['quark doublets'] is None:
+            continue
+        for a in ('quark singlets', 'lepton doublets', 'lepton and neutrino singlets'):
+            rr[f'{a} / quark doublets'] = v[a] / v['quark doublets'] if v['quark doublets'] else None
+        rr['lepton doublets / quark singlets'] = v['lepton doublets'] / v['quark singlets'] if v['quark singlets'] else None
+        ratios[key] = rr
+    return {'patterns': rows, 'classes': cls, 'ratios': ratios}
+
+
+def main():
+    ts = json.load(open(os.path.join(OUT, 'timeseries.json')))
+    comp = {}
+    for f in sorted(os.listdir(OUT)):
+        if f.startswith('L') and f.endswith('.json'):
+            a = json.load(open(os.path.join(OUT, f)))
+            comp[f[:-5]] = a
+    cats = {f[4:-5]: json.load(open(os.path.join(OUT, f))) for f in os.listdir(OUT) if f.startswith('cat_L')}
+    scr = {f[13:-5]: json.load(open(os.path.join(OUT, f))) for f in os.listdir(OUT) if f.startswith('screen_pairs_L')}
+
+    def pairs_from(a, kind='pairs_per_carrier_half_faces'):
+        pp = a[kind]
+        return ({1: pp['(1,5)']['mean'], 2: pp['(2,4)']['mean'], 3: pp['(3,3)']['mean']},
+                {1: pp['(1,5)']['se'], 2: pp['(2,4)']['se'], 3: pp['(3,3)']['se']})
+
+    def sep_from(a):
+        s = a['separation_one_pair_carriers']
+        return {k: [s[KEYS[k]]['fraction'][str(d)] for d in range(1, 6)] for k in (1, 2, 3)}
+
+    tables = {}
+    for L in (8, 9, 10):
+        a = comp[f'L{L}_000300']
+        n, se = pairs_from(a)
+        tables[f'L{L}_end_300_sweeps_half_faces'] = table(n, se, sep_from(a))
+        n2, se2 = pairs_from(a, 'pairs_per_carrier_decomposable_only')
+        tables[f'L{L}_end_300_sweeps_decomposable_only'] = table(n2, se2, sep_from(a))
+    lim = ts['limits_faces_per_carrier']
+    nl = {1: 0.0, 2: (lim['2']['mean'] + lim['4']['mean']) / 2, 3: lim['3']['mean'] / 2}
+    sel = {1: 0.0, 2: np.hypot(lim['2']['se_between_levels'], lim['4']['se_between_levels']) / 2, 3: lim['3']['se_between_levels'] / 2}
+    tables['limit_classes_1_5_gone_half_faces'] = table(nl, sel, sep_from(comp['L10_000300']))
+    a10 = comp['L10_000300']
+    ratio = {k: a10['pairs_per_carrier_decomposable_only'][KEYS[k]]['mean'] / a10['pairs_per_carrier_half_faces'][KEYS[k]]['mean'] for k in (2, 3)}
+    nld = {1: 0.0, 2: nl[2] * ratio[2], 3: nl[3] * ratio[3]}
+    seld = {1: 0.0, 2: sel[2] * ratio[2], 3: sel[3] * ratio[3]}
+    tables['limit_classes_1_5_gone_decomposable_only'] = table(nld, seld, sep_from(a10))
+
+    out = {
+        'stationary_pairs_per_carrier': {
+            '(2,4)': {'value': nl[2], 'se': sel[2]}, '(3,3)': {'value': nl[3], 'se': sel[3]},
+            'definition': 'internal register tier, limit of the committed runs when classes 1 and 5 are gone: (c2 + c4)/2 and c3/2 '
+                          'faces per carrier, c_k(inf) from c_k(s) = c_k(inf) + B exp(-r s) with r of classes 1 and 5, fitted per level '
+                          '(L6..L10, sweeps >= 120); error = standard error over the five levels (independent seeds). Level 10 at its '
+                          'stored end (300 sweeps): (2,4) 0.26756 +- 0.00010, (3,3) 0.04091 +- 0.00004 (block errors). On carriers whose '
+                          'classes decompose into conjugate pairs only: (2,4) %.4f, (3,3) %.4f (limit x ratio at L10 end).' % (nld[2], nld[3]),
+            'label': 'MEASURED'},
+        'schema': 'cf1.background_from_runs.v1',
+        'task': 'CH (repair-law/work/SIM/cf1/BACKGROUND_BRIEF.md) with additions A, B, C of the theory session',
+        'declared_readings': ['register rule of the runs (Z6 link per seam, twist j mod 6 if cost rise <= kappa j (d - j), cost 0,5,8,10,8,5, kappa 5)',
+                              'a register class k read as a centre flux; a pattern of charge Q6 sees alpha = k Q6 / 6 mod 1',
+                              'option M1 of CF-1: rest angle of a pattern on a carrier holding a flux pair (k, -k) at separation d (work/DIRAC/defect_phases.json)'],
+        'units': 'rest phases are radians per tick of the declared routing walk at the scale of the lattice; they are not masses',
+        'sources': {'runs': 'oph-physics-sim/runs/universe/L6..L10 (stats.npz, run.json, cuts); checkpoints of L6..L8 on box A; '
+                            'checkpoints, catalogues and end cuts of L9, L10 from COMPUTE_HOST (read only)',
+                    'scripts': 'repair-law/work/SIM/cf1/background/{compose,timeseries,catalogue,screen_pairs,build}.py',
+                    'library_check': LIBCHECK},
+        'part_a_densities': {
+            'per_sweep_series_and_fits': {L: {k: v for k, v in ts['levels'][L].items()} for L in ts['levels']},
+            'decay_rate_classes_1_5_per_sweep': ts['decay_rate_classes_1_5_exponential'],
+            'floor_classes_1_5': ts['floor_classes_1_5_exponential_plus_floor'],
+            'limits_faces_per_carrier': ts['limits_faces_per_carrier'],
+            'checkpoint_composition': comp},
+        'part_b_c_catalogue': cats,
+        'part_b_screen_nearest_conjugate': scr,
+        'part_d_tables': tables,
+    }
+    json.dump(out, open(DEST, 'w'))
+    print('wrote', DEST, os.path.getsize(DEST))
+    for name, t in tables.items():
+        print('==', name)
+        for c, v in t['classes'].items():
+            print('   %-30s d1 %.5f +- %.5f  band %s  weighted %s' % (c, v['d1'], v['d1_se'], [round(x, 5) for x in v['band_d2_to_d5']],
+                                                                     '%.5f +- %.5f' % (v['separation_weighted'], v['separation_weighted_se']) if 'separation_weighted' in v else '-'))
+        print('   ratios d1', {k: (round(x, 4) if x is not None else None) for k, x in t['ratios']['d1'].items()})
+        print('   ratios weighted', {k: (round(x, 4) if x is not None else None) for k, x in t['ratios'].get('separation_weighted', {}).items()})
+
+
+if __name__ == '__main__':
+    main()

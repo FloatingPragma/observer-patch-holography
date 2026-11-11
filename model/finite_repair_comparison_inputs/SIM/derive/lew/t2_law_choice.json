@@ -1,0 +1,564 @@
+{
+  "schema": "lew.t2_law_choice.v1",
+  "laws_at_P_fwd": {
+    "basis": {
+      "alpha2": 0.033777814109200804,
+      "alphaY": 0.010131400542401836,
+      "eta": 0.02214662617740713,
+      "beta_cos2thetaW0": 0.5385296401773813,
+      "lambda_EW": 0.00022769083373027637,
+      "kappa_selector": 4.333972827136213
+    },
+    "zero_selector_law": {
+      "tau2": 0.0,
+      "dn": 0.0,
+      "J10": 0.0,
+      "MW_GeV": 80.33006348366055,
+      "MW_over_E": 6.579630842967428e-18,
+      "MZ_GeV": 91.11911830689769,
+      "MZ_over_E": 7.463334836253537e-18,
+      "sin2w_eff": 0.22279210625979876
+    },
+    "carrier_value_law": {
+      "tau2": -0.00023115420897504646,
+      "dn": 0.0002346276077120581,
+      "J10": 3.120420452752223e-07,
+      "MW_GeV": 80.3207786309306,
+      "MW_over_E": 6.578870344335345e-18,
+      "MZ_GeV": 91.12418820254928,
+      "MZ_over_E": 7.463750098489782e-18,
+      "sin2w_eff": 0.22305822209796194
+    },
+    "family_member_B_color_balanced": {
+      "tau2": -0.0004247621220738731,
+      "dn": 0.00033950816302134586,
+      "MW_GeV": 80.31300108748738,
+      "MZ_GeV": 91.12421683563419
+    },
+    "spread_zero_minus_carrier_MeV": {
+      "MW": -9.284852729948057,
+      "MZ": 5.069895651587331
+    },
+    "J10_factorization_residual_at_carrier_point_exact": "0",
+    "zero_law_is_unique_J10_minimizer": "J10 >= (3/4) x^2 + (kappa^2/4) y^2 with equality only at 0 (exact identity, residual above)"
+  },
+  "smdr_branch": {
+    "gY_in_packet": 0.3568121831697189,
+    "gY_unrepaired_chart": 0.35681218316971886,
+    "gY_zero_law_compact_slice": 0.3488205004806317,
+    "packet_equals_unrepaired_chart_rel": 2.220446049250313e-16,
+    "verdict": "the SMDR comparison branch feeds the unrepaired chart couplings (no eta transport, tau2 = dn = 0, sigma = eta = 0); it uses neither repair law"
+  },
+  "executable_source_search": {
+    "pattern": "J10|tau2_tree|delta_n_tree|eta_source|lambda_EW|C10|zero_selector|running_tree_value_law|alpha2_mz|alphaY_mz|sin2w|alpha_U\\b|alpha_u\\b",
+    "roots": [
+      "/tmp/claude-501/lew_repo/model/observer",
+      "/tmp/claude-501/lew_repo/model/coherent_seam_repair",
+      "/tmp/claude-501/lew_repo/model/common_source",
+      "/tmp/claude-501/lew_repo/model/coherent_defect_wave",
+      "WORKSPACE/repair-law/work",
+      "WORKSPACE/oph-physics-sim"
+    ],
+    "hits": [
+      {
+        "root": "/tmp/claude-501/lew_repo/model/observer",
+        "file": "model/observer/p_response/experiment.py",
+        "classification": "consumes the declared D10 map (paper_math) as an input coupling for a detector-feedback experiment; emits no (tau2, dn)"
+      },
+      {
+        "root": "/tmp/claude-501/lew_repo/model/observer",
+        "file": "model/observer/p_response/results.json",
+        "classification": "receipt of the same experiment; alpha_U is an imported D10 value"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/DA/CANDIDATES.md",
+        "classification": "theory-session worker analysing the declared D10 map (re-implements or reads paper_math and the public D10 point); emits no (tau2, dn), J10 or C10 coefficient"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/DA/da_scale_dressing.py",
+        "classification": "theory-session worker analysing the declared D10 map (re-implements or reads paper_math and the public D10 point); emits no (tau2, dn), J10 or C10 coefficient"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/DA/scale_dressing.json",
+        "classification": "theory-session worker analysing the declared D10 map (re-implements or reads paper_math and the public D10 point); emits no (tau2, dn), J10 or C10 coefficient"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/DB/CANDIDATES.md",
+        "classification": "candidate list; quotes the one-loop running formula of the public lane"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/DB/b_coefficients.json",
+        "classification": "theory-session worker analysing the declared D10 map (re-implements or reads paper_math and the public D10 point); emits no (tau2, dn), J10 or C10 coefficient"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/DB/b_coefficients.py",
+        "classification": "theory-session worker analysing the declared D10 map (re-implements or reads paper_math and the public D10 point); emits no (tau2, dn), J10 or C10 coefficient"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/DB/crosscheck.json",
+        "classification": "theory-session worker analysing the declared D10 map (re-implements or reads paper_math and the public D10 point); emits no (tau2, dn), J10 or C10 coefficient"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/DB/crosscheck.py",
+        "classification": "theory-session worker analysing the declared D10 map (re-implements or reads paper_math and the public D10 point); emits no (tau2, dn), J10 or C10 coefficient"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/DB/d10_float.py",
+        "classification": "theory-session worker analysing the declared D10 map (re-implements or reads paper_math and the public D10 point); emits no (tau2, dn), J10 or C10 coefficient"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/DB/paper_math_db.py",
+        "classification": "theory-session worker analysing the declared D10 map (re-implements or reads paper_math and the public D10 point); emits no (tau2, dn), J10 or C10 coefficient"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/DB/run_sets.json",
+        "classification": "theory-session worker analysing the declared D10 map (re-implements or reads paper_math and the public D10 point); emits no (tau2, dn), J10 or C10 coefficient"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/DB/run_sets.log",
+        "classification": "theory-session worker analysing the declared D10 map (re-implements or reads paper_math and the public D10 point); emits no (tau2, dn), J10 or C10 coefficient"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/DB/run_sets.py",
+        "classification": "theory-session worker analysing the declared D10 map (re-implements or reads paper_math and the public D10 point); emits no (tau2, dn), J10 or C10 coefficient"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/DB/sensitivity.json",
+        "classification": "theory-session worker analysing the declared D10 map (re-implements or reads paper_math and the public D10 point); emits no (tau2, dn), J10 or C10 coefficient"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/DB/sensitivity.py",
+        "classification": "theory-session worker analysing the declared D10 map (re-implements or reads paper_math and the public D10 point); emits no (tau2, dn), J10 or C10 coefficient"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/DC/CANDIDATES.md",
+        "classification": "theory-session worker analysing the declared D10 map (re-implements or reads paper_math and the public D10 point); emits no (tau2, dn), J10 or C10 coefficient"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/DC/dc_exact.py",
+        "classification": "theory-session worker analysing the declared D10 map (re-implements or reads paper_math and the public D10 point); emits no (tau2, dn), J10 or C10 coefficient"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/DC/dc_numeric.json",
+        "classification": "theory-session worker analysing the declared D10 map (re-implements or reads paper_math and the public D10 point); emits no (tau2, dn), J10 or C10 coefficient"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/DC/dc_numeric.py",
+        "classification": "theory-session worker analysing the declared D10 map (re-implements or reads paper_math and the public D10 point); emits no (tau2, dn), J10 or C10 coefficient"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/DC/paper_math_dc.py",
+        "classification": "theory-session worker analysing the declared D10 map (re-implements or reads paper_math and the public D10 point); emits no (tau2, dn), J10 or C10 coefficient"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/DE/CANDIDATES.md",
+        "classification": "candidate list; names the transmutation formula as having no source rule for beta"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/DG/CANDIDATES.md",
+        "classification": "theory-session worker analysing the declared D10 map (re-implements or reads paper_math and the public D10 point); emits no (tau2, dn), J10 or C10 coefficient"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/MF/capx.py",
+        "classification": "'C10' is 2 cos(pi/10) in the exact Q(sqrt5, i) arithmetic of the carrier; false positive"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/MF/kfield.py",
+        "classification": "'C10' is 2 cos(pi/10) in the exact Q(sqrt5, i) arithmetic of the carrier; false positive"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/MF/m1_certificates.py",
+        "classification": "'C10' is 2 cos(pi/10) in the exact Q(sqrt5, i) arithmetic of the carrier; false positive"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/MF/xcarrier.py",
+        "classification": "'C10' is 2 cos(pi/10) in the exact Q(sqrt5, i) arithmetic of the carrier; false positive"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/SIM/derive/BRIEF_DRESS.md",
+        "classification": "brief text of another lane"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/SIM/derive/PROGRAM.md",
+        "classification": "program text of this session"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/SIM/derive/progress.json",
+        "classification": "program bookkeeping of this session"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/T4/couplings.json",
+        "classification": "receipt of T4; same content"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/T4/t4_couplings.py",
+        "classification": "repair-law T4: representation-level coupling ratios (trace form: g1^2:g2^2:g3^2 = 1:1:1, sin2 = 3/8) and one free coupling magnitude alpha = n eps/(4 pi); quotes the public D10 lane as an import; emits no repair deformation"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/X4/routing.json",
+        "classification": "receipt of X4"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/X4/x4_routing.py",
+        "classification": "routing-cone copies; 'theta_source' is a mass-step angle, not an electroweak coupling"
+      },
+      {
+        "root": "WORKSPACE/repair-law/work",
+        "file": "work/X4/x4_table.py",
+        "classification": "generation-label scoring table; no coupling chart"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": ".venv/lib/python3.13/site-packages/numpy/_core/tests/test_indexing.py",
+        "classification": "third-party library file in the simulator's virtual environment; false positive"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": ".venv/lib/python3.13/site-packages/pip/_vendor/certifi/COMPUTE_KEY_PATH",
+        "classification": "third-party library file in the simulator's virtual environment; false positive"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": ".venv/lib/python3.13/site-packages/pip/_vendor/idna/uts46data.py",
+        "classification": "third-party library file in the simulator's virtual environment; false positive"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": ".venv/lib/python3.13/site-packages/scipy/io/wavfile.py",
+        "classification": "third-party library file in the simulator's virtual environment; false positive"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "configs/string_vacuum/oph_observable_targets_v1.json",
+        "classification": "simulator target/contract code that reads imported public values; no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "data/earned_runs/oph_universe_128k_3p1d_earned/cmb_source_provenance_report.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "data/earned_runs/oph_universe_128k_3p1d_earned/finite_collar_boltzmann_bundle_report.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "data/earned_runs/oph_universe_128k_3p1d_earned/physical_cmb_frontier_report.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "data/earned_runs/oph_universe_128k_3p1d_earned/physical_cmb_input_contract.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "data/earned_runs/oph_universe_128k_3p1d_earned/physical_cmb_input_report.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "data/earned_runs/oph_universe_128k_3p1d_earned/physical_cmb_promotion_audit_report.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "data/earned_runs/oph_universe_128k_3p1d_earned/silence_to_observation_report.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "data/earned_runs/oph_universe_128k_3p1d_earned/universe_timeline/effective_string_theory.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "data/earned_runs/oph_universe_128k_3p1d_earned/universe_timeline/string_vacuum_selector_quantitative_targets.csv",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "data/earned_runs/oph_universe_128k_3p1d_earned/universe_timeline/visualization_payload.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "data/earned_runs/oph_universe_64k_3p1d_reearned/cmb_source_provenance_report.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "data/earned_runs/oph_universe_64k_3p1d_reearned/finite_collar_boltzmann_bundle_report.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "data/earned_runs/oph_universe_64k_3p1d_reearned/physical_cmb_frontier_report.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "data/earned_runs/oph_universe_64k_3p1d_reearned/physical_cmb_input_contract.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "data/earned_runs/oph_universe_64k_3p1d_reearned/physical_cmb_input_report.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "data/earned_runs/oph_universe_64k_3p1d_reearned/physical_cmb_promotion_audit_report.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "data/earned_runs/oph_universe_64k_3p1d_reearned/silence_to_observation_report.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "data/earned_runs/oph_universe_64k_3p1d_reearned/universe_timeline/effective_string_theory.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "data/earned_runs/oph_universe_64k_3p1d_reearned/universe_timeline/string_vacuum_selector_quantitative_targets.csv",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "data/earned_runs/oph_universe_64k_3p1d_reearned/universe_timeline/visualization_payload.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "data/measurements/sparc/BTFR_Lelli2019.mrt",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "data/measurements/sparc/MassModels_Lelli2016c.mrt",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "data/oph_cross_repo_current/imported_oph_artifacts/conditional_ew_predictions_current.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "data/oph_cross_repo_current/imported_oph_artifacts/d10_repair_tuple_selection_theorem.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "data/oph_cross_repo_current/imported_oph_artifacts/p_global_uniqueness_extension_certificate_2026-07-17.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "data/oph_cross_repo_current/imported_oph_artifacts/particle_derivation_gap_ledger.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "data/oph_cross_repo_current/imported_oph_artifacts/status_table_forward_current.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "docs/EXACT_CARRIER_SOURCE_NET.md",
+        "classification": "simulator target/contract code that reads imported public values; no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "docs/STRING_VACUUM_SIMULATOR_TARGETS.md",
+        "classification": "simulator target/contract code that reads imported public values; no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "oph_exact/carrier_source_net.py",
+        "classification": "'alpha_u' is a path-budget variable of a graph search; false positive"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "oph_fpe/cli.py",
+        "classification": "simulator target/contract code that reads imported public values; no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "oph_fpe/cosmology/camb_adapter.py",
+        "classification": "simulator target/contract code that reads imported public values; no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "oph_fpe/cosmology/oph_constants.py",
+        "classification": "simulator target/contract code that reads imported public values; no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "oph_fpe/cosmology/physical_cmb_contract.py",
+        "classification": "simulator target/contract code that reads imported public values; no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "oph_fpe/cosmology/physical_cmb_prediction.py",
+        "classification": "simulator target/contract code that reads imported public values; no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "oph_fpe/cosmology/pn_resonance.py",
+        "classification": "simulator target/contract code that reads imported public values; no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "oph_fpe/cosmology/silence_to_observation.py",
+        "classification": "simulator target/contract code that reads imported public values; no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "oph_fpe/physics_problem_outputs.py",
+        "classification": "simulator target/contract code that reads imported public values; no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "oph_fpe/viz/universe_timeline_viewer.py",
+        "classification": "simulator target/contract code that reads imported public values; no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "runs/e1_prereg2_64k_20260810/cmb_source_provenance_report.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "runs/e1_prereg2_64k_20260810/finite_collar_boltzmann_bundle_report.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "runs/e1_prereg2_64k_20260810/physical_cmb_frontier_report.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "runs/e1_prereg2_64k_20260810/physical_cmb_input_contract.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "runs/e1_prereg2_64k_20260810/physical_cmb_input_report.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "runs/e1_prereg2_64k_20260810/physical_cmb_promotion_audit_report.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "runs/e1_prereg2_64k_20260810/silence_to_observation_report.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "runs/e1_prereg_64k_20260810/cmb_source_provenance_report.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "runs/e1_prereg_64k_20260810/finite_collar_boltzmann_bundle_report.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "runs/e1_prereg_64k_20260810/physical_cmb_frontier_report.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "runs/e1_prereg_64k_20260810/physical_cmb_input_contract.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "runs/e1_prereg_64k_20260810/physical_cmb_input_report.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "runs/e1_prereg_64k_20260810/physical_cmb_promotion_audit_report.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "runs/e1_prereg_64k_20260810/silence_to_observation_report.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "tests/test_physical_cmb_contract.py",
+        "classification": "simulator target/contract code that reads imported public values; no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "tests/test_pn_resonance.py",
+        "classification": "simulator target/contract code that reads imported public values; no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "tests/test_string_vacuum_selection_contract.py",
+        "classification": "simulator target/contract code that reads imported public values; no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "visualizer_handoffs/oph-headlines-2026-08-20/theorem-paper-simulation-evidence-atlas/data/evidence_atlas.json",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      },
+      {
+        "root": "WORKSPACE/oph-physics-sim",
+        "file": "visualizer_handoffs/shared-physics-2026-09-10/datasets/laws/inputs/gravity_paper.tex",
+        "classification": "run receipt, imported public OPH artifact or visualizer data (copies of repository values); no repair law"
+      }
+    ],
+    "unclassified": [],
+    "emitters_of_tau2_dn_or_J10_or_C10": []
+  },
+  "verdict": "NOT DECIDABLE on the executable source: no executable package emits an electroweak coupling chart with a repair deformation, the J10 functional, or the C10 coefficients; the executable law reaches representation-level coupling ratios (sin2 = 3/8) and one free coupling magnitude only",
+  "missing_map": "the gauge response of the executable law read out as running couplings at a scale together with its repair deformation (tau2, dn) on the D10 chart (MASS_STEPS D2 and D4)"
+}

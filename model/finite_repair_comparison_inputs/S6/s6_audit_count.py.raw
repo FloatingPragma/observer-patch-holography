@@ -1,0 +1,117 @@
+"""S6 audit instrument 2: count executions of every repair-rule implementation while the repository computes
+its fifteen internal Standard Model weights.
+
+Each implementation gets a code-level counting wrapper (the function object itself is rewritten, so every
+reference to it is counted, whatever the import style). Behaviour is unchanged. Counts are read after the
+imports and after the producer ``model.standard_model_source_map.algebra`` has run.
+
+Calibration: the wrapper counts the calls of a computation that is known to use the rule (the closed class of
+the total-two carrier: 78 states x 30 seams x 2 coins = 4,680 calls), and the mutant controls of
+``s6_audit_poison.py`` show that this computation depends on the rule.
+
+Run:  cd SCR/rer-edit && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. nice -n 10 python SCR/research/S6/s6_audit_count.py OUT.json
+"""
+import importlib, json, sys, time, types
+
+T0 = time.time()
+COUNTS = {}
+
+
+def instrument(module, names):
+    done = []
+    for name in names:
+        f = getattr(module, name, None)
+        if f is None:
+            continue
+        g = getattr(f, '__wrapped__', f)
+        if not isinstance(g, types.FunctionType) or g.__code__.co_freevars:
+            continue
+        key = module.__name__ + '.' + name
+        if key in COUNTS:
+            continue
+        COUNTS[key] = 0
+        copy = types.FunctionType(g.__code__, g.__globals__, g.__name__, g.__defaults__, g.__closure__)
+        copy.__kwdefaults__ = g.__kwdefaults__
+        slot = '__s6_orig_' + name
+        g.__globals__[slot] = copy
+        g.__globals__['__s6_counts'] = COUNTS
+        ns = {}
+        exec(compile(f"def _w(*a, **k):\n    __s6_counts[{key!r}] += 1\n    return {slot}(*a, **k)\n", '<s6-instrument>', 'exec'),
+             g.__globals__, ns)
+        g.__code__ = ns['_w'].__code__
+        g.__defaults__ = None
+        g.__kwdefaults__ = None
+        done.append(key)
+    return done
+
+
+out = {'schema': 's6.audit.count.v1'}
+import model.observer.native as nat
+instrumented = instrument(nat, ['native', 'tick'])
+from model.common_source import slow_geometry
+src = slow_geometry.source()
+instrumented += instrument(src, ['seam_mean_matrix', 'seam_mean_matrix_exact', 'repair_mean', 'repair_mean_exact', 'apply_seam_mean',
+                                 'integer_nearest_agreement', 'centered_response_kernel', 'normalized_response_kernel',
+                                 'band_damping_factors'])
+closure = sys.modules['oph_fpe.dynamics.self_readback_repair_closure']
+instrumented += instrument(closure, ['_balanced_seam_attempt_outcomes', '_local_outcomes', 'candidate_transition_rows',
+                                     '_evaluate_candidate_uncached', '_event_weights', '_compose_transition_rows',
+                                     '_two_event_path_law_check', 'enumerate_protected_sector'])
+
+# calibration: 78 states x 30 seams x 2 coins
+seams = tuple(tuple(int(v) for v in s) for s in src.seams())
+before = COUNTS['model.observer.native.native']
+for s in nat.states():
+    for e in seams:
+        for c in (0, 1):
+            nat.native(s, e, c)
+out['calibration_calls_counted'] = COUNTS['model.observer.native.native'] - before
+out['calibration_calls_expected'] = 78 * 30 * 2
+COUNTS['model.observer.native.native'] = before
+
+# leaf modules that carry their own copy of the rule: instrument before anything else imports them
+for modname, names in (('model.record_laws.family', ['current', 'check_native_rule', 'coin_instrument', 'minimal_instrument',
+                                                     'apply_instrument', 'classical_kernel']),
+                       ('model.repair_scheduler.coins', ['coin_maps', '_coin_maps', 'apply_coin']),
+                       ('model.transported_contrast.law', ['current', 'attempt'])):
+    mod = importlib.import_module(modname)
+    instrumented += instrument(mod, names)
+out['instrumented'] = instrumented
+out['counts_after_leaf_imports'] = dict(COUNTS)
+print('instrumented', len(instrumented), 'calibration', out['calibration_calls_counted'], out['calibration_calls_expected'])
+sys.stdout.flush()
+
+from model.standard_model_source_map import algebra
+out['counts_after_chain_import'] = dict(COUNTS)
+print('after import', {k: v for k, v in COUNTS.items() if v}, round(time.time() - T0, 1)); sys.stdout.flush()
+
+t = time.time()
+rows = algebra.source_components()
+match = algebra.match_components()
+out['producer_seconds'] = round(time.time() - t, 1)
+out['counts_after_fifteen_weights'] = dict(COUNTS)
+delta = {k: COUNTS[k] - out['counts_after_chain_import'][k] for k in COUNTS}
+out['rule_calls_during_fifteen_weights'] = delta
+out['total_rule_calls_during_fifteen_weights'] = sum(delta.values())
+committed = json.load(open('model/standard_model_source_map/particle_map.json'))
+out['source_weights_equal_committed_export'] = (json.loads(json.dumps(list(rows))) == committed['source_weights'])
+out['component_match_equal_committed_export'] = (json.loads(json.dumps(match)) == committed['complete_internal_component_match'])
+out['rows'] = list(rows)
+print('producer', out['producer_seconds'], 'rule calls during producer', out['total_rule_calls_during_fifteen_weights'],
+      'equal committed', out['source_weights_equal_committed_export'], out['component_match_equal_committed_export'])
+sys.stdout.flush()
+
+if time.time() - T0 < 170:
+    t = time.time()
+    base = dict(COUNTS)
+    value = algebra.gauge_and_higgs()
+    out['gauge_and_higgs'] = {'seconds': round(time.time() - t, 1),
+                              'rule_calls': sum(COUNTS[k] - base[k] for k in COUNTS),
+                              'equal_committed_export': json.loads(json.dumps(value)) == committed['gauge_and_Higgs_readout']}
+    print(out['gauge_and_higgs'])
+
+# modules of the repository that were loaded for this computation
+out['loaded_repository_modules'] = len([1 for v in sys.modules.values() if getattr(v, '__file__', None) and 'rer-edit' in str(v.__file__)])
+out['seconds'] = round(time.time() - T0, 1)
+json.dump(out, open(sys.argv[1], 'w'), indent=1, sort_keys=True)
+print('written', sys.argv[1], out['seconds'])

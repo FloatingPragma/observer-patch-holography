@@ -1,0 +1,196 @@
+"""Native (iv): the federation cone and the cone-gap readout R4, on the flat honeycomb of carriers.
+
+Rebuilt from the repository carrier (model.transported_contrast.law.carrier): up and down carriers on the two
+sublattices of a honeycomb, each glued to its three neighbours by one seam per neighbour. The glue triple of each
+sublattice is the DECLARED wiring. L(q) is the Bloch form of the port Laplacian B^T B (24 x 24), q per mesh edge.
+Readings (DECLARED): first order, E = lambda / 2 per sweep (mean map 1 - L / (2 M) per attempt); the energy zero of a
+shell at a band touching is the touching level (mid).
+
+R4 = half gap / slope^2 in Laplacian units; first-order reading m = 2 R4 (sweeps per edge^2), rest rate = half gap / 2.
+"""
+import itertools, json
+from pathlib import Path
+import numpy as np
+from scipy.optimize import minimize
+from model.transported_contrast import law
+from model.common_source import slow_geometry
+
+HERE = Path(__file__).resolve().parent
+seams, faces = law.carrier()
+A = np.zeros((12, 12))
+for a, b in seams:
+    A[a, b] = A[b, a] = 1
+LAP = np.diag(A.sum(axis=1)) - A
+dist = np.where(A > 0, 1, 2).astype(int); np.fill_diagonal(dist, 0)
+A2 = (A @ A > 0) & (A == 0) & ~np.eye(12, dtype=bool)
+for p in range(12):
+    anti = [r for r in range(12) if r != p and A[p, r] == 0 and not A2[p, r]]
+    assert len(anti) == 1
+    dist[p, anti[0]] = 3
+A1 = np.array([1.0, 0.0]); A2v = np.array([0.5, 3 ** 0.5 / 2])
+TOP = (0, 11, 5)
+assert TOP in faces
+
+
+def control_ports():
+    out = []
+    for k in range(3):
+        e = {TOP[(k + 1) % 3], TOP[(k + 2) % 3]}
+        third = [v for f in faces if e <= set(f) and set(f) != set(TOP) for v in f if v not in e]
+        assert len(third) == 1
+        out.append(third[0])
+    return tuple(out)
+
+
+def bloch(q, up, down, site=0.0, site_ports=None, intra=0.0):
+    """Up carrier ports 0..11, down carrier ports 12..23. Glue k joins up[k] to down[k] across delta_k in (0, a1, a2)."""
+    L = np.zeros((24, 24), complex)
+    L[:12, :12] = LAP * (1 + intra); L[12:, 12:] = LAP * (1 - intra)
+    for k, delta in enumerate((np.zeros(2), A1, A2v)):
+        u, d = up[k], 12 + down[k]
+        L[u, u] += 1; L[d, d] += 1
+        ph = np.exp(-1j * (q @ delta))
+        L[u, d] -= ph; L[d, u] -= np.conj(ph)
+    if site:
+        ports = range(12) if site_ports is None else site_ports[0]
+        portsd = range(12) if site_ports is None else site_ports[1]
+        for p in ports:
+            L[p, p] += site
+        for p in portsd:
+            L[12 + p, 12 + p] -= site
+    return L
+
+
+def ev(q, *a, **k):
+    return np.linalg.eigvalsh(bloch(np.asarray(q, float), *a, **k))
+
+
+DIRS = [np.array([np.cos(t), np.sin(t)]) for t in np.radians([0, 30, 60, 90, 120, 150])]
+
+
+def find_gap(up, down, n=21, **kw):
+    gap = lambda q: float(np.diff(ev(q, up, down, **kw)[:2])[0])
+    grid = [np.array([x, y]) * 4 / 3 for x in np.linspace(-np.pi, np.pi, n) for y in np.linspace(-np.pi, np.pi, n)]
+    q0 = min(grid, key=gap)
+    r = minimize(gap, q0, method='Nelder-Mead', options={'xatol': 1e-12, 'fatol': 1e-15, 'maxiter': 6000})
+    return r.x, float(r.fun) / 2
+
+
+def shell(up, down, q0=None, **kw):
+    """Minimum of the splitting of the two lowest bands, the half gap, the slope and the quality of the hyperbola.
+
+    slope_small: sqrt(half^2 - D^2) / t at t = 0.02 (the simulation side's definition); slope_at_compton: the same
+    at t = D / slope_small (capped at 0.3). hyperbola residual: largest relative deviation of half^2 from
+    D^2 + s^2 t^2 for t up to twice that scale, s = slope_small.
+    """
+    if q0 is None:
+        q0, _ = find_gap(up, down, **kw)
+    e = ev(q0, up, down, **kw)
+    D, mid = (e[1] - e[0]) / 2, (e[0] + e[1]) / 2
+    h = 1e-3
+    c_massless = [ev(h * d, up, down, **kw)[0] / h ** 2 for d in DIRS]
+    rays = DIRS + [-d for d in DIRS]
+    half = lambda t, d: float(np.diff(ev(q0 + t * d, up, down, **kw)[:2])[0]) / 2
+    t0 = 0.02
+    sl0 = [np.sqrt(max(half(t0, d) ** 2 - D ** 2, 0)) / t0 for d in rays]
+    s = float(np.mean(sl0))
+    tc = min(0.3, max(t0, D / s))
+    slc = [np.sqrt(max(half(tc, d) ** 2 - D ** 2, 0)) / tc for d in rays]
+    resid, drift_mid = 0.0, 0.0
+    for d in rays:
+        for t in np.linspace(0.2, 2.0, 10) * tc:
+            e2 = ev(q0 + t * d, up, down, **kw)
+            hf = (e2[1] - e2[0]) / 2
+            resid = max(resid, abs(hf ** 2 - D ** 2 - (s * t) ** 2) / (D ** 2 + (s * t) ** 2))
+            drift_mid = max(drift_mid, abs((e2[0] + e2[1]) / 2 - mid))
+    hh = 1e-3
+    curv = np.mean([(ev(q0 + hh * d, up, down, **kw)[1] + ev(q0 - hh * d, up, down, **kw)[1] - 2 * e[1]) / hh ** 2 for d in DIRS])
+    curv_mid = np.mean([(ev(q0 + hh * d, up, down, **kw)[:2].sum() + ev(q0 - hh * d, up, down, **kw)[:2].sum() - 2 * (e[0] + e[1])) / (2 * hh ** 2) for d in DIRS])
+    return {'q_min': [float(v) for v in q0], 'half_gap': float(D), 'mid_level': float(mid), 'slope': s,
+            'slope_anisotropy_at_0.02': float((max(sl0) - min(sl0)) / s) if s > 0 else None,
+            'slope_at_compton_scale': float(np.mean(slc)), 'compton_scale_t': float(tc),
+            'hyperbola_residual_rel_up_to_twice_that_scale': float(resid), 'mid_level_drift_in_that_window': float(drift_mid),
+            'curvature_of_mid_level': float(curv_mid),
+            'massless_curvature': float(np.mean(c_massless)), 'massless_anisotropy': float((max(c_massless) - min(c_massless)) / np.mean(c_massless)),
+            'R4_lambda_units': float(D / s ** 2) if s > 0 else None,
+            'kinetic_mass_upper_band_lambda_units': float(1 / curv) if D > 1e-9 and curv > 0 else None,
+            'kinetic_mass_of_half_splitting': float(1 / (curv - curv_mid)) if D > 1e-9 and curv > curv_mid else None,
+            'R3_ratio_upper_band': float((D / s ** 2) * curv) if D > 1e-9 and s > 0 else None,
+            'R3_ratio_half_splitting': float((D / s ** 2) * (curv - curv_mid)) if D > 1e-9 and s > 0 else None,
+            'first_order_reading': {'rest_rate_per_sweep': float(D / 2), 'speed_edges_per_sweep': s / 2, 'mass_sweeps_per_edge2': float(2 * D / s ** 2) if s > 0 else None}}
+
+
+import sys, time
+PART = sys.argv[1] if len(sys.argv) > 1 else 'sym'
+T0 = time.time()
+out = {}
+ctrl = control_ports()
+base = shell(ctrl, ctrl) if PART == 'sym' else None
+if PART == "sym":
+    K = np.array([2 * np.pi / 3, 2 * np.pi / 3 ** 0.5])
+    eK = ev(K, ctrl, ctrl)
+    out['symmetric_wiring_face_axis'] = {**base, 'control_ports': list(ctrl), 'two_lowest_levels_at_K': [float(eK[0]), float(eK[1])],
+                                         'D_load_first_order_edge2_per_sweep': base['massless_curvature'] / 2,
+                                         'simulation_side_values': {'massless': 0.014205, 'lambda_K': 0.183005, 'slope': 0.05697}}
+    print('SYM', json.dumps(out['symmetric_wiring_face_axis'])[:900], flush=True)
+    bandsK = np.array([ev(g, ctrl, ctrl) for g in ([np.array([x, y]) for x in np.linspace(-np.pi, np.pi, 13) for y in np.linspace(-np.pi, np.pi, 13)])])
+    out['symmetric_wiring_face_axis']['flat_bands'] = int((bandsK.max(axis=0) - bandsK.min(axis=0) < 1e-9).sum())
+
+    # sublattice-odd perturbations of unit size on the symmetric wiring
+    pert = {}
+    for name, kw in (('site term +m on up ports, -m on down ports (all 12)', lambda m: dict(site=m)),
+                     ('site term on the three glue ports only', lambda m: dict(site=m, site_ports=(ctrl, ctrl))),
+                     ('site term on the nine unglued ports only', lambda m: dict(site=m, site_ports=([p for p in range(12) if p not in ctrl],) * 2)),
+                     ('seam weights (1 + d) inside up carriers, (1 - d) inside down carriers', lambda m: dict(intra=m))):
+        rows = []
+        for m in (0.001, 0.01, 0.05):
+            r = shell(ctrl, ctrl, **kw(m))
+            rows.append({'size': m, 'half_gap': r['half_gap'], 'half_gap_per_unit': r['half_gap'] / m, 'slope': r['slope'],
+                         'R4_lambda_units': r['R4_lambda_units'], 'R4_per_unit_size': r['R4_lambda_units'] / m if r['R4_lambda_units'] else None,
+                         'R3_ratio': r['R3_ratio_half_splitting'], 'hyperbola_residual': r['hyperbola_residual_rel_up_to_twice_that_scale'],
+                         'massless_anisotropy': r['massless_anisotropy'], 'mid_level': r['mid_level']})
+        pert[name] = rows
+        print('PERT', name, [(x['size'], round(x['half_gap_per_unit'], 5), round(x['slope'], 5), round(x['R4_per_unit_size'], 2), round(x['R3_ratio'], 4)) for x in rows], flush=True)
+    out['sublattice_odd_perturbations'] = pert
+
+if PART == "wiring":
+    rot = [tuple(int(v) for v in g) for g in slow_geometry.source().rotations()]
+    seen, classes = set(), []
+    for t in itertools.permutations(range(12), 3):
+        if t in seen:
+            continue
+        orbit = {tuple(g[v] for v in t) for g in rot}
+        seen |= orbit
+        classes.append({'rep': min(orbit), 'distances': (int(dist[t[0], t[1]]), int(dist[t[1], t[2]]), int(dist[t[0], t[2]]))})
+    out['ordered_triple_classes'] = len(classes)
+    wir = []
+    targets = {((1, 1, 1), (2, 2, 2)): {'half_gap': 0.010494, 'slope': 0.05273}, ((1, 1, 2), (1, 2, 2)): {'half_gap': 0.003466, 'slope': 0.05279}}
+    for (du, dd), simv in targets.items():
+        found = {}
+        for cu in classes:
+            if tuple(sorted(cu['distances'])) != du:
+                continue
+            for cd in classes:
+                if tuple(sorted(cd['distances'])) != dd:
+                    continue
+                for sh in range(3):
+                    if time.time() - T0 > 170:
+                        break
+                    tu = list(cu['rep']); td = list(cd['rep']); td = td[sh:] + td[:sh]
+                    q0, hg = find_gap(tu, td, n=15)
+                    h = 1e-3
+                    cm = [ev(h * d, tu, td)[0] / h ** 2 for d in DIRS[:3]]
+                    key = (round(hg, 6), round(float(np.mean(cm)), 6), round(float((max(cm) - min(cm)) / np.mean(cm)), 4))
+                    found.setdefault(key, (tu, td, q0))
+        print('distinct (half gap, massless curvature, anisotropy) for', du, dd, ':', sorted(found), f'{time.time()-T0:.0f}s', flush=True)
+        for key, (tu, td, q0) in sorted(found.items()):
+            if abs(key[0] - simv['half_gap']) > 2e-6 and len(found) > 3:
+                continue
+            r = shell(tu, td, q0=q0)
+            row = {'up_distances': du, 'down_distances': dd, 'simulation_side': simv, 'up': tu, 'down': td, **r}
+            wir.append(row)
+            print('WIRING', du, dd, 'half gap %.6f slope(0.02) %.5f slope(compton) %.5f mid %.6f R4 %.4f R3 %.5f resid %.2e massless %.6f aniso %.1e' % (
+                r['half_gap'], r['slope'], r['slope_at_compton_scale'], r['mid_level'], r['R4_lambda_units'] or 0, r['R3_ratio_half_splitting'] or 0,
+                r['hyperbola_residual_rel_up_to_twice_that_scale'], r['massless_curvature'], r['massless_anisotropy']), 'up', tu, 'down', td, f'{time.time()-T0:.0f}s', flush=True)
+    out['inequivalent_triples'] = wir
+(HERE / f'n_iv_cone_{PART}.json').write_text(json.dumps(out, indent=1))

@@ -1,0 +1,549 @@
+{
+ "link_words": [
+  1,
+  3,
+  33,
+  2097185,
+  2359329,
+  4194307,
+  4456451,
+  6553603,
+  6553633,
+  6553635
+ ],
+ "initial_word": 1,
+ "interior_edges": [
+  [
+   0,
+   5
+  ],
+  [
+   1,
+   5
+  ],
+  [
+   4,
+   5
+  ],
+  [
+   5,
+   9
+  ],
+  [
+   5,
+   11
+  ]
+ ],
+ "first_tick_gram_full_tick": true,
+ "first_tick_gram_wave_only": true,
+ "doublet_level_by_link_word": [
+  {
+   "word": 1,
+   "negative_links": [
+    [
+     0,
+     1
+    ]
+   ],
+   "flux_faces": [
+    [
+     0,
+     1,
+     5
+    ],
+    [
+     0,
+     1,
+     7
+    ]
+   ],
+   "dual_distance": 1,
+   "lambda_min": 0.23136163187600522,
+   "p_rest": 0.0038560271979334202,
+   "rest_phase": 0.08784654696624322,
+   "uniform_state_p1": "1/180"
+  },
+  {
+   "word": 3,
+   "negative_links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     5
+    ]
+   ],
+   "flux_faces": [
+    [
+     0,
+     1,
+     7
+    ],
+    [
+     0,
+     5,
+     11
+    ]
+   ],
+   "dual_distance": 2,
+   "lambda_min": 0.3662918901726215,
+   "p_rest": 0.006104864836210358,
+   "rest_phase": 0.11055393734047589,
+   "uniform_state_p1": "1/90"
+  },
+  {
+   "word": 33,
+   "negative_links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     5
+    ]
+   ],
+   "flux_faces": [
+    [
+     0,
+     1,
+     7
+    ],
+    [
+     1,
+     5,
+     9
+    ]
+   ],
+   "dual_distance": 2,
+   "lambda_min": 0.3662918901726189,
+   "p_rest": 0.006104864836210314,
+   "rest_phase": 0.11055393734047589,
+   "uniform_state_p1": "1/90"
+  },
+  {
+   "word": 2097185,
+   "negative_links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     5
+    ],
+    [
+     5,
+     9
+    ]
+   ],
+   "flux_faces": [
+    [
+     0,
+     1,
+     7
+    ],
+    [
+     4,
+     5,
+     9
+    ]
+   ],
+   "dual_distance": 3,
+   "lambda_min": 0.5248320062715087,
+   "p_rest": 0.008747200104525146,
+   "rest_phase": 0.13236300227603684,
+   "uniform_state_p1": "1/60"
+  },
+  {
+   "word": 2359329,
+   "negative_links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     5
+    ],
+    [
+     4,
+     5
+    ],
+    [
+     5,
+     9
+    ]
+   ],
+   "flux_faces": [
+    [
+     0,
+     1,
+     7
+    ],
+    [
+     4,
+     5,
+     11
+    ]
+   ],
+   "dual_distance": 3,
+   "lambda_min": 0.5248320062715072,
+   "p_rest": 0.00874720010452512,
+   "rest_phase": 0.13236300227603684,
+   "uniform_state_p1": "1/45"
+  },
+  {
+   "word": 4194307,
+   "negative_links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     5
+    ],
+    [
+     5,
+     11
+    ]
+   ],
+   "flux_faces": [
+    [
+     0,
+     1,
+     7
+    ],
+    [
+     4,
+     5,
+     11
+    ]
+   ],
+   "dual_distance": 3,
+   "lambda_min": 0.5248320062715072,
+   "p_rest": 0.00874720010452512,
+   "rest_phase": 0.13236300227603684,
+   "uniform_state_p1": "1/60"
+  },
+  {
+   "word": 4456451,
+   "negative_links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     5
+    ],
+    [
+     4,
+     5
+    ],
+    [
+     5,
+     11
+    ]
+   ],
+   "flux_faces": [
+    [
+     0,
+     1,
+     7
+    ],
+    [
+     4,
+     5,
+     9
+    ]
+   ],
+   "dual_distance": 3,
+   "lambda_min": 0.5248320062715087,
+   "p_rest": 0.008747200104525146,
+   "rest_phase": 0.13236300227603684,
+   "uniform_state_p1": "1/45"
+  },
+  {
+   "word": 6553603,
+   "negative_links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     5
+    ],
+    [
+     4,
+     5
+    ],
+    [
+     5,
+     9
+    ],
+    [
+     5,
+     11
+    ]
+   ],
+   "flux_faces": [
+    [
+     0,
+     1,
+     7
+    ],
+    [
+     1,
+     5,
+     9
+    ]
+   ],
+   "dual_distance": 2,
+   "lambda_min": 0.3662918901726189,
+   "p_rest": 0.006104864836210314,
+   "rest_phase": 0.11055393734047589,
+   "uniform_state_p1": "1/36"
+  },
+  {
+   "word": 6553633,
+   "negative_links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     5
+    ],
+    [
+     4,
+     5
+    ],
+    [
+     5,
+     9
+    ],
+    [
+     5,
+     11
+    ]
+   ],
+   "flux_faces": [
+    [
+     0,
+     1,
+     7
+    ],
+    [
+     0,
+     5,
+     11
+    ]
+   ],
+   "dual_distance": 2,
+   "lambda_min": 0.3662918901726215,
+   "p_rest": 0.006104864836210358,
+   "rest_phase": 0.11055393734047589,
+   "uniform_state_p1": "1/36"
+  },
+  {
+   "word": 6553635,
+   "negative_links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     5
+    ],
+    [
+     1,
+     5
+    ],
+    [
+     4,
+     5
+    ],
+    [
+     5,
+     9
+    ],
+    [
+     5,
+     11
+    ]
+   ],
+   "flux_faces": [
+    [
+     0,
+     1,
+     5
+    ],
+    [
+     0,
+     1,
+     7
+    ]
+   ],
+   "dual_distance": 1,
+   "lambda_min": 0.23136163187600522,
+   "p_rest": 0.0038560271979334202,
+   "rest_phase": 0.08784654696624322,
+   "uniform_state_p1": "1/30"
+  }
+ ],
+ "walker_positions": {
+  "endpoint of the negative link|level 3": {
+   "port": 0,
+   "p1_full_tick": "1/12",
+   "p1_wave_only": "1/12",
+   "P(defect moved) after 1 tick": "19/20",
+   "P(defect moved and record 1) after 1 tick": "7/120",
+   "p2_full_tick": "5623/27000",
+   "p2_wave_only": "811/3000",
+   "p2_difference": "-419/6750",
+   "P(defect moved) after 2 ticks": "9697/27000",
+   "record_law_r1r2_full_tick": {
+    "00": "5063/6750",
+    "01": "2249/13500",
+    "10": "1/24",
+    "11": "1/24"
+   },
+   "record_law_r1r2_wave_only": {
+    "00": "1939/3000",
+    "01": "811/3000",
+    "10": "1/12",
+    "11": "0"
+   }
+  },
+  "endpoint of the negative link|level 0": {
+   "port": 0,
+   "p1_full_tick": "1/12",
+   "p1_wave_only": "1/12",
+   "P(defect moved) after 1 tick": "19/20",
+   "P(defect moved and record 1) after 1 tick": "7/120",
+   "p2_full_tick": "5623/27000",
+   "p2_wave_only": "1459/5400",
+   "p2_difference": "-209/3375",
+   "P(defect moved) after 2 ticks": "9697/27000",
+   "record_law_r1r2_full_tick": {
+    "00": "5063/6750",
+    "01": "2249/13500",
+    "10": "1/24",
+    "11": "1/24"
+   },
+   "record_law_r1r2_wave_only": {
+    "00": "3491/5400",
+    "01": "1459/5400",
+    "10": "1/12",
+    "11": "0"
+   }
+  },
+  "centre of the region|level 3": {
+   "port": 5,
+   "p1_full_tick": "1/12",
+   "p1_wave_only": "1/12",
+   "P(defect moved) after 1 tick": "19/20",
+   "P(defect moved and record 1) after 1 tick": "7/120",
+   "p2_full_tick": "5623/27000",
+   "p2_wave_only": "7297/27000",
+   "p2_difference": "-31/500",
+   "P(defect moved) after 2 ticks": "26437/27000",
+   "record_law_r1r2_full_tick": {
+    "00": "5063/6750",
+    "01": "2249/13500",
+    "10": "1/24",
+    "11": "1/24"
+   },
+   "record_law_r1r2_wave_only": {
+    "00": "17453/27000",
+    "01": "7297/27000",
+    "10": "1/12",
+    "11": "0"
+   }
+  },
+  "centre of the region|level 0": {
+   "port": 5,
+   "p1_full_tick": "1/12",
+   "p1_wave_only": "1/12",
+   "P(defect moved) after 1 tick": "19/20",
+   "P(defect moved and record 1) after 1 tick": "7/120",
+   "p2_full_tick": "5623/27000",
+   "p2_wave_only": "1459/5400",
+   "p2_difference": "-209/3375",
+   "P(defect moved) after 2 ticks": "26437/27000",
+   "record_law_r1r2_full_tick": {
+    "00": "5063/6750",
+    "01": "2249/13500",
+    "10": "1/24",
+    "11": "1/24"
+   },
+   "record_law_r1r2_wave_only": {
+    "00": "3491/5400",
+    "01": "1459/5400",
+    "10": "1/12",
+    "11": "0"
+   }
+  },
+  "outside the region|level 3": {
+   "port": 2,
+   "p1_full_tick": "1/12",
+   "p1_wave_only": "1/12",
+   "P(defect moved) after 1 tick": "0",
+   "P(defect moved and record 1) after 1 tick": "0",
+   "p2_full_tick": "1459/5400",
+   "p2_wave_only": "1459/5400",
+   "p2_difference": "0",
+   "P(defect moved) after 2 ticks": "1/13500",
+   "record_law_r1r2_full_tick": {
+    "00": "3491/5400",
+    "01": "1459/5400",
+    "10": "1/12",
+    "11": "0"
+   },
+   "record_law_r1r2_wave_only": {
+    "00": "3491/5400",
+    "01": "1459/5400",
+    "10": "1/12",
+    "11": "0"
+   }
+  },
+  "outside the region|level 0": {
+   "port": 2,
+   "p1_full_tick": "1/12",
+   "p1_wave_only": "1/12",
+   "P(defect moved) after 1 tick": "0",
+   "P(defect moved and record 1) after 1 tick": "0",
+   "p2_full_tick": "1459/5400",
+   "p2_wave_only": "1459/5400",
+   "p2_difference": "0",
+   "P(defect moved) after 2 ticks": "1/13500",
+   "record_law_r1r2_full_tick": {
+    "00": "3491/5400",
+    "01": "1459/5400",
+    "10": "1/12",
+    "11": "0"
+   },
+   "record_law_r1r2_wave_only": {
+    "00": "3491/5400",
+    "01": "1459/5400",
+    "10": "1/12",
+    "11": "0"
+   }
+  }
+ },
+ "two_port_preparations": {
+  "across the negative link (0,1)|word 1": "1/10",
+  "across the negative link (0,1)|word 3": "1/10",
+  "across the positive interior link (0,5)|word 1": "1/15",
+  "across the positive interior link (0,5)|word 3": "1/10",
+  "across a far link (2,3)|word 1": "1/15",
+  "across a far link (2,3)|word 3": "1/15"
+ }
+}

@@ -1,0 +1,223 @@
+"""UD: the family cell with GL's Casimir electric term (candidates A3, A4, C1, C2, C-X, E1, E2 of CANDIDATES.md).
+
+Reads no measured value. Writes cell.json.
+Run: cd RER && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:RL/work/QM:RL/work/UD /tmp/oph-completion-venv/bin/python -B RL/work/UD/ud_cell.py build
+     then the same command without `build` (two jobs, each under two minutes; the operator cache goes to UD_CACHE)
+
+Source (read only): model/coherent_defect_wave/chiral_joint/family_cell; worker QM's word split (work/QM/qm_r2.py).
+Dressed cell: H_GD = (omega + eps C_H) N_H + eps sum_X C_X N_X + y_u H_up + y_d H_down + y_e H_e.
+Labels: E1, A4 EXACT (integers and Fractions); ground readings MEASURED (float64, eigsh).
+"""
+import json
+import math
+import os
+import sys
+import time
+from collections import defaultdict
+from fractions import Fraction as Fr
+
+import numpy as np
+import scipy.sparse as sp
+from scipy.sparse.linalg import eigsh
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+CACHE = os.environ.get('UD_CACHE', '/private/tmp/claude-501/-Users-muellerberndt-Projects-oph-meta/ffc7e197-dc34-420e-b416-eceb3c5d7773/scratchpad/ud_cache')
+from model.coherent_defect_wave.chiral_joint.family_cell import model as fc  # noqa: E402
+from qm_r2 import column_part_k  # noqa: E402  (worker QM, read only)
+
+LEGS = ('up', 'down', 'charged_lepton')
+SHORT = {'up': 'u', 'down': 'd', 'charged_lepton': 'e'}
+BLOCKS = ((0, 1, 4), (2, 3, 5, 6, 7, 8), (9,), (10, 11), (12, 13, 14))   # uc, Q, ec, L, dc (the packet's order)
+BNAMES = ('uc', 'Q', 'ec', 'L', 'dc')
+CAS = {'uc': Fr(8, 5), 'Q': Fr(21, 10), 'ec': Fr(3, 5), 'L': Fr(9, 10), 'dc': Fr(7, 5), 'H': Fr(9, 10)}
+ALPHA_INV = 16.2453
+G2 = 4 * math.pi / ALPHA_INV
+EPS = G2 / 2
+T_CUT = 2 * math.pi * EPS
+
+
+def counts(mask):
+    return tuple(sum((mask >> (15 * spin + i)) & 1 for spin in (0, 1) for i in b) for b in BLOCKS)
+
+
+def main():
+    t0 = time.time()
+    keys, h, phase, depth, digest = fc.graph()
+    index = {k: j for j, k in enumerate(keys)}
+    n = len(keys)
+    i0 = index[(0, 0)]
+    out = {'measured_values_read': False, 'graph_dimension': n, 'graph_sha256': digest,
+           'eps': EPS, 'g2': G2, 't_cut': T_CUT, 'casimirs': {k: str(v) for k, v in CAS.items()}}
+
+    # ---------------- E1: the packet's Yukawa words per leg
+    words = defaultdict(lambda: {'count': 0, 'abs_coefficients': set(), 'lengths': set(), 'creation_words': 0})
+    for scalar, lst in fc.terms().items():
+        for ch, word, row, value in lst:
+            d = words[ch]
+            d['count'] += 1
+            d['abs_coefficients'].add(abs(int(value)))
+            d['lengths'].add(len(word))
+            d['creation_words'] += int(word[0][1])
+    out['E1_words'] = {ch: {'count': d['count'], 'abs_coefficients': sorted(d['abs_coefficients']),
+                            'lengths': sorted(d['lengths']), 'creation_words': d['creation_words']}
+                       for ch, d in words.items()}
+
+    # ---------------- operators on the graph (cached in the scratchpad; `ud_cell.py build` only fills the cache)
+    os.makedirs(CACHE, exist_ok=True)
+    tag = os.path.join(CACHE, digest[:16])
+    M = {}
+    for ch in LEGS:
+        for part in ('+', '-'):
+            for k in (0, 1):
+                f = f'{tag}_{ch}_{"p" if part == "+" else "m"}_{k}.npz'
+                if os.path.exists(f):
+                    M[(ch, part, k)] = sp.load_npz(f).tocsr()
+                    continue
+                rows, cols, vals = [], [], []
+                for j, key in enumerate(keys):
+                    for tgt, v in column_part_k(key, ch, part, k).items():
+                        rows.append(index[tgt]); cols.append(j); vals.append(v)
+                M[(ch, part, k)] = sp.csr_matrix((np.array(vals, dtype=np.int64), (rows, cols)), shape=(n, n))
+                sp.save_npz(f, M[(ch, part, k)])
+    if len(sys.argv) > 1 and sys.argv[1] == 'build':
+        print('cache filled', tag, round(time.time() - t0, 1), 's')
+        return
+    scal = np.array([key[1] for key in keys])
+    NH = sp.diags((scal != 0).astype(np.int64))
+    D0 = (NH + sum(M.values()) - h).tocsr(); D0.eliminate_zeros()
+    assert D0.nnz == 0, 'member split does not reproduce the packet Hamiltonian'
+    out['member_split_reproduces_packet_H'] = True
+    P = {(ch, part): (M[(ch, part, 0)] + M[(ch, part, 1)]).astype(float) for ch in LEGS for part in ('+', '-')}
+    cnt = np.array([counts(key[0]) for key in keys])                      # n x 5 block occupations
+    w = {ch: int((M[(ch, '+', 0)][:, i0] + M[(ch, '+', 1)][:, i0]).power(2).sum()) for ch in LEGS}
+    out['E1_first_order_weight'] = {SHORT[c]: w[c] for c in LEGS}
+    mult = {'up': 12, 'down': 12, 'charged_lepton': 4}                    # colour x member x spin
+    out['E1_N_per_component'] = {SHORT[c]: math.sqrt(w[c] / mult[c]) for c in LEGS}
+
+    def electric(cas):
+        """diagonal eps-free electric energy sum_X C_X n_X + C_H [scalar occupied], as float array"""
+        e = np.zeros(n)
+        for b, name in enumerate(BNAMES):
+            e += float(cas[name]) * cnt[:, b]
+        e += float(cas['H']) * (scal != 0)
+        return e
+
+    def ground(y=(1.0, 1.0, 1.0), omega=1.0, eps=0.0, cas=CAS, with_gap=False):
+        yv = dict(zip(LEGS, y))
+        H = sp.diags(omega * (scal != 0).astype(float) + eps * electric(cas))
+        for ch in LEGS:
+            if yv[ch]:
+                H = H + yv[ch] * (P[(ch, '+')] + P[(ch, '-')])
+        vals, vecs = eigsh(H.tocsc(), k=2 if with_gap else 1, which='SA', tol=1e-11)
+        o = np.argsort(vals)
+        G = vecs[:, o[0]]
+        res = float(np.linalg.norm(H @ G - vals[o[0]] * G))
+        r = {'ground_energy': float(vals[o[0]]), 'gap': float(vals[o[1]] - vals[o[0]]) if with_gap else None, 'residual': res,
+             'vacuum_weight': float(G[i0] ** 2)}
+        for ch in LEGS:
+            Hp, Hm = yv[ch] * P[(ch, '+')], yv[ch] * P[(ch, '-')]
+            r['E_' + SHORT[ch]] = float(G @ (Hp @ G) + G @ (Hm @ G))
+            r['c_' + SHORT[ch]] = float(np.linalg.norm(Hp @ G) ** 2)
+            r['a_' + SHORT[ch]] = float(np.linalg.norm(Hm @ G) ** 2)
+        pops = [float(np.sum(G[scal == s_] ** 2)) for s_ in range(5)]
+        r['scalar_populations'] = {'blank': pops[0], 'H_1': pops[1], 'H_2': pops[2], 'Hbar_1': pops[3], 'Hbar_2': pops[4]}
+        r['block_occupations'] = {name: float((G ** 2) @ cnt[:, b]) for b, name in enumerate(BNAMES)}
+        return r
+
+    def summary(r):
+        s_ = {'N_u_over_N_d': r['E_u'] / r['E_d'],
+              'N_e_over_N_u': (r['E_e'] / 4) / (r['E_u'] / 12) if r['E_u'] else None,
+              'N_e_over_N_d': (r['E_e'] / 4) / (r['E_d'] / 12) if r['E_d'] else None,
+              'pi_H_over_blank_per_member': r['scalar_populations']['H_1'] / r['scalar_populations']['blank'],
+              'pi_Hbar_over_blank_per_member': r['scalar_populations']['Hbar_1'] / r['scalar_populations']['blank'],
+              # round trips: up L->R->L needs the register quantum (b* b), down the blank (b b*); symmetric combination
+              'roundtrip_c_times_a': {k: r['c_' + k] * r['a_' + k] for k in ('u', 'd', 'e')}}
+        return s_
+
+    cas_cust = dict(CAS); cas_cust['uc'] = cas_cust['dc'] = Fr(3, 2)      # hypercharge cross term T3R (B-L) removed
+    # addendum G2: thirteen currents at one coupling, C' = C + (N - 5/2)^2/10 (uc, Q, ec: N = 2; L, dc: N = 4; scalar + 1/10)
+    cas13 = {'uc': Fr(13, 8), 'Q': Fr(17, 8), 'ec': Fr(5, 8), 'L': Fr(9, 8), 'dc': Fr(13, 8), 'H': Fr(1)}
+    runs = {
+        'undressed': dict(with_gap=True),
+        'undressed_yu1.2': dict(y=(1.2, 1.0, 1.0)),
+        'undressed_yd1.2': dict(y=(1.0, 1.2, 1.0)),
+        'undressed_no_lepton': dict(y=(1.0, 1.0, 0.0)),
+        'undressed_no_lepton_yu1.2': dict(y=(1.2, 1.0, 0.0)),
+        'undressed_no_lepton_yd1.2': dict(y=(1.0, 1.2, 0.0)),
+        'dressed': dict(eps=EPS, with_gap=True),
+        'dressed_no_lepton': dict(eps=EPS, y=(1.0, 1.0, 0.0)),
+        'dressed_custodial_casimirs': dict(eps=EPS, cas=cas_cust),
+        'dressed_custodial_casimirs_no_lepton': dict(eps=EPS, cas=cas_cust, y=(1.0, 1.0, 0.0)),
+        'dressed_thirteen_currents': dict(eps=EPS, cas=cas13),
+        'dressed_thirteen_currents_no_lepton': dict(eps=EPS, cas=cas13, y=(1.0, 1.0, 0.0)),
+        'dressed_strong_eps_2': dict(eps=2.0),
+        'dressed_strong_eps_10': dict(eps=10.0),
+    }
+    G = {}
+    for name, kw in runs.items():
+        r = ground(**kw)
+        r['summary'] = summary(r)
+        G[name] = r
+        print(f"{name:40s} E0={r['ground_energy']:.9f} gap={r['gap']} res={r['residual']:.1e} E_u={r['E_u']:.6f} E_d={r['E_d']:.6f} E_e={r['E_e']:.6f} "
+              f"Nu/Nd={r['summary']['N_u_over_N_d']:.6f} Ne/Nu={r['summary']['N_e_over_N_u']} "
+              f"piH/pi0={r['summary']['pi_H_over_blank_per_member']:.6f} piHbar/pi0={r['summary']['pi_Hbar_over_blank_per_member']:.6f}", flush=True)
+    out['grounds'] = G
+    lo, hi = -1531211498821 / 137438953472, -12249691990567 / 1099511627776
+    out['undressed_ground_in_certified_interval'] = bool(lo - 1e-9 <= G['undressed']['ground_energy'] <= hi + 1e-9)
+    # exchange (custodial) checks
+    out['E2_exchange'] = {
+        'spectrum_symmetric_under_yu_yd_swap_with_lepton_leg': abs(G['undressed_yu1.2']['ground_energy'] - G['undressed_yd1.2']['ground_energy']),
+        'spectrum_symmetric_under_yu_yd_swap_without_lepton_leg': abs(G['undressed_no_lepton_yu1.2']['ground_energy'] - G['undressed_no_lepton_yd1.2']['ground_energy']),
+        'E_u_minus_E_d': {k: G[k]['E_u'] - G[k]['E_d'] for k in G},
+        'c_u_minus_a_d': {k: G[k]['c_u'] - G[k]['a_d'] for k in G},
+        'a_u_minus_c_d': {k: G[k]['a_u'] - G[k]['c_d'] for k in G},
+    }
+
+    # ---------------- A4: dressed second-order transfers through the one scalar quantum (EXACT, eps drops out)
+    Ef = [sum(CAS[name] * int(cnt[i, b]) for b, name in enumerate(BNAMES)) + (CAS['H'] if scal[i] else 0) for i in range(n)]
+    A4 = {}
+    for ch in LEGS:
+        v = {k: M[(ch, '+', k)][:, i0].toarray().ravel().astype(np.int64) for k in (0, 1)}
+        wt = int(v[0] @ v[0] + v[1] @ v[1])
+        T = {0: Fr(0), 1: Fr(0)}; X = Fr(0); T0 = {0: 0, 1: 0}; X0 = 0
+        finals = defaultdict(int)
+        for ch2 in LEGS:
+            u = {k: M[(ch2, '+', k)] @ v[k] for k in (0, 1)}
+            for k in (0, 1):
+                for i in np.nonzero(u[k])[0]:
+                    assert scal[i] == 0 and Ef[i] > 0
+                    T[k] += Fr(int(u[k][i]) ** 2) / Ef[i] ** 2
+                    T0[k] += int(u[k][i]) ** 2
+                    finals[(SHORT[ch2], str(Ef[i]))] += int(u[k][i]) ** 2
+            for i in np.nonzero(u[0] * u[1])[0]:
+                X += Fr(2 * int(u[0][i]) * int(u[1][i])) / Ef[i] ** 2
+                X0 += 2 * int(u[0][i]) * int(u[1][i])
+        A4[SHORT[ch]] = {'w': wt, 'undressed': {'T_k0': T0[0], 'T_k1': T0[1], 'X': X0},
+                         'dressed_units_of_eps^-2': {'T_k0': str(T[0]), 'T_k1': str(T[1]), 'X': str(X)},
+                         'final_state_electric_energy_over_eps': {f'{a}|{b}': c for (a, b), c in finals.items()},
+                         '_T': T, '_X': X}
+    ref = A4['e']
+    x_exact, N = {}, {}
+    for s_, d in A4.items():
+        fa, fr = d['_T'][1], d['_T'][0] + d['_X']
+        fa_e, fr_e = ref['_T'][1], ref['_T'][0] + ref['_X']
+        q, p = Fr(1, 6) * fa / fa_e, Fr(1, 12) * fr / fr_e
+        x_exact[s_] = p / q
+        N[s_] = 3 * (q + 2 * p)
+        d['q'] = str(q); d['p'] = str(p); d['x'] = str(p / q); d['x_float'] = float(p / q); d['N'] = str(N[s_])
+    for d in A4.values():
+        d.pop('_T'); d.pop('_X')
+    out['A4'] = {'by_leg': A4, 'x': {k: float(v) for k, v in x_exact.items()}, 'x_exact': {k: str(v) for k, v in x_exact.items()},
+                 'N_u_over_N_d': float(N['u'] / N['d']), 'N_e_over_N_u': float(N['e'] / N['u']),
+                 'N_exact': {k: str(v) for k, v in N.items()}}
+    print('A4', out['A4']['x_exact'], out['A4']['N_exact'], 'Nu/Nd', out['A4']['N_u_over_N_d'], 'Ne/Nu', out['A4']['N_e_over_N_u'])
+    print('E1', out['E1_words'], out['E1_first_order_weight'])
+    print('E2', json.dumps(out['E2_exchange'], indent=1))
+    out['runtime_s'] = round(time.time() - t0, 1)
+    with open(os.path.join(HERE, 'cell.json'), 'w') as fh:
+        json.dump(out, fh, indent=1, default=str)
+    print('runtime', out['runtime_s'])
+
+
+if __name__ == '__main__':
+    main()

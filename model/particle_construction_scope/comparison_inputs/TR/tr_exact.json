@@ -1,0 +1,591 @@
+{
+ "source": {
+  "carrier": "oph_exact.carrier (oph-physics-sim, read only)",
+  "faces": 20,
+  "seams": 30,
+  "rotations": 60,
+  "cost_table_declared": [
+   0,
+   5,
+   8,
+   10,
+   8,
+   5
+  ],
+  "kappa_declared": 5,
+  "rule": "unit twist +-1 on a seam; plus face +delta, minus face -delta; applied iff the cost does not rise (balanced band)"
+ },
+ "dual_graph": {
+  "degree": [
+   3
+  ],
+  "unordered_pairs_by_distance": {
+   "1": 30,
+   "2": 60,
+   "3": 60,
+   "4": 30,
+   "5": 10
+  },
+  "diameter": 5
+ },
+ "pair_orbits": [
+  {
+   "representative": [
+    0,
+    1
+   ],
+   "distance": 1,
+   "size": 30
+  },
+  {
+   "representative": [
+    0,
+    2
+   ],
+   "distance": 2,
+   "size": 60
+  },
+  {
+   "representative": [
+    0,
+    8
+   ],
+   "distance": 3,
+   "size": 30
+  },
+  {
+   "representative": [
+    0,
+    9
+   ],
+   "distance": 3,
+   "size": 30
+  },
+  {
+   "representative": [
+    0,
+    12
+   ],
+   "distance": 4,
+   "size": 30
+  },
+  {
+   "representative": [
+    0,
+    13
+   ],
+   "distance": 5,
+   "size": 10
+  }
+ ],
+ "lasting_placements": {
+  "count": 160,
+  "by_distance": {
+   "2": 60,
+   "3": 60,
+   "4": 30,
+   "5": 10
+  },
+  "weights": {
+   "2": "3/8",
+   "3": "3/8",
+   "4": "3/16",
+   "5": "1/16"
+  }
+ },
+ "X1_superselection": {
+  "lasting_33_all_proposals_raise_cost": true,
+  "min_rise_over_lasting_33": 3,
+  "adjacent_33_shared_seam_rises": [
+   [
+    -4,
+    -4
+   ]
+  ],
+  "isolated_face_rises_on_its_seams": {
+   "1": [
+    0,
+    8
+   ],
+   "2": [
+    2,
+    7
+   ],
+   "3": [
+    3
+   ],
+   "4": [
+    2,
+    7
+   ],
+   "5": [
+    0,
+    8
+   ]
+  },
+  "class1_hop_rises": [
+   0,
+   8
+  ],
+  "fusion_1_3_to_4_rises": [
+   -7,
+   1
+  ]
+ },
+ "X2_read_counts": {
+  "sector": "configurations with at most max_def nonzero faces and cost <= cap",
+  "rows": [
+   {
+    "d": 2,
+    "faces": [
+     0,
+     2
+    ],
+    "C0": 20,
+    "n_min_flow": 6,
+    "uphill_def4_cap30": "1",
+    "uphill_def4_cap30_states": 4880,
+    "uphill_cost_def4_cap30": "3",
+    "uphill_cost_def4_cap30_states": 4756,
+    "above_start_def4_cap30": "1",
+    "above_start_def4_cap30_states": 6212,
+    "action_def4_cap30": "3",
+    "action_def4_cap30_states": 6136,
+    "bottleneck_def4_cap30": "3",
+    "bottleneck_def4_cap30_states": 7356,
+    "n_min_search_def4": "6"
+   },
+   {
+    "d": 3,
+    "faces": [
+     0,
+     8
+    ],
+    "C0": 20,
+    "n_min_flow": 9,
+    "uphill_def4_cap30": "1",
+    "uphill_def4_cap30_states": 11273,
+    "uphill_cost_def4_cap30": "3",
+    "uphill_cost_def4_cap30_states": 11167,
+    "above_start_def4_cap30": "2",
+    "above_start_def4_cap30_states": 38528,
+    "action_def4_cap30": "6",
+    "action_def4_cap30_states": 38474,
+    "bottleneck_def4_cap30": "3",
+    "bottleneck_def4_cap30_states": 44012,
+    "n_min_search_def4": "9"
+   },
+   {
+    "d": 3,
+    "faces": [
+     0,
+     9
+    ],
+    "C0": 20,
+    "n_min_flow": 9,
+    "uphill_def4_cap30": "1",
+    "uphill_def4_cap30_states": 10863,
+    "uphill_cost_def4_cap30": "3",
+    "uphill_cost_def4_cap30_states": 10757,
+    "above_start_def4_cap30": "2",
+    "above_start_def4_cap30_states": 32809,
+    "action_def4_cap30": "6",
+    "action_def4_cap30_states": 32755,
+    "bottleneck_def4_cap30": "3",
+    "bottleneck_def4_cap30_states": 35807,
+    "n_min_search_def4": "9"
+   },
+   {
+    "d": 4,
+    "faces": [
+     0,
+     12
+    ],
+    "C0": 20,
+    "n_min_flow": 12,
+    "uphill_def4_cap30": "1",
+    "uphill_def4_cap30_states": 19468,
+    "uphill_cost_def4_cap30": "3",
+    "uphill_cost_def4_cap30_states": 19360,
+    "above_start_def4_cap30": "3",
+    "above_start_def4_cap30_states": 113579,
+    "action_def4_cap30": "9",
+    "action_def4_cap30_states": 112995,
+    "bottleneck_def4_cap30": "3",
+    "bottleneck_def4_cap30_states": 119188
+   },
+   {
+    "d": 5,
+    "faces": [
+     0,
+     13
+    ],
+    "C0": 20,
+    "n_min_flow": 15,
+    "uphill_def4_cap30": "1",
+    "uphill_def4_cap30_states": 29963,
+    "uphill_cost_def4_cap30": "3",
+    "uphill_cost_def4_cap30_states": 29855,
+    "above_start_def4_cap30": "4",
+    "above_start_def4_cap30_states": 196479,
+    "action_def4_cap30": "12",
+    "action_def4_cap30_states": 195103,
+    "bottleneck_def4_cap30": "3",
+    "bottleneck_def4_cap30_states": 195164
+   }
+  ],
+  "adjacent_33_n_min": "3",
+  "quark_rows": [
+   {
+    "d": 2,
+    "faces": [
+     0,
+     2
+    ],
+    "n_q_min": "2",
+    "uphill_min": "0",
+    "n_q_flow": null
+   },
+   {
+    "d": 3,
+    "faces": [
+     0,
+     8
+    ],
+    "n_q_min": "3",
+    "uphill_min": "0",
+    "n_q_flow": null
+   },
+   {
+    "d": 4,
+    "faces": [
+     0,
+     12
+    ],
+    "n_q_min": "4",
+    "uphill_min": "0",
+    "n_q_flow": null
+   },
+   {
+    "d": 5,
+    "faces": [
+     0,
+     13
+    ],
+    "n_q_min": "5",
+    "uphill_min": "0",
+    "n_q_flow": null
+   },
+   {
+    "d": 1,
+    "faces": [
+     0,
+     1
+    ],
+    "n_q_min": "1"
+   }
+  ]
+ },
+ "multiplicity_minimal_sequences": {
+  "lepton_33_to_vacuum": {
+   "2": 80,
+   "1": 2
+  },
+  "quark_13_to_4": {
+   "2": 2,
+   "3": 6,
+   "4": 48,
+   "5": 720
+  }
+ },
+ "X3_effective_class3_hop": {
+  "formula": "t3 = (tau^3 / eps^2) * sum over three-twist routes of 1/((C0 - C1)(C0 - C2)), cost units",
+  "isolated_face": {
+   "sum": "2/9",
+   "routes": 2,
+   "excess_costs": [
+    [
+     3,
+     3
+    ]
+   ]
+  },
+  "with_partner_rows": [
+   {
+    "d": 2,
+    "faces": [
+     0,
+     2
+    ],
+    "move_to": 1,
+    "new_d": 1,
+    "sum_inverse_denominators": "2/9",
+    "routes": 2,
+    "route_seams_equal_shared_seam": true,
+    "excess_costs": [
+     [
+      3,
+      3
+     ]
+    ]
+   },
+   {
+    "d": 2,
+    "faces": [
+     0,
+     2
+    ],
+    "move_to": 4,
+    "new_d": 2,
+    "sum_inverse_denominators": "2/9",
+    "routes": 2,
+    "route_seams_equal_shared_seam": true,
+    "excess_costs": [
+     [
+      3,
+      3
+     ]
+    ]
+   },
+   {
+    "d": 2,
+    "faces": [
+     0,
+     2
+    ],
+    "move_to": 6,
+    "new_d": 3,
+    "sum_inverse_denominators": "2/9",
+    "routes": 2,
+    "route_seams_equal_shared_seam": true,
+    "excess_costs": [
+     [
+      3,
+      3
+     ]
+    ]
+   },
+   {
+    "d": 3,
+    "faces": [
+     0,
+     8
+    ],
+    "move_to": 1,
+    "new_d": 3,
+    "sum_inverse_denominators": "2/9",
+    "routes": 2,
+    "route_seams_equal_shared_seam": true,
+    "excess_costs": [
+     [
+      3,
+      3
+     ]
+    ]
+   },
+   {
+    "d": 3,
+    "faces": [
+     0,
+     8
+    ],
+    "move_to": 4,
+    "new_d": 2,
+    "sum_inverse_denominators": "2/9",
+    "routes": 2,
+    "route_seams_equal_shared_seam": true,
+    "excess_costs": [
+     [
+      3,
+      3
+     ]
+    ]
+   },
+   {
+    "d": 3,
+    "faces": [
+     0,
+     8
+    ],
+    "move_to": 6,
+    "new_d": 4,
+    "sum_inverse_denominators": "2/9",
+    "routes": 2,
+    "route_seams_equal_shared_seam": true,
+    "excess_costs": [
+     [
+      3,
+      3
+     ]
+    ]
+   },
+   {
+    "d": 3,
+    "faces": [
+     0,
+     9
+    ],
+    "move_to": 1,
+    "new_d": 2,
+    "sum_inverse_denominators": "2/9",
+    "routes": 2,
+    "route_seams_equal_shared_seam": true,
+    "excess_costs": [
+     [
+      3,
+      3
+     ]
+    ]
+   },
+   {
+    "d": 3,
+    "faces": [
+     0,
+     9
+    ],
+    "move_to": 4,
+    "new_d": 3,
+    "sum_inverse_denominators": "2/9",
+    "routes": 2,
+    "route_seams_equal_shared_seam": true,
+    "excess_costs": [
+     [
+      3,
+      3
+     ]
+    ]
+   },
+   {
+    "d": 3,
+    "faces": [
+     0,
+     9
+    ],
+    "move_to": 6,
+    "new_d": 4,
+    "sum_inverse_denominators": "2/9",
+    "routes": 2,
+    "route_seams_equal_shared_seam": true,
+    "excess_costs": [
+     [
+      3,
+      3
+     ]
+    ]
+   },
+   {
+    "d": 4,
+    "faces": [
+     0,
+     12
+    ],
+    "move_to": 1,
+    "new_d": 5,
+    "sum_inverse_denominators": "2/9",
+    "routes": 2,
+    "route_seams_equal_shared_seam": true,
+    "excess_costs": [
+     [
+      3,
+      3
+     ]
+    ]
+   },
+   {
+    "d": 4,
+    "faces": [
+     0,
+     12
+    ],
+    "move_to": 4,
+    "new_d": 3,
+    "sum_inverse_denominators": "2/9",
+    "routes": 2,
+    "route_seams_equal_shared_seam": true,
+    "excess_costs": [
+     [
+      3,
+      3
+     ]
+    ]
+   },
+   {
+    "d": 4,
+    "faces": [
+     0,
+     12
+    ],
+    "move_to": 6,
+    "new_d": 3,
+    "sum_inverse_denominators": "2/9",
+    "routes": 2,
+    "route_seams_equal_shared_seam": true,
+    "excess_costs": [
+     [
+      3,
+      3
+     ]
+    ]
+   },
+   {
+    "d": 5,
+    "faces": [
+     0,
+     13
+    ],
+    "move_to": 1,
+    "new_d": 4,
+    "sum_inverse_denominators": "2/9",
+    "routes": 2,
+    "route_seams_equal_shared_seam": true,
+    "excess_costs": [
+     [
+      3,
+      3
+     ]
+    ]
+   },
+   {
+    "d": 5,
+    "faces": [
+     0,
+     13
+    ],
+    "move_to": 4,
+    "new_d": 4,
+    "sum_inverse_denominators": "2/9",
+    "routes": 2,
+    "route_seams_equal_shared_seam": true,
+    "excess_costs": [
+     [
+      3,
+      3
+     ]
+    ]
+   },
+   {
+    "d": 5,
+    "faces": [
+     0,
+     13
+    ],
+    "move_to": 6,
+    "new_d": 4,
+    "sum_inverse_denominators": "2/9",
+    "routes": 2,
+    "route_seams_equal_shared_seam": true,
+    "excess_costs": [
+     [
+      3,
+      3
+     ]
+    ]
+   }
+  ],
+  "distinct_sums_with_partner": [
+   "2/9"
+  ],
+  "class1_hop": "first order, resonant (cost unchanged): amplitude tau"
+ },
+ "seconds": 27.6
+}

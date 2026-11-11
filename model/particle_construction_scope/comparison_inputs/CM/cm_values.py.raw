@@ -1,0 +1,55 @@
+"""Assemble values.json from orbit.json, frames.json, exact.json, df10.json, app1.json (no measured value read).
+
+Run: cd RL/work/CM && PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B cm_values.py
+"""
+import json
+import os
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+parts = {}
+for name in ('orbit', 'frames', 'exact', 'df10', 'app1'):
+    d = json.load(open(os.path.join(HERE, f'{name}.json')))
+    assert d['measured_values_read'] is False, name
+    parts[name] = d
+
+V = {'measured_values_read': False, 'readings': {}}
+R = V['readings']
+for key, r in parts['frames']['F'].items():
+    R['D1-F-' + key] = {'V': r['V'], 'is_permutation': r['is_permutation'], 'permutation': r['permutation'],
+                        'singular_values': r['singular_values'], 'spectra': r['spectra']}
+for key, r in parts['frames']['O'].items():
+    R['D1-O-' + key] = {'V': r['V'], 'is_permutation': r['is_permutation'], 'permutation': r['permutation'],
+                        'spectra': r['spectra']}
+R['D3-HC'] = parts['frames']['HC']
+for root in (0, 7):
+    d = parts['df10'][f'string_root_{root}']
+    R[f'D2-DF10-Z20-naive-root{root}'] = {'V': d['naive'], 'note': 'gauge dependent (two strings differ)'}
+    R[f'D2-DF10-Z20-covariant-root{root}'] = {'V': d['covariant']}
+R['D2-DF10-Z6'] = {'V': {'abs_V': [[1, 0, 0], [0, 1, 0], [0, 0, 1]], 'J': 0.0}, 'note': 'E1: up = down, V = 1 exactly'}
+R['D2-DF10-Z20-own-band'] = {'V': {'abs_V': [[1, 0, 0], [0, 1, 0], [0, 0, 1]], 'J': 0.0},
+                             'note': 'u_L and d_L share the k = 9 band'}
+for key, r in parts['app1']['A1_O'].items():
+    R['A1-O-' + key] = r
+for key, r in parts['app1']['A1_F2'].items():
+    R['A1-F2-' + key] = r
+V['generation_phases_GP_F'] = parts['frames']['GP_F']
+V['exact_statements'] = {
+    'X1_X2': parts['exact']['X1_X2'], 'X2_adjoint_leg': parts['exact']['X2_adjoint_leg'],
+    'X3': {k: v for k, v in parts['orbit']['X3'].items()}, 'X5': parts['exact']['X5'], 'X6': parts['exact']['X6'],
+    'orbit_compressions': {l: {leg: d['per_colour'][next(iter(d['per_colour']))]['t_n']
+                               for leg, d in rec['legs'].items()} for l, rec in parts['orbit']['lifts'].items()},
+    'lepton_control': {l: {'nu_equals_up': rec['nu_equals_up'], 'e_equals_down': rec['e_equals_down']}
+                       for l, rec in parts['orbit']['lifts'].items()},
+    'U_sigma_q': {l: rec['U_sigma_q'] for l, rec in parts['orbit']['lifts'].items()},
+}
+# orbit data needed by the conditional reading O-M
+V['orbit_for_OM'] = {l: {'t_up': rec['legs']['up']['per_colour']['0']['t_n'],
+                         't_down': rec['legs']['down']['per_colour']['0']['t_n'],
+                         'closure_L': rec['legs']['up']['per_colour']['0']['closure_L'],
+                         'closure_R': rec['legs']['up']['per_colour']['0']['closure_R']}
+                     for l, rec in parts['orbit']['lifts'].items()}
+with open(os.path.join(HERE, 'values.json'), 'w') as fh:
+    json.dump(V, fh, indent=1, default=str)
+print('readings', len(R))
+nperm = sum(1 for r in R.values() if r.get('is_permutation') or (isinstance(r.get('V'), dict) and r['V'].get('is_permutation')))
+print('J values:', sorted({round(abs(r['V']['J']), 12) for r in R.values() if isinstance(r.get('V'), dict) and 'J' in r['V']}))

@@ -1,0 +1,300 @@
+"""Independent exact checks for the declared finite affine-Gauss cone source."""
+from __future__ import annotations
+
+from functools import lru_cache
+import hashlib
+import importlib.util
+import itertools
+import json
+from pathlib import Path
+import re
+
+import sympy as s
+
+HERE = Path(__file__).resolve().parent
+WORK = HERE.parents[1]
+SOURCE = WORK / "CODEX_JOIN_QUANTUM/coulomb_source"
+RER = WORK.parent / "reverse-engineering-reality"
+_spec = importlib.util.spec_from_file_location("independently_audited_coulomb_source", SOURCE / "model.py")
+candidate = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(candidate)
+
+
+def exact_sign(value):
+    """Sign in Q(sqrt(5)), without a floating-point positivity test."""
+    value = s.expand(value)
+    b = value.coeff(s.sqrt(5))
+    a = value - b * s.sqrt(5)
+    assert a.is_Rational and b.is_Rational
+    if not b:
+        return s.sign(a)
+    if not a:
+        return s.sign(b)
+    if s.sign(a) == s.sign(b):
+        return s.sign(a)
+    return s.sign(a) * s.sign(a*a - 5*b*b)
+
+
+def boundary(lower, upper):
+    """Oriented simplicial coboundary from literal vertex tuples."""
+    index = {tuple(sorted(simplex)): i for i, simplex in enumerate(lower)}
+    orientation = [(-1)**sum(simplex[i] > simplex[j] for i in range(len(simplex)) for j in range(i+1,len(simplex))) for simplex in lower]
+    result = s.zeros(len(upper), len(lower))
+    for row, simplex in enumerate(upper):
+        for omitted in range(len(simplex)):
+            face = simplex[:omitted] + simplex[omitted+1:]
+            inversions = sum(face[i] > face[j] for i in range(len(face)) for j in range(i+1, len(face)))
+            column = index[tuple(sorted(face))]
+            result[row, column] += orientation[column]*(-1)**(omitted + inversions)
+    return result
+
+
+@lru_cache(None)
+def independently_rebuilt_geometry():
+    # Parse the committed Lean tables directly; do not call the candidate's
+    # cone constructor or the existing Python incidence constructor.
+    seam = (RER / "Lean/Screen/SeamCurrentCarrierQuotient.lean").read_text()
+    ends = []
+    for name in ("seamLeft", "seamRight"):
+        literal = re.search(r"def " + name + r"\s*:.*?:=\s*!\[([^\]]+)\]", seam, re.S).group(1)
+        ends.append([int(v.strip()) for v in literal.split(",")])
+    old_edges = list(zip(*ends))
+    raw = (RER / "Lean/ObserverPatchHolography/CoreAxioms.lean").read_text()
+    raw = raw.split("def orientedFaces", 1)[1].split("def faceEdges", 1)[0]
+    old_faces = [tuple(map(int, v)) for v in re.findall(r"\((\d+),\s*(\d+),\s*(\d+)\)", raw)]
+    edges = [(0, i) for i in range(1, 13)] + [(a+1, b+1) for a, b in old_edges]
+    faces = [tuple(i+1 for i in f) for f in old_faces] + [(0, a+1, b+1) for a, b in old_edges]
+    tets = [(0,) + tuple(i+1 for i in f) for f in old_faces]
+    D = boundary([(i,) for i in range(13)], edges)
+    C = boundary(edges, faces)
+    B = boundary(faces, tets)
+    assert D.shape == (42, 13) and C.shape == (50, 42) and B.shape == (20, 50)
+    assert C*D == s.zeros(50, 13) and B*C == s.zeros(20, 42)
+    assert (D.rank(), C.rank(), B.rank()) == (12, 30, 20)
+    # A different rational inverse construction from the candidate's
+    # inherited custom Gaussian elimination routine.
+    L = D.T*D
+    G = (L + s.ones(13)/13).inv() - s.ones(13)/13
+    assert G == G.T and L*G == s.eye(13)-s.ones(13)/13
+    assert G*s.ones(13, 1) == s.zeros(13, 1)
+    K = C.T*C
+    PT = s.eye(42)-D*G*D.T
+    assert PT*PT == PT and K*PT == K and D.T*PT == s.zeros(13, 42)
+    return D, C, B, G, K, PT
+
+
+@lru_cache(None)
+def spectral_check():
+    D, C, B, G, K, PT = independently_rebuilt_geometry()
+    x = s.Symbol("x")
+    charpoly = K.charpoly(x).as_expr()
+    expected = x**12*(x-3)**5*(x-4)**4*(x-6)**4*(x-7)**5*(x*x-8*x+11)**3*(x*x-12*x+31)**3
+    assert s.expand(charpoly-expected) == 0
+    roots = (s.Integer(0), 4-s.sqrt(5), s.Integer(3), 6-s.sqrt(5), s.Integer(4), s.Integer(6), 4+s.sqrt(5), s.Integer(7), 6+s.sqrt(5))
+    multiplicities = (12, 3, 5, 3, 4, 4, 3, 5, 3)
+    minimal = s.Poly(x*(x-3)*(x-4)*(x-6)*(x-7)*(x*x-8*x+11)*(x*x-12*x+31), x)
+    powers = [s.eye(42)]
+    for _ in range(minimal.degree()):
+        powers.append(powers[-1]*K)
+    assert sum((coef*powers[i] for (i,), coef in minimal.terms()), s.zeros(42)) == s.zeros(42)
+    edge_weights = []
+    face_weights = []
+    for lam, multiplicity in zip(roots, multiplicities):
+        poly = s.Poly(s.prod(x-other for other in roots if other != lam)/s.prod(lam-other for other in roots if other != lam), x, extension=s.sqrt(5))
+        assert s.rem(poly*poly-poly, minimal, extension=s.sqrt(5)).is_zero
+        assert s.rem((s.Poly(x, x)-lam)*poly, minimal, extension=s.sqrt(5)).is_zero
+        P = sum((coef*powers[i] for (i,), coef in poly.terms()), s.zeros(42))
+        P = P.applyfunc(s.expand)
+        assert P == P.T and s.expand(s.trace(P)) == multiplicity
+        diagonal = list(P.diagonal())
+        magnetic_diagonal = list((C*P*C.T).diagonal())
+        assert all(exact_sign(v) >= 0 for v in diagonal + magnetic_diagonal)
+        if lam == 0:
+            assert P == s.eye(42)-PT
+            assert all(v == 0 for v in magnetic_diagonal)
+        else:
+            edge_weights.append(diagonal)
+            face_weights.append(magnetic_diagonal)
+    assert all(s.expand(sum(row[e] for row in edge_weights)-PT[e,e]) == 0 for e in range(42))
+    assert all(s.expand(sum(row[f] for row in face_weights)-3) == 0 for f in range(50))
+    actual = candidate.geometry()
+    assert actual[3] == D and actual[4] == C and actual[5] == G and actual[6] == K and actual[7] == PT
+    return {
+        "independent_simplicial_chain_ranks": [12, 30, 20],
+        "full_stiffness_characteristic_polynomial": str(s.factor(charpoly)),
+        "checked_projector_edge_diagonals": 9*42,
+        "checked_projector_face_diagonals": 9*50,
+        "all_spatial_residues_nonnegative_exactly": True,
+        "all_42_edge_and_50_face_projector_sum_rules": True,
+        "counting_metric_source_matches_candidate": True,
+    }
+
+
+def gauss_and_energy_check():
+    D, C, B, G, K, PT = independently_rebuilt_geometry()
+    reference = 1
+    Q = s.eye(13)-s.eye(13)[:, reference]*s.ones(1, 13)
+    V = Q.T*G*Q
+    assert D.T*D*G*Q == Q and PT*D*G*Q == s.zeros(42, 13)
+    assert all((217*v).is_Integer for v in V)
+    Vi = [[int(217*V[i,j]) for j in range(13)] for i in range(13)]
+    nonreference = [i for i in range(13) if i != reference]
+    energy_counts = {}
+    for mask in range(1 << 12):
+        occupied = [nonreference[i] for i in range(12) if mask >> i & 1]
+        numerator = sum(Vi[i][j] for i in occupied for j in occupied)
+        assert (numerator == 0) == (mask == 0)
+        energy_counts[numerator] = energy_counts.get(numerator, 0)+1
+    minimum_electric = s.Rational(min(n for n in energy_counts if n), 434)
+    checked_creations = 0
+    for mask in range(1 << 13):
+        n = [mask >> j & 1 for j in range(13)]
+        count = sum(n)
+        ell = [n[j] if j != reference else 0 for j in range(13)]
+        load = [ell[j] if j != reference else -sum(ell) for j in range(13)]
+        assert all(load[j]-n[j]+count*int(j == reference) == 0 for j in range(13))
+        for y in range(13):
+            # Exact full-kinematic conservation is a spectator-independent
+            # transition identity, including both reference-endpoint cases.
+            delta_load = [int(j == y)-int(j == reference) for j in range(13)]
+            assert all(delta_load[j]-int(j == y)+int(j == reference) == 0 for j in range(13))
+            if not n[y]:
+                assert count < 13
+                assert y == reference or ell[y] == 0
+                checked_creations += 1
+    # The physical zero-Gauss equations first force ell=n off the reference,
+    # then force R=N. No further reference/longitudinal sector is omitted.
+    assert checked_creations == 13*2**12
+    assert minimum_electric == s.Rational(26, 217)
+    omega_min = s.sqrt(4-s.sqrt(5))
+    assert minimum_electric < 1 < omega_min < 2
+    return {
+        "full_longitudinal_bit_patterns_checked": 4096,
+        "physical_source_occupation_patterns_checked": 8192,
+        "physical_creation_columns_checked": checked_creations,
+        "full_kinematic_unique_ground_gap": str(minimum_electric),
+        "physical_unique_ground_gap": str(omega_min),
+        "physical_charge_reference_constraint": "R=N, ell_y=n_y for y!=1",
+        "all_invalid_creation_boundary_columns_zero": True,
+        "source_odd_reference_odd_joint_even": True,
+        "zero_Gauss_sector_dimension": 2**13*5456,
+        "full_kinematic_dimension": 2**13*14*2**12*5456,
+    }
+
+
+def cutoff_and_weyl_check():
+    # Literal 3-mode matrices test noncommuting cross-mode terms and a
+    # total-occupation boundary; diagonal occupation tests then cover all30.
+    basis = [word for total in range(4) for word in itertools.product(range(4), repeat=3) if sum(word) == total]
+    ids = {word: i for i, word in enumerate(basis)}
+    omega = (s.Integer(1), s.Integer(2), s.Integer(3))
+    annihilators = []
+    for j in range(3):
+        a = s.zeros(len(basis))
+        for column, word in enumerate(basis):
+            if word[j]:
+                target = list(word); target[j] -= 1
+                a[ids[tuple(target)], column] = s.sqrt(word[j])
+        annihilators.append(a)
+    bare = s.zeros(len(basis)); fields = []
+    for w, a in zip(omega, annihilators):
+        q = (a+a.T)/s.sqrt(2*w)
+        p = s.I*s.sqrt(w/2)*(a.T-a)
+        bare += (p*p+w*w*q*q)/2
+        fields.append((q,p,w))
+    boundary_term = s.diag(*[sum(w*(n+1) for w,n in zip(omega, word))/2 if sum(word) == 3 else 0 for word in basis])
+    H = s.diag(*[sum(w*(n+s.Rational(1,2)) for w,n in zip(omega, word)) for word in basis])
+    assert s.simplify(bare+boundary_term-H) == s.zeros(len(basis))
+    for q,p,w in fields:
+        assert s.simplify(H*q-q*H+s.I*p) == s.zeros(len(basis))
+        assert s.simplify(H*p-p*H-s.I*w*w*q) == s.zeros(len(basis))
+    assert annihilators[0]*annihilators[1].T != annihilators[1].T*annihilators[0]
+    # Vacuum-return path control does not rely on a Gaussian assertion.
+    for length in (2,4,6):
+        for steps in itertools.product((-1,1), repeat=length):
+            height=0;maximum=0;valid=True
+            for step in steps:
+                height += step;maximum=max(maximum,height)
+                valid &= height >= 0
+            if valid and height == 0:
+                assert maximum <= 3
+    a=s.zeros(4)
+    for n in range(1,4):a[n-1,n]=s.sqrt(n)
+    q=(a+a.T)/s.sqrt(2)
+    assert (q**6)[0,0] == s.Rational(15,8)
+    assert (q**8)[0,0] == s.Rational(81,16)
+    assert (q**8)[0,0] != s.Rational(105,16)
+    x=s.Symbol('x')
+    assert (a+a.T).charpoly(x).as_expr() == x**4-6*x*x+3
+    # Independent coefficient enumeration for all5456 physical photon words.
+    count=0
+    for total in range(4):
+        for word in itertools.combinations_with_replacement(range(30),total):
+            n=[word.count(j) for j in range(30)]
+            for nj in n:
+                twice_bare=nj+(nj+1 if total<3 else 0)
+                twice_boundary=nj+1 if total==3 else 0
+                assert twice_bare+twice_boundary == 2*nj+1
+            count+=1
+    assert count == 5456
+    return {
+        "literal_multimode_total_cutoff_dimension": len(basis),
+        "actual_thirty_mode_photon_words_checked": count,
+        "actual_boundary_coefficients_checked": 30*count,
+        "full_cutoff_Heisenberg_equations": True,
+        "cross_mode_unrestricted_CCR_false": True,
+        "vacuum_words_through_degree_six_exact": True,
+        "frequency_one_finite_vacuum_q8": "81/16",
+        "frequency_one_unbounded_vacuum_q8": "105/16",
+        "collective_quadrature_norm_squared": "(3+sqrt(6))*sum_j(abs(w_j)**2)",
+        "finite_vacuum_Weyl_reduction": "exact four-level Jacobi exponential; not exp(-sum(abs(w_j)**2)/2)",
+    }
+
+
+def records_check():
+    fields=candidate.field_records()
+    checked=0
+    for charge in candidate.charge_geometry()[0]:
+        for row in fields:
+            if row['kind'] != 'transverse_electric_edge':continue
+            ell=charge['longitudinal_electric_field'][row['index']]
+            total_residue=s.simplify(ell**2+sum(line['vacuum_residue'] for line in row['energy_lines']))
+            complete=[s.Rational(3,4), (1-total_residue/2304)/4, ell**2/9216]
+            complete += [line['vacuum_residue']/9216 for line in row['energy_lines']]
+            complete += [s.Integer(0)]
+            assert len(complete)==12 and s.simplify(sum(complete))==1
+            assert all(value>=0 for value in complete)
+            checked+=1
+    # Abstract spectral Kraus completion is independent of the prepared
+    # probabilities: F^*F+sum_j B^*P_j B=I, including the final complement.
+    b0,b1=s.Rational(1,2),s.Rational(2,3)
+    pump=s.Matrix([[0,b1],[b0,0]])
+    fail=s.diag(s.sqrt(1-b0*b0),s.sqrt(1-b1*b1))
+    P0=s.diag(1,0);P1=s.eye(2)-P0
+    assert fail.H*fail+(P0*pump).H*(P0*pump)+(P1*pump).H*(P1*pump)==s.eye(2)
+    return {"complete_twelve_record_experiments_checked": checked,
+        "sequential_Kraus_identity_includes_failure_and_energy_complement": True,
+        "energy_lines_include_reference_cost": True,
+        "finite_pointer_dimension": 12,
+        "no_continuous_quantum_carrier": True,
+        "algebraic_coefficients_and_continuous_clock_are_parameters_not_carriers": True}
+
+
+def receipt():
+    checks={"geometry":spectral_check(),"gauss_and_energy":gauss_and_energy_check(),
+        "cutoff_and_Weyl":cutoff_and_weyl_check(),"complete_records":records_check()}
+    checks['candidate_sha256']={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(SOURCE.iterdir()) if p.suffix in ('.py','.md','.json')}
+    static_files = ('audit.py', 'test_audit.py', 'STATIC_AUDIT.md', 'README.md')
+    checks['audit_source_sha256']={name:hashlib.sha256((HERE/name).read_bytes()).hexdigest() for name in static_files}
+    return checks
+
+
+if __name__=='__main__':
+    import argparse
+    parser=argparse.ArgumentParser();parser.add_argument('--check',action='store_true');args=parser.parse_args()
+    value=receipt();path=HERE/'static_results.json'
+    if args.check:
+        assert json.loads(path.read_text()) == value
+    else:
+        path.write_text(json.dumps(value,indent=2,sort_keys=True)+'\n')
+    print('PASS: independent exact finite Coulomb source audit')

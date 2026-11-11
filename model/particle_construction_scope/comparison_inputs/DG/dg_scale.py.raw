@@ -1,0 +1,126 @@
+"""DG, step 3: the seesaw values m_nu = y^2 v^2 / M for every try listed in CANDIDATES.md (no measured value).
+
+Inputs: P and alpha_U of the source branch `source_audit_P_cand`
+(RER/code/particles/runs/calibration/wzh_residual_elimination_boundary.json, read here). Forms (declared in the
+repository; campaign target DC): v_EW = E* P^(-1/2) exp(-pi/(2 alpha_U)), E_cell = E* P^(-1/2),
+M_U = E* exp(-2 pi) P^(1/6), criticality scale E* exp(-pi) P^(-1/6). Unit E*; GeV columns use the repository's display
+decimal E* = 1.220890e19 GeV (a calibration checksum there, not a derived number).
+
+Conventions: (a) v = v_EW/sqrt2 (audit H = (0, v), m_D = |v y|); (b) v = v_EW (repository anchor m_star = v^2/mu_U).
+Lattice check: T6's exact light rest phase th_l = arccos(cos(theta_D) cos(theta_M/2)) - theta_M/2 with
+theta_D = y v/E*, theta_M = M/E* (one tick = hbar/E*, MATCH.md), against the continuum theta_D^2/theta_M.
+
+    python dg_scale.py [out.json]
+"""
+import json, os, sys
+import mpmath as mp
+
+mp.mp.dps = 140
+RER = 'WORKSPACE/reverse-engineering-reality'
+src = json.load(open(os.path.join(RER, 'code/particles/runs/calibration/wzh_residual_elimination_boundary.json')))
+P = mp.mpf(src['branch']['P'])
+aU = mp.mpf(src['branch']['alpha_U'])
+assert src['branch']['id'] == 'source_audit_P_cand'
+E_DISPLAY_GEV = mp.mpf('1.220890e19')
+pi = mp.pi
+
+vEW = P ** mp.mpf(-0.5) * mp.e ** (-pi / (2 * aU))                # in units of E*
+v_basis = mp.mpf(src['strict_branch_two_law_boundary']['basis']['v_over_E_star'])
+assert abs(vEW / v_basis - 1) < mp.mpf('1e-14')
+scales = {
+    'E_cell = E* P^(-1/2)': P ** mp.mpf(-0.5),
+    'M_U = E* exp(-2 pi) P^(1/6)': mp.e ** (-2 * pi) * P ** (mp.mpf(1) / 6),
+    'criticality = E* exp(-pi) P^(-1/6)': mp.e ** (-pi) * P ** (-mp.mpf(1) / 6),
+    'E*': mp.mpf(1),
+}
+assert abs(scales['criticality = E* exp(-pi) P^(-1/6)'] ** 2
+           - scales['E_cell = E* P^(-1/2)'] * scales['M_U = E* exp(-2 pi) P^(1/6)']) < mp.mpf('1e-120')
+tower = {
+    'slow triplet': mp.mpf(11) / 12 + mp.sqrt(5) / 60,
+    'quintet, recorded': mp.mpf(14) / 15,
+    'quintet, blank': mp.mpf(9) / 10,
+    'fast triplet': mp.mpf(11) / 12 - mp.sqrt(5) / 60,
+    'uniform load, recorded': mp.mpf(5) / 6,
+}
+conv = {'a': vEW / mp.sqrt(2), 'b': vEW}
+closed = {  # m_nu / E* for y = 1, convention a; convention b is twice this
+    'E_cell = E* P^(-1/2)': '(1/2) exp(-pi/alpha_U) P^(-1/2)',
+    'M_U = E* exp(-2 pi) P^(1/6)': '(1/2) exp(2 pi - pi/alpha_U) P^(-7/6)',
+    'criticality = E* exp(-pi) P^(-1/6)': '(1/2) exp(pi - pi/alpha_U) P^(-5/6)',
+    'E*': '(1/2) exp(-pi/alpha_U) P^(-1)',
+}
+
+
+def lattice_light(thD, thM):
+    return mp.acos(mp.cos(thD) * mp.cos(thM / 2)) - thM / 2
+
+
+def s(x, n=12):
+    return mp.nstr(x, n)
+
+
+def row(tag, M, y, c):
+    v = conv[c]
+    m = y ** 2 * v ** 2 / M
+    thD, thM = y * v, M
+    thl = lattice_light(thD, thM)
+    return {
+        'try': tag, 'convention': c, 'y': s(y, 8), 'M_over_E_star': s(M), 'M_GeV_display': s(M * E_DISPLAY_GEV, 8),
+        'm_nu_over_E_star': s(m, 14), 'm_nu_eV_display': s(m * E_DISPLAY_GEV * mp.mpf(10) ** 9, 8),
+        'm_nu_over_v_EW': s(m / vEW, 10),
+        'theta_D_per_tick': s(thD), 'theta_M_per_tick': s(thM),
+        'lattice_light_phase': s(thl, 14),
+        'lattice_over_continuum_minus_one': s(thl / (thD ** 2 / thM) - 1, 6),
+        'lattice_over_half_cot_form_minus_one': s(thl / ((thD ** 2 / 2) * mp.cot(thM / 2)) - 1, 6),
+    }
+
+
+out = {
+    'inputs': {'P': s(P, 40), 'alpha_U': s(aU, 40), 'branch': src['branch']['id'],
+               'source_file': 'RER/code/particles/runs/calibration/wzh_residual_elimination_boundary.json',
+               'E_star_display_GeV': s(E_DISPLAY_GEV, 7)},
+    'scales_over_E_star': {k: s(x, 20) for k, x in scales.items()},
+    'scales_GeV_display': {k: s(x * E_DISPLAY_GEV, 10) for k, x in scales.items()},
+    'v_EW_over_E_star': s(vEW, 20), 'v_EW_GeV_display': s(vEW * E_DISPLAY_GEV, 10),
+    'v_conventions_GeV_display': {k: s(x * E_DISPLAY_GEV, 10) for k, x in conv.items()},
+    'closed_forms_m_nu_over_E_star_convention_a_y_1': closed,
+    'tries': [], 'bounds_y_sqrt_4pi': [],
+}
+for name, M in scales.items():
+    short = {'E_cell = E* P^(-1/2)': 'Ecell', 'M_U = E* exp(-2 pi) P^(1/6)': 'MU',
+             'criticality = E* exp(-pi) P^(-1/6)': 'crit', 'E*': 'Estar'}[name]
+    for c in ('a', 'b'):
+        r = row(f'T-{short}-{c}', M, mp.mpf(1), c)
+        r['scale'] = name
+        out['tries'].append(r)
+for c in ('a', 'b'):
+    for tn, lam in tower.items():
+        r = row(f'T-tower-{c}', mp.acos(lam), mp.mpf(1), c)
+        r['scale'] = f'tower: {tn}, theta_M = arccos({s(lam, 10)}) per tick'
+        out['tries'].append(r)
+r = row('T-y98', scales['M_U = E* exp(-2 pi) P^(1/6)'], mp.mpf('0.98906'), 'a')
+r['scale'] = 'M_U = E* exp(-2 pi) P^(1/6)'
+out['tries'].append(r)
+for name in ('M_U = E* exp(-2 pi) P^(1/6)', 'criticality = E* exp(-pi) P^(-1/6)', 'E_cell = E* P^(-1/2)'):
+    for c in ('a', 'b'):
+        r = row('B-pert', scales[name], mp.sqrt(4 * pi), c)
+        r['scale'] = name
+        out['bounds_y_sqrt_4pi'].append(r)
+# the repository anchor at the legacy P (read before the list) against convention b at the source branch
+anchor = json.load(open(os.path.join(RER, 'code/particles/runs/neutrino/neutrino_scale_anchor.json')))
+mstar_legacy = mp.mpf(anchor['anchors']['m_star_gev'])
+tmub = [t for t in out['tries'] if t['try'] == 'T-MU-b'][0]
+out['repository_anchor_check'] = {
+    'm_star_GeV_at_legacy_P_1.63094': s(mstar_legacy, 12),
+    'T-MU-b_GeV_display_at_source_branch': s(mp.mpf(tmub['m_nu_over_E_star']) * E_DISPLAY_GEV, 12),
+    'ratio': s(mp.mpf(tmub['m_nu_over_E_star']) * E_DISPLAY_GEV / mstar_legacy, 10),
+}
+# degeneracy of the three light states for a species-blind junction and one pairing angle: exact statement
+out['three_copies'] = ('With the same junction amplitude and the same pairing angle for the three copies, the light mass matrix is '
+                       '(y^2 v^2/M) times the identity: three equal masses and no splitting, for every scale.')
+print(json.dumps({k: v for k, v in out.items() if k not in ('tries', 'bounds_y_sqrt_4pi')}, indent=1))
+for t in out['tries'] + out['bounds_y_sqrt_4pi']:
+    print(f"{t['try']:10s} {t['convention']} y={t['y']:>9s} M/E*={t['M_over_E_star']:>16s} m_nu={t['m_nu_eV_display']:>14s} eV "
+          f"lattice-1={t['lattice_over_continuum_minus_one']:>12s} | {t['scale']}")
+if len(sys.argv) > 1:
+    json.dump(out, open(sys.argv[1], 'w'), indent=1)

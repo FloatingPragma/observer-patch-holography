@@ -1,0 +1,626 @@
+{
+ "field": "Q(zeta_20); s5 = sqrt5, c = 2cos(pi/10) = sqrt((5+sqrt5)/2), i = zeta^5",
+ "great_realization": "entrywise image of the convex objects under zeta -> zeta^17",
+ "sections_and_checks": {
+  "convex/spinor": {
+   "section_rank": 2,
+   "seam": {
+    "checks_per_cluster": [
+     0
+    ],
+    "checks": 0,
+    "common_kernel_dimension": 12
+   },
+   "face": {
+    "checks_per_cluster": [
+     1
+    ],
+    "checks": 20,
+    "checks_annihilate_sections": true,
+    "rank_of_checks": 10,
+    "common_kernel_dimension": 2,
+    "kernel_equals_section_space": true
+   },
+   "rhombus": {
+    "checks_per_cluster": [
+     2
+    ],
+    "checks": 60,
+    "checks_annihilate_sections": true,
+    "rank_of_checks": 10,
+    "common_kernel_dimension": 2,
+    "kernel_equals_section_space": true
+   },
+   "star": {
+    "checks_per_cluster": [
+     4
+    ],
+    "checks": 48,
+    "checks_annihilate_sections": true,
+    "rank_of_checks": 10,
+    "common_kernel_dimension": 2,
+    "kernel_equals_section_space": true
+   }
+  },
+  "convex/vector": {
+   "section_rank": 3,
+   "seam": {
+    "checks_per_cluster": [
+     0
+    ],
+    "checks": 0,
+    "common_kernel_dimension": 12
+   },
+   "face": {
+    "checks_per_cluster": [
+     0
+    ],
+    "checks": 0,
+    "common_kernel_dimension": 12
+   },
+   "rhombus": {
+    "checks_per_cluster": [
+     1
+    ],
+    "checks": 30,
+    "checks_annihilate_sections": true,
+    "rank_of_checks": 9,
+    "common_kernel_dimension": 3,
+    "kernel_equals_section_space": true
+   },
+   "star": {
+    "checks_per_cluster": [
+     3
+    ],
+    "checks": 36,
+    "checks_annihilate_sections": true,
+    "rank_of_checks": 9,
+    "common_kernel_dimension": 3,
+    "kernel_equals_section_space": true
+   }
+  },
+  "convex/radial": {
+   "section_rank": 3,
+   "seam": {
+    "checks_per_cluster": [
+     0
+    ],
+    "checks": 0,
+    "common_kernel_dimension": 12
+   },
+   "face": {
+    "checks_per_cluster": [
+     0
+    ],
+    "checks": 0,
+    "common_kernel_dimension": 12
+   },
+   "rhombus": {
+    "checks_per_cluster": [
+     1
+    ],
+    "checks": 30,
+    "checks_annihilate_sections": true,
+    "rank_of_checks": 9,
+    "common_kernel_dimension": 3,
+    "kernel_equals_section_space": true
+   },
+   "star": {
+    "checks_per_cluster": [
+     3
+    ],
+    "checks": 36,
+    "checks_annihilate_sections": true,
+    "rank_of_checks": 9,
+    "common_kernel_dimension": 3,
+    "kernel_equals_section_space": true
+   }
+  },
+  "great/spinor": {
+   "section_rank": 2,
+   "seam": {
+    "checks_per_cluster": [
+     0
+    ],
+    "checks": 0,
+    "common_kernel_dimension": 12
+   },
+   "face": {
+    "checks_per_cluster": [
+     1
+    ],
+    "checks": 20,
+    "checks_annihilate_sections": true,
+    "rank_of_checks": 10,
+    "common_kernel_dimension": 2,
+    "kernel_equals_section_space": true
+   },
+   "rhombus": {
+    "checks_per_cluster": [
+     2
+    ],
+    "checks": 60,
+    "checks_annihilate_sections": true,
+    "rank_of_checks": 10,
+    "common_kernel_dimension": 2,
+    "kernel_equals_section_space": true
+   },
+   "star": {
+    "checks_per_cluster": [
+     4
+    ],
+    "checks": 48,
+    "checks_annihilate_sections": true,
+    "rank_of_checks": 10,
+    "common_kernel_dimension": 2,
+    "kernel_equals_section_space": true
+   }
+  },
+  "great/vector": {
+   "section_rank": 3,
+   "seam": {
+    "checks_per_cluster": [
+     0
+    ],
+    "checks": 0,
+    "common_kernel_dimension": 12
+   },
+   "face": {
+    "checks_per_cluster": [
+     0
+    ],
+    "checks": 0,
+    "common_kernel_dimension": 12
+   },
+   "rhombus": {
+    "checks_per_cluster": [
+     1
+    ],
+    "checks": 30,
+    "checks_annihilate_sections": true,
+    "rank_of_checks": 9,
+    "common_kernel_dimension": 3,
+    "kernel_equals_section_space": true
+   },
+   "star": {
+    "checks_per_cluster": [
+     3
+    ],
+    "checks": 36,
+    "checks_annihilate_sections": true,
+    "rank_of_checks": 9,
+    "common_kernel_dimension": 3,
+    "kernel_equals_section_space": true
+   }
+  },
+  "great/radial": {
+   "section_rank": 3,
+   "seam": {
+    "checks_per_cluster": [
+     0
+    ],
+    "checks": 0,
+    "common_kernel_dimension": 12
+   },
+   "face": {
+    "checks_per_cluster": [
+     0
+    ],
+    "checks": 0,
+    "common_kernel_dimension": 12
+   },
+   "rhombus": {
+    "checks_per_cluster": [
+     1
+    ],
+    "checks": 30,
+    "checks_annihilate_sections": true,
+    "rank_of_checks": 9,
+    "common_kernel_dimension": 3,
+    "kernel_equals_section_space": true
+   },
+   "star": {
+    "checks_per_cluster": [
+     3
+    ],
+    "checks": 36,
+    "checks_annihilate_sections": true,
+    "rank_of_checks": 9,
+    "common_kernel_dimension": 3,
+    "kernel_equals_section_space": true
+   }
+  }
+ },
+ "verdict_a_face_checks_kernel_is_spinor_doublet": true,
+ "verdict_b_rhombus_checks_kernel_is_vector_triplet": true,
+ "verdict_c_no_seam_check_for_spinors_no_seam_or_face_check_for_vectors": true,
+ "control_scalar_seam_checks": {
+  "checks_per_cluster": [
+   1
+  ],
+  "checks": 30,
+  "checks_annihilate_sections": true,
+  "rank_of_checks": 11,
+  "common_kernel_dimension": 1,
+  "kernel_equals_section_space": true
+ },
+ "negative_controls": {
+  "rank_of_convex_checks_applied_to_great_sections": 2,
+  "dimension_of_sum_of_convex_and_great_doublets": 4,
+  "kernel_of_the_10_checks_on_faces_at_one_axis": 4,
+  "kernel_of_19_checks": 2
+ },
+ "parent_operators": {
+  "spinor_face_parent": {
+   "bands": [
+    2,
+    4,
+    6
+   ],
+   "flux1_adjacency_levels": [
+    "1*s5*c",
+    "3/2*c - 1/2*s5*c",
+    "-1*c"
+   ],
+   "levels": [
+    "0",
+    "5/2 - 1/2*s5",
+    "5/3 + 1/3*s5"
+   ],
+   "float": [
+    0.0,
+    1.3819660112501058,
+    2.412022659166596
+   ]
+  },
+  "vector_rhombus_parent": {
+   "bands": [
+    3,
+    5,
+    4
+   ],
+   "flux2_adjacency_levels": [
+    "5/2 + 1/2*s5",
+    "-3/2 + 1/2*s5",
+    "-1*s5"
+   ],
+   "levels": [
+    "0",
+    "4 - 2/5*s5",
+    "5/2 + 1/2*s5"
+   ],
+   "float": [
+    0.0,
+    3.105572809000084,
+    3.618033988749894
+   ]
+  }
+ },
+ "gauge_independence": {
+  "unit_phases": {
+   "spinor_face_kernel": 2,
+   "equals_section_space": true,
+   "vector_rhombus_kernel": 3,
+   "vector_equals_section_space": true
+  },
+  "nonunit_scalars": {
+   "spinor_face_kernel": 2,
+   "equals_section_space": true,
+   "vector_rhombus_kernel": 3,
+   "vector_equals_section_space": true
+  },
+  "statement": "port projectors |chi_p><chi_p| do not depend on the phase of chi_p; under chi_p -> d_p chi_p the section space and every check row are transported by the diagonal matrix (d_p); ranks, kernels and Gram entries are unchanged"
+ },
+ "single_multiplets": {
+  "spinor (great) alone": {
+   "gram_eigenvalues_by_port_irreducible": {
+    "1": "6",
+    "3": "0",
+    "3'": "2",
+    "5": "0"
+   },
+   "gram_eigenvalue_signs": {
+    "1": 1,
+    "3": 0,
+    "3'": 1,
+    "5": 0
+   },
+   "real_span": 4,
+   "lie_closure": 4,
+   "centre": 1,
+   "trace_form_positive_definite_on_port_space": false,
+   "covariance_under_the_120_lifts": true
+  },
+  "vector (convex) alone": {
+   "gram_eigenvalues_by_port_irreducible": {
+    "1": "4",
+    "3": "2",
+    "3'": "0",
+    "5": "2/5"
+   },
+   "gram_eigenvalue_signs": {
+    "1": 1,
+    "3": 1,
+    "3'": 0,
+    "5": 1
+   },
+   "real_span": 9,
+   "lie_closure": 9,
+   "centre": 1,
+   "trace_form_positive_definite_on_port_space": false,
+   "covariance_under_the_120_lifts": true
+  },
+  "radial vector (convex) alone": {
+   "gram_eigenvalues_by_port_irreducible": {
+    "1": "4",
+    "3": "0",
+    "3'": "0",
+    "5": "8/5"
+   },
+   "gram_eigenvalue_signs": {
+    "1": 1,
+    "3": 0,
+    "3'": 0,
+    "5": 1
+   },
+   "real_span": 6,
+   "lie_closure": 9,
+   "centre": 1,
+   "trace_form_positive_definite_on_port_space": false,
+   "covariance_under_the_120_lifts": true
+  }
+ },
+ "pairs": {
+  "mixed: vector(convex) + spinor(great), unit projectors": {
+   "gram_eigenvalues_by_port_irreducible": {
+    "1": "10",
+    "3": "2",
+    "3'": "2",
+    "5": "2/5"
+   },
+   "gram_eigenvalue_signs": {
+    "1": 1,
+    "3": 1,
+    "3'": 1,
+    "5": 1
+   },
+   "real_span": 12,
+   "lie_closure": 12,
+   "centre": 1,
+   "trace_form_positive_definite_on_port_space": true,
+   "all_66_brackets_in_the_real_span": true,
+   "sum_of_responses": [
+    "4",
+    "4",
+    "4",
+    "6",
+    "6"
+   ],
+   "centre_is_sum_of_responses": true,
+   "covariance_under_the_120_lifts": true
+  },
+  "mixed: vector(convex) + spinor(great), Naimark weights 1/4, 1/6": {
+   "gram_eigenvalues_by_port_irreducible": {
+    "1": "5/12",
+    "3": "1/8",
+    "3'": "1/18",
+    "5": "1/40"
+   },
+   "gram_eigenvalue_signs": {
+    "1": 1,
+    "3": 1,
+    "3'": 1,
+    "5": 1
+   },
+   "real_span": 12,
+   "lie_closure": 12,
+   "centre": 1,
+   "trace_form_positive_definite_on_port_space": true,
+   "all_66_brackets_in_the_real_span": true,
+   "sum_of_responses": [
+    "1",
+    "1",
+    "1",
+    "1",
+    "1"
+   ],
+   "centre_is_sum_of_responses": true,
+   "covariance_under_the_120_lifts": true
+  },
+  "mixed: vector(convex) + spinor(great), charge weights 1/2, -1/2": {
+   "gram_eigenvalues_by_port_irreducible": {
+    "1": "5/2",
+    "3": "1/2",
+    "3'": "1/2",
+    "5": "1/10"
+   },
+   "gram_eigenvalue_signs": {
+    "1": 1,
+    "3": 1,
+    "3'": 1,
+    "5": 1
+   },
+   "real_span": 12,
+   "lie_closure": 12,
+   "centre": 1,
+   "trace_form_positive_definite_on_port_space": true,
+   "all_66_brackets_in_the_real_span": true,
+   "sum_of_responses": [
+    "2",
+    "2",
+    "2",
+    "-3",
+    "-3"
+   ],
+   "centre_is_sum_of_responses": true,
+   "covariance_under_the_120_lifts": true
+  },
+  "mixed, opposite relative helicity: vector(convex) + conjugate spinor(great)": {
+   "gram_eigenvalues_by_port_irreducible": {
+    "1": "10",
+    "3": "2",
+    "3'": "2",
+    "5": "2/5"
+   },
+   "gram_eigenvalue_signs": {
+    "1": 1,
+    "3": 1,
+    "3'": 1,
+    "5": 1
+   },
+   "real_span": 12,
+   "lie_closure": 12,
+   "centre": 1,
+   "trace_form_positive_definite_on_port_space": true,
+   "all_66_brackets_in_the_real_span": true,
+   "sum_of_responses": [
+    "4",
+    "4",
+    "4",
+    "6",
+    "6"
+   ],
+   "centre_is_sum_of_responses": true,
+   "covariance_under_the_120_lifts": true
+  },
+  "mixed reverse: vector(great) + spinor(convex)": {
+   "gram_eigenvalues_by_port_irreducible": {
+    "1": "10",
+    "3": "2",
+    "3'": "2",
+    "5": "2/5"
+   },
+   "gram_eigenvalue_signs": {
+    "1": 1,
+    "3": 1,
+    "3'": 1,
+    "5": 1
+   },
+   "real_span": 12,
+   "lie_closure": 12,
+   "centre": 1,
+   "trace_form_positive_definite_on_port_space": true,
+   "all_66_brackets_in_the_real_span": true,
+   "sum_of_responses": [
+    "4",
+    "4",
+    "4",
+    "6",
+    "6"
+   ],
+   "centre_is_sum_of_responses": true,
+   "covariance_under_the_120_lifts": true
+  },
+  "same realization: vector(convex) + spinor(convex)": {
+   "gram_eigenvalues_by_port_irreducible": {
+    "1": "10",
+    "3": "4",
+    "3'": "0",
+    "5": "2/5"
+   },
+   "gram_eigenvalue_signs": {
+    "1": 1,
+    "3": 1,
+    "3'": 0,
+    "5": 1
+   },
+   "real_span": 9,
+   "lie_closure": 12,
+   "centre": 1,
+   "trace_form_positive_definite_on_port_space": false,
+   "covariance_under_the_120_lifts": true
+  },
+  "same realization: vector(great) + spinor(great)": {
+   "gram_eigenvalues_by_port_irreducible": {
+    "1": "10",
+    "3": "0",
+    "3'": "4",
+    "5": "2/5"
+   },
+   "gram_eigenvalue_signs": {
+    "1": 1,
+    "3": 0,
+    "3'": 1,
+    "5": 1
+   },
+   "real_span": 9,
+   "lie_closure": 12,
+   "centre": 1,
+   "trace_form_positive_definite_on_port_space": false,
+   "covariance_under_the_120_lifts": true
+  },
+  "radial(convex) + spinor(great)": {
+   "gram_eigenvalues_by_port_irreducible": {
+    "1": "10",
+    "3": "0",
+    "3'": "2",
+    "5": "8/5"
+   },
+   "gram_eigenvalue_signs": {
+    "1": 1,
+    "3": 0,
+    "3'": 1,
+    "5": 1
+   },
+   "real_span": 9,
+   "lie_closure": 12,
+   "centre": 1,
+   "trace_form_positive_definite_on_port_space": false,
+   "covariance_under_the_120_lifts": true
+  },
+  "radial(convex) + radial(great)": {
+   "gram_eigenvalues_by_port_irreducible": {
+    "1": "8",
+    "3": "0",
+    "3'": "0",
+    "5": "16/5"
+   },
+   "gram_eigenvalue_signs": {
+    "1": 1,
+    "3": 0,
+    "3'": 0,
+    "5": 1
+   },
+   "real_span": 6,
+   "lie_closure": 17,
+   "centre": 1,
+   "trace_form_positive_definite_on_port_space": false,
+   "covariance_under_the_120_lifts": true
+  },
+  "all four circular": {
+   "gram_eigenvalues_by_port_irreducible": {
+    "1": "20",
+    "3": "4",
+    "3'": "4",
+    "5": "4/5"
+   },
+   "gram_eigenvalue_signs": {
+    "1": 1,
+    "3": 1,
+    "3'": 1,
+    "5": 1
+   },
+   "real_span": 12,
+   "lie_closure": 23,
+   "centre": 1,
+   "trace_form_positive_definite_on_port_space": true,
+   "covariance_under_the_120_lifts": true
+  }
+ },
+ "audit_template_comparison": {
+  "audit": {
+   "1": "5/12",
+   "3": "1/8",
+   "3'": "1/18",
+   "5": "1/40"
+  },
+  "exact_here": {
+   "1": "5/12",
+   "3": "1/8",
+   "3'": "1/18",
+   "5": "1/40"
+  },
+  "agree": true
+ },
+ "seconds": 4.9
+}

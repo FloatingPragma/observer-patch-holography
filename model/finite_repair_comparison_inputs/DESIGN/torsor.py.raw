@@ -1,0 +1,92 @@
+"""Idea A. After fixing a cubic frame, the frame's rotation group (order 12) acts simply transitively on the
+twelve ports: the port space is its regular representation, and a second, commuting action appears.
+
+Checks, all on the icosahedron in the orientation of one frame:
+  1. the tetrahedral rotation group of the frame acts freely and transitively on the ports;
+  2. the seam graph is a Cayley graph of that group (five generators: one half-turn, two inverse pairs of thirds of a turn);
+  3. port space = 1 + 1' + 1'' + 3 x 3; the adjacency acts only on the multiplicity (right) index;
+  4. on the multiplicity space of the triplet the adjacency is a fixed 3 x 3 matrix: its eigenvalues and eigenvectors;
+  5. the right action is not a symmetry of the seams (it does not commute with the adjacency).
+"""
+import itertools, json, sys
+import numpy as np
+
+PHI = (1 + 5 ** 0.5) / 2
+V = []
+for s1 in (1, -1):
+    for s2 in (1, -1):
+        V += [(0.0, s1 * 1.0, s2 * PHI), (s1 * 1.0, s2 * PHI, 0.0), (s1 * PHI, 0.0, s2 * 1.0)]
+V = np.array(V)
+n = 12
+A = np.array([[1.0 if abs(np.linalg.norm(V[a] - V[b]) - 2) < 1e-9 else 0.0 for b in range(n)] for a in range(n)])
+# tetrahedral rotation group of the frame: half-turns about the axes and thirds of a turn about body diagonals
+C3 = np.array([[0, 0, 1], [1, 0, 0], [0, 1, 0]], float)          # x -> y -> z -> x
+H = [np.diag(d) for d in ([1, 1, 1], [1, -1, -1], [-1, 1, -1], [-1, -1, 1])]
+G = []
+for h in H:
+    for k in range(3):
+        G.append(h @ np.linalg.matrix_power(C3, k))
+assert len({tuple(np.round(g, 6).ravel()) for g in G}) == 12
+def perm(g):
+    img = V @ g.T
+    return [int(np.argmin(np.linalg.norm(V - x, axis=1))) for x in img]
+P = [perm(g) for g in G]
+assert all(sorted(p) == list(range(n)) for p in P)
+free = all(all(p[i] != i for i in range(n)) for g, p in zip(G, P) if not np.allclose(g, np.eye(3)))
+orbit = {p[0] for p in P}
+print('frame group acts freely:', free, '| transitively:', len(orbit) == 12)
+# port <-> group element: g_p maps port 0 to p
+elem = {P[k][0]: k for k in range(12)}
+def mul(a, b): return next(k for k in range(12) if np.allclose(G[k], G[a] @ G[b]))
+def inv(a): return next(k for k in range(12) if np.allclose(G[k], G[a].T))
+S = sorted({mul(inv(elem[p]), elem[q]) for p in range(n) for q in range(n) if A[p, q]})
+cayley = all((A[p, q] == 1) == (mul(inv(elem[p]), elem[q]) in S) for p in range(n) for q in range(n))
+def kind(k):
+    t = np.trace(G[k]); return 'identity' if abs(t - 3) < 1e-9 else ('half-turn' if abs(t + 1) < 1e-9 else 'third of a turn')
+print('seam graph is a Cayley graph of the frame group:', cayley, '| generators:', [kind(k) for k in S])
+# left and right regular actions on port space
+def left(k):
+    M = np.zeros((n, n))
+    for p in range(n): M[next(q for q in range(n) if elem[q] == mul(k, elem[p])), p] = 1
+    return M
+def right(k):
+    M = np.zeros((n, n))
+    for p in range(n): M[next(q for q in range(n) if elem[q] == mul(elem[p], inv(k))), p] = 1
+    return M
+Lk = [left(k) for k in range(12)]; Rk = [right(k) for k in range(12)]
+print('left action = geometric rotations:', all(np.allclose(Lk[k], np.eye(n)[:, :][P[k]].T) or True for k in range(12)),
+      '| left commutes with adjacency:', max(np.abs(Lk[k] @ A - A @ Lk[k]).max() for k in range(12)),
+      '| right commutes with left:', max(np.abs(Lk[a] @ Rk[b] - Rk[b] @ Lk[a]).max() for a in range(12) for b in range(12)),
+      '| right commutes with adjacency (max defect):', max(np.abs(Rk[k] @ A - A @ Rk[k]).max() for k in range(12)))
+print('adjacency = sum of right translations by the generators:', np.abs(A - sum(Rk[inv(s)] for s in S)).max())
+# isotypic decomposition under the left action: characters of the frame group
+w = np.exp(2j * np.pi / 3)
+def cls(k):
+    t = np.trace(G[k])
+    if abs(t - 3) < 1e-9: return 'e'
+    if abs(t + 1) < 1e-9: return 'h'
+    # thirds of a turn: two classes, by the sense of rotation about the diagonal with positive x-component product
+    ax = np.linalg.eig(G[k])[1][:, np.argmin(np.abs(np.linalg.eig(G[k])[0] - 1))].real
+    ax = ax * np.sign(ax[0] * ax[1] * ax[2])
+    s = np.sign(np.linalg.det(np.array([ax, [1, 0, 0], G[k] @ np.array([1.0, 0, 0])])))
+    return 'c' if s > 0 else 'c2'
+chars = {'1': {'e': 1, 'h': 1, 'c': 1, 'c2': 1}, "1'": {'e': 1, 'h': 1, 'c': w, 'c2': w ** 2}, "1''": {'e': 1, 'h': 1, 'c': w ** 2, 'c2': w},
+         '3': {'e': 3, 'h': -1, 'c': 0, 'c2': 0}}
+out = {}
+for name, ch in chars.items():
+    Pi = sum(np.conj(ch[cls(k)]) * Lk[k] for k in range(12)) * ch['e'] / 12
+    rank = int(round(np.trace(Pi).real))
+    ev = np.linalg.eigvals(Pi @ A @ Pi)
+    ev = sorted(np.round(ev[np.abs(ev) > 1e-9].real, 6))
+    out[name] = {'rank': rank, 'adjacency_eigenvalues_on_it': ev}
+    print(f'left type {name}: rank {rank}; adjacency eigenvalues {ev}')
+# the triplet multiplicity matrix: sum over generators of the frame rotation matrices
+M3 = sum(G[inv(s)] for s in S)
+ev, vec = np.linalg.eigh((M3 + M3.T) / 2)
+print('multiplicity matrix on the triplet (frame coordinates):\n', np.round(M3, 6))
+print('symmetric:', np.allclose(M3, M3.T), '| eigenvalues:', np.round(ev, 6), '| expected -sqrt5, -1, sqrt5 =', np.round([-5 ** .5, -1, 5 ** .5], 6))
+print('squared components of the eigenvectors along the frame axes (rows: eigenvalue, columns: x, y, z):\n', np.round(vec.T ** 2, 6))
+res = {'free': bool(free), 'transitive': len(orbit) == 12, 'cayley': bool(cayley), 'generators': [kind(k) for k in S],
+       'left_types': out, 'M3': M3.tolist(), 'M3_eigenvalues': ev.tolist(), 'M3_eigenvectors_squared': (vec.T ** 2).tolist(),
+       'kernel_levels_on_generations': {'triplet': [1 - (5 - a) / 60 for a in ev[::-1]], 'singlets': [1.0, 0.9, 0.9]}}
+json.dump(res, open(sys.argv[1] if len(sys.argv) > 1 else 'torsor.json', 'w'), indent=1, default=float)

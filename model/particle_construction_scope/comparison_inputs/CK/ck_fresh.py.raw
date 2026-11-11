@@ -1,0 +1,154 @@
+"""CK follow-up: fresh weak rounds on FR's two double-load objects (tests T1-T6 of FRESH_REGISTER.md).
+
+Run from RL/work/CK:  PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=../FR /tmp/oph-completion-venv/bin/python -B ck_fresh.py
+EXACT (Fractions) on FR's hexagon model, imported read only. Writes ck_fresh.json.
+"""
+import json
+import os
+import sys
+from fractions import Fraction as Fr
+
+sys.dont_write_bytecode = True
+import mpmath as mp  # noqa: E402
+
+import fr_common as FC  # noqa: E402,F401
+import fr9_hexagon as X  # noqa: E402
+
+mp.mp.dps = 40
+HERE = os.path.dirname(os.path.abspath(__file__))
+OUT = {'provenance': FC.provenance()}
+dbl2, dbl10 = X.cfg_of(2, 2), X.cfg_of(10, 10)
+cI, cF, cB = X.cfg_of(2, 10), X.cfg_of(2, 3), X.cfg_of(10, 0)
+
+
+def W(st):
+    return X.Qstep(X.Rstep(st), 'FN')
+
+
+def Winv(st):
+    return X.Rstep(X.Qstep(st, 'FN'))
+
+
+def vec(st):
+    out = {}
+    for key, poly in st.items():
+        assert set(poly) <= {0}
+        if poly.get(0):
+            out[key] = poly[0]
+    return out
+
+
+def dot(u, v):
+    return sum((c * v[k] for k, c in u.items() if k in v), Fr(0))
+
+
+def restrict(st, pred):
+    return {k: dict(p) for k, p in st.items() if pred(k)}
+
+
+def cls(key):
+    cfg, rec, k = key
+    if rec in (2, 3) and cfg == cI:
+        return 'I'
+    if rec in (2, 3) and cfg == cF:
+        return 'F'
+    if rec in (2, 3) and cfg == cB:
+        return 'B'
+    if rec == 0 and cfg in (dbl2, dbl10):
+        return 'double'
+    return 'other'
+
+
+S = {(c, 0, k): {0: Fr(1)} for c in (dbl2, dbl10) for k in range(12)}     # true state = this / sqrt(24)
+NS = Fr(24)
+Sv = vec(S)
+w = W(S)
+
+# T1
+OUT['T1 W^-1 W S = S'] = vec(Winv(w)) == Sv
+
+# T2
+wt = {}
+for key, c in vec(w).items():
+    wt[cls(key)] = wt.get(cls(key), Fr(0)) + c * c / NS
+pF, pI = wt['F'], wt['I']
+P = pF + pI - 2 * pF * pI
+OUT['T2 one tick from S'] = {'weights': {k: str(v) for k, v in sorted(wt.items())}, 'p_F': str(pF), 'p_I': str(pI),
+                              'P = <Qx>': str(P)}
+
+# T3
+Fv = vec(Winv(restrict(w, lambda k: cls(k) == 'F')))
+Iv = vec(Winv(restrict(w, lambda k: cls(k) == 'I')))
+sF, sI = dot(Sv, Fv) / NS, dot(Sv, Iv) / NS
+P_model = sF * (1 - sI) + (1 - sF) * sI
+rows = []
+for N in (1, 2, 6, 10, 100, 1000, 10 ** 4, 10 ** 6):
+    z = (1 - mp.mpf(P.numerator) / P.denominator * (1 - mp.exp(-1j / mp.mpf(N)))) ** N
+    rows.append({'N': N, 'phase per unit clock time, j = +1': mp.nstr(-mp.arg(z), 15), 'amplitude kept': mp.nstr(abs(z), 12),
+                 'count read in every round': str(P)})
+OUT['T3 zero return'] = {
+    '<S|W^-1 Pi_F W|S>': str(sF), '<S|W^-1 Pi_I W|S>': str(sI),
+    'zero-return amplitude of one round': f'1 - P + P exp(-i h j), P = {P_model}',
+    'state after a zero return': 'S (x) S (the return test projects on it), so round n + 1 starts as round 1',
+    'N rounds': rows, 'limit': 'exp(-i (2/9) j): phase per unit clock time 2/9',
+    'period average 8/27 enters': False,
+}
+
+# T4: what a detector sees in the non-return vectors of one object
+def split(v, p):
+    perp = dict(v)
+    for k, c in Sv.items():
+        perp[k] = perp.get(k, Fr(0)) - p * c
+    perp = {k: c for k, c in perp.items() if c}
+    n2 = sum(c * c for c in perp.values()) / NS
+    parts = {'record 2 or 3': Fr(0), 'record 1': Fr(0), 'blank record, double at 2 or 10': Fr(0),
+             'blank record, other configuration': Fr(0)}
+    for (cfg, rec, k), c in perp.items():
+        key = 'record 2 or 3' if rec in (2, 3) else 'record 1' if rec == 1 else \
+            'blank record, double at 2 or 10' if cfg in (dbl2, dbl10) else 'blank record, other configuration'
+        parts[key] += c * c / NS
+    # blank-record double part: uniform-address component (invisible to an address test) against the rest
+    uni = Fr(0)
+    for cfg in (dbl2, dbl10):
+        mean = sum(perp.get((cfg, 0, k), Fr(0)) for k in range(12)) / 12
+        uni += 12 * mean * mean / NS
+    return n2, parts, uni
+
+
+nF, partsF, uniF = split(Fv, sF)
+nI, partsI, uniI = split(Iv, sI)
+blankF = (partsF['blank record, double at 2 or 10'] + partsF['blank record, other configuration']) / nF
+blankI = (partsI['blank record, double at 2 or 10'] + partsI['blank record, other configuration']) / nI
+tot = (1 - 2 * pI) ** 2 * nF + (1 - 2 * pF) ** 2 * nI + 4 * nF * nI
+both_blank = ((1 - 2 * pI) ** 2 * nF * blankF + (1 - 2 * pF) ** 2 * nI * blankI + 4 * nF * nI * blankF * blankI) / tot
+OUT['T4 non-return'] = {
+    'weight per round': f'4 sin^2(h j/2) * {tot}', 'P(1 - P)': str(P * (1 - P)),
+    'object A (forward flag): norm^2 of the non-return vector': str(nF), 'object A split': {k: str(v) for k, v in partsF.items()},
+    'object A: blank-record double part with uniform address': str(uniF),
+    'object B (in-dimer flag): norm^2': str(nI), 'object B split': {k: str(v) for k, v in partsI.items()},
+    'object B: blank-record double part with uniform address': str(uniI),
+    'share of non-returns with both records blank': str(both_blank), 'as float': float(both_blank),
+}
+
+# T5 controls
+st, counts, wrows = dict(S), [], {}
+for tick in range(1, 7):
+    st = W(st)
+    wt = {}
+    for key, c in vec(st).items():
+        wt[cls(key)] = wt.get(cls(key), Fr(0)) + c * c / NS
+    p, q = wt.get('F', Fr(0)), wt.get('I', Fr(0))
+    counts.append(p + q - 2 * p * q)
+    wrows[tick] = {k: str(v) for k, v in sorted(wt.items())}
+Pm = mp.mpf(P.numerator) / P.denominator
+OUT['T5 controls'] = {
+    '(i) forward only, same objects: weights per tick': wrows,
+    '(i) exclusive counts at ticks 1 to 6': [str(c) for c in counts], '(i) mean per tick': str(sum(counts, Fr(0)) / 6),
+    '(ii) inverse tick, no return read: phase at t = 1': mp.nstr(mp.arg(1 - Pm + Pm * mp.exp(1j)), 12),
+    '(iii) forward only with a new pair per round': 'coherence factor per round 1 - P + P exp(-i h j); pairs consumed per unit clock time: N',
+    '(iv) expected resets per unit clock time, |j| = 1': {str(N): mp.nstr(N * 4 * mp.sin(1 / (2 * mp.mpf(N))) ** 2 * Pm * (1 - Pm), 8)
+                                                          for N in (10, 100, 1000, 405311)},
+    '(iv) leading form': '14/(81 N)',
+}
+json.dump(OUT, open(os.path.join(HERE, 'ck_fresh.json'), 'w'), indent=1, default=str)
+print(json.dumps({k: v for k, v in OUT.items() if k != 'provenance'}, indent=1, default=str))

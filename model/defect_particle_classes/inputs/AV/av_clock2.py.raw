@@ -1,0 +1,52 @@
+"""Lane AV: exact Gaussian coefficients (Cartan circle) on a finite lattice with n electric steps per tick.
+Time-like plaquettes have variance g^2 a, faces g^2/a, a = 1/n. Writes clock2.json. Reads no measured value.
+  electric-step reading  c = (1 - Pi_w[P0, P0])/a
+  face-step reading      c = uh^T (1 - Pi_w) uh/(4 pi^2) + (number of faces) a/4,  uh_P = u_P/sqrt(sigma_P)
+Pi_w is the projector on the range of sigma^(-1/2) D."""
+import json
+import math
+import sys
+
+import numpy as np
+from scipy import sparse
+from scipy.sparse import linalg as splinalg
+
+import av_complex as C
+
+pi = math.pi
+
+
+def coefficients(name, steps):
+    cx = C.build(name)
+    a = 1.0 / steps
+    sig = np.where(cx["ptype"] == 1, a, 1.0 / a)
+    rows, cols, vals = [], [], []
+    for p in range(cx["nplaq"]):
+        for k in range(cx["pn"][p]):
+            rows.append(p); cols.append(int(cx["pl"][p, k])); vals.append(float(cx["ps"][p, k]) / math.sqrt(sig[p]))
+    Dw = sparse.csr_matrix((vals, (rows, cols)), shape=(cx["nplaq"], cx["nlink"]))
+
+    def proj(v):
+        return Dw @ splinalg.lsqr(Dw, v, atol=1e-14, btol=1e-14, iter_lim=100000)[0]
+    P0 = cx["P0"]
+    e = np.zeros(cx["nplaq"]); e[P0] = 1.0
+    c_el = (1.0 - proj(e.copy())[P0]) / a
+    l = int(cx["pl"][P0, 3]) if cx["name"].startswith("cub") else int(cx["pl"][P0, 0])
+    u = np.zeros(cx["nplaq"]); nface = 0
+    for q in range(cx["lp_ptr"][l], cx["lp_ptr"][l + 1]):
+        p = int(cx["lp_idx"][q]); s = float(cx["ps"][p, int(cx["lp_pos"][q])])
+        if p == P0:
+            u[p] = 2 * pi * s
+        elif cx["ptype"][p] == 0:
+            u[p] = pi * s; nface += 1
+    uh = u / np.sqrt(sig)
+    quad = float(uh @ (uh - proj(uh.copy()))) / (4 * pi ** 2)
+    return {"complex": name, "steps": steps, "c_electric_step": float(c_el), "c_face_step": quad + nface * a / 4,
+            "faces": nface, "quadratic_part": quad}
+
+
+out = {}
+for name, steps in (("cub4_L4", 1), ("cub4_L4_T8", 2), ("cub4_L6", 1)):
+    out["%s_steps%d" % (name, steps)] = coefficients(name, steps)
+    print(out["%s_steps%d" % (name, steps)])
+json.dump(out, open("clock2.json", "w"), indent=1)

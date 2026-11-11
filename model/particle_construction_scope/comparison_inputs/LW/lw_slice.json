@@ -1,0 +1,419 @@
+{
+  "schema": "lw.slice.v1",
+  "LS2_census": {
+    "rer_path": "WORKSPACE/repair-law/reverse-engineering-reality",
+    "rer_head": "22478211ab96aafdc3a804971f3bc9aaed192c04",
+    "hits": [
+      {
+        "file": "code/particles/hierarchy/verify_screen_sieve_theorem.py",
+        "line": 310,
+        "text": "\"exact\": \"Euler charge, strict unit-splitting implication, D-optimal equality conditions, ETF rigidity, X/12, and the Gamma_screen algebra after importing X=log"
+      },
+      {
+        "file": "code/particles/hierarchy/verify_issue_335_local_global_resonance.py",
+        "line": 169,
+        "text": "\"uses\": [\"alpha_U(P_star)\", \"beta_EW=N_c+1=4\"],"
+      },
+      {
+        "file": "code/particles/hierarchy/verify_issue_335_local_global_resonance.py",
+        "line": 213,
+        "text": "\"imported X = log(N/pi), cell entropy P/4, and beta_EW = 4\","
+      },
+      {
+        "file": "code/particles/hierarchy/verify_issue_335_local_global_resonance.py",
+        "line": 305,
+        "text": "\"scope_note\": \"P/beta_EW is imported into the load arithmetic. Together with beta_EW=4 and the screen theorem's X/12 split, it defines Gamma_screen=(P/12)log(N/"
+      },
+      {
+        "file": "code/particles/hierarchy/verify_issue_335_local_global_resonance.py",
+        "line": 317,
+        "text": "\"source_theorem\": \"conditional icosahedral screen-sieve theorem for X/12; the same integer also equals 2*m_rep/beta_EW = 48/4\","
+      },
+      {
+        "file": "code/particles/hierarchy/verify_issue_335_local_global_resonance.py",
+        "line": 329,
+        "text": "\"scope_note\": \"The umbrella resonance is exact conditional on the listed branches and HIERARCHY-SCREEN-READOUT. The screen theorem supplies 12 ports and X/12 on"
+      },
+      {
+        "file": "code/particles/hierarchy/verify_issue_335_local_global_resonance.py",
+        "line": 342,
+        "text": "\"Gamma_screen=(P/12)log(N/pi) also imports X=log(N/pi), P/4, and beta_EW=4. \""
+      },
+      {
+        "file": "code/particles/hierarchy/verify_issue_337_electroweak_projection.py",
+        "line": 203,
+        "text": "\"electroweak transmutation multiplicity beta_EW=N_c+1=4\","
+      },
+      {
+        "file": "code/particles/hierarchy/verify_issue_337_electroweak_projection.py",
+        "line": 245,
+        "text": "\"definition\": \"2 * m_rep / beta_EW = 48 / 4\","
+      },
+      {
+        "file": "code/particles/hierarchy/verify_issue_337_electroweak_projection.py",
+        "line": 247,
+        "text": "\"source_theorem\": \"algebraic consequence of D10 (beta_EW=4) and the global repair-tick + representation-to-spectrum theorems (m_rep=24)\","
+      },
+      {
+        "file": "code/particles/hierarchy/verify_issue_337_electroweak_projection.py",
+        "line": 254,
+        "text": "\"uses\": [\"alpha_U(P_star)\", \"beta_EW=N_c+1=4\"],"
+      },
+      {
+        "file": "code/particles/hierarchy/verify_issue_337_electroweak_projection.py",
+        "line": 269,
+        "text": "\"conclusion\": \"Pi_EW(P,N) := -log(v/E_cell)/(-log|g_*'|) = (2*pi/(beta_EW*alpha_U)) / (log(N/pi)/(2*m_rep)) = (4*pi*m_rep)/(beta_EW*alpha_U*log(N/pi)) = 24*pi/("
+      },
+      {
+        "file": "code/particles/hierarchy/verify_issue_337_electroweak_projection.py",
+        "line": 275,
+        "text": "\"uses\": [\"beta_EW=4 (D10 channel count)\", \"P_star (local pixel fixed point from R_P)\"],"
+      },
+      {
+        "file": "code/particles/hierarchy/verify_issue_337_electroweak_projection.py",
+        "line": 297,
+        "text": "\"conclusion\": \"t_tr(P_star) = (P_star/12)*log(N_CRC^EW/pi); v/E_cell = (N_CRC^EW/pi)^(-P_star/12) = |g_*'|^(4*P_star) where 12 = 2*m_rep/beta_EW = 48/4\","
+      },
+      {
+        "file": "code/particles/hierarchy/verify_issue_337_electroweak_projection.py",
+        "line": 307,
+        "text": "\"factor_4_source\": \"beta_EW=N_c+1=4 from D10 transmutation theorem\","
+      },
+      {
+        "file": "code/particles/hierarchy/verify_issue_337_electroweak_projection.py",
+        "line": 308,
+        "text": "\"factor_12_source\": \"12 = 2*m_rep/beta_EW = 48/4, from the global repair-tick + representation-to-spectrum theorems (m_rep=24) and D10 (beta_EW=4)\","
+      },
+      {
+        "file": "code/particles/hierarchy/verify_issue_337_electroweak_projection.py",
+        "line": 326,
+        "text": "\"beta_EW=N_c+1=4 from the D10 forward transmutation certificate\","
+      },
+      {
+        "file": "code/particles/hierarchy/verify_issue_344_exact_capacity.py",
+        "line": 13,
+        "text": "traced back to its source theorem (D10 beta_EW = N_c + 1 = 4; m_rep = 24 from"
+      },
+      {
+        "file": "code/particles/hierarchy/verify_issue_344_exact_capacity.py",
+        "line": 14,
+        "text": "R_m_rep_24_certificate.json; 6 = m_rep / beta_EW = 24 / 4). The cert emits"
+      },
+      {
+        "file": "code/particles/hierarchy/verify_issue_344_exact_capacity.py",
+        "line": 59,
+        "text": "\"'Declared source packet', stating beta_EW = N_c + 1 = 4; \""
+      },
+      {
+        "file": "code/particles/hierarchy/verify_issue_344_exact_capacity.py",
+        "line": 151,
+        "text": "\"uses\": [\"beta_EW = N_c + 1 = 4\"],"
+      },
+      {
+        "file": "code/particles/hierarchy/verify_issue_344_exact_capacity.py",
+        "line": 153,
+        "text": "\"conclusion\": \"The electroweak transmutation multiplicity beta_EW = N_c + 1 = 4 is fixed by the D10 transmutation theorem on the SU(N_c=3) colour branch.\","
+      },
+      {
+        "file": "code/particles/hierarchy/verify_issue_344_exact_capacity.py",
+        "line": 160,
+        "text": "\"conclusion\": \"The OPH product-gauge realised branch supplies the doubled SM-adjoint round count m_rep = 24, with composition factor 6 = m_rep / beta_EW = 24 / "
+      },
+      {
+        "file": "code/particles/hierarchy/verify_issue_344_exact_capacity.py",
+        "line": 173,
+        "text": "\"conclusion\": \"Pi_EW(P_star,N) = 4*P_star <=> 24*pi/(alpha_U*log(N/pi)) = 4*P_star <=> alpha_U*log(N/pi) = 6*pi/P_star <=> B_EW(P_star,N) := alpha_U*log(N/pi) -"
+      },
+      {
+        "file": "code/particles/hierarchy/verify_issue_344_exact_capacity.py",
+        "line": 240,
+        "text": "\"expression\": \"m_rep / beta_EW = 24 / 4\","
+      },
+      {
+        "file": "code/particles/hierarchy/verify_issue_344_exact_capacity.py",
+        "line": 247,
+        "text": "\"expression\": \"4 * pi * m_rep / beta_EW evaluated at m_rep = 24, beta_EW = 4 yields 24*pi numerator\","
+      },
+      {
+        "file": "code/particles/hierarchy/verify_issue_344_exact_capacity.py",
+        "line": 249,
+        "text": "\"source_theorem\": \"EW tick-projection bridge with m_rep = 24 and beta_EW = 4\","
+      },
+      {
+        "file": "code/particles/hierarchy/verify_issue_344_exact_capacity.py",
+        "line": 292,
+        "text": "\"beta_EW = N_c + 1 = 4 is imported from the D10 transmutation theorem on the SU(N_c=3) colour branch\""
+      },
+      {
+        "file": "code/particles/hierarchy/verify_issue_344_exact_capacity.py",
+        "line": 549,
+        "text": "\"D10 transmutation theorem fixing beta_EW = N_c + 1 = 4\","
+      },
+      {
+        "file": "code/particles/calibration/derive_d10_ew_source_transport_pair.py",
+        "line": 65,
+        "text": "compact_eta = alpha_u * cos2_theta_w0"
+      },
+      {
+        "file": "code/particles/calibration/derive_d10_ew_source_transport_pair.py",
+        "line": 207,
+        "text": "\"constraint\": \"eta_EW = 0.0\","
+      },
+      {
+        "file": "code/particles/calibration/derive_d10_ew_source_transport_pair.py",
+        "line": 269,
+        "text": "\"J_pop_EW uniquely selects sigma_EW = -eta_source and eta_EW = eta_source on the two-scalar family.\","
+      },
+      {
+        "file": "code/particles/calibration/derive_d10_ew_source_transport_pair.py",
+        "line": 272,
+        "text": "\"The simplest mass-moving compact slice on the same family keeps the charged source fixed (tau_2 = 0) and transports only hypercharge with eta_EW = alpha_u * co"
+      },
+      {
+        "file": "code/particles/calibration/derive_d11_live_exact_split_pair_theorem.py",
+        "line": 53,
+        "text": "eta_source = float(d10_source[\"eta_source\"])"
+      },
+      {
+        "file": "code/particles/calibration/derive_d11_live_exact_higgs_promotion.py",
+        "line": 56,
+        "text": "eta_source = float(d10_source_pair[\"compact_hypercharge_only_mass_slice\"][\"eta_EW\"])"
+      },
+      {
+        "file": "code/particles/calibration/derive_d10_ew_forward_transmutation_certificate.py",
+        "line": 68,
+        "text": "eta_source = float(compact_slice[\"eta_EW\"])"
+      },
+      {
+        "file": "code/particles/calibration/derive_wzh_residual_elimination_boundary.py",
+        "line": 200,
+        "text": "ay_star = ay * (1.0 - 2.0 * eta)"
+      },
+      {
+        "file": "code/particles/calibration/derive_wzh_residual_elimination_boundary.py",
+        "line": 211,
+        "text": "alpha_2=a2, alpha_y=ay, eta_source=eta, v_value=v_over_e"
+      },
+      {
+        "file": "code/particles/calibration/derive_wzh_residual_elimination_boundary.py",
+        "line": 502,
+        "text": "alpha_2=a2, alpha_y=ay, eta_source=eta, v_value=v_over_e"
+      },
+      {
+        "file": "code/particles/calibration/derive_d10_ew_source_transport_readout.py",
+        "line": 621,
+        "text": "\"The compact point records the same family on the fixed-eta slice eta_EW = alpha_u * cos(2*theta_W0) with free sigma_EW; the no-new-parameter point is sigma_EW "
+      },
+      {
+        "file": "code/particles/calibration/derive_d11_live_exact_top_promotion.py",
+        "line": 57,
+        "text": "eta_source = float(d10_source_pair[\"compact_hypercharge_only_mass_slice\"][\"eta_EW\"])"
+      },
+      {
+        "file": "code/particles/calibration/derive_d10_ew_minimal_conditional_promotion.py",
+        "line": 50,
+        "text": "eta_source = float(compact_slice[\"eta_EW\"])"
+      },
+      {
+        "file": "code/particles/calibration/derive_d10_ew_minimal_conditional_promotion.py",
+        "line": 61,
+        "text": "alpha_y_star = alpha_y * (1.0 - 2.0 * eta_source)"
+      },
+      {
+        "file": "code/particles/calibration/derive_d10_ew_fiberwise_population_tree_law_beneath_single_tree_identity.py",
+        "line": 47,
+        "text": "eta_source = float(compact_mass_slice[\"eta_EW\"])"
+      },
+      {
+        "file": "code/particles/calibration/derive_d10_ew_fiberwise_population_tree_law_beneath_single_tree_identity.py",
+        "line": 77,
+        "text": "\"fiber_stationarity_formula\": \"(1 + 4*tau2_tree_exact^2)*tau_Y + tau2_tree_exact + 2*eta_source = 0\","
+      },
+      {
+        "file": "code/particles/calibration/derive_wzh_strict_branch_candidate_audit.py",
+        "line": 63,
+        "text": "eta_source=float(compact[\"eta_EW\"]),"
+      },
+      {
+        "file": "code/particles/calibration/derive_d10_ew_population_evaluator.py",
+        "line": 46,
+        "text": "eta_source = alpha_u_from_seed * beta_ew"
+      },
+      {
+        "file": "code/particles/calibration/derive_d10_ew_w_anchor_neutral_shear_factorization.py",
+        "line": 88,
+        "text": "self.eta_source = eta_source"
+      },
+      {
+        "file": "code/particles/calibration/derive_d10_ew_w_anchor_neutral_shear_factorization.py",
+        "line": 90,
+        "text": "self.alphaY_star = alphaY_mz * (1.0 - 2.0 * eta_source)"
+      },
+      {
+        "file": "code/particles/calibration/derive_d10_ew_w_anchor_neutral_shear_factorization.py",
+        "line": 175,
+        "text": "eta_source=_float(slice_payload.get(\"eta_EW\")),"
+      },
+      {
+        "file": "code/particles/calibration/derive_d10_ew_target_free_repair_value_law.py",
+        "line": 90,
+        "text": "alpha_y_star = alpha_y * (1.0 - 2.0 * eta_source)"
+      },
+      {
+        "file": "code/particles/calibration/derive_d10_ew_target_free_repair_value_law.py",
+        "line": 140,
+        "text": "eta_source = float(compact_slice[\"eta_EW\"])"
+      },
+      {
+        "file": "code/particles/calibration/derive_d10_ew_target_free_repair_value_law.py",
+        "line": 145,
+        "text": "eta_source=eta_source,"
+      },
+      {
+        "file": "code/particles/calibration/derive_d10_repair_tuple_selection_theorem.py",
+        "line": 102,
+        "text": "a_y_star = a_y * (1.0 - 2.0 * eta)"
+      },
+      {
+        "file": "code/particles/calibration/derive_d11_forward_seed.py",
+        "line": 58,
+        "text": "sigma = alpha_u * cos2_theta_w0 / math.sqrt(math.pi)"
+      },
+      {
+        "file": "code/particles/calibration/emit_conditional_ew_predictions.py",
+        "line": 14,
+        "text": "generate that tuple. P sensitivity is the eta-channel partial derivative: eta_source = alpha_U"
+      },
+      {
+        "file": "code/particles/calibration/derive_d10_ew_tau2_current_carrier_obstruction.py",
+        "line": 58,
+        "text": "\"(1 + 4*tau2_tree_exact^2)*tau_Y + tau2_tree_exact + 2*eta_source = 0\""
+      },
+      {
+        "file": "code/particles/calibration/derive_d10_ew_tau2_current_carrier_obstruction.py",
+        "line": 628,
+        "text": "eta_source = float(fiberwise_tree_law[\"eta_source\"])"
+      },
+      {
+        "file": "code/particles/calibration/derive_d10_ew_tau2_current_carrier_obstruction.py",
+        "line": 684,
+        "text": "eta_source=_q(fiberwise_tree_law[\"eta_source\"]),"
+      },
+      {
+        "file": "code/particles/calibration/derive_d10_ew_quotient_transport_receipt.py",
+        "line": 67,
+        "text": "eta_source=eta,"
+      },
+      {
+        "file": "code/particles/calibration/derive_d10_ew_exact_mass_pair_chart_current_carrier.py",
+        "line": 52,
+        "text": "eta_source = float(source_pair[\"eta_source\"])"
+      },
+      {
+        "file": "code/particles/calibration/test_boson_source_prediction_closure_audit.py",
+        "line": 195,
+        "text": "eta_source=0.022147000871961295,"
+      },
+      {
+        "file": "code/particles/calibration/test_boson_source_prediction_closure_audit.py",
+        "line": 205,
+        "text": "eta_source=0.0,"
+      },
+      {
+        "file": "code/particles/calibration/derive_d10_ew_target_emitter_candidate.py",
+        "line": 48,
+        "text": "eta_source = float(compact_slice[\"eta_EW\"])"
+      },
+      {
+        "file": "code/particles/calibration/derive_d10_ew_target_emitter_candidate.py",
+        "line": 60,
+        "text": "alphaY_star = alpha_y * (1.0 - 2.0 * eta_source)"
+      },
+      {
+        "file": "code/particles/leptons/derive_charged_a5_w5_port_frontier.py",
+        "line": 335,
+        "text": "\"The hierarchy lane derives 6=m_rep/beta_EW=24/4 inside its electroweak \""
+      },
+      {
+        "file": "code/particles/leptons/derive_charged_stage5_frozen_candidate.py",
+        "line": 86,
+        "text": "\"beta_EW=N_c+1\","
+      },
+      {
+        "file": "code/particles/scripts/build_conditional_candidate_surface.py",
+        "line": 214,
+        "text": "\"and `beta_EW = 4`. The QT1-QT5 quotient-path source-entailment\","
+      },
+      {
+        "file": "code/particles/flavor/conditional_quark_mass_replay.py",
+        "line": 94,
+        "text": "\"H10_gauge_trunk\": \"The finite SU(2)/SU(3) heat closure, one-loop coefficients (33/5,1,-3), tree weak fixed point and beta_EW=4 define the declared D10 branch.\""
+      },
+      {
+        "file": "code/particles/flavor/p_driven_flavor_candidate.py",
+        "line": 142,
+        "text": "eta_source = float(d10_source_pair[\"eta_source\"])"
+      }
+    ],
+    "defining_lines": [
+      {
+        "file": "code/particles/calibration/derive_d10_ew_source_transport_pair.py",
+        "line": 65,
+        "text": "compact_eta = alpha_u * cos2_theta_w0"
+      },
+      {
+        "file": "code/particles/calibration/derive_d11_forward_seed.py",
+        "line": 58,
+        "text": "sigma = alpha_u * cos2_theta_w0 / math.sqrt(math.pi)"
+      }
+    ],
+    "seed_route_alpha_u_from_seed_minus_alpha_U": "0",
+    "lew_executable_census_pattern_contains_eta_source": true,
+    "lew_executable_emitters": [],
+    "statement": "the slice is defined by the formula itself (compact_eta = alpha_u * cos2_theta_w0) in the D10 calibration chain; every other occurrence consumes it; the seed route returns alpha_U identically; no executable package emits eta_source"
+  },
+  "LS3_structure": {
+    "sin2_theta_W0": 0.23073517991130935,
+    "eta": 0.02214662617740713,
+    "slice_ratio_shift": 0.01032553867547814,
+    "slice_leading_term_2_eta_s2": 0.010220011550945094,
+    "y_t_Q0_packet": 0.9623048972901709,
+    "top_custodial_term": 0.008796237015776778,
+    "ratio_slice_over_top": 1.1738586235180377,
+    "statement": "the slice term is 2 alpha_U sin^2 cos 2 theta (gauge couplings only); the one-loop custodial term of the same packet is 3 y_t^2/(32 pi^2) (top Yukawa); they share no factor"
+  },
+  "LS4_closure_blindness": {
+    "pixel_residual_reads": [
+      "su2",
+      "su3"
+    ],
+    "alpha_1_or_Y_in_pixel_residual": false,
+    "u1_irrep_log_dim": 0.0,
+    "statement": "the closure reads alpha2 and alpha3 only (SU(2), SU(3) heat-kernel sums); every U(1) irrep has dimension 1 and log d = 0, so the closure fixes no hypercharge moment: it singles out the hypercharge direction and supplies no magnitude",
+    "module_loaded": true
+  },
+  "LS5_provenance": {
+    "first_commit_with_slice": "0ac276683 2026-03-29 13:46:20 +0700 Integrate results from particle zoo push",
+    "all_commits_found": [
+      "0ac276683 2026-03-29 13:46:20 +0700 Integrate results from particle zoo push"
+    ],
+    "row_before_13d5b69ca_Z": "| Z | calibration | 91.6524603 | 91.1880+-0.0020 GeV | 0.4644821936 (+5.094e-03) | Current row now follows the local act",
+    "row_before_13d5b69ca_W": "| W | calibration | 80.3862917 | 80.3692 +- 0.0133  GeV | 0.009291692417 (+1.156e-04) | Current row uses the exact D10 r",
+    "row_at_0ac276683_Z": "| Z | calibration | 91.1879781 | 91.1879781 +- 0.002013761937 GeV | 0 (+0.000e+00) | Derived from the D10 calibration ch",
+    "row_at_0ac276683_W": "| W | calibration | 80.377 | 80.377 +- 0.012 GeV | 0 (+0.000e+00) | Derived from the D10 calibration chain `derive_d10_e",
+    "legacy_pixel_current_chain": {
+      "P": "1.63094",
+      "MZ_unsliced_GeV": 91.65246996650372,
+      "MZ_sliced_GeV": 91.18291407804205,
+      "slice_shift_GeV": -0.4695558884616702
+    },
+    "NOT_BLIND_share_of_recorded_gap": {
+      "recorded_unsliced_Z": 91.6524603,
+      "reference_then": 91.18797809193725,
+      "recorded_gap_GeV": 0.46448220806274776,
+      "slice_shift_GeV": -0.4695558884616702,
+      "share_removed": 1.0109233040810834,
+      "residual_after_slice_GeV": -0.00507368039892242
+    }
+  }
+}

@@ -1,0 +1,491 @@
+{
+ "max_level": 4,
+ "towers": {
+  "pinned": {
+   "ancestry": {
+    "0->1": {
+     "fine_seams": 2520,
+     "to_coarse_seam": 2444,
+     "to_non_seam": 74,
+     "collapsed": 2
+    },
+    "1->2": {
+     "fine_seams": 10080,
+     "to_coarse_seam": 9796,
+     "to_non_seam": 280,
+     "collapsed": 4
+    },
+    "2->3": {
+     "fine_seams": 40320,
+     "to_coarse_seam": 39272,
+     "to_non_seam": 1042,
+     "collapsed": 6
+    },
+    "3->4": {
+     "fine_seams": 161280,
+     "to_coarse_seam": 157228,
+     "to_non_seam": 4040,
+     "collapsed": 12
+    }
+   },
+   "port_labels_used": [
+    0,
+    1,
+    2,
+    3,
+    8,
+    10
+   ],
+   "types_under_120_per_level": [
+    4,
+    7,
+    7,
+    7,
+    7
+   ],
+   "types_under_60_per_level": [
+    4,
+    7,
+    7,
+    7,
+    7
+   ],
+   "rotations_lifting_group120_levels012": [
+    1,
+    1,
+    1
+   ],
+   "rotations_lifting_group60_levels012": [
+    1,
+    1,
+    1
+   ],
+   "level2_N_lambda_1_4_9": [
+    0.817472705829464,
+    2.425332359567597,
+    4.498748030669437
+   ]
+  },
+  "B_mesh_order": {
+   "ancestry": {
+    "0->1": {
+     "fine_seams": 2520,
+     "to_coarse_seam": 2410,
+     "to_non_seam": 90,
+     "collapsed": 20
+    },
+    "1->2": {
+     "fine_seams": 10080,
+     "to_coarse_seam": 9660,
+     "to_non_seam": 340,
+     "collapsed": 80
+    },
+    "2->3": {
+     "fine_seams": 40320,
+     "to_coarse_seam": 38640,
+     "to_non_seam": 1360,
+     "collapsed": 320
+    },
+    "3->4": {
+     "fine_seams": 161280,
+     "to_coarse_seam": 154560,
+     "to_non_seam": 5440,
+     "collapsed": 1280
+    }
+   },
+   "port_labels_used": [
+    1,
+    4,
+    10
+   ],
+   "types_under_120_per_level": [
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "types_under_60_per_level": [
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "rotations_lifting_group120_levels012": [
+    60,
+    60,
+    60
+   ],
+   "rotations_lifting_group60_levels012": [
+    60,
+    60,
+    60
+   ],
+   "ancestry_commutes_with_all_60_lifts_0->1": false,
+   "ancestry_commutes_with_all_60_lifts_1->2": false,
+   "level2_N_lambda_1_4_9": [
+    0.8242517681063045,
+    2.4510985673829753,
+    4.50385119056661
+   ]
+  },
+  "F_mesh_order": {
+   "ancestry": {
+    "0->1": {
+     "fine_seams": 2520,
+     "to_coarse_seam": 2450,
+     "to_non_seam": 50,
+     "collapsed": 20
+    },
+    "1->2": {
+     "fine_seams": 10080,
+     "to_coarse_seam": 9820,
+     "to_non_seam": 180,
+     "collapsed": 80
+    },
+    "2->3": {
+     "fine_seams": 40320,
+     "to_coarse_seam": 39280,
+     "to_non_seam": 720,
+     "collapsed": 320
+    },
+    "3->4": {
+     "fine_seams": 161280,
+     "to_coarse_seam": 157120,
+     "to_non_seam": 2880,
+     "collapsed": 1280
+    }
+   },
+   "port_labels_used": [
+    0,
+    5,
+    11
+   ],
+   "types_under_120_per_level": [
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "types_under_60_per_level": [
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "rotations_lifting_group120_levels012": [
+    60,
+    60,
+    60
+   ],
+   "rotations_lifting_group60_levels012": [
+    60,
+    60,
+    60
+   ],
+   "ancestry_commutes_with_all_60_lifts_0->1": false,
+   "ancestry_commutes_with_all_60_lifts_1->2": false,
+   "level2_N_lambda_1_4_9": [
+    0.8832333828955098,
+    2.6186986121066447,
+    4.793768895673422
+   ]
+  },
+  "F_nat_r": {
+   "ancestry": {
+    "0->1": {
+     "fine_seams": 2520,
+     "to_coarse_seam": 2520,
+     "to_non_seam": 0,
+     "collapsed": 0
+    },
+    "1->2": {
+     "fine_seams": 10080,
+     "to_coarse_seam": 10080,
+     "to_non_seam": 0,
+     "collapsed": 0
+    },
+    "2->3": {
+     "fine_seams": 40320,
+     "to_coarse_seam": 40320,
+     "to_non_seam": 0,
+     "collapsed": 0
+    },
+    "3->4": {
+     "fine_seams": 161280,
+     "to_coarse_seam": 161280,
+     "to_non_seam": 0,
+     "collapsed": 0
+    }
+   },
+   "port_labels_used": [
+    0,
+    5,
+    11
+   ],
+   "types_under_120_per_level": [
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "types_under_60_per_level": [
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "rotations_lifting_group120_levels012": [
+    60,
+    60,
+    60
+   ],
+   "rotations_lifting_group60_levels012": [
+    60,
+    60,
+    60
+   ],
+   "ancestry_commutes_with_all_60_lifts_0->1": true,
+   "ancestry_commutes_with_all_60_lifts_1->2": true,
+   "level2_N_lambda_1_4_9": [
+    0.883233382895515,
+    2.618698612106653,
+    4.7937688956734315
+   ]
+  },
+  "F_weak": {
+   "ancestry": {
+    "0->1": {
+     "fine_seams": 2520,
+     "to_coarse_seam": 2460,
+     "to_non_seam": 0,
+     "collapsed": 60
+    },
+    "1->2": {
+     "fine_seams": 10080,
+     "to_coarse_seam": 9840,
+     "to_non_seam": 0,
+     "collapsed": 240
+    },
+    "2->3": {
+     "fine_seams": 40320,
+     "to_coarse_seam": 39360,
+     "to_non_seam": 0,
+     "collapsed": 960
+    },
+    "3->4": {
+     "fine_seams": 161280,
+     "to_coarse_seam": 157440,
+     "to_non_seam": 0,
+     "collapsed": 3840
+    }
+   },
+   "port_labels_used": [
+    0,
+    5,
+    11
+   ],
+   "types_under_120_per_level": [
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "types_under_60_per_level": [
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "rotations_lifting_group120_levels012": [
+    60,
+    60,
+    60
+   ],
+   "rotations_lifting_group60_levels012": [
+    60,
+    60,
+    60
+   ],
+   "ancestry_commutes_with_all_60_lifts_0->1": true,
+   "ancestry_commutes_with_all_60_lifts_1->2": true,
+   "level2_N_lambda_1_4_9": [
+    0.8832333828955163,
+    2.6186986121066553,
+    4.793768895673437
+   ]
+  },
+  "B_weak": {
+   "ancestry": {
+    "0->1": {
+     "fine_seams": 2520,
+     "to_coarse_seam": 2460,
+     "to_non_seam": 0,
+     "collapsed": 60
+    },
+    "1->2": {
+     "fine_seams": 10080,
+     "to_coarse_seam": 9840,
+     "to_non_seam": 0,
+     "collapsed": 240
+    },
+    "2->3": {
+     "fine_seams": 40320,
+     "to_coarse_seam": 39360,
+     "to_non_seam": 0,
+     "collapsed": 960
+    },
+    "3->4": {
+     "fine_seams": 161280,
+     "to_coarse_seam": 157440,
+     "to_non_seam": 0,
+     "collapsed": 3840
+    }
+   },
+   "port_labels_used": [
+    1,
+    4,
+    10
+   ],
+   "types_under_120_per_level": [
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "types_under_60_per_level": [
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "rotations_lifting_group120_levels012": [
+    60,
+    60,
+    60
+   ],
+   "rotations_lifting_group60_levels012": [
+    60,
+    60,
+    60
+   ],
+   "ancestry_commutes_with_all_60_lifts_0->1": true,
+   "ancestry_commutes_with_all_60_lifts_1->2": true,
+   "level2_N_lambda_1_4_9": [
+    0.824251768106314,
+    2.451098567382985,
+    4.50385119056662
+   ]
+  },
+  "B_nat_mirror": {
+   "ancestry": {
+    "0->1": {
+     "fine_seams": 2520,
+     "to_coarse_seam": 2520,
+     "to_non_seam": 0,
+     "collapsed": 0
+    },
+    "1->2": {
+     "fine_seams": 10080,
+     "to_coarse_seam": 10080,
+     "to_non_seam": 0,
+     "collapsed": 0
+    },
+    "2->3": {
+     "fine_seams": 40320,
+     "to_coarse_seam": 40320,
+     "to_non_seam": 0,
+     "collapsed": 0
+    },
+    "3->4": {
+     "fine_seams": 161280,
+     "to_coarse_seam": 161280,
+     "to_non_seam": 0,
+     "collapsed": 0
+    }
+   },
+   "port_labels_used": [
+    1,
+    2,
+    4,
+    7,
+    9,
+    10
+   ],
+   "types_under_120_per_level": [
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "types_under_60_per_level": [
+    1,
+    2,
+    2,
+    2,
+    2
+   ],
+   "rotations_lifting_group120_levels012": [
+    60,
+    60,
+    60
+   ],
+   "rotations_lifting_group60_levels012": [
+    60,
+    60,
+    60
+   ],
+   "ancestry_commutes_with_all_60_lifts_0->1": true,
+   "ancestry_commutes_with_all_60_lifts_1->2": true,
+   "level2_N_lambda_1_4_9": [
+    0.8242517681063166,
+    2.4510985673829886,
+    4.503851190566619
+   ]
+  }
+ },
+ "pinned_any_relabelling": {
+  "0->1": {
+   "parents": 20,
+   "parents_with_all_outer_constraints_satisfiable": 12,
+   "parents_admitting_a_strict_local_morphism": 12,
+   "parents_admitting_a_weak_local_morphism": 12,
+   "corner_children_whose_outer_pair_distance_differs_from_parent": 8,
+   "lower_bound_on_non_seams_under_any_relabelling": 4
+  },
+  "1->2": {
+   "parents": 80,
+   "parents_with_all_outer_constraints_satisfiable": 64,
+   "parents_admitting_a_strict_local_morphism": 64,
+   "parents_admitting_a_weak_local_morphism": 64,
+   "corner_children_whose_outer_pair_distance_differs_from_parent": 16,
+   "lower_bound_on_non_seams_under_any_relabelling": 8
+  },
+  "2->3": {
+   "parents": 320,
+   "parents_with_all_outer_constraints_satisfiable": 256,
+   "parents_admitting_a_strict_local_morphism": 256,
+   "parents_admitting_a_weak_local_morphism": 256,
+   "corner_children_whose_outer_pair_distance_differs_from_parent": 68,
+   "lower_bound_on_non_seams_under_any_relabelling": 34
+  },
+  "3->4": {
+   "parents": 1280,
+   "parents_with_all_outer_constraints_satisfiable": 1128,
+   "parents_admitting_a_strict_local_morphism": 1128,
+   "parents_admitting_a_weak_local_morphism": 1128,
+   "corner_children_whose_outer_pair_distance_differs_from_parent": 184,
+   "lower_bound_on_non_seams_under_any_relabelling": 92
+  }
+ }
+}

@@ -1,0 +1,61 @@
+"""Finite-size scaling of the register ensemble (three-dimensional Z_N link fields, run H4 code gauge_mc.py).
+
+    python reg_fss.py N [speed]
+
+Runs every (L, kappa) of the plan for the group Z_N in sequence and writes reg/Z{N}_L{L}_k{kappa}.npz with the
+series of e = mean Re W per sweep (thermalisation included) and of the three Polyakov loops every 10 sweeps.
+"""
+import os, sys, time, json, zlib
+import numpy as np
+import gauge_mc as G
+
+PLAN = {
+ 3: {8: ([1.040, 1.055, 1.065, 1.075, 1.085, 1.100], 40000),
+     12: ([1.060, 1.070, 1.076, 1.080, 1.084, 1.090], 40000),
+     16: ([1.070, 1.076, 1.080, 1.083, 1.086, 1.090], 40000),
+     24: ([1.083, 1.0845, 1.081, 1.086, 1.078, 1.088], 50000),
+     32: ([1.084, 1.083, 1.085, 1.0815, 1.0865], 50000)},
+ 2: {8: ([0.700, 0.720, 0.735, 0.745, 0.755, 0.770], 40000),
+     12: ([0.720, 0.735, 0.745, 0.752, 0.760, 0.770], 40000),
+     16: ([0.735, 0.745, 0.750, 0.754, 0.758, 0.765], 40000),
+     24: ([0.754, 0.757, 0.751, 0.760, 0.745, 0.765], 30000),
+     32: ([0.756, 0.758, 0.754, 0.760], 30000)},
+}
+KC = {3: 1.0843, 2: 0.761413}
+
+
+def run(N, L, kappa, nsw, outdir):
+    tag = f'Z{N}_L{L}_k{kappa:.4f}'
+    out = os.path.join(outdir, tag + '.npz')
+    if os.path.exists(out):
+        return
+    seed = zlib.crc32(tag.encode()) + 104729 * N
+    rng = np.random.default_rng(seed); shape = (L, L, L)
+    start = 'cold' if kappa >= KC[N] else 'hot'
+    n = G.cold(shape) if start == 'cold' else G.hot(shape, N, rng)
+    hb = G.HeatBath(n, N, kappa, seed)
+    e = np.empty(nsw); P = np.empty((nsw // 10, 3), np.complex128); t0 = time.time()
+    for sw in range(nsw):
+        hb.sweeps(1)
+        e[sw] = G.plaquette_obs(n, N)[1]
+        if (sw + 1) % 10 == 0:
+            P[sw // 10] = G.polyakov(n, N)
+    meta = dict(N=N, L=L, kappa=kappa, nsweeps=nsw, start=start, seed=int(seed), seconds=time.time() - t0)
+    np.savez(out + '.tmp.npz', e=e, P=P, meta=json.dumps(meta)); os.replace(out + '.tmp.npz', out)
+    print(tag, f'{time.time() - t0:.0f}s e={e[nsw // 5:].mean():.5f} C={3 * L ** 3 * e[nsw // 5:].var():.2f}', flush=True)
+
+
+if __name__ == '__main__':
+    N = int(sys.argv[1]); outdir = 'regruns'; os.makedirs(outdir, exist_ok=True)
+    if len(sys.argv) > 2 and sys.argv[2] == 'speed':
+        for L in (16, 32):
+            n = G.cold((L, L, L)); hb = G.HeatBath(n, N, KC[N], 1); hb.sweeps(5); t0 = time.time()
+            for _ in range(200):
+                hb.sweeps(1); G.plaquette_obs(n, N)
+            print('speed', N, L, (time.time() - t0) / 200, 's per sweep', flush=True)
+        sys.exit()
+    for L in sorted(PLAN[N]):
+        ks, nsw = PLAN[N][L]
+        for k in ks:
+            run(N, L, k, nsw, outdir)
+    print('ALL DONE', N, flush=True)

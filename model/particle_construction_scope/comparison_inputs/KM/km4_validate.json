@@ -1,0 +1,43 @@
+{
+ "patch_matrix_difference": 0.0,
+ "flip_matrix_difference": 0.0,
+ "load_bridge": {
+  "curvature": 0.014204523487389929,
+  "speed": 0.02074705056929417,
+  "published_speed": 0.02074705056929417
+ },
+ "load_seam": {
+  "curvature": 0.035211121584723386,
+  "speed": 0.03127437800492294,
+  "published_speed": 0.03127437800492294
+ },
+ "spinor_bridge_levels": [
+  0.7467459582398008,
+  0.7467459582398015,
+  1.0495597477883543
+ ],
+ "isolated_carrier_flipped_seam": 0.23136163187600522,
+ "executed_discriminant_defect": 2.220446049250313e-16,
+ "executed_record_law": {
+  "uniform": {
+   "max_defect_over_400_ticks": 3.443356710874923e-13,
+   "p_1": 0.0005611672278338939,
+   "p_2": 0.002115327337243466,
+   "max_p_t": 0.49269519036483544,
+   "argmax_t": 258
+  },
+  "lowest eigenvector": {
+   "max_defect_over_400_ticks": 3.593236819199319e-13,
+   "p_1": 0.00016225819197671223,
+   "p_2": 0.0006488221632274944,
+   "max_p_t": 0.500034345014538,
+   "argmax_t": 87
+  }
+ },
+ "patch_3x3": {
+  "lambda0": 0.010709040670463018,
+  "p0": 0.0001622581919767124,
+  "born": 0.0005611672278338945,
+  "uniform_weight_on_lowest": 0.9311812799770199
+ }
+}

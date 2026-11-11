@@ -1,0 +1,278 @@
+"""Reference engine of the routing tick on the cubic family (candidate program CF-1, free part).
+
+    from routing import Routing
+    w = Routing((32, 4, 4)); psi = w.plane_wave((3, 0, 0), spinor); psi = w.tick(psi, theta=0.157935)
+
+State of one quantum of one species: psi[x1, x2, x3, record, spin], record in {0, 1}, spin in the frame basis
+(sigma_i = Pauli matrices in the coordinates of the cubic frame; lead L28). One tick is
+
+    mass(theta) . (Q_3 R)(Q_2 R)(Q_1 R)
+
+  R    reflection about the blank record:                 psi[..., 1, :] -> -psi[..., 1, :]
+  Q_i  seam involution of the public type between the carriers x and x + e_i (the reflector of
+       model/coherent_seam_repair/walk.py and of work/SIM/lib/family_walk.py with two carriers as the two ports):
+       v = (a0 - b0 - a1 - b1)/sqrt2,  psi -> psi - <v|psi> v,
+       with (a, b) = (x, x + e_i) on the component of spin +1 along axis i and (x + e_i, x) on the component -1
+  mass exp(-i theta Y_r) (option M1) or exp(-i theta Z_r); theta = 0 is the massless tick
+
+`python routing.py [out.json]` runs the checks and writes the validation numbers. Declared items: see DIRAC.md.
+"""
+import itertools, json, sys
+import numpy as np
+
+SIG = [np.array([[0, 1], [1, 0]], complex), np.array([[0, -1j], [1j, 0]]), np.diag([1.0, -1.0]).astype(complex)]
+I2 = np.eye(2, dtype=complex)
+
+
+def _eigbasis(i):
+    """columns: spin +1 and -1 along axis i"""
+    w, v = np.linalg.eigh(SIG[i])
+    return v[:, [int(np.argmax(w)), int(np.argmin(w))]]
+
+
+class Routing:
+    def __init__(self, shape, links=None):
+        """links: None, or three arrays of the lattice shape with the link sign (or phase) from x to x + e_i that
+        a charged species sees: the lattice gauge field between carriers (work/CUBIC/gauge_count.py)."""
+        self.shape = tuple(shape)
+        self.V = [_eigbasis(i) for i in range(3)]
+        self.links = links
+
+    # ---- elementary operations ------------------------------------------------------------------
+    def record_reflection(self, psi):
+        out = psi.copy(); out[..., 1, :] *= -1
+        return out
+
+    def seam_involution(self, psi, i):
+        """Q_i: the public reflector across every link of axis i, oriented by the spin along axis i.
+
+        With a link field (self.links[i][x] = sign or phase on the link from x to x + e_i, for a charged species)
+        the amplitude at x + e_i is transported to x before the reflector acts and back after it: the same rule as
+        the link z of the public walk."""
+        z = None if self.links is None else self.links[i][..., None]
+        phi = psi @ self.V[i].conj()                       # components along the sigma_i eigenvectors
+        out = phi.copy()
+        for comp, forward in ((0, True), (1, False)):
+            f = phi[..., comp]                             # f[x1, x2, x3, record]
+            nxt = np.roll(f, -1, axis=i)                   # value at x + e_i, stored at x
+            if z is not None: nxt = z * nxt
+            a, b = (f, nxt) if forward else (nxt, f)       # oriented pair a -> b
+            c = (a[..., 0] - b[..., 0] - a[..., 1] - b[..., 1]) / 2
+            da = np.stack([-c, c], axis=-1)                # change of a: a0 -= c, a1 += c
+            db = np.stack([c, c], axis=-1)                 # change of b: b0 += c, b1 += c
+            here, there = (da, db) if forward else (db, da)
+            if z is not None: there = np.conj(z) * there
+            out[..., comp] += here + np.roll(there, 1, axis=i)
+        return out @ self.V[i].T
+
+    def shift(self, psi, i):
+        return self.seam_involution(self.record_reflection(psi), i)
+
+    def shift_direct(self, psi, i):
+        """P^+ T + P^- T* with alpha_i = X_r sigma_i, for comparison."""
+        x = psi[..., ::-1, :] @ SIG[i].T                   # alpha_i psi
+        plus, minus = (psi + x) / 2, (psi - x) / 2
+        return np.roll(plus, 1, axis=i) + np.roll(minus, -1, axis=i)
+
+    def mass(self, psi, theta, kind='Y'):
+        if theta == 0: return psi
+        c, s = np.cos(theta), np.sin(theta)
+        out = np.empty_like(psi)
+        if kind == 'Y':                                    # exp(-i theta Y_r)
+            out[..., 0, :] = c * psi[..., 0, :] - s * psi[..., 1, :]
+            out[..., 1, :] = s * psi[..., 0, :] + c * psi[..., 1, :]
+        else:                                              # exp(-i theta Z_r)
+            out[..., 0, :] = np.exp(-1j * theta) * psi[..., 0, :]
+            out[..., 1, :] = np.exp(1j * theta) * psi[..., 1, :]
+        return out
+
+    def tick(self, psi, theta=0.0, kind='Y', reverse=False):
+        """reverse=False: axes in the order 1, 2, 3; reverse=True: 3, 2, 1. Alternating the two from tick to tick
+        removes the second-order splitting of the two helicities off axis (see `python routing.py`)."""
+        for i in ((2, 1, 0) if reverse else (0, 1, 2)):
+            psi = self.shift(psi, i)
+        return self.mass(psi, theta, kind)
+
+    # ---- symbol, preparations, readouts ---------------------------------------------------------
+    @staticmethod
+    def symbol(p, theta=0.0, kind='Y'):
+        X = SIG[0]; out = np.eye(4, dtype=complex)
+        for i in range(3):
+            a = np.kron(X, SIG[i])
+            out = (np.cos(p[i]) * np.eye(4) - 1j * np.sin(p[i]) * a) @ out
+        b = np.kron(SIG[1] if kind == 'Y' else SIG[2], I2)
+        return (np.cos(theta) * np.eye(4) - 1j * np.sin(theta) * b) @ out
+
+    def momentum(self, n):
+        return 2 * np.pi * np.array(n) / np.array(self.shape)
+
+    def plane_wave(self, n, coin):
+        """coin: four amplitudes ordered (record, spin) = (0,up), (0,down), (1,up), (1,down)"""
+        p = self.momentum(n)
+        grid = np.meshgrid(*[np.arange(s) for s in self.shape], indexing='ij')
+        phase = np.exp(1j * sum(p[i] * grid[i] for i in range(3))) / np.sqrt(np.prod(self.shape))
+        return phase[..., None, None] * np.asarray(coin, complex).reshape(2, 2)
+
+    def packet(self, n0, width, coin_of_p):
+        """Gaussian packet along axis 0 around momentum index n0; coin_of_p(p) gives the coin at each momentum."""
+        L = self.shape[0]
+        psi = np.zeros(self.shape + (2, 2), complex)
+        for n in range(L):
+            d = ((n - n0 + L / 2) % L) - L / 2
+            wgt = np.exp(-d * d / (2 * width ** 2))
+            if wgt < 1e-12: continue
+            psi += wgt * self.plane_wave((n, 0, 0), coin_of_p(self.momentum((n, 0, 0))))
+        return psi / np.linalg.norm(psi)
+
+    @staticmethod
+    def record_probability(psi):
+        return float(np.sum(np.abs(psi[..., 1, :]) ** 2) / np.sum(np.abs(psi) ** 2))
+
+    def mean_position(self, psi, axis=0):
+        """circular mean of the position along one axis, in cells"""
+        L = self.shape[axis]
+        w = np.sum(np.abs(psi) ** 2, axis=tuple(k for k in range(5) if k != axis))
+        ang = np.angle(np.sum(w * np.exp(2j * np.pi * np.arange(L) / L)))
+        return (ang % (2 * np.pi)) * L / (2 * np.pi)
+
+
+def branch(p, theta, kind='Y', sign=+1):
+    """coin of the symbol with phase exp(-i E), E > 0 (sign = +1) or E < 0, lowest helicity index"""
+    w, v = np.linalg.eig(Routing.symbol(p, theta, kind))
+    E = -np.angle(w)
+    order = [k for k in np.argsort(E) if np.sign(E[k]) == sign or abs(E[k]) < 1e-14]
+    k = order[0] if sign > 0 else order[-1]
+    return v[:, k] / np.linalg.norm(v[:, k]), float(E[k])
+
+
+def branch_projected(p, theta, kind='Y', coin0=(1, 0, 0, 0), sign=+1):
+    """Projection of a fixed coin on the positive-phase (sign=+1) or negative-phase eigenspace of the symbol.
+    Unlike `branch`, it is continuous in p, so a packet built from it is a smooth packet."""
+    w, v = np.linalg.eig(Routing.symbol(p, theta, kind))
+    E = -np.angle(w)
+    sel = [k for k in range(4) if np.sign(E[k]) == sign]
+    if not sel: sel = list(range(4))
+    V = v[:, sel]
+    P = V @ np.linalg.pinv(V)
+    c = P @ np.asarray(coin0, complex)
+    return c
+
+
+if __name__ == '__main__':
+    out = {}
+    rng = np.random.default_rng(5)
+    w = Routing((6, 4, 4))
+    psi = rng.normal(size=w.shape + (2, 2)) + 1j * rng.normal(size=w.shape + (2, 2)); psi /= np.linalg.norm(psi)
+    d = {}
+    for i in range(3):
+        d[f'Q_{i}_involution'] = float(np.abs(w.seam_involution(w.seam_involution(psi, i), i) - psi).max())
+        d[f'S_{i}_public_type_equals_direct'] = float(np.abs(w.shift(psi, i) - w.shift_direct(psi, i)).max())
+    d['tick_norm'] = float(abs(np.linalg.norm(w.tick(psi, 0.2)) - 1))
+    worst = 0
+    for n in itertools.product(range(2), repeat=3):
+        for col in range(4):
+            e = np.zeros(4, complex); e[col] = 1
+            for theta, kind in ((0.0, 'Y'), (0.157935, 'Y'), (0.157935, 'Z')):
+                got = w.tick(w.plane_wave(n, e), theta, kind)
+                want = w.plane_wave(n, Routing.symbol(w.momentum(n), theta, kind) @ e)
+                worst = max(worst, np.abs(got - want).max())
+    d['tick_against_symbol'] = float(worst)
+    out['identities'] = d
+    for k, v in d.items(): print(f'{k}: {v:.1e}')
+
+    # dispersion along one axis: cos E = cos(theta) cos(p)
+    rows = []
+    for theta in (0.0, 0.042383, 0.087847, 0.157935, 0.215043):
+        for p in (0.0, 0.05, 0.1, 0.2, 0.4):
+            E = np.sort(np.abs(np.angle(np.linalg.eigvals(Routing.symbol((p, 0, 0), theta)))))
+            rows.append({'theta': theta, 'p': p, 'E_walk': float(E[0]), 'closed_form': float(np.arccos(np.cos(theta) * np.cos(p))),
+                         'sqrt_p2_theta2': float(np.hypot(p, theta))})
+    out['dispersion_one_axis'] = rows
+    print('dispersion, one axis (theta, p, E, sqrt):', [(r['theta'], r['p'], round(r['E_walk'], 6), round(r['sqrt_p2_theta2'], 6)) for r in rows if r['theta'] == 0.157935])
+
+    # record statistics after one tick from a blank record
+    stats = []
+    w1 = Routing((64, 2, 2))
+    for theta in (0.0, 0.157935):
+        for n in ((0, 0, 0), (1, 0, 0), (2, 0, 0)):
+            psi = w1.plane_wave(n, [1, 0, 0, 0])
+            p = w1.momentum(n)
+            got = Routing.record_probability(w1.tick(psi, theta))
+            c, s = np.cos(p), np.sin(p)
+            blank = (c[0] * c[1] * c[2]) ** 2 + (s[0] * s[1] * c[2]) ** 2 + (s[0] * c[1] * s[2]) ** 2 + (c[0] * s[1] * s[2]) ** 2
+            stats.append({'theta': theta, 'p': [float(x) for x in p], 'P_record_written': got,
+                          'massless_formula': float(1 - blank), 'rest_formula_sin2_theta': float(np.sin(theta) ** 2)})
+    out['record_statistics'] = stats
+    for r in stats: print('record statistics', r)
+
+    # a packet on the positive branch: group velocity against d E / d p
+    w2 = Routing((256, 1, 1))
+    pk = []
+    for theta in (0.0, 0.087847, 0.157935):
+        n0 = 12                                             # p0 = 2 pi 12 / 256 = 0.2945
+        psi = w2.packet(n0, 3.0, lambda p: branch_projected(p, theta))      # phase-continuous coin
+        x0 = w2.mean_position(psi)
+        T = 60
+        for _ in range(T): psi = w2.tick(psi, theta)
+        x1 = w2.mean_position(psi)
+        p0 = w2.momentum((n0, 0, 0))[0]
+        E0 = np.arccos(np.cos(theta) * np.cos(p0))
+        v_theory = np.cos(theta) * np.sin(p0) / np.sin(E0)
+        v_meas = ((x1 - x0 + 128) % 256 - 128) / T
+        # dE/dp averaged over the momentum weights of the packet (the exact prediction for the mean displacement)
+        wsum = 0.0; vsum = 0.0
+        for n in range(256):
+            d = ((n - n0 + 128) % 256) - 128
+            g = np.exp(-d * d / (2 * 3.0 ** 2))
+            if g < 1e-12: continue
+            pn = w2.momentum((n, 0, 0))[0]
+            wgt = (g * np.linalg.norm(branch_projected((pn, 0, 0), theta))) ** 2
+            En = np.arccos(np.cos(theta) * np.cos(pn))
+            vn = 1.0 if theta == 0 else np.cos(theta) * np.sin(pn) / np.sin(En)
+            wsum += wgt; vsum += wgt * vn
+        pk.append({'theta': theta, 'p0': float(p0), 'ticks': T, 'velocity_measured': float(v_meas),
+                   'dE_dp_averaged_over_the_packet': float(vsum / wsum), 'dE_dp_at_p0': float(v_theory),
+                   'relativistic_p_over_E_at_p0': float(p0 / np.hypot(p0, theta))})
+        print('packet', pk[-1])
+    out['packet_velocity'] = pk
+    # off axis: ordered tick against the alternating order (two ticks, phase per tick)
+    X = SIG[0]
+    def ex(pp, i):
+        a = np.kron(X, SIG[i]); return np.cos(pp) * np.eye(4) - 1j * np.sin(pp) * a
+    alt = []
+    for scale in (1.0, 0.5, 0.25):
+        p = np.array([0.1, 0.1, 0.1]) * scale
+        fwd = ex(p[2], 2) @ ex(p[1], 1) @ ex(p[0], 0); bwd = ex(p[0], 0) @ ex(p[1], 1) @ ex(p[2], 2)
+        one = np.sort(np.abs(np.angle(np.linalg.eigvals(fwd)))); two = np.sort(np.abs(np.angle(np.linalg.eigvals(bwd @ fwd)))) / 2
+        alt.append({'p_norm': float(np.linalg.norm(p)), 'ordered_tick_phases': [round(float(x), 9) for x in one],
+                    'alternating_order_phase_per_tick': [round(float(x), 9) for x in two]})
+        print('off axis', alt[-1])
+    out['helicity_splitting_and_alternating_order'] = alt
+    # executed check of the alternating order on a lattice
+    w3 = Routing((8, 8, 8)); n = (1, 1, 1)
+    e0 = np.zeros(4, complex); e0[0] = 1
+    psi = w3.plane_wave(n, e0); got = w3.tick(w3.tick(psi), reverse=True)
+    pm = w3.momentum(n)
+    want = w3.plane_wave(n, (ex(pm[0], 0) @ ex(pm[1], 1) @ ex(pm[2], 2)) @ (ex(pm[2], 2) @ ex(pm[1], 1) @ ex(pm[0], 0)) @ e0)
+    out['identities']['alternating_two_ticks_against_symbol'] = float(np.abs(got - want).max())
+    print('alternating two ticks against symbol:', out['identities']['alternating_two_ticks_against_symbol'])
+    # link field between carriers: gauge covariance and a flux through one plaquette
+    shape = (6, 6, 2)
+    rngl = np.random.default_rng(11)
+    links = [rngl.choice([-1.0, 1.0], size=shape) for _ in range(3)]
+    wl = Routing(shape, links)
+    psi = rngl.normal(size=shape + (2, 2)) + 1j * rngl.normal(size=shape + (2, 2)); psi /= np.linalg.norm(psi)
+    g = rngl.choice([-1.0, 1.0], size=shape)                # a gauge transformation at every carrier
+    links_g = [g * links[i] * np.roll(g, -1, axis=i) for i in range(3)]
+    wg = Routing(shape, links_g)
+    lhs = wg.tick(g[..., None, None] * psi, 0.1)
+    rhs = g[..., None, None] * wl.tick(psi, 0.1)
+    out['identities']['gauge_covariance_of_the_tick'] = float(np.abs(lhs - rhs).max())
+    out['identities']['unitary_with_links'] = float(abs(np.linalg.norm(wl.tick(psi, 0.1)) - 1))
+    for i in range(3):
+        out['identities'][f'Q_{i}_involution_with_links'] = float(np.abs(wl.seam_involution(wl.seam_involution(psi, i), i) - psi).max())
+    print('with links:', {k: f'{v:.1e}' for k, v in out['identities'].items() if 'link' in k or 'gauge' in k})
+    out['validation_symbol_phases'] = [
+        {'theta': th, 'p': list(p), 'phases': [round(float(x), 9) for x in np.sort(np.abs(np.angle(np.linalg.eigvals(Routing.symbol(p, th)))))]}
+        for th in (0.0, 0.157935, 0.215043) for p in ((0.1, 0.0, 0.0), (0.1, 0.1, 0.1), (0.2, -0.1, 0.15))]
+    if len(sys.argv) > 1: json.dump(out, open(sys.argv[1], 'w'), indent=1)

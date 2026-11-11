@@ -1,0 +1,309 @@
+{
+ "A_register": {
+  "register": "per cell: empty, or one quantum in h1 (charge of s1) or h0 (charge of s2)",
+  "rows": [
+   {
+    "charge": "su3_S12",
+    "full_doublet_vertex": true,
+    "neutral_component_only": true,
+    "no_register": true
+   },
+   {
+    "charge": "su3_A12",
+    "full_doublet_vertex": true,
+    "neutral_component_only": true,
+    "no_register": true
+   },
+   {
+    "charge": "su3_S13",
+    "full_doublet_vertex": true,
+    "neutral_component_only": true,
+    "no_register": true
+   },
+   {
+    "charge": "su3_A13",
+    "full_doublet_vertex": true,
+    "neutral_component_only": true,
+    "no_register": true
+   },
+   {
+    "charge": "su3_S23",
+    "full_doublet_vertex": true,
+    "neutral_component_only": true,
+    "no_register": true
+   },
+   {
+    "charge": "su3_A23",
+    "full_doublet_vertex": true,
+    "neutral_component_only": true,
+    "no_register": true
+   },
+   {
+    "charge": "su3_D12",
+    "full_doublet_vertex": true,
+    "neutral_component_only": true,
+    "no_register": true
+   },
+   {
+    "charge": "su3_D23",
+    "full_doublet_vertex": true,
+    "neutral_component_only": true,
+    "no_register": true
+   },
+   {
+    "charge": "su2_T1",
+    "full_doublet_vertex": true,
+    "neutral_component_only": false,
+    "no_register": false
+   },
+   {
+    "charge": "su2_T2",
+    "full_doublet_vertex": true,
+    "neutral_component_only": false,
+    "no_register": false
+   },
+   {
+    "charge": "su2_T3",
+    "full_doublet_vertex": true,
+    "neutral_component_only": true,
+    "no_register": false
+   },
+   {
+    "charge": "u1_Y",
+    "full_doublet_vertex": true,
+    "neutral_component_only": true,
+    "no_register": false
+   },
+   {
+    "charge": "Q_em",
+    "full_doublet_vertex": true,
+    "neutral_component_only": true,
+    "no_register": null
+   },
+   {
+    "charge": "N_v1",
+    "full_doublet_vertex": true,
+    "neutral_component_only": true,
+    "no_register": null
+   },
+   {
+    "charge": "N_v2",
+    "full_doublet_vertex": true,
+    "neutral_component_only": true,
+    "no_register": null
+   },
+   {
+    "charge": "N_v3",
+    "full_doublet_vertex": true,
+    "neutral_component_only": true,
+    "no_register": null
+   },
+   {
+    "charge": "N_s1",
+    "full_doublet_vertex": true,
+    "neutral_component_only": true,
+    "no_register": null
+   },
+   {
+    "charge": "N_s2",
+    "full_doublet_vertex": true,
+    "neutral_component_only": true,
+    "no_register": null
+   }
+  ],
+  "determinant_character_total": true
+ },
+ "B_reflector": {
+  "K_cubed_equals_K": true,
+  "rank_of_active_projector_K_squared": 32,
+  "exchange_reflector_QH_is_involution": true,
+  "QH_minus_one_eigenspace_dimension": 16,
+  "QH_commutes_with_hypercharge_of_pattern_plus_register": true,
+  "mass_step": "exp(-i theta K) = 1 + (cos theta - 1) K^2 - i sin theta K, from K^3 = K",
+  "cyclic_bit_Kc_is_involution": true,
+  "cyclic_bit_commutes_with_Z2_charge_of_pattern_plus_bit": true,
+  "cyclic_bit_commutes_with_integer_hypercharge": false
+ },
+ "B_public_reflector": {
+  "public_reflector_equals_1_minus_K2_minus_K": true,
+  "public_reflector_conserves_charge_of_level_plus_register": true,
+  "mass_step_is_exp_minus_i_theta_K": true,
+  "mass_step_at_pi_over_2_on_active_pair_is_minus_i_times_exchange": true,
+  "public_reflector_matrix_basis_(E0,E1,F0,F1)": [
+   [
+    "0",
+    "0",
+    "0",
+    "-1"
+   ],
+   [
+    "0",
+    "1",
+    "0",
+    "0"
+   ],
+   [
+    "0",
+    "0",
+    "1",
+    "0"
+   ],
+   [
+    "-1",
+    "0",
+    "0",
+    "0"
+   ]
+  ]
+ },
+ "C_phase_charges": {
+  "down": {
+   "right": "d_R",
+   "left": "Q_L",
+   "pattern_presentation_total_phase_charges": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "all_left_presentation_total_phase_charges": [
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "all_left_degrees_(conjugated right, left, Higgs)": [
+    4,
+    2,
+    -1
+   ]
+  },
+  "up": {
+   "right": "u_R",
+   "left": "Q_L",
+   "pattern_presentation_total_phase_charges": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "all_left_presentation_total_phase_charges": [
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "all_left_degrees_(conjugated right, left, Higgs)": [
+    2,
+    2,
+    1
+   ]
+  },
+  "charged lepton": {
+   "right": "e_R",
+   "left": "L_L",
+   "pattern_presentation_total_phase_charges": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "all_left_presentation_total_phase_charges": [
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "all_left_degrees_(conjugated right, left, Higgs)": [
+    2,
+    4,
+    -1
+   ]
+  },
+  "neutrino": {
+   "right": "nu_R",
+   "left": "L_L",
+   "pattern_presentation_total_phase_charges": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "all_left_presentation_total_phase_charges": [
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "all_left_degrees_(conjugated right, left, Higgs)": [
+    0,
+    4,
+    1
+   ]
+  }
+ },
+ "E_amplitude_per_species": {
+  "test_amplitudes_(n3,n2_before)": {
+   "(0, 0)": 2,
+   "(0, 1)": 3,
+   "(1, 0)": 5,
+   "(1, 1)": 7,
+   "(2, 0)": 11,
+   "(2, 1)": 13,
+   "(3, 0)": 17,
+   "(3, 1)": 19
+  },
+  "vertex_commutes_with_all_twelve_total_charges_and_five_phase_charges": true,
+  "independent_amplitudes_on_the_family_half": 4,
+  "reason": "one invariant line for each pair of sectors (n3, n2) -> (n3, n2 + 1) (Schur); linear in the level operators only when all are equal"
+ },
+ "D_audit_memory": [
+  {
+   "audit_degrees": [
+    2,
+    2
+   ],
+   "Higgs_character": 1,
+   "vertex_without_memory_commutes_with_audit_degree": false,
+   "vertex_without_memory_commutes_with_pattern_degree": true,
+   "pattern_degree_of_conjugated_mode": -3,
+   "audit_vertex_commutes_with_audit_total": true,
+   "audit_total_equals_pattern_degree_plus_5_(n1_minus_nX)": true,
+   "audit_vertex_conserves_n1_minus_nX": true
+  },
+  {
+   "audit_degrees": [
+    2,
+    4
+   ],
+   "Higgs_character": -1,
+   "vertex_without_memory_commutes_with_audit_degree": false,
+   "vertex_without_memory_commutes_with_pattern_degree": true,
+   "pattern_degree_of_conjugated_mode": -1,
+   "audit_vertex_commutes_with_audit_total": true,
+   "audit_total_equals_pattern_degree_plus_5_(n1_minus_nX)": true,
+   "audit_vertex_conserves_n1_minus_nX": true
+  },
+  {
+   "audit_degrees": [
+    4,
+    2
+   ],
+   "Higgs_character": -1,
+   "vertex_without_memory_commutes_with_audit_degree": false,
+   "vertex_without_memory_commutes_with_pattern_degree": true,
+   "pattern_degree_of_conjugated_mode": -3,
+   "audit_vertex_commutes_with_audit_total": true,
+   "audit_total_equals_pattern_degree_plus_5_(n1_minus_nX)": true,
+   "audit_vertex_conserves_n1_minus_nX": true
+  }
+ ]
+}

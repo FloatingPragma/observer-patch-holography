@@ -1,0 +1,222 @@
+"""R8 items 4 and 5: what could fix the toggle amplitude, evaluated on one carrier; register excitations.
+
+(a) correction probability of lead L30: the audit's native module (exact execution of its joint program), the
+    flux table of work/DIRAC/defect_phases.py read for handedness pairs, and what a relative rest phase of two
+    partners does to the routing symbol (exact).
+(b) weight of the neutral doublet level in the audit's heralded stationary reference (exact).
+(c) geometric overlaps: port against cubic frame on the spinor doublet (closed forms), and the gauge-invariant
+    three-section overlap of (left pattern, right pattern, Higgs level) on a carrier with a flux pair (float).
+(d) flux classes acting on a handedness pair at representation level (exact integers).
+Item 5: one cell of the Higgs bit register in the other phase state: in-gap states of the tick (float).
+No measured particle value is read.
+"""
+import itertools, json, sys, io, contextlib
+from fractions import Fraction as F
+import numpy as np
+import sympy as s
+from r8_common import *
+from routing import Routing
+
+out = {}
+# ================================================================ (a) lead L30
+from model.coherent_defect_wave.model import JointObserver, SparseState
+from model.coherent_defect_wave import preparation
+ob = JointObserver()
+assert ob.addresses[0] == (0, 1) and ob.addresses[1] == (1, 0)
+ok = True; rec = 0
+for gw in ob.link_words:
+    for j in range(5):
+        d = SparseState({(gw, 2, j, 0, 0): F(1), (gw, 2, j, 0, 1): F(-1)}, 2)      # the audit's native orbital d_j
+        o = ob.step(d)
+        ok &= o.as_dict() == {k: -v for k, v in d.as_dict().items()} and o.norm_denominator == 2
+        rec += sum(1 for (k, v) in o.amplitudes if k[3] == 1)
+out['a_native_module'] = {'orbital': '(c*[port 2, level j, blank, address (0,1)] - c*[.., address (1,0)])/sqrt2',
+                          'link_words': len(ob.link_words), 'levels': 5,
+                          'one_tick_equals_minus_identity_on_every_orbital': bool(ok),
+                          'amplitudes_with_record_written': rec,
+                          'correction_probability': '0 (exact)',
+                          'tick_on_occupation_degree_n': '(-1)^n; identity on the degree 2 and 4 module: rest phase 0'}
+print('(a) native module:', out['a_native_module'])
+# handedness pairs in the flux table (rest phase of a pattern = table value at alpha = k Q6/6 mod 1)
+tab = json.load(open(__import__('os').path.join(__import__('os').path.dirname(__import__('routing').__file__), 'defect_phases.json')))['rows']
+theta = {(r['alpha'], r['separation']): r['rest_phase'] for r in tab}
+def angle(q, k, d):
+    al = F(k * q, 6) % 1; al = min(al, 1 - al)
+    return 0.0 if al == 0 else theta[(str(al), d)]
+species = {'down': (-2, 1), 'up': (4, 1), 'charged lepton': (-6, -3), 'neutrino': (0, -3)}      # Q6 of (right, left)
+pairs = {}
+for k in (1, 2, 3):
+    pairs[f'class_{k}'] = {name: {'alpha_right': str(F(k * qr, 6) % 1), 'alpha_left': str(F(k * ql, 6) % 1),
+                                  'left_minus_right_rest_phase_by_separation': [round(angle(ql, k, d) - angle(qr, k, d), 6) for d in range(1, 6)]}
+                           for name, (qr, ql) in species.items()}
+out['a_flux_table_for_pairs'] = pairs
+for k, v in pairs.items(): print('(a)', k, {n: r['left_minus_right_rest_phase_by_separation'] for n, r in v.items()})
+# a relative rest phase of the partners is exp(-i delta X_r): no gap (exact, one axis)
+p, dl, th = s.symbols('p delta theta', real=True)
+X, Z, I2 = s.Matrix([[0, 1], [1, 0]]), s.diag(1, -1), s.eye(2)
+kp = s.kronecker_product
+S1 = s.cos(p) * s.eye(4) - s.I * s.sin(p) * kp(X, X)                    # exp(-i p X_r sigma_1)
+Ax = s.cos(dl) * s.eye(4) - s.I * s.sin(dl) * kp(X, I2)                 # exp(-i delta X_r)
+Usym = Ax * S1
+plus, minus = s.Matrix([1, 1]) / s.sqrt(2), s.Matrix([1, -1]) / s.sqrt(2)
+okp = True
+for chi, vr in ((1, plus), (-1, minus)):
+    for sg, vs in ((1, plus), (-1, minus)):
+        vec = kp(vr, vs)
+        okp &= (Usym * vec - s.exp(-s.I * chi * (sg * p + dl)) * vec).applyfunc(lambda x: s.simplify(s.expand(x.rewrite(s.exp)))) == s.zeros(4, 1)
+blank = s.Matrix([1, 0, 0, 0])
+written = s.simplify(sum(abs(x) ** 2 for x in (Ax * blank)[2:]))
+both = (s.cos(th) * s.eye(2) - s.I * s.sin(th) * X) * Z                 # toggle after a pi relative phase of the partners
+out['a_relative_phase_is_axial'] = {'eigenphases_of_shift_times_axial_step': 'chi (s p + delta), chi, s = +-1: checked ' + str(bool(okp)),
+                                    'gap': 'none: zero phase at p = delta', 'record_written_from_blank_at_rest': str(written),
+                                    'same_record_statistics_as_a_mass_of_angle_delta': True,
+                                    'toggle_times_relative_phase_pi_squares_to_identity': bool((both * both).applyfunc(s.simplify) == s.eye(2))}
+# the native tick on the audit's orbitals is (-1)^N = -X_r; with a toggle of angle theta the symbol on an axis is
+# exp(-i theta Z_r) (-X_r) exp(-i p X_r sigma_1): phases with sin E = cos(theta) sin(p), no rest phase (float check)
+worst = 0.0
+for th_ in (0.157935, 0.6):
+    for p_ in (0.0, 0.05, 0.3, 1.0):
+        Zr, Xr_ = np.kron(np.diag([1.0, -1.0]), np.eye(2)), np.kron(np.array([[0, 1.0], [1.0, 0]]), np.eye(2))
+        a1 = np.kron(np.array([[0, 1.0], [1.0, 0]]), np.array([[0, 1.0], [1.0, 0]]))
+        Un = (np.cos(th_) * np.eye(4) - 1j * np.sin(th_) * Zr) @ (-Xr_) @ (np.cos(p_) * np.eye(4) - 1j * np.sin(p_) * a1)
+        got = np.sort(np.abs(np.sin(np.angle(np.linalg.eigvals(Un)))))
+        worst = max(worst, float(np.abs(got - abs(np.cos(th_) * np.sin(p_))).max()))
+out['a_relative_phase_is_axial']['native_sign_with_toggle_gives_sinE_equals_cos_theta_sin_p_defect'] = worst
+print('(a) axial:', out['a_relative_phase_is_axial'])
+
+# ================================================================ (b) heralded reference
+words, counts = preparation.fixed_word_counts()
+per_level = sum(counts) * 2 * F(-29, 30) * (10 * F(1, 2) + 50)
+Zn = F(5, 4) * 72000 + 5 * per_level
+weight = (F(5, 4) * 72000 / 5 + per_level) / Zn
+chk = True; lev = True; nchk = 0
+for gw in (ob.link_words[0], ob.link_words[5]):
+    for port in range(12):
+        for (r, a_) in ((0, 0), (0, 17), (1, 44)):
+            vals = []
+            for j in range(5):
+                o = ob.step(ob.basis_state(gw, port, j, r, a_)).as_dict()
+                lev &= all(k[2] == j for k in o)
+                vals.append(o.get((gw, port, j, r, a_), F(0)))
+            expect = F(-29, 30) * (F(1, 2) if port in ob.addresses[a_] else 1)
+            chk &= len(set(vals)) == 1 and vals[0] in (0, expect)
+            nchk += 5
+out['b_reference'] = {'trace_of_tick_per_level': str(per_level), 'normalization': str(Zn),
+                      'weight_of_each_of_the_five_levels': str(weight),
+                      'diagonal_independent_of_level_on_sample': bool(chk), 'tick_never_changes_the_level_on_sample': bool(lev),
+                      'sample_basis_states': nchk,
+                      'coherence_between_levels': '0: the reference commutes with every level occupation',
+                      'expectation_of_the_register_lowering_operator': 0}
+print('(b)', out['b_reference'])
+
+# ================================================================ (c) geometric overlaps
+from model.common_source import slow_geometry
+src = slow_geometry.source()
+seams = [tuple(int(v) for v in e) for e in src.seams()]
+A = np.zeros((12, 12))
+for x, y in seams: A[x, y] = A[y, x] = 1
+wv, vv = np.linalg.eigh(A)
+N1 = vv[:, np.abs(wv - 5 ** .5) < 1e-9] * 2.0; N2 = vv[:, np.abs(wv + 5 ** .5) < 1e-9] * 2.0
+ax1, ax2 = [], []
+for x, y in seams:
+    u = (N1[x] + N1[y]) / np.linalg.norm(N1[x] + N1[y]); u2 = (N2[x] + N2[y]) / np.linalg.norm(N2[x] + N2[y])
+    if not any(abs(abs(u @ t) - 1) < 1e-9 for t in ax1): ax1.append(u); ax2.append(u2)
+frames = [t for t in itertools.combinations(range(15), 3) if all(abs(ax1[i] @ ax1[j]) < 1e-9 for i, j in itertools.combinations(t, 2))]
+conj_orth = max(abs(ax2[i] @ ax2[j]) for t in frames for i, j in itertools.combinations(t, 2))
+vals1 = sorted({round(abs(float(N1[q] @ ax1[i])), 6) for t in frames for i in t for q in range(12)})
+vals2 = sorted({round(abs(float(N2[q] @ ax2[i])), 6) for t in frames for i in t for q in range(12)})
+cl = [0.0, float(np.sqrt((5 - 5 ** .5) / 10)), float(np.sqrt((5 + 5 ** .5) / 10))]
+out['c_port_against_frame'] = {
+    'frames': len(frames), 'axes': len(ax1), 'conjugate_axes_orthogonality_defect': float(conj_orth),
+    'abs_cosine_port_frame_axis_port_triplet': vals1, 'abs_cosine_conjugate_frame_spinor_doublet': vals2,
+    'closed_forms': ['0', 'sqrt((5 - sqrt5)/10)', 'sqrt((5 + sqrt5)/10)'], 'closed_form_values': [round(x, 6) for x in cl],
+    'spinor_squared_overlaps_(1 +- c)/2': sorted({round((1 + sg * c) / 2, 6) for c in cl for sg in (1, -1)}),
+    'angles_between_port_and_frame_axis_rad': [round(float(np.arccos(c)), 6) for c in cl[::-1]]}
+print('(c) port/frame:', out['c_port_against_frame'])
+# three-section overlap on a carrier with a flux pair of class k
+with contextlib.redirect_stdout(io.StringIO()):
+    import defect_phases as dp
+def section(q, k, d, forbid=()):
+    f2 = dp.by_d[d]
+    ph = dp.string(0, f2, k * q / 6.0, forbid)
+    lam, vec = np.linalg.eigh(dp.laplacian(ph))
+    return vec[:, 0], lam[1] - lam[0]
+def overlaps(k, d, forbid=()):
+    xq = {q: section(q, k, d, forbid) for q in (1, -2, 4, 3, -3, -6, 0)}
+    x = {q: v[0] for q, v in xq.items()}
+    y = {'down': abs(np.sum(x[1].conj() * x[-2] * x[3])), 'up': abs(np.sum(x[1].conj() * x[4] * x[3].conj())),
+         'charged lepton': abs(np.sum(x[-3].conj() * x[-6] * x[3])), 'neutrino': abs(np.sum(x[-3].conj() * x[0] * x[3].conj()))}
+    return y, min(v[1] for v in xq.values())
+rowsC = []
+for k in (1, 2, 3):
+    for d in range(1, 6):
+        y, gap = overlaps(k, d)
+        y2, _ = overlaps(k, d, forbid=tuple(dp.paths(0, dp.by_d[d])[:1]))
+        rowsC.append({'class': k, 'separation': d, **{n: round(float(v), 6) for n, v in y.items()},
+                      'quark_over_lepton': round(float(y['down'] / y['charged lepton']), 6),
+                      'path_independence': float(max(abs(y[n] - y2[n]) for n in y)), 'smallest_level_gap': round(float(gap), 6),
+                      'defined': bool(gap > 1e-9)})
+out['c_three_section_overlap'] = {'definition': 'abs sum over ports of conj(x_left) x_right x_Higgs (or its conjugate), x_q the lowest section of charge q',
+                                  'uniform_value_1_over_sqrt12': round(12 ** -.5, 6), 'rows': rowsC}
+for r in rowsC: print('(c)', r)
+
+# ================================================================ (d) flux classes on a handedness pair
+rowsD = {}
+for k in range(1, 6):
+    rel = set(); common = {}
+    for st in states:
+        if st[4] == 0 and sum(st[:3]) % 2 == 1:
+            i, j = idx[st], idx[st[:4] + (1,)]
+            rel.add(int((k * (Q6[j] - Q6[i])) % 6))                    # exponent of zeta_6 of partner relative to pattern
+            common[names[sector(st)] + '/' + names[sector(st[:4] + (1,))]] = int((k * Q6[i]) % 6)
+    conj = {int((k * (Q6[i] - Q6[j])) % 6) for i in range(32) for j in range(32) if G0[i, j] != 0}
+    rowsD[f'class_{k}'] = {'relative_exponent_of_zeta6_between_partners': sorted(rel), 'relative_sign': 1 if rel == {0} else -1,
+                           'exponent_on_the_empty_partner': common,
+                           'F_k G0 F_k^-1 = sign * G0 with sign': 1 if conj == {0} else (-1 if conj == {3} else None)}
+dens = {2: F(2676, 10000), 4: F(2676, 10000), 3: F(818, 10000)}
+out['d_flux_background'] = {
+    'rows': rowsD,
+    'toggle_component_of_any_function_of_the_flux_operators': 0,
+    'reason': 'flux operators are functions of Q6; the toggle shifts Q6 by 3; matrix elements between partners vanish',
+    'stationary_densities_supplied_by_coordinator': {str(k): str(v) for k, v in dens.items()},
+    'coherence_factor_between_partners_per_carrier_if_one_flux_at_most': str(1 - 2 * dens[3]),
+    'classes_2_and_4_on_the_handedness_bit': 'identity times a common phase (zeta_3 for quarks, 1 for leptons)'}
+print('(d)', json.dumps(out['d_flux_background']))
+
+# ================================================================ item 5: one flipped phase of the Higgs bit register
+th0 = 0.157935
+def tick_matrix(shape, flipped, two_ticks):
+    """one-quantum tick (toggle exp(-i theta s_x Z_r), s_x = -1 on the flipped cell) as a matrix, through the engine"""
+    w = Routing(shape); n = int(np.prod(shape)) * 4
+    P = np.eye(n, dtype=complex).reshape(shape + (2, 2, n))
+    P = np.moveaxis(P, -1, 3)                                         # batch axis after the lattice axes
+    sgn = np.ones(shape); sgn[flipped] = -1
+    ph = np.exp(-1j * th0 * sgn)[..., None, None]
+    def one(P, reverse):
+        for i in ((2, 1, 0) if reverse else (0, 1, 2)): P = w.shift(P, i)
+        Q = P.copy(); Q[..., 0, :] *= ph; Q[..., 1, :] *= ph.conj(); return Q
+    P = one(P, False)
+    if two_ticks: P = one(P, True)
+    return np.moveaxis(P, 3, -1).reshape(n, n)
+def ingap(U, shape, per):
+    lam, vec = np.linalg.eig(U)
+    E = -np.angle(lam) / per
+    sel = np.nonzero(np.abs(E) < th0 * (1 - 1e-6))[0]
+    rows = []
+    for i in sel:
+        dens_ = np.sum(np.abs(vec[:, i].reshape(shape + (4,))) ** 2, axis=-1); dens_ /= dens_.sum()
+        rows.append((round(float(E[i]), 6), round(float(dens_.max()), 4)))
+    return sorted(rows), float(np.sort(np.abs(E))[0])
+r1, _ = ingap(tick_matrix((160, 1, 1), (0, 0, 0), False), (160, 1, 1), 1)
+r3, m3 = ingap(tick_matrix((6, 6, 6), (0, 0, 0), True), (6, 6, 6), 2)
+r4, m4 = ingap(tick_matrix((4, 4, 4), (0, 0, 0), True), (4, 4, 4), 2)
+out['item5_flipped_phase'] = {'theta': th0, 'coupling_to_the_quantum': 'the toggle at that cell changes sign: vertex 2 theta (exact, K = G0 x X_h)',
+                              'line_160_cells_in_gap_states_(phase, weight on the flipped cell)': r1,
+                              'bound_phase_over_theta_on_the_line': round(r1[-1][0] / th0, 6) if r1 else None,
+                              'cube_6x6x6_two_tick_in_gap_states_(phase per tick, largest cell weight)': r3[:8],
+                              'cube_6_lowest_phase_per_tick': m3, 'cube_4_lowest_phase_per_tick': m4,
+                              'first_order_estimate_theta_(1 - cones/cells)': {'cube_6_(8 cone momenta of 216)': th0 * (1 - 8 / 216),
+                                                                               'cube_4_(32 cone momenta of 64)': th0 * (1 - 32 / 64)},
+                              'reading': 'in the cube the shift follows theta x (cone momenta on the lattice)/(cells), a finite-volume shift; no bound state seen at these sizes'}
+print('item 5:', json.dumps(out['item5_flipped_phase']))
+if len(sys.argv) > 1: json.dump(out, open(sys.argv[1], 'w'), indent=1)

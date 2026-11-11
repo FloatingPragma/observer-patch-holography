@@ -1,0 +1,69 @@
+"""Worker LK, task 3 (lead C): the lepton scale F as the kick rate per cell tick (statements F1 to F5 of CANDIDATES.md).
+
+Run from RL/work/LK:
+  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B lk_scale.py
+This is the only script of this directory that reads measured values. Every number below that depends on them is
+NOT BLIND. Inputs are copied from `RL/LEPTON_STEPS.md` section 3 and from `RL/reports/YC.md`. Writes lk_scale.json.
+"""
+from __future__ import annotations
+
+import json
+import math
+import os
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+
+# ---- inputs (NOT BLIND), with their sources
+F_NEEDED = 8.8640e-19           # LEPTON_STEPS.md section 3: m_k = F E_cell y_k
+E_CELL_GEV = 9.5599e18          # LEPTON_STEPS.md section 3 (derived by DC)
+Y_J = 0.010816                  # LEPTON_STEPS.md section 3, with v from G_F
+V_OVER_ECELL = 2.5755e-17       # LEPTON_STEPS.md section 3
+SUM_Y = 2.0 / 9.0               # sum of the three rest rates per unit clock time (register, EXACT)
+Y_TAU_REG = 0.2096935560        # LEPTON_STEPS.md section 1
+HBAR_GEV_S = 6.582119569e-25
+# YC.md: cell values of the common toggle amplitude y = g/2 and the measured tau Yukawa run to the cell
+YC_G2_HALF = 0.2531             # g_2(E_cell)/2 on the declared chart
+YC_SOURCE_G_HALF = 0.4398       # source g/2
+Y_TAU_AT_CELL = 0.00919         # YC.md section 4 (declared chart)
+
+out = {'label': 'every value in this file that uses F_NEEDED, Y_J, V_OVER_ECELL or Y_TAU_AT_CELL is NOT BLIND'}
+
+# F1: F = h/tau, N = 1/h
+rows = []
+for tau in (1, 2, 4):
+    h = F_NEEDED * tau
+    N = 1 / h
+    rows.append({'round duration tau (cell ticks)': tau, 'kick angle per round h = F tau': h, 'rounds per unit clock time N = 1/h': N,
+                 'F5 phase term 35/(2187 N^2)': 35 / (2187 * N * N), 'F5 amplitude term 7/(81 N)': 7 / (81 * N),
+                 'F4 non-return weight per cell tick (14/81) F^2 tau': 14 / 81 * F_NEEDED ** 2 * tau,
+                 'F4 non-return weight per unit clock time (14/81) F tau': 14 / 81 * F_NEEDED * tau,
+                 'F2 angle of the reflection product per application eta = h/2': h / 2})
+out['F1 F2 F4 F5 by round duration'] = rows
+
+cell_tick_s = HBAR_GEV_S / E_CELL_GEV
+out['clock'] = {'cell tick (s)': cell_tick_s, 'unit clock time = 1/F cell ticks': 1 / F_NEEDED,
+                'unit clock time (s)': cell_tick_s / F_NEEDED,
+                'F4 non-return events per second at tau = 2': 14 / 81 * F_NEEDED ** 2 * 2 / cell_tick_s}
+
+# F3: bare toggle amplitude on the electroweak dictionary, tau = 2: F E_cell = y_0 v/sqrt2
+y0 = Y_J / SUM_Y
+out['F3 electroweak dictionary (tau = 2)'] = {
+    'y_0 = (9/2) y_J': y0,
+    'check: (y_0/sqrt2)(v/E_cell)': y0 / math.sqrt(2) * V_OVER_ECELL, 'F needed': F_NEEDED,
+    'relative difference': (y0 / math.sqrt(2) * V_OVER_ECELL - F_NEEDED) / F_NEEDED,
+    'g |beta| per cell tick': F_NEEDED,
+}
+
+# looks (NOT BLIND): YC's common toggle amplitude as y_0
+y0_cell_needed = Y_TAU_AT_CELL / Y_TAU_REG
+looks = []
+for name, y in (('g_2(E_cell)/2, declared chart', YC_G2_HALF), ('source g/2', YC_SOURCE_G_HALF)):
+    looks.append({'candidate y_0': name, 'value': y,
+                  'y_J = (2/9) y_0 (no running)': SUM_Y * y, 'ratio to y_J = 0.010816': SUM_Y * y / Y_J,
+                  'y_tau at the cell = y_0 * 0.2096935560': y * Y_TAU_REG, 'ratio to the measured y_tau at the cell 0.00919': y * Y_TAU_REG / Y_TAU_AT_CELL})
+out['looks (NOT BLIND, four comparisons; the first of each pair was estimated mentally before registration)'] = looks
+out['needed y_0 at the cell (NOT BLIND)'] = {'y_tau(E_cell)/0.2096935560': y0_cell_needed, 'over g_2(E_cell)': y0_cell_needed / (2 * YC_G2_HALF)}
+
+with open(os.path.join(HERE, 'lk_scale.json'), 'w') as fh:
+    json.dump(out, fh, indent=1)
+print(json.dumps(out, indent=1))

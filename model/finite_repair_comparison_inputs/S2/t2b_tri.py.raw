@@ -1,0 +1,92 @@
+#!/usr/bin/env python3
+"""S2 task 2(b), two-dimensional control: one quantum on a periodic triangular lattice (L x L ports, 3 L^2 seams)
+under the unread unitary seam law (sqrt(SWAP) member), with and without integer link registers.
+
+With link registers the port populations are the average over independent uniform link phases theta_e (flux sectors
+of the cover); without registers theta = 0 (this hop is NOT Gauss covariant: it is the negative control that shows what
+the which-path record in the links removes).
+Schedules: (i) independent uniform draws, (ii) one random permutation per sweep, (iii) fixed order: six layers
+(three seam directions x two alternating sublattices), each a perfect matching.
+Output: mean squared displacement (units of mesh edge^2) against sweeps, growth exponents.
+"""
+import json, math, sys, time
+from pathlib import Path
+import numpy as np
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+import gates as G
+t00 = time.time()
+out = {}
+
+def lattice(L):
+    idx = lambda i, j: (i % L) * L + (j % L)
+    a, b, layer = [], [], []
+    for i in range(L):
+        for j in range(L):
+            a.append(idx(i, j)); b.append(idx(i + 1, j)); layer.append(0 + (i % 2))        # a1 = (1, 0)
+            a.append(idx(i, j)); b.append(idx(i, j + 1)); layer.append(2 + (j % 2))        # a2 = (1/2, sqrt3/2)
+            a.append(idx(i, j)); b.append(idx(i - 1, j + 1)); layer.append(4 + (j % 2))    # a3 = a2 - a1
+    a = np.array(a, np.int32); b = np.array(b, np.int32); layer = np.array(layer)
+    for l in range(6):                                                                       # every layer is a perfect matching
+        m = layer == l
+        assert len(set(a[m]) | set(b[m])) == L * L and m.sum() == L * L // 2
+    order = np.concatenate([np.flatnonzero(layer == l) for l in range(6)]).astype(np.int32)
+    ii, jj = np.divmod(np.arange(L * L), L)
+    di = (ii + L // 2) % L - L // 2; dj = (jj + L // 2) % L - L // 2
+    # minimal-image displacement from the origin in the plane
+    best = None
+    for si in (-L, 0, L):
+        for sj in (-L, 0, L):
+            x = (di + si) + (dj + sj) / 2; y = (dj + sj) * math.sqrt(3) / 2
+            r2 = x * x + y * y
+            best = r2 if best is None else np.minimum(best, r2)
+    return a, b, order, best
+
+def run(L, schedule, registers, times, samples, seed, chi=math.pi / 4):
+    a, b, order, r2 = lattice(L)
+    Mb = len(a); rng = np.random.default_rng(seed); st = G.rng_state(seed + 1000)
+    work = np.zeros(Mb, np.int32)
+    msd = np.zeros(len(times)); ret = np.zeros(len(times)); reach = np.zeros(len(times))
+    base = G.gate_matrix(chi)
+    for s in range(samples):
+        if registers:
+            th = rng.uniform(0, 2 * math.pi, Mb)
+            u = np.empty((Mb, 4), complex); u[:, 0] = base[0]; u[:, 3] = base[3]
+            u[:, 1] = base[1] * np.exp(-1j * th); u[:, 2] = base[2] * np.exp(1j * th); u = u.ravel()
+        else:
+            u = np.tile(base, (Mb, 1)).ravel()
+        psi = np.zeros(L * L, complex); psi[0] = 1; done = 0
+        for i, t in enumerate(times):
+            if schedule == 'i': G.lib.apply_uniform(G.pc(psi), G.p32(a), G.p32(b), G.pc(u), Mb, (t - done) * Mb, st)
+            elif schedule == 'ii': G.lib.apply_permutations(G.pc(psi), G.p32(a), G.p32(b), G.pc(u), Mb, t - done, G.p32(work), st)
+            else:
+                for _ in range(t - done): G.lib.apply_order(G.pc(psi), G.p32(a), G.p32(b), G.pc(u), G.p32(order), Mb)
+            done = t
+            p = np.abs(psi) ** 2
+            msd[i] += (p * r2).sum(); ret[i] += p[0]; reach[i] += (p * (r2 > (0.45 * L) ** 2)).sum()
+    return msd / samples, ret / samples, reach / samples
+
+def expo(times, y, lo):
+    t = np.array(times[lo:], float); return float(np.polyfit(np.log(t), np.log(np.array(y[lo:])), 1)[0])
+
+# classical reference: MSD = 3 t (rate 1/2 per seam and sweep, six seams per port, unit steps): D = 3/4
+rows = {}
+plan = [  # name, L, schedule, registers, times, samples
+    ('iii_fixed_no_register_control', 160, 'iii', False, [1, 2, 4, 8, 12, 16], 1),
+    ('iii_fixed_with_registers', 96, 'iii', True, [1, 2, 4, 8, 16, 32, 64, 128], 24),
+    ('i_uniform_with_registers', 64, 'i', True, [1, 2, 4, 8, 16, 32, 64], 24),
+    ('ii_permutation_with_registers', 96, 'ii', True, [1, 2, 4, 8, 16, 32, 64], 24),
+    ('i_uniform_no_register_control', 64, 'i', False, [1, 2, 4, 8, 16, 32, 64], 24),
+    ('ii_permutation_no_register_control', 96, 'ii', False, [1, 2, 4, 8, 16, 32], 24),
+]
+for name, L, sched, reg, times, smp in plan:
+    msd, ret, reach = run(L, sched, reg, times, smp, 17)
+    lo = max(0, len(times) - 4)
+    rows[name] = {'L': L, 'samples': smp, 'times_sweeps': times, 'msd_edge2': msd.tolist(), 'return_probability': ret.tolist(),
+                  'weight_beyond_0.45L': reach.tolist(), 'msd_over_t': (msd / np.array(times)).tolist(),
+                  'growth_exponent_last4': expo(times, msd, lo), 'classical_msd_over_t': 3.0}
+    print(name, 'L', L, 'msd/t', np.round(msd / np.array(times), 3), 'exponent', round(rows[name]['growth_exponent_last4'], 3),
+          'edge weight', np.round(reach[-1], 4), 'elapsed', round(time.time() - t00, 1), flush=True)
+out['triangular_lattice'] = rows
+Path(HERE / 't2b_tri.json').write_text(json.dumps(out, indent=1))
+print('written', HERE / 't2b_tri.json')

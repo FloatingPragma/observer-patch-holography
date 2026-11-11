@@ -1,0 +1,250 @@
+{
+ "model": {
+  "dimension": 614400,
+  "nonzeros": 2105344,
+  "hermiticity_defect": 0.0,
+  "commutators_with_H": {
+   "T+_left": 0.0,
+   "T+_right": 0.0,
+   "2Y_left": 0.0,
+   "2Y_right": 0.0,
+   "2T3_left": 0.0,
+   "2T3_right": 0.0,
+   "L": 0.0,
+   "2Sz": 0.0
+  }
+ },
+ "boundary_0": {
+  "diagonal_dimension": 4140,
+  "blocks": 33,
+  "largest_diagonal_block": [
+   642,
+   [
+    2,
+    0
+   ]
+  ],
+  "physical_dimension": 1053,
+  "leak_of_H_out_of_the_diagonal_blocks": 0.0,
+  "lowest_levels": [
+   {
+    "energy": -4.554826634841764,
+    "L": 2,
+    "2Sz": 0
+   },
+   {
+    "energy": -4.160022215001478,
+    "L": 2,
+    "2Sz": 2
+   },
+   {
+    "energy": -4.160022215001474,
+    "L": 2,
+    "2Sz": -2
+   },
+   {
+    "energy": -4.160022215001474,
+    "L": 2,
+    "2Sz": 0
+   },
+   {
+    "energy": -4.045391414972975,
+    "L": 1,
+    "2Sz": -1
+   },
+   {
+    "energy": -4.045391414972971,
+    "L": 1,
+    "2Sz": 1
+   }
+  ],
+  "ground": -4.554826634841764,
+  "gap_to_the_next_physical_level": 0.3948044198402867
+ },
+ "boundary_-1": {
+  "diagonal_dimension": 2496,
+  "blocks": 25,
+  "largest_diagonal_block": [
+   354,
+   [
+    1,
+    1
+   ]
+  ],
+  "physical_dimension": 718,
+  "leak_of_H_out_of_the_diagonal_blocks": 0.0,
+  "lowest_levels": [
+   {
+    "energy": -3.5027827870936883,
+    "L": 1,
+    "2Sz": 1
+   },
+   {
+    "energy": -3.502782787093684,
+    "L": 1,
+    "2Sz": -1
+   },
+   {
+    "energy": -3.1733170449624932,
+    "L": 1,
+    "2Sz": 1
+   },
+   {
+    "energy": -3.1733170449624923,
+    "L": 1,
+    "2Sz": -1
+   },
+   {
+    "energy": -3.173317044962491,
+    "L": 1,
+    "2Sz": -3
+   },
+   {
+    "energy": -3.1733170449624883,
+    "L": 1,
+    "2Sz": 3
+   }
+  ],
+  "lowest_level_with_L=3": -0.6335836572188334,
+  "excitation_of_the_lowest_level_above_the_neutral_ground": 1.052043847748076
+ },
+ "boundary_+1": {
+  "diagonal_dimension": 3358,
+  "blocks": 30,
+  "largest_diagonal_block": [
+   466,
+   [
+    3,
+    1
+   ]
+  ],
+  "physical_dimension": 783,
+  "leak_of_H_out_of_the_diagonal_blocks": 0.0,
+  "lowest_levels": [
+   {
+    "energy": -3.7123622343284453,
+    "L": 4,
+    "2Sz": 0
+   },
+   {
+    "energy": -3.6450280030714053,
+    "L": 3,
+    "2Sz": 1
+   },
+   {
+    "energy": -3.6450280030713946,
+    "L": 3,
+    "2Sz": -1
+   },
+   {
+    "energy": -3.4265154925343824,
+    "L": 4,
+    "2Sz": 2
+   },
+   {
+    "energy": -3.426515492534379,
+    "L": 4,
+    "2Sz": -2
+   },
+   {
+    "energy": -3.426515492534379,
+    "L": 4,
+    "2Sz": 0
+   }
+  ],
+  "lowest_level_with_L=3": -3.6450280030714053,
+  "excitation_of_the_lowest_level_above_the_neutral_ground": 0.8424644005133191
+ },
+ "probe_records_right_cell_spin_up": {
+  "addition": {
+   "image_outside_the_destination_block": 0.0,
+   "image_outside_the_Gauss_kernel_of_that_block": 1.6653345369377348e-16,
+   "energy_transfer_of_the_first_line": 1.052043847748088,
+   "levels_in_the_window": 1,
+   "probability_of_the_first_line": 0.21838924611144828,
+   "total_probability_of_this_outcome": 0.24014566282178748
+  },
+  "removal": {
+   "image_outside_the_destination_block": 0.0,
+   "image_outside_the_Gauss_kernel_of_that_block": 0.0,
+   "energy_transfer_of_the_first_line": 0.9097986317703746,
+   "levels_in_the_window": 1,
+   "probability_of_the_first_line": 0.230892935703146,
+   "total_probability_of_this_outcome": 0.2598543371782117
+  }
+ },
+ "neutral_ground_content": {
+  "N_L_left": 2.154512511375759,
+  "N_L_right": 1.8454874886242352,
+  "N_ec_left": 0.9605826512871527,
+  "N_ec_right": 1.0394173487128449,
+  "scalar_particle_left": 0.21980610511280446,
+  "scalar_antiparticle_left": 0.1710394761109212,
+  "scalar_particle_right": 0.1710394761109209,
+  "scalar_antiparticle_right": 0.21980610511280477,
+  "link_excited": 0.21262842066668322,
+  "link_e_channel": 0.009349280289037526,
+  "weight_on_one_doublet_lepton_and_one_scalar_particle_per_cell_no_e^c_blank_link": 0.029830217346967176,
+  "energy_of_two_decoupled_cells": -4.0,
+  "ground": -4.554826634841767
+ },
+ "filled_singlet_shell": {
+  "|H psi|": 0.0,
+  "hypercharge_per_cell": [
+   2.0,
+   2.0
+  ],
+  "2T3_per_cell": [
+   0.0,
+   0.0
+  ],
+  "|T+ psi|": [
+   0.0,
+   0.0
+  ],
+  "L": -4.0,
+  "2Sz": 0.0
+ },
+ "committed_control": {
+  "|H Omega|^2": 4.0,
+  "|R H Omega|^2": 0.0,
+  "|R H^2 Omega|^2": 3.0
+ },
+ "audit_values_two_cell_README_and_SPECTRUM_PROOF": {
+  "diagonal_dimension_q0": 4140,
+  "diagonal_dimension_q-1": 2496,
+  "largest_diagonal_block": "642 at L=2, 2Sz=0",
+  "physical_dimension_q0": 1053,
+  "physical_dimension_q-1": 718,
+  "physical_dimension_q+1": 783,
+  "neutral_ground": -4.55482663484,
+  "gap_at_least": 0.394804412,
+  "q-1_lowest": -3.50278278709,
+  "q+1_ground_L4": -3.71236223433,
+  "q+1_lowest_L3": -3.64502800307,
+  "control": {
+   "|H Omega|^2": 4,
+   "|R H^2 Omega|^2": 3
+  },
+  "first_addition_record": {
+   "transfer": [
+    1.052043840289116,
+    1.052043855190277
+   ],
+   "probability": [
+    0.21838924288749695,
+    0.21838925033807755
+   ]
+  },
+  "first_removal_record": {
+   "transfer": [
+    0.9097986244596541,
+    0.9097986393608153
+   ],
+   "probability": [
+    0.23089293390512466,
+    0.23089294135570526
+   ]
+  }
+ }
+}

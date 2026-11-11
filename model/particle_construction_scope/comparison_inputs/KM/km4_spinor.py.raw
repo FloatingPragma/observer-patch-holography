@@ -1,0 +1,56 @@
+"""Item 4, second reading: the recharted doublet sector of the simulation session's family walk
+(FlatPatch sector 'spinor': hop phases of the spinor sections, flux 1/20 of a turn through every face of every
+carrier) with the same periodic array of central flux pairs (`flips` of family_walk.py: one seam sign per defect
+carrier). km_lib reproduces FlatPatch(flips=...) exactly (km4_validate.py).
+
+Reported per N = m^2: bottom of the kernel spectrum, number of levels below the clean bottom 0.746746, their
+weight on the defect carriers, the width of the lowest band over the small zone, how many levels remain at the
+clean flat value, and p0 = E0/NA with its walk phase. Same for the vector sector as the corresponding control.
+
+usage: python km4_spinor.py <out.json> <mmax>
+"""
+import json, sys
+import numpy as np
+import km_lib as K
+
+out = {}
+# one isolated carrier: section phases with one flipped seam
+for sector in ('spinor', 'vector'):
+    tpl = K.Template(sector, 'bridge', 'template')
+    def carrier(flip=None, t=0):
+        L = np.zeros((12, 12), complex)
+        for e, (a, b) in enumerate(K.E):
+            z = tpl.zint[t, e] * (-1 if e == flip else 1)
+            L[a, a] += 1; L[b, b] += 1; L[b, a] -= z; L[a, b] -= np.conj(z)
+        return np.linalg.eigvalsh(L)
+    clean = carrier()
+    vals = sorted({round(float(carrier(e)[0]), 9) for e in range(30)})
+    out[f'carrier_{sector}'] = {'clean_levels': clean.tolist(), 'lowest_with_one_flipped_seam_over_30_seams': vals, 'full_levels_flip_seam_0': carrier(0).tolist()}
+    print(f'{sector}: isolated carrier clean levels {np.round(clean[:4], 6)}; lowest level with one flipped seam (30 seams): {vals}; levels {np.round(carrier(0)[:5], 6)}')
+
+mmax = int(sys.argv[2]) if len(sys.argv) > 2 else 6
+rows = []
+for sector, gluing, rule in (('spinor', 'bridge', 'template'), ('spinor', 'seam', 'ambient'), ('vector', 'bridge', 'template')):
+    tpl = K.Template(sector, gluing, rule)
+    clean0 = np.linalg.eigvalsh(tpl.cell_matrix((0, 0)))
+    bottom_clean = min(np.linalg.eigvalsh(tpl.cell_matrix((kx, ky)))[0] for kx in np.linspace(-np.pi, np.pi, 9) for ky in np.linspace(-np.pi, np.pi, 9))
+    for m in range(1, mmax + 1):
+        sc = K.Supercell(tpl, m, m, defects=K.honeycomb_family(m, 0, -1.0))
+        w, U = np.linalg.eigh(sc.matrix().toarray())
+        nb = int((w < bottom_clean - 1e-7).sum())
+        cw = K.carrier_weight(sc, U[:, 0])
+        qM = 2 * np.pi / (3 ** 0.5 * m)
+        band = [np.linalg.eigvalsh(sc.matrix((qM * f * np.cos(a), qM * f * np.sin(a))).toarray())[0] for f in (0.5, 1.0) for a in (0, np.pi / 6, np.pi / 2)]
+        nflat = int((abs(w - clean0[0]) < 1e-8).sum())
+        nflat_clean = int((abs(np.linalg.eigvalsh(K.Supercell(tpl, m, m).matrix().toarray()) - clean0[0]) < 1e-8).sum())
+        rec = {'sector': sector, 'gluing': gluing, 'rule': rule, 'm': m, 'N': m * m, 'clean_bottom': float(bottom_clean), 'E0': float(w[0]),
+               'levels_below_clean_bottom': nb, 'lowest_levels': [float(x) for x in w[:6]], 'weight_of_lowest_on_defect_carriers': float(cw[sc.defect_carriers].sum()),
+               'lowest_band_min_max_over_zone': [float(min(band + [w[0]])), float(max(band + [w[0]]))], 'levels_at_clean_flat_value': nflat,
+               'levels_at_clean_flat_value_without_defects': nflat_clean,
+               'p0': float(w[0] / tpl.NA), 'omega0': float(np.arccos(1 - w[0] / tpl.NA)), 'omega_clean': float(np.arccos(1 - bottom_clean / tpl.NA))}
+        rows.append(rec)
+        print(f"{sector:6s} {gluing:6s} m={m:2d} N={m * m:4d}: clean bottom {bottom_clean:.6f}; E0 {w[0]:.6f} (p0 {rec['p0']:.6f}, phase {rec['omega0']:.5f} against {rec['omega_clean']:.5f}); "
+              f"{nb} levels below the clean bottom; weight of the lowest on defect carriers {rec['weight_of_lowest_on_defect_carriers']:.4f}; lowest band over the zone "
+              f"[{rec['lowest_band_min_max_over_zone'][0]:.6f}, {rec['lowest_band_min_max_over_zone'][1]:.6f}]; levels at the flat value {nflat} (clean {nflat_clean})", flush=True)
+        out['rows'] = rows
+        json.dump(out, open(sys.argv[1], 'w'), indent=1)

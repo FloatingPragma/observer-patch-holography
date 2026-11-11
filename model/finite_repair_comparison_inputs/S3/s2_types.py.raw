@@ -1,0 +1,139 @@
+"""S3 step 2: exhaustive enumeration of glue-triple types and of local refinement rules (exact, no floats).
+
+A wiring gives every cell an ordered port triple (one port per edge, edges in ccw order). The port graph of a
+federation depends only on the orbit of that ordered triple under the automorphisms of the carrier graph
+(order 120); with oriented carrier faces the relevant group is the rotation group (order 60).
+
+Run:  cd SCR/rer-edit && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. nice -n 10 /tmp/oph-completion-venv/bin/python \
+          SCR/research/S3/s2_types.py
+Writes SCR/research/S3/s2_types.json
+"""
+import itertools
+import json
+import sys
+from fractions import Fraction as Fr
+
+sys.dont_write_bytecode = True
+sys.path.insert(0, '/private/tmp/claude-501/-Users-muellerberndt-Projects-oph-meta/ffc7e197-dc34-420e-b416-eceb3c5d7773/scratchpad/research/S3')
+import s0_lib as S  # noqa: E402
+
+out = {}
+# ------------------------------------------------------------------ exact effective resistances of the carrier
+import sympy as sp  # noqa: E402
+Lc = sp.Matrix(S.LCAR.tolist())
+G = (Lc + sp.ones(12, 12) / 12).inv() - sp.ones(12, 12) / 12
+Reff = {}
+for d in (1, 2, 3):
+    q = [p for p in range(12) if S.DIST[0, p] == d][0]
+    Reff[d] = sp.nsimplify(G[0, 0] + G[q, q] - 2 * G[0, q])
+out['effective_resistance_by_port_distance'] = {str(d): str(v) for d, v in Reff.items()}
+assert Reff == {1: sp.Rational(11, 30), 2: sp.Rational(7, 15), 3: sp.Rational(1, 2)}
+
+# ------------------------------------------------------------------ the type tables
+CYC = lambda t: (t[1], t[2], t[0])
+SWAP = lambda t: (t[1], t[0], t[2])
+POS_PERMS = list(itertools.permutations(range(3)))
+
+
+def describe(rep, table, group_name):
+    pat = S.dist_pattern(rep)
+    arms = S.star_arms(rep)
+    stab = [pp for pp in POS_PERMS if table[tuple(rep[i] for i in pp)] == table[rep]]
+    pointwise = len(S.find_aut(rep, rep, proper_only=(group_name == '60')))
+    return {'type': table[rep], 'representative': list(rep), 'distance_pattern': list(pat),
+            'internal_distance_facing_each_position': list(S.ordered_dist(rep)),
+            'star_arms': [str(a) for a in arms], 'position_permutations_preserving_type': len(stab),
+            'cyclic_invariant': table[CYC(rep)] == table[rep], 'pointwise_stabilizer_order': pointwise,
+            'orbit_size': sum(1 for t in table.values() if t == table[rep])}
+
+
+rows120 = [describe(r, S.TYPE120, '120') for r in S.REPS120]
+rows60 = [describe(r, S.TYPE60, '60') for r in S.REPS60]
+out['types_under_120'] = rows120
+out['types_under_60'] = rows60
+out['count_types_120'] = len(rows120)
+out['count_types_60'] = len(rows60)
+out['cyclic_invariant_types_120'] = [r for r in rows120 if r['cyclic_invariant']]
+out['cyclic_invariant_types_60'] = [r for r in rows60 if r['cyclic_invariant']]
+print('ordered triple types: 120-group', len(rows120), ' 60-group', len(rows60))
+for r in rows120:
+    print('  ', r['type'], r['representative'], r['distance_pattern'], 'arms', r['star_arms'], 'cyclic' if r['cyclic_invariant'] else '',
+          'S3-stab', r['position_permutations_preserving_type'], 'pointwise stab', r['pointwise_stabilizer_order'])
+print('cyclic-invariant under 120:', [(r['representative'], r['distance_pattern']) for r in out['cyclic_invariant_types_120']])
+print('cyclic-invariant under 60 :', [(r['representative'], r['distance_pattern']) for r in out['cyclic_invariant_types_60']])
+
+# all arms and the range of the reduced cell-to-cell conductance 1/(1 + a + a')
+arms = sorted({a for r in rows120 for a in map(Fr, r['star_arms'])})
+out['arm_values'] = [str(a) for a in arms]
+wmin, wmax = 1 / (1 + 2 * max(arms)), 1 / (1 + 2 * min(arms))
+out['reduced_conductance_range'] = [str(wmin), str(wmax)]
+out['max_conductance_ratio'] = str(wmax / wmin)
+out['conductance_face_triple'] = str(1 / (1 + 2 * Fr(11, 60)))
+out['conductance_belt_triple'] = str(1 / (1 + 2 * Fr(7, 30)))
+print('arms', out['arm_values'], 'conductance range', out['reduced_conductance_range'], 'ratio', out['max_conductance_ratio'])
+
+# ------------------------------------------------------------------ local refinement rules for the two cyclic types
+# Parent triple P = (P0,P1,P2) on edges 0,1,2.  Port ancestry keeps labels, so the corner child at vertex k must
+# use P_i, P_j on its two outer half-edges; its inner port x_k is free.  The central child uses q_k on the inner
+# edge parallel to parent edge k.  The fine inner seam (x_k, q_k) maps to the pair (P-carrier port x_k, port q_k):
+# a seam iff x_k ~ q_k, a collapse iff x_k = q_k.  Uniform type: the corner triple (P with P_k -> x_k) and the
+# central triple q have the type of P.  Covariance under the three-fold axis of the parent cell: x_{k+1} = r x_k,
+# q_{k+1} = r q_k with r the carrier rotation P_k -> P_{k+1}.
+
+
+def refinement_rules(P, table):
+    tP = table[P]
+    r = S.find_aut(P, CYC(P))
+    assert len(r) == 1
+    r = r[0]
+    rules = []
+    for x0 in range(12):
+        x = (x0, r[x0], r[r[x0]])
+        if any(x[k] in (P[(k + 1) % 3], P[(k + 2) % 3]) for k in range(3)):
+            continue
+        if not all(table[tuple(x[k] if i == k else P[i] for i in range(3))] == tP for k in range(3)):
+            continue
+        for q0 in range(12):
+            q = (q0, r[q0], r[r[q0]])
+            if len(set(q)) < 3 or table[q] != tP:
+                continue
+            rel = [int(S.DIST[x[k], q[k]]) for k in range(3)]
+            kind = 'strict' if all(d == 1 for d in rel) else 'weak (collapses)' if all(d <= 1 for d in rel) else None
+            if kind is None:
+                continue
+            h = S.find_aut(P, q)
+            rules.append({'corner_inner_ports': list(x), 'corner_copies_parent': x == P, 'central_ports': list(q), 'kind': kind,
+                          'central_is_image_of_parent_under': [S.rotation_class(g) for g in h]})
+    return rules
+
+
+for name, P in (('face_triple_F', S.FACE_TRIPLE), ('belt_triple_B', S.BELT_TRIPLE)):
+    for gname, table in (('120', S.TYPE120), ('60', S.TYPE60)):
+        rules = refinement_rules(P, table)
+        out[f'refinement_rules_{name}_group{gname}'] = rules
+        print(f'{name} P={P} group {gname}: covariant label-preserving rules = {len(rules)}')
+        for ru in rules:
+            print('    corner inner', ru['corner_inner_ports'], 'central', ru['central_ports'], ru['kind'],
+                  [(c['proper'], c['class']) for c in ru['central_is_image_of_parent_under']])
+
+# without the three-fold covariance requirement (count only): any x_k, any q of the same type
+for name, P in (('face_triple_F', S.FACE_TRIPLE), ('belt_triple_B', S.BELT_TRIPLE)):
+    for gname, table in (('120', S.TYPE120), ('60', S.TYPE60)):
+        tP = table[P]
+        n_strict = n_weak = 0
+        xs = [[x for x in range(12) if x not in (P[(k + 1) % 3], P[(k + 2) % 3])
+               and table[tuple(x if i == k else P[i] for i in range(3))] == tP] for k in range(3)]
+        for x in itertools.product(*xs):
+            for q in itertools.permutations(range(12), 3):
+                if table[q] != tP:
+                    continue
+                rel = [int(S.DIST[x[k], q[k]]) for k in range(3)]
+                if all(d == 1 for d in rel):
+                    n_strict += 1
+                elif all(d <= 1 for d in rel):
+                    n_weak += 1
+        out[f'refinement_rules_no_covariance_{name}_group{gname}'] = {'corner_choices': [len(v) for v in xs], 'strict': n_strict, 'weak_only': n_weak}
+        print(f'{name} group {gname} without three-fold covariance: corner choices {[len(v) for v in xs]} strict {n_strict} weak-only {n_weak}')
+
+json.dump(out, open(S.S3 + '/s2_types.json', 'w'), indent=1)
+print('written', S.S3 + '/s2_types.json')

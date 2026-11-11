@@ -1,0 +1,429 @@
+"""Operational rest-mass readouts for a Markov chain with a translation symmetry (S4 library).
+
+Conventions (every one of them is a DECLARED reading convention, stated once here):
+
+* A chain is given by its one-attempt transition matrix T (column stochastic, T[next, current]) and the number
+  M of attempts per sweep, or by a rate generator G (columns sum to zero). The energy operator of the Euclidean
+  reading is H = M (1 - T) (Poisson clock, M attempts per unit time) or H = -G. Unit: 1 / sweep (or 1 / time).
+* A translation group acts on configurations by permutations that commute with T. For a character chi_k the
+  block H_k is the restriction of H to functions with U_g f = chi_k(g) f. A band is an eigenvalue branch E_n(k).
+* Momentum on a lattice: khat = 2 sin(k / 2) per direction (the lattice momentum of a nearest-neighbour stencil).
+
+Readouts:
+
+R1  pole mass      E0 = E(k = 0) of the lowest band of a sector, c^2 from E^2 = E0^2 + c^2 khat^2, m = E0 / c^2.
+R2  kinetic mass   m_kin = 1 / E''(0) = 1 / (2 D), from Re E at the smallest momenta (and drift v = Im E / k).
+R3  consistency    E0 / (m_kin c^2) with c taken from the largest slope of the band (not from the same small-k fit).
+R1s shape mass     for a sector whose own stationary state is the k = 0 state (conserved charge): the fit
+                   khat^2 = alpha E^2 + beta E gives c^2 = 1 / alpha, m = beta / 2, E0 = beta / (2 alpha).
+R4  cone mass      half the splitting at a band touching divided by the squared cone slope.
+R5  record rate    stationary release per sweep, sum over seams of E floor(d^2 / 4).
+"""
+from __future__ import annotations
+
+import math
+
+import numpy as np
+import scipy.sparse as sp
+
+
+# ----------------------------------------------------------------------------------------------- chains
+def enumerate_chain(starts, moves, limit=2_000_000):
+    """Breadth-first closure. ``moves(state)`` yields (probability, next_state). Returns states, index, T (csc)."""
+    index, order = {}, []
+    for s in starts:
+        if s not in index:
+            index[s] = len(order); order.append(s)
+    rows, cols, vals = [], [], []
+    head = 0
+    while head < len(order):
+        s = order[head]
+        for p, t in moves(s):
+            j = index.get(t)
+            if j is None:
+                j = len(order); index[t] = j; order.append(t)
+                if j >= limit:
+                    raise ArithmeticError('state limit exceeded')
+            rows.append(j); cols.append(head); vals.append(p)
+        head += 1
+    n = len(order)
+    T = sp.coo_matrix((vals, (rows, cols)), shape=(n, n)).tocsc()
+    T.sum_duplicates()
+    return order, index, T
+
+
+def recurrent_classes(T):
+    """Closed communicating classes of a column-stochastic matrix (lists of state indices)."""
+    from scipy.sparse.csgraph import connected_components
+    n = T.shape[0]
+    ncomp, lab = connected_components(T.T.tocsr(), directed=True, connection='strong')
+    A = T.tocoo()
+    leaves = np.zeros(ncomp, bool)
+    out = lab[A.col] != lab[A.row]
+    leaves[np.unique(lab[A.col[out & (A.data > 0)]])] = True
+    return [np.flatnonzero(lab == c) for c in range(ncomp) if not leaves[c]], lab
+
+
+def stationary(T, tol=1e-13):
+    """Stationary law of an irreducible column-stochastic matrix (dense solve below 6000 states, else iteration)."""
+    n = T.shape[0]
+    if n <= 6000:
+        A = (T - sp.identity(n)).toarray()
+        A[-1, :] = 1.0
+        b = np.zeros(n); b[-1] = 1.0
+        return np.linalg.solve(A, b)
+    p = np.full(n, 1.0 / n)
+    Tl = (T + sp.identity(n)) * 0.5
+    for it in range(2_000_000):
+        q = Tl @ p
+        if it % 50 == 0 and np.abs(q - p).sum() < tol:
+            return q / q.sum()
+        p = q
+    return p / p.sum()
+
+
+# ----------------------------------------------------------------------------------------------- symmetry blocks
+class Translations:
+    """An abelian group acting on the states by permutations.
+
+    ``perms`` maps a coordinate tuple (j1, ..., jr) to an integer array p with p[s] = image of state s.
+    ``periods`` are the orders (L1, ..., Lr). Momenta are tuples of integers (m1, ..., mr), k_i = 2 pi m_i / L_i.
+    """
+
+    def __init__(self, perms: dict, periods):
+        self.perms, self.periods = perms, tuple(periods)
+        n = len(next(iter(perms.values())))
+        self.n = n
+        rep = np.full(n, -1, np.int64)
+        elem = [None] * n
+        reps = []
+        for s in range(n):
+            if rep[s] >= 0:
+                continue
+            reps.append(s)
+            for g, p in perms.items():
+                t = int(p[s])
+                if rep[t] < 0:
+                    rep[t] = s; elem[t] = g
+        self.rep, self.elem, self.reps = rep, elem, np.array(reps)
+        self.size = np.bincount(rep, minlength=n)[self.reps]
+        self.pos = {int(r): i for i, r in enumerate(self.reps)}
+        # stabilizers
+        self.stab = [[g for g, p in perms.items() if int(p[r]) == int(r)] for r in self.reps]
+
+    def character(self, m, g):
+        return np.exp(2j * np.pi * sum(mi * gi / Li for mi, gi, Li in zip(m, g, self.periods)))
+
+    def block(self, A, m):
+        """The block of the operator A (sparse, commuting with the group) at momentum m."""
+        ok = np.array([all(abs(self.character(m, g) - 1) < 1e-9 for g in st) for st in self.stab])
+        keep = np.flatnonzero(ok)
+        new = -np.ones(len(self.reps), np.int64); new[keep] = np.arange(len(keep))
+        Ac = A.tocsc()[:, self.reps[keep]].tocoo()
+        rows_rep = self.rep[Ac.row]
+        ri = np.array([self.pos[int(r)] for r in rows_rep], np.int64)
+        phase = np.array([self.character(m, self.elem[int(s)]) for s in Ac.row])
+        ci = Ac.col
+        w = Ac.data * phase * np.sqrt(self.size[keep][ci] / self.size[ri])
+        good = new[ri] >= 0
+        B = np.zeros((len(keep), len(keep)), complex)
+        np.add.at(B, (new[ri][good], ci[good]), w[good])
+        return B
+
+    def momenta(self):
+        import itertools
+        return list(itertools.product(*[range(L) for L in self.periods]))
+
+
+def bands(A, tr: Translations, energy, hermitian=False):
+    """Eigenvalues E = energy(eigenvalue of A) in every momentum block, sorted by real part."""
+    out = {}
+    for m in tr.momenta():
+        B = tr.block(A, m)
+        if B.shape[0] == 0:
+            out[m] = np.array([]); continue
+        ev = np.linalg.eigvalsh((B + B.conj().T) / 2) if hermitian else np.linalg.eigvals(B)
+        E = energy(ev)
+        out[m] = E[np.argsort(E.real, kind='stable')]
+    return out
+
+
+# ----------------------------------------------------------------------------------------------- readouts
+def khat(k):
+    return 2.0 * np.sin(np.asarray(k, float) / 2.0)
+
+
+def r2_kinetic(k, E):
+    """Kinetic mass and drift from the smallest nonzero momentum: Re E = khat^2 / (2 m), Im E = v sin k."""
+    k = np.asarray(k, float); E = np.asarray(E, complex)
+    i = np.argmin(np.where(np.abs(np.sin(k / 2)) > 1e-12, np.abs(np.sin(k / 2)), np.inf))
+    D = (E[i].real - E[np.argmin(np.abs(np.sin(k / 2)))].real) / khat(k[i]) ** 2
+    v = E[i].imag / math.sin(k[i]) if abs(math.sin(k[i])) > 1e-12 else float('nan')
+    return {'D': float(D), 'm_kin': float(1 / (2 * D)) if D > 0 else float('inf'), 'drift': float(v), 'k_used': float(k[i])}
+
+
+def r2_extrapolated(k, E):
+    """Kinetic mass from the two smallest nonzero momenta, (E - E0) / khat^2 extrapolated linearly in khat^2 to zero."""
+    k = np.asarray(k, float); E = np.asarray(E, float)
+    kh2 = np.round(khat(k) ** 2, 12)
+    vals = np.unique(kh2)
+    i0 = int(np.argmin(kh2))
+    i1 = int(np.flatnonzero(kh2 == vals[1])[0]); i2 = int(np.flatnonzero(kh2 == vals[2])[0])
+    r1 = (E[i1] - E[i0]) / kh2[i1]; r2 = (E[i2] - E[i0]) / kh2[i2]
+    D = (r1 * kh2[i2] - r2 * kh2[i1]) / (kh2[i2] - kh2[i1])
+    return float(1 / (2 * D)) if D > 0 else float('inf')
+
+
+def r1_pole(k, E):
+    """Gap at k = 0 and c^2 from the two smallest momenta: E^2 = E0^2 + c^2 khat^2."""
+    k = np.asarray(k, float); E = np.asarray(E, float)
+    order = np.argsort(np.abs(np.sin(k / 2)))
+    i0, i1 = order[0], order[1]
+    E0 = E[i0]
+    c2 = (E[i1] ** 2 - E0 ** 2) / khat(k[i1]) ** 2
+    return {'E0': float(E0), 'c2_small_k': float(c2), 'm_pole': float(E0 / c2) if c2 > 0 else float('inf')}
+
+
+def largest_slope(k, E):
+    """Largest |dE/dk| between neighbouring momenta of a band sampled on a ring (finite differences)."""
+    k = np.asarray(k, float); E = np.asarray(E, float)
+    o = np.argsort(k)
+    k, E = k[o], E[o]
+    return float(np.max(np.abs(np.diff(E) / np.diff(k)))) if len(k) > 1 else float('nan')
+
+
+def shell_defect(k, E):
+    """Largest relative deviation of (E^2 - E0^2) / (c0^2 khat^2) from one over the sampled zone, c0 from small k."""
+    p = r1_pole(k, E)
+    k = np.asarray(k, float); E = np.asarray(E, float)
+    kh2 = khat(k) ** 2
+    mask = kh2 > 1e-12
+    if p['c2_small_k'] <= 0:
+        return float('inf')
+    rho = (E[mask] ** 2 - p['E0'] ** 2) / (p['c2_small_k'] * kh2[mask])
+    return float(np.max(np.abs(rho - 1)))
+
+
+def r1s_shape(k, E):
+    """Shape readout for a band with E(0) = 0: least squares khat^2 = alpha E^2 + beta E over the nonzero momenta."""
+    k = np.asarray(k, float); E = np.asarray(E, float)
+    kh2 = khat(k) ** 2
+    mask = kh2 > 1e-12
+    A = np.stack([E[mask] ** 2, E[mask]], axis=1)
+    (alpha, beta), res, *_ = np.linalg.lstsq(A, kh2[mask], rcond=None)
+    fit = A @ np.array([alpha, beta])
+    out = {'alpha': float(alpha), 'beta': float(beta), 'm': float(beta / 2),
+           'residual_rel': float(np.max(np.abs(fit - kh2[mask]) / kh2[mask]))}
+    out['c2'] = float(1 / alpha) if alpha > 1e-12 else float('inf')
+    out['E0'] = float(beta / (2 * alpha)) if alpha > 1e-12 else float('inf')
+    return out
+
+
+def r4_cone(half_splitting, slope):
+    return half_splitting / slope ** 2
+
+
+# ----------------------------------------------------------------------------------------------- repair laws on contrasts
+def current(d, coin):
+    """The reference current: floor(d / 2) for coin one, ceil(d / 2) for coin zero (same formula as the native rule)."""
+    return (d - (2 * coin - 1) * (abs(d) % 2)) // 2
+
+
+class Complex:
+    """Ports, oriented seams (a, b) and oriented faces given as lists of (seam index, sign).
+
+    ``twistable`` marks the seams on which a declared twist rule may act (two adjacent faces required).
+    The gauge-invariant state is the contrast tuple d (one integer per seam): d = B x - b.
+    """
+
+    def __init__(self, ports, seams, faces, twistable=None):
+        self.P, self.seams, self.M = ports, [tuple(s) for s in seams], len(seams)
+        self.faces, self.F = faces, len(faces)
+        B = np.zeros((self.M, ports), np.int64)
+        for e, (a, b) in enumerate(self.seams):
+            B[e, a] += 1; B[e, b] -= 1
+        self.B = B
+        self.K = B @ B.T                                   # change of d under a unit current on seam e: -K[:, e]
+        C = np.zeros((self.F, self.M), np.int64)
+        for f, bd in enumerate(faces):
+            for e, s in bd:
+                C[f, e] += s
+        self.C = C
+        assert not (C @ B).any(), 'every face boundary must be closed'
+        side = [[] for _ in range(self.M)]
+        for f, bd in enumerate(faces):
+            for e, s in bd:
+                side[e].append((s, f))
+        self.fp = [next((f for s, f in sd if s > 0), -1) for sd in side]   # face traversing the seam a -> b
+        self.fm = [next((f for s, f in sd if s < 0), -1) for sd in side]
+        self.twistable = [bool(t) and self.fp[e] >= 0 and self.fm[e] >= 0 for e, t in
+                          enumerate(twistable if twistable is not None else [False] * self.M)]
+        self.Kcols = [tuple(int(v) for v in self.K[:, e]) for e in range(self.M)]
+
+    def charges(self, d):
+        """Face charges q = curl b = - curl d."""
+        return tuple(int(v) for v in -(self.C @ np.asarray(d)))
+
+    def laplacian(self):
+        return self.B.T @ self.B
+
+    def dual_laplacian(self):
+        return self.C @ self.C.T
+
+
+COST = (0, 5, 8, 10)
+KAPPA = 5
+
+
+def cost(q, table=COST):
+    a = abs(q)
+    return table[a] if a <= 3 else table[3] + (a - 3) * table[1]
+
+
+def moves_static(cx: Complex):
+    """Transported-contrast repair with static offsets, on contrasts."""
+    M = cx.M
+
+    def moves(d):
+        for e in range(M):
+            de = d[e]
+            col = cx.Kcols[e]
+            for coin in (0, 1):
+                j = current(de, coin)
+                yield 1.0 / (2 * M), (d if j == 0 else tuple(x - j * c for x, c in zip(d, col)))
+    return moves
+
+
+def moves_twist(cx: Complex, table=COST, kappa=KAPPA, forbid=None):
+    """The simulation side's unit-twist rule (kernels.py CORE, OPH_F_TWIST), on contrasts.
+
+    At an attempt on a twistable seam with d != 0: k = sign(d), the charges of the two faces change by +k and -k;
+    accepted iff 2 dC < kappa (2 |d| - 1), or equality and coin one; then d_e -> d_e - k and nothing else changes.
+    Otherwise the transported repair runs.
+    """
+    M = cx.M
+    Crows = [[(e, int(cx.C[f, e])) for e in np.flatnonzero(cx.C[f])] for f in range(cx.F)]
+
+    def q_of(d, f):
+        return -sum(s * d[e] for e, s in Crows[f])
+
+    def moves(d):
+        for e in range(M):
+            de = d[e]
+            col = cx.Kcols[e]
+            tw = None
+            if cx.twistable[e] and de != 0:
+                k = 1 if de > 0 else -1
+                q1, q2 = q_of(d, cx.fp[e]), q_of(d, cx.fm[e])
+                m1, m2 = q1 + k, q2 - k
+                dc = cost(m1, table) + cost(m2, table) - cost(q1, table) - cost(q2, table)
+                lhs, rhs = 2 * dc, kappa * (2 * abs(de) - 1)
+                if forbid is not None and forbid(q1, q2, m1, m2):
+                    tw = None
+                elif lhs < rhs:
+                    tw = (0, 1)
+                elif lhs == rhs:
+                    tw = (1,)
+                if tw:
+                    dt = list(d); dt[e] = de - k; dt = tuple(dt)
+            for coin in (0, 1):
+                if tw and coin in tw:
+                    yield 1.0 / (2 * M), dt
+                    continue
+                j = current(de, coin)
+                yield 1.0 / (2 * M), (d if j == 0 else tuple(x - j * c for x, c in zip(d, col)))
+    return moves
+
+
+def release_rate(cx: Complex, states, weights):
+    """R5: stationary release per sweep, sum over seams of E floor(d^2 / 4) (repair events only, static law)."""
+    tot = 0.0
+    for d, w in zip(states, weights):
+        tot += w * sum(v * v // 4 for v in d)
+    return tot
+
+
+# ----------------------------------------------------------------------------------------------- lattices
+def ring(L):
+    return Complex(L, [(i, (i + 1) % L) for i in range(L)], [])
+
+
+def ring_translation(L):
+    return [(i + 1) % L for i in range(L)]                 # seam permutation of the shift by one port
+
+
+def tri_torus(N, twist=False):
+    """Periodic triangular lattice, seams H, V, G per site as in SCR/tw/tw_lattice.py, faces U and D."""
+    idx = lambda i, j: (i % N) * N + (j % N)
+    seams, sid = [], {}
+    for i in range(N):
+        for j in range(N):
+            for t, (di, dj) in enumerate(((1, 0), (0, 1), (1, 1))):
+                sid[(i, j, t)] = len(seams); seams.append((idx(i, j), idx(i + di, j + dj)))
+    faces = []
+    for i in range(N):
+        for j in range(N):
+            # U(i, j): (i,j) -> (i+1,j) -> (i+1,j+1) -> (i,j): H(i,j) +, V(i+1,j) +, G(i,j) -
+            faces.append([(sid[(i, j, 0)], 1), (sid[((i + 1) % N, j, 1)], 1), (sid[(i, j, 2)], -1)])
+            # D(i, j): (i,j) -> (i+1,j+1) -> (i,j+1) -> (i,j): G(i,j) +, H(i,j+1) -, V(i,j) -
+            faces.append([(sid[(i, j, 2)], 1), (sid[(i, (j + 1) % N, 0)], -1), (sid[(i, j, 1)], -1)])
+    cx = Complex(N * N, seams, faces, twistable=[twist] * len(seams))
+    shift = {}
+    for name, (si, sj) in (('x', (1, 0)), ('y', (0, 1))):
+        perm = [0] * len(seams)
+        for (i, j, t), e in sid.items():
+            perm[e] = sid[((i + si) % N, (j + sj) % N, t)]
+        shift[name] = perm
+    return cx, shift
+
+
+def strip(L, twist=True):
+    """Periodic strip of 2 L triangles: top ports t_i = i, bottom ports b_i = L + i.
+
+    Seams: top rail t_i -> t_{i+1}, bottom rail b_i -> b_{i+1}, rung t_i -> b_i, diagonal t_i -> b_{i+1}.
+    Faces: U_i = (t_i, b_i, b_{i+1}), D_i = (t_i, b_{i+1}, t_{i+1}). Rails border one face: never twistable.
+    """
+    t = lambda i: i % L
+    b = lambda i: L + (i % L)
+    seams, sid = [], {}
+    for i in range(L):
+        for name, (p, q) in (('T', (t(i), t(i + 1))), ('B', (b(i), b(i + 1))), ('R', (t(i), b(i))), ('G', (t(i), b(i + 1)))):
+            sid[(name, i)] = len(seams); seams.append((p, q))
+    faces = []
+    for i in range(L):
+        faces.append([(sid[('R', i)], 1), (sid[('B', i)], 1), (sid[('G', i)], -1)])                    # U_i
+        faces.append([(sid[('G', i)], 1), (sid[('R', (i + 1) % L)], -1), (sid[('T', i)], -1)])        # D_i
+    tw = [twist and name in ('R', 'G') for (name, i) in sid]
+    cx = Complex(2 * L, seams, faces, twistable=tw)
+    perm = [0] * len(seams)
+    for (name, i), e in sid.items():
+        perm[e] = sid[(name, (i + 1) % L)]
+    return cx, perm, sid
+
+
+def seam_perm_action(states, index, perm):
+    """Permutation of the states induced by a seam permutation: d'[perm[e]] = d[e]."""
+    inv = np.argsort(np.asarray(perm))
+    out = np.empty(len(states), np.int64)
+    for s, d in enumerate(states):
+        out[s] = index[tuple(d[inv[e]] for e in range(len(d)))]
+    return out
+
+
+def port_perm_action(states, index, perm):
+    """Permutation of load states induced by a port permutation: x'[perm[p]] = x[p]."""
+    inv = np.argsort(np.asarray(perm))
+    out = np.empty(len(states), np.int64)
+    for s, x in enumerate(states):
+        out[s] = index[tuple(x[inv[p]] for p in range(len(x)))]
+    return out
+
+
+def cyclic_group(perm_states, L):
+    """{(j,): perm^j} for a generator of order L acting on state indices."""
+    out, cur = {}, np.arange(len(perm_states))
+    for j in range(L):
+        out[(j,)] = cur.copy()
+        cur = perm_states[cur]
+    assert (cur == np.arange(len(perm_states))).all(), 'generator does not have the stated order'
+    return out

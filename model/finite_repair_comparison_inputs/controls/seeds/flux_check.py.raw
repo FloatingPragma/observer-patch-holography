@@ -1,0 +1,106 @@
+"""Independent check of lead L13: charge in a uniform flux on the icosahedral carrier.
+
+Seam phases from spin-1/2 coherent states of the port directions: theta_ab = k * arg <n_a|n_b>, so every face holds
+flux k * (solid angle)/2 = 2 pi k / 20. Reports the spectrum of the phased adjacency by k, and the Lie closure of the
+port load operators compressed to a triplet plus a doublet.
+"""
+import itertools, sys
+import numpy as np
+from model.transported_contrast import law
+from model.common_source import slow_geometry
+
+seams, faces = law.carrier()
+src = slow_geometry.source()
+n = 12
+# port unit vectors: slow eigenvectors of the adjacency give the embedding (rank-three readback)
+A0 = np.zeros((n, n))
+for a, b in seams: A0[a, b] = A0[b, a] = 1
+w, v = np.linalg.eigh(A0)
+U = v[:, np.abs(w - 5 ** .5) < 1e-9] * np.sqrt(n / 3)          # rows are unit vectors up to a common rotation
+assert np.allclose(np.linalg.norm(U, axis=1), 1)
+assert all(abs(U[a] @ U[b] - 1 / 5 ** .5) < 1e-9 for a, b in seams)
+# orientation: faces are oriented; make the embedding right-handed with respect to them
+f = faces[0]
+if np.linalg.det(np.array([U[f[0]], U[f[1]], U[f[2]]])) < 0: U[:, 2] *= -1
+R = np.linalg.qr(np.random.default_rng(1).normal(size=(3, 3)))[0]   # generic rotation: no port at a pole
+if np.linalg.det(R) < 0: R[:, 0] *= -1
+U = U @ R.T
+def coherent(u):
+    th, ph = np.arccos(u[2]), np.arctan2(u[1], u[0])
+    return np.array([np.cos(th / 2), np.exp(1j * ph) * np.sin(th / 2)])
+chi = [coherent(u) for u in U]
+def adjacency(k):
+    A = np.zeros((n, n), complex)
+    for a, b in seams:
+        z = np.vdot(chi[a], chi[b]); z /= abs(z)
+        A[a, b] = z ** k; A[b, a] = np.conj(z) ** k
+    return A
+def face_flux(k):
+    A = adjacency(k); out = []
+    for a, b, c in faces:
+        out.append(np.angle(A[a, b] * A[b, c] * A[c, a]) / (2 * np.pi) * 20)
+    return np.round(out, 6)
+print('face flux in units of 2 pi/20 for k = 1:', sorted(set(face_flux(1))), ' k = 3:', sorted(set(face_flux(3))))
+def bands(k):
+    w, v = np.linalg.eigh(adjacency(k))
+    out = []
+    for val in sorted(set(np.round(w, 6)), reverse=True):
+        sel = np.abs(w - val) < 1e-5
+        out.append((val, int(sel.sum()), v[:, sel]))
+    return out
+for k in range(0, 11):
+    print(f'k = {k:2d}:', ', '.join(f'{val:+.4f} ({m})' for val, m, _ in bands(k)))
+
+def closure(herm, tol=1e-8):
+    basis, elems = [], []
+    def add(X):
+        vec = np.concatenate([X.real.ravel(), X.imag.ravel()])
+        if basis:
+            B = np.array(basis); vec = vec - B.T @ (B @ vec)
+        nv = np.linalg.norm(vec)
+        if nv > tol:
+            basis.append(vec / nv); return True
+        return False
+    for X in herm:
+        G = 1j * X
+        if add(G): elems.append(G)
+    span = len(elems); frontier = list(elems)
+    while frontier:
+        new = []
+        for X in frontier:
+            for Y in list(elems):
+                Z = X @ Y - Y @ X
+                if add(Z): new.append(Z)
+        elems += new; frontier = new
+    rows = [np.concatenate([(E @ Y - Y @ E).real.ravel(), (E @ Y - Y @ E).imag.ravel()]) for Y in elems for E in elems]
+    M = np.array(rows).reshape(len(elems), len(elems), -1)
+    # centre: coefficient vectors c with sum_i c_i [E_i, Y] = 0 for all Y
+    Mx = np.concatenate([M[j].T for j in range(len(elems))], axis=0)
+    centre = len(elems) - np.linalg.matrix_rank(Mx, tol=1e-7)
+    return span, len(elems), centre
+def multiplet(k, dim, which):
+    bs = [b for b in bands(k) if b[1] == dim]
+    return bs[0][2] if which == 'top' else bs[-1][2]
+def compressed_loads(blocks):
+    ops = []
+    for p in range(n):
+        mats = [V.conj().T[:, [p]] @ V[[p], :] for V in blocks]       # P N_p P in the multiplet basis
+        size = sum(m.shape[0] for m in mats); X = np.zeros((size, size), complex); o = 0
+        for m in mats:
+            X[o:o + m.shape[0], o:o + m.shape[0]] = m; o += m.shape[0]
+        ops.append(X)
+    return ops
+print()
+cases = {'triplet k=2 alone': [(2, 3)], 'doublet k=3 alone': [(3, 2)], 'doublet k=1 alone': [(1, 2)], 'triplet k=4 alone': [(4, 3)],
+         'triplet k=2 + doublet k=3': [(2, 3), (3, 2)], 'triplet k=2 + doublet k=1': [(2, 3), (1, 2)],
+         'triplet k=4 + doublet k=1': [(4, 3), (1, 2)], 'triplet k=4 + doublet k=3': [(4, 3), (3, 2)],
+         'triplet k=2 + triplet k=4': [(2, 3), (4, 3)], 'k=0 slow triplet + k=0 fast triplet (blockwise, for comparison)': [(0, 3), (0, 3, 'bottom')],
+         'quartet k=3 alone': [(3, 4)], 'sextet k=1 alone': [(1, 6)], 'quintet k=2 alone': [(2, 5)]}
+for name, spec in cases.items():
+    blocks = []
+    for item in spec:
+        k, dim = item[0], item[1]
+        cands = [b for b in bands(k) if b[1] == dim]
+        blocks.append(cands[-1][2] if len(item) > 2 else cands[0][2])
+    span, clo, cen = closure(compressed_loads(blocks))
+    print(f'{name:70s} span {span:3d}  closure {clo:3d}  centre {cen}')

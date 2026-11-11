@@ -1,0 +1,323 @@
+"""CK (step S4): the clock premise of the lepton phase and the clock of the mass readout.
+
+Run from RL/work/CK:
+    FR_RER=<RER> PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=../FR /tmp/oph-completion-venv/bin/python -B ck_clock.py
+Writes ck_results.json. Candidates are listed in CANDIDATES.md (written before this script).
+Sections: A energy-clock identity (M4), B modular routes (M1, M2, M3, M8), C weak-kick clock on J (M5, M6),
+D mass clocks (K1-K4), E refinement (M7), F DR's forms D5 and D12, G clock energy during a virtual excitation.
+"""
+import json
+import os
+import sys
+
+sys.dont_write_bytecode = True
+import mpmath as mp  # noqa: E402
+import numpy as np  # noqa: E402
+import sympy as sp  # noqa: E402
+
+mp.mp.dps = 40
+OUT = {}
+HERE = os.path.dirname(os.path.abspath(__file__))
+
+
+def fr(x):
+    return str(sp.nsimplify(x))
+
+
+# ---------------------------------------------------------------------------------------------------------------
+# A. Energy clock A = I - Re U against the read probability of the coherent seam event (candidate M4)
+# ---------------------------------------------------------------------------------------------------------------
+A = {}
+al = sp.symbols('alpha', real=True)
+xa, xb, xr = sp.symbols('x_a x_b x_r')
+s = sp.exp(sp.I * al)
+I2 = sp.sqrt(2)
+# basis of one seam plus one off-seam port, times the record: index 2*port + record, ports (a, b, rest)
+m = sp.Matrix([1, -s, 0]) / I2
+p = sp.Matrix([1, s, 0]) / I2
+
+
+def kron_rec(v, r):
+    out = sp.zeros(6, 1)
+    for i in range(3):
+        out[2 * i + r] = v[i]
+    return out
+
+
+v = kron_rec(m, 0) - kron_rec(p, 1)
+U = sp.eye(6) - v * v.H
+psi = sp.Matrix([xa, xb, xr])
+psi0 = kron_rec(psi, 0)
+unitary = sp.simplify(U.H * U - sp.eye(6)) == sp.zeros(6, 6)
+hermitian = sp.simplify(U.H - U) == sp.zeros(6, 6)
+expU = sp.simplify((psi0.H * U * psi0)[0])
+out_vec = U * psi0
+p_read = sp.simplify(sum(sp.Abs(out_vec[2 * i + 1]) ** 2 for i in range(3)))
+norm2 = sp.simplify((psi0.H * psi0)[0])
+mpsi = sp.simplify((m.H * psi)[0])
+A['symbolic_seam'] = {
+    'U_unitary': bool(unitary), 'U_hermitian (a reflection)': bool(hermitian),
+    '<psi,0|U|psi,0> - (|psi|^2 - |<m|psi>|^2)': str(sp.simplify(sp.expand(expU - (norm2 - mpsi * sp.conjugate(mpsi))))),
+    'P(record 1) - |<m|psi>|^2': str(sp.simplify(sp.expand(p_read - sp.Abs(mpsi) ** 2))),
+    'statement': 'for every blank-record input and every link phase s: <I - Re U> = P(record 1) (EXACT)',
+}
+
+# FR's object (load tail/head/idle x record x address), the repository reflector, link phases s
+try:
+    import fr_common as FC  # noqa: E402
+    have_fr = True
+except Exception as exc:  # pragma: no cover
+    have_fr = False
+    A['fr_import_error'] = repr(exc)
+
+if have_fr:
+    rows = []
+    for sval in (1, sp.exp(sp.I * sp.pi / 3), -1):
+        W = (FC.obj_event(sval) * FC.obj_address_reflection()).applyfunc(sp.nsimplify)
+        prep = FC.obj_state(sp.sqrt(sp.Rational(1, 3)), 0, sp.sqrt(sp.Rational(2, 3)))
+        expW = sp.nsimplify(sp.simplify((prep.H * W * prep)[0]))
+        out = W * prep
+        pr1 = sp.nsimplify(sp.simplify(sum(sp.Abs(out[FC.oidx(l, 1, o)]) ** 2 for l in range(3) for o in range(2))))
+        pr1p = sp.nsimplify(sp.simplify(sum(sp.Abs(out[FC.oidx(l, 1, 0)]) ** 2 for l in range(3))))
+        # random rational blank-record inputs with the consensus address: identity; with address + only: control
+        rng = np.random.default_rng(7)
+        ok_cons, ctrl = True, None
+        for trial in range(6):
+            amps = [sp.Rational(int(k), 7) + sp.I * sp.Rational(int(j), 5) for k, j in rng.integers(-6, 7, size=(3, 2))]
+            nrm = sp.sqrt(sum(sp.Abs(x) ** 2 for x in amps))
+            st = FC.obj_state(*[x / nrm for x in amps])
+            o2 = W * st
+            lhs = sp.simplify(1 - sp.re((st.H * W * st)[0]))
+            rhs = sp.simplify(sum(sp.Abs(o2[FC.oidx(l, 1, o)]) ** 2 for l in range(3) for o in range(2)))
+            ok_cons &= sp.simplify(lhs - rhs) == 0
+            if trial == 0:
+                st2 = FC.obj_state(*[x / nrm for x in amps], addr=0)
+                o3 = W * st2
+                lhs2 = sp.N(1 - sp.re((st2.H * W * st2)[0]), 12)
+                rhs2 = sp.N(sum(sp.Abs(o3[FC.oidx(l, 1, o)]) ** 2 for l in range(3) for o in range(2)), 12)
+                ctrl = {'1 - Re<W>': str(lhs2), 'P(record 1)': str(rhs2)}
+        rows.append({'link phase s': str(sval), '<W> on the prepared object': fr(expW), '1 - Re<W>': fr(1 - sp.re(expW)),
+                     'P(record 1)': fr(pr1), 'P(record 1, address +)': fr(pr1p),
+                     'identity on 6 random blank inputs, consensus address': bool(ok_cons),
+                     'control, address + only (no consensus)': ctrl})
+    A['FR_object_rows'] = rows
+    eW = sp.nsimplify(rows[0]['<W> on the prepared object'])
+    A['two independent objects'] = {
+        '1 - <W_C x W_E> = P(at least one record 1)': fr(1 - eW ** 2),
+        'sum of read probabilities': fr(2 * (1 - eW)),
+    }
+pR, pE_rep, pE_agr = sp.Rational(1, 12), sp.Rational(1, 6), sp.Rational(1, 6)
+A['read counts'] = {
+    'P(R+) [C record 1 at the screen address]': fr(pR), 'P(E record 1)': fr(pE_rep), 'P(H) [E agrees, active]': fr(pE_agr),
+    'P(R+ xor H) (FR, flag reads)': fr(pR + pE_agr - 2 * pR * pE_agr),
+    'P(R+ xor E record 1) (energy-clock reads)': fr(pR + pE_rep - 2 * pR * pE_rep),
+    'variance per carrier': fr((pR + pE_agr - 2 * pR * pE_agr) * (1 - (pR + pE_agr - 2 * pR * pE_agr))),
+    'note': 'the agreeing and repairing halves of an active seam weigh 1/6 each, so both read conventions give 2/9',
+}
+# observation recorded after the first run (2026-11-11): trace of the analyzer's read effect against the exclusive count
+alpha = sp.symbols('alpha_act', positive=True)
+trY = sp.simplify((alpha / 2) * (1 - alpha) + 2 * (alpha / 4) * (1 - alpha))   # P(phi_H) + P(phi_+) + P(phi_-)
+pX = sp.simplify(alpha / 4 + alpha / 2 - 2 * (alpha / 4) * (alpha / 2))        # P(R+ xor H)
+A['observation: tr(M^dag M) against P(R+ xor H) at seam activity alpha'] = {
+    'tr(M^dag M) = sum of the three family rates': str(sp.factor(trY)), 'P(R+ xor H)': str(sp.factor(pX)),
+    'equal exactly when alpha =': str(sp.solve(sp.Eq(trY, pX), alpha)),
+    'both at alpha = 1/3': [fr(trY.subs(alpha, sp.Rational(1, 3))), fr(pX.subs(alpha, sp.Rational(1, 3)))],
+    'tr C^2 = 3 a^2 + 6 b^2': fr(3 * sp.Rational(1, 6) + 6 * sp.Rational(1, 12)),
+    'status': 'EXACT identity found after computing; an observation, no derivation',
+}
+OUT['A_energy_clock_identity'] = A
+
+# ---------------------------------------------------------------------------------------------------------------
+# helpers: the balanced circulant and the A-clock readout
+# ---------------------------------------------------------------------------------------------------------------
+a0 = 1 / mp.sqrt(6)
+b0 = 1 / mp.sqrt(12)
+
+
+def lam(theta, bfac=1):
+    return [a0 + 2 * b0 * bfac * mp.cos(theta + 2 * mp.pi * k / 3) for k in range(3)]
+
+
+def readout(vals):
+    """vals: the three masses (any positive reading). Returns sorted masses, Q, ratios."""
+    ms = sorted(vals)
+    Q = sum(ms) / sum(mp.sqrt(x) for x in ms) ** 2
+    return {'Q': mp.nstr(Q, 12), 'mu/e': mp.nstr(ms[1] / ms[0], 12), 'tau/e': mp.nstr(ms[2] / ms[0], 12)}
+
+
+def aclock(theta, bfac=1):
+    lv = lam(theta, bfac)
+    out = readout([x ** 2 for x in lv])
+    out['min eigenvalue of C'] = mp.nstr(min(lv), 8)
+    return out
+
+
+# measured (NOT BLIND): repository PDG table, tau uncertainty as used by FR
+me, mmu, mtau = mp.mpf('0.51099895069'), mp.mpf('105.6583755'), mp.mpf('1776.93246513409')
+sig_tau = mp.mpf('0.169') * me
+Qm = (me + mmu + mtau) / (mp.sqrt(me) + mp.sqrt(mmu) + mp.sqrt(mtau)) ** 2
+dQ = mp.diff(lambda t: (me + mmu + t) / (mp.sqrt(me) + mp.sqrt(mmu) + mp.sqrt(t)) ** 2, mtau) * sig_tau
+MEAS = {'mu/e': mp.nstr(mmu / me, 12), 'tau/e': mp.nstr(mtau / me, 10), 'Q': mp.nstr(Qm, 10), 'sigma_Q': mp.nstr(abs(dQ), 4)}
+TARGET_DELTA = mp.mpf(2) / 9 - mp.mpf('1.75148e-7')
+
+# ---------------------------------------------------------------------------------------------------------------
+# B. Modular routes (M1 cap or record algebra at unit modular parameter, M2 KMS/Unruh, M3 area law, M8 dictionary)
+# ---------------------------------------------------------------------------------------------------------------
+B = {}
+nu = {}
+for name, pv in (('C repair, one orientation', mp.mpf(1) / 12), ('E hold or E repair', mp.mpf(1) / 6),
+                 ('exclusive read X', mp.mpf(2) / 9)):
+    nu[name] = {'p': mp.nstr(pv, 8), 'modular energy per read log((1-p)/p)': mp.nstr(mp.log((1 - pv) / pv), 12),
+                'modular parameter per tick giving one radian per read 1/log((1-p)/p)': mp.nstr(1 / mp.log((1 - pv) / pv), 12),
+                'Euclidean weight per read against the counting reference p/(1-p)': mp.nstr(pv / (1 - pv), 12)}
+B['per read type'] = nu
+B['one nat per read needs p = 1/(1+e)'] = mp.nstr(1 / (1 + mp.e), 15)
+B['one nat per read: status'] = ('p = 1/(1+e) is transcendental (e is transcendental), so no algebraic read probability '
+                                 'carries one nat of modular energy (EXACT)')
+B['area law: crossing counts are integers of a deterministic population'] = [323, 2164, 17754, 129830, 907080, 6496004]
+B['area law: modular Hamiltonian of a deterministic count'] = 'a scalar; its modular flow is the identity (EXACT)'
+# M8: unit modular parameter per incident event, phase = modular gap between hold flag and current flags
+pH, pC = sp.Rational(1, 6) * sp.Rational(2, 3), sp.Rational(1, 12) * sp.Rational(2, 3)
+B['M8 flag weights (H, R+)'] = [fr(pH), fr(pC)]
+B['M8 modular gap log(P(H)/P(R+))'] = mp.nstr(mp.log(2), 12)
+B['delta readings NOT BLIND'] = {
+    'M1 delta = log(7/2)': aclock(mp.log(mp.mpf(7) / 2)),
+    'M8 delta = log 2': aclock(mp.log(2)),
+}
+OUT['B_modular_routes'] = B
+
+# ---------------------------------------------------------------------------------------------------------------
+# C. Weak-kick clock on J (M5) and the federation mean (M6)
+# ---------------------------------------------------------------------------------------------------------------
+C = {}
+P = mp.mpf(2) / 9
+rows = []
+target_eps = None
+
+
+def zN(N):
+    return (1 - P + P * mp.exp(1j / mp.mpf(N))) ** N
+
+
+for N in (1, 2, 3, 10, 100, 302, 1000, 4000, 10 ** 4, 10 ** 5, 10 ** 6):
+    z = zN(N)
+    th, Z = mp.arg(z), abs(z)
+    # KOIDE_SOURCE-type bound for t = 1: || A0^N - exp(i P J) || <= 1/N  (J eigenvalues -1, 0, +1)
+    dev = max(abs(z - mp.exp(1j * P)), abs(mp.conj(z) - mp.exp(-1j * P)))
+    rc = aclock(th, bfac=Z)
+    rows.append({'N': N, 'theta_N': mp.nstr(th, 15), 'theta_N - 2/9': mp.nstr(th - P, 6),
+                 'series -35/(2187 N^2)': mp.nstr(-mp.mpf(35) / (2187 * N ** 2), 6),
+                 'Z_N (current branches, hold = 1)': mp.nstr(Z, 12), 'exp(-7/(81 N))': mp.nstr(mp.exp(-mp.mpf(7) / (81 * N)), 12),
+                 '|A0^N - exp(iPJ)|': mp.nstr(dev, 6), 'bound 1/N': mp.nstr(mp.mpf(1) / N, 6),
+                 'Q': rc['Q'], 'mu/e': rc['mu/e'], 'tau/e': rc['tau/e']})
+C['rows'] = rows
+C['limit N -> infinity'] = {'theta': '2/9 exactly', 'Z': 1, **aclock(P)}
+# N that would supply the dressing through the phase alone, and its Q
+Nd = mp.findroot(lambda n: n * mp.arg(1 - P + P * mp.exp(1j / n)) - TARGET_DELTA, 300)
+zd = zN(Nd)
+C['N that would give delta = target (FIT, no weight)'] = {'N': mp.nstr(Nd, 8), **aclock(mp.arg(zd), bfac=abs(zd))}
+# N allowed by measured Q (NOT BLIND): Q_N = 1/3 + Z_N^2/3 within 2 sigma
+Nq = mp.findroot(lambda n: (Qm - 2 * abs(dQ)) - (mp.mpf(1) / 3 + abs(zN(n)) ** 2 / 3), 4000)
+C['smallest N allowed by measured Q at 2 sigma (NOT BLIND)'] = {
+    'N_min': mp.nstr(Nq, 8), 'phase correction at N_min': mp.nstr(mp.arg(zN(Nq)) - P, 6)}
+C['records kept (per-realization delta = k/N), sd = sqrt(14/(81 N))'] = {
+    'N for sd = 1.75e-7': mp.nstr(mp.mpf(14) / 81 / mp.mpf('1.75148e-7') ** 2, 6)}
+C['measured (NOT BLIND)'] = MEAS
+OUT['C_weak_kick_clock'] = C
+
+# ---------------------------------------------------------------------------------------------------------------
+# D. Mass clocks K1-K4 on the balanced circulant at theta = 2/9
+# ---------------------------------------------------------------------------------------------------------------
+D = {}
+lv = lam(P)
+c = mp.mpf('1e-6')
+D['eigenvalues of C(2/9)'] = [mp.nstr(x, 12) for x in lv]
+D['K1 energy clock m = lambda^2'] = readout([x ** 2 for x in lv])
+D['K2 Floquet m = arccos(1 - c lambda^2), c = 1e-6'] = readout([mp.acos(1 - c * x ** 2) for x in lv])
+D['K3 Euclidean transfer m = -log(1 - c lambda^2), c = 1e-6'] = readout([-mp.log(1 - c * x ** 2) for x in lv])
+D['K3 at c = 1e-2'] = readout([-mp.log(1 - mp.mpf('0.01') * x ** 2) for x in lv])
+ssum = sum(x ** 2 for x in lv)
+D['K4 modular m = -log(lambda^2 / sum)'] = readout([-mp.log(x ** 2 / ssum) for x in lv])
+# non-affinity of the energy clock against the Floquet clock on the walk's discriminant spectrum
+r5 = mp.sqrt(5)
+spec = [mp.mpf(11) / 12 + r5 / 60, mp.mpf(11) / 12 - r5 / 60, mp.mpf(9) / 10, mp.mpf(5) / 6, mp.mpf(14) / 15]
+pts = [(mp.acos(cv), 1 - cv) for cv in spec]
+dets = []
+for i in range(len(pts)):
+    for j in range(i + 1, len(pts)):
+        for k in range(j + 1, len(pts)):
+            (x1, y1), (x2, y2), (x3, y3) = pts[i], pts[j], pts[k]
+            dets.append(abs((x2 - x1) * (y3 - y1) - (x3 - x1) * (y2 - y1)))
+D['walk rest phases omega = arccos(c)'] = [mp.nstr(x[0], 10) for x in pts]
+D['energy-clock values 1 - c'] = [mp.nstr(x[1], 10) for x in pts]
+D['min |det| over the 10 triples (zero would mean affine)'] = mp.nstr(min(dets), 6)
+# DR's memory pole at second order (series check)
+y, w, S_ = sp.symbols('y omega S', positive=True)
+mf = (sp.sqrt(w ** 2 + 4 * S_) - sp.sqrt(w ** 2 + 4 * S_ - 8 * y ** 2)) / 2
+D['DR memory pole, leading term in y'] = str(sp.simplify(sp.series(mf.subs(S_, 0), y, 0, 3).removeO()))
+D['measured (NOT BLIND)'] = MEAS
+OUT['D_mass_clocks'] = D
+
+# ---------------------------------------------------------------------------------------------------------------
+# E. Refinement W -> W^(1/2): the energy clock against the Floquet clock (M7)
+# ---------------------------------------------------------------------------------------------------------------
+E = {}
+om = sp.symbols('omega', positive=True)
+E['two half ticks / one tick, energy clock'] = str(sp.simplify(2 * (1 - sp.cos(om / 2)) / (1 - sp.cos(om))))
+E['closed form'] = '1/(2 cos^2(omega/4))'
+E['values at the walk rest phases'] = [mp.nstr(2 * (1 - mp.cos(x[0] / 2)) / (1 - mp.cos(x[0])), 10) for x in pts]
+E['Floquet ratio'] = 1
+E['reading'] = ('the per-tick read probability of a coherent mode scales as the square of the tick at fixed frequency '
+                '(Zeno), so a read-count action is a per-index accrual; the Floquet phase is a proper-length accrual')
+OUT['E_refinement'] = E
+
+# ---------------------------------------------------------------------------------------------------------------
+# F. DR's forms: even phase D12 and the radian correction D5
+# ---------------------------------------------------------------------------------------------------------------
+F = {}
+th = sp.symbols('theta', real=True)
+EH, Ep, Em = 0, -th, th          # clock energies of the flags under exp(i theta J): exp(-i E)
+F['odd part (E_- - E_+)/2'] = str(sp.simplify((Em - Ep) / 2))
+F['even part E_H - (E_+ + E_-)/2'] = str(sp.simplify(EH - (Ep + Em) / 2))
+F['epsilon_N = theta_N/(2/9) - 1, leading'] = '-(315/4374) N^-2 = -0.0720165 N^-2'
+F['N for epsilon = -7.8817e-7 (D5 size)'] = mp.nstr(mp.sqrt(mp.mpf(315) / 4374 / mp.mpf('7.8817e-7')), 8)
+OUT['F_DR_forms'] = F
+
+# ---------------------------------------------------------------------------------------------------------------
+# G. Clock energy during a virtual excitation: kept (Hamiltonian clock on J) against absent (event clock)
+# ---------------------------------------------------------------------------------------------------------------
+G = {}
+rng = np.random.default_rng(11)
+dimL = 4                                  # load/link register: state 0 = flag state (agreeing load), 1..3 excited
+Jspec = np.array([0.0, -1.0, 1.0])        # flags H, R+, R- (J eigenvalue)
+theta = 2.0 / 9
+Hload = np.diag([0.0, 1.0, 1.3, 1.7])     # declared gaps per tick (illustrative)
+X = rng.normal(size=(dimL, dimL)) + 1j * rng.normal(size=(dimL, dimL))
+V = 0.05 * (X + X.conj().T)               # J-blind dressing on the load/link register
+
+
+def flag_amp(jv, kept):
+    clock = -theta * jv * (np.eye(dimL) if kept else np.diag([1.0, 0, 0, 0]))
+    Hf = Hload + V + clock
+    wv, vv = np.linalg.eigh(Hf)
+    Ut = vv @ np.diag(np.exp(-1j * wv)) @ vv.conj().T
+    return Ut[0, 0]
+
+
+res = {}
+for kept in (True, False):
+    amps = [flag_amp(jv, kept) for jv in Jspec]
+    odd = (np.angle(amps[2] / amps[0]) - np.angle(amps[1] / amps[0])) / 2
+    even = (np.angle(amps[1] / amps[0]) + np.angle(amps[2] / amps[0])) / 2
+    res['kept' if kept else 'absent'] = {'odd phase (theta_eff)': float(odd), 'even phase': float(even),
+                                         '|amp R+|/|amp H|': float(abs(amps[1]) / abs(amps[0])),
+                                         '|amp R-|/|amp H|': float(abs(amps[2]) / abs(amps[0]))}
+G['toy: random J-blind dressing, theta = 2/9, one tick'] = res
+G['exact statement'] = ('if [V, J] = 0 and [H_0, J] = 0 then exp(-i(H_0 + V - theta J)t) = exp(i theta J t) '
+                        'exp(-i(H_0 + V)t): every flag keeps its clock phase at every order (EXACT)')
+OUT['G_virtual_excitation'] = G
+
+with open(os.path.join(HERE, 'ck_results.json'), 'w') as fh:
+    json.dump(OUT, fh, indent=1, default=str)
+print(json.dumps(OUT, indent=1, default=str)[:200])
+print('wrote ck_results.json')

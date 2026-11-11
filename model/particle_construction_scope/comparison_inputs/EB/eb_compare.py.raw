@@ -1,0 +1,81 @@
+"""EB NOT BLIND comparison, run once after every source value and the FIT row were on file (23:29).
+
+Measured values (IMPORTED, PDG-level): v = 246.22 GeV, m_Z = 91.1876 GeV, m_W = 80.37 GeV, sin^2 theta_W(m_Z) MSbar
+0.23122, alpha_s(m_Z) = 0.1180, alpha_em^-1(m_Z) = 127.951 (MSbar), alpha^-1(0) = 137.036, and the m_Z couplings in
+GUT normalization from these: 1/alpha_1 = (3/5)(1 - s2) alpha_em^-1, 1/alpha_2 = s2 alpha_em^-1, 1/alpha_3 = 1/alpha_s.
+
+Run:  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python eb_compare.py [out.json]
+"""
+import json
+import math
+import sys
+from pathlib import Path
+
+import numpy as np
+
+HERE = Path(__file__).parent
+sys.path.insert(0, str(HERE))
+import eb_lib as L  # noqa: E402
+
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / 'eb_compare.json'
+MEAS = dict(v_GeV=246.22, m_Z_GeV=91.1876, m_W_GeV=80.37, sin2_theta_W_mZ=0.23122, alpha_s_mZ=0.1180,
+            alpha_em_inv_mZ=127.951, alpha0_inv=137.036)
+S2, AEM = MEAS['sin2_theta_W_mZ'], MEAS['alpha_em_inv_mZ']
+INV_MZ = np.array([0.6 * (1 - S2) * AEM, S2 * AEM, 1 / MEAS['alpha_s_mZ']])
+
+
+def rel(row):
+    return {k: (float(row[k]) / MEAS[k] - 1) for k in MEAS if k in row and isinstance(row[k], (int, float))}
+
+
+out = dict(measured=MEAS, inv_alpha_mZ_GUT=INV_MZ.tolist(), F1={}, F2={}, F3={}, FIT1={})
+for f in sorted(HERE.glob('eb_F1_*.json')):
+    rows = json.loads(f.read_text())
+    for rule, e in rows.items():
+        key = f"{f.stem.replace('eb_F1_', '')} {rule}"
+        c = e['closure']
+        out['F1'][key] = 'no closure' if isinstance(c, str) else dict(
+            source={k: c[k] for k in ('P', 'alpha_U', 'v_GeV', 'm_Z_GeV', 'm_W_GeV', 'sin2_theta_W_mZ', 'alpha_s_mZ',
+                                      'alpha_em_inv_mZ', 'alpha0_inv')}, relative_deviation=rel(c))
+F2 = json.loads((HERE / 'eb_F2.json').read_text())
+for k, e in F2['rows'].items():
+    out['F2'][k] = e['status'] if e['status'] != 'outputs' else dict(relative_deviation=rel(e))
+F3 = json.loads((HERE / 'eb_F3.json').read_text())
+for k, e in F3['rows'].items():
+    if 'NOT BLIND' not in k:
+        continue
+    inv = np.array(e['inv_alpha_123'])
+    out['F3'][k] = dict(inv_alpha_123=inv.tolist(), minus_measured=(inv - INV_MZ).tolist(), status=e['status'])
+# slopes the E_cell frame needs at the measured m_Z (coordinator's arithmetic, recomputed) and the shift over A and B
+e_cell = F3['E_cell_GeV']
+lg = math.log(e_cell / MEAS['m_Z_GeV']) / (2 * math.pi)
+need = {}
+from eb_chains import BASES, E_CELL_INV, base_b, edge_shift  # noqa: E402
+t_c1 = F3['t_Tc1']
+derived = {rule: list(edge_shift(t_c1, rule)) for rule in L.LOOP_RULES}
+for variant, inv0 in E_CELL_INV.items():
+    b = (INV_MZ - np.array(inv0)) / lg
+    need[variant] = dict(b_needed=b.tolist(), shift_over_A=(b - np.array(base_b('A'))).tolist(),
+                         shift_over_B=(b - np.array(base_b('B'))).tolist(),
+                         needed_b1_minus_b2=float(b[0] - b[1]), needed_b2_minus_b3=float(b[1] - b[2]))
+out['E_cell_frame_needed'] = dict(ln_E_cell_over_mZ_over_2pi=lg, rows=need, derived_shift_at_Tc1=derived)
+fit = json.loads((HERE / 'eb_fit1.json').read_text())
+for base, e in fit['rows'].items():
+    out['FIT1'][base] = dict(F1=rel(e['F1']) if isinstance(e['F1'], dict) else e['F1'],
+                             F2=rel(e['F2']) if isinstance(e['F2'], dict) else e['F2'])
+OUT.write_text(json.dumps(out, indent=1) + '\n')
+
+print('m_Z couplings (GUT):', np.round(INV_MZ, 3), ' ln(E_cell/m_Z)/2pi =', round(lg, 4))
+for k, v in out['F1'].items():
+    if isinstance(v, str):
+        print('F1', k, v)
+    else:
+        print('F1', k, {a: f'{b:+.3f}' for a, b in v['relative_deviation'].items()})
+for k, v in out['F2'].items():
+    if not isinstance(v, str):
+        print('F2', k, {a: f'{b:+.3f}' for a, b in v['relative_deviation'].items()})
+for variant, v in need.items():
+    print('E_cell need', variant, np.round(v['b_needed'], 3), 'over A', np.round(v['shift_over_A'], 3),
+          'over B', np.round(v['shift_over_B'], 3))
+for base, v in out['FIT1'].items():
+    print('FIT1', base, v)

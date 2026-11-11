@@ -1,0 +1,2746 @@
+{
+ "engine_sha256": "692285e9ecef2542d290c720e8bfd7af53d2d908086b45e4205e4febf5719891",
+ "set": "native_flux",
+ "results": [
+  {
+   "config": {
+    "L": 96,
+    "theta0": 0.3,
+    "n": 3,
+    "xi_c": 0.0,
+    "flux": 1.0471975511965976,
+    "window": 0.4,
+    "block": 160,
+    "classes": [
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      1
+     ]
+    ],
+    "velocity": true,
+    "overlaps": false
+   },
+   "classes": [
+    {
+     "class": [
+      0,
+      0
+     ],
+     "dimension": 9216,
+     "block": 160,
+     "solver": "robust",
+     "ritz_values_in_window": 24,
+     "states_in_window": 24,
+     "largest_residual_in_window": 3.3198274759212284e-15,
+     "block_saturated": false,
+     "unitarity_defect_of_the_compression": 1.021405182655144e-14,
+     "phases_per_tick_all_cores": [
+      -0.019795115836893376,
+      -0.019795115836893293,
+      -0.01979501309150292,
+      -0.019795013091502885,
+      -0.008440063455572784,
+      -0.008440063455572742,
+      -0.008439740435558698,
+      -0.008439740435558651,
+      -0.001638959960255719,
+      -0.0016389599602556891,
+      -0.0016385832819546487,
+      -0.0016385832819546281,
+      0.0016385832819546303,
+      0.0016385832819546492,
+      0.0016389599602556948,
+      0.0016389599602557156,
+      0.008439740435558674,
+      0.008439740435558707,
+      0.008440063455572773,
+      0.008440063455572789,
+      0.019795013091502906,
+      0.019795013091502972,
+      0.01979511583689333,
+      0.0197951158368934
+     ],
+     "cores": [
+      {
+       "core": 0,
+       "winding": 3,
+       "states": 6,
+       "smallest_core_weight_kept": 0.997081771946681,
+       "largest_core_weight_dropped": 2.2655833346389304e-05,
+       "phases_per_tick": [
+        -0.019795064464024584,
+        -0.008439901943331204,
+        -0.0016387716187087013,
+        0.0016387716187087043,
+        0.008439901943331225,
+        0.0197950644640246
+       ],
+       "group_residual_of_U": 3.766783010369619e-07,
+       "near_zero_group": {
+        "size": 6,
+        "phases_per_tick": [
+         -0.019795064464024584,
+         -0.008439901943331204,
+         -0.0016387716187087013,
+         0.0016387716187087043,
+         0.008439901943331225,
+         0.0197950644640246
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.06598354821341529,
+         -0.028133006477770683,
+         -0.005462572062362338,
+         0.005462572062362348,
+         0.028133006477770752,
+         0.06598354821341534
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         -1.0,
+         -1.0,
+         1.0,
+         1.0,
+         1.0
+        ],
+        "n_plus": 3,
+        "n_minus": 3,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0,
+         1.0,
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.0016387716187087073,
+         0.008439901943331218,
+         0.019795064464024598
+        ],
+        "plus_two_cell_shift_correlation": [
+         0.90122,
+         0.91173,
+         0.91363
+        ],
+        "plus_smooth": 3,
+        "plus_staggered": 0,
+        "plus_shift_correlation_axis1": [
+         0.88262,
+         0.91146,
+         0.93109
+        ],
+        "plus_shift_correlation_axis2": [
+         0.88439,
+         0.91169,
+         0.93189
+        ],
+        "minus_two_cell_shift_correlation": [
+         -0.91363,
+         -0.91173,
+         -0.90122
+        ],
+        "minus_smooth": 0,
+        "minus_staggered": 3,
+        "minus_shift_correlation_axis1": [
+         -0.93109,
+         -0.91146,
+         -0.88262
+        ],
+        "minus_shift_correlation_axis2": [
+         -0.93189,
+         -0.91169,
+         -0.88439
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.955336,
+         -0.955336,
+         -0.955336
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.955336,
+         0.955336,
+         0.955336
+        ],
+        "dE_dp3_block_between_plus_and_minus": 6.651021854287321e-14
+       }
+      },
+      {
+       "core": 2,
+       "winding": -3,
+       "states": 6,
+       "smallest_core_weight_kept": 0.9970817719466811,
+       "largest_core_weight_dropped": 2.265583334641361e-05,
+       "phases_per_tick": [
+        -0.019795064464024598,
+        -0.00843990194333124,
+        -0.0016387716187087078,
+        0.0016387716187087082,
+        0.008439901943331234,
+        0.019795064464024622
+       ],
+       "group_residual_of_U": 3.7667830103696053e-07,
+       "near_zero_group": {
+        "size": 6,
+        "phases_per_tick": [
+         -0.019795064464024598,
+         -0.00843990194333124,
+         -0.0016387716187087078,
+         0.0016387716187087082,
+         0.008439901943331234,
+         0.019795064464024622
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.06598354821341533,
+         -0.028133006477770797,
+         -0.00546257206236236,
+         0.005462572062362361,
+         0.02813300647777078,
+         0.06598354821341541
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         -1.0,
+         -1.0,
+         1.0,
+         1.0,
+         1.0
+        ],
+        "n_plus": 3,
+        "n_minus": 3,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0,
+         1.0,
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.0016387716187087021,
+         0.00843990194333123,
+         0.01979506446402463
+        ],
+        "plus_two_cell_shift_correlation": [
+         -0.91363,
+         -0.91173,
+         -0.90122
+        ],
+        "plus_smooth": 0,
+        "plus_staggered": 3,
+        "plus_shift_correlation_axis1": [
+         -0.93109,
+         -0.91146,
+         -0.88262
+        ],
+        "plus_shift_correlation_axis2": [
+         -0.93189,
+         -0.91169,
+         -0.88439
+        ],
+        "minus_two_cell_shift_correlation": [
+         0.90122,
+         0.91173,
+         0.91363
+        ],
+        "minus_smooth": 3,
+        "minus_staggered": 0,
+        "minus_shift_correlation_axis1": [
+         0.88262,
+         0.91146,
+         0.93109
+        ],
+        "minus_shift_correlation_axis2": [
+         0.88439,
+         0.91169,
+         0.93189
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.955336,
+         -0.955336,
+         -0.955336
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.955336,
+         0.955336,
+         0.955336
+        ],
+        "dE_dp3_block_between_plus_and_minus": 9.474956590522512e-14
+       }
+      }
+     ]
+    },
+    {
+     "class": [
+      0,
+      1
+     ],
+     "dimension": 9216,
+     "block": 160,
+     "solver": "robust",
+     "ritz_values_in_window": 24,
+     "states_in_window": 24,
+     "largest_residual_in_window": 2.3901350778248844e-15,
+     "block_saturated": false,
+     "unitarity_defect_of_the_compression": 7.105427357601002e-15,
+     "phases_per_tick_all_cores": [
+      -0.019795115836893397,
+      -0.019795115836893355,
+      -0.019795013091502917,
+      -0.01979501309150287,
+      -0.008440063455572792,
+      -0.008440063455572782,
+      -0.008439740435558705,
+      -0.008439740435558679,
+      -0.0016389599602557106,
+      -0.0016389599602556993,
+      -0.0016385832819546472,
+      -0.00163858328195463,
+      0.0016385832819546156,
+      0.0016385832819546615,
+      0.001638959960255707,
+      0.0016389599602557173,
+      0.008439740435558687,
+      0.00843974043555872,
+      0.008440063455572789,
+      0.008440063455572813,
+      0.019795013091502913,
+      0.01979501309150297,
+      0.019795115836893366,
+      0.019795115836893383
+     ],
+     "cores": [
+      {
+       "core": 0,
+       "winding": 3,
+       "states": 6,
+       "smallest_core_weight_kept": 0.9970817719466825,
+       "largest_core_weight_dropped": 2.2655833346291224e-05,
+       "phases_per_tick": [
+        -0.019795064464024657,
+        -0.008439901943331255,
+        -0.0016387716187087112,
+        0.0016387716187087288,
+        0.008439901943331251,
+        0.019795064464024625
+       ],
+       "group_residual_of_U": 3.766783010369605e-07,
+       "near_zero_group": {
+        "size": 6,
+        "phases_per_tick": [
+         -0.019795064464024657,
+         -0.008439901943331255,
+         -0.0016387716187087112,
+         0.0016387716187087288,
+         0.008439901943331251,
+         0.019795064464024625
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.06598354821341552,
+         -0.02813300647777085,
+         -0.005462572062362371,
+         0.005462572062362429,
+         0.02813300647777084,
+         0.06598354821341543
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         -1.0,
+         -1.0,
+         1.0,
+         1.0,
+         1.0
+        ],
+        "n_plus": 3,
+        "n_minus": 3,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0,
+         1.0,
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.0016387716187087188,
+         0.008439901943331257,
+         0.01979506446402464
+        ],
+        "plus_two_cell_shift_correlation": [
+         0.90122,
+         0.91173,
+         0.91363
+        ],
+        "plus_smooth": 3,
+        "plus_staggered": 0,
+        "plus_shift_correlation_axis1": [
+         0.88262,
+         0.91146,
+         0.93109
+        ],
+        "plus_shift_correlation_axis2": [
+         0.88439,
+         0.91169,
+         0.93189
+        ],
+        "minus_two_cell_shift_correlation": [
+         -0.91363,
+         -0.91173,
+         -0.90122
+        ],
+        "minus_smooth": 0,
+        "minus_staggered": 3,
+        "minus_shift_correlation_axis1": [
+         -0.93109,
+         -0.91146,
+         -0.88262
+        ],
+        "minus_shift_correlation_axis2": [
+         -0.93189,
+         -0.91169,
+         -0.88439
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.955336,
+         -0.955336,
+         -0.955336
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.955336,
+         0.955336,
+         0.955336
+        ],
+        "dE_dp3_block_between_plus_and_minus": 8.020623133015798e-14
+       }
+      },
+      {
+       "core": 2,
+       "winding": -3,
+       "states": 6,
+       "smallest_core_weight_kept": 0.9970817719466825,
+       "largest_core_weight_dropped": 2.265583334639572e-05,
+       "phases_per_tick": [
+        -0.01979506446402464,
+        -0.00843990194333125,
+        -0.0016387716187086997,
+        0.001638771618708701,
+        0.008439901943331253,
+        0.019795064464024594
+       ],
+       "group_residual_of_U": 3.7667830103696133e-07,
+       "near_zero_group": {
+        "size": 6,
+        "phases_per_tick": [
+         -0.01979506446402464,
+         -0.00843990194333125,
+         -0.0016387716187086997,
+         0.001638771618708701,
+         0.008439901943331253,
+         0.019795064464024594
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.06598354821341547,
+         -0.028133006477770832,
+         -0.005462572062362333,
+         0.005462572062362337,
+         0.028133006477770846,
+         0.06598354821341532
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         -1.0,
+         -1.0,
+         1.0,
+         1.0,
+         1.0
+        ],
+        "n_plus": 3,
+        "n_minus": 3,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0,
+         1.0,
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.001638771618708697,
+         0.008439901943331248,
+         0.019795064464024625
+        ],
+        "plus_two_cell_shift_correlation": [
+         -0.91363,
+         -0.91173,
+         -0.90122
+        ],
+        "plus_smooth": 0,
+        "plus_staggered": 3,
+        "plus_shift_correlation_axis1": [
+         -0.93109,
+         -0.91146,
+         -0.88262
+        ],
+        "plus_shift_correlation_axis2": [
+         -0.93189,
+         -0.91169,
+         -0.88439
+        ],
+        "minus_two_cell_shift_correlation": [
+         0.90122,
+         0.91173,
+         0.91363
+        ],
+        "minus_smooth": 3,
+        "minus_staggered": 0,
+        "minus_shift_correlation_axis1": [
+         0.88262,
+         0.91146,
+         0.93109
+        ],
+        "minus_shift_correlation_axis2": [
+         0.88439,
+         0.91169,
+         0.93189
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.955336,
+         -0.955336,
+         -0.955336
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.955336,
+         0.955336,
+         0.955336
+        ],
+        "dE_dp3_block_between_plus_and_minus": 3.7174660123055077e-14
+       }
+      }
+     ]
+    }
+   ],
+   "seconds": 116.3
+  },
+  {
+   "config": {
+    "L": 96,
+    "theta0": 0.3,
+    "n": 3,
+    "xi_c": 0.0,
+    "flux": 2.0943951023931953,
+    "window": 0.4,
+    "block": 160,
+    "classes": [
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      1
+     ]
+    ],
+    "velocity": true,
+    "overlaps": false
+   },
+   "classes": [
+    {
+     "class": [
+      0,
+      0
+     ],
+     "dimension": 9216,
+     "block": 160,
+     "solver": "robust",
+     "ritz_values_in_window": 24,
+     "states_in_window": 24,
+     "largest_residual_in_window": 2.316453226653411e-15,
+     "block_saturated": false,
+     "unitarity_defect_of_the_compression": 9.325873406851315e-15,
+     "phases_per_tick_all_cores": [
+      -0.0563687951623206,
+      -0.056368795162320434,
+      -0.056368775248521845,
+      -0.05636877524852181,
+      -0.00859454077037803,
+      -0.008594540770378004,
+      -0.008594161948766365,
+      -0.00859416194876632,
+      -0.0018575475251034826,
+      -0.0018575475251034485,
+      -0.0018571618032218794,
+      -0.0018571618032218614,
+      0.001857161803221861,
+      0.0018571618032218857,
+      0.0018575475251034477,
+      0.0018575475251034863,
+      0.00859416194876632,
+      0.00859416194876634,
+      0.008594540770377987,
+      0.008594540770378072,
+      0.05636877524852179,
+      0.05636877524852189,
+      0.05636879516232049,
+      0.05636879516232066
+     ],
+     "cores": [
+      {
+       "core": 0,
+       "winding": 3,
+       "states": 6,
+       "smallest_core_weight_kept": 0.997209267354415,
+       "largest_core_weight_dropped": 2.3302191587510794e-05,
+       "phases_per_tick": [
+        -0.056368785205416216,
+        -0.008594351356234079,
+        -0.0018573546607634484,
+        0.0018573546607634265,
+        0.008594351356234068,
+        0.0563687852054162
+       ],
+       "group_residual_of_U": 3.857218815224618e-07,
+       "near_zero_group": {
+        "size": 6,
+        "phases_per_tick": [
+         -0.056368785205416216,
+         -0.008594351356234079,
+         -0.0018573546607634484,
+         0.0018573546607634265,
+         0.008594351356234068,
+         0.0563687852054162
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.18789595068472073,
+         -0.028647837854113598,
+         -0.006191182202544828,
+         0.006191182202544755,
+         0.028647837854113564,
+         0.18789595068472068
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         -1.0,
+         -1.0,
+         1.0,
+         1.0,
+         1.0
+        ],
+        "n_plus": 3,
+        "n_minus": 3,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0,
+         1.0,
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.0018573546607634286,
+         0.00859435135623407,
+         0.05636878520541624
+        ],
+        "plus_two_cell_shift_correlation": [
+         0.81314,
+         0.90601,
+         0.90824
+        ],
+        "plus_smooth": 3,
+        "plus_staggered": 0,
+        "plus_shift_correlation_axis1": [
+         0.79985,
+         0.90619,
+         0.9157
+        ],
+        "plus_shift_correlation_axis2": [
+         0.81112,
+         0.90624,
+         0.91567
+        ],
+        "minus_two_cell_shift_correlation": [
+         -0.90824,
+         -0.90601,
+         -0.81314
+        ],
+        "minus_smooth": 0,
+        "minus_staggered": 3,
+        "minus_shift_correlation_axis1": [
+         -0.9157,
+         -0.90619,
+         -0.79985
+        ],
+        "minus_shift_correlation_axis2": [
+         -0.91567,
+         -0.90624,
+         -0.81112
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.955336,
+         -0.955336,
+         -0.955336
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.955336,
+         0.955336,
+         0.955336
+        ],
+        "dE_dp3_block_between_plus_and_minus": 9.506267189946851e-14
+       }
+      },
+      {
+       "core": 2,
+       "winding": -3,
+       "states": 6,
+       "smallest_core_weight_kept": 0.9972092673544148,
+       "largest_core_weight_dropped": 2.330219158751235e-05,
+       "phases_per_tick": [
+        -0.05636878520541618,
+        -0.008594351356234086,
+        -0.001857354660763426,
+        0.001857354660763434,
+        0.008594351356234096,
+        0.05636878520541622
+       ],
+       "group_residual_of_U": 3.857218815224619e-07,
+       "near_zero_group": {
+        "size": 6,
+        "phases_per_tick": [
+         -0.05636878520541618,
+         -0.008594351356234086,
+         -0.001857354660763426,
+         0.001857354660763434,
+         0.008594351356234096,
+         0.05636878520541622
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.18789595068472062,
+         -0.02864783785411362,
+         -0.0061911822025447535,
+         0.00619118220254478,
+         0.028647837854113654,
+         0.18789595068472076
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         -1.0,
+         -1.0,
+         1.0,
+         1.0,
+         1.0
+        ],
+        "n_plus": 3,
+        "n_minus": 3,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0,
+         1.0,
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.001857354660763431,
+         0.008594351356234093,
+         0.05636878520541619
+        ],
+        "plus_two_cell_shift_correlation": [
+         -0.90824,
+         -0.90601,
+         -0.81314
+        ],
+        "plus_smooth": 0,
+        "plus_staggered": 3,
+        "plus_shift_correlation_axis1": [
+         -0.9157,
+         -0.90619,
+         -0.79985
+        ],
+        "plus_shift_correlation_axis2": [
+         -0.91567,
+         -0.90624,
+         -0.81112
+        ],
+        "minus_two_cell_shift_correlation": [
+         0.81314,
+         0.90601,
+         0.90824
+        ],
+        "minus_smooth": 3,
+        "minus_staggered": 0,
+        "minus_shift_correlation_axis1": [
+         0.79985,
+         0.90619,
+         0.9157
+        ],
+        "minus_shift_correlation_axis2": [
+         0.81112,
+         0.90624,
+         0.91567
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.955336,
+         -0.955336,
+         -0.955336
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.955336,
+         0.955336,
+         0.955336
+        ],
+        "dE_dp3_block_between_plus_and_minus": 1.0213458002366031e-13
+       }
+      }
+     ]
+    },
+    {
+     "class": [
+      0,
+      1
+     ],
+     "dimension": 9216,
+     "block": 160,
+     "solver": "robust",
+     "ritz_values_in_window": 24,
+     "states_in_window": 24,
+     "largest_residual_in_window": 4.0400074097507906e-15,
+     "block_saturated": false,
+     "unitarity_defect_of_the_compression": 4.884981308350689e-15,
+     "phases_per_tick_all_cores": [
+      -0.05636879516232061,
+      -0.056368795162320504,
+      -0.0563687752485218,
+      -0.05636877524852173,
+      -0.008594540770378025,
+      -0.008594540770377992,
+      -0.008594161948766353,
+      -0.00859416194876631,
+      -0.0018575475251034735,
+      -0.0018575475251034583,
+      -0.0018571618032218813,
+      -0.001857161803221844,
+      0.001857161803221879,
+      0.0018571618032218826,
+      0.0018575475251034433,
+      0.0018575475251034657,
+      0.008594161948766334,
+      0.008594161948766358,
+      0.008594540770378002,
+      0.008594540770378047,
+      0.056368775248521755,
+      0.05636877524852182,
+      0.05636879516232051,
+      0.05636879516232056
+     ],
+     "cores": [
+      {
+       "core": 0,
+       "winding": 3,
+       "states": 6,
+       "smallest_core_weight_kept": 0.9972092673544146,
+       "largest_core_weight_dropped": 2.330219158751631e-05,
+       "phases_per_tick": [
+        -0.05636878520541631,
+        -0.008594351356234105,
+        -0.0018573546607634347,
+        0.0018573546607634369,
+        0.00859435135623409,
+        0.056368785205416286
+       ],
+       "group_residual_of_U": 3.857218815224618e-07,
+       "near_zero_group": {
+        "size": 6,
+        "phases_per_tick": [
+         -0.05636878520541631,
+         -0.008594351356234105,
+         -0.0018573546607634347,
+         0.0018573546607634369,
+         0.00859435135623409,
+         0.056368785205416286
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.18789595068472104,
+         -0.028647837854113685,
+         -0.006191182202544783,
+         0.00619118220254479,
+         0.028647837854113633,
+         0.18789595068472095
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         -1.0,
+         -1.0,
+         1.0,
+         1.0,
+         1.0
+        ],
+        "n_plus": 3,
+        "n_minus": 3,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0,
+         1.0,
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.001857354660763421,
+         0.008594351356234103,
+         0.05636878520541631
+        ],
+        "plus_two_cell_shift_correlation": [
+         0.81314,
+         0.90601,
+         0.90824
+        ],
+        "plus_smooth": 3,
+        "plus_staggered": 0,
+        "plus_shift_correlation_axis1": [
+         0.79985,
+         0.90619,
+         0.9157
+        ],
+        "plus_shift_correlation_axis2": [
+         0.81112,
+         0.90624,
+         0.91567
+        ],
+        "minus_two_cell_shift_correlation": [
+         -0.90824,
+         -0.90601,
+         -0.81314
+        ],
+        "minus_smooth": 0,
+        "minus_staggered": 3,
+        "minus_shift_correlation_axis1": [
+         -0.9157,
+         -0.90619,
+         -0.79985
+        ],
+        "minus_shift_correlation_axis2": [
+         -0.91567,
+         -0.90624,
+         -0.81112
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.955336,
+         -0.955336,
+         -0.955336
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.955336,
+         0.955336,
+         0.955336
+        ],
+        "dE_dp3_block_between_plus_and_minus": 9.004630955073395e-14
+       }
+      },
+      {
+       "core": 2,
+       "winding": -3,
+       "states": 6,
+       "smallest_core_weight_kept": 0.997209267354414,
+       "largest_core_weight_dropped": 2.3302191587647807e-05,
+       "phases_per_tick": [
+        -0.05636878520541622,
+        -0.008594351356234108,
+        -0.0018573546607634328,
+        0.0018573546607634167,
+        0.0085943513562341,
+        0.056368785205416286
+       ],
+       "group_residual_of_U": 3.8572188152246245e-07,
+       "near_zero_group": {
+        "size": 6,
+        "phases_per_tick": [
+         -0.05636878520541622,
+         -0.008594351356234108,
+         -0.0018573546607634328,
+         0.0018573546607634167,
+         0.0085943513562341,
+         0.056368785205416286
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.18789595068472076,
+         -0.028647837854113695,
+         -0.006191182202544776,
+         0.006191182202544722,
+         0.028647837854113668,
+         0.18789595068472095
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         -1.0,
+         -1.0,
+         1.0,
+         1.0,
+         1.0
+        ],
+        "n_plus": 3,
+        "n_minus": 3,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0,
+         1.0,
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.0018573546607634237,
+         0.008594351356234098,
+         0.05636878520541626
+        ],
+        "plus_two_cell_shift_correlation": [
+         -0.90824,
+         -0.90601,
+         -0.81314
+        ],
+        "plus_smooth": 0,
+        "plus_staggered": 3,
+        "plus_shift_correlation_axis1": [
+         -0.9157,
+         -0.90619,
+         -0.79985
+        ],
+        "plus_shift_correlation_axis2": [
+         -0.91567,
+         -0.90624,
+         -0.81112
+        ],
+        "minus_two_cell_shift_correlation": [
+         0.81314,
+         0.90601,
+         0.90824
+        ],
+        "minus_smooth": 3,
+        "minus_staggered": 0,
+        "minus_shift_correlation_axis1": [
+         0.79985,
+         0.90619,
+         0.9157
+        ],
+        "minus_shift_correlation_axis2": [
+         0.81112,
+         0.90624,
+         0.91567
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.955336,
+         -0.955336,
+         -0.955336
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.955336,
+         0.955336,
+         0.955336
+        ],
+        "dE_dp3_block_between_plus_and_minus": 6.265258801679146e-14
+       }
+      }
+     ]
+    }
+   ],
+   "seconds": 117.1
+  },
+  {
+   "config": {
+    "L": 96,
+    "theta0": 0.3,
+    "n": 3,
+    "xi_c": 0.0,
+    "flux": 3.141592653589793,
+    "window": 0.4,
+    "block": 160,
+    "classes": [
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      1
+     ]
+    ],
+    "velocity": true,
+    "overlaps": false
+   },
+   "classes": [
+    {
+     "class": [
+      0,
+      0
+     ],
+     "dimension": 9216,
+     "block": 160,
+     "solver": "robust",
+     "ritz_values_in_window": 24,
+     "states_in_window": 24,
+     "largest_residual_in_window": 2.499991586691352e-15,
+     "block_saturated": false,
+     "unitarity_defect_of_the_compression": 6.217248937900877e-15,
+     "phases_per_tick_all_cores": [
+      -0.11103455305244081,
+      -0.1110345530524407,
+      -0.11103449129017899,
+      -0.11103449129017881,
+      -0.008463963457860435,
+      -0.008463963457860418,
+      -0.008463567408117597,
+      -0.008463567408117585,
+      -0.0019906922262917367,
+      -0.0019906922262917168,
+      -0.00199029937880167,
+      -0.0019902993788016334,
+      0.0019902993788016355,
+      0.0019902993788016724,
+      0.0019906922262916955,
+      0.001990692226291738,
+      0.008463567408117587,
+      0.008463567408117609,
+      0.008463963457860425,
+      0.00846396345786045,
+      0.11103449129017881,
+      0.11103449129017902,
+      0.11103455305244073,
+      0.11103455305244081
+     ],
+     "cores": [
+      {
+       "core": 0,
+       "winding": 3,
+       "states": 6,
+       "smallest_core_weight_kept": 0.9972720876945652,
+       "largest_core_weight_dropped": 2.392110185302914e-05,
+       "phases_per_tick": [
+        -0.11103452217134702,
+        -0.008463765429306321,
+        -0.0019904957988689134,
+        0.0019904957988688735,
+        0.008463765429306293,
+        0.11103452217134711
+       ],
+       "group_residual_of_U": 3.9604974277485004e-07,
+       "near_zero_group": {
+        "size": 6,
+        "phases_per_tick": [
+         -0.11103452217134702,
+         -0.008463765429306321,
+         -0.0019904957988689134,
+         0.0019904957988688735,
+         0.008463765429306293,
+         0.11103452217134711
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.37011507390449006,
+         -0.028212551431021072,
+         -0.006634985996229712,
+         0.006634985996229578,
+         0.028212551431020978,
+         0.3701150739044904
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         -1.0,
+         -1.0,
+         1.0,
+         1.0,
+         1.0
+        ],
+        "n_plus": 3,
+        "n_minus": 3,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0,
+         1.0,
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.001990495798868868,
+         0.008463765429306313,
+         0.11103452217134711
+        ],
+        "plus_two_cell_shift_correlation": [
+         0.48015,
+         0.89956,
+         0.90258
+        ],
+        "plus_smooth": 3,
+        "plus_staggered": 0,
+        "plus_shift_correlation_axis1": [
+         0.4744,
+         0.8976,
+         0.90523
+        ],
+        "plus_shift_correlation_axis2": [
+         0.48336,
+         0.89851,
+         0.90548
+        ],
+        "minus_two_cell_shift_correlation": [
+         -0.90258,
+         -0.89956,
+         -0.48015
+        ],
+        "minus_smooth": 0,
+        "minus_staggered": 3,
+        "minus_shift_correlation_axis1": [
+         -0.90523,
+         -0.8976,
+         -0.4744
+        ],
+        "minus_shift_correlation_axis2": [
+         -0.90548,
+         -0.89851,
+         -0.48336
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.955336,
+         -0.955336,
+         -0.955336
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.955336,
+         0.955336,
+         0.955336
+        ],
+        "dE_dp3_block_between_plus_and_minus": 3.28364794561494e-14
+       }
+      },
+      {
+       "core": 2,
+       "winding": -3,
+       "states": 6,
+       "smallest_core_weight_kept": 0.9972720876945638,
+       "largest_core_weight_dropped": 2.3921101853076866e-05,
+       "phases_per_tick": [
+        -0.11103452217134707,
+        -0.008463765429306325,
+        -0.001990495798868882,
+        0.0019904957988688852,
+        0.00846376542930633,
+        0.11103452217134693
+       ],
+       "group_residual_of_U": 3.9604974277484967e-07,
+       "near_zero_group": {
+        "size": 6,
+        "phases_per_tick": [
+         -0.11103452217134707,
+         -0.008463765429306325,
+         -0.001990495798868882,
+         0.0019904957988688852,
+         0.00846376542930633,
+         0.11103452217134693
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.3701150739044903,
+         -0.028212551431021082,
+         -0.006634985996229608,
+         0.006634985996229617,
+         0.0282125514310211,
+         0.3701150739044898
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         -1.0,
+         -1.0,
+         1.0,
+         1.0,
+         1.0
+        ],
+        "n_plus": 3,
+        "n_minus": 3,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0,
+         1.0,
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.0019904957988688787,
+         0.008463765429306309,
+         0.11103452217134703
+        ],
+        "plus_two_cell_shift_correlation": [
+         -0.90258,
+         -0.89956,
+         -0.48015
+        ],
+        "plus_smooth": 0,
+        "plus_staggered": 3,
+        "plus_shift_correlation_axis1": [
+         -0.90523,
+         -0.8976,
+         -0.4744
+        ],
+        "plus_shift_correlation_axis2": [
+         -0.90548,
+         -0.89851,
+         -0.48336
+        ],
+        "minus_two_cell_shift_correlation": [
+         0.48015,
+         0.89956,
+         0.90258
+        ],
+        "minus_smooth": 3,
+        "minus_staggered": 0,
+        "minus_shift_correlation_axis1": [
+         0.4744,
+         0.8976,
+         0.90523
+        ],
+        "minus_shift_correlation_axis2": [
+         0.48336,
+         0.89851,
+         0.90548
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.955336,
+         -0.955336,
+         -0.955336
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.955336,
+         0.955336,
+         0.955336
+        ],
+        "dE_dp3_block_between_plus_and_minus": 9.114360626258549e-14
+       }
+      }
+     ]
+    },
+    {
+     "class": [
+      0,
+      1
+     ],
+     "dimension": 9216,
+     "block": 160,
+     "solver": "robust",
+     "ritz_values_in_window": 24,
+     "states_in_window": 24,
+     "largest_residual_in_window": 2.531006367922599e-15,
+     "block_saturated": false,
+     "unitarity_defect_of_the_compression": 4.440892098500626e-15,
+     "phases_per_tick_all_cores": [
+      -0.11103455305244073,
+      -0.11103455305244056,
+      -0.11103449129017891,
+      -0.1110344912901788,
+      -0.00846396345786048,
+      -0.008463963457860385,
+      -0.008463567408117585,
+      -0.008463567408117567,
+      -0.0019906922262917692,
+      -0.0019906922262917025,
+      -0.0019902993788016503,
+      -0.0019902993788016294,
+      0.001990299378801653,
+      0.0019902993788016906,
+      0.001990692226291715,
+      0.00199069222629181,
+      0.008463567408117583,
+      0.008463567408117594,
+      0.008463963457860428,
+      0.008463963457860452,
+      0.11103449129017866,
+      0.11103449129017885,
+      0.11103455305244048,
+      0.11103455305244067
+     ],
+     "cores": [
+      {
+       "core": 0,
+       "winding": 3,
+       "states": 6,
+       "smallest_core_weight_kept": 0.9972720876945645,
+       "largest_core_weight_dropped": 2.392110185318649e-05,
+       "phases_per_tick": [
+        -0.11103452217134704,
+        -0.008463765429306304,
+        -0.001990495798868888,
+        0.001990495798868901,
+        0.008463765429306307,
+        0.1110345221713469
+       ],
+       "group_residual_of_U": 3.960497427748493e-07,
+       "near_zero_group": {
+        "size": 6,
+        "phases_per_tick": [
+         -0.11103452217134704,
+         -0.008463765429306304,
+         -0.001990495798868888,
+         0.001990495798868901,
+         0.008463765429306307,
+         0.1110345221713469
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.37011507390449017,
+         -0.028212551431021013,
+         -0.006634985996229626,
+         0.006634985996229669,
+         0.028212551431021027,
+         0.3701150739044897
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         -1.0,
+         -1.0,
+         1.0,
+         1.0,
+         1.0
+        ],
+        "n_plus": 3,
+        "n_minus": 3,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0,
+         1.0,
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.001990495798868905,
+         0.0084637654293063,
+         0.11103452217134692
+        ],
+        "plus_two_cell_shift_correlation": [
+         0.48015,
+         0.89956,
+         0.90258
+        ],
+        "plus_smooth": 3,
+        "plus_staggered": 0,
+        "plus_shift_correlation_axis1": [
+         0.4744,
+         0.8976,
+         0.90523
+        ],
+        "plus_shift_correlation_axis2": [
+         0.48336,
+         0.89851,
+         0.90548
+        ],
+        "minus_two_cell_shift_correlation": [
+         -0.90258,
+         -0.89956,
+         -0.48015
+        ],
+        "minus_smooth": 0,
+        "minus_staggered": 3,
+        "minus_shift_correlation_axis1": [
+         -0.90523,
+         -0.8976,
+         -0.4744
+        ],
+        "minus_shift_correlation_axis2": [
+         -0.90548,
+         -0.89851,
+         -0.48336
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.955336,
+         -0.955336,
+         -0.955336
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.955336,
+         0.955336,
+         0.955336
+        ],
+        "dE_dp3_block_between_plus_and_minus": 8.55878176442424e-14
+       }
+      },
+      {
+       "core": 2,
+       "winding": -3,
+       "states": 6,
+       "smallest_core_weight_kept": 0.9972720876945645,
+       "largest_core_weight_dropped": 2.3921101853314587e-05,
+       "phases_per_tick": [
+        -0.11103452217134692,
+        -0.008463765429306318,
+        -0.0019904957988688844,
+        0.0019904957988688744,
+        0.00846376542930632,
+        0.11103452217134695
+       ],
+       "group_residual_of_U": 3.960497427748497e-07,
+       "near_zero_group": {
+        "size": 6,
+        "phases_per_tick": [
+         -0.11103452217134692,
+         -0.008463765429306318,
+         -0.0019904957988688844,
+         0.0019904957988688744,
+         0.00846376542930632,
+         0.11103452217134695
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.3701150739044897,
+         -0.02821255143102106,
+         -0.006634985996229615,
+         0.006634985996229582,
+         0.028212551431021065,
+         0.37011507390448983
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         -1.0,
+         -1.0,
+         1.0,
+         1.0,
+         1.0
+        ],
+        "n_plus": 3,
+        "n_minus": 3,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0,
+         1.0,
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.001990495798868865,
+         0.008463765429306326,
+         0.11103452217134692
+        ],
+        "plus_two_cell_shift_correlation": [
+         -0.90258,
+         -0.89956,
+         -0.48015
+        ],
+        "plus_smooth": 0,
+        "plus_staggered": 3,
+        "plus_shift_correlation_axis1": [
+         -0.90523,
+         -0.8976,
+         -0.4744
+        ],
+        "plus_shift_correlation_axis2": [
+         -0.90548,
+         -0.89851,
+         -0.48336
+        ],
+        "minus_two_cell_shift_correlation": [
+         0.48015,
+         0.89956,
+         0.90258
+        ],
+        "minus_smooth": 3,
+        "minus_staggered": 0,
+        "minus_shift_correlation_axis1": [
+         0.4744,
+         0.8976,
+         0.90523
+        ],
+        "minus_shift_correlation_axis2": [
+         0.48336,
+         0.89851,
+         0.90548
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.955336,
+         -0.955336,
+         -0.955336
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.955336,
+         0.955336,
+         0.955336
+        ],
+        "dE_dp3_block_between_plus_and_minus": 9.366073650560232e-14
+       }
+      }
+     ]
+    }
+   ],
+   "seconds": 117.4
+  },
+  {
+   "config": {
+    "L": 96,
+    "theta0": 0.3,
+    "n": 3,
+    "xi_c": 2.0,
+    "flux": 1.0471975511965976,
+    "window": 0.4,
+    "block": 160,
+    "classes": [
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      1
+     ]
+    ],
+    "velocity": true,
+    "overlaps": false
+   },
+   "classes": [
+    {
+     "class": [
+      0,
+      0
+     ],
+     "dimension": 9216,
+     "block": 160,
+     "solver": "robust",
+     "ritz_values_in_window": 24,
+     "states_in_window": 24,
+     "largest_residual_in_window": 2.0478065039789705e-15,
+     "block_saturated": false,
+     "unitarity_defect_of_the_compression": 4.6629367034256575e-15,
+     "phases_per_tick_all_cores": [
+      -0.013814437670009052,
+      -0.01381443767000903,
+      -0.013814233005420184,
+      -0.013814233005420165,
+      -0.004027494927285154,
+      -0.004027494927285128,
+      -0.004026048985273217,
+      -0.004026048985273186,
+      -0.0010076463729422145,
+      -0.001007646372942203,
+      -0.001006107898100767,
+      -0.0010061078981007498,
+      0.0010061078981007437,
+      0.001006107898100767,
+      0.001007646372942192,
+      0.0010076463729422212,
+      0.004026048985273172,
+      0.004026048985273196,
+      0.004027494927285113,
+      0.004027494927285152,
+      0.013814233005420166,
+      0.013814233005420222,
+      0.013814437670009021,
+      0.013814437670009035
+     ],
+     "cores": [
+      {
+       "core": 0,
+       "winding": 3,
+       "states": 2,
+       "smallest_core_weight_kept": 0.9983753277060234,
+       "largest_core_weight_dropped": 0.4987536465380672,
+       "phases_per_tick": [
+        -0.013814335336891276,
+        0.01381433533689125
+       ],
+       "group_residual_of_U": 2.0466458883354228e-07,
+       "near_zero_group": {
+        "size": 2,
+        "phases_per_tick": [
+         -0.013814335336891276,
+         0.01381433533689125
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.04604778445630425,
+         0.04604778445630417
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         1.0
+        ],
+        "n_plus": 1,
+        "n_minus": 1,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.013814335336891269
+        ],
+        "plus_two_cell_shift_correlation": [
+         0.92396
+        ],
+        "plus_smooth": 1,
+        "plus_staggered": 0,
+        "plus_shift_correlation_axis1": [
+         0.92325
+        ],
+        "plus_shift_correlation_axis2": [
+         0.92468
+        ],
+        "minus_two_cell_shift_correlation": [
+         -0.92396
+        ],
+        "minus_smooth": 0,
+        "minus_staggered": 1,
+        "minus_shift_correlation_axis1": [
+         -0.92325
+        ],
+        "minus_shift_correlation_axis2": [
+         -0.92468
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.96722
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.96722
+        ],
+        "dE_dp3_block_between_plus_and_minus": 3.5445187254977444e-14
+       }
+      },
+      {
+       "core": 2,
+       "winding": -3,
+       "states": 2,
+       "smallest_core_weight_kept": 0.9983753277060242,
+       "largest_core_weight_dropped": 0.49875364656513665,
+       "phases_per_tick": [
+        -0.013814335336891281,
+        0.013814335336891278
+       ],
+       "group_residual_of_U": 2.046645888335426e-07,
+       "near_zero_group": {
+        "size": 2,
+        "phases_per_tick": [
+         -0.013814335336891281,
+         0.013814335336891278
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.046047784456304273,
+         0.04604778445630426
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         1.0
+        ],
+        "n_plus": 1,
+        "n_minus": 1,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.013814335336891286
+        ],
+        "plus_two_cell_shift_correlation": [
+         -0.92396
+        ],
+        "plus_smooth": 0,
+        "plus_staggered": 1,
+        "plus_shift_correlation_axis1": [
+         -0.92325
+        ],
+        "plus_shift_correlation_axis2": [
+         -0.92468
+        ],
+        "minus_two_cell_shift_correlation": [
+         0.92396
+        ],
+        "minus_smooth": 1,
+        "minus_staggered": 0,
+        "minus_shift_correlation_axis1": [
+         0.92325
+        ],
+        "minus_shift_correlation_axis2": [
+         0.92468
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.96722
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.96722
+        ],
+        "dE_dp3_block_between_plus_and_minus": 4.392972603753795e-14
+       }
+      }
+     ]
+    },
+    {
+     "class": [
+      0,
+      1
+     ],
+     "dimension": 9216,
+     "block": 160,
+     "solver": "robust",
+     "ritz_values_in_window": 24,
+     "states_in_window": 24,
+     "largest_residual_in_window": 2.56521888253268e-15,
+     "block_saturated": false,
+     "unitarity_defect_of_the_compression": 4.6629367034256575e-15,
+     "phases_per_tick_all_cores": [
+      -0.013814437670009033,
+      -0.013814437670009012,
+      -0.013814233005420241,
+      -0.013814233005420194,
+      -0.004027494927285146,
+      -0.0040274949272851275,
+      -0.00402604898527322,
+      -0.004026048985273175,
+      -0.0010076463729422256,
+      -0.0010076463729421952,
+      -0.0010061078981007702,
+      -0.0010061078981007264,
+      0.0010061078981007528,
+      0.001006107898100757,
+      0.001007646372942195,
+      0.0010076463729422024,
+      0.004026048985273188,
+      0.004026048985273224,
+      0.004027494927285111,
+      0.004027494927285147,
+      0.013814233005420172,
+      0.01381423300542019,
+      0.013814437670009012,
+      0.013814437670009045
+     ],
+     "cores": [
+      {
+       "core": 0,
+       "winding": 3,
+       "states": 2,
+       "smallest_core_weight_kept": 0.9983753277060246,
+       "largest_core_weight_dropped": 0.4987536465845279,
+       "phases_per_tick": [
+        -0.013814335336891284,
+        0.013814335336891286
+       ],
+       "group_residual_of_U": 2.0466458883354228e-07,
+       "near_zero_group": {
+        "size": 2,
+        "phases_per_tick": [
+         -0.013814335336891284,
+         0.013814335336891286
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.04604778445630428,
+         0.04604778445630429
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         1.0
+        ],
+        "n_plus": 1,
+        "n_minus": 1,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.013814335336891293
+        ],
+        "plus_two_cell_shift_correlation": [
+         0.92396
+        ],
+        "plus_smooth": 1,
+        "plus_staggered": 0,
+        "plus_shift_correlation_axis1": [
+         0.92325
+        ],
+        "plus_shift_correlation_axis2": [
+         0.92468
+        ],
+        "minus_two_cell_shift_correlation": [
+         -0.92396
+        ],
+        "minus_smooth": 0,
+        "minus_staggered": 1,
+        "minus_shift_correlation_axis1": [
+         -0.92325
+        ],
+        "minus_shift_correlation_axis2": [
+         -0.92468
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.96722
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.96722
+        ],
+        "dE_dp3_block_between_plus_and_minus": 4.2311747649903384e-14
+       }
+      },
+      {
+       "core": 2,
+       "winding": -3,
+       "states": 2,
+       "smallest_core_weight_kept": 0.998375327706025,
+       "largest_core_weight_dropped": 0.49875364655955495,
+       "phases_per_tick": [
+        -0.013814335336891293,
+        0.013814335336891284
+       ],
+       "group_residual_of_U": 2.0466458883354233e-07,
+       "near_zero_group": {
+        "size": 2,
+        "phases_per_tick": [
+         -0.013814335336891293,
+         0.013814335336891284
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.046047784456304315,
+         0.04604778445630428
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         1.0
+        ],
+        "n_plus": 1,
+        "n_minus": 1,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.013814335336891288
+        ],
+        "plus_two_cell_shift_correlation": [
+         -0.92396
+        ],
+        "plus_smooth": 0,
+        "plus_staggered": 1,
+        "plus_shift_correlation_axis1": [
+         -0.92325
+        ],
+        "plus_shift_correlation_axis2": [
+         -0.92468
+        ],
+        "minus_two_cell_shift_correlation": [
+         0.92396
+        ],
+        "minus_smooth": 1,
+        "minus_staggered": 0,
+        "minus_shift_correlation_axis1": [
+         0.92325
+        ],
+        "minus_shift_correlation_axis2": [
+         0.92468
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.96722
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.96722
+        ],
+        "dE_dp3_block_between_plus_and_minus": 3.954622930569144e-14
+       }
+      }
+     ]
+    }
+   ],
+   "seconds": 117.1
+  },
+  {
+   "config": {
+    "L": 96,
+    "theta0": 0.3,
+    "n": 3,
+    "xi_c": 2.0,
+    "flux": 2.0943951023931953,
+    "window": 0.4,
+    "block": 160,
+    "classes": [
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      1
+     ]
+    ],
+    "velocity": true,
+    "overlaps": false
+   },
+   "classes": [
+    {
+     "class": [
+      0,
+      0
+     ],
+     "dimension": 9216,
+     "block": 160,
+     "solver": "robust",
+     "ritz_values_in_window": 24,
+     "states_in_window": 24,
+     "largest_residual_in_window": 2.393123805373786e-15,
+     "block_saturated": false,
+     "unitarity_defect_of_the_compression": 3.3306690738754696e-15,
+     "phases_per_tick_all_cores": [
+      -0.0473648627685729,
+      -0.04736486276857281,
+      -0.04736482687265977,
+      -0.04736482687265967,
+      -0.0045534429050626945,
+      -0.00455344290506267,
+      -0.004552183490436266,
+      -0.004552183490436238,
+      -0.0008389887969840041,
+      -0.0008389887969839833,
+      -0.0008377173333704753,
+      -0.0008377173333704604,
+      0.0008377173333704316,
+      0.0008377173333704523,
+      0.0008389887969839826,
+      0.0008389887969840043,
+      0.004552183490436254,
+      0.004552183490436276,
+      0.004553442905062675,
+      0.004553442905062713,
+      0.047364826872659686,
+      0.047364826872659756,
+      0.047364862768572796,
+      0.04736486276857288
+     ],
+     "cores": [
+      {
+       "core": 0,
+       "winding": 3,
+       "states": 2,
+       "smallest_core_weight_kept": 0.9985860490545285,
+       "largest_core_weight_dropped": 0.4986186316588029,
+       "phases_per_tick": [
+        -0.0473648448206043,
+        0.04736484482060429
+       ],
+       "group_residual_of_U": 3.589591310036737e-08,
+       "near_zero_group": {
+        "size": 2,
+        "phases_per_tick": [
+         -0.0473648448206043,
+         0.04736484482060429
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.15788281606868101,
+         0.15788281606868096
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         1.0
+        ],
+        "n_plus": 1,
+        "n_minus": 1,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.04736484482060432
+        ],
+        "plus_two_cell_shift_correlation": [
+         0.85042
+        ],
+        "plus_smooth": 1,
+        "plus_staggered": 0,
+        "plus_shift_correlation_axis1": [
+         0.84706
+        ],
+        "plus_shift_correlation_axis2": [
+         0.85378
+        ],
+        "minus_two_cell_shift_correlation": [
+         -0.85042
+        ],
+        "minus_smooth": 0,
+        "minus_staggered": 1,
+        "minus_shift_correlation_axis1": [
+         -0.84706
+        ],
+        "minus_shift_correlation_axis2": [
+         -0.85378
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.970393
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.970393
+        ],
+        "dE_dp3_block_between_plus_and_minus": 5.4827932875386026e-14
+       }
+      },
+      {
+       "core": 2,
+       "winding": -3,
+       "states": 2,
+       "smallest_core_weight_kept": 0.9985860490545273,
+       "largest_core_weight_dropped": 0.49861863164273823,
+       "phases_per_tick": [
+        -0.04736484482060426,
+        0.04736484482060437
+       ],
+       "group_residual_of_U": 3.589591310036761e-08,
+       "near_zero_group": {
+        "size": 2,
+        "phases_per_tick": [
+         -0.04736484482060426,
+         0.04736484482060437
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.15788281606868088,
+         0.15788281606868124
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         1.0
+        ],
+        "n_plus": 1,
+        "n_minus": 1,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.047364844820604275
+        ],
+        "plus_two_cell_shift_correlation": [
+         -0.85042
+        ],
+        "plus_smooth": 0,
+        "plus_staggered": 1,
+        "plus_shift_correlation_axis1": [
+         -0.84706
+        ],
+        "plus_shift_correlation_axis2": [
+         -0.85378
+        ],
+        "minus_two_cell_shift_correlation": [
+         0.85042
+        ],
+        "minus_smooth": 1,
+        "minus_staggered": 0,
+        "minus_shift_correlation_axis1": [
+         0.84706
+        ],
+        "minus_shift_correlation_axis2": [
+         0.85378
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.970393
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.970393
+        ],
+        "dE_dp3_block_between_plus_and_minus": 6.553968762252247e-14
+       }
+      }
+     ]
+    },
+    {
+     "class": [
+      0,
+      1
+     ],
+     "dimension": 9216,
+     "block": 160,
+     "solver": "robust",
+     "ritz_values_in_window": 24,
+     "states_in_window": 24,
+     "largest_residual_in_window": 2.25056604271517e-15,
+     "block_saturated": false,
+     "unitarity_defect_of_the_compression": 4.9960036108132044e-15,
+     "phases_per_tick_all_cores": [
+      -0.04736486276857282,
+      -0.047364862768572775,
+      -0.04736482687265977,
+      -0.04736482687265969,
+      -0.004553442905062698,
+      -0.004553442905062665,
+      -0.004552183490436284,
+      -0.004552183490436249,
+      -0.0008389887969839979,
+      -0.0008389887969839855,
+      -0.0008377173333704673,
+      -0.0008377173333704339,
+      0.0008377173333704391,
+      0.0008377173333704648,
+      0.0008389887969839713,
+      0.0008389887969840003,
+      0.004552183490436254,
+      0.004552183490436271,
+      0.004553442905062653,
+      0.004553442905062708,
+      0.047364826872659645,
+      0.04736482687265977,
+      0.0473648627685728,
+      0.04736486276857287
+     ],
+     "cores": [
+      {
+       "core": 0,
+       "winding": 3,
+       "states": 2,
+       "smallest_core_weight_kept": 0.998586049054528,
+       "largest_core_weight_dropped": 0.4986186316193818,
+       "phases_per_tick": [
+        -0.04736484482060428,
+        0.04736484482060429
+       ],
+       "group_residual_of_U": 3.589591310036753e-08,
+       "near_zero_group": {
+        "size": 2,
+        "phases_per_tick": [
+         -0.04736484482060428,
+         0.04736484482060429
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.15788281606868096,
+         0.15788281606868096
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         1.0
+        ],
+        "n_plus": 1,
+        "n_minus": 1,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.047364844820604296
+        ],
+        "plus_two_cell_shift_correlation": [
+         0.85042
+        ],
+        "plus_smooth": 1,
+        "plus_staggered": 0,
+        "plus_shift_correlation_axis1": [
+         0.84706
+        ],
+        "plus_shift_correlation_axis2": [
+         0.85378
+        ],
+        "minus_two_cell_shift_correlation": [
+         -0.85042
+        ],
+        "minus_smooth": 0,
+        "minus_staggered": 1,
+        "minus_shift_correlation_axis1": [
+         -0.84706
+        ],
+        "minus_shift_correlation_axis2": [
+         -0.85378
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.970393
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.970393
+        ],
+        "dE_dp3_block_between_plus_and_minus": 6.905901293027407e-15
+       }
+      },
+      {
+       "core": 2,
+       "winding": -3,
+       "states": 2,
+       "smallest_core_weight_kept": 0.9985860490545279,
+       "largest_core_weight_dropped": 0.4986186316075476,
+       "phases_per_tick": [
+        -0.047364844820604275,
+        0.04736484482060426
+       ],
+       "group_residual_of_U": 3.589591310036771e-08,
+       "near_zero_group": {
+        "size": 2,
+        "phases_per_tick": [
+         -0.047364844820604275,
+         0.04736484482060426
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.15788281606868093,
+         0.15788281606868088
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         1.0
+        ],
+        "n_plus": 1,
+        "n_minus": 1,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.04736484482060429
+        ],
+        "plus_two_cell_shift_correlation": [
+         -0.85042
+        ],
+        "plus_smooth": 0,
+        "plus_staggered": 1,
+        "plus_shift_correlation_axis1": [
+         -0.84706
+        ],
+        "plus_shift_correlation_axis2": [
+         -0.85378
+        ],
+        "minus_two_cell_shift_correlation": [
+         0.85042
+        ],
+        "minus_smooth": 1,
+        "minus_staggered": 0,
+        "minus_shift_correlation_axis1": [
+         0.84706
+        ],
+        "minus_shift_correlation_axis2": [
+         0.85378
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.970393
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.970393
+        ],
+        "dE_dp3_block_between_plus_and_minus": 8.661893719246272e-14
+       }
+      }
+     ]
+    }
+   ],
+   "seconds": 117.1
+  },
+  {
+   "config": {
+    "L": 96,
+    "theta0": 0.3,
+    "n": 3,
+    "xi_c": 2.0,
+    "flux": 3.141592653589793,
+    "window": 0.4,
+    "block": 160,
+    "classes": [
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      1
+     ]
+    ],
+    "velocity": true,
+    "overlaps": false
+   },
+   "classes": [
+    {
+     "class": [
+      0,
+      0
+     ],
+     "dimension": 9216,
+     "block": 160,
+     "solver": "robust",
+     "ritz_values_in_window": 32,
+     "states_in_window": 32,
+     "largest_residual_in_window": 2.8168039472339934e-15,
+     "block_saturated": false,
+     "unitarity_defect_of_the_compression": 5.10702591327572e-15,
+     "phases_per_tick_all_cores": [
+      -0.1121687676024836,
+      -0.11216876760248347,
+      -0.11216868428745147,
+      -0.11216868428745147,
+      -0.10468617153197186,
+      -0.10468617153197185,
+      -0.10468612122577167,
+      -0.10468612122577155,
+      -0.004464606108870652,
+      -0.004464606108870641,
+      -0.0044633227638144115,
+      -0.004463322763814407,
+      -0.0007186743048552234,
+      -0.0007186743048552078,
+      -0.0007173934237668727,
+      -0.0007173934237668547,
+      0.0007173934237668535,
+      0.0007173934237668543,
+      0.0007186743048552022,
+      0.0007186743048552053,
+      0.004463322763814416,
+      0.004463322763814428,
+      0.00446460610887067,
+      0.004464606108870686,
+      0.10468612122577155,
+      0.10468612122577163,
+      0.10468617153197178,
+      0.10468617153197182,
+      0.11216868428745148,
+      0.11216868428745154,
+      0.11216876760248357,
+      0.1121687676024836
+     ],
+     "cores": [
+      {
+       "core": 0,
+       "winding": 3,
+       "states": 4,
+       "smallest_core_weight_kept": 0.9976446445093504,
+       "largest_core_weight_dropped": 0.4985570746091975,
+       "phases_per_tick": [
+        -0.1121687259450352,
+        -0.10468614637889957,
+        0.10468614637889954,
+        0.11216872594503527
+       ],
+       "group_residual_of_U": 8.331503204316177e-08,
+       "near_zero_group": {
+        "size": 4,
+        "phases_per_tick": [
+         -0.1121687259450352,
+         -0.10468614637889957,
+         0.10468614637889954,
+         0.11216872594503527
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.37389575315011736,
+         -0.34895382126299856,
+         0.3489538212629985,
+         0.3738957531501176
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         -1.0,
+         1.0,
+         1.0
+        ],
+        "n_plus": 2,
+        "n_minus": 2,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0,
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.10468614637889963,
+         0.11216872594503534
+        ],
+        "plus_two_cell_shift_correlation": [
+         0.40142,
+         0.64456
+        ],
+        "plus_smooth": 2,
+        "plus_staggered": 0,
+        "plus_shift_correlation_axis1": [
+         0.41061,
+         0.63882
+        ],
+        "plus_shift_correlation_axis2": [
+         0.39213,
+         0.6504
+        ],
+        "minus_two_cell_shift_correlation": [
+         -0.64456,
+         -0.40142
+        ],
+        "minus_smooth": 0,
+        "minus_staggered": 2,
+        "minus_shift_correlation_axis1": [
+         -0.63882,
+         -0.41061
+        ],
+        "minus_shift_correlation_axis2": [
+         -0.6504,
+         -0.39213
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.972634,
+         -0.971561
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.971561,
+         0.972634
+        ],
+        "dE_dp3_block_between_plus_and_minus": 1.2540629612355561e-13
+       }
+      },
+      {
+       "core": 2,
+       "winding": -3,
+       "states": 4,
+       "smallest_core_weight_kept": 0.9976446445093496,
+       "largest_core_weight_dropped": 0.4985570746166492,
+       "phases_per_tick": [
+        -0.11216872594503512,
+        -0.10468614637889966,
+        0.10468614637889967,
+        0.11216872594503532
+       ],
+       "group_residual_of_U": 8.331503204316175e-08,
+       "near_zero_group": {
+        "size": 4,
+        "phases_per_tick": [
+         -0.11216872594503512,
+         -0.10468614637889966,
+         0.10468614637889967,
+         0.11216872594503532
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.3738957531501171,
+         -0.34895382126299884,
+         0.3489538212629989,
+         0.37389575315011775
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         -1.0,
+         1.0,
+         1.0
+        ],
+        "n_plus": 2,
+        "n_minus": 2,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0,
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.10468614637889967,
+         0.11216872594503513
+        ],
+        "plus_two_cell_shift_correlation": [
+         -0.64456,
+         -0.40142
+        ],
+        "plus_smooth": 0,
+        "plus_staggered": 2,
+        "plus_shift_correlation_axis1": [
+         -0.63882,
+         -0.41061
+        ],
+        "plus_shift_correlation_axis2": [
+         -0.6504,
+         -0.39213
+        ],
+        "minus_two_cell_shift_correlation": [
+         0.40142,
+         0.64456
+        ],
+        "minus_smooth": 2,
+        "minus_staggered": 0,
+        "minus_shift_correlation_axis1": [
+         0.41061,
+         0.63882
+        ],
+        "minus_shift_correlation_axis2": [
+         0.39213,
+         0.6504
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.972634,
+         -0.971561
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.971561,
+         0.972634
+        ],
+        "dE_dp3_block_between_plus_and_minus": 9.649648650256388e-14
+       }
+      }
+     ]
+    },
+    {
+     "class": [
+      0,
+      1
+     ],
+     "dimension": 9216,
+     "block": 160,
+     "solver": "robust",
+     "ritz_values_in_window": 32,
+     "states_in_window": 32,
+     "largest_residual_in_window": 2.929885188052212e-15,
+     "block_saturated": false,
+     "unitarity_defect_of_the_compression": 5.10702591327572e-15,
+     "phases_per_tick_all_cores": [
+      -0.11216876760248369,
+      -0.11216876760248366,
+      -0.11216868428745162,
+      -0.11216868428745162,
+      -0.10468617153197188,
+      -0.10468617153197188,
+      -0.1046861212257717,
+      -0.10468612122577166,
+      -0.00446460610887069,
+      -0.004464606108870642,
+      -0.00446332276381443,
+      -0.004463322763814413,
+      -0.0007186743048552128,
+      -0.0007186743048552097,
+      -0.0007173934237668533,
+      -0.0007173934237668518,
+      0.0007173934237668505,
+      0.0007173934237668653,
+      0.0007186743048552046,
+      0.0007186743048552308,
+      0.004463322763814428,
+      0.004463322763814442,
+      0.004464606108870671,
+      0.004464606108870673,
+      0.10468612122577171,
+      0.1046861212257718,
+      0.10468617153197184,
+      0.10468617153197189,
+      0.11216868428745158,
+      0.11216868428745169,
+      0.11216876760248362,
+      0.11216876760248369
+     ],
+     "cores": [
+      {
+       "core": 0,
+       "winding": 3,
+       "states": 4,
+       "smallest_core_weight_kept": 0.9976446445093514,
+       "largest_core_weight_dropped": 0.4985570746371938,
+       "phases_per_tick": [
+        -0.11216872594503526,
+        -0.10468614637889975,
+        0.1046861463788999,
+        0.11216872594503521
+       ],
+       "group_residual_of_U": 8.331503204316193e-08,
+       "near_zero_group": {
+        "size": 4,
+        "phases_per_tick": [
+         -0.11216872594503526,
+         -0.10468614637889975,
+         0.1046861463788999,
+         0.11216872594503521
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.3738957531501175,
+         -0.3489538212629992,
+         0.3489538212629997,
+         0.3738957531501174
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         -1.0,
+         1.0,
+         1.0
+        ],
+        "n_plus": 2,
+        "n_minus": 2,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0,
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.10468614637889975,
+         0.1121687259450353
+        ],
+        "plus_two_cell_shift_correlation": [
+         0.40142,
+         0.64456
+        ],
+        "plus_smooth": 2,
+        "plus_staggered": 0,
+        "plus_shift_correlation_axis1": [
+         0.41061,
+         0.63882
+        ],
+        "plus_shift_correlation_axis2": [
+         0.39213,
+         0.6504
+        ],
+        "minus_two_cell_shift_correlation": [
+         -0.64456,
+         -0.40142
+        ],
+        "minus_smooth": 0,
+        "minus_staggered": 2,
+        "minus_shift_correlation_axis1": [
+         -0.63882,
+         -0.41061
+        ],
+        "minus_shift_correlation_axis2": [
+         -0.6504,
+         -0.39213
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.972634,
+         -0.971561
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.971561,
+         0.972634
+        ],
+        "dE_dp3_block_between_plus_and_minus": 1.1481963677444073e-13
+       }
+      },
+      {
+       "core": 2,
+       "winding": -3,
+       "states": 4,
+       "smallest_core_weight_kept": 0.9976446445093512,
+       "largest_core_weight_dropped": 0.49855707461572557,
+       "phases_per_tick": [
+        -0.11216872594503531,
+        -0.10468614637889975,
+        0.10468614637889975,
+        0.11216872594503537
+       ],
+       "group_residual_of_U": 8.331503204316181e-08,
+       "near_zero_group": {
+        "size": 4,
+        "phases_per_tick": [
+         -0.11216872594503531,
+         -0.10468614637889975,
+         0.10468614637889975,
+         0.11216872594503537
+        ],
+        "next_phase_per_tick": null,
+        "over_theta0": [
+         -0.3738957531501177,
+         -0.3489538212629992,
+         0.3489538212629992,
+         0.3738957531501179
+        ],
+        "Gamma_eigenvalues": [
+         -1.0,
+         -1.0,
+         1.0,
+         1.0
+        ],
+        "n_plus": 2,
+        "n_minus": 2,
+        "Theta_plus_onto_minus_singular_values": [
+         1.0,
+         1.0
+        ],
+        "pair_phases_per_tick_from_the_off_diagonal_block": [
+         0.10468614637889977,
+         0.1121687259450354
+        ],
+        "plus_two_cell_shift_correlation": [
+         -0.64456,
+         -0.40142
+        ],
+        "plus_smooth": 0,
+        "plus_staggered": 2,
+        "plus_shift_correlation_axis1": [
+         -0.63882,
+         -0.41061
+        ],
+        "plus_shift_correlation_axis2": [
+         -0.6504,
+         -0.39213
+        ],
+        "minus_two_cell_shift_correlation": [
+         0.40142,
+         0.64456
+        ],
+        "minus_smooth": 2,
+        "minus_staggered": 0,
+        "minus_shift_correlation_axis1": [
+         0.41061,
+         0.63882
+        ],
+        "minus_shift_correlation_axis2": [
+         0.39213,
+         0.6504
+        ],
+        "dE_dp3_per_tick_on_Gamma_minus": [
+         -0.972634,
+         -0.971561
+        ],
+        "dE_dp3_per_tick_on_Gamma_plus": [
+         0.971561,
+         0.972634
+        ],
+        "dE_dp3_block_between_plus_and_minus": 1.369642744459765e-13
+       }
+      }
+     ]
+    }
+   ],
+   "seconds": 117.7
+  }
+ ]
+}

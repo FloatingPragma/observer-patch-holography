@@ -1,0 +1,125 @@
+"""Worker CH, direction 2, addendum 1 of CANDIDATES.md: DO-7 (orientation of the class-3 junction product),
+DO-8 (chirality number), DO-9 (all two-register partitions of the four conjugation pairs).
+
+Run: /tmp/oph-completion-venv/bin/python ch_doublet2.py [out.json]
+Exact integer arithmetic on the pattern charges. No measured value is read.
+"""
+import itertools
+import json
+import sys
+from fractions import Fraction as F
+from pathlib import Path
+
+from ch_lib import PATTERNS, MULTIPLETS, NAME, SU3_DIM, SU2_DIM, clean
+
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).with_name('doublet2.json')
+out = {}
+
+conj = lambda m: (3 - m[0], 2 - m[1])
+six_y = lambda m: 3 * m[1] - 2 * m[0]
+klass = lambda m: six_y(m) % 6
+degree = lambda m: m[0] + m[1]
+CHAN = {(1, 0): 'down', (1, 1): 'up', (3, 0): 'charged lepton', (3, 1): 'neutrino',
+        (2, 1): 'conjugate down', (2, 0): 'conjugate up', (0, 1): 'conjugate charged lepton', (0, 0): 'conjugate neutrino'}
+LEG = {'down': 'down type', 'charged lepton': 'down type', 'up': 'up type', 'neutrino': 'up type'}
+
+# ----------------------------------------------------------------------------- DO-7
+rows = []
+for m, name in CHAN.items():
+    mp = (m[0], m[1] + 1)                                # the toggle raises n2 by one
+    left, right = (m, mp) if degree(m) % 2 == 0 else (mp, m)        # degree parity: even = left-handed
+    product = (right, conj(left))                        # right-handed pattern with the conjugate of the left-handed one
+    y6 = six_y(right) + six_y(conj(left))
+    colour_singlet = (right[0] + conj(left)[0]) % 3 == 0
+    weak_doublet = {SU2_DIM[right[1]], SU2_DIM[conj(left)[1]]} == {1, 2}
+    rows.append(dict(channel=name, initial=NAME[m], final=NAME[mp], initial_degree_parity='even' if degree(m) % 2 == 0 else 'odd',
+                     right=NAME[right], left=NAME[left], junction_classes=f'{klass(right)} + {klass(conj(left))} -> {(klass(right) + klass(conj(left))) % 6}',
+                     product=[NAME[right], NAME[conj(left)]], six_Y_of_product=y6, contains_colour_singlet_weak_doublet=colour_singlet and weak_doublet))
+    assert abs(y6) == 3 and (klass(right) + klass(conj(left))) % 6 == 3
+    assert (y6 == 3) == (degree(m) % 2 == 0)             # orientation +3 exactly for the even-degree toggles (split S1)
+    base = name.replace('conjugate ', '')
+    assert (y6 == 3) == (LEG[base] == 'up type')         # orientation +3 exactly for the up-type legs
+out['DO7'] = dict(rows=rows)
+# per junction type: products and their conjugates
+jun = {}
+for r in rows:
+    key = r['junction_classes']
+    jun.setdefault(key, set()).add((tuple(r['product']), r['six_Y_of_product']))
+out['DO7']['products_per_junction_type'] = {k: sorted([dict(pair=list(p), six_Y=y) for p, y in v], key=lambda d: d['six_Y']) for k, v in jun.items()}
+# the conjugate of a product is the pair (left, conjugate of right); it belongs to the conjugate junction type
+conj_products = set()
+for m in CHAN:
+    mp = (m[0], m[1] + 1)
+    left, right = (m, mp) if degree(m) % 2 == 0 else (mp, m)
+    conj_products.add((NAME[conj(right)], NAME[left]))
+products = {tuple(r['product']) for r in rows}
+assert products.isdisjoint(conj_products)
+out['DO7']['statement'] = ('junction 4 + 5 -> 3 (right quark with left antiquark): (u_R, conj Q) has 6Y = +3, (d_R, conj Q) has 6Y = -3; '
+                           'junction 0 + 3 -> 3: (nu_R, conj L) +3, (e_R, conj L) -3. The two orientations of one junction type are the up-type leg and the '
+                           'down-type leg. They are not conjugates of each other: the conjugates are the products of the conjugate junction 1 + 2 -> 3 '
+                           '(and 0 + 3 -> 3 with the left lepton).')
+out['DO7']['independent_doublet_states'] = dict(quark_junction_products=2, their_conjugates=2, complex_doublets_quark=2,
+                                                lepton_junction_products=2, complex_doublets_lepton=2)
+
+# ----------------------------------------------------------------------------- DO-8: chirality number
+# A = +1 on odd-degree patterns, -1 on even-degree patterns. A toggle from an even-degree pattern changes A by +2,
+# from an odd-degree pattern by -2. A register r with charge a_r (carried by its lowering operator as -a_r) conserves
+# A + sum_r a_r N_r iff every channel it serves has the same change.
+def conserves_A(assign):
+    need = {}
+    for m, r in assign.items():
+        dA = 2 if degree(m) % 2 == 0 else -2
+        if need.setdefault(r, dA) != dA:
+            return False, None
+    return True, need
+
+
+one = {m: 0 for m in CHAN}
+out['DO8'] = {'one register': conserves_A(one)[0]}
+assert not conserves_A(one)[0]
+
+# ----------------------------------------------------------------------------- DO-9: all partitions of the four pairs
+pairs = ['up', 'down', 'charged lepton', 'neutrino']
+parts = []
+for mask in range(1, 8):                                 # 'up' always in block 0; 7 partitions into two non-empty blocks
+    block1 = [pairs[i] for i in range(1, 4) if mask >> (i - 1) & 1]
+    block0 = [p for p in pairs if p not in block1]
+    assign = {m: (1 if CHAN[m].replace('conjugate ', '') in block1 else 0) for m in CHAN}
+    ok, need = conserves_A(assign)
+    free = []
+    b = lambda s: 1 if s in block1 else 0
+    if b('up') != b('down'):
+        free.append('up/down')
+    if b('charged lepton') != b('down'):
+        free.append('charged lepton/down')
+    if b('neutrino') != b('up'):
+        free.append('neutrino/up')
+    if b('neutrino') != b('charged lepton'):
+        free.append('neutrino/charged lepton')
+    prop = None
+    if set(block0) == {'up', 'neutrino'}:
+        prop = 'S1: degree parity of the initial pattern (handedness of the pattern the toggle acts on)'
+    elif set(block0) == {'up', 'down'}:
+        prop = 'S4: coloured against colourless (n3 in {1, 2} against {0, 3})'
+    elif set(block0) == {'up', 'charged lepton'}:
+        prop = 'product of the two properties above'
+    parts.append(dict(register_0=block0, register_1=block1, conserves_chirality_number=ok,
+                      register_charges=need, free_ratios=free, pattern_property=prop))
+out['DO9'] = parts
+sel = [p for p in parts if p['conserves_chirality_number']]
+assert len(sel) == 1 and set(sel[0]['register_0']) == {'up', 'neutrino'}
+out['DO8']['partitions_conserving_chirality_number'] = [dict(register_0=p['register_0'], register_1=p['register_1'], charges=p['register_charges']) for p in sel]
+out['DO8']['statement'] = ('the one-register vertex changes the chirality number by +2 on the up-type legs and by -2 on the down-type legs with the same '
+                           'register operator, so no register charge restores it; among the seven two-register partitions exactly S1 conserves it, '
+                           'with register charges +2 and -2')
+
+OUT.write_text(json.dumps(clean(out), indent=1))
+print('DO-7:')
+for r in rows:
+    print(f"   {r['channel']:26s} {r['initial']:10s} -> {r['final']:10s} initial degree {r['initial_degree_parity']:4s}  junction {r['junction_classes']:11s} product {r['product']}  6Y = {r['six_Y_of_product']:+d}")
+print('   per junction type:', out['DO7']['products_per_junction_type'])
+print('DO-8: one register conserves the chirality number:', out['DO8']['one register'])
+print('DO-9:')
+for p in parts:
+    print('  ', p['register_0'], '|', p['register_1'], '| chirality number conserved:', p['conserves_chirality_number'], '| free ratios:', p['free_ratios'], '|', p['pattern_property'])
+print('wrote', OUT)

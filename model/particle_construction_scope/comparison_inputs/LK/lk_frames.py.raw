@@ -1,0 +1,142 @@
+"""Worker LK, addendum 2 (statements R10 to R12): the round in the plain frame of the public law, and the exchange of
+the double load by two ticks of the plain law on the E seam.
+
+Run from RL/work/LK:
+  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B lk_frames.py
+EXACT (Fractions). Writes lk_frames.json.
+"""
+from __future__ import annotations
+
+import json
+import os
+import sys
+import time
+from fractions import Fraction as Fr
+
+import lk_common as L
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+T0 = time.time()
+OUT = {'provenance': L.provenance()}
+NS = L.NS
+
+
+def round_numbers():
+    S = L.S_raw()
+    w = L.step(S)
+    wt = {}
+    for key, c in w.items():
+        wt[L.flag(key)] = wt.get(L.flag(key), Fr(0)) + c * c / NS
+    pF, pI = wt['F'], wt['I']
+    Fv = L.inverse_step(L.restrict(w, lambda k: L.flag(k) == 'F'))
+    Iv = L.inverse_step(L.restrict(w, lambda k: L.flag(k) == 'I'))
+    sF, sI = L.dot(S, Fv) / NS, L.dot(S, Iv) / NS
+    nA, nB = L.axpy(Fv, S, -sF), L.axpy(Iv, S, -sI)
+    SS, WW = L.tensor(S, S), L.tensor(w, w)
+    Xv = L.on_both({k: c for k, c in WW.items() if L.qx_value(*k)}, L.inverse_step)
+    ZZ = {k: c * (1 - 2 * L.qx_value(*k)) for k, c in WW.items()}
+    Yv = L.on_both(ZZ, L.inverse_step)
+    D = {'D2': L.uniform(L.DBL2), 'D10': L.uniform(L.DBL10)}
+    WD = {n: L.step(v) for n, v in D.items()}
+
+    def gram(name):
+        return [[Fr(L.dot(L.restrict(WD[a], lambda k: L.flag(k) == name), L.restrict(WD[b], lambda k: L.flag(k) == name))) / 12
+                 for b in ('D2', 'D10')] for a in ('D2', 'D10')]
+    GF, GI = gram('F'), gram('I')
+    gI = GI[0][0]
+    comp = [[GF[a][b] * (1 - gI) + ((1 if a == b else 0) - GF[a][b]) * gI for b in range(2)] for a in range(2)]
+    return {
+        'W^-1 W S = S': L.inverse_step(w) == S,
+        'weights': {k: str(v) for k, v in sorted(wt.items())},
+        'P': str(pF + pI - 2 * pF * pI), '<S|W^-1 Pi_F W|S>': str(sF), '<S|W^-1 Pi_I W|S>': str(sI),
+        'non-return norms squared (A, B)': [str(L.norm2(nA) / NS), str(L.norm2(nB) / NS)],
+        '<SS|X>': str(L.dot(SS, Xv) / (NS * NS)),
+        'pair identity (W^-1 x W^-1)(Z_F x Z_I)(W x W)|SS> = |SS> - 2|X>': Yv == L.axpy(SS, Xv, -2),
+        'G_I off-diagonal': str(GI[0][1]),
+        'compression of W^-1 Qx W on the uniform doubles of A': [[str(x) for x in r] for r in comp],
+        'T_blk T_addr T_sym S = S': L.return_yes(S) == S,
+    }
+
+
+def family(start):
+    """Closure of a basis state (cfg, rec, k) under Q (addressed) and R (all addresses of the block)."""
+    fam, todo = set(), [start]
+    while todo:
+        key = todo.pop()
+        if key in fam:
+            continue
+        fam.add(key)
+        cfg, rec, k = key
+        for k2 in range(12):
+            if (cfg, rec, k2) not in fam:
+                todo.append((cfg, rec, k2))
+        for c2, r2, u in L.local(cfg, rec, k):
+            if (c2, r2, k) not in fam:
+                todo.append((c2, r2, k))
+    return fam
+
+
+res = {}
+for frame in ('FN', 'FP'):
+    L.set_frame(frame)
+    row = round_numbers()
+    fam = family((L.DBL2, 0, 0))
+    row['family closure of (double 2, blank) contains (double 10, blank)'] = any(k[0] == L.DBL10 and k[1] == 0 for k in fam)
+    row['blocks in the closure'] = len({(k[0], k[1]) for k in fam})
+    res[frame] = row
+L.set_frame('FN')
+OUT['R10 R12 by frame (FN native, FP plain law of the public program)'] = res
+OUT['R10 all round numbers equal in the two frames'] = all(
+    res['FN'][k] == res['FP'][k] for k in res['FN'] if not k.startswith('family') and not k.startswith('blocks'))
+
+# ------------------------------------------------------------------ R11: the E seam alone, two-orientation address
+NAMES = L.NAMES
+SWAP = {'00': '00', '10': '01', '01': '10', '11': '11', '20': '02', '02': '20'}
+
+
+def q_seam(state, plain):
+    """state: {(source name, rec, o): amp}. o = 0: ordered pair (2, 10); o = 1: (10, 2) in the plain law."""
+    out = {}
+    for (src, rec, o), c in state.items():
+        loc = SWAP[src] if (plain and o == 1) else src
+        col = 4 * NAMES.index(loc) + rec
+        for row in range(24):
+            u = L.U24[row][col]
+            if u:
+                s2, r2 = divmod(row, 4)
+                name = NAMES[s2]
+                name = SWAP[name] if (plain and o == 1) else name
+                L.add(out, (name, r2, o), c * u)
+    return out
+
+
+def r2(state):
+    return {(src, rec, 1 - o): c for (src, rec, o), c in state.items()}
+
+
+def w_seam(state, plain):
+    return q_seam(r2(state), plain)
+
+
+r11 = {}
+for plain, label in ((True, 'plain law'), (False, 'native frame')):
+    rows = {}
+    for o in (0, 1):
+        st = {('20', 0, o): Fr(1)}
+        one = w_seam(st, plain)
+        two = w_seam(one, plain)
+        rows[f'orientation {"+-"[o]}'] = {'after one tick': {str(k): str(v) for k, v in one.items()},
+                                          'after two ticks': {str(k): str(v) for k, v in two.items()}}
+    sym = {('20', 0, 0): Fr(1), ('02', 0, 0): Fr(1)}
+    anti = {('20', 0, 0): Fr(1), ('02', 0, 0): Fr(-1)}
+    rows['W_E^2 on the symmetric double (orientation +)'] = {str(k): str(v) for k, v in w_seam(w_seam(sym, plain), plain).items()}
+    rows['W_E^2 on the antisymmetric double (orientation +)'] = {str(k): str(v) for k, v in w_seam(w_seam(anti, plain), plain).items()}
+    r11[label] = rows
+OUT['R11 E seam with a two-orientation address: two ticks from the double at port 2'] = r11
+OUT['R11 statement'] = ('plain law: W_E^2 |20, blank, o> = |02, blank, o>, so X_E = W_E^2 on the blank doubles and '
+                        'T_sym = (1 + W_E^2)/2; native frame: W_E^2 is the identity on the blank doubles')
+
+OUT['seconds'] = round(time.time() - T0, 2)
+with open(os.path.join(HERE, 'lk_frames.json'), 'w') as fh:
+    json.dump(OUT, fh, indent=1, default=str)
+print(json.dumps({k: v for k, v in OUT.items() if k != 'provenance'}, indent=1, default=str))

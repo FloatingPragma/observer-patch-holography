@@ -1,0 +1,149 @@
+{
+ "task": "LC addendum 2: current records and sequential events",
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "B1_classical_current (P(J=+1), P(J=-1), P(J=0)) by kind of configuration": {
+  "double": [
+   [
+    "1/12",
+    "1/12",
+    "5/6"
+   ]
+  ],
+  "pair at port distance 1": [
+   [
+    "1/15",
+    "1/15",
+    "13/15"
+   ]
+  ],
+  "pair at port distance 2": [
+   [
+    "1/12",
+    "1/12",
+    "5/6"
+   ]
+  ],
+  "pair at port distance 3": [
+   [
+    "1/12",
+    "1/12",
+    "5/6"
+   ]
+  ]
+ },
+ "B2_coherent_records_against_the_classical_current": {
+  "double load: record 2 is J = +1, record 3 is J = -1, blank is J = 0, amplitude one (12 ports x 60 addresses)": true,
+  "single load: the record-1 amplitudes have the sign of the classical current (12 ports x 60 addresses)": true
+ },
+ "coherent_two_events_in_sequence_on_one_cell": {
+  "B3 DL at port 2, H = any current in the second event": {
+   "R+": "1/12",
+   "R-": "1/12",
+   "H": "29/180",
+   "R+ and H": "1/90",
+   "R- and H": "1/90",
+   "count": "2/9",
+   "count as float": 0.222222222,
+   "equals 2/9": true,
+   "H : R+ : R-": "29/180 : 1/12 : 1/12"
+  },
+  "G6a DL at port 2, H = emission in the second event": {
+   "R+": "1/12",
+   "R-": "1/12",
+   "H": "5/36",
+   "R+ and H": "0",
+   "R- and H": "0",
+   "count": "2/9",
+   "count as float": 0.222222222,
+   "equals 2/9": true,
+   "H : R+ : R-": "5/36 : 1/12 : 1/12"
+  },
+  "B7 NP on antipodal ports, coherent, H = record 1 in the second event": {
+   "R+": "1/12",
+   "R-": "1/12",
+   "H": "29/180",
+   "R+ and H": "1/80",
+   "R- and H": "1/80",
+   "count": "79/360",
+   "count as float": 0.219444444,
+   "equals 2/9": false,
+   "H : R+ : R-": "29/180 : 1/12 : 1/12"
+  },
+  "B7 NP on port distance two, coherent, H = record 1 in the second event": {
+   "R+": "1/12",
+   "R-": "1/12",
+   "H": "143/900",
+   "R+ and H": "43/3600",
+   "R- and H": "43/3600",
+   "count": "131/600",
+   "count as float": 0.218333333,
+   "equals 2/9": false,
+   "H : R+ : R-": "143/900 : 1/12 : 1/12"
+  }
+ },
+ "classical_two_events_in_sequence_on_one_cell": {
+  "double load at port 2": {
+   "R+": "1/12",
+   "R-": "1/12",
+   "H": "29/180",
+   "R+ and H": "1/90",
+   "count": "2/9",
+   "equals 2/9": true,
+   "H : R+ : R-": "29/180 : 1/12 : 1/12",
+   "second event independent of the first": false
+  },
+  "pair on antipodal ports": {
+   "R+": "1/12",
+   "R-": "1/12",
+   "H": "1/6",
+   "R+ and H": "1/72",
+   "count": "2/9",
+   "equals 2/9": true,
+   "H : R+ : R-": "1/6 : 1/12 : 1/12",
+   "second event independent of the first": true
+  },
+  "pair at port distance two": {
+   "R+": "1/12",
+   "R-": "1/12",
+   "H": "37/225",
+   "R+ and H": "23/1800",
+   "count": "2/9",
+   "equals 2/9": true,
+   "H : R+ : R-": "37/225 : 1/12 : 1/12",
+   "second event independent of the first": false
+  }
+ },
+ "B8_two_double_loads_in_one_cell_later_ticks": {
+  "ports": [
+   2,
+   1
+  ],
+  "weight of events outside the completion (seam total above two) at ticks 1, 2, ... (removed and not renormalized)": [
+   "0",
+   "0",
+   "0",
+   "1/68343750",
+   "941/1537734375",
+   "11618347/1729951171875",
+   "14228369/415188281250"
+  ],
+  "ticks computed": 7,
+  "as float": [
+   0.0,
+   0.0,
+   0.0,
+   1.4631915866483768e-08,
+   6.119392369049434e-07,
+   6.715997069100804e-06,
+   3.4269678703750746e-05
+  ]
+ },
+ "seconds": 3.3
+}

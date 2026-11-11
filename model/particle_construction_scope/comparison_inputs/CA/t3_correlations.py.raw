@@ -1,0 +1,166 @@
+"""Task 3: ordered twisted correlations converge to traces of products of compressed occupations; proved error bound
+checked against the actual error; sample cost of the character-weighted counts.
+
+Float64 (MEASURED); the bound itself is proved in STATEMENTS.md (S6).  Usage: python t3_correlations.py [out.json]
+"""
+import json
+import sys
+import time
+import numpy as np
+import ca_core as c
+import ca_corr as cc
+
+out_path = sys.argv[1] if len(sys.argv) > 1 else 't3_correlations.json'
+t0 = time.time()
+res = {'schema': 'repair_law.CA.t3.v1', 'cases': {}}
+secs = {'one': cc.Sector('one'), 'two': cc.Sector('two')}
+CASES = [('one', 1), ('one', 2), ('one', 7), ('two', 1)]
+LAGS = [5, 10, 20, 40, 80, 160, 320]
+
+
+def errs(sec, k, lag, lim, orders):
+    dat = cc.counts(sec, k, lag, orders=orders)
+    return {r: float(np.abs(dat[key] - lim[key]).max()) for r, key in ((2, 'G'), (3, 'T3'), (4, 'T4')) if key in dat}, dat
+
+
+for name, k in CASES:
+    sec = secs[name]
+    sp = sec.spectrum(k)
+    orders = (2, 3, 4) if name == 'one' else (2, 3)
+    lim = cc.limits(sec, k, orders=orders)
+    m = sp['m']
+    # rotation invariance used by the proof: Tr(N_p R) does not depend on p
+    P = sec.P(k)
+    Pi = sp['V'] @ sp['V'].conj().T
+    Rl = np.linalg.matrix_power(P / sp['lam1'], 7) @ (np.eye(sec.d) - Pi)
+    trNR = [float(np.trace(sec.occ[p][:, None] * Rl).real) for p in range(12)]
+    case = {'m': m, 'lambda1': sp['lam1'], 'lambda2': sp['lam2'], 'q': sp['q'], 'E0': sp['E0'], 'gap': sp['gap'],
+            'eigen_residual_defect': sp['defect'], 'E0_over_gap': sp['E0'] / sp['gap'],
+            'TrNR_spread_over_ports': max(trNR) - min(trNR), 'rows': []}
+    scale = {r: float(np.abs(lim[key]).max()) for r, key in ((2, 'G'), (3, 'T3'), (4, 'T4')) if key in lim}
+    case['max_abs_limit'] = scale
+    case['pi1_power_over_m'] = {r: (sec.load * m / 12.0) ** r / m for r in scale}
+    print(f"\n{name} quantum sector, character k = {k}: leading multiplet dimension {m}, lambda1 = {sp['lam1']:.9f}, "
+          f"lambda2 = {sp['lam2']:.9f}, q = {sp['q']:.6f}, E0 = {sp['E0']:.6f}, gap = {sp['gap']:.6f}, "
+          f"E0/gap = {sp['E0']/sp['gap']:.4f} (eigen residual {sp['defect']:.1e})")
+    print('   lag | r | max |C - limit| over all port words | proved bound | bound with q only | bound/actual')
+    ok = True
+    for lag in LAGS:
+        e, dat = errs(sec, k, lag, lim, orders)
+        for r in sorted(e):
+            b = cc.error_bound(sec, k, lag, r)
+            bq = cc.error_bound(sec, k, lag, r, with_q_only=True)
+            ok &= (e[r] <= b * (1 + 1e-9) + 1e-15) and (b <= bq * (1 + 1e-9))
+            case['rows'].append({'lag': lag, 'r': r, 'actual': e[r], 'bound': b, 'bound_q': bq})
+            print(f'   {lag:4d} | {r} | {e[r]:.3e} | {b:.3e} | {bq:.3e} | {b / max(e[r], 1e-300):.1f}')
+    case['bound_holds_on_all_rows'] = bool(ok)
+    assert ok
+
+    # sample cost.  Target: every word of length r within eta * (largest |limit|).
+    def worst(lag, r):
+        return errs(sec, k, lag, lim, (r,))[0][r]
+
+    def min_lag(fun, target):
+        hi = 1
+        while fun(hi) > target:
+            hi *= 2
+            if hi > 1 << 16:
+                return None
+        lo = hi // 2
+        while hi - lo > 1:
+            mid = (lo + hi) // 2
+            if fun(mid) > target:
+                lo = mid
+            else:
+                hi = mid
+        return hi
+
+    P0 = sec.P(0)
+    case['cost'] = []
+    print('   r | eta  | lag (actual) | lag (bound) | L = r lag | mean character over closed histories | closed '
+          'histories needed | samples (uniform start) | attempts')
+    for r in (2, 3):
+        key = {2: 'G', 3: 'T3'}[r]
+        Tmax = scale[r]
+        idx = np.unravel_index(np.argmax(np.abs(lim[key])), lim[key].shape)
+        for eta in (0.1, 0.01):
+            eps = eta * Tmax
+            la = min_lag(lambda x: worst(x, r), eps)
+            lb = min_lag(lambda x: cc.error_bound(sec, k, x, r), eps)
+            row = {'r': r, 'eta': eta, 'epsilon_abs': eps, 'lag_actual': la, 'lag_bound': lb}
+            for tag, lag in (('actual', la), ('bound', lb)):
+                L = r * lag
+                Xk = np.linalg.matrix_power(sec.P(k), lag)
+                X0 = np.linalg.matrix_power(P0, lag)
+                p_c = float(np.trace(np.linalg.matrix_power(X0, r)).real) / sec.d        # Pr[closed]
+                mu = float(np.trace(np.linalg.matrix_power(Xk, r)).real) / sec.d         # E[closed * character]
+                chi = mu / p_c                                                         # mean character over closed
+                # unweighted probability of the word event with closure, for the word of largest |limit|
+                Y0 = [sec.occ[a][:, None] * X0 for a in idx]
+                prod = Y0[0]
+                for Ym in Y0[1:]:
+                    prod = prod @ Ym
+                p_w = float(np.trace(prod).real) / sec.d
+                Cval = cc.counts(sec, k, lag, orders=(r,))[key][idx]
+                f_w = p_w / p_c
+                n_closed = (f_w * (1 - 2 * Cval.real) + abs(Cval) ** 2) / (chi ** 2 * eps ** 2)
+                row[tag] = {'L': L, 'mean_character': chi, 'm_lambda1_L': sp['m'] * sp['lam1'] ** L, 'Pr_closed': p_c,
+                            'word_fraction_of_closed': f_w, 'closed_histories': n_closed,
+                            'samples': n_closed / p_c, 'attempts': n_closed / p_c * L}
+            case['cost'].append(row)
+            a = row['actual']
+            print(f"   {r} | {eta:<4} | {la:6d} | {lb:6d} | {a['L']:6d} | {a['mean_character']:.3e} | "
+                  f"{a['closed_histories']:.3e} | {a['samples']:.3e} | {a['attempts']:.3e}"
+                  f"   (with the proved lag: closed histories {row['bound']['closed_histories']:.3e})")
+    res['cases'][f'{name}_k{k}'] = case
+
+# area-resolved check, one quantum: the count route through the lifted classical chain (real arithmetic)
+sec = secs['one']
+k, lag = 1, 30
+Cf = sec.C.astype(float) / 60.0
+
+
+def fmul(A, B):
+    T = np.einsum('yzt,zxu->yxtu', A, B, optimize=True)
+    o = np.zeros_like(A)
+    for t in range(20):
+        for u in range(20):
+            o[:, :, (t + u) % 20] += T[:, :, t, u]
+    return o
+
+
+Xl = None
+base = Cf
+e = lag
+while e:
+    if e & 1:
+        Xl = base if Xl is None else fmul(Xl, base)
+    e >>= 1
+    if e:
+        base = fmul(base, base)
+ph = c.OMEGA ** (k * np.arange(20))
+word = (0, 1, 5)                                                     # history visits ports 0, 1, 5 (a face)
+h = np.zeros(20)
+for s1 in range(20):
+    for s2 in range(20):
+        h[(s1 + s2) % 20] += Xl[word[1], word[0], s1] * Xl[word[2], word[1], s2]
+hw = np.zeros(20)
+for s in range(20):
+    for t in range(20):
+        hw[(s + t) % 20] += h[s] * Xl[word[0], word[2], t]
+X3 = fmul(fmul(Xl, Xl), Xl)
+hc = sum(X3[x, x] for x in range(12))
+C_area = (hw @ ph) / (hc @ ph)
+C_blk = cc.counts(sec, k, lag, orders=(3,))['T3'][word[0], word[2], word[1]]   # tau(n_a n_c n_b) <- history a, b, c
+res['area_resolved_check'] = {'word': word, 'lag': lag, 'k': k, 'defect': float(abs(C_area - C_blk)),
+                              'value': [float(C_area.real), float(C_area.imag)],
+                              'closed_histogram_over_area': (hc / hc.sum()).tolist(),
+                              'word_histogram_over_area': (hw / hw.sum()).tolist(),
+                              'character_weighted_over_unweighted_closed': float(abs(hc @ ph) / hc.sum())}
+print(f"\narea-resolved route (lifted classical chain, real arithmetic), one quantum, k = 1, lag 30, word {word}: "
+      f"C = {C_area:.6e}; defect against the Fourier-block route {abs(C_area - C_blk):.1e}")
+print('   area histogram of closed histories (fractions):', np.round(hc / hc.sum(), 5).tolist())
+print(f"   character-weighted / unweighted closed count: {abs(hc @ ph) / hc.sum():.4f}")
+res['seconds'] = round(time.time() - t0, 2)
+json.dump(res, open(out_path, 'w'), indent=1)
+print('wrote', out_path, 'in %.1f s' % (time.time() - t0))

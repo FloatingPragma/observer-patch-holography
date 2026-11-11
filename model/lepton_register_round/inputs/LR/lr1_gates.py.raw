@@ -1,0 +1,116 @@
+"""LR task 1: gates. Reproduces the numbers of the brief from the public package (RER/model/lepton_register_round,
+commit 736c6d929) and from worker LC's module, both imported read only. Exact arithmetic. Writes lr1_gates.json.
+
+Run from this directory:
+    PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B lr1_gates.py
+"""
+import json
+import os
+import subprocess
+import sys
+from fractions import Fraction as F
+
+sys.dont_write_bytecode = True
+HERE = os.path.dirname(os.path.abspath(__file__))
+RER = 'WORKSPACE/reverse-engineering-reality'
+LC_DIR = 'WORKSPACE/repair-law/work/LC'
+sys.path.insert(0, RER)
+sys.path.insert(0, LC_DIR)
+
+from model.lepton_register_round import carrier, hexagon, walk as wk  # noqa: E402
+
+gates = {}
+data = {}
+
+# ---------------------------------------------------------------- public package: sixty-address carrier
+w = carrier.carrier_walk()
+per_port = {p: carrier.double_load(w, p) for p in range(12)}
+weights = {p: {k: str(v) for k, v in per_port[p][0].items()} for p in range(12)}
+gates['public: blank 5/6, record 2 1/12, record 3 1/12 at every port'] = all(
+    per_port[p][0] == {'blank': F(5, 6), 'record 2': F(1, 12), 'record 3': F(1, 12)} for p in range(12))
+cells = {p: carrier.two_cells(w, p, p) for p in range(12)}
+gates['public: P(R+) 1/12, P(H) 1/6, P(R+ and H) 1/72 at every port'] = all(
+    (c['p_r'], c['p_h'], c['joint']) == (F(1, 12), F(1, 6), F(1, 72)) for c in cells.values())
+gates['public: count 2/9 at every port'] = all(c['count'] == F(2, 9) for c in cells.values())
+p_minus = {p: per_port[p][0]['record 3'] for p in range(12)}
+gates['public: ratio H : R+ : R- = 2 : 1 : 1 at every port'] = all(
+    cells[p]['p_h'] == 2 * cells[p]['p_r'] == 2 * p_minus[p] for p in range(12))
+rounds = {p: carrier.weak_round(w, p) for p in (2, 10)}
+gates['public: weak round on sixty addresses, overlaps 1/12 and 1/6, <start|X> = <X|X> = 2/9'] = all(
+    r['inverse'] and r['s_a'] == F(1, 12) and r['s_b'] == F(1, 6) and r['overlap'] == r['norm'] == F(2, 9)
+    for r in rounds.values())
+gates['public: non-return norms 11/144 and 5/36, blank record, zero uniform-address part'] = all(
+    r['A']['norm2'] == F(11, 144) and r['B']['norm2'] == F(5, 36) and r['A']['off'] == r['B']['off'] == 0
+    and r['A']['uniform'] == r['B']['uniform'] == 0 for r in rounds.values())
+table = hexagon.phase_table(F(2, 9), Ns=(1, 10, 1000))
+gates['public: weak-round phase 0.205334 at N = 1 and 0.222062 at N = 10'] = (
+    abs(table[1]['_phase'] - 0.205334030970278) < 1e-12 and abs(table[10]['_phase'] - 0.222062099670503) < 1e-12)
+data['public'] = {
+    'double load, weights at port 2': weights[2],
+    'two cells at port 2': {k: str(v) for k, v in cells[2].items()},
+    'weak round at port 2': {'s_A': str(rounds[2]['s_a']), 's_B': str(rounds[2]['s_b']),
+                             '<start|X>': str(rounds[2]['overlap']), '<X|X>': str(rounds[2]['norm']),
+                             'non-return X': {k: str(v) for k, v in rounds[2]['A'].items()},
+                             'non-return Y': {k: str(v) for k, v in rounds[2]['B'].items()}},
+    'phase per unit clock time': {str(N): r['phase per unit clock time'] for N, r in table.items()}}
+
+# stored receipt of the public package
+receipt = json.load(open(os.path.join(RER, 'model/lepton_register_round/results.json')))
+gates['public receipt: 80 named checks, all pass'] = (len(receipt['checks']) == 80 and receipt['all_checks_pass']
+                                                       and all(receipt['checks'].values()))
+data['public receipt'] = {'checks': len(receipt['checks']),
+                          'rounds N = 1': receipt['weak_round']['rounds']['1']['phase per unit clock time'],
+                          'rounds N = 10': receipt['weak_round']['rounds']['10']['phase per unit clock time']}
+
+# ---------------------------------------------------------------- worker LC's module (read only)
+import lc_common as L  # noqa: E402
+
+FP = L.frame_plain()
+S, n2 = L.uniform([L.cfg_of(2, 2)])
+ticked = L.W(S, FP)
+wts = L.weights(ticked, n2, lambda cfg, regs: regs[0][0])
+gates['LC module: blank 5/6, record 2 1/12, record 3 1/12 (double at port 2)'] = (
+    wts == {0: F(5, 6), 2: F(1, 12), 3: F(1, 12)})
+all_ports = True
+for p in range(12):
+    Sp, np2 = L.uniform([L.cfg_of(p, p)])
+    wp = L.weights(L.W(Sp, FP), np2, lambda cfg, regs: regs[0][0])
+    all_ports &= wp == {0: F(5, 6), 2: F(1, 12), 3: F(1, 12)}
+gates['LC module: the same weights at each of the twelve ports'] = all_ports
+p_r, p_h = wts[2], wts[2] + wts[3]
+gates['LC module: P(R+) 1/12, P(H) 1/6, joint 1/72 (independent registers), count 2/9'] = (
+    (p_r, p_h, p_r * p_h, p_r + p_h - 2 * p_r * p_h) == (F(1, 12), F(1, 6), F(1, 72), F(2, 9)))
+gates['LC module: inverse tick restores the standing state'] = L.Winv(ticked, FP) == S
+a = L.Winv(L.restrict(ticked, lambda cfg, regs: regs[0][0] == 2), FP)
+b = L.Winv(L.restrict(ticked, lambda cfg, regs: regs[0][0] in (2, 3)), FP)
+s_a, s_b = L.dot(S, a) / n2, L.dot(S, b) / n2
+gates['LC module: <D|W^-1 Pi W|D> = 1/12 and 1/6'] = (s_a, s_b) == (F(1, 12), F(1, 6))
+# forward only, LC item 6
+st = dict(S)
+counts = []
+for _ in range(4):
+    st = L.W(st, FP)
+    p = L.norm2(L.restrict(st, lambda cfg, regs: regs[0][0] == 2)) / n2
+    q = L.norm2(L.restrict(st, lambda cfg, regs: regs[0][0] in (2, 3))) / n2
+    counts.append(p + q - 2 * p * q)
+gates['LC module: forward only 2/9, 0.486, 0.536, 0.467'] = (
+    counts[0] == F(2, 9) and [round(float(c), 3) for c in counts[1:]] == [0.486, 0.536, 0.467])
+data['LC module'] = {'weights after one tick': {str(k): str(v) for k, v in wts.items()},
+                     's_A': str(s_a), 's_B': str(s_b),
+                     'forward-only counts, ticks 1 to 4': [str(c) for c in counts],
+                     'forward-only counts as floats': [round(float(c), 9) for c in counts]}
+# LC's stored outputs (read only)
+lc3 = json.load(open(os.path.join(LC_DIR, 'lc3_round.json')))
+row = lc3['G2a double loads on two carriers, RD-rec']['DL at port 2, FP']['pair (A flag record 2, B flag record 2 or 3)']
+phases = {r['N']: r['phase per unit clock time'] for r in row['N rounds']}
+gates['LC stored output: P = 2/9, phases 0.205334 (N = 1) and 0.222062 (N = 10)'] = (
+    row['P = <Qx>'] == '2/9' and phases[1].startswith('0.205334') and phases[10].startswith('0.222062'))
+data['LC stored output'] = {'P': row['P = <Qx>'], 'N = 1': phases[1], 'N = 10': phases[10]}
+
+head = subprocess.run(['git', '-C', RER, 'rev-parse', 'HEAD'], capture_output=True, text=True).stdout.strip()
+out = {'task': 'LR task 1: gates', 'public repository commit': head, 'labels': 'EXACT (rational arithmetic)',
+       'gates': gates, 'all gates pass': all(gates.values()), 'data': data}
+json.dump(out, open(os.path.join(HERE, 'lr1_gates.json'), 'w'), indent=1)
+for k, v in gates.items():
+    print('PASS' if v else 'FAIL', k)
+print('all gates pass:', all(gates.values()), ' commit', head[:9])

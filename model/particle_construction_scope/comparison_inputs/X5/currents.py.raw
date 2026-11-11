@@ -1,0 +1,146 @@
+"""X5 item 3: the twelve port responses as currents, and which combination couples to which link wave.
+
+Port response of the audit (audit/gauge/ENCODED_OVERLAP.md): X_p = (P_p/2) + (-Q_p/2) on the five levels, P_p the
+spin-one projector along the port direction n_p on the triplet, Q_p the spin-half projector along the conjugate
+direction n'_p on the doublet. D_p = second quantization of X_p on the 32 patterns: the first-order change of a
+pattern under the probe exp(i t X_p).
+
+A. Exact (Q(sqrt5)): the moments of the twelve port directions and of their Galois conjugates. With them
+       sum_p X_p                    = diag(2, 2, 2, -3, -3)                 (trivial representation: B)
+       sum_p (n'_p . a) X_p         = 0 + (-a . sigma)                      (conjugate triplet: W)
+       sum_p (n_p . a) X_p          = i [a]_x + 0                           (triplet: three gluons, rotations of colour)
+       sum_p (n_p^T S n_p) X_p      = (-2/5) S + 0,  S symmetric traceless  (quintet: five gluons)
+B. The same four identities on the carrier's own port vectors (float, defect printed); the photon and Z weights;
+   electric charges of the patterns from sum_p w_p D_p.
+C. Executed on the reference engine: the first-order change of the routing tick under the phase of one link is
+   the charge times the current through that link.
+"""
+import itertools, json, sys
+from fractions import Fraction as Fr
+import numpy as np
+from model.common_source import slow_geometry
+from routing import Routing, SIG
+import r8_common as r8
+
+out = {}
+# ---------------------------------------------------------------- A. exact moments
+class Q5:
+    __slots__ = ('a', 'b')
+    def __init__(s, a=0, b=0): s.a, s.b = Fr(a), Fr(b)
+    @staticmethod
+    def c(o): return o if isinstance(o, Q5) else Q5(o)
+    def __add__(s, o): o = Q5.c(o); return Q5(s.a + o.a, s.b + o.b)
+    __radd__ = __add__
+    def __neg__(s): return Q5(-s.a, -s.b)
+    def __sub__(s, o): return s + (-Q5.c(o))
+    def __rsub__(s, o): return Q5.c(o) - s
+    def __mul__(s, o): o = Q5.c(o); return Q5(s.a * o.a + 5 * s.b * o.b, s.a * o.b + s.b * o.a)
+    __rmul__ = __mul__
+    def __eq__(s, o): o = Q5.c(o); return s.a == o.a and s.b == o.b
+    def gal(s): return Q5(s.a, -s.b)
+phi = Q5(Fr(1, 2), Fr(1, 2)); zero = Q5(0); r5 = Q5(0, 1)
+ports = []
+for cyc in range(3):
+    for s1, s2 in itertools.product((1, -1), repeat=2):
+        v = [zero, Q5(s1), phi * s2]; ports.append(tuple(v[(i - cyc) % 3] for i in range(3)))
+conj = [tuple(x.gal() for x in m) for m in ports]
+dot = lambda a, b: sum((x * y for x, y in zip(a, b)), zero)
+S = lambda terms: sum(terms, zero)
+n2, n2c = phi + 2, 3 - phi                                             # |m|^2 and |m'|^2
+ex = {}
+ex['norms'] = all(dot(m, m) == n2 for m in ports) and all(dot(m, m) == n2c for m in conj) and n2 * n2c == 5
+ex['first_moments_vanish'] = all(S(m[i] for m in ports) == 0 and S(m[i] for m in conj) == 0 for i in range(3))
+ex['second_moment_is_4_norm2_identity'] = all(S(m[i] * m[j] for m in ports) == (4 * n2 if i == j else 0) and
+                                              S(m[i] * m[j] for m in conj) == (4 * n2c if i == j else 0) for i in range(3) for j in range(3))
+ex['mixed_second_moment_vanishes'] = all(S(m[i] * mc[j] for m, mc in zip(ports, conj)) == 0 for i in range(3) for j in range(3))
+def d4(i, j, k, l): return (i == j) * (k == l) + (i == k) * (j == l) + (i == l) * (j == k)
+ex['fourth_moment_is_(4/5)_norm4_(dd+dd+dd)'] = all(5 * S(m[i] * m[j] * m[k] * m[l] for m in ports) == 4 * n2 * n2 * d4(i, j, k, l)
+                                                    for i, j, k, l in itertools.product(range(3), repeat=4))
+ex['third_moments_vanish'] = all(S(a[i] * m[j] * m[k] for a, m in zip(src, ports)) == 0 for src in (ports, conj)
+                                 for i, j, k in itertools.product(range(3), repeat=3))
+nbrs = [[q for q in range(12) if dot(ports[p], ports[q]) == phi] for p in range(12)]
+ex['five_neighbours_each'] = all(len(x) == 5 for x in nbrs)
+ex['port_vectors_have_adjacency_eigenvalue_sqrt5_conjugates_minus_sqrt5'] = all(
+    S(ports[q][i] for q in nbrs[p]) == r5 * ports[p][i] and S(conj[q][i] for q in nbrs[p]) == -(r5 * conj[p][i]) for p in range(12) for i in range(3))
+out['A_exact_moments'] = ex
+print('A.', ex)
+
+# ---------------------------------------------------------------- B. the carrier's own port vectors
+src = slow_geometry.source()
+seams = [tuple(int(v) for v in e) for e in src.seams()]
+Adj = np.zeros((12, 12))
+for a, b in seams: Adj[a, b] = Adj[b, a] = 1
+w, v = np.linalg.eigh(Adj)
+N1 = v[:, np.abs(w - 5 ** .5) < 1e-9] * 2.0; N2 = v[:, np.abs(w + 5 ** .5) < 1e-9] * 2.0
+def cross(u): return np.array([[0, -u[2], u[1]], [u[2], 0, -u[0]], [-u[1], u[0], 0]])
+X = []
+for p in range(12):
+    P = (np.eye(3) - np.outer(N1[p], N1[p]) + 1j * cross(N1[p])) / 2
+    Q = (np.eye(2) + N2[p][0] * SIG[0] + N2[p][1] * SIG[1] + N2[p][2] * SIG[2]) / 2
+    Z = np.zeros((5, 5), complex); Z[:3, :3] = P / 2; Z[3:, 3:] = -Q / 2; X.append(Z)
+X = np.array(X)
+comb = lambda wts: np.tensordot(np.asarray(wts), X, axes=1)
+def blk(t=None, d=None):
+    Z = np.zeros((5, 5), complex)
+    if t is not None: Z[:3, :3] = t
+    if d is not None: Z[3:, 3:] = d
+    return Z
+E3 = np.eye(3); defects = {}
+defects['sum = diag(2,2,2,-3,-3)'] = np.abs(comb(np.ones(12)) - np.diag([2, 2, 2, -3, -3])).max()
+defects['sum (n_conj.a) X = -a.sigma on the doublet'] = max(np.abs(comb(N2[:, a]) - blk(d=-SIG[a])).max() for a in range(3))
+defects['sum (n.a) X = i[a]x on the triplet'] = max(np.abs(comb(N1[:, a]) - blk(t=1j * cross(E3[a]))).max() for a in range(3))
+quads = []
+for i, j in ((0, 1), (0, 2), (1, 2)):
+    Sm = np.zeros((3, 3)); Sm[i, j] = Sm[j, i] = 1; quads.append(Sm)
+quads += [np.diag([1.0, -1.0, 0.0]), np.diag([1.0, 1.0, -2.0])]
+defects['sum (n^T S n) X = -(2/5) S on the triplet'] = max(np.abs(comb(np.einsum('pi,ij,pj->p', N1, Sm, N1)) + 0.4 * blk(t=Sm)).max() for Sm in quads)
+W = np.array([np.ones(12)] + [N2[:, a] for a in range(3)] + [N1[:, a] for a in range(3)] + [np.einsum('pi,ij,pj->p', N1, Sm, N1) for Sm in quads])
+gram = W @ W.T
+defects['the twelve weight vectors are mutually orthogonal'] = np.abs(gram - np.diag(np.diag(gram))).max()
+norms = np.round(np.diag(gram), 9).tolist()
+# electroweak combinations (CF-1 convention: 6Y = Q6 = 3 n2 - 2 n3, T3 = +1/2 on s1; s2 is the neutral level)
+wY = -np.ones(12) / 6; wT3 = -N2[:, 2] / 2; wQ = wY + wT3; s2w = 3 / 8; wZ = wT3 - s2w * wQ
+defects['photon weights give diag(-1/3,-1/3,-1/3,1,0)'] = np.abs(comb(wQ) - np.diag([-1 / 3, -1 / 3, -1 / 3, 1, 0])).max()
+defects['T3 weights give diag(0,0,0,1/2,-1/2)'] = np.abs(comb(wT3) - np.diag([0, 0, 0, .5, -.5])).max()
+# second quantization on the 32 patterns: D = sum_ij X_ij a_i^* a_j
+def dGamma(M): return sum(M[i, j] * (r8.ad[i] @ r8.a[j]) for i in range(5) for j in range(5))
+DQ = dGamma(comb(wQ))
+sixQ = np.array([6 * s[3] - 2 * (s[0] + s[1] + s[2]) for s in r8.states])
+defects['sum_p w_p D_p is diagonal with the electric charge of every pattern'] = np.abs(DQ - np.diag(sixQ / 6)).max()
+DY = dGamma(comb(wY))
+defects['uniform weights give Q6/6 on every pattern'] = np.abs(DY - np.diag(r8.Q6 / 6)).max()
+fam = [i for i, s in enumerate(r8.states) if (s[0] + s[1] + s[2]) % 2 == 1]
+T3d = np.real(np.diag(dGamma(comb(wT3))))[fam]; Qd = sixQ[fam] / 6
+ratio = Fr(int(round(4 * np.sum(T3d ** 2))), 4) / Fr(int(round(9 * np.sum(Qd ** 2))), 9)
+out['B_carrier'] = {'defects': {k: float(x) for k, x in defects.items()},
+                    'squared_norms_of_the_weight_vectors (1, 3 conj, 3, 5)': norms,
+                    'photon_weights_w_p = -(1/6 + n_conj_p.a3 / 2)': [round(float(x), 6) for x in wQ],
+                    'Z_weights_at_sin2 = 3/8': [round(float(x), 6) for x in wZ],
+                    'family_half_states': len(fam), 'sum_T3^2': float(np.sum(T3d ** 2)), 'sum_Q^2': float(np.sum(Qd ** 2)),
+                    'sum_T3^2_over_sum_Q^2': str(ratio)}
+for k, x in defects.items(): print(f'B. {k}: {x:.1e}')
+print('B. norms', norms, ' sum T3^2 / sum Q^2 =', ratio)
+
+# ---------------------------------------------------------------- C. link phase and link current on the engine
+shape = (4, 3, 2); rng = np.random.default_rng(6)
+psi = rng.normal(size=shape + (2, 2)) + 1j * rng.normal(size=shape + (2, 2)); psi /= np.linalg.norm(psi)
+free = Routing(shape); h = 1e-5; rowsC = []
+def current(state, x0, i):
+    """net probability crossing the link from x0 to x0 + e_i in the layer of axis i: P+ weight at x0 minus P- weight at x0 + e_i"""
+    xs = state[..., ::-1, :] @ SIG[i].T
+    plus, minus = (state + xs) / 2, (state - xs) / 2
+    x1 = list(x0); x1[i] = (x1[i] + 1) % shape[i]
+    return float(np.sum(np.abs(plus[x0]) ** 2) - np.sum(np.abs(minus[tuple(x1)]) ** 2))
+for q, x0, i in ((1, (1, 2, 0), 0), (-2, (3, 0, 1), 1), (4, (0, 1, 1), 2), (-6, (2, 2, 0), 0)):
+    def eng(theta):
+        lk = [np.ones(shape, complex) for _ in range(3)]; lk[i][x0] = np.exp(1j * q * theta); return Routing(shape, lk)
+    U0 = free.tick(psi, 0.1)
+    dU = (eng(h).tick(psi, 0.1) - eng(-h).tick(psi, 0.1)) / (2 * h)
+    lhs = (1j * np.vdot(U0, dU)).real
+    before = psi
+    for a in range(i): before = free.shift(before, a)                  # state entering the layer of axis i
+    rowsC.append({'charge': q, 'link': [list(x0), i], 'i_<U psi| dU/dtheta psi>': float(lhs), 'charge_times_link_current': q * current(before, x0, i),
+                  'imaginary_part': float((1j * np.vdot(U0, dU)).imag)})
+out['C_coupling'] = {'lattice': shape, 'rows': rowsC, 'largest_defect': float(max(abs(r['i_<U psi| dU/dtheta psi>'] - r['charge_times_link_current']) for r in rowsC))}
+for r in rowsC: print('C.', r)
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 'currents.json', 'w'), indent=1)

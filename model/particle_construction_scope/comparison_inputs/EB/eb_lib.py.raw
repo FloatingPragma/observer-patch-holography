@@ -1,0 +1,245 @@
+"""EB library: edge-sector sums on SU(3) x SU(2) x U(1) and on G = S(U(3) x U(2)).
+
+Conventions (CANDIDATES.md):
+  SU(3) (p, q): d3, C3 = (p^2+q^2+pq+3p+3q)/3, T3 = d3 C3 / 8.
+  SU(2) n = 2j: d2 = n+1, C2 = j(j+1), T2 = d2 C2 / 3.
+  U(1) m = 6Y: GUT index per state (3/5) Y^2; Casimir in the weight (3/5) Y^2 (Ua) or Y^2 (Ub).
+  Product irrep R = (p, q; n; m): d_R = d3 d2, T_3 = T3 d2, T_2 = d3 T2, T_1 = (3/5) Y^2 d3 d2.
+  Global form G: m = -2(p - q) - 3n (mod 6).
+  Weights w_R = d_R^k exp(-t C(R)); Delta b_a = sum_R c(R) p_R d_R T_a(R).
+
+The sums over the product and global forms factor by class (SU(3) triality, SU(2) parity, m mod 6), so every sum is
+a finite combination of one-factor partial sums; the explicit enumeration in `explicit_sum` checks this.
+"""
+from __future__ import annotations
+
+import itertools
+import math
+from functools import lru_cache
+
+import numpy as np
+
+CUT3 = 60
+CUT2 = 160
+CUT1 = 900
+
+
+@lru_cache(maxsize=None)
+def su3_table(cut=CUT3):
+    p, q = np.meshgrid(np.arange(cut + 1), np.arange(cut + 1), indexing='ij')
+    p = p.ravel(); q = q.ravel()
+    d = ((p + 1) * (q + 1) * (p + q + 2) / 2.0)
+    c = (p * p + q * q + p * q + 3 * p + 3 * q) / 3.0
+    T = d * c / 8.0
+    tri = (p - q) % 3
+    return d, c, T, tri
+
+
+@lru_cache(maxsize=None)
+def su2_table(cut=CUT2):
+    n = np.arange(cut + 1)
+    d = n + 1.0
+    c = (n / 2.0) * (n / 2.0 + 1.0)
+    T = d * c / 3.0
+    return d, c, T, n % 2
+
+
+@lru_cache(maxsize=None)
+def u1_table(cut=CUT1, unit=1.0 / 6.0):
+    m = np.arange(-cut, cut + 1)
+    y = m * unit
+    return m, y
+
+
+def u1_casimir(y, mode):
+    return 0.6 * y * y if mode == 'Ua' else y * y
+
+
+def class_sums(t, k, umode='Ua', unit=1.0 / 6.0):
+    """One-factor partial sums by class.
+    A3[tau][h] = sum d3^h e^{-t C3},  B3[tau][h] = sum d3^h T3 e^{-t C3}  (h = 0..k+2), similarly A2, B2 by parity,
+    A1[c], B1[c] = sum over m = c mod 6 of e^{-t C1} and (3/5) Y^2 e^{-t C1}."""
+    d3, c3, T3, tri = su3_table()
+    d2, c2, T2, par = su2_table()
+    m, y = u1_table(unit=unit)
+    e3 = np.exp(-t * c3); e2 = np.exp(-t * c2); e1 = np.exp(-t * u1_casimir(y, umode))
+    H = k + 3
+    A3 = np.array([[np.sum(d3[tri == a] ** h * e3[tri == a]) for h in range(H)] for a in range(3)])
+    B3 = np.array([[np.sum(d3[tri == a] ** h * T3[tri == a] * e3[tri == a]) for h in range(H)] for a in range(3)])
+    A2 = np.array([[np.sum(d2[par == a] ** h * e2[par == a]) for h in range(H)] for a in range(2)])
+    B2 = np.array([[np.sum(d2[par == a] ** h * T2[par == a] * e2[par == a]) for h in range(H)] for a in range(2)])
+    A1 = np.array([np.sum(e1[(m % 6) == c]) for c in range(6)])
+    B1 = np.array([np.sum(0.6 * y[(m % 6) == c] ** 2 * e1[(m % 6) == c]) for c in range(6)])
+    return A3, B3, A2, B2, A1, B1
+
+
+def z6_class(tau, nu):
+    return (-2 * tau - 3 * nu) % 6
+
+
+def delta_b(structure, t, k=1, normalized=True, umode='Ua', coeff=(1.0, 1.0), renorm_odd=False, unit=1.0 / 6.0):
+    """Delta b = (b1, b2, b3) for structure S1 (factorwise), S2 (product), S3 (global form G).
+    coeff = (c_even, c_odd): loop coefficient on sectors with n even / n odd.
+    renorm_odd: normalize p_R over the odd sectors only (reproduction sub-reading (ii))."""
+    A3, B3, A2, B2, A1, B1 = class_sums(t, k, umode, unit)
+    ce, co = coeff
+    cnu = (ce, co)
+    if structure == 'S1':
+        # Factorwise reading: three independent sums; the grading acts on the SU(2) sum only.
+        Z3 = A3[:, k].sum(); Z2 = A2[:, k].sum(); Z1 = A1.sum()
+        if renorm_odd:
+            Z2 = A2[1, k]
+        n3 = B3[:, k + 1].sum()
+        n2 = sum(cnu[nu] * B2[nu, k + 1] for nu in range(2))
+        n1 = B1.sum()
+        if not normalized:
+            Z3 = Z2 = Z1 = 1.0          # unnormalized: trivial weight 1
+        return (n1 / Z1, n2 / Z2, n3 / Z3)
+    # product (S2) and global form (S3)
+    if structure == 'S2':
+        def a1(tau, nu):
+            return A1.sum()
+
+        def b1(tau, nu):
+            return B1.sum()
+    elif structure == 'S3':
+        def a1(tau, nu):
+            return A1[z6_class(tau, nu)]
+
+        def b1(tau, nu):
+            return B1[z6_class(tau, nu)]
+    else:
+        raise ValueError(structure)
+    Z = 0.0; Zodd = 0.0; num = np.zeros(3)
+    for tau in range(3):
+        for nu in range(2):
+            z = A3[tau, k] * A2[nu, k] * a1(tau, nu)
+            Z += z
+            if nu == 1:
+                Zodd += z
+            c = cnu[nu]
+            # w_R d_R T_a(R): d3^(k+2) d2^(k+2) (3/5)Y^2 ; d3^(k+2) d2^(k+1) T2 ; d3^(k+1) T3 d2^(k+2)
+            num[0] += c * A3[tau, k + 2] * A2[nu, k + 2] * b1(tau, nu)
+            num[1] += c * A3[tau, k + 2] * B2[nu, k + 1] * a1(tau, nu)
+            num[2] += c * B3[tau, k + 1] * A2[nu, k + 2] * a1(tau, nu)
+    if not normalized:
+        return tuple(num)
+    if renorm_odd:
+        return tuple(num / Zodd)
+    return tuple(num / Z)
+
+
+def ellbar_G(t, umode='Ua', k=1):
+    """<log d_R> under w_R = d_R^k exp(-t C) on G = S(U(3) x U(2)) (U(1) irreps have log d = 0)."""
+    d3, c3, T3, tri = su3_table()
+    d2, c2, T2, par = su2_table()
+    m, y = u1_table()
+    e3 = np.exp(-t * c3); e2 = np.exp(-t * c2); e1 = np.exp(-t * u1_casimir(y, umode))
+    num = den = 0.0
+    for tau in range(3):
+        s3 = tri == tau
+        W3 = d3[s3] ** k * e3[s3]; L3 = np.log(d3[s3])
+        for nu in range(2):
+            s2 = par == nu
+            W2 = d2[s2] ** k * e2[s2]; L2 = np.log(d2[s2])
+            th = np.sum(e1[(m % 6) == z6_class(tau, nu)])
+            num += th * (W3.sum() * (W2 * L2).sum() + (W3 * L3).sum() * W2.sum())
+            den += th * W3.sum() * W2.sum()
+    return float(num / den)
+
+
+def ellbar_factor_sum(t, k=1):
+    """DC's closure left side: ellbar_SU2(t) + ellbar_SU3(t) with independent weights d^k e^{-t C}."""
+    d3, c3, _, _ = su3_table(); d2, c2, _, _ = su2_table()
+    w3 = d3 ** k * np.exp(-t * c3); w2 = d2 ** k * np.exp(-t * c2)
+    return float((w3 * np.log(d3)).sum() / w3.sum() + (w2 * np.log(d2)).sum() / w2.sum())
+
+
+# ---------------------------------------------------------------- explicit sector lists (menus, audit link)
+SU3_REPS = {(0, 0), (1, 0), (0, 1)}
+
+
+def su3_times(p, q, f):
+    if f == (0, 0):
+        return [(p, q)]
+    if f == (1, 0):
+        return [(a, b) for a, b in ((p + 1, q), (p - 1, q + 1), (p, q - 1)) if a >= 0 and b >= 0]
+    if f == (0, 1):
+        return [(a, b) for a, b in ((p, q + 1), (p + 1, q - 1), (p - 1, q)) if a >= 0 and b >= 0]
+    raise ValueError(f)
+
+
+def su2_times(n, f):
+    return [n] if f == 0 else [k for k in (n - 1, n + 1) if k >= 0]
+
+
+NATIVE = {-4: ((0, 1), 0, -4), 1: ((1, 0), 1, 1), 6: ((0, 0), 0, 6), -3: ((0, 0), 1, -3), 2: ((0, 1), 0, 2)}
+FIELDS = {}
+for _lab, (_s3, _n2, _y) in NATIVE.items():
+    FIELDS[_lab] = (_s3, _n2, _y)
+    FIELDS[-_lab] = ((_s3[1], _s3[0]), _n2, -_y)
+assert all(((-2 * ((s3[0] - s3[1]) % 3) - 3 * n2 - yy) % 6) == 0 for s3, n2, yy in FIELDS.values())
+VAC = ((0, 0), 0, 0)
+
+
+def menus(nmax=3):
+    out = [{VAC}]
+    for _ in range(nmax):
+        new = set(out[-1])
+        for (pq, n2, yy) in out[-1]:
+            for f in FIELDS.values():
+                for a in su3_times(pq[0], pq[1], f[0]):
+                    for b in su2_times(n2, f[1]):
+                        new.add((a, b, yy + f[2]))
+        out.append(new)
+    return out
+
+
+def sector_data(R, umode='Ua'):
+    (p, q), n, m = R
+    d3 = (p + 1) * (q + 1) * (p + q + 2) / 2.0
+    c3 = (p * p + q * q + p * q + 3 * p + 3 * q) / 3.0
+    T3 = d3 * c3 / 8.0
+    d2 = n + 1.0
+    c2 = (n / 2.0) * (n / 2.0 + 1.0)
+    T2 = d2 * c2 / 3.0
+    y = m / 6.0
+    C = c3 + c2 + u1_casimir(y, umode)
+    return dict(d=d3 * d2, C=C, T=(0.6 * y * y * d3 * d2, d3 * T2, T3 * d2), odd=n % 2 == 1, dims=(d3, d2))
+
+
+def explicit_sum(sectors, t, k=1, normalized=True, umode='Ua', coeff=(1.0, 1.0), renorm_odd=False):
+    rows = [sector_data(R, umode) for R in sectors]
+    w = np.array([r['d'] ** k * math.exp(-t * r['C']) for r in rows])
+    if normalized:
+        Z = w[[i for i, r in enumerate(rows) if r['odd']]].sum() if renorm_odd else w.sum()
+    else:
+        Z = 1.0
+    num = np.zeros(3)
+    for wi, r in zip(w, rows):
+        c = coeff[1] if r['odd'] else coeff[0]
+        num += c * wi * r['d'] * np.array(r['T'])
+    return tuple(num / Z)
+
+
+def global_sectors(cut3=12, cut2=16, cut1=60):
+    """Explicit list of G irreps for the enumeration check."""
+    out = []
+    for p in range(cut3 + 1):
+        for q in range(cut3 + 1):
+            for n in range(cut2 + 1):
+                for m in range(-cut1, cut1 + 1):
+                    if (m - (-2 * (p - q) - 3 * n)) % 6 == 0:
+                        out.append(((p, q), n, m))
+    return out
+
+
+# ---------------------------------------------------------------- loop-coefficient rules (CANDIDATES.md Part B)
+LOOP_RULES = {
+    'L1': (1.0, 1.0),
+    'L2': (0.0, 1.0),
+    'L3': (1.0 / 3.0, 2.0 / 3.0),
+    'L4': (1.0 / 6.0, 1.0 / 3.0),
+    'L5': (0.0, 2.0 / 3.0),
+    'L6': (0.0, 1.0 / 3.0),
+}

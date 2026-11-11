@@ -1,0 +1,144 @@
+"""S3 step 5: port ancestry p(v) = 12*(cell//4) + v%12 for labelled wiring towers, levels 0..4.
+
+Counts, for every refinement step, the fine seams sent to a coarse seam, to a non-seam, or collapsed onto one
+port.  Wirings:
+  pinned            the declared tangent-frame routing (baseline)
+  B_mesh_order      belt triple laid in the mesh's own vertex order (the labelling of the sim's `face_axis`)
+  F_mesh_order      face triple laid in the mesh's own vertex order
+  F_nat_r           face triple; corner children copy the parent, central child = parent triple turned by r
+  F_weak            face triple; all four children copy the parent (central seams collapse)
+  B_weak            belt triple; all four children copy the parent
+  B_nat_mirror      belt triple; corner children copy, central child = antipode of the turned parent triple
+Also: for the pinned routing, whether ANY choice of carrier relabellings (automorphisms of each fine carrier,
+120 choices each) turns ancestry into a graph morphism: decided parent by parent by exhaustion.
+
+Run:  cd SCR/rer-edit && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. nice -n 10 /tmp/oph-completion-venv/bin/python \
+          SCR/research/S3/s5_ancestry.py [max_level=4]
+Writes SCR/research/S3/s5_ancestry.json
+"""
+import json
+import sys
+import time
+
+import numpy as np
+
+sys.dont_write_bytecode = True
+sys.path.insert(0, '/private/tmp/claude-501/-Users-muellerberndt-Projects-oph-meta/ffc7e197-dc34-420e-b416-eceb3c5d7773/scratchpad/research/S3')
+import s0_lib as S  # noqa: E402
+
+MAXL = int(sys.argv[1]) if len(sys.argv) > 1 else 4
+T0 = time.time()
+meshes = [S.build_mesh(l) for l in range(MAXL + 1)]
+F, B = S.FACE_TRIPLE, S.BELT_TRIPLE
+r = S.find_aut(F, (F[1], F[2], F[0]), proper_only=True)[0]          # turn by 120 deg about the axis of the glue face
+assert S.find_aut(B, (B[1], B[2], B[0]), proper_only=True)[0] == r   # the belt triple turns with the same rotation
+ident = tuple(range(12))
+mirror = S.compose(tuple(S.ANTI), r)                                  # antipode of the turned port (improper, order 6)
+
+towers = {
+    'pinned': [S.pinned_wiring(m)[0] for m in meshes],
+    'B_mesh_order': [S.uniform_wiring_mesh_order(m, B) for m in meshes],
+    'F_mesh_order': [S.uniform_wiring_mesh_order(m, F) for m in meshes],
+    'F_nat_r': S.natural_tower(MAXL, F, r),
+    'F_weak': S.natural_tower(MAXL, F, ident),
+    'B_weak': S.natural_tower(MAXL, B, ident),
+    'B_nat_mirror': S.natural_tower(MAXL, B, mirror),
+}
+
+
+def mesh_rotation_action(mesh):
+    key = {tuple(np.round(v, 8) + 0.0): i for i, v in enumerate(mesh.verts)}
+    cell_of = {tuple(sorted(t)): c for c, t in enumerate(mesh.tri.tolist())}
+    acts = []
+    for M in S.ROT_MATS:
+        img = mesh.verts @ M.T
+        vp = np.array([key[tuple(np.round(p, 8) + 0.0)] for p in img])
+        gt = vp[mesh.tri]
+        gc = np.array([cell_of[tuple(sorted(t))] for t in gt.tolist()])
+        kmap = (mesh.tri[gc][:, None, :] == gt[:, :, None]).argmax(axis=2)
+        acts.append((gc, kmap))
+    return acts
+
+
+def invariant_rotations(W, table, acts):
+    typ = np.array([table[tuple(t)] for t in W.tolist()])
+    n = 0
+    for gc, kmap in acts:
+        Wg = np.take_along_axis(W[gc], kmap, axis=1)
+        n += int((np.array([table[tuple(t)] for t in Wg.tolist()]) == typ).all())
+    return n
+
+
+def equivariant_ancestry(Wc, Wf, acts_c, acts_f):
+    """Do the lifts of all 60 rotations (unique carrier automorphism per cell) commute with port ancestry?
+    True iff for every rotation and every fine cell the lift at the cell equals the lift at its parent."""
+    for (gc_c, km_c), (gc_f, km_f) in zip(acts_c, acts_f):
+        # lift at coarse cell C: automorphism s with s(Wc[C,k]) = Wc[gC, km[k]]
+        for c in range(Wf.shape[0]):
+            C = c // 4
+            sc = S.find_aut(tuple(Wc[C]), tuple(Wc[gc_c[C], km_c[C]]))
+            sf = S.find_aut(tuple(Wf[c]), tuple(Wf[gc_f[c], km_f[c]]))
+            if len(sc) != 1 or len(sf) != 1 or sc[0] != sf[0] or gc_f[c] // 4 != gc_c[C]:
+                return False
+    return True
+
+
+out = {'max_level': MAXL, 'towers': {}}
+acts = {l: mesh_rotation_action(meshes[l]) for l in range(min(MAXL, 2) + 1)}
+for name, Ws in towers.items():
+    rows = {}
+    for l in range(MAXL):
+        rows[f'{l}->{l + 1}'] = S.ancestry_count(meshes[l], Ws[l], meshes[l + 1], Ws[l + 1])
+    info = {'ancestry': rows,
+            'port_labels_used': sorted(set(int(x) for W in Ws for x in np.unique(W))),
+            'types_under_120_per_level': [len(S.type_census(W)[1]) for W in Ws],
+            'types_under_60_per_level': [len(S.type_census(W)[2]) for W in Ws],
+            'rotations_lifting_group120_levels012': [invariant_rotations(Ws[l], S.TYPE120, acts[l]) for l in acts],
+            'rotations_lifting_group60_levels012': [invariant_rotations(Ws[l], S.TYPE60, acts[l]) for l in acts]}
+    if name != 'pinned' and info['rotations_lifting_group120_levels012'][-1] == 60 and MAXL >= 2:
+        info['ancestry_commutes_with_all_60_lifts_0->1'] = equivariant_ancestry(Ws[0], Ws[1], acts[0], acts[1])
+        info['ancestry_commutes_with_all_60_lifts_1->2'] = equivariant_ancestry(Ws[1], Ws[2], acts[1], acts[2])
+    # the abstract port graph: lowest levels at level 2 (labelling-independent check)
+    if MAXL >= 2:
+        vals = S.low_spectrum(S.port_laplacian(meshes[2], Ws[2]), k=10)
+        info['level2_N_lambda_1_4_9'] = [float(meshes[2].N * vals[i]) for i in (1, 4, 9)]
+    out['towers'][name] = info
+    print(name, json.dumps(info), round(time.time() - T0, 1), flush=True)
+
+# ---- pinned routing: is there any relabelling that makes ancestry a morphism?  parent-by-parent exhaustion
+AUT = np.array(S.AUT120)                                # [120, 12]
+ADJ1 = (S.DIST == 1)
+feas = {}
+Ws = towers['pinned']
+for l in range(MAXL):
+    Wc, Wf = Ws[l], Ws[l + 1]
+    Np = Wc.shape[0]
+    outer_ok = strict_ok = weak_ok = 0
+    mismatched_children = 0
+    for C in range(Np):
+        P = Wc[C]
+        t0 = Wf[4 * C]; t1 = Wf[4 * C + 1][[2, 0, 1]]; t2 = Wf[4 * C + 2][[1, 2, 0]]; q = Wf[4 * C + 3][[1, 2, 0]]
+        X = []
+        for k, t in enumerate((t0, t1, t2)):
+            i, j = (k + 1) % 3, (k + 2) % 3
+            sel = (AUT[:, t[i]] == P[i]) & (AUT[:, t[j]] == P[j])
+            X.append(set(AUT[sel, t[k]].tolist()))
+            mismatched_children += int(not sel.any())
+        if not all(X):
+            continue
+        outer_ok += 1
+        qi = AUT[:, q]                                    # [120, 3] images of the central triple
+        s = np.ones(120, bool); w = np.ones(120, bool)
+        for k in range(3):
+            xs = np.array(sorted(X[k]))
+            s &= ADJ1[qi[:, k]][:, xs].any(axis=1)
+            w &= (ADJ1[qi[:, k]][:, xs].any(axis=1) | np.isin(qi[:, k], xs))
+        strict_ok += int(s.any()); weak_ok += int(w.any())
+    feas[f'{l}->{l + 1}'] = {'parents': int(Np), 'parents_with_all_outer_constraints_satisfiable': outer_ok,
+                              'parents_admitting_a_strict_local_morphism': strict_ok, 'parents_admitting_a_weak_local_morphism': weak_ok,
+                              'corner_children_whose_outer_pair_distance_differs_from_parent': mismatched_children,
+                              'lower_bound_on_non_seams_under_any_relabelling': (mismatched_children + 1) // 2}
+    print('pinned relabelling', l, feas[f'{l}->{l + 1}'], round(time.time() - T0, 1), flush=True)
+out['pinned_any_relabelling'] = feas
+json.dump(out, open(S.S3 + '/s5_ancestry.json', 'w'), indent=1)
+print('written', S.S3 + '/s5_ancestry.json')

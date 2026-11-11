@@ -1,0 +1,60 @@
+"""Worker LV: second comparison (NOT BLIND), group N of Addendum 2. Reads lv_link.json and the measured v.
+Run once after lv_link.json was on file. Writes lv_compare2.json."""
+import json
+import math
+
+from scipy.optimize import brentq
+
+import lv_chain as C
+
+pi = math.pi
+V_MEAS = 246.21965
+E_CELL = C.EP / math.sqrt(C.P_FWD)
+X_MEAS = V_MEAS / E_CELL
+lk = json.load(open("lv_link.json"))
+out = {}
+rows = {}
+for k, r in lk["N_rows_at_24.3166"].items():
+    rows[k] = {"v_GeV_fixed_coupling": r["v_GeV_at_24.3166_unit_bare_factor"],
+               "ln(v/v_measured)": math.log(r["<A>"] / X_MEAS)}
+out["N_rows_fixed_coupling_24.3166"] = rows
+ch = {}
+for sn, d in lk["N_chain_solved_again"].items():
+    ch[sn] = {pn: [{"v_GeV": r["v_GeV"], "ln(v/v_measured)": math.log(r["v_GeV"] / V_MEAS)} for r in rr] for pn, rr in d.items()}
+out["N_rows_chain"] = ch
+# N1 with the bare factors of the registered list, through the chain
+slopes = {"declared_(33/5,1,-3)": (33 / 5, 1.0, -3.0), "source_one_doublet_(81/10,5/6,-3)": (81 / 10, 5 / 6, -3.0),
+          "source_two_doublets_(41/5,1,-3)": (41 / 5, 1.0, -3.0)}
+g_of = lambda x: math.sqrt(4 * pi / x)
+bare = {"unit": lambda x: 1.0,
+        "theta_0=g/(2sqrt2)": lambda x: 2 * math.sqrt(2) / g_of(x) * math.tan(g_of(x) / (2 * math.sqrt(2))),
+        "theta_0=g": lambda x: 2 * math.sqrt(2) / g_of(x) * math.tan(g_of(x)),
+        "theta_0=pi/4": lambda x: 2 * math.sqrt(2) / g_of(x)}
+n1 = {}
+for sn, b in slopes.items():
+    n1[sn] = {}
+    for bn, bf in bare.items():
+        for mult, mn in ((2.0, "m=2"), (1.0, "m=1")):
+            rr = C.solve(b=b, pref=lambda x: mult * bf(x))
+            n1[sn][bn + "|" + mn] = [{"1/alpha_U": x, "v_GeV": c["v"], "ln(v/v_measured)": math.log(c["v"] / V_MEAS)} for x, c in rr]
+out["N1_with_bare_factors_chain"] = n1
+# what the measured v needs inside the mechanism at the chain's coupling (declared slopes, fixed 24.3166)
+S = (pi / 2) * 24.3166
+out["needs"] = {"product_(bare factor x multiplicity)_at_c_E=1_fixed_coupling": X_MEAS / math.exp(-S),
+                "c_E_needed_for_multiplicity_2_and_unit_bare_factor_fixed_coupling": -math.log(X_MEAS / 2) / S,
+                "<A>_needed_with_unit_bare_factor": X_MEAS}
+count = {"near_or_pass": []}
+for sn, d in n1.items():
+    for k, rr in d.items():
+        for r in rr:
+            if abs(r["ln(v/v_measured)"]) <= 0.15:
+                count["near_or_pass"].append([sn, k, round(r["v_GeV"], 2), round(r["ln(v/v_measured)"], 4)])
+out["count"] = count
+json.dump(out, open("lv_compare2.json", "w"), indent=1)
+for k, r in rows.items():
+    print("%-44s %.4g GeV  ln ratio %+.3f" % (k, r["v_GeV_fixed_coupling"], r["ln(v/v_measured)"]))
+for sn, d in n1.items():
+    print(sn)
+    for k, rr in d.items():
+        print("   %-28s" % k, [(round(r["1/alpha_U"], 4), round(r["v_GeV"], 2), round(r["ln(v/v_measured)"], 4)) for r in rr])
+print(out["needs"]); print(count)

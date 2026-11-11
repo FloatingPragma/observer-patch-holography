@@ -1,0 +1,162 @@
+{
+  "audit_source_sha256": {
+    "MOBILE_AUDIT.md": "3abad5a32b998ba49b8a09f381f331bc96c4e04d17d074ff1bb046eae9bbd25a",
+    "mobile_audit.py": "bfad0eaafa7585c0ce69d114a245d143d8ceb4a9de8f712782bc672a82eee5a5",
+    "test_mobile_audit.py": "294f2b1eed9bab0133a547fc400ef25a24bfd5f2f2f85d34676dd604ffbbb370"
+  },
+  "candidate_reconciliation": [
+    {
+      "edge": 0,
+      "independent_norm_enclosures_overlap": true,
+      "independent_probability_lower_endpoints_differ_by_less_than": "1e-60",
+      "time": "1/4"
+    },
+    {
+      "edge": 0,
+      "independent_norm_enclosures_overlap": true,
+      "independent_probability_lower_endpoints_differ_by_less_than": "1e-60",
+      "time": "1/64"
+    },
+    {
+      "edge": 12,
+      "independent_norm_enclosures_overlap": true,
+      "independent_probability_lower_endpoints_differ_by_less_than": "1e-60",
+      "time": "1/4"
+    },
+    {
+      "edge": 12,
+      "independent_norm_enclosures_overlap": true,
+      "independent_probability_lower_endpoints_differ_by_less_than": "1e-60",
+      "time": "1/64"
+    }
+  ],
+  "candidate_sha256": {
+    "PROOF.md": "195b0b2d29e0e0c225acca9136ff14116c1f95e876f0009caf91f9701f66d78a",
+    "README.md": "8e3b0be3eef270eb9aa697e7c59ecc9fb49f3182e9c757441c94e5696ee66961",
+    "model.py": "2d2ff8b55fa8d49244d0483e1f1922600516e81e2a2500c9bd7c86ef44738a0a",
+    "results.json": "79de12b140bf5e4ce8335ad1eef97bc851882ebd11d96f6a2152dc6d79bcdd17",
+    "test_mobile.py": "d741c0f5f95d4f5d967552f861973b204132f7598c541a9df0a0979683c86204"
+  },
+  "full_kinematic_operator_checks": {
+    "full_Gauss_commutators_and_invalid_boundaries": true,
+    "hopping_form_bound_is_explicit_positive_factorization": true,
+    "literal_full_kinematic_source_dimension": 24,
+    "oriented_charge_current_continuity_exact": true,
+    "physical_CAR_embedding_exact": true,
+    "with_nontrivial_finite_Peierls_dimension": 48
+  },
+  "geometry_input_sha256": {
+    "Lean/ObserverPatchHolography/CoreAxioms.lean": "addcea08fe55c0ccc3edbeb90ebd9df4b640c96bd20e9755417bcdb84f093fe4",
+    "Lean/Screen/SeamCurrentCarrierQuotient.lean": "e5f712cbccc5a1462945f0cb511a47064fe10818748498021d5c70ae169a933f"
+  },
+  "independent_finite_exponential_first_integral": [
+    {
+      "all_order_Duhamel_remainder_interval": [
+        "797359942312232453840261743/500000000000000000000000000000",
+        "1594719884624464907680523487/1000000000000000000000000000000"
+      ],
+      "arrival": 0,
+      "edge": 0,
+      "first_arrival_norm_interval": [
+        "1038452356017928227119359667/100000000000000000000000000000",
+        "10384523560179282271193596671/1000000000000000000000000000000"
+      ],
+      "first_nonvacuum_arrival_norm_interval": [
+        "767833009285936641971245991/200000000000000000000000000000",
+        "959791261607420802464057489/250000000000000000000000000000"
+      ],
+      "frequency_shell_occupation_configurations": 165,
+      "independent_Taylor_order": 60,
+      "source": 1,
+      "time": "1/4",
+      "unconditional_arrival_probability_lower": "600367434939422833140573300145338293394961505858005890538199601826870420470942547/31082702275611665134711390509176302506278509424834232340028998555822468563283335970816",
+      "unconditional_nonvacuum_arrival_probability_lower": "313160344294247141793023718745515331266110207302503835061470468941677119267582715/248661618204893321077691124073410420050228075398673858720231988446579748506266687766528",
+      "uniform_exponential_vector_tail": "710542735760100185871124267578125/1762665528019970333880215745642175808324103272836119755420626194493651608299102571303993120263610826752"
+    },
+    {
+      "all_order_Duhamel_remainder_interval": [
+        "1557343637328579011406761/250000000000000000000000000000",
+        "1245874909862863209125409/200000000000000000000000000000"
+      ],
+      "arrival": 0,
+      "edge": 0,
+      "first_arrival_norm_interval": [
+        "81379202528850543296207813/125000000000000000000000000000",
+        "130206724046160869273932501/200000000000000000000000000000"
+      ],
+      "first_nonvacuum_arrival_norm_interval": [
+        "245253272133699516026336421/1000000000000000000000000000000",
+        "122626636066849758013168211/500000000000000000000000000000"
+      ],
+      "frequency_shell_occupation_configurations": 165,
+      "independent_Taylor_order": 60,
+      "source": 1,
+      "time": "1/64",
+      "unconditional_arrival_probability_lower": "827093331575232238181858980428881283982520015069554242403226470159872688375041709/7957171782556586274486115970349133441607298412757563479047423630290551952200534008528896",
+      "unconditional_nonvacuum_arrival_probability_lower": "454612509069731602217140638956029710693428666370862766291345183364976966003908623/31828687130226345097944463881396533766429193651030253916189694521162207808802136034115584",
+      "uniform_exponential_vector_tail": "710542735760100185871124267578125/1762665528019970333880215745642175808324103272836119755420626194493651608299102571303993120263610826752"
+    },
+    {
+      "all_order_Duhamel_remainder_interval": [
+        "797359942312232453840261743/500000000000000000000000000000",
+        "1594719884624464907680523487/1000000000000000000000000000000"
+      ],
+      "arrival": 2,
+      "edge": 12,
+      "first_arrival_norm_interval": [
+        "1298898332220031618372901981/125000000000000000000000000000",
+        "10391186657760252946983215849/1000000000000000000000000000000"
+      ],
+      "first_nonvacuum_arrival_norm_interval": [
+        "1040927444985964439240812129/250000000000000000000000000000",
+        "4163709779943857756963248517/1000000000000000000000000000000"
+      ],
+      "frequency_shell_occupation_configurations": 165,
+      "independent_Taylor_order": 60,
+      "source": 1,
+      "time": "1/4",
+      "unconditional_arrival_probability_lower": "300638997606157937598210655802257342191663638335974065910341677926404095535171287/15541351137805832567355695254588151253139254712417116170014499277911234281641667985408",
+      "unconditional_nonvacuum_arrival_probability_lower": "820547170037299220352491751533316688056909632477679871587893798679488250715588363/497323236409786642155382248146820840100456150797347717440463976893159497012533375533056",
+      "uniform_exponential_vector_tail": "710542735760100185871124267578125/1762665528019970333880215745642175808324103272836119755420626194493651608299102571303993120263610826752"
+    },
+    {
+      "all_order_Duhamel_remainder_interval": [
+        "1557343637328579011406761/250000000000000000000000000000",
+        "1245874909862863209125409/200000000000000000000000000000"
+      ],
+      "arrival": 2,
+      "edge": 12,
+      "first_arrival_norm_interval": [
+        "651035334371700808884713677/1000000000000000000000000000000",
+        "325517667185850404442356839/500000000000000000000000000000"
+      ],
+      "first_nonvacuum_arrival_norm_interval": [
+        "33010634029362870818123031/125000000000000000000000000000",
+        "264085072234902966544984249/1000000000000000000000000000000"
+      ],
+      "frequency_shell_occupation_configurations": 165,
+      "independent_Taylor_order": 60,
+      "source": 1,
+      "time": "1/64",
+      "unconditional_arrival_probability_lower": "413548864526844050241922406922286487413883996703980238354749706390704915019528593/3978585891278293137243057985174566720803649206378781739523711815145275976100267004264448",
+      "unconditional_nonvacuum_arrival_probability_lower": "529068857262475363226916309975934857901807783950546311328267715635387684056446869/31828687130226345097944463881396533766429193651030253916189694521162207808802136034115584",
+      "uniform_exponential_vector_tail": "710542735760100185871124267578125/1762665528019970333880215745642175808324103272836119755420626194493651608299102571303993120263610826752"
+    }
+  ],
+  "shared_audit_input_sha256": {
+    "audit.py": "06d896c8a3de1b575ecf83d1c42f4f600f8731b138c93844b5626be4c3ccf4c5",
+    "static_results.json": "1c54b063abf662b7fb9e28ec2ec6350d81a80cff118de92b4b2a87e938a71970"
+  },
+  "universal_bounds": {
+    "all_detector_settings_keep_their_complete_projector_complements": true,
+    "eta": "1/24",
+    "finite_exponential_uses_no_unbounded_CCR_identity": true,
+    "full_kinematic_ground_gap": "26/217",
+    "physical_ground_gap": "sqrt(4-sqrt(5))",
+    "separate_actual_H_energy_window_hit_lower_apex": "1/6",
+    "separate_actual_H_energy_window_hit_lower_boundary": "5/24",
+    "static_charged_eigenline_not_transferred": true,
+    "unconditional_neighbor_and_nonvacuum_lower": "169/347892350976",
+    "unconditional_neighbor_arrival_lower": "2209/339738624"
+  }
+}

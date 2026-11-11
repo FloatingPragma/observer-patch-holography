@@ -1,0 +1,866 @@
+{
+ "template": {
+  "scalar": {
+   "face_flux_in_units_of_2pi_over_20": [
+    0.0
+   ],
+   "links_invariant_under_third_turn_defect": 0.0
+  },
+  "vector": {
+   "face_flux_in_units_of_2pi_over_20": [
+    -2.0
+   ],
+   "links_invariant_under_third_turn_defect": 5.551115123125783e-16
+  },
+  "spinor": {
+   "face_flux_in_units_of_2pi_over_20": [
+    -1.0
+   ],
+   "links_invariant_under_third_turn_defect": 1.0934428697813141e-15
+  },
+  "spinor_g": {
+   "face_flux_in_units_of_2pi_over_20": [
+    -7.0
+   ],
+   "links_invariant_under_third_turn_defect": 1.4271872719387392e-15
+  },
+  "vector_g": {
+   "face_flux_in_units_of_2pi_over_20": [
+    6.0
+   ],
+   "links_invariant_under_third_turn_defect": 1.5463617361248926e-15
+  }
+ },
+ "one_carrier": {
+  "exact_return_after_1_step": "11/12",
+  "exact_return_after_2_steps": "643/900",
+  "exact_norm_after_2_steps": "1",
+  "committed_return_after_2_attempts": "101/120",
+  "charged_level_three_step_return_amplitude_change": "-1/6750",
+  "charged_level_three_step_return_probability_change": "-9353/91125000",
+  "uncharged_level_change": "0",
+  "kernel_return_1_minus_11_12": 2.7755575615628914e-15,
+  "kernel_return_2_minus_643_900": 9.992007221626409e-16,
+  "kernel_charged_amplitude_change_plus_1_6750": 2.8650042407929455e-17,
+  "reachable_link_words": [
+   1,
+   3,
+   33,
+   2097185,
+   2359329,
+   4194307,
+   4456451,
+   6553603,
+   6553633,
+   6553635
+  ],
+  "wave_record_link_word_1": 0.008333333333333314,
+  "wave_record_link_word_3": 0.0,
+  "defect_after_tick_wave_arriving_at_port_5": {
+   "0,1,5": 0.0,
+   "0,5,11": 0.0,
+   "1,5,9": 0.0,
+   "4,5,9": 0.0,
+   "4,5,11": 1.0
+  },
+  "defect_after_tick_wave_arriving_at_port_6": {
+   "0,1,5": 1.0,
+   "0,5,11": 0.0,
+   "1,5,9": 0.0,
+   "4,5,9": 0.0,
+   "4,5,11": 0.0
+  },
+  "gauss_weight_of_definite_word": 0.5000000000000006,
+  "return_without_record": 0.9999999999999992,
+  "return_after_face_readout": 0.4999999999999998,
+  "face_return_histories": [
+   {
+    "face": [
+     0,
+     1,
+     5
+    ],
+    "yes": 0.25,
+    "no": 0.25
+   },
+   {
+    "face": [
+     4,
+     5,
+     11
+    ],
+    "yes": 0.25,
+    "no": 0.25
+   }
+  ],
+  "commutator_U_Gamma_max": 0.0
+ },
+ "exact_scalar_discriminant": {
+  "bridge": true,
+  "seam": true
+ },
+ "flat_cell": [
+  {
+   "type": "scalar",
+   "gluing": "bridge",
+   "rule": "template",
+   "q": [
+    0.0,
+    0.0
+   ],
+   "register": 66,
+   "dimension": 3168,
+   "unitarity_defect": 2.4424906541753444e-15,
+   "Q_involution_defect": 2.220446049250313e-16,
+   "R_involution_defect": 3.1086244689504383e-15,
+   "discriminant_blank_defect": 6.661338147750939e-16,
+   "discriminant_parity_one_defect": 6.661338147750939e-16,
+   "discriminant_cross_parity_max": 3.469446951953614e-18,
+   "degrees": [
+    5,
+    6
+   ],
+   "oscillatory_dimension": 94,
+   "expected_oscillatory_dimension": 94,
+   "spectral_mapping_defect": 4.773959005888173e-15,
+   "plus_one_multiplicity": 80,
+   "minus_one_multiplicity": 2994,
+   "kernel_levels_lowest": [
+    -2.7408630920433552e-15,
+    0.3999442453034986,
+    2.7639320225002098,
+    2.7639320225002098,
+    2.7639320225002115,
+    2.8081965424780617
+   ]
+  },
+  {
+   "type": "scalar",
+   "gluing": "bridge",
+   "rule": "template",
+   "q": [
+    0.37,
+    -0.21
+   ],
+   "register": 66,
+   "dimension": 3168,
+   "unitarity_defect": 2.4424906541753444e-15,
+   "Q_involution_defect": 3.053126622588319e-16,
+   "R_involution_defect": 3.1086244689504383e-15,
+   "discriminant_blank_defect": 6.661338147767478e-16,
+   "discriminant_parity_one_defect": 6.661338147767478e-16,
+   "discriminant_cross_parity_max": 3.469446951953614e-18,
+   "degrees": [
+    5,
+    6
+   ],
+   "oscillatory_dimension": 96,
+   "expected_oscillatory_dimension": 96,
+   "spectral_mapping_defect": 6.772360450213455e-15,
+   "plus_one_multiplicity": 78,
+   "minus_one_multiplicity": 2994,
+   "kernel_levels_lowest": [
+    0.0025638073027118916,
+    0.39633776509881113,
+    2.7639320225002075,
+    2.7639320225002084,
+    2.7639320225002124,
+    2.812340018300766
+   ]
+  },
+  {
+   "type": "spinor",
+   "gluing": "bridge",
+   "rule": "template",
+   "q": [
+    0.0,
+    0.0
+   ],
+   "register": 66,
+   "dimension": 3168,
+   "unitarity_defect": 2.4424906541753444e-15,
+   "Q_involution_defect": 4.440892098500626e-16,
+   "R_involution_defect": 3.1086244689504383e-15,
+   "discriminant_blank_defect": 6.661340629801058e-16,
+   "discriminant_parity_one_defect": 6.661340629801058e-16,
+   "discriminant_cross_parity_max": 6.939351820692632e-18,
+   "degrees": [
+    5,
+    6
+   ],
+   "oscillatory_dimension": 96,
+   "expected_oscillatory_dimension": 96,
+   "spectral_mapping_defect": 6.328271240363392e-15,
+   "plus_one_multiplicity": 78,
+   "minus_one_multiplicity": 2994,
+   "kernel_levels_lowest": [
+    0.7467459582398,
+    0.7467459582398046,
+    1.0495597477883523,
+    1.219493450932759,
+    4.273457471994631,
+    4.273457471994633
+   ]
+  },
+  {
+   "type": "spinor",
+   "gluing": "bridge",
+   "rule": "template",
+   "q": [
+    0.37,
+    -0.21
+   ],
+   "register": 66,
+   "dimension": 3168,
+   "unitarity_defect": 2.4424906541753444e-15,
+   "Q_involution_defect": 4.440892098500626e-16,
+   "R_involution_defect": 3.1086244689504383e-15,
+   "discriminant_blank_defect": 6.661340629801058e-16,
+   "discriminant_parity_one_defect": 6.661340629801058e-16,
+   "discriminant_cross_parity_max": 6.939351820692632e-18,
+   "degrees": [
+    5,
+    6
+   ],
+   "oscillatory_dimension": 96,
+   "expected_oscillatory_dimension": 96,
+   "spectral_mapping_defect": 6.5503158452884236e-15,
+   "plus_one_multiplicity": 78,
+   "minus_one_multiplicity": 2994,
+   "kernel_levels_lowest": [
+    0.7467459582398022,
+    0.7492509427099737,
+    1.0488558904960992,
+    1.2166418733390938,
+    4.273457471994634,
+    4.273457471994637
+   ]
+  },
+  {
+   "type": "vector",
+   "gluing": "bridge",
+   "rule": "template",
+   "q": [
+    0.0,
+    0.0
+   ],
+   "register": 66,
+   "dimension": 3168,
+   "unitarity_defect": 2.4424906541753444e-15,
+   "Q_involution_defect": 3.469446951953614e-16,
+   "R_involution_defect": 3.1086244689504383e-15,
+   "discriminant_blank_defect": 6.661340668942024e-16,
+   "discriminant_parity_one_defect": 6.661340668942024e-16,
+   "discriminant_cross_parity_max": 1.0818851522026961e-17,
+   "degrees": [
+    5,
+    6
+   ],
+   "oscillatory_dimension": 96,
+   "expected_oscillatory_dimension": 96,
+   "spectral_mapping_defect": 8.215650382226158e-15,
+   "plus_one_multiplicity": 78,
+   "minus_one_multiplicity": 2994,
+   "kernel_levels_lowest": [
+    1.3819660112501024,
+    1.3819660112501098,
+    1.3819660112501113,
+    1.5529753502764096,
+    1.7768421998170574,
+    1.9585807041422396
+   ]
+  },
+  {
+   "type": "vector",
+   "gluing": "bridge",
+   "rule": "template",
+   "q": [
+    0.37,
+    -0.21
+   ],
+   "register": 66,
+   "dimension": 3168,
+   "unitarity_defect": 2.4424906541753444e-15,
+   "Q_involution_defect": 3.469446951953614e-16,
+   "R_involution_defect": 3.1086244689504383e-15,
+   "discriminant_blank_defect": 6.661340681872881e-16,
+   "discriminant_parity_one_defect": 6.661340656044243e-16,
+   "discriminant_cross_parity_max": 1.0818851522026961e-17,
+   "degrees": [
+    5,
+    6
+   ],
+   "oscillatory_dimension": 96,
+   "expected_oscillatory_dimension": 96,
+   "spectral_mapping_defect": 6.106226635438361e-15,
+   "plus_one_multiplicity": 78,
+   "minus_one_multiplicity": 2994,
+   "kernel_levels_lowest": [
+    1.3819660112501042,
+    1.3819660112501053,
+    1.3819660112501078,
+    1.5550620428562505,
+    1.776555355861653,
+    1.956049938992648
+   ]
+  },
+  {
+   "type": "spinor_g",
+   "gluing": "bridge",
+   "rule": "template",
+   "q": [
+    0.0,
+    0.0
+   ],
+   "register": 66,
+   "dimension": 3168,
+   "unitarity_defect": 2.4424906541753444e-15,
+   "Q_involution_defect": 4.652682298944613e-16,
+   "R_involution_defect": 3.1086244689504383e-15,
+   "discriminant_blank_defect": 6.661341238269252e-16,
+   "discriminant_parity_one_defect": 6.661341238269252e-16,
+   "discriminant_cross_parity_max": 9.080512235319192e-18,
+   "degrees": [
+    5,
+    6
+   ],
+   "oscillatory_dimension": 96,
+   "expected_oscillatory_dimension": 96,
+   "spectral_mapping_defect": 7.105427357601002e-15,
+   "plus_one_multiplicity": 78,
+   "minus_one_multiplicity": 2994,
+   "kernel_levels_lowest": [
+    2.3713444394043295,
+    2.3713444394043317,
+    2.421736652596212,
+    2.9863263451441218,
+    3.8244294954150475,
+    3.824429495415052
+   ]
+  },
+  {
+   "type": "spinor_g",
+   "gluing": "bridge",
+   "rule": "template",
+   "q": [
+    0.37,
+    -0.21
+   ],
+   "register": 66,
+   "dimension": 3168,
+   "unitarity_defect": 2.4424906541753444e-15,
+   "Q_involution_defect": 4.652682298944613e-16,
+   "R_involution_defect": 3.1086244689504383e-15,
+   "discriminant_blank_defect": 6.661341238269252e-16,
+   "discriminant_parity_one_defect": 6.661341238269252e-16,
+   "discriminant_cross_parity_max": 9.080512235319192e-18,
+   "degrees": [
+    5,
+    6
+   ],
+   "oscillatory_dimension": 96,
+   "expected_oscillatory_dimension": 96,
+   "spectral_mapping_defect": 7.882583474838611e-15,
+   "plus_one_multiplicity": 78,
+   "minus_one_multiplicity": 2994,
+   "kernel_levels_lowest": [
+    2.371344439404331,
+    2.3730943367463224,
+    2.4230980607985195,
+    2.9790825208638037,
+    3.824429495415049,
+    3.824429495415053
+   ]
+  },
+  {
+   "type": "vector_g",
+   "gluing": "bridge",
+   "rule": "template",
+   "q": [
+    0.0,
+    0.0
+   ],
+   "register": 66,
+   "dimension": 3168,
+   "unitarity_defect": 2.4424906541753444e-15,
+   "Q_involution_defect": 4.440934346151124e-16,
+   "R_involution_defect": 3.1086244689504383e-15,
+   "discriminant_blank_defect": 6.661340402552988e-16,
+   "discriminant_parity_one_defect": 6.661340402552988e-16,
+   "discriminant_cross_parity_max": 1.0408350537663972e-17,
+   "degrees": [
+    5,
+    6
+   ],
+   "oscillatory_dimension": 96,
+   "expected_oscillatory_dimension": 96,
+   "spectral_mapping_defect": 5.88418203051333e-15,
+   "plus_one_multiplicity": 78,
+   "minus_one_multiplicity": 2994,
+   "kernel_levels_lowest": [
+    2.76393202250021,
+    2.76393202250021,
+    2.763932022500213,
+    2.7639320225002146,
+    2.763932022500218,
+    2.7958181784676
+   ]
+  },
+  {
+   "type": "vector_g",
+   "gluing": "bridge",
+   "rule": "template",
+   "q": [
+    0.37,
+    -0.21
+   ],
+   "register": 66,
+   "dimension": 3168,
+   "unitarity_defect": 2.4424906541753444e-15,
+   "Q_involution_defect": 4.440934346151124e-16,
+   "R_involution_defect": 3.1086244689504383e-15,
+   "discriminant_blank_defect": 6.661340402552988e-16,
+   "discriminant_parity_one_defect": 6.661340402552988e-16,
+   "discriminant_cross_parity_max": 1.0408350537663972e-17,
+   "degrees": [
+    5,
+    6
+   ],
+   "oscillatory_dimension": 96,
+   "expected_oscillatory_dimension": 96,
+   "spectral_mapping_defect": 8.43769498715119e-15,
+   "plus_one_multiplicity": 78,
+   "minus_one_multiplicity": 2994,
+   "kernel_levels_lowest": [
+    2.7639320225002044,
+    2.763932022500208,
+    2.7639320225002098,
+    2.7639320225002106,
+    2.7639320225002164,
+    2.7983928452965947
+   ]
+  },
+  {
+   "type": "scalar",
+   "gluing": "seam",
+   "rule": "template",
+   "q": [
+    0.0,
+    0.0
+   ],
+   "register": 72,
+   "dimension": 3456,
+   "unitarity_defect": 2.886579864025407e-15,
+   "Q_involution_defect": 2.220446049250313e-16,
+   "R_involution_defect": 3.774758283725532e-15,
+   "discriminant_blank_defect": 1.3322676295501878e-15,
+   "discriminant_parity_one_defect": 1.3322676295501878e-15,
+   "discriminant_cross_parity_max": 3.469446951953614e-18,
+   "degrees": [
+    5,
+    7
+   ],
+   "oscillatory_dimension": 94,
+   "expected_oscillatory_dimension": 94,
+   "spectral_mapping_defect": 4.773959005888173e-15,
+   "plus_one_multiplicity": 86,
+   "minus_one_multiplicity": 3276,
+   "kernel_levels_lowest": [
+    -3.507421133044919e-15,
+    0.49232495945317684,
+    2.7639320225002075,
+    2.8751145802354245,
+    2.875114580235427,
+    2.9999999999999987
+   ]
+  },
+  {
+   "type": "scalar",
+   "gluing": "seam",
+   "rule": "template",
+   "q": [
+    0.37,
+    -0.21
+   ],
+   "register": 72,
+   "dimension": 3456,
+   "unitarity_defect": 2.886579864025407e-15,
+   "Q_involution_defect": 3.053126622588319e-16,
+   "R_involution_defect": 3.774758283725532e-15,
+   "discriminant_blank_defect": 1.3322676295501878e-15,
+   "discriminant_parity_one_defect": 1.3322676295501878e-15,
+   "discriminant_cross_parity_max": 3.799033723286445e-18,
+   "degrees": [
+    5,
+    7
+   ],
+   "oscillatory_dimension": 96,
+   "expected_oscillatory_dimension": 96,
+   "spectral_mapping_defect": 6.217248937900877e-15,
+   "plus_one_multiplicity": 84,
+   "minus_one_multiplicity": 3276,
+   "kernel_levels_lowest": [
+    0.006325565535690042,
+    0.4904454287024664,
+    2.7639320225002146,
+    2.8751145832135006,
+    2.883775196277162,
+    3.0000000358350616
+   ]
+  },
+  {
+   "type": "spinor",
+   "gluing": "seam",
+   "rule": "template",
+   "q": [
+    0.0,
+    0.0
+   ],
+   "register": 72,
+   "dimension": 3456,
+   "unitarity_defect": 2.886579864025407e-15,
+   "Q_involution_defect": 4.440892098500626e-16,
+   "R_involution_defect": 3.774758283725532e-15,
+   "discriminant_blank_defect": 1.4432899320990286e-15,
+   "discriminant_parity_one_defect": 1.4432899320990286e-15,
+   "discriminant_cross_parity_max": 7.183629654822526e-18,
+   "degrees": [
+    5,
+    7
+   ],
+   "oscillatory_dimension": 96,
+   "expected_oscillatory_dimension": 96,
+   "spectral_mapping_defect": 5.88418203051333e-15,
+   "plus_one_multiplicity": 84,
+   "minus_one_multiplicity": 3276,
+   "kernel_levels_lowest": [
+    0.7516539864629266,
+    0.7963673286712795,
+    0.8402454744664308,
+    1.7551105819731752,
+    4.273457471994638,
+    4.273457471994644
+   ]
+  },
+  {
+   "type": "spinor",
+   "gluing": "seam",
+   "rule": "template",
+   "q": [
+    0.37,
+    -0.21
+   ],
+   "register": 72,
+   "dimension": 3456,
+   "unitarity_defect": 2.886579864025407e-15,
+   "Q_involution_defect": 4.440892098500626e-16,
+   "R_involution_defect": 3.774758283725532e-15,
+   "discriminant_blank_defect": 1.4432899320990286e-15,
+   "discriminant_parity_one_defect": 1.4432899320990286e-15,
+   "discriminant_cross_parity_max": 5.4488024783314756e-18,
+   "degrees": [
+    5,
+    7
+   ],
+   "oscillatory_dimension": 96,
+   "expected_oscillatory_dimension": 96,
+   "spectral_mapping_defect": 7.66053886991358e-15,
+   "plus_one_multiplicity": 84,
+   "minus_one_multiplicity": 3276,
+   "kernel_levels_lowest": [
+    0.7552620966969492,
+    0.8039570553806141,
+    0.8396528384984104,
+    1.750944849732707,
+    4.273457471994638,
+    4.273457471994641
+   ]
+  },
+  {
+   "type": "vector",
+   "gluing": "seam",
+   "rule": "template",
+   "q": [
+    0.0,
+    0.0
+   ],
+   "register": 72,
+   "dimension": 3456,
+   "unitarity_defect": 2.886579864025407e-15,
+   "Q_involution_defect": 3.433175098891678e-16,
+   "R_involution_defect": 3.774758283725532e-15,
+   "discriminant_blank_defect": 1.4432899802130406e-15,
+   "discriminant_parity_one_defect": 1.4432899802130406e-15,
+   "discriminant_cross_parity_max": 1.0415022491418452e-17,
+   "degrees": [
+    5,
+    7
+   ],
+   "oscillatory_dimension": 96,
+   "expected_oscillatory_dimension": 96,
+   "spectral_mapping_defect": 6.661338147750939e-15,
+   "plus_one_multiplicity": 84,
+   "minus_one_multiplicity": 3276,
+   "kernel_levels_lowest": [
+    1.3865701537146735,
+    1.3975884288314802,
+    1.408248548527258,
+    1.5335640674045197,
+    1.6227957107744446,
+    2.877390239121088
+   ]
+  },
+  {
+   "type": "vector",
+   "gluing": "seam",
+   "rule": "template",
+   "q": [
+    0.37,
+    -0.21
+   ],
+   "register": 72,
+   "dimension": 3456,
+   "unitarity_defect": 2.886579864025407e-15,
+   "Q_involution_defect": 3.433175098891678e-16,
+   "R_involution_defect": 3.774758283725532e-15,
+   "discriminant_blank_defect": 1.4432899802130406e-15,
+   "discriminant_parity_one_defect": 1.4432899802130406e-15,
+   "discriminant_cross_parity_max": 1.0415022491418452e-17,
+   "degrees": [
+    5,
+    7
+   ],
+   "oscillatory_dimension": 96,
+   "expected_oscillatory_dimension": 96,
+   "spectral_mapping_defect": 9.547918011776346e-15,
+   "plus_one_multiplicity": 84,
+   "minus_one_multiplicity": 3276,
+   "kernel_levels_lowest": [
+    1.3857830811292078,
+    1.3973391175978713,
+    1.412339097454226,
+    1.5448317881223559,
+    1.6212262039900136,
+    2.8708393950349986
+   ]
+  },
+  {
+   "type": "spinor_g",
+   "gluing": "seam",
+   "rule": "template",
+   "q": [
+    0.0,
+    0.0
+   ],
+   "register": 72,
+   "dimension": 3456,
+   "unitarity_defect": 2.886579864025407e-15,
+   "Q_involution_defect": 4.652682298944613e-16,
+   "R_involution_defect": 3.774758283725532e-15,
+   "discriminant_blank_defect": 1.332267732944168e-15,
+   "discriminant_parity_one_defect": 1.332267732944168e-15,
+   "discriminant_cross_parity_max": 8.050925013840515e-18,
+   "degrees": [
+    5,
+    7
+   ],
+   "oscillatory_dimension": 96,
+   "expected_oscillatory_dimension": 96,
+   "spectral_mapping_defect": 7.327471962526033e-15,
+   "plus_one_multiplicity": 84,
+   "minus_one_multiplicity": 3276,
+   "kernel_levels_lowest": [
+    2.492126202662227,
+    2.554584572363625,
+    2.5955595526582886,
+    2.703438641105439,
+    3.824429495415046,
+    3.824429495415049
+   ]
+  },
+  {
+   "type": "spinor_g",
+   "gluing": "seam",
+   "rule": "template",
+   "q": [
+    0.37,
+    -0.21
+   ],
+   "register": 72,
+   "dimension": 3456,
+   "unitarity_defect": 2.886579864025407e-15,
+   "Q_involution_defect": 5.779027562169339e-16,
+   "R_involution_defect": 3.774758283725532e-15,
+   "discriminant_blank_defect": 1.332267732944168e-15,
+   "discriminant_parity_one_defect": 1.332267732944168e-15,
+   "discriminant_cross_parity_max": 8.655306548937742e-18,
+   "degrees": [
+    5,
+    7
+   ],
+   "oscillatory_dimension": 96,
+   "expected_oscillatory_dimension": 96,
+   "spectral_mapping_defect": 1.3322676295501878e-14,
+   "plus_one_multiplicity": 84,
+   "minus_one_multiplicity": 3276,
+   "kernel_levels_lowest": [
+    2.4898754263160825,
+    2.553009197374904,
+    2.5977402935993466,
+    2.7029777187990027,
+    3.8244294954150493,
+    3.824429495415051
+   ]
+  },
+  {
+   "type": "vector_g",
+   "gluing": "seam",
+   "rule": "template",
+   "q": [
+    0.0,
+    0.0
+   ],
+   "register": 72,
+   "dimension": 3456,
+   "unitarity_defect": 2.886579864025407e-15,
+   "Q_involution_defect": 4.440934346151124e-16,
+   "R_involution_defect": 3.774758283725532e-15,
+   "discriminant_blank_defect": 1.4432899374975942e-15,
+   "discriminant_parity_one_defect": 1.4432899374975942e-15,
+   "discriminant_cross_parity_max": 1.0408348991265463e-17,
+   "degrees": [
+    5,
+    7
+   ],
+   "oscillatory_dimension": 96,
+   "expected_oscillatory_dimension": 96,
+   "spectral_mapping_defect": 5.662137425588298e-15,
+   "plus_one_multiplicity": 84,
+   "minus_one_multiplicity": 3276,
+   "kernel_levels_lowest": [
+    2.763932022500207,
+    2.7639320225002124,
+    2.7739293555091584,
+    2.8659835443179977,
+    2.9452081489955497,
+    3.0847618627437035
+   ]
+  },
+  {
+   "type": "vector_g",
+   "gluing": "seam",
+   "rule": "template",
+   "q": [
+    0.37,
+    -0.21
+   ],
+   "register": 72,
+   "dimension": 3456,
+   "unitarity_defect": 2.886579864025407e-15,
+   "Q_involution_defect": 4.440934346151124e-16,
+   "R_involution_defect": 3.774758283725532e-15,
+   "discriminant_blank_defect": 1.4432899374975942e-15,
+   "discriminant_parity_one_defect": 1.4432899374975942e-15,
+   "discriminant_cross_parity_max": 1.1276126476294016e-17,
+   "degrees": [
+    5,
+    7
+   ],
+   "oscillatory_dimension": 96,
+   "expected_oscillatory_dimension": 96,
+   "spectral_mapping_defect": 5.995204332975845e-15,
+   "plus_one_multiplicity": 84,
+   "minus_one_multiplicity": 3276,
+   "kernel_levels_lowest": [
+    2.7639320225002124,
+    2.7639320225002195,
+    2.7741148415901717,
+    2.865401352909363,
+    2.942393629783643,
+    3.0831374400195184
+   ]
+  }
+ ],
+ "sphere_level_1": {
+  "scalar": {
+   "norm_after_step_minus_1": -3.3306690738754696e-16,
+   "reversibility_defect": 2.6111046005032556e-18,
+   "discriminant_row_defect": 5.440092820663267e-15,
+   "chebyshev_recurrence_defect_t_le_6": 3.219646771412954e-15,
+   "degrees": [
+    5,
+    6
+   ],
+   "kernel_diagonal_bridge_port": 0.9090909090909091,
+   "kernel_diagonal_ordinary_port": 0.9242424242424242,
+   "lowest_kernel_levels": [
+    2.2236986557677696e-15,
+    0.010375205760393353,
+    0.010375205760398982,
+    0.010375205760405385,
+    0.030300350694101624,
+    0.030300350694108445
+   ]
+  },
+  "spinor": {
+   "norm_after_step_minus_1": -2.55351295663786e-15,
+   "reversibility_defect": 3.1572443831564575e-18,
+   "discriminant_row_defect": 5.440092820663267e-15,
+   "chebyshev_recurrence_defect_t_le_6": 3.330750695103818e-15,
+   "degrees": [
+    5,
+    6
+   ],
+   "kernel_diagonal_bridge_port": 0.9090909090909091,
+   "kernel_diagonal_ordinary_port": 0.9242424242424242,
+   "lowest_kernel_levels": [
+    0.7152244405731536,
+    0.7186172756370097,
+    0.7467459582397719,
+    0.7467459582397752,
+    0.7467459582397765,
+    0.7467459582397777
+   ]
+  },
+  "vector": {
+   "norm_after_step_minus_1": 6.661338147750939e-16,
+   "reversibility_defect": 4.1142579709883216e-18,
+   "discriminant_row_defect": 5.440092820663267e-15,
+   "chebyshev_recurrence_defect_t_le_6": 3.774823976155557e-15,
+   "degrees": [
+    5,
+    6
+   ],
+   "kernel_diagonal_bridge_port": 0.9090909090909091,
+   "kernel_diagonal_ordinary_port": 0.9242424242424242,
+   "lowest_kernel_levels": [
+    1.3819660112500767,
+    1.3819660112500816,
+    1.3819660112500822,
+    1.3819660112500824,
+    1.3819660112500838,
+    1.381966011250084
+   ]
+  },
+  "spinor_g": {
+   "norm_after_step_minus_1": 3.3306690738754696e-15,
+   "reversibility_defect": 3.4732565087124975e-18,
+   "discriminant_row_defect": 5.440092820663267e-15,
+   "chebyshev_recurrence_defect_t_le_6": 3.885826848529787e-15,
+   "degrees": [
+    5,
+    6
+   ],
+   "kernel_diagonal_bridge_port": 0.9090909090909091,
+   "kernel_diagonal_ordinary_port": 0.9242424242424242,
+   "lowest_kernel_levels": [
+    2.0779623192020593,
+    2.093038152632167,
+    2.371344439404307,
+    2.3713444394043166,
+    2.3713444394043166,
+    2.3713444394043166
+   ]
+  }
+ }
+}

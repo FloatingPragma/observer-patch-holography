@@ -1,0 +1,56 @@
+#!/usr/bin/env python3
+"""Worker DE: comparison of the nucleon candidates with m_p and m_n, and audit A1 of the declared ratio 2.775.
+
+NOT BLIND: this file reads measured masses. It runs after nucleon_candidates.py wrote nucleon_candidates.json.
+Run from RER/code/particles with PYTHONPATH=.:<this directory>.
+"""
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+from qcd.derive_lambda_qcd_source_transmutation import MB_MB_GEV, MC_MC_GEV, chain as repo_chain
+
+HERE = Path(__file__).resolve().parent
+M_P = 0.93827208943   # GeV, CODATA 2022 (MEASURED, imported)
+M_N = 0.93956542194   # GeV, CODATA 2022 (MEASURED, imported)
+R_DECLARED = 2.775    # RER hadron/derive_nucleon_mass_external_qcd_ratio.py
+M_P_RER = 0.93827     # the proton value the RER lane compares with
+
+
+def rel(x: float, ref: float) -> float:
+    return x / ref - 1.0
+
+
+def main() -> None:
+    c = json.loads((HERE / 'nucleon_candidates.json').read_text())
+    lam3 = c['repository_lambda3_gev']
+    out: dict = {'label': 'NOT BLIND', 'm_p_gev': M_P, 'm_n_gev': M_N}
+    out['N0'] = {'m_baryon_gev': c['N0']['m_baryon_gev'],
+                 'ratio_to_m_p': [x / M_P for x in c['N0']['m_baryon_gev']]}
+    out['N1'] = {n: {'m_N_gev': r['N1_m_N_gev'], 'rel_m_p': rel(r['N1_m_N_gev'], M_P), 'rel_m_n': rel(r['N1_m_N_gev'], M_N)}
+                 for n, r in c['loop_orders'].items()}
+    out['N2'] = {n: {'m_N_gev': r['N2_m_N_gev'], 'rel_m_p': rel(r['N2_m_N_gev'], M_P), 'rel_m_n': rel(r['N2_m_N_gev'], M_N)}
+                 for n, r in c['loop_orders'].items()}
+
+    world = repo_chain(0.1179, 91.1876, MB_MB_GEV, MC_MC_GEV)  # the RER lane's own validation input
+    lam3_w = world['lambda3_gev']
+    lane_value = R_DECLARED * lam3
+    out['A1_provenance_of_2775'] = {
+        'lambda3_world_gev_from_repository_chain_at_alpha_s_0.1179': lam3_w,
+        'm_p_rer_over_lambda3_world': M_P_RER / lam3_w,
+        'declared_ratio': R_DECLARED,
+        'declared_minus_m_p_over_lambda3_world': R_DECLARED - M_P_RER / lam3_w,
+        'R_declared_times_lambda3_world_gev': R_DECLARED * lam3_w,
+        'lane_value_gev': lane_value,
+        'lane_rel_to_m_p_rer': rel(lane_value, M_P_RER),
+        'inherited_over_world_lambda3_minus_1': lam3 / lam3_w - 1.0,
+        'ratio_needed_for_m_p_with_inherited_lambda3': M_P / lam3,
+        'ratio_needed_for_m_n_with_inherited_lambda3': M_N / lam3,
+    }
+    (HERE / 'nucleon_compare.json').write_text(json.dumps(out, indent=2, sort_keys=True) + '\n')
+    print(json.dumps(out, indent=1))
+
+
+if __name__ == '__main__':
+    main()

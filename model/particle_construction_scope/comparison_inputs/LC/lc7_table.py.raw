@@ -1,0 +1,356 @@
+"""LC table: addendum 3 (A10 to A12) and the assembly of TABLE.md from the result files of lc1 to lc6.
+EXACT (Fractions). Writes lc7_table.json and TABLE.md. Run from RL/work/LC after lc1 to lc6:
+    PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B lc7_table.py
+"""
+from __future__ import annotations
+
+import itertools
+import json
+import os
+import sys
+import time
+from fractions import Fraction as Fr
+
+import lc_common as L
+
+OUT = 'lc7_table.json'
+FP = L.frame_plain()
+Z = Fr(0)
+HERE = os.path.dirname(os.path.abspath(__file__))
+
+
+def load(name):
+    with open(os.path.join(HERE, name)) as fh:
+        return json.load(fh)
+
+
+def main():
+    t0 = time.time()
+    out = {'task': 'LC addendum 3 and table', 'provenance': L.provenance()}
+
+    # ---------------- A10: class-3 link sign on the addressed seam
+    U = L.U24()
+    sgn = {'00': 1, '10': 1, '01': -1, '11': -1, '20': 1, '02': 1}        # (-1)^(n_b) on the ordered pair (a, b)
+    same_weights, sign_changes = True, 0
+    for col in range(24):
+        for row in range(24):
+            ug = sgn[L.NAMES[row // 4]] * U[row][col] * sgn[L.NAMES[col // 4]]
+            same_weights &= (ug * ug == U[row][col] * U[row][col])
+            sign_changes += int(ug != U[row][col])
+    col20, col02 = 4 * L.NAMES.index('20'), 4 * L.NAMES.index('02')
+    row11_2, row11_3 = 4 * L.NAMES.index('11') + 2, 4 * L.NAMES.index('11') + 3
+    out['A10_class_3_link_sign'] = {
+        'all 576 entries keep their squared modulus': same_weights, 'entries that change sign': sign_changes,
+        'emission amplitude from the first endpoint (20 -> 11, record 2), plain and with the link sign':
+            [str(U[row11_2][col20]), str(sgn['11'] * U[row11_2][col20] * sgn['20'])],
+        'emission amplitude from the second endpoint (02 -> 11, record 3), plain and with the link sign':
+            [str(U[row11_3][col02]), str(sgn['11'] * U[row11_3][col02] * sgn['02'])],
+        'reading': 'a link sign on any seam leaves every emission weight of a double load unchanged, so the address '
+                   'register of a carrier with a class-3 flux pair keeps its sixty addresses',
+    }
+    print('A10', out['A10_class_3_link_sign'])
+
+    # ---------------- A11: double loads on corners of the two defect faces, by face pair kind
+    dist = L.face_distance_table()
+    fidx = {f: i for i, f in enumerate(L.FACES)}
+    perms = [tuple(fidx[tuple(sorted(h[x] for x in f))] for f in L.FACES) for h in L.ROTS]
+    seen, kinds = set(), []
+    for i in range(20):
+        for j in range(20):
+            if i == j or (i, j) in seen:
+                continue
+            orb = {(g[i], g[j]) for g in perms}
+            seen |= orb
+            kinds.append(sorted(orb))
+    kinds.sort(key=lambda o: (dist[o[0][0]][o[0][1]], o[0]))
+    a11 = {}
+    for orb in kinds:
+        i, j = orb[0]
+        fA, fB = L.FACES[i], L.FACES[j]
+        cnt = {0: 0, 1: 0, 2: 0, 3: 0}
+        for x in fA:
+            for y in fB:
+                cnt[L.port_distance(x, y)] += 1
+        a11[f'separation {dist[i][j]}, {len(orb)} ordered face pairs, example {fA} {fB}'] = {
+            'corner pairs at port distance 0, 1, 2, 3': [cnt[0], cnt[1], cnt[2], cnt[3]],
+            'corner pairs with a defined tick (distance 2 or 3), count 1/4 each': cnt[2] + cnt[3],
+            'corner pairs outside the completion': cnt[0] + cnt[1]}
+    out['A11_double_loads_on_corners_of_the_two_defect_faces'] = a11
+    print('A11', {k: v['corner pairs at port distance 0, 1, 2, 3'] for k, v in a11.items()})
+
+    # ---------------- A12: exchange gate on two cells in equal states
+    st1, n1 = L.uniform([L.cfg_of(2, 2)])
+    st1 = L.Qstep(st1, FP)
+    prod = {}
+    for kA, aA in st1.items():
+        for kB, aB in st1.items():
+            prod[(kA, kB)] = aA * aB
+    swapped = {(kB, kA): v for (kA, kB), v in prod.items()}
+    a_, b_ = complex(0.5, -0.5), complex(0.5, 0.5)
+    out['A12_exchange_gate'] = {
+        'state of two cells after the onsite tick is symmetric under the exchange of the two cell registers': swapped == prod,
+        'a + b': str(a_ + b_), 'gate a + b S on a symmetric state': 'the identity',
+        'count of the two cells after the onsite layer and the exchange layer': '2/9 (unchanged)',
+        'source': 'model/coherent_defect_wave/spatial/PROOF.md lines 47 to 50 (S_xy, E_xy = a I + b S_xy, a = (1 - i)/2, b = (1 + i)/2)',
+        'scope': 'the public gate acts on one-load cell registers with a five-level fibre; the statement used here is the '
+                 'algebraic one (a + b = 1 on exchange-symmetric states), applied to cells in equal states',
+    }
+    print('A12', out['A12_exchange_gate'])
+
+    # ---------------- assembly of the table
+    c2 = load('lc2_configs.json')['table']
+    c3 = load('lc3_round.json')
+    c4 = load('lc4_register.json')
+    c6 = load('lc6_sequential.json')
+    rows = []
+
+    def add(rid, conf, reading, p, rm, q, joint, note='', defined=True, weak=''):
+        if defined:
+            p, rm, q, joint = Fr(p), Fr(rm), Fr(q), Fr(joint)
+            count = p + q - 2 * joint
+            ratio = 'yes' if (q == 2 * p and p == rm) else f'no ({q} : {p} : {rm})'
+            rows.append({'id': rid, 'configuration': conf, 'reading': reading, 'P(R+)': str(p), 'P(R-)': str(rm),
+                         'P(H)': str(q), 'P(R+ and H)': str(joint), 'count': str(count),
+                         'float': f'{float(count):.6f}', '2:1:1': ratio, 'is 2/9': count == Fr(2, 9),
+                         'weak round': weak or f'returns; non-return weight 4 sin^2(h j/2) x {count * (1 - count)}',
+                         'note': note})
+        else:
+            rows.append({'id': rid, 'configuration': conf, 'reading': reading, 'P(R+)': '', 'P(R-)': '', 'P(H)': '',
+                         'P(R+ and H)': '', 'count': 'not defined', 'float': '', '2:1:1': '', 'is 2/9': False,
+                         'weak round': 'not defined', 'note': note})
+
+    def from_row(rid, conf, reading, r, note='', weak=''):
+        add(rid, conf, reading, r['P(R+)'], r['P(R-)'], r['P(H)'], r['P(R+ and H)'], note=note, defined=r.get('defined', True),
+            weak=weak)
+    g1 = c2['G1a/G1b/G5c one carrier, one register, two DL, RD-rec, by port distance']
+    from_row('G1a', 'one carrier, one register, two DL, port distance 2 (30 port pairs)', 'RD-rec', g1['port distance 2'])
+    from_row('G1a, G5c', 'one carrier, one register, two DL on antipodal ports (6 port pairs)', 'RD-rec', g1['port distance 3'],
+             weak='returns (explicit); non-return weight 4 sin^2(h j/2) x 3/16')
+    add('G1b', 'one carrier, one register, two DL on adjacent ports (30 port pairs)', 'RD-rec', 0, 0, 0, 0, defined=False,
+        note='weight 1/30 of the tick lies on the seam with four loads')
+    for name, e in c2['G1c/G5b one carrier, one register, two SD on hexagon dimers, RD-FR, by face pair kind'].items():
+        combos = e['dimer choices (3 x 3)']
+        conf = (f"one carrier, one register, two SD on E-type hexagon seams, faces at separation {e['separation']} "
+                f"({e['ordered face pairs in this kind']} ordered face pairs, example {tuple(e['example'][0])} {tuple(e['example'][1])}; "
+                f"hexagons share {e['hexagons share ports, seams'][0]} ports, {e['hexagons share ports, seams'][1]} seams)")
+        note = f"{combos['clean']} of 9 dimer choices defined, {combos['not defined']} not defined"
+        if 'clean choices' in e:
+            from_row('G1c', conf, 'RD-FR', e['clean choices'], note=note)
+        else:
+            add('G1c, G5b', conf, 'RD-FR', 0, 0, 0, 0, defined=False, note=note + ' (one hexagon: equal seams or seams joined by a C-type seam)')
+    from_row('G1d', 'one carrier, one register, the two loads of one native pair as the two objects', 'RL',
+             c2['G1d one carrier, one register, the two loads of one native pair, RL'])
+    g1e = c2['G1e one carrier, one register, two native pairs, RN-rec']['by number of adjacent cross pairs: (P(R+), P(R-), P(H), count)']
+    for nadj, vals in sorted(g1e.items()):
+        p, rm, q, cnt = vals[0]
+        add('G1e', f'one carrier, one register, two native pairs with {nadj} adjacent cross pairs', 'RN-rec', p, rm, q, 0)
+    for key, rid, conf, reading in (
+            ('G2a two carriers, own registers, DL or SD, RD-rec', 'G2a, G7', 'two cells, own registers, DL or SD in each', 'RD-rec'),
+            ('G2b two carriers, own registers, SD, RD-FR', 'G2b', 'two cells, own registers, SD on an E-type hexagon seam in each', 'RD-FR'),
+            ('G2c two carriers, own registers, DL, RD-sense', 'G2c', 'two cells, own registers, DL in each', 'RD-sense'),
+            ('G2d two carriers, own registers, SD, RD-sector', 'G2d', 'two cells, own registers, SD in each', 'RD-sector'),
+            ('G2e two carriers, own registers, SD, RD-mix1', 'G2e', 'two cells, own registers, SD in each', 'RD-mix1'),
+            ('G2f two carriers, own registers, NP, RN-rec', 'G2f, G7', 'two cells, own registers, native pair on non-adjacent ports in each', 'RN-rec'),
+            ('G2g two carriers, own registers, A = DL, B = NP, RM', 'G2g', 'two cells, own registers, DL in A, native pair in B', 'RM'),
+            ('G2h two carriers, own registers, one load each, RL', 'G2h', 'two cells, own registers, one load in each', 'RL')):
+        r = c2[key]
+        note = ''
+        weak = ''
+        if key.startswith('G2a'):
+            weak = 'returns (explicit); non-return weight 4 sin^2(h j/2) x 14/81, blank records only'
+        if key.startswith('G2b'):
+            weak = 'returns (explicit); non-return weight 4 sin^2(h j/2) x ' + c3['G2b symmetric double loads on two carriers, RD-FR, FS(F0)']['pair']['P (1 - P)']
+        if key.startswith('G2f'):
+            weak = 'returns (explicit); non-return weight 4 sin^2(h j/2) x 14/81, blank records, part of it on moved loads'
+        if key.startswith('G2g'):
+            note = 'balance (b/a)^2 = 2/5 with matched flags'
+        from_row(rid, conf, reading, r, note=note, weak=weak)
+    g2i = c2['G2i two carriers, own registers, m loads per carrier, RN-rec']['3']
+    add('G2i', 'two cells, own registers, three loads on mutually non-adjacent ports in each', 'RN-rec', g2i['P(R+)'], g2i['P(R+)'],
+        g2i['P(H)'], Fr(g2i['P(R+)']) * Fr(g2i['P(H)']), note='m loads: count m/8 - m^2/144')
+    g3 = c2['G3 registers with glue seams']
+    from_row('G3a', 'two carriers, one glue seam away from the objects in both registers (62 addresses each)', 'RD-rec',
+             g3['G3a one glue seam away from the objects, in both registers (62 addresses each)'])
+    from_row('G3a', 'two carriers, one glue seam at the port of object A in both registers', 'RD-rec',
+             g3['G3a2 one glue seam at the port of object A, in both registers'], note='not registered by hand')
+    from_row('G3b', 'two carriers, all twelve glue seams of a carrier in its register (84 addresses each)', 'RD-rec',
+             g3['G3b all twelve glue seams of a carrier in its register (84 addresses each)'])
+    add('G3c', 'two carriers, glue seam between the two object ports, in the registers', 'RD-rec', 0, 0, 0, 0, defined=False,
+        note='weight 1/31 of the tick lies on the seam with four loads')
+    add('A12', 'two cells in equal states joined by the exchange gate of the public spatial circuit', 'RD-rec', Fr(1, 12), Fr(1, 12),
+        Fr(1, 6), Fr(1, 72), note='the gate acts as the identity on the exchange-symmetric state')
+    from_row('G4', 'one register over both carriers (120 addresses), DL in each', 'RD-rec',
+             c2['G4 one register over both carriers (120 addresses), DL, RD-rec'])
+    from_row('G5a', 'control: two hexagon instances of twelve addresses (FR round 4)', 'RD-FR',
+             c2['G5a control: two hexagon instances of twelve addresses, SD, RD-FR'])
+    add('G5b', 'two SD on the one hexagon of a face axis, twelve-address register', 'RD-FR', 0, 0, 0, 0, defined=False,
+        note='equal seams: four loads on a port; distinct seams: weight 1/24 on a seam with four loads')
+    g6 = c2['G6 one double load on a port held by two carriers, two registers in sequence, RD-rec']
+    from_row('G6a', 'one DL on a port held by two carriers, registers in sequence, the carrier of the defect first', 'RD-rec',
+             g6['DL at port 2, the carrier of the defect first'], note='balance (b/a)^2 = 3/5', weak='returns (explicit); non-return weight 4 sin^2(h j/2) x 14/81')
+    from_row('G6b', 'the same, the neighbouring carrier first', 'RD-rec', g6['DL at port 2, the neighbouring carrier first'],
+             note='balance (b/a)^2 = 5/12', weak='returns (explicit); non-return weight 4 sin^2(h j/2) x 935/5184')
+    from_row('G6', 'the same object, flags on the two address registers only (tail of X at the port; Y touches the port)', 'address events',
+             g6['address events only: P(tail of X address at the port), P(Y address touches the port)'])
+    for n in ('2', '3', '6'):
+        r = c4['A1_A7_n_hold_cells'][n]
+        q = Fr(r['P(H) = 1 - (5/6)^n'])
+        add('A1', f'one cell with object A and {n} hold cells, own registers, DL in each', 'RD-rec', Fr(1, 12), Fr(1, 12), q, Fr(1, 12) * q,
+            note=f"balance (b/a)^2 = {r['balance (b/a)^2']}")
+    a2 = c4['A2_one_carrier_two_registers_unlabelled']
+    add('A2', 'one carrier, two registers that both address all loads, two DL on antipodal ports, in sequence', 'RD-rec',
+        a2['P(R+) = first register reads 2'], a2['P(R+) = first register reads 2'], a2['P(H) = second register written'], a2['P(R+ and H)'])
+    fe = c4['A3_A4_echo_frame']['double load by port']
+    for port in ('2', '4', '9'):
+        p, rm = Fr(fe[port]['record 2']), Fr(fe[port]['record 3'])
+        add('A3', f'two cells, own registers, DL at port {port} in each, echo frame FE (seam list order)', 'RD-rec', p, rm, p + rm, p * (p + rm))
+    ens = c4['A5_A6_cell_ensembles']
+    for key, lab in (('uniform over the 66 pairs', 'two cells, each uniform over the 66 pairs'),
+                     ('uniform over the 36 non-adjacent pairs (the pairs of the matching code)', 'two cells, each uniform over the 36 pairs of the matching code'),
+                     ('uniform over all 78 total-two configurations', 'two cells, each uniform over the 78 total-two configurations')):
+        p, q = Fr(ens[key]['P(R+)']), Fr(ens[key]['P(H)'])
+        add('A5', lab, 'RN-rec, RD-rec', p, p, q, p * q)
+    seq = c6['coherent_two_events_in_sequence_on_one_cell']
+    for key, rid, conf in (('B3 DL at port 2, H = any current in the second event', 'B3', 'one cell, one DL, two events in sequence, H = any current in the second event'),
+                           ('B7 NP on antipodal ports, coherent, H = record 1 in the second event', 'B7', 'one cell, native pair on antipodal ports, two events in sequence'),
+                           ('B7 NP on port distance two, coherent, H = record 1 in the second event', 'B7', 'one cell, native pair at port distance two, two events in sequence')):
+        r = seq[key]
+        add(rid, conf + ' (coherent completion)', 'current records', r['R+'], r['R-'], r['H'], r['R+ and H'])
+    cl = c6['classical_two_events_in_sequence_on_one_cell']
+    for key, rid in (('double load at port 2', 'B4'), ('pair on antipodal ports', 'B5'), ('pair at port distance two', 'B6')):
+        r = cl[key]
+        add(rid, f'one cell, {key}, two events in sequence (classical native rule)', 'current records', r['R+'], r['R-'], r['H'], r['R+ and H'],
+            weak='no coherent round (classical rule)')
+    out['rows'] = rows
+    n_rows = len(rows)
+    n_def = sum(1 for r in rows if r['count'] != 'not defined')
+    n29 = [r for r in rows if r['is 2/9']]
+    n29_211 = [r for r in n29 if r['2:1:1'] == 'yes']
+    out['summary'] = {'rows': n_rows, 'defined': n_def, 'count equal to 2/9': len(n29),
+                      'count equal to 2/9 with ratio 2 : 1 : 1': len(n29_211),
+                      'ids with 2/9': [r['id'] for r in n29], 'ids with 2/9 and 2 : 1 : 1': [r['id'] for r in n29_211]}
+    print('summary', out['summary'])
+
+    # ---------------- TABLE.md
+    c1 = load('lc1_port.json')
+    md = []
+    md.append('# Read count of the two-object register on the carrier with sixty addresses (worker LC, step L4)\n')
+    md.append('Assembled by `lc7_table.py` from `lc1_port.json` to `lc6_sequential.json`. Every number is EXACT (Fractions, the')
+    md.append("repository's `local_repair_unitary` at the addressed seam). One tick from a blank record and the uniform address")
+    md.append('state. The target 2/9 was known before the list was written, so the selection of a row by its count is NOT BLIND')
+    md.append('with respect to 2/9. No measured value was read. Objects, readings and configuration ids: `CANDIDATES.md`.\n')
+    md.append('## 1. One object on sixty addresses\n')
+    md.append('| Object | Frame | Weights after one tick |')
+    md.append('| --- | --- | --- |')
+    md.append('| any port a | address register alone | P(tail = a) = 1/12, P(head = a) = 1/12, P(address touches a) = 1/6 |')
+    md.append('| DL at any port | plain law FP; screen frame FS(f) of any face (240 cases) | blank 5/6, record 2: 1/12, record 3: 1/12; 1/30 to each neighbour |')
+    md.append('| DL at any port | by transport sense about any face axis | forward 1/15, backward 1/15, without sense 1/30 (every port has 2, 2, 1 such seams) |')
+    md.append('| DL at port a | echo frame FE (seam list order at both addresses) | record 2: out-degree(a)/30, record 3: in-degree(a)/30; unequal at every port |')
+    md.append('| SD on an E-type seam of the hexagon of a face | FP and FS | in-dimer 1/30, forward C 1/60, backward C 1/60, off the hexagon 1/10, blank 5/6; by sector 1/10, 1/30, 1/30; records 1/12, 1/12 |')
+    md.append('| NP on non-adjacent ports (36 pairs, the pairs of the matching code) | FP | inactive 2/3, agree 1/6, repair with the source at the first endpoint 1/12, at the second 1/12 (amplitude signs +, -) |')
+    md.append('| NP on adjacent ports (30 pairs) | FP | inactive 7/10, kept 1/30, agree 2/15, repair 1/15 + 1/15 |')
+    md.append('| one load | FP | inactive 5/6, agree 1/12, repair 1/24 + 1/24 |')
+    md.append('| any total-two configuration without an adjacent pair (48 of 78) | classical native rule and coherent completion, ordered addresses | signed current J = +1: 1/12, J = -1: 1/12, J = 0: 5/6 |')
+    s10 = c1['S10_later_ticks_double_load']
+    md.append(f"| DL, later ticks | FE | discriminant on the cyclic space: {s10['FE']['minimal polynomial of the discriminant on the cyclic space of the double load']}; return amplitude 1/6 + (5/6) T_n(4/5); no period |")
+    md.append(f"| DL, later ticks | FS(F0) | {s10['FS(F0)']['minimal polynomial of the discriminant on the cyclic space of the double load']}; the hand value of S10 fails in this frame |")
+    md.append('')
+    md.append('## 2. Configurations\n')
+    md.append('Count = P(R+ xor H) = P(R+) + P(H) - 2 P(R+ and H). Weak round: tick, kick exp(-i h j Qx) on the exclusive-read projector,')
+    md.append('inverse tick, return test. The zero-return amplitude is 1 - P + P exp(-i h j) with P the count; "explicit" marks rows where')
+    md.append('the round was executed (`lc3_round.py`); for the other defined rows the value follows from the unitarity of the tick.\n')
+    md.append('| Id | Configuration | Reading | P(R+) | P(R-) | P(H) | P(R+ and H) | Count | H : R+ : R- = 2 : 1 : 1 | Weak round | Note |')
+    md.append('| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |')
+    for r in rows:
+        cnt = r['count'] + (f" ({r['float']})" if r['float'] else '')
+        if r['is 2/9']:
+            cnt = '**2/9**'
+        md.append(f"| {r['id']} | {r['configuration']} | {r['reading']} | {r['P(R+)']} | {r['P(R-)']} | {r['P(H)']} | {r['P(R+ and H)']} | {cnt} | {r['2:1:1']} | {r['weak round']} | {r['note']} |")
+    md.append('')
+    md.append('## 3. Double loads on corners of the two defect faces of one carrier (one register, RD-rec)\n')
+    md.append('| Face pair kind | Corner pairs at port distance 0, 1, 2, 3 | Defined (count 1/4 each) | Outside the completion |')
+    md.append('| --- | --- | --- | --- |')
+    for name, e in a11.items():
+        md.append(f"| {name} | {e['corner pairs at port distance 0, 1, 2, 3']} | {e['corner pairs with a defined tick (distance 2 or 3), count 1/4 each']} | {e['corner pairs outside the completion']} |")
+    md.append('')
+    c9 = load('lc9_crossing.json')
+    x1 = c9['X1_crossing_on_every_seam']
+    md.append("## 4. Worker LK's crossing and kick on sixty addresses (`lc9_crossing.json`)\n")
+    md.append('Crossing: two ticks of a seam\'s own walk with a two-orientation address register on the blank double at one end;')
+    md.append('the address register of sixty is a spectator. Kick: T(eta)^-1, tick, T(eta) with T(eta) = exp(i eta J (x) Z_F Z_I), h = 2 eta.\n')
+    md.append(f"- Plain law: {x1['FP plain law']['crossed with amplitude one']} of 60 starts (30 seams, both ends) carry the double to the other end with amplitude one. "
+              f"Echo frame: {x1['FE echo frame']['crossed with amplitude one']} of 60 (the double returns). Screen frame of F0: "
+              f"{x1['FS(F0) screen frame']['crossed with amplitude one']} of 60 (the {x1['FS(F0) screen frame']['seams that cross']} seams without screen sense).")
+    md.append(f"- The carrier's own walk does not cross: two ticks of the sixty-address register put "
+              f"{c9['X2_two_ticks_of_the_sixty_address_walk']['weight on the blank double at each neighbour of port 2']['10']} on the blank double at a neighbour.")
+    md.append('- Both registers written out on one object: after the two seam ticks the orientation register is back at its start;')
+    md.append('  the address register of sixty and the record are unchanged.')
+    x9 = c9['X9_crossing_with_the_sixty_address_register_alone']
+    md.append(f"- With the sixty-address register alone (seam reflection on the two addresses of the seam, identity on the other 58): from the consensus the weight "
+              f"{x9['consensus over sixty addresses']['weight on the blank double at the other end']} crosses and "
+              f"{x9['consensus over sixty addresses']['weight back at the port']} returns; from an address prepared on the seam the double crosses with weight "
+              f"{x9['address uniform on the two addresses of the seam']['weight on the blank double at the other end']} and the consensus has to be prepared again.\n")
+    x10 = c9['X10_twelve_address_register_as_a_sub_register']
+    hp, cs = x10['address prepared on the twelve hexagon addresses'], x10['consensus over sixty addresses']
+    md.append('The twelve-address register placed on the carrier as a sub-register (address prepared uniformly on the twelve addresses of the')
+    md.append('hexagon of F0, reflection about that state, identity on the other 48 addresses; event of the carrier):\n')
+    md.append('| Address state | Symmetric double: blank, in-dimer, forward C, backward C, off the hexagon | Coefficients, hexagon flags (A at port 2, at port 10, mean) | Count of two symmetric doubles, hexagon flags | Count with record flags |')
+    md.append('| --- | --- | --- | --- | --- |')
+    for nm, e in (('prepared on the twelve hexagon addresses', hp), ('consensus over sixty addresses', cs)):
+        sd = e['symmetric double on (2,10)']
+        cf = e['coefficients (hexagon flags): A at port 2, A at port 10, mean']
+        md.append(f"| {nm} | {sd['blank']}, {sd['in-dimer']}, {sd['forward C']}, {sd['backward C']}, {sd['off the hexagon']} | {cf[0]}, {cf[1]}, {cf[2]} | "
+                  f"{e['count of two symmetric doubles (hexagon flags)']} | {e['count with record flags (double at port 2 in each cell)']} |")
+    md.append('')
+    md.append(f"- The hexagon model of FR and LK is the carrier with that prepared address state: the address stays on the hexagon and the inverse tick undoes the tick. "
+              f"The consensus over sixty has the weight {x10['weight of the consensus over sixty on the hexagon addresses']} on the hexagon addresses.\n")
+    md.append('| Reading | Coefficient c = <Qx>, A at port 2 | A at port 10 | Mean | Phase per unit clock time at N = 2, 10, 1000 rounds |')
+    md.append('| --- | --- | --- | --- | --- |')
+    for name, e in c9['X4_X8_round_coefficients_and_phases'].items():
+        if not isinstance(e, dict):
+            continue
+        ph = e['phase per unit clock time, N rounds with the crossing between rounds']
+        md.append(f"| {name} | {e['coefficient with A at port 2']} | {e['with A at port 10']} | {e['mean']} | "
+                  f"{ph['2']['phase per unit clock time']}, {ph['10']['phase per unit clock time']}, {ph['1000']['phase per unit clock time']} |")
+    md.append('')
+    x5 = c9['X5_crossing_by_configuration']
+    g1a = x5['G1a one cell, two double loads on non-adjacent ports, A crosses one of its five seams']
+    md.append('| Configuration | Crossing of object A |')
+    md.append('| --- | --- |')
+    md.append('| two cells (G2a to G2e, G7, A12) | defined on each of the five seams of the port, amplitude one; with record flags the coefficient is 2/9 at both ends, so the round needs no crossing |')
+    md.append(f"| one cell, two DL on antipodal ports (G1a, G5c) | {g1a['from port distance 3']['defined with amplitude one']} of {g1a['from port distance 3']['crossings']} defined; the crossed double lands at port distance two from B |")
+    md.append(f"| one cell, two DL at port distance two (G1a) | {g1a['from port distance 2']['defined with amplitude one']} of {g1a['from port distance 2']['crossings']} defined; "
+              f"{g1a['from port distance 2']['landing distance to B']['1']} land next to B, where the following tick is outside the completion |")
+    md.append('| one cell, two SD on hexagon seams, a defined choice (G1c) | the symmetric double load is unchanged by the crossing of its own seam |')
+    md.append('| one DL on a seam held by two carriers (G6) | defined along the shared seam; P(R+) = 1/12, P(H) = 5/36, count 2/9 at either end |')
+    md.append('| native pairs (G2f, G1d, G1e, A5) | no double load, no crossing |')
+    md.append('| rows marked "not defined" | the tick is outside the completion before any crossing |')
+    md.append('')
+    x6 = c9['X6_round_with_the_oriented_toggle']
+    x7 = c9['X7_non_return_of_object_A']
+    md.append(f"- Kick: on all {x6['branches compared (60 x 60 address pairs)']} branches of two cells the sequence T(eta)^-1, tick, T(eta) equals tick, exp(-2 i eta j Qx). "
+              f"One round acts on the returned state as 1 - c (1 - z), z = exp(-2 i eta j), with c = {x6['weight of the branches with Qx = 1 (the coefficient c)']} for a double load at each of the twelve ports; "
+              f"outcome \"no\": {x6['weight of the outcome no over abs(1 - z)^2']} abs(1 - z)^2.")
+    hx = x7['hexagon forward flag, sixty addresses, FP']
+    rc = x7['record 2 flag, sixty addresses, FP']
+    md.append(f"- Non-return of object A in the symmetric state: hexagon forward flag {hx['part with non-uniform address']} with non-uniform address at the emitting port plus "
+              f"{hx['part with uniform address']} along the antisymmetric double; record flag {rc['norm^2 of the non-return']} with non-uniform address and "
+              f"{rc['part with uniform address']} along the antisymmetric double.")
+    md.append('')
+    md.append('## 5. Summary\n')
+    md.append(f"- Rows: {n_rows}; defined: {n_def}; count equal to 2/9: {len(n29)}; of these with the ratio 2 : 1 : 1: {len(n29_211)}.")
+    md.append('- Rows with 2/9 and 2 : 1 : 1: ' + '; '.join(f"{r['id']} ({r['configuration']})" for r in n29_211) + '.')
+    md.append('- Rows with 2/9 and another ratio: ' + '; '.join(f"{r['id']} ({r['2:1:1']})" for r in n29 if r['2:1:1'] != 'yes') + '.')
+    md.append('- One carrier with one register: 1/4 (double loads, non-adjacent ports), 1/20 (hexagon flags), 1/8 (the two loads of one pair), 7/40 to 9/40 (two pairs).')
+    md.append("- Forward-only control on sixty addresses (no inverse tick): the count of two double loads is 2/9 at tick 1 and "
+              f"{s10['FP']['the same as float'][1]:.4f}, {s10['FP']['the same as float'][2]:.4f}, {s10['FP']['the same as float'][3]:.4f} at ticks 2 to 4 (plain law); "
+              f"mean over twelve ticks {s10['FP']['mean over ticks 1 to 12 (float)']:.4f}.")
+    with open(os.path.join(HERE, 'TABLE.md'), 'w') as fh:
+        fh.write('\n'.join(md) + '\n')
+    out['seconds'] = round(time.time() - t0, 2)
+    L.jdump(out, OUT)
+    print('written', OUT, 'and TABLE.md', out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

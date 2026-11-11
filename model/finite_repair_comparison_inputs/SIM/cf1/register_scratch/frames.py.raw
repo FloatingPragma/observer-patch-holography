@@ -1,0 +1,15 @@
+import sys, os, numpy as np
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from cf1_register import RegisterLine, sample_phases, toggle
+TH, T, L = 0.157935, 60, 256
+line = RegisterLine(L); q0, pk = line.packet_R8(TH); xs = line.xs
+mu0 = float(np.sum(np.sum(np.abs(q0) ** 2, axis=(1, 2, 3, 4)) * xs))
+for kind in ('counter', 'bit'):
+    phis = sample_phases(kind, L, 2000, np.random.default_rng(21))
+    for lab, qi, fr in (('half+map', toggle(q0, -TH / 2), 'half'), ('half raw', q0, 'half'), ('end', q0, 'end')):
+        q = np.repeat(qi[:, :, :, None], 2000, axis=3)
+        for t in range(T): q = line.sector_tick(q, TH, phis, t, fr)
+        rho_b = np.sum(np.abs(q) ** 2, axis=(1, 2, 4, 5)); d = np.sum(rho_b * xs[:, None], axis=0) - mu0
+        print(kind, lab, 'first500 %.3f +- %.3f' % (d[:500].mean(), d[:500].std() / np.sqrt(500)), 'all2000 %.3f +- %.3f' % (d.mean(), d.std() / np.sqrt(2000)),
+              'paired diff to end (2000): %.3f +- %.3f' % ((d - dend).mean(), (d - dend).std() / np.sqrt(2000)) if lab != 'end' and 'dend' in dir() else '')
+        if lab == 'end': dend = d

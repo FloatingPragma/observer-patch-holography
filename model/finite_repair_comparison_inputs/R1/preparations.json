@@ -1,0 +1,219 @@
+{
+ "packet": {
+  "theta_0.0": {
+   "theta": 0.0,
+   "p0": 0.2945243112740431,
+   "envelope_width_cells": 13.581221810508403,
+   "period_phase_E2_at_p0": 0.5890486225480862,
+   "periods_in_the_filter_k": 3,
+   "ideal_projector_success_probability": 0.49999998941813734,
+   "undecided_modes_of_the_lattice": 16,
+   "filter_round_1": {
+    "p_plus": 0.4999999999999991,
+    "p_minus": 0.49999999999999944,
+    "positive_branch_weight_after_plus": 0.9670388916551178,
+    "positive_branch_weight_after_minus": 0.03296108718115777
+   },
+   "filter_round_2": {
+    "p_plus_given_plus": 0.9400167153099267,
+    "positive_branch_weight_after_plus_plus": 0.9968410554189595,
+    "p_plus_plus": 0.4700083576549625,
+    "fidelity_with_the_ideal_projection": 0.9065785441179622
+   },
+   "velocity_of_the_heralded_packet_60_ticks": 1.0008120911924248,
+   "group_velocity_dE_dp": 1.0
+  },
+  "theta_0.157935": {
+   "theta": 0.157935,
+   "p0": 0.2945243112740431,
+   "envelope_width_cells": 13.581221810508403,
+   "period_phase_E2_at_p0": 0.666217412052864,
+   "periods_in_the_filter_k": 2,
+   "ideal_projector_success_probability": 0.4999999999999998,
+   "undecided_modes_of_the_lattice": 8,
+   "filter_round_1": {
+    "p_plus": 0.4999999999999996,
+    "p_minus": 0.49999999999999944,
+    "positive_branch_weight_after_plus": 0.9783877122782186,
+    "positive_branch_weight_after_minus": 0.021612287721780893
+   },
+   "filter_round_2": {
+    "p_plus_given_plus": 0.9587258631489508,
+    "positive_branch_weight_after_plus_plus": 0.9989827965075919,
+    "p_plus_plus": 0.479362931574475,
+    "fidelity_with_the_ideal_projection": 0.9666661020369259
+   },
+   "velocity_of_the_heralded_packet_60_ticks": 0.87045370683875,
+   "group_velocity_dE_dp": 0.8767194238507938
+  }
+ },
+ "scatter": {
+  "species": "lepton doublet",
+  "Q6": 3,
+  "class_label": {
+   "cell": [
+    128,
+    0,
+    0
+   ],
+   "k": 1,
+   "separation": 1
+  },
+  "theta_at_the_labelled_carrier": 0.08784654696624196,
+  "ticks": 128,
+  "left_moving_weight_before": 0.0,
+  "reflected_probability": 0.007697185449901769,
+  "transmitted_probability": 0.9923028145500093,
+  "sin2_theta": 0.007697185450115441,
+  "mean_position_transmitted": 192.00000000000304,
+  "mean_position_reflected": 64.00000000039482,
+  "uniform_background_record_written_at_rest": 0.007697185450115435
+ },
+ "pair": {
+  "slater_pair_line_64": {
+   "branch_success_probabilities": [
+    0.49999859466594737,
+    0.49999859466594726
+   ],
+   "overlap_squared_(loading_failure_by_exclusion)": 6.901875904170668e-23,
+   "rank": 2,
+   "ticks": 32,
+   "trace_C": 1.99999999999996,
+   "idempotence_defect": 1.4697684586770608e-15,
+   "C_rule_against_the_two_evolved_vectors": 1.457173638437794e-15,
+   "quanta_in_cells_0_to_31_and_32_to_63": [
+    0.9992018800532152,
+    1.000798119946745
+   ]
+  },
+  "gauss_measurement_after_product_preparation": [
+   {
+    "shape": [
+     4,
+     1,
+     1
+    ],
+    "quanta": 1,
+    "cells": 4,
+    "background_charge_at_cells": [
+     0
+    ],
+    "probability_of_the_declared_Gauss_outcome": 0.12499999999999997,
+    "predicted_2^-(cells-1)": 0.125,
+    "all_allowed_outcomes": [
+     0.12499999999999997,
+     0.12499999999999997,
+     0.12499999999999997,
+     0.12499999999999997,
+     0.12499999999999997,
+     0.12499999999999997,
+     0.12499999999999997,
+     0.12499999999999997
+    ],
+    "total_probability": 0.9999999999999999
+   },
+   {
+    "shape": [
+     4,
+     1,
+     1
+    ],
+    "quanta": 2,
+    "cells": 4,
+    "background_charge_at_cells": [],
+    "probability_of_the_declared_Gauss_outcome": 0.12499999999999997,
+    "predicted_2^-(cells-1)": 0.125,
+    "all_allowed_outcomes": [
+     0.12499999999999997,
+     0.12499999999999997,
+     0.12499999999999997,
+     0.12499999999999997,
+     0.12499999999999997,
+     0.12499999999999997,
+     0.12499999999999997,
+     0.12499999999999997
+    ],
+    "total_probability": 0.9999999999999999,
+    "Z_string_correction_into_the_all_plus_sector": 0.9999999999999993
+   },
+   {
+    "shape": [
+     6,
+     1,
+     1
+    ],
+    "quanta": 1,
+    "cells": 6,
+    "background_charge_at_cells": [
+     0
+    ],
+    "probability_of_the_declared_Gauss_outcome": 0.031249999999999993,
+    "predicted_2^-(cells-1)": 0.03125
+   },
+   {
+    "shape": [
+     6,
+     1,
+     1
+    ],
+    "quanta": 2,
+    "cells": 6,
+    "background_charge_at_cells": [],
+    "probability_of_the_declared_Gauss_outcome": 0.031249999999999993,
+    "predicted_2^-(cells-1)": 0.03125
+   },
+   {
+    "shape": [
+     2,
+     2,
+     1
+    ],
+    "quanta": 1,
+    "cells": 4,
+    "background_charge_at_cells": [
+     0
+    ],
+    "probability_of_the_declared_Gauss_outcome": 0.12499999999999997,
+    "predicted_2^-(cells-1)": 0.125
+   },
+   {
+    "shape": [
+     2,
+     2,
+     1
+    ],
+    "quanta": 2,
+    "cells": 4,
+    "background_charge_at_cells": [],
+    "probability_of_the_declared_Gauss_outcome": 0.12499999999999997,
+    "predicted_2^-(cells-1)": 0.125
+   },
+   {
+    "shape": [
+     3,
+     2,
+     1
+    ],
+    "quanta": 1,
+    "cells": 6,
+    "background_charge_at_cells": [
+     0
+    ],
+    "probability_of_the_declared_Gauss_outcome": 0.031249999999999993,
+    "predicted_2^-(cells-1)": 0.03125
+   },
+   {
+    "shape": [
+     3,
+     2,
+     1
+    ],
+    "quanta": 2,
+    "cells": 6,
+    "background_charge_at_cells": [],
+    "probability_of_the_declared_Gauss_outcome": 0.031249999999999993,
+    "predicted_2^-(cells-1)": 0.03125
+   }
+  ]
+ }
+}

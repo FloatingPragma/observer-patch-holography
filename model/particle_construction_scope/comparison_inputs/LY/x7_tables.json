@@ -1,0 +1,405 @@
+{
+ "T0": {
+  "table": [
+   "0",
+   "5",
+   "8",
+   "10",
+   "8",
+   "5"
+  ],
+  "isolated_class_rises": {
+   "1": [
+    "0",
+    "8"
+   ],
+   "2": [
+    "2",
+    "7"
+   ],
+   "3": [
+    "3"
+   ],
+   "4": [
+    "2",
+    "7"
+   ],
+   "5": [
+    "0",
+    "8"
+   ]
+  },
+  "lepton": [
+   {
+    "d": 1,
+    "cost_raising_reads": 0,
+    "reads": 3,
+    "rises": [
+     "-4",
+     "-6",
+     "-10"
+    ],
+    "aborted": false
+   },
+   {
+    "d": 2,
+    "cost_raising_reads": 1,
+    "reads": 6,
+    "rises": [
+     "3",
+     "0",
+     "-3",
+     "-4",
+     "-6",
+     "-10"
+    ],
+    "aborted": false
+   },
+   {
+    "d": 3,
+    "cost_raising_reads": 1,
+    "reads": 10,
+    "rises": [
+     "3",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "-3",
+     "-4",
+     "-6",
+     "-10"
+    ],
+    "aborted": false
+   },
+   {
+    "d": 4,
+    "cost_raising_reads": 1,
+    "reads": 14,
+    "rises": [
+     "3",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "-5",
+     "-8",
+     "-10"
+    ],
+    "aborted": false
+   },
+   {
+    "d": 5,
+    "cost_raising_reads": 1,
+    "reads": 18,
+    "rises": [
+     "3",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "-5",
+     "-8",
+     "0",
+     "-10"
+    ],
+    "aborted": false
+   }
+  ],
+  "quark_vertex": [
+   {
+    "d": 1,
+    "cost_raising_reads": 0,
+    "reads": 1
+   },
+   {
+    "d": 2,
+    "cost_raising_reads": 0,
+    "reads": 2
+   },
+   {
+    "d": 3,
+    "cost_raising_reads": 0,
+    "reads": 3
+   },
+   {
+    "d": 4,
+    "cost_raising_reads": 0,
+    "reads": 4
+   },
+   {
+    "d": 5,
+    "cost_raising_reads": 0,
+    "reads": 5
+   }
+  ],
+  "frozen_classes": [
+   2,
+   3,
+   4
+  ],
+  "classes_that_split_downhill": [],
+  "pair_creation_rise": "10",
+  "class3_hop_by_three_twists_rises": [
+   "3",
+   "0",
+   "-3"
+  ]
+ },
+ "A1": {
+  "table": [
+   "0",
+   "17/10",
+   "9/10",
+   "4/5",
+   "9/10",
+   "17/10"
+  ],
+  "isolated_class_rises": {
+   "1": [
+    "0",
+    "9/10"
+   ],
+   "2": [
+    "8/5",
+    "5/2"
+   ],
+   "3": [
+    "9/5"
+   ],
+   "4": [
+    "8/5",
+    "5/2"
+   ],
+   "5": [
+    "0",
+    "9/10"
+   ]
+  },
+  "lepton": [
+   {
+    "d": 1,
+    "cost_raising_reads": 2,
+    "reads": 3,
+    "rises": [
+     "1/5",
+     "8/5",
+     "-17/5"
+    ],
+    "aborted": false
+   },
+   {
+    "d": 2,
+    "cost_raising_reads": 2,
+    "reads": 6,
+    "rises": [
+     "9/5",
+     "0",
+     "0",
+     "-8/5",
+     "8/5",
+     "-17/5"
+    ],
+    "aborted": false
+   },
+   {
+    "d": 3,
+    "cost_raising_reads": 2,
+    "reads": 9,
+    "rises": [
+     "9/5",
+     "0",
+     "9/5",
+     "-9/10",
+     "0",
+     "0",
+     "-9/10",
+     "0",
+     "-17/5"
+    ],
+    "aborted": false
+   },
+   {
+    "d": 4,
+    "cost_raising_reads": 2,
+    "reads": 12,
+    "rises": [
+     "9/5",
+     "0",
+     "0",
+     "0",
+     "0",
+     "9/5",
+     "-9/10",
+     "0",
+     "0",
+     "-9/10",
+     "0",
+     "-17/5"
+    ],
+    "aborted": false
+   },
+   {
+    "d": 5,
+    "cost_raising_reads": 2,
+    "reads": 15,
+    "rises": [
+     "9/5",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "9/5",
+     "-9/10",
+     "0",
+     "0",
+     "0",
+     "-9/10",
+     "0",
+     "0",
+     "-17/5"
+    ],
+    "aborted": false
+   }
+  ],
+  "quark_vertex": [
+   {
+    "d": 1,
+    "cost_raising_reads": 0,
+    "reads": 1
+   },
+   {
+    "d": 2,
+    "cost_raising_reads": 0,
+    "reads": 2
+   },
+   {
+    "d": 3,
+    "cost_raising_reads": 0,
+    "reads": 3
+   },
+   {
+    "d": 4,
+    "cost_raising_reads": 0,
+    "reads": 4
+   },
+   {
+    "d": 5,
+    "cost_raising_reads": 0,
+    "reads": 5
+   }
+  ],
+  "frozen_classes": [
+   2,
+   3,
+   4
+  ],
+  "classes_that_split_downhill": [],
+  "pair_creation_rise": "17/5",
+  "class3_hop_by_three_twists_rises": [
+   "9/5",
+   "0",
+   "-9/5"
+  ]
+ },
+ "A2": {
+  "table": [
+   "0",
+   "1/5",
+   "3/5",
+   "4/5",
+   "3/5",
+   "1/5"
+  ],
+  "isolated_class_rises": {
+   "1": [
+    "0",
+    "3/5"
+   ],
+   "2": [
+    "-1/5",
+    "2/5"
+   ],
+   "3": [
+    "0"
+   ],
+   "4": [
+    "-1/5",
+    "2/5"
+   ],
+   "5": [
+    "0",
+    "3/5"
+   ]
+  },
+  "lepton": [
+   {
+    "d": 1,
+    "cost_raising_reads": 0,
+    "reads": 3,
+    "rises": [
+     "-2/5",
+     "-4/5",
+     "-2/5"
+    ],
+    "aborted": false
+   },
+   {
+    "d": 2,
+    "cost_raising_reads": 0,
+    "reads": 6,
+    "rises": [
+     "0",
+     "0",
+     "0",
+     "-2/5",
+     "-4/5",
+     "-2/5"
+    ],
+    "aborted": false
+   }
+  ],
+  "quark_vertex": [
+   {
+    "d": 1,
+    "cost_raising_reads": 0,
+    "reads": 1
+   },
+   {
+    "d": 2,
+    "cost_raising_reads": 0,
+    "reads": 2
+   }
+  ],
+  "frozen_classes": [],
+  "classes_that_split_downhill": [
+   2,
+   4
+  ],
+  "pair_creation_rise": "2/5",
+  "class3_hop_by_three_twists_rises": [
+   "0",
+   "0",
+   "0"
+  ]
+ },
+ "A2_note": "under A2 the three twists that move a class 3 by one face are flat (rises 0, 0, 0), so the annihilation needs no cost-raising read at any separation; routes are computed for separations 1 and 2 only",
+ "seconds": 21.6
+}

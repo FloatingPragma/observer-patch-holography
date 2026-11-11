@@ -1,0 +1,742 @@
+{
+ "task": "LC items 2 and 3: configuration table",
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "one_object_weights (sixty addresses, plain law)": {
+  "symmetric double load on the E seam (2,10) of the hexagon of F0": {
+   "Bw": "1/60",
+   "Fw": "1/60",
+   "I": "1/30",
+   "Off": "1/10",
+   "blank": "5/6",
+   "bwd": "1/20",
+   "em": "1/6",
+   "fwd": "1/20",
+   "next": "1/30",
+   "nosense": "1/30",
+   "prev": "1/30",
+   "rec2": "1/12",
+   "rec3": "1/12",
+   "same": "1/10",
+   "sense_in_dimer": "1/30"
+  },
+  "double load at port 2": {
+   "blank": "5/6",
+   "bwd": "1/15",
+   "em": "1/6",
+   "fwd": "1/15",
+   "nosense": "1/30",
+   "rec2": "1/12",
+   "rec3": "1/12"
+  },
+  "geometry": {
+   "dimer": [
+    2,
+    10
+   ],
+   "forward C": [
+    2,
+    3
+   ],
+   "backward C": [
+    0,
+    10
+   ],
+   "sector": [
+    2,
+    6,
+    10,
+    11
+   ]
+  }
+ },
+ "table": {
+  "G2a two carriers, own registers, DL or SD, RD-rec": {
+   "P(R+)": "1/12",
+   "P(R-)": "1/12",
+   "P(H)": "1/6",
+   "P(R+ and H)": "1/72",
+   "count P(R+ xor H)": "2/9",
+   "count as float": 0.222222222,
+   "H : R+ : R- = 2 : 1 : 1": true,
+   "H : R+ : R-": "1/6 : 1/12 : 1/12",
+   "equals 2/9": true,
+   "defined": true,
+   "P(R+ and H) by explicit product over 3600 address pairs": "1/72"
+  },
+  "G2b two carriers, own registers, SD, RD-FR": {
+   "P(R+)": "1/60",
+   "P(R-)": "1/60",
+   "P(H)": "1/30",
+   "P(R+ and H)": "1/1800",
+   "count P(R+ xor H)": "11/225",
+   "count as float": 0.048888889,
+   "H : R+ : R- = 2 : 1 : 1": true,
+   "H : R+ : R-": "1/30 : 1/60 : 1/60",
+   "equals 2/9": false,
+   "defined": true
+  },
+  "G2c two carriers, own registers, DL, RD-sense": {
+   "P(R+)": "1/15",
+   "P(R-)": "1/15",
+   "P(H)": "1/6",
+   "P(R+ and H)": "1/90",
+   "count P(R+ xor H)": "19/90",
+   "count as float": 0.211111111,
+   "H : R+ : R- = 2 : 1 : 1": false,
+   "H : R+ : R-": "1/6 : 1/15 : 1/15",
+   "equals 2/9": false,
+   "defined": true
+  },
+  "G2d two carriers, own registers, SD, RD-sector": {
+   "P(R+)": "1/30",
+   "P(R-)": "1/30",
+   "P(H)": "1/10",
+   "P(R+ and H)": "1/300",
+   "count P(R+ xor H)": "19/150",
+   "count as float": 0.126666667,
+   "H : R+ : R- = 2 : 1 : 1": false,
+   "H : R+ : R-": "1/10 : 1/30 : 1/30",
+   "equals 2/9": false,
+   "defined": true
+  },
+  "G2e two carriers, own registers, SD, RD-mix1": {
+   "P(R+)": "1/12",
+   "P(R-)": "1/12",
+   "P(H)": "1/30",
+   "P(R+ and H)": "1/360",
+   "count P(R+ xor H)": "1/9",
+   "count as float": 0.111111111,
+   "H : R+ : R- = 2 : 1 : 1": false,
+   "H : R+ : R-": "1/30 : 1/12 : 1/12",
+   "equals 2/9": false,
+   "defined": true
+  },
+  "G2f two carriers, own registers, NP, RN-rec": {
+   "P(R+)": "1/12",
+   "P(R-)": "1/12",
+   "P(H)": "1/6",
+   "P(R+ and H)": "1/72",
+   "count P(R+ xor H)": "2/9",
+   "count as float": 0.222222222,
+   "H : R+ : R- = 2 : 1 : 1": true,
+   "H : R+ : R-": "1/6 : 1/12 : 1/12",
+   "equals 2/9": true,
+   "defined": true
+  },
+  "G2g two carriers, own registers, A = DL, B = NP, RM": {
+   "P(R+)": "1/12",
+   "P(R-)": "1/12",
+   "P(H)": "1/6",
+   "P(R+ and H)": "1/72",
+   "count P(R+ xor H)": "2/9",
+   "count as float": 0.222222222,
+   "H : R+ : R- = 2 : 1 : 1": true,
+   "H : R+ : R-": "1/6 : 1/12 : 1/12",
+   "equals 2/9": true,
+   "defined": true,
+   "balance (b/a)^2 with matched flags": "2/5"
+  },
+  "G2h two carriers, own registers, one load each, RL": {
+   "P(R+)": "1/24",
+   "P(R-)": "1/24",
+   "P(H)": "1/12",
+   "P(R+ and H)": "1/288",
+   "count P(R+ xor H)": "17/144",
+   "count as float": 0.118055556,
+   "H : R+ : R- = 2 : 1 : 1": true,
+   "H : R+ : R-": "1/12 : 1/24 : 1/24",
+   "equals 2/9": false,
+   "defined": true
+  },
+  "G2i two carriers, own registers, m loads per carrier, RN-rec": {
+   "1": {
+    "ports": [
+     2
+    ],
+    "P(R+)": "1/24",
+    "P(H)": "1/12",
+    "count": "17/144",
+    "formula m/8 - m^2/144": "17/144",
+    "match": true
+   },
+   "2": {
+    "ports": [
+     2,
+     0
+    ],
+    "P(R+)": "1/12",
+    "P(H)": "1/6",
+    "count": "2/9",
+    "formula m/8 - m^2/144": "2/9",
+    "match": true
+   },
+   "3": {
+    "ports": [
+     0,
+     2,
+     8
+    ],
+    "P(R+)": "1/8",
+    "P(H)": "1/4",
+    "count": "5/16",
+    "formula m/8 - m^2/144": "5/16",
+    "match": true
+   },
+   "sets of four mutually non-adjacent ports": 0
+  },
+  "G1a/G1b/G5c one carrier, one register, two DL, RD-rec, by port distance": {
+   "port distance 1": {
+    "P(R+)": "1/15",
+    "P(R-)": "1/15",
+    "P(H)": "2/15",
+    "P(R+ and H)": "0",
+    "count P(R+ xor H)": "1/5",
+    "count as float": 0.2,
+    "H : R+ : R- = 2 : 1 : 1": true,
+    "H : R+ : R-": "2/15 : 1/15 : 1/15",
+    "equals 2/9": false,
+    "defined": false,
+    "port pairs": 30,
+    "weight of events outside the local completion (seam total four)": "1/30"
+   },
+   "port distance 2": {
+    "P(R+)": "1/12",
+    "P(R-)": "1/12",
+    "P(H)": "1/6",
+    "P(R+ and H)": "0",
+    "count P(R+ xor H)": "1/4",
+    "count as float": 0.25,
+    "H : R+ : R- = 2 : 1 : 1": true,
+    "H : R+ : R-": "1/6 : 1/12 : 1/12",
+    "equals 2/9": false,
+    "defined": true,
+    "port pairs": 30,
+    "weight of events outside the local completion (seam total four)": "0"
+   },
+   "port distance 3": {
+    "P(R+)": "1/12",
+    "P(R-)": "1/12",
+    "P(H)": "1/6",
+    "P(R+ and H)": "0",
+    "count P(R+ xor H)": "1/4",
+    "count as float": 0.25,
+    "H : R+ : R- = 2 : 1 : 1": true,
+    "H : R+ : R-": "1/6 : 1/12 : 1/12",
+    "equals 2/9": false,
+    "defined": true,
+    "port pairs": 6,
+    "weight of events outside the local completion (seam total four)": "0"
+   }
+  },
+  "G1c/G5b one carrier, one register, two SD on hexagon dimers, RD-FR, by face pair kind": {
+   "separation 1, kind of size 60, example (0, 1, 5) (0, 1, 7)": {
+    "ordered face pairs in this kind": 60,
+    "example": [
+     [
+      0,
+      1,
+      5
+     ],
+     [
+      0,
+      1,
+      7
+     ]
+    ],
+    "separation": 1,
+    "hexagons share ports, seams": [
+     4,
+     2
+    ],
+    "dimer choices (3 x 3)": {
+     "clean": 3,
+     "not defined": 6
+    },
+    "detail": [
+     "((4, 9), (5, 11), 'seam between the dimers, undefined weight 1/40')",
+     "((4, 9), (6, 10), 'clean')",
+     "((4, 9), (8, 9), 'dimers share a port')",
+     "((7, 8), (5, 11), 'clean')",
+     "((7, 8), (6, 10), 'seam between the dimers, undefined weight 1/40')",
+     "((7, 8), (8, 9), 'dimers share a port')",
+     "((10, 11), (5, 11), 'dimers share a port')",
+     "((10, 11), (6, 10), 'dimers share a port')",
+     "((10, 11), (8, 9), 'clean')"
+    ],
+    "clean choices": {
+     "P(R+)": "1/60",
+     "P(R-)": "1/60",
+     "P(H)": "1/30",
+     "P(R+ and H)": "0",
+     "count P(R+ xor H)": "1/20",
+     "count as float": 0.05,
+     "H : R+ : R- = 2 : 1 : 1": true,
+     "H : R+ : R-": "1/30 : 1/60 : 1/60",
+     "equals 2/9": false,
+     "defined": true
+    }
+   },
+   "separation 2, kind of size 60, example (0, 1, 5) (0, 7, 10)": {
+    "ordered face pairs in this kind": 60,
+    "example": [
+     [
+      0,
+      1,
+      5
+     ],
+     [
+      0,
+      7,
+      10
+     ]
+    ],
+    "separation": 2,
+    "hexagons share ports, seams": [
+     2,
+     0
+    ],
+    "dimer choices (3 x 3)": {
+     "clean": 1,
+     "not defined": 8
+    },
+    "detail": [
+     "((4, 9), (1, 5), 'seam between the dimers, undefined weight 1/40')",
+     "((4, 9), (2, 11), 'seam between the dimers, undefined weight 1/60')",
+     "((4, 9), (6, 8), 'seam between the dimers, undefined weight 1/120')",
+     "((7, 8), (1, 5), 'seam between the dimers, undefined weight 1/60')",
+     "((7, 8), (2, 11), 'clean')",
+     "((7, 8), (6, 8), 'dimers share a port')",
+     "((10, 11), (1, 5), 'seam between the dimers, undefined weight 1/120')",
+     "((10, 11), (2, 11), 'dimers share a port')",
+     "((10, 11), (6, 8), 'seam between the dimers, undefined weight 1/120')"
+    ],
+    "clean choices": {
+     "P(R+)": "1/60",
+     "P(R-)": "1/60",
+     "P(H)": "1/30",
+     "P(R+ and H)": "0",
+     "count P(R+ xor H)": "1/20",
+     "count as float": 0.05,
+     "H : R+ : R- = 2 : 1 : 1": true,
+     "H : R+ : R-": "1/30 : 1/60 : 1/60",
+     "equals 2/9": false,
+     "defined": true
+    }
+   },
+   "separation 2, kind of size 60, example (0, 1, 5) (0, 10, 11)": {
+    "ordered face pairs in this kind": 60,
+    "example": [
+     [
+      0,
+      1,
+      5
+     ],
+     [
+      0,
+      10,
+      11
+     ]
+    ],
+    "separation": 2,
+    "hexagons share ports, seams": [
+     2,
+     0
+    ],
+    "dimer choices (3 x 3)": {
+     "clean": 1,
+     "not defined": 8
+    },
+    "detail": [
+     "((4, 9), (1, 7), 'seam between the dimers, undefined weight 1/120')",
+     "((4, 9), (2, 6), 'seam between the dimers, undefined weight 1/120')",
+     "((4, 9), (4, 5), 'dimers share a port')",
+     "((7, 8), (1, 7), 'dimers share a port')",
+     "((7, 8), (2, 6), 'seam between the dimers, undefined weight 1/60')",
+     "((7, 8), (4, 5), 'clean')",
+     "((10, 11), (1, 7), 'seam between the dimers, undefined weight 1/120')",
+     "((10, 11), (2, 6), 'seam between the dimers, undefined weight 1/40')",
+     "((10, 11), (4, 5), 'seam between the dimers, undefined weight 1/60')"
+    ],
+    "clean choices": {
+     "P(R+)": "1/60",
+     "P(R-)": "1/60",
+     "P(H)": "1/30",
+     "P(R+ and H)": "0",
+     "count P(R+ xor H)": "1/20",
+     "count as float": 0.05,
+     "H : R+ : R- = 2 : 1 : 1": true,
+     "H : R+ : R-": "1/30 : 1/60 : 1/60",
+     "equals 2/9": false,
+     "defined": true
+    }
+   },
+   "separation 3, kind of size 60, example (0, 1, 5) (2, 4, 11)": {
+    "ordered face pairs in this kind": 60,
+    "example": [
+     [
+      0,
+      1,
+      5
+     ],
+     [
+      2,
+      4,
+      11
+     ]
+    ],
+    "separation": 3,
+    "hexagons share ports, seams": [
+     2,
+     0
+    ],
+    "dimer choices (3 x 3)": {
+     "clean": 1,
+     "not defined": 8
+    },
+    "detail": [
+     "((4, 9), (0, 10), 'clean')",
+     "((4, 9), (3, 6), 'seam between the dimers, undefined weight 1/60')",
+     "((4, 9), (5, 9), 'dimers share a port')",
+     "((7, 8), (0, 10), 'seam between the dimers, undefined weight 1/60')",
+     "((7, 8), (3, 6), 'seam between the dimers, undefined weight 1/40')",
+     "((7, 8), (5, 9), 'seam between the dimers, undefined weight 1/120')",
+     "((10, 11), (0, 10), 'dimers share a port')",
+     "((10, 11), (3, 6), 'seam between the dimers, undefined weight 1/120')",
+     "((10, 11), (5, 9), 'seam between the dimers, undefined weight 1/120')"
+    ],
+    "clean choices": {
+     "P(R+)": "1/60",
+     "P(R-)": "1/60",
+     "P(H)": "1/30",
+     "P(R+ and H)": "0",
+     "count P(R+ xor H)": "1/20",
+     "count as float": 0.05,
+     "H : R+ : R- = 2 : 1 : 1": true,
+     "H : R+ : R-": "1/30 : 1/60 : 1/60",
+     "equals 2/9": false,
+     "defined": true
+    }
+   },
+   "separation 3, kind of size 60, example (0, 1, 5) (2, 10, 11)": {
+    "ordered face pairs in this kind": 60,
+    "example": [
+     [
+      0,
+      1,
+      5
+     ],
+     [
+      2,
+      10,
+      11
+     ]
+    ],
+    "separation": 3,
+    "hexagons share ports, seams": [
+     2,
+     0
+    ],
+    "dimer choices (3 x 3)": {
+     "clean": 1,
+     "not defined": 8
+    },
+    "detail": [
+     "((4, 9), (0, 5), 'seam between the dimers, undefined weight 1/60')",
+     "((4, 9), (3, 4), 'dimers share a port')",
+     "((4, 9), (6, 7), 'clean')",
+     "((7, 8), (0, 5), 'seam between the dimers, undefined weight 1/120')",
+     "((7, 8), (3, 4), 'seam between the dimers, undefined weight 1/120')",
+     "((7, 8), (6, 7), 'dimers share a port')",
+     "((10, 11), (0, 5), 'seam between the dimers, undefined weight 1/40')",
+     "((10, 11), (3, 4), 'seam between the dimers, undefined weight 1/120')",
+     "((10, 11), (6, 7), 'seam between the dimers, undefined weight 1/60')"
+    ],
+    "clean choices": {
+     "P(R+)": "1/60",
+     "P(R-)": "1/60",
+     "P(H)": "1/30",
+     "P(R+ and H)": "0",
+     "count P(R+ xor H)": "1/20",
+     "count as float": 0.05,
+     "H : R+ : R- = 2 : 1 : 1": true,
+     "H : R+ : R-": "1/30 : 1/60 : 1/60",
+     "equals 2/9": false,
+     "defined": true
+    }
+   },
+   "separation 4, kind of size 60, example (0, 1, 5) (2, 3, 4)": {
+    "ordered face pairs in this kind": 60,
+    "example": [
+     [
+      0,
+      1,
+      5
+     ],
+     [
+      2,
+      3,
+      4
+     ]
+    ],
+    "separation": 4,
+    "hexagons share ports, seams": [
+     4,
+     2
+    ],
+    "dimer choices (3 x 3)": {
+     "clean": 3,
+     "not defined": 6
+    },
+    "detail": [
+     "((4, 9), (5, 11), 'seam between the dimers, undefined weight 1/40')",
+     "((4, 9), (6, 10), 'clean')",
+     "((4, 9), (8, 9), 'dimers share a port')",
+     "((7, 8), (5, 11), 'clean')",
+     "((7, 8), (6, 10), 'seam between the dimers, undefined weight 1/40')",
+     "((7, 8), (8, 9), 'dimers share a port')",
+     "((10, 11), (5, 11), 'dimers share a port')",
+     "((10, 11), (6, 10), 'dimers share a port')",
+     "((10, 11), (8, 9), 'clean')"
+    ],
+    "clean choices": {
+     "P(R+)": "1/60",
+     "P(R-)": "1/60",
+     "P(H)": "1/30",
+     "P(R+ and H)": "0",
+     "count P(R+ xor H)": "1/20",
+     "count as float": 0.05,
+     "H : R+ : R- = 2 : 1 : 1": true,
+     "H : R+ : R-": "1/30 : 1/60 : 1/60",
+     "equals 2/9": false,
+     "defined": true
+    }
+   },
+   "separation 5, kind of size 20, example (0, 1, 5) (2, 3, 6)": {
+    "ordered face pairs in this kind": 20,
+    "example": [
+     [
+      0,
+      1,
+      5
+     ],
+     [
+      2,
+      3,
+      6
+     ]
+    ],
+    "separation": 5,
+    "hexagons share ports, seams": [
+     6,
+     6
+    ],
+    "dimer choices (3 x 3)": {
+     "clean": 0,
+     "not defined": 9
+    },
+    "detail": [
+     "((4, 9), (4, 9), 'dimers share a port')",
+     "((4, 9), (7, 8), 'seam between the dimers, undefined weight 1/120')",
+     "((4, 9), (10, 11), 'seam between the dimers, undefined weight 1/120')",
+     "((7, 8), (4, 9), 'seam between the dimers, undefined weight 1/120')",
+     "((7, 8), (7, 8), 'dimers share a port')",
+     "((7, 8), (10, 11), 'seam between the dimers, undefined weight 1/120')",
+     "((10, 11), (4, 9), 'seam between the dimers, undefined weight 1/120')",
+     "((10, 11), (7, 8), 'seam between the dimers, undefined weight 1/120')",
+     "((10, 11), (10, 11), 'dimers share a port')"
+    ]
+   }
+  },
+  "G5b two SD on the one hexagon of a face axis, twelve-address register": {
+   "(10, 2) (10, 2)": "not defined: the same seam (four loads on one port)",
+   "(10, 2) (3, 9)": "not defined: weight 1/24 on a seam with four loads",
+   "(10, 2) (1, 0)": "not defined: weight 1/24 on a seam with four loads",
+   "(3, 9) (3, 9)": "not defined: the same seam (four loads on one port)",
+   "(3, 9) (1, 0)": "not defined: weight 1/24 on a seam with four loads",
+   "(1, 0) (1, 0)": "not defined: the same seam (four loads on one port)"
+  },
+  "G1d one carrier, one register, the two loads of one native pair, RL": {
+   "P(R+)": "1/24",
+   "P(R-)": "1/24",
+   "P(H)": "1/12",
+   "P(R+ and H)": "0",
+   "count P(R+ xor H)": "1/8",
+   "count as float": 0.125,
+   "H : R+ : R- = 2 : 1 : 1": true,
+   "H : R+ : R-": "1/12 : 1/24 : 1/24",
+   "equals 2/9": false,
+   "defined": true
+  },
+  "G1e one carrier, one register, two native pairs, RN-rec": {
+   "by number of adjacent cross pairs: (P(R+), P(R-), P(H), count)": {
+    "1": [
+     [
+      "3/40",
+      "3/40",
+      "3/20",
+      "9/40"
+     ]
+    ],
+    "2": [
+     [
+      "1/15",
+      "1/15",
+      "2/15",
+      "1/5"
+     ]
+    ],
+    "3": [
+     [
+      "7/120",
+      "7/120",
+      "7/60",
+      "7/40"
+     ]
+    ]
+   },
+   "largest count": "9/40",
+   "smallest count": "7/40",
+   "address counting equals the local unitary on the placement (2, 0),(1, 3)": true
+  },
+  "G3 registers with glue seams": {
+   "G3a one glue seam away from the objects, in both registers (62 addresses each)": {
+    "P(R+)": "5/62",
+    "P(R-)": "5/62",
+    "P(H)": "5/31",
+    "P(R+ and H)": "25/1922",
+    "count P(R+ xor H)": "415/1922",
+    "count as float": 0.215920916,
+    "H : R+ : R- = 2 : 1 : 1": true,
+    "H : R+ : R-": "5/31 : 5/62 : 5/62",
+    "equals 2/9": false,
+    "defined": true
+   },
+   "G3a2 one glue seam at the port of object A, in both registers": {
+    "P(R+)": "3/31",
+    "P(R-)": "3/31",
+    "P(H)": "5/31",
+    "P(R+ and H)": "15/961",
+    "count P(R+ xor H)": "218/961",
+    "count as float": 0.226847034,
+    "H : R+ : R- = 2 : 1 : 1": false,
+    "H : R+ : R-": "5/31 : 3/31 : 3/31",
+    "equals 2/9": false,
+    "defined": true
+   },
+   "G3b all twelve glue seams of a carrier in its register (84 addresses each)": {
+    "P(R+)": "1/14",
+    "P(R-)": "1/14",
+    "P(H)": "1/7",
+    "P(R+ and H)": "1/98",
+    "count P(R+ xor H)": "19/98",
+    "count as float": 0.193877551,
+    "H : R+ : R- = 2 : 1 : 1": true,
+    "H : R+ : R-": "1/7 : 1/14 : 1/14",
+    "equals 2/9": false,
+    "defined": true
+   },
+   "G3c glue seam between the two object ports": {
+    "defined": false,
+    "weight of events with seam total four": "1/31"
+   }
+  },
+  "G4 one register over both carriers (120 addresses), DL, RD-rec": {
+   "P(R+)": "1/24",
+   "P(R-)": "1/24",
+   "P(H)": "1/12",
+   "P(R+ and H)": "0",
+   "count P(R+ xor H)": "1/8",
+   "count as float": 0.125,
+   "H : R+ : R- = 2 : 1 : 1": true,
+   "H : R+ : R-": "1/12 : 1/24 : 1/24",
+   "equals 2/9": false,
+   "defined": true
+  },
+  "G5a control: two hexagon instances of twelve addresses, SD, RD-FR": {
+   "P(R+)": "1/12",
+   "P(R-)": "1/12",
+   "P(H)": "1/6",
+   "P(R+ and H)": "1/72",
+   "count P(R+ xor H)": "2/9",
+   "count as float": 0.222222222,
+   "H : R+ : R- = 2 : 1 : 1": true,
+   "H : R+ : R-": "1/6 : 1/12 : 1/12",
+   "equals 2/9": true,
+   "defined": true
+  },
+  "G6 one double load on a port held by two carriers, two registers in sequence, RD-rec": {
+   "DL at port 2, the carrier of the defect first": {
+    "P(R+)": "1/12",
+    "P(R-)": "1/12",
+    "P(H)": "5/36",
+    "P(R+ and H)": "0",
+    "count P(R+ xor H)": "2/9",
+    "count as float": 0.222222222,
+    "H : R+ : R- = 2 : 1 : 1": false,
+    "H : R+ : R-": "5/36 : 1/12 : 1/12",
+    "equals 2/9": true,
+    "defined": true,
+    "balance (b/a)^2 = P(R+)/P(H)": "3/5"
+   },
+   "DL at port 2, the neighbouring carrier first": {
+    "P(R+)": "5/72",
+    "P(R-)": "5/72",
+    "P(H)": "1/6",
+    "P(R+ and H)": "0",
+    "count P(R+ xor H)": "17/72",
+    "count as float": 0.236111111,
+    "H : R+ : R- = 2 : 1 : 1": false,
+    "H : R+ : R-": "1/6 : 5/72 : 5/72",
+    "equals 2/9": false,
+    "defined": true,
+    "balance (b/a)^2 = P(R+)/P(H)": "5/12"
+   },
+   "SD on the shared seam (2,10), the carrier of the defect first": {
+    "P(R+)": "1/12",
+    "P(R-)": "1/12",
+    "P(H)": "5/36",
+    "P(R+ and H)": "0",
+    "count P(R+ xor H)": "2/9",
+    "count as float": 0.222222222,
+    "H : R+ : R- = 2 : 1 : 1": false,
+    "H : R+ : R-": "5/36 : 1/12 : 1/12",
+    "equals 2/9": true,
+    "defined": true,
+    "balance (b/a)^2 = P(R+)/P(H)": "3/5"
+   },
+   "SD on the shared seam (2,10), the neighbouring carrier first": {
+    "P(R+)": "5/72",
+    "P(R-)": "5/72",
+    "P(H)": "1/6",
+    "P(R+ and H)": "0",
+    "count P(R+ xor H)": "17/72",
+    "count as float": 0.236111111,
+    "H : R+ : R- = 2 : 1 : 1": false,
+    "H : R+ : R-": "1/6 : 5/72 : 5/72",
+    "equals 2/9": false,
+    "defined": true,
+    "balance (b/a)^2 = P(R+)/P(H)": "5/12"
+   },
+   "address events only: P(tail of X address at the port), P(Y address touches the port)": {
+    "P(R+)": "1/12",
+    "P(R-)": "1/12",
+    "P(H)": "1/6",
+    "P(R+ and H)": "1/72",
+    "count P(R+ xor H)": "2/9",
+    "count as float": 0.222222222,
+    "H : R+ : R- = 2 : 1 : 1": true,
+    "H : R+ : R-": "1/6 : 1/12 : 1/12",
+    "equals 2/9": true,
+    "defined": true
+   }
+  }
+ },
+ "seconds": 1.04
+}

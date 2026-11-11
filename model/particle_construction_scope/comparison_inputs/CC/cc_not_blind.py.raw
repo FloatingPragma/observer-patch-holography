@@ -1,0 +1,85 @@
+"""CC NOT BLIND step (rows N1, N2 of CANDIDATES.md). Run once, after every source row is on file.
+
+Measured values read here and nowhere else in this worker's scripts:
+1/alpha_em(m_Z) = 127.951, sin^2 theta_W(m_Z) = 0.23122, alpha_s(m_Z) = 0.1180(9), v = 246.21965 GeV,
+m_Z = 91.1876 GeV, alpha^-1(0) = 137.035999. Writes cc_not_blind.json.
+"""
+import json
+import os
+import sys
+
+import numpy as np
+from scipy.optimize import brentq
+
+sys.dont_write_bytecode = True
+import cc_lib as C
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+M = {'inv_aem_mZ': 127.951, 'sin2_mZ': 0.23122, 'alpha_s_mZ': 0.1180, 'alpha_s_err': 0.0009, 'v': 246.21965,
+     'mZ': 91.1876, 'inv_alpha_0': 137.035999}
+inv_a2 = M['sin2_mZ'] * M['inv_aem_mZ']
+a3 = M['alpha_s_mZ']
+P_meas = C.PHI + np.sqrt(np.pi) / M['inv_alpha_0']
+out = {'measured': M, 'inv_alpha_2(m_Z) = sin2 x 1/alpha_em': inv_a2, 'P_fwd': C.P_FWD, 'P from the measured alpha(0)': P_meas}
+
+
+def lhs(f, w, ia2=inv_a2, als=a3):
+    return C.ell2(f * C.FOUR_PI_SQ / ia2, w) + C.ell3(f * C.FOUR_PI_SQ * als, w)
+
+
+# ---------------------------------------------------------------- N1
+n1 = {}
+for f, w in ((1.0, 1), (2.0, 1), (0.5, 1), (1.0, 2), (2.0, 2)):
+    v = lhs(f, w)
+    n1[f'f={f:g}, w={w}'] = {'left_side': v, 'over_P_fwd/4': v / (C.P_FWD / 4), 'minus_P_fwd/4': v - C.P_FWD / 4,
+                             'minus_P_meas/4': v - P_meas / 4}
+n1['coordinator input 1/alpha_2 = 29.58, f=1, w=1'] = {'left_side': lhs(1.0, 1, ia2=29.58), 'coordinator_value': 0.40764111120484625}
+fstar = {}
+for w in (1, 2):
+    for Pname, P in (('P_fwd', C.P_FWD), ('P_meas', P_meas)):
+        g = lambda f: lhs(f, w) - P / 4
+        fs = brentq(g, 0.05, 20.0, xtol=1e-14)
+        row = {'f_star': fs, 'f_star_minus_1': fs - 1}
+        if w == 1:
+            up = brentq(lambda f: lhs(f, w, als=a3 + M['alpha_s_err']) - P / 4, 0.05, 20.0, xtol=1e-14)
+            dn = brentq(lambda f: lhs(f, w, als=a3 - M['alpha_s_err']) - P / 4, 0.05, 20.0, xtol=1e-14)
+            u2 = brentq(lambda f: lhs(f, w, ia2=inv_a2 + 0.006) - P / 4, 0.05, 20.0, xtol=1e-14)
+            d2 = brentq(lambda f: lhs(f, w, ia2=inv_a2 - 0.006) - P / 4, 0.05, 20.0, xtol=1e-14)
+            row['change under alpha_s +- 0.0009'] = [up - fs, dn - fs]
+            row['change under 1/alpha_2 +- 0.006'] = [u2 - fs, d2 - fs]
+            row['combined (quadrature)'] = float(np.hypot((up - dn) / 2, (u2 - d2) / 2))
+        fstar[f'w={w}, {Pname}'] = row
+n1['factor_that_closes_with_measured_couplings'] = fstar
+out['N1'] = n1
+for k, v in n1.items():
+    print('N1', k, json.dumps(v))
+
+# ---------------------------------------------------------------- N2
+def cmp(z):
+    return {'v/v_meas': z['v'] / M['v'], 'mZ/mZ_meas': z['mz'] / M['mZ'], 'alpha_s/alpha_s_meas': z['alpha_s'] / M['alpha_s_mZ'],
+            'sin2/sin2_meas': z['sin2'] / M['sin2_mZ'], 'inv_aem/inv_aem_meas': z['inv_aem'] / M['inv_aem_mZ'],
+            'inv_a2/inv_a2_meas': z['inv_a2'] / inv_a2}
+
+
+n2 = {}
+dic = json.load(open(os.path.join(HERE, 'cc_dictionary.json')))
+n2['reference chain'] = cmp(dic['reference'])
+for k, v in dic['B4_factor_and_weight_power'].items():
+    if v.get('roots'):
+        n2['B4 ' + k] = cmp(v['rows'][0])
+if dic['B5_wilson_form_on_SU2']['chain_roots']:
+    n2['B5 Wilson form on SU(2)'] = cmp(dic['B5_wilson_form_on_SU2']['chain_roots'][0])
+mat = json.load(open(os.path.join(HERE, 'cc_matching.json')))
+for k, v in mat['D5_chain_with_equal_bare_couplings_at_M_U'].items():
+    if v.get('roots'):
+        n2['D5 ' + k] = cmp(v['rows'][0])
+out['N2'] = n2
+for k, v in n2.items():
+    print('N2', k, {a: round(b, 4) for a, b in v.items()})
+# the factor window that keeps v within 1 percent and 0.15 percent, from the source derivative d ln v / d ln f
+dl = dic['B4_logarithmic_derivatives_at_f=1']['d ln v / d ln f']
+out['window_of_f'] = {'d ln v / d ln f (source)': dl, 'f window for v within 1 percent': 0.01 / abs(dl),
+                      'f window for v within 0.15 percent': 0.0015 / abs(dl),
+                      'f offset equivalent to the reference chain v deviation': float(np.log(dic['reference']['v'] / M['v']) / dl)}
+print('window', json.dumps(out['window_of_f']))
+json.dump(out, open(os.path.join(HERE, 'cc_not_blind.json'), 'w'), indent=1, default=C.jsonable)

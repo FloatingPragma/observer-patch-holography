@@ -1,0 +1,36 @@
+{
+ "draw_points": [
+  {
+   "label": "Z3_carrier",
+   "N": 3,
+   "normalisation": "carrier",
+   "kappa": 1.0797,
+   "target_f": 0.08926666666666666,
+   "start": "hot"
+  },
+  {
+   "label": "Z3_plaquette",
+   "N": 3,
+   "normalisation": "plaquette",
+   "kappa": 0.9305,
+   "target_f": 0.2678,
+   "start": "hot"
+  },
+  {
+   "label": "Z2_carrier",
+   "N": 2,
+   "normalisation": "carrier",
+   "kappa": 0.7982,
+   "target_f": 0.013433333333333334,
+   "start": "cold"
+  },
+  {
+   "label": "Z2_plaquette",
+   "N": 2,
+   "normalisation": "plaquette",
+   "kappa": 0.754,
+   "target_f": 0.0403,
+   "start": "hot"
+  }
+ ]
+}

@@ -1,0 +1,243 @@
+{
+ "linear": {
+  "rows": [
+   {
+    "k": [
+     0.3,
+     0.0,
+     0.0
+    ],
+    "kinetic": "E1",
+    "zero_modes": 12,
+    "nonzero_modes": 24,
+    "omega^2 / khat^2 values (multiplicity)": {
+     "1.000000": 24
+    }
+   },
+   {
+    "k": [
+     0.3,
+     0.0,
+     0.0
+    ],
+    "kinetic": "E2",
+    "zero_modes": 12,
+    "nonzero_modes": 24,
+    "omega^2 / khat^2 values (multiplicity)": {
+     "0.200000": 10,
+     "1.000000": 12,
+     "5.000000": 2
+    }
+   },
+   {
+    "k": [
+     0.2,
+     0.5,
+     0.1
+    ],
+    "kinetic": "E1",
+    "zero_modes": 12,
+    "nonzero_modes": 24,
+    "omega^2 / khat^2 values (multiplicity)": {
+     "1.000000": 24
+    }
+   },
+   {
+    "k": [
+     0.2,
+     0.5,
+     0.1
+    ],
+    "kinetic": "E2",
+    "zero_modes": 12,
+    "nonzero_modes": 24,
+    "omega^2 / khat^2 values (multiplicity)": {
+     "0.200000": 10,
+     "1.000000": 12,
+     "5.000000": 2
+    }
+   },
+   {
+    "k": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "kinetic": "E1",
+    "zero_modes": 12,
+    "nonzero_modes": 24,
+    "omega^2 / khat^2 values (multiplicity)": {
+     "1.000000": 24
+    }
+   },
+   {
+    "k": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "kinetic": "E2",
+    "zero_modes": 12,
+    "nonzero_modes": 24,
+    "omega^2 / khat^2 values (multiplicity)": {
+     "0.200000": 10,
+     "1.000000": 12,
+     "5.000000": 2
+    }
+   },
+   {
+    "k": [
+     3.141592653589793,
+     0.4,
+     2.0
+    ],
+    "kinetic": "E1",
+    "zero_modes": 12,
+    "nonzero_modes": 24,
+    "omega^2 / khat^2 values (multiplicity)": {
+     "1.000000": 24
+    }
+   },
+   {
+    "k": [
+     3.141592653589793,
+     0.4,
+     2.0
+    ],
+    "kinetic": "E2",
+    "zero_modes": 12,
+    "nonzero_modes": 24,
+    "omega^2 / khat^2 values (multiplicity)": {
+     "0.200000": 10,
+     "1.000000": 12,
+     "5.000000": 2
+    }
+   }
+  ],
+  "statement": "E1: 24 transverse modes with omega^2 = khat^2 and 12 longitudinal zero modes per k (one cone for gluons, W, B); E2: four speeds"
+ },
+ "packets_small_amplitude": {
+  "gluon lambda_1, polarization 2": {
+   "velocity_cells_per_tick": 0.9514991298288971,
+   "predicted_packet_weighted_group_velocity": 0.9516544086756222,
+   "group_velocity_at_central_k": 0.9659393823802097,
+   "gauss_initial": 3.2526065174565133e-19,
+   "gauss_final": 9.432558900623889e-18,
+   "energy_drift_relative": 0.01782116151913608
+  },
+  "W1, polarization 2": {
+   "velocity_cells_per_tick": 0.9514991298288971,
+   "predicted_packet_weighted_group_velocity": 0.9516544086756222,
+   "group_velocity_at_central_k": 0.9659393823802097,
+   "gauss_initial": 3.2526065174565133e-19,
+   "gauss_final": 9.432558900623889e-18,
+   "energy_drift_relative": 0.01782116151913608
+  },
+  "B_GUT, polarization 2": {
+   "velocity_cells_per_tick": 0.9514991329929021,
+   "predicted_packet_weighted_group_velocity": 0.9516544086756222,
+   "group_velocity_at_central_k": 0.9659393823802097,
+   "gauss_initial": 5.421010862427522e-20,
+   "gauss_final": 3.7947076036992655e-19,
+   "energy_drift_relative": 0.01781637949267485
+  },
+  "gluon lambda_8, polarization 3": {
+   "velocity_cells_per_tick": 0.951499129828902,
+   "predicted_packet_weighted_group_velocity": 0.9516544086756222,
+   "group_velocity_at_central_k": 0.9659393823802097,
+   "gauss_initial": 1.0842021724855044e-19,
+   "gauss_final": 2.9989019679362455e-19,
+   "energy_drift_relative": 0.0178163611367036
+  }
+ },
+ "self_interaction": {
+  "gluon lambda_1 (pol 2) with gluon lambda_2 (pol 3); commutator lambda_3": {
+   "eps=0.05": {
+    "relative_change_of_main_field": 0.0202780970548915,
+    "field_strength_component_on_23_plaquettes": 0.0021194127805773373,
+    "gauss_final": 3.122502256758253e-16
+   },
+   "eps=0.1": {
+    "relative_change_of_main_field": 0.07779443618288154,
+    "field_strength_component_on_23_plaquettes": 0.008459707232022927,
+    "gauss_final": 6.591949208711867e-16
+   },
+   "eps=0.2": {
+    "relative_change_of_main_field": 0.27005202766261727,
+    "field_strength_component_on_23_plaquettes": 0.03355406362967272,
+    "gauss_final": 1.3322676295501878e-15
+   },
+   "eps=0.4": {
+    "relative_change_of_main_field": 0.8357641757506808,
+    "field_strength_component_on_23_plaquettes": 0.1298042141019295,
+    "gauss_final": 2.9698465908722937e-15
+   }
+  },
+  "W1 (pol 2) with W2 (pol 3); commutator W3": {
+   "eps=0.05": {
+    "relative_change_of_main_field": 0.020278097054881948,
+    "field_strength_component_on_23_plaquettes": 0.0021194127805773373,
+    "gauss_final": 3.1242744564618195e-16
+   },
+   "eps=0.1": {
+    "relative_change_of_main_field": 0.0777944361828748,
+    "field_strength_component_on_23_plaquettes": 0.00845970723202293,
+    "gauss_final": 6.490341687345419e-16
+   },
+   "eps=0.2": {
+    "relative_change_of_main_field": 0.2700520276626079,
+    "field_strength_component_on_23_plaquettes": 0.033554063629672615,
+    "gauss_final": 1.3480336206752553e-15
+   },
+   "eps=0.4": {
+    "relative_change_of_main_field": 0.8357641757506792,
+    "field_strength_component_on_23_plaquettes": 0.12980421410192916,
+    "gauss_final": 2.9275132112172746e-15
+   }
+  },
+  "control: gluon lambda_1 (pol 2) with B (pol 3)": {
+   "eps=0.05": {
+    "relative_change_of_main_field": 2.070703389347026e-15,
+    "field_strength_component_on_23_plaquettes": 0.0,
+    "gauss_final": 3.434752482434078e-16
+   },
+   "eps=0.1": {
+    "relative_change_of_main_field": 1.6877978512520015e-15,
+    "field_strength_component_on_23_plaquettes": 0.0,
+    "gauss_final": 6.106226635438361e-16
+   },
+   "eps=0.2": {
+    "relative_change_of_main_field": 2.1802464954067885e-15,
+    "field_strength_component_on_23_plaquettes": 0.0,
+    "gauss_final": 1.1518563880486e-15
+   },
+   "eps=0.4": {
+    "relative_change_of_main_field": 2.4691819610533775e-15,
+    "field_strength_component_on_23_plaquettes": 0.0,
+    "gauss_final": 2.275957200481571e-15
+   }
+  },
+  "control: gluon lambda_1 (pol 2) with W1 (pol 3)": {
+   "eps=0.05": {
+    "relative_change_of_main_field": 0.0,
+    "field_strength_component_on_23_plaquettes": 0.0,
+    "gauss_final": 3.434752482434078e-16
+   },
+   "eps=0.1": {
+    "relative_change_of_main_field": 0.0,
+    "field_strength_component_on_23_plaquettes": 0.0,
+    "gauss_final": 6.106226635438361e-16
+   },
+   "eps=0.2": {
+    "relative_change_of_main_field": 0.0,
+    "field_strength_component_on_23_plaquettes": 0.0,
+    "gauss_final": 1.1518563880486e-15
+   },
+   "eps=0.4": {
+    "relative_change_of_main_field": 0.0,
+    "field_strength_component_on_23_plaquettes": 0.0,
+    "gauss_final": 2.248201624865942e-15
+   }
+  }
+ }
+}

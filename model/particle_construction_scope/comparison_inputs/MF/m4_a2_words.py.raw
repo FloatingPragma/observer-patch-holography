@@ -1,0 +1,226 @@
+"""Block 4: premise A2 for the twelve responses of the mixed pair: implementers as finite words in port pulses.
+
+Responses X_p = w3 P_p (+) w2 Q_p on C^3 (+) C^2: P_p the helicity-1 projector of the convex axis n_p, Q_p the spinor
+projector of the great axis n'_p. A port pulse is exp(i t X_p). Exact arithmetic in K = Q(zeta_20).
+
+Contents: (1) the implementer of every lift is R_g (+) u_g' and is unique up to the two block phases; (2) the
+two-pulse word exp(-i t X_p) exp(+i t X_pbar) (pbar the antipode) equals the implementer of the fifth turn about
+port p for the equal-weight pair with aligned helicities, t = 2 pi/5 in units where X_p is a projector; (3) words of
+such blocks for all 120 lifts (breadth-first); (4) which weights and relative helicities admit two-pulse words;
+(5) the centralizer, the centre and its visibility; (6) numerical synthesis for the weights without a two-pulse
+word. Output m4_a2_words.json. Run: python m4_a2_words.py
+"""
+import json, time
+import numpy as np
+from kfield import *
+from xcarrier import Carrier, rotation, dot3
+
+t0 = time.time()
+X = Carrier(); Xg = X.great()
+anti = X.anti
+out = {}
+I5 = eye(5)
+
+
+def proj_pulse(Pm, phase):
+    """exp(i t P) for a projector P and phase = exp(i t)."""
+    n = len(Pm)
+    return [[(K(1) if i == j else K(0)) + (phase - 1) * Pm[i][j] for j in range(n)] for i in range(n)]
+
+
+def lift_matrix(gi, sign=1):
+    return dsum(X.group[gi][0], mscale(K(sign), Xg.group[gi][1]))
+
+
+LIFT = {}
+for gi in range(120):
+    U = lift_matrix(gi)
+    LIFT[tuple(x for row in U for x in row)] = gi
+assert len(LIFT) == 120
+
+
+def find_lift(U):
+    return LIFT.get(tuple(x for row in U for x in row))
+
+
+# (1) implementers and their uniqueness
+Xs = [dsum(X.P[p], Xg.Q[p]) for p in range(12)]
+cov = all(meq(mmulm(lift_matrix(gi), Xs[p], dagger(lift_matrix(gi))), Xs[X.group[gi][2][p]]) for gi in range(120) for p in range(12))
+# commutant of the twelve responses in M_5: solve [C, X_p] = 0
+rows = []
+for p in range(12):
+    for i in range(5):
+        for j in range(5):
+            row = [K(0)] * 25
+            for k in range(5):
+                # (C X - X C)_{ij} = sum_k C_ik X_kj - X_ik C_kj
+                row[5 * i + k] = row[5 * i + k] + Xs[p][k][j]
+                row[5 * k + j] = row[5 * k + j] - Xs[p][i][k]
+            rows.append(row)
+comm_dim = 25 - rank(rows)
+out['implementers'] = {'covariance_Ad_U_g_X_p_equals_X_gp_for_all_120_lifts': cov, 'U_g': 'R_g (+) u_g with R_g the rotation of the convex axes and u_g the SU(2) lift of the rotation of the great axes',
+                       'commutant_dimension_of_the_responses': comm_dim,
+                       'centralizer': 'block scalars exp(i a) 1_3 (+) exp(i b) 1_2: a two-parameter torus; it meets the response group in the one-parameter centre',
+                       'determinants_one': all(det(X.group[gi][0]) == 1 and det(Xg.group[gi][1]) == 1 for gi in range(120))}
+print('covariance under the 120 lifts:', cov, '; commutant dimension', comm_dim, flush=True)
+
+# (2) two-pulse words for the fifth turns
+z5 = ZETA ** 4                                               # exp(2 pi i / 5)
+two = {}
+W = []
+for p in range(12):
+    Up = dsum(proj_pulse(X.P[p], z5.conj()), proj_pulse(Xg.Q[p], z5.conj()))          # exp(-i (2 pi/5) X_p)
+    Ua = dsum(proj_pulse(X.P[anti[p]], z5), proj_pulse(Xg.Q[anti[p]], z5))           # exp(+i (2 pi/5) X_pbar)
+    assert meq(mmul(Up, Ua), mmul(Ua, Up))
+    Wp = mmul(Up, Ua)
+    gi = find_lift(Wp)
+    assert gi is not None, 'two-pulse word is not a lift'
+    R, u, perm = X.group[gi]
+    Rref, uref = rotation(X.n[p], z5, ZETA ** 2)             # fifth turn about n_p, principal lift
+    assert meq(R, Rref) and perm[p] == p
+    ok = all(meq(mmulm(Wp, Xs[q], dagger(Wp)), Xs[perm[q]]) for q in range(12))
+    two[p] = {'lift_index': gi, 'is_fifth_turn_about_port': True, 'covariance': ok, 'fifth_power_is_identity': meq(mmulm(Wp, Wp, Wp, Wp, Wp), I5),
+              'doublet_block_is_minus_galois_image_of_principal_lift': meq(Xg.group[gi][1], mscale(K(-1), mgalois(uref, 17)))}
+    W.append(Wp)
+out['two_pulse_words'] = {'statement': 'exp(-i (2 pi/5) X_p) exp(+i (2 pi/5) X_pbar) = R(n_p, 2 pi/5) (+) u(n\'_p, 4 pi/5): the implementer of the fifth turn about port p',
+                          'all_twelve_exact': all(v['covariance'] and v['fifth_power_is_identity'] for v in two.values()), 'per_port': two,
+                          'in_framed_units': 'X_p = Pi_p/12: pulse areas -24 pi/5 at p and +24 pi/5 at the antipode'}
+print('two-pulse words: all twelve are implementers of fifth turns:', out['two_pulse_words']['all_twelve_exact'], flush=True)
+
+# (3) words for all 120 lifts: breadth-first in the twelve two-pulse blocks (the block of the antipode is the inverse)
+for p in range(12):
+    assert meq(mmul(W[p], W[anti[p]]), I5)
+words = {find_lift(I5): []}
+frontier = [(I5, [])]
+while frontier:
+    new = []
+    for (U, w) in frontier:
+        for p in range(12):
+            U2 = mmul(W[p], U)
+            gi = find_lift(U2)
+            assert gi is not None
+            if gi not in words:
+                words[gi] = [p] + w; new.append((U2, [p] + w))
+    frontier = new
+assert len(words) == 120
+lengths = [len(w) for w in words.values()]
+# classes of the rotations
+def rclass(R):
+    t = trace(R)
+    return 'identity' if t == 3 else 'half turn' if t == -1 else 'third turn' if t == 0 else 'fifth turn' if t == PHI_G else 'two fifths turn'
+central = next(gi for gi in range(120) if meq(lift_matrix(gi), dsum(eye(3), mscale(K(-1), eye(2)))))
+examples = {}
+for gi, w in sorted(words.items(), key=lambda kv: len(kv[1])):
+    cl = rclass(X.group[gi][0])
+    if gi == central: cl = 'central element diag(1_3, -1_2) over the identity rotation'
+    if cl not in examples and (cl != 'identity' or gi == central or len(w) == 0):
+        examples[cl] = {'lift_index': gi, 'blocks': w, 'pulses': 2 * len(w), 'port_permutation': list(X.group[gi][2])}
+# verify the example words by multiplication
+for cl, ex in examples.items():
+    U = I5
+    for p in reversed(ex['blocks']):
+        U = mmul(W[p], U)
+    ex['verified_exact'] = meq(U, lift_matrix(ex['lift_index']))
+out['words_for_all_lifts'] = {'group_generated_by_the_blocks_has_order': 120, 'max_blocks': max(lengths), 'max_pulses': 2 * max(lengths),
+                              'histogram_of_block_lengths': {str(l): lengths.count(l) for l in sorted(set(lengths))},
+                              'total_blocks_for_all_lifts': sum(lengths), 'examples_shortest_word_per_class': examples,
+                              'reading': 'a word [p1, p2, ...] is W_p1 W_p2 ..., W_p = exp(-i (2 pi/5) X_p) exp(+i (2 pi/5) X_antipode(p))'}
+print('words: order 120, block-length histogram', out['words_for_all_lifts']['histogram_of_block_lengths'], '; examples:',
+      {k: (v['blocks'], v['verified_exact']) for k, v in examples.items()}, flush=True)
+
+# (4) which weights and relative helicities admit two-pulse words about the port axis
+def two_pulse_scan(P3, Q2, pairs_ab):
+    """Phases zeta^a on the triplet projector and zeta^b on the doublet projector (and inverse at the antipode)."""
+    hits = []
+    p = 0
+    for (a, b) in pairs_ab:
+        Up = dsum(proj_pulse(P3[p], ZETA ** a), proj_pulse(Q2[p], ZETA ** b))
+        Ua = dsum(proj_pulse(P3[anti[p]], ZETA ** (20 - a)), proj_pulse(Q2[anti[p]], ZETA ** (20 - b)))
+        Wp = mmul(Up, Ua)
+        # implementer of a nontrivial rotation about port p, up to block phases?
+        for gi in range(120):
+            R, u, perm = X.group[gi]
+            if perm[p] != p or meq(R, eye(3)): continue
+            if all(meq(mmulm(Wp, dsum(P3[q], Q2[q]), dagger(Wp)), dsum(P3[perm[q]], Q2[perm[q]])) for q in range(12)):
+                hits.append({'a': a, 'b': b, 'rotation': rclass(R), 'lift_index': gi}); break
+    return hits
+Qbar = [Xg.Q[anti[p]] for p in range(12)]
+Pm = X.Pm
+scan = {}
+equal = [(j, j) for j in range(1, 20)]                       # equal weights: t = 2 pi j / 20
+naimark = [((3 * j) % 20, (2 * j) % 20) for j in range(1, 20)]   # weights 1/4, 1/6: t = 6 pi j / 5
+for name, P3, Q2 in (('vector helicity +1 (convex), spinor +1/2 (great)', X.P, Xg.Q), ('vector helicity +1 (convex), spinor -1/2 (great)', X.P, Qbar),
+                     ('vector helicity -1 (convex), spinor +1/2 (great)', Pm, Xg.Q), ('vector helicity -1 (convex), spinor -1/2 (great)', Pm, Qbar),
+                     ('reverse: vector +1 (great), spinor +1/2 (convex)', Xg.P, X.Q), ('reverse: vector +1 (great), spinor -1/2 (convex)', Xg.P, [X.Q[anti[p]] for p in range(12)])):
+    scan[name] = {'equal_weights': two_pulse_scan(P3, Q2, equal), 'weights_1/4_1/6': two_pulse_scan(P3, Q2, naimark)}
+    print(f'{name}: two-pulse implementers with equal weights: {[(h["a"], h["rotation"]) for h in scan[name]["equal_weights"]]}; with weights 1/4, 1/6: {[(h["a"], h["b"], h["rotation"]) for h in scan[name]["weights_1/4_1/6"]]}', flush=True)
+out['two_pulse_scan'] = {'reading': 'pulse exp(i t X_p) exp(-i t X_pbar) with phases zeta^a on the vector projector and zeta^b on the spinor projector; a hit is an implementer (up to block phases) of a nontrivial rotation about the port axis',
+                         'results': scan,
+                         'rule': 'with weights w3, w2 and relative helicity s = +-1 the word turns the triplet by -t w3 and the doublet by -2 s t w2; an implementer needs (theta, 2 theta) modulo 2 pi with theta a multiple of 2 pi/5'}
+
+# (5) centre and its visibility
+S = zeros(5)
+for p in range(12):
+    S = madd(S, Xs[p])
+out['centre'] = {'sum_of_unit_responses': [str(S[i][i]) for i in range(5)], 'in_framed_units': '1_3/3 (+) 1_2/2 (total load times helicity content)',
+                 'traceless_part': 'proportional to diag(2, 2, 2, -3, -3) with coefficient -1/30; scalar part 2/5',
+                 'cover_central_element': 'diag(1_3, -1_2) = exp(6 pi i (1_3/3 (+) 1_2/2))',
+                 'visibility': 'the centre commutes with every block-diagonal operator, so block-diagonal preparations and the port effects cannot see it; '
+                               'a state with coherence between the triplet and the doublet block and an effect with a cross-block element give the fringe (1 + cos(t/6))/2 for the total-load pulse of area t',
+                 'cross_block_fringe_check': None}
+# fringe check: psi = (e1 + e4)/sqrt2 (norm^2 2 avoided: use unnormalized), effect |psi><psi|/2, pulse exp(i t C) with exp(i t/3) = zeta^a, exp(i t/2) = zeta^b
+vals = []
+for j in range(0, 12):
+    # t = 6 pi j / 10: exp(i t/3) = zeta^(2j), exp(i t/2) = zeta^(3j)
+    ph3, ph2 = ZETA ** ((2 * j) % 20), ZETA ** ((3 * j) % 20)
+    amp = (ph3 + ph2) * HALF                                 # <psi|U|psi> with psi = (e1 + e4)/sqrt2
+    prob = amp * amp.conj()
+    vals.append((j, float(prob), float((1 + np.cos(6 * np.pi * j / 10 / 6)) / 2)))
+out['centre']['cross_block_fringe_check'] = {'t_in_units_6pi/10': [v[0] for v in vals], 'exact_probability': [v[1] for v in vals], 'formula': [v[2] for v in vals],
+                                             'max_defect': max(abs(v[1] - v[2]) for v in vals)}
+print('centre: sum of responses', out['centre']['sum_of_unit_responses'], '; fringe defect', out['centre']['cross_block_fringe_check']['max_defect'], flush=True)
+json.dump(out, open('m4_a2_words.json', 'w'), indent=1)
+
+# (6) numerical synthesis for the compressed-load weights 1/4, 1/6 with aligned helicities (no two-pulse word)
+from scipy.optimize import least_squares
+from scipy.linalg import expm
+Pn = [to_numpy(X.P[p]) for p in range(12)]; Qn = [to_numpy(Xg.Q[p]) for p in range(12)]
+axes = sorted({min(p, anti[p]) for p in range(12)})
+def gen(p, w3, w2):
+    return np.block([[w3 * (Pn[p] - Pn[anti[p]]), np.zeros((3, 2))], [np.zeros((2, 3)), w2 * (Qn[p] - Qn[anti[p]])]])
+def word(angles, seq, w3, w2):
+    U = np.eye(5, dtype=complex)
+    for t, p in zip(angles, seq):
+        U = expm(1j * t * gen(p, w3, w2)) @ U
+    return U
+target_gi = two[0]['lift_index']
+Ut = to_numpy(lift_matrix(target_gi))
+def resid(angles, seq, w3, w2):
+    U = word(angles, seq, w3, w2)
+    # compare up to block phases: use the adjoint action on the twelve responses
+    r = []
+    for q in (1, 2, 3, 5, 7):
+        Xq = np.block([[Pn[q], np.zeros((3, 2))], [np.zeros((2, 3)), Qn[q]]])
+        D = U @ Xq @ U.conj().T - Ut @ Xq @ Ut.conj().T
+        r += [D.real.ravel(), D.imag.ravel()]
+    return np.concatenate(r)
+rng = np.random.default_rng(11)
+best = None
+for nlen in (6, 7, 8):
+    for trial in range(60):
+        seq = [axes[i] for i in rng.integers(0, 6, size=nlen)]
+        if any(seq[i] == seq[i + 1] for i in range(nlen - 1)): continue
+        x0 = rng.uniform(-np.pi, np.pi, size=nlen) * 4
+        sol = least_squares(resid, x0, args=(seq, 0.25, 1 / 6), xtol=1e-15, ftol=1e-15, gtol=1e-15)
+        err = float(np.abs(sol.fun).max())
+        if best is None or err < best[0]:
+            best = (err, seq, sol.x.tolist())
+        if err < 1e-12: break
+    if best and best[0] < 1e-12: break
+out['synthesis_weights_1/4_1/6_aligned'] = {'target': 'implementer of the fifth turn about port 0', 'antipodal_pulse_pairs': len(best[1]), 'ports': [int(p) for p in best[1]],
+                                           'pulse_areas': best[2], 'max_entry_defect_of_the_adjoint_action': best[0],
+                                           'reading': 'product over i of exp(i t_i (X_p_i - X_antipode(p_i))) with X_p = P_p/4 (+) Q_p/6; float64, defect as printed'}
+print('synthesis for weights 1/4, 1/6 (aligned): pairs', len(best[1]), 'ports', best[1], 'defect', best[0], flush=True)
+out['seconds'] = round(time.time() - t0, 1)
+json.dump(out, open('m4_a2_words.json', 'w'), indent=1)
+print('written m4_a2_words.json in', out['seconds'], 's')

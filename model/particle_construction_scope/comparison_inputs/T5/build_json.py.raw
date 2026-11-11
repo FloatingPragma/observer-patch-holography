@@ -1,0 +1,90 @@
+"""Assemble mass_matrices.json from the part files written by the T5 scripts (no computation here beyond lookups).
+
+Order of the scripts (run from RER, see run_all.sh): t5_spaces.py, t5_native.py, t5_second_index.py, t5_cones.py,
+t5_koide.py, t5_compare.py, then this file.
+"""
+import json
+import os
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+ld = lambda n: json.load(open(os.path.join(HERE, n)))
+spaces, native, second, cones, koide, comp = (ld(n) for n in ('spaces.json', 'native.json', 'second_index.json', 'cones.json', 'koide.json', 'compare.json'))
+rows = {r['group']: r for r in spaces['residual_groups']['table']}
+def cnt(name):
+    r = rows[name]
+    return {'hermitian': r['hermitian_invariant_operators_real_dimension'], 'real_symmetric': r['real_symmetric_invariant_operators_dimension']}
+drows = {r['group']: r for r in second['residual_groups_on_the_second_index']['table']}
+gram = next(r for r in koide['carrier_fixed_parameters']['table'] if r['operator'] == 'sum of the responses of the three ports of a face')
+
+out = {
+    'worker': 'T5', 'step': 'E4 (mass matrices on the family band)', 'date': '2026-11-10',
+    'tags': 'EXACT = integers, Q(sqrt5) or its extension by sqrt(phi + 2); MEASURED = float64 with the printed defect; comparison with nature: NOT BLIND',
+    'scope': {'carrier': 'the public twelve-port carrier (model.common_source.slow_geometry), NATIVE',
+              'what_is_computed': 'representation theory of the carrier on four candidate generation spaces and the spectra of operators the carrier or the candidate tick supplies; shadow level 1 (algebra of handed tables)',
+              'declared': ['that any of the four spaces is a generation space', 'the cubic frame and the family (CF-1)', 'the code responses on the band (the band is a load space; the responses are defined on the code triplet of the same type)',
+                           'the alternating tick and its mass step (space c)', 'source patterns (space c)', 'the map from an eigenvalue to a mass'],
+              'imported': ['the simulation session\'s runs RL/work/SIM/family (space c)', 'DESIGN.md entry A (space d)', 'the audit packet\'s Koide notes and module']},
+    'item1_spaces': {
+        'a': {'space': 'the rank-three band of the port load space (seam cost 5 - sqrt5), all sixty rotations acting', 'dimension': 3, 'checks': spaces['band']['checks'],
+              'representation': spaces['representation']},
+        'b': {'space': 'the same band after fixing a cubic frame: the residual groups are the subgroups of the frame stabilizer (order 12): Klein group, third-turns, single half-turns', 'dimension': 3,
+              'fixing_a_frame_does_not_split_the_band': spaces['fixing_a_frame_does_not_split_the_band']},
+        'c': {'space': 'the copies of the routing cone of the two-tick period: four per parity class of cells (origin and three labelled by the axes), each with two spin states; equivalently the four kinds of cell of a period-four pattern',
+              'dimension': '4 (x 2 spin)', 'handedness': cones['cone_points']['handedness_sign_in_the_arrow_sector_plus'], 'reading': cones['cone_points']['reading']},
+        'd': {'space': 'the second index of the regular representation of the frame group on the twelve ports (multiplicity space of its triplet): its three kernel eigenvectors are the slow band, the triplet inside the rank-five band and the fast band',
+              'dimension': 3, 'torsor': second['torsor'], 'two_actions': second['two_actions']}},
+    'item2_invariant_hermitian_operators': {
+        'band (spaces a and b)': [
+            {'group': 'full rotation group', 'general_form': 'm 1', 'pattern': 'three equal', 'parameters': cnt('full rotation group')},
+            {'group': 'frame stabilizer (order 12)', 'general_form': 'm 1', 'pattern': 'three equal', 'parameters': cnt('frame stabilizer (order 12)')},
+            {'group': 'Klein group of the frame', 'general_form': 'diag(m1, m2, m3) in the frame axes', 'pattern': 'free, eigenvectors fixed', 'parameters': cnt('Klein group of the frame (three half-turns)')},
+            {'group': 'third of a turn alone', 'general_form': 'a 1 + b R + conj(b) R^-1', 'pattern': 'circulant: a + 2|b| cos(delta + 2 pi k/3); real members two equal and one different',
+             'parameters': cnt('third of a turn alone (in the frame stabilizer)')},
+            {'group': "the tick's group (quaternion group)", 'general_form': 'acts through the Klein group: diag(m1, m2, m3)', 'pattern': 'free, eigenvectors fixed',
+             'parameters': cnt("the tick's group (quaternion group, acting through the Klein group)")},
+            {'group': 'one half-turn alone', 'general_form': 'one fixed axis and a free 2 x 2 block', 'pattern': 'free', 'parameters': cnt('one half-turn alone')},
+            {'group': 'fifth of a turn about a port (space a only)', 'general_form': 'x n n^T + y (1 - n n^T) + k i [n]_x', 'pattern': 'free, eigenvectors fixed; real members two equal and one different',
+             'parameters': cnt('fifth of a turn about a port')},
+            {'group': 'stabilizer of a port axis or of a face axis (space a only)', 'general_form': 'x n n^T + y (1 - n n^T)', 'pattern': 'two equal and one different',
+             'parameters': cnt('stabilizer of a port axis (order 10)')}],
+        'cone copies (space c)': [
+            {'group': 'full rotation group', 'general_form': 'does not act: the lattice keeps the frame group only'},
+            {'group': 'frame stabilizer, third of a turn', 'general_form': 'not a symmetry of the alternating tick (reports R3, R4); imposed on a source pattern it leaves the kind of the centre cell and three equal kinds', 'pattern': 'one and three equal', 'parameters': 2},
+            {'group': "the tick's group with all translations (on-site step, uniform source)", 'general_form': 'm 1 on the four copies', 'pattern': 'four equal', 'parameters': 1},
+            {'group': "the tick's group with centre on an even cell, translations broken to the period of the copies", 'general_form': 'diag over the four kinds of even cells, plus one common angle on the odd cells',
+             'pattern': 'four free levels, eigenvectors fixed (the kinds)', 'parameters': 5},
+            {'group': 'no symmetry beyond the period of the copies', 'general_form': 'eight kind angles (four even, four odd)', 'pattern': 'four free levels, each twofold; eigenvectors depend on the split between the parities', 'parameters': 8}],
+        'second index (space d)': [
+            {'group': 'full rotation group', 'general_form': 'a function of the kernel: diag(m_slow, m_middle, m_fast) in the eigenvectors of M3', 'pattern': 'free, eigenvectors fixed', 'parameters': 3},
+            {'group': "frame stabilizer, Klein group, third of a turn, the tick's group (all act on the first index)", 'general_form': 'any Hermitian 3 x 3 matrix', 'pattern': 'no constraint', 'parameters': {'hermitian': 9, 'real_symmetric': 6}},
+            {'group': 'right frame group', 'general_form': 'm 1', 'pattern': 'three equal; broken by the seams', 'parameters': drows['right frame group (order 12)']['hermitian_dimension']},
+            {'group': 'right Klein group', 'general_form': 'diag in the frame axes of the second index', 'pattern': 'free, eigenvectors fixed; broken by the seams', 'parameters': drows['right Klein group']['hermitian_dimension']},
+            {'group': 'right third of a turn', 'general_form': 'circulant in the frame axes of the second index', 'pattern': 'circulant; broken by the seams', 'parameters': drows['right third of a turn']['hermitian_dimension']},
+            {'group': 'the antipodal map (the right half-turn that the seams keep)', 'general_form': 'one fixed axis and a free 2 x 2 block', 'pattern': 'free',
+             'parameters': drows['the antipodal map (the one right half-turn that the seams keep)']['hermitian_dimension']},
+            {'group': 'none: the kernel itself', 'general_form': 'M3 = ' + str(second['kernel_on_the_second_index']['M3_in_the_frame_axes_of_the_second_index']), 'pattern': 'three different, fixed', 'parameters': 0}]},
+    'item3_native_operators': {
+        'band': {'named_operators': native['named_operators'], 'span': native['span'],
+                 'sums_of_port_responses_over_orbits': native['sums_of_port_responses_over_orbits'],
+                 'sums_of_port_responses_over_small_port_sets': native['sums_of_port_responses_over_small_port_sets'],
+                 'mixing_matrices': [{k: v for k, v in m.items() if k != 'angle_sets_over_the_36_relabellings'} for m in native['mixing_matrices']],
+                 'golden_pattern_standard_angles': native['golden_pattern_standard_angles'],
+                 'trimaximal_standard_angles': native['trimaximal_standard_angles'],
+                 'note_on_the_golden_pattern': 'the full 3 x 3 pattern needs a port-side operator with three different eigenvalues; the port projector fixes only the axial row (0.7236, 0.2764, 0), the port response only one circular row (0.1382, 0.3618, 1/2)'},
+        'second_index': {'kernel': second['kernel_on_the_second_index'], 'spectra': second['spectra'], 'mixing': second['mixing']},
+        'cone_copies': {'ordered_sources': cones['ordered_sources'], 'kinds': cones['kinds'], 'reversal_on_the_odd_cells': cones['reversal_on_the_odd_cells'],
+                        'one_kind_lifted': cones['one_kind_lifted'], 'on_site_steps': cones['cone_points']['on_site_mass_steps']}},
+    'item4_koide': {'conditions': koide['conditions_of_the_public_packet'], 'form': koide['form'], 'carrier_fixed_parameters': koide['carrier_fixed_parameters'],
+                    'fixed_cases': koide['fixed_cases'], 'packet_weights_replayed': koide['packet_weights_replayed']},
+    'item5_comparison_NOT_BLIND': comp,
+    'headline': {
+        'obstruction': 'on the band every Hermitian operator invariant under the rotation group or under the stabilizer of a cubic frame is a multiple of the identity; on the cone copies every on-site step invariant under the tick\'s group gives four equal rest phases; on the second index the frame group and the tick\'s group put no condition at all',
+        'smallest_declared_input': 'three real numbers per sector (Klein group kept: diag in the frame axes; or third-turn kept: a, |b|, delta), or no number and one declared operator',
+        'parameter_free_operators': {'second index': 'the kernel: costs 5 - sqrt5, 6, 5 + sqrt5',
+                                     'band': 'sum of the responses of the three ports of a face: a = 1, |b| = (5 + sqrt5)/10, delta = pi/15; eigenvalues ' + str([round(x, 6) for x in gram['eigenvalues_ascending']]),
+                                     'cone copies': 'none (the levels are the source angles)'},
+        'decision': comp['decision']},
+    'evidence': {'directory': 'RL/work/T5', 'scripts': ['t5lib.py', 't5_spaces.py', 't5_native.py', 't5_second_index.py', 't5_cones.py', 't5_koide.py', 't5_compare.py', 'build_json.py', 'run_all.sh'],
+                 'part_files': ['spaces.json', 'native.json', 'second_index.json', 'cones.json', 'koide.json', 'compare.json']}}
+json.dump(out, open(os.path.join(HERE, 'mass_matrices.json'), 'w'), indent=1)
+print('mass_matrices.json written:', os.path.getsize(os.path.join(HERE, 'mass_matrices.json')), 'bytes')

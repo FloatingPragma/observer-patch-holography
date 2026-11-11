@@ -1,0 +1,621 @@
+{
+ "discriminant_blocks_on_the_public_executable": {
+  "blank_record": "11/12 + A/60",
+  "set_record": "11/12 - A/60",
+  "all_288_entries_equal": true,
+  "tag": "EXACT"
+ },
+ "sectors_of_the_carrier_walk": {
+  "rows": [
+   {
+    "sector": "uniform",
+    "record": "blank",
+    "multiplicity": 1,
+    "kernel_eigenvalue": "1",
+    "mass_angle_per_tick": 0.0
+   },
+   {
+    "sector": "slow triplet 3",
+    "record": "blank",
+    "multiplicity": 3,
+    "kernel_eigenvalue": "sqrt(5)/60 + 11/12",
+    "mass_angle_per_tick": 0.3047084373702733
+   },
+   {
+    "sector": "fast triplet 3prime",
+    "record": "set",
+    "multiplicity": 3,
+    "kernel_eigenvalue": "sqrt(5)/60 + 11/12",
+    "mass_angle_per_tick": 0.3047084373702733
+   },
+   {
+    "sector": "quintet 5",
+    "record": "set",
+    "multiplicity": 5,
+    "kernel_eigenvalue": "14/15",
+    "mass_angle_per_tick": 0.36720802055783713
+   },
+   {
+    "sector": "quintet 5",
+    "record": "blank",
+    "multiplicity": 5,
+    "kernel_eigenvalue": "9/10",
+    "mass_angle_per_tick": 0.4510268117962624
+   },
+   {
+    "sector": "fast triplet 3prime",
+    "record": "blank",
+    "multiplicity": 3,
+    "kernel_eigenvalue": "11/12 - sqrt(5)/60",
+    "mass_angle_per_tick": 0.49619825950207297
+   },
+   {
+    "sector": "slow triplet 3",
+    "record": "set",
+    "multiplicity": 3,
+    "kernel_eigenvalue": "11/12 - sqrt(5)/60",
+    "mass_angle_per_tick": 0.49619825950207297
+   },
+   {
+    "sector": "uniform",
+    "record": "set",
+    "multiplicity": 1,
+    "kernel_eigenvalue": "5/6",
+    "mass_angle_per_tick": 0.585685543457151
+   }
+  ],
+  "distinct_angles": [
+   0.0,
+   0.304708437,
+   0.367208021,
+   0.451026812,
+   0.49619826,
+   0.585685543
+  ],
+  "distinct_nonzero_angles_both_records": 5,
+  "distinct_nonzero_angles_blank_record": 3,
+  "blank_multiplicities": [
+   3,
+   5,
+   3
+  ],
+  "ratios_to_the_lowest_nonzero_angle": [
+   1.0,
+   1.2051,
+   1.4802,
+   1.6284,
+   1.9221
+  ],
+  "blank_ratios": [
+   1.0,
+   1.4802,
+   1.6284
+  ],
+  "massless_sector": "uniform load, blank record (one state)",
+  "tag": "EXACT eigenvalues, float64 angles"
+ },
+ "port_space_under_the_frame_stabilizer": {
+  "fixed_ports_per_element": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   12
+  ],
+  "the_port_space_is_the_regular_representation": true,
+  "triplet_of_the_stabilizer_is_irreducible": "1",
+  "copies_of_the_triplet_in": {
+   "slow triplet 3": "1",
+   "fast triplet 3prime": "1",
+   "quintet 5": "1"
+  },
+  "trivial_character_in": {
+   "slow triplet 3": "0",
+   "fast triplet 3prime": "0",
+   "quintet 5": "0"
+  },
+  "decomposition": "12 = 1 (uniform) + 1prime + 1doubleprime (inside the quintet) + 3 x 3 (slow triplet, fast triplet, the triplet inside the quintet)",
+  "tag": "EXACT"
+ },
+ "three_copies_in_one_klein_character": {
+  "rectangles": [
+   [
+    0,
+    1,
+    2,
+    3
+   ],
+   [
+    4,
+    5,
+    6,
+    7
+   ],
+   [
+    8,
+    9,
+    10,
+    11
+   ]
+  ],
+  "frame_seams_inside_each_rectangle": [
+   2,
+   2,
+   2
+  ],
+  "other_seams_inside_a_rectangle": 0,
+  "characters": [
+   {
+    "klein_character": 0,
+    "kernel_in_the_rectangle_basis": [
+     [
+      "14/15",
+      "-1/30",
+      "0"
+     ],
+     [
+      "-1/30",
+      "9/10",
+      "0"
+     ],
+     [
+      "0",
+      "0",
+      "9/10"
+     ]
+    ],
+    "frame_seam_laplacian_in_the_rectangle_basis": [
+     [
+      "0",
+      "0",
+      "0"
+     ],
+     [
+      "0",
+      "2",
+      "0"
+     ],
+     [
+      "0",
+      "0",
+      "2"
+     ]
+    ],
+    "eigenvectors": [
+     {
+      "sector": "quintet 5",
+      "kernel_eigenvalue": "9/10",
+      "squared_overlaps_with_the_rectangles": [
+       "0",
+       "0",
+       "1"
+      ],
+      "floats": [
+       0.0,
+       0.0,
+       1.0
+      ],
+      "mass_angle_per_tick_blank_record": 0.45102681179626236,
+      "port_amplitudes": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       -0.5,
+       0.5,
+       0.5,
+       -0.5
+      ]
+     },
+     {
+      "sector": "slow triplet 3",
+      "kernel_eigenvalue": "11/12 + (1/60)*sqrt5",
+      "squared_overlaps_with_the_rectangles": [
+       "1/2 + (1/10)*sqrt5",
+       "1/2 + (-1/10)*sqrt5",
+       "0"
+      ],
+      "floats": [
+       0.723607,
+       0.276393,
+       0.0
+      ],
+      "mass_angle_per_tick_blank_record": 0.3047084373702735,
+      "port_amplitudes": [
+       0.42532540417601994,
+       0.42532540417601994,
+       -0.42532540417601994,
+       -0.42532540417601994,
+       -0.2628655560595668,
+       0.2628655560595668,
+       -0.2628655560595668,
+       0.2628655560595668,
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "sector": "fast triplet 3prime",
+      "kernel_eigenvalue": "11/12 + (-1/60)*sqrt5",
+      "squared_overlaps_with_the_rectangles": [
+       "1/2 + (-1/10)*sqrt5",
+       "1/2 + (1/10)*sqrt5",
+       "0"
+      ],
+      "floats": [
+       0.276393,
+       0.723607,
+       0.0
+      ],
+      "mass_angle_per_tick_blank_record": 0.4961982595020731,
+      "port_amplitudes": [
+       -0.26286555605956685,
+       -0.26286555605956685,
+       0.26286555605956685,
+       0.26286555605956685,
+       -0.42532540417602,
+       0.42532540417602,
+       -0.42532540417602,
+       0.42532540417602,
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ]
+     }
+    ]
+   },
+   {
+    "klein_character": 1,
+    "kernel_in_the_rectangle_basis": [
+     [
+      "9/10",
+      "0",
+      "-1/30"
+     ],
+     [
+      "0",
+      "9/10",
+      "0"
+     ],
+     [
+      "-1/30",
+      "0",
+      "14/15"
+     ]
+    ],
+    "frame_seam_laplacian_in_the_rectangle_basis": [
+     [
+      "2",
+      "0",
+      "0"
+     ],
+     [
+      "0",
+      "2",
+      "0"
+     ],
+     [
+      "0",
+      "0",
+      "0"
+     ]
+    ],
+    "eigenvectors": [
+     {
+      "sector": "quintet 5",
+      "kernel_eigenvalue": "9/10",
+      "squared_overlaps_with_the_rectangles": [
+       "0",
+       "1",
+       "0"
+      ],
+      "floats": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "mass_angle_per_tick_blank_record": 0.45102681179626236,
+      "port_amplitudes": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.5,
+       -0.5,
+       -0.5,
+       0.5,
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "sector": "slow triplet 3",
+      "kernel_eigenvalue": "11/12 + (1/60)*sqrt5",
+      "squared_overlaps_with_the_rectangles": [
+       "1/2 + (-1/10)*sqrt5",
+       "0",
+       "1/2 + (1/10)*sqrt5"
+      ],
+      "floats": [
+       0.276393,
+       0.0,
+       0.723607
+      ],
+      "mass_angle_per_tick_blank_record": 0.3047084373702735,
+      "port_amplitudes": [
+       -0.2628655560595668,
+       0.2628655560595668,
+       -0.2628655560595668,
+       0.2628655560595668,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.42532540417602,
+       0.42532540417602,
+       -0.42532540417602,
+       -0.42532540417602
+      ]
+     },
+     {
+      "sector": "fast triplet 3prime",
+      "kernel_eigenvalue": "11/12 + (-1/60)*sqrt5",
+      "squared_overlaps_with_the_rectangles": [
+       "1/2 + (1/10)*sqrt5",
+       "0",
+       "1/2 + (-1/10)*sqrt5"
+      ],
+      "floats": [
+       0.723607,
+       0.0,
+       0.276393
+      ],
+      "mass_angle_per_tick_blank_record": 0.4961982595020731,
+      "port_amplitudes": [
+       0.42532540417602027,
+       -0.42532540417602027,
+       0.42532540417602027,
+       -0.42532540417602027,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.262865556059567,
+       0.262865556059567,
+       -0.262865556059567,
+       -0.262865556059567
+      ]
+     }
+    ]
+   },
+   {
+    "klein_character": 2,
+    "kernel_in_the_rectangle_basis": [
+     [
+      "9/10",
+      "0",
+      "0"
+     ],
+     [
+      "0",
+      "14/15",
+      "-1/30"
+     ],
+     [
+      "0",
+      "-1/30",
+      "9/10"
+     ]
+    ],
+    "frame_seam_laplacian_in_the_rectangle_basis": [
+     [
+      "2",
+      "0",
+      "0"
+     ],
+     [
+      "0",
+      "0",
+      "0"
+     ],
+     [
+      "0",
+      "0",
+      "2"
+     ]
+    ],
+    "eigenvectors": [
+     {
+      "sector": "quintet 5",
+      "kernel_eigenvalue": "9/10",
+      "squared_overlaps_with_the_rectangles": [
+       "1",
+       "0",
+       "0"
+      ],
+      "floats": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "mass_angle_per_tick_blank_record": 0.45102681179626236,
+      "port_amplitudes": [
+       -0.5,
+       0.5,
+       0.5,
+       -0.5,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "sector": "slow triplet 3",
+      "kernel_eigenvalue": "11/12 + (1/60)*sqrt5",
+      "squared_overlaps_with_the_rectangles": [
+       "0",
+       "1/2 + (1/10)*sqrt5",
+       "1/2 + (-1/10)*sqrt5"
+      ],
+      "floats": [
+       0.0,
+       0.723607,
+       0.276393
+      ],
+      "mass_angle_per_tick_blank_record": 0.3047084373702735,
+      "port_amplitudes": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       -0.42532540417601994,
+       -0.42532540417601994,
+       0.42532540417601994,
+       0.42532540417601994,
+       0.2628655560595668,
+       -0.2628655560595668,
+       0.2628655560595668,
+       -0.2628655560595668
+      ]
+     },
+     {
+      "sector": "fast triplet 3prime",
+      "kernel_eigenvalue": "11/12 + (-1/60)*sqrt5",
+      "squared_overlaps_with_the_rectangles": [
+       "0",
+       "1/2 + (-1/10)*sqrt5",
+       "1/2 + (1/10)*sqrt5"
+      ],
+      "floats": [
+       0.0,
+       0.276393,
+       0.723607
+      ],
+      "mass_angle_per_tick_blank_record": 0.4961982595020731,
+      "port_amplitudes": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.26286555605956685,
+       0.26286555605956685,
+       -0.26286555605956685,
+       -0.26286555605956685,
+       0.42532540417602,
+       -0.42532540417602,
+       0.42532540417602,
+       -0.42532540417602
+      ]
+     }
+    ]
+   }
+  ],
+  "tag": "EXACT",
+  "statement": "in each nontrivial Klein character the port space holds exactly three states; in the rectangle basis the kernel leaves one rectangle unmixed (the quintet state) and rotates the two others by the golden angle: squared overlaps (5 + sqrt5)/10 and (5 - sqrt5)/10"
+ },
+ "copy_times_spin_doublet": {
+  "doublet_character_norm": "1",
+  "multiplicity_of_the_spin_doublet_in_triplet_x_doublet": "1",
+  "character_norm_of_the_product": "3",
+  "dimension_of_the_product": 6,
+  "tag": "EXACT",
+  "statement": "a copy is a vector of the frame group; with the spin doublet it holds the doublet once and four further states (the content of spin 3/2): it is not a second spin-1/2 family unless the load state is exempt from the rotations"
+ },
+ "second_index_of_the_regular_representation": {
+  "simply_transitive": true,
+  "generators_orders": [
+   2,
+   3,
+   3,
+   3,
+   3
+  ],
+  "generators_closed_under_inverse": true,
+  "seam_graph_is_the_cayley_graph": true,
+  "second_action_commutes_with_the_rotations": true,
+  "adjacency_is_the_sum_of_second_translations_by_the_generators": true,
+  "second_translations_commuting_with_the_adjacency": 2,
+  "of": 12,
+  "the_commuting_one_is_a_half_turn_whose_translation_is_the_antipodal_map": true,
+  "M3_in_the_raw_frame": [
+   [
+    -1,
+    -2,
+    0
+   ],
+   [
+    -2,
+    1,
+    0
+   ],
+   [
+    0,
+    0,
+    -1
+   ]
+  ],
+  "symmetric": true,
+  "equal_to_the_design_note_form_up_to_signed_axis_permutation": true,
+  "annihilating_polynomial_(M3+1)(M3^2-5)": true,
+  "axis_with_value_minus_one": [
+   2
+  ],
+  "squared_components_of_the_sqrt5_eigenvector": [
+   "0",
+   "1/2 + (-1/10)*sqrt5",
+   "1/2 + (1/10)*sqrt5"
+  ],
+  "imaginary_part_of_the_complex_characters_vanishes": true,
+  "adjacency_on_the_three_one_dimensional_types": [
+   "5",
+   "-1",
+   "-1"
+  ],
+  "kernel_levels_of_the_three_copies_blank_record": [
+   "11/12 + sqrt5/60",
+   "9/10",
+   "11/12 - sqrt5/60"
+  ],
+  "kernel_levels_of_the_three_copies_set_record": [
+   "11/12 - sqrt5/60",
+   "14/15",
+   "11/12 + sqrt5/60"
+  ],
+  "tag": "EXACT (permutations, integers, Q(sqrt5))",
+  "statement": "with a frame fixed the ports are the elements of its rotation group; the adjacency acts on the second index only, by M3 on the triplet and by 5, -1, -1 on the three one-dimensional types; the axes of the second index are the three golden rectangles"
+ },
+ "comparison_NOT_BLIND": {
+  "frozen_ratios": {
+   "muon_electron_CODATA2022": 206.7682827,
+   "tau_electron_CODATA2022": 3477.23
+  },
+  "source": "RER/model/particle_candidate_atlas/reference_values.json, key ratios",
+  "tower_blank_ratios": [
+   1.0,
+   1.4802,
+   1.6284
+  ],
+  "statement": "the three blank angles are within a factor 1.63 of each other; the charged leptons span a factor 3477"
+ }
+}

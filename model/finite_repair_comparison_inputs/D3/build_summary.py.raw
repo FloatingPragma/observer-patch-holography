@@ -1,0 +1,79 @@
+"""D3: collect the headline numbers of items 1 to 5 from the result files into defect_modes.json.
+
+Usage:  python build_summary.py defect_modes.json   (reads only files in this directory)
+"""
+import json, sys
+import numpy as np
+
+ld = lambda f: json.load(open(f))
+out = {'task': 'RL/briefs/TASK_D3.md', 'engine_sha256': ld('check_lib.json')['engine_sha256'],
+       'labels': 'EXACT = exact arithmetic or written argument; MEASURED = float64 with printed defects; ARGUED; IMPORTED'}
+
+# item 1
+i1 = ld('item1.json'); w1 = ld('item1_wall.json')
+out['item1_kink_line'] = {
+    'exact_closed_form_all_profiles': i1['exact_closed_form']['all_zero'],
+    'count_per_kink': {'phase_0': 2, 'phase_pi': 2, 'label': 'sigma_1 Y_r = +1 at the kink, -1 at the antikink; <X_r> = 0'},
+    'engine_rings': [{k: r[k] for k in ('cells', 'theta0', 'kink_width', 'modes_with_|phase|_below_theta0/2', 'modes_within_theta0/2_of_pi',
+                                       'other_modes_inside_the_gap', 'kink_density_ratio_per_cell_closed_form_tan^2(pi/4-theta0/2)')} for r in i1['engine_ring']],
+    'alternating_tick_on_a_line': 'two ticks = square of one tick; 4 modes per wall at two-tick phase 0',
+    'wall_in_3d': {'zero_states_per_wall_at_each_of_16_transverse_points': w1['zero_modes_over_the_transverse_zone']['per_wall_at_each_point'],
+                   'cone_speed_over_cos_theta0': w1['cone_near_zero_transverse_wave_number']['rows'][0]['phase_over_q'] / w1['cone_near_zero_transverse_wave_number']['cos_theta0'],
+                   'orientations_one_class': [r['orientation'] for r in w1['orientation_of_the_wall_cones_(kink,_x1_even)']['rows']]}}
+
+# item 2: counts and splittings (core 0, class (0, 0))
+def core0(res, cls=(0, 0)):
+    out = []
+    for r in res['results']:
+        c = r['config']
+        for row in r['classes']:
+            if tuple(row['class']) != cls: continue
+            for cr in row['cores']:
+                if cr['core'] != 0: continue
+                nz = cr.get('near_zero_group', {})
+                out.append({'n': c['n'], 'xi_c': c.get('xi_c'), 'centred': c.get('centred', 'plaquette'), 'p3': round(c.get('p3', 0.0), 4),
+                            'flux': round(c.get('flux', 0.0), 4), 'theta0': c['theta0'], 'L': c['L'], 'states_at_core': cr['states'],
+                            'n_plus': nz.get('n_plus'), 'n_minus': nz.get('n_minus'),
+                            'pair_splittings_per_tick': sorted(abs(x) for x in nz.get('phases_per_tick', []))[::2],
+                            'velocity_Gamma_plus': nz.get('dE_dp3_per_tick_on_Gamma_plus'), 'group_residual': cr.get('group_residual_of_U')})
+    return out
+out['item2_vortex'] = {
+    'statement': 'per core and parity class at p3 = 0: 2|n| states near zero phase, |n| Gamma = sign(n) (origin cone, smooth), |n| Gamma = -sign(n) '
+                 '(cone (pi/2, pi/2, 0), staggered); same at p3 = pi/2 with directions reversed; per line 32|n| modes, 16|n| each way',
+    'class_index_zero': 'EXACT (Theta commutes with the period at p3 = 0, pi/2, pi and anticommutes with Gamma)',
+    'native_theta0_0.3': core0(ld('r2.json')) , 'native_cluster_method': core0(ld('r2c_cluster.json')),
+    'native_sample_angle_0.157935': core0(ld('r2angle_cluster.json')), 'size_series': core0(ld('r2size.json'))}
+
+# item 3
+t3 = ld('item3_table.json')['rows']
+out['item3_winding3_overlaps'] = [{'xi_c': e['xi_c'], 'pair_splittings_per_tick': e['pair_splittings_per_tick'],
+                                   'overlaps': [{'w': o['width'], 'd': o['offset'], 'right': o['R'], 'ratios': o['R_ratios'], 'q': o['R_q'],
+                                                 'density': o['D']} for o in e['overlaps']]}
+                                  for e in t3 if e['class'] == [0, 0]]
+out['item3_measured_for_final_comparison_only'] = {'charged_leptons': [1, 206.768, 3477.2], 'up': [1, 588, 79900], 'down': [1, 19.9, 889],
+                                                   'q_heaviest_first': {'leptons': 0.0813, 'up': 0.231, 'down': 2.245}}
+
+# item 4
+out['item4_native_three'] = {'register_Z3_counter': core0(ld('i4_robust.json')),
+                             'answer': 'no field winds three times; Z3 register vortex has winding 1 and binds one mode per cone; '
+                                       'triality flux binds nothing; frame Z3 holonomy does not wind the mass phase (ARGUED)'}
+
+# item 5
+w4 = ld('wall4d.json')
+out['item5_wall_4d'] = [{'label': r['label'], 'totals': r['totals_over_the_64_transverse_points'], 'unitarity': r['unitarity_defect']} for r in w4['rows']]
+mb = ld('memberB_set.json')
+out['item5_memberB_vortex'] = [{'n': r['config']['n'], 'theta0': r['config']['theta0'], 'xi_c': r['config']['xi_c'], 'p3': round(r['config'].get('p3', 0.0), 4),
+                                'class_flux_m': round(r['config'].get('flux', 0.0) / (2 * np.pi / 6), 3), 'states_in_window': r['states_in_window'],
+                                'per_core': [{'w': c['winding'], 'states': c['states'], 'Gamma': c.get('Gamma_eigenvalues'),
+                                              'max_abs_phase': max([abs(x) for x in c.get('phases_per_tick', [0.0])]),
+                                              'velocity': c.get('velocity_per_tick_(Gamma_basis_diagonal)')} for c in r.get('cores', [])]}
+                               for r in mb['results']]
+wl = ld('w_robust.json')
+out['item5_wilson_cos2p_vortex'] = [{'n': r['config']['n'], 'r': r['config']['r'], 'p3': round(r['config'].get('p3', 0.0), 4),
+                                     'classes': [{'class': row['class'], 'states_in_window': row['states_with_|phase|_below_window'],
+                                                  'core0_phases': [round(x, 8) for x in row['cores'][0].get('phases_per_tick', [])],
+                                                  'core0_Gamma': row['cores'][0].get('Gamma_eigenvalues')} for row in r['classes']]}
+                                    for r in wl['results']]
+out['df2_comparison'] = open('df2_compare.txt').read().splitlines()
+json.dump(out, open(sys.argv[1], 'w'), indent=1, default=float)
+print('written', sys.argv[1])

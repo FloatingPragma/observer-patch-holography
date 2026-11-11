@@ -1,0 +1,40 @@
+"""Exact conditional-Gaussian repair control on a native-kernel quotient.
+
+This verifies the proposed NEW field repair law algebraically. It does not
+sample a Gaussian field or change the native trajectory/observer code.
+"""
+from pathlib import Path
+import json
+import sympy as s
+
+HERE=Path(__file__).resolve().parent
+receipt=json.loads((HERE/'cycle_deck_results.json').read_text())
+sector=receipt['components']['face_even']['source_sectors'][0]
+N=sector['internal_states'];counts=s.zeros(N)
+for x,y,z,n in sector['aggregated_kernel_rows']:counts[x,y]+=n
+P=counts/60;kappa=s.Rational(1,60)
+Q=kappa*s.eye(N)+s.eye(N)-P
+Cov=Q.inv()
+assert Q==Q.T and Q*Cov==s.eye(N)
+rows=[]
+for i in range(N):
+    e=s.eye(N)[:,i]
+    A=s.eye(N)-e*Q[i,:]/Q[i,i]
+    assert A*Cov*A.T+e*e.T/Q[i,i]==Cov
+    rows.append({'site':i,'conditional_variance':str(1/Q[i,i]),
+                 'conditional_mean_coefficients':[str(-Q[i,j]/Q[i,i]) if j!=i else '0' for j in range(N)]})
+contraction=1-kappa/(N*max(Q[i,i] for i in range(N)))
+assert contraction==s.Rational(71,72)
+out={'status':'EXACT algebraic NEW Gaussian-repair positive control, no field sampling executed',
+     'native_kernel_source':'cycle_deck_results.json, one-load even component',
+     'finite_domain':'one-cell periodic deck quotient; 12 internal sites, not a 4D-limit test',
+     'declared_mass_regularizer':str(kappa),'precision_matrix':'Q=kappa I+I-P',
+     'stationary_covariance':[[str(v) for v in row] for row in Cov.tolist()],
+     'conditional_updates':rows,'all_conditional_covariance_identities_verified':True,
+     'synchronous_noise_energy_contraction_bound_per_random_scan_step':str(contraction),
+     'scope':{'native_trajectory_rule_changed':False,'new_field_processor_is_declared':True,
+              'Gaussian_noise_and_real_field_variables_are_new_inputs':True,
+              'finite_precision_sampler_implemented':False,'continuum_or_OS_claim':False,
+              'source_selected_particle_mass':False}}
+(HERE/'gaussian_conditional_results.json').write_text(json.dumps(out,indent=2)+'\n')
+print('PASS: 12 exact local conditional repairs preserve the derived covariance; contraction bound 71/72')

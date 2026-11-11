@@ -1,0 +1,378 @@
+"""X4: assemble the scored table generations.json from the six result files of this directory.
+
+Every number in a statement is read from a result file (code.json, triplet.json, walk.json, z3.json, flux.json,
+routing.json); nothing is typed in by hand except the verdicts and the reasoning.
+
+Verdicts: PASS (checked by computation, nothing further declared), DECLARED (holds only with a named declared
+item), FAIL (fails by computation), NONE (the candidate has no such structure). Score: PASS 1, DECLARED 1/2.
+
+Candidates a to e are those of briefs/TASK_X4.md; ab is a and b together; f and g were named by the coordinator
+during the round (work/DESIGN/DESIGN.md entry A; work/SIM/family/rank_one.py) and are checked here independently;
+h, i, j were added by this worker.
+"""
+import itertools
+import json
+import math
+import os
+import sys
+
+import numpy as np
+
+from x4lib import geometry, gal_vec, fl, HERE
+
+def load(name):
+    return json.load(open(os.path.join(HERE, name)))
+
+code, tri, walk, z3, flux, rout = (load(f) for f in ('code.json', 'triplet.json', 'walk.json', 'z3.json', 'flux.json', 'routing.json'))
+REQ = ['exactly_three', 'identical_gauge_charges', 'label', 'place_for_masses', 'mixing', 'anomaly_sums']
+PTS = {'PASS': 1.0, 'DECLARED': 0.5, 'FAIL': 0.0, 'NONE': 0.0}
+
+def f6(x):
+    return f'{x:.6f}'
+
+# numbers used below ------------------------------------------------------------------------------------------
+com = code['commutant_of_the_twelve_responses_on_C5']
+gm = code['gauge_multiplets_of_one_code']
+ca = code['candidate_a_on_the_code_triplet']
+cc = code['candidate_c_on_the_code']
+an1 = code['anomaly_sums_one_family']
+lab = tri['labels_on_the_conjugate_triplet']['rows']
+pl = tri['port_load_on_the_conjugate_triplet']
+gold = tri['golden_pattern']
+cmp_ = tri['comparison_with_frozen_lepton_mixing_NOT_BLIND']
+soft = tri['soft_breaking_of_the_golden_pattern']['cases']
+frames5 = tri['five_frames_orbits']['orbits']
+gc = tri['galois_conjugate_code']
+tt = tri['third_turn_against_the_klein_label']
+sec = walk['sectors_of_the_carrier_walk']
+ang = {(r['sector'], r['record']): r['mass_angle_per_tick'] for r in sec['rows']}
+a_slow, a_quint, a_fast = ang[('slow triplet 3', 'blank')], ang[('quintet 5', 'blank')], ang[('fast triplet 3prime', 'blank')]
+a_qset, a_uset = ang[('quintet 5', 'set')], ang[('uniform', 'set')]
+assert abs(ang[('fast triplet 3prime', 'set')] - a_slow) < 1e-12 and abs(ang[('slow triplet 3', 'set')] - a_fast) < 1e-12
+spin = walk['copy_times_spin_doublet']
+si = walk['second_index_of_the_regular_representation']
+assert si['the_commuting_one_is_a_half_turn_whose_translation_is_the_antipodal_map']
+z3l = z3['levels']
+sepc = flux['separation_classes']['by_dual_distance']
+m1 = flux['rest_phases_M1']['by_alpha_and_separation']
+fsplit = flux['flux_pair_splits_a_load_triplet']
+fcl = flux['three_flux_classes']
+rc = rout['class_conservation_executed']
+zc = rout['zone_corners']
+per = rout['period_of_two_ticks']
+rsym = rout['rotation_symmetry_of_the_tick']
+osm = rout['copies_with_an_ordered_source_of_mass']
+runs = osm['reference_engine_runs']
+atlas = tri['mixing_atlas_on_the_conjugate_triplet']['classes']
+def atlas_class(pair, count):
+    return next(c for c in atlas if c['pair'] == pair and c['pairs_in_class'] == count)
+frame_frame = atlas_class('frame / frame', 10)
+face_frame_flat = atlas_class('face / frame', 20)
+golden_cmp = next(c for c in cmp_['classes_ranked_by_distance_after_the_best_of_36_relabellings'] if c['pair'] == 'port / frame')
+soft_ok = next(c for c in soft if c.get('pull_theta12') is not None and abs(c['fixed_column_squared'][0] - (5 - 5 ** .5) / 10) < 1e-6)
+soft_bad = next(c for c in soft if c.get('pull_theta12') is not None and abs(c['fixed_column_squared'][0] - (5 + 5 ** .5) / 10) < 1e-6)
+ex_split = fsplit['rows']['alpha 1/6, separation 2']
+lep = walk['comparison_NOT_BLIND']['frozen_ratios']
+worst_leak = max(r['largest_weight_outside_after_6_ticks'] for r in rc['rows'])
+Nlam = [l['character_1']['lowest_level_times_carriers'] for l in z3l]
+meas = cmp_['frozen_values_deg']
+def pull(pred, m):
+    v, up, dn = m
+    return (pred - v) / (up if pred > v else dn)
+
+# candidate f against the frozen lepton angles (NOT BLIND): squared overlaps of the second-index axes with the levels
+ch0 = walk['three_copies_in_one_klein_character']['characters'][0]
+Pf = np.array([e['floats'] for e in ch0['eigenvectors']])
+M2 = np.array(cmp_['measured_squared_moduli_from_the_frozen_angles'])
+best = None
+for pr in itertools.permutations(range(3)):
+    for pc in itertools.permutations(range(3)):
+        d = float(np.linalg.norm(Pf[np.ix_(pr, pc)] - M2))
+        if best is None or d < best[0]:
+            best = (d, Pf[np.ix_(pr, pc)])
+def angles_of(P):
+    s13 = P[0, 2]; s12 = P[0, 1] / (1 - s13); s23 = P[1, 2] / (1 - s13)
+    return tuple(math.degrees(math.asin(math.sqrt(min(1.0, max(0.0, x))))) for x in (s12, s23, s13))
+f_ang = angles_of(best[1])
+golden_angle = math.degrees(math.atan(2 / (1 + 5 ** 0.5)))
+assert abs(max(f_ang) - golden_angle) < 1e-3              # table values are rounded to six decimals
+f_cmp = {'distance_to_measured_squared_moduli_best_of_36_relabellings': round(best[0], 4),
+         'closest_relabelling_angles_deg': {'theta12': round(f_ang[0], 3), 'theta23': round(f_ang[1], 3), 'theta13': round(f_ang[2], 3)},
+         'closest_relabelling_pulls': [round(pull(f_ang[0], meas['theta12']), 1), round(pull(f_ang[1], meas['theta23']), 1), round(pull(f_ang[2], meas['theta13']), 1)],
+         'read_as_theta12_pulls': [round(pull(golden_angle, meas['theta12']), 1), round(pull(0.0, meas['theta23']), 1), round(pull(0.0, meas['theta13']), 1)]}
+p_corr = [1 - math.cos(a) for a in (a_slow, a_quint, a_fast)]
+
+def T(verdict, statement, tag, evidence):
+    return {'verdict': verdict, 'statement': statement, 'tag': tag, 'evidence': evidence}
+
+DECL_RESP = ('holds if the twelve responses act on the code only. If the port load also acted on the triplet the response algebra would have '
+             f"{pl['responses_plus_load_on_the_conjugate_triplet']['closure']} dimensions instead of {pl['responses_on_the_code_alone']['closure']} "
+             f"(an su(3) on the copies) and the sixteen states in one complex triplet would give the cubic sum {code['gauged_conjugate_triplet']['cubic_sum_if_the_copies_were_a_gauged_SU3_triplet']}")
+ANOM = (f"three copies of the sixteen states: every sum is three times zero (sum Y = {an1['sum_Y']}, sum Y^3 = {an1['sum_Y_cubed']}, the two mixed sums "
+        f"{an1['SU2_SU2_Y']} and {an1['SU3_SU3_Y']}, colour cubic {an1['SU3_cubed']}, {an1['number_of_SU2_doublets']} doublets); the rotations have determinant one "
+        'on a triplet, so the mixed sums of a Klein, third-turn or fifth-turn label vanish modulo 2, 3, 5; a real triplet has no cubic invariant')
+LEVELS = f"{si['kernel_levels_of_the_three_copies_blank_record'][0]}, {si['kernel_levels_of_the_three_copies_blank_record'][1]}, {si['kernel_levels_of_the_three_copies_blank_record'][2]}"
+
+cands = []
+# a ------------------------------------------------------------------------------------------------------------
+cands.append({'id': 'a', 'source': 'task', 'name': 'the three axes of a cubic frame, read on the triplet of the five-level code',
+    'register': 'the three vector levels of the code (the colour triplet of the map)', 'copies': '3',
+    'tests': {
+        'exactly_three': T('PASS', 'three axes, three nontrivial characters of the Klein group, permuted by a third of a turn', 'EXACT', 'triplet.json: labels_on_the_conjugate_triplet'),
+        'identical_gauge_charges': T('FAIL', f"the projector on a frame axis fails to commute with the responses of {ca['ports_whose_response_does_not_commute_with_the_axis_projector'][0]} of the 12 ports; "
+                                     f"the operators that commute with all twelve responses are a 1_3 + b 1_2 only (dimension {com['total']}): the three states are three colours", 'EXACT', 'code.json: commutant_of_the_twelve_responses_on_C5, candidate_a_on_the_code_triplet'),
+        'label': T('FAIL', 'the lifts of the three half-turns have determinant one on both blocks: they are elements of the gauge group and their characters are colour weights', 'EXACT', 'code.json: candidate_a_on_the_code_triplet'),
+        'place_for_masses': T('FAIL', 'an operator that commutes with the responses is a multiple of the identity on the triplet', 'EXACT', 'code.json: commutant_of_the_twelve_responses_on_C5'),
+        'mixing': T('FAIL', 'the port-against-frame pattern is here a change of colour basis, a gauge rotation', 'EXACT', 'code.json'),
+        'anomaly_sums': T('NONE', f"no copy is added. In the occupation algebra of one code the {gm['sectors']} sectors hold {gm['distinct']} distinct gauge multiplets: every multiplet occurs once, the neutral singlet twice (empty and full pattern)", 'EXACT', 'code.json: gauge_multiplets_of_one_code')},
+    'declared': [], 'verdict': 'excluded: on the code the three axes are colour. A copy label has to live in a register outside the code.'})
+# b ------------------------------------------------------------------------------------------------------------
+cands.append({'id': 'b', 'source': 'task', 'name': 'the conjugate triplet of the carrier as a copy register, no label chosen',
+    'register': f'a triplet of the carrier rotations outside the code. Present program (CF-1, option M3): the load state of the quantum on its carrier; conjugate triplet 3prime at rest angle {f6(a_fast)} per tick, triplet 3 at {f6(a_slow)} (blank record; exchanged when the record is set)', 'copies': '3',
+    'tests': {
+        'exactly_three': T('PASS', 'irreducible of dimension 3 (character norm 1), inequivalent to the triplet of the code (overlap 0)', 'EXACT', 'triplet.json: conjugate_triplet'),
+        'identical_gauge_charges': T('DECLARED', DECL_RESP, 'MEASURED (float64 rank)', 'triplet.json: port_load_on_the_conjugate_triplet'),
+        'label': T('FAIL', f"under all sixty rotations {lab['all rotations']['commuting_hermitian_operators']} invariant operator: no label is singled out", 'EXACT', 'triplet.json: labels_on_the_conjugate_triplet'),
+        'place_for_masses': T('FAIL', f"every invariant operator is a multiple of the identity, also under the stabilizer of a frame (order 12: {lab['frame stabilizer (order 12)']['commuting_hermitian_operators']} invariant): equal masses", 'EXACT', 'triplet.json: labels_on_the_conjugate_triplet'),
+        'mixing': T('NONE', 'no basis is singled out', 'EXACT', 'triplet.json'),
+        'anomaly_sums': T('PASS', ANOM, 'EXACT', 'code.json: anomaly_sums_one_family, discrete_label_sums')},
+    'declared': ['that the responses act on the code only'], 'verdict': 'a register without a label: three equal copies and nothing to tell them apart.'})
+# ab -----------------------------------------------------------------------------------------------------------
+cands.append({'id': 'ab', 'source': 'task (a and b together)', 'name': 'the frame axes (Klein characters) on a triplet register outside the code: the first index',
+    'register': f'as b: the rotation index of a load triplet, or a declared triplet factor. The squared-overlap classes on 3 and 3prime are the same ({tri["mixing_atlas_on_the_conjugate_triplet"]["same_classes_on_the_code_triplet"]})', 'copies': '3',
+    'tests': {
+        'exactly_three': T('PASS', f"three states. In the present program each load triplet is three exactly degenerate states (rest angle {f6(a_slow)} for 3, {f6(a_fast)} for 3prime, blank record); the massless state (uniform load, kernel eigenvalue 1) has one copy", 'EXACT', 'triplet.json: conjugate_triplet; walk.json: sectors_of_the_carrier_walk'),
+        'identical_gauge_charges': T('DECLARED', DECL_RESP, 'MEASURED (float64 rank)', 'triplet.json: port_load_on_the_conjugate_triplet'),
+        'label': T('PASS', f"three distinct characters of the frame's Klein group, one per axis; the Klein group is the rotation symmetry of the CF-1 tick ({rsym['lifts_commuting_with_the_period']} of 24 lifts of the frame stabilizer commute with the period: identity and three half-turns). "
+                   f"Softly broken by a flux pair on the carrier: for a level of charge phase 1/6 and a pair at separation 2 the three states of the triplet 3 move from {f6(a_slow)} to " + ', '.join(f6(x) for x in ex_split['rest_angles']),
+                   'EXACT (characters), MEASURED (tick symmetry, splitting)', 'triplet.json: labels_on_the_conjugate_triplet; routing.json: rotation_symmetry_of_the_tick; flux.json: flux_pair_splits_a_load_triplet'),
+        'place_for_masses': T('DECLARED', f"three independent real values under the Klein group ({lab['frame (Klein group)']['commuting_real_symmetric_operators']} invariants), one under the full stabilizer of the frame or under all rotations. No operator of the program supplies them: the kernel is the identity on this index, "
+                              f"and an unoriented defect background does not split the three at first order in its density (orientation average: spread {fsplit['isotropic_average_spread_on_the_triplet']:.1e})", 'EXACT (invariants), MEASURED (average)', 'triplet.json: labels_on_the_conjugate_triplet; flux.json: flux_pair_splits_a_load_triplet'),
+        'mixing': T('PASS', f"basis of a port's fifth-turn against the frame axes: squared overlaps {', '.join(gold['axial_state'])} for the state along the port and {', '.join(gold['circular_states'])} for each circular state, one class for all {gold['port_frame_pairs']} pairs of a five-fold axis and a frame. Which mass operator follows the port and which the frame is declared", 'EXACT', 'triplet.json: golden_pattern, mixing_atlas_on_the_conjugate_triplet'),
+        'anomaly_sums': T('PASS', ANOM, 'EXACT', 'code.json: anomaly_sums_one_family, discrete_label_sums')},
+    'declared': ['that the responses act on the code only', 'an operator that splits the three', 'which mass operator follows a port and which the frame',
+                 'for three light copies: a triplet factor of the fibre on which every link acts as the identity'],
+    'verdict': 'second. Three identical copies with a native label and the full golden pattern; exactly degenerate in the present program, no mass value.'})
+# c ------------------------------------------------------------------------------------------------------------
+cands.append({'id': 'c', 'source': 'task', 'name': 'the Z3 holonomy of the port-to-port frame rule on the face-glued federation',
+    'register': 'a three-valued chart record of the quantum (the tape of reports/MG.md). Not present in CF-1, where all carriers are translates', 'copies': '3',
+    'tests': {
+        'exactly_three': T('PASS', f"the holonomy group has order 3 at levels 0 to 4: a third of a turn at the {z3l[-1]['vertices_with_nontrivial_holonomy']} five-valent vertices, identity at every six-valent vertex", 'EXACT', 'z3.json: levels'),
+        'identical_gauge_charges': T('DECLARED', f"holds for a record outside the code. Read on the code itself the lifted third of a turn is a gauge rotation: its three charge sectors hold {cc['patterns_per_charge']['0']}, {cc['patterns_per_charge']['1']} and {cc['patterns_per_charge']['2']} of the 32 patterns and split every colour triplet 1 + 1 + 1", 'EXACT', 'code.json: candidate_c_on_the_code'),
+        'label': T('PASS', 'the three characters of the record are conserved by every transport (the group is abelian)', 'EXACT', 'z3.json'),
+        'place_for_masses': T('FAIL', 'characters 1 and 2 are complex conjugates and have equal spectra; their lowest level against character 0, times the number of carriers, is '
+                              + ', '.join(f'{v:.2f}' for v in Nlam) + ' at levels 0 to 4: it falls as 1/N and is no mass at fixed tick', 'MEASURED (float64)', 'z3.json: levels'),
+        'mixing': T('NONE', f"the transport is diagonal in the characters. On a triplet register the third of a turn against a frame it stabilizes gives 1/3 in every entry ({face_frame_flat['pairs_in_class']} such pairs)", 'EXACT', 'triplet.json: mixing_atlas_on_the_conjugate_triplet'),
+        'anomaly_sums': T('PASS', ANOM, 'EXACT', 'code.json')},
+    'declared': ['the chart record as a register of the quantum', 'rule S and the face-glued federation'],
+    'verdict': 'three labels and no place for three masses. It acts on candidate ab: the third of a turn permutes the three axes of each frame it stabilizes, so on that federation the Klein label changes around a cone point.'})
+# d ------------------------------------------------------------------------------------------------------------
+cands.append({'id': 'd', 'source': 'task', 'name': 'the massive internal sectors of the carrier walk, under all sixty rotations',
+    'register': 'the load state of the quantum on its carrier (port register of the public walk), option M3 of CF-1', 'copies': '11 or 23',
+    'tests': {
+        'exactly_three': T('FAIL', f"blank record: three nonzero angles {f6(a_slow)}, {f6(a_quint)}, {f6(a_fast)} with multiplicities 3, 5, 3, beside one massless state. With the record set: {f6(a_slow)} (now the conjugate triplet), {f6(a_qset)}, {f6(a_fast)} (now the triplet 3), {f6(a_uset)}: "
+                           f"{sec['distinct_nonzero_angles_both_records']} distinct nonzero angles", 'EXACT eigenvalues', 'walk.json: sectors_of_the_carrier_walk'),
+        'identical_gauge_charges': T('DECLARED', 'the pattern is independent of the load sector for flat links (CF1 section 6 lists the assignment of sectors to species as declared); the sectors differ in multiplicity', 'ARGUED', 'candidates/CF1.md sections 6 and 10'),
+        'label': T('PASS', 'the multiplet type (uniform, 3, 5, 3prime) is conserved by the carrier walk: both discriminant blocks are functions of the seam adjacency, 11/12 + A/60 and 11/12 - A/60', 'EXACT on the executable', 'walk.json: discriminant_blocks_on_the_public_executable'),
+        'place_for_masses': T('PASS', f"native angles at the scale of the lattice, ratios {sec['blank_ratios'][0]}, {sec['blank_ratios'][1]}, {sec['blank_ratios'][2]} (blank)", 'EXACT eigenvalues', 'walk.json'),
+        'mixing': T('NONE', 'inequivalent multiplets do not mix while all sixty rotations are a symmetry', 'EXACT (Schur)', 'walk.json'),
+        'anomaly_sums': T('PASS', 'every sector carries the complete sixteen states', 'EXACT', 'code.json')},
+    'declared': ['option M3', 'which load sector belongs to which species'], 'verdict': 'under the full carrier group a tower of twelve states per record value in multiplets 1, 3, 5, 3: not three copies. Candidate f is the same tower under the frame group.'})
+# e ------------------------------------------------------------------------------------------------------------
+cands.append({'id': 'e', 'source': 'task', 'name': 'the face separations of a stationary flux pair',
+    'register': 'none on the quantum: a property of the flux pair of the carrier (register rule of the committed runs, issue 1 of the map)', 'copies': '4',
+    'tests': {
+        'exactly_three': T('FAIL', f"four separations, 2 to 5, with {sepc['2']['pairs']}, {sepc['3']['pairs']}, {sepc['4']['pairs']}, {sepc['5']['pairs']} face pairs ({flux['separation_classes']['rotation_classes_of_unordered_pairs_at_separation_2_to_5']} rotation classes: separation 3 has two, with equal rest phases)", 'EXACT', 'flux.json: separation_classes'),
+        'identical_gauge_charges': T('FAIL', 'nothing is copied: a pattern responds through its own charge, and the patterns of charge 0 modulo 6 (both lepton singlets) see no flux at any separation', 'EXACT', 'flux.json: three_flux_classes'),
+        'label': T('FAIL', 'the separation belongs to the carrier, not to the quantum, and changes from carrier to carrier', 'ARGUED', 'reports/CH.md'),
+        'place_for_masses': T('DECLARED', f"option M1: for charge phase 1/2 the rest phases at separation 2 to 5 are {', '.join(f6(m1['1/2'][str(d)]) for d in (2, 3, 4, 5))}", 'MEASURED (float64)', 'flux.json: rest_phases_M1'),
+        'mixing': T('NONE', 'none', '', ''), 'anomaly_sums': T('NONE', 'no copy is added', '', '')},
+    'declared': ['register rule of the runs', 'centre-flux reading', 'option M1'],
+    'verdict': 'four classes of a background. The pair is a breaking of the carrier rotations, not a label: it splits a load triplet (candidate ab, label test).'})
+# f ------------------------------------------------------------------------------------------------------------
+cands.append({'id': 'f', 'source': 'coordinator (work/DESIGN/DESIGN.md entry A), found independently here', 'name': 'the second index of the port space of a carrier in a cubic frame',
+    'register': 'the load state of the quantum on its carrier. With a frame fixed the twelve ports are the elements of its rotation group (order 12); the port space is the regular representation, with a first index (rotations) and a second index', 'copies': '3',
+    'tests': {
+        'exactly_three': T('PASS', 'the rotation group of the frame acts freely and transitively on the ports: the port space holds its triplet exactly three times and each of its three one-dimensional types once (12 = 1 + 1 + 1 + 3 x 3). '
+                           'Under all sixty rotations the three copies are the multiplets 3, part of 5 and 3prime', 'EXACT', 'walk.json: port_space_under_the_frame_stabilizer, second_index_of_the_regular_representation'),
+        'identical_gauge_charges': T('DECLARED', f"both indices live in the load register and the charges in the code: identical patterns for flat links (CF1 section 6 lists the assignment as declared). A copy is a vector of the frame group: with the spin doublet it holds the doublet {spin['multiplicity_of_the_spin_doublet_in_triplet_x_doublet']} time and four further states if the frame rotations act on the load state", 'EXACT (characters)', 'walk.json: copy_times_spin_doublet'),
+        'label': T('PASS', f"the seam adjacency is the sum of the translations of the second action by the five generators (orders {si['generators_orders']}); the second action commutes with every rotation, and {si['second_translations_commuting_with_the_adjacency']} of its {si['of']} translations commute with the adjacency: the identity and the half-turn whose translation is the antipodal map of the carrier. "
+                   'So the seams break the index with no parameter and keep one sign (even on the copy inside the quintet, odd on the two others); the level is conserved by the carrier walk', 'EXACT', 'walk.json: second_index_of_the_regular_representation'),
+        'place_for_masses': T('PASS', f"three levels with no parameter: kernel {LEVELS}; with the carrier walk as mass step (option M3) rest angles {f6(a_slow)}, {f6(a_quint)}, {f6(a_fast)} per tick, order inverted when the record is set ({f6(a_fast)}, {f6(a_qset)}, {f6(a_slow)}). "
+                              f"Of order one: ratios {sec['blank_ratios'][0]}, {sec['blank_ratios'][1]}, {sec['blank_ratios'][2]}", 'EXACT eigenvalues', 'walk.json: second_index_of_the_regular_representation, sectors_of_the_carrier_walk'),
+        'mixing': T('PASS', f"axes of the second index (the three golden rectangles of the frame) against the levels: one axis is a level, the two others are rotated by the angle with tangent 1/phi ({golden_angle:.3f} degrees), squared components {si['squared_components_of_the_sqrt5_eigenvector'][1]} and {si['squared_components_of_the_sqrt5_eigenvector'][2]}; "
+                    f"adjacency on the index M3 = {si['M3_in_the_raw_frame']} in the raw frame, {', '.join(si['adjacency_on_the_three_one_dimensional_types'])} on the one-dimensional types. The six frame seams, which are the seams shared between carriers, are diagonal in the axes ({', '.join(ch0['frame_seam_laplacian_in_the_rectangle_basis'][i][i] for i in range(3))}); the full adjacency is not: "
+                    'two native bases, that of the shared seams and that of the carrier walk', 'EXACT', 'walk.json: second_index_of_the_regular_representation, three_copies_in_one_klein_character'),
+        'anomaly_sums': T('PASS', 'every copy carries the complete sixteen states', 'EXACT', 'code.json')},
+    'declared': ['which of the five frames', 'option M3 for the rest angles', 'that the species of the chart sit on load states of the triplet type'],
+    'verdict': 'first by score: copies, their breaking, three levels and one mixing angle come with nothing declared beyond the frame and the product with the code. The levels are of order one in fixed ratios and the massless type has one copy: it supplies a label and an angle, not the masses.'})
+# g ------------------------------------------------------------------------------------------------------------
+one = runs['one cell']; allc = runs['all cells of one independent lattice']; kindrun = runs['the even cells of one kind']
+sim8 = osm['simulation_session_8cubed']
+cands.append({'id': 'g', 'source': 'coordinator (work/SIM/family/rank_one.py; cones of reports/R3.md, R4.md), checked here on the reference engine', 'name': 'the copies of the routing cone, with an ordered source of mass',
+    'register': 'the cell of the quantum modulo the moves of the tick: four independent lattices (parities x1 + x2, x2 + x3), and on each the origin cone with three copies labelled by the frame axes', 'copies': '4',
+    'tests': {
+        'exactly_three': T('FAIL', f"four copies on each of four independent lattices: the period equals 1 at {per['points_with_W2_plus_one']} wave vectors ({per['cones_per_parity_class_of_cells']['zero_phase']} per parity class of cells: the origin and three labelled by a frame axis) and -1 at {per['points_with_W2_minus_one']} others, which no mass step gaps. "
+                           f"A source on one cell lifts one copy and leaves three at zero ({one['lifted']} of the 32 rest states of its lattice)", 'MEASURED (float64)', 'routing.json: period_of_two_ticks, copies_with_an_ordered_source_of_mass'),
+        'identical_gauge_charges': T('DECLARED', 'every copy carries every pattern. In the reading where the arrow sector is the handedness two of the four copies have the handedness of the origin and two the opposite one: mirror copies', 'MEASURED (float64)', 'routing.json: period_of_two_ticks'),
+        'label': T('PASS', f"the independent lattice is conserved by the tick with a link field, both mass steps and the alternating order (weight outside after six ticks {worst_leak:.1e}); the cone is conserved by the free flat-link tick and broken by any source that distinguishes kinds of cell", 'MEASURED (float64, reference engine)', 'routing.json: class_conservation_executed'),
+        'place_for_masses': T('DECLARED', f"a uniform mass step gives all four the same rest phase. With an ordered source the rest phase of a copy is the source angle averaged over the cells of its kind: on 4^3 one source cell (angle {osm['theta_source']}) lifts {one['lifted']} states to {one['lifted_phases_per_tick'][0][0]} "
+                              f"(angle / {osm['cells_of_one_kind_on_this_lattice']}) and leaves {one['rest_states_left_at_zero']} at zero; the {kindrun['source_cells']} even cells of one kind lift {kindrun['lifted']} states to {kindrun['lifted_phases_per_tick'][0][0]}; all {allc['source_cells']} cells of a lattice lift {allc['lifted']} to {allc['lifted_phases_per_tick'][0][0]}. "
+                              f"Simulation session on 8^3: one cell lifts {sim8['1']['lifted']} states to {sim8['1']['largest_lifted_phase']:.5f}. The hierarchy is that of the source pattern, which is declared", 'MEASURED (float64)', 'routing.json: copies_with_an_ordered_source_of_mass; work/SIM/family/rank_one.json'),
+        'mixing': T('PASS', 'the four cones are the four characters of the Klein group of cell kinds: every squared overlap between a cone and a kind of cell is 1/4', 'EXACT (character table), checked in float64', 'routing.json: copies_with_an_ordered_source_of_mass'),
+        'anomaly_sums': T('PASS', 'every copy carries the complete sixteen states; with the mirror copies the set is vector-like', 'EXACT', 'code.json')},
+    'declared': ['the pattern of the source of mass', 'the reading of the arrow sector'],
+    'verdict': 'four copies with alternating handedness, not three. A point source makes one heavy and leaves three massless; the hierarchy is free until something orders the state that gives mass.'})
+# h ------------------------------------------------------------------------------------------------------------
+pt = fcl['patterns']
+cands.append({'id': 'h', 'source': 'added', 'name': 'the three flux classes up to conjugation: {1,5}, {2,4}, {3}',
+    'register': 'none on the quantum: the class of the flux on the carrier', 'copies': '3',
+    'tests': {
+        'exactly_three': T('PASS', 'three classes up to conjugation', 'EXACT', 'flux.json: three_flux_classes'),
+        'identical_gauge_charges': T('FAIL', f"each pattern sees the classes through its own charge. Rest phases at separation 1 in classes 1, 2, 3: quark doublet {pt['quark doublet Q_L']['rest_phase_at_separation_1']}, "
+                                     f"quark singlets {pt['up singlet u_R']['rest_phase_at_separation_1']}, lepton doublet {pt['lepton doublet L_L']['rest_phase_at_separation_1']}, lepton singlets {pt['electron singlet e_R']['rest_phase_at_separation_1']}; "
+                                     'the two handedness patterns of a Dirac pair agree only in class 2, where the leptons see nothing', 'EXACT (charges), MEASURED (phases)', 'flux.json: three_flux_classes'),
+        'label': T('FAIL', 'a label of the background', 'ARGUED', 'reports/CH.md'),
+        'place_for_masses': T('DECLARED', 'option M1; only the quark doublet gets three different angles', 'MEASURED', 'flux.json: three_flux_classes'),
+        'mixing': T('NONE', 'none', '', ''), 'anomaly_sums': T('NONE', 'no copy is added', '', '')},
+    'declared': ['register rule of the runs', 'centre-flux reading', 'option M1'], 'verdict': 'three backgrounds, not three copies.'})
+# i ------------------------------------------------------------------------------------------------------------
+cands.append({'id': 'i', 'source': 'added', 'name': 'the five cubic frames as sectors',
+    'register': 'which of the five frames the family uses (declared in CF-1, section 6)', 'copies': '5',
+    'tests': {
+        'exactly_three': T('FAIL', f"five. Orbits: {frames5['face third-turns']} under the third-turns of a face, {frames5['port fifth-turns']} under the fifth-turns of a port, {frames5['Klein group of a frame']} under the Klein group of a frame", 'EXACT', 'triplet.json: five_frames_orbits'),
+        'identical_gauge_charges': T('PASS', 'the sectors are rotated copies of one another', 'EXACT', 'triplet.json'),
+        'label': T('DECLARED', 'the frame is declared equal in all carriers', 'ARGUED', 'candidates/CF1.md section 6'),
+        'place_for_masses': T('FAIL', 'related by rotations of the carrier: equal spectra', 'EXACT', 'triplet.json'),
+        'mixing': T('PASS', f"frame against frame on a triplet: every row holds {', '.join(frame_frame['exact'][0])}", 'EXACT', 'triplet.json: mixing_atlas_on_the_conjugate_triplet'),
+        'anomaly_sums': T('PASS', 'every sector carries the complete sixteen states', 'EXACT', 'code.json')},
+    'declared': ['all five frames as sectors'], 'verdict': 'five, not three; three of them form an orbit only under the third-turns of one face.'})
+# j ------------------------------------------------------------------------------------------------------------
+pr = gc['pairings_span_closure_centre']
+cands.append({'id': 'j', 'source': 'added', 'name': 'the Galois-conjugate code (triplet 3prime with doublet 2)',
+    'register': 'a second five-level code in the conjugate frames', 'copies': '2',
+    'tests': {
+        'exactly_three': T('FAIL', f"two: of the four pairings of a triplet with a doublet the code and its conjugate have span {pr['triplet 3 with doublet 2prime (the code)'][0]}, the two others span {pr['triplet 3 with doublet 2'][0]}", 'MEASURED (float64 rank)', 'triplet.json: galois_conjugate_code'),
+        'identical_gauge_charges': T('FAIL', f"with the responses of both codes locked port by port the algebra has {gc['code_and_conjugate_code_locked_port_by_port']['closure']} dimensions, not {pr['triplet 3 with doublet 2prime (the code)'][1]}: the second code has gauge fields of its own", 'MEASURED (float64 rank)', 'triplet.json: galois_conjugate_code'),
+        'label': T('NONE', 'not examined', '', ''), 'place_for_masses': T('NONE', 'not examined', '', ''),
+        'mixing': T('NONE', 'not examined', '', ''), 'anomaly_sums': T('NONE', 'not examined', '', '')},
+    'declared': [], 'verdict': 'two codes with separate gauge fields: a mirror sector, not a generation.'})
+
+for c in cands:
+    c['score'] = sum(PTS[c['tests'][r]['verdict']] for r in REQ)
+    c['verdicts'] = [c['tests'][r]['verdict'] for r in REQ]
+ranking = sorted(cands, key=lambda c: -c['score'])
+assert ranking[0]['id'] == 'f' and ranking[1]['id'] == 'ab'
+
+# loadable data for the simulation session -------------------------------------------------------------------
+geo = geometry()
+V = geo['V']
+fr0 = geo['frames'][0]
+port = geo['port_axes'][0][0]
+def u0(conj):
+    tr = gal_vec if conj else (lambda v: v)
+    nvec = np.array([fl(x) for x in tr(V[port])]); nvec /= np.linalg.norm(nvec)
+    E = np.array([[fl(x) for x in tr(e)] for e in fr0['axes']])
+    a1 = np.cross(nvec, E[0] if abs(nvec @ E[0]) < 0.9 else E[1]); a1 /= np.linalg.norm(a1); b1 = np.cross(nvec, a1)
+    ep = (a1 + 1j * b1) / math.sqrt(2)
+    U = np.array([[nvec @ e for e in E], [np.vdot(ep, e) for e in E], [np.vdot(ep.conj(), e) for e in E]])
+    assert np.allclose(U @ U.conj().T, np.eye(3))
+    return {'rows': ['state along the port axis', 'circular state +', 'circular state -'], 'columns': ['frame axis 1', 'frame axis 2', 'frame axis 3'],
+            'real': [[round(float(x.real), 9) for x in r] for r in U], 'imag': [[round(float(x.imag), 9) for x in r] for r in U],
+            'squared': [[round(float(abs(x) ** 2), 9) for x in r] for r in U]}
+names = {(0, 0): 'antineutrino singlet', (1, 0): 'down quark, right-handed', (2, 0): 'up antiquark', (3, 0): 'electron, right-handed',
+         (0, 1): 'antilepton doublet', (1, 1): 'quark doublet', (2, 1): 'antiquark doublet', (3, 1): 'lepton doublet',
+         (0, 2): 'positron', (1, 2): 'up quark, right-handed', (2, 2): 'down antiquark', (3, 2): 'neutrino, right-handed'}
+copy_name = {'slow triplet 3': 'copy 1', 'quintet 5': 'copy 2', 'fast triplet 3prime': 'copy 3'}
+grid = []
+for ch in walk['three_copies_in_one_klein_character']['characters']:
+    for e in ch['eigenvectors']:
+        a = e['mass_angle_per_tick_blank_record']
+        grid.append({'first_index_klein_character': ch['klein_character'], 'copy': copy_name[e['sector']], 'carrier_multiplet': e['sector'], 'kernel_eigenvalue': e['kernel_eigenvalue'],
+                     'rest_angle_per_tick_blank_record': a, 'correction_probability_at_rest': 1 - math.cos(a), 'port_amplitudes': e['port_amplitudes'],
+                     'squared_overlaps_with_the_three_rectangles': e['floats']})
+loadable = {
+    'second_index': {
+        'frame': {'matching': [list(e) for e in fr0['matching']], 'axes': [[fl(x) for x in e] for e in fr0['axes']],
+                  'half_turns_as_port_permutations': [list(h['perm']) for h in fr0['half_turns']],
+                  'note': 'the raw-chart frame of the public carrier; the four others are rotated copies'},
+        'axes_of_the_second_index': {'rectangles_of_ports': walk['three_copies_in_one_klein_character']['rectangles'],
+                                     'note': 'the three orbits of the Klein group on the ports: each holds the two frame seams shared with the two neighbours along one lattice axis. '
+                                             'For a fixed first index the three axes are the three rectangles, in an order that shifts cyclically with the first index'},
+        'copies': [{'id': 'copy 1', 'kernel_level': si['kernel_levels_of_the_three_copies_blank_record'][0], 'rest_angle_per_tick_blank_record': a_slow, 'correction_probability_at_rest': p_corr[0]},
+                   {'id': 'copy 2', 'kernel_level': si['kernel_levels_of_the_three_copies_blank_record'][1], 'rest_angle_per_tick_blank_record': a_quint, 'correction_probability_at_rest': p_corr[1]},
+                   {'id': 'copy 3', 'kernel_level': si['kernel_levels_of_the_three_copies_blank_record'][2], 'rest_angle_per_tick_blank_record': a_fast, 'correction_probability_at_rest': p_corr[2]}],
+        'adjacency_on_the_index_raw_frame': si['M3_in_the_raw_frame'],
+        'nine_states': grid,
+        'one_dimensional_types': 'uniform (kernel 1, rest angle 0, one copy) and the two complex characters of the third of a turn inside the quintet (kernel 9/10, rest angle %s)' % f6(a_quint)},
+    'copies_of_the_chart': [{'pattern': list(k), 'name': v, 'Q6': 3 * k[1] - 2 * k[0], 'copies': ['copy 1', 'copy 2', 'copy 3'], 'charges_of_the_copies': 'identical'} for k, v in names.items()],
+    'first_index_alternative': {
+        'labels': [{'id': f'g{j + 1}', 'frame_axis': [fl(x) for x in fr0['axes'][j]], 'klein_character_on_the_three_half_turns': [1 if i == j else -1 for i in range(3)]} for j in range(3)],
+        'mixing_port_against_frame': {'reference_port': port, 'on_the_conjugate_triplet': u0(True), 'on_the_triplet_3': u0(False),
+                                      'exact_squares': {'state along the port axis': gold['axial_state'], 'each circular state': gold['circular_states']}}}}
+
+best = {
+    'id': 'f',
+    'statement': 'A generation is a value of the second index of the port space of a carrier in the cubic frame: the frame group makes the twelve ports its own elements, the port space then holds the triplet three times, and the seams act on the copy index only.',
+    'predicts': [
+        {'item': 'exactly three copies of every load state of the triplet type, no fourth; one copy of each one-dimensional type, among them the uniform state', 'tag': 'EXACT'},
+        {'item': f"three levels with no parameter: kernel {LEVELS}; correction probabilities at rest (one minus the level, lead L30) {p_corr[0]:.6f}, {p_corr[1]:.6f}, {p_corr[2]:.6f}; rest angles {f6(a_slow)}, {f6(a_quint)}, {f6(a_fast)} per tick under option M3, inverted order with the record set", 'tag': 'EXACT eigenvalues'},
+        {'item': f"one axis of the index is a level; the two others mix by the angle with tangent 1/phi, {golden_angle:.3f} degrees (squared components {si['squared_components_of_the_sqrt5_eigenvector'][1]} and {si['squared_components_of_the_sqrt5_eigenvector'][2]}); one sign of the second action stays exact, the antipodal map of the carrier", 'tag': 'EXACT'},
+        {'item': 'the first index (frame axes) is untouched by the kernel: every copy is three exactly degenerate states', 'tag': 'EXACT'}],
+    'refuted_by': [
+        {'item': 'a law whose symmetry on the load register stays the full carrier group: the copies are then the inequivalent multiplets 3, 5, 3prime, the middle copy is three fifths of a quintet, and nothing repeats (candidate d). The carrier walk of CF-1 has that symmetry; the frame enters through the routing only', 'where': 'program'},
+        {'item': 'no state with rest angle zero in a triplet: the massless type has one copy, so the three copies stay at the scale of the lattice', 'where': 'program'},
+        {'item': f"NOT BLIND. Read as masses the levels have the fixed ratios {sec['blank_ratios'][1]} and {sec['blank_ratios'][2]} against {lep['muon_electron_CODATA2022']:.2f} and {lep['tau_electron_CODATA2022']:.2f} for the charged leptons: the levels are not the masses of the generations", 'where': 'measurement'},
+        {'item': f"NOT BLIND. As a lepton mixing matrix: one angle {golden_angle:.3f} degrees and two zeros against theta12 = {meas['theta12'][0]}, theta23 = {meas['theta23'][0]}, theta13 = {meas['theta13'][0]} degrees. Read as theta12 the pulls are {f_cmp['read_as_theta12_pulls'][0]}, {f_cmp['read_as_theta12_pulls'][1]}, {f_cmp['read_as_theta12_pulls'][2]}; "
+                 f"distance of squared moduli {f_cmp['distance_to_measured_squared_moduli_best_of_36_relabellings']} against {golden_cmp['distance_to_measured_squared_moduli']} for the pattern of candidate ab", 'where': 'measurement'}],
+    'resembles_NOT_BLIND': f"three copies of which one does not mix and two mix by one large angle; the angle {golden_angle:.3f} degrees is the golden-ratio value of the solar angle (name imported)",
+    'differs_NOT_BLIND': 'no hierarchy and no light copy; the two other mixing angles vanish',
+    'second_candidate': {
+        'id': 'ab', 'statement': 'the first index: the three frame axes on a triplet register',
+        'predicts': [
+            f"three exactly degenerate copies; three independent masses are allowed by the Klein group, which is the rotation symmetry of the CF-1 tick, and none is supplied",
+            f"with one mass operator invariant under a port's fifth-turn and another under the frame's Klein group: squared moduli {', '.join(gold['axial_state'])} / {', '.join(gold['circular_states'])}: theta12 = {golden_cmp['theta12_deg']}, theta23 = {golden_cmp['theta23_deg']}, theta13 = {golden_cmp['theta13_deg']} degrees",
+            f"NOT BLIND (theta13 as input): Klein group reduced to the half-turn that keeps the column {soft_ok['fixed_column_squared'][0]}, {soft_ok['fixed_column_squared'][1]}, {soft_ok['fixed_column_squared'][2]}, real operator: theta12 = {soft_ok['theta12_deg']} degrees, theta23 = {soft_ok['theta23_deg']} degrees, |sin delta| = {soft_ok['abs_sin_delta']}"],
+        'refuted_by': [
+            f"a law in which the port load acts on the copies: response algebra {pl['responses_on_the_code_alone']['closure']} -> {pl['responses_plus_load_on_the_conjugate_triplet']['closure']} dimensions, cubic sum {code['gauged_conjugate_triplet']['cubic_sum_if_the_copies_were_a_gauged_SU3_triplet']}",
+            f"a chart transport with the holonomy of rule S: the third of a turn about a face permutes the three axes of each of the {tt['frames_fixed_by_each_third_turn']} frames it stabilizes ({tt['pairs_checked']} cases)",
+            f"NOT BLIND: theta13 = 0 against {meas['theta13'][0]} +- {meas['theta13'][1]} degrees ({golden_cmp['pulls'][2]} uncertainties); theta12 {golden_cmp['pulls'][0]}, theta23 +{golden_cmp['pulls'][1]}; after the repair theta12 {soft_ok['pull_theta12']}, theta23 +{soft_ok['pull_theta23']}, delta = 270 degrees +{soft_ok['pull_delta_270']} (90 degrees {soft_ok['pull_delta_90']}); the other column gives theta12 = {soft_bad['theta12_deg']} degrees ({soft_bad['pull_theta12']})"]}}
+
+out = {
+    'schema': 'oph.repair_law.x4.generations.v1', 'date': '2026-11-10',
+    'status': 'best guess for issue 6 of RL/MAP.md. Representation level. No law supplies a generation; no mass and no mixing angle of nature is derived.',
+    'requirements': {'exactly_three': 'exactly three copies', 'identical_gauge_charges': 'identical gauge charges for the three',
+                     'label': 'the copies distinguishable by a conserved or softly broken label', 'place_for_masses': 'a place for different masses',
+                     'mixing': 'the mixing structure between two bases', 'anomaly_sums': 'compatibility with the vanishing anomaly sums'},
+    'scoring': 'PASS = 1 (checked by computation), DECLARED = 1/2 (holds with a named declared item), FAIL = 0, NONE = 0 (no such structure)',
+    'candidates': cands,
+    'ranking': [{'id': c['id'], 'score': c['score'], 'name': c['name']} for c in ranking],
+    'best': best,
+    'what_the_map_should_say': {
+        'row': {'standard_model_object': 'Second and third generation',
+                'object_in_the_working_law': 'best guess: the second index of the port space of a carrier in the cubic frame. With the frame fixed the ports are the elements of its rotation group, the port space holds the triplet three times, '
+                                              'and the seams act on the copy index alone: kernel levels %s (rest angles %s, %s, %s per tick with the carrier walk as mass step)' % (LEVELS, f6(a_slow), f6(a_quint), f6(a_fast)),
+                'protected_by': 'the level is conserved by the carrier walk; one sign of the second action is exact (the antipodal map)',
+                'match': 'three copies with identical charges: exact. One mixing angle %.2f degrees between the axes of the index and the levels' % golden_angle,
+                'missing': 'a hierarchy (the levels are of order one, ratios %s and %s); three light copies (the massless state has one copy); two more mixing angles; spin (a copy is a vector of the frame group)' % (sec['blank_ratios'][1], sec['blank_ratios'][2])},
+        'issue_6': 'One code repeats nothing: each gauge multiplet occurs once (the neutral singlet twice), so copies live in a register outside the code. The load register of a carrier in a frame holds nine vector states, three by three: '
+                   'the first index (frame axes) is conserved and degenerate, the second is broken by the seams into three levels with one mixing angle. The routing tick makes four copies of every cone on four independent lattices, with alternating handedness. '
+                   'Nothing in the program gives three light copies.'},
+    'loadable': loadable,
+    'mixing_atlas': atlas,
+    'not_blind': {'lepton_mixing': cmp_, 'second_index_against_lepton_mixing': f_cmp, 'soft_breaking': soft, 'charged_lepton_ratios': walk['comparison_NOT_BLIND']},
+    'corrections': [
+        'candidates/CF1.md section 10: the rows "slow triplet (either record)" and "fast triplet (either record)" name kernel eigenvalues, not multiplets. With the record set the eigenvalue 11/12 + sqrt5/60 '
+        '(angle %s) belongs to the conjugate triplet and 11/12 - sqrt5/60 (angle %s) to the triplet 3: the set-record block is 11/12 - A/60, checked entry by entry on the executable.' % (f6(a_slow), f6(a_fast)),
+        'work/DESIGN/DESIGN.md entry A, refinement: of the twelve translations of the second action %d commute with the adjacency, the identity and the half-turn whose translation is the antipodal map; the other ten do not.' % si['second_translations_commuting_with_the_adjacency']],
+    'evidence_files': ['code.json', 'triplet.json', 'walk.json', 'z3.json', 'flux.json', 'routing.json']}
+path = sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, 'generations.json')
+json.dump(out, open(path, 'w'), indent=1)
+
+short = {'PASS': 'pass', 'DECLARED': 'declared', 'FAIL': 'fail', 'NONE': 'none'}
+print('| Id | Candidate | Copies | Three | Charges | Label | Masses | Mixing | Anomalies | Score |')
+print('| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |')
+for c in ranking:
+    print(f"| {c['id']} | {c['name']} | {c['copies']} | " + ' | '.join(short[v] for v in c['verdicts']) + f" | {c['score']:.1f} |")
+print('second index against the frozen lepton angles (NOT BLIND):', f_cmp)
+print('correction probabilities of the three copies:', [round(p, 6) for p in p_corr], '; golden angle', round(golden_angle, 3))

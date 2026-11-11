@@ -1,0 +1,104 @@
+{
+ "task": "LP direction 1: lead A, UH register against the symmetric double load",
+ "A3_R1_coherent": {
+  "weight on S_same": "x**2*exp(-2*x)",
+  "stationary points x = |alpha|^2": [
+   "1"
+  ],
+  "maximum": "exp(-2)",
+  "maximum_float": 0.1353352832366127,
+  "share of S in the two-quanta sector of the dimer": "1/2",
+  "share of the doubles in the two-quanta sector, six equal ports": "1/6"
+ },
+ "A4_R1_squeezed": {
+  "weight on S_neutral": "2*t*(t - 1)**2",
+  "stationary points t": [
+   "1/3",
+   "1"
+  ],
+  "maximum": "8/27",
+  "limit t -> 1 (eigenvector of B, eigenvalue 0)": "0",
+  "<B^dag B> on psi_t": "-(sqrt(t) - 1)**2/(t - 1)",
+  "limit of <B^dag B>": "0",
+  "weight of one neutral pair at one port": "t (1 - t), maximum 1/4"
+ },
+ "A5_R2_squeezed_across_the_dimer": {
+  "components of psi_t": "|n at port 2, n at port 10>",
+  "weight on S = (|2,0> + |0,2>)/sqrt2": "0 for every t",
+  "one-pair term": "one quantum on each port (the E-kept dimer of FR round 3), weight t (1 - t) <= 1/4",
+  "R2 coherent product, equal real amplitudes": "weight x^2 exp(-2x), maximum exp(-2)"
+ },
+ "A2_R3_truncation": {
+  "states per cell": 5,
+  "largest occupation of one cell": 1,
+  "weight on S (two quanta on one port)": "0 for every state",
+  "two-quanta content on the dimer": "one quantum on each port: the E-kept dimer"
+ },
+ "A7_even_projection": {
+  "conditional weight of the double load given a nonempty port": "x**2/(2*(cosh(x) - 1))",
+  "values": {
+   "1/10": 0.9991670831680473,
+   "1/2": 0.979424522258191,
+   "1": 0.9206735942077923,
+   "2": 0.7240616609663104
+  },
+  "limit x -> 0": "1"
+ },
+ "numerical_checks": {
+  "A3 at x = 1 (truncated)": 0.13533528323661292,
+  "A4 at t = 1/3 (truncated)": 0.29629629629629645,
+  "||B psi_t||^2 at t = 0.5": 0.17157287525380988,
+  "closed form at t = 0.5": 0.17157287525380988,
+  "||B psi_t||^2 at t = 0.8": 0.05572704808236085,
+  "closed form at t = 0.8": 0.05572809000084123,
+  "||B psi_t||^2 at t = 0.9": 0.026044903879081746,
+  "closed form at t = 0.9": 0.026334038989724026,
+  "<B> on |2,0>": 0.0,
+  "<B> on |1,1>": 0.0
+ },
+ "scan_displaced_squeezed (MEASURED)": {
+  "grid": {
+   "t": [
+    0.0,
+    0.1,
+    0.2,
+    0.3333333333333333,
+    0.45,
+    0.6,
+    0.75
+   ],
+   "gamma": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0,
+    1.25,
+    1.5
+   ]
+  },
+  "largest weight on S_same": [
+   0.13533528323661292,
+   {
+    "t": 0.0,
+    "gamma_a": 1.0,
+    "gamma_b": 0.0,
+    "Higgs amplitude gamma_a + gamma_b": 1.0
+   }
+  ],
+  "largest weight on S_neutral": [
+   0.29629629629629645,
+   {
+    "t": 0.3333333333333333,
+    "gamma_a": 0.0,
+    "gamma_b": 0.0,
+    "Higgs amplitude gamma_a + gamma_b": 0.0
+   }
+  ],
+  "bound for every product state of the two ports": "2 p_pair p_0 <= 1/2"
+ },
+ "A1_vacuum": "weight 0 in every reading (no quantum)",
+ "A6_statement": "a state with weight one on S lies in the two-quanta sector; B and B^dag change the number of quanta by one, so <B> = 0 on it; a common eigenvector of B and B^dag with a nonzero eigenvalue has weight below one on every sector of fixed number",
+ "verdict": "no Higgs state of UH's register has weight one on the symmetric double load; the largest weights found are exp(-2) (coherent, S_same) and 8/27 (squeezed, S_neutral); the five-state truncation has weight 0",
+ "seconds": 0.49
+}

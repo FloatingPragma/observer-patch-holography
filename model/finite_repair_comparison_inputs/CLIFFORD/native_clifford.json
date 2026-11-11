@@ -1,0 +1,438 @@
+{
+ "perfect_matchings_total": 125,
+ "klein_four_groups": 5,
+ "stabilizer_order_histogram_of_all_matchings": {
+  "2": 60,
+  "4": 30,
+  "6": 30,
+  "12": 5
+ },
+ "stabilizer_orders_of_the_five_frames": [
+  12
+ ],
+ "the_five_frame_matchings_partition_the_thirty_seams": true,
+ "worst_defects": {
+  "covariance_doublet": 9.994175390735497e-16,
+  "covariance_triplet": 1.3322676295501878e-15,
+  "clifford": 2.1649348980190553e-15,
+  "quaternion": 0.0,
+  "axes_orthogonal": 4.996003610813204e-16,
+  "midpoints_on_axes": 1.1102230246251565e-16,
+  "dirac_square": 4.440892098500626e-15,
+  "triplet_commute": 4.440892098500626e-16
+ },
+ "frames": [
+  {
+   "matching": [
+    [
+     0,
+     1
+    ],
+    [
+     2,
+     3
+    ],
+    [
+     4,
+     5
+    ],
+    [
+     6,
+     7
+    ],
+    [
+     8,
+     9
+    ],
+    [
+     10,
+     11
+    ]
+   ],
+   "half_turns": [
+    [
+     1,
+     0,
+     3,
+     2,
+     6,
+     7,
+     4,
+     5,
+     11,
+     10,
+     9,
+     8
+    ],
+    [
+     2,
+     3,
+     0,
+     1,
+     7,
+     6,
+     5,
+     4,
+     9,
+     8,
+     11,
+     10
+    ],
+    [
+     3,
+     2,
+     1,
+     0,
+     5,
+     4,
+     7,
+     6,
+     10,
+     11,
+     8,
+     9
+    ]
+   ],
+   "triplet_reflections_diagonal_in_frame": true
+  },
+  {
+   "matching": [
+    [
+     0,
+     11
+    ],
+    [
+     1,
+     7
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     3,
+     8
+    ],
+    [
+     5,
+     9
+    ],
+    [
+     6,
+     10
+    ]
+   ],
+   "half_turns": [
+    [
+     3,
+     4,
+     7,
+     0,
+     1,
+     9,
+     10,
+     2,
+     11,
+     5,
+     6,
+     8
+    ],
+    [
+     8,
+     7,
+     4,
+     11,
+     2,
+     6,
+     5,
+     1,
+     0,
+     10,
+     9,
+     3
+    ],
+    [
+     11,
+     2,
+     1,
+     8,
+     7,
+     10,
+     9,
+     4,
+     3,
+     6,
+     5,
+     0
+    ]
+   ],
+   "triplet_reflections_diagonal_in_frame": true
+  },
+  {
+   "matching": [
+    [
+     0,
+     10
+    ],
+    [
+     1,
+     5
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     3,
+     9
+    ],
+    [
+     4,
+     11
+    ],
+    [
+     7,
+     8
+    ]
+   ],
+   "half_turns": [
+    [
+     3,
+     6,
+     5,
+     0,
+     11,
+     2,
+     1,
+     8,
+     7,
+     10,
+     9,
+     4
+    ],
+    [
+     9,
+     5,
+     6,
+     10,
+     7,
+     1,
+     2,
+     4,
+     11,
+     0,
+     3,
+     8
+    ],
+    [
+     10,
+     2,
+     1,
+     9,
+     8,
+     6,
+     5,
+     11,
+     4,
+     3,
+     0,
+     7
+    ]
+   ],
+   "triplet_reflections_diagonal_in_frame": true
+  },
+  {
+   "matching": [
+    [
+     0,
+     5
+    ],
+    [
+     1,
+     8
+    ],
+    [
+     2,
+     11
+    ],
+    [
+     3,
+     6
+    ],
+    [
+     4,
+     9
+    ],
+    [
+     7,
+     10
+    ]
+   ],
+   "half_turns": [
+    [
+     3,
+     8,
+     11,
+     0,
+     10,
+     6,
+     5,
+     9,
+     1,
+     7,
+     4,
+     2
+    ],
+    [
+     5,
+     11,
+     8,
+     6,
+     7,
+     0,
+     3,
+     4,
+     2,
+     10,
+     9,
+     1
+    ],
+    [
+     6,
+     2,
+     1,
+     5,
+     9,
+     3,
+     0,
+     10,
+     11,
+     4,
+     7,
+     8
+    ]
+   ],
+   "triplet_reflections_diagonal_in_frame": true
+  },
+  {
+   "matching": [
+    [
+     0,
+     7
+    ],
+    [
+     1,
+     9
+    ],
+    [
+     2,
+     10
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     5,
+     11
+    ],
+    [
+     6,
+     8
+    ]
+   ],
+   "half_turns": [
+    [
+     3,
+     9,
+     10,
+     0,
+     7,
+     8,
+     11,
+     4,
+     5,
+     1,
+     2,
+     6
+    ],
+    [
+     4,
+     2,
+     1,
+     7,
+     0,
+     11,
+     8,
+     3,
+     6,
+     10,
+     9,
+     5
+    ],
+    [
+     7,
+     10,
+     9,
+     4,
+     3,
+     6,
+     5,
+     0,
+     11,
+     2,
+     1,
+     8
+    ]
+   ],
+   "triplet_reflections_diagonal_in_frame": true
+  }
+ ],
+ "walk_symbol_check": [
+  {
+   "a": 0.2,
+   "walk_phases": [
+    -0.23517297,
+    -0.21188545,
+    0.21188545,
+    0.23517297
+   ],
+   "a_sqrt_p2_m2": 0.22449944,
+   "relative_error": 0.05618717104897567
+  },
+  {
+   "a": 0.1,
+   "walk_phases": [
+    -0.11503473,
+    -0.10922188,
+    0.10922188,
+    0.11503473
+   ],
+   "a_sqrt_p2_m2": 0.11224972,
+   "relative_error": 0.026974168242258238
+  },
+  {
+   "a": 0.05,
+   "walk_phases": [
+    -0.056836,
+    -0.05538336,
+    0.05538336,
+    0.056836
+   ],
+   "a_sqrt_p2_m2": 0.05612486,
+   "relative_error": 0.013211633480215895
+  }
+ ],
+ "declared": [
+  "use of these operators as a routing coin",
+  "cubic shifts along the three axes of a frame",
+  "the mass angle",
+  "identification of the record with chirality"
+ ],
+ "not_established": [
+  "any dynamics of the public programs with this coin",
+  "spin of a physical particle",
+  "a mass value",
+  "which of the five frames, or how frames of different carriers relate"
+ ]
+}

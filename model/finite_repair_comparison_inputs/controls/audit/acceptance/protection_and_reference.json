@@ -1,0 +1,26 @@
+{
+  "status": "EXACT finite controls; declared architecture, not particle identification",
+  "repair_fixed_logical_algebra": "M2 tensor I2",
+  "same_stationary_density": [
+    "2/5",
+    "1/5",
+    "4/15",
+    "2/15"
+  ],
+  "transported_logical_X": "-Y",
+  "transported_logical_Y": "X",
+  "optional_probe_effect_span": 16,
+  "including_destructive_probes_in_idle_channel_preserves_logical_memory": false,
+  "heralded_filter": {
+    "alpha": "1/2",
+    "complete_two_outcome_instrument": true,
+    "carrier_d": 1440,
+    "carrier_trace_W": -1276,
+    "carrier_normalization": "524",
+    "success_probability": "131/810",
+    "minimum_density_eigenvalue_bound": "1/2096",
+    "k_trial_failure_probability": "(679/810)^k",
+    "carrier_trace_provenance": "../native/coherent_control.py and coherent_control.json",
+    "scope": "The generic filter is checked here; the carrier walk must be checked separately."
+  }
+}

@@ -1,0 +1,66 @@
+"""Mass operator at representation level on the exterior algebra of the five-level code.
+
+Convention of the simulation chart: triplet levels v1..v3 carry 6Y = -2, doublet levels s1, s2 carry 6Y = +3;
+handedness = parity of the occupation number (even = left). Electric charge Q = T3 + Y with T3 = +1/2 on s1, -1/2 on s2.
+Computed: the operators linear in the level operators that conserve colour and electric charge; their square;
+which rows of the chart they pair.
+"""
+import itertools, json, sys
+import numpy as np
+
+N = 5
+states = list(itertools.product((0, 1), repeat=N))            # occupation of (v1, v2, v3, s1, s2)
+index = {s: i for i, s in enumerate(states)}
+def annihilate(k):
+    A = np.zeros((32, 32))
+    for s in states:
+        if s[k]:
+            t = list(s); t[k] = 0
+            A[index[tuple(t)], index[s]] = (-1) ** sum(s[:k])
+    return A
+a = [annihilate(k) for k in range(N)]
+ad = [x.T for x in a]
+num = [ad[k] @ a[k] for k in range(N)]
+Y6 = -2 * (num[0] + num[1] + num[2]) + 3 * (num[3] + num[4])
+T3 = (num[3] - num[4]) / 2
+Q = T3 + Y6 / 6
+parity = np.diag([(-1.0) ** sum(s) for s in states])
+# su(3) on the triplet levels, su(2) on the doublet levels (bilinears)
+su3 = [ad[i] @ a[j] for i in range(3) for j in range(3) if i != j] + [num[0] - num[1], num[1] - num[2]]
+su2 = [ad[3] @ a[4], ad[4] @ a[3], num[3] - num[4]]
+comm = lambda A, B: A @ B - B @ A
+out = {'convention': '6Y = 3 n2 - 2 n3, even occupation left-handed, Q = T3 + Y'}
+rows = []
+for k, name in enumerate(('v1', 'v2', 'v3', 's1', 's2')):
+    G = a[k] + ad[k]
+    rows.append({'level': name,
+                 'conserves_colour': bool(max(np.abs(comm(G, g)).max() for g in su3) < 1e-12),
+                 'conserves_electric_charge': bool(np.abs(comm(G, Q)).max() < 1e-12),
+                 'conserves_weak_isospin': bool(max(np.abs(comm(G, g)).max() for g in su2) < 1e-12),
+                 'changes_handedness': bool(np.abs(G @ parity + parity @ G).max() < 1e-12),
+                 'square_is_identity': bool(np.abs(G @ G - np.eye(32)).max() < 1e-12)})
+out['linear_operators'] = rows
+for r in rows: print(r)
+# the neutral one: s2 (T3 = -1/2, Y = 1/2, Q = 0). Rows it pairs:
+G = a[4] + ad[4]
+def label(s):
+    n3, n2 = sum(s[:3]), sum(s[3:])
+    return (n3, n2, round(float(Q[index[s], index[s]]), 4), 'L' if (n3 + n2) % 2 == 0 else 'R')
+pairs = set()
+for s in states:
+    t = list(s); t[4] = 1 - t[4]; t = tuple(t)
+    if s < t: pairs.add((label(s), label(t)))
+names = {(1, 0): 'd_R', (1, 1): 'Q_L', (1, 2): 'u_R', (3, 0): 'e_R', (3, 1): 'L_L', (3, 2): 'nu_R',
+         (2, 2): 'd^c_L', (2, 1): 'Qbar_R', (2, 0): 'u^c_L', (0, 2): 'e^c_L', (0, 1): 'Lbar_R', (0, 0): 'nu^c_L'}
+summary = {}
+for x, y in sorted(pairs):
+    key = f'{names[x[:2]]} (Q = {x[2]}) with {names[y[:2]]} (Q = {y[2]})'
+    summary[key] = summary.get(key, 0) + 1
+out['pairs_of_the_neutral_operator'] = summary
+for k, v in summary.items(): print(f'  {v} x  {k}')
+out['reading'] = ('The only operators linear in the level operators that conserve colour and electric charge are those of the '
+                  'neutral doublet level. They change n2 by one, exchange the two handedness classes, break weak isospin and '
+                  'square to the identity: one common Dirac mass for the up type, down type, charged lepton and neutrino of '
+                  'the chart. Separate masses need more structure than one occupation algebra and one amplitude.')
+print(out['reading'])
+if len(sys.argv) > 1: json.dump(out, open(sys.argv[1], 'w'), indent=1)

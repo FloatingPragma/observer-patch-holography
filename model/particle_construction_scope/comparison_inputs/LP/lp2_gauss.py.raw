@@ -1,0 +1,193 @@
+"""LP direction 2: the class-3 Gauss law on FR's hexagon with a link register (items G1 to G4 of CANDIDATES.md).
+EXACT (Fractions; sympy for the two states with the amplitude sqrt2). Writes lp2_gauss.json. Runs in under a minute.
+
+Link register: one bit per hexagon seam e (seam e joins H[e] and H[e+1]); sign (-1)^(g_e); holonomy = parity of the
+word. Gauss operator at the port H[i]: Gamma_i = J_i (x) (-1)^(n_i), J_i flips the seams i-1 and i.
+Tick with links: W_L = sum_g |g><g| (x) W_g. States: {(word, configuration, record, address): amplitude}.
+"""
+from __future__ import annotations
+
+import itertools
+import json
+import sys
+import time
+from fractions import Fraction as Fr
+
+import sympy as sp
+
+import lp_common as L
+
+OUT = 'lp2_gauss.json'
+NP = 6
+STAR = [(1 << ((i - 1) % NP)) | (1 << i) for i in range(NP)]      # seams at the port H[i]
+MODELS = {}
+
+
+def model(frame, word):
+    key = (frame, word)
+    if key not in MODELS:
+        MODELS[key] = L.Model(L.HEX, L.HEX_SEAMS, frame=frame, signs={e: -1 for e in range(NP) if word >> e & 1},
+                              ref_tail=L.ORBIT_A)
+    return MODELS[key]
+
+
+def hol(word):
+    return -1 if bin(word).count('1') % 2 else 1
+
+
+def gamma(state, i, m):
+    out = {}
+    for (g, c, rec, k), amp in state.items():
+        sgn = -1 if m.cfg[c][i] % 2 else 1
+        out[(g ^ STAR[i], c, rec, k)] = sgn * amp
+    return out
+
+
+def W_links(state, frame):
+    by = {}
+    for (g, c, rec, k), amp in state.items():
+        by.setdefault(g, {})[(c, rec, k)] = amp
+    out = {}
+    for g, st in by.items():
+        for key, amp in model(frame, g).W(st).items():
+            out[(g,) + key] = amp
+    return out
+
+
+def norm2(state):
+    return sum((a * a for a in state.values()), Fr(0))
+
+
+def main():
+    t0 = time.time()
+    out = {'task': 'LP direction 2: Gauss law with a class-3 link register on the hexagon', 'provenance': L.FC.provenance()}
+    m0 = model('FP', 0)
+    ncfg = len(m0.cfg)
+    doubles = [c for c in range(ncfg) if m0.is_double(m0.cfg[c])]
+    # gauge group: subsets of ports modulo the full set (the product of all Gamma_i is (-1)^N = +1 on two loads)
+    subsets = [s for s in range(1 << NP) if not (s >> (NP - 1) & 1)]
+
+    def gauge(word, c, subset):
+        w, sgn = word, 1
+        for i in range(NP):
+            if subset >> i & 1:
+                w ^= STAR[i]
+                if m0.cfg[c][i] % 2:
+                    sgn = -sgn
+        return w, sgn
+
+    # consistency: the full set acts as +1
+    full_ok = all(gauge(1, c, (1 << NP) - 1) == (1, 1) for c in range(ncfg))
+
+    # ---------------- G1: definite word, projector prod (1 + Gamma_i)/2 = (1/32) sum over the gauge group
+    g1 = {}
+    for word in (1, 0):
+        weights = set()
+        for c in range(ncfg):
+            acc = {}
+            for s in subsets:
+                w, sgn = gauge(word, c, s)
+                acc[w] = acc.get(w, 0) + Fr(sgn, 32)
+            weights.add(sum(a * a for a in acc.values()))
+        g1[f'word {word} (holonomy {hol(word)})'] = {'weight of the positive branch for each of the 21 configurations':
+                                                     sorted(str(w) for w in weights)}
+    g1['reading'] = ('the positive Gauss branch of a definite link word has the same weight for every load configuration: '
+                     'the Gauss law with a definite class-3 flux forces no port occupation')
+    out['G1_definite_word'] = {'full gauge set acts as the identity': full_ok, **g1}
+    print('G1', out['G1_definite_word'])
+
+    # ---------------- G2: charge-free flux states and link-blind two-load states
+    def flux_state(h):
+        return [w for w in range(1 << NP) if hol(w) == h]            # amplitude 1/sqrt(32) each
+
+    j_fixed = all(sorted(w ^ STAR[i] for w in flux_state(h)) == flux_state(h) for h in (1, -1) for i in range(NP))
+    r2 = sp.sqrt(2)
+    psi_u = {c: (sp.Rational(1, 6) if m0.is_double(m0.cfg[c]) else r2 / 6) for c in range(ncfg)}      # (a_u^dag)^2 |0>/sqrt2
+    d0 = [m0.ci[m0.cfg_of(2, 2)], m0.ci[m0.cfg_of(10, 10)], m0.ci[m0.cfg_of(2, 10)]]
+    psi_d = {d0[0]: sp.Rational(1, 2), d0[1]: sp.Rational(1, 2), d0[2]: r2 / 2}                       # uniform on the dimer
+    g2 = {}
+    for name, psi in (('uniform two-boson state on the hexagon', psi_u), ('uniform two-boson state on the dimer {10,2}', psi_d)):
+        assert sp.simplify(sum(a ** 2 for a in psi.values()) - 1) == 0
+        # Gamma_i (|h> (x) |c>) = (-1)^(n_i(c)) |h> (x) |c> because J_i |h> = |h>
+        passed = {c: a for c, a in psi.items() if all(m0.cfg[c][i] % 2 == 0 for i in range(NP))}
+        wpass = sp.simplify(sum(a ** 2 for a in passed.values()))
+        amps = {str(list(m0.ports_of(m0.cfg[c]))): str(sp.nsimplify(a / sp.sqrt(wpass))) for c, a in passed.items()}
+        g2[name] = {'weight of the positive branch': str(wpass), 'configurations that pass': sorted(amps),
+                    'normalized amplitudes': amps, 'only double loads pass': all(c in doubles for c in passed)}
+    out['G2_charge_free_flux_state'] = {'J_i fixes |h = +1> and |h = -1> for the six ports': j_fixed, **g2}
+    print('G2', json.dumps(out['G2_charge_free_flux_state'], indent=1))
+
+    # ---------------- G3: covariance U_k(g xor star_i) = D_i U_k(g) D_i for all words, ports, addresses, both frames
+    g3 = {}
+    for frame in ('FP', 'FN'):
+        ok, checks = True, 0
+        for word in range(1 << NP):
+            ma = model(frame, word)
+            for i in range(NP):
+                mb = model(frame, word ^ STAR[i])
+                for c in range(ncfg):
+                    sc = -1 if ma.cfg[c][i] % 2 else 1
+                    for rec in range(4):
+                        for k in range(ma.NA):
+                            lhs = sorted(mb.local(c, rec, k))
+                            rhs = sorted((c2, r2, u * sc * (-1 if ma.cfg[c2][i] % 2 else 1)) for c2, r2, u in ma.local(c, rec, k))
+                            checks += 1
+                            if lhs != rhs:
+                                ok = False
+        g3[frame] = {'identity holds': ok, 'columns checked': checks}
+    g3['consequence'] = ('the address reflection acts on the address only, so W_L commutes with every Gamma_i; the tick keeps '
+                         'each Gauss sector')
+    out['G3_covariance'] = g3
+    print('G3', g3)
+
+    # ---------------- G4: one tick from |h = -1> (x) A U6 and |h = -1> (x) A S, with the link register carried along
+    cU6 = {m0.cfg_of(p, p): 1 for p in L.HEX}
+    cS = {m0.cfg_of(2, 2): 1, m0.cfg_of(10, 10): 1}
+    words = flux_state(-1)
+
+    def classify(m, c, rec, k):
+        cfg = m.cfg[c]
+        if m.is_double(cfg) and rec == 0:
+            return 'double'
+        s = m.seam_of(cfg)
+        if s is None or rec not in (2, 3) or k // 2 != s:
+            return 'other'
+        if L.HEX_TYPES[s] == 'E':
+            return 'in-dimer'
+        a, b = m.pair_at(k)
+        emitter = a if rec == 2 else b
+        return 'forward' if emitter in L.ORBIT_A else 'backward'
+
+    g4 = {}
+    for frame in ('FP', 'FN'):
+        for name, amps in (('U6', cU6), ('S', cS)):
+            mm = model(frame, 0)
+            st = {(g,) + key: a for g in words for key, a in mm.embed(amps).items()}
+            n0 = norm2(st)
+            inv0 = all(gamma(st, i, mm) == st for i in range(NP))
+            w1 = W_links(st, frame)
+            inv1 = all(gamma(w1, i, mm) == w1 for i in range(NP))
+            wt = {}
+            for (g, c, rec, k), a in w1.items():
+                key = classify(mm, c, rec, k)
+                wt[key] = wt.get(key, Fr(0)) + a * a / n0
+            p, q = wt.get('forward', Fr(0)), wt.get('in-dimer', Fr(0))
+            # W_L^-1 W_L restores the state
+            by = {}
+            for (g, c, rec, k), a in w1.items():
+                by.setdefault(g, {})[(c, rec, k)] = a
+            back = {(g,) + key: a for g, sub in by.items() for key, a in model(frame, g).Winv(sub).items()}
+            g4[f'{frame}, {name}'] = {
+                'Gauss invariant before the tick (six ports)': inv0, 'Gauss invariant after the tick': inv1,
+                'tick-1 weights': {k: str(v) for k, v in sorted(wt.items())},
+                'X = p_F + p_I - 2 p_F p_I (two independent objects)': str(p + q - 2 * p * q),
+                'inverse tick restores the state': back == st, 'components': len(w1)}
+    out['G4_tick_with_links'] = g4
+    print('G4', json.dumps(g4, indent=1))
+    out['seconds'] = round(time.time() - t0, 2)
+    L.jdump(out, OUT)
+    print('written', OUT, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

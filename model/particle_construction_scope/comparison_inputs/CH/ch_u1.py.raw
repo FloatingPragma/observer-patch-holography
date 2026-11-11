@@ -1,0 +1,286 @@
+"""Worker CH, direction 3: which U(1) the twelve links gauge and how its coupling is normalised
+(CANDIDATES.md section 5, HY-1 to HY-5).
+
+Run: /tmp/oph-completion-venv/bin/python ch_u1.py [out.json]
+
+HY-1  GL's port responses X_p on the five-level code (work/GL/gl_lib.py, read only): sum, traces, generated algebra,
+      centre; the identities for T3R, B - L and Y on the patterns.
+HY-2  index triples (T_3, T_2, T_Y) of every trace N1 to N10 and c_Y = T_Y/T_2; Hessians of the plaquette
+      functionals at the identity (finite differences) along Y, T3 and one colour generator.
+HY-3  contribution of every multiplet to b_1.
+HY-4  the (c_Y, b_1) set that reproduces the declared chain's hypercharge coupling; integer content search.
+HY-5  the closure on the irreducible sectors of S(U(3) x U(2)) against the factor-wise closure.
+No measured value is read.
+"""
+import itertools
+import json
+import sys
+from fractions import Fraction as F
+from pathlib import Path
+
+import numpy as np
+
+from ch_lib import (PATTERNS, MULTIPLETS, NAME, SU3_DIM, SU2_DIM, index_of_patterns, multiplet_index, clean,
+                    load_engine, Chain, P0, RL, WEYL, SCALAR)
+
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).with_name('u1.json')
+out = {}
+pi = np.pi
+
+# ----------------------------------------------------------------------------- HY-1
+sys.path.insert(0, str(RL / 'work/GL'))
+import gl_lib as gl                                            # read only
+
+X = gl.X
+S = X.sum(axis=0)
+gens = [1j * x for x in X]
+basis = gl.lie_closure(gens)
+dim = len(basis)
+# centre of the generated algebra: elements commuting with all X_p
+B = np.array([b.ravel() for b in basis])
+rows = []
+for x in X:
+    rows.append(np.array([(b @ x - x @ b).ravel() for b in basis]).T)
+Mc = np.vstack(rows)
+sv = np.linalg.svd(Mc, compute_uv=False)
+centre_dim = int(dim - (sv > 1e-9).sum())
+out['HY1'] = dict(
+    sum_of_port_responses=np.real(np.diag(S)).round(12).tolist(),
+    sum_is_diagonal=bool(np.allclose(S, np.diag(np.diag(S)))),
+    max_abs_trace_of_a_port_response=float(max(abs(np.trace(x)) for x in X)),
+    dimension_of_generated_algebra=dim, centre_dimension=centre_dim,
+    statement='the twelve port responses are traceless and generate s(u(3) + u(2)); the centre is one-dimensional and is spanned by '
+              'sum_p X_p = diag(2, 2, 2, -3, -3): a uniform port phase is the hypercharge rotation (6Y = -sum_p X_p in the sign of match.py)')
+assert dim == 12 and centre_dim == 1 and np.allclose(np.real(np.diag(S)), [2, 2, 2, -3, -3])
+# identities on the patterns
+for p in PATTERNS:
+    assert p['T3R'] + p['BL'] / 2 == p['Y']
+    assert p['X'] == 5 * p['BL'] - 4 * p['Y'] == 5 - 2 * p['degree']
+    assert p['T3R'] == F(p['n2'] - 1, 2) and p['BL'] == 1 - F(2 * p['n3'], 3)
+out['HY1']['identities'] = 'Y = T3R + (B - L)/2 with T3R = (N_2 - 1)/2 and B - L = 1 - (2/3) N_3 per quantum; X = 5(B - L) - 4Y = 5 - 2 degree'
+# trace orthogonality of Y and the degree on the code
+Yc = np.diag([F(-1, 3)] * 3 + [F(1, 2)] * 2)
+out['HY1']['trace_of_Y_times_degree_on_the_code'] = str(sum(Yc[i][i] for i in range(5)))
+out['HY1']['second_abelian_current'] = ('the block algebra u(3) + u(2) has a thirteenth current, the degree; Y and the degree are trace orthogonal, so a '
+                                        'trace action gives the hypercharge the same stiffness with twelve or thirteen links')
+
+# ----------------------------------------------------------------------------- HY-2: index triples
+LEVEL_Y = [F(-1, 3)] * 3 + [F(1, 2)] * 2
+
+
+def triple_levels(levels):
+    ty = sum(LEVEL_Y[i] ** 2 for i in levels)
+    t3 = F(1, 2) if set(levels) >= {0, 1, 2} else F(0)
+    t2 = F(1, 2) if set(levels) >= {3, 4} else F(0)
+    return ty, t2, t3
+
+
+def product_with_conjugate(tr, dimension, sum_y):
+    """Indices of rho (x) conj(rho): T = 2 dim T(rho) for the simple factors, sum (y_i - y_j)^2 for U(1)."""
+    ty, t2, t3 = tr
+    return (2 * dimension * ty - 2 * sum_y ** 2, 2 * dimension * t2, 2 * dimension * t3)
+
+
+traces = {}
+
+
+def reg(key, text, tr, note=''):
+    ty, t2, t3 = tr
+    traces[key] = dict(trace=text, T_Y=ty, T_2=t2, T_3=t3,
+                       c_Y=(ty / t2 if t2 else None), T3_over_T2=(t3 / t2 if t2 else None),
+                       TY_over_T3=(ty / t3 if t3 else None), note=note)
+
+
+code = triple_levels(range(5))
+reg('N1', 'five-level code, Re tr_5', code)
+reg('N2', 'swap test, Haar average over the code, |tr_5|^2', product_with_conjugate(code, 5, F(0)))
+reg('N3', 'fifteen-state module, Lambda^2 + Lambda^4', index_of_patterns([p for p in PATTERNS if p['degree'] in (2, 4)]))
+reg('N4', 'all 32 patterns', index_of_patterns(PATTERNS))
+for k in range(1, 5):
+    reg(f'N4 Lambda^{k}', f'patterns of degree {k}', index_of_patterns([p for p in PATTERNS if p['degree'] == k]))
+reg('N4 n3 odd', 'the half n3 odd', index_of_patterns([p for p in PATTERNS if p['n3'] % 2 == 1]))
+reg('N4 n3 even', 'the half n3 even', index_of_patterns([p for p in PATTERNS if p['n3'] % 2 == 0]))
+reg('N5', 'doublet block alone, Re tr_2 (transport of the class-3 register)', triple_levels([3, 4]))
+reg('N6', 'triplet block alone, Re tr_3', triple_levels([0, 1, 2]))
+t3b = product_with_conjugate(triple_levels([0, 1, 2]), 3, F(-1))
+t2b = product_with_conjugate(triple_levels([3, 4]), 2, F(1))
+w3, w2 = F(3, 5) * F(1, 12), F(2, 5) * F(1, 6)               # weights of |tr_3|^2 and |tr_2|^2 in the block-wise swap test
+reg('N7', 'swap test, average over states of definite load: (3/5)(|tr_3|^2 + 3)/12 + (2/5)(|tr_2|^2 + 2)/6',
+    tuple(w3 * a + w2 * b for a, b in zip(t3b, t2b)), note='blind to the hypercharge phase')
+for k in range(6):
+    reg(f'N9 class {k}', f'patterns of Z6 class {k}', index_of_patterns([p for p in PATTERNS if p['k'] == k]))
+# N10: native link sectors: sum over the blocks r of the fifteen-state module of V_r^* (x) V_r; under the right action
+# each sector carries d_r copies of V_r
+blocks = [(2, 0), (1, 1), (0, 2), (3, 1), (2, 2)]              # u^c (3), Q (6), e^c (1), L (2), d^c (3) as subsets of the code
+tl = [F(0)] * 3
+for m in blocks:
+    dm = SU3_DIM[m[0]] * SU2_DIM[m[1]]
+    for i, t in enumerate(multiplet_index(m)):
+        tl[i] += dm * t
+reg('N10', 'native link sectors of the fifteen-state module (right action), blocks of dimension 3, 6, 1, 2, 3', tuple(tl),
+    note='the blocks enter with weights equal to their dimensions; the set is not a complete multiplet sum')
+out['HY2'] = dict(traces=traces)
+complete = [k for k, v in traces.items() if v['c_Y'] == F(5, 3) and v['T3_over_T2'] == 1]
+out['HY2']['traces_with_SU5_normalisation_and_equal_nonabelian_stiffness'] = complete
+out['HY2']['other'] = {k: dict(c_Y=v['c_Y'], T3_over_T2=v['T3_over_T2']) for k, v in traces.items() if k not in complete}
+
+# N8: port metric. One stiffness per port phase: the form sum_p theta_p^2 on A = sum_p theta_p X_p.
+tr = lambda A, Bm: np.trace(A @ Bm).real
+Yg = np.diag([-1 / 3] * 3 + [1 / 2] * 2).astype(complex)        # hypercharge generator
+T3g = np.diag([0, 0, 0, 1 / 2, -1 / 2]).astype(complex)
+L3g = np.diag([1 / 2, -1 / 2, 0, 0, 0]).astype(complex)
+Gram = np.array([[tr(X[p], X[q]) for q in range(12)] for p in range(12)])
+assert np.linalg.matrix_rank(Gram) == 12
+
+
+def port_norm(Tg):
+    """theta with sum_p theta_p X_p = Tg, and sum_p theta_p^2."""
+    rhs = np.array([tr(X[p], Tg) for p in range(12)])
+    theta = np.linalg.solve(Gram, rhs)
+    assert np.allclose(sum(theta[p] * X[p] for p in range(12)), Tg)
+    return float(theta @ theta)
+
+
+pY, pT3, pL3 = port_norm(Yg), port_norm(T3g), port_norm(L3g)
+# GL's A3: eigenvalues of the electric form sum_p (tr X_p T)^2 in a trace-orthonormal basis
+out['HY2']['N8'] = dict(port_norm_Y=pY, port_norm_T3=pT3, port_norm_colour_lambda3=pL3, c_Y=pY / pT3,
+                        photon_weights_sum_of_squares=pY + pT3,
+                        note='stiffness per port phase: 1/g_Y^2 : 1/g_2^2 = 1/3 : 1; the colour directions are not equivalent under SU(3) (GL A3), '
+                             'so this form is no invariant action for colour')
+assert abs(pY - 1 / 3) < 1e-12 and abs(pT3 - 1) < 1e-12
+
+# numerical Hessians of the plaquette functionals at the identity
+def blocks_of(eps, Tg):
+    u = np.exp(1j * eps * np.real(np.diag(Tg)))
+    return u
+
+
+def e_sym(u, k):
+    return sum(np.prod([u[i] for i in c]) for c in itertools.combinations(range(5), k))
+
+
+FUNC = {
+    'N1': lambda u: 1 - u.sum().real / 5,
+    'N2': lambda u: 1 - (abs(u.sum()) ** 2 + 5) / 30,
+    'N3': lambda u: 1 - (e_sym(u, 2) + e_sym(u, 4)).real / 15,
+    'N4': lambda u: 1 - np.prod(1 + u).real / 32,
+    'N5': lambda u: 1 - u[3:].sum().real / 2,
+    'N6': lambda u: 1 - u[:3].sum().real / 3,
+    'N7': lambda u: 1 - (3 / 5) * (abs(u[:3].sum()) ** 2 + 3) / 12 - (2 / 5) * (abs(u[3:].sum()) ** 2 + 2) / 6,
+}
+hess = {}
+h = 1e-3
+for key, f in FUNC.items():
+    row = {}
+    for name, Tg in (('Y', Yg), ('T3', T3g), ('colour', L3g)):
+        row[name] = float((f(blocks_of(h, Tg)) - 2 * f(blocks_of(0, Tg)) + f(blocks_of(-h, Tg))) / h ** 2)
+    row['c_Y'] = row['Y'] / row['T3'] if abs(row['T3']) > 1e-9 else None
+    row['colour_over_T3'] = row['colour'] / row['T3'] if abs(row['T3']) > 1e-9 else None
+    hess[key] = row
+    ex = traces[key]
+    if ex['c_Y'] is not None:
+        assert abs(row['c_Y'] - float(ex['c_Y'])) < 1e-5, key
+        assert abs(row['colour_over_T3'] - float(ex['T3_over_T2'])) < 1e-5, key
+out['HY2']['hessians_at_identity'] = hess
+out['HY2']['block_decomposition'] = ('for a trace over the code, c_Y = 2/3 (triplet block) + 1 (doublet block) = 5/3; any action that is a positive '
+                                     'combination of Re tr_3 and Re tr_2 with equal colour and weak stiffness has c_Y = 5/3; terms blind to the '
+                                     'block phases (|tr_3|^2, |tr_2|^2) lower c_Y and reach 0')
+
+# ----------------------------------------------------------------------------- HY-3
+out['HY3'] = [dict(multiplet=NAME[m], six_Y=3 * m[1] - 2 * m[0], states=SU3_DIM[m[0]] * SU2_DIM[m[1]],
+                   weyl_block_contribution_to_b1=WEYL * F(3, 5) * multiplet_index(m)[0],
+                   in_three_copies=3 * WEYL * F(3, 5) * multiplet_index(m)[0]) for m in MULTIPLETS]
+out['HY3'].append(dict(multiplet='scalar doublet, |6Y| = 3', contribution_to_b1=F(1, 10)))
+out['HY3'].append(dict(multiplet='twelve links', contribution_to_b1=F(0)))
+assert sum(r.get('in_three_copies', 0) for r in out['HY3']) == 8
+
+# ----------------------------------------------------------------------------- HY-4
+cc = load_engine()
+dec = Chain(cc, b=(33 / 5, 1.0, -3.0)).solve()[0]
+x0, Lz = dec['inv_alpha_U'], np.log(dec['M_U'] / dec['mu'])
+line = lambda b1: 1 - (b1 - 33 / 5) * (Lz / (2 * pi)) / x0             # c_1 as a function of b_1 on the declared value
+out['HY4'] = dict(declared_chain=dict(inv_alpha_U=x0, log_MU_over_mZ=Lz, inv_alpha_1_mZ=dec['inv_alpha_1']),
+                  c1_of_b1='c_1 = 1 - (b_1 - 33/5) (L/2 pi) alpha_U',
+                  slope_dc1_db1=-(Lz / (2 * pi)) / x0,
+                  points={'b1 = 33/5': dict(c_1=line(33 / 5), c_Y=5 / 3 * line(33 / 5)),
+                          'b1 = 41/5': dict(c_1=line(41 / 5), c_Y=5 / 3 * line(41 / 5)),
+                          'b1 = 81/10': dict(c_1=line(81 / 10), c_Y=5 / 3 * line(81 / 10)),
+                          'b1 = 83/10': dict(c_1=line(83 / 10), c_Y=5 / 3 * line(83 / 10))},
+                  b1_for_cY_1=33 / 5 + (1 - 3 / 5) * x0 / (Lz / (2 * pi)),
+                  b1_for_cY_1_third=33 / 5 + (1 - 1 / 5) * x0 / (Lz / (2 * pi)))
+# integer content search: changes of the number of Weyl blocks of each multiplet type (a type and its conjugate count
+# together) and of scalar doublets; keep b2 = 1 and b3 = -3; reach b1 = 33/5 from 41/5
+TYPE = {'Q': (1, 1), 'u': (1, 2), 'd': (1, 0), 'L': (3, 1), 'e': (3, 0), 'nu': (3, 2)}
+contrib = {k: tuple(WEYL * x for x in (F(3, 5) * multiplet_index(m)[0], multiplet_index(m)[1], multiplet_index(m)[2])) for k, m in TYPE.items()}
+sols = []
+rng6 = range(-6, 7)
+for dQ, du, dd, dL, de in itertools.product(rng6, repeat=5):
+    db3 = dQ * contrib['Q'][2] + du * contrib['u'][2] + dd * contrib['d'][2]
+    if db3 != 0:
+        continue
+    for dH in range(-2, 7):
+        db2 = dQ * contrib['Q'][1] + dL * contrib['L'][1] + dH * F(1, 6)
+        if db2 != 0:
+            continue
+        db1 = (dQ * contrib['Q'][0] + du * contrib['u'][0] + dd * contrib['d'][0] + dL * contrib['L'][0]
+               + de * contrib['e'][0] + dH * F(1, 10))
+        if db1 == F(33, 5) - F(41, 5):
+            sols.append(dict(dQ=dQ, du=du, dd=dd, dL=dL, de=de, dH=dH, size=abs(dQ) + abs(du) + abs(dd) + abs(dL) + abs(de) + abs(dH)))
+sols.sort(key=lambda s: s['size'])
+out['HY4']['integer_content_changes_reaching_33_over_5'] = dict(
+    count=len(sols), smallest=sols[:8],
+    all_remove_hypercharge=all(4 * s['du'] + s['dd'] + 3 * s['de'] < 0 or s['dQ'] != 0 or s['dL'] != 0 or s['dH'] != 0 for s in sols),
+    with_Q_L_H_unchanged=[s for s in sols if s['dQ'] == 0 and s['dL'] == 0 and s['dH'] == 0][:12],
+    note='with the doublets, the quark doublets and the lepton doublets unchanged the condition is 4 du + dd + 3 de = -12 with du + dd = 0: '
+         'du + de = -4 (four exchanges of an up-type singlet for a down-type singlet, or four removed charged singlets, or a mixture)')
+assert all(s['du'] + s['de'] == -4 for s in sols if s['dQ'] == 0 and s['dL'] == 0 and s['dH'] == 0)
+
+# ----------------------------------------------------------------------------- HY-5: closure on the sectors of G
+def closure_global(a2, a3, aY, N3=14, N2=30, M=260):
+    t2, t3, tY = 4 * pi * pi * a2, 4 * pi * pi * a3, 4 * pi * pi * aY
+    m = np.arange(-M, M + 1)
+    wy = np.exp(-tY * (m / 6.0) ** 2)
+    theta = np.array([wy[(m % 6) == k].sum() for k in range(6)])       # U(1) weight of each class
+    num = den = 0.0
+    for p, q in itertools.product(range(N3 + 1), repeat=2):
+        d3 = (p + 1) * (q + 1) * (p + q + 2) / 2.0
+        c3 = (p * p + q * q + p * q + 3 * p + 3 * q) / 3.0
+        tau = (p - q) % 3
+        for n in range(N2 + 1):
+            d2 = n + 1.0
+            c2 = (n / 2.0) * (n / 2.0 + 1)
+            k = (-2 * tau - 3 * n) % 6                                   # 2 tau + 3 n + 6Y = 0 mod 6
+            w = d3 * d2 * np.exp(-t3 * c3 - t2 * c2) * theta[k]
+            num += w * np.log(d3 * d2)
+            den += w
+    return num / den, theta / theta.sum()
+
+
+a1, a2, a3 = 1 / dec['inv_alpha_1'], 1 / dec['inv_alpha_2'], 1 / dec['inv_alpha_3']
+glob, th = closure_global(a2, a3, 0.6 * a1)
+fact = cc.ell2(4 * pi * pi * a2) + cc.ell3(4 * pi * pi * a3)
+xc = 16.2453
+glob_c, th_c = closure_global(1 / xc, 1 / xc, 0.6 / xc)
+fact_c = cc.ell2(4 * pi * pi / xc) + cc.ell3(4 * pi * pi / xc)
+out['HY5'] = dict(at_the_declared_chain_couplings=dict(global_form=glob, factor_wise=fact, difference=glob - fact,
+                                                       class_weights_of_the_U1_sum=th.tolist(), spread_of_class_weights=float(th.max() - th.min())),
+                  at_equal_couplings_1_over_16p2453=dict(global_form=glob_c, factor_wise=fact_c, difference=glob_c - fact_c,
+                                                         spread_of_class_weights=float(th_c.max() - th_c.min())),
+                  statement='at the anchor the six classes of the hypercharge sum have equal weight to the printed precision, so the closure on G equals '
+                            'the factor-wise closure and carries no information on the hypercharge coupling')
+
+OUT.write_text(json.dumps(clean(out), indent=1))
+print('HY-1:', out['HY1']['sum_of_port_responses'], '| algebra dim', dim, '| centre dim', centre_dim, '| max |tr X_p|', out['HY1']['max_abs_trace_of_a_port_response'])
+print('HY-2: traces (T_Y, T_2, T_3, c_Y, T_3/T_2):')
+for k, v in traces.items():
+    print(f"   {k:14s} {str(v['T_Y']):>7s} {str(v['T_2']):>6s} {str(v['T_3']):>6s}   c_Y = {str(v['c_Y']):>5s}   T3/T2 = {str(v['T3_over_T2']):>5s}   {v['trace']}")
+print('   N8 port metric:', {k: (round(v, 9) if isinstance(v, float) else v) for k, v in out['HY2']['N8'].items() if k != 'note'})
+print('   Hessians:')
+for k, v in hess.items():
+    print('    ', k, {a: (round(b, 6) if b is not None else None) for a, b in v.items()})
+print('HY-3: b1 contributions in three copies:', [(r['multiplet'], str(r.get('in_three_copies', r.get('contribution_to_b1')))) for r in out['HY3']])
+print('HY-4:', {k: v for k, v in out['HY4'].items() if k not in ('integer_content_changes_reaching_33_over_5',)})
+print('   integer solutions:', out['HY4']['integer_content_changes_reaching_33_over_5']['count'], ' smallest:', sols[:6])
+print('HY-5:', out['HY5']['at_the_declared_chain_couplings']['difference'], out['HY5']['at_the_declared_chain_couplings']['spread_of_class_weights'],
+      '| at equal couplings 1/16.2453:', out['HY5']['at_equal_couplings_1_over_16p2453']['difference'])
+print('wrote', OUT)

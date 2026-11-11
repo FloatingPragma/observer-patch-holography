@@ -1,0 +1,576 @@
+{
+ "A_effect_spans": {
+  "spinor (d = 2)": {
+   "hermitian_directions": 4,
+   "one_event_top_helicity_span": 4,
+   "one_event_all_helicities_span": 4,
+   "two_event_sequences_span": 4,
+   "sequential_effect_is_multiple_of_first_projector": true
+  },
+  "vector (d = 3)": {
+   "hermitian_directions": 9,
+   "one_event_top_helicity_span": 9,
+   "one_event_all_helicities_span": 9,
+   "two_event_sequences_span": 9,
+   "sequential_effect_is_multiple_of_first_projector": true
+  },
+  "spin 3/2 (d = 4)": {
+   "hermitian_directions": 16,
+   "one_event_top_helicity_span": 12,
+   "one_event_all_helicities_span": 12,
+   "two_event_sequences_span": 12,
+   "sequential_effect_is_multiple_of_first_projector": true
+  },
+  "spin 2 (d = 5)": {
+   "hermitian_directions": 25,
+   "one_event_top_helicity_span": 12,
+   "one_event_all_helicities_span": 17,
+   "two_event_sequences_span": 12,
+   "sequential_effect_is_multiple_of_first_projector": true
+  },
+  "vector, helicity 0 only": {
+   "span": 6
+  },
+  "2 + 3, same realization, locked top helicity": {
+   "block_algebra_hermitian_directions": 13,
+   "one_event_span": 9,
+   "two_event_sequences_span": 13,
+   "type_resolving_readout_span": 13
+  },
+  "2 + 3, spinor great, vector convex, locked top helicity": {
+   "block_algebra_hermitian_directions": 13,
+   "one_event_span": 12,
+   "two_event_sequences_span": 13,
+   "type_resolving_readout_span": 13
+  }
+ },
+ "A_design": {
+  "max_deviation_of_degree_d_moments_from_sphere_average": {
+   "1": 1.850371707708594e-17,
+   "2": 5.551115123125783e-17,
+   "3": 4.625929269271485e-18,
+   "4": 2.7755575615628914e-17,
+   "5": 4.625929269271485e-18,
+   "6": 0.019669024611903358,
+   "7": 1.4456028966473392e-19
+  },
+  "reading": "the axes are a spherical 5-design (degrees 1 to 5 agree, degree 6 does not): port-axis readout resolves multipoles up to rank 2, complete for d <= 3 only"
+ },
+ "B_lie_algebras_of_first_order_responses": {
+  "spinor convex": {
+   "span": 4,
+   "closure": 4,
+   "centre": 1,
+   "derived": 3
+  },
+  "spinor great": {
+   "span": 4,
+   "closure": 4,
+   "centre": 1,
+   "derived": 3
+  },
+  "vector convex": {
+   "span": 9,
+   "closure": 9,
+   "centre": 1,
+   "derived": 8
+  },
+  "vector great": {
+   "span": 9,
+   "closure": 9,
+   "centre": 1,
+   "derived": 8
+  },
+  "spinor convex + vector convex": {
+   "span": 9,
+   "closure": 12,
+   "centre": 1,
+   "derived": 11
+  },
+  "spinor great + vector convex": {
+   "span": 12,
+   "closure": 12,
+   "centre": 1,
+   "derived": 11
+  },
+  "spinor great (reversed axes) + vector convex": {
+   "span": 12,
+   "closure": 12,
+   "centre": 1,
+   "derived": 11
+  },
+  "spinor convex + vector great": {
+   "span": 12,
+   "closure": 12,
+   "centre": 1,
+   "derived": 11
+  },
+  "spinor great + vector great": {
+   "span": 9,
+   "closure": 12,
+   "centre": 1,
+   "derived": 11
+  },
+  "spin 3/2 convex": {
+   "span": 12,
+   "closure": 16,
+   "centre": 1,
+   "derived": 15
+  },
+  "all four circular": {
+   "span": 12,
+   "closure": 23,
+   "centre": 1,
+   "derived": 22
+  },
+  "radial vector convex + radial vector great": {
+   "span": 6,
+   "closure": 17,
+   "centre": 1,
+   "derived": 16
+  },
+  "spinor great + radial vector convex": {
+   "span": 9,
+   "closure": 12,
+   "centre": 1,
+   "derived": 11
+  },
+  "spinor great + vector convex, type-resolving probes (24 generators)": {
+   "span": 13,
+   "closure": 13,
+   "centre": 2,
+   "derived": 11
+  },
+  "gram_mixed_2+3": {
+   "depends_only_on_port_distance": true,
+   "entries_by_distance": {
+    "0": 2.0,
+    "1": 0.8,
+    "2": 0.8,
+    "3": 0.0
+   },
+   "eigenvalues_on_1_3_5_3prime": {
+    "1": 10.0,
+    "3": 2.0,
+    "5": 0.4,
+    "3'": 2.0
+   },
+   "exact": {
+    "1": "10",
+    "3": "2",
+    "5": "2/5",
+    "3'": "2"
+   },
+   "positive_definite": true,
+   "sum_of_generators": "sum_p P_p = 6 on the spinor block, 4 on the vector block",
+   "sum_check": true
+  }
+ },
+ "C_stabilizer_words": {
+  "spinor convex": [
+   {
+    "eps_in_units_2pi/5": 1,
+    "induces_a_port_permutation": true,
+    "is_a_carrier_rotation": true,
+    "rotation_angle_about_port_0_in_units_2pi/5": -2
+   },
+   {
+    "eps_in_units_2pi/5": 2,
+    "induces_a_port_permutation": true,
+    "is_a_carrier_rotation": true,
+    "rotation_angle_about_port_0_in_units_2pi/5": 1
+   }
+  ],
+  "spinor great": [
+   {
+    "eps_in_units_2pi/5": 1,
+    "induces_a_port_permutation": true,
+    "is_a_carrier_rotation": true,
+    "rotation_angle_about_port_0_in_units_2pi/5": -1
+   },
+   {
+    "eps_in_units_2pi/5": 2,
+    "induces_a_port_permutation": true,
+    "is_a_carrier_rotation": true,
+    "rotation_angle_about_port_0_in_units_2pi/5": -2
+   }
+  ],
+  "vector convex": [
+   {
+    "eps_in_units_2pi/5": 1,
+    "induces_a_port_permutation": true,
+    "is_a_carrier_rotation": true,
+    "rotation_angle_about_port_0_in_units_2pi/5": -1
+   },
+   {
+    "eps_in_units_2pi/5": 2,
+    "induces_a_port_permutation": true,
+    "is_a_carrier_rotation": true,
+    "rotation_angle_about_port_0_in_units_2pi/5": -2
+   }
+  ],
+  "spinor convex + vector convex": [
+   {
+    "eps_in_units_2pi/5": 1,
+    "induces_a_port_permutation": false,
+    "is_a_carrier_rotation": false,
+    "rotation_angle_about_port_0_in_units_2pi/5": null
+   },
+   {
+    "eps_in_units_2pi/5": 2,
+    "induces_a_port_permutation": false,
+    "is_a_carrier_rotation": false,
+    "rotation_angle_about_port_0_in_units_2pi/5": null
+   }
+  ],
+  "spinor great + vector convex": [
+   {
+    "eps_in_units_2pi/5": 1,
+    "induces_a_port_permutation": true,
+    "is_a_carrier_rotation": true,
+    "rotation_angle_about_port_0_in_units_2pi/5": -1
+   },
+   {
+    "eps_in_units_2pi/5": 2,
+    "induces_a_port_permutation": true,
+    "is_a_carrier_rotation": true,
+    "rotation_angle_about_port_0_in_units_2pi/5": -2
+   }
+  ],
+  "spinor great (reversed axes) + vector convex": [
+   {
+    "eps_in_units_2pi/5": 1,
+    "induces_a_port_permutation": false,
+    "is_a_carrier_rotation": false,
+    "rotation_angle_about_port_0_in_units_2pi/5": null
+   },
+   {
+    "eps_in_units_2pi/5": 2,
+    "induces_a_port_permutation": false,
+    "is_a_carrier_rotation": false,
+    "rotation_angle_about_port_0_in_units_2pi/5": null
+   }
+  ]
+ },
+ "C_generated_implementers": {
+  "spinor convex": {
+   "projective_classes": 60,
+   "port_permutations_reached": 60,
+   "all_are_carrier_rotations": true,
+   "classes_per_rotation": [
+    1
+   ],
+   "max_word_length_in_stabilizer_words": 2,
+   "pulses_per_stabilizer_word": 2,
+   "exact_covariance_W P_q W^-1 = P_a(q)_for_every_class": true
+  },
+  "vector convex": {
+   "projective_classes": 60,
+   "port_permutations_reached": 60,
+   "all_are_carrier_rotations": true,
+   "classes_per_rotation": [
+    1
+   ],
+   "max_word_length_in_stabilizer_words": 2,
+   "pulses_per_stabilizer_word": 2,
+   "exact_covariance_W P_q W^-1 = P_a(q)_for_every_class": true
+  },
+  "spinor great + vector convex": {
+   "projective_classes": 120,
+   "port_permutations_reached": 60,
+   "all_are_carrier_rotations": true,
+   "classes_per_rotation": [
+    2
+   ],
+   "max_word_length_in_stabilizer_words": 3,
+   "pulses_per_stabilizer_word": 2,
+   "exact_covariance_W P_q W^-1 = P_a(q)_for_every_class": true
+  },
+  "spinor great (reversed axes) + vector convex": "the two-pulse stabilizer word does not induce a carrier rotation for this pairing"
+ },
+ "D_response_channel": {
+  "exact_form": "Lambda_{p,eps} = (1/12) Ad[exp(i eps Pi_p)] + (11/12) id on the internal factor, stationary position state",
+  "defect_of_exact_form_against_direct_simulation": 1.1443916996305594e-16,
+  "expansion": "Lambda = exp(eps (i/12) ad Pi_p + eps^2 (11/144) D[Pi_p]) + O(eps^3), D[Pi](s) = Pi s Pi - {Pi, s}/2; helicity coherence about the port axis is multiplied by (11 + exp(i eps))/12 = exp(i eps/12 - 11 eps^2/288 + ...)",
+  "expansion_defects": [
+   {
+    "eps": 0.2,
+    "defect_first_order_unitary": 0.0013152054126744383,
+    "defect_with_second_order_dephasing": 7.211843742062193e-05
+   },
+   {
+    "eps": 0.1,
+    "defect_first_order_unitary": 0.0003290710653380041,
+    "defect_with_second_order_dephasing": 9.022478302630981e-06
+   },
+   {
+    "eps": 0.05,
+    "defect_first_order_unitary": 8.228463231129454e-05,
+    "defect_with_second_order_dephasing": 1.1280497058377622e-06
+   },
+   {
+    "eps": 0.025,
+    "defect_first_order_unitary": 2.0572212341486942e-05,
+    "defect_with_second_order_dephasing": 1.4101371158325241e-07
+   }
+  ],
+  "coherence_factor_per_pulse_eps=0.5": [
+   0.9906045304986054,
+   0.9904968321210281
+  ],
+  "motional_averaging_to_the_stabilizer_rotation_total_angle_12*2pi/5": [
+   {
+    "repair_events_between_pulses": 1,
+    "pulses": 12,
+    "coherence_modulus": 0.8173878080195979,
+    "phase_error_vs_eps/12": -1.2165699827378307
+   },
+   {
+    "repair_events_between_pulses": 1,
+    "pulses": 120,
+    "coherence_modulus": 0.5295271516753568,
+    "phase_error_vs_eps/12": -0.8145526057074414
+   },
+   {
+    "repair_events_between_pulses": 1,
+    "pulses": 1200,
+    "coherence_modulus": 0.8415443138373719,
+    "phase_error_vs_eps/12": -0.021453495361524258
+   },
+   {
+    "repair_events_between_pulses": 1,
+    "pulses": 12000,
+    "coherence_modulus": 0.9824799102967464,
+    "phase_error_vs_eps/12": -0.00022129061133155877
+   },
+   {
+    "repair_events_between_pulses": 5,
+    "pulses": 12,
+    "coherence_modulus": 0.6307205291182114,
+    "phase_error_vs_eps/12": -1.112656224259874
+   },
+   {
+    "repair_events_between_pulses": 5,
+    "pulses": 120,
+    "coherence_modulus": 0.7167634500264437,
+    "phase_error_vs_eps/12": -0.08303849909312873
+   },
+   {
+    "repair_events_between_pulses": 5,
+    "pulses": 1200,
+    "coherence_modulus": 0.9647893559703167,
+    "phase_error_vs_eps/12": -0.0008995233955290497
+   },
+   {
+    "repair_events_between_pulses": 5,
+    "pulses": 12000,
+    "coherence_modulus": 0.9964122438674896,
+    "phase_error_vs_eps/12": -9.037116015125275e-06
+   },
+   {
+    "repair_events_between_pulses": 30,
+    "pulses": 12,
+    "coherence_modulus": 0.48590573786072466,
+    "phase_error_vs_eps/12": -0.3775398405355379
+   },
+   {
+    "repair_events_between_pulses": 30,
+    "pulses": 120,
+    "coherence_modulus": 0.9153256769975361,
+    "phase_error_vs_eps/12": -0.004392685523240797
+   },
+   {
+    "repair_events_between_pulses": 30,
+    "pulses": 1200,
+    "coherence_modulus": 0.9911597813454013,
+    "phase_error_vs_eps/12": -4.4163896665941174e-05
+   },
+   {
+    "repair_events_between_pulses": 30,
+    "pulses": 12000,
+    "coherence_modulus": 0.9991122702233936,
+    "phase_error_vs_eps/12": -4.4183734968784185e-07
+   },
+   {
+    "repair_events_between_pulses": 300,
+    "pulses": 12,
+    "coherence_modulus": 0.5120204134561526,
+    "phase_error_vs_eps/12": -0.24984005309319154
+   },
+   {
+    "repair_events_between_pulses": 300,
+    "pulses": 120,
+    "coherence_modulus": 0.9302280512662996,
+    "phase_error_vs_eps/12": -0.002526272949136274
+   },
+   {
+    "repair_events_between_pulses": 300,
+    "pulses": 1200,
+    "coherence_modulus": 0.9927884676636103,
+    "phase_error_vs_eps/12": -2.5264386585645915e-05
+   },
+   {
+    "repair_events_between_pulses": 300,
+    "pulses": 12000,
+    "coherence_modulus": 0.9992764906470147,
+    "phase_error_vs_eps/12": -2.5264402895468593e-07
+   }
+  ],
+  "commutator_of_ordered_unread_responses": [
+   {
+    "eps": 0.2,
+    "defect_of_[Lambda_q, Lambda_p]/eps^2 - ad([D_q, D_p])": 0.0008616948065292587
+   },
+   {
+    "eps": 0.1,
+    "defect_of_[Lambda_q, Lambda_p]/eps^2 - ad([D_q, D_p])": 0.0004340949863221206
+   },
+   {
+    "eps": 0.05,
+    "defect_of_[Lambda_q, Lambda_p]/eps^2 - ad([D_q, D_p])": 0.00021745496647100672
+   }
+  ],
+  "tape_resolved_word": {
+   "trajectories": 8,
+   "events_each": 200,
+   "max_defect_internal_state_vs_unitary_word": 1.527313441518086e-15,
+   "min_weight_on_the_tape_predicted_port": 0.9999999999999999
+  }
+ },
+ "E_states_preparation_modular": {
+  "stationarity_defect_of_uniform_x_sigma": {
+   "C": 2.7755575615628914e-17,
+   "E": 2.7755575615628914e-17
+  },
+  "unread_complete_port_readout": {
+   "spinor_Bloch_vector_factor_exactly_1/3": true,
+   "vector_all_helicities_eigenvalues": [
+    1.0,
+    0.333333333,
+    0.333333333,
+    0.333333333,
+    0.2,
+    0.2,
+    0.2,
+    0.2,
+    0.2
+   ]
+  },
+  "click_preparation": "outcome (p, m) has probability Tr(sigma Pi_(p,m))/12 and leaves the pure internal state chi_(p,m)",
+  "null_click_preparation": [
+   {
+    "null_results": 1,
+    "weights_helicity_plus_minus": [
+     0.4782608695652174,
+     0.5217391304347826
+    ],
+    "probability_of_this_record": 0.9583333333333333,
+    "closed_form_probability": 0.9583333333333333,
+    "modular_hamiltonian": "1 log(12/11) Pi_(p,+) + const",
+    "beta": 0.0870113769896297
+   },
+   {
+    "null_results": 4,
+    "weights_helicity_plus_minus": [
+     0.41385646041213214,
+     0.5861435395878679
+    ],
+    "probability_of_this_record": 0.8530333719135801,
+    "closed_form_probability": 0.8530333719135802,
+    "modular_hamiltonian": "4 log(12/11) Pi_(p,+) + const",
+    "beta": 0.3480455079585188
+   },
+   {
+    "null_results": 8,
+    "weights_helicity_plus_minus": [
+     0.3326794689821311,
+     0.6673205310178689
+    ],
+    "probability_of_this_record": 0.7492651233693445,
+    "closed_form_probability": 0.7492651233693445,
+    "modular_hamiltonian": "8 log(12/11) Pi_(p,+) + const",
+    "beta": 0.6960910159170376
+   },
+   {
+    "null_results": 16,
+    "weights_helicity_plus_minus": [
+     0.19905963636760368,
+     0.8009403636323963
+    ],
+    "probability_of_this_record": 0.624266203456669,
+    "closed_form_probability": 0.624266203456669,
+    "modular_hamiltonian": "16 log(12/11) Pi_(p,+) + const",
+    "beta": 1.3921820318340752
+   },
+   {
+    "null_results": 32,
+    "weights_helicity_plus_minus": [
+     0.05817498408411417,
+     0.9418250159158857
+    ],
+    "probability_of_this_record": 0.5308841786430686,
+    "closed_form_probability": 0.5308841786430685,
+    "modular_hamiltonian": "32 log(12/11) Pi_(p,+) + const",
+    "beta": 2.7843640636681504
+   }
+  ],
+  "null_click_check_against_full_instrument": {
+   "probability_of_one_null_result": 0.9583333333333333,
+   "expected": 0.9583333333333334,
+   "defect_internal_state_vs_(11 Pi_+ + 12 Pi_-)/23": 4.3298697960381105e-14,
+   "defect_from_product_form_after_400_events": 6.455407042249561e-11
+  },
+  "modular_orbit_of_a_neighbouring_port_effect": [
+   {
+    "modular_angle_in_units_2pi/5": 0.0,
+    "equals_own_axis_pulse_at_port_0": 0.0,
+    "distance_from_span_of_port_effects": 2.482534153247273e-16,
+    "distance_from_cone_of_port_effects": 1.5277125986097866e-32,
+    "commutator_norm_with_sigma": 0.21164559093012664
+   },
+   {
+    "modular_angle_in_units_2pi/5": 0.1,
+    "equals_own_axis_pulse_at_port_0": 1.1443916996305594e-16,
+    "distance_from_span_of_port_effects": 1.7773540378764034e-16,
+    "distance_from_cone_of_port_effects": 0.032727201752564855,
+    "commutator_norm_with_sigma": 0.21164559093012664
+   },
+   {
+    "modular_angle_in_units_2pi/5": 0.25,
+    "equals_own_axis_pulse_at_port_0": 2.0206364052201328e-16,
+    "distance_from_span_of_port_effects": 2.3175752125342967e-16,
+    "distance_from_cone_of_port_effects": 0.06908274343251697,
+    "commutator_norm_with_sigma": 0.21164559093012664
+   },
+   {
+    "modular_angle_in_units_2pi/5": 0.5,
+    "equals_own_axis_pulse_at_port_0": 1.6673970617553866e-16,
+    "distance_from_span_of_port_effects": 4.563969454415579e-16,
+    "distance_from_cone_of_port_effects": 0.09288703453239086,
+    "commutator_norm_with_sigma": 0.21164559093012664
+   },
+   {
+    "modular_angle_in_units_2pi/5": 1.0,
+    "equals_own_axis_pulse_at_port_0": 3.1401849173675503e-16,
+    "distance_from_span_of_port_effects": 1.137199424403197e-16,
+    "distance_from_cone_of_port_effects": 2.4622625054029353e-17,
+    "commutator_norm_with_sigma": 0.21164559093012664
+   }
+  ],
+  "reading": "sigma_n = ((11/12)^n Pi_+ + Pi_-)/Z is faithful and nontracial; -log sigma_n = n log(12/11) Pi_(p,+) + const, so its modular flow is the own-axis probe pulse at port p; the orbit of a port effect stays in the span and leaves the cone of port effects except at multiples of 2 pi/5",
+  "spinor_tomography_from_clicks": {
+   "true_Bloch_vector": [
+    0.3,
+    -0.5,
+    0.4
+   ],
+   "reconstructed_3_E[m n_p]": [
+    0.3000000000000001,
+    -0.49999999999999994,
+    0.39999999999999997
+   ],
+   "total_probability": 0.9999999999999999
+  }
+ },
+ "seconds": 14.5
+}

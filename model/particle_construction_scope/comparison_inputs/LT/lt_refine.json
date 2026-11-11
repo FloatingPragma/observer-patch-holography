@@ -1,0 +1,409 @@
+{
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "pair numbers (FR hexagon model)": {
+  "<S|W^-1 Pi_F W|S>": "1/12",
+  "<S|W^-1 Pi_I W|S>": "1/6",
+  "P = <X_W> on S (x) S": "2/9",
+  "W^-1 W S = S": true
+ },
+ "D10 cross term of the joint tick": {
+  "<S|W|S>": "2/3",
+  "weight with a written record after one tick": "1/3",
+  "1 - <S|W|S>": "1/3",
+  "Im <W_A (x) W_B> on S (x) S": "0",
+  "reading": "the amplitudes of FR's model are rational, so <S|W|S> is real; the first-order compression of I - Re(U_0 (x) W_A (x) W_B) on the pair is I - <W_A><W_B> Re(U_0), with coefficient zero on Im(U_0); the pair enters through the one number <W_A><W_B> = 4/9 and its exclusive read X_W does not appear, so the declared onsite functional of the joint tick holds no term J (x) X at first order",
+  "even count": "1 - <W_A><W_B> = 5/9 (at least one written record on the pair)"
+ },
+ "D6 refinement of the tick": {
+  "construction": "N parts per tick; each part applies exp(-i (tau/N) h) on the edge, exp(-i (tau/N) J (x) X_W) on the current and the pair, and the return test on S (x) S; the edge parts commute with the kick",
+  "edge after N parts": "exp(-i tau h) = E^tau, independent of N",
+  "rows": [
+   {
+    "tau": "1",
+    "edge layer of the refined clock equals E": true,
+    "limit phase tau P": "0.222222222222222",
+    "parts": {
+     "1": {
+      "phase": "0.205334030970278",
+      "amplitude kept": "0.917110764911",
+      "distance to exp(-i tau P)": "0.0844523",
+      "bound tau^2/N": "1.0",
+      "within bound": true
+     },
+     "10": {
+      "phase": "0.222062099670503",
+      "amplitude kept": "0.991394996221",
+      "distance to exp(-i tau P)": "0.00860648",
+      "bound tau^2/N": "0.1",
+      "within bound": true
+     },
+     "100": {
+      "phase": "0.22222062184783",
+      "amplitude kept": "0.999136175514",
+      "distance to exp(-i tau P)": "0.000863826",
+      "bound tau^2/N": "0.01",
+      "within bound": true
+     },
+     "1000": {
+      "phase": "0.222222206218563",
+      "amplitude kept": "0.999913583981",
+      "distance to exp(-i tau P)": "8.6416e-5",
+      "bound tau^2/N": "0.001",
+      "within bound": true
+     },
+     "1000000": {
+      "phase": "0.222222222222206",
+      "amplitude kept": "0.99999991358",
+      "distance to exp(-i tau P)": "8.64197e-8",
+      "bound tau^2/N": "1.0e-6",
+      "within bound": true
+     }
+    }
+   },
+   {
+    "tau": "5",
+    "edge layer of the refined clock equals E": true,
+    "limit phase tau P": "1.11111111111111",
+    "parts": {
+     "1": {
+      "phase": "-0.24821192474079",
+      "amplitude kept": "0.867396709566",
+      "distance to exp(-i tau P)": "1.17824",
+      "bound tau^2/N": "25.0",
+      "within bound": true
+     },
+     "10": {
+      "phase": "1.09083592000874",
+      "amplitude kept": "0.805579815123",
+      "distance to exp(-i tau P)": "0.19527",
+      "bound tau^2/N": "2.5",
+      "within bound": true
+     },
+     "100": {
+      "phase": "1.11091103852632",
+      "amplitude kept": "0.978626613757",
+      "distance to exp(-i tau P)": "0.0213743",
+      "bound tau^2/N": "0.25",
+      "within bound": true
+     },
+     "1000": {
+      "phase": "1.11110911065118",
+      "amplitude kept": "0.997841838193",
+      "distance to exp(-i tau P)": "0.00215816",
+      "bound tau^2/N": "0.025",
+      "within bound": true
+     },
+     "1000000": {
+      "phase": "1.11111111110911",
+      "amplitude kept": "0.999997839509",
+      "distance to exp(-i tau P)": "2.16049e-6",
+      "bound tau^2/N": "2.5e-5",
+      "within bound": true
+     }
+    }
+   },
+   {
+    "tau": "-3",
+    "edge layer of the refined clock equals E": true,
+    "limit phase tau P": "-0.666666666666667",
+    "parts": {
+     "1": {
+      "phase": "-0.0561638142090962",
+      "amplitude kept": "0.558660325421",
+      "distance to exp(-i tau P)": "0.629773",
+      "bound tau^2/N": "9.0",
+      "within bound": true
+     },
+     "10": {
+      "phase": "-0.662324736776435",
+      "amplitude kept": "0.925150989866",
+      "distance to exp(-i tau P)": "0.0749654",
+      "bound tau^2/N": "0.9",
+      "within bound": true
+     },
+     "100": {
+      "phase": "-0.666623454701588",
+      "amplitude kept": "0.992252369443",
+      "distance to exp(-i tau P)": "0.00774775",
+      "bound tau^2/N": "0.09",
+      "within bound": true
+     },
+     "1000": {
+      "phase": "-0.666666234567692",
+      "amplitude kept": "0.999222524591",
+      "distance to exp(-i tau P)": "0.000777476",
+      "bound tau^2/N": "0.009",
+      "within bound": true
+     },
+     "1000000": {
+      "phase": "-0.666666666666235",
+      "amplitude kept": "0.999999222223",
+      "distance to exp(-i tau P)": "7.77777e-7",
+      "bound tau^2/N": "9.0e-6",
+      "within bound": true
+     }
+    }
+   },
+   {
+    "tau": "9",
+    "edge layer of the refined clock equals E": true,
+    "limit phase tau P": "2.0",
+    "parts": {
+     "1": {
+      "phase": "0.157863991455053",
+      "amplitude kept": "0.58254817707",
+      "distance to exp(-i tau P)": "1.28516",
+      "bound tau^2/N": "81.0",
+      "within bound": true
+     },
+     "10": {
+      "phase": "1.87813701262086",
+      "amplitude kept": "0.496129281419",
+      "distance to exp(-i tau P)": "0.511121",
+      "bound tau^2/N": "8.1",
+      "within bound": true
+     },
+     "100": {
+      "phase": "1.99883282570725",
+      "amplitude kept": "0.932392195365",
+      "distance to exp(-i tau P)": "0.0676172",
+      "bound tau^2/N": "0.81",
+      "within bound": true
+     },
+     "1000": {
+      "phase": "1.99998833328258",
+      "amplitude kept": "0.993024441196",
+      "distance to exp(-i tau P)": "0.00697557",
+      "bound tau^2/N": "0.081",
+      "within bound": true
+     },
+     "1000000": {
+      "phase": "1.99999999998833",
+      "amplitude kept": "0.999993000024",
+      "distance to exp(-i tau P)": "6.99998e-6",
+      "bound tau^2/N": "8.1e-5",
+      "within bound": true
+     }
+    }
+   },
+   {
+    "tau": "pi/2",
+    "edge layer of the refined clock equals E": false,
+    "limit phase tau P": "0.349065850398866",
+    "parts": {
+     "1": {
+      "phase": "0.278299659005111",
+      "amplitude kept": "0.808901098809",
+      "distance to exp(-i tau P)": "0.201415",
+      "bound tau^2/N": "2.4674",
+      "within bound": true
+     },
+     "10": {
+      "phase": "0.348444760560875",
+      "amplitude kept": "0.978900944812",
+      "distance to exp(-i tau P)": "0.021108",
+      "bound tau^2/N": "0.24674",
+      "within bound": true
+     },
+     "100": {
+      "phase": "0.349059647643585",
+      "amplitude kept": "0.997869948225",
+      "distance to exp(-i tau P)": "0.00213006",
+      "bound tau^2/N": "0.024674",
+      "within bound": true
+     },
+     "1000": {
+      "phase": "0.349065788372127",
+      "amplitude kept": "0.999786790537",
+      "distance to exp(-i tau P)": "0.000213209",
+      "bound tau^2/N": "0.0024674",
+      "within bound": true
+     },
+     "1000000": {
+      "phase": "0.349065850398804",
+      "amplitude kept": "0.999999786768",
+      "distance to exp(-i tau P)": "2.13232e-7",
+      "bound tau^2/N": "2.4674e-6",
+      "within bound": true
+     }
+    }
+   },
+   {
+    "tau": "2/pi",
+    "edge layer of the refined clock equals E": false,
+    "limit phase tau P": "0.141471060526129",
+    "parts": {
+     "1": {
+      "phase": "0.137250950319561",
+      "amplitude kept": "0.96554900388",
+      "distance to exp(-i tau P)": "0.0346997",
+      "bound tau^2/N": "0.405285",
+      "within bound": true
+     },
+     "10": {
+      "phase": "0.141429760135709",
+      "amplitude kept": "0.996503622229",
+      "distance to exp(-i tau P)": "0.00349662",
+      "bound tau^2/N": "0.0405285",
+      "within bound": true
+     },
+     "100": {
+      "phase": "0.141470647611209",
+      "amplitude kept": "0.999649815218",
+      "distance to exp(-i tau P)": "0.000350185",
+      "bound tau^2/N": "0.00405285",
+      "within bound": true
+     },
+     "1000": {
+      "phase": "0.141471056396989",
+      "amplitude kept": "0.999964976007",
+      "distance to exp(-i tau P)": "3.5024e-5",
+      "bound tau^2/N": "0.000405285",
+      "within bound": true
+     },
+     "1000000": {
+      "phase": "0.141471060526125",
+      "amplitude kept": "0.999999964975",
+      "distance to exp(-i tau P)": "3.50246e-8",
+      "bound tau^2/N": "4.05285e-7",
+      "within bound": true
+     }
+    }
+   },
+   {
+    "tau": "2",
+    "edge layer of the refined clock equals E": false,
+    "limit phase tau P": "0.444444444444444",
+    "parts": {
+     "1": {
+      "phase": "0.286732310195962",
+      "amplitude kept": "0.714470265446",
+      "distance to exp(-i tau P)": "0.315058",
+      "bound tau^2/N": "4.0",
+      "within bound": true
+     },
+     "10": {
+      "phase": "0.443161398177909",
+      "amplitude kept": "0.966018710155",
+      "distance to exp(-i tau P)": "0.0340047",
+      "bound tau^2/N": "0.4",
+      "within bound": true
+     },
+     "100": {
+      "phase": "0.444431641243032",
+      "amplitude kept": "0.996549173445",
+      "distance to exp(-i tau P)": "0.00345085",
+      "bound tau^2/N": "0.04",
+      "within bound": true
+     },
+     "1000": {
+      "phase": "0.444444316415153",
+      "amplitude kept": "0.999654380723",
+      "distance to exp(-i tau P)": "0.000345619",
+      "bound tau^2/N": "0.004",
+      "within bound": true
+     },
+     "1000000": {
+      "phase": "0.444444444444316",
+      "amplitude kept": "0.999999654321",
+      "distance to exp(-i tau P)": "3.45679e-7",
+      "bound tau^2/N": "4.0e-6",
+      "within bound": true
+     }
+    }
+   },
+   {
+    "tau": "1/2",
+    "edge layer of the refined clock equals E": false,
+    "limit phase tau P": "0.111111111111111",
+    "parts": {
+     "1": {
+      "phase": "0.109083592000874",
+      "amplitude kept": "0.978612722634",
+      "distance to exp(-i tau P)": "0.0214811",
+      "bound tau^2/N": "0.25",
+      "within bound": true
+     },
+     "10": {
+      "phase": "0.111091103852632",
+      "amplitude kept": "0.997841821748",
+      "distance to exp(-i tau P)": "0.00215827",
+      "bound tau^2/N": "0.025",
+      "within bound": true
+     },
+     "100": {
+      "phase": "0.111110911065118",
+      "amplitude kept": "0.999783973938",
+      "distance to exp(-i tau P)": "0.000216026",
+      "bound tau^2/N": "0.0025",
+      "within bound": true
+     },
+     "1000": {
+      "phase": "0.111111109110654",
+      "amplitude kept": "0.999978395295",
+      "distance to exp(-i tau P)": "2.16047e-5",
+      "bound tau^2/N": "0.00025",
+      "within bound": true
+     },
+     "1000000": {
+      "phase": "0.111111111111109",
+      "amplitude kept": "0.999999978395",
+      "distance to exp(-i tau P)": "2.16049e-8",
+      "bound tau^2/N": "2.5e-7",
+      "within bound": true
+     }
+    }
+   },
+   {
+    "tau": "4/5",
+    "edge layer of the refined clock equals E": false,
+    "limit phase tau P": "0.177777777777778",
+    "parts": {
+     "1": {
+      "phase": "0.16929690871759",
+      "amplitude kept": "0.946127832186",
+      "distance to exp(-i tau P)": "0.0545001",
+      "bound tau^2/N": "0.64",
+      "within bound": true
+     },
+     "10": {
+      "phase": "0.177695810880752",
+      "amplitude kept": "0.994484294599",
+      "distance to exp(-i tau P)": "0.00551631",
+      "bound tau^2/N": "0.064",
+      "within bound": true
+     },
+     "100": {
+      "phase": "0.177776958387673",
+      "amplitude kept": "0.999447066395",
+      "distance to exp(-i tau P)": "0.000552934",
+      "bound tau^2/N": "0.0064",
+      "within bound": true
+     },
+     "1000": {
+      "phase": "0.177777769583905",
+      "amplitude kept": "0.999944692887",
+      "distance to exp(-i tau P)": "5.53071e-5",
+      "bound tau^2/N": "0.00064",
+      "within bound": true
+     },
+     "1000000": {
+      "phase": "0.17777777777777",
+      "amplitude kept": "0.999999944691",
+      "distance to exp(-i tau P)": "5.53086e-8",
+      "bound tau^2/N": "6.4e-7",
+      "within bound": true
+     }
+    }
+   }
+  ],
+  "reading": "the refined clock reproduces the edge layer of the tick only for tau in 1 + 4 Z; at tau = 1 the accumulated kick angle is one and the phase tends to P"
+ }
+}

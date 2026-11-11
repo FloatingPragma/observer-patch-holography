@@ -1,0 +1,433 @@
+{
+ "task": "QT X6: n-fold loads",
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "X6": {
+  "hexagon": {
+   "by crossing phase w^m": {
+    "0": {
+     "fixed vectors (exact)": 1,
+     "lowest A": -0.0,
+     "hermitian defect": 0.0,
+     "states": 18
+    },
+    "1": {
+     "fixed vectors (exact)": 0,
+     "lowest A": 0.0008454433,
+     "hermitian defect": 0.0,
+     "states": 18
+    },
+    "2": {
+     "fixed vectors (exact)": 0,
+     "lowest A": 0.0033731665,
+     "hermitian defect": 0.0,
+     "states": 18
+    },
+    "3": {
+     "fixed vectors (exact)": 0,
+     "lowest A": 0.0075572574,
+     "hermitian defect": 0.0,
+     "states": 18
+    },
+    "4": {
+     "fixed vectors (exact)": 0,
+     "lowest A": 0.0033731665,
+     "hermitian defect": 0.0,
+     "states": 18
+    },
+    "5": {
+     "fixed vectors (exact)": 0,
+     "lowest A": 0.0008454433,
+     "hermitian defect": 0.0,
+     "states": 18
+    }
+   },
+   "by load number and class": {
+    "n = 2": {
+     "class 0": {
+      "crossing phase exponent n k mod 6": 0,
+      "fixed vectors (exact)": 1,
+      "lowest A": -0.0
+     },
+     "class 1": {
+      "crossing phase exponent n k mod 6": 2,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0033731665
+     },
+     "class 2": {
+      "crossing phase exponent n k mod 6": 4,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0033731665
+     },
+     "class 3": {
+      "crossing phase exponent n k mod 6": 0,
+      "fixed vectors (exact)": 1,
+      "lowest A": -0.0
+     },
+     "class 4": {
+      "crossing phase exponent n k mod 6": 2,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0033731665
+     },
+     "class 5": {
+      "crossing phase exponent n k mod 6": 4,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0033731665
+     }
+    },
+    "n = 3": {
+     "class 0": {
+      "crossing phase exponent n k mod 6": 0,
+      "fixed vectors (exact)": 1,
+      "lowest A": -0.0
+     },
+     "class 1": {
+      "crossing phase exponent n k mod 6": 3,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0075572574
+     },
+     "class 2": {
+      "crossing phase exponent n k mod 6": 0,
+      "fixed vectors (exact)": 1,
+      "lowest A": -0.0
+     },
+     "class 3": {
+      "crossing phase exponent n k mod 6": 3,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0075572574
+     },
+     "class 4": {
+      "crossing phase exponent n k mod 6": 0,
+      "fixed vectors (exact)": 1,
+      "lowest A": -0.0
+     },
+     "class 5": {
+      "crossing phase exponent n k mod 6": 3,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0075572574
+     }
+    },
+    "n = 4": {
+     "class 0": {
+      "crossing phase exponent n k mod 6": 0,
+      "fixed vectors (exact)": 1,
+      "lowest A": -0.0
+     },
+     "class 1": {
+      "crossing phase exponent n k mod 6": 4,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0033731665
+     },
+     "class 2": {
+      "crossing phase exponent n k mod 6": 2,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0033731665
+     },
+     "class 3": {
+      "crossing phase exponent n k mod 6": 0,
+      "fixed vectors (exact)": 1,
+      "lowest A": -0.0
+     },
+     "class 4": {
+      "crossing phase exponent n k mod 6": 4,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0033731665
+     },
+     "class 5": {
+      "crossing phase exponent n k mod 6": 2,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0033731665
+     }
+    },
+    "n = 5": {
+     "class 0": {
+      "crossing phase exponent n k mod 6": 0,
+      "fixed vectors (exact)": 1,
+      "lowest A": -0.0
+     },
+     "class 1": {
+      "crossing phase exponent n k mod 6": 5,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0008454433
+     },
+     "class 2": {
+      "crossing phase exponent n k mod 6": 4,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0033731665
+     },
+     "class 3": {
+      "crossing phase exponent n k mod 6": 3,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0075572574
+     },
+     "class 4": {
+      "crossing phase exponent n k mod 6": 2,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0033731665
+     },
+     "class 5": {
+      "crossing phase exponent n k mod 6": 1,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0008454433
+     }
+    },
+    "n = 6": {
+     "class 0": {
+      "crossing phase exponent n k mod 6": 0,
+      "fixed vectors (exact)": 1,
+      "lowest A": -0.0
+     },
+     "class 1": {
+      "crossing phase exponent n k mod 6": 0,
+      "fixed vectors (exact)": 1,
+      "lowest A": -0.0
+     },
+     "class 2": {
+      "crossing phase exponent n k mod 6": 0,
+      "fixed vectors (exact)": 1,
+      "lowest A": -0.0
+     },
+     "class 3": {
+      "crossing phase exponent n k mod 6": 0,
+      "fixed vectors (exact)": 1,
+      "lowest A": -0.0
+     },
+     "class 4": {
+      "crossing phase exponent n k mod 6": 0,
+      "fixed vectors (exact)": 1,
+      "lowest A": -0.0
+     },
+     "class 5": {
+      "crossing phase exponent n k mod 6": 0,
+      "fixed vectors (exact)": 1,
+      "lowest A": -0.0
+     }
+    }
+   },
+   "selected exactly when n k is a multiple of six": true
+  },
+  "carrier": {
+   "by crossing phase w^m": {
+    "0": {
+     "fixed vectors (exact)": 1,
+     "lowest A": -0.0,
+     "hermitian defect": 0.0,
+     "states": 72
+    },
+    "1": {
+     "fixed vectors (exact)": 0,
+     "lowest A": 0.0002936017,
+     "hermitian defect": 0.0,
+     "states": 72
+    },
+    "2": {
+     "fixed vectors (exact)": 0,
+     "lowest A": 0.0011444553,
+     "hermitian defect": 0.0,
+     "states": 72
+    },
+    "3": {
+     "fixed vectors (exact)": 0,
+     "lowest A": 0.0024679932,
+     "hermitian defect": 0.0,
+     "states": 72
+    },
+    "4": {
+     "fixed vectors (exact)": 0,
+     "lowest A": 0.0011444553,
+     "hermitian defect": 0.0,
+     "states": 72
+    },
+    "5": {
+     "fixed vectors (exact)": 0,
+     "lowest A": 0.0002936017,
+     "hermitian defect": 0.0,
+     "states": 72
+    }
+   },
+   "by load number and class": {
+    "n = 2": {
+     "class 0": {
+      "crossing phase exponent n k mod 6": 0,
+      "fixed vectors (exact)": 1,
+      "lowest A": -0.0
+     },
+     "class 1": {
+      "crossing phase exponent n k mod 6": 2,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0011444553
+     },
+     "class 2": {
+      "crossing phase exponent n k mod 6": 4,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0011444553
+     },
+     "class 3": {
+      "crossing phase exponent n k mod 6": 0,
+      "fixed vectors (exact)": 1,
+      "lowest A": -0.0
+     },
+     "class 4": {
+      "crossing phase exponent n k mod 6": 2,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0011444553
+     },
+     "class 5": {
+      "crossing phase exponent n k mod 6": 4,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0011444553
+     }
+    },
+    "n = 3": {
+     "class 0": {
+      "crossing phase exponent n k mod 6": 0,
+      "fixed vectors (exact)": 1,
+      "lowest A": -0.0
+     },
+     "class 1": {
+      "crossing phase exponent n k mod 6": 3,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0024679932
+     },
+     "class 2": {
+      "crossing phase exponent n k mod 6": 0,
+      "fixed vectors (exact)": 1,
+      "lowest A": -0.0
+     },
+     "class 3": {
+      "crossing phase exponent n k mod 6": 3,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0024679932
+     },
+     "class 4": {
+      "crossing phase exponent n k mod 6": 0,
+      "fixed vectors (exact)": 1,
+      "lowest A": -0.0
+     },
+     "class 5": {
+      "crossing phase exponent n k mod 6": 3,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0024679932
+     }
+    },
+    "n = 4": {
+     "class 0": {
+      "crossing phase exponent n k mod 6": 0,
+      "fixed vectors (exact)": 1,
+      "lowest A": -0.0
+     },
+     "class 1": {
+      "crossing phase exponent n k mod 6": 4,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0011444553
+     },
+     "class 2": {
+      "crossing phase exponent n k mod 6": 2,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0011444553
+     },
+     "class 3": {
+      "crossing phase exponent n k mod 6": 0,
+      "fixed vectors (exact)": 1,
+      "lowest A": -0.0
+     },
+     "class 4": {
+      "crossing phase exponent n k mod 6": 4,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0011444553
+     },
+     "class 5": {
+      "crossing phase exponent n k mod 6": 2,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0011444553
+     }
+    },
+    "n = 5": {
+     "class 0": {
+      "crossing phase exponent n k mod 6": 0,
+      "fixed vectors (exact)": 1,
+      "lowest A": -0.0
+     },
+     "class 1": {
+      "crossing phase exponent n k mod 6": 5,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0002936017
+     },
+     "class 2": {
+      "crossing phase exponent n k mod 6": 4,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0011444553
+     },
+     "class 3": {
+      "crossing phase exponent n k mod 6": 3,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0024679932
+     },
+     "class 4": {
+      "crossing phase exponent n k mod 6": 2,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0011444553
+     },
+     "class 5": {
+      "crossing phase exponent n k mod 6": 1,
+      "fixed vectors (exact)": 0,
+      "lowest A": 0.0002936017
+     }
+    },
+    "n = 6": {
+     "class 0": {
+      "crossing phase exponent n k mod 6": 0,
+      "fixed vectors (exact)": 1,
+      "lowest A": -0.0
+     },
+     "class 1": {
+      "crossing phase exponent n k mod 6": 0,
+      "fixed vectors (exact)": 1,
+      "lowest A": -0.0
+     },
+     "class 2": {
+      "crossing phase exponent n k mod 6": 0,
+      "fixed vectors (exact)": 1,
+      "lowest A": -0.0
+     },
+     "class 3": {
+      "crossing phase exponent n k mod 6": 0,
+      "fixed vectors (exact)": 1,
+      "lowest A": -0.0
+     },
+     "class 4": {
+      "crossing phase exponent n k mod 6": 0,
+      "fixed vectors (exact)": 1,
+      "lowest A": -0.0
+     },
+     "class 5": {
+      "crossing phase exponent n k mod 6": 0,
+      "fixed vectors (exact)": 1,
+      "lowest A": -0.0
+     }
+    }
+   },
+   "selected exactly when n k is a multiple of six": true
+  }
+ },
+ "tick weights of a blank n-fold load, uniform over the six hexagon ports": {
+  "idle": "2/3",
+  "in-dimer (H)": "1/6",
+  "forward (R+)": "1/12",
+  "backward (R-)": "1/12",
+  "reason": "four of the twelve addresses touch the port; each exchanges the blank n-fold load with an emission state with amplitude one"
+ },
+ "size of the full six-load problem": {
+  "configurations on the hexagon": 462,
+  "configurations on the carrier": 12376,
+  "record values needed by a completion at totals up to six": "blank, the shell pump, and one value per imbalance of two to six of either sign (twelve)",
+  "status": "not computed: the completion at totals four to six is not declared in this lane"
+ },
+ "seconds": 20.42
+}

@@ -1,0 +1,157 @@
+"""Exact rational replay of a residual-certified finite eigenframe candidate."""
+from fractions import Fraction as F
+from functools import lru_cache
+from pathlib import Path
+import hashlib,json,math,sys
+import numpy as np
+import sympy as s
+HERE=Path(__file__).resolve().parent
+REPOSITORY=HERE.parents[3]/'reverse-engineering-reality'
+assert (REPOSITORY/'model/native_wilson_maxwell/field.py').is_file()
+sys.path.insert(0,str(REPOSITORY))
+from diagnostic import band
+# Relocation only: the frozen helper retains every content-hash admission.
+DECLARED_RESEARCH_REPOSITORY=band.RER
+band.RER=REPOSITORY
+from algebraic_intervals import interval_expr
+from model.native_wilson_maxwell_refinement.bounds import root,rounded
+HERE=Path(__file__).resolve().parent
+ZERO=(F(0),F(0));ONE=(F(1),F(0));BITS=100
+
+def add(a,b):return a[0]+b[0],a[1]+b[1]
+def neg(a):return -a[0],-a[1]
+def sub(a,b):return add(a,neg(b))
+def mul(a,b):return a[0]*b[0]-a[1]*b[1],a[0]*b[1]+a[1]*b[0]
+def conj(a):return a[0],-a[1]
+def scale(a,x):return a[0]*x,a[1]*x
+def norm1(a):return abs(a[0])+abs(a[1])
+def dyadic(x):return F(round(x*2**BITS),2**BITS)
+def exact_complex(z):
+    a,b=s.expand(z).as_real_imag();assert a.is_Rational and b.is_Rational
+    return F(int(a.p),int(a.q)),F(int(b.p),int(b.q))
+def matmul(A,B):
+    n,k,m=len(A),len(B),len(B[0]);out=[[ZERO for _ in range(m)]for _ in range(n)]
+    for i in range(n):
+        for p in range(k):
+            a=A[i][p]
+            if a==ZERO:continue
+            for j in range(m):
+                b=B[p][j]
+                if b!=ZERO:out[i][j]=add(out[i][j],mul(a,b))
+    return out
+def adj(A):return [[conj(A[j][i])for j in range(len(A))]for i in range(len(A[0]))]
+def transform(U,A):return matmul(adj(U),matmul(A,U))
+def onebody(M,state,constant=F(0)):
+    out={state:(constant,F(0))}
+    for j in range(32):
+        if not(state>>j)&1:continue
+        removed=state^(1<<j);sj=(-1)**((state&((1<<j)-1)).bit_count())
+        for i in range(32):
+            if(removed>>i)&1:continue
+            final=removed|(1<<i);sign=sj*(-1)**((removed&((1<<i)-1)).bit_count())
+            out[final]=add(out.get(final,ZERO),scale(M[i][j],sign))
+    return {k:v for k,v in out.items()if v!=ZERO}
+def inner(A,B):
+    z=ZERO
+    for key,a in A.items():z=add(z,mul(conj(a),B.get(key,ZERO)))
+    return z
+
+def make_candidate():
+    band.admit();H,*_=band.native_algebra().cube();e,U=np.linalg.eigh(np.asarray(H,dtype=complex))
+    value={'schema':'oph.finite_eigenframe_candidate.v1','scope':'untrusted candidate; exact residuals admit it',
+        'e':[float(x).hex()for x in e],
+        'U':[[[float(z.real).hex(),float(z.imag).hex()]for z in row]for row in U]}
+    (HERE/'candidate.json').write_text(json.dumps(value,indent=2,sort_keys=True)+'\n')
+
+@lru_cache(None)
+def calculate():
+    band.admit();a=band.native_algebra();H,Js,_,_,Es=a.cube();raw=json.loads((HERE/'candidate.json').read_text())
+    U=[[(F(float.fromhex(z[0])),F(float.fromhex(z[1])))for z in row]for row in raw['U']]
+    D=[F(float.fromhex(x))for x in raw['e']]
+    lamlo,lamhi=root(5,False)/2,root(5)/2;lambar=dyadic((lamlo+lamhi)/2)
+    D[16]=D[17]=lambar
+    Hq=[[exact_complex(x)for x in row]for row in H.tolist()]
+    Gram=matmul(adj(U),U);res=matmul(Hq,U)
+    eta=max(sum(norm1(sub(Gram[i][j],ONE if i==j else ZERO))for j in range(32))for i in range(32))
+    residual=max(sum(norm1(sub(res[i][j],scale(U[i][j],D[j])))for j in range(32))for i in range(32))
+    h_norm_bound=max(sum(norm1(z) for z in row) for row in Hq)
+    d_norm_bound=max(abs(z) for z in D)
+    # ||R||2 <= sqrt(32)||R||infinity < 6 residual; polar correction <= eta.
+    epsh=6*residual+(h_norm_bound+d_norm_bound)*eta
+    assert eta<F(1,2**44) and epsh<F(1,2**37)
+    frame,omega=band.field.frame();coeff=[];coefficient_error=F(0);frequencies=[]
+    for k in range(5):
+        lo,hi=interval_expr(omega[k]);w=dyadic((lo+hi)/2);frequencies.append(w);coefficient_error=max(coefficient_error,abs(w-lo),abs(w-hi))
+        row=[]
+        for edge in range(12):
+            lo,hi=interval_expr(frame[edge,k]/s.sqrt(2*omega[k]));v=dyadic((lo+hi)/2);row.append(v);coefficient_error=max(coefficient_error,abs(v-lo),abs(v-hi))
+        coeff.append(row)
+    assert coefficient_error<F(1,2**95)
+    Jq=[[[exact_complex(x)for x in row]for row in J.tolist()]for J in Js]
+    Eq=[[[exact_complex(x)for x in row]for row in E.tolist()]for E in Es]
+    currents=[]
+    for k in range(5):
+        M=[[ZERO for _ in range(32)]for _ in range(32)]
+        for edge in range(12):
+            for i in range(32):
+                for j in range(32):M[i][j]=add(M[i][j],scale(Jq[edge][i][j],coeff[k][edge]))
+        currents.append(transform(U,M))
+    vlo,vhi=interval_expr(band.field.cube()['Q_edge_vacuum_variance']);variance=dyadic((vlo+vhi)/2)
+    K2=[[ZERO for _ in range(32)]for _ in range(32)]
+    for E in Eq:
+        for i in range(32):
+            for j in range(32):K2[i][j]=sub(K2[i][j],scale(E[i][j],variance/2))
+    K2=transform(U,K2)
+    densities=[]
+    for x in range(8):
+        A=[[ONE if i==j and i//4==x else ZERO for j in range(32)]for i in range(32)]
+        densities.append(transform(U,A))
+    G=[[F(v)for v in row]for row in band.field.cube()['G'].tolist()];occupied=(1<<16)-1
+    def sector(charge):
+        starts=[occupied]if charge==0 else[occupied|(1<<16),occupied|(1<<17)];n=len(starts)
+        density=[[onebody(densities[x],state,F(-2-charge*int(x==0)))for state in starts]for x in range(8)]
+        C=[[ZERO for _ in range(n)]for _ in range(n)];B=[[ZERO for _ in range(n)]for _ in range(n)]
+        for i in range(n):
+            for j in range(n):
+                for x in range(8):
+                    for y in range(8):C[i][j]=add(C[i][j],scale(inner(density[x][i],density[y][j]),G[x][y]/2))
+                B[i][j]=add(C[i][j],onebody(K2,starts[j]).get(starts[i],ZERO))
+        sums=[[[ZERO for _ in range(n)]for _ in range(n)]for _ in range(3)];count=0
+        for k in range(5):
+            cols=[onebody(currents[k],state)for state in starts];states=sorted(set().union(*(set(v)for v in cols)))
+            for state in states:
+                energy=sum(D[j]for j in range(16,32)if(state>>j)&1)-sum(D[j]for j in range(16)if not(state>>j)&1)
+                denom=frequencies[k]+energy-(lambar if charge else 0);assert denom>F(19,10);count+=1
+                for i in range(n):
+                    for j in range(n):
+                        value=mul(conj(cols[i].get(state,ZERO)),cols[j].get(state,ZERO))
+                        for power in range(3):
+                            term=scale(value,1/denom**power)
+                            term=(dyadic(term[0]),dyadic(term[1]));sums[power][i][j]=add(sums[power][i][j],term)
+        effective=[[sub(B[i][j],sums[1][i][j])for j in range(n)]for i in range(n)]
+        return {'C':C,'B':B,'A_gram':sums[0],'virtual':sums[1],'R_A_gram':sums[2],'M':effective,'rounding_terms':count,'rounding_entry_error_upper':F(count,2**BITS)}
+    neutral,charged=sector(0),sector(1)
+    # Proposed broad transfer allowance. Its many-body/projection derivation is not certified.
+    deltaA=5000*eta+2000*coefficient_error
+    transfer=200000*epsh+100*deltaA+20000*eta+F(1,2**70)
+    assert transfer<F(1,10**5)
+    encode=lambda v:[[[str(a),str(b)]for a,b in row]for row in v]
+    out={'schema':'oph.finite_self_energy_exact_contractions.v1','candidate_sha256':hashlib.sha256((HERE/'candidate.json').read_bytes()).hexdigest(),
+        'unitarity_defect_upper':str(eta),'one_body_residual_upper':str(residual),'polar_corrected_source_difference_upper':str(epsh),
+        'field_coefficient_error_upper':str(coefficient_error),'proposed_uniform_compressed_matrix_transfer_allowance':str(transfer),
+        'candidate_polar_correction_is_mathematical_not_executed_apparatus':True,
+        'repository_relocation':{'declared_path':str(DECLARED_RESEARCH_REPOSITORY),'actual_path':str(REPOSITORY),
+            'content_hash_admissions_unchanged':True},
+        'status':'exact rational contraction replay; transfer and Feshbach bounds require independent review',
+        'certificate_status':{'algebraic_coefficient_intervals':True,'polar_one_body_error_bound':True,
+            'exact_candidate_contraction_arithmetic':True,'compressed_matrix_transfer_allowance_proved':False,
+            'interacting_low_energy_remainder_certified':False,'physical_mass_certified':False}}
+    for name,value in [('neutral',neutral),('charged',charged)]:
+        out[name]={k:encode(v)if isinstance(v,list)else str(v)for k,v in value.items()}
+    return out
+
+if __name__=='__main__':
+    import sys
+    if '--candidate' in sys.argv:make_candidate()
+    else:
+        v=calculate();(HERE/'contractions.json').write_text(json.dumps(v,indent=2,sort_keys=True)+'\n');print(v['proposed_uniform_compressed_matrix_transfer_allowance'])

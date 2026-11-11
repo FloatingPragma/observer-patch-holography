@@ -1,0 +1,1421 @@
+{
+ "2": {
+  "min_uphill_then_length": {
+   "uphill": 1,
+   "length": 6,
+   "route": [
+    {
+     "step": 0,
+     "defects": {
+      "0": 3,
+      "2": 3
+     },
+     "cost": 20
+    },
+    {
+     "step": 1,
+     "seam_faces": [
+      2,
+      1
+     ],
+     "delta": 1,
+     "defects": {
+      "0": 3,
+      "1": 5,
+      "2": 4
+     },
+     "cost": 23,
+     "rise": 3
+    },
+    {
+     "step": 2,
+     "seam_faces": [
+      2,
+      1
+     ],
+     "delta": 1,
+     "defects": {
+      "0": 3,
+      "1": 4,
+      "2": 5
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 3,
+     "seam_faces": [
+      2,
+      1
+     ],
+     "delta": 1,
+     "defects": {
+      "0": 3,
+      "1": 3
+     },
+     "cost": 20,
+     "rise": -3
+    },
+    {
+     "step": 4,
+     "seam_faces": [
+      1,
+      0
+     ],
+     "delta": 1,
+     "defects": {
+      "0": 2,
+      "1": 4
+     },
+     "cost": 16,
+     "rise": -4
+    },
+    {
+     "step": 5,
+     "seam_faces": [
+      1,
+      0
+     ],
+     "delta": 1,
+     "defects": {
+      "0": 1,
+      "1": 5
+     },
+     "cost": 10,
+     "rise": -6
+    },
+    {
+     "step": 6,
+     "seam_faces": [
+      1,
+      0
+     ],
+     "delta": 1,
+     "defects": {},
+     "cost": 0,
+     "rise": -10
+    }
+   ]
+  },
+  "min_length_then_uphill": {
+   "length": 6,
+   "uphill": 1,
+   "route": [
+    {
+     "step": 0,
+     "defects": {
+      "0": 3,
+      "2": 3
+     },
+     "cost": 20
+    },
+    {
+     "step": 1,
+     "seam_faces": [
+      2,
+      1
+     ],
+     "delta": 1,
+     "defects": {
+      "0": 3,
+      "1": 5,
+      "2": 4
+     },
+     "cost": 23,
+     "rise": 3
+    },
+    {
+     "step": 2,
+     "seam_faces": [
+      2,
+      1
+     ],
+     "delta": 1,
+     "defects": {
+      "0": 3,
+      "1": 4,
+      "2": 5
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 3,
+     "seam_faces": [
+      2,
+      1
+     ],
+     "delta": 1,
+     "defects": {
+      "0": 3,
+      "1": 3
+     },
+     "cost": 20,
+     "rise": -3
+    },
+    {
+     "step": 4,
+     "seam_faces": [
+      1,
+      0
+     ],
+     "delta": 1,
+     "defects": {
+      "0": 2,
+      "1": 4
+     },
+     "cost": 16,
+     "rise": -4
+    },
+    {
+     "step": 5,
+     "seam_faces": [
+      1,
+      0
+     ],
+     "delta": 1,
+     "defects": {
+      "0": 1,
+      "1": 5
+     },
+     "cost": 10,
+     "rise": -6
+    },
+    {
+     "step": 6,
+     "seam_faces": [
+      1,
+      0
+     ],
+     "delta": 1,
+     "defects": {},
+     "cost": 0,
+     "rise": -10
+    }
+   ]
+  }
+ },
+ "3": {
+  "min_uphill_then_length": {
+   "uphill": 1,
+   "length": 10,
+   "route": [
+    {
+     "step": 0,
+     "defects": {
+      "0": 3,
+      "8": 3
+     },
+     "cost": 20
+    },
+    {
+     "step": 1,
+     "seam_faces": [
+      0,
+      4
+     ],
+     "delta": 1,
+     "defects": {
+      "0": 4,
+      "4": 5,
+      "8": 3
+     },
+     "cost": 23,
+     "rise": 3
+    },
+    {
+     "step": 2,
+     "seam_faces": [
+      0,
+      4
+     ],
+     "delta": 1,
+     "defects": {
+      "0": 5,
+      "4": 4,
+      "8": 3
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 3,
+     "seam_faces": [
+      1,
+      0
+     ],
+     "delta": -1,
+     "defects": {
+      "1": 5,
+      "4": 4,
+      "8": 3
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 4,
+     "seam_faces": [
+      2,
+      1
+     ],
+     "delta": -1,
+     "defects": {
+      "2": 5,
+      "4": 4,
+      "8": 3
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 5,
+     "seam_faces": [
+      3,
+      2
+     ],
+     "delta": -1,
+     "defects": {
+      "3": 5,
+      "4": 4,
+      "8": 3
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 6,
+     "seam_faces": [
+      4,
+      3
+     ],
+     "delta": 1,
+     "defects": {
+      "3": 4,
+      "4": 5,
+      "8": 3
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 7,
+     "seam_faces": [
+      4,
+      3
+     ],
+     "delta": 1,
+     "defects": {
+      "3": 3,
+      "8": 3
+     },
+     "cost": 20,
+     "rise": -3
+    },
+    {
+     "step": 8,
+     "seam_faces": [
+      3,
+      8
+     ],
+     "delta": 1,
+     "defects": {
+      "3": 4,
+      "8": 2
+     },
+     "cost": 16,
+     "rise": -4
+    },
+    {
+     "step": 9,
+     "seam_faces": [
+      3,
+      8
+     ],
+     "delta": 1,
+     "defects": {
+      "3": 5,
+      "8": 1
+     },
+     "cost": 10,
+     "rise": -6
+    },
+    {
+     "step": 10,
+     "seam_faces": [
+      3,
+      8
+     ],
+     "delta": 1,
+     "defects": {},
+     "cost": 0,
+     "rise": -10
+    }
+   ]
+  },
+  "min_length_then_uphill": {
+   "length": 9,
+   "uphill": 2,
+   "route": [
+    {
+     "step": 0,
+     "defects": {
+      "0": 3,
+      "8": 3
+     },
+     "cost": 20
+    },
+    {
+     "step": 1,
+     "seam_faces": [
+      4,
+      3
+     ],
+     "delta": 1,
+     "defects": {
+      "0": 3,
+      "3": 5,
+      "4": 1,
+      "8": 3
+     },
+     "cost": 30,
+     "rise": 10
+    },
+    {
+     "step": 2,
+     "seam_faces": [
+      0,
+      4
+     ],
+     "delta": 1,
+     "defects": {
+      "0": 4,
+      "3": 5,
+      "8": 3
+     },
+     "cost": 23,
+     "rise": -7
+    },
+    {
+     "step": 3,
+     "seam_faces": [
+      3,
+      8
+     ],
+     "delta": 1,
+     "defects": {
+      "0": 4,
+      "8": 2
+     },
+     "cost": 16,
+     "rise": -7
+    },
+    {
+     "step": 4,
+     "seam_faces": [
+      4,
+      3
+     ],
+     "delta": 1,
+     "defects": {
+      "0": 4,
+      "3": 5,
+      "4": 1,
+      "8": 2
+     },
+     "cost": 26,
+     "rise": 10
+    },
+    {
+     "step": 5,
+     "seam_faces": [
+      0,
+      4
+     ],
+     "delta": 1,
+     "defects": {
+      "0": 5,
+      "3": 5,
+      "8": 2
+     },
+     "cost": 18,
+     "rise": -8
+    },
+    {
+     "step": 6,
+     "seam_faces": [
+      0,
+      4
+     ],
+     "delta": 1,
+     "defects": {
+      "3": 5,
+      "4": 5,
+      "8": 2
+     },
+     "cost": 18,
+     "rise": 0
+    },
+    {
+     "step": 7,
+     "seam_faces": [
+      4,
+      3
+     ],
+     "delta": 1,
+     "defects": {
+      "3": 4,
+      "8": 2
+     },
+     "cost": 16,
+     "rise": -2
+    },
+    {
+     "step": 8,
+     "seam_faces": [
+      3,
+      8
+     ],
+     "delta": 1,
+     "defects": {
+      "3": 5,
+      "8": 1
+     },
+     "cost": 10,
+     "rise": -6
+    },
+    {
+     "step": 9,
+     "seam_faces": [
+      3,
+      8
+     ],
+     "delta": 1,
+     "defects": {},
+     "cost": 0,
+     "rise": -10
+    }
+   ]
+  }
+ },
+ "4": {
+  "min_uphill_then_length": {
+   "uphill": 1,
+   "length": 14,
+   "route": [
+    {
+     "step": 0,
+     "defects": {
+      "0": 3,
+      "12": 3
+     },
+     "cost": 20
+    },
+    {
+     "step": 1,
+     "seam_faces": [
+      0,
+      4
+     ],
+     "delta": 1,
+     "defects": {
+      "0": 4,
+      "4": 5,
+      "12": 3
+     },
+     "cost": 23,
+     "rise": 3
+    },
+    {
+     "step": 2,
+     "seam_faces": [
+      0,
+      4
+     ],
+     "delta": 1,
+     "defects": {
+      "0": 5,
+      "4": 4,
+      "12": 3
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 3,
+     "seam_faces": [
+      6,
+      0
+     ],
+     "delta": -1,
+     "defects": {
+      "4": 4,
+      "6": 5,
+      "12": 3
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 4,
+     "seam_faces": [
+      16,
+      6
+     ],
+     "delta": -1,
+     "defects": {
+      "4": 4,
+      "12": 3,
+      "16": 5
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 5,
+     "seam_faces": [
+      7,
+      16
+     ],
+     "delta": -1,
+     "defects": {
+      "4": 4,
+      "7": 5,
+      "12": 3
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 6,
+     "seam_faces": [
+      4,
+      7
+     ],
+     "delta": 1,
+     "defects": {
+      "4": 5,
+      "7": 4,
+      "12": 3
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 7,
+     "seam_faces": [
+      4,
+      3
+     ],
+     "delta": 1,
+     "defects": {
+      "3": 5,
+      "7": 4,
+      "12": 3
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 8,
+     "seam_faces": [
+      3,
+      8
+     ],
+     "delta": 1,
+     "defects": {
+      "7": 4,
+      "8": 5,
+      "12": 3
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 9,
+     "seam_faces": [
+      8,
+      17
+     ],
+     "delta": 1,
+     "defects": {
+      "7": 4,
+      "12": 3,
+      "17": 5
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 10,
+     "seam_faces": [
+      17,
+      7
+     ],
+     "delta": -1,
+     "defects": {
+      "7": 5,
+      "12": 3,
+      "17": 4
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 11,
+     "seam_faces": [
+      12,
+      17
+     ],
+     "delta": 1,
+     "defects": {
+      "7": 5,
+      "12": 4,
+      "17": 3
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 12,
+     "seam_faces": [
+      12,
+      17
+     ],
+     "delta": 1,
+     "defects": {
+      "7": 5,
+      "12": 5,
+      "17": 2
+     },
+     "cost": 18,
+     "rise": -5
+    },
+    {
+     "step": 13,
+     "seam_faces": [
+      12,
+      17
+     ],
+     "delta": 1,
+     "defects": {
+      "7": 5,
+      "17": 1
+     },
+     "cost": 10,
+     "rise": -8
+    },
+    {
+     "step": 14,
+     "seam_faces": [
+      17,
+      7
+     ],
+     "delta": -1,
+     "defects": {},
+     "cost": 0,
+     "rise": -10
+    }
+   ]
+  },
+  "min_length_then_uphill": {
+   "length": 12,
+   "uphill": 2,
+   "route": [
+    {
+     "step": 0,
+     "defects": {
+      "0": 3,
+      "12": 3
+     },
+     "cost": 20
+    },
+    {
+     "step": 1,
+     "seam_faces": [
+      0,
+      4
+     ],
+     "delta": 1,
+     "defects": {
+      "0": 4,
+      "4": 5,
+      "12": 3
+     },
+     "cost": 23,
+     "rise": 3
+    },
+    {
+     "step": 2,
+     "seam_faces": [
+      0,
+      4
+     ],
+     "delta": 1,
+     "defects": {
+      "0": 5,
+      "4": 4,
+      "12": 3
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 3,
+     "seam_faces": [
+      6,
+      0
+     ],
+     "delta": -1,
+     "defects": {
+      "4": 4,
+      "6": 5,
+      "12": 3
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 4,
+     "seam_faces": [
+      16,
+      6
+     ],
+     "delta": -1,
+     "defects": {
+      "4": 4,
+      "12": 3,
+      "16": 5
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 5,
+     "seam_faces": [
+      16,
+      11
+     ],
+     "delta": 1,
+     "defects": {
+      "4": 4,
+      "11": 5,
+      "12": 3
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 6,
+     "seam_faces": [
+      11,
+      12
+     ],
+     "delta": 1,
+     "defects": {
+      "4": 4,
+      "12": 2
+     },
+     "cost": 16,
+     "rise": -7
+    },
+    {
+     "step": 7,
+     "seam_faces": [
+      12,
+      17
+     ],
+     "delta": -1,
+     "defects": {
+      "4": 4,
+      "12": 1,
+      "17": 1
+     },
+     "cost": 18,
+     "rise": 2
+    },
+    {
+     "step": 8,
+     "seam_faces": [
+      17,
+      7
+     ],
+     "delta": -1,
+     "defects": {
+      "4": 4,
+      "7": 1,
+      "12": 1
+     },
+     "cost": 18,
+     "rise": 0
+    },
+    {
+     "step": 9,
+     "seam_faces": [
+      12,
+      17
+     ],
+     "delta": -1,
+     "defects": {
+      "4": 4,
+      "7": 1,
+      "17": 1
+     },
+     "cost": 18,
+     "rise": 0
+    },
+    {
+     "step": 10,
+     "seam_faces": [
+      17,
+      7
+     ],
+     "delta": -1,
+     "defects": {
+      "4": 4,
+      "7": 2
+     },
+     "cost": 16,
+     "rise": -2
+    },
+    {
+     "step": 11,
+     "seam_faces": [
+      4,
+      7
+     ],
+     "delta": 1,
+     "defects": {
+      "4": 5,
+      "7": 1
+     },
+     "cost": 10,
+     "rise": -6
+    },
+    {
+     "step": 12,
+     "seam_faces": [
+      4,
+      7
+     ],
+     "delta": 1,
+     "defects": {},
+     "cost": 0,
+     "rise": -10
+    }
+   ]
+  }
+ },
+ "5": {
+  "min_uphill_then_length": {
+   "uphill": 1,
+   "length": 18,
+   "route": [
+    {
+     "step": 0,
+     "defects": {
+      "0": 3,
+      "13": 3
+     },
+     "cost": 20
+    },
+    {
+     "step": 1,
+     "seam_faces": [
+      1,
+      0
+     ],
+     "delta": 1,
+     "defects": {
+      "0": 2,
+      "1": 1,
+      "13": 3
+     },
+     "cost": 23,
+     "rise": 3
+    },
+    {
+     "step": 2,
+     "seam_faces": [
+      1,
+      0
+     ],
+     "delta": 1,
+     "defects": {
+      "0": 1,
+      "1": 2,
+      "13": 3
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 3,
+     "seam_faces": [
+      0,
+      4
+     ],
+     "delta": -1,
+     "defects": {
+      "1": 2,
+      "4": 1,
+      "13": 3
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 4,
+     "seam_faces": [
+      4,
+      3
+     ],
+     "delta": -1,
+     "defects": {
+      "1": 2,
+      "3": 1,
+      "13": 3
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 5,
+     "seam_faces": [
+      3,
+      2
+     ],
+     "delta": -1,
+     "defects": {
+      "1": 2,
+      "2": 1,
+      "13": 3
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 6,
+     "seam_faces": [
+      2,
+      1
+     ],
+     "delta": 1,
+     "defects": {
+      "1": 1,
+      "2": 2,
+      "13": 3
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 7,
+     "seam_faces": [
+      5,
+      1
+     ],
+     "delta": 1,
+     "defects": {
+      "2": 2,
+      "5": 1,
+      "13": 3
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 8,
+     "seam_faces": [
+      19,
+      5
+     ],
+     "delta": 1,
+     "defects": {
+      "2": 2,
+      "13": 3,
+      "19": 1
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 9,
+     "seam_faces": [
+      9,
+      19
+     ],
+     "delta": 1,
+     "defects": {
+      "2": 2,
+      "9": 1,
+      "13": 3
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 10,
+     "seam_faces": [
+      2,
+      9
+     ],
+     "delta": -1,
+     "defects": {
+      "2": 1,
+      "9": 2,
+      "13": 3
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 11,
+     "seam_faces": [
+      3,
+      2
+     ],
+     "delta": 1,
+     "defects": {
+      "3": 1,
+      "9": 2,
+      "13": 3
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 12,
+     "seam_faces": [
+      3,
+      8
+     ],
+     "delta": -1,
+     "defects": {
+      "8": 1,
+      "9": 2,
+      "13": 3
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 13,
+     "seam_faces": [
+      18,
+      8
+     ],
+     "delta": 1,
+     "defects": {
+      "9": 2,
+      "13": 3,
+      "18": 1
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 14,
+     "seam_faces": [
+      18,
+      9
+     ],
+     "delta": 1,
+     "defects": {
+      "9": 1,
+      "13": 3,
+      "18": 2
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 15,
+     "seam_faces": [
+      13,
+      18
+     ],
+     "delta": 1,
+     "defects": {
+      "9": 1,
+      "13": 4,
+      "18": 1
+     },
+     "cost": 18,
+     "rise": -5
+    },
+    {
+     "step": 16,
+     "seam_faces": [
+      13,
+      18
+     ],
+     "delta": 1,
+     "defects": {
+      "9": 1,
+      "13": 5
+     },
+     "cost": 10,
+     "rise": -8
+    },
+    {
+     "step": 17,
+     "seam_faces": [
+      13,
+      18
+     ],
+     "delta": 1,
+     "defects": {
+      "9": 1,
+      "18": 5
+     },
+     "cost": 10,
+     "rise": 0
+    },
+    {
+     "step": 18,
+     "seam_faces": [
+      18,
+      9
+     ],
+     "delta": 1,
+     "defects": {},
+     "cost": 0,
+     "rise": -10
+    }
+   ]
+  },
+  "min_length_then_uphill": {
+   "length": 15,
+   "uphill": 2,
+   "route": [
+    {
+     "step": 0,
+     "defects": {
+      "0": 3,
+      "13": 3
+     },
+     "cost": 20
+    },
+    {
+     "step": 1,
+     "seam_faces": [
+      1,
+      0
+     ],
+     "delta": 1,
+     "defects": {
+      "0": 2,
+      "1": 1,
+      "13": 3
+     },
+     "cost": 23,
+     "rise": 3
+    },
+    {
+     "step": 2,
+     "seam_faces": [
+      1,
+      0
+     ],
+     "delta": 1,
+     "defects": {
+      "0": 1,
+      "1": 2,
+      "13": 3
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 3,
+     "seam_faces": [
+      0,
+      4
+     ],
+     "delta": -1,
+     "defects": {
+      "1": 2,
+      "4": 1,
+      "13": 3
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 4,
+     "seam_faces": [
+      4,
+      3
+     ],
+     "delta": -1,
+     "defects": {
+      "1": 2,
+      "3": 1,
+      "13": 3
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 5,
+     "seam_faces": [
+      3,
+      8
+     ],
+     "delta": -1,
+     "defects": {
+      "1": 2,
+      "8": 1,
+      "13": 3
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 6,
+     "seam_faces": [
+      18,
+      8
+     ],
+     "delta": 1,
+     "defects": {
+      "1": 2,
+      "13": 3,
+      "18": 1
+     },
+     "cost": 23,
+     "rise": 0
+    },
+    {
+     "step": 7,
+     "seam_faces": [
+      13,
+      18
+     ],
+     "delta": 1,
+     "defects": {
+      "1": 2,
+      "13": 4
+     },
+     "cost": 16,
+     "rise": -7
+    },
+    {
+     "step": 8,
+     "seam_faces": [
+      2,
+      1
+     ],
+     "delta": 1,
+     "defects": {
+      "1": 1,
+      "2": 1,
+      "13": 4
+     },
+     "cost": 18,
+     "rise": 2
+    },
+    {
+     "step": 9,
+     "seam_faces": [
+      5,
+      1
+     ],
+     "delta": 1,
+     "defects": {
+      "2": 1,
+      "5": 1,
+      "13": 4
+     },
+     "cost": 18,
+     "rise": 0
+    },
+    {
+     "step": 10,
+     "seam_faces": [
+      2,
+      9
+     ],
+     "delta": -1,
+     "defects": {
+      "5": 1,
+      "9": 1,
+      "13": 4
+     },
+     "cost": 18,
+     "rise": 0
+    },
+    {
+     "step": 11,
+     "seam_faces": [
+      19,
+      5
+     ],
+     "delta": 1,
+     "defects": {
+      "9": 1,
+      "13": 4,
+      "19": 1
+     },
+     "cost": 18,
+     "rise": 0
+    },
+    {
+     "step": 12,
+     "seam_faces": [
+      18,
+      9
+     ],
+     "delta": 1,
+     "defects": {
+      "13": 4,
+      "18": 1,
+      "19": 1
+     },
+     "cost": 18,
+     "rise": 0
+    },
+    {
+     "step": 13,
+     "seam_faces": [
+      13,
+      18
+     ],
+     "delta": 1,
+     "defects": {
+      "13": 5,
+      "19": 1
+     },
+     "cost": 10,
+     "rise": -8
+    },
+    {
+     "step": 14,
+     "seam_faces": [
+      14,
+      13
+     ],
+     "delta": -1,
+     "defects": {
+      "14": 5,
+      "19": 1
+     },
+     "cost": 10,
+     "rise": 0
+    },
+    {
+     "step": 15,
+     "seam_faces": [
+      14,
+      19
+     ],
+     "delta": 1,
+     "defects": {},
+     "cost": 0,
+     "rise": -10
+    }
+   ]
+  }
+ }
+}

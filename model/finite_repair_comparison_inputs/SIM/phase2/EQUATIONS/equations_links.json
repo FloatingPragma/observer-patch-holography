@@ -1,0 +1,784 @@
+{
+ "links": [
+  {
+   "card": "counts",
+   "kind": "paper",
+   "title": "Execution model",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/executable_observer_construction.pdf",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "counts",
+   "kind": "code",
+   "title": "Federation of carriers",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/federated_observer/source.py",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "counts",
+   "kind": "data",
+   "title": "Data format of the runs",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/DATASET.md",
+   "where": "SITE",
+   "exists": true
+  },
+  {
+   "card": "lawC",
+   "kind": "paper",
+   "title": "Execution model: native repair",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/executable_observer_construction.pdf",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "lawC",
+   "kind": "proof",
+   "title": "Carrier paper: the seam rule is unique",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/screen_microphysics_and_observer_synchronization.pdf",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "lawC",
+   "kind": "code",
+   "title": "The native rule",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/observer/native.py",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "descent",
+   "kind": "paper",
+   "title": "Execution model: native repair instrument",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/executable_observer_construction.pdf",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "descent",
+   "kind": "data",
+   "title": "Data format: V and released potential",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/DATASET.md",
+   "where": "SITE",
+   "exists": true
+  },
+  {
+   "card": "depth",
+   "kind": "data",
+   "title": "Data format: causal depth and cuts",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/DATASET.md",
+   "where": "SITE",
+   "exists": true
+  },
+  {
+   "card": "depth",
+   "kind": "paper",
+   "title": "Execution model",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/executable_observer_construction.pdf",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "tape",
+   "kind": "data",
+   "title": "Data format: observer files",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/DATASET.md",
+   "where": "SITE",
+   "exists": true
+  },
+  {
+   "card": "tape",
+   "kind": "paper",
+   "title": "Execution model",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/executable_observer_construction.pdf",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "walk",
+   "kind": "proof",
+   "title": "Finite coherent repair",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/coherent_seam_repair/PROOF.md",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "walk",
+   "kind": "code",
+   "title": "The public program",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/coherent_seam_repair/program.py",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "walk",
+   "kind": "code",
+   "title": "Walk engine of this site",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/walk_engine.js",
+   "where": "SITE",
+   "exists": true
+  },
+  {
+   "card": "record",
+   "kind": "paper",
+   "title": "Execution model: native repair and its record laws",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/executable_observer_construction.pdf",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "record",
+   "kind": "code",
+   "title": "The native rule",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/observer/native.py",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "record",
+   "kind": "code",
+   "title": "Detector engine of this site",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/lab.js",
+   "where": "SITE",
+   "exists": true
+  },
+  {
+   "card": "twist",
+   "kind": "data",
+   "title": "Data format: the register",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/DATASET.md",
+   "where": "SITE",
+   "exists": true
+  },
+  {
+   "card": "twist",
+   "kind": "paper",
+   "title": "Which defect is which particle",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "accept",
+   "kind": "data",
+   "title": "Data format: the register",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/DATASET.md",
+   "where": "SITE",
+   "exists": true
+  },
+  {
+   "card": "neutral",
+   "kind": "proof",
+   "title": "Defect classes: closed carriers",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/defect_particle_classes/PROOF.md",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "neutral",
+   "kind": "data",
+   "title": "Data format: checks",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/DATASET.md",
+   "where": "SITE",
+   "exists": true
+  },
+  {
+   "card": "reactions",
+   "kind": "proof",
+   "title": "Defect classes: reactions",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/defect_particle_classes/PROOF.md",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "reactions",
+   "kind": "report",
+   "title": "Defects as particles: the match",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/MATCH.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "rule",
+   "kind": "proof",
+   "title": "Defect classes are centre classes",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/defect_particle_classes/PROOF.md",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "rule",
+   "kind": "paper",
+   "title": "Which defect is which particle",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "rule",
+   "kind": "code",
+   "title": "Certificate, 61 checks",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/defect_particle_classes/certificate.py",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "flux",
+   "kind": "proof",
+   "title": "Defect classes: flux visibility",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/defect_particle_classes/PROOF.md",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "flux",
+   "kind": "report",
+   "title": "Defects as particles: the match",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/MATCH.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "group",
+   "kind": "paper",
+   "title": "Gauge group, couplings and lepton number",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "group",
+   "kind": "report",
+   "title": "Gauge group from port phases",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/GL.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "group",
+   "kind": "proof",
+   "title": "The Z6 kernel",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/defect_particle_classes/PROOF.md",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "spin",
+   "kind": "proof",
+   "title": "Defect classes: spin and statistics",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/defect_particle_classes/PROOF.md",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "spin",
+   "kind": "report",
+   "title": "Spin and statistics",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/SS.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "spin",
+   "kind": "code",
+   "title": "Gradings",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/defect_particle_classes/statistics.py",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "bl",
+   "kind": "paper",
+   "title": "Gauge group, couplings and lepton number",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "bl",
+   "kind": "report",
+   "title": "B − L and the neutrino sector",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/DG.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "tick",
+   "kind": "code",
+   "title": "The routing tick",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/cf1_engine.js",
+   "where": "SITE",
+   "exists": true
+  },
+  {
+   "card": "tick",
+   "kind": "report",
+   "title": "Candidate program CF-1",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/candidates/CF1.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "twoticks",
+   "kind": "code",
+   "title": "The continuum field of the box",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/readout_field.js",
+   "where": "SITE",
+   "exists": true
+  },
+  {
+   "card": "twoticks",
+   "kind": "source",
+   "title": "Finite routing bound and scope",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/readout_limit.md",
+   "where": "SITE",
+   "exists": true
+  },
+  {
+   "card": "dirac",
+   "kind": "code",
+   "title": "The continuum field of the box",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/readout_field.js",
+   "where": "SITE",
+   "exists": true
+  },
+  {
+   "card": "dirac",
+   "kind": "report",
+   "title": "Candidate program CF-1",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/candidates/CF1.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "mass",
+   "kind": "code",
+   "title": "The routing tick",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/cf1_engine.js",
+   "where": "SITE",
+   "exists": true
+  },
+  {
+   "card": "mass",
+   "kind": "report",
+   "title": "Candidate program CF-1",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/candidates/CF1.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "dispersion",
+   "kind": "report",
+   "title": "Candidate program CF-1",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/candidates/CF1.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "dispersion",
+   "kind": "code",
+   "title": "The routing tick",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/cf1_engine.js",
+   "where": "SITE",
+   "exists": true
+  },
+  {
+   "card": "circulant",
+   "kind": "proof",
+   "title": "The charged-lepton register",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_register_round/PROOF.md",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "circulant",
+   "kind": "paper",
+   "title": "The charged-lepton register",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "circulant",
+   "kind": "code",
+   "title": "Certificate, 80 checks",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_register_round/certificate.py",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "phase",
+   "kind": "proof",
+   "title": "Read counts and the weak round",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_register_round/PROOF.md",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "phase",
+   "kind": "report",
+   "title": "The register on the carrier",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/LC.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "phase",
+   "kind": "report",
+   "title": "Open steps",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/LEPTON_STEPS.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "rates",
+   "kind": "report",
+   "title": "Charged-lepton rest masses",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/LEPTON_STEPS.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "rates",
+   "kind": "code",
+   "title": "The mass readout of this site",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/lepton_readout.js",
+   "where": "SITE",
+   "exists": true
+  },
+  {
+   "card": "rates",
+   "kind": "proof",
+   "title": "Eigenvalues on the characters",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_register_round/PROOF.md",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "koide",
+   "kind": "proof",
+   "title": "Koide in the positive chamber",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_register_round/PROOF.md",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "koide",
+   "kind": "paper",
+   "title": "The charged-lepton register",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "koide",
+   "kind": "report",
+   "title": "Comparison and open steps",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/LEPTON_STEPS.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "scale",
+   "kind": "report",
+   "title": "What a mass in MeV needs",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/LEPTON_STEPS.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "forms",
+   "kind": "paper",
+   "title": "The gauge closure and the fine-structure constant",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/fine_structure_constant_derivation.pdf",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "forms",
+   "kind": "report",
+   "title": "The unification scale",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/CU_UNIFICATION.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "forms",
+   "kind": "report",
+   "title": "The cell energy",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/DC.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "running",
+   "kind": "paper",
+   "title": "The gauge closure and the fine-structure constant",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/fine_structure_constant_derivation.pdf",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "running",
+   "kind": "report",
+   "title": "The hypercharge slope",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/CH_HYPERCHARGE.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "running",
+   "kind": "report",
+   "title": "The corrected coupling chain",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/COUPLING_FIX.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "anchor",
+   "kind": "report",
+   "title": "The electroweak anchor",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/CA_ANCHOR.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "anchor",
+   "kind": "paper",
+   "title": "The gauge closure and the fine-structure constant",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/fine_structure_constant_derivation.pdf",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "closure",
+   "kind": "paper",
+   "title": "Heat-kernel gauge closure",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/fine_structure_constant_derivation.pdf",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "closure",
+   "kind": "report",
+   "title": "The collar law",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/CG_COLLAR.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "closure",
+   "kind": "code",
+   "title": "Closure check",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/work/COUPLING/closure_check.py",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "v",
+   "kind": "paper",
+   "title": "Electroweak transmutation",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/fine_structure_constant_derivation.pdf",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "v",
+   "kind": "report",
+   "title": "The law for v",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/LV.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "v",
+   "kind": "report",
+   "title": "The corrected coupling chain",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/COUPLING_FIX.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "count4",
+   "kind": "proof",
+   "title": "Central flux costs",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/defect_particle_classes/PROOF.md",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "count4",
+   "kind": "code",
+   "title": "Flux costs",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/defect_particle_classes/flux_costs.py",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "count4",
+   "kind": "paper",
+   "title": "Electroweak transmutation",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/fine_structure_constant_derivation.pdf",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "plaquette",
+   "kind": "report",
+   "title": "Links, action and bare couplings",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/GL.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "plaquette",
+   "kind": "paper",
+   "title": "Gauge group, couplings and lepton number",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "plaquette",
+   "kind": "source",
+   "title": "The gauge-Higgs system, specification",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/work/HR/SPEC.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "weight",
+   "kind": "report",
+   "title": "The register ensemble",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/MA.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "weight",
+   "kind": "source",
+   "title": "Porting the gauge-Higgs system into the run",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/work/HR/FOR_SIM.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "pclass",
+   "kind": "source",
+   "title": "Porting the gauge-Higgs system into the run",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/work/HR/FOR_SIM.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "pclass",
+   "kind": "proof",
+   "title": "Central flux costs",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/defect_particle_classes/PROOF.md",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "temperature",
+   "kind": "source",
+   "title": "Porting the gauge-Higgs system into the run",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/work/HR/FOR_SIM.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "temperature",
+   "kind": "source",
+   "title": "The gauge-Higgs system, specification",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/work/HR/SPEC.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "gaugehiggs",
+   "kind": "source",
+   "title": "The gauge-Higgs system, specification",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/work/HR/SPEC.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "gaugehiggs",
+   "kind": "report",
+   "title": "The Higgs register",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/UH.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "gaugehiggs",
+   "kind": "report",
+   "title": "Links, action and bare couplings",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/GL.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "tickunit",
+   "kind": "paper",
+   "title": "The gauge closure and the fine-structure constant",
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/fine_structure_constant_derivation.pdf",
+   "where": "RER",
+   "exists": true
+  },
+  {
+   "card": "tickunit",
+   "kind": "report",
+   "title": "The cell energy",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/DC.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "radiation",
+   "kind": "source",
+   "title": "Particle Data Group: cosmology reviews",
+   "url": "https://pdg.lbl.gov/",
+   "where": "external",
+   "exists": true
+  },
+  {
+   "card": "lambda",
+   "kind": "report",
+   "title": "Hadron masses from the colour coupling",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/HD.md",
+   "where": "DER",
+   "exists": true
+  },
+  {
+   "card": "lambda",
+   "kind": "report",
+   "title": "The corrected coupling chain",
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/COUPLING_FIX.md",
+   "where": "DER",
+   "exists": true
+  }
+ ],
+ "missingInDerivations": [],
+ "notInLinksJs": [
+  "https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/fine_structure_constant_derivation.pdf",
+  "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/coherent_seam_repair/program.py",
+  "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/defect_particle_classes/certificate.py",
+  "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/defect_particle_classes/statistics.py",
+  "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_register_round/certificate.py",
+  "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/observer/native.py",
+  "https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/screen_microphysics_and_observer_synchronization.pdf",
+  "https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/lab.js",
+  "https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/readout_limit.md",
+  "https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/walk_engine.js",
+  "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/candidates/CF1.md",
+  "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/DC.md",
+  "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/DG.md",
+  "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/LC.md",
+  "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/work/HR/FOR_SIM.md",
+  "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/work/HR/SPEC.md",
+  "https://pdg.lbl.gov/"
+ ]
+}

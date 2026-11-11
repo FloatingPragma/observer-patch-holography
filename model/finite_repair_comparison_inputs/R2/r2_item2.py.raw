@@ -1,0 +1,288 @@
+"""R2 item 2 (exact): how the three half-turns of a cubic frame act on the states of a flux pair of a carrier.
+
+Objects, all on the pinned carrier (model.common_source.slow_geometry), integers and Q(sqrt5, i) only:
+  faces (20), pairs of faces (190), link words (30 bits), the audit's twelve-word mobile domain
+  (model/coherent_seam_repair/protection.py, model/coherent_defect_wave/mobile_flux/model.py; read only),
+  the five frames with exact half-turn permutations and exact cover lifts (work/KD/kdlib.py; read only).
+
+Checked:
+  A  per frame: the half-turns permute faces and pairs; commutators vanish; fixed points; orbits; characters
+  B  link-word level: g.w_pi + w_(g pi) is a product of vertex stars for every rotation g and pair pi, so the action
+     on Gauss-positive codewords is the pair permutation without sign
+  C  the audit's five-position code: no rotation except the identity preserves it; its frame orbit; the transport
+     5-cycle about the interior port composes to the vertex star (the Gauss partner)
+  D  doublet x pairs: alpha_i x rho_i are three anticommuting Hermitian involutions of one handedness in every sector
+  E  a free orbit is the regular representation; J_i = i D_i rho_(i+1) is a covariant Clifford triple with a declared
+     sign function D_i; no such triple on an orbit fixed by a half-turn
+  G  the lattice gauge field between carriers: all plaquette-flux configurations are coboundaries of link flips
+"""
+import itertools, json, os, sys
+from collections import deque
+import kdlib as kd
+from model.coherent_seam_repair.protection import BoundaryFlux, rank_mod2
+
+law = BoundaryFlux()
+edges, faces = law.edges, law.faces
+eidx = {e: i for i, e in enumerate(edges)}
+fidx = {f: i for i, f in enumerate(faces)}
+pairs = list(itertools.combinations(range(20), 2))
+pidx = {p: i for i, p in enumerate(pairs)}
+out = {'arithmetic': 'integers, GF(2), Q(sqrt5, i); every listed identity is exact'}
+
+
+def on_edges(perm): return tuple(eidx[tuple(sorted((perm[a], perm[b])))] for a, b in edges)
+def on_faces(perm): return tuple(fidx[tuple(sorted(perm[v] for v in f))] for f in faces)
+def on_pairs(fp): return tuple(pidx[tuple(sorted((fp[a], fp[b])))] for a, b in pairs)
+def comp(p, q): return tuple(p[q[i]] for i in range(len(q)))
+def word_image(w, ep): return sum(1 << ep[e] for e in range(30) if w >> e & 1)
+
+
+# dual graph (faces adjacent across a seam) and separations
+adj = {f: set() for f in range(20)}
+for e in range(30):
+    a, b = law.incident_faces[e]
+    adj[a].add(b); adj[b].add(a)
+def bfs(src):
+    dist, prev, q = {src: 0}, {}, deque([src])
+    while q:
+        x = q.popleft()
+        for y in sorted(adj[x]):
+            if y not in dist:
+                dist[y] = dist[x] + 1; prev[y] = x; q.append(y)
+    return dist, prev
+DIST = {f: bfs(f) for f in range(20)}
+sep = [DIST[a][0][b] for a, b in pairs]
+out['pairs_by_separation'] = {str(d): sep.count(d) for d in range(1, 6)}
+
+car = kd.carrier()
+rots = car['rotations']
+frames = kd.frames()
+IDF, IDP = tuple(range(20)), tuple(range(190))
+
+# ---- A: the half-turns on faces and on pairs -----------------------------------------------------------------
+A = []
+for k, fr in enumerate(frames):
+    hp = [h['perm'] for h in fr['half_turns']]
+    hf = [on_faces(p) for p in hp]
+    hq = [on_pairs(f) for f in hf]
+    row = {'frame': k}
+    row['port_level: a1 a2 = a3 (some order), all commute'] = (comp(hp[0], hp[1]) == hp[2]
+                                                                and all(comp(x, y) == comp(y, x) for x in hp for y in hp))
+    row['faces: no fixed face'] = all(all(f[i] != i for i in range(20)) for f in hf)
+    row['faces: five free orbits of four'] = sorted(len({i, hf[0][i], hf[1][i], hf[2][i]}) for i in range(20)) == [4] * 20
+    row['pairs: involutions'] = all(comp(q, q) == IDP for q in hq)
+    row['pairs: commutators vanish (rho_i rho_j = rho_j rho_i, 3 pairs)'] = all(comp(x, y) == comp(y, x) for x in hq for y in hq)
+    row['pairs: rho_1 rho_2 = rho_3'] = comp(hq[0], hq[1]) == hq[2]
+    fix = [sum(q[i] == i for i in range(190)) for q in hq]
+    row['pairs fixed by each half-turn'] = fix
+    orbits = {}
+    for i in range(190):
+        orbits[frozenset({i, hq[0][i], hq[1][i], hq[2][i]})] = 1
+    sizes = sorted(len(o) for o in orbits)
+    row['orbits'] = {'total': len(orbits), 'size 4 (free)': sizes.count(4), 'size 2': sizes.count(2), 'size 1': sizes.count(1)}
+    # multiplicity of the character with signs (e1, e2, e3), e1 e2 e3 = +1: (190 + sum e_i fix_i)/4
+    mult = {}
+    for e in ((1, 1, 1), (1, -1, -1), (-1, 1, -1), (-1, -1, 1)):
+        num = 190 + sum(e[i] * fix[i] for i in range(3))
+        assert num % 4 == 0
+        mult[''.join('+' if s > 0 else '-' for s in e)] = num // 4
+    row['character multiplicities (signs of rho_1, rho_2, rho_3)'] = mult
+    short = [o for o in orbits if len(o) == 2]
+    row['pairs in short orbits by separation'] = {str(d): sum(sep[i] == d for o in short for i in o) for d in range(1, 6)}
+    row['separation is preserved'] = all(sep[q[i]] == sep[i] for q in hq for i in range(190))
+    A.append(row)
+out['A_half_turns_on_faces_and_pairs'] = A
+allA = all(v is True for r in A for v in r.values() if isinstance(v, bool))
+same = all(r['orbits'] == A[0]['orbits'] and r['character multiplicities (signs of rho_1, rho_2, rho_3)'] ==
+           A[0]['character multiplicities (signs of rho_1, rho_2, rho_3)'] for r in A)
+print('A: all boolean checks true:', allA, '| same counts in all five frames:', same)
+print('   orbits', A[0]['orbits'], '| characters', A[0]['character multiplicities (signs of rho_1, rho_2, rho_3)'],
+      '| fixed', A[0]['pairs fixed by each half-turn'])
+print('   short-orbit pairs by separation', A[0]['pairs in short orbits by separation'], '| all pairs', out['pairs_by_separation'])
+
+# the rotation group on pairs: orbits (Burnside) and the central element
+rot_faces = [on_faces(p) for p in rots]
+rot_pairs = [on_pairs(f) for f in rot_faces]
+burn = sum(sum(q[i] == i for i in range(190)) for q in rot_pairs)
+out['rotation_group_orbits_on_pairs'] = burn // 60
+assert burn % 60 == 0
+
+# ---- B: link words: the action on Gauss-positive codewords is the pair permutation ---------------------------
+stars = list(law.vertex_stars)
+assert rank_mod2(stars) == 11 and rank_mod2(list(law.face_masks)) == 19     # kernel of the syndrome has dimension 30 - 19 = 11
+assert all(law.syndrome(s) == 0 for s in stars)
+def in_star_span(x): return rank_mod2(stars + [x]) == 11
+def ref_word(a, b):
+    """flip the seams crossed by a shortest dual path from face a to face b"""
+    dist, prev = DIST[a]
+    w, x = 0, b
+    while x != a:
+        y = prev[x]
+        e = next(e for e in range(30) if set(law.incident_faces[e]) == {x, y})
+        w ^= 1 << e; x = y
+    return w
+W = [ref_word(a, b) for a, b in pairs]
+assert all(law.syndrome(w) == (1 << a | 1 << b) for w, (a, b) in zip(W, pairs))
+rot_edges = [on_edges(p) for p in rots]
+okB = all(in_star_span(word_image(W[i], rot_edges[g]) ^ W[rot_pairs[g][i]]) for g in range(60) for i in range(190))
+out['B_link_words'] = {
+    'kernel of the face syndrome = span of the vertex stars (rank 11 of 30 - 19)': True,
+    'g.w_pi + w_(g pi) in the star span, 60 rotations x 190 pairs': okB,
+    'consequence': 'on Gauss-positive codewords (uniform superposition over the star orbit) every rotation acts as the '
+                   'permutation of pairs, without sign; the central element of the cover acts as +1'}
+print('B: rotated reference word = reference word of the rotated pair up to vertex stars (11,400 cases):', okB)
+
+# ---- C: the audit's twelve-word domain and five-position code -------------------------------------------------
+initial = 1 << eidx[(0, 1)]
+reached, queue = {initial}, deque([initial])
+while queue:
+    g = queue.popleft()
+    for e in law.interior:
+        h = law.transport(g, e)[0]
+        if h not in reached:
+            reached.add(h); queue.append(h)
+STAR = law.vertex_stars[5]
+domain = sorted(reached | {0, STAR})
+reps = sorted({min(w, w ^ STAR) for w in reached})
+code_pairs = []
+for w in reps:
+    s = law.syndrome(w)
+    fl = tuple(f for f in range(20) if s >> f & 1)
+    assert len(fl) == 2 and sum(f in law.region for f in fl) == 1
+    code_pairs.append(pidx[fl])
+exterior = {f for i in code_pairs for f in pairs[i] if f not in law.region}
+C = {'STAR equals the mobile packet constant 6553634': STAR == 6553634, 'domain size': len(domain),
+     'paired-flux orbits': len(reps), 'one exterior compensator face for all five': len(exterior) == 1,
+     'separations of the five code pairs': sorted(sep[i] for i in code_pairs)}
+idr = tuple(range(12))
+C['rotations (of 59) that map the twelve-word domain into itself'] = sum(
+    all(word_image(w, rot_edges[g]) in domain for w in domain) for g in range(60) if rots[g] != idr)
+C['rotations (of 59) that map the five code pairs to code pairs'] = sum(
+    all(rot_pairs[g][i] in code_pairs for i in code_pairs) for g in range(60) if rots[g] != idr)
+C['rotations (of 59) that fix the region (port 5)'] = sum(rots[g][5] == 5 for g in range(60) if rots[g] != idr)
+perframe = []
+for k, fr in enumerate(frames):
+    hq = [on_pairs(on_faces(h['perm'])) for h in fr['half_turns']]
+    span = set()
+    for i in code_pairs: span |= {i, hq[0][i], hq[1][i], hq[2][i]}
+    perframe.append({'frame': k, 'images of port 5': sorted({h['perm'][5] for h in fr['half_turns']}),
+                     'pairs in the frame orbit of the code': len(span),
+                     'code pairs fixed by a half-turn of this frame': sum(any(q[i] == i for q in hq) for i in code_pairs)})
+C['per_frame'] = perframe
+# transport 5-cycle about port 5: move the flux once around the port, each spoke used once
+def around(w):
+    g, used = w, []
+    for _ in range(5):
+        cand = [e for e in law.interior if e not in used and law.transport(g, e)[1]['moved']]
+        e = cand[0]; used.append(e); g = law.transport(g, e)[0]
+    return g, len(set(used))
+C['five transports, each spoke once, return the flux and add the star: g -> g xor s (10 words)'] = all(
+    around(w) == (w ^ STAR, 5) for w in sorted(reached))
+C['reading'] = ('the code positions are related by interior transports, not by carrier rotations; one turn of the flux '
+                'about port 5 is the Gauss partner s, eigenvalue (-1)^(doublet quanta at port 5) on Gauss-positive states')
+out['C_audit_five_position_code'] = C
+print('C:', {k: v for k, v in C.items() if k not in ('per_frame', 'reading')})
+print('   per frame:', perframe)
+
+# ---- D: doublet x pairs ---------------------------------------------------------------------------------------
+D = []
+for k, fr in enumerate(frames):
+    al = [kd.mscale(kd.I, h['u']) for h in fr['half_turns']]
+    row = {'frame': k}
+    row['u_i^2 = -1 (the central element is -1 on the doublet)'] = all(kd.meq(kd.mm(h['u'], h['u']), kd.mscale(-1, kd.E2))
+                                                                     for h in fr['half_turns'])
+    row['alpha_i = i u_i Hermitian involutions'] = all(kd.is_hermitian(a) and kd.is_involution(a) for a in al)
+    row['{alpha_i, alpha_j} = 0'] = all(kd.is_zero(kd.anti(al[i], al[j])) for i in range(3) for j in range(i))
+    prod = kd.mm(al[0], al[1], al[2])
+    row['alpha_1 alpha_2 alpha_3'] = 'i' if kd.meq(prod, kd.mscale(kd.I, kd.E2)) else '-i' if kd.meq(prod, kd.mscale(-kd.I, kd.E2)) else '?'
+    D.append(row)
+out['D_doublet_times_pairs'] = {
+    'per_frame': D,
+    'identity': '{alpha_i x rho_i, alpha_j x rho_j} = {alpha_i, alpha_j} x rho_i rho_j = 0 because the rho commute; '
+                '(alpha_i x rho_i)^2 = 1; product of the three = (alpha_1 alpha_2 alpha_3) x rho_1 rho_2 rho_3 = +-i x 1',
+    'consequence': 'the 380 states doublet x pairs are 190 copies of the two-dimensional representation of the quaternion '
+                   'group, all of one handedness; on a character sector (e1, e2, e3) the triple is (e1 alpha_1, e2 alpha_2, e3 alpha_3)'}
+print('D:', D[0], '| all frames:', all(all(v is True for v in r.values() if isinstance(v, bool)) for r in D),
+      '| handedness signs', [r['alpha_1 alpha_2 alpha_3'] for r in D])
+
+# ---- E: the regular representation and a declared covariant Clifford triple -----------------------------------
+# orbit points e, a1, a2, a3; rho_i = left translation; chi_i(a_j) = +1 if i == j else -1
+els = [(0, 0), (1, 0), (0, 1), (1, 1)]                       # a1 = (1,0), a2 = (0,1), a3 = (1,1)
+gen = {1: (1, 0), 2: (0, 1), 3: (1, 1)}
+def chi(i, g):
+    a = gen[i]
+    if g == (0, 0) or g == a: return 1
+    return -1
+def perm_mat(i):
+    a = gen[i]
+    return kd.mat([[1 if ((els[c][0] + a[0]) % 2, (els[c][1] + a[1]) % 2) == els[r] else 0 for c in range(4)] for r in range(4)])
+RHO = {i: perm_mat(i) for i in (1, 2, 3)}
+DG = {i: kd.mat([[chi(i, els[r]) if r == c else 0 for c in range(4)] for r in range(4)]) for i in (1, 2, 3)}
+def triple(orient):
+    return {i: kd.mscale(kd.I, kd.mm(DG[i], RHO[(i - 1 + orient) % 3 + 1])) for i in (1, 2, 3)}
+E = {}
+for name, orient in (('J_i = i D_i rho_(i+1)', 1), ('J_i = i D_i rho_(i-1)', 2)):
+    J = triple(orient)
+    r = {'Hermitian involutions': all(kd.is_hermitian(J[i]) and kd.is_involution(J[i]) for i in J),
+         'anticommute': all(kd.is_zero(kd.anti(J[i], J[j])) for i in J for j in J if i < j),
+         'covariant: rho_j J_i rho_j = chi_i(a_j) J_i': all(
+             kd.meq(kd.mm(RHO[j], J[i], RHO[j]), kd.mscale(1 if i == j else -1, J[i])) for i in J for j in J)}
+    p = kd.mm(J[1], J[2], J[3])
+    r['J_1 J_2 J_3'] = 'i' if kd.meq(p, kd.mscale(kd.I, kd.eye(4))) else '-i' if kd.meq(p, kd.mscale(-kd.I, kd.eye(4))) else '?'
+    E[name] = r
+E['rho_i commute and D_i commute; D_i rho_j = chi_i(a_j) rho_j D_i'] = all(
+    kd.meq(kd.mm(DG[i], RHO[j]), kd.mscale(1 if i == j else -1, kd.mm(RHO[j], DG[i]))) for i in (1, 2, 3) for j in (1, 2, 3))
+E['short orbit (fixed by a_1): rho_1 = 1, so an operator that anticommutes with rho_1 is zero; no covariant triple'] = True
+# a geometric sign function: the octant of the midpoint of the pair in the frame, where all three coordinates are nonzero
+V = car['V']
+centre = [tuple(sum((V[p][c] for p in f), kd.ZERO) for c in range(3)) for f in faces]
+geo = []
+for k, fr in enumerate(frames):
+    hq = [on_pairs(on_faces(h['perm'])) for h in fr['half_turns']]
+    free = [i for i in range(190) if len({i, hq[0][i], hq[1][i], hq[2][i]}) == 4]
+    good = 0
+    for i in free:
+        a, b = pairs[i]
+        mid = kd.vadd(centre[a], centre[b])
+        if all(kd.vdot(mid, h['axis']).sign() != 0 for h in fr['half_turns']): good += 1
+    geo.append({'frame': k, 'pairs in free orbits': len(free), 'with a midpoint off all three coordinate planes': good})
+E['geometric D_i = sign of the frame coordinate i of the midpoint of the pair'] = geo
+out['E_regular_representation_and_declared_triple'] = E
+print('E:', {k: v for k, v in E.items() if not k.startswith('geometric')})
+print('   geometric sign function:', geo[0], '| same in all frames:', all(g['with a midpoint off all three coordinate planes'] ==
+      geo[0]['with a midpoint off all three coordinate planes'] for g in geo))
+
+# ---- G: the lattice gauge field between carriers ----------------------------------------------------------------
+def torus(L):
+    cells = list(itertools.product(range(L), repeat=3))
+    lid = {(c, i): n for n, (c, i) in enumerate((c, i) for c in cells for i in range(3))}
+    def nb(c, i):
+        d = list(c); d[i] = (d[i] + 1) % L; return tuple(d)
+    plaq = []
+    for c in cells:
+        for i, j in ((0, 1), (0, 2), (1, 2)):
+            plaq.append((1 << lid[(c, i)]) ^ (1 << lid[(nb(c, i), j)]) ^ (1 << lid[(nb(c, j), i)]) ^ (1 << lid[(c, j)]))
+    # coboundary of one link: the plaquettes that contain it (rows of the transpose)
+    cob = [sum(1 << n for n, m in enumerate(plaq) if m >> l & 1) for l in range(len(lid))]
+    N = len(cells)
+    return {'L': L, 'cells': N, 'links': 3 * N, 'plaquettes': 3 * N, 'rank of the flux map': rank_mod2(list(plaq)),
+            '2N - 2': 2 * N - 2, 'plaquettes flipped by one link': sorted({bin(c).count('1') for c in cob})}
+G = [torus(3), torus(4)]
+out['G_lattice_gauge_field'] = {
+    'tori': G,
+    'consequence': 'every plaquette-flux configuration is the image of a link word, so it is reached from the flat field by '
+                   'link flips: with eps > 0 no flux label is conserved; with eps = 0 every plaquette flux is conserved and static. '
+                   'One link flip makes a closed line of four flipped plaquettes.'}
+print('G:', G)
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+json.dump(out, open(os.path.join(HERE, 'item2.json'), 'w'), indent=1, default=str)
+if True:
+    # tables for the executed scripts: the half-turns of every frame as permutations of faces and of pairs
+    tab = {'faces': [list(f) for f in faces], 'pairs': [list(p) for p in pairs], 'separation': sep,
+           'audit_code_pairs': code_pairs,
+           'frames': [{'half_turns_on_ports': [list(h['perm']) for h in fr['half_turns']],
+                       'half_turns_on_faces': [list(on_faces(h['perm'])) for h in fr['half_turns']],
+                       'half_turns_on_pairs': [list(on_pairs(on_faces(h['perm']))) for h in fr['half_turns']]}
+                      for fr in frames]}
+    json.dump(tab, open(os.path.join(HERE, 'carrier_tables.json'), 'w'))

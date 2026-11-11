@@ -1,0 +1,204 @@
+"""CU: generalised chain on top of the coordinator's engine (RL/work/COUPLING/closure_check.py, read only).
+
+The engine's functions ell2, ell3 and its Planck energy EP are imported unchanged. The chain below is the engine's
+chain with three additions: the window R = ln(E_cell/M_U) is an argument, the couplings at M_U may carry a split
+delta_i (alpha_i^-1(M_U) = alpha_U^-1 + delta_i), and the slopes and the reading scale are arguments.
+No measured value appears in this file.
+"""
+import contextlib
+import io
+import os
+import sys
+
+import numpy as np
+from scipy.optimize import brentq
+
+RL = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+COUPLING = os.path.join(RL, 'work', 'COUPLING')
+sys.dont_write_bytecode = True
+if COUPLING not in sys.path:
+    sys.path.insert(0, COUPLING)
+with contextlib.redirect_stdout(io.StringIO()):          # the engine prints its own table on import
+    import closure_check as CC
+
+pi = np.pi
+EP = CC.EP
+ell2, ell3 = CC.ell2, CC.ell3
+P_FWD = 1.6309721
+B_DECL = (33 / 5, 1.0, -3.0)
+B_SRC2 = (41 / 5, 1.0, -3.0)
+PHI = (1 + np.sqrt(5)) / 2
+
+
+def R_decl(P, T=2 * pi, c=2 / 3):
+    return T - c * np.log(P)
+
+
+def chain(P, aU, R, b=B_DECL, beta=4.0, read='mZ', delta=(0.0, 0.0, 0.0)):
+    """Engine chain with M_U = E_cell exp(-R). aU is the unified coupling at M_U; delta is a split there."""
+    Ecell = EP / np.sqrt(P)
+    MU = Ecell * np.exp(-R)
+    v = Ecell * np.exp(-2 * pi / (beta * aU))
+
+    def al(mu):
+        return [1.0 / (1.0 / aU + di + bi / (2 * pi) * np.log(MU / mu)) for bi, di in zip(b, delta)]
+
+    mu = 91.0
+    for _ in range(400):
+        a1, a2, a3 = al(mu)
+        aY = 0.6 * a1
+        if min(a1, a2, a3) <= 0 or a2 + aY <= 0:
+            return None
+        mz = v * np.sqrt(pi * (a2 + aY))
+        mw = v * np.sqrt(pi * a2)
+        new = mz if read == 'mZ' else mw
+        if abs(new - mu) < 1e-13 * mu:
+            mu = new
+            break
+        mu = new
+    a1, a2, a3 = al(mu)
+    aY = 0.6 * a1
+    if min(a1, a2, a3) <= 0:
+        return None
+    lhs = ell2(4 * pi * pi * a2) + ell3(4 * pi * pi * a3)
+    return dict(P=P, R=R, MU=MU, Ecell=Ecell, v=v, mu=mu, mz=v * np.sqrt(pi * (a2 + aY)), mw=v * np.sqrt(pi * a2),
+                inv_a1=1 / a1, inv_a2=1 / a2, inv_a3=1 / a3, a3=a3, s2=aY / (aY + a2),
+                inv_aem=1.0 / (a2 * aY / (a2 + aY)), lhs=lhs, inv_aU=1 / aU)
+
+
+def solve(P, R, lo=6.0, hi=80.0, n=600, **kw):
+    """Roots of the closure in x = 1/alpha_U. Returns the list of solved chains (possibly empty)."""
+    def f(x):
+        c = chain(P, 1.0 / x, R, **kw)
+        return np.nan if c is None else c['lhs'] - P / 4
+    xs = np.linspace(lo, hi, n)
+    vals = np.array([f(x) for x in xs])
+    out = []
+    for i in range(n - 1):
+        if np.isfinite(vals[i]) and np.isfinite(vals[i + 1]) and vals[i] * vals[i + 1] < 0:
+            x = brentq(f, xs[i], xs[i + 1], xtol=1e-13, rtol=1e-13)
+            out.append(chain(P, 1.0 / x, R, **kw))
+    return out
+
+
+def solve1(P, R, **kw):
+    r = solve(P, R, **kw)
+    return r[0] if len(r) == 1 else (None if not r else r)
+
+
+def cut_closure(P):
+    """Retired cell reading: unified coupling at the cell with both factors at one heat time."""
+    g = lambda x: ell2(4 * pi * pi / x) + ell3(4 * pi * pi / x) - P / 4
+    return brentq(g, 5.0, 60.0, xtol=1e-13)
+
+
+def lhs_unified(x):
+    """Left side of the closure with both factors at 1/alpha = x."""
+    return ell2(4 * pi * pi / x) + ell3(4 * pi * pi / x)
+
+
+def chainx(P, aU, R, b=B_DECL, beta=4.0, read='mZ', delta=(0.0, 0.0, 0.0), rho=1.0, delta_v=0.0, bij=None,
+           v_coupling=None):
+    """Extended chain. rho: the closure is read at mu = rho * m_Z(mu) (or rho * m_W(mu)).
+    delta_v: the coupling inside the law for v is 1/alpha_U + delta_v. v_coupling: explicit 1/alpha inside the law.
+    bij: two-loop matrix; the anchor couplings receive -(1/4 pi) sum_j (b_ij/b_j) ln(alpha_j(mu)/alpha_j(M_U)),
+    with the one-loop alpha_j inside the logarithm."""
+    Ecell = EP / np.sqrt(P)
+    MU = Ecell * np.exp(-R)
+    xv = (1.0 / aU + delta_v) if v_coupling is None else v_coupling
+    v = Ecell * np.exp(-2 * pi * xv / beta)
+    x0 = [1.0 / aU + di for di in delta]
+
+    def al(mu):
+        L = np.log(MU / mu)
+        one = [x0[i] + b[i] / (2 * pi) * L for i in range(3)]
+        if min(one) <= 0:
+            return None
+        if bij is None:
+            return [1.0 / x for x in one]
+        two = [one[i] - sum(bij[i][j] / b[j] * np.log(x0[j] / one[j]) for j in range(3)) / (4 * pi) for i in range(3)]
+        if min(two) <= 0:
+            return None
+        return [1.0 / x for x in two]
+
+    mu = 91.0
+    for _ in range(600):
+        a = al(mu)
+        if a is None:
+            return None
+        a1, a2, a3 = a
+        aY = 0.6 * a1
+        mz = v * np.sqrt(pi * (a2 + aY))
+        mw = v * np.sqrt(pi * a2)
+        new = rho * (mz if read == 'mZ' else mw)
+        if abs(new - mu) < 1e-13 * mu:
+            mu = new
+            break
+        mu = new
+    a = al(mu)
+    if a is None:
+        return None
+    a1, a2, a3 = a
+    aY = 0.6 * a1
+    lhs = ell2(4 * pi * pi * a2) + ell3(4 * pi * pi * a3)
+    return dict(P=P, R=R, MU=MU, Ecell=Ecell, v=v, mu=mu, mz=v * np.sqrt(pi * (a2 + aY)), mw=v * np.sqrt(pi * a2),
+                inv_a1=1 / a1, inv_a2=1 / a2, inv_a3=1 / a3, a3=a3, s2=aY / (aY + a2),
+                inv_aem=1.0 / (a2 * aY / (a2 + aY)), lhs=lhs, inv_aU=1 / aU)
+
+
+def solvex(P, R, lo=6.0, hi=80.0, n=600, **kw):
+    def f(x):
+        c = chainx(P, 1.0 / x, R, **kw)
+        return np.nan if c is None else c['lhs'] - P / 4
+    xs = np.linspace(lo, hi, n)
+    vals = np.array([f(x) for x in xs])
+    out = []
+    for i in range(n - 1):
+        if np.isfinite(vals[i]) and np.isfinite(vals[i + 1]) and vals[i] * vals[i + 1] < 0:
+            x = brentq(f, xs[i], xs[i + 1], xtol=1e-13, rtol=1e-13)
+            out.append(chainx(P, 1.0 / x, R, **kw))
+    return out
+
+
+def transport(c, b, to_mu):
+    """One-loop transport of the couplings of a solved chain from its reading point to the scale to_mu."""
+    L = np.log(c['mu'] / to_mu)                      # positive when to_mu lies below the reading point
+    x = [c['inv_a1'] + b[0] / (2 * pi) * L, c['inv_a2'] + b[1] / (2 * pi) * L, c['inv_a3'] + b[2] / (2 * pi) * L]
+    aY = 0.6 / x[0]
+    a2 = 1 / x[1]
+    return dict(inv_a1=x[0], inv_a2=x[1], inv_a3=x[2], a3=1 / x[2], s2=aY / (aY + a2), inv_aem=1.0 / (a2 * aY / (a2 + aY)))
+
+
+OUT_KEYS = ('inv_aU', 'v', 'mz', 'mw', 'inv_a1', 'inv_a2', 'inv_a3', 'a3', 's2', 'inv_aem')
+
+
+def row(c):
+    return None if c is None else {k: float(c[k]) for k in OUT_KEYS + ('R', 'MU', 'Ecell', 'mu', 'lhs')}
+
+
+if __name__ == '__main__':
+    import json
+    out = {}
+    for read in ('mZ', 'mW'):
+        c = solve1(P_FWD, R_decl(P_FWD), read=read)
+        out[f'declared slopes, reading {read}'] = row(c)
+    for name, b in (('source two doublets (41/5, 1, -3)', B_SRC2), ('source one doublet (81/10, 5/6, -3)', (81 / 10, 5 / 6, -3.0)),
+                    ('source three doublets (83/10, 7/6, -3)', (83 / 10, 7 / 6, -3.0)),
+                    ('Standard Model (41/10, -19/6, -7)', (41 / 10, -19 / 6, -7.0))):
+        r = solve(P_FWD, R_decl(P_FWD), b=b)
+        out[name] = [row(c) for c in r] if r else 'no root'
+    out['cut closure (retired), 1/alpha'] = cut_closure(P_FWD)
+    # validation against the engine's own solver at the declared point
+    x_engine = CC.solve(P_FWD)
+    c_engine = CC.chain(P_FWD, 1.0 / x_engine)
+    mine = out['declared slopes, reading mZ']
+    out['D0_validation'] = {
+        'engine_inv_alpha_U': x_engine, 'this_inv_alpha_U': mine['inv_aU'],
+        'relative_difference_inv_alpha_U': abs(x_engine - mine['inv_aU']) / x_engine,
+        'relative_difference_v': abs(c_engine['v'] - mine['v']) / mine['v'],
+        'relative_difference_sin2': abs(c_engine['s2'] - mine['s2']) / mine['s2'],
+        'relative_difference_MU': abs(c_engine['MU'] - mine['MU']) / mine['MU'],
+        'R_declared': R_decl(P_FWD), 'E_cell_over_M_U': float(np.exp(R_decl(P_FWD)))}
+    json.dump(out, open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'cu_chain.json'), 'w'), indent=1)
+    for k, v_ in out.items():
+        print(k, v_)

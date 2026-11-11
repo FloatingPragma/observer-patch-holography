@@ -1,0 +1,596 @@
+"""CF-1 reference implementation (worker R1): section 8 of candidates/CF1.md on top of work/DIRAC/routing.py.
+
+Every convention is fixed in DEFINITION.md (same directory). In short:
+  one-body amplitude  psi[x1, x2, x3, r, s]; r = 0 blank, 1 written; s = 0 / 1: spin +1 / -1 along frame axis 3
+  one-body index      n = 4 cell + 2 r + s, cell = (x1 L2 + x2) L3 + x3
+  link (x, i)         from x to x + e_i; exists when L_i >= 2; id k: axes ascending, then cells in index order;
+                      bit b_k, Z = (-1)^b_k; link word z = sum_k b_k 2^k
+  tick t = 0, 1, ...  U_t = F Gamma(M) Gamma(S_t); S_t = (Q_3 R)(Q_2 R)(Q_1 R) for even t, (Q_1 R)(Q_2 R)(Q_3 R) for odd t
+  field step          F = E K: first K = prod_p exp(-i kappa W_p), then E = prod_l exp(-i eps X_l)
+  Gauss operator      G_x = prod_{l at x} X_l * (-1)^(number of Z2-charged quanta at x)
+
+Three engines:
+  OneBody   (a) one quantum of one species in a static link field (wraps routing.Routing)
+  Gaussian  (b) many quanta at eps = 0: one-body correlation matrix, C -> D C D^dagger
+  Joint     (c) matter (0, 1 or 2 quanta) and quantum links at any eps, kappa; Sector: its Gauss sectors
+  Fock      occupation space of at most 20 modes; the lift of the tick as a product of parity gates (for the checks)
+The routing engine is imported by path and never modified.
+"""
+import importlib.util, itertools, json, os
+import numpy as np
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+RL = os.path.dirname(os.path.dirname(HERE))
+_spec = importlib.util.spec_from_file_location('routing', os.path.join(RL, 'work', 'DIRAC', 'routing.py'))
+routing = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(routing)
+Routing, SIG = routing.Routing, routing.SIG
+
+
+# ---------------------------------------------------------------- species, chart, mass options
+def patterns():
+    """The 32 occupation patterns of the five levels (triplet levels 0-2, doublet levels 3-4)."""
+    out = []
+    for occ in itertools.product((0, 1), repeat=5):
+        n3, n2 = sum(occ[:3]), sum(occ[3:])
+        out.append({'occ': occ, 'n3': n3, 'n2': n2, 'Q6': 3 * n2 - 2 * n3, 'Z2': n2 % 2})
+    return out
+
+
+def _m1_table():
+    rows = json.load(open(os.path.join(RL, 'work', 'DIRAC', 'defect_phases.json')))['rows']
+    return {(r['alpha'], r['separation']): r['rest_phase'] for r in rows}
+
+
+M1_TABLE = _m1_table()
+M1_UNIFORM = {'doublet': 0.157935, 'triplet': 0.215043}        # sections in a uniform flux (CF-1, section 4, item 6)
+
+
+def m1_theta(Q6, k, d):
+    """Option M1: angle of a pattern of charge Q6 on a carrier holding a flux pair of class k at separation d.
+    alpha = k Q6 / 6 mod 1; alpha and 1 - alpha are complex conjugate link phases and have the same rest phase."""
+    a = (k * Q6) % 6; a = min(a, 6 - a)
+    return 0.0 if a == 0 else M1_TABLE[({1: '1/6', 2: '1/3', 3: '1/2'}[a], d)]
+
+
+class Species:
+    """A pattern carried by a quantum. charged: its Z2 charge (default n2 mod 2), which must not depend on the record.
+    theta: number or array of the lattice shape (static class labels, version 1); kind 'Y' (M1) or 'Z' (M2); 0 is M0."""
+    def __init__(self, name='lepton doublet', n3=0, n2=1, theta=0.0, kind='Y', charged=None):
+        self.name, self.n3, self.n2, self.theta, self.kind = name, n3, n2, theta, kind
+        self.Q6 = 3 * n2 - 2 * n3
+        self.charged = bool(n2 % 2) if charged is None else bool(charged)
+
+
+def class_theta(shape, labels, sp):
+    """theta_a(x) of option M1 from static class labels {cell: (k, d)} (version 1 of the internal flux register)."""
+    th = np.zeros(shape)
+    for c, (k, d) in labels.items(): th[c] = m1_theta(sp.Q6, k, d)
+    return th
+
+
+def mass_step(psi, theta, kind='Y', inverse=False):
+    """exp(-i theta Y_r) (M1) or exp(-i theta Z_r) (M2) with a number or a field theta(x); same formula as Routing.mass."""
+    th = np.asarray(theta, float)
+    if not th.any(): return psi
+    if inverse: th = -th
+    if th.ndim: th = th[..., None]
+    c, s = np.cos(th), np.sin(th)
+    out = np.empty_like(psi)
+    if kind == 'Y':
+        out[..., 0, :] = c * psi[..., 0, :] - s * psi[..., 1, :]
+        out[..., 1, :] = s * psi[..., 0, :] + c * psi[..., 1, :]
+    else:
+        out[..., 0, :] = np.exp(-1j * th) * psi[..., 0, :]
+        out[..., 1, :] = np.exp(1j * th) * psi[..., 1, :]
+    return out
+
+
+def symbol(p, theta=0.0, kind='Y', t=0):
+    """symbol of the tick t at wave number p (4 x 4, index 2 r + s); even t: Routing.symbol"""
+    if t % 2 == 0: return Routing.symbol(p, theta, kind)
+    out = np.eye(4, dtype=complex)
+    for i in (2, 1, 0):
+        out = (np.cos(p[i]) * np.eye(4) - 1j * np.sin(p[i]) * np.kron(SIG[0], SIG[i])) @ out
+    b = np.kron(SIG[1] if kind == 'Y' else SIG[2], np.eye(2))
+    return (np.cos(theta) * np.eye(4) - 1j * np.sin(theta) * b) @ out
+
+
+def period_phase(p, theta=0.0):
+    """E2 in [0, pi]: the two-tick product has the phases exp(-i E2) and exp(+i E2), each twice;
+    cos E2 = cos^2(theta) prod_i cos(2 p_i) - sin^2(theta) (exact: cf1_exact.symbol_identity)"""
+    return float(np.arccos(np.clip(np.cos(theta) ** 2 * np.prod(np.cos(2 * np.asarray(p, float))) - np.sin(theta) ** 2, -1, 1)))
+
+
+def dense(f, shape):
+    """matrix of a linear map on one-body amplitudes, in the one-body index"""
+    n = 4 * int(np.prod(shape)); out = np.empty((n, n), complex)
+    for k in range(n):
+        e = np.zeros(n, complex); e[k] = 1
+        out[:, k] = f(e.reshape(tuple(shape) + (2, 2))).ravel()
+    return out
+
+
+# ---------------------------------------------------------------- lattice, links, plaquettes, stars
+class Lattice:
+    def __init__(self, shape):
+        self.shape = tuple(int(s) for s in shape); self.N = int(np.prod(self.shape))
+        self.cells = list(itertools.product(*[range(s) for s in self.shape]))
+        self.cid = {c: k for k, c in enumerate(self.cells)}
+        self.axes = [i for i in range(3) if self.shape[i] >= 2]
+        self.links = [(c, i) for i in self.axes for c in self.cells]
+        self.lid = {l: k for k, l in enumerate(self.links)}
+        self.NL = len(self.links); self.NZ = 1 << self.NL
+        self.axis_ids = [[k for k, (c, ax) in enumerate(self.links) if ax == i] for i in range(3)]
+        self.plaq = [(self.lid[(c, i)], self.lid[(self.step(c, i), j)], self.lid[(self.step(c, j), i)], self.lid[(c, j)])
+                     for i, j in itertools.combinations(self.axes, 2) for c in self.cells]
+        self.star = []
+        for c in self.cells:
+            m = 0
+            for i in self.axes: m ^= (1 << self.lid[(c, i)]) ^ (1 << self.lid[(self.step(c, i, -1), i)])
+            self.star.append(m)
+
+    def step(self, c, i, d=1):
+        c = list(c); c[i] = (c[i] + d) % self.shape[i]; return tuple(c)
+
+    def shift_cell(self, c, a):
+        return tuple((c[j] + a[j]) % self.shape[j] for j in range(3))
+
+    def signs(self, z):
+        """the three sign arrays of a link word, in the format of routing.Routing(links=...)"""
+        out = [np.ones(self.shape) for _ in range(3)]
+        for (c, i), k in self.lid.items():
+            if (z >> k) & 1: out[i][c] = -1.0
+        return out
+
+    def wsum(self):
+        """sum over plaquettes of the holonomy W_p, for every link word"""
+        z = np.arange(self.NZ); tot = np.zeros(self.NZ)
+        for p in self.plaq:
+            par = np.zeros(self.NZ, dtype=np.int64)
+            for b in p: par ^= (z >> b) & 1
+            tot += 1 - 2 * par
+        return tot
+
+    def word_perm(self, a):
+        """perm[z]: the word of the link field translated by a"""
+        z = np.arange(self.NZ); out = np.zeros(self.NZ, dtype=np.int64)
+        for (c, i), k in self.lid.items(): out |= ((z >> k) & 1) << self.lid[(self.shift_cell(c, a), i)]
+        return out
+
+    def mode_perm(self, a):
+        """perm[n]: one-body index of the mode translated by a"""
+        perm = np.empty(4 * self.N, dtype=np.int64)
+        for c, k in self.cid.items(): perm[4 * k: 4 * k + 4] = 4 * self.cid[self.shift_cell(c, a)] + np.arange(4)
+        return perm
+
+    def gauge_mask(self, h):
+        """link flips of the gauge transformation that is -1 on the cells with h = 1"""
+        m = 0
+        for ci, b in enumerate(h):
+            if b: m ^= self.star[ci]
+        return m
+
+
+# ---------------------------------------------------------------- (a) one quantum, static link field
+class OneBody:
+    def __init__(self, shape, species=None, signs=None):
+        self.sp = species or Species(); self.shape = tuple(shape); self.n = 4 * int(np.prod(self.shape))
+        self.w = Routing(self.shape, signs if (signs is not None and self.sp.charged) else None)
+
+    def route(self, psi, t=0):
+        return self.w.tick(psi, 0.0, reverse=bool(t % 2))
+
+    def unroute(self, psi, t=0):
+        for i in ((0, 1, 2) if t % 2 else (2, 1, 0)):
+            psi = self.w.record_reflection(self.w.seam_involution(psi, i))
+        return psi
+
+    def tick(self, psi, t=0):
+        return mass_step(self.route(psi, t), self.sp.theta, self.sp.kind)
+
+    def untick(self, psi, t=0):
+        return self.unroute(mass_step(psi, self.sp.theta, self.sp.kind, inverse=True), t)
+
+    def run(self, psi, T, t0=0):
+        for t in range(t0, t0 + T): psi = self.tick(psi, t)
+        return psi
+
+    def matrix(self, t=0):
+        return dense(lambda p: self.tick(p, t), self.shape)
+
+    def packet(self, x0, p0, width, coin):
+        """product preparation: Gaussian envelope around cell x0 (per axis width, 0 = uniform), carrier wave number p0,
+        coin[r, s]"""
+        amp = np.ones(self.shape, complex)
+        for i in range(3):
+            L = self.shape[i]; x = np.arange(L); d = ((x - x0[i] + L / 2) % L) - L / 2
+            f = np.exp(1j * p0[i] * x) * (np.exp(-d * d / (2 * width[i] ** 2)) if width[i] else 1.0)
+            amp = amp * f.reshape([L if j == i else 1 for j in range(3)])
+        psi = amp[..., None, None] * np.asarray(coin, complex).reshape(2, 2)
+        return psi / np.linalg.norm(psi)
+
+
+def branch_projectors(U2, tol=1e-9):
+    """Spectral projectors of a period operator U2 = exp(-i H) on sin H > 0 (positive branch) and sin H < 0 (negative
+    branch), and the number of undecided modes (sin H = 0: phases 0 or pi)."""
+    A = 1j * (U2 - U2.conj().T) / 2                      # = sin H, Hermitian
+    w, v = np.linalg.eigh(A)
+    pos, neg = v[:, w > tol], v[:, w < -tol]
+    return pos @ pos.conj().T, neg @ neg.conj().T, int(np.sum(np.abs(w) <= tol))
+
+
+# ---------------------------------------------------------------- (b) many quanta at eps = 0
+class Gaussian:
+    """C[i, j] = <c_j^dagger c_i> of one species in a static link word; one tick is C -> D_t C D_t^dagger."""
+    def __init__(self, shape, species=None, signs=None):
+        self.ob = OneBody(shape, species, signs); self.n = self.ob.n
+        self.D = [self.ob.matrix(0), self.ob.matrix(1)]
+
+    def tick(self, C, t=0):
+        D = self.D[t % 2]; return D @ C @ D.conj().T
+
+    def period(self):
+        return self.D[1] @ self.D[0]
+
+    def filled_branch(self, sign=-1):
+        """correlation matrix of the filled negative (sign = -1) or positive branch of the two-tick product"""
+        pos, neg, und = branch_projectors(self.period())
+        return (neg if sign < 0 else pos), und
+
+    @staticmethod
+    def slater(vectors):
+        """C of the determinant of the span of the given one-body vectors, and its rank"""
+        q, r = np.linalg.qr(np.array([np.ravel(v) for v in vectors]).T)
+        keep = np.abs(np.diag(r)) > 1e-12
+        return q[:, keep] @ q[:, keep].conj().T, int(keep.sum())
+
+    def cell_parity(self, C, cell=0):
+        """<(-1)^(n_x)> of a Gaussian state: det(1 - 2 C_xx)"""
+        b = C[4 * cell: 4 * cell + 4, 4 * cell: 4 * cell + 4]
+        return float(np.real(np.linalg.det(np.eye(4) - 2 * b)))
+
+
+# ---------------------------------------------------------------- occupation space (checks of the lift)
+def reflectors(lat, z=0, charged=True):
+    """unit vectors of the seam reflectors of Q_1, Q_2, Q_3 in a link word: per axis a list of (indices, amplitudes).
+    v = chi (x) (a0 - z b0 - a1 - z b1)/2, (a, b) = (x, x + e_i) for spin +1 along axis i and (x + e_i, x) for spin -1."""
+    out = [[], [], []]
+    for (c, i), k in lat.lid.items():
+        zz = -1.0 if (charged and (z >> k) & 1) else 1.0
+        x0, x1 = 4 * lat.cid[c], 4 * lat.cid[lat.step(c, i)]
+        chi = routing._eigbasis(i)
+        for comp, (a, b) in enumerate(((x0, x1), (x1, x0))):
+            idx, amp = [], []
+            for s in (0, 1):
+                for base, coef in ((a, 1.0), (b, -zz), (a + 2, -1.0), (b + 2, -zz)):
+                    idx.append(base + s); amp.append(chi[s, comp] * coef / 2)
+            out[i].append((np.array(idx), np.array(amp)))
+    return out
+
+
+class Fock:
+    """Occupations of nm modes, basis |s> = prod_{m in s, ascending} c_m^dagger |0>, s a bit mask."""
+    def __init__(self, nm):
+        assert nm <= 20
+        self.nm = nm; self.dim = 1 << nm; self.s = np.arange(self.dim)
+        self.count = np.zeros(self.dim, dtype=np.int64)
+        for b in range(nm): self.count += (self.s >> b) & 1
+
+    def hop(self, psi, j, k):
+        """c_j^dagger c_k psi"""
+        s = self.s
+        if j == k: return psi * ((s >> j) & 1)
+        ok = (((s >> k) & 1) == 1) & (((s >> j) & 1) == 0)
+        lo, hi = min(j, k), max(j, k)
+        between = ((1 << hi) - 1) ^ ((1 << (lo + 1)) - 1)
+        sign = 1.0 - 2.0 * (self.count[s[ok] & between] & 1)
+        out = np.zeros_like(psi); out[s[ok] ^ (1 << j) ^ (1 << k)] = sign * psi[ok]
+        return out
+
+    def parity_gate(self, psi, idx, amp):
+        """(-1)^(n_v), the lift of the reflector 1 - 2 |v><v|, v = sum_a amp[a] e_(idx[a]) a unit vector"""
+        out = psi.copy()
+        for a, j in enumerate(idx):
+            for b, k in enumerate(idx):
+                out -= 2 * amp[a] * np.conj(amp[b]) * self.hop(psi, int(j), int(k))
+        return out
+
+    def number(self, mask):
+        return self.count[self.s & mask]
+
+    def correlation(self, psi, modes):
+        """C[i, j] = <psi| c_(modes[j])^dagger c_(modes[i]) |psi>"""
+        return np.array([[np.vdot(psi, self.hop(psi, int(mj), int(mi))) for mj in modes] for mi in modes])
+
+
+def fock_tick(fk, psi, lat, blocks, z=0, t=0):
+    """Gamma(M) Gamma(S_t) as a product of parity gates. blocks: list of (mode offset, Species); a block holds the
+    4 N modes of one pattern in the one-body index. Static link word z."""
+    n = 4 * lat.N
+    for off, sp in blocks:
+        refl = reflectors(lat, z, sp.charged)
+        recmask = sum(1 << (off + 4 * c + 2 + s) for c in range(lat.N) for s in (0, 1))
+        blankmask = sum(1 << (off + 4 * c + s) for c in range(lat.N) for s in (0, 1))
+        rsign = 1.0 - 2.0 * (fk.number(recmask) & 1)
+        for i in ((2, 1, 0) if t % 2 else (0, 1, 2)):
+            if lat.shape[i] < 2: continue
+            psi = psi * rsign                                           # Gamma(R)
+            for idx, amp in refl[i]: psi = fk.parity_gate(psi, off + idx, amp)   # Gamma(Q_i)
+        th = np.broadcast_to(np.asarray(sp.theta, float), lat.shape).ravel()
+        if not th.any(): continue
+        if sp.kind == 'Y':                                              # rotation = two reflections
+            for c in range(lat.N):
+                for s in (0, 1):
+                    m0, m1 = off + 4 * c + s, off + 4 * c + 2 + s
+                    psi = fk.parity_gate(psi, np.array([m1]), np.array([1.0]))
+                    psi = fk.parity_gate(psi, np.array([m0, m1]), np.array([-np.sin(th[c] / 2), np.cos(th[c] / 2)]))
+        else:
+            assert np.ptp(th) == 0
+            psi = psi * np.exp(-1j * th[0] * (fk.number(blankmask) - fk.number(recmask)))
+    return psi
+
+
+# ---------------------------------------------------------------- (c) matter and quantum links
+class Joint:
+    """State Psi[z] (no quantum), Psi[z, n] (one) or Psi[z, n1, n2] (two); z the link word, n the one-body index of each
+    quantum. Two quanta that are the same Species object: antisymmetric amplitudes (the declared statistics); the tick
+    also preserves the symmetric class. Two different Species objects: distinguishable quanta."""
+    def __init__(self, shape, species=(), eps=0.0, kappa=0.0):
+        self.lat = lat = Lattice(shape); self.sp = list(species); self.N = len(self.sp); assert self.N <= 2
+        self.eps, self.kappa, self.n = eps, kappa, 4 * lat.N
+        self.kph = np.exp(-1j * kappa * lat.wsum())
+        self.flip = [np.arange(lat.NZ) ^ (1 << k) for k in range(lat.NL)]
+        self.nc = [1 << len(ids) for ids in lat.axis_ids]              # link words per axis
+        self.ops = {}
+        for sp in self.sp:
+            if id(sp) not in self.ops: self.ops[id(sp)] = self._build(sp)
+
+    def _build(self, sp):
+        """A_i[c] = Q_i(z) R for every assignment c of the links of axis i (one entry for a neutral species), and M"""
+        lat = self.lat; A = []
+        for i in range(3):
+            ids = lat.axis_ids[i]; nc = (1 << len(ids)) if sp.charged else 1
+            Ai = np.empty((nc, self.n, self.n), complex)
+            for combo in range(nc):
+                signs = [np.ones(lat.shape) for _ in range(3)]
+                for b, k in enumerate(ids):
+                    if (combo >> b) & 1: signs[i][lat.links[k][0]] = -1.0
+                w = Routing(lat.shape, signs)
+                Ai[combo] = dense(lambda p: w.shift(p, i), lat.shape)
+            A.append(Ai)
+        return A, dense(lambda p: mass_step(p, sp.theta, sp.kind), lat.shape)
+
+    def one_body(self, sp, z, t=0):
+        """D_t(z) = M S_t(z) of a species for an array of link words z"""
+        A, M = self.ops[id(sp)]; z = np.atleast_1d(z); n0, n1 = len(self.lat.axis_ids[0]), len(self.lat.axis_ids[1])
+        c = [z & (self.nc[0] - 1), (z >> n0) & (self.nc[1] - 1), (z >> (n0 + n1)) & (self.nc[2] - 1)]
+        a = [A[i][c[i] if sp.charged else np.zeros_like(z)] for i in range(3)]
+        S = (a[0] @ a[1] @ a[2]) if t % 2 else (a[2] @ a[1] @ a[0])
+        return M @ S
+
+    def route(self, Psi, t=0, inverse=False):
+        """Gamma(M) Gamma(S_t) in every link word (inverse=True: its inverse)"""
+        if self.N == 0: return Psi
+        shp = Psi.shape; P = Psi.reshape((self.nc[2], self.nc[1], self.nc[0]) + shp[1:])
+        if self.N == 1: P = P[..., None]
+        order = (2, 1, 0) if t % 2 else (0, 1, 2)
+        for q, sp in enumerate(self.sp):
+            A, M = self.ops[id(sp)]
+            steps = [A[i].reshape([A[i].shape[0] if j == 2 - i else 1 for j in range(3)] + [self.n, self.n]) for i in order] + [M]
+            if inverse: steps = [np.conj(np.swapaxes(s, -1, -2)) for s in reversed(steps)]
+            if q == 1: P = np.swapaxes(P, -1, -2)                    # second quantum: act on the second matter index
+            for s in steps: P = np.matmul(s, P)
+            if q == 1: P = np.swapaxes(P, -1, -2)
+        return P.reshape(shp)
+
+    def field(self, Psi, inverse=False):
+        ex = (slice(None),) + (None,) * self.N; c, s = np.cos(self.eps), np.sin(self.eps)
+        if not inverse:
+            out = Psi * self.kph[ex]
+            if s:
+                for f in self.flip: out = c * out - 1j * s * out[f]
+            return out
+        out = Psi
+        if s:
+            for f in self.flip: out = c * out + 1j * s * out[f]
+        return out * np.conj(self.kph)[ex]
+
+    def tick(self, Psi, t=0):
+        return self.field(self.route(Psi, t))
+
+    def untick(self, Psi, t=0):
+        return self.route(self.field(Psi, inverse=True), t, inverse=True)
+
+    def run(self, Psi, T, t0=0):
+        for t in range(t0, t0 + T): Psi = self.tick(Psi, t)
+        return Psi
+
+    def cell_sign(self, ci, q):
+        """-1 on the amplitudes with quantum q at cell ci, shaped for broadcasting over Psi"""
+        sg = np.ones(self.n); sg[4 * ci: 4 * ci + 4] = -1
+        return sg.reshape((1,) + (1,) * q + (self.n,) + (1,) * (self.N - 1 - q))
+
+    def gauss(self, Psi, c):
+        ci = self.lat.cid[c] if isinstance(c, tuple) else c
+        out = np.empty_like(Psi); out[np.arange(self.lat.NZ) ^ self.lat.star[ci]] = Psi
+        for q, sp in enumerate(self.sp):
+            if sp.charged: out = out * self.cell_sign(ci, q)
+        return out
+
+    def translate(self, Psi, a):
+        pz, pm = self.lat.word_perm(a), self.lat.mode_perm(a); out = np.empty_like(Psi)
+        if self.N == 0: out[pz] = Psi
+        elif self.N == 1: out[pz[:, None], pm[None, :]] = Psi
+        else: out[pz[:, None, None], pm[None, :, None], pm[None, None, :]] = Psi
+        return out
+
+    def link_x(self, Psi, k):
+        return Psi[self.flip[k]]
+
+    def link_z(self, Psi, k):
+        return Psi * (1.0 - 2.0 * ((np.arange(self.lat.NZ) >> k) & 1))[(slice(None),) + (None,) * self.N]
+
+    def density(self, Psi, ci):
+        """number of quanta at cell ci (operator applied to Psi)"""
+        out = np.zeros_like(Psi)
+        for q in range(self.N): out = out + Psi * (1 - self.cell_sign(ci, q)) / 2
+        return out
+
+    def identical(self):
+        return self.N == 2 and self.sp[0] is self.sp[1]
+
+    def random(self, seed=0, stat=-1):
+        rng = np.random.default_rng(seed); shp = (self.lat.NZ,) + (self.n,) * self.N
+        Psi = rng.normal(size=shp) + 1j * rng.normal(size=shp)
+        if self.identical(): Psi = Psi + stat * Psi.transpose(0, 2, 1)
+        return Psi / np.linalg.norm(Psi)
+
+    def product(self, z, matter=None):
+        """|z> (x) matter amplitude (None for no quantum)"""
+        Psi = np.zeros((self.lat.NZ,) + (self.n,) * self.N, complex)
+        Psi[z] = 1.0 if matter is None else matter
+        return Psi
+
+
+class Sector:
+    """Gauss sector g of a Joint engine (g_x = +-1, prod_x g_x = (-1)^(number of charged quanta)).
+    Orthonormal basis v[r, m] = G^(-1/2) sum_h chi_g(h) sigma_h(m) |rep_r xor mask_h> |m>, h over the gauge
+    transformations with cell 0 fixed (G = 2^(N_cells - 1)), rep_r the smallest word of each gauge orbit,
+    m a matter basis state (one-body index; index pair i < j for two identical quanta; index pair for two different)."""
+    def __init__(self, J, g=None, stat=-1):
+        self.J = J; lat = J.lat; self.stat = stat
+        self.q = [sp.charged for sp in J.sp]; nch = sum(self.q)
+        if g is None:
+            g = np.ones(lat.N, dtype=int)
+            if nch % 2: g[0] = -1                                    # one static background charge at cell 0
+        self.g = np.asarray(g); assert int(np.prod(self.g)) == (-1) ** nch, 'no such Gauss sector'
+        hs = [h for h in itertools.product((0, 1), repeat=lat.N) if h[0] == 0]
+        self.G = len(hs)
+        self.masks = np.array([lat.gauge_mask(h) for h in hs])
+        self.chi = np.array([np.prod([self.g[ci] for ci, b in enumerate(h) if b] or [1]) for h in hs], float)
+        self.hcell = 1.0 - 2.0 * np.array(hs, float)                 # sign of h on every cell
+        z = np.arange(lat.NZ)
+        self.reps = z[np.min(z[None, :] ^ self.masks[:, None], axis=0) == z]
+        self.cell_of = np.arange(J.n) // 4
+        if J.N == 2 and J.identical(): self.iu = np.triu_indices(J.n, 1 if stat < 0 else 0)
+        self.md = 1 if J.N == 0 else J.n if J.N == 1 else (len(self.iu[0]) if J.identical() else J.n ** 2)
+        self.dim = len(self.reps) * self.md
+
+    # matter basis <-> matter tensor
+    def to_basis(self, T):
+        J = self.J
+        if J.N < 2: return T.reshape(T.shape[0], self.md)
+        if not J.identical(): return T.reshape(T.shape[0], self.md)
+        i, j = self.iu
+        w = np.where(i == j, 1.0, np.sqrt(2.0))                      # normalized (anti)symmetric basis
+        return (T[:, i, j] + self.stat * T[:, j, i]) / 2 * w
+
+    def from_basis(self, m):
+        J = self.J
+        if J.N == 0: return m[:, 0]
+        if J.N == 1 or not J.identical(): return m.reshape((m.shape[0],) + (J.n,) * J.N)
+        i, j = self.iu; T = np.zeros((m.shape[0], J.n, J.n), complex)
+        w = np.where(i == j, 1.0, 1 / np.sqrt(2.0))
+        T[:, i, j] = m * w
+        off = i != j; T[:, j[off], i[off]] = self.stat * (m * w)[:, off]
+        return T
+
+    def matter_sign(self, h):
+        """sigma_h as a tensor over the matter indices (without the word index)"""
+        J = self.J; out = np.ones((J.n,) * J.N) if J.N else 1.0
+        for q in range(J.N):
+            if self.q[q]:
+                out = out * self.hcell[h][self.cell_of].reshape((1,) * q + (J.n,) + (1,) * (J.N - 1 - q))
+        return out
+
+    def embed(self, phi):
+        """coefficients phi[r, m] -> full state"""
+        J = self.J; Psi = np.zeros((J.lat.NZ,) + (J.n,) * J.N, complex); T = self.from_basis(phi)
+        for h in range(self.G):
+            Psi[self.reps ^ self.masks[h]] += self.chi[h] / np.sqrt(self.G) * self.matter_sign(h) * T
+        return Psi
+
+    def coeff(self, Psi):
+        """full state -> coefficients on the sector basis (the projection on the sector)"""
+        T = 0
+        for h in range(self.G):
+            T = T + self.chi[h] / np.sqrt(self.G) * self.matter_sign(h) * Psi[self.reps ^ self.masks[h]]
+        return self.to_basis(T)
+
+    # the tick on the sector
+    def eps_kernel(self, inverse=False):
+        """E on the sector: E[r', r] is diagonal in the matter basis, sum_h chi(h) sigma_h k(rep_r xor rep_r' xor mask_h),
+        returned on cells: array [r', r] + (N_cells,) * N"""
+        J = self.J; lat = J.lat; c, s = np.cos(J.eps), np.sin(J.eps)
+        wt = np.array([bin(x).count('1') for x in range(lat.NZ)])
+        k = c ** (lat.NL - wt) * ((1j if inverse else -1j) * s) ** wt
+        R = len(self.reps); out = np.zeros((R, R) + (lat.N,) * J.N, complex)
+        x = self.reps[:, None] ^ self.reps[None, :]
+        for h in range(self.G):
+            sg = np.ones((lat.N,) * J.N) if J.N else 1.0
+            for q in range(J.N):
+                if self.q[q]: sg = sg * self.hcell[h].reshape((1,) * q + (lat.N,) + (1,) * (J.N - 1 - q))
+            out += self.chi[h] * k[x ^ self.masks[h]][(...,) + (None,) * J.N] * sg
+        return out
+
+    def _lift(self, ds):
+        """Gamma of one-body matrices (one per quantum) on the matter basis"""
+        J = self.J
+        if J.N == 0: return np.ones((1, 1), complex)
+        if J.N == 1: return ds[0]
+        if not J.identical(): return np.einsum('ik,jl->ijkl', ds[0], ds[1]).reshape(self.md, self.md)
+        i, j = self.iu; d = ds[0]; f = np.where(i == j, 1 / np.sqrt(2.0), 1.0)   # <e_ij| D (x) D |e_kl> = f f (D_ik D_jl +- D_il D_jk)
+        return (d[np.ix_(i, i)] * d[np.ix_(j, j)] + self.stat * d[np.ix_(i, j)] * d[np.ix_(j, i)]) * np.outer(f, f)
+
+    def lifted(self, t=0):
+        """Gamma(D_t(rep_r)) on the matter basis for every representative: array [r, md, md]"""
+        D = [self.J.one_body(sp, self.reps, t) for sp in self.J.sp]
+        return np.array([self._lift([d[r] for d in D]) for r in range(len(self.reps))])
+
+    def kernel_on_basis(self, inverse=False):
+        """eps_kernel evaluated on the matter basis: array [r', r, md]"""
+        J = self.J; E = self.eps_kernel(inverse); c = self.cell_of
+        if J.N == 0: return E[..., None]
+        if J.N == 1: return E[:, :, c]
+        if not J.identical(): return E[:, :, c[:, None], c[None, :]].reshape(E.shape[0], E.shape[1], self.md)
+        i, j = self.iu; return E[:, :, c[i], c[j]]
+
+    def matrix(self, t=0):
+        """dense matrix of the tick U_t on the sector"""
+        J = self.J; Em = self.kernel_on_basis(); L = self.lifted(t); kph = J.kph[self.reps]
+        U = np.einsum('prm,r,rmn->pmrn', Em, kph, L)
+        return U.reshape(self.dim, self.dim)
+
+    def tick_trace(self, t=0):
+        """tr(U_t) on the sector without the dense matrix"""
+        Em = self.kernel_on_basis(); L = self.lifted(t); r = np.arange(len(self.reps))
+        return np.sum(Em[r, r] * self.J.kph[self.reps][:, None] * np.einsum('rmm->rm', L))
+
+    def period_trace(self):
+        """tr(U_1 U_0) on the sector without the dense matrix"""
+        J = self.J; Em = self.kernel_on_basis(); L1 = self.lifted(1); kph = J.kph[self.reps]
+        D0 = [J.one_body(sp, self.reps, 0) for sp in J.sp]
+        tot = 0j; R = len(self.reps); step = max(1, int(2e6 // (self.md * self.md)))
+        for r in range(R):                                           # sum_p tr[E[r, p] k[p] L1[p] E[p, r] k[r] L0[r]]
+            L0r = self._lift([d[r] for d in D0])
+            for p0 in range(0, R, step):
+                p = slice(p0, p0 + step)
+                Y = L1[p] * Em[r, p][:, :, None] * Em[p, r][:, None, :]
+                tot += kph[r] * np.dot(kph[p], np.einsum('pab,ba->p', Y, L0r))
+        return tot
+
+
+if __name__ == '__main__':
+    # short self-test; the tables are made by cf1_exact.py, checks.py, reference.py and preparations.py
+    sp = Species(theta=M1_UNIFORM['doublet']); rng = np.random.default_rng(0)
+    ob = OneBody((6, 4, 4), sp); psi = rng.normal(size=ob.shape + (2, 2)) + 0j; psi /= np.linalg.norm(psi)
+    print('one quantum: tick against routing.py', np.abs(ob.tick(psi) - ob.w.tick(psi, sp.theta)).max(),
+          '| inverse tick', np.abs(ob.untick(ob.tick(psi, 1), 1) - psi).max())
+    p = (0.1, 0.1, 0.1); U2 = symbol(p, sp.theta, 'Y', 1) @ symbol(p, sp.theta, 'Y', 0); E2 = period_phase(p, sp.theta)
+    print('period at p = (0.1, 0.1, 0.1): phase per tick', E2 / 2, '| U2 + U2^dagger - 2 cos E2:', np.abs(U2 + U2.conj().T - 2 * np.cos(E2) * np.eye(4)).max())
+    G = Gaussian((3, 3, 1), sp); C, und = G.filled_branch()
+    print('filled branch on 3 x 3 x 1:', round(np.trace(C).real, 9), 'modes, undecided', und, '| defect after the period',
+          np.abs(G.tick(G.tick(C, 0), 1) - C).max(), '| after one tick', np.abs(G.tick(C, 0) - C).max())
+    J = Joint((3, 2, 1), [sp], 0.3, 0.2); Psi = J.random(1); out = J.tick(Psi)
+    print('joint 3 x 2 x 1, one quantum, twelve links: norm defect', abs(np.linalg.norm(out) - 1), '| Gauss commutator',
+          max(np.abs(J.tick(J.gauss(Psi, c)) - J.gauss(out, c)).max() for c in range(6)), '| inverse tick', np.abs(J.untick(out) - Psi).max())

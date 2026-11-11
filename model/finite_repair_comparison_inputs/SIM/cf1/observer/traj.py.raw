@@ -1,0 +1,393 @@
+"""Task CO, parts (a), (b), (f), (g, motion part): trajectories of defect identities read off the stored consistent cuts.
+
+    python traj.py <run_dir> <out.json> [--catalogue <catalogue.npz>]
+
+A cut is the state after every attempt of causal depth <= T (DATASET.md section 5). Each cut lists every defect of the
+tracked tiers with its identity, class, face and position. An identity is followed over the cuts on which it appears.
+Viewer copies of L9 and L10 keep a fixed 1-in-k sample of identities (k = 2, 8; `run.json: display_sample`); a kept
+identity is visible over its whole life, so single-identity statistics are unbiased, but the two members of a pair are
+never both kept (siblings have consecutive numbers), so pair statistics need the complete cuts (L6, L8).
+
+Screen tier: position = unit vector of the plaquette; distances in mesh edges (angle / a, a = sqrt(8 pi/(sqrt 3 V))).
+Displacement vectors are taken in the tangent plane at the start point (steps are a few edges, curvature negligible).
+Carrier tier (only where cuts hold it, L3 to L6): position = template face on the carrier; distances = dual-graph
+distance on the twenty faces (1..5); displacement vectors = difference of template face centroids (port vectors).
+
+Time: causal depth T of the cut; sweeps by the measured depth per sweep in the balanced regime (slope of
+stats.depth_mean). Regimes: quench = cuts before the balanced sweep, balanced = after.
+Errors: jackknife over 32 groups of identities (identity mod 32).
+"""
+import argparse, json, sys
+from pathlib import Path
+import numpy as np
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / 'background'))
+from compose import DD, TF  # noqa: E402
+
+G = 32
+CONJ = np.array([0, 5, 4, 3, 2, 1])
+
+
+def jk_ratio(S, N):
+    """S, N: [G] group sums; returns ratio and jackknife error"""
+    S = np.asarray(S, float); N = np.asarray(N, float)
+    if N.sum() <= 0:
+        return None, None
+    r = S.sum() / N.sum()
+    ok = (N.sum() - N) > 0
+    loo = (S.sum() - S[ok]) / (N.sum() - N[ok])
+    g = ok.sum()
+    if g < 2:
+        return float(r), None
+    return float(r), float(np.sqrt((g - 1) / g * ((loo - loo.mean()) ** 2).sum()))
+
+
+def tangent(x0, x1):
+    d = x1 - x0
+    return d - (d * x0).sum(1, keepdims=True) * x0
+
+
+def load_cuts(run, tier):
+    meta = json.load(open(run / 'run.json'))
+    cuts = meta['cuts']
+    rows = []
+    for c in cuts:
+        z = np.load(run / c['file'])
+        if f'{tier}_id' not in z.files:
+            return meta, None
+        ids = z[f'{tier}_id'].astype(np.int64)
+        k = np.full(len(ids), len(rows) and 0, np.int64)
+        rows.append({'T': int(c['depth']), 'id': ids, 'cls': z[f'{tier}_cls'].astype(np.int64),
+                     'face': z[f'{tier}_face'].astype(np.int64), 'xyz': z[f'{tier}_xyz'].astype(np.float64),
+                     'load_map': z['load_map'].astype(np.float64) if 'load_map' in z.files else None})
+    return meta, rows
+
+
+def build_tracks(rows):
+    """concatenate (id, cut index) and sort; returns arrays"""
+    ids = np.concatenate([r['id'] for r in rows])
+    kk = np.concatenate([np.full(len(r['id']), i) for i, r in enumerate(rows)])
+    cls = np.concatenate([r['cls'] for r in rows])
+    face = np.concatenate([r['face'] for r in rows])
+    xyz = np.concatenate([r['xyz'] for r in rows])
+    o = np.lexsort((kk, ids))
+    return ids[o], kk[o], cls[o], face[o], xyz[o]
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('run'); ap.add_argument('out'); ap.add_argument('--catalogue', default=None)
+    ap.add_argument('--display-geometry', default=None, help='npz with carrier_xyz of the display level (load gradient)')
+    a = ap.parse_args()
+    run = Path(a.run)
+    st = np.load(run / 'stats.npz')
+    meta = json.load(open(run / 'run.json'))
+    L = meta['config']['level']
+    S = meta['geometry']['seams']
+    bal_sweep = int(meta['totals']['attempts_to_balanced_class'] // S)
+    dm = st['depth_mean']
+    sw = np.arange(1, len(dm) + 1)
+    sel = sw >= bal_sweep + 20
+    dps = float(np.polyfit(sw[sel], dm[sel], 1)[0])
+    T_bal = float(dm[bal_sweep - 1])
+    V = 10 * 4 ** L + 2
+    a_edge = np.sqrt(8 * np.pi / (np.sqrt(3) * V))
+    out = {'level': L, 'display_sample': meta.get('display_sample', 1), 'balanced_sweep': bal_sweep,
+           'depth_per_sweep_balanced': dps, 'balanced_depth': T_bal, 'edge_rad': float(a_edge), 'tiers': {}}
+    print('L', L, 'dps', dps, 'T_bal', T_bal, flush=True)
+    disp_xyz = None
+    if a.display_geometry:
+        disp_xyz = np.load(a.display_geometry)['carrier_xyz'].astype(np.float64)
+        from scipy.spatial import cKDTree
+        dtree = cKDTree(disp_xyz)
+    pv = np.array(meta['geometry']['port_vectors'], float)
+    pv /= np.linalg.norm(pv, axis=1, keepdims=True)
+    fc = pv[np.array(TF)].mean(1)
+    fcn = fc / np.linalg.norm(fc, axis=1, keepdims=True)
+    cat = None
+    if a.catalogue:
+        z = np.load(a.catalogue)
+        cat = {k: z[k] for k in ('cls', 'parent1', 'birth_sweep', 'birth_depth', 'tier')}
+
+    for tier in ('screen', 'intra'):
+        meta_, rows = load_cuts(run, tier)
+        if rows is None:
+            continue
+        Ts = np.array([r['T'] for r in rows])
+        uniform = np.zeros(len(Ts), bool)
+        uniform[1:] = np.diff(Ts) == 64
+        # index on the regular 64 grid
+        ids, kk, cls, face, xyz = build_tracks(rows)
+        if tier == 'screen':
+            xyz = xyz / np.linalg.norm(xyz, axis=1, keepdims=True)
+        n = len(ids)
+        same_next = np.zeros(n, bool)
+        same_next[:-1] = (ids[1:] == ids[:-1])
+        gaps = same_next[:-1] & (kk[1:n] != kk[:n - 1] + 1)
+        # classes never change along an identity (EXACT); check
+        cls_change = int((same_next[:-1] & (cls[1:] != cls[:-1])).sum())
+        tr = {'identities_seen': int(len(np.unique(ids))), 'rows': int(n), 'track_gaps': int(gaps.sum()),
+              'class_changes_along_identity': cls_change, 'classes': {}}
+        print(tier, tr, flush=True)
+        # start position of each track row (first row of each id)
+        starts = np.r_[0, np.nonzero(ids[1:] != ids[:-1])[0] + 1]
+        ends = np.r_[starts[1:], n]
+        grp = ids % G
+        # ------- lag MSD on the regular grid: for lag m, pairs (i, i+m) within a track with both cuts uniform-spaced
+        # define the uniform-grid index u = k - k0 where k0 = first uniform cut - 1
+        k0 = int(np.nonzero(uniform)[0][0]) - 1
+        lags = [1, 2, 3, 4, 6, 8, 12, 16, 24, 32, 48, 64, 80, 96]
+        for k in range(1, 6):
+            mcls = cls == k
+            if not mcls.any():
+                continue
+            d = {}
+            for regime in ('quench', 'balanced'):
+                msd = []
+                for m in lags:
+                    i = np.arange(n - m)
+                    ok = (ids[i + m] == ids[i]) & (kk[i + m] == kk[i] + m) & (kk[i] >= k0) & mcls[i]
+                    if regime == 'quench':
+                        ok &= Ts[np.minimum(kk[i] + m, len(Ts) - 1)] <= T_bal
+                    else:
+                        ok &= Ts[kk[i]] >= T_bal
+                    i = i[ok]
+                    if len(i) < 20:
+                        continue
+                    if tier == 'screen':
+                        ang = np.arccos(np.clip((xyz[i] * xyz[i + m]).sum(1), -1, 1)) / a_edge
+                        r2 = ang ** 2
+                    else:
+                        samec = (face[i] // 20) == (face[i + m] // 20)
+                        r2 = np.where(samec, DD[face[i] % 20, face[i + m] % 20], -1).astype(float) ** 2
+                        assert samec.all()
+                    Sg = np.bincount(grp[i], r2, G); Ng = np.bincount(grp[i], None, G)
+                    v, e = jk_ratio(Sg, Ng)
+                    S4 = np.bincount(grp[i], r2 ** 2, G)
+                    v4, _ = jk_ratio(S4, Ng)
+                    msd.append({'lag_depth': 64 * m, 'lag_sweeps': 64 * m / dps, 'n': int(len(i)),
+                                'identities': int(len(np.unique(ids[i]))), 'msd': v, 'err': e,
+                                'moved_fraction': float((r2 > 0).mean()),
+                                'non_gaussian_alpha2': (v4 / (2 * v * v) - 1) if (v and tier == 'screen') else None,
+                                'groups': [Sg.tolist(), Ng.tolist()]})
+                # exponent and diffusion constant: fit log msd vs log t over lags with msd > 0, jackknife on groups
+                fit = None
+                good = [x for x in msd if x['msd'] and x['msd'] > 0 and x['n'] >= 50]
+                if len(good) >= 3:
+                    t = np.array([x['lag_depth'] for x in good], float)
+                    Sg = np.array([x['groups'][0] for x in good]); Ng = np.array([x['groups'][1] for x in good])
+
+                    def fitit(Sg, Ng):
+                        y = Sg.sum(1) / Ng.sum(1)
+                        if (y <= 0).any():
+                            return np.nan, np.nan, np.nan
+                        p = np.polyfit(np.log(t), np.log(y), 1)
+                        # diffusion constant from a straight line through the origin in 2D: msd = 4 D t
+                        Dd = (y * t).sum() / (t * t).sum() / 4
+                        return p[0], Dd, y[0] / t[0] / 4
+                    alpha, Dd, Dshort = fitit(Sg, Ng)
+                    loo = []
+                    for g in range(G):
+                        m_ = np.ones(G, bool); m_[g] = False
+                        loo.append(fitit(Sg[:, m_], Ng[:, m_]))
+                    loo = np.array(loo)
+                    err = np.sqrt((G - 1) / G * np.nansum((loo - np.nanmean(loo, 0)) ** 2, 0))
+                    fit = {'alpha': float(alpha), 'alpha_err': float(err[0]),
+                           'D_depth': float(Dd), 'D_depth_err': float(err[1]),
+                           'D_sweeps': float(Dd * dps), 'D_sweeps_err': float(err[1] * dps),
+                           'D_shortest_lag_depth': float(Dshort), 'D_shortest_lag_sweeps': float(Dshort * dps),
+                           'D_shortest_lag_sweeps_err': float(err[2] * dps),
+                           'units': 'edges^2 (screen) or dual-distance^2 (carrier); D from msd = 4 D t',
+                           'lag_range_depth': [float(t.min()), float(t.max())]}
+                    # local exponents between successive lags
+                    y = Sg.sum(1) / Ng.sum(1)
+                    fit['local_alpha'] = [[float(t[j]), float(t[j + 1]), float(np.log(y[j + 1] / y[j]) / np.log(t[j + 1] / t[j]))] for j in range(len(t) - 1)]
+                for x in msd:
+                    x.pop('groups')
+                d[regime] = {'msd_by_lag': msd, 'fit': fit}
+            # ------- velocity records: step between consecutive uniform cuts (64 depth)
+            for regime in ('quench', 'balanced'):
+                i = np.arange(n - 1)
+                ok = (ids[i + 1] == ids[i]) & (kk[i + 1] == kk[i] + 1) & uniform[np.minimum(kk[i] + 1, len(Ts) - 1)] & mcls[i]
+                ok &= (Ts[kk[i]] >= T_bal) if regime == 'balanced' else (Ts[np.minimum(kk[i] + 1, len(Ts) - 1)] <= T_bal)
+                i = i[ok]
+                if len(i) < 20:
+                    continue
+                v = {'interval_depth': 64, 'interval_sweeps': 64 / dps, 'steps': int(len(i))}
+                if tier == 'screen':
+                    step = tangent(xyz[i], xyz[i + 1]) / a_edge
+                    dist = np.arccos(np.clip((xyz[i] * xyz[i + 1]).sum(1), -1, 1)) / a_edge
+                    # local east / north frame at the start point
+                    zax = np.array([0, 0, 1.0])
+                    east = np.cross(zax, xyz[i]); east /= np.maximum(np.linalg.norm(east, axis=1, keepdims=True), 1e-12)
+                    north = np.cross(xyz[i], east)
+                    e_c = (step * east).sum(1); n_c = (step * north).sum(1)
+                    v['step_edges_hist_bins'] = [0, 0.5, 1.5, 2.5, 3.5, 5.5, 8.5, 1e9]
+                    v['step_edges_hist'] = np.histogram(dist, v['step_edges_hist_bins'])[0].tolist()
+                    v['mean_step_edges'] = float(dist.mean()); v['mean_sq_step_edges2'] = float((dist ** 2).mean())
+                    for nm, comp in (('east', e_c), ('north', n_c)):
+                        r, e = jk_ratio(np.bincount(grp[i], comp, G), np.bincount(grp[i], None, G))
+                        v[f'mean_drift_{nm}_edges'] = [r, e]
+                    # drift toward the nearest conjugate defect present on the same cut
+                    from scipy.spatial import cKDTree
+                    tow = np.full(len(i), np.nan)
+                    for kc in np.unique(kk[i]):
+                        rr = rows[kc]
+                        mm = kk[i] == kc
+                        cand = rr['cls'] == CONJ[k]
+                        if cand.sum() < 2:
+                            continue
+                        P = rr['xyz'][cand] / np.linalg.norm(rr['xyz'][cand], axis=1, keepdims=True)
+                        tree = cKDTree(P)
+                        q = xyz[i[mm]]
+                        dd_, jj = tree.query(q, k=2)
+                        # skip self (class 3 conjugate is itself)
+                        jsel = np.where(dd_[:, 0] < 1e-9, jj[:, 1], jj[:, 0])
+                        u = tangent(q, P[jsel]); u /= np.maximum(np.linalg.norm(u, axis=1, keepdims=True), 1e-12)
+                        tow[mm] = (step[mm] * u).sum(1)
+                    okt = np.isfinite(tow)
+                    r, e = jk_ratio(np.bincount(grp[i][okt], tow[okt], G), np.bincount(grp[i][okt], None, G))
+                    v['mean_drift_toward_nearest_conjugate_edges'] = [r, e]
+                    # drift along and across the coarse load gradient of the cut (display-level cells)
+                    if disp_xyz is not None and rows[0]['load_map'] is not None:
+                        upar = np.full(len(i), np.nan); uperp = np.full(len(i), np.nan); gmag = np.full(len(i), np.nan)
+                        for kc in np.unique(kk[i]):
+                            mm = np.nonzero(kk[i] == kc)[0]
+                            lm = rows[kc]['load_map']
+                            q = xyz[i[mm]]
+                            dd_, jj = dtree.query(q, k=19)
+                            P = disp_xyz[jj]                                   # [m, 19, 3]
+                            ref_ = np.where(np.abs(q[:, 2:3]) > 0.9, np.array([[1.0, 0, 0]]), np.array([[0, 0, 1.0]]))
+                            e1 = np.cross(ref_, q); e1 /= np.maximum(np.linalg.norm(e1, axis=1, keepdims=True), 1e-12)
+                            e2 = np.cross(q, e1)
+                            X = np.stack([np.ones(P.shape[:2]), ((P - q[:, None]) * e1[:, None]).sum(2) / a_edge,
+                                          ((P - q[:, None]) * e2[:, None]).sum(2) / a_edge], 2)
+                            y = lm[jj]
+                            XtX = np.einsum('mij,mik->mjk', X, X); Xty = np.einsum('mij,mi->mj', X, y)
+                            coef = np.linalg.solve(XtX + 1e-9 * np.eye(3), Xty[..., None])[..., 0]
+                            gvec = coef[:, 1:2] * e1 + coef[:, 2:3] * e2
+                            gm = np.linalg.norm(gvec, axis=1)
+                            gh = gvec / np.maximum(gm[:, None], 1e-12)
+                            st_ = step[mm]
+                            upar[mm] = (st_ * gh).sum(1)
+                            uperp[mm] = (st_ * np.cross(q, gh)).sum(1)
+                            gmag[mm] = gm
+                        okg = np.isfinite(upar)
+                        for nm, comp in (('along_load_gradient', upar), ('left_of_load_gradient', uperp)):
+                            r, e = jk_ratio(np.bincount(grp[i][okg], comp[okg], G), np.bincount(grp[i][okg], None, G))
+                            v[f'mean_drift_{nm}_edges'] = [r, e]
+                            rw, ew = jk_ratio(np.bincount(grp[i][okg], (comp * gmag)[okg], G), np.bincount(grp[i][okg], (gmag ** 2)[okg], G))
+                            v[f'regression_{nm}_on_gradient'] = [rw, ew]
+                        v['load_gradient_units'] = 'display-cell load sum per screen edge'
+                        v['mean_gradient_magnitude'] = float(np.nanmean(gmag))
+                else:
+                    samec = (face[i] // 20) == (face[i + 1] // 20)
+                    dist = DD[face[i] % 20, face[i + 1] % 20].astype(float)
+                    step = fcn[face[i + 1] % 20] - fcn[face[i] % 20]
+                    v['step_dual_hist_0_to_5'] = np.bincount(dist.astype(int), minlength=6).tolist()
+                    v['mean_step_dual'] = float(dist.mean()); v['mean_sq_step_dual'] = float((dist ** 2).mean())
+                    v['stays_on_carrier'] = bool(samec.all())
+                d.setdefault('velocity', {})[regime] = v
+                # persistence and handedness: successive steps (i -> i+1 -> i+2) on the regular grid
+                j = i[(i + 2 < n)]
+                j = j[(ids[j + 2] == ids[j]) & (kk[j + 2] == kk[j] + 2) & uniform[np.minimum(kk[j] + 2, len(Ts) - 1)]]
+                if len(j) >= 20:
+                    if tier == 'screen':
+                        s1 = tangent(xyz[j], xyz[j + 1]) / a_edge
+                        s2 = tangent(xyz[j], xyz[j + 2]) / a_edge - s1
+                        nrm = xyz[j]
+                    else:
+                        s1 = fcn[face[j + 1] % 20] - fcn[face[j] % 20]
+                        s2 = fcn[face[j + 2] % 20] - fcn[face[j + 1] % 20]
+                        nrm = fcn[face[j + 1] % 20]
+                    dot = (s1 * s2).sum(1)
+                    crs = (np.cross(s1, s2) * nrm).sum(1)
+                    both = (np.linalg.norm(s1, axis=1) > 1e-9) & (np.linalg.norm(s2, axis=1) > 1e-9)
+                    gj = grp[j]
+                    c_, ce = jk_ratio(np.bincount(gj, dot, G), np.bincount(gj, ((s1 * s1).sum(1) + (s2 * s2).sum(1)) / 2, G))
+                    cosv = np.where(both, dot / np.maximum(np.linalg.norm(s1, axis=1) * np.linalg.norm(s2, axis=1), 1e-12), 0)
+                    sinv = np.where(both, crs / np.maximum(np.linalg.norm(s1, axis=1) * np.linalg.norm(s2, axis=1), 1e-12), 0)
+                    m1, e1_ = jk_ratio(np.bincount(gj[both], cosv[both], G), np.bincount(gj[both], None, G))
+                    m2, e2_ = jk_ratio(np.bincount(gj[both], sinv[both], G), np.bincount(gj[both], None, G))
+                    sg = np.sign(crs[both])
+                    m3, e3_ = jk_ratio(np.bincount(gj[both], sg, G), np.bincount(gj[both], None, G))
+                    d['velocity'][regime]['persistence'] = {
+                        'pairs_of_steps': int(len(j)), 'both_nonzero': int(both.sum()),
+                        'autocorrelation_successive_steps': [c_, ce],
+                        'mean_cos_turn': [m1, e1_], 'mean_sin_turn_left_positive': [m2, e2_],
+                        'mean_sign_turn_left_positive': [m3, e3_],
+                        'note': 'left = counterclockwise seen from outside (normal = position)'}
+            tr['classes'][str(k)] = d
+            print(tier, k, {r: (d.get(r, {}).get('fit') or {}).get('alpha') for r in ('quench', 'balanced')}, flush=True)
+        # ------- (f) pair dynamics: sibling pairs (complete cuts only), separation against age
+        if cat is not None and out['display_sample'] in (None, 1):
+            tcode = 1 if tier == 'screen' else 0
+            pb = (cat['parent1'] < 0) & (cat['birth_sweep'] >= 0) & (cat['tier'] == tcode)
+            idx = np.nonzero(pb)[0]
+            brk = np.nonzero(np.diff(idx) != 1)[0] + 1
+            st0 = np.r_[0, brk]
+            rid = np.repeat(np.arange(len(st0)), np.diff(np.r_[st0, len(idx)]))
+            first = idx[(np.arange(len(idx)) - st0[rid]) % 2 == 0]
+            kmin = np.minimum(cat['cls'][first], cat['cls'][first + 1]).astype(int)
+            pairs = {}
+            # position lookup per cut: dict id -> row via searchsorted on sorted (id, k)
+            key = ids * 1000 + kk
+            for pk in (1, 2, 3):
+                h = first[kmin == pk]; w = h + 1
+                bd = cat['birth_depth'][h]
+                res = []
+                for kc in range(len(rows)):
+                    kh = h * 1000 + kc; kw = w * 1000 + kc
+                    ph = np.searchsorted(key, kh); pw = np.searchsorted(key, kw)
+                    ph = np.minimum(ph, n - 1); pw = np.minimum(pw, n - 1)
+                    ok = (key[ph] == kh) & (key[pw] == kw)
+                    if not ok.any():
+                        continue
+                    if tier == 'screen':
+                        sep = np.arccos(np.clip((xyz[ph[ok]] * xyz[pw[ok]]).sum(1), -1, 1)) / a_edge
+                    else:
+                        sep = DD[face[ph[ok]] % 20, face[pw[ok]] % 20].astype(float)
+                    age = Ts[kc] - bd[ok]
+                    res.append(np.c_[np.full(ok.sum(), Ts[kc]), age, sep])
+                if not res:
+                    continue
+                R = np.concatenate(res)
+                bins = [0, 10, 30, 100, 300, 1000, 2000, 4000, 7000]
+                tab = []
+                for lo, hi in zip(bins[:-1], bins[1:]):
+                    s_ = (R[:, 1] >= lo) & (R[:, 1] < hi)
+                    if s_.sum() < 10:
+                        continue
+                    x = R[s_, 2]
+                    tab.append({'age_depth': [lo, hi], 'n_pair_cut_rows': int(s_.sum()), 'mean_sep': float(x.mean()),
+                                'mean_sq_sep': float((x ** 2).mean()), 'median_sep': float(np.median(x)),
+                                'q90_sep': float(np.quantile(x, 0.9)), 'max_sep': float(x.max())})
+                pairs[{1: '(1,5)', 2: '(2,4)', 3: '(3,3)'}[pk]] = {'pairs': int(len(h)), 'separation_by_age': tab}
+            tr['sibling_pairs'] = pairs
+        # ------- (f) nearest conjugate distance on cuts against time, with label-permuted control (screen)
+        if tier == 'screen':
+            from scipy.spatial import cKDTree
+            rng = np.random.default_rng(7)
+            nc = []
+            for kc in [i for i in range(len(rows)) if Ts[i] in (64, 256, 512, 1024, 2048, 3200, 4800, 6400)]:
+                rr = rows[kc]
+                P = rr['xyz'] / np.linalg.norm(rr['xyz'], axis=1, keepdims=True)
+                ent = {'depth': int(Ts[kc]), 'defects': int(len(P))}
+                for lab, cl in (('data', rr['cls']), ('permuted', rng.permutation(rr['cls']))):
+                    for pk in (1, 2, 3):
+                        A = P[cl == pk]; B = P[cl == CONJ[pk]]
+                        if len(A) < 2 or len(B) < 2:
+                            continue
+                        dd_, _ = cKDTree(B).query(A, k=2 if pk == 3 else 1)
+                        dd_ = dd_[:, 1] if pk == 3 else dd_
+                        ang = 2 * np.arcsin(np.clip(dd_ / 2, 0, 1)) / a_edge
+                        ent[f'{lab}_{pk}'] = [int(len(A)), float(np.median(ang)), float(ang.mean())]
+                nc.append(ent)
+            tr['nearest_conjugate_by_time'] = nc
+        out['tiers'][tier] = tr
+    json.dump(out, open(a.out, 'w'), indent=1)
+    print('wrote', a.out)
+
+
+if __name__ == '__main__':
+    main()

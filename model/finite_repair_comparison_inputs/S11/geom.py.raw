@@ -1,0 +1,212 @@
+"""S11 geometry: icosahedral mesh tower, face_axis federation wiring, flat Bloch forms.
+
+Everything here is built from the pinned carrier template of the repository (seams, oriented faces) and an
+independent icosphere. The wiring is the symmetric `face_axis` wiring of the simulation side: every carrier is
+glued to its three cell neighbours through the three belt ports next to template face (0, 11, 5); the mesh edge
+opposite the k-th vertex of the cell uses the belt port across the template edge opposite the k-th vertex of
+that face. (DECLARED routing; not the pinned RER routing.)
+"""
+from __future__ import annotations
+
+import numpy as np
+import scipy.sparse as sp
+
+from model.common_source import slow_geometry
+
+SRC = slow_geometry.source()
+PHI = (1.0 + 5.0 ** 0.5) / 2.0
+PORT_VECTORS = np.array([(-1, PHI, 0), (1, PHI, 0), (-1, -PHI, 0), (1, -PHI, 0), (0, -1, PHI), (0, 1, PHI),
+                         (0, -1, -PHI), (0, 1, -PHI), (PHI, 0, -1), (PHI, 0, 1), (-PHI, 0, -1), (-PHI, 0, 1)], float)
+PORT_UNIT = PORT_VECTORS / np.linalg.norm(PORT_VECTORS, axis=1, keepdims=True)
+TEMPLATE_SEAMS = np.asarray(SRC.seams(), dtype=np.int64)
+TEMPLATE_FACES = np.asarray(SRC.oriented_faces(), dtype=np.int64)
+TOP = (0, 11, 5)
+
+
+def template_adjacency() -> np.ndarray:
+    A = np.zeros((12, 12))
+    for a, b in TEMPLATE_SEAMS:
+        A[a, b] = A[b, a] = 1.0
+    return A
+
+
+def template_laplacian() -> np.ndarray:
+    A = template_adjacency()
+    return np.diag(A.sum(axis=1)) - A
+
+
+def check_template() -> dict:
+    """The coordinate icosahedron has the seams of the pinned template."""
+    d2 = ((PORT_VECTORS[:, None, :] - PORT_VECTORS[None, :, :]) ** 2).sum(axis=2)
+    coord = {(a, b) for a in range(12) for b in range(a + 1, 12) if abs(d2[a, b] - 4.0) < 1e-9}
+    pinned = {(int(min(a, b)), int(max(a, b))) for a, b in TEMPLATE_SEAMS}
+    assert coord == pinned and len(pinned) == 30
+    assert TEMPLATE_FACES.shape == (20, 3)
+    assert set(TOP) in [set(f) for f in TEMPLATE_FACES.tolist()]
+    return {'seams': 30, 'faces': 20, 'coordinate_seams_equal_pinned': True}
+
+
+def control_ports() -> tuple[int, int, int]:
+    """Belt port across the template edge opposite the k-th vertex of the top face."""
+    out = []
+    for k in range(3):
+        e = {TOP[(k + 1) % 3], TOP[(k + 2) % 3]}
+        third = [int(v) for f in TEMPLATE_FACES.tolist() if e <= set(f) and set(f) != set(TOP) for v in f if v not in e]
+        assert len(third) == 1
+        out.append(third[0])
+    return tuple(out)
+
+
+GLUE = control_ports()
+
+
+# ----------------------------------------------------------------------------------------------- mesh tower
+def icosahedron():
+    V = PORT_UNIT.copy()
+    A = template_adjacency()
+    faces = []
+    for a in range(12):
+        for b in range(a + 1, 12):
+            for c in range(b + 1, 12):
+                if A[a, b] and A[b, c] and A[a, c]:
+                    n = np.cross(V[b] - V[a], V[c] - V[a])
+                    faces.append((a, b, c) if n @ (V[a] + V[b] + V[c]) > 0 else (a, c, b))
+    F = np.array(faces, dtype=np.int64)
+    assert F.shape == (20, 3)
+    return V, F
+
+
+def icosphere(level: int):
+    """Vertices (unit vectors) and outward-oriented faces of the level-times refined icosahedron.
+    Also returns the flat (unnormalised, piecewise linear) positions on the icosahedron itself."""
+    V, F = icosahedron()
+    flat = V.copy()
+    for _ in range(level):
+        V = list(map(np.asarray, V)); flat = list(map(np.asarray, flat))
+        mid = {}
+
+        def midpoint(a, b):
+            key = (a, b) if a < b else (b, a)
+            if key not in mid:
+                m = V[a] + V[b]
+                V.append(m / np.linalg.norm(m))
+                flat.append((flat[a] + flat[b]) / 2.0)
+                mid[key] = len(V) - 1
+            return mid[key]
+        new = []
+        for a, b, c in F.tolist():
+            ab, bc, ca = midpoint(a, b), midpoint(b, c), midpoint(c, a)
+            new += [(a, ab, ca), (b, bc, ab), (c, ca, bc), (ab, bc, ca)]
+        F = np.array(new, dtype=np.int64)
+        V = np.array(V); flat = np.array(flat)
+    return np.asarray(V), F, np.asarray(flat)
+
+
+def carrier_neighbours(F: np.ndarray) -> np.ndarray:
+    """nb[c, k]: the cell across the edge opposite the k-th vertex of cell c."""
+    edge = {}
+    for c, tri in enumerate(F.tolist()):
+        for k in range(3):
+            a, b = tri[(k + 1) % 3], tri[(k + 2) % 3]
+            edge.setdefault((min(a, b), max(a, b)), []).append((c, k))
+    nb = np.full((F.shape[0], 3), -1, dtype=np.int64)
+    kk = np.full((F.shape[0], 3), -1, dtype=np.int64)
+    for pair in edge.values():
+        assert len(pair) == 2
+        (c, k), (d, m) = pair
+        nb[c, k] = d; nb[d, m] = c
+        kk[c, k] = m; kk[d, m] = k
+    assert (nb >= 0).all()
+    return nb, kk
+
+
+def federation_seams(F: np.ndarray, glue=GLUE):
+    """Seam ends (global ports 12 c + p) of the face_axis federation on the cells F."""
+    N = F.shape[0]
+    nb, kk = carrier_neighbours(F)
+    a = (12 * np.arange(N)[:, None] + TEMPLATE_SEAMS[None, :, 0]).ravel()
+    b = (12 * np.arange(N)[:, None] + TEMPLATE_SEAMS[None, :, 1]).ravel()
+    ga, gb = [], []
+    for c in range(N):
+        for k in range(3):
+            d = int(nb[c, k])
+            if c < d:
+                ga.append(12 * c + glue[k]); gb.append(12 * d + glue[int(kk[c, k])])
+    return np.concatenate([a, np.array(ga)]), np.concatenate([b, np.array(gb)]), nb
+
+
+def laplacian(n: int, a: np.ndarray, b: np.ndarray) -> sp.csr_matrix:
+    w = np.ones(a.size)
+    A = sp.coo_matrix((np.concatenate([w, w]), (np.concatenate([a, b]), np.concatenate([b, a]))), shape=(n, n)).tocsr()
+    return (sp.diags(np.asarray(A.sum(axis=1)).ravel()) - A).tocsr()
+
+
+class Sphere:
+    """The federation on the level-l mesh: carriers on cells, ports 12 c + p."""
+
+    def __init__(self, level: int):
+        self.level = level
+        self.V, self.F, self.Vflat = icosphere(level)
+        self.N = self.F.shape[0]
+        self.seam_a, self.seam_b, self.nb = federation_seams(self.F)
+        self.ports = 12 * self.N
+        c = self.V[self.F].mean(axis=1)
+        self.centre = c / np.linalg.norm(c, axis=1, keepdims=True)
+        # area radius in mesh edges: every cell is an equilateral triangle of unit edge
+        self.R = float(np.sqrt(self.N * (3 ** 0.5 / 4) / (4 * np.pi)))
+
+    def port_laplacian(self) -> sp.csr_matrix:
+        return laplacian(self.ports, self.seam_a, self.seam_b)
+
+    def carrier_adjacency(self) -> sp.csr_matrix:
+        r = np.repeat(np.arange(self.N), 3); c = self.nb.ravel()
+        return sp.coo_matrix((np.ones(r.size), (r, c)), shape=(self.N, self.N)).tocsr()
+
+    def cap(self, axis: np.ndarray, theta0: float) -> np.ndarray:
+        """Carriers whose centre lies within polar angle theta0 (radians) of axis."""
+        axis = np.asarray(axis, float); axis = axis / np.linalg.norm(axis)
+        return np.flatnonzero(self.centre @ axis > np.cos(theta0))
+
+    def special_axes(self) -> dict:
+        """A five-fold mesh vertex (cone point), an original face centre, an original edge midpoint and a generic
+        six-fold mesh vertex."""
+        V0, F0 = icosahedron()
+        out = {'vertex5': V0[0], 'face_centre': V0[F0[0]].mean(axis=0) / np.linalg.norm(V0[F0[0]].mean(axis=0))}
+        a, b = TEMPLATE_SEAMS[0]
+        m = V0[a] + V0[b]
+        out['edge_mid'] = m / np.linalg.norm(m)
+        return out
+
+
+# ----------------------------------------------------------------------------------------------- flat lattice
+A1 = np.array([1.0, 0.0]); A2 = np.array([0.5, 3 ** 0.5 / 2])
+KPOINT = np.array([2 * np.pi / 3, 2 * np.pi / 3 ** 0.5])
+# carrier positions in the unit cell (cell centres of the triangular mesh): the up cell (0, a1, a2) and the
+# down cell glued to it by the three deltas (0, a1, a2) of the Bloch form below.
+UP_POS = (A1 + A2) / 3.0
+# the down carrier of offset delta sits across the edge opposite vertex k of the up cell; with the gauge of
+# bloch_fed the down carrier of the SAME cell is the one across the edge opposite vertex 0.
+DOWN_POS = 2.0 * (A1 + A2) / 3.0
+
+
+def bloch_fed(q: np.ndarray, stagger: float = 0.0, glue=GLUE) -> np.ndarray:
+    """24 x 24 Bloch form of the port Laplacian on the flat honeycomb of carriers (ports 0-11 up, 12-23 down).
+    The down carrier glued through glue port k of the up carrier sits in the cell displaced by -delta_k,
+    delta = (0, a1, a2). `stagger` adds +stagger on up ports and -stagger on down ports (DECLARED control)."""
+    Lc = template_laplacian()
+    L = np.zeros((24, 24), complex)
+    L[:12, :12] = Lc; L[12:, 12:] = Lc
+    for k, delta in enumerate((np.zeros(2), A1, A2)):
+        u, d = glue[k], 12 + glue[k]
+        L[u, u] += 1; L[d, d] += 1
+        ph = np.exp(-1j * (q @ delta))
+        L[u, d] -= ph; L[d, u] -= np.conj(ph)
+    if stagger:
+        L[:12, :12] += stagger * np.eye(12); L[12:, 12:] -= stagger * np.eye(12)
+    return L
+
+
+def bloch_honeycomb(q: np.ndarray, t: float = 1.0, stagger: float = 0.0) -> np.ndarray:
+    """2 x 2 Bloch form of the plain honeycomb hopping model h = -t * adjacency (+- stagger), same cell gauge."""
+    f = sum(np.exp(-1j * (q @ delta)) for delta in (np.zeros(2), A1, A2))
+    return np.array([[stagger, -t * f], [-t * np.conj(f), -stagger]], complex)

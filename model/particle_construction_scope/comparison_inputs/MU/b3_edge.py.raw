@@ -1,0 +1,89 @@
+"""Block 3, constructive test: what state has a hyperbolic cap flow. DECLARED state: sections of spin j (half-integer),
+many quanta, filled for helicity weight m >= 1/2 about a fixed axis z (half filling: a droplet on the northern
+hemisphere with a sharp edge on the equator). Cap: the hemisphere x > 0; its boundary crosses the edge at
+p- = (0,-1,0) and p+ = (0,1,0). Ports dense on the sphere (continuum effect, exact in closed form):
+
+  <m|E_C|m'> = (2j+1)/(4 pi) sqrt(C(2j,j+m) C(2j,j+m')) 2 Gamma(j+mu+1) Gamma(j-mu+1)/Gamma(2j+2) I(m-m'),
+  mu = (m+m')/2, I(0) = pi, I(d) = 2 sin(d pi/2)/d.
+
+Peschel on the filled space: M = Pi_F E_C Pi_F, eps = log((1 - nu)/nu). Edge packets f_m = g(m - 1/2) exp(-i m phi0),
+readout on the equator inside the cap, s(phi) = log[sin((phi + pi/2)/2) / sin((pi/2 - phi)/2)].
+Expected if the edge is a chiral fermion (IMPORTED): the mean of s moves at rate 2 pi (Moebius dilation of the
+equatorial arc with fixed points p-, p+: the restriction of the boost along the y axis, which preserves the cap).
+usage: python b3_edge.py j ; writes flow_edge_j<2j>.json
+"""
+import json, sys, time
+import numpy as np
+import mpmath as mp
+from scipy.special import gammaln
+
+j2 = int(sys.argv[1])                       # 2j, odd
+assert j2 % 2 == 1
+j = mp.mpf(j2) / 2
+nF = (j2 + 1) // 2                          # m = 1/2, 3/2, ..., j
+mp.mp.dps = int(80 + 1.3 * nF)
+t0 = time.time()
+ms = [mp.mpf(2 * q + 1) / 2 for q in range(nF)]
+lg = [mp.loggamma(j2 + 1) - mp.loggamma(j + m + 1) - mp.loggamma(j - m + 1) for m in ms]     # log C(2j, j+m)
+
+def Iphi(dq):                               # dq = m - m' (integer)
+    if dq == 0:
+        return mp.pi
+    return 2 * mp.sin(dq * mp.pi / 2) / dq
+
+M = mp.matrix(nF, nF); Mc = mp.matrix(nF, nF)
+pref = (j2 + 1) / (4 * mp.pi)
+for a in range(nF):
+    for b in range(a, nF):
+        mu = (ms[a] + ms[b]) / 2
+        It = pref * mp.exp((lg[a] + lg[b]) / 2 + mp.loggamma(j + mu + 1) + mp.loggamma(j - mu + 1) - mp.loggamma(j2 + 2)) * 2
+        v = It * Iphi(a - b)
+        vc = It * ((2 * mp.pi if a == b else 0) - Iphi(a - b))
+        M[a, b] = M[b, a] = v
+        Mc[a, b] = Mc[b, a] = vc
+E, Q = mp.eigsy(M)
+tiny = mp.mpf(10) ** (-mp.mp.dps // 2)
+eps = []
+for i in range(nF):
+    c = Q[:, i]
+    nu = (c.T * M * c)[0]; om = (c.T * Mc * c)[0]
+    eps.append(mp.mpf(0) if (nu < tiny or om < tiny) else mp.log(om / nu))
+eps_f = np.array([float(e) for e in eps])
+Qf = np.array([[float(Q[a, b]) for b in range(nF)] for a in range(nF)])
+print(f'2j={j2} filled modes {nF} dps {mp.mp.dps}: eigen-decomposition {time.time()-t0:.0f}s; entanglement energies {eps_f.min():.1f} .. {eps_f.max():.1f}; '
+      f'modes with |eps| < 20: {int((np.abs(eps_f) < 20).sum())}; diagonal of M {float(M[0,0]):.6f}', flush=True)
+
+mf = np.array([float(m) for m in ms])
+jf = j2 / 2
+logA = 0.5 * (gammaln(j2 + 1) - gammaln(jf + mf + 1) - gammaln(jf - mf + 1)) - jf * np.log(2.0)     # equatorial amplitude of orbital m
+A = np.exp(logA - logA.max())
+phi = np.linspace(-np.pi / 2, np.pi / 2, 4001)[1:-1]
+Wc = A[None, :] * np.exp(1j * np.outer(phi, mf))
+s_of = lambda p: np.log(np.sin((p + np.pi / 2) / 2) / np.sin((np.pi / 2 - p) / 2))
+TS = np.linspace(0, 0.20, 11)
+q = np.arange(nF)
+res = {'two_j': j2, 'filled_modes': nF, 'dps': mp.mp.dps, 'eps_min': float(eps_f.min()), 'eps_max': float(eps_f.max()),
+       'modes_with_abs_eps_below_20': int((np.abs(eps_f) < 20).sum()), 'times': TS.tolist(), 'packets': {}}
+packets = {'edge_depth_small': (q + 1.0) ** 2 * np.exp(-(q + 1.0) / 0.5), 'edge_depth_medium': (q + 1.0) ** 2 * np.exp(-(q + 1.0) / 1.0),
+           'edge_depth_large': (q + 1.0) ** 2 * np.exp(-(q + 1.0) / 2.0), 'port_on_the_equator': A.copy()}
+for name, g in packets.items():
+    for phi0 in (0.0,):
+        f = g * np.exp(-1j * mf * phi0)
+        f = f / np.linalg.norm(f)
+        depth = float(np.sum(np.abs(f) ** 2 * (q + 0.5)))
+        coef = Qf.T @ f
+        cen, wid, sm = [], [], []
+        for t in TS:
+            ph = np.array([complex(mp.expj(-t * e)) for e in eps])
+            ft = Qf @ (ph * coef)
+            w = np.abs(Wc @ ft) ** 2
+            w = w / w.sum()
+            c = float(w @ phi)
+            cen.append(c); wid.append(float(np.sqrt(w @ (phi - c) ** 2))); sm.append(float(w @ s_of(phi)))
+        sv = np.array(sm)
+        slope, icpt = np.polyfit(TS, sv, 1)
+        resid = float(np.sqrt(np.mean((sv - (slope * TS + icpt)) ** 2)))
+        res['packets'][name] = {'mean_depth_in_modes': depth, 'depth_over_sqrt_2j': depth / np.sqrt(j2), 'centre_phi': cen, 'rms_width': wid, 'mean_of_s': sm,
+                                'slope_over_2pi': float(slope / (2 * np.pi)), 'rms_residual_of_linear_fit_in_s': resid}
+        print(f'  {name}: depth {depth:.2f} modes; slope/2pi {slope/(2*np.pi):+.4f} residual {resid:.3f} width {wid[0]:.3f} -> {wid[-1]:.3f} centre {cen[0]:+.3f} -> {cen[-1]:+.3f}', flush=True)
+json.dump(res, open(f'flow_edge_j{j2}.json', 'w'), indent=1)

@@ -1,0 +1,131 @@
+"""S11 candidate (a): the native stationary state at fixed total load. Exact arithmetic.
+
+1. One carrier, total load two: the chain of the reference rule on the 78 loads, built from
+   model/observer/native.py `native(loads, seam, coin)` on the 30 pinned seams with fair coins. Checks: the 66
+   binary loads are closed, the uniform law on them is stationary, it is the only stationary law, a doubly loaded
+   port is left at 1/6 per attempt.
+2. Reduced state of a cap (1 port, a face, a port with its five neighbours) by enumeration: every configuration
+   with the same cap load has the same weight w_k, so K = -log rho_A is a function of the cap load alone.
+3. Closed form w_k = C(V - v, q - k)/C(V, q) checked against the enumeration and evaluated on federation sizes.
+4. Connected two-point function: the same number for every pair of ports.
+"""
+from __future__ import annotations
+
+import json
+import signal
+import sys
+from fractions import Fraction as Q
+from itertools import combinations
+from math import comb, log
+from pathlib import Path
+
+signal.alarm(225)
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+import geom as G  # noqa: E402
+from model.observer import native  # noqa: E402
+
+out = {}
+seams = [tuple(int(v) for v in s) for s in G.TEMPLATE_SEAMS]
+M = len(seams)
+states = list(native.states())
+index = {s: i for i, s in enumerate(states)}
+n = len(states)
+binary = [i for i, s in enumerate(states) if max(s) == 1]
+double = [i for i, s in enumerate(states) if max(s) == 2]
+T = [[Q(0)] * n for _ in range(n)]
+for i, s in enumerate(states):
+    for e in seams:
+        for coin in (0, 1):
+            t, _ = native.native(s, e, coin)
+            T[i][index[t]] += Q(1, 2 * M)
+assert all(sum(row) == 1 for row in T)
+closed = all(T[i][j] == 0 for i in binary for j in double)
+pi = [Q(1, len(binary)) if i in set(binary) else Q(0) for i in range(n)]
+stationary = all(sum(pi[i] * T[i][j] for i in range(n)) == pi[j] for j in range(n))
+leave = {T[i][i] for i in double}
+symmetric_on_binary = all(T[i][j] == T[j][i] for i in binary for j in binary)
+
+
+def rank(mat):
+    m = [row[:] for row in mat]
+    r = 0
+    for c in range(len(m[0])):
+        p = next((k for k in range(r, len(m)) if m[k][c] != 0), None)
+        if p is None:
+            continue
+        m[r], m[p] = m[p], m[r]
+        inv = 1 / m[r][c]
+        m[r] = [v * inv for v in m[r]]
+        for k in range(len(m)):
+            if k != r and m[k][c] != 0:
+                f = m[k][c]
+                m[k] = [a - f * b for a, b in zip(m[k], m[r])]
+        r += 1
+    return r
+
+
+rk = rank([[T[j][i] - (1 if i == j else 0) for j in range(n)] for i in range(n)])   # rows of T^T - 1
+out['chain'] = {'states': n, 'binary_states': len(binary), 'doubly_loaded_states': len(double), 'binary_class_closed': closed,
+                'uniform_on_binary_is_stationary': stationary, 'rank_of_T_transpose_minus_1': rk, 'unique_stationary_law': rk == n - 1,
+                'transition_matrix_symmetric_on_binary_class': symmetric_on_binary,
+                'stay_probability_of_doubly_loaded_state': sorted(str(v) for v in leave)}
+print(out['chain'], flush=True)
+
+# ---- reduced states of caps by enumeration
+V, q = 12, 2
+nbrs0 = sorted({b if a == 0 else a for a, b in seams if 0 in (a, b)})
+caps = {'one_port': [0], 'face_0_11_5': list(G.TOP), 'port_and_five_neighbours': [0] + nbrs0}
+rows = []
+for name, cap in caps.items():
+    v = len(cap)
+    weight = {}
+    for i in binary:
+        key = tuple(states[i][p] for p in cap)
+        weight[key] = weight.get(key, Q(0)) + pi[i]
+    by_k = {}
+    for key, w in weight.items():
+        by_k.setdefault(sum(key), set()).add(w)
+    sector_scalar = all(len(s) == 1 for s in by_k.values())
+    closed_form = all(next(iter(s)) == Q(comb(V - v, q - k), comb(V, q)) for k, s in by_k.items())
+    w = {k: next(iter(s)) for k, s in sorted(by_k.items())}
+    rows.append({'cap': name, 'ports': v, 'configurations': len(weight), 'weight_depends_on_cap_load_only': sector_scalar,
+                 'equals_C(V-v,q-k)/C(V,q)': closed_form, 'w_k': {str(k): str(x) for k, x in w.items()},
+                 'K_of_k': {str(k): -log(x) for k, x in w.items()},
+                 'cap_load_distribution': {str(k): str(comb(v, k) * x) for k, x in w.items()}})
+    print(rows[-1], flush=True)
+out['one_carrier_caps'] = rows
+
+# every pair of ports has the same joint occupation: connected correlation -f(1-f)/(V-1)
+pair = set()
+for a, b in combinations(range(12), 2):
+    pair.add(sum(pi[i] for i in binary if states[i][a] == 1 and states[i][b] == 1))
+f = Q(q, V)
+out['two_point'] = {'joint_occupation_values_over_all_66_pairs': sorted(str(v) for v in pair),
+                    'connected_correlation': str(next(iter(pair)) - f * f), 'formula_-f(1-f)/(V-1)': str(-f * (1 - f) / (V - 1)),
+                    'depends_on_distance': len(pair) != 1}
+print(out['two_point'], flush=True)
+
+# ---- closed form on federation sizes: K(k) = -log C(V-v, q-k) + log C(V, q)
+fed = []
+for (V_, q_, v_, label) in ((240, 80, 12, 'level 0, one carrier, filling 1/3'), (240, 80, 60, 'level 0, five carriers'),
+                            (240, 120, 120, 'level 0, hemisphere, filling 1/2'), (960, 320, 240, 'level 1, cap of 20 carriers'),
+                            (3840, 1280, 960, 'level 2, cap of 80 carriers')):
+    mean = q_ * v_ / V_
+    k0 = int(mean)
+    lw = lambda k: log(comb(V_ - v_, q_ - k)) - log(comb(V_, q_))
+    slope = -(lw(k0 + 1) - lw(k0))
+    curv = -(lw(k0 + 1) - 2 * lw(k0) + lw(k0 - 1)) if k0 >= 1 else None
+    S_cap = -sum(comb(v_, k) * comb(V_ - v_, q_ - k) / comb(V_, q_) * lw(k) for k in range(max(0, q_ - (V_ - v_)), min(v_, q_) + 1))
+    fed.append({'case': label, 'V': V_, 'q': q_, 'v': v_, 'K(k+1)-K(k) at mean load': slope,
+                'exact_slope_at_k0': f'log(({V_ - v_ - q_ + k0 + 1})/({q_ - k0}))', 'second_difference': curv,
+                'entropy_of_cap_state': S_cap, 'entropy_per_port': S_cap / v_})
+    print(fed[-1], flush=True)
+out['federation_closed_form'] = fed
+out['paper_check_V240_q80_v12_slope_from_k0_to_k1'] = {'value': -(log(comb(228, 79)) - log(comb(228, 80))), 'log(149/80)': log(149 / 80)}
+out['conclusion'] = ('rho_cap = direct sum over cap loads k of w_k * identity: K = -log w_{N_cap} is central in the load-conserving cap algebra; '
+                     'the modular flow is the identity there and a pure phase exp(i t (K(k) - K(k\'))) on operators that change the cap load; '
+                     'K couples every pair of cap ports equally (a function of the total cap load), it is not a sum of local terms weighted by a profile; '
+                     'the connected two-point function is the same for all pairs, no power law.')
+(HERE / 'out' / 's2_native_state.json').write_text(json.dumps(out, indent=1))
+print('written')

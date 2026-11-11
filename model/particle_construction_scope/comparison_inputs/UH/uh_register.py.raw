@@ -1,0 +1,320 @@
+"""Worker UH, step 1: the unbounded class-3 register (DEFINITION.md, statements D1 to D6) and the tree-level
+candidates of group A (CANDIDATES.md).
+
+Part 1 (EXACT, sympy): one cell, four oscillators truncated at total occupation NMAX; identities are evaluated on
+states below the truncation edge (the edge is the only place where the truncated ladder differs from the oscillator).
+Part 2 (MEASURED, float64 sparse): two cells and one link of GL's truncated Peter-Weyl register (work/GL/s3_gauss.py,
+rebuilt here), pattern on cell x; Gauss law for the twelve generators with toggle, register transport, electric term
+and oscillator energy.
+Part 3 (EXACT): group A, two-quanta energies, n-body coefficients, coherent-state symbols.
+Writes register.json.
+"""
+import itertools
+import json
+import math
+import sys
+
+import numpy as np
+import scipy.sparse as sps
+import sympy as s
+
+sys.path.insert(0, "WORKSPACE/repair-law/work/GL")
+import gl_lib as L  # noqa: E402
+
+out = {}
+
+# ============================================================== Part 1: one cell, exact
+NMAX = 3
+occ = [n for n in itertools.product(range(NMAX + 1), repeat=4) if sum(n) <= NMAX]   # (a1, a2, b1, b2)
+occ.sort(key=lambda n: (sum(n), tuple(-x for x in n)))
+ix = {n: i for i, n in enumerate(occ)}
+DR = len(occ)
+
+
+def lower(mode):
+    M = s.zeros(DR, DR)
+    for n in occ:
+        if n[mode]:
+            m = list(n); m[mode] -= 1
+            M[ix[tuple(m)], ix[n]] = s.sqrt(n[mode])
+    return M
+
+
+a = [lower(0), lower(1)]
+b = [lower(2), lower(3)]
+B = [a[k] + b[k].H for k in range(2)]
+Nop = sum((x.H * x for x in a + b), s.zeros(DR, DR))
+below = lambda edge: [i for i, n in enumerate(occ) if sum(n) <= NMAX - edge]
+
+
+def zero_on(M, edge):
+    cols = below(edge)
+    return all(s.simplify(M[i, j]) == 0 for j in cols for i in range(DR))
+
+
+# D1 normality
+d1 = all(zero_on(B[k] * B[l].H - B[l].H * B[k], 2) and zero_on(B[k] * B[l] - B[l] * B[k], 2)
+         for k in range(2) for l in range(2))
+out["D1_B_normal_and_commuting_below_edge"] = bool(d1)
+
+# D2 truncation to occupation <= 1 is the audit's five-state memory
+order5 = [(0, 0, 0, 0), (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1)]
+sel = [ix[n] for n in order5]
+phi = []
+for k in range(2):
+    f = s.zeros(5, 5); f[0, 1 + k] = 1; f[3 + k, 0] = 1
+    phi.append(f)
+d2 = all(B[k].extract(sel, sel) == phi[k] for k in range(2)) and Nop.extract(sel, sel) == s.diag(0, 1, 1, 1, 1)
+sel3 = [ix[n] for n in order5[:3]]
+r8 = all(a[k].extract(sel3, sel3) == s.Matrix(3, 3, lambda i, j: 1 if (i == 0 and j == 1 + k) else 0)
+         for k in range(2))
+out["D2_truncation_equals_audit_memory"] = bool(d2)
+out["D2_truncation_b0_equals_R8_register"] = bool(r8)
+
+# D3 charges: exact generators of the doublet block (Pauli/2 and Y = 1/2)
+PAULI = [s.Matrix([[0, 1], [1, 0]]), s.Matrix([[0, -s.I], [s.I, 0]]), s.Matrix([[1, 0], [0, -1]])]
+tgens = [p / 2 for p in PAULI] + [s.eye(2) / 2]
+
+
+def Qreg(t):
+    M = s.zeros(DR, DR)
+    for k in range(2):
+        for l in range(2):
+            M += t[k, l] * a[k].H * a[l] - t[l, k] * b[k].H * b[l]
+    return M
+
+
+d3 = True
+for t in tgens:
+    Q = Qreg(t)
+    for k in range(2):
+        d3 &= zero_on(Q * B[k] - B[k] * Q + sum((t[k, j] * B[j] for j in range(2)), s.zeros(DR, DR)), 1)
+out["D3_register_charges_transform_B_as_the_doublet_levels"] = bool(d3)
+d3alg = zero_on(Qreg(tgens[0]) * Qreg(tgens[1]) - Qreg(tgens[1]) * Qreg(tgens[0]) - s.I * Qreg(tgens[2]), 0)
+out["D3_su2_algebra_of_register_charges"] = bool(d3alg)
+
+# D6 Z2 factor
+Par = s.diag(*[(-1) ** sum(n) for n in occ])
+out["D6_parity_anticommutes_with_B"] = bool(all(zero_on(Par * B[k] + B[k] * Par, 1) for k in range(2)))
+
+# D4 toggle on (two doublet levels of the pattern) x register: V^2 = sum_k B_k^dag B_k
+c1 = s.Matrix([[0, 1], [0, 0]])
+Zf = s.diag(1, -1)
+cl = [s.kronecker_product(c1, s.eye(2)), s.kronecker_product(Zf, c1)]         # fermionic doublet levels s1, s2
+kp = s.kronecker_product
+V = sum((kp(cl[k].H, B[k]) + kp(cl[k], B[k].H) for k in range(2)), s.zeros(4 * DR, 4 * DR))
+BdB = sum((B[k].H * B[k] for k in range(2)), s.zeros(DR, DR))
+D = V * V - kp(s.eye(4), BdB)
+cols = [p * DR + j for p in range(4) for j in below(2)]
+out["D4_V_squared_equals_BdagB_below_edge"] = bool(all(s.simplify(D[i, j]) == 0 for j in cols for i in range(4 * DR)))
+d4 = True
+for t in tgens:
+    matter = sum((t[k, l] * cl[k].H * cl[l] for k in range(2) for l in range(2)), s.zeros(4, 4))
+    Tt = kp(matter, s.eye(DR)) + kp(s.eye(4), Qreg(t))
+    Cm = V * Tt - Tt * V
+    cols1 = [p * DR + j for p in range(4) for j in below(1)]
+    d4 &= all(s.simplify(Cm[i, j]) == 0 for j in cols1 for i in range(4 * DR))
+out["D4_toggle_commutes_with_pattern_plus_register_charges"] = bool(d4)
+out["D4_consequence"] = ("exp(-i g V) = cos(g |B|) - i sin(g |B|) V/|B| with |B|^2 = sum_k B_k^dag B_k: the mass "
+                         "angle of every pattern is the operator g |B|; on a Higgs state it is g |beta|")
+print("part 1:", {k: v for k, v in out.items() if isinstance(v, bool)}, flush=True)
+
+# ============================================================== Part 2: two cells, one link, twelve generators
+N2 = 2
+occ2 = [n for n in itertools.product(range(N2 + 1), repeat=4) if sum(n) <= N2]
+ix2 = {n: i for i, n in enumerate(occ2)}
+D2 = len(occ2)
+
+
+def lower2(mode):
+    M = np.zeros((D2, D2))
+    for n in occ2:
+        if n[mode]:
+            m = list(n); m[mode] -= 1
+            M[ix2[tuple(m)], ix2[n]] = math.sqrt(n[mode])
+    return M
+
+
+ar = [lower2(0), lower2(1)]; br = [lower2(2), lower2(3)]
+Br = [ar[k] + br[k].T for k in range(2)]
+Nr = sum(x.T @ x for x in ar + br)
+interior = np.array([1.0 if sum(n) <= N2 - 1 else 0.0 for n in occ2])
+
+
+def Qreg_num(T):
+    t = T[3:, 3:]
+    M = np.zeros((D2, D2), complex)
+    for k in range(2):
+        for l in range(2):
+            M += t[k, l] * ar[k].T @ ar[l] - t[l, k] * br[k].T @ br[l]
+    return M
+
+
+# pattern Fock space of the five code levels at x
+Zs = np.diag([1.0, -1.0]); am = np.array([[0.0, 1.0], [0.0, 0.0]])
+
+
+def fann(k, nm=5):
+    ops = [Zs] * k + [am] + [np.eye(2)] * (nm - k - 1)
+    M = ops[0]
+    for o in ops[1:]:
+        M = np.kron(M, o)
+    return M
+
+
+C = [fann(k) for k in range(5)]; CD = [c.T for c in C]
+DM = 32
+
+
+def dGamma(T):
+    return sum(T[i, j] * CD[i] @ C[j] for i in range(5) for j in range(5))
+
+
+# GL's truncated Peter-Weyl link (27 states), rebuilt from work/GL/s3_gauss.py
+blocks = {3: [0, 1, 2], 2: [3, 4]}
+lstates = [("0",)]
+for sgn in ("+", "-"):
+    for r, lev in blocks.items():
+        for i in range(len(lev)):
+            for j in range(len(lev)):
+                lstates.append((sgn, r, i, j))
+lidx = {st: k for k, st in enumerate(lstates)}
+DL = len(lstates)
+
+
+def U_link(r, i, j):
+    M = np.zeros((DL, DL), complex); d = len(blocks[r])
+    M[lidx[("+", r, i, j)], lidx[("0",)]] += 1 / math.sqrt(d)
+    M[lidx[("0",)], lidx[("-", r, i, j)]] += 1 / math.sqrt(d)
+    return M
+
+
+def L_gen(T):
+    M = np.zeros((DL, DL), complex)
+    for r, lev in blocks.items():
+        Tr = T[np.ix_(lev, lev)]; d = len(lev)
+        for i, j in itertools.product(range(d), repeat=2):
+            for c in range(d):
+                M[lidx[("+", r, c, j)], lidx[("+", r, i, j)]] += -Tr[i, c]
+                M[lidx[("-", r, c, j)], lidx[("-", r, i, j)]] += Tr[c, i]
+    return M
+
+
+def R_gen(T):
+    M = np.zeros((DL, DL), complex)
+    for r, lev in blocks.items():
+        Tr = T[np.ix_(lev, lev)]; d = len(lev)
+        for i, j in itertools.product(range(d), repeat=2):
+            for c in range(d):
+                M[lidx[("+", r, i, c)], lidx[("+", r, i, j)]] += Tr[c, j]
+                M[lidx[("-", r, i, c)], lidx[("-", r, i, j)]] += -Tr[j, c]
+    return M
+
+
+cas = {r: float(np.mean(np.linalg.eigvalsh(sum(T[np.ix_(lev, lev)] @ T[np.ix_(lev, lev)] for T in L.TBASIS))))
+       for r, lev in blocks.items()}
+Eel = np.diag([0.0] + [cas[st[1]] for st in lstates[1:]])
+
+
+def K4(A, Bx, By, Lk):
+    """pattern(x) x register(x) x register(y) x link"""
+    M = sps.csr_matrix(A)
+    for o in (Bx, By, Lk):
+        M = sps.kron(M, sps.csr_matrix(o), format="csr")
+    return M
+
+
+IM, IR, IL = np.eye(DM), np.eye(D2), np.eye(DL)
+# toggle at x (fermionic level operator times bosonic B), register transport x <- y through the doublet block
+Vx = sum(K4(CD[3 + k], Br[k], IR, IL) + K4(C[3 + k], Br[k].T, IR, IL) for k in range(2))
+hop = sum(K4(IM, Br[k].T, Br[l], U_link(2, k, l)) for k in range(2) for l in range(2))
+hop = hop + hop.conj().T
+# matter transport is absent (one pattern cell); gauge-invariant extras: oscillator energies, |B|^4 at x
+BdB_x = sum(Br[k].T @ Br[k] for k in range(2))
+H = 0.31 * Vx + 0.17 * hop + 0.7 * K4(IM, IR, IR, Eel) + 0.9 * K4(IM, Nr, IR, IL) + 0.9 * K4(IM, IR, Nr, IL) \
+    + 0.05 * K4(IM, BdB_x @ BdB_x, IR, IL)
+Pint = sps.kron(sps.kron(sps.kron(sps.identity(DM), sps.diags(interior)), sps.diags(interior)), sps.identity(DL),
+                format="csr")
+# the quartic raises the occupation by up to two: test it separately on occupation 0 states
+P0 = sps.kron(sps.kron(sps.kron(sps.identity(DM), sps.diags((np.array([sum(n) for n in occ2]) == 0) * 1.0)),
+                       sps.diags(interior)), sps.identity(DL), format="csr")
+H_no4 = H - 0.05 * K4(IM, BdB_x @ BdB_x, IR, IL)
+
+
+def cnorm(A, Bm, P):
+    Cm = (A @ Bm - Bm @ A) @ P
+    return float(np.abs(Cm.data).max()) if Cm.nnz else 0.0
+
+
+gx, gy, g4, ctrl = [], [], [], []
+for T in L.TBASIS:
+    Gx = K4(dGamma(T), IR, IR, IL) + K4(IM, Qreg_num(T), IR, IL) + K4(IM, IR, IR, L_gen(T))
+    Gy = K4(IM, IR, Qreg_num(T), IL) + K4(IM, IR, IR, R_gen(T))
+    gx.append(cnorm(H_no4, Gx, Pint)); gy.append(cnorm(H_no4, Gy, Pint))
+    g4.append(cnorm(0.05 * K4(IM, BdB_x @ BdB_x, IR, IL), Gx, P0))
+    # control: Gauss operator without the register's charge
+    Gx0 = K4(dGamma(T), IR, IR, IL) + K4(IM, IR, IR, L_gen(T))
+    ctrl.append(cnorm(H_no4, Gx0, Pint))
+out["D5_gauss_two_cells_one_link"] = {
+    "dimension": int(DM * D2 * D2 * DL), "register_truncation": N2,
+    "max_commutator_H_Gx_12_generators": max(gx), "max_commutator_H_Gy_12_generators": max(gy),
+    "max_commutator_BdagB_squared_Gx": max(g4),
+    "control_without_register_charge_max": max(ctrl), "control_without_register_charge_min": min(ctrl)}
+print("part 2:", out["D5_gauss_two_cells_one_link"], flush=True)
+
+# ============================================================== Part 3: group A
+A = {}
+w, c3s, n = s.symbols("omega c_3 n", positive=True)
+
+
+def nbody(E, kmax=5):
+    """coefficients u_k of E(N) = sum_k u_k binom(N, k)"""
+    return [s.simplify(sum((-1) ** (k - j) * s.binomial(k, j) * E(j) for j in range(k + 1))) for k in range(kmax + 1)]
+
+
+A["A1_oscillator"] = {"nbody_u0_to_u5": [str(x) for x in nbody(lambda N: w * N)], "U2": "0", "lambda_0": "0"}
+A["A2_reflection_about_vacuum"] = {
+    "nbody_u0_to_u5": [str(x) for x in nbody(lambda N: w * (1 - s.KroneckerDelta(N, 0)))],
+    "U2": "-omega", "coherent_state_symbol": "omega (1 - exp(-|alpha|^2)), |alpha|^2 the mean total occupation",
+    "energy_at_large_occupation": "omega for every N >= 1: no cost for a further quantum"}
+# A3: plaquette cost of GL at the central holonomy of class k (5-trace and swap-test forms)
+tab5, tabsw = [], []
+for k in range(6):
+    Uc = s.diag(*[s.exp(-2 * s.pi * s.I * k / 3)] * 3, *[s.exp(s.I * s.pi * k)] * 2)
+    tr = s.simplify(Uc.trace())
+    tab5.append(s.nsimplify(s.simplify(1 - s.re(tr) / 5)))
+    tabsw.append(s.nsimplify(s.simplify(1 - (s.Abs(tr) ** 2 + 5) / 30)))
+A["A3_central_flux"] = {
+    "derived_cost_by_class_5trace": [str(x) for x in tab5],
+    "derived_cost_by_class_swap_test": [str(x) for x in tabsw],
+    "declared_cost_table_of_the_runs_(not_used)": [0, 5, 8, 10, 8, 5],
+    "c_3": str(tab5[3]),
+    "nbody_u0_to_u5": [str(x) for x in nbody(lambda N: c3s * (1 - (-1) ** N) / 2)],
+    "U2": "-2 c_3", "operator": "(c_3/2)(1 - (-1)^(N_a+N_b))",
+    "coherent_state_symbol": "(c_3/2)(1 - exp(-2 |alpha|^2))",
+    "reading": "the cost depends on the occupation parity only: the Z2 bit of HT's C1 (bounded register)"}
+# A4: charge of a static coherent state (alpha_b = conj(alpha_a)) and the normal-ordered charge square
+al1, al2 = s.symbols("alpha_1 alpha_2")
+va = s.Matrix([al1, al2]); vb = va.conjugate()
+qs = []
+for t in tgens:
+    q = (va.H * t * va)[0] - (vb.H * t.T * vb)[0]
+    qs.append(s.simplify(q))
+A["A4_gauss_electric_energy"] = {
+    "charge_expectation_on_static_coherent_states": [str(q) for q in qs],
+    "result": "normal-ordered Q^a Q^a vanishes at Pi = 0: no component in V(Phi); the ordering term is linear in "
+              "the occupation (a mass-type term); the term is the Coulomb part of the gauge exchange"}
+# A5: swap-test agreement
+A["A5_swap_test"] = {
+    "normalized": "1 - |Phi_x^dag U Phi_y|^2/(|Phi_x|^2 |Phi_y|^2): homogeneous of degree zero, no modulus term",
+    "unnormalized": "|Phi_x^dag U Phi_y|^2 = |Phi|^4 at Phi_x = Phi_y, U = 1: lambda_0 of order one per link "
+                    "(three links per cell): HT's nonlinear end"}
+# A6: toggle record probability with n quanta
+g = s.symbols("g", positive=True)
+ser = s.series(s.sin(g * s.sqrt(n)) ** 2, g, 0, 7).removeO()
+A["A6_toggle_record_probability"] = {"p(n)": "sin^2(g sqrt(n))", "series_in_g": str(s.expand(ser)),
+                                     "n_squared_coefficient": str(s.expand(ser).coeff(n, 2))}
+out["group_A"] = A
+for k, v in A.items():
+    print("part 3:", k, json.dumps(v)[:300], flush=True)
+json.dump(out, open("register.json", "w"), indent=1)

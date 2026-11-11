@@ -1,0 +1,302 @@
+{
+ "anchor": "the left-handed electron pattern (the lepton doublet) is set to the electron mass 0.51099895 MeV",
+ "readings": {
+  "end of the level-10 run": {
+   "rest_phases": {
+    "quark_L": 0.03507760752054648,
+    "quark_R": 0.03233349142518348,
+    "lepton_L": 0.011420331136484984,
+    "lepton_R": 0.0
+   },
+   "tick_s": 1.4710399122721842e-23,
+   "cell_m": 4.410066711161824e-15,
+   "cell_fm": 4.410066711161824,
+   "heaviest_mass_the_clock_holds_MeV": 70.28476355573531,
+   "rows": [
+    {
+     "symbol": "u",
+     "name": "up quark",
+     "measured_MeV": 2.16,
+     "upper_limit": false,
+     "rest_phase_left": 0.03507760752054648,
+     "rest_phase_right": 0.03233349142518348,
+     "model_MeV_left": 1.5695359790616628,
+     "model_MeV_right": 1.446751409450647,
+     "model_over_measured": 0.7266370273433623,
+     "tick_this_particle_needs_s": 1.0689120689569005e-23
+    },
+    {
+     "symbol": "d",
+     "name": "down quark",
+     "measured_MeV": 4.7,
+     "upper_limit": false,
+     "rest_phase_left": 0.03507760752054648,
+     "rest_phase_right": 0.03233349142518348,
+     "model_MeV_left": 1.5695359790616628,
+     "model_MeV_right": 1.446751409450647,
+     "model_over_measured": 0.3339438253322687,
+     "tick_this_particle_needs_s": 4.912446955206181e-24
+    },
+    {
+     "symbol": "s",
+     "name": "strange quark",
+     "measured_MeV": 93.5,
+     "upper_limit": false,
+     "rest_phase_left": 0.03507760752054648,
+     "rest_phase_right": 0.03233349142518348,
+     "model_MeV_left": 1.5695359790616628,
+     "model_MeV_right": 1.446751409450647,
+     "model_over_measured": 0.016786481059483025,
+     "tick_this_particle_needs_s": 2.4693583625100593e-25
+    },
+    {
+     "symbol": "c",
+     "name": "charm quark",
+     "measured_MeV": 1270.0,
+     "upper_limit": false,
+     "rest_phase_left": 0.03507760752054648,
+     "rest_phase_right": 0.03233349142518348,
+     "model_MeV_left": 1.5695359790616628,
+     "model_MeV_right": 1.446751409450647,
+     "model_over_measured": 0.0012358551016233565,
+     "tick_this_particle_needs_s": 1.817992180273154e-26
+    },
+    {
+     "symbol": "b",
+     "name": "bottom quark",
+     "measured_MeV": 4180.0,
+     "upper_limit": false,
+     "rest_phase_left": 0.03507760752054648,
+     "rest_phase_right": 0.03233349142518348,
+     "model_MeV_left": 1.5695359790616628,
+     "model_MeV_right": 1.446751409450647,
+     "model_over_measured": 0.0003754870763305413,
+     "tick_this_particle_needs_s": 5.523564758246185e-27
+    },
+    {
+     "symbol": "t",
+     "name": "top quark",
+     "measured_MeV": 172570.0,
+     "upper_limit": false,
+     "rest_phase_left": 0.03507760752054648,
+     "rest_phase_right": 0.03233349142518348,
+     "model_MeV_left": 1.5695359790616628,
+     "model_MeV_right": 1.446751409450647,
+     "model_over_measured": 9.095068546454556e-06,
+     "tick_this_particle_needs_s": 1.3379208836686014e-28
+    },
+    {
+     "symbol": "e",
+     "name": "electron",
+     "measured_MeV": 0.51099895,
+     "upper_limit": false,
+     "rest_phase_left": 0.011420331136484984,
+     "rest_phase_right": 0.0,
+     "model_MeV_left": 0.51099895,
+     "model_MeV_right": 0.0,
+     "model_over_measured": 1.0,
+     "tick_this_particle_needs_s": 1.4710399122721842e-23
+    },
+    {
+     "symbol": "μ",
+     "name": "muon",
+     "measured_MeV": 105.6583755,
+     "upper_limit": false,
+     "rest_phase_left": 0.011420331136484984,
+     "rest_phase_right": 0.0,
+     "model_MeV_left": 0.51099895,
+     "model_MeV_right": 0.0,
+     "model_over_measured": 0.0048363316924175115,
+     "tick_this_particle_needs_s": 7.11443694853304e-26
+    },
+    {
+     "symbol": "τ",
+     "name": "tau",
+     "measured_MeV": 1776.93,
+     "upper_limit": false,
+     "rest_phase_left": 0.011420331136484984,
+     "rest_phase_right": 0.0,
+     "model_MeV_left": 0.51099895,
+     "model_MeV_right": 0.0,
+     "model_over_measured": 0.00028757404624830463,
+     "tick_this_particle_needs_s": 4.23032899764863e-27
+    },
+    {
+     "symbol": "ν",
+     "name": "neutrinos (each)",
+     "measured_MeV": 4.5e-07,
+     "upper_limit": true,
+     "rest_phase_left": 0.011420331136484984,
+     "rest_phase_right": 0.0,
+     "model_MeV_left": 0.51099895,
+     "model_MeV_right": 0.0,
+     "model_over_measured": 1135553.2222222222,
+     "tick_this_particle_needs_s": 1.6704441123981736e-17
+    }
+   ],
+   "needed_ticks_span": 109949.69360509331,
+   "needed_tick_min_s": 1.3379208836686014e-28,
+   "needed_tick_max_s": 1.4710399122721842e-23
+  },
+  "classes 1 and 5 gone (limit)": {
+   "rest_phases": {
+    "quark_L": 0.03233029244607662,
+    "quark_R": 0.02730448619567588,
+    "lepton_L": 0.005025806250400734,
+    "lepton_R": 0.0
+   },
+   "tick_s": 6.47368407914834e-24,
+   "cell_m": 1.9407616624033473e-15,
+   "cell_fm": 1.9407616624033472,
+   "heaviest_mass_the_clock_holds_MeV": 159.71074762224418,
+   "rows": [
+    {
+     "symbol": "u",
+     "name": "up quark",
+     "measured_MeV": 2.16,
+     "upper_limit": false,
+     "rest_phase_left": 0.03233029244607662,
+     "rest_phase_right": 0.02730448619567588,
+     "model_MeV_left": 3.2871831244630245,
+     "model_MeV_right": 2.7761841744630242,
+     "model_over_measured": 1.521844039103252,
+     "tick_this_particle_needs_s": 9.851937526889525e-24
+    },
+    {
+     "symbol": "d",
+     "name": "down quark",
+     "measured_MeV": 4.7,
+     "upper_limit": false,
+     "rest_phase_left": 0.03233029244607662,
+     "rest_phase_right": 0.02730448619567588,
+     "model_MeV_left": 3.2871831244630245,
+     "model_MeV_right": 2.7761841744630242,
+     "model_over_measured": 0.6994006647793669,
+     "tick_this_particle_needs_s": 4.5276989485279525e-24
+    },
+    {
+     "symbol": "s",
+     "name": "strange quark",
+     "measured_MeV": 93.5,
+     "upper_limit": false,
+     "rest_phase_left": 0.03233029244607662,
+     "rest_phase_right": 0.02730448619567588,
+     "model_MeV_left": 3.2871831244630245,
+     "model_MeV_right": 2.7761841744630242,
+     "model_over_measured": 0.03515703876431042,
+     "tick_this_particle_needs_s": 2.275955621185174e-25
+    },
+    {
+     "symbol": "c",
+     "name": "charm quark",
+     "measured_MeV": 1270.0,
+     "upper_limit": false,
+     "rest_phase_left": 0.03233029244607662,
+     "rest_phase_right": 0.02730448619567588,
+     "model_MeV_left": 3.2871831244630245,
+     "model_MeV_right": 2.7761841744630242,
+     "model_over_measured": 0.0025883331688685233,
+     "tick_this_particle_needs_s": 1.6756051226835728e-26
+    },
+    {
+     "symbol": "b",
+     "name": "bottom quark",
+     "measured_MeV": 4180.0,
+     "upper_limit": false,
+     "rest_phase_left": 0.03233029244607662,
+     "rest_phase_right": 0.02730448619567588,
+     "model_MeV_left": 3.2871831244630245,
+     "model_MeV_right": 2.7761841744630242,
+     "model_over_measured": 0.0007864074460437858,
+     "tick_this_particle_needs_s": 5.0909533631773626e-27
+    },
+    {
+     "symbol": "t",
+     "name": "top quark",
+     "measured_MeV": 172570.0,
+     "upper_limit": false,
+     "rest_phase_left": 0.03233029244607662,
+     "rest_phase_right": 0.02730448619567588,
+     "model_MeV_left": 3.2871831244630245,
+     "model_MeV_right": 2.7761841744630242,
+     "model_over_measured": 1.904840426761908e-05,
+     "tick_this_particle_needs_s": 1.2331335144046692e-28
+    },
+    {
+     "symbol": "e",
+     "name": "electron",
+     "measured_MeV": 0.51099895,
+     "upper_limit": false,
+     "rest_phase_left": 0.005025806250400734,
+     "rest_phase_right": 0.0,
+     "model_MeV_left": 0.51099895,
+     "model_MeV_right": 0.0,
+     "model_over_measured": 1.0,
+     "tick_this_particle_needs_s": 6.47368407914834e-24
+    },
+    {
+     "symbol": "μ",
+     "name": "muon",
+     "measured_MeV": 105.6583755,
+     "upper_limit": false,
+     "rest_phase_left": 0.005025806250400734,
+     "rest_phase_right": 0.0,
+     "model_MeV_left": 0.51099895,
+     "model_MeV_right": 0.0,
+     "model_over_measured": 0.0048363316924175115,
+     "tick_this_particle_needs_s": 3.130888347868379e-26
+    },
+    {
+     "symbol": "τ",
+     "name": "tau",
+     "measured_MeV": 1776.93,
+     "upper_limit": false,
+     "rest_phase_left": 0.005025806250400734,
+     "rest_phase_right": 0.0,
+     "model_MeV_left": 0.51099895,
+     "model_MeV_right": 0.0,
+     "model_over_measured": 0.00028757404624830463,
+     "tick_this_particle_needs_s": 1.8616635247739182e-27
+    },
+    {
+     "symbol": "ν",
+     "name": "neutrinos (each)",
+     "measured_MeV": 4.5e-07,
+     "upper_limit": true,
+     "rest_phase_left": 0.005025806250400734,
+     "rest_phase_right": 0.0,
+     "model_MeV_left": 0.51099895,
+     "model_MeV_right": 0.0,
+     "model_over_measured": 1135553.2222222222,
+     "tick_this_particle_needs_s": 7.351212815725596e-18
+    }
+   ],
+   "needed_ticks_span": 79893.51851851851,
+   "needed_tick_min_s": 1.2331335144046692e-28,
+   "needed_tick_max_s": 9.851937526889525e-24
+  }
+ },
+ "bosons": [
+  {
+   "name": "photon",
+   "model": "0, exact",
+   "measured": "0"
+  },
+  {
+   "name": "gluons",
+   "model": "0, exact",
+   "measured": "0"
+  },
+  {
+   "name": "W and Z",
+   "model": "nonzero, from the register state; value not fixed",
+   "measured": "80.37 and 91.19 GeV"
+  },
+  {
+   "name": "Higgs",
+   "model": "the register itself; value not fixed",
+   "measured": "125.2 GeV"
+  }
+ ],
+ "verdict": "The relative masses do not fit. The executed model gives every quark of all three generations one rest phase and every lepton another; the right-handed electron gets zero and the neutrino gets the electron's value. With the electron as anchor the up and down quarks come out within a factor 1.4 and 3; every other particle misses by factors of 20 to 100,000, and the neutrinos by more than a million. If the masses fitted, every particle would need the same tick; they need ticks spread over five orders of magnitude."
+}

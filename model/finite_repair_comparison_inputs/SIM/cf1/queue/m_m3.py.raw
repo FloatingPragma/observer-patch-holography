@@ -1,0 +1,240 @@
+"""Run M (coordinator's queue change, 2026-11-10): mass option M3 of CF1.md section 10 (reports/KD.md).
+
+Definition executed (readings stated where the text leaves a choice):
+  internal register of a quantum: the public walk of model/coherent_seam_repair (Observer(fibre=1)): 12 ports x record 2 x
+  60 addresses = 1440 states, index ((port*2 + record)*60 + address) as Observer.index; plus a spin doublet.
+  W = Q R, the public tick (Observer.step = repair(reflect(.))). R = 2 A A* - I, the address reflection (Observer.reflect).
+  The matrices used here are built from vectorised code and checked against Observer.step / Observer.reflect on the box.
+  Lattice: 8^3 carriers. Reading 1 (executed): a hop moves the whole internal register (port, record, address) and the spin
+  to the neighbouring carrier unchanged. Reading 2 (executed): the conditional shift of axis i is S_i = P+ T + P- T*,
+  P+- = (1 +- alpha_i)/2, alpha_i = R (x) sigma_i, T the translation by +1 cell along axis i.
+  Tick t: W on every cell, then S_1 S_2 S_3 (t even, axis 1 first) or S_3 S_2 S_1 (t odd). The two-tick operator is
+  conjugate (by W) to the CF-1 engine's order (shifts, then mass), so the phases are the same.
+Part 1 (per sector, float64 to rounding): for every eigenvalue mu of the port adjacency (5, sqrt5, -1, -sqrt5) and every
+  record value, the embedded states e = x (x) |record> (x) uniform address (x an eigenvector of mu): lambda = <e, W e>; the
+  span of {e_j, W e_j} over an orthonormal eigenbasis is tested for invariance under W and R; the restriction of W must have
+  phases +-arccos(lambda), the restriction of R eigenvalues +1 and -1 (equal numbers), R W R = W^-1.
+Part 2 (executed): plane waves at lattice momenta on 8^3 with internal state e (one eigenvector per sector, plus a random
+  unit vector of the eigenspace at one momentum), spin up and spin down. Phase estimation: return amplitude every two
+  ticks for 96 ticks, matrix pencil. Compared with arccos(cos theta cos p) (axis) and the alternating-order symbol phases
+  cf1_lib.phases(p, theta) with theta = arccos(lambda). Leak: weight of the evolved state outside span{e, f} (x) spin, f the
+  normalised component of W e orthogonal to e, maximum over the 96 ticks.
+`python m_m3.py out.json`
+"""
+import json, os, sys, time
+import numpy as np
+from multiprocessing import Pool
+from cq_common import phases, matrix_pencil
+
+NP, NA = 12, 60
+DIM = NP * 2 * NA
+SIG = [np.array([[0, 1], [1, 0]], complex), np.array([[0, -1j], [1j, 0]]), np.diag([1.0, -1.0]).astype(complex)]
+
+
+def public():
+    # verbatim copy of reverse-engineering-reality/model/coherent_seam_repair/program.py (the box's ~/rer lacks the package);
+    # it imports model.common_source.slow_geometry from ~/rer
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'public_copy'))
+    from coherent_seam_program import Observer
+    return Observer()
+
+
+OBS = None
+SEAMS = ADDR = None
+
+
+def setup():
+    global OBS, SEAMS, ADDR
+    if OBS is None:
+        OBS = public(); SEAMS = OBS.seams; ADDR = OBS.addresses
+        assert OBS.dimension == DIM and OBS.address_count == NA
+
+
+def R_apply(v):
+    """address reflection on arrays whose axis -2 (or last if spin-less) is the 1440 register: here shape (..., 24, 60, s)"""
+    m = v.mean(axis=-2, keepdims=True)
+    return 2 * m - v
+
+
+def Q_apply(v):
+    """public seam correction Q on shape (..., 12, 2, 60, s)"""
+    y = v.copy()
+    a = np.array([p[0] for p in ADDR]); b = np.array([p[1] for p in ADDR]); k = np.arange(NA)
+    c = (v[..., a, 0, k, :] - v[..., b, 0, k, :] - v[..., a, 1, k, :] - v[..., b, 1, k, :]) / 2
+    y[..., a, 0, k, :] -= c; y[..., b, 0, k, :] += c; y[..., a, 1, k, :] += c; y[..., b, 1, k, :] += c
+    return y
+
+
+def W_apply(v):
+    """v shape (..., 1440, s) -> W v"""
+    sh = v.shape
+    u = v.reshape(sh[:-2] + (24, NA, sh[-1]))
+    u = R_apply(u).reshape(sh[:-2] + (NP, 2, NA, sh[-1]))
+    return Q_apply(u).reshape(sh)
+
+
+def Rfull(v):
+    sh = v.shape
+    return R_apply(v.reshape(sh[:-2] + (24, NA, sh[-1]))).reshape(sh)
+
+
+def matrices():
+    I = np.eye(DIM)[:, :, None]                     # columns as states with a trivial spin axis
+    W = W_apply(np.transpose(I, (1, 0, 2)))[:, :, 0].T
+    R = Rfull(np.transpose(I, (1, 0, 2)))[:, :, 0].T
+    return W, R
+
+
+def check_public(W, R):
+    from fractions import Fraction as F
+    from coherent_seam_program import State
+    rng = np.random.default_rng(5)
+    v = rng.integers(-3, 4, size=DIM)
+    st = State(tuple(F(int(x)) for x in v))
+    w_pub = np.array([float(x) for x in OBS.step(st).amplitudes]); r_pub = np.array([float(x) for x in OBS.reflect(st).amplitudes])
+    return float(np.abs(W @ v - w_pub).max()), float(np.abs(R @ v - r_pub).max())
+
+
+def adjacency():
+    A = np.zeros((NP, NP))
+    for a, b in SEAMS: A[a, b] = A[b, a] = 1
+    return A
+
+
+def sectors():
+    A = adjacency()
+    mu, X = np.linalg.eigh(A)
+    out = []
+    for target, name in ((5.0, 'uniform load'), (np.sqrt(5), 'triplet mu=+sqrt5'), (-1.0, 'quintet'), (-np.sqrt(5), 'triplet mu=-sqrt5')):
+        sel = np.abs(mu - target) < 1e-9
+        out.append((name, float(target), X[:, sel]))
+    return out
+
+
+def embed(x, rec):
+    e = np.zeros((NP, 2, NA)); e[:, rec, :] = x[:, None] / np.sqrt(NA)
+    return e.reshape(-1)
+
+
+def part1(W, R):
+    rows = []
+    for name, mu, X in sectors():
+        for rec in (0, 1):
+            E = np.stack([embed(X[:, j], rec) for j in range(X.shape[1])], axis=1)
+            WE = W @ E
+            lam = np.diag(E.T @ WE)
+            M = np.concatenate([E, WE], axis=1)
+            U, s, _ = np.linalg.svd(M, full_matrices=False)
+            r = int(np.sum(s > 1e-10 * s[0])); B = U[:, :r]
+            leakW = float(np.linalg.norm(W @ B - B @ (B.T @ W @ B)))
+            leakR = float(np.linalg.norm(R @ B - B @ (B.T @ R @ B)))
+            Wp = B.T @ W @ B; Rp = B.T @ R @ B
+            ph = np.sort(np.angle(np.linalg.eigvals(Wp)))
+            rv = np.sort(np.linalg.eigvalsh((Rp + Rp.T) / 2))
+            om = float(np.arccos(np.clip(lam.mean(), -1, 1)))
+            rows.append({'sector': name, 'mu': mu, 'record': rec, 'multiplicity': int(X.shape[1]), 'lambda_values': [float(l) for l in lam],
+                         'lambda_spread': float(lam.max() - lam.min()), 'plane_dimension_total': r, 'mass_angle_arccos_lambda': om,
+                         'invariance_residual_W': leakW, 'invariance_residual_R': leakR,
+                         'R_on_e_minus_e': float(np.abs(R @ E - E).max()),
+                         'W_phases_on_span': [float(x) for x in ph], 'max_abs_phase_minus_pm_omega': float(np.max(np.abs(np.abs(ph) - om))),
+                         'R_eigenvalues_on_span': [float(x) for x in rv], 'RWRW_minus_1_on_span': float(np.abs(Rp @ Wp @ Rp @ Wp - np.eye(r)).max())})
+    return rows
+
+
+def tick(psi, t):
+    """psi shape (L, L, L, 1440, 2)"""
+    psi = W_apply(psi)
+    for i in ((0, 1, 2) if t % 2 == 0 else (2, 1, 0)):
+        a = Rfull(psi) @ SIG[i].T
+        psi = 0.5 * (np.roll(psi + a, 1, axis=i) + np.roll(psi - a, -1, axis=i))
+    return psi
+
+
+def job2(args):
+    setup()
+    name, mu, rec, which, n, spin = args
+    L = 8
+    X = [s_ for s_ in sectors() if s_[0] == name][0][2]
+    if which == 'first': x = X[:, 0]
+    else:
+        c = np.random.default_rng(11).normal(size=X.shape[1]); x = X @ (c / np.linalg.norm(c))
+    e = embed(x, rec)
+    W, _ = None, None
+    We = W_apply(e[:, None].astype(complex))[:, 0].real
+    lam = float(e @ We); f = We - lam * e; nf = np.linalg.norm(f); f = f / nf if nf > 1e-12 else None
+    theta = float(np.arccos(np.clip(lam, -1, 1)))
+    p = 2 * np.pi * np.array(n) / L
+    g = np.meshgrid(*[np.arange(L)] * 3, indexing='ij')
+    ph = np.exp(1j * (p[0] * g[0] + p[1] * g[1] + p[2] * g[2])) / L ** 1.5
+    sp = np.array([1, 0], complex) if spin == 'up' else np.array([0, 1], complex)
+    psi0 = ph[..., None, None] * e[None, None, None, :, None] * sp[None, None, None, None, :]
+    psi = psi0.copy(); a = [1.0 + 0j]; leak = 0.0
+    basis = [e] + ([f] if f is not None else [])
+    for t in range(96):
+        psi = tick(psi, t)
+        tot = float(np.sum(np.abs(psi) ** 2)); inside = 0.0
+        for b in basis:
+            c = np.tensordot(psi, b, axes=([3], [0]))
+            inside += float(np.sum(np.abs(c) ** 2))
+        leak = max(leak, tot - inside)
+        if t % 2 == 1: a.append(np.vdot(psi0, psi))
+    w, cc, _ = matrix_pencil(np.array(a), tol=1e-9)
+    keep = cc > 1e-9 * cc.max()
+    est = sorted({round(abs(float(q)) / 2, 10) for q in w[keep]})
+    sym = [float(q) for q in phases(p, theta)]
+    on_axis = (int(np.count_nonzero(n)) <= 1)
+    closed = float(np.arccos(np.cos(theta) * np.cos(np.linalg.norm(p)))) if on_axis else None
+    dev = max(min(abs(q - s_) for s_ in sym) for q in est) if est else None
+    return {'sector': name, 'mu': mu, 'record': rec, 'internal_vector': which, 'n': list(n), 'p': [float(q) for q in p], 'spin': spin,
+            'lambda': lam, 'theta_arccos_lambda': theta, 'phases_estimated': est, 'phases_symbol_alternating': sym,
+            'closed_form_on_axis': closed, 'max_abs_estimated_minus_symbol': dev, 'max_leak_outside_plane': leak,
+            'norm_drift': float(abs(np.sum(np.abs(psi) ** 2) - 1))}
+
+
+if __name__ == '__main__':
+    t0 = time.time()
+    setup()
+    W, R = matrices()
+    out = {'run': 'M', 'request': 'coordinator queue change 2026-11-10 (theory session): mass option M3, CF1.md section 10, reports/KD.md',
+           'program': 'internal register = public coherent seam walk (Observer(fibre=1), 1440 states) x spin doublet; tick = W per cell, then S_i with alpha_i = R x sigma_i, alternating order',
+           'readings': ['a hop carries the whole internal register (port, record, address) and the spin unchanged to the neighbouring carrier',
+                        'S_i = P+ T + P- T*, P+- = (1 +- R x sigma_i)/2, T translation by +1 cell; R = Observer.reflect on the address register',
+                        'tick order W first, then shifts (conjugate to the CF-1 engine order shifts-then-mass; same phases)'],
+           'lattice': [8, 8, 8], 'units': 'cells and ticks; phases in radians per tick', 'seed': 'check vector default_rng(5); random eigenspace vector default_rng(11)',
+           'clock': 'return amplitude every two ticks, 96 ticks; phases halved',
+           'preparation': 'plane wave (fills all four sublattices) x embedded rest state x spin up or down',
+           'sublattices': 'plane waves fill all four sublattices'}
+    ew, er = check_public(W, R)
+    out['matrix_against_public_Observer'] = {'W_max_abs_diff': ew, 'R_max_abs_diff': er}
+    out['W_orthogonal'] = float(np.abs(W.T @ W - np.eye(DIM)).max())
+    out['RWRW_minus_1'] = float(np.abs(R @ W @ R @ W - np.eye(DIM)).max())
+    ev = np.linalg.eigvals(W)
+    out['W_spectrum_counts'] = {'plus_one': int(np.sum(np.abs(ev - 1) < 1e-8)), 'minus_one': int(np.sum(np.abs(ev + 1) < 1e-8)),
+                                'other': int(np.sum((np.abs(ev - 1) >= 1e-8) & (np.abs(ev + 1) >= 1e-8)))}
+    out['W_distinct_phases_other'] = sorted({round(abs(float(np.angle(z))), 9) for z in ev if abs(z - 1) >= 1e-8 and abs(z + 1) >= 1e-8})
+    print('public check', out['matrix_against_public_Observer'], 'orth', out['W_orthogonal'], 'RWRW', out['RWRW_minus_1'], out['W_spectrum_counts'], out['W_distinct_phases_other'], flush=True)
+    out['part1_sectors'] = part1(W, R)
+    for r in out['part1_sectors']:
+        print('sector', r['sector'], 'rec', r['record'], 'mult', r['multiplicity'], 'lambda', r['lambda_values'][0], 'spread', r['lambda_spread'], 'omega', r['mass_angle_arccos_lambda'],
+              'dim', r['plane_dimension_total'], 'leakW', r['invariance_residual_W'], 'leakR', r['invariance_residual_R'], 'phase dev', r['max_abs_phase_minus_pm_omega'], 'R eig', sorted(set(np.round(r['R_eigenvalues_on_span'], 12))), flush=True)
+    del W, R
+    moms = [(0, 0, 0), (1, 0, 0), (2, 0, 0), (1, 1, 0), (1, 1, 1), (2, 1, 0)]
+    jobs = []
+    for name, mu, X in sectors():
+        for rec in (0, 1):
+            for n in moms:
+                for spin in ('up', 'down'):
+                    jobs.append((name, mu, rec, 'first', n, spin))
+            jobs.append((name, mu, rec, 'random', (1, 1, 0), 'up'))
+    with Pool(24) as pool:
+        res = pool.map(job2, jobs)
+    out['part2_lattice'] = res
+    worst = max(r['max_abs_estimated_minus_symbol'] for r in res); leak = max(r['max_leak_outside_plane'] for r in res)
+    out['part2_worst_abs_estimated_minus_symbol'] = worst; out['part2_worst_leak'] = leak
+    for r in res:
+        if r['spin'] == 'up' and r['internal_vector'] == 'first':
+            print('lattice', r['sector'], 'rec', r['record'], 'n', r['n'], 'theta', round(r['theta_arccos_lambda'], 6), 'est', r['phases_estimated'], 'sym', [round(q, 9) for q in r['phases_symbol_alternating']], 'leak', f"{r['max_leak_outside_plane']:.1e}", flush=True)
+    print('worst |est - sym|', worst, 'worst leak', leak)
+    out['seconds'] = time.time() - t0
+    json.dump(out, open(sys.argv[1], 'w'), indent=1)
+    print('written', sys.argv[1], out['seconds'])

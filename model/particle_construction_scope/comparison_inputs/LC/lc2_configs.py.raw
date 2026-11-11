@@ -1,0 +1,463 @@
+"""LC items 2 and 3: the read count of the two-object register for every registered configuration (section 4 of
+CANDIDATES.md). EXACT (Fractions). Writes lc2_configs.json. Run from RL/work/LC:
+    PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B lc2_configs.py
+
+One tick from a blank record and the uniform address state (the reflection fixes that state, so tick 1 is the event Q).
+Flags are read from the final (configuration, record, address) of each branch.
+"""
+from __future__ import annotations
+
+import itertools
+import sys
+import time
+from fractions import Fraction as Fr
+
+import lc_common as L
+import fr_common as FC
+
+OUT = 'lc2_configs.json'
+FP = L.frame_plain()
+
+
+def indep(p, q):
+    return p + q - 2 * p * q
+
+
+def row(p, rm, q, joint, defined=True, note=''):
+    """One table row; p = P(R+), rm = P(R-), q = P(H), joint = P(R+ and H)."""
+    count = p + q - 2 * joint
+    ratio_ok = (q == 2 * p and p == rm)
+    r = {'P(R+)': str(p), 'P(R-)': str(rm), 'P(H)': str(q), 'P(R+ and H)': str(joint), 'count P(R+ xor H)': str(count),
+         'count as float': round(float(count), 9), 'H : R+ : R- = 2 : 1 : 1': ratio_ok,
+         'H : R+ : R-': f'{q} : {p} : {rm}', 'equals 2/9': count == Fr(2, 9), 'defined': defined}
+    if note:
+        r['note'] = note
+    return r
+
+
+# ------------------------------------------------------------------ one-object probabilities on sixty addresses
+def one_object_tables():
+    f = L.F0
+    E, C = L.seam_types(f)
+    d = (2, 10)
+    assert tuple(sorted(d)) in E
+    tail_, head_ = (d if L.screen_sign(f, d[0], d[1]) > 0 else d[::-1])
+    fwd = next(s for s in C if head_ in s)
+    bwd = next(s for s in C if tail_ in s)
+    rho = FC.stabilizer_turn(f)
+    sector = set(d) | {x for x in range(12) if d[0] in L.ADJ[x] and d[1] in L.ADJ[x]}
+    nxt = {rho[x] for x in sector}
+    prv = {x for x in range(12) if rho[x] in sector}
+    st, n2 = L.uniform([L.cfg_of(2, 2), L.cfg_of(10, 10)])
+    st = L.Qstep(st, FP)
+    w = {}
+
+    def bump(key, amp):
+        w[key] = w.get(key, Fr(0)) + amp * amp / n2
+    for (cfg, regs), amp in st.items():
+        rec, k = regs[0]
+        if rec not in (2, 3):
+            bump('blank', amp)
+            continue
+        bump('em', amp)
+        bump(f'rec{rec}', amp)
+        pts = tuple(sorted(L.ports_of(cfg)))
+        outside = [p for p in pts if p not in d]
+        emitter = [p for p in pts if p in d][0] if outside else None
+        recv = outside[0] if outside else None
+        bump('I' if not outside else 'Fw' if pts == fwd else 'Bw' if pts == bwd else 'Off', amp)
+        bump('same' if (recv is None or recv in sector) else 'next' if recv in nxt else 'prev' if recv in prv else 'other', amp)
+        if recv is None:
+            sgn = 0          # in-dimer: one end moves in the screen sense, the other against it; not used for a sense flag
+            bump('sense_in_dimer', amp)
+        else:
+            sgn = L.screen_sign(f, emitter, recv)
+            bump({1: 'fwd', -1: 'bwd', 0: 'nosense'}[sgn], amp)
+    # double load at one port: transport sense
+    st1, n1 = L.uniform([L.cfg_of(2, 2)])
+    st1 = L.Qstep(st1, FP)
+    w1 = {}
+    for (cfg, regs), amp in st1.items():
+        rec, k = regs[0]
+        if rec in (2, 3):
+            recv = next(p for p in L.ports_of(cfg) if p != 2)
+            key = {1: 'fwd', -1: 'bwd', 0: 'nosense'}[L.screen_sign(f, 2, recv)]
+            w1[key] = w1.get(key, Fr(0)) + amp * amp / n1
+            w1[f'rec{rec}'] = w1.get(f'rec{rec}', Fr(0)) + amp * amp / n1
+            w1['em'] = w1.get('em', Fr(0)) + amp * amp / n1
+        else:
+            w1['blank'] = w1.get('blank', Fr(0)) + amp * amp / n1
+    return w, w1, {'dimer': d, 'forward C': fwd, 'backward C': bwd, 'sector': sorted(sector)}
+
+
+def np_table(ports):
+    """Native pair or a set of single loads: inactive, agree, repair first/second, kept."""
+    st, n2 = L.uniform([L.cfg_of(*ports)])
+    st = L.Qstep(st, FP)
+    w = {}
+    for (cfg, regs), amp in st.items():
+        rec, k = regs[0]
+        a, b = L.ADDR[k]
+        la, lb = a in ports, b in ports
+        lab = 'kept' if (la and lb) else 'inactive' if not (la or lb) else 'agree' if rec == 0 else \
+            ('rp1' if la else 'rp2') if rec == 1 else 'other'
+        w[lab] = w.get(lab, Fr(0)) + amp * amp / n2
+    return w
+
+
+# ------------------------------------------------------------------ generic one-tick engine on an arbitrary address list
+def tick1_generic(cfgs, addr_list, nports):
+    """Branches after the event from equal-amplitude configurations (dict port -> load) and a uniform address over
+    addr_list. Yields (initial index, address, final cfg tuple, record, amplitude, undefined flag)."""
+    out = []
+    for i, c0 in enumerate(cfgs):
+        cfg = tuple(c0.get(p, 0) for p in range(nports))
+        for k, (a, b) in enumerate(addr_list):
+            try:
+                for c2, r2, u in L.local(cfg, 0, a, b):
+                    out.append((i, k, c2, r2, u, False))
+            except L.Undefined:
+                out.append((i, k, cfg, None, Fr(1), True))
+    return out, Fr(len(cfgs) * len(addr_list))
+
+
+def main():
+    t0 = time.time()
+    out = {'task': 'LC items 2 and 3: configuration table', 'provenance': L.provenance()}
+    w_sd, w_dl, geo = one_object_tables()
+    out['one_object_weights (sixty addresses, plain law)'] = {
+        'symmetric double load on the E seam (2,10) of the hexagon of F0': {k: str(v) for k, v in sorted(w_sd.items())},
+        'double load at port 2': {k: str(v) for k, v in sorted(w_dl.items())}, 'geometry': geo}
+    print('one-object', out['one_object_weights (sixty addresses, plain law)'])
+    Z = Fr(0)
+    table = {}
+
+    # ================= G2: two carriers, independent registers of sixty
+    p, q = w_dl['rec2'], w_dl['em']
+    table['G2a two carriers, own registers, DL or SD, RD-rec'] = row(p, w_dl['rec3'], q, p * q)
+    p, q = w_sd['Fw'], w_sd['I']
+    table['G2b two carriers, own registers, SD, RD-FR'] = row(p, w_sd['Bw'], q, p * q)
+    p, q = w_dl['fwd'], w_dl['em']
+    table['G2c two carriers, own registers, DL, RD-sense'] = row(p, w_dl['bwd'], q, p * q)
+    p, q = w_sd['next'], w_sd['same']
+    table['G2d two carriers, own registers, SD, RD-sector'] = row(p, w_sd['prev'], q, p * q)
+    p, q = w_sd['rec2'], w_sd['I']
+    table['G2e two carriers, own registers, SD, RD-mix1'] = row(p, w_sd['rec3'], q, p * q)
+    far2 = next(x for x in range(12) if L.port_distance(2, x) == 2)       # a port at distance two from port 2
+    npw = np_table((2, far2))
+    p, q = npw['rp1'], npw['agree']
+    table['G2f two carriers, own registers, NP, RN-rec'] = row(p, npw['rp2'], q, p * q)
+    p, q = w_dl['rec2'], npw['agree']
+    r = row(p, w_dl['rec3'], q, p * q)
+    aH2, ab2 = q * w_dl['blank'], p * npw['inactive']
+    r['balance (b/a)^2 with matched flags'] = str(ab2 / aH2)
+    table['G2g two carriers, own registers, A = DL, B = NP, RM'] = r
+    l1 = np_table((2,))
+    p, q = l1['rp1'], l1['agree']
+    table['G2h two carriers, own registers, one load each, RL'] = row(p, l1['rp2'], q, p * q)
+    # G2i: m loads on mutually non-adjacent ports
+    g2i = {}
+    indep_sets = {1: (2,), 2: (2, far2)}
+    trip = next(t for t in itertools.combinations(range(12), 3)
+                if all(L.port_distance(x, y) >= 2 for x, y in itertools.combinations(t, 2)))
+    indep_sets[3] = trip
+    for m, ports in indep_sets.items():
+        ww = np_table(ports)
+        p, q = ww['rp1'], ww['agree']
+        g2i[m] = {'ports': ports, 'P(R+)': str(p), 'P(H)': str(q), 'count': str(indep(p, q)),
+                  'formula m/8 - m^2/144': str(Fr(m, 8) - Fr(m * m, 144)),
+                  'match': indep(p, q) == Fr(m, 8) - Fr(m * m, 144)}
+    four = [t for t in itertools.combinations(range(12), 4)
+            if all(L.port_distance(x, y) >= 2 for x, y in itertools.combinations(t, 2))]
+    g2i['sets of four mutually non-adjacent ports'] = len(four)
+    table['G2i two carriers, own registers, m loads per carrier, RN-rec'] = g2i
+    # explicit check of independence for G2a: product of two tick-1 states over the 60 x 60 address pairs
+    st1, n1 = L.uniform([L.cfg_of(2, 2)])
+    st1 = L.Qstep(st1, FP)
+    joint = Fr(0)
+    for (cfgA, regsA), ampA in st1.items():
+        if regsA[0][0] != 2:
+            continue
+        for (cfgB, regsB), ampB in st1.items():
+            if regsB[0][0] in (2, 3):
+                joint += (ampA * ampB) ** 2 / (n1 * n1)
+    table['G2a two carriers, own registers, DL or SD, RD-rec']['P(R+ and H) by explicit product over 3600 address pairs'] = str(joint)
+
+    # ================= G1a, G1b, G5c: one carrier, one register, two DL at ports a, b
+    g1 = {}
+    for a, b in itertools.combinations(range(12), 2):
+        dist = L.port_distance(a, b)
+        br, n2 = tick1_generic([{a: 2, b: 2}], L.ADDR, 12)
+        pR, pRm, pH, und = Z, Z, Z, Z
+        for (i, k, c2, r2, u, undefined) in br:
+            wgt = u * u / n2
+            if undefined:
+                und += wgt
+            elif r2 in (2, 3):
+                if c2[a] == 1:                       # object A (port a) emitted
+                    pR += wgt if r2 == 2 else 0
+                    pRm += wgt if r2 == 3 else 0
+                else:                                 # object B (port b) emitted
+                    pH += wgt
+        key = f'port distance {dist}'
+        val = (str(pR), str(pRm), str(pH), str(und))
+        g1.setdefault(key, {}).setdefault(val, 0)
+        g1[key][val] += 1
+    g1_rows = {}
+    for key, vals in sorted(g1.items()):
+        assert len(vals) == 1
+        (pR, pRm, pH, und), n = next(iter(vals.items()))
+        pR, pRm, pH, und = Fr(pR), Fr(pRm), Fr(pH), Fr(und)
+        r = row(pR, pRm, pH, Z, defined=(und == 0))
+        r['port pairs'] = n
+        r['weight of events outside the local completion (seam total four)'] = str(und)
+        g1_rows[key] = r
+    table['G1a/G1b/G5c one carrier, one register, two DL, RD-rec, by port distance'] = g1_rows
+
+    # ================= G1c, G5b: one carrier, one register, two SD on E-type hexagon seams, every face pair kind
+    dist = L.face_distance_table()
+    fidx = {f: i for i, f in enumerate(L.FACES)}
+    face_perms = []
+    for h in L.ROTS:
+        face_perms.append(tuple(fidx[tuple(sorted(h[x] for x in f))] for f in L.FACES))
+    seen, kinds = set(), []
+    for i in range(20):
+        for j in range(20):
+            if i == j or (i, j) in seen:
+                continue
+            orb = {(g[i], g[j]) for g in face_perms}
+            seen |= orb
+            kinds.append(sorted(orb))
+    kinds.sort(key=lambda o: (dist[o[0][0]][o[0][1]], o[0]))
+    g1c = {}
+    for orb in kinds:
+        i, j = orb[0]
+        fA, fB = L.FACES[i], L.FACES[j]
+        sep = dist[i][j]
+        EA, CA = L.seam_types(fA)
+        EB, CB = L.seam_types(fB)
+        hexA, hexB = set(L.hexagon_ports(fA)), set(L.hexagon_ports(fB))
+        shared_ports = len(hexA & hexB)
+        shared_seams = len(set(L.hexagon_seams(fA)) & set(L.hexagon_seams(fB)))
+        combos = {'clean': 0, 'not defined': 0}
+        counts = set()
+        detail = []
+        for dA in EA:
+            tA, hA = (dA if L.screen_sign(fA, dA[0], dA[1]) > 0 else dA[::-1])
+            fwdA = next(s for s in CA if hA in s)
+            bwdA = next(s for s in CA if tA in s)
+            for dB in EB:
+                if set(dA) & set(dB):
+                    combos['not defined'] += 1
+                    detail.append((dA, dB, 'dimers share a port'))
+                    continue
+                cfgs = [{pa: 2, pb: 2} for pa in dA for pb in dB]
+                br, n2 = tick1_generic(cfgs, L.ADDR, 12)
+                pR, pRm, pH, und = Z, Z, Z, Z
+                for (ci, k, c2, r2, u, undefined) in br:
+                    wgt = u * u / n2
+                    if undefined:
+                        und += wgt
+                        continue
+                    if r2 not in (2, 3):
+                        continue
+                    pa = [x for x in dA if cfgs[ci].get(x)][0]
+                    pb = [x for x in dB if cfgs[ci].get(x)][0]
+                    if c2[pa] == 1:                   # A emitted from pa
+                        recv = next(x for x in range(12) if c2[x] > cfgs[ci].get(x, 0))
+                        seam = tuple(sorted((pa, recv)))
+                        if seam == fwdA:
+                            pR += wgt
+                        elif seam == bwdA:
+                            pRm += wgt
+                    else:                              # B emitted from pb
+                        recv = next(x for x in range(12) if c2[x] > cfgs[ci].get(x, 0))
+                        if tuple(sorted((pb, recv))) == tuple(sorted(dB)):
+                            pH += wgt
+                if und == 0:
+                    combos['clean'] += 1
+                    counts.add((str(pR), str(pRm), str(pH)))
+                    detail.append((dA, dB, 'clean'))
+                else:
+                    combos['not defined'] += 1
+                    detail.append((dA, dB, f'seam between the dimers, undefined weight {und}'))
+        entry = {'ordered face pairs in this kind': len(orb), 'example': [fA, fB], 'separation': sep,
+                 'hexagons share ports, seams': [shared_ports, shared_seams],
+                 'dimer choices (3 x 3)': combos, 'detail': [str(x) for x in detail]}
+        if counts:
+            assert len(counts) == 1
+            pR, pRm, pH = (Fr(x) for x in next(iter(counts)))
+            entry['clean choices'] = row(pR, pRm, pH, Z)
+        g1c[f'separation {sep}, kind of size {len(orb)}, example {fA} {fB}'] = entry
+    table['G1c/G5b one carrier, one register, two SD on hexagon dimers, RD-FR, by face pair kind'] = g1c
+
+    # the hexagon model itself (twelve addresses): two SD on one hexagon
+    hexA = [2, 3, 9, 1, 0, 10]
+    hseams = [(2, 3), (3, 9), (9, 1), (1, 0), (0, 10), (10, 2)]
+    haddr = [pair for s in hseams for pair in (s, s[::-1])]
+    E0 = [(10, 2), (3, 9), (1, 0)]
+    g5b = {}
+    for dA, dB in itertools.combinations_with_replacement(E0, 2):
+        if set(dA) & set(dB):
+            g5b[f'{dA} {dB}'] = 'not defined: the same seam (four loads on one port)'
+            continue
+        cfgs = [{pa: 2, pb: 2} for pa in dA for pb in dB]
+        br, n2 = tick1_generic(cfgs, haddr, 12)
+        und = sum((u * u / n2 for (_, _, _, _, u, undefined) in br if undefined), Z)
+        g5b[f'{dA} {dB}'] = f'not defined: weight {und} on a seam with four loads' if und else 'defined'
+    table['G5b two SD on the one hexagon of a face axis, twelve-address register'] = g5b
+
+    # ================= G1d: the two loads of one native pair as the two objects
+    x, y = 2, far2
+    br, n2 = tick1_generic([{x: 1, y: 1}], L.ADDR, 12)
+    pR, pRm, pH = Z, Z, Z
+    for (ci, k, c2, r2, u, undefined) in br:
+        a, b = L.ADDR[k]
+        wgt = u * u / n2
+        if r2 == 1 and a == x:
+            pR += wgt
+        elif r2 == 1 and b == x:
+            pRm += wgt
+        elif r2 == 0 and y in (a, b) and x not in (a, b):
+            pH += wgt
+    table['G1d one carrier, one register, the two loads of one native pair, RL'] = row(pR, pRm, pH, Z)
+
+    # ================= G1e: two native pairs on one carrier, one register
+    g1e = {}
+    for A in itertools.combinations(range(12), 2):
+        if L.port_distance(*A) < 2:
+            continue
+        for B in itertools.combinations(range(12), 2):
+            if L.port_distance(*B) < 2 or set(A) & set(B):
+                continue
+            loaded = set(A) | set(B)
+            pR = Fr(sum(1 for (a, b) in L.ADDR if a in A and b not in loaded), 120)
+            pRm = Fr(sum(1 for (a, b) in L.ADDR if b in A and a not in loaded), 120)
+            pH = Fr(sum(1 for (a, b) in L.ADDR if ((a in B) != (b in B)) and not ((a in loaded) and (b in loaded))), 120)
+            nadj = sum(1 for u in A for v in B if L.port_distance(u, v) == 1)
+            g1e.setdefault(nadj, set()).add((str(pR), str(pRm), str(pH), str(pR + pH)))
+    # check the address counting against the local unitary on one placement
+    A = (2, far2)
+    B = next(t for t in itertools.combinations(range(12), 2) if L.port_distance(*t) >= 2 and not (set(t) & set(A)))
+    br, n2 = tick1_generic([{A[0]: 1, A[1]: 1, B[0]: 1, B[1]: 1}], L.ADDR, 12)
+    chkR = sum((u * u / n2 for (ci, k, c2, r2, u, und) in br if r2 == 1 and L.ADDR[k][0] in A and L.ADDR[k][1] not in (A + B)), Z)
+    loaded = set(A) | set(B)
+    cntR = Fr(sum(1 for (a, b) in L.ADDR if a in A and b not in loaded), 120)
+    table['G1e one carrier, one register, two native pairs, RN-rec'] = {
+        'by number of adjacent cross pairs: (P(R+), P(R-), P(H), count)': {str(k): sorted(v) for k, v in sorted(g1e.items())},
+        'largest count': str(max(Fr(t[3]) for v in g1e.values() for t in v)),
+        'smallest count': str(min(Fr(t[3]) for v in g1e.values() for t in v)),
+        f'address counting equals the local unitary on the placement {A},{B}': chkR == cntR,
+    }
+
+    # ================= G3, G4: registers that reach beyond the carrier
+    # carrier X = ports 0..11, carrier Y = ports 12..23 (a copy), glue seams between X-port i and Y-port 12 + g(i)
+    addrX = list(L.ADDR)
+    addrY = [(a + 12, b + 12) for (a, b) in L.ADDR]
+    a_obj, b_obj = 2, 12 + 2                    # object A at port 2 of X, object B at port 2 of Y
+    g3 = {}
+
+    def two_carrier_counts(regX, regY, cfgA, cfgB, one_register=False):
+        """P(R+), P(R-) from object A read on regX; P(H) from object B read on regY (independent registers), or one
+        register over the union."""
+        res = {}
+        for name, reg, cfg, port in (('A', regX, cfgA, a_obj), ('B', regY, cfgB, b_obj)):
+            br, n2 = tick1_generic([cfg], reg, 24)
+            r2w = sum((u * u / n2 for (ci, k, c2, r2, u, und) in br if not und and r2 == 2 and c2[port] == 1), Z)
+            r3w = sum((u * u / n2 for (ci, k, c2, r2, u, und) in br if not und and r2 == 3 and c2[port] == 1), Z)
+            undw = sum((u * u / n2 for (ci, k, c2, r2, u, und) in br if und), Z)
+            res[name] = (r2w, r3w, undw)
+        return res
+    # G3a: one glue seam between X-port 0 and Y-port 12 (away from the objects), present in both registers
+    glue = [(0, 12), (12, 0)]
+    res = two_carrier_counts(addrX + glue, addrY + glue, {a_obj: 2}, {b_obj: 2})
+    p, rm, q = res['A'][0], res['A'][1], res['B'][0] + res['B'][1]
+    g3['G3a one glue seam away from the objects, in both registers (62 addresses each)'] = row(p, rm, q, p * q)
+    # glue seam at the object ports' own carrier partner: X-port 2 to Y-port 12 (object A sits on a glue port)
+    glue = [(2, 12), (12, 2)]
+    res = two_carrier_counts(addrX + glue, addrY + glue, {a_obj: 2}, {b_obj: 2})
+    p, rm, q = res['A'][0], res['A'][1], res['B'][0] + res['B'][1]
+    g3['G3a2 one glue seam at the port of object A, in both registers'] = row(p, rm, q, p * q)
+    # G3b: every port has one glue seam to an empty outside port; a register holds its carrier's twelve glue seams
+    glueX = [pair for i in range(12) for pair in ((i, 100 + i), (100 + i, i))]
+    brA, n2 = tick1_generic([{a_obj: 2}], addrX + [(a, b) for (a, b) in glueX], 200)
+    r2w = sum((u * u / n2 for (ci, k, c2, r2, u, und) in brA if r2 == 2), Z)
+    r3w = sum((u * u / n2 for (ci, k, c2, r2, u, und) in brA if r2 == 3), Z)
+    g3['G3b all twelve glue seams of a carrier in its register (84 addresses each)'] = row(r2w, r3w, r2w + r3w, r2w * (r2w + r3w))
+    # G3c: glue seam between the two object ports
+    glue = [(a_obj, b_obj), (b_obj, a_obj)]
+    brA, n2 = tick1_generic([{a_obj: 2, b_obj: 2}], addrX + glue, 24)
+    und = sum((u * u / n2 for (ci, k, c2, r2, u, undf) in brA if undf), Z)
+    g3['G3c glue seam between the two object ports'] = {'defined': und == 0,
+                                                       'weight of events with seam total four': str(und)}
+    table['G3 registers with glue seams'] = g3
+    # G4: one register over both carriers
+    br, n2 = tick1_generic([{a_obj: 2, b_obj: 2}], addrX + addrY, 24)
+    pR = sum((u * u / n2 for (ci, k, c2, r2, u, und) in br if r2 == 2 and c2[a_obj] == 1), Z)
+    pRm = sum((u * u / n2 for (ci, k, c2, r2, u, und) in br if r2 == 3 and c2[a_obj] == 1), Z)
+    pH = sum((u * u / n2 for (ci, k, c2, r2, u, und) in br if r2 in (2, 3) and c2[b_obj] == 1), Z)
+    table['G4 one register over both carriers (120 addresses), DL, RD-rec'] = row(pR, pRm, pH, Z)
+
+    # ================= G5a control: hexagon registers of twelve addresses (FR round 4)
+    br, n2 = tick1_generic([{2: 2}, {10: 2}], haddr, 12)
+    wI = sum((u * u / n2 for (ci, k, c2, r2, u, und) in br if r2 in (2, 3) and c2[2] == 1 and c2[10] == 1), Z)
+    wF = sum((u * u / n2 for (ci, k, c2, r2, u, und) in br if r2 in (2, 3) and c2[2] == 1 and c2[3] == 1), Z)
+    wB = sum((u * u / n2 for (ci, k, c2, r2, u, und) in br if r2 in (2, 3) and c2[10] == 1 and c2[0] == 1), Z)
+    table['G5a control: two hexagon instances of twelve addresses, SD, RD-FR'] = row(wF, wB, wI, wF * wI)
+
+    # ================= G6: one double load on a port held by two carriers; two registers act in sequence
+    # carrier X = ports 0..11; carrier Y shares the seam (2, 10) with X: Y-port map 2 -> 2, 10 -> 10, others -> 12..21
+    others = [p for p in range(12) if p not in (2, 10)]
+    ymap = {2: 2, 10: 10, **{p: 12 + i for i, p in enumerate(others)}}
+    frameX = tuple(L.ADDR)
+    frameY = tuple((ymap[a], ymap[b]) for (a, b) in L.ADDR)
+    g6 = {}
+    for obj_name, cfgs in (('DL at port 2', [{2: 2}]), ('SD on the shared seam (2,10)', [{2: 2}, {10: 2}])):
+        for order_name, first, second in (('the carrier of the defect first', 0, 1), ('the neighbouring carrier first', 1, 0)):
+            frames = (frameX, frameY)
+            state = {}
+            for c0 in cfgs:
+                cfg = tuple(c0.get(p, 0) for p in range(22))
+                for k1 in range(60):
+                    for k2 in range(60):
+                        state[(cfg, ((0, k1), (0, k2)))] = Fr(1)
+            n2 = Fr(len(state))
+            state = L.Qstep(state, frames[first], reg=first)
+            state = L.Qstep(state, frames[second], reg=second)
+            wR, wRm, wH, wboth = Z, Z, Z, Z
+            for (cfg, regs), amp in state.items():
+                wgt = amp * amp / n2
+                rx, ry = regs[0][0], regs[1][0]
+                if rx == 2:
+                    wR += wgt
+                if rx == 3:
+                    wRm += wgt
+                if ry in (2, 3):
+                    wH += wgt
+                if rx == 2 and ry in (2, 3):
+                    wboth += wgt
+            r = row(wR, wRm, wH, wboth)
+            r['balance (b/a)^2 = P(R+)/P(H)'] = str(wR / wH)
+            g6[f'{obj_name}, {order_name}'] = r
+    # address-event level (which ports the two addresses touch), independent of the order
+    p, q = Fr(sum(1 for (a, b) in frameX if a == 2), 60), Fr(sum(1 for (a, b) in frameY if 2 in (a, b)), 60)
+    g6['address events only: P(tail of X address at the port), P(Y address touches the port)'] = row(p, p, q, p * q)
+    table['G6 one double load on a port held by two carriers, two registers in sequence, RD-rec'] = g6
+
+    out['table'] = table
+    for name, val in table.items():
+        print('==', name)
+        if isinstance(val, dict) and 'count P(R+ xor H)' in val:
+            print('   ', {k: v for k, v in val.items() if k not in ('H : R+ : R-',)})
+        else:
+            for k2, v2 in val.items():
+                if isinstance(v2, dict) and 'detail' in v2:
+                    v2 = {k: v for k, v in v2.items() if k != 'detail'}
+                print('   ', k2, ':', v2)
+    out['seconds'] = round(time.time() - t0, 2)
+    L.jdump(out, OUT)
+    print('written', OUT, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

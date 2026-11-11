@@ -1,0 +1,173 @@
+{
+ "link_alphabet": {
+  "cover_lifts": 120,
+  "det_of_the_triplet_block_is_one": 120,
+  "det_of_the_doublet_block_is_one": 120,
+  "central_element": "diag(1, 1, 1, -1, -1), determinant one",
+  "patterns_that_are_scalars_of_every_cover_valued_link": [
+   "00000",
+   "00011",
+   "11100",
+   "11111"
+  ],
+  "statement": "Every link value of the public alphabet (the 120 cover lifts R + U and the central element) has determinant one on the triplet block and on the doublet block. The pattern 11111 is the top exterior power: it is a parallel section of every link field, flat or with flux. The same holds for 00000, 11100 and 00011."
+ },
+ "port_responses": {
+  "ports_checked": 12,
+  "trace_of_P_p": "1",
+  "trace_of_Q_p": "1",
+  "trace_of_X_p = P_p/2 - Q_p/2": "0",
+  "statement": "The second-quantised action of a one-level operator X on the full pattern 11111 is tr(X), on the empty pattern 0. All twelve port responses are traceless, so they act as zero on both: no public response sees the neutral singlet."
+ },
+ "internal_walk": {
+  "walk_of_the_pattern_11111": "the scalar public walk (coherent-seam-repair-v1 without fibre), for every link word",
+  "blank_record_kernel_characteristic_polynomial": "(x - 1)*(10*x - 9)**5*(180*x**2 - 330*x + 151)**3/583200000000",
+  "recorded_kernel_characteristic_polynomial": "(6*x - 5)*(15*x - 14)**5*(180*x**2 - 330*x + 151)**3/26572050000000",
+  "sectors": [
+   {
+    "sector": "uniform load, blank record",
+    "kernel_eigenvalue": "1",
+    "mass_angle_arccos": 0.0
+   },
+   {
+    "sector": "slow triplet",
+    "kernel_eigenvalue": "sqrt(5)/60 + 11/12",
+    "mass_angle_arccos": 0.3047084373702733
+   },
+   {
+    "sector": "quintet, recorded",
+    "kernel_eigenvalue": "14/15",
+    "mass_angle_arccos": 0.36720802055783713
+   },
+   {
+    "sector": "quintet, blank",
+    "kernel_eigenvalue": "9/10",
+    "mass_angle_arccos": 0.4510268117962624
+   },
+   {
+    "sector": "fast triplet",
+    "kernel_eigenvalue": "11/12 - sqrt(5)/60",
+    "mass_angle_arccos": 0.49619825950207297
+   },
+   {
+    "sector": "uniform load, recorded",
+    "kernel_eigenvalue": "5/6",
+    "mass_angle_arccos": 0.585685543457151
+   }
+  ],
+  "lowest_sector_of_the_neutral_singlet": {
+   "sector": "uniform load, blank record",
+   "kernel_eigenvalue": "1",
+   "correction_probability": "0",
+   "mass_angle": 0.0
+  },
+  "one_central_link": {
+   "seam": [
+    0,
+    1
+   ],
+   "patterns_with_even_n2 (N, N^c, e_R, ...)": {
+    "constant_section_dimension": 1,
+    "mass_angle": 0.0
+   },
+   "patterns_with_n2 = 1 (nu_L, e_L, ...)": {
+    "det_of_5_minus_signed_adjacency": "13132800",
+    "lowest_level_float": 0.23136163187600522,
+    "mass_angle_float": 0.08784654696624322
+   }
+  },
+  "statement": "In CF-1 a quantum carries the pattern as a label of the five-level fibre. For 11111 the fibre factor is the determinant, so its internal walk is the scalar walk in every link background; its lowest sector is the uniform load state with kernel eigenvalue 1, correction probability 0 and mass angle 0 (option M3). The nonzero angles are the load multiplets of the same walk: reached by preparation, not by a step."
+ },
+ "option_M1_flux_classes": {
+  "nu_L 11110": {
+   "Q6": -3,
+   "classes_with_nonzero_angle": 15,
+   "of": 25,
+   "range_of_nonzero_angles": [
+    0.08784654696624196,
+    0.17123678913697477
+   ]
+  },
+  "N 11111": {
+   "Q6": 0,
+   "classes_with_nonzero_angle": 0,
+   "of": 25,
+   "range_of_nonzero_angles": [
+    0.0,
+    0.0
+   ]
+  },
+  "N^c 00000": {
+   "Q6": 0,
+   "classes_with_nonzero_angle": 0,
+   "of": 25,
+   "range_of_nonzero_angles": [
+    0.0,
+    0.0
+   ]
+  },
+  "nu_L^c 00001": {
+   "Q6": 3,
+   "classes_with_nonzero_angle": 15,
+   "of": 25,
+   "range_of_nonzero_angles": [
+    0.08784654696624196,
+    0.17123678913697477
+   ]
+  }
+ },
+ "audit_native_tick": {
+  "link_words": 12,
+  "wedges_checked": 384,
+  "sign_of_the_native_tick_by_degree": {
+   "0": 1,
+   "1": -1,
+   "2": 1,
+   "3": -1,
+   "4": 1,
+   "5": -1
+  },
+  "full_wedge_11111": {
+   "native_tick": -1,
+   "twelve_native_currents": "zero",
+   "degree_current": 5
+  },
+  "empty_wedge_00000": {
+   "native_tick": 1,
+   "twelve_native_currents": "zero",
+   "degree_current": 0
+  },
+  "statement": "In the audit's native module (dark orbitals on port 2) the joined tick acts on a wedge of degree n as (-1)^n: the wedge with all five levels occupied has eigenvalue -1 (phase pi per native tick, K = 1 - Re U = 2); the empty wedge has +1 (K = 0). The sign is the handedness of the chart (even = left). Both are annihilated by the twelve currents; the degree current gives 5 and 0. The audit keeps the even wedges of degree two and four and omits the empty one by a stated domain choice."
+ },
+ "audit_fifteen_states": {
+  "basis": "the even subsets of degree two and four of (0, 1, 2 | 3, 4) = (v1, v2, v3 | s1, s2): the same levels and charges as the chart",
+  "hypercharges_and_T3_equal_the_chart": true,
+  "massless_neutral_subset_of_the_audit": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "which_is_the_pattern": "11110 = nu_L",
+  "unbroken_invariant_Weyl_mass_dimension (audit)": 0,
+  "Higgs_channels (audit)": [
+   "charged_lepton",
+   "down",
+   "up"
+  ],
+  "chiral_particle_map_results_json": {
+   "massless_left_Weyl_fields": 1,
+   "massive_neutrino_sector_present": false,
+   "family_count": 1
+  },
+  "with_the_sixteenth_even_state_00000 (this worker, t6_terms.py)": {
+   "invariant_Weyl_mass_dimension": 1,
+   "Higgs_channels": 4,
+   "the_new_ones": [
+    "Dirac neutrino: 11110 with 00000 and the Higgs",
+    "bare pairing of 00000 with itself"
+   ]
+  },
+  "statement": "The audit's one neutral Weyl field is nu_L = 11110, massless because its module has no partner for it: the fifteen states are the even wedges without the empty one. The neutral singlet of the chart is that empty wedge in the left-handed labelling (00000), or its conjugate 11111. Adding it changes the audit's two counts from (0 invariant mass entries, 3 Higgs channels) to (1, 4)."
+ }
+}

@@ -1,0 +1,19 @@
+"""Replicate experiments for the error bars of the clock-line estimator (records alone): R fresh samples of N records
+from the exact clock distribution stored by bound_line.py / resonance.py; scatter of the estimates against the
+reported standard error.   python calibration.py line N_CAVITY R   (appends to calibration.json)"""
+import json, sys
+import numpy as np
+from r6lib import fit_line, sample
+
+kind, which, R = sys.argv[1], int(sys.argv[2]), int(sys.argv[3]); assert kind == 'line'
+try: out = json.load(open('calibration.json'))
+except FileNotFoundError: out = {}
+if True:
+    TH0 = 0.171237; P = np.load('bound_line_records.npz')[f'clock_exactP_n{which}']; T = len(P) // 2
+    exact = json.load(open('bound_line.json'))['rows'][str(which)]['E_ring_256']
+    est = [fit_line(sample(P, 2000, 777000 + r), T, 0.03, TH0 - 2 * (2 * np.pi / T), halfwidth=10) for r in range(R)]
+    ph = np.array([e['phase'] for e in est]); se = np.array([e['se'] for e in est])
+    out[f'line_n{which}'] = {'replicates': R, 'records_each': 2000, 'seeds': [777000, 777000 + R - 1], 'exact': exact, 'mean_estimate_minus_exact': float(ph.mean() - exact),
+                             'rms_scatter': float(ph.std(ddof=1)), 'mean_reported_se': float(se.mean()), 'median_reported_se': float(np.median(se)),
+                             'rms_pull': float(np.sqrt(np.mean(((ph - exact) / se) ** 2))), 'fraction_within_2_se': float(np.mean(np.abs(ph - exact) < 2 * se))}
+print(json.dumps(out, indent=1)); json.dump(out, open('calibration.json', 'w'), indent=1)

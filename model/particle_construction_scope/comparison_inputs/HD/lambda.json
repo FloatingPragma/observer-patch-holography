@@ -1,0 +1,250 @@
+{
+ "artifact": "HD_lambda",
+ "rer_root_used": "WORKSPACE/repair-law/reverse-engineering-reality/code/particles",
+ "producer": "qcd/derive_lambda_qcd_source_transmutation.py (unchanged)",
+ "inputs": {
+  "alpha3_mZ_run": 0.11833586196478191,
+  "mZ_run_GeV": 91.58833750192969,
+  "mu_Z_over_Estar": 7.501767385088419e-18,
+  "E_star_GeV": 1.2208901289579268e+19,
+  "mb_mb_GeV": 4.18,
+  "mc_mc_GeV": 1.27,
+  "P_fwd": 1.6309720958588974
+ },
+ "central": {
+  "lambda5_gev": 0.21351921570840174,
+  "lambda4_gev": 0.296674406505422,
+  "lambda3_gev": 0.3400216627247194,
+  "lambda3_probe_gev": 0.34002166272472084,
+  "alpha_s_mb_5f": 0.22619773334833324,
+  "alpha_s_mc_3f": 0.3943151306666752
+ },
+ "lambda3_over_Estar": 2.7850308120267957e-20,
+ "lambda3_threshold_corner_interval_GeV": [
+  0.325109202884305,
+  0.35465390053474294
+ ],
+ "sensitivities": {
+  "dlnL3_dln_alpha3_mZ": 5.232857695426196,
+  "dlnL3_dln_mb": 0.09164297830066831,
+  "dlnL3_dln_mc": 0.11491106715676323,
+  "dlnL3_dln_mZrun_at_fixed_alpha": 0.7934459971466906,
+  "one_loop_threshold_exponents": "2/27 for m_b and for m_c (EXACT at one loop)"
+ },
+ "d10_copy_reproduction": {
+  "alpha3_mZ_copy": 0.11833586195777325,
+  "alpha3_mZ_RER_chain": 0.11833586196478191,
+  "mZ_run_copy_GeV": 91.58833717320934,
+  "mZ_run_RER_GeV": 91.58833750192969,
+  "alpha_U": 0.04112424744181668,
+  "M_U_GeV": 2.473612289234337e+16,
+  "ln_MU_over_mZ": 33.22973709532364
+ },
+ "colour_slope_below_MU": {
+  "a_alphaU_MU_mZ_held": [
+   {
+    "b3": -3.1,
+    "Delta_b3": 3.9,
+    "alpha3_mZ": 0.12623623210151305,
+    "lambda3_GeV": 0.46972539623062004,
+    "lambda3_ratio": 1.3814572650064016
+   },
+   {
+    "b3": -3.03,
+    "Delta_b3": 3.97,
+    "alpha3_mZ": 0.12060015449763917,
+    "lambda3_GeV": 0.37499686151016176,
+    "lambda3_ratio": 1.1028616780036107
+   },
+   {
+    "b3": -3.01,
+    "Delta_b3": 3.99,
+    "alpha3_mZ": 0.11908111941106497,
+    "lambda3_GeV": 0.35132868278546847,
+    "lambda3_ratio": 1.0332538226245402
+   },
+   {
+    "b3": -3.0,
+    "Delta_b3": 4.0,
+    "alpha3_mZ": 0.11833586196478191,
+    "lambda3_GeV": 0.3400216627247194,
+    "lambda3_ratio": 1.0
+   },
+   {
+    "b3": -2.99,
+    "Delta_b3": 4.01,
+    "alpha3_mZ": 0.11759987474223099,
+    "lambda3_GeV": 0.3290549565812338,
+    "lambda3_ratio": 0.9677470368928693
+   },
+   {
+    "b3": -2.97,
+    "Delta_b3": 4.03,
+    "alpha3_mZ": 0.11615502759737881,
+    "lambda3_GeV": 0.30810911791085627,
+    "lambda3_ratio": 0.9061455539093124
+   },
+   {
+    "b3": -2.9,
+    "Delta_b3": 4.1,
+    "alpha3_mZ": 0.11136612294969635,
+    "lambda3_GeV": 0.24430598872965228,
+    "lambda3_ratio": 0.7185012471615426
+   }
+  ],
+  "dlnL3_db3_held": -3.274929993408504,
+  "b_full_D10_closure_resolved": [
+   {
+    "b3": -3.03,
+    "Delta_b3": 3.97,
+    "alpha_U": 0.04099260248622384,
+    "mZ_run_GeV": 80.87975393641605,
+    "alpha3_mZ": 0.12033705278348597,
+    "lambda3_GeV": 0.33607444533738606,
+    "lambda3_ratio": 0.988391276733068
+   },
+   {
+    "b3": -3.01,
+    "Delta_b3": 3.99,
+    "alpha_U": 0.04107951053886394,
+    "mZ_run_GeV": 87.8067259241389,
+    "alpha3_mZ": 0.11899210960805143,
+    "lambda3_GeV": 0.3384606451911951,
+    "lambda3_ratio": 0.9954090644666129
+   },
+   {
+    "b3": -2.99,
+    "Delta_b3": 4.01,
+    "alpha_U": 0.04116983189565851,
+    "mZ_run_GeV": 95.60021106008455,
+    "alpha3_mZ": 0.11769015258156218,
+    "lambda3_GeV": 0.34182888366439873,
+    "lambda3_ratio": 1.0053150170644936
+   },
+   {
+    "b3": -2.97,
+    "Delta_b3": 4.03,
+    "alpha_U": 0.04126351782186462,
+    "mZ_run_GeV": 104.37488962167322,
+    "alpha3_mZ": 0.11642953938826102,
+    "lambda3_GeV": 0.34618660343708146,
+    "lambda3_ratio": 1.0181310233676293
+   }
+  ],
+  "dlnL3_db3_resolved": 0.49512242273106466,
+  "SM_b3_minus7_inv_alpha3_mZ": -12.70418401645075,
+  "SM_b3_minus7_one_loop_pole_GeV": 8207450.091896854
+ },
+ "cut_rows": {
+  "E_cell_GeV": 9.559899286840613e+18,
+  "ln_Ecell_over_mZ": 39.18680492232504,
+  "rows": [
+   {
+    "start": "DC cut closure",
+    "inv_alpha3_Ecell": 16.2453,
+    "b3": -7.0,
+    "inv_alpha3_mZ": -27.41211595156092,
+    "alpha3_mZ": null,
+    "pole_scale_GeV": 4443047738678.373,
+    "pole_over_Estar": 3.639187207181921e-07,
+    "colour_scale_kind": "one-loop pole above m_Z"
+   },
+   {
+    "start": "DC cut closure",
+    "inv_alpha3_Ecell": 16.2453,
+    "b3": -5.0,
+    "inv_alpha3_mZ": -14.93856853682923,
+    "alpha3_mZ": null,
+    "pole_scale_GeV": 13018832655.43217,
+    "pole_over_Estar": 1.0663394147140995e-09,
+    "colour_scale_kind": "one-loop pole above m_Z"
+   },
+   {
+    "start": "DC cut closure",
+    "inv_alpha3_Ecell": 16.2453,
+    "b3": -3.0,
+    "inv_alpha3_mZ": -2.4650211220975358,
+    "alpha3_mZ": null,
+    "pole_scale_GeV": 15995.010504872194,
+    "pole_over_Estar": 1.3101105599505915e-15,
+    "colour_scale_kind": "one-loop pole above m_Z"
+   },
+   {
+    "start": "GL 5-trace MSbar",
+    "inv_alpha3_Ecell": 10.152257,
+    "b3": -7.0,
+    "inv_alpha3_mZ": -33.50515895156092,
+    "alpha3_mZ": null,
+    "pole_scale_GeV": 1054100606095683.0,
+    "pole_over_Estar": 8.633869511217978e-05,
+    "colour_scale_kind": "one-loop pole above m_Z"
+   },
+   {
+    "start": "GL 5-trace MSbar",
+    "inv_alpha3_Ecell": 10.152257,
+    "b3": -5.0,
+    "inv_alpha3_mZ": -21.03161153682923,
+    "alpha3_mZ": null,
+    "pole_scale_GeV": 27533001691973.227,
+    "pole_over_Estar": 2.255158022734906e-06,
+    "colour_scale_kind": "one-loop pole above m_Z"
+   },
+   {
+    "start": "GL 5-trace MSbar",
+    "inv_alpha3_Ecell": 10.152257,
+    "b3": -3.0,
+    "inv_alpha3_mZ": -8.558064122097536,
+    "alpha3_mZ": null,
+    "pole_scale_GeV": 5573402281.909213,
+    "pole_over_Estar": 4.5650318154888435e-10,
+    "colour_scale_kind": "one-loop pole above m_Z"
+   },
+   {
+    "start": "GL 15-trace MSbar",
+    "inv_alpha3_Ecell": 8.895621,
+    "b3": -7.0,
+    "inv_alpha3_mZ": -34.76179495156092,
+    "alpha3_mZ": null,
+    "pole_scale_GeV": 3256463313182970.5,
+    "pole_over_Estar": 0.0002667286134881341,
+    "colour_scale_kind": "one-loop pole above m_Z"
+   },
+   {
+    "start": "GL 15-trace MSbar",
+    "inv_alpha3_Ecell": 8.895621,
+    "b3": -5.0,
+    "inv_alpha3_mZ": -22.288247536829232,
+    "alpha3_mZ": null,
+    "pole_scale_GeV": 133555980166231.73,
+    "pole_over_Estar": 1.0939230074718232e-05,
+    "colour_scale_kind": "one-loop pole above m_Z"
+   },
+   {
+    "start": "GL 15-trace MSbar",
+    "inv_alpha3_Ecell": 8.895621,
+    "b3": -3.0,
+    "inv_alpha3_mZ": -9.814700122097536,
+    "alpha3_mZ": null,
+    "pole_scale_GeV": 77470558507.65009,
+    "pole_over_Estar": 6.34541607554596e-09,
+    "colour_scale_kind": "one-loop pole above m_Z"
+   }
+  ],
+  "inv_alpha3_Ecell_needed_for_D10_alpha3": {
+   "-7.0": 52.107939600069194,
+   "-5.0": 39.634392185337504,
+   "-3.0": 27.160844770605806
+  }
+ },
+ "z3_scale": {
+  "sqrt_sigma_per_cell_H4": 0.173,
+  "sqrt_sigma_GeV_cell_is_hbar_c_over_Estar": 2.1121399230972132e+18,
+  "sqrt_sigma_GeV_cell_is_hbar_c_over_Ecell": 1.6538625766234258e+18,
+  "ratio_to_lambda3_D10": 6.211780467667426e+18,
+  "sigma_H4_per_cell2": 0.03,
+  "sigma_needed_per_cell2_order": 7.756396623938633e-40,
+  "flux_density_H4_per_plaquette": 0.0898,
+  "flux_density_needed_order_dilute_gas": 2.3217480560989644e-39,
+  "note": "ARGUED: string tension proportional to the areal flux density of a dilute centre-flux gas; hadron scale of order sqrt(sigma)"
+ }
+}

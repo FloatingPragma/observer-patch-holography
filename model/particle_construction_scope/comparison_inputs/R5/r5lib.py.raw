@@ -1,0 +1,65 @@
+"""Worker R5: helpers around the reference engine work/DIRAC/routing.py (imported by path, never modified).
+
+Tick with background fields (this file adds only cell-dependent factors that commute with the engine's steps):
+    psi -> exp(-i phi(x)) exp(-i theta(x) Y_r) (Q_3 R)(Q_2 R)(Q_1 R) psi          (forward; reverse: axes 3, 2, 1)
+Link phases are passed to the engine: Routing(shape, links) with links[i][x] = exp(-i A_i(x)) on the link x -> x+e_i
+(Wilson line of A along the link). Then the tick is, on every lattice coset, the product formula
+    exp(-i phi) exp(-i theta beta) exp(-i alpha_3 Pi_3) exp(-i alpha_2 Pi_2) exp(-i alpha_1 Pi_1),  Pi = p - A,
+of the covariant Dirac Hamiltonian H = alpha.(p - A) + theta beta + phi, alpha_i = X_r sigma_i, beta = Y_r.
+"""
+import importlib.util, os
+import numpy as np
+
+_HERE = os.path.dirname(os.path.abspath(__file__))
+_ENGINE = os.path.normpath(os.path.join(_HERE, '..', 'DIRAC', 'routing.py'))
+if not os.path.exists(_ENGINE): _ENGINE = os.path.join(_HERE, 'routing_ref.py')   # copy pushed to the box, unmodified
+_spec = importlib.util.spec_from_file_location('routing', _ENGINE)
+routing = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(routing)
+Routing, SIG, branch = routing.Routing, routing.SIG, routing.branch
+X2 = SIG[0]; Y2 = SIG[1]; Z2 = SIG[2]; I2 = np.eye(2, dtype=complex)
+ALPHA = [np.kron(X2, SIG[i]) for i in range(3)]          # coin index = 2*record + spin
+BETA = np.kron(Y2, I2)
+
+
+def mass_step(psi, theta):
+    """exp(-i theta(x) Y_r); theta a number or an array of the lattice shape"""
+    th = np.asarray(theta, float)
+    if th.ndim: th = th[..., None]
+    c, s = np.cos(th), np.sin(th)
+    out = np.empty_like(psi)
+    out[..., 0, :] = c * psi[..., 0, :] - s * psi[..., 1, :]
+    out[..., 1, :] = s * psi[..., 0, :] + c * psi[..., 1, :]
+    return out
+
+
+def tick(w, psi, theta=0.0, phi=None, reverse=False):
+    for i in ((2, 1, 0) if reverse else (0, 1, 2)):
+        psi = w.shift(psi, i)
+    psi = mass_step(psi, theta)
+    if phi is not None: psi = np.exp(-1j * np.asarray(phi))[..., None, None] * psi
+    return psi
+
+
+def coin_apply(psi, m4):
+    """apply a 4x4 coin matrix (index 2*record + spin) to psi[..., record, spin]"""
+    sh = psi.shape
+    return (psi.reshape(sh[:-2] + (4,)) @ m4.T).reshape(sh)
+
+
+def dirac_h(p, theta):
+    return sum(p[i] * ALPHA[i] for i in range(3)) + theta * BETA
+
+
+def positive_coin(p, theta, which=0):
+    """coin of the continuum Dirac Hamiltonian with E = +sqrt(p^2 + theta^2); which = 0, 1 picks the helicity"""
+    w, v = np.linalg.eigh(dirac_h(p, theta))
+    return v[:, 2 + which]
+
+
+def matrix_of(f, shape):
+    """dense matrix of a linear map on arrays of the given shape"""
+    n = int(np.prod(shape)); m = np.empty((n, n), complex)
+    for k in range(n):
+        e = np.zeros(n, complex); e[k] = 1
+        m[:, k] = f(e.reshape(shape)).reshape(n)
+    return m

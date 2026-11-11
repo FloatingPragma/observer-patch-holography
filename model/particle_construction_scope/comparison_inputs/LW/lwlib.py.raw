@@ -1,0 +1,58 @@
+"""SMDR access for worker LW.
+
+Uses the SMDR binaries compiled by lane LEW (/tmp/claude-501/lew_smdr/bin, SMDR pinned commit 5c4dd92c) read-only,
+with every input file written to this directory's smdr_work/. The readout follows LEW's F10 (lewlib.readout):
+SMDR matching at Q0 (order-2 row), finite-light W/Z shifts, Breit-Wigner conversion for W and Z.
+"""
+from __future__ import annotations
+
+import json
+import math
+import subprocess
+import sys
+from pathlib import Path
+
+sys.dont_write_bytecode = True
+HERE = Path(__file__).resolve().parent
+BIN = Path("/tmp/claude-501/lew_smdr/bin")
+WORK = HERE / "smdr_work"
+ORDER_Y = ("yu", "yc", "yt", "yd", "ys", "yb", "ye", "ymu", "ytau")
+
+
+def invoke(name: str, *args, cwd: Path | None = None) -> dict:
+    argv = [format(x, ".18g") if isinstance(x, float) else str(x) for x in args]
+    done = subprocess.run([str(BIN / name), *argv], cwd=cwd, check=True, capture_output=True, text=True,
+                          timeout=300)
+    return json.loads(done.stdout.strip().splitlines()[-1])
+
+
+def native_args(pk: dict) -> list:
+    return [pk["Q0"], pk["v"], pk["gY"], pk["g2"], pk["g3"], *[pk[k] for k in ORDER_Y], pk["lambda"]]
+
+
+def write_input_dat(pk: dict, name: str) -> str:
+    WORK.mkdir(parents=True, exist_ok=True)
+    names = {"Q": pk["Q0"], "v": pk["v"], "gp": pk["gY"], "g": pk["g2"], "g3": pk["g3"],
+             **{k: pk[k] for k in ORDER_Y}, "lambda": pk["lambda"],
+             "m2": -pk["lambda"] * pk["v"] ** 2, "Lambda": 0.0}
+    (WORK / name).write_text("\n".join(f"SMDR_{k}_in = {x!r};" for k, x in names.items()) + "\n")
+    return name
+
+
+def rg_to(pk: dict, q_final: float, loops: int = 5, name: str = "lw.dat") -> dict:
+    write_input_dat(pk, name)
+    return invoke("rg", q_final, loops, name, cwd=WORK)
+
+
+def readout(pk: dict) -> dict:
+    native = native_args(pk)
+    matched = invoke("heavy", "match", *native)["rows"][2]
+    shifts = invoke("wz", "light", *native)["delta_complex_pole_squared_GeV2"]
+    out = {"H": matched["higgs"]["mass_GeV"], "t": matched["top_QCD4_EW2"]["mass_GeV"]}
+    for key in ("W", "Z"):
+        row = matched[key]
+        ps = complex(row["mass_GeV"], -row["width_GeV"] / 2) ** 2 + complex(*shifts[key])
+        out[key] = math.sqrt(ps.real + ps.imag ** 2 / ps.real)
+        out[key + "_pole_real"] = row["mass_GeV"]
+    out["GF_local"] = matched["GF_local_chiral_external_legs_GeVm2"]
+    return out

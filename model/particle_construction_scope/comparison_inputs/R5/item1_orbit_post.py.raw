@@ -1,0 +1,39 @@
+"""Item 1, post-processing of the cyclotron run: the measured orbit against the semiclassical equation of motion with the
+dispersion of the tick itself,  dx/dt = grad_Pi E,  dPi/dt = B (v_2, -v_1)  (so the orbit is the constant-energy contour of
+E(Pi), turned by a quarter turn and scaled by 1/B), averaged over the momentum distribution of the packet.
+E(Pi): positive eigenphase per tick of the alternating pair (two-tick symbol), on a grid, splined."""
+import json, sys
+import numpy as np
+from scipy.interpolate import RectBivariateSpline
+from r5lib import ALPHA, BETA
+d = json.load(open('item1_motion.json'))['cyclotron']; B, p0, th, T, L = d['B'], d['p0'], d['theta'], d['ticks'], d['L']
+g = np.linspace(-0.75, 0.75, 151); P1, P2 = np.meshgrid(g, g, indexing='ij'); I4 = np.eye(4)
+def ex(p, a): return np.cos(p)[..., None, None] * I4 - 1j * np.sin(p)[..., None, None] * a
+M = np.cos(th) * I4 - 1j * np.sin(th) * BETA
+W = M @ ex(P1, ALPHA[0]) @ ex(P2, ALPHA[1]) @ M @ ex(P2, ALPHA[1]) @ ex(P1, ALPHA[0])      # reverse after forward, p_3 = 0
+ph = np.sort(-np.angle(np.linalg.eigvals(W)), axis=-1) / 2
+E = ph[..., 2:].mean(axis=-1); split = float(np.abs(ph[..., 3] - ph[..., 2]).max())
+print('two positive eigenphases of the alternating pair: max splitting on the grid %.1e' % split)
+spl = RectBivariateSpline(g, g, E, kx=3, ky=3)
+rng = np.random.default_rng(0); n = 4000; sk = np.sqrt(B) / 2
+pi = np.stack([p0 + sk * rng.normal(size=n), sk * rng.normal(size=n)], axis=1); pi_start = pi.copy()
+def rhs(p):
+    v1, v2 = spl.ev(p[:, 0], p[:, 1], dx=1), spl.ev(p[:, 0], p[:, 1], dy=1)
+    return B * np.stack([v2, -v1], axis=1)
+pred = {}
+for t in range(T + 1):
+    if t % 8 == 0:
+        dz = np.stack([-(pi[:, 1] - pi_start[:, 1]), pi[:, 0] - pi_start[:, 0]], axis=1) / B
+        pred[t] = (L / 2 + dz.mean(axis=0)).tolist()
+    k1 = rhs(pi); k2 = rhs(pi + 0.5 * k1); k3 = rhs(pi + 0.5 * k2); k4 = rhs(pi + k3)
+    pi = pi + (k1 + 2 * k2 + 2 * k3 + k4) / 6
+dev = [(r['t'], float(np.hypot(r['measured'][0] - pred[r['t']][0], r['measured'][1] - pred[r['t']][1]))) for r in d['trajectory']]
+rel = [(r['t'], float(np.hypot(r['measured'][0] - r['ensemble'][0], r['measured'][1] - r['ensemble'][1]))) for r in d['trajectory']]
+out = dict(max_deviation_from_tick_dispersion_orbit_half_period=max(v for t, v in dev if t <= T // 2), max_deviation_from_tick_dispersion_orbit_full_period=max(v for t, v in dev),
+           max_deviation_from_relativistic_orbit_half_period=max(v for t, v in rel if t <= T // 2), max_deviation_from_relativistic_orbit_full_period=max(v for t, v in rel),
+           orbit_diameter_relativistic=2 * p0 / B, helicity_splitting_on_grid=split, prediction=pred,
+           speed_on_axis=float(spl.ev(p0, 0.0, dx=1)), speed_on_diagonal=float(np.hypot(spl.ev(p0 / np.sqrt(2), p0 / np.sqrt(2), dx=1), spl.ev(p0 / np.sqrt(2), p0 / np.sqrt(2), dy=1))),
+           speed_relativistic=float(p0 / np.hypot(p0, th)))
+print({k: (round(v, 4) if isinstance(v, float) else v) for k, v in out.items() if k != 'prediction'})
+for r in d['trajectory'][::8]: print('  t=%3d measured (%.2f, %.2f)  tick-dispersion orbit (%.2f, %.2f)  relativistic (%.2f, %.2f)' % (r['t'], *r['measured'], *pred[r['t']], *r['ensemble']))
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 'item1_orbit_post.json', 'w'), indent=1)

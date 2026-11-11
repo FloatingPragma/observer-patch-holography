@@ -1,0 +1,37 @@
+"""Task GEN, diagnostic for P3.3 (not part of the decision): lifetimes of ended identities at single-depth resolution
+for small lifetimes, as count per unit of ln(1 + x) (reading ii) and per unit x (reading i).
+
+    python gen_lifecheck.py <catalogue.npz> <tier 0|1> <class> [<class> ...]
+"""
+import json
+import sys
+
+import numpy as np
+
+z = np.load(sys.argv[1])
+tier = int(sys.argv[2])
+cls = z['cls']; t = z['tier']; cause = z['cause']
+life = (z['death_depth'].astype(np.int64) - z['birth_depth'])
+out = {}
+for k in map(int, sys.argv[3:]):
+    m = (t == tier) & (cls == k) & (cause != 0)
+    lf = life[m]
+    c = np.bincount(lf, minlength=400)[:400]
+    x = np.arange(400)
+    dens_ii = c[1:] / np.log((x[1:] + 2) / (x[1:] + 1))
+    # coarse: integers 1..12 individually, then groups of growing size
+    out[str(k)] = {'ended': int(m.sum()), 'count_by_lifetime_0_to_30': c[:31].tolist(),
+                   'density_ii_1_to_30': [round(float(v), 1) for v in dens_ii[:30]],
+                   'count_lifetime_31_to_399_in_blocks_of_ten_percent_log': None}
+    print(k, 'ended', int(m.sum()))
+    print('  count  life 0..30 :', c[:31].tolist())
+    print('  dens_ii life 1..30:', [int(v) for v in dens_ii[:30]])
+    # log-spaced groups beyond 30: density per ln(1+x)
+    edges = np.unique(np.round(np.logspace(np.log10(31), np.log10(20000), 25)).astype(int))
+    cc = np.histogram(lf, edges)[0]
+    w = np.log((edges[1:] + 1) / (edges[:-1] + 1))
+    print('  beyond 30: edges', edges.tolist())
+    print('  dens_ii          ', [int(v) for v in cc / w])
+    out[str(k)]['beyond30_edges'] = edges.tolist()
+    out[str(k)]['beyond30_density_ii'] = [float(v) for v in cc / w]
+print(json.dumps(out)[:0])

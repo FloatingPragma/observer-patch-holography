@@ -1,0 +1,129 @@
+"""T4: the criticality boundary scale (PREREGISTRATION section 4).
+
+(a) every source statement that involves mu_c (repository search, classified);
+(b) the one-parameter family: F9 + F10 on a 13-point log grid of mu_c in [1e16, 1.3e19] GeV at P_fwd;
+(c) d beta_lambda / d ln mu at each family point (SMDR, two loops);
+(d) the four candidate statements K1 to K4 at two and three loops, readout with A1 and with A2;
+(e) compare-only implied scales (the scale at which the family meets a measured value), reported as the
+    repository does, never used for selection.
+Writes t4_criticality.json.
+"""
+from __future__ import annotations
+
+import json
+import math
+import subprocess
+
+import lewlib as L
+from t3_vev_attachment import attach
+
+
+def boundary_flow(pk: dict, mu: float, yt: float, lam: float, loops: int = 2, h: float = 1e-3) -> float:
+    up = L.rg_to(pk, mu * math.exp(h), loops, yt, lam, name="f.dat")["beta_lambda"]
+    dn = L.rg_to(pk, mu * math.exp(-h), loops, yt, lam, name="f.dat")["beta_lambda"]
+    return (up - dn) / (2 * h)
+
+
+def family_point(pk0: dict, mu: float, loops: int, guess) -> dict:
+    pk = dict(pk0)
+    crit = L.solve_criticality(pk, mu, loops=loops, guess=guess)
+    pk["yt"], pk["lambda"] = crit["yt_Q0"], crit["lambda_Q0"]
+    a1 = attach(pk, "A1")
+    a2 = attach(pk, "A2")
+    return {"mu_c_GeV": mu, "loops": loops, "yt_Q0": crit["yt_Q0"], "lambda_Q0": crit["lambda_Q0"],
+            "boundary_lambda": crit["boundary"]["lambda"], "boundary_beta_lambda": crit["boundary"]["beta_lambda"],
+            "boundary_yt": crit["boundary"]["yt"],
+            "A1": a1["outputs_GeV"], "A2": a2["outputs_GeV"], "A2_scale_GeV": a2["attachment_scale_GeV"],
+            "dbeta_lambda_dlnmu": boundary_flow(pk, mu, crit["yt_Q0"], crit["lambda_Q0"], loops)}
+
+
+def source_statements() -> list[dict]:
+    pats = r"UV_GeV|boundary_scale|criticality boundary|Lambda_crit|log_midpoint|mu_b\b"
+    done = subprocess.run(["grep", "-rIlE", pats, str(L.REPO / "code" / "particles"), str(L.REPO / "model"),
+                           str(L.REPO / "paper"), str(L.REPO / "extra")], capture_output=True, text=True)
+    files = sorted(set(done.stdout.split()))
+    return [{"file": f.replace(str(L.REPO) + "/", "")} for f in files]
+
+
+def implied(family: list[dict], attach_key: str, key: str, target: float):
+    """log-linear interpolation of the scale at which the family output equals target (compare-only)."""
+    for a, b in zip(family, family[1:]):
+        ya, yb = a[attach_key][key], b[attach_key][key]
+        if (ya - target) * (yb - target) <= 0 and ya != yb:
+            la, lb = math.log(a["mu_c_GeV"]), math.log(b["mu_c_GeV"])
+            return math.exp(la + (target - ya) * (lb - la) / (yb - ya))
+    return None
+
+
+def main():
+    t1 = json.loads((L.LANE / "t1_chain.json").read_text())
+    refs = t1["references_compare_only_GeV"]
+    pf = t1["pixels"]["P_fwd"]
+    pk0 = dict(pf["packet_Q0"])
+    chain = pf["chain"]
+    e = L.E_STAR_BRANCH
+    p = float(chain["P"])
+    cands = {
+        "K1_E_cell_single_anchor": e * p ** -0.5,
+        "K2_E_star_uv_edge": e,
+        "K3_M_U_archived": e * math.exp(-2 * math.pi) * p ** (1 / 6),
+        "K4_log_midpoint_post_exposure": e * math.exp(-math.pi) * p ** (-1 / 6),
+    }
+    out = {"schema": "lew.t4_criticality.v1", "pixel": "P_fwd", "E_star_GeV": e, "candidates_GeV": cands,
+           "source_statements_involving_mu_c": source_statements()}
+    # (d) candidates at two and three loops
+    cand_rows = {}
+    for name, mu in cands.items():
+        cand_rows[name] = {str(lp): family_point(pk0, mu, lp, (0.96, 0.14)) for lp in (2, 3)}
+    out["candidates"] = cand_rows
+    # (b), (c) family on the preregistered grid, two loops
+    grid = [1e16 * (1.3e19 / 1e16) ** (i / 12) for i in range(13)]
+    fam, guess = [], (0.97, 0.12)
+    for mu in grid:
+        row = family_point(pk0, mu, 2, guess)
+        guess = (row["yt_Q0"], row["lambda_Q0"])
+        fam.append(row)
+    out["family_two_loop"] = fam
+    fam3, guess = [], (0.97, 0.12)
+    for mu in grid:
+        row = family_point(pk0, mu, 3, guess)
+        guess = (row["yt_Q0"], row["lambda_Q0"])
+        fam3.append(row)
+    out["family_three_loop"] = fam3
+    mh = [r["A1"]["H"] for r in fam]
+    mt = [r["A1"]["t"] for r in fam]
+    flows = [r["dbeta_lambda_dlnmu"] for r in fam] + [r["dbeta_lambda_dlnmu"] for r in fam3]
+    out["freedom_test"] = {
+        "a_mu_c_appears_only_in_criticality_conditions": "see source_statements_involving_mu_c and the report",
+        "b_solution_exists_at_every_grid_point": all(abs(r["boundary_lambda"]) < 1e-10 and abs(r["boundary_beta_lambda"]) < 1e-11
+                                                    for r in fam + fam3),
+        "b_mH_strictly_monotone_in_mu_c": all(x < y for x, y in zip(mh, mh[1:])),
+        "b_mt_strictly_monotone_in_mu_c": all(x < y for x, y in zip(mt, mt[1:])),
+        "c_flow_sign_definite": all(f > 0 for f in flows) or all(f < 0 for f in flows),
+        "c_min_flow": min(flows), "c_max_flow": max(flows),
+    }
+    out["freedom_test"]["mu_c_free_on_current_source"] = (out["freedom_test"]["b_solution_exists_at_every_grid_point"]
+                                                          and out["freedom_test"]["b_mH_strictly_monotone_in_mu_c"]
+                                                          and out["freedom_test"]["c_flow_sign_definite"])
+    # (e) compare-only implied scales
+    imp = {}
+    for lp, f in (("2", fam), ("3", fam3)):
+        for ak in ("A1", "A2"):
+            for key in ("H", "t"):
+                imp[f"loops{lp}_{ak}_{key}"] = implied(f, ak, key, refs[key])
+    out["implied_scales_compare_only_GeV"] = imp
+    out["residual_percent_compare_only"] = {
+        name: {lp: {ak: {k: 100 * (row[ak][k] / refs[k] - 1) for k in ("W", "Z", "H", "t")} for ak in ("A1", "A2")}
+               for lp, row in rows.items()} for name, rows in cand_rows.items()}
+    (L.LANE / "t4_criticality.json").write_text(json.dumps(out, indent=2) + "\n")
+    for name, rows in cand_rows.items():
+        for lp, row in rows.items():
+            print(name, lp, "mu=%.4e" % row["mu_c_GeV"], "yt0=%.7f lam0=%.7f" % (row["yt_Q0"], row["lambda_Q0"]),
+                  "A1 H=%.4f t=%.4f" % (row["A1"]["H"], row["A1"]["t"]), "A2 H=%.4f t=%.4f" % (row["A2"]["H"], row["A2"]["t"]),
+                  "flow=%.3e" % row["dbeta_lambda_dlnmu"])
+    print(json.dumps(out["freedom_test"], indent=1))
+    print(json.dumps(imp, indent=1))
+
+
+if __name__ == "__main__":
+    main()

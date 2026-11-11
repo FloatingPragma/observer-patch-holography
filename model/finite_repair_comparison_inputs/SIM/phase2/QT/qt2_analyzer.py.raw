@@ -1,0 +1,209 @@
+"""QT analyzer rows R1 to R4 (CANDIDATES.md section 5): standing state, one plain tick, record weights, the count
+theta = P(R+ xor H) of two independent objects, the circulants A1 and A2, eigen-rates and ratios.
+
+Weights and theta are EXACT (fractions). Eigen-rates are closed forms evaluated with mpmath at 40 digits.
+Control: the same code on the pair around a class-3 flux returns the numbers on file (2/9, 206.770316, 3477.4728).
+No measured value is read. Writes qt2_analyzer.json.
+"""
+from __future__ import annotations
+
+import sys
+import time
+from fractions import Fraction as Fr
+
+import mpmath as mp
+
+import qt_common as Q
+import qt_analysis as QA
+
+OUT = 'qt2_analyzer.json'
+mp.mp.dps = 40
+
+
+def mpf(x):
+    return mp.mpf(x.numerator) / x.denominator
+
+
+def circulant(w0, wH, wp, wm, theta, mode):
+    a0 = mp.sqrt(mpf(w0) / 3)
+    aH, ap, am = mp.sqrt(mpf(wH)), mp.sqrt(mpf(wp)), mp.sqrt(mpf(wm))
+    th = mpf(theta)
+    lam = []
+    for k in range(3):
+        a = th + 2 * mp.pi * k / 3
+        if mode == 'A1':
+            lam.append(a0 * (aH + ap * mp.expj(a) + am * mp.expj(-a)))
+        else:
+            lam.append(a0 * (aH + ap * (mp.expj(a) + mp.expj(2 * a)) / 2 + am * (mp.expj(-a) + mp.expj(-2 * a)) / 2))
+    y = [abs(v) ** 2 for v in lam]
+    ys = sorted(y)
+    koide = sum(y) / sum(mp.sqrt(v) for v in y) ** 2
+    order = sorted(range(3), key=lambda k: y[k])
+    return {'circulant': mode,
+            'lambda_k (k = 0, 1, 2), real part': [mp.nstr(mp.re(v), 18) for v in lam],
+            'lambda_k, largest imaginary part': mp.nstr(max(abs(mp.im(v)) for v in lam), 5),
+            'all lambda_k real and nonnegative': bool(all(abs(mp.im(v)) < mp.mpf(10) ** -30 and mp.re(v) >= 0 for v in lam)),
+            'y_k (k = 0, 1, 2)': [mp.nstr(v, 18) for v in y],
+            'characters in ascending order of y': order,
+            'sum of y_k': mp.nstr(sum(y), 18),
+            'y_mid / y_min': mp.nstr(ys[1] / ys[0], 15), 'y_max / y_min': mp.nstr(ys[2] / ys[0], 15),
+            'y_max / y_mid': mp.nstr(ys[2] / ys[1], 15), 'Q = sum y / (sum sqrt y)^2': mp.nstr(koide, 15)}
+
+
+def fixed_with_blank(m, types):
+    """Exact fixed vectors of D~ on the components of the given content types, and those with a blank part."""
+    res = QA.analyse(m, types=types, exact_limit=200, do_mod=False, keep_vectors=True)
+    vecs = res['_vectors']
+    withb = [v for v in vecs if any(j % m.nrec == 0 for j in v)]
+    return res, vecs, withb
+
+
+def consensus_projection(m, vecs):
+    """The fixed vector orthogonal (true inner product) to every fixed vector without a blank part. Needs rank one."""
+    f0 = [v for v in vecs if not any(j % m.nrec == 0 for j in v)]
+    fb = [v for v in vecs if any(j % m.nrec == 0 for j in v)]
+    assert len(fb) == 1
+
+    def ip(u, v):
+        tot = Fr(0)
+        for j, a in u.items():
+            b = v.get(j)
+            if b is not None:
+                c, rec = divmod(j, m.nrec)
+                tot = tot + m.tau2(c, rec) * Q.conj(a) * b
+        return tot
+    ortho = []
+    for e in f0:
+        e = dict(e)
+        for o, n2 in ortho:
+            f = ip(o, e) / n2
+            if f != 0:
+                for j, a in o.items():
+                    e[j] = e.get(j, 0) - f * a
+        e = {j: a for j, a in e.items() if a != 0}
+        ortho.append((e, ip(e, e)))
+    v = dict(fb[0])
+    for o, n2 in ortho:
+        f = ip(o, v) / n2
+        if f != 0:
+            for j, a in o.items():
+                v[j] = v.get(j, 0) - f * a
+    v = {j: a for j, a in v.items() if a != 0}
+    tot = ip(v, v)
+    blank = sum((Q.norm2(a) for j, a in v.items() if j % m.nrec == 0), Fr(0))
+    return v, {'basis states in its support': len(v), 'all scaled amplitudes of equal modulus': len({Q.norm2(a) for a in v.values()}) == 1,
+               'weight of its blank-record part': str(Q.Fr(blank) / tot if not isinstance(tot, Q.Qw) else blank / tot.a),
+               'weight by record': {str(r): str(sum((m.tau2(*divmod(j, m.nrec)) * Q.norm2(a) for j, a in v.items() if j % m.nrec == r), Fr(0))
+                                                / (tot.a if isinstance(tot, Q.Qw) else tot)) for r in range(m.nrec)}}
+
+
+def tick(m, amps, geo, read=None):
+    """One plain tick from the blank standing state; weights by flag. read: record values that are read as emissions."""
+    st = m.embed(amps)
+    n0 = m.weight(st)
+    w1 = m.W(st)
+    wt = {}
+    recw = {}
+    for (c, rec, k), a in w1.items():
+        w = m.tau2(c, rec) * Q.norm2(a) / n0
+        recw[rec] = recw.get(rec, Fr(0)) + w
+        if rec == 0:
+            key = 'idle'
+        elif rec == 1:
+            key = 'other (record 1)'
+        elif read is not None and rec not in read:
+            key = 'emission not read'
+        else:
+            first = rec in (2, 4)
+            if geo == 'hexagon':
+                s = k // 2
+                if Q.HEX_TYPES[s] == 'E':
+                    key = 'H'
+                else:
+                    a_, b_ = m.pair_at(k)
+                    emitter = a_ if first else b_
+                    key = 'R+' if emitter in Q.ORBIT_A else 'R-'
+            else:
+                key = 'R+' if first else 'R-'
+        wt[key] = wt.get(key, Fr(0)) + w
+    back = m.Winv(w1) == st
+    w0 = wt.get('idle', Fr(0))
+    wp, wm = wt.get('R+', Fr(0)), wt.get('R-', Fr(0))
+    wH = wt.get('H', Fr(0)) if geo == 'hexagon' else wp + wm          # carrier: H is a written (read) record of the second cell
+    theta = wp + wH - 2 * wp * wH
+    return {'weights by flag': {k: str(v) for k, v in sorted(wt.items())}, 'weights by record': {str(r): str(v) for r, v in sorted(recw.items())},
+            'total': str(sum(recw.values(), Fr(0))), 'inverse tick restores the standing state': bool(back),
+            '(w_0, w_H, w_+, w_-)': [str(w0), str(wH), str(wp), str(wm)], 'theta = P(R+ xor H)': str(theta),
+            'H : R+ : R-': f'{wH / wp} : 1 : {wm / wp}' if wp else 'undefined'}, (w0, wH, wp, wm, theta)
+
+
+def row(m, geo, amps, modes, read=None):
+    info, (w0, wH, wp, wm, theta) = tick(m, amps, geo, read)
+    info['circulants'] = {mode: circulant(w0, wH, wp, wm, theta, mode) for mode in modes}
+    return info
+
+
+def main():
+    t0 = time.time()
+    out = {'task': 'QT analyzer rows', 'provenance': Q.FC.provenance()}
+
+    # ---------------- control: the pair around a class-3 flux (numbers on file)
+    lawA = Q.Law('T-A')
+    m = Q.hexagon(lawA, 3, nloads=2)
+    res, vecs, withb = fixed_with_blank(m, ('double',))
+    amps = {m.cfg[j // m.nrec]: a for j, a in withb[0].items() if j % m.nrec == 0}
+    ctl = row(m, 'hexagon', amps, ('A1',))        # A2 is defined on the triple of law T-A only; on the pair the rule is A1
+    ctl['consensus states of the pair'] = len(withb)
+    out['control: pair around a class-3 flux, hexagon'] = ctl
+    print('control', ctl['(w_0, w_H, w_+, w_-)'], ctl['theta = P(R+ xor H)'], ctl['circulants']['A1']['y_mid / y_min'],
+          ctl['circulants']['A1']['y_max / y_min'], ctl['circulants']['A1']['Q = sum y / (sum sqrt y)^2'])
+
+    # ---------------- R1, R3: T-A, hexagon; R2: T-A, carrier
+    rows = {}
+    for geo in ('hexagon', 'carrier'):
+        for k in (0, 2, 4):
+            m = Q.hexagon(lawA, k) if geo == 'hexagon' else Q.carrier(lawA, k)
+            res, vecs, withb = fixed_with_blank(m, ('triple',))
+            assert len(withb) == 1
+            proj, pinfo = consensus_projection(m, vecs)
+            amps = {m.cfg[j // m.nrec]: a for j, a in proj.items() if j % m.nrec == 0}
+            ports = sorted(m.ports_of(c)[0] for c in amps)
+            mod = sorted({str(Q.norm2(a)) for a in amps.values()})
+            r = row(m, geo, amps, ('A1', 'A2') if geo == 'hexagon' else ('A1',))
+            r['consensus state on the cyclic subspace'] = pinfo
+            r['standing state'] = {'configurations': len(amps), 'all triples': all(m.ctype(c) == 'triple' for c in amps),
+                                   'ports': ports, 'squared moduli of its amplitudes': mod,
+                                   'amplitudes': {str(m.ports_of(c)[0]): Q.fstr(a) for c, a in sorted(amps.items(), key=lambda t: m.ports_of(t[0]))}}
+            # every single port alone
+            per = set()
+            for c in amps:
+                info, tup = tick(m, {c: Fr(1)}, geo)
+                per.add(tuple(str(x) for x in tup))
+            r['one triple at a single port: distinct (w_0, w_H, w_+, w_-, theta)'] = sorted(per)
+            name = ('R1 and R3' if geo == 'hexagon' else 'R2') + f', class {k}'
+            rows[name] = r
+            print(name, r['(w_0, w_H, w_+, w_-)'], 'theta', r['theta = P(R+ xor H)'], 'back', r['inverse tick restores the standing state'],
+                  {mo: (c['y_mid / y_min'], c['y_max / y_min'], c['Q = sum y / (sum sqrt y)^2'], c['all lambda_k real and nonnegative'])
+                   for mo, c in r['circulants'].items()}, pinfo['weight of its blank-record part'], flush=True)
+    out['law T-A'] = rows
+
+    # ---------------- T-B and T-C: the uniform triple (not class-selected), flags as registered
+    rows = {}
+    for name, read, label in (('T-B', None, 'T-B, flags as R1'), ('T-C', None, 'T-C, flag set all'), ('T-C', (2, 3), 'R4: T-C, flag set single')):
+        law = Q.Law(name)
+        for geo in (('hexagon', 'carrier') if label != 'R4: T-C, flag set single' else ('hexagon',)):
+            for k in (0, 2, 4):
+                m = Q.hexagon(law, k) if geo == 'hexagon' else Q.carrier(law, k)
+                amps = {c: Fr(1) for c in m.cfg if m.ctype(c) == 'triple'}
+                r = row(m, geo, amps, ('A1',), read)
+                rows[f'{label}, {geo}, class {k}'] = r
+                print(label, geo, k, r['(w_0, w_H, w_+, w_-)'], 'theta', r['theta = P(R+ xor H)'],
+                      {mo: (c['y_mid / y_min'], c['y_max / y_min'], c['Q = sum y / (sum sqrt y)^2']) for mo, c in r['circulants'].items()}, flush=True)
+    out['laws T-B and T-C (uniform triple)'] = rows
+    out['seconds'] = round(time.time() - t0, 2)
+    Q.jdump(out, OUT)
+    print('written', OUT, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

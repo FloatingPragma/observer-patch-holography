@@ -1,0 +1,83 @@
+{
+ "engine": "WORKSPACE/repair-law/work/DIRAC/routing.py",
+ "engine_sha256": "692285e9ecef2542d290c720e8bfd7af53d2d908086b45e4205e4febf5719891",
+ "mass_step": {
+  "uniform_phi0_vs_routing_Z": 0.0,
+  "uniform_phi90_vs_routing_Y": 1.4304896245381992e-17,
+  "field_phi0_vs_cf1_Z": 0.0,
+  "field_phi90_vs_cf1_Y": 1.5515838457795457e-17,
+  "field_general_phase_vs_closed_form": 2.8609792490763984e-17
+ },
+ "shifts": {
+  "S_0_flat": 4.3885418357208765e-17,
+  "S_0_flat_unitary": 0.0,
+  "S_1_flat": 5.594315114139762e-17,
+  "S_1_flat_unitary": 0.0,
+  "S_2_flat": 2.797157557069881e-17,
+  "S_2_flat_unitary": 0.0,
+  "S_0_random_U1_links": 6.206335383118183e-17,
+  "S_0_random_U1_links_unitary": 1.4118653958848404e-16,
+  "S_1_random_U1_links": 5.003707553108402e-17,
+  "S_1_random_U1_links_unitary": 1.1102230246251565e-16,
+  "S_2_random_U1_links": 5.721958498152797e-17,
+  "S_2_random_U1_links_unitary": 1.114654964638795e-16,
+  "engine_one_cell_axis_with_link_phase_equals_exp(-i p3 alpha_3)": 5.419449386414209e-17,
+  "engine_one_cell_axis_flat_is_identity": 0.0
+ },
+ "period": {
+  "period_p3_0.0": 1.6667795129466247e-16,
+  "symmetric_frame_p3_0.0": 1.6711069443220836e-16,
+  "period_p3_0.37": 1.6711069443220836e-16,
+  "symmetric_frame_p3_0.37": 2.2591401799415137e-16
+ },
+ "structures": {
+  "unitary_flat_p3_0.0": 4.441007782572765e-16,
+  "Gamma_Us_Gamma_Us_minus_1_flat_p3_0.0": 4.479354803058623e-16,
+  "Theta_commutes_with_period_flat_p3_0.0": 3.002224531865041e-16,
+  "Theta_Us(p3)_equals_Us(-p3)_Theta_flat_p3_0.0": 3.002224531865041e-16,
+  "unitary_flat_p3_3.1416": 4.441016672811067e-16,
+  "Gamma_Us_Gamma_Us_minus_1_flat_p3_3.1416": 4.473000210046971e-16,
+  "Theta_commutes_with_period_flat_p3_3.1416": 4.898425415289509e-16,
+  "Theta_Us(p3)_equals_Us(-p3)_Theta_flat_p3_3.1416": 3.2368285245694683e-16,
+  "unitary_flat_p3_0.37": 8.881796476308754e-16,
+  "Gamma_Us_Gamma_Us_minus_1_flat_p3_0.37": 0.8924579404376938,
+  "Theta_commutes_with_period_flat_p3_0.37": 1.3349414159143826,
+  "Theta_Us(p3)_equals_Us(-p3)_Theta_flat_p3_0.37": 3.342213888644167e-16,
+  "Theta_Gamma_anticommute": 0.0,
+  "Theta_squared_is_(-1)^(x1+x2)": 1.2246467991473533e-15,
+  "unitary_random_U1_links_p3_0.0": 6.662614588083744e-16,
+  "Gamma_Us_Gamma_Us_minus_1_random_U1_links_p3_0.0": 6.698950356155728e-16,
+  "Theta_commutes_with_period_random_U1_links_p3_0.0": 3.2368285245694683e-16,
+  "Theta_Us(p3)_equals_Us(-p3)_Theta_random_U1_links_p3_0.0": 3.2368285245694683e-16,
+  "unitary_random_U1_links_p3_3.1416": 6.663301331155731e-16,
+  "Gamma_Us_Gamma_Us_minus_1_random_U1_links_p3_3.1416": 6.669128067728981e-16,
+  "Theta_commutes_with_period_random_U1_links_p3_3.1416": 4.885218163821797e-16,
+  "Theta_Us(p3)_equals_Us(-p3)_Theta_random_U1_links_p3_3.1416": 3.2368285245694683e-16,
+  "unitary_random_U1_links_p3_0.37": 1.1103103980693793e-15,
+  "Gamma_Us_Gamma_Us_minus_1_random_U1_links_p3_0.37": 0.8924579404376937,
+  "Theta_commutes_with_period_random_U1_links_p3_0.37": 1.3349414159143826,
+  "Theta_Us(p3)_equals_Us(-p3)_Theta_random_U1_links_p3_0.37": 2.9504581591051765e-16
+ },
+ "parity_classes": {
+  "largest_entry_between_classes": 0.0,
+  "class_dimensions": [
+   32,
+   32,
+   32,
+   32
+  ]
+ },
+ "exact_dyadic": {
+  "lattice": [
+   8,
+   8
+  ],
+  "statement": "Theta (X' S1 S2 X S2 S1) = (X' S1 S2 X S2 S1) Theta for arbitrary on-site record operators X, X'",
+  "defect": 0.0,
+  "largest_entry_of_the_product": 11.029080877389557,
+  "Gamma_S_i_Gamma_S_i_minus_1": [
+   0.0,
+   0.0
+  ]
+ }
+}

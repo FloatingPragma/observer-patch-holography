@@ -1,0 +1,261 @@
+#!/usr/bin/env python3
+"""S2: the simplest unitary member, S-b: every seam event applies U = (1 + i P_ab)/sqrt2 = exp(i (pi/4) P_ab)
+(P_ab = exchange of the two ports).  No coin, no record, no added state, no declared number.
+
+ 1. identities on the 66-state shell: classical shadow, relation to the flow family, Lindblad form under schedule (i),
+    covariances, behaviour on double loads;
+ 2. the cone bound under schedule (i): every Liouville eigenvalue obeys |Im| <= |Re| (frequency <= damping, Q <= 1/2);
+    checked on a ring (one and two quanta) and on the carrier (one and two quanta); negative control with a small pulse;
+ 3. amplitude map under schedule (ii) (ring: all orders; carrier: Monte Carlo);
+ 4. fixed orders: carrier (two classes), triangular lattice (six-layer order): Floquet bands, speeds.
+"""
+import itertools, json, math, sys, time
+from pathlib import Path
+import numpy as np
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+import gates as G
+from model.common_source import slow_geometry
+from model.observer import native
+t00 = time.time()
+out = {}
+src = slow_geometry.source()
+SEAMS = [tuple(s) for s in src.seams()]; ROTS = [tuple(r) for r in src.rotations()]
+M = 30
+st66 = list(native.states(binary=True)); idx66 = {s: i for i, s in enumerate(st66)}
+st78 = list(native.states()); idx78 = {s: i for i, s in enumerate(st78)}
+
+def exchange(states, idx, a, b):
+    P = np.zeros((len(states), len(states)))
+    for i, s in enumerate(states):
+        t = list(s); t[a], t[b] = t[b], t[a]; P[idx[tuple(t)], i] = 1
+    return P
+P66 = [exchange(st66, idx66, a, b) for a, b in SEAMS]
+U66 = [(np.eye(66) + 1j * P) / math.sqrt(2) for P in P66]
+
+# ------------------------------------------------------------------ 1. identities
+res = {}
+res['unitary'] = bool(all(np.allclose(U.conj().T @ U, np.eye(66)) for U in U66))
+dev = 0.0
+for e, seam in enumerate(SEAMS):
+    K = np.zeros((66, 66))
+    for s in st66:
+        for coin in (0, 1): K[idx66[native.native(s, seam, coin)[0]], idx66[s]] += .5
+    dev = max(dev, np.abs(np.abs(U66[e]) ** 2 - K).max())
+res['classical_shadow_one_event_max_deviation_66_states_30_seams'] = float(dev)
+# double loads: the 78-state carrier
+P78 = exchange(st78, idx78, 0, 1); U78 = (np.eye(78) + 1j * P78) / math.sqrt(2)
+K78 = np.zeros((78, 78))
+for s in st78:
+    for coin in (0, 1): K78[idx78[native.native(s, (0, 1), coin)[0]], idx78[s]] += .5
+bad = [(st78[i], [(st78[j], round(float(abs(U78[j, i]) ** 2), 3)) for j in np.flatnonzero(np.abs(U78[:, i]) > 1e-12)]) for i in range(78) if np.abs(np.abs(U78[:, i]) ** 2 - K78[:, i]).max() > 1e-12]
+res['double_loads'] = {'states_where_shadow_differs': len(bad), 'example': str(bad[0]) if bad else None,
+                       'native_on_that_state': str([(st78[j], float(K78[j, idx78[bad[0][0]]])) for j in np.flatnonzero(K78[:, idx78[bad[0][0]]])]) if bad else None}
+# relation to the flow family: G_e(Delta) on the 66 shell; U = exp(i pi/4) exp(-i (pi/2) G_e(1)); shadow for every Delta
+def G_e(e, delta):
+    a, b = SEAMS[e]
+    odd = np.diag([float(s[a] != s[b]) for s in st66])
+    return -0.5 * (P66[e] @ odd) + (delta / 2) * odd          # hop exchanges the pair only on odd seams
+def expmh(H, t):
+    w, V = np.linalg.eigh(H); return (V * np.exp(-1j * t * w)) @ V.conj().T
+res['U_equals_phase_times_exp(-i pi/2 G_e(1))'] = bool(np.allclose(U66[0], np.exp(1j * math.pi / 4) * expmh(G_e(0, 1.0), math.pi / 2)))
+res['G_e(1)_equals_(1-P)/2'] = bool(np.allclose(G_e(0, 1.0), (np.eye(66) - P66[0]) / 2))
+K0 = np.abs(U66[0]) ** 2
+res['event_exp(-i pi/2 G_e(Delta))_has_the_shadow'] = {str(d): bool(np.allclose(np.abs(expmh(G_e(0, d), math.pi / 2)) ** 2, K0)) for d in (1.0, 0.5, 0.0, -0.5)}
+res['event_exp(-i tau G_e(1))_shadow_only_at_tau=pi/2'] = {f'{tau:.3f}': float(np.abs(np.abs(expmh(G_e(0, 1.0), tau)) ** 2 - K0).max()) for tau in (0.2, 0.8, math.pi / 2, 2.4)}
+# Lindblad form of the seam average: E(X) - X = -i[H, X] + (1/2M) sum (P X P - X), H = -(1/2M) sum P_e
+rng = np.random.default_rng(1)
+X = rng.normal(size=(66, 66)) + 1j * rng.normal(size=(66, 66))
+lhs = sum(U @ X @ U.conj().T for U in U66) / M - X
+H = -sum(P66) / (2 * M)
+rhs = -1j * (H @ X - X @ H) + sum(P @ X @ P - X for P in P66) / (2 * M)
+res['lindblad_form_residual'] = float(np.abs(lhs - rhs).max())
+res['hamiltonian_is_G(1)/M_up_to_constant'] = bool(np.allclose(H + np.eye(66) / 2, sum(G_e(e, 1.0) for e in range(M)) / M))
+# covariances
+Ntot = np.diag([float(sum(s)) for s in st66]); N0 = np.diag([float(s[0]) for s in st66])
+Ctr = sum(exchange(st66, idx66, a, b) for a in range(12) for b in range(a + 1, 12))      # all transpositions: central
+res['commutes_with_all_port_permutations_casimir'] = bool(all(np.allclose(U @ Ctr, Ctr @ U) for U in U66))
+res['independent_port_phase_defect_norm_[U,N_0]'] = float(np.linalg.norm(U66[0] @ N0 - N0 @ U66[0], 2))
+def rot_matrix(g):
+    R = np.zeros((66, 66))
+    for i, s in enumerate(st66):
+        t = [0] * 12
+        for old, new in enumerate(g): t[new] = s[old]
+        R[idx66[tuple(t)], i] = 1
+    return R
+okc = True
+for g in ROTS[:60]:
+    R = rot_matrix(g)
+    for e, (a, b) in enumerate(SEAMS[:5]):
+        e2 = SEAMS.index(tuple(sorted((g[a], g[b]))))
+        okc &= np.allclose(R @ U66[e] @ R.T, U66[e2])
+res['rotation_covariant_60_rotations'] = bool(okc)
+out['identities'] = res
+print('1.', json.dumps(res, default=str)[:1500])
+
+# ------------------------------------------------------------------ 2. cone bound under schedule (i)
+def liouville_stats(Us_left, Us_right=None):
+    Us_right = Us_left if Us_right is None else Us_right
+    n1, n2 = Us_left[0].shape[0], Us_right[0].shape[0]
+    Lm = sum(np.kron(A, B.conj()) for A, B in zip(Us_left, Us_right)) / len(Us_left) - np.eye(n1 * n2)
+    ev = np.linalg.eigvals(Lm)
+    nz = ev[np.abs(ev) > 1e-10]
+    if len(nz) == 0:
+        return {'dimension': n1 * n2, 'zero_eigenvalues': int(len(ev)), 'max_|Im|/|Re|': 0.0, 'max_Q': 0.0, 'gap_per_attempt': 9.0, 'max_real_part': 0.0}
+    ratio = np.abs(nz.imag) / np.abs(nz.real)
+    return {'dimension': n1 * n2, 'zero_eigenvalues': int((np.abs(ev) <= 1e-10).sum()), 'max_|Im|/|Re|': float(ratio.max()),
+            'max_Q': float(ratio.max() / 2), 'gap_per_attempt': float(np.abs(nz.real).min()), 'max_real_part': float(nz.real.max())}
+cone = {}
+# ring, L = 10
+Lr = 10
+def ring_states(k):
+    return [tuple(1 if p in c else 0 for p in range(Lr)) for c in itertools.combinations(range(Lr), k)]
+for k in (1, 2):
+    stt = ring_states(k); ix = {s: i for i, s in enumerate(stt)}
+    Ps = [exchange(stt, ix, b, (b + 1) % Lr) for b in range(Lr)]
+    cone[f'ring10_{k}_quanta'] = liouville_stats([(np.eye(len(stt)) + 1j * P) / math.sqrt(2) for P in Ps])
+    # negative control: a small pulse exp(i pi/16 P) (not shadow compatible) has a wider cone, cot(pi/16) = 5.03
+    if k == 1:
+        cone['ring10_1_quantum_small_pulse_control'] = liouville_stats([math.cos(math.pi / 16) * np.eye(len(stt)) + 1j * math.sin(math.pi / 16) * P for P in Ps])
+        cone['ring10_1_quantum_small_pulse_control']['cot(pi/16)'] = 1 / math.tan(math.pi / 16)
+    print('2.', f'ring10_{k}_quanta', cone[f'ring10_{k}_quanta'], flush=True)
+print('   control', cone['ring10_1_quantum_small_pulse_control'])
+# carrier, one quantum
+st12 = [tuple(int(p == q) for p in range(12)) for q in range(12)]; ix12 = {s: i for i, s in enumerate(st12)}
+U12 = [(np.eye(12) + 1j * exchange(st12, ix12, a, b)) / math.sqrt(2) for a, b in SEAMS]
+cone['carrier_1_quantum'] = liouville_stats(U12)
+print('   carrier_1_quantum', cone['carrier_1_quantum'], flush=True)
+# carrier, two quanta, by isotypic blocks of the permutation group (dimensions 1, 11, 54)
+w, V = np.linalg.eigh(Ctr)
+blocks = {}
+for val in sorted(set(np.round(w, 6))):
+    Q = V[:, np.abs(w - val) < 1e-6]; blocks[Q.shape[1]] = Q
+assert sorted(blocks) == [1, 11, 54]
+tot = {'zero': 0, 'max_ratio': 0.0, 'gap': 9.0}
+for d1 in (1, 11, 54):
+    for d2 in (1, 11, 54):
+        if d2 < d1: continue
+        UL = [blocks[d1].T @ U @ blocks[d1] for U in U66]; UR = [blocks[d2].T @ U @ blocks[d2] for U in U66]
+        s = liouville_stats(UL, UR)
+        cone[f'carrier_2_quanta_block_{d1}x{d2}'] = s
+        mult = 1 if d1 == d2 else 2
+        tot['zero'] += mult * s['zero_eigenvalues']; tot['max_ratio'] = max(tot['max_ratio'], s['max_|Im|/|Re|']); tot['gap'] = min(tot['gap'], s['gap_per_attempt'])
+        print(f'   carrier 2 quanta block {d1}x{d2}:', s, 'elapsed', round(time.time() - t00, 1), flush=True)
+cone['carrier_2_quanta_total'] = {'fixed_point_dimension': tot['zero'], 'max_|Im|/|Re|': tot['max_ratio'], 'gap_per_attempt': tot['gap'],
+                                  'classical_gap_per_attempt': (5 - 5 ** .5) / 60}
+out['cone_bound_schedule_i'] = cone
+print('   carrier 2 quanta total:', cone['carrier_2_quanta_total'])
+
+# ------------------------------------------------------------------ 3. amplitude map under schedule (ii)
+amp = {}
+for Nn in (6, 7, 8):
+    rows = []
+    for th in (0.05, 0.1, 0.2):
+        Us = []
+        for e in range(Nn):
+            U = np.eye(Nn, dtype=complex); c = (e + 1) % Nn
+            ph = np.exp(1j * th) if e == Nn - 1 else 1.0
+            U[e, e] = U[c, c] = (1 + 1j) / 2; U[c, e] = (1 - 1j) / 2 * ph; U[e, c] = (1 - 1j) / 2 * np.conj(ph)
+            Us.append(U)
+        Fbar = np.zeros((Nn, Nn), complex); cnt = 0
+        for sg in itertools.permutations(range(Nn)):
+            F = np.eye(Nn, dtype=complex)
+            for e in sg: F = Us[e] @ F
+            Fbar += F; cnt += 1
+        Fbar /= cnt
+        ev = np.linalg.eigvals(Fbar); z = ev[np.argmin(np.abs(ev - 1))]
+        k = th / Nn
+        Fi = np.linalg.matrix_power(sum(Us) / Nn, Nn); zi = np.linalg.eigvals(Fi); zi = zi[np.argmin(np.abs(zi - 1))]
+        rows.append({'theta': th, 'k': k, 'ii_rate_over_k2': float(-math.log(abs(z)) / k ** 2), 'ii_frequency_over_k2': float(abs(np.angle(z)) / k ** 2),
+                     'ii_Q': float(abs(np.angle(z)) / (2 * -math.log(abs(z)))),
+                     'i_rate_over_k2': float(-math.log(abs(zi)) / k ** 2), 'i_frequency_over_k2': float(abs(np.angle(zi)) / k ** 2),
+                     'i_Q': float(abs(np.angle(zi)) / (2 * -math.log(abs(zi))))})
+    amp[f'ring_N={Nn}_all_orders'] = rows
+    print('3.', f'ring N={Nn}', [(r['theta'], round(r['ii_rate_over_k2'], 4), round(r['ii_frequency_over_k2'], 4), round(r['ii_Q'], 3), round(r['i_rate_over_k2'], 4), round(r['i_frequency_over_k2'], 4)) for r in rows], flush=True)
+# carrier: mean sweep unitary over random permutations is scalar on each irreducible band (3, 5, 3')
+Lap = np.zeros((12, 12))
+for a, b in SEAMS: Lap[a, a] += 1; Lap[b, b] += 1; Lap[a, b] -= 1; Lap[b, a] -= 1
+wl, Vl = np.linalg.eigh(Lap)
+A_ = np.array([s[0] for s in SEAMS], np.int32); B_ = np.array([s[1] for s in SEAMS], np.int32)
+u_sb = np.tile(np.array([(1 + 1j) / 2, (1 - 1j) / 2, (1 - 1j) / 2, (1 + 1j) / 2]), (M, 1)).astype(complex).ravel()
+work = np.zeros(M, np.int32); st = G.rng_state(31); S = 60000
+car = {}
+for name, col in (('slow_triplet', 1), ('quintet', 4), ('fast_triplet', 9)):
+    v = Vl[:, col].astype(complex); acc = 0j; acc2 = 0.0
+    for s in range(S):
+        psi = v.copy()
+        G.lib.apply_permutations(G.pc(psi), G.p32(A_), G.p32(B_), G.pc(u_sb), M, 1, G.p32(work), st)
+        zz = np.vdot(v, psi); acc += zz; acc2 += abs(zz) ** 2
+    z = acc / S; err = math.sqrt(max(acc2 / S - abs(z) ** 2, 0) / S)
+    lam = wl[col]; zi = (1 - (1 - 1j) * lam / 60) ** 30
+    car[name] = {'lambda': float(lam), 'ii_mean_sweep_eigenvalue': [float(z.real), float(z.imag)], 'standard_error': err,
+                 'ii_modulus': float(abs(z)), 'ii_phase': float(np.angle(z)), 'ii_Q': float(abs(np.angle(z)) / (2 * -math.log(abs(z)))),
+                 'i_per_sweep_eigenvalue': [float(zi.real), float(zi.imag)], 'i_modulus': float(abs(zi)), 'i_phase': float(np.angle(zi))}
+    print('   carrier', name, {k_: (round(v_, 4) if isinstance(v_, float) else v_) for k_, v_ in car[name].items()}, flush=True)
+amp['carrier_monte_carlo_60000_orders'] = car
+out['amplitude_map_schedule_ii'] = amp
+
+# ------------------------------------------------------------------ 4. fixed orders
+# triangular lattice, six-layer order: Bloch 4x4 Floquet matrix on the sublattices (i mod 2, j mod 2)
+v0, v1 = (1 + 1j) / 2, (1 - 1j) / 2
+def F_tri(k1, k2):
+    sub = lambda i, j: (i % 2) * 2 + (j % 2)
+    F = np.eye(4, dtype=complex)
+    layers = [((1, 0), 'i', 0), ((1, 0), 'i', 1), ((0, 1), 'j', 0), ((0, 1), 'j', 1), ((-1, 1), 'j', 0), ((-1, 1), 'j', 1)]
+    for (d1, d2), which, par in layers:
+        Lm = np.zeros((4, 4), complex)
+        ph = np.exp(1j * (k1 * d1 + k2 * d2))
+        for i in (0, 1):
+            for j in (0, 1):
+                if (i if which == 'i' else j) != par: continue
+                s, s2 = sub(i, j), sub(i + d1, j + d2)
+                Lm[s, s] += v0; Lm[s, s2] += v1 * ph; Lm[s2, s] += v1 / ph; Lm[s2, s2] += v0
+        F = Lm @ F
+    return F
+assert np.allclose(F_tri(0.3, -0.7).conj().T @ F_tri(0.3, -0.7), np.eye(4))
+def bands(kx, ky):
+    k1 = kx; k2 = kx / 2 + math.sqrt(3) / 2 * ky
+    return np.sort(np.angle(np.linalg.eigvals(F_tri(k1, k2))))
+def band0(kx, ky):
+    ph = bands(kx, ky); return ph[np.argmin(np.abs(ph))]
+eps = 1e-3
+curv = {}
+for name, (cx, cy) in (('x', (1, 0)), ('y', (0, 1)), ('30deg', (math.cos(math.pi / 6), math.sin(math.pi / 6))), ('45deg', (math.cos(math.pi / 4), math.sin(math.pi / 4)))):
+    curv[name] = {f'k={kk}': float(band0(kk * cx, kk * cy) / kk ** 2) for kk in (0.02, 0.05, 0.1)}
+# maximal group velocity over a grid (all four bands), finite differences
+ng = 121; ks = np.linspace(-math.pi, math.pi, ng); h = 1e-4; vmax = 0.0; arg = None
+for kx in ks[::3]:
+    for ky in ks[::3]:
+        b0 = bands(kx, ky); bx = bands(kx + h, ky); by = bands(kx, ky + h)
+        if np.abs(bx - b0).max() > 0.01 or np.abs(by - b0).max() > 0.01: continue      # branch cut of the phase
+        sp_ = np.hypot((bx - b0) / h, (by - b0) / h)
+        if sp_.max() > vmax: vmax = float(sp_.max()); arg = (float(kx), float(ky), int(np.argmax(sp_)))
+gaps = min(float(np.min(np.diff(bands(kx, ky)))) for kx in ks[::6] for ky in ks[::6])
+out['fixed_order_triangular_lattice'] = {'eigenphases_at_k0': [float(x) for x in bands(0.0, 0.0)], 'lowest_band_omega_over_k2_by_direction': curv,
+                                         'max_group_velocity_edges_per_sweep': vmax, 'attained_at_kx_ky_band': arg, 'smallest_band_gap_on_grid': gaps}
+print('4. triangular six-layer order: eigenphases at k=0', np.round(bands(0, 0), 4), '| omega/k^2', {k_: {a: round(b, 4) for a, b in v_.items()} for k_, v_ in curv.items()}, '| v_max', round(vmax, 4), arg)
+# carrier, two quanta, two order classes: Floquet eigenphases and conservation of the permutation sectors
+phi_g = (1 + 5 ** .5) / 2
+frame = np.array([(-1, phi_g, 0), (1, phi_g, 0), (-1, -phi_g, 0), (1, -phi_g, 0), (0, -1, phi_g), (0, 1, phi_g), (0, -1, -phi_g), (0, 1, -phi_g),
+                  (phi_g, 0, -1), (phi_g, 0, 1), (-phi_g, 0, -1), (-phi_g, 0, 1)])
+dirs = np.array([frame[b] - frame[a] for a, b in SEAMS]); cls = -np.ones(M, int); nc = 0
+for e in range(M):
+    if cls[e] >= 0: continue
+    cls[[f for f in range(M) if min(abs(abs(dirs[e] @ dirs[f]) - 4), abs(dirs[e] @ dirs[f])) < 1e-9]] = nc; nc += 1
+car_fix = {}
+for name, order in (('even_class_01234', (0, 1, 2, 3, 4)), ('odd_class_01243', (0, 1, 2, 4, 3))):
+    F = np.eye(66, dtype=complex)
+    for c in order:
+        for e in np.flatnonzero(cls == c): F = U66[e] @ F
+    ph = np.angle(np.linalg.eigvals(F * np.exp(-1j * math.pi / 4 * M)))          # remove the global phase exp(i pi/4) per event
+    per_block = {}
+    for d in (1, 11, 54):
+        Fb = blocks[d].T @ F @ blocks[d] * np.exp(-1j * math.pi / 4 * M)
+        pb = np.sort(np.angle(np.linalg.eigvals(Fb)))
+        per_block[str(d)] = {'unitary_on_block': bool(np.allclose(Fb.conj().T @ Fb, np.eye(d))), 'min_abs_phase': float(np.abs(pb).min()), 'max_abs_phase': float(np.abs(pb).max()),
+                             'distinct_phases': int(len(set(np.round(pb, 6))))}
+    car_fix[name] = {'commutes_with_permutation_casimir': bool(np.allclose(F @ Ctr, Ctr @ F)), 'blocks': per_block}
+    print('   carrier fixed order', name, car_fix[name])
+out['fixed_order_carrier_two_quanta'] = car_fix
+Path(HERE / 't3b_sqrtswap.json').write_text(json.dumps(out, indent=1, default=str))
+print('written', HERE / 't3b_sqrtswap.json', 'elapsed', round(time.time() - t00, 1))

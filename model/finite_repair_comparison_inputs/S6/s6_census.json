@@ -1,0 +1,1078 @@
+{
+ "schema": "s6.census.v1",
+ "tolerance": 1e-08,
+ "control_complete_graph_one_quantum": {
+  "rows": [
+   {
+    "level": 0.0,
+    "dimension": 1,
+    "content": {
+     "1": 1
+    },
+    "residual": 5.551115123125783e-16
+   },
+   {
+    "level": 12.0,
+    "dimension": 11,
+    "content": {
+     "3": 1,
+     "3'": 1,
+     "5": 1
+    },
+    "residual": 1.1102230246251565e-16
+   }
+  ],
+  "levels": 2,
+  "max_dimension": 11,
+  "max_multiplicity_of_one_irreducible": 1,
+  "levels_with_more_than_one_irreducible": 1,
+  "max_character_residual": 5.551115123125783e-16,
+  "dimension_histogram": {
+   "1": 1,
+   "11": 1
+  },
+  "flagged": true
+ },
+ "control_three_species_one_quantum": {
+  "rows": [
+   {
+    "level": -0.0,
+    "dimension": 3,
+    "content": {
+     "1+": 3
+    },
+    "residual": 1.27675647831893e-16
+   },
+   {
+    "level": 2.7639320225,
+    "dimension": 9,
+    "content": {
+     "3-": 3
+    },
+    "residual": 4.440892098500626e-16
+   },
+   {
+    "level": 6.0,
+    "dimension": 15,
+    "content": {
+     "5+": 3
+    },
+    "residual": 4.440892098500626e-16
+   },
+   {
+    "level": 7.2360679775,
+    "dimension": 9,
+    "content": {
+     "3'-": 3
+    },
+    "residual": 4.440892098500626e-16
+   }
+  ],
+  "levels": 4,
+  "max_dimension": 15,
+  "max_multiplicity_of_one_irreducible": 3,
+  "levels_with_more_than_one_irreducible": 4,
+  "max_character_residual": 4.440892098500626e-16,
+  "dimension_histogram": {
+   "3": 1,
+   "9": 2,
+   "15": 1
+  },
+  "flagged_multiplicity_three": true
+ },
+ "bare_law": {
+  "N=1": {
+   "states": 12,
+   "levels": 4,
+   "max_dimension": 5,
+   "max_multiplicity_of_one_irreducible": 1,
+   "levels_with_more_than_one_irreducible": 0,
+   "max_character_residual": 2.220446049250313e-16,
+   "dimension_histogram": {
+    "1": 1,
+    "3": 2,
+    "5": 1
+   },
+   "spectrum_range": [
+    0.0,
+    7.2360679775
+   ],
+   "rows": [
+    {
+     "level": 0.0,
+     "dimension": 1,
+     "content": {
+      "1+": 1
+     },
+     "residual": 3.3306690738754695e-17
+    },
+    {
+     "level": 2.7639320225,
+     "dimension": 3,
+     "content": {
+      "3-": 1
+     },
+     "residual": 2.220446049250313e-16
+    },
+    {
+     "level": 6.0,
+     "dimension": 5,
+     "content": {
+      "5+": 1
+     },
+     "residual": 7.546246277473291e-17
+    },
+    {
+     "level": 7.2360679775,
+     "dimension": 3,
+     "content": {
+      "3'-": 1
+     },
+     "residual": 2.220446049250313e-16
+    }
+   ]
+  },
+  "N=2": {
+   "states": 66,
+   "levels": 16,
+   "max_dimension": 11,
+   "max_multiplicity_of_one_irreducible": 1,
+   "levels_with_more_than_one_irreducible": 1,
+   "max_character_residual": 6.661338147750939e-16,
+   "dimension_histogram": {
+    "1": 3,
+    "3": 2,
+    "4": 4,
+    "5": 6,
+    "11": 1
+   },
+   "all_levels_of_previous_sector_present (hidden SU(2))": true,
+   "spectrum_range": [
+    -0.0,
+    13.6684863686
+   ],
+   "rows": [
+    {
+     "level": -0.0,
+     "dimension": 1,
+     "content": {
+      "1+": 1
+     },
+     "residual": 2.7755575615628914e-17
+    },
+    {
+     "level": 2.7639320225,
+     "dimension": 3,
+     "content": {
+      "3-": 1
+     },
+     "residual": 2.220446049250313e-16
+    },
+    {
+     "level": 5.0182727693,
+     "dimension": 5,
+     "content": {
+      "5+": 1
+     },
+     "residual": 1.1102230246251565e-16
+    },
+    {
+     "level": 6.0,
+     "dimension": 5,
+     "content": {
+      "5+": 1
+     },
+     "residual": 2.220446049250313e-16
+    },
+    {
+     "level": 6.5358983849,
+     "dimension": 1,
+     "content": {
+      "1+": 1
+     },
+     "residual": 2.220446049250313e-16
+    },
+    {
+     "level": 6.8377223398,
+     "dimension": 4,
+     "content": {
+      "4-": 1
+     },
+     "residual": 1.1102230246251565e-16
+    },
+    {
+     "level": 7.2360679775,
+     "dimension": 3,
+     "content": {
+      "3'-": 1
+     },
+     "residual": 5.551115123125783e-16
+    },
+    {
+     "level": 8.0,
+     "dimension": 5,
+     "content": {
+      "5-": 1
+     },
+     "residual": 2.220446049250313e-16
+    },
+    {
+     "level": 8.5857864376,
+     "dimension": 4,
+     "content": {
+      "4+": 1
+     },
+     "residual": 2.220446049250313e-16
+    },
+    {
+     "level": 10.0,
+     "dimension": 11,
+     "content": {
+      "3-": 1,
+      "3'-": 1,
+      "5+": 1
+     },
+     "residual": 1.8318679906315082e-16
+    },
+    {
+     "level": 11.3132408621,
+     "dimension": 5,
+     "content": {
+      "5+": 1
+     },
+     "residual": 4.393144677820454e-17
+    },
+    {
+     "level": 11.4142135624,
+     "dimension": 4,
+     "content": {
+      "4+": 1
+     },
+     "residual": 2.220446049250313e-16
+    },
+    {
+     "level": 12.0,
+     "dimension": 5,
+     "content": {
+      "5-": 1
+     },
+     "residual": 1.1102230246251565e-16
+    },
+    {
+     "level": 13.1622776602,
+     "dimension": 4,
+     "content": {
+      "4-": 1
+     },
+     "residual": 2.220446049250313e-16
+    },
+    {
+     "level": 13.4641016151,
+     "dimension": 1,
+     "content": {
+      "1+": 1
+     },
+     "residual": 6.661338147750939e-16
+    },
+    {
+     "level": 13.6684863686,
+     "dimension": 5,
+     "content": {
+      "5+": 1
+     },
+     "residual": 2.220446049250313e-16
+    }
+   ]
+  },
+  "N=3": {
+   "states": 220,
+   "levels": 48,
+   "max_dimension": 20,
+   "max_multiplicity_of_one_irreducible": 3,
+   "levels_with_more_than_one_irreducible": 4,
+   "max_character_residual": 1.7763568394002505e-15,
+   "dimension_histogram": {
+    "1": 3,
+    "3": 18,
+    "4": 13,
+    "5": 10,
+    "11": 1,
+    "15": 2,
+    "20": 1
+   },
+   "all_levels_of_previous_sector_present (hidden SU(2))": true,
+   "spectrum_range": [
+    -0.0,
+    18.933816032
+   ],
+   "rows": [
+    {
+     "level": -0.0,
+     "dimension": 1,
+     "content": {
+      "1+": 1
+     },
+     "residual": 1.295260195396016e-17
+    },
+    {
+     "level": 2.7639320225,
+     "dimension": 3,
+     "content": {
+      "3-": 1
+     },
+     "residual": 2.220446049250313e-16
+    },
+    {
+     "level": 5.0182727693,
+     "dimension": 5,
+     "content": {
+      "5+": 1
+     },
+     "residual": 4.440892098500626e-16
+    },
+    {
+     "level": 6.0,
+     "dimension": 5,
+     "content": {
+      "5+": 1
+     },
+     "residual": 1.0269562977782698e-16
+    },
+    {
+     "level": 6.4488169837,
+     "dimension": 3,
+     "content": {
+      "3'-": 1
+     },
+     "residual": 5.551115123125783e-16
+    },
+    {
+     "level": 6.5358983849,
+     "dimension": 1,
+     "content": {
+      "1+": 1
+     },
+     "residual": 2.220446049250313e-16
+    },
+    {
+     "level": 6.8377223398,
+     "dimension": 4,
+     "content": {
+      "4-": 1
+     },
+     "residual": 6.47630097698008e-17
+    },
+    {
+     "level": 7.0916973061,
+     "dimension": 4,
+     "content": {
+      "4-": 1
+     },
+     "residual": 6.846375318521799e-17
+    },
+    {
+     "level": 7.2360679775,
+     "dimension": 3,
+     "content": {
+      "3'-": 1
+     },
+     "residual": 1.1102230246251565e-16
+    },
+    {
+     "level": 7.5614379871,
+     "dimension": 4,
+     "content": {
+      "4+": 1
+     },
+     "residual": 1.1102230246251565e-16
+    },
+    {
+     "level": 8.0,
+     "dimension": 5,
+     "content": {
+      "5-": 1
+     },
+     "residual": 7.956598343146955e-17
+    },
+    {
+     "level": 8.5857864376,
+     "dimension": 4,
+     "content": {
+      "4+": 1
+     },
+     "residual": 1.1379786002407854e-16
+    },
+    {
+     "level": 8.9215642075,
+     "dimension": 3,
+     "content": {
+      "3-": 1
+     },
+     "residual": 4.440892098500626e-16
+    },
+    {
+     "level": 9.1234335212,
+     "dimension": 3,
+     "content": {
+      "3'+": 1
+     },
+     "residual": 4.440892098500626e-16
+    },
+    {
+     "level": 9.3835815409,
+     "dimension": 3,
+     "content": {
+      "3'-": 1
+     },
+     "residual": 7.255480938272996e-17
+    },
+    {
+     "level": 9.3944487245,
+     "dimension": 5,
+     "content": {
+      "5+": 1
+     },
+     "residual": 1.1287267417022424e-16
+    },
+    {
+     "level": 10.0,
+     "dimension": 11,
+     "content": {
+      "3-": 1,
+      "3'-": 1,
+      "5+": 1
+     },
+     "residual": 2.220446049250313e-16
+    },
+    {
+     "level": 10.9358222275,
+     "dimension": 5,
+     "content": {
+      "5+": 1
+     },
+     "residual": 2.220446049250313e-16
+    },
+    {
+     "level": 11.0545305613,
+     "dimension": 4,
+     "content": {
+      "4-": 1
+     },
+     "residual": 8.881784197001253e-17
+    },
+    {
+     "level": 11.3132408621,
+     "dimension": 5,
+     "content": {
+      "5+": 1
+     },
+     "residual": 1.1102230246251565e-16
+    },
+    {
+     "level": 11.4142135624,
+     "dimension": 4,
+     "content": {
+      "4+": 1
+     },
+     "residual": 3.3306690738754695e-17
+    },
+    {
+     "level": 11.587848588,
+     "dimension": 3,
+     "content": {
+      "3'-": 1
+     },
+     "residual": 1.7763568394002505e-15
+    },
+    {
+     "level": 11.7228714698,
+     "dimension": 3,
+     "content": {
+      "3+": 1
+     },
+     "residual": 4.440892098500626e-16
+    },
+    {
+     "level": 12.0,
+     "dimension": 20,
+     "content": {
+      "1+": 1,
+      "4+": 1,
+      "5-": 3
+     },
+     "residual": 1.171402904580684e-16
+    },
+    {
+     "level": 12.2612343954,
+     "dimension": 3,
+     "content": {
+      "3-": 1
+     },
+     "residual": 4.440892098500626e-16
+    },
+    {
+     "level": 12.7206340634,
+     "dimension": 3,
+     "content": {
+      "3-": 1
+     },
+     "residual": 2.220446049250313e-16
+    },
+    {
+     "level": 13.1253099554,
+     "dimension": 4,
+     "content": {
+      "4-": 1
+     },
+     "residual": 2.220446049250313e-16
+    },
+    {
+     "level": 13.1622776602,
+     "dimension": 4,
+     "content": {
+      "4-": 1
+     },
+     "residual": 4.4408920985006264e-17
+    },
+    {
+     "level": 13.3054072893,
+     "dimension": 5,
+     "content": {
+      "5+": 1
+     },
+     "residual": 3.3306690738754696e-16
+    },
+    {
+     "level": 13.4641016151,
+     "dimension": 1,
+     "content": {
+      "1+": 1
+     },
+     "residual": 2.220446049250313e-16
+    },
+    {
+     "level": 13.6684863686,
+     "dimension": 5,
+     "content": {
+      "5+": 1
+     },
+     "residual": 2.220446049250313e-16
+    },
+    {
+     "level": 14.0,
+     "dimension": 15,
+     "content": {
+      "3+": 1,
+      "3'+": 1,
+      "4+": 1,
+      "5+": 1
+     },
+     "residual": 2.220446049250313e-16
+    },
+    {
+     "level": 14.2334093097,
+     "dimension": 4,
+     "content": {
+      "4-": 1
+     },
+     "residual": 4.4408920985006264e-17
+    },
+    {
+     "level": 14.2586644537,
+     "dimension": 3,
+     "content": {
+      "3-": 1
+     },
+     "residual": 2.220446049250313e-16
+    },
+    {
+     "level": 14.628937416,
+     "dimension": 3,
+     "content": {
+      "3'-": 1
+     },
+     "residual": 3.3306690738754696e-16
+    },
+    {
+     "level": 15.513792981,
+     "dimension": 4,
+     "content": {
+      "4+": 1
+     },
+     "residual": 2.220446049250313e-16
+    },
+    {
+     "level": 15.5612368356,
+     "dimension": 4,
+     "content": {
+      "4-": 1
+     },
+     "residual": 4.440892098500626e-16
+    },
+    {
+     "level": 15.6404985013,
+     "dimension": 3,
+     "content": {
+      "3'+": 1
+     },
+     "residual": 4.440892098500626e-16
+    },
+    {
+     "level": 15.6588634383,
+     "dimension": 3,
+     "content": {
+      "3'-": 1
+     },
+     "residual": 4.780608779212751e-17
+    },
+    {
+     "level": 16.0,
+     "dimension": 15,
+     "content": {
+      "1+": 1,
+      "4+": 1,
+      "5-": 2
+     },
+     "residual": 4.440892098500626e-16
+    },
+    {
+     "level": 16.6055512755,
+     "dimension": 5,
+     "content": {
+      "5+": 1
+     },
+     "residual": 7.472316883276807e-17
+    },
+    {
+     "level": 17.4250937244,
+     "dimension": 3,
+     "content": {
+      "3-": 1
+     },
+     "residual": 4.440892098500626e-16
+    },
+    {
+     "level": 17.5131965077,
+     "dimension": 3,
+     "content": {
+      "3+": 1
+     },
+     "residual": 4.440892098500626e-16
+    },
+    {
+     "level": 17.7587704831,
+     "dimension": 5,
+     "content": {
+      "5+": 1
+     },
+     "residual": 1.1102230246251565e-16
+    },
+    {
+     "level": 17.8198160781,
+     "dimension": 3,
+     "content": {
+      "3'-": 1
+     },
+     "residual": 2.220446049250313e-16
+    },
+    {
+     "level": 18.8849451106,
+     "dimension": 3,
+     "content": {
+      "3-": 1
+     },
+     "residual": 1.2461096969100065e-17
+    },
+    {
+     "level": 18.9247690319,
+     "dimension": 4,
+     "content": {
+      "4+": 1
+     },
+     "residual": 1.1102230246251565e-16
+    },
+    {
+     "level": 18.933816032,
+     "dimension": 4,
+     "content": {
+      "4-": 1
+     },
+     "residual": 2.220446049250313e-16
+    }
+   ]
+  },
+  "N=4": {
+   "states": 495,
+   "levels": 113,
+   "max_dimension": 35,
+   "max_multiplicity_of_one_irreducible": 3,
+   "levels_with_more_than_one_irreducible": 5,
+   "max_character_residual": 1.1102230246251565e-15,
+   "dimension_histogram": {
+    "1": 9,
+    "3": 36,
+    "4": 28,
+    "5": 35,
+    "10": 1,
+    "11": 1,
+    "15": 1,
+    "20": 1,
+    "35": 1
+   },
+   "all_levels_of_previous_sector_present (hidden SU(2))": true,
+   "spectrum_range": [
+    0.0,
+    22.8397231904
+   ],
+   "rows": [
+    {
+     "level": 0.0,
+     "dimension": 1,
+     "content": {
+      "1+": 1
+     },
+     "residual": 2.220446049250313e-16
+    },
+    {
+     "level": 2.7639320225,
+     "dimension": 3,
+     "content": {
+      "3-": 1
+     },
+     "residual": 7.956598343146955e-17
+    },
+    {
+     "level": 5.0182727693,
+     "dimension": 5,
+     "content": {
+      "5+": 1
+     },
+     "residual": 6.661338147750939e-16
+    },
+    {
+     "level": 6.0,
+     "dimension": 5,
+     "content": {
+      "5+": 1
+     },
+     "residual": 3.3306690738754696e-16
+    },
+    {
+     "level": 6.4488169837,
+     "dimension": 3,
+     "content": {
+      "3'-": 1
+     },
+     "residual": 1.1102230246251565e-15
+    },
+    {
+     "level": 6.5358983849,
+     "dimension": 1,
+     "content": {
+      "1+": 1
+     },
+     "residual": 1.1102230246251565e-16
+    },
+    {
+     "level": 6.8377223398,
+     "dimension": 4,
+     "content": {
+      "4-": 1
+     },
+     "residual": 6.938893903907228e-17
+    },
+    {
+     "level": 7.0916973061,
+     "dimension": 4,
+     "content": {
+      "4-": 1
+     },
+     "residual": 8.511709855459534e-17
+    },
+    {
+     "level": 7.2360679775,
+     "dimension": 3,
+     "content": {
+      "3'-": 1
+     },
+     "residual": 4.440892098500626e-16
+    },
+    {
+     "level": 7.5614379871,
+     "dimension": 4,
+     "content": {
+      "4+": 1
+     },
+     "residual": 2.4054832200211726e-17
+    },
+    {
+     "level": 7.6293108321,
+     "dimension": 5,
+     "content": {
+      "5+": 1
+     },
+     "residual": 4.440892098500626e-16
+    },
+    {
+     "level": 8.0,
+     "dimension": 5,
+     "content": {
+      "5-": 1
+     },
+     "residual": 2.220446049250313e-16
+    }
+   ]
+  },
+  "N=5": {
+   "states": 792,
+   "levels": 191,
+   "max_dimension": 41,
+   "max_multiplicity_of_one_irreducible": 4,
+   "levels_with_more_than_one_irreducible": 5,
+   "max_character_residual": 1.9984014443252818e-15,
+   "dimension_histogram": {
+    "1": 10,
+    "3": 74,
+    "4": 47,
+    "5": 55,
+    "10": 1,
+    "11": 1,
+    "15": 1,
+    "20": 1,
+    "41": 1
+   },
+   "all_levels_of_previous_sector_present (hidden SU(2))": true,
+   "spectrum_range": [
+    -0.0,
+    25.5760136626
+   ],
+   "rows": [
+    {
+     "level": -0.0,
+     "dimension": 1,
+     "content": {
+      "1+": 1
+     },
+     "residual": 2.220446049250313e-16
+    },
+    {
+     "level": 2.7639320225,
+     "dimension": 3,
+     "content": {
+      "3-": 1
+     },
+     "residual": 2.220446049250313e-16
+    },
+    {
+     "level": 5.0182727693,
+     "dimension": 5,
+     "content": {
+      "5+": 1
+     },
+     "residual": 1.2135851905485481e-16
+    },
+    {
+     "level": 6.0,
+     "dimension": 5,
+     "content": {
+      "5+": 1
+     },
+     "residual": 2.220446049250313e-16
+    },
+    {
+     "level": 6.4488169837,
+     "dimension": 3,
+     "content": {
+      "3'-": 1
+     },
+     "residual": 5.726033073620111e-17
+    },
+    {
+     "level": 6.5358983849,
+     "dimension": 1,
+     "content": {
+      "1+": 1
+     },
+     "residual": 1.1102230246251565e-16
+    },
+    {
+     "level": 6.8377223398,
+     "dimension": 4,
+     "content": {
+      "4-": 1
+     },
+     "residual": 6.661338147750939e-16
+    },
+    {
+     "level": 7.0916973061,
+     "dimension": 4,
+     "content": {
+      "4-": 1
+     },
+     "residual": 1.1102230246251565e-16
+    },
+    {
+     "level": 7.2360679775,
+     "dimension": 3,
+     "content": {
+      "3'-": 1
+     },
+     "residual": 2.220446049250313e-16
+    },
+    {
+     "level": 7.5614379871,
+     "dimension": 4,
+     "content": {
+      "4+": 1
+     },
+     "residual": 2.220446049250313e-16
+    },
+    {
+     "level": 7.6293108321,
+     "dimension": 5,
+     "content": {
+      "5+": 1
+     },
+     "residual": 4.440892098500626e-16
+    },
+    {
+     "level": 8.0,
+     "dimension": 5,
+     "content": {
+      "5-": 1
+     },
+     "residual": 7.152397804078576e-17
+    }
+   ]
+  },
+  "N=6": {
+   "states": 924,
+   "levels": 219,
+   "max_dimension": 46,
+   "max_multiplicity_of_one_irreducible": 5,
+   "levels_with_more_than_one_irreducible": 10,
+   "max_character_residual": 2.3314683517128287e-15,
+   "dimension_histogram": {
+    "1": 17,
+    "3": 74,
+    "4": 52,
+    "5": 67,
+    "6": 1,
+    "7": 2,
+    "10": 1,
+    "11": 1,
+    "15": 1,
+    "20": 2,
+    "46": 1
+   },
+   "all_levels_of_previous_sector_present (hidden SU(2))": true,
+   "spectrum_range": [
+    0.0,
+    27.375779928
+   ],
+   "rows": [
+    {
+     "level": 0.0,
+     "dimension": 1,
+     "content": {
+      "1+": 1
+     },
+     "residual": 1.1102230246251566e-17
+    },
+    {
+     "level": 2.7639320225,
+     "dimension": 3,
+     "content": {
+      "3-": 1
+     },
+     "residual": 6.661338147750939e-16
+    },
+    {
+     "level": 5.0182727693,
+     "dimension": 5,
+     "content": {
+      "5+": 1
+     },
+     "residual": 2.220446049250313e-16
+    },
+    {
+     "level": 6.0,
+     "dimension": 5,
+     "content": {
+      "5+": 1
+     },
+     "residual": 5.575808968654637e-17
+    },
+    {
+     "level": 6.4488169837,
+     "dimension": 3,
+     "content": {
+      "3'-": 1
+     },
+     "residual": 4.440892098500626e-16
+    },
+    {
+     "level": 6.5358983849,
+     "dimension": 1,
+     "content": {
+      "1+": 1
+     },
+     "residual": 2.220446049250313e-16
+    },
+    {
+     "level": 6.8377223398,
+     "dimension": 4,
+     "content": {
+      "4-": 1
+     },
+     "residual": 2.220446049250313e-16
+    },
+    {
+     "level": 7.0916973061,
+     "dimension": 4,
+     "content": {
+      "4-": 1
+     },
+     "residual": 2.220446049250313e-16
+    },
+    {
+     "level": 7.2360679775,
+     "dimension": 3,
+     "content": {
+      "3'-": 1
+     },
+     "residual": 2.3314683517128287e-15
+    },
+    {
+     "level": 7.5614379871,
+     "dimension": 4,
+     "content": {
+      "4+": 1
+     },
+     "residual": 2.220446049250313e-16
+    },
+    {
+     "level": 7.6293108321,
+     "dimension": 5,
+     "content": {
+      "5+": 1
+     },
+     "residual": 6.661338147750939e-16
+    },
+    {
+     "level": 7.9450462747,
+     "dimension": 1,
+     "content": {
+      "1+": 1
+     },
+     "residual": 2.220446049250313e-16
+    }
+   ]
+  }
+ },
+ "verdict": {
+  "bare_law_has_internal_multiplicity": true,
+  "bare_law_has_accidental_degeneracy": true
+ },
+ "seconds": 5.3
+}

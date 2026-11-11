@@ -1,0 +1,354 @@
+{
+ "schema": "s6.bcd.v1",
+ "b_Z6": {
+  "six_axis_class_group_invariants": [
+   1,
+   1,
+   1,
+   1,
+   1,
+   6
+  ],
+  "the_same_construction_on_n_objects_gives_Z_n": {
+   "5": 5,
+   "6": 6,
+   "10": 10,
+   "12": 12
+  },
+  "rotations_act_trivially_on_it": true,
+  "automorphisms_of_Z6": 2,
+  "curl_invariants (face charges are free of torsion)": [
+   1
+  ],
+  "critical_group_of_port_graph": [
+   2,
+   12,
+   60,
+   60,
+   60
+  ],
+  "critical_group_of_dual_graph": [
+   2,
+   12,
+   60,
+   60,
+   60
+  ],
+  "order_of_critical_group": 5184000,
+  "critical_group_has_element_of_order_6": true,
+  "reading": "a Z6 label carries the class 6Y mod 6 only (see s6_target.json): four values on five multiplets; the modulus six is declared in every place it occurs (axis relations, simulation register)."
+ },
+ "c_quantum_double": {
+  "rotation_group_A5": {
+   "order": 60,
+   "classes": 5,
+   "centre_order": 1,
+   "abelianization_order": 1,
+   "anyon_types": 22,
+   "invertible_anyon_types": 1,
+   "fluxes": [
+    {
+     "class_size": 1,
+     "element_order": 1,
+     "centralizer_order": 60,
+     "centralizer_abelian": false,
+     "charge_types": 5
+    },
+    {
+     "class_size": 15,
+     "element_order": 2,
+     "centralizer_order": 4,
+     "centralizer_abelian": true,
+     "charge_types": 4
+    },
+    {
+     "class_size": 20,
+     "element_order": 3,
+     "centralizer_order": 3,
+     "centralizer_abelian": true,
+     "charge_types": 3
+    },
+    {
+     "class_size": 12,
+     "element_order": 5,
+     "centralizer_order": 5,
+     "centralizer_abelian": true,
+     "charge_types": 5
+    },
+    {
+     "class_size": 12,
+     "element_order": 5,
+     "centralizer_order": 5,
+     "centralizer_abelian": true,
+     "charge_types": 5
+    }
+   ]
+  },
+  "full_automorphism_group_A5xZ2": {
+   "order": 120,
+   "classes": 10,
+   "centre_order": 2,
+   "abelianization_order": 2,
+   "anyon_types": 88,
+   "invertible_anyon_types": 4
+  },
+  "binary_icosahedral_group_SL(2,5)": {
+   "order": 120,
+   "classes": 9,
+   "centre_order": 2,
+   "abelianization_order": 1,
+   "anyon_types": 74,
+   "invertible_anyon_types": 2
+  },
+  "D(A5)_quantum_dimensions": [
+   1,
+   3,
+   3,
+   4,
+   5,
+   12,
+   12,
+   12,
+   12,
+   12,
+   12,
+   12,
+   12,
+   12,
+   12,
+   15,
+   15,
+   15,
+   15,
+   20,
+   20,
+   20
+  ],
+  "D(A5)_total_dimension_squared": 3600,
+  "D(A5)_twists": {
+   "bosons (twist 1)": 10,
+   "fermions (twist -1)": 2,
+   "twist of order 3": 2,
+   "twist of order 5": 8
+  },
+  "reading": "the group of invertible (additive) charges of D(G) is Z(G) x Hom(G, U(1)): trivial for the rotation group, Z2 for the binary cover, Z2 x Z2 with the antipodal map. No Z3, no Z6, no integer charge: hypercharge and triality have no carrier here."
+ },
+ "d_port_module": {
+  "port_module": "1 + 3 + 3' + 5",
+  "adjoint_options": {
+   "su(2)": {
+    "trivial": "3*1",
+    "via 3": "3",
+    "via 3'": "3'"
+   },
+   "su(3)": {
+    "trivial": "8*1",
+    "via 3": "3 + 5",
+    "via 3'": "3' + 5"
+   },
+   "so(5) by vector module": {
+    "5": "3 + 3' + 4",
+    "4+1": "3 + 3' + 4",
+    "3+1+1": "1 + 3*3",
+    "3'+1+1": "1 + 3*3'",
+    "trivial": "10*1"
+   }
+  },
+  "compact_lie_algebras_of_dimension_12": [
+   {
+    "algebra": "su(2)^4",
+    "centre_dimension": 0,
+    "module_structures_equal_to_port_module": 0,
+    "with_rational_centre": 0,
+    "solutions": []
+   },
+   {
+    "algebra": "u(1) + su(2) + su(3)",
+    "centre_dimension": 1,
+    "module_structures_equal_to_port_module": 2,
+    "with_rational_centre": 2,
+    "solutions": [
+     {
+      "centre": "1",
+      "centre_rational": true,
+      "su(2)": [
+       "via 3"
+      ],
+      "su(3)": [
+       "via 3'"
+      ],
+      "so(5)": []
+     },
+     {
+      "centre": "1",
+      "centre_rational": true,
+      "su(2)": [
+       "via 3'"
+      ],
+      "su(3)": [
+       "via 3"
+      ],
+      "so(5)": []
+     }
+    ]
+   },
+   {
+    "algebra": "u(1)^2 + so(5)",
+    "centre_dimension": 2,
+    "module_structures_equal_to_port_module": 0,
+    "with_rational_centre": 0,
+    "solutions": []
+   },
+   {
+    "algebra": "u(1)^3 + su(2)^3",
+    "centre_dimension": 3,
+    "module_structures_equal_to_port_module": 0,
+    "with_rational_centre": 0,
+    "solutions": []
+   },
+   {
+    "algebra": "u(1)^4 + su(3)",
+    "centre_dimension": 4,
+    "module_structures_equal_to_port_module": 2,
+    "with_rational_centre": 0,
+    "solutions": [
+     {
+      "centre": "1 + 3'",
+      "centre_rational": false,
+      "su(2)": [],
+      "su(3)": [
+       "via 3"
+      ],
+      "so(5)": []
+     },
+     {
+      "centre": "1 + 3",
+      "centre_rational": false,
+      "su(2)": [],
+      "su(3)": [
+       "via 3'"
+      ],
+      "so(5)": []
+     }
+    ]
+   },
+   {
+    "algebra": "u(1)^6 + su(2)^2",
+    "centre_dimension": 6,
+    "module_structures_equal_to_port_module": 1,
+    "with_rational_centre": 1,
+    "solutions": [
+     {
+      "centre": "1 + 5",
+      "centre_rational": true,
+      "su(2)": [
+       "via 3",
+       "via 3'"
+      ],
+      "su(3)": [],
+      "so(5)": []
+     }
+    ]
+   },
+   {
+    "algebra": "u(1)^9 + su(2)",
+    "centre_dimension": 9,
+    "module_structures_equal_to_port_module": 2,
+    "with_rational_centre": 0,
+    "solutions": [
+     {
+      "centre": "1 + 3' + 5",
+      "centre_rational": false,
+      "su(2)": [
+       "via 3"
+      ],
+      "su(3)": [],
+      "so(5)": []
+     },
+     {
+      "centre": "1 + 3 + 5",
+      "centre_rational": false,
+      "su(2)": [
+       "via 3'"
+      ],
+      "su(3)": [],
+      "so(5)": []
+     }
+    ]
+   },
+   {
+    "algebra": "u(1)^12",
+    "centre_dimension": 12,
+    "module_structures_equal_to_port_module": 1,
+    "with_rational_centre": 1,
+    "solutions": [
+     {
+      "centre": "1 + 3 + 3' + 5",
+      "centre_rational": true,
+      "su(2)": [],
+      "su(3)": [],
+      "so(5)": []
+     }
+    ]
+   }
+  ],
+  "compatible_types": [
+   "u(1) + su(2) + su(3)",
+   "u(1)^4 + su(3)",
+   "u(1)^6 + su(2)^2",
+   "u(1)^9 + su(2)",
+   "u(1)^12"
+  ],
+  "compatible_with_rational_centre": [
+   "u(1) + su(2) + su(3)",
+   "u(1)^6 + su(2)^2",
+   "u(1)^12"
+  ],
+  "compatible_with_centre_at_most_one": [
+   "u(1) + su(2) + su(3)"
+  ],
+  "multiplicity_of_4_in_port_module": 0,
+  "reading": "Hom(ports, 4) = 0: no rotation-equivariant map sends port loads to the four Cartan charges. The port module is the adjoint module of five of the eight algebras; the bracket is a point of a 14-dimensional space of equivariant brackets (second-pass result).",
+  "matter_under_the_repository_embedding": {
+   "embedding": "rotation g acts as diag(R_g, sigma(R_g)) (colour triplet 3, weak adjoint 3'); on C^3 + C^2 this needs the binary cover: 3 + 2'",
+   "weak_doublet_is_spinorial": true,
+   "quark_doublet_(3,2)_is_spinorial": true,
+   "quark_doublet_dimension": 6,
+   "quark_doublet_norm (1 = irreducible)": "1",
+   "the_10_is_a_rotation_group_module": false,
+   "reading": "L and Q are faithful on the centre of the binary cover, so they occur in no module built from ports, seams or faces (those are modules of the rotation group). u^c, d^c (each 3) and e^c (1) are rotation modules; 3 and 3bar coincide."
+  }
+ },
+ "dirac_shells": {
+  "input": "simulation session: shells of 4 | 8 | 12 | 16 states next to the Dirac point, rotation multiplets (4), (5,3), (3,5,4)",
+  "spin_times_valley": {
+   "spin 1/2": {
+    "dimension": 4,
+    "times conjugate doublet 2'": "4",
+    "times the same doublet 2": "1 + 3"
+   },
+   "spin 3/2": {
+    "dimension": 8,
+    "times conjugate doublet 2'": "3' + 5",
+    "times the same doublet 2": "3 + 5"
+   },
+   "spin 5/2": {
+    "dimension": 12,
+    "times conjugate doublet 2'": "3 + 4 + 5",
+    "times the same doublet 2": "3' + 4 + 5"
+   },
+   "spin 7/2": {
+    "dimension": 16,
+    "times conjugate doublet 2'": "1 + 3 + 3' + 4 + 5",
+    "times the same doublet 2": "3' + 2*4 + 5"
+   },
+   "spin 9/2": {
+    "dimension": 20,
+    "times conjugate doublet 2'": "3 + 3' + 4 + 2*5",
+    "times the same doublet 2": "3 + 3' + 4 + 2*5"
+   }
+  },
+  "reading": "the observed first shell (4) fits spin 1/2 times the conjugate doublet 2' and excludes 2 x 2 = 1 + 3. The pattern predicts for the fourth shell 1 + 3 + 3' + 4 + 5."
+ },
+ "seconds": 2.4
+}

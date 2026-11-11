@@ -1,0 +1,144 @@
+"""Worker HR: gates G1 to G5 and statement T1 of CANDIDATES.md. Writes checks.json. Reads no measured value.
+
+T1: the pattern-carrier trace and the 5-trace give the same function of the weak link.
+G1: lambda_L = 0, kappa_H = 0: <rho^2> = 2.
+G2: unit links, lambda_L = 0: <rho^2> against the exact lattice sum.
+G3: Schwinger-Dyson residual (reported at every point of the checks; the scans report it per point).
+G4: kappa_H = 0: plaquette against the weak-coupling series and recalled values.
+G5: gauge invariance of all observables.
+Usage: python hr_checks.py [part]   part in {fast, gauge, all}
+"""
+import itertools
+import json
+import sys
+import time
+
+import numpy as np
+from scipy.linalg import expm
+
+import hr_lib as H
+
+part = sys.argv[1] if len(sys.argv) > 1 else "all"
+try:
+    out = json.load(open("checks.json"))
+except Exception:
+    out = {}
+t00 = time.time()
+
+if part in ("fast", "all"):
+    # ---------------------------------------------------------------- T1
+    NL, DIM = 5, 32
+
+    def annihilator(i):
+        a = np.zeros((DIM, DIM), complex)
+        for s in range(DIM):
+            if s >> i & 1:
+                a[s ^ (1 << i), s] = (-1) ** bin(s & ((1 << i) - 1)).count("1")
+        return a
+
+    A = [annihilator(i) for i in range(NL)]
+    AD = [a.conj().T for a in A]
+    SIG = [np.array([[0, 1], [1, 0]], complex), np.array([[0, -1j], [1j, 0]]), np.array([[1, 0], [0, -1]], complex)]
+    N3 = np.array([bin(s & 0b00111).count("1") for s in range(DIM)])
+    carriers = {"code_5": None, "n3_at_most_1_16": np.diag((N3 <= 1) * 1.0), "n3_odd_16": np.diag((N3 % 2 == 1) * 1.0),
+                "all_32": np.eye(DIM)}
+    rng = np.random.default_rng(5)
+    worst = {k: 0.0 for k in carriers}
+    worst_u1_quadratic = 0.0
+    for _ in range(40):
+        w = rng.normal(size=3) * 1.3
+        h2 = sum(wi * s / 2 for wi, s in zip(w, SIG))
+        V = expm(1j * h2)
+        ref = 1 - np.trace(V).real / 2                      # (1 - tr V / 2), to be multiplied by 4/g^2
+        T5 = np.zeros((5, 5), complex); T5[3:, 3:] = h2
+        gen = sum(T5[i, j] * AD[i] @ A[j] for i in range(5) for j in range(5))
+        Lam = expm(1j * gen)
+        for name, P in carriers.items():
+            if P is None:
+                U5 = np.eye(5, dtype=complex); U5[3:, 3:] = V
+                val = 10 * (1 - np.trace(U5).real / 5)       # beta_5 = 10/g^2
+            else:
+                val = 8 * (1 - np.trace(P @ Lam).real / np.trace(P).real)   # beta_lat = 8/g^2
+            worst[name] = max(worst[name], abs(val - 4 * ref))
+    # hypercharge angle: second-order coefficient 30/g^2 on the code and on all 32 patterns
+    Y6 = np.diag([-2.0, -2.0, -2.0, 3.0, 3.0])
+    genY = sum(Y6[i, i] * AD[i] @ A[i] for i in range(5))
+    eps = 1e-3
+    c5 = 10 * (1 - np.trace(expm(1j * eps * Y6)).real / 5) / eps ** 2
+    c32 = 8 * (1 - np.trace(expm(1j * eps * genY)).real / 32) / eps ** 2
+    e4 = 0.3
+    f5 = 10 * (1 - np.trace(expm(1j * e4 * Y6)).real / 5)
+    f32 = 8 * (1 - np.trace(expm(1j * e4 * genY)).real / 32)
+    out["T1"] = {"max_deviation_weak_factor_by_carrier_(units_of_1_over_g2)": worst,
+                 "hypercharge_quadratic_coefficient_times_g2": {"code_5": c5, "all_32": c32, "expected": 30.0},
+                 "hypercharge_cost_at_angle_0.3_times_g2": {"code_5": f5, "all_32": f32},
+                 "statement": "weak factor: beta_lat [1 - Re tr_d Lambda(V)/d] = (4/g^2)(1 - tr V/2) on the code and on "
+                              "the pattern carriers; hypercharge: equal at second order, different beyond"}
+    print("T1", out["T1"], flush=True)
+
+    # ---------------------------------------------------------------- G1
+    lat = H.Lattice(4, 5.171, 0.0, 0.0, seed=101)
+    res, rows = H.run_point(lat, 50, 2000)
+    out["G1"] = {"rho2": res["rho2"], "err": res["rho2_err"], "expected": 2.0, "sd_residual": res["sd_residual"],
+                 "sd_err": res["sd_residual_err"]}
+    print("G1", out["G1"], flush=True)
+
+    # ---------------------------------------------------------------- G2
+    g2 = []
+    for kap, L in ((0.10, 4), (0.12, 4), (0.12, 6)):
+        ks = 2 * np.pi * np.arange(L) / L
+        c = np.cos(ks)
+        tot = sum(1.0 / (1 - 2 * kap * (c[a] + c[b] + c[d] + c[e]))
+                  for a, b, d, e in itertools.product(range(L), repeat=4))
+        exact = 2.0 * tot / L ** 4
+        lat = H.Lattice(L, 5.171, kap, 0.0, seed=202, frozen_links=True)
+        res, rows = H.run_point(lat, 300, 6000 if L == 4 else 3000)
+        g2.append({"kappa": kap, "L": L, "rho2": res["rho2"], "err": res["rho2_err"], "exact": exact,
+                   "deviation_in_errors": (res["rho2"] - exact) / res["rho2_err"],
+                   "L_phi": res["L_phi"], "sd_residual": res["sd_residual"], "sd_err": res["sd_residual_err"],
+                   "acc_scale": res["acc_scale"]})
+        print("G2", g2[-1], flush=True)
+    out["G2"] = g2
+
+    # ---------------------------------------------------------------- G5
+    lat = H.Lattice(4, 5.171, 0.13, 0.002, seed=303)
+    for _ in range(20):
+        lat.sweep()
+    m0 = lat.measure(); W0 = lat.slice_ops()
+    g = H.random_su2(lat.V, lat.rng)
+    lat.gauge_transform(g)
+    m1 = lat.measure(); W1 = lat.slice_ops()
+    # the W operator is gauge invariant and a triplet under the global right action; compare gauge-invariant parts
+    out["G5"] = {"max_change_of_observables": float(np.abs(m0 - m1).max()),
+                 "max_change_of_slice_operators": float(max(np.abs(a - b).max() for a, b in zip(W0, W1)))}
+    print("G5", out["G5"], flush=True)
+
+    # ---------------------------------------------------------------- timing
+    tim = {}
+    for L in (4, 6, 8):
+        lat = H.Lattice(L, 5.171, 0.13, 0.002, seed=1)
+        t0 = time.time()
+        for _ in range(10):
+            lat.sweep(); lat.measure()
+        tim[f"{L}^4 seconds per sweep with measurement"] = (time.time() - t0) / 10
+    out["timing"] = tim
+    print("timing", tim, flush=True)
+
+if part in ("gauge", "all"):
+    # ---------------------------------------------------------------- G4
+    g4 = []
+    for beta, L, nth, nm in ((2.3, 6, 150, 400), (2.5, 6, 150, 400), (5.171, 6, 100, 400), (4.0, 6, 100, 300),
+                             (6.5, 6, 100, 300)):
+        lat = H.Lattice(L, beta, 0.0, 0.0, seed=404)
+        res, rows = H.run_point(lat, nth, nm)
+        # weak-coupling series for SU(2): 1 - 3/(4 beta) - 0.0352/beta^2... only the first order is used as a bound
+        g4.append({"beta": beta, "L": L, "plaq": res["plaq"], "err": res["plaq_err"],
+                   "first_order_weak_coupling_1_minus_3_over_4beta": 1 - 0.75 / beta,
+                   "strong_coupling_beta_over_4": beta / 4})
+        print("G4", g4[-1], flush=True)
+    out["G4"] = g4
+    out["G4_recalled_(IMPORTED_from_memory)"] = {"beta_2.3": 0.602, "beta_2.5": 0.652}
+
+out["seconds_last_call"] = time.time() - t00
+json.dump(out, open("checks.json", "w"), indent=1)
+print("done", time.time() - t00)

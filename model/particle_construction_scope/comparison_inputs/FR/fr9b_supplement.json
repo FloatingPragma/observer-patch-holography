@@ -1,0 +1,239 @@
+{
+ "closed_sector_FN": {
+  "eigenvalue: multiplicity (float)": {
+   "0.073074531": 2,
+   "0.188966956": 4,
+   "0.701792647": 4,
+   "0.760258802": 2,
+   "0.833333333": 6,
+   "0.94257373": 4,
+   "1.0": 8
+  },
+  "spectral_weights_of_the_E_kept_dimer": {
+   "0.073074531": 0.011349714,
+   "0.188966956": 0.035523339,
+   "0.701792647": 0.040048149,
+   "0.760258802": 0.07198362,
+   "0.833333333": 0.5,
+   "0.94257373": 0.257761845,
+   "1.0": 0.083333333
+  }
+ },
+ "double_load_invariant_subspace": {
+  "D on (double, forward, in-dimer)": [
+   [
+    "2/3",
+    "1/6",
+    "1/6"
+   ],
+   [
+    "1/6",
+    "5/6",
+    "0"
+   ],
+   [
+    "1/6",
+    "0",
+    "5/6"
+   ]
+  ],
+  "invariant (no leak, exact)": true,
+  "eigenvalues": "1, 1/2 (symmetric part), 5/6 (antisymmetric part): cos w = 1/2, period six"
+ },
+ "double load at port 2": {
+  "1": {
+   "double at 2, blank": "2/3",
+   "double at 10, blank": "0",
+   "forward {2,3} rec 2": "1/6",
+   "in-dimer {2,10} rec 2": "1/6",
+   "in-dimer {2,10} rec 3": "0",
+   "backward {0,10} rec 3": "0"
+  },
+  "2": {
+   "double at 2, blank": "0",
+   "double at 10, blank": "0",
+   "forward {2,3} rec 2": "1/2",
+   "in-dimer {2,10} rec 2": "1/2",
+   "in-dimer {2,10} rec 3": "0",
+   "backward {0,10} rec 3": "0"
+  },
+  "3": {
+   "double at 2, blank": "-1/3",
+   "double at 10, blank": "0",
+   "forward {2,3} rec 2": "2/3",
+   "in-dimer {2,10} rec 2": "2/3",
+   "in-dimer {2,10} rec 3": "0",
+   "backward {0,10} rec 3": "0"
+  },
+  "4": {
+   "double at 2, blank": "0",
+   "double at 10, blank": "0",
+   "forward {2,3} rec 2": "1/2",
+   "in-dimer {2,10} rec 2": "1/2",
+   "in-dimer {2,10} rec 3": "0",
+   "backward {0,10} rec 3": "0"
+  },
+  "5": {
+   "double at 2, blank": "2/3",
+   "double at 10, blank": "0",
+   "forward {2,3} rec 2": "1/6",
+   "in-dimer {2,10} rec 2": "1/6",
+   "in-dimer {2,10} rec 3": "0",
+   "backward {0,10} rec 3": "0"
+  },
+  "6": {
+   "double at 2, blank": "1",
+   "double at 10, blank": "0",
+   "forward {2,3} rec 2": "0",
+   "in-dimer {2,10} rec 2": "0",
+   "in-dimer {2,10} rec 3": "0",
+   "backward {0,10} rec 3": "0"
+  },
+  "7": {
+   "double at 2, blank": "2/3",
+   "double at 10, blank": "0",
+   "forward {2,3} rec 2": "1/6",
+   "in-dimer {2,10} rec 2": "1/6",
+   "in-dimer {2,10} rec 3": "0",
+   "backward {0,10} rec 3": "0"
+  },
+  "8": {
+   "double at 2, blank": "0",
+   "double at 10, blank": "0",
+   "forward {2,3} rec 2": "1/2",
+   "in-dimer {2,10} rec 2": "1/2",
+   "in-dimer {2,10} rec 3": "0",
+   "backward {0,10} rec 3": "0"
+  },
+  "9": {
+   "double at 2, blank": "-1/3",
+   "double at 10, blank": "0",
+   "forward {2,3} rec 2": "2/3",
+   "in-dimer {2,10} rec 2": "2/3",
+   "in-dimer {2,10} rec 3": "0",
+   "backward {0,10} rec 3": "0"
+  },
+  "10": {
+   "double at 2, blank": "0",
+   "double at 10, blank": "0",
+   "forward {2,3} rec 2": "1/2",
+   "in-dimer {2,10} rec 2": "1/2",
+   "in-dimer {2,10} rec 3": "0",
+   "backward {0,10} rec 3": "0"
+  },
+  "11": {
+   "double at 2, blank": "2/3",
+   "double at 10, blank": "0",
+   "forward {2,3} rec 2": "1/6",
+   "in-dimer {2,10} rec 2": "1/6",
+   "in-dimer {2,10} rec 3": "0",
+   "backward {0,10} rec 3": "0"
+  },
+  "12": {
+   "double at 2, blank": "1",
+   "double at 10, blank": "0",
+   "forward {2,3} rec 2": "0",
+   "in-dimer {2,10} rec 2": "0",
+   "in-dimer {2,10} rec 3": "0",
+   "backward {0,10} rec 3": "0"
+  }
+ },
+ "symmetric double state times sqrt2": {
+  "1": {
+   "double at 2, blank": "2/3",
+   "double at 10, blank": "2/3",
+   "forward {2,3} rec 2": "1/6",
+   "in-dimer {2,10} rec 2": "1/6",
+   "in-dimer {2,10} rec 3": "1/6",
+   "backward {0,10} rec 3": "1/6"
+  },
+  "2": {
+   "double at 2, blank": "0",
+   "double at 10, blank": "0",
+   "forward {2,3} rec 2": "1/2",
+   "in-dimer {2,10} rec 2": "1/2",
+   "in-dimer {2,10} rec 3": "1/2",
+   "backward {0,10} rec 3": "1/2"
+  },
+  "3": {
+   "double at 2, blank": "-1/3",
+   "double at 10, blank": "-1/3",
+   "forward {2,3} rec 2": "2/3",
+   "in-dimer {2,10} rec 2": "2/3",
+   "in-dimer {2,10} rec 3": "2/3",
+   "backward {0,10} rec 3": "2/3"
+  },
+  "4": {
+   "double at 2, blank": "0",
+   "double at 10, blank": "0",
+   "forward {2,3} rec 2": "1/2",
+   "in-dimer {2,10} rec 2": "1/2",
+   "in-dimer {2,10} rec 3": "1/2",
+   "backward {0,10} rec 3": "1/2"
+  },
+  "5": {
+   "double at 2, blank": "2/3",
+   "double at 10, blank": "2/3",
+   "forward {2,3} rec 2": "1/6",
+   "in-dimer {2,10} rec 2": "1/6",
+   "in-dimer {2,10} rec 3": "1/6",
+   "backward {0,10} rec 3": "1/6"
+  },
+  "6": {
+   "double at 2, blank": "1",
+   "double at 10, blank": "1",
+   "forward {2,3} rec 2": "0",
+   "in-dimer {2,10} rec 2": "0",
+   "in-dimer {2,10} rec 3": "0",
+   "backward {0,10} rec 3": "0"
+  },
+  "7": {
+   "double at 2, blank": "2/3",
+   "double at 10, blank": "2/3",
+   "forward {2,3} rec 2": "1/6",
+   "in-dimer {2,10} rec 2": "1/6",
+   "in-dimer {2,10} rec 3": "1/6",
+   "backward {0,10} rec 3": "1/6"
+  },
+  "8": {
+   "double at 2, blank": "0",
+   "double at 10, blank": "0",
+   "forward {2,3} rec 2": "1/2",
+   "in-dimer {2,10} rec 2": "1/2",
+   "in-dimer {2,10} rec 3": "1/2",
+   "backward {0,10} rec 3": "1/2"
+  },
+  "9": {
+   "double at 2, blank": "-1/3",
+   "double at 10, blank": "-1/3",
+   "forward {2,3} rec 2": "2/3",
+   "in-dimer {2,10} rec 2": "2/3",
+   "in-dimer {2,10} rec 3": "2/3",
+   "backward {0,10} rec 3": "2/3"
+  },
+  "10": {
+   "double at 2, blank": "0",
+   "double at 10, blank": "0",
+   "forward {2,3} rec 2": "1/2",
+   "in-dimer {2,10} rec 2": "1/2",
+   "in-dimer {2,10} rec 3": "1/2",
+   "backward {0,10} rec 3": "1/2"
+  },
+  "11": {
+   "double at 2, blank": "2/3",
+   "double at 10, blank": "2/3",
+   "forward {2,3} rec 2": "1/6",
+   "in-dimer {2,10} rec 2": "1/6",
+   "in-dimer {2,10} rec 3": "1/6",
+   "backward {0,10} rec 3": "1/6"
+  },
+  "12": {
+   "double at 2, blank": "1",
+   "double at 10, blank": "1",
+   "forward {2,3} rec 2": "0",
+   "in-dimer {2,10} rec 2": "0",
+   "in-dimer {2,10} rec 3": "0",
+   "backward {0,10} rec 3": "0"
+  }
+ }
+}

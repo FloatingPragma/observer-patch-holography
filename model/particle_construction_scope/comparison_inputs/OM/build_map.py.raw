@@ -1,0 +1,763 @@
+"""Rebuild the obstruction map (worker OM, step S3) from the hand-maintained table map_source.toml.
+
+Run:  /tmp/oph-completion-venv/bin/python -I -B WORKSPACE/repair-law/work/OM/build_map.py
+Writes obstruction_map.json and OBSTRUCTION_MAP.md next to this script and exits nonzero if a check fails.
+Read-only inputs (paths in the table): work/MATCH/match.json, the theory repository's reference-value file, the
+simulation app's particle_map.json and FZ's registry.json (for the adapter self-check). The script computes no
+candidate value: it recomputes the charges of the 32 patterns of the five-level code, ranks the eigenvalues of the
+lepton circulant to place the generation characters, and checks every quote against its report.
+
+The JSON schema is read by FZ's harness (work/FZ/harness.py): by_target -> rows[0] -> status_items and
+mass.values[] with kind, quantity, value, unit, status, report. Keep those fields.
+"""
+import hashlib
+import json
+import math
+import re
+import sys
+import tomllib
+from datetime import datetime, timezone
+from fractions import Fraction as Fr
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+RL = HERE.parent.parent
+SRC = HERE / "map_source.toml"
+OUT_JSON, OUT_MD = HERE / "obstruction_map.json", HERE / "OBSTRUCTION_MAP.md"
+RANK = {"SOURCE": 3, "CONDITIONAL": 2, "OPEN": 0}
+VALUE_STATUS = {"SOURCE", "CONDITIONAL", "FIT", "OPEN", "EXCLUDED"}
+MASS_KINDS = {"mass", "mass_ratio"}
+ALL_KINDS = MASS_KINDS | {"structure", "coupling", "mixing"}
+LANE_STATES = {"reported", "stopped", "not started", "running", "queued"}
+CHAR = {0: "1", 1: "w", 2: "w^2"}
+CONJ = {"1": "1", "w": "w^2", "w^2": "w"}
+# Standard Model reference (IMPORTED): colour, weak, Y, B - L of the eight fields of one generation.
+SM = {"u_L": ("3", "2", Fr(1, 6), Fr(1, 3)), "d_L": ("3", "2", Fr(1, 6), Fr(1, 3)),
+      "u_R": ("3", "1", Fr(2, 3), Fr(1, 3)), "d_R": ("3", "1", Fr(-1, 3), Fr(1, 3)),
+      "nu_L": ("1", "2", Fr(-1, 2), Fr(-1)), "e_L": ("1", "2", Fr(-1, 2), Fr(-1)),
+      "e_R": ("1", "1", Fr(-1), Fr(-1)), "nu_R": ("1", "1", Fr(0), Fr(-1))}
+FAILS, COUNT = [], [0]
+FORBIDDEN = "hon" + "est"
+
+
+def check(ok, what):
+    COUNT[0] += 1
+    if not ok:
+        FAILS.append(what)
+    return ok
+
+
+def sha(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def rl(path):
+    p = Path(path)
+    return p if p.is_absolute() else RL / p
+
+
+def norm(text):
+    text = text.replace("**", "").replace("`", "").replace("\u2212", "-").replace("\u00a0", " ")
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def frac(x):
+    return str(x) if x.denominator != 1 else str(x.numerator)
+
+
+# ----------------------------------------------------------------------------------------------- five-level code
+def field_name(n3, n2, t3):
+    lepton = n3 == 3
+    if n2 == 1:
+        return ("nu_L" if lepton else "u_L") if t3 > 0 else ("e_L" if lepton else "d_L")
+    if n2 == 2:
+        return "nu_R" if lepton else "u_R"
+    return "e_R" if lepton else "d_R"
+
+
+def patterns():
+    out = []
+    for i in range(32):
+        bits = format(i, "05b")
+        n3, s1, s2 = bits[:3].count("1"), int(bits[3]), int(bits[4])
+        n2, q6 = s1 + s2, 3 * (s1 + s2) - 2 * bits[:3].count("1")
+        t3 = Fr(1, 2) if (s1, s2) == (1, 0) else Fr(-1, 2) if (s1, s2) == (0, 1) else Fr(0)
+        if n3 % 2 == 1:
+            name = field_name(n3, n2, t3)
+        else:
+            c = "".join("1" if b == "0" else "0" for b in bits)
+            cn3, cs1, cs2 = c[:3].count("1"), int(c[3]), int(c[4])
+            ct3 = Fr(1, 2) if (cs1, cs2) == (1, 0) else Fr(-1, 2) if (cs1, cs2) == (0, 1) else Fr(0)
+            name = "anti-" + field_name(cn3, cs1 + cs2, ct3)
+        out.append({"bits": bits, "n3": n3, "n2": n2, "Q6": q6, "Y": Fr(q6, 6), "T3": t3, "Q": t3 + Fr(q6, 6),
+                    "k": q6 % 6, "colour": {1: "3", 2: "3bar"}.get(n3, "1"), "weak": "2" if n2 == 1 else "1",
+                    "hand": "L" if (n3 + n2) % 2 == 0 else "R", "B_minus_L": 1 - Fr(2, 3) * n3, "name": name})
+    return out
+
+
+def check_patterns(pats, match):
+    ref = {p["bits"]: p for p in match["patterns"]}
+    for p in pats:
+        r = ref[p["bits"]]
+        same = (r["name"], r["k"], r["Y"], r["T3"], r["Q"], r["colour"], r["weak"], r["hand"]) == (
+            p["name"], p["k"], frac(p["Y"]), frac(p["T3"]), frac(p["Q"]), p["colour"], p["weak"], p["hand"])
+        check(same, f"pattern {p['bits']} differs from match.json")
+        check(p["k"] == (3 * (p["n2"] % 2) - 2 * (p["n3"] % 3)) % 6, f"class formula {p['bits']}")
+        base = p["name"].removeprefix("anti-")
+        colour, weak, y, bl = SM[base]
+        if p["name"].startswith("anti-"):
+            colour, y, bl = {"3": "3bar", "1": "1"}[colour], -y, -bl
+        check((colour, weak, y, bl) == (p["colour"], p["weak"], p["Y"], p["B_minus_L"]), f"SM charges {p['bits']}")
+    names = [p["name"] for p in pats]
+    check(all(names.count(n) == (3 if n.removeprefix("anti-")[0] in "ud" else 1) for n in names),
+          "pattern multiplicities (3 colours per quark field, 1 per lepton field)")
+
+
+def lepton_characters():
+    """Rank the eigenvalues lambda_k of C(theta), R v_k = w^k v_k with R = rho_f = g^-1 (FR item 3).
+
+    theta = +2/9 is the face f, theta = -2/9 the antipodal face f' (FR item 8). A character w^k of R is the
+    character w^-k of g, so the g-character of generation n is the conjugate of the R-character.
+    """
+    a, b, res = math.sqrt(1 / 6), math.sqrt(1 / 12), {}
+    for tag, d in (("f", 2 / 9), ("f_prime", -2 / 9)):
+        lam = [a + 2 * b * math.cos(d + 2 * math.pi * k / 3) for k in range(3)]
+        m = [x * x for x in lam]
+        order = sorted(range(3), key=lambda k: m[k])
+        res[tag] = {g + 1: CONJ[CHAR[k]] for g, k in enumerate(order)}
+        res[tag + "_ratios"] = (m[order[1]] / m[order[0]], m[order[2]] / m[order[0]])
+        res[tag + "_Q"] = sum(m) / sum(math.sqrt(x) for x in m) ** 2
+    return res
+
+
+# ----------------------------------------------------------------------------------------------- table helpers
+def expand(items, groups):
+    out = []
+    for it in items:
+        for x in (groups[it[1:]] if it.startswith("@") else [it]):
+            if x not in out:
+                out.append(x)
+    return out
+
+
+def row_key(v, row, table):
+    """Value of a per-target or per-class sub-table for this row, or None."""
+    if "per_target" in v:
+        return table.get(row.get("target"))
+    if "per_class" in v:
+        return table.get(str(row.get("defect_class")))
+    return None
+
+
+def row_value(v, row):
+    if "generations" in v and row.get("generation") not in v["generations"]:
+        return None
+    if "per_target" in v:
+        return v["per_target"].get(row.get("target"))
+    if "per_class" in v:
+        return v["per_class"].get(str(row.get("defect_class")))
+    return v.get("value")
+
+
+def show(val, v):
+    unit = v.get("unit", "")
+    unit = "" if unit in ("1", "") else " " + unit
+    if isinstance(val, (int, float)) and not isinstance(val, bool):
+        return f"{val:.7g}{unit}"
+    if "per_target" in v and re.fullmatch(r"[0-9.]+ \+- [0-9.]+", str(val)):
+        return f"{val}{unit}"
+    return v.get("short") or str(val)
+
+
+def load_measured(T, live):
+    """Measured values from the table; the live reference file, when present, must agree with them."""
+    table = T["measured"]
+    for key, m in table.items():
+        e = live.get(key)
+        if e is not None:
+            a, b = e.get("value_gev"), m.get("value_gev")
+            same = (a is None and b is None) or (a is not None and b is not None and math.isclose(a, b, rel_tol=1e-12))
+            check(same and e.get("reference_kind") == m.get("kind"),
+                  f"measured {key}: table differs from the live reference file")
+    return table
+
+
+def measured(key, table, note=None):
+    if not key:
+        return None
+    m = table.get(key)
+    if not check(m is not None, f"measured key {key} missing from the table"):
+        return None
+    out = {"display": m["display"], "value_GeV": m.get("value_gev"), "error_GeV": m.get("error_gev"),
+           "kind": m["kind"], "source": f"PDG 2026 API {m.get('summary_id', '')}".strip(),
+           "via": "reverse-engineering-reality code/particles/data/particle_reference_values.json",
+           "label": "MEASURED, compare only (NOT BLIND)"}
+    if note:
+        out["note"] = note
+    return out
+
+
+def attach_mass(row, mech_ids, T, mass_note=None):
+    vals, items, lanes, reports = [], [], [], []
+    for mid in mech_ids:
+        m = T["mechanisms"][mid]
+        items += [i for i in expand(m.get("items", []), T["groups"]) if i not in items]
+        lanes += [x for x in m.get("lanes", []) if x not in lanes]
+        reports += [x for x in m.get("reports", []) if x not in reports]
+        for v in m.get("values", []):
+            val = row_value(v, row)
+            if val is None:
+                continue
+            d = {k: v[k] for k in ("quantity", "kind", "unit", "status", "report", "where", "comparison", "note", "fact")
+                 if k in v}
+            d.update(mechanism=mid, value=val, display=show(val, v))
+            for extra in ("central", "uncertainty"):
+                if extra in v and row_key(v, row, v[extra]) is not None:
+                    d[extra] = row_key(v, row, v[extra])
+            if "uncertainty_origin" in v and "uncertainty" in d:
+                d["uncertainty_origin"] = v["uncertainty_origin"]
+            if "items" in v:
+                d["items"] = expand(v["items"], T["groups"])
+                items += [i for i in d["items"] if i not in items]
+            vals.append(d)
+            if v.get("report") and v["report"] not in reports:
+                reports.append(v["report"])
+    best = max((v["status"] for v in vals if v["kind"] in MASS_KINDS and v["status"] in RANK),
+               key=lambda s: RANK[s], default="OPEN")
+    text = "; ".join(T["mechanisms"][m]["short"] for m in mech_ids) or (mass_note or "none")
+    row["mass"] = {"mechanisms": mech_ids, "mechanism_text": text, "values": vals, "items": items, "lanes": lanes,
+                   "fit_on_record": sum(v["status"] == "FIT" for v in vals),
+                   "excluded_on_record": sum(v["status"] == "EXCLUDED" for v in vals)}
+    if mass_note:
+        row["mass"]["note"] = mass_note
+    row["status"] = best
+    if best == "CONDITIONAL":
+        top = next(v for v in vals if v["status"] == "CONDITIONAL" and v["kind"] in MASS_KINDS)
+        row["status_items"] = [i for i in top.get("items", [])
+                               if not T["items"][i].get("allowed_in_source") and T["items"][i]["class"] != "DERIVED"]
+    elif best == "OPEN":
+        row["status_items"] = [i for i in items if T["items"][i]["class"] == "OPEN"]
+    else:
+        row["status_items"] = []
+    return items, lanes, reports
+
+
+def slim(d, key):
+    """Row copy of a character or spin entry: the statement, items and reports stay in the top-level table."""
+    return {"key": key, **{k: v for k, v in d.items() if k not in ("statement", "items", "reports")}}
+
+
+def finish(row, T, extra_items, extra_lanes, extra_reports):
+    items = list(dict.fromkeys(row["mass"]["items"] + extra_items))
+    lanes = list(dict.fromkeys(row["mass"]["lanes"] + extra_lanes
+                               + [ln for i in items for ln in T["items"][i].get("lanes", [])]))
+    if row["kind"] != "composite":
+        lanes.append("FZ")
+    lanes = list(dict.fromkeys(lanes))
+    row["items"] = items
+    row["lanes"] = lanes
+    row["lanes_running"] = [ln for ln in lanes if T["lanes"][ln]["state"] == "running"]
+    row["lanes_pending"] = [ln for ln in lanes if T["lanes"][ln]["state"] in ("queued", "stopped", "not started")]
+    row["reports"] = list(dict.fromkeys(extra_reports))
+    return row
+
+
+# ----------------------------------------------------------------------------------------------- rows
+def fermion_rows(T, pats, refs, chars):
+    rows, by_name = [], {}
+    for p in pats:
+        by_name.setdefault(p["name"], []).append(p)
+    ss = T["spin_statistics"]["fermion"]
+    for sid, sp in T["species"].items():
+        for g in (1, 2, 3):
+            mechs = sp.get("mechanisms_gen3", sp["mechanisms"]) if g == 3 else sp["mechanisms"]
+            for anti in (False, True):
+                for field in sp["fields"]:
+                    name = ("anti-" if anti else "") + field
+                    ps = by_name[name]
+                    p0 = ps[0]
+                    base_sym = sp["symbols"][g - 1] + field[field.index("_"):]
+                    hand_word = {"L": "left-handed", "R": "right-handed"}[p0["hand"]]
+                    other = sp["fields"][1 - sp["fields"].index(field)]
+                    row = {"id": ("anti_" if anti else "") + f"{field}_g{g}", "kind": sp["kind"], "group": sp["group"],
+                           "symbol": ("anti-" if anti else "") + base_sym, "field": name,
+                           "name": (f"{sp['anti_names'][g - 1]}, conjugate of {base_sym}, {hand_word}" if anti
+                                    else f"{sp['particle_names'][g - 1]}, {hand_word}"),
+                           "particle": "antiparticle" if anti else "particle", "generation": g,
+                           "target": sp["targets"][g - 1], "handedness": p0["hand"],
+                           "conjugate_row": ("" if anti else "anti_") + f"{field}_g{g}",
+                           "dirac_partner": ("anti_" if anti else "") + f"{other}_g{g}",
+                           "code": {"patterns": [p["bits"] for p in ps], "n3": p0["n3"], "n2": p0["n2"],
+                                    "states": len(ps), "bit_order": "v1 v2 v3 s1 s2"},
+                           "defect_class": p0["k"], "conjugate_class": (-p0["k"]) % 6,
+                           "colour": p0["colour"], "weak": p0["weak"],
+                           "centre": {"colour_triality": p0["k"] % 3, "weak_parity": p0["k"] % 2},
+                           "sees_flux_classes": [f for f in range(1, 6) if (f * p0["k"]) % 6],
+                           "run": T["classes"][str(p0["k"])],
+                           "charges": {"Q": frac(p0["Q"]), "T3": frac(p0["T3"]), "Y": frac(p0["Y"]),
+                                       "six_Y": p0["Q6"], "B_minus_L": frac(p0["B_minus_L"]), "status": "EXACT",
+                                       "facts": ["class_identity", "b_minus_l"]}}
+                    ch = T["characters"][sp["character"]]
+                    gc = {"status": ch["status"], "items": ch.get("items", []), "lanes": ch.get("lanes", []),
+                          "statement": ch["statement"], "reports": ch.get("reports", [])}
+                    if ch["mode"] == "circulant":
+                        cf, cfp = chars["f"][g], chars["f_prime"][g]
+                        if anti:
+                            cf, cfp = CONJ[cf], CONJ[cfp]
+                        gc.update(value=cf, on_face_f=cf, on_face_f_prime=cfp,
+                                  convention="characters of g = gE gC (FR item 8); antiparticles carry the conjugate",
+                                  display=f"{cf} on f; {cfp} on f'")
+                        if field.endswith("_R"):
+                            gc["note"] = ("Class 0 holds no defect face; the copy label of the right-handed field is "
+                                          "the copy of the junction 3 + 3 -> 0 that pairs it with its doublet.")
+                    else:
+                        gc.update(value=None, display="open")
+                    row["generation_character"] = slim(gc, sp["character"])
+                    row["spin_statistics"] = slim(ss, "fermion")
+                    row["composite_form"] = sp["composite"][name].replace("{sym}", base_sym)
+                    row["measured"] = measured(sp["measured_keys"][g - 1], refs, sp.get("measured_note"))
+                    items, lanes, reports = attach_mass(row, mechs, T)
+                    finish(row, T, gc["items"] + ss.get("items", []), gc["lanes"] + ss.get("lanes", []),
+                           reports + gc["reports"] + ss.get("reports", []) + ["MATCH.md", "reports/DG.md"])
+                    rows.append(row)
+    return rows
+
+
+def boson_rows(T, refs):
+    rows = []
+    for b in T["bosons"]:
+        k = b["six_Y"] % 6
+        row = {"id": b["id"], "kind": b["kind"], "group": b["group"], "symbol": b["symbol"], "name": b["name"],
+               "particle": "particle", "generation": None, "target": b["target"], "conjugate_row": b["conjugate"],
+               "defect_class": k, "conjugate_class": (-k) % 6, "colour": b["colour"], "weak": b["weak"],
+               "centre": {"colour_triality": k % 3, "weak_parity": k % 2},
+               "sees_flux_classes": [f for f in range(1, 6) if (f * k) % 6], "run": T["classes"][str(k)],
+               "charges": {"Q": b["Q"], "T3": b["T3"], "Y": b["Y"], "six_Y": b["six_Y"], "B_minus_L": b["B_minus_L"],
+                           "status": "IMPORTED (Standard Model values); class EXACT"},
+               "composite_form": b["object"], "facts": b.get("facts", [])}
+        ch = T["characters"][b["character"]]
+        row["generation_character"] = {"key": b["character"], "status": ch["status"], "value": None,
+                                       "display": ch["mode"] if ch["mode"] != "open" else "open", "lanes": ch.get("lanes", [])}
+        ss = T["spin_statistics"][b["spin_statistics"]]
+        row["spin_statistics"] = slim(ss, b["spin_statistics"])
+        row["measured"] = measured(b.get("measured_key"), refs)
+        items, lanes, reports = attach_mass(row, b["mechanisms"], T)
+        freps = [T["facts"][f]["report"] for f in row["facts"]]
+        finish(row, T, ch.get("items", []) + ss.get("items", []), ch.get("lanes", []) + ss.get("lanes", []),
+               reports + ch.get("reports", []) + ss.get("reports", []) + freps)
+        rows.append(row)
+    return rows
+
+
+def composite_rows(T, refs):
+    rows = []
+    ch, ss = T["characters"]["composite"], T["spin_statistics"]["composite"]
+    for c in T["composites"]:
+        row = {"id": c["id"], "kind": "composite", "group": "composite", "symbol": "{" + ",".join(map(str, c["content"])) + "}",
+               "name": c["name"], "content": c["content"], "class_sum_mod_6": sum(c["content"]) % 6,
+               "conjugate_row": c["conjugate"], "defect_class": None,
+               "centre": {"colour_triality": 0, "weak_parity": 0}, "reading": c["reading"],
+               "run": {"count_L10": c["count_L10"], "per_carrier_L10": c["per_carrier_L10"],
+                       "share_of_defect_holding_carriers": c["share"], "dynamics": c["dynamics"]},
+               "charges": {"Q": "integer (class sum 0 mod 6)", "B_minus_L": c["B_minus_L"], "status": "EXACT (label)"},
+               "composite_form": c["reading"], "facts": c.get("facts", [])}
+        check(sum(c["content"]) % 6 == 0, f"composite {c['id']} is not neutral")
+        row["generation_character"] = {"key": "composite", "status": ch["status"], "value": None,
+                                       "display": "none (class content)", "lanes": ch["lanes"]}
+        row["spin_statistics"] = slim(ss, "composite")
+        row["measured"] = None
+        items, lanes, reports = attach_mass(row, c["mechanisms"], T, c.get("mass_note"))
+        finish(row, T, ss.get("items", []), ch["lanes"] + ss.get("lanes", []) + c.get("lanes_extra", []),
+               c.get("reports", []) + reports + [T["facts"][f]["report"] for f in row["facts"]])
+        rows.append(row)
+    return rows
+
+
+def hadron_rows(T, refs):
+    rows = []
+    for h in T["hadrons"]:
+        ss = dict(T["spin_statistics"][h["spin_statistics"]], spin=h["spin"])
+        row = {"id": h["id"], "kind": "hadron", "group": "hadron", "symbol": h["symbol"], "name": h["name"],
+               "target": h["target"], "defect_class": 0, "centre": {"colour_triality": 0, "weak_parity": 0},
+               "contents": h["contents"], "composite_form": h["contents"],
+               "charges": {"Q": h["Q"], "B_minus_L": h["B_minus_L"], "status": "IMPORTED (Standard Model values)"},
+               "spin_statistics": slim(ss, h["spin_statistics"]),
+               "generation_character": {"key": "composite", "status": "LABEL", "value": None, "display": "none"},
+               "facts": h.get("facts", [])}
+        row["measured"] = measured(h["measured_key"], refs)
+        items, lanes, reports = attach_mass(row, h["mechanisms"], T)
+        finish(row, T, ss.get("items", []), ss.get("lanes", []),
+               reports + ss.get("reports", []) + [T["facts"][f]["report"] for f in row["facts"]])
+        rows.append(row)
+    return rows
+
+
+# ----------------------------------------------------------------------------------------------- checks
+def check_table(T, rows, app):
+    lanes, items, mechs = T["lanes"], T["items"], T["mechanisms"]
+    for lid, ln in lanes.items():
+        check(ln["state"] in LANE_STATES, f"lane {lid}: state {ln['state']}")
+        check(all(rl(r).exists() for r in ln.get("reports", [])), f"lane {lid}: report missing")
+    for fid, f in T["facts"].items():
+        for q in [f] + f.get("also", []):
+            path = rl(q["report"])
+            if check(path.exists(), f"fact {fid}: report {q['report']} missing"):
+                check(norm(q["quote"]) in norm(path.read_text()), f"fact {fid}: quote not found in {q['report']}")
+    for iid, it in items.items():
+        check(all(x in lanes for x in it.get("lanes", [])), f"item {iid}: unknown lane")
+        check(all(rl(r).exists() for r in it.get("reports", [])), f"item {iid}: report missing")
+    for mid, m in mechs.items():
+        check(all(x in items for x in expand(m.get("items", []), T["groups"])), f"mechanism {mid}: unknown item")
+        check(all(x in lanes for x in m.get("lanes", [])), f"mechanism {mid}: unknown lane")
+        check(all(rl(r).exists() for r in m.get("reports", [])), f"mechanism {mid}: report missing")
+        for v in m.get("values", []):
+            tag = f"{mid}: {v['quantity']}"
+            check(v["status"] in VALUE_STATUS, f"{tag}: status {v['status']}")
+            check(v["kind"] in ALL_KINDS, f"{tag}: kind")
+            check(rl(v.get("report", "missing")).exists(), f"{tag}: report missing")
+            if v["status"] == "SOURCE":
+                f = T["facts"].get(v.get("fact", ""))
+                check(bool(f) and f.get("status") == "SOURCE" and f.get("quote"), f"{tag}: SOURCE without a quoted fact")
+            if v["status"] == "CONDITIONAL":
+                its = expand(v.get("items", []), T["groups"])
+                check(bool(its) and all(i in items for i in its), f"{tag}: CONDITIONAL without known items")
+    for row in rows:
+        check(row["status"] in RANK, f"row {row['id']}: status")
+        check(all(ln in lanes for ln in row["lanes"]), f"row {row['id']}: lane")
+        check(all(rl(r).exists() for r in row["reports"]), f"row {row['id']}: report missing")
+        check(all(f in T["facts"] for f in row.get("facts", [])), f"row {row['id']}: unknown fact")
+    if app:
+        chart = {c["target"] for c in app.get("chart", [])}
+        covered = {r.get("target") for r in rows}
+        check(chart <= covered, f"app targets without a row: {sorted(chart - covered)}")
+
+
+def adapter_selfcheck(T, out):
+    """Emulate the selection step of FZ's adapter (work/FZ/harness.py read_om) on the built map.
+
+    Reads FZ's registry.json rules read only and reports, per rule, which entries of the target's first row the
+    adapter turns into OM lines and which entry it takes as the primary (first SOURCE or CONDITIONAL).
+    """
+    path = rl(T["paths"]["fz_registry"])
+    if not path.exists():
+        return {"present": False}
+    rules = json.loads(path.read_text()).get("om_map", [])
+    orows = {r["id"]: r for r in out["rows"]}
+    report, need = [], {"L4", "L5", "L7", "N3", "N9", "E1", "E2", "E3", "E4", "Q6", "G1", "G2"}
+    seen = set()
+    for rule in rules:
+        bt = out["by_target"].get(rule["target"])
+        if not check(bt is not None, f"FZ rule {rule['row']}: target {rule['target']} absent from by_target"):
+            continue
+        ents = []
+        for ent in orows[bt["rows"][0]]["mass"]["values"]:
+            if ent["kind"] not in rule["kinds"]:
+                continue
+            if rule.get("quantity_regex") and not re.search(rule["quantity_regex"], str(ent["quantity"])):
+                continue
+            raw = ent["value"]
+            if rule.get("value_regex"):
+                if not re.search(rule["value_regex"], str(raw)):
+                    continue
+                parsed = True
+            else:
+                parsed = (isinstance(raw, (int, float))
+                          or bool(re.fullmatch(r"\s*([0-9.eE+-]+)\s+to\s+([0-9.eE+-]+)\s*", str(raw))))
+            ents.append({"status": ent["status"], "value": raw, "parsed": parsed})
+        lines = [e for e in ents if e["parsed"]]
+        primary = next((e for e in lines if e["status"] in ("SOURCE", "CONDITIONAL")), None)
+        if lines:
+            seen.add(rule["row"])
+        report.append({"row": rule["row"], "target": rule["target"], "target_status": bt["status"],
+                       "om_lines": len(lines), "unparsed": [str(e["value"]) for e in ents if not e["parsed"]],
+                       "primary": primary["value"] if primary else None})
+    check(need <= seen, f"FZ adapter: rows without an OM line: {sorted(need - seen)}")
+    return {"present": True, "rules": len(rules), "per_rule": report}
+
+
+def style_check(texts):
+    for name, text in texts.items():
+        check("\u2014" not in text, f"{name}: em dash")
+        check(re.search(FORBIDDEN, text, re.I) is None, f"{name}: forbidden word")
+
+
+# ----------------------------------------------------------------------------------------------- markdown
+def cell(x):
+    return str(x).replace("|", "\\|").replace("\n", " ")
+
+
+def best_value(row):
+    vals = [v for v in row["mass"]["values"] if v["kind"] in MASS_KINDS]
+    top = [v for v in vals if v["status"] in ("SOURCE", "CONDITIONAL")]
+    parts = [f"{top[0]['display']} ({top[0]['status']})"] if top else ["none from the source"]
+    if len(top) > 1:
+        parts.append(f"{top[1]['display']} ({top[1]['status']})")
+    parts += [f"{v['display']} (SOURCE)" for v in row["mass"]["values"] if v["kind"] == "structure" and v["status"] == "SOURCE"]
+    parts += [f"{v['display']} (FIT)" for v in vals if v["status"] == "FIT"][:1]
+    if row["mass"]["excluded_on_record"]:
+        parts.append(f"{row['mass']['excluded_on_record']} EXCLUDED on record")
+    return "; ".join(parts)
+
+
+def short_reports(row):
+    return ", ".join(Path(r).stem for r in row["reports"][:8])
+
+
+def markdown(T, out):
+    rows, L = out["rows"], []
+    a = L.append
+    a(f"# {T['meta']['title']}")
+    a("")
+    a(f"Worker OM, step S3 of `FINAL_STEPS.md`. Built {out['built_utc']} by `work/OM/build_map.py` from the hand-maintained "
+      f"table `work/OM/map_source.toml` (version {T['meta']['version']}); machine form `work/OM/obstruction_map.json` "
+      f"(schema `{out['schema']}`). {len(rows)} rows: "
+      + ", ".join(f"{v} {k}" for k, v in out["summary"]["rows_by_kind"].items())
+      + "; by status: " + ", ".join(f"{v} {k}" for k, v in out["summary"]["rows_by_status"].items()) + ".")
+    a("")
+    a(T["meta"]["reading"])
+    a("")
+    a(T["meta"]["unit"] + " " + T["meta"]["blindness"])
+    a("")
+    a("Status words: " + "; ".join(f"**{k}** {v['meaning']}" for k, v in T["status"].items()))
+    a("")
+    a("Row status is the best status among the row's mass and mass-ratio values (SOURCE, CONDITIONAL, OPEN); FIT and "
+      "EXCLUDED values are listed beside it. A CONDITIONAL status names the items of its first conditional value "
+      "(section 7; the unit E* is admitted); an OPEN status names the open items. The first conditional value of a row "
+      "is the line FZ's harness compares. Lanes are named with their state in section 10; a star marks a running lane.")
+    a("")
+    a("## 1. Classes in the level-10 run")
+    a("")
+    a("A defect of any class is a boson; the particles named are the quanta whose pattern carries the class (SS).")
+    a("")
+    a("| Class 6Y mod 6 | Colour, weak | Quanta of this class | Defect in the run (MATCH.md, CH.md) | Mean free path, run H2 |")
+    a("| --- | --- | --- | --- | --- |")
+    ct = out["class_table"]
+    for k in ("1", "5", "4", "2", "3", "0"):
+        c = T["classes"][k]
+        a(f"| {k} | {ct[k]['colour']}, {ct[k]['weak']} | {cell(c['particles'])} | {cell(c['run'])} | {c['mean_free_path_H2']} |")
+    a("")
+    head = ("| Row | Class | Z3, Z2 | Generation character | Spin, statistics | Q; T3; Y; B-L | Composite form | "
+            "Mass mechanism (lanes) | Current value | Status | Reports |")
+    sep = "| " + " | ".join(["---"] * 11) + " |"
+
+    def frow(r):
+        ss, q = r["spin_statistics"], r["charges"]
+        z = f"{r['centre']['colour_triality']}, {'odd' if r['centre']['weak_parity'] else 'even'}"
+        gc = r["generation_character"]
+        gtxt = (f"{gc['display']} ({gc['status']})" if gc.get("display") not in (None, "open")
+                else f"open ({', '.join(gc.get('lanes', [])) or '-'})")
+        lanes = ", ".join(ln + ("*" if ln in r["lanes_running"] else "") for ln in r["lanes"]) or "-"
+        return (f"| {cell(r['symbol'])} ({cell(r['name'])}) | {r['defect_class'] if r['defect_class'] is not None else 'sum 0'} | {z} | "
+                f"{cell(gtxt)} | {ss['spin']}, {ss['statistics']} ({ss['status']}) | "
+                f"{cell(q.get('Q'))}; {cell(q.get('T3', '-'))}; {cell(q.get('Y', '-'))}; {cell(q.get('B_minus_L'))} | "
+                f"{cell(r['composite_form'])} | {cell(r['mass']['mechanism_text'])} ({lanes}) | {cell(best_value(r))} | "
+                f"**{r['status']}**{': ' + ', '.join(r['status_items']) if r['status_items'] else ''} | {cell(short_reports(r))} |")
+
+    for title, kind in (("2. Quarks", ("quark",)), ("3. Leptons", ("lepton", "neutrino")),
+                        ("4. Bosons", ("scalar", "vector")), ("5. Composites the runs show (pure-flux carrier contents)", ("composite",)),
+                        ("6. Hadrons with a measured mass (composites of quanta)", ("hadron",))):
+        a(f"## {title}")
+        a("")
+        a(head)
+        a(sep)
+        for r in rows:
+            if r["kind"] in kind:
+                a(frow(r))
+        a("")
+        if kind == ("composite",):
+            a("| Content | Carriers at level 10 | Per carrier | Share of defect-holding carriers | Dynamics |")
+            a("| --- | --- | --- | --- | --- |")
+            for r in rows:
+                if r["kind"] == "composite":
+                    ru = r["run"]
+                    a(f"| {r['symbol']} | {ru['count_L10']:,} | {ru['per_carrier_L10']} | {ru['share_of_defect_holding_carriers']} | {cell(ru['dynamics'])} |")
+            a("")
+    a("## 7. Named items (what CONDITIONAL and OPEN rows rest on)")
+    a("")
+    a("| Item | Class | Lanes | Rows | Statement | Reports |")
+    a("| --- | --- | --- | --- | --- | --- |")
+    for iid, it in out["items"].items():
+        a(f"| `{iid}`: {cell(it['name'])} | {it['class']} | {', '.join(it.get('lanes', [])) or '-'} | {it['row_count']} | "
+          f"{cell(it['statement'])} | {cell(', '.join(Path(r).stem for r in it.get('reports', [])))} |")
+    a("")
+    a("## 8. SOURCE and structural statements, with the quote")
+    a("")
+    for fid, f in out["facts"].items():
+        a(f"- **{fid}** ({f['label']}{', SOURCE' if f.get('status') == 'SOURCE' else ''}). {f['statement']} "
+          f"`{f['report']}`: \"{f['quote']}\"" + "".join(f" `{x['report']}`: \"{x['quote']}\"" for x in f.get("also", [])))
+        if f.get("limits"):
+            a(f"  Limit: {f['limits']}")
+    a("")
+    a("## 9. Mechanisms: every value on record")
+    a("")
+    for mid, m in out["mechanisms"].items():
+        a(f"**{mid}**: {m['name']}. {m['form']} Status {m['status']}.")
+        a("")
+        a("| Status | Kind | Quantity | Value | Comparison | Report |")
+        a("| --- | --- | --- | --- | --- | --- |")
+        for v in m.get("values", []):
+            val = v.get("value")
+            if val is None:
+                tab = v.get("per_target") or v.get("per_class") or {}
+                val = "; ".join(f"{k}: {x}" for k, x in tab.items())
+            unit = v.get("unit", "")
+            a(f"| {v['status']} | {v['kind']} | {cell(v['quantity'])} | {cell(val)}{'' if unit in ('', '1') else ' ' + cell(unit)} | "
+              f"{cell(v.get('comparison', ''))} | {Path(v['report']).stem}{' ' + cell(v['where']) if v.get('where') else ''} |")
+        a("")
+    a("## 10. Lanes")
+    a("")
+    a("| Lane | Step | Task | State | Reports | Rows |")
+    a("| --- | --- | --- | --- | --- | --- |")
+    for lid, ln in out["lanes"].items():
+        a(f"| {lid} | {ln['step']} | {cell(ln['task'])} | {ln['state']}{'. ' + cell(ln['note']) if ln.get('note') else ''} | "
+          f"{', '.join(Path(r).stem for r in ln.get('reports', [])) or '-'} | {ln['row_count']} |")
+    a("")
+    a("## 11. Values whose items are all derived (review for promotion)")
+    a("")
+    for p in out["promotion_candidates"]:
+        a(f"- {p['mechanism']}: {p['quantity']}")
+    if not out["promotion_candidates"]:
+        a("None at this build: every CONDITIONAL value rests on at least one item that is not derived.")
+    a("")
+    a("## 12. Notes for the coordinator")
+    a("")
+    for n in T.get("coordinator_notes", []):
+        a(f"- {n['id']}. {n['text']}")
+    a("")
+    a("## 13. What FZ's harness reads from this map")
+    a("")
+    fz = out["checks"].get("fz_adapter", {})
+    if fz.get("present"):
+        a("Emulation of the adapter's selection step on this build (the harness itself decides the verdicts).")
+        a("")
+        a("| Harness row | Target | Target status | OM lines | Primary value from the map | Unparsed by the adapter |")
+        a("| --- | --- | --- | --- | --- | --- |")
+        for r in fz["per_rule"]:
+            a(f"| {r['row']} | {r['target']} | {r['target_status']} | {r['om_lines']} | "
+              f"{cell(r['primary']) if r['primary'] is not None else '-'} | {cell('; '.join(r['unparsed'])) or '-'} |")
+    else:
+        a("FZ's registry was absent at build time.")
+    a("")
+    a("## 14. Rebuild")
+    a("")
+    a("`/tmp/oph-completion-venv/bin/python -I -B WORKSPACE/repair-law/work/OM/build_map.py` "
+      f"rebuilds both files from the table and runs {out['checks']['count']} checks (all must pass). "
+      "The header of `map_source.toml` says which field to edit when a lane reports and states the contract with FZ's harness.")
+    a("")
+    return "\n".join(L)
+
+
+# ----------------------------------------------------------------------------------------------- main
+def main():
+    T = tomllib.loads(SRC.read_text())
+    paths = T["paths"]
+    match = json.loads(rl(paths["match_json"]).read_text())
+    refs_path, app_path = Path(paths["reference_values"]), Path(paths["app_particle_map"])
+    live = json.loads(refs_path.read_text())["entries"] if refs_path.exists() else {}
+    refs = load_measured(T, live)
+    app = json.loads(app_path.read_text()) if app_path.exists() else None
+    pats = patterns()
+    check_patterns(pats, match)
+    chars = lepton_characters()
+    check(abs(chars["f_Q"] - 2 / 3) < 1e-12 and abs(chars["f_ratios"][0] - 206.770316) < 1e-6
+          and abs(chars["f_ratios"][1] - 3477.4728) < 1e-4, "circulant check against FR item 11")
+    check(chars["f"] == {1: "w^2", 2: "w", 3: "1"} and chars["f_prime"] == {1: "w", 2: "w^2", 3: "1"},
+          "generation characters differ from FR item 8")
+    rows = fermion_rows(T, pats, refs, chars) + boson_rows(T, refs) + composite_rows(T, refs) + hadron_rows(T, refs)
+    check(len({r["id"] for r in rows}) == len(rows), "row ids unique")
+    check_table(T, rows, app)
+    items = {}
+    for iid, it in T["items"].items():
+        items[iid] = dict(it, rows=[r["id"] for r in rows if iid in r["items"]])
+        items[iid]["row_count"] = len(items[iid]["rows"])
+    lanes = {}
+    for lid, ln in T["lanes"].items():
+        lanes[lid] = dict(ln, rows=[r["id"] for r in rows if lid in r["lanes"]])
+        lanes[lid]["row_count"] = len(lanes[lid]["rows"])
+    promo = []
+    for mid, m in T["mechanisms"].items():
+        for v in m.get("values", []):
+            its = expand(v.get("items", []), T["groups"])
+            if v["status"] == "CONDITIONAL" and its and all(
+                    T["items"][i]["class"] == "DERIVED" or T["items"][i].get("allowed_in_source") for i in its):
+                promo.append({"mechanism": mid, "quantity": v["quantity"]})
+    by_target = {}
+    for r in rows:
+        if r.get("target"):
+            b = by_target.setdefault(r["target"], {"rows": [], "status": "OPEN", "lanes": [], "lanes_running": [],
+                                                   "lanes_pending": [], "measured": r.get("measured")})
+            b["rows"].append(r["id"])
+            if RANK[r["status"]] > RANK[b["status"]]:
+                b["status"] = r["status"]
+            for key in ("lanes", "lanes_running", "lanes_pending"):
+                b[key] = list(dict.fromkeys(b[key] + r[key]))
+    for t, b in by_target.items():
+        r0 = next(r for r in rows if r["id"] == b["rows"][0])
+        b["headline"] = best_value(r0)
+    kinds, statuses = {}, {}
+    for r in rows:
+        kinds[r["kind"]] = kinds.get(r["kind"], 0) + 1
+        statuses[r["status"]] = statuses.get(r["status"], 0) + 1
+    class_table = {str(k): {"colour": {0: "1", 1: "3", 2: "3bar"}[k % 3], "weak": "2" if k % 2 else "1",
+                            **T["classes"][str(k)], "defect_statistics": "boson (SS)" if k else "no defect",
+                            "states_per_generation": match["class_table"][str(k)]["states"],
+                            "conjugate_class": match["class_table"][str(k)]["conjugate_class"]} for k in range(6)}
+    out = {"schema": T["meta"]["schema"], "title": T["meta"]["title"], "version": T["meta"]["version"],
+           "built_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "builder": "work/OM/build_map.py",
+           "source_table": {"path": "work/OM/map_source.toml", "sha256": sha(SRC)},
+           "inputs": [{"path": paths["match_json"], "sha256": sha(rl(paths["match_json"])), "role": "pattern table (checked)"}]
+           + ([{"path": str(refs_path), "sha256": sha(refs_path), "role": "measured values, compare only (checked against the table)"}]
+              if live else [{"path": str(refs_path), "sha256": None,
+                             "role": "absent at build time; measured values taken from the table's copy"}])
+           + ([{"path": str(app_path), "sha256": sha(app_path), "role": "app chart ids (read only)"}] if app else []),
+           "meta": {k: T["meta"][k] for k in ("reading", "unit", "blindness", "rules", "worker", "step", "date")},
+           "status_vocabulary": T["status"], "labels": T["labels"],
+           "columns": {"defect_class": "centre class 6Y mod 6 in Z6 = Z3 (colour centre) x Z2 (weak centre)",
+                       "centre": "colour triality (class mod 3) and weak parity (class mod 2)",
+                       "generation_character": "character 1, w or w^2 of g = gE gC, the third of a turn about the face axis; value on the face f, on f', status, lanes",
+                       "spin_statistics": "spin and statistics under the spin-statistics grading of SS, with its standing",
+                       "charges": "Q, T3, Y, 6Y and B - L as exact fractions",
+                       "composite_form": "pattern of the quantum, register or link object of a boson, centre-class reading of a carrier content",
+                       "mass": "mechanisms, values with unit, status and report; items and lanes; the first SOURCE or CONDITIONAL mass value is the line FZ's harness compares",
+                       "status": "best status among mass and mass-ratio values: SOURCE, CONDITIONAL or OPEN",
+                       "lanes": "lanes of FINAL_STEPS.md and the campaign that hold an item of the row; lanes_running and lanes_pending split them by state",
+                       "measured": "PDG 2026 value through the theory repository's reference file, compare only"},
+           "lanes": lanes, "groups": T["groups"], "items": items, "facts": T["facts"], "mechanisms": T["mechanisms"],
+           "characters": T["characters"], "spin_statistics": T["spin_statistics"], "class_table": class_table,
+           "lepton_circulant_check": {"face_f": {"g_characters_by_generation": chars["f"], "ratios": chars["f_ratios"],
+                                                 "Q": chars["f_Q"]},
+                                      "face_f_prime": {"g_characters_by_generation": chars["f_prime"],
+                                                       "ratios": chars["f_prime_ratios"], "Q": chars["f_prime_Q"]}},
+           "rows": rows, "by_target": by_target,
+           "summary": {"rows": len(rows), "rows_by_kind": kinds, "rows_by_status": statuses},
+           "promotion_candidates": promo, "coordinator_notes": T.get("coordinator_notes", [])}
+    fz = adapter_selfcheck(T, out)
+    out["checks"] = {"count": 0, "fz_adapter": fz}
+    md = markdown(T, out)
+    js = json.dumps(out, indent=1, ensure_ascii=False, default=str)
+    style_check({"map_source.toml": SRC.read_text(), "OBSTRUCTION_MAP.md": md, "obstruction_map.json": js,
+                 "build_map.py": Path(__file__).read_text()})
+    out["checks"] = {"count": COUNT[0], "failed": FAILS, "passed": not FAILS, "fz_adapter": fz,
+                     "list": ["32 patterns equal match.json (name, class, Y, T3, Q, colour, weak, hand)",
+                              "class formula k = 3 (n2 mod 2) - 2 (n3 mod 3) mod 6 on 32 patterns",
+                              "Standard Model colour, weak, Y and B - L on 32 patterns",
+                              "circulant C(2/9): Q = 2/3 and ratios 206.770316, 3477.4728 (FR item 11)",
+                              "generation characters of the charged leptons equal FR item 8",
+                              "measured values of the table equal the live reference file when it is present",
+                              "every quote found verbatim in its report (whitespace, emphasis, backticks ignored)",
+                              "SOURCE values carry a quoted SOURCE fact; CONDITIONAL values carry known items",
+                              "every lane, item, mechanism, fact and report referenced exists",
+                              "every chart id of the app has a row",
+                              "FZ adapter emulation: every rule's target present; rows L4, L5, L7, N3, N9, E1 to E4, Q6, G1, G2 yield an OM line",
+                              "no em dash and no forbidden word in the table, the script and both outputs"]}
+    md = markdown(T, out)
+    OUT_JSON.write_text(json.dumps(out, indent=1, ensure_ascii=False, default=str) + "\n")
+    OUT_MD.write_text(md)
+    print(f"rows {len(rows)} {kinds}; status {statuses}; checks {COUNT[0]}; failed {len(FAILS)}")
+    for f in FAILS:
+        print("FAIL:", f)
+    return 1 if FAILS else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

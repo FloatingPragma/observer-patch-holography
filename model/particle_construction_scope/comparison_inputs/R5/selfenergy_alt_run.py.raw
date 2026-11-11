@@ -1,0 +1,38 @@
+"""Item 5: tables of the second-order dressed branch for the alternating schedule (binding definition), on-axis momenta.
+Windows: y = E(p) + 2 kappa n_p inside a gap of the pair, (-theta, theta) or (pi - theta, pi + theta), for all p <= 0.2."""
+import json, sys, time
+from multiprocessing import Pool
+import numpy as np
+from selfenergy_alt import job, TH
+if __name__ == '__main__':
+    t0 = time.time(); ps = (0.0, 0.05, 0.1, 0.15, 0.2)
+    win = {2: (-0.05, -0.025, 0.7354), 3: (-0.025, -0.0125, 0.3677)}; Ls = {2: (64, 128, 256), 3: (24, 32, 48, 64)}
+    jobs = [(d, L, k, p, 0, 0.0) for d in (2, 3) for k in win[d] for L in Ls[d] for p in ps]
+    jobs += [(3, 48, k, p, 2, 0.0) for k in win[3] for p in ps]                       # momentum along axis 3
+    jobs += [(3, 48, k, p, 0, eta) for k in (0.025, 0.15) for eta in (0.06, 0.03) for p in (0.0, 0.1, 0.2)]   # resonant values, retarded
+    with Pool(8) as pool: rows = pool.map(job, jobs, chunksize=1)
+    out = dict(theta=TH, rows=rows, fits=[])
+    for d in (2, 3):
+        for k in win[d]:
+            print(f'\n{d}D alternating, kappa={k}: sigma(p), p = {ps}')
+            for L in Ls[d]:
+                sel = sorted([r for r in rows if r['dims'] == d and r['kappa'] == k and r['L'] == L and r['axis'] == 1 and r['eta'] == 0], key=lambda r: r['p'])
+                print(f'   L={L:4d}: ' + ' '.join('%+11.5f' % r['sigma'] for r in sel))
+            for axis in ((1, 3) if d == 3 else (1,)):
+                Lm = Ls[d][-1] if axis == 1 else 48
+                sel = sorted([r for r in rows if r['dims'] == d and r['kappa'] == k and r['L'] == Lm and r['axis'] == axis and r['eta'] == 0], key=lambda r: r['p'])
+                y = np.array([2 * r['E'] * r['sigma'] for r in sel]); p = np.array([r['p'] for r in sel])
+                B, A = np.polyfit(p ** 2, y, 1); B0 = (y[1] - y[0]) / p[1] ** 2
+                fit = dict(dims=d, kappa=k, momentum_axis=axis, L=Lm, two_E_sigma=[float(v) for v in y], A=float(A), B=float(B), B_small_p=float(B0),
+                           residual=float(np.abs(y - A - B * p ** 2).max()), y_range=[float(sel[0]['E'] + 4 * (d - 1) * k), float(sel[-1]['E'] + 4 * (d - 1) * k)],
+                           eps_where_cone_shift_equals_free_defect=float(np.sqrt(TH ** 2 / 3 / abs(B))))
+                out['fits'].append(fit)
+                print(f'   axis {axis} (L={Lm}): 2E sigma = ' + ' '.join('%+.5f' % v for v in y) + f';  A = {A:+.4f}, B = {B:+.3f} (residual {fit["residual"]:.2e}), B at small p = {B0:+.3f};'
+                      f' |B| eps^2 = theta^2/3 at eps = {fit["eps_where_cone_shift_equals_free_defect"]:.4f}')
+    print('\nresonant kappa, 3D L=48, retarded:')
+    for r in rows:
+        if r['eta'] > 0: print(f"   kappa={r['kappa']} eta={r['eta']} p={r['p']}: sigma = {r['sigma'].real:+.4f} {r['sigma'].imag:+.4f} i")
+    for r in rows:
+        if isinstance(r['sigma'], complex): r['sigma'] = [r['sigma'].real, r['sigma'].imag]
+    out['seconds'] = time.time() - t0
+    json.dump(out, open('selfenergy_alt_run.json', 'w'), indent=1)

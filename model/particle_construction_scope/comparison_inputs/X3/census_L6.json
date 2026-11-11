@@ -1,0 +1,1561 @@
+{
+ "end (sweep 500)": {
+  "carriers": 81920,
+  "carriers_with_defects": 24808,
+  "compositions": {
+   "{2,4}": 19614,
+   "{3,3}": 3069,
+   "{1,5}": 690,
+   "{2,2,4,4}": 539,
+   "{4,4,4}": 343,
+   "{2,2,2}": 326,
+   "{2,3,3,4}": 195,
+   "{2,2,2,3,3}": 6,
+   "{3,3,3,3}": 6,
+   "{2,2,2,2,4}": 5,
+   "{2,4,4,4,4}": 5,
+   "{1,2,3}": 3,
+   "{2,2,2,4,4,4}": 2,
+   "{2,2,3,3,4,4}": 2
+  },
+  "pairs": [
+   {
+    "type": 0,
+    "classes": [
+     1,
+     5
+    ],
+    "separation": 1,
+    "chirality": 0,
+    "carriers": 83,
+    "null_all": 108.94736842105263,
+    "null_non_adjacent": 0.0
+   },
+   {
+    "type": 1,
+    "classes": [
+     1,
+     5
+    ],
+    "separation": 2,
+    "chirality": 1,
+    "carriers": 118,
+    "null_all": 108.94736842105263,
+    "null_non_adjacent": 113.8125
+   },
+   {
+    "type": 2,
+    "classes": [
+     1,
+     5
+    ],
+    "separation": 2,
+    "chirality": -1,
+    "carriers": 94,
+    "null_all": 108.94736842105263,
+    "null_non_adjacent": 113.8125
+   },
+   {
+    "type": 3,
+    "classes": [
+     1,
+     5
+    ],
+    "separation": 3,
+    "chirality": 1,
+    "carriers": 127,
+    "null_all": 108.94736842105263,
+    "null_non_adjacent": 113.8125
+   },
+   {
+    "type": 4,
+    "classes": [
+     1,
+     5
+    ],
+    "separation": 3,
+    "chirality": -1,
+    "carriers": 95,
+    "null_all": 108.94736842105263,
+    "null_non_adjacent": 113.8125
+   },
+   {
+    "type": 5,
+    "classes": [
+     1,
+     5
+    ],
+    "separation": 4,
+    "chirality": 0,
+    "carriers": 129,
+    "null_all": 108.94736842105263,
+    "null_non_adjacent": 113.8125
+   },
+   {
+    "type": 6,
+    "classes": [
+     1,
+     5
+    ],
+    "separation": 5,
+    "chirality": 0,
+    "carriers": 44,
+    "null_all": 36.315789473684205,
+    "null_non_adjacent": 37.9375
+   },
+   {
+    "type": 7,
+    "classes": [
+     2,
+     4
+    ],
+    "separation": 1,
+    "chirality": 0,
+    "carriers": 0,
+    "null_all": 3096.9473684210525,
+    "null_non_adjacent": 0.0
+   },
+   {
+    "type": 8,
+    "classes": [
+     2,
+     4
+    ],
+    "separation": 2,
+    "chirality": 1,
+    "carriers": 4433,
+    "null_all": 3096.9473684210525,
+    "null_non_adjacent": 3677.625
+   },
+   {
+    "type": 9,
+    "classes": [
+     2,
+     4
+    ],
+    "separation": 2,
+    "chirality": -1,
+    "carriers": 4315,
+    "null_all": 3096.9473684210525,
+    "null_non_adjacent": 3677.625
+   },
+   {
+    "type": 10,
+    "classes": [
+     2,
+     4
+    ],
+    "separation": 3,
+    "chirality": 1,
+    "carriers": 3412,
+    "null_all": 3096.9473684210525,
+    "null_non_adjacent": 3677.625
+   },
+   {
+    "type": 11,
+    "classes": [
+     2,
+     4
+    ],
+    "separation": 3,
+    "chirality": -1,
+    "carriers": 3322,
+    "null_all": 3096.9473684210525,
+    "null_non_adjacent": 3677.625
+   },
+   {
+    "type": 12,
+    "classes": [
+     2,
+     4
+    ],
+    "separation": 4,
+    "chirality": 0,
+    "carriers": 3157,
+    "null_all": 3096.9473684210525,
+    "null_non_adjacent": 3677.625
+   },
+   {
+    "type": 13,
+    "classes": [
+     2,
+     4
+    ],
+    "separation": 5,
+    "chirality": 0,
+    "carriers": 975,
+    "null_all": 1032.3157894736842,
+    "null_non_adjacent": 1225.875
+   },
+   {
+    "type": 14,
+    "classes": [
+     3,
+     3
+    ],
+    "separation": 1,
+    "chirality": 0,
+    "carriers": 0,
+    "null_all": 484.57894736842104,
+    "null_non_adjacent": 0.0
+   },
+   {
+    "type": 15,
+    "classes": [
+     3,
+     3
+    ],
+    "separation": 2,
+    "chirality": 0,
+    "carriers": 1577,
+    "null_all": 969.1578947368421,
+    "null_non_adjacent": 1150.875
+   },
+   {
+    "type": 16,
+    "classes": [
+     3,
+     3
+    ],
+    "separation": 3,
+    "chirality": 1,
+    "carriers": 507,
+    "null_all": 484.57894736842104,
+    "null_non_adjacent": 575.4375
+   },
+   {
+    "type": 17,
+    "classes": [
+     3,
+     3
+    ],
+    "separation": 3,
+    "chirality": -1,
+    "carriers": 517,
+    "null_all": 484.57894736842104,
+    "null_non_adjacent": 575.4375
+   },
+   {
+    "type": 18,
+    "classes": [
+     3,
+     3
+    ],
+    "separation": 4,
+    "chirality": 0,
+    "carriers": 366,
+    "null_all": 484.57894736842104,
+    "null_non_adjacent": 575.4375
+   },
+   {
+    "type": 19,
+    "classes": [
+     3,
+     3
+    ],
+    "separation": 5,
+    "chirality": 0,
+    "carriers": 102,
+    "null_all": 161.52631578947367,
+    "null_non_adjacent": 191.8125
+   }
+  ],
+  "partner_tests": [
+   {
+    "types": [
+     1,
+     2
+    ],
+    "kind": "mirror and conjugate",
+    "counts": [
+     118,
+     94
+    ],
+    "z": 1.6483267673842683
+   },
+   {
+    "types": [
+     3,
+     4
+    ],
+    "kind": "mirror",
+    "counts": [
+     127,
+     95
+    ],
+    "z": 2.1476993766848778
+   },
+   {
+    "types": [
+     8,
+     9
+    ],
+    "kind": "mirror and conjugate",
+    "counts": [
+     4433,
+     4315
+    ],
+    "z": 1.2616172548958489
+   },
+   {
+    "types": [
+     10,
+     11
+    ],
+    "kind": "mirror",
+    "counts": [
+     3412,
+     3322
+    ],
+    "z": 1.0967457329988584
+   },
+   {
+    "types": [
+     16,
+     17
+    ],
+    "kind": "mirror",
+    "counts": [
+     507,
+     517
+    ],
+    "z": -0.3125
+   }
+  ],
+  "triples": {
+   "{2,2,2}": {
+    "carriers": 326,
+    "non_adjacent": 326,
+    "by_shape": [
+     46,
+     22,
+     0,
+     0,
+     40,
+     0,
+     25,
+     33,
+     25,
+     43,
+     0,
+     0,
+     0,
+     0,
+     19,
+     0,
+     30,
+     14,
+     18,
+     2,
+     9
+    ]
+   },
+   "{4,4,4}": {
+    "carriers": 343,
+    "non_adjacent": 343,
+    "by_shape": [
+     43,
+     14,
+     0,
+     0,
+     42,
+     0,
+     32,
+     30,
+     29,
+     50,
+     0,
+     0,
+     0,
+     0,
+     15,
+     0,
+     27,
+     21,
+     30,
+     5,
+     5
+    ]
+   },
+   "{1,2,3}": {
+    "carriers": 3,
+    "non_adjacent": 3,
+    "by_shape": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "{3,4,5}": {
+    "carriers": 1,
+    "non_adjacent": 1,
+    "by_shape": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "conjugation_chi2": [
+    11.210420544186489,
+    13
+   ],
+   "mirror_tests": [
+    {
+     "shapes": [
+      4,
+      9
+     ],
+     "counts": [
+      82,
+      93
+     ],
+     "z": -0.8315218406202999
+    },
+    {
+     "shapes": [
+      6,
+      8
+     ],
+     "counts": [
+      57,
+      54
+     ],
+     "z": 0.2847473987257497
+    },
+    {
+     "shapes": [
+      16,
+      18
+     ],
+     "counts": [
+      57,
+      48
+     ],
+     "z": 0.8783100656536799
+    },
+    {
+     "shapes": [
+      19,
+      20
+     ],
+     "counts": [
+      7,
+      14
+     ],
+     "z": -1.5275252316519468
+    }
+   ]
+  },
+  "quadruples": {
+   "{2,2,4,4}": {
+    "carriers": 539,
+    "non_adjacent": 539,
+    "shapes_occupied": 146
+   },
+   "{2,3,3,4}": {
+    "carriers": 195,
+    "non_adjacent": 195,
+    "shapes_occupied": 139
+   }
+  },
+  "handedness": {
+   "{2,4}": {
+    "h2_positive": 4433,
+    "h2_negative": 4315,
+    "z_h2": 1.2616172548958489,
+    "h3_positive": 3412,
+    "h3_negative": 3322,
+    "z_h3": 1.0967457329988584,
+    "sum_h2": 118,
+    "sum_h3": 90
+   },
+   "{3,3}": {
+    "h2_positive": 0,
+    "h2_negative": 0,
+    "z_h2": 0.0,
+    "h3_positive": 507,
+    "h3_negative": 517,
+    "z_h3": -0.3125,
+    "sum_h2": 0,
+    "sum_h3": -10
+   },
+   "{1,5}": {
+    "h2_positive": 118,
+    "h2_negative": 94,
+    "z_h2": 1.6483267673842683,
+    "h3_positive": 127,
+    "h3_negative": 95,
+    "z_h3": 2.1476993766848778,
+    "sum_h2": 24,
+    "sum_h3": 32
+   },
+   "{2,2,4,4}": {
+    "h2_positive": 195,
+    "h2_negative": 203,
+    "z_h2": -0.4010037656936684,
+    "h3_positive": 132,
+    "h3_negative": 154,
+    "z_h3": -1.3008872711759818,
+    "sum_h2": -19,
+    "sum_h3": -24
+   },
+   "{2,3,3,4}": {
+    "h2_positive": 74,
+    "h2_negative": 72,
+    "z_h2": 0.1655211777204736,
+    "h3_positive": 58,
+    "h3_negative": 55,
+    "z_h3": 0.2822162605150792,
+    "sum_h2": 2,
+    "sum_h3": 13
+   },
+   "all compositions": {
+    "h2_positive": 4834,
+    "h2_negative": 4687,
+    "z_h2": 1.5065239912753479,
+    "h3_positive": 4469,
+    "h3_negative": 4340,
+    "z_h3": 1.3744419604662943,
+    "sum_h2": 140,
+    "sum_h3": 155
+   }
+  }
+ },
+ "cut 60 (depth 3200, sweeps 142-152)": {
+  "carriers": 81920,
+  "carriers_with_defects": 40003,
+  "compositions": {
+   "{2,4}": 18811,
+   "{1,5}": 15720,
+   "{3,3}": 2627,
+   "{3,4,5}": 576,
+   "{1,2,3}": 544,
+   "{2,2,4,4}": 538,
+   "{4,4,4}": 334,
+   "{2,2,2}": 319,
+   "{2,3,3,4}": 194,
+   "{2,5,5}": 122,
+   "{1,1,4}": 121,
+   "{1,2,4,5}": 29,
+   "{1,3,4,4}": 20,
+   "{2,2,3,5}": 18
+  },
+  "pairs": [
+   {
+    "type": 0,
+    "classes": [
+     1,
+     5
+    ],
+    "separation": 1,
+    "chirality": 0,
+    "carriers": 1710,
+    "null_all": 2482.1052631578946,
+    "null_non_adjacent": 0.0
+   },
+   {
+    "type": 1,
+    "classes": [
+     1,
+     5
+    ],
+    "separation": 2,
+    "chirality": 1,
+    "carriers": 2413,
+    "null_all": 2482.1052631578946,
+    "null_non_adjacent": 2626.875
+   },
+   {
+    "type": 2,
+    "classes": [
+     1,
+     5
+    ],
+    "separation": 2,
+    "chirality": -1,
+    "carriers": 2459,
+    "null_all": 2482.1052631578946,
+    "null_non_adjacent": 2626.875
+   },
+   {
+    "type": 3,
+    "classes": [
+     1,
+     5
+    ],
+    "separation": 3,
+    "chirality": 1,
+    "carriers": 2665,
+    "null_all": 2482.1052631578946,
+    "null_non_adjacent": 2626.875
+   },
+   {
+    "type": 4,
+    "classes": [
+     1,
+     5
+    ],
+    "separation": 3,
+    "chirality": -1,
+    "carriers": 2727,
+    "null_all": 2482.1052631578946,
+    "null_non_adjacent": 2626.875
+   },
+   {
+    "type": 5,
+    "classes": [
+     1,
+     5
+    ],
+    "separation": 4,
+    "chirality": 0,
+    "carriers": 2794,
+    "null_all": 2482.1052631578946,
+    "null_non_adjacent": 2626.875
+   },
+   {
+    "type": 6,
+    "classes": [
+     1,
+     5
+    ],
+    "separation": 5,
+    "chirality": 0,
+    "carriers": 952,
+    "null_all": 827.3684210526316,
+    "null_non_adjacent": 875.625
+   },
+   {
+    "type": 7,
+    "classes": [
+     2,
+     4
+    ],
+    "separation": 1,
+    "chirality": 0,
+    "carriers": 6,
+    "null_all": 2970.157894736842,
+    "null_non_adjacent": 0.0
+   },
+   {
+    "type": 8,
+    "classes": [
+     2,
+     4
+    ],
+    "separation": 2,
+    "chirality": 1,
+    "carriers": 4242,
+    "null_all": 2970.157894736842,
+    "null_non_adjacent": 3525.9375
+   },
+   {
+    "type": 9,
+    "classes": [
+     2,
+     4
+    ],
+    "separation": 2,
+    "chirality": -1,
+    "carriers": 4125,
+    "null_all": 2970.157894736842,
+    "null_non_adjacent": 3525.9375
+   },
+   {
+    "type": 10,
+    "classes": [
+     2,
+     4
+    ],
+    "separation": 3,
+    "chirality": 1,
+    "carriers": 3275,
+    "null_all": 2970.157894736842,
+    "null_non_adjacent": 3525.9375
+   },
+   {
+    "type": 11,
+    "classes": [
+     2,
+     4
+    ],
+    "separation": 3,
+    "chirality": -1,
+    "carriers": 3178,
+    "null_all": 2970.157894736842,
+    "null_non_adjacent": 3525.9375
+   },
+   {
+    "type": 12,
+    "classes": [
+     2,
+     4
+    ],
+    "separation": 4,
+    "chirality": 0,
+    "carriers": 3043,
+    "null_all": 2970.157894736842,
+    "null_non_adjacent": 3525.9375
+   },
+   {
+    "type": 13,
+    "classes": [
+     2,
+     4
+    ],
+    "separation": 5,
+    "chirality": 0,
+    "carriers": 942,
+    "null_all": 990.0526315789473,
+    "null_non_adjacent": 1175.3125
+   },
+   {
+    "type": 14,
+    "classes": [
+     3,
+     3
+    ],
+    "separation": 1,
+    "chirality": 0,
+    "carriers": 1,
+    "null_all": 414.7894736842105,
+    "null_non_adjacent": 0.0
+   },
+   {
+    "type": 15,
+    "classes": [
+     3,
+     3
+    ],
+    "separation": 2,
+    "chirality": 0,
+    "carriers": 1388,
+    "null_all": 829.578947368421,
+    "null_non_adjacent": 984.75
+   },
+   {
+    "type": 16,
+    "classes": [
+     3,
+     3
+    ],
+    "separation": 3,
+    "chirality": 1,
+    "carriers": 422,
+    "null_all": 414.7894736842105,
+    "null_non_adjacent": 492.375
+   },
+   {
+    "type": 17,
+    "classes": [
+     3,
+     3
+    ],
+    "separation": 3,
+    "chirality": -1,
+    "carriers": 421,
+    "null_all": 414.7894736842105,
+    "null_non_adjacent": 492.375
+   },
+   {
+    "type": 18,
+    "classes": [
+     3,
+     3
+    ],
+    "separation": 4,
+    "chirality": 0,
+    "carriers": 314,
+    "null_all": 414.7894736842105,
+    "null_non_adjacent": 492.375
+   },
+   {
+    "type": 19,
+    "classes": [
+     3,
+     3
+    ],
+    "separation": 5,
+    "chirality": 0,
+    "carriers": 81,
+    "null_all": 138.26315789473682,
+    "null_non_adjacent": 164.125
+   }
+  ],
+  "partner_tests": [
+   {
+    "types": [
+     1,
+     2
+    ],
+    "kind": "mirror and conjugate",
+    "counts": [
+     2413,
+     2459
+    ],
+    "z": -0.6590284933204408
+   },
+   {
+    "types": [
+     3,
+     4
+    ],
+    "kind": "mirror",
+    "counts": [
+     2665,
+     2727
+    ],
+    "z": -0.8443388015894071
+   },
+   {
+    "types": [
+     8,
+     9
+    ],
+    "kind": "mirror and conjugate",
+    "counts": [
+     4242,
+     4125
+    ],
+    "z": 1.279089627854365
+   },
+   {
+    "types": [
+     10,
+     11
+    ],
+    "kind": "mirror",
+    "counts": [
+     3275,
+     3178
+    ],
+    "z": 1.2075104606067883
+   },
+   {
+    "types": [
+     16,
+     17
+    ],
+    "kind": "mirror",
+    "counts": [
+     422,
+     421
+    ],
+    "z": 0.034441829515914534
+   }
+  ],
+  "triples": {
+   "{2,2,2}": {
+    "carriers": 319,
+    "non_adjacent": 319,
+    "by_shape": [
+     46,
+     22,
+     0,
+     0,
+     38,
+     0,
+     25,
+     33,
+     25,
+     40,
+     0,
+     0,
+     0,
+     0,
+     18,
+     0,
+     29,
+     14,
+     18,
+     2,
+     9
+    ]
+   },
+   "{4,4,4}": {
+    "carriers": 334,
+    "non_adjacent": 334,
+    "by_shape": [
+     40,
+     14,
+     0,
+     0,
+     41,
+     0,
+     31,
+     29,
+     29,
+     49,
+     0,
+     0,
+     0,
+     0,
+     15,
+     0,
+     26,
+     21,
+     29,
+     5,
+     5
+    ]
+   },
+   "{1,2,3}": {
+    "carriers": 544,
+    "non_adjacent": 447,
+    "by_shape": [
+     12,
+     8,
+     2,
+     5,
+     5,
+     6,
+     13,
+     15,
+     5,
+     4,
+     3,
+     9,
+     5,
+     8,
+     1,
+     5,
+     1,
+     13,
+     1,
+     6,
+     10,
+     2,
+     2,
+     11,
+     6,
+     4,
+     11,
+     2,
+     4,
+     6,
+     1,
+     0,
+     8,
+     3,
+     7,
+     0,
+     11,
+     4,
+     4,
+     7,
+     3,
+     0,
+     3,
+     4,
+     8,
+     10,
+     0,
+     6,
+     3,
+     5,
+     0,
+     8,
+     6,
+     7,
+     4,
+     6,
+     2,
+     3,
+     9,
+     9,
+     0,
+     2,
+     2,
+     1,
+     5,
+     0,
+     4,
+     1,
+     3,
+     3,
+     1,
+     2,
+     4,
+     2,
+     0,
+     0,
+     0,
+     0,
+     13,
+     4,
+     3,
+     0,
+     0,
+     0,
+     8,
+     5,
+     0,
+     16,
+     2,
+     10,
+     7,
+     12,
+     3,
+     15,
+     9,
+     2,
+     9,
+     7,
+     7,
+     4,
+     0,
+     0,
+     2,
+     10,
+     0,
+     2,
+     3,
+     6,
+     7,
+     2,
+     4,
+     1,
+     8,
+     7
+    ]
+   },
+   "{3,4,5}": {
+    "carriers": 576,
+    "non_adjacent": 474,
+    "by_shape": [
+     11,
+     10,
+     6,
+     11,
+     2,
+     15,
+     9,
+     9,
+     6,
+     5,
+     5,
+     1,
+     6,
+     3,
+     2,
+     13,
+     4,
+     6,
+     3,
+     6,
+     6,
+     3,
+     6,
+     11,
+     2,
+     5,
+     6,
+     3,
+     2,
+     11,
+     0,
+     0,
+     8,
+     1,
+     3,
+     0,
+     10,
+     6,
+     4,
+     4,
+     2,
+     0,
+     7,
+     5,
+     12,
+     9,
+     0,
+     11,
+     2,
+     4,
+     1,
+     13,
+     3,
+     2,
+     3,
+     2,
+     7,
+     6,
+     19,
+     9,
+     0,
+     3,
+     3,
+     5,
+     1,
+     1,
+     3,
+     2,
+     1,
+     7,
+     0,
+     10,
+     2,
+     5,
+     0,
+     0,
+     0,
+     0,
+     4,
+     1,
+     5,
+     1,
+     0,
+     0,
+     6,
+     0,
+     6,
+     18,
+     1,
+     9,
+     5,
+     14,
+     4,
+     13,
+     4,
+     8,
+     7,
+     17,
+     3,
+     3,
+     0,
+     0,
+     4,
+     8,
+     2,
+     3,
+     12,
+     3,
+     4,
+     2,
+     4,
+     3,
+     8,
+     10
+    ]
+   },
+   "conjugation_chi2": [
+    11.257039944447962,
+    13
+   ],
+   "mirror_tests": [
+    {
+     "shapes": [
+      4,
+      9
+     ],
+     "counts": [
+      79,
+      89
+     ],
+     "z": -0.7715167498104595
+    },
+    {
+     "shapes": [
+      6,
+      8
+     ],
+     "counts": [
+      56,
+      54
+     ],
+     "z": 0.19069251784911848
+    },
+    {
+     "shapes": [
+      16,
+      18
+     ],
+     "counts": [
+      55,
+      47
+     ],
+     "z": 0.7921180343813395
+    },
+    {
+     "shapes": [
+      19,
+      20
+     ],
+     "counts": [
+      7,
+      14
+     ],
+     "z": -1.5275252316519468
+    }
+   ]
+  },
+  "quadruples": {
+   "{2,2,4,4}": {
+    "carriers": 538,
+    "non_adjacent": 538,
+    "shapes_occupied": 146
+   },
+   "{2,3,3,4}": {
+    "carriers": 194,
+    "non_adjacent": 194,
+    "shapes_occupied": 139
+   }
+  },
+  "handedness": {
+   "{2,4}": {
+    "h2_positive": 4242,
+    "h2_negative": 4125,
+    "z_h2": 1.279089627854365,
+    "h3_positive": 3275,
+    "h3_negative": 3178,
+    "z_h3": 1.2075104606067883,
+    "sum_h2": 117,
+    "sum_h3": 97
+   },
+   "{3,3}": {
+    "h2_positive": 0,
+    "h2_negative": 0,
+    "z_h2": 0.0,
+    "h3_positive": 422,
+    "h3_negative": 421,
+    "z_h3": 0.034441829515914534,
+    "sum_h2": 0,
+    "sum_h3": 1
+   },
+   "{1,5}": {
+    "h2_positive": 2413,
+    "h2_negative": 2459,
+    "z_h2": -0.6590284933204408,
+    "h3_positive": 2665,
+    "h3_negative": 2727,
+    "z_h3": -0.8443388015894071,
+    "sum_h2": -46,
+    "sum_h3": -62
+   },
+   "{2,2,4,4}": {
+    "h2_positive": 195,
+    "h2_negative": 202,
+    "z_h2": -0.35131992925994693,
+    "h3_positive": 131,
+    "h3_negative": 154,
+    "z_h3": -1.3624024188459123,
+    "sum_h2": -17,
+    "sum_h3": -26
+   },
+   "{2,3,3,4}": {
+    "h2_positive": 74,
+    "h2_negative": 71,
+    "z_h2": 0.2491364395612199,
+    "h3_positive": 58,
+    "h3_negative": 55,
+    "z_h3": 0.2822162605150792,
+    "sum_h2": 3,
+    "sum_h3": 13
+   },
+   "all compositions": {
+    "h2_positive": 7401,
+    "h2_negative": 7360,
+    "z_h2": 0.337462847380624,
+    "h3_positive": 7194,
+    "h3_negative": 7185,
+    "z_h3": 0.07505474738723718,
+    "sum_h2": 23,
+    "sum_h3": 46
+   }
+  }
+ },
+ "glue_ports": {
+  "2": [
+   {
+    "glue_ports": 0,
+    "faces": 471384,
+    "defects": 6309,
+    "density": 0.013383992668397739,
+    "error": 0.00016850214213728584
+   },
+   {
+    "glue_ports": 1,
+    "faces": 1105232,
+    "defects": 14827,
+    "density": 0.013415282945119214,
+    "error": 0.00011017249713861214
+   },
+   {
+    "glue_ports": 2,
+    "faces": 61784,
+    "defects": 785,
+    "density": 0.012705554836203548,
+    "error": 0.0004534806981134889
+   }
+  ],
+  "3": [
+   {
+    "glue_ports": 0,
+    "faces": 471384,
+    "defects": 1849,
+    "density": 0.003922492065916535,
+    "error": 9.122074571898919e-05
+   },
+   {
+    "glue_ports": 1,
+    "faces": 1105232,
+    "defects": 4462,
+    "density": 0.004037161428550748,
+    "error": 6.0438173676349343e-05
+   },
+   {
+    "glue_ports": 2,
+    "faces": 61784,
+    "defects": 265,
+    "density": 0.004289136345979542,
+    "error": 0.0002634795512770249
+   }
+  ],
+  "4": [
+   {
+    "glue_ports": 0,
+    "faces": 471384,
+    "defects": 6287,
+    "density": 0.013337321589192675,
+    "error": 0.0001682080951830776
+   },
+   {
+    "glue_ports": 1,
+    "faces": 1105232,
+    "defects": 14810,
+    "density": 0.013399901559129667,
+    "error": 0.00011010931950270204
+   },
+   {
+    "glue_ports": 2,
+    "faces": 61784,
+    "defects": 861,
+    "density": 0.013935646769390133,
+    "error": 0.00047492557138162665
+   }
+  ]
+ }
+}

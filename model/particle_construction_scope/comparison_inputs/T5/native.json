@@ -1,0 +1,1896 @@
+{
+ "arithmetic": "Q(sqrt5) and its extension by sqrt(phi + 2); eigenvalues are exact, floats are their values",
+ "frame": "coordinate axes of the raw port frame; frame seams [(0, 1), (2, 3), (4, 5), (6, 7), (8, 9), (10, 11)]",
+ "frame_seams": [
+  {
+   "seam": [
+    0,
+    1
+   ],
+   "midpoint_axis": 2,
+   "seam_direction_axis": 1,
+   "normal_axis": 3
+  },
+  {
+   "seam": [
+    2,
+    3
+   ],
+   "midpoint_axis": 2,
+   "seam_direction_axis": 1,
+   "normal_axis": 3
+  },
+  {
+   "seam": [
+    4,
+    5
+   ],
+   "midpoint_axis": 3,
+   "seam_direction_axis": 2,
+   "normal_axis": 1
+  },
+  {
+   "seam": [
+    6,
+    7
+   ],
+   "midpoint_axis": 3,
+   "seam_direction_axis": 2,
+   "normal_axis": 1
+  },
+  {
+   "seam": [
+    8,
+    9
+   ],
+   "midpoint_axis": 1,
+   "seam_direction_axis": 3,
+   "normal_axis": 2
+  },
+  {
+   "seam": [
+    10,
+    11
+   ],
+   "midpoint_axis": 1,
+   "seam_direction_axis": 3,
+   "normal_axis": 2
+  }
+ ],
+ "named_operators": [
+  {
+   "operator": "the kernel T = 1 - L/60 (repair mean of the public carrier)",
+   "symmetry": "all rotations",
+   "eigenvalues": [
+    "11/12 + (1/60)*sqrt5",
+    "11/12 + (1/60)*sqrt5",
+    "11/12 + (1/60)*sqrt5"
+   ],
+   "values": [
+    0.9539344662916631,
+    0.9539344662916631,
+    0.9539344662916631
+   ],
+   "pattern": "three equal"
+  },
+  {
+   "operator": "port projector delta_p delta_p^T compressed to the band = (1/4) n n^T",
+   "symmetry": "rotations about the port axis",
+   "eigenvalues": [
+    "1/4",
+    "0",
+    "0"
+   ],
+   "values": [
+    0.25,
+    0,
+    0
+   ],
+   "pattern": "one nonzero, two zero; eigenvector: the state along the port axis; the plane is degenerate"
+  },
+  {
+   "operator": "port response on the triplet, P_p = (1 - n n^T + i [n]_x)/2 (the code response is P_p/2)",
+   "symmetry": "rotations about the port axis; not real (it contains the orientation)",
+   "eigenvalues": [
+    "1",
+    "0",
+    "0"
+   ],
+   "values": [
+    1,
+    0,
+    0
+   ],
+   "pattern": "one nonzero, two zero; eigenvector: one circular state about the port axis; the other circular state belongs to the antipodal port",
+   "identity": "P_p + P_(-p) + n n^T = 1, P_p P_(-p) = 0 (exact)"
+  },
+  {
+   "operator": "exchange across one frame seam, |a><b| + |b><a|",
+   "symmetry": "Klein group of the frame",
+   "eigenvalues": {
+    "midpoint axis": "1/4 + (1/20)*sqrt5",
+    "seam direction": "-1/4 + (1/20)*sqrt5",
+    "normal axis": "0"
+   },
+   "values": [
+    0.36180339887498947,
+    0.0,
+    -0.1381966011250105
+   ],
+   "pattern": "three different, one of them zero; eigenvectors: the frame axes"
+  },
+  {
+   "operator": "frame axis projector from one frame seam: (delta_a + delta_b)(delta_a + delta_b)^T",
+   "symmetry": "Klein group",
+   "eigenvalues": [
+    "1/2 + (1/10)*sqrt5",
+    "0",
+    "0"
+   ],
+   "values": [
+    0.7236067977499789,
+    0,
+    0
+   ],
+   "pattern": "one nonzero (on the midpoint axis), two zero"
+  },
+  {
+   "operator": "seam difference (delta_a - delta_b)(delta_a - delta_b)^T; the seam mean of the public law is 1 minus half of it",
+   "symmetry": "Klein group",
+   "eigenvalues": [
+    "1/2 + (-1/10)*sqrt5",
+    "0",
+    "0"
+   ],
+   "values": [
+    0.276393202250021,
+    0,
+    0
+   ],
+   "pattern": "one nonzero (on the seam direction, which is another axis of the same frame), two zero",
+   "seam_mean_on_the_band": "eigenvalues 3/4 + (1/20)*sqrt5, 1, 1 (two equal and one different)"
+  },
+  {
+   "operator": "exchange across the two frame seams of one axis",
+   "symmetry": "Klein group",
+   "eigenvalues": {
+    "midpoint axis": "1/2 + (1/10)*sqrt5",
+    "seam direction": "-1/2 + (1/10)*sqrt5",
+    "normal axis": "0"
+   },
+   "values": [
+    0.7236067977499789,
+    0.0,
+    -0.276393202250021
+   ],
+   "pattern": "three different, one zero; ratio of the nonzero pair -(3 - sqrt5)/2 = -0.381966"
+  },
+  {
+   "operator": "exchange across all six frame seams (the matching of the frame)",
+   "symmetry": "frame stabilizer",
+   "eigenvalues": [
+    "(1/5)*sqrt5",
+    "(1/5)*sqrt5",
+    "(1/5)*sqrt5"
+   ],
+   "values": [
+    0.447213595499958,
+    0.447213595499958,
+    0.447213595499958
+   ],
+   "pattern": "three equal"
+  }
+ ],
+ "span": {
+  "rank_of_the_twelve_port_load_projectors_in_the_real_symmetric_operators": 6,
+  "rank_of_the_twelve_port_responses_in_the_hermitian_operators": 9,
+  "statement": "every real symmetric operator on the band is a real combination of port load projectors (6 of 6), every Hermitian operator a real combination of the twelve port responses (9 of 9): a mass operator on the band is a real weight function on the ports, M = sum_p w_p P_p, and the carrier does not fix the weights",
+  "kernel_dimension_of_the_weight_map": 3
+ },
+ "sums_of_port_responses_over_orbits": [
+  {
+   "group": "third of a turn",
+   "ports": [
+    0,
+    4,
+    8
+   ],
+   "kind": "belt triple (mutual distance 2)",
+   "axis_side": "+",
+   "cos2_port_to_axis": "1/3 + (-2/15)*sqrt5",
+   "eigenvalues": {
+    "axial": "1 + (1/5)*sqrt5",
+    "circular": "1 + (-1/10)*sqrt5 +- sqrt(3/4 + (-3/10)*sqrt5)",
+    "values": [
+     1.4472135954999579,
+     1.057781913377641,
+     0.49500449112240125
+    ],
+    "order_axial_plus_minus": [
+     1.4472135954999579,
+     1.057781913377641,
+     0.49500449112240125
+    ]
+   },
+   "koide_quotient_sum_sq_over_sq_sum": "8/15 + (-1/15)*sqrt5",
+   "Q_value": 0.38426213483334737
+  },
+  {
+   "group": "third of a turn",
+   "ports": [
+    1,
+    5,
+    9
+   ],
+   "kind": "face",
+   "axis_side": "+",
+   "cos2_port_to_axis": "1/3 + (2/15)*sqrt5",
+   "eigenvalues": {
+    "axial": "1 + (-1/5)*sqrt5",
+    "circular": "1 + (1/10)*sqrt5 +- sqrt(3/4 + (3/10)*sqrt5)",
+    "values": [
+     2.4155885061876283,
+     0.552786404500042,
+     0.03162508931232977
+    ],
+    "order_axial_plus_minus": [
+     0.552786404500042,
+     2.4155885061876283,
+     0.03162508931232977
+    ]
+   },
+   "koide_quotient_sum_sq_over_sq_sum": "8/15 + (1/15)*sqrt5",
+   "Q_value": 0.6824045318333193
+  },
+  {
+   "group": "third of a turn",
+   "ports": [
+    2,
+    6,
+    10
+   ],
+   "kind": "face",
+   "axis_side": "-",
+   "cos2_port_to_axis": "1/3 + (2/15)*sqrt5",
+   "eigenvalues": {
+    "axial": "1 + (-1/5)*sqrt5",
+    "circular": "1 + (1/10)*sqrt5 +- sqrt(3/4 + (3/10)*sqrt5)",
+    "values": [
+     2.4155885061876283,
+     0.552786404500042,
+     0.03162508931232977
+    ],
+    "order_axial_plus_minus": [
+     0.552786404500042,
+     2.4155885061876283,
+     0.03162508931232977
+    ]
+   },
+   "koide_quotient_sum_sq_over_sq_sum": "8/15 + (1/15)*sqrt5",
+   "Q_value": 0.6824045318333193
+  },
+  {
+   "group": "third of a turn",
+   "ports": [
+    3,
+    7,
+    11
+   ],
+   "kind": "belt triple (mutual distance 2)",
+   "axis_side": "-",
+   "cos2_port_to_axis": "1/3 + (-2/15)*sqrt5",
+   "eigenvalues": {
+    "axial": "1 + (1/5)*sqrt5",
+    "circular": "1 + (-1/10)*sqrt5 +- sqrt(3/4 + (-3/10)*sqrt5)",
+    "values": [
+     1.4472135954999579,
+     1.057781913377641,
+     0.49500449112240125
+    ],
+    "order_axial_plus_minus": [
+     1.4472135954999579,
+     1.057781913377641,
+     0.49500449112240125
+    ]
+   },
+   "koide_quotient_sum_sq_over_sq_sum": "8/15 + (-1/15)*sqrt5",
+   "Q_value": 0.38426213483334737
+  },
+  {
+   "group": "fifth of a turn",
+   "ports": [
+    1,
+    5,
+    7,
+    10,
+    11
+   ],
+   "kind": "five neighbours of the port",
+   "eigenvalues": {
+    "axial": "2",
+    "circular": "3/2 +- sqrt(5/4)",
+    "values": [
+     2.618033988749895,
+     2.0,
+     0.3819660112501051
+    ],
+    "order_axial_plus_minus": [
+     2.0,
+     2.618033988749895,
+     0.3819660112501051
+    ]
+   }
+  },
+  {
+   "group": "fifth of a turn",
+   "ports": [
+    2,
+    4,
+    6,
+    8,
+    9
+   ],
+   "kind": "five neighbours of the antipode",
+   "eigenvalues": {
+    "axial": "2",
+    "circular": "3/2 +- sqrt(5/4)",
+    "values": [
+     2.618033988749895,
+     2.0,
+     0.3819660112501051
+    ],
+    "order_axial_plus_minus": [
+     2.0,
+     2.618033988749895,
+     0.3819660112501051
+    ]
+   }
+  },
+  {
+   "group": "Klein group",
+   "ports": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "kind": "four ports of one coordinate plane (two antipodal pairs)",
+   "eigenvalues": {
+    "exact_on_axes_1_2_3": [
+     "1 + (1/5)*sqrt5",
+     "1 + (-1/5)*sqrt5",
+     "2"
+    ],
+    "values": [
+     2.0,
+     1.4472135954999579,
+     0.552786404500042
+    ]
+   }
+  },
+  {
+   "group": "Klein group",
+   "ports": [
+    4,
+    5,
+    6,
+    7
+   ],
+   "kind": "four ports of one coordinate plane (two antipodal pairs)",
+   "eigenvalues": {
+    "exact_on_axes_1_2_3": [
+     "2",
+     "1 + (1/5)*sqrt5",
+     "1 + (-1/5)*sqrt5"
+    ],
+    "values": [
+     2.0,
+     1.4472135954999579,
+     0.552786404500042
+    ]
+   }
+  },
+  {
+   "group": "Klein group",
+   "ports": [
+    8,
+    9,
+    10,
+    11
+   ],
+   "kind": "four ports of one coordinate plane (two antipodal pairs)",
+   "eigenvalues": {
+    "exact_on_axes_1_2_3": [
+     "1 + (-1/5)*sqrt5",
+     "2",
+     "1 + (1/5)*sqrt5"
+    ],
+    "values": [
+     2.0,
+     1.4472135954999579,
+     0.552786404500042
+    ]
+   }
+  },
+  {
+   "group": "frame stabilizer or all rotations",
+   "ports": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "kind": "all twelve ports",
+   "eigenvalues": {
+    "exact_on_axes_1_2_3": [
+     "4",
+     "4",
+     "4"
+    ],
+    "values": [
+     4.0,
+     4.0,
+     4.0
+    ]
+   }
+  }
+ ],
+ "sums_of_port_responses_over_small_port_sets": {
+  "rule": "M = sum of P_p over a set of ports (weights 0 or 1); classes up to the sixty rotations",
+  "classes": [
+   {
+    "size": 1,
+    "representative": [
+     0
+    ],
+    "sets_in_class": 12,
+    "mutual_distances": [],
+    "rank": 1,
+    "eigenvalues_ascending": [
+     -1.2516142412217416e-16,
+     8.907639135767513e-18,
+     1.0
+    ],
+    "smallest_over_largest": 0.0,
+    "trace_sq_over_sq_trace": 1.0,
+    "determinant": "0"
+   },
+   {
+    "size": 2,
+    "representative": [
+     0,
+     1
+    ],
+    "sets_in_class": 30,
+    "mutual_distances": [
+     1
+    ],
+    "rank": 2,
+    "eigenvalues_ascending": [
+     -1.1163246184571122e-16,
+     0.27639320225002106,
+     1.7236067977499792
+    ],
+    "smallest_over_largest": 0.0,
+    "trace_sq_over_sq_trace": 0.7618033988749895,
+    "determinant": "0"
+   },
+   {
+    "size": 2,
+    "representative": [
+     0,
+     2
+    ],
+    "sets_in_class": 30,
+    "mutual_distances": [
+     2
+    ],
+    "rank": 2,
+    "eigenvalues_ascending": [
+     1.8839443990365736e-17,
+     0.7236067977499789,
+     1.276393202250021
+    ],
+    "smallest_over_largest": 0.0,
+    "trace_sq_over_sq_trace": 0.5381966011250106,
+    "determinant": "0"
+   },
+   {
+    "size": 2,
+    "representative": [
+     0,
+     3
+    ],
+    "sets_in_class": 6,
+    "mutual_distances": [
+     3
+    ],
+    "rank": 2,
+    "eigenvalues_ascending": [
+     -6.402441056058525e-17,
+     1.0,
+     1.0
+    ],
+    "smallest_over_largest": 0.0,
+    "trace_sq_over_sq_trace": 0.5,
+    "determinant": "0"
+   },
+   {
+    "size": 3,
+    "representative": [
+     0,
+     1,
+     2
+    ],
+    "sets_in_class": 60,
+    "mutual_distances": [
+     1,
+     2,
+     3
+    ],
+    "rank": 3,
+    "eigenvalues_ascending": [
+     0.22540333075851648,
+     1.0000000000000004,
+     1.7745966692414832
+    ],
+    "smallest_over_largest": 0.12701665379258306,
+    "trace_sq_over_sq_trace": 0.4666666666666667,
+    "determinant": "2/5"
+   },
+   {
+    "size": 3,
+    "representative": [
+     0,
+     1,
+     4
+    ],
+    "sets_in_class": 60,
+    "mutual_distances": [
+     1,
+     2,
+     2
+    ],
+    "rank": 3,
+    "eigenvalues_ascending": [
+     0.15339075536155958,
+     1.0507018949814189,
+     1.7959073496570217
+    ],
+    "smallest_over_largest": 0.0854112854935717,
+    "trace_sq_over_sq_trace": 0.483642933833338,
+    "determinant": "1/5 + (1/25)*sqrt5"
+   },
+   {
+    "size": 3,
+    "representative": [
+     0,
+     1,
+     5
+    ],
+    "sets_in_class": 20,
+    "mutual_distances": [
+     1,
+     1,
+     1
+    ],
+    "rank": 3,
+    "eigenvalues_ascending": [
+     0.03162508931232909,
+     0.5527864045000419,
+     2.4155885061876283
+    ],
+    "smallest_over_largest": 0.013092084695435557,
+    "trace_sq_over_sq_trace": 0.6824045318333193,
+    "determinant": "2/5 + (-4/25)*sqrt5"
+   },
+   {
+    "size": 3,
+    "representative": [
+     0,
+     1,
+     8
+    ],
+    "sets_in_class": 60,
+    "mutual_distances": [
+     1,
+     1,
+     2
+    ],
+    "rank": 3,
+    "eigenvalues_ascending": [
+     0.06566263101326872,
+     0.7824300055535869,
+     2.151907363433145
+    ],
+    "smallest_over_largest": 0.030513688520732045,
+    "trace_sq_over_sq_trace": 0.5830237328333286,
+    "determinant": "1/5 + (-1/25)*sqrt5"
+   },
+   {
+    "size": 3,
+    "representative": [
+     0,
+     2,
+     8
+    ],
+    "sets_in_class": 20,
+    "mutual_distances": [
+     2,
+     2,
+     2
+    ],
+    "rank": 3,
+    "eigenvalues_ascending": [
+     0.49500449112240125,
+     1.057781913377641,
+     1.4472135954999579
+    ],
+    "smallest_over_largest": 0.3420396910736565,
+    "trace_sq_over_sq_trace": 0.38426213483334737,
+    "determinant": "2/5 + (4/25)*sqrt5"
+   }
+  ],
+  "smallest_set_with_three_nonzero_eigenvalues": "three ports (one or two ports give rank 1 or 2)"
+ },
+ "mixing_matrices": [
+  {
+   "pair": "port (fifth-turn) against frame (Klein group)",
+   "rows": "axial, circular, circular",
+   "columns": "frame axes",
+   "exact": [
+    [
+     "1/2 + (-1/10)*sqrt5",
+     "1/2 + (1/10)*sqrt5",
+     "0"
+    ],
+    [
+     "1/4 + (1/20)*sqrt5",
+     "1/4 + (-1/20)*sqrt5",
+     "1/2"
+    ],
+    [
+     "1/4 + (1/20)*sqrt5",
+     "1/4 + (-1/20)*sqrt5",
+     "1/2"
+    ]
+   ],
+   "values": [
+    [
+     0.276393202250021,
+     0.7236067977499789,
+     0.0
+    ],
+    [
+     0.36180339887498947,
+     0.1381966011250105,
+     0.5
+    ],
+    [
+     0.36180339887498947,
+     0.1381966011250105,
+     0.5
+    ]
+   ],
+   "distinct_classes": 1,
+   "name": "golden pattern",
+   "defined_rows": "all three rows need a port-side operator with three different eigenvalues (axial weight and orientation-odd part both present); the load projector alone defines the axial row only, the response alone one circular row only",
+   "angle_sets_over_the_36_relabellings": [
+    {
+     "sin2_theta13": 0.0,
+     "sin2_theta12": 0.276393,
+     "sin2_theta23": 0.5,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.0,
+     "sin2_theta12": 0.723607,
+     "sin2_theta23": 0.5,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.138197,
+     "sin2_theta12": 0.419821,
+     "sin2_theta23": 0.160357,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.138197,
+     "sin2_theta12": 0.419821,
+     "sin2_theta23": 0.839643,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.138197,
+     "sin2_theta12": 0.580179,
+     "sin2_theta23": 0.160357,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.138197,
+     "sin2_theta12": 0.580179,
+     "sin2_theta23": 0.839643,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.276393,
+     "sin2_theta12": 0.0,
+     "sin2_theta23": 0.5,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.276393,
+     "sin2_theta12": 1.0,
+     "sin2_theta23": 0.5,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.361803,
+     "sin2_theta12": 0.216542,
+     "sin2_theta23": 0.433085,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.361803,
+     "sin2_theta12": 0.216542,
+     "sin2_theta23": 0.566915,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.361803,
+     "sin2_theta12": 0.783458,
+     "sin2_theta23": 0.433085,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.361803,
+     "sin2_theta12": 0.783458,
+     "sin2_theta23": 0.566915,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.5,
+     "sin2_theta12": 0.276393,
+     "sin2_theta23": 0.0,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.5,
+     "sin2_theta12": 0.276393,
+     "sin2_theta23": 1.0,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.5,
+     "sin2_theta12": 0.723607,
+     "sin2_theta23": 0.0,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.5,
+     "sin2_theta12": 0.723607,
+     "sin2_theta23": 1.0,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.723607,
+     "sin2_theta12": 0.0,
+     "sin2_theta23": 0.5,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.723607,
+     "sin2_theta12": 1.0,
+     "sin2_theta23": 0.5,
+     "abs_J": 0.0,
+     "relabellings": 2
+    }
+   ]
+  },
+  {
+   "pair": "face (third-turn) against frame (Klein group)",
+   "rows": "axial, circular, circular",
+   "columns": "frame axes, ordered by the axial row",
+   "third_turn_in_the_frame_stabilizer": false,
+   "face_frame_pairs": 60,
+   "exact_axial_row_sorted": [
+    "0",
+    "1/2 + (-1/6)*sqrt5",
+    "1/2 + (1/6)*sqrt5"
+   ],
+   "exact": [
+    [
+     "0",
+     "1/2 + (-1/6)*sqrt5",
+     "1/2 + (1/6)*sqrt5"
+    ],
+    [
+     "1/2",
+     "1/4 + (1/12)*sqrt5",
+     "1/4 + (-1/12)*sqrt5"
+    ],
+    [
+     "1/2",
+     "1/4 + (1/12)*sqrt5",
+     "1/4 + (-1/12)*sqrt5"
+    ]
+   ],
+   "values": [
+    [
+     0.0,
+     0.12732200375003505,
+     0.8726779962499649
+    ],
+    [
+     0.5,
+     0.43633899812498245,
+     0.06366100187501753
+    ],
+    [
+     0.5,
+     0.43633899812498245,
+     0.06366100187501753
+    ]
+   ],
+   "name": "one zero entry",
+   "angle_sets_over_the_36_relabellings": [
+    {
+     "sin2_theta13": 0.0,
+     "sin2_theta12": 0.127322,
+     "sin2_theta23": 0.5,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.0,
+     "sin2_theta12": 0.872678,
+     "sin2_theta23": 0.5,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.063661,
+     "sin2_theta12": 0.466005,
+     "sin2_theta23": 0.067989,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.063661,
+     "sin2_theta12": 0.466005,
+     "sin2_theta23": 0.932011,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.063661,
+     "sin2_theta12": 0.533995,
+     "sin2_theta23": 0.067989,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.063661,
+     "sin2_theta12": 0.533995,
+     "sin2_theta23": 0.932011,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.127322,
+     "sin2_theta12": 0.0,
+     "sin2_theta23": 0.5,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.127322,
+     "sin2_theta12": 1.0,
+     "sin2_theta23": 0.5,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.436339,
+     "sin2_theta12": 0.112942,
+     "sin2_theta23": 0.225884,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.436339,
+     "sin2_theta12": 0.112942,
+     "sin2_theta23": 0.774116,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.436339,
+     "sin2_theta12": 0.887058,
+     "sin2_theta23": 0.225884,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.436339,
+     "sin2_theta12": 0.887058,
+     "sin2_theta23": 0.774116,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.5,
+     "sin2_theta12": 0.127322,
+     "sin2_theta23": 0.0,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.5,
+     "sin2_theta12": 0.127322,
+     "sin2_theta23": 1.0,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.5,
+     "sin2_theta12": 0.872678,
+     "sin2_theta23": 0.0,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.5,
+     "sin2_theta12": 0.872678,
+     "sin2_theta23": 1.0,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.872678,
+     "sin2_theta12": 0.0,
+     "sin2_theta23": 0.5,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.872678,
+     "sin2_theta12": 1.0,
+     "sin2_theta23": 0.5,
+     "abs_J": 0.0,
+     "relabellings": 2
+    }
+   ]
+  },
+  {
+   "pair": "face (third-turn) against frame (Klein group)",
+   "rows": "axial, circular, circular",
+   "columns": "frame axes, ordered by the axial row",
+   "third_turn_in_the_frame_stabilizer": true,
+   "face_frame_pairs": 40,
+   "exact_axial_row_sorted": [
+    "1/3",
+    "1/3",
+    "1/3"
+   ],
+   "exact": [
+    [
+     "1/3",
+     "1/3",
+     "1/3"
+    ],
+    [
+     "1/3",
+     "1/3",
+     "1/3"
+    ],
+    [
+     "1/3",
+     "1/3",
+     "1/3"
+    ]
+   ],
+   "values": [
+    [
+     0.3333333333333333,
+     0.3333333333333333,
+     0.3333333333333333
+    ],
+    [
+     0.3333333333333333,
+     0.3333333333333333,
+     0.3333333333333333
+    ],
+    [
+     0.3333333333333333,
+     0.3333333333333333,
+     0.3333333333333333
+    ]
+   ],
+   "name": "all entries 1/3 (trimaximal)",
+   "angle_sets_over_the_36_relabellings": [
+    {
+     "sin2_theta13": 0.333333,
+     "sin2_theta12": 0.5,
+     "sin2_theta23": 0.5,
+     "abs_J": 0.096225,
+     "relabellings": 36
+    }
+   ]
+  },
+  {
+   "pair": "frame against another frame",
+   "rows": "axes of frame A",
+   "columns": "axes of frame B",
+   "exact": [
+    [
+     "3/8 + (-1/8)*sqrt5",
+     "3/8 + (1/8)*sqrt5",
+     "1/4"
+    ],
+    [
+     "1/4",
+     "3/8 + (-1/8)*sqrt5",
+     "3/8 + (1/8)*sqrt5"
+    ],
+    [
+     "3/8 + (1/8)*sqrt5",
+     "1/4",
+     "3/8 + (-1/8)*sqrt5"
+    ]
+   ],
+   "values": [
+    [
+     0.09549150281252627,
+     0.6545084971874737,
+     0.25
+    ],
+    [
+     0.25,
+     0.09549150281252627,
+     0.6545084971874737
+    ],
+    [
+     0.6545084971874737,
+     0.25,
+     0.09549150281252627
+    ]
+   ],
+   "distinct_classes": 1,
+   "angle_sets_over_the_36_relabellings": [
+    {
+     "sin2_theta13": 0.095492,
+     "sin2_theta12": 0.276393,
+     "sin2_theta23": 0.276393,
+     "abs_J": 0.0,
+     "relabellings": 3
+    },
+    {
+     "sin2_theta13": 0.095492,
+     "sin2_theta12": 0.276393,
+     "sin2_theta23": 0.723607,
+     "abs_J": 0.0,
+     "relabellings": 3
+    },
+    {
+     "sin2_theta13": 0.095492,
+     "sin2_theta12": 0.723607,
+     "sin2_theta23": 0.276393,
+     "abs_J": 0.0,
+     "relabellings": 3
+    },
+    {
+     "sin2_theta13": 0.095492,
+     "sin2_theta12": 0.723607,
+     "sin2_theta23": 0.723607,
+     "abs_J": 0.0,
+     "relabellings": 3
+    },
+    {
+     "sin2_theta13": 0.25,
+     "sin2_theta12": 0.127322,
+     "sin2_theta23": 0.127322,
+     "abs_J": 0.0,
+     "relabellings": 3
+    },
+    {
+     "sin2_theta13": 0.25,
+     "sin2_theta12": 0.127322,
+     "sin2_theta23": 0.872678,
+     "abs_J": 0.0,
+     "relabellings": 3
+    },
+    {
+     "sin2_theta13": 0.25,
+     "sin2_theta12": 0.872678,
+     "sin2_theta23": 0.127322,
+     "abs_J": 0.0,
+     "relabellings": 3
+    },
+    {
+     "sin2_theta13": 0.25,
+     "sin2_theta12": 0.872678,
+     "sin2_theta23": 0.872678,
+     "abs_J": 0.0,
+     "relabellings": 3
+    },
+    {
+     "sin2_theta13": 0.654508,
+     "sin2_theta12": 0.276393,
+     "sin2_theta23": 0.276393,
+     "abs_J": 0.0,
+     "relabellings": 3
+    },
+    {
+     "sin2_theta13": 0.654508,
+     "sin2_theta12": 0.276393,
+     "sin2_theta23": 0.723607,
+     "abs_J": 0.0,
+     "relabellings": 3
+    },
+    {
+     "sin2_theta13": 0.654508,
+     "sin2_theta12": 0.723607,
+     "sin2_theta23": 0.276393,
+     "abs_J": 0.0,
+     "relabellings": 3
+    },
+    {
+     "sin2_theta13": 0.654508,
+     "sin2_theta12": 0.723607,
+     "sin2_theta23": 0.723607,
+     "abs_J": 0.0,
+     "relabellings": 3
+    }
+   ]
+  },
+  {
+   "pair": "the same residual group for both operators",
+   "values": [
+    [
+     1,
+     0,
+     0
+    ],
+    [
+     0,
+     1,
+     0
+    ],
+    [
+     0,
+     0,
+     1
+    ]
+   ],
+   "name": "no mixing (identity up to relabelling)",
+   "angle_sets_over_the_36_relabellings": [
+    {
+     "sin2_theta13": 0,
+     "sin2_theta12": 0.0,
+     "sin2_theta23": 0.0,
+     "abs_J": 0.0,
+     "relabellings": 6
+    },
+    {
+     "sin2_theta13": 0,
+     "sin2_theta12": 0.0,
+     "sin2_theta23": 1.0,
+     "abs_J": 0.0,
+     "relabellings": 6
+    },
+    {
+     "sin2_theta13": 0,
+     "sin2_theta12": 1.0,
+     "sin2_theta23": 0.0,
+     "abs_J": 0.0,
+     "relabellings": 6
+    },
+    {
+     "sin2_theta13": 0,
+     "sin2_theta12": 1.0,
+     "sin2_theta23": 1.0,
+     "abs_J": 0.0,
+     "relabellings": 6
+    }
+   ]
+  },
+  {
+   "pair": "port against another port",
+   "cos2": "1/5",
+   "matrix": [
+    [
+     0.2,
+     0.4,
+     0.4
+    ],
+    [
+     0.4,
+     0.5236067977499789,
+     0.07639320225002105
+    ],
+    [
+     0.4,
+     0.07639320225002105,
+     0.5236067977499789
+    ]
+   ],
+   "closed_form": "axial-axial c^2; axial-circular (1 - c^2)/2; circular-circular ((1 +- c)/2)^2",
+   "angle_sets_over_the_36_relabellings": [
+    {
+     "sin2_theta13": 0.076393,
+     "sin2_theta12": 0.433085,
+     "sin2_theta23": 0.433085,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.076393,
+     "sin2_theta12": 0.433085,
+     "sin2_theta23": 0.566915,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.076393,
+     "sin2_theta12": 0.566915,
+     "sin2_theta23": 0.433085,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.076393,
+     "sin2_theta12": 0.566915,
+     "sin2_theta23": 0.566915,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.2,
+     "sin2_theta12": 0.5,
+     "sin2_theta23": 0.5,
+     "abs_J": 0.0,
+     "relabellings": 4
+    },
+    {
+     "sin2_theta13": 0.4,
+     "sin2_theta12": 0.127322,
+     "sin2_theta23": 0.333333,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.4,
+     "sin2_theta12": 0.127322,
+     "sin2_theta23": 0.666667,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.4,
+     "sin2_theta12": 0.333333,
+     "sin2_theta23": 0.127322,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.4,
+     "sin2_theta12": 0.333333,
+     "sin2_theta23": 0.872678,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.4,
+     "sin2_theta12": 0.666667,
+     "sin2_theta23": 0.127322,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.4,
+     "sin2_theta12": 0.666667,
+     "sin2_theta23": 0.872678,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.4,
+     "sin2_theta12": 0.872678,
+     "sin2_theta23": 0.333333,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.4,
+     "sin2_theta12": 0.872678,
+     "sin2_theta23": 0.666667,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.523607,
+     "sin2_theta12": 0.160357,
+     "sin2_theta23": 0.160357,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.523607,
+     "sin2_theta12": 0.160357,
+     "sin2_theta23": 0.839643,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.523607,
+     "sin2_theta12": 0.839643,
+     "sin2_theta23": 0.160357,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.523607,
+     "sin2_theta12": 0.839643,
+     "sin2_theta23": 0.839643,
+     "abs_J": 0.0,
+     "relabellings": 2
+    }
+   ]
+  },
+  {
+   "pair": "port against face",
+   "cos2": "1/3 + (-2/15)*sqrt5",
+   "matrix": [
+    [
+     0.035190936333361345,
+     0.4824045318333193,
+     0.4824045318333193
+    ],
+    [
+     0.4824045318333193,
+     0.35259397112588026,
+     0.16500149704080042
+    ],
+    [
+     0.4824045318333193,
+     0.16500149704080042,
+     0.35259397112588026
+    ]
+   ],
+   "closed_form": "axial-axial c^2; axial-circular (1 - c^2)/2; circular-circular ((1 +- c)/2)^2",
+   "angle_sets_over_the_36_relabellings": [
+    {
+     "sin2_theta13": 0.035191,
+     "sin2_theta12": 0.5,
+     "sin2_theta23": 0.5,
+     "abs_J": 0.0,
+     "relabellings": 4
+    },
+    {
+     "sin2_theta13": 0.165001,
+     "sin2_theta12": 0.422269,
+     "sin2_theta23": 0.422269,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.165001,
+     "sin2_theta12": 0.422269,
+     "sin2_theta23": 0.577731,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.165001,
+     "sin2_theta12": 0.577731,
+     "sin2_theta23": 0.422269,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.165001,
+     "sin2_theta12": 0.577731,
+     "sin2_theta23": 0.577731,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.352594,
+     "sin2_theta12": 0.254866,
+     "sin2_theta23": 0.254866,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.352594,
+     "sin2_theta12": 0.254866,
+     "sin2_theta23": 0.745134,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.352594,
+     "sin2_theta12": 0.745134,
+     "sin2_theta23": 0.254866,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.352594,
+     "sin2_theta12": 0.745134,
+     "sin2_theta23": 0.745134,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.482405,
+     "sin2_theta12": 0.067989,
+     "sin2_theta23": 0.318785,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.482405,
+     "sin2_theta12": 0.067989,
+     "sin2_theta23": 0.681215,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.482405,
+     "sin2_theta12": 0.318785,
+     "sin2_theta23": 0.067989,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.482405,
+     "sin2_theta12": 0.318785,
+     "sin2_theta23": 0.932011,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.482405,
+     "sin2_theta12": 0.681215,
+     "sin2_theta23": 0.067989,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.482405,
+     "sin2_theta12": 0.681215,
+     "sin2_theta23": 0.932011,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.482405,
+     "sin2_theta12": 0.932011,
+     "sin2_theta23": 0.318785,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.482405,
+     "sin2_theta12": 0.932011,
+     "sin2_theta23": 0.681215,
+     "abs_J": 0.0,
+     "relabellings": 2
+    }
+   ]
+  },
+  {
+   "pair": "port against face",
+   "cos2": "1/3 + (2/15)*sqrt5",
+   "matrix": [
+    [
+     0.6314757303333053,
+     0.18426213483334736,
+     0.18426213483334736
+    ],
+    [
+     0.18426213483334736,
+     0.8051961687292094,
+     0.010541696437443264
+    ],
+    [
+     0.18426213483334736,
+     0.010541696437443264,
+     0.8051961687292094
+    ]
+   ],
+   "closed_form": "axial-axial c^2; axial-circular (1 - c^2)/2; circular-circular ((1 +- c)/2)^2",
+   "angle_sets_over_the_36_relabellings": [
+    {
+     "sin2_theta13": 0.010542,
+     "sin2_theta12": 0.186225,
+     "sin2_theta23": 0.186225,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.010542,
+     "sin2_theta12": 0.186225,
+     "sin2_theta23": 0.813775,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.010542,
+     "sin2_theta12": 0.813775,
+     "sin2_theta23": 0.186225,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.010542,
+     "sin2_theta12": 0.813775,
+     "sin2_theta23": 0.813775,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.184262,
+     "sin2_theta12": 0.012923,
+     "sin2_theta23": 0.225884,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.184262,
+     "sin2_theta12": 0.012923,
+     "sin2_theta23": 0.774116,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.184262,
+     "sin2_theta12": 0.225884,
+     "sin2_theta23": 0.012923,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.184262,
+     "sin2_theta12": 0.225884,
+     "sin2_theta23": 0.987077,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.184262,
+     "sin2_theta12": 0.774116,
+     "sin2_theta23": 0.012923,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.184262,
+     "sin2_theta12": 0.774116,
+     "sin2_theta23": 0.987077,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.184262,
+     "sin2_theta12": 0.987077,
+     "sin2_theta23": 0.225884,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.184262,
+     "sin2_theta12": 0.987077,
+     "sin2_theta23": 0.774116,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.631476,
+     "sin2_theta12": 0.5,
+     "sin2_theta23": 0.5,
+     "abs_J": 0.0,
+     "relabellings": 4
+    },
+    {
+     "sin2_theta13": 0.805196,
+     "sin2_theta12": 0.054114,
+     "sin2_theta23": 0.054114,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.805196,
+     "sin2_theta12": 0.054114,
+     "sin2_theta23": 0.945886,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.805196,
+     "sin2_theta12": 0.945886,
+     "sin2_theta23": 0.054114,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.805196,
+     "sin2_theta12": 0.945886,
+     "sin2_theta23": 0.945886,
+     "abs_J": 0.0,
+     "relabellings": 2
+    }
+   ]
+  },
+  {
+   "pair": "face against another face",
+   "cos2": "1/9",
+   "matrix": [
+    [
+     0.1111111111111111,
+     0.4444444444444444,
+     0.4444444444444444
+    ],
+    [
+     0.4444444444444444,
+     0.4444444444444444,
+     0.11111111111111113
+    ],
+    [
+     0.4444444444444444,
+     0.11111111111111113,
+     0.4444444444444444
+    ]
+   ],
+   "closed_form": "axial-axial c^2; axial-circular (1 - c^2)/2; circular-circular ((1 +- c)/2)^2",
+   "angle_sets_over_the_36_relabellings": [
+    {
+     "sin2_theta13": 0.111111,
+     "sin2_theta12": 0.5,
+     "sin2_theta23": 0.5,
+     "abs_J": 0.0,
+     "relabellings": 12
+    },
+    {
+     "sin2_theta13": 0.444444,
+     "sin2_theta12": 0.2,
+     "sin2_theta23": 0.2,
+     "abs_J": 0.0,
+     "relabellings": 6
+    },
+    {
+     "sin2_theta13": 0.444444,
+     "sin2_theta12": 0.2,
+     "sin2_theta23": 0.8,
+     "abs_J": 0.0,
+     "relabellings": 6
+    },
+    {
+     "sin2_theta13": 0.444444,
+     "sin2_theta12": 0.8,
+     "sin2_theta23": 0.2,
+     "abs_J": 0.0,
+     "relabellings": 6
+    },
+    {
+     "sin2_theta13": 0.444444,
+     "sin2_theta12": 0.8,
+     "sin2_theta23": 0.8,
+     "abs_J": 0.0,
+     "relabellings": 6
+    }
+   ]
+  },
+  {
+   "pair": "face against another face",
+   "cos2": "5/9",
+   "matrix": [
+    [
+     0.5555555555555556,
+     0.2222222222222222,
+     0.2222222222222222
+    ],
+    [
+     0.2222222222222222,
+     0.7615668851388537,
+     0.01621089263892394
+    ],
+    [
+     0.2222222222222222,
+     0.01621089263892394,
+     0.7615668851388537
+    ]
+   ],
+   "closed_form": "axial-axial c^2; axial-circular (1 - c^2)/2; circular-circular ((1 +- c)/2)^2",
+   "angle_sets_over_the_36_relabellings": [
+    {
+     "sin2_theta13": 0.016211,
+     "sin2_theta12": 0.225884,
+     "sin2_theta23": 0.225884,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.016211,
+     "sin2_theta12": 0.225884,
+     "sin2_theta23": 0.774116,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.016211,
+     "sin2_theta12": 0.774116,
+     "sin2_theta23": 0.225884,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.016211,
+     "sin2_theta12": 0.774116,
+     "sin2_theta23": 0.774116,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.222222,
+     "sin2_theta12": 0.020843,
+     "sin2_theta23": 0.285714,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.222222,
+     "sin2_theta12": 0.020843,
+     "sin2_theta23": 0.714286,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.222222,
+     "sin2_theta12": 0.285714,
+     "sin2_theta23": 0.020843,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.222222,
+     "sin2_theta12": 0.285714,
+     "sin2_theta23": 0.979157,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.222222,
+     "sin2_theta12": 0.714286,
+     "sin2_theta23": 0.020843,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.222222,
+     "sin2_theta12": 0.714286,
+     "sin2_theta23": 0.979157,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.222222,
+     "sin2_theta12": 0.979157,
+     "sin2_theta23": 0.285714,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.222222,
+     "sin2_theta12": 0.979157,
+     "sin2_theta23": 0.714286,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.555556,
+     "sin2_theta12": 0.5,
+     "sin2_theta23": 0.5,
+     "abs_J": 0.0,
+     "relabellings": 4
+    },
+    {
+     "sin2_theta13": 0.761567,
+     "sin2_theta12": 0.067989,
+     "sin2_theta23": 0.067989,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.761567,
+     "sin2_theta12": 0.067989,
+     "sin2_theta23": 0.932011,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.761567,
+     "sin2_theta12": 0.932011,
+     "sin2_theta23": 0.067989,
+     "abs_J": 0.0,
+     "relabellings": 2
+    },
+    {
+     "sin2_theta13": 0.761567,
+     "sin2_theta12": 0.932011,
+     "sin2_theta23": 0.932011,
+     "abs_J": 0.0,
+     "relabellings": 2
+    }
+   ]
+  }
+ ],
+ "golden_pattern_standard_angles": {
+  "squared_moduli": [
+   [
+    0.7236067977499789,
+    0.276393202250021,
+    0.0
+   ],
+   [
+    0.1381966011250105,
+    0.36180339887498947,
+    0.5
+   ],
+   [
+    0.1381966011250105,
+    0.36180339887498947,
+    0.5
+   ]
+  ],
+  "sin2_theta13": 0.0,
+  "sin2_theta12": 0.276393202250021,
+  "sin2_theta23": 0.5,
+  "abs_J": 1.3170890159654386e-09,
+  "exact": {
+   "sin2_theta12": "(5 - sqrt5)/10",
+   "sin2_theta23": "1/2",
+   "sin2_theta13": "0",
+   "J": "0"
+  }
+ },
+ "trimaximal_standard_angles": {
+  "sin2_theta13": 0.3333333333333333,
+  "sin2_theta12": 0.49999999999999994,
+  "sin2_theta23": 0.49999999999999994,
+  "abs_J": 0.09622504486493766,
+  "exact": {
+   "sin2_theta13": "1/3",
+   "sin2_theta12": "1/2",
+   "sin2_theta23": "1/2",
+   "abs_J": "1/(6 sqrt3)"
+  }
+ }
+}

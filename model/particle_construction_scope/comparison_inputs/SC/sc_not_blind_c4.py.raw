@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+"""Worker SC: the one NOT BLIND comparison of row C4 (same measured set as sc_not_blind.py). Writes sc_not_blind_c4.json."""
+import json
+
+MEAS = {"v_over_Estar": 2.0167e-17, "sin2w_mZ": 0.23122, "alpha3_mZ": 0.1180, "alpha_em_inv_mZ": 127.951,
+        "A_T": 137.035999177, "mW_over_mZ_tree": 0.88136}
+ch = json.loads(open("sc_chains_c4.json").read())
+out = {"measured": MEAS, "rows": {}}
+for k, r in ch.items():
+    if not (isinstance(r, dict) and "at_P_fwd" in r):
+        continue
+    e = {}
+    for where in ("at_P_fwd", "fixed_point"):
+        q = r.get(where) or {}
+        if q.get("status") != "ok":
+            e[where] = q.get("status", "none")
+            continue
+        e[where] = {m: q[m] / MEAS[m] for m in MEAS}
+        if where == "fixed_point":
+            e[where]["P_star"] = q["P_star"]
+    out["rows"][k] = e
+open("sc_not_blind_c4.json", "w").write(json.dumps(out, indent=1) + "\n")
+for k, e in out["rows"].items():
+    a = e["at_P_fwd"]
+    print(k, {m: round(v, 4) if isinstance(v, float) else v for m, v in a.items()} if isinstance(a, dict) else a)

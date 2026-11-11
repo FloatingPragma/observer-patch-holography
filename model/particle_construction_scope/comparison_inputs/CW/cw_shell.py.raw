@@ -1,0 +1,154 @@
+"""CW readouts on a band function f(q) -> sorted eigenvalues of a twisted port Laplacian (levels l).
+
+Two clocks, never mixed (coordinator's clock rule):
+  recurrence clock   omega = arccos(lambda), lambda = 1 - l/(2 M_eff)      (the reversible walk; M_eff = 30 DECLARED)
+  first-order clock  E = -log(lambda)                                      (the clock of the count reconstruction)
+Nothing is fitted: derivatives are central finite differences of the exact (float64) eigenvalues.
+
+quadratic minimum of a band (level l0, direction-resolved second derivative h(theta)):
+  recurrence:  omega^2 = omega0^2 + c^2 dq^2 + d3 dq^3 + d4 dq^4,  c^2 = omega0 h / (2 M_eff sin omega0)
+               m = omega0 / c^2,  Compton length c / omega0 (mesh edges),  Compton momentum omega0 / c
+  first order: E = E0 + dq^2 / (2 m_kin),  1/m_kin = h / (2 M_eff lambda0); no speed, so no shell.
+cone (two bands, half splitting b at the minimum splitting, slope v):  l = mid +- sqrt(b^2 + v^2 dq^2)
+  first order: rest b / (2 M_eff lambda_mid), speed v / (2 M_eff lambda_mid)
+  recurrence:  rest b / (2 M_eff sin omega_mid), speed v / (2 M_eff sin omega_mid)       (a shell around omega_mid)
+  clock-free:  Compton length v / b (mesh edges).
+"""
+from __future__ import annotations
+
+import math
+
+import numpy as np
+from scipy.optimize import minimize
+
+DIRS12 = [np.array([math.cos(t), math.sin(t)]) for t in np.radians(np.arange(0, 180, 15))]
+
+
+def d2(g, h):
+    """Fourth-order central second derivative of g(t) at 0."""
+    return (-g(2 * h) + 16 * g(h) - 30 * g(0.0) + 16 * g(-h) - g(-2 * h)) / (12 * h * h)
+
+
+def d3(g, h):
+    return (g(2 * h) - 2 * g(h) + 2 * g(-h) - g(-2 * h)) / (2 * h ** 3)
+
+
+def d4(g, h):
+    return (g(2 * h) - 4 * g(h) + 6 * g(0.0) - 4 * g(-h) + g(-2 * h)) / h ** 4
+
+
+def refine_min(fun, q0, sign=1.0, maxiter=4000, xatol=1e-11, fatol=1e-15):
+    r = minimize(lambda x: sign * fun(x), q0, method='Nelder-Mead',
+                 options={'xatol': xatol, 'fatol': fatol, 'maxiter': maxiter,
+                          'initial_simplex': np.asarray(q0) + 0.03 * np.array([[0, 0], [1, 0], [0, 1]])})
+    return r.x, sign * r.fun
+
+
+def band_extrema(f, grid, band, snap_points=()):
+    """Minimum and maximum of band index `band` over the zone: grid search, refinement, snapping to named points."""
+    vals = np.array([f(q)[band] for q in grid])
+    out = {}
+    for name, sign in (('min', 1.0), ('max', -1.0)):
+        cands = []
+        for i in np.argsort(sign * vals)[:3]:
+            cands.append(refine_min(lambda x: f(x)[band], grid[i], sign))
+        for p in snap_points:
+            cands.append((np.asarray(p, float), float(f(p)[band])))
+        cands.sort(key=lambda t: sign * t[1])
+        best = cands[0]
+        # prefer a named point when it is as good as the refined optimum
+        for p in snap_points:
+            v = float(f(p)[band])
+            if abs(v - best[1]) < 1e-11:
+                best = (np.asarray(p, float), v)
+                break
+        out[name] = best
+    return out
+
+
+def quad_readout(f, band, q0, M_eff=30.0, h=4e-3, h4=6e-2):
+    """Readings of a quadratic extremum of `band` at q0 in both clocks (kept apart)."""
+    q0 = np.asarray(q0, float)
+    l0 = float(f(q0)[band])
+    lam0 = 1 - l0 / (2 * M_eff)
+    w0 = math.acos(lam0)
+    E0 = -math.log(lam0)
+    hs, c2s, d3s, d4s, l3s, l4s = [], [], [], [], [], []
+    for e in DIRS12:
+        gl = lambda t: float(f(q0 + t * e)[band])
+        gw = lambda t: math.acos(1 - gl(t) / (2 * M_eff)) ** 2
+        hs.append(d2(gl, h)); c2s.append(0.5 * d2(gw, h))
+        d3s.append(d3(gw, h4) / 6); d4s.append(d4(gw, h4) / 24)
+        l3s.append(d3(gl, h4) / 6); l4s.append(d4(gl, h4) / 24)
+    hs, c2s, d3s, d4s = map(np.array, (hs, c2s, d3s, d4s))
+    hm = float(hs.mean()); c2 = float(c2s.mean())
+    # a quadratic extremum has a step-independent second difference; a cone point does not
+    hs2 = np.array([d2(lambda t, e=e: float(f(q0 + t * e)[band]), 2 * h) for e in DIRS12])
+    quadratic = bool(np.abs(hs2 - hs).max() <= 1e-3 * max(1e-12, np.abs(hs).max()))
+    out = {'level': l0, 'lambda': lam0, 'quadratic_point': quadratic, 'second_derivative_mean': hm,
+           'second_derivative_anisotropy': float((hs.max() - hs.min()) / abs(hm)) if hm else None,
+           'second_derivative_min_max': [float(hs.min()), float(hs.max())],
+           'level_cubic_coeff_max_abs': float(np.abs(l3s).max()), 'level_quartic_coeff_min_max': [float(np.min(l4s)), float(np.max(l4s))]}
+    rec = {'omega0': w0, 'c2': c2, 'c2_formula_omega0_h_over_2M_sin': w0 * hm / (2 * M_eff * math.sin(w0)) if w0 > 0 else hm / (2 * M_eff)}
+    if not quadratic:
+        rec['note'] = 'not a quadratic extremum (cone point): see the pair readout'
+    if c2 > 0 and quadratic:
+        c = math.sqrt(c2)
+        rec.update({'c': c, 'c_anisotropy': float((np.sqrt(np.abs(c2s)).max() - np.sqrt(np.abs(c2s)).min()) / c),
+                    'mass_omega0_over_c2': w0 / c2, 'compton_length_edges': (c / w0) if w0 > 0 else None,
+                    'compton_momentum': (w0 / c) if w0 > 0 else 0.0,
+                    'cubic_over_c2_max_abs': float(np.abs(d3s).max() / c2), 'quartic_over_c2_min_max': [float(d4s.min() / c2), float(d4s.max() / c2)]})
+        dev = {}
+        for t in (0.25, 0.5, 1.0):
+            vals = []
+            for e in DIRS12:
+                for s in (1, -1):
+                    W = math.acos(1 - float(f(q0 + s * t * e)[band]) / (2 * M_eff)) ** 2
+                    vals.append((W - w0 ** 2 - c2 * t * t) / (c2 * t * t))
+            dev[str(t)] = [float(min(vals)), float(max(vals))]
+        rec['shell_deviation_rel_to_c2q2_at_dq'] = dev
+        # hyperbola against parabola: omega = omega0 + c^2 q^2 / (2 omega0) has omega^2 quartic coefficient c^4 / (4 omega0^2)
+        rec['galilean_quartic_over_c2'] = (c2 / (4 * w0 ** 2)) if w0 > 0 else None
+    out['recurrence_clock'] = rec
+    fo = {'E0': E0, 'second_derivative_of_E': hm / (2 * M_eff * lam0)}
+    if hm > 0 and quadratic:
+        fo['kinetic_mass'] = (2 * M_eff * lam0) / hm
+        fo['speed'] = None
+        fo['note'] = 'quadratic band: a rate with a kinetic mass, no speed; not a shell in this clock'
+    out['first_order_clock'] = fo
+    return out
+
+
+def cone_readout(f, lo, hi, q0, M_eff=30.0, t0=0.02):
+    """Two-band form l = mid +- sqrt(b^2 + v^2 dq^2) around the point q0 for the bands lo < hi."""
+    q0 = np.asarray(q0, float)
+    e0 = f(q0)
+    b = float(e0[hi] - e0[lo]) / 2; mid = float(e0[hi] + e0[lo]) / 2
+    rays = DIRS12 + [-d for d in DIRS12]
+    half = lambda q: float(f(q)[hi] - f(q)[lo]) / 2
+    midf = lambda q: float(f(q)[hi] + f(q)[lo]) / 2
+    v2 = np.array([(half(q0 + t0 * d) ** 2 - b * b) / t0 ** 2 for d in rays])
+    v2m = float(v2.mean())
+    out = {'half_splitting_b': b, 'mid_level': mid, 'v2_mean': v2m, 'v2_min_max': [float(v2.min()), float(v2.max())]}
+    if v2m <= 0:
+        out['two_band_form'] = 'no positive slope: the half splitting does not grow linearly'
+        return out
+    v = math.sqrt(v2m)
+    out['slope_v'] = v
+    out['slope_anisotropy'] = float((np.sqrt(np.abs(v2)).max() - np.sqrt(np.abs(v2)).min()) / v)
+    tc = min(0.5, max(t0, b / v)) if b > 0 else 0.2
+    resid, drift = 0.0, 0.0
+    for d in rays:
+        for t in np.linspace(0.2, 2.0, 10) * tc:
+            hf = half(q0 + t * d)
+            resid = max(resid, abs(hf * hf - b * b - v2m * t * t) / (b * b + v2m * t * t))
+            drift = max(drift, abs(midf(q0 + t * d) - mid))
+    out.update({'window_t': float(2 * tc), 'hyperbola_residual_rel_in_window': float(resid),
+                'mid_level_drift_in_window': float(drift), 'mid_drift_over_splitting_change': float(drift / max(1e-300, math.sqrt(b * b + v2m * (2 * tc) ** 2) - b)),
+                'compton_length_v_over_b_edges': (v / b) if b > 1e-12 else None})
+    lam = 1 - mid / (2 * M_eff); w = math.acos(lam)
+    out['first_order_clock'] = {'E_mid': -math.log(lam), 'rest_energy': b / (2 * M_eff * lam), 'speed': v / (2 * M_eff * lam),
+                                'mass_rest_over_speed2': (b / (2 * M_eff * lam)) / (v / (2 * M_eff * lam)) ** 2 if b > 1e-12 else 0.0}
+    out['recurrence_clock'] = {'omega_mid': w, 'rest_frequency_about_mid': b / (2 * M_eff * math.sin(w)), 'speed': v / (2 * M_eff * math.sin(w)),
+                               'mass_rest_over_speed2': (b / (2 * M_eff * math.sin(w))) / (v / (2 * M_eff * math.sin(w))) ** 2 if b > 1e-12 else 0.0}
+    return out

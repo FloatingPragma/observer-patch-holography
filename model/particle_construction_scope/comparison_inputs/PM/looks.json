@@ -1,0 +1,847 @@
+{
+ "looks": [
+  {
+   "id": "B1",
+   "orientation": "+2/9",
+   "labelling": "NO",
+   "variant": "linear"
+  },
+  {
+   "id": "B1",
+   "orientation": "+2/9",
+   "labelling": "IO",
+   "variant": "linear"
+  },
+  {
+   "id": "B1",
+   "orientation": "-2/9",
+   "labelling": "NO",
+   "variant": "linear"
+  },
+  {
+   "id": "B1",
+   "orientation": "-2/9",
+   "labelling": "IO",
+   "variant": "linear"
+  },
+  {
+   "id": "B2",
+   "orientation": "+2/9",
+   "labelling": "NO",
+   "variant": "A-clock square"
+  },
+  {
+   "id": "B2",
+   "orientation": "+2/9",
+   "labelling": "IO",
+   "variant": "A-clock square"
+  },
+  {
+   "id": "B2",
+   "orientation": "-2/9",
+   "labelling": "NO",
+   "variant": "A-clock square"
+  },
+  {
+   "id": "B2",
+   "orientation": "-2/9",
+   "labelling": "IO",
+   "variant": "A-clock square"
+  },
+  {
+   "id": "B3",
+   "orientation": "+2/9",
+   "labelling": "NO",
+   "variant": "both (limit)"
+  },
+  {
+   "id": "B3",
+   "orientation": "+2/9",
+   "labelling": "IO",
+   "variant": "both (limit)"
+  },
+  {
+   "id": "B3",
+   "orientation": "-2/9",
+   "labelling": "NO",
+   "variant": "both (limit)"
+  },
+  {
+   "id": "B3",
+   "orientation": "-2/9",
+   "labelling": "IO",
+   "variant": "both (limit)"
+  },
+  {
+   "id": "B3",
+   "orientation": "+2/9",
+   "labelling": "NO",
+   "variant": "both (limit)"
+  },
+  {
+   "id": "B3",
+   "orientation": "+2/9",
+   "labelling": "IO",
+   "variant": "both (limit)"
+  },
+  {
+   "id": "B3",
+   "orientation": "-2/9",
+   "labelling": "NO",
+   "variant": "both (limit)"
+  },
+  {
+   "id": "B3",
+   "orientation": "-2/9",
+   "labelling": "IO",
+   "variant": "both (limit)"
+  },
+  {
+   "id": "C1",
+   "orientation": "+2/9",
+   "labelling": null,
+   "variant": "counter states (0, 1, 2)"
+  },
+  {
+   "id": "C1",
+   "orientation": "+2/9",
+   "labelling": null,
+   "variant": "counter states (0, 2, 1)"
+  },
+  {
+   "id": "C1",
+   "orientation": "+2/9",
+   "labelling": null,
+   "variant": "counter states (1, 0, 2)"
+  },
+  {
+   "id": "C1",
+   "orientation": "+2/9",
+   "labelling": null,
+   "variant": "counter states (1, 2, 0)"
+  },
+  {
+   "id": "C1",
+   "orientation": "+2/9",
+   "labelling": null,
+   "variant": "counter states (2, 0, 1)"
+  },
+  {
+   "id": "C1",
+   "orientation": "+2/9",
+   "labelling": null,
+   "variant": "counter states (2, 1, 0)"
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "labelling": null,
+   "variant": "('u', 's', 'a')"
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "labelling": null,
+   "variant": "('u', 'a', 's')"
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "labelling": null,
+   "variant": "('s', 'u', 'a')"
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "labelling": null,
+   "variant": "('s', 'a', 'u')"
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "labelling": null,
+   "variant": "('a', 'u', 's')"
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "labelling": null,
+   "variant": "('a', 's', 'u')"
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "labelling": null,
+   "variant": "('u', 's', 'a')"
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "labelling": null,
+   "variant": "('u', 'a', 's')"
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "labelling": null,
+   "variant": "('s', 'u', 'a')"
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "labelling": null,
+   "variant": "('s', 'a', 'u')"
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "labelling": null,
+   "variant": "('a', 'u', 's')"
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "labelling": null,
+   "variant": "('a', 's', 'u')"
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "labelling": null,
+   "variant": "('u', 's', 'a')"
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "labelling": null,
+   "variant": "('u', 'a', 's')"
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "labelling": null,
+   "variant": "('s', 'u', 'a')"
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "labelling": null,
+   "variant": "('s', 'a', 'u')"
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "labelling": null,
+   "variant": "('a', 'u', 's')"
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "labelling": null,
+   "variant": "('a', 's', 'u')"
+  },
+  {
+   "id": "C1",
+   "orientation": "-2/9",
+   "labelling": null,
+   "variant": "counter states (0, 1, 2)"
+  },
+  {
+   "id": "C1",
+   "orientation": "-2/9",
+   "labelling": null,
+   "variant": "counter states (0, 2, 1)"
+  },
+  {
+   "id": "C1",
+   "orientation": "-2/9",
+   "labelling": null,
+   "variant": "counter states (1, 0, 2)"
+  },
+  {
+   "id": "C1",
+   "orientation": "-2/9",
+   "labelling": null,
+   "variant": "counter states (1, 2, 0)"
+  },
+  {
+   "id": "C1",
+   "orientation": "-2/9",
+   "labelling": null,
+   "variant": "counter states (2, 0, 1)"
+  },
+  {
+   "id": "C1",
+   "orientation": "-2/9",
+   "labelling": null,
+   "variant": "counter states (2, 1, 0)"
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "labelling": null,
+   "variant": "('u', 's', 'a')"
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "labelling": null,
+   "variant": "('u', 'a', 's')"
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "labelling": null,
+   "variant": "('s', 'u', 'a')"
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "labelling": null,
+   "variant": "('s', 'a', 'u')"
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "labelling": null,
+   "variant": "('a', 'u', 's')"
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "labelling": null,
+   "variant": "('a', 's', 'u')"
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "labelling": null,
+   "variant": "('u', 's', 'a')"
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "labelling": null,
+   "variant": "('u', 'a', 's')"
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "labelling": null,
+   "variant": "('s', 'u', 'a')"
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "labelling": null,
+   "variant": "('s', 'a', 'u')"
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "labelling": null,
+   "variant": "('a', 'u', 's')"
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "labelling": null,
+   "variant": "('a', 's', 'u')"
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "labelling": null,
+   "variant": "('u', 's', 'a')"
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "labelling": null,
+   "variant": "('u', 'a', 's')"
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "labelling": null,
+   "variant": "('s', 'u', 'a')"
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "labelling": null,
+   "variant": "('s', 'a', 'u')"
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "labelling": null,
+   "variant": "('a', 'u', 's')"
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "labelling": null,
+   "variant": "('a', 's', 'u')"
+  },
+  {
+   "id": "C3",
+   "orientation": "+2/9",
+   "labelling": "NO",
+   "variant": "a_rest_phase"
+  },
+  {
+   "id": "C3",
+   "orientation": "+2/9",
+   "labelling": "IO",
+   "variant": "a_rest_phase"
+  },
+  {
+   "id": "C3",
+   "orientation": "+2/9",
+   "labelling": "NO",
+   "variant": "b_correction_probability"
+  },
+  {
+   "id": "C3",
+   "orientation": "+2/9",
+   "labelling": "IO",
+   "variant": "b_correction_probability"
+  },
+  {
+   "id": "C3",
+   "orientation": "-2/9",
+   "labelling": "NO",
+   "variant": "a_rest_phase"
+  },
+  {
+   "id": "C3",
+   "orientation": "-2/9",
+   "labelling": "IO",
+   "variant": "a_rest_phase"
+  },
+  {
+   "id": "C3",
+   "orientation": "-2/9",
+   "labelling": "NO",
+   "variant": "b_correction_probability"
+  },
+  {
+   "id": "C3",
+   "orientation": "-2/9",
+   "labelling": "IO",
+   "variant": "b_correction_probability"
+  },
+  {
+   "id": "C4",
+   "orientation": "+2/9",
+   "labelling": "NO",
+   "variant": 2
+  },
+  {
+   "id": "C4",
+   "orientation": "+2/9",
+   "labelling": "IO",
+   "variant": 2
+  },
+  {
+   "id": "C4",
+   "orientation": "-2/9",
+   "labelling": "NO",
+   "variant": 2
+  },
+  {
+   "id": "C4",
+   "orientation": "-2/9",
+   "labelling": "IO",
+   "variant": 2
+  },
+  {
+   "id": "C4",
+   "orientation": "+2/9",
+   "labelling": "NO",
+   "variant": 4
+  },
+  {
+   "id": "C4",
+   "orientation": "+2/9",
+   "labelling": "IO",
+   "variant": 4
+  },
+  {
+   "id": "C4",
+   "orientation": "-2/9",
+   "labelling": "NO",
+   "variant": 4
+  },
+  {
+   "id": "C4",
+   "orientation": "-2/9",
+   "labelling": "IO",
+   "variant": 4
+  },
+  {
+   "id": "D1",
+   "orientation": "e=f0, mu=f1, tau=f2",
+   "labelling": "NO",
+   "variant": "a_rest_phase"
+  },
+  {
+   "id": "D1",
+   "orientation": "e=f0, mu=f1, tau=f2",
+   "labelling": "IO",
+   "variant": "a_rest_phase"
+  },
+  {
+   "id": "D1",
+   "orientation": "e=f0, mu=f1, tau=f2",
+   "labelling": "NO",
+   "variant": "b_correction_probability"
+  },
+  {
+   "id": "D1",
+   "orientation": "e=f0, mu=f1, tau=f2",
+   "labelling": "IO",
+   "variant": "b_correction_probability"
+  },
+  {
+   "id": "D2",
+   "orientation": "e=f0, mu=f1, tau=f2",
+   "labelling": "NO",
+   "variant": 2
+  },
+  {
+   "id": "D2",
+   "orientation": "e=f0, mu=f1, tau=f2",
+   "labelling": "IO",
+   "variant": 2
+  },
+  {
+   "id": "D2",
+   "orientation": "e=f0, mu=f1, tau=f2",
+   "labelling": "NO",
+   "variant": 4
+  },
+  {
+   "id": "D2",
+   "orientation": "e=f0, mu=f1, tau=f2",
+   "labelling": "IO",
+   "variant": 4
+  },
+  {
+   "id": "D1",
+   "orientation": "e=f0, mu=f2, tau=f1",
+   "labelling": "NO",
+   "variant": "a_rest_phase"
+  },
+  {
+   "id": "D1",
+   "orientation": "e=f0, mu=f2, tau=f1",
+   "labelling": "IO",
+   "variant": "a_rest_phase"
+  },
+  {
+   "id": "D1",
+   "orientation": "e=f0, mu=f2, tau=f1",
+   "labelling": "NO",
+   "variant": "b_correction_probability"
+  },
+  {
+   "id": "D1",
+   "orientation": "e=f0, mu=f2, tau=f1",
+   "labelling": "IO",
+   "variant": "b_correction_probability"
+  },
+  {
+   "id": "D2",
+   "orientation": "e=f0, mu=f2, tau=f1",
+   "labelling": "NO",
+   "variant": 2
+  },
+  {
+   "id": "D2",
+   "orientation": "e=f0, mu=f2, tau=f1",
+   "labelling": "IO",
+   "variant": 2
+  },
+  {
+   "id": "D2",
+   "orientation": "e=f0, mu=f2, tau=f1",
+   "labelling": "NO",
+   "variant": 4
+  },
+  {
+   "id": "D2",
+   "orientation": "e=f0, mu=f2, tau=f1",
+   "labelling": "IO",
+   "variant": 4
+  }
+ ],
+ "inverse_branches": [
+  {
+   "reading": "linear",
+   "labelling": "NO",
+   "x": -0.500784387448446,
+   "ascending_flavours": [
+    "tau",
+    "mu",
+    "e"
+   ],
+   "mass_state_flavour": {
+    "nu1": "tau",
+    "nu2": "mu",
+    "nu3": "e"
+   },
+   "masses_eV_with_measured_dm31": {
+    "nu1": 0.09513304182646493,
+    "nu2": 0.09552834996563023,
+    "nu3": 0.10752346556522406
+   },
+   "sum_eV": 0.2981848573573192,
+   "PMNS": "permutation: nu1 = tau, nu2 = mu, nu3 = e"
+  },
+  {
+   "reading": "linear",
+   "labelling": "NO",
+   "x": -0.498975292893863,
+   "ascending_flavours": [
+    "mu",
+    "tau",
+    "e"
+   ],
+   "mass_state_flavour": {
+    "nu1": "mu",
+    "nu2": "tau",
+    "nu3": "e"
+   },
+   "masses_eV_with_measured_dm31": {
+    "nu1": 0.0967859574838363,
+    "nu2": 0.0971745417589554,
+    "nu3": 0.1089886304440191
+   },
+   "sum_eV": 0.3029491296868108,
+   "PMNS": "permutation: nu1 = mu, nu2 = tau, nu3 = e"
+  },
+  {
+   "reading": "linear",
+   "labelling": "NO",
+   "x": -0.18053958154985247,
+   "ascending_flavours": [
+    "mu",
+    "e",
+    "tau"
+   ],
+   "mass_state_flavour": {
+    "nu1": "mu",
+    "nu2": "e",
+    "nu3": "tau"
+   },
+   "masses_eV_with_measured_dm31": {
+    "nu1": 0.008282023975038346,
+    "nu2": 0.011998413275225602,
+    "nu3": 0.05078968321542388
+   },
+   "sum_eV": 0.07107012046568782,
+   "PMNS": "permutation: nu1 = mu, nu2 = e, nu3 = tau"
+  },
+  {
+   "reading": "linear",
+   "labelling": "NO",
+   "x": 0.42838192174365514,
+   "ascending_flavours": [
+    "e",
+    "mu",
+    "tau"
+   ],
+   "mass_state_flavour": {
+    "nu1": "e",
+    "nu2": "mu",
+    "nu3": "tau"
+   },
+   "masses_eV_with_measured_dm31": {
+    "nu1": 0.016480779747430348,
+    "nu2": 0.018627562939990575,
+    "nu3": 0.052750508064693655
+   },
+   "sum_eV": 0.08785885075211458,
+   "PMNS": "permutation: nu1 = e, nu2 = mu, nu3 = tau"
+  },
+  {
+   "reading": "linear",
+   "labelling": "IO",
+   "x": -0.4727129142503846,
+   "ascending_flavours": [
+    "mu",
+    "tau",
+    "e"
+   ],
+   "mass_state_flavour": {
+    "nu3": "mu",
+    "nu1": "tau",
+    "nu2": "e"
+   },
+   "masses_eV_with_measured_dm31": {
+    "nu3": 0.09509320347103756,
+    "nu1": 0.10748821957025873,
+    "nu2": 0.10783824621341052
+   },
+   "sum_eV": 0.3104196692547068,
+   "PMNS": "permutation: nu3 = mu, nu1 = tau, nu2 = e"
+  },
+  {
+   "reading": "linear",
+   "labelling": "IO",
+   "x": -0.4711591864382861,
+   "ascending_flavours": [
+    "mu",
+    "e",
+    "tau"
+   ],
+   "mass_state_flavour": {
+    "nu3": "mu",
+    "nu1": "e",
+    "nu2": "tau"
+   },
+   "masses_eV_with_measured_dm31": {
+    "nu3": 0.09351151578528073,
+    "nu1": 0.10609148686139151,
+    "nu2": 0.10644610647863456
+   },
+   "sum_eV": 0.3060491091253068,
+   "PMNS": "permutation: nu3 = mu, nu1 = e, nu2 = tau"
+  },
+  {
+   "reading": "square",
+   "labelling": "NO",
+   "x": -0.5009123412641245,
+   "ascending_flavours": [
+    "tau",
+    "mu",
+    "e"
+   ],
+   "mass_state_flavour": {
+    "nu1": "tau",
+    "nu2": "mu",
+    "nu3": "e"
+   },
+   "masses_eV_with_measured_dm31": {
+    "nu1": 0.06286189438075546,
+    "nu2": 0.06345855155246813,
+    "nu3": 0.080390408415042
+   },
+   "sum_eV": 0.20671085434826558,
+   "PMNS": "permutation: nu1 = tau, nu2 = mu, nu3 = e"
+  },
+  {
+   "reading": "square",
+   "labelling": "NO",
+   "x": -0.49886090957721657,
+   "ascending_flavours": [
+    "mu",
+    "tau",
+    "e"
+   ],
+   "mass_state_flavour": {
+    "nu1": "mu",
+    "nu2": "tau",
+    "nu3": "e"
+   },
+   "masses_eV_with_measured_dm31": {
+    "nu1": 0.06425682020866841,
+    "nu2": 0.06484064268133943,
+    "nu3": 0.08148582050473038
+   },
+   "sum_eV": 0.21058328339473822,
+   "PMNS": "permutation: nu1 = mu, nu2 = tau, nu3 = e"
+  },
+  {
+   "reading": "square",
+   "labelling": "NO",
+   "x": -0.30608497450185584,
+   "ascending_flavours": [
+    "mu",
+    "e",
+    "tau"
+   ],
+   "mass_state_flavour": {
+    "nu1": "mu",
+    "nu2": "e",
+    "nu3": "tau"
+   },
+   "masses_eV_with_measured_dm31": {
+    "nu1": 0.007796674013079887,
+    "nu2": 0.011668681402208017,
+    "nu3": 0.050712800412383414
+   },
+   "sum_eV": 0.07017815582767131,
+   "PMNS": "permutation: nu1 = mu, nu2 = e, nu3 = tau"
+  },
+  {
+   "reading": "square",
+   "labelling": "NO",
+   "x": 1.8426366991877834,
+   "ascending_flavours": [
+    "e",
+    "mu",
+    "tau"
+   ],
+   "mass_state_flavour": {
+    "nu1": "e",
+    "nu2": "mu",
+    "nu3": "tau"
+   },
+   "masses_eV_with_measured_dm31": {
+    "nu1": 0.02437921921784924,
+    "nu2": 0.02587887806053326,
+    "nu3": 0.05572563440349468
+   },
+   "sum_eV": 0.10598373168187718,
+   "PMNS": "permutation: nu1 = e, nu2 = mu, nu3 = tau"
+  },
+  {
+   "reading": "square",
+   "labelling": "IO",
+   "x": -0.4726294831369506,
+   "ascending_flavours": [
+    "mu",
+    "tau",
+    "e"
+   ],
+   "mass_state_flavour": {
+    "nu3": "mu",
+    "nu1": "tau",
+    "nu2": "e"
+   },
+   "masses_eV_with_measured_dm31": {
+    "nu3": 0.06288654756462864,
+    "nu1": 0.08040968762903075,
+    "nu2": 0.08087699218318088
+   },
+   "sum_eV": 0.22417322737684026,
+   "PMNS": "permutation: nu3 = mu, nu1 = tau, nu2 = e"
+  },
+  {
+   "reading": "square",
+   "labelling": "IO",
+   "x": -0.47124888298576745,
+   "ascending_flavours": [
+    "mu",
+    "e",
+    "tau"
+   ],
+   "mass_state_flavour": {
+    "nu3": "mu",
+    "nu1": "e",
+    "nu2": "tau"
+   },
+   "masses_eV_with_measured_dm31": {
+    "nu3": 0.06184056241972196,
+    "nu1": 0.07959431613116309,
+    "nu2": 0.08006637971325747
+   },
+   "sum_eV": 0.22150125826414252,
+   "PMNS": "permutation: nu3 = mu, nu1 = e, nu2 = tau"
+  }
+ ],
+ "count": 108
+}

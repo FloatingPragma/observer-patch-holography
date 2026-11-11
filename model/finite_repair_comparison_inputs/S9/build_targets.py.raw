@@ -1,0 +1,102 @@
+"""Build the hash-pinned target table of protocol S9 from REPO/pdg_data (read-only).
+
+Masses and errors: REPO/pdg_data/particle_masses.json (IMPORTED, bytes pinned).
+Labels: Standard Model assignments (IMPORTED); charge, colour and spin agree with the benchmark
+fields of REPO/model/standard_model_source_map/candidates/correspondence.json, which this script checks.
+Run from the repository root:  python <this file>
+"""
+import hashlib
+import json
+import math
+import sys
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+REPO = Path.cwd()
+SRC = REPO / "pdg_data" / "particle_masses.json"
+PIN = "86e46186889440668eb8631d720fefac0cdda7ba2fd01084563334e6a0b044c1"  # code/audit/external_data_provenance_registry.json
+CORR = REPO / "model" / "standard_model_source_map" / "candidates" / "correspondence.json"
+
+# name in this table -> (pdg_data "particle" field or None, tier, charge3, colour, isospin, spin2, mass definition)
+ROWS = [
+    ("electron", "electron", "elementary", -3, "1", "2:-1", 1, "physical (pole) mass; CODATA 2022 numerals"),
+    ("muon", "muon", "elementary", -3, "1", "2:-1", 1, "physical (pole) mass"),
+    ("tau", "tau", "elementary", -3, "1", "2:-1", 1, "physical (pole) mass; API floating-point serialization"),
+    ("up", "up quark", "elementary", 2, "3", "2:+1", 1, "MS-bar mass at 2 GeV"),
+    ("charm", "charm quark", "elementary", 2, "3", "2:+1", 1, "MS-bar mass at its own scale"),
+    ("top", "top quark", "elementary", 2, "3", "2:+1", 1, "direct event-kinematic mass"),
+    ("down", "down quark", "elementary", -1, "3", "2:-1", 1, "MS-bar mass at 2 GeV"),
+    ("strange", "strange quark", "elementary", -1, "3", "2:-1", 1, "MS-bar mass at 2 GeV"),
+    ("bottom", "bottom quark", "elementary", -1, "3", "2:-1", 1, "MS-bar mass at its own scale"),
+    ("electron_neutrino", None, "elementary", 0, "1", "2:+1", 1, "no mass row in pdg_data"),
+    ("muon_neutrino", None, "elementary", 0, "1", "2:+1", 1, "no mass row in pdg_data"),
+    ("tau_neutrino", None, "elementary", 0, "1", "2:+1", 1, "no mass row in pdg_data"),
+    ("photon", None, "elementary", 0, "1", "mix", 2, "no mass row in pdg_data"),
+    ("gluon", None, "elementary", 0, "8", "1:0", 2, "no mass row in pdg_data"),
+    ("W_plus", "W boson", "elementary", 3, "1", "3:+2", 2, "Breit-Wigner mass parameter"),
+    ("W_minus", None, "elementary", -3, "1", "3:-2", 2, "conjugate of W_plus; no separate mass row"),
+    ("Z", "Z boson", "elementary", 0, "1", "mix", 2, "Breit-Wigner mass parameter"),
+    ("Higgs", "Higgs boson", "elementary", 0, "1", "2:-1", 0, "reconstructed mass"),
+    ("proton", "proton", "hadron", 3, "1", "2:+1", 1, "physical mass"),
+    ("neutron", "neutron", "hadron", 0, "1", "2:-1", 1, "physical mass"),
+    ("pion_charged", "pion (charged)", "hadron", 3, "1", "3:+2", 0, "physical mass"),
+    ("pion_neutral", "pion (neutral)", "hadron", 0, "1", "3:0", 0, "physical mass"),
+    ("kaon_charged", "kaon (charged)", "hadron", 3, "1", "2:+1", 0, "physical mass"),
+    ("kaon_neutral", "kaon (neutral)", "hadron", 0, "1", "2:-1", 0, "physical mass"),
+    ("Lambda", "Lambda", "hadron", 0, "1", "1:0", 1, "physical mass"),
+]
+NINETY_PERCENT = {"up", "down", "strange", "charm", "bottom"}   # pdg_data/README.md: 90 percent half-widths
+Z90 = 1.6448536269514722
+
+
+def main():
+    raw = SRC.read_bytes()
+    digest = hashlib.sha256(raw).hexdigest()
+    if digest != PIN:
+        sys.exit("pdg_data/particle_masses.json does not match the provenance pin")
+    table = {row["particle"]: row for row in json.loads(raw)}
+    corr = json.loads(CORR.read_text())
+    bench = {r["target"]: r["benchmark"] for r in corr["target_rows"]}
+    as_num = {"−1": -3, "+2/3": 2, "−1/3": -1, "0": 0, "+1": 3}
+    as_col = {"singlet": "1", "3": "3", "8 adjoint": "8"}
+    as_spin = {"1/2": 1, "1": 2, "0": 0}
+    rows, used = [], set()
+    for name, key, tier, charge3, colour, isospin, spin2, definition in ROWS:
+        row = {"particle": name, "tier": tier,
+               "labels": {"charge3": charge3, "colour": colour, "isospin": isospin, "spin2": spin2},
+               "label_origin": "IMPORTED (Standard Model assignment)",
+               "isospin_kind": "weak, left-handed component" if tier == "elementary" else "strong",
+               "mass_definition": definition, "first_public_utc": None,
+               "exposure_note": "value present in the repository before this table was built"}
+        if tier == "elementary":
+            b = bench[name]
+            if (as_num[b["charge"]], as_col[b["color"]], as_spin[b["spin"]]) != (charge3, colour, spin2):
+                sys.exit(f"label table disagrees with the repository benchmark for {name}")
+        if key is None:
+            row.update(mass_GeV=None, sigma_GeV=None, ln_mass=None, rel_sigma=None)
+        else:
+            src = table[key]
+            used.add(key)
+            mass = float(src["mass_GeV"])
+            half = 0.5 * (float(src["err_plus_GeV"]) + float(src["err_minus_GeV"]))
+            sigma = half / Z90 if name in NINETY_PERCENT else half
+            row.update(mass_GeV=mass, sigma_GeV=sigma, ln_mass=math.log(mass), rel_sigma=sigma / mass,
+                       source_err_plus_GeV=float(src["err_plus_GeV"]), source_err_minus_GeV=float(src["err_minus_GeV"]),
+                       error_convention=("90 percent half-width divided by 1.6449" if name in NINETY_PERCENT
+                                         else "one standard uncertainty, plus and minus averaged"))
+        rows.append(row)
+    if used != set(table):
+        sys.exit("unused pdg_data rows: %s" % sorted(set(table) - used))
+    span = [r["ln_mass"] for r in rows if r["tier"] == "elementary" and r["ln_mass"] is not None]
+    out = {"schema": "s9.targets.v1",
+           "source": {"path": "pdg_data/particle_masses.json", "sha256": digest, "origin": "IMPORTED",
+                      "note": "legacy PDG API export; the elementary rows coincide with the PDG 2026 summary tables"},
+           "window": {"rule": "tier_span", "ln_low": min(span), "ln_high": max(span), "width": max(span) - min(span)},
+           "rows": rows}
+    path = HERE / "targets_pdg.json"
+    path.write_text(json.dumps(out, indent=1, sort_keys=True) + "\n")
+    print(path, hashlib.sha256(path.read_bytes()).hexdigest(), "rows", len(rows), "window", out["window"])
+
+
+if __name__ == "__main__":
+    main()

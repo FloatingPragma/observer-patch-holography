@@ -1,0 +1,185 @@
+"""Exact pair-sector analysis of a seam-register law on a small carrier (rotation + conjugation lumped chain)."""
+from fractions import Fraction as Fr
+import itertools
+import numpy as np
+import s1lib as S
+
+
+def balanced_vacua(C):
+    out = set()
+    for x in itertools.product((0, 1), repeat=C.P):
+        out.add(C.grad(x))
+    return sorted(out)
+
+
+def pair_initial(C, dists=None):
+    """All balanced loads combined with one unit pair (+ on f, - on g) carried by a shortest string."""
+    init = []
+    vac = balanced_vacua(C)
+    for f in range(C.F):
+        for g in range(C.F):
+            if f == g or (dists is not None and C.ddist[f][g] not in dists):
+                continue
+            b = C.string(f, g)
+            for dv in vac:
+                init.append(tuple(a - o for a, o in zip(dv, b)))
+    return init
+
+
+def abs_charge(C, d):
+    return sum(abs(v) for v in C.charges(d))
+
+
+def vacuum_label(C, d):
+    """Number of high ports of a zero-charge balanced state (mod P), or None when the loads are not balanced."""
+    # integrate d along a spanning tree from port 0
+    x = {0: 0}
+    stack = [0]
+    nb = [[] for _ in range(C.P)]
+    for e, (a, b) in enumerate(C.seams):
+        nb[a].append((b, -d[e])); nb[b].append((a, d[e]))
+    while stack:
+        p = stack.pop()
+        for r, dv in nb[p]:
+            if r not in x:
+                x[r] = x[p] + dv; stack.append(r)
+    assert all(x[a] - x[b] == d[e] for e, (a, b) in enumerate(C.seams))
+    lo = min(x.values())
+    vals = [x[p] - lo for p in range(C.P)]
+    if max(vals) > 1:
+        return None
+    return sum(vals) % C.P
+
+
+def event_rates(C, law, d):
+    """Per-attempt probabilities of twist events by type in state d, and the local data read."""
+    rates, seen = {}, set()
+    for e in range(C.M):
+        u, v = C.q_of(d, C.L[e]), C.q_of(d, C.R[e])
+        seen.add((d[e], u, v))
+        for p, j, k in law.outcomes(d[e], u, v):
+            if k:
+                t = S.process_type(u, v, k)
+                rates[t] = rates.get(t, 0) + p / C.M
+    return rates, seen
+
+
+def analyse_pair_sector(C, law, dcap=9, max_states=200000, exact=True, horizon_sweeps=(1, 2, 5, 10, 20, 50)):
+    """Pair sector: closure of (balanced loads + unit pair) under the law, lumped by rotations and conjugation."""
+    init = pair_initial(C)
+    stop = lambda d: max(abs(v) for v in d) > dcap
+    ch = S.Chain(C, law, init, max_states=max_states, stop=stop, canon=True)
+    n = ch.n
+    absq = [abs_charge(C, d) for d in ch.states]
+    maxd = [max(abs(v) for v in d) for d in ch.states]
+    res = dict(law=law.name, order=law.order, carrier=C.name, lumped_states=n, truncated=bool(ch.truncated),
+               hit_contrast_cap=bool(any(m > dcap for m in maxd)), max_abs_contrast=max(maxd),
+               charge_content_reached=sorted(set(absq)))
+    # local data reached and event rates
+    data = set(); rates = []
+    for d in ch.states:
+        r, seen = event_rates(C, law, d)
+        rates.append(r); data |= seen
+    res['max_abs_contrast_at_uncharged_seam'] = max((abs(d) for d, u, v in data if u == 0 and v == 0), default=0)
+    res['contrasts_at_hop_seam'] = sorted({(d if (u, v) in ((1, 0), (0, -1)) else -d) for d, u, v in data
+                                           if (u, v) in ((1, 0), (0, -1), (0, 1), (-1, 0))})
+    res['contrasts_at_pair_seam'] = sorted({(d if (u, v) == (1, -1) else -d) for d, u, v in data
+                                            if (u, v) in ((1, -1), (-1, 1))})
+    res['event_types'] = sorted({t for r in rates for t in r})
+    comp, members, closed = ch.classes()
+    res['classes'] = dict(total=len(members), closed=sum(closed),
+                          closed_sizes=sorted(len(m) for m, c in zip(members, closed) if c),
+                          closed_charge=sorted({absq[m[0]] for m, c in zip(members, closed) if c}))
+    res['creates_charge_from_pair'] = bool(max(absq) > 2)
+    # vacuum states are absorbing sets (zero charge never left when no creation at balanced loads)
+    vac = [i for i in range(n) if absq[i] == 0]
+    tra = [i for i in range(n) if absq[i] > 0]
+    res['vacuum_left'] = bool(any(absq[w] > 0 for i in vac for w in ch.rows[i]))
+    canon0 = lambda f, g: C.canon(tuple(-o for o in C.string(f, g)))
+    starts = {}
+    for r in sorted(set(C.ddist[0]) - {0}):
+        g = C.ddist[0].index(r)
+        starts[r] = ch.index[canon0(0, g)]
+    res['start_states'] = {str(r): 'uniform loads, unit pair at dual distance %d on a shortest string' % r for r in starts}
+    annihilating = any(any(absq[w] == 0 for w in ch.rows[i]) for i in tra)
+    res['annihilates'] = bool(annihilating)
+    loc = {v: i for i, v in enumerate(tra)}
+    Q = np.zeros((len(tra), len(tra)))
+    for v in tra:
+        for w, p in ch.rows[v].items():
+            if w in loc:
+                Q[loc[v], loc[w]] += float(p)
+    hop = np.array([float(rates[v].get('hop', 0)) for v in tra])
+    if annihilating:
+        ev = np.linalg.eigvals(Q)
+        lam = float(max(ev.real))
+        res['survival_decay_per_attempt'] = lam
+        res['lifetime_sweeps_tail'] = float(-1 / (C.M * np.log(lam))) if 0 < lam < 1 else None
+        # is every transient state eventually absorbed?
+        absorbed_all = lam < 1 - 1e-12
+        res['all_pair_states_absorbed'] = bool(absorbed_all)
+        if absorbed_all:
+            one = np.ones(len(tra))
+            t = np.linalg.solve(np.eye(len(tra)) - Q, one)
+            nh = np.linalg.solve(np.eye(len(tra)) - Q, hop)
+            res['mean_annihilation_time_sweeps'] = {str(r): float(t[loc[s]] / C.M) for r, s in starts.items()}
+            res['mean_hops_before_annihilation'] = {str(r): float(nh[loc[s]]) for r, s in starts.items()}
+            if exact and len(tra) <= 400:
+                A = [[Fr(0)] * len(tra) for _ in tra]
+                for v in tra:
+                    for w, p in ch.rows[v].items():
+                        if w in loc:
+                            A[loc[v]][loc[w]] -= p
+                for i in range(len(tra)):
+                    A[i][i] += 1
+                te = S.solve_fraction(A, [Fr(1)] * len(tra))
+                res['mean_annihilation_time_attempts_exact'] = {str(r): str(te[loc[s]]) for r, s in starts.items()}
+            # survival curve from the adjacent start
+            for r, s in starts.items():
+                vec = np.zeros(len(tra)); vec[loc[s]] = 1.0
+                surv = {}
+                step = 0
+                for hs in horizon_sweeps:
+                    while step < hs * C.M:
+                        vec = vec @ Q; step += 1
+                    surv[str(hs)] = float(vec.sum())
+                res.setdefault('survival_after_sweeps', {})[str(r)] = surv
+            # quasi-stationary hop rate per charge per sweep
+            w, V = np.linalg.eig(Q.T)
+            k = int(np.argmax(w.real)); qsd = np.abs(V[:, k].real); qsd /= qsd.sum()
+            res['hop_rate_per_charge_per_sweep_qsd'] = float(qsd @ hop * C.M / 2)
+            # final vacuum label distribution from the adjacent start (conjugation folds m and P - m)
+            labels = {}
+            Rm = {}
+            for v in tra:
+                for w_, p in ch.rows[v].items():
+                    if absq[w_] == 0:
+                        lab = vacuum_label(C, ch.states[w_])
+                        lab = None if lab is None else min(lab, (C.P - lab) % C.P)
+                        Rm.setdefault(lab, np.zeros(len(tra)))[loc[v]] += float(p)
+            for lab, vec in Rm.items():
+                sol = np.linalg.solve(np.eye(len(tra)) - Q, vec)
+                labels[str(lab)] = {str(r): float(sol[loc[s]]) for r, s in starts.items()}
+            res['final_vacuum_label_probability'] = labels
+    else:
+        # closed pair classes: stationary hop rate per charge per sweep in each closed class
+        out = []
+        for mem, c in zip(members, closed):
+            if not c or absq[mem[0]] == 0:
+                continue
+            if exact and len(mem) <= 400:
+                pi = S.stationary_fraction(ch.rows, mem)
+                h = sum(p * rates[v].get('hop', 0) for p, v in zip(pi, mem)) * C.M / 2
+                out.append(dict(size=len(mem), hop_rate_per_charge_per_sweep=str(Fr(h)), value=float(h)))
+            else:
+                l2 = {v: i for i, v in enumerate(mem)}
+                T = np.zeros((len(mem), len(mem)))
+                for v in mem:
+                    for w_, p in ch.rows[v].items():
+                        T[l2[v], l2[w_]] += float(p)
+                w, V = np.linalg.eig(T.T)
+                k = int(np.argmax(w.real)); pi = np.abs(V[:, k].real); pi /= pi.sum()
+                h = float(pi @ np.array([float(rates[v].get('hop', 0)) for v in mem]) * C.M / 2)
+                out.append(dict(size=len(mem), value=h))
+        res['closed_pair_classes'] = out
+    return res, ch

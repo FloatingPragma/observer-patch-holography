@@ -1,0 +1,60 @@
+#!/usr/bin/env python3
+"""Worker CA: source-side slopes at the A1 point (no measured value). Writes anchor_slopes.json.
+
+Reads anchor_chain.json. Quantities: the partial derivatives of the closure's left side with respect to 1/alpha_U
+(at fixed reading scale) and to ln mu (at fixed alpha_U); the two curves mu_c(x) (capacity: left side = P/4) and
+mu_f(x) (first freeze: mu = m_Z(mu)) near the solution; the overflow of the left side above the anchor.
+"""
+import json
+from pathlib import Path
+
+import numpy as np
+
+HERE = Path(__file__).resolve().parent
+d = json.loads((HERE / "anchor_chain.json").read_text())
+P = d["inputs"]["P_fwd"]
+a1 = d["rows"]["A1"]["at_P_fwd"]
+x0, mu0, MU, Ecell = a1["inv_alpha_U"], a1["reading_scale"], a1["M_U"], a1["E_cell"]
+K = 4 * np.pi ** 2
+B = (33 / 5, 1.0, -3.0)
+n = np.arange(121); D2 = n + 1.0; C2 = (n / 2) * (n / 2 + 1)
+p, q = np.meshgrid(np.arange(91), np.arange(91), indexing="ij")
+D3 = ((p + 1) * (q + 1) * (p + q + 2) / 2).ravel().astype(float)
+C3 = ((p ** 2 + q ** 2 + p * q + 3 * p + 3 * q) / 3).ravel().astype(float)
+
+
+def ell(t, D, C):
+    w = D * np.exp(-t * C)
+    return float((w * np.log(D)).sum() / w.sum())
+
+
+def lhs(x, mu):
+    L = np.log(MU / mu)
+    return ell(K / (x + B[1] / (2 * np.pi) * L), D2, C2) + ell(K / (x + B[2] / (2 * np.pi) * L), D3, C3)
+
+
+def mZ(x, mu):
+    L = np.log(MU / mu)
+    a1_, a2_ = 1 / (x + B[0] / (2 * np.pi) * L), 1 / (x + B[1] / (2 * np.pi) * L)
+    return Ecell * np.exp(-2 * np.pi * x / 4) * np.sqrt(np.pi * (a2_ + 0.6 * a1_))
+
+
+h = 1e-5
+dx = (lhs(x0 + h, mu0) - lhs(x0 - h, mu0)) / (2 * h)
+dl = (lhs(x0, mu0 * np.exp(h)) - lhs(x0, mu0 * np.exp(-h))) / (2 * h)
+dmz_dx = (np.log(mZ(x0 + h, mu0)) - np.log(mZ(x0 - h, mu0))) / (2 * h)
+dmz_dl = (np.log(mZ(x0, mu0 * np.exp(h))) - np.log(mZ(x0, mu0 * np.exp(-h)))) / (2 * h)
+out = {"A1_point": {"inv_alpha_U": x0, "reading_scale_over_Estar": mu0, "ln_MU_over_anchor": float(np.log(MU / mu0)),
+                    "anchor_collar_side_in_links_E_cell_over_mu": Ecell / mu0,
+                    "cells_in_anchor_collar_square": (Ecell / mu0) ** 2},
+       "dlhs_d_inv_alpha_U_at_fixed_mu": dx, "dlhs_dln_mu_at_fixed_alpha_U": dl,
+       "capacity_curve_dln_mu_c_d_inv_alpha_U": -dx / dl,
+       "freeze_curve_dln_mu_f_d_inv_alpha_U": dmz_dx / (1 - dmz_dl),
+       "crossing_is_transversal": bool(abs(-dx / dl - dmz_dx / (1 - dmz_dl)) > 1.0),
+       "d_inv_alpha_U_per_efold_of_reading_scale": -dl / dx,
+       "dln_v_per_efold_of_reading_scale": (np.pi / 2) * dl / dx,
+       "overflow_lhs_over_P4": {name: lhs(x0, m) / (P / 4) for name, m in
+                                (("anchor", mu0), ("v", a1["v"]), ("1 TeV", 1e3 / 1.220890e19),
+                                 ("10 TeV", 1e4 / 1.220890e19), ("M_U", MU), ("E_cell", Ecell))}}
+(HERE / "anchor_slopes.json").write_text(json.dumps(out, indent=1, default=float) + "\n")
+print(json.dumps(out, indent=1, default=float))

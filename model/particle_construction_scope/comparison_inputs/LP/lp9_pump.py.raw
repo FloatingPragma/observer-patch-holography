@@ -1,0 +1,156 @@
+"""LP addendum 4 (items P1 to P3): the committed pump (public Kraus operators, records discarded) on the hard-core
+sector of the hexagon, with and without the class-3 sign. MEASURED (float64); rational forms are reconstructed with
+continued fractions and marked as such. Writes lp9_pump.json.
+"""
+from __future__ import annotations
+
+import json
+import sys
+import time
+from fractions import Fraction as Fr
+
+import numpy as np
+
+import lp_common as L
+
+OUT = 'lp9_pump.json'
+
+
+def kraus(m, k, sign):
+    """K0 (keep) and K1 (jump) of the pump at address k on the distinct-port configurations (15 x 15)."""
+    cfgs = [c for c in range(len(m.cfg)) if not m.is_double(m.cfg[c])]
+    pos = {c: i for i, c in enumerate(cfgs)}
+    n = len(cfgs)
+    K0, K1 = np.zeros((n, n)), np.zeros((n, n))
+    a, b = m.pair_at(k)
+    ia, ib = m.pidx[a], m.pidx[b]
+    for c in cfgs:
+        cfg = m.cfg[c]
+        na, nb = cfg[ia], cfg[ib]
+        j = pos[c]
+        if na + nb != 1:
+            K0[j, j] = 1.0                       # |00> and |11> are kept
+            continue
+        # one load on the seam: plus = (|a> + s|b>)/sqrt2, minus = (|a> - s|b>)/sqrt2
+        other = list(cfg)
+        other[ia], other[ib] = nb, na
+        j2 = pos[m.ci[tuple(other)]]
+        ja, jb = (j, j2) if na == 1 else (j2, j)             # indices of the load at a and at b
+        amp_plus = (1.0 if na == 1 else sign) / np.sqrt(2)   # <plus|this configuration>
+        amp_minus = (1.0 if na == 1 else -sign) / np.sqrt(2)
+        for row, coef in ((ja, 1 / np.sqrt(2)), (jb, sign / np.sqrt(2))):   # |plus>
+            K0[row, j] += coef * amp_plus
+            K1[row, j] += coef * amp_minus
+    return K0, K1
+
+
+def main():
+    t0 = time.time()
+    out = {'task': 'LP addendum 4: committed pump on the hard-core sector', 'provenance': L.FC.provenance()}
+    for hol in (1, -1):
+        m = L.hexagon('FP', hol)
+        n = 15
+        S = np.zeros((n * n, n * n))
+        Ks = []
+        for k in range(m.NA):
+            sign = m.signs.get(k // 2, 1)
+            K0, K1 = kraus(m, k, sign)
+            assert np.allclose(K0.T @ K0 + K1.T @ K1, np.eye(n))
+            Ks.append((K0, K1))
+            S += (np.kron(K0, K0) + np.kron(K1, K1)) / m.NA
+        ev, vec = np.linalg.eig(S)
+        one = np.where(np.abs(ev - 1) < 1e-9)[0]
+        rho = vec[:, one[0]].real.reshape(n, n)
+        rho = (rho + rho.T) / 2
+        rho /= np.trace(rho)
+        jump = [float(np.trace(K1 @ rho @ K1.T)) for (K0, K1) in Ks]
+        per_seam = [jump[2 * s] + jump[2 * s + 1] for s in range(6)]
+        rate = sum(jump) / m.NA
+        pur = float(np.trace(rho @ rho))
+        evr = np.linalg.eigvalsh(rho)
+        second = sorted(np.abs(ev))[-2]
+        out[f'holonomy {hol:+d}'] = {
+            'stationary states of the pump (eigenvalue 1 of the channel)': int(len(one)),
+            'purity of the stationary state': round(pur, 12),
+            'eigenvalues of the stationary state': [round(float(x), 10) for x in evr if x > 1e-12],
+            'jump weight per attempt': round(rate, 12), 'as a fraction (continued fraction)': str(Fr(rate).limit_denominator(100000)),
+            'jump weight per addressed seam (six seams)': [round(x / 2, 12) for x in per_seam],
+            'second largest modulus of the channel': round(float(second), 10)}
+        print(hol, json.dumps(out[f'holonomy {hol:+d}'], indent=1))
+    # ---------------- exact stationary state on the hexagon with the class-3 sign (symmetric real density matrix)
+    m = L.hexagon('FP', -1)
+    n = 15
+    half = Fr(1, 2)
+
+    def kraus_exact(k):
+        cfgs = [c for c in range(len(m.cfg)) if not m.is_double(m.cfg[c])]
+        pos = {c: i for i, c in enumerate(cfgs)}
+        K0 = [[Fr(0)] * n for _ in range(n)]
+        K1 = [[Fr(0)] * n for _ in range(n)]
+        a, b = m.pair_at(k)
+        ia, ib = m.pidx[a], m.pidx[b]
+        sign = m.signs.get(k // 2, 1)
+        for c in cfgs:
+            cfg = m.cfg[c]
+            na, nb = cfg[ia], cfg[ib]
+            j = pos[c]
+            if na + nb != 1:
+                K0[j][j] = Fr(1)
+                continue
+            other = list(cfg)
+            other[ia], other[ib] = nb, na
+            j2 = pos[m.ci[tuple(other)]]
+            ja, jb = (j, j2) if na == 1 else (j2, j)
+            ap = Fr(1) if na == 1 else Fr(sign)
+            am = Fr(1) if na == 1 else Fr(-sign)
+            for row, coef in ((ja, Fr(1)), (jb, Fr(sign))):
+                K0[row][j] += half * coef * ap
+                K1[row][j] += half * coef * am
+        return K0, K1
+    KE = [kraus_exact(k) for k in range(m.NA)]
+    pairs = [(i, j) for i in range(n) for j in range(i, n)]
+    pidx = {pq: t for t, pq in enumerate(pairs)}
+    rows = [[Fr(0)] * len(pairs) for _ in range(len(pairs))]
+    for t, (p_, q_) in enumerate(pairs):
+        # image of the symmetric unit E_pq (+ E_qp) under the channel, component (i, j), i <= j
+        for (K0, K1) in KE:
+            for K in (K0, K1):
+                colp = [(i, K[i][p_]) for i in range(n) if K[i][p_]]
+                colq = [(i, K[i][q_]) for i in range(n) if K[i][q_]]
+                for i, x in colp:
+                    for j, y in colq:
+                        val = x * y / m.NA
+                        if i <= j:
+                            rows[pidx[(i, j)]][t] += val
+                        if p_ != q_ and j <= i:
+                            rows[pidx[(j, i)]][t] += val
+                        if p_ == q_ and j < i:
+                            pass
+        rows[t][t] -= 1
+    ns = L.nullspace(rows)
+    exact = {'dimension of the stationary space': len(ns)}
+    if len(ns) == 1:
+        v = ns[0]
+        tr = sum(v[pidx[(i, i)]] for i in range(n))
+        rho = [[v[pidx[(min(i, j), max(i, j))]] / tr for j in range(n)] for i in range(n)]
+        jr = Fr(0)
+        per = []
+        for (K0, K1) in KE:
+            # tr(K1 rho K1^T)
+            val = sum(K1[r][i] * rho[i][j] * K1[r][j] for r in range(n) for i in range(n) if K1[r][i]
+                      for j in range(n) if K1[r][j])
+            per.append(val)
+            jr += val / m.NA
+        exact['jump weight per attempt (EXACT)'] = str(jr)
+        exact['jump weight per address'] = sorted({str(x) for x in per})
+        exact['populations'] = sorted({str(rho[i][i]) for i in range(n)})
+        exact['purity'] = str(sum(rho[i][j] * rho[j][i] for i in range(n) for j in range(n)))
+    out['hexagon, holonomy -1, exact'] = exact
+    print('exact', exact)
+    out['seconds'] = round(time.time() - t0, 2)
+    L.jdump(out, OUT)
+    print('written', OUT, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

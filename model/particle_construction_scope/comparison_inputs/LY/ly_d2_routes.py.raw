@@ -1,0 +1,172 @@
+"""Worker LY, X8, X9: cheapest routes on the carrier register (structure, no measured value).
+
+Rule (X8): fewest cost-raising reads, then fewest reads. Search: phase k holds the states reachable with exactly k
+cost-raising reads; inside a phase the allowed moves (cost not rising) are explored breadth first.
+  cd RL/work/LY && PYTHONDONTWRITEBYTECODE=1 nice -n 10 /tmp/oph-completion-venv/bin/python -B ly_d2_routes.py
+Writes d2_routes.json.
+"""
+from __future__ import annotations
+
+import json
+import os
+import sys
+import time
+from fractions import Fraction
+
+import ly_lib as L
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+INF = 1 << 60
+
+
+def neighbours(x, table, cap):
+    """All proposals from x: (new_cfg, rise). cap: maximal cost allowed (None: no cap)."""
+    out = []
+    cx = None
+    for k in range(L.NS):
+        p, m = L.PLUS[k], L.MINUS[k]
+        xp, xm = x[p], x[m]
+        base = table[xp] + table[xm]
+        for d in (1, 5):
+            yp, ym = (xp + d) % 6, (xm - d) % 6
+            r = table[yp] + table[ym] - base
+            if r > 0 and cap is not None:
+                if cx is None:
+                    cx = L.cost(x, table)
+                if cx + r > cap:
+                    continue
+            y = list(x)
+            y[p], y[m] = yp, ym
+            out.append((tuple(y), r))
+    return out
+
+
+def cheapest(starts, target, table, max_uphill=3, cap=None, max_rise=None, limit=3_000_000):
+    """Lexicographic optimum (cost-raising reads, reads) from any start to target.
+    Returns dict with uphill, length, read types on one optimal route, counts of explored states."""
+    # phase structure: dist[u][x] = minimal length reaching x with exactly u cost-raising reads
+    dist = [dict() for _ in range(max_uphill + 1)]
+    parent = [dict() for _ in range(max_uphill + 1)]
+    frontier0 = list(starts)
+    for s in starts:
+        dist[0][s] = 0
+        parent[0][s] = None
+    explored = 0
+    for u in range(max_uphill + 1):
+        # bucket BFS inside phase u, seeded by dist[u]
+        buckets = {}
+        for x, dx in dist[u].items():
+            buckets.setdefault(dx, []).append(x)
+        best_target = dist[u].get(target, INF)
+        ell = min(buckets) if buckets else None
+        while buckets:
+            ell = min(buckets)
+            if ell >= best_target:
+                break
+            layer = buckets.pop(ell)
+            for x in layer:
+                if dist[u].get(x, INF) != ell:
+                    continue
+                explored += 1
+                if explored > limit:
+                    return {'aborted': True, 'explored': explored}
+                for y, r in neighbours(x, table, cap):
+                    if r <= 0:
+                        if ell + 1 < dist[u].get(y, INF):
+                            dist[u][y] = ell + 1
+                            parent[u][y] = (u, x, r)
+                            buckets.setdefault(ell + 1, []).append(y)
+                            if y == target:
+                                best_target = min(best_target, ell + 1)
+                    elif u < max_uphill and (max_rise is None or r <= max_rise):
+                        if ell + 1 < dist[u + 1].get(y, INF):
+                            dist[u + 1][y] = ell + 1
+                            parent[u + 1][y] = (u, x, r)
+        if target in dist[u]:
+            # reconstruct one optimal route
+            route = []
+            uu, y = u, target
+            while parent[uu][y] is not None:
+                pu, x, r = parent[uu][y]
+                route.append((x, y, r))
+                uu, y = pu, x
+            route.reverse()
+            types = {'raising': sum(1 for _, _, r in route if r > 0), 'flat': sum(1 for _, _, r in route if r == 0),
+                     'lowering': sum(1 for _, _, r in route if r < 0)}
+            return {'uphill': u, 'length': dist[u][target], 'types': types,
+                    'rises': [float(r) if isinstance(r, Fraction) else r for _, _, r in route],
+                    'classes_along': [list(L.classes(route[0][0]))] + [list(L.classes(y)) for _, y, _ in route],
+                    'start': {str(k): v for k, v in L.defects(route[0][0]).items()} if route else None,
+                    'explored': explored}
+    return {'uphill': None, 'explored': explored}
+
+
+def main():
+    t0 = time.time()
+    out = {'rule': 'fewest cost-raising reads, then fewest reads; proposals: unit twists on the 30 seams'}
+    reps = L.pair_orbit_reps()
+
+    # ---------------- X8: (3,3) annihilation under T0, read types
+    x8 = []
+    for a, b, d, size in reps:
+        start = L.config({a: 3, b: 3})
+        res = cheapest([start], L.VAC, L.T0, cap=L.cost(start) + 10)
+        res5 = cheapest([start], L.VAC, L.T0, max_rise=5)
+        x8.append({'d': d, 'faces': [a, b], 'orbit_size': size, 'uphill': res['uphill'], 'length': res['length'],
+                   'types': res['types'], 'rises': res['rises'], 'explored': res['explored'],
+                   'with_rise_at_most_kappa': {'uphill': res5['uphill'], 'length': res5['length'], 'types': res5['types']}})
+        print(f"X8 (3,3) d={d}: uphill {res['uphill']} length {res['length']} types {res['types']} rises {res['rises']} "
+              f"[rise<=5: {res5['uphill']},{res5['length']}] {time.time() - t0:.1f}s", flush=True)
+    out['X8_lepton_routes_T0'] = x8
+
+    # ---------------- X9: the quark mass term {1,2,3}
+    x9 = []
+    placements = []
+    for a, b, d, size in reps:
+        if d < 2:
+            continue
+        placements.append((a, b, d, size))
+        if d == 2:
+            placements.append((b, a, d, size))            # the two ordered kinds at separation 2
+    for f2, f3, d, size in placements:
+        others = [c for c in range(L.NF) if c not in (f2, f3)]
+        starts = [L.config({f2: 2, f3: 3, c: 1}) for c in others]
+        res = cheapest(starts, L.VAC, L.T0, max_rise=5)
+        row = {'d_23': d, 'face_of_2': f2, 'face_of_3': f3, 'orbit_size': size, 'min_uphill': res['uphill'],
+               'N_min_over_class1_positions': res['length'], 'types_on_the_minimal_route': res['types'],
+               'classes_along_the_minimal_route': res['classes_along'], 'start_of_the_minimal_route': res['start'],
+               'explored': res['explored']}
+        x9.append(row)
+        print(f"X9 d_23={d} (2 on {f2}, 3 on {f3}): uphill {res['uphill']} N_min {res['length']} types {res['types']} "
+              f"start {res['start']} {time.time() - t0:.1f}s", flush=True)
+    out['X9_quark_mass_term_min_over_class1_positions'] = x9
+    # frozen pair at separation 4: every position of the class 1
+    f2, f3 = [(r[0], r[1]) for r in reps if r[2] == 4][0]
+    per = []
+    for c in range(L.NF):
+        if c in (f2, f3):
+            continue
+        res = cheapest([L.config({f2: 2, f3: 3, c: 1})], L.VAC, L.T0, max_rise=5)
+        per.append({'class1_face': c, 'd_1_to_3': L.DIST[c][f3], 'd_1_to_2': L.DIST[c][f2], 'uphill': res['uphill'],
+                    'length': res['length'], 'types': res['types']})
+        print(f"   class 1 on {c} (d to 3: {L.DIST[c][f3]}, d to 2: {L.DIST[c][f2]}): uphill {res['uphill']} "
+              f"length {res['length']} {time.time() - t0:.1f}s", flush=True)
+        if time.time() - t0 > 80:
+            break
+    out['X9_separation_4_every_class1_position'] = {'face_of_2': f2, 'face_of_3': f3, 'rows': per}
+    # the same with the +10 pair creation admitted (TR's cap), minimum over class-1 positions, separation 4
+    if time.time() - t0 < 85:
+        others = [c for c in range(L.NF) if c not in (f2, f3)]
+        starts = [L.config({f2: 2, f3: 3, c: 1}) for c in others]
+        res = cheapest(starts, L.VAC, L.T0, cap=L.cost(starts[0]) + 10, limit=400_000)
+        out['X9_separation_4_with_pair_creation_admitted'] = {k: res.get(k) for k in ('uphill', 'length', 'types', 'aborted', 'explored')}
+        print('X9 with +10 admitted, d_23 = 4:', out['X9_separation_4_with_pair_creation_admitted'],
+              f'{time.time() - t0:.1f}s', flush=True)
+    out['seconds'] = round(time.time() - t0, 1)
+    with open(os.path.join(HERE, 'd2_routes.json'), 'w') as fh:
+        json.dump(out, fh, indent=1, default=str)
+        fh.write('\n')
+
+
+if __name__ == '__main__':
+    main()

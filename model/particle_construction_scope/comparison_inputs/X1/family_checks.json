@@ -1,0 +1,454 @@
+{
+ "lattice": [
+  6,
+  4,
+  4
+ ],
+ "tag": "MEASURED (float64, random state, seed 20261110)",
+ "arrow_state_X_r": {
+  "massless_forward": 5.003707553108402e-17,
+  "massless_reverse": 5.594315114139762e-17,
+  "massless_with_link_signs": 4.7348736264955016e-17,
+  "mass_step_Y_theta_0.157935": 0.03648875450740986,
+  "mass_step_Z_theta_0.157935": 0.03648875450740984,
+  "reading": "conserved by M0 only; a mass step of either declared kind mixes the two arrow states"
+ },
+ "sublattice_classes": {
+  "classes": 4,
+  "max_commutator_with_tick (mass Y, mass Z with links, reverse order)": {
+   "00": 3.830549338429046e-17,
+   "01": 4.2207643840401616e-17,
+   "10": 4.2207643840401616e-17,
+   "11": 5.647850449853784e-17
+  },
+  "reading": "every axis step moves exactly one cell, so x1 - x2 and x2 - x3 keep their parity: four decoupled copies"
+ },
+ "frame_half_turns_on_the_pointer": {
+  "max_commutator_with_tick": {
+   "axis_1": 4.654751537338637e-17,
+   "axis_2": 4.654751537338637e-17,
+   "axis_3": 4.2073750163139715e-17
+  },
+  "U1_U2_plus_U2_U1": 0.0,
+  "U1_U2_minus_U3": 0.0,
+  "U1_squared_plus_identity": 0.0,
+  "reading": "the Klein group of the frame acts on the travelling quantum through the quaternion group: a full turn is -1"
+ },
+ "translations": {
+  "axis_1": 0.0,
+  "axis_2": 0.0,
+  "axis_3": 0.0,
+  "bare_shift_with_link_signs_axis_1": 0.1667140698572901,
+  "reading": "momentum is a label of the free tick; with link signs the bare shift is not a symmetry (reports/R2.md, correction C2: the covariant translation is the readout)"
+ },
+ "cited": {
+  "gauss_constraint": {
+   "dimension": 98304,
+   "unitarity": 1.5543122344752192e-15,
+   "commutator_with_Gauss": 0.0,
+   "commutator_routing_only": 0.0,
+   "Gauss_squares_to_one": 0.0,
+   "routing_leaves_the_link_word": 0.0
+  },
+  "gauge_count": [
+   {
+    "cells": 8,
+    "gauge_invariant_bits": 169,
+    "face_flux_bits": 152,
+    "between_carriers": 17,
+    "formula_19N_plus_2N_plus_1": 169,
+    "plaquette_fluxes_2N_minus_2": 14,
+    "torus_holonomies": 3
+   },
+   {
+    "cells": 27,
+    "gauge_invariant_bits": 568,
+    "face_flux_bits": 513,
+    "between_carriers": 55,
+    "formula_19N_plus_2N_plus_1": 568,
+    "plaquette_fluxes_2N_minus_2": 52,
+    "torus_holonomies": 3
+   }
+  ],
+  "weyl_points_over_the_zone": {
+   "forward, chi=+1": {
+    "points": 16,
+    "counts": {
+     "phase 0, sign +1": 4,
+     "phase 0, sign -1": 4,
+     "phase pi, sign +1": 4,
+     "phase pi, sign -1": 4
+    },
+    "signed_sum": {
+     "phase 0": 0,
+     "phase pi": 0
+    },
+    "classes": {
+     "corner | phase 0": {
+      "count": 4,
+      "sign_det_J": [
+       1
+      ],
+      "abs_det_J": [
+       1
+      ]
+     },
+     "corner | phase pi": {
+      "count": 4,
+      "sign_det_J": [
+       1
+      ],
+      "abs_det_J": [
+       1
+      ]
+     },
+     "half-way point | phase 0": {
+      "count": 4,
+      "sign_det_J": [
+       -1
+      ],
+      "abs_det_J": [
+       1
+      ]
+     },
+     "half-way point | phase pi": {
+      "count": 4,
+      "sign_det_J": [
+       -1
+      ],
+      "abs_det_J": [
+       1
+      ]
+     }
+    }
+   },
+   "forward, chi=-1": {
+    "points": 16,
+    "counts": {
+     "phase 0, sign +1": 4,
+     "phase 0, sign -1": 4,
+     "phase pi, sign +1": 4,
+     "phase pi, sign -1": 4
+    },
+    "signed_sum": {
+     "phase 0": 0,
+     "phase pi": 0
+    },
+    "classes": {
+     "corner | phase 0": {
+      "count": 4,
+      "sign_det_J": [
+       -1
+      ],
+      "abs_det_J": [
+       1
+      ]
+     },
+     "corner | phase pi": {
+      "count": 4,
+      "sign_det_J": [
+       -1
+      ],
+      "abs_det_J": [
+       1
+      ]
+     },
+     "half-way point | phase pi": {
+      "count": 4,
+      "sign_det_J": [
+       1
+      ],
+      "abs_det_J": [
+       1
+      ]
+     },
+     "half-way point | phase 0": {
+      "count": 4,
+      "sign_det_J": [
+       1
+      ],
+      "abs_det_J": [
+       1
+      ]
+     }
+    }
+   },
+   "reverse, chi=+1": {
+    "points": 16,
+    "counts": {
+     "phase 0, sign +1": 4,
+     "phase 0, sign -1": 4,
+     "phase pi, sign +1": 4,
+     "phase pi, sign -1": 4
+    },
+    "signed_sum": {
+     "phase 0": 0,
+     "phase pi": 0
+    },
+    "classes": {
+     "corner | phase 0": {
+      "count": 4,
+      "sign_det_J": [
+       1
+      ],
+      "abs_det_J": [
+       1
+      ]
+     },
+     "corner | phase pi": {
+      "count": 4,
+      "sign_det_J": [
+       1
+      ],
+      "abs_det_J": [
+       1
+      ]
+     },
+     "half-way point | phase pi": {
+      "count": 4,
+      "sign_det_J": [
+       -1
+      ],
+      "abs_det_J": [
+       1
+      ]
+     },
+     "half-way point | phase 0": {
+      "count": 4,
+      "sign_det_J": [
+       -1
+      ],
+      "abs_det_J": [
+       1
+      ]
+     }
+    }
+   },
+   "reverse, chi=-1": {
+    "points": 16,
+    "counts": {
+     "phase 0, sign +1": 4,
+     "phase 0, sign -1": 4,
+     "phase pi, sign +1": 4,
+     "phase pi, sign -1": 4
+    },
+    "signed_sum": {
+     "phase 0": 0,
+     "phase pi": 0
+    },
+    "classes": {
+     "corner | phase 0": {
+      "count": 4,
+      "sign_det_J": [
+       -1
+      ],
+      "abs_det_J": [
+       1
+      ]
+     },
+     "corner | phase pi": {
+      "count": 4,
+      "sign_det_J": [
+       -1
+      ],
+      "abs_det_J": [
+       1
+      ]
+     },
+     "half-way point | phase 0": {
+      "count": 4,
+      "sign_det_J": [
+       1
+      ],
+      "abs_det_J": [
+       1
+      ]
+     },
+     "half-way point | phase pi": {
+      "count": 4,
+      "sign_det_J": [
+       1
+      ],
+      "abs_det_J": [
+       1
+      ]
+     }
+    }
+   },
+   "two_tick, chi=+1": {
+    "points": 64,
+    "counts": {
+     "phase 0, sign +1": 16,
+     "phase 0, sign -1": 16,
+     "phase pi, sign +1": 16,
+     "phase pi, sign -1": 16
+    },
+    "signed_sum": {
+     "phase 0": 0,
+     "phase pi": 0
+    },
+    "classes": {
+     "corner | phase 0": {
+      "count": 8,
+      "sign_det_J": [
+       1
+      ],
+      "abs_det_J": [
+       8
+      ]
+     },
+     "axis point, odd coordinate (3,) | phase pi": {
+      "count": 8,
+      "sign_det_J": [
+       1
+      ],
+      "abs_det_J": [
+       8
+      ]
+     },
+     "axis point, odd coordinate (2,) | phase pi": {
+      "count": 8,
+      "sign_det_J": [
+       -1
+      ],
+      "abs_det_J": [
+       8
+      ]
+     },
+     "face point, odd coordinates (2, 3) | phase 0": {
+      "count": 8,
+      "sign_det_J": [
+       -1
+      ],
+      "abs_det_J": [
+       8
+      ]
+     },
+     "axis point, odd coordinate (1,) | phase pi": {
+      "count": 8,
+      "sign_det_J": [
+       1
+      ],
+      "abs_det_J": [
+       8
+      ]
+     },
+     "face point, odd coordinates (1, 3) | phase 0": {
+      "count": 8,
+      "sign_det_J": [
+       1
+      ],
+      "abs_det_J": [
+       8
+      ]
+     },
+     "face point, odd coordinates (1, 2) | phase 0": {
+      "count": 8,
+      "sign_det_J": [
+       -1
+      ],
+      "abs_det_J": [
+       8
+      ]
+     },
+     "half-way point | phase pi": {
+      "count": 8,
+      "sign_det_J": [
+       -1
+      ],
+      "abs_det_J": [
+       8
+      ]
+     }
+    }
+   },
+   "two_tick, chi=-1": {
+    "points": 64,
+    "counts": {
+     "phase 0, sign +1": 16,
+     "phase 0, sign -1": 16,
+     "phase pi, sign +1": 16,
+     "phase pi, sign -1": 16
+    },
+    "signed_sum": {
+     "phase 0": 0,
+     "phase pi": 0
+    },
+    "classes": {
+     "corner | phase 0": {
+      "count": 8,
+      "sign_det_J": [
+       -1
+      ],
+      "abs_det_J": [
+       8
+      ]
+     },
+     "axis point, odd coordinate (3,) | phase pi": {
+      "count": 8,
+      "sign_det_J": [
+       -1
+      ],
+      "abs_det_J": [
+       8
+      ]
+     },
+     "axis point, odd coordinate (2,) | phase pi": {
+      "count": 8,
+      "sign_det_J": [
+       1
+      ],
+      "abs_det_J": [
+       8
+      ]
+     },
+     "face point, odd coordinates (2, 3) | phase 0": {
+      "count": 8,
+      "sign_det_J": [
+       1
+      ],
+      "abs_det_J": [
+       8
+      ]
+     },
+     "axis point, odd coordinate (1,) | phase pi": {
+      "count": 8,
+      "sign_det_J": [
+       -1
+      ],
+      "abs_det_J": [
+       8
+      ]
+     },
+     "face point, odd coordinates (1, 3) | phase 0": {
+      "count": 8,
+      "sign_det_J": [
+       -1
+      ],
+      "abs_det_J": [
+       8
+      ]
+     },
+     "face point, odd coordinates (1, 2) | phase 0": {
+      "count": 8,
+      "sign_det_J": [
+       1
+      ],
+      "abs_det_J": [
+       8
+      ]
+     },
+     "half-way point | phase pi": {
+      "count": 8,
+      "sign_det_J": [
+       1
+      ],
+      "abs_det_J": [
+       8
+      ]
+     }
+    }
+   }
+  }
+ }
+}

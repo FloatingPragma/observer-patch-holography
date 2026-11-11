@@ -1,0 +1,108 @@
+#!/usr/bin/env python3
+"""Worker CA (coupling item A): test N6 of CANDIDATES.md (Addendum 2).
+
+Uses anchor_program_link.py, a copy of the public program with one declared constant changed (the sign vector of the
+declared static link). Exact rational amplitudes. Run from RER:  PYTHONPATH=.:<CA> python <CA>/anchor_capacity2.py
+No measured value is read. Writes anchor_capacity2.json.
+"""
+from __future__ import annotations
+
+import json
+import math
+from fractions import Fraction as F
+from pathlib import Path
+
+import numpy as np
+
+from anchor_program_link import Observer, State
+from model.coherent_seam_repair.program import Observer as PublicObserver
+
+HERE = Path(__file__).resolve().parent
+out = {}
+EDGE = (0, 1)
+
+
+def seam_state(obs, a, b, sign, address, amps):
+    vec = [F(0)] * obs.dimension
+    for i, c in enumerate(amps):
+        if c:
+            vec[obs.index(a, 0, address, i)] += F(c)
+            vec[obs.index(b, 0, address, i)] += F(sign) * F(c)
+    return State(tuple(vec), 1)
+
+
+def reduced(obs, state):
+    amp = state.amplitudes
+    n = sum((x * x for x in amp if x), F(0))
+    count, fib = obs.address_count, obs.fibre
+    rec = [[F(0)] * 2 for _ in range(2)]
+    fibm = [[F(0)] * fib for _ in range(fib)]
+    for port in range(12):
+        for address in range(count):
+            for i in range(fib):
+                xs = (amp[obs.index(port, 0, address, i)], amp[obs.index(port, 1, address, i)])
+                if xs[0] or xs[1]:
+                    for r in range(2):
+                        for s_ in range(2):
+                            rec[r][s_] += xs[r] * xs[s_]
+            for r in range(2):
+                col = [amp[obs.index(port, r, address, i)] for i in range(fib)]
+                if any(col):
+                    for i in range(fib):
+                        for j in range(fib):
+                            fibm[i][j] += col[i] * col[j]
+    return [[x / n for x in row] for row in rec], [[x / n for x in row] for row in fibm]
+
+
+def ent(m):
+    w = np.linalg.eigvalsh(np.array([[float(x) for x in row] for row in m]))
+    return float(-sum(x * math.log(x) for x in w if x > 1e-15))
+
+
+# the copy with the public vector reproduces the public program on every basis input of the linked seam
+pub = PublicObserver(fibre=5, central_edge=EDGE)
+cop = Observer(fibre=5, central_edge=EDGE, link_signs=(1, 1, 1, -1, -1))
+same = True
+k = pub.addresses.index(EDGE)
+for sign in (1, -1):
+    for i in range(5):
+        amps = [1 if j == i else 0 for j in range(5)]
+        a = pub.repair(type(pub.embedded_port(0))(seam_state(cop, 0, 1, sign, k, amps).amplitudes, 1))
+        b = cop.repair(seam_state(cop, 0, 1, sign, k, amps))
+        same &= a.amplitudes == b.amplitudes
+for p in (0, 1, 7):
+    for i in (0, 3, 4):
+        same &= pub.step(pub.embedded_port(p, i)).amplitudes == cop.step(cop.embedded_port(p, i)).amplitudes
+out["N6_copy_reproduces_public_program"] = bool(same)
+
+inputs = {"(a) doublet levels with amplitudes 1, 2": [0, 0, 0, 1, 2],
+          "(b) doublet levels with equal amplitudes": [0, 0, 0, 1, 1],
+          "(c) all five levels with equal amplitudes": [1, 1, 1, 1, 1]}
+links = {"public central link (1,1,1,-1,-1)": (1, 1, 1, -1, -1),
+         "sign on the charged doublet level (1,1,1,-1,1)": (1, 1, 1, -1, 1),
+         "sign on the other doublet level (1,1,1,1,-1)": (1, 1, 1, 1, -1)}
+res = {}
+for lname, signs in links.items():
+    obs = Observer(fibre=5, central_edge=EDGE, link_signs=signs)
+    kk = obs.addresses.index(EDGE)
+    res[lname] = {}
+    for iname, amps in inputs.items():
+        st = obs.repair(seam_state(obs, 0, 1, 1, kk, amps))
+        rec, fibm = reduced(obs, st)
+        res[lname][iname] = {"record_probabilities": [str(rec[0][0]), str(rec[1][1])], "record_entropy": ent(rec),
+                             "coherence_between_doublet_levels_after": str(fibm[3][4]),
+                             "coherence_inside_triplet_after": str(fibm[0][1]),
+                             "fibre_entropy_after": ent(fibm)}
+out["N6_results"] = res
+pc = res["public central link (1,1,1,-1,-1)"]
+ch = res["sign on the charged doublet level (1,1,1,-1,1)"]
+ot = res["sign on the other doublet level (1,1,1,1,-1)"]
+A, Bn = "(a) doublet levels with amplitudes 1, 2", "(b) doublet levels with equal amplitudes"
+out["N6_predictions_hold"] = bool(
+    pc[A]["record_entropy"] < 1e-12 and pc[Bn]["record_entropy"] < 1e-12 and pc[A]["coherence_between_doublet_levels_after"] == "2/5"
+    and sorted(ch[A]["record_probabilities"]) == ["1/5", "4/5"] and ch[Bn]["record_probabilities"] == ["1/2", "1/2"]
+    and abs(ch[Bn]["record_entropy"] - math.log(2)) < 1e-12 and ch[A]["coherence_between_doublet_levels_after"] == "0"
+    and sorted(ot[A]["record_probabilities"]) == ["1/5", "4/5"] and ot[A]["coherence_between_doublet_levels_after"] == "0")
+out["ln2"] = math.log(2)
+(HERE / "anchor_capacity2.json").write_text(json.dumps(out, indent=1) + "\n")
+print(json.dumps(out, indent=1))

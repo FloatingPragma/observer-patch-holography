@@ -1,0 +1,98 @@
+{
+ "arithmetic": "integers (120 W, 2 Q, 60 R) and Q(sqrt5); floats only for printed phases",
+ "walk": {
+  "dimension": 1440,
+  "trace_W": -1276,
+  "discriminant": "diag(1 - L/60, 1 - (5 + A)/60)",
+  "symmetry": "W and R commute with all sixty rotations acting on ports and addresses"
+ },
+ "per_tick_on_second_index": {
+  "basis": "x = rest component (blank record, uniform address), y = component along Q hat; second index in body axes (normal, short, long) of the base port",
+  "map": "(x, y) -> (-y, x + 2 K3 y), first index untouched",
+  "K3_blank": [
+   [
+    "9/10",
+    "0",
+    "0"
+   ],
+   [
+    "0",
+    "9/10",
+    "1/30"
+   ],
+   [
+    "0",
+    "1/30",
+    "14/15"
+   ]
+  ],
+  "K3_record_set": [
+   [
+    "14/15",
+    "0",
+    "0"
+   ],
+   [
+    "0",
+    "14/15",
+    "-1/30"
+   ],
+   [
+    "0",
+    "-1/30",
+    "9/10"
+   ]
+  ],
+  "eigenphases_per_tick": {
+   "slow (0,1,phi)": 0.3047084373702735,
+   "middle (1,0,0)": 0.45102681179626236,
+   "fast (0,phi,-1)": 0.4961982595020731
+  },
+  "mixed_axes": "short and long (entry 2/60); the normal axis is a level"
+ },
+ "conserved_by_the_internal_walk_and_the_M3_control": "all sixty rotations of the internal register (first index, and the rotation multiplet: slow = 3, fast = 3prime, middle inside 5); not conserved: the axis lines of the second index",
+ "passage_between_carriers": {
+  "relabelling": "nu = F P for every frame (the right translation by the half-turn about the short axis of the base port); on the seam of each axis it agrees with the left half-turn about the short axis of the seam ports",
+  "first_index": "unchanged",
+  "second_index": "multiplied by diag(-1, +1, -1) in (normal, short, long): the axis lines are kept up to sign",
+  "kernel_copies_squared_moduli": [
+   [
+    "1/5",
+    "0",
+    "4/5"
+   ],
+   [
+    "0",
+    "1",
+    "0"
+   ],
+   [
+    "4/5",
+    "0",
+    "1/5"
+   ]
+  ]
+ },
+ "checks": {
+  "Q^2 = 1 and R^2 = 1 (integer identities 4 Q^2 = 4, 3600 R^2 = 3600)": true,
+  "trace W = -1276 (public certificate)": true,
+  "discriminant = diag(1 - L/60, 1 - (5 + A)/60) on (port, record) (public certificate)": true,
+  "W and the address reflection R commute with all sixty rotations": true,
+  "W hat = Q hat (integer form: 120 W hat = 60 (2 Q hat))": true,
+  "W Q hat = 2 Q hat K - hat (integer form, K the discriminant)": true,
+  "discriminant on the triplet-isotypic rest states = 1 x (55 + M3)/60 (blank) and 1 x (55 - M3)/60 (record set), first index untouched, all frames and base ports": true,
+  "K3 (blank) eigenvalues 11/12 + sqrt5/60, 9/10, 11/12 - sqrt5/60 on (0,1,phi), (1,0,0), (0,phi,-1)": true,
+  "one tick on (rest, image) x second index has eigenphases +-arccos of the three levels (float64 of exact numbers)": true,
+  "the relabelling nu between neighbouring carriers is a fixed-point-free involution": true,
+  "nu = F P (the canonical right Klein element), every frame": true,
+  "on every frame seam nu is the left half-turn about the short axis of its two ports (a different half-turn for each axis)": true,
+  "passage mixes the kernel copies: squared moduli [[1/5, 0, 4/5], [0, 1, 0], [4/5, 0, 1/5]] (slow, middle, fast)": true,
+  "nu does not commute with the adjacency (it is not P)": true
+ },
+ "counts": {
+  "rotations checked against W and R (exact integers)": 60,
+  "(frame, base port) pairs: discriminant on the triplet = 1 x K3 (both records)": 60,
+  "base ports: nu = R(half-turn about the short axis of the base port)": 60,
+  "frame seams: nu on the seam = left half-turn about the short axis of its ports": 30
+ }
+}

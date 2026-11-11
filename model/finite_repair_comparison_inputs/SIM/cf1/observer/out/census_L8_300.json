@@ -1,0 +1,5005 @@
+{
+ "level": 8,
+ "checkpoint": "USER_HOME/oph-physics-sim/runs/universe/L8/checkpoints/ckpt_000300.npz",
+ "sweep": 300,
+ "carriers": 1310720,
+ "compositions": {
+  "{2,4}": {
+   "count": 312508,
+   "pairwise_distance_multisets": {
+    "2": 138981,
+    "3": 107899,
+    "4": 49487,
+    "5": 16138,
+    "1": 3
+   },
+   "distinct_distance_multisets": 5,
+   "rotation_classes": 7,
+   "conjugate_composition": "{2,4}",
+   "shapes_up_to_rotation_top20": [
+    {
+     "faces_classes": [
+      [
+       0,
+       2
+      ],
+      [
+       2,
+       4
+      ]
+     ],
+     "count": 69578,
+     "distances": [
+      2
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       0,
+       4
+      ],
+      [
+       2,
+       2
+      ]
+     ],
+     "count": 69403,
+     "distances": [
+      2
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       4,
+       4
+      ],
+      [
+       5,
+       2
+      ]
+     ],
+     "count": 54065,
+     "distances": [
+      3
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       3,
+       4
+      ],
+      [
+       5,
+       2
+      ]
+     ],
+     "count": 53834,
+     "distances": [
+      3
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       5,
+       4
+      ],
+      [
+       7,
+       2
+      ]
+     ],
+     "count": 49487,
+     "distances": [
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       3,
+       4
+      ],
+      [
+       10,
+       2
+      ]
+     ],
+     "count": 16138,
+     "distances": [
+      5
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       0,
+       4
+      ],
+      [
+       1,
+       2
+      ]
+     ],
+     "count": 3,
+     "distances": [
+      1
+     ]
+    }
+   ],
+   "mirror_comparison": {
+    "with": "{2,4}",
+    "rows_count_vs_mirror_count_selfmirror_top20": [
+     [
+      69578,
+      69578,
+      true
+     ],
+     [
+      69403,
+      69403,
+      true
+     ],
+     [
+      54065,
+      53834,
+      false
+     ],
+     [
+      53834,
+      54065,
+      false
+     ],
+     [
+      49487,
+      49487,
+      true
+     ],
+     [
+      16138,
+      16138,
+      true
+     ],
+     [
+      3,
+      3,
+      true
+     ]
+    ],
+    "chi2_count_vs_mirror": 0.989091650525028,
+    "terms": 2,
+    "note": "for a self-conjugate composition every pair is counted twice"
+   },
+   "chiral_rotation_classes": 2,
+   "achiral_rotation_classes": 5,
+   "chiral_pairs": 1,
+   "chiral_pairs_counts": [
+    [
+     53834,
+     54065
+    ]
+   ],
+   "chi2_chiral_pairs": 0.494545825262514
+  },
+  "{1,5}": {
+   "count": 65028,
+   "pairwise_distance_multisets": {
+    "3": 22442,
+    "2": 20119,
+    "4": 11409,
+    "1": 7168,
+    "5": 3890
+   },
+   "distinct_distance_multisets": 5,
+   "rotation_classes": 7,
+   "conjugate_composition": "{1,5}",
+   "shapes_up_to_rotation_top20": [
+    {
+     "faces_classes": [
+      [
+       5,
+       5
+      ],
+      [
+       7,
+       1
+      ]
+     ],
+     "count": 11409,
+     "distances": [
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       3,
+       5
+      ],
+      [
+       5,
+       1
+      ]
+     ],
+     "count": 11391,
+     "distances": [
+      3
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       4,
+       5
+      ],
+      [
+       5,
+       1
+      ]
+     ],
+     "count": 11051,
+     "distances": [
+      3
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       0,
+       1
+      ],
+      [
+       2,
+       5
+      ]
+     ],
+     "count": 10099,
+     "distances": [
+      2
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       0,
+       5
+      ],
+      [
+       2,
+       1
+      ]
+     ],
+     "count": 10020,
+     "distances": [
+      2
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       0,
+       5
+      ],
+      [
+       1,
+       1
+      ]
+     ],
+     "count": 7168,
+     "distances": [
+      1
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       3,
+       5
+      ],
+      [
+       10,
+       1
+      ]
+     ],
+     "count": 3890,
+     "distances": [
+      5
+     ]
+    }
+   ],
+   "mirror_comparison": {
+    "with": "{1,5}",
+    "rows_count_vs_mirror_count_selfmirror_top20": [
+     [
+      11409,
+      11409,
+      true
+     ],
+     [
+      11391,
+      11051,
+      false
+     ],
+     [
+      11051,
+      11391,
+      false
+     ],
+     [
+      10099,
+      10099,
+      true
+     ],
+     [
+      10020,
+      10020,
+      true
+     ],
+     [
+      7168,
+      7168,
+      true
+     ],
+     [
+      3890,
+      3890,
+      true
+     ]
+    ],
+    "chi2_count_vs_mirror": 10.302112111220033,
+    "terms": 2,
+    "note": "for a self-conjugate composition every pair is counted twice"
+   },
+   "chiral_rotation_classes": 2,
+   "achiral_rotation_classes": 5,
+   "chiral_pairs": 1,
+   "chiral_pairs_counts": [
+    [
+     11391,
+     11051
+    ]
+   ],
+   "chi2_chiral_pairs": 5.151056055610017
+  },
+  "{3,3}": {
+   "count": 49332,
+   "pairwise_distance_multisets": {
+    "2": 25023,
+    "3": 16330,
+    "4": 6248,
+    "5": 1730,
+    "1": 1
+   },
+   "distinct_distance_multisets": 5,
+   "rotation_classes": 6,
+   "conjugate_composition": "{3,3}",
+   "shapes_up_to_rotation_top20": [
+    {
+     "faces_classes": [
+      [
+       0,
+       3
+      ],
+      [
+       2,
+       3
+      ]
+     ],
+     "count": 25023,
+     "distances": [
+      2
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       4,
+       3
+      ],
+      [
+       5,
+       3
+      ]
+     ],
+     "count": 8167,
+     "distances": [
+      3
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       3,
+       3
+      ],
+      [
+       5,
+       3
+      ]
+     ],
+     "count": 8163,
+     "distances": [
+      3
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       5,
+       3
+      ],
+      [
+       7,
+       3
+      ]
+     ],
+     "count": 6248,
+     "distances": [
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       3,
+       3
+      ],
+      [
+       10,
+       3
+      ]
+     ],
+     "count": 1730,
+     "distances": [
+      5
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       0,
+       3
+      ],
+      [
+       1,
+       3
+      ]
+     ],
+     "count": 1,
+     "distances": [
+      1
+     ]
+    }
+   ],
+   "mirror_comparison": {
+    "with": "{3,3}",
+    "rows_count_vs_mirror_count_selfmirror_top20": [
+     [
+      25023,
+      25023,
+      true
+     ],
+     [
+      8167,
+      8163,
+      false
+     ],
+     [
+      8163,
+      8167,
+      false
+     ],
+     [
+      6248,
+      6248,
+      true
+     ],
+     [
+      1730,
+      1730,
+      true
+     ],
+     [
+      1,
+      1,
+      true
+     ]
+    ],
+    "chi2_count_vs_mirror": 0.0019595835884874463,
+    "terms": 2,
+    "note": "for a self-conjugate composition every pair is counted twice"
+   },
+   "chiral_rotation_classes": 2,
+   "achiral_rotation_classes": 4,
+   "chiral_pairs": 1,
+   "chiral_pairs_counts": [
+    [
+     8163,
+     8167
+    ]
+   ],
+   "chi2_chiral_pairs": 0.0009797917942437231
+  },
+  "{2,2,2}": {
+   "count": 5407,
+   "pairwise_distance_multisets": {
+    "2,2,3": 1321,
+    "2,3,5": 874,
+    "2,3,4": 842,
+    "2,2,4": 674,
+    "2,3,3": 502,
+    "2,4,4": 422,
+    "3,3,4": 279,
+    "2,2,2": 247,
+    "3,3,3": 246
+   },
+   "distinct_distance_multisets": 9,
+   "rotation_classes": 13,
+   "conjugate_composition": "{4,4,4}",
+   "shapes_up_to_rotation_top20": [
+    {
+     "faces_classes": [
+      [
+       0,
+       2
+      ],
+      [
+       5,
+       2
+      ],
+      [
+       7,
+       2
+      ]
+     ],
+     "count": 674,
+     "distances": [
+      2,
+      2,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       0,
+       2
+      ],
+      [
+       3,
+       2
+      ],
+      [
+       5,
+       2
+      ]
+     ],
+     "count": 669,
+     "distances": [
+      2,
+      2,
+      3
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       2,
+       2
+      ],
+      [
+       4,
+       2
+      ],
+      [
+       5,
+       2
+      ]
+     ],
+     "count": 652,
+     "distances": [
+      2,
+      2,
+      3
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       3,
+       2
+      ],
+      [
+       5,
+       2
+      ],
+      [
+       6,
+       2
+      ]
+     ],
+     "count": 502,
+     "distances": [
+      2,
+      3,
+      3
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       0,
+       2
+      ],
+      [
+       3,
+       2
+      ],
+      [
+       10,
+       2
+      ]
+     ],
+     "count": 447,
+     "distances": [
+      2,
+      3,
+      5
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       3,
+       2
+      ],
+      [
+       5,
+       2
+      ],
+      [
+       7,
+       2
+      ]
+     ],
+     "count": 427,
+     "distances": [
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       1,
+       2
+      ],
+      [
+       3,
+       2
+      ],
+      [
+       10,
+       2
+      ]
+     ],
+     "count": 427,
+     "distances": [
+      2,
+      3,
+      5
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       5,
+       2
+      ],
+      [
+       6,
+       2
+      ],
+      [
+       8,
+       2
+      ]
+     ],
+     "count": 422,
+     "distances": [
+      2,
+      4,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       2,
+       2
+      ],
+      [
+       5,
+       2
+      ],
+      [
+       7,
+       2
+      ]
+     ],
+     "count": 415,
+     "distances": [
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       2,
+       2
+      ],
+      [
+       7,
+       2
+      ],
+      [
+       10,
+       2
+      ]
+     ],
+     "count": 279,
+     "distances": [
+      3,
+      3,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       0,
+       2
+      ],
+      [
+       2,
+       2
+      ],
+      [
+       5,
+       2
+      ]
+     ],
+     "count": 247,
+     "distances": [
+      2,
+      2,
+      2
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       0,
+       2
+      ],
+      [
+       9,
+       2
+      ],
+      [
+       10,
+       2
+      ]
+     ],
+     "count": 128,
+     "distances": [
+      3,
+      3,
+      3
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       1,
+       2
+      ],
+      [
+       7,
+       2
+      ],
+      [
+       10,
+       2
+      ]
+     ],
+     "count": 118,
+     "distances": [
+      3,
+      3,
+      3
+     ]
+    }
+   ],
+   "mirror_comparison": {
+    "with": "{4,4,4}",
+    "rows_count_vs_mirror_count_selfmirror_top20": [
+     [
+      674,
+      629,
+      false
+     ],
+     [
+      669,
+      656,
+      false
+     ],
+     [
+      652,
+      685,
+      false
+     ],
+     [
+      502,
+      530,
+      false
+     ],
+     [
+      447,
+      414,
+      false
+     ],
+     [
+      427,
+      422,
+      false
+     ],
+     [
+      427,
+      417,
+      false
+     ],
+     [
+      422,
+      411,
+      false
+     ],
+     [
+      415,
+      400,
+      false
+     ],
+     [
+      279,
+      304,
+      false
+     ],
+     [
+      247,
+      251,
+      false
+     ],
+     [
+      128,
+      130,
+      false
+     ],
+     [
+      118,
+      92,
+      false
+     ]
+    ],
+    "chi2_count_vs_mirror": 9.428644179521022,
+    "terms": 13,
+    "note": "for a self-conjugate composition every pair is counted twice"
+   }
+  },
+  "{4,4,4}": {
+   "count": 5341,
+   "pairwise_distance_multisets": {
+    "2,2,3": 1341,
+    "2,3,5": 831,
+    "2,3,4": 822,
+    "2,2,4": 629,
+    "2,3,3": 530,
+    "2,4,4": 411,
+    "3,3,4": 304,
+    "2,2,2": 251,
+    "3,3,3": 222
+   },
+   "distinct_distance_multisets": 9,
+   "rotation_classes": 13,
+   "conjugate_composition": "{2,2,2}",
+   "shapes_up_to_rotation_top20": [
+    {
+     "faces_classes": [
+      [
+       0,
+       4
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       5,
+       4
+      ]
+     ],
+     "count": 685,
+     "distances": [
+      2,
+      2,
+      3
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       2,
+       4
+      ],
+      [
+       4,
+       4
+      ],
+      [
+       5,
+       4
+      ]
+     ],
+     "count": 656,
+     "distances": [
+      2,
+      2,
+      3
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       0,
+       4
+      ],
+      [
+       5,
+       4
+      ],
+      [
+       7,
+       4
+      ]
+     ],
+     "count": 629,
+     "distances": [
+      2,
+      2,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       3,
+       4
+      ],
+      [
+       5,
+       4
+      ],
+      [
+       6,
+       4
+      ]
+     ],
+     "count": 530,
+     "distances": [
+      2,
+      3,
+      3
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       2,
+       4
+      ],
+      [
+       5,
+       4
+      ],
+      [
+       7,
+       4
+      ]
+     ],
+     "count": 422,
+     "distances": [
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       0,
+       4
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       10,
+       4
+      ]
+     ],
+     "count": 417,
+     "distances": [
+      2,
+      3,
+      5
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       1,
+       4
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       10,
+       4
+      ]
+     ],
+     "count": 414,
+     "distances": [
+      2,
+      3,
+      5
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       5,
+       4
+      ],
+      [
+       6,
+       4
+      ],
+      [
+       8,
+       4
+      ]
+     ],
+     "count": 411,
+     "distances": [
+      2,
+      4,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       3,
+       4
+      ],
+      [
+       5,
+       4
+      ],
+      [
+       7,
+       4
+      ]
+     ],
+     "count": 400,
+     "distances": [
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       2,
+       4
+      ],
+      [
+       7,
+       4
+      ],
+      [
+       10,
+       4
+      ]
+     ],
+     "count": 304,
+     "distances": [
+      3,
+      3,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       0,
+       4
+      ],
+      [
+       2,
+       4
+      ],
+      [
+       5,
+       4
+      ]
+     ],
+     "count": 251,
+     "distances": [
+      2,
+      2,
+      2
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       1,
+       4
+      ],
+      [
+       7,
+       4
+      ],
+      [
+       10,
+       4
+      ]
+     ],
+     "count": 130,
+     "distances": [
+      3,
+      3,
+      3
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       0,
+       4
+      ],
+      [
+       9,
+       4
+      ],
+      [
+       10,
+       4
+      ]
+     ],
+     "count": 92,
+     "distances": [
+      3,
+      3,
+      3
+     ]
+    }
+   ],
+   "mirror_comparison": {
+    "with": "{2,2,2}",
+    "rows_count_vs_mirror_count_selfmirror_top20": [
+     [
+      685,
+      652,
+      false
+     ],
+     [
+      656,
+      669,
+      false
+     ],
+     [
+      629,
+      674,
+      false
+     ],
+     [
+      530,
+      502,
+      false
+     ],
+     [
+      422,
+      427,
+      false
+     ],
+     [
+      417,
+      427,
+      false
+     ],
+     [
+      414,
+      447,
+      false
+     ],
+     [
+      411,
+      422,
+      false
+     ],
+     [
+      400,
+      415,
+      false
+     ],
+     [
+      304,
+      279,
+      false
+     ],
+     [
+      251,
+      247,
+      false
+     ],
+     [
+      130,
+      128,
+      false
+     ],
+     [
+      92,
+      118,
+      false
+     ]
+    ],
+    "chi2_count_vs_mirror": 9.428644179521022,
+    "terms": 13,
+    "note": "for a self-conjugate composition every pair is counted twice"
+   }
+  },
+  "{2,2,4,4}": {
+   "count": 8836,
+   "pairwise_distance_multisets": {
+    "2,2,2,3,3,5": 1069,
+    "2,2,3,3,3,5": 1034,
+    "2,2,3,3,4,4": 910,
+    "2,2,2,3,3,4": 861,
+    "2,2,3,3,4,5": 774,
+    "2,2,2,3,4,4": 773,
+    "2,2,2,2,3,4": 646,
+    "2,2,3,3,3,4": 617,
+    "2,3,3,3,3,4": 554,
+    "2,2,2,4,4,4": 504,
+    "2,2,3,4,4,4": 446,
+    "2,2,3,3,5,5": 233,
+    "2,2,2,2,3,3": 201,
+    "2,2,2,3,3,3": 176,
+    "3,3,3,3,3,3": 38
+   },
+   "distinct_distance_multisets": 15,
+   "rotation_classes": 160,
+   "conjugate_composition": "{2,2,4,4}",
+   "shapes_up_to_rotation_top20": [
+    {
+     "faces_classes": [
+      [
+       1,
+       2
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       10,
+       4
+      ],
+      [
+       12,
+       2
+      ]
+     ],
+     "count": 132,
+     "distances": [
+      2,
+      2,
+      3,
+      3,
+      5,
+      5
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       3,
+       4
+      ],
+      [
+       5,
+       2
+      ],
+      [
+       6,
+       4
+      ],
+      [
+       7,
+       2
+      ]
+     ],
+     "count": 130,
+     "distances": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       5,
+       4
+      ],
+      [
+       6,
+       2
+      ],
+      [
+       7,
+       4
+      ],
+      [
+       8,
+       2
+      ]
+     ],
+     "count": 124,
+     "distances": [
+      2,
+      2,
+      2,
+      4,
+      4,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       2,
+       2
+      ],
+      [
+       5,
+       4
+      ],
+      [
+       6,
+       2
+      ],
+      [
+       7,
+       4
+      ]
+     ],
+     "count": 123,
+     "distances": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       5,
+       2
+      ],
+      [
+       6,
+       4
+      ],
+      [
+       7,
+       2
+      ],
+      [
+       8,
+       4
+      ]
+     ],
+     "count": 118,
+     "distances": [
+      2,
+      2,
+      2,
+      4,
+      4,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       3,
+       4
+      ],
+      [
+       7,
+       2
+      ],
+      [
+       9,
+       2
+      ],
+      [
+       10,
+       4
+      ]
+     ],
+     "count": 114,
+     "distances": [
+      2,
+      2,
+      3,
+      3,
+      4,
+      5
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       0,
+       2
+      ],
+      [
+       5,
+       4
+      ],
+      [
+       7,
+       4
+      ],
+      [
+       8,
+       2
+      ]
+     ],
+     "count": 110,
+     "distances": [
+      2,
+      2,
+      2,
+      3,
+      4,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       4,
+       2
+      ],
+      [
+       5,
+       4
+      ],
+      [
+       8,
+       4
+      ],
+      [
+       10,
+       2
+      ]
+     ],
+     "count": 108,
+     "distances": [
+      2,
+      2,
+      3,
+      4,
+      4,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       5,
+       4
+      ],
+      [
+       7,
+       4
+      ],
+      [
+       8,
+       2
+      ],
+      [
+       10,
+       2
+      ]
+     ],
+     "count": 108,
+     "distances": [
+      2,
+      2,
+      3,
+      4,
+      4,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       2,
+       4
+      ],
+      [
+       5,
+       2
+      ],
+      [
+       6,
+       4
+      ],
+      [
+       7,
+       2
+      ]
+     ],
+     "count": 105,
+     "distances": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       3,
+       2
+      ],
+      [
+       5,
+       4
+      ],
+      [
+       6,
+       2
+      ],
+      [
+       7,
+       4
+      ]
+     ],
+     "count": 104,
+     "distances": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       2,
+       4
+      ],
+      [
+       5,
+       2
+      ],
+      [
+       6,
+       4
+      ],
+      [
+       8,
+       2
+      ]
+     ],
+     "count": 99,
+     "distances": [
+      2,
+      2,
+      2,
+      3,
+      4,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       4,
+       4
+      ],
+      [
+       5,
+       4
+      ],
+      [
+       6,
+       2
+      ],
+      [
+       8,
+       2
+      ]
+     ],
+     "count": 99,
+     "distances": [
+      2,
+      2,
+      2,
+      3,
+      4,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       4,
+       2
+      ],
+      [
+       5,
+       2
+      ],
+      [
+       6,
+       4
+      ],
+      [
+       8,
+       4
+      ]
+     ],
+     "count": 95,
+     "distances": [
+      2,
+      2,
+      2,
+      3,
+      4,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       2,
+       2
+      ],
+      [
+       5,
+       4
+      ],
+      [
+       7,
+       4
+      ],
+      [
+       10,
+       2
+      ]
+     ],
+     "count": 95,
+     "distances": [
+      2,
+      2,
+      3,
+      3,
+      4,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       3,
+       2
+      ],
+      [
+       7,
+       4
+      ],
+      [
+       9,
+       4
+      ],
+      [
+       10,
+       2
+      ]
+     ],
+     "count": 92,
+     "distances": [
+      2,
+      2,
+      3,
+      3,
+      4,
+      5
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       0,
+       2
+      ],
+      [
+       2,
+       2
+      ],
+      [
+       5,
+       4
+      ],
+      [
+       7,
+       4
+      ]
+     ],
+     "count": 92,
+     "distances": [
+      2,
+      2,
+      2,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       1,
+       2
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       6,
+       4
+      ],
+      [
+       10,
+       2
+      ]
+     ],
+     "count": 92,
+     "distances": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      5
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       1,
+       4
+      ],
+      [
+       3,
+       2
+      ],
+      [
+       7,
+       4
+      ],
+      [
+       10,
+       2
+      ]
+     ],
+     "count": 90,
+     "distances": [
+      2,
+      2,
+      3,
+      3,
+      3,
+      5
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       0,
+       2
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       9,
+       2
+      ],
+      [
+       10,
+       4
+      ]
+     ],
+     "count": 90,
+     "distances": [
+      2,
+      2,
+      3,
+      3,
+      3,
+      5
+     ]
+    }
+   ],
+   "mirror_comparison": {
+    "with": "{2,2,4,4}",
+    "rows_count_vs_mirror_count_selfmirror_top20": [
+     [
+      132,
+      132,
+      true
+     ],
+     [
+      130,
+      123,
+      false
+     ],
+     [
+      124,
+      124,
+      true
+     ],
+     [
+      123,
+      130,
+      false
+     ],
+     [
+      118,
+      118,
+      true
+     ],
+     [
+      114,
+      92,
+      false
+     ],
+     [
+      110,
+      99,
+      false
+     ],
+     [
+      108,
+      108,
+      false
+     ],
+     [
+      108,
+      108,
+      false
+     ],
+     [
+      105,
+      104,
+      false
+     ],
+     [
+      104,
+      105,
+      false
+     ],
+     [
+      99,
+      110,
+      false
+     ],
+     [
+      99,
+      95,
+      false
+     ],
+     [
+      95,
+      99,
+      false
+     ],
+     [
+      95,
+      85,
+      false
+     ],
+     [
+      92,
+      78,
+      false
+     ],
+     [
+      92,
+      87,
+      false
+     ],
+     [
+      92,
+      114,
+      false
+     ],
+     [
+      90,
+      90,
+      false
+     ],
+     [
+      90,
+      90,
+      false
+     ]
+    ],
+    "chi2_count_vs_mirror": 95.07839729095849,
+    "terms": 148,
+    "note": "for a self-conjugate composition every pair is counted twice"
+   },
+   "chiral_rotation_classes": 148,
+   "achiral_rotation_classes": 12,
+   "chiral_pairs": 74,
+   "chiral_pairs_counts": [
+    [
+     77,
+     72
+    ],
+    [
+     78,
+     92
+    ],
+    [
+     51,
+     61
+    ],
+    [
+     28,
+     26
+    ],
+    [
+     30,
+     25
+    ],
+    [
+     65,
+     80
+    ],
+    [
+     105,
+     104
+    ],
+    [
+     130,
+     123
+    ],
+    [
+     27,
+     33
+    ],
+    [
+     53,
+     48
+    ],
+    [
+     66,
+     70
+    ],
+    [
+     31,
+     32
+    ],
+    [
+     81,
+     61
+    ],
+    [
+     99,
+     110
+    ],
+    [
+     99,
+     95
+    ],
+    [
+     66,
+     63
+    ],
+    [
+     27,
+     23
+    ],
+    [
+     26,
+     23
+    ],
+    [
+     66,
+     68
+    ],
+    [
+     21,
+     30
+    ]
+   ],
+   "chi2_chiral_pairs": 47.539198645479225
+  },
+  "{2,3,3,4}": {
+   "count": 3487,
+   "pairwise_distance_multisets": {
+    "2,2,2,3,3,5": 422,
+    "2,2,3,3,3,5": 408,
+    "2,2,2,3,3,4": 371,
+    "2,2,3,3,4,4": 337,
+    "2,2,2,3,4,4": 331,
+    "2,2,3,3,4,5": 296,
+    "2,2,2,2,3,4": 250,
+    "2,3,3,3,3,4": 218,
+    "2,2,3,3,3,4": 210,
+    "2,2,2,4,4,4": 205,
+    "2,2,3,4,4,4": 161,
+    "2,2,3,3,5,5": 100,
+    "2,2,2,2,3,3": 91,
+    "2,2,2,3,3,3": 73,
+    "3,3,3,3,3,3": 14
+   },
+   "distinct_distance_multisets": 15,
+   "rotation_classes": 302,
+   "conjugate_composition": "{2,3,3,4}",
+   "shapes_up_to_rotation_top20": [
+    {
+     "faces_classes": [
+      [
+       3,
+       4
+      ],
+      [
+       5,
+       3
+      ],
+      [
+       6,
+       3
+      ],
+      [
+       7,
+       2
+      ]
+     ],
+     "count": 29,
+     "distances": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       1,
+       3
+      ],
+      [
+       3,
+       3
+      ],
+      [
+       10,
+       4
+      ],
+      [
+       12,
+       2
+      ]
+     ],
+     "count": 27,
+     "distances": [
+      2,
+      2,
+      3,
+      3,
+      5,
+      5
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       4,
+       3
+      ],
+      [
+       5,
+       4
+      ],
+      [
+       8,
+       3
+      ],
+      [
+       10,
+       2
+      ]
+     ],
+     "count": 26,
+     "distances": [
+      2,
+      2,
+      3,
+      4,
+      4,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       0,
+       2
+      ],
+      [
+       5,
+       4
+      ],
+      [
+       7,
+       3
+      ],
+      [
+       8,
+       3
+      ]
+     ],
+     "count": 26,
+     "distances": [
+      2,
+      2,
+      2,
+      3,
+      4,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       3,
+       3
+      ],
+      [
+       5,
+       2
+      ],
+      [
+       6,
+       4
+      ],
+      [
+       7,
+       3
+      ]
+     ],
+     "count": 26,
+     "distances": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       2,
+       2
+      ],
+      [
+       5,
+       4
+      ],
+      [
+       6,
+       3
+      ],
+      [
+       7,
+       3
+      ]
+     ],
+     "count": 26,
+     "distances": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       5,
+       3
+      ],
+      [
+       6,
+       3
+      ],
+      [
+       7,
+       2
+      ],
+      [
+       8,
+       4
+      ]
+     ],
+     "count": 26,
+     "distances": [
+      2,
+      2,
+      2,
+      4,
+      4,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       1,
+       2
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       6,
+       3
+      ],
+      [
+       10,
+       3
+      ]
+     ],
+     "count": 25,
+     "distances": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      5
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       3,
+       3
+      ],
+      [
+       5,
+       4
+      ],
+      [
+       6,
+       2
+      ],
+      [
+       7,
+       3
+      ]
+     ],
+     "count": 25,
+     "distances": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       3,
+       4
+      ],
+      [
+       6,
+       3
+      ],
+      [
+       9,
+       2
+      ],
+      [
+       10,
+       3
+      ]
+     ],
+     "count": 24,
+     "distances": [
+      2,
+      2,
+      3,
+      3,
+      4,
+      5
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       3,
+       3
+      ],
+      [
+       5,
+       4
+      ],
+      [
+       7,
+       3
+      ],
+      [
+       10,
+       2
+      ]
+     ],
+     "count": 24,
+     "distances": [
+      2,
+      2,
+      3,
+      3,
+      4,
+      5
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       0,
+       2
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       5,
+       3
+      ],
+      [
+       10,
+       3
+      ]
+     ],
+     "count": 24,
+     "distances": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      5
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       4,
+       3
+      ],
+      [
+       5,
+       2
+      ],
+      [
+       6,
+       4
+      ],
+      [
+       8,
+       3
+      ]
+     ],
+     "count": 24,
+     "distances": [
+      2,
+      2,
+      2,
+      3,
+      4,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       5,
+       3
+      ],
+      [
+       6,
+       3
+      ],
+      [
+       7,
+       4
+      ],
+      [
+       8,
+       2
+      ]
+     ],
+     "count": 24,
+     "distances": [
+      2,
+      2,
+      2,
+      4,
+      4,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       2,
+       2
+      ],
+      [
+       5,
+       4
+      ],
+      [
+       7,
+       3
+      ],
+      [
+       8,
+       3
+      ]
+     ],
+     "count": 23,
+     "distances": [
+      2,
+      2,
+      2,
+      3,
+      4,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       4,
+       3
+      ],
+      [
+       6,
+       3
+      ],
+      [
+       9,
+       4
+      ],
+      [
+       10,
+       2
+      ]
+     ],
+     "count": 23,
+     "distances": [
+      2,
+      2,
+      3,
+      3,
+      4,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       2,
+       3
+      ],
+      [
+       5,
+       3
+      ],
+      [
+       7,
+       4
+      ],
+      [
+       8,
+       2
+      ]
+     ],
+     "count": 23,
+     "distances": [
+      2,
+      2,
+      2,
+      3,
+      4,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       2,
+       4
+      ],
+      [
+       4,
+       3
+      ],
+      [
+       5,
+       2
+      ],
+      [
+       6,
+       3
+      ]
+     ],
+     "count": 22,
+     "distances": [
+      2,
+      2,
+      2,
+      2,
+      3,
+      3
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       1,
+       2
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       10,
+       3
+      ],
+      [
+       12,
+       3
+      ]
+     ],
+     "count": 22,
+     "distances": [
+      2,
+      2,
+      3,
+      3,
+      5,
+      5
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       5,
+       4
+      ],
+      [
+       6,
+       2
+      ],
+      [
+       7,
+       3
+      ],
+      [
+       8,
+       3
+      ]
+     ],
+     "count": 22,
+     "distances": [
+      2,
+      2,
+      2,
+      4,
+      4,
+      4
+     ]
+    }
+   ],
+   "mirror_comparison": {
+    "with": "{2,3,3,4}",
+    "rows_count_vs_mirror_count_selfmirror_top20": [
+     [
+      29,
+      26,
+      false
+     ],
+     [
+      27,
+      27,
+      true
+     ],
+     [
+      26,
+      29,
+      false
+     ],
+     [
+      26,
+      13,
+      false
+     ],
+     [
+      26,
+      15,
+      false
+     ],
+     [
+      26,
+      14,
+      false
+     ],
+     [
+      26,
+      20,
+      false
+     ],
+     [
+      25,
+      14,
+      false
+     ],
+     [
+      25,
+      12,
+      false
+     ],
+     [
+      24,
+      22,
+      false
+     ],
+     [
+      24,
+      19,
+      false
+     ],
+     [
+      24,
+      24,
+      false
+     ],
+     [
+      24,
+      13,
+      false
+     ],
+     [
+      24,
+      24,
+      false
+     ],
+     [
+      23,
+      17,
+      false
+     ],
+     [
+      23,
+      18,
+      false
+     ],
+     [
+      23,
+      16,
+      false
+     ],
+     [
+      22,
+      22,
+      true
+     ],
+     [
+      22,
+      24,
+      false
+     ],
+     [
+      22,
+      22,
+      true
+     ]
+    ],
+    "chi2_count_vs_mirror": 315.20052993983995,
+    "terms": 282,
+    "note": "for a self-conjugate composition every pair is counted twice"
+   },
+   "chiral_rotation_classes": 282,
+   "achiral_rotation_classes": 20,
+   "chiral_pairs": 141,
+   "chiral_pairs_counts": [
+    [
+     7,
+     8
+    ],
+    [
+     9,
+     16
+    ],
+    [
+     12,
+     11
+    ],
+    [
+     12,
+     9
+    ],
+    [
+     13,
+     15
+    ],
+    [
+     6,
+     9
+    ],
+    [
+     13,
+     20
+    ],
+    [
+     29,
+     26
+    ],
+    [
+     10,
+     17
+    ],
+    [
+     14,
+     25
+    ],
+    [
+     15,
+     14
+    ],
+    [
+     9,
+     4
+    ],
+    [
+     14,
+     16
+    ],
+    [
+     15,
+     15
+    ],
+    [
+     14,
+     9
+    ],
+    [
+     2,
+     8
+    ],
+    [
+     7,
+     1
+    ],
+    [
+     18,
+     5
+    ],
+    [
+     14,
+     9
+    ],
+    [
+     15,
+     16
+    ]
+   ],
+   "chi2_chiral_pairs": 157.6002649699201
+  },
+  "{1,2,3}": {
+   "count": 670,
+   "pairwise_distance_multisets": {
+    "2,2,3": 117,
+    "2,3,5": 94,
+    "2,3,4": 87,
+    "2,3,3": 63,
+    "2,4,4": 59,
+    "2,2,4": 55,
+    "3,3,4": 46,
+    "1,2,3": 40,
+    "3,3,3": 24,
+    "1,2,2": 24,
+    "1,3,3": 20,
+    "1,3,4": 17,
+    "2,2,2": 13,
+    "1,4,5": 8,
+    "1,1,2": 3
+   },
+   "distinct_distance_multisets": 15,
+   "rotation_classes": 96,
+   "conjugate_composition": "{3,4,5}",
+   "shapes_up_to_rotation_top20": [
+    {
+     "faces_classes": [
+      [
+       5,
+       2
+      ],
+      [
+       6,
+       3
+      ],
+      [
+       8,
+       1
+      ]
+     ],
+     "count": 26,
+     "distances": [
+      2,
+      4,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       0,
+       2
+      ],
+      [
+       5,
+       3
+      ],
+      [
+       7,
+       1
+      ]
+     ],
+     "count": 20,
+     "distances": [
+      2,
+      2,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       5,
+       3
+      ],
+      [
+       6,
+       2
+      ],
+      [
+       8,
+       1
+      ]
+     ],
+     "count": 18,
+     "distances": [
+      2,
+      4,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       3,
+       1
+      ],
+      [
+       5,
+       3
+      ],
+      [
+       6,
+       2
+      ]
+     ],
+     "count": 18,
+     "distances": [
+      2,
+      3,
+      3
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       0,
+       2
+      ],
+      [
+       3,
+       3
+      ],
+      [
+       10,
+       1
+      ]
+     ],
+     "count": 18,
+     "distances": [
+      2,
+      3,
+      5
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       3,
+       2
+      ],
+      [
+       5,
+       1
+      ],
+      [
+       7,
+       3
+      ]
+     ],
+     "count": 17,
+     "distances": [
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       2,
+       3
+      ],
+      [
+       5,
+       2
+      ],
+      [
+       7,
+       1
+      ]
+     ],
+     "count": 16,
+     "distances": [
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       2,
+       2
+      ],
+      [
+       4,
+       1
+      ],
+      [
+       5,
+       3
+      ]
+     ],
+     "count": 16,
+     "distances": [
+      2,
+      2,
+      3
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       1,
+       3
+      ],
+      [
+       3,
+       2
+      ],
+      [
+       10,
+       1
+      ]
+     ],
+     "count": 16,
+     "distances": [
+      2,
+      3,
+      5
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       0,
+       3
+      ],
+      [
+       3,
+       2
+      ],
+      [
+       5,
+       1
+      ]
+     ],
+     "count": 14,
+     "distances": [
+      2,
+      2,
+      3
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       3,
+       1
+      ],
+      [
+       5,
+       2
+      ],
+      [
+       6,
+       3
+      ]
+     ],
+     "count": 14,
+     "distances": [
+      2,
+      3,
+      3
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       0,
+       3
+      ],
+      [
+       5,
+       2
+      ],
+      [
+       7,
+       1
+      ]
+     ],
+     "count": 14,
+     "distances": [
+      2,
+      2,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       0,
+       3
+      ],
+      [
+       3,
+       1
+      ],
+      [
+       5,
+       2
+      ]
+     ],
+     "count": 12,
+     "distances": [
+      2,
+      2,
+      3
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       0,
+       2
+      ],
+      [
+       3,
+       3
+      ],
+      [
+       5,
+       1
+      ]
+     ],
+     "count": 12,
+     "distances": [
+      2,
+      2,
+      3
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       3,
+       3
+      ],
+      [
+       5,
+       2
+      ],
+      [
+       7,
+       1
+      ]
+     ],
+     "count": 11,
+     "distances": [
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       5,
+       3
+      ],
+      [
+       6,
+       2
+      ],
+      [
+       7,
+       1
+      ]
+     ],
+     "count": 11,
+     "distances": [
+      2,
+      2,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       2,
+       3
+      ],
+      [
+       4,
+       1
+      ],
+      [
+       5,
+       2
+      ]
+     ],
+     "count": 11,
+     "distances": [
+      2,
+      2,
+      3
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       3,
+       3
+      ],
+      [
+       5,
+       1
+      ],
+      [
+       7,
+       2
+      ]
+     ],
+     "count": 11,
+     "distances": [
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       1,
+       2
+      ],
+      [
+       3,
+       3
+      ],
+      [
+       10,
+       1
+      ]
+     ],
+     "count": 11,
+     "distances": [
+      2,
+      3,
+      5
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       0,
+       3
+      ],
+      [
+       3,
+       2
+      ],
+      [
+       10,
+       1
+      ]
+     ],
+     "count": 10,
+     "distances": [
+      2,
+      3,
+      5
+     ]
+    }
+   ],
+   "mirror_comparison": {
+    "with": "{3,4,5}",
+    "rows_count_vs_mirror_count_selfmirror_top20": [
+     [
+      26,
+      17,
+      false
+     ],
+     [
+      20,
+      8,
+      false
+     ],
+     [
+      18,
+      17,
+      false
+     ],
+     [
+      18,
+      14,
+      false
+     ],
+     [
+      18,
+      13,
+      false
+     ],
+     [
+      17,
+      20,
+      false
+     ],
+     [
+      16,
+      13,
+      false
+     ],
+     [
+      16,
+      16,
+      false
+     ],
+     [
+      16,
+      12,
+      false
+     ],
+     [
+      14,
+      15,
+      false
+     ],
+     [
+      14,
+      14,
+      false
+     ],
+     [
+      14,
+      14,
+      false
+     ],
+     [
+      12,
+      17,
+      false
+     ],
+     [
+      12,
+      14,
+      false
+     ],
+     [
+      11,
+      10,
+      false
+     ],
+     [
+      11,
+      4,
+      false
+     ],
+     [
+      11,
+      12,
+      false
+     ],
+     [
+      11,
+      19,
+      false
+     ],
+     [
+      11,
+      20,
+      false
+     ],
+     [
+      10,
+      5,
+      false
+     ]
+    ],
+    "chi2_count_vs_mirror": 112.34477238738002,
+    "terms": 96,
+    "note": "for a self-conjugate composition every pair is counted twice"
+   }
+  },
+  "{3,4,5}": {
+   "count": 720,
+   "pairwise_distance_multisets": {
+    "2,2,3": 134,
+    "2,3,4": 108,
+    "2,3,5": 96,
+    "2,2,4": 60,
+    "1,2,3": 56,
+    "2,3,3": 50,
+    "2,4,4": 49,
+    "3,3,4": 35,
+    "3,3,3": 31,
+    "1,3,4": 29,
+    "1,2,2": 27,
+    "2,2,2": 17,
+    "1,3,3": 14,
+    "1,1,2": 9,
+    "1,4,5": 5
+   },
+   "distinct_distance_multisets": 15,
+   "rotation_classes": 99,
+   "conjugate_composition": "{1,2,3}",
+   "shapes_up_to_rotation_top20": [
+    {
+     "faces_classes": [
+      [
+       2,
+       4
+      ],
+      [
+       5,
+       3
+      ],
+      [
+       7,
+       5
+      ]
+     ],
+     "count": 20,
+     "distances": [
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       3,
+       5
+      ],
+      [
+       6,
+       4
+      ],
+      [
+       10,
+       3
+      ]
+     ],
+     "count": 20,
+     "distances": [
+      2,
+      3,
+      5
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       2,
+       3
+      ],
+      [
+       5,
+       4
+      ],
+      [
+       7,
+       5
+      ]
+     ],
+     "count": 19,
+     "distances": [
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       3,
+       4
+      ],
+      [
+       5,
+       5
+      ],
+      [
+       7,
+       3
+      ]
+     ],
+     "count": 19,
+     "distances": [
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       3,
+       5
+      ],
+      [
+       5,
+       4
+      ],
+      [
+       6,
+       3
+      ]
+     ],
+     "count": 17,
+     "distances": [
+      2,
+      3,
+      3
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       5,
+       5
+      ],
+      [
+       7,
+       3
+      ],
+      [
+       8,
+       4
+      ]
+     ],
+     "count": 17,
+     "distances": [
+      2,
+      4,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       2,
+       4
+      ],
+      [
+       4,
+       3
+      ],
+      [
+       5,
+       5
+      ]
+     ],
+     "count": 17,
+     "distances": [
+      2,
+      2,
+      3
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       2,
+       4
+      ],
+      [
+       4,
+       5
+      ],
+      [
+       5,
+       3
+      ]
+     ],
+     "count": 16,
+     "distances": [
+      2,
+      2,
+      3
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       3,
+       3
+      ],
+      [
+       5,
+       5
+      ],
+      [
+       7,
+       4
+      ]
+     ],
+     "count": 16,
+     "distances": [
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       5,
+       5
+      ],
+      [
+       6,
+       3
+      ],
+      [
+       7,
+       4
+      ]
+     ],
+     "count": 16,
+     "distances": [
+      2,
+      2,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       0,
+       3
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       5,
+       5
+      ]
+     ],
+     "count": 15,
+     "distances": [
+      2,
+      2,
+      3
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       2,
+       3
+      ],
+      [
+       4,
+       4
+      ],
+      [
+       5,
+       5
+      ]
+     ],
+     "count": 15,
+     "distances": [
+      2,
+      2,
+      3
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       5,
+       5
+      ],
+      [
+       7,
+       4
+      ],
+      [
+       8,
+       3
+      ]
+     ],
+     "count": 14,
+     "distances": [
+      2,
+      4,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       2,
+       3
+      ],
+      [
+       4,
+       5
+      ],
+      [
+       5,
+       4
+      ]
+     ],
+     "count": 14,
+     "distances": [
+      2,
+      2,
+      3
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       0,
+       3
+      ],
+      [
+       5,
+       5
+      ],
+      [
+       7,
+       4
+      ]
+     ],
+     "count": 14,
+     "distances": [
+      2,
+      2,
+      4
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       3,
+       5
+      ],
+      [
+       5,
+       3
+      ],
+      [
+       6,
+       4
+      ]
+     ],
+     "count": 14,
+     "distances": [
+      2,
+      3,
+      3
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       0,
+       4
+      ],
+      [
+       3,
+       5
+      ],
+      [
+       5,
+       3
+      ]
+     ],
+     "count": 13,
+     "distances": [
+      2,
+      2,
+      3
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       0,
+       4
+      ],
+      [
+       2,
+       5
+      ],
+      [
+       5,
+       3
+      ]
+     ],
+     "count": 13,
+     "distances": [
+      2,
+      2,
+      2
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       3,
+       5
+      ],
+      [
+       5,
+       4
+      ],
+      [
+       10,
+       3
+      ]
+     ],
+     "count": 13,
+     "distances": [
+      2,
+      3,
+      5
+     ]
+    },
+    {
+     "faces_classes": [
+      [
+       0,
+       5
+      ],
+      [
+       9,
+       4
+      ],
+      [
+       10,
+       3
+      ]
+     ],
+     "count": 13,
+     "distances": [
+      3,
+      3,
+      3
+     ]
+    }
+   ],
+   "mirror_comparison": {
+    "with": "{1,2,3}",
+    "rows_count_vs_mirror_count_selfmirror_top20": [
+     [
+      20,
+      17,
+      false
+     ],
+     [
+      20,
+      11,
+      false
+     ],
+     [
+      19,
+      10,
+      false
+     ],
+     [
+      19,
+      11,
+      false
+     ],
+     [
+      17,
+      12,
+      false
+     ],
+     [
+      17,
+      18,
+      false
+     ],
+     [
+      17,
+      26,
+      false
+     ],
+     [
+      16,
+      9,
+      false
+     ],
+     [
+      16,
+      16,
+      false
+     ],
+     [
+      16,
+      8,
+      false
+     ],
+     [
+      15,
+      9,
+      false
+     ],
+     [
+      15,
+      14,
+      false
+     ],
+     [
+      14,
+      12,
+      false
+     ],
+     [
+      14,
+      14,
+      false
+     ],
+     [
+      14,
+      14,
+      false
+     ],
+     [
+      14,
+      18,
+      false
+     ],
+     [
+      13,
+      5,
+      false
+     ],
+     [
+      13,
+      16,
+      false
+     ],
+     [
+      13,
+      18,
+      false
+     ],
+     [
+      13,
+      4,
+      false
+     ]
+    ],
+    "chi2_count_vs_mirror": 114.34477238738005,
+    "terms": 99,
+    "note": "for a self-conjugate composition every pair is counted twice"
+   }
+  }
+ },
+ "all_compositions": {
+  "{}": 858862,
+  "{2,4}": 312508,
+  "{1,5}": 65028,
+  "{3,3}": 49332,
+  "{2,2,4,4}": 8836,
+  "{2,2,2}": 5407,
+  "{4,4,4}": 5341,
+  "{2,3,3,4}": 3487,
+  "{3,4,5}": 720,
+  "{1,2,3}": 670,
+  "{2,2,2,2,4}": 118,
+  "{2,4,4,4,4}": 102,
+  "{3,3,3,3}": 75,
+  "{3,3,4,4,4}": 73,
+  "{2,2,2,3,3}": 71,
+  "{2,2,2,4,4,4}": 36,
+  "{2,2,3,3,4,4}": 18,
+  "{1,1,4}": 11,
+  "{2,5,5}": 10,
+  "{2,2,3,5}": 8,
+  "{1,3,4,4}": 5,
+  "{2,3,3,3,3,4}": 2
+ },
+ "asymmetry_444_vs_222": {
+  "n_a": 5341,
+  "n_b": 5407,
+  "A": -0.006140677335318198,
+  "err": 0.009645571902204922
+ },
+ "asymmetry_345_vs_123": {
+  "n_a": 720,
+  "n_b": 670,
+  "A": 0.03597122302158273,
+  "err": 0.026804730484398565
+ },
+ "asymmetry_24444_vs_22224": {
+  "n_a": 102,
+  "n_b": 118,
+  "A": -0.07272727272727272,
+  "err": 0.0672414490610196
+ },
+ "asymmetry_class4_vs_class2_faces": {
+  "n_a": 351322,
+  "n_b": 351517,
+  "A": -0.00027744618611090163,
+  "err": 0.0011928121582599686
+ },
+ "asymmetry_class5_vs_class1_faces": {
+  "n_a": 65776,
+  "n_b": 65725,
+  "A": 0.00038782975034410387,
+  "err": 0.00275762647305609
+ },
+ "pair_correlation_angular": {
+  "spacing_rad": 0.002726725190919535,
+  "rows": {
+   "{2,2,2}-{2,2,2}": [
+    {
+     "r_spacings": [
+      0.0,
+      0.5
+     ],
+     "observed_pairs": 0.0,
+     "expected_pairs": 0.0,
+     "g": null,
+     "err": null
+    },
+    {
+     "r_spacings": [
+      0.5,
+      1.5
+     ],
+     "observed_pairs": 38.0,
+     "expected_pairs": 33.4513827906668,
+     "g": 1.1359769561036592,
+     "err": 0.18427979619093343
+    },
+    {
+     "r_spacings": [
+      1.5,
+      2.5
+     ],
+     "observed_pairs": 116.0,
+     "expected_pairs": 118.7100301437608,
+     "g": 0.9771710095559837,
+     "err": 0.09072805053815479
+    },
+    {
+     "r_spacings": [
+      2.5,
+      3.5
+     ],
+     "observed_pairs": 181.0,
+     "expected_pairs": 171.99591140435135,
+     "g": 1.0523505967213407,
+     "err": 0.07822060383426849
+    },
+    {
+     "r_spacings": [
+      3.5,
+      5.0
+     ],
+     "observed_pairs": 355.0,
+     "expected_pairs": 378.2515985501087,
+     "g": 0.9385287500720807,
+     "err": 0.04981193405034813
+    },
+    {
+     "r_spacings": [
+      5.0,
+      7.0
+     ],
+     "observed_pairs": 659.0,
+     "expected_pairs": 627.0675247707557,
+     "g": 1.0509235033992843,
+     "err": 0.04093816740927815
+    },
+    {
+     "r_spacings": [
+      7.0,
+      10.0
+     ],
+     "observed_pairs": 1419.0,
+     "expected_pairs": 1405.5004428866905,
+     "g": 1.0096048045958517,
+     "err": 0.026801568504885628
+    },
+    {
+     "r_spacings": [
+      10.0,
+      14.0
+     ],
+     "observed_pairs": 2631.0,
+     "expected_pairs": 2624.4229678519955,
+     "g": 1.0025060869488531,
+     "err": 0.019544591341124597
+    },
+    {
+     "r_spacings": [
+      14.0,
+      20.0
+     ],
+     "observed_pairs": 5521.0,
+     "expected_pairs": 5589.142247880743,
+     "g": 0.9878081027716586,
+     "err": 0.013294245996550475
+    },
+    {
+     "r_spacings": [
+      20.0,
+      30.0
+     ],
+     "observed_pairs": 13572.0,
+     "expected_pairs": 13623.264850818521,
+     "g": 0.9962369629174873,
+     "err": 0.008551468998761044
+    }
+   ],
+   "{2,2,2}-{4,4,4}": [
+    {
+     "r_spacings": [
+      0.0,
+      0.5
+     ],
+     "observed_pairs": 0.0,
+     "expected_pairs": 22.03276596069336,
+     "g": 0.0,
+     "err": null
+    },
+    {
+     "r_spacings": [
+      0.5,
+      1.5
+     ],
+     "observed_pairs": 72.0,
+     "expected_pairs": 66.09829788208009,
+     "g": 1.089286748782073,
+     "err": 0.1283736744534085
+    },
+    {
+     "r_spacings": [
+      1.5,
+      2.5
+     ],
+     "observed_pairs": 247.0,
+     "expected_pairs": 234.56521911621095,
+     "g": 1.0530120404493066,
+     "err": 0.06700155165679272
+    },
+    {
+     "r_spacings": [
+      2.5,
+      3.5
+     ],
+     "observed_pairs": 324.0,
+     "expected_pairs": 339.8555168151855,
+     "g": 0.9533463014996229,
+     "err": 0.05296368341664571
+    },
+    {
+     "r_spacings": [
+      3.5,
+      5.0
+     ],
+     "observed_pairs": 741.0,
+     "expected_pairs": 747.4066764831543,
+     "g": 0.9914281251629965,
+     "err": 0.03642102222811216
+    },
+    {
+     "r_spacings": [
+      5.0,
+      7.0
+     ],
+     "observed_pairs": 1265.0,
+     "expected_pairs": 1239.0547889709471,
+     "g": 1.0209395187847994,
+     "err": 0.02870481499619258
+    },
+    {
+     "r_spacings": [
+      7.0,
+      10.0
+     ],
+     "observed_pairs": 2754.0,
+     "expected_pairs": 2777.2001991271977,
+     "g": 0.991646191320853,
+     "err": 0.018896213197053768
+    },
+    {
+     "r_spacings": [
+      10.0,
+      14.0
+     ],
+     "observed_pairs": 5291.0,
+     "expected_pairs": 5185.731549072265,
+     "g": 1.0202996337028991,
+     "err": 0.01402680792234347
+    },
+    {
+     "r_spacings": [
+      14.0,
+      20.0
+     ],
+     "observed_pairs": 10964.0,
+     "expected_pairs": 11043.871983337403,
+     "g": 0.9927677554160432,
+     "err": 0.00948119654588977
+    },
+    {
+     "r_spacings": [
+      20.0,
+      30.0
+     ],
+     "observed_pairs": 26665.0,
+     "expected_pairs": 26918.90568084717,
+     "g": 0.9905677562135142,
+     "err": 0.006066153466199777
+    }
+   ],
+   "{4,4,4}-{4,4,4}": [
+    {
+     "r_spacings": [
+      0.0,
+      0.5
+     ],
+     "observed_pairs": 0.0,
+     "expected_pairs": 0.0,
+     "g": null,
+     "err": null
+    },
+    {
+     "r_spacings": [
+      0.5,
+      1.5
+     ],
+     "observed_pairs": 28.0,
+     "expected_pairs": 32.63965045139347,
+     "g": 0.8578523241753837,
+     "err": 0.16211885081334484
+    },
+    {
+     "r_spacings": [
+      1.5,
+      2.5
+     ],
+     "observed_pairs": 128.0,
+     "expected_pairs": 115.75739727584633,
+     "g": 1.1057608672297625,
+     "err": 0.09773637594861034
+    },
+    {
+     "r_spacings": [
+      2.5,
+      3.5
+     ],
+     "observed_pairs": 177.0,
+     "expected_pairs": 167.51883508211904,
+     "g": 1.0565976053572317,
+     "err": 0.07941873932640636
+    },
+    {
+     "r_spacings": [
+      3.5,
+      5.0
+     ],
+     "observed_pairs": 393.0,
+     "expected_pairs": 369.1195519405762,
+     "g": 1.0646957007123488,
+     "err": 0.05370679363197339
+    },
+    {
+     "r_spacings": [
+      5.0,
+      7.0
+     ],
+     "observed_pairs": 548.0,
+     "expected_pairs": 610.8501517106259,
+     "g": 0.8971103608067866,
+     "err": 0.03832265532861623
+    },
+    {
+     "r_spacings": [
+      7.0,
+      10.0
+     ],
+     "observed_pairs": 1354.0,
+     "expected_pairs": 1369.8956832089868,
+     "g": 0.9883964279880413,
+     "err": 0.02686097885917245
+    },
+    {
+     "r_spacings": [
+      10.0,
+      14.0
+     ],
+     "observed_pairs": 2559.0,
+     "expected_pairs": 2557.628179647964,
+     "g": 1.0005363642623866,
+     "err": 0.01977869961017155
+    },
+    {
+     "r_spacings": [
+      14.0,
+      20.0
+     ],
+     "observed_pairs": 5414.0,
+     "expected_pairs": 5444.482326112616,
+     "g": 0.9944012443632303,
+     "err": 0.013514579375836631
+    },
+    {
+     "r_spacings": [
+      20.0,
+      30.0
+     ],
+     "observed_pairs": 13170.0,
+     "expected_pairs": 13269.393935694834,
+     "g": 0.9925095346346254,
+     "err": 0.008648520119283722
+    }
+   ],
+   "{2,4}-{2,4}": [
+    {
+     "r_spacings": [
+      0.0,
+      0.5
+     ],
+     "observed_pairs": 0.0,
+     "expected_pairs": 0.0,
+     "g": null,
+     "err": null
+    },
+    {
+     "r_spacings": [
+      0.5,
+      1.5
+     ],
+     "observed_pairs": 112280.0,
+     "expected_pairs": 111764.15870526024,
+     "g": 1.0046154447071007,
+     "err": 0.0029981174947204133
+    },
+    {
+     "r_spacings": [
+      1.5,
+      2.5
+     ],
+     "observed_pairs": 396399.0,
+     "expected_pairs": 396354.31907525565,
+     "g": 1.000112729753642,
+     "err": 0.0015884833975447913
+    },
+    {
+     "r_spacings": [
+      2.5,
+      3.5
+     ],
+     "observed_pairs": 574753.0,
+     "expected_pairs": 574303.6970468116,
+     "g": 1.0007823438287073,
+     "err": 0.0013200762311515759
+    },
+    {
+     "r_spacings": [
+      3.5,
+      5.0
+     ],
+     "observed_pairs": 1265161.0,
+     "expected_pairs": 1264628.4959205599,
+     "g": 1.0004210755025353,
+     "err": 0.0008894262326853426
+    },
+    {
+     "r_spacings": [
+      5.0,
+      7.0
+     ],
+     "observed_pairs": 2093406.0,
+     "expected_pairs": 2092869.7163537722,
+     "g": 1.0002562432061763,
+     "err": 0.0006913286232605476
+    },
+    {
+     "r_spacings": [
+      7.0,
+      10.0
+     ],
+     "observed_pairs": 4693468.0,
+     "expected_pairs": 4693074.210466163,
+     "g": 1.0000839086526607,
+     "err": 0.00046162520012646224
+    },
+    {
+     "r_spacings": [
+      10.0,
+      14.0
+     ],
+     "observed_pairs": 8759941.0,
+     "expected_pairs": 8763729.786490086,
+     "g": 0.9995676742000961,
+     "err": 0.0003377237571620765
+    },
+    {
+     "r_spacings": [
+      14.0,
+      20.0
+     ],
+     "observed_pairs": 18653708.0,
+     "expected_pairs": 18655403.94231029,
+     "g": 0.9999090910968461,
+     "err": 0.0002315143578596359
+    },
+    {
+     "r_spacings": [
+      20.0,
+      30.0
+     ],
+     "observed_pairs": 45472592.0,
+     "expected_pairs": 45472165.73512934,
+     "g": 1.0000093741932843,
+     "err": 0.00014829592456026792
+    }
+   ],
+   "{1,2,3}-{3,4,5}": [
+    {
+     "r_spacings": [
+      0.0,
+      0.5
+     ],
+     "observed_pairs": 0.0,
+     "expected_pairs": 0.3680419921875,
+     "g": 0.0,
+     "err": null
+    },
+    {
+     "r_spacings": [
+      0.5,
+      1.5
+     ],
+     "observed_pairs": 1.0,
+     "expected_pairs": 1.1041259765625,
+     "g": 0.9056937534549475,
+     "err": 0.9056937534549475
+    },
+    {
+     "r_spacings": [
+      1.5,
+      2.5
+     ],
+     "observed_pairs": 4.0,
+     "expected_pairs": 3.9232177734375,
+     "g": 1.0195712374373813,
+     "err": 0.5097856187186907
+    },
+    {
+     "r_spacings": [
+      2.5,
+      3.5
+     ],
+     "observed_pairs": 2.0,
+     "expected_pairs": 5.6656494140625,
+     "g": 0.3530045461400901,
+     "err": 0.24961190836533723
+    },
+    {
+     "r_spacings": [
+      3.5,
+      5.0
+     ],
+     "observed_pairs": 8.0,
+     "expected_pairs": 12.495849609375,
+     "g": 0.6402125705800754,
+     "err": 0.22634932502902128
+    },
+    {
+     "r_spacings": [
+      5.0,
+      7.0
+     ],
+     "observed_pairs": 17.0,
+     "expected_pairs": 20.72735595703125,
+     "g": 0.8201721452191862,
+     "err": 0.19892096387812538
+    },
+    {
+     "r_spacings": [
+      7.0,
+      10.0
+     ],
+     "observed_pairs": 54.0,
+     "expected_pairs": 46.4403076171875,
+     "g": 1.1627829954342221,
+     "err": 0.15823472335549035
+    },
+    {
+     "r_spacings": [
+      10.0,
+      14.0
+     ],
+     "observed_pairs": 100.0,
+     "expected_pairs": 86.66949462890625,
+     "g": 1.1538085046898119,
+     "err": 0.1153808504689812
+    },
+    {
+     "r_spacings": [
+      14.0,
+      20.0
+     ],
+     "observed_pairs": 178.0,
+     "expected_pairs": 184.27532958984375,
+     "g": 0.9659459049466294,
+     "err": 0.07240070656132828
+    },
+    {
+     "r_spacings": [
+      20.0,
+      30.0
+     ],
+     "observed_pairs": 443.0,
+     "expected_pairs": 449.3353271484375,
+     "g": 0.9859006697990059,
+     "err": 0.046841554420883856
+    }
+   ],
+   "{3,3}-{3,3}": [
+    {
+     "r_spacings": [
+      0.0,
+      0.5
+     ],
+     "observed_pairs": 0.0,
+     "expected_pairs": 0.0,
+     "g": null,
+     "err": null
+    },
+    {
+     "r_spacings": [
+      0.5,
+      1.5
+     ],
+     "observed_pairs": 2917.0,
+     "expected_pairs": 2785.032747675131,
+     "g": 1.0473844526370586,
+     "err": 0.019392683447133092
+    },
+    {
+     "r_spacings": [
+      1.5,
+      2.5
+     ],
+     "observed_pairs": 9827.0,
+     "expected_pairs": 9875.24031008935,
+     "g": 0.9951150241842658,
+     "err": 0.010038360895257888
+    },
+    {
+     "r_spacings": [
+      2.5,
+      3.5
+     ],
+     "observed_pairs": 14249.0,
+     "expected_pairs": 14312.23729838356,
+     "g": 0.9955815923768465,
+     "err": 0.008340357469062245
+    },
+    {
+     "r_spacings": [
+      3.5,
+      5.0
+     ],
+     "observed_pairs": 31215.0,
+     "expected_pairs": 31507.06139836227,
+     "g": 0.9907302875799946,
+     "err": 0.005607557949607301
+    },
+    {
+     "r_spacings": [
+      5.0,
+      7.0
+     ],
+     "observed_pairs": 51988.0,
+     "expected_pairs": 52169.175619640824,
+     "g": 0.9965271519534494,
+     "err": 0.004370564975445897
+    },
+    {
+     "r_spacings": [
+      7.0,
+      10.0
+     ],
+     "observed_pairs": 117304.0,
+     "expected_pairs": 116950.48709219901,
+     "g": 1.0030227570366792,
+     "err": 0.00292856168305401
+    },
+    {
+     "r_spacings": [
+      10.0,
+      14.0
+     ],
+     "observed_pairs": 218106.0,
+     "expected_pairs": 218398.329026664,
+     "g": 0.9986614868897266,
+     "err": 0.0021383780865516415
+    },
+    {
+     "r_spacings": [
+      14.0,
+      20.0
+     ],
+     "observed_pairs": 464652.0,
+     "expected_pairs": 464909.2373231791,
+     "g": 0.9994466934564257,
+     "err": 0.001466208490576201
+    },
+    {
+     "r_spacings": [
+      20.0,
+      30.0
+     ],
+     "observed_pairs": 1132546.0,
+     "expected_pairs": 1133157.4423297443,
+     "g": 0.9994604083184705,
+     "err": 0.0009391558537245511
+    }
+   ],
+   "{1,5}-{1,5}": [
+    {
+     "r_spacings": [
+      0.0,
+      0.5
+     ],
+     "observed_pairs": 0.0,
+     "expected_pairs": 0.0,
+     "g": null,
+     "err": null
+    },
+    {
+     "r_spacings": [
+      0.5,
+      1.5
+     ],
+     "observed_pairs": 4878.0,
+     "expected_pairs": 4839.224604205783,
+     "g": 1.0080127290972436,
+     "err": 0.014432618047989844
+    },
+    {
+     "r_spacings": [
+      1.5,
+      2.5
+     ],
+     "observed_pairs": 17462.0,
+     "expected_pairs": 17153.419493041605,
+     "g": 1.0179894456078318,
+     "err": 0.00770364538998495
+    },
+    {
+     "r_spacings": [
+      2.5,
+      3.5
+     ],
+     "observed_pairs": 24955.0,
+     "expected_pairs": 24835.493826289236,
+     "g": 1.0048119105078661,
+     "err": 0.006360715737114637
+    },
+    {
+     "r_spacings": [
+      3.5,
+      5.0
+     ],
+     "observed_pairs": 55040.0,
+     "expected_pairs": 54743.16400197143,
+     "g": 1.005422339089094,
+     "err": 0.004285577150224531
+    },
+    {
+     "r_spacings": [
+      5.0,
+      7.0
+     ],
+     "observed_pairs": 90920.0,
+     "expected_pairs": 90568.5427585928,
+     "g": 1.0038805663721895,
+     "err": 0.00332929542125312
+    },
+    {
+     "r_spacings": [
+      7.0,
+      10.0
+     ],
+     "observed_pairs": 202557.0,
+     "expected_pairs": 203049.55710453578,
+     "g": 0.9975742025170624,
+     "err": 0.002216519628483921
+    },
+    {
+     "r_spacings": [
+      10.0,
+      14.0
+     ],
+     "observed_pairs": 378687.0,
+     "expected_pairs": 379162.5400112457,
+     "g": 0.9987458148918625,
+     "err": 0.0016229860025372578
+    },
+    {
+     "r_spacings": [
+      14.0,
+      20.0
+     ],
+     "observed_pairs": 807427.0,
+     "expected_pairs": 807291.9535991314,
+     "g": 1.0001672832241997,
+     "err": 0.0011130662390104625
+    },
+    {
+     "r_spacings": [
+      20.0,
+      30.0
+     ],
+     "observed_pairs": 1966473.0,
+     "expected_pairs": 1967992.8888438332,
+     "g": 0.9992276959675773,
+     "err": 0.0007125584081687661
+    }
+   ],
+   "{2,4}-{2,2,2}": [
+    {
+     "r_spacings": [
+      0.0,
+      0.5
+     ],
+     "observed_pairs": 0.0,
+     "expected_pairs": 1289.1622589111328,
+     "g": 0.0,
+     "err": null
+    },
+    {
+     "r_spacings": [
+      0.5,
+      1.5
+     ],
+     "observed_pairs": 3792.0,
+     "expected_pairs": 3867.486776733398,
+     "g": 0.9804816975231764,
+     "err": 0.015922282564434356
+    },
+    {
+     "r_spacings": [
+      1.5,
+      2.5
+     ],
+     "observed_pairs": 13653.0,
+     "expected_pairs": 13715.444250488279,
+     "g": 0.9954471580104993,
+     "err": 0.00851930498428754
+    },
+    {
+     "r_spacings": [
+      2.5,
+      3.5
+     ],
+     "observed_pairs": 19872.0,
+     "expected_pairs": 19873.204253387456,
+     "g": 0.9999394031595459,
+     "err": 0.007093374560854738
+    },
+    {
+     "r_spacings": [
+      3.5,
+      5.0
+     ],
+     "observed_pairs": 44186.0,
+     "expected_pairs": 43761.20253677368,
+     "g": 1.009707170703761,
+     "err": 0.004803448031349407
+    },
+    {
+     "r_spacings": [
+      5.0,
+      7.0
+     ],
+     "observed_pairs": 72442.0,
+     "expected_pairs": 72421.66046066285,
+     "g": 1.0002808488400814,
+     "err": 0.00371643668205449
+    },
+    {
+     "r_spacings": [
+      7.0,
+      10.0
+     ],
+     "observed_pairs": 163002.0,
+     "expected_pairs": 162399.13279418944,
+     "g": 1.003712256312197,
+     "err": 0.002486066610680804
+    },
+    {
+     "r_spacings": [
+      10.0,
+      14.0
+     ],
+     "observed_pairs": 303179.0,
+     "expected_pairs": 303260.0921150207,
+     "g": 0.9997325987918319,
+     "err": 0.001815659036731142
+    },
+    {
+     "r_spacings": [
+      14.0,
+      20.0
+     ],
+     "observed_pairs": 646941.0,
+     "expected_pairs": 645551.5694595337,
+     "g": 1.002152315331879,
+     "err": 0.0012459522435143548
+    },
+    {
+     "r_spacings": [
+      20.0,
+      30.0
+     ],
+     "observed_pairs": 1574865.0,
+     "expected_pairs": 1573518.7534835816,
+     "g": 1.0008555643289525,
+     "err": 0.0007975349836681793
+    }
+   ],
+   "{2,4}-{4,4,4}": [
+    {
+     "r_spacings": [
+      0.0,
+      0.5
+     ],
+     "observed_pairs": 0.0,
+     "expected_pairs": 1273.4262298583985,
+     "g": 0.0,
+     "err": null
+    },
+    {
+     "r_spacings": [
+      0.5,
+      1.5
+     ],
+     "observed_pairs": 3794.0,
+     "expected_pairs": 3820.2786895751956,
+     "g": 0.9931212637321709,
+     "err": 0.016123288216071802
+    },
+    {
+     "r_spacings": [
+      1.5,
+      2.5
+     ],
+     "observed_pairs": 13482.0,
+     "expected_pairs": 13548.028063964843,
+     "g": 0.9951263708893204,
+     "err": 0.008570399642957447
+    },
+    {
+     "r_spacings": [
+      2.5,
+      3.5
+     ],
+     "observed_pairs": 19553.0,
+     "expected_pairs": 19630.623990631106,
+     "g": 0.996045770594549,
+     "err": 0.007123158294631992
+    },
+    {
+     "r_spacings": [
+      3.5,
+      5.0
+     ],
+     "observed_pairs": 43197.0,
+     "expected_pairs": 43227.03583297729,
+     "g": 0.9993051609392477,
+     "err": 0.004808076147244075
+    },
+    {
+     "r_spacings": [
+      5.0,
+      7.0
+     ],
+     "observed_pairs": 71261.0,
+     "expected_pairs": 71537.65276870728,
+     "g": 0.9961327670394534,
+     "err": 0.0037315672245566527
+    },
+    {
+     "r_spacings": [
+      7.0,
+      10.0
+     ],
+     "observed_pairs": 160480.0,
+     "expected_pairs": 160416.82416381835,
+     "g": 1.0003938230077234,
+     "err": 0.0024972415004590976
+    },
+    {
+     "r_spacings": [
+      10.0,
+      14.0
+     ],
+     "observed_pairs": 298989.0,
+     "expected_pairs": 299558.37839584355,
+     "g": 0.9980992740083164,
+     "err": 0.0018253499336496055
+    },
+    {
+     "r_spacings": [
+      14.0,
+      20.0
+     ],
+     "observed_pairs": 636578.0,
+     "expected_pairs": 637671.7093551636,
+     "g": 0.9982848394571721,
+     "err": 0.0012512055525104742
+    },
+    {
+     "r_spacings": [
+      20.0,
+      30.0
+     ],
+     "observed_pairs": 1553216.0,
+     "expected_pairs": 1554311.755567932,
+     "g": 0.9992950220160102,
+     "err": 0.0008018216826553999
+    }
+   ]
+  },
+  "note": "r in units of the mean angular distance between adjacent cells; g = observed / random expectation; err Poisson on the observed count"
+ }
+}

@@ -1,0 +1,205 @@
+"""QM step 1, part B1: the junction 1 + 3 -> 4 as a coherent seam event with pattern, Higgs memory and class link.
+
+EXACT (sympy). Reads no measured value. Writes seam.json.
+Run: cd RER && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:RL/work/QM /tmp/oph-completion-venv/bin/python -B RL/work/QM/qm_seam.py
+
+Source objects used (read only):
+  - native matching code: model.common_source.native_gauge_object.equivariant_matchings (LNAT Q1 setting:
+    C seam (2,3) on coloring 0, E seam (2,10) on coloring 1, six logical states, uniform pair amplitude 1/sqrt6);
+  - the gauge-coupled seam event of model/coherent_seam_repair (PROOF.md, "Gauge-coupled walk"): the reversible
+    operation exchanges m(h)|0> and p(h')|1>, m(h) = (|a>h - |b>Gh)/sqrt2, p(h) = (|a>h + |b>Gh)/sqrt2;
+  - the five-state Higgs memory of model.coherent_defect_wave.chiral_higgs.model.higgs_memory();
+  - the five-level pattern (levels c0, c1, c2, s1, s2; Jordan-Wigner order), Q6 = 3 n2 - 2 n3 (CF-1).
+Construction (CANDIDATES.md, B1): the junction vertex V_s acts in the repair branch; the exchange runs over the
+initial space of the partial isometry V_s; inputs in its kernel are fixed (blocked).
+"""
+import json
+import os
+import sys
+
+import sympy as s
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+from model.common_source import native_gauge_object as obj  # noqa: E402
+from model.coherent_defect_wave.chiral_higgs.model import higgs_memory  # noqa: E402
+
+LEVELS = ('c0', 'c1', 'c2', 's1', 's2')
+S1, S2 = 3, 4
+
+
+def n3(mask):
+    return bin(mask & 0b00111).count('1')
+
+
+def n2(mask):
+    return bin(mask & 0b11000).count('1')
+
+
+def q6(mask):
+    return 3 * n2(mask) - 2 * n3(mask)
+
+
+def fermion(op, j, mask):
+    """a_j or a*_j on a pattern mask; returns (sign, new_mask) or None."""
+    occ = (mask >> j) & 1
+    if (op == 'a' and not occ) or (op == 'ad' and occ):
+        return None
+    sign = -1 if bin(mask & ((1 << j) - 1)).count('1') % 2 else 1
+    return sign, mask ^ (1 << j)
+
+
+fields, _, _, _ = higgs_memory()
+PHI1 = s.Matrix(fields[1])            # neutral component (index 1): |0><H_2| + |Hbar_2><0|
+PHI1D = PHI1.H
+
+
+def vertex(leg, mask, mem):
+    """V_s on a basis state (pattern mask, memory index): list of (amplitude, mask', mem')."""
+    if leg == 'up':
+        f = fermion('ad', S2, mask)
+        M = PHI1
+    else:  # down and lepton: the H leg
+        f = fermion('a', S2, mask)
+        M = PHI1D
+    if f is None:
+        return []
+    out = []
+    for r in range(5):
+        if M[r, mem] != 0:
+            out.append((f[0] * M[r, mem], f[1], r))
+    return out
+
+
+def seam_event(leg, pattern, mem, seam, matching, k):
+    """Coherent junction event on one logical state; returns weights by (record, source-class)."""
+    a, b = seam
+    w = {}
+    link = lambda m: s.exp(2 * s.pi * s.I * k * q6(m) / 6)   # class-k element on a pattern at endpoint b
+    for pair in matching:
+        amp_pair = 1 / s.sqrt(6)
+        inside = [x for x in pair if x in (a, b)]
+        if len(inside) != 1:
+            w[('rec0', 'inactive')] = w.get(('rec0', 'inactive'), 0) + amp_pair ** 2
+            continue
+        q = inside[0]
+        cls = 'first' if q == a else 'second'
+        # internal state at the load: (pattern, mem). For a load at b the internal state seen through the link is
+        # G^dagger chi; G is diagonal on patterns, so the vertex support is unchanged and only phases move.
+        outs = vertex(leg, pattern, mem)
+        if not outs:  # blocked: the exchange does not act, the load and its record are untouched
+            w[('rec0', 'blocked_' + cls)] = w.get(('rec0', 'blocked_' + cls), 0) + amp_pair ** 2
+            continue
+        # unblocked: |q> psi = (p(psi) +- m(psi))/sqrt2 ; m(psi)|0> -> p(V psi)|1>
+        sign = 1 if q == a else -1
+        phase_b = link(pattern) if q == b else 1
+        # record 0 keeps p(psi)/sqrt2 (norm 1/2), record 1 carries sign * p(V psi)/sqrt2 (norm 1/2 * ||V psi||^2)
+        nrm_v = sum(abs(c) ** 2 for c, _, _ in outs)
+        w[('rec0', 'agree_' + cls)] = w.get(('rec0', 'agree_' + cls), 0) + amp_pair ** 2 * s.Rational(1, 2) * abs(phase_b) ** 2
+        w[('rec1', 'repair_' + cls)] = w.get(('rec1', 'repair_' + cls), 0) + amp_pair ** 2 * s.Rational(1, 2) * nrm_v * abs(sign) ** 2
+    return {f'{r}|{c}': s.nsimplify(s.simplify(v)) for (r, c), v in w.items()}
+
+
+def explicit_check(leg, pattern, mem, seam, k):
+    """Independent check on the explicit two-endpoint space: build U = I - sum v v^dagger on
+    span{a,b} x record x pattern(32) x memory(5) and apply it to |a or b>|psi>|0>."""
+    a, b = seam
+    dim_int = 32 * 5
+    def idx(end, rec, m, h):
+        return ((end * 2 + rec) * 32 + m) * 5 + h
+    D = 2 * 2 * dim_int
+    G = lambda m: s.exp(2 * s.pi * s.I * k * q6(m) / 6)
+    vs = []
+    for m in range(32):
+        for h in range(5):
+            outs = vertex(leg, m, h)
+            if not outs:
+                continue
+            v = s.zeros(D, 1)
+            # m(psi)|0>
+            v[idx(0, 0, m, h)] += 1 / s.sqrt(2)
+            v[idx(1, 0, m, h)] += -G(m) / s.sqrt(2)
+            # - p(V psi)|1>
+            for c, m2, h2 in outs:
+                v[idx(0, 1, m2, h2)] += -c / s.sqrt(2)
+                v[idx(1, 1, m2, h2)] += -c * G(m2) / s.sqrt(2)
+            vs.append(v)
+    res = {}
+    for end in (0, 1):
+        x = s.zeros(D, 1)
+        x[idx(end, 0, pattern, mem)] = 1
+        y = x - sum((v * (v.H * x)[0] for v in vs), s.zeros(D, 1))
+        r0 = sum(abs(y[idx(e, 0, m, h)]) ** 2 for e in (0, 1) for m in range(32) for h in range(5))
+        r1 = sum(abs(y[idx(e, 1, m, h)]) ** 2 for e in (0, 1) for m in range(32) for h in range(5))
+        res['load_at_' + ('a' if end == 0 else 'b')] = {'record0': str(s.nsimplify(s.simplify(r0))),
+                                                         'record1': str(s.nsimplify(s.simplify(r1)))}
+    # unitarity of the local operation on the vertex initial space: the v are orthogonal with norm^2 2
+    gram_ok = all(s.simplify((vi.H * vj)[0] - (2 if i == j else 0)) == 0
+                  for i, vi in enumerate(vs) for j, vj in enumerate(vs) if j >= i and j - i < 3)
+    res['exchanged_vectors_orthogonal_norm2_sampled'] = bool(gram_ok)
+    return res
+
+
+def main():
+    out = {'measured_values_read': False, 'labels': 'EXACT (sympy)'}
+    legs = {'up': lambda c: (1 << c) | (1 << S1), 'down': lambda c: (1 << c) | (1 << S2),
+            'lepton': lambda c: 0b00111 | (1 << S2)}
+    absorbed = {'up': 2, 'down': 4, 'lepton': 4}       # S1 memory state per leg
+    memstates = {
+        'S1_own_quantum': lambda leg: [(1, absorbed[leg])],
+        'S2_vacuum': lambda leg: [(1, 0)],
+        'S3_C_symmetric_mixture': lambda leg: [(s.Rational(1, 2), 2), (s.Rational(1, 2), 4)],
+        'S4_maximally_mixed': lambda leg: [(s.Rational(1, 5), h) for h in range(5)],
+    }
+    table = {}
+    for law, choice, seam in (('C', 0, (2, 3)), ('E', 1, (2, 10))):
+        M = obj.equivariant_matchings(choice)
+        for leg, pat in legs.items():
+            for ms, comp in memstates.items():
+                for c in (0, 1, 2) if leg != 'lepton' else (0,):
+                    for k in range(6):
+                        tot = {}
+                        for wt, h in comp(leg):
+                            for L in M:
+                                ww = seam_event(leg, pat(c), h, seam, L, k)
+                                for key, v in ww.items():
+                                    tot[key] = tot.get(key, 0) + wt * v / len(M)
+                        # LNAT accounting: q = record-0 weight of active cells, p = record-1 per orientation
+                        q_split = sum(v for kk, v in tot.items() if kk.startswith('rec0|agree'))
+                        q_blocked = sum(v for kk, v in tot.items() if kk.startswith('rec0|blocked'))
+                        p1 = tot.get('rec1|repair_first', 0)
+                        p2 = tot.get('rec1|repair_second', 0)
+                        key = f'{law}|{leg}|{ms}|c{c}|k{k}'
+                        table[key] = {'q_agree_split': str(s.nsimplify(q_split)), 'q_blocked': str(s.nsimplify(q_blocked)),
+                                      'p_first': str(s.nsimplify(p1)), 'p_second': str(s.nsimplify(p2)),
+                                      'x_split': str(s.nsimplify(p1 / q_split)) if q_split else 'undefined',
+                                      'x_with_blocked': str(s.nsimplify(p1 / (q_split + q_blocked))) if (q_split + q_blocked) else 'undefined'}
+    out['weights'] = table
+    # invariance statements
+    def vals(leg, ms, law='C'):
+        return {(table[k]['q_agree_split'], table[k]['q_blocked'], table[k]['p_first'], table[k]['p_second'])
+                for k in table if k.startswith(f'{law}|{leg}|{ms}|')}
+    statements = {}
+    for law in ('C', 'E'):
+        for ms in memstates:
+            vu, vd, ve = vals('up', ms, law), vals('down', ms, law), vals('lepton', ms, law)
+            statements[f'{law}|{ms}'] = {
+                'colour_and_class_blind_up': len(vu) == 1, 'colour_and_class_blind_down': len(vd) == 1,
+                'class_blind_lepton': len(ve) == 1,
+                'down_equals_lepton': vd == ve, 'up_equals_down': vu == vd,
+                'values_up': sorted(vu), 'values_down': sorted(vd), 'values_lepton': sorted(ve)}
+    out['statements'] = statements
+    # explicit unitary check on the two-endpoint space for one case per leg, k = 1 (colour 0)
+    out['explicit_two_endpoint_check'] = {}
+    for leg, pat in legs.items():
+        for ms_name, h in (('S1', absorbed[leg]), ('S2', 0), ('blocked_example', 4 if leg == 'up' else 2)):
+            out['explicit_two_endpoint_check'][f'{leg}|{ms_name}'] = explicit_check(leg, pat(0), h, (2, 3), 1)
+    with open(os.path.join(HERE, 'seam.json'), 'w') as fh:
+        json.dump(out, fh, indent=1, default=str)
+    for k, v in statements.items():
+        print(k, {kk: vv for kk, vv in v.items() if not kk.startswith('values')}, v['values_up'], v['values_down'], v['values_lepton'])
+    for k, v in out['explicit_two_endpoint_check'].items():
+        print('explicit', k, v)
+
+
+if __name__ == '__main__':
+    main()

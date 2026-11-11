@@ -1,0 +1,440 @@
+{
+ "arithmetic": "integers and Q(sqrt5); exact",
+ "base_port": 0,
+ "base_port_vector": [
+  "-1",
+  "1/2 + (1/2)*sqrt5",
+  "0"
+ ],
+ "torsor": {
+  "frame_group_order": 12,
+  "acts_freely_on_the_ports": true,
+  "acts_transitively": true,
+  "seam_graph_is_its_cayley_graph": true,
+  "generators": [
+   "half-turn",
+   "third of a turn",
+   "third of a turn",
+   "third of a turn",
+   "third of a turn"
+  ],
+  "generating_set_closed_under_inverse": true,
+  "port_space": "regular representation: 1 + 1prime + 1second + 3 x 3 (free and transitive action; every type occurs as often as its dimension)"
+ },
+ "two_actions": {
+  "left_and_right_commute": true,
+  "left_action_commutes_with_the_adjacency": true,
+  "right_translations_that_commute_with_the_adjacency": 2,
+  "the_nontrivial_one_is_the_antipodal_map": true,
+  "it_is_the_half_turn_about": [
+   "0",
+   "0",
+   "1"
+  ],
+  "adjacency_is_the_sum_of_right_translations_by_the_generators": true
+ },
+ "kernel_on_the_second_index": {
+  "M3_in_the_frame_axes_of_the_second_index": [
+   [
+    -1,
+    -2,
+    0
+   ],
+   [
+    -2,
+    1,
+    0
+   ],
+   [
+    0,
+    0,
+    -1
+   ]
+  ],
+  "integer_symmetric": true,
+  "A_F_ij = sum_m F_im M3_mj (all ports, all i, j)": true,
+  "the_nine_functions_F_ij_are_independent": true,
+  "eigenvectors": {
+   "sqrt5 on the base port direction v_p0": true,
+   "-sqrt5 on the conjugate direction (sqrt5 -> -sqrt5 of v_p0; in the same coordinate plane, perpendicular)": true,
+   "-1 on the normal of that plane": true,
+   "the three are mutually perpendicular": true
+  },
+  "squared_components_on_the_frame_axes_of_the_second_index": {
+   "slow (adjacency sqrt5, cost 5 - sqrt5): the public family band": [
+    "1/2 + (-1/10)*sqrt5",
+    "1/2 + (1/10)*sqrt5",
+    "0"
+   ],
+   "middle (adjacency -1, cost 6): the triplet inside the rank-five band": [
+    "0",
+    "0",
+    "1"
+   ],
+   "fast (adjacency -sqrt5, cost 5 + sqrt5)": [
+    "1/2 + (1/10)*sqrt5",
+    "1/2 + (-1/10)*sqrt5",
+    "0"
+   ]
+  },
+  "squared_components_values": {
+   "slow (adjacency sqrt5, cost 5 - sqrt5): the public family band": [
+    0.276393202250021,
+    0.7236067977499789,
+    0.0
+   ],
+   "middle (adjacency -1, cost 6): the triplet inside the rank-five band": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "fast (adjacency -sqrt5, cost 5 + sqrt5)": [
+    0.7236067977499789,
+    0.276393202250021,
+    0.0
+   ]
+  },
+  "the_slow_component_is_the_coordinate_loads_v_p (the family band); the fast one is their conjugate": {
+   "slow": true,
+   "fast": true
+  },
+  "rotation_angle_in_the_mixed_plane_deg": 31.717474411461005,
+  "note": "the matrix depends on the base port only through a relabelling of the axes; DESIGN.md lists it for another base port"
+ },
+ "spectra": {
+  "order": "slow, middle, fast",
+  "adjacency": [
+   "sqrt5",
+   "-1",
+   "-sqrt5"
+  ],
+  "seam_cost": [
+   "5 - sqrt5",
+   "6",
+   "5 + sqrt5"
+  ],
+  "seam_cost_values": [
+   2.76393202250021,
+   6.0,
+   7.23606797749979
+  ],
+  "kernel_level_T": [
+   "11/12 + sqrt5/60",
+   "9/10",
+   "11/12 - sqrt5/60"
+  ],
+  "kernel_level_values": [
+   0.9539344662916631,
+   0.9,
+   0.8793988670416701
+  ],
+  "rest_phase_if_the_internal_walk_is_the_mass_step (CF1 section 10)": [
+   0.3047084373702735,
+   0.45102681179626236,
+   0.4961982595020731
+  ],
+  "ratios_to_the_largest": {
+   "seam cost (equal to the correction probability 1 - T)": [
+    0.38196601125010515,
+    0.8291796067500631,
+    1.0
+   ],
+   "rest phase arccos(T)": [
+    0.6140860664768221,
+    0.9089649210959757,
+    1.0
+   ],
+   "modulus of the adjacency eigenvalue": [
+    1.0,
+    0.4472135954999579,
+    1.0
+   ]
+  },
+  "exact_cost_ratios": {
+   "slow/fast": "(3 - sqrt5)/2",
+   "middle/fast": "(15 - 3 sqrt5)/10"
+  },
+  "sum_of_costs_over_square_of_sum_of_roots (the quotient of the Koide form, costs as masses)": 0.3458181694295964
+ },
+ "residual_groups_on_the_second_index": {
+  "table": [
+   {
+    "group": "right frame group (order 12)",
+    "order": 12,
+    "hermitian_dimension": 1,
+    "real_symmetric_dimension": 1,
+    "commutes_with_the_kernel": false
+   },
+   {
+    "group": "right Klein group",
+    "order": 4,
+    "hermitian_dimension": 3,
+    "real_symmetric_dimension": 3,
+    "commutes_with_the_kernel": false
+   },
+   {
+    "group": "right third of a turn",
+    "order": 3,
+    "hermitian_dimension": 3,
+    "real_symmetric_dimension": 2,
+    "commutes_with_the_kernel": false
+   },
+   {
+    "group": "the antipodal map (the one right half-turn that the seams keep)",
+    "order": 2,
+    "hermitian_dimension": 5,
+    "real_symmetric_dimension": 4,
+    "commutes_with_the_kernel": true
+   }
+  ],
+  "left_groups (frame stabilizer, Klein group, third of a turn, the tick's group)": "act on the first index only: every Hermitian 3 x 3 matrix on the second index commutes with them (9 real parameters, no constraint)",
+  "full_rotation_group": "does not preserve the frame; its invariant operators on the port space are the functions of the kernel (the port space is multiplicity free under it: 1 + 3 + 3prime + 5), on the second index diag(m_slow, m_middle, m_fast) in the eigenbasis of M3: three free eigenvalues, eigenvectors fixed",
+  "right_elements_commuting_with_M3": 2,
+  "general_form_under_the_antipodal_map": "[[x, z, 0], [conj(z), y, 0], [0, 0, m]] in axes where the normal of the base port plane is the third: 5 real parameters; the kernel fixes x, y, z, m"
+ },
+ "mixing": {
+  "kernel_eigenbasis_against_the_frame_axes_of_the_second_index": {
+   "rows": "slow, middle, fast (ordered by cost)",
+   "columns": "axes 1, 2, 3",
+   "exact": [
+    [
+     "1/2 + (-1/10)*sqrt5",
+     "1/2 + (1/10)*sqrt5",
+     "0"
+    ],
+    [
+     "0",
+     "0",
+     "1"
+    ],
+    [
+     "1/2 + (1/10)*sqrt5",
+     "1/2 + (-1/10)*sqrt5",
+     "0"
+    ]
+   ],
+   "values": [
+    [
+     0.276393202250021,
+     0.7236067977499789,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     1.0
+    ],
+    [
+     0.7236067977499789,
+     0.276393202250021,
+     0.0
+    ]
+   ],
+   "reading": "one copy (the middle one) is unmixed; the lightest and the heaviest are rotated by the angle with tangent 1/phi (31.717 degrees), squared sine (5 - sqrt5)/10; real matrix, no phase"
+  },
+  "two_kernels_anchored_at_different_base_ports": {
+   "rule": "M3 for the base port p is R(g_p) M3 R(g_p)^T; rows: copies of the anchor p0, columns: copies of the anchor p, both ordered slow, middle, fast",
+   "classes": [
+    {
+     "second_anchor_ports": [
+      0,
+      3
+     ],
+     "relation_to_the_base_port": [
+      "same or antipode"
+     ],
+     "exact": [
+      [
+       "1",
+       "0",
+       "0"
+      ],
+      [
+       "0",
+       "1",
+       "0"
+      ],
+      [
+       "0",
+       "0",
+       "1"
+      ]
+     ],
+     "values": [
+      [
+       1.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       1.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       1.0
+      ]
+     ],
+     "standard_angles_with_copies_ordered_by_cost": {
+      "sin2_theta13": 0.0,
+      "sin2_theta12": 0.0,
+      "sin2_theta23": 0.0
+     }
+    },
+    {
+     "second_anchor_ports": [
+      1,
+      2
+     ],
+     "relation_to_the_base_port": [
+      "adjacent",
+      "distance two"
+     ],
+     "exact": [
+      [
+       "1/5",
+       "0",
+       "4/5"
+      ],
+      [
+       "0",
+       "1",
+       "0"
+      ],
+      [
+       "4/5",
+       "0",
+       "1/5"
+      ]
+     ],
+     "values": [
+      [
+       0.2,
+       0.0,
+       0.8
+      ],
+      [
+       0.0,
+       1.0,
+       0.0
+      ],
+      [
+       0.8,
+       0.0,
+       0.2
+      ]
+     ],
+     "standard_angles_with_copies_ordered_by_cost": {
+      "sin2_theta13": 0.8,
+      "sin2_theta12": 0.0,
+      "sin2_theta23": 0.0
+     }
+    },
+    {
+     "second_anchor_ports": [
+      4,
+      5,
+      6,
+      7
+     ],
+     "relation_to_the_base_port": [
+      "adjacent",
+      "distance two"
+     ],
+     "exact": [
+      [
+       "1/5",
+       "1/2 + (-1/10)*sqrt5",
+       "3/10 + (1/10)*sqrt5"
+      ],
+      [
+       "1/2 + (1/10)*sqrt5",
+       "0",
+       "1/2 + (-1/10)*sqrt5"
+      ],
+      [
+       "3/10 + (-1/10)*sqrt5",
+       "1/2 + (1/10)*sqrt5",
+       "1/5"
+      ]
+     ],
+     "values": [
+      [
+       0.2,
+       0.276393202250021,
+       0.523606797749979
+      ],
+      [
+       0.7236067977499789,
+       0.0,
+       0.276393202250021
+      ],
+      [
+       0.076393202250021,
+       0.7236067977499789,
+       0.2
+      ]
+     ],
+     "standard_angles_with_copies_ordered_by_cost": {
+      "sin2_theta13": 0.523606797749979,
+      "sin2_theta12": 0.580178728295464,
+      "sin2_theta23": 0.580178728295464
+     }
+    },
+    {
+     "second_anchor_ports": [
+      8,
+      9,
+      10,
+      11
+     ],
+     "relation_to_the_base_port": [
+      "adjacent",
+      "distance two"
+     ],
+     "exact": [
+      [
+       "1/5",
+       "1/2 + (1/10)*sqrt5",
+       "3/10 + (-1/10)*sqrt5"
+      ],
+      [
+       "1/2 + (-1/10)*sqrt5",
+       "0",
+       "1/2 + (1/10)*sqrt5"
+      ],
+      [
+       "3/10 + (1/10)*sqrt5",
+       "1/2 + (-1/10)*sqrt5",
+       "1/5"
+      ]
+     ],
+     "values": [
+      [
+       0.2,
+       0.7236067977499789,
+       0.076393202250021
+      ],
+      [
+       0.276393202250021,
+       0.0,
+       0.7236067977499789
+      ],
+      [
+       0.523606797749979,
+       0.276393202250021,
+       0.2
+      ]
+     ],
+     "standard_angles_with_copies_ordered_by_cost": {
+      "sin2_theta13": 0.076393202250021,
+      "sin2_theta12": 0.7834576353408995,
+      "sin2_theta23": 0.7834576353408995
+     }
+    }
+   ]
+  }
+ }
+}

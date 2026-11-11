@@ -1,0 +1,188 @@
+#!/usr/bin/env python3
+"""Worker DC, round 2: the evaluation scale of the pixel closure (rows R0 to R6 of CANDIDATES.md).
+
+Float64 reimplementation of the producer's D10 chain with the closure read at the scale of each row. The validation
+row R1 must reproduce the producer's printed point. The outer map uses the producer's Decimal Stage-5 Thomson
+running (unchanged copy `paper_math_dc.py`) on a constructed D10Point. No measured value is read. Writes
+dc_scale.json. Labels: MEASURED (numerical) for every number, EXACT for the coarse-cell count.
+"""
+from __future__ import annotations
+
+import json
+import sys
+from decimal import Decimal
+from pathlib import Path
+
+import mpmath as mp
+import numpy as np
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+from paper_math_dc import D10Point, PaperMathContext  # noqa: E402
+
+RER = next((p for p in (Path("WORKSPACE/repair-law/reverse-engineering-reality"),
+                        Path("WORKSPACE/reverse-engineering-reality")) if p.is_dir()))
+rep = json.loads((RER / "code/P_derivation/runtime/full_p_alpha_report_current.json").read_text())
+P_FWD = float(rep["p"][:30])
+PHI = (1 + 5 ** 0.5) / 2
+SQPI = np.pi ** 0.5
+K = 4 * np.pi ** 2
+B = (33 / 5, 1.0, -3.0)
+
+N2, N3 = 120, 90
+n = np.arange(N2 + 1)
+d2 = (n + 1).astype(float)
+c2_2 = (n / 2) * (n / 2 + 1)
+pp, qq = np.meshgrid(np.arange(N3 + 1), np.arange(N3 + 1), indexing="ij")
+d3 = ((pp + 1) * (qq + 1) * (pp + qq + 2) / 2).ravel().astype(float)
+c2_3 = ((pp ** 2 + qq ** 2 + pp * qq + 3 * pp + 3 * qq) / 3).ravel().astype(float)
+ln_d2, ln_d3 = np.log(d2), np.log(d3)
+
+
+def ellbar(t, lnd, cas):
+    logw = lnd - t * cas
+    w = np.exp(logw - logw.max())
+    return float((w * lnd).sum() / w.sum())
+
+
+def ell2(t):
+    return ellbar(t, ln_d2, c2_2)
+
+
+def ell3(t):
+    return ellbar(t, ln_d3, c2_3)
+
+
+def anchors(P):
+    return np.exp(-2 * np.pi) * P ** (1 / 6), P ** -0.5  # M_U/E*, E_cell/E*
+
+
+def run(aU, mu, MU):
+    inv = [1 / aU + b / (2 * np.pi) * np.log(MU / mu) for b in B]
+    if min(inv) <= 0:
+        return None
+    return [1 / x for x in inv]
+
+
+def vev(aU, P):
+    return P ** -0.5 * np.exp(-2 * np.pi / (4 * aU))
+
+
+def tree_scale(aU, P, kind):
+    MU, _ = anchors(P)
+    v = vev(aU, P)
+    mu = v / 2
+    for _ in range(100):
+        a = run(aU, mu, MU)
+        if a is None:
+            return None
+        mu = v / 2 * np.sqrt(4 * np.pi * (a[1] + (0.6 * a[0] if kind == "mZ" else 0.0)))
+    return mu
+
+
+def residual(aU, P, row):
+    MU, _ = anchors(P)
+    v = vev(aU, P)
+    if row == "R0":
+        return ell2(K * aU) + ell3(K * aU) - P / 4
+    mW = tree_scale(aU, P, "mW")
+    mZ = tree_scale(aU, P, "mZ")
+    if mW is None or mZ is None:
+        return float("nan")
+    scale2 = {"R1": mZ, "R2": mW, "R3": v, "R4": v / np.sqrt(2), "R5": mW, "R6": mW}[row]
+    scale3 = {"R1": mZ, "R2": mW, "R3": v, "R4": v / np.sqrt(2), "R5": None, "R6": v / np.sqrt(2)}[row]
+    a2 = run(aU, scale2, MU)
+    if a2 is None:
+        return float("nan")
+    s3 = 0.0
+    if scale3 is not None:
+        a3 = run(aU, scale3, MU)
+        if a3 is None:
+            return float("nan")
+        s3 = ell3(K * a3[2])
+    return ell2(K * a2[1]) + s3 - P / 4
+
+
+def solve_aU(P, row):
+    grid = np.geomspace(0.005, 0.3, 600)
+    vals = [residual(a, P, row) for a in grid]
+    roots = []
+    for i in range(1, len(grid)):
+        f0, f1 = vals[i - 1], vals[i]
+        if np.isfinite(f0) and np.isfinite(f1) and (f0 > 0) != (f1 > 0):
+            lo, hi, flo = grid[i - 1], grid[i], f0
+            for _ in range(200):
+                mid = 0.5 * (lo + hi)
+                fm = residual(mid, P, row)
+                if (fm > 0) == (flo > 0):
+                    lo, flo = mid, fm
+                else:
+                    hi = mid
+            roots.append(0.5 * (lo + hi))
+    return roots
+
+
+CTX = PaperMathContext(precision=30, su2_cutoff=2, su3_cutoff=2)
+
+
+def point(P, aU):
+    MU, _ = anchors(P)
+    v = vev(aU, P)
+    mZ = tree_scale(aU, P, "mZ")
+    a1, a2, a3 = run(aU, mZ, MU)
+    aY = 0.6 * a1
+    aem = 1 / (1 / a2 + 1 / aY)
+    D = lambda x: Decimal(repr(float(x)))  # noqa: E731
+    d10 = D10Point(p=D(P), n_c=3, mu_u=D(MU), alpha_u=D(aU), mz_run=D(mZ), v=D(v), alpha1_mz=D(a1),
+                   alpha2_mz=D(a2), alpha3_mz=D(a3), alpha_y_mz=D(aY), alpha_em_mz=D(aem),
+                   alpha_em_inv_mz=D(1 / aem), sin2w_mz=D(aem / a2))
+    A_T = float(d10.alpha_em_inv_mz + CTX.structured_thomson_running(d10)["total_delta_alpha_inv"])
+    return {"alpha_U": aU, "inv_alpha_U": 1 / aU, "v_over_Estar": v, "mZ_over_Estar": mZ,
+            "mW_over_mZ_tree": float(np.sqrt(a2 / (a2 + aY))), "sin2w_mZ": aem / a2, "alpha_em_inv_mZ": 1 / aem,
+            "alpha2_mZ": a2, "alpha3_mZ": a3, "L": float(np.log(MU / mZ)), "A_T": A_T}
+
+
+rows = {}
+for row in ("R0", "R1", "R2", "R3", "R4", "R5", "R6"):
+    roots = solve_aU(P_FWD, row)
+    entry = {"roots_alpha_U_at_P_fwd": roots}
+    if len(roots) == 1:
+        at_fwd = point(P_FWD, roots[0])
+        P = PHI + SQPI / at_fwd["A_T"]
+        hist = []
+        for _ in range(12):
+            r = solve_aU(P, row)
+            if len(r) != 1:
+                hist.append({"P": P, "roots": r})
+                break
+            pt = point(P, r[0])
+            P_new = PHI + SQPI / pt["A_T"]
+            hist.append(abs(P_new - P))
+            P = P_new
+            if hist[-1] < 1e-14:
+                break
+        entry["at_P_fwd"] = at_fwd
+        entry["fixed_point"] = {"P_star": P, **point(P, solve_aU(P, row)[0]), "dP_history": hist}
+    rows[row] = entry
+    print(row, json.dumps({k: v for k, v in entry.items() if k != "at_P_fwd"}, default=float)[:400], flush=True)
+
+# validation of the reimplementation on the producer's own row
+d = rep["d10"]
+val = {"alpha_U_rel_dev": rows["R1"]["at_P_fwd"]["alpha_U"] / float(d["alpha_u"][:25]) - 1,
+       "alpha_em_inv_mZ_rel_dev": rows["R1"]["at_P_fwd"]["alpha_em_inv_mZ"] / float(d["alpha_em_inv_mz"][:25]) - 1,
+       "A_T_rel_dev": rows["R1"]["at_P_fwd"]["A_T"] / float(rep["alpha_inv"][:25]) - 1,
+       "P_star_minus_P_fwd": rows["R1"]["fixed_point"]["P_star"] - P_FWD}
+assert abs(val["alpha_U_rel_dev"]) < 1e-11 and abs(val["A_T_rel_dev"]) < 1e-10, val
+
+# exact item: coarse-cell count at the producer's m_Z
+mp.mp.dps = 30
+Pm = mp.mpf(rep["p"])
+mz_printed = mp.mpf(d["mz_run"])
+N = (Pm ** mp.mpf(-0.5) / mz_printed) ** 2
+coarse = {"E_cell_over_mZ": mp.nstr(Pm ** mp.mpf(-0.5) / mz_printed, 15), "N_cells_per_mZ_cell": mp.nstr(N, 15),
+          "area_law_budget_of_mZ_cell": mp.nstr(N * Pm / 4, 15), "one_cell_budget_P_over_4": mp.nstr(Pm / 4, 15)}
+
+out = {"inputs": {"P_fwd": P_FWD, "measured_values_read": "none"}, "validation_R1_vs_producer": val,
+       "coarse_cell_count": coarse, "rows": rows}
+(HERE / "dc_scale.json").write_text(json.dumps(out, indent=1, default=float) + "\n")
+print(json.dumps({"validation": val, "coarse": coarse}, indent=1, default=float))

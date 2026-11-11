@@ -1,0 +1,244 @@
+"""Item 4 of task KD: the mass angle. Exact (Q(i), Q(sqrt5, i)); one symbolic polynomial identity with sympy.
+
+  A  exp(-i theta beta) as a product of two record reflections; as two seam events with a link phase (item 3 B)
+  B  record-flip probabilities per tick: dressed reading, CLIFFORD.md reading, the spinor as the exchanged factor
+  C  what the public link alphabet offers: scalar links, mismatch rotations
+  E  the same dressed tick on the five-level code: Dirac on the doublet, three commuting lines on the triplet
+  cd RER && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:RL/work/KD python RL/work/KD/kd_item4.py [out.json]
+"""
+import json
+import sys
+
+import sympy as s
+
+from kdlib import (K, ZERO, ONE, I, F, mat, eye, zeros, mm, madd, msub, mscale, dag, kron, meq, anti, comm, trace, dsum,
+                   is_hermitian, is_unitary, is_involution, SX, SY, SZ, E2, P0, P1, frames, cover, spinor_lift, transpose)
+from kdwalk import (half, BETA, ZR, PLUS, MINUS, PM, MP, RX, XG, Cu, public_reflector, embed_link, cond_shift, ring_Q,
+                    rot_beta, to_K, shift)
+from model.coherent_seam_repair.gauge_walk import local as public_local
+
+out, checks = {}, {}
+
+
+def ok(name, cond):
+    assert cond, name
+    checks[name] = True
+
+
+fr = next(f for f in frames() if all(sum(1 for c in h['axis'] if not c.is_zero()) == 1 for h in f['half_turns']))
+u, Rm = [], []
+for i in range(3):
+    h = next(h for h in fr['half_turns'] if not h['axis'][i].is_zero())
+    q = h['q'] if h['axis'][i] == ONE else tuple(-x for x in h['q'])
+    u.append(spinor_lift(q)); Rm.append(h['R'])
+seam_dir = {0: 2, 1: 0, 2: 1}
+alpha = [mm(Cu(x), BETA, dag(Cu(x))) for x in u]             # dressed flips
+a = [mscale(I, x) for x in u]                                 # spinor involutions i u_i
+alphaC = [kron(SZ, x) for x in a]                             # CLIFFORD.md convention
+c_, s_ = F(3, 5), F(4, 5)
+rot = rot_beta(c_, s_)
+
+# --- A. the rotation as two record reflections ---------------------------------------------------------------
+Yt = mm(ZR, rot)                                              # Z_r exp(-i theta beta)
+assert is_hermitian(Yt) and is_involution(Yt) and meq(mm(ZR, Yt), rot)
+assert meq(Yt, kron(madd(mscale(c_, SZ), mscale(s_, SY)), E2))
+ok('exp(-i theta beta) = Z_r Y_theta with Y_theta = cos(theta) tau_z + sin(theta) tau_y (two record reflections at '
+   'angle theta), checked at cos theta = 3/5', True)
+
+# --- B. record-flip probabilities ----------------------------------------------------------------------------
+for A in alpha + [BETA]:
+    assert meq(anti(A, ZR), zeros(4))
+ok('dressed reading: all four generators anticommute with Z_r, so each of them maps blank to set; '
+   'for H = sum h_r A_r, H^2 = |h|^2 and exp(-iH)|blank> has set-record weight sin^2|h|', True)
+for A in alphaC:
+    assert meq(comm(A, ZR), zeros(4))
+assert meq(anti(BETA, ZR), zeros(4))
+L = 3
+for i in range(3):
+    S = cond_shift(alphaC[i], L)
+    assert meq(mm(S, kron(eye(L), ZR)), mm(kron(eye(L), ZR), S))
+ok('CLIFFORD.md reading alpha_i = tau_z x (i u_i): the three shifts commute with the record value, only the beta '
+   'rotation flips it: set-record weight after one tick from a blank state = sin^2(theta) for every momentum', True)
+
+# the tick from a blank state in the dressed reading: weight of the set record, symbolic
+ct, st, c1, s1, c2, s2, c3, s3 = s.symbols('c_t s_t c_1 s_1 c_2 s_2 c_3 s_3', real=True)
+
+
+def sym(Mx):
+    return s.Matrix([[s.Rational(x.a.numerator, x.a.denominator) + s.I * s.Rational(x.c.numerator, x.c.denominator)
+                      for x in r] for r in Mx])
+
+
+assert all(x.b == 0 and x.d == 0 for A in alpha for r in A for x in r)
+al_s = [sym(A) for A in alpha]; be_s = sym(BETA)
+D = (ct * s.eye(4) - s.I * st * be_s) * (c3 * s.eye(4) - s.I * s3 * al_s[2]) * (c2 * s.eye(4) - s.I * s2 * al_s[1]) * (
+    c1 * s.eye(4) - s.I * s1 * al_s[0])
+block = D[2:4, 0:2]                                          # blank record -> set record, on the spinor
+Mq = (block.H * block).applyfunc(s.expand)
+assert Mq[0, 1] == 0 and Mq[1, 0] == 0 and s.expand(Mq[0, 0] - Mq[1, 1]) == 0      # independent of the spinor
+p_sym = Mq[0, 0]
+odd = (st**2 * c1**2 * c2**2 * c3**2 + ct**2 * s1**2 * c2**2 * c3**2 + ct**2 * c1**2 * s2**2 * c3**2 + ct**2 * c1**2 * c2**2 * s3**2
+       + ct**2 * s1**2 * s2**2 * s3**2 + st**2 * c1**2 * s2**2 * s3**2 + st**2 * s1**2 * c2**2 * s3**2 + st**2 * s1**2 * s2**2 * c3**2)
+cross = s.factor(s.expand(p_sym - odd))
+assert cross == 0
+# sum over odd subsets = (prod (c^2 + s^2) - prod (c^2 - s^2))/2, i.e. p = (1 - cos 2theta cos 2k1 cos 2k2 cos 2k3)/2
+gen_p = (ct**2 + st**2) * (c1**2 + s1**2) * (c2**2 + s2**2) * (c3**2 + s3**2)
+gen_m = (ct**2 - st**2) * (c1**2 - s1**2) * (c2**2 - s2**2) * (c3**2 - s3**2)
+assert s.expand(odd - (gen_p - gen_m) / 2) == 0
+out['set_record_weight_after_one_tick_from_blank'] = {'odd_subsets': str(odd), 'remainder': str(cross)}
+print('dressed reading, weight of the set record after one tick from blank = sum over odd subsets of s^2 c^2 +', cross)
+
+
+def reduce_(expr):
+    expr = s.expand(expr)
+    for cc, ss in ((ct, st), (c1, s1), (c2, s2), (c3, s3)):
+        expr = s.expand(expr.subs(cc**2, 1 - ss**2))
+    return expr
+
+
+assert s.expand(p_sym.subs({s1: 0, s2: 0, s3: 0, c1: 1, c2: 1, c3: 1}) - st**2) == 0
+assert reduce_(p_sym.subs({st: 0, ct: 1}) - (1 - (c1 * c2 * c3)**2 - (s1 * s2 * c3)**2 - (s1 * c2 * s3)**2 - (c1 * s2 * s3)**2)) == 0
+ok('dressed reading, tick from a blank state: set-record weight is independent of the spinor and equals '
+   '(1 - cos(2 theta) cos(2 k1) cos(2 k2) cos(2 k3))/2 (polynomial identity); at rest sin^2(theta)', True)
+
+# the spinor as the exchanged two-state factor (two components, no record): Q^W_i a_j = S^(a_i)
+def spinor_reflector(ai, aj):
+    """Public reflector whose two-state factor is the doublet: blank = +1 eigenstate of a_j, flip = a_i.
+    Basis (site in {x, x+1}) x (spinor). U = 1 - Pa x Pi0 - Ps x Pi1 + Z Ps x Pi0 a_i + Ps Z x a_i Pi0."""
+    Pi0 = mscale(half, madd(E2, aj)); Pi1 = mscale(half, msub(E2, aj))
+    Ps = mat([[half, half], [half, half]]); Pa = mat([[half, -half], [-half, half]]); Zp = mat([[1, 0], [0, -1]])
+    U = msub(eye(4), madd(kron(Pa, Pi0), kron(Ps, Pi1)))
+    return madd(U, madd(kron(mm(Zp, Ps), mm(Pi0, ai)), kron(mm(Ps, Zp), mm(ai, Pi0))))
+
+
+for i, j in [(i, j) for i in range(3) for j in range(3) if j != i]:
+    U4 = spinor_reflector(a[i], a[j])
+    assert is_hermitian(U4) and is_involution(U4) and trace(U4) == K(2)
+    for L in (3, 4):
+        QW = eye(2 * L)
+        links = [embed_link(U4, x, (x + 1) % L, L, dim=2) for x in range(L)]
+        for x in range(L):
+            for y in range(x + 1, L):
+                assert meq(mm(links[x], links[y]), mm(links[y], links[x]))
+            QW = mm(QW, links[x])
+        Sw = cond_shift(a[i], L)
+        assert meq(mm(QW, kron(eye(L), a[j])), Sw)
+        # the four-component shift of the CLIFFORD.md reading: record blank -> Q^W a_j, record set -> a_j Q^W
+        if L == 3 and j == seam_dir[i]:
+            T = shift(L)
+            SC = cond_shift(alphaC[i], L)
+            # reorder (site, record, spinor): build P0 x (QW a_j) + P1 x (a_j QW) with the record between site and spinor
+            A0 = mm(QW, kron(eye(L), a[j])); A1 = mm(kron(eye(L), a[j]), QW)
+            big = [[ZERO] * (4 * L) for _ in range(4 * L)]
+            for x in range(L):
+                for y in range(L):
+                    for r in range(2):
+                        for sp in range(2):
+                            for sq in range(2):
+                                big[(x * 2 + r) * 2 + sp][(y * 2 + r) * 2 + sq] = (A0 if r == 0 else A1)[x * 2 + sp][y * 2 + sq]
+            assert meq(tuple(tuple(r) for r in big), SC)
+ok('two-component reading: the public-type reflector whose exchanged two-state factor is the doublet read along '
+   'a_j (j != i, both choices) and flipped by a_i = i u_i satisfies Q^W_i a_j = P+_(a_i) T + P-_(a_i) T^* (rings L = 3, 4)', True)
+ok('CLIFFORD.md shift = |blank><blank| x Q^W_i a_j + |set><set| x a_j Q^W_i: the record selects the order of the two '
+   'reflections', True)
+
+# --- C. the public link alphabet -----------------------------------------------------------------------------
+quats, rotm = cover()
+scal = [q for q in quats if spinor_lift(q)[0][1].is_zero() and spinor_lift(q)[1][0].is_zero()
+        and spinor_lift(q)[0][0] == spinor_lift(q)[1][1]]
+ok('among the 120 cover values exactly two act as scalars on the doublet (+1 and -1): '
+   'a link-phase mass angle from the public alphabet is 0 or pi', len(scal) == 2 and
+   all(meq(spinor_lift(q), E2) or meq(spinor_lift(q), mscale(-1, E2)) for q in scal))
+L = 3
+Q1 = ring_Q(E2, L)[2]
+for j in range(3):
+    QG = ring_Q(u[j], L)[2]
+    mis = mm(Q1, QG)
+    target = mscale(-1, kron(SX, u[j]))
+    assert meq(mis, kron(eye(L), target)) and meq(mm(target, target), mscale(-1, eye(4)))
+    for i in range(3):
+        if i == j:
+            assert meq(anti(target, alpha[i]), zeros(4))
+        else:
+            assert meq(comm(target, alpha[i]), zeros(4))
+    assert meq(comm(target, BETA), zeros(4))
+ok('mismatch of two seam events with links 1 and u_j: Q(1) Q(u_j) = -beta (1 x u_j), of order four; it commutes with '
+   'beta and with alpha_i (i != j): a quarter turn about beta x a_j, not a scalar mass rotation', True)
+
+# --- E. the five-level code ---------------------------------------------------------------------------------
+U20s, m_, p_ = public_local(s.eye(5))
+U20 = [[ZERO] * 20 for _ in range(20)]
+for site in range(2):
+    for fib in range(5):
+        for rec in range(2):
+            i_ = (site * 5 + fib) * 2 + rec
+            i2 = (site * 2 + rec) * 5 + fib
+            for site2 in range(2):
+                for fib2 in range(5):
+                    for rec2 in range(2):
+                        j_ = (site2 * 5 + fib2) * 2 + rec2
+                        j2 = (site2 * 2 + rec2) * 5 + fib2
+                        e = U20s[i_, j_]
+                        U20[i2][j2] = K(F(int(e.p), int(e.q)))
+U20 = tuple(tuple(r) for r in U20)
+assert is_involution(U20) and trace(U20) == K(10)
+E5 = eye(5); B5 = kron(SX, E5); Z5 = kron(SZ, E5)
+L = 3
+T = shift(L)
+Q5 = eye(10 * L)
+for x in range(L):
+    Q5 = mm(Q5, embed_link(U20, x, (x + 1) % L, L, dim=10))
+for i in range(3):
+    W = dsum(Rm[i], u[i])
+    C5 = madd(kron(P0, E5), kron(P1, W))
+    al5 = mm(C5, B5, dag(C5))
+    assert is_hermitian(al5) and is_involution(al5) and meq(anti(al5, Z5), zeros(10))
+    S5 = cond_shift(al5, L)
+    C5L = kron(eye(L), C5)
+    assert meq(mm(S5, kron(eye(L), Z5)), mm(C5L, Q5, dag(C5L)))
+al5s = []
+for i in range(3):
+    W = dsum(Rm[i], u[i]); C5 = madd(kron(P0, E5), kron(P1, W)); al5s.append(mm(C5, B5, dag(C5)))
+# block structure: triplet indices (record, 0..2), doublet (record, 3..4)
+trip = [r * 5 + t for r in range(2) for t in range(3)]
+doub = [r * 5 + t for r in range(2) for t in (3, 4)]
+for i in range(3):
+    assert all(al5s[i][x][y].is_zero() for x in trip for y in doub)
+    At = tuple(tuple(al5s[i][x][y] for y in trip) for x in trip)
+    Ad = tuple(tuple(al5s[i][x][y] for y in doub) for x in doub)
+    assert meq(At, kron(SX, Rm[i])) and meq(Ad, alpha[i])
+gens_t = [kron(SX, R) for R in Rm] + [kron(SX, eye(3))]
+for x in gens_t:
+    for y in gens_t:
+        assert meq(comm(x, y), zeros(6))
+# triplet symbol: eigenvalue on (tau_x = sg, frame vector e_j) is exp(-i sg theta) prod_i (c_i - i sg eps_ij s_i)
+pyth = [(F(5, 13), F(12, 13)), (F(15, 17), F(-8, 17)), (F(7, 25), F(24, 25))]
+
+
+def e6(c, sn, A):
+    return msub(mscale(c, eye(6)), mscale(K(0, 0, sn), A))
+
+
+Dt = mm(e6(c_, s_, gens_t[3]), e6(pyth[2][0], pyth[2][1], gens_t[2]), e6(pyth[1][0], pyth[1][1], gens_t[1]),
+        e6(pyth[0][0], pyth[0][1], gens_t[0]))
+for sg in (1, -1):
+    for j in range(3):
+        vec = [ZERO] * 6
+        for r in range(2):
+            vec[r * 3 + j] = K(1) if r == 0 else K(sg)        # (|0> + sg |1>) x e_j, unnormalised
+        lam = K(c_, 0, -sg * s_)
+        for i in range(3):
+            eps = 1 if i == j else -1
+            lam = lam * K(pyth[i][0], 0, -sg * eps * pyth[i][1])
+        img = [sum((Dt[x][y] * vec[y] for y in range(6)), ZERO) for x in range(6)]
+        assert all(img[x] == lam * vec[x] for x in range(6))
+ok('five-level code, ring L = 3: S_i Z_r = C(W_i) Q_i C(W_i)^* with the public reflector of fibre dimension 5 and '
+   'W_i = R_i + u_i; the dressed flips are block diagonal: tau_x x R_i on the triplet, alpha_i on the doublet', True)
+ok('triplet block: all four generators commute; the symbol is diagonal with eigenvalues '
+   'exp(-i sg (theta + k_j - k_i - k_l)), sg = +-1, j = 1, 2, 3: six straight lines, no gap opening', True)
+
+out['checks'] = checks
+for k in checks:
+    print('EXACT ok:', k)
+if len(sys.argv) > 1:
+    json.dump(out, open(sys.argv[1], 'w'), indent=1)

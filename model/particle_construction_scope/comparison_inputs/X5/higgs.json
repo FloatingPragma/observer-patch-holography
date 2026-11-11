@@ -1,0 +1,74 @@
+{
+ "A_exchange": {
+  "dimension": 256,
+  "unitarity": 2.9976021664879227e-15,
+  "commutator_with_extended_Gauss": 0.0,
+  "control_without_link_sign": 0.5975307420655154,
+  "number_of_register_quanta_conserved": 0.0,
+  "public_reflector_on_two_bits_is_the_exchange": 2.220446049250313e-16,
+  "eps_mu_lambda": [
+   0.3,
+   0.2,
+   0.4
+  ]
+ },
+ "B_one_quantum": {
+  "closed_form": "two ticks (even links, then odd links): cos(Omega) = cos^2(lambda) - sin^2(lambda) cos(2k); three axes: the phases add; near rest omega = 3 lambda - tan(lambda) |k|^2 / 2 per tick",
+  "rows": [
+   {
+    "lambda": 0.3,
+    "ring": 64,
+    "eigenphases_against_closed_form": 2.4771851236948805e-15,
+    "rest_phase_per_tick_and_axis": 0.3000000000000001,
+    "curvature_d2omega_dk2_at_rest": -0.3093362165307312,
+    "minus_tan_lambda": -0.3093362496096232,
+    "largest_group_velocity_cells_per_tick": 0.2955202445236771,
+    "closed_form_sin_lambda": 0.29552020666133955
+   },
+   {
+    "lambda": 1.0,
+    "ring": 64,
+    "eigenphases_against_closed_form": 1.005048508972395e-15,
+    "rest_phase_per_tick_and_axis": 0.9999999999999999,
+    "curvature_d2omega_dk2_at_rest": -1.5574066501988781,
+    "minus_tan_lambda": -1.557407724654902,
+    "largest_group_velocity_cells_per_tick": 0.8414710053357074,
+    "closed_form_sin_lambda": 0.8414709848078965
+   },
+   {
+    "lambda": 1.5707963267948966,
+    "ring": 64,
+    "eigenphases_against_closed_form": 8.881784197001252e-16,
+    "rest_phase_per_tick_and_axis": 1.5707963267948966,
+    "curvature_d2omega_dk2_at_rest": null,
+    "minus_tan_lambda": null,
+    "largest_group_velocity_cells_per_tick": 1.0000000371307227,
+    "closed_form_sin_lambda": 1.0
+   }
+  ]
+ },
+ "C_link_wave_with_register": {
+  "gauge_direction_is_null": true,
+  "trace_of_TH": true,
+  "charpoly_of_the_8x8_tick_at_three_rational_points": true,
+  "transverse (2 polarizations)": "cos(omega) = 1 - eps (kappa s + rho q^2) / 2",
+  "longitudinal (1 polarization)": "cos(omega) = 1 - rho (eps q^2 + u s) / 2",
+  "gauge and Gauss pair": "eigenvalue 1 twice",
+  "independent scalar branch": "none: 8 phase-space dimensions = 2 (gauge) + 6 (three polarizations)",
+  "rest_phase": "cos(omega_0) = 1 - eps rho q^2 / 2 for all three",
+  "speeds": "transverse sqrt(eps kappa), longitudinal sqrt(u rho)",
+  "q = 0": "the link wave keeps two polarizations and no rest phase; the register phase is then a separate massless scalar with speed sqrt(u rho)"
+ },
+ "D_mass_matrix": {
+  "matrix": "[[g**2/4, 0, 0, 0], [0, g**2/4, 0, 0], [0, 0, g**2/4, -g*gprime/4], [0, 0, -g*gprime/4, gprime**2/4]]",
+  "eigenvalues": {
+   "g**2/4": 2,
+   "(g**2 + gprime**2)/4": 1,
+   "0": 1
+  },
+  "massless_direction_is_g_prime_W3_plus_g_B": true,
+  "its_generator_annihilates_the_register_quantum": true,
+  "mW2_over_mZ2": "g^2 / (g^2 + g'^2)",
+  "at_equal_normalization_sin2_3/8": "5/8"
+ }
+}

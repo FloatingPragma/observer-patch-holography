@@ -1,0 +1,229 @@
+{
+ "rows": {
+  "D0": {
+   "dln_mu_e": 0.0,
+   "dln_tau_e": 0.0,
+   "residual_mu_e_sigma": 451.68840484304053,
+   "residual_tau_e_sigma": 0.6107773684402664,
+   "pass": false,
+   "sign_of_mu_e_shift_matches_target": false,
+   "note": "native point"
+  },
+  "D1": {
+   "dln_mu_e": 9.95164215847486e-07,
+   "dln_tau_e": 9.997129348497234e-07,
+   "residual_mu_e_sigma": 497.39995214605335,
+   "residual_tau_e_sigma": 0.6305153673879172,
+   "pass": false,
+   "sign_of_mu_e_shift_matches_target": false,
+   "note": "additive universal Sigma = -1/16 kappa^-1 at order h^2; scored at Delta = -1e-6 m_e for the direction only (every negative Delta raises mu/e; the cell-scale value is about -1e21 m_e)",
+   "Sigma_source_units": -0.0625
+  },
+  "D2": {
+   "dln_mu_e": 0.0016147009387812432,
+   "dln_tau_e": 0.035336348872598754,
+   "residual_mu_e_sigma": 74620.83272084992,
+   "residual_tau_e_sigma": 698.2798707127412,
+   "pass": false,
+   "sign_of_mu_e_shift_matches_target": false,
+   "note": "shared memory, declared y = omega = 1; at physical y the shift is (m_mu - m_e)/omega > 0"
+  },
+  "D3": {
+   "dln_mu_e": 0.0,
+   "dln_tau_e": 0.0,
+   "residual_mu_e_sigma": 451.68840484304053,
+   "residual_tau_e_sigma": 0.6107773684402664,
+   "pass": false,
+   "sign_of_mu_e_shift_matches_target": false,
+   "note": "universal factor 1 + 7/32 (EXACT; cross-family term 0)"
+  },
+  "D4": {
+   "dln_mu_e": -0.60917401335941,
+   "dln_tau_e": -0.5482569955505754,
+   "residual_mu_e_sigma": -27981148.01544989,
+   "residual_tau_e_sigma": -10823.992590243428,
+   "pass": false,
+   "sign_of_mu_e_shift_matches_target": true,
+   "note": "1 - Z = 1/16 (declared)"
+  },
+  "D5": {
+   "dln_mu_e": -0.6803149736810223,
+   "dln_tau_e": -0.6112153647229589,
+   "residual_mu_e_sigma": -31248913.597388297,
+   "residual_tau_e_sigma": -12067.021645036159,
+   "pass": false,
+   "sign_of_mu_e_shift_matches_target": true,
+   "note": "1 - Z = 1/16 (declared)"
+  },
+  "D6": {
+   "dln_mu_e": -1.1915222891500712,
+   "dln_tau_e": -1.2578726839325034,
+   "residual_mu_e_sigma": -54730543.07178542,
+   "residual_tau_e_sigma": -24834.408202825703,
+   "pass": false,
+   "sign_of_mu_e_shift_matches_target": true,
+   "note": "1 - Z = 1/16 (declared)"
+  },
+  "D7": {
+   "dln_mu_e": -2.263334640848775,
+   "dln_tau_e": -1.9383972873504494,
+   "residual_mu_e_sigma": -103962820.754625,
+   "residual_tau_e_sigma": -38270.45913091842,
+   "pass": false,
+   "sign_of_mu_e_shift_matches_target": true,
+   "note": "d theta = -1/16 (declared)"
+  },
+  "D8": {
+   "D4": {
+    "dln_mu_e": -0.02524537525329467,
+    "dln_tau_e": -0.023022283894222013,
+    "residual_mu_e_sigma": -1159161.113880791,
+    "residual_tau_e_sigma": -453.93352173576216,
+    "pass": false,
+    "sign_of_mu_e_shift_matches_target": true,
+    "note": ""
+   },
+   "D5": {
+    "dln_mu_e": -0.028821536343595612,
+    "dln_tau_e": -0.026281567140698674,
+    "residual_mu_e_sigma": -1323427.326671885,
+    "residual_tau_e_sigma": -518.2837237252188,
+    "pass": false,
+    "sign_of_mu_e_shift_matches_target": true,
+    "note": ""
+   },
+   "D6": {
+    "dln_mu_e": -0.05991076663162788,
+    "dln_tau_e": -0.06230681046852412,
+    "residual_mu_e_sigma": -2751469.85301554,
+    "residual_tau_e_sigma": -1229.5541195617707,
+    "pass": false,
+    "sign_of_mu_e_shift_matches_target": true,
+    "note": ""
+   },
+   "D7": {
+    "dln_mu_e": -0.127156195679562,
+    "dln_tau_e": -0.11570905892111896,
+    "residual_mu_e_sigma": -5840299.376712082,
+    "residual_tau_e_sigma": -2283.9103122401716,
+    "pass": false,
+    "sign_of_mu_e_shift_matches_target": true,
+    "note": ""
+   },
+   "pass": false
+  },
+  "D9": {
+   "dln_mu_e": -1.1269578833990008,
+   "dln_tau_e": -1.7441188971459514,
+   "residual_mu_e_sigma": -51764862.79451822,
+   "residual_tau_e_sigma": -34434.6913542575,
+   "pass": false,
+   "sign_of_mu_e_shift_matches_target": true,
+   "note": "theta = 13/36; a root of the circulant changes sign"
+  },
+  "D10": {
+   "dln_mu_e": -0.2019169240007271,
+   "dln_tau_e": -0.3337754442761913,
+   "residual_mu_e_sigma": -9274334.19693553,
+   "residual_tau_e_sigma": -6589.340335813332,
+   "pass": false,
+   "sign_of_mu_e_shift_matches_target": true,
+   "note": "rates in place of probabilities"
+  },
+  "D11": {
+   "note": "cross-family link term c = -1/64 per unit y^2 of another family (declared couplings); the electron mass turns negative",
+   "pass": false,
+   "sign_of_mu_e_shift_matches_target": false,
+   "c_cross": -0.01562499999999993
+  },
+  "D12": {
+   "D12_S_phi=1": {
+    "phi": "1.0",
+    "dln_mu_e": "-5.5331301217800709734119794172954026688659592169135",
+    "dln_tau_e": "-6.5505582416195964242442287358313381662139290242006",
+    "residual_mu_e_sigma": -254156535.9400946,
+    "residual_tau_e_sigma": -129331.42762328366,
+    "pass": false
+   },
+   "D12_P_phi=2pi_alphaP": {
+    "phi": "0.045864395537559130220741216060552552062438757338173",
+    "dln_mu_e": "-0.80370545741837730331529360070636862900559956160045",
+    "dln_tau_e": "-0.80683717854236417398753037813031139672617604964279",
+    "residual_mu_e_sigma": -36916691.682936095,
+    "residual_tau_e_sigma": -15929.313529741421,
+    "pass": false
+   },
+   "D12_P/2_phi=pi_alphaP/2": {
+    "phi": "0.011466098884389782555185304015138138015609689334543",
+    "dln_mu_e": "-0.074471785760754353577273086340735381029291544046353",
+    "dln_tau_e": "-0.074667743966161793704576913616527195266368416457052",
+    "residual_mu_e_sigma": -3420310.93884006,
+    "residual_tau_e_sigma": -1473.6042702232994,
+    "pass": false
+   },
+   "pass": false,
+   "needed_NOT_BLIND": {
+    "phi_needed_rad_per_tick": "0.00012930071702370702314424200428275704233540507655464",
+    "phi_needed_over_alphaP_over_pi": "0.055648697027136453213175839056815525061552729999431",
+    "tau_e_residual_sigma_at_phi_needed": 0.41613614509481706,
+    "m_tau_MeV_at_phi_needed": "1776.9674526477515313681308898229635248226081984279",
+    "Q_at_phi_needed": "0.66666657777191541504394870295390728005892135169356",
+    "d_delta_at_phi_needed": "-0.000000065614591571354050918945108502818916050212501146753",
+    "d_r_over_r_at_phi_needed": "-0.00000013334213576749666246432551197300016635976681586952"
+   },
+   "posthoc_weight_zero": {
+    "form": "posthoc_(alphaP/pi)/18",
+    "phi": "0.00012908430119182904512869146962371692610549110393299",
+    "residual_mu_e_sigma": 1.5107454495347572,
+    "residual_tau_e_sigma": 0.4167871543812189,
+    "note": "found by search after phi_needed was computed; 1/18 = p(1 - 2q) = theta/4; no derivation"
+   }
+  }
+ },
+ "needed_sizes_NOT_BLIND": {
+  "D4_needed_1_minus_Z": "0.00000090076132736738096037039798509954200998129511930868",
+  "D5_needed_1_minus_Z": "0.00000078816626286782945040485472327672065816554708519671",
+  "D6_needed_1_minus_Z": "0.00000037562803313857594249287697897503799266536084777355",
+  "D7_needed_d_theta": "-0.00000017514805841507321120107882739482681292567713004371",
+  "correlation_needed_cov": "0.000000087574029207536605600539413697413406462838565021857",
+  "additive_needed_Delta_over_m_e": "0.0000098812807360356048847372564666727525012353274591887",
+  "declared_1_minus_Z": 0.0625,
+  "alpha_P_over_pi": 0.0023235174214529227,
+  "overshoot_D4_declared": 69385.74969983031,
+  "overshoot_D4_alphaP_over_pi": 2579.503971650042,
+  "needed_in_alphaP_over_pi_squared": {
+   "D4": 0.1668467939972974,
+   "D5": 0.1459909635337777,
+   "D6": 0.06957706904208677,
+   "D7": 0.03244243634083949,
+   "cov": 0.016221218170419743
+  }
+ },
+ "looks": {
+  "preregistered_rows": [
+   "D0",
+   "D1",
+   "D2",
+   "D3",
+   "D4",
+   "D5",
+   "D6",
+   "D7",
+   "D8 (four forms)",
+   "D9",
+   "D10",
+   "D11",
+   "D12 (three rules)"
+  ],
+  "count_ids": 13,
+  "count_evaluations": 18,
+  "own_observations_no_weight": [
+   "O1 to O5 (before section 2)",
+   "D12 hand estimate (section 4)",
+   "post hoc phi = (alpha_P/pi)/18 (after phi_needed)"
+  ],
+  "count_own_observations": 7,
+  "total_looks": 25,
+  "passes": []
+ }
+}

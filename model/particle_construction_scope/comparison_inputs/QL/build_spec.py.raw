@@ -1,0 +1,1092 @@
+#!/usr/bin/env python3
+"""Builds spec.json: the hypothesis bundles of the finite theorem stack as checkable fields.
+
+Read-only data file. Every Lean name and statement is quoted from the public checkout
+(reverse-engineering-reality, commit 2d5a9d1c0 plus the uncommitted coherent packages).
+Run:  nice -n 15 /tmp/oph-completion-venv/bin/python build_spec.py   (under one second)
+"""
+import json
+import sys
+from collections import Counter, OrderedDict
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+RER = "reverse-engineering-reality"
+
+THEOREMS = OrderedDict([
+    ("T-G", {"family": "a", "name": "Finite-current fixed-space theorem (gauge type)",
+             "prose": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex:153 (thm:finite-current-fixed-space)",
+             "lean": ["OPH.A2HolonomyBridge.compact_product_dimensions_of_projective_holonomy",
+                      "OPH.A2HolonomyBridge.carrier_projective_witness_of_holonomy",
+                      "OPH.A2HolonomyBridge.internalImplementation_of_holonomy",
+                      "OPH.A2HolonomyBridge.faithful_twelve_port_response_has_dimension_twelve",
+                      "OPH.A5PortModule.centrally_trivial_finrank_le_one",
+                      "OPH.TrichotomyCases.inner_action_selection",
+                      "OPH.Compact12.finrank_compact",
+                      "OPH.SL2F5PortCover.slToPort_ker"],
+             "files": ["Lean/Screen/A2HolonomyBridge.lean", "Lean/Screen/A5PortModule.lean",
+                       "Lean/Screen/TrichotomyCases.lean", "Lean/Screen/Compact12.lean",
+                       "Lean/Screen/SL2F5PortCover.lean", "Lean/Screen/A5ResponseWordAlgebra.lean",
+                       "Lean/Screen/PhysicalA5ForcingNoGo.lean"],
+             "conclusion": "dz = 1 ∧ m = {3, 8} (Lean, numerals); g ≅ u(1) ⊕ su(2) ⊕ su(3) (prose)",
+             "no_go_in_tree": ["OPH.A5ResponseWordAlgebra.no_twelve_independent_span_members",
+                               "OPH.A5ResponseWordAlgebra.no_nonzero_word_commutator",
+                               "OPHPhysicalA5NoGo.noSourceOnlyCurrentReconstruction"]}),
+    ("T-B", {"family": "b", "name": "Born bridge",
+             "lean": ["EventAlgebra.operational_record_probabilities_unique_born",
+                      "EventAlgebra.operational_busch_gleason", "EventAlgebra.finite_busch_gleason",
+                      "EventAlgebra.partitionOperationallyEquivalent_iff_pinching_eq"],
+             "files": ["Lean/EventAlgebra/OperationalBornBridge.lean", "Lean/EventAlgebra/FiniteBuschGleason.lean",
+                       "Lean/EventAlgebra/QuantumAdequacySurface.lean", "Lean/EventAlgebra/Superselection.lean",
+                       "Lean/EventAlgebra/FiniteEffectClosureBoundary.lean"],
+             "conclusion": "∃! ρ, IsState ρ ∧ ∀ (c : C) (S : Finset (Ω c)), recordEventWeight W c S = (bornWeight ρ (recordEventEffect R c S)).re",
+             "no_go_in_tree": ["EventAlgebra.no_operationalEffectQuotient_of_offDiagonal_effect",
+                               "EventAlgebra.diagonal_qubit_records_no_operationalEffectQuotient",
+                               "EventAlgebra.FiniteEffectClosureBoundary.nonlinearBinaryWeight_not_affine"]}),
+    ("T-4L", {"family": "c", "name": "Four laws",
+              "lean": ["OPH.Thermodynamics.fourLaws_composed", "OPH.Thermodynamics.FourLawSurface.second_contraction_of_stationary",
+                       "OPH.Thermodynamics.FourLawSurface.zeroth_thermometer"],
+              "files": ["Lean/Thermodynamics/FourLawAdequacySurface.lean", "Lean/Thermodynamics/FiniteConditionalRepair.lean",
+                        "Lean/Thermodynamics/LowTemperatureControl.lean", "Lean/Thermodynamics/NativeBinaryThermodynamics.lean"],
+              "conclusion": "FourLawConclusions A for the kernel repairKernel A.repair = heatBath A.repair.ref A.repair.visible"}),
+    ("T-C", {"family": "d", "name": "Consensus and termination",
+             "lean": ["OPH.termination", "OPH.completeness", "OPH.boundary_fiber_observer_unique",
+                      "OPH.confluence_of_commute", "OPH.demoCarrier_not_confluent",
+                      "ObservableNormalForms.boundaryIdentifiesModulo_iff_observerEndpointUniqueModulo",
+                      "ObservableNormalForms.existsUnique_auditedTerminal",
+                      "ObservableNormalForms.empty_fiber_no_reachable_normalForm",
+                      "OPH.Tower.PublicWorldPresentation.FiniteRepairSystem.public_endpoint_exists_unique_on_public_class"],
+             "files": ["Lean/ObserverPatchHolography/Primitives.lean",
+                       "Lean/ObservableNormalForms/ObservableNormalForms/Exact.lean",
+                       "Lean/ObservableNormalForms/ObservableNormalForms/ObserverConfluence.lean",
+                       "Lean/Tower/FixedPointEndpoint.lean", "Lean/Tower/FullPremiseInhabitant.lean"],
+             "conclusion": "WellFounded accepted step; NormalFormLR lr x ↔ Consistent C x; gaugeEquiv of endpoints with equal boundary; Confluent under H4"}),
+    ("T-N", {"family": "e", "name": "Causal order and count limit",
+             "lean": ["OPH.FlatDiamondNormalization.ordering_fraction_tendsto_one_tenth",
+                      "OPH.FlatDiamondNormalization.generated_interval_count_tendsto_volume",
+                      "OPH.GoldenSourceCausalLimit.generated_eventually_iff",
+                      "OPH.SourceNetOrderLimit.eventually_precedes_of_timelike"],
+             "files": ["Lean/Geometry/GoldenSourceCausalLimit.lean", "Lean/Geometry/SourceNetOrderLimit.lean",
+                       "Lean/Geometry/SourceNetCausalCone.lean", "Lean/Geometry/FlatDiamondNormalization.lean"],
+             "conclusion": "2 * strictPairCount / (intervalCount * (intervalCount - 1)) → 1/10; weight * count → π((cΔt)² − |Δx|²)² / (24 c)",
+             "reuse": "fields N1 to N7 of reports/MC.md block 1 (verified against the Lean files)"}),
+    ("T-M", {"family": "f", "name": "Modular clock and cap flow",
+             "prose": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex:359 (thm:conditional-cap-modular), proof outline only",
+             "lean": ["OPH.QFT.ModularClockComparison.relative_time_cocycle",
+                      "OPH.QFT.ModularClockComparison.nonresonant_output_stationary",
+                      "OPH.QFT.FiniteModularInclusion.image_eq", "OPH.QFT.FiniteModularInclusion.half_sided_is_two_sided",
+                      "finiteStoneConverse_of_continuous (Lean/Dynamics/StoneConverse.lean)"],
+             "files": ["Lean/QFT/ModularClockComparison.lean", "Lean/QFT/FiniteModularInclusion.lean",
+                       "Lean/Dynamics/StoneConverse.lean"],
+             "conclusion": "the limiting modular automorphism of each geometric cap is its cap-preserving conformal flow with the 2π normalization",
+             "reuse": "fields H1 to H10 of reports/MU.md block 1"}),
+    ("T-K", {"family": "g", "name": "Lorentz and mass-shell kinematics",
+             "lean": ["OPH.C1Lorentz.lorentzQ_fourMomentum", "OPH.C1Lorentz.fourMomentum_time_sq_eq_mass_sq_add_spatial",
+                      "OPH.C1Lorentz.lorentzQ_oriented_fourMomentum", "OPH.C1Lorentz.futureNull_time_sq_eq_spatial"],
+             "files": ["Lean/Geometry/MassShellKinematics.lean", "Lean/Geometry/CanonicalLorentzModule.lean",
+                       "Lean/Geometry/LorentzOverlapCocycle.lean", "Lean/Geometry/ObserverFrameHyperboloid.lean"],
+             "conclusion": "identities on the declared module Herm2; no hypothesis beyond the types; the mass is an argument"}),
+    ("T-E", {"family": "h", "name": "Einstein rungs",
+             "prose": "spacetime paper: Null tomography; Einstein equation from a common null balance; premises (G1) to (G6)",
+             "lean": ["OPH.EinsteinBranch.composedEinsteinBranch", "OPH.EinsteinBranch.composedEinsteinAdmissibleTower",
+                      "OPH.EinsteinBranch.continuumEinstein_from_explicit_premises",
+                      "OPH.EinsteinBranch.einstein_register_composition"],
+             "files": ["Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean",
+                       "Lean/ObserverPatchHolography/EinsteinBranch/Consensus.lean",
+                       "Lean/ObserverPatchHolography/EinsteinBranch/Entropy.lean",
+                       "Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean",
+                       "Lean/ObserverPatchHolography/EinsteinBranch/Manifest.lean",
+                       "Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean",
+                       "docs/registers/PREMISE_REGISTER_V3.md (gravity premise-elimination ladder, rungs 1 to 11)"],
+             "conclusion": "A.geometry p i j = 8 * Real.pi * A.newton * A.stress p i j + A.referenceLambda * eta 3 i j"}),
+    ("T-X", {"family": "i", "name": "Mass (no theorem; six confirmation tests and five register rows)",
+             "files": ["model/particle_candidate_confirmation/CONFIRMATION_STEPS.md",
+                       "model/particle_candidate_confirmation/MASS_PATHS.md",
+                       "model/particle_joint_reconstruction/DEPENDENCIES.md", "Lean/Screen/A5FamilyBand.lean"],
+             "conclusion": "none: Lean has mass only as the argument of fourMomentum"}),
+])
+
+CANDIDATES = OrderedDict([
+    ("i", {"name": "committed rule with tape and area counter; CAP as its recharted pump",
+           "carrier": "pinned icosahedron: 12 ports, 30 seams, 20 faces",
+           "local_state": "integer loads, total two (66 binary configurations, 78 with double loads)",
+           "seam_instrument": "native rule (floor/ceiling split with a coin), record letters (coin, current); CAP: rows keep, corrected, split_a, split_b after recharting by the port spinors",
+           "memory": "tape of committed letters (model/observer/native.py: two letters of a six-letter alphabet, halting controller); area counter mod 20 per quantum (LEADS L16)",
+           "scheduler": "independent uniform seam draws, fair coin; native.py: controller reads phase and prefix",
+           "preparation": "uniform classical law on the shell (supplied); CAP: its own stationary density",
+           "grammar": "diagonal record effects; weighted closed-history counts (ρ_L = P^L / Tr P^L, H = −log P) as a reconstruction; CAP: history effects, 144 of 144 at depth 3",
+           "clock": "attempts",
+           "shadow": "population, history and instrument (committed); population for every input (CAP)"}),
+    ("ii", {"name": "framed quanta: separate internal factor, port-axis readouts",
+            "carrier": "pinned icosahedron",
+            "local_state": "quanta on ports, each with an internal label in C^d carried in the ambient frame; symmetric or antisymmetric Fock register",
+            "seam_instrument": "(reference Kraus on ports) ⊗ (identity on the label) (reports/MT.md item 1)",
+            "memory": "tape as in (i); the internal factor",
+            "scheduler": "as in (i)",
+            "preparation": "internal state declared",
+            "grammar": "port-axis readouts N_p ⊗ |χ_p⟩⟨χ_p|",
+            "clock": "attempts",
+            "shadow": "population, history and instrument on one quantum and on the symmetric register (MT item 5)"}),
+    ("iii", {"name": "public coherent programs: walk, five-level fibre, link register, heralded reference, chart agreement",
+             "carrier": "pinned icosahedron (one carrier)",
+             "local_state": "port ⊗ parity record ⊗ oriented seam address (1440); with five-level fibre (7200); with ten link words of the regional sector (72000)",
+             "seam_instrument": "reversible agreement repair U_k (involution) with owned parity record; W = Q R with the address reflection R = 2AA* − I",
+             "memory": "parity bit, address register, thirty link bits, session record capacity",
+             "scheduler": "coherent address superposition; defect wave: five transports in sorted edge order",
+             "preparation": "heralded filter K_success = (I + αW)/(1 + α), α = 1/2, success 131/810 (defect wave 281/1080)",
+             "grammar": "register detectors {P_i, I − P_i}, quarter-turns V_i = I + (i − 1)P_i, finite W steps, frame-wrapped queries",
+             "clock": "walk steps",
+             "shadow": "population for the first blank-record event only",
+             "source": [RER + "/model/coherent_seam_repair/", RER + "/model/coherent_defect_wave/"]}),
+])
+
+MARKS = OrderedDict([
+    ("EXACT", "supplied on one carrier with exact evidence"),
+    ("SHADOW", "level-1 shadow: a necessary property checked on a table, a reconstruction or a declared object"),
+    ("COMP", "decided by a named computation; the worker is given"),
+    ("NO", "not supplied by the candidate as defined"),
+])
+
+FIELDS = []
+
+
+def F(fid, name, lean, files, statement, kind, constrains, consumed, i, ii, iii,
+      register=(), requirement=(), toy="", executable="", tape="", scored=True):
+    def sc(t):
+        d = {"mark": t[0], "note": t[1]}
+        if len(t) > 2:
+            d["worker"] = t[2]
+        return d
+    FIELDS.append(OrderedDict([
+        ("id", fid), ("family", fid[0]), ("name", name), ("lean", list(lean)), ("files", list(files)),
+        ("statement", statement), ("kind", kind), ("constrains", list(constrains)),
+        ("register", list(register)), ("requirement", list(requirement)), ("consumed_by", list(consumed)),
+        ("toy_inhabitant", toy), ("executable_model", executable), ("committed_source_tape_reconstruction", tape),
+        ("scored", scored), ("score", OrderedDict([("i", sc(i)), ("ii", sc(ii)), ("iii", sc(iii))])),
+    ]))
+
+
+A2 = "Lean/Screen/A2HolonomyBridge.lean"
+PB = "paper/tex_fragments/PREMISE_BASIS.tex"
+
+# ---------------------------------------------------------------- a. gauge type
+F("a01", "carrier module: sixty rotations on twelve ports, one fixed line",
+  ["OPH.A5PortModule.P60", "OPH.A5PortModule.finrank_fixed", "OPH.A5PortModule.centrally_trivial_finrank_le_one",
+   "hfixed : carrierFixedDim = 1"],
+  ["Lean/Screen/A5PortModule.lean", A2],
+  "theorem finrank_fixed : Module.finrank ℚ Fixed = 1 ; theorem centrally_trivial_finrank_le_one (Z : Submodule ℚ (Fin 12 → ℚ)) (hZ : ∀ g ∈ P60, ∀ z ∈ Z, pAct g z = z) : Module.finrank ℚ Z ≤ 1",
+  "proved for the pinned incidence; hfixed is a numeral hypothesis of the bridge", ["carrier"], ["T-G"],
+  ("EXACT", "carrier fact"), ("EXACT", "carrier fact"), ("EXACT", "carrier fact"),
+  toy="the pinned incidence", executable="supplied: the carrier is fixed")
+F("a02", "central port projections (A1)", [], [PB],
+  "a federation of finite carriers, each with twelve primitive pairwise-orthogonal central port projections summing to one",
+  "prose clause of A1; no Lean object", ["state space", "record algebra"], ["T-G", "T-E"],
+  ("EXACT", "the committed record algebra is diagonal. CAP: history effects span Herm(12) at depth 3 (reports/CX.md 6), so ports are not central there"),
+  ("COMP", "block algebra ⊕_p B(H_int) follows from MT items 1, 5 and MF item 16; accessible algebra is MT block 5", "MT"),
+  ("NO", "model/coherent_seam_repair/PREMISES.md: 'The coherent position projectors are not central in the full walk matrix algebra.'"),
+  toy="architectural receipts of the earlier federation (claims/axiom_registry.yaml, realization_receipts)",
+  executable="classical port addresses label experiments",
+  tape="committed loads: every record effect is diagonal in the port occupations")
+F("a03", "injective port response D (G1)",
+  ["OPH.A2HolonomyBridge.faithful_twelve_port_response_has_dimension_twelve", "hD : Function.Injective D"], [A2, PB],
+  "theorem faithful_twelve_port_response_has_dimension_twelve (D : (Fin 12 → R) →ₗ[R] W) (hD : Function.Injective D) : Module.finrank R D.range = 12 ; prose: an injective real-linear map D_{r,i} : V_{r,i} → u(H_{r,i}); 'The primitive port probes span V_{r,i}'",
+  "hypothesis", ["accessible measurement grammar (response of the law to a port probe)", "state space H"], ["T-G"],
+  ("SHADOW", "compressed loads span 12 for mixed frames (LEADS L13, L16; CAP.md). CAP's own first-order response spans 11 and its pinched loads close on 54 (reports/MF.md 15)"),
+  ("EXACT", "first-order response of the framed law to a port probe is Π_p/12 exactly, no leakage (MF 16); twelve independent for the mixed pair (MF 5). The five-level internal factor with the mixed realization is declared"),
+  ("SHADOW", "declared response X_p = (P_p/2) ⊕ (−Q_p/2): exact Gram roots 5/2, 1/2, 1/10; the family exp(i Σ β_p X_p) is a declared controller (audit/gauge/ENCODED_OVERLAP.md)"),
+  register=["PR-54", "physical_full_rank_screen_current_lift"], requirement=["G1", "T2"],
+  toy="specified twelve-current law D_p = diag(hat(v_p/2) + iQ_p, hat(σ(v_p)/2)) (gauge paper, section 4)",
+  executable="fail: OPH.A5ResponseWordAlgebra.no_twelve_independent_span_members (registered response); exchange response closes on 17",
+  tape="the area counter gives the flux sectors as characters of a native record at the level of closed-history counts (L16)")
+F("a04", "closure under commutators from ordered response composition (G2)", ["hsum : dz + m.sum = 12"], [PB, A2],
+  "The image g_{r,i} = D_{r,i}(V_{r,i}) is closed under commutators ; A1 informal: 'closed under the commutators generated by ordered response composition'",
+  "prose clause; Lean carries the numeral hsum only (no Lie algebra object, review L2 F4)", ["event composition (ordered histories)"], ["T-G"],
+  ("SHADOW", "closure 12 on compressed tables"),
+  ("COMP", "all 66 brackets in the span (MF 5); with the position record the evolution is exp(−iε τ_p Π_p) (MF 16); brackets from ordered recorded histories: MF blocks 4 to 6", "MF"),
+  ("SHADOW", "closure by equality with s(u(3)+u(2)); no bracket read from ordered histories"),
+  requirement=["G2", "T2"], executable="fail")
+F("a05", "completeness of the response (G3)", ["hD : Function.Surjective D (internalImplementation_of_holonomy)"], [PB, A2],
+  "complete for the declared quotient-visible infinitesimal port response ... no additional public response direction is omitted ; Lean docstring: 'Surjectivity of D expresses that L is the current codomain generated by the visible response directions, rather than a larger ambient operator space.'",
+  "prose clause; Lean: surjectivity onto the codomain L", ["accessible measurement grammar"], ["T-G", "T-B"],
+  ("NO", "all twenty area characters are present; the same loads generate u(4), u(5), u(6) on the other multiplets (L13); CAP's history effects span Herm(12) (CX 6)"),
+  ("COMP", "one-click effects on the two-spinor triplet generate u(2), two-click coincidences u(3)+u(1) (MT 8): the complete response depends on the apparatus menu; MT block 5", "MT"),
+  ("NO", "PREMISES.md: completeness and 'the quotient separating optional apparatus controls require proofs'"),
+  requirement=["G3"], executable="fail")
+F("a06", "positive trace form (G4)", [], [PB],
+  "−Tr(D_{r,i}(v) D_{r,i}(w)) is positive definite", "prose clause; follows from a03 inside u(H)", ["state space H"], ["T-G"],
+  ("SHADOW", "on the compressed tables"), ("EXACT", "follows from a03; trace form positive on the exact table (MF 5)"),
+  ("SHADOW", "exact positive roots 5/2, 1/2, 1/10 on the declared response"), requirement=["G4"], executable="fail")
+F("a07", "closed overlap paths onto the proper carrier automorphisms (G5)",
+  ["OPH.A2HolonomyBridge.HolonomyFull", "project : H →* A"], [A2, PB],
+  "def HolonomyFull (project : H →* A) : Prop := Function.Surjective project ; prose: 'For a complete carrier chart o, its closed paths Hol_r(o) map onto the orientation-preserving incidence automorphisms Aut^+(K_{r,i}).'",
+  "hypothesis (used through CarrierHolonomyFullEndogenous)", ["wiring", "accepted records"], ["T-G"],
+  ("NO", "no overlap transport in the tuple"),
+  ("COMP", "sixteen uniform transport rules on wirings F and B: rule S gives Z3; six rolling rules give all 60 rotations from level 1 by paths of at most 15 crossings (reports/MG.md block 1)", "MG"),
+  ("EXACT", "120 typed closed chart words of the cover controller on one carrier, longest nine gates (holonomy.py; ENCODED_OVERLAP.md). Federation: MG"),
+  requirement=["G5"], toy="none (the bridge is abstract in H)", executable="fail",
+  tape="every U(1) character of the additive current contrast has unit loop holonomy (model/observer/native_loop_readout.py); the area counter is the native record with nontrivial characters")
+F("a08", "implementer natural on the response", ["OPH.A2HolonomyBridge.ProjectiveResponseNatural", "hnatural"], [A2],
+  "def ProjectiveResponseNatural (portAction : A →* Equiv.Perm V) (project : H →* A) (implementer : H →* Q) (projectiveAction : Q →* Equiv.Perm L) (D : V → L) : Prop := ∀ h v, D (portAction (project h) v) = projectiveAction (implementer h) (D v)",
+  "hypothesis", ["implementer of a closed path", "response"], ["T-G"],
+  ("SHADOW", "CAP rows covariant under 120 monomial implementers (CX 2); D is a table"),
+  ("SHADOW", "table covariant under the 120 lifts (MF 5); implementers not executed"),
+  ("EXACT", "W(q) X_p W(q)† = X_{π(q)p} for the executed lifts"), requirement=["G5"], executable="fail")
+F("a09", "endogenous implementer (G6)",
+  ["OPH.A2HolonomyBridge.CarrierHolonomyFullEndogenous", "OPH.A2HolonomyBridge.ResponseGeneratedGroup", "hbridge"], [A2],
+  "def CarrierHolonomyFullEndogenous (project : H →* A) (implementer : H →* Q) (projectiveAction : Q →* Equiv.Perm L) (responseFlow : V → Q) : Prop := ∀ a, ∃ h : H, ∃ g : ResponseGeneratedGroup responseFlow, ∃ c : projectiveAction.ker, project h = a ∧ implementer h = (g : Q) * (c : Q)",
+  "hypothesis", ["implementer", "response-generated group"], ["T-G"],
+  ("SHADOW", "inner action of the table (L13)"), ("SHADOW", "inner action of the table"),
+  ("EXACT", "every executed W(q) lies in SU(3) × SU(2), inside the group generated by the twelve responses; c = 1"),
+  requirement=["G6", "T3"], executable="fail")
+F("a10", "projective composition of closed paths", ["implementer : H →* Q"], [A2, PB],
+  "Closed paths compose projectively ; Lean: the implementer is a group homomorphism H →* Q",
+  "typing of the hypothesis", ["implementer"], ["T-G"],
+  ("NO", "no implementer"), ("COMP", "implementers: MG block 5", "MG"),
+  ("EXACT", "14,400 cover products and 480 generator identities"), requirement=["G7"], executable="fail")
+F("a11", "naturality under presentation equivalence and refinement (G7)", [], [PB],
+  "The response construction is natural under admissible presentation equivalence and refinement. ; (A2) 'the construction commutes with refinement'",
+  "prose clause", ["wiring", "refinement map"], ["T-G"],
+  ("NO", "no frames in the tuple"),
+  ("COMP", "rule S: fine holonomy equals the holonomy of the ancestry image, group Z3; rolling rules: joint group A5 × A5 (MG 6)", "MG"),
+  ("COMP", "presentation equivalence holds on the finite frame groupoid (PREMISES.md); refinement open", "MG"),
+  requirement=["G7"], executable="fail")
+F("a12", "same accepted source history", [], [PB],
+  "The closed path, port action, and implementer must arise from the same accepted source history in an executable realization.",
+  "prose clause", ["accepted records"], ["T-G"],
+  ("NO", ""), ("COMP", "MT block 5", "MT"),
+  ("EXACT", "typed arrow records carry generator, charts, port permutation, frame and central bit; complete history laws agree in either chart (PREMISES.md)"),
+  requirement=["G5", "G6"], executable="fail")
+F("a13", "imported Lie theory", ["hm : ∀ d ∈ m, d ∈ SimpleDims", "hcentreBound", "hcentreless",
+                                "OPH.A2HolonomyBridge.CentrelessFourFactorFixedSpaceDescription"], [A2],
+  "(hcentreBound : CarrierResponseInternallyImplemented portAction projectiveAction responseFlow D → dz ≤ 1) (hcentreless : CarrierResponseInternallyImplemented portAction projectiveAction responseFlow D → CentrelessFourFactorFixedSpaceDescription dz carrierFixedDim)",
+  "hypotheses that carry the classification; nothing for a setup to supply", ["none"], ["T-G"],
+  ("EXACT", ""), ("EXACT", ""), ("EXACT", ""), register=["PR-11"], scored=False)
+F("a14", "federation architecture (A1)", [], [PB],
+  "seam algebras with unital restrictions and coherent triple-overlap cocycles forming the nerve N_r; a finite edge-midpoint refinement support S_r realized orientation-preservingly in S^2 with mesh tending to zero; and a source-bound degree-one bridge b_r : N_r → S_r, all commuting with refinement",
+  "prose clause of A1", ["wiring", "refinement map"], ["T-G", "T-M", "T-N", "T-E"],
+  ("COMP", "recursive face wiring F: covariant, ancestry-exact (reports/S3.md)", "MG"),
+  ("COMP", "frame rule on glue seams", "MG"), ("COMP", "family walk", "MV"),
+  toy="earlier federation: single-port seams with sign −1 (reports/QF.md)",
+  executable="declared routing: anisotropic, ancestry breaks adjacency (PROBLEM.md)")
+
+# ---------------------------------------------------------------- b. Born bridge
+OB = "Lean/EventAlgebra/OperationalBornBridge.lean"
+F("b01", "complete normalized record law for every experiment",
+  ["EventAlgebra.CompleteRecordWeights", "weight", "nonneg", "total"], [OB],
+  "structure CompleteRecordWeights (C : Type u) (Ω : C → Type v) [∀ c, Fintype (Ω c)] where weight : ∀ c, Ω c → ℝ ; nonneg : ∀ c x, 0 ≤ weight c x ; total : ∀ c, ∑ x, weight c x = 1",
+  "structure (hypothesis)", ["records", "preparation"], ["T-B"],
+  ("EXACT", "native.py: all 264 main histories retained; CAP complete on 30 seams (CX 2)"),
+  ("EXACT", "complete on both Fock registers (MT 3)"), ("EXACT", "both detector branches and failures retained"),
+  toy="none in tree (review L1-4)", executable="model/native_born_bridge: complete endpoint execution on 78 configurations",
+  tape="probabilities of the 264 histories sum to one")
+F("b02", "positive matrix atom per record", ["EventAlgebra.CompleteRecordEffects", "atom", "positive", "complete"], [OB],
+  "structure CompleteRecordEffects (d : ℕ) (C : Type u) (Ω : C → Type v) [∀ c, Fintype (Ω c)] where atom : ∀ c, Ω c → Matrix (Fin d) (Fin d) ℂ ; positive : ∀ c x, (atom c x).PosSemidef ; complete : ∀ c, ∑ x, atom c x = 1",
+  "structure (hypothesis)", ["measurement grammar", "state space"], ["T-B"],
+  ("EXACT", "diagonal atoms (committed); CAP rows (CX 2)"), ("EXACT", "diagonal ⊗ internal"), ("EXACT", ""),
+  register=["PR-02"], executable="declared input", tape="every committed effect is diagonal")
+F("b03", "implementation independence", ["EventAlgebra.OperationalEffectQuotient.implementation_independent"], [OB],
+  "implementation_independent : ∀ (c c' : C) (S : Finset (Ω c)) (T : Finset (Ω c')), recordEventEffect R c S = recordEventEffect R c' T → recordEventWeight W c S = recordEventWeight W c' T",
+  "structure field (hypothesis)", ["preparation", "measurement grammar"], ["T-B"],
+  ("EXACT", "derived from counts on the commutative record algebra (model/native_born_bridge)"),
+  ("EXACT", "holds by the declared complex-state semantics; the conclusion of the theorem is then an input (review L4-1)"),
+  ("EXACT", "holds by the declared complex-state semantics"), executable="classical domain only")
+F("b04", "joint refinement of every coexistent effect pair",
+  ["EventAlgebra.OperationalEffectQuotient.coexistent_refinement"], [OB],
+  "coexistent_refinement : ∀ {E F}, IsEffect E → IsEffect F → IsEffect (E + F) → ∃ (c : C) (S T : Finset (Ω c)), Disjoint S T ∧ recordEventEffect R c S = E ∧ recordEventEffect R c T = F ; docstring: 'Exact realization of every effect needs uncountably many settings, so a finite-program source needs a dense-effect version of this interface.'",
+  "structure field (hypothesis)", ["measurement grammar (apparatus menu)"], ["T-B"],
+  ("NO", "CAP: 144 of 144 Hermitian directions at depth 3 is a span; the band projector is not an event (CX 6, 9)"),
+  ("COMP", "port-axis readouts with the position as dilation give the covariant measurement {|χ_p^±⟩⟨χ_p^±|/12}; finite direction set on one carrier", "MT"),
+  ("NO", "PREMISES.md: tomography 'does not implement every positive effect'; the gauge walk splits into charge blocks"),
+  requirement=["T9"], toy="none in tree",
+  executable="obstructed: no_operationalEffectQuotient_of_offDiagonal_effect, diagonal_qubit_records_no_operationalEffectQuotient",
+  tape="extra repair coins give every dyadic acceptance, hence every real classical record effect (register PR-03)")
+F("b05", "effect additivity", ["EventAlgebra.IsEffectValuation.additive", "EventAlgebra.RepresentedPublicFrame.additive"],
+  ["Lean/EventAlgebra/FiniteBuschGleason.lean", "Lean/EventAlgebra/QuantumAdequacySurface.lean"],
+  "additive : ∀ {E F : Matrix (Fin d) (Fin d) ℂ}, IsEffect E → IsEffect F → IsEffect (E + F) → v (E + F) = v E + v F",
+  "structure field (hypothesis); derived from b03 and b04 in the bridge", ["preparation", "measurement grammar"], ["T-B"],
+  ("SHADOW", "ell_L(A) = Tr(ρ_L A) is an IsEffectValuation on M_66(ℂ): a linear reconstruction from closed-history counts; operational on diagonal effects only"),
+  ("EXACT", "declared semantics"), ("EXACT", "declared semantics"),
+  register=["PR-03"], requirement=["T9"], toy="none; countermodels nonlinearBinaryWeight_not_affine, FiniteWebBornNoGo",
+  executable="declared input", tape="model/native_quantum_reconstruction/PROOF.md")
+F("b06", "phase-sensitive effect", ["EventAlgebra.AlgebraicPhaseCompletion", "lift", "isEvent", "separates", "completes"],
+  ["Lean/EventAlgebra/QuantumAdequacySurface.lean"],
+  "separates : bornWeight OPH.QFT.rhoYPlus lift = 1 ∧ bornWeight OPH.QFT.rhoYMinus lift = 0",
+  "structure (inhabited by committedAlgebraicPhaseCompletion as an algebraic lift)", ["measurement grammar"], ["T-B"],
+  ("EXACT", "CAP history effects span all 144 Hermitian directions at depth 3 (CX 6); the committed rule has none"),
+  ("EXACT", "port-axis projectors along six axes span Herm(2)"),
+  ("EXACT", "quarter-turn apparatus: complex tomography of the 1440 register"),
+  register=["PR-04"], requirement=["T9"], executable="declared input")
+F("b07", "phase instrument as complete CP maps", [], ["docs/registers/PREMISE_REGISTER_V3.md"],
+  "context- and outcome-indexed completely-positive trace-nonincreasing state-update maps whose sum in each context is trace preserving, whose induced effects agree with the declared effect table, and whose outcome readback agrees with the recorded public outcome",
+  "register row", ["seam instrument", "apparatus"], ["T-B"],
+  ("EXACT", "CAP rows (CX 2)"), ("EXACT", "MT 1 to 3"), ("EXACT", ""),
+  register=["PR-64"], executable="constructed on declared inputs")
+F("b08", "source-produced preparation and readback in one run", [], ["docs/registers/PREMISE_REGISTER_V3.md"],
+  "One source construction supplies the common preparation used across the phase and real contexts, selects the phase-sensitive effect or instrument, produces the public outcomes through that instrument, and binds preparation, context, operation, readback, and receipt custody to one run.",
+  "register row", ["preparation", "accepted records"], ["T-B", "T-M"],
+  ("EXACT", "CAP prepares its own stationary density (CX 3, 5; uniqueness ARGUED with rank certificates)"),
+  ("NO", "every internal state is stationary; the law selects none"),
+  ("EXACT", "heralded filter of the same walk, success 131/810, failures retained"),
+  register=["PR-65"], executable="obstructed (native coherence floor)")
+F("b09", "projective partition for central records",
+  ["EventAlgebra.ProjectivePartition", "EventAlgebra.partitionOperationallyEquivalent_iff_pinching_eq"],
+  ["Lean/EventAlgebra/PartitionPinching.lean", "Lean/EventAlgebra/Superselection.lean"],
+  "structure ProjectivePartition (n k : ℕ) where proj : Fin k → Matrix (Fin n) (Fin n) ℂ ; isEvent : ∀ i, IsEvent (proj i) ; orthogonal : ∀ i j, i ≠ j → proj i * proj j = 0 ; complete : ∑ i, proj i = 1",
+  "structure (hypothesis)", ["record algebra"], ["T-B", "T-E"],
+  ("EXACT", "total load; committed prefix cylinders"), ("EXACT", "ports"), ("EXACT", "Q5 blocks; regional flux parity"),
+  register=["PR-02"], requirement=["T4"], executable="declared input")
+
+# ---------------------------------------------------------------- c. four laws
+FL = "Lean/Thermodynamics/FourLawAdequacySurface.lean"
+F("c01", "faithful reference law", ["OPH.Thermodynamics.RepairLawData", "ref", "ref_pos", "ref_law"], [FL],
+  "ref : Ω → ℝ ; ref_pos : ∀ x, 0 < ref x ; ref_law : ∑ x, ref x = 1",
+  "structure fields (hypothesis)", ["reference state (classical law)"], ["T-4L"],
+  ("EXACT", "uniform on the 66 shell; ref_pos fails on the 78 carrier (collisions are transient)"),
+  ("EXACT", "positions"), ("NO", "the reference ρ_W is a density matrix and W is not a stochastic kernel"),
+  register=["PR-07"], requirement=["T5"],
+  toy="NativeBinary.fairSwap with the counting reference; NativeRecordFourLaws at (1/2, 1/4, 1/4)",
+  executable="derived from native records (binary shell, uniform reference)", tape="uniform stationary law")
+F("c02", "complete repaired visible datum", ["OPH.Thermodynamics.RepairLawData.visible"], [FL],
+  "visible : Ω → B", "structure field (hypothesis)", ["record (what an event leaves visible)"], ["T-4L"],
+  ("EXACT", "orbitLabel τ x = {x, τ x}"), ("EXACT", "positions"), ("NO", ""),
+  register=["PR-07"], executable="derived from native records")
+F("c03", "the event is conditional resampling in the visible fibre",
+  ["OPH.Thermodynamics.heatBath", "OPH.Thermodynamics.FourLawSurface.repairKernel"],
+  ["Lean/Thermodynamics/FiniteConditionalRepair.lean", FL],
+  "noncomputable def heatBath (x y : Ω) : ℝ := if b y = b x then π y / fiberMass π b x else 0 ; noncomputable def repairKernel : Ω → Ω → ℝ := heatBath D.ref D.visible ; second law alone: (hstat : push D.ref K = D.ref)",
+  "definition: the theorem is about this kernel", ["event"], ["T-4L"],
+  ("EXACT", "coin-averaged native event = (I + swap)/2 on all 30 seams; CAP has the same population kernel for every input (CX 2)"),
+  ("EXACT", "MT 5"), ("SHADOW", "first blank-record event only: second return 643/900 against 101/120"),
+  register=["PR-07"], requirement=["T0"], executable="derived from native records")
+F("c04", "thermal calibration with a nonconstant energy",
+  ["OPH.Thermodynamics.CalibrationData", "thermal", "zeroth_thermometer (hij : C.energy i ≠ C.energy j)"], [FL],
+  "thermal : ∀ x, -Real.log (D.ref x) = beta * energy x + logZ",
+  "structure field (hypothesis)", ["clock", "reference state"], ["T-4L", "T-M", "T-E", "T-X"],
+  ("NO", "uniform reference: constant energy (counting_calibration_energy_constant); CAP's levels 0.298676 ×2, 0.052191 ×4, 0.032314 ×6 belong to a density matrix"),
+  ("NO", ""), ("NO", "−log ρ_W is a function of W + W*"),
+  register=["PR-15"], executable="declared input",
+  tape="H = −log P of the count reconstruction is an operator on M_66, outside this classical bundle")
+F("c05", "refinement-uniform gap family",
+  ["OPH.Thermodynamics.RefinementAttachment", "OPH.Thermodynamics.UniformGapRefinement", "gap_dichotomy", "card_le"],
+  [FL, "Lean/Thermodynamics/LowTemperatureControl.lean"],
+  "gap_dichotomy : ∀ (r : I) (x : X r), E r x = minEnergy (E r) ∨ minEnergy (E r) + gapBound ≤ E r x ; cardBound : ℕ ; card_le : ∀ r : I, Fintype.card (X r) ≤ cardBound",
+  "structure fields (hypothesis)", ["refinement family", "energy"], ["T-4L"],
+  ("NO", "only the one-member constant-energy family"), ("NO", ""), ("NO", ""),
+  register=["PR-08"], executable="not addressed")
+F("c06", "state and transition as information projections on one reference (A3)",
+  ["OPH.Thermodynamics.FourLawSurface.repairKernel_row_optimal"], [PB, FL],
+  "the realized state is the information projection ... ρ_r = arg min_{ρ ∈ K_r} Σ_{P ∈ G_r} w_{r,P} D(ρ_{r,P} ‖ τ_{r,P})",
+  "prose clause of A3; row optimality proved for heatBath", ["reference state", "event"], ["T-4L", "T-E"],
+  ("EXACT", "each kernel row is the information projection onto the visible fibre for the uniform reference; the stationary law is uniform"),
+  ("SHADOW", "positions only; the internal reference is free"),
+  ("NO", "PREMISES.md: 'The declared alpha=1/2 filter is not an information-projection dynamics.'"),
+  register=["PR-07", "PR-05"], executable="declared input (PR-05), derived (PR-07)")
+
+# ---------------------------------------------------------------- d. consensus and termination
+PR = "Lean/ObserverPatchHolography/Primitives.lean"
+F("d01", "typed patch graph with interface projections", ["OPH.OPHCarrier", "OPH.Records", "OPH.obsMap"], [PR],
+  "def Records : Type := (i : C.Patch) → C.State i",
+  "structure (hypothesis)", ["wiring", "local state"], ["T-C"],
+  ("EXACT", "Patch = port, Edge = seam, State = load"), ("EXACT", ""),
+  ("NO", "amplitudes on 1440 dimensions are not a product of local finite states; the chart and link registers are"),
+  toy="demoCarrier (two Bool patches, one edge)")
+F("d02", "single-site move (H1)", ["H1"], [PR],
+  "(H1 : ∀ (i : C.Patch) (x : Records C) (j : C.Patch), j ≠ i → (lr i x) j = x j)",
+  "hypothesis", ["event"], ["T-C", "T-E"],
+  ("NO", "a seam event changes two ports; H1 together with a conserved total forces lr i x = x"), ("NO", ""),
+  ("COMP", "chart variable of the cover controller", "MA"),
+  register=["PR-01"], requirement=["T7"], toy="demoLR (copy the neighbour)", executable="obstructed")
+F("d03", "fires iff an incident edge is broken (H2)", ["H2"], [PR],
+  "(H2 : ∀ (i : C.Patch) (x : Records C), lr i x ≠ x ↔ ∃ e : C.Edge, (C.src e = i ∨ C.tgt e = i) ∧ ¬ edgeConsistentAt e x)",
+  "hypothesis", ["event", "scheduler"], ["T-C", "T-E"],
+  ("NO", "the rule waits or swaps at mismatch one"), ("NO", ""), ("COMP", "", "MA"),
+  register=["PR-01"], requirement=["T7"], toy="demoLR", executable="obstructed")
+F("d04", "local satisfiability (H3)", ["H3", "OPH.LocallySolvable"], [PR],
+  "(H3 : ∀ (i : C.Patch) (x : Records C), lr i x ≠ x → ∀ e : C.Edge, (C.src e = i ∨ C.tgt e = i) → edgeConsistentAt e (lr i x))",
+  "hypothesis", ["state space", "event"], ["T-C", "T-E"],
+  ("NO", "at total two no configuration satisfies all 30 seams; with one unit of flux per face at most 11 of 30 recharted seam equations hold (reports/QF.md)"),
+  ("NO", ""),
+  ("COMP", "face and rhombus checks are frustration-free on amplitudes: kernels exactly the doublet and the triplet (MF 1, 2)", "MA"),
+  register=["PR-01"], requirement=["T7"], toy="demoLR", executable="obstructed")
+F("d05", "protected observation preserved (HB)", ["HB", "ObservableNormalForms.ObservationPreserving"],
+  [PR, "Lean/ObservableNormalForms/ObservableNormalForms/Exact.lean"],
+  "(HB : ∀ (i : C.Patch) (x : Records C), B (lr i x) = B x)",
+  "hypothesis", ["record (protected observation)"], ["T-C", "T-E"],
+  ("EXACT", "total load; committed prefix cylinders"), ("EXACT", "total load"), ("EXACT", "Q5; regional flux parity"),
+  toy="demoBoundary")
+F("d06", "the observation identifies consistent states (Hfib)",
+  ["Hfib", "ObservableNormalForms.BoundaryIdentifiesModulo", "OPH.EinsteinBranch.BoundaryFiber"],
+  [PR, "Lean/ObservableNormalForms/ObservableNormalForms/ObserverConfluence.lean"],
+  "(Hfib : ∀ x y : Records C, B x = B y → Consistent C x → Consistent C y → gaugeEquiv C x y)",
+  "hypothesis", ["record", "readout"], ["T-C", "T-E"],
+  ("NO", "the consistent set is empty at total two: the hypotheses of empty_fiber_no_reachable_normalForm hold and its conclusion is the nontermination; unique frozen vacuum at integer filling (L7)"),
+  ("NO", ""), ("COMP", "", "MA"),
+  register=["PR-01"], toy="demoSeedBoundary; no carrier in the file has HB and Hfib together")
+F("d07", "commutation of moves (H4)", ["H4", "OPH.AbstractRewriting.Confluent"], [PR],
+  "(H4 : ∀ (i j : C.Patch) (x : Records C), lr i (lr j x) = lr j (lr i x))",
+  "hypothesis", ["event", "scheduler"], ["T-C"],
+  ("NO", ""), ("NO", ""), ("COMP", "", "MA"),
+  register=["PR-01"], toy="none: demoCarrier_repairs_dont_commute, demoCarrier_not_confluent; demoCarrier_dir_confluent for a directional repair",
+  executable="obstructed")
+F("d08", "normal forms exist and are the consistent set",
+  ["ObservableNormalForms.CompleteFor", "ObservableNormalForms.WeaklyNormalizing"],
+  ["Lean/ObservableNormalForms/ObservableNormalForms/Exact.lean"],
+  "def CompleteFor (r : Q → Q → Prop) (C : Set Q) : Prop := ∀ x : Q, IsNormalForm r x ↔ x ∈ C ; def WeaklyNormalizing (r : Q → Q → Prop) (x : Q) : Prop := ∃ nf : Q, ReflTransGen r x nf ∧ IsNormalForm r nf",
+  "hypotheses", ["event", "scheduler"], ["T-C", "T-E"],
+  ("NO", "each of the 66 states has at least 8 moving branches of 60: no normal form (audit/acceptance/checks.py)"),
+  ("NO", ""),
+  ("COMP", "recharting of the cover controller to the base chart lowers the word distance (at most nine) with one endpoint by the 14,400 exact products: ARGUED", "MA"),
+  register=["PR-01"], requirement=["T7"], toy="TwoBitRepair")
+F("d09", "public quotient compatibility",
+  ["OPH.Tower.PublicWorldPresentation.FiniteRepairSystem.QuotientCompatible", "repair_respects_public", "enabled_respects_public"],
+  ["Lean/Tower/FixedPointEndpoint.lean"],
+  "repair_respects_public : ∀ (m : R.Move) {x y : P.Config}, P.readback x = P.readback y → P.readback (R.repair m x) = P.readback (R.repair m y) ; enabled_respects_public : ∀ (m : R.Move) {x y : P.Config}, P.readback x = P.readback y → (R.repair m x ≠ x ↔ R.repair m y ≠ y)",
+  "structure (hypothesis); the theorem also takes hterm and hconf", ["readout", "event"], ["T-C"],
+  ("SHADOW", "holds with Move = 60 seam and coin labels and readback = loads; hterm fails"), ("SHADOW", ""),
+  ("COMP", "", "MA"), toy="FullPremiseInhabitant.branchSystem (two flags and a hidden bit)")
+F("d10", "agreement of accepted records (A2)", [], [PB],
+  "every declared data-access diagram for accepted public data commutes after interpretation, and J_r ∘ c_{s→r} = C_{s→r} ∘ J_s across resolutions",
+  "prose clause of A2 (the first of the three consensus contracts of audit/ACCEPTANCE.md)", ["accepted records", "wiring"], ["T-G", "T-C"],
+  ("NO", "increments of neighbouring carriers are uncorrelated (L15)"), ("COMP", "frame rule on glue seams", "MG"),
+  ("EXACT", "complete adaptive history laws agree under the implemented finite frame groupoid (PREMISES.md). Federation: MG"),
+  requirement=["T7"])
+F("d11", "almost-sure stabilization", [], ["repair-law/audit/ACCEPTANCE.md"],
+  "the second of the three consensus contracts: almost-sure stabilization",
+  "audit contract", ["event", "scheduler"], ["T-C"],
+  ("NO", "the probability of never moving again is zero at fractional filling"), ("NO", ""), ("NO", "unitary recurrence"),
+  requirement=["T7"])
+
+# ---------------------------------------------------------------- e. causal order and count limit (N1 to N7 of MC)
+GS = "Lean/Geometry/GoldenSourceCausalLimit.lean"
+F("e01", "N1 point set in a bounded convex window of a three-dimensional Euclidean space",
+  ["OPH.GoldenSourceCausalLimit.Carrier", "population", "domain"], [GS],
+  "abbrev Carrier := EuclideanSpace ℝ (Fin 3) ; def population (n : ℕ) (L : ℝ) : Set Carrier := Set.range (site (n := n) L)",
+  "definition (the population is supplied)", ["records as points", "state space"], ["T-N", "T-E"],
+  ("COMP", "one tape is one chain (MC C1); many carriers in a deep window read 3.98(2) at dT/√t0 = 0.65 and 3.76 at 1.3 (C4)", "MC"),
+  ("COMP", "projective readouts give twelve null rays: a union of twelve chains (MC A1)", "MC"),
+  ("COMP", "no population computed", "MV"),
+  register=["PR-16", "PR-52"], requirement=["T8"], toy="golden sites L frac(b φ)", executable="supplied loads held fixed")
+F("e02", "N2 covering at radius h_n with h_n / a_n → 0",
+  ["OPH.SourceNetCausalCone.Covers", "population_covers", "assignment_ratio_tendsto"],
+  ["Lean/Geometry/SourceNetCausalCone.lean", GS],
+  "def Covers (Ω S : Set E) (h : ℝ) : Prop := ∀ x ∈ Ω, ∃ s ∈ S, ‖s - x‖ ≤ h ; (hratio : Tendsto (fun n => h n / a n) atTop (𝓝 0))",
+  "hypothesis; proved for the golden sites", ["records as points"], ["T-N"],
+  ("COMP", "", "MC"), ("COMP", "", "MC"), ("COMP", "", "MV"), toy="golden sites")
+F("e03", "N3 counting measure tends to Lebesgue measure", ["eventCell", "generated_interval_count_tendsto"], [GS],
+  "theorem generated_interval_count_tendsto ... Tendsto (fun n => (sourceDelta (n + 2) L c * (L ^ 3 / (Nat.fib (n + 2) : ℝ) ^ 3)) * (intervalCount (e n) (f n) : ℝ)) atTop (𝓝 ((spaceTimeVolume T L).real (diamond c p q)))",
+  "proved for the golden sites", ["records as points"], ["T-N", "T-E"],
+  ("NO", "equal-volume boosted diamonds: count ratio 0.936 to 0.255 at rapidity 0.5 to 2 (MC C5); no law of independent steps has an invariant intensity (C6)"),
+  ("NO", "long tapes end as one chain per run (MC A3)"), ("COMP", "", "MV"), toy="Fibonacci permutation partition")
+F("e04", "N4 order generated by reads", ["OPH.SourceNetCausalCone.Reachable", "OPH.SourceNetCausalCone.Precedes", "generated"],
+  ["Lean/Geometry/SourceNetCausalCone.lean", GS],
+  "def Precedes {S : Set E} (a : ℝ) (e f : ℕ × S) : Prop := e.1 ≤ f.1 ∧ Reachable S a (f.1 - e.1) e.2 f.2",
+  "definition (the read law is supplied)", ["event", "records"], ["T-N"],
+  ("EXACT", "order generated by the reads of native histories; it reads dimension 2+1 (L9)"), ("EXACT", "same events"),
+  ("NO", "the idle walk has no commit events"), register=["PR-81"], executable="derived from native records")
+F("e05", "N5 the same full population at every layer", ["Label", "placed"], [GS],
+  "abbrev Label (n : ℕ) (T L c : ℝ) := timeIndex T (sourceDelta n L c) × (Fin 3 → Fin (Nat.fib n))",
+  "definition (one event per site and layer)", ["memory"], ["T-N", "T-E"],
+  ("NO", "loads move; the tape holds two letters; the area counter five bits"),
+  ("SHADOW", "the internal factor survives every later event (MT 1, 10)"),
+  ("SHADOW", "link bits persist under a fixed boundary; the parity record is rewritten"),
+  register=["PR-52"], requirement=["T8"], executable="supplied (fixed population)")
+F("e06", "N6 layer clock with a speed", ["OPH.SourceNetOrderLimit.layerTime"], ["Lean/Geometry/SourceNetOrderLimit.lean"],
+  "noncomputable def layerTime (a c : ℝ) (j : ℕ) : ℝ := (j : ℝ) * (a / c)",
+  "definition (the tick is supplied)", ["clock", "scheduler"], ["T-N", "T-K"],
+  ("NO", "diffusion: no front"), ("NO", ""), ("COMP", "one seam per step gives a strict front on one carrier", "MV"),
+  requirement=["T6"], executable="declared read law and clock")
+F("e07", "N7 interior diamonds inside the window", ["hbox"], ["Lean/Geometry/FlatDiamondNormalization.lean"],
+  "(hbox : diamond c p q ⊆ Icc 0 T ×ˢ cube L)", "hypothesis on the statistic, proved under N1 to N6", ["none"], ["T-N"],
+  ("EXACT", ""), ("EXACT", ""), ("EXACT", ""), scored=False)
+F("e08", "certified read support and ancestry rank", [], ["docs/registers/PREMISE_REGISTER_V3.md"],
+  "Every semantic commit declares the register versions on which its enablement, accepted payload, visible label, or continuation genuinely depends, and the declared support is sound and complete for that dependence.",
+  "register rows", ["accepted records"], ["T-N"],
+  ("EXACT", "dependence crosses at most one seam per event; the attempt index ranks every event"), ("EXACT", ""),
+  ("NO", "no semantic commit in idle evolution"), register=["PR-81", "PR-82"], executable="derived from native records")
+
+# ---------------------------------------------------------------- f. modular clock and cap flow (H1 to H10 of MU)
+MUF = "repair-law/reports/MU.md (block 1)"
+SP = "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex:359"
+F("f01", "H1 cap algebra and support", [], [SP, MUF],
+  "a common support-visible geometric cap algebra ; finite: a declared algebra A_N(C) of a cap C and what 'support' of an element means",
+  "prose hypothesis", ["accessible algebra"], ["T-M", "T-E"],
+  ("COMP", "sector references σ_Q = Q ρ_L Q / p_Q exist in the reconstruction", "MU"), ("COMP", "", "MU"), ("COMP", "", "MU"),
+  register=["PR-23"], requirement=["T5"])
+F("f02", "H2 state faithful on the accessible algebra, with its preparation", [], [SP, MUF, "repair-law/audit/ACCEPTANCE.md"],
+  "state in its mixed-GNS limit ; finite: a state faithful on A_N(C) with reduced density ρ_C and K_C = −log ρ_C ; ACCEPTANCE T5: 'A faithful state on the actual accessible algebra, its preparation or selection, stationarity under the declared evolution'",
+  "prose hypothesis", ["reference state", "preparation"], ["T-M", "T-E", "T-4L"],
+  ("EXACT", "CAP stationary density, faithful on the shell (CX 3, 5); ρ_L on the reconstructed algebra"),
+  ("NO", "the internal reference is free"), ("EXACT", "ρ_W, eigenvalues at least 1/2096, stationary under W"),
+  register=["PR-23"], requirement=["T5"], executable="constructed on declared inputs",
+  tape="ρ_L = P^L / Tr P^L is faithful and nontracial on the reconstructed M_66; the source does not prepare it")
+F("f03", "H3 nontrivial modular action on accessible observables", [], [SP, MUF],
+  "finite: K_C is not central in A_N(C) (the native tracial state fails here)",
+  "prose hypothesis", ["reference state", "accessible algebra"], ["T-M", "T-E"],
+  ("EXACT", "CAP: nontracial with complete effects (CX 3, 6). Committed rule: identity"), ("NO", ""),
+  ("EXACT", "ρ_(a,0,k),(b,0,k) = −29/31440 against a readable register projector. Caps: MU"),
+  requirement=["T5"], tape="α_s^L(A) = P^{iLs} A P^{−iLs} on the reconstructed algebra; trivial on the diagonal record effects")
+F("f04", "H4 Markov collars", [], [SP, MUF],
+  "its finite collars have exact Markov replacements or controlled faithful Markov comparison",
+  "prose hypothesis", ["reference state", "wiring"], ["T-M", "T-E"],
+  ("COMP", "", "MU"), ("COMP", "", "MU"), ("COMP", "", "MU"))
+F("f05", "H5 refinement compatibility of algebra and state", [], [SP, MUF],
+  "the local algebra-state comparisons and replacements are compatible under refinement",
+  "prose hypothesis", ["refinement map", "reference state"], ["T-M", "T-E"],
+  ("COMP", "", "MU"), ("COMP", "", "MU"), ("COMP", "", "MU"))
+F("f06", "H6 support readability of the modular action", [], [SP, MUF],
+  "modular action is readable as a map of cap supports", "prose hypothesis", ["accessible algebra", "clock"], ["T-M"],
+  ("COMP", "", "MU"), ("COMP", "", "MU"), ("COMP", "", "MU"))
+F("f07", "H7 oriented cross-ratio rigidity", [], [SP, MUF],
+  "a cap-normal certificate supplies oriented cross-ratio rigidity", "prose hypothesis", ["clock", "wiring"], ["T-M"],
+  ("COMP", "", "MU"), ("COMP", "", "MU"), ("COMP", "", "MU"), register=["mesh_crossratio_normalization_receipts"])
+F("f08", "H8 hyperbolic flow of a framed cap", [], [MUF],
+  "the flow of the framed cap (C, p−, p+) is hyperbolic with fixed points p−, p+ on the boundary",
+  "prose hypothesis (finite reading by MU)", ["clock"], ["T-M", "T-K"],
+  ("COMP", "", "MU"),
+  ("COMP", "cap effect on the spinor space: E_C = (n_C / (2 cosh η)) exp(η m·σ), a boost along the cap axis (MU 4)", "MU"),
+  ("COMP", "", "MU"))
+F("f09", "H9 geometric 2π-KMS comparison", [], [SP, MUF],
+  "an independent geometric 2π-KMS comparison", "prose hypothesis", ["clock", "reference state"], ["T-M", "T-E"],
+  ("COMP", "", "MU"), ("COMP", "", "MU"), ("COMP", "", "MU"), register=["finite_cap_BW_certificate"])
+F("f10", "H10 no strict finite half-sided inclusion", ["OPH.QFT.FiniteModularInclusion.image_eq"],
+  ["Lean/QFT/FiniteModularInclusion.lean"],
+  "theorem image_eq (S : Submodule K V) [FiniteDimensional K S] (e : V ≃ₗ[K] V) (h : ∀ x ∈ S, e x ∈ S) : S.map e.toLinearMap = S",
+  "proved: every finite claim is an error bound on a family", ["none"], ["T-M"],
+  ("EXACT", ""), ("EXACT", ""), ("EXACT", ""), register=["PR-24"], scored=False)
+F("f11", "one-parameter group of star automorphisms", ["finiteStoneConverse_of_continuous", "hzero", "hgroup", "hcont"],
+  ["Lean/Dynamics/StoneConverse.lean"],
+  "(α : ℝ → (Matrix ι ι ℂ ≃⋆ₐ[ℂ] Matrix ι ι ℂ)) (hzero : ∀ x, α 0 x = x) (hgroup : ∀ s t : ℝ, ∀ x, α (s + t) x = α s (α t x)) (hcont : ∀ x, Continuous fun t : ℝ => α t x)",
+  "hypotheses", ["clock", "event"], ["T-M", "T-X"],
+  ("NO", "CAP is dissipative (second eigenvalue 0.968606...)"), ("NO", ""),
+  ("SHADOW", "the executed group is W^t for integer t; a real parameter needs a declared generator"),
+  register=["PR-43"], requirement=["T6"], executable="obstructed",
+  tape="P^{it} on the reconstructed algebra with rational approximants V_m (model/native_modular_dynamics); not executed")
+F("f12", "typed modular first law", ["OPH.EinsteinBranch.FiniteFirstLawData", "OPH.EinsteinBranch.FiniteFirstLawPremises"],
+  ["Lean/ObserverPatchHolography/EinsteinBranch/Entropy.lean"],
+  "def FiniteFirstLawPremises {V : Type u} [AddCommGroup V] [Module ℝ V] (D : FiniteFirstLawData V) : Prop := D.entropyDifferential = D.modularPairing ∧ D.modularPairing = (2 * Real.pi) • D.bulkPairing + D.centralPairing ∧ D.centralPairing = D.edgeDifferential",
+  "hypothesis", ["reference state", "clock", "record algebra"], ["T-M", "T-E"],
+  ("SHADOW", "first clause for any faithful reference"), ("NO", ""), ("SHADOW", "first clause"),
+  register=["PR-23"], executable="constructed on declared inputs", toy="passingFirstLawData")
+F("f13", "half-sided inclusion and null translation", ["OPH.QFT.FiniteModularInclusion.half_sided_is_two_sided"],
+  ["Lean/QFT/FiniteModularInclusion.lean", "docs/registers/PREMISE_REGISTER_V3.md"],
+  "The reconstructed stress readout satisfies the weak Ward identity under the chart coordinate steps, the conservation shadow of the null translations generated by half-sided modular inclusion.",
+  "register row; impossible exactly at finite dimension", ["refinement family", "clock"], ["T-M", "T-E"],
+  ("NO", ""), ("NO", ""), ("NO", ""), register=["PR-24"], executable="not addressed")
+F("f14", "one clock: the modular generator is the executed generator", ["OPH.QFT.ModularClockComparison.relative_time_cocycle"],
+  ["repair-law/audit/state_geometry/COMPATIBILITY.md (equation 5)", "Lean/QFT/ModularClockComparison.lean"],
+  "If the wave flow is claimed to be the modular flow of sigma on a full matrix algebra, then -log sigma = beta H + c I is required",
+  "audit compatibility equation", ["clock", "reference state"], ["T-M", "T-E", "T-4L", "T-X"],
+  ("SHADOW", "holds in the count reconstruction: ρ_L = exp(−L H)/Tr exp(−L H) for every L; CAP's modular flow is not executed"),
+  ("NO", ""), ("NO", "ρ_W weights e^{iω} and e^{−iω} equally; equation 5 fails (CX 11)"),
+  register=["PR-23", "PR-43"], requirement=["T5", "T6"])
+
+# ---------------------------------------------------------------- g. Lorentz and mass-shell kinematics
+MS = "Lean/Geometry/MassShellKinematics.lean"
+F("g01", "a record with values in Herm2", ["OPH.C1Lorentz.Herm2", "OPH.C1Lorentz.lorentzQ"],
+  ["Lean/Geometry/CanonicalLorentzModule.lean"],
+  "abbrev Herm2 := ℝ × Spatial ; def lorentzQ (v : Herm2) : ℝ := v.1 ^ 2 - spatialNormSq v.2",
+  "definition (the module is declared)", ["records", "readout"], ["T-K", "T-N"],
+  ("EXACT", "X = Σ_p x_p (1, u_p), det X = N² − |Σ_p x_p u_p|² (L18)"),
+  ("EXACT", "cap effects on the spinor factor (MU 4)"), ("SHADOW", "doublet block of the declared code"))
+F("g02", "a mass", ["OPH.C1Lorentz.fourMomentum"], [MS],
+  "def fourMomentum (mass : ℝ) (frame : FrameHyperboloid) : Herm2 := mass • (frame : Herm2) ; docstring: 'The mass parameter is a hypothesis, not a derived quantity.'",
+  "argument of every statement", ["clock", "event"], ["T-K", "T-X"],
+  ("SHADOW", "√det X of two quanta is the chord 0, 1.0515, 1.7013, 2; repair relaxes the three-momentum"),
+  ("COMP", "MU block 5", "MU"), ("COMP", "rest frequency arccos λ in the walk clock; family bands", "MV"),
+  requirement=["T10"])
+F("g03", "Lorentz maps between observers",
+  ["OPH.C1Lorentz.OrientedLorentzEquiv", "map_lorentzB", "map_futureNull_iff", "map_futureUnit_iff"],
+  ["Lean/Geometry/LorentzOverlapCocycle.lean"],
+  "structure OrientedLorentzEquiv where toLinearEquiv : Herm2 ≃ₗ[ℝ] Herm2 ; map_lorentzB : ∀ u v, lorentzB (toLinearEquiv u) (toLinearEquiv v) = lorentzB u v ; map_futureNull_iff : ∀ v, IsFutureNull (toLinearEquiv v) ↔ IsFutureNull v ; map_futureUnit_iff : ∀ v, IsFutureUnitTimelike (toLinearEquiv v) ↔ IsFutureUnitTimelike v",
+  "structure", ["wiring", "transformation between observers"], ["T-K", "T-M"],
+  ("COMP", "rotations exact; Aut(K_12) = dilations × I_h has no boost; boost defect exp(2η) × 2.92/N (MU 3)", "MU"),
+  ("COMP", "", "MU"), ("COMP", "", "MU"))
+F("g04", "coherent frame and boost transport", [], ["docs/registers/PREMISE_REGISTER_V3.md"],
+  "One coherent frame carries the comparison, and a boost transport connects that frame to the source frame of the committed symbol",
+  "register row", ["wiring"], ["T-K"],
+  ("COMP", "", "MU"), ("COMP", "", "MU"), ("COMP", "", "MU"), register=["PR-74", "PR-53"], executable="not addressed")
+F("g05", "cone selection inputs", [], ["paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex (derivation map)"],
+  "nonzero closed convex pointed cone; finite irreducible operational rotations; one continuous boost direction ⟹ Lorentz displacement cone up to time orientation",
+  "prose implication", ["records", "transformation between observers"], ["T-K"],
+  ("SHADOW", "cone over the port axes inside the Lorentz cone, inradius deficit 2.92/N (MU 2); no continuous boost at finite N"),
+  ("SHADOW", ""), ("NO", ""))
+
+# ---------------------------------------------------------------- h. Einstein rungs
+REG = "docs/registers/PREMISE_REGISTER_V3.md (gravity ladder)"
+EC = "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean"
+F("h01", "rung 1: equal state weights", [], [REG, "Lean/Screen/EqualStateWeights.lean"],
+  "A3 existence, uniqueness, support, and faithfulness (interface equal_state_weights: rho(e_p) = 1/12)",
+  "axiom_forced", ["reference state"], ["T-E"],
+  ("EXACT", "uniform stationary populations; CAP diagonal 1/66 (CX 5)"), ("EXACT", "positions"),
+  ("EXACT", "the heralded reference has source marginal 1/12 (CX 10)"))
+F("h02", "rung 2: optimizer pushforward across refinement", [], [REG],
+  "Optimizer pushforward across refinement", "conditional_open_interface", ["refinement map", "reference state"], ["T-E"],
+  ("NO", ""), ("NO", ""), ("NO", ""))
+F("h03", "rung 3: edge-center decomposition and state alignment", [], [REG],
+  "Edge-center decomposition and state alignment (token central_interface_clause)", "independence_limited",
+  ["record algebra", "reference state"], ["T-E"],
+  ("NO", ""), ("SHADOW", "ports are central in the block algebra"), ("NO", ""))
+F("h04", "rung 4: Markov collar", [], [REG], "Exact Markovity or Gibbs/mixing hypotheses and sharp collar rate",
+  "conditional_open_interface", ["reference state", "wiring"], ["T-E", "T-M"],
+  ("COMP", "", "MU"), ("COMP", "", "MU"), ("COMP", "", "MU"))
+F("h05", "rung 5: edge-reference factorization and normalization", [], [REG],
+  "Edge-reference factorization and edge normalization", "conditional_open_interface", ["reference state"], ["T-E"],
+  ("NO", ""), ("NO", ""), ("NO", ""))
+F("h06", "rung 6: generalized-entropy stationarity", ["OPH.EinsteinBranch.MaxEntEnvelopePremises", "SmallBallPremises.stationarity"],
+  [REG, "Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean"],
+  "stationarity : deltaBulkEntropy + deltaArea / (4 * G) = 0", "structure field (hypothesis)",
+  ["reference state", "geometry"], ["T-E"], ("NO", ""), ("NO", ""), ("NO", ""), register=["PR-26"], executable="not addressed")
+F("h07", "rung 7: Bisognano-Wichmann identification", [], [REG],
+  "Finite cap-profile diagnostics and independent Bisognano-Wichmann identification", "conditional_open_interface",
+  ["clock", "reference state"], ["T-E", "T-M"], ("COMP", "", "MU"), ("COMP", "", "MU"), ("COMP", "", "MU"), register=["PR-23"])
+F("h08", "rung 8: null balance, Ward and Bianchi",
+  ["OPH.EinsteinBranch.ContinuumEinsteinPremises", "nullBalance", "ward", "bianchi", "universalCoupling"], [EC],
+  "nullBalance : ∀ p k, quadOf (eta 3) k = 0 → quadOf (geometry p) k = coupling * quadOf (stress p) k ; ward : ∀ p j, ddiv step stress p j = 0 ; bianchi : ∀ p j, ddiv step geometry p j = 0",
+  "structure fields (hypothesis); 'No instance of this structure is constructed here.'", ["geometry", "stress"], ["T-E"],
+  ("NO", ""), ("NO", ""), ("NO", ""), register=["PR-24", "PR-25"], executable="obstructed (PR-25)",
+  toy="16-point torus with geometry := κT + η (Lean/Geometry/EinsteinBranchInhabitant.lean)")
+F("h09", "rung 9: event dimension four and the small-ball tail",
+  ["OPH.EinsteinBranch.ScalingTailReceipt", "DependencyHolds C .lorentzGeometry"],
+  ["Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean", "Lean/ObserverPatchHolography/EinsteinBranch/Manifest.lean"],
+  "| .lorentzGeometry => C.eventDimension = 4 ; def ScalingTailReceipt (D : ScalingTailData) : Prop := (∀ r, 0 < D.ell r) ∧ Tendsto D.ell atTop (𝓝 0) ∧ IsLittleO atTop D.collarError (fun r => D.ell r ^ 4) ∧ IsLittleO atTop D.kernelError (fun r => D.ell r ^ 4) ∧ IsLittleO atTop D.chartError (fun r => D.ell r ^ 4)",
+  "hypotheses", ["records as points", "refinement family"], ["T-E", "T-N"],
+  ("COMP", "", "MC"), ("COMP", "", "MC"), ("COMP", "", "MV"), register=["PR-16", "PR-27"], executable="not addressed")
+F("h10", "rung 10: Einstein-admissible tower on a terminating consensus quotient",
+  ["OPH.EinsteinBranch.EinsteinAdmissibleTower", "OPH.EinsteinBranch.BareConsensusTower", "step_descends", "normalForm_natural",
+   "OPH.EinsteinBranch.BoundaryFiber", "TypedArrowCommutation", "ReadoutNaturality"],
+  ["Lean/ObserverPatchHolography/EinsteinBranch/Consensus.lean"],
+  "step_descends : ∀ r x y, step r x y → mismatch r y < mismatch r x ; def BoundaryFiber (T : BareConsensusTower ι) : Prop := ∀ r (x y : T.Quot r), T.consistent r x → T.consistent r y → T.boundary r x = T.boundary r y → x = y",
+  "structure (hypothesis); 'Its existence is deliberately not proved'", ["event", "record", "refinement map"], ["T-E"],
+  ("NO", ""), ("NO", ""), ("COMP", "chart variable", "MA"), register=["PR-28", "PR-01"], executable="not addressed",
+  toy="demoTower")
+F("h11", "rung 11: scale", ["physicalScale"], [EC], "physicalScale : coupling = 8 * Real.pi * newton",
+  "structure field (hypothesis)", ["clock", "calibration"], ["T-E"], ("NO", ""), ("NO", ""), ("NO", ""), register=["PR-15"])
+F("h12", "nine null directions", ["DependencyHolds C .nineDirectionTomography"],
+  ["Lean/ObserverPatchHolography/EinsteinBranch/Manifest.lean"],
+  "| .nineDirectionTomography => C.tomographyRank = 9", "dependency key", ["wiring", "readout"], ["T-E"],
+  ("SHADOW", "the twelve null rays (1, u_p) have rank 9 of 10 on quadrics (MU 3); no stress readout along them"),
+  ("SHADOW", "same"), ("SHADOW", "same"))
+
+# ---------------------------------------------------------------- i. mass
+CS = "model/particle_candidate_confirmation/CONFIRMATION_STEPS.md"
+F("i01", "family band selection", ["family_band_selected"], ["Lean/Screen/A5FamilyBand.lean", "docs/registers/PREMISE_REGISTER_V3.md"],
+  "The family multiplicity object is a single complete spectral band of the twelve-port adjacency ... candidates carrying a source-visible proper splitting projector are excluded ... the unique strict minimizer is selected",
+  "register row", ["state space", "selection rule"], ["T-X"],
+  ("SHADOW", "carrier costs 5 − √5 < 6 < 5 + √5; CAP leading levels: doublet 0.597352, triplet 0.421792 (CX 3, 5)"),
+  ("SHADOW", "declared pairing"), ("SHADOW", "declared code"), register=["PR-36"], executable="constructed on declared inputs")
+F("i02", "fine-structure closure map", [], ["docs/registers/PREMISE_REGISTER_V3.md"],
+  "The P-closure map consumed by the fine-structure lane is a declared selection", "register row", ["calibration"], ["T-X"],
+  ("NO", ""), ("NO", ""), ("NO", ""), register=["PR-37"], executable="declared input")
+F("i03", "one scalar doublet with kinetic action", [], ["docs/registers/PREMISE_REGISTER_V3.md"],
+  "One complex weak doublet of hypercharge one half is selected as the physical scalar carrier",
+  "register row", ["state space", "event"], ["T-X"],
+  ("NO", ""), ("NO", ""), ("NO", "pattern (0,1) carries the charges as a label (L24)"), register=["PR-48"], executable="declared input")
+F("i04", "scalar potential and breaking", [], ["docs/registers/PREMISE_REGISTER_V3.md"],
+  "The scalar sector carries the renormalizable quadratic-plus-quartic Higgs potential, a stable symmetry-breaking branch, and a vacuum attachment",
+  "register row", ["event", "reference state"], ["T-X"], ("NO", ""), ("NO", ""), ("NO", ""), register=["PR-49"], executable="declared input")
+F("i05", "Yukawa lines and matrices", [], ["docs/registers/PREMISE_REGISTER_V3.md"],
+  "The gauge-invariant up, down, and charged-lepton interaction lines are selected on the one-Higgs matter package and furnished with complete Yukawa matrices",
+  "register row", ["event"], ["T-X"], ("NO", ""), ("NO", ""), ("NO", ""), register=["PR-50"], executable="declared input")
+F("i06", "test 1: source operator and complete records", [], [CS],
+  "Bind the actual source operator and accessible current/field records, conserved charges, conjugate channel and complete detector, including failure and boundary compensation.",
+  "confirmation test", ["seam instrument", "accepted records"], ["T-X"],
+  ("SHADOW", "complete records and total load; no conjugate channel"), ("COMP", "", "MT"),
+  ("EXACT", "complete detectors with both branches, Q5, failures retained, one carrier"))
+F("i07", "test 2: populated energy and momentum response in one clock", [], [CS, "repair-law/REQUIREMENTS.md (T6, T10)"],
+  "Calculate the original populated joint spectral response using the operational translation generator and the same clock.",
+  "confirmation test", ["clock", "event", "wiring"], ["T-X", "T-K"],
+  ("NO", "diffusion; CAP coherence contracts"), ("NO", "positions diffuse; the internal factor is static"),
+  ("COMP", "cos ω = λ on one carrier; bands of the family walk", "MV"),
+  register=["PR-43", "PR-53"], requirement=["T6", "T10"])
+F("i08", "test 3: Lorentz spin, chirality, statistics", [], [CS],
+  "Attach physical Lorentz spin, chirality, exchange and current transformations; finite cube labels alone do not establish these.",
+  "confirmation test", ["state space", "transformation between observers"], ["T-X"],
+  ("NO", ""), ("SHADOW", "exact spin lift; symmetric and antisymmetric registers with the exchange sign (MT 2, 3, 6)"), ("NO", ""),
+  register=["PR-47"])
+F("i09", "test 4: interactions and distinct species", [], [CS],
+  "Test the current vertices, distinguish flavors or polarizations, and retain extra modes, compensation and competing assignments.",
+  "confirmation test", ["event"], ["T-X"],
+  ("NO", ""), ("NO", ""),
+  ("SHADOW", "a central link changes a three-step return amplitude by −1/6750; defect and wave respond to each other with 1/120 against 0"))
+F("i10", "test 5: controlled mass observable", [], [CS],
+  "Use the appropriate threshold, resonance or renormalized mass definition and bound volume, cutoff, capacity and numerical errors.",
+  "confirmation test", ["clock", "refinement family"], ["T-X"], ("NO", ""), ("NO", ""), ("NO", ""), requirement=["T10"])
+F("i11", "test 6: units and comparison", [], [CS],
+  "Attach one common unit convention, preserve calibration ancestry and compare complete records with experimental uncertainties.",
+  "confirmation test", ["calibration"], ["T-X"], ("NO", ""), ("NO", ""), ("NO", ""), register=["PR-15"])
+F("i12", "protected sector with write and read interface and a lifetime", [], ["repair-law/audit/ACCEPTANCE.md (T4)"],
+  "Identify the protected classical labels, quantum multiplicities or noiseless dynamics separately, within the stated superselection sector; prove their write/read interface and lifetime.",
+  "audit test", ["memory", "event", "apparatus"], ["T-X"],
+  ("NO", "fixed algebra scalar (CX 7); the doublet survives one event with probability 0.979257 (CX 8)"),
+  ("EXACT", "the internal factor is noiseless under the autonomous law for a flat transport (MT 10); protected M_3 of two spinor quanta (MT 8)"),
+  ("EXACT", "classical labels: Q5 and regional flux parity under a fixed boundary, with executed motion; no protected quantum code"),
+  requirement=["T4"])
+
+
+
+# ---------------------------------------------------------------- marks revised against the reports as of 18:43 (MC, MU, MG, MF final; MT blocks 1 to 4)
+OVERRIDE = {
+    # candidate (ii): framed quanta with port-frame pulses (reports/MF.md section 3)
+    ("a02", "ii"): ("EXACT", "every generator (reference Kraus ⊗ identity, port pulse exp(−iκ N_p ⊗ Π_p), port effect N_p ⊗ Π_p) commutes with N_p ⊗ 1; seam hop probes have no first-order response (MF 8)"),
+    ("a04", "ii"): ("EXACT", "the twelve responses close, and the lifts are words in the same port pulses (MF 8, 9); exact with the tape (MF 16). Level 2 only if the declared port pulses are admitted as source histories (MF section 3)"),
+    ("a05", "ii"): ("EXACT", "complete for the port grammar: one probe per port gives the twelve-dimensional closed algebra {A + B : Tr A = Tr B} (MF 8). Seam-disagreement probes on compressed loads would add a thirteenth direction"),
+    ("a07", "ii"): ("SHADOW", "pulse words reach all 120 lifts in at most three blocks (MF 9) and are apparatus, not overlap paths. On wiring F the rolling transport from level 1 (MG component A) has all 60 rotations as holonomies; no law has produced these paths as accepted records"),
+    ("a08", "ii"): ("EXACT", "U_g = R_g ⊕ u_g as words in the port pulses; U_g Π_p U_g† = Π_{g p} (MF 9)"),
+    ("a09", "ii"): ("EXACT", "the implementers are words in the same pulses (MF 9)"),
+    ("a10", "ii"): ("EXACT", "the pulse words multiply as the binary icosahedral group (MF 9)"),
+    ("a11", "ii"): ("SHADOW", "MG component A: exact under refinement from level 1, not at level 0; declared transport, not joined with the instrument"),
+    ("a12", "ii"): ("SHADOW", "response and implementer are the same recorded pulses; there is no closed overlap path (MF decision 2)"),
+    ("b04", "ii"): ("NO", "port effects span 12 of 13 block-diagonal dimensions (13 with N_p) and are finitely many sharp effects (MF section 3, gate T9)"),
+    ("e01", "ii"): ("NO", "sharp records have null effects on twelve rays: a union of twelve chains; weak effects become null after the first sharp row (MC 11 to 14)"),
+    ("e02", "ii"): ("NO", "see e01"),
+    ("f01", "ii"): ("SHADOW", "declared cap algebra M_{n_C} + C on the code corner (MU block 3)"),
+    ("f04", "ii"): ("NO", "I(A:D|B) = 0.97 nats (tracial code state), 1.66 (Gaussian) for a collar of half-width 5 degrees, the same at N = 162, 642, 2562 (MU 11)"),
+    ("f05", "ii"): ("SHADOW", "holds on the code corner only (MU section 3)"),
+    ("f06", "ii"): ("NO", "a two-dimensional code does not localize (MU 5, section 3)"),
+    ("f07", "ii"): ("SHADOW", "the flow of the tracial code state rotates screen points about the cap axis and preserves every cross-ratio: elliptic (MU 5)"),
+    ("f08", "ii"): ("NO", "a finite code has no unitary boost (MU section 3)"),
+    ("f09", "ii"): ("NO", "the scale is 2η_C and depends on the cap; it equals 2π only at opening 7.0 degrees (MU 5)"),
+    ("g02", "ii"): ("SHADOW", "M²(n) = t² − λ^{2n}|r_0|²: energy conserved, three-momentum factor (55 + √5)/60 per attempt (MU 16, 17)"),
+    ("g03", "ii"): ("EXACT", "rotations by recharting; boosts as the filter action of a declared cap readout with one Kraus operator per outcome, at N = 12 (MU 15, section 3). No unitary boost"),
+    ("g04", "ii"): ("SHADOW", "cap filters act by the aberration formula; the images of ports are not ports (MU 15)"),
+    ("h04", "ii"): ("NO", "see f04"), ("h07", "ii"): ("NO", "see f08, f09"), ("h09", "ii"): ("NO", "see e01"),
+    # candidate (i)
+    ("e01", "i"): ("SHADOW", "one tape is one chain (MC 5). Register population: six signed axis counts modulo Q per carrier, a function of the tape, read as x = Σ m_a u_a: r = 0.1002(15), d_r = 4.00(2), d_m = 3.98(2) in windows (MC 19); the register, the readout and the read law are declared"),
+    ("e02", "i"): ("SHADOW", "stationary sample, uniform on (Z/Q)^6 (MC 19); covering in probability only"),
+    ("e03", "i"): ("NO", "fails as written (MC 21): a density-weighted volume with convergence in probability would be needed; the unbounded sum is not Lorentz invariant (MC 8, 9)"),
+    ("e05", "i"): ("NO", "fails as written (MC 21): the register population is stationary, not the same population at every layer"),
+    ("f01", "i"): ("SHADOW", "declared cap algebra M_{n_C} + C (MU block 3); sector references σ_Q in the reconstruction"),
+    ("f04", "i"): ("NO", "CAP: I(A:D|B) = 0.69 nats at every N (MU 11)"),
+    ("f05", "i"): ("NO", "CAP doublet weight 0.597, 0.487, 0.415, 0.363 along the point sets (MU 8)"),
+    ("f06", "i"): ("NO", "CAP: the image of a port projector is a halo that does not move (MU 8)"),
+    ("f07", "i"): ("NO", "see f06"), ("f08", "i"): ("NO", "see f06"), ("f09", "i"): ("NO", "see f06"),
+    ("g03", "i"): ("SHADOW", "rotations exact; Aut(K_12) = dilations × I_h has no boost; on loads a boost is an approximate automorphism with defect exp(2η) × 2.92/N (MU 3)"),
+    ("g04", "i"): ("NO", ""),
+    ("h04", "i"): ("NO", "see f04"), ("h07", "i"): ("NO", "see f06"),
+    ("h09", "i"): ("SHADOW", "the register population reads four dimensions in windows (MC 19, 20)"),
+    ("a14", "i"): ("SHADOW", "wiring F with the natural tower is covariant and ancestry-exact (reports/S3.md, reports/MG.md); seam algebras, triple-overlap cocycles and the degree-one bridge are not constructed"),
+    ("a14", "ii"): ("SHADOW", "as for (i); chart transports with their spin lifts exist on wiring F (MG 5, 6)"),
+    ("d10", "ii"): ("SHADOW", "chart transports on wiring F exist (MG); no agreement of accepted records between carriers is computed; registers of neighbouring carriers do not agree (MC 16)"),
+    # candidate (iii)
+    ("a11", "iii"): ("COMP", "presentation equivalence holds on the finite frame groupoid (PREMISES.md); chart transport exact under refinement from level 1 exists (MG component A); the walk on that family is MV", "MV"),
+    ("f01", "iii"): ("NO", "not computed for ρ_W"), ("f04", "iii"): ("NO", "not computed for ρ_W"),
+    ("f05", "iii"): ("NO", "not computed for ρ_W"), ("f06", "iii"): ("NO", "not computed for ρ_W"),
+    ("f07", "iii"): ("NO", "not computed for ρ_W"), ("f08", "iii"): ("NO", "not computed for ρ_W"),
+    ("f09", "iii"): ("NO", "not computed for ρ_W; the filter parameter α carries no 2π"),
+    ("g03", "iii"): ("NO", "rotations exact (120 lifts); no boost"), ("g04", "iii"): ("NO", ""),
+    ("h04", "iii"): ("NO", "not computed for ρ_W"), ("h07", "iii"): ("NO", "not computed for ρ_W"),
+}
+for _f in FIELDS:
+    for _c in ("i", "ii", "iii"):
+        _o = OVERRIDE.get((_f["id"], _c))
+        if _o:
+            _d = {"mark": _o[0], "note": _o[1]}
+            if len(_o) > 2:
+                _d["worker"] = _o[2]
+            _f["score"][_c] = _d
+assert all(k[0] in {f["id"] for f in FIELDS} for k in OVERRIDE)
+
+# ---------------------------------------------------------------- toy inhabitants and executable status where not set above
+FIX = "algebraic current fixture on the protected matching code (gauge paper, section 4; code/a5_closure): rank 12, 66 bracket closures, 720 port covariance identities"
+WIL = "finite constructions on the separate Wilson gauge-matter family (model/particle_*), not on the native rule"
+SUPP = {
+    # id: (toy inhabitant in the repository, status for the executable model)
+    "a04": (FIX, ""), "a05": ("none: completeness holds 'over the specified current-control menu' only", ""),
+    "a06": (FIX, ""), "a08": (FIX, ""),
+    "a09": ("exchange response: rotations lie in its connected response group at the effective-algebra level; it closes on 17", ""),
+    "a10": ("none", ""), "a11": ("none", ""), "a12": ("none", ""),
+    "a13": ("OPHSelection.SimpleDims = {3, 8, 10}", "imported mathematics"),
+    "b02": ("none in tree (review L1-4)", ""), "b03": ("none in tree", ""),
+    "b06": ("committedAlgebraicPhaseCompletion: I/2 − (2√3/3) i (QP − PQ)", ""),
+    "b07": ("declared Lüders instrument (Lean/EventAlgebra/LuedersPhaseInstrument.lean); model/finite_instrument_calibration", ""),
+    "b08": ("none", ""), "b09": ("any supplied partition (Lean/EventAlgebra/PublicRecordAlgebra.lean)", ""),
+    "c02": ("NativeBinary.orbitLabel", ""), "c03": ("NativeBinary.fairSwap; NativeRepairFourCycle", ""),
+    "c04": ("NativeRecordFourLaws: E := −log w at (1/2, 1/4, 1/4); ProtectedGaugeCorner: supplied port weights 25:8 (review L5-2, L5-4)", ""),
+    "c05": ("declared families (CofinalSpectralTailFamily, CoherentRefinementFamily)", ""),
+    "c06": ("conditional counting-reference realization (Lean/InformationProjection/SourceReferenceSelection.lean)", ""),
+    "d01": ("", "the carrier supplies the typing"),
+    "d05": ("", "total load is conserved"), "d06": ("", "obstructed (PR-01)"), "d08": ("", "obstructed (PR-01)"),
+    "d09": ("", "obstructed (PR-01): termination fails"),
+    "d10": ("none", "one tape per carrier"), "d11": ("none", "fails at fractional filling; holds in the neutral integer-filling sector (L7)"),
+    "e02": ("", "supplied population (proved for the golden sites)"), "e03": ("", "supplied population"),
+    "e04": ("complete-neighbour reads of the golden population", ""), "e05": ("fixed supplied loads", ""),
+    "e06": ("layerTime with a declared speed", ""), "e07": ("interior diamonds of the golden population", "supplied population"),
+    "e08": ("four-event native execution with zero spatial displacement (Lean/Geometry/NativeRepairSemanticPlacement.lean; review L1-6)", ""),
+    "f01": ("none: the theorem has a proof outline only", "not addressed"),
+    "f02": ("Gibbs references of compiled Hamiltonians (register PR-23)", ""),
+    "f03": ("Gibbs references of compiled Hamiltonians", "native stationary state is tracial: identity modular action"),
+    "f04": ("counterexample_receipt (gravity ladder rung 4)", "not addressed"), "f05": ("none", "not addressed"),
+    "f06": ("none", "not addressed"), "f07": ("none", "not addressed"), "f08": ("none", "not addressed"),
+    "f09": ("kms_profile_receipt, kms_receipt (gravity ladder rung 7)", "not addressed"),
+    "f10": ("model/finite_modular_inclusion: CAR plaquette, leakage at least 23/524288 at t = 1/32", "proved"),
+    "f11": ("supplied field Hamiltonian with its M2 corner (model/particle_clock)", ""),
+    "f13": ("none", ""), "f14": ("finite KMS identity of chosen Gibbs references (register PR-23)", "the reconstructed time is not identified with a physical clock"),
+    "g01": ("the declared module with standardFrame = (1, 0)", "the rank-three readback of port loads"),
+    "g02": ("fourMomentum mass standardFrame = (mass, 0)", "no rest mass: zero own gap in every conserved sector (reports/S4.md)"),
+    "g03": ("instances of OrientedLorentzEquiv in Lean/Geometry/LorentzOverlapCocycle.lean", "not addressed"),
+    "g04": ("none", ""), "g05": ("analytic, not Lean (review L3)", "not addressed"),
+    "h01": ("equal_state_weights certificate", "uniform stationary populations"),
+    "h02": ("optimizer_pushforward_reference: exact nonclosure defect 5/66 outside sufficiency", "not addressed"),
+    "h03": ("countermodels bell_counterexample, identityChannel_closureDefect_eq_zero", "not addressed"),
+    "h04": ("counterexample_receipt", "not addressed"), "h05": ("central_edge_normalization_defect", "not addressed"),
+    "h06": ("passingMaxEntTangent", ""), "h07": ("kms_profile_receipt; fermion_ball_results.json", "not addressed"),
+    "h09": ("countermodel constantRadiusData_fails", ""), "h11": ("countermodel extra_scale_stabilizer_fails", "declared input (PR-15)"),
+    "h12": ("nine-direction determinant 8192/27; twelve-test constant 1 − √5/5 (review L3)", "the twelve port directions exist; no stress readout"),
+    "i01": ("family_band_selected on four typed tuples (review L2 F6)", ""),
+    "i02": ("declared closure map", ""), "i03": ("declared one-doublet grammar (PR-67)", ""),
+    "i04": ("declared quartic packet (PR-68)", ""), "i05": ("declared Yukawa-line coefficient (PR-69)", ""),
+    "i06": (WIL, "native: complete coin and current records"), "i07": (WIL, "native: fail (diffusion, pinned coherence)"),
+    "i08": (WIL, "declared input (PR-47)"), "i09": (WIL, "native: fail"), "i10": (WIL, "none in the stack"),
+    "i11": ("declared SI/GeV conversion", "declared input (PR-15)"),
+    "i12": ("ordered-cover bit, selected spin charge, single-occupancy spin code (MASS_PATHS.md)", "native: scalar fixed algebra"),
+}
+for _f in FIELDS:
+    _t, _e = SUPP.get(_f["id"], ("", ""))
+    if not _f["toy_inhabitant"] and _t:
+        _f["toy_inhabitant"] = _t
+    if not _f["executable_model"] and _e:
+        _f["executable_model"] = _e
+
+# ---------------------------------------------------------------- block 2
+TAPE = OrderedDict([
+    ("source", [RER + "/model/observer/native.py", RER + "/model/native_quantum_reconstruction/PROOF.md",
+                RER + "/model/native_modular_dynamics/PROOF.md", RER + "/model/native_born_bridge", "repair-law/LEADS.md (L16)"]),
+    ("objects", OrderedDict([
+        ("tape", "State(loads, prefix): two letters of the alphabet {0,1} × {−1,0,1}; the controller reads phase and prefix, selects seam (0,1) then (0,5) or (0,1), halts when full; Hilbert dimension 78 × 43 = 3354; each tick is an isometry; committed prefix cylinders are preserved; a reachable coherence between prefixes changes from 1/4 to 1/8"),
+        ("reconstruction", "P = (1/30) Σ_s (I + S_s)/2 on the 66 shell, 2I/3 ≤ P ≤ I, H = −log P; occupation fields and P generate M_66(ℝ); ρ_L = P^L / Tr P^L from scaled counts of closed histories; α_s^L(A) = P^{iLs} A P^{−iLs}; ordered modular correlations as weighted sums of closed-word probabilities with rational error bounds"),
+        ("area_counter", "enclosed area of a closed history modulo 20; the flux-k transfer is the k-th Fourier block of the chain on (configuration, counter)"),
+    ])),
+    ("inhabited_exactly", ["a01", "a02", "b01", "b02", "b03", "b09", "c01", "c02", "c03", "c06", "d01", "d05", "e04", "e08", "g01", "h01"]),
+    ("inhabited_as_reconstruction", ["b05", "f02", "f03", "f11", "f12", "f14"]),
+    ("inhabited_on_the_classical_domain_only", ["b04"]),
+    ("not_inhabited", "every field of family a beyond the carrier module; b06 to b08; c04, c05; d02 to d04, d06 to d08, d10, d11; e01 to e03, e05, e06; f04 to f09, f13; g03; h02 to h11; i02 to i12"),
+    ("limits", ["the reconstruction is not prepared or executed by the source (PROOF.md of both packages)",
+                "the tape is terminating and not confluent: its two letters are random",
+                "the count reconstruction and the walk use the same kernel with two clocks: exp(−H) = P and cos ω = λ"]),
+])
+
+# ---------------------------------------------------------------- block 4
+CONFLICTS = [
+    OrderedDict([("id", "K1"), ("pair", ["c03", "f11", "i07"]), ("verdict", "conflict"), ("status", "EXACT (audit)"),
+                 ("statement", "A unitary step that preserves every load population for every input is diagonal in the load basis: the reference population law for every event and coherent transport of the load coordinate exclude each other on the same coordinates."),
+                 ("resolution", "a separate factor (candidate ii), or the population law for the first blank-record event only (candidate iii)")]),
+    OrderedDict([("id", "K2"), ("pair", ["c03", "d08", "d11", "h10"]), ("verdict", "conflict"), ("status", "EXACT (audit)"),
+                 ("statement", "At total two every configuration has a moving branch with probability at least 2/15 per attempt: the reference history law excludes quiescence of the raw loads."),
+                 ("resolution", "the terminating contract lives on another variable (charts, records) or at integer filling")]),
+    OrderedDict([("id", "K3"), ("pair", ["e05", "memory"]), ("verdict", "conflict"), ("status", "EXACT (audit)"),
+                 ("statement", "A b-bit record has at most 2^b states; the same full population at every layer for unbounded depth needs a growing memory family."),
+                 ("resolution", "state the capacity family, a bounded horizon, or a lossy summary (the area counter is one)")]),
+    OrderedDict([("id", "K4"), ("pair", ["f13", "finite dimension"]), ("verdict", "conflict"), ("status", "EXACT (Lean: image_eq, half_sided_is_two_sided)"),
+                 ("statement", "A finite-dimensional subspace mapped into itself by an invertible map is mapped onto itself: no strict half-sided inclusion at finite level."),
+                 ("resolution", "an approximate statement on a refining family with a topology and errors")]),
+    OrderedDict([("id", "K5"), ("pair", ["d02", "c03"]), ("verdict", "conflict"), ("status", "EXACT (one line)"),
+                 ("statement", "If (lr i x) j = x j for j ≠ i and Σ_j x_j is conserved, then (lr i x) i = x i, so lr i x = x; H2 then forbids any broken seam. With patches = ports and states = loads the bundle H1 to H3 has no inhabitant that conserves the load."),
+                 ("resolution", "consensus is typed on frames, charts or records; conservation on loads")]),
+    OrderedDict([("id", "K6"), ("pair", ["i12", "b04", "b06"]), ("verdict", "conflict"), ("status", "EXACT (audit/PROTECTION_AND_READOUT.md; CX 7, 8)"),
+                 ("statement", "A channel with a faithful invariant state whose history effects span all Hermitian matrices has a scalar fixed algebra."),
+                 ("resolution", "typed event classes (autonomous law against apparatus) or a ProjectivePartition")]),
+    OrderedDict([("id", "K7"), ("pair", ["a02", "b04", "i07"]), ("verdict", "conflict"), ("status", "ARGUED from EXACT parts"),
+                 ("statement", "If the port projections are central, the accessible algebra is block diagonal in ports. Sums of block-diagonal atoms are block diagonal (the argument of no_operationalEffectQuotient_of_offDiagonal_effect, which is stated for diagonal atoms), so the full effect quotient on the port register is excluded and there is no coherence between ports of one carrier. The public walk keeps port coherence and gives up centrality (PREMISES.md)."),
+                 ("resolution", "framed typing: ports classical, Born bridge and response on the internal factor, transport between carriers; or a separate A1 interface for the walk algebra")]),
+    OrderedDict([("id", "K8"), ("pair", ["a07", "a11"]), ("verdict", "conflict for uniform rules and at level 0"), ("status", "EXACT in the enumerated families, levels 0 to 4 (reports/MG.md items 2, 4, 5, 7 and section 3)"),
+                 ("statement", "Among the sixteen uniform transport rules on wirings F and B, rule S commutes with the ancestry and has holonomy group Z3; the six rolling rules reach all 60 rotations and the joint group of fine and ancestral holonomy is A5 × A5; the other nine rules reach A4, Z3 or S3."),
+                 ("resolution", "MG component A: the rolling rule from level 1 is covariant, full and equal to its ancestry image from level 1 (it declares a base level and a 7-bit register per quantum); or implementers from the per-carrier cover controller. At level 0 no covariant transport is full (order at most 12)")]),
+    OrderedDict([("id", "K9"), ("pair", ["d04", "a07"]), ("verdict", "conflict"), ("status", "EXACT in the enumerated families (reports/MG.md section 3: the global chart has holonomy group 1; full transports have curvature at the 30 midpoints of base seams or at every six-valent vertex); reports/QF.md for one carrier"),
+                 ("statement", "H3 on frame labels needs a satisfiable set of seam equations. With one unit of flux per face at most 11 of 30 recharted seam equations hold; full holonomy on the federation means curvature at mesh vertices. Completeness (normal form iff Consistent) fails where G5 holds."),
+                 ("resolution", "contract 1 (agreement of accepted records after transport) or checks on faces and rhombi over amplitudes (frustration-free, MF 1, 2)")]),
+    OrderedDict([("id", "K10"), ("pair", ["c05", "i07", "f14"]), ("verdict", "conflict under one clock"), ("status", "ARGUED"),
+                 ("statement", "UniformGapRefinement asks one gap and one cardinality bound for every member. A spatial family with a dispersive band in the same energy has neither."),
+                 ("resolution", "index the refinement family by carriers of fixed size, or use a different energy for the third law")]),
+    OrderedDict([("id", "K11"), ("pair", ["f14", "candidate iii"]), ("verdict", "conflict for the declared filter"), ("status", "EXACT (PROOF.md formula; CX 11)"),
+                 ("statement", "ρ_W = [(5/4)I + (W + W*)/2]/524 has modular generator −log(5/4 + cos ω) + const, even in ω; the walk generator is odd. Modular time is not walk time."),
+                 ("resolution", "a filter p(W) with |p(e^{iω})|² ∝ exp(−βω) on the spectrum of W (twelve distinct eigenvalues on one carrier)")]),
+    OrderedDict([("id", "K12"), ("pair", ["h01", "c03", "i12"]), ("verdict", "conflict"), ("status", "EXACT (reports/MT.md item 10, T1); ARGUED for noiseless subsystems of seam laws on one load (reports/CX.md 8)"),
+                 ("statement", "Under lumping onto an irreducible chain no noiseless subspace of dimension two lies in the load register."),
+                 ("resolution", "the protected factor is a separate register")]),
+]
+
+APPARENT = [
+    OrderedDict([("id", "A1"), ("pair", ["family d", "family c"]),
+                 ("statement", "Termination (d) and perpetual resampling (c) are two contracts. The Lean Einstein composition consumes d through BareConsensusTower on a quotient that the setup chooses; it need not be the raw loads.")]),
+    OrderedDict([("id", "A2"), ("pair", ["b04", "b09"]),
+                 ("statement", "The full effect quotient and central records apply to different domains: partitionOperationallyEquivalent_iff_pinching_eq gives the operational quotient relative to a partition, and the Born bridge is then asked per block.")]),
+    OrderedDict([("id", "A3"), ("pair", ["e01 to e06", "Loewner route"]),
+                 ("statement", "N1 to N6 (points in a Euclidean window, order from reads, layer clock) and a population in Herm(2) with the Loewner order (M1 to M4 of reports/MC.md) are alternative routes to N7.")]),
+    OrderedDict([("id", "A4"), ("pair", ["f11 by −log P", "f11 by W"]),
+                 ("statement", "The count reconstruction (exp(−H) = P) and the walk (cos ω = λ) are two clocks on one kernel. No theorem consumes both.")]),
+    OrderedDict([("id", "A5"), ("pair", ["T-G finite route", "Tannaka route"]),
+                 ("statement", "The gauge paper keeps the two routes with separate premise sets.")]),
+    OrderedDict([("id", "A6"), ("pair", ["family g", "family e"]),
+                 ("statement", "The mass-shell identities need a Herm2-valued record and nothing from the count limit.")]),
+]
+
+JOINT = OrderedDict([
+    ("one_carrier_join_of_i_and_iii", OrderedDict([
+        ("typing", "two registers: classical loads with tape and area counter (i); walk, fibre and link registers (iii). They share the native kernel as discriminant, cos ω = λ, and the population law for the first blank-record event (K1)."),
+        ("inhabited_together", ["a01", "a07", "a08", "a09", "a10", "a12", "b01", "b02", "b03", "b06", "b07", "b08", "b09",
+                                "c01", "c02", "c03", "c06", "d05", "d10", "e04", "e08", "f02", "f03", "g01", "h01", "i06", "i12"]),
+        ("lean_bundles_inhabited", [
+            "compact_product_dimensions_of_projective_holonomy: hbridge and hnatural by the executed cover controller with the declared response D(v) = i Σ_p v_p X_p; the numerals dz = 1, m = {3, 8} are read off the image s(u(3)+u(2)). By exact executable checks, not by a Lean term.",
+            "fourLaws_composed on the 66 shell: RepairLawData with the uniform reference and the orbit label, kernel fairSwap = heatBath; CalibrationData with constant energy; a one-member RefinementAttachment. The thermal clauses are empty.",
+            "empty_fiber_no_reachable_normalForm on the 66 shell with B = total load and C = configurations with equal loads on every seam: hobs, hcomplete and hempty hold; the conclusion is the nontermination of the committed rule."]),
+        ("lean_bundles_not_inhabited", ["OperationalEffectQuotient (b04)", "H1 to H4 with a conserved load (K5)",
+                                        "the population of GoldenSourceCausalLimit", "ContinuumEinsteinPremises",
+                                        "EinsteinAdmissibleTower", "UniformGapRefinement beyond one member"]),
+    ])),
+])
+
+# ---------------------------------------------------------------- block 5
+PATH = [
+    OrderedDict([("rank", 1), ("name", "refining family with a refinement map"),
+                 ("fields", ["a11", "a14", "c05", "e02", "e03", "e06", "f04", "f05", "h02", "h09", "i07", "i10"]),
+                 ("consumers", ["T-G", "T-4L", "T-N", "T-M", "T-E", "T-X"]),
+                 ("minimal_object", "the chart transport exists: wiring F (natural tower) with MG component A is covariant, full and exact under refinement from level 1. Missing: the walk W on this family, a coarse map c with ‖c W_s − W_r c‖ ≤ ε_r and ε_r → 0 (exact intertwining of the generators fails for label-retaining ancestry: relative squared residual 1/133, reports/S3.md), and a law that writes the closed paths as accepted records."),
+                 ("owner", "MV"), ("status", "frame rule done (MG); walk open")]),
+    OrderedDict([("rank", 2), ("name", "one clock"),
+                 ("fields", ["f14", "c04", "f09", "f11", "f12"]),
+                 ("consumers", ["T-M", "T-E", "T-4L", "T-X"]),
+                 ("minimal_object", "a heralded filter K = p(W) of degree at most 11 with |p(e^{iω})|² ∝ exp(−βω) on the twelve distinct eigenvalues of W (+1, −1 and five conjugate pairs with cos ω = 11/12 ± √5/60, 9/10, 5/6, 14/15). Then −log ρ = βH + c with W = exp(−iH): the modular flow of the prepared reference is the walk. β is declared; the 2π comparison (f09) is separate. ARGUED by interpolation on the spectrum stated in PROOF.md; not computed."),
+                 ("owner", "audit (heralded reference), MU"), ("status", "ARGUED")]),
+    OrderedDict([("rank", 3), ("name", "a population of records in 1+3 that persists and is frame covariant"),
+                 ("fields", ["e01", "e03", "e05", "g02", "g03", "h09"]),
+                 ("consumers", ["T-N", "T-E", "T-K", "T-X"]),
+                 ("minimal_object", "MC partial candidate: a register per carrier of six signed axis counts modulo Q (30 bits at Q = 32), a function of the tape, read as x = Σ m_a u_a: stationary and four-dimensional in windows (4.00(2)). The theorem then needs N5 weakened to a stationary covering sample and N3 to a density-weighted volume (MC 21); agreement between carriers fails (MC 16)."),
+                 ("owner", "MC"), ("status", "partial candidate; needs a decision on N3 and N5")]),
+    OrderedDict([("rank", 4), ("name", "complete response quotient with central ports"),
+                 ("fields", ["a02", "a03", "a05", "a06", "h03"]),
+                 ("consumers", ["T-G", "T-B", "T-E"]),
+                 ("minimal_object", "accessible algebra ℓ^∞(ports) ⊗ (M_3 ⊕ M_2) with the response Π_p/12 and port pulses of MF (items 8, 9, 16): central ports, twelve independent closed responses, complete for the port grammar, implementers as pulse words. For the join the walk fibre has to be typed this way; port coherence of the walk is then outside the public algebra (K7): a decision."),
+                 ("owner", "MT"), ("status", "supplied for framed quanta with declared pulses (MF); open for the join")]),
+    OrderedDict([("rank", 5), ("name", "geometric cap flow and boosts"),
+                 ("fields", ["f01", "f04", "f05", "f06", "f07", "f08", "f09", "f13", "g03", "g04", "g05", "h04", "h07"]),
+                 ("consumers", ["T-M", "T-E", "T-K"]),
+                 ("minimal_object", "obstructed for one-quantum code states: H4, H6, H8, H9 fail (reports/MU.md section 3). Remaining object: a many-quanta state with exclusion and a Fermi level in the section space, whose edge packets follow hyperbolic flows (MU 12), and a law whose stationary state it is. Kinematics alone: boosts as cap filters on the spinor factor are exact at N = 12."),
+                 ("owner", "MU"), ("status", "obstruction for one quantum; half-filled state open")]),
+    OrderedDict([("rank", 6), ("name", "terminating confluent contract on a typed variable"),
+                 ("fields", ["d02", "d03", "d04", "d06", "d07", "d08", "d09", "d11", "h10"]),
+                 ("consumers", ["T-C", "T-E"]),
+                 ("minimal_object", "recharting of the cover controller: Q = 120 charts × code states, r = one generator step that lowers the word distance, B = the code state transported to the base chart, C = base-chart states. ObservationPreserving, CompleteFor and BoundaryIdentifiesModulo follow from the exact group checks. On the federation only on flat regions (K9)."),
+                 ("owner", "MA"), ("status", "ARGUED")]),
+    OrderedDict([("rank", 7), ("name", "bracket from ordered histories"),
+                 ("fields", ["a04"]), ("consumers", ["T-G"]),
+                 ("minimal_object", "for framed quanta the lifts are two-pulse words in the port pulses and the algebra closes (MF 8, 9); the audit controller has its fifth-turn lifts as two-pulse words of area 4π/5 (MF 10). Missing: a law that admits the port pulses as source histories (MF decision 2)."),
+                 ("owner", "MF"), ("status", "table level done; ownership open")]),
+    OrderedDict([("rank", 8), ("name", "effect domain"),
+                 ("fields", ["b04"]), ("consumers", ["T-B"]),
+                 ("minimal_object", "a dense version of OperationalEffectQuotient (the Lean docstring asks for it) and the covariant port measurement {|χ_p^±⟩⟨χ_p^±|/12} with the position as dilation, refined along the family."),
+                 ("owner", "MT"), ("status", "open")]),
+    OrderedDict([("rank", 9), ("name", "protected moving excitation with a lifetime"),
+                 ("fields", ["i07", "i12"]), ("consumers", ["T-X"]),
+                 ("minimal_object", "in the joint defect-wave program: a lower bound on the return amplitude of a wave bound to a regional flux after t ticks."),
+                 ("owner", "audit"), ("status", "open")]),
+    OrderedDict([("rank", 10), ("name", "stress, geometry, scale and the declared mass inputs"),
+                 ("fields", ["h05", "h06", "h08", "h11", "h12", "i01", "i02", "i03", "i04", "i05", "i08", "i09", "i10", "i11"]),
+                 ("consumers", ["T-E", "T-X"]),
+                 ("minimal_object", "none proposed"), ("owner", ""), ("status", "open")]),
+]
+
+
+def main():
+    listed = set(TAPE["inhabited_exactly"]) | set(TAPE["inhabited_as_reconstruction"]) | set(TAPE["inhabited_on_the_classical_domain_only"])
+    for f in FIELDS:
+        if not f["committed_source_tape_reconstruction"]:
+            if f["id"] in TAPE["inhabited_exactly"]:
+                f["committed_source_tape_reconstruction"] = "inhabited exactly (see the score of candidate i)"
+            elif f["id"] in listed:
+                f["committed_source_tape_reconstruction"] = "inhabited as a reconstruction or on the classical domain only"
+            elif not f["scored"]:
+                f["committed_source_tape_reconstruction"] = "no obligation"
+            else:
+                f["committed_source_tape_reconstruction"] = "not inhabited"
+    ids = [f["id"] for f in FIELDS]
+    assert len(ids) == len(set(ids)), "duplicate field id"
+    known = set(ids)
+    for row in PATH:
+        for x in row["fields"]:
+            assert x in known, x
+    for x in TAPE["inhabited_exactly"] + TAPE["inhabited_as_reconstruction"] + TAPE["inhabited_on_the_classical_domain_only"]:
+        assert x in known, x
+    for x in JOINT["one_carrier_join_of_i_and_iii"]["inhabited_together"]:
+        assert x in known, x
+    for f in FIELDS:
+        for t in f["consumed_by"]:
+            assert t in THEOREMS, (f["id"], t)
+        for c in ("i", "ii", "iii"):
+            m = f["score"][c]
+            assert m["mark"] in MARKS, (f["id"], c, m)
+            if m["mark"] == "COMP":
+                assert m.get("worker"), (f["id"], c)
+
+    order = {"EXACT": 3, "SHADOW": 2, "COMP": 1, "NO": 0}
+    fams = OrderedDict((k, v["family"]) for k, v in THEOREMS.items())
+    tall = OrderedDict()
+    for cand in ("i", "ii", "iii", "join_i_iii", "join_all"):
+        per = OrderedDict()
+        for fam in "abcdefghi":
+            c = Counter()
+            for f in FIELDS:
+                if not f["scored"] or f["family"] != fam:
+                    continue
+                if cand == "join_i_iii":
+                    mi, mj = f["score"]["i"]["mark"], f["score"]["iii"]["mark"]
+                    m = mi if order[mi] >= order[mj] else mj
+                elif cand == "join_all":
+                    m = max((f["score"][c]["mark"] for c in ("i", "ii", "iii")), key=lambda k: order[k])
+                else:
+                    m = f["score"][cand]["mark"]
+                c[m] += 1
+            per[fam] = OrderedDict((k, c.get(k, 0)) for k in MARKS)
+        tot = Counter()
+        for v in per.values():
+            tot.update(v)
+        per["all"] = OrderedDict((k, tot.get(k, 0)) for k in MARKS)
+        tall[cand] = per
+    scored = sum(1 for f in FIELDS if f["scored"])
+
+    consumers = Counter()
+    for f in FIELDS:
+        if f["scored"]:
+            for t in f["consumed_by"]:
+                consumers[t] += 1
+    open_join = [f["id"] for f in FIELDS if f["scored"] and
+                 max(order[f["score"]["i"]["mark"]], order[f["score"]["iii"]["mark"]]) < 3]
+    in_path = set(x for row in PATH for x in row["fields"])
+    not_in_path = [x for x in open_join if x not in in_path]
+
+    spec = OrderedDict([
+        ("schema", "repair-law.QL.spec.v1"),
+        ("date", "2026-11-10"),
+        ("worker", "QL (simulation session)"),
+        ("sources_read_only", [RER + " at 2d5a9d1c0 plus uncommitted model/coherent_seam_repair and model/coherent_defect_wave",
+                               "repair-law/reports as of 2026-11-10 18:43 (+07): MC, MF, MG, MU (final), MT (blocks 1 to 4), QF, CX, CA, MW (interim)"]),
+        ("marks", MARKS),
+        ("theorems", THEOREMS),
+        ("candidates", CANDIDATES),
+        ("fields", FIELDS),
+        ("committed_source_tape_and_reconstruction", TAPE),
+        ("compatibility", OrderedDict([("conflicts", CONFLICTS), ("apparent_conflicts", APPARENT), ("joint_inhabitation", JOINT)])),
+        ("shortest_path", PATH),
+        ("tallies", OrderedDict([("fields_total", len(FIELDS)), ("fields_scored", scored), ("by_candidate", tall),
+                                 ("scored_fields_per_theorem", OrderedDict((k, consumers.get(k, 0)) for k in THEOREMS)),
+                                 ("open_for_join_i_iii", open_join), ("open_fields_outside_the_path", not_in_path)])),
+    ])
+    out = HERE / "spec.json"
+    out.write_text(json.dumps(spec, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+
+    print("fields", len(FIELDS), "scored", scored)
+    for cand, per in tall.items():
+        print(cand, dict(per["all"]))
+    print("per family (EXACT of scored): i, ii, iii, join_i_iii, join_all")
+    for fam in "abcdefghi":
+        n = sum(tall["i"][fam].values())
+        print(" ", fam, n, [tall[c][fam]["EXACT"] for c in ("i", "ii", "iii", "join_i_iii", "join_all")])
+    only_ii = [f["id"] for f in FIELDS if f["scored"] and f["score"]["ii"]["mark"] == "EXACT"
+               and f["score"]["i"]["mark"] != "EXACT" and f["score"]["iii"]["mark"] != "EXACT"]
+    print("EXACT in (ii) only:", only_ii)
+    print("open for the join:", len(open_join), "outside the path:", not_in_path)
+    print("scored fields per theorem:", dict(consumers))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -1,0 +1,662 @@
+{
+ "task": "LP direction 3: stationary states and the vacuum on the hexagon",
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "FP, holonomy +1": {
+  "sectors (states)": {
+   "hard-core": 30,
+   "cycle": 18,
+   "idle": 36
+  },
+  "S1 sectors closed under the walk": {
+   "hard-core": true,
+   "cycle": true,
+   "idle": true
+  },
+  "D symmetric": true,
+  "S2 fixed vectors of D (eigenvalue 1)": {
+   "hard-core": 2,
+   "cycle": 1
+  },
+  "spectrum of D by sector (MEASURED)": {
+   "hard-core": {
+    "largest eigenvalue": 1.0,
+    "smallest eigenvalue": 0.396994335208,
+    "distinct eigenvalues": [
+     0.396994335,
+     0.536537266,
+     0.583333333,
+     0.666666667,
+     0.75,
+     0.769672331,
+     0.833333333,
+     0.880129401,
+     0.916666667,
+     1.0
+    ]
+   },
+   "cycle": {
+    "largest eigenvalue": 1.0,
+    "smallest eigenvalue": 0.5,
+    "distinct eigenvalues": [
+     0.5,
+     0.529520724,
+     0.605662433,
+     0.666666667,
+     0.833333333,
+     0.894337567,
+     0.970479276,
+     1.0
+    ]
+   }
+  },
+  "S4 lowest value of A = 1 - lambda_max by sector (MEASURED)": {
+   "hard-core": 0.0,
+   "cycle": 0.0
+  },
+  "S4 kernel of A on the blank-source cyclic subspace": {
+   "hard-core": 1,
+   "cycle": 1,
+   "total": 2
+  },
+  "blank-record weight on the fixed space, range (MEASURED)": {
+   "hard-core": [
+    0.0,
+    1.0
+   ],
+   "cycle": [
+    0.333333333333,
+    0.333333333333
+   ]
+  },
+  "double-load weight on the fixed space of the cycle sector": {
+   "range (MEASURED)": [
+    0.333333333333,
+    0.333333333333
+   ],
+   "equal to 1/3 on the whole space (EXACT)": true
+  },
+  "fixed vectors, description": {
+   "uniform blank distinct-port state is fixed": true,
+   "staggered record-1 distinct-port state is fixed": true,
+   "cycle fixed vector: equal magnitude on all 18 states": true,
+   "cycle fixed vector: signs": [
+    "+"
+   ]
+  },
+  "S3 eigenvalue +1 of W on the cycle sector": {
+   "dimension of the sector": 216,
+   "reflector vectors (eigenvalue -1 of Q)": 24,
+   "uniform-address part (fixed vectors of D)": 1,
+   "part in the kernel of A^dag (EXACT count)": 7,
+   "dimension (EXACT count)": 8,
+   "dimension from the float spectrum of W": 8,
+   "eigenvalue -1, float count": 174,
+   "unitary (float defect)": 2.220446049250313e-16,
+   "double-load weight 1/2 on every reflector vector (EXACT)": true,
+   "double-load weight on the eigenvalue +1 space, range (MEASURED)": [
+    0.3333333333,
+    0.5
+   ],
+   "tick-1 double-load weight 2/3 lies in the range": false
+  },
+  "hard-core sector: eigenvalue +1 of W": {
+   "uniform-address part (fixed vectors of D)": 2,
+   "part in the kernel of A^dag (address not uniform)": 20,
+   "lowest <A> of a blank-record, uniform-address distinct-port state (MEASURED)": 0.0
+  },
+  "S5 weight of U6 on the fixed space of the cycle sector": "1/3",
+  "S5 cycle vacuum": {
+   "weights": {
+    "double": "1/3",
+    "in-dimer": "1/3",
+    "C": "1/3",
+    "forward (FN record)": "1/6",
+    "backward (FN record)": "1/6"
+   },
+   "p_F = C/2": "1/6",
+   "p_I": "1/3",
+   "count of two copies X = p_F + p_I - 2 p_F p_I": "7/18",
+   "blank-record part is the uniform double load (equal magnitudes)": true,
+   "weight of the blank-record part": "1/3"
+  },
+  "S5 bare double loads": {
+   "<U6|D|U6>": "2/3",
+   "<S|D|S>": "2/3",
+   "<A> = 1 - <D>": "1/3",
+   "spectral weights of U6 on D (MEASURED)": {
+    "0.5": 0.666666666667,
+    "1.0": 0.333333333333
+   },
+   "spectral weights of S on D (MEASURED)": {
+    "0.5": 0.222222222222,
+    "0.529520724": 0.344491118252,
+    "0.605662433": 0.131445855766,
+    "0.894337567": 0.035220810901,
+    "0.970479276": 0.155508881748,
+    "1.0": 0.111111111111
+   }
+  },
+  "S7 public reference rho_W, weight by sector": {
+   "hard-core": "23/54",
+   "cycle": "13/54",
+   "idle": "1/3"
+  },
+  "S7 as floats": {
+   "hard-core": 0.425926,
+   "cycle": 0.240741,
+   "idle": 0.333333
+  },
+  "tracial weight by sector": {
+   "hard-core": "5/14",
+   "cycle": "3/14",
+   "idle": "3/7"
+  },
+  "S8 iterated filter K+ = (2 I + W)/3 on the 21 blank preparations": {
+   "limit weight kept, hard-core preparations (EXACT)": "1",
+   "limit weight kept, double-load preparations (EXACT)": "1/3",
+   "limit of the conditional weight of the cycle sector (EXACT)": "1/4",
+   "conditional weight of the cycle sector after n filters (MEASURED)": {
+    "0": 0.285714286,
+    "1": 0.278787879,
+    "10": 0.237178027,
+    "100": 0.322817413,
+    "1000": 0.250000643,
+    "10000": 0.25
+   }
+  }
+ },
+ "FP, holonomy -1": {
+  "sectors (states)": {
+   "hard-core": 30,
+   "cycle": 18,
+   "idle": 36
+  },
+  "S1 sectors closed under the walk": {
+   "hard-core": true,
+   "cycle": true,
+   "idle": true
+  },
+  "D symmetric": true,
+  "S2 fixed vectors of D (eigenvalue 1)": {
+   "hard-core": 0,
+   "cycle": 1
+  },
+  "spectrum of D by sector (MEASURED)": {
+   "hard-core": {
+    "largest eigenvalue": 0.964835052775,
+    "smallest eigenvalue": 0.434742643957,
+    "distinct eigenvalues": [
+     0.434742644,
+     0.563661002,
+     0.63214887,
+     0.666666667,
+     0.76708897,
+     0.833333333,
+     0.86785113,
+     0.936338998,
+     0.964835053
+    ]
+   },
+   "cycle": {
+    "largest eigenvalue": 1.0,
+    "smallest eigenvalue": 0.5,
+    "distinct eigenvalues": [
+     0.5,
+     0.529520724,
+     0.605662433,
+     0.666666667,
+     0.833333333,
+     0.894337567,
+     0.970479276,
+     1.0
+    ]
+   }
+  },
+  "S4 lowest value of A = 1 - lambda_max by sector (MEASURED)": {
+   "hard-core": 0.035164947225,
+   "cycle": 0.0
+  },
+  "S4 kernel of A on the blank-source cyclic subspace": {
+   "hard-core": 0,
+   "cycle": 1,
+   "total": 1
+  },
+  "blank-record weight on the fixed space, range (MEASURED)": {
+   "hard-core": null,
+   "cycle": [
+    0.333333333333,
+    0.333333333333
+   ]
+  },
+  "double-load weight on the fixed space of the cycle sector": {
+   "range (MEASURED)": [
+    0.333333333333,
+    0.333333333333
+   ],
+   "equal to 1/3 on the whole space (EXACT)": true
+  },
+  "fixed vectors, description": {
+   "cycle fixed vector: equal magnitude on all 18 states": true,
+   "cycle fixed vector: signs": [
+    "+",
+    "-"
+   ]
+  },
+  "S3 eigenvalue +1 of W on the cycle sector": {
+   "dimension of the sector": 216,
+   "reflector vectors (eigenvalue -1 of Q)": 24,
+   "uniform-address part (fixed vectors of D)": 1,
+   "part in the kernel of A^dag (EXACT count)": 7,
+   "dimension (EXACT count)": 8,
+   "dimension from the float spectrum of W": 8,
+   "eigenvalue -1, float count": 174,
+   "unitary (float defect)": 2.220446049250313e-16,
+   "double-load weight 1/2 on every reflector vector (EXACT)": true,
+   "double-load weight on the eigenvalue +1 space, range (MEASURED)": [
+    0.3333333333,
+    0.5
+   ],
+   "tick-1 double-load weight 2/3 lies in the range": false
+  },
+  "hard-core sector: eigenvalue +1 of W": {
+   "uniform-address part (fixed vectors of D)": 0,
+   "part in the kernel of A^dag (address not uniform)": 18,
+   "lowest <A> of a blank-record, uniform-address distinct-port state (MEASURED)": 0.035164947225
+  },
+  "S5 weight of U6 on the fixed space of the cycle sector": "1/3",
+  "S5 cycle vacuum": {
+   "weights": {
+    "double": "1/3",
+    "in-dimer": "1/3",
+    "C": "1/3",
+    "forward (FN record)": "1/6",
+    "backward (FN record)": "1/6"
+   },
+   "p_F = C/2": "1/6",
+   "p_I": "1/3",
+   "count of two copies X = p_F + p_I - 2 p_F p_I": "7/18",
+   "blank-record part is the uniform double load (equal magnitudes)": true,
+   "weight of the blank-record part": "1/3"
+  },
+  "S5 bare double loads": {
+   "<U6|D|U6>": "2/3",
+   "<S|D|S>": "2/3",
+   "<A> = 1 - <D>": "1/3",
+   "spectral weights of U6 on D (MEASURED)": {
+    "0.5": 0.666666666667,
+    "1.0": 0.333333333333
+   },
+   "spectral weights of S on D (MEASURED)": {
+    "0.5": 0.222222222222,
+    "0.529520724": 0.344491118252,
+    "0.605662433": 0.131445855766,
+    "0.894337567": 0.035220810901,
+    "0.970479276": 0.155508881748,
+    "1.0": 0.111111111111
+   }
+  },
+  "S7 public reference rho_W, weight by sector": {
+   "hard-core": "23/54",
+   "cycle": "13/54",
+   "idle": "1/3"
+  },
+  "S7 as floats": {
+   "hard-core": 0.425926,
+   "cycle": 0.240741,
+   "idle": 0.333333
+  },
+  "tracial weight by sector": {
+   "hard-core": "5/14",
+   "cycle": "3/14",
+   "idle": "3/7"
+  },
+  "S8 iterated filter K+ = (2 I + W)/3 on the 21 blank preparations": {
+   "limit weight kept, hard-core preparations (EXACT)": "0",
+   "limit weight kept, double-load preparations (EXACT)": "1/3",
+   "limit of the conditional weight of the cycle sector (EXACT)": "1",
+   "conditional weight of the cycle sector after n filters (MEASURED)": {
+    "0": 0.285714286,
+    "1": 0.278787879,
+    "10": 0.237184109,
+    "100": 0.513806785,
+    "1000": 0.999999135,
+    "10000": 1.0
+   }
+  }
+ },
+ "FN, holonomy +1": {
+  "sectors (states)": {
+   "hard-core": 30,
+   "cycle": 18,
+   "idle": 36
+  },
+  "S1 sectors closed under the walk": {
+   "hard-core": true,
+   "cycle": true,
+   "idle": true
+  },
+  "D symmetric": true,
+  "S2 fixed vectors of D (eigenvalue 1)": {
+   "hard-core": 8,
+   "cycle": 6
+  },
+  "spectrum of D by sector (MEASURED)": {
+   "hard-core": {
+    "largest eigenvalue": 1.0,
+    "smallest eigenvalue": 0.073074531199,
+    "distinct eigenvalues": [
+     0.073074531,
+     0.188966956,
+     0.701792647,
+     0.760258802,
+     0.833333333,
+     0.94257373,
+     1.0
+    ]
+   },
+   "cycle": {
+    "largest eigenvalue": 1.0,
+    "smallest eigenvalue": 0.5,
+    "distinct eigenvalues": [
+     0.5,
+     0.833333333,
+     1.0
+    ]
+   }
+  },
+  "S4 lowest value of A = 1 - lambda_max by sector (MEASURED)": {
+   "hard-core": 0.0,
+   "cycle": 0.0
+  },
+  "S4 kernel of A on the blank-source cyclic subspace": {
+   "hard-core": 7,
+   "cycle": 6,
+   "total": 13
+  },
+  "blank-record weight on the fixed space, range (MEASURED)": {
+   "hard-core": [
+    0.0,
+    1.0
+   ],
+   "cycle": [
+    0.333333333333,
+    0.333333333333
+   ]
+  },
+  "double-load weight on the fixed space of the cycle sector": {
+   "range (MEASURED)": [
+    0.333333333333,
+    0.333333333333
+   ],
+   "equal to 1/3 on the whole space (EXACT)": true
+  },
+  "fixed vectors, description": {},
+  "S3 eigenvalue +1 of W on the cycle sector": {
+   "dimension of the sector": 216,
+   "reflector vectors (eigenvalue -1 of Q)": 24,
+   "uniform-address part (fixed vectors of D)": 6,
+   "part in the kernel of A^dag (EXACT count)": 12,
+   "dimension (EXACT count)": 18,
+   "dimension from the float spectrum of W": 18,
+   "eigenvalue -1, float count": 174,
+   "unitary (float defect)": 2.220446049250313e-16,
+   "double-load weight 1/2 on every reflector vector (EXACT)": true,
+   "double-load weight on the eigenvalue +1 space, range (MEASURED)": [
+    0.3333333333,
+    0.5
+   ],
+   "tick-1 double-load weight 2/3 lies in the range": false
+  },
+  "hard-core sector: eigenvalue +1 of W": {
+   "uniform-address part (fixed vectors of D)": 8,
+   "part in the kernel of A^dag (address not uniform)": 26,
+   "lowest <A> of a blank-record, uniform-address distinct-port state (MEASURED)": 0.0
+  },
+  "S5 weight of U6 on the fixed space of the cycle sector": "1/3",
+  "S5 cycle vacuum": {
+   "weights": {
+    "double": "1/3",
+    "in-dimer": "1/3",
+    "C": "1/3",
+    "forward (FN record)": "1/6",
+    "backward (FN record)": "1/6"
+   },
+   "p_F = C/2": "1/6",
+   "p_I": "1/3",
+   "count of two copies X = p_F + p_I - 2 p_F p_I": "7/18",
+   "blank-record part is the uniform double load (equal magnitudes)": true,
+   "weight of the blank-record part": "1/3"
+  },
+  "S5 bare double loads": {
+   "<U6|D|U6>": "2/3",
+   "<S|D|S>": "2/3",
+   "<A> = 1 - <D>": "1/3",
+   "spectral weights of U6 on D (MEASURED)": {
+    "0.5": 0.666666666667,
+    "1.0": 0.333333333333
+   },
+   "spectral weights of S on D (MEASURED)": {
+    "0.5": 0.666666666667,
+    "1.0": 0.333333333333
+   }
+  },
+  "S7 public reference rho_W, weight by sector": {
+   "hard-core": "23/54",
+   "cycle": "13/54",
+   "idle": "1/3"
+  },
+  "S7 as floats": {
+   "hard-core": 0.425926,
+   "cycle": 0.240741,
+   "idle": 0.333333
+  },
+  "tracial weight by sector": {
+   "hard-core": "5/14",
+   "cycle": "3/14",
+   "idle": "3/7"
+  },
+  "S8 iterated filter K+ = (2 I + W)/3 on the 21 blank preparations": {
+   "limit weight kept, hard-core preparations (EXACT)": "4",
+   "limit weight kept, double-load preparations (EXACT)": "2",
+   "limit of the conditional weight of the cycle sector (EXACT)": "1/3",
+   "conditional weight of the cycle sector after n filters (MEASURED)": {
+    "0": 0.285714286,
+    "1": 0.278787879,
+    "10": 0.23027555,
+    "100": 0.325091843,
+    "1000": 0.333333333,
+    "10000": 0.333333333
+   }
+  }
+ },
+ "FN, holonomy -1": {
+  "sectors (states)": {
+   "hard-core": 30,
+   "cycle": 18,
+   "idle": 36
+  },
+  "S1 sectors closed under the walk": {
+   "hard-core": true,
+   "cycle": true,
+   "idle": true
+  },
+  "D symmetric": true,
+  "S2 fixed vectors of D (eigenvalue 1)": {
+   "hard-core": 6,
+   "cycle": 6
+  },
+  "spectrum of D by sector (MEASURED)": {
+   "hard-core": {
+    "largest eigenvalue": 1.0,
+    "smallest eigenvalue": 0.107690702428,
+    "distinct eigenvalues": [
+     0.107690702,
+     0.239741198,
+     0.666666667,
+     0.74607534,
+     0.833333333,
+     0.926925469,
+     0.979567291,
+     1.0
+    ]
+   },
+   "cycle": {
+    "largest eigenvalue": 1.0,
+    "smallest eigenvalue": 0.5,
+    "distinct eigenvalues": [
+     0.5,
+     0.833333333,
+     1.0
+    ]
+   }
+  },
+  "S4 lowest value of A = 1 - lambda_max by sector (MEASURED)": {
+   "hard-core": 0.0,
+   "cycle": 0.0
+  },
+  "S4 kernel of A on the blank-source cyclic subspace": {
+   "hard-core": 6,
+   "cycle": 6,
+   "total": 12
+  },
+  "blank-record weight on the fixed space, range (MEASURED)": {
+   "hard-core": [
+    0.5,
+    0.5
+   ],
+   "cycle": [
+    0.333333333333,
+    0.333333333333
+   ]
+  },
+  "double-load weight on the fixed space of the cycle sector": {
+   "range (MEASURED)": [
+    0.333333333333,
+    0.333333333333
+   ],
+   "equal to 1/3 on the whole space (EXACT)": true
+  },
+  "fixed vectors, description": {},
+  "S3 eigenvalue +1 of W on the cycle sector": {
+   "dimension of the sector": 216,
+   "reflector vectors (eigenvalue -1 of Q)": 24,
+   "uniform-address part (fixed vectors of D)": 6,
+   "part in the kernel of A^dag (EXACT count)": 12,
+   "dimension (EXACT count)": 18,
+   "dimension from the float spectrum of W": 18,
+   "eigenvalue -1, float count": 174,
+   "unitary (float defect)": 2.220446049250313e-16,
+   "double-load weight 1/2 on every reflector vector (EXACT)": true,
+   "double-load weight on the eigenvalue +1 space, range (MEASURED)": [
+    0.3333333333,
+    0.5
+   ],
+   "tick-1 double-load weight 2/3 lies in the range": false
+  },
+  "hard-core sector: eigenvalue +1 of W": {
+   "uniform-address part (fixed vectors of D)": 6,
+   "part in the kernel of A^dag (address not uniform)": 24,
+   "lowest <A> of a blank-record, uniform-address distinct-port state (MEASURED)": 0.035164947225
+  },
+  "S5 weight of U6 on the fixed space of the cycle sector": "1/3",
+  "S5 cycle vacuum": {
+   "weights": {
+    "double": "1/3",
+    "in-dimer": "1/3",
+    "C": "1/3",
+    "forward (FN record)": "1/6",
+    "backward (FN record)": "1/6"
+   },
+   "p_F = C/2": "1/6",
+   "p_I": "1/3",
+   "count of two copies X = p_F + p_I - 2 p_F p_I": "7/18",
+   "blank-record part is the uniform double load (equal magnitudes)": true,
+   "weight of the blank-record part": "1/3"
+  },
+  "S5 bare double loads": {
+   "<U6|D|U6>": "2/3",
+   "<S|D|S>": "2/3",
+   "<A> = 1 - <D>": "1/3",
+   "spectral weights of U6 on D (MEASURED)": {
+    "0.5": 0.666666666667,
+    "1.0": 0.333333333333
+   },
+   "spectral weights of S on D (MEASURED)": {
+    "0.5": 0.666666666667,
+    "1.0": 0.333333333333
+   }
+  },
+  "S7 public reference rho_W, weight by sector": {
+   "hard-core": "23/54",
+   "cycle": "13/54",
+   "idle": "1/3"
+  },
+  "S7 as floats": {
+   "hard-core": 0.425926,
+   "cycle": 0.240741,
+   "idle": 0.333333
+  },
+  "tracial weight by sector": {
+   "hard-core": "5/14",
+   "cycle": "3/14",
+   "idle": "3/7"
+  },
+  "S8 iterated filter K+ = (2 I + W)/3 on the 21 blank preparations": {
+   "limit weight kept, hard-core preparations (EXACT)": "3",
+   "limit weight kept, double-load preparations (EXACT)": "2",
+   "limit of the conditional weight of the cycle sector (EXACT)": "2/5",
+   "conditional weight of the cycle sector after n filters (MEASURED)": {
+    "0": 0.285714286,
+    "1": 0.278787879,
+    "10": 0.230282775,
+    "100": 0.342382378,
+    "1000": 0.399982535,
+    "10000": 0.4
+   }
+  }
+ },
+ "FP, holonomy -1, sign on each of the six seams: fixed vectors": {
+  "0": {
+   "hard-core": 0,
+   "cycle": 1
+  },
+  "1": {
+   "hard-core": 0,
+   "cycle": 1
+  },
+  "2": {
+   "hard-core": 0,
+   "cycle": 1
+  },
+  "3": {
+   "hard-core": 0,
+   "cycle": 1
+  },
+  "4": {
+   "hard-core": 0,
+   "cycle": 1
+  },
+  "5": {
+   "hard-core": 0,
+   "cycle": 1
+  }
+ },
+ "S6 committed pump": {
+  "column sums": [
+   "1"
+  ],
+  "transition weight from distinct ports into a double load": "0",
+  "double load stays with weight": [
+   "2/3"
+  ],
+  "stationary weight of the double loads": "0 (no inflow, outflow 1/3 per attempt)"
+ },
+ "seconds": 1.93
+}

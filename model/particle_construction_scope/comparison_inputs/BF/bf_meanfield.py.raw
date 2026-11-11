@@ -1,0 +1,215 @@
+"""BF section C (G1, G2) and addendum rows P1, P2, P3: the regime of the register at g^2 = 0.77354.
+
+G1  harmonic lattice estimate of the electric flux per link in the full register.
+G2  variational product state on the cubic lattice, link state a class function, for the menus M1..M4 and a
+    reference menu (all sectors with Casimir below a cut). Energy per link
+    e = (g^2/2)<C> + beta_F (1 - sum_B d_B u_B^4 / N_F), u_B = <Re chi_B>/d_B. Iteration psi <- ground state of
+    h[u] = (g^2/2) C - (4 beta_F/N_F) sum_B u_B^3 Re chi_B; the energy e never rises along it (the interaction is
+    concave in u). Starts: uniform u = 0.95 and the top state of Re chi_F on the menu; the lower energy is kept and
+    compared with the confined product state (all links in the vacuum sector, e = beta_F).
+P1  single open plaquette, exact on loop states.
+P2  plaquette-equivalent coupling bound of a menu.
+P3  strong-coupling ratios at the cell coupling.
+The mean-field threshold scan G4 is in bf_threshold.py. Writes bf_meanfield.json.
+"""
+import json
+import sys
+import time
+
+import mpmath as mp
+import numpy as np
+import scipy.sparse as sps
+import scipy.sparse.linalg as spl
+
+import bf_lib as L
+
+t0 = time.time()
+g2 = L.G2
+PLAQ = {'5': (L.BLOCKS5, 10.0, 5), '15': (L.BLOCKS15, 7.5, 15)}     # blocks, beta_F g^2, N_F
+# stiffness weights w_{a,B} = tr_B(T_a^2) of one generator of factor a in block B (block order as in PLAQ)
+WEIGHT = {'5': {'SU3': [0.5, 0.0], 'SU2': [0.0, 0.5], 'U1': [0.2, 0.3]},
+          '15': {'SU3': [0.5, 1.0, 0.0, 0.0, 0.5], 'SU2': [0.0, 1.5, 0.0, 0.5, 0.0], 'U1': [0.8, 0.1, 0.6, 0.3, 0.2]}}
+
+
+def mean_frequency():
+    mp.mp.dps = 25
+    f = lambda t: t ** mp.mpf(-1.5) * (1 - (mp.exp(-2 * t) * mp.besseli(0, 2 * t)) ** 3)
+    return float(mp.quad(f, [0, 0.5, 2, 10, 50, 200, 1000, mp.inf]) / (2 * mp.sqrt(mp.pi)))
+
+
+def ground(H, v0=None):
+    n = H.shape[0]
+    if n <= 600:
+        w, v = np.linalg.eigh(H.toarray())
+        return w[0], v[:, 0]
+    w, v = spl.eigsh(H, k=1, which='SA', tol=1e-11, v0=v0)
+    return w[0], v[:, 0]
+
+
+class Link:
+    def __init__(self, sec, F):
+        self.sec = sec
+        self.blocks, self.bg, self.NF = PLAQ[F]
+        self.idx, self.ops = L.class_ops(sec, self.blocks)
+        self.C = np.array([L.casimir(r) for r in sec])
+        self.d = np.array([L.dim(B) for B in self.blocks], float)
+        self.F = F
+
+    def u_of(self, psi):
+        return np.array([psi @ (A @ psi) for A in self.ops]) / self.d
+
+    def energy(self, psi, g2):
+        u = self.u_of(psi)
+        return g2 / 2 * float(psi ** 2 @ self.C) + (self.bg / g2) * (1 - float(self.d @ u ** 4) / self.NF)
+
+    def top_state(self):
+        A = sum(self.ops)
+        if A.shape[0] <= 600:
+            w, v = np.linalg.eigh(A.toarray())
+            return v[:, -1]
+        return spl.eigsh(A, k=1, which='LA')[1][:, 0]
+
+    def descend(self, g2, psi=None, u=None, tol=1e-10, itmax=3000):
+        beta = self.bg / g2
+        if psi is not None:
+            u = self.u_of(psi)
+        e_old = None
+        for it in range(itmax):
+            H = sps.diags(g2 / 2 * self.C) - (4 * beta / self.NF) * sum(ui ** 3 * A for ui, A in zip(u, self.ops))
+            _, psi = ground(H.tocsr(), v0=psi)
+            un = self.u_of(psi)
+            e = self.energy(psi, g2)
+            if e_old is not None and abs(e_old - e) < tol and np.max(np.abs(un - u)) < 1e-7:
+                u = un
+                break
+            u, e_old = un, e
+        return {'psi': psi, 'u': u, 'energy_per_link': e, 'iterations': it + 1}
+
+    def solve(self, g2):
+        a = self.descend(g2, u=np.full(len(self.blocks), 0.95))
+        ts = self.top_state()
+        b = self.descend(g2, psi=ts * np.sign(ts.sum()))
+        best = a if a['energy_per_link'] <= b['energy_per_link'] else b
+        best['energy_from_uniform_start'] = a['energy_per_link']
+        best['energy_from_top_state_start'] = b['energy_per_link']
+        best['confined_energy_per_link'] = self.bg / g2
+        return best
+
+    def summary(self, res):
+        u = res['u']; p = res['psi'] ** 2
+        parts = np.array([[float(x) for x in L.casimir_parts(r)] for r in self.sec])
+        Z = {a: float(np.dot(w, u ** 4) / sum(w)) for a, w in WEIGHT[self.F].items()}
+        wins = bool(res['energy_per_link'] < res['confined_energy_per_link'] - 1e-9 and u.max() > 1e-4)
+        return {'u_per_block': {str(B): float(x) if x > 1e-12 else 0.0 for B, x in zip(self.blocks, u)},
+                'energy_per_link': res['energy_per_link'], 'confined_energy_per_link': res['confined_energy_per_link'],
+                'energy_from_uniform_start': res['energy_from_uniform_start'],
+                'energy_from_top_state_start': res['energy_from_top_state_start'],
+                'product_state_with_u_above_zero_wins': wins,
+                'colour_blocks_ordered': bool(Z['SU3'] > 1e-12),
+                'mean_Casimir (SU3, SU2, U1, total)': [float(p @ parts[:, 0]), float(p @ parts[:, 1]),
+                                                      float(p @ parts[:, 2]), float(p @ self.C)],
+                'weight_on_vacuum_sector': float(p[self.idx[L.VAC]]),
+                'stiffness_Z_per_factor': Z, 'sqrt_Z_per_factor': {a: float(np.sqrt(z)) for a, z in Z.items()},
+                'product_state_plaquette': float(self.d @ u ** 4 / self.NF), 'iterations': res['iterations']}
+
+
+if __name__ == '__main__':
+    out = {}
+    om = mean_frequency()
+    wH = om / 3
+    e2 = om / (3 * g2)
+    out['G1_harmonic_full_register'] = {
+        'mean_lattice_frequency': om, 'plaquette_fluctuation_w_H': wH, 'g2': g2, 'electric_flux_per_direction': e2,
+        'mean_Casimir_per_link': {'SU3 (8 directions)': 8 * e2, 'SU2 (3 directions)': 3 * e2, 'U1': e2, 'total': 12 * e2},
+        'rms_6Y_per_link': float(np.sqrt(60 * e2)),
+        'one_loop_plaquette_deficit': {'F=5: 0.6 g^2 w_H': 0.6 * g2 * wH, 'F=15: 0.8 g^2 w_H': 0.8 * g2 * wH}}
+    print('G1', out['G1_harmonic_full_register'], flush=True)
+    MEN = L.menus(4)
+    g2rows, ref_keep = {}, {}
+    for F in ('5', '15'):
+        for cc in (30.0, 45.0, 60.0):
+            lk = Link(L.reference_menu(cc), F)
+            r = lk.descend(g2, u=np.full(len(lk.blocks), 0.95), itmax=300)
+            r['energy_from_uniform_start'] = r['energy_per_link']; r['energy_from_top_state_start'] = None
+            r['confined_energy_per_link'] = lk.bg / g2
+            s = lk.summary(r)
+            s['sectors'] = len(lk.sec)
+            s['weight_of_reference_link_vacuum_inside'] = {
+                f'M{n}': float(sum(r['psi'][lk.idx[x]] ** 2 for x in MEN[n] if x in lk.idx)) for n in (1, 2, 3, 4)}
+            s['weight_above_0.8_of_the_cut'] = float(sum(r['psi'] ** 2 * (lk.C > 0.8 * cc)))
+            g2rows[f'F={F}, reference C<={cc:g}'] = s
+            ref_keep[F] = s
+            print(f'G2 F={F} ref C<={cc:g}', json.dumps(s), round(time.time() - t0, 1), 's', flush=True)
+        for n in (1, 2, 3, 4):
+            lk = Link(sorted(MEN[n]), F)
+            s = lk.summary(lk.solve(g2))
+            g2rows[f'F={F}, M{n}'] = s
+            print(f'G2 F={F} M{n}', json.dumps(s), round(time.time() - t0, 1), 's', flush=True)
+    out['G2_mean_field_at_cell_coupling'] = g2rows
+    out['G3_rule'] = {f'F={F}': {f'M{n}': {'weight_of_reference_link_vacuum_inside': ref_keep[F]['weight_of_reference_link_vacuum_inside'][f'M{n}'],
+                                            'loop_expansion_applies (weight >= 0.99)':
+                                                bool(ref_keep[F]['weight_of_reference_link_vacuum_inside'][f'M{n}'] >= 0.99)}
+                                  for n in (1, 2, 3, 4)} for F in ('5', '15')}
+    # menu correction of section E (mean-field rule)
+    corr = {}
+    for F in ('5', '15'):
+        ref = ref_keep[F]
+        for n in (1, 2, 3, 4):
+            s = g2rows[f'F={F}, M{n}']
+            row = {}
+            for a in ('SU3', 'SU2', 'U1'):
+                zM = s['sqrt_Z_per_factor'][a] if s['product_state_with_u_above_zero_wins'] else 0.0
+                row[a] = L.INV_ALPHA_BARE * (zM - ref['sqrt_Z_per_factor'][a])
+            state = 'confined (u = 0)' if not s['product_state_with_u_above_zero_wins'] else (
+                'u > 0 on all blocks' if s['colour_blocks_ordered'] else 'u > 0 on colourless blocks only')
+            corr[f'F={F}, M{n}'] = {'delta_inv_alpha (SU3, SU2, U1)': row, 'mean_field_state': state}
+    out['E_menu_correction_mean_field_rule'] = corr
+    print('menu correction', json.dumps(corr), flush=True)
+
+    # P1: single open plaquette, exact
+    p1 = {}
+    for F in ('5', '15'):
+        blocks, bg, NF = PLAQ[F]
+        beta = bg / g2
+        secs = {f'M{n}': sorted(MEN[n]) for n in (1, 2, 3, 4)}
+        secs['reference C<=45'] = L.reference_menu(45.0)
+        for name, sec in secs.items():
+            idx, ops = L.class_ops(sec, blocks)
+            C = np.array([L.casimir(r) for r in sec])
+            A = sum(ops)
+            H = (sps.diags(2 * g2 * C + beta) - (beta / NF) * A).tocsr()
+            e0, psi = ground(H)
+            p1[f'F={F}, {name}'] = {'ground_energy': float(e0), 'plaquette_value': float(psi @ (A @ psi) / NF),
+                                    'mean_Casimir_per_link': float(psi ** 2 @ C), 'weight_on_vacuum': float(psi[idx[L.VAC]] ** 2)}
+            print('P1', F, name, p1[f'F={F}, {name}'], flush=True)
+    out['P1_single_open_plaquette_exact'] = p1
+
+    # P2: plaquette-equivalent coupling bound
+    reg = json.load(open('bf_register.json'))['R4_largest_mean_link']
+    p2 = {}
+    for F, kF in (('5', 0.6 * wH), ('15', 0.8 * wH)):
+        for n in (1, 2, 3, 4):
+            lam = reg[f'F={F}, M{n}']['Re chi_F / N_F']
+            glin = (1 - lam) / kF
+            gexp = -np.log(lam) / kF
+            p2[f'F={F}, M{n}'] = {'largest_one_plaquette_value': lam,
+                                  'full_register_one_loop_value_at_cell': 1 - kF * g2,
+                                  'full_register_exponential_form_at_cell': float(np.exp(-kF * g2)),
+                                  'g_P^2 linear form': glin, 'inv_alpha_P linear form (upper bound)': 4 * np.pi / glin,
+                                  'g_P^2 exponential form': gexp, 'inv_alpha_P exponential form': 4 * np.pi / gexp,
+                                  'menu_can_hold_the_one_loop_plaquette_of_the_full_register': bool(lam >= 1 - kF * g2)}
+            print('P2', F, f'M{n}', p2[f'F={F}, M{n}'], flush=True)
+    out['P2_plaquette_equivalent_coupling'] = p2
+
+    # P3: strong-coupling ratios
+    p3 = {}
+    for F in ('5', '15'):
+        blocks, bg, NF = PLAQ[F]
+        amp = (bg / g2) / NF / 2          # |<loop_B| beta_F (1 - Re tr/N_F) |0>| per orientation
+        for B in blocks:
+            cost = 2 * g2 * L.casimir(B)
+            p3[f'F={F}, loop {B}'] = {'amplitude': amp, 'electric_cost_of_the_loop': cost, 'ratio': amp / cost}
+    out['P3_strong_coupling_ratios'] = p3
+    print('P3', json.dumps(p3), flush=True)
+    json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 'bf_meanfield.json', 'w'), indent=1, default=L.jsonable)
+    print('seconds', round(time.time() - t0, 1))

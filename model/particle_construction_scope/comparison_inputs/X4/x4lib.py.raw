@@ -1,0 +1,108 @@
+"""Common exact objects of worker X4 (three generations).
+
+Exact arithmetic over Q(sqrt5, i) through the library of worker KD, imported by path and unchanged
+(`RL/work/KD/kdlib.py`). Nothing here is a dynamics.
+
+Run from RER:
+  cd RER && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:RL/work/KD:RL/work/X4 nice -n 10 /tmp/oph-completion-venv/bin/python RL/work/X4/<script> [out.json]
+"""
+import json
+import os
+from fractions import Fraction as F
+from functools import lru_cache
+
+import kdlib as kd
+from kdlib import K, ZERO, ONE, PHI
+from model.common_source import slow_geometry
+
+RL = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+HERE = os.path.dirname(os.path.abspath(__file__))
+IDP = tuple(range(12))
+
+
+def gal_vec(v):
+    return tuple(x.gal() for x in v)
+
+
+def dot(a, b):
+    return kd.vdot(a, b)
+
+
+def cos2(a, b):
+    """Exact squared cosine of the angle between two vectors over Q(sqrt5)."""
+    return dot(a, b) * dot(a, b) / (dot(a, a) * dot(b, b))
+
+
+def fl(x):
+    return float(x)
+
+
+def kstr(x):
+    """Readable exact form a + b sqrt5 of a real element."""
+    assert x.is_real()
+    a, b = x.a, x.b
+    if b == 0:
+        return str(a)
+    if a == 0:
+        return f'({b})*sqrt5'
+    return f'{a} + ({b})*sqrt5'
+
+
+@lru_cache(maxsize=1)
+def geometry():
+    car = kd.carrier()
+    V, seams, rots = car['V'], car['seams'], car['rotations']
+    faces = tuple(tuple(int(v) for v in f) for f in slow_geometry.source().oriented_faces())
+    frames = kd.frames()
+    comp = kd.compose
+    antipode = {p: next(q for q in range(12) if all((a + b).is_zero() for a, b in zip(V[p], V[q]))) for p in range(12)}
+    # stabilizers
+    port_axes = sorted({tuple(sorted((p, antipode[p]))) for p in range(12)})                     # 6 five-fold axes
+    port_groups = {ax: tuple(g for g in rots if g[ax[0]] == ax[0]) for ax in port_axes}
+    assert all(len(g) == 5 for g in port_groups.values())
+    face_sets = [frozenset(f) for f in faces]
+    face_axes, seen = [], set()
+    for f in faces:
+        opp = frozenset(antipode[p] for p in f)
+        key = frozenset((frozenset(f), opp))
+        if key in seen:
+            continue
+        seen.add(key)
+        face_axes.append(f)
+    assert len(face_axes) == 10 and all(frozenset(antipode[p] for p in f) in face_sets for f in face_axes)
+    face_groups = {f: tuple(g for g in rots if frozenset(g[p] for p in f) == frozenset(f)) for f in face_axes}
+    assert all(len(g) == 3 for g in face_groups.values())
+    klein = []
+    for fr in frames:
+        grp = (IDP,) + tuple(h['perm'] for h in fr['half_turns'])
+        match = set(fr['matching'])
+        normalizer = tuple(g for g in rots if {tuple(sorted((g[a], g[b]))) for a, b in match} == match)
+        assert len(normalizer) == 12
+        klein.append({'group': grp, 'normalizer': normalizer, 'axes': tuple(h['axis'] for h in fr['half_turns']),
+                      'matching': fr['matching'], 'half_turns': fr['half_turns']})
+    return {'V': V, 'seams': seams, 'rotations': rots, 'faces': faces, 'frames': klein, 'antipode': antipode,
+            'port_axes': port_axes, 'port_groups': port_groups, 'face_axes': face_axes, 'face_groups': face_groups}
+
+
+def face_vector(f, V):
+    return kd.vadd(kd.vadd(V[f[0]], V[f[1]]), V[f[2]])
+
+
+def rot3(perm, conj=False):
+    """Exact 3x3 matrix of a rotation on the port-frame triplet (conj=False) or the conjugate triplet (conj=True)."""
+    R = kd.rotation_matrix(perm)
+    return tuple(tuple(x.gal() for x in row) for row in R) if conj else R
+
+
+def dump(obj, path):
+    def default(o):
+        if isinstance(o, K):
+            return kstr(o) if o.is_real() else repr(o)
+        if isinstance(o, F):
+            return str(o)
+        try:
+            return float(o)
+        except Exception:
+            return str(o)
+    with open(path, 'w') as fh:
+        json.dump(obj, fh, indent=1, default=default)

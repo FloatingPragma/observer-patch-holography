@@ -57,6 +57,33 @@ joins. Gravity and pure Yang–Mills have separate source requirements.
 
 ## Physical preparation and reference selection
 
+The [charged-cluster min–max estimate](../../model/native_charged_cluster_minmax/PROOF.md)
+retains the original orthogonal-cube completion `c=21/2` and its actual
+neutral energy. Its rank-two gap and reference-subtracted transition follow
+from the literal free projector, reducing native complement and rational
+Schur bounds. The `c=23/2` rank-eight measurement construction is a separate
+choice. This finite spectral shortcut requires no change of Hamiltonian;
+its mass unit, physical spin and continuum attachment are distinct premises.
+
+The [complete lepton-cycle apparatus](../../model/lepton_cycle/PROOF.md)
+supplies explicit finite preparation, retained outcome maps and fresh-state
+reset. Independent blank cells and coherent preparation/kick services are
+architecture inputs. Marginal flag counts alone do not determine their
+joint phase: the permitted exclusive probability ranges from `1/12` to
+`1/4`, while independence gives `2/9`. Finite-round half-diamond bounds apply
+to the complete channels and arbitrary untouched references. A marginal
+preparation error without independence from those references does not
+supply the same guarantee.
+
+The [native closed-cell population](../../model/native_abundance_epochs/PROOF.md)
+is a separate classical source. Its exact persistence and relaxation are
+proved on its stated geometry and complete attempted-event clock. The
+[conjugation constraint](../../model/charge_conjugation_dynamics/PROOF.md)
+rules out a nonzero mean odd class imbalance under the specified symmetric
+preparation and dynamics. A physical matter asymmetry needs a particle
+dictionary and a symmetry-breaking mechanism or preparation; asymmetric
+postselection alone does not supply it.
+
 For the fixed chiral source, all gauge sectors of the physical carrier enter
 the ground comparison. A cyclic subspace reached from one seed is not by
 itself a global-ground proof. The full local and lattice bounds, the

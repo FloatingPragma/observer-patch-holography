@@ -1,0 +1,406 @@
+"""Block 1: two quanta under the public rule (total-two sector of one carrier).
+
+State space: 78 load configurations x 4 record values x 60 oriented seam addresses = 18,720.
+W = Q R, Q = sum_k U_k x |k><k| with the public 24-dimensional local involution on the addressed seam, R = 2AA* - 1.
+Exact integer arithmetic for the operators, the discriminant, its characteristic polynomials and the population laws;
+float64 for eigenvectors (defects printed).
+"""
+import json
+import math
+import sys
+import time
+from fractions import Fraction as F
+
+import flint
+import numpy as np
+import scipy.sparse as sp
+
+import mplib as M
+
+t0 = time.time()
+out = {}
+
+
+def say(*a):
+    print(*a)
+    sys.stdout.flush()
+
+
+# ------------------------------------------------------------------------------------------------ operators
+T = M.two_quanta_T()                 # T_k = 2 U_k, integers
+Td = M.two_quanta_T_direct()
+assert all(np.array_equal(x, y) for x, y in zip(T, Td))
+I312 = np.eye(312, dtype=np.int64)
+assert all(np.array_equal(x, x.T) and np.array_equal(x @ x, 4 * I312) for x in T)
+out['local'] = {'public_matrix_embedding_equals_three_rows': True, 'U_k_symmetric_involution_all_60': True,
+                'trace_U_k': sorted(set(int(np.trace(x)) // 2 for x in T))}
+say('U_k: 60 symmetric involutions on 312 dimensions, trace', out['local']['trace_U_k'])
+
+# exact unitarity of W = Q R on 18,720 dimensions: (60 W)^T (60 W) = 3600 I with 60 W = (2Q)(30R)
+Q2 = sp.block_diag([sp.csr_matrix(x) for x in T], format='csr')            # address-major order (k, s)
+# work in address-major order: index k * 312 + s
+R30 = sp.kron(sp.csr_matrix(np.ones((60, 60), dtype=np.int64) - 30 * np.eye(60, dtype=np.int64)), sp.identity(312, dtype=np.int64, format='csr'), format='csr')
+W60 = (Q2 @ R30).tocsr()
+G = (W60.T @ W60).tocsr()
+G.eliminate_zeros()
+ok_unitary = (G - 3600 * sp.identity(312 * 60, dtype=np.int64)).count_nonzero() == 0
+G2 = (W60 @ W60.T).tocsr()
+ok_unitary2 = (G2 - 3600 * sp.identity(312 * 60, dtype=np.int64)).count_nonzero() == 0
+trW = F(int(W60.diagonal().sum()), 60)
+out['walk'] = {'dimension': 312 * 60, 'W_real_orthogonal_exact': bool(ok_unitary and ok_unitary2), 'nonzeros_of_W': int(W60.count_nonzero()),
+               'trace_W': str(trW), 'entries_denominator_divides': 60}
+say('W: dimension', 312 * 60, 'orthogonal exactly:', ok_unitary and ok_unitary2, 'nnz', W60.count_nonzero(), 'trace', trW)
+assert ok_unitary and ok_unitary2
+
+# ------------------------------------------------------------------------------------------------ discriminant
+S = sum(T)                            # 120 D, integer, D = A* Q A
+assert np.array_equal(S, S.T)
+rec = lambda r: [4 * c + r for c in range(78)]
+bin0 = [4 * c for c in range(66)]
+bin1 = [4 * c + 1 for c in range(66)]
+dbl0 = [4 * c for c in range(66, 78)]
+adj = [M.CIDX[c] for c in M.ADJPAIR]
+pair = dbl0 + [4 * c + 2 for c in adj] + [4 * c + 3 for c in adj]
+idle = sorted(set(range(312)) - set(bin0) - set(bin1) - set(pair))
+sectors = {'binary_blank': bin0, 'binary_record1': bin1, 'pair(double blank + adjacent pair with split record)': pair, 'idle': idle}
+names = list(sectors)
+cross = {}
+for i, a in enumerate(names):
+    for b in names[i + 1:]:
+        cross[a + ' | ' + b] = int(np.abs(S[np.ix_(sectors[a], sectors[b])]).sum())
+assert all(v == 0 for v in cross.values())
+assert np.array_equal(S[np.ix_(idle, idle)], 120 * np.eye(len(idle), dtype=np.int64))
+K = M.native_kernel()
+Kbin = np.array([[int(K[i][j] * 120) for j in range(66)] for i in range(66)], dtype=np.int64)
+blank = rec(0)
+D00 = S[np.ix_(blank, blank)]
+eq_binary = np.array_equal(D00[:66, :66], Kbin)
+dbl_diag = sorted(set(int(D00[i, i]) for i in range(66, 78)))
+dbl_off = int(np.abs(D00[66:, :]).sum() - np.abs(np.diag(D00)[66:]).sum())
+native_dbl_diag = sorted(set(str(K[i][i]) for i in range(66, 78)))
+native_dbl_to_pair = sorted(set(str(K[i][j]) for j in range(66, 78) for i in range(66) if K[i][j] != 0))
+native_pair_to_dbl = sorted(set(str(K[i][j]) for j in range(66) for i in range(66, 78)))
+split_entries = sorted(set(int(x) for x in S[np.ix_(dbl0, [4 * c + 2 for c in adj] + [4 * c + 3 for c in adj])].ravel()))
+out['discriminant'] = {
+    'size': 312, 'invariant_sectors': {k: len(v) for k, v in sectors.items()}, 'cross_sector_entries_all_zero': True,
+    'blank_block_on_66_binary_equals_native_kernel': bool(eq_binary),
+    'blank_block_double_diagonal': [str(F(x, 120)) for x in dbl_diag], 'native_double_diagonal': native_dbl_diag,
+    'blank_block_double_offdiagonal_sum': dbl_off,
+    'native_double_to_adjacent_pair': native_dbl_to_pair, 'native_pair_to_double': native_pair_to_dbl,
+    'discriminant_double_blank_to_adjacent_pair_record_2_or_3': [str(F(x, 120)) for x in split_entries],
+    'statement': 'A*QA restricted to the blank record equals the native kernel on the 66 binary configurations and has the native '
+                 'diagonal 5/6 on the 12 double loads; the native transient entries double -> pair (1/30 each) are not in the blank '
+                 'block: they are the amplitudes 1/60 to the split records 2 and 3. Same spectrum as the native kernel (triangular), different matrix.'}
+say('discriminant: sectors', out['discriminant']['invariant_sectors'], '| blank binary block = native kernel:', eq_binary,
+    '| double diagonal', out['discriminant']['blank_block_double_diagonal'], 'native', native_dbl_diag, '| native double->pair', native_dbl_to_pair)
+assert eq_binary and dbl_off == 0
+
+
+def exact_levels(idx, label):
+    """Characteristic polynomial of the integer block S[idx, idx] (= 120 D), factored over Q."""
+    A = flint.fmpz_mat([[int(S[i, j]) for j in idx] for i in idx])
+    cp = A.charpoly()
+    content, facs = cp.factor()
+    rows = []
+    for p, e in facs:
+        co = [int(c) for c in p.coeffs()]
+        deg = len(co) - 1
+        roots = np.roots(co[::-1]) / 120
+        assert np.allclose(roots.imag, 0, atol=1e-9)
+        roots = sorted(roots.real, reverse=True)
+        if deg == 1:
+            ex = [str(F(-co[0], 120 * co[1]))]
+        elif deg == 2:
+            a, b, c = co[2], co[1], co[0]
+            disc = b * b - 4 * a * c
+            sq = 1
+            d = disc
+            q = 2
+            while q * q <= d:
+                while d % (q * q) == 0:
+                    d //= q * q
+                    sq *= q
+                q += 1
+            ex = [f'{F(-b, 240 * a)} +- {F(sq, 240 * a)}*sqrt({d})']
+        else:
+            ex = ['roots of ' + ' + '.join(f'{c}*x^{i}' for i, c in enumerate(co) if c) + ' (x = 120 lambda)']
+        rows.append({'degree': deg, 'multiplicity': int(e), 'exact': ex, 'lambda': [float(r) for r in roots],
+                     'omega': [float(math.acos(max(-1, min(1, r)))) for r in roots]})
+    rows.sort(key=lambda r: -r['lambda'][0])
+    return rows
+
+
+def labelled(idx, action_cfg, rec_of):
+    """Float levels of D on a sector with icosahedral labels. action on index: config permutation, record kept."""
+    Dm = S[np.ix_(idx, idx)] / 120.0
+    pos = {v: i for i, v in enumerate(idx)}
+
+    def action(g):
+        a = M.conf_action(g)
+        return np.array([pos[4 * a[v // 4] + v % 4] for v in idx])
+    return M.label_levels(Dm, action)
+
+
+spec = {}
+for name in names[:3]:
+    ex = exact_levels(sectors[name], name)
+    lv = labelled(sectors[name], None, None)
+    spec[name] = {'exact_factors': ex, 'levels': [{'lambda': l, 'omega': math.acos(max(-1.0, min(1.0, l))), 'dim': d, 'irreps': ir} for l, d, ir in lv[::-1]]}
+    say(f'\n== sector {name}: dimension {len(sectors[name])}')
+    for row in spec[name]['levels']:
+        say(f"   lambda {row['lambda']:.9f}  omega {row['omega']:.6f}  dim {row['dim']:2d}  {row['irreps']}")
+    say('   exact factors of the characteristic polynomial:')
+    for r in ex:
+        say(f"     degree {r['degree']} x{r['multiplicity']}: {r['exact'][0]}  ->  {[round(x, 9) for x in r['lambda']]}")
+out['spectrum'] = spec
+
+# the pair sector in closed form: lambda = 9/10 +- sqrt(1/225 + mu), mu eigenvalue of (5 + Adjacency)/1800
+mu = np.linalg.eigvalsh((5 * np.eye(12) + M.ADJ) / 1800.0)
+pred = sorted([0.9 + s * math.sqrt(1 / 225 + m) for m in mu for s in (1, -1)] + [29 / 30] * 48)
+got = sorted(np.linalg.eigvalsh(S[np.ix_(pair, pair)] / 120.0))
+out['pair_sector_closed_form'] = {'formula': 'lambda = 9/10 +- sqrt(1/225 + mu), mu in spec((5 I + Adjacency)/1800), and 29/30 with multiplicity 48',
+                                  'max_defect': float(np.max(np.abs(np.array(pred) - np.array(got))))}
+say('\npair sector closed form defect', out['pair_sector_closed_form']['max_defect'])
+
+# multiplicities of the full walk from the two-reflection structure
+evD = np.linalg.eigvalsh(S / 120.0)
+n1 = int(np.sum(np.abs(evD - 1) < 1e-9))
+nm1 = int(np.sum(np.abs(evD + 1) < 1e-9))
+nint = 312 - n1 - nm1
+rankQminus = sum(int(round((312 - np.trace(x) / 2) / 2)) for x in T)
+out['walk']['spectrum_count'] = {'discriminant_eigenvalue_1': n1, 'discriminant_eigenvalue_-1': nm1, 'interior': nint,
+                                 'rank_of_Q_minus': rankQminus, 'plus_one': n1 + rankQminus - nint - nm1,
+                                 'minus_one': (312 * 60 - 312) - rankQminus + 2 * nm1, 'oscillatory': 2 * nint,
+                                 'trace_check': str(F(n1 + rankQminus - nint - nm1) - ((312 * 60 - 312) - rankQminus + 2 * nm1) + 2 * (F(int(np.trace(S)), 120) - n1 + nm1))}
+say('walk spectrum count:', out['walk']['spectrum_count'])
+assert F(out['walk']['spectrum_count']['trace_check']) == trW
+
+# ------------------------------------------------------------------------------------------------ first-step population law
+A0 = np.zeros((78, 78), dtype=object)
+for ci in range(78):
+    for cj in range(78):
+        A0[ci, cj] = F(0)
+for k in range(60):
+    Tk = T[k]
+    for cj in range(78):
+        col = Tk[:, 4 * cj]
+        nz = np.nonzero(col)[0]
+        for i in nz:
+            A0[i // 4, cj] += F(int(col[i]) ** 2, 240)
+first_ok = all(A0[i, j] == K[i][j] for i in range(78) for j in range(78))
+out['first_step'] = {'population_after_one_step_from_A|c,blank>_equals_native_kernel_all_78x78': bool(first_ok),
+                     'double_load_stay': str(A0[66, 66]), 'double_load_leave': str(1 - A0[66, 66]),
+                     'double_load_to_each_adjacent_pair': sorted(set(str(A0[i, 66]) for i in range(66) if A0[i, 66] != 0))}
+say('\nfirst step population law equals the native kernel on all 78 x 78 entries:', first_ok, '| double: stay', A0[66, 66], 'leave', 1 - A0[66, 66])
+assert first_ok
+
+
+# exact evolution with integers: s_t = 60^t sqrt(60) psi_t, shape (312, 60)
+NZ = [[(int(i), int(j), int(Tk[i, j])) for i, j in zip(*np.nonzero(Tk))] for Tk in T]
+
+
+def step_int(s):
+    y = s.sum(axis=1, keepdims=True) - 30 * s                 # 30 R s
+    z = np.zeros_like(y)
+    z[:, :] = 0
+    for k in range(60):                                        # (2 U_k)(30 R) = 60 W
+        for i, j, v in NZ[k]:
+            z[i, k] += v * y[j, k]
+    return z
+
+
+def populations(s, t):
+    den = 60 ** (2 * t) * 60
+    return [F(int(sum(int(v) ** 2 for v in s[4 * c:4 * c + 4].ravel())), den) for c in range(78)]
+
+
+Knp = np.array([[K[i][j] for j in range(78)] for i in range(78)], dtype=object)
+exact_runs = {}
+for label, c0 in (('adjacent pair ' + str(M.ADJPAIR[0]), M.CIDX[M.ADJPAIR[0]]),
+                  ('non-adjacent pair ' + str([c for c in M.PAIRS if not M.ADJ[c[0], c[1]]][0]), M.CIDX[[c for c in M.PAIRS if not M.ADJ[c[0], c[1]]][0]]),
+                  ('double load at port 0', M.CIDX[(0, 0)])):
+    s = np.zeros((312, 60), dtype=object)
+    s[:, :] = 0
+    s[4 * c0, :] = 1
+    cl = np.array([F(int(i == c0)) for i in range(78)], dtype=object)
+    rows = []
+    for t in range(1, 4):
+        s = step_int(s)
+        cl = Knp.dot(cl)
+        p = populations(s, t)
+        assert sum(p) == 1
+        dbl = sum(p[66:])
+        rows.append({'t': t, 'return_coherent': str(p[c0]), 'return_native': str(cl[c0]), 'double_total_coherent': str(dbl),
+                     'double_total_native': str(sum(cl[66:])), 'adjacent_pairs_coherent': str(sum(p[i] for i in adj)),
+                     'separated_pairs_coherent': str(sum(p[i] for i in range(66) if i not in adj))})
+    exact_runs[label] = rows
+    say(f'\nexact, start {label}:')
+    for r in rows:
+        say('  ', r)
+out['exact_runs'] = exact_runs
+
+# ------------------------------------------------------------------------------------------------ double load: long coherent run in the pair sector
+Us_pair = [x[np.ix_(pair, pair)] / 2.0 for x in T]
+x = np.zeros((72, 60))
+x[0, :] = 1 / math.sqrt(60)                                 # A|double at port CONF[66][0], blank>
+port0 = M.CONF[66][0]
+nb = M.NBR[port0]
+dbl_rows = list(range(12))
+series = []
+acc = np.zeros(4)
+Tlong = 20000
+half = None
+for t in range(1, Tlong + 1):
+    x = M.apply_W(x, Us_pair)
+    p = (x ** 2).sum(axis=1)
+    here = p[0]
+    other = p[1:12].sum()
+    padj = p[12:].sum()
+    acc += np.array([here, other, padj, p.sum()])
+    if t <= 60 or t % 1000 == 0:
+        series.append({'t': t, 'double_at_start_port': float(here), 'double_elsewhere': float(other), 'adjacent_pair_with_split_record': float(padj)})
+    if t == Tlong // 2:
+        half = acc / t
+avg = acc / Tlong
+out['double_load'] = {
+    'closed_sector': 'span{|double, blank>, |adjacent pair, record 2>, |adjacent pair, record 3>} x addresses, 72 x 60 = 4320 dimensions, invariant under W',
+    'committed_rule': 'transient: stays with 5/6 per attempt, never re-forms',
+    'coherent_rule': 'never leaves the pair sector: the two quanta are on one port or on one seam at all times',
+    'series': series,
+    'time_average_T20000': {'double_at_start_port': float(avg[0]), 'double_elsewhere': float(avg[1]), 'adjacent_pair_with_split_record': float(avg[2]), 'norm': float(avg[3])},
+    'time_average_T10000': {'double_at_start_port': float(half[0]), 'double_elsewhere': float(half[1]), 'adjacent_pair_with_split_record': float(half[2])},
+    'stationary_vector': 'sum_a |double a, blank> + sum_{adjacent ab} |pair ab>(|2> + |3>), norm^2 72, uniform address: fixed by Q and R',
+    'weight_of_A|double,blank>_on_it': str(F(1, 72))}
+say('\ndouble load, coherent: time averages over 20000 steps (double here, double elsewhere, adjacent pair with split record):', [round(float(v), 6) for v in avg[:3]],
+    ' over 10000:', [round(float(v), 6) for v in half[:3]])
+say('   first steps:', [(r['t'], round(r['double_at_start_port'], 6), round(r['double_elsewhere'], 6), round(r['adjacent_pair_with_split_record'], 6)) for r in series[:12]])
+# exact long-time averages from the spectral decomposition of the pair block
+e0 = np.zeros(72)
+e0[0] = 1
+pav, stat = M.time_average(Us_pair, e0)
+ret_avg, ret_levels = M.return_average(S[np.ix_(pair, pair)] / 120.0, e0)
+out['double_load']['time_average_exact_spectral'] = {'double_at_start_port': float(pav[0]), 'double_elsewhere': float(pav[1:12].sum()),
+                                                     'adjacent_pair_with_split_record': float(pav[12:].sum()), 'norm': float(pav.sum()),
+                                                     'weight_on_fixed_vector': stat, 'average_return_probability_to_A|double,blank>': ret_avg,
+                                                     'weights_of_A|double,blank>_by_level': ret_levels}
+say('   spectral time averages: double here', round(float(pav[0]), 9), 'double elsewhere', round(float(pav[1:12].sum()), 9), 'adjacent pair with split record',
+    round(float(pav[12:].sum()), 9), 'norm', round(float(pav.sum()), 12), 'fixed weight', round(stat, 9), '(1/72 =', round(1 / 72, 9), ') average return', round(ret_avg, 9))
+say('   weights of A|double,blank> by discriminant level:', {k: round(v, 9) for k, v in ret_levels.items()})
+# stationary vector check
+vst = np.zeros(312)
+for i in dbl0:
+    vst[i] = 1
+for c in adj:
+    vst[4 * c + 2] = vst[4 * c + 3] = 1
+assert all(np.array_equal(Tk @ vst.astype(np.int64), 2 * vst.astype(np.int64)) for Tk in T)
+ust = np.zeros(312)
+for i in bin0:
+    ust[i] = 1
+assert all(np.array_equal(Tk @ ust.astype(np.int64), 2 * ust.astype(np.int64)) for Tk in T)
+out['stationary_blank_or_split_vectors_fixed_by_every_U_k'] = ['uniform over the 66 binary configurations, blank record', 'double/split vector of the pair sector']
+
+# ------------------------------------------------------------------------------------------------ free or interacting
+P1 = np.eye(12) - M.LAP / 60.0
+one = M.label_levels(P1, lambda g: np.array(g['perm']))
+one_rows = [{'lambda': l, 'omega': math.acos(min(1.0, l)), 'dim': d, 'irreps': ir} for l, d, ir in one[::-1]]
+say('\none quantum, blank block:', [(round(r['lambda'], 6), round(r['omega'], 6), r['dim'], r['irreps']) for r in one_rows])
+om1 = [r['omega'] for r in one_rows for _ in range(r['dim'])]
+lam1 = [r['lambda'] for r in one_rows for _ in range(r['dim'])]
+sums = sorted(set(round(om1[i] + om1[j], 9) for i in range(12) for j in range(i, 12)))
+quad = sorted(set(round(math.acos(lam1[i] + lam1[j] - 1), 9) for i in range(12) for j in range(i, 12)))
+# free quanta sharing the seam address: discriminant (1/30) sum_s K0_s x K0_s on labelled pairs
+D2 = np.zeros((144, 144))
+for a, b in M.SEAMS:
+    m = np.zeros(12)
+    m[a], m[b] = 1 / math.sqrt(2), -1 / math.sqrt(2)
+    K0 = np.eye(12) - np.outer(m, m)
+    D2 += np.kron(K0, K0) / 30
+# symmetric and antisymmetric subspaces of the labelled positions
+Bs = np.zeros((144, 78))
+for i, (x_, y_) in enumerate(M.CONF):
+    if x_ == y_:
+        Bs[12 * x_ + y_, i] = 1
+    else:
+        Bs[12 * x_ + y_, i] = Bs[12 * y_ + x_, i] = 1 / math.sqrt(2)
+Ba = np.zeros((144, 66))
+for i, (x_, y_) in enumerate(M.PAIRS):
+    Ba[12 * x_ + y_, i], Ba[12 * y_ + x_, i] = 1 / math.sqrt(2), -1 / math.sqrt(2)
+freeB = Bs.T @ D2 @ Bs
+freeF = Ba.T @ D2 @ Ba
+
+
+def act78(g):
+    return M.conf_action(g)
+
+
+def act66_signed(g):
+    p = g['perm']
+    Pm = np.zeros((66, 66))
+    for i, (x_, y_) in enumerate(M.PAIRS):
+        a_, b_ = p[x_], p[y_]
+        Pm[M.PAIRS.index((min(a_, b_), max(a_, b_))), i] = 1 if a_ < b_ else -1
+    return Pm
+
+
+lvB = M.label_levels(freeB, act78)
+lvF = M.label_levels(freeF, act66_signed)
+pub78 = D00 / 120.0
+lvP = M.label_levels(pub78, act78)
+addF = sorted([lam1[i] + lam1[j] - 1 for i in range(12) for j in range(i + 1, 12)])
+out['free_or_interacting'] = {
+    'one_quantum_blank_levels': one_rows,
+    'sums_of_one_quantum_phases': sums,
+    'quadrature_composition_arccos(l_i+l_j-1)': quad,
+    'public_blank_block_78': [{'lambda': l, 'omega': math.acos(min(1.0, l)), 'dim': d, 'irreps': ir} for l, d, ir in lvP[::-1]],
+    'free_bosons_shared_address_78': [{'lambda': l, 'omega': math.acos(min(1.0, l)), 'dim': d, 'irreps': ir} for l, d, ir in lvB[::-1]],
+    'free_fermions_shared_address_66': [{'lambda': l, 'omega': math.acos(min(1.0, l)), 'dim': d, 'irreps': ir} for l, d, ir in lvF[::-1]],
+    'free_fermions_equal_additive_levels_defect': float(np.max(np.abs(np.array(sorted(np.linalg.eigvalsh(freeF))) - np.array(addF)))),
+}
+say('\nsums of one-quantum phases (product of two walks):', [round(v, 5) for v in sums])
+say('quadrature composition arccos(l_i + l_j - 1) (free quanta sharing one address, fermions exactly):', [round(v, 5) for v in quad])
+say('free fermions on a shared address = additive kernel levels, defect', out['free_or_interacting']['free_fermions_equal_additive_levels_defect'])
+
+
+def by_irrep(levels):
+    d = {}
+    for l, dim, ir in levels:
+        for name, mult in ir.items():
+            d.setdefault(name, []).extend([l] * mult)
+    return {k: sorted(v, reverse=True) for k, v in d.items()}
+
+
+bp, bb = by_irrep(lvP), by_irrep(lvB)
+assert {k: len(v) for k, v in bp.items()} == {k: len(v) for k, v in bb.items()}
+cmp_rows = []
+say('\npublic blank block (78: hard-core pairs + double loads) against free bosons on a shared address, by icosahedral sector:')
+for name in sorted(bp):
+    for lp, lb in zip(bp[name], bb[name]):
+        cmp_rows.append({'irrep': name, 'lambda_public': lp, 'lambda_free': lb, 'omega_public': math.acos(min(1.0, lp)), 'omega_free': math.acos(min(1.0, lb)),
+                         'shift_omega': math.acos(min(1.0, lp)) - math.acos(min(1.0, lb))})
+    say(f"  {name:4s} public", [round(v, 6) for v in bp[name]])
+    say(f"       free  ", [round(v, 6) for v in bb[name]])
+out['free_or_interacting']['by_sector_public_vs_free_bosons'] = cmp_rows
+sh = np.array([r['shift_omega'] for r in cmp_rows])
+out['free_or_interacting']['phase_shift_summary'] = {'max_up': float(sh.max()), 'max_down': float(sh.min()), 'levels_shifted_down': int((sh < -1e-9).sum()),
+                                                     'levels_shifted_up': int((sh > 1e-9).sum()), 'levels_equal': int((np.abs(sh) <= 1e-9).sum())}
+say('phase shifts public - free bosons:', out['free_or_interacting']['phase_shift_summary'])
+
+# levels of the complete two-quanta walk against the lowest two-quantum excitation
+lowest_one = min(r['omega'] for r in one_rows if r['omega'] > 1e-6)
+pair_levels = [r for r in spec[names[2]]['levels']]
+below = [r for r in pair_levels if 1e-6 < r['omega'] < lowest_one - 1e-9]
+binrec1 = spec[names[1]]['levels']
+out['free_or_interacting']['bound_pair_levels_below_lowest_one_quantum_phase'] = {
+    'lowest_one_quantum_phase': lowest_one, 'levels': below, 'count_dimensions': int(sum(r['dim'] for r in below)),
+    'ratio_to_one_quantum_multiplets': [{'irreps': r['irreps'], 'omega_pair': r['omega']} for r in below]}
+say('\nlevels of the pair sector below the lowest one-quantum phase', round(lowest_one, 6), ':')
+for r in below:
+    say(f"   omega {r['omega']:.6f} lambda {r['lambda']:.9f} dim {r['dim']} {r['irreps']}")
+top_bin = max(r['omega'] for r in spec[names[0]]['levels'])
+out['free_or_interacting']['band_edges'] = {'binary_blank_max_phase': top_bin, 'max_sum_of_one_quantum_phases': max(sums), 'max_quadrature': max(quad),
+                                            'pair_sector_max_phase': max(r['omega'] for r in pair_levels),
+                                            'binary_record1_range': [min(r['omega'] for r in binrec1), max(r['omega'] for r in binrec1)]}
+say('band edges:', out['free_or_interacting']['band_edges'])
+out['seconds'] = time.time() - t0
+json.dump(out, open('b1_two_quanta.json', 'w'), indent=1, default=str)
+say('\nwritten b1_two_quanta.json in', round(out['seconds'], 1), 's')

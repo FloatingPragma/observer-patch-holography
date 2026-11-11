@@ -1,0 +1,77 @@
+{
+  "status": "EXACT finite checks; displayed decimals are non-decision summaries",
+  "source_inputs": {
+    "reverse-engineering-reality/model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "reverse-engineering-reality/model/common_source/slow_geometry.py": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+  },
+  "states": 78,
+  "balanced_states": 66,
+  "seams": 30,
+  "all_unread_binary_seam_shadows_match": true,
+  "native_coin_vs_swap_coin_branch_disagreements": 600,
+  "uniform_stationary_binary_law_unique": true,
+  "collision_survival_per_attempt": "5/6",
+  "collision_exit_per_attempt": "1/6",
+  "fixed_total_two_swap_commutant_dimension": 3,
+  "fixed_total_two_sector_dimensions": [
+    1,
+    11,
+    54
+  ],
+  "fixed_total_two_quantum_multiplicities": [
+    1,
+    1,
+    1
+  ],
+  "faithful_stationary_full_matrix_density_eigenvalues": [
+    "1/3",
+    "1/33",
+    "1/162"
+  ],
+  "native_parity_history_algebra_modular_flow": "identity (analytic proof in REPORT.md)",
+  "sqrt_swap_one_event_diagonal_shadow": true,
+  "sqrt_swap_exact_output_state_shadow": false,
+  "sqrt_swap_two_event_population_shadow": false,
+  "finite_sweep_coherence_factors": {
+    "C0": {
+      "per_attempt": [
+        "sqrt(2)/6 + 2/3",
+        "2*sqrt(2)/15 + 43/60"
+      ],
+      "per_30_iid_attempts": [
+        "27353099959901375*sqrt(2)/1686660154119364608 + 5730833326584859/249875578388054016",
+        "1971100111913982473028302934638343092466184163833*sqrt(2)/110536959860366678949888000000000000000000000000000 + 619457120463498059492804430260678122928488903833089/24563768857859261988864000000000000000000000000000000"
+      ],
+      "sweep_decimal_for_display": [
+        0.045869495228030445,
+        0.050436646350616635
+      ]
+    },
+    "C": {
+      "per_attempt": [
+        "5/6"
+      ],
+      "per_30_iid_attempts": [
+        "931322574615478515625/221073919720733357899776"
+      ],
+      "sweep_decimal_for_display": [
+        0.004212720233087425
+      ]
+    },
+    "E": {
+      "per_attempt": [
+        "2/3",
+        "7/10"
+      ],
+      "per_30_iid_attempts": [
+        "1073741824/205891132094649",
+        "22539340290692258087863249/1000000000000000000000000000000"
+      ],
+      "sweep_decimal_for_display": [
+        5.2150950508465636e-06,
+        2.2539340290692257e-05
+      ]
+    }
+  },
+  "complete_law_accepted": false
+}

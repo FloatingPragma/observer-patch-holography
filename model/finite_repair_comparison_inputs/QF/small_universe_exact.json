@@ -1,0 +1,622 @@
+{
+ "seed": 20260620,
+ "source": "oph_fpe.small_universe (model.py, oph_repair.py)",
+ "face_count": 20,
+ "part1_code_parent_copy": [
+  {
+   "branch": "exact_consensus",
+   "state_count": 2048,
+   "terminal_state_count": 1,
+   "terminal_states": [
+    "001100011111"
+   ],
+   "terminal_phi": [
+    0
+   ],
+   "terminal_violated_edges": [
+    []
+   ],
+   "terminal_is_globally_consistent": [
+    true
+   ],
+   "strict_descent_on_every_transition": true,
+   "every_state_reaches_one_terminal_state": true,
+   "mean_repairs_to_absorption_uniform_start": "115/16",
+   "mean_repairs_to_absorption_uniform_start_float": 7.1875,
+   "max_repairs_to_absorption": 18,
+   "min_repairs_from_worst_state": 11,
+   "flipped_edge": null,
+   "nonzero_cycle_holonomies_in_cycle_basis": 0,
+   "weights": [
+    1,
+    64,
+    4096,
+    262144
+   ]
+  },
+  {
+   "branch": "frustrated_control",
+   "state_count": 2048,
+   "terminal_state_count": 1,
+   "terminal_states": [
+    "001100011111"
+   ],
+   "terminal_phi": [
+    1
+   ],
+   "terminal_violated_edges": [
+    [
+     [
+      3,
+      10
+     ]
+    ]
+   ],
+   "terminal_is_globally_consistent": [
+    false
+   ],
+   "strict_descent_on_every_transition": true,
+   "every_state_reaches_one_terminal_state": true,
+   "mean_repairs_to_absorption_uniform_start": "115/16",
+   "mean_repairs_to_absorption_uniform_start_float": 7.1875,
+   "max_repairs_to_absorption": 18,
+   "min_repairs_from_worst_state": 11,
+   "flipped_edge": [
+    3,
+    10
+   ],
+   "nonzero_cycle_holonomies_in_cycle_basis": 2,
+   "weights": [
+    1,
+    64,
+    4096,
+    262144
+   ]
+  }
+ ],
+ "frustrated_control_flux_faces": [
+  [
+   3,
+   4,
+   10
+  ],
+  [
+   3,
+   9,
+   10
+  ]
+ ],
+ "gauge_equivalence_vacuum_same_Phi_spectrum": true,
+ "dual_diameter": 5,
+ "part2_single_label_per_patch_unit_weights": [
+  {
+   "branch": "vacuum (all face fluxes zero)",
+   "state_count": 2048,
+   "Z_polynomial_counts_by_Phi": {
+    "0": 1,
+    "5": 12,
+    "8": 30,
+    "9": 20,
+    "10": 72,
+    "11": 120,
+    "12": 100,
+    "13": 180,
+    "14": 240,
+    "15": 272,
+    "16": 345,
+    "17": 300,
+    "18": 200,
+    "19": 120,
+    "20": 36
+   },
+   "ground_Phi": 0,
+   "ground_state_count": 1,
+   "greedy_neutral_move_count": 0,
+   "greedy_absorbing_state_count": 8,
+   "greedy_absorbing_states_by_Phi": {
+    "0": 1,
+    "5": 1,
+    "10": 6
+   },
+   "greedy_closed_class_count": 8,
+   "greedy_closed_class_sizes": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "greedy_closed_class_Phi": [
+    0,
+    5,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "metropolis": {
+    "1/2": {
+     "gibbs_is_stationary_exact": true,
+     "detailed_balance_exact": true,
+     "max_over_min_stationary_probability": "1048576",
+     "probability_of_ground_states": "262144/455625",
+     "probability_of_ground_states_float": 0.5753503429355281,
+     "uniform_probability_would_be": "1/2048",
+     "Z": "455625/262144"
+    },
+    "1/10": {
+     "gibbs_is_stationary_exact": true,
+     "detailed_balance_exact": true,
+     "max_over_min_stationary_probability": "100000000000000000000",
+     "probability_of_ground_states": "25000000000000000000/25003008213017742809",
+     "probability_of_ground_states_float": 0.9998796859565011,
+     "uniform_probability_would_be": "1/2048",
+     "Z": "25003008213017742809/25000000000000000000"
+    }
+   }
+  },
+  {
+   "branch": "flux pair at dual distance 1",
+   "state_count": 2048,
+   "Z_polynomial_counts_by_Phi": {
+    "1": 1,
+    "4": 2,
+    "6": 10,
+    "7": 8,
+    "8": 6,
+    "9": 46,
+    "10": 58,
+    "11": 88,
+    "12": 154,
+    "13": 172,
+    "14": 238,
+    "15": 312,
+    "16": 306,
+    "17": 281,
+    "18": 206,
+    "19": 104,
+    "20": 44,
+    "21": 12
+   },
+   "ground_Phi": 1,
+   "ground_state_count": 1,
+   "greedy_neutral_move_count": 0,
+   "greedy_absorbing_state_count": 5,
+   "greedy_absorbing_states_by_Phi": {
+    "1": 1,
+    "4": 1,
+    "9": 2,
+    "11": 1
+   },
+   "greedy_closed_class_count": 5,
+   "greedy_closed_class_sizes": [
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "greedy_closed_class_Phi": [
+    1,
+    4,
+    9,
+    9,
+    11
+   ],
+   "metropolis": {
+    "1/2": {
+     "gibbs_is_stationary_exact": true,
+     "detailed_balance_exact": true,
+     "max_over_min_stationary_probability": "1048576",
+     "probability_of_ground_states": "262144/601425",
+     "probability_of_ground_states_float": 0.4358714719208546,
+     "uniform_probability_would_be": "1/2048",
+     "Z": "601425/524288"
+    },
+    "1/10": {
+     "gibbs_is_stationary_exact": true,
+     "detailed_balance_exact": true,
+     "max_over_min_stationary_probability": "100000000000000000000",
+     "probability_of_ground_states": "25000000000000000000/25052728213481406713",
+     "probability_of_ground_states_float": 0.9978953105213894,
+     "uniform_probability_would_be": "1/2048",
+     "Z": "25052728213481406713/250000000000000000000"
+    }
+   },
+   "crossed_edges": [
+    [
+     0,
+     1
+    ]
+   ]
+  },
+  {
+   "branch": "flux pair at dual distance 2",
+   "state_count": 2048,
+   "Z_polynomial_counts_by_Phi": {
+    "2": 1,
+    "3": 1,
+    "5": 2,
+    "6": 4,
+    "7": 12,
+    "8": 20,
+    "9": 28,
+    "10": 62,
+    "11": 94,
+    "12": 132,
+    "13": 200,
+    "14": 244,
+    "15": 284,
+    "16": 316,
+    "17": 276,
+    "18": 201,
+    "19": 121,
+    "20": 44,
+    "21": 6
+   },
+   "ground_Phi": 2,
+   "ground_state_count": 1,
+   "greedy_neutral_move_count": 0,
+   "greedy_absorbing_state_count": 3,
+   "greedy_absorbing_states_by_Phi": {
+    "2": 1,
+    "3": 1,
+    "8": 1
+   },
+   "greedy_closed_class_count": 3,
+   "greedy_closed_class_sizes": [
+    1,
+    1,
+    1
+   ],
+   "greedy_closed_class_Phi": [
+    2,
+    3,
+    8
+   ],
+   "metropolis": {
+    "1/2": {
+     "gibbs_is_stationary_exact": true,
+     "detailed_balance_exact": true,
+     "max_over_min_stationary_probability": "524288",
+     "probability_of_ground_states": "262144/965925",
+     "probability_of_ground_states_float": 0.2713916711960038,
+     "uniform_probability_would_be": "1/2048",
+     "Z": "965925/1048576"
+    },
+    "1/10": {
+     "gibbs_is_stationary_exact": true,
+     "detailed_balance_exact": true,
+     "max_over_min_stationary_probability": "10000000000000000000",
+     "probability_of_ground_states": "5000000000000000000/5512717647379286773",
+     "probability_of_ground_states_float": 0.9069936680644202,
+     "uniform_probability_would_be": "1/2048",
+     "Z": "5512717647379286773/500000000000000000000"
+    }
+   },
+   "crossed_edges": [
+    [
+     0,
+     8
+    ],
+    [
+     0,
+     1
+    ]
+   ]
+  },
+  {
+   "branch": "flux pair at dual distance 3",
+   "state_count": 2048,
+   "Z_polynomial_counts_by_Phi": {
+    "3": 1,
+    "4": 2,
+    "5": 2,
+    "6": 4,
+    "7": 10,
+    "8": 24,
+    "9": 34,
+    "10": 44,
+    "11": 92,
+    "12": 148,
+    "13": 190,
+    "14": 252,
+    "15": 294,
+    "16": 296,
+    "17": 278,
+    "18": 212,
+    "19": 115,
+    "20": 42,
+    "21": 8
+   },
+   "ground_Phi": 3,
+   "ground_state_count": 1,
+   "greedy_neutral_move_count": 0,
+   "greedy_absorbing_state_count": 6,
+   "greedy_absorbing_states_by_Phi": {
+    "3": 1,
+    "7": 3,
+    "8": 2
+   },
+   "greedy_closed_class_count": 6,
+   "greedy_closed_class_sizes": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "greedy_closed_class_Phi": [
+    3,
+    7,
+    7,
+    7,
+    8,
+    8
+   ],
+   "metropolis": {
+    "1/2": {
+     "gibbs_is_stationary_exact": true,
+     "detailed_balance_exact": true,
+     "max_over_min_stationary_probability": "262144",
+     "probability_of_ground_states": "32768/207765",
+     "probability_of_ground_states_float": 0.15771665102399346,
+     "uniform_probability_would_be": "1/2048",
+     "Z": "207765/262144"
+    },
+    "1/10": {
+     "gibbs_is_stationary_exact": true,
+     "detailed_balance_exact": true,
+     "max_over_min_stationary_probability": "1000000000000000000",
+     "probability_of_ground_states": "125000000000000000/153159936230825491",
+     "probability_of_ground_states_float": 0.8161403241355103,
+     "uniform_probability_would_be": "1/2048",
+     "Z": "153159936230825491/125000000000000000000"
+    }
+   },
+   "crossed_edges": [
+    [
+     2,
+     6
+    ],
+    [
+     1,
+     6
+    ],
+    [
+     1,
+     5
+    ]
+   ]
+  },
+  {
+   "branch": "flux pair at dual distance 4",
+   "state_count": 2048,
+   "Z_polynomial_counts_by_Phi": {
+    "4": 2,
+    "5": 4,
+    "6": 6,
+    "7": 12,
+    "8": 14,
+    "9": 32,
+    "10": 62,
+    "11": 76,
+    "12": 138,
+    "13": 216,
+    "14": 242,
+    "15": 292,
+    "16": 314,
+    "17": 256,
+    "18": 202,
+    "19": 132,
+    "20": 44,
+    "21": 4
+   },
+   "ground_Phi": 4,
+   "ground_state_count": 2,
+   "greedy_neutral_move_count": 0,
+   "greedy_absorbing_state_count": 6,
+   "greedy_absorbing_states_by_Phi": {
+    "4": 2,
+    "6": 3,
+    "9": 1
+   },
+   "greedy_closed_class_count": 6,
+   "greedy_closed_class_sizes": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "greedy_closed_class_Phi": [
+    4,
+    4,
+    6,
+    6,
+    6,
+    9
+   ],
+   "metropolis": {
+    "1/2": {
+     "gibbs_is_stationary_exact": true,
+     "detailed_balance_exact": true,
+     "max_over_min_stationary_probability": "131072",
+     "probability_of_ground_states": "65536/390015",
+     "probability_of_ground_states_float": 0.16803456277322668,
+     "uniform_probability_would_be": "1/2048",
+     "Z": "390015/524288"
+    },
+    "1/10": {
+     "gibbs_is_stationary_exact": true,
+     "detailed_balance_exact": true,
+     "max_over_min_stationary_probability": "100000000000000000",
+     "probability_of_ground_states": "50000000000000000/61844780586543911",
+     "probability_of_ground_states_float": 0.8084756631973389,
+     "uniform_probability_would_be": "1/2048",
+     "Z": "61844780586543911/250000000000000000000"
+    }
+   },
+   "crossed_edges": [
+    [
+     2,
+     9
+    ],
+    [
+     2,
+     8
+    ],
+    [
+     1,
+     8
+    ],
+    [
+     0,
+     1
+    ]
+   ]
+  },
+  {
+   "branch": "flux pair at dual distance 5",
+   "state_count": 2048,
+   "Z_polynomial_counts_by_Phi": {
+    "5": 6,
+    "6": 12,
+    "7": 6,
+    "8": 12,
+    "9": 30,
+    "10": 60,
+    "11": 102,
+    "12": 108,
+    "13": 186,
+    "14": 324,
+    "15": 290,
+    "16": 228,
+    "17": 282,
+    "18": 244,
+    "19": 114,
+    "20": 36,
+    "21": 8
+   },
+   "ground_Phi": 5,
+   "ground_state_count": 6,
+   "greedy_neutral_move_count": 0,
+   "greedy_absorbing_state_count": 6,
+   "greedy_absorbing_states_by_Phi": {
+    "5": 6
+   },
+   "greedy_closed_class_count": 6,
+   "greedy_closed_class_sizes": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "greedy_closed_class_Phi": [
+    5,
+    5,
+    5,
+    5,
+    5,
+    5
+   ],
+   "metropolis": {
+    "1/2": {
+     "gibbs_is_stationary_exact": true,
+     "detailed_balance_exact": true,
+     "max_over_min_stationary_probability": "65536",
+     "probability_of_ground_states": "16384/62937",
+     "probability_of_ground_states_float": 0.2603238158793714,
+     "uniform_probability_would_be": "1/2048",
+     "Z": "188811/262144"
+    },
+    "1/10": {
+     "gibbs_is_stationary_exact": true,
+     "detailed_balance_exact": true,
+     "max_over_min_stationary_probability": "10000000000000000",
+     "probability_of_ground_states": "7500000000000000/9094643769484471",
+     "probability_of_ground_states_float": 0.8246612170962621,
+     "uniform_probability_would_be": "1/2048",
+     "Z": "9094643769484471/125000000000000000000"
+    }
+   },
+   "crossed_edges": [
+    [
+     9,
+     10
+    ],
+    [
+     7,
+     9
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     0,
+     8
+    ],
+    [
+     0,
+     1
+    ]
+   ]
+  }
+ ],
+ "flux_pair_free_energy_in_units_of_one_violated_edge": {
+  "1/2": {
+   "flux pair at dual distance 1": {
+    "Z_ratio": "33/50",
+    "minus_log_ratio_over_beta": 0.5994620704162712
+   },
+   "flux pair at dual distance 2": {
+    "Z_ratio": "53/100",
+    "minus_log_ratio_over_beta": 0.9159357352115255
+   },
+   "flux pair at dual distance 3": {
+    "Z_ratio": "57/125",
+    "minus_log_ratio_over_beta": 1.1328942704973453
+   },
+   "flux pair at dual distance 4": {
+    "Z_ratio": "107/250",
+    "minus_log_ratio_over_beta": 1.22431729826094
+   },
+   "flux pair at dual distance 5": {
+    "Z_ratio": "259/625",
+    "minus_log_ratio_over_beta": 1.2709040918628955
+   }
+  },
+  "1/10": {
+   "flux pair at dual distance 1": {
+    "Z_ratio": "33812113/337450090",
+    "minus_log_ratio_over_beta": 0.9991372365892656
+   },
+   "flux pair at dual distance 2": {
+    "Z_ratio": "7440173/674900180",
+    "minus_log_ratio_over_beta": 1.9576565100277612
+   },
+   "flux pair at dual distance 3": {
+    "Z_ratio": "855988031/698690411345",
+    "minus_log_ratio_over_beta": 2.911817091022559
+   },
+   "flux pair at dual distance 4": {
+    "Z_ratio": "345641251/1397380822690",
+    "minus_log_ratio_over_beta": 3.6066892104747916
+   },
+   "flux pair at dual distance 5": {
+    "Z_ratio": "5133689311/70567731545845",
+    "minus_log_ratio_over_beta": 4.13817657513998
+   }
+  }
+ }
+}

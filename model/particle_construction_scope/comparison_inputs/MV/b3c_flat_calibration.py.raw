@@ -1,0 +1,138 @@
+"""Block 3, control: the compiled kernel on a flat periodic federation against the Bloch group speeds.
+
+  python b3c_flat_calibration.py [n=40] [steps=700]      -> b3c_flat_calibration.json
+
+Flat torus of n x n unit cells (2 n^2 carriers) in the layout of the band computation: up carrier of cell (i, j) at
+i A1 + j A2, down carrier at that point + tau; bond k joins the up carrier to the down carrier of the cell displaced
+by delta_k. One-way Gaussian packets (same preparation as on the sphere) of every type; the measured centroid speed
+is compared with the group speed d omega / d q at q0 of the Bloch branches weighted by the packet's content.
+"""
+import json
+import sys
+import time
+from multiprocessing import Pool
+
+import numpy as np
+
+import mv_lib as M
+import mv_walk as W
+import mv_fed as F
+
+TAU = -(M.A1 + M.A2) / 3
+
+
+def build_flat(n, gluing):
+    cells = [(i, j) for i in range(n) for j in range(n)]
+    up = lambda i, j: 2 * ((i % n) * n + (j % n)); dn = lambda i, j: up(i, j) + 1
+    off = []
+    for d in M.FLAT_DEL:
+        ab = np.linalg.solve(np.array([M.A1, M.A2]).T, d)
+        off.append((int(round(ab[0])), int(round(ab[1]))))
+    T = M.TOP
+    ga, gb, sa, sb = [], [], [], []
+    second = []
+    for i, j in cells:
+        for k, (a, b) in enumerate(off):
+            u, d = up(i, j), dn(i + a, j + b)
+            if gluing == 'bridge':
+                ga.append(12 * u + M.P[k]); gb.append(12 * d + M.P[k]); sa.append(k); sb.append(k)
+            else:
+                ga.append(12 * u + T[(k + 1) % 3]); gb.append(12 * d + T[(k + 2) % 3]); sa.append(2 * k); sb.append(2 * k + 1)
+                second.append((12 * u + T[(k + 2) % 3], 12 * d + T[(k + 1) % 3], 2 * k + 1, 2 * k))
+    first = len(ga)
+    for a, b, x, y in second:
+        ga.append(a); gb.append(b); sa.append(x); sb.append(y)
+    ncar = 2 * n * n
+    xy = np.zeros((ncar, 2))
+    for i, j in cells:
+        xy[up(i, j)] = i * M.A1 + j * M.A2; xy[dn(i, j)] = i * M.A1 + j * M.A2 + TAU
+    ga = np.array(ga, np.int64)
+    return dict(ncar=ncar, S=60 + 2 * (3 if gluing == 'bridge' else 6), ga=ga, gb=np.array(gb, np.int64), sa=np.array(sa, np.int64),
+                sb=np.array(sb, np.int64), gz=np.ones(ga.size, complex), gsg=np.ones(ga.size), sgn=np.ones((ncar, 30)), gluing=gluing,
+                crossed_first=np.arange(ga.size) < first, xy=xy, n=n)
+
+
+def group_speeds(name, gluing, q0, nb):
+    links = M.flat_links(name, gluing, 'template'); S = M.register_size(gluing)
+    om = lambda q: np.arccos(1 - np.linalg.eigvalsh(M.kernel_L(np.array([q, 0.0]), links)[0])[:nb] / S)
+    h = 1e-4
+    return ((om(q0 + h) - om(q0 - h)) / (2 * h)).tolist(), om(q0).tolist()
+
+
+def run(a):
+    n, gluing, name, steps, q0, sigma, spin = a
+    t0 = time.time()
+    fed = build_flat(n, gluing)
+    f, z60, charged = F.typed(fed, name)
+    xy = fed['xy']; c0 = 2 * ((n // 2) * n + n // 2)
+    Lmat = np.array([M.A1, M.A2]).T * n
+    frac = np.linalg.solve(Lmat, (xy - xy[c0]).T).T
+    frac -= np.round(frac); dxy = frac @ Lmat.T                      # minimal image
+    amp = np.exp(-(dxy ** 2).sum(1) / (4 * sigma ** 2)) * np.exp(1j * q0 * dxy[:, 0])
+    t = M.TYPES[name]
+    if t['j'] == 0:
+        s = np.ones(12, complex) / np.sqrt(12)
+    else:
+        chi = M.type_frames(name); rho, nax, ang = M.third_turn(t['axes'])
+        psi0 = M.axis_state(t['j'], spin * t['j'], nax)
+        s = np.array([np.vdot(chi[p], psi0) for p in range(12)]); s /= np.linalg.norm(s)
+    psi = W.new_state(fed)
+    for c in range(fed['ncar']):
+        if abs(amp[c]) > 1e-8:
+            for p in range(12):
+                W.embed(psi, 12 * c + p, amp[c] * s[p])
+    psi /= np.linalg.norm(psi)
+    nb = 2 if t['j'] == 0 else int(4 * t['j'] + 2)
+    vg, om = group_speeds(name, gluing, q0, nb)
+    # content of the embedded packet in the Bloch branches at q0 (uniform section state, both carriers)
+    links = M.flat_links(name, gluing, 'template')
+    Lq = M.kernel_L(np.array([q0, 0.0]), links)[0]
+    w_, V = np.linalg.eigh(Lq)
+    uvec = np.concatenate([s, s * np.exp(1j * q0 * TAU[0])]) / np.sqrt(2)
+    wts = abs(V[:, :nb].conj().T @ uvec) ** 2
+    wc = om[0] if t['j'] == 0 else None
+    nxt = psi.copy(); W.step(nxt, f, z60, charged)
+    w = wc if wc is not None else float(np.arccos(np.clip(np.vdot(psi, nxt).real, -1, 1)))
+    acc = np.zeros_like(psi); hs = 0.0; Tf = 512
+    for k in range(Tf):
+        h = 0.5 * (1 - np.cos(2 * np.pi * (k + 0.5) / Tf)); hs += h
+        acc += (h * np.exp(1j * w * k)) * psi
+        W.step(psi, f, z60, charged)
+    kept = float(np.linalg.norm(acc)) / hs
+    psi = acc / np.linalg.norm(acc)
+    out = np.zeros(fed['ncar']); xs = []; ts = []; stay = []
+    th = 2 * np.pi * frac
+    for step in range(steps + 1):
+        if step % 10 == 0:
+            W.carrier_prob(psi, out)
+            z1 = (out * np.exp(1j * th[:, 0])).sum(); z2 = (out * np.exp(1j * th[:, 1])).sum()
+            xs.append([np.angle(z1), np.angle(z2)]); ts.append(step); stay.append(float(out[(dxy ** 2).sum(1) <= (2 * sigma) ** 2].sum()))
+        if step < steps:
+            W.step(psi, f, z60, charged)
+    ang = np.unwrap(np.array(xs), axis=0) / (2 * np.pi)
+    pos = ang @ Lmat.T
+    tt = np.array(ts, float)
+    A = np.vstack([tt, np.ones_like(tt)]).T
+    vx = float(np.linalg.lstsq(A, pos[:, 0], rcond=None)[0][0]); vy = float(np.linalg.lstsq(A, pos[:, 1], rcond=None)[0][0])
+    return {'type': name, 'gluing': gluing, 'spin_along_control_axis': spin, 'q0': q0, 'sigma': sigma, 'filter_frequency': w, 'filter_amplitude_kept': kept,
+            'measured_centroid_velocity': [vx, vy], 'bloch_group_speeds_low_branches': vg, 'bloch_frequencies': om,
+            'embedded_packet_weights_low_branches': wts.tolist(), 'within_2_sigma_of_start_first_last': [stay[0], stay[-1]],
+            'centroid_x_first_last': [float(pos[0, 0]), float(pos[-1, 0])], 'seconds': time.time() - t0}
+
+
+if __name__ == '__main__':
+    n = int(sys.argv[1]) if len(sys.argv) > 1 else 40
+    steps = int(sys.argv[2]) if len(sys.argv) > 2 else 700
+    jobs = []
+    for gluing in ('bridge', 'seam'):
+        jobs.append((n, gluing, 'scalar', steps, 1.0, 3.0, 1))
+        for name in ('spinor', 'vector', 'spinor_g'):
+            for spin in (1, -1):
+                jobs.append((n, gluing, name, steps, 1.0, 3.0, spin))
+    with Pool(14) as pool:
+        res = pool.map(run, jobs)
+    for r in res:
+        print(f"{r['gluing']:6s} {r['type']:9s} spin {r['spin_along_control_axis']:+d}: centroid velocity ({r['measured_centroid_velocity'][0]:+.5f}, {r['measured_centroid_velocity'][1]:+.5f});"
+              f" Bloch group speeds {np.round(r['bloch_group_speeds_low_branches'], 5)} with weights {np.round(r['embedded_packet_weights_low_branches'], 3)};"
+              f" within 2 sigma {r['within_2_sigma_of_start_first_last'][0]:.3f} -> {r['within_2_sigma_of_start_first_last'][1]:.3f}", flush=True)
+    json.dump({'n': n, 'steps': steps, 'runs': res}, open('b3c_flat_calibration.json', 'w'), indent=1)

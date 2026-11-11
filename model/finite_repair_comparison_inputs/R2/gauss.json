@@ -1,0 +1,86 @@
+{
+ "ring_with_quantum_links": {
+  "batch engine against the reference engine, 6 link words (max)": 6.938893903907228e-18,
+  "eps=0.0, theta=0.0": {
+   "eps": 0.0,
+   "theta": 0.0,
+   "ticks": 3,
+   "norm_defect": 1.3322676295501878e-14,
+   "max |<G_x> - g_x| over cells and ticks": 2.6867397195928788e-14,
+   "string: max |<X_l> - (2 Prob(x <= l) - 1)|": 8.01581023779363e-14,
+   "mean cell at the end": 7.000000000000375,
+   "cell distribution: joint run minus single-word reference run (max)": 3.68594044175552e-14
+  },
+  "eps=0.0, theta=0.157935": {
+   "eps": 0.0,
+   "theta": 0.157935,
+   "ticks": 3,
+   "norm_defect": 1.3322676295501878e-15,
+   "max |<G_x> - g_x| over cells and ticks": 7.438494264988549e-14,
+   "string: max |<X_l> - (2 Prob(x <= l) - 1)|": 7.815970093361102e-14,
+   "mean cell at the end": 6.837943830148821,
+   "cell distribution: joint run minus single-word reference run (max)": 3.6193270602780103e-14
+  },
+  "eps=0.05, theta=0.0": {
+   "eps": 0.05,
+   "theta": 0.0,
+   "ticks": 3,
+   "norm_defect": 1.6209256159527285e-14,
+   "max |<G_x> - g_x| over cells and ticks": 4.085620730620576e-14,
+   "string: max |<X_l> - (2 Prob(x <= l) - 1)|": 9.392486788328824e-14,
+   "mean cell at the end": 7.000000000000375,
+   "field step = phase exp(-i eps (L - 2x)) on the sector (max)": 4.336808689942018e-18
+  },
+  "eps=0.05, theta=0.157935": {
+   "eps": 0.05,
+   "theta": 0.157935,
+   "ticks": 3,
+   "norm_defect": 3.4416913763379853e-15,
+   "max |<G_x> - g_x| over cells and ticks": 6.461498003318411e-14,
+   "string: max |<X_l> - (2 Prob(x <= l) - 1)|": 9.114931032172535e-14,
+   "mean cell at the end": 6.838264424072148,
+   "field step = phase exp(-i eps (L - 2x)) on the sector (max)": 7.152448122690996e-18
+  },
+  "phase estimation (M = L) of the covariant translation, joint state minus single word (max)": 6.050715484207103e-15,
+  "momentum outcome distribution (M = L)": [
+   0.2666666666666668,
+   0.21816949906249133,
+   0.11423503277082814,
+   0.03183050093750877,
+   0.0024316338958385916,
+   1.1594098265211162e-33,
+   0.0024316338958385916,
+   0.03183050093750878,
+   0.11423503277082814,
+   0.21816949906249128
+  ],
+  "ring size": 10,
+  "the same distribution after 4 ticks, eps = 0 (max change)": 6.050715484207103e-15
+ },
+ "lattice_3x2x1_twelve_link_bits": {
+  "charged quantum (sigma)": {
+   "dimension": 98304,
+   "unitarity": 0.0,
+   "[U, G_x] (max over the six cells), eps 0.3, kappa 0.2, theta 0.11": 0.0,
+   "routing leaves the link word (weight moved to other words)": 0.0
+  },
+  "composite, label carried (sigma x 1)": {
+   "dimension": 393216,
+   "unitarity": 8.881784197001252e-16,
+   "[U, G_x] (max over the six cells), eps 0.3, kappa 0.2, theta 0.11": 0.0,
+   "routing leaves the link word (weight moved to other words)": 0.0
+  },
+  "composite, frame-turned (sigma x rho)": {
+   "dimension": 393216,
+   "unitarity": 1.7763568394002505e-15,
+   "[U, G_x] (max over the six cells), eps 0.3, kappa 0.2, theta 0.11": 0.0,
+   "routing leaves the link word (weight moved to other words)": 0.0
+  },
+  "flux pair alone (rho), neutral": {
+   "dimension": 196608,
+   "unitarity": 2.886579864025407e-15,
+   "[U, G_x] (max over the six cells), eps 0.3, kappa 0.2, theta 0.11": 0.0,
+   "routing leaves the link word (weight moved to other words)": 0.0
+  }
+ }
+}

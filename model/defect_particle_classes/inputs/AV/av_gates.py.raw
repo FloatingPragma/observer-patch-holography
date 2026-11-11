@@ -1,0 +1,182 @@
+"""Lane AV: the gates of METHOD.md section 8. Reads gates_out/*.json (from av_run.py) and compares with exact values.
+Runs where numba is installed (G0 calls the engine's weight). Writes gates.json and prints PASS lines.
+"""
+import json
+import math
+import sys
+
+import mpmath as mp
+import numpy as np
+
+import av_engine as E
+
+mp.mp.dps = 110
+pi = math.pi
+od = sys.argv[1] if len(sys.argv) > 1 else "gates_out"
+out = {}
+
+
+def verdict(name, value, err, exact, nsig=3.0, tol=None):
+    dev = value - exact
+    ok = abs(dev) <= (nsig * err if tol is None else tol)
+    out[name] = {"measured": value, "error": err, "reference": exact, "deviation": dev,
+                 "pull": (dev / err) if err else None, "pass": bool(ok)}
+    print("%s %-22s measured %.6g +- %.2g  reference %.6g  pull %s" % (
+        "PASS" if ok else "FAIL", name, value, err, exact, ("%.2f" % (dev / err)) if err else "n/a"))
+
+
+# ---------------------------------------------------------------- G0: heat-kernel weight against the character sum
+def K_char(theta, g2):
+    tau = mp.mpf(g2) / 2
+    tot = mp.mpf(0)
+    for n in range(1, 400):
+        ch = mp.mpf(n) if theta == 0 else mp.sin(n * mp.mpf(theta) / 2) / mp.sin(mp.mpf(theta) / 2)
+        tot += n * ch * mp.exp(-tau * (n * n - 1) / 4)
+    return tot
+
+
+worst = 0.0
+for g2 in (0.2, 0.4443, 0.5168, 1.0, 1.6, 2.0):
+    for theta in (1e-3, 0.3, 1.0, 2.0, 3.0, 4.5, 5.5, 6.0, 6.25, 2 * pi - 1e-3, 2 * pi - 1e-5):
+        x = float(mp.cos(mp.mpf(theta) / 2))
+        mine = E.lnk(x, 1, g2) + E.lnk_norm(1, g2)
+        ref = float(mp.log(K_char(theta, g2)))
+        worst = max(worst, abs(mine - ref))
+    # the centre ratio K(-1)/K(1) against the closed form
+    S = 2 * pi ** 2 / g2
+    r = math.exp(E.lnk(-1.0, 1, g2) - E.lnk(1.0, 1, g2))
+    tau_ = mp.mpf(g2) / 2
+    ref = float(sum((-1) ** (n - 1) * n * n * mp.exp(-tau_ * (n * n - 1) / 4) for n in range(1, 400)) /
+                sum(n * n * mp.exp(-tau_ * (n * n - 1) / 4) for n in range(1, 400)))
+    worst = max(worst, abs(r / ref - 1))
+out["G0_heat_kernel_dual_form_vs_character_sum_max_abs_dev_of_ln"] = worst
+print("%s G0 dual form of ln K against the character sum: max deviation %.2e" % ("PASS" if worst < 1e-7 else "FAIL", worst))
+worst2 = 0.0
+for g2 in (0.2, 0.5168, 1.0, 2.0):
+    for theta in (0.2, 1.0, 3.0, 5.0, 6.2):
+        ref = float(mp.log(sum(mp.exp(-(mp.mpf(theta) - 4 * mp.pi * n) ** 2 / (2 * g2)) for n in range(-6, 7))))
+        worst2 = max(worst2, abs(E.lnk(math.cos(theta / 2), 2, g2) - ref))
+out["G0_villain_weight_max_abs_dev_of_ln"] = worst2
+print("%s G0 Villain weight: max deviation %.2e" % ("PASS" if worst2 < 1e-9 else "FAIL", worst2))
+
+
+# ---------------------------------------------------------------- G1: Migdal on the icosahedral two-complex
+def migdal_hk(g2, nf=20):
+    tau = mp.mpf(g2) / 2
+    num = den = mp.mpf(0)
+    for n in range(1, 600):
+        e = mp.mpf(n) ** 2 * mp.exp(-nf * tau * (n * n - 1) / 4)
+        num += (-1) ** (n - 1) * e; den += e
+    return float(mp.log(num / den))
+
+
+def migdal_w(beta, nf=20):
+    num = den = mp.mpf(0)
+    i1 = mp.besseli(1, beta)
+    for n in range(1, 400):
+        e = mp.mpf(n) ** 2 * (mp.besseli(n, beta) / i1) ** nf          # exp(beta x) = sum_n (2 n I_n(beta)/beta) chi_n
+        num += (-1) ** (n - 1) * e; den += e
+    return float(mp.log(num / den))
+
+
+def load(name):
+    return json.load(open("%s/%s.json" % (od, name)))
+
+
+for nm, fn in (("g1_ico2_hk_a", migdal_hk), ("g1_ico2_hk_b", migdal_hk), ("g1_ico2_w_a", migdal_w), ("g1_ico2_w_b", migdal_w)):
+    r = load(nm)
+    verdict("G1_" + nm, r["lnA"], r["lnA_err"], fn(r["task"]["par"]))
+
+# ---------------------------------------------------------------- G2: Cartan circle through the engine against the exact form
+ab = json.load(open("abelian.json"))["C_twist_reading"]
+for nm, key in (("g2_cub3_ab", "cub3_L4"), ("g2_cub4_ab", "cub4_L4"), ("g2_icoT_ab", "icoT_NT4"), ("g2_cub4_ab_U", "cub4_L4")):
+    r = load(nm)
+    verdict("G2_" + nm, r["lnA"], r["lnA_err"], math.log(2.0) - ab[key]["c"] * r["S"])
+
+# ---------------------------------------------------------------- G3: Wilson plaquette, IMPORTED references
+for nm, ref in (("g3_cub4_w23", 0.6024), ("g3_cub4_w25", 0.6520)):
+    r = load(nm)
+    verdict("G3_" + nm, r["plaq_all"][0], r["plaq_all"][1], ref, tol=0.003)
+
+# ---------------------------------------------------------------- G4: compact doublet
+r = load("g4_higgs_bh0")
+verdict("G4_sin2_at_beta_H_0", r["q2"][0], r["q2"][1], 0.8)
+r = load("g4_higgs_hr0")
+verdict("G4_HR_plaquette_h0", r["plaq_all"][0], r["plaq_all"][1], 0.84824, tol=0.001)
+verdict("G4_HR_sin2_h0", r["q2"][0], r["q2"][1], 0.0592, tol=0.002)
+verdict("G4_HR_L_alpha_h0", r["L_alpha"][0], r["L_alpha"][1], 0.1636, tol=0.02)
+r = load("g4_higgs_hr3")
+verdict("G4_HR_plaquette_h3", r["plaq_all"][0], r["plaq_all"][1], 0.88428, tol=0.001)
+verdict("G4_HR_sin2_h3", r["q2"][0], r["q2"][1], 0.9852, tol=0.002)
+verdict("G4_HR_L_alpha_h3", r["L_alpha"][0], r["L_alpha"][1], 0.9371, tol=0.002)
+
+# local weights against differences of the total weight (all three kinds, with the doublet)
+import av_complex as C
+cx = C.build("cub4_L4")
+a = E.args_of(cx)
+links = np.arange(cx["nlink"]); sites = np.arange(cx["nsite"])
+worst = 0.0
+for kind, par in ((0, 5.0), (1, 0.8), (2, 0.8)):
+    E.seed_rng(77 + kind)
+    U, nf = E.cold(cx)
+    bh, h = (6.0, 1.3) if kind != 2 else (0.0, 0.0)
+    for _ in range(5):
+        E.sweep(U, nf, links, sites, *a, kind, par, 0, 0.37, bh, h, 2, 0.3, 0.3)
+    # one-link and one-site Metropolis chains must reproduce the total weight difference: compare the change of the
+    # total log-weight with the change computed from the staples of the touched link
+    rng = np.random.default_rng(3)
+    for _ in range(40):
+        l = int(rng.integers(cx["nlink"]))
+        w0 = E.total_logweight(U, nf, cx["pl"], cx["ps"], cx["pn"], cx["tail"], cx["head"], kind, par, 0, 0.37, bh, h)
+        loc0 = 0.0
+        for q in range(cx["lp_ptr"][l], cx["lp_ptr"][l + 1]):
+            p = int(cx["lp_idx"][q]); c = E.staple(U, cx["pl"], cx["ps"], cx["pn"], p, int(cx["lp_pos"][q]))
+            loc0 += E.lnw_p(float(np.dot(U[l], c)), p, 0, 0.37, kind, par)
+        ta, hb = cx["tail"][l], cx["head"][l]
+        m = E.qm(nf[ta, 1], nf[ta, 2], nf[ta, 3], nf[ta, 4], nf[hb, 1], -nf[hb, 2], -nf[hb, 3], -nf[hb, 4])
+        loc0 += bh * float(np.dot(U[l], m))
+        if kind == 2:
+            eta = 0.3 * rng.normal(); R = (math.cos(eta), 0.0, 0.0, math.sin(eta))
+        else:
+            v = rng.normal(size=4); v /= np.linalg.norm(v); R = tuple(v)
+        Un = np.array(E.qm(R[0], R[1], R[2], R[3], U[l, 0], U[l, 1], U[l, 2], U[l, 3]))
+        loc1 = 0.0
+        for q in range(cx["lp_ptr"][l], cx["lp_ptr"][l + 1]):
+            p = int(cx["lp_idx"][q]); c = E.staple(U, cx["pl"], cx["ps"], cx["pn"], p, int(cx["lp_pos"][q]))
+            loc1 += E.lnw_p(float(np.dot(Un, c)), p, 0, 0.37, kind, par)
+        loc1 += bh * float(np.dot(Un, m))
+        U[l] = Un
+        w1 = E.total_logweight(U, nf, cx["pl"], cx["ps"], cx["pn"], cx["tail"], cx["head"], kind, par, 0, 0.37, bh, h)
+        worst = max(worst, abs((w1 - w0) - (loc1 - loc0)))
+out["G4_local_weight_vs_total_weight_max_dev"] = worst
+print("%s G4 local link weight against the total weight (three kinds, doublet on): max deviation %.2e" % (
+    "PASS" if worst < 1e-8 else "FAIL", worst))
+# gauge invariance of the total weight with the doublet
+E.seed_rng(5)
+U, nf = E.cold(cx)
+for _ in range(5):
+    E.sweep(U, nf, links, sites, *a, 1, 0.8, 0, 0.37, 6.0, 1.3, 2, 0.3, 0.3)
+w0 = E.total_logweight(U, nf, cx["pl"], cx["ps"], cx["pn"], cx["tail"], cx["head"], 1, 0.8, 0, 0.37, 6.0, 1.3)
+rng = np.random.default_rng(9)
+g = rng.normal(size=(cx["nsite"], 4)); g /= np.linalg.norm(g, axis=1)[:, None]
+U2 = U.copy(); nf2 = nf.copy()
+for l in range(cx["nlink"]):
+    ta, hb = cx["tail"][l], cx["head"][l]
+    t = E.qm(g[ta, 0], g[ta, 1], g[ta, 2], g[ta, 3], U[l, 0], U[l, 1], U[l, 2], U[l, 3])
+    U2[l] = E.qm(t[0], t[1], t[2], t[3], g[hb, 0], -g[hb, 1], -g[hb, 2], -g[hb, 3])
+for s in range(cx["nsite"]):
+    nf2[s, 1:] = E.qm(g[s, 0], g[s, 1], g[s, 2], g[s, 3], nf[s, 1], nf[s, 2], nf[s, 3], nf[s, 4])
+w1 = E.total_logweight(U2, nf2, cx["pl"], cx["ps"], cx["pn"], cx["tail"], cx["head"], 1, 0.8, 0, 0.37, 6.0, 1.3)
+out["G4_gauge_invariance_of_the_total_weight"] = abs(w1 - w0)
+print("%s G4 gauge invariance of the total weight with the doublet: %.2e" % ("PASS" if abs(w1 - w0) < 1e-8 else "FAIL", abs(w1 - w0)))
+
+# ---------------------------------------------------------------- G5: direct against staged
+r = load("g5_cub4_w25_direct")
+d = math.log(r["A_direct"][0]); de = r["A_direct"][1] / r["A_direct"][0]
+verdict("G5_direct_vs_staged", r["lnA"], math.hypot(r["lnA_err"], de), d)
+out["G5_estimators"] = {k: r[k] for k in ("lnA", "lnA_err", "lnA_forward", "lnA_backward", "lnA_TI", "lnA_TI_err")}
+npass = sum(1 for v in out.values() if isinstance(v, dict) and v.get("pass"))
+nfail = sum(1 for v in out.values() if isinstance(v, dict) and v.get("pass") is False)
+out["summary"] = {"verdict_rows_pass": npass, "verdict_rows_fail": nfail}
+print("verdict rows: %d pass, %d fail" % (npass, nfail))
+json.dump(out, open("gates.json", "w"), indent=1)

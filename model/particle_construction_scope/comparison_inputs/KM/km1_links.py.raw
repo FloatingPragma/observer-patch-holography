@@ -1,0 +1,140 @@
+"""Item 1 (b): the identity with link phases and with a unitary link matrix, from the public local operator.
+
+Executed object: model.coherent_seam_repair.gauge_walk.local(G) (never edited). SymPy, exact.
+
+Local statement (one oriented address (a, b) with link G from a to b, blank record, fibre amplitudes h_a, h_b):
+    the record-one component of U (h_a, h_b) x |0> has squared norm |h_a - G^* h_b|^2 / 2,
+    i.e. the record-one block B of U satisfies B^* B = m m^*, m(h) = (|a> h - |b> G h)/sqrt2.
+The reversed address (b, a) with link G^* gives the same number. Summing over the sixty addresses with weight 1/60
+gives p_1 = <h| L_G |h>/60, L_G the connection Laplacian, for every assignment of unitary links.
+
+Checks:
+  1. G = (exp(i theta)), theta a real symbol: every link phase.
+  2. G = the two noncommuting 5 x 5 block-unitary controls X, Y of the public certificate and the central Z.
+  3. Flux tables: an integer seam table t with coboundary k on every outward face (links zeta_20^t), k = 1, 2, 7,
+     assembled from the public local operator evaluated at each link (30-digit evaluation; the identity itself is
+     exact for every phase by check 1 and linear in the addresses); record-one Gram = L_k/60.
+     Spectra of L_k against the closed forms of report CW (float, printed defect).
+"""
+import json, sys
+import numpy as np
+import sympy as s
+from model.coherent_seam_repair.gauge_walk import local
+from model.common_source import slow_geometry
+
+out = {}
+# ------------------------------------------------------------------ 1. one symbolic link phase
+th = s.symbols('theta', real=True)
+G = s.Matrix([[s.exp(s.I * th)]])
+U, m, p = local(G)
+# basis order of the public operator: (source in {a, b}) x fibre x (record in {0, 1})  ->  index 2*source + record
+rec0 = [0, 2]; rec1 = [1, 3]
+B = U.extract(rec1, rec0)                   # blank -> record one
+K = U.extract(rec0, rec0)                   # blank -> blank
+ok_unit = s.simplify(U.H * U - s.eye(4)) == s.zeros(4) and s.simplify(U - U.H) == s.zeros(4)
+ok_B = s.simplify(B.H * B - m * m.H) == s.zeros(2)
+ok_K = s.simplify(K - (s.eye(2) - m * m.H)) == s.zeros(2)
+ha, hb = s.symbols('h_a h_b')
+vec = s.Matrix([ha, hb])
+norm1 = s.simplify((vec.H * B.H * B * vec)[0] - (ha - s.exp(-s.I * th) * hb) * s.conjugate(ha - s.exp(-s.I * th) * hb) / 2)
+print('symbolic link phase: U unitary and Hermitian:', ok_unit, '| record-one block B*B = m m*:', ok_B, '| blank block = 1 - m m*:', ok_K,
+      '| |record one|^2 - |h_a - conj(z) h_b|^2/2 =', norm1)
+out['symbolic_phase'] = {'unitary_hermitian': bool(ok_unit), 'record_one_gram_is_mm*': bool(ok_B), 'blank_block': bool(ok_K), 'norm_defect': str(norm1)}
+# reversed orientation: swap the two sources, link G^*
+Ur, mr, pr = local(G.H)
+swap = s.Matrix([[0, 0, 1, 0], [0, 0, 0, 1], [1, 0, 0, 0], [0, 1, 0, 0]])
+Urs = swap * Ur * swap
+Br = Urs.extract(rec1, rec0)
+ok_rev = s.simplify(Br.H * Br - m * m.H) == s.zeros(2)
+ok_cross = s.simplify((U + Urs) / 2 - (s.eye(4) - s.kronecker_product(m * m.H, s.diag(1, 0)) - s.kronecker_product(p * p.H, s.diag(0, 1)))) == s.zeros(4)
+print('reversed address with G*: same record-one Gram:', ok_rev, '| orientation average has no cross-record block:', ok_cross)
+out['symbolic_phase']['reversed_address_same_gram'] = bool(ok_rev); out['symbolic_phase']['orientation_average_block_diagonal'] = bool(ok_cross)
+
+# ------------------------------------------------------------------ 2. 5 x 5 block-unitary links
+sx = s.Matrix([[0, 1], [1, 0]]); sy = s.Matrix([[0, -s.I], [s.I, 0]]); sz = s.diag(1, -1)
+X = s.diag(s.diag(1, -1, -1), s.I * sz); Y = s.diag(s.diag(-1, 1, -1), s.I * sy); Z = s.diag(1, 1, 1, -1, -1)
+res5 = {}
+for name, G5 in (('X', X), ('Y', Y), ('Z (central)', Z), ('X*Y', X * Y)):
+    U5, m5, p5 = local(G5)
+    r0 = [2 * i for i in range(10)]; r1 = [2 * i + 1 for i in range(10)]
+    B5 = U5.extract(r1, r0)
+    okb = s.simplify(B5.H * B5 - m5 * m5.H) == s.zeros(10)
+    # explicit form of m m^*: (1/2) [[1, -G^*], [-G, 1]]
+    expl = s.Matrix(s.BlockMatrix([[s.eye(5), -G5.H], [-G5, s.eye(5)]])) / 2
+    oke = s.simplify(m5 * m5.H - expl) == s.zeros(10)
+    res5[name] = bool(okb and oke)
+print('5 x 5 links: record-one Gram of one address = (1/2)[[1, -G*], [-G, 1]] :', res5)
+out['matrix_links'] = res5
+
+# ------------------------------------------------------------------ 3. flux tables on the carrier
+src = slow_geometry.source()
+seams = [tuple(sorted(int(v) for v in e)) for e in src.seams()]
+faces = [tuple(int(v) for v in f) for f in src.oriented_faces()]
+n = 12
+
+
+def flux_table(k):
+    """integer t on oriented seams (a < b), with t(a,b) + t(b,c) + t(c,a) = k (mod 20) on every oriented face."""
+    idx = {e: i for i, e in enumerate(seams)}
+    rows = []
+    for f in faces:
+        r = [0] * 30
+        for i in range(3):
+            a, b = f[i], f[(i + 1) % 3]
+            r[idx[(min(a, b), max(a, b))]] += 1 if a < b else -1
+        rows.append(r)
+    # solve rows . t = k over the integers by Smith-free elimination modulo 20 on an integer lift:
+    M = s.Matrix(rows); rhs = s.Matrix([k] * 20)
+    # the sum of all rows vanishes, so the system over Q is consistent only if 20 k = 0; shift one face by -20 k
+    rhs[19] = k - 20 * k
+    sol, params = M.gauss_jordan_solve(rhs)
+    sol = sol.subs({q: 0 for q in params})
+    den = s.ilcm(*[s.Rational(v).q for v in sol])
+    assert den == 1, den
+    t = [int(v) for v in sol]
+    for f, r in zip(faces, rows):
+        assert (sum(a * b for a, b in zip(r, t)) - k) % 20 == 0
+    return dict(zip(seams, t))
+
+
+def cyc(e):
+    """zeta_20^e as an exact sympy number."""
+    return s.exp(2 * s.pi * s.I * s.Rational(e % 20, 20))
+
+
+closed = {1: {'a_top': float(np.sqrt(5) * 2 * np.cos(np.pi / 10)), 'd': 2}, 2: {'a_top': (5 + 5 ** 0.5) / 2, 'd': 3},
+          7: {'a_top': float((5 - 5 ** 0.5) * 2 * np.cos(np.pi / 10) / 2), 'd': 2}}
+res = {}
+for k in (1, 2, 7):
+    t = flux_table(k)
+    # record-one Gram assembled from the public local operator: (1/60) sum over the 60 addresses of B^* B
+    G1 = np.zeros((n, n), complex); K0 = np.zeros((n, n), complex)
+    Lk = np.zeros((n, n), complex)
+    block_defect = 0.0
+    for (a, b), e in t.items():
+        for (x, y, ee) in ((a, b, e), (b, a, -e)):
+            z = cyc(ee)
+            Uz = local(s.Matrix([[z]]))[0]
+            Bz = Uz.extract([1, 3], [0, 2]); g = (Bz.H * Bz)
+            expect = s.Matrix([[1, -s.conjugate(z)], [-z, 1]]) / 2
+            block_defect = max(block_defect, float(max(abs(complex(v)) for v in (g - expect).evalf(30))))
+            gz = np.array(g.evalf(30).tolist(), complex)
+            for i, pi in enumerate((x, y)):
+                for j, pj in enumerate((x, y)):
+                    G1[pi, pj] += gz[i, j] / 60
+        zf = complex(cyc(e).evalf(30))
+        v = np.zeros(n, complex); v[a] = 1; v[b] = -zf
+        Lk += np.outer(v, v.conj())
+    lam = np.linalg.eigvalsh(Lk)
+    defect = float(np.abs(G1 - Lk / 60).max())
+    levels = sorted(set(np.round(lam, 9)))
+    mult = [int(np.sum(np.abs(lam - x) < 1e-7)) for x in levels]
+    top = 5 - lam[0]
+    res[k] = {'address_block_defect_30_digits': block_defect, 'gram_minus_Lk_over_60': defect, 'levels_of_L_k': [float(x) for x in levels], 'multiplicities': mult,
+              'p_bottom': float(lam[0] / 60), 'rest_phase_bottom': float(np.arccos(1 - lam[0] / 60)),
+              'closed_form_top_adjacency': closed[k]['a_top'], 'closed_form_defect': float(abs(top - closed[k]['a_top']))}
+    print(f'flux {k}: public local operator at the 60 link values against (1/2)[[1, -conj z], [-z, 1]]: {block_defect:.1e} (30 digits; exact for every phase by check 1); |record-one Gram - L_k/60| = {defect:.1e}; levels {np.round(levels, 6)} x {mult}; '
+          f'bottom p = {lam[0] / 60:.9f}, rest phase {np.arccos(1 - lam[0] / 60):.6f}; closed form defect {abs(top - closed[k]["a_top"]):.1e}')
+out['flux_tables'] = res
+if len(sys.argv) > 1:
+    json.dump(out, open(sys.argv[1], 'w'), indent=1)

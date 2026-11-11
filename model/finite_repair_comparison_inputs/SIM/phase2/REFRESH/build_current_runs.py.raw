@@ -1,0 +1,59 @@
+"""Lane REFRESH: the numbers of the current universe runs (L3 to L7, law C, schedule 1, preparation exact06) that the
+pages Map, Particles, Findings and Data quote. Everything is read from the run's own files; nothing is simulated.
+
+    cd repair-law/work/SIM/phase2/REFRESH
+    PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python build_current_runs.py
+
+Writes current_runs.json here. Label of every number: MEASURED on the stored run.
+"""
+import json
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+RUNS = HERE.parents[4] / 'oph-physics-sim' / 'runs' / 'universe'
+
+
+def side(s):
+    return sum(int(t) for t in s.replace('+', ' ').split()) % 6
+
+
+def main():
+    out = {'schema': 'refresh.current_runs.v1', 'source': 'oph-physics-sim/runs/universe/L3..L7: run.json and view/class_stats.json', 'runs': {}}
+    tot = {'channel_events': 0, 'class_violations': 0, 'fusions_and_splits': 0, 'identities': 0}
+    for L in (3, 4, 5, 6, 7):
+        run = RUNS / f'L{L}'
+        m = json.loads((run / 'run.json').read_text())
+        cs = json.loads((run / 'view' / 'class_stats.json').read_text())['tiers']
+        g = m['geometry']
+        assert m['config']['schedule'] == 1 and m['preparation']['name'] == 'exact06' and not m['config']['twists']
+        ev = viol = 0
+        for tier in cs.values():
+            for ch, n in tier['channels'].items():
+                lhs, rhs = ch.split('->')
+                ev += n
+                viol += n * (side(lhs) != side(rhs))
+        scr = cs['screen']['classes']
+        ever = {k: scr[str(k)]['ever'] for k in (1, 2, 3, 4, 5)}
+        n = sum(ever.values())
+        tt = m['tracker_totals']
+        ci = m['end']['counts_intra']
+        out['runs'][f'L{L}'] = {
+            'level': L, 'carriers': g['carriers'], 'ports': g['ports'], 'seams': g['seams'], 'sweeps': m['sweeps'], 'seed': m['config']['seed'],
+            'backend': m['config']['backend'], 'tiers_tracked': sorted(cs), 'identities': m['identities'], 'cuts': len(m['cuts']),
+            'screen_identities': n, 'class_shares': {str(k): ever[k] / n for k in ever}, 'moved_fraction': {str(k): scr[str(k)]['moved_fraction'] for k in ever},
+            'alive_at_end_screen': {str(k): scr[str(k)]['alive_at_end'] for k in ever}, 'channel_events': ev, 'class_violations': viol, 'tracker_totals': tt,
+            'end_counts_intra': ci[1:6], 'pairs_2_4_per_carrier': (ci[2] + ci[4]) / 2 / g['carriers'], 'pairs_3_3_per_carrier': ci[3] / 2 / g['carriers'],
+            'balanced_after_sweeps': m['totals']['attempts_to_balanced_class'] / g['seams'], 'depth_at_end': json.loads((run / 'view' / 'class_stats.json').read_text())['depth_at_end']}
+        tot['channel_events'] += ev
+        tot['class_violations'] += viol
+        tot['fusions_and_splits'] += tt['fusions'] + tt['splits']
+        tot['identities'] += m['identities']
+    out['all'] = tot
+    (HERE / 'current_runs.json').write_text(json.dumps(out, indent=1) + '\n')
+    for name, r in out['runs'].items():
+        print(name, r['carriers'], 'carriers,', r['sweeps'], 'sweeps, shares', [round(100 * r['class_shares'][k], 1) for k in '15423'], 'events', r['channel_events'], 'violations', r['class_violations'])
+    print('PASS all runs:', tot)
+
+
+if __name__ == '__main__':
+    main()

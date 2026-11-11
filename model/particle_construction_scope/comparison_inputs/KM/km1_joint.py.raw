@@ -1,0 +1,175 @@
+"""Item 1 (c): record statistics of the public joint program model.coherent_defect_wave (executed, never edited).
+
+Tick U = C4 C3 C2 C1 C0 B (B: link-dependent wave advance; C_e: wave-controlled defect transports).
+Exact rational arithmetic on the public SparseState.
+
+Checks and numbers:
+  1. First tick. For every link word g, port p, level j the record-one Gram of the executed outputs on the 600
+     basis preparations |g> x A|p, j> equals the direct sum over (g, j) of L_{g,j}/60 (L_{g,j} = L for the triplet
+     levels j < 3, the signed Laplacian of the word g for the doublet levels j >= 3), for the full tick U and for
+     the wave advance B alone: the controlled defect moves do not change the first-tick record statistics of any
+     blank embedded preparation (they commute with the record detector and are unitary).
+  2. Lowest level of L_g for the ten words (the rest value of the doublet level in each defect position), with the
+     dual distance of the two flux faces.
+  3. Walker at the three positions of work/JOIN/JOIN.md (an endpoint of the negative link, the centre of the region,
+     outside the region), doublet level 3 and triplet level 0: p_1; joint law of (record, regional flux face) after
+     one tick; p_2 (record read only after tick 2) for B alone and for U; the complete two-tick record law
+     (r_1, r_2) with the record read after each tick (declared detector: the record projector, a sum of the
+     public register projectors; both outcomes kept).
+  4. Two-port preparations across the negative link and across a positive link.
+"""
+import json, sys
+from fractions import Fraction as F
+from collections import deque
+from model.coherent_defect_wave.model import JointObserver, SparseState, combine
+
+J = JointObserver()
+law = J.law
+n = 12
+EDGES = law.edges
+g0 = J.initial_word
+out = {'link_words': list(J.link_words), 'initial_word': g0, 'interior_edges': [list(EDGES[e]) for e in law.interior]}
+
+
+def signed_laplacian(g, doublet):
+    L = [[F(0)] * n for _ in range(n)]
+    for e, (a, b) in enumerate(EDGES):
+        z = -1 if (doublet and (g >> e) & 1) else 1
+        L[a][a] += 1; L[b][b] += 1; L[a][b] -= z; L[b][a] -= z
+    return L
+
+
+def rec(state, r):
+    return {k: v for k, v in state.amplitudes if k[3] == r}
+
+
+def read(state, r):
+    return SparseState(rec(state, r), state.norm_denominator)
+
+
+def prob(state):
+    return sum((v * v for _, v in state.amplitudes), F(0)) / state.norm_denominator
+
+
+def gram(parts, denom):
+    d = len(parts); G = {}
+    inv = {}
+    for i, part in enumerate(parts):
+        for k, v in part.items():
+            inv.setdefault(k, []).append((i, v))
+    for k, lst in inv.items():
+        for i, v in lst:
+            for j, w in lst:
+                G[(i, j)] = G.get((i, j), F(0)) + v * w
+    return {k: v / denom for k, v in G.items() if v != 0}
+
+
+# ---------------------------------------------------------------- 1. first tick, all 600 basis preparations
+basis = [(g, p, j) for g in J.link_words for p in range(n) for j in range(5)]
+target = {}
+for i, (g, p, j) in enumerate(basis):
+    Lg = signed_laplacian(g, j >= 3)
+    for k, (g2, q, j2) in enumerate(basis):
+        if g2 == g and j2 == j and Lg[p][q] != 0:
+            target[(i, k)] = Lg[p][q] / 60
+full = [J.step(J.embedded_port(g, p, j)) for g, p, j in basis]
+wave = [J.wave_step(J.embedded_port(g, p, j)) for g, p, j in basis]
+G_full = gram([rec(s, 1) for s in full], 60)
+G_wave = gram([rec(s, 1) for s in wave], 60)
+ok_full, ok_wave = G_full == target, G_wave == target
+print('first tick, 600 basis preparations: record-one Gram == direct sum of L_{g,j}/60: full tick', ok_full, '| wave advance alone', ok_wave)
+out['first_tick_gram_full_tick'] = bool(ok_full); out['first_tick_gram_wave_only'] = bool(ok_wave)
+
+# ---------------------------------------------------------------- 2. lowest level per link word
+import numpy as np
+seam_faces = {e: [i for i, f in enumerate(law.faces) if set(EDGES[e]) <= set(f)] for e in range(30)}
+dual = {i: set() for i in range(20)}
+for e, (f, h) in seam_faces.items():
+    dual[f].add(h); dual[h].add(f)
+
+
+def dual_distance(f1, f2):
+    seen = {f1: 0}; q = deque([f1])
+    while q:
+        f = q.popleft()
+        for h in dual[f]:
+            if h not in seen:
+                seen[h] = seen[f] + 1; q.append(h)
+    return seen[f2]
+
+
+rows = []
+for g in J.link_words:
+    syn = law.syndrome(g)
+    fl = [f for f in range(20) if syn >> f & 1]
+    Lg = np.array([[float(x) for x in r] for r in signed_laplacian(g, True)])
+    lam = np.linalg.eigvalsh(Lg)
+    rows.append({'word': g, 'negative_links': [list(EDGES[e]) for e in range(30) if g >> e & 1], 'flux_faces': [list(law.faces[f]) for f in fl],
+                 'dual_distance': dual_distance(*fl), 'lambda_min': float(lam[0]), 'p_rest': float(lam[0] / 60),
+                 'rest_phase': float(np.arccos(1 - lam[0] / 60)), 'uniform_state_p1': str(sum(sum(r) for r in signed_laplacian(g, True)) / (12 * 60))})
+    print(f"word {g:8d}: negative links {rows[-1]['negative_links']}, flux faces {rows[-1]['flux_faces']}, dual distance {rows[-1]['dual_distance']}, "
+          f"lambda_min {lam[0]:.6f}, p at rest {lam[0] / 60:.6f}, rest phase {rows[-1]['rest_phase']:.6f}, p_1 of the uniform state {rows[-1]['uniform_state_p1']}")
+out['doublet_level_by_link_word'] = rows
+
+# ---------------------------------------------------------------- 3. the three walker positions
+a0, b0 = 0, 1; v = 5
+adj5 = {q for e in EDGES for q in e if v in e and q != v}
+far = [p for p in range(n) if p not in (a0, b0, v) and p not in adj5][0]
+initial_face = [f for f in law.region if law.syndrome(g0) >> f & 1][0]
+
+
+def face_law(state):
+    res = {}
+    for (g, p, j, r, a), val in state.amplitudes:
+        f = [x for x in law.region if law.syndrome(g) >> x & 1][0]
+        res[(r, f)] = res.get((r, f), F(0)) + val * val / state.norm_denominator
+    return res
+
+
+pos = {}
+for label, port in (('endpoint of the negative link', a0), ('centre of the region', v), ('outside the region', far)):
+    for level in (3, 0):
+        s0 = J.embedded_port(g0, port, level)
+        u1 = J.step(s0); b1 = J.wave_step(s0)
+        p1_u, p1_b = prob(read(u1, 1)), prob(read(b1, 1))
+        fl = face_law(u1)
+        moved1 = sum(v_ for (r, f), v_ in fl.items() if f != initial_face)
+        moved1_and_rec = sum(v_ for (r, f), v_ in fl.items() if f != initial_face and r == 1)
+        u2 = J.step(u1); b2 = J.wave_step(b1)
+        p2_u, p2_b = prob(read(u2, 1)), prob(read(b2, 1))
+        moved2 = sum(v_ for (r, f), v_ in face_law(u2).items() if f != initial_face)
+        # complete two-tick record law with a read after each tick
+        law2 = {}
+        for r1 in (0, 1):
+            br = J.step(read(u1, r1))
+            for r2 in (0, 1):
+                law2[f'{r1}{r2}'] = prob(read(br, r2))
+        law2_b = {}
+        for r1 in (0, 1):
+            br = J.wave_step(read(b1, r1))
+            for r2 in (0, 1):
+                law2_b[f'{r1}{r2}'] = prob(read(br, r2))
+        pos[f'{label}|level {level}'] = {'port': port, 'p1_full_tick': str(p1_u), 'p1_wave_only': str(p1_b),
+                                       'P(defect moved) after 1 tick': str(moved1), 'P(defect moved and record 1) after 1 tick': str(moved1_and_rec),
+                                       'p2_full_tick': str(p2_u), 'p2_wave_only': str(p2_b), 'p2_difference': str(p2_u - p2_b),
+                                       'P(defect moved) after 2 ticks': str(moved2),
+                                       'record_law_r1r2_full_tick': {k: str(x) for k, x in law2.items()},
+                                       'record_law_r1r2_wave_only': {k: str(x) for k, x in law2_b.items()}}
+        print(f'{label} (port {port}), level {level}: p_1 = {p1_u} (wave only {p1_b}); P(moved) {moved1}, P(moved and record 1) {moved1_and_rec}; '
+              f'p_2 = {p2_u} = {float(p2_u):.9f} (wave only {p2_b} = {float(p2_b):.9f}, difference {float(p2_u - p2_b):+.3e}); P(moved after 2) {moved2}')
+        print(f'      (r1, r2) full tick {dict((k, str(x)) for k, x in law2.items())}; wave only {dict((k, str(x)) for k, x in law2_b.items())}')
+out['walker_positions'] = pos
+
+# ---------------------------------------------------------------- 4. two-port preparations
+g1 = 3 if 3 in J.link_words else None
+two = {}
+for label, ports in (('across the negative link (0,1)', (0, 1)), ('across the positive interior link (0,5)', (0, 5)), ('across a far link (2,3)', (2, 3))):
+    for g in (g0, g1):
+        if g is None: continue
+        s0 = J.embedded_ports(g, ports, 3)
+        p1 = prob(read(J.step(s0), 1))
+        two[f'{label}|word {g}'] = str(p1)
+        print(f'two ports {label}, word {g}: p_1 = {p1}')
+out['two_port_preparations'] = two
+if len(sys.argv) > 1:
+    json.dump(out, open(sys.argv[1], 'w'), indent=1)

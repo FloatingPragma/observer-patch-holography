@@ -1,0 +1,152 @@
+"""Area-graded counts of closed native histories on one carrier.
+
+A closed history of the load configuration has a seam-current record that is a 1-cycle on the icosahedron. The cycle
+bounds a 2-chain that is defined up to the whole sphere, so the enclosed area (number of faces, with sign) is defined
+modulo 20. Grading the native transfer by the character exp(2 pi i k area / 20) gives the twisted transfer of flux k.
+This script (1) checks that statement by brute-force enumeration of closed walks with their area record, (2) lists the
+leading (most persistent) multiplet of every character for one quantum and for the two-quanta exclusion chain, and
+(3) computes the Lie closure of port occupations compressed to leading multiplets.
+"""
+import itertools, sys, json
+import numpy as np
+from model.transported_contrast import law, exact
+
+seams, faces = law.carrier()
+n, M = 12, 30
+sidx = {}
+for i, (a, b) in enumerate(seams): sidx[(a, b)] = (i, 1); sidx[(b, a)] = (i, -1)
+signs = np.array(law.face_incidence(seams, faces))            # 20 x 30, boundary of each oriented face
+A0 = np.zeros((n, n))
+for a, b in seams: A0[a, b] = A0[b, a] = 1
+
+# --- an integer 1-cochain theta with d theta = 1 on every face is impossible (sum over faces = 0), so use the
+# area functional directly: for a cycle c (integer vector on seams, boundary zero), solve c = sum_f m_f boundary(f);
+# m is defined up to a constant; area = sum_f m_f mod 20.
+pinv = np.linalg.pinv(signs.T.astype(float))
+def area_mod20(cycle):
+    m = pinv @ cycle                                              # one solution (minimum norm): m_f = integer + const
+    m = m - m[0]                                                  # fix face 0 to coefficient 0: now integers
+    assert np.allclose(m, np.round(m), atol=1e-8), m
+    assert np.allclose(signs.T @ np.round(m), cycle)
+    return int(round(m.sum())) % 20
+
+# --- twisted adjacency from a connection with uniform flux: use spin-1/2 coherent states of the port directions
+w, v = np.linalg.eigh(A0)
+U = v[:, np.abs(w - 5 ** .5) < 1e-9] * 2.0
+f0 = faces[0]
+if np.linalg.det(np.array([U[f0[0]], U[f0[1]], U[f0[2]]])) < 0: U[:, 2] *= -1
+R = np.linalg.qr(np.random.default_rng(3).normal(size=(3, 3)))[0]
+if np.linalg.det(R) < 0: R[:, 0] *= -1
+U = U @ R.T
+def spinor(u):
+    th, ph = np.arccos(np.clip(u[2], -1, 1)), np.arctan2(u[1], u[0])
+    return np.array([np.cos(th / 2), np.exp(1j * ph) * np.sin(th / 2)])
+chi = [spinor(u) for u in U]
+link = {}
+for a, b in seams:
+    z = np.vdot(chi[b], chi[a]); z /= abs(z)                      # amplitude for the hop a -> b
+    link[(a, b)] = z; link[(b, a)] = np.conj(z)
+flux_unit = np.angle(link[(f0[0], f0[1])] * link[(f0[1], f0[2])] * link[(f0[2], f0[0])]) / (2 * np.pi) * 20
+print('flux per oriented face of the unit connection, in units 2 pi/20:', round(float(flux_unit), 6))
+def Ak(k):
+    A = np.zeros((n, n), complex)
+    for (a, b), z in link.items(): A[b, a] = z ** k
+    return A
+
+# (1) brute force: closed walks of length L from port 0, graded by area
+L = 7
+counts = np.zeros(20)
+def walk(p, steps, cyc):
+    if steps == 0:
+        if p == 0: counts[area_mod20(cyc)] += 1
+        return
+    for q in range(n):
+        if A0[p, q]:
+            i, s = sidx[(p, q)]; cyc[i] += s
+            walk(q, steps - 1, cyc)
+            cyc[i] -= s
+walk(0, L, np.zeros(M))
+sgn = int(round(float(flux_unit)))
+ok = True
+for k in range(20):
+    lhs = sum(counts[a] * np.exp(2j * np.pi * sgn * k * a / 20) for a in range(20))
+    rhs = np.linalg.matrix_power(Ak(k), L)[0, 0]
+    ok &= abs(lhs - rhs) < 1e-7
+print(f'closed walks of length {L} from one port: {int(counts.sum())}; area histogram mod 20: {counts.astype(int).tolist()}')
+print('Fourier transform of the area histogram equals the diagonal entry of the twisted adjacency power for every k:', bool(ok))
+
+# (2) leading multiplets
+def closure(herm, tol=1e-8, cap=60):
+    basis, elems = [], []
+    def add(X):
+        vec = np.concatenate([X.real.ravel(), X.imag.ravel()])
+        if basis:
+            B = np.array(basis); vec = vec - B.T @ (B @ vec)
+        nv = np.linalg.norm(vec)
+        if nv > tol:
+            basis.append(vec / nv); return True
+        return False
+    for X in herm:
+        G = 1j * X
+        if add(G): elems.append(G)
+    span = len(elems); frontier = list(elems)
+    while frontier and len(elems) < cap:
+        new = []
+        for X in frontier:
+            for Y in list(elems):
+                Z = X @ Y - Y @ X
+                if add(Z): new.append(Z)
+        elems += new; frontier = new
+    m = len(elems)
+    Mx = np.concatenate([np.array([np.concatenate([(E @ Y - Y @ E).real.ravel(), (E @ Y - Y @ E).imag.ravel()]) for E in elems]).T for Y in elems], axis=0)
+    return span, m, int(m - np.linalg.matrix_rank(Mx, tol=1e-7))
+pairs = list(itertools.combinations(range(n), 2)); pidx = {c: i for i, c in enumerate(pairs)}
+def T1(k):
+    return np.eye(n) - (5 * np.eye(n) - Ak(k)) / (2 * M)
+def T2(k):
+    H = np.zeros((66, 66), complex)
+    for (a, b) in seams:
+        for c in pairs:
+            ina, inb = a in c, b in c
+            if ina != inb:
+                i = pidx[c]; H[i, i] += 1
+                src, dst = (a, b) if ina else (b, a)
+                d = tuple(sorted(dst if x == src else x for x in c))
+                H[pidx[d], i] -= link[(src, dst)] ** k
+    return np.eye(66) - H / (2 * M)
+def leading(T):
+    ev, evec = np.linalg.eigh(T)
+    top = ev[-1]; sel = np.abs(ev - top) < 1e-9
+    nxt = ev[~sel].max()
+    return top, int(sel.sum()), nxt, evec[:, sel]
+lead1, lead2 = {}, {}
+print('\ncharacter k | one quantum: leading factor per attempt, multiplicity, next | two quanta (exclusion): leading factor, multiplicity, next')
+for k in range(0, 11):
+    t1, m1, n1, V1 = leading(T1(k)); t2, m2, n2, V2 = leading(T2(k))
+    lead1[k], lead2[k] = V1, V2
+    print(f'   k = {k:2d} | {t1:.6f}  x{m1}  next {n1:.6f} | {t2:.6f}  x{m2}  next {n2:.6f}')
+
+# (3) port occupations compressed to leading multiplets
+def comp1(V): return [V.conj().T[:, [p]] @ V[[p], :] for p in range(n)]
+def comp2(V):
+    out = []
+    for p in range(n):
+        d = np.array([1.0 if p in c else 0.0 for c in pairs]); out.append(V.conj().T @ (d[:, None] * V))
+    return out
+def blk(Xs):
+    size = sum(x.shape[0] for x in Xs); Z = np.zeros((size, size), complex); o = 0
+    for x in Xs:
+        Z[o:o + x.shape[0], o:o + x.shape[0]] = x; o += x.shape[0]
+    return Z
+print('\nport occupations compressed to the leading multiplet (span, closure, centre):')
+for k in range(0, 11):
+    c1 = closure(comp1(lead1[k])); c2 = closure(comp2(lead2[k]))
+    print(f'   k = {k:2d}: one quantum {c1}   two quanta {c2}')
+print('\ncombinations on the total-two carrier (two-quanta leading multiplets of two characters):')
+for k1, k2 in ((1, 2), (1, 10), (1, 7), (1, 3), (2, 10), (1, 9), (2, 7), (3, 10), (1, 5)):
+    ops = [blk([x, y]) for x, y in zip(comp2(lead2[k1]), comp2(lead2[k2]))]
+    print(f'   two quanta, k = {k1} and k = {k2}: dims {lead2[k1].shape[1]} + {lead2[k2].shape[1]}: {closure(ops)}')
+print('\ncombinations one quantum (k) with two quanta (k):')
+for k1, k2 in ((1, 1), (1, 10), (7, 1), (1, 2), (7, 2), (10, 1)):
+    ops = [blk([x, y]) for x, y in zip(comp1(lead1[k1]), comp2(lead2[k2]))]
+    print(f'   one quantum k = {k1} with two quanta k = {k2}: dims {lead1[k1].shape[1]} + {lead2[k2].shape[1]}: {closure(ops)}')

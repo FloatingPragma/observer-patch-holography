@@ -1,0 +1,104 @@
+"""LT (step L3): the spectrum for a general clock time per tick kappa (direction 3). Section 2 of CANDIDATES.md.
+
+Run from RL/work/LT:  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B lt_spectrum.py
+theta = kappa P with P = 2/9; lambda_k = 1 + sqrt2 cos(theta + 2 pi k/3); rates y_k = lambda_k^2/27.
+No measured value enters. Writes lt_spectrum.json.
+"""
+import json
+import os
+import sys
+
+sys.dont_write_bytecode = True
+import mpmath as mp  # noqa: E402
+
+mp.mp.dps = 40
+HERE = os.path.dirname(os.path.abspath(__file__))
+P = mp.mpf(2) / 9
+CH = mp.pi / 12
+P_PIX = mp.mpf('1.63097')          # D10 point of the pixel (source side, declared chain), for B11 and B12 only
+
+
+def lambdas(theta):
+    return [1 + mp.sqrt(2) * mp.cos(theta + 2 * mp.pi * k / 3) for k in range(3)]
+
+
+def chamber_offset(theta):
+    """Distance of theta from the nearest multiple of 2 pi/3."""
+    step = 2 * mp.pi / 3
+    return theta - step * mp.nint(theta / step)
+
+
+def row(theta):
+    lam = lambdas(theta)
+    y = sorted(l * l / 27 for l in lam)
+    off = chamber_offset(theta)
+    q = sum(y) / sum(mp.sqrt(v) for v in y) ** 2
+    return {
+        'theta': mp.nstr(theta, 15), 'theta modulo 2 pi/3': mp.nstr(off, 12), 'in positive chamber': bool(abs(off) <= CH),
+        'negative lambda count': sum(1 for l in lam if l < 0),
+        'rates sorted': [mp.nstr(v, 12) for v in y], 'sum of rates': mp.nstr(sum(y), 15),
+        'ratio middle/smallest': mp.nstr(y[1] / y[0], 12) if y[0] > 0 else 'infinite',
+        'ratio largest/smallest': mp.nstr(y[2] / y[0], 12) if y[0] > 0 else 'infinite',
+        'Q with roots |lambda|': mp.nstr(q, 15),
+    }
+
+
+def ratios(kappa):
+    y = sorted(l * l / 27 for l in lambdas(kappa * P))
+    return y[1] / y[0], y[2] / y[0]
+
+
+CANDS = [
+    ('B1', '1', mp.mpf(1)), ('B2', 'pi/2', mp.pi / 2), ('B3', 'pi/4', mp.pi / 4), ('B4', '2', mp.mpf(2)),
+    ('B5', 'pi', mp.pi), ('B6', '1/2', mp.mpf(1) / 2), ('B7', '2 pi', 2 * mp.pi), ('B8', '1/(2 pi)', 1 / (2 * mp.pi)),
+    ('B9', '2/pi', 2 / mp.pi), ('B10', '4/pi', 4 / mp.pi), ('B11', 'P_pix^(1/2)', mp.sqrt(P_PIX)),
+    ('B12', 'P_pix^(-1/2)', 1 / mp.sqrt(P_PIX)), ('B13', '4/5', mp.mpf(4) / 5), ('B14', '5', mp.mpf(5)),
+    ('B15', '-3', mp.mpf(-3)), ('B16', '9', mp.mpf(9)), ('B17', '-7', mp.mpf(-7)), ('B18', '3', mp.mpf(3)),
+    ('B19', '1/3', mp.mpf(1) / 3), ('B20', '6', mp.mpf(6)), ('B21', '1/6', mp.mpf(1) / 6),
+    ('B22', 'sin 1', mp.sin(1)), ('B23', '(9/2) atan(2/7)', mp.atan(mp.mpf(2) / 7) / P),
+    ('B24', '(9/2) arccos(7/9)', mp.acos(mp.mpf(7) / 9) / P),
+    ('B25', '60', mp.mpf(60)), ('B26', '30', mp.mpf(30)), ('B27', '12', mp.mpf(12)), ('B28', '1/60', mp.mpf(1) / 60),
+    ('B29', '1/30', mp.mpf(1) / 30), ('B30', '1/12', mp.mpf(1) / 12),
+]
+OUT = {'P': '2/9', 'chamber half width in theta': 'pi/12', 'candidates': []}
+for cid, name, kappa in CANDS:
+    r = row(kappa * P)
+    r.update({'id': cid, 'kappa': name, 'kappa value': mp.nstr(kappa, 15)})
+    OUT['candidates'].append(r)
+
+# chamber windows in kappa: kappa = (9/2)(2 pi n/3 +- pi/12) = 3 pi n +- 3 pi/8
+OUT['chamber windows in kappa'] = {
+    'form': 'kappa in [3 pi n - 3 pi/8, 3 pi n + 3 pi/8], n integer',
+    'half width 3 pi/8': mp.nstr(3 * mp.pi / 8, 15), 'period 3 pi': mp.nstr(3 * mp.pi, 15),
+    'windows for n = -1, 0, 1': [[mp.nstr(3 * mp.pi * n - 3 * mp.pi / 8, 8), mp.nstr(3 * mp.pi * n + 3 * mp.pi / 8, 8)]
+                                 for n in (-1, 0, 1)],
+}
+members = []
+for n in range(-25, 26):
+    kappa = mp.mpf(1 + 4 * n)
+    off = chamber_offset(kappa * P)
+    if abs(off) <= CH:
+        r1, r2 = ratios(kappa)
+        members.append({'kappa': 1 + 4 * n, 'theta modulo 2 pi/3': mp.nstr(off, 10), 'ratio middle/smallest': mp.nstr(r1, 10),
+                        'ratio largest/smallest': mp.nstr(r2, 10), 'principal branch of the edge gate': abs(1 + 4 * n) < 2})
+OUT['members of 1 + 4 Z with |n| <= 25 inside a positive chamber'] = members
+
+# behaviour across the chamber of n = 0
+grid = [mp.mpf(k) / 10 for k in range(0, 12)] + [3 * mp.pi / 8]
+OUT['across the chamber'] = [{'kappa': mp.nstr(k, 8), 'ratio middle/smallest': r['ratio middle/smallest'],
+                              'ratio largest/smallest': r['ratio largest/smallest'], 'Q': r['Q with roots |lambda|']}
+                             for k in grid for r in [row(k * P)]]
+# sensitivities at kappa = 1
+d1 = mp.diff(lambda k: mp.log(ratios(k)[0]), 1)
+d2 = mp.diff(lambda k: mp.log(ratios(k)[1]), 1)
+OUT['at kappa = 1'] = {
+    'ratio middle/smallest': mp.nstr(ratios(1)[0], 15), 'ratio largest/smallest': mp.nstr(ratios(1)[1], 15),
+    'd ln(middle/smallest)/d kappa': mp.nstr(d1, 10), 'd ln(largest/smallest)/d kappa': mp.nstr(d2, 10),
+    'd ln(middle/smallest)/d theta': mp.nstr(d1 / P, 10), 'd ln(largest/smallest)/d theta': mp.nstr(d2 / P, 10),
+}
+json.dump(OUT, open(os.path.join(HERE, 'lt_spectrum.json'), 'w'), indent=1)
+for r in OUT['candidates']:
+    print(f"{r['id']:4s} kappa={r['kappa']:18s} theta={r['theta'][:12]:13s} chamber={str(r['in positive chamber']):5s} "
+          f"neg={r['negative lambda count']} r1={r['ratio middle/smallest'][:12]:13s} r2={r['ratio largest/smallest'][:12]:13s} "
+          f"Q={r['Q with roots |lambda|'][:10]}")
+print(json.dumps({k: v for k, v in OUT.items() if k != 'candidates'}, indent=1))

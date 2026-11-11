@@ -1,0 +1,53 @@
+"""Z2 link register on the edge-sharing cubic family: what is gauge invariant (ranks over GF(2), periodic patches).
+
+Links: one bit per seam (27 per cell). Gauge transformations: one per port (flip the nine links at the port).
+Face fluxes: one per carrier face (20 per cell). Output: ranks, and the number of gauge-invariant bits that are
+not carrier face fluxes (holonomies around loops that pass from carrier to carrier).
+"""
+import itertools, json, sys
+import numpy as np
+import cubic_fed as cf
+
+def rank_gf2(M):
+    M = M.copy() % 2; r = 0; rows, cols = M.shape
+    for c in range(cols):
+        piv = None
+        for i in range(r, rows):
+            if M[i, c]: piv = i; break
+        if piv is None: continue
+        M[[r, piv]] = M[[piv, r]]
+        for i in range(rows):
+            if i != r and M[i, c]: M[i] ^= M[r]
+        r += 1
+        if r == rows: break
+    return r
+
+out = []
+for n in (2, 3):
+    cells = list(itertools.product(range(n), repeat=3))
+    port_id = {}
+    def port(cell, p):                                   # global port of home vertex p of the carrier at cell
+        c = tuple((np.array(cell) + cf.OFF[p].astype(int)) % n)
+        return port_id.setdefault((c, cf.CLS[p]), len(port_id))
+    seam_id = {}; faces = []
+    for cell in cells:
+        for a, b in cf.EDGES:
+            k = tuple(sorted((port(cell, a), port(cell, b))))
+            seam_id.setdefault(k, len(seam_id))
+        for f in cf.FACES:
+            faces.append([seam_id[tuple(sorted((port(cell, f[i]), port(cell, f[(i + 1) % 3]))))] for i in range(3)])
+    P, S, F, N = len(port_id), len(seam_id), len(faces), len(cells)
+    G = np.zeros((P, S), dtype=np.uint8)                 # gauge generators
+    for (u, v), s in seam_id.items(): G[u, s] ^= 1; G[v, s] ^= 1
+    B = np.zeros((F, S), dtype=np.uint8)                 # face boundaries
+    for i, f in enumerate(faces):
+        for s in f: B[i, s] ^= 1
+    rg, rb = rank_gf2(G), rank_gf2(B)
+    assert not ((B @ G.T) % 2).any()                     # fluxes are gauge invariant
+    invariant = S - rg
+    row = {'patch': [n, n, n], 'cells': N, 'ports': P, 'seams': S, 'faces': F, 'rank_gauge': rg, 'rank_face_flux': rb,
+           'gauge_invariant_bits': invariant, 'not_face_fluxes': invariant - rb,
+           'per_cell': {'gauge_invariant': invariant / N, 'face_flux': rb / N, 'other': (invariant - rb) / N},
+           'cubic_lattice_gauge_theory_would_give': {'plaquette_fluxes': 2 * N - 2, 'torus_holonomies': 3}}
+    out.append(row); print(row)
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 'gauge_count.json', 'w'), indent=1)

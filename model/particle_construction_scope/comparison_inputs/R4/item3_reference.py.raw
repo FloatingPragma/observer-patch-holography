@@ -1,0 +1,166 @@
+"""R4 item 3: the many-particle reference of the free alternating tick.
+
+W2(p) = M S_rev(p) M S_fwd(p), M = exp(-i theta Y_r). Eigenvalues exp(-i phi). The filled negative-phase branch is
+the spectral projector P_-(p) on phi in (-pi, 0), computed as the negative eigenspace of sin(phi) = i (W2 - W2*)/2.
+A. P_- on a 6^3 torus: rank, gap, stationarity under two ticks and under one tick, record content, mean phase.
+B. Charge conjugation C = (Y_r x sigma_2) K: exact on a lattice with Z2 links; C P_- C^-1 = 1 - P_-.
+C. Points of the zone where W2 = -1 with mass (the cut of the filled branch); correlations of the filled branch.
+D. Executed in occupation space (3 x 1 x 1, 12 modes): the circuit of item 1 applied to the Slater determinant
+   of the filled branch, to a particle and to a hole.
+"""
+import sys, itertools
+import numpy as np
+import scipy.sparse as sp
+from r4lib import *
+
+OUT = {}; th = 0.157935
+
+
+def P_minus(Wm):
+    """spectral projector on phases in (-pi, 0) of a batch of 4 x 4 unitaries, and the phases"""
+    Hs = 0.5j * (Wm - np.conj(np.swapaxes(Wm, -1, -2)))               # sin(phi)
+    Hc = 0.5 * (Wm + np.conj(np.swapaxes(Wm, -1, -2)))                # cos(phi)
+    e, v = np.linalg.eigh(Hs)
+    neg = (e < -1e-12).astype(float)
+    P = np.einsum('...ik,...k,...jk->...ij', v, neg, np.conj(v))
+    phi = np.arctan2(e, np.real(np.einsum('...ik,...ij,...jk->...k', np.conj(v), Hc, v)))
+    return P, phi, neg.sum(axis=-1)
+
+
+def zone(L, off=0.0):
+    g = 2 * np.pi * (np.arange(L) + off) / L
+    return np.stack(np.meshgrid(g, g, g, indexing='ij'), axis=-1).reshape(-1, 3)
+
+
+def batch(pts, f): return np.stack([f(p) for p in pts])
+
+
+# ---- A ----------------------------------------------------------------------------------------------------
+L = 6; pts = zone(L)
+Wb = batch(pts, lambda p: sym_W2(p, th))
+Ab = batch(pts, lambda p: sym_M(th) @ sym_S(p, False))                # first tick
+Wodd = batch(pts, lambda p: sym_M(th) @ sym_S(p, False) @ sym_M(th) @ sym_S(p, True))   # two-tick product seen from odd ticks
+P, phi, rank = P_minus(Wb); Podd, _, _ = P_minus(Wodd)
+dag = lambda M: np.conj(np.swapaxes(M, -1, -2))
+A = {'lattice': [L] * 3, 'theta': th, 'momenta': len(pts), 'rank_of_filled_branch_per_momentum': sorted({int(r) for r in rank}),
+     'quanta_per_cell_and_pattern': float(rank.sum() / len(pts)),
+     'smallest_|phase|_two_ticks': float(np.abs(phi).min()), '2_theta': 2 * th, 'largest_|phase|': float(np.abs(phi).max()),
+     'stationary_under_two_ticks_defect': float(np.abs(Wb @ P @ dag(Wb) - P).max()),
+     'one_tick_maps_it_to_the_filled_branch_of_the_odd_product_defect': float(np.abs(Ab @ P @ dag(Ab) - Podd).max()),
+     'one_tick_changes_it_max_over_zone_operator_norm': float(max(np.linalg.norm(x, 2) for x in (Ab @ P @ dag(Ab) - P))),
+     'on_the_axes_one_tick_leaves_it_defect': float(max(np.abs(Ab[n] @ P[n] @ dag(Ab[n]) - P[n]).max() for n in range(len(pts)) if np.count_nonzero(np.abs(np.sin(pts[n])) > 1e-9) <= 1)),
+     'recorded_fraction_of_the_filled_quanta': float(np.real(np.trace(P @ (I4 - ZR) / 2, axis1=-2, axis2=-1)).sum() / rank.sum()),
+     'mean_filled_phase_per_two_ticks': float((phi * (phi < 0)).sum() / rank.sum())}
+rows = []
+for eps in (0.2, 0.1, 0.05):
+    p = eps * np.array([0.6, 0.48, 0.64]); Pp, _, _ = P_minus(sym_W2(p, th)[None]); A1 = sym_M(th) @ sym_S(p)
+    rows.append({'|p|': eps, 'norm_of_change_by_one_tick': float(np.linalg.norm(A1 @ Pp[0] @ A1.conj().T - Pp[0], 2))})
+A['one_tick_change_at_small_momentum'] = rows
+# engine tie: two alternating engine ticks on a plane wave against the symbol
+w = Routing((L, L, L)); n = (1, 2, 5); e = np.array([0.3, -0.5j, 0.7, 0.2 + 0.4j]); psi = w.plane_wave(n, e)
+got = w.tick(w.tick(psi, th), th, reverse=True); want = w.plane_wave(n, sym_W2(w.momentum(n), th) @ e)
+A['engine_two_ticks_against_symbol_defect'] = float(np.abs(got - want).max())
+# which projectors are invariant under BOTH ordered ticks (stationary tick by tick)? the commutant of {A(p), B(p)}
+def commutant(mats, tol=1e-9):
+    u, sv, vh = np.linalg.svd(np.vstack([np.kron(m.T, I4) - np.kron(I4, m) for m in mats]))
+    return [vh[k].conj().reshape(4, 4).T for k in range(16) if sv[k] < tol]
+rngc = np.random.default_rng(11); com = {}
+for theta in (0.0, th, 0.6):
+    dims = []; mixed = True
+    for _ in range(6):
+        pr = rngc.uniform(-np.pi, np.pi, 3); A1 = sym_M(theta) @ sym_S(pr, False); B1 = sym_M(theta) @ sym_S(pr, True)
+        cm = commutant([A1, B1]); dims.append(len(cm))
+        T = max((x - np.trace(x) / 4 * I4 for x in cm), key=np.linalg.norm)
+        Hh = T + T.conj().T if np.linalg.norm(T + T.conj().T) > 1e-6 else 1j * (T - T.conj().T)
+        ew, ev = np.linalg.eigh(Hh)
+        for sel in (ew > 0, ew < 0):                                   # the two eigenspaces of the label
+            for U1 in (A1, B1):
+                ph = -np.angle(np.linalg.eigvals(ev[:, sel].conj().T @ U1 @ ev[:, sel]))
+                mixed &= bool(sel.sum() == 2 and ph.min() < 0 < ph.max())
+    com[f'theta_{theta}'] = {'commutant_dimension_at_6_random_momenta': dims, 'each_label_sector_has_one_positive_and_one_negative_phase_of_each_tick': mixed}
+A['projectors_invariant_under_both_ordered_ticks'] = com
+A['reading'] = ('commutant = span{1, Theta(p)}, Theta an involution (the arrow label X_r at theta = 0): the invariant projectors are 0, 1 and '
+                '(1 +- Theta)/2, and each Theta sector holds both signs of the phase; so no filled negative-phase branch is stationary under every single tick')
+OUT['A_filled_branch_6^3'] = A; print(A)
+
+# ---- B. charge conjugation -----------------------------------------------------------------------------
+V4 = np.kron(SIG[1], SIG[1])                                         # Y_r x sigma_2
+rng = np.random.default_rng(3); worst = 0.0
+for _ in range(50):
+    p = rng.uniform(-np.pi, np.pi, 3)
+    worst = max(worst, np.abs(V4 @ np.conj(sym_W2(-p, th)) @ V4.conj().T - sym_W2(p, th)).max())
+Pm, _, _ = P_minus(batch(-pts, lambda p: sym_W2(p, th)))
+B = {'symbol_C_W2_C^-1_equals_W2_defect_50_momenta': float(worst), 'C_squared': '+1',
+     'C_maps_filled_branch_to_its_complement_defect': float(np.abs(V4 @ np.conj(Pm) @ V4.conj().T - (I4 - P)).max())}
+shape = (3, 2, 2); links = [rng.choice([-1.0, 1.0], size=shape) for _ in range(3)]
+V = rec_op(shape, SIG[1]) @ spin_op(shape, SIG[1])
+M5 = np.kron(np.eye(ncell(shape)), np.kron(np.array([[3, -4], [4, 3]], complex), I2))
+MZ5 = np.kron(np.eye(ncell(shape)), np.kron(np.diag([3 - 4j, 3 + 4j]), I2))
+for name, Wl in (('forward_tick_links', tick_exact(shape, False, links)), ('reverse_tick_links', tick_exact(shape, True, links)),
+                 ('mass_step_Y', M5), ('mass_step_Z', MZ5)):
+    B[f'lattice_3x2x2_C_commutes_with_{name}_exact'] = bool(np.array_equal(V @ np.conj(Wl) @ V.conj().T, Wl))
+B['C_squared_is_plus_one_exact'] = bool(np.array_equal(V @ np.conj(V), np.eye(dim(shape))))
+OUT['B_charge_conjugation'] = B; print(B)
+
+# ---- C. the cut at phase pi ---------------------------------------------------------------------------
+grid = [np.array(k) * np.pi / 2 for k in itertools.product(range(4), repeat=3)]
+at_pi = [k for k in grid if np.abs(sym_W2(k, th) + I4).max() < 1e-12]
+at_pi_Z = [k for k in grid if np.abs((lambda m: m @ sym_S(k, True) @ m @ sym_S(k, False))(np.cos(th) * I4 - 1j * np.sin(th) * ZR) + I4).max() < 1e-12]
+C = {'momenta_with_W2_equal_minus_one_with_mass_Y': len(at_pi), 'same_with_mass_Z': len(at_pi_Z),
+     'one_quantum_states_at_phase_pi_on_a_torus_with_L_divisible_by_4': 4 * len(at_pi)}
+Lc = 64; gc = 2 * np.pi * (np.arange(Lc) + 0.5) / Lc                 # antiperiodic grid: avoids the degenerate momenta
+pc = np.stack(np.meshgrid(gc, gc, gc, indexing='ij'), axis=-1).reshape(-1, 3)
+def W2_batch(Pp, theta):
+    exb = lambda q, i: np.cos(q)[:, None, None] * I4 - 1j * np.sin(q)[:, None, None] * ALPHA[i]
+    Sb = [exb(Pp[:, i], i) for i in range(3)]; Mt = sym_M(theta)
+    return Mt @ (Sb[0] @ Sb[1] @ Sb[2]) @ Mt @ (Sb[2] @ Sb[1] @ Sb[0])
+def corr(theta, ds=(1, 2, 3, 4, 8, 12, 16, 24)):
+    """Frobenius norm of the 4 x 4 block <a+(x) a(x + d e_1)> of the filled branch (one pattern)"""
+    Pc, _, _ = P_minus(W2_batch(pc, theta))
+    Fp = Pc.reshape(Lc, Lc * Lc, 4, 4).mean(axis=1)
+    return {str(d): float(np.linalg.norm(np.einsum('n,nij->ij', np.exp(1j * gc * d), Fp) / Lc)) for d in ds}
+C['correlation_of_filled_branch_along_axis_1_on_64^3'] = {'theta_0.157935': corr(th), 'theta_0.6': corr(0.6)}
+c6 = C['correlation_of_filled_branch_along_axis_1_on_64^3']['theta_0.6']
+C['theta_0.6_ratio_d24_over_d4'] = c6['24'] / c6['4']; C['exponential_with_length_1/theta_would_give'] = float(np.exp(-0.6 * 20))
+OUT['C_cut_at_phase_pi'] = C; print(C)
+
+# ---- D. occupation space, 3 x 1 x 1 -------------------------------------------------------------------
+shape = (3, 1, 1); D = dim(shape); c, s = np.cos(th), np.sin(th)
+W1 = tick_exact(shape, False, None, (c, s)); W2l = tick_exact(shape, True, None, (c, s)) @ W1
+Hs = 0.5j * (W2l - W2l.conj().T); ev, vec = np.linalg.eigh(Hs)
+neg, pos = vec[:, ev < 0], vec[:, ev > 0]
+phase = lambda v: float(-np.angle(np.vdot(v, W2l @ v)))
+def slater(orbs):
+    sec = Sector(D, orbs.shape[1])
+    return sec, np.array([np.linalg.det(orbs[I, :]) for I in sec.comb])
+def circuit(sec, psi):
+    rec = [m for m in range(D) if m % 4 >= 2]; signR = 1 - 2 * (sec.occ[:, rec].sum(axis=1) & 1)
+    for rev in (False, True):
+        for i in ((2, 1, 0) if rev else (0, 1, 2)):
+            psi = signR * psi
+            for Pv in reflector_projectors(shape, i):
+                N = sec.bilinear(8 * Pv); psi = psi - (N[0] @ psi + 1j * (N[1] @ psi)) / 4
+        for x in cells(shape):
+            for sp_ in range(2):
+                m0, m1 = mode(shape, x, 0, sp_), mode(shape, x, 1, sp_)
+                r1, c1_, g1 = sec.hop(m1, m0); r2, c2_, g2 = sec.hop(m0, m1)
+                new = psi + (c - 1) * (sec.occ[:, m0] ^ sec.occ[:, m1]) * psi
+                np.add.at(new, r1, s * g1 * psi[c1_]); np.add.at(new, r2, -s * g2 * psi[c2_])
+                psi = new
+    return psi
+res = {}
+for name, orbs, expect in (('filled_branch', neg, sum(phase(neg[:, j]) for j in range(neg.shape[1]))),
+                           ('filled_branch_plus_particle', np.column_stack([neg, pos[:, 0]]), None),
+                           ('filled_branch_minus_one_mode_hole', neg[:, 1:], None)):
+    sec, psi = slater(orbs); out = circuit(sec, psi); amp = np.vdot(psi, out) / np.vdot(psi, psi)
+    res[name] = {'quanta': sec.k, 'sector_dimension': sec.nb, 'is_eigenvector_defect': float(np.linalg.norm(out - amp * psi) / np.linalg.norm(psi)),
+                 'phase_per_two_ticks': float(-np.angle(amp))}
+vac = res['filled_branch']['phase_per_two_ticks']
+wrap = lambda x: float((x + np.pi) % (2 * np.pi) - np.pi)
+res['excitation_phase_of_the_particle'] = wrap(res['filled_branch_plus_particle']['phase_per_two_ticks'] - vac)
+res['one_body_phase_of_the_added_mode'] = phase(pos[:, 0])
+res['excitation_phase_of_the_hole'] = wrap(res['filled_branch_minus_one_mode_hole']['phase_per_two_ticks'] - vac)
+res['one_body_phase_of_the_removed_mode'] = phase(neg[:, 0])
+res['sum_of_filled_one_body_phases_mod_2pi_minus_circuit_phase'] = wrap(sum(phase(neg[:, j]) for j in range(neg.shape[1])) - vac)
+OUT['D_occupation_space_3x1x1'] = res; print(res)
+dump(OUT, sys.argv[1] if len(sys.argv) > 1 else RL + '/work/R4/item3_reference.json')
