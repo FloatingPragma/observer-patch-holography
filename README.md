@@ -1,6 +1,6 @@
 # Observer Patch Holography
 
-**Physics from the records observers can share.**
+**OPH is a rigorous, consistent and complete description of the unified, self-creating computational Universe we inhabit.**
 
 [Main paper](https://philpapers.org/rec/MUEFOC) · [Book](https://oph-book.floatingpragma.ai/) · [Notebook](https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a) · [Lean library](Lean/) · [Reproduce](REPRODUCE.md) · [Pragma Research](https://floatingpragma.ai/) · [Français](README_FR.md)
 
