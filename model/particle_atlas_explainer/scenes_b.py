@@ -518,9 +518,10 @@ def roster(c, data, y):
     return status(c, X0, yb + h + 16, CW,
                   'Under stated premises the twelve-port response carries the algebra '
                   'u(1) ⊕ su(2) ⊕ su(3), and its fifteen matter states carry the charges of one '
-                  'Standard Model family.',
-                  'Which defect is which particle. Spin, statistics, three families and the '
-                  'measured masses on one construction. No row above is an identified OPH defect.')
+                  'Standard Model family. A protected defect carries the centre class 6Y mod 6 '
+                  'of these families exactly.',
+                  'The generation, the weak isospin component and the measured masses on one '
+                  'construction. A defect class names a family of the rows above and no single row.')
 
 
 # ---------------------------------------------------------------- evidence
@@ -551,7 +552,7 @@ def evidence(c, data, y):
     lower = contact['exact_ideal_word_signal_certificate']['ideal_word_interaction_signal_lower']
     cards = (
         ('Candidate map', AMBER,
-         f'{len(candidates["target_rows"])} named targets; no identified species',
+         f'{len(candidates["target_rows"])} named targets; six centre classes identified',
          'The fifteen internal gauge states match one fermion family’s weights. The positive '
          'charge-six component has charged-lepton-conjugate weights. Three lepton flavors are '
          'not supplied by copying that row. Neutral three-body source singlets are composite '

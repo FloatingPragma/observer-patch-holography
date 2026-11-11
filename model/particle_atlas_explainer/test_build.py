@@ -60,7 +60,7 @@ def test_evidence_panel_uses_receipts_and_keeps_domains_separate(data):
     assert 'rare empty-matter sector' in text
     assert 'separate supplied contact action' in text
     assert 'Static fusion is not a moving collision' in text
-    assert '18 named targets; no identified species' in text
+    assert '18 named targets; six centre classes identified' in text
     assert 'Six source identities; seven records' in text
     assert 'A dressed charged energy channel' in text
     assert 'pair-energy transfers in [77/8, 271/8] source units' in text
