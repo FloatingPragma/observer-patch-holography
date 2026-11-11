@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1822,
+  "surface_count": 1824,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -3987,6 +3987,16 @@
     },
     {
       "path": "model/lattice_weyl_response/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/lepton_register_round/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/lepton_register_round/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

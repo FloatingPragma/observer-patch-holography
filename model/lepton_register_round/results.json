@@ -1,0 +1,1262 @@
+{
+ "all_checks_pass": true,
+ "carrier": {
+  "completion_entries": [
+   "-1/2",
+   "0",
+   "1",
+   "1/2"
+  ],
+  "count_formula": "3/n - 4/n^2 at n = 12",
+  "double_load_at_port_2": {
+   "blank": "5/6",
+   "record 2": "1/12",
+   "record 3": "1/12"
+  },
+  "native_pair_weights": {
+   "agree": "1/6",
+   "other": "0",
+   "repair, load first": "1/12",
+   "repair, load second": "1/12",
+   "untouched": "2/3"
+  },
+  "native_pairs_checked": 36,
+  "one_register_two_doubles": [
+   {
+    "P(H)": "1/6",
+    "P(R+ and H)": "0",
+    "P(R+)": "1/12",
+    "count": "1/4"
+   }
+  ],
+  "two_cells_at_port_2": {
+   "count": "2/9",
+   "joint": "1/72",
+   "p_h": "1/6",
+   "p_r": "1/12",
+   "total": "1"
+  },
+  "two_nine_times_240": "160/3",
+  "weak_round_port_2": {
+   "<D|W^-1 Pi_H W|D>": "1/6",
+   "<D|W^-1 Pi_R+ W|D>": "1/12",
+   "<X|X>": "2/9",
+   "<start|X>": "2/9",
+   "non_return_X": {
+    "norm2": "11/144",
+    "off": "0",
+    "uniform": "0"
+   },
+   "non_return_Y": {
+    "norm2": "5/36",
+    "off": "0",
+    "uniform": "0"
+   }
+  }
+ },
+ "checks": {
+  "1_register.analyzer_flags_orthonormal": true,
+  "1_register.balance_b_over_a_is_one_over_sqrt2": true,
+  "1_register.compression_commutes_with_R": true,
+  "1_register.compression_is_sqrt2_over_3_C_theta": true,
+  "1_register.eigenvalues_on_the_characters": true,
+  "1_register.exclusive_read_count_is_2_9": true,
+  "1_register.face_is_fixed_by_the_two_seam_half_turns": true,
+  "1_register.full_432_state_tick_unitary": true,
+  "1_register.hexagon_and_screen_orientations": true,
+  "1_register.koide_two_thirds_in_the_positive_chamber": true,
+  "1_register.object_event_is_an_involution": true,
+  "1_register.object_event_is_observer_repair_on_the_seam": true,
+  "1_register.object_factors_unitary": true,
+  "1_register.object_weights_2_3_1_6_1_12_1_12": true,
+  "1_register.plain_record_gives_quadrature_form": true,
+  "1_register.register_outputs_at_theta_2_9": true,
+  "1_register.repair_plus_1_12_hold_1_6_joint_1_72": true,
+  "1_register.trace_of_the_read_effect_equals_the_count": true,
+  "2_double_loads.completion_is_a_real_symmetric_involution": true,
+  "2_double_loads.double_load_weights_equal_the_register_object_weights": true,
+  "2_double_loads.one_port_doubles_emit_1_6_across_each_of_their_two_seams": true,
+  "2_double_loads.symmetric_double_tick_weights_2_3_1_6_1_12_1_12_and_count_2_9": true,
+  "3_weak_round.distance_to_the_limit_at_most_1_over_N": true,
+  "3_weak_round.every_round_reads_the_tick_one_weights": true,
+  "3_weak_round.forward_only_counts_2_9_35_81_38_81_35_81_2_9_0": true,
+  "3_weak_round.forward_only_mean_8_27_and_period_six": true,
+  "3_weak_round.modulus_series_minus_7_over_81_N": true,
+  "3_weak_round.non_return_norms_11_144_and_5_36": true,
+  "3_weak_round.non_return_vectors_are_blank_doubles": true,
+  "3_weak_round.non_return_weight_is_14_81_per_unit_abs_1_minus_z_squared": true,
+  "3_weak_round.oriented_inverse_tick_restores_the_pair": true,
+  "3_weak_round.phase_per_unit_clock_time_at_N_1_10_1000": true,
+  "3_weak_round.phase_series_2_9_minus_35_over_2187_N2": true,
+  "3_weak_round.plain_and_oriented_rounds_agree": true,
+  "3_weak_round.plain_inverse_tick_restores_the_pair": true,
+  "3_weak_round.public_one_load_round_returns_11_12_plus_i_12": true,
+  "3_weak_round.zero_return_amplitude_is_1_minus_P_plus_P_z": true,
+  "4_clock_unit.clock_at_unit_time_has_the_gate_coefficients": true,
+  "4_clock_unit.clock_equals_the_edge_gate_exactly_on_1_plus_4Z": true,
+  "4_clock_unit.clock_gives_inverse_gate_and_swap_on_minus_1_and_2_plus_4Z": true,
+  "4_clock_unit.consensus_block_is_I_minus_L_over_60": true,
+  "4_clock_unit.exp_minus_i_pi_1_plus_4n_over_2_is_minus_i": true,
+  "4_clock_unit.identity_needs_the_consensus_address": true,
+  "4_clock_unit.identity_on_random_consensus_inputs": true,
+  "4_clock_unit.one_minus_overlap_is_record_one_weight_1_12_on_every_port": true,
+  "4_clock_unit.onsite_term_keeps_the_consensus_sector": true,
+  "4_clock_unit.principal_branch_member_is_tau_1": true,
+  "4_clock_unit.swap_is_a_nontrivial_involution_and_gate_squares_to_it": true,
+  "5_kick.current_is_half_difference_of_oriented_records": true,
+  "5_kick.double_crosses_its_seam_in_two_plain_ticks": true,
+  "5_kick.fixed_order_law_returns_the_double": true,
+  "5_kick.flags_carry_current_0_plus_1_minus_1": true,
+  "5_kick.kick_is_the_toggle_commutator_with_h_2_eta": true,
+  "5_kick.object_event_is_1_minus_K2_plus_sigma_z_K": true,
+  "5_kick.one_port_no_weights_65_324_and_5_36": true,
+  "5_kick.one_port_non_returns_stay_at_the_port": true,
+  "5_kick.one_port_round_coefficients_5_18_and_1_6_mean_2_9": true,
+  "5_kick.oriented_record_gives_1_minus_K2_plus_K_on_blank_records": true,
+  "5_kick.pair_toggle_identity_SS_minus_2X": true,
+  "5_kick.repair_is_1_minus_K2_plus_sigma_z_K_on_every_seam": true,
+  "5_kick.toggle_round_amplitude_1_minus_P_plus_P_exp_minus_2i_eta_j": true,
+  "6_carrier.completion_entries_are_0_1_and_plus_minus_one_half": true,
+  "6_carrier.double_load_blank_5_6_record_2_and_3_1_12_at_every_port": true,
+  "6_carrier.emission_amplitudes_all_positive": true,
+  "6_carrier.native_pairs_give_2_3_1_6_1_12_1_12": true,
+  "6_carrier.one_register_two_doubles_count_1_4": true,
+  "6_carrier.one_register_weights_are_multiples_of_1_240": true,
+  "6_carrier.records_2_and_3_are_the_native_current_signs": true,
+  "6_carrier.second_endpoint_repair_has_the_minus_sign": true,
+  "6_carrier.sixty_address_non_returns_11_144_and_5_36_need_only_the_address_consensus": true,
+  "6_carrier.two_cell_count_is_2_9_equal_to_3_over_n_minus_4_over_n2": true,
+  "6_carrier.two_cells_read_1_12_1_6_joint_1_72_at_every_port": true,
+  "6_carrier.walk_equals_observer_repair_and_reflect_on_1440_basis_states": true,
+  "6_carrier.weak_round_on_sixty_addresses_has_P_2_9": true,
+  "7_classes.class_3_consensus_state_is_fixed_by_the_tick": true,
+  "7_classes.class_3_consensus_state_is_uniform_over_18_states": true,
+  "7_classes.consensus_states_by_class_0_2_1_class_3_0_1_others_none": true,
+  "7_classes.its_blank_record_part_is_the_uniform_double_with_weight_1_3": true,
+  "7_classes.sectors_closed_and_discriminant_hermitian_for_every_class": true,
+  "7_classes.uniform_double_tick_weights_2_3_1_6_1_12_1_12_count_2_9": true
+ },
+ "classes": {
+  "class_3_blank_record_weight": "1/3",
+  "consensus_states": {
+   "0": {
+    "pair on one port": 1,
+    "separated loads": 2
+   },
+   "1": {
+    "pair on one port": 0,
+    "separated loads": 0
+   },
+   "2": {
+    "pair on one port": 0,
+    "separated loads": 0
+   },
+   "3": {
+    "pair on one port": 1,
+    "separated loads": 0
+   },
+   "4": {
+    "pair on one port": 0,
+    "separated loads": 0
+   },
+   "5": {
+    "pair on one port": 0,
+    "separated loads": 0
+   }
+  },
+  "flux_seam": [
+   2,
+   3
+  ],
+  "states": {
+   "doubles and their emission states": 18,
+   "separated loads, records 0 and 1": 30
+  },
+  "uniform_double_count": "2/9",
+  "uniform_double_tick_weights": {
+   "backward": "1/12",
+   "double": "2/3",
+   "forward": "1/12",
+   "in-dimer": "1/6"
+  }
+ },
+ "clock_unit": {
+  "blank_record_with_non_uniform_address": [
+   "320461/170460",
+   "196193/2556900"
+  ],
+  "clock_coefficients_at_tau_1": [
+   "1/2 - I/2",
+   "1/2 + I/2"
+  ],
+  "edge_rows": [
+   {
+    "gate": true,
+    "identity": false,
+    "in_1_plus_4Z": true,
+    "inverse_gate": false,
+    "swap": false,
+    "tau": "1"
+   },
+   {
+    "gate": true,
+    "identity": false,
+    "in_1_plus_4Z": true,
+    "inverse_gate": false,
+    "swap": false,
+    "tau": "5"
+   },
+   {
+    "gate": true,
+    "identity": false,
+    "in_1_plus_4Z": true,
+    "inverse_gate": false,
+    "swap": false,
+    "tau": "-3"
+   },
+   {
+    "gate": true,
+    "identity": false,
+    "in_1_plus_4Z": true,
+    "inverse_gate": false,
+    "swap": false,
+    "tau": "9"
+   },
+   {
+    "gate": true,
+    "identity": false,
+    "in_1_plus_4Z": true,
+    "inverse_gate": false,
+    "swap": false,
+    "tau": "-7"
+   },
+   {
+    "gate": false,
+    "identity": false,
+    "in_1_plus_4Z": false,
+    "inverse_gate": true,
+    "swap": false,
+    "tau": "-1"
+   },
+   {
+    "gate": false,
+    "identity": false,
+    "in_1_plus_4Z": false,
+    "inverse_gate": true,
+    "swap": false,
+    "tau": "3"
+   },
+   {
+    "gate": false,
+    "identity": false,
+    "in_1_plus_4Z": false,
+    "inverse_gate": false,
+    "swap": true,
+    "tau": "2"
+   },
+   {
+    "gate": false,
+    "identity": true,
+    "in_1_plus_4Z": false,
+    "inverse_gate": false,
+    "swap": false,
+    "tau": "0"
+   },
+   {
+    "gate": false,
+    "identity": true,
+    "in_1_plus_4Z": false,
+    "inverse_gate": false,
+    "swap": false,
+    "tau": "4"
+   },
+   {
+    "gate": false,
+    "identity": false,
+    "in_1_plus_4Z": false,
+    "inverse_gate": false,
+    "swap": false,
+    "tau": "1/2"
+   },
+   {
+    "gate": false,
+    "identity": false,
+    "in_1_plus_4Z": false,
+    "inverse_gate": false,
+    "swap": false,
+    "tau": "4/5"
+   },
+   {
+    "gate": false,
+    "identity": false,
+    "in_1_plus_4Z": false,
+    "inverse_gate": false,
+    "swap": false,
+    "tau": "pi/2"
+   },
+   {
+    "gate": false,
+    "identity": false,
+    "in_1_plus_4Z": false,
+    "inverse_gate": false,
+    "swap": false,
+    "tau": "2/pi"
+   }
+  ],
+  "gate_coefficients": [
+   "1/2 - I/2",
+   "1/2 + I/2"
+  ],
+  "one_minus_overlap_and_record_one_weight": [
+   [
+    "1/12",
+    "1/12"
+   ]
+  ],
+  "port_laplacian_spectrum": {
+   "0": 1,
+   "5 - sqrt(5)": 3,
+   "6": 5,
+   "sqrt(5) + 5": 3
+  },
+  "principal_branch_members_of_1_plus_4Z": [
+   1
+  ]
+ },
+ "double_loads": {
+  "hexagon_ports": [
+   2,
+   3,
+   9,
+   1,
+   0,
+   10
+  ],
+  "screen_seams": [
+   [
+    2,
+    3
+   ],
+   [
+    3,
+    9
+   ],
+   [
+    9,
+    1
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    10
+   ],
+   [
+    10,
+    2
+   ]
+  ],
+  "third_turn_orbit": [
+   0,
+   2,
+   9
+  ],
+  "tick_one": {
+   "oriented": {
+    "P(R+ xor H) of two objects": "2/9",
+    "double at port 10": {
+     "backward": "1/6",
+     "double": "2/3",
+     "in-dimer": "1/6"
+    },
+    "double at port 2": {
+     "double": "2/3",
+     "forward": "1/6",
+     "in-dimer": "1/6"
+    },
+    "symmetric double": {
+     "backward": "1/12",
+     "double": "2/3",
+     "forward": "1/12",
+     "in-dimer": "1/6"
+    }
+   },
+   "plain": {
+    "P(R+ xor H) of two objects": "2/9",
+    "double at port 10": {
+     "backward": "1/6",
+     "double": "2/3",
+     "in-dimer": "1/6"
+    },
+    "double at port 2": {
+     "double": "2/3",
+     "forward": "1/6",
+     "in-dimer": "1/6"
+    },
+    "symmetric double": {
+     "backward": "1/12",
+     "double": "2/3",
+     "forward": "1/12",
+     "in-dimer": "1/6"
+    }
+   }
+  }
+ },
+ "input_sha256": {
+  "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+  "model/anharmonic_transfer/__init__.py": "2a37d8911ef47c17a261f7d6e361092a4c8f00214d576c9975291d96e559903d",
+  "model/anharmonic_transfer/environment.py": "861a218c6962a7244b877df12231a44c15f5cbaf59a9ea7700d6419c5065c466",
+  "model/coherent_defect_wave/__init__.py": "15a75539d1ccf3de058e5c5a23a0cb9d656dca7ad9fcc25b4d6c46ab64afbf54",
+  "model/coherent_defect_wave/gauss.py": "7df4e1550518a999586f1722eff4db26e15f960b75e793c7143c8400d59694b6",
+  "model/coherent_defect_wave/model.py": "51531e26722d3b09ce525ce22d5677de4a17a48f0ea4492908dee9a72e053f4d",
+  "model/coherent_defect_wave/preparation.py": "0f52461b009a337addfa1f794a9a3eb5bdaebff575c00431ad764ec01b4bbea1",
+  "model/coherent_defect_wave/spatial/__init__.py": "68827a00fdfedec18e14b9870118725bcb38d842badb7f3020093a700b48bd1c",
+  "model/coherent_defect_wave/spatial/family.py": "4ccea4a67e66d0f24ce76de08dcab06be2c65d4b91247f3fbdc95e3fb794a411",
+  "model/coherent_seam_repair/__init__.py": "c63891b72256135bc8ba4824a67b620f1faad917a504291f59231410d438bb4d",
+  "model/coherent_seam_repair/common.py": "b788b17ef298902067f6132d170ce8aff1d9ce8d5c5ec8b08e42809ef606348d",
+  "model/coherent_seam_repair/program.py": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "model/coherent_seam_repair/protection.py": "1bf9afa27e8749e08514a56c65c65ff11b60656b68944f7db7cc0b54a9f2b715",
+  "model/coherent_seam_repair/session.py": "4e7bc7ee7eec0d1374f1e5194bcbd5db2be7365267bf5c9c2058b7cf0bccff00",
+  "model/common_source/__init__.py": "becb29d889d8b0712a6b2d36734793bcb22575fc8999e80026e5c3e2f7a39ab5",
+  "model/common_source/experiment.py": "10b9040d1d2f870f6d4a5e72df2848bbc0f55c136be0be3bacd2fbda28ff4ab8",
+  "model/common_source/finite_signal.py": "0f74fe17b82e6140342aca048964984c7a5e35d8098e77ab298811b04e4df5ca",
+  "model/common_source/gauge_matter.py": "5ae518551305352707d30f27568df549ab057e13a3a734d9eddc6410b84161bc",
+  "model/common_source/native_join.py": "5103e163bfec42ea0a5c87647c4ff8998846cbdbc6fde8c33cb4a89581c38be0",
+  "model/common_source/open_environment.py": "ba8c33750ed256b457927ca3e8903a7fcb01de9629a99db3682c6d657ff80963",
+  "model/common_source/open_protocol.py": "936120dedfa4624ac0aa3117e3f1f2db2864ff229e53352c635e5a180fcbd852",
+  "model/common_source/protocol.py": "4339a070f39f2ddbc958e83041e9b8935dd8efd50acfca80519c4d92ea6cfac2",
+  "model/common_source/records.py": "7ff9a1a68b4b94c018364b73e0b9c651c9154f7e9b2ede21c51f17be79c1dafa",
+  "model/common_source/scalar_coupling.py": "90e4000b0e48e4429e69891c0274966701cd59951f79d151dbe98a66e61ba0cf",
+  "model/common_source/slow_geometry.py": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38",
+  "model/common_source/smooth_protocol.py": "b3e9f706d6e239900f36c300deb7d83faba2b39e02d3c6ecc5b3a806d9316480",
+  "model/federated_observer/__init__.py": "f2352d90abb18dc526972cc1b849a049fdbe2993d379e711ed03c991130a077e",
+  "model/federated_observer/source.py": "4a91b7f254fcee89c93b1ce3e9972ec0c809290ec987dbc87fcb0392319e549d",
+  "model/federated_quantum_sector/__init__.py": "b520b3f2ab16e3c4ee44ada51a387ecd9130c941c9212bca0a7f50da97cae1b6",
+  "model/federated_quantum_sector/construction.py": "af6ae95cf4473513e93a4f4c3a697f6abcede9f01770c7eba5f439f12269a141",
+  "model/interacting_band_extension/__init__.py": "f3a8f4e46681add759b53f4d4840e670a6d134ea56bec22b38d348b013f84aa1",
+  "model/interacting_band_extension/algebra.py": "1d2b955f9b3c20ef9ddb2b1fd024d320a21cdb67ee6bd710ad6126e7939e009b",
+  "model/interacting_band_extension/construction.py": "b55bd454646353687335401ca993796306ee8079b881a6556f6f2b48488bc1d7",
+  "model/lepton_register_round/PROOF.md": "d22bd319794081455b01d3571ebbf18461569005b50583b0d0efc4cc03312378",
+  "model/lepton_register_round/README.md": "0346b3b0c2876d85a278b621f204d3cbc474e4bf6bcf2d8abdbd16cefb40019a",
+  "model/lepton_register_round/__init__.py": "39b6387f90cfd6f307698efd6ef32bcaaa13e0a491d89f588a5a654c80dd3026",
+  "model/lepton_register_round/__main__.py": "65c567edbb4a39d11a09027307fb7ded0d8d1c5a7e0dd27c776397f69f577f83",
+  "model/lepton_register_round/carrier.py": "a156c39dc746e9347a30d1f8d37b7d3383f00106fed58a877375ed783eed0fd4",
+  "model/lepton_register_round/certificate.py": "5802932a105cf9026a4f6d708d2e1eb8c7052d80906c989e17f27e0c0b2f0215",
+  "model/lepton_register_round/classes.py": "c6fd8a0bab9ea4d80e8c6cabfdb1d07071a0249b891bb6379ef6c6ade578d653",
+  "model/lepton_register_round/clock.py": "0e2b4c02d66fe38242a58d21506aa754af376457941528a0f6b37535095dd936",
+  "model/lepton_register_round/geometry.py": "0081952733f65b43dde97758758f705f57a2776df31aca2800c4e913b7d28cd3",
+  "model/lepton_register_round/hexagon.py": "7b0bb8d38b6c01b15a8b8e67f18deb7232834ffec5c1d21febd933e363ed26cc",
+  "model/lepton_register_round/kick.py": "7ba1765964900575ebcf64f60dd7ddd6aa0d98cc0c20b035f69b1c8829b8e8ce",
+  "model/lepton_register_round/register.py": "b738d2fb3261abf3c8e1213a4cc36388da1a8d3e284d7a4997a1ee8817690eec",
+  "model/lepton_register_round/test_round.py": "b2c1e78ab093d2b9dca95503551d12e3ed90eabdf259a7a65b26fa94d10998f8",
+  "model/lepton_register_round/walk.py": "fec6a98a5a5361992491e0bea86783f42d2f5515719b98f01fdd2e0f0faa380f",
+  "model/native_action/__init__.py": "fb3c52e07daa664dd0a0c44ee06fa93f9cfceb0c572f3924478cb198a5a5c9c8",
+  "model/native_action/clock_histories.py": "41c698d743a98abf12912e4ab55e2ec91f3c4e8285e2f0c7015e01d3b0036f9f",
+  "model/native_action/construction.py": "b05c885a104f36f1bf68b288a58d6c16d86678a19ae8867e544df5c22d82039c",
+  "model/native_action/incident_refinement.py": "d0a0923564532bfc166a4d239572e63e41ee8b847dc9b3bf392aeb409a737c54",
+  "model/native_action/screen_compatibility.py": "976501acc55afdf07c6a5f2569f4e515c81ba50eafaf0e254ca653b5cffc610c",
+  "model/native_action/stopped_control.py": "d2a3de3f0c841b70656b78df3edf8431e305d126aec0ac7cca57308852791282",
+  "model/native_quantum_history/__init__.py": "53ea847e697c4a3d1a3acc0a3baf7059b9572ce6a7f2386827ff51a263bd31ad",
+  "model/native_quantum_history/construction.py": "99f6d67f9bef1e72222a425b4d70c80c679b1bfbaabbb68128f43fbdbe829f09",
+  "model/observer/__init__.py": "8c075559977af21e4de61a648f42a2f57efbb1e6bae727183acc70c35a316af0",
+  "model/observer/coherent_continuation.py": "75c9442fb9a54c78af1e932b3b27011c539a9843cc2fcf33076a594a5e619091",
+  "model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+  "model/observer/p_response/__init__.py": "12283bebf1bb3465a7184dac216f9a569b98b911308416f22f6cb80f238b98a5",
+  "model/observer/p_response/experiment.py": "44049e5702af83ab8a62e40f8f7d3b25b088ed24e47078a0b412c3b2400ed61e",
+  "model/observer/quantum_memory.py": "be5f6b9d46d016e24046ac49dd5eb04029fda4018f26ca1376d9687e67ef81d6",
+  "model/observer/quantum_mixing.py": "bc1a178c765e59dee0462bca04f26ec2e58f362b5fd0c623c819f12d11ece139",
+  "model/observer/scalar_response/__init__.py": "d58d04679545f488798fee6962710741ec695f20bc73e6a70fb29475219d0b93",
+  "model/observer/scalar_response/experiment.py": "c4948be6d905dbb1a1f74e0bc39406228d5da949e1b50c1e2054cba26f0358fb",
+  "model/observer/scalar_response/field.py": "03c695bd529ca63b8bd2f7d3bdee598e8ab26158e4a5eb19f6628bf093d2ff6b",
+  "model/observer/source_scalar/__init__.py": "d3dcf546c13e23ceb9a58c19481e2e3f04134013d8047d83b020ec836d8e1e86",
+  "model/observer/source_scalar/bounds.py": "1c110719845e5b27f34845f5f68c8397f8cb9eb3108bd1636577b1e4ca17d327",
+  "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
+  "model/observer/source_scalar/cutoff.py": "df4057037cbdabed68734e1d746aa29caa5babe27527574a0828599d6118fd4e",
+  "model/observer/source_scalar/experiment.py": "0eafa4e47c0c3e855b82bdd997aa0c4fa0c08fc7572f63a818aaba4a7a5f5bb0",
+  "model/observer/source_scalar/field.py": "7368e6b0fada5ed89f5a1ea7969e6bf4f6fdad8648fa82d3851320a5146fb708",
+  "model/observer_reconstruction/__init__.py": "56826b3217ce1e18df3c5dbdbcb8ba7c2482be087a68de6f14e5440bce090a0f",
+  "model/observer_reconstruction/native_geometry.py": "42c8d5cb0c02789ec4ba46d79a23dd4c76bf72fd3b11c28003abc75c136b9854",
+  "model/observer_time_fields/__init__.py": "4c77f1b647adcecebc812334af52150b908d09454b6056c814665647af5cafd6",
+  "model/observer_time_fields/core.py": "c305f335e1bb1b1abf3ee078eee7f969dc2558522d04b547063601f45c95bde2",
+  "model/observer_time_fields/spatial_dynamics.py": "16a87eb2f63b91db972f8f0bed59ac98df47ba87a4072548714f6f33dca89c01",
+  "model/particle_common_contract/__init__.py": "1a64e76f1ddf737489a91a8cad904f4335a0a0ddd8a7928a8ab014025ca170f5",
+  "model/particle_common_contract/provenance.py": "cbe1ac47552530df594a4dbcd3fa8296eaff6a7af093ab4ae582f78a5d13e723",
+  "model/physical_space_time/__init__.py": "7981b2a9e4f2275ad2dcd8e49602c9e17b4984aa5abfa02c99ff98108e7868b0",
+  "model/physical_space_time/ancestry_green.py": "6d469a066bd9843830377a1cfb61be01fa3a61405b124147742bff04ebc3857e",
+  "model/physical_space_time/construction.py": "6d4ef05c636e8d1cd404a5a433fc89174527f631dd53046706d38ee4e707c934",
+  "model/physical_space_time/continuum_field.py": "822efc9ecf8cc626fc152b0ada5739769d075c639cf245543a6d6123f6d2a7d4",
+  "model/physical_space_time/local_continuum.py": "d68d4db5e9289e96192e5144ee79ad8ab33f09254c766eb21eb7560fbee19f22",
+  "model/physical_space_time/source_green.py": "cb501e86b56c1368970c422b6df9a949879c840c07caf0bd2ca843d54eefbc66",
+  "model/physical_space_time/uniform_green.py": "8a99be41695b3a1a791487d941c448e65d8ddc4926d03e83d8297b7235b051a8",
+  "model/primitive_observer/__init__.py": "b4be22f83a7a3f3f2b509d74593f65d550a227730ec34304acd966def77fb8b4",
+  "model/primitive_observer/runtime.py": "affc6bfe38da057489582304060d1f21ab4c61783a85a0b4e652078d880aa142",
+  "model/primitive_observer/transfer.py": "b1a9fb58ab81b5edc6b372a3ff39aed3e0c19529774acf04fd42ad7c05708d10",
+  "model/relational_event_clock/__init__.py": "36afb9a73231b07486d84a48f44b422aa7cb6b725668ee07cc453c4410f6b447",
+  "model/relational_event_clock/kernel.py": "5c2933ca60e2219b9550fc0cdaa11021a58948cda31195f4fbaa90420187a028",
+  "model/relative_observer_geometry/__init__.py": "00c42c630b613582af1d78b3c124788a0385dc2c137b6ac901ca04b8c9dceaf3",
+  "model/relative_observer_geometry/intrinsic_geometry.py": "1a13f1004fbe897d368bb8c9ae0c7bec41644b1fd002fc1fcaf3aadd3599df1f",
+  "model/relative_observer_geometry/temporal_records.py": "95fd3869dd3de8cc419c529979cfbb2f9d80d14683f49eda6bc45f6acdabe871",
+  "model/relativistic_scalar/__init__.py": "90c288752c5928c5401abcc8f74102f789ff2c2ce3a4054136581da92a0a3bf1",
+  "model/relativistic_scalar/lattice.py": "1c8699de003afc0c7d51af488f2ad49e28db3bd0c1fb83fc8c73469783d89663",
+  "model/requirements.txt": "7abaa47730e8e286d366dfe826151677735f20e92beeb7f197dd30e39bd648d2",
+  "model/scalar_observations/__init__.py": "aca05029c4326bba3c7ac0237284dbe87c8ac5011769cd5bdf68152b443c21ae",
+  "model/scalar_observations/bounds.py": "88bcc254df50658396517a6d7317120bfd97c94b4ea3085c7f8db2306b7c6bf3",
+  "model/scalar_observations/experimental_readout/__init__.py": "4fe571d3440bea33028288fa3314a6712962f8c8b1bb629ed828084d8e0460cd",
+  "model/scalar_observations/experimental_readout/canonical_source.py": "399445016aacf94db537a69427bf6bc9035633ba740fc4005be764b7a03bdc9e",
+  "model/scalar_observations/experimental_readout/executable_source.py": "94d8bfd9858632b9f900d5ede34992e3083e029a9b5622f6f86a75f53ba75a15",
+  "model/scalar_observations/lattice.py": "3f08c67ee7c1be4ac89ba031f021a79ae308aba2dffa9ca6c296deb982ddf074",
+  "model/scalar_observations/protocol.py": "b07cd72b87aa73f464ec90b79d53077f8c5da322acced1d58058bcd49a19dc7d",
+  "model/scalar_observations/source.py": "3c580b2c69970e2f16136eea00e3b9cfa926f75ca265ffdf1a85036089620c94",
+  "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+ },
+ "kick": {
+  "crossing": {
+   "fixed_order_returns_in_two": 120,
+   "plain_law_crosses": 120,
+   "plain_law_returns_in_four": 120,
+   "starts": 120
+  },
+  "current_on_flags": {
+   "C idle": [
+    0
+   ],
+   "C repairs +": [
+    1
+   ],
+   "C repairs -": [
+    -1
+   ]
+  },
+  "one_port_round": {
+   "A at port 10, B at port 2": {
+    "coefficient": "1/6",
+    "no weight over abs(1 - z)^2": "5/36"
+   },
+   "A at port 2, B at port 2": {
+    "coefficient": "5/18",
+    "no weight over abs(1 - z)^2": "65/324"
+   },
+   "mean coefficient": "2/9"
+  },
+  "seam_exchange_K": [
+   [
+    "0",
+    "0",
+    "1/2",
+    "1/2"
+   ],
+   [
+    "0",
+    "0",
+    "-1/2",
+    "-1/2"
+   ],
+   [
+    "1/2",
+    "-1/2",
+    "0",
+    "0"
+   ],
+   [
+    "1/2",
+    "-1/2",
+    "0",
+    "0"
+   ]
+  ],
+  "seams_checked": 30,
+  "toggle_round": {
+   "oriented": {
+    "<start|X>": "2/9"
+   },
+   "plain": {
+    "<start|X>": "2/9"
+   }
+  }
+ },
+ "premises": {
+  "P1_register": "two seam objects, C on the seam (2, 3) and E on the seam (2, 10), each with its own load, record and two-orientation address; a neutral register F carrying the third-turn R of the face (4, 5, 11); T applies R or R^-1 when C repairs at orientation + or -; the clock K_theta = exp(i theta J) acts on the oriented current J = |1><1|_(r_C) sigma_z(o_C); V is the oriented record, Z_r at the reversed address",
+  "P2_preparation_and_analyzer": "each object starts with activity 1/3, its load at the screen tail of its seam, a blank record and the uniform address; the analyzer is the Fourier zero over the flags E agrees with C idle, C repairs + with E idle, and C repairs - with E idle",
+  "P3_double_load_objects": "two independent hexagon objects, each with two loads, the four-valued record of the public completion and its own twelve-address register reflected about its uniform state; the standing state S = (D_2 + D_10)/sqrt2 has blank records",
+  "P4_weak_round": "a round is one tick, the kick exp(-i h J (x) Qx) on the exclusive read Qx of fresh records, the inverse tick and a return test projecting on the standing state; N rounds per unit clock time with h = 1/N",
+  "P5_declared_clock": "the clock H = sum_x (I - Re U_x) + sum_edges (pi/4) dGamma(I - S_xy) with evolution exp(-i t H), as declared in model/coherent_defect_wave/energy",
+  "P6_oriented_toggle": "the named interaction T(eta) = exp(i eta J (x) Z_F Z_I) between the clocked register and the flags of the pair",
+  "P7_two_cells": "two cells with independent sixty-address registers, each holding two loads moved by the public completion at the addressed seam in the order of the address",
+  "P8_flux": "a class-k flux through the hexagon is the link phase exp(i pi k/3) on the hexagon seam (2, 3), entering as the gauge conjugation of the completion at both addresses of that seam"
+ },
+ "register": {
+  "b_over_a_squared": "1/2",
+  "compression": {
+   "+": {
+    "A": [
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "B_sqrt2": [
+     [
+      0,
+      0,
+      16
+     ],
+     [
+      16,
+      0,
+      0
+     ],
+     [
+      0,
+      16,
+      0
+     ]
+    ]
+   },
+   "-": {
+    "A": [
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "B_sqrt2": [
+     [
+      0,
+      16,
+      0
+     ],
+     [
+      0,
+      0,
+      16
+     ],
+     [
+      16,
+      0,
+      0
+     ]
+    ]
+   },
+   "0": {
+    "A": [
+     [
+      32,
+      0,
+      0
+     ],
+     [
+      0,
+      32,
+      0
+     ],
+     [
+      0,
+      0,
+      32
+     ]
+    ],
+    "B_sqrt2": [
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0
+     ]
+    ]
+   }
+  },
+  "compression_reading": "M = sum_c z^c (A_c + sqrt2 B_c)/(96 sqrt3); A_0 = 32 I, B_+ = 16 R, B_- = 16 R^-1 gives (sqrt2/3) C(theta), C = sqrt(1/6) I + sqrt(1/12)(z R + z^-1 R^-1), z = exp(i theta)",
+  "eigenvalues": {
+   "eigenvalues_of_C_at_pi_over_12": [
+    "sqrt(2)/4 + sqrt(6)/4",
+    "0",
+    "-sqrt(2)/4 + sqrt(6)/4"
+   ],
+   "eigenvectors_are_characters": true,
+   "koide_value": "2/3",
+   "sum_of_eigenvalues_of_C": "sqrt(6)/2",
+   "sum_of_squared_eigenvalues_of_C": "1"
+  },
+  "geometry": {
+   "antipodal_face": [
+    6,
+    7,
+    8
+   ],
+   "c_seam_screen_orientation": [
+    2,
+    3
+   ],
+   "c_type_seams": [
+    [
+     0,
+     10
+    ],
+    [
+     1,
+     9
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "e_seam_screen_orientation": [
+    10,
+    2
+   ],
+   "e_type_seams": [
+    [
+     0,
+     1
+    ],
+    [
+     2,
+     10
+    ],
+    [
+     3,
+     9
+    ]
+   ],
+   "face": [
+    4,
+    5,
+    11
+   ],
+   "faces": 20,
+   "faces_fixed_by_half_turn_product": [
+    [
+     4,
+     5,
+     11
+    ],
+    [
+     6,
+     7,
+     8
+    ]
+   ],
+   "half_turn_product_order": 3,
+   "hexagon_in_screen_sense": [
+    2,
+    3,
+    9,
+    1,
+    0,
+    10
+   ],
+   "outward_order": [
+    4,
+    5,
+    11
+   ],
+   "rotations": 60,
+   "seams": 30,
+   "third_turn_advances_hexagon_by": [
+    2
+   ],
+   "third_turn_is_inverse_of_half_turn_product": true,
+   "third_turn_orbit_of_port_2": [
+    0,
+    2,
+    9
+   ]
+  },
+  "object_event_C_seam": {
+   "basis": "index 4 l + 2 r + o; l tail, head, idle; o + screen, - reversed",
+   "two_Q": [
+    [
+     1,
+     0,
+     1,
+     0,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     1,
+     0,
+     -1,
+     0,
+     1,
+     0,
+     -1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     1,
+     0,
+     -1,
+     0,
+     -1,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     -1,
+     0,
+     1,
+     0,
+     1,
+     0,
+     -1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     -1,
+     0,
+     1,
+     0,
+     -1,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     1,
+     0,
+     1,
+     0,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     -1,
+     0,
+     -1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     -1,
+     0,
+     -1,
+     0,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     2,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     2
+    ]
+   ]
+  },
+  "object_weights": {
+   "C": {
+    "agree": "1/6",
+    "idle": "2/3",
+    "repair +": "1/12",
+    "repair -": "1/12"
+   },
+   "E": {
+    "agree": "1/6",
+    "idle": "2/3",
+    "repair +": "1/12",
+    "repair -": "1/12"
+   }
+  },
+  "plain_record_compression": {
+   "+": {
+    "A": [
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "B_sqrt2": [
+     [
+      0,
+      0,
+      16
+     ],
+     [
+      16,
+      0,
+      0
+     ],
+     [
+      0,
+      16,
+      0
+     ]
+    ]
+   },
+   "-": {
+    "A": [
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "B_sqrt2": [
+     [
+      0,
+      -16,
+      0
+     ],
+     [
+      0,
+      0,
+      -16
+     ],
+     [
+      -16,
+      0,
+      0
+     ]
+    ]
+   },
+   "0": {
+    "A": [
+     [
+      32,
+      0,
+      0
+     ],
+     [
+      0,
+      32,
+      0
+     ],
+     [
+      0,
+      0,
+      32
+     ]
+    ],
+    "B_sqrt2": [
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0
+     ]
+    ]
+   }
+  },
+  "read_counts": {
+   "P(H)": "1/6",
+   "P(R+ and H)": "1/72",
+   "P(R+ xor H)": "2/9",
+   "P(R+)": "1/12"
+  },
+  "register_outputs": {
+   "all_positive": true,
+   "below_pi_over_12": true,
+   "eigenvalues_of_C": [
+    "0.971401565834",
+    "0.0164727810509",
+    "0.236870524507"
+   ],
+   "mu_over_e": "206.770315972729",
+   "tau_over_e": "3477.4728371046",
+   "theta": "2/9"
+  },
+  "trace_of_M_dag_M": "2/9"
+ },
+ "schema": "oph.lepton_register_round.v1",
+ "scope": "The charged-lepton generation register on the coherent seam law: the 432-state tick and its compression (sqrt2/3) C(theta), the read count 2/9 of two independent objects, the weak round with the inverse tick, the unit of the declared clock, the kick as the commutator of the oriented toggle with the tick of the pair, the counts on the sixty-address carrier, and the selection of the pair on one port by a class-3 flux. The register, its preparation, its analyzer, the kick and the fresh rounds are declared constructions on the public law; the lepton scale and a source of the double load are outside this package.",
+ "weak_round": {
+  "forward_only_mean": "8/27",
+  "forward_only_oriented": [
+   {
+    "count": "2/9",
+    "tick": 1,
+    "weights": {
+     "backward": "1/12",
+     "double": "2/3",
+     "forward": "1/12",
+     "in-dimer": "1/6"
+    }
+   },
+   {
+    "count": "35/81",
+    "tick": 2,
+    "weights": {
+     "backward": "7/36",
+     "double": "2/9",
+     "forward": "7/36",
+     "in-dimer": "7/18"
+    }
+   },
+   {
+    "count": "38/81",
+    "tick": 3,
+    "weights": {
+     "backward": "2/9",
+     "double": "1/9",
+     "forward": "2/9",
+     "in-dimer": "4/9"
+    }
+   },
+   {
+    "count": "35/81",
+    "tick": 4,
+    "weights": {
+     "backward": "7/36",
+     "double": "2/9",
+     "forward": "7/36",
+     "in-dimer": "7/18"
+    }
+   },
+   {
+    "count": "2/9",
+    "tick": 5,
+    "weights": {
+     "backward": "1/12",
+     "double": "2/3",
+     "forward": "1/12",
+     "in-dimer": "1/6"
+    }
+   },
+   {
+    "count": "0",
+    "tick": 6,
+    "weights": {
+     "double": "1"
+    }
+   }
+  ],
+  "log_modulus_times_N": "-7/81",
+  "phase_series": "2/9 - 35*x**2/2187",
+  "public_one_load_round": {
+   "P(record 1)": "1/12",
+   "no weight": "11/72",
+   "quarter_turns": 20,
+   "return amplitude": "11/12 + I/12",
+   "yes weight": "61/72"
+  },
+  "round": {
+   "oriented": {
+    "<SS|X>": "2/9",
+    "<S|W^-1 Pi_F W|S>": "1/12",
+    "<S|W^-1 Pi_I W|S>": "1/6",
+    "<X|X>": "2/9",
+    "P": "2/9",
+    "non_return_A": {
+     "non_uniform_address_part": "5/72",
+     "norm2": "11/144",
+     "outside_the_blank_doubles": "0",
+     "uniform_address_part": "1/144"
+    },
+    "non_return_B": {
+     "non_uniform_address_part": "5/36",
+     "norm2": "5/36",
+     "outside_the_blank_doubles": "0",
+     "uniform_address_part": "0"
+    }
+   },
+   "plain": {
+    "<SS|X>": "2/9",
+    "<S|W^-1 Pi_F W|S>": "1/12",
+    "<S|W^-1 Pi_I W|S>": "1/6",
+    "<X|X>": "2/9",
+    "P": "2/9",
+    "non_return_A": {
+     "non_uniform_address_part": "5/72",
+     "norm2": "11/144",
+     "outside_the_blank_doubles": "0",
+     "uniform_address_part": "1/144"
+    },
+    "non_return_B": {
+     "non_uniform_address_part": "5/36",
+     "norm2": "5/36",
+     "outside_the_blank_doubles": "0",
+     "uniform_address_part": "0"
+    }
+   }
+  },
+  "rounds": {
+   "1": {
+    "distance to exp(-i P)": "0.0844523",
+    "expected resets per unit clock time": "0.15890784",
+    "modulus kept": "0.917110764911",
+    "phase per unit clock time": "0.205334030970278"
+   },
+   "10": {
+    "distance to exp(-i P)": "0.00860648",
+    "expected resets per unit clock time": "0.017269552",
+    "modulus kept": "0.991394996221",
+    "phase per unit clock time": "0.222062099670503"
+   },
+   "100": {
+    "distance to exp(-i P)": "0.000863826",
+    "expected resets per unit clock time": "0.0017283807",
+    "modulus kept": "0.999136175514",
+    "phase per unit clock time": "0.22222062184783"
+   },
+   "1000": {
+    "distance to exp(-i P)": "8.6416e-5",
+    "expected resets per unit clock time": "0.00017283949",
+    "modulus kept": "0.999913583981",
+    "phase per unit clock time": "0.222222206218563"
+   },
+   "2": {
+    "distance to exp(-i P)": "0.0425028",
+    "expected resets per unit clock time": "0.084634278",
+    "modulus kept": "0.9576828609",
+    "phase per unit clock time": "0.218167184001747"
+   }
+  },
+  "zero_return_amplitude": "<SS|Psi(z)> = 1 + (z - 1) <SS|X> = 1 - P + P z, z = exp(-i h j)"
+ }
+}
