@@ -1,0 +1,52 @@
+"""Rational controls for the fixed-spacing, positive-time record limit."""
+from fractions import Fraction as F
+from math import factorial
+import family
+
+bounds=family.bounds
+
+
+def constants():
+    # For z>=0, exp(-4z^2)(z+c)^2 <= 1/(2e)+2c^2,
+    # c^2=pi/32.  Use e>2 and pi<22/7 entirely rationally.
+    pi=F(22,7)
+    heat=2*bounds.root(pi)*(F(1,4)+pi/16)
+    covariance=8*bounds.root(2)  # pi>1 in the integral prefactor.
+    assert heat<8 and covariance<12
+    return {'one_form_heat_squared_norm_uniform_coefficient':'8',
+        'analytic_coefficient_upper':str(bounds.rounded(heat)),
+        'coordinate_covariance_heat_tail_coefficient':'12',
+        'analytic_covariance_coefficient_upper':str(bounds.rounded(covariance)),
+        'mixed_k_factor_CAR_density_tail':'(2+k)*||delta a||_2',
+        'Coulomb_hopping_ordered_phase':'g^2*t*((D G rho_ref)_e+(D G D^T)_ee/2)'}
+
+
+def hopping_tail(radius,tau=F(1,64),support_size=4,strength=F(1,64)):
+    g=F(1,64);kappa=16+8*g+4*g*g
+    return (18*support_size*(12+4*g)*strength*abs(tau)
+        *bounds.exp_upper(4*kappa*abs(tau))
+        *F(radius*radius+8*radius+18,2**radius))
+
+
+def dyson_tail(weight,order):
+    weight=F(weight)
+    assert order+2>weight
+    return 2*weight**(order+1)/factorial(order+1)/(1-weight/F(order+2))
+
+
+def scientific():
+    return {'proved_for_actual_nonstationary_preparation':True,
+        'complete_positive_time_local_E_B_record_volume_limit':True,
+        'same_fixed_spacing_coupled_source':True,
+        'baseline_retains_full_quadratic_field_Coulomb_and_references':True,
+        'comparison_removes_only_bounded_hoppings':True,
+        'infrared_and_mixed_word_controls':constants(),
+        'illustrative_uniform_removed_hopping_bounds':[
+            {'radius':R,'tau':'1/64','initial_support_size':4,'initial_commutator_strength':'1/64',
+             'complete_single_instrument_allowance_upper':str(bounds.rounded(hopping_tail(R)))}
+            for R in (32,64,128)],
+        'finite_retained_Dyson_example':{'norm_weight':'1','order':24,
+            'two_sided_tail_upper':str(bounds.rounded(dyson_tail(1,24)))},
+        'limit_is_of_local_marginal_with_success_failure_flag':True,
+        'remote_fine_flags_and_banks_retained':True,
+        'interacting_ground_or_spacing_limit_claimed':False}

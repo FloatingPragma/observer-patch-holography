@@ -1,0 +1,137 @@
+"""Same-coordinate fixed-cube commutator and complete influence bounds."""
+from fractions import Fraction as F
+from pathlib import Path
+import hashlib,json,sys
+HERE=Path(__file__).resolve().parent
+RER = HERE.parents[2]
+from model.native_wilson_maxwell import field
+from model.native_wilson_maxwell.current import matrices
+from model.native_wilson_maxwell_refinement import bounds
+from model.affine_gauss_mobile.model import rounded
+import sympy as s
+import mpmath as mp
+from math import comb
+
+PARENT='model/native_wilson_maxwell_ground_refinement/results.json'
+PARENT_SHA='e5a40a0d4e8d183c933232758f211bcd44bf81944429867da4048c184fc7b96a'
+
+
+def admit():
+    p=RER/PARENT
+    assert hashlib.sha256(p.read_bytes()).hexdigest()==PARENT_SHA
+    data=json.loads(p.read_text())
+    for name,h in data['input_sha256'].items():
+        assert hashlib.sha256((RER/name).read_bytes()).hexdigest()==h,name
+    return data
+
+
+def multiply(A,x):return [sum((a*b for a,b in zip(row,x)),F(0)) for row in A]
+
+
+def comparison_matrix(g=F(1,64)):
+    c=field.cube();E,V=len(c['edges']),len(c['vertices']);n=2*E+V
+    M=[[F(0) for _ in range(n)] for _ in range(n)]
+    for e in range(E):
+        M[e][E+e]=F(1)
+        for f in range(E):M[E+e][f]=F(abs(c['K'][e,f]))+4*g*g*int(e==f)
+    for e,(tail,head,axis) in enumerate(c['edges']):
+        for x in (tail,head):M[E+e][2*E+x]=4*g;M[2*E+x][e]=2*g
+        M[2*E+tail][2*E+head]=F(1);M[2*E+head][2*E+tail]=F(1)
+    assert all(v>=0 for row in M for v in row)
+    return M
+
+
+def source_algebra():
+    c=field.cube();D,C,G,PT=(c[k] for k in ('D','C','G','PT'))
+    reference=s.eye(8)-s.eye(8)[:,0]*s.ones(1,8)
+    assert reference*D.T==D.T
+    assert D*G*reference*D.T+PT==s.eye(12)
+    assert C*D==s.zeros(6,8)
+    alpha,beta=matrices()
+    for a in alpha:
+        B=-(beta+s.I*a)/2
+        assert (B.H*B)**2==B.H*B
+        assert s.trace(B.H*B)==2
+    return {'all_three_Wilson_hopping_spin_matrices_are_rank_two_partial_isometries':True,
+        'all_twelve_actual_edge_and_six_face_orientations_used':True,
+        'physical_E_current_coefficient':'PT+D G reference D^T=I_12',
+        'Gauss_reference':'reference=I-e_root ones^T; total charge is conserved',
+        'charged_endpoint_locality_claimed':False}
+
+
+def commutator_bound(tau,g=F(1,64),electric_strength=F(1,64),magnetic_strength=F(1,64),order=30):
+    tau=F(tau);M=comparison_matrix(g);E=12;c=field.cube()
+    if min(tau,g,electric_strength,magnetic_strength)<0:raise ValueError('nonnegative bound parameters required')
+    edge,face=0,3
+    v=[F(0) for _ in M]
+    for e in range(E):v[E+e]=magnetic_strength*abs(F(c['C'][face,e]))
+    term=v.copy();total=v.copy();leading=[];power=v.copy()
+    for j in range(order+1):
+        if j:
+            power=multiply(M,power)
+            term=[x*tau/j for x in multiply(M,term)]
+            total=[a+b for a,b in zip(total,term)]
+        if j<9:leading.append(electric_strength*power[E+edge])
+    norm=max(sum(row) for row in M);x=norm*tau
+    tail=bounds.dyson_tail(x,order)/2*max(v)*electric_strength
+    lower=electric_strength*total[E+edge]
+    upper=min(F(2),lower+tail)
+    return {'dimensionless_time':str(tau),'majorant_dimension':len(M),'Taylor_order':order,
+        'majorant_infinity_norm':str(norm),'retained_nonnegative_series_lower':str(lower),
+        'omitted_series_upper':str(tail),'commutator_norm_upper':str(bounds.rounded(upper)),
+        'first_nine_unnormalized_Taylor_coefficients':[str(x) for x in leading],
+        'diagnostic_commutator_upper':float(upper)}
+
+
+def scientific():
+    parent=admit();algebra=source_algebra();pb={k:F(v) for k,v in parent['uniform_ground_bounds_exact'].items()}
+    tau=F(1,64);record=commutator_bound(tau)
+    K=2**64;n=K+1;L=K//2;radius=bounds.displacement_radius()
+    sqrtN=bounds.root(pb['all_branch_photon_number_mean_after_filters_upper'])
+    B_radius=bounds.root(2)/64
+    A_radius=bounds.root(F(1,2))/64
+    # Embed the actual finite prepared state itself. The comparison does not
+    # repeat its clock preparation or substitute an infinite ground state.
+    e0=F(0)
+    def field_error(moment):return F(1,n*n)+2*moment/bounds.root(L+1,False)
+    def evolution_error(moment):
+        return 48*tau/F(n*n)+(96*tau*moment+2304*radius*tau*tau)/bounds.root(L+1,False)
+    protocol0=e0+4*evolution_error(sqrtN)+field_error(sqrtN+48*radius*tau)
+    protocol1=e0+field_error(sqrtN)+3*evolution_error(sqrtN)+evolution_error(sqrtN+B_radius)+field_error(sqrtN+B_radius+48*radius*tau)
+    outside=1-pb['uniform_conditional_ground_fidelity_lower']
+    comm=F(record['commutator_norm_upper'])
+    influence=min(F(1),comm/2+outside+protocol0+protocol1)
+    assert influence<F(1,10**6)
+    table=[commutator_bound(t) for t in (F(0),F(1,64),F(1,16),F(1,4),F(1))]
+    M=parent['fixed_complete_energy_clock']['pointer_M']
+    mp.iv.dps=90;log=mp.iv.ln
+    capacity=4*(32*(256*log(2)+8*log(5)+24*log(119)+log(2**31+1))+7*log(9)+log(65)+log(comb(K+5,5)))+3*log(M)+2*log(2)
+    return {'schema':'oph.same_cube_gauge_invariant_propagation.v1','parent_ground_refinement_sha256':PARENT_SHA,
+        'source_algebra':algebra,'photon_cap':K,'g':'1/64','electric_edge':0,'magnetic_face':3,
+        'same_finite_H_for_preparation_kick_wait_and_detection':True,
+        'same_admitted_source_family_reference_coordinates_and_mass':True,
+        'only_apparatus_setting_changed':True,'spatial_or_spacing_refinement':False,
+        'coupled_commutator_table':table,
+        'complete_influence_exact':{'protocol_no_kick_cutoff_error_upper':str(bounds.rounded(protocol0)),
+            'protocol_magnetic_kick_cutoff_error_upper':str(bounds.rounded(protocol1)),
+            'conditional_prepared_code_complement_weight_upper':str(bounds.rounded(outside)),
+            'complete_preparation_flags_and_Bob_bit_TV_upper':str(bounds.rounded(influence))},
+        'diagnostic_complete_influence_upper':float(influence),
+        'comparison_initial_state':'isometric embedding of the actual finite prepared state, with all flags and partners; no infinite preparation or ground substitution',
+        'initial_state_comparison_error':'0',
+        'law_comparison_domain':'all preparation labels and Bob bit, conditional on each declared intervention setting; the retained fixed input bit is canonically relabelled, not counted as an outcome discrepancy',
+        'full_source_clock':'one trial slot + three filter slots + one kick/noop slot + 1/(64m) autonomous wait + one Bob readout slot',
+        'apparatus_resources':{'source_and_preparation_pointer_capacity':'parent formula at the displayed K=2^64, with the same fixed M',
+            'total_source_reference_preparation_setting_Bob_capacity_nats_interval':rounded(capacity,places=60),
+            'photon_dimension_per_copy':comb(K+5,5),'filter_pointer_M':M,
+            'additional_retained_setting_and_Bob_bits_capacity_nats':'2 ln2',
+            'number_of_duration_one_driven_pulses':6,
+            'each_control_norm_upper':'4 B_raw(K)+pi',
+            'gross_switching_work_upper':'12*(4 B_raw(K)+pi)',
+            'coefficient_workspace_or_efficient_compilation_claimed':False},
+        'complete_failures':'all M^3 tree outcomes; on failure both intervention and Bob slots execute retained no-op records',
+        'mathematical_gauge_parent':'12 canonical coordinates, direct-integral longitudinal momentum fibers; no normalizable sharp-Gauss parent state or added physical register',
+        'spatial_scope':'fixed cube, physical gauge-invariant E/B/current algebra on the reducing code; no microscopic native tensor locality or Lorentz cone'}
+
+
+if __name__=='__main__':print(json.dumps(scientific(),indent=2,sort_keys=True))

@@ -1,0 +1,139 @@
+"""Source-only complete local coupling witness; no large matrix enumeration."""
+from pathlib import Path
+from fractions import Fraction as F
+import argparse,hashlib,json,sys
+import sympy as s
+
+HERE=Path(__file__).resolve().parent
+PARENT=HERE.parent/'native_wilson_maxwell_spatial_family'
+PARENT_SHA='3e413171f6ad1c0df6cc4db522cb67bc4d9f5f2ae1cfc80d3f4b92fac03538ed'
+from ..native_wilson_maxwell_spatial_family import family
+bounds=family.bounds
+RER=family.RER
+
+
+def digest(path):return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def admit():
+    assert digest(PARENT/'research_reference.json')==PARENT_SHA
+    p=json.loads((PARENT/'research_reference.json').read_text())
+    for name,sha in p['owned_source_sha256'].items():assert digest(PARENT/'retained'/(name+'.raw'))==sha,name
+    for name,sha in p['input_sha256'].items():assert digest(RER/name)==sha,name
+    return p
+
+
+def symbolic_controls():
+    A,c,b=s.symbols('A c b',real=True)
+    E2=A*A+1+b-2*A*c
+    assert s.expand((A*c-1)*E2+(A*c-1)**2+b-A*(c*E2-A*(1-c*c)))==0
+    # The current's literal single-edge one-body matrix has two +1,
+    # two -1 and four zero eigenvalues by exact polynomial and traces.
+    alpha,beta=family.matrices();B=-(beta+s.I*alpha[0])/2
+    sy=s.Matrix([[0,-s.I],[s.I,0]])
+    T=s.diag(s.I*sy,s.I*sy)
+    assert T*beta.conjugate()*T.H==beta
+    assert all(T*(-(beta+s.I*a)/2).conjugate()*T.H==-(beta+s.I*a)/2 for a in alpha)
+    one=s.BlockMatrix([[s.zeros(4),-s.I*B],[s.I*B.H,s.zeros(4)]]).as_explicit()
+    assert one.H==one and one**3==one
+    assert s.trace(one)==0 and s.trace(one**2)==4
+    j=s.Symbol('j');projectors=[]
+    for lam in range(-2,3):
+        p=s.prod((j-mu)/s.Rational(lam-mu) for mu in range(-2,3) if mu!=lam)
+        assert all(p.subs(j,mu)==int(lam==mu) for mu in range(-2,3))
+        projectors.append(s.Poly(p,j))
+    weight=sum(sum(abs(p.nth(k))*4**k for k in range(5)) for p in projectors)
+    factored_weight=sum(s.prod(s.Rational(4+abs(mu),abs(lam-mu)) for mu in range(-2,3) if mu!=lam)
+        for lam in range(-2,3))
+    assert weight<=factored_weight==515
+    assert 2*16*4+11*2*4*4==480
+    return {'integration_by_parts_polynomial_identity':True,
+        'actual_all_axis_bare_hopping_time_reversal_replayed':True,
+        'literal_one_body_current_minimal_polynomial':'j^3-j',
+        'literal_one_body_current_trace':0,'literal_one_body_current_squared_trace':4,
+        'complete_Fock_current_spectrum':['-2','-1','0','1','2'],
+        'current_interpolation_weight_bound':515,
+        'expanded_interpolation_weight':str(weight),
+        'bounded_onsite_and_incident_hopping_commutator_bound':480}
+
+
+def capacity(n,cap,banks):
+    import mpmath as mp
+    from model.affine_gauss_mobile.model import rounded
+    mp.iv.dps=90;iv=mp.iv;ln=iv.ln
+    V=(n+1)**3;E=3*n*(n+1)**2;d=E-V+1
+    # Robbins factorial bounds; no enormous binomial integer is built.
+    def factorial_log(k):
+        k=iv.mpf(k)
+        main=(k+iv.mpf('.5'))*ln(k)-k+ln(2*iv.pi)/2
+        return (main+1/(12*k+1)).a,(main+1/(12*k)).b
+    ah,au=factorial_log(cap+d);bh,bu=factorial_log(cap);ch,cu=factorial_log(d)
+    bino=iv.mpf([ah-bu-cu,au-bh-ch])
+    native=256*ln(2)+8*ln(5)+24*ln(119)+ln(2**31+1)
+    total=banks*(4*V*native+(V-1)*ln(9)+ln(8*V+1)+bino)+V*banks*ln(2)+3*ln(2)
+    return {'all_sources_references_flags_setting_and_detector_nats_interval':rounded(total,30),
+        'log_photon_dimension_nats_interval':rounded(bino,30),
+        'controller_coefficient_workspace_included':False}
+
+
+def scientific():
+    admit();_,source=family.admit();g=F(1,64);u=F(1,2**16);tau=F(1,2**32)
+    local_error=400*F(99,100)**2049
+    dressed=(F(1,343)-local_error)*(1-F(13,8192))
+    assert dressed>F(1,345)
+    assert (3+g)*bounds.exp_upper(F(1,16))-g<4
+    assert 4*g*(4+4*g*u)<1
+    contrast=u/2*(g/F(345)-F(64,3)*u*u-1024*tau)
+    assert contrast>F(34,10**11)
+    n=8200;V=(n+1)**3
+    prep=family.preparation(n,F(source['actual_preparation']['complete_trial_ground_overlap_lower_per_constituent']))
+    r=g*bounds.root(F(n+1,4)/bounds.root(2,False))
+    cap=family.cutoff(n,error_bits=50,tau=tau,apparatus_radius=2+4*r)
+    error=F(1,2**(40+2*(V+1).bit_length()))
+    failure=F(prep['complete_assembly_failure_upper'])
+    finite=(1-failure)*contrast/2-2*error
+    assert finite>F(17,10**11)
+    vals={'finite_interior_dressed_hopping_magnitude_lower':dressed,
+        'matched_setting_probability_contrast_lower':contrast,
+        'limiting_complete_law_TV_separation_lower':contrast/2,
+        'finite_complete_law_TV_separation_lower':finite,
+        'complete_finite_cap_record_error_upper':error}
+    exact={k:str(bounds.rounded(v,k.endswith('_upper'))) for k,v in vals.items()}
+    return {'schema':'oph.research.original_wilson_local_interaction_witness.v1',
+        'parent_spatial_family_sha256':PARENT_SHA,'symbolic_controls':symbolic_controls(),
+        'bounds_exact':exact,'diagnostic_binary64':{k:float(F(v)) for k,v in exact.items()},
+        'actual_source_changed':False,'new_apparatus':'bounded physical electric kick and complete sine-Hadamard phase-current readout',
+        'settings':{'g':str(g),'electric_kick_strength':'1','current_detector_u':str(u),'autonomous_tau':str(tau),
+            'complete_elapsed_source_time':'5+tau/m','fair_setting_bit_retained':True,
+            'zero_coupling_matched_setting_contrast':'0 exactly',
+            'all_admission_flags_failures_and_pointer_outcomes_retained':True},
+        'finite_sufficient_example':{'cells_per_axis':n,'centered_vertices':'[-4100,4100]^3',
+            'edge':'(0,0,0)->(1,0,0)','sign_polynomial_order':2048,
+            'preparation':prep,'cutoff':cap,'interpolation_weight_bound':515,
+            'cap_budget_extra_bits':10,'actual_native_or_field_matrix_enumeration_claimed':False,
+            'capacity':capacity(n,cap['photon_cap'],prep['parallel_full_box_banks'])},
+        'boundaries':{'nonstationary_prepared_source':True,'interacting_ground_or_scattering_claim':False,
+            'original_squared_dispersion_mismatch_unchanged':True,'Lorentz_UV_or_particle_identity':False,
+            'infinite_oscillators_and_volume_are_mathematical_record_comparisons':True}}
+
+
+def certificate():
+    value=scientific();p=admit()
+    from ..provenance import import_closure
+    seeds=set(p['input_sha256'])|{'model/affine_gauss_mobile/model.py',
+        'model/particle_common_contract/provenance.py'}
+    value['input_sha256']={name:digest(RER/name) for name in sorted(import_closure(seeds))}
+    value['research_parent_sha256']={str((PARENT/name).relative_to(HERE.parent)):sha
+        for name,sha in p['owned_source_sha256'].items()}
+    value['research_parent_sha256']['native_wilson_maxwell_spatial_family/results.json']=PARENT_SHA
+    value['owned_source_sha256']={p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')}
+    return value
+
+
+if __name__=='__main__':
+    parser=argparse.ArgumentParser();group=parser.add_mutually_exclusive_group(required=True)
+    group.add_argument('--write',action='store_true');group.add_argument('--check',action='store_true')
+    args=parser.parse_args();value=certificate();path=HERE/'results.json'
+    if args.write:path.write_text(json.dumps(value,indent=2,sort_keys=True)+'\n')
+    else:assert value==json.loads(path.read_text())
+    print('PASS: strict complete local coupling record; same source; all flags and finite cutoff controlled')

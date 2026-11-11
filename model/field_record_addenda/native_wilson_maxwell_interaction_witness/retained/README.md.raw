@@ -1,0 +1,17 @@
+# A local record that detects the original coupling
+
+The same nonstationary native-code preparation receives an electric
+kick, evolves under the actual Wilson–Maxwell source, and undergoes a
+complete bounded current readout. A source-only analytic hopping bound
+proves a strictly positive setting-conditioned contrast. The contrast
+vanishes in the zero-coupling comparison. All native admissions,
+failures, field cutoffs, setting bits and detector outcomes are retained.
+
+[PROOF.md](PROOF.md) gives the uniform moment/remainder estimates,
+literal finite-cap transfer and fixed-spacing local-record limit.
+This is research evidence, with no interacting-ground, scattering,
+Lorentz/ultraviolet or particle-identity promotion.
+
+Run `python -B model.py --check` and `python -m pytest -q .` in the
+repository Python environment. The huge sufficient box/cap is proved
+analytically; its matrices are not numerically enumerated.

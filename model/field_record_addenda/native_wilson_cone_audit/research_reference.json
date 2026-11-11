@@ -1,0 +1,97 @@
+{
+  "algebra": {
+    "Wilson_direction_is_new_architecture": true,
+    "all_three_spin_rotations_commute_with_regulator": true,
+    "bond_checks": [
+      {
+        "axis": 0,
+        "full_Fock_edge_norm": "2/a",
+        "one_body_edge_spectrum": {
+          "-1/a": 2,
+          "0": 4,
+          "1/a": 2
+        },
+        "rank": 2
+      },
+      {
+        "axis": 1,
+        "full_Fock_edge_norm": "2/a",
+        "one_body_edge_spectrum": {
+          "-1/a": 2,
+          "0": 4,
+          "1/a": 2
+        },
+        "rank": 2
+      },
+      {
+        "axis": 2,
+        "full_Fock_edge_norm": "2/a",
+        "one_body_edge_spectrum": {
+          "-1/a": 2,
+          "0": 4,
+          "1/a": 2
+        },
+        "rank": 2
+      }
+    ],
+    "charge_conjugation_retained": true,
+    "fields_and_gamma_all_on_original_four_component_carrier": true,
+    "finite_background_gap": "h=m beta+A, {beta,A}=0, h^2=m^2+A^2>=m^2",
+    "free_energy_error_for_m_positive": "|E(p)-sqrt(m^2+|p|^2)|<=a^2 |p|^4/(12m)",
+    "gamma": [
+      [
+        "0",
+        "0",
+        "-I",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "-I"
+      ],
+      [
+        "I",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "I",
+        "0",
+        "0"
+      ]
+    ],
+    "gauge_covariance_for_common_charge_representation": true,
+    "interacting_full_H_gap_or_measured_mass_inferred": false,
+    "no_mass_scale_fitted": true,
+    "ordinary_parity_retained_at_nonzero_spacing": false,
+    "original_a_equals_inverse_m_axis_ratio": "2",
+    "original_exact_squared_relation": "E_F^2-m^2=(1+ma)*Omega_gamma^2+2 sum_(i<j) w_i w_j/a^2",
+    "original_source_symbol": "alpha.sin(ap)/a+beta*(m+sum(1-cos(ap))/a)",
+    "repaired_axis_ratio": "1",
+    "repaired_exact_squared_relation": "E_F^2-m^2=Omega_gamma^2+2 sum_(i<j) w_i w_j/a^2",
+    "repaired_symbol": "m beta+alpha.sin(ap)/a+Gamma*sum(1-cos(ap))/a",
+    "weak_chiral_Standard_Model_representation_constructed": false
+  },
+  "finite_background": {
+    "arbitrary_graph_proof_is_anticommutation_not_this_example": true,
+    "exact_matrix_gap_square_certificate": true,
+    "two_site_gauge_phase": "3/5+4i/5"
+  },
+  "owned_source_sha256": {
+    "PROOF.md": "e5da41237a5c78c9128d2522d3ae104c84f9d4b5990cbab2720370db93a86099",
+    "README.md": "37c36de6feac54ed0873cbc038ac392549d317bed25aba389d9304cd3737b72e",
+    "cone.py": "5d2b8183c79f68d1ba08cf2f891e66976202983de3fc65abe4591e56a109657f",
+    "test_cone.py": "bf2c714872f6575176e4541de516c03dcc99f4173efbea30731f6f5fde8c97da"
+  },
+  "references": [
+    "https://arxiv.org/abs/hep-lat/0306014",
+    "https://arxiv.org/abs/hep-lat/0409006"
+  ],
+  "schema": "oph.research.wilson_common_cone_audit.v1",
+  "source_and_premises": "PROOF.md; altered regulator is a new source member, not a reinterpretation of the frozen source",
+  "source_parent_sha256": "eba4963148b62f6841a038119ed5b9baf4a6f142009915b31e49d72dacd12b72"
+}

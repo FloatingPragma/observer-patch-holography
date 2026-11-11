@@ -1,0 +1,101 @@
+"""Actual Wilson cone mismatch and an explicit orthogonal-regulator repair."""
+from pathlib import Path
+import hashlib,json,sys
+HERE=Path(__file__).resolve().parent
+ROOT=HERE.parents[2]/'reverse-engineering-reality'
+sys.path.insert(0,str(ROOT))
+import sympy as s
+from model.native_wilson_maxwell.current import matrices
+from model.native_block_dirac.algebra import pauli
+
+
+def algebra():
+    alpha,beta=matrices();I=s.eye(4);Z=s.zeros(4)
+    gamma=alpha[0]*alpha[1]*alpha[2]*beta
+    assert gamma==gamma.H and gamma**2==I
+    assert all(gamma*a+a*gamma==Z for a in (*alpha,beta))
+    spin=[s.diag(p/2,p/2) for p in pauli()]
+    assert all(gamma*j-j*gamma==Z for j in spin)
+    # The original Dirac charge-conjugation antiunitary C0 K also
+    # conjugates the orthogonal Wilson term with the required sign.
+    C0=s.I*beta*alpha[1]
+    assert C0*C0.H==I
+    assert all(C0*a.conjugate()*C0.H==a for a in alpha)
+    assert C0*beta.conjugate()*C0.H==-beta
+    assert C0*gamma.conjugate()*C0.H==-gamma
+    m,a=s.symbols('m a',positive=True);p=s.symbols('p0:3',real=True)
+    w=s.symbols('w0:3',nonnegative=True);z=s.symbols('z0:3',real=True)
+    W=sum(w)
+    h_old=sum((v*A for v,A in zip(p,alpha)),Z)+(m+W/a)*beta
+    h_new=sum((v*A for v,A in zip(p,alpha)),Z)+m*beta+W*gamma/a
+    assert s.expand(h_old**2-((m+W/a)**2+sum(v*v for v in p))*I)==Z
+    assert s.expand(h_new**2-(m*m+W*W/a**2+sum(v*v for v in p))*I)==Z
+    old_sq=(m+W/a)**2+sum(2*x-x*x for x in w)/a**2
+    new_sq=m*m+W*W/a**2+sum(2*x-x*x for x in w)/a**2
+    photon_sq=2*W/a**2;cross=2*(w[0]*w[1]+w[0]*w[2]+w[1]*w[2])/a**2
+    assert s.expand(old_sq-m*m-(1+m*a)*photon_sq-cross)==0
+    assert s.expand(new_sq-m*m-photon_sq-cross)==0
+    bonds=[]
+    for axis,A in enumerate(alpha):
+        B=-(gamma+s.I*A)/2
+        assert B.H*B*B.H*B==B.H*B and s.trace(B.H*B)==2
+        edge=s.BlockMatrix([[Z,B],[B.H,Z]]).as_explicit()
+        assert edge**3==edge and s.trace(edge**2)==4
+        # Matrix-valued link orientation: onsite degree/2 times Gamma,
+        # with H_xy=B/a, H_yx=B^dag/a. This is the actual old convention.
+        bonds.append({'axis':axis,'rank':2,'one_body_edge_spectrum':{'-1/a':2,'0':4,'1/a':2},
+                      'full_Fock_edge_norm':'2/a'})
+    return dict(gamma=[[str(x) for x in row] for row in gamma.tolist()],
+        original_source_symbol='alpha.sin(ap)/a+beta*(m+sum(1-cos(ap))/a)',
+        original_exact_squared_relation='E_F^2-m^2=(1+ma)*Omega_gamma^2+2 sum_(i<j) w_i w_j/a^2',
+        original_a_equals_inverse_m_axis_ratio='2',
+        repaired_symbol='m beta+alpha.sin(ap)/a+Gamma*sum(1-cos(ap))/a',
+        repaired_exact_squared_relation='E_F^2-m^2=Omega_gamma^2+2 sum_(i<j) w_i w_j/a^2',
+        repaired_axis_ratio='1',
+        fields_and_gamma_all_on_original_four_component_carrier=True,
+        no_mass_scale_fitted=True, Wilson_direction_is_new_architecture=True,
+        all_three_spin_rotations_commute_with_regulator=True,
+        charge_conjugation_retained=True, ordinary_parity_retained_at_nonzero_spacing=False,
+        gauge_covariance_for_common_charge_representation=True,
+        weak_chiral_Standard_Model_representation_constructed=False,
+        bond_checks=bonds,
+        finite_background_gap='h=m beta+A, {beta,A}=0, h^2=m^2+A^2>=m^2',
+        free_energy_error_for_m_positive='|E(p)-sqrt(m^2+|p|^2)|<=a^2 |p|^4/(12m)',
+        interacting_full_H_gap_or_measured_mass_inferred=False)
+
+
+def finite_background_check():
+    # Independent finite two-site gauge background using a rational phase;
+    # no translation symmetry is needed for the anticommutator gap bound.
+    alpha,beta=matrices();gamma=alpha[0]*alpha[1]*alpha[2]*beta
+    phase=s.Rational(3,5)+s.I*s.Rational(4,5)
+    B=-(gamma+s.I*alpha[2])/2
+    A=s.BlockMatrix([[gamma/2,phase*B],[s.conjugate(phase)*B.H,gamma/2]]).as_explicit()
+    grading=s.diag(beta,beta)
+    assert A==A.H and A*grading+grading*A==s.zeros(8)
+    h=grading+A
+    assert h*h-s.eye(8)==A*A
+    assert (h*h-s.eye(8)).is_positive_semidefinite
+    return {'two_site_gauge_phase':'3/5+4i/5','exact_matrix_gap_square_certificate':True,
+            'arbitrary_graph_proof_is_anticommutation_not_this_example':True}
+
+
+def certificate():
+    parent=ROOT/'model/native_wilson_maxwell/results.json'
+    data=json.loads(parent.read_text())
+    for name,expected in data['input_sha256'].items():
+        assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+    return {'schema':'oph.research.wilson_common_cone_audit.v1',
+            'source_parent_sha256':hashlib.sha256(parent.read_bytes()).hexdigest(),
+            'algebra':algebra(),'finite_background':finite_background_check(),
+            'references':['https://arxiv.org/abs/hep-lat/0306014','https://arxiv.org/abs/hep-lat/0409006'],
+            'source_and_premises':'PROOF.md; altered regulator is a new source member, not a reinterpretation of the frozen source',
+            'owned_source_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest()
+                                   for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')}}
+
+
+if __name__=='__main__':
+    value=certificate();path=HERE/'results.json'
+    if '--write' in sys.argv:path.write_text(json.dumps(value,indent=2,sort_keys=True)+'\n')
+    else:assert value==json.loads(path.read_text())
+    print('PASS: original cone ratio2; new orthogonal Wilson regulator ratio1; exact finite algebra')

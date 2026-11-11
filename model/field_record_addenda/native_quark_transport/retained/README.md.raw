@@ -1,0 +1,13 @@
+# Quark-type charge transport on the native interacting cube
+
+This research calculation extends the literal compensated first-hop
+experiment to all three quark-current families. It reuses the full native
+Hamiltonian, its physical preparation and fixed reference. The exact
+quark-spin-singlet compression gives the route effect `P0/128` for every
+localized ground-doublet input, including its retained environment.
+
+Run `python transport.py --write`, `python transport.py`, and
+`python -m pytest -q test_transport.py` with the public repository's Python.
+The proof in `PROOF.md` states the extra recorded localization, controls,
+clock and failures. This finite transport is not an energy-resolved
+particle branch, quark identification, continuum or GeV mass.

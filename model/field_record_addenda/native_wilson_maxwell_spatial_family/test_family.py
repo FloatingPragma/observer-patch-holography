@@ -1,0 +1,90 @@
+from pathlib import Path
+from fractions import Fraction as F
+from itertools import combinations,product
+import numpy as np
+import sympy as s
+HERE=Path(__file__).resolve().parent
+from . import family as f
+
+
+def test_literal_original_bulk_and_all_boundary_hodge_controls():
+    assert f.literal_bulk()['axis_squared_dispersion_ratio']=='2'
+    assert not f.literal_bulk()['curvature_mismatch_is_a_maximal_signal_speed_theorem']
+    for n,d in ((1,5),(2,28),(3,81)):
+        assert f.hodge(n)['transverse_modes']==d
+
+
+def test_neumann_cosine_basis_and_uniform_dipole_heat_bound():
+    for N in (2,3,4,8):
+        D=np.zeros((N-1,N))
+        for x in range(N-1):D[x,x]=-1;D[x,x+1]=1
+        L=D.T@D
+        k=np.arange(N);lam=4*np.sin(np.pi*k/(2*N))**2
+        basis=np.sqrt(2/N)*np.cos(np.pi*(np.arange(N)[:,None]+.5)*k[None,:]/N)
+        basis[:,0]=1/np.sqrt(N)
+        assert np.linalg.norm(basis.T@basis-np.eye(N))<1e-13
+        assert np.linalg.norm(L@basis-basis*lam)<1e-13
+        x=(N-2)//2;y=(N-1)//2
+        weights=(basis[x]-basis[x+1])[:,None,None]**2*basis[y][None,:,None]**2*basis[y][None,None,:]**2
+        energy=lam[:,None,None]+lam[None,:,None]+lam[None,None,:]
+        for t in (1.,2.,10.,100.):
+            heat_squared=float(np.sum(weights*np.exp(-2*t*energy)))
+            assert heat_squared<=32*t**(-2.5)
+    assert F(f.infrared_constants()['Neumann_dipole_heat_squared_norm_coefficient_upper'])<32
+
+
+def test_full_finite_slater_characteristic_and_centered_variance():
+    alpha,beta=f.matrices();B=-(beta+s.I*alpha[0])/2
+    h=np.array(s.BlockMatrix([[3*beta/2,B],[B.H,3*beta/2]]).as_explicit(),complex)
+    energies,U=np.linalg.eigh(h);filled=U[:,energies<0];P=filled@filled.conj().T
+    assert filled.shape==(8,4)
+    weights=np.array([.2]*4+[-.31]*4);A=np.diag(weights)
+    amplitudes=[];charges=[]
+    for occupied in combinations(range(8),4):
+        amplitudes.append(abs(np.linalg.det(filled[list(occupied),:]))**2)
+        charges.append(sum(weights[list(occupied)])-2*(.2-.31))
+    probs=np.array(amplitudes);X=np.array(charges)
+    assert abs(probs.sum()-1)<1e-13 and abs(probs@X)<1e-13
+    literal=probs@np.exp(1j*X)
+    determinant=np.exp(-2j*(.2-.31))*np.linalg.det(np.eye(8)+(np.diag(np.exp(1j*weights))-np.eye(8))@P)
+    assert abs(literal-determinant)<1e-13
+    variance=np.trace(P@A@(np.eye(8)-P)@A).real
+    assert abs(probs@(X*X)-variance)<1e-13
+    assert variance<=4*(.2**2+.31**2)
+
+
+def test_complete_cell_flags_controlled_routes_and_no_retry():
+    p=F(9,25);q=1-p;success=F(0);total=F(0)
+    # Two vertices, two banks. Per cell initial support is ground or
+    # complement; the code projector also contains an unoccupied third state.
+    for initial in product((0,2),repeat=4):
+        probability=F(1)
+        for state in initial:probability*=p if state==0 else q
+        flags=tuple(state==0 for state in initial);total+=probability
+        active=list(initial)
+        passed=True
+        for vertex in range(2):
+            if flags[vertex]:continue
+            if flags[2+vertex]:active[vertex],active[2+vertex]=active[2+vertex],active[vertex]
+            else:passed=False
+        if passed:
+            assert active[:2]==[0,0];success+=probability
+        assert sorted(active)==sorted(initial)
+    assert total==1 and success==(1-q*q)**2
+    assert 1-success<=2*q*q
+
+
+def test_global_guard_countercontrol_and_polynomial_budgets():
+    P=s.diag(1,1,0);h=s.diag(0,1,0)
+    A=s.Matrix([[0,1,0],[1,0,0],[0,0,0]])
+    B=s.Matrix([[0,0,1],[0,0,0],[1,0,0]])
+    H=s.kronecker_product(h,P);left=s.kronecker_product(A,s.eye(3));right=s.kronecker_product(s.eye(3),B)
+    nested=(H*left-left*H)*right-right*(H*left-left*H)
+    assert s.trace(nested.H*nested)==4
+    parent,source=f.admit();p0=F(source['actual_preparation']['complete_trial_ground_overlap_lower_per_constituent'])
+    for n in (1,2,3,7,15,31):
+        prep=f.preparation(n,p0);cap=f.cutoff(n)
+        assert F(prep['complete_assembly_failure_upper'])<=F(prep['chosen_failure_target'])
+        assert prep['all_banks_flags_and_original_spin_references_retained']
+        assert cap['photon_cap']>=3
+        assert not prep['coupled_ground_prepared']

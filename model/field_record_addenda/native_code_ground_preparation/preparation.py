@@ -1,0 +1,123 @@
+"""Code-heralded, centered-Cayley preparation on the unchanged completed cube."""
+from pathlib import Path
+from fractions import Fraction as F
+from math import comb
+import hashlib,json,sys
+HERE=Path(__file__).resolve().parent
+RER = HERE.parents[2]
+from model.native_wilson_maxwell_refinement import bounds
+
+PARENT='model/native_wilson_maxwell_ground_refinement/results.json'
+PARENT_SHA='e5a40a0d4e8d183c933232758f211bcd44bf81944429867da4048c184fc7b96a'
+
+def read_admitted():
+    p=RER/PARENT
+    assert hashlib.sha256(p.read_bytes()).hexdigest()==PARENT_SHA
+    parent=json.loads(p.read_text())
+    for name,h in parent['input_sha256'].items():
+        assert hashlib.sha256((RER/name).read_bytes()).hexdigest()==h,name
+    old=json.loads((RER/'model/native_wilson_maxwell_ground/results.json').read_text())
+    source=json.loads((RER/'model/native_wilson_maxwell/results.json').read_text())
+    return parent,old,source
+
+def scientific():
+    parent,old,source=read_admitted()
+    u=parent['uniform_ground_bounds_exact']
+    mu=F(old['bounds_exact']['free_vacuum_shift_over_m_upper'])
+    gamma=F(u['uniform_internal_code_gap_lower_over_m'])
+    theta=F(u['uniform_ground_angle_upper'])
+    pcode=F(source['actual_preparation']['global_code_probability_lower'])
+    chord=F(3,2)
+    chord_margin=4*gamma**2-chord**2*(1+mu**2)*(1+(mu+gamma)**2)
+    assert chord_margin>0 and mu>0 and gamma>1
+    M=4096;epsilon=2/(chord*M)
+    r0=theta**2;r1=r0**2+2*epsilon**2*r0;r2=r1**2+2*epsilon**2*r1
+    fidelity=1/(1+r2)
+    purification=bounds.root(2*(1-bounds.root(fidelity,False)))
+    q=pcode**4/(1+r0)**4/(1+r1)**2
+    aG=F(u['uniform_actual_ground_T111_amplitude_lower'])
+    assert aG>purification
+    joint=q*(aG-purification)**2
+    K=2**64;n=K+1;L=K//2
+    cayley=98*(F(48,n*n)+F(96,n))
+    assert cayley<F(10000,n)
+    full_filter=6*(M-1)*cayley
+    # Complete filter histories conserve each source energy. On the admitted
+    # code the initial energy is <=mu, including every later filter failure.
+    b=F(u['Young_b_upper']);number_mean=(mu+b)/F(9,5)
+    accumulated_radius=F(1,64)*(bounds.root(F(1,2))+bounds.root(2))
+    test_radius=F(1,32)
+    assert 6*test_radius*bounds.root(n)/(n-L)<F(1,16)
+    field=F(1,n*n)+2*(bounds.root(number_mean)+accumulated_radius)/bounds.root(L+1,False)
+    history=full_filter+2*field
+    assert history<F(1,10**8)
+    import mpmath as mp
+    mp.iv.dps=80;log=mp.iv.ln
+    from model.affine_gauss_mobile.model import rounded
+    base=32*(256*log(2)+8*log(5)+24*log(119)+log(2**31+1))+7*log(9)+log(65)+log(comb(K+5,5))
+    capacity=rounded(4*base+4*log(2)+3*log(M)+log(290*(K+1)+1),places=60)
+    # A lower-resource setting suffices for a positive stationary record.
+    # It is a distinct complete instrument, not a relabeling of the precision
+    # setting above. No empirical number chooses its pointer size.
+    small_M=64;small_epsilon=F(4,3*small_M)
+    small_r=r0*r0+2*small_epsilon**2*r0
+    small_F=1/(1+small_r)
+    small_eta=bounds.root(2*(1-bounds.root(small_F,False)))
+    small_q=pcode**2/(1+r0)**2
+    assert aG>small_eta
+    small_history=2*(small_M-1)*cayley+2*field
+    small_capacity=rounded(2*base+2*log(2)+log(small_M)+log(290*(K+1)+1),places=60)
+    vals={'code_ground_chord_squared_margin_lower':chord_margin,
+          'ground_chord_lower':chord,'mixed_filter_amplitude_upper':epsilon,
+          'initial_conditional_ground_odds_upper':r0,'first_level_ground_odds_upper':r1,
+          'second_level_ground_odds_upper':r2,'conditional_ground_fidelity_lower':fidelity,
+          'conditional_ground_purification_error_upper':purification,
+          'original_all_admissions_and_filters_success_lower':q,
+          'original_preparation_and_T111_probability_lower':joint,
+          'complete_Cayley_norm_error_upper':cayley,
+          'complete_preparation_and_count_error_upper':full_filter,
+          'admitted_complete_history_photon_number_mean_upper':number_mean,
+          'complete_preparation_and_two_field_history_error_upper':history}
+    exact={k:str(bounds.rounded(v,'upper' in k)) for k,v in vals.items()}
+    return {'schema':'oph.research.code_heralded_ground_preparation.v1',
+      'parent_sha256':PARENT_SHA,'source_changed':False,
+      'architecture':'existing completed eight-cell Wilson-Maxwell cube, fixed m,a,g,c(g), every K>=3',
+      'new_apparatus_setting':{'code_admission':'four recorded commuting global code tests; all16 flags retained',
+        'Cayley':'(I-i h)/(I+i h), h=(H-E_base)/m on admitted code',
+        'E_base':'32 E_g+m(3+sqrt(6)), known native/free baseline, not unknown interacting ground',
+        'pointer_M':M,'source_copies':4,'filters':3,'code_pointer_bits':4,
+        'complete_clock':'6 duration-one slots: trial, code admission, three filters, final readout',
+        'pulse':'i Log U-H_copies, principal Hermitian logarithm; background cancellation declared',
+        'each_control_norm':'4 B_raw(K)+pi','gross_switching_work_upper':'12*(4 B_raw(K)+pi)',
+        'all_failure_states_and_partners_retained':True,'exact_finite_matrix_service_is_a_premise':True},
+      'bounds_exact':exact,'diagnostic_binary64':{k:float(F(v)) for k,v in exact.items()},
+      'smaller_positive_record_setting':{'source_copies':2,'pointer_M':small_M,'filters':1,
+        'complete_elapsed_source_time':'4: trial, code flags, energy agreement, count',
+        'original_success_lower':str(bounds.rounded(small_q,False)),
+        'conditional_ground_purification_error_upper':str(bounds.rounded(small_eta)),
+        'original_preparation_and_T111_probability_lower':str(bounds.rounded(small_q*(aG-small_eta)**2,False)),
+        'complete_two_field_history_error_upper':str(bounds.rounded(small_history)),
+        'each_control_norm_upper':'2 B_raw(K)+pi','gross_switching_work_upper':'8*(2 B_raw(K)+pi)',
+        'all_sources_and_pointers_nats_interval':small_capacity,
+        'high_precision_ground_preparation_claimed':False,'all_failures_retained':True},
+      'explicit_history_budget':{'K':K,'K_exponent':64,'photon_dimension':comb(K+5,5),
+        'all_sources_references_and_record_pointers_nats_interval':capacity,
+        'count_pointer_dimension':290*(K+1)+1,
+        'controller_coefficient_workspace_included':False,'huge_matrix_enumeration_claimed':False},
+      'boundaries':{'code_admission_is_not_unrecorded_postselection':True,
+        'passive_local_controller_compilation_proved':False,'spatial_or_UV_limit':False,
+        'physical_mass_or_particle_identity':False}}
+
+def certificate():
+    value=scientific();parent=json.loads((RER/PARENT).read_text())
+    pins=dict(parent['input_sha256']);pins[PARENT]=PARENT_SHA
+    value['input_sha256']=pins
+    value['owned_source_sha256']={p.name:hashlib.sha256(p.read_bytes()).hexdigest()
+      for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')}
+    return value
+
+if __name__=='__main__':
+    value=certificate();path=HERE/'results.json'
+    if '--write' in sys.argv:path.write_text(json.dumps(value,indent=2,sort_keys=True)+'\n')
+    else:assert value==json.loads(path.read_text())
+    print('PASS: same source; recorded code admissions; M4096; complete K2^64 history below1e-8')

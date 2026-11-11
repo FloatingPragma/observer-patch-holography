@@ -1,0 +1,191 @@
+"""Orthogonal Wilson member in the unchanged canonical charge/Gauss frame."""
+from fractions import Fraction as F
+from functools import lru_cache
+from pathlib import Path
+import sys
+
+import sympy as s
+from sympy.polys.matrices import DomainMatrix
+
+HERE=Path(__file__).resolve().parent
+ROOT = HERE.parents[2]
+from model.native_wilson_maxwell import field,current,matter,gauss,bounds
+from model.native_block_dirac.algebra import pauli
+from model.native_wilson_maxwell_refinement.bounds import root,rounded
+
+
+def encode(lo,hi):return [str(rounded(lo,False)),str(rounded(hi))]
+
+
+@lru_cache(None)
+def cube():
+    geometry=field.cube();aa,beta=current.matrices()
+    Gamma=aa[0]*aa[1]*aa[2]*beta
+    H=s.zeros(32);Js=[];edges=[]
+    for x in range(8):H[4*x:4*x+4,4*x:4*x+4]=beta+s.Rational(3,2)*Gamma
+    for tail,head,j in geometry['edges']:
+        B=-(Gamma+s.I*aa[j])/2
+        H[4*tail:4*tail+4,4*head:4*head+4]=B
+        H[4*head:4*head+4,4*tail:4*tail+4]=B.H
+        J=s.zeros(32);E=s.zeros(32)
+        J[4*tail:4*tail+4,4*head:4*head+4]=-s.I*B
+        J[4*head:4*head+4,4*tail:4*tail+4]=s.I*B.H
+        E[4*tail:4*tail+4,4*head:4*head+4]=B
+        E[4*head:4*head+4,4*tail:4*tail+4]=B.H
+        assert J.H==J and J**3==J and s.trace(J*J)==4
+        assert E.H==E and E**3==E and s.trace(E*E)==4
+        Js.append(s.ImmutableSparseMatrix(J));edges.append(s.ImmutableSparseMatrix(E))
+    # Independent Kronecker assembly in the actual lexicographic vertex order.
+    xx,yy,_=pauli();literal=s.kronecker_product(s.eye(8),beta)
+    for j in range(3):
+        X=s.kronecker_product(*[xx if k==j else s.eye(2) for k in range(3)])
+        Y=s.kronecker_product(*[yy if k==j else s.eye(2) for k in range(3)])
+        literal+=s.kronecker_product((s.eye(8)-X)/2,Gamma)+s.kronecker_product(Y/2,aa[j])
+    assert literal==H
+    grading=s.kronecker_product(s.eye(8),beta);A=H-grading
+    assert A.H==A and A*grading+grading*A==s.zeros(32)
+    assert H*H-s.eye(32)==A*A
+    C=s.kronecker_product(s.eye(8),s.I*beta*aa[1])
+    assert C*H.conjugate()*C.H==-H
+    assert all(C*J.conjugate()*C.H==J for J in Js)
+    x=s.Symbol('x')
+    factors=(4*x*x-5,4*x*x-13,16*x**4-136*x*x+241,16*x**4-264*x*x+977)
+    expected=factors[0]**2*factors[1]**2*factors[2]**4*factors[3]**2/2**32
+    assert s.expand(H.charpoly(x).as_expr()-expected)==0
+    minimum=s.Poly(s.prod(factors)/4096,x)
+    domain=DomainMatrix.from_Matrix(H).convert_to(s.QQ_I)
+    power=DomainMatrix.eye(32,s.QQ_I);powers=[power.to_Matrix()]
+    for _ in range(minimum.degree()):power=power*domain;powers.append(power.to_Matrix())
+    assert sum((minimum.nth(j)*powers[j] for j in range(13)),s.zeros(32))==s.zeros(32)
+    return s.ImmutableSparseMatrix(H),tuple(Js),minimum,tuple(powers),tuple(edges)
+
+
+def energy_alignment():
+    # Every square root is bounded rationally; the physical old sea scalar stays.
+    def r(x):return root(x,False),root(x)
+    r3,r7=r(3),r(7)
+    positive=[(r(5),F(1,2),2),(r(13),F(1,2),2)]
+    for c,rr,multiplicity in ((17,r3,4),(33,r7,2)):
+        positive.extend([((root(c-4*rr[1],False),root(c-4*rr[0])),F(1,2),multiplicity),
+                         ((root(c+4*rr[0],False),root(c+4*rr[1])),F(1,2),multiplicity)])
+    assert all(bounds[0]*factor>1 and bounds[1]*factor<4 for bounds,factor,_ in positive)
+    assert all(bounds[0]*factor>root(5)/2 for bounds,factor,_ in positive[1:])
+    lo=sum(bounds[0]*factor*mult for bounds,factor,mult in positive)
+    hi=sum(bounds[1]*factor*mult for bounds,factor,mult in positive)
+    oldlo=4*r(3)[0]+8*r(7)[0]+4*r(13)[0]
+    oldhi=4*r(3)[1]+8*r(7)[1]+4*r(13)[1]
+    delta=(oldlo-hi,oldhi-lo)
+    assert 9<delta[0]<delta[1]<10
+    g=F(1,64);nu=18*g+F(116,3)*g*g
+    minimal=delta[1]+nu
+    integer=-(-minimal.numerator//minimal.denominator)
+    robust=F(integer)+F(1,2)
+    codegap=root(5,False)/2-2*nu
+    complement=robust-delta[1]-nu
+    assert codegap>F(1,2) and complement>F(1,2)
+    return {'old_filled_negative_sea_over_m':encode(-oldhi,-oldlo),
+        'new_filled_negative_sea_over_m':encode(-hi,-lo),
+        'signed_code_vacuum_shift_over_m':encode(*delta),
+        'old_code_scalar_minus_Esea_old_retained':True,
+        'additional_code_scalar_offset_inserted':False,
+        'free_positive_levels_over_m':['sqrt(5)/2','sqrt(13)/2','sqrt(17-4sqrt(3))/2',
+            'sqrt(17+4sqrt(3))/2','sqrt(33-4sqrt(7))/2','sqrt(33+4sqrt(7))/2'],
+        'positive_level_multiplicities':[2,2,4,4,2,2],
+        'free_code_gap_over_m':encode(root(5,False)/2,root(5)/2),
+        'free_one_body_norm_over_m_upper':'4',
+        'g':str(g),'all_code_charge_perturbation_norm_over_m_upper':str(nu),
+        'minimal_sufficient_complement_coefficient_upper':str(rounded(minimal)),
+        'robust_declared_positive_complement_coefficient':str(robust),
+        'robust_code_excitation_gap_over_m_lower':str(rounded(codegap,False)),
+        'robust_complement_margin_over_m_lower':str(rounded(complement,False)),
+        'full_physical_ground_gap_over_m_lower':str(rounded(min(codegap,complement),False)),
+        'minimal_completion_only_inherits_small_native_complement_gap':True,
+        'robust_completion_is_declared_source_architecture':True,
+        'diagnostic_binary64':{'signed_code_vacuum_shift_over_m':[float(x)for x in delta],
+            'nu_all':float(nu),'code_gap_over_m_lower':float(codegap),
+            'complement_margin_over_m_lower':float(complement)}}
+
+
+def covariance():
+    H,Js,_,_,_=cube();c=field.cube()
+    # All four canonical spinor components carry the same U(1) charge.
+    charges=[s.diag(*[int(i//4==x) for i in range(32)]) for x in range(8)]
+    checks=0
+    for edge,(tail,head,axis) in enumerate(c['edges']):
+        K=s.zeros(32);K[4*head:4*head+4,4*tail:4*tail+4]=H[4*head:4*head+4,4*tail:4*tail+4]
+        for x,Px in enumerate(charges):
+            assert Px*K-K*Px==c['D'][edge,x]*K;checks+=1
+    # The finite local gauge action, with literal rational phases, not just
+    # an infinitesimal generator identity.
+    phases=[(s.Rational(3,5)+s.I*s.Rational(4,5))**x for x in range(8)]
+    G=s.diag(*[phases[x] for x in range(8) for _ in range(4)])
+    coupled=s.zeros(32)
+    for x in range(8):coupled[4*x:4*x+4,4*x:4*x+4]=H[4*x:4*x+4,4*x:4*x+4]
+    for tail,head,axis in c['edges']:
+        # A passive basis transform multiplies the tail/head matrix by
+        # phase_tail phase_head^*. Its inverse is the active link gauge law.
+        coupled[4*tail:4*tail+4,4*head:4*head+4]=phases[tail]*s.conjugate(phases[head])*H[4*tail:4*tail+4,4*head:4*head+4]
+        coupled[4*head:4*head+4,4*tail:4*tail+4]=phases[head]*s.conjugate(phases[tail])*H[4*head:4*head+4,4*tail:4*tail+4]
+    assert (G*H*G.H-coupled).applyfunc(s.simplify)==s.zeros(32)
+    return {'exact_edge_charge_commutators':checks,'finite_rational_gauge_action_checked':True,
+        'canonical_field_and_onsite_charge_operators_changed':False,
+        'native_global_code_projector_changed':False,'outer_Gauss_projector_or_isometry_Y_changed':False,
+        'actual_global_native_code_and_reference_support':bounds.support_control(),
+        'actual_full_range_Gauss_controls':gauss.calculate(),
+        'Peierls_orientation':'head-dagger B-dagger tail exp(+igQ), with the original partial longitudinal shifts',
+        'current_direction':'J_phase=i(K-Kdag), I_flow=-J_phase; dot rho=D^T I_flow',
+        'canonical_local_charge':'Psi_x^dagger Psi_x-2 on code; the original full-range rho_x on complement',
+        'weak_chiral_SM_gauge_representation':False}
+
+
+def fw_identity():
+    # Exact four-basis Clifford calculation: beta^2=1, A^2=E^2-m^2,
+    # A beta=-beta A, and E is central in this algebra.
+    E,m=s.symbols('E m',positive=True)
+    def multiply(p,q):
+        out={}
+        for (b,a),v in p.items():
+            for (bb,aa),w in q.items():
+                key=((b+bb)%2,(a+aa)%2)
+                out[key]=out.get(key,0)+v*w*(-1)**(a*bb)*(E*E-m*m)**((a+aa)//2)
+        return {k:s.factor(v) for k,v in out.items() if s.factor(v)!=0}
+    numerator={(0,0):E+m,(1,1):1};adjoint={(0,0):E+m,(1,1):-1}
+    h={(1,0):m,(0,1):1};norm=2*E*(E+m)
+    assert multiply(numerator,adjoint)=={(0,0):norm}
+    assert multiply(multiply(numerator,h),adjoint)=={(1,0):E*norm}
+    return {'new_frame':'F=(E+m+beta A)/sqrt(2E(E+m)); E=sqrt(m^2+A^2)',
+        'exact_F_H_Fdag':'beta E','exact_unitarity':True,
+        'new_negative_projector':'(I-H/E)/2',
+        'frame_is_spectral_analysis_not_a_redefinition_of_fixed_Psi_rho_Y':True}
+
+
+def rotation_algebra():
+    """Exact universal two-projection identities, without a numerical frame."""
+    def clean(p):return {w:v for w,v in p.items()if v}
+    def plus(*polys):
+        out={}
+        for p in polys:
+            for w,v in p.items():out[w]=out.get(w,0)+v
+        return clean(out)
+    def scale(p,n):return clean({w:n*v for w,v in p.items()})
+    def times(p,q):
+        out={}
+        for w,v in p.items():
+            for x,t in q.items():
+                reduced=()
+                for letter in w+x:
+                    if not reduced or reduced[-1]!=letter:reduced+=(letter,)
+                out[reduced]=out.get(reduced,0)+v*t
+        return clean(out)
+    I={():1};P={('P',):1};Q={('Q',):1}
+    S=plus(I,scale(P,-1),scale(Q,-1),scale(times(P,Q),2))
+    adj={tuple(reversed(w)):v for w,v in S.items()}
+    D=plus(P,scale(Q,-1));M=plus(I,scale(times(D,D),-1))
+    assert times(adj,S)==M and times(S,adj)==M
+    assert times(S,Q)==times(P,S)
+    for X in (P,Q,S):assert times(M,X)==times(X,M)
+    return {'exact_free_projection_polynomial_identities_checked':True,
+        'S':'Pnew Pold+(I-Pnew)(I-Pold)',
+        'M':'I-(Pnew-Pold)^2','identities':['Sdag S=M','S Sdag=M','S Pold=Pnew S','[M,Pold]=[M,Pnew]=[M,S]=0'],
+        'strict_projector_distance_bound_makes_M_positive_invertible':True,
+        'number_preserving_second_quantization_retains_total_charge':True}

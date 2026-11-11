@@ -1,0 +1,251 @@
+"""Literal first-hop spectral kernels and complete same-H arrival/energy bounds."""
+from fractions import Fraction as F
+from functools import lru_cache
+from pathlib import Path
+import hashlib
+import json
+from math import comb
+import sys
+
+import sympy as s
+
+HERE = Path(__file__).resolve().parent
+ROOT = HERE.parents[2]
+from model.native_wilson_maxwell_refinement.bounds import root, rounded
+from model.native_charge_resolution.bounds import data as source_data
+from model.coherent_defect_wave.chiral_source.model import PAULI
+
+TRANSPORT = HERE.parent / 'native_quark_transport'
+from ..native_quark_transport import transport
+PARENT = 'model/native_quark_response/results.json'
+PARENT_SHA = '06c336e1f691db866896de6123fea34937dcd462d92765f594600744c54fd40f'
+TRANSPORT_SHA = '5395b4e4601fba2b8f95366103b06ee62fe88c6fc67dee6c2363c81dda42f57e'
+LAMBDA = F(1, 2**34)
+TIME = F(1)
+
+
+def digest(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def encode(pair):
+    return [str(rounded(F(pair[0]), False)), str(rounded(F(pair[1])))]
+
+
+def sine_interval(x, order=24):
+    """Alternating rational enclosure on the stated positive unit interval."""
+    x = F(x)
+    if not 0 <= x <= 1 or order < 1:
+        raise ValueError('0 <= x <= 1 and positive Taylor order required')
+    term = x
+    total = x
+    for j in range(1, order+1):
+        term *= -x*x / ((2*j)*(2*j+1))
+        total += term
+    following = term * -x*x / ((2*order+2)*(2*order+3))
+    return min(total, total+following), max(total, total+following)
+
+
+@lru_cache(maxsize=1)
+def parents():
+    if digest(ROOT/PARENT) != PARENT_SHA or digest(TRANSPORT/'research_reference.json') != TRANSPORT_SHA:
+        raise ValueError('reviewed parent receipt changed')
+    native = json.loads((ROOT/PARENT).read_text())
+    route = json.loads((TRANSPORT/'research_reference.json').read_text())
+    for value in (native, route):
+        for path, sha in value['input_sha256'].items():
+            if digest(ROOT/path) != sha:
+                raise ValueError('source pin changed: '+path)
+    for name, sha in route['owned_source_sha256'].items():
+        if digest(TRANSPORT/'retained'/(name+'.raw')) != sha:
+            raise ValueError('transport source changed: '+name)
+    if native['actual_quark_CAR_images']['full_native_separate_quark_lepton_spin_H_commutators'] != 6:
+        raise ValueError('separate native quark and lepton spin symmetries required')
+    return native, route
+
+
+def contractions():
+    """Full retained spin/internal/reference/flux contraction, including input cross terms."""
+    j, ell, k = s.symbols('w_j w_ell w_k', real=True)
+    rows = []
+    for family in ('uc', 'dc', 'Q'):
+        d = len(transport.FAMILIES[family])
+        for axis, sigma in enumerate(PAULI):
+            total = s.Integer(0)
+            for r in range(2):
+                for a in range(2):
+                    for b in range(2):
+                        for aa in range(2):
+                            for bb in range(2):
+                                total += (s.conjugate(sigma[aa, bb])*sigma[a, b]
+                                    * int(a == r)*int(aa == r)*int(b == bb)*j*ell*k)
+            total *= d*d*s.Rational(1, 2*d)*s.Rational(1, 16)*s.Rational(1, d)
+            assert s.expand(total-j*ell*k/16) == 0
+            assert total.subs({j:s.Rational(1,2), ell:s.Rational(1,2)}) == k/64
+            rows.append({'family':family, 'axis':axis, 'internal_dimension':d,
+                         'input_cross_output_energy_effect':str(total),
+                         'unrecorded_input_effect':'w_k/64', 'total_effect':'1/128'})
+    # Execute the actual source route and blank-link Gram controls too.
+    actual = transport.source_algebra()
+    return {'literal_contractions':rows, 'actual_source_routes':actual['actual_routes'],
+            'input_energy_indices_are_coherent_without_a_record':True,
+            'initial_energy_record_changes_the_experiment':True,
+            'exact_route_resolvent':'R_r(z-1)/64',
+            'conditional_first_hop_energy_mean_minus_pump_mean':'1',
+            'incoming_atomic_energy_preserved_by_selected_hop':False}
+
+
+def family(family, time=TIME, radius_multiplier=128):
+    time = F(time)
+    if not 0 < time <= 2 or radius_multiplier < 2:
+        raise ValueError('0 < source time <= 2 and radius multiplier >= 2 required')
+    native, route = parents()
+    rows = native['exact_local_response'][family]['complete_positive_records']
+    energies = [tuple(map(F, r['source_energy_interval'])) for r in rows]
+    weights = [tuple(map(F, r['probability_interval'])) for r in rows]
+    visible = [i for i,r in enumerate(rows) if not r['exactly_zero_residue']]
+    assert all(weights[i][0] > 0 for i in visible)
+    z = s.Symbol('z')
+    support = s.Poly(native['exact_local_response'][family]['visible_support_annihilator'], z)
+    assert s.gcd(support, s.Poly(support.as_expr().subs(z,z-1), z)).degree() == 0
+    gaps = [(max(energies[k][0]+1-energies[j][1], energies[j][0]-energies[k][1]-1),j,k)
+            for j in visible for k in visible]
+    gap,jgap,kgap = min(gaps)
+    assert gap > 0
+    # Parent moments are exact polynomials in its neutral degree-six root,
+    # highest coefficient first. A shift by one uses only linear combinations
+    # of these reduced field elements, so no numerical spectral fit is used.
+    source_moments = native['exact_local_response'][family]['exact_ground_moments']
+    shifted_moments = []
+    for n in range(len(source_moments)):
+        coefficients = [F(0)]*6
+        for j in range(n+1):
+            row = [F(0)]*(6-len(source_moments[j]))+list(map(F,source_moments[j]))
+            coefficients = [a+F(comb(n,j),64)*b for a,b in zip(coefficients,row)]
+        while len(coefficients)>1 and coefficients[0]==0:coefficients.pop(0)
+        shifted_moments.append(list(map(str,coefficients)))
+    assert shifted_moments[0] == ['1/128']
+    qlo = F(route['finite_records']['physical_preparation_success_lower'])
+    alo = F(route['finite_records']['localization_success_lower'])
+    data = source_data(); v = F(data['v']); elo,ehi = map(F,data['e'])
+    assert v == 360*LAMBDA
+    radius = radius_multiplier*v
+    assert gap > 2*radius
+    targets = [(7*elo+e[0]+5, 7*ehi+e[1]+5) for e in energies]
+    windows = [((lo+hi)/2-radius, (lo+hi)/2+radius) for lo,hi in targets]
+    assert all(a[1] < b[0] for a,b in zip(windows,windows[1:]))
+    dyson = v*v*time*time/(2*root(2,False))
+    sinlo,sinhi = sine_interval(time/2)
+    result = []
+    for k,((wl,wu),energy,window) in enumerate(zip(weights,energies,windows)):
+        # Isolate the j=k term: its detuning is exactly one link unit.
+        same_line_lower = max(F(0), 2*wl*sinlo-(F(1,2)-wl)*time)
+        atomic_lower = root(wl,False)*same_line_lower/4
+        atomic_upper = root(wu)*time/8
+        inner = radius-(targets[k][1]-targets[k][0])/2
+        assert inner > v
+        leakage = F(0)
+        for ell,((_,wupper),other) in enumerate(zip(weights,targets)):
+            if ell == k: continue
+            distance = max(window[0]-other[1],other[0]-window[1])
+            assert distance > 0
+            leakage += v*root(wupper)*time/(8*distance)
+        low_amplitude = max(F(0), LAMBDA*(atomic_lower*root(1-(v/inner)**2,False)-leakage)-dyson)
+        upper_amplitude = LAMBDA*(atomic_upper+leakage)+dyson
+        low = qlo*alo*low_amplitude**2
+        upper = min(F(1,2), upper_amplitude**2)
+        # A dark atomic line can acquire only perturbative/remainder leakage.
+        result.append({'index':k, 'exact_atomic_probe_zero':rows[k]['exactly_zero_residue'],
+            'initial_local_energy':encode(energy), 'one_link_atomic_local_energy':encode((energy[0]+1,energy[1]+1)),
+            'one_component_weight':encode((wl,wu)), 'unfiltered_first_hop_weight':encode((wl/64,wu/64)),
+            'full_H_active_plus_reference_bin':encode(window),
+            'source_excitation_relative_actual_neutral_ground':encode((window[0]-4-8*ehi,
+                window[1]-4-8*elo+F(data['neutral_shift']))),
+            'same_line_oscillatory_amplitude_lower':str(rounded(atomic_lower,False)),
+            'other_atomic_line_to_bin_leakage_upper':str(rounded(leakage)),
+            'original_route_then_energy_probability':encode((low,upper))})
+    # The full first-order route contribution is uniformly bounded in time
+    # by the strictly positive atomic detuning. Higher-order paths are separate.
+    first_order_uniform = LAMBDA*sum(root(weights[k][1]) for k in visible)/(4*gap)
+    full_route_upper = min(F(1,2),(min(first_order_uniform,LAMBDA*time/root(128,False))+dyson)**2)
+    outside_amplitude = dyson + LAMBDA*sum(
+        v*root(w[1])*time/(8*(radius-(target[1]-target[0])/2))
+        for w,target in zip(weights,targets))
+    outside_upper = min(full_route_upper,outside_amplitude**2)
+    best = max(result,key=lambda x:F(x['original_route_then_energy_probability'][0]))
+    assert F(best['original_route_then_energy_probability'][0]) > 0
+    return {'family':family, 'source_time':str(time), 'radius_in_hopping_norm_units':radius_multiplier,
+        'visible_atomic_lines':len(visible), 'retained_atomic_lines':len(rows),
+        'exact_visible_support_shift_gcd':'1', 'minimum_input_output_detuning_lower':str(gap),
+        'closest_initial_index':jgap, 'closest_arrival_index':kgap,
+        'minimum_visible_input_to_one_link_full_H_bin_gap_lower':str(gap-2*radius),
+        'exact_autonomous_disjoint_energy_control':'Pi_shifted exp(-it H_total) Pi_unshifted=0; energy tested before any intervening arrival projection',
+        'disjoint_energy_control_is_operator_identity_not_extra_executed_setting':True,
+        'exact_energy_resolved_first_hop_weights':'w_j^2 w_k/16',
+        'exact_cross_input_first_hop_Gram':'w_j w_ell w_k/16',
+        'one_link_first_hop_exact_moments_in_neutral_root_field':shifted_moments,
+        'first_order_route_probability_kernel':'lambda^2*a/16 sum_k w_k |sum_j w_j (exp(-it eps_j)-exp(-it(eps_k+1)))/(eps_k+1-eps_j)|^2',
+        'first_order_route_amplitude_uniform_upper':str(rounded(first_order_uniform)),
+        'full_unitary_Dyson_remainder_per_sqrt_localization_upper':str(rounded(dyson)),
+        'full_H_original_route_probability_upper':str(rounded(full_route_upper)),
+        'original_route_then_outside_all_energy_bins_probability':encode((F(0),outside_upper)),
+        'physical_preparation_success_lower':str(qlo),'localization_success_lower':str(alo),
+        'all_atomic_and_full_H_bins':result, 'best_certified_bin_index':best['index'],
+        'six_route_best_bin_probability_lower':str(rounded(6*F(best['original_route_then_energy_probability'][0]),False)),
+        'complete_success_nonarrival_lower':str(rounded(qlo*alo/2-6*full_route_upper,False)),
+        'final_detector_pointer_dimension':1+6*(len(rows)+1),
+        'coarse_original_attempt_records':4+6*(len(rows)+1),
+        'complete_record_law':['1-q','q(1-a)','qa/2','q ||P_no_arrival U(t) B P0 z||^2',
+            'q ||Pi_k Pe U(t) B P0 z||^2, each of six routes and every bin',
+            'q ||(I-sum_k Pi_k) Pe U(t) B P0 z||^2, each route'],
+        'order':'arrival projection, then full-H energy; both labels retained',
+        'autonomous_energy_gain_or_simultaneous_joint_PVM_claimed':False}
+
+
+def certificate():
+    native, route = parents()
+    algebra = contractions()
+    records = {f:family(f) for f in ('uc','dc','Q')}
+    norm = F(1080)+720*LAMBDA
+    from ..provenance import import_closure
+    seeds = set(native['input_sha256']) | set(route['input_sha256']) | {
+        PARENT, 'model/native_wilson_maxwell_refinement/bounds.py',
+        'model/native_charge_resolution/bounds.py',
+        'model/coherent_defect_wave/chiral_source/model.py',
+        'model/particle_common_contract/provenance.py'}
+    return {'schema':'oph.research.native_quark_spatial_spectrum.v1',
+        'source':'same full native H0+2^-34 T, PW119, thirty CAR and five scalar states per cell',
+        'source_reference_clock':'H_active+H_partner+4 N_ref',
+        'parent_native_quark_response_sha256':PARENT_SHA,'parent_quark_transport_sha256':TRANSPORT_SHA,
+        'spectral_route_algebra':algebra,'families':records,
+        'apparatus':{'actual_imperfect_physical_preparation_retained':True,
+            'additional_recorded_atomic_localization':True,'exact_interacting_ground_projection_added':False,
+            'final_energy_service':'exact full-H spectral bins after the recorded arrival projection',
+            'two_duration_one_driven_services':'localization/pump; complete ordered arrival/energy',
+            'background_cancelled_explicitly_during_services':True,
+            'additional_elapsed_source_time':'3 = 1 pump/localization + 1 autonomous wait + 1 final detector',
+            'full_raw_two_source_and_static_reference_norm_upper':str(norm),
+            'control_norm_upper':'1080+720*2^-34+pi',
+            'gross_switching_work_upper':'4*(1080+720*2^-34+pi)',
+            'extra_record_capacity':'ln[3*(1+6*(number_of_atomic_lines+1))] nats',
+            'all_preparation_flags_partners_references_and_complements_retained':True,
+            'efficient_synthesis_or_controller_workspace_included':False},
+        'scope':{'same_H_positive_energy_resolved_ordered_arrival':True,
+            'exact_one_link_shift_on_selected_first_hop_support':True,
+            'nonresonance_of_visible_atomic_pump_and_one_link_support':True,
+            'all_motion_proved_virtual_or_globally_confined':False,
+            'full_charged_sector_ground_or_string_tension_identified':False,
+            'ballistic_or_relativistic_dispersion_or_Sm_mass':False},
+        'exact_idle_or_zero_hopping_arrival_probability':'0',
+        'input_sha256':{path:digest(ROOT/path) for path in sorted(import_closure(seeds))},
+        'owned_source_sha256':{p.name:digest(p)for p in sorted(HERE.iterdir())if p.suffix in ('.py','.md')}}
+
+
+if __name__ == '__main__':
+    import argparse
+    parser=argparse.ArgumentParser();parser.add_argument('--write',action='store_true');args=parser.parse_args()
+    value=certificate();path=HERE/'results.json'
+    if args.write:path.write_text(json.dumps(value,indent=2,sort_keys=True)+'\n')
+    else:
+        if json.loads(path.read_text())!=value:raise ValueError('spatial spectral certificate changed')
+    print('PASS: literal shifted spectral route and complete full-H arrival/energy records')

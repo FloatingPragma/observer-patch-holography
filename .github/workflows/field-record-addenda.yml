@@ -1,0 +1,32 @@
+name: Complete finite field records
+on:
+  push:
+    branches: [main]
+    paths: ['model/**', 'Lean/**', 'claims/addenda/field_record_addenda.json', 'tools/check_field_record_addenda_claims.py', 'tools/build_finite_field_records_atlas.py', 'docs/research/OPH_FINITE_FIELD_RECORDS.svg', '.github/workflows/field-record-addenda.yml']
+  pull_request:
+    paths: ['model/**', 'Lean/**', 'claims/addenda/field_record_addenda.json', 'tools/check_field_record_addenda_claims.py', 'tools/build_finite_field_records_atlas.py', 'docs/research/OPH_FINITE_FIELD_RECORDS.svg', '.github/workflows/field-record-addenda.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r model/requirements.txt
+      - name: Replay every actual finite-field producer
+        run: python -B -m model.field_record_addenda --check
+      - name: Check original science and hostile custody cases
+        run: python -B -m pytest -q model/field_record_addenda -W error
+      - name: Check the separately scoped claim supplement
+        run: python -B tools/check_field_record_addenda_claims.py
+      - name: Check the finite-record poster against exact receipts
+        run: python -B tools/build_finite_field_records_atlas.py --check

@@ -1,0 +1,51 @@
+import sympy as s
+import pytest
+import transport as q
+from model.coherent_defect_wave.chiral_joint.periodic_family.model import Configuration,kinetic_terms
+from model.coherent_defect_wave.chiral_joint.peter_weyl_links import model as pw
+
+
+def test_actual_quark_link_compiler_all_three_families_and_six_routes():
+    terms={t.path[0]:t for t in kinetic_terms(Configuration())}
+    for route in q.routes():
+        for family in q.CHANNELS:
+            for spin in (0,1):
+                mode=q.FAMILIES[family][0]+15*spin
+                key=(1<<(30*route['arrival']+mode),(0,)*24,(0,)*8)
+                image=pw.hopping_column(key,(terms[route['edge']],))
+                assert image and sum(s.conjugate(v)*v for v in image.values())==s.Rational(1,16)
+                for (mask,links,scalars),v in image.items():
+                    assert mask.bit_count()==1 and mask.bit_length()<=30
+                    assert (mask.bit_length()-1)%15 in q.FAMILIES[family]
+                    assert [j for j,x in enumerate(links) if x]==[route['edge']]
+                    assert scalars==(0,)*8
+
+
+def test_exact_three_axis_full_spin_and_gauge_contractions():
+    from model.coherent_defect_wave.chiral_source.model import PAULI
+    for d in (3,6):
+        for sigma in PAULI:
+            # Pump 1/(2d), hop 1/16, link 1/d; all retained reference,
+            # internal and spin components, with three 1/2 contractions.
+            effect=sum(s.conjugate(sigma[a,b])*sigma[a,b]
+                       for a in range(2) for b in range(2))*d*d*s.Rational(1,2*d)*s.Rational(1,16*d)*s.Rational(1,8)
+            assert effect==s.Rational(1,128)
+    result=q.source_algebra()
+    assert len(result['channels'])==3
+    assert {x['source_raw_B3_change'] for x in result['channels']}=={-1,1}
+
+
+def test_full_original_law_and_uniform_localized_input():
+    result=q.bounds();lo,hi=map(s.Rational,result['original_single_route_interval'])
+    assert 0<lo<hi< s.Rational(1,10**34)
+    assert s.Rational(result['strict_amplitude_margin'])>0
+    assert result['coarse_records']==10
+    qq,a=s.symbols('q a'); ps=s.symbols('p:6')
+    assert s.expand((1-qq)+qq*(1-a)+qq*a/2+qq*sum(ps)+qq*(a/2-sum(ps)))==1
+    assert not result['ground_trial_vector_subtraction_needed_for_first_hop']
+
+
+def test_no_time_no_arrival_and_no_unsupported_probability_promotion():
+    assert tuple(map(s.Rational,q.bounds(s.Rational(0))['original_single_route_interval']))==(0,0)
+    for value in (-1, 0.1):
+        with pytest.raises(ValueError):q.bounds(value)

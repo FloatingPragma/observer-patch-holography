@@ -1,0 +1,17 @@
+# A local field comparison on the interacting cube
+
+The same prepared native Wilson–Maxwell source supports an explicit
+bound on how a magnetic intervention changes a later electric detector.
+Its physical electric field includes the charge reference and Coulomb
+part. The complete finite experiment retains every preparation failure
+and bounds the influence by `1.810490e-8` in the displayed setting.
+
+The [proof](PROOF.md) derives an interacting commutator majorant on the
+fixed cube, then transfers it through the actual ground preparation and
+photon cutoff. Locality belongs to the reconstructed gauge-invariant
+field/current algebra; a microscopic native or relativistic cone is not
+proved.
+
+Run `python -B producer.py --check` and `python -m pytest -q .` from
+this directory with the repository environment. Exact rational bounds
+are authoritative; the floating values in the receipt are diagnostics.

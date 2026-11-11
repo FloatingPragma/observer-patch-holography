@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1790,
+  "surface_count": 1812,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1667,6 +1667,11 @@
     },
     {
       "path": "docs/research/OPH_FIELD_RECONSTRUCTION.md",
+      "glob": "docs/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/research/OPH_FINITE_FIELD_RECORDS.md",
       "glob": "docs/**/*.md",
       "allowlisted": false
     },
@@ -3507,6 +3512,111 @@
     },
     {
       "path": "model/field_protocols/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/field_record_addenda/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/field_record_addenda/native_code_ground_preparation/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/field_record_addenda/native_code_ground_preparation/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/field_record_addenda/native_orthogonal_wilson_bridge/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/field_record_addenda/native_orthogonal_wilson_bridge/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/field_record_addenda/native_orthogonal_wilson_spatial_join/NEXT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/field_record_addenda/native_orthogonal_wilson_spatial_join/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/field_record_addenda/native_orthogonal_wilson_spatial_join/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/field_record_addenda/native_quark_spatial_spectrum/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/field_record_addenda/native_quark_spatial_spectrum/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/field_record_addenda/native_quark_transport/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/field_record_addenda/native_quark_transport/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/field_record_addenda/native_wilson_cone_audit/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/field_record_addenda/native_wilson_cone_audit/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/field_record_addenda/native_wilson_maxwell_interaction_witness/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/field_record_addenda/native_wilson_maxwell_interaction_witness/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/field_record_addenda/native_wilson_maxwell_locality/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/field_record_addenda/native_wilson_maxwell_locality/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/field_record_addenda/native_wilson_maxwell_spatial_family/DYNAMICS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/field_record_addenda/native_wilson_maxwell_spatial_family/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/field_record_addenda/native_wilson_maxwell_spatial_family/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

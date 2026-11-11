@@ -1,0 +1,84 @@
+from fractions import Fraction as F
+import json
+import numpy as np
+import pytest
+from . import preparation as p
+
+def test_parent_and_outward_certificate():
+    value=p.scientific();b=value['bounds_exact']
+    assert F(b['conditional_ground_fidelity_lower'])>1-F(1,10**13)
+    assert F(b['original_preparation_and_T111_probability_lower'])>F(45,10**8)
+    assert F(b['complete_preparation_and_two_field_history_error_upper'])<F(1,10**8)
+    assert value['source_changed'] is False
+
+def test_chord_bound_including_arbitrarily_large_excited_energy():
+    parent,old,_=p.read_admitted();u=parent['uniform_ground_bounds_exact']
+    mu=float(F(old['bounds_exact']['free_vacuum_shift_over_m_upper']))
+    gap=float(F(u['uniform_internal_code_gap_lower_over_m']))
+    for x in (1e-6,mu):
+        c0=(1-1j*x)/(1+1j*x)
+        for delta in (gap,2,10,1e4,1e100):
+            c1=(1-1j*(x+delta))/(1+1j*(x+delta))
+            assert abs(c0-c1)>1.5
+
+def filter_all_pointer_records(weights,energies,M=4096):
+    # Independently execute the complete Fourier-pointer law. This is a
+    # small spectral control, not an enumeration of the physical cube.
+    phase=-2*np.arctan(energies)
+    powers=np.exp(1j*np.arange(M)[:,None,None]*(phase[:,None]-phase[None,:])[None,:,:])
+    amplitudes=np.fft.fft(powers,axis=0)/M
+    incoming=weights[:,None]*weights[None,:]
+    laws=np.abs(amplitudes)**2*incoming
+    complete=laws.sum(axis=(1,2))
+    out= laws[0].sum(axis=1)/complete[0]
+    return complete,out,amplitudes
+
+def test_full_pointer_tree_not_only_the_success_projector():
+    value=p.scientific();b=value['bounds_exact']
+    r0=float(F(b['initial_conditional_ground_odds_upper']))
+    w=np.array([1,.4*r0,.6*r0])/(1+r0)
+    energies=np.array([.000100230944,1.3286,2.4])
+    law,main,amplitudes=filter_all_pointer_records(w,energies)
+    assert abs(law.sum()-1)<2e-13
+    assert np.max(np.abs(amplitudes[0,0,1:]))<=1/3072
+    assert main[0]>=1/(1+r0*r0+2*r0/3072**2)-2e-15
+    second,final,_=filter_all_pointer_records(main,energies)
+    assert abs(second.sum()-1)<2e-13
+    assert final[0]>=float(F(b['conditional_ground_fidelity_lower']))-2e-15
+    # Two first-level outcomes plus either all final outcomes or a recorded
+    # no-op constitute a complete tree, including each unsuccessful label.
+    pass12=law[0]**2
+    assert abs((1-pass12)+pass12*second.sum()-1)<2e-13
+
+def test_code_admission_flags_are_complete_and_not_reset():
+    _,_,source=p.read_admitted()
+    a=float(F(source['actual_preparation']['global_code_probability_lower']))
+    flags=np.array([a**k*(1-a)**(4-k) for k in range(5)])
+    from math import comb
+    assert abs(sum(comb(4,k)*flags[k] for k in range(5))-1)<2e-15
+    q=F(p.scientific()['bounds_exact']['original_all_admissions_and_filters_success_lower'])
+    assert float(q)<a**4
+
+def test_centered_resolvent_factorization_without_small_perturbation():
+    a=np.diag([0.,2.,4.,8.]);b=np.array([[4,2,0,0],[2,-3,1,0],[0,1,7,1],[0,0,1,-1]],complex)
+    c=b+.01*np.ones((4,4));I=np.eye(4)
+    rh=np.linalg.inv(a+b+1j*I);ra=np.linalg.inv(a+1j*I)
+    assert np.linalg.norm(rh-ra@(I-b@rh))<1e-14
+    def cayley(h):return (I-1j*h)@np.linalg.inv(I+1j*h)
+    lhs=np.linalg.norm(cayley(a+b)-cayley(a+c),2)
+    bound=2*np.linalg.norm((b-c)@np.linalg.inv(a+c+1j*I),2)
+    assert lhs<=bound+1e-14
+    assert np.linalg.norm(b,2)>1  # a smallness/Neumann premise is unavailable.
+
+def test_stale_parent_rejected(monkeypatch,tmp_path):
+    monkeypatch.setattr(p,'RER',tmp_path)
+    path=tmp_path/p.PARENT;path.parent.mkdir(parents=True);path.write_text('{}')
+    with pytest.raises(AssertionError):p.read_admitted()
+
+def test_two_copy_small_pointer_has_positive_original_record():
+    row=p.scientific()['smaller_positive_record_setting']
+    assert row['source_copies']==2 and row['filters']==1 and row['pointer_M']==64
+    assert F(row['original_preparation_and_T111_probability_lower'])>F('6.4978e-8')
+    assert F(row['complete_two_field_history_error_upper'])<F(1,10**8)
+    assert F(row['conditional_ground_purification_error_upper'])<F('.000417095')
+    assert row['all_failures_retained'] and not row['high_precision_ground_preparation_claimed']
