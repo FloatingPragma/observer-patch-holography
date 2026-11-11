@@ -55,11 +55,11 @@ and the clocks inside it.
 
 ## The executable hypothesis
 
-The concrete bet is a program. One simple local repair and memory law,
-running on a network of twelve-port carriers, should produce observers whose
-shared records look like our world: interacting quantum fields in 3+1
-dimensions, and gravity on large scales. Particles are the knots in that
-network: protected defects that local repairs cannot undo.
+The concrete bet is a program. One local repair and memory law on a network
+of twelve-port carriers should produce observers whose records look like our
+world: quantum fields in 3+1 dimensions, and gravity. Particles are the knots
+in that network: in the simulated early universe they emerge as quarks and
+leptons.
 
 The [hypothesis](docs/OPH_EXECUTABLE_HYPOTHESIS.md) says
 what would count as success, and the
@@ -79,10 +79,11 @@ proof shows that the whole class of laws cannot work.
   in the same repair law gives muon/electron 206.770 and tau/electron 3477.47
   (measured 206.768 and 3477.37). From the electron mass alone that is 105.659
   and 1776.99 MeV (measured 105.658 and 1776.93).
-- **An early universe that cools like ours.** On the lattice the model's links
-  give an electroweak crossover at 161 GeV (Standard Model: 159.5 ± 1.5), colour
-  that deconfines, and quarks that bind into hadrons. The first defects appear
-  in balanced pairs, in shares close to those of a hot Standard Model plasma.
+- **Quarks and leptons emerge in the early universe.** The first defects are
+  balanced pairs of the quark and lepton classes, in shares close to a hot
+  Standard Model plasma. On the lattice the model cools like our universe: an
+  electroweak crossover at 161 GeV (Standard Model: 159.5 ± 1.5), colour that
+  deconfines, quarks that bind into hadrons.
   [Interactive viewer](https://particles.floatingpragma.ai/).
 - **The gauge group and its couplings.** Phases on the carrier's ports give
   (SU(3)×SU(2)×U(1))/Z6, and neutrinos come out as Dirac particles. A coupling

@@ -60,12 +60,11 @@ intemporelle et les horloges qu’elle contient.
 
 ## L’hypothèse exécutable
 
-Le pari concret est un programme. Une seule loi locale simple de réparation et
-de mémoire, exécutée sur un réseau de supports à douze ports, doit produire des
-observateurs dont les registres partagés ressemblent à notre monde : des champs
-quantiques en interaction en 3+1 dimensions, et la gravitation aux grandes
-échelles. Les particules sont les nœuds de ce réseau : des défauts protégés
-que les réparations locales ne peuvent pas défaire.
+Le pari concret est un programme. Une seule loi locale de réparation et de
+mémoire, sur un réseau de supports à douze ports, doit produire des observateurs
+dont les registres ressemblent à notre monde : des champs quantiques en 3+1
+dimensions, et la gravitation. Les particules sont les nœuds de ce réseau : dans
+l’univers primordial simulé, elles émergent sous forme de quarks et de leptons.
 
 L’[hypothèse](docs/OPH_EXECUTABLE_HYPOTHESIS.md) dit ce qui
 compterait comme un succès, et le [programme d’achèvement](docs/COMPLETION_PROGRAM.md)
@@ -85,11 +84,12 @@ de lois échoue.
   de génération dans la même loi de réparation donne muon/électron 206,770 et
   tau/électron 3477,47 (mesurés 206,768 et 3477,37). À partir de la seule masse
   de l’électron : 105,659 et 1776,99 MeV (mesurés 105,658 et 1776,93).
-- **Un univers primordial qui refroidit comme le nôtre.** Sur réseau, les liens
-  du modèle donnent une transition électrofaible continue à 161 GeV (Modèle
-  standard : 159,5 ± 1,5), une couleur qui se déconfine et des quarks qui se
-  lient en hadrons. Les premiers défauts apparaissent par paires équilibrées,
-  dans des proportions proches de celles d’un plasma chaud du Modèle standard.
+- **Quarks et leptons émergent dans l’univers primordial.** Les premiers
+  défauts sont des paires équilibrées des classes de quarks et de leptons, dans
+  des proportions proches de celles d’un plasma chaud du Modèle standard. Sur
+  réseau, le modèle refroidit comme notre univers : transition électrofaible
+  continue à 161 GeV (Modèle standard : 159,5 ± 1,5), couleur qui se déconfine,
+  quarks qui se lient en hadrons.
   [Visualiseur interactif](https://particles.floatingpragma.ai/).
 - **Le groupe de jauge et ses couplages.** Des phases sur les ports du support
   donnent (SU(3)×SU(2)×U(1))/Z6, et les neutrinos sortent comme particules de
