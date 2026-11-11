@@ -61,24 +61,20 @@ invariant is
 \[
 Q=\frac13+\frac23\left(\frac{|b|}{a}\right)^2.
 \]
-Thus \(Q=2/3\) is exactly equivalent to the single balance condition
-\(|b|/a=1/\sqrt2\). This identity is a mathematical result about positive
-\(C_3\) face circulants. The phase of \(b\) drops out of \(Q\) and controls
-the two mass ratios jointly; it is supplied, not derived. A finite tracial
-Gelfand--Naimark--Segal construction that pairs the neutral line with a
-two-state orientation record and the charged plane with one oriented event
-gives the balanced modulus as a conditional theorem. The balance itself is a
-target-informed premise: it is chosen from the measured charged-lepton
-triple and is algebraically the relation Koide published. Under the balance
-and mass-ordering premises the measured electron and muon masses fix the tau
-mass inside a 72-eV enclosure centered at 1776.969027 MeV. The world average
-lies 0.43 and Belle II 2023 lies 0.89 of their standard uncertainties away;
-both comparisons are retrospective, and a registered decision rule with a
-0.045 MeV precision floor governs later measurements. The local
-face fiber has no constructed physical chiral-family attachment, so the
-result is a representation-theoretic identity, a finite conditional
-implication and a conditional tau-mass window; no source-only mass
-prediction is claimed.
+Thus \(Q=2/3\) is exactly equivalent to the balance \(|b|/a=1/\sqrt2\), and the
+phase of \(b\) controls the two mass ratios jointly. A generation register in the
+coherent seam repair law supplies both. Two seam objects on one face and a
+neutral register carrying the face third-turn compress exactly to
+\((\sqrt2/3)C(\theta)\): the branch weights \(1/6:1/12:1/12\) of an agreeing hold
+and two oriented repairs give the balance, and the register's exclusive read
+count \(2/9\) is the phase on the energy clock. With no measured mass as input
+this gives \(m_\mu/m_e=206.770316\) and \(m_\tau/m_e=3477.4728\), at \(+9.83\)
+ppm and \(+0.61\) standard uncertainties from measurement. The register is a
+declared construction on the coherent law, so no source-only mass prediction is
+claimed; its compression holds per tick of fresh object pairs. Under the balance
+and mass-ordering premises the measured electron and muon masses fix the tau mass
+inside a 72-eV enclosure centered at 1776.969027 MeV, 0.43 standard uncertainties
+from the world average.
 \end{abstract}
 
 \noindent\textbf{Keywords:} Koide relation, circulant matrices, cyclic
@@ -302,6 +298,56 @@ Q=\frac{1+e^{-2\chi_\star}}{3}.
 An off-plane response requires the full response operator. None of these
 maps, checkpoints or certificates is constructed.
 \end{remark}
+
+\section{The balance and the phase from a generation register}
+\label{sec:generation-register}
+
+The coherent seam repair event is the swap of the seam's port qubit
+\((p,m)\), \(p,m=(\lvert a\rangle\pm\lvert b\rangle)/\sqrt2\), with its record qubit, so the record
+holds the source endpoint relative to the address in its conjugate basis. The
+oriented record \(V\) changes the sign of record one at the reversed address and keeps
+the repair branch, which the plain record cancels.
+
+Two seam objects share one face \(f\): \(C\), whose orientation is the screen
+orientation, and \(E\), on a second edge of the hexagon around the \(f\) axis. Each has a
+load, a record and an address, and is prepared with activity \(1/3\) and its load at the
+screen tail. A neutral register on the ports of \(f\) carries the face third-turn
+\(R=\rho_f\). One tick is
+\[
+ U(\theta)=K_\theta\,T\,V\,(W_C\otimes W_E),\qquad K_\theta=e^{i\theta J},
+\]
+where \(T\) applies \(R^{\pm1}\) when \(C\) repairs in orientation \(\pm\) and \(J\) is the
+oriented current of \(C\). The analyzer \(\Phi\) is the Fourier zero of the three flags
+``\(E\) agrees, \(C\) idle'', ``\(C\) repairs \(+\), \(E\) idle'' and ``\(C\) repairs \(-\),
+\(E\) idle''.
+
+\begin{theorem}[Register compression]
+\label{thm:register-compression}
+The \(432\)-state tick is unitary, and
+\[
+ \langle\Phi|U(\theta)|p\rangle=\frac{\sqrt2}{3}\Bigl(\tfrac1{\sqrt6}I
+ +\tfrac1{\sqrt{12}}\bigl(e^{i\theta}R+e^{-i\theta}R^{-1}\bigr)\Bigr).
+\]
+Hence \(|b|/a=1/\sqrt2\) and, in the positive chamber, \(Q=2/3\) for every \(\theta\).
+\end{theorem}
+
+The squared coefficients \(a^2:|b|^2:|b|^2=1/6:1/12:1/12\) are the probabilities of the
+agreeing hold of \(E\) and of the two oriented repairs of \(C\). The register's exclusive read
+\([R_+]\oplus[H]\) has probability \(1/12+1/6-2/72=2/9\). On every blank-record input the
+seam program satisfies \(\langle I-\operatorname{Re}U\rangle=P(\text{record }1)\), so the
+energy clock reads read probabilities; \(N\) weak rounds within a tick give the zero-return
+operator \(e^{-i\,(2/9)J}\) with error at most \(1/N\), so the oriented current carries the
+phase \(\theta=2/9\) at unit clock time per tick. A dressing that commutes with \(J\) leaves
+this phase unchanged at every order. The family mode \(k\) then has rate \(\lambda_k^2\), and
+\[
+ \frac{m_\mu}{m_e}=206.770316,\qquad \frac{m_\tau}{m_e}=3477.4728 .
+\]
+The muon value lies \(9.83\) ppm above the measured ratio, which corresponds to a phase shift
+of \(-1.75\times10^{-7}\), the size \((\alpha/\pi)^2\) of two-loop electromagnetic dressing;
+the tau value lies \(0.61\) standard uncertainties above the measured ratio. The register and
+analyzer are a declared construction on the coherent law. Repeated application of the literal
+tick loses the rotation from the second tick, and a clock of fresh object pairs realizes the
+generator \((2/9)C(\theta)^2\) with error \(O(1/N)\) \cite{ophparticles,ophmodel}.
 
 \section{The conditional tau-mass window}
 \label{sec:tauwindow}

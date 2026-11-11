@@ -1,0 +1,270 @@
+% Defect classes, particle classes and the charged-lepton register.
+% Input by deriving_the_particle_zoo_from_observer_consistency.tex as its own section.
+\section{Which defect is which particle}
+\label{sec:defect-particle-classes}
+
+The universe runs of the executable observer carry a protected register on the
+faces of every carrier. A face holds a flux class $k\in\mathbb Z_6=\mathbb Z_3\times
+\mathbb Z_2$, the product of a colour-centre charge and a weak-centre parity. Accepted
+register twists create conjugate pairs of classes, the pairs move, fuse and
+annihilate, and the classes on one closed carrier always add to zero modulo six. This
+section identifies the classes with the particles of the Standard Model, states the
+statistics of each object, and reads the census of the largest run.
+
+\subsection{The class rule}
+
+The internal space of one quantum is the exterior algebra of the five-level code
+$V=\mathbb C^3_{-1/3}\oplus\mathbb C^2_{1/2}$ of Section~\ref{sec:finite-supply}. A
+pattern has $n_3\in\{0,\dots,3\}$ colour levels and $n_2\in\{0,1,2\}$ weak levels
+occupied, so there are $32$ patterns, and
+\[
+ 6Y=3n_2-2n_3,\qquad Q_{\rm em}=T_3+Y .
+\]
+
+\begin{theorem}[Defect classes are particle classes]
+\label{thm:defect-particle-classes}
+On every one of the $32$ patterns the centre element
+$(\omega I_3,-I_2,e^{2\pi iY})$ of $\mathrm{SU}(3)\times\mathrm{SU}(2)\times\mathrm U(1)$,
+$\omega=e^{2\pi i/3}$, acts as the identity, and a flux of class $f$ acts by the
+character $e^{2\pi i f\cdot 6Y/6}$. The class seen by a pattern is
+\[
+ k\equiv 6Y \pmod 6,\qquad k\bmod 3=n_3\bmod 3\ (\text{triality}),\qquad
+ k\bmod 2=n_2\bmod 2\ (\text{weak centre}).
+\]
+The classes have multiplicities $(4,6,6,4,6,6)$ for $k=0,\dots,5$ and carry the
+Standard Model fields as in Table~\ref{tab:defect-classes}.
+\end{theorem}
+
+\begin{proof}
+On a pattern with $n_3$ colour and $n_2$ weak levels, $\omega I_3$ acts by $\omega^{n_3}$,
+$-I_2$ by $(-1)^{n_2}$ and $e^{2\pi iY}$ by $e^{i\pi(3n_2-2n_3)/3}=(-1)^{n_2}\omega^{-n_3}$; the
+product is one. A flux of class $f$ acts by $e^{2\pi if\cdot 6Y/6}$, which depends on $6Y$ only
+modulo six. Reducing $6Y=3n_2-2n_3$ modulo $3$ and $2$ gives the triality and the weak centre,
+and counting patterns gives the multiplicities. The executable certificate checks all
+$32$ cases in exact arithmetic \cite{ophrepo}.
+\end{proof}
+
+\begin{table}[htbp]
+\centering\small
+\caption{Defect classes and the particles that carry them. The class is the centre
+class $6Y\bmod 6$; each row lists the left-handed Weyl fields and the bosons of that
+class, with their antiparticles in the conjugate class $-k$.}
+\label{tab:defect-classes}
+\begin{tabular}{@{}cllll@{}}
+\toprule
+$k$ & Colour & Weak & Particles & Level-10 run\\
+\midrule
+$1$ & triplet & doublet & left-handed quarks $Q=(u_L,d_L)$ & mobile; annihilates with $5$\\
+$5$ & antitriplet & doublet & their antiquarks $\bar Q$ & as class $1$\\
+$4$ & triplet & singlet & right-handed quarks $u_R,d_R$ & frozen after sweep $15$\\
+$2$ & antitriplet & singlet & their antiquarks $u^c,d^c$ & as class $4$\\
+$3$ & singlet & doublet & lepton doublet $L$, its conjugate, the Higgs doublet & frozen\\
+$0$ & singlet & singlet & $e_R,\nu_R$; photon, gluons, $W$, $Z$ & no defect\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The identification is exact at the level of centre classes. It decides which flux each
+particle sees: a quantum of class $k$ taken around a flux of class $f$ acquires the
+Aharonov--Bohm phase $e^{2\pi ifk/6}$. Colour flux ($f=2,4$) is seen only by quarks, weak
+flux ($f=3$) only by the left-handed doublets, and the generating fluxes $f=1,5$ by every
+charged particle. The class carries neither the generation nor $T_3$, so $u$ and $d$, or
+$e$ and $\nu$, share a class, as do a colour singlet and an octet. These finer labels sit
+in the quantum's full pattern and in the generation register of
+Section~\ref{sec:lepton-register}.
+
+\subsection{Spin and statistics}
+
+The binary icosahedral cover of the carrier rotations has one central involution $z$.
+On the code it acts as
+\[
+ \rho(z)=\operatorname{diag}(1,1,1,-1,-1)=e^{i\pi\cdot 6Y},
+\]
+which equals $(-1)^{n_2}$ on every pattern and the holonomy of a class-three flux. On a
+port space of flux $k$ the same element acts as $(-1)^k$; the weak levels sit at odd flux,
+so the half-integer behind odd $6Y$ is the charge--monopole spin of the doublet levels.
+On the Gauss-invariant sector the code, register and link-end factors of $z$ multiply to
+one, and the rotation by $2\pi$ equals $(-1)^{N}$, with $N$ the number of quanta.
+
+\begin{proposition}[Statistics of the objects]
+\label{prop:defect-statistics}
+Among the gradings compatible with the source's vertices, exactly one agrees with the
+$2\pi$ rotation. Under it every pattern is a fermion and the defects, the gauge links and
+the Higgs register are bosons. Three quanta on one carrier form a fermion.
+\end{proposition}
+
+The vertex constraints of the source alone admit sixteen gradings; on physical states four
+survive, generated by the quantum-number parity and the coloured-quanta parity, and the
+rotation selects one. The fermions are therefore the quanta whose pattern carries the class,
+and the defect of that class is the flux the pattern sees. A carrier holding the pure flux
+content $\{4,4,4\}$ has the centre classes of three quarks and the statistics of a boson; a
+baryon is three fermionic quanta on the carrier. Antisymmetry of the occupations is forced
+once a filled reference is present; the tick alone admits both occupation lifts.
+
+\subsection{Reactions and closed carriers}
+
+Every one of the $16$ reaction types of the runs conserves the class modulo six, and the
+frequent ones carry the centre classes of the Standard Model vertices, with one diquark
+channel
+(Table~\ref{tab:defect-reactions}). Because a carrier is a closed screen, its classes add to
+zero: a colour charge never sits alone on a carrier.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Reaction channels of the level-10 run and the Standard Model vertex with the same
+centre classes. Event counts are whole-run totals; the conjugate channel is in brackets.}
+\label{tab:defect-reactions}
+\begin{tabular}{@{}lrl@{}}
+\toprule
+Channel & Events & Vertex\\
+\midrule
+$1+5\to0$ & $609{,}494$ & quark--antiquark annihilation\\
+$1+3\to4$ \ ($3+5\to2$) & $238{,}523$ \ ($239{,}773$) & quark mass vertex $\bar Q H q_R$\\
+$1+2\to3$ \ ($4+5\to3$) & $315{,}024$ \ ($314{,}514$) & quark Yukawa vertex $Q\,d^cH^\dagger$\\
+$0\to3+3$ & $89{,}909$ & lepton mass vertex $L\,H^\dagger e^c$\\
+$1+1\to2$ \ ($5+5\to4$) & $458{,}209$ \ ($456{,}755$) & two quarks into an antitriplet\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The carrier contents of the level-10 run are exactly class-neutral: $\{2,4\}$ on
+$69.16$ percent of occupied carriers, $\{1,5\}$ on $14.43$ percent, $\{3,3\}$ on $10.88$
+percent, $\{2,2,4,4\}$ on $1.93$ percent, the triples $\{4,4,4\}$ and $\{2,2,2\}$ on
+$1.20$ percent each, and rarer neutral mixtures such as $\{1,2,3\}$, the centre content of
+the quark mass term. These are the centre classes of mesons, baryons and antibaryons and of
+lepton pairs; no carrier holds a net colour or weak centre charge.
+
+\subsection{The early universe of the runs}
+
+The runs start from independent random loads and a blank register, so the preparation is
+statistically homogeneous. In the level-10 run every class is created in pairs within the
+first consistent slice: $124{,}786$ pairs $(1,5)$, $208{,}860$ pairs $(2,4)$ and $41{,}328$
+pairs $(3,3)$. Left-handed quark classes then annihilate ($609{,}494$ of $757{,}258$ pair
+births), while right-handed quark and lepton classes freeze once the loads balance. Matter
+and antimatter occur in equal numbers within the run's resolution: $3{,}053{,}295$ against
+$3{,}050{,}633$ identities of classes $1$ and $5$, and $86{,}476$ quark-like triples against
+$86{,}788$ antiquark-like triples, equal within $0.8$ standard errors. The resulting state is a
+colour-neutral mixture, with integer charge on every carrier, of quark-like and lepton-like pairs with matter and
+antimatter balanced, which is the composition of the early universe before baryogenesis. The
+runs carry no temperature or seconds of their own, and the measured excess of about
+$6\times10^{-10}$ baryons per photon is far below their resolution.
+
+\subsection{Gauge group, couplings and lepton number}
+
+The record law is covariant under independent phases on the twelve ports. Read on the
+protected code, twelve relative port phases per seam generate exactly
+\[
+ G=\mathrm S(\mathrm U(3)\times\mathrm U(2))
+ =\frac{\mathrm{SU}(3)\times\mathrm{SU}(2)\times\mathrm U(1)}{\mathbb Z_6},
+\]
+whose centre is the $\mathbb Z_6$ of the defect register. The seam cost of a code state
+carried around a plaquette, averaged over the code, is $1-\operatorname{Re}\operatorname{tr}_5
+U_P/5$; this action gives equal bare couplings at the cell, with
+$\sin^2\theta_W=3/8$ there, and the gauge waves travel on one cone with two polarizations
+each \cite{ophGauge}. The native transports alone form a finite group; the continuous port
+phases are the extension that makes the links continuous.
+
+Every operation of the source conserves
+\[
+ B-L=N-\tfrac23\,(N_{c1}+N_{c2}+N_{c3}),
+\]
+a combination of the number of quanta and the three colour-level numbers. It is anomaly free
+on the sixteen states of one family with $\nu^c$, and it forbids a Majorana pairing. The
+neutrinos of the source are Dirac particles.
+
+\subsection{The charged-lepton register}
+\label{sec:lepton-register}
+
+The three charged leptons are one class-three defect with three generation labels. Their
+mass ratios come from a generation register inside the coherent seam repair law.
+
+\paragraph{The repair event records its source.}
+On the oriented address $(a,b)$ of a seam, with $p=(\ket a+\ket b)/\sqrt2$ and
+$m=(\ket a-\ket b)/\sqrt2$, the coherent repair event is the swap of the port qubit $(p,m)$
+with the record qubit. Read in its conjugate basis, the record holds the source endpoint
+relative to the address. The oriented record $V$ changes the sign of record one at the
+reversed address; $VQ$ equals the law with the screen address's unitary at both addresses, and
+it keeps the repair branch that the plain record cancels.
+
+\paragraph{The register.}
+Two seam objects share one face $f$ of the carrier: object $C$ on a seam whose orientation is
+the screen orientation and object $E$ on a second edge of the same hexagon around the $f$ axis.
+Each has its load, record and address. A neutral register $F$ on the ports of $f$ carries the
+third-turn $R=\rho_f$ of the face, with $R^3=I$. One tick is
+\[
+ U(\theta)=K_\theta\,T\,V\,(W_C\otimes W_E),\qquad K_\theta=e^{i\theta J},\qquad
+ J=\lvert1\rangle\langle1\rvert_{r_C}\otimes\sigma_z(o_C),
+\]
+where $T$ applies $R^{\pm1}$ when $C$ repairs in orientation $\pm$ and $J$ is the oriented
+current. Each object is prepared with activity $1/3$ and its load at the screen tail of its
+seam. The analyzer $\Phi$ is the Fourier zero over the three flags $E$ agrees with $C$ idle,
+$C$ repairs $+$ with $E$ idle, and $C$ repairs $-$ with $E$ idle.
+
+\begin{theorem}[Exact compression to the balanced circulant]
+\label{thm:lepton-register}
+The full $432$-state tick is unitary, and its compression is
+\[
+ M(\theta)=\langle\Phi|U(\theta)|p\rangle=\frac{\sqrt2}{3}\,C(\theta),\qquad
+ C(\theta)=\tfrac1{\sqrt6}\,I+\tfrac1{\sqrt{12}}\bigl(e^{i\theta}R+e^{-i\theta}R^{-1}\bigr).
+\]
+$M$ commutes with $R$, its eigenvalues on the characters $Rv_k=\omega^kv_k$ are
+$\lambda_k=\frac{\sqrt2}{3}\bigl(\frac1{\sqrt6}+\frac1{\sqrt3}\cos(\theta+2\pi k/3)\bigr)$,
+and $|b|/a=1/\sqrt2$. With masses proportional to $\lambda_k^2$,
+\[
+ Q=\frac{\sum_k m_k}{\bigl(\sum_k\sqrt{m_k}\bigr)^2}=\frac23
+\]
+for every $\theta$ in the positive chamber $|\theta|\le\pi/12$ modulo $2\pi/3$.
+\end{theorem}
+
+The balance is a count of branch weights. The $C$ object repairs in each orientation with
+probability $1/12$, and the $E$ object holds with probability $1/6$, so the circulant
+coefficients satisfy $a^2:b^2:b^2=1/6:1/12:1/12$. The phase is a count as well: the register's
+exclusive read $X=[R_+]\oplus[H]$ has
+\[
+ P(X)=\tfrac1{12}+\tfrac16-2\cdot\tfrac1{72}=\tfrac29 .
+\]
+
+\paragraph{The clock.}
+On every blank-record input the seam program satisfies $\langle I-\operatorname{Re}U\rangle=
+P(\text{record }1)$, so the energy clock reads read probabilities. Inside a tick, $N$ weak rounds
+of the coupling $J\otimes X$ give the zero-return operator $A_N(t)$ with
+\[
+ \|A_N(t)-e^{-itP(X)J}\|\le t^2/N .
+\]
+At unit clock time per tick the oriented current carries the phase $\theta=P(X)=2/9$; at finite
+$N$ the phase is $2/9-35/(2187N^2)+O(N^{-4})$. A dressing that commutes with $J$ leaves the
+phase unchanged at every order. On this clock the family mode $k$ has the rate $\lambda_k^2$,
+which is the mass reading of Theorem~\ref{thm:lepton-register}.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Charged-lepton mass ratios of the generation register at $\theta=2/9$. No measured
+mass enters. Reference values: CODATA for $m_\mu/m_e$, $m_\tau=1776.93\pm0.09$ MeV.}
+\label{tab:lepton-register}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+& Register & Measured & Difference\\
+\midrule
+$m_\mu/m_e$ & $206.770316$ & $206.768283$ & $+9.83$ ppm\\
+$m_\tau/m_e$ & $3477.4728$ & $3477.37\pm0.18$ & $+0.61\,\sigma$\\
+$Q$ & $2/3$ & $0.666665$ & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The electron, muon and tau are the characters $\omega^1$, $\omega^2$ and $\omega^0$ of the face
+third-turn on a defect of face $f$; the half-turns that carry $f$ to its opposite face reverse
+the phase and swap the electron and muon labels, leaving the spectrum unchanged. The muon
+residual of $+9.83$ ppm corresponds to a shift of the phase by $-1.75\times10^{-7}$, of the
+size $(\alpha/\pi)^2$ of two-loop electromagnetic dressing. Because a dressing commuting with
+the oriented current cannot move the phase, this shift requires an environment that acts on
+the repair record or the address.
+
+The register, its preparation and its analyzer are a construction on the coherent law, and
+Theorem~\ref{thm:lepton-register} is a one-tick statement: repeated application of the literal
+tick loses the rotation from the second tick, while a clock of fresh object pairs realizes the
+generator $A=(2/9)\,C(\theta)^2$ with error $O(1/N)$ \cite{ophrepo}. The balanced circulant
+was first written down from the measured masses \cite{koide1983}; here its balance and its
+phase are the register's own read counts. The overall lepton scale, the Yukawa weight
+$y_J\approx0.0108$ of one unrewarded read, is open, as are the quark generations
+and the neutrino masses.

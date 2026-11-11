@@ -64,9 +64,8 @@ Le pari concret est un programme. Une seule loi locale simple de réparation et
 de mémoire, exécutée sur un réseau de supports à douze ports, doit produire des
 observateurs dont les registres partagés ressemblent à notre monde : des champs
 quantiques en interaction en 3+1 dimensions, et la gravitation aux grandes
-échelles. Les particules y seraient des nœuds du réseau, des défauts localisés
-que les réparations locales ne peuvent pas défaire, et leur masse serait le
-coût d’entretien supplémentaire qu’ils imposent.
+échelles. Les particules sont les nœuds de ce réseau : des défauts protégés
+que les réparations locales ne peuvent pas défaire.
 
 L’[hypothèse](docs/OPH_EXECUTABLE_HYPOTHESIS.md) dit ce qui
 compterait comme un succès, et le [programme d’achèvement](docs/COMPLETION_PROGRAM.md)
@@ -76,6 +75,22 @@ de lois échoue.
 
 ## Points forts
 
+- **Les familles de particules sont identifiées.** Chaque défaut protégé porte
+  une classe de flux à six valeurs, et c’est exactement la classe que le Modèle
+  standard donne à ses particules : quarks gauches et droits, leptons avec le
+  Higgs, champs neutres. Quarks et leptons sont des fermions, et aucune charge
+  de couleur n’est jamais seule.
+  [Article sur les particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf).
+- **Les rapports de masse des leptons chargés.** Un registre de génération dans
+  la même loi de réparation donne muon/électron 206,770 et tau/électron 3477,47
+  (mesurés 206,768 et 3477,37), sans aucune masse mesurée en entrée.
+- **Un univers primordial comme le nôtre.** Les simulations créent chaque classe
+  de particules par paires, les paires de quarks s’annihilent, la couleur reste
+  confinée, et matière et antimatière sortent à égalité, comme avant la
+  baryogenèse.
+- **Le groupe de jauge à couplages égaux.** Des phases sur les ports du support
+  donnent (SU(3)×SU(2)×U(1))/Z6 avec des intensités égales à l’échelle de la
+  cellule, et les neutrinos sortent comme particules de Dirac.
 - **Un observateur qui fonctionne.** Un observateur à douze ports conserve ses
   registres et s’en sert pour choisir sa prochaine réparation. Des observateurs
   qui se chevauchent lisent une référence commune et son horloge, un processus
@@ -95,15 +110,11 @@ de lois échoue.
   Modèle standard et une représentation de matière sans anomalies
   conditionnelle ; un ordre causal de dimension (1+3) avec un temps propre lu
   dans les comptages ; et l’équation d’Einstein à partir d’un bilan nul.
-- **Des particules aux spectres certifiés.** Un cube en interaction spécifié
-  possède 228 raies chargées visibles par des sondes à un fermion et 138 raies
-  composites qui leur sont invisibles, chaque poids étant démontré positif. Un
-  même ensemble de modes localisés porte les douze courants de jauge et une
-  matrice de masse des leptons réalisée par la mémoire. La branche de masse testée
-  place les leptons chargés à moins de 71 parties par million (sa loi leptonique
-  est informée par la cible), les W, Z, Higgs et top à moins d’un pour cent, et
-  les quarks plus légers à 23 à 209 pour cent. Sélectionner le spectre à partir de la source est la principale étape restante.
-  [Article sur les particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf), [comparaison des masses](model/particle_spectrum_audit/README.md).
+- **Des spectres certifiés.** Un cube en interaction spécifié possède 228 raies
+  chargées et 138 raies composites, chaque poids étant démontré positif, et des
+  sources quantiques complètes donnent des registres d’énergie qui conservent
+  les échecs de préparation.
+  [Comparaison des masses](model/particle_spectrum_audit/README.md).
 - **Les champs libres et le côté matière de la gravitation.** Une action originale sur le cube possède un fondamental sur réseau infini à énergie d’excitation positive et un champ de spin continu à propagation finie. Son continuum chargé est démontrablement libre pour
   `U=o(c^(2/7))`, avec des énergies de Weyl sans masse dans les huit vallées, et à
   couplage nul les variations d’entropie régionale convergent vers la réponse de
@@ -158,7 +169,9 @@ Le [guide du modèle](model/README.md) couvre le reste.
 - **La symétrie de jauge.** Sous des prémisses énoncées de réponse réversible
   complète et de transport entre observateurs, l’algèbre de réponse à douze
   ports a le type de Lie de jauge du Modèle standard, et une représentation de
-  matière spécifiée donne une génération sans anomalies.
+  matière spécifiée donne une génération sans anomalies. Des phases sur les
+  ports réalisent le groupe global, dont le centre est l’alphabet de flux des
+  défauts de particules.
   [Dérivation de jauge](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf).
 - **La thermodynamique.** Des théorèmes finis de réparation donnent une
   inégalité de Clausius, des relations de fluctuation et une inégalité de

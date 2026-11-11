@@ -75,17 +75,15 @@ repair gap $(5-\sqrt5)/60$, and construct continuing observers,
 complete-record recovery and event clocks. Specified interacting actions
 admit charge-constrained preparations, certified spectral windows and
 source-compiled detectors that retain failures and complete output records.
-An electromagnetic extension joins a native charged excitation to transport,
-field dressing and energy readout on one Hamiltonian. A separate full-occupation
+The coherent repair event records its source, and an oriented record keeps the
+repair branch. The protected $\mathbb Z_6$ defect register of the runs carries the
+particle centre classes $6Y\bmod6$, and a generation register on the oriented
+record gives the charged-lepton ratios $206.7703$ and $3477.47$. A separate full-occupation
 encoding gives positive-energy Dirac fields and sequential detector records
-with controlled finite errors. A paired neutral source gives scalar and
-massive vector descriptions. A refining spherical carrier itself has spectral
+with controlled finite errors. A refining spherical carrier itself has spectral
 dimension two; the three-dimensional field constructions state their additional
-spatial action and readout explicitly. These finite constructions connect
-specific source operators to observable records and controlled free-field
-limits. Their common interacting chiral continuum, the measured particle
-spectrum and responsive Einstein geometry remain realization and comparison
-requirements.
+spatial action and readout explicitly. An interacting chiral continuum, the absolute masses and responsive
+Einstein geometry are realization requirements.
 \end{abstract}
 
 
@@ -1767,6 +1765,48 @@ mass renormalization do not follow from either finite interaction.
 An energy conversion supplies units only: the background relation is
 $m_cc^2=u_E|vy_c|\,\mathrm{GeV}$, without a source selection of $v,y_c,u_E$
 \cite{oDEFECTWAVE}.
+
+\subsection{The oriented record, the defect register and the generation register}
+\label{sec:oriented-record}
+
+Three elements of the specification carry the particle identification of the
+companion paper \cite{ophparticles}.
+
+\paragraph{The repair event records its source.}
+On the oriented address $(a,b)$ of a seam put $p=(\ket a+\ket b)/\sqrt2$ and
+$m=(\ket a-\ket b)/\sqrt2$. In the basis $(p0,m0,p1,m1)$ the coherent event $U_{(a,b)}$
+of Section~\ref{sec:reversible-seam} is the swap of the port qubit $(p,m)$ with the record
+qubit, and the reversed address gives $U_{(b,a)}=Z_{\rm rec}U_{(a,b)}Z_{\rm rec}$. On all
+$30$ seams, both orientations and both sources,
+$U\ket{s,0}=\ket p\otimes(\ket0+\epsilon(o)\epsilon(s)\ket1)/\sqrt2$: the record holds the
+source endpoint relative to the address in its conjugate basis, while its agree/repair value
+is complementary to it.
+
+\paragraph{The oriented record.}
+The oriented record $V$ changes the sign of record one at the reversed address. The product
+$VQ$ equals the law with the screen address's unitary at both addresses, for every link phase.
+On the full $1440$-state walk the plain law's consensus block from record zero to record one
+vanishes; with the oriented record it is $\frac1{30}\sum_{\rm seams}\ket p\bra{m_{\rm ref}}$, so
+the repair branch is kept. The oriented record is the law used by the generation register.
+
+\paragraph{The defect register.}
+The universe runs carry a passive register in $\mathbb Z_6$ on the faces of every carrier.
+It starts blank; an accepted current-driven twist creates a conjugate pair of classes, with
+costs $(0,5,8,10,8,5)$ for classes $0,\dots,5$ and acceptance scale $\kappa=5$. Once the loads
+balance, moved unit currents release no mismatch work, so positive-cost proposals are rejected
+and surviving classes are pinned. The register does not feed back into the loads; a control run
+with the register switched off reproduces every load, current and depth record exactly. On the
+five-level code the class of a defect equals $6Y\bmod6$ of the particle family whose quanta see it.
+
+\paragraph{The generation register.}
+Two seam objects on one face, a neutral register carrying the face third-turn $R$ and the clock
+$K_\theta=e^{i\theta J}$ on the oriented current form the tick $U(\theta)=K_\theta TV(W_C\otimes
+W_E)$. Its compression on a three-flag Fourier analyzer is $\frac{\sqrt2}{3}C(\theta)$ with
+$|b|/a=1/\sqrt2$, and the register's exclusive read has probability $2/9$. The seam program
+satisfies $\langle I-\operatorname{Re}U\rangle=P(\text{record }1)$ on every blank-record input,
+so the energy clock reads read probabilities, and the read count becomes the phase
+$\theta=2/9$. The resulting charged-lepton ratios are $206.770316$ and $3477.4728$
+\cite{ophparticles,ophrepo}.
 
 \subsection{The local event clock}
 \label{sec:local-tick}
@@ -4360,7 +4400,9 @@ separate marginals or isolated eigenvalues does not prove this statement.
 The companion papers state the results on each side of that target. The gauge paper
 derives the compact Lie type and the conditional matter module from complete-response
 premises and constructs finite local Gauss constraints and a gauge-covariant band on
-classical links \cite{ophgauge}. The particle paper joins the twelve native currents,
+classical links \cite{ophgauge}. The particle paper identifies the protected defect classes with the particle centre
+classes, derives the charged-lepton ratios from the generation register of
+Section~\ref{sec:oriented-record}, joins the twelve native currents,
 localized fermion modes and a pixel-dependent charged mass operator on a specified design,
 proves the transfer and charged spectra, memory limits, compact-defect bounds and
 interacting poles, and compares twelve outputs with measured values \cite{ophparticles}.

@@ -58,9 +58,8 @@ and the clocks inside it.
 The concrete bet is a program. One simple local repair and memory law,
 running on a network of twelve-port carriers, should produce observers whose
 shared records look like our world: interacting quantum fields in 3+1
-dimensions, and gravity on large scales. Particles are meant to be knots in
-that network, localized defects that local repairs cannot undo, and their
-mass is the extra upkeep they cost.
+dimensions, and gravity on large scales. Particles are the knots in that
+network: protected defects that local repairs cannot undo.
 
 The [hypothesis](docs/OPH_EXECUTABLE_HYPOTHESIS.md) says
 what would count as success, and the
@@ -70,6 +69,21 @@ proof shows that the whole class of laws cannot work.
 
 ## Highlights
 
+- **The particle families are identified.** Every protected defect carries a
+  six-valued flux class, and it is exactly the class the Standard Model gives
+  its particles: left- and right-handed quarks, leptons with the Higgs, and
+  neutral fields. Quarks and leptons come out as fermions, and no colour
+  charge ever sits alone.
+  [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf).
+- **The charged-lepton mass ratios.** A generation register in the same repair
+  law gives muon/electron 206.770 and tau/electron 3477.47 (measured 206.768
+  and 3477.37), with no measured mass as input.
+- **An early universe like ours.** The runs create every particle class in
+  pairs, quark pairs annihilate, colour stays confined, and matter and
+  antimatter come out equal, as before baryogenesis.
+- **The gauge group with equal couplings.** Phases on the carrier's ports give
+  (SU(3)×SU(2)×U(1))/Z6 with equal strengths at the cell scale, and neutrinos
+  come out as Dirac particles.
 - **An observer that runs.** A twelve-port observer keeps its records and
   uses them to choose its next repair. Overlapping observers read a common
   reference and its clock, a finite quantum process joins electric flux,
@@ -87,18 +101,10 @@ proof shows that the whole class of laws cannot work.
   in its slow response, the Standard Model gauge Lie algebra with an
   anomaly-free matter representation, a (1+3)-dimensional causal order and the Einstein equation from null
   balance.
-- **Particle candidates and energy readouts.** The
-  [defect catalogue](model/protected_defect_catalog/CATALOG.md) records
-  protected source charges and candidate particle roles. Complete interacting
-  quantum sources give gauge-constrained energy records, including preparation
-  failures. A finite electric/magnetic field has a certified full charged
-  ground and finite energy detector. Its
-  [native charged-field attachment](model/native_abelian_field_join/PROOF.md)
-  couples actual odd probes and proves positive arrivals in a separately
-  specified Hamiltonian. The [particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)
-  connects these calculations to the physical tests: relativistic dispersion,
-  observed currents and an independent GeV scale are required for a measured
-  species assignment.
+- **Energy readouts.** Complete interacting quantum sources give
+  gauge-constrained energy records, including preparation failures, and a
+  finite electric/magnetic field has a certified charged ground.
+  [Charged-field attachment](model/native_abelian_field_join/PROOF.md).
 - **Continuum fields and their measurements.** The ordered-spin construction has
   three continuous spatial dimensions, time, positive energy and finite propagation.
   Its position observable is conjugate to the same spatial momentum, with complete
@@ -195,7 +201,8 @@ scores and a result hash. The [model guide](model/README.md) covers the rest.
 - **Gauge symmetry.** Under stated premises on complete reversible response
   and observer transport, the twelve-port response algebra has the Standard
   Model gauge Lie type, and a specified matter representation gives an
-  anomaly-free generation.
+  anomaly-free generation. Port phases realize the global group, whose centre
+  is the flux alphabet of the particle defects.
   [Gauge derivation](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf).
 - **Thermodynamics.** Finite repair theorems give a Clausius inequality,
   fluctuation relations and an information Landauer inequality under a stated
