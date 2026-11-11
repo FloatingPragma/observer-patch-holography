@@ -57,7 +57,9 @@ The source, stress, clock, radial observation and photon-transfer maps must
 therefore be supplied on the same physical process. A numerical value of
 the pixel parameter does not provide those maps. Retrospective cosmological
 comparisons test the declared branches, not a completed source-derived
-cosmology.
+cosmology. Lattice ensembles of the model's link action place the electroweak
+crossover at $161$ GeV, $9\times10^{-12}$ s after the first tick, and show
+colour deconfinement and the binding of quarks into hadrons.
 
 \end{abstract}
 
@@ -387,6 +389,43 @@ The cosmic microwave background (CMB), galaxy, and background comparisons are
 diagnostic. These computations supply neither a prospectively fixed
 cosmological comparison nor a falsification verdict.
 
+\section{Thermal history on the model's link action}
+\label{sec:thermal-history}
+
+The executable model has its own unit of time. One tick is one radian of phase at the
+cell energy, \(\hbar/E_{\rm cell}=6.885\times10^{-44}\) s with
+\(E_{\rm cell}=E_*P^{-1/2}=9.56\times10^{18}\) GeV. The stored runs cover the first few
+hundred ticks. In them every defect class appears in pairs on the first consistent slice,
+class and conjugate stay balanced, and the classes of left-handed quarks, right-handed
+quarks and leptons take \(24.1\), \(19.6\) and \(12.7\) percent of all defect identities per
+class, against \(21.4\), \(21.4\) and \(14.3\) percent for equal occupation of the Standard
+Model states of each class \cite{ophparticles}.
+
+Later epochs are reached by lattice ensembles whose extent of \(N_t\) ticks in the time
+direction is read as the temperature \(T=E_{\rm cell}/N_t\). In the radiation era with the
+model's own content, twelve gauge bosons, one Higgs doublet and fifteen gauge-charged
+fermion states per copy in three copies, the count of relativistic states is
+\(g_*=106.75\) and the standard relation \(t=2.42\,\mathrm s\,g_*^{-1/2}(\mathrm{MeV}/T)^2\)
+converts a temperature into a time. Three measurements use the model's link action.
+\begin{itemize}
+\item With the couplings of the declared coupling chain and the published reduction to the
+three-dimensional \(\mathrm{SU}(2)\) and Higgs theory \cite{klrs1996reduction}, the electroweak
+transition is a crossover at \(T_c=161.13\pm0.13\pm1.6\) GeV, which is
+\(9.0\times10^{-12}\) s or \(1.3\times10^{32}\) ticks after the first. The Standard Model
+lattice value is \(159.5\pm1.5\) GeV \cite{donofrio2016crossover}.
+\item Restricted to colour, the seam cost of the links is the Wilson plaquette action. At
+\(N_t=4\) the links deconfine in a first-order transition with
+\(T_c/\sqrt\sigma=0.614(18)\); the published value for the same theory at this lattice
+spacing is \(0.598(3)\) \cite{boyd1996thermodynamics}.
+\item Quenched Wilson quarks on the same links bind, with a linearly rising static
+potential and \(m_N/m_\rho=1.45\pm0.13\) against the measured \(1.21\), and the binding
+melts above the transition.
+\end{itemize}
+The crossover takes the chain's declared couplings as inputs, and the colour and hadron
+numbers are those of \(\mathrm{SU}(3)\) gauge theory with the Wilson action, which the
+model's colour links are once continuous links are declared. A temperature of the colour
+transition in MeV, the baryon excess and the light-element abundances are not computed.
+
 \section{Scope}
 The count identities and finite Fourier response are established for the
 supplied population. Screen covariance, amplitude and tilt depend on the
@@ -436,6 +475,21 @@ B.~M\"uller et al., \emph{Observers Are All You Need}.
 B.~M\"uller, M.~Poneder, A.~Osika, K.~Xue, and D.~A.~Friedman,
 \emph{Particles from Native Overlap Transport: Common Currents, Defect Modes and a Pixel-Dependent Mass Operator}.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2064/paper/deriving_the_particle_zoo_from_observer_consistency.pdf}.
+
+\bibitem{klrs1996reduction}
+K.~Kajantie, M.~Laine, K.~Rummukainen, and M.~Shaposhnikov,
+\emph{Generic rules for high temperature dimensional reduction and their application to the Standard Model},
+Nucl.\ Phys.\ B \textbf{458}, 90 (1996), arXiv:hep-ph/9508379.
+
+\bibitem{donofrio2016crossover}
+M.~D'Onofrio and K.~Rummukainen,
+\emph{Standard model cross-over on the lattice},
+Phys.\ Rev.\ D \textbf{93}, 025003 (2016), arXiv:1508.07161.
+
+\bibitem{boyd1996thermodynamics}
+G.~Boyd, J.~Engels, F.~Karsch, E.~Laermann, C.~Legeland, M.~L\"utgemeier, and B.~Petersson,
+\emph{Thermodynamics of SU(3) lattice gauge theory},
+Nucl.\ Phys.\ B \textbf{469}, 419 (1996), arXiv:hep-lat/9602007.
 
 \bibitem{ophcausality}
 FloatingPragma (2026). Exact native causal cones.

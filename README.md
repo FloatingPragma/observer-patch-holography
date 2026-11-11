@@ -75,15 +75,18 @@ proof shows that the whole class of laws cannot work.
   neutral fields. Quarks and leptons come out as fermions, and no colour
   charge ever sits alone.
   [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf).
-- **The charged-lepton mass ratios.** A generation register in the same repair
-  law gives muon/electron 206.770 and tau/electron 3477.47 (measured 206.768
-  and 3477.37), with no measured mass as input.
-- **An early universe like ours.** The runs create every particle class in
-  pairs, quark pairs annihilate, colour stays confined, and matter and
-  antimatter come out equal, as before baryogenesis.
-- **The gauge group with equal couplings.** Phases on the carrier's ports give
-  (SU(3)×SU(2)×U(1))/Z6 with equal strengths at the cell scale, and neutrinos
-  come out as Dirac particles.
+- **The muon and tau masses from the electron mass.** A generation register
+  in the same repair law gives muon/electron 206.770 and tau/electron 3477.47
+  (measured 206.768 and 3477.37). From the electron mass alone that is 105.659
+  and 1776.99 MeV (measured 105.658 and 1776.93).
+- **An early universe that cools like ours.** On the lattice the model's links
+  give an electroweak crossover at 161 GeV (Standard Model: 159.5 ± 1.5), colour
+  that deconfines, and quarks that bind into hadrons. The first defects appear
+  in balanced pairs, in shares close to those of a hot Standard Model plasma.
+  [Interactive viewer](https://particles.floatingpragma.ai/).
+- **The gauge group and its couplings.** Phases on the carrier's ports give
+  (SU(3)×SU(2)×U(1))/Z6, and neutrinos come out as Dirac particles. A coupling
+  chain gives the electroweak scale 246.6 GeV and the strong coupling 0.1183.
 - **An observer that runs.** A twelve-port observer keeps its records and
   uses them to choose its next repair. Overlapping observers read a common
   reference and its clock, a finite quantum process joins electric flux,

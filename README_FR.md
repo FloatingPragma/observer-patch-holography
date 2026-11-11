@@ -81,16 +81,20 @@ de lois échoue.
   Higgs, champs neutres. Quarks et leptons sont des fermions, et aucune charge
   de couleur n’est jamais seule.
   [Article sur les particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf).
-- **Les rapports de masse des leptons chargés.** Un registre de génération dans
-  la même loi de réparation donne muon/électron 206,770 et tau/électron 3477,47
-  (mesurés 206,768 et 3477,37), sans aucune masse mesurée en entrée.
-- **Un univers primordial comme le nôtre.** Les simulations créent chaque classe
-  de particules par paires, les paires de quarks s’annihilent, la couleur reste
-  confinée, et matière et antimatière sortent à égalité, comme avant la
-  baryogenèse.
-- **Le groupe de jauge à couplages égaux.** Des phases sur les ports du support
-  donnent (SU(3)×SU(2)×U(1))/Z6 avec des intensités égales à l’échelle de la
-  cellule, et les neutrinos sortent comme particules de Dirac.
+- **Les masses du muon et du tau à partir de celle de l’électron.** Un registre
+  de génération dans la même loi de réparation donne muon/électron 206,770 et
+  tau/électron 3477,47 (mesurés 206,768 et 3477,37). À partir de la seule masse
+  de l’électron : 105,659 et 1776,99 MeV (mesurés 105,658 et 1776,93).
+- **Un univers primordial qui refroidit comme le nôtre.** Sur réseau, les liens
+  du modèle donnent une transition électrofaible continue à 161 GeV (Modèle
+  standard : 159,5 ± 1,5), une couleur qui se déconfine et des quarks qui se
+  lient en hadrons. Les premiers défauts apparaissent par paires équilibrées,
+  dans des proportions proches de celles d’un plasma chaud du Modèle standard.
+  [Visualiseur interactif](https://particles.floatingpragma.ai/).
+- **Le groupe de jauge et ses couplages.** Des phases sur les ports du support
+  donnent (SU(3)×SU(2)×U(1))/Z6, et les neutrinos sortent comme particules de
+  Dirac. Une chaîne de couplages donne l’échelle électrofaible 246,6 GeV et le
+  couplage fort 0,1183.
 - **Un observateur qui fonctionne.** Un observateur à douze ports conserve ses
   registres et s’en sert pour choisir sa prochaine réparation. Des observateurs
   qui se chevauchent lisent une référence commune et son horloge, un processus

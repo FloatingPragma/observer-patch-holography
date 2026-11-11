@@ -1796,7 +1796,11 @@ costs $(0,5,8,10,8,5)$ for classes $0,\dots,5$ and acceptance scale $\kappa=5$. 
 balance, moved unit currents release no mismatch work, so positive-cost proposals are rejected
 and surviving classes are pinned. The register does not feed back into the loads; a control run
 with the register switched off reproduces every load, current and depth record exactly. On the
-five-level code the class of a defect equals $6Y\bmod6$ of the particle family whose quanta see it.
+five-level code the class of a defect equals $6Y\bmod6$ of the particle family whose quanta see it. Keeping
+the integer current of every applied twist unreduced lifts the register to integers: the lifted
+value reduces to the stored class on every face of every stored cut of the runs at levels four
+to seven, and every carrier total is zero. The law reads the class only, so the integer is no
+conserved label of a member inside a class.
 
 \paragraph{The generation register.}
 Two seam objects on one face, a neutral register carrying the face third-turn $R$ and the clock
@@ -1807,6 +1811,24 @@ satisfies $\langle I-\operatorname{Re}U\rangle=P(\text{record }1)$ on every blan
 with uniform address, so the energy clock reads read probabilities, and the read count becomes the phase
 $\theta=2/9$. The resulting charged-lepton ratios are $206.770316$ and $3477.4728$
 \cite{ophparticles,ophrepo}.
+
+\paragraph{The weak round.}
+The register runs over many ticks through one added protocol on operations of the public
+program. On the sixty-address carrier two cells with independent address registers carry the
+pair, and the law's own records are the flags: the two signs of the native current in the
+defect's cell with weight $1/12$ each, and the written record of the second cell with weight
+$1/6$. One round is the tick of both cells, the kick $e^{-i(1/N)J\otimes X}$ on the exclusive
+read $X$, the inverse tick, one return test per cell on its uniform address state, and a reset
+of a cell after a negative test. The kick is the commutator of an oriented toggle with the tick
+of the pair. Every round reads the first-tick weights, so $N$ rounds per unit clock time give
+the phase $2/9-35/(2187N^2)+O(N^{-4})$. Executed for $10^4$ to $2\times10^6$ rounds, the phase
+follows the closed form and tends to $2/9$ within $10^{-13}$; with all four outcomes of the
+return tests kept, of weights $4/81$, $11/324$, $125/1296$ and $55/1296$, the coherence between
+current values $j,j'$ is multiplied per round by $1-\frac29+\frac29e^{-i(j-j')/N}$. Without the
+inverse tick the count is not kept: the forward tick reads $2/9$, $0.486$, $0.536$ and $0.467$
+at ticks one to four. Without the reset a cell that failed its test reads the complementary
+weight and the count changes to $7/9$. The source events that create the pair and apply the
+kick are declared operations of this protocol \cite{ophparticles,ophrepo}.
 
 \subsection{The local event clock}
 \label{sec:local-tick}

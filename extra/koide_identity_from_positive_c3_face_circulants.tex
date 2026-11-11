@@ -53,28 +53,22 @@ for Icosahedral Face Circulants}}
 
 \begin{abstract}
 The stabilizer of an oriented icosahedral face acts regularly on its three
-corners. Every Hermitian response commuting with this cyclic action is a
-circulant
-\(C=aI+bR+\overline bR^2\), \(R^3=I\). In the chamber where all three
-eigenvalues are nonnegative and may be read as square-root masses, its Koide
-invariant is
+corners, and every Hermitian response commuting with it is a circulant
+\(C=aI+bR+\overline bR^2\). Where its eigenvalues are nonnegative and read as
+square-root masses, the Koide invariant is
 \[
-Q=\frac13+\frac23\left(\frac{|b|}{a}\right)^2.
+Q=\frac13+\frac23\left(\frac{|b|}{a}\right)^2,
 \]
-Thus \(Q=2/3\) is exactly equivalent to the balance \(|b|/a=1/\sqrt2\), and the
-phase of \(b\) controls the two mass ratios jointly. A generation register in the
-coherent seam repair law supplies both. Two seam objects on one face and a
-neutral register carrying the face third-turn compress exactly to
-\((\sqrt2/3)C(\theta)\): the branch weights \(1/6:1/12:1/12\) of an agreeing hold
-and two oriented repairs give the balance, and the register's exclusive read
-count \(2/9\) is the phase on the energy clock. With no measured mass as input
-this gives \(m_\mu/m_e=206.770316\) and \(m_\tau/m_e=3477.4728\), at \(+9.83\)
-ppm and \(+0.61\) standard uncertainties from measurement. The register is a
-declared construction on the coherent law, so no source-only mass prediction is
-claimed; its compression holds per tick of fresh object pairs. Under the balance
-and mass-ordering premises the measured electron and muon masses fix the tau mass
-inside a 72-eV enclosure centered at 1776.969027 MeV, 0.43 standard uncertainties
-from the world average.
+so \(Q=2/3\) is the balance \(|b|/a=1/\sqrt2\), and the phase of \(b\) sets the
+two mass ratios. A generation register in the coherent seam repair law supplies
+both: its branch weights \(1/6:1/12:1/12\) give the balance, and its read count
+\(2/9\) is the phase, kept over two million executed rounds. With no measured
+mass as input this gives \(m_\mu/m_e=206.770316\) and \(m_\tau/m_e=3477.4728\),
+at \(+9.83\) ppm and \(+0.61\) standard uncertainties from measurement. The
+register is a declared construction on the coherent law, so no source-only
+mass prediction is claimed. Under the balance and mass-ordering premises the
+measured electron and muon masses fix the tau mass inside a 72-eV enclosure
+centered at 1776.969027 MeV.
 \end{abstract}
 
 \noindent\textbf{Keywords:} Koide relation, circulant matrices, cyclic
@@ -348,10 +342,35 @@ The muon value lies \(9.83\) ppm above the measured ratio, which corresponds to 
 of \(-1.75\times10^{-7}\); the tau value lies \(0.61\) standard uncertainties above the
 measured ratio. Two-loop vacuum polarization by the lighter families, with each mass read at
 its own rest frequency, has the order and sign of the muon residual; the closest readings
-leave \(+0.6\) ppm, and the constant of that term is open. The register and
-analyzer are a declared construction on the coherent law. Repeated application of the literal
-tick loses the rotation from the second tick, and a clock of fresh object pairs realizes the
-generator \((2/9)C(\theta)^2\) with error \(O(1/N)\) \cite{ophparticles,ophmodel}.
+leave \(+0.6\) ppm, and the constant of that term is open. 
+
+The count survives many ticks. One weak round is the tick of two cells, the kick on the
+oriented current, the inverse tick, one return test per cell and a reset after a negative
+test. Every round reads the first-tick weights, and \(N\) rounds per unit clock time give the
+phase
+\[
+ \theta_N=N\arctan\frac{P\sin(1/N)}{1-P+P\cos(1/N)}=\tfrac29-\tfrac{35}{2187N^2}+O(N^{-4}),
+ \qquad P=\tfrac29 .
+\]
+Executed on the sixty-address carrier for \(10^4\) to \(2\times10^6\) rounds, the phase follows
+this form and tends to \(2/9\) within \(10^{-13}\). The four outcomes of the return tests, with
+weights \(4/81\), \(11/324\), \(125/1296\) and \(55/1296\), are all kept: the coherence between
+two values \(j,j'\) of the current is multiplied per round by \(1-P+Pe^{-i(j-j')/N}\), so the
+phase holds on the complete record. The forward tick alone reads \(2/9\), \(0.486\), \(0.536\)
+and \(0.467\) at ticks one to four. The three characters of the face third-turn are the
+eigenvectors of the executed mass round, with rest rates
+\[
+ y_k=\tfrac1{27}\bigl(1+\sqrt2\cos(\tfrac29+\tfrac{2\pi k}3)\bigr)^2
+ =0.2096935560,\ 0.0124683656,\ 0.0000603006
+\]
+for tau, muon and electron, summing to \(2/9\). With the electron mass as the only measured
+input they give \(m_\mu=105.659414\) MeV and \(m_\tau=1776.985\) MeV, against
+\(105.6583755(23)\) and \(1776.93\pm0.09\) MeV \cite{pdg2026}.
+
+The register and analyzer are a declared construction on the coherent law. Open inside it
+are the operation that brings the pair onto one port, the source event of the kick, the rule
+that one partner is read per unit clock time, and the number \(N_p\) of phase rounds, which
+shifts \(m_\mu/m_e\) by \(-824/N_p\) at leading order \cite{ophparticles,ophmodel}.
 
 \section{The conditional tau-mass window}
 \label{sec:tauwindow}

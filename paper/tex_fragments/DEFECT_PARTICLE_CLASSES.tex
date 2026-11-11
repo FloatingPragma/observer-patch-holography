@@ -145,7 +145,19 @@ births), while right-handed quark and lepton classes freeze once the loads balan
 and antimatter occur in equal numbers within the run's resolution: $3{,}053{,}295$ against
 $3{,}050{,}633$ identities of classes $1$ and $5$, and $86{,}476$ quark-like triples against
 $86{,}788$ antiquark-like triples, which differ by $0.75$ times the square root of their
-sum. The resulting state is a
+sum.
+
+Of all defect identities of the level-10 run, the classes $1,5,4,2,3$ take $24.1$, $24.1$,
+$19.6$, $19.6$ and $12.7$ percent, and the shares at levels six and seven agree with these
+within $0.3$ percentage points. Equal occupation of the Standard Model states of each class,
+as in a hot plasma of relativistic species, gives $21.4$ percent for each of the four quark
+classes and $14.3$ percent for class three. The shares of the runs lie within three
+percentage points of these values and differ from them by about a tenth, in the order of the
+register's declared costs. The pair births alone, $50.6$, $43.4$ and $6.0$ percent for the
+pairs $(1,5)$, $(2,4)$ and $(3,3)$, lie further from the corresponding $42.9$, $42.9$ and
+$14.3$ percent.
+
+The resulting state is a
 colour-neutral mixture, with integer charge on every carrier, of quark-like and lepton-like pairs with matter and
 antimatter balanced, which is the composition of the early universe before baryogenesis. The
 runs carry no temperature or seconds of their own, and the measured excess of about
@@ -270,18 +282,216 @@ supplies one of the right order and sign: with each mass read at its own rest fr
 two-loop vacuum polarization by the lighter families lowers $m_\mu/m_e$, and the closest
 readings leave $+0.6$ ppm. The constant of that term is open.
 
+\paragraph{The register on the carrier.}
 On the sixty-address carrier the count $2/9$ is the exclusive read of two cells with
-independent address registers, read through the law's own records; one register on one
-carrier gives only multiples of $1/240$. A class-three flux keeps one two-load content, the
-pair on one port, and the weak-round kick is the commutator of an oriented toggle with the
-tick of that pair. The executable certificate checks these statements, the round and the
-clock unit in exact arithmetic \cite{ophrepo}.
+independent address registers, read through the law's own records: in the defect's cell the
+two signs of the native current are written with weight $1/12$ each, and one second cell
+writes its hold with weight $1/6$. One register on one carrier gives only multiples of
+$1/240$. A class-three flux keeps one two-load content, the pair on one port, and the kick of
+the weak round is the commutator of an oriented toggle with the tick of that pair.
 
-The register, its preparation and its analyzer are a construction on the coherent law, and
-Theorem~\ref{thm:lepton-register} is a one-tick statement: repeated application of the literal
-tick loses the rotation from the second tick, while a clock of fresh object pairs realizes the
-generator $A=(2/9)\,C(\theta)^2$ with error $O(1/N)$ \cite{ophrepo}. The balanced circulant
-was first written down from the measured masses \cite{koide1983}; here its balance and its
-phase are the register's own read counts. The overall lepton scale, the Yukawa weight
-$y_J\approx0.0108$ of one unrewarded read, is open, as are the quark generations
-and the neutrino masses.
+\paragraph{The weak round over many ticks.}
+One round is the tick of both cells, the kick $e^{-i(1/N)J\otimes X}$, the inverse tick, one
+return test per cell and a reset after a negative test; $N$ rounds are one unit of clock time.
+Every round reads the first-tick weights, and the phase per unit clock time is
+\[
+ \theta_N=N\arctan\frac{P\sin(1/N)}{1-P+P\cos(1/N)},\qquad P=\tfrac29,\qquad
+ \theta_N=\tfrac29-\tfrac{35}{2187N^2}+O(N^{-4}).
+\]
+The register was executed on the sixty-address carrier for $10^4$ to $2\times10^6$ rounds. The
+executed phases follow the closed form at every $N$ and at every elapsed number of rounds, and
+their limit is $2/9$ within $10^{-13}$. The four outcomes of the two return tests have weights
+$4/81$, $11/324$, $125/1296$ and $55/1296$. With every outcome kept and the reset applied, the
+coherence between two values $j,j'$ of the current is multiplied per round by
+$1-P+Pe^{-i(j-j')/N}$, so the phase $2/9$ holds on the complete record and no branch is
+selected. The forward tick alone does not keep the count: it reads $2/9$, $0.486$, $0.536$ and
+$0.467$ at ticks one to four.
+
+\paragraph{Rates and masses.}
+The three characters of the face third-turn are the eigenvectors of the executed mass round.
+Their rest rates per unit clock time are
+\[
+ y_k=\lambda_k^2=\tfrac1{27}\bigl(1+\sqrt2\cos(\tfrac29+\tfrac{2\pi k}3)\bigr)^2,\qquad
+ \textstyle\sum_ky_k=\tfrac29,
+\]
+and the executed rates agree with this form within $10^{-13}$. Table~\ref{tab:lepton-masses}
+lists them. With the electron mass as the only measured input the register gives the muon and
+tau masses.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Rest rates of the three characters at $\theta=2/9$ and the masses they give with the
+electron mass as the only measured input. Measured values: CODATA and the Particle Data Group.}
+\label{tab:lepton-masses}
+\begin{tabular}{@{}llrrr@{}}
+\toprule
+Character & Lepton & Rate $y_k$ & Mass (MeV) & Measured (MeV)\\
+\midrule
+$\omega^0$ & $\tau$ & $0.2096935560$ & $1776.985$ & $1776.93\pm0.09$\\
+$\omega^2$ & $\mu$ & $0.0124683656$ & $105.659414$ & $105.6583755(23)$\\
+$\omega^1$ & $e$ & $0.0000603006$ & input & $0.51099895069$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The register, its preparation and its analyzer are a construction on the coherent law, and the
+executable certificate checks the compression, the counts, the round, the clock unit and the
+carrier statements in exact arithmetic \cite{ophrepo}. Open inside it are four
+items: the operation that brings two loads onto one port, the source event that applies the
+kick, the rule that one partner is read per unit clock time, and the number $N_p$ of phase
+rounds, which shifts $m_\mu/m_e$ by $-824/N_p$ at leading order. The balanced circulant was
+first written down from the measured masses \cite{koide1983}; here its balance and its phase
+are the register's own read counts. A mass in MeV is $m_k=F\,E_{\rm cell}\,y_k$ with one
+number $F$; on the electroweak dictionary $F$ is fixed by the lepton Yukawa weight
+$y_J\approx0.0108$, which is open.
+
+\subsection{The integer lift of the register}
+\label{sec:integer-lift}
+
+Keeping the integer current of every applied twist unreduced lifts the $\mathbb Z_6$ register
+to integers. On the runs at levels four to seven the lifted value reduces modulo six to the
+stored class on every face of every stored cut, and the twenty face values of every carrier
+sum to zero in all $68{,}515{,}840$ carrier states. As a set of values the lift takes $6Y$ of a
+Standard Model multiplet on $99.7$ percent of the defect faces. It is no conserved label of
+the member inside a class: the law reads the class only, a value of size four or more does
+not travel with its defect, and one carrier content occurs with several integer words
+\cite{ophrepo}.
+
+\subsection{The coupling chain and the electroweak scale}
+\label{sec:coupling-chain}
+
+The gauge couplings and the electroweak scale follow one chain of five forms: the cell
+energy $E_{\rm cell}=E_*P^{-1/2}$, the unification scale $M_U=E_*e^{-2\pi}P^{1/6}$, one-loop
+running with slopes $(33/5,1,-3)$, the transmutation law
+\[
+ v=E_{\rm cell}\exp\!\Bigl(-\frac{2\pi}{4\alpha_U}\Bigr),
+\]
+and the pixel closure $\bar\ell_{\mathrm{SU}(2)}+\bar\ell_{\mathrm{SU}(3)}=P/4$ with heat times
+$t_i=4\pi^2\alpha_i$ read at the electroweak anchor $\mu=m_Z(\mu)$. At the fixed point
+$P=1.6309721$ the chain gives $1/\alpha_U=24.3166$ at $M_U=2.4736\times10^{16}$ GeV and the
+values of Table~\ref{tab:coupling-chain}. These are tree values of the chain; the multiloop
+pole comparison is Table~\ref{tab:twelve}.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Outputs of the coupling chain against measured values. The chain's forms are
+declared; the comparison is made after the values were known.}
+\label{tab:coupling-chain}
+\begin{tabular}{@{}lrr@{}}
+\toprule
+Quantity & Chain & Measured\\
+\midrule
+$v$ (GeV) & $246.60$ & $246.22$\\
+$m_Z$, $m_W$ tree (GeV) & $91.588$, $80.330$ & $91.188$, $80.369$\\
+$1/\alpha_2(m_Z)$ & $29.605$ & $29.58$\\
+$\alpha_s(m_Z)$ & $0.11834$ & $0.1180(9)$\\
+$\sin^2\theta_W(m_Z)$ & $0.23074$ & $0.23122$\\
+$1/\alpha_{\rm em}(m_Z)$ & $128.308$ & $127.95$\\
+$1/\alpha(0)$ & $136.995$ & $137.036$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Four parts of the chain have a source reading. The cell energy is one radian of phase per
+tick on the cubic arrangement of carriers. The $4$ in the transmutation law is the inverse
+plaquette cost of one class-three flux quantum: the central element
+$\operatorname{diag}(1,1,1,-1,-1)$ has shortest generator $2\pi iT_3$ with
+$\operatorname{tr}_5H^\dagger H=2\pi^2$, and the five nontrivial classes give the counts
+$(12/5,3,4,3,12/5)$. The anchor is the first freeze of the weak currents: the class-three
+register gives the neutral direction, which contains hypercharge, the largest mass, so the
+collar law $d_R e^{-tC_2}$ with one coefficient for the three weak directions holds down to
+$m_Z$, under one stated premise on the collar generator below the anchor. Hypercharge carries
+no representation entropy because every irreducible representation of $\mathrm U(1)$ has
+dimension one, and both factors $2\pi$ of the chain are the modular period.
+
+The other parts are declared. The source as built has $16+\overline{16}$ patterns per copy,
+twelve gauge currents and one complex Higgs doublet, with one-loop slopes $(81/10,5/6,-3)$;
+on the same chain it gives $v=222.9$ GeV, $\alpha_s=0.1123$ and $\sin^2\theta_W=0.2056$. The
+ratio $(1/\alpha_2-1/\alpha_3)/(1/\alpha_1-1/\alpha_2)$ at $m_Z$ equals $115/218$ for this
+content and $5/7$ for the declared slopes; the measured couplings give $0.717$. The weak and
+colour slopes of the declared chain equal those of the source's content with two doublets,
+and the hypercharge slope does not. The stack's own unification scale is
+$E_{\rm cell}e^{-2\pi}=1.7853\times10^{16}$ GeV, which gives $v=264.6$ GeV; the factor
+$P^{2/3}$ between it and the declared form has no source reading. The collar law's weight
+$d_R$ and unit shape number are the only pair that closes the chain, and they are declared.
+The chain is consistent only for couplings that run exactly at one loop.
+
+The transmutation law has the structure $v=E_{\rm cell}\,b\,\langle A\rangle$, where
+$\langle A\rangle=\sum_jp_j(-1)^{2j}$ is the class balance of the seam link that the mass step
+flips. Every ensemble gives $\langle A\rangle=Me^{-cS}$ with $S=2\pi/(4\alpha)$, and the law
+needs $c=1$ and $bM=1$. One free link in its one-tick thermal law has $c=1$ exactly, with
+$M=2$ on the Cartan circle. A link inside a lattice shares the half turn with its
+surroundings: on the Cartan circle $c=1-2/d$ on a cubic lattice in $d$ dimensions, and Monte
+Carlo for $\mathrm{SU}(2)$ with the heat-kernel weight gives $c=0.5001(8)$ on $6^4$,
+$0.3347(12)$ on $8^3$ and $0.3988(5)$ on the icosahedral space. No lattice ensemble has the
+coefficient one; it belongs to a link whose plaquette cannot move. The sector law that pins
+the seam link is open \cite{ophrepo}.
+
+\subsection{The early universe on the lattice}
+\label{sec:early-universe-lattice}
+
+The stored runs cover the first few hundred ticks, each $\hbar/E_{\rm cell}=6.885\times10^{-44}$
+s. Later epochs are reached by lattice ensembles, with $N_t$ ticks in the time direction read
+as the temperature $T=E_{\rm cell}/N_t$. Three measurements use the model's own link action.
+
+\paragraph{The electroweak crossover.}
+With the couplings of the declared chain as inputs and the published reduction to the
+three-dimensional $\mathrm{SU}(2)$ and Higgs theory \cite{pwklrs1996reduction}, the transition
+is a crossover at
+\[
+ T_c=161.13\pm0.13\ (\text{lattice})\pm1.6\ (\text{reduction})\ \mathrm{GeV}.
+\]
+The Standard Model lattice value is $159.5\pm1.5$ GeV \cite{pwdonofrio2016crossover}, a
+difference of $+0.74$ standard deviations. The same pipeline on Standard Model inputs gives
+$159.76$ GeV against the published $159.58(6)$ GeV. On the chain the first-order line ends at
+a Higgs mass of $72.5\pm0.7$ GeV. In the radiation era with the model's own content,
+$g_*=106.75$, the crossover lies $9.0\times10^{-12}$ s after the first tick, which is
+$1.3\times10^{32}$ ticks. With the source as built and assumed Higgs and top masses the
+crossover lies between $145$ and $149$ GeV.
+
+\paragraph{Colour deconfines.}
+Restricted to a colour holonomy $W$, the seam cost $1-\operatorname{Re}\operatorname{tr}_5U/5$
+is $(3/5)(1-\operatorname{Re}\operatorname{tr}W/3)$, the Wilson plaquette action with
+$\beta=6/g^2$. The colour centre $\mathbb Z_3$ is the flux classes $2$ and $4$ of the register,
+and the classes charged under it are the quark classes $1,2,4,5$. A Monte Carlo study of these
+links at $N_t=4$ gives the transition coupling $\beta_c=5.69105(39)$ from three volumes and
+$5.69248(71)$ from the two largest, against the published $5.6925(2)$
+\cite{pwboyd1996thermodynamics}. The susceptibility maximum grows as $N_s^{2.555(29)}$, the
+histogram of the Polyakov loop has two peaks, and the deconfined runs settle in the three
+$\mathbb Z_3$ sectors: the transition is of first order. With the string tension from the same
+lattice,
+\[
+ T_c/\sqrt\sigma=0.614(18),
+\]
+against the published $0.598(3)$ at this lattice spacing and $0.629(3)$ in the continuum
+limit. The study holds the links alone at one lattice spacing and scans the coupling as an
+ensemble parameter; continuous links on the seams are a declared step.
+
+\paragraph{Quarks bind.}
+Quenched Wilson quarks on the same links at $\beta=5.7$ on $12^3\times24$, with $128$
+configurations, give a static potential that rises linearly, $a^2\sigma=0.1667(17)(135)$,
+and in the chiral limit
+\[
+ m_N/m_\rho=1.45\pm0.13,\qquad m_\rho/\sqrt\sigma=1.333(18),\qquad m_N/\sqrt\sigma=1.93(18).
+\]
+The measured ratio $m_N/m_\rho$ is $1.211$. Above the transition the binding melts: the slope
+of the free energy of a static pair falls from $0.9896(51)$ per lattice unit at $\beta=5.6$
+to $0.00107(1)$ at $\beta=5.85$. Masses in GeV need the light-quark masses and the lattice
+spacing in GeV, which are open. With the chain's $\alpha_s(m_Z)$ and imported lattice ratios
+the colour scale is $\Lambda^{(3)}=0.340$ GeV, the nucleon $0.933(47)$ GeV and the rho
+$0.773(42)$ GeV.
+
+\paragraph{Standing of the three comparisons.}
+The colour and hadron numbers are those of pure and quenched $\mathrm{SU}(3)$ with the Wilson
+action. Their agreement with published lattice values confirms that the model's colour links,
+once continuous, are that theory. The crossover temperature takes the declared chain's
+couplings as inputs. The class shares of the stored runs lie near equal occupation per state
+without equalling it, and the baryon excess and the light-element abundances are not
+computed.
+
+\subsection{Open items}
+
+Open are the absolute lepton scale, the quark masses and the split between up and down, the
+quark and lepton mixing matrices, the neutrino masses, the Higgs mass term, which is of cell
+size in every regulator examined, the declared parts of the coupling chain, and a law that
+writes the continuous port phases.
