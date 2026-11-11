@@ -1,0 +1,2835 @@
+{
+ "aharonov_bohm": {
+  "classes_seeing_flux": {
+   "0": [],
+   "1": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "2": [
+    1,
+    2,
+    4,
+    5
+   ],
+   "3": [
+    1,
+    3,
+    5
+   ],
+   "4": [
+    1,
+    2,
+    4,
+    5
+   ],
+   "5": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  "phase_turns": {
+   "0": {
+    "0": "0",
+    "1": "0",
+    "2": "0",
+    "3": "0",
+    "4": "0",
+    "5": "0"
+   },
+   "1": {
+    "0": "0",
+    "1": "1/6",
+    "2": "1/3",
+    "3": "1/2",
+    "4": "2/3",
+    "5": "5/6"
+   },
+   "2": {
+    "0": "0",
+    "1": "1/3",
+    "2": "2/3",
+    "3": "0",
+    "4": "1/3",
+    "5": "2/3"
+   },
+   "3": {
+    "0": "0",
+    "1": "1/2",
+    "2": "0",
+    "3": "1/2",
+    "4": "0",
+    "5": "1/2"
+   },
+   "4": {
+    "0": "0",
+    "1": "2/3",
+    "2": "1/3",
+    "3": "0",
+    "4": "2/3",
+    "5": "1/3"
+   },
+   "5": {
+    "0": "0",
+    "1": "5/6",
+    "2": "2/3",
+    "3": "1/2",
+    "4": "1/3",
+    "5": "1/6"
+   }
+  }
+ },
+ "all_checks_pass": true,
+ "checks": {
+  "1_class_rule.class_formula": true,
+  "1_class_rule.class_mod_2_is_weak_parity": true,
+  "1_class_rule.class_mod_3_is_triality": true,
+  "1_class_rule.electric_charge_is_T3_plus_Y": true,
+  "1_class_rule.six_Y_equals_3n2_minus_2n3": true,
+  "2_z6_kernel.field_class_gives_triality_and_weak_parity": true,
+  "2_z6_kernel.identity_on_all_32_patterns": true,
+  "2_z6_kernel.identity_on_every_field": true,
+  "3_class_table.class_table_as_stated": true,
+  "3_class_table.every_pattern_in_its_multiplet_class": true,
+  "3_class_table.left_handed_generation_classes": true,
+  "3_class_table.patterns_are_one_generation_with_nu_R_and_conjugates": true,
+  "4_aharonov_bohm.colour_flux_seen_by_quark_classes_only": true,
+  "4_aharonov_bohm.generating_flux_seen_by_every_nonzero_class": true,
+  "4_aharonov_bohm.weak_flux_seen_by_doublet_classes_only": true,
+  "5_reactions.all_reactions_conserve_class": true,
+  "5_reactions.claimed_vertex_realized": true,
+  "5_reactions.conjugation_closure_is_12_fusions_12_splits": true,
+  "5_reactions.diquark_channels_are_colour_epsilon_three_fermion_singlets_only": true,
+  "5_reactions.every_gauge_invariant_field_triple_conserves_class": true,
+  "5_reactions.every_reaction_has_a_gauge_invariant_field_realization": true,
+  "5_reactions.sixteen_reaction_types": true,
+  "5_reactions.yukawa_operators_hypercharge_neutral_and_gauge_invariant": true,
+  "6_closed_carriers.carrier_is_closed_icosahedron": true,
+  "6_closed_carriers.every_seam_on_two_faces_with_opposite_orientation": true,
+  "6_closed_carriers.listed_contents_among_neutral_multisets": true,
+  "6_closed_carriers.listed_contents_class_neutral": true,
+  "6_closed_carriers.odd_classes_even_in_number_on_neutral_contents": true,
+  "7_spin_statistics.baryon_odd_meson_even_flux_contents_even": true,
+  "7_spin_statistics.central_involution_equals_exp_i_pi_6Y": true,
+  "7_spin_statistics.central_involution_is_diag_11100": true,
+  "7_spin_statistics.code_representation_faithful": true,
+  "7_spin_statistics.cover_centre_is_plus_minus_one": true,
+  "7_spin_statistics.cover_has_order_120": true,
+  "7_spin_statistics.defect_class_gradings_trivial_and_k_mod_2": true,
+  "7_spin_statistics.four_gradings_on_physical_states": true,
+  "7_spin_statistics.galois_conjugate_cover_is_a_group": true,
+  "7_spin_statistics.minus_one_to_degree_outside_G": true,
+  "7_spin_statistics.other_rules_differ_from_rotation": true,
+  "7_spin_statistics.port_flux_parity_reproduces_rho_z": true,
+  "7_spin_statistics.rotation_grading_all_patterns_odd": true,
+  "7_spin_statistics.rotation_grading_is_a_vertex_grading": true,
+  "7_spin_statistics.rotation_grading_register_defects_links_even": true,
+  "7_spin_statistics.rotations_are_special_orthogonal": true,
+  "7_spin_statistics.unique_nontrivial_central_involution_of_G": true,
+  "7_spin_statistics.vertex_algebra_has_16_gradings": true,
+  "7_spin_statistics.z_fixes_every_defect_placement": true,
+  "7_spin_statistics.z_on_patterns_is_class_3_holonomy": true,
+  "7_spin_statistics.z_on_patterns_is_minus_one_to_6Y": true,
+  "7_spin_statistics.z_on_patterns_is_minus_one_to_n2": true,
+  "7_spin_statistics.z_two_sided_on_every_link_block": true,
+  "8_imported_census.imported_contents_class_neutral": true
+ },
+ "class_multiplicities": [
+  4,
+  6,
+  6,
+  4,
+  6,
+  6
+ ],
+ "class_table": {
+  "0": {
+   "bosons": [
+    "B",
+    "G",
+    "W"
+   ],
+   "colour_triality": 0,
+   "conjugate_class": 0,
+   "fermion_multiplets": [
+    "anti-e_R",
+    "anti-nu_R",
+    "e_R",
+    "nu_R"
+   ],
+   "left_handed_names": [
+    "e^c",
+    "nu^c"
+   ],
+   "pattern_fields": {
+    "anti-e_R": 1,
+    "anti-nu_R": 1,
+    "e_R": 1,
+    "nu_R": 1
+   },
+   "patterns": 4,
+   "weak_centre_parity": 0
+  },
+  "1": {
+   "bosons": [],
+   "colour_triality": 1,
+   "conjugate_class": 5,
+   "fermion_multiplets": [
+    "Q"
+   ],
+   "left_handed_names": [
+    "Q"
+   ],
+   "pattern_fields": {
+    "d_L": 3,
+    "u_L": 3
+   },
+   "patterns": 6,
+   "weak_centre_parity": 1
+  },
+  "2": {
+   "bosons": [],
+   "colour_triality": 2,
+   "conjugate_class": 4,
+   "fermion_multiplets": [
+    "anti-d_R",
+    "anti-u_R"
+   ],
+   "left_handed_names": [
+    "d^c",
+    "u^c"
+   ],
+   "pattern_fields": {
+    "anti-d_R": 3,
+    "anti-u_R": 3
+   },
+   "patterns": 6,
+   "weak_centre_parity": 0
+  },
+  "3": {
+   "bosons": [
+    "H",
+    "anti-H"
+   ],
+   "colour_triality": 0,
+   "conjugate_class": 3,
+   "fermion_multiplets": [
+    "L",
+    "anti-L"
+   ],
+   "left_handed_names": [
+    "L"
+   ],
+   "pattern_fields": {
+    "anti-e_L": 1,
+    "anti-nu_L": 1,
+    "e_L": 1,
+    "nu_L": 1
+   },
+   "patterns": 4,
+   "weak_centre_parity": 1
+  },
+  "4": {
+   "bosons": [],
+   "colour_triality": 1,
+   "conjugate_class": 2,
+   "fermion_multiplets": [
+    "d_R",
+    "u_R"
+   ],
+   "left_handed_names": [],
+   "pattern_fields": {
+    "d_R": 3,
+    "u_R": 3
+   },
+   "patterns": 6,
+   "weak_centre_parity": 0
+  },
+  "5": {
+   "bosons": [],
+   "colour_triality": 2,
+   "conjugate_class": 1,
+   "fermion_multiplets": [
+    "anti-Q"
+   ],
+   "left_handed_names": [],
+   "pattern_fields": {
+    "anti-d_L": 3,
+    "anti-u_L": 3
+   },
+   "patterns": 6,
+   "weak_centre_parity": 1
+  }
+ },
+ "closed_carriers": {
+  "listed_contents": [
+   [
+    2,
+    4
+   ],
+   [
+    1,
+    5
+   ],
+   [
+    3,
+    3
+   ],
+   [
+    2,
+    2,
+    4,
+    4
+   ],
+   [
+    4,
+    4,
+    4
+   ],
+   [
+    2,
+    2,
+    2
+   ],
+   [
+    2,
+    3,
+    3,
+    4
+   ],
+   [
+    1,
+    2,
+    3
+   ],
+   [
+    3,
+    4,
+    5
+   ]
+  ],
+  "neutral_nonzero_multisets_up_to_four": 21,
+  "neutral_nonzero_multisets_up_to_three": [
+   [
+    1,
+    5
+   ],
+   [
+    2,
+    4
+   ],
+   [
+    3,
+    3
+   ],
+   [
+    1,
+    1,
+    4
+   ],
+   [
+    1,
+    2,
+    3
+   ],
+   [
+    2,
+    2,
+    2
+   ],
+   [
+    2,
+    5,
+    5
+   ],
+   [
+    3,
+    4,
+    5
+   ],
+   [
+    4,
+    4,
+    4
+   ]
+  ],
+  "stokes": {
+   "faces": 20,
+   "faces_per_seam": [
+    2
+   ],
+   "ports": 12,
+   "seam_column_sums": [
+    0
+   ],
+   "seams": 30
+  }
+ },
+ "fields": [
+  {
+   "Y": "1/6",
+   "k": 1,
+   "left_handed_name": null,
+   "lorentz": "L",
+   "name": "Q",
+   "su2": "2",
+   "su3": "3"
+  },
+  {
+   "Y": "-1/6",
+   "k": 5,
+   "left_handed_name": null,
+   "lorentz": "R",
+   "name": "anti-Q",
+   "su2": "2b",
+   "su3": "3b"
+  },
+  {
+   "Y": "2/3",
+   "k": 4,
+   "left_handed_name": null,
+   "lorentz": "R",
+   "name": "u_R",
+   "su2": "1",
+   "su3": "3"
+  },
+  {
+   "Y": "-2/3",
+   "k": 2,
+   "left_handed_name": "u^c",
+   "lorentz": "L",
+   "name": "anti-u_R",
+   "su2": "1",
+   "su3": "3b"
+  },
+  {
+   "Y": "-1/3",
+   "k": 4,
+   "left_handed_name": null,
+   "lorentz": "R",
+   "name": "d_R",
+   "su2": "1",
+   "su3": "3"
+  },
+  {
+   "Y": "1/3",
+   "k": 2,
+   "left_handed_name": "d^c",
+   "lorentz": "L",
+   "name": "anti-d_R",
+   "su2": "1",
+   "su3": "3b"
+  },
+  {
+   "Y": "-1/2",
+   "k": 3,
+   "left_handed_name": null,
+   "lorentz": "L",
+   "name": "L",
+   "su2": "2",
+   "su3": "1"
+  },
+  {
+   "Y": "1/2",
+   "k": 3,
+   "left_handed_name": null,
+   "lorentz": "R",
+   "name": "anti-L",
+   "su2": "2b",
+   "su3": "1"
+  },
+  {
+   "Y": "-1",
+   "k": 0,
+   "left_handed_name": null,
+   "lorentz": "R",
+   "name": "e_R",
+   "su2": "1",
+   "su3": "1"
+  },
+  {
+   "Y": "1",
+   "k": 0,
+   "left_handed_name": "e^c",
+   "lorentz": "L",
+   "name": "anti-e_R",
+   "su2": "1",
+   "su3": "1"
+  },
+  {
+   "Y": "0",
+   "k": 0,
+   "left_handed_name": null,
+   "lorentz": "R",
+   "name": "nu_R",
+   "su2": "1",
+   "su3": "1"
+  },
+  {
+   "Y": "0",
+   "k": 0,
+   "left_handed_name": "nu^c",
+   "lorentz": "L",
+   "name": "anti-nu_R",
+   "su2": "1",
+   "su3": "1"
+  },
+  {
+   "Y": "1/2",
+   "k": 3,
+   "left_handed_name": null,
+   "lorentz": "S",
+   "name": "H",
+   "su2": "2",
+   "su3": "1"
+  },
+  {
+   "Y": "-1/2",
+   "k": 3,
+   "left_handed_name": null,
+   "lorentz": "S",
+   "name": "anti-H",
+   "su2": "2b",
+   "su3": "1"
+  },
+  {
+   "Y": "0",
+   "k": 0,
+   "left_handed_name": null,
+   "lorentz": "V",
+   "name": "G",
+   "su2": "1",
+   "su3": "8"
+  },
+  {
+   "Y": "0",
+   "k": 0,
+   "left_handed_name": null,
+   "lorentz": "V",
+   "name": "W",
+   "su2": "3",
+   "su3": "1"
+  },
+  {
+   "Y": "0",
+   "k": 0,
+   "left_handed_name": null,
+   "lorentz": "V",
+   "name": "B",
+   "su2": "1",
+   "su3": "1"
+  }
+ ],
+ "imported_census": {
+  "alive_at_end": {
+   "1": 3402,
+   "2": 163775,
+   "3": 163721,
+   "4": 163082,
+   "5": 3351
+  },
+  "carrier_contents": {
+   "{1,2,3} and {3,4,5}": 22351,
+   "{1,5}": 1041883,
+   "{2,2,2}": 86788,
+   "{2,2,4,4}": 139090,
+   "{2,3,3,4}": 55690,
+   "{2,4}": 4991967,
+   "{3,3}": 785555,
+   "{4,4,4}": 86476
+  },
+  "carrier_contents_class_neutral": {
+   "{1,2,3} and {3,4,5}": true,
+   "{1,5}": true,
+   "{2,2,2}": true,
+   "{2,2,4,4}": true,
+   "{2,3,3,4}": true,
+   "{2,4}": true,
+   "{3,3}": true,
+   "{4,4,4}": true
+  },
+  "carriers_total": 20971520,
+  "identities_ever": {
+   "1": 3053295,
+   "2": 2486092,
+   "3": 1607810,
+   "4": 2481326,
+   "5": 3050633
+  },
+  "matter_antimatter_in_standard_errors": {
+   "{4,4,4} against {2,2,2}": -0.75
+  },
+  "pairs": {
+   "(1,5)": {
+    "first_cut_pair_births": 124786,
+    "whole_run_annihilations": 609494,
+    "whole_run_pair_births": 757258
+   },
+   "(2,4)": {
+    "first_cut_pair_births": 208860,
+    "whole_run_annihilations": 3585,
+    "whole_run_pair_births": 649302
+   },
+   "(3,3)": {
+    "first_cut_pair_births": 41328,
+    "whole_run_annihilations": 17,
+    "whole_run_pair_births": 89909
+   }
+  },
+  "source": {
+   "commit": "476aff7219fe05592563cb0a1281aba4cffc9d96",
+   "files": {
+    "oph_defects/particle_map.json": "deada9a482abde138e4ceec7aba6099fb68603656c57cad071250e9d4e6d083e",
+    "oph_defects/viewer2/run_evidence.json": "74ac209556c652229e6139421e5042aba45883833204ec633b2f9b11847d2a21"
+   },
+   "repository": "https://github.com/muellerberndt/oph-physics-sim",
+   "run": "level-10 universe run (L10, 300 sweeps, preparation exact06)",
+   "status": "imported run counts, not recomputed by this package"
+  }
+ },
+ "input_sha256": {
+  "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+  "model/defect_particle_classes/PROOF.md": "d56346e59e1172000d6e3cdc7917de8f7a0b705e5b9b5c88c75cd3c956caf89e",
+  "model/defect_particle_classes/README.md": "cbe6f364be73d39c7d0f92e966e271170c6236d5a287f4f41ae1c2bae4be9be8",
+  "model/defect_particle_classes/__init__.py": "801243a0995c2cc613a948fc8be15f5f7c0d82ed8793d99b2ba216d84dacdd56",
+  "model/defect_particle_classes/__main__.py": "4c5b006900046fc65a82b57f945e92de583aa6abddfdd57fbd77ec58e11fd679",
+  "model/defect_particle_classes/census.py": "f084466cb2a589398eef4f39860b42d2d9116321a93827f769bfa5e01cb4923a",
+  "model/defect_particle_classes/certificate.py": "8569c15a678f68e4a2b83c59b61fcae69ddf80f79933a515f57b4c469b8b336b",
+  "model/defect_particle_classes/exact.py": "f72c36294f570d959c98e157a3a95c1e12cae9ad6a9023b93f3a6ce77ef1b543",
+  "model/defect_particle_classes/model.py": "4774921b26e3267f5f5669489d969f8ed2e3fe579ef7d5a65b1f1895ddd285f0",
+  "model/defect_particle_classes/statistics.py": "52ffb3acfa8245ed012cea55d1ca80a492e2c5e57e9b7f614e8f3fc773dfc0a5",
+  "model/defect_particle_classes/test_classes.py": "285bc895a0999abfe8047d9786b85e2145516fb70ddcdc275efeba63a2421619",
+  "model/particle_common_contract/__init__.py": "1a64e76f1ddf737489a91a8cad904f4335a0a0ddd8a7928a8ab014025ca170f5",
+  "model/particle_common_contract/provenance.py": "cbe1ac47552530df594a4dbcd3fa8296eaff6a7af093ab4ae582f78a5d13e723",
+  "model/requirements.txt": "7abaa47730e8e286d366dfe826151677735f20e92beeb7f197dd30e39bd648d2"
+ },
+ "left_handed_generation_classes": {
+  "H": 3,
+  "L": 3,
+  "Q": 1,
+  "d^c": 2,
+  "e^c": 0,
+  "nu^c": 0,
+  "u^c": 2
+ },
+ "patterns": [
+  {
+   "Q": "0",
+   "T3": "0",
+   "Y": "0",
+   "k": 0,
+   "mask": 0,
+   "n2": 0,
+   "n3": 0,
+   "name": "anti-nu_R",
+   "occupied": [],
+   "six_Y": 0
+  },
+  {
+   "Q": "-1/3",
+   "T3": "0",
+   "Y": "-1/3",
+   "k": 4,
+   "mask": 1,
+   "n2": 0,
+   "n3": 1,
+   "name": "d_R",
+   "occupied": [
+    "v1"
+   ],
+   "six_Y": -2
+  },
+  {
+   "Q": "-1/3",
+   "T3": "0",
+   "Y": "-1/3",
+   "k": 4,
+   "mask": 2,
+   "n2": 0,
+   "n3": 1,
+   "name": "d_R",
+   "occupied": [
+    "v2"
+   ],
+   "six_Y": -2
+  },
+  {
+   "Q": "-2/3",
+   "T3": "0",
+   "Y": "-2/3",
+   "k": 2,
+   "mask": 3,
+   "n2": 0,
+   "n3": 2,
+   "name": "anti-u_R",
+   "occupied": [
+    "v1",
+    "v2"
+   ],
+   "six_Y": -4
+  },
+  {
+   "Q": "-1/3",
+   "T3": "0",
+   "Y": "-1/3",
+   "k": 4,
+   "mask": 4,
+   "n2": 0,
+   "n3": 1,
+   "name": "d_R",
+   "occupied": [
+    "v3"
+   ],
+   "six_Y": -2
+  },
+  {
+   "Q": "-2/3",
+   "T3": "0",
+   "Y": "-2/3",
+   "k": 2,
+   "mask": 5,
+   "n2": 0,
+   "n3": 2,
+   "name": "anti-u_R",
+   "occupied": [
+    "v1",
+    "v3"
+   ],
+   "six_Y": -4
+  },
+  {
+   "Q": "-2/3",
+   "T3": "0",
+   "Y": "-2/3",
+   "k": 2,
+   "mask": 6,
+   "n2": 0,
+   "n3": 2,
+   "name": "anti-u_R",
+   "occupied": [
+    "v2",
+    "v3"
+   ],
+   "six_Y": -4
+  },
+  {
+   "Q": "-1",
+   "T3": "0",
+   "Y": "-1",
+   "k": 0,
+   "mask": 7,
+   "n2": 0,
+   "n3": 3,
+   "name": "e_R",
+   "occupied": [
+    "v1",
+    "v2",
+    "v3"
+   ],
+   "six_Y": -6
+  },
+  {
+   "Q": "1",
+   "T3": "1/2",
+   "Y": "1/2",
+   "k": 3,
+   "mask": 8,
+   "n2": 1,
+   "n3": 0,
+   "name": "anti-e_L",
+   "occupied": [
+    "s1"
+   ],
+   "six_Y": 3
+  },
+  {
+   "Q": "2/3",
+   "T3": "1/2",
+   "Y": "1/6",
+   "k": 1,
+   "mask": 9,
+   "n2": 1,
+   "n3": 1,
+   "name": "u_L",
+   "occupied": [
+    "v1",
+    "s1"
+   ],
+   "six_Y": 1
+  },
+  {
+   "Q": "2/3",
+   "T3": "1/2",
+   "Y": "1/6",
+   "k": 1,
+   "mask": 10,
+   "n2": 1,
+   "n3": 1,
+   "name": "u_L",
+   "occupied": [
+    "v2",
+    "s1"
+   ],
+   "six_Y": 1
+  },
+  {
+   "Q": "1/3",
+   "T3": "1/2",
+   "Y": "-1/6",
+   "k": 5,
+   "mask": 11,
+   "n2": 1,
+   "n3": 2,
+   "name": "anti-d_L",
+   "occupied": [
+    "v1",
+    "v2",
+    "s1"
+   ],
+   "six_Y": -1
+  },
+  {
+   "Q": "2/3",
+   "T3": "1/2",
+   "Y": "1/6",
+   "k": 1,
+   "mask": 12,
+   "n2": 1,
+   "n3": 1,
+   "name": "u_L",
+   "occupied": [
+    "v3",
+    "s1"
+   ],
+   "six_Y": 1
+  },
+  {
+   "Q": "1/3",
+   "T3": "1/2",
+   "Y": "-1/6",
+   "k": 5,
+   "mask": 13,
+   "n2": 1,
+   "n3": 2,
+   "name": "anti-d_L",
+   "occupied": [
+    "v1",
+    "v3",
+    "s1"
+   ],
+   "six_Y": -1
+  },
+  {
+   "Q": "1/3",
+   "T3": "1/2",
+   "Y": "-1/6",
+   "k": 5,
+   "mask": 14,
+   "n2": 1,
+   "n3": 2,
+   "name": "anti-d_L",
+   "occupied": [
+    "v2",
+    "v3",
+    "s1"
+   ],
+   "six_Y": -1
+  },
+  {
+   "Q": "0",
+   "T3": "1/2",
+   "Y": "-1/2",
+   "k": 3,
+   "mask": 15,
+   "n2": 1,
+   "n3": 3,
+   "name": "nu_L",
+   "occupied": [
+    "v1",
+    "v2",
+    "v3",
+    "s1"
+   ],
+   "six_Y": -3
+  },
+  {
+   "Q": "0",
+   "T3": "-1/2",
+   "Y": "1/2",
+   "k": 3,
+   "mask": 16,
+   "n2": 1,
+   "n3": 0,
+   "name": "anti-nu_L",
+   "occupied": [
+    "s2"
+   ],
+   "six_Y": 3
+  },
+  {
+   "Q": "-1/3",
+   "T3": "-1/2",
+   "Y": "1/6",
+   "k": 1,
+   "mask": 17,
+   "n2": 1,
+   "n3": 1,
+   "name": "d_L",
+   "occupied": [
+    "v1",
+    "s2"
+   ],
+   "six_Y": 1
+  },
+  {
+   "Q": "-1/3",
+   "T3": "-1/2",
+   "Y": "1/6",
+   "k": 1,
+   "mask": 18,
+   "n2": 1,
+   "n3": 1,
+   "name": "d_L",
+   "occupied": [
+    "v2",
+    "s2"
+   ],
+   "six_Y": 1
+  },
+  {
+   "Q": "-2/3",
+   "T3": "-1/2",
+   "Y": "-1/6",
+   "k": 5,
+   "mask": 19,
+   "n2": 1,
+   "n3": 2,
+   "name": "anti-u_L",
+   "occupied": [
+    "v1",
+    "v2",
+    "s2"
+   ],
+   "six_Y": -1
+  },
+  {
+   "Q": "-1/3",
+   "T3": "-1/2",
+   "Y": "1/6",
+   "k": 1,
+   "mask": 20,
+   "n2": 1,
+   "n3": 1,
+   "name": "d_L",
+   "occupied": [
+    "v3",
+    "s2"
+   ],
+   "six_Y": 1
+  },
+  {
+   "Q": "-2/3",
+   "T3": "-1/2",
+   "Y": "-1/6",
+   "k": 5,
+   "mask": 21,
+   "n2": 1,
+   "n3": 2,
+   "name": "anti-u_L",
+   "occupied": [
+    "v1",
+    "v3",
+    "s2"
+   ],
+   "six_Y": -1
+  },
+  {
+   "Q": "-2/3",
+   "T3": "-1/2",
+   "Y": "-1/6",
+   "k": 5,
+   "mask": 22,
+   "n2": 1,
+   "n3": 2,
+   "name": "anti-u_L",
+   "occupied": [
+    "v2",
+    "v3",
+    "s2"
+   ],
+   "six_Y": -1
+  },
+  {
+   "Q": "-1",
+   "T3": "-1/2",
+   "Y": "-1/2",
+   "k": 3,
+   "mask": 23,
+   "n2": 1,
+   "n3": 3,
+   "name": "e_L",
+   "occupied": [
+    "v1",
+    "v2",
+    "v3",
+    "s2"
+   ],
+   "six_Y": -3
+  },
+  {
+   "Q": "1",
+   "T3": "0",
+   "Y": "1",
+   "k": 0,
+   "mask": 24,
+   "n2": 2,
+   "n3": 0,
+   "name": "anti-e_R",
+   "occupied": [
+    "s1",
+    "s2"
+   ],
+   "six_Y": 6
+  },
+  {
+   "Q": "2/3",
+   "T3": "0",
+   "Y": "2/3",
+   "k": 4,
+   "mask": 25,
+   "n2": 2,
+   "n3": 1,
+   "name": "u_R",
+   "occupied": [
+    "v1",
+    "s1",
+    "s2"
+   ],
+   "six_Y": 4
+  },
+  {
+   "Q": "2/3",
+   "T3": "0",
+   "Y": "2/3",
+   "k": 4,
+   "mask": 26,
+   "n2": 2,
+   "n3": 1,
+   "name": "u_R",
+   "occupied": [
+    "v2",
+    "s1",
+    "s2"
+   ],
+   "six_Y": 4
+  },
+  {
+   "Q": "1/3",
+   "T3": "0",
+   "Y": "1/3",
+   "k": 2,
+   "mask": 27,
+   "n2": 2,
+   "n3": 2,
+   "name": "anti-d_R",
+   "occupied": [
+    "v1",
+    "v2",
+    "s1",
+    "s2"
+   ],
+   "six_Y": 2
+  },
+  {
+   "Q": "2/3",
+   "T3": "0",
+   "Y": "2/3",
+   "k": 4,
+   "mask": 28,
+   "n2": 2,
+   "n3": 1,
+   "name": "u_R",
+   "occupied": [
+    "v3",
+    "s1",
+    "s2"
+   ],
+   "six_Y": 4
+  },
+  {
+   "Q": "1/3",
+   "T3": "0",
+   "Y": "1/3",
+   "k": 2,
+   "mask": 29,
+   "n2": 2,
+   "n3": 2,
+   "name": "anti-d_R",
+   "occupied": [
+    "v1",
+    "v3",
+    "s1",
+    "s2"
+   ],
+   "six_Y": 2
+  },
+  {
+   "Q": "1/3",
+   "T3": "0",
+   "Y": "1/3",
+   "k": 2,
+   "mask": 30,
+   "n2": 2,
+   "n3": 2,
+   "name": "anti-d_R",
+   "occupied": [
+    "v2",
+    "v3",
+    "s1",
+    "s2"
+   ],
+   "six_Y": 2
+  },
+  {
+   "Q": "0",
+   "T3": "0",
+   "Y": "0",
+   "k": 0,
+   "mask": 31,
+   "n2": 2,
+   "n3": 3,
+   "name": "nu_R",
+   "occupied": [
+    "v1",
+    "v2",
+    "v3",
+    "s1",
+    "s2"
+   ],
+   "six_Y": 0
+  }
+ ],
+ "premises": {
+  "P1_pointer": "each quantum carries a spin doublet (pointer) on which the 2 pi rotation acts as -1",
+  "P2_gauss_sector": "on a Gauss-invariant state the code, register and link-end factors of z multiply to +1, so the 2 pi rotation on physical states equals (-1)^(number of quanta)",
+  "P3_vertices": "the local vertices are the twelve native currents, the register toggle, gauge-covariant hopping inside a block, the four Yukawa vertices, CPT, and the 27 register channels",
+  "P4_lift": "the occupations are lifted antisymmetrically; the tick alone admits both lifts",
+  "P5_port_sectors": "vector and spinor levels carry port loads 2 and -3, seen at flux 11 x load mod 20",
+  "P6_closed_carrier": "a carrier is a closed icosahedral screen and register classes are face fluxes of seam links"
+ },
+ "reactions": {
+  "1+1->2": {
+   "claimed_vertex": "three-fermion gauge singlet",
+   "conjugate": "5+5->4",
+   "conserves_class": true,
+   "in_sixteen_types": true,
+   "reading": "two quark doublets into the antitriplet singlet class (diquark)",
+   "realization_vertex_types": [
+    "three-fermion gauge singlet"
+   ],
+   "realizations": [
+    {
+     "colour_epsilon": true,
+     "fields": [
+      "Q",
+      "Q",
+      "anti-d_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    }
+   ],
+   "vertex_form": "1+1->2"
+  },
+  "1+2->3": {
+   "claimed_vertex": "Yukawa",
+   "conjugate": "5+4->3",
+   "conserves_class": true,
+   "in_sixteen_types": true,
+   "reading": "quark Yukawa vertex: Q with d^c into the Higgs class",
+   "realization_vertex_types": [
+    "Yukawa",
+    "three-fermion gauge singlet"
+   ],
+   "realizations": [
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "Q",
+      "anti-u_R",
+      "L"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "Q",
+      "anti-u_R",
+      "anti-H"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "Yukawa"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "Q",
+      "anti-d_R",
+      "anti-L"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "Q",
+      "anti-d_R",
+      "H"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "Yukawa"
+    }
+   ],
+   "vertex_form": "1+2->3"
+  },
+  "1+3->4": {
+   "claimed_vertex": "Yukawa",
+   "conjugate": "5+3->2",
+   "conserves_class": true,
+   "in_sixteen_types": true,
+   "reading": "quark mass vertex: Q with the Higgs into u_R or d_R",
+   "realization_vertex_types": [
+    "Yukawa",
+    "three-fermion gauge singlet"
+   ],
+   "realizations": [
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "Q",
+      "L",
+      "d_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "Q",
+      "anti-L",
+      "u_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "Q",
+      "H",
+      "u_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "Yukawa"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "Q",
+      "anti-H",
+      "d_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "Yukawa"
+    }
+   ],
+   "vertex_form": "1+3->4"
+  },
+  "1+4->5": {
+   "claimed_vertex": "three-fermion gauge singlet",
+   "conjugate": "5+2->1",
+   "conserves_class": true,
+   "in_sixteen_types": true,
+   "reading": "quark doublet with a right-handed quark into the antitriplet doublet class",
+   "realization_vertex_types": [
+    "three-fermion gauge singlet"
+   ],
+   "realizations": [
+    {
+     "colour_epsilon": true,
+     "fields": [
+      "Q",
+      "d_R",
+      "anti-Q"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    }
+   ],
+   "vertex_form": "1+4->5"
+  },
+  "1+5->0": {
+   "claimed_vertex": "fermion gauge current",
+   "conjugate": "5+1->0",
+   "conserves_class": true,
+   "in_sixteen_types": true,
+   "reading": "annihilation of a left-handed quark doublet with its antiparticle",
+   "realization_vertex_types": [
+    "fermion gauge current",
+    "three-fermion gauge singlet"
+   ],
+   "realizations": [
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "Q",
+      "anti-Q",
+      "nu_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "Q",
+      "anti-Q",
+      "anti-nu_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "Q",
+      "anti-Q",
+      "G"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "fermion gauge current"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "Q",
+      "anti-Q",
+      "W"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "fermion gauge current"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "Q",
+      "anti-Q",
+      "B"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "fermion gauge current"
+    }
+   ],
+   "vertex_form": "1+5->0"
+  },
+  "1->2+5": {
+   "claimed_vertex": "three-fermion gauge singlet",
+   "conjugate": "5->4+1",
+   "conserves_class": true,
+   "in_sixteen_types": true,
+   "reading": "reverse of 5+2->1, conjugate of 1+4->5",
+   "realization_vertex_types": [
+    "three-fermion gauge singlet"
+   ],
+   "realizations": [
+    {
+     "colour_epsilon": true,
+     "fields": [
+      "anti-d_R",
+      "anti-Q",
+      "Q"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    }
+   ],
+   "vertex_form": "2+5->1"
+  },
+  "2+2->4": {
+   "claimed_vertex": "three-fermion gauge singlet",
+   "conjugate": "4+4->2",
+   "conserves_class": true,
+   "in_sixteen_types": true,
+   "reading": "two right-handed antiquarks into the triplet singlet class",
+   "realization_vertex_types": [
+    "three-fermion gauge singlet"
+   ],
+   "realizations": [
+    {
+     "colour_epsilon": true,
+     "fields": [
+      "anti-d_R",
+      "anti-u_R",
+      "d_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    },
+    {
+     "colour_epsilon": true,
+     "fields": [
+      "anti-d_R",
+      "anti-d_R",
+      "u_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    }
+   ],
+   "vertex_form": "2+2->4"
+  },
+  "2+3->5": {
+   "claimed_vertex": "Yukawa",
+   "conjugate": "4+3->1",
+   "conserves_class": true,
+   "in_sixteen_types": true,
+   "reading": "conjugate quark mass vertex: u^c or d^c with the Higgs into anti-Q",
+   "realization_vertex_types": [
+    "Yukawa",
+    "three-fermion gauge singlet"
+   ],
+   "realizations": [
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "anti-u_R",
+      "anti-L",
+      "anti-Q"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "anti-u_R",
+      "H",
+      "anti-Q"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "Yukawa"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "anti-d_R",
+      "L",
+      "anti-Q"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "anti-d_R",
+      "anti-H",
+      "anti-Q"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "Yukawa"
+    }
+   ],
+   "vertex_form": "2+3->5"
+  },
+  "2+4->0": {
+   "claimed_vertex": "fermion gauge current",
+   "conjugate": "4+2->0",
+   "conserves_class": true,
+   "in_sixteen_types": false,
+   "reading": "annihilation of a right-handed quark with its antiparticle",
+   "realization_vertex_types": [
+    "fermion gauge current",
+    "three-fermion gauge singlet"
+   ],
+   "realizations": [
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "anti-u_R",
+      "u_R",
+      "nu_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "anti-u_R",
+      "u_R",
+      "anti-nu_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "anti-u_R",
+      "u_R",
+      "G"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "fermion gauge current"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "anti-u_R",
+      "u_R",
+      "B"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "fermion gauge current"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "anti-u_R",
+      "d_R",
+      "e_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "anti-d_R",
+      "u_R",
+      "anti-e_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "anti-d_R",
+      "d_R",
+      "nu_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "anti-d_R",
+      "d_R",
+      "anti-nu_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "anti-d_R",
+      "d_R",
+      "G"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "fermion gauge current"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "anti-d_R",
+      "d_R",
+      "B"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "fermion gauge current"
+    }
+   ],
+   "vertex_form": "2+4->0"
+  },
+  "2->1+1": {
+   "claimed_vertex": "three-fermion gauge singlet",
+   "conjugate": "4->5+5",
+   "conserves_class": true,
+   "in_sixteen_types": true,
+   "reading": "reverse of 1+1->2",
+   "realization_vertex_types": [
+    "three-fermion gauge singlet"
+   ],
+   "realizations": [
+    {
+     "colour_epsilon": true,
+     "fields": [
+      "Q",
+      "Q",
+      "anti-d_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    }
+   ],
+   "vertex_form": "1+1->2"
+  },
+  "3+3->0": {
+   "claimed_vertex": "Yukawa",
+   "conjugate": "3+3->0",
+   "conserves_class": true,
+   "in_sixteen_types": false,
+   "reading": "lepton mass vertex (L with the Higgs into e_R or nu_R); also L Lbar and H Hbar annihilation",
+   "realization_vertex_types": [
+    "Yukawa",
+    "fermion gauge current",
+    "no renormalizable Lorentz scalar",
+    "scalar gauge current",
+    "three-fermion gauge singlet"
+   ],
+   "realizations": [
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "L",
+      "L",
+      "e_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "L",
+      "anti-L",
+      "nu_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "L",
+      "anti-L",
+      "anti-nu_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "L",
+      "anti-L",
+      "W"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "fermion gauge current"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "L",
+      "anti-L",
+      "B"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "fermion gauge current"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "L",
+      "anti-H",
+      "e_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "Yukawa"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "anti-L",
+      "anti-L",
+      "anti-e_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "H",
+      "L",
+      "nu_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "Yukawa"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "H",
+      "L",
+      "anti-nu_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "no renormalizable Lorentz scalar"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "H",
+      "L",
+      "W"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "no renormalizable Lorentz scalar"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "H",
+      "L",
+      "B"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "no renormalizable Lorentz scalar"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "H",
+      "anti-L",
+      "anti-e_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "Yukawa"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "H",
+      "H",
+      "anti-e_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "no renormalizable Lorentz scalar"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "H",
+      "anti-H",
+      "nu_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "no renormalizable Lorentz scalar"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "H",
+      "anti-H",
+      "anti-nu_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "no renormalizable Lorentz scalar"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "H",
+      "anti-H",
+      "W"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "scalar gauge current"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "H",
+      "anti-H",
+      "B"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "scalar gauge current"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "anti-H",
+      "anti-L",
+      "nu_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "no renormalizable Lorentz scalar"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "anti-H",
+      "anti-L",
+      "anti-nu_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "Yukawa"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "anti-H",
+      "anti-L",
+      "W"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "no renormalizable Lorentz scalar"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "anti-H",
+      "anti-L",
+      "B"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "no renormalizable Lorentz scalar"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "anti-H",
+      "anti-H",
+      "e_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "no renormalizable Lorentz scalar"
+    }
+   ],
+   "vertex_form": "3+3->0"
+  },
+  "3+5->2": {
+   "claimed_vertex": "Yukawa",
+   "conjugate": "3+1->4",
+   "conserves_class": true,
+   "in_sixteen_types": true,
+   "reading": "conjugate of 1+3->4",
+   "realization_vertex_types": [
+    "Yukawa",
+    "three-fermion gauge singlet"
+   ],
+   "realizations": [
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "L",
+      "anti-Q",
+      "anti-u_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "anti-L",
+      "anti-Q",
+      "anti-d_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "H",
+      "anti-Q",
+      "anti-d_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "Yukawa"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "anti-H",
+      "anti-Q",
+      "anti-u_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "Yukawa"
+    }
+   ],
+   "vertex_form": "3+5->2"
+  },
+  "3->1+2": {
+   "claimed_vertex": "Yukawa",
+   "conjugate": "3->5+4",
+   "conserves_class": true,
+   "in_sixteen_types": true,
+   "reading": "reverse of 1+2->3",
+   "realization_vertex_types": [
+    "Yukawa",
+    "three-fermion gauge singlet"
+   ],
+   "realizations": [
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "Q",
+      "anti-u_R",
+      "L"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "Q",
+      "anti-u_R",
+      "anti-H"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "Yukawa"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "Q",
+      "anti-d_R",
+      "anti-L"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "Q",
+      "anti-d_R",
+      "H"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "Yukawa"
+    }
+   ],
+   "vertex_form": "1+2->3"
+  },
+  "4+5->3": {
+   "claimed_vertex": "Yukawa",
+   "conjugate": "2+1->3",
+   "conserves_class": true,
+   "in_sixteen_types": true,
+   "reading": "conjugate of 1+2->3",
+   "realization_vertex_types": [
+    "Yukawa",
+    "three-fermion gauge singlet"
+   ],
+   "realizations": [
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "u_R",
+      "anti-Q",
+      "anti-L"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "u_R",
+      "anti-Q",
+      "H"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "Yukawa"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "d_R",
+      "anti-Q",
+      "L"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "d_R",
+      "anti-Q",
+      "anti-H"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "Yukawa"
+    }
+   ],
+   "vertex_form": "4+5->3"
+  },
+  "4->1+3": {
+   "claimed_vertex": "Yukawa",
+   "conjugate": "2->5+3",
+   "conserves_class": true,
+   "in_sixteen_types": true,
+   "reading": "reverse of 1+3->4",
+   "realization_vertex_types": [
+    "Yukawa",
+    "three-fermion gauge singlet"
+   ],
+   "realizations": [
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "Q",
+      "L",
+      "d_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "Q",
+      "anti-L",
+      "u_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "Q",
+      "H",
+      "u_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "Yukawa"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "Q",
+      "anti-H",
+      "d_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "Yukawa"
+    }
+   ],
+   "vertex_form": "1+3->4"
+  },
+  "4->2+2": {
+   "claimed_vertex": "three-fermion gauge singlet",
+   "conjugate": "2->4+4",
+   "conserves_class": true,
+   "in_sixteen_types": true,
+   "reading": "reverse of 2+2->4",
+   "realization_vertex_types": [
+    "three-fermion gauge singlet"
+   ],
+   "realizations": [
+    {
+     "colour_epsilon": true,
+     "fields": [
+      "anti-d_R",
+      "anti-u_R",
+      "d_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    },
+    {
+     "colour_epsilon": true,
+     "fields": [
+      "anti-d_R",
+      "anti-d_R",
+      "u_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    }
+   ],
+   "vertex_form": "2+2->4"
+  },
+  "5+5->4": {
+   "claimed_vertex": "three-fermion gauge singlet",
+   "conjugate": "1+1->2",
+   "conserves_class": true,
+   "in_sixteen_types": true,
+   "reading": "conjugate of 1+1->2",
+   "realization_vertex_types": [
+    "three-fermion gauge singlet"
+   ],
+   "realizations": [
+    {
+     "colour_epsilon": true,
+     "fields": [
+      "anti-Q",
+      "anti-Q",
+      "d_R"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    }
+   ],
+   "vertex_form": "5+5->4"
+  },
+  "5->2+3": {
+   "claimed_vertex": "Yukawa",
+   "conjugate": "1->4+3",
+   "conserves_class": true,
+   "in_sixteen_types": true,
+   "reading": "reverse of 2+3->5",
+   "realization_vertex_types": [
+    "Yukawa",
+    "three-fermion gauge singlet"
+   ],
+   "realizations": [
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "anti-u_R",
+      "anti-L",
+      "anti-Q"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "anti-u_R",
+      "H",
+      "anti-Q"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "Yukawa"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "anti-d_R",
+      "L",
+      "anti-Q"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "three-fermion gauge singlet"
+    },
+    {
+     "colour_epsilon": false,
+     "fields": [
+      "anti-d_R",
+      "anti-H",
+      "anti-Q"
+     ],
+     "hypercharge_sum": "0",
+     "singlets": 1,
+     "vertex": "Yukawa"
+    }
+   ],
+   "vertex_form": "2+3->5"
+  }
+ },
+ "schema": "oph.defect_particle_classes.v1",
+ "scope": "Centre classes k = 6Y mod 6 of the five-level code and of the Standard Model fields, flux visibility, class conservation of the reaction types, closed carriers, and the grading fixed by the 2 pi rotation. The class does not carry generation, T3 or rest mass, and colour singlet and octet share a class.",
+ "spin_statistics": {
+  "composites": {
+   "baryon_three_quanta": [
+    1
+   ],
+   "meson_quark_antiquark": [
+    0
+   ],
+   "pure_flux_contents": [
+    0
+   ]
+  },
+  "cover": {
+   "centre_is_plus_minus_one": true,
+   "centre_size": 2,
+   "closed": true,
+   "elements_fixing_every_face": 2,
+   "elements_with_trivial_rotation": 2,
+   "galois_conjugation_is_homomorphism": true,
+   "galois_image_closed": true,
+   "galois_image_order": 120,
+   "order": 120,
+   "representation_kernel_size": 1,
+   "rho_z_diagonal": [
+    1,
+    1,
+    1,
+    -1,
+    -1
+   ],
+   "rotations_permute_faces": true,
+   "rotations_special_orthogonal": true,
+   "unit_quaternions": true,
+   "z_fixes_every_face": true
+  },
+  "gradings": {
+   "basis": [
+    {
+     "coloured_quanta": 1,
+     "defects": {
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0
+     },
+     "linear_in_these": true,
+     "links": [
+      0
+     ],
+     "quanta_number": 0,
+     "register": [
+      0,
+      0
+     ],
+     "trivial_on_physical_states": false,
+     "weak_centre_with_register": 0
+    },
+    {
+     "coloured_quanta": 1,
+     "defects": {
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0
+     },
+     "linear_in_these": true,
+     "links": [
+      0
+     ],
+     "quanta_number": 1,
+     "register": [
+      0,
+      0
+     ],
+     "trivial_on_physical_states": false,
+     "weak_centre_with_register": 0
+    },
+    {
+     "coloured_quanta": 0,
+     "defects": {
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0
+     },
+     "linear_in_these": true,
+     "links": [
+      0
+     ],
+     "quanta_number": 0,
+     "register": [
+      1,
+      1
+     ],
+     "trivial_on_physical_states": true,
+     "weak_centre_with_register": 1
+    },
+    {
+     "coloured_quanta": 0,
+     "defects": {
+      "1": 1,
+      "2": 0,
+      "3": 1,
+      "4": 0,
+      "5": 1
+     },
+     "linear_in_these": true,
+     "links": [
+      0
+     ],
+     "quanta_number": 0,
+     "register": [
+      0,
+      0
+     ],
+     "trivial_on_physical_states": true,
+     "weak_centre_with_register": 0
+    }
+   ],
+   "consistent": true,
+   "defect_class_gradings": [
+    [
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     1,
+     0,
+     1
+    ]
+   ],
+   "dimension": 4,
+   "number_of_gradings": 16,
+   "physical_generators": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     1
+    ]
+   ],
+   "rotation_grading": {
+    "defects": {
+     "1": 0,
+     "2": 0,
+     "3": 0,
+     "4": 0,
+     "5": 0
+    },
+    "links": [
+     0
+    ],
+    "quanta_by_block": {
+     "n3=0,n2=0": 1,
+     "n3=0,n2=1": 1,
+     "n3=0,n2=2": 1,
+     "n3=1,n2=0": 1,
+     "n3=1,n2=1": 1,
+     "n3=1,n2=2": 1,
+     "n3=2,n2=0": 1,
+     "n3=2,n2=1": 1,
+     "n3=2,n2=2": 1,
+     "n3=3,n2=0": 1,
+     "n3=3,n2=1": 1,
+     "n3=3,n2=2": 1
+    },
+    "quanta_constant_on_blocks": true,
+    "register": [
+     0,
+     0
+    ]
+   },
+   "rotation_grading_is_a_grading": true,
+   "rules_equal_to_rotation": {
+    "class_k": false,
+    "degree": false,
+    "six_Y": false
+   },
+   "rules_that_are_gradings": {
+    "class_k": true,
+    "degree": false,
+    "rotation": true,
+    "six_Y": true
+   },
+   "vertex_rows": {
+    "CPT": 37,
+    "Yukawa": 4,
+    "catalogue_channels": 27,
+    "currents": 64,
+    "hopping": 120,
+    "toggle": 32
+   }
+  },
+  "link_blocks": {
+   "n3=0,n2=0": {
+    "two_sided": [
+     1
+    ],
+    "z_values": [
+     1
+    ]
+   },
+   "n3=0,n2=1": {
+    "two_sided": [
+     1
+    ],
+    "z_values": [
+     -1
+    ]
+   },
+   "n3=0,n2=2": {
+    "two_sided": [
+     1
+    ],
+    "z_values": [
+     1
+    ]
+   },
+   "n3=1,n2=0": {
+    "two_sided": [
+     1
+    ],
+    "z_values": [
+     1
+    ]
+   },
+   "n3=1,n2=1": {
+    "two_sided": [
+     1
+    ],
+    "z_values": [
+     -1
+    ]
+   },
+   "n3=1,n2=2": {
+    "two_sided": [
+     1
+    ],
+    "z_values": [
+     1
+    ]
+   },
+   "n3=2,n2=0": {
+    "two_sided": [
+     1
+    ],
+    "z_values": [
+     1
+    ]
+   },
+   "n3=2,n2=1": {
+    "two_sided": [
+     1
+    ],
+    "z_values": [
+     -1
+    ]
+   },
+   "n3=2,n2=2": {
+    "two_sided": [
+     1
+    ],
+    "z_values": [
+     1
+    ]
+   },
+   "n3=3,n2=0": {
+    "two_sided": [
+     1
+    ],
+    "z_values": [
+     1
+    ]
+   },
+   "n3=3,n2=1": {
+    "two_sided": [
+     1
+    ],
+    "z_values": [
+     -1
+    ]
+   },
+   "n3=3,n2=2": {
+    "two_sided": [
+     1
+    ],
+    "z_values": [
+     1
+    ]
+   }
+  },
+  "port_flux_parity": {
+   "pattern_sector_parity_equals_n2": true,
+   "sectors": {
+    "spinor": 7,
+    "vector": 2
+   },
+   "signs": [
+    1,
+    1,
+    1,
+    -1,
+    -1
+   ]
+  },
+  "z_on_code": [
+   1,
+   1,
+   1,
+   -1,
+   -1
+  ],
+  "z_on_patterns": [
+   {
+    "class3_holonomy": 1,
+    "mask": 0,
+    "minus_one_to_6Y": 1,
+    "minus_one_to_n2": 1,
+    "z": 1
+   },
+   {
+    "class3_holonomy": 1,
+    "mask": 1,
+    "minus_one_to_6Y": 1,
+    "minus_one_to_n2": 1,
+    "z": 1
+   },
+   {
+    "class3_holonomy": 1,
+    "mask": 2,
+    "minus_one_to_6Y": 1,
+    "minus_one_to_n2": 1,
+    "z": 1
+   },
+   {
+    "class3_holonomy": 1,
+    "mask": 3,
+    "minus_one_to_6Y": 1,
+    "minus_one_to_n2": 1,
+    "z": 1
+   },
+   {
+    "class3_holonomy": 1,
+    "mask": 4,
+    "minus_one_to_6Y": 1,
+    "minus_one_to_n2": 1,
+    "z": 1
+   },
+   {
+    "class3_holonomy": 1,
+    "mask": 5,
+    "minus_one_to_6Y": 1,
+    "minus_one_to_n2": 1,
+    "z": 1
+   },
+   {
+    "class3_holonomy": 1,
+    "mask": 6,
+    "minus_one_to_6Y": 1,
+    "minus_one_to_n2": 1,
+    "z": 1
+   },
+   {
+    "class3_holonomy": 1,
+    "mask": 7,
+    "minus_one_to_6Y": 1,
+    "minus_one_to_n2": 1,
+    "z": 1
+   },
+   {
+    "class3_holonomy": -1,
+    "mask": 8,
+    "minus_one_to_6Y": -1,
+    "minus_one_to_n2": -1,
+    "z": -1
+   },
+   {
+    "class3_holonomy": -1,
+    "mask": 9,
+    "minus_one_to_6Y": -1,
+    "minus_one_to_n2": -1,
+    "z": -1
+   },
+   {
+    "class3_holonomy": -1,
+    "mask": 10,
+    "minus_one_to_6Y": -1,
+    "minus_one_to_n2": -1,
+    "z": -1
+   },
+   {
+    "class3_holonomy": -1,
+    "mask": 11,
+    "minus_one_to_6Y": -1,
+    "minus_one_to_n2": -1,
+    "z": -1
+   },
+   {
+    "class3_holonomy": -1,
+    "mask": 12,
+    "minus_one_to_6Y": -1,
+    "minus_one_to_n2": -1,
+    "z": -1
+   },
+   {
+    "class3_holonomy": -1,
+    "mask": 13,
+    "minus_one_to_6Y": -1,
+    "minus_one_to_n2": -1,
+    "z": -1
+   },
+   {
+    "class3_holonomy": -1,
+    "mask": 14,
+    "minus_one_to_6Y": -1,
+    "minus_one_to_n2": -1,
+    "z": -1
+   },
+   {
+    "class3_holonomy": -1,
+    "mask": 15,
+    "minus_one_to_6Y": -1,
+    "minus_one_to_n2": -1,
+    "z": -1
+   },
+   {
+    "class3_holonomy": -1,
+    "mask": 16,
+    "minus_one_to_6Y": -1,
+    "minus_one_to_n2": -1,
+    "z": -1
+   },
+   {
+    "class3_holonomy": -1,
+    "mask": 17,
+    "minus_one_to_6Y": -1,
+    "minus_one_to_n2": -1,
+    "z": -1
+   },
+   {
+    "class3_holonomy": -1,
+    "mask": 18,
+    "minus_one_to_6Y": -1,
+    "minus_one_to_n2": -1,
+    "z": -1
+   },
+   {
+    "class3_holonomy": -1,
+    "mask": 19,
+    "minus_one_to_6Y": -1,
+    "minus_one_to_n2": -1,
+    "z": -1
+   },
+   {
+    "class3_holonomy": -1,
+    "mask": 20,
+    "minus_one_to_6Y": -1,
+    "minus_one_to_n2": -1,
+    "z": -1
+   },
+   {
+    "class3_holonomy": -1,
+    "mask": 21,
+    "minus_one_to_6Y": -1,
+    "minus_one_to_n2": -1,
+    "z": -1
+   },
+   {
+    "class3_holonomy": -1,
+    "mask": 22,
+    "minus_one_to_6Y": -1,
+    "minus_one_to_n2": -1,
+    "z": -1
+   },
+   {
+    "class3_holonomy": -1,
+    "mask": 23,
+    "minus_one_to_6Y": -1,
+    "minus_one_to_n2": -1,
+    "z": -1
+   },
+   {
+    "class3_holonomy": 1,
+    "mask": 24,
+    "minus_one_to_6Y": 1,
+    "minus_one_to_n2": 1,
+    "z": 1
+   },
+   {
+    "class3_holonomy": 1,
+    "mask": 25,
+    "minus_one_to_6Y": 1,
+    "minus_one_to_n2": 1,
+    "z": 1
+   },
+   {
+    "class3_holonomy": 1,
+    "mask": 26,
+    "minus_one_to_6Y": 1,
+    "minus_one_to_n2": 1,
+    "z": 1
+   },
+   {
+    "class3_holonomy": 1,
+    "mask": 27,
+    "minus_one_to_6Y": 1,
+    "minus_one_to_n2": 1,
+    "z": 1
+   },
+   {
+    "class3_holonomy": 1,
+    "mask": 28,
+    "minus_one_to_6Y": 1,
+    "minus_one_to_n2": 1,
+    "z": 1
+   },
+   {
+    "class3_holonomy": 1,
+    "mask": 29,
+    "minus_one_to_6Y": 1,
+    "minus_one_to_n2": 1,
+    "z": 1
+   },
+   {
+    "class3_holonomy": 1,
+    "mask": 30,
+    "minus_one_to_6Y": 1,
+    "minus_one_to_n2": 1,
+    "z": 1
+   },
+   {
+    "class3_holonomy": 1,
+    "mask": 31,
+    "minus_one_to_6Y": 1,
+    "minus_one_to_n2": 1,
+    "z": 1
+   }
+  ]
+ },
+ "yukawa_operators": {
+  "L^dag H e_R": {
+   "class_sum_mod_6": 0,
+   "classes": [
+    3,
+    3,
+    0
+   ],
+   "fusion": "L + anti-H -> e_R: 3+3->0",
+   "gauge_singlets": 1,
+   "hypercharge_sum": "0",
+   "neutral": true
+  },
+  "L^dag Htilde nu_R": {
+   "class_sum_mod_6": 0,
+   "classes": [
+    3,
+    3,
+    0
+   ],
+   "fusion": "L + H -> nu_R: 3+3->0",
+   "gauge_singlets": 1,
+   "hypercharge_sum": "0",
+   "neutral": true
+  },
+  "Q^dag H d_R": {
+   "class_sum_mod_6": 0,
+   "classes": [
+    5,
+    3,
+    4
+   ],
+   "fusion": "Q + anti-H -> d_R: 1+3->4",
+   "gauge_singlets": 1,
+   "hypercharge_sum": "0",
+   "neutral": true
+  },
+  "Q^dag Htilde u_R": {
+   "class_sum_mod_6": 0,
+   "classes": [
+    5,
+    3,
+    4
+   ],
+   "fusion": "Q + H -> u_R: 1+3->4",
+   "gauge_singlets": 1,
+   "hypercharge_sum": "0",
+   "neutral": true
+  }
+ }
+}
