@@ -24,12 +24,14 @@ The checks cover the class rule and its multiplicities `(4,6,6,4,6,6)`, the
 `Z6` kernel, the Aharonov-Bohm phase `exp(2 pi i f k / 6)` of each class
 around each flux, the 16 reaction types of the register and the Standard
 Model vertices with the same classes, class neutrality on closed carriers,
-the grading fixed by the rotation by `2 pi` (every pattern is a fermion,
-and defects, links and the Higgs register are bosons), and the plaquette
+the grading under the declared spin-doublet and antisymmetric-occupation
+premises (every pattern is a fermion, and defects, links and the Higgs register
+are bosons), and the plaquette
 cost of one flux quantum of each class. The shortest generators give
 `8 pi^2 / tr_5 H^dag H = 12/5, 3, 4, 3, 12/5` for classes 1 to 5; the
-weak-centre value 4 is the coefficient of the electroweak transmutation
-exponent.
+weak-centre value 4 enters the proposed single-link electroweak exponent.
+Its relation to a stationary lattice law requires the
+[class-balance calculation](../seam_class_balance/README.md).
 
 From the repository root:
 

@@ -18,14 +18,17 @@ A single bracket is a statistical error. With two brackets the first is statisti
 | `m_N / m_rho` in the chiral limit | 1.4495 +- 0.132 (statistical 0.034, systematic 0.127) | MEASURED |
 | `m_N / m_rho` at the physical `m_pi / m_rho` | 1.4544 +- 0.124 (0.034, 0.120) | MEASURED, input `m_pi / m_rho` IMPORTED |
 | Measured `m_N / m_rho` (Particle Data Group 2024) | 1.211 | IMPORTED, comparison NOT BLIND |
-| `m_rho / sqrt(sigma)` in the chiral limit | 1.3326 +- 0.0183 (0.0169, 0.0071) | MEASURED |
-| `m_N / sqrt(sigma)` in the chiral limit | 1.9317 +- 0.177 (0.041, 0.172) | MEASURED |
+| `m_rho / sqrt(sigma)` in the chiral limit | 1.3326 +- 0.1220 (0.0169, 0.1208) | MEASURED |
+| `m_N / sqrt(sigma)` in the chiral limit | 1.9317 +- 0.182 (0.041, 0.178) | MEASURED |
 | Slope of `F/T` for `r >= 2`, `beta = 5.6`, `N_t = 4` | 0.9896(51) per lattice unit | MEASURED |
 | Same at `beta = 5.85`, `N_t = 4` | 0.00107(1) per lattice unit | MEASURED |
 
 The static potential rises linearly, the pion mass squared falls linearly to zero at `kappa_c`, the rho and the
 nucleon stay massive there, and above the transition the free energy of a static pair is flat. The nucleon mass at
 the lightest of the four quark masses is not resolved ([PROOF.md](PROOF.md), section 7.3).
+
+The normalized-mass systematic errors are the largest shifts over crossed hadron and potential fit choices.
+They describe fit sensitivity; they do not bound finite-volume, quenching or continuum effects.
 
 Not established: masses in GeV. The light-quark mass and the lattice spacing in GeV are open. Quark loops are
 dropped. The Wilson fermion is a discretisation chosen here. There is one lattice spacing.

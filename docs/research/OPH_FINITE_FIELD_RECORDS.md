@@ -222,8 +222,13 @@ until this same source supplies that particular premise.
 These results belong to the defect register and the declared coupling chain;
 the finite sources above keep their own boundaries. The [integer lift](../../model/defect_integer_lift/README.md)
 reproduces the stored class on every stored cut of the runs. The [lepton register](../../model/lepton_register_round/README.md)
-gives `m_mu/m_e = 206.770316` and `m_tau/m_e = 3477.4728` with no measured mass
-as input; the absolute lepton scale is open. The lattice packages measure the
+gives the conditional ratios `m_mu/m_e = 206.770316` and `m_tau/m_e = 3477.4728`
+from the declared preparation, analyzer, weak rounds and clock, under the
+assignment `m_k` proportional to the squared register eigenvalues. The
+calculator takes no measured mass as input; a derivation of that assignment
+as a physical pole-mass law is a separate requirement. These are retrospective
+comparisons; the absolute lepton scale and the muon/electron residual
+`+9.83 ppm` retain their own matching requirements. The lattice packages measure the
 [electroweak crossover](../../model/electroweak_crossover/README.md) of the
 declared chain at `161.13 GeV`, first-order [colour deconfinement](../../model/colour_deconfinement/README.md)
 of the colour links at `beta_c = 5.69105(39)` for `N_t = 4`, and
@@ -237,6 +242,13 @@ pair births in the large classical repair runs do not compute the early
 universe's quantum species distribution, reheating, baryon excess or nuclear
 abundances. The viewer keeps those run counts and the three lattice
 comparisons distinct from these quantum-source records.
+
+The quenched hadron comparison includes the potential-fit variation in its
+scale error: `m_rho/sqrt(sigma) = 1.3326 +- 0.1220` and
+`m_N/sqrt(sigma) = 1.9317 +- 0.182`. The within-spectrum ratio cancels that
+common scale. The errors cover retained statistical and fit-window variation;
+one lattice spacing and volume, omitted sea quarks and chiral extrapolation
+prevent interpreting them as complete physical uncertainties.
 
 ## A relevant external ground-state theorem
 
@@ -258,6 +270,15 @@ a declared new architecture, with its own native embedding and cutoff proof.
 No uniqueness-of-architecture requirement is added by either route.
 
 ## Reproduction and public presentation
+
+The [complete universe-run archive](https://oph-particles-data-20261111.s3.amazonaws.com/index.html)
+contains levels 3 through 7, with
+[archive checksums](https://oph-particles-data-20261111.s3.amazonaws.com/runs/SHA256SUMS)
+and a per-file `MANIFEST.sha256` inside each run. These are classical law-C
+runs with a declared Z6 register. The viewer uses a reduced level-6 copy.
+The full run archive is distinct from the reduced jackknife tables retained
+by the electroweak, colour and quenched-hadron packages; those tables do not
+constitute archived gauge configurations or an independent Monte Carlo rerun.
 
 The [finite-record poster](OPH_FINITE_FIELD_RECORDS.svg) presents the five
 source branches from left to right, with a [PNG copy](OPH_FINITE_FIELD_RECORDS.png).

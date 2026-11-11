@@ -91,6 +91,23 @@ On a supported finite density rho, `-log(rho)` defines a modular operator.
 Identifying its parameter with H time requires the actual state/H relation;
 stationarity alone does not give `rho proportional exp(-beta*H)`.
 
+The [exact native sector bridge](../../model/repair_sector_bridge/PROOF.md)
+checks this distinction on the actual 3,960 native branch records. Its
+pair-distance quotient has stationary weights `(5/11,5/11,1/11)` and an
+explicit contraction bound for this declared full-source-state diagnostic.
+A current-record-only apparatus for distance is not implemented. Separate
+rational Casimir samplers select
+different dimension measures under different proposals. A sector-preserving
+repair cannot choose weights between those sectors; a Gibbs sampler does not
+by itself derive the physical Hamiltonian or its clock.
+
+The [adaptive preparation bound](../../model/adaptive_preparation/README.md)
+applies a finite mixing theorem to the actual 132-state source/controller
+kernel. After 1,793 native attempts the source and last-record law is within
+`10^-6` in total variation of its declared stationary law. This bounds
+preparation of that classical instrument; it does not establish arbitrary
+quantum-reference or full-history stationarity.
+
 <a id="quantum-scalar-dynamics-and-the-background-benchmark"></a>
 <a id="one-quantum-hamiltonian-physical-subspace-and-clock"></a>
 <a id="periodic-spectra-and-the-quantum-higgs-connection"></a>
@@ -445,7 +462,9 @@ is such a declared construction: its weak round (tick, kick, inverse tick,
 return test, reset) turns the exclusive read count `2/9` into the phase per
 unit of the declared clock in the limit of many rounds, and the three
 characters are the eigenvectors of the executed round, with ratios
-`206.770316` and `3477.4728` and no measured mass as input. The operation that
+`206.770316` and `3477.4728` under the assignment of squared register
+eigenvalues to masses. No measured mass enters this calculator; the physical
+pole-mass assignment, unit and complete theory error require a separate join. The operation that
 creates the pair, the source event for the kick, the rule of one partner per
 unit of clock time and the number of phase rounds are open.
 

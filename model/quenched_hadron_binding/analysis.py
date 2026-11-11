@@ -190,6 +190,33 @@ def chiral_chain(mpi, mrho, mn, epi2, erho, en, inv_kappa, sigma, r0, ratio_phys
                 sqrt_sigma=ss, r0=r0)
 
 
+def chiral_systematics(variants, potential_fits):
+    """Maximum central-value displacement over the crossed hadron and potential fit choices.
+
+    Every hadron variant carries its primary potential scale. Rescaling its normalized masses to each
+    potential fit keeps the two fit choices independent. These finite envelopes are sensitivity estimates,
+    not confidence intervals or bounds on quenching, finite-volume or continuum effects.
+    """
+    primary = variants['primary']
+    out = {k: 0.0 for k in primary}
+    for variant in variants.values():
+        for fit in potential_fits.values():
+            sigma, r0 = fit['sigma'], fit['r0']
+            if not (np.isfinite(sigma) and sigma > 0 and np.isfinite(r0) and r0 > 0):
+                raise ValueError('potential fit must have a finite positive string tension and Sommer scale')
+            for key, (value, _) in variant.items():
+                if '_over_sqrtsigma_' in key:
+                    value *= variant['sqrt_sigma'][0] / np.sqrt(sigma)
+                elif '_r0_' in key:
+                    value *= r0 / variant['r0'][0]
+                elif key == 'sqrt_sigma':
+                    value = np.sqrt(sigma)
+                elif key == 'r0':
+                    value = r0
+                out[key] = max(out[key], float(abs(value - primary[key][0])))
+    return out
+
+
 def analyse(dump):
     """Full chain for one lattice. Returns a dict with the keys potential, hadrons, chiral."""
     big_t = dump['lattice'][3]
@@ -255,6 +282,10 @@ def analyse(dump):
     if len(use) >= 4:
         ch['lightest_three'] = variant('SP', 'primary', use[1:])
         names.append('lightest_three')
-    ch['systematic'] = {k: float(max(abs(ch['primary'][k][0] - ch[v][k][0]) for v in names)) for k in ch['primary']}
+    variants = {name: ch[name] for name in ['primary', *names]}
+    ch['systematic_hadron_only'] = {
+        k: float(max(abs(ch['primary'][k][0] - ch[v][k][0]) for v in names)) for k in ch['primary']}
+    ch['systematic_potential_only'] = chiral_systematics({'primary': ch['primary']}, out['potential']['fits'])
+    ch['systematic'] = chiral_systematics(variants, out['potential']['fits'])
     out['chiral'] = ch
     return out

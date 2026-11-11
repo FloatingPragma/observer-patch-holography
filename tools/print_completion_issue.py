@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Print the canonical GitHub issue body for one completion gate.
 
-``tools/build_completion_program.py`` renders the same body. That module is
+``tools/build_completion_program_current.py`` uses the retained renderer. Its base module is
 pinned as a source by replay receipts, so this wrapper corrects the dependency
 checklist at print time: a predecessor whose stage is ``ACCEPTED`` is ticked.
 It never writes a file.

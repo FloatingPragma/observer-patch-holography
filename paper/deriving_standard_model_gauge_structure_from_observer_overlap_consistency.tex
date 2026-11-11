@@ -1267,9 +1267,15 @@ average is only its normalized trace, not a sector eigenvalue. This is a
 declared input: gauge invariance and the Gibbs form force only
 \(H_{\mathrm{edge}}=\sum_Rh_RP_R\), and any function of the sector label is
 gauge invariant and realizable by a local Hamiltonian at fixed cutoff. Within
-second-order bi-invariant operators the Laplacian is unique up to scale, and
-one declared Markov chain with a Casimir acceptance rule derives (EH-1); its
-universality is unproved. (EH-2) The probability space is the one-sided
+second-order bi-invariant operators the Laplacian is unique up to scale.
+A declared sector proposal reversible for weights \(m_R\), with acceptance
+\(\min\{1,e^{-t(\lambda_{R'}-\lambda_R)}\}\), has stationary weights
+\(m_Re^{-t\lambda_R}\). This proves a sampler's invariant law, conditional
+on its proposal measure and supplied penalty; it does not derive (EH-1),
+the physical clock, or \(t\). Unique selection also requires irreducibility.
+Exact finite controls and a full-state pair-distance diagnostic of the native
+source are executable in \texttt{model/repair\_sector\_bridge/}.
+(EH-2) The probability space is the one-sided
 electric-centre edge algebra \(\bigoplus_RB(V_R)\), on which the sector
 projector has rank \(d_R\). On the two-sided space \(L^2(G)\) the projector has
 rank \(d_R^2\), and a two-sided Gibbs trace gives weights

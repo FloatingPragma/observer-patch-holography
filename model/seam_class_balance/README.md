@@ -35,7 +35,7 @@ electric step, `<A>` equals the ratio of two partition functions that
 differ in the weight of one plaquette, the time-like plaquette of the seam,
 whose argument is multiplied by the centre element. On the Cartan circle
 the Villain form of the ensemble is Gaussian with integer windings and the
-ratio is `2 exp(-S (1 - Pi))`, where `Pi g^2` is the flux variance of that
+leading weak-coupling ratio is `2 exp(-S (1 - Pi))`, where `Pi g^2` is the flux variance of that
 plaquette. A pinned plaquette has `Pi = 0` and gives the one-link law. A
 plaquette inside a lattice shares the half turn with its surroundings and
 has `c = 1 - Pi` below one.

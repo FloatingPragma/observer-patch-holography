@@ -113,6 +113,35 @@ def test_potential_fit_recovers_synthetic_parameters():
     assert abs(v0 - 0.6) < 1e-10 and abs(sigma - 0.16) < 1e-10 and abs(e - 0.25) < 1e-10
 
 
+def test_normalized_mass_systematics_include_both_fit_choices():
+    primary = {'mrho_over_sqrtsigma_chiral': [2.0, 0.1], 'mrho_r0_chiral': [3.0, 0.1],
+               'mN_over_mrho_chiral': [1.5, 0.1], 'sqrt_sigma': [2.0, 0.1], 'r0': [3.0, 0.1]}
+    alternate = {k: list(v) for k, v in primary.items()}
+    alternate['mrho_over_sqrtsigma_chiral'][0] = 2.2
+    alternate['mrho_r0_chiral'][0] = 3.3
+    fits = {'primary': {'sigma': 4.0, 'r0': 3.0}, 'alternate': {'sigma': 1.0, 'r0': 6.0}}
+    scale_only = an.chiral_systematics({'primary': primary}, fits)
+    both = an.chiral_systematics({'primary': primary, 'alternate': alternate}, fits)
+    assert scale_only['mrho_over_sqrtsigma_chiral'] == 2.0
+    assert scale_only['mrho_r0_chiral'] == 3.0
+    assert both['mrho_over_sqrtsigma_chiral'] == pytest.approx(2.4)
+    assert both['mrho_r0_chiral'] == pytest.approx(3.6)
+    assert both['mN_over_mrho_chiral'] == 0.0
+    assert both['sqrt_sigma'] == 1.0 and both['r0'] == 3.0
+
+
+def test_recorded_mass_systematics_cover_potential_fit_variations(result):
+    for res in result['production'].values():
+        ch = res['chiral']
+        mass = ch['primary']['mrho_chiral'][0]
+        central = ch['primary']['mrho_over_sqrtsigma_chiral'][0]
+        for fit in res['potential']['fits'].values():
+            shift = abs(mass / np.sqrt(fit['sigma']) - central)
+            assert ch['systematic']['mrho_over_sqrtsigma_chiral'] >= shift - 1e-14
+        assert ch['systematic_potential_only']['mrho_over_sqrtsigma_chiral'] > 0
+        assert ch['systematic']['mN_over_mrho_chiral'] == ch['systematic_hadron_only']['mN_over_mrho_chiral']
+
+
 def test_pion_lies_below_rho_and_resolved_nucleon_above_it(result):
     for res in result['production'].values():
         used = res['chiral']['kappas_used']

@@ -22,6 +22,20 @@ def test_complete_record_of_the_return_tests():
     assert total == F(2, 9)
 
 
+def test_complete_return_probabilities_are_normalized_symbolically():
+    # z = exp(-i h j), so conjugate(z) = 1/z on every current eigenstate.
+    # Use the actual retained outcome weights, including their interference
+    # with the unmarked standing pair, rather than normalizing |X> itself.
+    z = rounds.s.symbols('z', nonzero=True)
+    p = rounds.s.Rational(rounds.P.numerator, rounds.P.denominator)
+    weights = {key: rounds.s.Rational(value) for key, value in DATA['test_outcome_weights'].items()}
+    assert weights['yes_yes'] == p**2
+    probabilities = [(1 + p*(z - 1))*(1 + p*(1/z - 1))]
+    probabilities += [(z - 1)*(1/z - 1)*weights[key] for key in ('x_no', 'y_no', 'both_no')]
+    assert rounds.s.simplify(sum(probabilities) - 1) == 0
+    assert [value.subs(z, 1) for value in probabilities] == [1, 0, 0, 0]
+
+
 def test_round_without_reset():
     assert DATA['read_weights_of_a_cell_after_a_no'] == {'X': '11/12', 'Y': '5/6'}
     assert DATA['counts_in_the_four_test_states'] == ['2/9', '7/9', '7/9', '2/9']

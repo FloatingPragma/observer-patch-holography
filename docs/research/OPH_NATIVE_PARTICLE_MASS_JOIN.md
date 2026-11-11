@@ -561,12 +561,24 @@ These results belong to the defect register and the declared coupling chain;
 the finite sources above keep their own boundaries. The [integer lift](../../model/defect_integer_lift/README.md)
 reproduces the stored class on every stored cut of the runs; it is not a
 conserved label of the member inside a class. The [lepton register](../../model/lepton_register_round/README.md)
-gives `m_mu/m_e = 206.770316` and `m_tau/m_e = 3477.4728` with no measured mass
-as input: `+9.83 ppm` from the CODATA 2022 ratio and `+0.61` standard deviations
-from the PDG 2024 tau mass. The lattice packages measure the [electroweak crossover](../../model/electroweak_crossover/README.md)
+gives the conditional ratios `m_mu/m_e = 206.770316` and `m_tau/m_e = 3477.4728`
+from the declared preparation, analyzer, weak rounds and clock, under the
+assignment `m_k` proportional to the squared register eigenvalues. The
+calculator takes no measured mass as input; a derivation of that assignment
+as a physical pole-mass law is a separate requirement. These are retrospective
+comparisons: the muon/electron residual is `+9.83 ppm` against CODATA 2022;
+the tau comparison is `+0.61` quoted experimental standard deviations against
+PDG 2024. The latter is not a joint significance with a complete theory error. The lattice packages measure the [electroweak crossover](../../model/electroweak_crossover/README.md)
 of the declared chain at `161.13 GeV`, first-order [colour deconfinement](../../model/colour_deconfinement/README.md)
 of the colour links and [quenched quark binding](../../model/quenched_hadron_binding/README.md)
 on the same links with `m_N/m_rho = 1.45 +- 0.13`; none is a blind prediction.
 The absolute lepton scale, the quark masses, the mixing matrices, the neutrino
 masses and the sector law behind the electroweak scale ([seam class balance](../../model/seam_class_balance/README.md))
 are open.
+
+The quenched hadron comparison includes the potential-fit variation in its
+scale error: `m_rho/sqrt(sigma) = 1.3326 +- 0.1220` and
+`m_N/sqrt(sigma) = 1.9317 +- 0.182`. The within-spectrum ratio cancels that
+common scale. The errors cover retained statistical and fit-window variation;
+one lattice spacing and volume, omitted sea quarks and chiral extrapolation
+prevent interpreting them as complete physical uncertainties.

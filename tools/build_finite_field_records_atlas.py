@@ -7,8 +7,10 @@ import hashlib
 from html import escape
 import json
 from pathlib import Path
+import struct
 import subprocess
 import textwrap
+import zlib
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'docs/research/OPH_FINITE_FIELD_RECORDS.svg'
@@ -133,19 +135,37 @@ def render():
     return '\n'.join(parts)+'\n'
 
 
-def main():
+def png_bytes(content):
+    """Render a deterministic preview bound to the exact SVG source bytes."""
+    raw = subprocess.run(['rsvg-convert', '--format=png', '--width', '2400'],
+                         input=content.encode(), stdout=subprocess.PIPE,
+                         stderr=subprocess.PIPE, check=True).stdout
+    if len(raw) < 33 or raw[:8] != b'\x89PNG\r\n\x1a\n':
+        raise ValueError('renderer did not produce PNG')
+    payload = b'Source SVG SHA256\0' + hashlib.sha256(content.encode()).hexdigest().encode()
+    chunk = b'tEXt' + payload
+    encoded = struct.pack('>I', len(payload)) + chunk + struct.pack('>I', zlib.crc32(chunk))
+    return raw[:33] + encoded + raw[33:]
+
+
+def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--check', action='store_true')
-    parser.add_argument('--png', action='store_true')
-    args = parser.parse_args()
+    parser.add_argument('--png', action='store_true', help='also render or check the PNG preview')
+    args = parser.parse_args(argv)
     content = render()
     if args.check:
-        if OUT.read_text() != content:
+        if not OUT.is_file() or OUT.read_text() != content:
             raise SystemExit('Finite field-record atlas is stale')
     else:
         OUT.write_text(content)
     if args.png:
-        subprocess.run(['rsvg-convert', '--width', '2400', '--output', str(OUT.with_suffix('.png')), str(OUT)], check=True)
+        path, expected = OUT.with_suffix('.png'), png_bytes(content)
+        if args.check:
+            if not path.is_file() or path.read_bytes() != expected:
+                raise SystemExit('Finite field-record PNG is stale')
+        else:
+            path.write_bytes(expected)
     print('PASS: finite field-record atlas matches exact sources and explicit physical scope')
 
 

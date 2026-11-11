@@ -80,10 +80,15 @@ Every derived number is recomputed on every jackknife sample: potential, fits, m
   sink against smeared sink.
 - Chiral fits, linear, four points: `m_pi^2 = A (1/kappa - 1/kappa_c)`, `m_rho = r_0 + r_1 m_pi^2`,
   `m_N = n_0 + n_1 m_pi^2`. Variants: the alternative windows, the smeared sink, the three lightest hopping
-  parameters. The systematic error of a chiral number is its largest deviation among the variants.
+  parameters. For scale-free chiral numbers the systematic error is the largest deviation among these variants.
 - Physical point: the quark mass where `m_pi / m_rho = 0.1780`, the measured ratio (IMPORTED, Particle Data Group
   2024).
-- `sigma` and `r0` come from the primary potential fit of the same lattice inside the same jackknife.
+- Central values and statistical errors use `sigma` and `r0` from the primary potential fit of the same lattice
+  inside the same jackknife. The systematic error of a mass in units of `sqrt(sigma)` or `r0` is the largest
+  displacement from the primary result over every combination of hadron-fit and potential-fit choice. Each
+  hadron-fit value is rescaled by the string tension or Sommer scale of that potential fit. The receipt also
+  records the hadron-only and potential-only envelopes. These are finite fit-sensitivity estimates, not
+  confidence intervals or bounds on quenching, finite-volume or continuum effects.
 - The windows and the forms were fixed before the runs. No configuration is removed. One rule was added after
   exceptional configurations were seen in a test on part of lattice A and before the analysis of either lattice: a
   hopping parameter is dropped from the chiral fits of a lattice when the jackknife error of its pion mass exceeds
@@ -192,9 +197,9 @@ MEASURED throughout.
 | Ratio | Chiral limit | Physical `m_pi / m_rho` |
 | --- | --- | --- |
 | `m_N / m_rho` | 1.4495(344)(1274) | 1.4544(335)(1196) |
-| `m_rho / sqrt(sigma)` | 1.3326(169)(71) | 1.3458(169)(71) |
-| `m_N / sqrt(sigma)` | 1.932(41)(172) | 1.957(40)(163) |
-| `m_rho r0`, `m_N r0` | 1.603(20)(9), 2.32(5)(21) | |
+| `m_rho / sqrt(sigma)` | 1.3326(169)(1208) | 1.3458(169)(1220) |
+| `m_N / sqrt(sigma)` | 1.932(41)(178) | 1.957(40)(173) |
+| `m_rho r0`, `m_N r0` | 1.603(20)(43), 2.32(5)(25) | |
 
   Variants of `m_N / m_rho` in the chiral limit: 1.439(38) with the alternative windows, 1.408(43) with the smeared
   sink, 1.322(82) with the three lightest hopping parameters. The last one sets the systematic error.
@@ -229,7 +234,7 @@ from `r = 4` to `r = 12`. The slope falls by a factor of about 930.
   before the run.
 - String tension. With the conventional `sqrt(sigma) = 440 MeV` (IMPORTED convention from Regge slopes and
   quarkonia, about 5 per cent wide) the measured masses give `m_rho / sqrt(sigma) = 1.762` and
-  `m_N / sqrt(sigma) = 2.134`. This lattice: 1.3326 +- 0.0183 and 1.9317 +- 0.177.
+  `m_N / sqrt(sigma) = 2.134`. This lattice: 1.3326 +- 0.1220 and 1.9317 +- 0.182.
 - ARGUED. The coarse lattice, the finite volume and the dropped quark loops each move these ratios. Their sizes
   are not computed here.
 

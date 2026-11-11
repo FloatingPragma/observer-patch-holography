@@ -53,7 +53,9 @@ summed over integer plaquette fields modulo coboundaries, with `Pi` the orthogon
 coboundary, `v = 0` for `Z` and `v = -e_P/2` for the twisted `Z`. At weak coupling the two orientations of the
 half turn dominate:
 
-\[ \langle A\rangle = 2\,e^{-S\,(1-\Pi_{PP})}, \qquad c = 1-\Pi_{PP}, \qquad M = 2 . \]
+\[ \langle A\rangle \sim 2\,e^{-S\,(1-\Pi_{PP})}, \qquad c = 1-\Pi_{PP}, \qquad M \to 2 . \]
+
+The winding sum is exact; the displayed exponential retains its leading weak-coupling sectors.
 
 `Pi_PP g^2` is the Gaussian flux variance of the twisted plaquette. The electric variance of the link is
 `<E^2> = (1 - Pi_PP)/g^2`.
