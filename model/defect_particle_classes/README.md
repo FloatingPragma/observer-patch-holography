@@ -24,8 +24,12 @@ The checks cover the class rule and its multiplicities `(4,6,6,4,6,6)`, the
 `Z6` kernel, the Aharonov-Bohm phase `exp(2 pi i f k / 6)` of each class
 around each flux, the 16 reaction types of the register and the Standard
 Model vertices with the same classes, class neutrality on closed carriers,
-and the grading fixed by the rotation by `2 pi`: every pattern is a fermion,
-and defects, links and the Higgs register are bosons.
+the grading fixed by the rotation by `2 pi` (every pattern is a fermion,
+and defects, links and the Higgs register are bosons), and the plaquette
+cost of one flux quantum of each class. The shortest generators give
+`8 pi^2 / tr_5 H^dag H = 12/5, 3, 4, 3, 12/5` for classes 1 to 5; the
+weak-centre value 4 is the coefficient of the electroweak transmutation
+exponent.
 
 From the repository root:
 
@@ -36,6 +40,6 @@ python -m pytest -q -W error model/defect_particle_classes
 ```
 
 [PROOF.md](PROOF.md) states each check and separates exact computation from
-stated premises. [results.json](results.json) holds the tables, the 52 named
+stated premises. [results.json](results.json) holds the tables, the 61 named
 checks and the input hashes. Run counts of the level-10 universe run are
 imported from the public simulator and labelled as imported.

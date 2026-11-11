@@ -13,7 +13,14 @@ def test_every_named_check_passes():
     assert not failed and RESULT['all_checks_pass']
     assert {name.split('.')[0] for name in RESULT['checks']} == {
         '1_class_rule', '2_z6_kernel', '3_class_table', '4_aharonov_bohm', '5_reactions', '6_closed_carriers',
-        '7_spin_statistics', '8_imported_census'}
+        '7_spin_statistics', '8_imported_census', '9_central_flux_costs'}
+
+
+def test_central_flux_costs():
+    costs = RESULT['central_flux_costs']
+    assert [costs[str(k)]['beta'] for k in range(6)] == [None, '12/5', '3', '4', '3', '12/5']
+    assert costs['3']['eigenphases_over_pi'] in (['0', '0', '0', '1', '-1'], ['0', '0', '0', '-1', '1'])
+    assert costs['3']['trace_over_pi_squared'] == '2'
 
 
 def test_class_rule_and_multiplicities():

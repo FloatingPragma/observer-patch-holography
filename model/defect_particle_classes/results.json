@@ -86,6 +86,74 @@
   }
  },
  "all_checks_pass": true,
+ "central_flux_costs": {
+  "0": {
+   "beta": null,
+   "eigenphases_over_pi": [
+    "0",
+    "0",
+    "0",
+    "0",
+    "0"
+   ],
+   "trace_over_pi_squared": "0"
+  },
+  "1": {
+   "beta": "12/5",
+   "eigenphases_over_pi": [
+    "-2/3",
+    "-2/3",
+    "-2/3",
+    "1",
+    "1"
+   ],
+   "trace_over_pi_squared": "10/3"
+  },
+  "2": {
+   "beta": "3",
+   "eigenphases_over_pi": [
+    "-4/3",
+    "2/3",
+    "2/3",
+    "0",
+    "0"
+   ],
+   "trace_over_pi_squared": "8/3"
+  },
+  "3": {
+   "beta": "4",
+   "eigenphases_over_pi": [
+    "0",
+    "0",
+    "0",
+    "-1",
+    "1"
+   ],
+   "trace_over_pi_squared": "2"
+  },
+  "4": {
+   "beta": "3",
+   "eigenphases_over_pi": [
+    "-2/3",
+    "-2/3",
+    "4/3",
+    "0",
+    "0"
+   ],
+   "trace_over_pi_squared": "8/3"
+  },
+  "5": {
+   "beta": "12/5",
+   "eigenphases_over_pi": [
+    "2/3",
+    "2/3",
+    "2/3",
+    "-1",
+    "-1"
+   ],
+   "trace_over_pi_squared": "10/3"
+  }
+ },
  "checks": {
   "1_class_rule.class_formula": true,
   "1_class_rule.class_mod_2_is_weak_parity": true,
@@ -138,7 +206,16 @@
   "7_spin_statistics.z_on_patterns_is_minus_one_to_6Y": true,
   "7_spin_statistics.z_on_patterns_is_minus_one_to_n2": true,
   "7_spin_statistics.z_two_sided_on_every_link_block": true,
-  "8_imported_census.imported_contents_class_neutral": true
+  "8_imported_census.imported_contents_class_neutral": true,
+  "9_central_flux_costs.betas_are_12_5_3_4_3_12_5": true,
+  "9_central_flux_costs.class_zero_has_zero_generator": true,
+  "9_central_flux_costs.conjugate_classes_have_equal_costs": true,
+  "9_central_flux_costs.exponent_equals_gaussian_plaquette_action": true,
+  "9_central_flux_costs.lifts_inside_search_window": true,
+  "9_central_flux_costs.weak_centre_beta_equals_N_c_plus_one": true,
+  "9_central_flux_costs.weak_centre_element_is_the_2_pi_rotation": true,
+  "9_central_flux_costs.weak_centre_generator_is_plus_or_minus_2_pi_i_T3": true,
+  "9_central_flux_costs.weak_centre_trace_is_2_pi_squared": true
  },
  "class_multiplicities": [
   4,
@@ -595,16 +672,17 @@
  },
  "input_sha256": {
   "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
-  "model/defect_particle_classes/PROOF.md": "d56346e59e1172000d6e3cdc7917de8f7a0b705e5b9b5c88c75cd3c956caf89e",
-  "model/defect_particle_classes/README.md": "cbe6f364be73d39c7d0f92e966e271170c6236d5a287f4f41ae1c2bae4be9be8",
+  "model/defect_particle_classes/PROOF.md": "290e01a8ac98a0de423e02df8a80d224ecd684fb3cff7c32cc9a996070346cd7",
+  "model/defect_particle_classes/README.md": "a2aba6733f56167c6d4a10010d747a9cc0df8c07728883ae4328fdf4467a68ee",
   "model/defect_particle_classes/__init__.py": "801243a0995c2cc613a948fc8be15f5f7c0d82ed8793d99b2ba216d84dacdd56",
   "model/defect_particle_classes/__main__.py": "4c5b006900046fc65a82b57f945e92de583aa6abddfdd57fbd77ec58e11fd679",
   "model/defect_particle_classes/census.py": "f084466cb2a589398eef4f39860b42d2d9116321a93827f769bfa5e01cb4923a",
-  "model/defect_particle_classes/certificate.py": "8569c15a678f68e4a2b83c59b61fcae69ddf80f79933a515f57b4c469b8b336b",
+  "model/defect_particle_classes/certificate.py": "b4f1f1b3c2549f5b8aeede941d69c71ea27221e339df76036df39842183d6812",
   "model/defect_particle_classes/exact.py": "f72c36294f570d959c98e157a3a95c1e12cae9ad6a9023b93f3a6ce77ef1b543",
+  "model/defect_particle_classes/flux_costs.py": "49339a20275267085364dcaa0ad647f400dec28bc160e169f35b364fd54599f4",
   "model/defect_particle_classes/model.py": "4774921b26e3267f5f5669489d969f8ed2e3fe579ef7d5a65b1f1895ddd285f0",
   "model/defect_particle_classes/statistics.py": "52ffb3acfa8245ed012cea55d1ca80a492e2c5e57e9b7f614e8f3fc773dfc0a5",
-  "model/defect_particle_classes/test_classes.py": "285bc895a0999abfe8047d9786b85e2145516fb70ddcdc275efeba63a2421619",
+  "model/defect_particle_classes/test_classes.py": "17fa616ec7e411d0ecf9c9e58377e1cdc2966e934671d5729d065c3a6d4d4e77",
   "model/particle_common_contract/__init__.py": "1a64e76f1ddf737489a91a8cad904f4335a0a0ddd8a7928a8ab014025ca170f5",
   "model/particle_common_contract/provenance.py": "cbe1ac47552530df594a4dbcd3fa8296eaff6a7af093ab4ae582f78a5d13e723",
   "model/requirements.txt": "7abaa47730e8e286d366dfe826151677735f20e92beeb7f197dd30e39bd648d2"

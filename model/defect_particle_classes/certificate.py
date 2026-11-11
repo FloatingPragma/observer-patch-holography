@@ -5,6 +5,7 @@ import hashlib
 from pathlib import Path
 
 from model.particle_common_contract.provenance import import_closure
+from . import flux_costs as fc
 from . import model as m
 from . import statistics as st
 from .census import census
@@ -208,10 +209,12 @@ def result():
     spin, c7 = spin_statistics()
     imported = census()
     c8 = dict(imported_contents_class_neutral=all(imported['carrier_contents_class_neutral'].values()))
+    flux = fc.costs()
+    c9 = fc.checks(flux)
     checks = {}
     for prefix, group in (('1_class_rule', c1), ('2_z6_kernel', c2), ('3_class_table', c3), ('4_aharonov_bohm', c4),
                           ('5_reactions', c5), ('6_closed_carriers', c6), ('7_spin_statistics', c7),
-                          ('8_imported_census', c8)):
+                          ('8_imported_census', c8), ('9_central_flux_costs', c9)):
         for name, ok in group.items():
             checks[f'{prefix}.{name}'] = bool(ok)
     field_rows = [dict(name=f['name'], su3=f['su3'], su2=f['su2'], Y=str(f['Y']), lorentz=f['lorentz'], k=f['k'],
@@ -224,7 +227,7 @@ def result():
                'octet share a class.'),
         patterns=table, class_multiplicities=multiplicities, fields=field_rows, class_table=ctable,
         left_handed_generation_classes=left, aharonov_bohm=ab, reactions=react, yukawa_operators=yuk,
-        closed_carriers=carr, spin_statistics=spin, imported_census=imported,
+        closed_carriers=carr, spin_statistics=spin, imported_census=imported, central_flux_costs=flux,
         premises=PREMISES, checks=checks, all_checks_pass=all(checks.values()))
 
 

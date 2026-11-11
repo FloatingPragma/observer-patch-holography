@@ -156,6 +156,30 @@ imports these counts and does not recompute them. The program checks that every 
 class-neutral and gives `{4,4,4}` against `{2,2,2}` as `-0.75` Poisson
 standard errors.
 
+## 9. Central flux costs
+
+The class-`k` element `(exp(2 pi i Y))^k` has eigenphases `-2k/3` (three
+colour levels) and `k` (two doublet levels), in units of `pi` modulo 2. A
+traceless generator `H` with that exponential has eigenvalues `i pi x_j`,
+with `x_j` a lift of each phase and `sum x_j = 0`. The program enumerates
+the lifts with shifts up to 3 and takes the minimum of
+`tr_5 H^dag H = pi^2 sum x_j^2`. A lift with some `|x_j| >= 5` costs at least
+`25 pi^2`, above every minimum found, so the window is complete.
+
+| Class | Shortest `x` | `tr_5 H^dag H / pi^2` | `8 pi^2 / tr_5 H^dag H` |
+| --- | --- | --- | --- |
+| 1, 5 | `(-2/3, -2/3, -2/3, 1, 1)` and conjugate | 10/3 | 12/5 |
+| 2, 4 | `(-4/3, 2/3, 2/3, 0, 0)` and conjugate | 8/3 | 3 |
+| 3 | `(0, 0, 0, -1, 1)` | 2 | 4 |
+
+The class-3 generator is `-2 pi i T3`, of the same length as `2 pi i T3`, and
+its exponential is the central
+involution `diag(1,1,1,-1,-1)` of section 7. For `alpha = g^2 / (4 pi)` the
+Gaussian plaquette action of one class-`k` flux quantum, `tr_5 H^dag H / g^2`,
+equals `2 pi / (beta_k alpha)` with `beta_k = 8 pi^2 / tr_5 H^dag H`. The
+weak-centre value `beta_3 = 4` is the coefficient of the electroweak
+transmutation exponent of the fine-structure derivation.
+
 ## Premises
 
 The exact checks above use these stated premises; the program does not
@@ -175,5 +199,5 @@ derive them.
 - P6. A carrier is a closed icosahedral screen whose register classes are
   face fluxes of seam links.
 
-Gauge couplings, masses and generations are outside the scope of this
-package.
+Gauge coupling values, masses and generations are outside the scope of
+this package.
