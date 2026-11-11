@@ -170,8 +170,8 @@ Le [guide du modèle](model/README.md) couvre le reste.
   complète et de transport entre observateurs, l’algèbre de réponse à douze
   ports a le type de Lie de jauge du Modèle standard, et une représentation de
   matière spécifiée donne une génération sans anomalies. Des phases sur les
-  ports réalisent le groupe global, dont le centre est l’alphabet de flux des
-  défauts de particules.
+  ports réalisent le groupe global, et six de ses éléments centraux forment
+  l’alphabet de flux des défauts de particules.
   [Dérivation de jauge](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf).
 - **La thermodynamique.** Des théorèmes finis de réparation donnent une
   inégalité de Clausius, des relations de fluctuation et une inégalité de

@@ -201,8 +201,8 @@ scores and a result hash. The [model guide](model/README.md) covers the rest.
 - **Gauge symmetry.** Under stated premises on complete reversible response
   and observer transport, the twelve-port response algebra has the Standard
   Model gauge Lie type, and a specified matter representation gives an
-  anomaly-free generation. Port phases realize the global group, whose centre
-  is the flux alphabet of the particle defects.
+  anomaly-free generation. Port phases realize the global group, and six of
+  its central elements form the flux alphabet of the particle defects.
   [Gauge derivation](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf).
 - **Thermodynamics.** Finite repair theorems give a Clausius inequality,
   fluctuation relations and an information Landauer inequality under a stated

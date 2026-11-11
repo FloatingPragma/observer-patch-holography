@@ -1,9 +1,11 @@
 # Native motion and complete field records
 
-The executable constructions now connect native charged probes to positive
+The executable constructions connect native charged probes to positive
 transfer records, source-energy bins, prepared finite field interactions and
-controlled local observations. They do not identify Standard Model species
-or produce source-derived GeV masses. The [typed claim supplement](../../claims/addenda/field_record_addenda.json)
+controlled local observations. The particle species are identified at the
+level of centre classes by the [defect-class certificate](../../model/defect_particle_classes/README.md);
+these field constructions add charged-sector energies and complete records,
+and they produce no source-derived GeV mass. The [typed claim supplement](../../claims/addenda/field_record_addenda.json)
 states the scope of each result; the [executable index](../../model/field_record_addenda/README.md)
 links its proofs, exact receipts and replay commands.
 

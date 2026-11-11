@@ -356,6 +356,11 @@ M_U(P)&=E_P\,\e^{-2\pi}\,P^{1/6},
 E_{\mathrm{cell}}(P)&=\frac{E_P}{\sqrt P}.
 \label{eq:Ecell}
 \end{align}
+Eq.~\eqref{eq:Ecell} is one radian of phase per tick when a screen cell is the
+face dual to one link and a tick moves a massless quantum by one link: the link
+has length \(\sqrt{a_{\mathrm{cell}}}\), the tick lasts
+\(\sqrt{a_{\mathrm{cell}}}/c\), and
+\(\hbar c/\sqrt{a_{\mathrm{cell}}}=E_P/\sqrt P\).
 
 
 \subsection{Electroweak Transmutation}
@@ -487,6 +492,12 @@ t_2=4\pi^2\alpha_2(m_Z;P,\alpha_U),
 t_3=4\pi^2\alpha_3(m_Z;P,\alpha_U).
 \label{eq:t23}
 \end{equation}
+In the modular reading of the collar the factor \(4\pi^2\) is the modular period
+times the electric normalization: a sector \(R\) with electric energy
+\((g^2/2)C_2(R)\) at unit distance from the cut has the modular weight
+\(\exp[-2\pi(g^2/2)C_2(R)]=\exp[-4\pi^2\alpha\,C_2(R)]\). The product of modular
+distance and electric energy does not depend on the size of the collar, so the
+scale enters only through the running couplings.
 The pixel-closure equation is
 \begin{equation}
 \boxed{
@@ -495,12 +506,23 @@ The pixel-closure equation is
 \label{eq:pixelclosure}
 \end{equation}
 For a trial \(P\), Eq.~\eqref{eq:pixelclosure} is solved for \(\alpha_U(P)\).
-The closure sums the \(\SU(2)\) and \(\SU(3)\) representation towers only; the
-selection that hypercharge carries no representation entropy against the
-\(P/4\) budget is a declared choice. The repair round count used by the
+The closure sums the \(\SU(2)\) and \(\SU(3)\) representation towers only.
+Hypercharge carries no representation entropy: every irreducible representation
+of \(\mathrm U(1)\) has dimension one, so \(\log d_R=0\) and
+\(\bar\ell_{\mathrm U(1)}(t)=0\) for every \(t\). The repair round count used by the
 finite current construction counts the \(\mathfrak u(1)\) generator
-(\(8+3+1=12\)); the two
-conventions are distinct declared choices.
+(\(8+3+1=12\)); the two counts measure different quantities.
+
+The couplings in Eq.~\eqref{eq:t23} are read at the first freeze of the weak
+currents. A Higgs doublet gives the two charged directions the squared mass
+\(\pi\alpha_2v^2\) and the neutral direction \(\pi(\alpha_2+\alpha_Y)v^2\), so the
+neutral direction is the heaviest and freezes first, at the fixed point of
+Eq.~\eqref{eq:mZfixed}. Above that scale the three weak directions enter the collar
+generator with one coefficient, which is the hypothesis of the heat-kernel law
+\(d_R\,\e^{-tC_2(R)}\); below it the surviving generator separates the two members
+of a doublet. The colour factor of the same collar is read at the same scale. The
+reading has one premise: below the anchor the remaining transport and charge terms
+act on the fused label of a collar and on no factor of a single cell.
 
 
 \subsection{The Electroweak Anchor}
