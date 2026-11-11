@@ -41,7 +41,6 @@
     "WQ-18"
   ],
   "first_batch": [
-    "WQ-05",
     "WQ-09",
     "WQ-20",
     "WQ-16"
@@ -327,7 +326,7 @@
       "gate": "CP-07",
       "issue": 1143,
       "depends_on": [],
-      "status": "ready",
+      "status": "completed",
       "blocked_by": [],
       "source_paths": [
         "model/lepton_cycle/instrument.py",
@@ -352,18 +351,22 @@
       "exact_prompt": "At fixed theta=2/9, construct the literal family-frame intertwiner between the complete native mass-read effect and the admitted charged-family coefficient C-dagger C/3. Preserve the actual preparation, normalization and charged representation. Prove or refute the coefficient identity and reject extra squaring, native-pair substitution and loss of the 5/4 preparation factor. Then build an admission table for the full state, kinetic normalization, reference, clock and physical mass-pole joins: coefficient equality cannot silently supply them. Give the smallest explicit same-source measurement needed to settle one absent join. Use no measured mass to choose the map.",
       "outputs": [
         {
-          "path": "model/lepton_cycle/mass_assignment.py",
-          "description": "Exact coefficient/frame intertwiner with physical-admission checks."
+          "path": "model/lepton_mass_compiler/family_map.py",
+          "description": "Independent configured-action polynomial and literal native-effect Fourier intertwiner, including all normalization controls."
         },
         {
-          "path": "model/lepton_cycle/mass_assignment_results.json",
-          "description": "Literal coefficient identity, normalization controls and remaining physical joins."
+          "path": "model/lepton_mass_compiler/results.json",
+          "description": "Exact family map and explicit source/state/kinetic/reference/clock/physical admission table; compiled free-field witness."
         }
       ],
       "validation": [
         {
-          "command": "python3 -m pytest -q model/lepton_cycle",
-          "expected": "Positive map and deliberately mismatched source/clock controls are distinguished."
+          "command": "VECLIB_MAXIMUM_THREADS=1 python3 -m pytest -q model/lepton_mass_compiler",
+          "expected": "All9 independent operator, archive, mass-readout and family-map controls pass."
+        },
+        {
+          "command": "VECLIB_MAXIMUM_THREADS=1 python3 -m model.lepton_mass_compiler --check",
+          "expected": "Fresh full source reconstruction reproduces the complete receipt."
         }
       ],
       "closure": {
@@ -378,7 +381,27 @@
         ]
       },
       "scope_boundary": "An exact coefficient bridge does not establish a physical energy generator, pole mass, Lorentz kinematics or absolute unit.",
-      "completion_evidence": []
+      "completion_evidence": [
+        {
+          "path": "model/lepton_mass_compiler/results.json",
+          "sha256": "6bc87ad79291f19ad05e00dec1f341504e8eff1c100b4e00aeba3e4ade1c7b9d",
+          "independent_check": "model/lepton_mass_compiler/test_compiler.py",
+          "scope": "The independent configured coefficient satisfies F E_native F-dagger=C_ex-dagger C_ex/3 with the exact5/4 preparation factor and geometric family frame. Extra squaring, pair substitution, active normalization and wrong Fourier orientation are rejected. The separately declared full-CAR compiler gives a controlled free rest-mass readout, with physical Standard Model, clock, Higgs vacuum and mirror conditions explicit."
+        }
+      ],
+      "completion_outcome": "positive",
+      "completion_bindings": {
+        "model/lepton_mass_compiler/PROOF.md": "094bf854bf3f6ac8b53c13a7ef86d05105f5261adcce54294838b418cff0de2a",
+        "model/lepton_mass_compiler/README.md": "819ec968786f661fdf2d33dd0e8caad0f02e42baf7a09c09b3ac2ac54bb96486",
+        "model/lepton_mass_compiler/__init__.py": "fc6633a00aef73d8f3797ef92f97bbc4268891d13a5f9adb52039f6f7065a6f9",
+        "model/lepton_mass_compiler/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+        "model/lepton_mass_compiler/analyzer.py": "94b886507233c44a4c49b17093d3f8c509c863905d728655e85b983eb94fb6cd",
+        "model/lepton_mass_compiler/compiler.py": "98a21377d4d94defa0aa5d54bfb13d3d13b8f8fc69093f0a6800713328dcd89b",
+        "model/lepton_mass_compiler/family_map.py": "7ac62717a4427e2555451fc78c42139f972d217615af09e0f200328b412e7ebc",
+        "model/lepton_mass_compiler/packet.py": "ee1d506cb97ee8444c6c1cf89315064d2b6a19af4be1dc842e92ff08c776fe99",
+        "model/lepton_mass_compiler/results.json": "6bc87ad79291f19ad05e00dec1f341504e8eff1c100b4e00aeba3e4ade1c7b9d",
+        "model/lepton_mass_compiler/test_compiler.py": "2bd2d5e1b56e7f72119e44c598d6a89368a0f1f776e70d84a82380cebc9b28c0"
+      }
     },
     {
       "id": "WQ-06",

@@ -430,3 +430,45 @@ The complementary dependency documents describe [field reconstruction](OPH_FIELD
 [native mass operators](OPH_NATIVE_PARTICLE_MASS_JOIN.md),
 [field selection](OPH_PARTICLE_FIELD_SELECTION.md) and
 [mass response](OPH_PARTICLE_MASS_RESPONSE.md).
+
+## Rest-energy and composite readouts
+
+The [lepton compiler](../../model/lepton_mass_compiler/PROOF.md) converts
+the literal analyzer effect into a specified free fermion mass operator,
+with a complete recorded-channel error bound and a rest-frequency
+instrument. Its electron-calibrated free values are
+`0.00051099895069`, `0.1056594144959` and `1.7769849708134 GeV`.
+The interacting particle identification, physical clock and removal of
+the eight retained lattice valleys are unproved.
+
+The [neutral source](../../model/neutrino_mass_response/PROOF.md) includes
+complete native composite responses and a coupled sterile control with
+gaps 1 and 5. The [scalar occupation pole](../../model/native_scalar_density_pole/PROOF.md)
+has six complete records and a canonical finite response. Neither local
+gap calculation assigns observed neutrino or Higgs masses.
+
+The [pion triplet](../../model/pion_mass_readout/PROOF.md) belongs to the
+separate quenched hadron correlator source. Its conditional rho-anchored
+mass is `0.13799628 GeV` for each charge, and its alternative string-anchored
+mass is `0.10540200085 GeV`. The archive does not include electromagnetism,
+unequal light-quark masses or a native observer/clock transfer. Its fitted
+correlators are not a complete native detector tape.
+
+## Exact finite observation laws
+
+The [observer readout proof](../../model/finite_observer_readout_closure/PROOF.md)
+attaches the periodic Y detector, joint event clocks and all-lag correlation
+recurrence to the complete finite source. The phase intervention is declared;
+the recurrence follows from the literal 66-by-7 source inclusion rather than
+from an exact-rank assertion about sampled data.
+
+The [joint record proof](../../model/finite_observable_closures/PROOF.md)
+retains the complete screen-reference interference law, the cap-one
+two-particle four-read experiment and the certified interacting measurement.
+The untouched reference marginal is unchanged. The
+[current and lift proof](../../model/finite_current_readout_closure/PROOF.md)
+gives an explicit all-initial-law covariance bound for the native axial
+counter and exact integer face-lift identities on closed carriers. The
+large-run 99.7-percent census is an imported diagnostic. These results have
+finite construction domains; physical clock, position and particle
+identifications require their separate attachments.

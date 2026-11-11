@@ -499,8 +499,9 @@ $0.00051099895069\,\mathrm{GeV}$ gives
  m_\mu^{\mathrm{conditional}}=0.10565941450\,\mathrm{GeV},\qquad
  m_\tau^{\mathrm{conditional}}=1.77698497081\,\mathrm{GeV}.
 \]
-These values use the effect-to-mass assignment and supply no propagation
-proof for it. Their anchor-only uncertainty is not a theory error. The
+As a coefficient assignment alone this supplies no propagation proof.
+The explicit compiler below supplies a free-field construction on its
+declared clock. Anchor-only uncertainty is not a theory error. The
 complete target catalogue retains all nine charged fermions, three
 neutrino mass eigenstates and five boson types, together with the extra
 source modes. Empirical running-action parameters, optional neutrino
@@ -509,3 +510,282 @@ source-derived observer rest masses. Global current labels alone supply
 no propagating gauge bosons. The exact common-scale test and conditional
 GeV table are reproduced by \texttt{model/defect\_mass\_catalogue}
 \cite{ophrepo}.
+
+\subsection{Charge-sensitive pole splitting with equal primitive vertices}
+
+Equal primitive quark coefficients need not give equal dressed response
+poles. On the unit local source, the total hypercharge $Q_Y$ commutes
+with $H$. Its removal charges are $2/3$ for the up-conjugate channel and
+$-1/3$ for the down-conjugate channel. A symmetry commuting with $Q_Y$
+cannot exchange those two charged operators. The complete spatial
+equal-spectrum symmetry instead transforms $Y$ to $-Y+B$, preserving
+the baryon-zero singlet domain and reflecting the probe position.
+Equality therefore applies to invariant stationary densities and matched
+reflected probes; it is not an assertion about an undetermined spatial
+ground sector.
+
+A neutral two-state polarization memory with unit occupation cost gives
+the declared extension
+\[
+ H'=H+N_A+Q_YX_A,\qquad
+ M_q=\begin{pmatrix}0&q\\q&1\end{pmatrix}.
+\]
+On a target of charge $q$, every original spectral line splits by
+$\lambda_\pm=(1\pm\sqrt{1+4q^2})/2$, with blank-memory weights
+$(1\mp1/\sqrt{1+4q^2})/2$. The exact blank resolvent has selfenergy
+$\Sigma_q(w)=q^2/(w-1)$. Both branches, every original energy residue,
+and preparation failures are retained. The lower dominant source gaps
+are approximately $0.4482403502$ and $0.6806484710$ for the up and down
+channels. Their ratio $0.6585489711$ fails the fixed common-scale target
+comparison. No parameter was chosen using that target ratio.
+
+The unchanged neutral ground has $Q_Y=0$. All nine hundred anomalous
+pairing contacts are unchanged, since
+$\{[c_i,Q_YX_A],c_j\}=Y_i\{c_i,c_j\}X_A=0$.
+Thus unequal propagator poles can arise with equal primitive pairing
+vertices. This finite mechanism supplies neither three observed quark
+families nor renormalized physical quark masses. Exact controls and
+complete records are reproduced by
+\texttt{model/quark\_flavour\_resolution} \cite{ophrepo}.
+
+A separate electrostatic extension embeds the full native source as one
+charge island on a thirteen-vertex cone, with a compensating reference
+and a finite flux register. Solving its Gauss constraints in the positive
+electric energy $\sum_e E_e^2/2$ gives $C Q_Y^2$, where
+$C=26/217$. Every target energy is translated by $Cq^2$ with its
+original residue. These are finite source-reference electrostatic
+energies. They supply no transverse photon dynamics, locally gauged
+343-site matter source, or intrinsic rest-mass assignment. The exact
+Gauss isometry and complete shifted measures are reproduced by
+\texttt{model/quark\_gauge\_dressing} \cite{ophrepo}.
+
+\subsection{Neutral composite response and a coupled sterile control}
+
+The native neutral composite
+$J_s=\phi_0c_{s,11}-\phi_1c_{s,10}$ commutes with all twelve gauge
+currents and carries lepton number $-1$. The original unit source
+conserves lepton number. Consequently its anomalous expectation
+$\langle J_s(t)J_t(0)\rangle$ vanishes on every invariant reference;
+a symmetry-preserving elimination cannot generate a lepton-number-two
+term. This does not imply a gapless normal response. The actual local
+ground gives nine positive spectral lines. Its normalized cyclic
+resolvent has an exact eight-mode complementary selfenergy, with
+positive spectral variance approximately $36.4254564105$ and all
+original success and failure weights retained.
+
+On the full three-site ninety-fermion-mode source, neutral addition and
+removal preparations give an independently executed transport event.
+For the matching opposite-spin middle-site receiver,
+\[
+ \langle R|\psi\rangle=\langle R|H|\psi\rangle=0,\qquad
+ \langle R|H^2|\psi\rangle=i/3.
+\]
+The complete third-order support has $15739$ coordinates. At
+$t=10^{-4}$ the spectral remainder bound encloses receiver probability
+between approximately $2.5920\times10^{-18}$ and
+$2.9700\times10^{-18}$, retaining its full complement and quantum
+reference. These preparations are distinct from the local ground.
+
+A declared sterile extension adds the left-handed conjugate $n^c$ of
+a right-handed gauge singlet and the unit interaction
+\[
+ V_\nu=n^c_\uparrow J_\downarrow-n^c_\downarrow J_\uparrow
+       +\mathrm{h.c.}
+\]
+The literal thirty-two-mode algebra verifies all gauge and spin Ward
+identities. With quark vertices disabled, the complete eight-fermion-mode
+and five-state-scalar control has dimension $1280$, with $80$ physical
+Gauss states. Its unique ground energy is $-4$. The active and sterile
+neutral probes have positive gaps $1,5$. Sterile removal residues are
+$35/72,1/72$ and active-composite residues are $35/72,25/72$;
+addition gives the same respective weights. Every other physical energy,
+failure and outside-support outcome is retained. The normalized
+one-branch sterile propagator is
+\[
+ G(z)=\frac{z-44/9}{(z-1)(z-5)},\qquad
+ \Sigma(z)=\frac{35/81}{z-44/9}.
+\]
+These two response poles are not counted as two observed neutrino
+species. A separate unit sterile Majorana interaction has its own
+recomputed ground and complete spectrum. Activating the quark vertices
+leaks out of the lepton control, so neither control ground is transferred
+to the all-unit full source.
+
+One declared positive energy unit $s$ gives neutral gaps $s,5s$.
+For illustration, an empirical normal-ordering scale with zero lightest
+mass gives $s=5.01098792655\times10^{-11}\,\mathrm{GeV}$. This unit
+choice neither assigns an active or sterile species to either pole nor
+establishes a relativistic rest mass. The active tau antineutrino is a
+weak-flavour readout, distinct from the sterile coordinate. Three-family
+mixing and oscillation observables require their own construction.
+The exact source operators, complete spectra and transport bounds are
+reproduced by \texttt{model/neutrino\_mass\_response} \cite{ophrepo}.
+
+\subsection{Compiling the lepton effect into a free mass operator}
+
+The literal lepton analyzer acts on $3600$ addresses and three character
+coordinates. Executing all $10800$ columns gives a unitary $U$ whose
+selected block $K_{00}$ has squared singular values $e_k$ and
+$\operatorname{Tr}(K_{00}^\dagger K_{00})=5/18$. Independent extraction
+of the configured charged-family polynomial verifies
+\[
+ F E_{\rm native}F^\dagger=C_{\rm ex}^\dagger C_{\rm ex}/3.
+\]
+The exact prepared/native-pair factor is $5/4$. Controls reject an extra
+square, substitution of the native pair, active-only normalization and
+the conjugate Fourier orientation. This identity is a coefficient and
+frame theorem, independent of a physical mass assignment.
+
+Lift $U$ to the entire lepton doublet and its conjugate to the singlet
+on the full canonical anticommutation algebra. A rank-three selected
+projector $Q$ gives $W=U^\dagger Q U$. With neutral background norm one,
+vacuum compression of the literal pairing kick gives the coefficient
+$Y=K_{00}^\dagger K_{00}$. This is an operator identity on all physical
+occupations, without replacing the source Hamiltonian by the desired
+effect. There are $90$ physical fermion modes and $324000$ enlarged
+modes per site. The mean interaction norm is $5/9$ per site and the
+uncompressed kick norm is six per site.
+
+Apply $N$ rounds of duration $t/N$, measure vacuum versus nonvacuum
+ancillary occupation, retain the committed classical history and its
+quantum outputs, and supply fresh ancillary vacuum. A common free Weyl
+kinetic operator commutes with the address analyzer. Interaction-picture
+expansion and telescoping give complete unhalved trace-norm error
+\[
+ \epsilon\le\frac{108 V^2t^2}{N}
+\]
+for $V$ sites, before separately adding source-dilation errors. Quantum
+coherence within each classical history sector is retained. An unmeasured
+coherent purification has a different, order $N^{-1/2}$ comparison;
+the recorded bound is not applied to it.
+
+The same native Nambu symbol has three charged free Dirac fields per
+valley with rest coefficients $e_k$, together with all eight sine
+valleys and $39$ zero internal coefficients. A full sixteen-state
+canonical transformation identifies the charged pairing with the Dirac
+mass Hamiltonian and separately verifies its electric charge. Its
+complete addition/removal instrument retains $36$ records and reads
+the one-particle energy $e_k$, without an extra square. A compensated
+four-effect Ramsey instrument reads probabilities
+$(1\pm\cos(e_kt))/4$ and $(1\pm\sin(e_kt))/4$. Complete-output error
+$\epsilon$ bounds the recovered energy error by $4\epsilon/t$ on the
+specified unaliased phase window. The positive electron denominator is
+certified before forming ratios.
+
+One empirical electron anchor gives the three free coefficients
+$0.00051099895069$, $0.1056594144959$ and
+$1.7769849708134\,\mathrm{GeV}$. The fixed phase $2/9$, scalar
+background and ancillary preparation are construction inputs. The
+rigorous one-site error example at $t=1$, $\epsilon=10^{-12}$ requires
+$108\times10^{12}$ rounds; this round count is not executed.
+Physical clock matching, a selected interacting Higgs vacuum, mirror
+removal and observed Standard Model identification are not inferred.
+The construction, complete finite controls and error budgets are
+reproduced by \texttt{model/lepton\_mass\_compiler} \cite{ophrepo}.
+
+\subsection{Complete calibrated quadratic spectrum}
+
+A separate reference action uses the explicitly calibrated common-scale
+Yukawa, gauge, scalar and optional Weinberg inputs. Its literal native
+Higgs tensors give a $45\times45$ fermion mass kernel. Keeping both
+momenta $\pm(0,0,1\,\mathrm{GeV})$ retains $180$ physical fermion
+modes and the full $360$-dimensional Nambu symbol. An analytic mass frame
+preserves every charge, helicity, colour, momentum and conjugate label,
+including the small neutral amplitudes. The quadratic dispersion obeys
+$E^2-|p|^2=m^2$ in this declared action.
+
+Differentiating the actual gauge-Higgs action gives tree coefficients
+approximately $80.8480001663$, $92.2264476377$ and
+$131.279873449\,\mathrm{GeV}$ for $W$, $Z$ and the scalar, with zero
+photon and gluon rest coefficients. A global total-occupation cap two
+on the $56$ boson modes has dimension $1653$ and preserves colour
+rotations. The complete boson instrument retains $375$ pointer/energy
+records, including $362$ zero-weight records. Both fermion and boson
+instruments retain their complementary outcomes and compensating
+references for the symmetries preserved by the chosen Higgs background.
+
+The catalogue covers seventeen elementary target types, complete
+antiparticle and mode multiplicities, and separately calibrated composite
+controls. The quark coefficients are supplied running parameters,
+the boson coefficients are tree-action quantities, and the optional
+neutrino input has its own scale-matching obligations. These conventions
+are not merged with the lepton compiler's free mass coefficients or the
+quenched hadron fits. Extra sterile, valley, complementary and response
+modes are classified as source modes, without declaring undiscovered
+particles. The complete finite construction and input ancestry are
+reproduced by \texttt{model/conditional\_particle\_spectrum}
+\cite{ophrepo}.
+
+\subsection{A neutral scalar occupation pole}
+
+On the full thirty-mode local source, let $N$ be the capped scalar
+occupation and write the unit-coupling Hamiltonian as $H=V+N$.
+The literal operators obey
+\[
+ N^2=N,\qquad \{2N-I,V\}=0,\qquad H^2-H=V^2,\qquad [N,V^2]=0.
+\]
+Let $\lambda$ be the $V^2$ eigenvalue selected by the exact ground
+projector and put $\Delta=\sqrt{1+4\lambda}$. The two energies in that
+invariant pair are $(1\pm\Delta)/2$. The scalar occupation has ground
+mean $n=(1-\Delta^{-1})/2$ and connected variance
+$w=n(1-n)=\lambda/(1+4\lambda)$. Its retarded response is exactly
+\[
+ D_N(z)=\frac{2\Delta w}{z^2-\Delta^2},\qquad
+ D_q(z)=\frac1{z^2-\Delta^2},\quad
+ q=\frac{N-n}{\sqrt{2\Delta w}}.
+\]
+The positive pole is approximately $23.4611705885$ source units.
+The elementary charged scalar field has a different response. The
+neutral operator here is constructed from the capped fields themselves:
+$\sum_k\{\phi_k^\dagger,\phi_k\}=4I-3N$.
+
+An occupation measurement followed by complete energy measurement has
+probabilities $n^2,w$ for occupied records at energy transfers $0,\Delta$
+relative to the initial ground, and
+$(1-n)^2,w$ for blank records. Each occupation also retains its exact
+zero-weight outside-pair outcome. These six records sum to one; the
+measurement supplies mean work $2\Delta w$. This is a local scalar
+response pole without a spatial propagation or physical Higgs
+identification. Exact algebraic intervals and the complete instrument
+are reproduced by \texttt{model/native\_scalar\_density\_pole}
+\cite{ophrepo}.
+
+\subsection{Pion operators and calibrated composite energies}
+
+The retained quenched Wilson calculation has degenerate light quarks
+and no electromagnetic field. Normalized pseudoscalar flavour
+matrices $M_+=|u\rangle\langle d|$,
+$M_- = |d\rangle\langle u|$ and
+$M_0=(|u\rangle\langle u|-|d\rangle\langle d|)/\sqrt2$
+have charges $+1,-1,0$ under $[Q,M]$, with
+$Q=\operatorname{diag}(2/3,-1/3)$. Identical light-quark propagators give
+connected contraction $\operatorname{Tr}(M_a^\dagger M_b)C(t)
+=\delta_{ab}C(t)$. The neutral disconnected contraction cancels because
+$\operatorname{Tr}M_0=0$. Thus this source supplies one isospin-degenerate
+pseudoscalar decay energy for the three pion charge labels.
+
+The archived fit tunes the light-quark point using the supplied ratio
+$c=m_\pi/m_\rho=0.1780$. Choosing the empirical rho anchor
+$R=0.77526\,\mathrm{GeV}$ then gives
+\[
+ a^{-1}=\frac{R}{a m_\rho},\qquad
+ m_\pi=cR=0.13799628\,\mathrm{GeV},\qquad
+ m_N=R\frac{a m_N}{a m_\rho}.
+\]
+The pion value is fixed by these two inputs. Its conditional fit variance
+vanishes by shared-scale cancellation, without implying zero physical
+uncertainty. The independently computed nucleon ratio gives approximately
+$1.1275\,\mathrm{GeV}$, with paired-stream statistical and fit-sensitivity
+errors retained. An alternative conventional string scale
+$\sqrt\sigma=0.44\,\mathrm{GeV}$ gives approximately
+$0.1054020\,\mathrm{GeV}$ for the degenerate pion. Both conversions are
+reported, exposing their scale disagreement.
+
+The complete four-kappa table includes the unresolved lightest nucleon
+estimate. This calculation replays reduced correlator and Wilson-loop
+tables on $12^3\times24$ at $\beta=5.7$; the raw gauge configurations
+are absent. Quark loops, electromagnetic and light-quark splitting,
+finite-volume and continuum control, and transfer to the native observer
+source and clock are independent physical obligations. The flavour
+identities, full fit replay and conditional conversions are reproduced
+by \texttt{model/pion\_mass\_readout} \cite{ophrepo}.

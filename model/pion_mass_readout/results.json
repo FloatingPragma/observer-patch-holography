@@ -1,0 +1,329 @@
+{
+  "all_checks_pass": true,
+  "archive_scope": "reduced correlator and Wilson-loop jackknife tables; raw gauge configurations absent",
+  "calibrations": {
+    "anchor_and_model_uncertainty_GeV": null,
+    "conditional_inverse_spacing_GeV": {
+      "rho": 1.4110788768175944,
+      "string": 1.0777865677131822
+    },
+    "fit_sensitivity_domain": "finite fit-choice envelope, not a confidence interval or a discretization bound",
+    "pion_rho_anchor_zero_error_reason": "ratio and rho mass are fixed calibration inputs; no total physical uncertainty assigned",
+    "rho_anchor": {
+      "nucleon": {
+        "fit_sensitivity_GeV": 0.09269473041053353,
+        "statistical_GeV": 0.0259907840593193,
+        "value_GeV": 1.1274994271438572
+      },
+      "pion": {
+        "fit_sensitivity_GeV": 0.0,
+        "statistical_GeV": 0.0,
+        "value_GeV": 0.13799627999999997
+      },
+      "rho": {
+        "fit_sensitivity_GeV": 0.0,
+        "statistical_GeV": 0.0,
+        "value_GeV": 0.77526
+      }
+    },
+    "statistical_domain": "paired delete-one-gauge-stream jackknife of the retained fit chain",
+    "string_anchor": {
+      "nucleon": {
+        "fit_sensitivity_GeV": 0.07609178413687845,
+        "statistical_GeV": 0.017690230626028217,
+        "value_GeV": 0.8611876753627022
+      },
+      "pion": {
+        "fit_sensitivity_GeV": 0.009553064031875011,
+        "statistical_GeV": 0.0013273009102914945,
+        "value_GeV": 0.10540200085328977
+      },
+      "rho": {
+        "fit_sensitivity_GeV": 0.053668899055477594,
+        "statistical_GeV": 0.007456746687030869,
+        "value_GeV": 0.5921460722094931
+      }
+    }
+  },
+  "checks": {
+    "both_scale_choices_exposed": true,
+    "isospin_and_charge": true,
+    "neutral_disconnected_cancellation": true,
+    "orthonormal_triplet": true,
+    "ratio_input_unchanged": true,
+    "retained_all_four_kappas": true,
+    "rho_anchor_pion_is_calibration": true,
+    "upstream_pass": true
+  },
+  "detector_scope": "archived correlator fits; no additional complete native observer instrument is claimed",
+  "empirical_inputs": {
+    "alternative_sqrt_sigma_GeV": 0.44,
+    "light_quark_tuning_mpi_over_mrho": 0.178,
+    "physical_point_kappa": [
+      0.16899427221040478,
+      5.935378464566601e-05
+    ],
+    "rho_anchor_GeV": 0.77526
+  },
+  "flavour_operators": {
+    "all_traces_zero": true,
+    "charged_conjugates_equal": true,
+    "connected_correlator": "delta_ab C(t), for identical u,d propagators",
+    "disconnected_neutral": "zero: Tr_flavour(M_zero)=0 with identical u,d propagators",
+    "electric_charges": [
+      1,
+      0,
+      -1
+    ],
+    "exact_domain": "degenerate u,d Wilson operator, no electromagnetic field",
+    "gram": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.9999999999999998,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "max_charge_and_isospin_residual": 2.220446049250313e-16,
+    "valence_order": [
+      "u anti-d",
+      "(u anti-u - d anti-d)/sqrt(2)",
+      "d anti-u"
+    ]
+  },
+  "lattice_mass_rows": [
+    {
+      "kappa": 0.16,
+      "mN_over_mrho": [
+        1.6111818182648174,
+        0.008768008757019753,
+        0.007968509272341162
+      ],
+      "mass_nucleon": [
+        1.3064593781697948,
+        0.009137329643556477,
+        0.007850507218094105
+      ],
+      "mass_pion": [
+        0.6896932470332999,
+        0.0017512559670800046,
+        0.0007854295730038707
+      ],
+      "mass_rho": [
+        0.8108702341097684,
+        0.0026201520846435584,
+        0.0008664350720728464
+      ],
+      "mpi_over_mrho": [
+        0.8505593349230468,
+        0.001846779942603884,
+        0.00012742501040829968
+      ]
+    },
+    {
+      "kappa": 0.165,
+      "mN_over_mrho": [
+        1.5500220040946162,
+        0.017141970012307904,
+        0.025628336992713052
+      ],
+      "mass_nucleon": [
+        1.026968554812334,
+        0.01173066613210453,
+        0.015909134504246136
+      ],
+      "mass_pion": [
+        0.4583984452809493,
+        0.002128689669154029,
+        0.0004288672446839392
+      ],
+      "mass_rho": [
+        0.6625509522441888,
+        0.004035648144986987,
+        0.0014771781111091453
+      ],
+      "mpi_over_mrho": [
+        0.6918689705723986,
+        0.004066421217190402,
+        0.0013794598064711394
+      ]
+    },
+    {
+      "kappa": 0.1663,
+      "mN_over_mrho": [
+        1.502017433044852,
+        0.026368111810119454,
+        0.043758661992625125
+      ],
+      "mass_nucleon": [
+        0.935833176187354,
+        0.01589628675034913,
+        0.02507274635077761
+      ],
+      "mass_pion": [
+        0.38094708181037107,
+        0.003364293975454835,
+        0.0003777770210856568
+      ],
+      "mass_rho": [
+        0.6230508085983106,
+        0.006427956896182039,
+        0.002388501015589517
+      ],
+      "mpi_over_mrho": [
+        0.6114221770571088,
+        0.006775185752091828,
+        0.002075845660382103
+      ]
+    },
+    {
+      "kappa": 0.1675,
+      "mN_over_mrho": [
+        0.8915849619361129,
+        0.37630864972441413,
+        0.21091456122396912
+      ],
+      "mass_nucleon": [
+        0.518599089504767,
+        0.21797129052393258,
+        0.13343877872545573
+      ],
+      "mass_pion": [
+        0.23173165110110394,
+        0.032207956515862196,
+        0.0007323939486882369
+      ],
+      "mass_rho": [
+        0.5816597538596973,
+        0.018831106494293412,
+        0.01580539854126184
+      ],
+      "mpi_over_mrho": [
+        0.39839725812798826,
+        0.05408326781506656,
+        0.009833685013591886
+      ]
+    }
+  ],
+  "particles": [
+    {
+      "electric_charge": 1,
+      "experimental_reference": {
+        "source": "https://pdg.lbl.gov/2025/listings/rpp2025-list-pi-plus-minus.pdf",
+        "uncertainty_GeV": 1.8e-07,
+        "value_GeV": 0.13957039
+      },
+      "particle": "pi+",
+      "physical_source_derived_mass_GeV": null,
+      "rho_anchor": {
+        "fit_sensitivity_GeV": 0.0,
+        "statistical_GeV": 0.0,
+        "value_GeV": 0.13799627999999997
+      },
+      "source": "pseudoscalar Wilson quark-antiquark correlator",
+      "spin_parity": "0-",
+      "string_anchor": {
+        "fit_sensitivity_GeV": 0.009553064031875011,
+        "statistical_GeV": 0.0013273009102914945,
+        "value_GeV": 0.10540200085328977
+      },
+      "valence_operator": "u anti-d"
+    },
+    {
+      "electric_charge": 0,
+      "experimental_reference": {
+        "source": "https://pdgweb.lbl.gov/2025/listings/rpp2025-list-pi-zero.pdf",
+        "uncertainty_GeV": 5e-07,
+        "value_GeV": 0.1349768
+      },
+      "particle": "pi0",
+      "physical_source_derived_mass_GeV": null,
+      "rho_anchor": {
+        "fit_sensitivity_GeV": 0.0,
+        "statistical_GeV": 0.0,
+        "value_GeV": 0.13799627999999997
+      },
+      "source": "pseudoscalar Wilson quark-antiquark correlator",
+      "spin_parity": "0-",
+      "string_anchor": {
+        "fit_sensitivity_GeV": 0.009553064031875011,
+        "statistical_GeV": 0.0013273009102914945,
+        "value_GeV": 0.10540200085328977
+      },
+      "valence_operator": "(u anti-u - d anti-d)/sqrt(2)"
+    },
+    {
+      "electric_charge": -1,
+      "experimental_reference": {
+        "source": "https://pdg.lbl.gov/2025/listings/rpp2025-list-pi-plus-minus.pdf",
+        "uncertainty_GeV": 1.8e-07,
+        "value_GeV": 0.13957039
+      },
+      "particle": "pi-",
+      "physical_source_derived_mass_GeV": null,
+      "rho_anchor": {
+        "fit_sensitivity_GeV": 0.0,
+        "statistical_GeV": 0.0,
+        "value_GeV": 0.13799627999999997
+      },
+      "source": "pseudoscalar Wilson quark-antiquark correlator",
+      "spin_parity": "0-",
+      "string_anchor": {
+        "fit_sensitivity_GeV": 0.009553064031875011,
+        "statistical_GeV": 0.0013273009102914945,
+        "value_GeV": 0.10540200085328977
+      },
+      "valence_operator": "d anti-u"
+    }
+  ],
+  "physical_attachment_obligations": [
+    "quark loops",
+    "finite-volume control",
+    "continuum extrapolation",
+    "electromagnetic and up/down splitting",
+    "native observer/source/clock transfer"
+  ],
+  "pion_charged_neutral_splitting": {
+    "experimental_difference_GeV": 0.004593589999999981,
+    "missing_terms": [
+      "electromagnetism",
+      "nondegenerate up/down masses"
+    ],
+    "source_GeV": 0
+  },
+  "schema": "oph.pion_mass_readout.v1",
+  "scope": "conditional GeV conversion of archived quenched hadron fits",
+  "source_lattice": {
+    "beta": 5.7,
+    "configurations": 128,
+    "lattice": [
+      12,
+      12,
+      12,
+      24
+    ],
+    "streams": 32
+  },
+  "source_sha256": {
+    "model/pion_mass_readout/PROOF.md": "85e540d1ec7960f28d4849ea46e5501d8429da9869cd511ec8d6cfd8f77013f5",
+    "model/pion_mass_readout/readout.py": "211e838014c2ca3078c5c058d8117d26af1f9c54050c250b3c4762bc150267d0",
+    "model/pion_mass_readout/test_readout.py": "e2116f073d6567de8e33e32c13a20ff7df331e817d1ccfce9419c9b2b3590f3a",
+    "model/quenched_hadron_binding/analysis.py": "86696cbb3353018ede3fa4a40fc9c3f7e2b3b5b52e4728a5f824c720b68fcc9c",
+    "model/quenched_hadron_binding/lattice.py": "6cab5752d3d062c4ffac1f87c6cf2f5ddbf175d1cbf2aad5b4f0cc924f8bfe27",
+    "model/quenched_hadron_binding/literature.py": "47fa22e568428df8e6dd5779e8c34f3c08f61f82c9f2dfed7c31c9b92db9c238",
+    "model/quenched_hadron_binding/recorded_tables.json": "875fe1b1aebcbbefbac3a0a3661c1048060b483c553d7ba54738c97deaca3931",
+    "model/quenched_hadron_binding/results.json": "d4312caacac75c852987d3fbd844edf573b9446d7b638540727babadbaec02ed"
+  },
+  "unresolved_nucleon_kappas": [
+    0.1675
+  ]
+}

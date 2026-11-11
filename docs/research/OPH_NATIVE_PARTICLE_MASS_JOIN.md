@@ -758,8 +758,14 @@ record-zero bins to the unequal running quark masses through one GeV factor.
 
 With the measured electron as the sole scale anchor, the fixed lepton ratios
 give conditional values `m_mu=0.10565941450 GeV` and
-`m_tau=1.77698497081 GeV`. These are consequences of the effect-to-mass
-assignment; the source-to-rest-mass bridge is unproved. The calibrated
+`m_tau=1.77698497081 GeV`. The
+[lepton compiler](../../model/lepton_mass_compiler/PROOF.md) realizes the
+actual analyzer effect as a full-CAR pairing coefficient and proves a
+controlled free Dirac limit on the same specified pulse clock. It retains
+all reset outcomes and eight lattice valleys. The programmed phase,
+neutral background and fresh ancillary preparation are declared inputs;
+interacting Standard Model identification and physical clock matching are
+unproved. The calibrated
 quark, neutrino and boson action parameters retain their empirical inputs
 and conventions in the catalogue. They are not source-derived observer
 rest masses.
@@ -769,3 +775,45 @@ response: 36 success-energy records, four failures and four zero outside
 outcomes. Its minimum success gap is enclosed near `0.089555330476` source
 units. This local gapped spectrum coexists with the elementary neutral
 contact nullspace; it is not identified with an observed neutrino mass.
+
+The [coupled sterile construction](../../model/neutrino_mass_response/PROOF.md)
+adds a literal invariant Higgs-lepton-singlet interaction. Its complete
+1280-state lepton control has neutral response gaps 1 and 5 on its actual
+ground, with active and sterile addition/removal weights retained. A
+Majorana alternative has its own recomputed ground and spectrum. Neither
+control is the full all-unit quark/lepton ground. The tau antineutrino is an
+active flavour readout, distinct from a sterile right-handed field.
+
+The [neutral scalar occupation](../../model/native_scalar_density_pole/PROOF.md)
+has an exact connected pole near `23.4611705885` source units and six
+complete occupation/energy records. This local neutral response is
+distinct from the charged elementary scalar response and has no physical
+Higgs identification.
+
+The [charge-sensitive quark controls](../../model/quark_flavour_resolution/PROOF.md)
+split complete propagator poles with equal primitive pairing vertices.
+The polarization memory gives exact selfenergy `q^2/(w-1)` and leaves all
+900 anomalous contacts unchanged. Its lower up/down pole ratio fails the
+fixed running-mass comparison. The separate
+[Gauss-law electric completion](../../model/quark_gauge_dressing/PROOF.md)
+gives a positive shift `(26/217)Y^2`, retaining every source residue.
+These mechanisms remove exact equality in their declared extensions
+without supplying the observed quark hierarchy.
+
+For composites, the [pion conversion](../../model/pion_mass_readout/PROOF.md)
+replays the archived quenched correlator fit. A supplied rho anchor and
+pion/rho tuning ratio give the degenerate triplet `0.13799628 GeV`;
+the alternative conventional string scale gives `0.10540200085 GeV`.
+The observed charged-neutral split requires electromagnetic and
+nondegenerate light-quark terms. The native observer/source/clock transfer
+and controlled physical limit are independent obligations.
+
+The [complete quadratic catalogue](../../model/conditional_particle_spectrum/PROOF.md)
+constructs all seventeen elementary target types from a separate explicitly
+calibrated native action. Its exact mass frame retains every charge, colour,
+helicity, momentum and conjugate mode. The complete fermion and capped
+boson readouts expose the supplied coefficients, including optional neutrino
+inputs and the W/Z/Higgs Hessians. Running action parameters, free compiled
+lepton masses and quenched composite energies have distinct source and
+comparison conventions. Extra sterile, valley and complementary modes
+are source candidates, without an observed-particle assignment.

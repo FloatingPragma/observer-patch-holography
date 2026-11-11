@@ -37,13 +37,13 @@ The full assumption inventory covers the canonical premise register, the joint f
 
 A mathematically consistent finite construction requires an actual common realization of its premises. Physical completeness additionally requires the shared interacting spectrum, clocks, gravity, observation/intervention laws and appropriate independent tests. Public communication must state which of these contracts the evidence satisfies.
 
-First batch: [WQ-05](#work-wq-05), [WQ-09](#work-wq-09), [WQ-20](#work-wq-20), [WQ-16](#work-wq-16).
+First batch: [WQ-09](#work-wq-09), [WQ-20](#work-wq-20), [WQ-16](#work-wq-16).
 
 | Task | Bounded result | Owner | Status | Prerequisites |
 | --- | --- | --- | --- | --- |
 | [WQ-01](#work-wq-01) | Account for every consumed premise and architectural input | CP-12 / [#1148](https://github.com/FloatingPragma/observer-patch-holography/issues/1148) | completed: positive | none |
 | [WQ-04](#work-wq-04) | Freeze a no-fit lepton comparison and residual budget | CP-07 / [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143) | completed: positive | none |
-| [WQ-05](#work-wq-05) | Certify the lepton coefficient bridge and its physical boundary | CP-07 / [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143) | ready | none |
+| [WQ-05](#work-wq-05) | Certify the lepton coefficient bridge and its physical boundary | CP-07 / [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143) | completed: positive | none |
 | [WQ-07](#work-wq-07) | Audit shared-reference covariance in the electroweak temperature | CP-11 / [#1147](https://github.com/FloatingPragma/observer-patch-holography/issues/1147) | completed: positive | none |
 | [WQ-21](#work-wq-21) | Calibrate native quark spectral bins and test the mass dictionary | CP-06 / [#1142](https://github.com/FloatingPragma/observer-patch-holography/issues/1142) | completed: negative | [WQ-01](#work-wq-01) |
 | [WQ-08](#work-wq-08) | Determine what the class census can say about species abundances | CP-05 / [#1141](https://github.com/FloatingPragma/observer-patch-holography/issues/1141) | completed: positive | none |
@@ -167,7 +167,7 @@ Both ratios replay and changing comparison targets leaves model outputs unchange
 <a id="work-wq-05"></a>
 ### WQ-05: Certify the lepton coefficient bridge and its physical boundary
 
-Owner: CP-07 / [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143). Status: `ready`.
+Owner: CP-07 / [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143). Status: `completed: positive`.
 
 An exact coefficient bridge does not establish a physical energy generator, pole mass, Lorentz kinematics or absolute unit.
 
@@ -191,22 +191,32 @@ Canonical premise references: PR-22, PR-50, PR-71.
 
 **Bounded outputs**
 
-- `model/lepton_cycle/mass_assignment.py`: Exact coefficient/frame intertwiner with physical-admission checks.
-- `model/lepton_cycle/mass_assignment_results.json`: Literal coefficient identity, normalization controls and remaining physical joins.
+- `model/lepton_mass_compiler/family_map.py`: Independent configured-action polynomial and literal native-effect Fourier intertwiner, including all normalization controls.
+- `model/lepton_mass_compiler/results.json`: Exact family map and explicit source/state/kinetic/reference/clock/physical admission table; compiled free-field witness.
 
 **Validation**
 
 ```sh
-python3 -m pytest -q model/lepton_cycle
+VECLIB_MAXIMUM_THREADS=1 python3 -m pytest -q model/lepton_mass_compiler
 ```
 
-Positive map and deliberately mismatched source/clock controls are distinguished.
+All9 independent operator, archive, mass-readout and family-map controls pass.
+
+```sh
+VECLIB_MAXIMUM_THREADS=1 python3 -m model.lepton_mass_compiler --check
+```
+
+Fresh full source reconstruction reproduces the complete receipt.
 
 **Task closure**
 
 - Pass: The literal coefficient bridge is proved with exact normalization and frame controls; every unmatched physical premise is explicit.
 - Fail: An exact coefficient or representation counterexample refutes the proposed bridge; defining source energy by the desired formula is invalid methodology, not a bridge.
 - Inconclusive: Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted.
+
+**Bounded completion evidence**
+
+- [model/lepton_mass_compiler/results.json](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_mass_compiler/results.json): The independent configured coefficient satisfies F E_native F-dagger=C_ex-dagger C_ex/3 with the exact5/4 preparation factor and geometric family frame. Extra squaring, pair substitution, active normalization and wrong Fourier orientation are rejected. The separately declared full-CAR compiler gives a controlled free rest-mass readout, with physical Standard Model, clock, Higgs vacuum and mirror conditions explicit. Independent check: [model/lepton_mass_compiler/test_compiler.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_mass_compiler/test_compiler.py).
 
 <a id="work-wq-07"></a>
 ### WQ-07: Audit shared-reference covariance in the electroweak temperature
@@ -1861,6 +1871,14 @@ Retained starting evidence:
 - [ground.py](../model/particle_spatial_ground_state/ground.py)
 - [PROOF.md](../model/particle_spatial_ground_state/PROOF.md)
 - [GapFreeCooling.lean](../Lean/Thermodynamics/GapFreeCooling.lean)
+- [PROOF.md](../model/finite_observer_readout_closure/PROOF.md)
+- [results.json](../model/finite_observer_readout_closure/results.json)
+- [PROOF.md](../model/finite_observable_closures/PROOF.md)
+- [results.json](../model/finite_observable_closures/results.json)
+- [PROOF.md](../model/finite_current_readout_closure/PROOF.md)
+- [results.json](../model/finite_current_readout_closure/results.json)
+- [PROOF.md](../model/observable_score_bridge/PROOF.md)
+- [results.json](../model/observable_score_bridge/results.json)
 
 Current component progress (not gate acceptance):
 
@@ -2421,6 +2439,10 @@ Retained starting evidence:
 - [POSITIVE_ENERGY.md](../model/particle_joint_reconstruction/POSITIVE_ENERGY.md)
 - [positive_energy.py](../model/particle_joint_reconstruction/positive_energy.py)
 - [test_positive_energy.py](../model/particle_joint_reconstruction/test_positive_energy.py)
+- [PROOF.md](../model/finite_observable_closures/PROOF.md)
+- [results.json](../model/finite_observable_closures/results.json)
+- [PROOF.md](../model/finite_current_readout_closure/PROOF.md)
+- [results.json](../model/finite_current_readout_closure/results.json)
 
 Current component progress (not gate acceptance):
 
@@ -2673,6 +2695,67 @@ Retained starting evidence:
 - [results.json](../model/defect_dispersion/results.json)
 - [PROOF.md](../model/defect_mass_catalogue/PROOF.md)
 - [results.json](../model/defect_mass_catalogue/results.json)
+- [PROOF.md](../model/lepton_mass_compiler/PROOF.md)
+- [README.md](../model/lepton_mass_compiler/README.md)
+- [__init__.py](../model/lepton_mass_compiler/__init__.py)
+- [__main__.py](../model/lepton_mass_compiler/__main__.py)
+- [analyzer.py](../model/lepton_mass_compiler/analyzer.py)
+- [compiler.py](../model/lepton_mass_compiler/compiler.py)
+- [family_map.py](../model/lepton_mass_compiler/family_map.py)
+- [packet.py](../model/lepton_mass_compiler/packet.py)
+- [results.json](../model/lepton_mass_compiler/results.json)
+- [test_compiler.py](../model/lepton_mass_compiler/test_compiler.py)
+- [PROOF.md](../model/quark_flavour_resolution/PROOF.md)
+- [README.md](../model/quark_flavour_resolution/README.md)
+- [__init__.py](../model/quark_flavour_resolution/__init__.py)
+- [__main__.py](../model/quark_flavour_resolution/__main__.py)
+- [resolution.py](../model/quark_flavour_resolution/resolution.py)
+- [results.json](../model/quark_flavour_resolution/results.json)
+- [symmetry.py](../model/quark_flavour_resolution/symmetry.py)
+- [test_resolution.py](../model/quark_flavour_resolution/test_resolution.py)
+- [PROOF.md](../model/quark_gauge_dressing/PROOF.md)
+- [README.md](../model/quark_gauge_dressing/README.md)
+- [__init__.py](../model/quark_gauge_dressing/__init__.py)
+- [__main__.py](../model/quark_gauge_dressing/__main__.py)
+- [dressing.py](../model/quark_gauge_dressing/dressing.py)
+- [results.json](../model/quark_gauge_dressing/results.json)
+- [symmetry.py](../model/quark_gauge_dressing/symmetry.py)
+- [test_dressing.py](../model/quark_gauge_dressing/test_dressing.py)
+- [PROOF.md](../model/native_scalar_density_pole/PROOF.md)
+- [README.md](../model/native_scalar_density_pole/README.md)
+- [__init__.py](../model/native_scalar_density_pole/__init__.py)
+- [pole.py](../model/native_scalar_density_pole/pole.py)
+- [results.json](../model/native_scalar_density_pole/results.json)
+- [test_pole.py](../model/native_scalar_density_pole/test_pole.py)
+- [PROOF.md](../model/neutrino_mass_response/PROOF.md)
+- [README.md](../model/neutrino_mass_response/README.md)
+- [__init__.py](../model/neutrino_mass_response/__init__.py)
+- [__main__.py](../model/neutrino_mass_response/__main__.py)
+- [comparison.py](../model/neutrino_mass_response/comparison.py)
+- [neutral.py](../model/neutrino_mass_response/neutral.py)
+- [packet.py](../model/neutrino_mass_response/packet.py)
+- [results.json](../model/neutrino_mass_response/results.json)
+- [self_energy.py](../model/neutrino_mass_response/self_energy.py)
+- [sterile.py](../model/neutrino_mass_response/sterile.py)
+- [sterile_records.py](../model/neutrino_mass_response/sterile_records.py)
+- [test_response.py](../model/neutrino_mass_response/test_response.py)
+- [transport.py](../model/neutrino_mass_response/transport.py)
+- [PROOF.md](../model/conditional_particle_spectrum/PROOF.md)
+- [README.md](../model/conditional_particle_spectrum/README.md)
+- [__init__.py](../model/conditional_particle_spectrum/__init__.py)
+- [__main__.py](../model/conditional_particle_spectrum/__main__.py)
+- [packet.py](../model/conditional_particle_spectrum/packet.py)
+- [readout.py](../model/conditional_particle_spectrum/readout.py)
+- [results.json](../model/conditional_particle_spectrum/results.json)
+- [source.py](../model/conditional_particle_spectrum/source.py)
+- [test_spectrum.py](../model/conditional_particle_spectrum/test_spectrum.py)
+- [PROOF.md](../model/pion_mass_readout/PROOF.md)
+- [README.md](../model/pion_mass_readout/README.md)
+- [__init__.py](../model/pion_mass_readout/__init__.py)
+- [__main__.py](../model/pion_mass_readout/__main__.py)
+- [readout.py](../model/pion_mass_readout/readout.py)
+- [results.json](../model/pion_mass_readout/results.json)
+- [test_readout.py](../model/pion_mass_readout/test_readout.py)
 
 Current component progress (not gate acceptance):
 
@@ -3043,6 +3126,67 @@ Retained starting evidence:
 - [PROOF.md](../model/particle_candidate_endpoint_threshold/PROOF.md)
 - [PROOF.md](../model/particle_candidate_neutral_dispersion/PROOF.md)
 - [PROOF.md](../model/particle_candidate_scalar_spectrum/PROOF.md)
+- [PROOF.md](../model/lepton_mass_compiler/PROOF.md)
+- [README.md](../model/lepton_mass_compiler/README.md)
+- [__init__.py](../model/lepton_mass_compiler/__init__.py)
+- [__main__.py](../model/lepton_mass_compiler/__main__.py)
+- [analyzer.py](../model/lepton_mass_compiler/analyzer.py)
+- [compiler.py](../model/lepton_mass_compiler/compiler.py)
+- [family_map.py](../model/lepton_mass_compiler/family_map.py)
+- [packet.py](../model/lepton_mass_compiler/packet.py)
+- [results.json](../model/lepton_mass_compiler/results.json)
+- [test_compiler.py](../model/lepton_mass_compiler/test_compiler.py)
+- [PROOF.md](../model/quark_flavour_resolution/PROOF.md)
+- [README.md](../model/quark_flavour_resolution/README.md)
+- [__init__.py](../model/quark_flavour_resolution/__init__.py)
+- [__main__.py](../model/quark_flavour_resolution/__main__.py)
+- [resolution.py](../model/quark_flavour_resolution/resolution.py)
+- [results.json](../model/quark_flavour_resolution/results.json)
+- [symmetry.py](../model/quark_flavour_resolution/symmetry.py)
+- [test_resolution.py](../model/quark_flavour_resolution/test_resolution.py)
+- [PROOF.md](../model/quark_gauge_dressing/PROOF.md)
+- [README.md](../model/quark_gauge_dressing/README.md)
+- [__init__.py](../model/quark_gauge_dressing/__init__.py)
+- [__main__.py](../model/quark_gauge_dressing/__main__.py)
+- [dressing.py](../model/quark_gauge_dressing/dressing.py)
+- [results.json](../model/quark_gauge_dressing/results.json)
+- [symmetry.py](../model/quark_gauge_dressing/symmetry.py)
+- [test_dressing.py](../model/quark_gauge_dressing/test_dressing.py)
+- [PROOF.md](../model/native_scalar_density_pole/PROOF.md)
+- [README.md](../model/native_scalar_density_pole/README.md)
+- [__init__.py](../model/native_scalar_density_pole/__init__.py)
+- [pole.py](../model/native_scalar_density_pole/pole.py)
+- [results.json](../model/native_scalar_density_pole/results.json)
+- [test_pole.py](../model/native_scalar_density_pole/test_pole.py)
+- [PROOF.md](../model/neutrino_mass_response/PROOF.md)
+- [README.md](../model/neutrino_mass_response/README.md)
+- [__init__.py](../model/neutrino_mass_response/__init__.py)
+- [__main__.py](../model/neutrino_mass_response/__main__.py)
+- [comparison.py](../model/neutrino_mass_response/comparison.py)
+- [neutral.py](../model/neutrino_mass_response/neutral.py)
+- [packet.py](../model/neutrino_mass_response/packet.py)
+- [results.json](../model/neutrino_mass_response/results.json)
+- [self_energy.py](../model/neutrino_mass_response/self_energy.py)
+- [sterile.py](../model/neutrino_mass_response/sterile.py)
+- [sterile_records.py](../model/neutrino_mass_response/sterile_records.py)
+- [test_response.py](../model/neutrino_mass_response/test_response.py)
+- [transport.py](../model/neutrino_mass_response/transport.py)
+- [PROOF.md](../model/conditional_particle_spectrum/PROOF.md)
+- [README.md](../model/conditional_particle_spectrum/README.md)
+- [__init__.py](../model/conditional_particle_spectrum/__init__.py)
+- [__main__.py](../model/conditional_particle_spectrum/__main__.py)
+- [packet.py](../model/conditional_particle_spectrum/packet.py)
+- [readout.py](../model/conditional_particle_spectrum/readout.py)
+- [results.json](../model/conditional_particle_spectrum/results.json)
+- [source.py](../model/conditional_particle_spectrum/source.py)
+- [test_spectrum.py](../model/conditional_particle_spectrum/test_spectrum.py)
+- [PROOF.md](../model/pion_mass_readout/PROOF.md)
+- [README.md](../model/pion_mass_readout/README.md)
+- [__init__.py](../model/pion_mass_readout/__init__.py)
+- [__main__.py](../model/pion_mass_readout/__main__.py)
+- [readout.py](../model/pion_mass_readout/readout.py)
+- [results.json](../model/pion_mass_readout/results.json)
+- [test_readout.py](../model/pion_mass_readout/test_readout.py)
 
 Current component progress (not gate acceptance):
 

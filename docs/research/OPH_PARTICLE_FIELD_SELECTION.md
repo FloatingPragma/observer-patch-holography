@@ -621,3 +621,12 @@ With continuous links declared on the seams, the colour links give first-order
 [quenched quark binding](../../model/quenched_hadron_binding/README.md). None of
 these comparisons is blind. The sector law behind the electroweak scale
 ([seam class balance](../../model/seam_class_balance/README.md)) is open.
+
+The [pion readout](../../model/pion_mass_readout/PROOF.md) carries the
+quenched pseudoscalar correlator into its three isospin charge labels.
+Degenerate light quarks without electromagnetism give equal pion energies.
+The supplied ratio `m_pi/m_rho=0.1780` and rho anchor `0.77526 GeV` give
+`0.13799628 GeV` for all three pions; the alternative conventional string
+scale gives `0.10540200085 GeV`. These are conditional calibrations with
+distinct scale choices. The observed charged-neutral split, quark loops,
+physical-limit control and native source/clock transfer are unproved.

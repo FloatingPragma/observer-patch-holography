@@ -1,0 +1,181 @@
+{
+  "all_checks_pass": true,
+  "all_eight_require_the_stated_finite_scope": true,
+  "baseline": {
+    "completed": 50,
+    "completed_percent": 21.27659574468085,
+    "status_counts": {
+      "computation": 17,
+      "conditional": 75,
+      "diagnostic": 23,
+      "exectheorem": 12,
+      "frozen": 8,
+      "open": 53,
+      "premise": 1,
+      "rejected": 8,
+      "theorem": 38
+    },
+    "total": 235
+  },
+  "calibrated_particle_mass_promotions": [],
+  "new_empirical_observations": 0,
+  "physical_completion_gates_accepted": [],
+  "proposed": {
+    "completed": 58,
+    "completed_percent": 24.680851063829788,
+    "completion_percentage_point_change": 3.404255319148936,
+    "status_counts": {
+      "computation": 9,
+      "conditional": 75,
+      "diagnostic": 23,
+      "exectheorem": 20,
+      "frozen": 8,
+      "open": 53,
+      "premise": 1,
+      "rejected": 8,
+      "theorem": 38
+    },
+    "total": 235
+  },
+  "schema": "oph.observable_score_bridge.v1",
+  "source_bindings": {
+    "model/finite_current_readout_closure/results.json": "321ff77a77212e0e75bd16b816ec15a351fbe7394af95eb78f37fb51ac6bdb74",
+    "model/finite_observable_closures/results.json": "de008993dfaffc879f5cf75b0edf47f606c7c219433894f4a314b8233374281f",
+    "model/finite_observer_readout_closure/results.json": "c973faea017099a82c990a26184e1fea4c783ed7bae31f88b8ed615e9f0fe497",
+    "model/observable_score_bridge/PROOF.md": "f2d1ceedbb2d7e40e4789abe7cdb6e7ed2b6e1e530916bdc870883a76b2ecd9e",
+    "model/observable_score_bridge/bridge.py": "8718734a3bfb7ef57c91d4484607cf6858fdfe09bf27d268da4b8af8b41989a3",
+    "model/observable_score_bridge/dashboard_inputs.json": "19a935a193117c4776a7fa56fc74628a7468c887874356162d26cf9c2f03ffc5",
+    "model/observable_score_bridge/test_bridge.py": "6c8261fc83b31d3291198a3b0e7cf3b7894d0b13744accd164210c2187157be7"
+  },
+  "source_url": "https://status.floatingpragma.ai/",
+  "updates": [
+    {
+      "evidence": [
+        "model/finite_observer_readout_closure/PROOF.md",
+        "model/finite_observer_readout_closure/results.json"
+      ],
+      "from_status": "computation",
+      "id": "exec-modular-phase",
+      "physical_premise_promotions": [],
+      "receipt_section": "periodic_Y",
+      "scope": "finite declared quantum instrument; ideal phase target and finite timeout envelope",
+      "status": "exectheorem",
+      "status_label": "Theorem + executed",
+      "summary": "The full 66-state stopped source and complete Y detector give the declared modular-intervention curve. Finite original records at caps 4, 32, 128 retain both herald signs, preparation failure and timeout; tail is bounded by (5/33)(13/15)^h.",
+      "value": "omega=log(5/4); amplitudes 1/140 (C), 1/220 (E)",
+      "why": "The full 66-state stopped source and complete Y detector give the declared modular-intervention curve. Finite original records at caps 4, 32, 128 retain both herald signs, preparation failure and timeout; tail is bounded by (5/33)(13/15)^h. finite declared quantum instrument; ideal phase target and finite timeout envelope"
+    },
+    {
+      "evidence": [
+        "model/finite_observer_readout_closure/PROOF.md",
+        "model/finite_observer_readout_closure/results.json"
+      ],
+      "from_status": "computation",
+      "id": "exec-joint-clocks",
+      "physical_premise_promotions": [],
+      "receipt_section": "joint_event_clocks",
+      "scope": "finite stochastic clock comparison with complete conditional quantum outputs",
+      "status": "exectheorem",
+      "status_label": "Theorem + executed",
+      "summary": "Exact equality on all 16 work-operator coordinates binds the count-generating instruments to complete native histories and reference feedback. Mean relative count 2 and variance 16 coexist with field-plus probabilities 35/54 and 14/27.",
+      "why": "Exact equality on all 16 work-operator coordinates binds the count-generating instruments to complete native histories and reference feedback. Mean relative count 2 and variance 16 coexist with field-plus probabilities 35/54 and 14/27. finite stochastic clock comparison with complete conditional quantum outputs"
+    },
+    {
+      "evidence": [
+        "model/finite_observer_readout_closure/PROOF.md",
+        "model/finite_observer_readout_closure/results.json"
+      ],
+      "from_status": "computation",
+      "id": "exec-temporal-hilbert",
+      "physical_premise_promotions": [],
+      "receipt_section": "unused_lag_correlations",
+      "scope": "finite native-law reconstruction with an exact all-lag inclusion witness",
+      "status": "exectheorem",
+      "status_label": "Theorem + executed",
+      "summary": "The literal 66-by-7 inclusion satisfies KC=CR and C^T M C=G>0. The source annihilator proves the recurrence for every lag; independent source powers verify lags 15 through 32.",
+      "why": "The literal 66-by-7 inclusion satisfies KC=CR and C^T M C=G>0. The source annihilator proves the recurrence for every lag; independent source powers verify lags 15 through 32. finite native-law reconstruction with an exact all-lag inclusion witness"
+    },
+    {
+      "evidence": [
+        "model/finite_current_readout_closure/PROOF.md",
+        "model/finite_current_readout_closure/results.json"
+      ],
+      "from_status": "computation",
+      "id": "exec-axial-circulation",
+      "physical_premise_promotions": [],
+      "receipt_section": "axial_counter",
+      "scope": "Stationary preparation for exact finite covariance; every initial classical binary law for the functional limit. Scaled native count is neither physical position nor laboratory time.",
+      "status": "exectheorem",
+      "status_label": "Theorem + executed",
+      "summary": "Actual native currents have conditional axial mean zero and stationary covariance (4N/99) I3. All 32400 two-attempt words are retained. Exact four-step minorization 11/90000 gives bracket mean-square error at most min(1,1440000/(11N)); the verified martingale hypotheses imply the Brownian counter limit.",
+      "why": "Actual native currents have conditional axial mean zero and stationary covariance (4N/99) I3. All 32400 two-attempt words are retained. Exact four-step minorization 11/90000 gives bracket mean-square error at most min(1,1440000/(11N)); the verified martingale hypotheses imply the Brownian counter limit. Stationary preparation for exact finite covariance; every initial classical binary law for the functional limit. Scaled native count is neither physical position nor laboratory time."
+    },
+    {
+      "evidence": [
+        "model/finite_current_readout_closure/PROOF.md",
+        "model/finite_current_readout_closure/results.json"
+      ],
+      "from_status": "computation",
+      "id": "exec-integer-lift",
+      "name": "Integer lift identities of the face register",
+      "physical_premise_promotions": [],
+      "receipt_section": "integer_face_lift",
+      "required_wording_change": true,
+      "scope": "Promote the exact lift and Stokes identities only. The 99.7-percent census is not a theorem or a conserved particle hypercharge.",
+      "status": "exectheorem",
+      "status_label": "Theorem + executed",
+      "summary": "Kernel-checked integer incidence identities give m=B n, m mod6=class and zero total on each closed carrier. All 2592 native load/coin/class contexts and the 80-carrier, 200-sweep reference attach the theorem to accepted twists, rejected branches and consistent cuts. The large-run 99.7-percent census is an imported diagnostic.",
+      "value": "m mod6=class; total lift=0",
+      "why": "Exact incidence and accepted-twist identities attach integer lifts to the declared native source. The imported 99.7-percent population census is a separate diagnostic; no conserved physical hypercharge or particle identity is proved. Promote the exact lift and Stokes identities only. The 99.7-percent census is not a theorem or a conserved particle hypercharge."
+    },
+    {
+      "evidence": [
+        "model/finite_observable_closures/PROOF.md",
+        "model/finite_observable_closures/results.json"
+      ],
+      "from_status": "computation",
+      "id": "exec-coherent-screen",
+      "name": "Joint screen-reference interference under feedback",
+      "physical_premise_promotions": [],
+      "receipt_section": "rows/exec-coherent-screen",
+      "required_wording_change": true,
+      "scope": "Theorem and execution for the declared finite source, preparation, apparatus and retained timeout/error law; no physical identification or hardware accuracy claim.",
+      "status": "exectheorem",
+      "status_label": "Theorem + executed",
+      "summary": "The record-corrected joint screen-reference interference readout has completed P_C(+)=61/72 and P_E(+)=809/1089, difference 101/968. Both outcomes of all 21 capped words are retained. The untouched reference marginal is I2/2 for both laws.",
+      "value": "P_C(+)=61/72; P_E(+)=809/1089",
+      "why": "A joint screen-reference observable distinguishes the two declared feedback laws after record correction. The untouched reference marginal remains I2/2 under both laws and cannot distinguish them by itself. Theorem and execution for the declared finite source, preparation, apparatus and retained timeout/error law; no physical identification or hardware accuracy claim."
+    },
+    {
+      "evidence": [
+        "model/finite_observable_closures/PROOF.md",
+        "model/finite_observable_closures/results.json"
+      ],
+      "from_status": "computation",
+      "id": "exec-incident-fields",
+      "physical_premise_promotions": [],
+      "receipt_section": "rows/exec-incident-fields",
+      "scope": "Theorem and execution for the declared finite source, preparation, apparatus and retained timeout/error law; no physical identification or hardware accuracy claim.",
+      "status": "exectheorem",
+      "status_label": "Theorem + executed",
+      "summary": "The actual 240-port, 28680-state native transfer executes a cap-one four-read law with 124 original records per policy, including 60 timeout records. Integer numerators sum exactly to the common denominator; no rounded probability remainder is discarded. The longer-cap density and feedback comparisons retain their separate scope.",
+      "why": "The actual 240-port, 28680-state native transfer executes a cap-one four-read law with 124 original records per policy, including 60 timeout records. Integer numerators sum exactly to the common denominator; no rounded probability remainder is discarded. The longer-cap density and feedback comparisons retain their separate scope. Theorem and execution for the declared finite source, preparation, apparatus and retained timeout/error law; no physical identification or hardware accuracy claim."
+    },
+    {
+      "evidence": [
+        "model/finite_observable_closures/PROOF.md",
+        "model/finite_observable_closures/results.json"
+      ],
+      "from_status": "computation",
+      "id": "measurement",
+      "physical_premise_promotions": [],
+      "receipt_section": "rows/measurement",
+      "scope": "Theorem and execution for the declared finite source, preparation, apparatus and retained timeout/error law; no physical identification or hardware accuracy claim.",
+      "status": "exectheorem",
+      "status_label": "Theorem + executed",
+      "summary": "The freshly executed finite interacting source retains all 4 original terminal outcomes. Exact conversion of every binary host component and an independent rational Taylor enclosure certify complete half-trace error below 3e-7 and a nonzero unconditional feedback contrast, without branch renormalization.",
+      "why": "The freshly executed finite interacting source retains all 4 original terminal outcomes. Exact conversion of every binary host component and an independent rational Taylor enclosure certify complete half-trace error below 3e-7 and a nonzero unconditional feedback contrast, without branch renormalization. Theorem and execution for the declared finite source, preparation, apparatus and retained timeout/error law; no physical identification or hardware accuracy claim."
+    }
+  ],
+  "website_modified": false
+}

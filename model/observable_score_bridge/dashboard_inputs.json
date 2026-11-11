@@ -1,0 +1,1600 @@
+{
+  "source_url": "https://status.floatingpragma.ai/",
+  "source_javascript_asset": "https://status.floatingpragma.ai/assets/Ledger-DkEOCLDr.js",
+  "source_asset_sha256": "0916467c2f4c393c0ac7e215a443a5d532c85bc7912323765246fd85ef2233c7",
+  "count_rule": "kind != input and category != Foundations; completed iff status in {theorem,exectheorem}",
+  "observables": [
+    {
+      "id": "strings",
+      "name": "String theory as effective edge language",
+      "category": "Research Frontier",
+      "status": "open"
+    },
+    {
+      "id": "paradise",
+      "name": "The OPH 'paradise' and thinking patches",
+      "category": "Research Frontier",
+      "status": "conditional"
+    },
+    {
+      "id": "closure",
+      "name": "Closure: a universe that reads itself",
+      "category": "Research Frontier",
+      "status": "conditional"
+    },
+    {
+      "id": "born-rule",
+      "name": "The Born rule",
+      "category": "Quantum Mechanics",
+      "status": "conditional"
+    },
+    {
+      "id": "lueders",
+      "name": "State update (Lueders rule)",
+      "category": "Quantum Mechanics",
+      "status": "conditional"
+    },
+    {
+      "id": "tsirelson",
+      "name": "Tsirelson bound 2 sqrt 2",
+      "category": "Quantum Mechanics",
+      "status": "theorem"
+    },
+    {
+      "id": "bell",
+      "name": "Bell nonlocality in public records",
+      "category": "Quantum Mechanics",
+      "status": "diagnostic"
+    },
+    {
+      "id": "no-cloning",
+      "name": "No-cloning theorem",
+      "category": "Quantum Mechanics",
+      "status": "theorem"
+    },
+    {
+      "id": "uncertainty",
+      "name": "Robertson uncertainty relation",
+      "category": "Quantum Mechanics",
+      "status": "theorem"
+    },
+    {
+      "id": "superselection",
+      "name": "Superselection and partition pinching",
+      "category": "Quantum Mechanics",
+      "status": "theorem"
+    },
+    {
+      "id": "complex-hilbert",
+      "name": "Complex Hilbert space (phase lift)",
+      "category": "Quantum Mechanics",
+      "status": "conditional"
+    },
+    {
+      "id": "schroedinger",
+      "name": "Schroedinger evolution",
+      "category": "Quantum Mechanics",
+      "status": "conditional"
+    },
+    {
+      "id": "measurement",
+      "name": "Measurement inside an interacting process",
+      "category": "Quantum Mechanics",
+      "status": "computation"
+    },
+    {
+      "id": "decoherence",
+      "name": "Decoherence and classical records",
+      "category": "Quantum Mechanics",
+      "status": "theorem"
+    },
+    {
+      "id": "no-signalling",
+      "name": "No-signalling and locality",
+      "category": "Quantum Mechanics",
+      "status": "exectheorem"
+    },
+    {
+      "id": "instrument-test",
+      "name": "Coherence multiplier g: C vs E laws",
+      "category": "Quantum Mechanics",
+      "status": "frozen"
+    },
+    {
+      "id": "pauli",
+      "name": "Pauli matrices and spin-1/2 minimal coupling",
+      "category": "Quantum Mechanics",
+      "status": "theorem"
+    },
+    {
+      "id": "spin-statistics",
+      "name": "Spin-statistics connection",
+      "category": "Quantum Mechanics",
+      "status": "open"
+    },
+    {
+      "id": "3d-space",
+      "name": "Three spatial dimensions",
+      "category": "Spacetime",
+      "status": "exectheorem"
+    },
+    {
+      "id": "1+3",
+      "name": "1+3 Lorentzian signature",
+      "category": "Spacetime",
+      "status": "conditional"
+    },
+    {
+      "id": "lorentz",
+      "name": "Lorentz group SO+(3,1)",
+      "category": "Spacetime",
+      "status": "conditional"
+    },
+    {
+      "id": "speed-of-light",
+      "name": "Finite signal speed (light cone)",
+      "category": "Spacetime",
+      "status": "exectheorem"
+    },
+    {
+      "id": "causality",
+      "name": "Causal order",
+      "category": "Spacetime",
+      "status": "theorem"
+    },
+    {
+      "id": "proper-time",
+      "name": "Proper time from counting",
+      "category": "Spacetime",
+      "status": "theorem"
+    },
+    {
+      "id": "arrow-of-time",
+      "name": "Arrow of time",
+      "category": "Thermodynamics",
+      "status": "theorem"
+    },
+    {
+      "id": "clocks",
+      "name": "Clocks made of events",
+      "category": "Spacetime",
+      "status": "computation"
+    },
+    {
+      "id": "optical-clock",
+      "name": "Optical clock attachment test",
+      "category": "Spacetime",
+      "status": "rejected"
+    },
+    {
+      "id": "continuum",
+      "name": "Continuum field operator",
+      "category": "Spacetime",
+      "status": "theorem"
+    },
+    {
+      "id": "spectral-dim",
+      "name": "Spectral dimension two on the screen",
+      "category": "Spacetime",
+      "status": "conditional"
+    },
+    {
+      "id": "isotropy",
+      "name": "Isotropy of propagation to rank five",
+      "category": "Spacetime",
+      "status": "theorem"
+    },
+    {
+      "id": "spin6-anisotropy",
+      "name": "Propagation anisotropy at l = 6",
+      "category": "Spacetime",
+      "status": "frozen"
+    },
+    {
+      "id": "birefringence",
+      "name": "Vacuum birefringence null",
+      "category": "Spacetime",
+      "status": "open"
+    },
+    {
+      "id": "mass-shell",
+      "name": "Relativistic mass shell E^2 = m^2 + p^2",
+      "category": "Spacetime",
+      "status": "theorem"
+    },
+    {
+      "id": "e-mc2",
+      "name": "Mass-energy equivalence (E = mc^2)",
+      "category": "Spacetime",
+      "status": "conditional"
+    },
+    {
+      "id": "inverse-square",
+      "name": "Inverse-square law (Gauss shells)",
+      "category": "Spacetime",
+      "status": "theorem"
+    },
+    {
+      "id": "newton-mechanics",
+      "name": "Newtonian mechanics and Lagrangians",
+      "category": "Spacetime",
+      "status": "conditional"
+    },
+    {
+      "id": "forces-worldlines",
+      "name": "Force law along worldlines",
+      "category": "Spacetime",
+      "status": "theorem"
+    },
+    {
+      "id": "momentum",
+      "name": "Momentum conservation and covariance",
+      "category": "Spacetime",
+      "status": "conditional"
+    },
+    {
+      "id": "noether",
+      "name": "Conservation laws and Ward identities",
+      "category": "Spacetime",
+      "status": "theorem"
+    },
+    {
+      "id": "proper-length",
+      "name": "Proper length",
+      "category": "Spacetime",
+      "status": "theorem"
+    },
+    {
+      "id": "einstein",
+      "name": "Einstein field equation with Lambda",
+      "category": "Gravity",
+      "status": "conditional"
+    },
+    {
+      "id": "graviton",
+      "name": "Massless graviton",
+      "category": "Gravity",
+      "status": "conditional"
+    },
+    {
+      "id": "area-law",
+      "name": "Bekenstein-Hawking area law",
+      "category": "Gravity",
+      "status": "theorem"
+    },
+    {
+      "id": "bh-information",
+      "name": "Black hole information",
+      "category": "Gravity",
+      "status": "conditional"
+    },
+    {
+      "id": "ringdown",
+      "name": "Black hole ringdown (alpha = 4 line)",
+      "category": "Gravity",
+      "status": "rejected"
+    },
+    {
+      "id": "desitter-sign",
+      "name": "de Sitter time-advance sign",
+      "category": "Gravity",
+      "status": "theorem"
+    },
+    {
+      "id": "horizon-capacity",
+      "name": "Horizon area = public-record capacity",
+      "category": "Gravity",
+      "status": "open"
+    },
+    {
+      "id": "local-stress",
+      "name": "Local stress-energy tensor",
+      "category": "Gravity",
+      "status": "conditional"
+    },
+    {
+      "id": "null-net",
+      "name": "Null nets and light-sheets",
+      "category": "Gravity",
+      "status": "conditional"
+    },
+    {
+      "id": "dark-matter",
+      "name": "Dark matter as non-luminous modular charge",
+      "category": "Dark Sector",
+      "status": "conditional"
+    },
+    {
+      "id": "btfr",
+      "name": "Flat rotation curves & baryonic Tully-Fisher",
+      "category": "Dark Sector",
+      "status": "conditional"
+    },
+    {
+      "id": "a0",
+      "name": "Acceleration scale a0",
+      "category": "Dark Sector",
+      "status": "frozen"
+    },
+    {
+      "id": "rar-scatter",
+      "name": "RAR / BTFR scatter law",
+      "category": "Dark Sector",
+      "status": "open"
+    },
+    {
+      "id": "lensing",
+      "name": "Dark-source lensing",
+      "category": "Dark Sector",
+      "status": "open"
+    },
+    {
+      "id": "dark-energy-w",
+      "name": "Dark energy w = -1 (w0, wa) = (-1, 0)",
+      "category": "Dark Sector",
+      "status": "frozen"
+    },
+    {
+      "id": "desi-wz",
+      "name": "DESI w(z) stance",
+      "category": "Dark Sector",
+      "status": "open"
+    },
+    {
+      "id": "lambda",
+      "name": "Cosmological constant magnitude",
+      "category": "Cosmology",
+      "status": "diagnostic"
+    },
+    {
+      "id": "capacity-N",
+      "name": "Total record capacity N",
+      "category": "Cosmology",
+      "status": "open"
+    },
+    {
+      "id": "scale-invariant-spectrum",
+      "name": "Scale-invariant primordial fluctuations (Harrison-Zel'dovich)",
+      "category": "Cosmology",
+      "status": "conditional"
+    },
+    {
+      "id": "ns",
+      "name": "Scalar spectral tilt n_s = 1 - P/48",
+      "category": "Cosmology",
+      "status": "frozen"
+    },
+    {
+      "id": "flrw",
+      "name": "FLRW expansion",
+      "category": "Cosmology",
+      "status": "conditional"
+    },
+    {
+      "id": "cmb-a5",
+      "name": "CMB A5 angular multiplets",
+      "category": "Cosmology",
+      "status": "frozen"
+    },
+    {
+      "id": "vacuum-ensemble",
+      "name": "Vacuum ensemble classification",
+      "category": "Cosmology",
+      "status": "conditional"
+    },
+    {
+      "id": "structure",
+      "name": "Structure formation",
+      "category": "Cosmology",
+      "status": "open"
+    },
+    {
+      "id": "hubble",
+      "name": "Hubble constant value",
+      "category": "Cosmology",
+      "status": "open"
+    },
+    {
+      "id": "big-bang",
+      "name": "Initial state / big bang",
+      "category": "Cosmology",
+      "status": "conditional"
+    },
+    {
+      "id": "baryogenesis",
+      "name": "Baryon number & proton stability",
+      "category": "Matter",
+      "status": "theorem"
+    },
+    {
+      "id": "thermo-0",
+      "name": "Zeroth law (temperature)",
+      "category": "Thermodynamics",
+      "status": "exectheorem"
+    },
+    {
+      "id": "thermo-1",
+      "name": "First law (energy conservation)",
+      "category": "Thermodynamics",
+      "status": "theorem"
+    },
+    {
+      "id": "thermo-2",
+      "name": "Second law (entropy increase)",
+      "category": "Thermodynamics",
+      "status": "theorem"
+    },
+    {
+      "id": "thermo-3",
+      "name": "Third law",
+      "category": "Thermodynamics",
+      "status": "theorem"
+    },
+    {
+      "id": "landauer",
+      "name": "Landauer bound",
+      "category": "Thermodynamics",
+      "status": "theorem"
+    },
+    {
+      "id": "fluctuation",
+      "name": "Fluctuation relations",
+      "category": "Thermodynamics",
+      "status": "theorem"
+    },
+    {
+      "id": "green-kubo",
+      "name": "Transport, diffusion and Green-Kubo",
+      "category": "Thermodynamics",
+      "status": "theorem"
+    },
+    {
+      "id": "work-response",
+      "name": "Work and response",
+      "category": "Thermodynamics",
+      "status": "theorem"
+    },
+    {
+      "id": "sm-gauge",
+      "name": "Standard Model gauge algebra su(3)+su(2)+u(1)",
+      "category": "Gauge Forces",
+      "status": "theorem"
+    },
+    {
+      "id": "z6",
+      "name": "Global form (SU(3)xSU(2)xU(1))/Z6",
+      "category": "Gauge Forces",
+      "status": "conditional"
+    },
+    {
+      "id": "charge-quantization",
+      "name": "Electric charge quantization",
+      "category": "Gauge Forces",
+      "status": "conditional"
+    },
+    {
+      "id": "photon",
+      "name": "Massless photon",
+      "category": "Gauge Forces",
+      "status": "conditional"
+    },
+    {
+      "id": "gluon",
+      "name": "Massless gluons and confinement",
+      "category": "Gauge Forces",
+      "status": "conditional"
+    },
+    {
+      "id": "ym-gap",
+      "name": "Yang-Mills mass gap",
+      "category": "Gauge Forces",
+      "status": "conditional"
+    },
+    {
+      "id": "maxwell",
+      "name": "Maxwell's equations",
+      "category": "Gauge Forces",
+      "status": "theorem"
+    },
+    {
+      "id": "coulomb",
+      "name": "Coulomb's law",
+      "category": "Gauge Forces",
+      "status": "theorem"
+    },
+    {
+      "id": "charge-conservation",
+      "name": "Charge conservation",
+      "category": "Gauge Forces",
+      "status": "theorem"
+    },
+    {
+      "id": "em-waves",
+      "name": "Electromagnetic radiation & photons",
+      "category": "Gauge Forces",
+      "status": "conditional"
+    },
+    {
+      "id": "gauge-kinetic",
+      "name": "Gauge kinetic terms",
+      "category": "Gauge Forces",
+      "status": "theorem"
+    },
+    {
+      "id": "jacobi",
+      "name": "Jacobi identity of the face bracket",
+      "category": "Gauge Forces",
+      "status": "conditional"
+    },
+    {
+      "id": "no-gut",
+      "name": "No minimal grand unification",
+      "category": "Gauge Forces",
+      "status": "theorem"
+    },
+    {
+      "id": "ew-breaking",
+      "name": "Electroweak symmetry breaking",
+      "category": "Gauge Forces",
+      "status": "conditional"
+    },
+    {
+      "id": "beta-ew",
+      "name": "Electroweak load beta_EW = 4",
+      "category": "Gauge Forces",
+      "status": "conditional"
+    },
+    {
+      "id": "hierarchy",
+      "name": "Electroweak hierarchy (why v << M_Planck)",
+      "category": "Gauge Forces",
+      "status": "conditional"
+    },
+    {
+      "id": "sin2w",
+      "name": "Weak mixing angle",
+      "category": "Gauge Forces",
+      "status": "open"
+    },
+    {
+      "id": "alpha-s",
+      "name": "Strong coupling alpha_s",
+      "category": "Gauge Forces",
+      "status": "conditional"
+    },
+    {
+      "id": "asymptotic-freedom",
+      "name": "Asymptotic freedom / RG running",
+      "category": "Gauge Forces",
+      "status": "conditional"
+    },
+    {
+      "id": "generation",
+      "name": "One anomaly-free generation of 15 Weyl states",
+      "category": "Matter",
+      "status": "conditional"
+    },
+    {
+      "id": "anomaly",
+      "name": "Gauge anomaly cancellation",
+      "category": "Matter",
+      "status": "conditional"
+    },
+    {
+      "id": "chirality",
+      "name": "Parity violation / chirality",
+      "category": "Matter",
+      "status": "conditional"
+    },
+    {
+      "id": "three-generations",
+      "name": "Three generations",
+      "category": "Matter",
+      "status": "open"
+    },
+    {
+      "id": "yukawa",
+      "name": "Yukawa couplings",
+      "category": "Matter",
+      "status": "open"
+    },
+    {
+      "id": "sm-action",
+      "name": "Standard Model action",
+      "category": "Matter",
+      "status": "conditional"
+    },
+    {
+      "id": "qft",
+      "name": "Relativistic QFT as effective description",
+      "category": "Research Frontier",
+      "status": "conditional"
+    },
+    {
+      "id": "scattering",
+      "name": "Unitary scattering",
+      "category": "Matter",
+      "status": "theorem"
+    },
+    {
+      "id": "nonlinear-matter",
+      "name": "Interacting matter state space",
+      "category": "Matter",
+      "status": "conditional"
+    },
+    {
+      "id": "vacuum",
+      "name": "Vacuum fidelity",
+      "category": "Matter",
+      "status": "theorem"
+    },
+    {
+      "id": "weyl-fermions",
+      "name": "Charged Weyl fermions",
+      "category": "Matter",
+      "status": "theorem"
+    },
+    {
+      "id": "pixel-P",
+      "name": "Pixel constant P = phi + sqrt(pi)/alpha^-1",
+      "category": "Constants",
+      "status": "conditional"
+    },
+    {
+      "id": "alpha",
+      "name": "Fine-structure constant 1/alpha",
+      "category": "Constants",
+      "status": "diagnostic"
+    },
+    {
+      "id": "alpha-thomson",
+      "name": "Thomson-endpoint alpha",
+      "category": "Constants",
+      "status": "diagnostic"
+    },
+    {
+      "id": "higgs-mass",
+      "name": "Higgs boson mass",
+      "category": "Particle Masses",
+      "status": "diagnostic"
+    },
+    {
+      "id": "top-mass",
+      "name": "Top quark pole mass",
+      "category": "Particle Masses",
+      "status": "diagnostic"
+    },
+    {
+      "id": "w-mass",
+      "name": "W boson mass",
+      "category": "Particle Masses",
+      "status": "diagnostic"
+    },
+    {
+      "id": "z-mass",
+      "name": "Z boson mass",
+      "category": "Particle Masses",
+      "status": "diagnostic"
+    },
+    {
+      "id": "koide",
+      "name": "Koide relation Q = 2/3",
+      "category": "Particle Masses",
+      "status": "theorem"
+    },
+    {
+      "id": "tau-mass",
+      "name": "Tau lepton mass",
+      "category": "Particle Masses",
+      "status": "frozen"
+    },
+    {
+      "id": "electron-mass",
+      "name": "Electron mass",
+      "category": "Particle Masses",
+      "status": "conditional"
+    },
+    {
+      "id": "muon-mass",
+      "name": "Muon mass",
+      "category": "Particle Masses",
+      "status": "conditional"
+    },
+    {
+      "id": "lepton-scale",
+      "name": "Charged-lepton mass scale (anchor gap)",
+      "category": "Particle Masses",
+      "status": "open"
+    },
+    {
+      "id": "quark-masses",
+      "name": "Absolute quark masses",
+      "category": "Particle Masses",
+      "status": "open"
+    },
+    {
+      "id": "ms-md",
+      "name": "Strange/down ratio (register-Clebsch)",
+      "category": "Particle Masses",
+      "status": "rejected"
+    },
+    {
+      "id": "cabibbo",
+      "name": "Cabibbo angle / CKM",
+      "category": "Particle Masses",
+      "status": "open"
+    },
+    {
+      "id": "cp-violation",
+      "name": "CP violation phase",
+      "category": "Particle Masses",
+      "status": "open"
+    },
+    {
+      "id": "neutrino-mixing",
+      "name": "Neutrino mixing (PMNS)",
+      "category": "Particle Masses",
+      "status": "rejected"
+    },
+    {
+      "id": "neutrino-order",
+      "name": "Neutrino mass ordering",
+      "category": "Particle Masses",
+      "status": "open"
+    },
+    {
+      "id": "neutrino-mass",
+      "name": "Absolute neutrino masses",
+      "category": "Particle Masses",
+      "status": "open"
+    },
+    {
+      "id": "lambda-qcd",
+      "name": "QCD scale Lambda_QCD",
+      "category": "Particle Masses",
+      "status": "diagnostic"
+    },
+    {
+      "id": "proton-mass",
+      "name": "Nucleon / proton mass",
+      "category": "Particle Masses",
+      "status": "diagnostic"
+    },
+    {
+      "id": "hadron-spectrum",
+      "name": "Hadron spectrum",
+      "category": "Particle Masses",
+      "status": "open"
+    },
+    {
+      "id": "dimensionless-gap",
+      "name": "Source dimensionless gap",
+      "category": "Constants",
+      "status": "conditional"
+    },
+    {
+      "id": "golden-ratio",
+      "name": "Golden ratio in physics",
+      "category": "Constants",
+      "status": "theorem"
+    },
+    {
+      "id": "physical-attachment",
+      "name": "Physical attachment of finite theorems",
+      "category": "Research Frontier",
+      "status": "open"
+    },
+    {
+      "id": "holonomy",
+      "name": "Holonomy and Aharonov-Bohm phases",
+      "category": "Gauge Forces",
+      "status": "theorem"
+    },
+    {
+      "id": "trapped-ion",
+      "name": "Trapped-ion oscillator comparisons",
+      "category": "Quantum Mechanics",
+      "status": "computation"
+    },
+    {
+      "id": "exec-ce-classical-equivalence",
+      "name": "Classical outcome statistics (coin, current, post-repair load)",
+      "category": "Executable Model",
+      "status": "exectheorem"
+    },
+    {
+      "id": "exec-e-is-c-plus-parity",
+      "name": "Interference visibility after repair (dephasing by a parity record)",
+      "category": "Executable Model",
+      "status": "exectheorem"
+    },
+    {
+      "id": "exec-ce-interference",
+      "name": "Interference fringe probability Pr(plus) vs phase (C/E test)",
+      "category": "Executable Model",
+      "status": "frozen"
+    },
+    {
+      "id": "exec-ce-tk",
+      "name": "Fringe probability for empty vs full seam preparation (T/E test)",
+      "category": "Executable Model",
+      "status": "open"
+    },
+    {
+      "id": "exec-continuing-carrier",
+      "name": "Record-law identification rate on a continuing carrier",
+      "category": "Executable Model",
+      "status": "computation"
+    },
+    {
+      "id": "exec-modular-phase",
+      "name": "Periodic Y-readout response: frequency and amplitude",
+      "category": "Executable Model",
+      "status": "computation"
+    },
+    {
+      "id": "exec-tick-identification",
+      "name": "Modular tick vs repair count vs clock reading",
+      "category": "Executable Model",
+      "status": "open"
+    },
+    {
+      "id": "exec-joint-clocks",
+      "name": "Joint readings of two event clocks (field-plus probability, tick ratio)",
+      "category": "Executable Model",
+      "status": "computation"
+    },
+    {
+      "id": "exec-causal-cone",
+      "name": "Signal propagation range per repair event",
+      "category": "Executable Model",
+      "status": "exectheorem"
+    },
+    {
+      "id": "exec-rank3-metric",
+      "name": "Record distances between ports (effective dimension 3)",
+      "category": "Executable Model",
+      "status": "exectheorem"
+    },
+    {
+      "id": "exec-refinement-ancestry",
+      "name": "Neighbour preservation under screen refinement",
+      "category": "Executable Model",
+      "status": "computation"
+    },
+    {
+      "id": "exec-history-completion",
+      "name": "Detector densities from local history repair (130 anharmonic endpoints)",
+      "category": "Executable Model",
+      "status": "computation"
+    },
+    {
+      "id": "exec-coherent-screen",
+      "name": "Reference-qubit coherence under screen feedback",
+      "category": "Executable Model",
+      "status": "computation"
+    },
+    {
+      "id": "exec-federation",
+      "name": "Root-observer output under federation growth and screen refinement",
+      "category": "Executable Model",
+      "status": "computation"
+    },
+    {
+      "id": "exec-equilibration",
+      "name": "Relaxation to the stationary state (equilibration error)",
+      "category": "Executable Model",
+      "status": "exectheorem"
+    },
+    {
+      "id": "exec-axial-circulation",
+      "name": "Seam-current covariance and Brownian path limit",
+      "category": "Executable Model",
+      "status": "computation"
+    },
+    {
+      "id": "exec-incident-fields",
+      "name": "Two-particle field statistics from incident-clock counting",
+      "category": "Executable Model",
+      "status": "computation"
+    },
+    {
+      "id": "exec-temporal-hilbert",
+      "name": "Field-record correlations at unused time lags",
+      "category": "Executable Model",
+      "status": "computation"
+    },
+    {
+      "id": "exec-ibm",
+      "name": "IBM quantum hardware implementation",
+      "category": "Empirical Comparisons",
+      "status": "computation"
+    },
+    {
+      "id": "emp-gaussian-readout",
+      "name": "Gaussian oscillator readout (McGarry et al.)",
+      "category": "Empirical Comparisons",
+      "status": "diagnostic"
+    },
+    {
+      "id": "emp-anharmonic",
+      "name": "Driven anharmonic dynamics",
+      "category": "Empirical Comparisons",
+      "status": "diagnostic"
+    },
+    {
+      "id": "emp-transfer",
+      "name": "Changed-potential transfer",
+      "category": "Empirical Comparisons",
+      "status": "diagnostic"
+    },
+    {
+      "id": "emp-gram",
+      "name": "Quantum characteristic (Gram) constraints",
+      "category": "Empirical Comparisons",
+      "status": "diagnostic"
+    },
+    {
+      "id": "emp-alpha-native",
+      "name": "Inherited EM endpoint vs CODATA",
+      "category": "Empirical Comparisons",
+      "status": "rejected"
+    },
+    {
+      "id": "emp-regional-optical",
+      "name": "Regional optical-clock attachment",
+      "category": "Empirical Comparisons",
+      "status": "rejected"
+    },
+    {
+      "id": "emp-modular-transition",
+      "name": "Modular-transition optical assignment",
+      "category": "Empirical Comparisons",
+      "status": "rejected"
+    },
+    {
+      "id": "emp-cmb-full",
+      "name": "Full CMB readout vs Planck",
+      "category": "Empirical Comparisons",
+      "status": "diagnostic"
+    },
+    {
+      "id": "emp-wmap-a5",
+      "name": "WMAP A5 angular-template search",
+      "category": "Empirical Comparisons",
+      "status": "diagnostic"
+    },
+    {
+      "id": "emp-desi-wlaw",
+      "name": "Fixed-capacity w-law vs DESI DR2",
+      "category": "Empirical Comparisons",
+      "status": "diagnostic"
+    },
+    {
+      "id": "emp-sparc",
+      "name": "SPARC deep-regime RAR / BTFR",
+      "category": "Empirical Comparisons",
+      "status": "diagnostic"
+    },
+    {
+      "id": "emp-nufit",
+      "name": "Weighted-cycle PMNS vs NuFIT 6.1",
+      "category": "Empirical Comparisons",
+      "status": "rejected"
+    },
+    {
+      "id": "emp-act-tilt",
+      "name": "Scalar tilt vs ACT DR6 posterior",
+      "category": "Empirical Comparisons",
+      "status": "diagnostic"
+    },
+    {
+      "id": "equivalence-principle",
+      "name": "Equivalence principle (inertial = gravitational mass)",
+      "category": "Gravity",
+      "status": "open"
+    },
+    {
+      "id": "mass-scale",
+      "name": "Absolute mass scale (GeV)",
+      "category": "Particle Masses",
+      "status": "open"
+    },
+    {
+      "id": "qg-effective",
+      "name": "General relativity as effective description",
+      "category": "Research Frontier",
+      "status": "open"
+    },
+    {
+      "id": "why-anything",
+      "name": "Why is there anything rather than nothing?",
+      "category": "Big Questions",
+      "status": "premise"
+    },
+    {
+      "id": "qualia",
+      "name": "Why is there subjective experience (qualia)?",
+      "category": "Big Questions",
+      "status": "conditional"
+    },
+    {
+      "id": "why-these-laws",
+      "name": "Why exactly these laws and constants?",
+      "category": "Big Questions",
+      "status": "conditional"
+    },
+    {
+      "id": "exec-defect-classes",
+      "name": "Defect flux class of every particle (6Y mod 6)",
+      "category": "Executable Model",
+      "status": "exectheorem"
+    },
+    {
+      "id": "exec-integer-lift",
+      "name": "Integer lift of the face register",
+      "category": "Executable Model",
+      "status": "computation"
+    },
+    {
+      "id": "exec-lepton-register",
+      "name": "Lepton register phase (exclusive read count)",
+      "category": "Executable Model",
+      "status": "conditional"
+    },
+    {
+      "id": "emp-ew-crossover",
+      "name": "Electroweak crossover temperature",
+      "category": "Empirical Comparisons",
+      "status": "computation"
+    },
+    {
+      "id": "emp-colour-deconf",
+      "name": "Colour deconfinement and hadron binding",
+      "category": "Empirical Comparisons",
+      "status": "computation"
+    },
+    {
+      "id": "emp-coupling-chain",
+      "name": "Electroweak coupling chain (v, α_s, sin²θ_W, α)",
+      "category": "Empirical Comparisons",
+      "status": "diagnostic"
+    },
+    {
+      "id": "ds-time-advance",
+      "name": "de Sitter shock time-advance sign",
+      "category": "Gravity",
+      "status": "conditional"
+    },
+    {
+      "id": "pc-u",
+      "name": "Up quark (u)",
+      "category": "Particle Catalogue",
+      "status": "open"
+    },
+    {
+      "id": "pc-u-bar",
+      "name": "Up antiquark (ū)",
+      "category": "Particle Catalogue",
+      "status": "open"
+    },
+    {
+      "id": "pc-d",
+      "name": "Down quark (d)",
+      "category": "Particle Catalogue",
+      "status": "open"
+    },
+    {
+      "id": "pc-d-bar",
+      "name": "Down antiquark (d̄)",
+      "category": "Particle Catalogue",
+      "status": "open"
+    },
+    {
+      "id": "pc-s",
+      "name": "Strange quark (s)",
+      "category": "Particle Catalogue",
+      "status": "open"
+    },
+    {
+      "id": "pc-s-bar",
+      "name": "Strange antiquark (s̄)",
+      "category": "Particle Catalogue",
+      "status": "open"
+    },
+    {
+      "id": "pc-c",
+      "name": "Charm quark (c)",
+      "category": "Particle Catalogue",
+      "status": "open"
+    },
+    {
+      "id": "pc-c-bar",
+      "name": "Charm antiquark (c̄)",
+      "category": "Particle Catalogue",
+      "status": "open"
+    },
+    {
+      "id": "pc-b",
+      "name": "Bottom quark (b)",
+      "category": "Particle Catalogue",
+      "status": "open"
+    },
+    {
+      "id": "pc-b-bar",
+      "name": "Bottom antiquark (b̄)",
+      "category": "Particle Catalogue",
+      "status": "open"
+    },
+    {
+      "id": "pc-t",
+      "name": "Top quark (t)",
+      "category": "Particle Catalogue",
+      "status": "conditional"
+    },
+    {
+      "id": "pc-t-bar",
+      "name": "Top antiquark (t̄)",
+      "category": "Particle Catalogue",
+      "status": "conditional"
+    },
+    {
+      "id": "pc-e",
+      "name": "Electron (e⁻)",
+      "category": "Particle Catalogue",
+      "status": "conditional"
+    },
+    {
+      "id": "pc-e-bar",
+      "name": "Positron (e⁺)",
+      "category": "Particle Catalogue",
+      "status": "conditional"
+    },
+    {
+      "id": "pc-mu",
+      "name": "Muon (μ⁻)",
+      "category": "Particle Catalogue",
+      "status": "conditional"
+    },
+    {
+      "id": "pc-mu-bar",
+      "name": "Antimuon (μ⁺)",
+      "category": "Particle Catalogue",
+      "status": "conditional"
+    },
+    {
+      "id": "pc-tau",
+      "name": "Tau lepton (τ⁻)",
+      "category": "Particle Catalogue",
+      "status": "conditional"
+    },
+    {
+      "id": "pc-tau-bar",
+      "name": "Antitau (τ⁺)",
+      "category": "Particle Catalogue",
+      "status": "conditional"
+    },
+    {
+      "id": "pc-nue",
+      "name": "Electron neutrino (νe)",
+      "category": "Particle Catalogue",
+      "status": "open"
+    },
+    {
+      "id": "pc-nue-bar",
+      "name": "Electron antineutrino (ν̄e)",
+      "category": "Particle Catalogue",
+      "status": "open"
+    },
+    {
+      "id": "pc-numu",
+      "name": "Muon neutrino (νμ)",
+      "category": "Particle Catalogue",
+      "status": "open"
+    },
+    {
+      "id": "pc-numu-bar",
+      "name": "Muon antineutrino (ν̄μ)",
+      "category": "Particle Catalogue",
+      "status": "open"
+    },
+    {
+      "id": "pc-nutau",
+      "name": "Tau neutrino (ντ)",
+      "category": "Particle Catalogue",
+      "status": "open"
+    },
+    {
+      "id": "pc-nutau-bar",
+      "name": "Tau antineutrino (ν̄τ)",
+      "category": "Particle Catalogue",
+      "status": "open"
+    },
+    {
+      "id": "pc-nuR",
+      "name": "Right-handed (sterile) neutrino ν_R",
+      "category": "Particle Catalogue",
+      "status": "open"
+    },
+    {
+      "id": "pc-photon",
+      "name": "Photon (γ)",
+      "category": "Particle Catalogue",
+      "status": "conditional"
+    },
+    {
+      "id": "pc-gluon",
+      "name": "Gluons (g, 8 colour states)",
+      "category": "Particle Catalogue",
+      "status": "conditional"
+    },
+    {
+      "id": "pc-wplus",
+      "name": "W⁺ boson",
+      "category": "Particle Catalogue",
+      "status": "diagnostic"
+    },
+    {
+      "id": "pc-wminus",
+      "name": "W⁻ boson",
+      "category": "Particle Catalogue",
+      "status": "diagnostic"
+    },
+    {
+      "id": "pc-z",
+      "name": "Z boson",
+      "category": "Particle Catalogue",
+      "status": "diagnostic"
+    },
+    {
+      "id": "pc-higgs",
+      "name": "Higgs boson (H)",
+      "category": "Particle Catalogue",
+      "status": "conditional"
+    },
+    {
+      "id": "pc-graviton",
+      "name": "Graviton",
+      "category": "Particle Catalogue",
+      "status": "conditional"
+    },
+    {
+      "id": "pc-proton",
+      "name": "Proton (p)",
+      "category": "Particle Catalogue",
+      "status": "conditional"
+    },
+    {
+      "id": "pc-antiproton",
+      "name": "Antiproton (p̄)",
+      "category": "Particle Catalogue",
+      "status": "conditional"
+    },
+    {
+      "id": "pc-neutron",
+      "name": "Neutron (n)",
+      "category": "Particle Catalogue",
+      "status": "conditional"
+    },
+    {
+      "id": "pc-antineutron",
+      "name": "Antineutron (n̄)",
+      "category": "Particle Catalogue",
+      "status": "conditional"
+    },
+    {
+      "id": "pc-pions",
+      "name": "Pions (π⁺, π⁰, π⁻)",
+      "category": "Particle Catalogue",
+      "status": "open"
+    },
+    {
+      "id": "pc-hadrons",
+      "name": "Other hadrons (kaons, hyperons, mesons, resonances)",
+      "category": "Particle Catalogue",
+      "status": "open"
+    },
+    {
+      "id": "cosmo-running",
+      "name": "Running of the tilt dn_s/dlnk = 0",
+      "category": "Cosmology",
+      "status": "conditional"
+    },
+    {
+      "id": "cosmo-tensor",
+      "name": "Primordial gravitational waves r = 0",
+      "category": "Cosmology",
+      "status": "conditional"
+    },
+    {
+      "id": "cosmo-isocurvature",
+      "name": "Isocurvature fraction β_iso = 0",
+      "category": "Cosmology",
+      "status": "conditional"
+    },
+    {
+      "id": "cosmo-fnl",
+      "name": "Primordial non-Gaussianity f_NL",
+      "category": "Cosmology",
+      "status": "conditional"
+    },
+    {
+      "id": "cosmo-curvature",
+      "name": "Spatial curvature Ω_K = 0",
+      "category": "Cosmology",
+      "status": "conditional"
+    },
+    {
+      "id": "cosmo-redshift",
+      "name": "Redshift as a record-count ratio",
+      "category": "Cosmology",
+      "status": "conditional"
+    },
+    {
+      "id": "cosmo-area-law",
+      "name": "Crossing-read area law",
+      "category": "Cosmology",
+      "status": "conditional"
+    },
+    {
+      "id": "cosmo-inflation-free",
+      "name": "Inflation-free observer-screen synchronization",
+      "category": "Cosmology",
+      "status": "conditional"
+    },
+    {
+      "id": "cosmo-transport",
+      "name": "Photon–baryon transport (CMB acoustic physics)",
+      "category": "Cosmology",
+      "status": "conditional"
+    },
+    {
+      "id": "cosmo-a0",
+      "name": "MOND acceleration scale a₀",
+      "category": "Cosmology",
+      "status": "open"
+    },
+    {
+      "id": "cosmo-neutrino-sum",
+      "name": "Sum of neutrino masses Σm_ν",
+      "category": "Cosmology",
+      "status": "open"
+    },
+    {
+      "id": "cosmo-neff",
+      "name": "Relativistic species N_eff",
+      "category": "Cosmology",
+      "status": "open"
+    },
+    {
+      "id": "cosmo-ringdown",
+      "name": "Black-hole ringdown integer-k comb (FZ-14)",
+      "category": "Cosmology",
+      "status": "open"
+    },
+    {
+      "id": "cosmo-abundance-epochs",
+      "name": "Executed abundance epochs on a closed cell",
+      "category": "Cosmology",
+      "status": "exectheorem"
+    },
+    {
+      "id": "cosmo-cp-symmetry",
+      "name": "Particle/antiparticle class balance (C symmetry)",
+      "category": "Cosmology",
+      "status": "exectheorem"
+    },
+    {
+      "id": "cosmo-baryon-asymmetry",
+      "name": "Baryon-to-photon ratio η_b",
+      "category": "Cosmology",
+      "status": "open"
+    },
+    {
+      "id": "cosmo-dm-abundance",
+      "name": "Dark-matter density Ω_c h²",
+      "category": "Cosmology",
+      "status": "open"
+    },
+    {
+      "id": "cosmo-bbn",
+      "name": "Big Bang nucleosynthesis (light-element abundances)",
+      "category": "Cosmology",
+      "status": "open"
+    },
+    {
+      "id": "cosmo-cmb-temp",
+      "name": "CMB temperature today",
+      "category": "Cosmology",
+      "status": "open"
+    },
+    {
+      "id": "lepton-hierarchy",
+      "name": "Charged-lepton mass hierarchy (e, μ, τ)",
+      "category": "Executable Model",
+      "status": "conditional"
+    }
+  ],
+  "selected_source_rows": [
+    {
+      "id": "measurement",
+      "name": "Measurement inside an interacting process",
+      "category": "Quantum Mechanics",
+      "scale": "Quantum",
+      "status": "computation",
+      "summary": "Flux, charged matter and a scalar field on one register with complete instruments and feedback; certified nonzero infinite-occupation response.",
+      "why": "Measurement is not outside physics: an observer is another subsystem doing repair, and the process is simulated end to end.",
+      "claims": [
+        "OPH-SCALAR-SEQUENTIAL-INSTRUMENT",
+        "OPH-WHITNEY-CHARGED-INSTRUMENT"
+      ],
+      "papers": [
+        "flagship/from_observer_consensus_to_standard_physics.pdf"
+      ],
+      "code": [
+        "code/source_scalar_instruments/sequential_instrument.py",
+        "code/source_scalar_instruments/verify_sequential_instrument.py",
+        "code/source_scalar_instruments/test_sequential_instrument.py",
+        "code/source_scalar_instruments/sequential_instrument_receipt.json",
+        "code/source_scalar_finite_instrument/finite_instrument.py",
+        "code/source_scalar_finite_instrument/verify_finite_instrument.py",
+        "code/source_scalar_finite_instrument/test_finite_instrument.py",
+        "code/source_scalar_finite_instrument/finite_instrument_receipt.json"
+      ],
+      "value": null,
+      "observed": null,
+      "tags": [
+        "mystery solved"
+      ],
+      "kind": "derived"
+    },
+    {
+      "id": "exec-modular-phase",
+      "name": "Periodic Y-readout response: frequency and amplitude",
+      "category": "Executable Model",
+      "scale": "Quantum",
+      "status": "computation",
+      "summary": "Source-derived Palm reference with weights (5/13, 4/13, 4/13) and modular frequency log(5/4). A coherent preparation plus Y readout responds periodically: 1/2 − sin(s·log(5/4))/140 for C, 1/2 − sin(s·log(5/4))/220 for E.",
+      "why": "Measured: the oscillation of a Y readout over modular time s: its frequency log(5/4) and its amplitude. Candidate readout of an observer's own modular ('felt') time - and it differs between record laws, so it could discriminate them too.",
+      "claims": [],
+      "papers": [
+        "model/README.md"
+      ],
+      "code": [
+        "model/transfer_modular_probe/README.md",
+        "model/relative_modular_dynamics/README.md",
+        "model/native_modular_reference/README.md"
+      ],
+      "value": "ω = log(5/4); amp 1/140 vs 1/220",
+      "observed": null,
+      "tags": [],
+      "kind": "derived"
+    },
+    {
+      "id": "exec-joint-clocks",
+      "name": "Joint readings of two event clocks (field-plus probability, tick ratio)",
+      "category": "Executable Model",
+      "scale": "Spacetime",
+      "status": "computation",
+      "summary": "Two local event clocks across observers keep complete quantum field outputs. C and E share the completed clock law but predict field-plus probabilities 35/54 vs 14/27 after three native attempts. Clock conversion: mean 2 B-ticks per two A-ticks, variance 16.",
+      "why": "Measured: the field-plus probability after three attempts, and the tick conversion between two observers' clocks. Equal clock rates do not mean identical readings: clock comparison carries the full count distribution, as relativistic clock comparisons should.",
+      "claims": [],
+      "papers": [
+        "model/README.md"
+      ],
+      "code": [
+        "model/joint_clock_process/README.md",
+        "model/relational_event_clock/README.md"
+      ],
+      "value": "35/54 vs 14/27",
+      "observed": null,
+      "tags": [],
+      "kind": "derived"
+    },
+    {
+      "id": "exec-coherent-screen",
+      "name": "Reference-qubit coherence under screen feedback",
+      "category": "Executable Model",
+      "scale": "Quantum",
+      "status": "computation",
+      "summary": "A logical qubit with untouched reference evolves through two native incident-clock ticks with record-controlled feedback; comparison bound below 7.779e-10. C and E: identical classical records, different reference coherences.",
+      "why": "Measured: the coherence of an untouched reference qubit after two incident-clock ticks with record feedback. A single twelve-port carrier already supports an observer, repair, clocks and coherent records - federations are optional.",
+      "claims": [],
+      "papers": [
+        "model/README.md"
+      ],
+      "code": [
+        "model/coherent_screen_observer/README.md"
+      ],
+      "value": null,
+      "observed": null,
+      "tags": [],
+      "kind": "derived"
+    },
+    {
+      "id": "exec-axial-circulation",
+      "name": "Seam-current covariance and Brownian path limit",
+      "category": "Executable Model",
+      "scale": "Micro",
+      "status": "computation",
+      "summary": "Seam currents mapped through the recovered rank-three frame have covariance (4N/99)·I3 and a Brownian path limit with action coefficient 99/8.",
+      "why": "Measured: the covariance of seam currents in the recovered 3D frame, (4N/99)·I3, and its random-walk limit. Random repair currents average into isotropic 3D diffusion - a seed of kinetic behaviour.",
+      "claims": [],
+      "papers": [
+        "model/README.md"
+      ],
+      "code": [
+        "model/native_circulation/README.md",
+        "model/event_circulation/README.md"
+      ],
+      "value": null,
+      "observed": null,
+      "tags": [],
+      "kind": "derived"
+    },
+    {
+      "id": "exec-incident-fields",
+      "name": "Two-particle field statistics from incident-clock counting",
+      "category": "Executable Model",
+      "scale": "Spacetime",
+      "status": "computation",
+      "summary": "Counting every attempted repair at the observer region gives a positive effective transfer and controlled logarithm; complete four-read protocols on all 28,680 two-particle states of a 240-port federation; density 1/3 feedback reverses a connected statistic.",
+      "why": "Measured: four-read field statistics on all 28,680 two-particle states, including feedback reversal. Effective field descriptions in an observer's own clock units emerge from counting local repair attempts.",
+      "claims": [],
+      "papers": [
+        "model/README.md"
+      ],
+      "code": [
+        "model/observer_time_fields/README.md",
+        "model/observer_time_fields/REFINEMENT.md"
+      ],
+      "value": null,
+      "observed": null,
+      "tags": [],
+      "kind": "derived"
+    },
+    {
+      "id": "exec-temporal-hilbert",
+      "name": "Field-record correlations at unused time lags",
+      "category": "Executable Model",
+      "scale": "Quantum",
+      "status": "computation",
+      "summary": "Exact correlations reconstruct a seven-dimensional cyclic positive transfer whose recurrence predicts unused lags.",
+      "why": "Measured: correlations at time lags not used in the fit, predicted by the reconstructed seven-dimensional transfer. An observer can reconstruct a quantum Hamiltonian-like transfer purely from its record correlations.",
+      "claims": [],
+      "papers": [
+        "model/README.md"
+      ],
+      "code": [
+        "model/relative_observer_geometry/README.md"
+      ],
+      "value": null,
+      "observed": null,
+      "tags": [],
+      "kind": "derived"
+    },
+    {
+      "id": "exec-integer-lift",
+      "name": "Integer lift of the face register",
+      "category": "Executable Model",
+      "scale": "Matter",
+      "status": "computation",
+      "summary": "Measured: unreduced register currents on every face of every stored cut (levels 4–7). Lift mod 6 equals the stored class everywhere; 0 of 68,515,840 carrier states have nonzero total; 99.7% of defect faces hold a 6Y value of a Standard Model multiplet.",
+      "why": "Most defect faces already carry a Standard Model hypercharge, but the lift is not a conserved label inside a class.",
+      "claims": [
+        "OPH-PARTICLE-DEFECT-INTEGER-LIFT"
+      ],
+      "papers": [
+        "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
+      ],
+      "code": [
+        "model/defect_integer_lift/PROOF.md",
+        "https://particles.floatingpragma.ai/?page=journey"
+      ],
+      "value": "99.7%",
+      "observed": null,
+      "tags": [],
+      "kind": "derived"
+    }
+  ]
+}
