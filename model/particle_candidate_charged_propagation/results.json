@@ -157,17 +157,17 @@
           "time_regular_Lipschitz": "256",
           "whole_extended_GNS_Hilbert_space_equals_old_space": false
         },
-        "charged_parent_result_sha256": "6ed670f28e24d8fcda540db61b8b99e006d41ab9165c47b2e5f5ab1f2b3d023f",
-        "clock_id": "1cfc459a53f4415353450c6ea2e4f965a451b08d0fc8dfdf330823516be5ba0a",
+        "charged_parent_result_sha256": "590b0dde17a632a5cad637ef0754812c684b4a76f12f140f77d17a86ad4dd0b3",
+        "clock_id": "642db923a91dfa03f063797f3f24f645186602ac5cb967b6eb142a12e4e8ace2",
         "filtered_original_window": {
           "all_other_temporal_analyzer_rows_and_reference_retained": true,
-          "bare_ideal_source_result_sha256": "b4a9f2fc8468a2bb42ac5443b73cb222d12baf7ea25f073d90842a7ce8588c46",
+          "bare_ideal_source_result_sha256": "2b125711f4736dc836f1691b776272f765a2655657325086f0af2026b83c92ef",
           "bare_original_ideal_weight_lower": "67927786759569377667023034330548532806720434853237248185653533078220697774081832210208943531063756808071098162358127123202297104701115475962194559019321378022393763457333566905873610210020493556001036435785041986831636556096185032298404028435998699973328807526591664016223979143599537569431990846218347485789766587099846214166536826028438813496165919549321772947870851503763552349798156765250101525408261573020449037374481226055854075077172227355563525293223287231445511120758651767118704076477127518703045338688130213838924533858134849700322906213043685850546795318579292281041011947027835962291910019729005829023862911974905254852090266973857888347986381175346197769247384159319629026730264016285447664184447936839472896319912667986833676067306438482456947840906440922163855303448349014062949575025621180034966878381195328899761878640238870724894412364776429509099852097509913751427467824277691830178301813978979017648393503083952586772905035505397800166343608255715034391111222832871280581/220290542349683983622888242359789178021817491658964305956472770820273036282998904755486944381692165755623452765056557133490398210368951183457955428111539339143129397404682302401411306648898989301561930431862381160950063468178787761952373821649922291478142339325807801605552707762150876379982357617875791918328837664486323386942812160568662409962627086883805874240016798853958334548681408408950176749194261429566160451030440599728901861685539603760922607424347455453120263780948031308404249249024448434946157399588833918313023572410550769649860759248569418764130277389297671117373394420719849668780602453270320013723049748867691104220808820628853240395603969139180545050196841731203444257078077239261564333375298007704182352999165046618456996140400219566406347154252987396250575376946383795873114227117977971481548757374232766648937060089713706521468368945937081793085062906026830945016626840734027684451986907787921786444004056403333217231686308429319993764647250728006304036816442041678430208",
           "complete_source_clock_plan": {
             "Cayley_substeps_per_base_tick": 6849270,
             "alias_probability_upper": 0,
             "clock_histogram_executed": false,
-            "clock_id": "1cfc459a53f4415353450c6ea2e4f965a451b08d0fc8dfdf330823516be5ba0a",
+            "clock_id": "642db923a91dfa03f063797f3f24f645186602ac5cb967b6eb142a12e4e8ace2",
             "clock_plan": {
               "clock_qubits": 40,
               "clock_size": 1099511627776,
@@ -179,20 +179,20 @@
             "clock_step": "7/285360",
             "energy_resolution": "1/64",
             "maximum_source_time_per_readout": "12514766495/464",
-            "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+            "member_id": "112d315bc4d7181fc36c93ab06acd4bfa8c1b36eed0b3047afd7e34e350c7e00",
             "one_complete_clock_error_upper": "14660155037/480383995216896",
-            "reference_id": "5744254dc9395212cfa03f5c8a8c59fbc8bb8d606b31f98967a212fd79f537b1",
+            "reference_id": "f150192f59366d08f619a67947adab5f8f89ae6613d5ffcfc80aacd224af0eed",
             "signed_energy_center_formula": "2pi*(a if 2a<J else a-J)/(J*tau)",
             "source_energy_zero_changed": false,
-            "source_id": "e7b9d564a4541d5f84083d99624360d313b4fb2418cbb6809fe2604b5cd6e736",
+            "source_id": "3538402120a7dd58c91cf70364a5e824b6df0d17ebd11bad58ea1a4977041ad8",
             "source_norm_upper": "71340/7",
             "source_spectrum_phase_radius_upper": "1/4",
-            "state_id": "c0e41658e49e943179cc4ca74755b76fe2bdaeafcdf224445333729759ac2e17",
+            "state_id": "e41e09d434143ce9dc70a94feb9fbac915de08d868f6eae3df07385b9849086a",
             "two_complete_clock_error_upper": "14660155037/240191997608448"
           },
           "complete_two_clock_event_loss_upper": "41995714254467516190978361/540864295463390739597417775104",
           "conditioned_on_temporal_success_or_probe_success": false,
-          "dressed_source_result_sha256": "6ed670f28e24d8fcda540db61b8b99e006d41ab9165c47b2e5f5ab1f2b3d023f",
+          "dressed_source_result_sha256": "590b0dde17a632a5cad637ef0754812c684b4a76f12f140f77d17a86ad4dd0b3",
           "filter_compiler": {
             "Cayley_subdivisions": 52504,
             "all_temporal_analyzer_and_probe_failure_records_retained": true,
@@ -246,15 +246,15 @@
           "whole_charged_field_proved_zero": false,
           "width": "1/128"
         },
-        "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+        "member_id": "112d315bc4d7181fc36c93ab06acd4bfa8c1b36eed0b3047afd7e34e350c7e00",
         "next_needed": "positive original finite-energy and finite-momentum weight after spatial regularization; a charged-sector or asymptotic endpoint dictionary distinct from the neutral pair",
         "physical_mass_table_GeV": [],
         "physical_particle_map": [],
-        "reference_id": "5744254dc9395212cfa03f5c8a8c59fbc8bb8d606b31f98967a212fd79f537b1",
-        "source_id": "e7b9d564a4541d5f84083d99624360d313b4fb2418cbb6809fe2604b5cd6e736",
-        "state_id": "c0e41658e49e943179cc4ca74755b76fe2bdaeafcdf224445333729759ac2e17"
+        "reference_id": "f150192f59366d08f619a67947adab5f8f89ae6613d5ffcfc80aacd224af0eed",
+        "source_id": "3538402120a7dd58c91cf70364a5e824b6df0d17ebd11bad58ea1a4977041ad8",
+        "state_id": "e41e09d434143ce9dc70a94feb9fbac915de08d868f6eae3df07385b9849086a"
       },
-      "result_sha256": "1c602769438d09d6d100a1a1ee806f852f6a13983b98e3c96119d581bb94b489",
+      "result_sha256": "7122a4ff7f4d2b80b911d84e79943c1865661ffe210e3540f2e2749df8cdcddd",
       "schema": "oph.particle_candidate_charged_propagation_bound.v1"
     },
     {
@@ -414,8 +414,8 @@
           "time_regular_Lipschitz": "256",
           "whole_extended_GNS_Hilbert_space_equals_old_space": false
         },
-        "charged_parent_result_sha256": "4b4af4e8ad745a6a143e66ba8f526859556d98654285223659ce04099c48fe91",
-        "clock_id": "eaeaaa9d52263a805aa1720a44729bb2f75b0cf37945cc7b15e022e0b18e1541",
+        "charged_parent_result_sha256": "07327333e17dff1cdaf8bd7f7484a34139948cb5bdb9c357147230ea61edec61",
+        "clock_id": "7c3cadd40490e28ba0148164978288a829f4a6785f96251ddf0a063588826779",
         "filtered_original_window": null,
         "fixed_time_triangle_UV_component_upper": {
           "UV_band_population_at_all_members_assumed": false,
@@ -425,15 +425,15 @@
           "whole_charged_field_proved_zero": false,
           "width": "1/128"
         },
-        "member_id": "714c6c61ebc67563ef9030473d4a6e53eeafacad79ab3f94d436e459e6a0169f",
+        "member_id": "036f8623be95538437f6fd04da020a34a87ed2febc64fb5ed51c36643e2f41bb",
         "next_needed": "positive original finite-energy and finite-momentum weight after spatial regularization; a charged-sector or asymptotic endpoint dictionary distinct from the neutral pair",
         "physical_mass_table_GeV": [],
         "physical_particle_map": [],
-        "reference_id": "a633b1b4deb9927fb023ce22ebfb3de85984229cc1d1df3a2aed3239f87c8861",
-        "source_id": "98f486c92b95bb9e88db480ed66a12d93e520824e6fa4cb943bda4e3a2e8f699",
-        "state_id": "d4ebb295ee10ae2911972310081e65e1aa704aeefc245076a5085124f0a9e4a0"
+        "reference_id": "a90f305e3109494a396209b9c274dc0582dcf14f4fe725b9af49da677e0d30cc",
+        "source_id": "048c2a73119e3877f70dcf6af9189e35394fa86e2cd88f7077aa92ed48d5a395",
+        "state_id": "4b27640be1f5d4b2086e3c04af4e330956ab6f756abcd42595383e2564fa6d44"
       },
-      "result_sha256": "9d1c482a7b199bfb99d0c7ea5b682ea5e4721e2f773ac465d2838752557ca355",
+      "result_sha256": "d24bd8d07a7aeef26e1d74bd661ec3c92cade0a07391f79c8f9674440b4e17e7",
       "schema": "oph.particle_candidate_charged_propagation_bound.v1"
     },
     {
@@ -593,8 +593,8 @@
           "time_regular_Lipschitz": "256",
           "whole_extended_GNS_Hilbert_space_equals_old_space": false
         },
-        "charged_parent_result_sha256": "ec7a808a0c5616fe9bd13423ca23a4a892d5580c5159a39f2fb03681bc713112",
-        "clock_id": "6a6dfb62ba7d4358314c0573f525a8d937786b845881842f060feb6061317725",
+        "charged_parent_result_sha256": "f4889341d86ab8e753ffba8a50b8e851e8f0806c44974c9df982ae730197961d",
+        "clock_id": "bc19886e63f8027f996c4466f07829c2685d2a1f024d4245372ac02ae9af6ac5",
         "filtered_original_window": null,
         "fixed_time_triangle_UV_component_upper": {
           "UV_band_population_at_all_members_assumed": false,
@@ -604,15 +604,15 @@
           "whole_charged_field_proved_zero": false,
           "width": "1/128"
         },
-        "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+        "member_id": "3700710f0851d5d9da3f2c95a06bcfb2d416a965249127d36c579d30ea59bf0a",
         "next_needed": "positive original finite-energy and finite-momentum weight after spatial regularization; a charged-sector or asymptotic endpoint dictionary distinct from the neutral pair",
         "physical_mass_table_GeV": [],
         "physical_particle_map": [],
-        "reference_id": "0bea8b123ea066e38165a4b574afa542bf9857c04520b2a14fc156506dca5a04",
-        "source_id": "69e7e9e13cd5d393c2487bae332bb6f7ef2e60a75b17e6069522b09c10fe80a7",
-        "state_id": "738ea024f25d9dd8eb5cc5a9bc3c77a5f29a7de355270e0060595dd2ef1b961b"
+        "reference_id": "32e3fbb6cc0a72c982d19a0371c0cbcf52a1320512a768e1e4a225602a6b6214",
+        "source_id": "9467be1a00977064a4403bcc20ed5e31f7b14dbd4592a7149b3698ddb8c0c268",
+        "state_id": "8bfae8204ae9be521bcbf6da9fe11dff29ca374bd312ee5e2a1e84ccdee94324"
       },
-      "result_sha256": "07cb38e7269e161636262e08d22b64ed3c169f92bd9466a0f1970d09abc066a0",
+      "result_sha256": "b6860706337d455e855e86d6f88f16488f43a07137f26d5e833b792edbe56b02",
       "schema": "oph.particle_candidate_charged_propagation_bound.v1"
     },
     {
@@ -772,8 +772,8 @@
           "time_regular_Lipschitz": "256",
           "whole_extended_GNS_Hilbert_space_equals_old_space": false
         },
-        "charged_parent_result_sha256": "ae8983550dc01ba6ffde3956dda6ac2b7b05f155b8bcfbc2ac1db861a5785d9b",
-        "clock_id": "918ff721a1de4eb69a8a9e54905517efcbd4cdc929306e955ae8bf22a4ba71c0",
+        "charged_parent_result_sha256": "166262f611bbdda6e1e2ac9829a862629bceccf7d1c8301ce42b303113327f61",
+        "clock_id": "6dc63f4e17f31a6170fb38da04748ee068f6e9e1f7f1ccbced43eaf1f59410b9",
         "filtered_original_window": null,
         "fixed_time_triangle_UV_component_upper": {
           "UV_band_population_at_all_members_assumed": false,
@@ -783,15 +783,15 @@
           "whole_charged_field_proved_zero": false,
           "width": "1/128"
         },
-        "member_id": "9ee0a18f65b90dbbd455648b9b432cb86a9b0279459085cf08576ce301a4df01",
+        "member_id": "efc548e09c989a0e2fd4d463d3a8699036f795502050024a9e3e531c61a06b47",
         "next_needed": "positive original finite-energy and finite-momentum weight after spatial regularization; a charged-sector or asymptotic endpoint dictionary distinct from the neutral pair",
         "physical_mass_table_GeV": [],
         "physical_particle_map": [],
-        "reference_id": "6b3a637785af831c86416f0b560b60209aad56ca3cf08dee2220bf006fecd88f",
-        "source_id": "f9341c4476e6db828d7fc055bad33312a8d4c1197717faf42ed7788e751f4781",
-        "state_id": "1a4a3341eedd7d398187bcf32063931cf48446ac845b1dbf6854b8fe3d0f607a"
+        "reference_id": "fe1f24a331aaa2339559723ade5f700aea16e1e6976b6f14bbac683180ce5824",
+        "source_id": "10596d80c665decea1967c32d1ddc9848bbbfa790eb88fef168bfe812a449cf7",
+        "state_id": "43070e34fad3e910aa7d6878f557e0c589727c0ac3fd64d94e24fbb8520a66f9"
       },
-      "result_sha256": "ef5f5a6cea543b9820cf4519707d5f748592ccbb3faad70f492572cf02e5102b",
+      "result_sha256": "e7ae43f4d8f1c1bdc338737e2fa0ba8b80c642d9c3536c37c2d0dd06eca89ca9",
       "schema": "oph.particle_candidate_charged_propagation_bound.v1"
     }
   ],
@@ -1224,13 +1224,13 @@
     "model/charged_lepton_response/phase_readout.py": "259eecd7c36d66e02eb1ab84ae73705abbd08a2065186d686cd34ed38debb0cb",
     "model/charged_lepton_response/phase_selection.py": "1c82ebf110fd0b6374a35e47cf190785a29baae6d65dc5bef96f940217f97edf",
     "model/charged_lepton_response/relativistic_mass.py": "5f5a9bff5871f5bac768c7a39fc01f121161f7cc2006a4ac6d94124bde5542c4",
-    "model/charged_lepton_response/results.json": "a5fe55b8c3fe0b018ac7cb8a833b465a9a3cb6bf7ed7c666f225a85267894781",
+    "model/charged_lepton_response/results.json": "988489ac359bc221ecb6b34a976968a31948ac7d63dabc36280c15d959a07c52",
     "model/charged_lepton_response/test_calibrated_sanity.py": "61623e317b6826533eb8f6d63512ac6104d73a77123f833fd0d267b9056b2062",
     "model/charged_lepton_response/test_candidate_map.py": "e2e61495ea35162aeeea74f573223653032a0e87fc90a6c06ed56fe3f788aac3",
     "model/charged_lepton_response/test_car_koide.py": "878ee4bb4b39fb89e04330910221fda0a376417d6c82c381cdab9bbec2184b45",
     "model/charged_lepton_response/test_mass_response_bridge.py": "7b8ed0611c03e979be61bdac2857d65f65bd6d3687ced366d1e2749c6d12ea6a",
     "model/charged_lepton_response/test_p_dependence.py": "e8bc73b854293d985cc99e76271ee83de2d1eda2e6b62c558f3ecb2f76c339f7",
-    "model/charged_lepton_response/test_packet.py": "4b7d614692c6d223af0d804f6885bef1625a25b7255707d9e47d2c6afd81b05b",
+    "model/charged_lepton_response/test_packet.py": "9d4f74e6284f2e2ae5bf47ed36a1060d5b864818e2336bfbfa12d2d3d20c3ce1",
     "model/charged_lepton_response/test_phase_readout.py": "39aa8878ce7d4b153401688085aaa07f39e98453ac1c6fb04c35f57ab83cb848",
     "model/charged_lepton_response/test_phase_selection.py": "9719054f687d8738ea2352e9490516c715705cc86a9fbb10ba9d8fb76247f7d9",
     "model/charged_lepton_response/test_relativistic_mass.py": "917bd9b3d3f359f2b04e506e7f7356bb0e90a548af6b82656ed6a2c0361c0fa8",
@@ -1777,7 +1777,7 @@
     "model/particle_calibration_selection/clock_units.py": "53a05f85334a51e724a3e3cab19fd9fceee7b4f8c3e531e3242a4ccb1f78bc6b",
     "model/particle_calibration_selection/families_chirality.py": "916e6907e2d3fbd49b5ebdf0cb94b2cf5c1292b8546c6cb7015d6401878e676e",
     "model/particle_calibration_selection/phase_attenuation.py": "ed733079670a9ddac6cfdc2d4bea67cfe20eb572d8822f7332f59b9d946190cb",
-    "model/particle_calibration_selection/results.json": "348e716733ca716b447c6fdcee0a7880158b81d8a1254ac0b71c39aeb066a4cc",
+    "model/particle_calibration_selection/results.json": "630a5d5e6a8d564af5cc12c932b8fc463b3ef924cfd213d208747cd39da539af",
     "model/particle_calibration_selection/run.py": "1593ae7d805da92e0e74d1526dc6c767643d255a33967f00d68841e6458783eb",
     "model/particle_calibration_selection/test_capacity_response.py": "4baffea60166bc239dfccc0897e9279e30dbb6a3dfc9572ab9700bd73fe1a99c",
     "model/particle_calibration_selection/test_clock_units.py": "6f8af33a60f6986fcb05128c478317fdf8ef8b8bcb27baba6fa0805a7ac86fb5",
@@ -1825,7 +1825,7 @@
     "model/particle_candidate_charged/__init__.py": "19fa90cd17ba9330eaa5a2f2ccbc840f728e0691c5e9a75ee5c5b885378c5d9b",
     "model/particle_candidate_charged/__main__.py": "85778e1257e9f9204c8858a54a8701c356a31dba96a75768b3840f3b6b68156f",
     "model/particle_candidate_charged/model.py": "2b32c184642c902d6d00b53fd258fe60c7177795814649e025924589bbe3202d",
-    "model/particle_candidate_charged/results.json": "ca1a64c58a810f0d64c6efbdc496c879a2bde20ebec74fae0daf3bbaa027f695",
+    "model/particle_candidate_charged/results.json": "f51bf39a81477949dc8868de9db2711b0e088963d5ede98a6cfb2ff3031ca186",
     "model/particle_candidate_charged/test_model.py": "13f7e430c869285beb7a9f2907b8bbbf9a262683d3618d095a1d4fbd96b52c75",
     "model/particle_candidate_charged_propagation/PROOF.md": "c5f11d3e4a165f0093c725b2807030360f26fa57caec353878e3d91f9877954e",
     "model/particle_candidate_charged_propagation/README.md": "e4de121850232d67f168f4cc5e46179ee22ba809893d6ab4e06110652d92cd26",

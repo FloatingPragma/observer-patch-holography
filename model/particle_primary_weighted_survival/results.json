@@ -14,7 +14,7 @@
           "uniform_work_upper": "9/16",
           "work_upper_formula": "(9/16)*r^2*a^4"
         },
-        "clock_id": "1cfc459a53f4415353450c6ea2e4f965a451b08d0fc8dfdf330823516be5ba0a",
+        "clock_id": "642db923a91dfa03f063797f3f24f645186602ac5cb967b6eb142a12e4e8ace2",
         "critical_Weyl": {
           "energy_root_drift_upper": "45/2",
           "fixed_positive_energy_survival_decided": false,
@@ -26,7 +26,7 @@
         },
         "fixed_history": {
           "all_pointer_records_become_deterministic": false,
-          "clock_id": "1cfc459a53f4415353450c6ea2e4f965a451b08d0fc8dfdf330823516be5ba0a",
+          "clock_id": "642db923a91dfa03f063797f3f24f645186602ac5cb967b6eb142a12e4e8ace2",
           "coherent_control_and_adaptive_pointer_operations_allowed": true,
           "complete_reference_and_pointer_outputs_retained": true,
           "complete_waiting_comparison_half_trace_upper": "1",
@@ -38,7 +38,7 @@
           "final_ground_relative_energy_mean_upper": "25/4",
           "final_positive_excitation_probability_upper": "1",
           "full_spatial_histogram_executed": false,
-          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "member_id": "112d315bc4d7181fc36c93ab06acd4bfa8c1b36eed0b3047afd7e34e350c7e00",
           "normalization": {
             "Gauss_and_word_cutoff_preserved": true,
             "double_commutator_norm_upper": "1/10",
@@ -62,9 +62,9 @@
           ],
           "physical_mass_table_GeV": [],
           "positive_energy_threshold": "1",
-          "reference_id": "5744254dc9395212cfa03f5c8a8c59fbc8bb8d606b31f98967a212fd79f537b1",
-          "source_id": "e7b9d564a4541d5f84083d99624360d313b4fb2418cbb6809fe2604b5cd6e736",
-          "state_id": "c0e41658e49e943179cc4ca74755b76fe2bdaeafcdf224445333729759ac2e17",
+          "reference_id": "f150192f59366d08f619a67947adab5f8f89ae6613d5ffcfc80aacd224af0eed",
+          "source_id": "3538402120a7dd58c91cf70364a5e824b6df0d17ebd11bad58ea1a4977041ad8",
+          "state_id": "e41e09d434143ce9dc70a94feb9fbac915de08d868f6eae3df07385b9849086a",
           "subcritical_complete_positive_energy_weight_vanishes": true,
           "subcritical_fixed_waiting_time_distinguishability_vanishes": true,
           "subcritical_strength_condition": "a^2*S_n -> 0",
@@ -74,7 +74,7 @@
             "1"
           ]
         },
-        "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+        "member_id": "112d315bc4d7181fc36c93ab06acd4bfa8c1b36eed0b3047afd7e34e350c7e00",
         "necessary_strength": {
           "formula": "S >= (4/(3*a^2))*(sqrt(p*eta)-sqrt(epsilon))_+",
           "gate_count_domain": "each normalized Q phase call has abs(r)<=1",
@@ -84,11 +84,11 @@
           "total_phase_strength_necessary_lower": "0",
           "unit_bounded_phase_calls_necessary_lower": 0
         },
-        "reference_id": "5744254dc9395212cfa03f5c8a8c59fbc8bb8d606b31f98967a212fd79f537b1",
-        "source_id": "e7b9d564a4541d5f84083d99624360d313b4fb2418cbb6809fe2604b5cd6e736",
-        "state_id": "c0e41658e49e943179cc4ca74755b76fe2bdaeafcdf224445333729759ac2e17"
+        "reference_id": "f150192f59366d08f619a67947adab5f8f89ae6613d5ffcfc80aacd224af0eed",
+        "source_id": "3538402120a7dd58c91cf70364a5e824b6df0d17ebd11bad58ea1a4977041ad8",
+        "state_id": "e41e09d434143ce9dc70a94feb9fbac915de08d868f6eae3df07385b9849086a"
       },
-      "result_sha256": "37dbdfdbac143abd1210439bddeebc8a0ba5043d35cf4f8cabe5d087d6400a34",
+      "result_sha256": "cc585ca229687b2960323c7d19a32cbe0f71981456d4ac58666b2bf27ae49ac9",
       "schema": "oph.primary_weighted_survival.v1"
     },
     {
@@ -105,7 +105,7 @@
           "uniform_work_upper": "9/256",
           "work_upper_formula": "(9/16)*r^2*a^4"
         },
-        "clock_id": "eaeaaa9d52263a805aa1720a44729bb2f75b0cf37945cc7b15e022e0b18e1541",
+        "clock_id": "7c3cadd40490e28ba0148164978288a829f4a6785f96251ddf0a063588826779",
         "critical_Weyl": {
           "energy_root_drift_upper": "45/2",
           "fixed_positive_energy_survival_decided": false,
@@ -117,7 +117,7 @@
         },
         "fixed_history": {
           "all_pointer_records_become_deterministic": false,
-          "clock_id": "eaeaaa9d52263a805aa1720a44729bb2f75b0cf37945cc7b15e022e0b18e1541",
+          "clock_id": "7c3cadd40490e28ba0148164978288a829f4a6785f96251ddf0a063588826779",
           "coherent_control_and_adaptive_pointer_operations_allowed": true,
           "complete_reference_and_pointer_outputs_retained": true,
           "complete_waiting_comparison_half_trace_upper": "1",
@@ -129,7 +129,7 @@
           "final_ground_relative_energy_mean_upper": "9/16",
           "final_positive_excitation_probability_upper": "9/16",
           "full_spatial_histogram_executed": false,
-          "member_id": "714c6c61ebc67563ef9030473d4a6e53eeafacad79ab3f94d436e459e6a0169f",
+          "member_id": "036f8623be95538437f6fd04da020a34a87ed2febc64fb5ed51c36643e2f41bb",
           "normalization": {
             "Gauss_and_word_cutoff_preserved": true,
             "double_commutator_norm_upper": "9/1280",
@@ -153,9 +153,9 @@
           ],
           "physical_mass_table_GeV": [],
           "positive_energy_threshold": "1",
-          "reference_id": "a633b1b4deb9927fb023ce22ebfb3de85984229cc1d1df3a2aed3239f87c8861",
-          "source_id": "98f486c92b95bb9e88db480ed66a12d93e520824e6fa4cb943bda4e3a2e8f699",
-          "state_id": "d4ebb295ee10ae2911972310081e65e1aa704aeefc245076a5085124f0a9e4a0",
+          "reference_id": "a90f305e3109494a396209b9c274dc0582dcf14f4fe725b9af49da677e0d30cc",
+          "source_id": "048c2a73119e3877f70dcf6af9189e35394fa86e2cd88f7077aa92ed48d5a395",
+          "state_id": "4b27640be1f5d4b2086e3c04af4e330956ab6f756abcd42595383e2564fa6d44",
           "subcritical_complete_positive_energy_weight_vanishes": true,
           "subcritical_fixed_waiting_time_distinguishability_vanishes": true,
           "subcritical_strength_condition": "a^2*S_n -> 0",
@@ -165,7 +165,7 @@
             "1"
           ]
         },
-        "member_id": "714c6c61ebc67563ef9030473d4a6e53eeafacad79ab3f94d436e459e6a0169f",
+        "member_id": "036f8623be95538437f6fd04da020a34a87ed2febc64fb5ed51c36643e2f41bb",
         "necessary_strength": {
           "formula": "S >= (4/(3*a^2))*(sqrt(p*eta)-sqrt(epsilon))_+",
           "gate_count_domain": "each normalized Q phase call has abs(r)<=1",
@@ -175,11 +175,11 @@
           "total_phase_strength_necessary_lower": "0",
           "unit_bounded_phase_calls_necessary_lower": 0
         },
-        "reference_id": "a633b1b4deb9927fb023ce22ebfb3de85984229cc1d1df3a2aed3239f87c8861",
-        "source_id": "98f486c92b95bb9e88db480ed66a12d93e520824e6fa4cb943bda4e3a2e8f699",
-        "state_id": "d4ebb295ee10ae2911972310081e65e1aa704aeefc245076a5085124f0a9e4a0"
+        "reference_id": "a90f305e3109494a396209b9c274dc0582dcf14f4fe725b9af49da677e0d30cc",
+        "source_id": "048c2a73119e3877f70dcf6af9189e35394fa86e2cd88f7077aa92ed48d5a395",
+        "state_id": "4b27640be1f5d4b2086e3c04af4e330956ab6f756abcd42595383e2564fa6d44"
       },
-      "result_sha256": "9d5774e7a071f6c6d51bd137f038e656c6e638e8667207a49972e41998550d64",
+      "result_sha256": "e93db8a7de1b978a028299d277c96551f4e86b30ca4926187e90231df684c44a",
       "schema": "oph.primary_weighted_survival.v1"
     },
     {
@@ -196,7 +196,7 @@
           "uniform_work_upper": "9/4096",
           "work_upper_formula": "(9/16)*r^2*a^4"
         },
-        "clock_id": "6a6dfb62ba7d4358314c0573f525a8d937786b845881842f060feb6061317725",
+        "clock_id": "bc19886e63f8027f996c4466f07829c2685d2a1f024d4245372ac02ae9af6ac5",
         "critical_Weyl": {
           "energy_root_drift_upper": "45/2",
           "fixed_positive_energy_survival_decided": false,
@@ -208,7 +208,7 @@
         },
         "fixed_history": {
           "all_pointer_records_become_deterministic": false,
-          "clock_id": "6a6dfb62ba7d4358314c0573f525a8d937786b845881842f060feb6061317725",
+          "clock_id": "bc19886e63f8027f996c4466f07829c2685d2a1f024d4245372ac02ae9af6ac5",
           "coherent_control_and_adaptive_pointer_operations_allowed": true,
           "complete_reference_and_pointer_outputs_retained": true,
           "complete_waiting_comparison_half_trace_upper": "443489806061314595225/1180591620717411303424",
@@ -220,7 +220,7 @@
           "final_ground_relative_energy_mean_upper": "289/4096",
           "final_positive_excitation_probability_upper": "289/4096",
           "full_spatial_histogram_executed": false,
-          "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+          "member_id": "3700710f0851d5d9da3f2c95a06bcfb2d416a965249127d36c579d30ea59bf0a",
           "normalization": {
             "Gauss_and_word_cutoff_preserved": true,
             "double_commutator_norm_upper": "121/327680",
@@ -244,9 +244,9 @@
           ],
           "physical_mass_table_GeV": [],
           "positive_energy_threshold": "1",
-          "reference_id": "0bea8b123ea066e38165a4b574afa542bf9857c04520b2a14fc156506dca5a04",
-          "source_id": "69e7e9e13cd5d393c2487bae332bb6f7ef2e60a75b17e6069522b09c10fe80a7",
-          "state_id": "738ea024f25d9dd8eb5cc5a9bc3c77a5f29a7de355270e0060595dd2ef1b961b",
+          "reference_id": "32e3fbb6cc0a72c982d19a0371c0cbcf52a1320512a768e1e4a225602a6b6214",
+          "source_id": "9467be1a00977064a4403bcc20ed5e31f7b14dbd4592a7149b3698ddb8c0c268",
+          "state_id": "8bfae8204ae9be521bcbf6da9fe11dff29ca374bd312ee5e2a1e84ccdee94324",
           "subcritical_complete_positive_energy_weight_vanishes": true,
           "subcritical_fixed_waiting_time_distinguishability_vanishes": true,
           "subcritical_strength_condition": "a^2*S_n -> 0",
@@ -256,7 +256,7 @@
             "1"
           ]
         },
-        "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+        "member_id": "3700710f0851d5d9da3f2c95a06bcfb2d416a965249127d36c579d30ea59bf0a",
         "necessary_strength": {
           "formula": "S >= (4/(3*a^2))*(sqrt(p*eta)-sqrt(epsilon))_+",
           "gate_count_domain": "each normalized Q phase call has abs(r)<=1",
@@ -266,11 +266,11 @@
           "total_phase_strength_necessary_lower": "0",
           "unit_bounded_phase_calls_necessary_lower": 0
         },
-        "reference_id": "0bea8b123ea066e38165a4b574afa542bf9857c04520b2a14fc156506dca5a04",
-        "source_id": "69e7e9e13cd5d393c2487bae332bb6f7ef2e60a75b17e6069522b09c10fe80a7",
-        "state_id": "738ea024f25d9dd8eb5cc5a9bc3c77a5f29a7de355270e0060595dd2ef1b961b"
+        "reference_id": "32e3fbb6cc0a72c982d19a0371c0cbcf52a1320512a768e1e4a225602a6b6214",
+        "source_id": "9467be1a00977064a4403bcc20ed5e31f7b14dbd4592a7149b3698ddb8c0c268",
+        "state_id": "8bfae8204ae9be521bcbf6da9fe11dff29ca374bd312ee5e2a1e84ccdee94324"
       },
-      "result_sha256": "eab8c94d4a7b6bc55c8540de14f4c59817351adc44eda4cdcdb1027a83e8a9fc",
+      "result_sha256": "568865d3444e45fb0b7b78319b7fa221e4db515b18bae04771a8e90f1d012190",
       "schema": "oph.primary_weighted_survival.v1"
     },
     {
@@ -287,7 +287,7 @@
           "uniform_work_upper": "9/68719476736",
           "work_upper_formula": "(9/16)*r^2*a^4"
         },
-        "clock_id": "918ff721a1de4eb69a8a9e54905517efcbd4cdc929306e955ae8bf22a4ba71c0",
+        "clock_id": "6dc63f4e17f31a6170fb38da04748ee068f6e9e1f7f1ccbced43eaf1f59410b9",
         "critical_Weyl": {
           "energy_root_drift_upper": "45/2",
           "fixed_positive_energy_survival_decided": false,
@@ -299,7 +299,7 @@
         },
         "fixed_history": {
           "all_pointer_records_become_deterministic": false,
-          "clock_id": "918ff721a1de4eb69a8a9e54905517efcbd4cdc929306e955ae8bf22a4ba71c0",
+          "clock_id": "6dc63f4e17f31a6170fb38da04748ee068f6e9e1f7f1ccbced43eaf1f59410b9",
           "coherent_control_and_adaptive_pointer_operations_allowed": true,
           "complete_reference_and_pointer_outputs_retained": true,
           "complete_waiting_comparison_half_trace_upper": "107089744345982141964625/4835703278458516698824704",
@@ -311,7 +311,7 @@
           "final_ground_relative_energy_mean_upper": "16851025/68719476736",
           "final_positive_excitation_probability_upper": "16851025/68719476736",
           "full_spatial_histogram_executed": false,
-          "member_id": "9ee0a18f65b90dbbd455648b9b432cb86a9b0279459085cf08576ce301a4df01",
+          "member_id": "efc548e09c989a0e2fd4d463d3a8699036f795502050024a9e3e531c61a06b47",
           "normalization": {
             "Gauss_and_word_cutoff_preserved": true,
             "double_commutator_norm_upper": "1908903481/92233720368547758080",
@@ -335,9 +335,9 @@
           ],
           "physical_mass_table_GeV": [],
           "positive_energy_threshold": "1",
-          "reference_id": "6b3a637785af831c86416f0b560b60209aad56ca3cf08dee2220bf006fecd88f",
-          "source_id": "f9341c4476e6db828d7fc055bad33312a8d4c1197717faf42ed7788e751f4781",
-          "state_id": "1a4a3341eedd7d398187bcf32063931cf48446ac845b1dbf6854b8fe3d0f607a",
+          "reference_id": "fe1f24a331aaa2339559723ade5f700aea16e1e6976b6f14bbac683180ce5824",
+          "source_id": "10596d80c665decea1967c32d1ddc9848bbbfa790eb88fef168bfe812a449cf7",
+          "state_id": "43070e34fad3e910aa7d6878f557e0c589727c0ac3fd64d94e24fbb8520a66f9",
           "subcritical_complete_positive_energy_weight_vanishes": true,
           "subcritical_fixed_waiting_time_distinguishability_vanishes": true,
           "subcritical_strength_condition": "a^2*S_n -> 0",
@@ -347,7 +347,7 @@
             "1"
           ]
         },
-        "member_id": "9ee0a18f65b90dbbd455648b9b432cb86a9b0279459085cf08576ce301a4df01",
+        "member_id": "efc548e09c989a0e2fd4d463d3a8699036f795502050024a9e3e531c61a06b47",
         "necessary_strength": {
           "formula": "S >= (4/(3*a^2))*(sqrt(p*eta)-sqrt(epsilon))_+",
           "gate_count_domain": "each normalized Q phase call has abs(r)<=1",
@@ -357,11 +357,11 @@
           "total_phase_strength_necessary_lower": "34001038676661445538611/4611686018427387904",
           "unit_bounded_phase_calls_necessary_lower": 7373
         },
-        "reference_id": "6b3a637785af831c86416f0b560b60209aad56ca3cf08dee2220bf006fecd88f",
-        "source_id": "f9341c4476e6db828d7fc055bad33312a8d4c1197717faf42ed7788e751f4781",
-        "state_id": "1a4a3341eedd7d398187bcf32063931cf48446ac845b1dbf6854b8fe3d0f607a"
+        "reference_id": "fe1f24a331aaa2339559723ade5f700aea16e1e6976b6f14bbac683180ce5824",
+        "source_id": "10596d80c665decea1967c32d1ddc9848bbbfa790eb88fef168bfe812a449cf7",
+        "state_id": "43070e34fad3e910aa7d6878f557e0c589727c0ac3fd64d94e24fbb8520a66f9"
       },
-      "result_sha256": "498242715f8a8c608b666793fdeedef9ed463eb95055ee5eb5639d18143f0820",
+      "result_sha256": "da97c265c186addb7d4a3022979332fbc61b4c5d1d5a918f3366165b3c0138ea",
       "schema": "oph.primary_weighted_survival.v1"
     }
   ],
@@ -783,13 +783,13 @@
     "model/charged_lepton_response/phase_readout.py": "259eecd7c36d66e02eb1ab84ae73705abbd08a2065186d686cd34ed38debb0cb",
     "model/charged_lepton_response/phase_selection.py": "1c82ebf110fd0b6374a35e47cf190785a29baae6d65dc5bef96f940217f97edf",
     "model/charged_lepton_response/relativistic_mass.py": "5f5a9bff5871f5bac768c7a39fc01f121161f7cc2006a4ac6d94124bde5542c4",
-    "model/charged_lepton_response/results.json": "a5fe55b8c3fe0b018ac7cb8a833b465a9a3cb6bf7ed7c666f225a85267894781",
+    "model/charged_lepton_response/results.json": "988489ac359bc221ecb6b34a976968a31948ac7d63dabc36280c15d959a07c52",
     "model/charged_lepton_response/test_calibrated_sanity.py": "61623e317b6826533eb8f6d63512ac6104d73a77123f833fd0d267b9056b2062",
     "model/charged_lepton_response/test_candidate_map.py": "e2e61495ea35162aeeea74f573223653032a0e87fc90a6c06ed56fe3f788aac3",
     "model/charged_lepton_response/test_car_koide.py": "878ee4bb4b39fb89e04330910221fda0a376417d6c82c381cdab9bbec2184b45",
     "model/charged_lepton_response/test_mass_response_bridge.py": "7b8ed0611c03e979be61bdac2857d65f65bd6d3687ced366d1e2749c6d12ea6a",
     "model/charged_lepton_response/test_p_dependence.py": "e8bc73b854293d985cc99e76271ee83de2d1eda2e6b62c558f3ecb2f76c339f7",
-    "model/charged_lepton_response/test_packet.py": "4b7d614692c6d223af0d804f6885bef1625a25b7255707d9e47d2c6afd81b05b",
+    "model/charged_lepton_response/test_packet.py": "9d4f74e6284f2e2ae5bf47ed36a1060d5b864818e2336bfbfa12d2d3d20c3ce1",
     "model/charged_lepton_response/test_phase_readout.py": "39aa8878ce7d4b153401688085aaa07f39e98453ac1c6fb04c35f57ab83cb848",
     "model/charged_lepton_response/test_phase_selection.py": "9719054f687d8738ea2352e9490516c715705cc86a9fbb10ba9d8fb76247f7d9",
     "model/charged_lepton_response/test_relativistic_mass.py": "917bd9b3d3f359f2b04e506e7f7356bb0e90a548af6b82656ed6a2c0361c0fa8",
@@ -1335,7 +1335,7 @@
     "model/particle_calibration_selection/clock_units.py": "53a05f85334a51e724a3e3cab19fd9fceee7b4f8c3e531e3242a4ccb1f78bc6b",
     "model/particle_calibration_selection/families_chirality.py": "916e6907e2d3fbd49b5ebdf0cb94b2cf5c1292b8546c6cb7015d6401878e676e",
     "model/particle_calibration_selection/phase_attenuation.py": "ed733079670a9ddac6cfdc2d4bea67cfe20eb572d8822f7332f59b9d946190cb",
-    "model/particle_calibration_selection/results.json": "348e716733ca716b447c6fdcee0a7880158b81d8a1254ac0b71c39aeb066a4cc",
+    "model/particle_calibration_selection/results.json": "630a5d5e6a8d564af5cc12c932b8fc463b3ef924cfd213d208747cd39da539af",
     "model/particle_calibration_selection/run.py": "1593ae7d805da92e0e74d1526dc6c767643d255a33967f00d68841e6458783eb",
     "model/particle_calibration_selection/test_capacity_response.py": "4baffea60166bc239dfccc0897e9279e30dbb6a3dfc9572ab9700bd73fe1a99c",
     "model/particle_calibration_selection/test_clock_units.py": "6f8af33a60f6986fcb05128c478317fdf8ef8b8bcb27baba6fa0805a7ac86fb5",

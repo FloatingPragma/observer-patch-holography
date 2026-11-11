@@ -101,7 +101,7 @@
       "completion_evidence": [
         {
           "path": "model/completion/assumption_closure.json",
-          "sha256": "646a05c612712a318eafb043fd7c66a2317900039433fee2d1ddd8dc9be471a5",
+          "sha256": "e464e2f298d361f5db7955f2dc437bd926f841fbf44aa87a0e5f86e61fff3cc8",
           "independent_check": "model/completion/test_assumption_closure.py",
           "scope": "Typed disclosure covers 84 canonical rows, 10 joint assumptions, 16 baseline claims, 134 named inputs, 66 imports, 33 services and 8 finite applications. Six source joins remain unproved; no canonical discharge, common physical realization or gate acceptance follows."
         }
@@ -109,7 +109,7 @@
       "completion_outcome": "positive",
       "completion_bindings": {
         "model/completion/ASSUMPTION_CLOSURE.md": "28b40da9e14e411e3eaf01384e859ea251713b4b1bc1f77e45d7e35c1be16de1",
-        "model/completion/assumption_closure.json": "646a05c612712a318eafb043fd7c66a2317900039433fee2d1ddd8dc9be471a5",
+        "model/completion/assumption_closure.json": "e464e2f298d361f5db7955f2dc437bd926f841fbf44aa87a0e5f86e61fff3cc8",
         "model/completion/assumption_closure.py": "33abf2bce1c2a4c7bd6280c913579114f1a886f5ab1c99fb942217fa96936480",
         "model/completion/test_assumption_closure.py": "8f9f1a4f96549e6f5db3b78b4c97b74929a29368851107e466a2229c2db22862"
       }
@@ -524,7 +524,7 @@
       "completion_evidence": [
         {
           "path": "model/electroweak_crossover/comparison_budget.json",
-          "sha256": "9ddee9eb0f48671f392f85757bb32e806b6e0054d9f169162334af72d205821a",
+          "sha256": "dd641649414a5a7adda4577f3bf57e1f9742803f34d367782ea1c7a4a7b0c714",
           "independent_check": "model/electroweak_crossover/test_comparison_budget.py",
           "scope": "Shared-reference PSD covariance propagation gives statistical SD 0.11810–0.13680 GeV under independent run sets, or 0–0.27631 GeV without that premise. Central Tc 161.1298 GeV is unchanged; reduction allowance and finite-design spread are separate. No missing covariance, nonlinear coverage or combined significance is invented."
         }
@@ -532,7 +532,7 @@
       "completion_outcome": "positive",
       "completion_bindings": {
         "model/electroweak_crossover/PROOF.md": "2d620b55e0d21604e4e53dbb36ecf8c3c666ffc4585d4d2f35baff63056c3abf",
-        "model/electroweak_crossover/comparison_budget.json": "9ddee9eb0f48671f392f85757bb32e806b6e0054d9f169162334af72d205821a",
+        "model/electroweak_crossover/comparison_budget.json": "dd641649414a5a7adda4577f3bf57e1f9742803f34d367782ea1c7a4a7b0c714",
         "model/electroweak_crossover/comparison_budget.py": "8c011257c50dea0a184d906b93c192c46160337a49d461780ce4301dc8350078",
         "model/electroweak_crossover/test_comparison_budget.py": "0c0b539df1e6d5da12f383a27cab843992cdb5ced0d82043b06500108638ccf7"
       }

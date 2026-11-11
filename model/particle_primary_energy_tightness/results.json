@@ -414,13 +414,13 @@
     "model/charged_lepton_response/phase_readout.py": "259eecd7c36d66e02eb1ab84ae73705abbd08a2065186d686cd34ed38debb0cb",
     "model/charged_lepton_response/phase_selection.py": "1c82ebf110fd0b6374a35e47cf190785a29baae6d65dc5bef96f940217f97edf",
     "model/charged_lepton_response/relativistic_mass.py": "5f5a9bff5871f5bac768c7a39fc01f121161f7cc2006a4ac6d94124bde5542c4",
-    "model/charged_lepton_response/results.json": "a5fe55b8c3fe0b018ac7cb8a833b465a9a3cb6bf7ed7c666f225a85267894781",
+    "model/charged_lepton_response/results.json": "988489ac359bc221ecb6b34a976968a31948ac7d63dabc36280c15d959a07c52",
     "model/charged_lepton_response/test_calibrated_sanity.py": "61623e317b6826533eb8f6d63512ac6104d73a77123f833fd0d267b9056b2062",
     "model/charged_lepton_response/test_candidate_map.py": "e2e61495ea35162aeeea74f573223653032a0e87fc90a6c06ed56fe3f788aac3",
     "model/charged_lepton_response/test_car_koide.py": "878ee4bb4b39fb89e04330910221fda0a376417d6c82c381cdab9bbec2184b45",
     "model/charged_lepton_response/test_mass_response_bridge.py": "7b8ed0611c03e979be61bdac2857d65f65bd6d3687ced366d1e2749c6d12ea6a",
     "model/charged_lepton_response/test_p_dependence.py": "e8bc73b854293d985cc99e76271ee83de2d1eda2e6b62c558f3ecb2f76c339f7",
-    "model/charged_lepton_response/test_packet.py": "4b7d614692c6d223af0d804f6885bef1625a25b7255707d9e47d2c6afd81b05b",
+    "model/charged_lepton_response/test_packet.py": "9d4f74e6284f2e2ae5bf47ed36a1060d5b864818e2336bfbfa12d2d3d20c3ce1",
     "model/charged_lepton_response/test_phase_readout.py": "39aa8878ce7d4b153401688085aaa07f39e98453ac1c6fb04c35f57ab83cb848",
     "model/charged_lepton_response/test_phase_selection.py": "9719054f687d8738ea2352e9490516c715705cc86a9fbb10ba9d8fb76247f7d9",
     "model/charged_lepton_response/test_relativistic_mass.py": "917bd9b3d3f359f2b04e506e7f7356bb0e90a548af6b82656ed6a2c0361c0fa8",
@@ -966,7 +966,7 @@
     "model/particle_calibration_selection/clock_units.py": "53a05f85334a51e724a3e3cab19fd9fceee7b4f8c3e531e3242a4ccb1f78bc6b",
     "model/particle_calibration_selection/families_chirality.py": "916e6907e2d3fbd49b5ebdf0cb94b2cf5c1292b8546c6cb7015d6401878e676e",
     "model/particle_calibration_selection/phase_attenuation.py": "ed733079670a9ddac6cfdc2d4bea67cfe20eb572d8822f7332f59b9d946190cb",
-    "model/particle_calibration_selection/results.json": "348e716733ca716b447c6fdcee0a7880158b81d8a1254ac0b71c39aeb066a4cc",
+    "model/particle_calibration_selection/results.json": "630a5d5e6a8d564af5cc12c932b8fc463b3ef924cfd213d208747cd39da539af",
     "model/particle_calibration_selection/run.py": "1593ae7d805da92e0e74d1526dc6c767643d255a33967f00d68841e6458783eb",
     "model/particle_calibration_selection/test_capacity_response.py": "4baffea60166bc239dfccc0897e9279e30dbb6a3dfc9572ab9700bd73fe1a99c",
     "model/particle_calibration_selection/test_clock_units.py": "6f8af33a60f6986fcb05128c478317fdf8ef8b8bcb27baba6fa0805a7ac86fb5",
@@ -1566,7 +1566,7 @@
     {
       "result": {
         "actual_histogram_executed": false,
-        "clock_id": "1cfc459a53f4415353450c6ea2e4f965a451b08d0fc8dfdf330823516be5ba0a",
+        "clock_id": "642db923a91dfa03f063797f3f24f645186602ac5cb967b6eb142a12e4e8ace2",
         "dimensionless_centered_moment_upper": "72/7",
         "final_excitation": {
           "absolute_final_energy_measured": false,
@@ -1590,7 +1590,7 @@
           "Cayley_substeps_per_base_tick": 24215826,
           "alias_probability_upper": 0,
           "clock_histogram_executed": false,
-          "clock_id": "1cfc459a53f4415353450c6ea2e4f965a451b08d0fc8dfdf330823516be5ba0a",
+          "clock_id": "642db923a91dfa03f063797f3f24f645186602ac5cb967b6eb142a12e4e8ace2",
           "clock_plan": {
             "clock_qubits": 50,
             "clock_size": 1125899906842624,
@@ -1602,15 +1602,15 @@
           "clock_step": "7/285360",
           "energy_resolution": "1/8908800",
           "maximum_source_time_per_readout": "2627099782632787/95120",
-          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "member_id": "112d315bc4d7181fc36c93ab06acd4bfa8c1b36eed0b3047afd7e34e350c7e00",
           "one_complete_clock_error_upper": "375299968947541/150119994588742656",
-          "reference_id": "5744254dc9395212cfa03f5c8a8c59fbc8bb8d606b31f98967a212fd79f537b1",
+          "reference_id": "f150192f59366d08f619a67947adab5f8f89ae6613d5ffcfc80aacd224af0eed",
           "signed_energy_center_formula": "2pi*(a if 2a<J else a-J)/(J*tau)",
           "source_energy_zero_changed": false,
-          "source_id": "e7b9d564a4541d5f84083d99624360d313b4fb2418cbb6809fe2604b5cd6e736",
+          "source_id": "3538402120a7dd58c91cf70364a5e824b6df0d17ebd11bad58ea1a4977041ad8",
           "source_norm_upper": "71340/7",
           "source_spectrum_phase_radius_upper": "1/4",
-          "state_id": "c0e41658e49e943179cc4ca74755b76fe2bdaeafcdf224445333729759ac2e17",
+          "state_id": "e41e09d434143ce9dc70a94feb9fbac915de08d868f6eae3df07385b9849086a",
           "two_complete_clock_error_upper": "375299968947541/75059997294371328"
         },
         "finite_reported_interval": [
@@ -1621,7 +1621,7 @@
         "finite_reported_weight_simple_lower": "1/50",
         "fixed_energy_spectral_tightness_proved": false,
         "isolated_branch_dispersion_or_particle_identification": false,
-        "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+        "member_id": "112d315bc4d7181fc36c93ab06acd4bfa8c1b36eed0b3047afd7e34e350c7e00",
         "native6_original_window": {
           "centered_second_moment_center": "6",
           "centered_second_moment_upper": "72/7",
@@ -1656,8 +1656,8 @@
           "polynomial_log_slope_upper": "22272",
           "success_probability_normalized": false
         },
-        "reference_id": "5744254dc9395212cfa03f5c8a8c59fbc8bb8d606b31f98967a212fd79f537b1",
-        "refinement_producer_result_sha256": "5f5d009f8bee40c042983dce3f35b93f3c8f7f43f5894cdd02ccaa8acf734cf3",
+        "reference_id": "f150192f59366d08f619a67947adab5f8f89ae6613d5ffcfc80aacd224af0eed",
+        "refinement_producer_result_sha256": "4997d06d91fdfc69b123ead9f758b5bb0920149410881ff7b96c99ca03ce4b33",
         "retained_origin_response": {
           "averaged_observable_substituted_for_origin_history": false,
           "centered_moment_coefficient": "72/7",
@@ -1794,8 +1794,8 @@
           "state_replaced_by_tile_trial": false,
           "tail_conclusion_domain": "this volume-normalized total-density instrument",
           "three_direction_hopping_expectations_equal": true,
-          "tile_seed_member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
-          "tile_seed_result_sha256": "86d23f4de4f9024f51a7f0a706c2b85bb97bab2f8d43efb323e6edd75e1fd77b",
+          "tile_seed_member_id": "112d315bc4d7181fc36c93ab06acd4bfa8c1b36eed0b3047afd7e34e350c7e00",
+          "tile_seed_result_sha256": "9d6f51a1b119cda38199ce543f4aac6cee1722194f5c4ea8e826ba582fc5d942",
           "uniform_negative_dimensionless_hopping_density_lower": "8735102049596419249844084102996552973045096548196061997399217281732810877369625753022629186267250204336576690543154237093789539235123553957979830423590846671349888205816771188543677690105225823745319242872464408370249160506652505892952020829507351061822234545225459545698726750149054680192270840137610240041785177489799421196075415002576009740506403549176758684856060310635426968527190524855177573317358059075060018741418180456393964386976487864135509122335821889490465651820194883505644388029909581202176450101098526788752898536142834882186547375260631587708894460613565815420119506060481260838140913978104022718014310064145195610133683496116576463555989720943222821157499340273262957762098513398307626052530462180468209063680475084425292893758404510105186620604853966099083005959553466019739884516752404561432800481799393959676937676115889270854094174077505181162936745368682473801476717029/252506564046269344838328491651809758189176691993266302585508116324245047838106228098204915846756537039869805650925617833719074767530354094377120165081472143434932267604352627844634845553858664191016323145258350193175928029374696922651683138048358949595154141019661857293738204466720498784727205077976375949359305033431268344509800110169984027717911415163299336802278535258282935609230953164559572997783884639972962841417019742916399367239090195801573265970236656540541883985960262568866048778892377602286008704445129934732804321482233554392515724620198636306848950945967024914620076193501539307990714519366499362014713378862828251365520361880456235757733674695872109927973969094158097868538508894854710078242994753902564132259976464204349317920891713116547751628353213377211703908474890074083546888862618455138757009089213274870017289850340314063650529118081592285165121187071446290931233934720"
         },
         "selected_state_weighted_residual_lower_claimed": false,
@@ -2135,19 +2135,19 @@
           "link_coordinates_replaced_in_selected_source": false,
           "physical_anchor_is_selected_state": false
         },
-        "source_id": "e7b9d564a4541d5f84083d99624360d313b4fb2418cbb6809fe2604b5cd6e736",
+        "source_id": "3538402120a7dd58c91cf70364a5e824b6df0d17ebd11bad58ea1a4977041ad8",
         "source_operator_norm_method_can_remove_inverse_spacing": false,
         "source_or_preparation_or_clock_changed": false,
-        "state_id": "c0e41658e49e943179cc4ca74755b76fe2bdaeafcdf224445333729759ac2e17",
+        "state_id": "e41e09d434143ce9dc70a94feb9fbac915de08d868f6eae3df07385b9849086a",
         "uniform_dimensionless_centered_moment_upper": "3141/224"
       },
-      "result_sha256": "5d13a1dc0fda759e3761c1054f0e023a3f7d366f52cf1f3352d8b2e7aa77b09a",
+      "result_sha256": "ef0ff32c32e40f0448bec85184c723140970d4adc22f5358379d03df846e6a1a",
       "schema": "oph.primary_energy_tightness_bound.v1"
     },
     {
       "result": {
         "actual_histogram_executed": false,
-        "clock_id": "eaeaaa9d52263a805aa1720a44729bb2f75b0cf37945cc7b15e022e0b18e1541",
+        "clock_id": "7c3cadd40490e28ba0148164978288a829f4a6785f96251ddf0a063588826779",
         "dimensionless_centered_moment_upper": "3141/224",
         "final_excitation": {
           "absolute_final_energy_measured": false,
@@ -2171,7 +2171,7 @@
           "Cayley_substeps_per_base_tick": 6199251312,
           "alias_probability_upper": 0,
           "clock_histogram_executed": false,
-          "clock_id": "eaeaaa9d52263a805aa1720a44729bb2f75b0cf37945cc7b15e022e0b18e1541",
+          "clock_id": "7c3cadd40490e28ba0148164978288a829f4a6785f96251ddf0a063588826779",
           "clock_plan": {
             "clock_qubits": 66,
             "clock_size": 73786976294838206464,
@@ -2183,15 +2183,15 @@
           "clock_step": "7/115101696",
           "energy_resolution": "1/1494220800",
           "maximum_source_time_per_readout": "172169611354622481747/38367232",
-          "member_id": "714c6c61ebc67563ef9030473d4a6e53eeafacad79ab3f94d436e459e6a0169f",
+          "member_id": "036f8623be95538437f6fd04da020a34a87ed2febc64fb5ed51c36643e2f41bb",
           "one_complete_clock_error_upper": "8198552921648689607/3279421169436477554688",
-          "reference_id": "a633b1b4deb9927fb023ce22ebfb3de85984229cc1d1df3a2aed3239f87c8861",
+          "reference_id": "a90f305e3109494a396209b9c274dc0582dcf14f4fe725b9af49da677e0d30cc",
           "signed_energy_center_formula": "2pi*(a if 2a<J else a-J)/(J*tau)",
           "source_energy_zero_changed": false,
-          "source_id": "98f486c92b95bb9e88db480ed66a12d93e520824e6fa4cb943bda4e3a2e8f699",
+          "source_id": "048c2a73119e3877f70dcf6af9189e35394fa86e2cd88f7077aa92ed48d5a395",
           "source_norm_upper": "28775424/7",
           "source_spectrum_phase_radius_upper": "1/4",
-          "state_id": "d4ebb295ee10ae2911972310081e65e1aa704aeefc245076a5085124f0a9e4a0",
+          "state_id": "4b27640be1f5d4b2086e3c04af4e330956ab6f756abcd42595383e2564fa6d44",
           "two_complete_clock_error_upper": "8198552921648689607/1639710584718238777344"
         },
         "finite_reported_interval": [
@@ -2202,7 +2202,7 @@
         "finite_reported_weight_simple_lower": "1/50",
         "fixed_energy_spectral_tightness_proved": false,
         "isolated_branch_dispersion_or_particle_identification": false,
-        "member_id": "714c6c61ebc67563ef9030473d4a6e53eeafacad79ab3f94d436e459e6a0169f",
+        "member_id": "036f8623be95538437f6fd04da020a34a87ed2febc64fb5ed51c36643e2f41bb",
         "native6_original_window": {
           "centered_second_moment_center": "12",
           "centered_second_moment_upper": "3141/56",
@@ -2237,8 +2237,8 @@
           "polynomial_log_slope_upper": "3735552",
           "success_probability_normalized": false
         },
-        "reference_id": "a633b1b4deb9927fb023ce22ebfb3de85984229cc1d1df3a2aed3239f87c8861",
-        "refinement_producer_result_sha256": "2897c8ce13a32afb38e0de6d48b4634ebbb281675169b525cb67cafb9e9e0449",
+        "reference_id": "a90f305e3109494a396209b9c274dc0582dcf14f4fe725b9af49da677e0d30cc",
+        "refinement_producer_result_sha256": "cf12cc5bfaa9eca306f83d83aa82ce64c3c39ee3c0b18b5759279a774e621640",
         "retained_origin_response": {
           "averaged_observable_substituted_for_origin_history": false,
           "centered_moment_coefficient": "78/7",
@@ -2361,8 +2361,8 @@
           "state_replaced_by_tile_trial": false,
           "tail_conclusion_domain": "this volume-normalized total-density instrument",
           "three_direction_hopping_expectations_equal": true,
-          "tile_seed_member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
-          "tile_seed_result_sha256": "86d23f4de4f9024f51a7f0a706c2b85bb97bab2f8d43efb323e6edd75e1fd77b",
+          "tile_seed_member_id": "112d315bc4d7181fc36c93ab06acd4bfa8c1b36eed0b3047afd7e34e350c7e00",
+          "tile_seed_result_sha256": "9d6f51a1b119cda38199ce543f4aac6cee1722194f5c4ea8e826ba582fc5d942",
           "uniform_negative_dimensionless_hopping_density_lower": "8735102049596419249844084102996552973045096548196061997399217281732810877369625753022629186267250204336576690543154237093789539235123553957979830423590846671349888205816771188543677690105225823745319242872464408370249160506652505892952020829507351061822234545225459545698726750149054680192270840137610240041785177489799421196075415002576009740506403549176758684856060310635426968527190524855177573317358059075060018741418180456393964386976487864135509122335821889490465651820194883505644388029909581202176450101098526788752898536142834882186547375260631587708894460613565815420119506060481260838140913978104022718014310064145195610133683496116576463555989720943222821157499340273262957762098513398307626052530462180468209063680475084425292893758404510105186620604853966099083005959553466019739884516752404561432800481799393959676937676115889270854094174077505181162936745368682473801476717029/252506564046269344838328491651809758189176691993266302585508116324245047838106228098204915846756537039869805650925617833719074767530354094377120165081472143434932267604352627844634845553858664191016323145258350193175928029374696922651683138048358949595154141019661857293738204466720498784727205077976375949359305033431268344509800110169984027717911415163299336802278535258282935609230953164559572997783884639972962841417019742916399367239090195801573265970236656540541883985960262568866048778892377602286008704445129934732804321482233554392515724620198636306848950945967024914620076193501539307990714519366499362014713378862828251365520361880456235757733674695872109927973969094158097868538508894854710078242994753902564132259976464204349317920891713116547751628353213377211703908474890074083546888862618455138757009089213274870017289850340314063650529118081592285165121187071446290931233934720"
         },
         "selected_state_weighted_residual_lower_claimed": false,
@@ -2702,19 +2702,19 @@
           "link_coordinates_replaced_in_selected_source": false,
           "physical_anchor_is_selected_state": false
         },
-        "source_id": "98f486c92b95bb9e88db480ed66a12d93e520824e6fa4cb943bda4e3a2e8f699",
+        "source_id": "048c2a73119e3877f70dcf6af9189e35394fa86e2cd88f7077aa92ed48d5a395",
         "source_operator_norm_method_can_remove_inverse_spacing": false,
         "source_or_preparation_or_clock_changed": false,
-        "state_id": "d4ebb295ee10ae2911972310081e65e1aa704aeefc245076a5085124f0a9e4a0",
+        "state_id": "4b27640be1f5d4b2086e3c04af4e330956ab6f756abcd42595383e2564fa6d44",
         "uniform_dimensionless_centered_moment_upper": "3141/224"
       },
-      "result_sha256": "766de293a43109b60eae2bc671a37d5a4151bf30f993aa71772aa02547e79b2e",
+      "result_sha256": "cbda8daacb5d64dc4f76f333be55e485af43864493856d4ec379147da7c87427",
       "schema": "oph.primary_energy_tightness_bound.v1"
     },
     {
       "result": {
         "actual_histogram_executed": false,
-        "clock_id": "6a6dfb62ba7d4358314c0573f525a8d937786b845881842f060feb6061317725",
+        "clock_id": "bc19886e63f8027f996c4466f07829c2685d2a1f024d4245372ac02ae9af6ac5",
         "dimensionless_centered_moment_upper": "24903/2048",
         "final_excitation": {
           "absolute_final_energy_measured": false,
@@ -2738,7 +2738,7 @@
           "Cayley_substeps_per_base_tick": 1587008335684,
           "alias_probability_upper": 0,
           "clock_histogram_executed": false,
-          "clock_id": "6a6dfb62ba7d4358314c0573f525a8d937786b845881842f060feb6061317725",
+          "clock_id": "bc19886e63f8027f996c4466f07829c2685d2a1f024d4245372ac02ae9af6ac5",
           "clock_plan": {
             "clock_qubits": 82,
             "clock_size": 4835703278458516698824704,
@@ -2750,15 +2750,15 @@
           "clock_step": "7/31495815168",
           "energy_resolution": "1/236558745600",
           "maximum_source_time_per_readout": "11283307649736538963924307/10498605056",
-          "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+          "member_id": "3700710f0851d5d9da3f2c95a06bcfb2d416a965249127d36c579d30ea59bf0a",
           "one_complete_clock_error_upper": "1611901092819505566274901/644760437127807904703451136",
-          "reference_id": "0bea8b123ea066e38165a4b574afa542bf9857c04520b2a14fc156506dca5a04",
+          "reference_id": "32e3fbb6cc0a72c982d19a0371c0cbcf52a1320512a768e1e4a225602a6b6214",
           "signed_energy_center_formula": "2pi*(a if 2a<J else a-J)/(J*tau)",
           "source_energy_zero_changed": false,
-          "source_id": "69e7e9e13cd5d393c2487bae332bb6f7ef2e60a75b17e6069522b09c10fe80a7",
+          "source_id": "9467be1a00977064a4403bcc20ed5e31f7b14dbd4592a7149b3698ddb8c0c268",
           "source_norm_upper": "7873953792/7",
           "source_spectrum_phase_radius_upper": "1/4",
-          "state_id": "738ea024f25d9dd8eb5cc5a9bc3c77a5f29a7de355270e0060595dd2ef1b961b",
+          "state_id": "8bfae8204ae9be521bcbf6da9fe11dff29ca374bd312ee5e2a1e84ccdee94324",
           "two_complete_clock_error_upper": "1611901092819505566274901/322380218563903952351725568"
         },
         "finite_reported_interval": [
@@ -2769,7 +2769,7 @@
         "finite_reported_weight_simple_lower": "1/50",
         "fixed_energy_spectral_tightness_proved": false,
         "isolated_branch_dispersion_or_particle_identification": false,
-        "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+        "member_id": "3700710f0851d5d9da3f2c95a06bcfb2d416a965249127d36c579d30ea59bf0a",
         "native6_original_window": {
           "centered_second_moment_center": "24",
           "centered_second_moment_upper": "24903/128",
@@ -2790,8 +2790,8 @@
         "physical_anchor_is_selected_state": false,
         "physical_mass_table_GeV": [],
         "q6_scalar_original_window": null,
-        "reference_id": "0bea8b123ea066e38165a4b574afa542bf9857c04520b2a14fc156506dca5a04",
-        "refinement_producer_result_sha256": "91c28f178bfdc9e55a53e2d120c1812e42af7e019f7aa2a39823b372fa8c968c",
+        "reference_id": "32e3fbb6cc0a72c982d19a0371c0cbcf52a1320512a768e1e4a225602a6b6214",
+        "refinement_producer_result_sha256": "7e1416b2318e6e39a83d3adf26df7e25b0c70c1fdc4a1fda6d40d623a0f6b294",
         "retained_origin_response": {
           "averaged_observable_substituted_for_origin_history": false,
           "centered_moment_coefficient": "78/7",
@@ -2914,8 +2914,8 @@
           "state_replaced_by_tile_trial": false,
           "tail_conclusion_domain": "this volume-normalized total-density instrument",
           "three_direction_hopping_expectations_equal": true,
-          "tile_seed_member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
-          "tile_seed_result_sha256": "86d23f4de4f9024f51a7f0a706c2b85bb97bab2f8d43efb323e6edd75e1fd77b",
+          "tile_seed_member_id": "112d315bc4d7181fc36c93ab06acd4bfa8c1b36eed0b3047afd7e34e350c7e00",
+          "tile_seed_result_sha256": "9d6f51a1b119cda38199ce543f4aac6cee1722194f5c4ea8e826ba582fc5d942",
           "uniform_negative_dimensionless_hopping_density_lower": "8735102049596419249844084102996552973045096548196061997399217281732810877369625753022629186267250204336576690543154237093789539235123553957979830423590846671349888205816771188543677690105225823745319242872464408370249160506652505892952020829507351061822234545225459545698726750149054680192270840137610240041785177489799421196075415002576009740506403549176758684856060310635426968527190524855177573317358059075060018741418180456393964386976487864135509122335821889490465651820194883505644388029909581202176450101098526788752898536142834882186547375260631587708894460613565815420119506060481260838140913978104022718014310064145195610133683496116576463555989720943222821157499340273262957762098513398307626052530462180468209063680475084425292893758404510105186620604853966099083005959553466019739884516752404561432800481799393959676937676115889270854094174077505181162936745368682473801476717029/252506564046269344838328491651809758189176691993266302585508116324245047838106228098204915846756537039869805650925617833719074767530354094377120165081472143434932267604352627844634845553858664191016323145258350193175928029374696922651683138048358949595154141019661857293738204466720498784727205077976375949359305033431268344509800110169984027717911415163299336802278535258282935609230953164559572997783884639972962841417019742916399367239090195801573265970236656540541883985960262568866048778892377602286008704445129934732804321482233554392515724620198636306848950945967024914620076193501539307990714519366499362014713378862828251365520361880456235757733674695872109927973969094158097868538508894854710078242994753902564132259976464204349317920891713116547751628353213377211703908474890074083546888862618455138757009089213274870017289850340314063650529118081592285165121187071446290931233934720"
         },
         "selected_state_weighted_residual_lower_claimed": false,
@@ -3255,13 +3255,13 @@
           "link_coordinates_replaced_in_selected_source": false,
           "physical_anchor_is_selected_state": false
         },
-        "source_id": "69e7e9e13cd5d393c2487bae332bb6f7ef2e60a75b17e6069522b09c10fe80a7",
+        "source_id": "9467be1a00977064a4403bcc20ed5e31f7b14dbd4592a7149b3698ddb8c0c268",
         "source_operator_norm_method_can_remove_inverse_spacing": false,
         "source_or_preparation_or_clock_changed": false,
-        "state_id": "738ea024f25d9dd8eb5cc5a9bc3c77a5f29a7de355270e0060595dd2ef1b961b",
+        "state_id": "8bfae8204ae9be521bcbf6da9fe11dff29ca374bd312ee5e2a1e84ccdee94324",
         "uniform_dimensionless_centered_moment_upper": "3141/224"
       },
-      "result_sha256": "c3bf759e0cd957511cb1058323efc4948075014bd0984d352fbaed50bbf2feb2",
+      "result_sha256": "f952b0240a97204445db062311ba9de623eda3839649339b84f62bad1010891b",
       "schema": "oph.primary_energy_tightness_bound.v1"
     }
   ],
@@ -3269,7 +3269,7 @@
   "retained_origin_member": {
     "result": {
       "actual_histogram_executed": false,
-      "clock_id": "2d96788af2d216a5c43ddd9543b1ba55385b5ed809470ba1f4391052143682cd",
+      "clock_id": "7458cd1f2ee00a011cf9d3c6d425a10159152e5452b1576e103eda1d71657665",
       "dimensionless_centered_moment_upper": "171540723744801/15393162788864",
       "final_excitation": {
         "absolute_final_energy_measured": false,
@@ -3293,7 +3293,7 @@
         "Cayley_substeps_per_base_tick": 218116764807748472853479,
         "alias_probability_upper": 0,
         "clock_histogram_executed": false,
-        "clock_id": "2d96788af2d216a5c43ddd9543b1ba55385b5ed809470ba1f4391052143682cd",
+        "clock_id": "7458cd1f2ee00a011cf9d3c6d425a10159152e5452b1576e103eda1d71657665",
         "clock_plan": {
           "clock_qubits": 156,
           "clock_size": 91343852333181432387730302044767688728495783936,
@@ -3305,15 +3305,15 @@
         "clock_step": "7/7417806888647906033664",
         "energy_resolution": "1/15910316763574488268800",
         "maximum_source_time_per_readout": "213135655444090008904704038104457940366490162515/2472602296215968677888",
-        "member_id": "23baf4783fa3b04f521f8b0559477a05ebb9eaaeaf08e6a0b319e15122377604",
+        "member_id": "721835c005942ed85f729add358fcfded17069e9630c6470ee655ee86fbe13d2",
         "one_complete_clock_error_upper": "30447950777727144129243434014922562909498594645/12179180311090857651697399460106112255130215280896",
-        "reference_id": "778b132522cb1c5450e92e6c18341250af309cdde9a311e531a786b4a7183cea",
+        "reference_id": "fcce3fb42ed59cdfa36ac0fbd7d1e22184ec4943d43415bc2a6eda7f003d0a75",
         "signed_energy_center_formula": "2pi*(a if 2a<J else a-J)/(J*tau)",
         "source_energy_zero_changed": false,
-        "source_id": "d01f2ea47f97a9ecf870a59a1c06244db6a2f45b51417c159f613cb206f9b47b",
+        "source_id": "baa2571a28b8de4428574a29f1080d2beb70baccb40ef33cb8b92ac71ae4d175",
         "source_norm_upper": "1854451722161976508416/7",
         "source_spectrum_phase_radius_upper": "1/4",
-        "state_id": "515d14dc0351e770e1e61553b4e0c995b944e834c4f6ca213651409eaea8149c",
+        "state_id": "8c2cc81bf93b2326e266be8fb67e8daf75205320c76cd17c1fa1c6e04aa5f1a6",
         "two_complete_clock_error_upper": "30447950777727144129243434014922562909498594645/6089590155545428825848699730053056127565107640448"
       },
       "finite_reported_interval": [
@@ -3324,7 +3324,7 @@
       "finite_reported_weight_simple_lower": "1/50",
       "fixed_energy_spectral_tightness_proved": false,
       "isolated_branch_dispersion_or_particle_identification": false,
-      "member_id": "23baf4783fa3b04f521f8b0559477a05ebb9eaaeaf08e6a0b319e15122377604",
+      "member_id": "721835c005942ed85f729add358fcfded17069e9630c6470ee655ee86fbe13d2",
       "native6_original_window": {
         "centered_second_moment_center": "768",
         "centered_second_moment_upper": "171540723744801/939524096",
@@ -3345,8 +3345,8 @@
       "physical_anchor_is_selected_state": false,
       "physical_mass_table_GeV": [],
       "q6_scalar_original_window": null,
-      "reference_id": "778b132522cb1c5450e92e6c18341250af309cdde9a311e531a786b4a7183cea",
-      "refinement_producer_result_sha256": "de9048f8a193266073c065d3c7ae0570d10494008d0fb8f317a302f919f696a8",
+      "reference_id": "fcce3fb42ed59cdfa36ac0fbd7d1e22184ec4943d43415bc2a6eda7f003d0a75",
+      "refinement_producer_result_sha256": "5796b108f835f8eb30d7481a11cc020068b881e317d0ececebe2e5d7ca4b1ca9",
       "retained_origin_response": {
         "averaged_observable_substituted_for_origin_history": false,
         "centered_moment_coefficient": "78/7",
@@ -3483,8 +3483,8 @@
         "state_replaced_by_tile_trial": false,
         "tail_conclusion_domain": "this volume-normalized total-density instrument",
         "three_direction_hopping_expectations_equal": true,
-        "tile_seed_member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
-        "tile_seed_result_sha256": "86d23f4de4f9024f51a7f0a706c2b85bb97bab2f8d43efb323e6edd75e1fd77b",
+        "tile_seed_member_id": "112d315bc4d7181fc36c93ab06acd4bfa8c1b36eed0b3047afd7e34e350c7e00",
+        "tile_seed_result_sha256": "9d6f51a1b119cda38199ce543f4aac6cee1722194f5c4ea8e826ba582fc5d942",
         "uniform_negative_dimensionless_hopping_density_lower": "8735102049596419249844084102996552973045096548196061997399217281732810877369625753022629186267250204336576690543154237093789539235123553957979830423590846671349888205816771188543677690105225823745319242872464408370249160506652505892952020829507351061822234545225459545698726750149054680192270840137610240041785177489799421196075415002576009740506403549176758684856060310635426968527190524855177573317358059075060018741418180456393964386976487864135509122335821889490465651820194883505644388029909581202176450101098526788752898536142834882186547375260631587708894460613565815420119506060481260838140913978104022718014310064145195610133683496116576463555989720943222821157499340273262957762098513398307626052530462180468209063680475084425292893758404510105186620604853966099083005959553466019739884516752404561432800481799393959676937676115889270854094174077505181162936745368682473801476717029/252506564046269344838328491651809758189176691993266302585508116324245047838106228098204915846756537039869805650925617833719074767530354094377120165081472143434932267604352627844634845553858664191016323145258350193175928029374696922651683138048358949595154141019661857293738204466720498784727205077976375949359305033431268344509800110169984027717911415163299336802278535258282935609230953164559572997783884639972962841417019742916399367239090195801573265970236656540541883985960262568866048778892377602286008704445129934732804321482233554392515724620198636306848950945967024914620076193501539307990714519366499362014713378862828251365520361880456235757733674695872109927973969094158097868538508894854710078242994753902564132259976464204349317920891713116547751628353213377211703908474890074083546888862618455138757009089213274870017289850340314063650529118081592285165121187071446290931233934720"
       },
       "selected_state_weighted_residual_lower_claimed": false,
@@ -3824,13 +3824,13 @@
         "link_coordinates_replaced_in_selected_source": false,
         "physical_anchor_is_selected_state": false
       },
-      "source_id": "d01f2ea47f97a9ecf870a59a1c06244db6a2f45b51417c159f613cb206f9b47b",
+      "source_id": "baa2571a28b8de4428574a29f1080d2beb70baccb40ef33cb8b92ac71ae4d175",
       "source_operator_norm_method_can_remove_inverse_spacing": false,
       "source_or_preparation_or_clock_changed": false,
-      "state_id": "515d14dc0351e770e1e61553b4e0c995b944e834c4f6ca213651409eaea8149c",
+      "state_id": "8c2cc81bf93b2326e266be8fb67e8daf75205320c76cd17c1fa1c6e04aa5f1a6",
       "uniform_dimensionless_centered_moment_upper": "3141/224"
     },
-    "result_sha256": "d56eb38bd89050b95995153d303c06271680939284ca0e47241b76c7e00ee311",
+    "result_sha256": "72d1a95ef40d4be622238452de0cef3282f697c3eb3975b5ebb3f86f167bc362",
     "schema": "oph.primary_energy_tightness_bound.v1"
   },
   "schema": "oph.primary_energy_tightness_certificate.v1",
@@ -4251,13 +4251,13 @@
     "model/charged_lepton_response/phase_readout.py": "259eecd7c36d66e02eb1ab84ae73705abbd08a2065186d686cd34ed38debb0cb",
     "model/charged_lepton_response/phase_selection.py": "1c82ebf110fd0b6374a35e47cf190785a29baae6d65dc5bef96f940217f97edf",
     "model/charged_lepton_response/relativistic_mass.py": "5f5a9bff5871f5bac768c7a39fc01f121161f7cc2006a4ac6d94124bde5542c4",
-    "model/charged_lepton_response/results.json": "a5fe55b8c3fe0b018ac7cb8a833b465a9a3cb6bf7ed7c666f225a85267894781",
+    "model/charged_lepton_response/results.json": "988489ac359bc221ecb6b34a976968a31948ac7d63dabc36280c15d959a07c52",
     "model/charged_lepton_response/test_calibrated_sanity.py": "61623e317b6826533eb8f6d63512ac6104d73a77123f833fd0d267b9056b2062",
     "model/charged_lepton_response/test_candidate_map.py": "e2e61495ea35162aeeea74f573223653032a0e87fc90a6c06ed56fe3f788aac3",
     "model/charged_lepton_response/test_car_koide.py": "878ee4bb4b39fb89e04330910221fda0a376417d6c82c381cdab9bbec2184b45",
     "model/charged_lepton_response/test_mass_response_bridge.py": "7b8ed0611c03e979be61bdac2857d65f65bd6d3687ced366d1e2749c6d12ea6a",
     "model/charged_lepton_response/test_p_dependence.py": "e8bc73b854293d985cc99e76271ee83de2d1eda2e6b62c558f3ecb2f76c339f7",
-    "model/charged_lepton_response/test_packet.py": "4b7d614692c6d223af0d804f6885bef1625a25b7255707d9e47d2c6afd81b05b",
+    "model/charged_lepton_response/test_packet.py": "9d4f74e6284f2e2ae5bf47ed36a1060d5b864818e2336bfbfa12d2d3d20c3ce1",
     "model/charged_lepton_response/test_phase_readout.py": "39aa8878ce7d4b153401688085aaa07f39e98453ac1c6fb04c35f57ab83cb848",
     "model/charged_lepton_response/test_phase_selection.py": "9719054f687d8738ea2352e9490516c715705cc86a9fbb10ba9d8fb76247f7d9",
     "model/charged_lepton_response/test_relativistic_mass.py": "917bd9b3d3f359f2b04e506e7f7356bb0e90a548af6b82656ed6a2c0361c0fa8",
@@ -4803,7 +4803,7 @@
     "model/particle_calibration_selection/clock_units.py": "53a05f85334a51e724a3e3cab19fd9fceee7b4f8c3e531e3242a4ccb1f78bc6b",
     "model/particle_calibration_selection/families_chirality.py": "916e6907e2d3fbd49b5ebdf0cb94b2cf5c1292b8546c6cb7015d6401878e676e",
     "model/particle_calibration_selection/phase_attenuation.py": "ed733079670a9ddac6cfdc2d4bea67cfe20eb572d8822f7332f59b9d946190cb",
-    "model/particle_calibration_selection/results.json": "348e716733ca716b447c6fdcee0a7880158b81d8a1254ac0b71c39aeb066a4cc",
+    "model/particle_calibration_selection/results.json": "630a5d5e6a8d564af5cc12c932b8fc463b3ef924cfd213d208747cd39da539af",
     "model/particle_calibration_selection/run.py": "1593ae7d805da92e0e74d1526dc6c767643d255a33967f00d68841e6458783eb",
     "model/particle_calibration_selection/test_capacity_response.py": "4baffea60166bc239dfccc0897e9279e30dbb6a3dfc9572ab9700bd73fe1a99c",
     "model/particle_calibration_selection/test_clock_units.py": "6f8af33a60f6986fcb05128c478317fdf8ef8b8bcb27baba6fa0805a7ac86fb5",

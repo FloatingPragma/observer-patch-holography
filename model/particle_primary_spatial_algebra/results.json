@@ -452,13 +452,13 @@
     "model/charged_lepton_response/phase_readout.py": "259eecd7c36d66e02eb1ab84ae73705abbd08a2065186d686cd34ed38debb0cb",
     "model/charged_lepton_response/phase_selection.py": "1c82ebf110fd0b6374a35e47cf190785a29baae6d65dc5bef96f940217f97edf",
     "model/charged_lepton_response/relativistic_mass.py": "5f5a9bff5871f5bac768c7a39fc01f121161f7cc2006a4ac6d94124bde5542c4",
-    "model/charged_lepton_response/results.json": "a5fe55b8c3fe0b018ac7cb8a833b465a9a3cb6bf7ed7c666f225a85267894781",
+    "model/charged_lepton_response/results.json": "988489ac359bc221ecb6b34a976968a31948ac7d63dabc36280c15d959a07c52",
     "model/charged_lepton_response/test_calibrated_sanity.py": "61623e317b6826533eb8f6d63512ac6104d73a77123f833fd0d267b9056b2062",
     "model/charged_lepton_response/test_candidate_map.py": "e2e61495ea35162aeeea74f573223653032a0e87fc90a6c06ed56fe3f788aac3",
     "model/charged_lepton_response/test_car_koide.py": "878ee4bb4b39fb89e04330910221fda0a376417d6c82c381cdab9bbec2184b45",
     "model/charged_lepton_response/test_mass_response_bridge.py": "7b8ed0611c03e979be61bdac2857d65f65bd6d3687ced366d1e2749c6d12ea6a",
     "model/charged_lepton_response/test_p_dependence.py": "e8bc73b854293d985cc99e76271ee83de2d1eda2e6b62c558f3ecb2f76c339f7",
-    "model/charged_lepton_response/test_packet.py": "4b7d614692c6d223af0d804f6885bef1625a25b7255707d9e47d2c6afd81b05b",
+    "model/charged_lepton_response/test_packet.py": "9d4f74e6284f2e2ae5bf47ed36a1060d5b864818e2336bfbfa12d2d3d20c3ce1",
     "model/charged_lepton_response/test_phase_readout.py": "39aa8878ce7d4b153401688085aaa07f39e98453ac1c6fb04c35f57ab83cb848",
     "model/charged_lepton_response/test_phase_selection.py": "9719054f687d8738ea2352e9490516c715705cc86a9fbb10ba9d8fb76247f7d9",
     "model/charged_lepton_response/test_relativistic_mass.py": "917bd9b3d3f359f2b04e506e7f7356bb0e90a548af6b82656ed6a2c0361c0fa8",
@@ -996,7 +996,7 @@
     "model/particle_calibration_selection/clock_units.py": "53a05f85334a51e724a3e3cab19fd9fceee7b4f8c3e531e3242a4ccb1f78bc6b",
     "model/particle_calibration_selection/families_chirality.py": "916e6907e2d3fbd49b5ebdf0cb94b2cf5c1292b8546c6cb7015d6401878e676e",
     "model/particle_calibration_selection/phase_attenuation.py": "ed733079670a9ddac6cfdc2d4bea67cfe20eb572d8822f7332f59b9d946190cb",
-    "model/particle_calibration_selection/results.json": "348e716733ca716b447c6fdcee0a7880158b81d8a1254ac0b71c39aeb066a4cc",
+    "model/particle_calibration_selection/results.json": "630a5d5e6a8d564af5cc12c932b8fc463b3ef924cfd213d208747cd39da539af",
     "model/particle_calibration_selection/run.py": "1593ae7d805da92e0e74d1526dc6c767643d255a33967f00d68841e6458783eb",
     "model/particle_calibration_selection/test_capacity_response.py": "4baffea60166bc239dfccc0897e9279e30dbb6a3dfc9572ab9700bd73fe1a99c",
     "model/particle_calibration_selection/test_clock_units.py": "6f8af33a60f6986fcb05128c478317fdf8ef8b8bcb27baba6fa0805a7ac86fb5",
@@ -1564,7 +1564,7 @@
         "actual_bulk_transfer": {
           "Duhamel_prefactor": "3907584/875",
           "centered_collar_lower": 10,
-          "clock_id": "6a6dfb62ba7d4358314c0573f525a8d937786b845881842f060feb6061317725",
+          "clock_id": "bc19886e63f8027f996c4466f07829c2685d2a1f024d4245372ac02ae9af6ac5",
           "crossing_interaction_norm_upper": "5210112/7",
           "duration": "1/1000",
           "finite_physical_algebra_embedding_assumed_isometric": false,
@@ -1573,7 +1573,7 @@
           "infinite_state_assumed_stationary_before_limit": false,
           "initial_state": "exact finite Gauss state and conjugate reference, invariant exterior blanks",
           "kind": "plaquette",
-          "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+          "member_id": "3700710f0851d5d9da3f2c95a06bcfb2d416a965249127d36c579d30ea59bf0a",
           "operator_difference_norm_upper": {
             "base": 2,
             "exact_zero": false,
@@ -1581,13 +1581,13 @@
           },
           "physical_bulk_support_admitted": true,
           "rational_exponential_margin": "-857/875",
-          "reference_id": "0bea8b123ea066e38165a4b574afa542bf9857c04520b2a14fc156506dca5a04",
+          "reference_id": "32e3fbb6cc0a72c982d19a0371c0cbcf52a1320512a768e1e4a225602a6b6214",
           "side": 32,
           "single_probe_support_cell_count": 3,
-          "source_id": "69e7e9e13cd5d393c2487bae332bb6f7ef2e60a75b17e6069522b09c10fe80a7",
+          "source_id": "9467be1a00977064a4403bcc20ed5e31f7b14dbd4592a7149b3698ddb8c0c268",
           "source_spacing": "1/4",
           "spatial_smear_L1_norm_upper": "1",
-          "state_id": "738ea024f25d9dd8eb5cc5a9bc3c77a5f29a7de355270e0060595dd2ef1b961b",
+          "state_id": "8bfae8204ae9be521bcbf6da9fe11dff29ca374bd312ee5e2a1e84ccdee94324",
           "support_radius": "1",
           "time_group_comparison": "homogeneous infinite Wilson time versus actual finite open source time"
         },
@@ -1606,7 +1606,7 @@
             "0",
             "0"
           ],
-          "clock_id": "6a6dfb62ba7d4358314c0573f525a8d937786b845881842f060feb6061317725",
+          "clock_id": "bc19886e63f8027f996c4466f07829c2685d2a1f024d4245372ac02ae9af6ac5",
           "commutes_all_local_Gauss_constraints": true,
           "filter": "f_T(s)=(1-abs(s)/T)_+/T",
           "filtered_norm_upper": "1",
@@ -1615,7 +1615,7 @@
           "individual_filtered_observable_is_a_PVM_projection": false,
           "integer_Q6_charge": 1,
           "kind": "charge",
-          "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+          "member_id": "3700710f0851d5d9da3f2c95a06bcfb2d416a965249127d36c579d30ea59bf0a",
           "nearest_lower_owner_cell": [
             16,
             16,
@@ -1627,12 +1627,12 @@
             0,
             1
           ],
-          "reference_id": "0bea8b123ea066e38165a4b574afa542bf9857c04520b2a14fc156506dca5a04",
+          "reference_id": "32e3fbb6cc0a72c982d19a0371c0cbcf52a1320512a768e1e4a225602a6b6214",
           "sequence_time_Lipschitz_upper": "200000",
           "sequence_uniform_norm_upper": "1",
           "source_even": true,
-          "source_id": "69e7e9e13cd5d393c2487bae332bb6f7ef2e60a75b17e6069522b09c10fe80a7",
-          "state_id": "738ea024f25d9dd8eb5cc5a9bc3c77a5f29a7de355270e0060595dd2ef1b961b",
+          "source_id": "9467be1a00977064a4403bcc20ed5e31f7b14dbd4592a7149b3698ddb8c0c268",
+          "state_id": "8bfae8204ae9be521bcbf6da9fe11dff29ca374bd312ee5e2a1e84ccdee94324",
           "stationary_algebra_includes_idle_reference": false,
           "unsmeared_norm_upper": "1",
           "unsmeared_owner_support": [
@@ -1644,7 +1644,7 @@
           ],
           "zero_reason": null
         },
-        "clock_id": "6a6dfb62ba7d4358314c0573f525a8d937786b845881842f060feb6061317725",
+        "clock_id": "bc19886e63f8027f996c4466f07829c2685d2a1f024d4245372ac02ae9af6ac5",
         "extra_spatial_averaging_coin_inserted": false,
         "finite_Fourier_probe_label_identified_as_momentum": false,
         "group_defect_example": {
@@ -1659,7 +1659,7 @@
           "vanishing_upper": "3/2"
         },
         "limiting_regular_probe_word_moments_match_actual_finite_source": true,
-        "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+        "member_id": "3700710f0851d5d9da3f2c95a06bcfb2d416a965249127d36c579d30ea59bf0a",
         "nontrivial_spatial_field_or_species_proved": false,
         "norm_isomorphism_to_frozen_unsmeared_point_algebra_claimed": false,
         "physical_zero_momentum_rest_energy_or_mass_proved": false,
@@ -1677,7 +1677,7 @@
             "0",
             "0"
           ],
-          "clock_id": "6a6dfb62ba7d4358314c0573f525a8d937786b845881842f060feb6061317725",
+          "clock_id": "bc19886e63f8027f996c4466f07829c2685d2a1f024d4245372ac02ae9af6ac5",
           "commutes_all_local_Gauss_constraints": true,
           "filter": "f_T(s)=(1-abs(s)/T)_+/T",
           "filtered_norm_upper": "1",
@@ -1686,7 +1686,7 @@
           "individual_filtered_observable_is_a_PVM_projection": false,
           "integer_Q6_charge": 1,
           "kind": "plaquette",
-          "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+          "member_id": "3700710f0851d5d9da3f2c95a06bcfb2d416a965249127d36c579d30ea59bf0a",
           "nearest_lower_owner_cell": [
             16,
             16,
@@ -1698,12 +1698,12 @@
             0,
             1
           ],
-          "reference_id": "0bea8b123ea066e38165a4b574afa542bf9857c04520b2a14fc156506dca5a04",
+          "reference_id": "32e3fbb6cc0a72c982d19a0371c0cbcf52a1320512a768e1e4a225602a6b6214",
           "sequence_time_Lipschitz_upper": "200000",
           "sequence_uniform_norm_upper": "1",
           "source_even": true,
-          "source_id": "69e7e9e13cd5d393c2487bae332bb6f7ef2e60a75b17e6069522b09c10fe80a7",
-          "state_id": "738ea024f25d9dd8eb5cc5a9bc3c77a5f29a7de355270e0060595dd2ef1b961b",
+          "source_id": "9467be1a00977064a4403bcc20ed5e31f7b14dbd4592a7149b3698ddb8c0c268",
+          "state_id": "8bfae8204ae9be521bcbf6da9fe11dff29ca374bd312ee5e2a1e84ccdee94324",
           "stationary_algebra_includes_idle_reference": false,
           "unsmeared_norm_upper": "1",
           "unsmeared_owner_support": [
@@ -1725,7 +1725,7 @@
           ],
           "zero_reason": null
         },
-        "reference_id": "0bea8b123ea066e38165a4b574afa542bf9857c04520b2a14fc156506dca5a04",
+        "reference_id": "32e3fbb6cc0a72c982d19a0371c0cbcf52a1320512a768e1e4a225602a6b6214",
         "regular_algebra_has_point_norm_continuous_R3_action": true,
         "regular_spatial_action_commutes_with_source_time": true,
         "rounded_translation_example": {
@@ -1752,11 +1752,11 @@
           "spacing": "1/4"
         },
         "selected_limiting_state_spatial_invariance_proved": false,
-        "source_id": "69e7e9e13cd5d393c2487bae332bb6f7ef2e60a75b17e6069522b09c10fe80a7",
-        "state_id": "738ea024f25d9dd8eb5cc5a9bc3c77a5f29a7de355270e0060595dd2ef1b961b",
+        "source_id": "9467be1a00977064a4403bcc20ed5e31f7b14dbd4592a7149b3698ddb8c0c268",
+        "state_id": "8bfae8204ae9be521bcbf6da9fe11dff29ca374bd312ee5e2a1e84ccdee94324",
         "stationary_limiting_source_state_and_nonnegative_time_energy": true
       },
-      "result_sha256": "4e6991cf8f710023d82e1e79b7dee9f8be87faf772e57fb0cffee598f336cf8c",
+      "result_sha256": "046d6bd14b4aaf111ecc71c4420f0990f3359ef23530520e3337215076eaf212",
       "schema": "oph.primary_spatial_regular_algebra.v1"
     },
     {
@@ -1764,7 +1764,7 @@
         "actual_bulk_transfer": {
           "Duhamel_prefactor": "4001366016/875",
           "centered_collar_lower": 238,
-          "clock_id": "ca3ed75818ce29353f876421e31d46fca2becdb7bdcafaaeb68cbe296e099aa1",
+          "clock_id": "ef35145944b487f793aefa88d18520a516a40fb77bc1be6cc9e986c954c04d82",
           "crossing_interaction_norm_upper": "5335154688/7",
           "duration": "1/1000",
           "finite_physical_algebra_embedding_assumed_isometric": false,
@@ -1773,7 +1773,7 @@
           "infinite_state_assumed_stationary_before_limit": false,
           "initial_state": "exact finite Gauss state and conjugate reference, invariant exterior blanks",
           "kind": "plaquette",
-          "member_id": "31fffd11fe938818435a449c75cc2ef12e0c54ef64bb2e1d88576c672edf7091",
+          "member_id": "6e88df888e5c00455c3c82f1e03ad904448df4f53f7d5109ec8cea40b97b3437",
           "operator_difference_norm_upper": {
             "base": 2,
             "exact_zero": false,
@@ -1781,13 +1781,13 @@
           },
           "physical_bulk_support_admitted": true,
           "rational_exponential_margin": "83197/875",
-          "reference_id": "c343512438ea4c6e6e309013b5096e1c59e2eb7d9c275dab00df668700011664",
+          "reference_id": "da70900da8cec1a040976ff51a93f2920120827c0df349fc04a666e877d7742f",
           "side": 512,
           "single_probe_support_cell_count": 3,
-          "source_id": "21933d1f073d1b800c3faee8b5e5ed9767f34f6abe14b6cf0b7c980d9709facb",
+          "source_id": "d903f237f5b844b68d241092af30bac4c5a266fb102065c86b0af73bab1d7830",
           "source_spacing": "1/16",
           "spatial_smear_L1_norm_upper": "1",
-          "state_id": "b081c72a0fe8b0d2c2d36029269c300eac05bd34dd75b075568fd2453583ec4b",
+          "state_id": "488f8338f275fc97e288e40766a3730e6e403aca892e32d6bf02c28b3ae314fb",
           "support_radius": "1",
           "time_group_comparison": "homogeneous infinite Wilson time versus actual finite open source time"
         },
@@ -1806,7 +1806,7 @@
             "0",
             "0"
           ],
-          "clock_id": "ca3ed75818ce29353f876421e31d46fca2becdb7bdcafaaeb68cbe296e099aa1",
+          "clock_id": "ef35145944b487f793aefa88d18520a516a40fb77bc1be6cc9e986c954c04d82",
           "commutes_all_local_Gauss_constraints": true,
           "filter": "f_T(s)=(1-abs(s)/T)_+/T",
           "filtered_norm_upper": "1",
@@ -1815,7 +1815,7 @@
           "individual_filtered_observable_is_a_PVM_projection": false,
           "integer_Q6_charge": 1,
           "kind": "charge",
-          "member_id": "31fffd11fe938818435a449c75cc2ef12e0c54ef64bb2e1d88576c672edf7091",
+          "member_id": "6e88df888e5c00455c3c82f1e03ad904448df4f53f7d5109ec8cea40b97b3437",
           "nearest_lower_owner_cell": [
             256,
             256,
@@ -1827,12 +1827,12 @@
             0,
             1
           ],
-          "reference_id": "c343512438ea4c6e6e309013b5096e1c59e2eb7d9c275dab00df668700011664",
+          "reference_id": "da70900da8cec1a040976ff51a93f2920120827c0df349fc04a666e877d7742f",
           "sequence_time_Lipschitz_upper": "200000",
           "sequence_uniform_norm_upper": "1",
           "source_even": true,
-          "source_id": "21933d1f073d1b800c3faee8b5e5ed9767f34f6abe14b6cf0b7c980d9709facb",
-          "state_id": "b081c72a0fe8b0d2c2d36029269c300eac05bd34dd75b075568fd2453583ec4b",
+          "source_id": "d903f237f5b844b68d241092af30bac4c5a266fb102065c86b0af73bab1d7830",
+          "state_id": "488f8338f275fc97e288e40766a3730e6e403aca892e32d6bf02c28b3ae314fb",
           "stationary_algebra_includes_idle_reference": false,
           "unsmeared_norm_upper": "1",
           "unsmeared_owner_support": [
@@ -1844,7 +1844,7 @@
           ],
           "zero_reason": null
         },
-        "clock_id": "ca3ed75818ce29353f876421e31d46fca2becdb7bdcafaaeb68cbe296e099aa1",
+        "clock_id": "ef35145944b487f793aefa88d18520a516a40fb77bc1be6cc9e986c954c04d82",
         "extra_spatial_averaging_coin_inserted": false,
         "finite_Fourier_probe_label_identified_as_momentum": false,
         "group_defect_example": {
@@ -1859,7 +1859,7 @@
           "vanishing_upper": "3/8"
         },
         "limiting_regular_probe_word_moments_match_actual_finite_source": true,
-        "member_id": "31fffd11fe938818435a449c75cc2ef12e0c54ef64bb2e1d88576c672edf7091",
+        "member_id": "6e88df888e5c00455c3c82f1e03ad904448df4f53f7d5109ec8cea40b97b3437",
         "nontrivial_spatial_field_or_species_proved": false,
         "norm_isomorphism_to_frozen_unsmeared_point_algebra_claimed": false,
         "physical_zero_momentum_rest_energy_or_mass_proved": false,
@@ -1877,7 +1877,7 @@
             "0",
             "0"
           ],
-          "clock_id": "ca3ed75818ce29353f876421e31d46fca2becdb7bdcafaaeb68cbe296e099aa1",
+          "clock_id": "ef35145944b487f793aefa88d18520a516a40fb77bc1be6cc9e986c954c04d82",
           "commutes_all_local_Gauss_constraints": true,
           "filter": "f_T(s)=(1-abs(s)/T)_+/T",
           "filtered_norm_upper": "1",
@@ -1886,7 +1886,7 @@
           "individual_filtered_observable_is_a_PVM_projection": false,
           "integer_Q6_charge": 1,
           "kind": "plaquette",
-          "member_id": "31fffd11fe938818435a449c75cc2ef12e0c54ef64bb2e1d88576c672edf7091",
+          "member_id": "6e88df888e5c00455c3c82f1e03ad904448df4f53f7d5109ec8cea40b97b3437",
           "nearest_lower_owner_cell": [
             256,
             256,
@@ -1898,12 +1898,12 @@
             0,
             1
           ],
-          "reference_id": "c343512438ea4c6e6e309013b5096e1c59e2eb7d9c275dab00df668700011664",
+          "reference_id": "da70900da8cec1a040976ff51a93f2920120827c0df349fc04a666e877d7742f",
           "sequence_time_Lipschitz_upper": "200000",
           "sequence_uniform_norm_upper": "1",
           "source_even": true,
-          "source_id": "21933d1f073d1b800c3faee8b5e5ed9767f34f6abe14b6cf0b7c980d9709facb",
-          "state_id": "b081c72a0fe8b0d2c2d36029269c300eac05bd34dd75b075568fd2453583ec4b",
+          "source_id": "d903f237f5b844b68d241092af30bac4c5a266fb102065c86b0af73bab1d7830",
+          "state_id": "488f8338f275fc97e288e40766a3730e6e403aca892e32d6bf02c28b3ae314fb",
           "stationary_algebra_includes_idle_reference": false,
           "unsmeared_norm_upper": "1",
           "unsmeared_owner_support": [
@@ -1925,7 +1925,7 @@
           ],
           "zero_reason": null
         },
-        "reference_id": "c343512438ea4c6e6e309013b5096e1c59e2eb7d9c275dab00df668700011664",
+        "reference_id": "da70900da8cec1a040976ff51a93f2920120827c0df349fc04a666e877d7742f",
         "regular_algebra_has_point_norm_continuous_R3_action": true,
         "regular_spatial_action_commutes_with_source_time": true,
         "rounded_translation_example": {
@@ -1952,11 +1952,11 @@
           "spacing": "1/16"
         },
         "selected_limiting_state_spatial_invariance_proved": false,
-        "source_id": "21933d1f073d1b800c3faee8b5e5ed9767f34f6abe14b6cf0b7c980d9709facb",
-        "state_id": "b081c72a0fe8b0d2c2d36029269c300eac05bd34dd75b075568fd2453583ec4b",
+        "source_id": "d903f237f5b844b68d241092af30bac4c5a266fb102065c86b0af73bab1d7830",
+        "state_id": "488f8338f275fc97e288e40766a3730e6e403aca892e32d6bf02c28b3ae314fb",
         "stationary_limiting_source_state_and_nonnegative_time_energy": true
       },
-      "result_sha256": "bc808959a88e95ebe6aae120967392f9e91577c113f945fa6f59dcfd641044e6",
+      "result_sha256": "14e4dc13280261933984811a150e9b0efd0ac89f2842c704a97176b79c2ad626",
       "schema": "oph.primary_spatial_regular_algebra.v1"
     },
     {
@@ -1964,7 +1964,7 @@
         "actual_bulk_transfer": {
           "Duhamel_prefactor": "4097398800384/875",
           "centered_collar_lower": 4030,
-          "clock_id": "cab96f10d4b8a20debefe0856e754ed3e786cf10cb594e6b4dcbfaaf6e795a65",
+          "clock_id": "dfc565c5b5cb86c7cca90b79579ceb32f2f64c2d8c02fb44aca748a9f5e8845a",
           "crossing_interaction_norm_upper": "5463198400512/7",
           "duration": "1/1000",
           "finite_physical_algebra_embedding_assumed_isometric": false,
@@ -1973,7 +1973,7 @@
           "infinite_state_assumed_stationary_before_limit": false,
           "initial_state": "exact finite Gauss state and conjugate reference, invariant exterior blanks",
           "kind": "plaquette",
-          "member_id": "d85010bb35c3d70560ff674e0a1c9bfb8fd4dec435cc19cee4e93c0ec40f68c0",
+          "member_id": "d558abf88afbbf3e1007c88d4ffec0f8bd8bd67f2005bbdbb2d8c9c59d2e7330",
           "operator_difference_norm_upper": {
             "base": 2,
             "exact_zero": false,
@@ -1981,13 +1981,13 @@
           },
           "physical_bulk_support_admitted": true,
           "rational_exponential_margin": "1679413/875",
-          "reference_id": "b3c30f9c2012ed664233529cb3039ffee884ec6114e6e308db5963ba7325dfe0",
+          "reference_id": "634ab9293a538381e13241823c7a5259c24a01ec8d6643e6750b0aff408ba666",
           "side": 8192,
           "single_probe_support_cell_count": 3,
-          "source_id": "44a2de077d2bf1b4eddcc67d99bebb9d0f83002eef7ec2efb6600f589c461d36",
+          "source_id": "fed9e0e152cca424a93c373384fee85f5f72bb699b59c10b201db54b9e44aef2",
           "source_spacing": "1/64",
           "spatial_smear_L1_norm_upper": "1",
-          "state_id": "8a12302779bcd24c3d50727eb9ceaeeec6d64fff07712241b9f282f45327e2d8",
+          "state_id": "7dc703afbb5c622bbfa19f6fce6ef36e89e1b4feb6a25ac8e4e829f053b11e85",
           "support_radius": "1",
           "time_group_comparison": "homogeneous infinite Wilson time versus actual finite open source time"
         },
@@ -2006,7 +2006,7 @@
             "0",
             "0"
           ],
-          "clock_id": "cab96f10d4b8a20debefe0856e754ed3e786cf10cb594e6b4dcbfaaf6e795a65",
+          "clock_id": "dfc565c5b5cb86c7cca90b79579ceb32f2f64c2d8c02fb44aca748a9f5e8845a",
           "commutes_all_local_Gauss_constraints": true,
           "filter": "f_T(s)=(1-abs(s)/T)_+/T",
           "filtered_norm_upper": "1",
@@ -2015,7 +2015,7 @@
           "individual_filtered_observable_is_a_PVM_projection": false,
           "integer_Q6_charge": 1,
           "kind": "charge",
-          "member_id": "d85010bb35c3d70560ff674e0a1c9bfb8fd4dec435cc19cee4e93c0ec40f68c0",
+          "member_id": "d558abf88afbbf3e1007c88d4ffec0f8bd8bd67f2005bbdbb2d8c9c59d2e7330",
           "nearest_lower_owner_cell": [
             4096,
             4096,
@@ -2027,12 +2027,12 @@
             0,
             1
           ],
-          "reference_id": "b3c30f9c2012ed664233529cb3039ffee884ec6114e6e308db5963ba7325dfe0",
+          "reference_id": "634ab9293a538381e13241823c7a5259c24a01ec8d6643e6750b0aff408ba666",
           "sequence_time_Lipschitz_upper": "200000",
           "sequence_uniform_norm_upper": "1",
           "source_even": true,
-          "source_id": "44a2de077d2bf1b4eddcc67d99bebb9d0f83002eef7ec2efb6600f589c461d36",
-          "state_id": "8a12302779bcd24c3d50727eb9ceaeeec6d64fff07712241b9f282f45327e2d8",
+          "source_id": "fed9e0e152cca424a93c373384fee85f5f72bb699b59c10b201db54b9e44aef2",
+          "state_id": "7dc703afbb5c622bbfa19f6fce6ef36e89e1b4feb6a25ac8e4e829f053b11e85",
           "stationary_algebra_includes_idle_reference": false,
           "unsmeared_norm_upper": "1",
           "unsmeared_owner_support": [
@@ -2044,7 +2044,7 @@
           ],
           "zero_reason": null
         },
-        "clock_id": "cab96f10d4b8a20debefe0856e754ed3e786cf10cb594e6b4dcbfaaf6e795a65",
+        "clock_id": "dfc565c5b5cb86c7cca90b79579ceb32f2f64c2d8c02fb44aca748a9f5e8845a",
         "extra_spatial_averaging_coin_inserted": false,
         "finite_Fourier_probe_label_identified_as_momentum": false,
         "group_defect_example": {
@@ -2059,7 +2059,7 @@
           "vanishing_upper": "3/32"
         },
         "limiting_regular_probe_word_moments_match_actual_finite_source": true,
-        "member_id": "d85010bb35c3d70560ff674e0a1c9bfb8fd4dec435cc19cee4e93c0ec40f68c0",
+        "member_id": "d558abf88afbbf3e1007c88d4ffec0f8bd8bd67f2005bbdbb2d8c9c59d2e7330",
         "nontrivial_spatial_field_or_species_proved": false,
         "norm_isomorphism_to_frozen_unsmeared_point_algebra_claimed": false,
         "physical_zero_momentum_rest_energy_or_mass_proved": false,
@@ -2077,7 +2077,7 @@
             "0",
             "0"
           ],
-          "clock_id": "cab96f10d4b8a20debefe0856e754ed3e786cf10cb594e6b4dcbfaaf6e795a65",
+          "clock_id": "dfc565c5b5cb86c7cca90b79579ceb32f2f64c2d8c02fb44aca748a9f5e8845a",
           "commutes_all_local_Gauss_constraints": true,
           "filter": "f_T(s)=(1-abs(s)/T)_+/T",
           "filtered_norm_upper": "1",
@@ -2086,7 +2086,7 @@
           "individual_filtered_observable_is_a_PVM_projection": false,
           "integer_Q6_charge": 1,
           "kind": "plaquette",
-          "member_id": "d85010bb35c3d70560ff674e0a1c9bfb8fd4dec435cc19cee4e93c0ec40f68c0",
+          "member_id": "d558abf88afbbf3e1007c88d4ffec0f8bd8bd67f2005bbdbb2d8c9c59d2e7330",
           "nearest_lower_owner_cell": [
             4096,
             4096,
@@ -2098,12 +2098,12 @@
             0,
             1
           ],
-          "reference_id": "b3c30f9c2012ed664233529cb3039ffee884ec6114e6e308db5963ba7325dfe0",
+          "reference_id": "634ab9293a538381e13241823c7a5259c24a01ec8d6643e6750b0aff408ba666",
           "sequence_time_Lipschitz_upper": "200000",
           "sequence_uniform_norm_upper": "1",
           "source_even": true,
-          "source_id": "44a2de077d2bf1b4eddcc67d99bebb9d0f83002eef7ec2efb6600f589c461d36",
-          "state_id": "8a12302779bcd24c3d50727eb9ceaeeec6d64fff07712241b9f282f45327e2d8",
+          "source_id": "fed9e0e152cca424a93c373384fee85f5f72bb699b59c10b201db54b9e44aef2",
+          "state_id": "7dc703afbb5c622bbfa19f6fce6ef36e89e1b4feb6a25ac8e4e829f053b11e85",
           "stationary_algebra_includes_idle_reference": false,
           "unsmeared_norm_upper": "1",
           "unsmeared_owner_support": [
@@ -2125,7 +2125,7 @@
           ],
           "zero_reason": null
         },
-        "reference_id": "b3c30f9c2012ed664233529cb3039ffee884ec6114e6e308db5963ba7325dfe0",
+        "reference_id": "634ab9293a538381e13241823c7a5259c24a01ec8d6643e6750b0aff408ba666",
         "regular_algebra_has_point_norm_continuous_R3_action": true,
         "regular_spatial_action_commutes_with_source_time": true,
         "rounded_translation_example": {
@@ -2152,11 +2152,11 @@
           "spacing": "1/64"
         },
         "selected_limiting_state_spatial_invariance_proved": false,
-        "source_id": "44a2de077d2bf1b4eddcc67d99bebb9d0f83002eef7ec2efb6600f589c461d36",
-        "state_id": "8a12302779bcd24c3d50727eb9ceaeeec6d64fff07712241b9f282f45327e2d8",
+        "source_id": "fed9e0e152cca424a93c373384fee85f5f72bb699b59c10b201db54b9e44aef2",
+        "state_id": "7dc703afbb5c622bbfa19f6fce6ef36e89e1b4feb6a25ac8e4e829f053b11e85",
         "stationary_limiting_source_state_and_nonnegative_time_energy": true
       },
-      "result_sha256": "e25ffb0042e2b749fc06dbdfdda2a83d0744ce46cf9ff39be0d22ac38ea35eb4",
+      "result_sha256": "efc875aec150ec8bdec57b3fd5b40f03ff737c6035c54f7d628d0dbd1203032d",
       "schema": "oph.primary_spatial_regular_algebra.v1"
     }
   ]

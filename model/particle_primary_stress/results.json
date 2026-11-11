@@ -482,13 +482,13 @@
     "model/charged_lepton_response/phase_readout.py": "259eecd7c36d66e02eb1ab84ae73705abbd08a2065186d686cd34ed38debb0cb",
     "model/charged_lepton_response/phase_selection.py": "1c82ebf110fd0b6374a35e47cf190785a29baae6d65dc5bef96f940217f97edf",
     "model/charged_lepton_response/relativistic_mass.py": "5f5a9bff5871f5bac768c7a39fc01f121161f7cc2006a4ac6d94124bde5542c4",
-    "model/charged_lepton_response/results.json": "a5fe55b8c3fe0b018ac7cb8a833b465a9a3cb6bf7ed7c666f225a85267894781",
+    "model/charged_lepton_response/results.json": "988489ac359bc221ecb6b34a976968a31948ac7d63dabc36280c15d959a07c52",
     "model/charged_lepton_response/test_calibrated_sanity.py": "61623e317b6826533eb8f6d63512ac6104d73a77123f833fd0d267b9056b2062",
     "model/charged_lepton_response/test_candidate_map.py": "e2e61495ea35162aeeea74f573223653032a0e87fc90a6c06ed56fe3f788aac3",
     "model/charged_lepton_response/test_car_koide.py": "878ee4bb4b39fb89e04330910221fda0a376417d6c82c381cdab9bbec2184b45",
     "model/charged_lepton_response/test_mass_response_bridge.py": "7b8ed0611c03e979be61bdac2857d65f65bd6d3687ced366d1e2749c6d12ea6a",
     "model/charged_lepton_response/test_p_dependence.py": "e8bc73b854293d985cc99e76271ee83de2d1eda2e6b62c558f3ecb2f76c339f7",
-    "model/charged_lepton_response/test_packet.py": "4b7d614692c6d223af0d804f6885bef1625a25b7255707d9e47d2c6afd81b05b",
+    "model/charged_lepton_response/test_packet.py": "9d4f74e6284f2e2ae5bf47ed36a1060d5b864818e2336bfbfa12d2d3d20c3ce1",
     "model/charged_lepton_response/test_phase_readout.py": "39aa8878ce7d4b153401688085aaa07f39e98453ac1c6fb04c35f57ab83cb848",
     "model/charged_lepton_response/test_phase_selection.py": "9719054f687d8738ea2352e9490516c715705cc86a9fbb10ba9d8fb76247f7d9",
     "model/charged_lepton_response/test_relativistic_mass.py": "917bd9b3d3f359f2b04e506e7f7356bb0e90a548af6b82656ed6a2c0361c0fa8",
@@ -1027,7 +1027,7 @@
     "model/particle_calibration_selection/clock_units.py": "53a05f85334a51e724a3e3cab19fd9fceee7b4f8c3e531e3242a4ccb1f78bc6b",
     "model/particle_calibration_selection/families_chirality.py": "916e6907e2d3fbd49b5ebdf0cb94b2cf5c1292b8546c6cb7015d6401878e676e",
     "model/particle_calibration_selection/phase_attenuation.py": "ed733079670a9ddac6cfdc2d4bea67cfe20eb572d8822f7332f59b9d946190cb",
-    "model/particle_calibration_selection/results.json": "348e716733ca716b447c6fdcee0a7880158b81d8a1254ac0b71c39aeb066a4cc",
+    "model/particle_calibration_selection/results.json": "630a5d5e6a8d564af5cc12c932b8fc463b3ef924cfd213d208747cd39da539af",
     "model/particle_calibration_selection/run.py": "1593ae7d805da92e0e74d1526dc6c767643d255a33967f00d68841e6458783eb",
     "model/particle_calibration_selection/test_capacity_response.py": "4baffea60166bc239dfccc0897e9279e30dbb6a3dfc9572ab9700bd73fe1a99c",
     "model/particle_calibration_selection/test_clock_units.py": "6f8af33a60f6986fcb05128c478317fdf8ef8b8bcb27baba6fa0805a7ac86fb5",
@@ -1583,10 +1583,10 @@
   "selected_member_bounds": [
     {
       "claim": "local source-energy continuity and complete energy-current records",
-      "clock_id": "1cfc459a53f4415353450c6ea2e4f965a451b08d0fc8dfdf330823516be5ba0a",
-      "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+      "clock_id": "642db923a91dfa03f063797f3f24f645186602ac5cb967b6eb142a12e4e8ace2",
+      "member_id": "112d315bc4d7181fc36c93ab06acd4bfa8c1b36eed0b3047afd7e34e350c7e00",
       "program": "oph.open_wilson_gauss_observer.v1",
-      "reference_id": "5744254dc9395212cfa03f5c8a8c59fbc8bb8d606b31f98967a212fd79f537b1",
+      "reference_id": "f150192f59366d08f619a67947adab5f8f89ae6613d5ffcfc80aacd224af0eed",
       "result": {
         "Einstein_small_ball_premises_instantiated": false,
         "all_cell_energy_norm_upper": "15315/14",
@@ -1594,7 +1594,7 @@
         "all_sixty_CAR_modes_and_link_words_retained": true,
         "cell_partition": "onsite matter + owned electric + half incident bonds + one-third owner plaquettes",
         "claim": "local source-energy continuity and complete energy-current records",
-        "clock_id": "1cfc459a53f4415353450c6ea2e4f965a451b08d0fc8dfdf330823516be5ba0a",
+        "clock_id": "642db923a91dfa03f063797f3f24f645186602ac5cb967b6eb142a12e4e8ace2",
         "complete_current_instrument": {
           "effects": "(I+J/M)/2, (I-J/M)/2 for M>=||J||; M>0",
           "full_spatial_instrument_executed": false,
@@ -1614,7 +1614,7 @@
         "full_spatial_matrices_allocated": false,
         "idle_reference_purification_claimed_stationary": false,
         "local_energy_support_radius_graph": 2,
-        "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+        "member_id": "112d315bc4d7181fc36c93ab06acd4bfa8c1b36eed0b3047afd7e34e350c7e00",
         "norm_bound_uniform_in_refinement_claimed": false,
         "operator_identity": "d alpha_t(h_x)/dt + sum_y alpha_t(J_xy)=0",
         "operator_identity_applies_after_any_physical_intervention": true,
@@ -2120,7 +2120,7 @@
           "source_H_norm_upper": "71340/7",
           "two_endpoint_mean_error_upper": "14681/3500000"
         },
-        "reference_id": "5744254dc9395212cfa03f5c8a8c59fbc8bb8d606b31f98967a212fd79f537b1",
+        "reference_id": "f150192f59366d08f619a67947adab5f8f89ae6613d5ffcfc80aacd224af0eed",
         "reference_idle_H": 0,
         "regional_modular_diamond_kernel_or_area_identified": false,
         "reused_Lean_theorems": [
@@ -2213,22 +2213,22 @@
           "local_work_identity": "d< f_x h_x >/dt + sum_y f_x f_y <J_xy>=dot(f_x)<h_x>",
           "perturbed_ground_state_reprepared": false
         },
-        "source_id": "e7b9d564a4541d5f84083d99624360d313b4fb2418cbb6809fe2604b5cd6e736",
+        "source_id": "3538402120a7dd58c91cf70364a5e824b6df0d17ebd11bad58ea1a4977041ad8",
         "source_level": 0,
-        "state_id": "c0e41658e49e943179cc4ca74755b76fe2bdaeafcdf224445333729759ac2e17",
+        "state_id": "e41e09d434143ce9dc70a94feb9fbac915de08d868f6eae3df07385b9849086a",
         "stationary_selected_source_regional_net_flux_mean": "0"
       },
-      "result_sha256": "8c94ae96711dc07e7793698deb6d2202de2539230b69f593199d47407bc78fe6",
+      "result_sha256": "1332e98169cfbfd9933bfd3f76b29e00938a1cb216c01b8aa1e64035bb29375c",
       "schema": "oph.primary_stress_bound.v1",
-      "source_id": "e7b9d564a4541d5f84083d99624360d313b4fb2418cbb6809fe2604b5cd6e736",
-      "state_id": "c0e41658e49e943179cc4ca74755b76fe2bdaeafcdf224445333729759ac2e17"
+      "source_id": "3538402120a7dd58c91cf70364a5e824b6df0d17ebd11bad58ea1a4977041ad8",
+      "state_id": "e41e09d434143ce9dc70a94feb9fbac915de08d868f6eae3df07385b9849086a"
     },
     {
       "claim": "local source-energy continuity and complete energy-current records",
-      "clock_id": "eaeaaa9d52263a805aa1720a44729bb2f75b0cf37945cc7b15e022e0b18e1541",
-      "member_id": "714c6c61ebc67563ef9030473d4a6e53eeafacad79ab3f94d436e459e6a0169f",
+      "clock_id": "7c3cadd40490e28ba0148164978288a829f4a6785f96251ddf0a063588826779",
+      "member_id": "036f8623be95538437f6fd04da020a34a87ed2febc64fb5ed51c36643e2f41bb",
       "program": "oph.open_wilson_gauss_observer.v1",
-      "reference_id": "a633b1b4deb9927fb023ce22ebfb3de85984229cc1d1df3a2aed3239f87c8861",
+      "reference_id": "a90f305e3109494a396209b9c274dc0582dcf14f4fe725b9af49da677e0d30cc",
       "result": {
         "Einstein_small_ball_premises_instantiated": false,
         "all_cell_energy_norm_upper": "53682/7",
@@ -2236,7 +2236,7 @@
         "all_sixty_CAR_modes_and_link_words_retained": true,
         "cell_partition": "onsite matter + owned electric + half incident bonds + one-third owner plaquettes",
         "claim": "local source-energy continuity and complete energy-current records",
-        "clock_id": "eaeaaa9d52263a805aa1720a44729bb2f75b0cf37945cc7b15e022e0b18e1541",
+        "clock_id": "7c3cadd40490e28ba0148164978288a829f4a6785f96251ddf0a063588826779",
         "complete_current_instrument": {
           "effects": "(I+J/M)/2, (I-J/M)/2 for M>=||J||; M>0",
           "full_spatial_instrument_executed": false,
@@ -2256,7 +2256,7 @@
         "full_spatial_matrices_allocated": false,
         "idle_reference_purification_claimed_stationary": false,
         "local_energy_support_radius_graph": 2,
-        "member_id": "714c6c61ebc67563ef9030473d4a6e53eeafacad79ab3f94d436e459e6a0169f",
+        "member_id": "036f8623be95538437f6fd04da020a34a87ed2febc64fb5ed51c36643e2f41bb",
         "norm_bound_uniform_in_refinement_claimed": false,
         "operator_identity": "d alpha_t(h_x)/dt + sum_y alpha_t(J_xy)=0",
         "operator_identity_applies_after_any_physical_intervention": true,
@@ -2801,7 +2801,7 @@
           "source_H_norm_upper": "28775424/7",
           "two_endpoint_mean_error_upper": "6631/218750"
         },
-        "reference_id": "a633b1b4deb9927fb023ce22ebfb3de85984229cc1d1df3a2aed3239f87c8861",
+        "reference_id": "a90f305e3109494a396209b9c274dc0582dcf14f4fe725b9af49da677e0d30cc",
         "reference_idle_H": 0,
         "regional_modular_diamond_kernel_or_area_identified": false,
         "reused_Lean_theorems": [
@@ -2894,22 +2894,22 @@
           "local_work_identity": "d< f_x h_x >/dt + sum_y f_x f_y <J_xy>=dot(f_x)<h_x>",
           "perturbed_ground_state_reprepared": false
         },
-        "source_id": "98f486c92b95bb9e88db480ed66a12d93e520824e6fa4cb943bda4e3a2e8f699",
+        "source_id": "048c2a73119e3877f70dcf6af9189e35394fa86e2cd88f7077aa92ed48d5a395",
         "source_level": 1,
-        "state_id": "d4ebb295ee10ae2911972310081e65e1aa704aeefc245076a5085124f0a9e4a0",
+        "state_id": "4b27640be1f5d4b2086e3c04af4e330956ab6f756abcd42595383e2564fa6d44",
         "stationary_selected_source_regional_net_flux_mean": "0"
       },
-      "result_sha256": "72d0b2ad73afe7921ef49b175ef137633d564473364c554ddec53711bd776ed2",
+      "result_sha256": "76890089b9d73e3f6d11dbceff5f45dbf1e5d14443dbf73d7b08cb45e3617475",
       "schema": "oph.primary_stress_bound.v1",
-      "source_id": "98f486c92b95bb9e88db480ed66a12d93e520824e6fa4cb943bda4e3a2e8f699",
-      "state_id": "d4ebb295ee10ae2911972310081e65e1aa704aeefc245076a5085124f0a9e4a0"
+      "source_id": "048c2a73119e3877f70dcf6af9189e35394fa86e2cd88f7077aa92ed48d5a395",
+      "state_id": "4b27640be1f5d4b2086e3c04af4e330956ab6f756abcd42595383e2564fa6d44"
     },
     {
       "claim": "local source-energy continuity and complete energy-current records",
-      "clock_id": "22b5da539d92b215b8f112071ab4d62d78fd0c4ba5ccf36923524d1e1800a010",
-      "member_id": "feb15f4e0692526f4eb1f647c2374f4638cff75452a6057eecbad534ad090d37",
+      "clock_id": "0180fafe000c223be80d2c77b8ad3b97e68b02f531b9763fd214144bf41854d7",
+      "member_id": "1782d2be0f3bae9e67969adca392e1e5c11d9fedc71d12c4fa0cbc7b4d128c63",
       "program": "oph.open_wilson_gauss_observer.v1",
-      "reference_id": "67d295afc94bc6d5ce21b4eb9706de336dcc0e3bfa3c08fc0654b82c29fbcf49",
+      "reference_id": "d3f514225d5d778421ed153ec375d1cfb947641523d78f4f7492747c223b5e7b",
       "result": {
         "Einstein_small_ball_premises_instantiated": false,
         "all_cell_energy_norm_upper": "828600/7",
@@ -2917,7 +2917,7 @@
         "all_sixty_CAR_modes_and_link_words_retained": true,
         "cell_partition": "onsite matter + owned electric + half incident bonds + one-third owner plaquettes",
         "claim": "local source-energy continuity and complete energy-current records",
-        "clock_id": "22b5da539d92b215b8f112071ab4d62d78fd0c4ba5ccf36923524d1e1800a010",
+        "clock_id": "0180fafe000c223be80d2c77b8ad3b97e68b02f531b9763fd214144bf41854d7",
         "complete_current_instrument": {
           "effects": "(I+J/M)/2, (I-J/M)/2 for M>=||J||; M>0",
           "full_spatial_instrument_executed": false,
@@ -2937,7 +2937,7 @@
         "full_spatial_matrices_allocated": false,
         "idle_reference_purification_claimed_stationary": false,
         "local_energy_support_radius_graph": 2,
-        "member_id": "feb15f4e0692526f4eb1f647c2374f4638cff75452a6057eecbad534ad090d37",
+        "member_id": "1782d2be0f3bae9e67969adca392e1e5c11d9fedc71d12c4fa0cbc7b4d128c63",
         "norm_bound_uniform_in_refinement_claimed": false,
         "operator_identity": "d alpha_t(h_x)/dt + sum_y alpha_t(J_xy)=0",
         "operator_identity_applies_after_any_physical_intervention": true,
@@ -3482,7 +3482,7 @@
           "source_H_norm_upper": "1758839439360/7",
           "two_endpoint_mean_error_upper": "51629/109375"
         },
-        "reference_id": "67d295afc94bc6d5ce21b4eb9706de336dcc0e3bfa3c08fc0654b82c29fbcf49",
+        "reference_id": "d3f514225d5d778421ed153ec375d1cfb947641523d78f4f7492747c223b5e7b",
         "reference_idle_H": 0,
         "regional_modular_diamond_kernel_or_area_identified": false,
         "reused_Lean_theorems": [
@@ -3575,15 +3575,15 @@
           "local_work_identity": "d< f_x h_x >/dt + sum_y f_x f_y <J_xy>=dot(f_x)<h_x>",
           "perturbed_ground_state_reprepared": false
         },
-        "source_id": "578987d371249cf37e03dd2fc4317612c8bb4368f11c02119e31deb3d2c3e96b",
+        "source_id": "17edb6442575f372a33ef5b415e42e193c1fa90d47a301966fac861a5728fa82",
         "source_level": 3,
-        "state_id": "ffa2159da18b032990769b9e18090795b63d3222a835416d763313355fcb9c85",
+        "state_id": "ead77181c0ec2362e1661ecc478cc7ee35aefbf132a0b375a6e51a6b74a0b441",
         "stationary_selected_source_regional_net_flux_mean": "0"
       },
-      "result_sha256": "d9bed8279bedf1f42ca9213837d0f501da6bef7416feabeac43c68440de8ccad",
+      "result_sha256": "4f0c24b3e1b36cad5c6404750c474f92b2757da741bea9651ede8ded0fd314ff",
       "schema": "oph.primary_stress_bound.v1",
-      "source_id": "578987d371249cf37e03dd2fc4317612c8bb4368f11c02119e31deb3d2c3e96b",
-      "state_id": "ffa2159da18b032990769b9e18090795b63d3222a835416d763313355fcb9c85"
+      "source_id": "17edb6442575f372a33ef5b415e42e193c1fa90d47a301966fac861a5728fa82",
+      "state_id": "ead77181c0ec2362e1661ecc478cc7ee35aefbf132a0b375a6e51a6b74a0b441"
     }
   ]
 }

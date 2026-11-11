@@ -442,13 +442,13 @@
     "model/charged_lepton_response/phase_readout.py": "259eecd7c36d66e02eb1ab84ae73705abbd08a2065186d686cd34ed38debb0cb",
     "model/charged_lepton_response/phase_selection.py": "1c82ebf110fd0b6374a35e47cf190785a29baae6d65dc5bef96f940217f97edf",
     "model/charged_lepton_response/relativistic_mass.py": "5f5a9bff5871f5bac768c7a39fc01f121161f7cc2006a4ac6d94124bde5542c4",
-    "model/charged_lepton_response/results.json": "a5fe55b8c3fe0b018ac7cb8a833b465a9a3cb6bf7ed7c666f225a85267894781",
+    "model/charged_lepton_response/results.json": "988489ac359bc221ecb6b34a976968a31948ac7d63dabc36280c15d959a07c52",
     "model/charged_lepton_response/test_calibrated_sanity.py": "61623e317b6826533eb8f6d63512ac6104d73a77123f833fd0d267b9056b2062",
     "model/charged_lepton_response/test_candidate_map.py": "e2e61495ea35162aeeea74f573223653032a0e87fc90a6c06ed56fe3f788aac3",
     "model/charged_lepton_response/test_car_koide.py": "878ee4bb4b39fb89e04330910221fda0a376417d6c82c381cdab9bbec2184b45",
     "model/charged_lepton_response/test_mass_response_bridge.py": "7b8ed0611c03e979be61bdac2857d65f65bd6d3687ced366d1e2749c6d12ea6a",
     "model/charged_lepton_response/test_p_dependence.py": "e8bc73b854293d985cc99e76271ee83de2d1eda2e6b62c558f3ecb2f76c339f7",
-    "model/charged_lepton_response/test_packet.py": "4b7d614692c6d223af0d804f6885bef1625a25b7255707d9e47d2c6afd81b05b",
+    "model/charged_lepton_response/test_packet.py": "9d4f74e6284f2e2ae5bf47ed36a1060d5b864818e2336bfbfa12d2d3d20c3ce1",
     "model/charged_lepton_response/test_phase_readout.py": "39aa8878ce7d4b153401688085aaa07f39e98453ac1c6fb04c35f57ab83cb848",
     "model/charged_lepton_response/test_phase_selection.py": "9719054f687d8738ea2352e9490516c715705cc86a9fbb10ba9d8fb76247f7d9",
     "model/charged_lepton_response/test_relativistic_mass.py": "917bd9b3d3f359f2b04e506e7f7356bb0e90a548af6b82656ed6a2c0361c0fa8",
@@ -986,7 +986,7 @@
     "model/particle_calibration_selection/clock_units.py": "53a05f85334a51e724a3e3cab19fd9fceee7b4f8c3e531e3242a4ccb1f78bc6b",
     "model/particle_calibration_selection/families_chirality.py": "916e6907e2d3fbd49b5ebdf0cb94b2cf5c1292b8546c6cb7015d6401878e676e",
     "model/particle_calibration_selection/phase_attenuation.py": "ed733079670a9ddac6cfdc2d4bea67cfe20eb572d8822f7332f59b9d946190cb",
-    "model/particle_calibration_selection/results.json": "348e716733ca716b447c6fdcee0a7880158b81d8a1254ac0b71c39aeb066a4cc",
+    "model/particle_calibration_selection/results.json": "630a5d5e6a8d564af5cc12c932b8fc463b3ef924cfd213d208747cd39da539af",
     "model/particle_calibration_selection/run.py": "1593ae7d805da92e0e74d1526dc6c767643d255a33967f00d68841e6458783eb",
     "model/particle_calibration_selection/test_capacity_response.py": "4baffea60166bc239dfccc0897e9279e30dbb6a3dfc9572ab9700bd73fe1a99c",
     "model/particle_calibration_selection/test_clock_units.py": "6f8af33a60f6986fcb05128c478317fdf8ef8b8bcb27baba6fa0805a7ac86fb5",
@@ -1569,7 +1569,7 @@
             "0",
             "0"
           ],
-          "clock_id": "6a6dfb62ba7d4358314c0573f525a8d937786b845881842f060feb6061317725",
+          "clock_id": "bc19886e63f8027f996c4466f07829c2685d2a1f024d4245372ac02ae9af6ac5",
           "commutes_all_local_Gauss_constraints": true,
           "filter": "f_T(s)=(1-abs(s)/T)_+/T",
           "filtered_norm_upper": "1",
@@ -1578,7 +1578,7 @@
           "individual_filtered_observable_is_a_PVM_projection": false,
           "integer_Q6_charge": 1,
           "kind": "plaquette",
-          "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+          "member_id": "3700710f0851d5d9da3f2c95a06bcfb2d416a965249127d36c579d30ea59bf0a",
           "nearest_lower_owner_cell": [
             14,
             16,
@@ -1590,12 +1590,12 @@
             0,
             1
           ],
-          "reference_id": "0bea8b123ea066e38165a4b574afa542bf9857c04520b2a14fc156506dca5a04",
+          "reference_id": "32e3fbb6cc0a72c982d19a0371c0cbcf52a1320512a768e1e4a225602a6b6214",
           "sequence_time_Lipschitz_upper": "200000",
           "sequence_uniform_norm_upper": "1",
           "source_even": true,
-          "source_id": "69e7e9e13cd5d393c2487bae332bb6f7ef2e60a75b17e6069522b09c10fe80a7",
-          "state_id": "738ea024f25d9dd8eb5cc5a9bc3c77a5f29a7de355270e0060595dd2ef1b961b",
+          "source_id": "9467be1a00977064a4403bcc20ed5e31f7b14dbd4592a7149b3698ddb8c0c268",
+          "state_id": "8bfae8204ae9be521bcbf6da9fe11dff29ca374bd312ee5e2a1e84ccdee94324",
           "stationary_algebra_includes_idle_reference": false,
           "unsmeared_norm_upper": "1",
           "unsmeared_owner_support": [
@@ -1631,7 +1631,7 @@
             "0",
             "0"
           ],
-          "clock_id": "6a6dfb62ba7d4358314c0573f525a8d937786b845881842f060feb6061317725",
+          "clock_id": "bc19886e63f8027f996c4466f07829c2685d2a1f024d4245372ac02ae9af6ac5",
           "commutes_all_local_Gauss_constraints": true,
           "filter": "f_T(s)=(1-abs(s)/T)_+/T",
           "filtered_norm_upper": "1",
@@ -1640,7 +1640,7 @@
           "individual_filtered_observable_is_a_PVM_projection": false,
           "integer_Q6_charge": 1,
           "kind": "plaquette",
-          "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+          "member_id": "3700710f0851d5d9da3f2c95a06bcfb2d416a965249127d36c579d30ea59bf0a",
           "nearest_lower_owner_cell": [
             15,
             16,
@@ -1652,12 +1652,12 @@
             0,
             1
           ],
-          "reference_id": "0bea8b123ea066e38165a4b574afa542bf9857c04520b2a14fc156506dca5a04",
+          "reference_id": "32e3fbb6cc0a72c982d19a0371c0cbcf52a1320512a768e1e4a225602a6b6214",
           "sequence_time_Lipschitz_upper": "200000",
           "sequence_uniform_norm_upper": "1",
           "source_even": true,
-          "source_id": "69e7e9e13cd5d393c2487bae332bb6f7ef2e60a75b17e6069522b09c10fe80a7",
-          "state_id": "738ea024f25d9dd8eb5cc5a9bc3c77a5f29a7de355270e0060595dd2ef1b961b",
+          "source_id": "9467be1a00977064a4403bcc20ed5e31f7b14dbd4592a7149b3698ddb8c0c268",
+          "state_id": "8bfae8204ae9be521bcbf6da9fe11dff29ca374bd312ee5e2a1e84ccdee94324",
           "stationary_algebra_includes_idle_reference": false,
           "unsmeared_norm_upper": "1",
           "unsmeared_owner_support": [
@@ -1693,7 +1693,7 @@
             "0",
             "0"
           ],
-          "clock_id": "6a6dfb62ba7d4358314c0573f525a8d937786b845881842f060feb6061317725",
+          "clock_id": "bc19886e63f8027f996c4466f07829c2685d2a1f024d4245372ac02ae9af6ac5",
           "commutes_all_local_Gauss_constraints": true,
           "filter": "f_T(s)=(1-abs(s)/T)_+/T",
           "filtered_norm_upper": "1",
@@ -1702,7 +1702,7 @@
           "individual_filtered_observable_is_a_PVM_projection": false,
           "integer_Q6_charge": 1,
           "kind": "plaquette",
-          "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+          "member_id": "3700710f0851d5d9da3f2c95a06bcfb2d416a965249127d36c579d30ea59bf0a",
           "nearest_lower_owner_cell": [
             16,
             16,
@@ -1714,12 +1714,12 @@
             0,
             1
           ],
-          "reference_id": "0bea8b123ea066e38165a4b574afa542bf9857c04520b2a14fc156506dca5a04",
+          "reference_id": "32e3fbb6cc0a72c982d19a0371c0cbcf52a1320512a768e1e4a225602a6b6214",
           "sequence_time_Lipschitz_upper": "200000",
           "sequence_uniform_norm_upper": "1",
           "source_even": true,
-          "source_id": "69e7e9e13cd5d393c2487bae332bb6f7ef2e60a75b17e6069522b09c10fe80a7",
-          "state_id": "738ea024f25d9dd8eb5cc5a9bc3c77a5f29a7de355270e0060595dd2ef1b961b",
+          "source_id": "9467be1a00977064a4403bcc20ed5e31f7b14dbd4592a7149b3698ddb8c0c268",
+          "state_id": "8bfae8204ae9be521bcbf6da9fe11dff29ca374bd312ee5e2a1e84ccdee94324",
           "stationary_algebra_includes_idle_reference": false,
           "unsmeared_norm_upper": "1",
           "unsmeared_owner_support": [
@@ -1755,7 +1755,7 @@
             "0",
             "0"
           ],
-          "clock_id": "6a6dfb62ba7d4358314c0573f525a8d937786b845881842f060feb6061317725",
+          "clock_id": "bc19886e63f8027f996c4466f07829c2685d2a1f024d4245372ac02ae9af6ac5",
           "commutes_all_local_Gauss_constraints": true,
           "filter": "f_T(s)=(1-abs(s)/T)_+/T",
           "filtered_norm_upper": "1",
@@ -1764,7 +1764,7 @@
           "individual_filtered_observable_is_a_PVM_projection": false,
           "integer_Q6_charge": 1,
           "kind": "plaquette",
-          "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+          "member_id": "3700710f0851d5d9da3f2c95a06bcfb2d416a965249127d36c579d30ea59bf0a",
           "nearest_lower_owner_cell": [
             17,
             16,
@@ -1776,12 +1776,12 @@
             0,
             1
           ],
-          "reference_id": "0bea8b123ea066e38165a4b574afa542bf9857c04520b2a14fc156506dca5a04",
+          "reference_id": "32e3fbb6cc0a72c982d19a0371c0cbcf52a1320512a768e1e4a225602a6b6214",
           "sequence_time_Lipschitz_upper": "200000",
           "sequence_uniform_norm_upper": "1",
           "source_even": true,
-          "source_id": "69e7e9e13cd5d393c2487bae332bb6f7ef2e60a75b17e6069522b09c10fe80a7",
-          "state_id": "738ea024f25d9dd8eb5cc5a9bc3c77a5f29a7de355270e0060595dd2ef1b961b",
+          "source_id": "9467be1a00977064a4403bcc20ed5e31f7b14dbd4592a7149b3698ddb8c0c268",
+          "state_id": "8bfae8204ae9be521bcbf6da9fe11dff29ca374bd312ee5e2a1e84ccdee94324",
           "stationary_algebra_includes_idle_reference": false,
           "unsmeared_norm_upper": "1",
           "unsmeared_owner_support": [
@@ -1808,7 +1808,7 @@
         "B_j",
         "sqrt(I-B_j^2)"
       ],
-      "clock_id": "6a6dfb62ba7d4358314c0573f525a8d937786b845881842f060feb6061317725",
+      "clock_id": "bc19886e63f8027f996c4466f07829c2685d2a1f024d4245372ac02ae9af6ac5",
       "complete_error_to_ideal_filtered_aperture_upper": "15975714591800481505/1180591620717411303424",
       "direct_complete_Kraus_formula": "K_(b,k)=M^-1 sum_j exp(-2pi i k j/M) C_(b,j)",
       "filter_errors": {
@@ -1842,7 +1842,7 @@
       },
       "fine_outcomes": 8,
       "full_primary_probabilities_computed": false,
-      "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+      "member_id": "3700710f0851d5d9da3f2c95a06bcfb2d416a965249127d36c579d30ea59bf0a",
       "neutral_address_dimension": 4,
       "neutral_probe_dimension": 2,
       "open_source_incidence": {
@@ -1878,7 +1878,7 @@
         "owned_outgoing_links_per_cell": 3,
         "side": 32
       },
-      "reference_id": "0bea8b123ea066e38165a4b574afa542bf9857c04520b2a14fc156506dca5a04",
+      "reference_id": "32e3fbb6cc0a72c982d19a0371c0cbcf52a1320512a768e1e4a225602a6b6214",
       "same_GNS_spatial_implementation_proved": false,
       "selected_preparation_momentum_concentration_proved": false,
       "separate_unfiltered_original_blank_weight_each_label_lower": {
@@ -1900,7 +1900,7 @@
           "0",
           "0"
         ],
-        "clock_id": "6a6dfb62ba7d4358314c0573f525a8d937786b845881842f060feb6061317725",
+        "clock_id": "bc19886e63f8027f996c4466f07829c2685d2a1f024d4245372ac02ae9af6ac5",
         "commutes_all_local_Gauss_constraints": true,
         "filter": "f_T(s)=(1-abs(s)/T)_+/T",
         "filtered_norm_upper": "1",
@@ -1909,7 +1909,7 @@
         "individual_filtered_observable_is_a_PVM_projection": false,
         "integer_Q6_charge": 1,
         "kind": "plaquette",
-        "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+        "member_id": "3700710f0851d5d9da3f2c95a06bcfb2d416a965249127d36c579d30ea59bf0a",
         "nearest_lower_owner_cell": [
           18,
           16,
@@ -1921,12 +1921,12 @@
           0,
           1
         ],
-        "reference_id": "0bea8b123ea066e38165a4b574afa542bf9857c04520b2a14fc156506dca5a04",
+        "reference_id": "32e3fbb6cc0a72c982d19a0371c0cbcf52a1320512a768e1e4a225602a6b6214",
         "sequence_time_Lipschitz_upper": "200000",
         "sequence_uniform_norm_upper": "1",
         "source_even": true,
-        "source_id": "69e7e9e13cd5d393c2487bae332bb6f7ef2e60a75b17e6069522b09c10fe80a7",
-        "state_id": "738ea024f25d9dd8eb5cc5a9bc3c77a5f29a7de355270e0060595dd2ef1b961b",
+        "source_id": "9467be1a00977064a4403bcc20ed5e31f7b14dbd4592a7149b3698ddb8c0c268",
+        "state_id": "8bfae8204ae9be521bcbf6da9fe11dff29ca374bd312ee5e2a1e84ccdee94324",
         "stationary_algebra_includes_idle_reference": false,
         "unsmeared_norm_upper": "1",
         "unsmeared_owner_support": [
@@ -1948,12 +1948,12 @@
         ],
         "zero_reason": null
       },
-      "source_id": "69e7e9e13cd5d393c2487bae332bb6f7ef2e60a75b17e6069522b09c10fe80a7",
+      "source_id": "9467be1a00977064a4403bcc20ed5e31f7b14dbd4592a7149b3698ddb8c0c268",
       "source_operator_description_workspace_or_gate_cost_bounded": false,
       "source_state_or_idle_reference_replaced": false,
       "source_translation_unitary_applied": false,
       "spatial_state_invariance_necessary_for_every_implementation": false,
-      "state_id": "738ea024f25d9dd8eb5cc5a9bc3c77a5f29a7de355270e0060595dd2ef1b961b",
+      "state_id": "8bfae8204ae9be521bcbf6da9fe11dff29ca374bd312ee5e2a1e84ccdee94324",
       "unfiltered_blank_loop_geometry": {
         "anchors": [
           [
@@ -2208,7 +2208,7 @@
       "unfiltered_positive_bound_transferred_to_fixed_time_filter": false,
       "wavevector_labels_are_conserved_particle_momenta": false
     },
-    "result_sha256": "9f72c5f517902e8c79ef2f7b68de0c20a788ea52628c8c6e722e0b6d1da10b31",
+    "result_sha256": "52560ceb6873677b63c65375754d47a1003b2889ef13ac9230587d7702f63244",
     "schema": "oph.primary_spatial_fourier_instrument.v1"
   }
 }

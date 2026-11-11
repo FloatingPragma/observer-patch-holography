@@ -1,5 +1,7 @@
 from copy import deepcopy
 from functools import lru_cache
+import json
+import math
 import sys
 from pathlib import Path
 
@@ -33,9 +35,28 @@ def test_unproved_promotions_and_stale_bindings_rejected(kind):
     with pytest.raises(ValueError): packet.validate(value)
 
 
+def _same(stored, fresh):
+    """Identical structure, text and flags; binary64 values agree to round-off.
+
+    Eigen and singular-value diagnostics near 1e-15 differ between BLAS builds
+    and runner CPUs, so they are compared with the round-off tolerance only.
+    """
+    if isinstance(stored, dict) and isinstance(fresh, dict):
+        return stored.keys() == fresh.keys() and all(_same(stored[k], fresh[k]) for k in stored)
+    if isinstance(stored, list) and isinstance(fresh, list):
+        return len(stored) == len(fresh) and all(_same(a, b) for a, b in zip(stored, fresh))
+    numbers = (int, float)
+    if (isinstance(stored, numbers) and isinstance(fresh, numbers)
+            and not isinstance(stored, bool) and not isinstance(fresh, bool)):
+        return math.isclose(stored, fresh, rel_tol=1e-9, abs_tol=1e-12)
+    return type(stored) is type(fresh) and stored == fresh
+
+
 def test_generated_results_and_runtime_custody():
     value = built()
-    assert packet.OUTPUT.read_text() == packet.canonical(value)
+    stored = packet.OUTPUT.read_text()
+    assert stored == packet.canonical(json.loads(stored))
+    assert _same(json.loads(stored), json.loads(packet.canonical(value)))
     assert packet.MARKDOWN.read_text() == packet.render(value)
     assert packet.CANDIDATES.read_text() == packet.canonical(value['certificates']['candidate_particle_map'])
     for module in tuple(sys.modules.values()):
